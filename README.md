@@ -66,7 +66,15 @@ Here is the current list of features that will be included in the basic version.
 
 ### Hardware
 #### BOB (Balloon Ovservation Board)
+*BOB* is a open source flight computer based on the Raspberry Pi.
 #### AOS (Atmospheric Observation System)
+![alt text](https://user-images.githubusercontent.com/19292194/174874402-ad9695dc-447e-425d-afe4-dd6350de5644.jpg)
+*AOS* here refers to the old flight board that was not completed but was very
+close to being completed.
+
+
+
+#### Custom Hardware is not needed
 
 The Flight Computer software has been made to support many different single
 board computers. This software is not just specific to the **BOB** It is also made to be easily expanded. Adding sensors is
