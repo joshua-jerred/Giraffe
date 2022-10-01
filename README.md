@@ -1,2 +1,75 @@
 # Giraffe
-## A Unified, Semi-Autonomous, High Altitude Balloon Flight Control System.
+### A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.
+#### Version 0.1
+
+
+Giraffe is a continuation of my previous project "AOS".
+
+This project is more than just flight software, it's an entire system for
+collecting real-time data from high-altitude balloon flights. This live data 
+includes images, environmental data, tracking data, and much more.
+
+### This project is not complete and is currently not safe to fly
+
+### Software  
+#### HAACS (High Altitude Autonomous Control System)
+**HAACS** is the actual software that will run on the board. This is a much
+more advanced version of 'AOS'. Written entirly in C++ it is being made to be
+easier to set up and much faster. There are a few basic concept to this system.
+
+
+All sensors and other data collection tools are refered to as *"Extensions"*.
+- This would include external sensors like the DS18B20 temperature probe,
+and internal utilities that get system information like cpu temperature,
+available memory, etc.
+
+
+All major functionality of the system is split into *"Modules"*. The most
+important modules include:
+- Configuration : Reads and parses the flight configuration data.
+- Data : Helps pass data between *Extensions* and other modules.
+- Extensions : Creates and controls all *Extensions*.
+- Telemetry : Handles Telemetry
+
+All of the modules where lots of waiting takes place have multithreading
+implemented so they can work while the rest of the system continues on.
+This is used in the Telemetry module where a transmission queue allows
+the computer to continue on while transmissions are in progress. 
+This also is implemented in the Extensions module where each *Extension*
+runs in it's own thread. This is helpful as many sensors require some
+time for communication. This is where the data module comes in. The
+data module contains an object called a "datastream" which utilizes a mutex
+to keep the stream safe even when being accessed by multiple threads.
+
+Pulling all of this together is the "FlightRunner" which has a function 
+'start()' that starts up and runs the system. It will use all of the modules
+to set up the environment before executing the user defined 'Flight Loop'.
+The Flight Loop will continue on indefinetly until shutdown.
+
+The flight runner will use the configuration data to determine what extensions
+are enabled, what type of telemetry to use, how often to send data packets, and
+a whole lot more.
+
+Here is the current list of features that will be included in the basic version. 
+* Denotes at least partially implemented.
+- APRS Tracking
+- SSTV Images
+- AFSK Data Packets
+- SSDV Images
+- Advanced Error Handling
+- A failsafe flight loop
+- Automated radio control for switching frequencies automatically
+- Two way communication that allows the ground station to send command packets
+- A whole lot more that will eventually be documented.
+
+### Hardware
+#### BOB (Balloon Ovservation Board)
+#### AOS (Atmospheric Observation System)
+
+The Flight Computer software has been made to support many different single
+board computers. This software is not just specific to the **BOB** It is also made to be easily expanded. Adding sensors is
+as simple as adding another "extension" C++ file and then adding it to
+your configuration. This project is constantly changing so the documentation
+is poor.
+
+The project is currently built with cmake.
