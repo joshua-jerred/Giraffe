@@ -9,11 +9,13 @@ This project is more than just flight software, it's an entire system for
 collecting real-time data from high-altitude balloon flights. This live data 
 includes images, environmental data, tracking data, and much more.
 
-### This project is not complete and is currently not safe to fly
+## This project is not complete and is currently not safe to fly
+
+Here is a very brief and incomplete overview of the system.
 
 ### Software  
 #### HAACS (High Altitude Autonomous Control System)
-**HAACS** is the actual software that will run on the board. This is a much
+*HAACS* is the actual software that will run on the board. This is a much
 more advanced version of 'AOS'. Written entirly in C++ it is being made to be
 easier to set up and much faster. There are a few basic concept to this system.
 
