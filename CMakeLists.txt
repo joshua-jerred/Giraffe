@@ -42,9 +42,13 @@ add_executable(test-01
     tests/test-01/test.cpp
     src/flight-computer/modules/module-configuration.cpp
 )
-set_target_properties( test-01 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ./tests/test-01/test )
+set_target_properties( test-01 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tests/test-01/ )
 target_link_libraries(test-01 GTest::gtest_main) 
-
+target_include_directories(test-01 PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/modules
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/utilities
+)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
