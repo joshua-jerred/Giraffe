@@ -11,7 +11,9 @@
  */
 
 #include <chrono>
+#include <iostream>
 
+#include "utility-configurables.h"
 #include "utility-config-types.h"
 #include "utility-timer.h"
 #include "utility-data-stream.h"
@@ -26,8 +28,6 @@
 
 #include "flight-runner.h"
 
-#define CONFIG_LOCATION "./config.json" 
-
 FlightRunner::FlightRunner() {
     mActive = 1;
     mCurrentFlightLoop = FlightLoop::LoopType::kFailsafe;
@@ -40,21 +40,33 @@ int FlightRunner::start() {
     // Read the Flight Module Config File
     ConfigModule* config = new ConfigModule();
     int status = config->load(CONFIG_LOCATION);
-    mConfigData = config->getAll();
+    if (status != 0) {
+        std::cout << "Error: Could not load config file." << std::endl;
+        return 1; /** @todo change to hardcoded failsafe */
+    } else {
+        mConfigData = config->getAll();
+    }
+    
     delete config; // File is not needed after loading all config data
 
     mpDataModule = new DataModule(mConfigData); // Start Data Service
+    
     mpExtensionsModule = new ExtensionsModule(mConfigData, mpDataModule->getDataStream()); // Enable Extensions
+    mpExtensionsModule->start(); // Start Extensions
+
     //mpServerModule = new ServerModule(mConfigData, mpDataModule); // Start Web Server
     //mpComModule = new ComModule(mConfigData, mpDataModule, 
     //mpExtensionsModule); // Enable Radio communication
 
     if (mConfigData.general.starting_loop == FlightLoop::LoopType::kTesting) { // If user specified in config to use the testing loop, it's selected here.
         switchLoops(FlightLoop::LoopType::kTesting);
+        std::cout << "Starting in Testing Loop" << std::endl;
     } else if (healthCheck() == 0) {
         switchLoops(FlightLoop::LoopType::kStandard);
+        std::cout << "Starting in Standard Loop" << std::endl;
     } else {
         switchLoops(FlightLoop::LoopType::kFailsafe);
+        std::cout << "Starting in Failsafe Loop" << std::endl;
     }
     
     return flightLoop(); // This will only return on shutdown
@@ -73,6 +85,7 @@ int FlightRunner::flightLoop() {
 
     /*! FLIGHT LOOP */
     while (mActive == 1) { // The endless loop where everything happens
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         //if (tslServer.elapsed() > mCurrentIntervals.serverUpdate) {
         //    mpServerModule->update();
         //}
@@ -112,8 +125,8 @@ void FlightRunner::switchLoops(FlightLoop::LoopType loopType) {
     ConfigData::Loops loops = mConfigData.flight_loops;
     switch (loopType)
     {
-    case FlightLoop::LoopType::kFailsafe:
-        mCurrentIntervals = loops.failsafe.intervals;
+    case FlightLoop::LoopType::kTesting:
+        mCurrentIntervals = loops.testing.intervals;
         break;
     default: // Default back to failsafe flight loop
         mCurrentIntervals = loops.failsafe.intervals;

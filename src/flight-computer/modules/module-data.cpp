@@ -49,19 +49,25 @@ data_snapshot DataModule::getDataSnapshot() {
 
 void DataModule::parseDataStream() {
     int packetCount = mpDataStream->getNumDataPackets();
-    data_stream_packet packet;
+    data_stream_packet dpacket;
     for (int i = 0; i < packetCount; i++) {
-        packet = mpDataStream->getNextDataPacket();
+        dpacket = mpDataStream->getNextDataPacket();
+        std::cout << dpacket.data_source << " - " << dpacket.data_name << 
+            " - " << dpacket.data_value << std::endl;
     }
 }
 
-void DataModule::log( ) {
-    // Currently not implemented, but will be used to log data to a file.
-    // This will be called by the main loop.
-    // For now it will just print the data to the console.
+void DataModule::parseErrorStream() {
+    int packetCount = mpDataStream->getNumErrorPackets();
+    error_stream_packet epacket;
+    for (int i = 0; i < packetCount; i++) {
+        epacket = mpDataStream->getNextErrorPacket();
+        std::cout << "Error: " << epacket.error_source << " - " << 
+            epacket.error_name << " - " << epacket.error_info << std::endl;
+    }
+}
+
+void DataModule::log() {
     std::cout << "DataModule::log() called" << std::endl;
-    for (const auto & [ key, value ] : mDataSnapshot)  {
-        std::cout << key << ": " << value << std::endl;
-    }
+    parseDataStream();
 }
-

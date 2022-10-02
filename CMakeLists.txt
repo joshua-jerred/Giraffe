@@ -19,6 +19,8 @@ add_executable(Giraffe-FC-Alpha
     "src/flight-computer/extensions/test-ext.cpp"
 )
 
+file(COPY "src/flight-computer/config.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
+
 target_include_directories(Giraffe-FC-Alpha PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/modules

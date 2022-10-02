@@ -9,7 +9,10 @@ class TestExtension : public Extension {
  public:
   TestExtension(DataStream *pDS, ExtensionMetadata config_data);
   ~TestExtension();
-  int runner(std::atomic<bool> stop_flag);
+  int runner();
+  void spawnRunner();
+
+  private:
 };
 
 #endif

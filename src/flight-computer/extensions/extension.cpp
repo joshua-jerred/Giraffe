@@ -2,6 +2,7 @@
 #include <thread>
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "utility-config-types.h"
 #include "utility-data-stream.h"
@@ -16,12 +17,17 @@ Extension::Extension(DataStream *pDS, ExtensionMetadata extension_metadata) {
     setType(extension_metadata.extension_type);
     setInterface(extension_metadata.interface);
     setCritical(extension_metadata.critical);
+    flag_ = 1;
 }
 
 Extension::~Extension() {
 }
 
 void Extension::start() {
+    if (getStatus() == ExtensionStatus::kStopped) {
+        setStatus(ExtensionStatus::kStarting);
+        spawnRunner();
+    }
 }
 
 void Extension::stop() {
@@ -99,10 +105,13 @@ void Extension::setCritical(int critical){
     return;
 }
 
-int Extension::runner(std::atomic<int>& flag_) {
+int Extension::runner() {
+    std::cout << "This is from extension.cpp runner." << std::endl;
     return -1;
 }
 
 void Extension::spawnRunner() {
-    runner_thread_ = std::thread(&Extension::runner, this, std::ref(flag_));
+    std::cout << "Exthension: " << name_ << " has a misconfigured spawnRunner() method." << std::endl;
+    // Must be overridden with something like this
+    //runner_thread_ = std::thread(&Extension::runner, this, std::ref(flag_));
 }

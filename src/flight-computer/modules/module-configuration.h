@@ -15,23 +15,13 @@
 
 #include <nlohmann/json.hpp>
 
+#include "utility-configurables.h"
 #include "utility-config-types.h"
 
 // Acts the same as the standard json object, but this
 // maintains the same structure as the config file.
 // Requires nlohmann json version 3.9 or higher.
 using json = nlohmann::ordered_json; 
-
-// ------- Config File Range Limits ------- //
-#define PROJECT_NAME_MIN_LENGTH 3
-#define PROJECT_NAME_MAX_LENGTH 20
-
-#define EXTENSION_NAME_MIN_LENGTH 3
-#define EXTENSION_NAME_MAX_LENGTH 15
-
-#define EXTENSION_INTERVAL_MIN 0
-#define EXTENSION_INTERVAL_MAX 3600
-// ---------------------------------------- //
 
 /**
  * @brief The following enumerations are used to link the values

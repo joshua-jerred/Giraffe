@@ -1,0 +1,64 @@
+{
+    "general": {
+        "name": "Test Project",
+        "main-board-type": "pi_zero_w",
+        "starting-loop": "testing"
+    },
+    "extensions": [
+        {
+            "id": 1,
+            "name": "testext",
+            "type": "TEST_EXT",
+            "category": "external_sensor",
+            "interface": "oneWire",
+            "update-interval": 10,
+            "flight-critical": false,
+            "address": "28-000000000000"
+        }
+    ],
+    "server": {
+        "server-enabled": false
+    },
+    "telemetry": {
+        "telemetry-enabled": false,
+        "callsign": "YOURCALLSIGN",
+        
+        "aprs-enabled": false,
+        "aprs-frequency": 144.390,
+        "aprs-ssid": 11,
+        "aprs-symbol": "O",
+        "aprs-memo": "AOS v3 Testing",
+
+        "sstv-enabled": false,
+        "sstv-frequency": 100.000,
+
+        "ssdv-enabled": false,
+        "ssdv-frequency": 100.000,
+
+        "afsk-enabled": false,
+        "afsk-frequency": 100.000
+    },
+    
+    "data-types": [
+        {
+            "name": "TEMP_F",
+            "unit": "F",
+            "desc": "Temperature in Fahrenheit"
+        }
+    ],
+
+    "flight-loops": [
+        {
+            "type": "testing",
+            "intervals": {
+                "data-log": 2,
+                "server-update": 2,
+                "dataPacket": 0,
+                "sstv": 0,
+                "aprs": 0,
+                "picture":0,
+                "health_check": 0
+                }
+        }
+    ]
+}

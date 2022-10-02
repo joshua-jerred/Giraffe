@@ -66,6 +66,8 @@ private:
      */
     void parseDataStream();
 
+    void parseErrorStream();
+
     DataStream *mpDataStream;
     data_snapshot mDataSnapshot;
 };

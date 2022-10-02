@@ -26,6 +26,15 @@ public:
     int getCritical();
     ExtensionStatus getStatus();
 
+protected:
+    std::thread runner_thread_;
+    std::atomic<int> flag_;
+    DataStream  *mDataStream;
+    virtual int runner(); // Must be overridden
+    virtual void spawnRunner();
+    void setStatus(ExtensionStatus status);
+
+
 private:
     void setID(int num);
     void setName(std::string name);
@@ -34,10 +43,7 @@ private:
     void setInterface(ExtensionMetadata::Interface interface);
     void setUpdateInterval(int interval);
     void setCritical(int critical);
-    void setStatus(ExtensionStatus status);
 
-    int runner(std::atomic<int> &flag_); // Must be overridden
-    void spawnRunner();
 
     int id_;
     std::string name_;
@@ -45,11 +51,6 @@ private:
     ExtensionMetadata::Interface interface_;
     int critical_;
     ExtensionStatus status_;
-
-
-    std::atomic<int> flag_;
-    std::thread runner_thread_;
-    DataStream  *mDataStream;
 };
 
 #endif
