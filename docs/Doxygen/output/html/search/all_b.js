@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['kcamera_106',['kCamera',['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96bab91a982133fa67e579d45373b64bbe7b',1,'ExtensionMetadata']]],
+  ['kerror_107',['kError',['../structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42eabb0d3518b98d91ffa4c42d2063a211d6',1,'FlightLoop::kError()'],['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cda6f9594a59c0ae966ee65903dd2a80a7b',1,'ConfigData::kError()'],['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96bae3587c730cc1aa530fa4ddc9c4204e97',1,'ExtensionMetadata::kError()'],['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462ae3587c730cc1aa530fa4ddc9c4204e97',1,'ExtensionMetadata::kError()'],['../extension_8h.html#acfd494192530021918d69e3a11d0f111ae3587c730cc1aa530fa4ddc9c4204e97',1,'kError():&#160;extension.h']]],
+  ['kexternalsensor_108',['kExternalSensor',['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96badf1d8dd01c0222b1b122d5c816f73f07',1,'ExtensionMetadata']]],
+  ['kfailsafe_109',['kFailsafe',['../structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42ea25a9e905e3b54b624a5fb7b6b931e59f',1,'FlightLoop']]],
+  ['kgpio_110',['kGPIO',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462ad2828c5dec432594ec4105fd3afa2530',1,'ExtensionMetadata']]],
+  ['kgps_111',['kGPS',['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96ba841f64f60f1f2bc4f03417aeda88574a',1,'ExtensionMetadata']]],
+  ['ki2c_112',['kI2C',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462af39abcf2f693bd1f902bf2d591216720',1,'ExtensionMetadata']]],
+  ['kinternal_113',['kInternal',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462a96509148247c627a753b021d6dbea774',1,'ExtensionMetadata']]],
+  ['kinternalsensor_114',['kInternalSensor',['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96ba26c7f44b398af8752688e8b1bed03d6c',1,'ExtensionMetadata']]],
+  ['knormal_115',['kNormal',['../extension_8h.html#acfd494192530021918d69e3a11d0f111a07fa7a19aa722c635a15e94cb7f50416',1,'extension.h']]],
+  ['konewire_116',['kOneWire',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462a515ac690c7860675411a8d5a4c283a94',1,'ExtensionMetadata']]],
+  ['kother_117',['kOther',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462a341b8a8f03cf33821c46aa5c3aad4b7a',1,'ExtensionMetadata::kOther()'],['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96ba341b8a8f03cf33821c46aa5c3aad4b7a',1,'ExtensionMetadata::kOther()'],['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cda0ca0199f6633a0699871a8c1fa534ec2',1,'ConfigData::kOther()']]],
+  ['kpi_5f2_118',['kPi_2',['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cdafd81da2dd7104f0925165b95fa338399',1,'ConfigData']]],
+  ['kpi_5f3_119',['kPi_3',['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cdad45fa354ffdae227bacda45ab7cf7cda',1,'ConfigData']]],
+  ['kpi_5f4_120',['kPi_4',['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cdacd1de24e43243836ddde01f29327a9e1',1,'ConfigData']]],
+  ['kpi_5fzero_121',['kPi_zero',['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cda065aac858242fb253f19958025d44673',1,'ConfigData']]],
+  ['kpi_5fzero_5fw_122',['kPi_zero_w',['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cda0fb0035793d11cfe7eec1b11174f2086',1,'ConfigData']]],
+  ['kradio_123',['kRadio',['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96bab4b9f610920468ce64920bbadf9db383',1,'ExtensionMetadata']]],
+  ['krecovery_124',['kRecovery',['../structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42ea68660ea02526d35838693c724d4dacff',1,'FlightLoop']]],
+  ['kserial_125',['kSerial',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462af54983ae8eb79e77ee6be2f8384e1cb1',1,'ExtensionMetadata']]],
+  ['kstandard_126',['kStandard',['../structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42ea0431b4f8b29ea06171b8c1065098c7d5',1,'FlightLoop']]],
+  ['kstarting_127',['kStarting',['../extension_8h.html#acfd494192530021918d69e3a11d0f111a03fb3e2d7f3d8e2d339479a2d4e337f6',1,'extension.h']]],
+  ['kstopped_128',['kStopped',['../extension_8h.html#acfd494192530021918d69e3a11d0f111ad222414baa8a2c6f4d07524918f75fd1',1,'extension.h']]],
+  ['ktesting_129',['kTesting',['../structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42ea04b5d4baa965d731f4075c10db18865b',1,'FlightLoop']]],
+  ['kusb_130',['kUSB',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462a38ec076d496600e04bad5076f3519e5f',1,'ExtensionMetadata']]]
+];

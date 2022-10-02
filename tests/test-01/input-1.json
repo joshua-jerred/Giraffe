@@ -1,6 +1,6 @@
 {
     "general": {
-        "name": "Test Project",
+        "name": "Proj 1",
         "main-board-type": "pi_zero_w",
         "starting-loop": "testing"
     },
@@ -14,50 +14,73 @@
             "update-interval": 10,
             "flight-critical": false,
             "address": "28-000000000000"
+        },
+        {
+            "id": 2,
+            "name": "press1",
+            "type": "BMP180",
+            "category": "external_sensor",
+            "interface": "i2c",
+            "update-interval": 9,
+            "flight-critical": true,
+            "address": "a2"
         }
     ],
     "server": {
-        "server-enabled": false
+        "server-enabled": true
     },
     "telemetry": {
-        "telemetry-enabled": false,
+        "telemetry-enabled": true,
         "callsign": "YOURCALLSIGN",
         
         "aprs-enabled": false,
-        "aprs-frequency": 144.390,
         "aprs-ssid": 11,
         "aprs-symbol": "O",
         "aprs-memo": "AOS v3 Testing",
 
         "sstv-enabled": false,
-        "sstv-frequency": 100.000,
 
-        "ssdv-enabled": false,
-        "ssdv-frequency": 100.000,
-
-        "afsk-enabled": false,
-        "afsk-frequency": 100.000
+        "afsk-enabled": false
     },
     "data-types": [
         {
             "name": "TEMP_F",
-            "unit": "F",
-            "desc": "Temperature in Fahrenheit"
+            "unit": "F"
         }
     ],
 
     "flight-loops": [
         {
-            "type": "testing",
+        "type": "testing",
+        "enabled": true,
+        "intervals": {
+            "data-log": 1,
+            "server-update": 3,
+            "dataPacket": 5,
+            "sstv": 7,
+            "aprs": 9,
+            "ssdv": 11,
+            "picture":13,
+            "health_check": 15
+            }
+        },
+        {
+            "type": "standard",
+            "enabled": true,
             "intervals": {
                 "data-log": 10,
-                "server-update": 2,
-                "dataPacket": 0,
-                "sstv": 0,
-                "aprs": 0,
-                "picture":0,
-                "health_check": 0
+                "server-update": 30,
+                "dataPacket": 50,
+                "sstv": 70,
+                "aprs": 90,
+                "ssdv": 110,
+                "picture":130,
+                "health_check": 150
                 }
+        },
+        {
+            "type": "recovery",
+            "enabled": false
         }
     ]
 }

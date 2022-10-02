@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['server_199',['Server',['../structConfigData.html#structConfigData_1_1Server',1,'ConfigData']]],
+  ['server_200',['server',['../structConfigData.html#a9bbe98e46cdded5486df70406fb299d2',1,'ConfigData']]],
+  ['server_5fupdate_201',['server_update',['../structFlightLoop.html#a241f8373bf1be66803f73795ce31191b',1,'FlightLoop::Intervals']]],
+  ['setcategory_202',['setCategory',['../classExtension.html#abc70d09c01ebb5d02a3e80a1f18fe425',1,'Extension']]],
+  ['setcritical_203',['setCritical',['../classExtension.html#a46a252fd2eb23471ede70b3df875cafc',1,'Extension']]],
+  ['setid_204',['setID',['../classExtension.html#ace8ba3912124dd4e7cf78efbb6c73103',1,'Extension']]],
+  ['setinterface_205',['setInterface',['../classExtension.html#a6bc6e83b4eda40ca934d5305f26968dd',1,'Extension']]],
+  ['setname_206',['setName',['../classExtension.html#a554811d7b73c19249df043c73a1206ea',1,'Extension']]],
+  ['setstatus_207',['setStatus',['../classExtension.html#a1ff51203eee0b75d5b6646b0fe2a7ccd',1,'Extension']]],
+  ['settype_208',['setType',['../classExtension.html#ae860e98ac2a40e85b8e94599efd60997',1,'Extension']]],
+  ['setupdateinterval_209',['setUpdateInterval',['../classExtension.html#a9c2a0d218af05c3dae39026e5d3e5381',1,'Extension']]],
+  ['shutdown_210',['shutdown',['../classFlightRunner.html#a943c4b0f0c7664789aab92c946726092',1,'FlightRunner']]],
+  ['spawnrunner_211',['spawnRunner',['../classExtension.html#aab788a955615aabc47a1252ddc3a3af3',1,'Extension::spawnRunner()'],['../classTestExtension.html#af60e74a3bb6c0c54761811d788234d23',1,'TestExtension::spawnRunner()']]],
+  ['sstv_212',['sstv',['../structFlightLoop.html#a6730c8aca705242649f3a9148b93d802',1,'FlightLoop::Intervals']]],
+  ['sstv_5fenabled_213',['sstv_enabled',['../structConfigData.html#a1fd92ff646b261888a36ddf2a44be717',1,'ConfigData::Telemetry']]],
+  ['sstv_5ffreq_214',['sstv_freq',['../structConfigData.html#a175321e6cc174493c241f550e5e0b45f',1,'ConfigData::Telemetry']]],
+  ['standard_215',['standard',['../structConfigData.html#a9b3e00db3373e5fcd11e7d2fc9a522eb',1,'ConfigData::Loops']]],
+  ['start_216',['start',['../classExtension.html#ace9c4e0b3ce3810b8f71344c708f4029',1,'Extension::start()'],['../classFlightRunner.html#af466cc5600a3e04eb0428034308392ee',1,'FlightRunner::start()'],['../classConsoleModule.html#a1fb58487b176fe9147af86fb204650c3',1,'ConsoleModule::start()'],['../classExtensionsModule.html#abe19b21ed9bc51ddebb8ca0faf75c048',1,'ExtensionsModule::start()'],['../classModule.html#abe62ec0956737c3375845477623921e5',1,'Module::start()']]],
+  ['starting_217',['starting',['../module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a1ee85f6c60017a7f0646ba8dc5824de6',1,'module.h']]],
+  ['starting_5floop_218',['starting_loop',['../structConfigData.html#ad42b95909f7d6ef451917be340827feb',1,'ConfigData::General']]],
+  ['status_219',['status',['../classModule.html#aa1fcc6fbc6661cad5f2fba2a9aa9f4b0',1,'Module']]],
+  ['status_5f_220',['status_',['../classExtension.html#ae8020ef2fe2d0c26f3de684f55a28094',1,'Extension']]],
+  ['stop_221',['stop',['../classExtension.html#a11e508a54ebc5bbb26990597e7de41cb',1,'Extension::stop()'],['../classConsoleModule.html#a6829a00a47aef2290812a4c789bd4aec',1,'ConsoleModule::stop()'],['../classExtensionsModule.html#a7949812d58d8f2c0980c4afb237d90bf',1,'ExtensionsModule::stop()'],['../classModule.html#a2c1d0cee46e5811292925b88a519f5e9',1,'Module::stop()']]],
+  ['stopped_222',['stopped',['../module_8h.html#a50a7721e11e14f338207a83b9ab26ec9af0a0bfe6bc7d2c58d2989034f83183e0',1,'module.h']]],
+  ['switchloops_223',['switchLoops',['../classFlightRunner.html#a7f48b245d888ea3409b16c1632265d3e',1,'FlightRunner']]]
+];

@@ -1,0 +1,9 @@
+<map id="module&#45;configuration.h" name="module&#45;configuration.h">
+<area shape="rect" id="node1" title="This file defines the class ConfigModule and nlohmann json enumerations." alt="" coords="172,5,345,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node3" href="$utility-configurables_8h.html" title="All macro definitions for the flight control software will be in this file. Macros should be avoided." alt="" coords="177,80,341,107"/>
+<area shape="rect" id="node4" href="$utility-config-types_8h.html" title=" " alt="" coords="365,80,523,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="329,155,388,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="413,155,475,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="499,155,623,181"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="FlightLoop" name="FlightLoop">
+<area shape="rect" id="node1" title="Struct containing the loop configuration. One for each loop type." alt="" coords="37,233,128,325"/>
+<area shape="rect" id="node2" href="$structFlightLoop.html#structFlightLoop_1_1Intervals" title=" " alt="" coords="5,5,160,171"/>
+</map>

@@ -16,3 +16,6 @@ Style Guide:
     Documentation of member functions will go in header files.
     All public and private methods, along with data members need to have
     Doxygen style documentation.
+
+Run from repo root:
+doxygen ./docs/Doxygen/Doxyfile
