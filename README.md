@@ -1,6 +1,8 @@
 # Giraffe
-### A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.
+### A Unified, Semi-Autonomous, High Altitude, Balloon Mission Control Framework.
+![logo](https://user-images.githubusercontent.com/19292194/193437157-0a421f68-fa85-43bb-b372-1807a19c470d.png)
 #### Version 0.1
+
 
 
 Giraffe is a continuation of my previous project "AOS".
