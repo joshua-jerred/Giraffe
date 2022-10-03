@@ -25,6 +25,17 @@
 var NAVTREE =
 [
   [ "Giraffe", "index.html", [
+    [ "Giraffe Flight Software", "index.html#autotoc_md1", [
+      [ "General", "index.html#autotoc_md2", null ],
+      [ "Modules", "index.html#autotoc_md3", null ],
+      [ "Utilities", "index.html#autotoc_md4", null ],
+      [ "Other Important Features", "index.html#autotoc_md5", [
+        [ "Extensions", "index.html#autotoc_md6", null ],
+        [ "Telemetry", "index.html#autotoc_md7", null ],
+        [ "Debugging Webserver", "index.html#autotoc_md8", null ]
+      ] ]
+    ] ],
+    [ "Giraffe Ground Station", "index.html#autotoc_md9", null ],
     [ "Todo List", "todo.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Modules", "modules.html", "modules" ],
@@ -56,7 +67,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"structConfigData.html#a3b105f2944f02c0274facc93e29f43f6"
+"structConfigData.html#a14aea904d2a30316e4eb16360ccfcd36"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
