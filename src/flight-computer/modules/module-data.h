@@ -1,26 +1,36 @@
 /**
- * @file module-data.h
+ * @file module-configuration.cpp
  * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This file defines the DataService and DataStream objects.
+ * @brief This defines the class ConfigModule.
  * @version 0.1
- * @date 2022-09-20
- * 
+ * @date 2022-10-03
  * @copyright Copyright (c) 2022
  */
 #ifndef MODULE_DATA_H_
 #define MODULE_DATA_H_
 
 #include "module.h"
+#include "utility-data-stream.h"
 
-typedef std::unordered_map<std::string, std::string> data_snapshot;
 
 /**
- * @brief The DataService class is responsible for sensor data flow. It collects
- * all of the data into "frames". A frame is a snapshot of the most recent data
- * that has been pulled from the sensors. The DataService is also responsible
- * for the data log and error log files.
- * @addtogroup flight-computer-modules
- * @{
+ * @brief The DataModule class is responsible for managing all data between
+ * modules. It is responsible for creating safe structures that different
+ * concurently running threads can access. It includes primarily a DataStream
+ * and a DataSnapshot. The DataStream is a queue that all of the extensions have
+ * access to. They can add data whenever they want. The data module is 
+ * responsible for collecting this data from the stream. This data is then
+ * either logged, or used to update the DataSnapshot. The DataSnapshot is a
+ * map of containing the values and names of each 'data type' that the extensions
+ * collect. The snapshot only contains a single value of each data type, the
+ * most up to date value.
+ * 
+ * The DataModule is also reposonsible for logging the data in the snapshot when 
+ * it is requested to do so.
+ * 
+ * The DataModule also logs errors.
+ * 
+ * The data and error directories can be set before congifuration in 
  */
 class DataModule : public Module {
 public:
@@ -46,7 +56,7 @@ public:
     /**
      * @brief Get a Data Snapshot.
      */
-    data_snapshot getDataSnapshot();
+    const DataSnapshot getDataSnapshot();
 
 
     /**
@@ -69,7 +79,7 @@ private:
     void parseErrorStream();
 
     DataStream *mpDataStream;
-    data_snapshot mDataSnapshot;
+    DataSnapshot mDataSnapshot;
 };
  /** @} */
 #endif

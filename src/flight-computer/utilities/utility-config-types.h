@@ -130,6 +130,7 @@ struct ConfigData {
         struct ExtensionDataType {
             std::string name;
             std::string unit;
+            int include_in_teletry = 0;
         };
         std::vector<ExtensionDataType> types {};
     };

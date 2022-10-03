@@ -41,15 +41,26 @@
     
     "data-types": [
         {
+            "name": "TEST_TYPE_1",
+            "unit": "T1",
+            "include-in-telemetry": 1
+        },
+        {
+            "name": "TEST_TYPE_2",
+            "unit": "T2",
+            "include-in-telemetry": 0
+        },
+        {
             "name": "TEMP_F",
             "unit": "F",
-            "desc": "Temperature in Fahrenheit"
+            "include-in-telemetry": 1
         }
     ],
 
     "flight-loops": [
         {
             "type": "testing",
+            "enabled": true,
             "intervals": {
                 "data-log": 2,
                 "server-update": 2,

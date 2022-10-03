@@ -32,9 +32,9 @@ class Module {
     public:
         Module( ) { };
         virtual ~Module( ) { };
-        virtual ModuleStatus status( ) { return module_status_; };
-        virtual void start( ) { module_status_ = module_status_; };
-        virtual void stop( ) { module_status_ = module_status_; }
+        ModuleStatus status( ) { return module_status_; };
+        virtual void start( ) { module_status_ = ModuleStatus::error_state; };
+        virtual void stop( ) { module_status_ = ModuleStatus::error_state; };
 
     protected:
         ModuleStatus module_status_;

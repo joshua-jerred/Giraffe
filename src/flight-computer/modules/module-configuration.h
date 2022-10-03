@@ -36,9 +36,6 @@ using json = nlohmann::ordered_json;
  * detect an incorrect value in the config file.
  * 
  * @see utility-config-types.h
- * @defgroup json_enums
- * @addtogroup json_enums
- * @{
  */
 NLOHMANN_JSON_SERIALIZE_ENUM( ConfigData::MainboardType, {
     {ConfigData::MainboardType::kError, "error"}, 
@@ -77,11 +74,12 @@ NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Interface, {
     {ExtensionMetadata::Interface::kUSB, "USB"},
     {ExtensionMetadata::Interface::kGPIO, "gpio"}
 })
-/** @} */
 
 /**
  * @brief ConfigModule is used to load all of the configuration data from the 
- * config file. The data is then placed into a common configuration type that is
+ * config file. 
+ * @test Needs testsing completed (test-01)
+ * @details The data is then placed into a common configuration type that is
  * recognized system wide.
  */
 class ConfigModule {
@@ -101,6 +99,7 @@ public:
      * @brief Loads the configuration file at the specified path
      * @param filepath The path to the configuration file, relitive to executable root.
      * @return int - Returns 0 if successful, -1 if not
+     * @test
      */
     int load(std::string filepath);
 
@@ -108,52 +107,55 @@ public:
      * @brief Returns all of the configuration data.
      * @param none
      * @return ConfigData 
+     * @test
      */
     ConfigData getAll();
 
+    /**
+     * @brief Returns a vector of strings containing the errors that were
+     * detected when parsing the configuration file.
+     * @param none
+     * @return std::vector<std::string> - A vector of strings containing the 
+     * errors 
+     * @test
+     */
     std::vector<std::string> getErrors();
 
     /**
      * @brief Returns a copy of the json data.
      * @param none
      * @return json - nlohmann json object
+     * @test
      */
     json getAllJson();
 
 private:
     /**
      * @brief Calls all of the parse functions to load the configuration data.
-     * The return value is the number of errors.
-     * @return int - Returns 0 if successful, any other value if not.
+     * The return value is the number of errors detected.
+     * @param none
+     * @return int - The number of errors detected, 0 if none.
+     * @test
      */
     int parseAll();
-    
-    /**
-     * @brief The following are the functions used to parse out the data
-     * from each section of the configuration file. Each function will
-     * @defgroup parse_config
-     * @addtogroup parse_config
-     * @{
-     */
-    
-    /** @brief Prases General */
+        
+    /** @brief Prases General @test */
     void parseGeneral();
 
-    /** @brief Prases Extensions */
+    /** @brief Prases Extensions @test */
     void parseExtensions();
 
-    /** @brief Prases Server */
+    /** @brief Prases Server @test */
     void parseServer();
 
-    /** @brief Prases Telemetry */
+    /** @brief Prases Telemetry @test */
     void parseTelemetry();
 
-    /** @brief Prases Data Types */
+    /** @brief Prases Data Types @test */
     void parseDataTypes();
 
-    /** @brief Flight Loops */
+    /** @brief Flight Loops @test */
     void parseFlightLoops();
-    /** @} */
 
     int unsaved_changes_;
     std::string config_file_path_;

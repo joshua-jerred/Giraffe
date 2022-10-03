@@ -1,3 +1,13 @@
+/**
+ * @file module-configuration.cpp
+ * @author Joshua Jerred (github.com/joshua-jerred)
+ * @brief This file implements the class ConfigModule which is defined
+ * in module-configuration.h.
+ * @version 0.1
+ * @date 2022-10-03
+ * @copyright Copyright (c) 2022
+ */
+
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -216,6 +226,9 @@ void ConfigModule::parseDataTypes() {
 		{
 			newDataType.name = item.value()["name"];
 			newDataType.unit = item.value()["unit"];
+			newDataType.include_in_teletry = 
+			item.value()["include-in-telemetry"].get<bool>();
+
 			config_data_.data_types.types.push_back(newDataType);
 		} catch (const std::exception& e) {
 			errors_.push_back("Error parsing data-types." + (std::string) e.what());
@@ -229,6 +242,12 @@ void ConfigModule::parseFlightLoops() {
 
 		newFlightLoop.type = item.value()["type"].get<FlightLoop::LoopType>();
 
+		if (newFlightLoop.type == FlightLoop::LoopType::kError) {
+			errors_.push_back("Invalid flight loop type.");
+		}
+
+		newFlightLoop.enabled = item.value()["enabled"].get<bool>();
+
 		newFlightLoop.intervals.data_log = 
 		item.value()["intervals"]["data-log"].get<int>();
 
@@ -236,7 +255,11 @@ void ConfigModule::parseFlightLoops() {
 		item.value()["intervals"]["server-update"].get<int>();
 
 		if (newFlightLoop.type == FlightLoop::LoopType::kTesting) {
-		config_data_.flight_loops.testing = newFlightLoop;
+			config_data_.flight_loops.testing = newFlightLoop;
+		} else if (newFlightLoop.type == FlightLoop::LoopType::kStandard) {
+			config_data_.flight_loops.standard = newFlightLoop;
+		} else if (newFlightLoop.type == FlightLoop::LoopType::kRecovery) {
+			config_data_.flight_loops.recovery = newFlightLoop;
 		}
 	}
 }

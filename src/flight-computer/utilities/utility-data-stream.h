@@ -13,6 +13,9 @@
 
 #include <mutex>
 #include <queue>
+#include <unordered_map>
+
+typedef std::unordered_map<std::string, std::string> DataSnapshot;
 
 /**
  * @brief This struct is used by the DataStream and data module.
@@ -20,7 +23,7 @@
  * struct as it is handled by the DataStream class.
  * @see DataStream::addData()
  */
-struct data_stream_packet {
+struct DataStreamPacket {
     std::string data_source = "";
     std::string data_name = "";
     std::string data_value = ""; 
@@ -33,7 +36,7 @@ struct data_stream_packet {
  * 
  * @see DataStream::addError()
  */
-struct error_stream_packet {
+struct ErrorStreamPacket {
     std::string error_source = "";
     std::string error_name  = "";
     std::string error_info  = "";
@@ -83,19 +86,21 @@ public:
     void addError(std::string error_source, std::string error_name, 
                   std::string error_info);
 
+    void DataStream::addToSnapshot( std::string unit, std::string data);
+
     /** 
      * @brief Get the oldest packet from the data stream.
      * 
      * @return data_stream_packet - The packet.
      */
-    data_stream_packet getNextDataPacket();
+    DataStreamPacket getNextDataPacket();
 
     /** 
      * @brief Get the oldest packet from the error stream.
      * 
      * @return error_stream_packet - The packet.
      */
-    error_stream_packet getNextErrorPacket();
+    ErrorStreamPacket getNextErrorPacket();
 
     /** 
      * @brief Get the number of data packets in the data stream.
@@ -125,18 +130,22 @@ public:
      */
     int getTotalErrorPackets();
 
+    const DataSnapshot getSnapshot();
+
 private:
-    int mNumDataPacket;
-    int mTotalDataPackets;
+    int num_data_packets_;
+    int total_data_packets_;
 
-    int mNumErrorPacket;
-    int mTotalErrorPackets;
+    int num_error_packets_;
+    int total_error_packets_;
 
-    std::mutex mLock_dataStream;
-    std::mutex mLock_errorStream;
+    std::mutex data_stream_lock_;
+    std::mutex error_stream_lock_;
+    std::mutex data_snapshot_lock_;
 
-    std::queue<data_stream_packet> mDataSteam;
-    std::queue<error_stream_packet> mErrorStream;
+    std::queue<DataStreamPacket> data_stream_;
+    std::queue<DataStreamPacket> error_stream_;
+    DataSnapshot data_snapshot_;
 };
 
 #endif

@@ -13,7 +13,15 @@
 
 /** @brief The locaiton of the configuration file. It is safe to change 
  * this value. */
-#define CONFIG_LOCATION "./config.json" 
+#define CONFIG_LOCATION "./config.json"
+
+/** @brief The location of the data log directory. Must be relative. 
+ * It is safe to change this value. */
+#define DATA_LOG_LOCATION "./logs/data/" // These must end with a "/"
+
+/** @brief The location of the error log directory. Must be relative. 
+ * It is safe to change this value. */
+#define ERROR_LOG_LOCATION "./logs/errors/" 
 
 // ------- Config File Range Limits ------- //
 // Changing these results in undefined bevahior, it is not recommended.
