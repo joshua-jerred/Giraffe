@@ -19,8 +19,7 @@
 #include "flight-runner.h"
 
 FlightRunner::FlightRunner() {
-    mActive = 1;
-    mCurrentFlightLoop = FlightLoop::LoopType::kFailsafe;
+    current_flight_loop_type_ = FlightLoop::LoopType::kFailsafe;
 }
 
 FlightRunner::~FlightRunner() {
@@ -34,21 +33,20 @@ int FlightRunner::start() {
         std::cout << "Error: Could not load config file." << std::endl;
         return 1; /** @todo change to hardcoded failsafe */
     } else {
-        mConfigData = config->getAll();
+        config_data_ = config->getAll();
     }
     
     delete config; // File is not needed after loading all config data
 
-    mpDataModule = new DataModule(mConfigData); // Start Data Service
-    
-    mpExtensionsModule = new ExtensionsModule(mConfigData, mpDataModule->getDataStream()); // Enable Extensions
-    mpExtensionsModule->start(); // Start Extensions
+    p_data_module_ = new DataModule(config_data_); // Start Data Service
+    p_extension_module_ = new ExtensionsModule(config_data_, p_data_module_->getDataStream()); // Enable Extensions
+    p_extension_module_->start(); // Start Extensions
 
-    //mpServerModule = new ServerModule(mConfigData, mpDataModule); // Start Web Server
-    //mpComModule = new ComModule(mConfigData, mpDataModule, 
-    //mpExtensionsModule); // Enable Radio communication
+    //mpServerModule = new ServerModule(config_data_, p_data_module_); // Start Web Server
+    //mpComModule = new ComModule(config_data_, p_data_module_, 
+    //p_extension_module_); // Enable Radio communication
 
-    if (mConfigData.general.starting_loop == FlightLoop::LoopType::kTesting) { // If user specified in config to use the testing loop, it's selected here.
+    if (config_data_.general.starting_loop == FlightLoop::LoopType::kTesting) { // If user specified in config to use the testing loop, it's selected here.
         switchLoops(FlightLoop::LoopType::kTesting);
         std::cout << "Starting in Testing Loop" << std::endl;
     } else if (healthCheck() == 0) {
@@ -63,39 +61,39 @@ int FlightRunner::start() {
 }
 
 int FlightRunner::flightLoop() {
-    Timer tslServer; // tsl = time since last
-    Timer tslDataLog; // Refer to timer.h
-    Timer tslPhoto;
-    Timer tslDataPacket;
-    Timer tslAPRS; 
-    Timer tslSSTVImage; 
-    Timer tslHealthCheck;
+    Timer tsl_server; // tsl = time since last
+    Timer tsl_data_log; // Refer to timer.h
+    Timer tsl_photo;
+    Timer tsl_data_packet;
+    Timer tsl_APRS; 
+    Timer tsl_SSTV_image; 
+    Timer tsl_health_check;
     
     mActive = 1;
 
     /*! FLIGHT LOOP */
     while (mActive == 1) { // The endless loop where everything happens
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-        //if (tslServer.elapsed() > mCurrentIntervals.serverUpdate) {
+        //if (tslServer.elapsed() > current_intervals_.serverUpdate) {
         //    mpServerModule->update();
         //}
-        if (tslDataLog.elapsed() > mCurrentIntervals.data_log) {
-            mpDataModule->log();
-            tslDataLog.reset();
+        if (tsl_data_log.elapsed() > current_intervals_.data_log) {
+            p_data_module_->log();
+            tsl_data_log.reset();
         }
-        //if (tslPhoto.elapsed() > mCurrentIntervals.picture) {
-        //    mpDataModule->capturePhoto();
+        //if (tslPhoto.elapsed() > current_intervals_.picture) {
+        //    p_data_module_->capturePhoto();
         //}
-        //if (tslDataPacket.elapsed() > mCurrentIntervals.dataPacket) {
+        //if (tslDataPacket.elapsed() > current_intervals_.dataPacket) {
         //    mpComModule->txDataPacket();
         //}
-        //if (tslAPRS.elapsed() > mCurrentIntervals.aprs) {
+        //if (tslAPRS.elapsed() > current_intervals_.aprs) {
         //    mpComModule->txAPRSPacket();
         //}
-        //if (tslSSTVImage.elapsed() > mCurrentIntervals.sstv) {
+        //if (tslSSTVImage.elapsed() > current_intervals_.sstv) {
         //    mpComModule->txSSTVImage();
         //}
-        //if (tslHealthCheck.elapsed() > mCurrentIntervals.healthCheck) {
+        //if (tslHealthCheck.elapsed() > current_intervals_.healthCheck) {
         //    healthCheck();
         //}
     }
@@ -112,14 +110,14 @@ int FlightRunner::healthCheck() {
 }
 
 void FlightRunner::switchLoops(FlightLoop::LoopType loopType) {
-    ConfigData::Loops loops = mConfigData.flight_loops;
+    ConfigData::Loops loops = config_data_.flight_loops;
     switch (loopType)
     {
     case FlightLoop::LoopType::kTesting:
-        mCurrentIntervals = loops.testing.intervals;
+        current_intervals_ = loops.testing.intervals;
         break;
     default: // Default back to failsafe flight loop
-        mCurrentIntervals = loops.failsafe.intervals;
+        current_intervals_ = loops.failsafe.intervals;
         break;
     }
 }

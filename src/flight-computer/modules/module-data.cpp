@@ -34,10 +34,6 @@ DataStream* DataModule::getDataStream() {
     return mpDataStream;
 }
 
-const DataSnapshot DataModule::getDataSnapshot() {
-    return mDataSnapshot;
-}
-
 void DataModule::parseDataStream() {
     int packetCount = mpDataStream->getNumDataPackets();
     DataStreamPacket dpacket;
@@ -56,6 +52,10 @@ void DataModule::parseErrorStream() {
         std::cout << "Error: " << epacket.error_source << " - " << 
             epacket.error_name << " - " << epacket.error_info << std::endl;
     }
+}
+
+const DataSnapshot DataModule::getDataSnapshot() {
+    return mpDataStream->getSnapshot();
 }
 
 void DataModule::log() {

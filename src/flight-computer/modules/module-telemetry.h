@@ -12,6 +12,7 @@
 
 #include "module.h"
 
+#include "utility-configurables.h"
 #include "utility-config-types.h"
 
 struct Transmission {
@@ -39,22 +40,31 @@ public:
     void start();
     void stop();
 
-    void txDataPacket();
+    void sendDataPacket();
     
-    void txAFSK();
-    void txAPRS();
-    void txSSTVImage();
-    void txSSDVImage();
+    void sendAFSK(std::string message);
+    void sendAPRS();
+    void sendSSTVImage();
 
 private:
+    int getNextTXNumber();
     void addToTXQueue(Transmission transmission);
     void getNextTXQueueItem();
+
+    std::string generateAFSK(std::string callsign, std::string wav_location, 
+        std::string message);
+    std::string generateAPRS();
+    std::string generateSSTV();
     
+    int tx_number_;
+
     std::mutex tx_queue_lock_;
     std::queue<Transmission> tx_queue_;
 
     ConfigData config_data_;
-    DataStream *data_stream_;
+    ConfigData::Telemetry telemetry_config_;
+
+    DataStream *p_data_stream_;
 };
 
 #endif

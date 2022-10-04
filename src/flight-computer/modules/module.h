@@ -36,8 +36,10 @@ class Module {
         virtual void start( ) { module_status_ = ModuleStatus::error_state; };
         virtual void stop( ) { module_status_ = ModuleStatus::error_state; };
 
+
     protected:
         ModuleStatus module_status_;
+        std::string error_source_;
 };
 
 #endif

@@ -144,7 +144,7 @@ private:
     std::mutex data_snapshot_lock_;
 
     std::queue<DataStreamPacket> data_stream_;
-    std::queue<DataStreamPacket> error_stream_;
+    std::queue<ErrorStreamPacket> error_stream_;
     DataSnapshot data_snapshot_;
 };
 

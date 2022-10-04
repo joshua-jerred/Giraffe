@@ -21,7 +21,9 @@
 
 /** @brief The location of the error log directory. Must be relative. 
  * It is safe to change this value. */
-#define ERROR_LOG_LOCATION "./logs/errors/" 
+#define ERROR_LOG_LOCATION "./logs/errors/"
+
+#define TELEMETRY_WAV_LOCATION "./telem/"
 
 // ------- Config File Range Limits ------- //
 // Changing these results in undefined bevahior, it is not recommended.
@@ -34,5 +36,8 @@
 #define EXTENSION_INTERVAL_MIN 0
 #define EXTENSION_INTERVAL_MAX 3600
 // ---------------------------------------- //
+
+// ------- Error Prefixes ------- //
+#define MODULE_TELEMETRY_ERROR_PREFIX "M_TEL"
 
 #endif

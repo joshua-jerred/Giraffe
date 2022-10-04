@@ -101,5 +101,9 @@ int DataStream::getTotalErrorPackets() {
 }
 
 const DataSnapshot DataStream::getSnapshot() {
+	DataSnapshot snap;
+	data_snapshot_lock_.lock();
+	snap = data_snapshot_;
+	data_snapshot_lock_.unlock();
 	return data_snapshot_;
 }

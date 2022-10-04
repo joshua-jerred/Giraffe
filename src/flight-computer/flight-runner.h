@@ -95,21 +95,21 @@ private:
 
     void switchLoops(FlightLoop::LoopType loopType);
 
-    ConfigData mConfigData;
-    FlightLoop::LoopType mCurrentFlightLoop;
-    FlightLoop::Intervals mCurrentIntervals;
+    ConfigData config_data_;
+    FlightLoop::LoopType current_flight_loop_type_;
+    FlightLoop::Intervals current_intervals_;
     
-    DataModule *mpDataModule;
-    ExtensionsModule *mpExtensionsModule;
+    DataModule *p_data_module_;
+    ExtensionsModule *p_extension_module_;
     //ServerModule *mpServerModule;
     //ComModule *mpComModule;
     int mActive;
 
-    FlightLoop mTestingLoop;
-    FlightLoop mStandardLoop;
-    FlightLoop mDescentLoop;
-    FlightLoop mRecoveryLoop;
-    FlightLoop mFailsafeLoop;
+    FlightLoop flt_loop_testing_;
+    FlightLoop flt_loop_standard_;
+    FlightLoop flt_loop_descent_;
+    FlightLoop flt_loop_recovery_;
+    FlightLoop flt_loop_failsafe_;
 };
 
 #endif

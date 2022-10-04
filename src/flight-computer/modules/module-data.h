@@ -79,7 +79,6 @@ private:
     void parseErrorStream();
 
     DataStream *mpDataStream;
-    DataSnapshot mDataSnapshot;
 };
  /** @} */
 #endif
