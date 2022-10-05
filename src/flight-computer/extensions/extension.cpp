@@ -15,6 +15,7 @@ Extension::Extension(DataStream *pDS, ExtensionMetadata extension_metadata) {
     setName(extension_metadata.name);
     setID(extension_metadata.id);
     setType(extension_metadata.extension_type);
+    setUpdateInterval(extension_metadata.update_interval);
     setInterface(extension_metadata.interface);
     setCritical(extension_metadata.critical);
 }
@@ -119,11 +120,11 @@ void Extension::setCritical(int critical){
 
 
 int Extension::runner() {
+    std::cout << "Exthension: " << name_ << " has a misconfigured runner() method." << std::endl;
     std::cout << "This is from extension.cpp runner." << std::endl;
     return -1;
 }
 
 void Extension::spawnRunner() {
-    std::cout << "Exthension: " << name_ << " has a misconfigured spawnRunner() method." << std::endl;
     runner_thread_ = std::thread(&Extension::runner, this);
 }

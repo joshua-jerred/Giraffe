@@ -10,9 +10,6 @@ class TestExtension : public Extension {
   TestExtension(DataStream *pDS, ExtensionMetadata config_data);
   ~TestExtension();
   int runner();
-  void spawnRunner();
-
-  private:
 };
 
 class BMP180_SIM : public Extension {
@@ -20,9 +17,27 @@ class BMP180_SIM : public Extension {
   BMP180_SIM(DataStream *pDS, ExtensionMetadata config_data);
   ~BMP180_SIM();
   int runner();
-  void spawnRunner();
+};
 
-  private:
+class SAMM8Q_SIM : public Extension {
+ public:
+  SAMM8Q_SIM(DataStream *pDS, ExtensionMetadata config_data);
+  ~SAMM8Q_SIM();
+  int runner();
+};
+
+class DS18B20_SIM :public Extension {
+  public:
+  DS18B20_SIM(DataStream *pDS, ExtensionMetadata config_data);
+  ~DS18B20_SIM();
+  int runner();
+};
+
+class DRA818V_SIM :public Extension {
+  public:
+  DRA818V_SIM(DataStream *pDS, ExtensionMetadata config_data);
+  ~DRA818V_SIM();
+  int runner();
 };
 
 #endif

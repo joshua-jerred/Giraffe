@@ -20,15 +20,13 @@ int TestExtension::runner() {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
             );
-        std::cout << "TestExt" << std::endl;
         mDataStream->addData("TestExt", "TestExt", "100");
     }
     return 0;
 }
-void TestExtension::spawnRunner() {
-    runner_thread_ = std::thread(&TestExtension::runner, this);
-}
-
+// void TestExtension::spawnRunner() {
+//     runner_thread_ = std::thread(&TestExtension::runner, this);
+// }
 
 BMP180_SIM::BMP180_SIM(DataStream *pDS, ExtensionMetadata config_data) :
     Extension(pDS, config_data) {
@@ -40,7 +38,6 @@ int BMP180_SIM::runner() {
     int pressure = 1018;
     int upOrDown = 1; // 1 = going up, 0 = going down
     while (true) {
-
         if (upOrDown == 1) {
             temp -= 1;
             pressure -= 7;
@@ -48,13 +45,11 @@ int BMP180_SIM::runner() {
             temp += 1;
             pressure += 1;
         }
-
         if (temp == -50) {
             upOrDown = 0;
         } else if (temp == 75) {
             upOrDown = 1;
         }
-
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
             );
@@ -64,6 +59,101 @@ int BMP180_SIM::runner() {
     }
     return 0;
 }
-void BMP180_SIM::spawnRunner() {
-    runner_thread_ = std::thread(&BMP180_SIM::runner, this);
+
+SAMM8Q_SIM::SAMM8Q_SIM(DataStream *pDS, ExtensionMetadata config_data) :
+    Extension(pDS, config_data) {}
+SAMM8Q_SIM::~SAMM8Q_SIM() {  
+}
+int SAMM8Q_SIM::runner() {
+    std::string lat = "37.1010982";
+    std::string lon = "-113.5678354";
+    std::string alt = "1000";
+    std::string quality = "2";
+    std::string vertical_speed = "10";
+    std::string horizontal_speed = "4";
+    while (true) {
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(getUpdateInterval())
+        );
+        mDataStream->addData(getName(), "GPS_LAT", lat);
+        mDataStream->addData(getName(), "GPS_LON", lon);
+        mDataStream->addData(getName(), "GPS_ALT", alt);
+        mDataStream->addData(getName(), "GPS_QUAL", quality);
+        mDataStream->addData(getName(), "VERT_SPEED", vertical_speed);
+        mDataStream->addData(getName(), "HORZ_SPEED", horizontal_speed);
+    }
+}
+
+SAMM8Q_SIM::SAMM8Q_SIM(DataStream *pDS, ExtensionMetadata config_data) :
+    Extension(pDS, config_data) {
+}
+SAMM8Q_SIM::~SAMM8Q_SIM() {}
+int SAMM8Q_SIM::runner() {
+    std::string lat = "37.1010982";
+    std::string lon = "-113.5678354";
+    std::string alt = "1000";
+    std::string quality = "2";
+    std::string vertical_speed = "10";
+    std::string horizontal_speed = "4";
+    while (true) {
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(getUpdateInterval())
+        );
+        mDataStream->addData(getName(), "GPS_LAT", lat);
+        mDataStream->addData(getName(), "GPS_LON", lon);
+        mDataStream->addData(getName(), "GPS_ALT", alt);
+        mDataStream->addData(getName(), "GPS_QUAL", quality);
+        mDataStream->addData(getName(), "VERT_SPEED", vertical_speed);
+        mDataStream->addData(getName(), "HORZ_SPEED", horizontal_speed);
+    }
+}
+
+DRA818V_SIM::DRA818V_SIM(DataStream *pDS, ExtensionMetadata config_data) :
+    Extension(pDS, config_data) {
+}
+DRA818V_SIM::~DRA818V_SIM() { 
+}
+int DRA818V_SIM::runner() {
+    std::string lat = "37.1010982";
+    std::string lon = "-113.5678354";
+    std::string alt = "1000";
+    std::string quality = "2";
+    std::string vertical_speed = "10";
+    std::string horizontal_speed = "4";
+    while (true) {
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(getUpdateInterval())
+        );
+        mDataStream->addData(getName(), "GPS_LAT", lat);
+        mDataStream->addData(getName(), "GPS_LON", lon);
+        mDataStream->addData(getName(), "GPS_ALT", alt);
+        mDataStream->addData(getName(), "GPS_QUAL", quality);
+        mDataStream->addData(getName(), "VERT_SPEED", vertical_speed);
+        mDataStream->addData(getName(), "HORZ_SPEED", horizontal_speed);
+    }
+}
+
+DRA818V_SIM::DRA818V_SIM(DataStream *pDS, ExtensionMetadata config_data) :
+    Extension(pDS, config_data) {
+}
+DRA818V_SIM::~DRA818V_SIM() { 
+}
+int DRA818V_SIM::runner() {
+    std::string lat = "37.1010982";
+    std::string lon = "-113.5678354";
+    std::string alt = "1000";
+    std::string quality = "2";
+    std::string vertical_speed = "10";
+    std::string horizontal_speed = "4";
+    while (true) {
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(getUpdateInterval())
+        );
+        mDataStream->addData(getName(), "GPS_LAT", lat);
+        mDataStream->addData(getName(), "GPS_LON", lon);
+        mDataStream->addData(getName(), "GPS_ALT", alt);
+        mDataStream->addData(getName(), "GPS_QUAL", quality);
+        mDataStream->addData(getName(), "VERT_SPEED", vertical_speed);
+        mDataStream->addData(getName(), "HORZ_SPEED", horizontal_speed);
+    }
 }

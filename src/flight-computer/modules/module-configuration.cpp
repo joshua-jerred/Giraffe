@@ -152,7 +152,7 @@ void ConfigModule::parseExtensions() {
 				std::string address = item.value()["address"].get<std::string>();
 				int address_num = -1;
 				std::stringstream strs;
-				strs << std::hex << item.value()["i2c-address"].get<std::string>(); // convert hex string to int
+				strs << std::hex << address; // convert hex string to int
 				strs >> address_num;
 
 				if (address_num < 0 || address_num > 127) {

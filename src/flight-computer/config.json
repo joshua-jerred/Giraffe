@@ -11,9 +11,19 @@
             "type": "TEST_EXT",
             "category": "external_sensor",
             "interface": "oneWire",
-            "update-interval": 10,
+            "update-interval": 1000,
             "flight-critical": false,
             "address": "28-000000000000"
+        },
+        {
+            "id": 2,
+            "name": "press1",
+            "type": "BMP180_SIM",
+            "category": "external_sensor",
+            "interface": "i2c",
+            "update-interval": 2000,
+            "flight-critical": true,
+            "address": "a2"
         }
     ],
     "server": {

@@ -41,5 +41,7 @@ void ExtensionsModule::stop() {
 void ExtensionsModule::addExtension(ExtensionMetadata meta_data) {
     if (meta_data.extension_type == "TEST_EXT") {
         extensions_.push_back(new TestExtension(data_stream_, meta_data));
+    } else if (meta_data.extension_type == "BMP180_SIM") {
+        extensions_.push_back(new BMP180_SIM(data_stream_, meta_data));
     }
 }
