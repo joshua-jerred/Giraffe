@@ -1,6 +1,3 @@
-#ifndef MODULE_H_
-#define MODULE_H_
-
 /**
  * @file module.h
  * @author Joshua Jerred (github.com/joshua-jerred)
@@ -13,6 +10,10 @@
  * @addtogroup flight-computer-modules
  */
 
+#ifndef MODULE_H_
+#define MODULE_H_
+
+#include <string>
 /**
  * @brief module_status is used by the individual modules. Used by FlightRunner.
  * @see FlightRunner

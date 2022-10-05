@@ -22,6 +22,7 @@ public:
     int getID();
     std::string getName();
     std::string getType();
+    int getUpdateInterval();
     ExtensionMetadata::Interface getInterface();
     int getCritical();
     ExtensionStatus getStatus();
@@ -48,6 +49,7 @@ private:
     int id_;
     std::string name_;
     std::string type_;
+    int update_interval_;
     ExtensionMetadata::Interface interface_;
     int critical_;
     ExtensionStatus status_;

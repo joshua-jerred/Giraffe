@@ -15,4 +15,14 @@ class TestExtension : public Extension {
   private:
 };
 
+class BMP180_SIM : public Extension {
+ public:
+  BMP180_SIM(DataStream *pDS, ExtensionMetadata config_data);
+  ~BMP180_SIM();
+  int runner();
+  void spawnRunner();
+
+  private:
+};
+
 #endif

@@ -16,7 +16,7 @@ add_executable(Giraffe-FC-Alpha
     src/flight-computer/utilities/utility-timer.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
     src/flight-computer/extensions/extension.cpp
-    "src/flight-computer/extensions/test-ext.cpp"
+    src/flight-computer/extensions/simulated-extensions.cpp
 )
 
 file(COPY "src/flight-computer/config.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)

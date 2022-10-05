@@ -17,7 +17,6 @@ Extension::Extension(DataStream *pDS, ExtensionMetadata extension_metadata) {
     setType(extension_metadata.extension_type);
     setInterface(extension_metadata.interface);
     setCritical(extension_metadata.critical);
-    flag_ = 1;
 }
 
 Extension::~Extension() {
@@ -52,6 +51,10 @@ std::string Extension::getType() {
     return type_;
 }
 
+int Extension::getUpdateInterval() {
+    return update_interval_;
+}
+
 ExtensionMetadata::Interface Extension::getInterface() {
     return interface_;
 }
@@ -59,6 +62,10 @@ ExtensionMetadata::Interface Extension::getInterface() {
 int Extension::getCritical() {
     return critical_;
 }
+
+/**
+ * @todo Range checking on all setters
+ */
 
 void Extension::setName(std::string name) {
     if ((name.size() <= 10) && (name.size() > 2)) {
@@ -94,6 +101,10 @@ void Extension::setType(std::string type){
     return;
 }
 
+void Extension::setUpdateInterval(int interval){
+    update_interval_ = interval;
+}
+
 void Extension::setInterface(ExtensionMetadata::Interface interface){
 
     interface_ = interface;
@@ -105,6 +116,8 @@ void Extension::setCritical(int critical){
     return;
 }
 
+
+
 int Extension::runner() {
     std::cout << "This is from extension.cpp runner." << std::endl;
     return -1;
@@ -112,6 +125,5 @@ int Extension::runner() {
 
 void Extension::spawnRunner() {
     std::cout << "Exthension: " << name_ << " has a misconfigured spawnRunner() method." << std::endl;
-    // Must be overridden with something like this
-    //runner_thread_ = std::thread(&Extension::runner, this, std::ref(flag_));
+    runner_thread_ = std::thread(&Extension::runner, this);
 }

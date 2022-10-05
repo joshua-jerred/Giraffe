@@ -86,7 +86,7 @@ public:
     void addError(std::string error_source, std::string error_name, 
                   std::string error_info);
 
-    void DataStream::addToSnapshot( std::string unit, std::string data);
+    void addToSnapshot( std::string unit, std::string data);
 
     /** 
      * @brief Get the oldest packet from the data stream.

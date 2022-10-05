@@ -22,7 +22,7 @@ DataModule::DataModule(ConfigData config_data) {
     mpDataStream = new DataStream();
 
     for ( ConfigData::DataTypes::ExtensionDataType data_type : config_data.data_types.types ) {
-        mDataSnapshot.insert({data_type.name, "NO-DATA"});
+        mpDataStream->addToSnapshot(data_type.unit, "NO-DATA");
     }
 }
 

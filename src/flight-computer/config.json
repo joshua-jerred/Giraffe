@@ -41,18 +41,18 @@
     
     "data-types": [
         {
-            "name": "TEST_TYPE_1",
-            "unit": "T1",
+            "name": "TEMP_F",
+            "unit": "TF",
             "include-in-telemetry": 1
         },
         {
-            "name": "TEST_TYPE_2",
-            "unit": "T2",
+            "name": "PRESSURE_MBAR",
+            "unit": "PM",
             "include-in-telemetry": 0
         },
         {
-            "name": "TEMP_F",
-            "unit": "F",
+            "name": "TEMP_C",
+            "unit": "TF",
             "include-in-telemetry": 1
         }
     ],

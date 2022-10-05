@@ -9,7 +9,7 @@
 
 /*----------------------------------------*/
 /* The headers for each extension go here */
-#include "test-ext.h"
+#include "simulated-extensions.h"
 /*----------------------------------------*/
 
 ExtensionsModule::ExtensionsModule(const ConfigData config_data, DataStream *stream) {
