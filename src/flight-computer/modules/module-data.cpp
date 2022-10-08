@@ -22,7 +22,7 @@ DataModule::DataModule(ConfigData config_data) {
     mpDataStream = new DataStream();
 
     for ( ConfigData::DataTypes::ExtensionDataType data_type : config_data.data_types.types ) {
-        mpDataStream->addToSnapshot(data_type.unit, "NO-DATA");
+        mpDataStream->addToSnapshot(data_type.source, data_type.unit, "NO-DATA");
     }
 }
 
@@ -34,13 +34,22 @@ DataStream* DataModule::getDataStream() {
     return mpDataStream;
 }
 
+const DataSnapshot DataModule::getDataSnapshot() {
+    return mpDataStream->getSnapshot();
+}
+
+void DataModule::log() {
+    parseDataStream();
+}
+
 void DataModule::parseDataStream() {
     int packetCount = mpDataStream->getNumDataPackets();
     DataStreamPacket dpacket;
     for (int i = 0; i < packetCount; i++) {
         dpacket = mpDataStream->getNextDataPacket();
-        std::cout << dpacket.data_source << " - " << dpacket.data_name << 
-            " - " << dpacket.data_value << std::endl;
+        mpDataStream->addToSnapshot(
+            dpacket.source, dpacket.unit, dpacket.value
+            );
     }
 }
 
@@ -52,13 +61,4 @@ void DataModule::parseErrorStream() {
         std::cout << "Error: " << epacket.error_source << " - " << 
             epacket.error_name << " - " << epacket.error_info << std::endl;
     }
-}
-
-const DataSnapshot DataModule::getDataSnapshot() {
-    return mpDataStream->getSnapshot();
-}
-
-void DataModule::log() {
-    std::cout << "DataModule::log() called" << std::endl;
-    parseDataStream();
 }

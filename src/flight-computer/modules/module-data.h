@@ -11,6 +11,7 @@
 
 #include "module.h"
 #include "utility-data-stream.h"
+#include "utility-data-snapshot.h"
 
 
 /**

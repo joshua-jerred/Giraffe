@@ -128,6 +128,7 @@ struct ConfigData {
 
     struct DataTypes {
         struct ExtensionDataType {
+            std::string source;
             std::string name;
             std::string unit;
             int include_in_teletry = 0;

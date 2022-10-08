@@ -50,9 +50,18 @@ void DataStream::addError( std::string errorSource,
 	error_stream_lock_.unlock();
 }
 
-void DataStream::addToSnapshot( std::string unit, std::string data) {
+/**
+ * @brief Will add the data to the snapshot in the following format:
+ * <"source:unit", "data">
+ * 
+ * @param source 
+ * @param unit 
+ * @param data 
+ */
+void DataStream::addToSnapshot( std::string source, std::string unit, std::string data) {
+	std::string key = source + ":" + unit;
 	data_snapshot_lock_.lock();
-	data_snapshot_.insert_or_assign(unit, data);
+	data_snapshot_.insert_or_assign(key, data);
 	data_snapshot_lock_.unlock();
 }
 

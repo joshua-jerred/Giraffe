@@ -13,9 +13,6 @@
 
 #include <mutex>
 #include <queue>
-#include <unordered_map>
-
-typedef std::unordered_map<std::string, std::string> DataSnapshot;
 
 /**
  * @brief This struct is used by the DataStream and data module.
@@ -24,9 +21,9 @@ typedef std::unordered_map<std::string, std::string> DataSnapshot;
  * @see DataStream::addData()
  */
 struct DataStreamPacket {
-    std::string data_source = "";
-    std::string data_name = "";
-    std::string data_value = ""; 
+    std::string source = "";
+    std::string unit = "";
+    std::string value = ""; 
 };
 
 /**
@@ -86,7 +83,7 @@ public:
     void addError(std::string error_source, std::string error_name, 
                   std::string error_info);
 
-    void addToSnapshot( std::string unit, std::string data);
+    void addToSnapshot(std::string source, std::string unit, std::string data);
 
     /** 
      * @brief Get the oldest packet from the data stream.

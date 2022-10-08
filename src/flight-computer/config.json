@@ -24,7 +24,28 @@
             "update-interval": 2000,
             "flight-critical": true,
             "address": "a2"
+        },
+        {
+            "id": 3,
+            "name": "temp2",
+            "type": "DS18B20_SIM",
+            "category": "external_sensor",
+            "interface": "oneWire",
+            "update-interval": 2000,
+            "flight-critical": false,
+            "address": "28-000000000000"
+        },
+        {
+            "id": 4,
+            "name": "gps",
+            "type": "SAMM8Q_SIM",
+            "category": "external_sensor",
+            "interface": "i2c",
+            "update-interval": 2000,
+            "flight-critical": true,
+            "address": "a5"
         }
+        
     ],
     "server": {
         "server-enabled": false
@@ -51,16 +72,19 @@
     
     "data-types": [
         {
+            "source": "BMP180_SIM",
             "name": "TEMP_F",
             "unit": "TF",
             "include-in-telemetry": 1
         },
         {
+            "source": "BMP180_SIM",
             "name": "PRESSURE_MBAR",
             "unit": "PM",
             "include-in-telemetry": 0
         },
         {
+            "source": "BMP180_SIM",
             "name": "TEMP_C",
             "unit": "TF",
             "include-in-telemetry": 1

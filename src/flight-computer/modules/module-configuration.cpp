@@ -224,8 +224,9 @@ void ConfigModule::parseDataTypes() {
 		ConfigData::DataTypes::ExtensionDataType newDataType;
 		try 
 		{
-			newDataType.name = item.value()["name"];
-			newDataType.unit = item.value()["unit"];
+			newDataType.source = item.value()["source"].get<std::string>();
+			newDataType.name = item.value()["name"].get<std::string>();
+			newDataType.unit = item.value()["unit"].get<std::string>();
 			newDataType.include_in_teletry = 
 			item.value()["include-in-telemetry"].get<bool>();
 
