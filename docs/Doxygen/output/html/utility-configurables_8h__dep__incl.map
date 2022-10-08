@@ -1,6 +1,0 @@
-<map id="utility&#45;configurables.h" name="utility&#45;configurables.h">
-<area shape="rect" id="node1" title="All macro definitions for the flight control software will be in this file. Macros should be avoided." alt="" coords="49,5,213,32"/>
-<area shape="rect" id="node2" href="$flight-runner_8cpp.html" title=" " alt="" coords="5,155,133,181"/>
-<area shape="rect" id="node3" href="$module-configuration_8h.html" title="This file defines the class ConfigModule and nlohmann json enumerations." alt="" coords="107,80,280,107"/>
-<area shape="rect" id="node4" href="$module-configuration_8cpp.html" title=" " alt="" coords="158,155,346,181"/>
-</map>

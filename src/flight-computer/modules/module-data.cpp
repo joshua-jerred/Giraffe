@@ -104,8 +104,12 @@ void DataModule::parseErrorStream() {
 }
 
 void DataModule::checkForStaleData() {
-    //std::time_t now = std::time(NULL);
-    /** @todo Implement this. */
+    std::time_t now = std::time(NULL);
+    for (auto& [source_and_unit, packet] : dataframe_) {  
+        if (packet.expiration_time < now) {
+            packet.value = "NODATA";
+        }
+    }
 }
 
 void DataModule::runner() {
@@ -116,6 +120,5 @@ void DataModule::runner() {
         parseDataStream();
         parseErrorStream();
         checkForStaleData();
-        sleep(1);
     }
 }

@@ -1,6 +1,0 @@
-<map id="Module" name="Module">
-<area shape="rect" id="node1" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="197,5,337,141"/>
-<area shape="rect" id="node2" href="$classConsoleModule.html" title=" " alt="" coords="5,219,164,340"/>
-<area shape="rect" id="node3" href="$group__flight-computer-modules.html#classDataModule" title=" " alt="" coords="188,189,347,369"/>
-<area shape="rect" id="node4" href="$classExtensionsModule.html" title=" " alt="" coords="371,197,548,362"/>
-</map>
