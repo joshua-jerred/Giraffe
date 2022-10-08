@@ -11,6 +11,8 @@
 #ifndef UTILITY_CONFIGURABLES_H
 #define UTILITY_CONFIGURABLES_H
 
+#define GFC_VERSION "0.1.1"
+
 /** @brief The locaiton of the configuration file. It is safe to change 
  * this value. */
 #define CONFIG_LOCATION "./config.json"
@@ -39,5 +41,12 @@
 
 // ------- Error Prefixes ------- //
 #define MODULE_TELEMETRY_ERROR_PREFIX "M_TEL"
+
+// ------------------------------ //
+
+// This is the interval, in seconds, that determines how often the data module
+// will parse the data stream and update the data frame.
+#define MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS 500
+
 
 #endif

@@ -26,7 +26,7 @@ FlightRunner::~FlightRunner() {
 }
 
 int FlightRunner::start() {
-    // Read the Flight Module Config File
+    // ~~~ Read The Config ~~~ //
     ConfigModule* config = new ConfigModule();
     int status = config->load(CONFIG_LOCATION);
     if (status != 0) {
@@ -35,16 +35,22 @@ int FlightRunner::start() {
     } else {
         config_data_ = config->getAll();
     }
-    
     delete config; // File is not needed after loading all config data
 
+    // ~~~ Start the Data Module ~~~ //
     p_data_module_ = new DataModule(config_data_); // Start Data Service
+    p_data_module_->start();
+    
+    // ~~~ Start the Extensions Module ~~~ //
     p_extension_module_ = new ExtensionsModule(config_data_, p_data_module_->getDataStream()); // Enable Extensions
     p_extension_module_->start(); // Start Extensions
 
-    //mpServerModule = new ServerModule(config_data_, p_data_module_); // Start Web Server
-    //mpComModule = new ComModule(config_data_, p_data_module_, 
-    //p_extension_module_); // Enable Radio communication
+    // ~~~ Start the Console Module ~~~ //
+    if (config_data_.debug.console_enabled) {
+        p_console_module_ = new ConsoleModule(config_data_, p_data_module_);
+        p_console_module_->start();
+    }
+
 
     if (config_data_.general.starting_loop == FlightLoop::LoopType::kTesting) { // If user specified in config to use the testing loop, it's selected here.
         switchLoops(FlightLoop::LoopType::kTesting);

@@ -39,7 +39,7 @@
             "id": 4,
             "name": "gps",
             "type": "SAMM8Q_SIM",
-            "category": "external_sensor",
+            "category": "gps1",
             "interface": "i2c",
             "update-interval": 2000,
             "flight-critical": true,
@@ -47,8 +47,11 @@
         }
         
     ],
-    "server": {
-        "server-enabled": false
+    "debugging": {
+        "console-enabled": true,
+        "console-update-interval": 1000,
+        "web-server-enabled": false,
+        "web-server-update-interval": 1000
     },
     "telemetry": {
         "telemetry-enabled": false,
@@ -58,7 +61,7 @@
         "aprs-frequency": 144.390,
         "aprs-ssid": 11,
         "aprs-symbol": "O",
-        "aprs-memo": "AOS v3 Testing",
+        "aprs-memo": "Testing",
 
         "sstv-enabled": false,
         "sstv-frequency": 100.000,
@@ -70,7 +73,7 @@
         "afsk-frequency": 100.000
     },
     
-    "data-types": [
+    "data": [
         {
             "source": "BMP180_SIM",
             "name": "TEMP_F",
@@ -97,7 +100,6 @@
             "enabled": true,
             "intervals": {
                 "data-log": 2,
-                "server-update": 2,
                 "dataPacket": 0,
                 "sstv": 0,
                 "aprs": 0,

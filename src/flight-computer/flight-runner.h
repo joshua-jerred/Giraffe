@@ -18,6 +18,7 @@
 
 #include "module-data.h"
 #include "module-extensions.h"
+#include "module-console.h"
 
 /**
  * @brief The FlightRunner class is responsible for pulling everything together.
@@ -101,6 +102,7 @@ private:
     
     DataModule *p_data_module_;
     ExtensionsModule *p_extension_module_;
+    ConsoleModule *p_console_module_;
     //ServerModule *mpServerModule;
     //ComModule *mpComModule;
     int mActive;

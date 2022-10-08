@@ -194,7 +194,10 @@ void ConfigModule::parseExtensions() {
 
 
 void ConfigModule::parseServer() {
-	config_data_.server.web_server_enabled = json_buffer_["server"]["server-enabled"].get<bool>();
+	config_data_.debug.console_enabled = json_buffer_["debugging"]["console-enabled"].get<bool>();
+	config_data_.debug.console_update_interval = json_buffer_["debugging"]["console-update-interval"].get<int>();
+	config_data_.debug.web_server_enabled = json_buffer_["debugging"]["web-server-enabled"].get<bool>();
+	config_data_.debug.web_server_update_interval = json_buffer_["debugging"]["web-server-update-interval"].get<int>();
 }
 
 
@@ -251,9 +254,6 @@ void ConfigModule::parseFlightLoops() {
 
 		newFlightLoop.intervals.data_log = 
 		item.value()["intervals"]["data-log"].get<int>();
-
-		newFlightLoop.intervals.server_update = 
-		item.value()["intervals"]["server-update"].get<int>();
 
 		if (newFlightLoop.type == FlightLoop::LoopType::kTesting) {
 			config_data_.flight_loops.testing = newFlightLoop;

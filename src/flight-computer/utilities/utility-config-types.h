@@ -21,7 +21,6 @@ struct FlightLoop {
 
     struct Intervals {
         int data_log = 5; // Hard Coded Default, may change to macro
-        int server_update = 5; // Hard Coded Default, may change to macro
         int data_packet = 0;
         int sstv = 0;
         int aprs = 0;
@@ -101,8 +100,11 @@ struct ConfigData {
         std::vector<ExtensionMetadata> extensions_list {};
     };
 
-    struct Server {
+    struct Debugging {
+        int console_enabled {};
+        int console_update_interval {};
         int web_server_enabled {};
+        int web_server_update_interval {};
     };
 
     struct Telemetry {
@@ -112,8 +114,6 @@ struct ConfigData {
 
         int afsk_enabled {};
         std::string afsk_freq {};
-
-        // int ssdv_enabled {};
 
         int sstv_enabled {};
         std::string sstv_freq {};
@@ -145,7 +145,7 @@ struct ConfigData {
 
     General general;
     Extensions extensions;
-    Server server;
+    Debugging debug;
     Telemetry telemetry;
     DataTypes data_types;
     Loops flight_loops;

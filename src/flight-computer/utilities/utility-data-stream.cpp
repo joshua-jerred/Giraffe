@@ -13,6 +13,7 @@
 #include <queue>
 #include <mutex>
 #include <unordered_map>
+#include <ctime>
 
 #include "utility-data-stream.h"
 
@@ -28,20 +29,28 @@ DataStream::DataStream() {
 	error_stream_lock_.unlock();	// Unlock the error stream to make it available
 }
 
+
 DataStream::~DataStream() {
 
 }
 
-void DataStream::addData( std::string dataSource, 
-	std::string dataName, std::string dataValue) {
+
+void DataStream::addData(
+		std::string data_source, 
+		std::string data_name, 
+		std::string data_value, 
+		int seconds_until_expiry
+		) {
 	data_stream_lock_.lock(); // Lock the data stream to prevent other threads from accessing it when adding an item to it
-	data_stream_.push({dataSource, dataName, dataValue});
+	data_stream_.push({data_source, data_name, data_value,
+		std::time_t(NULL) + seconds_until_expiry});
 	num_data_packets_++;
 	total_data_packets_++;
 	data_stream_lock_.unlock(); // Unlock the data stream to make it available
 }
 
-void DataStream::addError( std::string errorSource, 
+
+void DataStream::addError(std::string errorSource, 
 	std::string errorName, std::string errorInfo) {
 	error_stream_lock_.lock();
 	error_stream_.push({errorSource, errorName, errorInfo});
@@ -50,20 +59,6 @@ void DataStream::addError( std::string errorSource,
 	error_stream_lock_.unlock();
 }
 
-/**
- * @brief Will add the data to the snapshot in the following format:
- * <"source:unit", "data">
- * 
- * @param source 
- * @param unit 
- * @param data 
- */
-void DataStream::addToSnapshot( std::string source, std::string unit, std::string data) {
-	std::string key = source + ":" + unit;
-	data_snapshot_lock_.lock();
-	data_snapshot_.insert_or_assign(key, data);
-	data_snapshot_lock_.unlock();
-}
 
 DataStreamPacket DataStream::getNextDataPacket() {
 	data_stream_lock_.lock(); // lock while reading
@@ -79,6 +74,7 @@ DataStreamPacket DataStream::getNextDataPacket() {
 	return packet;
 }
 
+
 ErrorStreamPacket DataStream::getNextErrorPacket() {
 	error_stream_lock_.lock();
 	ErrorStreamPacket packet;
@@ -93,26 +89,22 @@ ErrorStreamPacket DataStream::getNextErrorPacket() {
 	return packet;
 }
 
+
 int DataStream::getNumDataPackets() {
 	return num_data_packets_;
 }
+
 
 int DataStream::getNumErrorPackets() {
 	return num_data_packets_;
 }
 
+
 int DataStream::getTotalDataPackets() {
 	return total_data_packets_;
 }
 
+
 int DataStream::getTotalErrorPackets() {
 	return total_error_packets_;
-}
-
-const DataSnapshot DataStream::getSnapshot() {
-	DataSnapshot snap;
-	data_snapshot_lock_.lock();
-	snap = data_snapshot_;
-	data_snapshot_lock_.unlock();
-	return data_snapshot_;
 }

@@ -13,6 +13,7 @@
 
 #include <mutex>
 #include <queue>
+#include <ctime>
 
 /**
  * @brief This struct is used by the DataStream and data module.
@@ -24,6 +25,7 @@ struct DataStreamPacket {
     std::string source = "";
     std::string unit = "";
     std::string value = ""; 
+    std::time_t expiration_time = 0;
 };
 
 /**
@@ -68,8 +70,8 @@ public:
      * @param dataName - The name of the data, ie "Pressure - kPa"
      * @param data_value  - The value of the data, ie "1013.25"
      */
-    void addData(std::string data_source, std::string data_name, 
-        std::string data_value);
+    void addData(std::string data_source, 
+	std::string data_name, std::string data_value, int seconds_until_expiry);
 
     /** 
      * @brief Add an error to the error stream. This includes locking and 
@@ -82,8 +84,6 @@ public:
      */
     void addError(std::string error_source, std::string error_name, 
                   std::string error_info);
-
-    void addToSnapshot(std::string source, std::string unit, std::string data);
 
     /** 
      * @brief Get the oldest packet from the data stream.
@@ -127,8 +127,6 @@ public:
      */
     int getTotalErrorPackets();
 
-    const DataSnapshot getSnapshot();
-
 private:
     int num_data_packets_;
     int total_data_packets_;
@@ -138,11 +136,9 @@ private:
 
     std::mutex data_stream_lock_;
     std::mutex error_stream_lock_;
-    std::mutex data_snapshot_lock_;
 
     std::queue<DataStreamPacket> data_stream_;
     std::queue<ErrorStreamPacket> error_stream_;
-    DataSnapshot data_snapshot_;
 };
 
 #endif

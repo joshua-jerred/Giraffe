@@ -9,6 +9,8 @@
 #ifndef MODULE_DATA_H_
 #define MODULE_DATA_H_
 
+#include <thread>
+
 #include "module.h"
 #include "utility-data-stream.h"
 #include "utility-data-snapshot.h"
@@ -47,6 +49,10 @@ public:
      */
     ~DataModule();
 
+    void start();
+
+    void stop();
+
     /**
      * @brief Get a pointer to the DataStream object.
      * 
@@ -57,7 +63,7 @@ public:
     /**
      * @brief Get a Data Snapshot.
      */
-    const DataSnapshot getDataSnapshot();
+    DataSnapshot getDataSnapshot();
 
 
     /**
@@ -68,18 +74,24 @@ public:
 
 private:
 
-    /**
-     * @brief This function will get the current number of
-     * data packets before reading them all from the dataStream.
-     * This means that if another thread manages to add a packet
-     * to the dataStream while it's being parsed, it will not be
-     * read until the next time this function is called.
-     */
+    void addDataTypeToFrame(ConfigData::DataTypes::ExtensionDataType data_type); // add a data type to the data frame
+
+    void checkForStaleData(); // check for stale data in the data frame
+
     void parseDataStream();
 
     void parseErrorStream();
 
+    void runner();
+
     DataStream *mpDataStream;
+
+    // DataFrame format: <"source:unit", DataStreamPacket>
+    typedef std::unordered_map<std::string, DataStreamPacket> DataFrame;
+    std::mutex dataframe_mutex_;
+    DataFrame dataframe_;
+
+    std::thread runner_thread_;
 };
  /** @} */
 #endif

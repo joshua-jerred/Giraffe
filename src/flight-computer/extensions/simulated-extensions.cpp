@@ -20,7 +20,7 @@ int TestExtension::runner() {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
             );
-        mDataStream->addData("TestExt", "TestExt", "100");
+        mDataStream->addData("TestExt", "TestExt", "100", getUpdateInterval() + 1);
     }
     return 0;
 }
@@ -53,8 +53,8 @@ int BMP180_SIM::runner() {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
             );
-        mDataStream->addData(getName(), "TF", std::to_string(temp));
-        mDataStream->addData(getName(), "PM", std::to_string(pressure));
+        mDataStream->addData(getName(), "TF", std::to_string(temp), getUpdateInterval() + 1);
+        mDataStream->addData(getName(), "PM", std::to_string(pressure), getUpdateInterval() + 1);
         
     }
     return 0;
@@ -75,12 +75,12 @@ int SAMM8Q_SIM::runner() {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
         );
-        mDataStream->addData(getName(), "GPS_LAT", lat);
-        mDataStream->addData(getName(), "GPS_LON", lon);
-        mDataStream->addData(getName(), "GPS_ALT", alt);
-        mDataStream->addData(getName(), "GPS_QUAL", quality);
-        mDataStream->addData(getName(), "VERT_SPEED", vertical_speed);
-        mDataStream->addData(getName(), "HORZ_SPEED", horizontal_speed);
+        mDataStream->addData(getName(), "GPS_LAT", lat, getUpdateInterval() + 1);
+        mDataStream->addData(getName(), "GPS_LON", lon, getUpdateInterval() + 1);
+        mDataStream->addData(getName(), "GPS_ALT", alt, getUpdateInterval() + 1);
+        mDataStream->addData(getName(), "GPS_QUAL", quality, getUpdateInterval() + 1);
+        mDataStream->addData(getName(), "VERT_SPEED", vertical_speed, getUpdateInterval() + 1);
+        mDataStream->addData(getName(), "HORZ_SPEED", horizontal_speed, getUpdateInterval() + 1);
     }
 }
 
@@ -95,7 +95,6 @@ int DS18B20_SIM::runner() {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
         );
-        mDataStream->addData(getName(), "TF", std::to_string(temp));
         if (upordown == 1) {
             temp -= 1;
         } else {
@@ -106,6 +105,7 @@ int DS18B20_SIM::runner() {
         } else if (temp == 75) {
             upordown = 1;
         }
+        mDataStream->addData(getName(), "TF", std::to_string(temp), getUpdateInterval() + 1);
     }
 }
 
