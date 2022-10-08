@@ -65,22 +65,27 @@ SAMM8Q_SIM::SAMM8Q_SIM(DataStream *pDS, ExtensionMetadata config_data) :
 SAMM8Q_SIM::~SAMM8Q_SIM() {  
 }
 int SAMM8Q_SIM::runner() {
-    std::string lat = "37.1010982";
-    std::string lon = "-113.5678354";
-    std::string alt = "1000";
+    float lat = 37.1010982;
+    float lon = -113.5678354;
+    int alt = 0;
     std::string quality = "2";
-    std::string vertical_speed = "10";
-    std::string horizontal_speed = "4";
+    int vertical_speed = 5;
+    int horizontal_speed = 4;
+    mDataStream->addData(getName(), "VERT_SPEED", std::to_string(vertical_speed), getUpdateInterval() + 1);
+    // ^This should test stale data
     while (true) {
+        lat += 0.00001;
+        lon += 0.00001;
+        alt += 5;
+        int horizontal_speed = 2 + (rand() % static_cast<int>(5 - 2 + 1));
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
         );
-        mDataStream->addData(getName(), "GPS_LAT", lat, getUpdateInterval() + 1);
-        mDataStream->addData(getName(), "GPS_LON", lon, getUpdateInterval() + 1);
-        mDataStream->addData(getName(), "GPS_ALT", alt, getUpdateInterval() + 1);
+        mDataStream->addData(getName(), "GPS_LAT", std::to_string(lat), getUpdateInterval() + 1);
+        mDataStream->addData(getName(), "GPS_LON", std::to_string(lon), getUpdateInterval() + 1);
+        mDataStream->addData(getName(), "GPS_ALT", std::to_string(alt), getUpdateInterval() + 1);
         mDataStream->addData(getName(), "GPS_QUAL", quality, getUpdateInterval() + 1);
-        mDataStream->addData(getName(), "VERT_SPEED", vertical_speed, getUpdateInterval() + 1);
-        mDataStream->addData(getName(), "HORZ_SPEED", horizontal_speed, getUpdateInterval() + 1);
+        mDataStream->addData(getName(), "HORZ_SPEED", std::to_string(horizontal_speed), getUpdateInterval() + 1);
     }
 }
 
