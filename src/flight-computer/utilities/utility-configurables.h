@@ -19,11 +19,11 @@
 
 /** @brief The location of the data log directory. Must be relative. 
  * It is safe to change this value. */
-#define DATA_LOG_LOCATION "./logs/data/" // These must end with a "/"
+#define DATA_LOG_LOCATION "data_logs/" // These must end with a "/"
 
 /** @brief The location of the error log directory. Must be relative. 
  * It is safe to change this value. */
-#define ERROR_LOG_LOCATION "./logs/errors/"
+#define ERROR_LOG_LOCATION "./error_logs/"
 
 #define TELEMETRY_WAV_LOCATION "./telem/"
 

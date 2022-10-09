@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <ctime>
 
 #include "utility-config-types.h"
 #include "utility-data-stream.h"
@@ -44,10 +45,6 @@ int Extension::getID() {
     return id_;
 }
 
-ExtensionStatus Extension::getStatus() {
-    return status_;
-}
-
 std::string Extension::getType() {
     return type_;
 }
@@ -62,6 +59,23 @@ ExtensionMetadata::Interface Extension::getInterface() {
 
 int Extension::getCritical() {
     return critical_;
+}
+
+ExtensionStatus Extension::getStatus() {
+    return status_;
+}
+
+void Extension::sendData(std::string unit, std::string value) {
+    std::time_t t = std::time(0);
+    mDataStream->addData(getName(), unit, value, getUpdateInterval() / 1000);
+}
+
+void Extension::sendData(std::string unit, int value) {
+    mDataStream->addData(getName(), unit, std::to_string(value), getUpdateInterval() / 1000);
+}
+
+void Extension::sendData(std::string unit, float value) {
+    mDataStream->addData(getName(), unit, std::to_string(value), getUpdateInterval() / 1000);
 }
 
 /**

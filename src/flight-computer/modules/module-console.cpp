@@ -195,24 +195,17 @@ void ConsoleModule::printData() {
     }
     std::cout << std::endl;
 
-    std::cout << "Data -" << std::endl;
     DataSnapshot snapshot = data_->getDataSnapshot();
-    const int width = 2; // number of columns
-    int w = width - 1;
-    int first = 1;
-    for (auto& [source_and_unit, value] : snapshot) {  
-        if (w == 3) {
+    std::cout << "Data - " << snapshot.size() << std::endl;
+    const int width = 2;
+    int i = 1;
+    for (auto& [key, value] : snapshot) {  
+        std::cout << std::left << std::setw(20) << key << " = " << std::left << 
+        std::setw(12) << value << "  |";
+        if (i == width) {
             std::cout << std::endl;
-            w = width;
-        } else {
-            if (!first) {
-                std::cout << "| ";
-            } else {
-                first = 0;
-            }
-            w++;
+            i = 0;
         }
-        std::cout << std::setw(20) << source_and_unit << std::setw(15)
-        << std::left << value;
+        i++;
     }
 }

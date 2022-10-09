@@ -11,9 +11,11 @@
 #include <unordered_map> // used by mDataSnapshot
 #include <string>
 #include <iostream>
+#include <fstream>
 #include <thread>
 #include <mutex>
 #include <chrono>
+#include <ctime>
 
 #include "module.h"
 
@@ -24,6 +26,25 @@
 #include "module-data.h"
 
 DataModule::DataModule(ConfigData config_data) {
+    std::time_t t = std::time(0);
+    std::tm* now = std::localtime(&t);
+    
+    data_log_file_path_ = DATA_LOG_LOCATION +
+    std::to_string(now->tm_year + 1900) + "-" +
+    std::to_string(now->tm_mon + 1) + "-" +
+    std::to_string(now->tm_mday) + "-" +
+    std::to_string(now->tm_hour) + "-" +
+    std::to_string(now->tm_min) + "-" +
+    std::to_string(now->tm_sec) + ".csv";
+    mpDataStream = new DataStream();
+
+    error_log_file_path_ = ERROR_LOG_LOCATION +
+    std::to_string(now->tm_year + 1900) + "-" +
+    std::to_string(now->tm_mon + 1) + "-" +
+    std::to_string(now->tm_mday) + "-" +
+    std::to_string(now->tm_hour) + "-" +
+    std::to_string(now->tm_min) + "-" +
+    std::to_string(now->tm_sec) + ".csv";
     mpDataStream = new DataStream();
 
     dataframe_mutex_.lock();
@@ -65,7 +86,21 @@ DataSnapshot DataModule::getDataSnapshot() {
  * @todo Implement this function.
  */
 void DataModule::log() {
+    std::ofstream logfile;
+    logfile.open(data_log_file_path_, std::ios_base::app);
+
+    dataframe_mutex_.lock();
+    DataFrame dataframe_copy = dataframe_;
+    dataframe_mutex_.unlock();
     
+    std::time_t t = std::time(0);
+    std::tm* now = std::localtime(&t);
+
+    for (auto& [source_and_unit, packet] : dataframe_copy) {
+        logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << 
+        ", " << packet.source << ", " << packet.unit << ", " << packet.value 
+        << std::endl;
+    }
 }
 
 
@@ -106,8 +141,8 @@ void DataModule::parseErrorStream() {
 void DataModule::checkForStaleData() {
     std::time_t now = std::time(NULL);
     for (auto& [source_and_unit, packet] : dataframe_) {  
-        if (packet.expiration_time < now) {
-            packet.value = "NODATA";
+        if ((int) packet.expiration_time < (int) now) {
+            packet.value = "NO-DATA";
         }
     }
 }

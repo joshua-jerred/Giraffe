@@ -20,7 +20,7 @@ int TestExtension::runner() {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
             );
-        mDataStream->addData("TestExt", "TestExt", "100", getUpdateInterval() + 1);
+        sendData("unit", "value");
     }
     return 0;
 }
@@ -53,9 +53,8 @@ int BMP180_SIM::runner() {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
             );
-        mDataStream->addData(getName(), "TF", std::to_string(temp), getUpdateInterval() + 1);
-        mDataStream->addData(getName(), "PM", std::to_string(pressure), getUpdateInterval() + 1);
-        
+        sendData("TF", temp);
+        sendData("PM", pressure);
     }
     return 0;
 }
@@ -71,7 +70,7 @@ int SAMM8Q_SIM::runner() {
     std::string quality = "2";
     int vertical_speed = 5;
     int horizontal_speed = 4;
-    mDataStream->addData(getName(), "VERT_SPEED", std::to_string(vertical_speed), getUpdateInterval() + 1);
+    sendData("VERT_SPEED", vertical_speed);
     // ^This should test stale data
     while (true) {
         lat += 0.00001;
@@ -81,11 +80,11 @@ int SAMM8Q_SIM::runner() {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
         );
-        mDataStream->addData(getName(), "GPS_LAT", std::to_string(lat), getUpdateInterval() + 1);
-        mDataStream->addData(getName(), "GPS_LON", std::to_string(lon), getUpdateInterval() + 1);
-        mDataStream->addData(getName(), "GPS_ALT", std::to_string(alt), getUpdateInterval() + 1);
-        mDataStream->addData(getName(), "GPS_QUAL", quality, getUpdateInterval() + 1);
-        mDataStream->addData(getName(), "HORZ_SPEED", std::to_string(horizontal_speed), getUpdateInterval() + 1);
+        sendData("GPS_LAT", lat);
+        sendData("GPS_LON", lon);
+        sendData("GPS_ALT", alt);
+        sendData("GPS_QUAL", quality);
+        sendData("HORZ_SPEED", horizontal_speed);
     }
 }
 
@@ -110,7 +109,7 @@ int DS18B20_SIM::runner() {
         } else if (temp == 75) {
             upordown = 1;
         }
-        mDataStream->addData(getName(), "TF", std::to_string(temp), getUpdateInterval() + 1);
+        sendData("TF", temp);
     }
 }
 

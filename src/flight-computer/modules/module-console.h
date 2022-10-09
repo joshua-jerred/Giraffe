@@ -26,6 +26,8 @@ private:
     void clearScreen();
     void printData();
 
+
+
     ConfigData config_data_;
     DataModule* data_;
     int update_interval_;

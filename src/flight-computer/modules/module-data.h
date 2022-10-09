@@ -84,6 +84,9 @@ private:
 
     void runner();
 
+    std::string data_log_file_path_;
+    std::string error_log_file_path_;
+
     DataStream *mpDataStream;
 
     // DataFrame format: <"source:unit", DataStreamPacket>

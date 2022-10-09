@@ -16,7 +16,7 @@ class Extension {
 public:
     Extension(DataStream *pDS, ExtensionMetadata configData);
     virtual ~Extension();
-    void start(); // Must be overridden
+    void start();
     void stop();
     void restart();
     int getID();
@@ -28,6 +28,10 @@ public:
     ExtensionStatus getStatus();
 
 protected:
+    void sendData(std::string unit, std::string value);
+    void sendData(std::string unit, int value);
+    void sendData(std::string unit, float value);
+
     std::thread runner_thread_;
     std::atomic<int> flag_;
     DataStream  *mDataStream;
