@@ -4,13 +4,16 @@
 #include <string>
 #include <thread>
 #include <atomic>
+#include <vector>
+#include <iostream>
+#include <ctime>
 
 #include "utility-config-types.h"
 #include "utility-data-stream.h"
 
 #include "extension.h"
 
-enum class ExtensionStatus { kStarting = 0, kNormal = 1, kError = 2, kStopped = 3 };
+enum class ExtensionStatus { ERROR = 0, STOPPED = 1, STARTING = 2, RUNNING = 3, STOPPED = 4 };
 
 class Extension {
 public:
@@ -32,9 +35,8 @@ protected:
     void sendData(std::string unit, int value);
     void sendData(std::string unit, float value);
 
-    std::thread runner_thread_;
     std::atomic<int> flag_;
-    DataStream  *mDataStream;
+    DataStream  *m_data_stream;
     virtual int runner(); // Must be overridden
     virtual void spawnRunner();
     void setStatus(ExtensionStatus status);
@@ -50,6 +52,7 @@ private:
     void setCritical(int critical);
 
 
+    std::thread runner_thread_;
     int id_;
     std::string name_;
     std::string type_;

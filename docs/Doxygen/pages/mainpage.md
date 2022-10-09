@@ -3,7 +3,7 @@
 
 ![Logo](logo-small.png)
 
-V0.1
+V0.0.9
 
 Giraffe software is seperated into two sections, the Flight Computer and Ground Station.
 

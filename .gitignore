@@ -1,0 +1,12 @@
+# VS Code User and Workspace Settings
+.vscode/settings.json
+.timetracker
+
+# CMake Build Files
+build
+
+# Documentation @todo
+
+# Other
+#License.md
+#README.md
