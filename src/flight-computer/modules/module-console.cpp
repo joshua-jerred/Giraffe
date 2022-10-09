@@ -13,21 +13,6 @@
 #include "module-data.h"
 
 #include "module-console.h"
-
-
-/**
- * Goals:
- * - Print data to console
- * 
- * How:
- * - Create a thread that runs in the background so it wont interfear
- * - Thread uses the update interval to determine when to run
- * - Asks for a snapshot from the data module
- * - Prints the snapshot to the console in a nice format
- */
-
-
-
 /**
  * @todo Use data stream, not data module.
  * @todo console update interval should be a macro
