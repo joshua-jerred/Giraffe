@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"doxdocgen.file.versionTag": "@version 0.0.9",
+		"doxdocgen.generic.authorName": "Joshua Jerred",
+		"doxdocgen.generic.authorEmail": "github.com/joshua-jerred",
+		"doxdocgen.file.fileOrder": [
+			"file",
+			"author",
+			"brief",
+			"empty",
+			"version",
+			"date",
+			"copyright",
+		  ],
+		  "doxdocgen.generic.order": [
+			"brief",
+			"param",
+			"return",
+		]
+}

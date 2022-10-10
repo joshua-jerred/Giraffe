@@ -1,12 +1,12 @@
 # VS Code User and Workspace Settings
 .vscode/settings.json
 .timetracker
+.VSCodeCounter
 
 # CMake Build Files
 build
 
-# Documentation @todo
+# Doxygen output files, these can be user generated.
+docs/Doxygen/output
 
 # Other
-#License.md
-#README.md
