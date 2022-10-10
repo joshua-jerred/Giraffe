@@ -1,19 +1,19 @@
-// FIX INCLUDES
-#include <string>
-#include <iostream>
-#include <iomanip>
-#include <chrono>
-#include <ctime>
-
-#include "utility-configurables.h"
-#include "utility-config-types.h"
-#include "utility-data-stream.h"
-#include "utility-data-snapshot.h"
-
-#include "module-data.h"
+/**
+ * @file module-console.cpp
+ * @author Joshua Jerred (github.com/joshua-jerred)
+ * @brief This file contains the Console Module class.
+ * 
+ * @version 0.0.9
+ * @date 2022-10-10
+ * @copyright Copyright (c) 2022
+ */
 
 #include "module-console.h"
+
 /**
+ * @brief The constructor for the Console Module.
+ * @param config_data The configuration data for the system.
+ * @param data A pointer to the data module.
  * @todo Use data stream, not data module.
  * @todo console update interval should be a macro
  */
@@ -23,33 +23,73 @@ ConsoleModule::ConsoleModule(const ConfigData config_data, DataModule *data) {
     data_ = data;
 }
 
+/**
+ * @brief The destructor for the Console Module.
+ */
 ConsoleModule::~ConsoleModule() {
     stop();
 }
 
+/**
+ * @brief Starts the console module thread and begins printing data.
+ * @details Sets the stop flag to 0, and starts the thread which runs the
+ * 'runner' function.
+ * @param None
+ * @return void
+ */
 void ConsoleModule::start() {
     stop_flag_ = 0;
     runner_thread_ = std::thread(&ConsoleModule::runner, this);
 }
 
+/**
+ * @brief Sets the stop flag to 1 which will stop the thread, then joins the
+ * thread.
+ * @details Because it joins the thread it can safely be started again after
+ * stopping.
+ * @param None
+ * @return void
+ */
 void ConsoleModule::stop() {
     stop_flag_ = 1;
+    runner_thread_.join();
 }
 
+/**
+ * @brief The main function for the console module thread.
+ * @details This function will run until the stop flag is set to 1. It will
+ * print the data to the console, and then sleep for the update interval.
+ * @param None
+ * @return void
+ */
 void ConsoleModule::runner() {
     while (!stop_flag_) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(update_interval_));
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(update_interval_));
         clearScreen();
         printData();
     }
 }
 
+/**
+ * @brief Clears the screen
+ * @param None
+ * @return void
+ */
 void ConsoleModule::clearScreen() {
     std::cout << "\033[2J\033[1;1H";
 }
 
+/**
+ * @brief Prints formatted data to the console.
+ * @details This is a bit messy and probably should be redone with ncurses.
+ * @param None
+ * @return void
+ * @todo Add telemetry data
+ */
 void ConsoleModule::printData() {
-    std::cout << "GFC  -  Giraffe Flight System  -  V" + (std::string) GFC_VERSION << std::endl;
+    std::cout << "GFC  -  Giraffe Flight System  -  V" + 
+    (std::string) GFC_VERSION << std::endl;
     std::time_t t = std::time(0);   // get time now
     std::tm* now = std::localtime(&t);
     std::cout << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec
@@ -58,7 +98,8 @@ void ConsoleModule::printData() {
         <<  now->tm_mday << std::endl;
 
     std::cout << 
-    "====================================================================================" 
+    "=========================================================================="
+    "==========" 
     << std::endl << std::endl;
 
     std::cout << "General - " << std::endl;
@@ -108,7 +149,7 @@ void ConsoleModule::printData() {
     }
     std::cout << std::endl << std::endl;
 
-    std::cout << "Teletry - " << std::endl;
+    std::cout << "Telemetry - " << std::endl;
     std::cout << "Enabled: ";
     int telemetry_enabled = config_data_.telemetry.telemetry_enabled;
     if (telemetry_enabled) {
