@@ -14,8 +14,9 @@ function names: camelCase
 
 variables:
 local: look_like_this
-member: m_look_like_this
+member: look_like_this_
 static: s_look_like_this
+pointer: p_look_like_this
 
 Macros: ALL_CAPS (but don't use them)
 

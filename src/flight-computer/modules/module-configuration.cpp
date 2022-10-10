@@ -109,7 +109,7 @@ void ConfigModule::parseExtensions() {
 
 		std::string name = item.value()["name"].get<std::string>();
 		if (name.length() < EXTENSION_NAME_MIN_LENGTH ||
-		name.length() > EXTENSION_NAME_MAX_LENGTH) {
+		name.length() >= EXTENSION_NAME_MAX_LENGTH) {
 			errors_.push_back("Extension name " + name + " must be between " + 
 			std::to_string(EXTENSION_NAME_MIN_LENGTH) + " and " + 
 			std::to_string(EXTENSION_NAME_MAX_LENGTH) + " characters.");
