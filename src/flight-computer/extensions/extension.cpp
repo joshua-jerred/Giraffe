@@ -1,11 +1,11 @@
 /**
  * @file extension.cpp
  * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This file contains the implementation the Extension class.
- * @details The Extension class is the base class for all extensions.
- * @date 2022-10-08
- * @copyright Copyright (c) 2022
+ * @brief This file contains the implementation of the Extension class.
+ * 
  * @version 0.0.9
+ * @date 2022-10-09
+ * @copyright Copyright (c) 2022
  */
 
 #include "extension.h"
@@ -16,36 +16,43 @@
  * extension but it does not start it.
  * The status of the extension is initially set to STOPPED but may be set to
  * 'ERROR' if the extension configuration fails.
- * @param DataStream* p_data_stream - Pointer to the data stream.
- * @param ExtensionMetadata extension_metadata - Metadata for the extension.
+ * @param p_data_stream - Pointer to a DataSteam object.
+ * @param extension_metadata - ExtensionMetadata struct with the extension 
+ * config info
  */
 Extension::Extension(DataStream *p_data_stream, 
                      ExtensionMetadata extension_metadata) {
     
-    m_data_stream = p_data_stream;
+    p_data_stream_ = p_data_stream;
 
     setStatus(ExtensionStatus::STOPPED);
-    setName(extension_metadata.name);
+
     setID(extension_metadata.id);
+    setName(extension_metadata.name);
     setType(extension_metadata.extension_type);
-    setUpdateInterval(extension_metadata.update_interval);
+    setCategory(extension_metadata.category);
     setInterface(extension_metadata.interface);
+    setUpdateInterval(extension_metadata.update_interval);
     setCritical(extension_metadata.critical);
 
 }
 
 /**
- * @brief Destructor for the Extension base class.
- * @todo Stop the thread if it is running.
+ * @brief Destructor. Stop must be called first.
+ * @todo Stop the thread if it is running, check for errors.
+ * @bug Does not attempt to stop the thread.
  */
 Extension::~Extension() {
 
 }
 
 /**
- * @brief Starts the extension thread if it is stopped. This should change the
- * status to 'STARTING' and the thread will change it to 'RUNNING' or 'ERROR'.
- * @param None.
+ * @brief Starts the extension thread if it is stopped, changes status. 
+ * @details This function attempts to start the extension thread with 
+ * spawnRunner().
+ * This will change the status to 'STARTING'. The thread is responsible 
+ * for the later change to 'RUNNING' or 'ERROR'.
+ * @param None
  * @return void
  */
 void Extension::start() {
@@ -56,11 +63,21 @@ void Extension::start() {
 }
 
 /**
- * @brief Not implemented.
- * @details Stops the extension thread and sets the status based on the result.
- * @todo Implement this.
+ * @brief Signals the thread to stop.
+ * @details Sets the status to 'STOPPING' which signals the thread to stop.
+ * The thread is responsible for the later change to 'STOPPED' or 'ERROR'.
+ * This function does not wait for the thread to stop, it only changes the
+ * status. This functionality needs to be implemented in each extension's
+ * runner() method.
+ * @todo Implement thread joining.
+ * @param None
+ * @return void
  */
 void Extension::stop() {
+    if (getStatus() == ExtensionStatus::RUNNING) {
+        setStatus(ExtensionStatus::STOPPING);
+    }
+
 }
 
 /**
@@ -73,10 +90,11 @@ void Extension::restart() {
 }
 
 /**
- * @return std::string The name of the extension.
+ * @return ExtensionStatus The status of the extension. Status is an atomic,
+ * so it is thread safe.
  */
-std::string Extension::getName() {
-    return name_;
+ExtensionStatus Extension::getStatus() {
+    return status_;
 }
 
 /**
@@ -87,6 +105,13 @@ int Extension::getID() {
 }
 
 /**
+ * @return std::string The name of the extension.
+ */
+std::string Extension::getName() {
+    return name_;
+}
+
+/**
  * @return std::string The type of the extension.
  */
 std::string Extension::getType() {
@@ -94,10 +119,10 @@ std::string Extension::getType() {
 }
 
 /**
- * @return int The update interval in milliseconds of the extension.
+ * @return ExtensionMetadata::Category The category of the extension.
  */
-int Extension::getUpdateInterval() {
-    return update_interval_;
+ExtensionMetadata::Category Extension::getCategory() {
+    return category_;
 }
 
 /**
@@ -108,6 +133,13 @@ ExtensionMetadata::Interface Extension::getInterface() {
 }
 
 /**
+ * @return int The update interval in milliseconds of the extension.
+ */
+int Extension::getUpdateInterval() {
+    return update_interval_;
+}
+
+/**
  * @return int Whether or not the extension is flight critical 0=no, 1=yes.
  */
 int Extension::getCritical() {
@@ -115,105 +147,186 @@ int Extension::getCritical() {
 }
 
 /**
- * @return ExtensionStatus The status of the extension.
+ * @brief This must be overridden by each extension.
+ * @details This function is called by by spawnRunner() to start the thread.
+ * The runner belongs to each extension so the base class runner should never
+ * be called. The runner function override should contain an endless loop that
+ * generates data for the data stream. It should only continue the loop at a
+ * rate that is equal to 'update_interval_'. The runner must also check to see
+ * if the status is 'stopping', if it is it must shutdown and return 0.
+ * If this function is not overridden, it will add an error to the data stream 
+ * and return -1.
+ * @return int -1, an error value. 0 is for a clean stop.
  */
-ExtensionStatus Extension::getStatus() {
-    return status_;
+int Extension::runner() {
+    p_data_stream_->addError(name_, "EXT_RUNNER", "Runner not implemented"
+        "in child class.");
+    return -1;
 }
 
 /**
- * @brief Sends a the data to the data stream.
+ * @brief Sets the status. Thread safe.
+ * @details Sets the status, no error checking is done. The status member
+ * is protected as a std::atomic<> so it is thread safe. This is called within
+ * the base class and parent class.
+ * @param status 
+ */
+void Extension::setStatus(ExtensionStatus status) {
+    status_ = status;
+}
+
+/**
+ * @brief Sends data to the data stream.
  * @details This function is used to send data from the extension to the data
  * stream. It is a wrapper for the DataStream::addData() function. It fills
  * in the extension name and the valid time in seconds which is defined as
  * 'getUpdateInterval() / 1000'.
  * @bug This function does not take into account the time it may take an
- * extension to collect it's data.
+ * extension to collect it's data. Also send data could possibly be put
+ * into a template.
  * @param std::string unit - The unit of the data. Example "TF" for temperature 
  * in fahrenheit. This is defined in the configuration.
  * @param std::string value
  * @param int value
  * @param float value
- * 
+ * @return void
  */
 void Extension::sendData(std::string unit, std::string value) {
     std::time_t t = std::time(0);
-    mDataStream->addData(getName(), unit, value, getUpdateInterval() / 1000);
+    p_data_stream_->addData(getName(), unit, value, 
+                            getUpdateInterval() / 1000);
 }
+
 /**
- * @brief Override 
+ * @brief Override for integers. See sendData(std::string, std::string).
+ * @todo Limit number size?
  */
 void Extension::sendData(std::string unit, int value) {
-    mDataStream->addData(getName(), unit, std::to_string(value), getUpdateInterval() / 1000);
+    p_data_stream_->addData(getName(), unit, std::to_string(value), 
+                            getUpdateInterval() / 1000);
 }
 
 /**
- * @brief Override 
+ * @brief Override for floats. See sendData(std::string, std::string).
+ * @todo Limit to float precision?
  */
 void Extension::sendData(std::string unit, float value) {
-    mDataStream->addData(getName(), unit, std::to_string(value), getUpdateInterval() / 1000);
+    p_data_stream_->addData(getName(), unit, std::to_string(value), 
+                            getUpdateInterval() / 1000);
 }
 
 /**
- * @todo Range checking on all setters
+ * @brief Sets the ID of the extension, reports errors to the data stream.
+ * @details This does not check for duplicates.
+ * @param num The id
+ * @return void
  */
-void Extension::setName(std::string name) {
-    if ((name.size() <= 10) && (name.size() > 2)) {
-        name_ = name;
-        return;
-    } else {
-        mDataStream->addError(name, "EXT_NAME", "Specified name out of range.");
-        name_ = "NULL";
-        setStatus(ExtensionStatus::kError);
-        return;
-    }
-}
-
 void Extension::setID(int num) {
-    if ((num > 0) && (num <= 255)) {
+    if ((num >= EXTENSION_ID_MIN) && (EXTENSION_ID_MAX <= 255)) {
         id_ = num;
         return;
     } else {
         id_ = 0;
-        setStatus(ExtensionStatus::kError);
-        mDataStream->addError(name_, "EXT_ID", "Specified ID out of range.");
+        setStatus(ExtensionStatus::ERROR);
+        p_data_stream_->addError(name_, "EXT_ID", 
+                                 "Specified ID out of range.");
         return;
     }
 }
 
-void Extension::setStatus(ExtensionStatus status) {
-    status_ = status;
-    return;
+/**
+ * @brief Sets the name of the extension, reports errors to the data stream.
+ * @details Uses the extension max length and min length macros to validate the 
+ * name. If the name is invalid, the status is set to ERROR, name is set to
+ * "NAME_ERROR" and the error is reported to the data stream. This error should
+ * be caught by the configuration module before it gets here.
+ * @todo Add a check for valid characters (Is there a standard yet?).
+ * @param name The name of the extension.
+ * @return void
+ */
+void Extension::setName(std::string name) {
+    if ((name.size() <= EXTENSION_NAME_MAX_LENGTH) 
+        && (name.size() >= EXTENSION_NAME_MIN_LENGTH)) {
+        name_ = name;
+        return;
+    } else {
+        p_data_stream_->addError(name, "EXT_NAME", 
+                                 "Specified name out of range.");
+        name_ = "NAME_ERROR";
+        setStatus(ExtensionStatus::ERROR);
+        return;
+    }
 }
 
+/**
+ * @brief Sets the type of the extension.
+ * @details Does not do any error checking.
+ * @todo Add length and character checking.
+ * @param type
+ * @return void
+ */
 void Extension::setType(std::string type){
     type_ = type;
     return;
 }
 
-void Extension::setUpdateInterval(int interval){
-    update_interval_ = interval;
+/**
+ * @brief Sets the category of the extension, does not do any error checking.
+ * @param category 
+ * @return void
+ */
+void Extension::setCategory(ExtensionMetadata::Category category) {
+    category_ = category;
+    return;
 }
 
+/**
+ * @brief Sets the interface of the extension that will be used for device
+ * communication.
+ * @param interface
+ * @return void
+ * 
+ * @todo Add extra args handling here if for interface. Ex: i2c bus and address.
+ */
 void Extension::setInterface(ExtensionMetadata::Interface interface){
-
     interface_ = interface;
     return;
 }
 
+/**
+ * @brief Sets the update interval of the extension.
+ * @details Currently does not do any error checking.
+ * @todo Add range checking.
+ * @param interval The update interval in milliseconds, 0 means the thread will
+ * return after a single run.
+ */
+void Extension::setUpdateInterval(int interval_ms){
+    update_interval_ = interval_ms;
+}
+
+/**
+ * @brief Sets the critical flag of the extension 1=yes, 0=no.
+ * @details If the extension is flight critical and the status is 'ERROR' then
+ * the system should attempt to recover. This is/will be implemented in the
+ * health_check() function.
+ * @see health_check()
+ * @param critical 1=yes, 0=no.
+ */
 void Extension::setCritical(int critical){
+    if (critical != 0 && critical != 1) {
+        critical_ = 0;
+        p_data_stream_->addError(name_, "EXT_CRITICAL", 
+                                 "Critical flag out of range.");
+        return;
+    }
     critical_ = critical;
     return;
 }
 
-
-
-int Extension::runner() {
-    std::cout << "Exthension: " << name_ << " has a misconfigured runner() method." << std::endl;
-    std::cout << "This is from extension.cpp runner." << std::endl;
-    return -1;
-}
-
+/**
+ * @brief This function will attempt to spawn the runner thread of the
+ * parent class.
+ */
 void Extension::spawnRunner() {
     runner_thread_ = std::thread(&Extension::runner, this);
 }
