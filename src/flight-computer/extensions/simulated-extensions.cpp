@@ -1,17 +1,21 @@
-#include <iostream>
-#include <thread>
-#include <syncstream>
-#include <atomic>
-
-#include "utility-config-types.h"
-#include "utility-data-stream.h"
-
-#include "extension.h"
+/**
+ * @file simulated-extensions.cpp
+ * @author Joshua Jerred (github.com/joshua-jerred)
+ * @brief This file contains the implementation of the simulated extensions.
+ * @details Simulated extensions currently only send data to the data stream.
+ * @todo Implement full simulation of the BMP180, DRA818V, DS18B20, and SAM-M8Q
+ * This should include configuration identical to the real extensions.
+ * @version 0.0.9
+ * @date 2022-10-09
+ * @copyright Copyright (c) 2022
+ */
 
 #include "simulated-extensions.h"
 
-TestExtension::TestExtension(DataStream *pDS, ExtensionMetadata config_data) :
-    Extension(pDS, config_data) {
+// See simulated-extensions.h for documentation
+TestExtension::TestExtension(DataStream *p_data_stream, 
+                             ExtensionMetadata extension_metadata) :
+                             Extension(p_data_stream, extension_metadata) {
 }
 TestExtension::~TestExtension() {
 }
@@ -24,12 +28,10 @@ int TestExtension::runner() {
     }
     return 0;
 }
-// void TestExtension::spawnRunner() {
-//     runner_thread_ = std::thread(&TestExtension::runner, this);
-// }
 
-BMP180_SIM::BMP180_SIM(DataStream *pDS, ExtensionMetadata config_data) :
-    Extension(pDS, config_data) {
+// See simulated-extensions.h for documentation
+BMP180_SIM::BMP180_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
+    Extension(p_data_stream, extension_metadata) {
 }
 BMP180_SIM::~BMP180_SIM() {
 }
@@ -53,14 +55,15 @@ int BMP180_SIM::runner() {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
             );
-        sendData("TF", temp);
-        sendData("PM", pressure);
+        sendData("TEMP_F", temp);
+        sendData("PRES_M", pressure);
     }
     return 0;
 }
 
-SAMM8Q_SIM::SAMM8Q_SIM(DataStream *pDS, ExtensionMetadata config_data) :
-    Extension(pDS, config_data) {}
+// See simulated-extensions.h for documentation
+SAMM8Q_SIM::SAMM8Q_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
+    Extension(p_data_stream, extension_metadata) {}
 SAMM8Q_SIM::~SAMM8Q_SIM() {  
 }
 int SAMM8Q_SIM::runner() {
@@ -82,14 +85,15 @@ int SAMM8Q_SIM::runner() {
         );
         sendData("GPS_LAT", lat);
         sendData("GPS_LON", lon);
-        sendData("GPS_ALT", alt);
+        sendData("GPS_ALT_M", alt);
         sendData("GPS_QUAL", quality);
         sendData("HORZ_SPEED", horizontal_speed);
     }
 }
 
-DS18B20_SIM::DS18B20_SIM(DataStream *pDS, ExtensionMetadata config_data) :
-    Extension(pDS, config_data) {
+// See simulated-extensions.h for documentation
+DS18B20_SIM::DS18B20_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
+    Extension(p_data_stream, extension_metadata) {
 }
 DS18B20_SIM::~DS18B20_SIM() {}
 int DS18B20_SIM::runner() {
@@ -109,12 +113,13 @@ int DS18B20_SIM::runner() {
         } else if (temp == 75) {
             upordown = 1;
         }
-        sendData("TF", temp);
+        sendData("TEMP_C", temp);
     }
 }
 
-DRA818V_SIM::DRA818V_SIM(DataStream *pDS, ExtensionMetadata config_data) :
-    Extension(pDS, config_data) {
+// See simulated-extensions.h for documentation
+DRA818V_SIM::DRA818V_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
+    Extension(p_data_stream, extension_metadata) {
 }
 DRA818V_SIM::~DRA818V_SIM() { 
 }
