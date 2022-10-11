@@ -31,6 +31,7 @@ TEST(ConfigurationModule, LoadConfig) {
 
 TEST(ConfigurationModule, General) {
     EXPECT_EQ(confdata->general.project_name, "Proj 1");
+
     EXPECT_EQ(confdata->general.main_board, ConfigData::MainboardType::kPi_zero_w);
     EXPECT_EQ(confdata->general.starting_loop, 1);
 }
@@ -41,7 +42,7 @@ TEST(ConfigurationModule, Extensions) {
 
     ExtensionMetadata ext1 = extensions[0];
     ExtensionMetadata ext2 = extensions[1];
-
+    
     EXPECT_EQ(ext1.id, 1);
     EXPECT_EQ(ext1.name, "temp1");
     EXPECT_EQ(ext1.extension_type, "DS18B20");

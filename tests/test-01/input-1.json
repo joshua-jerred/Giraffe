@@ -39,7 +39,6 @@
         "aprs-memo": "AOS v3 Testing",
 
         "sstv-enabled": false,
-
         "afsk-enabled": false
     },
     "data-types": [

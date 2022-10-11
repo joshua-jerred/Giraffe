@@ -48,7 +48,6 @@
  */
 class DataModule : public Module {
 public:
-
     DataModule(ConfigData config_data);
     ~DataModule();
 
