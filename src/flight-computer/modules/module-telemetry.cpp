@@ -1,26 +1,21 @@
 /**
  * @file module-telemetry.cpp
  * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This file implements the class TelemetryModule
- * which is defined in module-telemetry.h
- * @version 0.1
- * @date 2022-10-03
+ * @brief This fle implements the class TelemetryModule which is defined in
+ * module-telemetry.h.
  * 
+ * @version 0.0.9
+ * @date 2022-10-11
  * @copyright Copyright (c) 2022
  */
-#include <mutex>
-#include <fstream>
-
-#include "utility-data-stream.h"
-#include "utility-configurables.h"
 
 #include "module-telemetry.h"
-
 
 /**
  * @brief Construct a new TelemetryModule object. 
  * 
- * @param config_data 
+ * @param config_data All configuration data.
+ * @param data_stream A pointer to the data stream.
  */
 TelemetryModule::TelemetryModule(ConfigData config_data, DataStream *data_stream) {
     error_source_ = "M_TEL";
@@ -33,9 +28,17 @@ TelemetryModule::TelemetryModule(ConfigData config_data, DataStream *data_stream
     tx_number_ = 1;
 }
 
+/**
+ * @brief Destroy the Telemetry Module:: Telemetry Module object
+ * @todo implement this in a safe way.
+ */
 TelemetryModule::~TelemetryModule() {
 }
 
+/**
+ * @brief This starts the telemetry module thread.
+ * @todo not implemented yet.
+ */
 void TelemetryModule::start() {
 }
 
@@ -43,8 +46,10 @@ void TelemetryModule::stop() {
 }
 
 /**
- * @brief Adds AFSK encoded data packet, containing data
- * from the data snapshot, to the transmit queue.
+ * @brief Adds AX.25 encoded AFSK packets to the telemetry queue.
+ * @param None
+ * @return Void
+ * @todo implement this.
  */
 void TelemetryModule::sendDataPacket() {
     DataFrame data = p_data_stream_->getDataFrameCopy();
@@ -60,6 +65,11 @@ void TelemetryModule::sendDataPacket() {
     addToTXQueue(newTX);
 }
 
+/**
+ * @brief Send a raw AFSK message (callsign is added).
+ * @param message The message to send.
+ * @return void
+ */
 void TelemetryModule::sendAFSK(std::string message){
     Transmission newTX;
     newTX.type = Transmission::Type::AFSK;
@@ -71,7 +81,7 @@ void TelemetryModule::sendAFSK(std::string message){
 
 /**
  * @brief Pulls data from the data snapshot and then
- * uses the AFSK utility to create an AX.25 packet.
+ * uses the AFSK utility to create an APRS packet.
  * @todo currently not implemented
  */
 void TelemetryModule::sendAPRS() {
@@ -88,7 +98,7 @@ void TelemetryModule::sendAPRS() {
 /**
  * @brief Adds an SSTV image to the transmit queue.
  * It will use the path of the most recent picture from
- * the data snapshot, along with environmental data from there.
+ * the data snapshot, along with environmental data.
  */
 void TelemetryModule::sendSSTVImage() {
     Transmission newTX;
@@ -110,8 +120,10 @@ int TelemetryModule::getNextTXNumber() {
  * that the wav file actually exists. If both are good,
  * it will aquire a lock on the transmission queue, add the
  * data, then unlock it.
- * @param transmission 
- * @return none
+ * @param transmission The transmission to add to the queue. 
+ * @return void
+ * @see Transmission
+ * @todo Fully implement the queue
  */
 void TelemetryModule::addToTXQueue(Transmission transmission) {
     if (transmission.type == Transmission::Type::ERROR) {

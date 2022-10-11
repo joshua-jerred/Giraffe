@@ -10,8 +10,12 @@
 #ifndef MODULE_TELEMETRY_H_
 #define MODULE_TELEMETRY_H_
 
+#include <mutex>
+#include <fstream>
+
 #include "module.h"
 
+#include "utility-data-stream.h"
 #include "utility-configurables.h"
 #include "utility-config-types.h"
 
@@ -30,6 +34,7 @@ struct Transmission {
 /**
  * @brief This class is responsible for handling the radio
  * and transmitting data upon request.
+ * @todo This is hardly implemented.
  */
 class TelemetryModule : public Module {
 public:

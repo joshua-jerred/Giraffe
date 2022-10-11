@@ -6,8 +6,6 @@
  * @date 2022-09-25
  * 
  * @copyright Copyright (c) 2022
- * @defgroup flight-computer-modules
- * @addtogroup flight-computer-modules
  */
 
 #ifndef MODULE_H_
@@ -19,10 +17,10 @@
  * @see FlightRunner
  */
 enum class ModuleStatus {
-    stopped=0,
-    starting=1,
-    running=2,
-    error_state=3 
+    STOPPED=0,
+    STARTING=1,
+    RUNNING=2,
+    ERROR_STATE=3 
 };
 
 /**
@@ -34,8 +32,8 @@ class Module {
         Module( ) { };
         virtual ~Module( ) { };
         ModuleStatus status( ) { return module_status_; };
-        virtual void start( ) { module_status_ = ModuleStatus::error_state; };
-        virtual void stop( ) { module_status_ = ModuleStatus::error_state; };
+        virtual void start( ) { module_status_ = ModuleStatus::ERROR_STATE; };
+        virtual void stop( ) { module_status_ = ModuleStatus::ERROR_STATE; };
 
 
     protected:

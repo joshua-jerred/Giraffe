@@ -12,7 +12,7 @@
 #include "utility-data-stream.h"
 
 /**
- * @brief Construct a new DataStream::DataStream object
+ * @brief Construct a new DataStreamobject
  * @param None
  */
 DataStream::DataStream() {
@@ -38,7 +38,7 @@ DataStream::~DataStream() {
 }
 
 /**
- * @brief Add data to the data stream
+ * @brief Add data to the data stream. This function is thread safe.
  * @param data_source - The source of the data, ie "BMP180"
  * @param data_name - The name of the data, ie "TEMP_F"
  * @param data_value - The value of the data, ie "72.5"
@@ -60,22 +60,47 @@ void DataStream::addData(
 	data_stream_lock_.unlock(); // Unlock the data stream to make it available
 }
 
-
-void DataStream::addError(std::string errorSource, 
-	std::string errorName, std::string errorInfo) {
+/**
+ * @brief Add an error to the error stream. This function is thread safe.
+ * @param error_source The file or function that the error occured in.
+ * @param error_name The error code or name.
+ * @param error_info Human readable information about the error.
+ * @param seconds_until_expiry The number of seconds until the error
+ * should be considered expired. If this is 0, the error will never expire.
+ * @return void
+ */
+void DataStream::addError(std::string error_source, 
+	std::string error_name, std::string error_info,
+	int seconds_until_expiry) {
+	std::time_t current_time = std::time(nullptr);
 	error_stream_lock_.lock();
-	error_stream_.push({errorSource, errorName, errorInfo});
+	error_stream_.push(
+		{error_source, error_name, error_info, 
+		current_time + seconds_until_expiry}
+		);
 	num_error_packets_++;
 	total_error_packets_++;
 	error_stream_lock_.unlock();
 }
 
+/**
+ * @brief This is called externally by the data module. It is used to
+ * update the data frame that can be accessed by everyone. Thread safe.
+ * @param data_frame
+ * @return void
+ */
 void DataStream::updateDataFrame(DataFrame data_frame) {
 	data_frame_lock_.lock();
 	data_frame_ = data_frame;
 	data_frame_lock_.unlock();
 }
 
+/**
+ * @brief Returns the next data packet. Thread safe.
+ * @param None
+ * @return DataStreamPacket The next data packet, or an empty one if there
+ * are no more data packets.
+ */
 DataStreamPacket DataStream::getNextDataPacket() {
 	data_stream_lock_.lock(); // lock while reading
 	DataStreamPacket packet;
@@ -90,6 +115,12 @@ DataStreamPacket DataStream::getNextDataPacket() {
 	return packet;
 }
 
+/**
+ * @brief Returns the next error. Thread safe.
+ * @param None 
+ * @return ErrorStreamPacket An error stream packet with an error. If there are
+ * no more errors it will return an empty packet.
+ */
 ErrorStreamPacket DataStream::getNextErrorPacket() {
 	error_stream_lock_.lock();
 	ErrorStreamPacket packet;
@@ -104,6 +135,12 @@ ErrorStreamPacket DataStream::getNextErrorPacket() {
 	return packet;
 }
 
+/**
+ * @brief Makes a copy of the DataFrame and returns it. This is generally
+ * called by a thread in a different module. This is thread safe.
+ * @param None
+ * @return DataFrame 
+ */
 DataFrame DataStream::getDataFrameCopy() {
 	data_frame_lock_.lock();
 	DataFrame data_frame(data_frame_);
@@ -111,18 +148,32 @@ DataFrame DataStream::getDataFrameCopy() {
 	return data_frame;
 }
 
+/**
+ * @return int The number of data packets in the data stream.
+ */
 int DataStream::getNumDataPackets() {
 	return num_data_packets_;
 }
 
+/**
+ * @return int The number of error packets in the error stream.
+ */
 int DataStream::getNumErrorPackets() {
 	return num_data_packets_;
 }
 
+/**
+ * @return int The total number of data packets that have been added to the
+ * data stream since the data stream was created.
+ */
 int DataStream::getTotalDataPackets() {
 	return total_data_packets_;
 }
 
+/**
+ * @return int The total number of error packets that have been added to the
+ * error stream since the error stream was created.
+ */
 int DataStream::getTotalErrorPackets() {
 	return total_error_packets_;
 }

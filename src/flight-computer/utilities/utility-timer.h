@@ -1,8 +1,22 @@
-#ifndef _TIMER_H_
-#define _TIMER_H_
+/**
+ * @file utility-timer.h
+ * @author Joshua Jerred (github.com/joshua-jerred)
+ * @brief The declaration of the timer class.
+ * 
+ * @version 0.0.9
+ * @date 2022-10-11
+ * @copyright Copyright (c) 2022
+ */
+
+#ifndef UTILITY_TIMER_H_
+#define UTILITY_TIMER_H_
 
 #include <chrono>
 
+/**
+ * @brief A simple timer class that can be used to time events.
+ * @todo Isn't this what a stopwatch is called? I'm not timing anythging.
+ */
 class Timer
 {
 public:
@@ -18,4 +32,4 @@ private:
     std::chrono::time_point<_clock> _begin;
 };
 
-#endif
+#endif // UTILITY_TIMER_H_

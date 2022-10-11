@@ -46,15 +46,17 @@ struct ErrorStreamPacket {
     std::string error_source = "";
     std::string error_name  = "";
     std::string error_info  = "";
+    std::time_t expiration_time = 0;
 };
 
 /**
- * @brief This class is passed to each extension/module. It is used
+ * @brief This class is passed to many extensions/modules. It is used
  * to communicate data and errors to the data module from any
- * location or even from another thread. There is a lock when writing
+ * location or even from other threads. There are locks when writing
  * or reading from the streams that will allow for data safety when
  * threads access the stream.
- * 
+ * This class is ultimately the communication bridge between sections of the 
+ * flight computer.
  */
 class DataStream {
 public:
@@ -64,7 +66,7 @@ public:
 	std::string data_name, std::string data_value, int seconds_until_expiry);
 
     void addError(std::string error_source, std::string error_name, 
-                  std::string error_info);
+                  std::string error_info, int seconds_until_expiry);
 
     void updateDataFrame(DataFrame data_frame);
 
@@ -94,4 +96,4 @@ private:
     DataFrame data_frame_;
 };
 
-#endif
+#endif // UTILITY_DATA_STREAM_H_
