@@ -104,7 +104,7 @@ public:
     json getAllJson();
 
 private:
-    int parseAll();
+    void parseAll();
         
     void parseGeneral();
     void parseExtensions();

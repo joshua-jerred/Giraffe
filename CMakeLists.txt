@@ -14,6 +14,7 @@ add_executable(Giraffe-FC-Alpha
     src/flight-computer/modules/module-data.cpp
     src/flight-computer/modules/module-extensions.cpp
     src/flight-computer/modules/module-console.cpp
+    src/flight-computer/modules/module-telemetry.cpp
     src/flight-computer/utilities/utility-timer.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
     src/flight-computer/extensions/extension.cpp

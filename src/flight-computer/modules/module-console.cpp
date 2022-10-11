@@ -17,10 +17,10 @@
  * @todo Use data stream, not data module.
  * @todo console update interval should be a macro
  */
-ConsoleModule::ConsoleModule(const ConfigData config_data, DataModule *data) {
+ConsoleModule::ConsoleModule(const ConfigData config_data, DataStream *data_stream) {
     config_data_ = config_data;
     update_interval_ = config_data.debug.console_update_interval;
-    data_ = data;
+    data_stream_ = data_stream;
 }
 
 /**
@@ -221,13 +221,13 @@ void ConsoleModule::printData() {
     }
     std::cout << std::endl;
 
-    DataSnapshot snapshot = data_->getDataSnapshot();
+    DataFrame snapshot = data_stream_->getDataFrameCopy();
     std::cout << "Data - " << snapshot.size() << std::endl;
     const int width = 2;
     int i = 1;
-    for (auto& [key, value] : snapshot) {  
+    for (auto& [key, packet] : snapshot) {  
         std::cout << std::left << std::setw(20) << key << " = " << std::left << 
-        std::setw(12) << value << "  |";
+        std::setw(12) << packet.value << "  |";
         if (i == width) {
             std::cout << std::endl;
             i = 0;

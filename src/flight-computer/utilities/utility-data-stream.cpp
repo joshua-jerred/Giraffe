@@ -9,15 +9,12 @@
  * @copyright Copyright (c) 2022
  */
 
-#include <string>
-#include <queue>
-#include <mutex>
-#include <unordered_map>
-#include <ctime>
-
 #include "utility-data-stream.h"
 
-
+/**
+ * @brief Construct a new DataStream::DataStream object
+ * @param None
+ */
 DataStream::DataStream() {
 	num_data_packets_ = 0;
 	total_data_packets_ = 0;
@@ -26,15 +23,28 @@ DataStream::DataStream() {
 	total_error_packets_ = 0;
 
 	data_stream_lock_.unlock(); // Unlock the data stream to make it available
-	error_stream_lock_.unlock();	// Unlock the error stream to make it available
+	error_stream_lock_.unlock(); // Unlock the error stream to make it available
 }
 
-
+/**
+ * @brief Destroys the DataStream object. Waits for other threads to finish
+ * first. Other threads that access the data should be stopped before this is 
+ * called.
+ */
 DataStream::~DataStream() {
-
+	data_stream_lock_.lock();
+	error_stream_lock_.lock();
+	data_frame_lock_.lock();
 }
 
-
+/**
+ * @brief Add data to the data stream
+ * @param data_source - The source of the data, ie "BMP180"
+ * @param data_name - The name of the data, ie "TEMP_F"
+ * @param data_value - The value of the data, ie "72.5"
+ * @param seconds_until_expiry - The number of seconds until the data should
+ * be considered expired. If this is 0, the data will never expire.
+ */
 void DataStream::addData(
 		std::string data_source, 
 		std::string data_name, 
@@ -60,6 +70,11 @@ void DataStream::addError(std::string errorSource,
 	error_stream_lock_.unlock();
 }
 
+void DataStream::updateDataFrame(DataFrame data_frame) {
+	data_frame_lock_.lock();
+	data_frame_ = data_frame;
+	data_frame_lock_.unlock();
+}
 
 DataStreamPacket DataStream::getNextDataPacket() {
 	data_stream_lock_.lock(); // lock while reading
@@ -75,7 +90,6 @@ DataStreamPacket DataStream::getNextDataPacket() {
 	return packet;
 }
 
-
 ErrorStreamPacket DataStream::getNextErrorPacket() {
 	error_stream_lock_.lock();
 	ErrorStreamPacket packet;
@@ -90,21 +104,24 @@ ErrorStreamPacket DataStream::getNextErrorPacket() {
 	return packet;
 }
 
+DataFrame DataStream::getDataFrameCopy() {
+	data_frame_lock_.lock();
+	DataFrame data_frame(data_frame_);
+	data_frame_lock_.unlock();
+	return data_frame;
+}
 
 int DataStream::getNumDataPackets() {
 	return num_data_packets_;
 }
 
-
 int DataStream::getNumErrorPackets() {
 	return num_data_packets_;
 }
 
-
 int DataStream::getTotalDataPackets() {
 	return total_data_packets_;
 }
-
 
 int DataStream::getTotalErrorPackets() {
 	return total_error_packets_;

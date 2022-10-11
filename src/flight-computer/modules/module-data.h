@@ -9,21 +9,27 @@
 #ifndef MODULE_DATA_H_
 #define MODULE_DATA_H_
 
+#include <unordered_map>
+#include <string>
+#include <iostream>
+#include <fstream>
 #include <thread>
+#include <mutex>
+#include <chrono>
+#include <ctime>
 
 #include "module.h"
 #include "utility-data-stream.h"
-#include "utility-data-snapshot.h"
 
 
 /**
  * @brief The DataModule class is responsible for managing all data between
  * modules. It is responsible for creating safe structures that different
  * concurently running threads can access. It includes primarily a DataStream
- * and a DataSnapshot. The DataStream is a queue that all of the extensions have
+ * and a DataFrame. The DataStream is a queue that all of the extensions have
  * access to. They can add data whenever they want. The data module is 
  * responsible for collecting this data from the stream. This data is then
- * either logged, or used to update the DataSnapshot. The DataSnapshot is a
+ * either logged, or used to update the DataFrame. The DataFrame is a
  * map of containing the values and names of each 'data type' that the extensions
  * collect. The snapshot only contains a single value of each data type, the
  * most up to date value.
@@ -63,7 +69,7 @@ public:
     /**
      * @brief Get a Data Snapshot.
      */
-    DataSnapshot getDataSnapshot();
+    DataFrame getSnapshot();
 
 
     /**
@@ -89,9 +95,6 @@ private:
 
     DataStream *mpDataStream;
 
-    // DataFrame format: <"source:unit", DataStreamPacket>
-    typedef std::unordered_map<std::string, DataStreamPacket> DataFrame;
-    std::mutex dataframe_mutex_;
     DataFrame dataframe_;
 
     std::thread runner_thread_;

@@ -17,11 +17,10 @@
 
 struct Transmission {
     enum class Type {
-        kError = 0,
-        kAPRS = 1,
-        kAFSK = 2,
-        kSSTV = 3,
-        kAPRS = 4 
+        ERROR = 0,
+        APRS = 1,
+        AFSK = 2,
+        SSTV = 3,
     };
     Type type;
     std::string wav_location;

@@ -24,9 +24,6 @@
 #include "utility-configurables.h"
 #include "utility-config-types.h"
 #include "utility-data-stream.h"
-#include "utility-data-snapshot.h"
-
-#include "module-data.h" // Console should not use the module.
 
 #include "module.h"
 
@@ -42,7 +39,7 @@
  */
 class ConsoleModule : public Module {
 public:
-    ConsoleModule(const ConfigData config_data, DataModule *data);
+    ConsoleModule(const ConfigData config_data, DataStream *data);
     ~ConsoleModule();
 
     void start();
@@ -54,7 +51,7 @@ private:
     void printData();
 
     ConfigData config_data_;
-    DataModule* data_;
+    DataStream* data_stream_;
 
     int update_interval_;
 

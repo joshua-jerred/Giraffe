@@ -25,7 +25,7 @@
 TelemetryModule::TelemetryModule(ConfigData config_data, DataStream *data_stream) {
     error_source_ = "M_TEL";
 
-    config_data_ = MODULE_TELEMETRY_ERROR_PREFIX;
+    config_data_ = config_data;
     ConfigData::Telemetry telemetry_config_ = config_data_.telemetry; 
 
     p_data_stream_ = data_stream;
@@ -47,25 +47,25 @@ void TelemetryModule::stop() {
  * from the data snapshot, to the transmit queue.
  */
 void TelemetryModule::sendDataPacket() {
-    DataSnapshot data = p_data_stream_->getSnapshot();
+    DataFrame data = p_data_stream_->getDataFrameCopy();
     std::string message;
-    for (const auto & [ unit, value ] : data) {
-        message = message + unit + ":" + value + ";";
+    for (const auto & [ unit, packet ] : data) {
+        message += unit + ":" + packet.value + ";";
     }
     Transmission newTX;
-    newTX.type = Transmission::Type::kAFSK;
-    newTX.wav_location = generateAFSK(telemetry_config_.callsign, 
-        (std::string) TELEMETRY_WAV_LOCATION + "APRS" + 
-        std::to_string(getNextTXNumber()) + ".wav", message);
+    newTX.type = Transmission::Type::AFSK;
+    //newTX.wav_location = generateAFSK(telemetry_config_.callsign, 
+    //    (std::string) TELEMETRY_WAV_LOCATION + "APRS" + 
+    //    std::to_string(getNextTXNumber()) + ".wav", message);
     addToTXQueue(newTX);
 }
 
 void TelemetryModule::sendAFSK(std::string message){
     Transmission newTX;
-    newTX.type = Transmission::Type::kAFSK;
-    newTX.wav_location = generateAFSK(telemetry_config_.callsign, 
-        (std::string) TELEMETRY_WAV_LOCATION + "AFSK" + 
-        std::to_string(getNextTXNumber()) + ".wav", message);
+    newTX.type = Transmission::Type::AFSK;
+    //newTX.wav_location = generateAFSK(telemetry_config_.callsign, 
+    //    (std::string) TELEMETRY_WAV_LOCATION + "AFSK" + 
+    //    std::to_string(getNextTXNumber()) + ".wav", message);
     addToTXQueue(newTX);
 }
 
@@ -75,13 +75,13 @@ void TelemetryModule::sendAFSK(std::string message){
  * @todo currently not implemented
  */
 void TelemetryModule::sendAPRS() {
-    DataSnapshot data = p_data_stream_->getSnapshot();
+    DataFrame data = p_data_stream_->getDataFrameCopy();
     //std::string lat = data["GLAT"];
     //std::string lon = data["GLON"];
     //std::string alt = data["GALT"];
     Transmission newTX;
-    newTX.type = Transmission::Type::kAPRS;
-    newTX.wav_location = generateAPRS();
+    newTX.type = Transmission::Type::APRS;
+    //newTX.wav_location = generateAPRS();
     addToTXQueue(newTX);
 }
 
@@ -92,8 +92,8 @@ void TelemetryModule::sendAPRS() {
  */
 void TelemetryModule::sendSSTVImage() {
     Transmission newTX;
-    newTX.type = Transmission::Type::kSSTV;
-    newTX.wav_location = generateSSTV();
+    newTX.type = Transmission::Type::SSTV;
+    //newTX.wav_location = generateSSTV();
     addToTXQueue(newTX);
 }
 
@@ -114,7 +114,7 @@ int TelemetryModule::getNextTXNumber() {
  * @return none
  */
 void TelemetryModule::addToTXQueue(Transmission transmission) {
-    if (transmission.type == Transmission::Type::kError) {
+    if (transmission.type == Transmission::Type::ERROR) {
         p_data_stream_->addError("M_TEL", "BAD_TX_TYPE",
         "Attempted to add a transmission with an unknown type to the transmit"
         "queue.");
