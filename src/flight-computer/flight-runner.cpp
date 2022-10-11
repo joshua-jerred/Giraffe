@@ -172,5 +172,4 @@ void FlightRunner::deconstruct() {
     if (p_data_module_ != nullptr) {
         p_data_module_->stop();
     }
-
 }
