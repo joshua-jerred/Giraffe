@@ -12,16 +12,15 @@
 struct FlightLoop {
 
     enum LoopType {
-        kError = 0,
-        kTesting = 1,
-        kStandard = 2,
-        kRecovery = 3,
-        kFailsafe = 4
+        ERROR = 0,
+        TESTING = 1,
+        STANDARD = 2,
+        RECOVERY = 3,
+        FAILSAFE = 4
     };
 
     struct Intervals {
         int data_log = 5; // Hard Coded Default, may change to macro
-        int server_update = 5; // Hard Coded Default, may change to macro
         int data_packet = 0;
         int sstv = 0;
         int aprs = 0;
@@ -42,24 +41,24 @@ struct FlightLoop {
 struct ExtensionMetadata {
     
     enum class Category {
-        kError = 0,
-        kOther = 1, 
-        kRadio = 2, 
-        kGPS = 3, 
-        kCamera = 4, 
-        kInternalSensor = 5, 
-        kExternalSensor = 6, 
+        ERROR = 0,
+        OTHER = 1, 
+        RADIO = 2, 
+        GPS = 3, 
+        CAMERA = 4, 
+        INTERNAL_SENSOR = 5, 
+        EXTERNAL_SENSOR = 6, 
     };
 
     enum class Interface {
-        kError = 0,
-        kOther = 1, 
-        kInternal = 2, 
-        kI2C = 3, 
-        kSerial = 4, 
-        kOneWire = 5, 
-        kUSB = 6,
-        kGPIO = 7 
+        ERROR = 0,
+        OTHER = 1, 
+        INTERNAL = 2, 
+        I2C = 3, 
+        SERIAL = 4, 
+        ONEWIRE = 5, 
+        USB = 6,
+        GPIO = 7 
     };
 
     int id = 0; // User defined ID for the extension
@@ -82,13 +81,13 @@ struct ExtensionMetadata {
 struct ConfigData {
 
     enum MainboardType {
-        kError = 0,
-        kOther = 1,
-        kPi_zero = 2, 
-        kPi_zero_w = 3, 
-        kPi_2 = 4, 
-        kPi_3 = 5, 
-        kPi_4 = 6
+        ERROR = 0,
+        OTHER = 1,
+        PI_ZERO = 2, 
+        PI_ZERO_W = 3, 
+        PI_2 = 4, 
+        PI_3 = 5, 
+        PI_4 = 6
     };
 
     struct General {
@@ -101,8 +100,11 @@ struct ConfigData {
         std::vector<ExtensionMetadata> extensions_list {};
     };
 
-    struct Server {
+    struct Debugging {
+        int console_enabled {};
+        int console_update_interval {};
         int web_server_enabled {};
+        int web_server_update_interval {};
     };
 
     struct Telemetry {
@@ -112,8 +114,6 @@ struct ConfigData {
 
         int afsk_enabled {};
         std::string afsk_freq {};
-
-        // int ssdv_enabled {};
 
         int sstv_enabled {};
         std::string sstv_freq {};
@@ -128,8 +128,10 @@ struct ConfigData {
 
     struct DataTypes {
         struct ExtensionDataType {
+            std::string source;
             std::string name;
             std::string unit;
+            int include_in_telemtry = 0;
         };
         std::vector<ExtensionDataType> types {};
     };
@@ -143,7 +145,7 @@ struct ConfigData {
 
     General general;
     Extensions extensions;
-    Server server;
+    Debugging debug;
     Telemetry telemetry;
     DataTypes data_types;
     Loops flight_loops;

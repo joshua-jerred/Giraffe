@@ -30,16 +30,19 @@ TEST(ConfigurationModule, LoadConfig) {
 }
 
 TEST(ConfigurationModule, General) {
-    EXPECT_EQ(confdata->general.project_name, "Test Project");
+    EXPECT_EQ(confdata->general.project_name, "Proj 1");
+
     EXPECT_EQ(confdata->general.main_board, ConfigData::MainboardType::kPi_zero_w);
     EXPECT_EQ(confdata->general.starting_loop, 1);
 }
 
 TEST(ConfigurationModule, Extensions) {
     std::vector <ExtensionMetadata> extensions = confdata->extensions.extensions_list;
-    EXPECT_EQ(confdata->extensions.extensions_list.size(), 1);
+    EXPECT_EQ(confdata->extensions.extensions_list.size(), 2);
 
     ExtensionMetadata ext1 = extensions[0];
+    ExtensionMetadata ext2 = extensions[1];
+    
     EXPECT_EQ(ext1.id, 1);
     EXPECT_EQ(ext1.name, "temp1");
     EXPECT_EQ(ext1.extension_type, "DS18B20");
@@ -48,14 +51,23 @@ TEST(ConfigurationModule, Extensions) {
     EXPECT_EQ(ext1.update_interval, 10);
     EXPECT_EQ(ext1.critical, 0);
     EXPECT_EQ(ext1.address, "28-000000000000");
+
+    EXPECT_EQ(ext2.id, 2);
+    EXPECT_EQ(ext2.name, "press1");
+    EXPECT_EQ(ext2.extension_type, "BMP180");
+    EXPECT_EQ(ext2.category, ExtensionMetadata::Category::kExternalSensor);
+    EXPECT_EQ((int) ext2.interface, 3);
+    EXPECT_EQ(ext2.update_interval, 9);
+    EXPECT_EQ(ext2.critical, 1);
+    EXPECT_EQ(ext2.address, "a2");
 }
 
 TEST(ConfigurationModule, Server) {
-    EXPECT_EQ(confdata->server.web_server_enabled, 0);
+    EXPECT_EQ(confdata->server.web_server_enabled, 1);
 }
 
 TEST(ConfigurationModule, Telemetry) {
-    EXPECT_EQ(confdata->telemetry.telemetry_enabled, 0);
+    EXPECT_EQ(confdata->telemetry.telemetry_enabled, 1);
 }
 
 TEST(ConfigurationModule, DataTypes) {

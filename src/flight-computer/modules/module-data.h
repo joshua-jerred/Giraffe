@@ -1,73 +1,77 @@
 /**
  * @file module-data.h
  * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This file defines the DataService and DataStream objects.
+ * @brief This file declares the class DataModule.
  * @version 0.1
- * @date 2022-09-20
- * 
+ * @date 2022-10-03
  * @copyright Copyright (c) 2022
  */
 #ifndef MODULE_DATA_H_
 #define MODULE_DATA_H_
 
+#include <unordered_map>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <thread>
+#include <mutex>
+#include <chrono>
+#include <ctime>
+
+#include "utility-data-stream.h"
+#include "utility-configurables.h"
+#include "utility-config-types.h"
+
 #include "module.h"
 
-typedef std::unordered_map<std::string, std::string> data_snapshot;
-
 /**
- * @brief The DataService class is responsible for sensor data flow. It collects
- * all of the data into "frames". A frame is a snapshot of the most recent data
- * that has been pulled from the sensors. The DataService is also responsible
- * for the data log and error log files.
- * @addtogroup flight-computer-modules
- * @{
+ * @brief The DataModule class is responsible for managing all data between
+ * modules. It is responsible for creating safe structures that different
+ * concurently running threads can access. It is in charge of the
+ * DataStream. The DataStream is a queue that all of the extensions have
+ * access to. They can add data whenever they want. The data module is 
+ * responsible for collecting this data from the stream and placing it into a
+ * data frame which is then sent to the datastream so other modules can access 
+ * it.
+ * This module also continually goes through the DataFrame looking for stale
+ * data. If it finds stale data, it will set it's value to 'NO_DATA'.
+ * This is an indication of an error within an extension.
+ * 
+ * The DataModule is also reposonsible for logging the data in the dataframe
+ * to a log file when requested to do so.
+ * 
+ * The DataModule also logs errors which are collected through the datastream
+ * in the same way as the data.
+ * 
+ * The data and error log directories can be set inside of 
+ * 'utility-configurables.h'.
  */
 class DataModule : public Module {
 public:
-
-    /**
-     * @brief Construct a new Data Service object. Initializes the DataStream.
-     */
     DataModule(ConfigData config_data);
-
-    /**
-     * @brief Stops the DataService and deconstruct the DataService object. 
-     * Attempts safe shutdown of all services.
-     */
     ~DataModule();
 
-    /**
-     * @brief Get a pointer to the DataStream object.
-     * 
-     * @return DataStream*
-     */
+    void start();
+    void stop();
+
     DataStream* getDataStream();
-
-    /**
-     * @brief Get a Data Snapshot.
-     */
-    data_snapshot getDataSnapshot();
-
-
-    /**
-     * @brief This function will log the data snapshot to the data log file.
-     * @todo Implement this function.
-     */
+    DataFrame getSnapshot();
     void log();
 
 private:
-
-    /**
-     * @brief This function will get the current number of
-     * data packets before reading them all from the dataStream.
-     * This means that if another thread manages to add a packet
-     * to the dataStream while it's being parsed, it will not be
-     * read until the next time this function is called.
-     */
+    void addDataTypeToFrame(ConfigData::DataTypes::ExtensionDataType data_type); // add a data type to the data frame
+    void checkForStaleData(); // check for stale data in the data frame
     void parseDataStream();
+    void parseErrorStream();
+    void runner();
+
+    std::string data_log_file_path_;
+    std::string error_log_file_path_;
 
     DataStream *mpDataStream;
-    data_snapshot mDataSnapshot;
+
+    DataFrame dataframe_;
+
+    std::thread runner_thread_;
 };
- /** @} */
-#endif
+#endif // MODULE_DATA_H_

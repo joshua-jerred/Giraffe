@@ -13,11 +13,17 @@ add_executable(Giraffe-FC-Alpha
     src/flight-computer/modules/module-configuration.cpp
     src/flight-computer/modules/module-data.cpp
     src/flight-computer/modules/module-extensions.cpp
+    src/flight-computer/modules/module-console.cpp
+    src/flight-computer/modules/module-telemetry.cpp
     src/flight-computer/utilities/utility-timer.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
     src/flight-computer/extensions/extension.cpp
-    "src/flight-computer/extensions/test-ext.cpp"
+    src/flight-computer/extensions/simulated-extensions.cpp
 )
+
+file(COPY "src/flight-computer/config.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/data_logs)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/error_logs)
 
 target_include_directories(Giraffe-FC-Alpha PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer

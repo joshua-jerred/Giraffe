@@ -18,6 +18,8 @@
 
 #include "module-data.h"
 #include "module-extensions.h"
+#include "module-console.h"
+#include "module-telemetry.h"
 
 /**
  * @brief The FlightRunner class is responsible for pulling everything together.
@@ -66,7 +68,7 @@ public:
      * @return int shutdown signal to main [0 = good shutdown, any other 
      * number = bad shutdown]
      */
-    int shutdown();
+    void shutdown();
 
 private:
     /**
@@ -86,30 +88,29 @@ private:
      */
     int flightLoop();
 
-    /**
-     * @brief 
-     * 
-     * @return int 
-     */
-    int healthCheck();
+    void healthCheck();
 
     void switchLoops(FlightLoop::LoopType loopType);
 
-    ConfigData mConfigData;
-    FlightLoop::LoopType mCurrentFlightLoop;
-    FlightLoop::Intervals mCurrentIntervals;
+    void deconstruct();
+
+    ConfigData config_data_;
+    FlightLoop::LoopType current_flight_loop_type_;
+    FlightLoop::Intervals current_intervals_;
     
-    DataModule *mpDataModule;
-    ExtensionsModule *mpExtensionsModule;
+    DataModule *p_data_module_;
+    ExtensionsModule *p_extension_module_;
+    ConsoleModule *p_console_module_;
+    TelemetryModule *p_telemetry_module_;
     //ServerModule *mpServerModule;
     //ComModule *mpComModule;
-    int mActive;
+    int shutdown_signal_;
 
-    FlightLoop mTestingLoop;
-    FlightLoop mStandardLoop;
-    FlightLoop mDescentLoop;
-    FlightLoop mRecoveryLoop;
-    FlightLoop mFailsafeLoop;
+    FlightLoop flt_loop_testing_;
+    FlightLoop flt_loop_standard_;
+    FlightLoop flt_loop_descent_;
+    FlightLoop flt_loop_recovery_;
+    FlightLoop flt_loop_failsafe_;
 };
 
 #endif

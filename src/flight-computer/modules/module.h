@@ -1,6 +1,3 @@
-#ifndef MODULE_H_
-#define MODULE_H_
-
 /**
  * @file module.h
  * @author Joshua Jerred (github.com/joshua-jerred)
@@ -9,19 +6,21 @@
  * @date 2022-09-25
  * 
  * @copyright Copyright (c) 2022
- * @defgroup flight-computer-modules
- * @addtogroup flight-computer-modules
  */
 
+#ifndef MODULE_H_
+#define MODULE_H_
+
+#include <string>
 /**
  * @brief module_status is used by the individual modules. Used by FlightRunner.
  * @see FlightRunner
  */
 enum class ModuleStatus {
-    stopped=0,
-    starting=1,
-    running=2,
-    error_state=3 
+    STOPPED=0,
+    STARTING=1,
+    RUNNING=2,
+    ERROR_STATE=3 
 };
 
 /**
@@ -32,12 +31,14 @@ class Module {
     public:
         Module( ) { };
         virtual ~Module( ) { };
-        virtual ModuleStatus status( ) { return module_status_; };
-        virtual void start( ) { module_status_ = module_status_; };
-        virtual void stop( ) { module_status_ = module_status_; }
+        ModuleStatus status( ) { return module_status_; };
+        virtual void start( ) { module_status_ = ModuleStatus::ERROR_STATE; };
+        virtual void stop( ) { module_status_ = ModuleStatus::ERROR_STATE; };
+
 
     protected:
         ModuleStatus module_status_;
+        std::string error_source_;
 };
 
 #endif
