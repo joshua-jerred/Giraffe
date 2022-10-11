@@ -18,9 +18,11 @@
 #include <chrono>
 #include <ctime>
 
-#include "module.h"
 #include "utility-data-stream.h"
+#include "utility-configurables.h"
+#include "utility-config-types.h"
 
+#include "module.h"
 
 /**
  * @brief The DataModule class is responsible for managing all data between

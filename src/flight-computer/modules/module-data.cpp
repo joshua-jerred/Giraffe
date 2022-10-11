@@ -8,11 +8,6 @@
  * @copyright Copyright (c) 2022
  */
 
-#include "module.h"
-
-#include "utility-configurables.h"
-#include "utility-config-types.h"
-
 #include "module-data.h"
 
 /**
