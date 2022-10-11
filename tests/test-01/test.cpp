@@ -31,8 +31,7 @@ TEST(ConfigurationModule, LoadConfig) {
 
 TEST(ConfigurationModule, General) {
     EXPECT_EQ(confdata->general.project_name, "Proj 1");
-
-    EXPECT_EQ(confdata->general.main_board, ConfigData::MainboardType::kPi_zero_w);
+    EXPECT_EQ(confdata->general.main_board, ConfigData::MainboardType::PI_ZERO_W);
     EXPECT_EQ(confdata->general.starting_loop, 1);
 }
 

@@ -29,14 +29,14 @@
 
 // ------- Config File Range Limits ------- //
 // Changing these results in undefined bevahior, it is not recommended.
-#define PROJECT_NAME_MIN_LENGTH 3
-#define PROJECT_NAME_MAX_LENGTH 20
-
-#define EXTENSION_NAME_MIN_LENGTH 3
-#define EXTENSION_NAME_MAX_LENGTH 15
+#define PROJECT_NAME_MIN_LENGTH 1
+#define PROJECT_NAME_MAX_LENGTH 25
 
 #define EXTENSION_ID_MIN 1
 #define EXTENSION_ID_MAX 255
+
+#define EXTENSION_NAME_MIN_LENGTH 3
+#define EXTENSION_NAME_MAX_LENGTH 15
 
 #define EXTENSION_INTERVAL_MIN 0
 #define EXTENSION_INTERVAL_MAX 3600

@@ -2,7 +2,7 @@
 DOXYFILE_ENCODING      = UTF-8
 
 PROJECT_NAME           = "Giraffe"
-PROJECT_NUMBER         = 0.1
+PROJECT_NUMBER         = 0.1.0
 PROJECT_BRIEF          = "A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework."
 PROJECT_LOGO           =
 

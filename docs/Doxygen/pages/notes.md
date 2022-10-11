@@ -1,8 +1,6 @@
 # Errors
 
-## Prefixes:
-- ``M_``  Module Errors
-- ``E_``  Extension Errors
+
 
 # Unit Tests
 test-01 - Configuration Module

@@ -31,7 +31,7 @@ ConfigModule::ConfigModule() {
 }
 
 /**
- * @brief DestroyS the ConfigModule::ConfigModule object
+ * @brief Deconstructs the ConfigModule object
  */
 ConfigModule::~ConfigModule() {
 }
@@ -109,23 +109,32 @@ void ConfigModule::parseAll() {
  * required fields contain errors.
  * @param None
  * @return void
- * @todo Character type limits on the project name.
- */
+ * */
 void ConfigModule::parseGeneral() { 
-	std::string name = json_buffer_["general"]["name"].get<std::string>();
-	if (name.length() < PROJECT_NAME_MIN_LENGTH || 
-	name.length() > PROJECT_NAME_MAX_LENGTH) {
-		errors_.push_back("Project name must be between " + 
-		std::to_string(PROJECT_NAME_MIN_LENGTH) + " and " + 
-		std::to_string(PROJECT_NAME_MAX_LENGTH) + " characters.");
-	} else {
-		config_data_.general.project_name = name;
+	if (!json_buffer_.contains("general")) {
+		errors_.push_back("C_GEN_NF"); // General section does not exist in config
 	}
+
+	if (!json_buffer_["general"].contains("project_name")) {
+		errors_.push_back("C_GEN_PN_NF"); // Project name does not exist in config
+	} else {
+		std::string name = json_buffer_["general"]["name"].get<std::string>();
+		if (name.length() < PROJECT_NAME_MIN_LENGTH || 
+		name.length() > PROJECT_NAME_MAX_LENGTH) {
+			errors_.push_back("C_GEN_PN_R" + name);
+			config_data_.general.project_name = "INVALID";
+		} else if (!std::regex_search(name, std::regex("^[a-zA-Z_ 0-9-]*$"))) { 
+			errors_.push_back("C_GEN_PN_I" + name);
+		} else {
+			config_data_.general.project_name = name;
+		}
+	}
+
 
 	ConfigData::MainboardType mbtype = 
 	json_buffer_["general"]["main-board-type"].get<ConfigData::MainboardType>();
 	if (mbtype == ConfigData::MainboardType::ERROR) {
-		errors_.push_back("Invalid main board type.");
+		errors_.push_back("C_GEN_MB_I");
 	} else {
 		config_data_.general.main_board = mbtype;
 	}
@@ -133,7 +142,7 @@ void ConfigModule::parseGeneral() {
 	FlightLoop::LoopType ltype = 
 	json_buffer_["general"]["starting-loop"].get<FlightLoop::LoopType>();
 	if (ltype == FlightLoop::LoopType::ERROR) {
-		errors_.push_back("Invalid starting loop type.");
+		errors_.push_back("C_GEN_SL_I");
 	} else {
 		config_data_.general.starting_loop = ltype;
 	}
@@ -157,7 +166,9 @@ void ConfigModule::parseExtensions() {
 		
 		int id = item.value()["id"].get<int>();
 		if (id != number_of_extensions + 1) { 
-			errors_.push_back("Extension IDs must be sequential, starting at 1.");
+			errors_.push_back("C_EXT_ID_R" + id);
+		} else if (id < EXTENSION_ID_MIN || id > EXTENSION_ID_MAX) {
+			errors_.push_back("C_EXT_ID_S" + id);
 		} else {
 			newExtension.id = id;
 		}
@@ -165,10 +176,11 @@ void ConfigModule::parseExtensions() {
 		std::string name = item.value()["name"].get<std::string>();
 		if (name.length() < EXTENSION_NAME_MIN_LENGTH ||
 		name.length() >= EXTENSION_NAME_MAX_LENGTH) {
-			errors_.push_back("Extension name " + name + " must be between " + 
-			std::to_string(EXTENSION_NAME_MIN_LENGTH) + " and " + 
-			std::to_string(EXTENSION_NAME_MAX_LENGTH) + " characters.");
-		} else {
+			errors_.push_back("C_EXT_NM_R" + name);
+		} else if (!std::regex_search(name, std::regex("^[a-zA-Z_0-9-]*$"))) {
+			errors_.push_back("C_EXT_NM_I" + name);
+		}
+		else {
 			newExtension.name = name;
 		}
 
