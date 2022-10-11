@@ -117,5 +117,9 @@ SSTV transmission is comeplete. This allows the FlightRunner to continue on with
 it's work while the telemetry module worries about actually sending everyting.
 
 ### Debugging Webserver
+Not yet implemented.
+
+
 
 # Giraffe Ground Station
+Not yet implemented.
