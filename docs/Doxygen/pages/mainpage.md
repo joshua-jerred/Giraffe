@@ -44,24 +44,29 @@ You can read more about each module on their respective pages.
     - Reads and parses configuration json file.
 - DataModule
     - The data module is responsible for passing information between modules.
+- ExtensionsModule
+    - The extensions module handles all extensions (sensors).
 - TelemetryModule
     - The telemetry module handles all telemetry including SSTV, AFSK, APRS, etc.
 - ServerModule
-    - The server module is what runs the web server which is used for debugging before launch.
-- ExtensionsModule
-    - The extensions module handles all extensions (sensors).
-
+    - The server module is what runs the web server which is used for debugging 
+        before launch.
+- ConsoleModule
+    - The console module can be used to debug the flight computer before launch
+        from the command line.
 ## Utilities
 Utilities are common items that are used between modules. They include
 simple libraries and common types.
 
-You can read more about each module on their presective pages.
-- [Utility Config Types]()
+You can read more about each module on their respective pages.
+
+- Utility ConfigTypes
     - Common configuration data types.
-- [Utility Data Stream]()
+- Utility DataStream
     - Used by the data module and extensions to pass data between the two.
-- [Utility Timer]()
+- Utility Timer
     - Super simple timer library usec by the flight runner in the flight loop.
+- 
 
 
 
