@@ -11,7 +11,7 @@ Giraffe software is seperated into two sections, the Flight Computer and Ground 
 # Giraffe Flight Software
 ## General
 
-GFS, or Giraffe Flight System is what actually runs on the flight computer.
+GFS, or Giraffe Flight System, is what actually runs on the flight computer.
 
 The flight system software consists of modules and utilities which will be 
 explained below.
@@ -19,15 +19,15 @@ explained below.
 Pulling all of these items together is the [FlightRunner](deadlink). The
 FlightRunner is responsible for using all of the modules to run the 
 [Flight Loop](deadlink). The flight loops, which are
-[configured by the user](deadlink) determine what actions the FlightRunner will
+[configured by the user](deadlink), determine what actions the FlightRunner will
 take. The flight loop is the ``what to do, and when to do it`` of the 
 FlightRunner.
 
 The basic actions of the FlightRunner are similar to the following:
 1. Read the configuration file, check last shutdown state, are you in the middle 
 of the flight?
-2. Set up the DataModule
-3. Set up all Extensions
+2. Set up the DataModule.
+3. Set up all Extensions.
 4. Set up everything else that the user configured
 5. Decide which flight loop to start based off of the last shutdown state,
 and sensor data.
@@ -59,7 +59,7 @@ You can read more about each module on their presective pages.
 - [Utility Config Types]()
     - Common configuration data types.
 - [Utility Data Stream]()
-    - Used by the data module and extensions to pass data between the two
+    - Used by the data module and extensions to pass data between the two.
 - [Utility Timer]()
     - Super simple timer library usec by the flight runner in the flight loop.
 
