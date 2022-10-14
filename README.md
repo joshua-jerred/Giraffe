@@ -2,6 +2,12 @@
 ### A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.
 #### Version 0.0.9
 
+Welcome to the doxygen branch. This is the container for the GitHub pages files
+fore the project. To see the actual code, please look at the master branch.
+
+An extended readme and detailed documentation can be found here:
+[joshuajerred.github.io/Giraffe](https://joshuajerred.github.io/Giraffe)
+
 ![logo](https://user-images.githubusercontent.com/19292194/193437157-0a421f68-fa85-43bb-b372-1807a19c470d.png)
 
 
@@ -17,8 +23,7 @@ into existing software. Two way communication allows you to send commands to the
 flight computer from the ground station. There is a lot more included that isn't
 mentioned here, so please see the rest of the documentation.
 
-An extended readme and detailed documentation can be found here:
-[joshuajerred.github.io/Giraffe](https://joshuajerred.github.io/Giraffe)
+
 
 
 ![alt text](https://user-images.githubusercontent.com/19292194/174874402-ad9695dc-447e-425d-afe4-dd6350de5644.jpg)

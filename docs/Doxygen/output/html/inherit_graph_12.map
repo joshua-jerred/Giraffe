@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classExtension.html" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="5,107,85,133"/>
+<area shape="rect" id="node2" href="$classBMP180__SIM.html" title="The BMP180_SIM is a simulated BMP180 extension." alt="" coords="138,5,241,32"/>
+<area shape="rect" id="node3" href="$classDRA818V__SIM.html" title="Currently not implemented." alt="" coords="133,56,245,83"/>
+<area shape="rect" id="node4" href="$classDS18B20__SIM.html" title="The DS18B20_SIM is a simulated DS18B20 extension." alt="" coords="135,107,244,133"/>
+<area shape="rect" id="node5" href="$classSAMM8Q__SIM.html" title="The SAMM8Q_SIM is a simulated SAM&#45;M8Q extension." alt="" coords="134,157,245,184"/>
+<area shape="rect" id="node6" href="$classTestExtension.html" title="The TestExtension is a data stream test extension." alt="" coords="137,208,242,235"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="DataModule" name="DataModule">
+<area shape="rect" id="node1" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea..." alt="" coords="5,204,172,501"/>
+<area shape="rect" id="node2" href="$classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="26,5,151,156"/>
+</map>

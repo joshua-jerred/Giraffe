@@ -1,0 +1,24 @@
+var annotated_dup =
+[
+    [ "BMP180_SIM", "classBMP180__SIM.html", "classBMP180__SIM" ],
+    [ "ConfigData", "structConfigData.html", "structConfigData" ],
+    [ "ConfigModule", "classConfigModule.html", "classConfigModule" ],
+    [ "ConsoleModule", "classConsoleModule.html", "classConsoleModule" ],
+    [ "DataModule", "classDataModule.html", "classDataModule" ],
+    [ "DataStream", "classDataStream.html", "classDataStream" ],
+    [ "DataStreamPacket", "utility-data-stream_8h.html#structDataStreamPacket", "utility-data-stream_8h_structDataStreamPacket" ],
+    [ "DRA818V_SIM", "classDRA818V__SIM.html", "classDRA818V__SIM" ],
+    [ "DS18B20_SIM", "classDS18B20__SIM.html", "classDS18B20__SIM" ],
+    [ "ErrorStreamPacket", "utility-data-stream_8h.html#structErrorStreamPacket", "utility-data-stream_8h_structErrorStreamPacket" ],
+    [ "Extension", "classExtension.html", "classExtension" ],
+    [ "ExtensionMetadata", "structExtensionMetadata.html", "structExtensionMetadata" ],
+    [ "ExtensionsModule", "classExtensionsModule.html", "classExtensionsModule" ],
+    [ "FlightLoop", "structFlightLoop.html", "structFlightLoop" ],
+    [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ],
+    [ "Module", "classModule.html", "classModule" ],
+    [ "SAMM8Q_SIM", "classSAMM8Q__SIM.html", "classSAMM8Q__SIM" ],
+    [ "TelemetryModule", "classTelemetryModule.html", "classTelemetryModule" ],
+    [ "TestExtension", "classTestExtension.html", "classTestExtension" ],
+    [ "Timer", "classTimer.html", "classTimer" ],
+    [ "Transmission", "structTransmission.html", "structTransmission" ]
+];

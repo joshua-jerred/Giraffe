@@ -1,0 +1,15 @@
+<map id="module.h" name="module.h">
+<area shape="rect" id="node1" title="Defines the enum module_status and parent class for the modules." alt="" coords="359,5,434,32"/>
+<area shape="rect" id="node2" href="$module-configuration_8cpp.html" title="This file implements the class ConfigModule which is defined in module&#45;configuration...." alt="" coords="5,80,172,107"/>
+<area shape="rect" id="node3" href="$module-console_8h.html" title=" " alt="" coords="648,80,772,107"/>
+<area shape="rect" id="node8" href="$module-data_8h.html" title="This file declares the class DataModule." alt="" coords="197,80,301,107"/>
+<area shape="rect" id="node10" href="$module-extensions_8h.html" title="Declares the ExtensionsModule class." alt="" coords="325,80,468,107"/>
+<area shape="rect" id="node12" href="$module-telemetry_8h.html" title="This file defines the class TelemetryModule." alt="" coords="493,80,623,107"/>
+<area shape="rect" id="node4" href="$flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="435,155,535,181"/>
+<area shape="rect" id="node7" href="$module-console_8cpp.html" title="This file contains the Console Module class." alt="" coords="781,155,919,181"/>
+<area shape="rect" id="node5" href="$flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="339,229,454,256"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="478,229,553,256"/>
+<area shape="rect" id="node9" href="$module-data_8cpp.html" title="This file implements the class DataModule which is defined in module&#45;data.h." alt="" coords="60,155,179,181"/>
+<area shape="rect" id="node11" href="$module-extensions_8cpp.html" title="Defines the ExtensionsModule class." alt="" coords="203,155,359,181"/>
+<area shape="rect" id="node13" href="$module-telemetry_8cpp.html" title="This fle implements the class TelemetryModule which is defined in module&#45;telemetry...." alt="" coords="611,155,756,181"/>
+</map>

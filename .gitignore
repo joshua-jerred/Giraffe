@@ -7,6 +7,6 @@
 build
 
 # Doxygen output files, these can be user generated.
-docs/Doxygen/output
+# docs/Doxygen/output
 
 # Other

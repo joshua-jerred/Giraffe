@@ -1,0 +1,4 @@
+<map id="Extension" name="Extension">
+<area shape="rect" id="node1" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="15,439,159,1029"/>
+<area shape="rect" id="node2" href="$classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="5,5,169,376"/>
+</map>

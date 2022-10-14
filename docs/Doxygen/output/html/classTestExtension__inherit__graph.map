@@ -1,0 +1,4 @@
+<map id="TestExtension" name="TestExtension">
+<area shape="rect" id="node1" title="The TestExtension is a data stream test extension." alt="" coords="11,659,144,809"/>
+<area shape="rect" id="node2" href="$classExtension.html" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="5,5,149,611"/>
+</map>
