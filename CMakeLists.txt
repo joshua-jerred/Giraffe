@@ -12,7 +12,6 @@ FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download
 FetchContent_MakeAvailable(json)
 
 # ---- Flight Computer ----
-
 add_executable(giraffe-flight-software
     src/flight-computer/main.cpp
     src/flight-computer/flight-runner.cpp
@@ -26,6 +25,11 @@ add_executable(giraffe-flight-software
     src/flight-computer/extensions/extension.cpp
     src/flight-computer/extensions/simulated-extensions.cpp
 )
+
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+target_link_libraries(giraffe-flight-software PRIVATE Threads::Threads)
+
 
 target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
 
