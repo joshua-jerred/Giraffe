@@ -13,7 +13,6 @@
 
 #include <iostream>
 #include <thread>
-#include <syncstream>
 #include <atomic>
 
 #include "utility-config-types.h"
