@@ -42,17 +42,25 @@ ConfigModule::~ConfigModule() {
  * If the file fails to open or if it does not exists it will return -1.
  * If it does load, it will call parseAll()
  * @param file_path The local path to the configuration file.
- * @return int -1 if the file could not be opened, 0 if the file was loaded.
+ * @return int 0 if successfully loaded and parsed, -1 if the file failed to
+ * open, -2 if there were any errors parsing the file.
  * @see parseAll()
  */
 int ConfigModule::load(std::string file_path) {
 	config_file_path_ = file_path;
-	std::ifstream fs(config_file_path_);
+	
+	std::ifstream fs(config_file_path_); // open file
 	if (fs.fail()) {
-		return -1;
+		return -1; // file failed to open
 	}
+	
 	json_buffer_ = json::parse(fs);
 	parseAll();
+
+	if (getErrors().size() > 0) {
+		return -2; // one or more errors parsing the file
+	}
+
 	return 0;
 }
 
