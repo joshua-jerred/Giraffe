@@ -129,7 +129,7 @@ void TelemetryModule::addToTXQueue(Transmission transmission) {
     if (transmission.type == Transmission::Type::ERROR) {
         p_data_stream_->addError("M_TEL", "BAD_TX_TYPE",
         "Attempted to add a transmission with an unknown type to the transmit"
-        "queue.");
+        "queue.", 0);
         return;
     }
     std::ifstream fs(transmission.wav_location);
