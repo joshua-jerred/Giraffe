@@ -3,11 +3,19 @@ name: giraffe-flight-software tests
 on: [push]
 
 jobs:
-  build:
+
+  pull:
+    name: Pull code to runner
     runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v3
-    - name: configure
+      - uses: actions/checkout/@v3
+
+  build:
+    name: Build giraffe-flight-software
+    runs-on: self-hosted
+    needs: [pull]
+    steps:
+    - name: CMake configure
       run: mkdir build && cd build && cmake ..
     - name: make
       run: cd build && make giraffe-flight-software
