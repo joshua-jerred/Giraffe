@@ -36,7 +36,7 @@ struct DataStreamPacket {
 typedef std::unordered_map<std::string, DataStreamPacket> DataFrame;
 
 /**
- * @brief This struct is used by the DataStrean and data module.
+ * @brief This struct is used by the DataStream and data module.
  * Individual extensions/modules do not need to be aware of this
  * struct as it is handled by the DataStream class. 
  * 
