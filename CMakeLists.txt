@@ -5,9 +5,15 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
+include(FetchContent) # for gtest and nlohmann_json
+
+# nlhomann_json
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
+FetchContent_MakeAvailable(json)
+
 # ---- Flight Computer ----
 
-add_executable(Giraffe-FC-Alpha
+add_executable(giraffe-flight-software
     src/flight-computer/main.cpp
     src/flight-computer/flight-runner.cpp
     src/flight-computer/modules/module-configuration.cpp
@@ -21,11 +27,13 @@ add_executable(Giraffe-FC-Alpha
     src/flight-computer/extensions/simulated-extensions.cpp
 )
 
+target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
+
 file(COPY "src/flight-computer/config.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/data_logs)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/error_logs)
 
-target_include_directories(Giraffe-FC-Alpha PUBLIC 
+target_include_directories(giraffe-flight-software PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/modules
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/utilities
@@ -35,7 +43,6 @@ target_include_directories(Giraffe-FC-Alpha PUBLIC
 # ---- Flight Computer Tests ----
 enable_testing()
 
-include(FetchContent)
 FetchContent_Declare(
   googletest
   GIT_REPOSITORY https://github.com/google/googletest.git
