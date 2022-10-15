@@ -1,0 +1,13 @@
+name: giraffe-flight-software tests
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v2
+    - name: configure
+      run: mkdir build && cd build && cmake ..
+    - name: make
+      run: cd build && make
