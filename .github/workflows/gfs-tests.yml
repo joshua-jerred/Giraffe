@@ -7,9 +7,7 @@ jobs:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v3
-      with:
-        reg: 0.1.0-development-gtest-actions
     - name: configure
       run: mkdir build && cd build && cmake ..
     - name: make
-      run: cd build && make
+      run: cd build && make giraffe-flight-software
