@@ -42,7 +42,7 @@ int FlightRunner::start() {
     // ~~~ Read The Config ~~~ //
     ConfigModule* config = new ConfigModule();
     int status = config->load(CONFIG_LOCATION);
-    if (status != 0) {
+    if (status == -1) {
         std::cout << "Error: Could not load config file." << std::endl;
         return 1; /** @todo change to hardcoded failsafe */
     } else {
