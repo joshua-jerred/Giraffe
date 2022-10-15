@@ -118,7 +118,7 @@ int TelemetryModule::getNextTXNumber() {
 /**
  * @brief First checks the transmission for type, and verifies
  * that the wav file actually exists. If both are good,
- * it will aquire a lock on the transmission queue, add the
+ * it will acquire a lock on the transmission queue, add the
  * data, then unlock it.
  * @param transmission The transmission to add to the queue. 
  * @return void
