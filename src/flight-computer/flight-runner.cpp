@@ -39,20 +39,25 @@ FlightRunner::~FlightRunner() {
 }
 
 int FlightRunner::start() {
+    // ~~~ Create the Data Module ~~~ //
+    p_data_module_ = new DataModule();
+    // Do not start the DataModule yet because we need to add the config data
+
     // ~~~ Read The Config ~~~ //
-    ConfigModule* config = new ConfigModule();
+    ConfigModule* config = new ConfigModule(p_data_module_->getDataStream());
     int status = config->load(CONFIG_LOCATION);
-    if (status != 0) {
+    if (status == -1) {
         std::cout << "Error: Could not load config file." << std::endl;
         return 1; /** @todo change to hardcoded failsafe */
     } else {
         config_data_ = config->getAll();
     }
-    delete config; // The config module is not needed after loading config data
 
-    // ~~~ Start the Data Module ~~~ //
-    p_data_module_ = new DataModule(config_data_); // Start Data Service
-    p_data_module_->start();
+    delete config; // The config module is not needed after loading config data
+    
+    p_data_module_->addConfigData(config_data_); // Add the config data to the DataModule
+
+    p_data_module_->start(); // Start the DataModule
     
     // ~~~ Start the Extensions Module ~~~ //
     p_extension_module_ = new ExtensionsModule(config_data_, 
@@ -103,7 +108,7 @@ int FlightRunner::flightLoop() {
 
     /** @note FLIGHT LOOP */
     while (!shutdown_signal_) { // The endless loop where everything happens
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
         if (tsl_data_log.elapsed() > current_intervals_.data_log) {
             p_data_module_->log();
             tsl_data_log.reset();
@@ -160,15 +165,19 @@ void FlightRunner::switchLoops(FlightLoop::LoopType loopType) {
 }
 
 void FlightRunner::deconstruct() {
-    if (p_telemetry_module_ != nullptr) {
-        p_telemetry_module_->stop();
-    }
-    if (p_extension_module_ != nullptr) {
-        p_extension_module_->stop();
-    }
+    std::cout << "Stopping Console Module" << std::endl;
     if (p_console_module_ != nullptr) {
         p_console_module_->stop();
     }
+    std::cout << "Stopping Telemetry Module" << std::endl;
+    if (p_telemetry_module_ != nullptr) {
+        p_telemetry_module_->stop();
+    }
+    std::cout << "Stopping Extension Module" << std::endl;
+    if (p_extension_module_ != nullptr) {
+        p_extension_module_->stop();
+    }
+    std::cout << "Stopping Data Module" << std::endl;
     if (p_data_module_ != nullptr) {
         p_data_module_->stop();
     }

@@ -95,17 +95,22 @@ NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Interface, {
  */
 class ConfigModule {
 public:
-    ConfigModule();
+    ConfigModule(DataStream *data_stream);
     ~ConfigModule();
 
     int load(std::string filepath);
     ConfigData getAll();
-    std::vector<std::string> getErrors();
     json getAllJson();
 
 private:
+    template <typename T>
+    void error(std::string error_code, T info);
+    void error(std::string error_code, std::string info);
+    void error(std::string error_code);
+
+
     void parseAll();
-        
+
     void parseGeneral();
     void parseExtensions();
     void parseDebug();
@@ -113,11 +118,11 @@ private:
     void parseDataTypes();
     void parseFlightLoops();
 
+    DataStream *p_data_stream_;
 
     std::string config_file_path_;
     json json_buffer_;
     ConfigData config_data_;
-    std::vector<std::string> errors_;
 };
 
 #endif // MODULE_CONFIGURATION_H_
