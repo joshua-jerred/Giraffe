@@ -12,6 +12,8 @@
 #define MODULE_H_
 
 #include <string>
+#include <atomic>
+
 /**
  * @brief module_status is used by the individual modules. Used by FlightRunner.
  * @see FlightRunner
@@ -37,7 +39,7 @@ class Module {
 
 
     protected:
-        ModuleStatus module_status_;
+        std::atomic<ModuleStatus> module_status_;
         std::string error_source_;
 };
 

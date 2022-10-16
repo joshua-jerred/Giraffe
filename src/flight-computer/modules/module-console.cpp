@@ -88,8 +88,8 @@ void ConsoleModule::clearScreen() {
  * @todo Add telemetry data
  */
 void ConsoleModule::printData() {
-    std::cout << "GFC  -  Giraffe Flight System  -  V" + 
-    (std::string) GFC_VERSION << std::endl;
+    std::cout << "GFS  -  Giraffe Flight Software  -  V" + 
+    (std::string) GFS_VERSION << std::endl;
     std::time_t t = std::time(0);   // get time now
     std::tm* now = std::localtime(&t);
     std::cout << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec
@@ -220,6 +220,11 @@ void ConsoleModule::printData() {
 
     }
     std::cout << std::endl;
+
+    std::cout << data_stream_->getTotalDataPackets() << " " 
+    << data_stream_->getTotalErrorPackets() << std::endl;
+    std::cout << data_stream_->getNumDataPackets() << " " 
+    << data_stream_->getNumErrorPackets() << std::endl;
 
     DataFrame snapshot = data_stream_->getDataFrameCopy();
     std::cout << "Data - " << snapshot.size() << std::endl;

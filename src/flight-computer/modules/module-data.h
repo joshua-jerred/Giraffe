@@ -17,6 +17,7 @@
 #include <mutex>
 #include <chrono>
 #include <ctime>
+#include <atomic>
 
 #include "utility-data-stream.h"
 #include "utility-configurables.h"
@@ -48,8 +49,10 @@
  */
 class DataModule : public Module {
 public:
-    DataModule(ConfigData config_data);
+    DataModule();
     ~DataModule();
+
+    void addConfigData(ConfigData config_data);
 
     void start();
     void stop();
@@ -72,6 +75,7 @@ private:
 
     DataFrame dataframe_;
 
+    std::atomic<int> shutdown_signal_;
     std::thread runner_thread_;
 };
 #endif // MODULE_DATA_H_

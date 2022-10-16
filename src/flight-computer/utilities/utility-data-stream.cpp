@@ -159,7 +159,7 @@ int DataStream::getNumDataPackets() {
  * @return int The number of error packets in the error stream.
  */
 int DataStream::getNumErrorPackets() {
-	return num_data_packets_;
+	return num_error_packets_;
 }
 
 /**

@@ -16,7 +16,9 @@
  * sets up the data frame. This does not start the module.
  * @param config_data 
  */
-DataModule::DataModule(ConfigData config_data) {
+DataModule::DataModule() {
+    mpDataStream = new DataStream();
+
     std::time_t t = std::time(0);
     std::tm* now = std::localtime(&t);
     
@@ -27,7 +29,6 @@ DataModule::DataModule(ConfigData config_data) {
     std::to_string(now->tm_hour) + "-" +
     std::to_string(now->tm_min) + "-" +
     std::to_string(now->tm_sec) + ".csv";
-    mpDataStream = new DataStream();
 
     error_log_file_path_ = ERROR_LOG_LOCATION +
     std::to_string(now->tm_year + 1900) + "-" +
@@ -36,12 +37,6 @@ DataModule::DataModule(ConfigData config_data) {
     std::to_string(now->tm_hour) + "-" +
     std::to_string(now->tm_min) + "-" +
     std::to_string(now->tm_sec) + ".csv";
-    mpDataStream = new DataStream();
-
-    for ( ConfigData::DataTypes::ExtensionDataType data_type : 
-        config_data.data_types.types ) { // for each data type in the config file
-        addDataTypeToFrame(data_type);
-    }
 }
 
 /**
@@ -49,6 +44,13 @@ DataModule::DataModule(ConfigData config_data) {
  */
 DataModule::~DataModule() {
     delete mpDataStream;
+}
+
+void DataModule::addConfigData(ConfigData config_data) {
+    for ( ConfigData::DataTypes::ExtensionDataType data_type : 
+        config_data.data_types.types ) { // for each data type in the config file
+        addDataTypeToFrame(data_type);
+    }
 }
 
 /**
@@ -59,6 +61,8 @@ DataModule::~DataModule() {
  * @return void
  */
 void DataModule::start() {
+    module_status_ = ModuleStatus::STARTING;
+    shutdown_signal_ = 0;
     runner_thread_ = std::thread(&DataModule::runner, this);
 }
 
@@ -71,7 +75,9 @@ void DataModule::start() {
  * @todo Implement this.
  */
 void DataModule::stop() {
-
+    shutdown_signal_ = 1;
+    runner_thread_.join();
+    module_status_ = ModuleStatus::STOPPED;
 }
 
 /**
@@ -155,13 +161,18 @@ void DataModule::parseDataStream() {
  * @todo Implemented the error frame.
  */
 void DataModule::parseErrorStream() {
+
+    std::ofstream error_file;
+    error_file.open(error_log_file_path_, std::ios_base::app);
+
     int packetCount = mpDataStream->getNumErrorPackets();
     ErrorStreamPacket epacket;
     for (int i = 0; i < packetCount; i++) {
         epacket = mpDataStream->getNextErrorPacket();
-        std::cout << "Error: " << epacket.error_source << " - " << 
+        error_file << epacket.error_source << " - " << 
             epacket.error_name << " - " << epacket.error_info << std::endl;
     }
+
 }
 
 /**
@@ -190,7 +201,8 @@ void DataModule::checkForStaleData() {
  * @todo Implement the error frame.
  */
 void DataModule::runner() {
-    while (true) {
+    module_status_ = ModuleStatus::RUNNING;
+    while (!shutdown_signal_) {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS)
         );
