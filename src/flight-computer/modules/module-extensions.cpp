@@ -53,8 +53,11 @@ void ExtensionsModule::start() {
  * @return void
  */
 void ExtensionsModule::stop() {
+    std::cout << std::endl;
     for (Extension *ext : extensions_) {
+        std::cout << "Stopping extension " << ext->getName() << " ... ";
         ext->stop();
+        std::cout << "stopped." << std::endl;
     }
 }
 

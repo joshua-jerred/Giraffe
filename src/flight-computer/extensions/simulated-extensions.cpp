@@ -20,12 +20,13 @@ TestExtension::TestExtension(DataStream *p_data_stream,
 TestExtension::~TestExtension() {
 }
 int TestExtension::runner() {
-    while (true) {
+    while (!stop_flag_) {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
             );
         sendData("unit", "value");
     }
+    setStatus(ExtensionStatus::STOPPED);
     return 0;
 }
 
@@ -39,7 +40,7 @@ int BMP180_SIM::runner() {
     int temp = 75;
     int pressure = 1018;
     int upOrDown = 1; // 1 = going up, 0 = going down
-    while (true) {
+    while (!stop_flag_) {
         if (upOrDown == 1) {
             temp -= 1;
             pressure -= 7;
@@ -58,6 +59,7 @@ int BMP180_SIM::runner() {
         sendData("TEMP_F", temp);
         sendData("PRES_M", pressure);
     }
+    setStatus(ExtensionStatus::STOPPED);
     return 0;
 }
 
@@ -75,7 +77,7 @@ int SAMM8Q_SIM::runner() {
     int horizontal_speed = 4;
     sendData("VERT_SPEED", vertical_speed);
     // ^This should test stale data
-    while (true) {
+    while (!stop_flag_) {
         lat += 0.00001;
         lon += 0.00001;
         alt += 5;
@@ -89,6 +91,8 @@ int SAMM8Q_SIM::runner() {
         sendData("GPS_QUAL", quality);
         sendData("HORZ_SPEED", horizontal_speed);
     }
+    setStatus(ExtensionStatus::STOPPED);
+    return 0;
 }
 
 // See simulated-extensions.h for documentation
@@ -99,7 +103,7 @@ DS18B20_SIM::~DS18B20_SIM() {}
 int DS18B20_SIM::runner() {
     int temp = 75;
     int upordown = 1; // 1 = going up, 0 = going down
-    while (true) {
+    while (!stop_flag_) {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
         );
@@ -115,6 +119,8 @@ int DS18B20_SIM::runner() {
         }
         sendData("TEMP_C", temp);
     }
+    setStatus(ExtensionStatus::STOPPED);
+    return 0;
 }
 
 // See simulated-extensions.h for documentation
@@ -124,9 +130,11 @@ DRA818V_SIM::DRA818V_SIM(DataStream *p_data_stream, ExtensionMetadata extension_
 DRA818V_SIM::~DRA818V_SIM() { 
 }
 int DRA818V_SIM::runner() {
-    while (true) {
+    while (!stop_flag_) {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
         );
     }
+    setStatus(ExtensionStatus::STOPPED);
+    return 0;
 }

@@ -133,7 +133,7 @@ int FlightRunner::flightLoop() {
         //    healthCheck();
         //}
     }
-
+    std::cout << "Shutdown signal received." << std::endl;
     deconstruct();
 
     return 0;
@@ -165,20 +165,32 @@ void FlightRunner::switchLoops(FlightLoop::LoopType loopType) {
 }
 
 void FlightRunner::deconstruct() {
-    std::cout << "Stopping Console Module" << std::endl;
+    std::cout << "Stopping Console Module ... ";
     if (p_console_module_ != nullptr) {
-        p_console_module_->stop();
+        //p_console_module_->stop();
+        std::cout << "Stopped" << std::endl;
+    } else {
+        std::cout << "Not Running" << std::endl;
     }
-    std::cout << "Stopping Telemetry Module" << std::endl;
+    std::cout << "Stopping Telemetry Module ... ";
     if (p_telemetry_module_ != nullptr) {
         p_telemetry_module_->stop();
+        std::cout << "Stopped" << std::endl;
+    } else {
+        std::cout << "Not Running" << std::endl;
     }
-    std::cout << "Stopping Extension Module" << std::endl;
+    std::cout << "Stopping Extension Module ... ";
     if (p_extension_module_ != nullptr) {
         p_extension_module_->stop();
+        std::cout << "Stopped" << std::endl;
+    } else {
+        std::cout << "Not Running" << std::endl;
     }
-    std::cout << "Stopping Data Module" << std::endl;
+    std::cout << "Stopping Data Module ... ";
     if (p_data_module_ != nullptr) {
         p_data_module_->stop();
+        std::cout << "Stopped" << std::endl;
+    } else {
+        std::cout << "Not Running" << std::endl;
     }
 }

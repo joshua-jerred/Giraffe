@@ -76,8 +76,9 @@ void Extension::start() {
 void Extension::stop() {
     if (getStatus() == ExtensionStatus::RUNNING) {
         setStatus(ExtensionStatus::STOPPING);
+        stop_flag_ = 1;
+        runner_thread_.join();
     }
-
 }
 
 /**

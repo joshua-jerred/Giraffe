@@ -66,7 +66,6 @@ public:
     void restart();
     ExtensionStatus getStatus();
 
-protected:
     int getID();
     std::string getName();
     std::string getType();
@@ -76,12 +75,15 @@ protected:
     int getCritical();
     std::vector<std::string> getExtraArgs(); /** @todo Implement this. */
 
+protected:
     virtual int runner(); // Must be overridden
     void setStatus(ExtensionStatus status);
 
     void sendData(std::string unit, std::string value);
     void sendData(std::string unit, int value);
     void sendData(std::string unit, float value);
+
+    std::atomic<int> stop_flag_; // 0 = continue, 1 = stop
 
 private:
     void setID(int num);
