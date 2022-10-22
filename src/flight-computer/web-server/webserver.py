@@ -101,7 +101,6 @@ class WebServer:
             print("\nShutting down...")
             sys.exit(0)
 
-
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args):
         self.gfs = GFSData()
@@ -109,7 +108,6 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
         http.server.SimpleHTTPRequestHandler.__init__(self, *args)
 
     def do_GET(self):
-
         if self.path == "/":
             self.send_response(200)  # 200 = OK
             self.send_header("Content-type", "text/html")
