@@ -1,7 +1,5 @@
 # Errors
 
-
-
 # Unit Tests
 test-01 - Configuration Module
 test-02 - Data Module
@@ -134,3 +132,13 @@ All CPP code within HAAC is my own unless otherwise noted in the doxygen
 comment at the top of all CPP files or here.
     - Sections of the CMakeFiles file are from the official GTest documentation.
     - Sections of the I2C are from the linux manpage.
+
+# Theme
+## Colors
+- Off White : #F0ECE1
+- Flax : #EDCF8F
+- Peru : #C97F4E
+- Coffee : #6F4A38
+- Chestnut : #977359
+## Fonts
+- iceberg

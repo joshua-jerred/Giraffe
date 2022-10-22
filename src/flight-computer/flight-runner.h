@@ -19,6 +19,7 @@
 #include "module-data.h"
 #include "module-extensions.h"
 #include "module-console.h"
+#include "module-server.h"
 #include "module-telemetry.h"
 
 /**
@@ -101,8 +102,8 @@ private:
     DataModule *p_data_module_;
     ExtensionsModule *p_extension_module_;
     ConsoleModule *p_console_module_;
+    ServerModule *p_server_module_;
     TelemetryModule *p_telemetry_module_;
-    //ServerModule *mpServerModule;
     //ComModule *mpComModule;
     int shutdown_signal_;
 

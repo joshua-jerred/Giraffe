@@ -72,6 +72,13 @@ int FlightRunner::start() {
         p_console_module_->start();
     }
 
+    // ~~~ Start the Server Module ~~~ //
+    if (config_data_.debug.web_server_enabled) {
+        p_server_module_ = new ServerModule(config_data_, 
+            p_data_module_->getDataStream());
+        p_server_module_->start();
+    }
+
     // ~~~ Start the Telemetry Module ~~~ //
     if (config_data_.telemetry.telemetry_enabled) {
         p_telemetry_module_ = new TelemetryModule(config_data_, 

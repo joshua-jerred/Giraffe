@@ -28,7 +28,7 @@
 #define TELEMETRY_WAV_LOCATION "./telem/"
 
 // ------- Config File Range Limits ------- //
-// Changing these results in undefined bevahior, it is not recommended.
+// Changing these results in undefined behavior, it is not recommended.
 #define PROJECT_NAME_MIN_LENGTH 1
 #define PROJECT_NAME_MAX_LENGTH 25
 
@@ -44,6 +44,7 @@
 
 // ------- Error Prefixes ------- //
 #define MODULE_TELEMETRY_ERROR_PREFIX "M_TEL"
+#define MODULE_SERVER_ERROR_PREFIX "M_SRV"
 
 // ------------------------------ //
 
@@ -51,5 +52,6 @@
 // will parse the data stream and update the data frame.
 #define MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS 500
 
+#define MODULE_SERVER_PORT 8779
 
 #endif

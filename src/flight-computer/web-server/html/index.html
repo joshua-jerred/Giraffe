@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Giraffe Flight System</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
+    </head>
+
+    <body>
+        <h1>GFS</h1>
+        <input type="submit" value="Start" onclick="start()">
+        <input type="submit" value="Stop" onclick="stop()">
+        <div id="main-content">
+            <div id="static-data"></div>
+            <div id="dynamic-data"></div>
+        </div>
+    </body>
+    
+    <script type="text/javascript">
+        var done = true;
+        var timer = null;
+        function start() {
+            done = false;
+            pullStatic();
+            pullDynamic();
+        }
+
+        function stop() {
+            done = true;
+            clearTimeout(timer);
+        }
+
+        function pullStatic() {
+            fetch('static-data.json', { headers: {'Cache-Control': 'no-cache'}})
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    updateStatic(data);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+        }
+
+        function pullDynamic() {
+            if (done) return;
+            fetch('dynamic-data.json', { headers: {'Cache-Control': 'no-cache'}})
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    updateDynamic(data);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+            //timer = setTimeout(pullDynamic, 500);
+        }
+
+        function updateStatic(data) {
+            let staticData = document.getElementById('static-data');
+            staticData.innerHTML = '';
+            for (let key in data) {
+                if (key == "extensions") {
+                    for (let ext in data[key]) {
+                        staticData.innerHTML += ext + ': ' + data[key][ext] + '<br>';
+                    }
+                } else {
+                    staticData.innerHTML += key + ': ' + data[key] + '<br>';
+                }
+                let value = data[key];
+                let div = document.createElement('div');
+                div.innerHTML = key + ': ' + value;
+                staticData.appendChild(div);
+            }
+        }
+
+        function updateDynamic(data) {
+            let staticData = document.getElementById('dynamic-data');
+            staticData.innerHTML = '';
+            for (let key in data) {
+                if (key == "extensions") {
+                    for (let ext in data[key]) {
+                        staticData.innerHTML += ext + ': ' + data[key][ext] + '<br>';
+                    }
+                } else {
+                    staticData.innerHTML += key + ': ' + data[key] + '<br>';
+                }
+                let value = data[key];
+                let div = document.createElement('div');
+                div.innerHTML = key + ': ' + value;
+                staticData.appendChild(div);
+            }
+        }
+    
+    </script>
+</html>

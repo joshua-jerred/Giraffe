@@ -20,8 +20,10 @@ add_executable(giraffe-flight-software
     src/flight-computer/modules/module-extensions.cpp
     src/flight-computer/modules/module-console.cpp
     src/flight-computer/modules/module-telemetry.cpp
+    src/flight-computer/modules/module-server.cpp
     src/flight-computer/utilities/utility-timer.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/utility-socket.cpp
     src/flight-computer/extensions/extension.cpp
     src/flight-computer/extensions/simulated-extensions.cpp
 )
