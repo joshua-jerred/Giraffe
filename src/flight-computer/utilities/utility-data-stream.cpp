@@ -52,9 +52,12 @@ void DataStream::addData(
 		int seconds_until_expiry
 		) {
 	std::time_t current_time = std::time(nullptr);
+	std::time_t expiry_time = current_time + seconds_until_expiry;
 	data_stream_lock_.lock(); // Lock the data stream to prevent other threads from accessing it when adding an item to it
-	data_stream_.push({data_source, data_name, data_value,
-		(current_time + seconds_until_expiry)});
+	if (seconds_until_expiry == 0) {
+		expiry_time = 0; // Set the expiry time to 0 if the data should never expire
+	}
+	data_stream_.push({data_source, data_name, data_value, expiry_time});
 	num_data_packets_++;
 	total_data_packets_++;
 	data_stream_lock_.unlock(); // Unlock the data stream to make it available

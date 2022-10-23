@@ -36,6 +36,7 @@ target_link_libraries(giraffe-flight-software PRIVATE Threads::Threads)
 target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
 
 file(COPY "src/flight-computer/config.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
+file(COPY "src/flight-computer/web-server" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin/)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/data_logs)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/error_logs)
 

@@ -5,6 +5,7 @@ ServerModule::ServerModule(const ConfigData config_data,
 	config_data_ = config_data;
 	update_interval_ = config_data.debug.web_server_update_interval;
 	data_stream_ = data_stream;
+	gfs_shutdown_flag_ = 0;
 }
 
 ServerModule::~ServerModule() { stop(); }
@@ -12,11 +13,16 @@ ServerModule::~ServerModule() { stop(); }
 void ServerModule::start() {
 	stop_flag_ = 0;
 	runner_thread_ = std::thread(&ServerModule::runner, this);
+	py_runner_thread_ = std::thread(&ServerModule::pyRunner, this);
 }
 
 void ServerModule::stop() {
 	stop_flag_ = 1;
 	runner_thread_.join();
+}
+
+int ServerModule::checkShutdown() {
+	return gfs_shutdown_flag_;
 }
 
 void ServerModule::runner() {
@@ -28,7 +34,7 @@ void ServerModule::runner() {
 			server_socket.accept(new_sock);
 
 			data_stream_->addData(
-				MODULE_SERVER_PREFIX, "SOCKET", "Connected to client", 10);
+				MODULE_SERVER_PREFIX, "SOCKET", "CONNECTED", 10);
 			
 			while (!stop_flag_) {
 				std::string request;
@@ -37,8 +43,39 @@ void ServerModule::runner() {
 					sendStaticData(new_sock);
 				} else if (request == "dynamic") {
 					sendDynamicData(new_sock);
+				} else if (request == "shutdownServer") {
+					data_stream_->addData(
+						MODULE_SERVER_PREFIX, 
+						"SOCKET", 
+						"SHUTDOWN", 
+						0
+						);
+					module_status_ = ModuleStatus::STOPPED;
+					stop_flag_ = 1;
+					break;
+				} else if (request == "shutdownGFS") {
+					data_stream_->addData(
+						MODULE_SERVER_PREFIX, 
+						"SOCKET", 
+						"SHUTDOWN_GFS", 
+						0
+						);
+					gfs_shutdown_flag_ = 1;
+				} else if (request == "DISCONNECT") {
+					data_stream_->addData(
+						MODULE_SERVER_PREFIX, 
+						"SOCKET", 
+						"DISCONNECTED", 
+						0
+						);
+					break;
 				} else {
-					new_sock << "invalid";
+					data_stream_->addData(
+						MODULE_SERVER_PREFIX, 
+						"SOCKET", 
+						"UNKNOWN_REQUEST", 
+						0
+						);
 				}
 			}
 
@@ -47,6 +84,14 @@ void ServerModule::runner() {
 										e.description(), update_interval_);
 		}
 	}
+}
+
+/**
+ * @todo 'system' should not be used here. This is a temporary.
+ */
+int ServerModule::pyRunner() {
+	system("cd web-server/; python3 main.py");
+	return 0;
 }
 
 void ServerModule::sendStaticData(ServerSocket &socket) {

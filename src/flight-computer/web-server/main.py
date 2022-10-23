@@ -119,6 +119,26 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
         self.gfs = GFS
         super().__init__(*args, **kwargs)
 
+    def log_message(self, format, *args): # disable logging
+        return
+
+    def do_POST(self):
+        content_length = int(self.headers['Content-Length'])
+        post_data = self.rfile.read(content_length)
+        command = json.loads(post_data)["command"]
+        self.send_response(200)
+        self.end_headers()
+        if command == "shutdownServer":
+            self.gfs.write("shutdownServer")
+            self.gfs.closeConnection()
+            print("Shutdown Requested - Shutting down...")
+            sys.exit(0)
+        elif command == "shutdownGFS":
+            self.gfs.write("shutdownGFS")
+            print("Shutdown Requested - Shutting down...")
+            sys.exit(0)
+        elif command == "DISCONNECT":
+            self.gfs.write("DISCONNECT")
 
     def do_GET(self):
         if self.path == "/":

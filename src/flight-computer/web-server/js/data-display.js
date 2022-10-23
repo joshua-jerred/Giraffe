@@ -9,6 +9,7 @@ function start() {
 }
 
 function stop() {
+    POST("DISCONNECT");
     document.getElementById("connection-status").innerText = "DISCONNECTED";
     done = true;
     clearTimeout(timer);
@@ -20,8 +21,8 @@ function pullStatic() {
             return response.json();
         })
         .then(function (data) {
-            document.getElementById("connection-status").innerText = "CONNECTED";
             updateStatic(data);
+            document.getElementById("connection-status").innerText = "CONNECTED";
         })
         .catch(function (err) {
             console.log('error: ' + err);
@@ -69,4 +70,25 @@ function updateDynamic(data) {
         div.innerHTML = key + ': ' + value;
         staticData.appendChild(div);
     }
+}
+
+function shutdownServer() {
+    document.getElementById("connection-status").innerText = "SERVER SHUT DOWN REQUESTED";
+    done = true;
+    POST("shutdownServer");
+}
+
+function shutdownGFS() {
+    done = true;
+    document.getElementById("connection-status").innerText = "GFS SHUT DOWN REQUESTED";
+    POST("shutdownGFS");
+}
+
+async function POST(command) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/post", true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({
+        "command": command
+    }));
 }

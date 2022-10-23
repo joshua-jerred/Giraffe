@@ -26,8 +26,11 @@ public:
     void start();
     void stop();
 
+    int checkShutdown();
+
 private:
     void runner();
+    int pyRunner();
     void sendStaticData(ServerSocket &socket);
     void sendDynamicData(ServerSocket &socket);
 
@@ -37,12 +40,14 @@ private:
     DataStream* data_stream_;
 
     std::thread runner_thread_;
+    std::thread py_runner_thread_;
 
     /**
      * @details This flag is an atomic so it can be accessed by both the thread
      * and the main thread. It is set to 1 to signal the thread to stop.
      */
     std::atomic <int> stop_flag_;
+    std::atomic <int> gfs_shutdown_flag_;
 };
 
 #endif // MODULE_SERVER_H_

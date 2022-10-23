@@ -54,4 +54,6 @@
 
 #define MODULE_SERVER_PORT 8779
 
+#define MODULE_SERVER_CHECK_COMMANDS_INTERVAL 1 // In seconds
+
 #endif

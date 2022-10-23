@@ -121,8 +121,14 @@ int FlightRunner::flightLoop() {
             tsl_data_log.reset();
         }
         if (config_data_.telemetry.telemetry_enabled && 
-        tsl_data_packet.elapsed() > current_intervals_.data_packet) {
+            tsl_data_packet.elapsed() > current_intervals_.data_packet) {
             p_telemetry_module_->sendDataPacket();
+        }
+        if (config_data_.debug.web_server_enabled &&
+            tsl_server.elapsed() > MODULE_SERVER_CHECK_COMMANDS_INTERVAL) {
+            if (p_server_module_->checkShutdown()) {
+                shutdown();
+            }
         }
         //if (tslServer.elapsed() > current_intervals_.serverUpdate) {
         //    mpServerModule->update();
