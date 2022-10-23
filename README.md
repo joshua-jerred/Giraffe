@@ -2,6 +2,8 @@
 ### A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.
 #### Version 0.0.9
 
+Check out the [development branch](https://github.com/joshua-jerred/Giraffe/tree/development) for recent progress.
+
 Too see my more complete, python implementaiton of this project refer to [the AOS repo.](https://github.com/joshua-jerred/AOS)
 
 ![logo](https://user-images.githubusercontent.com/19292194/193437157-0a421f68-fa85-43bb-b372-1807a19c470d.png)
