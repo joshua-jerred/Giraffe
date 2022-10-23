@@ -28,6 +28,8 @@ public:
 
 private:
     void runner();
+    void sendStaticData(ServerSocket &socket);
+    void sendDynamicData(ServerSocket &socket);
 
     int update_interval_;
 

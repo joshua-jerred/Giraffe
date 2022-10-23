@@ -5,7 +5,7 @@ import json
 from urllib.parse import urlparse
 from urllib.parse import parse_qs
 import sys
-
+import functools
 
 class GFSData:
     def __init__(self):
@@ -33,13 +33,13 @@ class GFSData:
         }
 
         self.dynamic_data = []
+        self.openConnection()
 
     def openConnection(self):
         try:
             self.client_socket.connect((self.host, self.gfs_port))
         except:
             print("Connection to GFS failed")
-            sys.exit(1)
 
     def closeConnection(self):
         self.client_socket.close()
@@ -54,15 +54,19 @@ class GFSData:
                 self.parse(data)
             else:
                 return {}
-        except:
+        except Exception as e: 
+            print(e)
             print("Failed to read from GFS")
             return {}
 
     def write(self, message: str):
         try:
             self.client_socket.sendall(message.encode())  # send message
+            return 0
         except:
-            print("Failed to write to GFS")
+            print("Failed to write to GFS - reconnecting")
+            self.__init__()
+            return -1
 
     def parse(self, data):
         if "project-name" in data:  # static data
@@ -80,9 +84,13 @@ class GFSData:
                 self.dynamic_data.append((source, unit, value))
 
     def getStaticData(self):
+        if (self.write("static")) == 0:
+            self.read()
         return self.static_data
 
     def getDynamicData(self):
+        if (self.write("dynamic")) == 0:
+            self.read()
         return self.dynamic_data
 
 
@@ -91,8 +99,13 @@ class WebServer:
         self.server_port = 8780
         self.host_name = "localhost"
 
+        self.gfs = GFSData()
+        
+        
+        handler = functools.partial(RequestHandler, self.gfs)
+
         self.server = http.server.HTTPServer((self.host_name, self.server_port),
-                                             RequestHandler)
+                                             handler)
 
     def start(self):
         try:
@@ -102,10 +115,10 @@ class WebServer:
             sys.exit(0)
 
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
-    def __init__(self, *args):
-        self.gfs = GFSData()
-        self.gfs.openConnection()
-        http.server.SimpleHTTPRequestHandler.__init__(self, *args)
+    def __init__(self, GFS, *args, **kwargs):
+        self.gfs = GFS
+        super().__init__(*args, **kwargs)
+
 
     def do_GET(self):
         if self.path == "/":
@@ -131,22 +144,23 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(bytes(f.read(), "utf-8"))
 
         elif self.path == "/static-data.json":
-            print("Static data requested")
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            print("Reading static data...")
-            self.gfs.read()
-            print("Sending static data...")
             self.wfile.write(bytes(json.dumps(self.gfs.getStaticData()), "utf-8"))
-            print("Static data sent")
 
         elif self.path == "/dynamic-data.json":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            self.gfs.read()
             self.wfile.write(bytes(json.dumps(self.gfs.getDynamicData()), "utf-8"))
+
+        elif self.path == "/data-display.js":
+            self.send_response(200)
+            self.send_header("Content-type", "application/javascript")
+            self.end_headers()
+            f = open("js/data-display.js", "r")
+            self.wfile.write(bytes(f.read(), "utf-8"))
 
         else:
             self.send_response(403)
@@ -157,6 +171,11 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 def main():
     server = WebServer()
     server.start()
+
+    #gfs = GFSData()
+    #gfs.openConnection()
+    #print(gfs.getStaticData())
+    #print(gfs.getDynamicData())
 
 if __name__ == '__main__':
     main()

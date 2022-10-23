@@ -43,8 +43,8 @@
 // ---------------------------------------- //
 
 // ------- Error Prefixes ------- //
-#define MODULE_TELEMETRY_ERROR_PREFIX "M_TEL"
-#define MODULE_SERVER_ERROR_PREFIX "M_SRV"
+#define MODULE_TELEMETRY_PREFIX "M_TEL"
+#define MODULE_SERVER_PREFIX "M_SRV"
 
 // ------------------------------ //
 
