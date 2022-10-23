@@ -70,6 +70,9 @@ struct ExtensionMetadata {
     int critical = 0; // Indicates if this extension is critical to operation, this
                   // will be used by the Flight Runner during the healthCheck
     // Extra Arguments
+    /**
+     * @todo Change to 'extra args'
+     */
     std::string address = ""; // Used for oneWire and I2C
 };
 
@@ -131,7 +134,7 @@ struct ConfigData {
             std::string source;
             std::string name;
             std::string unit;
-            int include_in_telemtry = 0;
+            int include_in_telemetry = 0;
         };
         std::vector<ExtensionDataType> types {};
     };

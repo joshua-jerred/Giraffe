@@ -184,7 +184,10 @@ void DataModule::parseErrorStream() {
  */
 void DataModule::checkForStaleData() {
     std::time_t now = std::time(NULL);
-    for (auto& [source_and_unit, packet] : dataframe_) {  
+    for (auto& [source_and_unit, packet] : dataframe_) {
+        if (packet.expiration_time == 0) { // 0 means it never expires
+            continue;
+        }  
         if ((int) packet.expiration_time < (int) now) {
             packet.value = "NO-DATA";
         }

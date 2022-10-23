@@ -346,7 +346,7 @@ void ConfigModule::parseDataTypes() {
 			newDataType.source = item.value()["source"].get<std::string>();
 			newDataType.name = item.value()["name"].get<std::string>();
 			newDataType.unit = item.value()["unit"].get<std::string>();
-			newDataType.include_in_telemtry = 
+			newDataType.include_in_telemetry = 
 			item.value()["include-in-telemetry"].get<bool>();
 
 			config_data_.data_types.types.push_back(newDataType);
