@@ -1,0 +1,49 @@
+body {
+    font-family: Verdana, sans-serif;
+    background-color: #F0ECE1;
+}
+
+#control-interface {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #C97F4E;
+    height: 40px;
+}
+
+.ci-li {
+    display: inline;
+    height: 40px;
+}
+
+#title {
+    font-size: 30px;
+    font-weight: 800;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #6F4A38;
+}
+
+.control-button {
+    position: relative;
+    background-color: #6F4A38;
+    border: none;
+    color: #F0ECE1;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    height: -10px;
+}
+
+#main-content {
+    display: flex;
+    margin-top: 5px;
+    width: 100%;
+    background-color: #977359;
+}
+
+.data {
+    display: inline;
+    width: 40%;
+    padding: 20px;
+}

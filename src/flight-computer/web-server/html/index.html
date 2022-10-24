@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Giraffe Flight System</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
+        <script type="text/javascript" src="data-display.js"></script>
+    </head>
+
+    <body>
+        
+        <ul id="control-interface">
+            <li class="ci-li" id="title">
+                GFS
+            </li>
+            <li class="ci-li">
+                <input class="control-button" type="submit" value="Connect" onclick="start()">
+            </li>
+            <li class="ci-li">
+                <input class="control-button" type="submit" value="Disconnect" onclick="stop()">
+            </li>
+            <li class="ci-li">
+                <input class="control-button" type="submit" value="Shutdown Server" onclick="shutdownServer()">
+            </li>
+            <li class="ci-li">
+                <input class="control-button" type="submit" value="Shutdown GFS" onclick="shutdownGFS()">
+            </li>
+            <li class="ci-li" id="connection-status">
+                DISCONNECTED
+            </li>
+        </ul>
+        <div id="main-content">
+            <div class="data" id="static-data">
+
+            </div>
+            <div class="data" id="dynamic-data">
+
+            </div>
+        </div>
+    </body>
+    
+    <script type="text/javascript">
+
+    
+    </script>
+</html>

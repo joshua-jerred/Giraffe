@@ -20,8 +20,10 @@ add_executable(giraffe-flight-software
     src/flight-computer/modules/module-extensions.cpp
     src/flight-computer/modules/module-console.cpp
     src/flight-computer/modules/module-telemetry.cpp
+    src/flight-computer/modules/module-server.cpp
     src/flight-computer/utilities/utility-timer.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/utility-socket.cpp
     src/flight-computer/extensions/extension.cpp
     src/flight-computer/extensions/simulated-extensions.cpp
 )
@@ -34,6 +36,7 @@ target_link_libraries(giraffe-flight-software PRIVATE Threads::Threads)
 target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
 
 file(COPY "src/flight-computer/config.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
+file(COPY "src/flight-computer/web-server" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin/)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/data_logs)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/error_logs)
 

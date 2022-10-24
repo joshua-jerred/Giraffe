@@ -48,9 +48,9 @@
         
     ],
     "debugging": {
-        "console-enabled": true,
+        "console-enabled": false,
         "console-update-interval": 3000,
-        "web-server-enabled": false,
+        "web-server-enabled": true,
         "web-server-update-interval": 1000
     },
     "telemetry": {
