@@ -57,7 +57,11 @@ void ExtensionsModule::stop() {
     for (Extension *ext : extensions_) {
         std::cout << "Stopping extension " << ext->getName() << " ... ";
         ext->stop();
-        std::cout << "stopped." << std::endl;
+        if (ext->getStatus() == ExtensionStatus::STOPPED) {
+            std::cout << "Stopped" << std::endl;
+        } else {
+            std::cout << "Error" << std::endl;
+        }
     }
 }
 

@@ -78,6 +78,8 @@ void Extension::stop() {
         setStatus(ExtensionStatus::STOPPING);
         stop_flag_ = 1;
         runner_thread_.join();
+    } else if (getStatus() == ExtensionStatus::ERROR) {
+        runner_thread_.join();
     }
 }
 
@@ -160,6 +162,7 @@ int Extension::getCritical() {
  * @return int -1, an error value. 0 is for a clean stop.
  */
 int Extension::runner() {
+    setStatus(ExtensionStatus::ERROR);
     p_data_stream_->addError(name_, "EXT_RUNNER", "Runner not implemented in child class.", 0);
     return -1;
 }

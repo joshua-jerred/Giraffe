@@ -20,6 +20,7 @@ TestExtension::TestExtension(DataStream *p_data_stream,
 TestExtension::~TestExtension() {
 }
 int TestExtension::runner() {
+    setStatus(ExtensionStatus::RUNNING);
     while (!stop_flag_) {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
@@ -37,6 +38,7 @@ BMP180_SIM::BMP180_SIM(DataStream *p_data_stream, ExtensionMetadata extension_me
 BMP180_SIM::~BMP180_SIM() {
 }
 int BMP180_SIM::runner() {
+    setStatus(ExtensionStatus::RUNNING);
     int temp = 75;
     int pressure = 1018;
     int upOrDown = 1; // 1 = going up, 0 = going down
@@ -69,6 +71,7 @@ SAMM8Q_SIM::SAMM8Q_SIM(DataStream *p_data_stream, ExtensionMetadata extension_me
 SAMM8Q_SIM::~SAMM8Q_SIM() {  
 }
 int SAMM8Q_SIM::runner() {
+    setStatus(ExtensionStatus::RUNNING);
     float lat = 37.1010982;
     float lon = -113.5678354;
     int alt = 0;
@@ -101,6 +104,7 @@ DS18B20_SIM::DS18B20_SIM(DataStream *p_data_stream, ExtensionMetadata extension_
 }
 DS18B20_SIM::~DS18B20_SIM() {}
 int DS18B20_SIM::runner() {
+    setStatus(ExtensionStatus::RUNNING);
     int temp = 75;
     int upordown = 1; // 1 = going up, 0 = going down
     while (!stop_flag_) {
@@ -130,6 +134,7 @@ DRA818V_SIM::DRA818V_SIM(DataStream *p_data_stream, ExtensionMetadata extension_
 DRA818V_SIM::~DRA818V_SIM() { 
 }
 int DRA818V_SIM::runner() {
+    setStatus(ExtensionStatus::RUNNING);
     while (!stop_flag_) {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())

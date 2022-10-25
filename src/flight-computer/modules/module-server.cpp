@@ -13,7 +13,6 @@ ServerModule::~ServerModule() { stop(); }
 void ServerModule::start() {
 	stop_flag_ = 0;
 	runner_thread_ = std::thread(&ServerModule::runner, this);
-	py_runner_thread_ = std::thread(&ServerModule::pyRunner, this);
 }
 
 void ServerModule::stop() {
@@ -52,7 +51,7 @@ void ServerModule::runner() {
 						);
 					module_status_ = ModuleStatus::STOPPED;
 					stop_flag_ = 1;
-					break;
+					return;
 				} else if (request == "shutdownGFS") {
 					data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
@@ -60,7 +59,10 @@ void ServerModule::runner() {
 						"SHUTDOWN_GFS", 
 						0
 						);
+					module_status_ = ModuleStatus::STOPPED;
+					stop_flag_ = 1;
 					gfs_shutdown_flag_ = 1;
+					return;
 				} else if (request == "DISCONNECT") {
 					data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
@@ -84,14 +86,6 @@ void ServerModule::runner() {
 										e.description(), update_interval_);
 		}
 	}
-}
-
-/**
- * @todo 'system' should not be used here. This is a temporary.
- */
-int ServerModule::pyRunner() {
-	system("cd web-server/; python3 main.py");
-	return 0;
 }
 
 void ServerModule::sendStaticData(ServerSocket &socket) {
