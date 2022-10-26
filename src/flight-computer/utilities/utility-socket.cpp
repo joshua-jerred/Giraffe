@@ -179,7 +179,7 @@ const ServerSocket &ServerSocket::operator<<(const std::string &s) const {
 
 const ServerSocket &ServerSocket::operator>>(std::string &s) const {
   if (!Socket::recv(s)) {
-    throw SocketException("Could not read from socket.");
+    //throw SocketException("Could not read from socket."); // Disabled for now
   }
 
   return *this;
@@ -187,6 +187,6 @@ const ServerSocket &ServerSocket::operator>>(std::string &s) const {
 
 void ServerSocket::accept(ServerSocket &sock) {
   if (!Socket::accept(sock)) {
-    throw SocketException("Could not accept socket.");
+    //throw SocketException("Could not accept socket."); // Disabled for now
   }
 }

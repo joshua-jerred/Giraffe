@@ -9,25 +9,6 @@
  * @copyright Copyright (c) 2022
  */
 
-#include <chrono>
-#include <iostream>
-#include <csignal>
-
-
-#include "utility-configurables.h"
-#include "utility-config-types.h"
-#include "utility-timer.h"
-#include "utility-data-stream.h"
-
-#include "module-configuration.h"
-#include "module-extensions.h"
-#include "module-data.h"
-#include "module-telemetry.h"
-/*
-#include "module-server.h"
-#include "module-telemetry.h"
-*/
-
 #include "flight-runner.h"
 
 FlightRunner::FlightRunner() {
@@ -105,9 +86,9 @@ void FlightRunner::shutdown() {
 int FlightRunner::flightLoop() {
     std::cout << "Starting Flight Loop" << std::endl;
     Timer tsl_data_log; // Refer to utility-timer.h
-    Timer tsl_server; // tsl = time since last
+    Timer tsl_server; 
+    Timer tsl_data_packet; // tsl = time since last
     Timer tsl_photo;
-    Timer tsl_data_packet;
     Timer tsl_APRS; 
     Timer tsl_SSTV_image; 
     Timer tsl_health_check;
@@ -117,31 +98,38 @@ int FlightRunner::flightLoop() {
     /** @note FLIGHT LOOP */
     while (!shutdown_signal_) { // The endless loop where everything happens
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
+
         if (tsl_data_log.elapsed() > current_intervals_.data_log) {
             p_data_module_->log();
             tsl_data_log.reset();
         }
-        if (config_data_.telemetry.telemetry_enabled && 
-            tsl_data_packet.elapsed() > current_intervals_.data_packet) {
-            p_telemetry_module_->sendDataPacket();
+
+        if (config_data_.telemetry.telemetry_enabled) {
+            if (config_data_.telemetry.afsk_enabled &&
+                tsl_data_packet.elapsed() > current_intervals_.data_packet) {
+                p_telemetry_module_->sendDataPacket();
+                tsl_data_packet.reset();
+            }
+            if (config_data_.telemetry.aprs_enabled &&
+                tsl_APRS.elapsed() > current_intervals_.aprs) {
+                p_telemetry_module_->sendAPRS();
+                tsl_APRS.reset();
+            }
+            if (config_data_.telemetry.sstv_enabled &&
+                tsl_SSTV_image.elapsed() > current_intervals_.sstv) {
+                p_telemetry_module_->sendSSTVImage();
+                tsl_SSTV_image.reset();
+            }
         }
+        
         if (config_data_.debug.web_server_enabled &&
             tsl_server.elapsed() > MODULE_SERVER_CHECK_COMMANDS_INTERVAL) {
             if (p_server_module_->checkShutdown()) {
                 shutdown();
             }
         }
-        //if (tslServer.elapsed() > current_intervals_.serverUpdate) {
-        //    mpServerModule->update();
-        //}
         //if (tslPhoto.elapsed() > current_intervals_.picture) {
         //    p_data_module_->capturePhoto();
-        //}
-        //if (tslAPRS.elapsed() > current_intervals_.aprs) {
-        //    mpComModule->txAPRSPacket();
-        //}
-        //if (tslSSTVImage.elapsed() > current_intervals_.sstv) {
-        //    mpComModule->txSSTVImage();
         //}
         //if (tslHealthCheck.elapsed() > current_intervals_.healthCheck) {
         //    healthCheck();

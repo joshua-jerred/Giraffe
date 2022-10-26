@@ -115,18 +115,18 @@ struct ConfigData {
 
         std::string callsign {};
 
-        int afsk_enabled {};
+        int afsk_enabled = 0;
         std::string afsk_freq {};
 
-        int sstv_enabled {};
+        int sstv_enabled = 0;
         std::string sstv_freq {};
 
-        int aprs_enabled {};
+        int aprs_enabled = 0;
         std::string aprs_freq {};
         int aprs_key = 0;
         int aprs_ssid = 0;
-        char aprs_symbol = 'O';
-        std::string aprs_memo {};
+        std::string aprs_symbol = "O";
+        std::string aprs_memo = "GFS Balloon";
     };
 
     struct DataTypes {

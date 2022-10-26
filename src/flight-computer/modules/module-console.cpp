@@ -156,7 +156,24 @@ void ConsoleModule::printData() {
     int telemetry_enabled = config_data_.telemetry.telemetry_enabled;
     if (telemetry_enabled) {
         std::cout << "Yes";
-        /** @todo print telemetry data */
+        std::cout << "    Callsign: " << config_data_.telemetry.callsign;
+        std::cout << std::endl;
+
+        std::cout << "APRS Enabled: " << config_data_.telemetry.aprs_enabled;
+        std::cout << "  Frequency: " << config_data_.telemetry.aprs_freq;
+        std::cout << "  Key: " << config_data_.telemetry.aprs_key;
+        std::cout << std::endl;
+        std::cout << "SSID: " << config_data_.telemetry.aprs_ssid;
+        std::cout << "  Symbol: " << config_data_.telemetry.aprs_symbol;
+        std::cout << "  Memo: " << config_data_.telemetry.aprs_memo;
+        std::cout << std::endl;
+        
+        std::cout << "AFSK Enabled: " << config_data_.telemetry.afsk_enabled;
+        std::cout << "  Frequency: " << config_data_.telemetry.afsk_freq;
+        std::cout << std::endl;
+        
+        std::cout << "SSTV Enabled: " << config_data_.telemetry.sstv_enabled;
+        std::cout << "  Frequency: " << config_data_.telemetry.sstv_freq;
     } else {
         std::cout << "No";
     }

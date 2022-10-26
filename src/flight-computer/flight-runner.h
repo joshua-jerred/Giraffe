@@ -16,6 +16,7 @@
 #include "utility-timer.h"
 #include "utility-data-stream.h"
 
+#include "module-configuration.h"
 #include "module-data.h"
 #include "module-extensions.h"
 #include "module-console.h"

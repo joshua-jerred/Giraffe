@@ -93,15 +93,16 @@ json ConfigModule::getAllJson() {
  */
 template <typename T>
 void ConfigModule::error(std::string error_code, T info) {
-	p_data_stream_->addError("CONFIG", error_code, std::to_string(info), 0);
+	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, 
+		std::to_string(info), 0);
 }
 
 void ConfigModule::error(std::string error_code, std::string info) {
-	p_data_stream_->addError("CONFIG", error_code, info, 0);
+	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, info, 0);
 }
 
 void ConfigModule::error(std::string error_code) {
-	p_data_stream_->addError("CONFIG", error_code, "", 0);
+	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, "", 0);
 }
 
 /**
@@ -325,6 +326,57 @@ void ConfigModule::parseTelemetry() {
 		//errors_.push_back("Your callsign is invalid.");
 	} else {
 		config_data_.telemetry.callsign = callsign;
+	}
+
+	int aprs_enabled = json_buffer_["telemetry"]["aprs-enabled"].get<bool>();
+	config_data_.telemetry.aprs_enabled = 0; // First disable
+
+	if (aprs_enabled) {
+		std::string aprs_frequency = 
+			json_buffer_["telemetry"]["aprs-frequency"].get<std::string>();
+		/** @todo Check if frequency is valid */
+
+		int ssid = json_buffer_["telemetry"]["aprs-ssid"].get<int>();
+		/** @todo Check if ssid is valid */
+
+		std::string symbol = 
+		json_buffer_["telemetry"]["aprs-symbol"].get<std::string>();
+		/** @todo Check if symbol is valid */
+
+		std::string memo = 
+		json_buffer_["telemetry"]["aprs-memo"].get<std::string>();
+		/** @todo Check if memo is valid */
+
+		// if all are valid, set in config_data_ and enabled
+		config_data_.telemetry.aprs_enabled = 1;
+		config_data_.telemetry.aprs_freq = aprs_frequency;
+		config_data_.telemetry.aprs_ssid = ssid;
+		config_data_.telemetry.aprs_symbol = symbol;
+		config_data_.telemetry.aprs_memo = memo;
+	}
+
+	int sstv_enabled = json_buffer_["telemetry"]["sstv-enabled"].get<bool>();
+	config_data_.telemetry.sstv_enabled = 0; // First disable
+	
+	if (sstv_enabled) {
+		std::string sstv_frequency =
+			json_buffer_["telemetry"]["sstv-frequency"].get<std::string>();
+		/** @todo Check if frequency is valid */
+
+		config_data_.telemetry.sstv_enabled = 1;
+		config_data_.telemetry.sstv_freq = sstv_frequency;
+	}
+
+	int afsk_enabled = json_buffer_["telemetry"]["afsk-enabled"].get<bool>();
+	config_data_.telemetry.afsk_enabled = 0; // First disable
+
+	if (afsk_enabled) {
+		std::string afsk_frequency =
+			json_buffer_["telemetry"]["afsk-frequency"].get<std::string>();
+		/** @todo Check if frequency is valid */
+
+		config_data_.telemetry.afsk_enabled = 1;
+		config_data_.telemetry.afsk_freq = afsk_frequency;
 	}
 }
 

@@ -12,6 +12,12 @@
 
 #include <mutex>
 #include <fstream>
+#include <string>
+#include <thread>
+#include <vector>
+#include <queue>
+#include <atomic>
+#include <iostream>
 
 #include "module.h"
 
@@ -45,29 +51,31 @@ public:
     void stop();
 
     void sendDataPacket();
-    
     void sendAFSK(std::string message);
     void sendAPRS();
     void sendSSTVImage();
 
 private:
     int getNextTXNumber();
+
     void addToTXQueue(Transmission transmission);
     void getNextTXQueueItem();
 
-    std::string generateAFSK(std::string callsign, std::string wav_location, 
-        std::string message);
+    std::string generateAFSK(std::string message);
     std::string generateAPRS();
     std::string generateSSTV();
+
+    void runner();
     
     int tx_number_;
 
     std::mutex tx_queue_lock_;
     std::queue<Transmission> tx_queue_;
 
-    ConfigData config_data_;
-    ConfigData::Telemetry telemetry_config_;
+    std::thread tx_thread_;
+    std::atomic <int> stop_flag_;
 
+    ConfigData config_data_;
     DataStream *p_data_stream_;
 };
 

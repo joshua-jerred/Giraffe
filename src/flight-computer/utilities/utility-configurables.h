@@ -43,14 +43,17 @@
 // ---------------------------------------- //
 
 // ------- Error Prefixes ------- //
+#define MODULE_CONFIG_PREFIX "M_CFG"
+#define MODULE_DATA_PREFIX "M_DAT"
 #define MODULE_TELEMETRY_PREFIX "M_TEL"
 #define MODULE_SERVER_PREFIX "M_SRV"
-
+#define MODULE_EXTENSION_PREFIX "M_EXT"
 // ------------------------------ //
 
 // This is the interval, in seconds, that determines how often the data module
 // will parse the data stream and update the data frame.
 #define MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS 500
+#define TELEMETRY_INTERVAL_MILI_SECONDS 500
 
 #define MODULE_SERVER_PORT 8779
 
