@@ -69,7 +69,7 @@ class SocketException
 class ServerSocket : private Socket {
  public:
 
-  ServerSocket ( int port );
+  ServerSocket ( int port, int non_blocking );
   ServerSocket (){};
   virtual ~ServerSocket();
 

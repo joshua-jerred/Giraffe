@@ -17,7 +17,9 @@ void ServerModule::start() {
 
 void ServerModule::stop() {
 	stop_flag_ = 1;
-	runner_thread_.join();
+	if (runner_thread_.joinable()) {
+		runner_thread_.join();
+	}
 }
 
 int ServerModule::checkShutdown() {
@@ -25,17 +27,19 @@ int ServerModule::checkShutdown() {
 }
 
 void ServerModule::runner() {
+	ServerSocket server_socket(MODULE_SERVER_PORT, 1);  // Create non-blocking socket
 	while (!stop_flag_) {
+		std::this_thread::sleep_for(std::chrono::milliseconds(50));
 		try {
-			ServerSocket server_socket(MODULE_SERVER_PORT);  // Create the socket
 			
 			ServerSocket new_sock;  // Create a new socket for the connection
 			server_socket.accept(new_sock);
 
 			data_stream_->addData(
-				MODULE_SERVER_PREFIX, "SOCKET", "CONNECTED", 10);
+				MODULE_SERVER_PREFIX, "SOCKET", "CONNECTED", 0);
 			
 			while (!stop_flag_) {
+				std::this_thread::sleep_for(std::chrono::milliseconds(50));
 				std::string request;
 				new_sock >> request;  // Read the request from the client
 				if (request == "static") {
@@ -86,6 +90,7 @@ void ServerModule::runner() {
 										e.description(), update_interval_);
 		}
 	}
+	return;
 }
 
 void ServerModule::sendStaticData(ServerSocket &socket) {

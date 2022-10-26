@@ -35,7 +35,6 @@ FlightRunner::FlightRunner() {
 }
 
 FlightRunner::~FlightRunner() {
-    deconstruct();
 }
 
 int FlightRunner::start() {
@@ -187,8 +186,8 @@ void FlightRunner::deconstruct() {
     } else {
         std::cout << "Not Running" << std::endl;
     }
+    std::cout << "Stopping Server Module ... ";
     if (p_server_module_ != nullptr) {
-        std::cout << "Stopping Server Module ... ";
         p_server_module_->stop();
         delete p_server_module_;
         std::cout << "Stopped" << std::endl;
