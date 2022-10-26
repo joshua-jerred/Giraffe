@@ -1,6 +1,6 @@
 # Giraffe
 ### A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.
-#### Version 0.0.9
+#### Iteration 0.1
 
 Too see my more complete, python implementaiton of this project refer to [the AOS repo.](https://github.com/joshua-jerred/AOS)
 
