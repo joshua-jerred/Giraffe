@@ -13,12 +13,13 @@ ServerModule::~ServerModule() { stop(); }
 void ServerModule::start() {
 	stop_flag_ = 0;
 	runner_thread_ = std::thread(&ServerModule::runner, this);
-	py_runner_thread_ = std::thread(&ServerModule::pyRunner, this);
 }
 
 void ServerModule::stop() {
 	stop_flag_ = 1;
-	runner_thread_.join();
+	if (runner_thread_.joinable()) {
+		runner_thread_.join();
+	}
 }
 
 int ServerModule::checkShutdown() {
@@ -26,17 +27,19 @@ int ServerModule::checkShutdown() {
 }
 
 void ServerModule::runner() {
+	ServerSocket server_socket(MODULE_SERVER_PORT, 1);  // Create non-blocking socket
 	while (!stop_flag_) {
+		std::this_thread::sleep_for(std::chrono::milliseconds(50));
 		try {
-			ServerSocket server_socket(MODULE_SERVER_PORT);  // Create the socket
 			
 			ServerSocket new_sock;  // Create a new socket for the connection
 			server_socket.accept(new_sock);
 
 			data_stream_->addData(
-				MODULE_SERVER_PREFIX, "SOCKET", "CONNECTED", 10);
+				MODULE_SERVER_PREFIX, "SOCKET", "CONNECTED", 0);
 			
 			while (!stop_flag_) {
+				std::this_thread::sleep_for(std::chrono::milliseconds(50));
 				std::string request;
 				new_sock >> request;  // Read the request from the client
 				if (request == "static") {
@@ -52,7 +55,7 @@ void ServerModule::runner() {
 						);
 					module_status_ = ModuleStatus::STOPPED;
 					stop_flag_ = 1;
-					break;
+					return;
 				} else if (request == "shutdownGFS") {
 					data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
@@ -60,7 +63,10 @@ void ServerModule::runner() {
 						"SHUTDOWN_GFS", 
 						0
 						);
+					module_status_ = ModuleStatus::STOPPED;
+					stop_flag_ = 1;
 					gfs_shutdown_flag_ = 1;
+					return;
 				} else if (request == "DISCONNECT") {
 					data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
@@ -84,14 +90,7 @@ void ServerModule::runner() {
 										e.description(), update_interval_);
 		}
 	}
-}
-
-/**
- * @todo 'system' should not be used here. This is a temporary.
- */
-int ServerModule::pyRunner() {
-	system("cd web-server/; python3 main.py");
-	return 0;
+	return;
 }
 
 void ServerModule::sendStaticData(ServerSocket &socket) {

@@ -149,9 +149,13 @@ void Socket::set_non_blocking(const bool b) {
 // ServerSocket
 // ---------------------------------------------------------------------
 
-ServerSocket::ServerSocket(int port) {
+ServerSocket::ServerSocket(int port, int non_blocking) {
   if (!Socket::create()) {
     throw SocketException("Could not create server socket.");
+  }
+
+  if (non_blocking) {
+    Socket::set_non_blocking(true);
   }
 
   if (!Socket::bind(port)) {

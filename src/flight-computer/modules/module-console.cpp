@@ -52,7 +52,9 @@ void ConsoleModule::start() {
  */
 void ConsoleModule::stop() {
     stop_flag_ = 1;
-    runner_thread_.join();
+    if (runner_thread_.joinable()) {
+        runner_thread_.join();
+    }
 }
 
 /**
@@ -64,10 +66,10 @@ void ConsoleModule::stop() {
  */
 void ConsoleModule::runner() {
     while (!stop_flag_) {
-        std::this_thread::sleep_for(
-            std::chrono::milliseconds(update_interval_));
         clearScreen();
         printData();
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(update_interval_));
     }
 }
 

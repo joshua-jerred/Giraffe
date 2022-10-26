@@ -30,7 +30,6 @@ public:
 
 private:
     void runner();
-    int pyRunner();
     void sendStaticData(ServerSocket &socket);
     void sendDynamicData(ServerSocket &socket);
 
