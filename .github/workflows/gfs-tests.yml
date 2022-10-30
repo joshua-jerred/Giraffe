@@ -20,13 +20,13 @@ jobs:
     - name: make
       run: cd build && make giraffe-flight-software
 
-  test-01:
-    name: test-01 (Configuration Module)
-    runs-on: self-hosted
-    needs: [build]
-    steps:
-    - name: build
-      run: cd build && make test-01
-    - name: run test
-      run: cd build/bin/tests/test-01 && ./test-01
+ # test-01:
+ #   name: test-01 (Configuration Module)
+ #   runs-on: self-hosted
+ #   needs: [build]
+ #   steps:
+ #   - name: build
+ #     run: cd build && make test-01
+ #   - name: run test
+ #     run: cd build/bin/tests/test-01 && ./test-01
 
