@@ -133,7 +133,7 @@ void ConsoleModule::printData() {
         break;
     }
     std::cout << "    Starting Procedure: ";
-    switch (config_data_.general.starting_loop)
+    switch (config_data_.general.starting_proc)
     {
     case 0: std::cout << "error";
         break;

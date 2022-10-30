@@ -6,12 +6,12 @@
 #include <unordered_map>
 
 /**
- * @brief Struct containing the loop configuration. One for each loop type.
+ * @brief Struct containing the procedure configuration. One for each type.
  * 
  */
 struct FlightProcedure {
 
-    enum LoopType {
+    enum ProcType {
         ERROR = 0,
         TESTING = 1,
         STANDARD = 2,
@@ -29,7 +29,7 @@ struct FlightProcedure {
     };
 
     int enabled;
-    LoopType type;
+    ProcType type;
     Intervals intervals;
 };
 
@@ -96,7 +96,7 @@ struct ConfigData {
     struct General {
         std::string project_name {};
         MainboardType main_board {};
-        FlightProcedure::LoopType starting_loop {}; // Default is standard
+        FlightProcedure::ProcType starting_proc {}; // Default is standard
     };
 
     struct Extensions {
@@ -139,7 +139,7 @@ struct ConfigData {
         std::vector<ExtensionDataType> types {};
     };
 
-    struct Loops {
+    struct Procs {
         FlightProcedure testing {};
         FlightProcedure standard {};
         FlightProcedure recovery {};
@@ -151,7 +151,7 @@ struct ConfigData {
     Debugging debug;
     Telemetry telemetry;
     DataTypes data_types;
-    Loops flight_loops;
+    Procs flight_procs;
 };
 
 #endif

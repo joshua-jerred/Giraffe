@@ -12,7 +12,7 @@
 #include "flight-runner.h"
 
 FlightRunner::FlightRunner() {
-    current_flight_loop_type_ = FlightProcedure::LoopType::FAILSAFE;
+    current_flight_procedure_type_ = FlightProcedure::ProcType::FAILSAFE;
 }
 
 FlightRunner::~FlightRunner() {
@@ -67,11 +67,11 @@ int FlightRunner::start() {
     }
 
     // ~~~ Setup Done, Start the Flight Loop ~~~ //
-    if (config_data_.general.starting_loop == FlightProcedure::LoopType::TESTING) { // If user specified in config to use the testing loop, it's selected here.
-        switchLoops(FlightProcedure::LoopType::TESTING);
+    if (config_data_.general.starting_proc == FlightProcedure::ProcType::TESTING) { // If user specified in config to use the testing proc, it's selected here.
+        switchLoops(FlightProcedure::ProcType::TESTING);
         std::cout << "Starting in Testing Loop" << std::endl;
     } else {
-        healthCheck(); // Perform a health check to determine the flight loop type
+        healthCheck(); // Perform a health check to determine the flight proc type
     }
     shutdown_signal_ = 0;
     return flightLoop(); // This will only return on shutdown
@@ -141,10 +141,10 @@ int FlightRunner::flightLoop() {
 }
 
 /**
- * @brief This function will switch the flight loop to a different loop type
+ * @brief This function will switch the flight proc to a different proc type
  * if the values of extensions are within certain ranges.
  * @details This function is currently not implemented but it is responsible
- * for switching the flight loops if it's needed. This can be because flight
+ * for switching the flight procs if it's needed. This can be because flight
  * critical components are not working or to switch from standard to recovery.
  * @param None
  * @return void
@@ -152,29 +152,29 @@ int FlightRunner::flightLoop() {
 void FlightRunner::healthCheck() {
 }
 
-void FlightRunner::switchLoops(FlightProcedure::LoopType loopType) {
-    ConfigData::Loops loops = config_data_.flight_loops;
+void FlightRunner::switchLoops(FlightProcedure::ProcType procType) {
+    ConfigData::Procs procs = config_data_.flight_procs;
     FlightProcedure current_procedure; 
-    switch (loopType)
+    switch (procType)
     {
-    case FlightProcedure::LoopType::TESTING:
+    case FlightProcedure::ProcType::TESTING:
 
-        current_intervals_ = loops.testing.intervals; // Set the intervals
+        current_intervals_ = procs.testing.intervals; // Set the intervals
         
         // Send the procedure to the data stream
-        current_procedure.type = FlightProcedure::LoopType::TESTING;
-        current_procedure.intervals = loops.testing.intervals;
+        current_procedure.type = FlightProcedure::ProcType::TESTING;
+        current_procedure.intervals = procs.testing.intervals;
         p_data_module_->
         getDataStream()->updateFlightProcedure(current_procedure);
 
         break;
-    default: // Default back to failsafe flight loop
+    default: // Default back to failsafe flight proc
 
-        current_intervals_ = loops.failsafe.intervals; // Set the intervals
+        current_intervals_ = procs.failsafe.intervals; // Set the intervals
 
         // Send the procedure to the data stream
-        current_procedure.type = FlightProcedure::LoopType::FAILSAFE;
-        current_procedure.intervals = loops.failsafe.intervals;
+        current_procedure.type = FlightProcedure::ProcType::FAILSAFE;
+        current_procedure.intervals = procs.failsafe.intervals;
         p_data_module_->
         getDataStream()->updateFlightProcedure(current_procedure);
         break;

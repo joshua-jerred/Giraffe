@@ -102,7 +102,7 @@ Here is the current list of features that will be included in the basic version.
 - AFSK Data Packets
 - SSDV Images
 - Advanced Error Handling
-- A failsafe flight loop
+- A failsafe flight procedure
 - Automated radio control for switching frequencies automatically
 - Two way communication that allows the ground station to send command packets
 - A whole lot more that will eventually be documented.

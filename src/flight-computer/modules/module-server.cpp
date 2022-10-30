@@ -97,7 +97,7 @@ void ServerModule::sendStaticData(ServerSocket &socket) {
 	json static_data;
 	static_data["project-name"] = config_data_.general.project_name;
 	static_data["main-board"] = config_data_.general.main_board;
-	static_data["starting-loop"] = config_data_.general.starting_loop;
+	static_data["starting-proc"] = config_data_.general.starting_proc;
 	static_data["console-enabled"] = config_data_.debug.console_enabled;
 	static_data["telemetry-enabled"] = config_data_.telemetry.telemetry_enabled;
 

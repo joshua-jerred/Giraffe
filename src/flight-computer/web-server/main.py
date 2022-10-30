@@ -16,7 +16,7 @@ class GFSData:
         self.static_data = {
             "project-name": "NO-DATA",
             "main-board": "NO-DATA",
-            "starting-loop": "NO-DATA",
+            "starting-proc": "NO-DATA",
             "console-enabled": "NO-DATA",
             "telemetry-enabled": "NO-DATA",
             "extensions": [
@@ -72,7 +72,7 @@ class GFSData:
         if "project-name" in data:  # static data
             self.static_data["project-name"] = data["project-name"]
             self.static_data["main-board"] = data["main-board"]
-            self.static_data["starting-loop"] = data["starting-loop"]
+            self.static_data["starting-proc"] = data["starting-proc"]
             self.static_data["console-enabled"] = data["console-enabled"]
             self.static_data["telemetry-enabled"] = data["telemetry-enabled"]
             self.static_data["extensions"] = data["extensions"]

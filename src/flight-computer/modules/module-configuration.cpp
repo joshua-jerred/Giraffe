@@ -122,7 +122,7 @@ void ConfigModule::parseAll() {
 /**
  * @brief Parses the general section of the configuration file.
  * @details This function pulls out the project name, mainboard type, and
- * starting loop type. It will add errors to the errors_ vector if any of the
+ * starting proc type. It will add errors to the errors_ vector if any of the
  * required fields contain errors.
  * @param None
  * @return void
@@ -163,12 +163,12 @@ void ConfigModule::parseGeneral() {
 		config_data_.general.main_board = mbtype;
 	}
 	
-	FlightProcedure::LoopType ltype = 
-	json_buffer_["general"]["starting-loop"].get<FlightProcedure::LoopType>();
-	if (ltype == FlightProcedure::LoopType::ERROR) {
-		error("C_GEN_SL_I");
+	FlightProcedure::ProcType ltype = 
+	json_buffer_["general"]["starting-procedure"].get<FlightProcedure::ProcType>();
+	if (ltype == FlightProcedure::ProcType::ERROR) {
+		error("C_GEN_SP_I");
 	} else {
-		config_data_.general.starting_loop = ltype;
+		config_data_.general.starting_proc = ltype;
 	}
 }
 
@@ -409,20 +409,19 @@ void ConfigModule::parseDataTypes() {
 }
 
 /**
- * @brief Parses the flight loop section of the configuration file.
+ * @brief Parses the flight proc section of the configuration file.
  * @details This is the portion that contains the actual tasks of the flight.
  * @param None
  * @return void
- * @todo change 'flight loop' to 'flight mode'
  */
 void ConfigModule::parseFlightProcedures() {
-	for (const auto& item : json_buffer_["flight-loops"].items()) {
+	for (const auto& item : json_buffer_["flight-procs"].items()) {
 		FlightProcedure newFlightProcedure;
 
-		newFlightProcedure.type = item.value()["type"].get<FlightProcedure::LoopType>();
+		newFlightProcedure.type = item.value()["type"].get<FlightProcedure::ProcType>();
 
-		if (newFlightProcedure.type == FlightProcedure::LoopType::ERROR) {
-			//errors_.push_back("Invalid flight loop type.");
+		if (newFlightProcedure.type == FlightProcedure::ProcType::ERROR) {
+			//errors_.push_back("Invalid flight proc type.");
 		}
 
 		newFlightProcedure.enabled = item.value()["enabled"].get<bool>();
@@ -441,12 +440,12 @@ void ConfigModule::parseFlightProcedures() {
 		item.value()["intervals"]["health-check"].get<int>();
 
 
-		if (newFlightProcedure.type == FlightProcedure::LoopType::TESTING) {
-			config_data_.flight_loops.testing = newFlightProcedure;
-		} else if (newFlightProcedure.type == FlightProcedure::LoopType::STANDARD) {
-			config_data_.flight_loops.standard = newFlightProcedure;
-		} else if (newFlightProcedure.type == FlightProcedure::LoopType::RECOVERY) {
-			config_data_.flight_loops.recovery = newFlightProcedure;
+		if (newFlightProcedure.type == FlightProcedure::ProcType::TESTING) {
+			config_data_.flight_procs.testing = newFlightProcedure;
+		} else if (newFlightProcedure.type == FlightProcedure::ProcType::STANDARD) {
+			config_data_.flight_procs.standard = newFlightProcedure;
+		} else if (newFlightProcedure.type == FlightProcedure::ProcType::RECOVERY) {
+			config_data_.flight_procs.recovery = newFlightProcedure;
 		}
 	}
 }

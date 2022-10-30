@@ -16,7 +16,7 @@ A-Z, 0-9, _, - and spaces are allowed)
 
 C_GEN_MB_I: Invalid mainboard type, reverting to 'error'.
 
-C_GEN_SL_I: Starting loop invalid, reverting to 'error'.
+C_GEN_SP_I: Starting Proc invalid, reverting to 'error'.
 
 
 #### Extensions

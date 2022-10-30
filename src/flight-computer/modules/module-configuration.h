@@ -49,12 +49,12 @@ NLOHMANN_JSON_SERIALIZE_ENUM( ConfigData::MainboardType, {
     {ConfigData::MainboardType::PI_4, "pi_4"}
 })
 
-NLOHMANN_JSON_SERIALIZE_ENUM( FlightProcedure::LoopType, {
-    {FlightProcedure::LoopType::ERROR, "error"},
-    {FlightProcedure::LoopType::TESTING, "testing"},
-    {FlightProcedure::LoopType::STANDARD, "standard"},
-    {FlightProcedure::LoopType::RECOVERY, "recovery"},
-    {FlightProcedure::LoopType::FAILSAFE, "failsafe"}
+NLOHMANN_JSON_SERIALIZE_ENUM( FlightProcedure::ProcType, {
+    {FlightProcedure::ProcType::ERROR, "error"},
+    {FlightProcedure::ProcType::TESTING, "testing"},
+    {FlightProcedure::ProcType::STANDARD, "standard"},
+    {FlightProcedure::ProcType::RECOVERY, "recovery"},
+    {FlightProcedure::ProcType::FAILSAFE, "failsafe"}
 })
 
 NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Category, {

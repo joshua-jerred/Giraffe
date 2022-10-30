@@ -2,7 +2,7 @@
     "general": {
         "name": "Project Name",
         "main-board-type": "pi_zero_w",
-        "starting-loop": "testing"
+        "starting-proc": "testing"
     },
     "extensions": [
         {
@@ -94,7 +94,7 @@
         }
     ],
 
-    "flight-loops": [
+    "flight-procs": [
         {
             "type": "testing",
             "enabled": true,
