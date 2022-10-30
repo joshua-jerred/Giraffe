@@ -12,7 +12,7 @@
 #include "flight-runner.h"
 
 FlightRunner::FlightRunner() {
-    current_flight_loop_type_ = FlightLoop::LoopType::FAILSAFE;
+    current_flight_loop_type_ = FlightProcedure::LoopType::FAILSAFE;
 }
 
 FlightRunner::~FlightRunner() {
@@ -67,8 +67,8 @@ int FlightRunner::start() {
     }
 
     // ~~~ Setup Done, Start the Flight Loop ~~~ //
-    if (config_data_.general.starting_loop == FlightLoop::LoopType::TESTING) { // If user specified in config to use the testing loop, it's selected here.
-        switchLoops(FlightLoop::LoopType::TESTING);
+    if (config_data_.general.starting_loop == FlightProcedure::LoopType::TESTING) { // If user specified in config to use the testing loop, it's selected here.
+        switchLoops(FlightProcedure::LoopType::TESTING);
         std::cout << "Starting in Testing Loop" << std::endl;
     } else {
         healthCheck(); // Perform a health check to determine the flight loop type
@@ -152,17 +152,34 @@ int FlightRunner::flightLoop() {
 void FlightRunner::healthCheck() {
 }
 
-void FlightRunner::switchLoops(FlightLoop::LoopType loopType) {
+void FlightRunner::switchLoops(FlightProcedure::LoopType loopType) {
     ConfigData::Loops loops = config_data_.flight_loops;
+    FlightProcedure current_procedure; 
     switch (loopType)
     {
-    case FlightLoop::LoopType::TESTING:
-        current_intervals_ = loops.testing.intervals;
+    case FlightProcedure::LoopType::TESTING:
+
+        current_intervals_ = loops.testing.intervals; // Set the intervals
+        
+        // Send the procedure to the data stream
+        current_procedure.type = FlightProcedure::LoopType::TESTING;
+        current_procedure.intervals = loops.testing.intervals;
+        p_data_module_->
+        getDataStream()->updateFlightProcedure(current_procedure);
+
         break;
     default: // Default back to failsafe flight loop
-        current_intervals_ = loops.failsafe.intervals;
+
+        current_intervals_ = loops.failsafe.intervals; // Set the intervals
+
+        // Send the procedure to the data stream
+        current_procedure.type = FlightProcedure::LoopType::FAILSAFE;
+        current_procedure.intervals = loops.failsafe.intervals;
+        p_data_module_->
+        getDataStream()->updateFlightProcedure(current_procedure);
         break;
     }
+
 }
 
 void FlightRunner::deconstruct() {   

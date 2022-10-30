@@ -9,7 +9,7 @@
  * @brief Struct containing the loop configuration. One for each loop type.
  * 
  */
-struct FlightLoop {
+struct FlightProcedure {
 
     enum LoopType {
         ERROR = 0,
@@ -96,7 +96,7 @@ struct ConfigData {
     struct General {
         std::string project_name {};
         MainboardType main_board {};
-        FlightLoop::LoopType starting_loop {}; // Default is standard
+        FlightProcedure::LoopType starting_loop {}; // Default is standard
     };
 
     struct Extensions {
@@ -140,10 +140,10 @@ struct ConfigData {
     };
 
     struct Loops {
-        FlightLoop testing {};
-        FlightLoop standard {};
-        FlightLoop recovery {};
-        FlightLoop failsafe {};
+        FlightProcedure testing {};
+        FlightProcedure standard {};
+        FlightProcedure recovery {};
+        FlightProcedure failsafe {};
     };
 
     General general;

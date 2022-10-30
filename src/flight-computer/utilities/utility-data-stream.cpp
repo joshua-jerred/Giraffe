@@ -98,6 +98,18 @@ void DataStream::updateDataFrame(DataFrame data_frame) {
 	data_frame_lock_.unlock();
 }
 
+void DataStream::updateErrorFrame(ErrorFrame error_frame) {
+	error_frame_lock_.lock();
+	error_frame_ = error_frame;
+	error_frame_lock_.unlock();	
+}
+
+void DataStream::updateFlightProcedure(FlightProcedure flight_procedure) {
+	flight_procedure_lock_.lock();
+	flight_procedure_ = flight_procedure;
+	flight_procedure_lock_.unlock();
+}
+
 /**
  * @brief Returns the next data packet. Thread safe.
  * @param None
@@ -149,6 +161,20 @@ DataFrame DataStream::getDataFrameCopy() {
 	DataFrame data_frame(data_frame_);
 	data_frame_lock_.unlock();
 	return data_frame;
+}
+
+ErrorFrame DataStream::getErrorFrameCopy() {
+	error_frame_lock_.lock();
+	ErrorFrame error_frame(error_frame_);
+	error_frame_lock_.unlock();
+	return error_frame;
+}
+
+FlightProcedure DataStream::getFlightProcedureCopy() {
+	flight_procedure_lock_.lock();
+	FlightProcedure flight_procedure(flight_procedure_);
+	flight_procedure_lock_.unlock();
+	return flight_procedure;
 }
 
 /**

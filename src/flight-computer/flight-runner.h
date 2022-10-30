@@ -92,13 +92,13 @@ private:
 
     void healthCheck();
 
-    void switchLoops(FlightLoop::LoopType loopType);
+    void switchLoops(FlightProcedure::LoopType loopType);
 
     void deconstruct();
 
     ConfigData config_data_;
-    FlightLoop::LoopType current_flight_loop_type_;
-    FlightLoop::Intervals current_intervals_;
+    FlightProcedure::LoopType current_flight_loop_type_;
+    FlightProcedure::Intervals current_intervals_;
     
     DataModule *p_data_module_;
     ExtensionsModule *p_extension_module_;
@@ -108,11 +108,11 @@ private:
     //ComModule *mpComModule;
     int shutdown_signal_;
 
-    FlightLoop flt_loop_testing_;
-    FlightLoop flt_loop_standard_;
-    FlightLoop flt_loop_descent_;
-    FlightLoop flt_loop_recovery_;
-    FlightLoop flt_loop_failsafe_;
+    FlightProcedure flt_loop_testing_;
+    FlightProcedure flt_loop_standard_;
+    FlightProcedure flt_loop_descent_;
+    FlightProcedure flt_loop_recovery_;
+    FlightProcedure flt_loop_failsafe_;
 };
 
 #endif

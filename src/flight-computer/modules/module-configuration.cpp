@@ -116,7 +116,7 @@ void ConfigModule::parseAll() {
 	parseDebug();
 	parseTelemetry();
 	parseDataTypes();
-	parseFlightLoops();
+	parseFlightProcedures();
 }
 
 /**
@@ -163,9 +163,9 @@ void ConfigModule::parseGeneral() {
 		config_data_.general.main_board = mbtype;
 	}
 	
-	FlightLoop::LoopType ltype = 
-	json_buffer_["general"]["starting-loop"].get<FlightLoop::LoopType>();
-	if (ltype == FlightLoop::LoopType::ERROR) {
+	FlightProcedure::LoopType ltype = 
+	json_buffer_["general"]["starting-loop"].get<FlightProcedure::LoopType>();
+	if (ltype == FlightProcedure::LoopType::ERROR) {
 		error("C_GEN_SL_I");
 	} else {
 		config_data_.general.starting_loop = ltype;
@@ -415,27 +415,38 @@ void ConfigModule::parseDataTypes() {
  * @return void
  * @todo change 'flight loop' to 'flight mode'
  */
-void ConfigModule::parseFlightLoops() {
+void ConfigModule::parseFlightProcedures() {
 	for (const auto& item : json_buffer_["flight-loops"].items()) {
-		FlightLoop newFlightLoop;
+		FlightProcedure newFlightProcedure;
 
-		newFlightLoop.type = item.value()["type"].get<FlightLoop::LoopType>();
+		newFlightProcedure.type = item.value()["type"].get<FlightProcedure::LoopType>();
 
-		if (newFlightLoop.type == FlightLoop::LoopType::ERROR) {
+		if (newFlightProcedure.type == FlightProcedure::LoopType::ERROR) {
 			//errors_.push_back("Invalid flight loop type.");
 		}
 
-		newFlightLoop.enabled = item.value()["enabled"].get<bool>();
+		newFlightProcedure.enabled = item.value()["enabled"].get<bool>();
 
-		newFlightLoop.intervals.data_log = 
+		newFlightProcedure.intervals.data_log = 
 		item.value()["intervals"]["data-log"].get<int>();
+		newFlightProcedure.intervals.data_packet =
+		item.value()["intervals"]["data-packet"].get<int>();
+		newFlightProcedure.intervals.sstv =
+		item.value()["intervals"]["sstv"].get<int>();
+		newFlightProcedure.intervals.aprs =
+		item.value()["intervals"]["aprs"].get<int>();
+		newFlightProcedure.intervals.picture =
+		item.value()["intervals"]["picture"].get<int>();
+		newFlightProcedure.intervals.health_check =
+		item.value()["intervals"]["health-check"].get<int>();
 
-		if (newFlightLoop.type == FlightLoop::LoopType::TESTING) {
-			config_data_.flight_loops.testing = newFlightLoop;
-		} else if (newFlightLoop.type == FlightLoop::LoopType::STANDARD) {
-			config_data_.flight_loops.standard = newFlightLoop;
-		} else if (newFlightLoop.type == FlightLoop::LoopType::RECOVERY) {
-			config_data_.flight_loops.recovery = newFlightLoop;
+
+		if (newFlightProcedure.type == FlightProcedure::LoopType::TESTING) {
+			config_data_.flight_loops.testing = newFlightProcedure;
+		} else if (newFlightProcedure.type == FlightProcedure::LoopType::STANDARD) {
+			config_data_.flight_loops.standard = newFlightProcedure;
+		} else if (newFlightProcedure.type == FlightProcedure::LoopType::RECOVERY) {
+			config_data_.flight_loops.recovery = newFlightProcedure;
 		}
 	}
 }

@@ -97,11 +97,11 @@
             "enabled": true,
             "intervals": {
                 "data-log": 2,
-                "dataPacket": 0,
-                "sstv": 0,
-                "aprs": 0,
-                "picture":0,
-                "health_check": 0
+                "data-packet": 5,
+                "sstv": 10,
+                "aprs": 5,
+                "picture": 50,
+                "health-check": 10
                 }
         }
     ]

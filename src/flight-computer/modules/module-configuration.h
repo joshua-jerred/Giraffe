@@ -49,12 +49,12 @@ NLOHMANN_JSON_SERIALIZE_ENUM( ConfigData::MainboardType, {
     {ConfigData::MainboardType::PI_4, "pi_4"}
 })
 
-NLOHMANN_JSON_SERIALIZE_ENUM( FlightLoop::LoopType, {
-    {FlightLoop::LoopType::ERROR, "error"},
-    {FlightLoop::LoopType::TESTING, "testing"},
-    {FlightLoop::LoopType::STANDARD, "standard"},
-    {FlightLoop::LoopType::RECOVERY, "recovery"},
-    {FlightLoop::LoopType::FAILSAFE, "failsafe"}
+NLOHMANN_JSON_SERIALIZE_ENUM( FlightProcedure::LoopType, {
+    {FlightProcedure::LoopType::ERROR, "error"},
+    {FlightProcedure::LoopType::TESTING, "testing"},
+    {FlightProcedure::LoopType::STANDARD, "standard"},
+    {FlightProcedure::LoopType::RECOVERY, "recovery"},
+    {FlightProcedure::LoopType::FAILSAFE, "failsafe"}
 })
 
 NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Category, {
@@ -116,7 +116,7 @@ private:
     void parseDebug();
     void parseTelemetry();
     void parseDataTypes();
-    void parseFlightLoops();
+    void parseFlightProcedures();
 
     DataStream *p_data_stream_;
 

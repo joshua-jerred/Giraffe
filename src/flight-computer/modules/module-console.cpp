@@ -132,7 +132,7 @@ void ConsoleModule::printData() {
     default: std::cout << "Unknown";
         break;
     }
-    std::cout << "    Starting Loop: ";
+    std::cout << "    Starting Procedure: ";
     switch (config_data_.general.starting_loop)
     {
     case 0: std::cout << "error";
@@ -149,6 +149,38 @@ void ConsoleModule::printData() {
         std::cout << "Unknown";
         break;
     }
+    
+    std::cout << std::endl << std::endl;
+
+    FlightProcedure current_flt_proc = data_stream_->getFlightProcedureCopy();
+
+    std::cout << "Flight Procedure- " << std::endl;
+    std::cout << "Type: ";
+
+    switch (current_flt_proc.type)
+    {
+    case 0: std::cout << "error";
+        break;
+    case 1: std::cout << "Testing";
+        break;
+    case 2: std::cout << "Standard";
+        break;
+    case 3: std::cout << "Recovery";
+        break;
+    case 4: std::cout << "Failsafe";
+        break;
+    default:
+        std::cout << "Unknown";
+        break;
+    }
+
+    std::cout << "   Intervals:" << std::endl;
+    std::cout << "Data Log " << current_flt_proc.intervals.data_log << "s   ";
+    std::cout << "Data Packet " << current_flt_proc.intervals.data_packet << "s   ";
+    std::cout << "SSTV " << current_flt_proc.intervals.sstv << "s   ";
+    std::cout << "APRS " << current_flt_proc.intervals.aprs << "s   ";
+    std::cout << "Picture " << current_flt_proc.intervals.picture << "s   ";
+    std::cout << "HealthCheck " << current_flt_proc.intervals.health_check << "s   ";
     std::cout << std::endl << std::endl;
 
     std::cout << "Telemetry - " << std::endl;
