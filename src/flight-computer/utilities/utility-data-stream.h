@@ -51,7 +51,6 @@ struct ErrorStreamPacket {
 typedef std::unordered_map<std::string, DataStreamPacket> DataFrame;
 typedef std::unordered_map<std::string, ErrorStreamPacket> ErrorFrame;
 
-
 /**
  * @brief This class is passed to many extensions/modules. It is used
  * to communicate data and errors to the data module from any
@@ -78,6 +77,7 @@ public:
     DataStreamPacket getNextDataPacket();
     ErrorStreamPacket getNextErrorPacket();
 
+    std::string getData(std::string data_source, std::string data_name);
     DataFrame getDataFrameCopy();
     ErrorFrame getErrorFrameCopy();
     FlightProcedure getFlightProcedureCopy();
@@ -86,6 +86,7 @@ public:
     int getNumErrorPackets();
     int getTotalDataPackets();
     int getTotalErrorPackets();
+
 
 private:
     int num_data_packets_;

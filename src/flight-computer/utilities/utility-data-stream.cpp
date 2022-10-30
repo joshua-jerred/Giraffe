@@ -150,6 +150,21 @@ ErrorStreamPacket DataStream::getNextErrorPacket() {
 	return packet;
 }
 
+std::string DataStream::getData(std::string data_source, std::string data_name) 
+	{
+	std::string value;
+
+	data_frame_lock_.lock();
+	if (!data_frame_.contains(data_source + ":" + data_name)) {
+		value = "NO-DATA";
+	} else {
+		value = data_frame_[data_source + ":" + data_name].value;
+	}
+	data_frame_lock_.unlock();
+	
+	return value;
+}
+
 /**
  * @brief Makes a copy of the DataFrame and returns it. This is generally
  * called by a thread in a different module. This is thread safe.
