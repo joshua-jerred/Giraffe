@@ -1,12 +1,13 @@
 <map id="ConfigModule" name="ConfigModule">
-<area shape="rect" id="node1" title="ConfigModule is used to load all of the configuration data from the config file." alt="" coords="484,859,621,1141"/>
-<area shape="rect" id="node2" href="$structConfigData.html" title="Container for all config data. Mirrors the config file." alt="" coords="509,719,597,796"/>
-<area shape="rect" id="node3" href="$structConfigData.html#structConfigData_1_1Debugging" title=" " alt="" coords="5,476,201,597"/>
-<area shape="rect" id="node4" href="$structConfigData.html#structConfigData_1_1Loops" title=" " alt="" coords="226,498,357,575"/>
-<area shape="rect" id="node5" href="$structFlightLoop.html" title="Struct containing the loop configuration. One for each loop type." alt="" coords="250,219,333,311"/>
-<area shape="rect" id="node6" href="$structFlightLoop.html#structFlightLoop_1_1Intervals" title=" " alt="" coords="221,5,361,156"/>
-<area shape="rect" id="node7" href="$structConfigData.html#structConfigData_1_1DataTypes" title=" " alt="" coords="381,498,540,575"/>
-<area shape="rect" id="node8" href="$structConfigData.html#structConfigData_1_1Extensions" title=" " alt="" coords="564,498,725,575"/>
-<area shape="rect" id="node9" href="$structConfigData.html#structConfigData_1_1Telemetry" title=" " alt="" coords="749,417,903,656"/>
-<area shape="rect" id="node10" href="$structConfigData.html#structConfigData_1_1General" title=" " alt="" coords="927,483,1069,590"/>
+<area shape="rect" id="node1" title="ConfigModule is used to load all of the configuration data from the config file." alt="" coords="820,1244,1007,1541"/>
+<area shape="rect" id="node2" href="$classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="1080,680,1283,1080"/>
+<area shape="rect" id="node3" href="$structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="1073,219,1197,311"/>
+<area shape="rect" id="node11" href="$structConfigData.html#structConfigData_1_1Procs" title=" " alt="" coords="1013,498,1150,575"/>
+<area shape="rect" id="node4" href="$structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="1040,5,1229,156"/>
+<area shape="rect" id="node5" href="$structConfigData.html" title="Container for all config data. Mirrors the config file." alt="" coords="618,1104,713,1181"/>
+<area shape="rect" id="node6" href="$structConfigData.html#structConfigData_1_1Debugging" title=" " alt="" coords="767,476,988,597"/>
+<area shape="rect" id="node7" href="$structConfigData.html#structConfigData_1_1DataTypes" title=" " alt="" coords="5,498,176,575"/>
+<area shape="rect" id="node8" href="$structConfigData.html#structConfigData_1_1Extensions" title=" " alt="" coords="200,498,373,575"/>
+<area shape="rect" id="node9" href="$structConfigData.html#structConfigData_1_1Telemetry" title=" " alt="" coords="398,417,565,656"/>
+<area shape="rect" id="node10" href="$structConfigData.html#structConfigData_1_1General" title=" " alt="" coords="589,483,742,590"/>
 </map>

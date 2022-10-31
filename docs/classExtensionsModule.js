@@ -9,6 +9,6 @@ var classExtensionsModule =
     [ "extensions_", "classExtensionsModule.html#ac50a20a0577a66ebc61d41c5008de0b8", null ],
     [ "data_stream_", "classExtensionsModule.html#a3f0bde918dcfcf04741d7508e895bcbf", null ],
     [ "config_data_", "classExtensionsModule.html#a90a5bb7fe874941fa3a8bf4d2d37103d", null ],
-    [ "module_status_", "classExtensionsModule.html#a6b2ee33be8e491d3017269867c528143", null ],
+    [ "module_status_", "classExtensionsModule.html#a9262cb9b87896cb996138ca9af5812df", null ],
     [ "error_source_", "classExtensionsModule.html#aca64a0aa6bd57eb12396e9e2a06d6975", null ]
 ];

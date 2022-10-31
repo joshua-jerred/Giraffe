@@ -5,7 +5,7 @@ var structConfigData =
         [ "source", "structConfigData.html#a674e8527833ae5b4160b854a7e074e84", null ],
         [ "name", "structConfigData.html#a6c9f92937353bf902bf2ece62a086200", null ],
         [ "unit", "structConfigData.html#a12d3a033c43b89d945e4abe4fa7c80b3", null ],
-        [ "include_in_telemtry", "structConfigData.html#acf5fb6c08d217f627ddb17ae02fac945", null ]
+        [ "include_in_telemetry", "structConfigData.html#a52603357125e9e253067e090ea29bbe0", null ]
       ] ],
       [ "types", "structConfigData.html#a9cae25416e680205754c17380d9d5ec4", null ]
     ] ],
@@ -21,13 +21,13 @@ var structConfigData =
     [ "General", "structConfigData.html#structConfigData_1_1General", [
       [ "project_name", "structConfigData.html#a5dd810e5e84bf7652cf30f0dea684a63", null ],
       [ "main_board", "structConfigData.html#a6c404a6ece0729f53abf8a034ec218da", null ],
-      [ "starting_loop", "structConfigData.html#ad42b95909f7d6ef451917be340827feb", null ]
+      [ "starting_proc", "structConfigData.html#a95c3199dd99abc93cd4636b18a920de2", null ]
     ] ],
-    [ "Loops", "structConfigData.html#structConfigData_1_1Loops", [
-      [ "testing", "structConfigData.html#ac673aca97b4e227e24bfa5b53eb19e4e", null ],
-      [ "standard", "structConfigData.html#a9b3e00db3373e5fcd11e7d2fc9a522eb", null ],
-      [ "recovery", "structConfigData.html#ac325ab364c469fed654b472535338d86", null ],
-      [ "failsafe", "structConfigData.html#a3b105f2944f02c0274facc93e29f43f6", null ]
+    [ "Procs", "structConfigData.html#structConfigData_1_1Procs", [
+      [ "testing", "structConfigData.html#a0db1b5e428a49490c3ddec226502ed2f", null ],
+      [ "standard", "structConfigData.html#a77c742fe7b46794241da73153ca1f7b0", null ],
+      [ "recovery", "structConfigData.html#a095de5729ab13c8b9ea8e4dd0953997c", null ],
+      [ "failsafe", "structConfigData.html#af67c9a04c25d9a10a608abd7a05b679e", null ]
     ] ],
     [ "Telemetry", "structConfigData.html#structConfigData_1_1Telemetry", [
       [ "telemetry_enabled", "structConfigData.html#a3f844f2a09910d0bb737ac5750070738", null ],
@@ -40,7 +40,7 @@ var structConfigData =
       [ "aprs_freq", "structConfigData.html#a65b02b7d6033c7b6faa30fe3d959d0e7", null ],
       [ "aprs_key", "structConfigData.html#a505fe301d618b40af4d03c457c43ef6c", null ],
       [ "aprs_ssid", "structConfigData.html#a02e65d2f27dd362fcc0895eb521eaa99", null ],
-      [ "aprs_symbol", "structConfigData.html#ad00bcc3c5a1d616fa7051fa8ade9ae32", null ],
+      [ "aprs_symbol", "structConfigData.html#aea89ec9c6a2ac8abc19aebd396a5e748", null ],
       [ "aprs_memo", "structConfigData.html#ac3c4eac1afef4e3b2373700cace62917", null ]
     ] ],
     [ "MainboardType", "structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cd", [
@@ -57,5 +57,5 @@ var structConfigData =
     [ "debug", "structConfigData.html#a07617466d797cb3c379ecc9f2036611a", null ],
     [ "telemetry", "structConfigData.html#ab87da4c949df066825e387fb919a085b", null ],
     [ "data_types", "structConfigData.html#a7ec84cac4da490322148fa418ae2c23b", null ],
-    [ "flight_loops", "structConfigData.html#a015bc9db23eff5616c52bd1c146e6b13", null ]
+    [ "flight_procs", "structConfigData.html#aa7cb47a64041963a95200924a7096e9b", null ]
 ];

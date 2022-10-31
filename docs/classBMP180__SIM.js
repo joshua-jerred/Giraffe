@@ -28,6 +28,7 @@ var classBMP180__SIM =
     [ "setCritical", "classBMP180__SIM.html#a46a252fd2eb23471ede70b3df875cafc", null ],
     [ "setExtraArgs", "classBMP180__SIM.html#aa4184bd3341dcea45923aefb6bc0243e", null ],
     [ "spawnRunner", "classBMP180__SIM.html#aab788a955615aabc47a1252ddc3a3af3", null ],
+    [ "stop_flag_", "classBMP180__SIM.html#ab5ef31ae39b4da3d17fd1c7fc5a88b7a", null ],
     [ "p_data_stream_", "classBMP180__SIM.html#a27bf670b0fe22d7e5d343c4656a97368", null ],
     [ "runner_thread_", "classBMP180__SIM.html#ae6cda931bb7bf6469bc10084bf17a58f", null ],
     [ "status_", "classBMP180__SIM.html#a892e4172806fd6279b2d21ca5d25e7db", null ],

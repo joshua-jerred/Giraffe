@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -90,44 +90,40 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <div class="textblock"><dl class="reflist">
 <dt>Class <a class="el" href="classBMP180__SIM.html">BMP180_SIM</a>  </dt>
 <dd><a class="anchor" id="_todo000014"></a>Implement shutdown and address in the configuration  </dd>
-<dt>Member <a class="el" href="classConfigModule.html#aade1faf6a4a9da0e5ce4945beef204d3">ConfigModule::getErrors</a>  ()</dt>
-<dd><a class="anchor" id="_todo000019"></a>The errors need to be more similar to the errors in other modules that report to the datastream.  </dd>
 <dt>Member <a class="el" href="classConfigModule.html#a2e84b830c5e46e8dc59dba53f986697f">ConfigModule::parseDataTypes</a>  ()</dt>
-<dd><a class="anchor" id="_todo000024"></a>Update error checking.  </dd>
+<dd><a class="anchor" id="_todo000028"></a>Update error checking.  </dd>
 <dt>Member <a class="el" href="classConfigModule.html#a3ad490db93050c15d9d52caf3e5b70bc">ConfigModule::parseDebug</a>  ()</dt>
-<dd><a class="anchor" id="_todo000022"></a>Error checking  </dd>
+<dd><a class="anchor" id="_todo000020"></a>Error checking  </dd>
 <dt>Member <a class="el" href="classConfigModule.html#a1609f8f965e1a531f95f74b4340f8abd">ConfigModule::parseExtensions</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000021"></a>type does not check for valid types. </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000019"></a>type does not check for valid types. </p>
 <p class="enddd">additional arguments for i2c, serial, etc. This should be changed into a vector of string arguments to send to the extension as it's most flexible. with all type of extensions.  </p>
 </dd>
-<dt>Member <a class="el" href="classConfigModule.html#ae6465f1ababa0e399b80e95800d8203d">ConfigModule::parseFlightLoops</a>  ()</dt>
-<dd><a class="anchor" id="_todo000025"></a>change 'flight loop' to 'flight mode'  </dd>
-<dt>Member <a class="el" href="classConfigModule.html#ad7992f20671e2a44cd29d0811a4201c2">ConfigModule::parseGeneral</a>  ()</dt>
-<dd><a class="anchor" id="_todo000020"></a>Character type limits on the project name.  </dd>
 <dt>Member <a class="el" href="classConfigModule.html#a933f3672de37e5de96dd8be86cae77b3">ConfigModule::parseTelemetry</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000023"></a>Error Checking </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000027"></a>Check if frequency is valid </p>
+<p class="interdd"><a class="anchor" id="_todo000026"></a>Check if frequency is valid </p>
+<p class="interdd"><a class="anchor" id="_todo000025"></a>Check if memo is valid </p>
+<p class="interdd"><a class="anchor" id="_todo000024"></a>Check if symbol is valid </p>
+<p class="interdd"><a class="anchor" id="_todo000023"></a>Check if ssid is valid </p>
+<p class="interdd"><a class="anchor" id="_todo000022"></a>Check if frequency is valid </p>
+<p class="interdd"><a class="anchor" id="_todo000021"></a>Error Checking </p>
 <p class="enddd">Implement the rest of the telemetry configuration  </p>
 </dd>
 <dt>Class <a class="el" href="classConsoleModule.html">ConsoleModule</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000029"></a>This class should stop using the data module and use the data stream instead. </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000031"></a>This class should stop using the data module and use the data stream instead. </p>
 <p class="enddd">Redo all of this with ncurses.  </p>
 </dd>
 <dt>Member <a class="el" href="classConsoleModule.html#aa7abf8a88184411f574606dac0439b07">ConsoleModule::ConsoleModule</a>  (const <a class="el" href="structConfigData.html" title="Container for all config data. Mirrors the config file.">ConfigData</a> config_data, <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a> *data)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000026"></a>Use data stream, not data module. </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000029"></a>Use data stream, not data module. </p>
 <p class="enddd">console update interval should be a macro  </p>
 </dd>
 <dt>Member <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000027"></a>Add telemetry data </p>
-<p class="enddd"><a class="anchor" id="_todo000028"></a>print telemetry data  </p>
-</dd>
+<dd><a class="anchor" id="_todo000030"></a>Add telemetry data  </dd>
 <dt>Member <a class="el" href="classDataModule.html#a3363e7cc3320c9318c9ab5d20393772b">DataModule::parseDataStream</a>  ()</dt>
-<dd><a class="anchor" id="_todo000031"></a>Check to see if it exists in the dataframe first, if not add an error.  </dd>
-<dt>Member <a class="el" href="classDataModule.html#ac8b0e6e7f00edc898c1d23c0da387618">DataModule::parseErrorStream</a>  ()</dt>
-<dd><a class="anchor" id="_todo000032"></a>Implemented the error frame.  </dd>
+<dd><a class="anchor" id="_todo000033"></a>Check to see if it exists in the dataframe first, if not add an error.  </dd>
 <dt>Member <a class="el" href="classDataModule.html#ac746f1e9faba3d094d7ce7f6bc835146">DataModule::runner</a>  ()</dt>
-<dd><a class="anchor" id="_todo000033"></a>Implement the error frame.  </dd>
+<dd><a class="anchor" id="_todo000034"></a>Implement the error frame.  </dd>
 <dt>Member <a class="el" href="classDataModule.html#a2c6cc52926454c37a2d3a8e6f7cd0550">DataModule::stop</a>  ()</dt>
-<dd><a class="anchor" id="_todo000030"></a>Implement this.  </dd>
+<dd><a class="anchor" id="_todo000032"></a>Implement this.  </dd>
 <dt>Class <a class="el" href="classDRA818V__SIM.html">DRA818V_SIM</a>  </dt>
 <dd><a class="anchor" id="_todo000015"></a>Implement the <a class="el" href="classDRA818V__SIM.html" title="Currently not implemented.">DRA818V_SIM</a> after the telemetry module is implemented.  </dd>
 <dt>Member <a class="el" href="classExtension.html#abf675a2cce1fe5a089060b9f05cee36e">Extension::restart</a>  ()</dt>
@@ -152,6 +148,8 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <dd><a class="anchor" id="_todo000002"></a>Implement thread joining.  </dd>
 <dt>Member <a class="el" href="classExtension.html#a52c2b4e48fa3f78511b72d55fefcb48c">Extension::~Extension</a>  ()</dt>
 <dd><a class="anchor" id="_todo000001"></a>Stop the thread if it is running, check for errors.  </dd>
+<dt>Member <a class="el" href="structExtensionMetadata.html#a07b78f614b4ea7443154e259e0adaa81">ExtensionMetadata::address</a>  </dt>
+<dd><a class="anchor" id="_todo000042"></a>Change to 'extra args'  </dd>
 <dt>File <a class="el" href="flight-runner_8h.html">flight-runner.h</a>  </dt>
 <dd><a class="anchor" id="_todo000017"></a>Implement Flight Loop </dd>
 <dt>Member <a class="el" href="classFlightRunner.html#af466cc5600a3e04eb0428034308392ee">FlightRunner::start</a>  ()</dt>
@@ -161,27 +159,27 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <dt>File <a class="el" href="simulated-extensions_8cpp.html">simulated-extensions.cpp</a>  </dt>
 <dd><a class="anchor" id="_todo000012"></a>Implement full simulation of the BMP180, DRA818V, DS18B20, and SAM-M8Q This should include configuration identical to the real extensions.  </dd>
 <dt>Class <a class="el" href="classTelemetryModule.html">TelemetryModule</a>  </dt>
-<dd><a class="anchor" id="_todo000040"></a>This is hardly implemented.  </dd>
+<dd><a class="anchor" id="_todo000041"></a>This is hardly implemented.  </dd>
 <dt>Member <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">TelemetryModule::addToTXQueue</a>  (<a class="el" href="structTransmission.html">Transmission</a> transmission)</dt>
-<dd><a class="anchor" id="_todo000038"></a>Fully implement the queue  </dd>
-<dt>Member <a class="el" href="classTelemetryModule.html#a22495af8f074dcc5bd927e6e554b2959">TelemetryModule::generateAFSK</a>  (std::string callsign, std::string wav_location, std::string message)</dt>
-<dd><a class="anchor" id="_todo000039"></a>Not Yet Implemented  </dd>
+<dd><a class="anchor" id="_todo000039"></a>Fully implement the queue  </dd>
+<dt>Member <a class="el" href="classTelemetryModule.html#a6f2680f4a0a1fca8258071132c9c4f6f">TelemetryModule::generateAFSK</a>  (std::string message)</dt>
+<dd><a class="anchor" id="_todo000040"></a>Not Yet Implemented  </dd>
 <dt>Member <a class="el" href="classTelemetryModule.html#a06f3ff1e68c2e4fd3102706d80d28006">TelemetryModule::sendAPRS</a>  ()</dt>
-<dd><a class="anchor" id="_todo000037"></a>currently not implemented  </dd>
+<dd><a class="anchor" id="_todo000038"></a>currently not implemented  </dd>
 <dt>Member <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">TelemetryModule::sendDataPacket</a>  ()</dt>
-<dd><a class="anchor" id="_todo000036"></a>implement this.  </dd>
+<dd><a class="anchor" id="_todo000037"></a>implement this.  </dd>
 <dt>Member <a class="el" href="classTelemetryModule.html#a2c5521ff45155036cea0b6aa1a139040">TelemetryModule::start</a>  ()</dt>
-<dd><a class="anchor" id="_todo000035"></a>not implemented yet.  </dd>
+<dd><a class="anchor" id="_todo000036"></a>not implemented yet.  </dd>
 <dt>Member <a class="el" href="classTelemetryModule.html#a4016fb3ae5ca00397b3134c6567e09bf">TelemetryModule::~TelemetryModule</a>  ()</dt>
-<dd><a class="anchor" id="_todo000034"></a>implement this in a safe way.  </dd>
+<dd><a class="anchor" id="_todo000035"></a>implement this in a safe way.  </dd>
 <dt>Class <a class="el" href="classTestExtension.html">TestExtension</a>  </dt>
 <dd><a class="anchor" id="_todo000013"></a>Implement shutdown  </dd>
 <dt>Class <a class="el" href="classTimer.html">Timer</a>  </dt>
-<dd><a class="anchor" id="_todo000043"></a>Isn't this what a stopwatch is called? I'm not timing anythging.  </dd>
+<dd><a class="anchor" id="_todo000045"></a>Isn't this what a stopwatch is called? I'm not timing anythging.  </dd>
 <dt>Member <a class="el" href="classTimer.html#a0289effad7b573c508bc27e405900a23">Timer::pause</a>  ()</dt>
-<dd><a class="anchor" id="_todo000041"></a>Implement this.  </dd>
+<dd><a class="anchor" id="_todo000043"></a>Implement this.  </dd>
 <dt>Member <a class="el" href="classTimer.html#a4ac55a73bb3431db9d4d2fd70ae9a2e8">Timer::resume</a>  ()</dt>
-<dd><a class="anchor" id="_todo000042"></a>Implement this. </dd>
+<dd><a class="anchor" id="_todo000044"></a>Implement this. </dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

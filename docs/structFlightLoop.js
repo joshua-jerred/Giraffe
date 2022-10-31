@@ -9,11 +9,11 @@ var structFlightLoop =
       [ "health_check", "structFlightLoop.html#a9106830952913fa076da3b6b9516cfa0", null ]
     ] ],
     [ "LoopType", "structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42e", [
-      [ "ERROR", "structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42ea809c044492a34efdcefadb2d5e66b508", null ],
-      [ "TESTING", "structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42ea2ce523625c1d8cf70d6ba2f5d1624938", null ],
-      [ "STANDARD", "structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42eadf2066fd75502a0f7b7b2707bfe67a0e", null ],
-      [ "RECOVERY", "structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42ea1da8c4169b5c132507c02dbcf5764abe", null ],
-      [ "FAILSAFE", "structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42eaadda3ca36fc18e414f1f8d340a57fa0f", null ]
+      [ "kError", "structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42eabb0d3518b98d91ffa4c42d2063a211d6", null ],
+      [ "kTesting", "structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42ea04b5d4baa965d731f4075c10db18865b", null ],
+      [ "kStandard", "structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42ea0431b4f8b29ea06171b8c1065098c7d5", null ],
+      [ "kRecovery", "structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42ea68660ea02526d35838693c724d4dacff", null ],
+      [ "kFailsafe", "structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42ea25a9e905e3b54b624a5fb7b6b931e59f", null ]
     ] ],
     [ "enabled", "structFlightLoop.html#a47ba0370bb936ad629db23d8108fc115", null ],
     [ "type", "structFlightLoop.html#ad54c7288b62d101bc69eda0aa894a049", null ],

@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['failsafe_95',['FAILSAFE',['../structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42eaadda3ca36fc18e414f1f8d340a57fa0f',1,'FlightLoop']]],
-  ['failsafe_96',['failsafe',['../structConfigData.html#a3b105f2944f02c0274facc93e29f43f6',1,'ConfigData::Loops']]],
-  ['flight_97',['flight',['../main_8cpp.html#acef807038d1ae4064b262a0260367bef',1,'main.cpp']]],
-  ['flight_2drunner_2ecpp_98',['flight-runner.cpp',['../flight-runner_8cpp.html',1,'']]],
-  ['flight_2drunner_2eh_99',['flight-runner.h',['../flight-runner_8h.html',1,'']]],
-  ['flight_5floops_100',['flight_loops',['../structConfigData.html#a015bc9db23eff5616c52bd1c146e6b13',1,'ConfigData']]],
-  ['flightloop_101',['FlightLoop',['../structFlightLoop.html',1,'']]],
-  ['flightloop_102',['flightLoop',['../classFlightRunner.html#a7e1c107d3300c6995bf5fe4bd784e320',1,'FlightRunner']]],
-  ['flightrunner_103',['FlightRunner',['../classFlightRunner.html',1,'FlightRunner'],['../classFlightRunner.html#a23991dce44072f67c2430e2b5f83871c',1,'FlightRunner::FlightRunner()']]],
-  ['flt_5floop_5fdescent_5f_104',['flt_loop_descent_',['../classFlightRunner.html#ab9ff91a51fe8f092ec4c511cbab65478',1,'FlightRunner']]],
-  ['flt_5floop_5ffailsafe_5f_105',['flt_loop_failsafe_',['../classFlightRunner.html#aa2085c9f3d85ca5df02fb48899b8c6f3',1,'FlightRunner']]],
-  ['flt_5floop_5frecovery_5f_106',['flt_loop_recovery_',['../classFlightRunner.html#a7c039c3cf053640e5ca25b487db7f32d',1,'FlightRunner']]],
-  ['flt_5floop_5fstandard_5f_107',['flt_loop_standard_',['../classFlightRunner.html#a6e72ac816b750b2d48afed3d58af12fc',1,'FlightRunner']]],
-  ['flt_5floop_5ftesting_5f_108',['flt_loop_testing_',['../classFlightRunner.html#aea00575512b9e65213bc59733e4652a1',1,'FlightRunner']]]
+  ['failsafe_108',['failsafe',['../structConfigData.html#af67c9a04c25d9a10a608abd7a05b679e',1,'ConfigData::Procs']]],
+  ['failsafe_109',['FAILSAFE',['../structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1a8e6a35d5162c1d62243ebeefb291ac38',1,'FlightProcedure']]],
+  ['flight_110',['flight',['../main_8cpp.html#acef807038d1ae4064b262a0260367bef',1,'main.cpp']]],
+  ['flight_2drunner_2ecpp_111',['flight-runner.cpp',['../flight-runner_8cpp.html',1,'']]],
+  ['flight_2drunner_2eh_112',['flight-runner.h',['../flight-runner_8h.html',1,'']]],
+  ['flight_5fprocedure_5f_113',['flight_procedure_',['../classDataStream.html#a9d862c70c29e6634d53c9d4b93de3164',1,'DataStream']]],
+  ['flight_5fprocedure_5flock_5f_114',['flight_procedure_lock_',['../classDataStream.html#a42b7064dc5e5fdfd33e4a3bda0455a65',1,'DataStream']]],
+  ['flight_5fprocs_115',['flight_procs',['../structConfigData.html#aa7cb47a64041963a95200924a7096e9b',1,'ConfigData']]],
+  ['flightloop_116',['flightLoop',['../classFlightRunner.html#a7e1c107d3300c6995bf5fe4bd784e320',1,'FlightRunner']]],
+  ['flightprocedure_117',['FlightProcedure',['../structFlightProcedure.html',1,'']]],
+  ['flightrunner_118',['FlightRunner',['../classFlightRunner.html#a23991dce44072f67c2430e2b5f83871c',1,'FlightRunner::FlightRunner()'],['../classFlightRunner.html',1,'FlightRunner']]],
+  ['flt_5fproc_5fdescent_5f_119',['flt_proc_descent_',['../classFlightRunner.html#a5645d839468b064fedff3bb9a3104bb1',1,'FlightRunner']]],
+  ['flt_5fproc_5ffailsafe_5f_120',['flt_proc_failsafe_',['../classFlightRunner.html#a26f6f0e59166b80cc2f87a3c218a0a66',1,'FlightRunner']]],
+  ['flt_5fproc_5frecovery_5f_121',['flt_proc_recovery_',['../classFlightRunner.html#a7f0e20e43a2001fcc8bddce7b4ff2290',1,'FlightRunner']]],
+  ['flt_5fproc_5fstandard_5f_122',['flt_proc_standard_',['../classFlightRunner.html#ae0d2f6f6a902e19eec223f53196f03c0',1,'FlightRunner']]],
+  ['flt_5fproc_5ftesting_5f_123',['flt_proc_testing_',['../classFlightRunner.html#a390d679653f77c4d05e0e16e305f8791',1,'FlightRunner']]]
 ];

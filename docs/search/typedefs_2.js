@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['json_587',['json',['../module-configuration_8cpp.html#a14e105ccb5fd45948f970d3a740a2b3d',1,'json():&#160;module-configuration.cpp'],['../module-configuration_8h.html#a14e105ccb5fd45948f970d3a740a2b3d',1,'json():&#160;module-configuration.h']]]
+  ['errorframe_694',['ErrorFrame',['../utility-data-stream_8h.html#a7c4d7f1a05093603ec7ed9234ff9601f',1,'utility-data-stream.h']]]
 ];

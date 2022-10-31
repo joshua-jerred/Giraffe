@@ -1,0 +1,5 @@
+<map id="ConfigData::Procs" name="ConfigData::Procs">
+<area shape="rect" id="node1" title=" " alt="" coords="31,417,169,495"/>
+<area shape="rect" id="node2" href="$structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="38,219,162,311"/>
+<area shape="rect" id="node3" href="$structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="5,5,195,156"/>
+</map>

@@ -13,6 +13,6 @@ var classConsoleModule =
     [ "update_interval_", "classConsoleModule.html#a870ba4b608da414440660563a6c96931", null ],
     [ "runner_thread_", "classConsoleModule.html#a54beef84789f3ef12d86d7d7ee3ebe6c", null ],
     [ "stop_flag_", "classConsoleModule.html#ab0a0b79004ba8248d2bba6c8ba48cb74", null ],
-    [ "module_status_", "classConsoleModule.html#a6b2ee33be8e491d3017269867c528143", null ],
+    [ "module_status_", "classConsoleModule.html#a9262cb9b87896cb996138ca9af5812df", null ],
     [ "error_source_", "classConsoleModule.html#aca64a0aa6bd57eb12396e9e2a06d6975", null ]
 ];

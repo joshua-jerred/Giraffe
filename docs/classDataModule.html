@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('classDataModule.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea...">DataModule</a> class is responsible for managing all data between modules. It is responsible for creating safe structures that different concurently running threads can access. It is in charge of the <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a>. The <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a> is a queue that all of the extensions have access to. They can add data whenever they want. The data module is responsible for collecting this data from the stream and placing it into a data frame which is then sent to the datastream so other modules can access it. This module also continually goes through the DataFrame looking for stale data. If it finds stale data, it will set it's value to 'NO_DATA'. This is an indication of an error within an extension.  
+<p>The <a class="el" href="classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea...">DataModule</a> class is responsible for managing all data between modules. It is responsible for creating safe structures that different concurrently running threads can access. It is in charge of the <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a>. The <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a> is a queue that all of the extensions have access to. They can add data whenever they want. The data module is responsible for collecting this data from the stream and placing it into a data frame which is then sent to the datastream so other modules can access it. This module also continually goes through the DataFrame looking for stale data. If it finds stale data, it will set it's value to 'NO_DATA'. This is an indication of an error within an extension.  
  <a href="classDataModule.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="module-data_8h_source.html">module-data.h</a>&gt;</code></p>
@@ -103,8 +103,8 @@ Inheritance diagram for DataModule:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDataModule__inherit__graph.png" border="0" usemap="#aDataModule_inherit__map" alt="Inheritance graph"/></div>
 <map name="aDataModule_inherit__map" id="aDataModule_inherit__map">
-<area shape="rect" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea..." alt="" coords="5,204,172,501"/>
-<area shape="rect" href="classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="26,5,151,156"/>
+<area shape="rect" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea..." alt="" coords="5,204,187,560"/>
+<area shape="rect" href="classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="26,5,166,156"/>
 </map>
 </div>
 <div class="dynheader">
@@ -112,20 +112,24 @@ Collaboration diagram for DataModule:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDataModule__coll__graph.png" border="0" usemap="#aDataModule_coll__map" alt="Collaboration graph"/></div>
 <map name="aDataModule_coll__map" id="aDataModule_coll__map">
-<area shape="rect" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea..." alt="" coords="69,439,235,721"/>
-<area shape="rect" href="classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="5,115,131,266"/>
-<area shape="rect" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="155,5,319,376"/>
+<area shape="rect" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea..." alt="" coords="6,836,187,1177"/>
+<area shape="rect" href="classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="5,498,145,649"/>
+<area shape="rect" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="170,373,373,773"/>
+<area shape="rect" href="structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="209,219,333,311"/>
+<area shape="rect" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="177,5,366,156"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a466f95f37027e3ad9c821304aeda10bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#a466f95f37027e3ad9c821304aeda10bc">DataModule</a> (<a class="el" href="structConfigData.html">ConfigData</a> config_data)</td></tr>
-<tr class="memdesc:a466f95f37027e3ad9c821304aeda10bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea...">DataModule</a> object,.  <a href="classDataModule.html#a466f95f37027e3ad9c821304aeda10bc">More...</a><br /></td></tr>
-<tr class="separator:a466f95f37027e3ad9c821304aeda10bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ccbf611be5a3d632e10c0f1d20928b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#a2ccbf611be5a3d632e10c0f1d20928b6">DataModule</a> ()</td></tr>
+<tr class="memdesc:a2ccbf611be5a3d632e10c0f1d20928b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea...">DataModule</a> object,.  <a href="classDataModule.html#a2ccbf611be5a3d632e10c0f1d20928b6">More...</a><br /></td></tr>
+<tr class="separator:a2ccbf611be5a3d632e10c0f1d20928b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f9e2f39a48a16ecf504d47b1d814914"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#a1f9e2f39a48a16ecf504d47b1d814914">~DataModule</a> ()</td></tr>
 <tr class="memdesc:a1f9e2f39a48a16ecf504d47b1d814914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the <a class="el" href="classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea...">DataModule</a> object.  <a href="classDataModule.html#a1f9e2f39a48a16ecf504d47b1d814914">More...</a><br /></td></tr>
 <tr class="separator:a1f9e2f39a48a16ecf504d47b1d814914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ea1be15d46be851e2caff6e1641c2a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#a9ea1be15d46be851e2caff6e1641c2a3">addConfigData</a> (<a class="el" href="structConfigData.html">ConfigData</a> config_data)</td></tr>
+<tr class="separator:a9ea1be15d46be851e2caff6e1641c2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1bd2b31c9b8341a8f014072fd53b135"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDataStream.html">DataStream</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#ae1bd2b31c9b8341a8f014072fd53b135">getDataStream</a> ()</td></tr>
 <tr class="memdesc:ae1bd2b31c9b8341a8f014072fd53b135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a>.  <a href="classDataModule.html#ae1bd2b31c9b8341a8f014072fd53b135">More...</a><br /></td></tr>
 <tr class="separator:ae1bd2b31c9b8341a8f014072fd53b135"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,8 +151,8 @@ Public Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aca64a0aa6bd57eb12396e9e2a06d6975"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModule.html#aca64a0aa6bd57eb12396e9e2a06d6975">error_source_</a></td></tr>
 <tr class="separator:aca64a0aa6bd57eb12396e9e2a06d6975"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b2ee33be8e491d3017269867c528143"><td class="memItemLeft" align="right" valign="top"><a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModule.html#a6b2ee33be8e491d3017269867c528143">module_status_</a></td></tr>
-<tr class="separator:a6b2ee33be8e491d3017269867c528143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9262cb9b87896cb996138ca9af5812df"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">module_status_</a></td></tr>
+<tr class="separator:a9262cb9b87896cb996138ca9af5812df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -158,6 +162,8 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a3f1827b2ff79440fcd3d56ebd26bcc03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#a3f1827b2ff79440fcd3d56ebd26bcc03">checkForStaleData</a> ()</td></tr>
 <tr class="memdesc:a3f1827b2ff79440fcd3d56ebd26bcc03"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function checks for state data within the dataframe.  <a href="classDataModule.html#a3f1827b2ff79440fcd3d56ebd26bcc03">More...</a><br /></td></tr>
 <tr class="separator:a3f1827b2ff79440fcd3d56ebd26bcc03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85a26f155dab155b2b9661c477ee7d89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#a85a26f155dab155b2b9661c477ee7d89">checkForStaleErrors</a> ()</td></tr>
+<tr class="separator:a85a26f155dab155b2b9661c477ee7d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3363e7cc3320c9318c9ab5d20393772b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#a3363e7cc3320c9318c9ab5d20393772b">parseDataStream</a> ()</td></tr>
 <tr class="memdesc:a3363e7cc3320c9318c9ab5d20393772b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses data from the <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a> into the DataFrame.  <a href="classDataModule.html#a3363e7cc3320c9318c9ab5d20393772b">More...</a><br /></td></tr>
 <tr class="separator:a3363e7cc3320c9318c9ab5d20393772b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,19 +182,23 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a097126a4612081416bc30141f9ef37ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05c93f80b7e162363258223e861aeb2c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#a05c93f80b7e162363258223e861aeb2c">error_log_file_path_</a></td></tr>
 <tr class="separator:a05c93f80b7e162363258223e861aeb2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a468c681c01343913470d2e91c7a52606"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility-data-stream_8h.html#a7c4d7f1a05093603ec7ed9234ff9601f">ErrorFrame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#a468c681c01343913470d2e91c7a52606">errorframe_</a></td></tr>
+<tr class="separator:a468c681c01343913470d2e91c7a52606"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6e8af536a02c8086c0f959ea6af611c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDataStream.html">DataStream</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#af6e8af536a02c8086c0f959ea6af611c">mpDataStream</a></td></tr>
 <tr class="separator:af6e8af536a02c8086c0f959ea6af611c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe4ac3c67e13fd8c0fb562f9f4ba0c38"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#afe4ac3c67e13fd8c0fb562f9f4ba0c38">runner_thread_</a></td></tr>
 <tr class="separator:afe4ac3c67e13fd8c0fb562f9f4ba0c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bca7d6a482aa8f4e73d51b2f393274a"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModule.html#a8bca7d6a482aa8f4e73d51b2f393274a">shutdown_signal_</a></td></tr>
+<tr class="separator:a8bca7d6a482aa8f4e73d51b2f393274a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea...">DataModule</a> class is responsible for managing all data between modules. It is responsible for creating safe structures that different concurently running threads can access. It is in charge of the <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a>. The <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a> is a queue that all of the extensions have access to. They can add data whenever they want. The data module is responsible for collecting this data from the stream and placing it into a data frame which is then sent to the datastream so other modules can access it. This module also continually goes through the DataFrame looking for stale data. If it finds stale data, it will set it's value to 'NO_DATA'. This is an indication of an error within an extension. </p>
-<p>The <a class="el" href="classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea...">DataModule</a> is also reposonsible for logging the data in the dataframe to a log file when requested to do so.</p>
+<div class="textblock"><p>The <a class="el" href="classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea...">DataModule</a> class is responsible for managing all data between modules. It is responsible for creating safe structures that different concurrently running threads can access. It is in charge of the <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a>. The <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a> is a queue that all of the extensions have access to. They can add data whenever they want. The data module is responsible for collecting this data from the stream and placing it into a data frame which is then sent to the datastream so other modules can access it. This module also continually goes through the DataFrame looking for stale data. If it finds stale data, it will set it's value to 'NO_DATA'. This is an indication of an error within an extension. </p>
+<p>The <a class="el" href="classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea...">DataModule</a> is also responsible for logging the data in the dataframe to a log file when requested to do so.</p>
 <p>The <a class="el" href="classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea...">DataModule</a> also logs errors which are collected through the datastream in the same way as the data.</p>
 <p>The data and error log directories can be set inside of '<a class="el" href="utility-configurables_8h.html" title="All macro definitions for the flight control software will be in this file. Macros should be avoided.">utility-configurables.h</a>'. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a466f95f37027e3ad9c821304aeda10bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a466f95f37027e3ad9c821304aeda10bc">&#9670;&nbsp;</a></span>DataModule()</h2>
+<a id="a2ccbf611be5a3d632e10c0f1d20928b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ccbf611be5a3d632e10c0f1d20928b6">&#9670;&nbsp;</a></span>DataModule()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,8 +206,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">DataModule::DataModule </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structConfigData.html">ConfigData</a>&#160;</td>
-          <td class="paramname"><em>config_data</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -211,7 +220,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="classDataModule.html#ad920fdf6079d18ffe819324dae193b31">addDataTypeToFrame()</a>, <a class="el" href="classDataModule.html#a47bac1f029cf03c95ee343ea39ba41ec">data_log_file_path_</a>, <a class="el" href="utility-configurables_8h.html#a912683c7ebd92b4af02181bc732b3af7">DATA_LOG_LOCATION</a>, <a class="el" href="structConfigData.html#a7ec84cac4da490322148fa418ae2c23b">ConfigData::data_types</a>, <a class="el" href="classDataModule.html#a05c93f80b7e162363258223e861aeb2c">error_log_file_path_</a>, <a class="el" href="utility-configurables_8h.html#a1d803b46a669f5f4847733b270104a30">ERROR_LOG_LOCATION</a>, <a class="el" href="classDataModule.html#af6e8af536a02c8086c0f959ea6af611c">mpDataStream</a>, and <a class="el" href="structConfigData.html#a9cae25416e680205754c17380d9d5ec4">ConfigData::DataTypes::types</a>.</p>
+<p class="reference">References <a class="el" href="classDataModule.html#a47bac1f029cf03c95ee343ea39ba41ec">data_log_file_path_</a>, <a class="el" href="utility-configurables_8h.html#a912683c7ebd92b4af02181bc732b3af7">DATA_LOG_LOCATION</a>, <a class="el" href="classDataModule.html#a05c93f80b7e162363258223e861aeb2c">error_log_file_path_</a>, <a class="el" href="utility-configurables_8h.html#a1d803b46a669f5f4847733b270104a30">ERROR_LOG_LOCATION</a>, and <a class="el" href="classDataModule.html#af6e8af536a02c8086c0f959ea6af611c">mpDataStream</a>.</p>
 
 </div>
 </div>
@@ -237,6 +246,28 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9ea1be15d46be851e2caff6e1641c2a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ea1be15d46be851e2caff6e1641c2a3">&#9670;&nbsp;</a></span>addConfigData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataModule::addConfigData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structConfigData.html">ConfigData</a>&#160;</td>
+          <td class="paramname"><em>config_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataModule.html#ad920fdf6079d18ffe819324dae193b31">addDataTypeToFrame()</a>, <a class="el" href="structConfigData.html#a7ec84cac4da490322148fa418ae2c23b">ConfigData::data_types</a>, and <a class="el" href="structConfigData.html#a9cae25416e680205754c17380d9d5ec4">ConfigData::DataTypes::types</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#af466cc5600a3e04eb0428034308392ee">FlightRunner::start()</a>.</p>
+
+</div>
+</div>
 <a id="aaf9fcacae3b7059cb28c7ce6342225d3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaf9fcacae3b7059cb28c7ce6342225d3">&#9670;&nbsp;</a></span>start()</h2>
 
@@ -271,7 +302,7 @@ Private Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classModule.html#abe62ec0956737c3375845477623921e5">Module</a>.</p>
 
-<p class="reference">References <a class="el" href="classDataModule.html#ac746f1e9faba3d094d7ce7f6bc835146">runner()</a>, and <a class="el" href="classDataModule.html#afe4ac3c67e13fd8c0fb562f9f4ba0c38">runner_thread_</a>.</p>
+<p class="reference">References <a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">Module::module_status_</a>, <a class="el" href="classDataModule.html#ac746f1e9faba3d094d7ce7f6bc835146">runner()</a>, <a class="el" href="classDataModule.html#afe4ac3c67e13fd8c0fb562f9f4ba0c38">runner_thread_</a>, <a class="el" href="classDataModule.html#a8bca7d6a482aa8f4e73d51b2f393274a">shutdown_signal_</a>, and <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a034312d8adc8099c1c6f53aaff745e26">STARTING</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classFlightRunner.html#af466cc5600a3e04eb0428034308392ee">FlightRunner::start()</a>.</p>
 
@@ -308,9 +339,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000030">Todo:</a></b></dt><dd>Implement this. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000032">Todo:</a></b></dt><dd>Implement this. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classModule.html#a2c1d0cee46e5811292925b88a519f5e9">Module</a>.</p>
+
+<p class="reference">References <a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">Module::module_status_</a>, <a class="el" href="classDataModule.html#afe4ac3c67e13fd8c0fb562f9f4ba0c38">runner_thread_</a>, <a class="el" href="classDataModule.html#a8bca7d6a482aa8f4e73d51b2f393274a">shutdown_signal_</a>, and <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a09d4d696b4e935115b9313e3c412509a">STOPPED</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a2c4f6f0be7bee5b423c4a2f9f2fa5433">FlightRunner::deconstruct()</a>.</p>
 
@@ -418,7 +451,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Adds a data type to the data frame without data. </p>
-<p>This sets up the data frame so it's ready to receive any data that is sent to it. This is helpful to see what data is missing. Defines the values as "NO_DATA" until they are overritten. This should be called for each data type at the start of the data module. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This sets up the data frame so it's ready to receive any data that is sent to it. This is helpful to see what data is missing. Defines the values as "NO_DATA" until they are overwritten. This should be called for each data type at the start of the data module. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data_type</td><td>The actual data type </td></tr>
   </table>
@@ -428,7 +461,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classDataModule.html#a097126a4612081416bc30141f9ef37ec">dataframe_</a>, <a class="el" href="utility-data-stream_8h.html#a11bf0682cb89b177992225d5d4ffee74">DataStreamPacket::expiration_time</a>, <a class="el" href="structConfigData.html#a674e8527833ae5b4160b854a7e074e84">ConfigData::DataTypes::ExtensionDataType::source</a>, <a class="el" href="utility-data-stream_8h.html#a37169f0f0ad775c43ca260989c671992">DataStreamPacket::source</a>, <a class="el" href="structConfigData.html#a12d3a033c43b89d945e4abe4fa7c80b3">ConfigData::DataTypes::ExtensionDataType::unit</a>, <a class="el" href="utility-data-stream_8h.html#a968dce3f0ac911fd42f0339fd6911790">DataStreamPacket::unit</a>, and <a class="el" href="utility-data-stream_8h.html#a11628cd3b1dc3f326ccb0b58d5b0cc66">DataStreamPacket::value</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classDataModule.html#a466f95f37027e3ad9c821304aeda10bc">DataModule()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#a9ea1be15d46be851e2caff6e1641c2a3">addConfigData()</a>.</p>
 
 </div>
 </div>
@@ -501,9 +534,38 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000031">Todo:</a></b></dt><dd>Check to see if it exists in the dataframe first, if not add an error. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000033">Todo:</a></b></dt><dd>Check to see if it exists in the dataframe first, if not add an error. </dd></dl>
 
 <p class="reference">References <a class="el" href="classDataModule.html#a097126a4612081416bc30141f9ef37ec">dataframe_</a>, <a class="el" href="classDataStream.html#a461673b50357d77d842bbd6d3269a213">DataStream::getNextDataPacket()</a>, <a class="el" href="classDataStream.html#aa98f6718306690366f5015e2a43c0b6f">DataStream::getNumDataPackets()</a>, <a class="el" href="classDataModule.html#af6e8af536a02c8086c0f959ea6af611c">mpDataStream</a>, <a class="el" href="utility-data-stream_8h.html#a37169f0f0ad775c43ca260989c671992">DataStreamPacket::source</a>, <a class="el" href="utility-data-stream_8h.html#a968dce3f0ac911fd42f0339fd6911790">DataStreamPacket::unit</a>, and <a class="el" href="classDataStream.html#a3e97e9ecdd3cbb0422a21353c6a6b164">DataStream::updateDataFrame()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#ac746f1e9faba3d094d7ce7f6bc835146">runner()</a>.</p>
+
+</div>
+</div>
+<a id="a85a26f155dab155b2b9661c477ee7d89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85a26f155dab155b2b9661c477ee7d89">&#9670;&nbsp;</a></span>checkForStaleErrors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataModule::checkForStaleErrors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataModule.html#a468c681c01343913470d2e91c7a52606">errorframe_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classDataModule.html#ac746f1e9faba3d094d7ce7f6bc835146">runner()</a>.</p>
 
@@ -540,9 +602,8 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000032">Todo:</a></b></dt><dd>Implemented the error frame. </dd></dl>
 
-<p class="reference">References <a class="el" href="utility-data-stream_8h.html#a559d38329805d5ae13220f5ea70e757a">ErrorStreamPacket::error_info</a>, <a class="el" href="utility-data-stream_8h.html#aa6d9834429d66f80babf10145a8be821">ErrorStreamPacket::error_name</a>, <a class="el" href="utility-data-stream_8h.html#acfff1009efba1b73c7682b2f0a87f820">ErrorStreamPacket::error_source</a>, <a class="el" href="classDataStream.html#a05b09b8fc72973ed2e67ccfb563b1870">DataStream::getNextErrorPacket()</a>, <a class="el" href="classDataStream.html#a7a64f1b0bbddc88ce06e18554584972e">DataStream::getNumErrorPackets()</a>, and <a class="el" href="classDataModule.html#af6e8af536a02c8086c0f959ea6af611c">mpDataStream</a>.</p>
+<p class="reference">References <a class="el" href="classDataModule.html#a05c93f80b7e162363258223e861aeb2c">error_log_file_path_</a>, <a class="el" href="utility-data-stream_8h.html#aa6d9834429d66f80babf10145a8be821">ErrorStreamPacket::error_name</a>, <a class="el" href="utility-data-stream_8h.html#acfff1009efba1b73c7682b2f0a87f820">ErrorStreamPacket::error_source</a>, <a class="el" href="classDataModule.html#a468c681c01343913470d2e91c7a52606">errorframe_</a>, <a class="el" href="classDataStream.html#a05b09b8fc72973ed2e67ccfb563b1870">DataStream::getNextErrorPacket()</a>, <a class="el" href="classDataStream.html#a7a64f1b0bbddc88ce06e18554584972e">DataStream::getNumErrorPackets()</a>, <a class="el" href="classDataModule.html#af6e8af536a02c8086c0f959ea6af611c">mpDataStream</a>, and <a class="el" href="classDataStream.html#a1e88629f971c6273c739fe05fe7903b8">DataStream::updateErrorFrame()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classDataModule.html#ac746f1e9faba3d094d7ce7f6bc835146">runner()</a>.</p>
 
@@ -572,16 +633,16 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This is the function that will run in it's own thread. It parses all data and errors automatically. </p>
-<p>This function will parse all of the data and errors from the stream and then it will check for stalte errors and data. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This function will parse all of the data and errors from the stream and then it will check for stale errors and data. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000033">Todo:</a></b></dt><dd>Implement the error frame. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000034">Todo:</a></b></dt><dd>Implement the error frame. </dd></dl>
 
-<p class="reference">References <a class="el" href="classDataModule.html#a3f1827b2ff79440fcd3d56ebd26bcc03">checkForStaleData()</a>, <a class="el" href="utility-configurables_8h.html#ace68cdd0f39a28a3fb20d4f723f3e2ab">MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS</a>, <a class="el" href="classDataModule.html#a3363e7cc3320c9318c9ab5d20393772b">parseDataStream()</a>, and <a class="el" href="classDataModule.html#ac8b0e6e7f00edc898c1d23c0da387618">parseErrorStream()</a>.</p>
+<p class="reference">References <a class="el" href="classDataModule.html#a3f1827b2ff79440fcd3d56ebd26bcc03">checkForStaleData()</a>, <a class="el" href="classDataModule.html#a85a26f155dab155b2b9661c477ee7d89">checkForStaleErrors()</a>, <a class="el" href="utility-configurables_8h.html#ace68cdd0f39a28a3fb20d4f723f3e2ab">MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS</a>, <a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">Module::module_status_</a>, <a class="el" href="classDataModule.html#a3363e7cc3320c9318c9ab5d20393772b">parseDataStream()</a>, <a class="el" href="classDataModule.html#ac8b0e6e7f00edc898c1d23c0da387618">parseErrorStream()</a>, <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a43491564ebcfd38568918efbd6e840fd">RUNNING</a>, and <a class="el" href="classDataModule.html#a8bca7d6a482aa8f4e73d51b2f393274a">shutdown_signal_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classDataModule.html#aaf9fcacae3b7059cb28c7ce6342225d3">start()</a>.</p>
 
@@ -610,7 +671,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classModule.html#a6b2ee33be8e491d3017269867c528143">Module::module_status_</a>.</p>
+<p class="reference">References <a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">Module::module_status_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classServerModule.html#aeec722419b40e3d1685a016b1a92e9f0">ServerModule::stop()</a>, and <a class="el" href="classTelemetryModule.html#ad9757e8adcd52b200b4e75d08097dc24">TelemetryModule::stop()</a>.</p>
 
 </div>
 </div>
@@ -635,7 +698,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDataModule.html#a466f95f37027e3ad9c821304aeda10bc">DataModule()</a>, and <a class="el" href="classDataModule.html#ae8b49aa51ea5f6a0677a1523bb101ba4">log()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#a2ccbf611be5a3d632e10c0f1d20928b6">DataModule()</a>, and <a class="el" href="classDataModule.html#ae8b49aa51ea5f6a0677a1523bb101ba4">log()</a>.</p>
 
 </div>
 </div>
@@ -659,7 +722,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDataModule.html#a466f95f37027e3ad9c821304aeda10bc">DataModule()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#a2ccbf611be5a3d632e10c0f1d20928b6">DataModule()</a>, and <a class="el" href="classDataModule.html#ac8b0e6e7f00edc898c1d23c0da387618">parseErrorStream()</a>.</p>
 
 </div>
 </div>
@@ -683,7 +746,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDataModule.html#a466f95f37027e3ad9c821304aeda10bc">DataModule()</a>, <a class="el" href="classDataModule.html#a1f9e2f39a48a16ecf504d47b1d814914">~DataModule()</a>, <a class="el" href="classDataModule.html#ae1bd2b31c9b8341a8f014072fd53b135">getDataStream()</a>, <a class="el" href="classDataModule.html#ae8b49aa51ea5f6a0677a1523bb101ba4">log()</a>, <a class="el" href="classDataModule.html#a3363e7cc3320c9318c9ab5d20393772b">parseDataStream()</a>, and <a class="el" href="classDataModule.html#ac8b0e6e7f00edc898c1d23c0da387618">parseErrorStream()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#a2ccbf611be5a3d632e10c0f1d20928b6">DataModule()</a>, <a class="el" href="classDataModule.html#a1f9e2f39a48a16ecf504d47b1d814914">~DataModule()</a>, <a class="el" href="classDataModule.html#ae1bd2b31c9b8341a8f014072fd53b135">getDataStream()</a>, <a class="el" href="classDataModule.html#ae8b49aa51ea5f6a0677a1523bb101ba4">log()</a>, <a class="el" href="classDataModule.html#a3363e7cc3320c9318c9ab5d20393772b">parseDataStream()</a>, and <a class="el" href="classDataModule.html#ac8b0e6e7f00edc898c1d23c0da387618">parseErrorStream()</a>.</p>
 
 </div>
 </div>
@@ -711,6 +774,54 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a468c681c01343913470d2e91c7a52606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a468c681c01343913470d2e91c7a52606">&#9670;&nbsp;</a></span>errorframe_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="utility-data-stream_8h.html#a7c4d7f1a05093603ec7ed9234ff9601f">ErrorFrame</a> DataModule::errorframe_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#a85a26f155dab155b2b9661c477ee7d89">checkForStaleErrors()</a>, and <a class="el" href="classDataModule.html#ac8b0e6e7f00edc898c1d23c0da387618">parseErrorStream()</a>.</p>
+
+</div>
+</div>
+<a id="a8bca7d6a482aa8f4e73d51b2f393274a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bca7d6a482aa8f4e73d51b2f393274a">&#9670;&nbsp;</a></span>shutdown_signal_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;int&gt; DataModule::shutdown_signal_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#ac746f1e9faba3d094d7ce7f6bc835146">runner()</a>, <a class="el" href="classDataModule.html#aaf9fcacae3b7059cb28c7ce6342225d3">start()</a>, and <a class="el" href="classDataModule.html#a2c6cc52926454c37a2d3a8e6f7cd0550">stop()</a>.</p>
+
+</div>
+</div>
 <a id="afe4ac3c67e13fd8c0fb562f9f4ba0c38"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe4ac3c67e13fd8c0fb562f9f4ba0c38">&#9670;&nbsp;</a></span>runner_thread_</h2>
 
@@ -731,12 +842,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDataModule.html#aaf9fcacae3b7059cb28c7ce6342225d3">start()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#aaf9fcacae3b7059cb28c7ce6342225d3">start()</a>, and <a class="el" href="classDataModule.html#a2c6cc52926454c37a2d3a8e6f7cd0550">stop()</a>.</p>
 
 </div>
 </div>
-<a id="a6b2ee33be8e491d3017269867c528143"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b2ee33be8e491d3017269867c528143">&#9670;&nbsp;</a></span>module_status_</h2>
+<a id="a9262cb9b87896cb996138ca9af5812df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9262cb9b87896cb996138ca9af5812df">&#9670;&nbsp;</a></span>module_status_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -745,7 +856,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a> Module::module_status_</td>
+          <td class="memname">std::atomic&lt;<a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a>&gt; Module::module_status_</td>
         </tr>
       </table>
   </td>
@@ -755,7 +866,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classModule.html#abe62ec0956737c3375845477623921e5">Module::start()</a>, <a class="el" href="classModule.html#ad42262ed46e67685c45928c02f0e2f91">Module::status()</a>, and <a class="el" href="classModule.html#a2c1d0cee46e5811292925b88a519f5e9">Module::stop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#ac746f1e9faba3d094d7ce7f6bc835146">runner()</a>, <a class="el" href="classServerModule.html#ae72c6ef5a46765e7d3ee1ea0d43dc765">ServerModule::runner()</a>, <a class="el" href="classDataModule.html#aaf9fcacae3b7059cb28c7ce6342225d3">start()</a>, <a class="el" href="classModule.html#abe62ec0956737c3375845477623921e5">Module::start()</a>, <a class="el" href="classModule.html#ad42262ed46e67685c45928c02f0e2f91">Module::status()</a>, <a class="el" href="classDataModule.html#a2c6cc52926454c37a2d3a8e6f7cd0550">stop()</a>, and <a class="el" href="classModule.html#a2c1d0cee46e5811292925b88a519f5e9">Module::stop()</a>.</p>
 
 </div>
 </div>
@@ -779,7 +890,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule::TelemetryModule()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule::TelemetryModule()</a>, and <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>.</p>
 
 </div>
 </div>

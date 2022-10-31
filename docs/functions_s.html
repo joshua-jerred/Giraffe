@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -89,6 +89,9 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>SAMM8Q_SIM()
 : <a class="el" href="classSAMM8Q__SIM.html#accebab382c1151eab6b3284e41a4dcea">SAMM8Q_SIM</a>
 </li>
+<li>send()
+: <a class="el" href="classSocket.html#a26f80b1f9440bc48f0df6e9dd0a20c03">Socket</a>
+</li>
 <li>sendAFSK()
 : <a class="el" href="classTelemetryModule.html#a96d8cdeb6dcbda4d83da2e556dbcc95a">TelemetryModule</a>
 </li>
@@ -101,8 +104,23 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>sendDataPacket()
 : <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">TelemetryModule</a>
 </li>
+<li>sendDynamicData()
+: <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule</a>
+</li>
 <li>sendSSTVImage()
 : <a class="el" href="classTelemetryModule.html#a0ff75f7a5ce59d69cbbdef526a992d28">TelemetryModule</a>
+</li>
+<li>sendStaticData()
+: <a class="el" href="classServerModule.html#a67b91deca1ada2f06d678a6ee2d4fc58">ServerModule</a>
+</li>
+<li>ServerModule()
+: <a class="el" href="classServerModule.html#aff9c3d98ebe67ddd4c37a8e37ff8bdd3">ServerModule</a>
+</li>
+<li>ServerSocket()
+: <a class="el" href="classServerSocket.html#a4763b5ad69259f034933af745455a92f">ServerSocket</a>
+</li>
+<li>set_non_blocking()
+: <a class="el" href="classSocket.html#ac4d1d5bc09e469b72f52fbcf758a5cf0">Socket</a>
 </li>
 <li>setCategory()
 : <a class="el" href="classExtension.html#abc70d09c01ebb5d02a3e80a1f18fe425">Extension</a>
@@ -135,7 +153,14 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 : <a class="el" href="classFlightRunner.html#a4ea4547d90db1fd6e57beb5079a5bbcc">FlightRunner</a>
 </li>
 <li>shutdown_signal_
-: <a class="el" href="classFlightRunner.html#abb41d56e7d449e8a5efecfe994bc8c0b">FlightRunner</a>
+: <a class="el" href="classDataModule.html#a8bca7d6a482aa8f4e73d51b2f393274a">DataModule</a>
+, <a class="el" href="classFlightRunner.html#abb41d56e7d449e8a5efecfe994bc8c0b">FlightRunner</a>
+</li>
+<li>Socket()
+: <a class="el" href="classSocket.html#a7c3256c4fc6e2c603df73201049fae5a">Socket</a>
+</li>
+<li>SocketException()
+: <a class="el" href="classSocketException.html#a09ddb0c061c40fcb527ff89a2e803342">SocketException</a>
 </li>
 <li>source
 : <a class="el" href="structConfigData.html#a674e8527833ae5b4160b854a7e074e84">ConfigData::DataTypes::ExtensionDataType</a>
@@ -145,7 +170,7 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 : <a class="el" href="classExtension.html#aab788a955615aabc47a1252ddc3a3af3">Extension</a>
 </li>
 <li>sstv
-: <a class="el" href="structFlightLoop.html#a6730c8aca705242649f3a9148b93d802">FlightLoop::Intervals</a>
+: <a class="el" href="structFlightProcedure.html#ab74794605aac9717281889f2d999f2a0">FlightProcedure::Intervals</a>
 </li>
 <li>sstv_enabled
 : <a class="el" href="structConfigData.html#a1fd92ff646b261888a36ddf2a44be717">ConfigData::Telemetry</a>
@@ -154,10 +179,10 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 : <a class="el" href="structConfigData.html#a175321e6cc174493c241f550e5e0b45f">ConfigData::Telemetry</a>
 </li>
 <li>standard
-: <a class="el" href="structConfigData.html#a9b3e00db3373e5fcd11e7d2fc9a522eb">ConfigData::Loops</a>
+: <a class="el" href="structConfigData.html#a77c742fe7b46794241da73153ca1f7b0">ConfigData::Procs</a>
 </li>
 <li>STANDARD
-: <a class="el" href="structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42eadf2066fd75502a0f7b7b2707bfe67a0e">FlightLoop</a>
+: <a class="el" href="structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1a8d4c739208de41f0b3d78ce6fc0d892e">FlightProcedure</a>
 </li>
 <li>start()
 : <a class="el" href="classConsoleModule.html#a1fb58487b176fe9147af86fb204650c3">ConsoleModule</a>
@@ -166,10 +191,11 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 , <a class="el" href="classExtensionsModule.html#abe19b21ed9bc51ddebb8ca0faf75c048">ExtensionsModule</a>
 , <a class="el" href="classFlightRunner.html#af466cc5600a3e04eb0428034308392ee">FlightRunner</a>
 , <a class="el" href="classModule.html#abe62ec0956737c3375845477623921e5">Module</a>
+, <a class="el" href="classServerModule.html#a1bbcb624d49f93bf4ff63a290bb79cd4">ServerModule</a>
 , <a class="el" href="classTelemetryModule.html#a2c5521ff45155036cea0b6aa1a139040">TelemetryModule</a>
 </li>
-<li>starting_loop
-: <a class="el" href="structConfigData.html#ad42b95909f7d6ef451917be340827feb">ConfigData::General</a>
+<li>starting_proc
+: <a class="el" href="structConfigData.html#a95c3199dd99abc93cd4636b18a920de2">ConfigData::General</a>
 </li>
 <li>status()
 : <a class="el" href="classModule.html#ad42262ed46e67685c45928c02f0e2f91">Module</a>
@@ -183,13 +209,17 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 , <a class="el" href="classExtension.html#a11e508a54ebc5bbb26990597e7de41cb">Extension</a>
 , <a class="el" href="classExtensionsModule.html#a7949812d58d8f2c0980c4afb237d90bf">ExtensionsModule</a>
 , <a class="el" href="classModule.html#a2c1d0cee46e5811292925b88a519f5e9">Module</a>
+, <a class="el" href="classServerModule.html#aeec722419b40e3d1685a016b1a92e9f0">ServerModule</a>
 , <a class="el" href="classTelemetryModule.html#ad9757e8adcd52b200b4e75d08097dc24">TelemetryModule</a>
 </li>
 <li>stop_flag_
 : <a class="el" href="classConsoleModule.html#ab0a0b79004ba8248d2bba6c8ba48cb74">ConsoleModule</a>
+, <a class="el" href="classExtension.html#ab5ef31ae39b4da3d17fd1c7fc5a88b7a">Extension</a>
+, <a class="el" href="classServerModule.html#a62cff96f27cda95ca685026d7e48235b">ServerModule</a>
+, <a class="el" href="classTelemetryModule.html#aef98a7e67286deea7b5c37ed8fbd51ee">TelemetryModule</a>
 </li>
 <li>switchLoops()
-: <a class="el" href="classFlightRunner.html#a7f48b245d888ea3409b16c1632265d3e">FlightRunner</a>
+: <a class="el" href="classFlightRunner.html#abf65cf81fbc6a8462d4dd95f448b430c">FlightRunner</a>
 </li>
 </ul>
 </div><!-- contents -->

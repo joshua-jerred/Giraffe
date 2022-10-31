@@ -1,7 +1,8 @@
 <map id="Module" name="Module">
-<area shape="rect" id="node1" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="283,5,409,156"/>
-<area shape="rect" id="node2" href="$classConsoleModule.html" title="This class takes data from a data frame snapshot and prints it out to a simple display in the console..." alt="" coords="5,263,145,487"/>
-<area shape="rect" id="node3" href="$classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea..." alt="" coords="169,226,336,523"/>
-<area shape="rect" id="node4" href="$classExtensionsModule.html" title="The extension class manages all extensions." alt="" coords="361,292,518,457"/>
-<area shape="rect" id="node5" href="$classTelemetryModule.html" title="This class is responsible for handling the radio and transmitting data upon request." alt="" coords="542,204,707,545"/>
+<area shape="rect" id="node1" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="413,5,553,156"/>
+<area shape="rect" id="node2" href="$classConsoleModule.html" title="This class takes data from a data frame snapshot and prints it out to a simple display in the console..." alt="" coords="5,277,164,501"/>
+<area shape="rect" id="node3" href="$classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea..." alt="" coords="189,211,370,567"/>
+<area shape="rect" id="node4" href="$classExtensionsModule.html" title="The extension class manages all extensions." alt="" coords="395,307,572,472"/>
+<area shape="rect" id="node5" href="$classServerModule.html" title=" " alt="" coords="596,255,757,523"/>
+<area shape="rect" id="node6" href="$classTelemetryModule.html" title="This class is responsible for handling the radio and transmitting data upon request." alt="" coords="781,204,964,575"/>
 </map>

@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -101,7 +101,9 @@ Collaboration diagram for DataStream:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDataStream__coll__graph.png" border="0" usemap="#aDataStream_coll__map" alt="Collaboration graph"/></div>
 <map name="aDataStream_coll__map" id="aDataStream_coll__map">
-<area shape="rect" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="5,5,169,376"/>
+<area shape="rect" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="5,373,208,773"/>
+<area shape="rect" href="structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="45,219,169,311"/>
+<area shape="rect" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="12,5,201,156"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -119,9 +121,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:affd058313f03c73fb22863fdcc379cc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">addError</a> (std::string error_source, std::string error_name, std::string error_info, int seconds_until_expiry)</td></tr>
 <tr class="memdesc:affd058313f03c73fb22863fdcc379cc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an error to the error stream. This function is thread safe.  <a href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">More...</a><br /></td></tr>
 <tr class="separator:affd058313f03c73fb22863fdcc379cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa554bb896a82f6c10b33b8facd3fd28b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#aa554bb896a82f6c10b33b8facd3fd28b">getData</a> (std::string data_source, std::string data_name)</td></tr>
+<tr class="separator:aa554bb896a82f6c10b33b8facd3fd28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc6714f00357d5852409aece9250f050"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility-data-stream_8h.html#a50c4f16536972d939a55427100cb9943">DataFrame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#abc6714f00357d5852409aece9250f050">getDataFrameCopy</a> ()</td></tr>
 <tr class="memdesc:abc6714f00357d5852409aece9250f050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes a copy of the DataFrame and returns it. This is generally called by a thread in a different module. This is thread safe.  <a href="classDataStream.html#abc6714f00357d5852409aece9250f050">More...</a><br /></td></tr>
 <tr class="separator:abc6714f00357d5852409aece9250f050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b4bed27924ec3a451cdc19f1f4c663c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility-data-stream_8h.html#a7c4d7f1a05093603ec7ed9234ff9601f">ErrorFrame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a8b4bed27924ec3a451cdc19f1f4c663c">getErrorFrameCopy</a> ()</td></tr>
+<tr class="separator:a8b4bed27924ec3a451cdc19f1f4c663c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05ae6139f152017adcb0ca4961f73ec7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFlightProcedure.html">FlightProcedure</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a05ae6139f152017adcb0ca4961f73ec7">getFlightProcedureCopy</a> ()</td></tr>
+<tr class="separator:a05ae6139f152017adcb0ca4961f73ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a461673b50357d77d842bbd6d3269a213"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility-data-stream_8h.html#structDataStreamPacket">DataStreamPacket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a461673b50357d77d842bbd6d3269a213">getNextDataPacket</a> ()</td></tr>
 <tr class="memdesc:a461673b50357d77d842bbd6d3269a213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next data packet. Thread safe.  <a href="classDataStream.html#a461673b50357d77d842bbd6d3269a213">More...</a><br /></td></tr>
 <tr class="separator:a461673b50357d77d842bbd6d3269a213"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +147,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3e97e9ecdd3cbb0422a21353c6a6b164"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a3e97e9ecdd3cbb0422a21353c6a6b164">updateDataFrame</a> (<a class="el" href="utility-data-stream_8h.html#a50c4f16536972d939a55427100cb9943">DataFrame</a> data_frame)</td></tr>
 <tr class="memdesc:a3e97e9ecdd3cbb0422a21353c6a6b164"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is called externally by the data module. It is used to update the data frame that can be accessed by everyone. Thread safe.  <a href="classDataStream.html#a3e97e9ecdd3cbb0422a21353c6a6b164">More...</a><br /></td></tr>
 <tr class="separator:a3e97e9ecdd3cbb0422a21353c6a6b164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e88629f971c6273c739fe05fe7903b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a1e88629f971c6273c739fe05fe7903b8">updateErrorFrame</a> (<a class="el" href="utility-data-stream_8h.html#a7c4d7f1a05093603ec7ed9234ff9601f">ErrorFrame</a> error_frame)</td></tr>
+<tr class="separator:a1e88629f971c6273c739fe05fe7903b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4672e75bcbe3979d79b7f4dce7a0de3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#ac4672e75bcbe3979d79b7f4dce7a0de3">updateFlightProcedure</a> (<a class="el" href="structFlightProcedure.html">FlightProcedure</a> flight_procedure)</td></tr>
+<tr class="separator:ac4672e75bcbe3979d79b7f4dce7a0de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -150,10 +162,18 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a663e34a1d5f5f3aeede15b53d1aa71c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2df156b3c9b10633c3a7961a49b4ac00"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a2df156b3c9b10633c3a7961a49b4ac00">data_stream_lock_</a></td></tr>
 <tr class="separator:a2df156b3c9b10633c3a7961a49b4ac00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefb614aa50aa3dd17b3c070ca70e4374"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility-data-stream_8h.html#a7c4d7f1a05093603ec7ed9234ff9601f">ErrorFrame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#aefb614aa50aa3dd17b3c070ca70e4374">error_frame_</a></td></tr>
+<tr class="separator:aefb614aa50aa3dd17b3c070ca70e4374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bdcf1bb9cbc3b4cc77a83690456bc01"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a1bdcf1bb9cbc3b4cc77a83690456bc01">error_frame_lock_</a></td></tr>
+<tr class="separator:a1bdcf1bb9cbc3b4cc77a83690456bc01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2560a5202001330fe5c89c7d959487a"><td class="memItemLeft" align="right" valign="top">std::queue&lt; <a class="el" href="utility-data-stream_8h.html#structErrorStreamPacket">ErrorStreamPacket</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#ac2560a5202001330fe5c89c7d959487a">error_stream_</a></td></tr>
 <tr class="separator:ac2560a5202001330fe5c89c7d959487a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96e00aacaccb3985eed4f8d5bf576a69"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a96e00aacaccb3985eed4f8d5bf576a69">error_stream_lock_</a></td></tr>
 <tr class="separator:a96e00aacaccb3985eed4f8d5bf576a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d862c70c29e6634d53c9d4b93de3164"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFlightProcedure.html">FlightProcedure</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a9d862c70c29e6634d53c9d4b93de3164">flight_procedure_</a></td></tr>
+<tr class="separator:a9d862c70c29e6634d53c9d4b93de3164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42b7064dc5e5fdfd33e4a3bda0455a65"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a42b7064dc5e5fdfd33e4a3bda0455a65">flight_procedure_lock_</a></td></tr>
+<tr class="separator:a42b7064dc5e5fdfd33e4a3bda0455a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4b2f7b7fb2f9d0b3ee46555140a87be"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#ac4b2f7b7fb2f9d0b3ee46555140a87be">num_data_packets_</a></td></tr>
 <tr class="separator:ac4b2f7b7fb2f9d0b3ee46555140a87be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36d112d4fe7a90c78c6f6b77b619c5ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a36d112d4fe7a90c78c6f6b77b619c5ba">num_error_packets_</a></td></tr>
@@ -210,7 +230,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destroys the <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a> object. Waits for other threads to finish first. Other threads that access the data should be stopped before this is called. </p>
 
-<p class="reference">References <a class="el" href="classDataStream.html#a5e64f93c8634844503f37134adc5b6ac">data_frame_lock_</a>, <a class="el" href="classDataStream.html#a2df156b3c9b10633c3a7961a49b4ac00">data_stream_lock_</a>, and <a class="el" href="classDataStream.html#a96e00aacaccb3985eed4f8d5bf576a69">error_stream_lock_</a>.</p>
+<p class="reference">References <a class="el" href="classDataStream.html#a5e64f93c8634844503f37134adc5b6ac">data_frame_lock_</a>, <a class="el" href="classDataStream.html#a2df156b3c9b10633c3a7961a49b4ac00">data_stream_lock_</a>, <a class="el" href="classDataStream.html#a1bdcf1bb9cbc3b4cc77a83690456bc01">error_frame_lock_</a>, and <a class="el" href="classDataStream.html#a96e00aacaccb3985eed4f8d5bf576a69">error_stream_lock_</a>.</p>
 
 </div>
 </div>
@@ -266,7 +286,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classDataStream.html#a663e34a1d5f5f3aeede15b53d1aa71c4">data_stream_</a>, <a class="el" href="classDataStream.html#a2df156b3c9b10633c3a7961a49b4ac00">data_stream_lock_</a>, <a class="el" href="classDataStream.html#ac4b2f7b7fb2f9d0b3ee46555140a87be">num_data_packets_</a>, and <a class="el" href="classDataStream.html#a1345e5de7131d7d1042287c7d64adeec">total_data_packets_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classExtension.html#ac55fc1a6b1a93406726fd29559fc08f2">Extension::sendData()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classServerModule.html#ae72c6ef5a46765e7d3ee1ea0d43dc765">ServerModule::runner()</a>, <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>, <a class="el" href="classExtension.html#ac55fc1a6b1a93406726fd29559fc08f2">Extension::sendData()</a>, and <a class="el" href="classTelemetryModule.html#a2c5521ff45155036cea0b6aa1a139040">TelemetryModule::start()</a>.</p>
 
 </div>
 </div>
@@ -322,7 +342,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classDataStream.html#ac2560a5202001330fe5c89c7d959487a">error_stream_</a>, <a class="el" href="classDataStream.html#a96e00aacaccb3985eed4f8d5bf576a69">error_stream_lock_</a>, <a class="el" href="classDataStream.html#a36d112d4fe7a90c78c6f6b77b619c5ba">num_error_packets_</a>, and <a class="el" href="classDataStream.html#ab230e026d697e338d690b9c2db6dd55a">total_error_packets_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">TelemetryModule::addToTXQueue()</a>, <a class="el" href="classExtension.html#a537d2d6cabbd4cc5d453f053827a7636">Extension::runner()</a>, <a class="el" href="classExtension.html#a46a252fd2eb23471ede70b3df875cafc">Extension::setCritical()</a>, <a class="el" href="classExtension.html#ace8ba3912124dd4e7cf78efbb6c73103">Extension::setID()</a>, and <a class="el" href="classExtension.html#a554811d7b73c19249df043c73a1206ea">Extension::setName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">TelemetryModule::addToTXQueue()</a>, <a class="el" href="classConfigModule.html#aa5deba27e7637c6c40564362036e4e1c">ConfigModule::error()</a>, <a class="el" href="classExtension.html#a537d2d6cabbd4cc5d453f053827a7636">Extension::runner()</a>, <a class="el" href="classServerModule.html#ae72c6ef5a46765e7d3ee1ea0d43dc765">ServerModule::runner()</a>, <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>, <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule::sendDynamicData()</a>, <a class="el" href="classExtension.html#a46a252fd2eb23471ede70b3df875cafc">Extension::setCritical()</a>, <a class="el" href="classExtension.html#ace8ba3912124dd4e7cf78efbb6c73103">Extension::setID()</a>, and <a class="el" href="classExtension.html#a554811d7b73c19249df043c73a1206ea">Extension::setName()</a>.</p>
 
 </div>
 </div>
@@ -354,6 +374,48 @@ Private Attributes</h2></td></tr>
 <p class="reference">References <a class="el" href="classDataStream.html#a3e9fe788ab4ba04467b7beaddb7639bf">data_frame_</a>, and <a class="el" href="classDataStream.html#a5e64f93c8634844503f37134adc5b6ac">data_frame_lock_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classDataModule.html#a3363e7cc3320c9318c9ab5d20393772b">DataModule::parseDataStream()</a>.</p>
+
+</div>
+</div>
+<a id="a1e88629f971c6273c739fe05fe7903b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e88629f971c6273c739fe05fe7903b8">&#9670;&nbsp;</a></span>updateErrorFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataStream::updateErrorFrame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="utility-data-stream_8h.html#a7c4d7f1a05093603ec7ed9234ff9601f">ErrorFrame</a>&#160;</td>
+          <td class="paramname"><em>error_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#aefb614aa50aa3dd17b3c070ca70e4374">error_frame_</a>, and <a class="el" href="classDataStream.html#a1bdcf1bb9cbc3b4cc77a83690456bc01">error_frame_lock_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#ac8b0e6e7f00edc898c1d23c0da387618">DataModule::parseErrorStream()</a>.</p>
+
+</div>
+</div>
+<a id="ac4672e75bcbe3979d79b7f4dce7a0de3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4672e75bcbe3979d79b7f4dce7a0de3">&#9670;&nbsp;</a></span>updateFlightProcedure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataStream::updateFlightProcedure </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structFlightProcedure.html">FlightProcedure</a>&#160;</td>
+          <td class="paramname"><em>flight_procedure</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#a9d862c70c29e6634d53c9d4b93de3164">flight_procedure_</a>, and <a class="el" href="classDataStream.html#a42b7064dc5e5fdfd33e4a3bda0455a65">flight_procedure_lock_</a>.</p>
 
 </div>
 </div>
@@ -409,11 +471,41 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="utility-data-stream_8h.html#structErrorStreamPacket" title="This struct is used by the DataStrean and data module. Individual extensions/modules do not need to b...">ErrorStreamPacket</a> An error stream packet with an error. If there are no more errors it will return an empty packet. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="utility-data-stream_8h.html#structErrorStreamPacket" title="This struct is used by the DataStream and data module. Individual extensions/modules do not need to b...">ErrorStreamPacket</a> An error stream packet with an error. If there are no more errors it will return an empty packet. </dd></dl>
 
 <p class="reference">References <a class="el" href="classDataStream.html#ac2560a5202001330fe5c89c7d959487a">error_stream_</a>, <a class="el" href="classDataStream.html#a96e00aacaccb3985eed4f8d5bf576a69">error_stream_lock_</a>, and <a class="el" href="classDataStream.html#a36d112d4fe7a90c78c6f6b77b619c5ba">num_error_packets_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classDataModule.html#ac8b0e6e7f00edc898c1d23c0da387618">DataModule::parseErrorStream()</a>.</p>
+
+</div>
+</div>
+<a id="aa554bb896a82f6c10b33b8facd3fd28b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa554bb896a82f6c10b33b8facd3fd28b">&#9670;&nbsp;</a></span>getData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string DataStream::getData </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>data_source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>data_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#a3e9fe788ab4ba04467b7beaddb7639bf">data_frame_</a>, and <a class="el" href="classDataStream.html#a5e64f93c8634844503f37134adc5b6ac">data_frame_lock_</a>.</p>
 
 </div>
 </div>
@@ -443,7 +535,49 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classDataStream.html#a3e9fe788ab4ba04467b7beaddb7639bf">data_frame_</a>, and <a class="el" href="classDataStream.html#a5e64f93c8634844503f37134adc5b6ac">data_frame_lock_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classDataModule.html#ae8b49aa51ea5f6a0677a1523bb101ba4">DataModule::log()</a>, <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>, <a class="el" href="classTelemetryModule.html#a06f3ff1e68c2e4fd3102706d80d28006">TelemetryModule::sendAPRS()</a>, and <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">TelemetryModule::sendDataPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#ae8b49aa51ea5f6a0677a1523bb101ba4">DataModule::log()</a>, <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>, <a class="el" href="classTelemetryModule.html#a06f3ff1e68c2e4fd3102706d80d28006">TelemetryModule::sendAPRS()</a>, <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">TelemetryModule::sendDataPacket()</a>, and <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule::sendDynamicData()</a>.</p>
+
+</div>
+</div>
+<a id="a8b4bed27924ec3a451cdc19f1f4c663c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b4bed27924ec3a451cdc19f1f4c663c">&#9670;&nbsp;</a></span>getErrorFrameCopy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="utility-data-stream_8h.html#a7c4d7f1a05093603ec7ed9234ff9601f">ErrorFrame</a> DataStream::getErrorFrameCopy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#aefb614aa50aa3dd17b3c070ca70e4374">error_frame_</a>, and <a class="el" href="classDataStream.html#a1bdcf1bb9cbc3b4cc77a83690456bc01">error_frame_lock_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>.</p>
+
+</div>
+</div>
+<a id="a05ae6139f152017adcb0ca4961f73ec7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05ae6139f152017adcb0ca4961f73ec7">&#9670;&nbsp;</a></span>getFlightProcedureCopy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structFlightProcedure.html">FlightProcedure</a> DataStream::getFlightProcedureCopy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#a9d862c70c29e6634d53c9d4b93de3164">flight_procedure_</a>, and <a class="el" href="classDataStream.html#a42b7064dc5e5fdfd33e4a3bda0455a65">flight_procedure_lock_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>.</p>
 
 </div>
 </div>
@@ -465,7 +599,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classDataStream.html#ac4b2f7b7fb2f9d0b3ee46555140a87be">num_data_packets_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classDataModule.html#a3363e7cc3320c9318c9ab5d20393772b">DataModule::parseDataStream()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#a3363e7cc3320c9318c9ab5d20393772b">DataModule::parseDataStream()</a>, and <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>.</p>
 
 </div>
 </div>
@@ -485,9 +619,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>int The number of error packets in the error stream. </dd></dl>
 
-<p class="reference">References <a class="el" href="classDataStream.html#ac4b2f7b7fb2f9d0b3ee46555140a87be">num_data_packets_</a>.</p>
+<p class="reference">References <a class="el" href="classDataStream.html#a36d112d4fe7a90c78c6f6b77b619c5ba">num_error_packets_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classDataModule.html#ac8b0e6e7f00edc898c1d23c0da387618">DataModule::parseErrorStream()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#ac8b0e6e7f00edc898c1d23c0da387618">DataModule::parseErrorStream()</a>, and <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>.</p>
 
 </div>
 </div>
@@ -509,6 +643,8 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classDataStream.html#a1345e5de7131d7d1042287c7d64adeec">total_data_packets_</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>.</p>
+
 </div>
 </div>
 <a id="a440ff69ddbb09b9d8adf52bfca0329ed"></a>
@@ -528,6 +664,8 @@ Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>int The total number of error packets that have been added to the error stream since the error stream was created. </dd></dl>
 
 <p class="reference">References <a class="el" href="classDataStream.html#ab230e026d697e338d690b9c2db6dd55a">total_error_packets_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>.</p>
 
 </div>
 </div>
@@ -552,7 +690,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDataStream.html#aadb8f27fe18a349a25b2cd656d686f92">DataStream()</a>, <a class="el" href="classDataStream.html#afa464698433537da651b85771587cd84">addData()</a>, <a class="el" href="classDataStream.html#a461673b50357d77d842bbd6d3269a213">getNextDataPacket()</a>, <a class="el" href="classDataStream.html#aa98f6718306690366f5015e2a43c0b6f">getNumDataPackets()</a>, and <a class="el" href="classDataStream.html#a7a64f1b0bbddc88ce06e18554584972e">getNumErrorPackets()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#aadb8f27fe18a349a25b2cd656d686f92">DataStream()</a>, <a class="el" href="classDataStream.html#afa464698433537da651b85771587cd84">addData()</a>, <a class="el" href="classDataStream.html#a461673b50357d77d842bbd6d3269a213">getNextDataPacket()</a>, and <a class="el" href="classDataStream.html#aa98f6718306690366f5015e2a43c0b6f">getNumDataPackets()</a>.</p>
 
 </div>
 </div>
@@ -600,7 +738,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDataStream.html#aadb8f27fe18a349a25b2cd656d686f92">DataStream()</a>, <a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">addError()</a>, and <a class="el" href="classDataStream.html#a05b09b8fc72973ed2e67ccfb563b1870">getNextErrorPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#aadb8f27fe18a349a25b2cd656d686f92">DataStream()</a>, <a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">addError()</a>, <a class="el" href="classDataStream.html#a05b09b8fc72973ed2e67ccfb563b1870">getNextErrorPacket()</a>, and <a class="el" href="classDataStream.html#a7a64f1b0bbddc88ce06e18554584972e">getNumErrorPackets()</a>.</p>
 
 </div>
 </div>
@@ -652,54 +790,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a96e00aacaccb3985eed4f8d5bf576a69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96e00aacaccb3985eed4f8d5bf576a69">&#9670;&nbsp;</a></span>error_stream_lock_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::mutex DataStream::error_stream_lock_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classDataStream.html#aadb8f27fe18a349a25b2cd656d686f92">DataStream()</a>, <a class="el" href="classDataStream.html#ab1ab2421685bd8ee669ec94d3b0239b8">~DataStream()</a>, <a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">addError()</a>, and <a class="el" href="classDataStream.html#a05b09b8fc72973ed2e67ccfb563b1870">getNextErrorPacket()</a>.</p>
-
-</div>
-</div>
-<a id="a5e64f93c8634844503f37134adc5b6ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e64f93c8634844503f37134adc5b6ac">&#9670;&nbsp;</a></span>data_frame_lock_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::mutex DataStream::data_frame_lock_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classDataStream.html#ab1ab2421685bd8ee669ec94d3b0239b8">~DataStream()</a>, <a class="el" href="classDataStream.html#abc6714f00357d5852409aece9250f050">getDataFrameCopy()</a>, and <a class="el" href="classDataStream.html#a3e97e9ecdd3cbb0422a21353c6a6b164">updateDataFrame()</a>.</p>
-
-</div>
-</div>
 <a id="a663e34a1d5f5f3aeede15b53d1aa71c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a663e34a1d5f5f3aeede15b53d1aa71c4">&#9670;&nbsp;</a></span>data_stream_</h2>
 
@@ -721,6 +811,30 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">Referenced by <a class="el" href="classDataStream.html#afa464698433537da651b85771587cd84">addData()</a>, and <a class="el" href="classDataStream.html#a461673b50357d77d842bbd6d3269a213">getNextDataPacket()</a>.</p>
+
+</div>
+</div>
+<a id="a96e00aacaccb3985eed4f8d5bf576a69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96e00aacaccb3985eed4f8d5bf576a69">&#9670;&nbsp;</a></span>error_stream_lock_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex DataStream::error_stream_lock_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#aadb8f27fe18a349a25b2cd656d686f92">DataStream()</a>, <a class="el" href="classDataStream.html#ab1ab2421685bd8ee669ec94d3b0239b8">~DataStream()</a>, <a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">addError()</a>, and <a class="el" href="classDataStream.html#a05b09b8fc72973ed2e67ccfb563b1870">getNextErrorPacket()</a>.</p>
 
 </div>
 </div>
@@ -748,6 +862,30 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a5e64f93c8634844503f37134adc5b6ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e64f93c8634844503f37134adc5b6ac">&#9670;&nbsp;</a></span>data_frame_lock_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex DataStream::data_frame_lock_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#ab1ab2421685bd8ee669ec94d3b0239b8">~DataStream()</a>, <a class="el" href="classDataStream.html#aa554bb896a82f6c10b33b8facd3fd28b">getData()</a>, <a class="el" href="classDataStream.html#abc6714f00357d5852409aece9250f050">getDataFrameCopy()</a>, and <a class="el" href="classDataStream.html#a3e97e9ecdd3cbb0422a21353c6a6b164">updateDataFrame()</a>.</p>
+
+</div>
+</div>
 <a id="a3e9fe788ab4ba04467b7beaddb7639bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3e9fe788ab4ba04467b7beaddb7639bf">&#9670;&nbsp;</a></span>data_frame_</h2>
 
@@ -768,7 +906,103 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDataStream.html#abc6714f00357d5852409aece9250f050">getDataFrameCopy()</a>, and <a class="el" href="classDataStream.html#a3e97e9ecdd3cbb0422a21353c6a6b164">updateDataFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#aa554bb896a82f6c10b33b8facd3fd28b">getData()</a>, <a class="el" href="classDataStream.html#abc6714f00357d5852409aece9250f050">getDataFrameCopy()</a>, and <a class="el" href="classDataStream.html#a3e97e9ecdd3cbb0422a21353c6a6b164">updateDataFrame()</a>.</p>
+
+</div>
+</div>
+<a id="a1bdcf1bb9cbc3b4cc77a83690456bc01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bdcf1bb9cbc3b4cc77a83690456bc01">&#9670;&nbsp;</a></span>error_frame_lock_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex DataStream::error_frame_lock_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#ab1ab2421685bd8ee669ec94d3b0239b8">~DataStream()</a>, <a class="el" href="classDataStream.html#a8b4bed27924ec3a451cdc19f1f4c663c">getErrorFrameCopy()</a>, and <a class="el" href="classDataStream.html#a1e88629f971c6273c739fe05fe7903b8">updateErrorFrame()</a>.</p>
+
+</div>
+</div>
+<a id="aefb614aa50aa3dd17b3c070ca70e4374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefb614aa50aa3dd17b3c070ca70e4374">&#9670;&nbsp;</a></span>error_frame_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="utility-data-stream_8h.html#a7c4d7f1a05093603ec7ed9234ff9601f">ErrorFrame</a> DataStream::error_frame_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#a8b4bed27924ec3a451cdc19f1f4c663c">getErrorFrameCopy()</a>, and <a class="el" href="classDataStream.html#a1e88629f971c6273c739fe05fe7903b8">updateErrorFrame()</a>.</p>
+
+</div>
+</div>
+<a id="a42b7064dc5e5fdfd33e4a3bda0455a65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42b7064dc5e5fdfd33e4a3bda0455a65">&#9670;&nbsp;</a></span>flight_procedure_lock_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex DataStream::flight_procedure_lock_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#a05ae6139f152017adcb0ca4961f73ec7">getFlightProcedureCopy()</a>, and <a class="el" href="classDataStream.html#ac4672e75bcbe3979d79b7f4dce7a0de3">updateFlightProcedure()</a>.</p>
+
+</div>
+</div>
+<a id="a9d862c70c29e6634d53c9d4b93de3164"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d862c70c29e6634d53c9d4b93de3164">&#9670;&nbsp;</a></span>flight_procedure_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structFlightProcedure.html">FlightProcedure</a> DataStream::flight_procedure_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#a05ae6139f152017adcb0ca4961f73ec7">getFlightProcedureCopy()</a>, and <a class="el" href="classDataStream.html#ac4672e75bcbe3979d79b7f4dce7a0de3">updateFlightProcedure()</a>.</p>
 
 </div>
 </div>

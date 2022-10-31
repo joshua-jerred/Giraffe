@@ -6,7 +6,7 @@ var hierarchy =
     [ "ConfigData::Debugging", "structConfigData.html#structConfigData_1_1Debugging", null ],
     [ "ConfigData::Extensions", "structConfigData.html#structConfigData_1_1Extensions", null ],
     [ "ConfigData::General", "structConfigData.html#structConfigData_1_1General", null ],
-    [ "ConfigData::Loops", "structConfigData.html#structConfigData_1_1Loops", null ],
+    [ "ConfigData::Procs", "structConfigData.html#structConfigData_1_1Procs", null ],
     [ "ConfigData::Telemetry", "structConfigData.html#structConfigData_1_1Telemetry", null ],
     [ "ConfigModule", "classConfigModule.html", null ],
     [ "DataStream", "classDataStream.html", null ],
@@ -21,15 +21,20 @@ var hierarchy =
       [ "TestExtension", "classTestExtension.html", null ]
     ] ],
     [ "ExtensionMetadata", "structExtensionMetadata.html", null ],
-    [ "FlightLoop", "structFlightLoop.html", null ],
-    [ "FlightLoop::Intervals", "structFlightLoop.html#structFlightLoop_1_1Intervals", null ],
+    [ "FlightProcedure", "structFlightProcedure.html", null ],
+    [ "FlightProcedure::Intervals", "structFlightProcedure.html#structFlightProcedure_1_1Intervals", null ],
     [ "FlightRunner", "classFlightRunner.html", null ],
     [ "Module", "classModule.html", [
       [ "ConsoleModule", "classConsoleModule.html", null ],
       [ "DataModule", "classDataModule.html", null ],
       [ "ExtensionsModule", "classExtensionsModule.html", null ],
+      [ "ServerModule", "classServerModule.html", null ],
       [ "TelemetryModule", "classTelemetryModule.html", null ]
     ] ],
+    [ "Socket", "classSocket.html", [
+      [ "ServerSocket", "classServerSocket.html", null ]
+    ] ],
+    [ "SocketException", "classSocketException.html", null ],
     [ "Timer", "classTimer.html", null ],
     [ "Transmission", "structTransmission.html", null ]
 ];

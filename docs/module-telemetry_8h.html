@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -94,6 +94,12 @@ $(document).ready(function(){initNavTree('module-telemetry_8h.html',''); initRes
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;mutex&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+<code>#include &lt;atomic&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 <code>#include &quot;<a class="el" href="module_8h_source.html">module.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="utility-data-stream_8h_source.html">utility-data-stream.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="utility-configurables_8h_source.html">utility-configurables.h</a>&quot;</code><br />
@@ -103,18 +109,21 @@ Include dependency graph for module-telemetry.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="module-telemetry_8h__incl.png" border="0" usemap="#amodule-telemetry_8h" alt=""/></div>
 <map name="amodule-telemetry_8h" id="amodule-telemetry_8h">
-<area shape="rect" title="This file defines the class TelemetryModule." alt="" coords="333,5,464,32"/>
-<area shape="rect" title=" " alt="" coords="5,155,64,181"/>
-<area shape="rect" title=" " alt="" coords="497,80,564,107"/>
-<area shape="rect" href="module_8h.html" title="Defines the enum module_status and parent class for the modules." alt="" coords="399,80,473,107"/>
-<area shape="rect" href="utility-data-stream_8h.html" title="Contains the declaration of the DataStream class." alt="" coords="179,80,317,107"/>
-<area shape="rect" href="utility-config-types_8h.html" title=" " alt="" coords="300,155,439,181"/>
-<area shape="rect" href="utility-configurables_8h.html" title="All macro definitions for the flight control software will be in this file. Macros should be avoided." alt="" coords="589,80,734,107"/>
-<area shape="rect" title=" " alt="" coords="449,229,503,256"/>
-<area shape="rect" title=" " alt="" coords="139,155,197,181"/>
-<area shape="rect" title=" " alt="" coords="221,155,275,181"/>
-<area shape="rect" title=" " alt="" coords="126,229,237,256"/>
-<area shape="rect" title=" " alt="" coords="340,229,399,256"/>
+<area shape="rect" title="This file defines the class TelemetryModule." alt="" coords="343,5,494,32"/>
+<area shape="rect" title=" " alt="" coords="341,155,405,181"/>
+<area shape="rect" title=" " alt="" coords="36,80,110,107"/>
+<area shape="rect" title=" " alt="" coords="361,229,420,256"/>
+<area shape="rect" title=" " alt="" coords="241,80,305,107"/>
+<area shape="rect" title=" " alt="" coords="835,229,898,256"/>
+<area shape="rect" title=" " alt="" coords="430,155,492,181"/>
+<area shape="rect" title=" " alt="" coords="232,155,298,181"/>
+<area shape="rect" title=" " alt="" coords="481,80,561,107"/>
+<area shape="rect" href="module_8h.html" title="Defines the enum module_status and parent class for the modules." alt="" coords="134,80,217,107"/>
+<area shape="rect" href="utility-data-stream_8h.html" title="Contains the declaration of the DataStream class." alt="" coords="585,80,742,107"/>
+<area shape="rect" href="utility-config-types_8h.html" title=" " alt="" coords="701,155,858,181"/>
+<area shape="rect" href="utility-configurables_8h.html" title="All macro definitions for the flight control software will be in this file. Macros should be avoided." alt="" coords="934,80,1098,107"/>
+<area shape="rect" title=" " alt="" coords="517,155,576,181"/>
+<area shape="rect" title=" " alt="" coords="630,229,754,256"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -122,11 +131,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="module-telemetry_8h__dep__incl.png" border="0" usemap="#amodule-telemetry_8hdep" alt=""/></div>
 <map name="amodule-telemetry_8hdep" id="amodule-telemetry_8hdep">
-<area shape="rect" title="This file defines the class TelemetryModule." alt="" coords="85,5,216,32"/>
-<area shape="rect" href="flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="5,155,120,181"/>
-<area shape="rect" href="flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="101,80,201,107"/>
-<area shape="rect" href="module-telemetry_8cpp.html" title="This fle implements the class TelemetryModule which is defined in module&#45;telemetry...." alt="" coords="225,80,370,107"/>
-<area shape="rect" href="main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="144,155,219,181"/>
+<area shape="rect" title="This file defines the class TelemetryModule." alt="" coords="139,5,290,32"/>
+<area shape="rect" href="flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="77,80,190,107"/>
+<area shape="rect" href="module-telemetry_8cpp.html" title="This fle implements the class TelemetryModule which is defined in module&#45;telemetry...." alt="" coords="215,80,380,107"/>
+<area shape="rect" href="flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="5,155,133,181"/>
+<area shape="rect" href="main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="157,155,240,181"/>
 </map>
 </div>
 </div>

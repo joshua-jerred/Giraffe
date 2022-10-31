@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('classExtension.html',''); initResizabl
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classExtension-members.html">List of all members</a>  </div>
@@ -103,12 +104,12 @@ Inheritance diagram for Extension:</div>
 <div class="dyncontent">
 <div class="center"><img src="classExtension__inherit__graph.png" border="0" usemap="#aExtension_inherit__map" alt="Inheritance graph"/></div>
 <map name="aExtension_inherit__map" id="aExtension_inherit__map">
-<area shape="rect" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="403,5,547,611"/>
-<area shape="rect" href="classBMP180__SIM.html" title="The BMP180_SIM is a simulated BMP180 extension." alt="" coords="5,681,136,787"/>
-<area shape="rect" href="classDRA818V__SIM.html" title="Currently not implemented." alt="" coords="161,681,301,787"/>
-<area shape="rect" href="classDS18B20__SIM.html" title="The DS18B20_SIM is a simulated DS18B20 extension." alt="" coords="325,681,462,787"/>
-<area shape="rect" href="classSAMM8Q__SIM.html" title="The SAMM8Q_SIM is a simulated SAM&#45;M8Q extension." alt="" coords="487,681,625,787"/>
-<area shape="rect" href="classTestExtension.html" title="The TestExtension is a data stream test extension." alt="" coords="649,659,783,809"/>
+<area shape="rect" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="425,5,590,625"/>
+<area shape="rect" href="classBMP180__SIM.html" title="The BMP180_SIM is a simulated BMP180 extension." alt="" coords="5,695,148,802"/>
+<area shape="rect" href="classDRA818V__SIM.html" title="Currently not implemented." alt="" coords="172,695,323,802"/>
+<area shape="rect" href="classDS18B20__SIM.html" title="The DS18B20_SIM is a simulated DS18B20 extension." alt="" coords="347,695,495,802"/>
+<area shape="rect" href="classSAMM8Q__SIM.html" title="The SAMM8Q_SIM is a simulated SAM&#45;M8Q extension." alt="" coords="519,695,669,802"/>
+<area shape="rect" href="classTestExtension.html" title="The TestExtension is a data stream test extension." alt="" coords="693,673,841,824"/>
 </map>
 </div>
 <div class="dynheader">
@@ -116,8 +117,10 @@ Collaboration diagram for Extension:</div>
 <div class="dyncontent">
 <div class="center"><img src="classExtension__coll__graph.png" border="0" usemap="#aExtension_coll__map" alt="Collaboration graph"/></div>
 <map name="aExtension_coll__map" id="aExtension_coll__map">
-<area shape="rect" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="15,439,159,1029"/>
-<area shape="rect" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="5,5,169,376"/>
+<area shape="rect" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="24,836,189,1441"/>
+<area shape="rect" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="5,373,208,773"/>
+<area shape="rect" href="structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="45,219,169,311"/>
+<area shape="rect" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="12,5,201,156"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -129,20 +132,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a52c2b4e48fa3f78511b72d55fefcb48c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#a52c2b4e48fa3f78511b72d55fefcb48c">~Extension</a> ()</td></tr>
 <tr class="memdesc:a52c2b4e48fa3f78511b72d55fefcb48c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Stop must be called first.  <a href="classExtension.html#a52c2b4e48fa3f78511b72d55fefcb48c">More...</a><br /></td></tr>
 <tr class="separator:a52c2b4e48fa3f78511b72d55fefcb48c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77752bbdeba228aeb9cb604d2132e7ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111">ExtensionStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#a77752bbdeba228aeb9cb604d2132e7ea">getStatus</a> ()</td></tr>
-<tr class="separator:a77752bbdeba228aeb9cb604d2132e7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf675a2cce1fe5a089060b9f05cee36e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#abf675a2cce1fe5a089060b9f05cee36e">restart</a> ()</td></tr>
-<tr class="memdesc:abf675a2cce1fe5a089060b9f05cee36e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not implemented.  <a href="classExtension.html#abf675a2cce1fe5a089060b9f05cee36e">More...</a><br /></td></tr>
-<tr class="separator:abf675a2cce1fe5a089060b9f05cee36e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace9c4e0b3ce3810b8f71344c708f4029"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#ace9c4e0b3ce3810b8f71344c708f4029">start</a> ()</td></tr>
-<tr class="memdesc:ace9c4e0b3ce3810b8f71344c708f4029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the extension thread if it is stopped, changes status.  <a href="classExtension.html#ace9c4e0b3ce3810b8f71344c708f4029">More...</a><br /></td></tr>
-<tr class="separator:ace9c4e0b3ce3810b8f71344c708f4029"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11e508a54ebc5bbb26990597e7de41cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#a11e508a54ebc5bbb26990597e7de41cb">stop</a> ()</td></tr>
-<tr class="memdesc:a11e508a54ebc5bbb26990597e7de41cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signals the thread to stop.  <a href="classExtension.html#a11e508a54ebc5bbb26990597e7de41cb">More...</a><br /></td></tr>
-<tr class="separator:a11e508a54ebc5bbb26990597e7de41cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
 <tr class="memitem:af42457f668439603d7dd3f8a7cd20811"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96b">ExtensionMetadata::Category</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#af42457f668439603d7dd3f8a7cd20811">getCategory</a> ()</td></tr>
 <tr class="separator:af42457f668439603d7dd3f8a7cd20811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45fb0ed4dc533b4693d75d9185685b45"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#a45fb0ed4dc533b4693d75d9185685b45">getCritical</a> ()</td></tr>
@@ -155,10 +144,24 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a9bc48dde7b06f2968272bdc66fb02e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c9d0615d4284b4e29a04d039a3ef5fe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#a9c9d0615d4284b4e29a04d039a3ef5fe">getName</a> ()</td></tr>
 <tr class="separator:a9c9d0615d4284b4e29a04d039a3ef5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77752bbdeba228aeb9cb604d2132e7ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111">ExtensionStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#a77752bbdeba228aeb9cb604d2132e7ea">getStatus</a> ()</td></tr>
+<tr class="separator:a77752bbdeba228aeb9cb604d2132e7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43a8e53ebef5ae0df59502e39d4aefdf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#a43a8e53ebef5ae0df59502e39d4aefdf">getType</a> ()</td></tr>
 <tr class="separator:a43a8e53ebef5ae0df59502e39d4aefdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01f86b6f045cc84b5bacf0697dc86529"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#a01f86b6f045cc84b5bacf0697dc86529">getUpdateInterval</a> ()</td></tr>
 <tr class="separator:a01f86b6f045cc84b5bacf0697dc86529"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf675a2cce1fe5a089060b9f05cee36e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#abf675a2cce1fe5a089060b9f05cee36e">restart</a> ()</td></tr>
+<tr class="memdesc:abf675a2cce1fe5a089060b9f05cee36e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not implemented.  <a href="classExtension.html#abf675a2cce1fe5a089060b9f05cee36e">More...</a><br /></td></tr>
+<tr class="separator:abf675a2cce1fe5a089060b9f05cee36e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace9c4e0b3ce3810b8f71344c708f4029"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#ace9c4e0b3ce3810b8f71344c708f4029">start</a> ()</td></tr>
+<tr class="memdesc:ace9c4e0b3ce3810b8f71344c708f4029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the extension thread if it is stopped, changes status.  <a href="classExtension.html#ace9c4e0b3ce3810b8f71344c708f4029">More...</a><br /></td></tr>
+<tr class="separator:ace9c4e0b3ce3810b8f71344c708f4029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11e508a54ebc5bbb26990597e7de41cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#a11e508a54ebc5bbb26990597e7de41cb">stop</a> ()</td></tr>
+<tr class="memdesc:a11e508a54ebc5bbb26990597e7de41cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signals the thread to stop.  <a href="classExtension.html#a11e508a54ebc5bbb26990597e7de41cb">More...</a><br /></td></tr>
+<tr class="separator:a11e508a54ebc5bbb26990597e7de41cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
 <tr class="memitem:a537d2d6cabbd4cc5d453f053827a7636"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#a537d2d6cabbd4cc5d453f053827a7636">runner</a> ()</td></tr>
 <tr class="memdesc:a537d2d6cabbd4cc5d453f053827a7636"><td class="mdescLeft">&#160;</td><td class="mdescRight">This must be overridden by each extension.  <a href="classExtension.html#a537d2d6cabbd4cc5d453f053827a7636">More...</a><br /></td></tr>
 <tr class="separator:a537d2d6cabbd4cc5d453f053827a7636"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,6 +177,11 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a1ff51203eee0b75d5b6646b0fe2a7ccd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#a1ff51203eee0b75d5b6646b0fe2a7ccd">setStatus</a> (<a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111">ExtensionStatus</a> status)</td></tr>
 <tr class="memdesc:a1ff51203eee0b75d5b6646b0fe2a7ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the status. Thread safe.  <a href="classExtension.html#a1ff51203eee0b75d5b6646b0fe2a7ccd">More...</a><br /></td></tr>
 <tr class="separator:a1ff51203eee0b75d5b6646b0fe2a7ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ab5ef31ae39b4da3d17fd1c7fc5a88b7a"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html#ab5ef31ae39b4da3d17fd1c7fc5a88b7a">stop_flag_</a></td></tr>
+<tr class="separator:ab5ef31ae39b4da3d17fd1c7fc5a88b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -354,7 +362,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="reference">References <a class="el" href="classExtension.html#a77752bbdeba228aeb9cb604d2132e7ea">getStatus()</a>, <a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111a43491564ebcfd38568918efbd6e840fd">RUNNING</a>, <a class="el" href="classExtension.html#a1ff51203eee0b75d5b6646b0fe2a7ccd">setStatus()</a>, and <a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111af6cdb3c6710b50ec65ee07f740847e10">STOPPING</a>.</p>
+<p class="reference">References <a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>, <a class="el" href="classExtension.html#a77752bbdeba228aeb9cb604d2132e7ea">getStatus()</a>, <a class="el" href="classExtension.html#ae6cda931bb7bf6469bc10084bf17a58f">runner_thread_</a>, <a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111a43491564ebcfd38568918efbd6e840fd">RUNNING</a>, <a class="el" href="classExtension.html#a1ff51203eee0b75d5b6646b0fe2a7ccd">setStatus()</a>, <a class="el" href="classExtension.html#ab5ef31ae39b4da3d17fd1c7fc5a88b7a">stop_flag_</a>, and <a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111af6cdb3c6710b50ec65ee07f740847e10">STOPPING</a>.</p>
 
 </div>
 </div>
@@ -405,9 +413,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int Extension::getID </td>
@@ -416,11 +421,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>int The id of the extension. </dd></dl>
 
@@ -433,9 +433,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string Extension::getName </td>
@@ -444,11 +441,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>std::string The name of the extension. </dd></dl>
 
@@ -463,9 +455,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string Extension::getType </td>
@@ -474,11 +463,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>std::string The type of the extension. </dd></dl>
 
@@ -491,9 +475,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96b">ExtensionMetadata::Category</a> Extension::getCategory </td>
@@ -502,11 +483,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96b">ExtensionMetadata::Category</a> The category of the extension. </dd></dl>
 
@@ -519,9 +495,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462">ExtensionMetadata::Interface</a> Extension::getInterface </td>
@@ -530,11 +503,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462">ExtensionMetadata::Interface</a> The interface of the extension. </dd></dl>
 
@@ -547,9 +515,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int Extension::getUpdateInterval </td>
@@ -558,11 +523,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>int The update interval in milliseconds of the extension. </dd></dl>
 
@@ -577,9 +537,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int Extension::getCritical </td>
@@ -588,11 +545,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>int Whether or not the extension is flight critical 0=no, 1=yes. </dd></dl>
 
@@ -605,9 +557,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;std::string&gt; Extension::getExtraArgs </td>
@@ -616,11 +565,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -654,7 +598,7 @@ Private Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDRA818V__SIM.html#a8323e05ba1c72afedfe0ddc8c4262b9f">DRA818V_SIM</a>, <a class="el" href="classDS18B20__SIM.html#a77d050a934875774a41a8631025a5280">DS18B20_SIM</a>, <a class="el" href="classSAMM8Q__SIM.html#aac303d0736df08f1c0d4ff5b8554beb8">SAMM8Q_SIM</a>, <a class="el" href="classBMP180__SIM.html#a4eab2412a62eedfce2e3585f68eb1c28">BMP180_SIM</a>, and <a class="el" href="classTestExtension.html#a6578a89cc9241bbe9e9b4fb6de9e58d2">TestExtension</a>.</p>
 
-<p class="reference">References <a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">DataStream::addError()</a>, <a class="el" href="classExtension.html#a1a2e6e9642efa7dab57cf8300439117f">name_</a>, and <a class="el" href="classExtension.html#a27bf670b0fe22d7e5d343c4656a97368">p_data_stream_</a>.</p>
+<p class="reference">References <a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">DataStream::addError()</a>, <a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>, <a class="el" href="classExtension.html#a1a2e6e9642efa7dab57cf8300439117f">name_</a>, <a class="el" href="classExtension.html#a27bf670b0fe22d7e5d343c4656a97368">p_data_stream_</a>, and <a class="el" href="classExtension.html#a1ff51203eee0b75d5b6646b0fe2a7ccd">setStatus()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classExtension.html#aab788a955615aabc47a1252ddc3a3af3">spawnRunner()</a>.</p>
 
@@ -694,7 +638,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classExtension.html#a892e4172806fd6279b2d21ca5d25e7db">status_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classExtension.html#a7138330f3436870a6e3b6a5b98549a68">Extension()</a>, <a class="el" href="classExtension.html#ace8ba3912124dd4e7cf78efbb6c73103">setID()</a>, <a class="el" href="classExtension.html#a554811d7b73c19249df043c73a1206ea">setName()</a>, <a class="el" href="classExtension.html#ace9c4e0b3ce3810b8f71344c708f4029">start()</a>, and <a class="el" href="classExtension.html#a11e508a54ebc5bbb26990597e7de41cb">stop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classExtension.html#a7138330f3436870a6e3b6a5b98549a68">Extension()</a>, <a class="el" href="classExtension.html#a537d2d6cabbd4cc5d453f053827a7636">runner()</a>, <a class="el" href="classTestExtension.html#a6578a89cc9241bbe9e9b4fb6de9e58d2">TestExtension::runner()</a>, <a class="el" href="classBMP180__SIM.html#a4eab2412a62eedfce2e3585f68eb1c28">BMP180_SIM::runner()</a>, <a class="el" href="classSAMM8Q__SIM.html#aac303d0736df08f1c0d4ff5b8554beb8">SAMM8Q_SIM::runner()</a>, <a class="el" href="classDS18B20__SIM.html#a77d050a934875774a41a8631025a5280">DS18B20_SIM::runner()</a>, <a class="el" href="classDRA818V__SIM.html#a8323e05ba1c72afedfe0ddc8c4262b9f">DRA818V_SIM::runner()</a>, <a class="el" href="classExtension.html#ace8ba3912124dd4e7cf78efbb6c73103">setID()</a>, <a class="el" href="classExtension.html#a554811d7b73c19249df043c73a1206ea">setName()</a>, <a class="el" href="classExtension.html#ace9c4e0b3ce3810b8f71344c708f4029">start()</a>, and <a class="el" href="classExtension.html#a11e508a54ebc5bbb26990597e7de41cb">stop()</a>.</p>
 
 </div>
 </div>
@@ -1168,6 +1112,30 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab5ef31ae39b4da3d17fd1c7fc5a88b7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5ef31ae39b4da3d17fd1c7fc5a88b7a">&#9670;&nbsp;</a></span>stop_flag_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;int&gt; Extension::stop_flag_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classTestExtension.html#a6578a89cc9241bbe9e9b4fb6de9e58d2">TestExtension::runner()</a>, <a class="el" href="classBMP180__SIM.html#a4eab2412a62eedfce2e3585f68eb1c28">BMP180_SIM::runner()</a>, <a class="el" href="classSAMM8Q__SIM.html#aac303d0736df08f1c0d4ff5b8554beb8">SAMM8Q_SIM::runner()</a>, <a class="el" href="classDS18B20__SIM.html#a77d050a934875774a41a8631025a5280">DS18B20_SIM::runner()</a>, <a class="el" href="classDRA818V__SIM.html#a8323e05ba1c72afedfe0ddc8c4262b9f">DRA818V_SIM::runner()</a>, and <a class="el" href="classExtension.html#a11e508a54ebc5bbb26990597e7de41cb">stop()</a>.</p>
+
+</div>
+</div>
 <a id="a27bf670b0fe22d7e5d343c4656a97368"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a27bf670b0fe22d7e5d343c4656a97368">&#9670;&nbsp;</a></span>p_data_stream_</h2>
 
@@ -1212,7 +1180,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classExtension.html#aab788a955615aabc47a1252ddc3a3af3">spawnRunner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classExtension.html#aab788a955615aabc47a1252ddc3a3af3">spawnRunner()</a>, and <a class="el" href="classExtension.html#a11e508a54ebc5bbb26990597e7de41cb">stop()</a>.</p>
 
 </div>
 </div>

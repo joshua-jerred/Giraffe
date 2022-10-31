@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -94,13 +94,15 @@ $(document).ready(function(){initNavTree('module_8h.html',''); initResizable(); 
 <p>Defines the enum module_status and parent class for the modules.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;atomic&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for module.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="module_8h__incl.png" border="0" usemap="#amodule_8h" alt=""/></div>
 <map name="amodule_8h" id="amodule_8h">
-<area shape="rect" title="Defines the enum module_status and parent class for the modules." alt="" coords="5,5,80,32"/>
-<area shape="rect" title=" " alt="" coords="15,80,70,107"/>
+<area shape="rect" title="Defines the enum module_status and parent class for the modules." alt="" coords="36,5,119,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,64,107"/>
+<area shape="rect" title=" " alt="" coords="88,80,155,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -108,19 +110,21 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="module_8h__dep__incl.png" border="0" usemap="#amodule_8hdep" alt=""/></div>
 <map name="amodule_8hdep" id="amodule_8hdep">
-<area shape="rect" title="Defines the enum module_status and parent class for the modules." alt="" coords="359,5,434,32"/>
-<area shape="rect" href="module-configuration_8cpp.html" title="This file implements the class ConfigModule which is defined in module&#45;configuration...." alt="" coords="5,80,172,107"/>
-<area shape="rect" href="module-console_8h.html" title=" " alt="" coords="648,80,772,107"/>
-<area shape="rect" href="module-data_8h.html" title="This file declares the class DataModule." alt="" coords="197,80,301,107"/>
-<area shape="rect" href="module-extensions_8h.html" title="Declares the ExtensionsModule class." alt="" coords="325,80,468,107"/>
-<area shape="rect" href="module-telemetry_8h.html" title="This file defines the class TelemetryModule." alt="" coords="493,80,623,107"/>
-<area shape="rect" href="flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="435,155,535,181"/>
-<area shape="rect" href="module-console_8cpp.html" title="This file contains the Console Module class." alt="" coords="781,155,919,181"/>
-<area shape="rect" href="flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="339,229,454,256"/>
-<area shape="rect" href="main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="478,229,553,256"/>
-<area shape="rect" href="module-data_8cpp.html" title="This file implements the class DataModule which is defined in module&#45;data.h." alt="" coords="60,155,179,181"/>
-<area shape="rect" href="module-extensions_8cpp.html" title="Defines the ExtensionsModule class." alt="" coords="203,155,359,181"/>
-<area shape="rect" href="module-telemetry_8cpp.html" title="This fle implements the class TelemetryModule which is defined in module&#45;telemetry...." alt="" coords="611,155,756,181"/>
+<area shape="rect" title="Defines the enum module_status and parent class for the modules." alt="" coords="482,5,565,32"/>
+<area shape="rect" href="module-configuration_8cpp.html" title="This file implements the class ConfigModule which is defined in module&#45;configuration...." alt="" coords="5,80,193,107"/>
+<area shape="rect" href="module-console_8h.html" title=" " alt="" coords="871,80,1010,107"/>
+<area shape="rect" href="module-data_8h.html" title="This file declares the class DataModule." alt="" coords="218,80,335,107"/>
+<area shape="rect" href="module-extensions_8h.html" title="Declares the ExtensionsModule class." alt="" coords="360,80,519,107"/>
+<area shape="rect" href="module-server_8h.html" title=" " alt="" coords="543,80,671,107"/>
+<area shape="rect" href="module-telemetry_8h.html" title="This file defines the class TelemetryModule." alt="" coords="696,80,847,107"/>
+<area shape="rect" href="flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="475,155,588,181"/>
+<area shape="rect" href="module-console_8cpp.html" title="This file contains the Console Module class." alt="" coords="969,155,1123,181"/>
+<area shape="rect" href="flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="402,229,530,256"/>
+<area shape="rect" href="main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="554,229,637,256"/>
+<area shape="rect" href="module-data_8cpp.html" title="This file implements the class DataModule which is defined in module&#45;data.h." alt="" coords="120,155,252,181"/>
+<area shape="rect" href="module-extensions_8cpp.html" title="Defines the ExtensionsModule class." alt="" coords="276,155,451,181"/>
+<area shape="rect" href="module-server_8cpp.html" title=" " alt="" coords="612,155,755,181"/>
+<area shape="rect" href="module-telemetry_8cpp.html" title="This fle implements the class TelemetryModule which is defined in module&#45;telemetry...." alt="" coords="779,155,945,181"/>
 </map>
 </div>
 </div>

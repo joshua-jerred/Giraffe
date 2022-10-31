@@ -1,18 +1,25 @@
 var utility_configurables_8h =
 [
-    [ "GFC_VERSION", "utility-configurables_8h.html#ae1422bebcd72b6eff82a95d28707de1c", null ],
+    [ "GFS_VERSION", "utility-configurables_8h.html#a47518b32ce036d4d2a72bd1c2b17fc85", null ],
     [ "CONFIG_LOCATION", "utility-configurables_8h.html#a751e75a0fc7de88baa2754ec9ee8fea3", null ],
     [ "DATA_LOG_LOCATION", "utility-configurables_8h.html#a912683c7ebd92b4af02181bc732b3af7", null ],
     [ "ERROR_LOG_LOCATION", "utility-configurables_8h.html#a1d803b46a669f5f4847733b270104a30", null ],
     [ "TELEMETRY_WAV_LOCATION", "utility-configurables_8h.html#af84bcfbf5199161c933c5e2eb5071514", null ],
     [ "PROJECT_NAME_MIN_LENGTH", "utility-configurables_8h.html#a23f57bc41fcacd3caee37c7c3985d105", null ],
     [ "PROJECT_NAME_MAX_LENGTH", "utility-configurables_8h.html#ab50736edf791801f2539198a0f65ed6a", null ],
-    [ "EXTENSION_NAME_MIN_LENGTH", "utility-configurables_8h.html#a8e09bc7f9a15ac179b7e4ef3582667fb", null ],
-    [ "EXTENSION_NAME_MAX_LENGTH", "utility-configurables_8h.html#a826e26619c1bac5b11bbfffaa766b4ab", null ],
     [ "EXTENSION_ID_MIN", "utility-configurables_8h.html#a8cd4e266cfa3e51e5480769ca6651aa2", null ],
     [ "EXTENSION_ID_MAX", "utility-configurables_8h.html#a5c3491901a73630ab8f90e86150679d6", null ],
+    [ "EXTENSION_NAME_MIN_LENGTH", "utility-configurables_8h.html#a8e09bc7f9a15ac179b7e4ef3582667fb", null ],
+    [ "EXTENSION_NAME_MAX_LENGTH", "utility-configurables_8h.html#a826e26619c1bac5b11bbfffaa766b4ab", null ],
     [ "EXTENSION_INTERVAL_MIN", "utility-configurables_8h.html#a33e2a0a8e02ed37b21a738a27e95b0ca", null ],
     [ "EXTENSION_INTERVAL_MAX", "utility-configurables_8h.html#a1c342a4c7e7ec4282fa6e69e05c53575", null ],
-    [ "MODULE_TELEMETRY_ERROR_PREFIX", "utility-configurables_8h.html#ae0454deca2f3c345c2c8a3c64719bf9f", null ],
-    [ "MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS", "utility-configurables_8h.html#ace68cdd0f39a28a3fb20d4f723f3e2ab", null ]
+    [ "MODULE_CONFIG_PREFIX", "utility-configurables_8h.html#a617f94afe3cab1c74dd67a5e2604eec3", null ],
+    [ "MODULE_DATA_PREFIX", "utility-configurables_8h.html#a21732e83051ad7c2d3f4ac16c6e707fd", null ],
+    [ "MODULE_TELEMETRY_PREFIX", "utility-configurables_8h.html#abb6ab8dffcd191b09019f8dd493903a2", null ],
+    [ "MODULE_SERVER_PREFIX", "utility-configurables_8h.html#a23d8eaf99634739d623c46bcf50c911a", null ],
+    [ "MODULE_EXTENSION_PREFIX", "utility-configurables_8h.html#aa06bf5de13d4a6452d9e936bbc91bfa3", null ],
+    [ "MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS", "utility-configurables_8h.html#ace68cdd0f39a28a3fb20d4f723f3e2ab", null ],
+    [ "TELEMETRY_INTERVAL_MILI_SECONDS", "utility-configurables_8h.html#a1ecf9e29e7b1b5c3171c0c6a222c0da9", null ],
+    [ "MODULE_SERVER_PORT", "utility-configurables_8h.html#aa9ec68f74add59b18319813b44e12cb0", null ],
+    [ "MODULE_SERVER_CHECK_COMMANDS_INTERVAL", "utility-configurables_8h.html#a53f81cc1c01e41f9c9028e8ce80e6eb6", null ]
 ];

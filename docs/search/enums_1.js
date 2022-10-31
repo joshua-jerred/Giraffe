@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['extensionstatus_589',['ExtensionStatus',['../extension_8h.html#acfd494192530021918d69e3a11d0f111',1,'extension.h']]]
+  ['extensionstatus_697',['ExtensionStatus',['../extension_8h.html#acfd494192530021918d69e3a11d0f111',1,'extension.h']]]
 ];

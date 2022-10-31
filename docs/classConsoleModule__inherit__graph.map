@@ -1,4 +1,4 @@
 <map id="ConsoleModule" name="ConsoleModule">
-<area shape="rect" id="node1" title="This class takes data from a data frame snapshot and prints it out to a simple display in the console..." alt="" coords="5,204,145,428"/>
-<area shape="rect" id="node2" href="$classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="13,5,138,156"/>
+<area shape="rect" id="node1" title="This class takes data from a data frame snapshot and prints it out to a simple display in the console..." alt="" coords="5,204,164,428"/>
+<area shape="rect" id="node2" href="$classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="15,5,155,156"/>
 </map>

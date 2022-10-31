@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -102,15 +102,15 @@ Collaboration diagram for ConfigData:</div>
 <div class="dyncontent">
 <div class="center"><img src="structConfigData__coll__graph.png" border="0" usemap="#aConfigData_coll__map" alt="Collaboration graph"/></div>
 <map name="aConfigData_coll__map" id="aConfigData_coll__map">
-<area shape="rect" title="Container for all config data. Mirrors the config file." alt="" coords="509,719,597,796"/>
-<area shape="rect" href="structConfigData.html#structConfigData_1_1Debugging" title=" " alt="" coords="5,476,201,597"/>
-<area shape="rect" href="structConfigData.html#structConfigData_1_1Loops" title=" " alt="" coords="226,498,357,575"/>
-<area shape="rect" href="structFlightLoop.html" title="Struct containing the loop configuration. One for each loop type." alt="" coords="250,219,333,311"/>
-<area shape="rect" href="structFlightLoop.html#structFlightLoop_1_1Intervals" title=" " alt="" coords="221,5,361,156"/>
-<area shape="rect" href="structConfigData.html#structConfigData_1_1DataTypes" title=" " alt="" coords="381,498,540,575"/>
-<area shape="rect" href="structConfigData.html#structConfigData_1_1Extensions" title=" " alt="" coords="564,498,725,575"/>
-<area shape="rect" href="structConfigData.html#structConfigData_1_1Telemetry" title=" " alt="" coords="749,417,903,656"/>
-<area shape="rect" href="structConfigData.html#structConfigData_1_1General" title=" " alt="" coords="927,483,1069,590"/>
+<area shape="rect" title="Container for all config data. Mirrors the config file." alt="" coords="582,719,677,796"/>
+<area shape="rect" href="structConfigData.html#structConfigData_1_1Debugging" title=" " alt="" coords="5,476,227,597"/>
+<area shape="rect" href="structConfigData.html#structConfigData_1_1DataTypes" title=" " alt="" coords="251,498,421,575"/>
+<area shape="rect" href="structConfigData.html#structConfigData_1_1Extensions" title=" " alt="" coords="445,498,619,575"/>
+<area shape="rect" href="structConfigData.html#structConfigData_1_1Telemetry" title=" " alt="" coords="643,417,810,656"/>
+<area shape="rect" href="structConfigData.html#structConfigData_1_1General" title=" " alt="" coords="834,483,987,590"/>
+<area shape="rect" href="structConfigData.html#structConfigData_1_1Procs" title=" " alt="" coords="1011,498,1149,575"/>
+<area shape="rect" href="structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="1018,219,1142,311"/>
+<area shape="rect" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="985,5,1175,156"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -124,8 +124,8 @@ Classes</h2></td></tr>
 <tr class="separator:structConfigData_1_1Extensions"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structConfigData_1_1General"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structConfigData.html#structConfigData_1_1General">General</a></td></tr>
 <tr class="separator:structConfigData_1_1General"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:structConfigData_1_1Loops"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structConfigData.html#structConfigData_1_1Loops">Loops</a></td></tr>
-<tr class="separator:structConfigData_1_1Loops"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structConfigData_1_1Procs"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structConfigData.html#structConfigData_1_1Procs">Procs</a></td></tr>
+<tr class="separator:structConfigData_1_1Procs"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structConfigData_1_1Telemetry"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structConfigData.html#structConfigData_1_1Telemetry">Telemetry</a></td></tr>
 <tr class="separator:structConfigData_1_1Telemetry"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -152,8 +152,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a07617466d797cb3c379ecc9f2036611a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab851c4ea2208a2eceec957ee7ff7aaeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structConfigData.html#structConfigData_1_1Extensions">Extensions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structConfigData.html#ab851c4ea2208a2eceec957ee7ff7aaeb">extensions</a></td></tr>
 <tr class="separator:ab851c4ea2208a2eceec957ee7ff7aaeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a015bc9db23eff5616c52bd1c146e6b13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structConfigData.html#structConfigData_1_1Loops">Loops</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structConfigData.html#a015bc9db23eff5616c52bd1c146e6b13">flight_loops</a></td></tr>
-<tr class="separator:a015bc9db23eff5616c52bd1c146e6b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7cb47a64041963a95200924a7096e9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structConfigData.html#structConfigData_1_1Procs">Procs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structConfigData.html#aa7cb47a64041963a95200924a7096e9b">flight_procs</a></td></tr>
+<tr class="separator:aa7cb47a64041963a95200924a7096e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14aea904d2a30316e4eb16360ccfcd36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structConfigData.html#structConfigData_1_1General">General</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structConfigData.html#a14aea904d2a30316e4eb16360ccfcd36">general</a></td></tr>
 <tr class="separator:a14aea904d2a30316e4eb16360ccfcd36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab87da4c949df066825e387fb919a085b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structConfigData.html#structConfigData_1_1Telemetry">Telemetry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structConfigData.html#ab87da4c949df066825e387fb919a085b">telemetry</a></td></tr>
@@ -179,7 +179,7 @@ Collaboration diagram for ConfigData::DataTypes:</div>
 <div class="dyncontent">
 <div class="center"><img src="structConfigData_1_1DataTypes__coll__graph.png" border="0" usemap="#aConfigData_1_1DataTypes_coll__map" alt="Collaboration graph"/></div>
 <map name="aConfigData_1_1DataTypes_coll__map" id="aConfigData_1_1DataTypes_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,164,83"/>
+<area shape="rect" title=" " alt="" coords="5,5,176,83"/>
 </map>
 </div>
 <table class="fieldtable">
@@ -210,7 +210,7 @@ Collaboration diagram for ConfigData::Debugging:</div>
 <div class="dyncontent">
 <div class="center"><img src="structConfigData_1_1Debugging__coll__graph.png" border="0" usemap="#aConfigData_1_1Debugging_coll__map" alt="Collaboration graph"/></div>
 <map name="aConfigData_1_1Debugging_coll__map" id="aConfigData_1_1Debugging_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,201,127"/>
+<area shape="rect" title=" " alt="" coords="5,5,227,127"/>
 </map>
 </div>
 <table class="fieldtable">
@@ -259,7 +259,7 @@ Collaboration diagram for ConfigData::Extensions:</div>
 <div class="dyncontent">
 <div class="center"><img src="structConfigData_1_1Extensions__coll__graph.png" border="0" usemap="#aConfigData_1_1Extensions_coll__map" alt="Collaboration graph"/></div>
 <map name="aConfigData_1_1Extensions_coll__map" id="aConfigData_1_1Extensions_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,167,83"/>
+<area shape="rect" title=" " alt="" coords="5,5,179,83"/>
 </map>
 </div>
 <table class="fieldtable">
@@ -290,7 +290,7 @@ Collaboration diagram for ConfigData::General:</div>
 <div class="dyncontent">
 <div class="center"><img src="structConfigData_1_1General__coll__graph.png" border="0" usemap="#aConfigData_1_1General_coll__map" alt="Collaboration graph"/></div>
 <map name="aConfigData_1_1General_coll__map" id="aConfigData_1_1General_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,147,112"/>
+<area shape="rect" title=" " alt="" coords="5,5,159,112"/>
 </map>
 </div>
 <table class="fieldtable">
@@ -308,58 +308,58 @@ main_board</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="ad42b95909f7d6ef451917be340827feb"></a>LoopType</td>
+<a id="a95c3199dd99abc93cd4636b18a920de2"></a>ProcType</td>
 <td class="fieldname">
-starting_loop</td>
+starting_proc</td>
 <td class="fielddoc">
 </td></tr>
 </table>
 
 </div>
 </div>
-<a name="structConfigData_1_1Loops" id="structConfigData_1_1Loops"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structConfigData_1_1Loops">&#9670;&nbsp;</a></span>ConfigData::Loops</h2>
+<a name="structConfigData_1_1Procs" id="structConfigData_1_1Procs"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structConfigData_1_1Procs">&#9670;&nbsp;</a></span>ConfigData::Procs</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct ConfigData::Loops</td>
+          <td class="memname">struct ConfigData::Procs</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><div class="dynheader">
-Collaboration diagram for ConfigData::Loops:</div>
+Collaboration diagram for ConfigData::Procs:</div>
 <div class="dyncontent">
-<div class="center"><img src="structConfigData_1_1Loops__coll__graph.png" border="0" usemap="#aConfigData_1_1Loops_coll__map" alt="Collaboration graph"/></div>
-<map name="aConfigData_1_1Loops_coll__map" id="aConfigData_1_1Loops_coll__map">
-<area shape="rect" title=" " alt="" coords="10,417,141,495"/>
-<area shape="rect" href="structFlightLoop.html" title="Struct containing the loop configuration. One for each loop type." alt="" coords="34,219,117,311"/>
-<area shape="rect" href="structFlightLoop.html#structFlightLoop_1_1Intervals" title=" " alt="" coords="5,5,145,156"/>
+<div class="center"><img src="structConfigData_1_1Procs__coll__graph.png" border="0" usemap="#aConfigData_1_1Procs_coll__map" alt="Collaboration graph"/></div>
+<map name="aConfigData_1_1Procs_coll__map" id="aConfigData_1_1Procs_coll__map">
+<area shape="rect" title=" " alt="" coords="31,417,169,495"/>
+<area shape="rect" href="structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="38,219,162,311"/>
+<area shape="rect" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="5,5,195,156"/>
 </map>
 </div>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="ac673aca97b4e227e24bfa5b53eb19e4e"></a><a class="el" href="structFlightLoop.html">FlightLoop</a></td>
+<a id="a0db1b5e428a49490c3ddec226502ed2f"></a><a class="el" href="structFlightProcedure.html">FlightProcedure</a></td>
 <td class="fieldname">
 testing</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a9b3e00db3373e5fcd11e7d2fc9a522eb"></a><a class="el" href="structFlightLoop.html">FlightLoop</a></td>
+<a id="a77c742fe7b46794241da73153ca1f7b0"></a><a class="el" href="structFlightProcedure.html">FlightProcedure</a></td>
 <td class="fieldname">
 standard</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="ac325ab364c469fed654b472535338d86"></a><a class="el" href="structFlightLoop.html">FlightLoop</a></td>
+<a id="a095de5729ab13c8b9ea8e4dd0953997c"></a><a class="el" href="structFlightProcedure.html">FlightProcedure</a></td>
 <td class="fieldname">
 recovery</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a3b105f2944f02c0274facc93e29f43f6"></a><a class="el" href="structFlightLoop.html">FlightLoop</a></td>
+<a id="af67c9a04c25d9a10a608abd7a05b679e"></a><a class="el" href="structFlightProcedure.html">FlightProcedure</a></td>
 <td class="fieldname">
 failsafe</td>
 <td class="fielddoc">
@@ -384,7 +384,7 @@ Collaboration diagram for ConfigData::Telemetry:</div>
 <div class="dyncontent">
 <div class="center"><img src="structConfigData_1_1Telemetry__coll__graph.png" border="0" usemap="#aConfigData_1_1Telemetry_coll__map" alt="Collaboration graph"/></div>
 <map name="aConfigData_1_1Telemetry_coll__map" id="aConfigData_1_1Telemetry_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,159,244"/>
+<area shape="rect" title=" " alt="" coords="5,5,172,244"/>
 </map>
 </div>
 <table class="fieldtable">
@@ -450,7 +450,7 @@ aprs_ssid</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="ad00bcc3c5a1d616fa7051fa8ade9ae32"></a>char</td>
+<a id="aea89ec9c6a2ac8abc19aebd396a5e748"></a>string</td>
 <td class="fieldname">
 aprs_symbol</td>
 <td class="fielddoc">
@@ -502,7 +502,7 @@ aprs_memo</td>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classConfigModule.html#ad7992f20671e2a44cd29d0811a4201c2">ConfigModule::parseGeneral()</a>, <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>, and <a class="el" href="classFlightRunner.html#af466cc5600a3e04eb0428034308392ee">FlightRunner::start()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classConfigModule.html#ad7992f20671e2a44cd29d0811a4201c2">ConfigModule::parseGeneral()</a>, <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>, <a class="el" href="classServerModule.html#a67b91deca1ada2f06d678a6ee2d4fc58">ServerModule::sendStaticData()</a>, and <a class="el" href="classFlightRunner.html#af466cc5600a3e04eb0428034308392ee">FlightRunner::start()</a>.</p>
 
 </div>
 </div>
@@ -518,7 +518,7 @@ aprs_memo</td>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classExtensionsModule.html#a8afdc85d2489351f81055adde5468a97">ExtensionsModule::ExtensionsModule()</a>, <a class="el" href="classConfigModule.html#a1609f8f965e1a531f95f74b4340f8abd">ConfigModule::parseExtensions()</a>, and <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classExtensionsModule.html#a8afdc85d2489351f81055adde5468a97">ExtensionsModule::ExtensionsModule()</a>, <a class="el" href="classConfigModule.html#a1609f8f965e1a531f95f74b4340f8abd">ConfigModule::parseExtensions()</a>, <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>, and <a class="el" href="classServerModule.html#a67b91deca1ada2f06d678a6ee2d4fc58">ServerModule::sendStaticData()</a>.</p>
 
 </div>
 </div>
@@ -534,7 +534,7 @@ aprs_memo</td>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classConsoleModule.html#aa7abf8a88184411f574606dac0439b07">ConsoleModule::ConsoleModule()</a>, <a class="el" href="classConfigModule.html#a3ad490db93050c15d9d52caf3e5b70bc">ConfigModule::parseDebug()</a>, and <a class="el" href="classFlightRunner.html#af466cc5600a3e04eb0428034308392ee">FlightRunner::start()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classConsoleModule.html#aa7abf8a88184411f574606dac0439b07">ConsoleModule::ConsoleModule()</a>, <a class="el" href="classServerModule.html#aff9c3d98ebe67ddd4c37a8e37ff8bdd3">ServerModule::ServerModule()</a>, <a class="el" href="classFlightRunner.html#a7e1c107d3300c6995bf5fe4bd784e320">FlightRunner::flightLoop()</a>, <a class="el" href="classConfigModule.html#a3ad490db93050c15d9d52caf3e5b70bc">ConfigModule::parseDebug()</a>, <a class="el" href="classServerModule.html#a67b91deca1ada2f06d678a6ee2d4fc58">ServerModule::sendStaticData()</a>, and <a class="el" href="classFlightRunner.html#af466cc5600a3e04eb0428034308392ee">FlightRunner::start()</a>.</p>
 
 </div>
 </div>
@@ -550,7 +550,7 @@ aprs_memo</td>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule::TelemetryModule()</a>, <a class="el" href="classFlightRunner.html#a7e1c107d3300c6995bf5fe4bd784e320">FlightRunner::flightLoop()</a>, <a class="el" href="classConfigModule.html#a933f3672de37e5de96dd8be86cae77b3">ConfigModule::parseTelemetry()</a>, <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>, and <a class="el" href="classFlightRunner.html#af466cc5600a3e04eb0428034308392ee">FlightRunner::start()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a7e1c107d3300c6995bf5fe4bd784e320">FlightRunner::flightLoop()</a>, <a class="el" href="classConfigModule.html#a933f3672de37e5de96dd8be86cae77b3">ConfigModule::parseTelemetry()</a>, <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>, <a class="el" href="classServerModule.html#a67b91deca1ada2f06d678a6ee2d4fc58">ServerModule::sendStaticData()</a>, and <a class="el" href="classFlightRunner.html#af466cc5600a3e04eb0428034308392ee">FlightRunner::start()</a>.</p>
 
 </div>
 </div>
@@ -566,23 +566,23 @@ aprs_memo</td>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDataModule.html#a466f95f37027e3ad9c821304aeda10bc">DataModule::DataModule()</a>, and <a class="el" href="classConfigModule.html#a2e84b830c5e46e8dc59dba53f986697f">ConfigModule::parseDataTypes()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#a9ea1be15d46be851e2caff6e1641c2a3">DataModule::addConfigData()</a>, and <a class="el" href="classConfigModule.html#a2e84b830c5e46e8dc59dba53f986697f">ConfigModule::parseDataTypes()</a>.</p>
 
 </div>
 </div>
-<a id="a015bc9db23eff5616c52bd1c146e6b13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a015bc9db23eff5616c52bd1c146e6b13">&#9670;&nbsp;</a></span>flight_loops</h2>
+<a id="aa7cb47a64041963a95200924a7096e9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7cb47a64041963a95200924a7096e9b">&#9670;&nbsp;</a></span>flight_procs</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structConfigData.html#structConfigData_1_1Loops">Loops</a> ConfigData::flight_loops</td>
+          <td class="memname"><a class="el" href="structConfigData.html#structConfigData_1_1Procs">Procs</a> ConfigData::flight_procs</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classConfigModule.html#ae6465f1ababa0e399b80e95800d8203d">ConfigModule::parseFlightLoops()</a>, and <a class="el" href="classFlightRunner.html#a7f48b245d888ea3409b16c1632265d3e">FlightRunner::switchLoops()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classConfigModule.html#a1735a8039d3b877eec94a4508bd216ff">ConfigModule::parseFlightProcedures()</a>, and <a class="el" href="classFlightRunner.html#abf65cf81fbc6a8462d4dd95f448b430c">FlightRunner::switchLoops()</a>.</p>
 
 </div>
 </div>

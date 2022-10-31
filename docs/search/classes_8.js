@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['module_336',['Module',['../classModule.html',1,'']]]
+  ['procs_392',['Procs',['../structConfigData.html#structConfigData_1_1Procs',1,'ConfigData']]]
 ];

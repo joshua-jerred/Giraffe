@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['load_156',['load',['../classConfigModule.html#a746caf01d39222b2836f24a2d2f15e73',1,'ConfigModule']]],
-  ['log_157',['log',['../classDataModule.html#ae8b49aa51ea5f6a0677a1523bb101ba4',1,'DataModule']]],
-  ['loops_158',['Loops',['../structConfigData.html#structConfigData_1_1Loops',1,'ConfigData']]],
-  ['looptype_159',['LoopType',['../structFlightLoop.html#a40ce8ee62b714eba7647c260c6bfe42e',1,'FlightLoop']]]
+  ['listen_175',['listen',['../classSocket.html#a4cafff80a6e9116615c663b58032e4c8',1,'Socket']]],
+  ['load_176',['load',['../classConfigModule.html#a746caf01d39222b2836f24a2d2f15e73',1,'ConfigModule']]],
+  ['log_177',['log',['../classDataModule.html#ae8b49aa51ea5f6a0677a1523bb101ba4',1,'DataModule']]]
 ];

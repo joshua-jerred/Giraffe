@@ -13,5 +13,6 @@ var utility_data_stream_8h =
       [ "error_info", "utility-data-stream_8h.html#a559d38329805d5ae13220f5ea70e757a", null ],
       [ "expiration_time", "utility-data-stream_8h.html#a2bfd0803dcf829ce6ea6b2a8eb709f74", null ]
     ] ],
-    [ "DataFrame", "utility-data-stream_8h.html#a50c4f16536972d939a55427100cb9943", null ]
+    [ "DataFrame", "utility-data-stream_8h.html#a50c4f16536972d939a55427100cb9943", null ],
+    [ "ErrorFrame", "utility-data-stream_8h.html#a7c4d7f1a05093603ec7ed9234ff9601f", null ]
 ];

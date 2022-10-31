@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -101,11 +101,12 @@ Inheritance diagram for Module:</div>
 <div class="dyncontent">
 <div class="center"><img src="classModule__inherit__graph.png" border="0" usemap="#aModule_inherit__map" alt="Inheritance graph"/></div>
 <map name="aModule_inherit__map" id="aModule_inherit__map">
-<area shape="rect" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="283,5,409,156"/>
-<area shape="rect" href="classConsoleModule.html" title="This class takes data from a data frame snapshot and prints it out to a simple display in the console..." alt="" coords="5,263,145,487"/>
-<area shape="rect" href="classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea..." alt="" coords="169,226,336,523"/>
-<area shape="rect" href="classExtensionsModule.html" title="The extension class manages all extensions." alt="" coords="361,292,518,457"/>
-<area shape="rect" href="classTelemetryModule.html" title="This class is responsible for handling the radio and transmitting data upon request." alt="" coords="542,204,707,545"/>
+<area shape="rect" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="413,5,553,156"/>
+<area shape="rect" href="classConsoleModule.html" title="This class takes data from a data frame snapshot and prints it out to a simple display in the console..." alt="" coords="5,277,164,501"/>
+<area shape="rect" href="classDataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea..." alt="" coords="189,211,370,567"/>
+<area shape="rect" href="classExtensionsModule.html" title="The extension class manages all extensions." alt="" coords="395,307,572,472"/>
+<area shape="rect" href="classServerModule.html" title=" " alt="" coords="596,255,757,523"/>
+<area shape="rect" href="classTelemetryModule.html" title="This class is responsible for handling the radio and transmitting data upon request." alt="" coords="781,204,964,575"/>
 </map>
 </div>
 <div class="dynheader">
@@ -113,7 +114,7 @@ Collaboration diagram for Module:</div>
 <div class="dyncontent">
 <div class="center"><img src="classModule__coll__graph.png" border="0" usemap="#aModule_coll__map" alt="Collaboration graph"/></div>
 <map name="aModule_coll__map" id="aModule_coll__map">
-<area shape="rect" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="5,5,131,156"/>
+<area shape="rect" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="5,5,145,156"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -134,8 +135,8 @@ Public Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aca64a0aa6bd57eb12396e9e2a06d6975"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModule.html#aca64a0aa6bd57eb12396e9e2a06d6975">error_source_</a></td></tr>
 <tr class="separator:aca64a0aa6bd57eb12396e9e2a06d6975"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b2ee33be8e491d3017269867c528143"><td class="memItemLeft" align="right" valign="top"><a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModule.html#a6b2ee33be8e491d3017269867c528143">module_status_</a></td></tr>
-<tr class="separator:a6b2ee33be8e491d3017269867c528143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9262cb9b87896cb996138ca9af5812df"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">module_status_</a></td></tr>
+<tr class="separator:a9262cb9b87896cb996138ca9af5812df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>All modules used by the <a class="el" href="classFlightRunner.html" title="The FlightRunner class is responsible for pulling everything together. It manages the timing of each ...">FlightRunner</a> inherit this class. This allows for some simplicity when creating small modules. </p>
@@ -214,7 +215,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classModule.html#a6b2ee33be8e491d3017269867c528143">module_status_</a>.</p>
+<p class="reference">References <a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">module_status_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classServerModule.html#aeec722419b40e3d1685a016b1a92e9f0">ServerModule::stop()</a>, and <a class="el" href="classTelemetryModule.html#ad9757e8adcd52b200b4e75d08097dc24">TelemetryModule::stop()</a>.</p>
 
 </div>
 </div>
@@ -241,9 +244,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classTelemetryModule.html#a2c5521ff45155036cea0b6aa1a139040">TelemetryModule</a>, <a class="el" href="classExtensionsModule.html#abe19b21ed9bc51ddebb8ca0faf75c048">ExtensionsModule</a>, <a class="el" href="classDataModule.html#aaf9fcacae3b7059cb28c7ce6342225d3">DataModule</a>, and <a class="el" href="classConsoleModule.html#a1fb58487b176fe9147af86fb204650c3">ConsoleModule</a>.</p>
+<p>Reimplemented in <a class="el" href="classTelemetryModule.html#a2c5521ff45155036cea0b6aa1a139040">TelemetryModule</a>, <a class="el" href="classServerModule.html#a1bbcb624d49f93bf4ff63a290bb79cd4">ServerModule</a>, <a class="el" href="classExtensionsModule.html#abe19b21ed9bc51ddebb8ca0faf75c048">ExtensionsModule</a>, <a class="el" href="classDataModule.html#aaf9fcacae3b7059cb28c7ce6342225d3">DataModule</a>, and <a class="el" href="classConsoleModule.html#a1fb58487b176fe9147af86fb204650c3">ConsoleModule</a>.</p>
 
-<p class="reference">References <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a397d3e35d1fdce0886c277e2b6bdee58">ERROR_STATE</a>, and <a class="el" href="classModule.html#a6b2ee33be8e491d3017269867c528143">module_status_</a>.</p>
+<p class="reference">References <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a397d3e35d1fdce0886c277e2b6bdee58">ERROR_STATE</a>, and <a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">module_status_</a>.</p>
 
 </div>
 </div>
@@ -270,15 +273,15 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classTelemetryModule.html#ad9757e8adcd52b200b4e75d08097dc24">TelemetryModule</a>, <a class="el" href="classExtensionsModule.html#a7949812d58d8f2c0980c4afb237d90bf">ExtensionsModule</a>, <a class="el" href="classDataModule.html#a2c6cc52926454c37a2d3a8e6f7cd0550">DataModule</a>, and <a class="el" href="classConsoleModule.html#a6829a00a47aef2290812a4c789bd4aec">ConsoleModule</a>.</p>
+<p>Reimplemented in <a class="el" href="classTelemetryModule.html#ad9757e8adcd52b200b4e75d08097dc24">TelemetryModule</a>, <a class="el" href="classServerModule.html#aeec722419b40e3d1685a016b1a92e9f0">ServerModule</a>, <a class="el" href="classExtensionsModule.html#a7949812d58d8f2c0980c4afb237d90bf">ExtensionsModule</a>, <a class="el" href="classDataModule.html#a2c6cc52926454c37a2d3a8e6f7cd0550">DataModule</a>, and <a class="el" href="classConsoleModule.html#a6829a00a47aef2290812a4c789bd4aec">ConsoleModule</a>.</p>
 
-<p class="reference">References <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a397d3e35d1fdce0886c277e2b6bdee58">ERROR_STATE</a>, and <a class="el" href="classModule.html#a6b2ee33be8e491d3017269867c528143">module_status_</a>.</p>
+<p class="reference">References <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a397d3e35d1fdce0886c277e2b6bdee58">ERROR_STATE</a>, and <a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">module_status_</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a6b2ee33be8e491d3017269867c528143"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b2ee33be8e491d3017269867c528143">&#9670;&nbsp;</a></span>module_status_</h2>
+<a id="a9262cb9b87896cb996138ca9af5812df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9262cb9b87896cb996138ca9af5812df">&#9670;&nbsp;</a></span>module_status_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -287,7 +290,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a> Module::module_status_</td>
+          <td class="memname">std::atomic&lt;<a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a>&gt; Module::module_status_</td>
         </tr>
       </table>
   </td>
@@ -297,7 +300,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classModule.html#abe62ec0956737c3375845477623921e5">start()</a>, <a class="el" href="classModule.html#ad42262ed46e67685c45928c02f0e2f91">status()</a>, and <a class="el" href="classModule.html#a2c1d0cee46e5811292925b88a519f5e9">stop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#ac746f1e9faba3d094d7ce7f6bc835146">DataModule::runner()</a>, <a class="el" href="classServerModule.html#ae72c6ef5a46765e7d3ee1ea0d43dc765">ServerModule::runner()</a>, <a class="el" href="classDataModule.html#aaf9fcacae3b7059cb28c7ce6342225d3">DataModule::start()</a>, <a class="el" href="classModule.html#abe62ec0956737c3375845477623921e5">start()</a>, <a class="el" href="classModule.html#ad42262ed46e67685c45928c02f0e2f91">status()</a>, <a class="el" href="classDataModule.html#a2c6cc52926454c37a2d3a8e6f7cd0550">DataModule::stop()</a>, and <a class="el" href="classModule.html#a2c1d0cee46e5811292925b88a519f5e9">stop()</a>.</p>
 
 </div>
 </div>
@@ -321,7 +324,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule::TelemetryModule()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule::TelemetryModule()</a>, and <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>.</p>
 
 </div>
 </div>

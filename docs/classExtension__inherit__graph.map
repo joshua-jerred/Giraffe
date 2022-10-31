@@ -1,8 +1,8 @@
 <map id="Extension" name="Extension">
-<area shape="rect" id="node1" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="403,5,547,611"/>
-<area shape="rect" id="node2" href="$classBMP180__SIM.html" title="The BMP180_SIM is a simulated BMP180 extension." alt="" coords="5,681,136,787"/>
-<area shape="rect" id="node3" href="$classDRA818V__SIM.html" title="Currently not implemented." alt="" coords="161,681,301,787"/>
-<area shape="rect" id="node4" href="$classDS18B20__SIM.html" title="The DS18B20_SIM is a simulated DS18B20 extension." alt="" coords="325,681,462,787"/>
-<area shape="rect" id="node5" href="$classSAMM8Q__SIM.html" title="The SAMM8Q_SIM is a simulated SAM&#45;M8Q extension." alt="" coords="487,681,625,787"/>
-<area shape="rect" id="node6" href="$classTestExtension.html" title="The TestExtension is a data stream test extension." alt="" coords="649,659,783,809"/>
+<area shape="rect" id="node1" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="425,5,590,625"/>
+<area shape="rect" id="node2" href="$classBMP180__SIM.html" title="The BMP180_SIM is a simulated BMP180 extension." alt="" coords="5,695,148,802"/>
+<area shape="rect" id="node3" href="$classDRA818V__SIM.html" title="Currently not implemented." alt="" coords="172,695,323,802"/>
+<area shape="rect" id="node4" href="$classDS18B20__SIM.html" title="The DS18B20_SIM is a simulated DS18B20 extension." alt="" coords="347,695,495,802"/>
+<area shape="rect" id="node5" href="$classSAMM8Q__SIM.html" title="The SAMM8Q_SIM is a simulated SAM&#45;M8Q extension." alt="" coords="519,695,669,802"/>
+<area shape="rect" id="node6" href="$classTestExtension.html" title="The TestExtension is a data stream test extension." alt="" coords="693,673,841,824"/>
 </map>
