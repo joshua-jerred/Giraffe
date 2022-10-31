@@ -87,7 +87,6 @@ public:
     int getTotalDataPackets();
     int getTotalErrorPackets();
 
-
 private:
     int num_data_packets_;
     int total_data_packets_;

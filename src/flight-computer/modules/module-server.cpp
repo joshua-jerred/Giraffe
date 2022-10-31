@@ -8,7 +8,9 @@ ServerModule::ServerModule(const ConfigData config_data,
 	gfs_shutdown_flag_ = 0;
 }
 
-ServerModule::~ServerModule() { stop(); }
+ServerModule::~ServerModule() { 
+	stop(); 
+}
 
 void ServerModule::start() {
 	stop_flag_ = 0;
@@ -16,6 +18,9 @@ void ServerModule::start() {
 }
 
 void ServerModule::stop() {
+	if (status() == ModuleStatus::STOPPED) {
+		return;
+	}
 	stop_flag_ = 1;
 	if (runner_thread_.joinable()) {
 		runner_thread_.join();

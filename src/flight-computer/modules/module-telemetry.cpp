@@ -32,6 +32,7 @@ TelemetryModule::TelemetryModule(ConfigData config_data, DataStream *data_stream
  * @todo implement this in a safe way.
  */
 TelemetryModule::~TelemetryModule() {
+    stop();
 }
 
 /**
@@ -50,6 +51,9 @@ void TelemetryModule::start() {
 }
 
 void TelemetryModule::stop() {
+    if (status() == ModuleStatus::STOPPED) {
+        return;
+    }
     stop_flag_ = 1;
     if (tx_thread_.joinable()) {
         tx_thread_.join();

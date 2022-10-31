@@ -35,6 +35,7 @@ DataStream::~DataStream() {
 	data_stream_lock_.lock();
 	error_stream_lock_.lock();
 	data_frame_lock_.lock();
+	error_frame_lock_.lock();
 }
 
 /**

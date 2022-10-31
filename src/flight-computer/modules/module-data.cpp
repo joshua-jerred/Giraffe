@@ -14,43 +14,40 @@
  * @brief Construct a new DataModule object,
  * @details Initializes the DataStream, opens the log files for data and errors,
  * sets up the data frame. This does not start the module.
- * @param config_data 
+ * @param config_data
  */
 DataModule::DataModule() {
-    mpDataStream = new DataStream();
+  mpDataStream = new DataStream();
 
-    std::time_t t = std::time(0);
-    std::tm* now = std::localtime(&t);
-    
-    data_log_file_path_ = DATA_LOG_LOCATION +
-    std::to_string(now->tm_year + 1900) + "-" +
-    std::to_string(now->tm_mon + 1) + "-" +
-    std::to_string(now->tm_mday) + "-" +
-    std::to_string(now->tm_hour) + "-" +
-    std::to_string(now->tm_min) + "-" +
-    std::to_string(now->tm_sec) + ".csv";
+  std::time_t t = std::time(0);
+  std::tm* now = std::localtime(&t);
 
-    error_log_file_path_ = ERROR_LOG_LOCATION +
-    std::to_string(now->tm_year + 1900) + "-" +
-    std::to_string(now->tm_mon + 1) + "-" +
-    std::to_string(now->tm_mday) + "-" +
-    std::to_string(now->tm_hour) + "-" +
-    std::to_string(now->tm_min) + "-" +
-    std::to_string(now->tm_sec) + ".csv";
+  data_log_file_path_ =
+      DATA_LOG_LOCATION + std::to_string(now->tm_year + 1900) + "-" +
+      std::to_string(now->tm_mon + 1) + "-" + std::to_string(now->tm_mday) +
+      "-" + std::to_string(now->tm_hour) + "-" + std::to_string(now->tm_min) +
+      "-" + std::to_string(now->tm_sec) + ".csv";
+
+  error_log_file_path_ =
+      ERROR_LOG_LOCATION + std::to_string(now->tm_year + 1900) + "-" +
+      std::to_string(now->tm_mon + 1) + "-" + std::to_string(now->tm_mday) +
+      "-" + std::to_string(now->tm_hour) + "-" + std::to_string(now->tm_min) +
+      "-" + std::to_string(now->tm_sec) + ".csv";
 }
 
 /**
  * @brief Destroys the DataModule object.
  */
 DataModule::~DataModule() {
-    delete mpDataStream;
+  delete mpDataStream;  // Deconstructor of data stream will first acquire all
+                        // locks
 }
 
 void DataModule::addConfigData(ConfigData config_data) {
-    for ( ConfigData::DataTypes::ExtensionDataType data_type : 
-        config_data.data_types.types ) { // for each data type in the config file
-        addDataTypeToFrame(data_type);
-    }
+  for (ConfigData::DataTypes::ExtensionDataType data_type :
+       config_data.data_types.types) {  // for each data type in the config file
+    addDataTypeToFrame(data_type);
+  }
 }
 
 /**
@@ -61,23 +58,23 @@ void DataModule::addConfigData(ConfigData config_data) {
  * @return void
  */
 void DataModule::start() {
-    module_status_ = ModuleStatus::STARTING;
-    shutdown_signal_ = 0;
-    runner_thread_ = std::thread(&DataModule::runner, this);
+  module_status_ = ModuleStatus::STARTING;
+  shutdown_signal_ = 0;
+  runner_thread_ = std::thread(&DataModule::runner, this);
 }
 
 /**
  * @brief Stops the DataModule.
- * @details Stops the thread that parses the DataStream. Currently not 
+ * @details Stops the thread that parses the DataStream. Currently not
  * implemented.
  * @param None
  * @return void
  * @todo Implement this.
  */
 void DataModule::stop() {
-    shutdown_signal_ = 1;
-    runner_thread_.join();
-    module_status_ = ModuleStatus::STOPPED;
+  shutdown_signal_ = 1;
+  runner_thread_.join();
+  module_status_ = ModuleStatus::STOPPED;
 }
 
 /**
@@ -85,9 +82,7 @@ void DataModule::stop() {
  * @param None
  * @return DataStream*
  */
-DataStream* DataModule::getDataStream() {
-    return mpDataStream;
-}
+DataStream* DataModule::getDataStream() { return mpDataStream; }
 
 /**
  * @brief logs the data in the data frame to the data log file.
@@ -97,19 +92,19 @@ DataStream* DataModule::getDataStream() {
  * @return void
  */
 void DataModule::log() {
-    std::ofstream logfile;
-    logfile.open(data_log_file_path_, std::ios_base::app);
+  std::ofstream logfile;
+  logfile.open(data_log_file_path_, std::ios_base::app);
 
-    DataFrame dataframe_copy(mpDataStream->getDataFrameCopy());
-    
-    std::time_t t = std::time(0);
-    std::tm* now = std::localtime(&t);
+  DataFrame dataframe_copy(mpDataStream->getDataFrameCopy());
 
-    for (auto& [source_and_unit, packet] : dataframe_copy) {
-        logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << 
-        ", " << packet.source << ", " << packet.unit << ", " << packet.value 
-        << std::endl;
-    }
+  std::time_t t = std::time(0);
+  std::tm* now = std::localtime(&t);
+
+  for (auto& [source_and_unit, packet] : dataframe_copy) {
+    logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << ", "
+            << packet.source << ", " << packet.unit << ", " << packet.value
+            << std::endl;
+  }
 }
 
 /**
@@ -121,13 +116,14 @@ void DataModule::log() {
  * @param data_type The actual data type
  * @return void
  */
-void DataModule::addDataTypeToFrame(ConfigData::DataTypes::ExtensionDataType data_type) {
-    DataStreamPacket packet;
-    packet.source = data_type.source;
-    packet.unit = data_type.unit;
-    packet.value = "NO_DATA";
-    packet.expiration_time = 0;
-    dataframe_.insert_or_assign(data_type.source + ":" + data_type.unit, packet);
+void DataModule::addDataTypeToFrame(
+    ConfigData::DataTypes::ExtensionDataType data_type) {
+  DataStreamPacket packet;
+  packet.source = data_type.source;
+  packet.unit = data_type.unit;
+  packet.value = "NO_DATA";
+  packet.expiration_time = 0;
+  dataframe_.insert_or_assign(data_type.source + ":" + data_type.unit, packet);
 }
 
 /**
@@ -139,16 +135,16 @@ void DataModule::addDataTypeToFrame(ConfigData::DataTypes::ExtensionDataType dat
  * @return void
  */
 void DataModule::parseDataStream() {
-    int packetCount = mpDataStream->getNumDataPackets();
-    DataStreamPacket dpacket;
-    for (int i = 0; i < packetCount; i++) {
-        /** @todo Check to see if it exists in the dataframe first, if not 
-         * add an error.
-          */
-        dpacket = mpDataStream->getNextDataPacket();
-        dataframe_.insert_or_assign(dpacket.source + ":" + dpacket.unit, dpacket);
-    }
-    mpDataStream->updateDataFrame(dataframe_);
+  int packetCount = mpDataStream->getNumDataPackets();
+  DataStreamPacket dpacket;
+  for (int i = 0; i < packetCount; i++) {
+    /** @todo Check to see if it exists in the dataframe first, if not
+     * add an error.
+     */
+    dpacket = mpDataStream->getNextDataPacket();
+    dataframe_.insert_or_assign(dpacket.source + ":" + dpacket.unit, dpacket);
+  }
+  mpDataStream->updateDataFrame(dataframe_);
 }
 
 /**
@@ -160,19 +156,17 @@ void DataModule::parseDataStream() {
  * @return void
  */
 void DataModule::parseErrorStream() {
+  std::ofstream error_file;
+  error_file.open(error_log_file_path_, std::ios_base::app);
 
-    std::ofstream error_file;
-    error_file.open(error_log_file_path_, std::ios_base::app);
-
-    int packetCount = mpDataStream->getNumErrorPackets();
-    ErrorStreamPacket epacket;
-    for (int i = 0; i < packetCount; i++) {
-        epacket = mpDataStream->getNextErrorPacket();
-        errorframe_.insert_or_assign(
-            epacket.error_source + ":" + epacket.error_name, epacket
-            );
-    }
-    mpDataStream->updateErrorFrame(errorframe_);
+  int packetCount = mpDataStream->getNumErrorPackets();
+  ErrorStreamPacket epacket;
+  for (int i = 0; i < packetCount; i++) {
+    epacket = mpDataStream->getNextErrorPacket();
+    errorframe_.insert_or_assign(
+        epacket.error_source + ":" + epacket.error_name, epacket);
+  }
+  mpDataStream->updateErrorFrame(errorframe_);
 }
 
 /**
@@ -183,27 +177,27 @@ void DataModule::parseErrorStream() {
  * @return void
  */
 void DataModule::checkForStaleData() {
-    std::time_t now = std::time(NULL);
-    for (auto& [source_and_unit, packet] : dataframe_) {
-        if (packet.expiration_time == 0) { // 0 means it never expires
-            continue;
-        }  
-        if ((int) packet.expiration_time < (int) now) {
-            packet.value = "NO-DATA";
-        }
+  std::time_t now = std::time(NULL);
+  for (auto& [source_and_unit, packet] : dataframe_) {
+    if (packet.expiration_time == 0) {  // 0 means it never expires
+      continue;
     }
+    if ((int)packet.expiration_time < (int)now) {
+      packet.value = "NO-DATA";
+    }
+  }
 }
 
 void DataModule::checkForStaleErrors() {
-    std::time_t now = std::time(NULL);
-    for (auto& [source_and_unit, packet] : errorframe_) {
-        if (packet.expiration_time == 0) { // 0 means it never expires
-            continue;
-        }  
-        if ((int) packet.expiration_time < (int) now) {
-            errorframe_.erase(source_and_unit);
-        }
+  std::time_t now = std::time(NULL);
+  for (auto& [source_and_unit, packet] : errorframe_) {
+    if (packet.expiration_time == 0) {  // 0 means it never expires
+      continue;
     }
+    if ((int)packet.expiration_time < (int)now) {
+      errorframe_.erase(source_and_unit);
+    }
+  }
 }
 
 /**
@@ -216,14 +210,13 @@ void DataModule::checkForStaleErrors() {
  * @todo Implement the error frame.
  */
 void DataModule::runner() {
-    module_status_ = ModuleStatus::RUNNING;
-    while (!shutdown_signal_) {
-        std::this_thread::sleep_for(
-            std::chrono::milliseconds(MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS)
-        );
-        parseDataStream();
-        parseErrorStream();
-        checkForStaleData();
-        checkForStaleErrors();
-    }
+  module_status_ = ModuleStatus::RUNNING;
+  while (!shutdown_signal_) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(
+        MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS));
+    parseDataStream();
+    parseErrorStream();
+    checkForStaleData();
+    checkForStaleErrors();
+  }
 }
