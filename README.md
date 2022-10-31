@@ -8,7 +8,6 @@ Check out the [project](https://github.com/users/joshua-jerred/projects/3) and
 [development branch](https://github.com/joshua-jerred/Giraffe/tree/development) 
 for the latest additions.
 
-
 ![logo](https://user-images.githubusercontent.com/19292194/193437157-0a421f68-fa85-43bb-b372-1807a19c470d.png)
 
 
