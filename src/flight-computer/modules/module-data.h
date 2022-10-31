@@ -63,9 +63,13 @@ public:
 
 private:
     void addDataTypeToFrame(ConfigData::DataTypes::ExtensionDataType data_type); // add a data type to the data frame
+    
     void checkForStaleData(); // check for stale data in the data frame
     void parseDataStream();
+
+    void checkForStaleErrors();
     void parseErrorStream();
+    
     void runner();
 
     std::string data_log_file_path_;
@@ -74,6 +78,7 @@ private:
     DataStream *mpDataStream;
 
     DataFrame dataframe_;
+    ErrorFrame errorframe_;
 
     std::atomic<int> shutdown_signal_;
     std::thread runner_thread_;

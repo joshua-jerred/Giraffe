@@ -116,7 +116,7 @@ void DataModule::log() {
  * @brief Adds a data type to the data frame without data.
  * @details This sets up the data frame so it's ready to receive any data that
  * is sent to it. This is helpful to see what data is missing. Defines the
- * values as "NO_DATA" until they are overritten. This should be called for
+ * values as "NO_DATA" until they are overwritten. This should be called for
  * each data type at the start of the data module.
  * @param data_type The actual data type
  * @return void
@@ -158,7 +158,6 @@ void DataModule::parseDataStream() {
  * be removed from the frame after they expire or have been resolved.
  * @param None
  * @return void
- * @todo Implemented the error frame.
  */
 void DataModule::parseErrorStream() {
 
@@ -169,10 +168,11 @@ void DataModule::parseErrorStream() {
     ErrorStreamPacket epacket;
     for (int i = 0; i < packetCount; i++) {
         epacket = mpDataStream->getNextErrorPacket();
-        error_file << epacket.error_source << " - " << 
-            epacket.error_name << " - " << epacket.error_info << std::endl;
+        errorframe_.insert_or_assign(
+            epacket.error_source + ":" + epacket.error_name, epacket
+            );
     }
-
+    mpDataStream->updateErrorFrame(errorframe_);
 }
 
 /**
@@ -194,11 +194,23 @@ void DataModule::checkForStaleData() {
     }
 }
 
+void DataModule::checkForStaleErrors() {
+    std::time_t now = std::time(NULL);
+    for (auto& [source_and_unit, packet] : errorframe_) {
+        if (packet.expiration_time == 0) { // 0 means it never expires
+            continue;
+        }  
+        if ((int) packet.expiration_time < (int) now) {
+            errorframe_.erase(source_and_unit);
+        }
+    }
+}
+
 /**
  * @brief This is the function that will run in it's own thread. It parses all
  * data and errors automatically.
  * @details This function will parse all of the data and errors from the stream
- * and then it will check for stalte errors and data.
+ * and then it will check for stale errors and data.
  * @param None
  * @return void
  * @todo Implement the error frame.
@@ -212,5 +224,6 @@ void DataModule::runner() {
         parseDataStream();
         parseErrorStream();
         checkForStaleData();
+        checkForStaleErrors();
     }
 }

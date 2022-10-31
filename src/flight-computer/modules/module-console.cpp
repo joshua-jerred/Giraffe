@@ -290,4 +290,14 @@ void ConsoleModule::printData() {
         }
         i++;
     }
+
+    std::cout << std::endl << std::endl;
+
+    ErrorFrame error_snapshot = data_stream_->getErrorFrameCopy();
+    std::cout << "Errors - " << error_snapshot.size() << std::endl;
+    i = 1;
+    for (auto& [key, packet] : error_snapshot) {  
+        std::cout << packet.error_source << " - " << packet.error_name << " - ";
+        std::cout << packet.error_info << std::endl;
+    }
 }
