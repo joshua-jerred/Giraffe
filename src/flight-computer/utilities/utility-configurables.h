@@ -11,7 +11,7 @@
 #ifndef UTILITY_CONFIGURABLES_H
 #define UTILITY_CONFIGURABLES_H
 
-#define GFC_VERSION "0.1.1"
+#define GFS_VERSION "0.1.0"
 
 /** @brief The locaiton of the configuration file. It is safe to change 
  * this value. */
@@ -28,28 +28,35 @@
 #define TELEMETRY_WAV_LOCATION "./telem/"
 
 // ------- Config File Range Limits ------- //
-// Changing these results in undefined bevahior, it is not recommended.
-#define PROJECT_NAME_MIN_LENGTH 3
-#define PROJECT_NAME_MAX_LENGTH 20
-
-#define EXTENSION_NAME_MIN_LENGTH 3
-#define EXTENSION_NAME_MAX_LENGTH 15
+// Changing these results in undefined behavior, it is not recommended.
+#define PROJECT_NAME_MIN_LENGTH 1
+#define PROJECT_NAME_MAX_LENGTH 25
 
 #define EXTENSION_ID_MIN 1
 #define EXTENSION_ID_MAX 255
+
+#define EXTENSION_NAME_MIN_LENGTH 3
+#define EXTENSION_NAME_MAX_LENGTH 15
 
 #define EXTENSION_INTERVAL_MIN 0
 #define EXTENSION_INTERVAL_MAX 3600
 // ---------------------------------------- //
 
 // ------- Error Prefixes ------- //
-#define MODULE_TELEMETRY_ERROR_PREFIX "M_TEL"
-
+#define MODULE_CONFIG_PREFIX "M_CFG"
+#define MODULE_DATA_PREFIX "M_DAT"
+#define MODULE_TELEMETRY_PREFIX "M_TEL"
+#define MODULE_SERVER_PREFIX "M_SRV"
+#define MODULE_EXTENSION_PREFIX "M_EXT"
 // ------------------------------ //
 
 // This is the interval, in seconds, that determines how often the data module
 // will parse the data stream and update the data frame.
 #define MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS 500
+#define TELEMETRY_INTERVAL_MILI_SECONDS 500
 
+#define MODULE_SERVER_PORT 8779
+
+#define MODULE_SERVER_CHECK_COMMANDS_INTERVAL 1 // In seconds
 
 #endif

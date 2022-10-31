@@ -6,12 +6,12 @@
 #include <unordered_map>
 
 /**
- * @brief Struct containing the loop configuration. One for each loop type.
+ * @brief Struct containing the procedure configuration. One for each type.
  * 
  */
-struct FlightLoop {
+struct FlightProcedure {
 
-    enum LoopType {
+    enum ProcType {
         ERROR = 0,
         TESTING = 1,
         STANDARD = 2,
@@ -29,7 +29,7 @@ struct FlightLoop {
     };
 
     int enabled;
-    LoopType type;
+    ProcType type;
     Intervals intervals;
 };
 
@@ -70,6 +70,9 @@ struct ExtensionMetadata {
     int critical = 0; // Indicates if this extension is critical to operation, this
                   // will be used by the Flight Runner during the healthCheck
     // Extra Arguments
+    /**
+     * @todo Change to 'extra args'
+     */
     std::string address = ""; // Used for oneWire and I2C
 };
 
@@ -93,7 +96,7 @@ struct ConfigData {
     struct General {
         std::string project_name {};
         MainboardType main_board {};
-        FlightLoop::LoopType starting_loop {}; // Default is standard
+        FlightProcedure::ProcType starting_proc {}; // Default is standard
     };
 
     struct Extensions {
@@ -112,18 +115,18 @@ struct ConfigData {
 
         std::string callsign {};
 
-        int afsk_enabled {};
+        int afsk_enabled = 0;
         std::string afsk_freq {};
 
-        int sstv_enabled {};
+        int sstv_enabled = 0;
         std::string sstv_freq {};
 
-        int aprs_enabled {};
+        int aprs_enabled = 0;
         std::string aprs_freq {};
         int aprs_key = 0;
         int aprs_ssid = 0;
-        char aprs_symbol = 'O';
-        std::string aprs_memo {};
+        std::string aprs_symbol = "O";
+        std::string aprs_memo = "GFS Balloon";
     };
 
     struct DataTypes {
@@ -131,16 +134,16 @@ struct ConfigData {
             std::string source;
             std::string name;
             std::string unit;
-            int include_in_telemtry = 0;
+            int include_in_telemetry = 0;
         };
         std::vector<ExtensionDataType> types {};
     };
 
-    struct Loops {
-        FlightLoop testing {};
-        FlightLoop standard {};
-        FlightLoop recovery {};
-        FlightLoop failsafe {};
+    struct Procs {
+        FlightProcedure testing {};
+        FlightProcedure standard {};
+        FlightProcedure recovery {};
+        FlightProcedure failsafe {};
     };
 
     General general;
@@ -148,7 +151,7 @@ struct ConfigData {
     Debugging debug;
     Telemetry telemetry;
     DataTypes data_types;
-    Loops flight_loops;
+    Procs flight_procs;
 };
 
 #endif

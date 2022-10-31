@@ -1,9 +1,5 @@
 # Errors
 
-## Prefixes:
-- ``M_``  Module Errors
-- ``E_``  Extension Errors
-
 # Unit Tests
 test-01 - Configuration Module
 test-02 - Data Module
@@ -106,7 +102,7 @@ Here is the current list of features that will be included in the basic version.
 - AFSK Data Packets
 - SSDV Images
 - Advanced Error Handling
-- A failsafe flight loop
+- A failsafe flight procedure
 - Automated radio control for switching frequencies automatically
 - Two way communication that allows the ground station to send command packets
 - A whole lot more that will eventually be documented.
@@ -136,3 +132,13 @@ All CPP code within HAAC is my own unless otherwise noted in the doxygen
 comment at the top of all CPP files or here.
     - Sections of the CMakeFiles file are from the official GTest documentation.
     - Sections of the I2C are from the linux manpage.
+
+# Theme
+## Colors
+- Off White : #F0ECE1
+- Flax : #EDCF8F
+- Peru : #C97F4E
+- Coffee : #6F4A38
+- Chestnut : #977359
+## Fonts
+- iceberg

@@ -16,3 +16,6 @@ Style Guide:
     Documentation of member functions will go in header files.
     All public and private methods, along with data members need to have
     Doxygen style documentation.
+
+Generate Documentation by using the following command in the GIRAFFE root directory:
+ - doxygen ./docs/Doxygen/Doxyfile

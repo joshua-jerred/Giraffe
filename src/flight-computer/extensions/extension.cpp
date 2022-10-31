@@ -76,8 +76,11 @@ void Extension::start() {
 void Extension::stop() {
     if (getStatus() == ExtensionStatus::RUNNING) {
         setStatus(ExtensionStatus::STOPPING);
+        stop_flag_ = 1;
+        runner_thread_.join();
+    } else if (getStatus() == ExtensionStatus::ERROR) {
+        runner_thread_.join();
     }
-
 }
 
 /**
@@ -159,8 +162,8 @@ int Extension::getCritical() {
  * @return int -1, an error value. 0 is for a clean stop.
  */
 int Extension::runner() {
-    p_data_stream_->addError(name_, "EXT_RUNNER", "Runner not implemented"
-        "in child class.");
+    setStatus(ExtensionStatus::ERROR);
+    p_data_stream_->addError(name_, "EXT_RUNNER", "Runner not implemented in child class.", 0);
     return -1;
 }
 
@@ -229,7 +232,7 @@ void Extension::setID(int num) {
         id_ = 0;
         setStatus(ExtensionStatus::ERROR);
         p_data_stream_->addError(name_, "EXT_ID", 
-                                 "Specified ID out of range.");
+                                 "Specified ID out of range.", 0);
         return;
     }
 }
@@ -251,7 +254,7 @@ void Extension::setName(std::string name) {
         return;
     } else {
         p_data_stream_->addError(name, "EXT_NAME", 
-                                 "Specified name out of range.");
+                                 "Specified name out of range.", 0);
         name_ = "NAME_ERROR";
         setStatus(ExtensionStatus::ERROR);
         return;
@@ -316,7 +319,7 @@ void Extension::setCritical(int critical){
     if (critical != 0 && critical != 1) {
         critical_ = 0;
         p_data_stream_->addError(name_, "EXT_CRITICAL", 
-                                 "Critical flag out of range.");
+                                 "Critical flag out of range.", 0);
         return;
     }
     critical_ = critical;

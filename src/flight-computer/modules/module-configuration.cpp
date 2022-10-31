@@ -17,6 +17,8 @@
 
 #include <nlohmann/json.hpp>
 
+#include "utility-data-stream.h"
+
 #include "module.h"
 
 #include "module-configuration.h"
@@ -27,11 +29,12 @@ using json = nlohmann::ordered_json;
  * @brief Construct a new ConfigModule::ConfigModule object
  * @param None
  */
-ConfigModule::ConfigModule() {
+ConfigModule::ConfigModule(DataStream *data_stream) {
+	p_data_stream_ = data_stream;
 }
 
 /**
- * @brief DestroyS the ConfigModule::ConfigModule object
+ * @brief Deconstructs the ConfigModule object
  */
 ConfigModule::~ConfigModule() {
 }
@@ -42,17 +45,25 @@ ConfigModule::~ConfigModule() {
  * If the file fails to open or if it does not exists it will return -1.
  * If it does load, it will call parseAll()
  * @param file_path The local path to the configuration file.
- * @return int -1 if the file could not be opened, 0 if the file was loaded.
+ * @return int 0 if successfully loaded and parsed, -1 if the file failed to
+ * open, -2 if there were any errors parsing the file.
  * @see parseAll()
  */
 int ConfigModule::load(std::string file_path) {
 	config_file_path_ = file_path;
-	std::ifstream fs(config_file_path_);
+	
+	std::ifstream fs(config_file_path_); // open file
 	if (fs.fail()) {
-		return -1;
+		return -1; // file failed to open
 	}
+	
 	json_buffer_ = json::parse(fs);
 	parseAll();
+
+	//if (getErrors().size() > 0) {
+	//	return -2; // one or more errors parsing the file
+	//}
+
 	return 0;
 }
 
@@ -67,25 +78,31 @@ ConfigData ConfigModule::getAll() {
 }
 
 /**
- * @brief getErrors returns a vector of strings containing the errors that were
- * detected when parsing the configuration file.
- * @details This function returns human readable errors.
- * @todo The errors need to be more similar to the errors in other modules that
- * report to the datastream.
- * @param None
- * @return std::vector<std::string> 
- */
-std::vector<std::string> ConfigModule::getErrors() {
-	return errors_;
-}
-
-/**
  * @brief Returns a copy of the json data.
  * @param None
  * @return json - nlohmann json object
  */
 json ConfigModule::getAllJson() {
 	return json_buffer_;
+}
+
+/**
+ * @brief Simple override for adding errors to the data stream.
+ * @param error_code The error code
+ * @param info Additional information about the error (optional)
+ */
+template <typename T>
+void ConfigModule::error(std::string error_code, T info) {
+	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, 
+		std::to_string(info), 0);
+}
+
+void ConfigModule::error(std::string error_code, std::string info) {
+	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, info, 0);
+}
+
+void ConfigModule::error(std::string error_code) {
+	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, "", 0);
 }
 
 /**
@@ -99,43 +116,59 @@ void ConfigModule::parseAll() {
 	parseDebug();
 	parseTelemetry();
 	parseDataTypes();
-	parseFlightLoops();
+	parseFlightProcedures();
 }
 
 /**
  * @brief Parses the general section of the configuration file.
  * @details This function pulls out the project name, mainboard type, and
- * starting loop type. It will add errors to the errors_ vector if any of the
+ * starting proc type. It will add errors to the errors_ vector if any of the
  * required fields contain errors.
  * @param None
  * @return void
- * @todo Character type limits on the project name.
- */
+ * */
 void ConfigModule::parseGeneral() { 
-	std::string name = json_buffer_["general"]["name"].get<std::string>();
-	if (name.length() < PROJECT_NAME_MIN_LENGTH || 
-	name.length() > PROJECT_NAME_MAX_LENGTH) {
-		errors_.push_back("Project name must be between " + 
-		std::to_string(PROJECT_NAME_MIN_LENGTH) + " and " + 
-		std::to_string(PROJECT_NAME_MAX_LENGTH) + " characters.");
-	} else {
-		config_data_.general.project_name = name;
+	if (!json_buffer_.contains("general")) {
+		error("C_GEN_NF"); // General section does not exist in config
+		return;
 	}
+
+	if (!json_buffer_["general"].contains("project-name")) {
+		error("C_GEN_PN_NF"); // Project name does not exist in config
+		config_data_.general.project_name = "INVALID";
+	} else {
+
+		std::string name = 
+		json_buffer_["general"]["project-name"].get<std::string>();
+
+		if (name.length() < PROJECT_NAME_MIN_LENGTH || 
+		name.length() > PROJECT_NAME_MAX_LENGTH) {
+			error("C_GEN_PN_R", name);
+			config_data_.general.project_name = "INVALID";
+		} else if (!std::regex_search(name, std::regex("^[a-zA-Z_ 0-9-]*$"))) { 
+
+			error("C_GEN_PN_I", name);
+
+		} else {
+			config_data_.general.project_name = name;
+		}
+	}
+
 
 	ConfigData::MainboardType mbtype = 
 	json_buffer_["general"]["main-board-type"].get<ConfigData::MainboardType>();
 	if (mbtype == ConfigData::MainboardType::ERROR) {
-		errors_.push_back("Invalid main board type.");
+		error("C_GEN_MB_I");
 	} else {
 		config_data_.general.main_board = mbtype;
 	}
 	
-	FlightLoop::LoopType ltype = 
-	json_buffer_["general"]["starting-loop"].get<FlightLoop::LoopType>();
-	if (ltype == FlightLoop::LoopType::ERROR) {
-		errors_.push_back("Invalid starting loop type.");
+	FlightProcedure::ProcType ltype = 
+	json_buffer_["general"]["starting-procedure"].get<FlightProcedure::ProcType>();
+	if (ltype == FlightProcedure::ProcType::ERROR) {
+		error("C_GEN_SP_I");
 	} else {
-		config_data_.general.starting_loop = ltype;
+		config_data_.general.starting_proc = ltype;
 	}
 }
 
@@ -157,7 +190,9 @@ void ConfigModule::parseExtensions() {
 		
 		int id = item.value()["id"].get<int>();
 		if (id != number_of_extensions + 1) { 
-			errors_.push_back("Extension IDs must be sequential, starting at 1.");
+			error("C_EXT_ID_R", id);
+		} else if (id < EXTENSION_ID_MIN || id > EXTENSION_ID_MAX) {
+			error("C_EXT_ID_S", id);
 		} else {
 			newExtension.id = id;
 		}
@@ -165,19 +200,17 @@ void ConfigModule::parseExtensions() {
 		std::string name = item.value()["name"].get<std::string>();
 		if (name.length() < EXTENSION_NAME_MIN_LENGTH ||
 		name.length() >= EXTENSION_NAME_MAX_LENGTH) {
-			errors_.push_back("Extension name " + name + " must be between " + 
-			std::to_string(EXTENSION_NAME_MIN_LENGTH) + " and " + 
-			std::to_string(EXTENSION_NAME_MAX_LENGTH) + " characters.");
-		} else {
+			error("C_EXT_NM_R", name);
+		} else if (!std::regex_search(name, std::regex("^[a-zA-Z_0-9-]*$"))) {
+			error("C_EXT_NM_I", name);
+		}
+		else {
 			newExtension.name = name;
 		}
 
 		std::string etype = item.value()["type"].get<std::string>();
 		if (etype.length() < EXTENSION_NAME_MIN_LENGTH ||
 		etype.length() > EXTENSION_NAME_MAX_LENGTH) {
-			errors_.push_back("Extension name " + etype + " must be between " + 
-			std::to_string(EXTENSION_NAME_MIN_LENGTH) + " and " + 
-			std::to_string(EXTENSION_NAME_MAX_LENGTH) + " characters.");
 		} else {
 			newExtension.extension_type = etype;
 		}
@@ -185,7 +218,6 @@ void ConfigModule::parseExtensions() {
 		ExtensionMetadata::Category category =
 		item.value()["category"].get<ExtensionMetadata::Category>();
 		if (category == ExtensionMetadata::Category::ERROR) {
-			errors_.push_back("Invalid extension category.");
 		} else {
 			newExtension.category = category;
 		}
@@ -193,13 +225,12 @@ void ConfigModule::parseExtensions() {
 		ExtensionMetadata::Interface interface =
 		item.value()["interface"].get<ExtensionMetadata::Interface>();
 		if (interface == ExtensionMetadata::Interface::ERROR) {
-			errors_.push_back("Invalid extension interface.");
 		} else {
 			if (interface == ExtensionMetadata::Interface::ONEWIRE) {
 				std::string address = item.value()["address"].get<std::string>();
 				if (!std::regex_search(address, std::regex("28-[0-9&a-f]{12}"))) {
-					errors_.push_back("OneWire address must match format."
-									  " It currently is: " + address);
+					//error("OneWire address must match format."
+					//				  " It currently is: " + address);
 				} else {
 					newExtension.address = address;
 				}
@@ -211,9 +242,9 @@ void ConfigModule::parseExtensions() {
 				strs >> address_num;
 
 				if (address_num < 0 || address_num > 127) {
-					errors_.push_back("I2C address must be between 0 and 127. "
-									  "It must be in hex format without 0x. "
-									  "It currently is: " + address);
+					//errors_.push_back("I2C address must be between 0 and 127. "
+					//				  "It must be in hex format without 0x. "
+					//				  "It currently is: " + address);
 				} else {
 					newExtension.address = address;
 				}
@@ -224,16 +255,16 @@ void ConfigModule::parseExtensions() {
 		int interval = item.value()["update-interval"].get<int>();
 		if (interval < EXTENSION_INTERVAL_MIN || 
 		interval > EXTENSION_INTERVAL_MAX) {
-			errors_.push_back("Extension interval must be between " + 
-			std::to_string(EXTENSION_INTERVAL_MIN) + " and " + 
-			std::to_string(EXTENSION_INTERVAL_MAX) + " ms.");
+			//errors_.push_back("Extension interval must be between " + 
+			//std::to_string(EXTENSION_INTERVAL_MIN) + " and " + 
+			//std::to_string(EXTENSION_INTERVAL_MAX) + " ms.");
 		} else {
 			newExtension.update_interval = interval;
 		}
 
 		int flight_critical = item.value()["flight-critical"].get<int>();
 		if (flight_critical != 0 && flight_critical != 1) {
-			errors_.push_back("Extension flight-critical must be 0 or 1.");
+			//errors_.push_back("Extension flight-critical must be 0 or 1.");
 		} else {
 			newExtension.critical = flight_critical;
 		}
@@ -292,9 +323,60 @@ void ConfigModule::parseTelemetry() {
 
 	std::string callsign = json_buffer_["telemetry"]["callsign"].get<std::string>();
 	if (callsign == "" || callsign == "NOCALL") {
-		errors_.push_back("Your callsign is invalid.");
+		//errors_.push_back("Your callsign is invalid.");
 	} else {
 		config_data_.telemetry.callsign = callsign;
+	}
+
+	int aprs_enabled = json_buffer_["telemetry"]["aprs-enabled"].get<bool>();
+	config_data_.telemetry.aprs_enabled = 0; // First disable
+
+	if (aprs_enabled) {
+		std::string aprs_frequency = 
+			json_buffer_["telemetry"]["aprs-frequency"].get<std::string>();
+		/** @todo Check if frequency is valid */
+
+		int ssid = json_buffer_["telemetry"]["aprs-ssid"].get<int>();
+		/** @todo Check if ssid is valid */
+
+		std::string symbol = 
+		json_buffer_["telemetry"]["aprs-symbol"].get<std::string>();
+		/** @todo Check if symbol is valid */
+
+		std::string memo = 
+		json_buffer_["telemetry"]["aprs-memo"].get<std::string>();
+		/** @todo Check if memo is valid */
+
+		// if all are valid, set in config_data_ and enabled
+		config_data_.telemetry.aprs_enabled = 1;
+		config_data_.telemetry.aprs_freq = aprs_frequency;
+		config_data_.telemetry.aprs_ssid = ssid;
+		config_data_.telemetry.aprs_symbol = symbol;
+		config_data_.telemetry.aprs_memo = memo;
+	}
+
+	int sstv_enabled = json_buffer_["telemetry"]["sstv-enabled"].get<bool>();
+	config_data_.telemetry.sstv_enabled = 0; // First disable
+	
+	if (sstv_enabled) {
+		std::string sstv_frequency =
+			json_buffer_["telemetry"]["sstv-frequency"].get<std::string>();
+		/** @todo Check if frequency is valid */
+
+		config_data_.telemetry.sstv_enabled = 1;
+		config_data_.telemetry.sstv_freq = sstv_frequency;
+	}
+
+	int afsk_enabled = json_buffer_["telemetry"]["afsk-enabled"].get<bool>();
+	config_data_.telemetry.afsk_enabled = 0; // First disable
+
+	if (afsk_enabled) {
+		std::string afsk_frequency =
+			json_buffer_["telemetry"]["afsk-frequency"].get<std::string>();
+		/** @todo Check if frequency is valid */
+
+		config_data_.telemetry.afsk_enabled = 1;
+		config_data_.telemetry.afsk_freq = afsk_frequency;
 	}
 }
 
@@ -316,44 +398,54 @@ void ConfigModule::parseDataTypes() {
 			newDataType.source = item.value()["source"].get<std::string>();
 			newDataType.name = item.value()["name"].get<std::string>();
 			newDataType.unit = item.value()["unit"].get<std::string>();
-			newDataType.include_in_telemtry = 
+			newDataType.include_in_telemetry = 
 			item.value()["include-in-telemetry"].get<bool>();
 
 			config_data_.data_types.types.push_back(newDataType);
 		} catch (const std::exception& e) {
-			errors_.push_back("Error parsing data-types." + (std::string) e.what());
+			//errors_.push_back("Error parsing data-types." + (std::string) e.what());
 		}
 	}
 }
 
 /**
- * @brief Parses the flight loop section of the configuration file.
+ * @brief Parses the flight proc section of the configuration file.
  * @details This is the portion that contains the actual tasks of the flight.
  * @param None
  * @return void
- * @todo change 'flight loop' to 'flight mode'
  */
-void ConfigModule::parseFlightLoops() {
-	for (const auto& item : json_buffer_["flight-loops"].items()) {
-		FlightLoop newFlightLoop;
+void ConfigModule::parseFlightProcedures() {
+	for (const auto& item : json_buffer_["flight-procs"].items()) {
+		FlightProcedure newFlightProcedure;
 
-		newFlightLoop.type = item.value()["type"].get<FlightLoop::LoopType>();
+		newFlightProcedure.type = item.value()["type"].get<FlightProcedure::ProcType>();
 
-		if (newFlightLoop.type == FlightLoop::LoopType::ERROR) {
-			errors_.push_back("Invalid flight loop type.");
+		if (newFlightProcedure.type == FlightProcedure::ProcType::ERROR) {
+			//errors_.push_back("Invalid flight proc type.");
 		}
 
-		newFlightLoop.enabled = item.value()["enabled"].get<bool>();
+		newFlightProcedure.enabled = item.value()["enabled"].get<bool>();
 
-		newFlightLoop.intervals.data_log = 
+		newFlightProcedure.intervals.data_log = 
 		item.value()["intervals"]["data-log"].get<int>();
+		newFlightProcedure.intervals.data_packet =
+		item.value()["intervals"]["data-packet"].get<int>();
+		newFlightProcedure.intervals.sstv =
+		item.value()["intervals"]["sstv"].get<int>();
+		newFlightProcedure.intervals.aprs =
+		item.value()["intervals"]["aprs"].get<int>();
+		newFlightProcedure.intervals.picture =
+		item.value()["intervals"]["picture"].get<int>();
+		newFlightProcedure.intervals.health_check =
+		item.value()["intervals"]["health-check"].get<int>();
 
-		if (newFlightLoop.type == FlightLoop::LoopType::TESTING) {
-			config_data_.flight_loops.testing = newFlightLoop;
-		} else if (newFlightLoop.type == FlightLoop::LoopType::STANDARD) {
-			config_data_.flight_loops.standard = newFlightLoop;
-		} else if (newFlightLoop.type == FlightLoop::LoopType::RECOVERY) {
-			config_data_.flight_loops.recovery = newFlightLoop;
+
+		if (newFlightProcedure.type == FlightProcedure::ProcType::TESTING) {
+			config_data_.flight_procs.testing = newFlightProcedure;
+		} else if (newFlightProcedure.type == FlightProcedure::ProcType::STANDARD) {
+			config_data_.flight_procs.standard = newFlightProcedure;
+		} else if (newFlightProcedure.type == FlightProcedure::ProcType::RECOVERY) {
+			config_data_.flight_procs.recovery = newFlightProcedure;
 		}
 	}
 }

@@ -35,6 +35,7 @@ DataStream::~DataStream() {
 	data_stream_lock_.lock();
 	error_stream_lock_.lock();
 	data_frame_lock_.lock();
+	error_frame_lock_.lock();
 }
 
 /**
@@ -52,9 +53,12 @@ void DataStream::addData(
 		int seconds_until_expiry
 		) {
 	std::time_t current_time = std::time(nullptr);
+	std::time_t expiry_time = current_time + seconds_until_expiry;
 	data_stream_lock_.lock(); // Lock the data stream to prevent other threads from accessing it when adding an item to it
-	data_stream_.push({data_source, data_name, data_value,
-		(current_time + seconds_until_expiry)});
+	if (seconds_until_expiry == 0) {
+		expiry_time = 0; // Set the expiry time to 0 if the data should never expire
+	}
+	data_stream_.push({data_source, data_name, data_value, expiry_time});
 	num_data_packets_++;
 	total_data_packets_++;
 	data_stream_lock_.unlock(); // Unlock the data stream to make it available
@@ -93,6 +97,18 @@ void DataStream::updateDataFrame(DataFrame data_frame) {
 	data_frame_lock_.lock();
 	data_frame_ = data_frame;
 	data_frame_lock_.unlock();
+}
+
+void DataStream::updateErrorFrame(ErrorFrame error_frame) {
+	error_frame_lock_.lock();
+	error_frame_ = error_frame;
+	error_frame_lock_.unlock();	
+}
+
+void DataStream::updateFlightProcedure(FlightProcedure flight_procedure) {
+	flight_procedure_lock_.lock();
+	flight_procedure_ = flight_procedure;
+	flight_procedure_lock_.unlock();
 }
 
 /**
@@ -135,6 +151,21 @@ ErrorStreamPacket DataStream::getNextErrorPacket() {
 	return packet;
 }
 
+std::string DataStream::getData(std::string data_source, std::string data_name) 
+	{
+	std::string value;
+
+	data_frame_lock_.lock();
+	if (!data_frame_.contains(data_source + ":" + data_name)) {
+		value = "NO-DATA";
+	} else {
+		value = data_frame_[data_source + ":" + data_name].value;
+	}
+	data_frame_lock_.unlock();
+	
+	return value;
+}
+
 /**
  * @brief Makes a copy of the DataFrame and returns it. This is generally
  * called by a thread in a different module. This is thread safe.
@@ -148,6 +179,20 @@ DataFrame DataStream::getDataFrameCopy() {
 	return data_frame;
 }
 
+ErrorFrame DataStream::getErrorFrameCopy() {
+	error_frame_lock_.lock();
+	ErrorFrame error_frame(error_frame_);
+	error_frame_lock_.unlock();
+	return error_frame;
+}
+
+FlightProcedure DataStream::getFlightProcedureCopy() {
+	flight_procedure_lock_.lock();
+	FlightProcedure flight_procedure(flight_procedure_);
+	flight_procedure_lock_.unlock();
+	return flight_procedure;
+}
+
 /**
  * @return int The number of data packets in the data stream.
  */
@@ -159,7 +204,7 @@ int DataStream::getNumDataPackets() {
  * @return int The number of error packets in the error stream.
  */
 int DataStream::getNumErrorPackets() {
-	return num_data_packets_;
+	return num_error_packets_;
 }
 
 /**

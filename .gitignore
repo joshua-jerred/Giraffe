@@ -1,6 +1,6 @@
 # VS Code User and Workspace Settings
 .vscode/settings.json
-.timetracker
+#.timetracker
 .VSCodeCounter
 
 # CMake Build Files

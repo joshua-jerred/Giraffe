@@ -49,12 +49,12 @@ NLOHMANN_JSON_SERIALIZE_ENUM( ConfigData::MainboardType, {
     {ConfigData::MainboardType::PI_4, "pi_4"}
 })
 
-NLOHMANN_JSON_SERIALIZE_ENUM( FlightLoop::LoopType, {
-    {FlightLoop::LoopType::ERROR, "error"},
-    {FlightLoop::LoopType::TESTING, "testing"},
-    {FlightLoop::LoopType::STANDARD, "standard"},
-    {FlightLoop::LoopType::RECOVERY, "recovery"},
-    {FlightLoop::LoopType::FAILSAFE, "failsafe"}
+NLOHMANN_JSON_SERIALIZE_ENUM( FlightProcedure::ProcType, {
+    {FlightProcedure::ProcType::ERROR, "error"},
+    {FlightProcedure::ProcType::TESTING, "testing"},
+    {FlightProcedure::ProcType::STANDARD, "standard"},
+    {FlightProcedure::ProcType::RECOVERY, "recovery"},
+    {FlightProcedure::ProcType::FAILSAFE, "failsafe"}
 })
 
 NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Category, {
@@ -95,29 +95,34 @@ NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Interface, {
  */
 class ConfigModule {
 public:
-    ConfigModule();
+    ConfigModule(DataStream *data_stream);
     ~ConfigModule();
 
     int load(std::string filepath);
     ConfigData getAll();
-    std::vector<std::string> getErrors();
     json getAllJson();
 
 private:
+    template <typename T>
+    void error(std::string error_code, T info);
+    void error(std::string error_code, std::string info);
+    void error(std::string error_code);
+
+
     void parseAll();
-        
+
     void parseGeneral();
     void parseExtensions();
     void parseDebug();
     void parseTelemetry();
     void parseDataTypes();
-    void parseFlightLoops();
+    void parseFlightProcedures();
 
+    DataStream *p_data_stream_;
 
     std::string config_file_path_;
     json json_buffer_;
     ConfigData config_data_;
-    std::vector<std::string> errors_;
 };
 
 #endif // MODULE_CONFIGURATION_H_

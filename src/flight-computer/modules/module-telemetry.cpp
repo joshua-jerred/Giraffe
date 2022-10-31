@@ -18,10 +18,9 @@
  * @param data_stream A pointer to the data stream.
  */
 TelemetryModule::TelemetryModule(ConfigData config_data, DataStream *data_stream) {
-    error_source_ = "M_TEL";
+    error_source_ = MODULE_TELEMETRY_PREFIX;
 
     config_data_ = config_data;
-    ConfigData::Telemetry telemetry_config_ = config_data_.telemetry; 
 
     p_data_stream_ = data_stream;
 
@@ -33,6 +32,7 @@ TelemetryModule::TelemetryModule(ConfigData config_data, DataStream *data_stream
  * @todo implement this in a safe way.
  */
 TelemetryModule::~TelemetryModule() {
+    stop();
 }
 
 /**
@@ -40,9 +40,24 @@ TelemetryModule::~TelemetryModule() {
  * @todo not implemented yet.
  */
 void TelemetryModule::start() {
+    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
+        "TXQ_SZ", "0", 100);
+    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
+        "ACTIVE_TX",
+        "NONE", 
+        0);
+    stop_flag_ = 0;
+    tx_thread_ = std::thread(&TelemetryModule::runner, this);
 }
 
 void TelemetryModule::stop() {
+    if (status() == ModuleStatus::STOPPED) {
+        return;
+    }
+    stop_flag_ = 1;
+    if (tx_thread_.joinable()) {
+        tx_thread_.join();
+    }
 }
 
 /**
@@ -59,9 +74,7 @@ void TelemetryModule::sendDataPacket() {
     }
     Transmission newTX;
     newTX.type = Transmission::Type::AFSK;
-    //newTX.wav_location = generateAFSK(telemetry_config_.callsign, 
-    //    (std::string) TELEMETRY_WAV_LOCATION + "APRS" + 
-    //    std::to_string(getNextTXNumber()) + ".wav", message);
+    newTX.wav_location = generateAFSK(message);
     addToTXQueue(newTX);
 }
 
@@ -73,9 +86,7 @@ void TelemetryModule::sendDataPacket() {
 void TelemetryModule::sendAFSK(std::string message){
     Transmission newTX;
     newTX.type = Transmission::Type::AFSK;
-    //newTX.wav_location = generateAFSK(telemetry_config_.callsign, 
-    //    (std::string) TELEMETRY_WAV_LOCATION + "AFSK" + 
-    //    std::to_string(getNextTXNumber()) + ".wav", message);
+    newTX.wav_location = generateAFSK(message);
     addToTXQueue(newTX);
 }
 
@@ -91,7 +102,7 @@ void TelemetryModule::sendAPRS() {
     //std::string alt = data["GALT"];
     Transmission newTX;
     newTX.type = Transmission::Type::APRS;
-    //newTX.wav_location = generateAPRS();
+    newTX.wav_location = generateAPRS();
     addToTXQueue(newTX);
 }
 
@@ -118,7 +129,7 @@ int TelemetryModule::getNextTXNumber() {
 /**
  * @brief First checks the transmission for type, and verifies
  * that the wav file actually exists. If both are good,
- * it will aquire a lock on the transmission queue, add the
+ * it will acquire a lock on the transmission queue, add the
  * data, then unlock it.
  * @param transmission The transmission to add to the queue. 
  * @return void
@@ -129,15 +140,17 @@ void TelemetryModule::addToTXQueue(Transmission transmission) {
     if (transmission.type == Transmission::Type::ERROR) {
         p_data_stream_->addError("M_TEL", "BAD_TX_TYPE",
         "Attempted to add a transmission with an unknown type to the transmit"
-        "queue.");
+        "queue.", 10);
         return;
     }
-    std::ifstream fs(transmission.wav_location);
-	if (fs.fail()) {
-        fs.close();
-		return;
-	}
-    fs.close();
+    // This will be enabled once file generation is implemented.
+    //std::ifstream fs(transmission.wav_location);
+	//if (!fs.good()) {
+    //    p_data_stream_->addError("M_TEL", "BAD_TX_FILE",
+    //    "Attempted to add a transmission with a bad wav file to the transmit"
+    //    "queue.", 10);
+    //    return;
+    //}
 
     tx_queue_lock_.lock();
     tx_queue_.push(transmission);
@@ -150,7 +163,73 @@ void TelemetryModule::addToTXQueue(Transmission transmission) {
  * @todo Not Yet Implemented
  * @return File path to the generated wav file.
  */
-std::string TelemetryModule::generateAFSK(std::string callsign, 
-    std::string wav_location, std::string message) {
-        return "not implemented";
+std::string TelemetryModule::generateAFSK(std::string message) {
+    return "not-implemented.wav";
+}
+
+std::string TelemetryModule::generateAPRS() {
+    return "not-implemented.wav";
+}
+
+std::string TelemetryModule::generateSSTV() {
+    return "not-implemented.wav";
+}
+
+void TelemetryModule::runner() {
+    while (!stop_flag_) {
+        tx_queue_lock_.lock();
+        int queue_size = tx_queue_.size();
+        tx_queue_lock_.unlock();
+        p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
+        "TXQ_SZ", std::to_string(queue_size), 100);
+        if (queue_size > 0) {
+            tx_queue_lock_.lock();
+            Transmission tx = tx_queue_.front();
+            tx_queue_.pop();
+            tx_queue_lock_.unlock();
+            switch (tx.type) {
+                case Transmission::Type::AFSK:
+                    std::cout << "AFSK TX" << std::endl;
+                    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
+                        "ACTIVE_TX",
+                        "AFSK", 
+                        100);
+                    //txAFSK(tx.wav_location);
+                    std::this_thread::sleep_for(std::chrono::seconds(10));
+                    break;
+                case Transmission::Type::APRS:
+                    std::cout << "APRS TX" << std::endl;
+                    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
+                        "ACTIVE_TX",
+                        "APRS", 
+                        100);
+                    std::this_thread::sleep_for(std::chrono::seconds(10));
+                    //txAPRS(tx.wav_location);
+                    break;
+                case Transmission::Type::SSTV:
+                    std::cout << "SSTV TX" << std::endl;
+                    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
+                        "ACTIVE_TX",
+                        "SSTV", 
+                        100);
+                    std::this_thread::sleep_for(std::chrono::seconds(45));
+                    //p_data_stream_->addLog("M_TEL", "SSTV_TX",
+                    //    "Sent SSTV transmission.", 10);
+                    //txSSTV(tx.wav_location);
+                    break;
+                default:
+                    p_data_stream_->addError(error_source_, "BAD_TX_TYPE",
+                    "Attempted to play a transmission with an unknown type.", 
+                    0);
+                    break;
+            }
+            p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
+                "ACTIVE_TX",
+                "NONE", 
+                0);
+        }
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(TELEMETRY_INTERVAL_MILI_SECONDS)
+            );
+    }
 }

@@ -14,6 +14,7 @@
 FlightRunner flight;
 
 void signalHandler(int signal_number) {
+    signal(SIGINT, signalHandler);
     if (signal_number == SIGINT) {
         flight.shutdown();
     }

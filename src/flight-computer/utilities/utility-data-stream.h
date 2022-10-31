@@ -33,10 +33,9 @@ struct DataStreamPacket {
     std::time_t expiration_time = 0;
 };
 
-typedef std::unordered_map<std::string, DataStreamPacket> DataFrame;
 
 /**
- * @brief This struct is used by the DataStrean and data module.
+ * @brief This struct is used by the DataStream and data module.
  * Individual extensions/modules do not need to be aware of this
  * struct as it is handled by the DataStream class. 
  * 
@@ -48,6 +47,9 @@ struct ErrorStreamPacket {
     std::string error_info  = "";
     std::time_t expiration_time = 0;
 };
+
+typedef std::unordered_map<std::string, DataStreamPacket> DataFrame;
+typedef std::unordered_map<std::string, ErrorStreamPacket> ErrorFrame;
 
 /**
  * @brief This class is passed to many extensions/modules. It is used
@@ -69,10 +71,16 @@ public:
                   std::string error_info, int seconds_until_expiry);
 
     void updateDataFrame(DataFrame data_frame);
+    void updateErrorFrame(ErrorFrame error_frame);
+    void updateFlightProcedure(FlightProcedure flight_procedure);
 
     DataStreamPacket getNextDataPacket();
     ErrorStreamPacket getNextErrorPacket();
+
+    std::string getData(std::string data_source, std::string data_name);
     DataFrame getDataFrameCopy();
+    ErrorFrame getErrorFrameCopy();
+    FlightProcedure getFlightProcedureCopy();
 
     int getNumDataPackets();
     int getNumErrorPackets();
@@ -86,14 +94,21 @@ private:
     int num_error_packets_;
     int total_error_packets_;
 
-    std::mutex data_stream_lock_;
-    std::mutex error_stream_lock_;
-    std::mutex data_frame_lock_;
 
+    std::mutex data_stream_lock_;
     std::queue<DataStreamPacket> data_stream_;
+
+    std::mutex error_stream_lock_;
     std::queue<ErrorStreamPacket> error_stream_;
 
+    std::mutex data_frame_lock_;
     DataFrame data_frame_;
+
+    std::mutex error_frame_lock_;
+    ErrorFrame error_frame_;
+
+    std::mutex flight_procedure_lock_;
+    FlightProcedure flight_procedure_;
 };
 
 #endif // UTILITY_DATA_STREAM_H_

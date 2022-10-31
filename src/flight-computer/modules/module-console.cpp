@@ -52,7 +52,9 @@ void ConsoleModule::start() {
  */
 void ConsoleModule::stop() {
     stop_flag_ = 1;
-    runner_thread_.join();
+    if (runner_thread_.joinable()) {
+        runner_thread_.join();
+    }
 }
 
 /**
@@ -64,10 +66,10 @@ void ConsoleModule::stop() {
  */
 void ConsoleModule::runner() {
     while (!stop_flag_) {
-        std::this_thread::sleep_for(
-            std::chrono::milliseconds(update_interval_));
         clearScreen();
         printData();
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(update_interval_));
     }
 }
 
@@ -88,8 +90,8 @@ void ConsoleModule::clearScreen() {
  * @todo Add telemetry data
  */
 void ConsoleModule::printData() {
-    std::cout << "GFC  -  Giraffe Flight System  -  V" + 
-    (std::string) GFC_VERSION << std::endl;
+    std::cout << "GFS  -  Giraffe Flight Software  -  V" + 
+    (std::string) GFS_VERSION << std::endl;
     std::time_t t = std::time(0);   // get time now
     std::tm* now = std::localtime(&t);
     std::cout << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec
@@ -130,8 +132,8 @@ void ConsoleModule::printData() {
     default: std::cout << "Unknown";
         break;
     }
-    std::cout << "    Starting Loop: ";
-    switch (config_data_.general.starting_loop)
+    std::cout << "    Starting Procedure: ";
+    switch (config_data_.general.starting_proc)
     {
     case 0: std::cout << "error";
         break;
@@ -147,6 +149,38 @@ void ConsoleModule::printData() {
         std::cout << "Unknown";
         break;
     }
+    
+    std::cout << std::endl << std::endl;
+
+    FlightProcedure current_flt_proc = data_stream_->getFlightProcedureCopy();
+
+    std::cout << "Flight Procedure- " << std::endl;
+    std::cout << "Type: ";
+
+    switch (current_flt_proc.type)
+    {
+    case 0: std::cout << "error";
+        break;
+    case 1: std::cout << "Testing";
+        break;
+    case 2: std::cout << "Standard";
+        break;
+    case 3: std::cout << "Recovery";
+        break;
+    case 4: std::cout << "Failsafe";
+        break;
+    default:
+        std::cout << "Unknown";
+        break;
+    }
+
+    std::cout << "   Intervals:" << std::endl;
+    std::cout << "Data Log " << current_flt_proc.intervals.data_log << "s   ";
+    std::cout << "Data Packet " << current_flt_proc.intervals.data_packet << "s   ";
+    std::cout << "SSTV " << current_flt_proc.intervals.sstv << "s   ";
+    std::cout << "APRS " << current_flt_proc.intervals.aprs << "s   ";
+    std::cout << "Picture " << current_flt_proc.intervals.picture << "s   ";
+    std::cout << "HealthCheck " << current_flt_proc.intervals.health_check << "s   ";
     std::cout << std::endl << std::endl;
 
     std::cout << "Telemetry - " << std::endl;
@@ -154,7 +188,24 @@ void ConsoleModule::printData() {
     int telemetry_enabled = config_data_.telemetry.telemetry_enabled;
     if (telemetry_enabled) {
         std::cout << "Yes";
-        /** @todo print telemetry data */
+        std::cout << "    Callsign: " << config_data_.telemetry.callsign;
+        std::cout << std::endl;
+
+        std::cout << "APRS Enabled: " << config_data_.telemetry.aprs_enabled;
+        std::cout << "  Frequency: " << config_data_.telemetry.aprs_freq;
+        std::cout << "  Key: " << config_data_.telemetry.aprs_key;
+        std::cout << std::endl;
+        std::cout << "SSID: " << config_data_.telemetry.aprs_ssid;
+        std::cout << "  Symbol: " << config_data_.telemetry.aprs_symbol;
+        std::cout << "  Memo: " << config_data_.telemetry.aprs_memo;
+        std::cout << std::endl;
+        
+        std::cout << "AFSK Enabled: " << config_data_.telemetry.afsk_enabled;
+        std::cout << "  Frequency: " << config_data_.telemetry.afsk_freq;
+        std::cout << std::endl;
+        
+        std::cout << "SSTV Enabled: " << config_data_.telemetry.sstv_enabled;
+        std::cout << "  Frequency: " << config_data_.telemetry.sstv_freq;
     } else {
         std::cout << "No";
     }
@@ -221,6 +272,11 @@ void ConsoleModule::printData() {
     }
     std::cout << std::endl;
 
+    std::cout << data_stream_->getTotalDataPackets() << " " 
+    << data_stream_->getTotalErrorPackets() << std::endl;
+    std::cout << data_stream_->getNumDataPackets() << " " 
+    << data_stream_->getNumErrorPackets() << std::endl;
+
     DataFrame snapshot = data_stream_->getDataFrameCopy();
     std::cout << "Data - " << snapshot.size() << std::endl;
     const int width = 2;
@@ -233,5 +289,15 @@ void ConsoleModule::printData() {
             i = 0;
         }
         i++;
+    }
+
+    std::cout << std::endl << std::endl;
+
+    ErrorFrame error_snapshot = data_stream_->getErrorFrameCopy();
+    std::cout << "Errors - " << error_snapshot.size() << std::endl;
+    i = 1;
+    for (auto& [key, packet] : error_snapshot) {  
+        std::cout << packet.error_source << " - " << packet.error_name << " - ";
+        std::cout << packet.error_info << std::endl;
     }
 }

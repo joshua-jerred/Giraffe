@@ -1,85 +1,111 @@
 {
     "general": {
-        "name": "Proj 1",
+        "name": "Project Name",
         "main-board-type": "pi_zero_w",
-        "starting-loop": "testing"
+        "starting-proc": "testing"
     },
     "extensions": [
         {
             "id": 1,
-            "name": "temp1",
-            "type": "DS18B20",
+            "name": "testext",
+            "type": "TEST_EXT",
             "category": "external_sensor",
             "interface": "oneWire",
-            "update-interval": 10,
+            "update-interval": 1000,
             "flight-critical": false,
             "address": "28-000000000000"
         },
         {
             "id": 2,
             "name": "press1",
-            "type": "BMP180",
+            "type": "BMP180_SIM",
             "category": "external_sensor",
             "interface": "i2c",
-            "update-interval": 9,
+            "update-interval": 2000,
             "flight-critical": true,
             "address": "a2"
+        },
+        {
+            "id": 3,
+            "name": "temp2",
+            "type": "DS18B20_SIM",
+            "category": "external_sensor",
+            "interface": "oneWire",
+            "update-interval": 2000,
+            "flight-critical": false,
+            "address": "28-000000000000"
+        },
+        {
+            "id": 4,
+            "name": "gps",
+            "type": "SAMM8Q_SIM",
+            "category": "gps",
+            "interface": "i2c",
+            "update-interval": 2000,
+            "flight-critical": true,
+            "address": "a5"
         }
+        
     ],
-    "server": {
-        "server-enabled": true
+    "debugging": {
+        "console-enabled": true,
+        "console-update-interval": 1000,
+        "web-server-enabled": false,
+        "web-server-update-interval": 1000
     },
     "telemetry": {
-        "telemetry-enabled": true,
+        "telemetry-enabled": false,
         "callsign": "YOURCALLSIGN",
         
         "aprs-enabled": false,
+        "aprs-frequency": 144.390,
         "aprs-ssid": 11,
         "aprs-symbol": "O",
-        "aprs-memo": "AOS v3 Testing",
+        "aprs-memo": "Testing",
 
         "sstv-enabled": false,
-        "afsk-enabled": false
+        "sstv-frequency": 100.000,
+
+        "ssdv-enabled": false,
+        "ssdv-frequency": 100.000,
+
+        "afsk-enabled": false,
+        "afsk-frequency": 100.000
     },
-    "data-types": [
+    
+    "data": [
         {
+            "source": "BMP180_SIM",
             "name": "TEMP_F",
-            "unit": "F"
+            "unit": "TF",
+            "include-in-telemetry": 1
+        },
+        {
+            "source": "BMP180_SIM",
+            "name": "PRESSURE_MBAR",
+            "unit": "PM",
+            "include-in-telemetry": 0
+        },
+        {
+            "source": "BMP180_SIM",
+            "name": "TEMP_C",
+            "unit": "TF",
+            "include-in-telemetry": 1
         }
     ],
 
-    "flight-loops": [
+    "flight-procs": [
         {
-        "type": "testing",
-        "enabled": true,
-        "intervals": {
-            "data-log": 1,
-            "server-update": 3,
-            "dataPacket": 5,
-            "sstv": 7,
-            "aprs": 9,
-            "ssdv": 11,
-            "picture":13,
-            "health_check": 15
-            }
-        },
-        {
-            "type": "standard",
+            "type": "testing",
             "enabled": true,
             "intervals": {
-                "data-log": 10,
-                "server-update": 30,
-                "dataPacket": 50,
-                "sstv": 70,
-                "aprs": 90,
-                "ssdv": 110,
-                "picture":130,
-                "health_check": 150
+                "data-log": 2,
+                "dataPacket": 0,
+                "sstv": 0,
+                "aprs": 0,
+                "picture":0,
+                "health_check": 0
                 }
-        },
-        {
-            "type": "recovery",
-            "enabled": false
         }
     ]
 }

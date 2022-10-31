@@ -17,6 +17,7 @@
 #include <mutex>
 #include <chrono>
 #include <ctime>
+#include <atomic>
 
 #include "utility-data-stream.h"
 #include "utility-configurables.h"
@@ -27,7 +28,7 @@
 /**
  * @brief The DataModule class is responsible for managing all data between
  * modules. It is responsible for creating safe structures that different
- * concurently running threads can access. It is in charge of the
+ * concurrently running threads can access. It is in charge of the
  * DataStream. The DataStream is a queue that all of the extensions have
  * access to. They can add data whenever they want. The data module is 
  * responsible for collecting this data from the stream and placing it into a
@@ -37,7 +38,7 @@
  * data. If it finds stale data, it will set it's value to 'NO_DATA'.
  * This is an indication of an error within an extension.
  * 
- * The DataModule is also reposonsible for logging the data in the dataframe
+ * The DataModule is also responsible for logging the data in the dataframe
  * to a log file when requested to do so.
  * 
  * The DataModule also logs errors which are collected through the datastream
@@ -48,8 +49,10 @@
  */
 class DataModule : public Module {
 public:
-    DataModule(ConfigData config_data);
+    DataModule();
     ~DataModule();
+
+    void addConfigData(ConfigData config_data);
 
     void start();
     void stop();
@@ -60,9 +63,13 @@ public:
 
 private:
     void addDataTypeToFrame(ConfigData::DataTypes::ExtensionDataType data_type); // add a data type to the data frame
+    
     void checkForStaleData(); // check for stale data in the data frame
     void parseDataStream();
+
+    void checkForStaleErrors();
     void parseErrorStream();
+    
     void runner();
 
     std::string data_log_file_path_;
@@ -71,7 +78,9 @@ private:
     DataStream *mpDataStream;
 
     DataFrame dataframe_;
+    ErrorFrame errorframe_;
 
+    std::atomic<int> shutdown_signal_;
     std::thread runner_thread_;
 };
 #endif // MODULE_DATA_H_

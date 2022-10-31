@@ -1,87 +1,74 @@
 /**
  * @file test.cpp
  * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief Unit test of the ConfigModule
- * @version 0.1
- * @date 2022-09-29
+ * @brief Data Stream utility tests
  * 
+ * @version 0.1.0
+ * @date 2022-09-29
  * @copyright Copyright (c) 2022
  */
 
-#include <iostream>
 #include <string>
+#include <time.h>
 
 #include "gtest/gtest.h"
 
-#include "module-configuration.h"
+#include "utility-data-stream.h"
 
-ConfigData *confdata = NULL;
+class DataStream_Utility : public ::testing::Test {
+protected:
+    virtual void SetUp() { 
+        p_data_stream_ = new DataStream();
+     }
+    virtual void TearDown() { 
+        delete p_data_stream_;
+    }
+    DataStream *p_data_stream_;
+};
 
-TEST(ConfigurationModule, LoadConfig) {
-    ConfigModule config_module;
-    std::string input_file = "./input-1.json";
-    int loaded = config_module.load(input_file);
-    ASSERT_EQ(loaded, 0) << "Failed to load input-1.json";
-
-    confdata = new ConfigData{config_module.getAll()};
+TEST_F(DataStream_Utility, DataPackets) {
+    DataStreamPacket packet1;
+    DataStreamPacket packet2;
     
-    std::vector<std::string> errors = config_module.getErrors();
-    EXPECT_EQ(errors.size(), 0) << "Errors found in input-1.json";
+    packet1.source = "1test";
+    packet1.unit = "1unit";
+    packet1.value = "1value";
+    packet1.expiration_time = 5; // Seconds until expiration
+    int current_time = time(NULL);
+    int expected_expiration_time = current_time + packet1.expiration_time;
+    p_data_stream_->addData(
+        packet1.source,
+        packet1.unit,
+        packet1.value,
+        packet1.expiration_time
+    );
+
+    ASSERT_EQ(p_data_stream_->getNumDataPackets(), 1) << "Number of data packets is incorrect";
+    ASSERT_EQ(p_data_stream_->getTotalDataPackets(), 1) << "Total data packets incorrect";
+
+    packet2 = p_data_stream_->getNextDataPacket();
+
+    EXPECT_EQ(packet1.source, packet2.source) << "Source is incorrect";
+    EXPECT_EQ(packet1.unit, packet2.unit) << "Unit is incorrect";
+    EXPECT_EQ(packet1.value, packet2.value) << "Value is incorrect";
+    EXPECT_EQ(expected_expiration_time, packet2.expiration_time) << "Expiration time is incorrect";
+
+    EXPECT_EQ(p_data_stream_->getNumDataPackets(), 0) << "Number of data packets is incorrect";
+    EXPECT_EQ(p_data_stream_->getTotalDataPackets(), 1) << "Total data packets incorrect (should not have changed)";
 }
 
-TEST(ConfigurationModule, General) {
-    EXPECT_EQ(confdata->general.project_name, "Proj 1");
+TEST_F(DataStream_Utility, DataFrame) {
+    DataFrame frame;
 
-    EXPECT_EQ(confdata->general.main_board, ConfigData::MainboardType::kPi_zero_w);
-    EXPECT_EQ(confdata->general.starting_loop, 1);
-}
+    DataStreamPacket packet_input;
 
-TEST(ConfigurationModule, Extensions) {
-    std::vector <ExtensionMetadata> extensions = confdata->extensions.extensions_list;
-    EXPECT_EQ(confdata->extensions.extensions_list.size(), 2);
+    packet_input.source = "1test";
+    packet_input.unit = "1unit";
+    packet_input.value = "1value";
+    packet_input.expiration_time = 5;
+    frame.insert_or_assign(packet_input.source + ":" + packet_input.unit, packet_input);
 
-    ExtensionMetadata ext1 = extensions[0];
-    ExtensionMetadata ext2 = extensions[1];
-    
-    EXPECT_EQ(ext1.id, 1);
-    EXPECT_EQ(ext1.name, "temp1");
-    EXPECT_EQ(ext1.extension_type, "DS18B20");
-    EXPECT_EQ(ext1.category, ExtensionMetadata::Category::kExternalSensor);
-    EXPECT_EQ((int) ext1.interface, 5);
-    EXPECT_EQ(ext1.update_interval, 10);
-    EXPECT_EQ(ext1.critical, 0);
-    EXPECT_EQ(ext1.address, "28-000000000000");
+    p_data_stream_->updateDataFrame(frame);
 
-    EXPECT_EQ(ext2.id, 2);
-    EXPECT_EQ(ext2.name, "press1");
-    EXPECT_EQ(ext2.extension_type, "BMP180");
-    EXPECT_EQ(ext2.category, ExtensionMetadata::Category::kExternalSensor);
-    EXPECT_EQ((int) ext2.interface, 3);
-    EXPECT_EQ(ext2.update_interval, 9);
-    EXPECT_EQ(ext2.critical, 1);
-    EXPECT_EQ(ext2.address, "a2");
-}
-
-TEST(ConfigurationModule, Server) {
-    EXPECT_EQ(confdata->server.web_server_enabled, 1);
-}
-
-TEST(ConfigurationModule, Telemetry) {
-    EXPECT_EQ(confdata->telemetry.telemetry_enabled, 1);
-}
-
-TEST(ConfigurationModule, DataTypes) {
-    std::vector <ConfigData::DataTypes::ExtensionDataType> data_types = confdata->data_types.types;
-    EXPECT_EQ(data_types.size(), 1);
-
-    ConfigData::DataTypes::ExtensionDataType data_type1 = data_types[0];
-    EXPECT_EQ(data_type1.name, "TEMP_F");
-    EXPECT_EQ(data_type1.unit, "F");
-}
-
-TEST(ConfigurationModule, FlightLoops) {
-    FlightLoop loop1 = confdata->flight_loops.testing;
-    EXPECT_EQ(loop1.type, FlightLoop::LoopType::kTesting);
-    EXPECT_EQ(loop1.intervals.data_log, 10);
-    EXPECT_EQ(loop1.intervals.server_update, 2);
+    EXPECT_EQ(p_data_stream_->getData(packet_input.source, packet_input.unit), packet_input.value) << "Value is incorrect";
 }

@@ -31,7 +31,7 @@ of the flight?
 4. Set up everything else that the user configured
 5. Decide which flight loop to start based off of the last shutdown state,
 and sensor data.
-6. Continue the flight loop until interupted.
+6. Continue the flight loop until interrupted.
 
 ## Modules
 Modules are the distinct sections of the Flight Computer. Each module
@@ -65,7 +65,7 @@ You can read more about each module on their respective pages.
 - Utility DataStream
     - Used by the data module and extensions to pass data between the two.
 - Utility Timer
-    - Super simple timer library usec by the flight runner in the flight loop.
+    - Super simple timer library usec by the flight runner in the flight procedure.
 - 
 
 

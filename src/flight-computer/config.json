@@ -1,8 +1,8 @@
 {
     "general": {
-        "name": "Test Project",
+        "project-name": "Test Project",
         "main-board-type": "pi_zero_w",
-        "starting-loop": "testing"
+        "starting-procedure": "testing"
     },
     "extensions": [
         {
@@ -39,7 +39,7 @@
             "id": 4,
             "name": "gps",
             "type": "SAMM8Q_SIM",
-            "category": "gps1",
+            "category": "gps",
             "interface": "i2c",
             "update-interval": 2000,
             "flight-critical": true,
@@ -50,27 +50,24 @@
     "debugging": {
         "console-enabled": true,
         "console-update-interval": 1000,
-        "web-server-enabled": false,
+        "web-server-enabled": true,
         "web-server-update-interval": 1000
     },
     "telemetry": {
-        "telemetry-enabled": false,
+        "telemetry-enabled": true,
         "callsign": "YOURCALLSIGN",
         
-        "aprs-enabled": false,
-        "aprs-frequency": 144.390,
+        "aprs-enabled": true,
+        "aprs-frequency": "144.390",
         "aprs-ssid": 11,
         "aprs-symbol": "O",
-        "aprs-memo": "Testing",
+        "aprs-memo": "GFS Balloon",
 
-        "sstv-enabled": false,
-        "sstv-frequency": 100.000,
+        "sstv-enabled": true,
+        "sstv-frequency": "100.000",
 
-        "ssdv-enabled": false,
-        "ssdv-frequency": 100.000,
-
-        "afsk-enabled": false,
-        "afsk-frequency": 100.000
+        "afsk-enabled": true,
+        "afsk-frequency": "100.000"
     },
     
     "data": [
@@ -94,17 +91,17 @@
         }
     ],
 
-    "flight-loops": [
+    "flight-procs": [
         {
             "type": "testing",
             "enabled": true,
             "intervals": {
                 "data-log": 2,
-                "dataPacket": 0,
-                "sstv": 0,
-                "aprs": 0,
-                "picture":0,
-                "health_check": 0
+                "data-packet": 5,
+                "sstv": 10,
+                "aprs": 5,
+                "picture": 50,
+                "health-check": 10
                 }
         }
     ]

@@ -16,9 +16,11 @@
 #include "utility-timer.h"
 #include "utility-data-stream.h"
 
+#include "module-configuration.h"
 #include "module-data.h"
 #include "module-extensions.h"
 #include "module-console.h"
+#include "module-server.h"
 #include "module-telemetry.h"
 
 /**
@@ -50,11 +52,11 @@ public:
      * 3. Start the Web Server (if enabled)
      * 4. Start the Extension Handler
      * 5. Start the Radio Communication
-     * 6. Perform a system wide test to determine flight loop configuration 
+     * 6. Perform a system wide test to determine flight proc configuration 
      *    (standard, failsafe, etc)
      * 7. Call flightLoop()
      * 
-     * Start will only return upon the termination of the flight loop.
+     * Start will only return upon the termination of the flight proc.
      * 
      * @return int shutdown signal to main [0 = good shutdown, any other number 
      * = bad shutdown] 
@@ -75,11 +77,11 @@ private:
      * @brief This is where everything actually happens. This is the endless
      * loop that utilizes timers to perform actions. These actions include
      * everything that this software was made to do. Communication, data
-     * collection, tracking, etc. It takes in the loop configuration data from 
+     * collection, tracking, etc. It takes in the proc configuration data from 
      * start(), creates timers for each action type, performs each action on
      * a user defined timer interval. It will also be responsible for triggering
      * a shutdown when it is commanded to do so. It is capable of switching 
-     * interval configurations between one flight loop type and another. It
+     * interval configurations between one flight proc type and another. It
      * will switch either when commanded to or upon the results of a system
      * wide "health check".
      * 
@@ -90,27 +92,27 @@ private:
 
     void healthCheck();
 
-    void switchLoops(FlightLoop::LoopType loopType);
+    void switchLoops(FlightProcedure::ProcType procType);
 
     void deconstruct();
 
     ConfigData config_data_;
-    FlightLoop::LoopType current_flight_loop_type_;
-    FlightLoop::Intervals current_intervals_;
+    FlightProcedure::ProcType current_flight_procedure_type_;
+    FlightProcedure::Intervals current_intervals_;
     
     DataModule *p_data_module_;
     ExtensionsModule *p_extension_module_;
     ConsoleModule *p_console_module_;
+    ServerModule *p_server_module_;
     TelemetryModule *p_telemetry_module_;
-    //ServerModule *mpServerModule;
     //ComModule *mpComModule;
     int shutdown_signal_;
 
-    FlightLoop flt_loop_testing_;
-    FlightLoop flt_loop_standard_;
-    FlightLoop flt_loop_descent_;
-    FlightLoop flt_loop_recovery_;
-    FlightLoop flt_loop_failsafe_;
+    FlightProcedure flt_proc_testing_;
+    FlightProcedure flt_proc_standard_;
+    FlightProcedure flt_proc_descent_;
+    FlightProcedure flt_proc_recovery_;
+    FlightProcedure flt_proc_failsafe_;
 };
 
 #endif
