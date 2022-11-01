@@ -16,17 +16,22 @@ FetchContent_MakeAvailable(json)
 
 # ---- Flight Computer ----
 add_executable(giraffe-flight-software
+
     src/flight-computer/main.cpp
     src/flight-computer/flight-runner.cpp
+
     src/flight-computer/modules/module-configuration.cpp
     src/flight-computer/modules/module-data.cpp
     src/flight-computer/modules/module-extensions.cpp
     src/flight-computer/modules/module-console.cpp
     src/flight-computer/modules/module-telemetry.cpp
     src/flight-computer/modules/module-server.cpp
+
     src/flight-computer/utilities/utility-timer.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
     src/flight-computer/utilities/utility-socket.cpp
+    src/flight-computer/utilities/utility-i2c.cpp
+
     src/flight-computer/extensions/extension.cpp
     src/flight-computer/extensions/simulated-extensions.cpp
 )
@@ -35,6 +40,7 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 target_link_libraries(giraffe-flight-software PRIVATE Threads::Threads)
 
+target_link_libraries(giraffe-flight-software PUBLIC i2c)
 
 target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
 
