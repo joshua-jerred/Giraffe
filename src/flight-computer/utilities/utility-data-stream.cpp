@@ -78,10 +78,11 @@ void DataStream::addError(std::string error_source,
 	int seconds_until_expiry) {
 	std::time_t current_time = std::time(nullptr);
 	error_stream_lock_.lock();
-	error_stream_.push(
-		{error_source, error_name, error_info, 
-		current_time + seconds_until_expiry}
-		);
+	if (seconds_until_expiry > 1) {
+		error_stream_.push({error_source, error_name, error_info, current_time + seconds_until_expiry});
+	} else {
+		error_stream_.push({error_source, error_name, error_info, 0});
+	}
 	num_error_packets_++;
 	total_error_packets_++;
 	error_stream_lock_.unlock();

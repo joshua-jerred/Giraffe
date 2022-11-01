@@ -34,6 +34,7 @@ add_executable(giraffe-flight-software
 
     src/flight-computer/extensions/extension.cpp
     src/flight-computer/extensions/simulated-extensions.cpp
+    src/flight-computer/extensions/bmp180.cpp
 )
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)

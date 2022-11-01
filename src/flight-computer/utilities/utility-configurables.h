@@ -13,7 +13,7 @@
 
 #define GFS_VERSION "0.1.0"
 
-/** @brief The locaiton of the configuration file. It is safe to change 
+/** @brief The location of the configuration file. It is safe to change 
  * this value. */
 #define CONFIG_LOCATION "./config.json"
 
@@ -48,6 +48,7 @@
 #define MODULE_TELEMETRY_PREFIX "M_TEL"
 #define MODULE_SERVER_PREFIX "M_SRV"
 #define MODULE_EXTENSION_PREFIX "M_EXT"
+#define EXTENSION_PREFIX "EXT_"
 // ------------------------------ //
 
 // This is the interval, in seconds, that determines how often the data module
@@ -58,5 +59,8 @@
 #define MODULE_SERVER_PORT 8779
 
 #define MODULE_SERVER_CHECK_COMMANDS_INTERVAL 1 // In seconds
+
+#define I2C_BUS_NUMBER_LOW 1
+#define I2C_BUS_NUMBER_HIGH 1
 
 #endif

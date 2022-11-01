@@ -9,8 +9,7 @@
 #ifndef UTILITY_I2C_H_
 #define UTILITY_I2C_H_
 
-#define BUS_NUMBER_LOW 1
-#define BUS_NUMBER_HIGH 1
+
 
 #define ADDRESS_LOW 0x03
 #define ADDRESS_HIGH 0x77
@@ -24,6 +23,8 @@ extern "C" {
     #include <linux/i2c-dev.h>
     #include <i2c/smbus.h>
 }
+
+#include "utility-configurables.h"
 
 enum class I2C_STATUS {
     NOT_CONNECTED,

@@ -13,7 +13,7 @@
             "interface": "oneWire",
             "update-interval": 1000,
             "flight-critical": false,
-            "address": "28-000000000000"
+            "onewire-id": "28-000000000000"
         },
         {
             "id": 2,
@@ -23,7 +23,8 @@
             "interface": "i2c",
             "update-interval": 2000,
             "flight-critical": true,
-            "address": "a2"
+            "i2c-bus": 1,
+            "i2c-address": "0x22"
         },
         {
             "id": 3,
@@ -33,7 +34,7 @@
             "interface": "oneWire",
             "update-interval": 2000,
             "flight-critical": false,
-            "address": "28-000000000000"
+            "onewire-id": "28-000000000000"
         },
         {
             "id": 4,
@@ -43,7 +44,8 @@
             "interface": "i2c",
             "update-interval": 2000,
             "flight-critical": true,
-            "address": "a5"
+            "i2c-bus": 1,
+            "i2c-address": "0x25"
         }
         
     ],

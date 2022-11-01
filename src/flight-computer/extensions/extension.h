@@ -83,6 +83,11 @@ protected:
     void sendData(std::string unit, int value);
     void sendData(std::string unit, float value);
 
+    template <typename T>
+    void error(std::string error_code, T info);
+    void error(std::string error_code, std::string info);
+    void error(std::string error_code);
+
     std::atomic<int> stop_flag_; // 0 = continue, 1 = stop
 
 private:
@@ -94,6 +99,7 @@ private:
     void setUpdateInterval(int interval);
     void setCritical(int critical);
     void setExtraArgs(std::vector<std::string> extra_args); /** @todo Implement this. */
+
 
     virtual void spawnRunner();
 
@@ -109,6 +115,17 @@ private:
     ExtensionMetadata::Interface interface_;
     int update_interval_;
     int critical_;
+};
+
+class ExtensionException {
+public:
+    ExtensionException(std::string s) : m_s(s) {};
+    ~ExtensionException() {};
+
+    std::string description() { return m_s; }
+
+private:
+    std::string m_s;
 };
 
 #endif // EXTENSION_H_

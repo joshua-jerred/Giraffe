@@ -23,7 +23,7 @@ I2C_STATUS I2C::getStatus() {
 }
 
 int I2C::connect(uint8_t bus_number, uint8_t address) {
-    if (bus_number < BUS_NUMBER_LOW || bus_number > BUS_NUMBER_HIGH) {
+    if (bus_number < I2C_BUS_NUMBER_LOW || bus_number > I2C_BUS_NUMBER_HIGH) {
         status_ = I2C_STATUS::CONFIG_ERROR_BUS;
         return -1;
     }

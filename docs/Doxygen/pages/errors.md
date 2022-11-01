@@ -27,5 +27,13 @@ C_EXT_ID_S [id]: Extension ID is not sequential.
 
 C_EXT_NM_R [name]: Extension name out of range
 
-C_EXT_NM_I [name]: Extension name invalid. Same requirments as project name but spaces
+C_EXT_NM_I [name]: Extension name invalid. Same requirements as project name but spaces
 are not allowed.
+
+C_EXT_OW_I [id]: One Wire ID does not match pattern
+
+C_EXT_I2_B [buss-num]: I2C bus number out of range
+
+C_EXT_I2_A [address]: I2C address out of range
+
+C_EXT_MISS [missing-item : extension-name]: Missing item in extension configuration

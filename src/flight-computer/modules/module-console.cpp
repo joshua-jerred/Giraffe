@@ -246,7 +246,7 @@ void ConsoleModule::printData() {
             break;
         case 2: std::cout << "internal";
             break;
-        case 3: std::cout << "i2c 0x" + extension.address;
+        case 3: std::cout << "i2c " + extension.extra_args.I2C_device_address;
             break;
         case 4: std::cout << "serial";
             break;

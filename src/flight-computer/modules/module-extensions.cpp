@@ -82,5 +82,7 @@ void ExtensionsModule::addExtension(ExtensionMetadata meta_data) {
         extensions_.push_back(new DS18B20_SIM(data_stream_, meta_data));
     } else if (meta_data.extension_type == "DRA818V_SIM") {
         extensions_.push_back(new DRA818V_SIM(data_stream_, meta_data));
+    } else if (meta_data.extension_type == "BMP180") {
+        extensions_.push_back(new BMP180(data_stream_, meta_data));
     }
 }

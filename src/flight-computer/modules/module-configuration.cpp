@@ -225,29 +225,42 @@ void ConfigModule::parseExtensions() {
 		ExtensionMetadata::Interface interface =
 		item.value()["interface"].get<ExtensionMetadata::Interface>();
 		if (interface == ExtensionMetadata::Interface::ERROR) {
+			// Report error here
 		} else {
-			if (interface == ExtensionMetadata::Interface::ONEWIRE) {
-				std::string address = item.value()["address"].get<std::string>();
-				if (!std::regex_search(address, std::regex("28-[0-9&a-f]{12}"))) {
-					//error("OneWire address must match format."
-					//				  " It currently is: " + address);
+			if (interface == ExtensionMetadata::Interface::ONEWIRE) { // On onewire
+				std::string id = 
+				item.value()["onewire-id"].get<std::string>();
+
+				if (!std::regex_search(id, std::regex("28-[0-9&a-f]{12}"))) {
+
+					error("C_EXT_OW_I", id);
+
 				} else {
-					newExtension.address = address;
+					newExtension.extra_args.one_wire_id = id;
 				}
-			} else if (interface == ExtensionMetadata::Interface::I2C) {
-				std::string address = item.value()["address"].get<std::string>();
+
+			} else if (interface == ExtensionMetadata::Interface::I2C) { // On I2C
+				std::string address = 
+				item.value()["i2c-address"].get<std::string>();
+
 				int address_num = -1;
 				std::stringstream strs;
 				strs << std::hex << address; // convert hex string to int
 				strs >> address_num;
 
 				if (address_num < 0 || address_num > 127) {
-					//errors_.push_back("I2C address must be between 0 and 127. "
-					//				  "It must be in hex format without 0x. "
-					//				  "It currently is: " + address);
+					error("C_EXT_I2_A", address);
 				} else {
-					newExtension.address = address;
+					newExtension.extra_args.I2C_device_address = address;
 				}
+
+				int bus = item.value()["i2c-bus"].get<int>();
+				if (bus < 0 || bus > 2) {
+					error("C_ETC_I2_B", bus);
+				} else {
+					newExtension.extra_args.I2C_bus = bus;
+				}
+
 			}
 			newExtension.interface = interface;
 		}

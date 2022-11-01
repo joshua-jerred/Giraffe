@@ -61,6 +61,12 @@ struct ExtensionMetadata {
         GPIO = 7 
     };
 
+    struct ExtraArgs {
+        int I2C_bus = 0;
+        std::string I2C_device_address = "";
+        std::string one_wire_id = "";
+    };
+
     int id = 0; // User defined ID for the extension
     std::string name = ""; // Can be set to anything between 2 and 20 characters
     std::string extension_type = ""; // Unique string for each extension type, like "BMP180"
@@ -69,11 +75,7 @@ struct ExtensionMetadata {
     int update_interval = 0; // How often the extension polls for data and sends it to the data stream
     int critical = 0; // Indicates if this extension is critical to operation, this
                   // will be used by the Flight Runner during the healthCheck
-    // Extra Arguments
-    /**
-     * @todo Change to 'extra args'
-     */
-    std::string address = ""; // Used for oneWire and I2C
+    ExtraArgs extra_args;
 };
 
 

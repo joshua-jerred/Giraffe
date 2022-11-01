@@ -105,6 +105,13 @@ void DataModule::log() {
             << packet.source << ", " << packet.unit << ", " << packet.value
             << std::endl;
   }
+
+  std::ofstream error_logfile;
+  error_logfile.open(error_log_file_path_, std::ios_base::app);
+  for (auto& [source_and_unit, packet] : errorframe_) {
+    error_logfile << packet.error_source << ", " << packet.error_name << ", "
+                  << packet.error_info << std::endl;
+  }
 }
 
 /**
@@ -189,6 +196,9 @@ void DataModule::checkForStaleData() {
 }
 
 void DataModule::checkForStaleErrors() {
+  if (errorframe_.empty()) {
+    return;
+  }
   std::time_t now = std::time(NULL);
   for (auto& [source_and_unit, packet] : errorframe_) {
     if (packet.expiration_time == 0) {  // 0 means it never expires
