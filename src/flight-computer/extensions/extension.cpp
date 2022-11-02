@@ -334,15 +334,15 @@ void Extension::spawnRunner() {
     runner_thread_ = std::thread(&Extension::runner, this);
 }
 
-template <typename T>
-void Extension::error(std::string error_code, T info) {
-	p_data_stream_->addError(
-        EXTENSION_PREFIX + std::to_string(getID()), 
-        error_code, 
-		std::to_string(info), 
-        update_interval_
-        );
-}
+//template <typename T>
+//void Extension::error(std::string error_code, T info) {
+//	p_data_stream_->addError(
+//        EXTENSION_PREFIX + std::to_string(getID()), 
+//        error_code, 
+//		std::to_string(info), 
+//        update_interval_
+//        );
+//}
 
 void Extension::error(std::string error_code, std::string info) {
 	p_data_stream_->addError(

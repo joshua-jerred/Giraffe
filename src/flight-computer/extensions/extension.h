@@ -83,8 +83,8 @@ protected:
     void sendData(std::string unit, int value);
     void sendData(std::string unit, float value);
 
-    template <typename T>
-    void error(std::string error_code, T info);
+    //template <typename T>
+    //void error(std::string error_code, T info);
     void error(std::string error_code, std::string info);
     void error(std::string error_code);
 

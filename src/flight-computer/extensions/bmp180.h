@@ -60,8 +60,8 @@ private:
     int calculateTemperature();
     int calculatePressure();
 
-    unsigned short BMP180::readShortUnsigned(int registerAddress);
-    short BMP180::readShort(int registerAddress);
+    unsigned short readShortUnsigned(int registerAddress);
+    short readShort(int registerAddress);
 
     int handshake();
 

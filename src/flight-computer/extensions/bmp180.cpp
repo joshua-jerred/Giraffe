@@ -235,6 +235,7 @@ int BMP180::handshake() {
     } catch (std::exception &e) {
         error("BMP180", e.what());
         setStatus(ExtensionStatus::ERROR);
+		return -3; // Exception
     }
 }
 
