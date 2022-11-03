@@ -101,6 +101,7 @@ public:
     int load(std::string filepath);
     ConfigData getAll();
     json getAllJson();
+    int getNumberOfErrors();
 
 private:
     template <typename T>
@@ -117,6 +118,8 @@ private:
     void parseTelemetry();
     void parseDataTypes();
     void parseFlightProcedures();
+
+    int number_of_errors_;
 
     DataStream *p_data_stream_;
 

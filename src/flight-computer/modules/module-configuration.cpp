@@ -31,6 +31,7 @@ using json = nlohmann::ordered_json;
  */
 ConfigModule::ConfigModule(DataStream *data_stream) {
 	p_data_stream_ = data_stream;
+	number_of_errors_ = 0;
 }
 
 /**
@@ -86,6 +87,10 @@ json ConfigModule::getAllJson() {
 	return json_buffer_;
 }
 
+int ConfigModule::getNumberOfErrors() {
+	return number_of_errors_;
+}
+
 /**
  * @brief Simple override for adding errors to the data stream.
  * @param error_code The error code
@@ -93,15 +98,18 @@ json ConfigModule::getAllJson() {
  */
 template <typename T>
 void ConfigModule::error(std::string error_code, T info) {
+	number_of_errors_++;
 	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, 
 		std::to_string(info), 0);
 }
 
 void ConfigModule::error(std::string error_code, std::string info) {
+	number_of_errors_++;
 	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, info, 0);
 }
 
 void ConfigModule::error(std::string error_code) {
+	number_of_errors_++;
 	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, "", 0);
 }
 
