@@ -58,3 +58,4 @@ jobs:
     - name: build
       run: cd build && make test-04
     - name: run test
+      run: cd build/bin/tests/test-04 && ./test-04
