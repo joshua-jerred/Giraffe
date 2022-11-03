@@ -96,8 +96,45 @@ target_include_directories(test-02 PUBLIC
 )
 target_link_libraries(test-02 gtest_main)
 target_link_libraries(test-02 nlohmann_json::nlohmann_json)
-
 file(COPY "tests/test-02/input-1.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin/tests/test-02)
+
+# test-03 - Data Module
+add_executable(test-03 
+    tests/test-03/test.cpp
+    src/flight-computer/modules/module-data.cpp
+    src/flight-computer/utilities/utility-data-stream.cpp
+)
+set_target_properties( test-03 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/tests/test-03/ )
+target_include_directories(test-03 PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/modules
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/utilities
+)
+target_link_libraries(test-03 gtest_main)
+
+# test-04 - Extensions Module
+add_executable(test-04
+    tests/test-04/test.cpp
+    src/flight-computer/modules/module-extensions.cpp
+    src/flight-computer/extensions/extension.cpp
+    src/flight-computer/extensions/simulated-extensions.cpp
+    src/flight-computer/extensions/bmp180.cpp
+    src/flight-computer/extensions/ds18b20.cpp
+    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/utility-i2c.cpp
+    src/flight-computer/utilities/utility-one-wire.cpp
+)
+target_link_libraries(test-04 i2c)
+set_target_properties( test-04 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/tests/test-04/ )
+target_include_directories(test-04 PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/modules
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/utilities
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/extensions
+)
+target_link_libraries(test-04 gtest_main)
+
+
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
