@@ -1,3 +1,4 @@
+[![giraffe-flight-software tests](https://github.com/joshua-jerred/Giraffe/actions/workflows/gfs-tests.yml/badge.svg)](https://github.com/joshua-jerred/Giraffe/actions/workflows/gfs-tests.yml)
 # Giraffe
 ### A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.
 #### Iteration 0.1
