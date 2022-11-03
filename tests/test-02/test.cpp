@@ -122,3 +122,72 @@ TEST_F(Configuration_Module_1, ExtensionsSection) {
     EXPECT_EQ("0x25", temp_ext.extra_args.I2C_device_address)
         << "Extension 4 i2c address is incorrect";
 }
+
+TEST_F(Configuration_Module_1, Debugging) {
+    ConfigData::Debugging debugging = config_module_->getAll().debug;
+
+    EXPECT_EQ(1, debugging.console_enabled) << "Console debugging is incorrect";
+    EXPECT_EQ(1002, debugging.console_update_interval) 
+        << "Console update interval is incorrect";
+
+    EXPECT_EQ(1, debugging.web_server_enabled) 
+        << "Web server debugging is incorrect";
+    EXPECT_EQ(1005, debugging.web_server_update_interval)
+        << "Web server update interval is incorrect";
+}
+
+TEST_F(Configuration_Module_1, TelemetrySection) {
+    ConfigData::Telemetry telemetry = config_module_->getAll().telemetry;
+
+    EXPECT_EQ(1 , telemetry.telemetry_enabled)
+        << "Telemetry enabled is incorrect";
+    EXPECT_EQ("TESTCALL", telemetry.callsign)
+        << "Callsign is incorrect";
+
+    EXPECT_EQ(1, telemetry.aprs_enabled)
+        << "APRS enabled is incorrect";
+    EXPECT_EQ("144.390", telemetry.aprs_freq)
+        << "APRS frequency is incorrect";
+    EXPECT_EQ(11, telemetry.aprs_ssid)
+        << "APRS SSID is incorrect";
+    EXPECT_EQ("O", telemetry.aprs_symbol)
+        << "APRS symbol is incorrect";
+    EXPECT_EQ("Test Memo", telemetry.aprs_memo)
+        << "APRS memo is incorrect";
+    
+    EXPECT_EQ(1, telemetry.sstv_enabled)
+        << "SSTV enabled is incorrect";
+    EXPECT_EQ("100.000", telemetry.sstv_freq)
+        << "SSTV frequency is incorrect";
+
+    EXPECT_EQ(1, telemetry.afsk_enabled)
+        << "AFSK enabled is incorrect";
+    EXPECT_EQ("105.000", telemetry.afsk_freq)
+        << "AFSK frequency is incorrect";
+}
+
+TEST_F(Configuration_Module_1, FlightProcsSection) {
+    ConfigData::Procs procs = config_module_->getAll().flight_procs;
+    FlightProcedure test_proc = procs.testing;
+
+    EXPECT_EQ(1, test_proc.enabled)
+        << "Testing procedure enabled is incorrect";
+
+    EXPECT_EQ(test_proc.type, FlightProcedure::ProcType::TESTING)
+        << "Testing procedure type is incorrect";
+
+    FlightProcedure::Intervals intervals = test_proc.intervals;
+
+    EXPECT_EQ(2, intervals.data_log)
+        << "Testing procedure data log interval is incorrect";
+    EXPECT_EQ(5, intervals.data_packet)
+        << "Testing procedure data packet interval is incorrect";
+    EXPECT_EQ(10, intervals.sstv)
+        << "Testing procedure sstv interval is incorrect";
+    EXPECT_EQ(5, intervals.aprs)
+        << "Testing procedure aprs interval is incorrect";
+    EXPECT_EQ(50, intervals.picture)
+        << "Testing procedure picture interval is incorrect";
+    EXPECT_EQ(10, intervals.health_check)
+        << "Testing procedure health check interval is incorrect";
+}

@@ -51,25 +51,25 @@
     ],
     "debugging": {
         "console-enabled": true,
-        "console-update-interval": 1000,
+        "console-update-interval": 1002,
         "web-server-enabled": true,
-        "web-server-update-interval": 1000
+        "web-server-update-interval": 1005
     },
     "telemetry": {
         "telemetry-enabled": true,
-        "callsign": "YOURCALLSIGN",
+        "callsign": "TESTCALL",
         
         "aprs-enabled": true,
         "aprs-frequency": "144.390",
         "aprs-ssid": 11,
         "aprs-symbol": "O",
-        "aprs-memo": "GFS Balloon",
+        "aprs-memo": "Test Memo",
 
         "sstv-enabled": true,
         "sstv-frequency": "100.000",
 
         "afsk-enabled": true,
-        "afsk-frequency": "100.000"
+        "afsk-frequency": "105.000"
     },
     
     "data": [
