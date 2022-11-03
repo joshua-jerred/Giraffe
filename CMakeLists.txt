@@ -95,6 +95,8 @@ target_include_directories(test-02 PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/utilities
 )
 target_link_libraries(test-02 gtest_main)
+target_link_libraries(test-02 nlohmann_json::nlohmann_json)
+
 file(COPY "tests/test-02/input-1.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin/tests/test-02)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
