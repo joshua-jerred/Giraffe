@@ -99,3 +99,9 @@ void functionName(std::type parameter_name) {
 }
 
 #endif // EXAMPLE_H_
+
+
+# Errors
+## Extension Errors
+[source] [name] [info] [expiration]
+[EXT:extID][BMP180][INFO][expiration time]

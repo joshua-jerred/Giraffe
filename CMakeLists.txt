@@ -31,10 +31,12 @@ add_executable(giraffe-flight-software
     src/flight-computer/utilities/utility-data-stream.cpp
     src/flight-computer/utilities/utility-socket.cpp
     src/flight-computer/utilities/utility-i2c.cpp
+    src/flight-computer/utilities/utility-one-wire.cpp
 
     src/flight-computer/extensions/extension.cpp
     src/flight-computer/extensions/simulated-extensions.cpp
     src/flight-computer/extensions/bmp180.cpp
+    src/flight-computer/extensions/ds18b20.cpp
 )
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)

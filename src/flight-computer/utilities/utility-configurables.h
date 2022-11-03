@@ -48,7 +48,7 @@
 #define MODULE_TELEMETRY_PREFIX "M_TEL"
 #define MODULE_SERVER_PREFIX "M_SRV"
 #define MODULE_EXTENSION_PREFIX "M_EXT"
-#define EXTENSION_PREFIX "EXT_"
+#define EXTENSION_PREFIX "EXT"
 // ------------------------------ //
 
 // This is the interval, in seconds, that determines how often the data module
@@ -62,5 +62,8 @@
 
 #define I2C_BUS_NUMBER_LOW 1
 #define I2C_BUS_NUMBER_HIGH 1
+
+#define ONE_WIRE_LOCATION "/sys/bus/w1/devices/"
+#define ONE_WIRE_FILE "/w1_slave"
 
 #endif
