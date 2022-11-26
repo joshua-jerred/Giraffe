@@ -28,23 +28,10 @@
 // Mdodulation Modes
 #include "utility-psk.h"
 
-struct Transmission {
-    enum class Type {
-        ERROR = 0,
-        APRS = 1,
-        AFSK = 2,
-        PSK = 3,
-        SSTV = 4,
-    };
-    Type type;
-    std::string wav_location;
-};
-
-
 /**
  * @brief This class is responsible for handling the radio
- * and transmitting data upon request.
- * @todo This is hardly implemented.
+ * and transmitting data upon request. Currently only supports PSK.
+ * @todo Two way communicaiton, AFSK, APRS, etc.
  */
 class TelemetryModule : public Module {
 public:
@@ -65,7 +52,6 @@ private:
     int getNextTXNumber();
 
     void addToTXQueue(Transmission transmission);
-    void getNextTXQueueItem();
 
     std::string generateAFSK(std::string message);
     std::string generatePSK(std::string message);
@@ -77,14 +63,13 @@ private:
     int tx_number_;
     std::string call_sign_;
 
-    std::mutex tx_queue_lock_;
-    std::queue<Transmission> tx_queue_;
-
     std::thread tx_thread_;
     std::atomic <int> stop_flag_;
 
     ConfigData config_data_;
     DataStream *p_data_stream_;
+
+    int psk_length_;
 };
 
 #endif

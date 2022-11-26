@@ -43,7 +43,8 @@ class PSK {
 
         bool encodeTextData(std::string message);
         bool encodeRawData(unsigned char *data, int length);
-        void dumpBitStream();
+        //void dumpBitStream();
+        int getLength();
         
 
     private:
@@ -119,6 +120,8 @@ class PSK {
         
         int last_bit_ = 0;
         unsigned char conv_code_buffer_ = 0;
+
+        long int num_samples_ = 0;
 };
 
 #endif // UTILITY_PSK_H_

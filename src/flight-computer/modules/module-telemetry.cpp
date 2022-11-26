@@ -4,7 +4,7 @@
  * @brief This fle implements the class TelemetryModule which is defined in
  * module-telemetry.h.
  * 
- * @version 0.0.9
+ * @version 0.1.0
  * @date 2022-10-11
  * @copyright Copyright (c) 2022
  */
@@ -70,13 +70,23 @@ void TelemetryModule::stop() {
  */
 void TelemetryModule::sendDataPacket() {
     DataFrame data = p_data_stream_->getDataFrameCopy();
-    std::string message = call_sign_;
+    std::string message;
+    message += "\n\n" + call_sign_ + "\n";
+    message += "automated message - data to follow\n";
     for (const auto & [ unit, packet ] : data) {
         message += unit + ":" + packet.value + "\n";
     }
+    message += call_sign_ + "\n";
+    message.push_back((char) 4); // End of Transmission
+
+    std::string message_lower;
+    for(auto c : message)
+        message_lower.push_back(std::tolower(c));
+
     Transmission newTX;
     newTX.type = Transmission::Type::PSK;
-    newTX.wav_location = generatePSK(message);
+    newTX.wav_location = generatePSK(message_lower);
+    newTX.length = psk_length_;
     addToTXQueue(newTX);
 }
 
@@ -89,7 +99,7 @@ void TelemetryModule::sendAFSK(std::string message){
     Transmission newTX;
     newTX.type = Transmission::Type::AFSK;
     newTX.wav_location = generateAFSK(message);
-    addToTXQueue(newTX);
+   // addToTXQueue(newTX);
 }
 
 /**
@@ -105,7 +115,7 @@ void TelemetryModule::sendAPRS() {
     Transmission newTX;
     newTX.type = Transmission::Type::APRS;
     newTX.wav_location = generateAPRS();
-    addToTXQueue(newTX);
+    //addToTXQueue(newTX);
 }
 
 /**
@@ -117,7 +127,7 @@ void TelemetryModule::sendSSTVImage() {
     Transmission newTX;
     newTX.type = Transmission::Type::SSTV;
     //newTX.wav_location = generateSSTV();
-    addToTXQueue(newTX);
+    //addToTXQueue(newTX);
 }
 
 void TelemetryModule::error(std::string error_code, std::string info) {
@@ -151,14 +161,11 @@ void TelemetryModule::addToTXQueue(Transmission transmission) {
     std::ifstream fs(transmission.wav_location);
 	if (!fs.good()) {
         p_data_stream_->addError("M_TEL", "BAD_TX_FILE",
-        "Attempted to add a transmission with a bad wav file to the transmit"
-        " queue: " + transmission.wav_location, 10);
+        transmission.wav_location, 10);
         return;
     }
 
-    tx_queue_lock_.lock();
-    tx_queue_.push(transmission);
-    tx_queue_lock_.unlock();
+    p_data_stream_->addToTxQueue(transmission);
 }
 
 /**
@@ -203,6 +210,7 @@ std::string TelemetryModule::generatePSK(std::string message) {
 
     PSK psk = PSK(file_path, mode, symbol_rate);
     if (psk.encodeTextData(message)) {
+        psk_length_ = psk.getLength();
         return file_path;
     } else {
         error("PSK_E", "Failed to encode PSK data.");
@@ -220,59 +228,49 @@ std::string TelemetryModule::generateSSTV() {
 
 void TelemetryModule::runner() {
     while (!stop_flag_) {
-        tx_queue_lock_.lock();
-        int queue_size = tx_queue_.size();
-        tx_queue_lock_.unlock();
+        int queue_size = p_data_stream_->getTXQueueSize();
         p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
         "TXQ_SZ", std::to_string(queue_size), 100);
         if (queue_size > 0) {
-            tx_queue_lock_.lock();
-            Transmission tx = tx_queue_.front();
-            std::string command = "aplay " + tx.wav_location;
-            tx_queue_.pop();
-            tx_queue_lock_.unlock();
+            Transmission tx = p_data_stream_->getNextTX();
+            std::string tx_length = std::to_string(tx.length);
+            std::string command = "aplay " + tx.wav_location + ">nul 2>nul"; // supress output
             switch (tx.type) {
                 case Transmission::Type::AFSK:
-                    std::cout << "AFSK TX" << std::endl;
                     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
                         "ACTIVE_TX",
-                        "AFSK", 
-                        100);
+                        "AFSK"+ tx_length, 
+                        tx.length);
                     //txAFSK(tx.wav_location);
                     std::this_thread::sleep_for(std::chrono::seconds(2));
                     break;
                 case Transmission::Type::APRS:
-                    std::cout << "APRS TX" << std::endl;
                     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
                         "ACTIVE_TX",
-                        "APRS", 
-                        100);
+                        "APRS" + tx_length, 
+                        tx.length);
                     std::this_thread::sleep_for(std::chrono::seconds(2));
                     //txAPRS(tx.wav_location);
                     break;
                 case Transmission::Type::SSTV:
-                    std::cout << "SSTV TX" << std::endl;
                     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
-                        "ACTIVE_TX",
-                        "SSTV", 
-                        100);
+                        "ACTIVE_TX" + tx_length,
+                        "SSTV" + tx_length, 
+                        tx.length);
                     std::this_thread::sleep_for(std::chrono::seconds(2));
                     //p_data_stream_->addLog("M_TEL", "SSTV_TX",
                     //    "Sent SSTV transmission.", 10);
                     //txSSTV(tx.wav_location);
                     break;
                 case Transmission::Type::PSK:
-                    std::cout << "PSK TX" << std::endl;
                     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
                         "ACTIVE_TX",
-                        "PSK", 
-                        100);
+                        "PSK" + tx_length, 
+                        tx.length);
                     system(command.c_str());
-                    //txPSK(tx.wav_location);
                     break;
                 default:
                     p_data_stream_->addError(error_source_, "BAD_TX_TYPE",
-                    "Attempted to play a transmission with an unknown type." + 
                     std::to_string((int) tx.type), 0);
                     break;
             }

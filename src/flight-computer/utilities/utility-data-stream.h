@@ -87,6 +87,11 @@ public:
     int getTotalDataPackets();
     int getTotalErrorPackets();
 
+    void addToTxQueue(Transmission tx);
+    Transmission getNextTX();
+    int getTXQueueSize();
+    int getTotalTx();
+
 private:
     int num_data_packets_;
     int total_data_packets_;
@@ -109,6 +114,9 @@ private:
 
     std::mutex flight_procedure_lock_;
     FlightProcedure flight_procedure_;
+
+    std::mutex tx_queue_lock_;
+    std::queue<Transmission> tx_queue_;
 };
 
 #endif // UTILITY_DATA_STREAM_H_

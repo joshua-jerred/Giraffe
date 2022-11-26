@@ -161,4 +161,20 @@ struct ConfigData {
     Procs flight_procs;
 };
 
+/**
+ * @brief Used by the telemetry module in it's queue and by the data stream.
+ */
+struct Transmission {
+    enum class Type {
+        ERROR = 0,
+        APRS = 1,
+        AFSK = 2,
+        PSK = 3,
+        SSTV = 4,
+    };
+    Type type = Type::ERROR;
+    std::string wav_location = "";
+    int length = 0; // Length in seconds
+};
+
 #endif

@@ -1,5 +1,7 @@
 #include "module-server.h"
 
+#include <iostream>
+
 ServerModule::ServerModule(const ConfigData config_data,
 													 DataStream *data_stream) {
 	config_data_ = config_data;
@@ -32,11 +34,11 @@ int ServerModule::checkShutdown() {
 }
 
 void ServerModule::runner() {
-	ServerSocket server_socket(MODULE_SERVER_PORT, 1);  // Create non-blocking socket
+	ServerSocket server_socket(MODULE_SERVER_PORT, 0);  // Create blocking
+	int empty_request_count = 0;
 	while (!stop_flag_) {
 		std::this_thread::sleep_for(std::chrono::milliseconds(50));
 		try {
-			
 			ServerSocket new_sock;  // Create a new socket for the connection
 			server_socket.accept(new_sock);
 
@@ -47,6 +49,7 @@ void ServerModule::runner() {
 				std::this_thread::sleep_for(std::chrono::milliseconds(50));
 				std::string request;
 				new_sock >> request;  // Read the request from the client
+
 				if (request == "static") {
 					sendStaticData(new_sock);
 				} else if (request == "dynamic") {
@@ -87,6 +90,7 @@ void ServerModule::runner() {
 						"UNKNOWN_REQUEST", 
 						0
 						);
+					break;
 				}
 			}
 

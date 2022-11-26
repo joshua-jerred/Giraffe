@@ -451,6 +451,10 @@ bool PSK::encodeRawData(unsigned char *data, int length) {
     return true;
 }
 
+int PSK::getLength() {
+    return num_samples_ / sample_rate_;
+}
+
 /*
 void PSK::dumpBitStream() {
     std::cout << "Bitstream:" << std::endl;
@@ -765,7 +769,7 @@ void PSK::addSymbol(double shift, int filter_end) {
     const double power = 2.0;
     const double roll_off = 2.9;
     const double amplitude = .5;
-
+    num_samples_ += samples_per_symbol_;
     double time = 0 - (samples_per_symbol_ / 2);
     for (int i = 0; i < samples_per_symbol_; i++) {
         double unfiltered = std::cos(carrier_wave_angle_ + shift);

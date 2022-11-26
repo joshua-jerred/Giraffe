@@ -73,8 +73,8 @@
 
         "psk-enabled":true,
         "psk-frequency": "100.000",
-        "psk-mode": "BPSK",
-        "psk-symbol-rate": 125
+        "psk-mode": "bpsk",
+        "psk-symbol-rate": "250"
     },
     
     "data": [

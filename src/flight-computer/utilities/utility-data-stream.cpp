@@ -112,6 +112,31 @@ void DataStream::updateFlightProcedure(FlightProcedure flight_procedure) {
 	flight_procedure_lock_.unlock();
 }
 
+void DataStream::addToTxQueue(Transmission tx) {
+	tx_queue_lock_.lock();
+	tx_queue_.push(tx);
+	tx_queue_lock_.unlock();
+}
+
+Transmission DataStream::getNextTX() {
+	Transmission tx;
+	tx_queue_lock_.lock();
+	if (!tx_queue_.empty()) {
+		tx = tx_queue_.front();
+		tx_queue_.pop();
+	}
+	tx_queue_lock_.unlock();
+	return tx;
+}
+
+int DataStream::getTXQueueSize() {
+	int size;
+	tx_queue_lock_.lock();
+	size = tx_queue_.size();
+	tx_queue_lock_.unlock();
+	return size;
+}
+
 /**
  * @brief Returns the next data packet. Thread safe.
  * @param None
