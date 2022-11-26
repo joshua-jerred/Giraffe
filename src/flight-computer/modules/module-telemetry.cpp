@@ -25,6 +25,8 @@ TelemetryModule::TelemetryModule(ConfigData config_data, DataStream *data_stream
     p_data_stream_ = data_stream;
 
     tx_number_ = 1;
+
+    call_sign_ = config_data_.telemetry.call_sign;
 }
 
 /**
@@ -61,20 +63,20 @@ void TelemetryModule::stop() {
 }
 
 /**
- * @brief Adds AX.25 encoded AFSK packets to the telemetry queue.
+ * @brief Currently implemented with PSK
  * @param None
  * @return Void
  * @todo implement this.
  */
 void TelemetryModule::sendDataPacket() {
     DataFrame data = p_data_stream_->getDataFrameCopy();
-    std::string message;
+    std::string message = call_sign_;
     for (const auto & [ unit, packet ] : data) {
-        message += unit + ":" + packet.value + ";";
+        message += unit + ":" + packet.value + "\n";
     }
     Transmission newTX;
-    newTX.type = Transmission::Type::AFSK;
-    newTX.wav_location = generateAFSK(message);
+    newTX.type = Transmission::Type::PSK;
+    newTX.wav_location = generatePSK(message);
     addToTXQueue(newTX);
 }
 
@@ -118,6 +120,10 @@ void TelemetryModule::sendSSTVImage() {
     addToTXQueue(newTX);
 }
 
+void TelemetryModule::error(std::string error_code, std::string info) {
+	p_data_stream_->addError(error_source_, error_code, info, 0);
+}
+
 /**
  * @brief Incremented the tx number and returns the new value.
  * @return int 
@@ -138,19 +144,17 @@ int TelemetryModule::getNextTXNumber() {
  */
 void TelemetryModule::addToTXQueue(Transmission transmission) {
     if (transmission.type == Transmission::Type::ERROR) {
-        p_data_stream_->addError("M_TEL", "BAD_TX_TYPE",
-        "Attempted to add a transmission with an unknown type to the transmit"
-        "queue.", 10);
+        error("BAD_TX_TYPE", "");
         return;
     }
     // This will be enabled once file generation is implemented.
-    //std::ifstream fs(transmission.wav_location);
-	//if (!fs.good()) {
-    //    p_data_stream_->addError("M_TEL", "BAD_TX_FILE",
-    //    "Attempted to add a transmission with a bad wav file to the transmit"
-    //    "queue.", 10);
-    //    return;
-    //}
+    std::ifstream fs(transmission.wav_location);
+	if (!fs.good()) {
+        p_data_stream_->addError("M_TEL", "BAD_TX_FILE",
+        "Attempted to add a transmission with a bad wav file to the transmit"
+        " queue: " + transmission.wav_location, 10);
+        return;
+    }
 
     tx_queue_lock_.lock();
     tx_queue_.push(transmission);
@@ -165,6 +169,45 @@ void TelemetryModule::addToTXQueue(Transmission transmission) {
  */
 std::string TelemetryModule::generateAFSK(std::string message) {
     return "not-implemented.wav";
+}
+
+std::string TelemetryModule::generatePSK(std::string message) {
+    std::string file_path = TELEMETRY_WAV_LOCATION + (std::string) "psk-" + std::to_string(getNextTXNumber()) + ".wav";
+    
+    PSK::Mode mode;
+    PSK::SymbolRate symbol_rate;
+
+    std::string requested_mode = config_data_.telemetry.psk_mode;
+
+    if (requested_mode == "bpsk") {
+        mode = PSK::BPSK;
+    } else if (requested_mode == "qpsk") {
+        mode = PSK::QPSK;
+    } else {
+        error("PSK_M", requested_mode);
+        mode = PSK::BPSK; // Default to BPSK
+    }
+
+    std::string requested_symbol_rate = config_data_.telemetry.psk_symbol_rate;
+
+    if (requested_symbol_rate == "125") {
+        symbol_rate = PSK::S125;
+    } else if (requested_symbol_rate == "250") {
+        symbol_rate = PSK::S250;
+    } else if (requested_symbol_rate == "500") {
+        symbol_rate = PSK::S500;
+    } else {
+        error("PSK_S", requested_symbol_rate);
+        symbol_rate = PSK::S125; // Default to 125
+    }
+
+    PSK psk = PSK(file_path, mode, symbol_rate);
+    if (psk.encodeTextData(message)) {
+        return file_path;
+    } else {
+        error("PSK_E", "Failed to encode PSK data.");
+        return "";
+    }
 }
 
 std::string TelemetryModule::generateAPRS() {
@@ -185,6 +228,7 @@ void TelemetryModule::runner() {
         if (queue_size > 0) {
             tx_queue_lock_.lock();
             Transmission tx = tx_queue_.front();
+            std::string command = "aplay " + tx.wav_location;
             tx_queue_.pop();
             tx_queue_lock_.unlock();
             switch (tx.type) {
@@ -195,7 +239,7 @@ void TelemetryModule::runner() {
                         "AFSK", 
                         100);
                     //txAFSK(tx.wav_location);
-                    std::this_thread::sleep_for(std::chrono::seconds(10));
+                    std::this_thread::sleep_for(std::chrono::seconds(2));
                     break;
                 case Transmission::Type::APRS:
                     std::cout << "APRS TX" << std::endl;
@@ -203,7 +247,7 @@ void TelemetryModule::runner() {
                         "ACTIVE_TX",
                         "APRS", 
                         100);
-                    std::this_thread::sleep_for(std::chrono::seconds(10));
+                    std::this_thread::sleep_for(std::chrono::seconds(2));
                     //txAPRS(tx.wav_location);
                     break;
                 case Transmission::Type::SSTV:
@@ -212,15 +256,24 @@ void TelemetryModule::runner() {
                         "ACTIVE_TX",
                         "SSTV", 
                         100);
-                    std::this_thread::sleep_for(std::chrono::seconds(45));
+                    std::this_thread::sleep_for(std::chrono::seconds(2));
                     //p_data_stream_->addLog("M_TEL", "SSTV_TX",
                     //    "Sent SSTV transmission.", 10);
                     //txSSTV(tx.wav_location);
                     break;
+                case Transmission::Type::PSK:
+                    std::cout << "PSK TX" << std::endl;
+                    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
+                        "ACTIVE_TX",
+                        "PSK", 
+                        100);
+                    system(command.c_str());
+                    //txPSK(tx.wav_location);
+                    break;
                 default:
                     p_data_stream_->addError(error_source_, "BAD_TX_TYPE",
-                    "Attempted to play a transmission with an unknown type.", 
-                    0);
+                    "Attempted to play a transmission with an unknown type." + 
+                    std::to_string((int) tx.type), 0);
                     break;
             }
             p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 

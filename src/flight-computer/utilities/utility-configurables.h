@@ -43,7 +43,7 @@
 // ---------------------------------------- //
 
 // ------- Error Prefixes ------- //
-#define MODULE_CONFIG_PREFIX "M_CFG"
+#define MODULE_CONFIG_PREFIX "CG_"
 #define MODULE_DATA_PREFIX "M_DAT"
 #define MODULE_TELEMETRY_PREFIX "M_TEL"
 #define MODULE_SERVER_PREFIX "M_SRV"
@@ -65,5 +65,7 @@
 
 #define ONE_WIRE_LOCATION "/sys/bus/w1/devices/"
 #define ONE_WIRE_FILE "/w1_slave"
+
+#define TELEMETRY_WAV_LOCATION "./telem/" /** @todo look into moving this to ram disk */
 
 #endif

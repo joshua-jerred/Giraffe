@@ -141,7 +141,7 @@ TEST_F(Configuration_Module_1, TelemetrySection) {
 
     EXPECT_EQ(1 , telemetry.telemetry_enabled)
         << "Telemetry enabled is incorrect";
-    EXPECT_EQ("TESTCALL", telemetry.callsign)
+    EXPECT_EQ("TESTCALL", telemetry.call_sign)
         << "Callsign is incorrect";
 
     EXPECT_EQ(1, telemetry.aprs_enabled)

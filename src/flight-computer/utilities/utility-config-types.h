@@ -115,10 +115,15 @@ struct ConfigData {
     struct Telemetry {
         int telemetry_enabled = 0;
 
-        std::string callsign {};
+        std::string call_sign {};
 
         int afsk_enabled = 0;
         std::string afsk_freq {};
+
+        int psk_enabled = 0;
+        std::string psk_freq {};
+        std::string psk_mode {};
+        std::string psk_symbol_rate{};
 
         int sstv_enabled = 0;
         std::string sstv_freq {};

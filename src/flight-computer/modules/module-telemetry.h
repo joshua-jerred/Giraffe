@@ -25,12 +25,16 @@
 #include "utility-configurables.h"
 #include "utility-config-types.h"
 
+// Mdodulation Modes
+#include "utility-psk.h"
+
 struct Transmission {
     enum class Type {
         ERROR = 0,
         APRS = 1,
         AFSK = 2,
-        SSTV = 3,
+        PSK = 3,
+        SSTV = 4,
     };
     Type type;
     std::string wav_location;
@@ -52,22 +56,26 @@ public:
 
     void sendDataPacket();
     void sendAFSK(std::string message);
+    void sendPSK(std::string message);
     void sendAPRS();
     void sendSSTVImage();
 
 private:
+    void error(std::string error_code, std::string error_info);
     int getNextTXNumber();
 
     void addToTXQueue(Transmission transmission);
     void getNextTXQueueItem();
 
     std::string generateAFSK(std::string message);
+    std::string generatePSK(std::string message);
     std::string generateAPRS();
     std::string generateSSTV();
 
     void runner();
     
     int tx_number_;
+    std::string call_sign_;
 
     std::mutex tx_queue_lock_;
     std::queue<Transmission> tx_queue_;

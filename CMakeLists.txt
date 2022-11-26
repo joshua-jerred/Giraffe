@@ -32,6 +32,7 @@ add_executable(giraffe-flight-software
     src/flight-computer/utilities/utility-socket.cpp
     src/flight-computer/utilities/utility-i2c.cpp
     src/flight-computer/utilities/utility-one-wire.cpp
+    src/flight-computer/utilities/utility-psk.cpp
 
     src/flight-computer/extensions/extension.cpp
     src/flight-computer/extensions/simulated-extensions.cpp
@@ -51,6 +52,7 @@ file(COPY "src/flight-computer/config.json" DESTINATION ${CMAKE_CURRENT_BINARY_D
 file(COPY "src/flight-computer/web-server" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin/)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/data_logs)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/error_logs)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/telem)
 
 target_include_directories(giraffe-flight-software PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer

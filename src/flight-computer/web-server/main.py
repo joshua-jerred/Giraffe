@@ -190,6 +190,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
 def main():
     server = WebServer()
+    print("Starting server on port: " + str(server.server_port))
     server.start()
 
     #gfs = GFSData()

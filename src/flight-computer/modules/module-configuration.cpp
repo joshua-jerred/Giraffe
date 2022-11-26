@@ -346,7 +346,7 @@ void ConfigModule::parseTelemetry() {
 	if (callsign == "" || callsign == "NOCALL") {
 		//errors_.push_back("Your callsign is invalid.");
 	} else {
-		config_data_.telemetry.callsign = callsign;
+		config_data_.telemetry.call_sign = callsign;
 	}
 
 	int aprs_enabled = json_buffer_["telemetry"]["aprs-enabled"].get<bool>();
@@ -398,6 +398,38 @@ void ConfigModule::parseTelemetry() {
 
 		config_data_.telemetry.afsk_enabled = 1;
 		config_data_.telemetry.afsk_freq = afsk_frequency;
+	}
+
+	int psk_enabled = json_buffer_["telemetry"]["psk-enabled"].get<bool>();
+	config_data_.telemetry.psk_enabled = 0; // First disable
+
+	if (psk_enabled) {
+		std::string psk_frequency =
+			json_buffer_["telemetry"]["psk-frequency"].get<std::string>();
+		/** @todo Check if frequency is valid */
+
+		std::string psk_mode = "bpsk"; // Default
+		std::string psk_symbol_rate = "125"; // Default
+
+		try {
+			psk_mode = 
+				json_buffer_["telemetry"]["psk-mode"].get<std::string>();
+			if (psk_mode != "bpsk" && psk_mode != "bpsk") {
+				error("TL_PSK_M");
+			}
+
+			psk_symbol_rate = 
+				json_buffer_["telemetry"]["psk-symbol-rate"].get<std::string>();
+			if ((psk_symbol_rate != "125") && (psk_symbol_rate != "250")) {
+				error("TL_PSK_S");
+			}
+		} catch (std::exception &e) {
+			error("TL_PSK_F");
+		}
+		config_data_.telemetry.psk_enabled = 1;
+		config_data_.telemetry.psk_freq = psk_frequency;
+		config_data_.telemetry.psk_mode = psk_mode;
+		config_data_.telemetry.psk_symbol_rate = psk_symbol_rate;
 	}
 }
 
