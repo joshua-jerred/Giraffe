@@ -36,7 +36,7 @@ private:
     int update_interval_;
 
     ConfigData config_data_;
-    DataStream* data_stream_;
+    DataStream* p_data_stream_;
 
     std::thread runner_thread_;
     std::thread py_runner_thread_;

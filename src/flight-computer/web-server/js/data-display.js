@@ -62,13 +62,24 @@ function updateStatic(data) {
 }
 
 function updateDynamic(data) {
-    let staticData = document.getElementById('dynamic-data');
-    staticData.innerHTML = '';
-    for (let key in data) {
-        let value = data[key];
+    let dynamic = data['dynamic'];
+    let tx_queue = data['tx-queue'];
+
+    let html_div = document.getElementById('dynamic-data');
+    html_div.innerHTML = '';
+    for (let key in dynamic) {
+        let name = dynamic[key]['unit'];
+        let value = dynamic[key]['value'];
         let div = document.createElement('div');
-        div.innerHTML = key + ': ' + value;
-        staticData.appendChild(div);
+        div.innerHTML = name + ': ' + value;
+        html_div.appendChild(div);
+    }
+
+    let tx_queue_div = document.getElementById('tx-queue');
+    tx_queue_div.innerHTML = '';
+    for (let key in tx_queue) {
+        let file = tx_queue[key]['file'];
+        
     }
 }
 

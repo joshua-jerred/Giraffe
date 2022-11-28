@@ -87,6 +87,7 @@ public:
     int getTotalDataPackets();
     int getTotalErrorPackets();
 
+    std::queue<Transmission> getTXQueueCopy();
     void addToTxQueue(Transmission tx);
     Transmission getNextTX();
     int getTXQueueSize();
@@ -98,7 +99,6 @@ private:
 
     int num_error_packets_;
     int total_error_packets_;
-
 
     std::mutex data_stream_lock_;
     std::queue<DataStreamPacket> data_stream_;

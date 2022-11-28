@@ -112,6 +112,13 @@ void DataStream::updateFlightProcedure(FlightProcedure flight_procedure) {
 	flight_procedure_lock_.unlock();
 }
 
+std::queue<Transmission> DataStream::getTXQueueCopy() {
+	tx_queue_lock_.lock();
+	std::queue<Transmission> copy(tx_queue_);
+	tx_queue_lock_.unlock();
+	return copy;
+}
+
 void DataStream::addToTxQueue(Transmission tx) {
 	tx_queue_lock_.lock();
 	tx_queue_.push(tx);

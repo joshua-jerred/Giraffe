@@ -6,7 +6,7 @@ ServerModule::ServerModule(const ConfigData config_data,
 													 DataStream *data_stream) {
 	config_data_ = config_data;
 	update_interval_ = config_data.debug.web_server_update_interval;
-	data_stream_ = data_stream;
+	p_data_stream_ = data_stream;
 	gfs_shutdown_flag_ = 0;
 }
 
@@ -42,7 +42,7 @@ void ServerModule::runner() {
 			ServerSocket new_sock;  // Create a new socket for the connection
 			server_socket.accept(new_sock);
 
-			data_stream_->addData(
+			p_data_stream_->addData(
 				MODULE_SERVER_PREFIX, "SOCKET", "CONNECTED", 0);
 			
 			while (!stop_flag_) {
@@ -55,7 +55,7 @@ void ServerModule::runner() {
 				} else if (request == "dynamic") {
 					sendDynamicData(new_sock);
 				} else if (request == "shutdownServer") {
-					data_stream_->addData(
+					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
 						"SHUTDOWN", 
@@ -65,7 +65,7 @@ void ServerModule::runner() {
 					stop_flag_ = 1;
 					return;
 				} else if (request == "shutdownGFS") {
-					data_stream_->addData(
+					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
 						"SHUTDOWN_GFS", 
@@ -76,7 +76,7 @@ void ServerModule::runner() {
 					gfs_shutdown_flag_ = 1;
 					return;
 				} else if (request == "DISCONNECT") {
-					data_stream_->addData(
+					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
 						"DISCONNECTED", 
@@ -84,7 +84,7 @@ void ServerModule::runner() {
 						);
 					break;
 				} else {
-					data_stream_->addData(
+					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
 						"UNKNOWN_REQUEST", 
@@ -95,7 +95,7 @@ void ServerModule::runner() {
 			}
 
 		} catch (SocketException &e) {
-			data_stream_->addError(MODULE_SERVER_PREFIX, "Socket Creation",
+			p_data_stream_->addError(MODULE_SERVER_PREFIX, "Socket Creation",
 										e.description(), update_interval_);
 		}
 	}
@@ -128,7 +128,7 @@ void ServerModule::sendStaticData(ServerSocket &socket) {
 
 void ServerModule::sendDynamicData(ServerSocket &socket) {
 	try {
-		DataFrame snapshot = data_stream_->getDataFrameCopy();
+		DataFrame snapshot = p_data_stream_->getDataFrameCopy();
 		json data;
 		int i = 0;
 		for (auto const &[key, packet] : snapshot) {
@@ -136,11 +136,29 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 				{"source", packet.source},
 				{"unit", packet.unit},
 				{"value", packet.value}
-				};
+			};
 		}
-		socket << data.dump();  // Send the data
+
+		std::queue<Transmission> tx_queue = p_data_stream_->getTXQueueCopy();
+		json tx_queue_json = {};
+		int j = 0;
+		while (!tx_queue.empty()) {
+			Transmission tx = tx_queue.front();
+			tx_queue_json[std::to_string(j++)] = {
+				{"file", tx.wav_location},
+				{"type", tx.type},
+				{"duration", tx.length}
+			};
+		}
+
+		json dynamic_data = {
+			{"dynamic", data},
+			{"tx-queue", tx_queue_json}
+		};
+
+		socket << dynamic_data.dump();  // Send the data
 	} catch (SocketException &e) {
-		data_stream_->addError(MODULE_SERVER_PREFIX, "Dynamic",
+		p_data_stream_->addError(MODULE_SERVER_PREFIX, "Dynamic",
 			e.description(), update_interval_);
 	}
 }
