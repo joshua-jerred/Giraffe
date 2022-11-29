@@ -59,6 +59,7 @@ void TelemetryModule::stop() {
     stop_flag_ = 1;
     if (tx_thread_.joinable()) {
         tx_thread_.join();
+        module_status_ = ModuleStatus::STOPPED;
     }
 }
 
@@ -227,6 +228,7 @@ std::string TelemetryModule::generateSSTV() {
 }
 
 void TelemetryModule::runner() {
+    module_status_ = ModuleStatus::RUNNING;
     while (!stop_flag_) {
         int queue_size = p_data_stream_->getTXQueueSize();
 
@@ -272,12 +274,32 @@ void TelemetryModule::runner() {
 }
 
 void TelemetryModule::playWav(std::string wav_location, std::string tx_type, int tx_length) {
-    std::string command = "aplay " + wav_location + ">nul 2>nul"; // command to play with aplay supress output
+    std::string command = "aplay " + wav_location + " >nul 2>nul"; // command to play with aplay supress output
 
     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
         "ACTIVE_TX",
         tx_type + std::to_string(tx_length), 
         tx_length);
 
-    system(command.c_str());
+    /**
+     * @details aplay seems to return 0 when it's done playing, 256 when
+     * the file doesn't exist, and 2 when it was interrupted (ctrl+c).
+     * 
+     * This allows me to stop a transmission early if needed and provides
+     * time to exit GFS with another ctrl+c.
+     * 
+     * This is deffinetly a bit of a hack but it gives the functionality
+     * that I'm looking for. Eventually this could be replaced with popen
+     * or a built in library for playing the wav files. I have had no issues
+     * with this *so far*.
+     */
+    int exit_code = system(command.c_str());
+    if (exit_code == 2) {
+        std::cout << "Stopping Transmission Early - CTRL+C to exit GFS" << std::endl;
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(1000) // Delay for 1 second
+        );
+    } else if (exit_code != 0) {
+        error("APLAY_EXIT_CODE_" + std::to_string(exit_code), wav_location);
+    }
 }

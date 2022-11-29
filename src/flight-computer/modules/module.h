@@ -22,7 +22,8 @@ enum class ModuleStatus {
     STOPPED=0,
     STARTING=1,
     RUNNING=2,
-    ERROR_STATE=3 
+    STOPPING=3,
+    ERROR_STATE=4 
 };
 
 /**

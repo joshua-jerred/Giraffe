@@ -10,8 +10,8 @@ ServerModule::ServerModule(const ConfigData config_data,
 	gfs_shutdown_flag_ = 0;
 }
 
-ServerModule::~ServerModule() { 
-	stop(); 
+ServerModule::~ServerModule() {
+	stop();
 }
 
 void ServerModule::start() {
@@ -20,12 +20,13 @@ void ServerModule::start() {
 }
 
 void ServerModule::stop() {
-	if (status() == ModuleStatus::STOPPED) {
+	if (status() == ModuleStatus::STOPPED && !runner_thread_.joinable()) {
 		return;
 	}
 	stop_flag_ = 1;
 	if (runner_thread_.joinable()) {
 		runner_thread_.join();
+		module_status_ = ModuleStatus::STOPPED;
 	}
 }
 
@@ -34,8 +35,9 @@ int ServerModule::checkShutdown() {
 }
 
 void ServerModule::runner() {
-	ServerSocket server_socket(MODULE_SERVER_PORT, 0);  // Create blocking
+	ServerSocket server_socket(MODULE_SERVER_PORT, 1);  // Create non-blocking so it can be checked for shutdown
 	int empty_request_count = 0;
+	module_status_ = ModuleStatus::RUNNING;
 	while (!stop_flag_) {
 		try {
 			p_data_stream_->addData(
@@ -51,6 +53,14 @@ void ServerModule::runner() {
 				std::this_thread::sleep_for(std::chrono::milliseconds(50));
 				std::string request;
 				new_sock >> request;  // Read the request from the client
+
+				if (request.empty()) {
+					empty_request_count++;
+					if (empty_request_count > 10) { // If there are 10 empty requests in a row, assume the client has disconnected
+						break;
+					}
+					continue;
+				}
 
 				if (request == "static") {
 					sendStaticData(new_sock);
