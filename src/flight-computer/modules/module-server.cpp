@@ -37,8 +37,10 @@ void ServerModule::runner() {
 	ServerSocket server_socket(MODULE_SERVER_PORT, 0);  // Create blocking
 	int empty_request_count = 0;
 	while (!stop_flag_) {
-		std::this_thread::sleep_for(std::chrono::milliseconds(50));
 		try {
+			p_data_stream_->addData(
+				MODULE_SERVER_PREFIX, "SOCKET", "WAITING", 0);
+
 			ServerSocket new_sock;  // Create a new socket for the connection
 			server_socket.accept(new_sock);
 
@@ -98,6 +100,8 @@ void ServerModule::runner() {
 			p_data_stream_->addError(MODULE_SERVER_PREFIX, "Socket Creation",
 										e.description(), update_interval_);
 		}
+		
+		std::this_thread::sleep_for(std::chrono::milliseconds(50));
 	}
 	return;
 }
@@ -139,17 +143,20 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 			};
 		}
 
-		std::queue<Transmission> tx_queue = p_data_stream_->getTXQueueCopy();
 		json tx_queue_json = {};
+		p_data_stream_->lockTXQueue();
+		std::queue<Transmission> queue = p_data_stream_->getTXQueue();
 		int j = 0;
-		while (!tx_queue.empty()) {
-			Transmission tx = tx_queue.front();
+		while (!queue.empty()) {
+			Transmission tx = queue.front();
+			queue.pop();
 			tx_queue_json[std::to_string(j++)] = {
 				{"file", tx.wav_location},
 				{"type", tx.type},
 				{"duration", tx.length}
 			};
 		}
+		p_data_stream_->unlockTXQueue();
 
 		json dynamic_data = {
 			{"dynamic", data},

@@ -59,6 +59,8 @@ private:
     std::string generateSSTV();
 
     void runner();
+    void playWav(std::string wav_location, std::string tx_type, int tx_length);
+    std::thread aplay_thread_;
     
     int tx_number_;
     std::string call_sign_;

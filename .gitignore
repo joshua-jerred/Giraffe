@@ -5,6 +5,7 @@
 
 # CMake Build Files
 build
+bin
 
 # Doxygen output files, these can be user generated.
 docs/Doxygen/output

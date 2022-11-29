@@ -77,7 +77,7 @@ void TelemetryModule::sendDataPacket() {
         message += unit + ":" + packet.value + "\n";
     }
     message += call_sign_ + "\n";
-    message.push_back((char) 4); // End of Transmission
+    message.push_back((char) 4); // End of Transmission character
 
     std::string message_lower;
     for(auto c : message)
@@ -229,51 +229,37 @@ std::string TelemetryModule::generateSSTV() {
 void TelemetryModule::runner() {
     while (!stop_flag_) {
         int queue_size = p_data_stream_->getTXQueueSize();
+
         p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
         "TXQ_SZ", std::to_string(queue_size), 100);
+
         if (queue_size > 0) {
+
             Transmission tx = p_data_stream_->getNextTX();
             std::string tx_length = std::to_string(tx.length);
-            std::string command = "aplay " + tx.wav_location + ">nul 2>nul"; // supress output
+
             switch (tx.type) {
                 case Transmission::Type::AFSK:
-                    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
-                        "ACTIVE_TX",
-                        "AFSK"+ tx_length, 
-                        tx.length);
-                    //txAFSK(tx.wav_location);
-                    std::this_thread::sleep_for(std::chrono::seconds(2));
+
+                    std::this_thread::sleep_for(std::chrono::seconds(2)); // Will be removed once implemented
                     break;
                 case Transmission::Type::APRS:
-                    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
-                        "ACTIVE_TX",
-                        "APRS" + tx_length, 
-                        tx.length);
-                    std::this_thread::sleep_for(std::chrono::seconds(2));
-                    //txAPRS(tx.wav_location);
+ 
+                    std::this_thread::sleep_for(std::chrono::seconds(2)); // Will be removed once implemented
                     break;
                 case Transmission::Type::SSTV:
-                    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
-                        "ACTIVE_TX" + tx_length,
-                        "SSTV" + tx_length, 
-                        tx.length);
-                    std::this_thread::sleep_for(std::chrono::seconds(2));
-                    //p_data_stream_->addLog("M_TEL", "SSTV_TX",
-                    //    "Sent SSTV transmission.", 10);
-                    //txSSTV(tx.wav_location);
+
+                    std::this_thread::sleep_for(std::chrono::seconds(2)); // Will be removed once implemented
                     break;
                 case Transmission::Type::PSK:
-                    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
-                        "ACTIVE_TX",
-                        "PSK" + tx_length, 
-                        tx.length);
-                    system(command.c_str());
+                    playWav(tx.wav_location, "PSK", tx.length);
                     break;
                 default:
                     p_data_stream_->addError(error_source_, "BAD_TX_TYPE",
                     std::to_string((int) tx.type), 0);
                     break;
             }
+            
             p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
                 "ACTIVE_TX",
                 "NONE", 
@@ -281,6 +267,17 @@ void TelemetryModule::runner() {
         }
         std::this_thread::sleep_for(
             std::chrono::milliseconds(TELEMETRY_INTERVAL_MILI_SECONDS)
-            );
+        );
     }
+}
+
+void TelemetryModule::playWav(std::string wav_location, std::string tx_type, int tx_length) {
+    std::string command = "aplay " + wav_location + ">nul 2>nul"; // command to play with aplay supress output
+
+    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
+        "ACTIVE_TX",
+        tx_type + std::to_string(tx_length), 
+        tx_length);
+
+    system(command.c_str());
 }

@@ -5,8 +5,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-omit-frame-pointer")
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
 
 include(FetchContent) # for gtest and nlohmann_json
 
@@ -48,11 +48,11 @@ target_link_libraries(giraffe-flight-software PUBLIC i2c)
 
 target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
 
-file(COPY "src/flight-computer/config.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
-file(COPY "src/flight-computer/web-server" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin/)
-file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/data_logs)
-file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/error_logs)
-file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/telem)
+file(COPY "src/flight-computer/config.json" DESTINATION ${CMAKE_SOURCE_DIR}/bin)
+file(COPY "src/flight-computer/web-server" DESTINATION ${CMAKE_SOURCE_DIR}/bin)
+file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/data_logs)
+file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/error_logs)
+file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/telem)
 
 target_include_directories(giraffe-flight-software PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer
@@ -76,7 +76,7 @@ add_executable(test-01
     tests/test-01/test.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
 )
-set_target_properties( test-01 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/tests/test-01/ )
+set_target_properties( test-01 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-01/ )
 target_include_directories(test-01 PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/modules
@@ -90,7 +90,7 @@ add_executable(test-02
     src/flight-computer/modules/module-configuration.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
 )
-set_target_properties( test-02 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/tests/test-02/ )
+set_target_properties( test-02 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-02/ )
 target_include_directories(test-02 PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/modules
@@ -98,7 +98,7 @@ target_include_directories(test-02 PUBLIC
 )
 target_link_libraries(test-02 gtest_main)
 target_link_libraries(test-02 nlohmann_json::nlohmann_json)
-file(COPY "tests/test-02/input-1.json" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin/tests/test-02)
+file(COPY "tests/test-02/input-1.json" DESTINATION ${CMAKE_SOURCE_DIR}/bin/tests/test-02)
 
 # test-03 - Data Module
 add_executable(test-03 
@@ -106,7 +106,7 @@ add_executable(test-03
     src/flight-computer/modules/module-data.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
 )
-set_target_properties( test-03 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/tests/test-03/ )
+set_target_properties( test-03 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-03/ )
 target_include_directories(test-03 PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/modules
@@ -127,7 +127,7 @@ add_executable(test-04
     src/flight-computer/utilities/utility-one-wire.cpp
 )
 target_link_libraries(test-04 i2c)
-set_target_properties( test-04 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin/tests/test-04/ )
+set_target_properties( test-04 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-04/ )
 target_include_directories(test-04 PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/modules

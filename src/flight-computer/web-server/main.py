@@ -48,7 +48,7 @@ class GFSData:
         message = ""
         self.dynamic_data = {}
         try:
-            data = self.client_socket.recv(1024).decode()  # receive response
+            data = self.client_socket.recv(5000).decode()  # receive response
             if len(data) > 0:
                 data = json.loads(data)
                 self.parse(data)

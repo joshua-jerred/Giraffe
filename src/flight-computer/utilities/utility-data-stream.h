@@ -87,7 +87,10 @@ public:
     int getTotalDataPackets();
     int getTotalErrorPackets();
 
-    std::queue<Transmission> getTXQueueCopy();
+    void lockTXQueue();
+    const std::queue<Transmission>& getTXQueue();
+    void unlockTXQueue();
+
     void addToTxQueue(Transmission tx);
     Transmission getNextTX();
     int getTXQueueSize();
