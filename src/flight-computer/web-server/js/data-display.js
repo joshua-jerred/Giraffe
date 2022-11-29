@@ -15,6 +15,12 @@ function stop() {
     clearTimeout(timer);
 }
 
+function failure() {
+    document.getElementById("connection-status").innerText = "GFS CONNECTION FAILED";
+    done = true;
+    clearTimeout(timer);
+}
+
 function pullStatic() {
     fetch('static-data.json', { headers: {'Cache-Control': 'no-cache'}})
         .then(function (response) {
@@ -62,6 +68,11 @@ function updateStatic(data) {
 }
 
 function updateDynamic(data) {
+    if (data['dynamic'] == 'failed') {
+        failure();
+        return;
+    }
+
     let dynamic = data['dynamic'];
     let tx_queue = data['tx-queue'];
 
@@ -79,7 +90,11 @@ function updateDynamic(data) {
     tx_queue_div.innerHTML = '';
     for (let key in tx_queue) {
         let file = tx_queue[key]['file'];
-        
+        let type = tx_queue[key]['type'];
+        let duration = tx_queue[key]['duration'];
+        let div = document.createElement('div');
+        div.innerHTML = file + ': ' + type + ' ' + duration + 's';
+        tx_queue_div.appendChild(div);
     }
 }
 

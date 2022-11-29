@@ -45,7 +45,6 @@ class GFSData:
         self.client_socket.close()
 
     def read(self):
-        message = ""
         self.dynamic_data = {}
         try:
             data = self.client_socket.recv(5000).decode()  # receive response
@@ -92,6 +91,8 @@ class GFSData:
     def getDynamicData(self):
         if (self.write("dynamic")) == 0:
             self.read()
+        else:
+            return {"dynamic": "failed"}
         return self.dynamic_data
 
 

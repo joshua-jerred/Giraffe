@@ -66,7 +66,7 @@ private:
     std::string call_sign_;
 
     std::thread tx_thread_;
-    std::atomic <int> stop_flag_;
+    std::atomic<int> stop_flag_;
 
     ConfigData config_data_;
     DataStream *p_data_stream_;
