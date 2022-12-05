@@ -30,7 +30,10 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      "lib_symbol_issues|1066800|685800|850084c6-7341-4fd2-97fe-ed9447edd0d7|00000000-0000-0000-0000-000000000000",
+      "lib_symbol_issues|901700|1003300|3f473ed4-43f1-4aaa-baae-78a85659fde0|00000000-0000-0000-0000-000000000000"
+    ],
     "meta": {
       "version": 0
     },
@@ -335,7 +338,7 @@
     ],
     [
       "a5ebbde3-2079-4622-b5d2-f52fa65945fc",
-      "SAM-M8Q"
+      "SAM-M8Q (I2C)"
     ]
   ],
   "text_variables": {}
