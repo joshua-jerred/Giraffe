@@ -2211,9 +2211,6 @@
     (path "/dc3f6253-a23b-450c-97ae-8eee72dbc763/6e5a61e1-5317-46ae-a00c-ab0d27049012"
       (reference "#PWR0123") (unit 1) (value "+3V3") (footprint "")
     )
-    (path "/dc3f6253-a23b-450c-97ae-8eee72dbc763/4c7352d8-b051-4aa1-988b-217606d10ec1"
-      (reference "#PWR0124") (unit 1) (value "GND") (footprint "")
-    )
     (path "/dc3f6253-a23b-450c-97ae-8eee72dbc763/802e6ab1-38e0-4fb6-89ff-157bed763ddc"
       (reference "#PWR0125") (unit 1) (value "GND") (footprint "")
     )
@@ -2301,8 +2298,8 @@
     (path "/35f21095-0cbd-4f14-a876-82851c38dabf/fad664b4-73c8-4169-b9c2-ea23196010eb"
       (reference "#PWR0153") (unit 1) (value "VCC") (footprint "")
     )
-    (path "/dc3f6253-a23b-450c-97ae-8eee72dbc763/82d3c2be-2e4b-4ccb-9258-7626f20362f0"
-      (reference "AE1") (unit 1) (value "Antenna_Shield") (footprint "footprints:LINX_CONSMA001-G")
+    (path "/dc3f6253-a23b-450c-97ae-8eee72dbc763/750af2c3-b965-4dde-96c9-87ddc59c3b47"
+      (reference "AE1") (unit 1) (value "Antenna") (footprint "footprints:LINX_CONSMA001-G")
     )
     (path "/35f21095-0cbd-4f14-a876-82851c38dabf/92c33fee-1d40-451c-b75d-a75277165ea1"
       (reference "C1") (unit 1) (value "0.1uF") (footprint "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder")
@@ -2457,11 +2454,11 @@
     (path "/a5ebbde3-2079-4622-b5d2-f52fa65945fc/d13fd5fa-e01f-418c-9633-8117910083bb"
       (reference "U4") (unit 1) (value "SAM-M8Q") (footprint "RF_GPS:ublox_SAM-M8Q")
     )
-    (path "/35f21095-0cbd-4f14-a876-82851c38dabf/e1555c97-ec53-4134-bbf3-763da1b89424"
-      (reference "U5") (unit 1) (value "LD29150PTR") (footprint "PPAK_50PTR_STM")
-    )
     (path "/35f21095-0cbd-4f14-a876-82851c38dabf/42c090ed-0947-4eb2-b52b-10b4b38468b2"
       (reference "VR1") (unit 1) (value "LM7805") (footprint "Package_TO_SOT_SMD:TO-263-3_TabPin2")
+    )
+    (path "/35f21095-0cbd-4f14-a876-82851c38dabf/e1555c97-ec53-4134-bbf3-763da1b89424"
+      (reference "VR2") (unit 1) (value "LD29150PTR") (footprint "footprints:LD29150PTR")
     )
   )
 )
