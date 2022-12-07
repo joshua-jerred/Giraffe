@@ -7,4 +7,25 @@
   (lib_symbols
   )
 
+
+  (no_connect (at 184.15 67.31) (uuid 3b2c0d8f-6196-49f4-a34c-4a3d1e8fe74a))
+  (no_connect (at 184.15 72.39) (uuid ebef9d07-418e-445e-a17d-4fd073776958))
+
+  (wire (pts (xy 184.15 72.39) (xy 196.85 72.39))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid 50c06734-d843-44de-9933-e1a8f823f3f7)
+  )
+  (bus (pts (xy 184.15 67.31) (xy 196.85 67.31))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid 940a1f0f-616b-4c08-9dca-7dd87d8835f8)
+  )
+
+  (hierarchical_label "SPI0{CE1 CE0 MISO MOSI SCLK}" (shape input) (at 196.85 67.31 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 4b0e88cd-f65d-447d-9a93-058594aa11b7)
+  )
+  (hierarchical_label "VCC" (shape input) (at 196.85 72.39 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 9cb84760-287f-49b0-bea0-5841ea9961ef)
+  )
 )

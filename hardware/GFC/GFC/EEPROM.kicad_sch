@@ -353,7 +353,7 @@
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 1edce152-a5ca-4fa5-8de8-8a433d22007a)
   )
-  (hierarchical_label "EEPROM Interface" (shape input) (at 203.2 82.55 0)
+  (hierarchical_label "EEPROM{SDA SCL}" (shape input) (at 203.2 82.55 0)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid a75c48f9-baa8-4e07-96d1-af550e93638a)
   )

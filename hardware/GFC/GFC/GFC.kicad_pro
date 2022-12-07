@@ -121,12 +121,19 @@
       "track_widths": [
         0.0,
         0.1524,
-        0.508
+        0.254,
+        0.508,
+        0.762,
+        1.5
       ],
       "via_dimensions": [
         {
           "diameter": 0.0,
           "drill": 0.0
+        },
+        {
+          "diameter": 0.5,
+          "drill": 0.254
         },
         {
           "diameter": 0.6858,
@@ -147,7 +154,14 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      "label_dangling|203200|889000|09579834-b95c-448f-9a58-2ac1de8e2c1c|00000000-0000-0000-0000-000000000000",
+      "label_dangling|2044700|1397000|4739052a-c441-41a7-85b6-98f544b65f78|00000000-0000-0000-0000-000000000000",
+      "label_dangling|2044700|1422400|f892ec82-d838-44db-806e-e0bcd59e7b29|00000000-0000-0000-0000-000000000000",
+      "lib_symbol_issues|1066800|685800|850084c6-7341-4fd2-97fe-ed9447edd0d7|00000000-0000-0000-0000-000000000000",
+      "lib_symbol_issues|1892300|495300|e1555c97-ec53-4134-bbf3-763da1b89424|00000000-0000-0000-0000-000000000000",
+      "lib_symbol_issues|901700|1003300|3f473ed4-43f1-4aaa-baae-78a85659fde0|00000000-0000-0000-0000-000000000000"
+    ],
     "meta": {
       "version": 0
     },
@@ -416,7 +430,7 @@
     "meta": {
       "version": 1
     },
-    "net_format_name": "KiCad",
+    "net_format_name": "",
     "ngspice": {
       "fix_include_paths": true,
       "fix_passive_vals": false,
