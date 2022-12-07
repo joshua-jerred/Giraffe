@@ -107,8 +107,8 @@
         "min_copper_edge_clearance": 0.01,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
-        "min_microvia_diameter": 0.0,
-        "min_microvia_drill": 0.0,
+        "min_microvia_diameter": 0.19999999999999998,
+        "min_microvia_drill": 0.09999999999999999,
         "min_silk_clearance": 0.0,
         "min_through_hole_diameter": 0.254,
         "min_track_width": 0.15239999999999998,
@@ -121,18 +121,12 @@
       "track_widths": [
         0.0,
         0.1524,
-        0.254,
-        0.508,
-        0.762
+        0.508
       ],
       "via_dimensions": [
         {
           "diameter": 0.0,
           "drill": 0.0
-        },
-        {
-          "diameter": 0.5,
-          "drill": 0.254
         },
         {
           "diameter": 0.6858,
@@ -153,11 +147,7 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [
-      "lib_symbol_issues|1066800|685800|850084c6-7341-4fd2-97fe-ed9447edd0d7|00000000-0000-0000-0000-000000000000",
-      "lib_symbol_issues|1892300|495300|e1555c97-ec53-4134-bbf3-763da1b89424|00000000-0000-0000-0000-000000000000",
-      "lib_symbol_issues|901700|1003300|3f473ed4-43f1-4aaa-baae-78a85659fde0|00000000-0000-0000-0000-000000000000"
-    ],
+    "erc_exclusions": [],
     "meta": {
       "version": 0
     },
@@ -426,7 +416,7 @@
     "meta": {
       "version": 1
     },
-    "net_format_name": "",
+    "net_format_name": "KiCad",
     "ngspice": {
       "fix_include_paths": true,
       "fix_passive_vals": false,
@@ -463,6 +453,22 @@
     [
       "a5ebbde3-2079-4622-b5d2-f52fa65945fc",
       "SAM-M8Q (I2C)"
+    ],
+    [
+      "f8c59b5d-0f0d-4e9e-9414-4af7df3a83fc",
+      "SPI0 Expansion"
+    ],
+    [
+      "4c1f389a-d1a2-4ed8-9d24-8b2efc451c80",
+      "1-Wire Connection"
+    ],
+    [
+      "42e1262c-bb40-4b81-8d2b-ab0cbef5df04",
+      "DAC"
+    ],
+    [
+      "644a21f9-4992-489f-bf34-ad0addbb41b6",
+      "EEPROM"
     ]
   ],
   "text_variables": {}

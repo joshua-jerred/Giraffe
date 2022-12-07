@@ -1,3 +1,5 @@
 (sym_lib_table
   (lib (name "LDV VReg")(type "Legacy")(uri "/mnt/boron-vault/Applications/ki-cad-parts/LD29150/2022-12-05_10-52-50.lib")(options "")(descr ""))
+  (lib (name "EEPROM")(type "KiCad")(uri "/mnt/boron-vault/Applications/ki-cad-parts/CAT24C32WI/CAT24C32WI-GT3.kicad_sym")(options "")(descr ""))
+  (lib (name "PCM2912")(type "KiCad")(uri "/mnt/boron-vault/Applications/ki-cad-parts/PCM2912/PCM2912APJTR.kicad_sym")(options "")(descr ""))
 )
