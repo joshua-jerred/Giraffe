@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "l1")(type "KiCad")(uri "/home/josh/.kicad_parts/BMP390/BMP390L.kicad_sym")(options "")(descr "BMP390"))
+  (lib (name "BME280")(type "KiCad")(uri "/home/josh/.kicad_parts/BME280/BME280.kicad_sym")(options "")(descr "BME280"))
+)
