@@ -33,9 +33,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 1.5,
-          "height": 2.25,
-          "width": 2.25
+          "drill": 2.7,
+          "height": 2.7,
+          "width": 2.7
         },
         "silk_line_width": 0.127,
         "silk_text_italic": false,
@@ -55,7 +55,13 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "clearance|61860900|61526000|63be220d-b53f-4151-af21-363c1609d006|01c140f4-8a31-4320-99e5-c749ad0242d9",
+        "clearance|62360900|61526000|63be220d-b53f-4151-af21-363c1609d006|6823f235-1821-42eb-8036-093c4b6974e8",
+        "clearance|62360900|62426000|63be220d-b53f-4151-af21-363c1609d006|78098916-f352-418e-95c2-75ca07bb71e6",
+        "clearance|62860900|62426000|63be220d-b53f-4151-af21-363c1609d006|3141fb8c-60e2-4a62-8553-2c6d180280ba",
+        "clearance|63107100|61526000|63be220d-b53f-4151-af21-363c1609d006|30661a6f-b0d9-4130-8e4f-26bb93a24063"
+      ],
       "meta": {
         "version": 2
       },
@@ -103,7 +109,7 @@
         "allow_blind_buried_vias": false,
         "allow_microvias": false,
         "max_error": 0.005,
-        "min_clearance": 0.0,
+        "min_clearance": 0.15239999999999998,
         "min_copper_edge_clearance": 0.01,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
@@ -113,7 +119,7 @@
         "min_through_hole_diameter": 0.254,
         "min_track_width": 0.15239999999999998,
         "min_via_annular_width": 0.049999999999999996,
-        "min_via_diameter": 0.508,
+        "min_via_diameter": 0.6858,
         "solder_mask_clearance": 0.0,
         "solder_mask_min_width": 0.0,
         "use_height_for_length_calcs": true
@@ -124,16 +130,12 @@
         0.254,
         0.508,
         0.762,
-        1.5
+        1.27
       ],
       "via_dimensions": [
         {
           "diameter": 0.0,
           "drill": 0.0
-        },
-        {
-          "diameter": 0.5,
-          "drill": 0.254
         },
         {
           "diameter": 0.6858,
@@ -161,9 +163,6 @@
       "label_dangling|1841500|1079500|fcd1da7a-4737-40f3-8148-67611f38dccf|00000000-0000-0000-0000-000000000000",
       "label_dangling|1841500|1130300|85402d7a-2fdf-4c83-bdf2-966e940f9938|00000000-0000-0000-0000-000000000000",
       "label_dangling|203200|889000|09579834-b95c-448f-9a58-2ac1de8e2c1c|00000000-0000-0000-0000-000000000000",
-      "label_dangling|2044700|1397000|4739052a-c441-41a7-85b6-98f544b65f78|00000000-0000-0000-0000-000000000000",
-      "label_dangling|2044700|1422400|f892ec82-d838-44db-806e-e0bcd59e7b29|00000000-0000-0000-0000-000000000000",
-      "lib_symbol_issues|1066800|685800|850084c6-7341-4fd2-97fe-ed9447edd0d7|00000000-0000-0000-0000-000000000000",
       "lib_symbol_issues|1892300|495300|e1555c97-ec53-4134-bbf3-763da1b89424|00000000-0000-0000-0000-000000000000",
       "lib_symbol_issues|901700|1003300|3f473ed4-43f1-4aaa-baae-78a85659fde0|00000000-0000-0000-0000-000000000000",
       "power_pin_not_driven|889000|1016000|2545dbca-8fbb-4d65-b207-036914a69dbd|00000000-0000-0000-0000-000000000000"
@@ -459,36 +458,28 @@
       ""
     ],
     [
-      "dc3f6253-a23b-450c-97ae-8eee72dbc763",
-      "DRA818"
-    ],
-    [
-      "35f21095-0cbd-4f14-a876-82851c38dabf",
-      "Power"
-    ],
-    [
-      "a78a0997-7c36-4e79-b33c-9dfb15855370",
-      "BMP390 (I2C)"
-    ],
-    [
-      "a5ebbde3-2079-4622-b5d2-f52fa65945fc",
-      "SAM-M8Q (I2C)"
-    ],
-    [
-      "f8c59b5d-0f0d-4e9e-9414-4af7df3a83fc",
-      "SPI0 Expansion"
-    ],
-    [
-      "4c1f389a-d1a2-4ed8-9d24-8b2efc451c80",
-      "1-Wire Connection"
-    ],
-    [
-      "42e1262c-bb40-4b81-8d2b-ab0cbef5df04",
+      "d84b2fed-53e2-4de5-a414-c1e6b5d7f826",
       "DAC"
     ],
     [
-      "644a21f9-4992-489f-bf34-ad0addbb41b6",
-      "EEPROM"
+      "396586ca-f5f9-4a76-9147-5e92d98907db",
+      "Power"
+    ],
+    [
+      "d1d79da5-7d7f-4bb7-8bd7-84b046070382",
+      "SAM-M8Q (I2C)"
+    ],
+    [
+      "92df1a69-1d8c-4ef6-a3bf-336cd5425527",
+      "DRA818"
+    ],
+    [
+      "df20edee-d517-4379-9185-507209c08e25",
+      "GFC_HAT"
+    ],
+    [
+      "698f5ab9-77fa-4188-8fd5-d3131af8291a",
+      "GFC_SHOE"
     ]
   ],
   "text_variables": {}
