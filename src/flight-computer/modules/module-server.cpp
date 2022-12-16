@@ -134,7 +134,17 @@ void ServerModule::sendStaticData(ServerSocket &socket) {
 		extension_json["interface"] = extension.interface;
 		extension_json["interval"] = extension.update_interval;
 		extension_json["critical"] = extension.critical;
-		// extension_json["extra-args"] = extension.extra_args;
+		// Extra Arguments (Optional)
+		if (extension.interface == ExtensionMetadata::Interface::I2C) {
+			extension_json["extra-args"] =  "BS: " +
+				std::to_string(extension.extra_args.I2C_bus) + " ADDR:" 
+				+ extension.extra_args.I2C_device_address;
+		} else if (extension.interface == ExtensionMetadata::Interface::ONEWIRE) {
+			extension_json["extra-args"] = "ID: " +
+				extension.extra_args.one_wire_id;
+		} else {
+			extension_json["extra-args"] = "N/A";
+		}
 		static_data["extensions"].push_back(extension_json);
 	}
 	socket << static_data.dump();  // Send the static data

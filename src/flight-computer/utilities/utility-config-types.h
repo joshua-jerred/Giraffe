@@ -62,7 +62,7 @@ struct ExtensionMetadata {
     };
 
     struct ExtraArgs {
-        int I2C_bus = 0;
+        int I2C_bus = -1;
         std::string I2C_device_address = "";
         std::string one_wire_id = "";
     };
