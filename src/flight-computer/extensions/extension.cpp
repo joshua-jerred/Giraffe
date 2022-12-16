@@ -25,7 +25,6 @@ Extension::Extension(DataStream *p_data_stream,
     
     p_data_stream_ = p_data_stream;
 
-    setStatus(ExtensionStatus::STOPPED);
 
     setID(extension_metadata.id);
     setName(extension_metadata.name);
@@ -35,6 +34,7 @@ Extension::Extension(DataStream *p_data_stream,
     setUpdateInterval(extension_metadata.update_interval);
     setCritical(extension_metadata.critical);
 
+    setStatus(ExtensionStatus::STOPPED);
 }
 
 /**
@@ -176,6 +176,7 @@ int Extension::runner() {
  */
 void Extension::setStatus(ExtensionStatus status) {
     status_ = status;
+    p_data_stream_->updateExtensionStatus(getName(), status);
 }
 
 /**

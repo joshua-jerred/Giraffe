@@ -18,6 +18,7 @@
 #include <unordered_map>
 
 #include "utility-config-types.h"
+#include "utility-status.h"
 
 
 /**
@@ -96,6 +97,10 @@ public:
     int getTXQueueSize();
     int getTotalTx();
 
+    void updateExtensionStatus(std::string extension_name, ExtensionStatus status);
+    void updateModuleStatus(std::string module_name, ModuleStatus status);
+    std::unordered_map<std::string, ExtensionStatus> getExtensionStatuses();
+
 private:
     int num_data_packets_;
     int total_data_packets_;
@@ -120,6 +125,12 @@ private:
 
     std::mutex tx_queue_lock_;
     std::queue<Transmission> tx_queue_;
+
+    std::mutex extension_status_lock_;
+    std::unordered_map<std::string, ExtensionStatus> extension_status_;
+
+    std::mutex module_status_lock_;
+    std::unordered_map<std::string, ModuleStatus> module_status_;
 };
 
 #endif // UTILITY_DATA_STREAM_H_

@@ -52,17 +52,31 @@ function pullDynamic() {
 
 function updateStatic(data) {
     let staticData = document.getElementById('static-data');
+    let extensionConfig = document.getElementById('extension-config');
     staticData.innerHTML = '';
     for (let key in data) {
         if (key == "extensions") {
-            for (let ext in data[key]) {
-                staticData.innerHTML += ext + ': ' + data[key][ext]['name'] + '<br>';
-            }
+            updateExtensionTable(data[key]);
         } else {
             let value = data[key];
             let div = document.createElement('div');
             div.innerHTML = key + ': ' + value;
             staticData.appendChild(div);
+        }
+    }
+}
+
+function updateExtensionTable(data) { // https://www.valentinog.com/blog/html-table/ - source for this
+    let table = document.getElementById('extension-config');
+    let table_header = table.createTHead();
+    let row = table_header.insertRow();
+    let keys = Object.keys(data[0]);
+    for (let element of data) {
+        let row = table.insertRow();
+        for (key in element) {
+            let cell = row.insertCell();
+            let text = document.createTextNode(element[key]);
+            cell.appendChild(text);
         }
     }
 }
@@ -75,6 +89,7 @@ function updateDynamic(data) {
 
     let dynamic = data['dynamic'];
     let tx_queue = data['tx-queue'];
+    let extension_status = data['extension-status'];
 
     let html_div = document.getElementById('dynamic-data');
     html_div.innerHTML = '';
@@ -95,6 +110,14 @@ function updateDynamic(data) {
         let div = document.createElement('div');
         div.innerHTML = file + ': ' + type + ' ' + duration + 's';
         tx_queue_div.appendChild(div);
+    }
+
+    let extension_status_div = document.getElementById('extension-status');
+    extension_status_div.innerHTML = '';
+    for (let key in extension_status) {
+        let div = document.createElement('div');
+        div.innerHTML = key + ': ' + extension_status[key];
+        extension_status_div.appendChild(div);
     }
 }
 

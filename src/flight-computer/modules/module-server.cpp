@@ -168,9 +168,37 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 		}
 		p_data_stream_->unlockTXQueue();
 
+		json extension_status = {};
+		std::unordered_map<std::string, ExtensionStatus> extension_status_map = p_data_stream_->getExtensionStatuses();
+		int k = 0;
+		for (auto const &[key, status] : extension_status_map) {
+			std::string status_str = "";
+
+			switch (status) {
+				case ExtensionStatus::ERROR:
+					status_str = "ERROR";
+					break;
+				case ExtensionStatus::STOPPED:
+					status_str = "STOPPED";
+					break;
+				case ExtensionStatus::STARTING:
+					status_str = "STARTING";
+					break;
+				case ExtensionStatus::RUNNING:
+					status_str = "RUNNING";
+					break;
+				case ExtensionStatus::STOPPING:
+					status_str = "STOPPING";
+					break;
+			}
+
+			extension_status[key] = status_str;
+		}
+
 		json dynamic_data = {
 			{"dynamic", data},
-			{"tx-queue", tx_queue_json}
+			{"tx-queue", tx_queue_json},
+			{"extension-status", extension_status}
 		};
 
 		socket << dynamic_data.dump();  // Send the data

@@ -12,7 +12,7 @@
 #include "utility-data-stream.h"
 
 /**
- * @brief Construct a new DataStreamobject
+ * @brief Construct a new DataStream object
  * @param None
  */
 DataStream::DataStream() {
@@ -259,4 +259,23 @@ int DataStream::getTotalDataPackets() {
  */
 int DataStream::getTotalErrorPackets() {
 	return total_error_packets_;
+}
+
+void DataStream::updateExtensionStatus(std::string extension_name, ExtensionStatus status) {
+	extension_status_lock_.lock();
+	extension_status_[extension_name] = status;
+	extension_status_lock_.unlock();
+}
+
+void DataStream::updateModuleStatus(std::string module_name, ModuleStatus status) {
+	module_status_lock_.lock();
+	module_status_[module_name] = status;
+	module_status_lock_.unlock();
+}
+
+std::unordered_map<std::string, ExtensionStatus> DataStream::getExtensionStatuses() {
+	extension_status_lock_.lock();
+	std::unordered_map<std::string, ExtensionStatus> extension_status(extension_status_);
+	extension_status_lock_.unlock();
+	return extension_status;
 }

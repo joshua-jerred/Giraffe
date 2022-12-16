@@ -21,29 +21,9 @@
 #include "utility-configurables.h"
 #include "utility-config-types.h"
 #include "utility-data-stream.h"
+#include "utility-status.h"
 
 #include "extension.h"
-
-/**
- * @brief This is the enum used to communicate with the extension runner.
- * @details When an extension is constructed it's status will be set to stopped.
- * When Extension::start() is called the status will be set to starting.
- * The Extension::runner() (of the derived class) will be called and the status
- * should be changed to running. When the ExtensionModule calls 
- * Extension::stop() the status will change to 'STOPPING'. The 
- * Extension::runner() is then responsible for deconstructing and changing the
- * status to 'STOPPED' right before it exits.
- * 
- * If any errors occur the status will be set to 'ERROR' and there will be an
- * error message in the data stream.
- */
-enum class ExtensionStatus { 
-    ERROR = 0,
-    STOPPED = 1, 
-    STARTING = 2, 
-    RUNNING = 3,
-    STOPPING = 4
-    };
 
 /**
  * @brief This class is the base class for all extensions. Extensions include
