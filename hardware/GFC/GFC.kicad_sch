@@ -8,6 +8,7 @@
   )
 
 
+
   (sheet (at 69.85 161.29) (size 53.34 31.75) (fields_autoplaced)
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))
     (fill (color 0 0 0 0.0000))
@@ -36,7 +37,6 @@
     (path "/" (page "1"))
     (path "/698f5ab9-77fa-4188-8fd5-d3131af8291a/d84b2fed-53e2-4de5-a414-c1e6b5d7f826" (page "2"))
     (path "/df20edee-d517-4379-9185-507209c08e25/396586ca-f5f9-4a76-9147-5e92d98907db" (page "3"))
-    (path "/df20edee-d517-4379-9185-507209c08e25/d1d79da5-7d7f-4bb7-8bd7-84b046070382" (page "5"))
     (path "/698f5ab9-77fa-4188-8fd5-d3131af8291a/92df1a69-1d8c-4ef6-a3bf-336cd5425527" (page "8"))
     (path "/df20edee-d517-4379-9185-507209c08e25" (page "10"))
     (path "/698f5ab9-77fa-4188-8fd5-d3131af8291a" (page "11"))
@@ -264,9 +264,6 @@
     )
     (path "/df20edee-d517-4379-9185-507209c08e25/cb364fd4-5336-4e6e-a923-a091644d56c4"
       (reference "#PWR0180") (unit 1) (value "+5V") (footprint "")
-    )
-    (path "/df20edee-d517-4379-9185-507209c08e25/979c8db7-41d7-4466-8836-4b7a664539cf"
-      (reference "#PWR0181") (unit 1) (value "+3V3") (footprint "")
     )
     (path "/df20edee-d517-4379-9185-507209c08e25/b8ff02e2-bef6-46e8-92a3-dced63209c35"
       (reference "#PWR0182") (unit 1) (value "+3V3") (footprint "")
