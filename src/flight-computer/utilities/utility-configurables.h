@@ -11,7 +11,7 @@
 #ifndef UTILITY_CONFIGURABLES_H
 #define UTILITY_CONFIGURABLES_H
 
-#define GFS_VERSION "0.1.0"
+#define GFS_VERSION "0.2.0"
 
 /** @brief The location of the configuration file. It is safe to change 
  * this value. */

@@ -7,3 +7,5 @@ permission of Joshua Jerred.
 
 License is subject to change.
 
+It will probably change in the near future. If you have any questions please reach out.
+

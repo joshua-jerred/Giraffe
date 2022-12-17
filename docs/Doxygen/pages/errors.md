@@ -1,4 +1,6 @@
-# Prefixes:
+# GFS Errors
+
+## Prefixes:
 - ``CG_``  Configuration Errors
 - ``M_``  Module Errors
 - ``E_``  Extension Errors
