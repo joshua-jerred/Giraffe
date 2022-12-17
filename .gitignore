@@ -5,8 +5,15 @@
 
 # CMake Build Files
 build
+bin
 
 # Doxygen output files, these can be user generated.
 docs/Doxygen/output
 
-# Other
+# KiCad files
+hardware/GFC/GFC-backups/
+hardware/GFC-prototypes/GFC-prototypes-backups
+hardware/GFC/#auto_saved_files#
+hardware/GFC/fp-info-cache
+hardware/GFC/sym-lib-table
+hardware/GFC-prototypes/fp-info-cache

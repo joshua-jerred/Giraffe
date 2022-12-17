@@ -31,6 +31,7 @@ using json = nlohmann::ordered_json;
  */
 ConfigModule::ConfigModule(DataStream *data_stream) {
 	p_data_stream_ = data_stream;
+	number_of_errors_ = 0;
 }
 
 /**
@@ -86,6 +87,10 @@ json ConfigModule::getAllJson() {
 	return json_buffer_;
 }
 
+int ConfigModule::getNumberOfErrors() {
+	return number_of_errors_;
+}
+
 /**
  * @brief Simple override for adding errors to the data stream.
  * @param error_code The error code
@@ -93,15 +98,18 @@ json ConfigModule::getAllJson() {
  */
 template <typename T>
 void ConfigModule::error(std::string error_code, T info) {
+	number_of_errors_++;
 	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, 
 		std::to_string(info), 0);
 }
 
 void ConfigModule::error(std::string error_code, std::string info) {
+	number_of_errors_++;
 	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, info, 0);
 }
 
 void ConfigModule::error(std::string error_code) {
+	number_of_errors_++;
 	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, "", 0);
 }
 
@@ -225,29 +233,42 @@ void ConfigModule::parseExtensions() {
 		ExtensionMetadata::Interface interface =
 		item.value()["interface"].get<ExtensionMetadata::Interface>();
 		if (interface == ExtensionMetadata::Interface::ERROR) {
+			// Report error here
 		} else {
-			if (interface == ExtensionMetadata::Interface::ONEWIRE) {
-				std::string address = item.value()["address"].get<std::string>();
-				if (!std::regex_search(address, std::regex("28-[0-9&a-f]{12}"))) {
-					//error("OneWire address must match format."
-					//				  " It currently is: " + address);
+			if (interface == ExtensionMetadata::Interface::ONEWIRE) { // On onewire
+				std::string id = 
+				item.value()["onewire-id"].get<std::string>();
+
+				if (!std::regex_search(id, std::regex("28-[0-9&a-f]{12}"))) {
+
+					error("C_EXT_OW_I", id);
+
 				} else {
-					newExtension.address = address;
+					newExtension.extra_args.one_wire_id = id;
 				}
-			} else if (interface == ExtensionMetadata::Interface::I2C) {
-				std::string address = item.value()["address"].get<std::string>();
+
+			} else if (interface == ExtensionMetadata::Interface::I2C) { // On I2C
+				std::string address = 
+				item.value()["i2c-address"].get<std::string>();
+
 				int address_num = -1;
 				std::stringstream strs;
 				strs << std::hex << address; // convert hex string to int
 				strs >> address_num;
 
 				if (address_num < 0 || address_num > 127) {
-					//errors_.push_back("I2C address must be between 0 and 127. "
-					//				  "It must be in hex format without 0x. "
-					//				  "It currently is: " + address);
+					error("C_EXT_I2_A", address);
 				} else {
-					newExtension.address = address;
+					newExtension.extra_args.I2C_device_address = address;
 				}
+
+				int bus = item.value()["i2c-bus"].get<int>();
+				if (bus < 0 || bus > 2) {
+					error("C_ETC_I2_B", bus);
+				} else {
+					newExtension.extra_args.I2C_bus = bus;
+				}
+
 			}
 			newExtension.interface = interface;
 		}
@@ -325,7 +346,7 @@ void ConfigModule::parseTelemetry() {
 	if (callsign == "" || callsign == "NOCALL") {
 		//errors_.push_back("Your callsign is invalid.");
 	} else {
-		config_data_.telemetry.callsign = callsign;
+		config_data_.telemetry.call_sign = callsign;
 	}
 
 	int aprs_enabled = json_buffer_["telemetry"]["aprs-enabled"].get<bool>();
@@ -377,6 +398,38 @@ void ConfigModule::parseTelemetry() {
 
 		config_data_.telemetry.afsk_enabled = 1;
 		config_data_.telemetry.afsk_freq = afsk_frequency;
+	}
+
+	int psk_enabled = json_buffer_["telemetry"]["psk-enabled"].get<bool>();
+	config_data_.telemetry.psk_enabled = 0; // First disable
+
+	if (psk_enabled) {
+		std::string psk_frequency =
+			json_buffer_["telemetry"]["psk-frequency"].get<std::string>();
+		/** @todo Check if frequency is valid */
+
+		std::string psk_mode = "bpsk"; // Default
+		std::string psk_symbol_rate = "125"; // Default
+
+		try {
+			psk_mode = 
+				json_buffer_["telemetry"]["psk-mode"].get<std::string>();
+			if (psk_mode != "bpsk" && psk_mode != "bpsk") {
+				error("TL_PSK_M");
+			}
+
+			psk_symbol_rate = 
+				json_buffer_["telemetry"]["psk-symbol-rate"].get<std::string>();
+			if ((psk_symbol_rate != "125") && (psk_symbol_rate != "250")) {
+				error("TL_PSK_S");
+			}
+		} catch (std::exception &e) {
+			error("TL_PSK_F");
+		}
+		config_data_.telemetry.psk_enabled = 1;
+		config_data_.telemetry.psk_freq = psk_frequency;
+		config_data_.telemetry.psk_mode = psk_mode;
+		config_data_.telemetry.psk_symbol_rate = psk_symbol_rate;
 	}
 }
 

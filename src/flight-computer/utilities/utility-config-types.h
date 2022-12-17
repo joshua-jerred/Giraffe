@@ -61,6 +61,12 @@ struct ExtensionMetadata {
         GPIO = 7 
     };
 
+    struct ExtraArgs {
+        int I2C_bus = -1;
+        std::string I2C_device_address = "";
+        std::string one_wire_id = "";
+    };
+
     int id = 0; // User defined ID for the extension
     std::string name = ""; // Can be set to anything between 2 and 20 characters
     std::string extension_type = ""; // Unique string for each extension type, like "BMP180"
@@ -69,11 +75,7 @@ struct ExtensionMetadata {
     int update_interval = 0; // How often the extension polls for data and sends it to the data stream
     int critical = 0; // Indicates if this extension is critical to operation, this
                   // will be used by the Flight Runner during the healthCheck
-    // Extra Arguments
-    /**
-     * @todo Change to 'extra args'
-     */
-    std::string address = ""; // Used for oneWire and I2C
+    ExtraArgs extra_args;
 };
 
 
@@ -113,10 +115,15 @@ struct ConfigData {
     struct Telemetry {
         int telemetry_enabled = 0;
 
-        std::string callsign {};
+        std::string call_sign {};
 
         int afsk_enabled = 0;
         std::string afsk_freq {};
+
+        int psk_enabled = 0;
+        std::string psk_freq {};
+        std::string psk_mode {};
+        std::string psk_symbol_rate{};
 
         int sstv_enabled = 0;
         std::string sstv_freq {};
@@ -152,6 +159,22 @@ struct ConfigData {
     Telemetry telemetry;
     DataTypes data_types;
     Procs flight_procs;
+};
+
+/**
+ * @brief Used by the telemetry module in it's queue and by the data stream.
+ */
+struct Transmission {
+    enum class Type {
+        ERROR = 0,
+        APRS = 1,
+        AFSK = 2,
+        PSK = 3,
+        SSTV = 4,
+    };
+    Type type = Type::ERROR;
+    std::string wav_location = "";
+    int length = 0; // Length in seconds
 };
 
 #endif

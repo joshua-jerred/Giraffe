@@ -42,6 +42,21 @@ body {
     background-color: #977359;
 }
 
+table, th, td {
+    border: 1px solid;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+#extension-content {
+    display: flex;
+    margin-top: 5px;
+    width: 100%;
+    background-color: #977359;
+}
+
 .data {
     display: inline;
     width: 40%;

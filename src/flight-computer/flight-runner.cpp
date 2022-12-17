@@ -105,7 +105,7 @@ int FlightRunner::flightLoop() {
         }
 
         if (config_data_.telemetry.telemetry_enabled) {
-            if (config_data_.telemetry.afsk_enabled &&
+            if (config_data_.telemetry.psk_enabled &&
                 tsl_data_packet.elapsed() > current_intervals_.data_packet) {
                 p_telemetry_module_->sendDataPacket();
                 tsl_data_packet.reset();

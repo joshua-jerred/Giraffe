@@ -45,10 +45,9 @@ class GFSData:
         self.client_socket.close()
 
     def read(self):
-        message = ""
-        self.dynamic_data = []
+        self.dynamic_data = {}
         try:
-            data = self.client_socket.recv(1024).decode()  # receive response
+            data = self.client_socket.recv(5000).decode()  # receive response
             if len(data) > 0:
                 data = json.loads(data)
                 self.parse(data)
@@ -76,12 +75,13 @@ class GFSData:
             self.static_data["console-enabled"] = data["console-enabled"]
             self.static_data["telemetry-enabled"] = data["telemetry-enabled"]
             self.static_data["extensions"] = data["extensions"]
-        elif "0" in data:  # dynamic data
-            for key in data:
-                source = data[key]["source"]
-                unit = data[key]["unit"]
-                value = data[key]["value"]
-                self.dynamic_data.append((source, unit, value))
+        elif "dynamic" in data:  # dynamic data
+            self.dynamic_data = data
+            #for key in data["dynamic"]:
+            #    source = data[key]["source"]
+            #    unit = data[key]["unit"]
+            #    value = data[key]["value"]
+            #    self.dynamic_data[key] = (source, unit, value)
 
     def getStaticData(self):
         if (self.write("static")) == 0:
@@ -91,6 +91,8 @@ class GFSData:
     def getDynamicData(self):
         if (self.write("dynamic")) == 0:
             self.read()
+        else:
+            return {"dynamic": "failed"}
         return self.dynamic_data
 
 
@@ -190,6 +192,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
 def main():
     server = WebServer()
+    print("Starting server on port: " + str(server.server_port))
     server.start()
 
     #gfs = GFSData()

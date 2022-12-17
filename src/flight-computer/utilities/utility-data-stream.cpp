@@ -12,7 +12,7 @@
 #include "utility-data-stream.h"
 
 /**
- * @brief Construct a new DataStreamobject
+ * @brief Construct a new DataStream object
  * @param None
  */
 DataStream::DataStream() {
@@ -78,10 +78,11 @@ void DataStream::addError(std::string error_source,
 	int seconds_until_expiry) {
 	std::time_t current_time = std::time(nullptr);
 	error_stream_lock_.lock();
-	error_stream_.push(
-		{error_source, error_name, error_info, 
-		current_time + seconds_until_expiry}
-		);
+	if (seconds_until_expiry > 1) {
+		error_stream_.push({error_source, error_name, error_info, current_time + seconds_until_expiry});
+	} else {
+		error_stream_.push({error_source, error_name, error_info, 0});
+	}
 	num_error_packets_++;
 	total_error_packets_++;
 	error_stream_lock_.unlock();
@@ -109,6 +110,43 @@ void DataStream::updateFlightProcedure(FlightProcedure flight_procedure) {
 	flight_procedure_lock_.lock();
 	flight_procedure_ = flight_procedure;
 	flight_procedure_lock_.unlock();
+}
+
+void DataStream::lockTXQueue() {
+	tx_queue_lock_.lock();
+}
+
+const std::queue<Transmission>& DataStream::getTXQueue() {
+	return tx_queue_;
+}
+
+void DataStream::unlockTXQueue() {
+	tx_queue_lock_.unlock();
+}
+
+void DataStream::addToTxQueue(Transmission tx) {
+	tx_queue_lock_.lock();
+	tx_queue_.push(tx);
+	tx_queue_lock_.unlock();
+}
+
+Transmission DataStream::getNextTX() {
+	Transmission tx;
+	tx_queue_lock_.lock();
+	if (!tx_queue_.empty()) {
+		tx = tx_queue_.front();
+		tx_queue_.pop();
+	}
+	tx_queue_lock_.unlock();
+	return tx;
+}
+
+int DataStream::getTXQueueSize() {
+	int size;
+	tx_queue_lock_.lock();
+	size = tx_queue_.size();
+	tx_queue_lock_.unlock();
+	return size;
 }
 
 /**
@@ -221,4 +259,23 @@ int DataStream::getTotalDataPackets() {
  */
 int DataStream::getTotalErrorPackets() {
 	return total_error_packets_;
+}
+
+void DataStream::updateExtensionStatus(std::string extension_name, ExtensionStatus status) {
+	extension_status_lock_.lock();
+	extension_status_[extension_name] = status;
+	extension_status_lock_.unlock();
+}
+
+void DataStream::updateModuleStatus(std::string module_name, ModuleStatus status) {
+	module_status_lock_.lock();
+	module_status_[module_name] = status;
+	module_status_lock_.unlock();
+}
+
+std::unordered_map<std::string, ExtensionStatus> DataStream::getExtensionStatuses() {
+	extension_status_lock_.lock();
+	std::unordered_map<std::string, ExtensionStatus> extension_status(extension_status_);
+	extension_status_lock_.unlock();
+	return extension_status;
 }

@@ -36,10 +36,10 @@ private:
     int update_interval_;
 
     ConfigData config_data_;
-    DataStream* data_stream_;
+    DataStream* p_data_stream_;
 
     std::thread runner_thread_;
-    std::thread py_runner_thread_;
+    //std::thread py_runner_thread_;
 
     /**
      * @details This flag is an atomic so it can be accessed by both the thread

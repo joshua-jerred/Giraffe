@@ -25,7 +25,10 @@ int TestExtension::runner() {
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
             );
-        sendData("unit", "value");
+        auto timepoint =  static_cast<int>(duration_cast<std::chrono::milliseconds>(
+		std::chrono::system_clock::now().time_since_epoch()).count());
+
+        sendData("time", timepoint);
     }
     setStatus(ExtensionStatus::STOPPED);
     return 0;

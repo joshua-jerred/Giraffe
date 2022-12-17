@@ -25,7 +25,6 @@ Extension::Extension(DataStream *p_data_stream,
     
     p_data_stream_ = p_data_stream;
 
-    setStatus(ExtensionStatus::STOPPED);
 
     setID(extension_metadata.id);
     setName(extension_metadata.name);
@@ -35,6 +34,7 @@ Extension::Extension(DataStream *p_data_stream,
     setUpdateInterval(extension_metadata.update_interval);
     setCritical(extension_metadata.critical);
 
+    setStatus(ExtensionStatus::STOPPED);
 }
 
 /**
@@ -176,6 +176,7 @@ int Extension::runner() {
  */
 void Extension::setStatus(ExtensionStatus status) {
     status_ = status;
+    p_data_stream_->updateExtensionStatus(getName(), status);
 }
 
 /**
@@ -332,4 +333,32 @@ void Extension::setCritical(int critical){
  */
 void Extension::spawnRunner() {
     runner_thread_ = std::thread(&Extension::runner, this);
+}
+
+//template <typename T>
+//void Extension::error(std::string error_code, T info) {
+//	p_data_stream_->addError(
+//        EXTENSION_PREFIX + std::to_string(getID()), 
+//        error_code, 
+//		std::to_string(info), 
+//        update_interval_
+//        );
+//}
+
+void Extension::error(std::string error_code, std::string info) {
+	p_data_stream_->addError(
+        EXTENSION_PREFIX + (std::string) ":" + std::to_string(getID()), 
+        error_code, 
+        info, 
+        update_interval_
+        );
+}
+
+void Extension::error(std::string error_code) {
+	p_data_stream_->addError(
+        EXTENSION_PREFIX + (std::string) ":" + std::to_string(getID()), 
+        error_code, 
+        "", 
+        update_interval_
+        );
 }

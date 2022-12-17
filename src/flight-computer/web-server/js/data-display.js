@@ -15,6 +15,12 @@ function stop() {
     clearTimeout(timer);
 }
 
+function failure() {
+    document.getElementById("connection-status").innerText = "GFS CONNECTION FAILED";
+    done = true;
+    clearTimeout(timer);
+}
+
 function pullStatic() {
     fetch('static-data.json', { headers: {'Cache-Control': 'no-cache'}})
         .then(function (response) {
@@ -46,12 +52,11 @@ function pullDynamic() {
 
 function updateStatic(data) {
     let staticData = document.getElementById('static-data');
+    let extensionConfig = document.getElementById('extension-config');
     staticData.innerHTML = '';
     for (let key in data) {
         if (key == "extensions") {
-            for (let ext in data[key]) {
-                staticData.innerHTML += ext + ': ' + data[key][ext]['name'] + '<br>';
-            }
+            updateExtensionTable(data[key]);
         } else {
             let value = data[key];
             let div = document.createElement('div');
@@ -61,14 +66,58 @@ function updateStatic(data) {
     }
 }
 
+function updateExtensionTable(data) { // https://www.valentinog.com/blog/html-table/ - source for this
+    let table = document.getElementById('extension-config');
+    let table_header = table.createTHead();
+    let row = table_header.insertRow();
+    let keys = Object.keys(data[0]);
+    for (let element of data) {
+        let row = table.insertRow();
+        for (key in element) {
+            let cell = row.insertCell();
+            let text = document.createTextNode(element[key]);
+            cell.appendChild(text);
+        }
+    }
+}
+
 function updateDynamic(data) {
-    let staticData = document.getElementById('dynamic-data');
-    staticData.innerHTML = '';
-    for (let key in data) {
-        let value = data[key];
+    if (data['dynamic'] == 'failed') {
+        failure();
+        return;
+    }
+
+    let dynamic = data['dynamic'];
+    let tx_queue = data['tx-queue'];
+    let extension_status = data['extension-status'];
+
+    let html_div = document.getElementById('dynamic-data');
+    html_div.innerHTML = '';
+    for (let key in dynamic) {
+        let name = dynamic[key]['unit'];
+        let value = dynamic[key]['value'];
         let div = document.createElement('div');
-        div.innerHTML = key + ': ' + value;
-        staticData.appendChild(div);
+        div.innerHTML = name + ': ' + value;
+        html_div.appendChild(div);
+    }
+
+    let tx_queue_div = document.getElementById('tx-queue');
+    tx_queue_div.innerHTML = '';
+    for (let key in tx_queue) {
+        let file = tx_queue[key]['file'];
+        let type = tx_queue[key]['type'];
+        let duration = tx_queue[key]['duration'];
+        let div = document.createElement('div');
+        div.innerHTML = file + ': ' + type + ' ' + duration + 's';
+        tx_queue_div.appendChild(div);
+    }
+
+    let extension_status_div = document.getElementById('extension-status');
+    extension_status_div.innerHTML = '';
+    for (let key in extension_status) {
+        let div = document.createElement('div');
+        div.innerHTML = key + ': ' + extension_status[key];
+        extension_status_div.appendChild(div);
     }
 }
 

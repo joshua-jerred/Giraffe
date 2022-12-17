@@ -1,15 +1,17 @@
 #include "module-server.h"
 
+#include <iostream>
+
 ServerModule::ServerModule(const ConfigData config_data,
 													 DataStream *data_stream) {
 	config_data_ = config_data;
 	update_interval_ = config_data.debug.web_server_update_interval;
-	data_stream_ = data_stream;
+	p_data_stream_ = data_stream;
 	gfs_shutdown_flag_ = 0;
 }
 
-ServerModule::~ServerModule() { 
-	stop(); 
+ServerModule::~ServerModule() {
+	stop();
 }
 
 void ServerModule::start() {
@@ -18,12 +20,13 @@ void ServerModule::start() {
 }
 
 void ServerModule::stop() {
-	if (status() == ModuleStatus::STOPPED) {
+	if (status() == ModuleStatus::STOPPED && !runner_thread_.joinable()) {
 		return;
 	}
 	stop_flag_ = 1;
 	if (runner_thread_.joinable()) {
 		runner_thread_.join();
+		module_status_ = ModuleStatus::STOPPED;
 	}
 }
 
@@ -32,27 +35,39 @@ int ServerModule::checkShutdown() {
 }
 
 void ServerModule::runner() {
-	ServerSocket server_socket(MODULE_SERVER_PORT, 1);  // Create non-blocking socket
+	ServerSocket server_socket(MODULE_SERVER_PORT, 1);  // Create non-blocking so it can be checked for shutdown
+	int empty_request_count = 0;
+	module_status_ = ModuleStatus::RUNNING;
 	while (!stop_flag_) {
-		std::this_thread::sleep_for(std::chrono::milliseconds(50));
 		try {
-			
+			p_data_stream_->addData(
+				MODULE_SERVER_PREFIX, "SOCKET", "WAITING", 0);
+
 			ServerSocket new_sock;  // Create a new socket for the connection
 			server_socket.accept(new_sock);
 
-			data_stream_->addData(
+			p_data_stream_->addData(
 				MODULE_SERVER_PREFIX, "SOCKET", "CONNECTED", 0);
 			
 			while (!stop_flag_) {
 				std::this_thread::sleep_for(std::chrono::milliseconds(50));
 				std::string request;
 				new_sock >> request;  // Read the request from the client
+
+				if (request.empty()) {
+					empty_request_count++;
+					if (empty_request_count > 10) { // If there are 10 empty requests in a row, assume the client has disconnected
+						break;
+					}
+					continue;
+				}
+
 				if (request == "static") {
 					sendStaticData(new_sock);
 				} else if (request == "dynamic") {
 					sendDynamicData(new_sock);
 				} else if (request == "shutdownServer") {
-					data_stream_->addData(
+					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
 						"SHUTDOWN", 
@@ -62,7 +77,7 @@ void ServerModule::runner() {
 					stop_flag_ = 1;
 					return;
 				} else if (request == "shutdownGFS") {
-					data_stream_->addData(
+					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
 						"SHUTDOWN_GFS", 
@@ -73,7 +88,7 @@ void ServerModule::runner() {
 					gfs_shutdown_flag_ = 1;
 					return;
 				} else if (request == "DISCONNECT") {
-					data_stream_->addData(
+					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
 						"DISCONNECTED", 
@@ -81,19 +96,22 @@ void ServerModule::runner() {
 						);
 					break;
 				} else {
-					data_stream_->addData(
+					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
 						"UNKNOWN_REQUEST", 
 						0
 						);
+					break;
 				}
 			}
 
 		} catch (SocketException &e) {
-			data_stream_->addError(MODULE_SERVER_PREFIX, "Socket Creation",
+			p_data_stream_->addError(MODULE_SERVER_PREFIX, "Socket Creation",
 										e.description(), update_interval_);
 		}
+		
+		std::this_thread::sleep_for(std::chrono::milliseconds(50));
 	}
 	return;
 }
@@ -116,7 +134,17 @@ void ServerModule::sendStaticData(ServerSocket &socket) {
 		extension_json["interface"] = extension.interface;
 		extension_json["interval"] = extension.update_interval;
 		extension_json["critical"] = extension.critical;
-		// extension_json["extra-args"] = extension.extra_args;
+		// Extra Arguments (Optional)
+		if (extension.interface == ExtensionMetadata::Interface::I2C) {
+			extension_json["extra-args"] =  "BS: " +
+				std::to_string(extension.extra_args.I2C_bus) + " ADDR:" 
+				+ extension.extra_args.I2C_device_address;
+		} else if (extension.interface == ExtensionMetadata::Interface::ONEWIRE) {
+			extension_json["extra-args"] = "ID: " +
+				extension.extra_args.one_wire_id;
+		} else {
+			extension_json["extra-args"] = "N/A";
+		}
 		static_data["extensions"].push_back(extension_json);
 	}
 	socket << static_data.dump();  // Send the static data
@@ -124,7 +152,7 @@ void ServerModule::sendStaticData(ServerSocket &socket) {
 
 void ServerModule::sendDynamicData(ServerSocket &socket) {
 	try {
-		DataFrame snapshot = data_stream_->getDataFrameCopy();
+		DataFrame snapshot = p_data_stream_->getDataFrameCopy();
 		json data;
 		int i = 0;
 		for (auto const &[key, packet] : snapshot) {
@@ -132,11 +160,60 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 				{"source", packet.source},
 				{"unit", packet.unit},
 				{"value", packet.value}
-				};
+			};
 		}
-		socket << data.dump();  // Send the data
+
+		json tx_queue_json = {};
+		p_data_stream_->lockTXQueue();
+		std::queue<Transmission> queue = p_data_stream_->getTXQueue();
+		int j = 0;
+		while (!queue.empty()) {
+			Transmission tx = queue.front();
+			queue.pop();
+			tx_queue_json[std::to_string(j++)] = {
+				{"file", tx.wav_location},
+				{"type", tx.type},
+				{"duration", tx.length}
+			};
+		}
+		p_data_stream_->unlockTXQueue();
+
+		json extension_status = {};
+		std::unordered_map<std::string, ExtensionStatus> extension_status_map = p_data_stream_->getExtensionStatuses();
+		int k = 0;
+		for (auto const &[key, status] : extension_status_map) {
+			std::string status_str = "";
+
+			switch (status) {
+				case ExtensionStatus::ERROR:
+					status_str = "ERROR";
+					break;
+				case ExtensionStatus::STOPPED:
+					status_str = "STOPPED";
+					break;
+				case ExtensionStatus::STARTING:
+					status_str = "STARTING";
+					break;
+				case ExtensionStatus::RUNNING:
+					status_str = "RUNNING";
+					break;
+				case ExtensionStatus::STOPPING:
+					status_str = "STOPPING";
+					break;
+			}
+
+			extension_status[key] = status_str;
+		}
+
+		json dynamic_data = {
+			{"dynamic", data},
+			{"tx-queue", tx_queue_json},
+			{"extension-status", extension_status}
+		};
+
+		socket << dynamic_data.dump();  // Send the data
 	} catch (SocketException &e) {
-		data_stream_->addError(MODULE_SERVER_PREFIX, "Dynamic",
+		p_data_stream_->addError(MODULE_SERVER_PREFIX, "Dynamic",
 			e.description(), update_interval_);
 	}
 }

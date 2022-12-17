@@ -14,6 +14,7 @@
 #include <iostream>
 #include <thread>
 #include <atomic>
+#include <chrono> // For text extension
 
 #include "utility-config-types.h"
 #include "utility-data-stream.h"

@@ -18,4 +18,4 @@ Style Guide:
     Doxygen style documentation.
 
 Generate Documentation by using the following command in the GIRAFFE root directory:
- - doxygen ./docs/Doxygen/Doxyfile
+ - ``doxygen ./docs/Doxygen/Doxyfile``

@@ -31,13 +31,47 @@
             </li>
         </ul>
         <div id="main-content">
-            <div class="data" id="static-data">
-
+            <div class="data">
+                <h4>Configuration</h4>
+                <div class="data" id="static-data"></div>
             </div>
-            <div class="data" id="dynamic-data">
-
+            
+            <div class="data">
+                <h4>Flight Data</h4>
+                <div id="dynamic-data"></div>
+            </div>
+            
+            <div class="data">
+                <h4>Transmission Queue</h3>
+                <div id="tx-queue"></div>
             </div>
         </div>
+
+        <div id="extension-content">
+            <div class="data">
+                <h4>Extension Configuration</h4>
+                <table id="extension-config">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>ID</th>
+                            <th>Type</th>
+                            <th>Interface</th>
+                            <th>Category</th>
+                            <th>Interval</th>
+                            <th>Critical</th>
+                            <th>Extra Arguments</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="data">
+                <h4>Extension Data</h4>
+                <div id="extension-status"></div>
+            </div>
+        </div>
+
     </body>
     
     <script type="text/javascript">

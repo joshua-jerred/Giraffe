@@ -14,16 +14,7 @@
 #include <string>
 #include <atomic>
 
-/**
- * @brief module_status is used by the individual modules. Used by FlightRunner.
- * @see FlightRunner
- */
-enum class ModuleStatus {
-    STOPPED=0,
-    STARTING=1,
-    RUNNING=2,
-    ERROR_STATE=3 
-};
+#include "utility-status.h"
 
 /**
  * @brief All modules used by the FlightRunner inherit this class. This allows

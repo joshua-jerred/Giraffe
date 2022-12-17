@@ -188,7 +188,7 @@ void ConsoleModule::printData() {
     int telemetry_enabled = config_data_.telemetry.telemetry_enabled;
     if (telemetry_enabled) {
         std::cout << "Yes";
-        std::cout << "    Callsign: " << config_data_.telemetry.callsign;
+        std::cout << "    Callsign: " << config_data_.telemetry.call_sign;
         std::cout << std::endl;
 
         std::cout << "APRS Enabled: " << config_data_.telemetry.aprs_enabled;
@@ -246,7 +246,7 @@ void ConsoleModule::printData() {
             break;
         case 2: std::cout << "internal";
             break;
-        case 3: std::cout << "i2c 0x" + extension.address;
+        case 3: std::cout << "i2c " + extension.extra_args.I2C_device_address;
             break;
         case 4: std::cout << "serial";
             break;

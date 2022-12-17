@@ -23,6 +23,8 @@
 /*----------------------------------------*/
 /* The headers for each extension go here */
 #include "simulated-extensions.h"
+#include "bmp180.h"
+#include "ds18b20.h"
 /*----------------------------------------*/
 
 /**
