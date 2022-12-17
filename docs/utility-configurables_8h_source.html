@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('utility-configurables_8h_source.html',
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef UTILITY_CONFIGURABLES_H</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define UTILITY_CONFIGURABLES_H</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a47518b32ce036d4d2a72bd1c2b17fc85">   14</a></span>&#160;<span class="preprocessor">#define GFS_VERSION &quot;0.1.0&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a47518b32ce036d4d2a72bd1c2b17fc85">   14</a></span>&#160;<span class="preprocessor">#define GFS_VERSION &quot;0.2.0&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a751e75a0fc7de88baa2754ec9ee8fea3">   18</a></span>&#160;<span class="preprocessor">#define CONFIG_LOCATION &quot;./config.json&quot;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('utility-configurables_8h_source.html',
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a1d803b46a669f5f4847733b270104a30">   26</a></span>&#160;<span class="preprocessor">#define ERROR_LOG_LOCATION &quot;./error_logs/&quot;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#af84bcfbf5199161c933c5e2eb5071514">   28</a></span>&#160;<span class="preprocessor">#define TELEMETRY_WAV_LOCATION &quot;./telem/&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#define TELEMETRY_WAV_LOCATION &quot;./telem/&quot;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// ------- Config File Range Limits ------- //</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// Changing these results in undefined behavior, it is not recommended.</span></div>
@@ -117,23 +117,31 @@ $(document).ready(function(){initNavTree('utility-configurables_8h_source.html',
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">// ---------------------------------------- //</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// ------- Error Prefixes ------- //</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a617f94afe3cab1c74dd67a5e2604eec3">   46</a></span>&#160;<span class="preprocessor">#define MODULE_CONFIG_PREFIX &quot;M_CFG&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a617f94afe3cab1c74dd67a5e2604eec3">   46</a></span>&#160;<span class="preprocessor">#define MODULE_CONFIG_PREFIX &quot;CG_&quot;</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a21732e83051ad7c2d3f4ac16c6e707fd">   47</a></span>&#160;<span class="preprocessor">#define MODULE_DATA_PREFIX &quot;M_DAT&quot;</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#abb6ab8dffcd191b09019f8dd493903a2">   48</a></span>&#160;<span class="preprocessor">#define MODULE_TELEMETRY_PREFIX &quot;M_TEL&quot;</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a23d8eaf99634739d623c46bcf50c911a">   49</a></span>&#160;<span class="preprocessor">#define MODULE_SERVER_PREFIX &quot;M_SRV&quot;</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#aa06bf5de13d4a6452d9e936bbc91bfa3">   50</a></span>&#160;<span class="preprocessor">#define MODULE_EXTENSION_PREFIX &quot;M_EXT&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">// ------------------------------ //</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">// This is the interval, in seconds, that determines how often the data module</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">// will parse the data stream and update the data frame.</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#ace68cdd0f39a28a3fb20d4f723f3e2ab">   55</a></span>&#160;<span class="preprocessor">#define MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS 500</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a1ecf9e29e7b1b5c3171c0c6a222c0da9">   56</a></span>&#160;<span class="preprocessor">#define TELEMETRY_INTERVAL_MILI_SECONDS 500</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#aa9ec68f74add59b18319813b44e12cb0">   58</a></span>&#160;<span class="preprocessor">#define MODULE_SERVER_PORT 8779</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a53f81cc1c01e41f9c9028e8ce80e6eb6">   60</a></span>&#160;<span class="preprocessor">#define MODULE_SERVER_CHECK_COMMANDS_INTERVAL 1 </span><span class="comment">// In seconds</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#ac8f761d33de144f6f6f95aacfd01bc6a">   51</a></span>&#160;<span class="preprocessor">#define EXTENSION_PREFIX &quot;EXT&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">// ------------------------------ //</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">// This is the interval, in seconds, that determines how often the data module</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">// will parse the data stream and update the data frame.</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#ace68cdd0f39a28a3fb20d4f723f3e2ab">   56</a></span>&#160;<span class="preprocessor">#define MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS 100</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a1ecf9e29e7b1b5c3171c0c6a222c0da9">   57</a></span>&#160;<span class="preprocessor">#define TELEMETRY_INTERVAL_MILI_SECONDS 500</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#aa9ec68f74add59b18319813b44e12cb0">   59</a></span>&#160;<span class="preprocessor">#define MODULE_SERVER_PORT 8779</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a53f81cc1c01e41f9c9028e8ce80e6eb6">   61</a></span>&#160;<span class="preprocessor">#define MODULE_SERVER_CHECK_COMMANDS_INTERVAL 1 </span><span class="comment">// In seconds</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#af494aa94ea516700927664983f4c300c">   63</a></span>&#160;<span class="preprocessor">#define I2C_BUS_NUMBER_LOW 1</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a1c6de961b9ac65d22fd6a0d1aff86768">   64</a></span>&#160;<span class="preprocessor">#define I2C_BUS_NUMBER_HIGH 1</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#acf5c2c2b7557b675b6e34307cfbdaad1">   66</a></span>&#160;<span class="preprocessor">#define ONE_WIRE_LOCATION &quot;/sys/bus/w1/devices/&quot;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#a1ef2dfab309d8824157ebabced832796">   67</a></span>&#160;<span class="preprocessor">#define ONE_WIRE_FILE &quot;/w1_slave&quot;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="utility-configurables_8h.html#af84bcfbf5199161c933c5e2eb5071514">   69</a></span>&#160;<span class="preprocessor">#define TELEMETRY_WAV_LOCATION &quot;./telem/&quot;</span> </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;#endif</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

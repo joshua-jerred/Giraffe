@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -92,33 +92,44 @@ $(document).ready(function(){initNavTree('structTransmission.html',''); initResi
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="module-telemetry_8h_source.html">module-telemetry.h</a>&gt;</code></p>
+<p>Used by the telemetry module in it's queue and by the data stream.  
+ <a href="structTransmission.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="utility-config-types_8h_source.html">utility-config-types.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Transmission:</div>
 <div class="dyncontent">
 <div class="center"><img src="structTransmission__coll__graph.png" border="0" usemap="#aTransmission_coll__map" alt="Collaboration graph"/></div>
 <map name="aTransmission_coll__map" id="aTransmission_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,128,97"/>
+<area shape="rect" title="Used by the telemetry module in it&#39;s queue and by the data stream." alt="" coords="5,5,116,112"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ae88e058c356841ec4b74c89004aeba78"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78">Type</a> { <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a> = 0
+<tr class="memitem:ae88e058c356841ec4b74c89004aeba78"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78">Type</a> { <br />
+&#160;&#160;<a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a> = 0
 , <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a0c2b593da5ed5bcd8e6a33bf06e24e3b">APRS</a> = 1
 , <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78ae626a5fcc018875ee064b3de9dcca549">AFSK</a> = 2
-, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a9eed40bd951e903d55dd6c8f01a50cc2">SSTV</a> = 3
+, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a16cc3047e5c555c8fb9904cc09c166bd">PSK</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a9eed40bd951e903d55dd6c8f01a50cc2">SSTV</a> = 4
+<br />
  }</td></tr>
 <tr class="separator:ae88e058c356841ec4b74c89004aeba78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a60e3969fac2fe5ba08d1fc9a29c8572f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">type</a></td></tr>
+<tr class="memitem:a0c3b11240a0f1213f4fdf592c54307b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransmission.html#a0c3b11240a0f1213f4fdf592c54307b5">length</a> = 0</td></tr>
+<tr class="separator:a0c3b11240a0f1213f4fdf592c54307b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60e3969fac2fe5ba08d1fc9a29c8572f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">type</a> = <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78abb1ca97ec761fc37101737ba0aa2e7c5">Type::ERROR</a></td></tr>
 <tr class="separator:a60e3969fac2fe5ba08d1fc9a29c8572f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba5ae63ba628c782699114e53d07b92b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransmission.html#aba5ae63ba628c782699114e53d07b92b">wav_location</a></td></tr>
+<tr class="memitem:aba5ae63ba628c782699114e53d07b92b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransmission.html#aba5ae63ba628c782699114e53d07b92b">wav_location</a> = &quot;&quot;</td></tr>
 <tr class="separator:aba5ae63ba628c782699114e53d07b92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Used by the telemetry module in it's queue and by the data stream. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ae88e058c356841ec4b74c89004aeba78"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae88e058c356841ec4b74c89004aeba78">&#9670;&nbsp;</a></span>Type</h2>
 
@@ -142,6 +153,7 @@ Public Attributes</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae88e058c356841ec4b74c89004aeba78abb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae88e058c356841ec4b74c89004aeba78a0c2b593da5ed5bcd8e6a33bf06e24e3b"></a>APRS&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae88e058c356841ec4b74c89004aeba78ae626a5fcc018875ee064b3de9dcca549"></a>AFSK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae88e058c356841ec4b74c89004aeba78a16cc3047e5c555c8fb9904cc09c166bd"></a>PSK&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae88e058c356841ec4b74c89004aeba78a9eed40bd951e903d55dd6c8f01a50cc2"></a>SSTV&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
@@ -155,12 +167,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78">Type</a> Transmission::type</td>
+          <td class="memname"><a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78">Type</a> Transmission::type = <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78abb1ca97ec761fc37101737ba0aa2e7c5">Type::ERROR</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">TelemetryModule::addToTXQueue()</a>, <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>, <a class="el" href="classTelemetryModule.html#a96d8cdeb6dcbda4d83da2e556dbcc95a">TelemetryModule::sendAFSK()</a>, <a class="el" href="classTelemetryModule.html#a06f3ff1e68c2e4fd3102706d80d28006">TelemetryModule::sendAPRS()</a>, <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">TelemetryModule::sendDataPacket()</a>, and <a class="el" href="classTelemetryModule.html#a0ff75f7a5ce59d69cbbdef526a992d28">TelemetryModule::sendSSTVImage()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">TelemetryModule::addToTXQueue()</a>, <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>, <a class="el" href="classTelemetryModule.html#a96d8cdeb6dcbda4d83da2e556dbcc95a">TelemetryModule::sendAFSK()</a>, <a class="el" href="classTelemetryModule.html#a06f3ff1e68c2e4fd3102706d80d28006">TelemetryModule::sendAPRS()</a>, <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">TelemetryModule::sendDataPacket()</a>, <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule::sendDynamicData()</a>, and <a class="el" href="classTelemetryModule.html#a0ff75f7a5ce59d69cbbdef526a992d28">TelemetryModule::sendSSTVImage()</a>.</p>
 
 </div>
 </div>
@@ -171,12 +183,28 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Transmission::wav_location</td>
+          <td class="memname">std::string Transmission::wav_location = &quot;&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a96d8cdeb6dcbda4d83da2e556dbcc95a">TelemetryModule::sendAFSK()</a>, <a class="el" href="classTelemetryModule.html#a06f3ff1e68c2e4fd3102706d80d28006">TelemetryModule::sendAPRS()</a>, and <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">TelemetryModule::sendDataPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">TelemetryModule::addToTXQueue()</a>, <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>, <a class="el" href="classTelemetryModule.html#a96d8cdeb6dcbda4d83da2e556dbcc95a">TelemetryModule::sendAFSK()</a>, <a class="el" href="classTelemetryModule.html#a06f3ff1e68c2e4fd3102706d80d28006">TelemetryModule::sendAPRS()</a>, <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">TelemetryModule::sendDataPacket()</a>, and <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule::sendDynamicData()</a>.</p>
+
+</div>
+</div>
+<a id="a0c3b11240a0f1213f4fdf592c54307b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c3b11240a0f1213f4fdf592c54307b5">&#9670;&nbsp;</a></span>length</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Transmission::length = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>, <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">TelemetryModule::sendDataPacket()</a>, and <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule::sendDynamicData()</a>.</p>
 
 </div>
 </div>

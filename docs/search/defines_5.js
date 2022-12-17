@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['project_5fname_5fmax_5flength_751',['PROJECT_NAME_MAX_LENGTH',['../utility-configurables_8h.html#ab50736edf791801f2539198a0f65ed6a',1,'utility-configurables.h']]],
-  ['project_5fname_5fmin_5flength_752',['PROJECT_NAME_MIN_LENGTH',['../utility-configurables_8h.html#a23f57bc41fcacd3caee37c7c3985d105',1,'utility-configurables.h']]]
+  ['i2c_5fbus_5fnumber_5fhigh_1176',['I2C_BUS_NUMBER_HIGH',['../utility-configurables_8h.html#a1c6de961b9ac65d22fd6a0d1aff86768',1,'utility-configurables.h']]],
+  ['i2c_5fbus_5fnumber_5flow_1177',['I2C_BUS_NUMBER_LOW',['../utility-configurables_8h.html#af494aa94ea516700927664983f4c300c',1,'utility-configurables.h']]]
 ];

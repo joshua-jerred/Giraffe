@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -86,17 +86,39 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_c"></a>- c -</h3><ul>
-<li>callsign
-: <a class="el" href="structConfigData.html#af5c7fe53eb19e36090cc5c0f2e28a1f1">ConfigData::Telemetry</a>
+<li>calculateCRC()
+: <a class="el" href="classDS18B20.html#a3028759ff45f5d39725d5d8860c5bd2a">DS18B20</a>
 </li>
-<li>Category
-: <a class="el" href="structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96b">ExtensionMetadata</a>
+<li>calculatePressure()
+: <a class="el" href="classBMP180.html#a7d3eef1f1fd500675b58b2d73f56780c">BMP180</a>
+</li>
+<li>calculateTemperature()
+: <a class="el" href="classBMP180.html#ab87c4daf5c41c79aa7fe1e9a8cab636e">BMP180</a>
+</li>
+<li>call_sign
+: <a class="el" href="structConfigData.html#ad952f0b13d26754c51e198182dbd3b99">ConfigData::Telemetry</a>
+</li>
+<li>call_sign_
+: <a class="el" href="classPSK.html#a6c0453f1915f2223b1de8710006c47a6">PSK</a>
+, <a class="el" href="classTelemetryModule.html#aeab9d584785ee21ecfc8bcff74899610">TelemetryModule</a>
+</li>
+<li>carrier_freq_
+: <a class="el" href="classPSK.html#a9b3cf90eb1beb898c3fd5e6261f34ad3">PSK</a>
+</li>
+<li>carrier_wave_angle_
+: <a class="el" href="classPSK.html#a0e335d22244f3d1de7d37b04736eaea9">PSK</a>
 </li>
 <li>category
 : <a class="el" href="structExtensionMetadata.html#a459b0a95d85e1d2a46131984fdf5477b">ExtensionMetadata</a>
 </li>
+<li>Category
+: <a class="el" href="structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96b">ExtensionMetadata</a>
+</li>
 <li>category_
 : <a class="el" href="classExtension.html#a191292dec76d5526c7ae5a98b6db2a34">Extension</a>
+</li>
+<li>checkDevice()
+: <a class="el" href="classOneWire.html#a6c449263bfe5c93fe5ea8ef2180ff82d">OneWire</a>
 </li>
 <li>checkForStaleData()
 : <a class="el" href="classDataModule.html#a3f1827b2ff79440fcd3d56ebd26bcc03">DataModule</a>
@@ -125,7 +147,8 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 : <a class="el" href="classConfigModule.html#acd784f07e8fa6a727d388f3f741714a6">ConfigModule</a>
 </li>
 <li>connect()
-: <a class="el" href="classSocket.html#afe535648cf44461c6ded1b2d72056d47">Socket</a>
+: <a class="el" href="classI2C.html#af11170f3f5dad5cf01aa9e7d518322f5">I2C</a>
+, <a class="el" href="classSocket.html#afe535648cf44461c6ded1b2d72056d47">Socket</a>
 </li>
 <li>console_enabled
 : <a class="el" href="structConfigData.html#a46a85cf89f38f2a727061ae877165b65">ConfigData::Debugging</a>
@@ -135,6 +158,9 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 </li>
 <li>ConsoleModule()
 : <a class="el" href="classConsoleModule.html#aa7abf8a88184411f574606dac0439b07">ConsoleModule</a>
+</li>
+<li>conv_code_buffer_
+: <a class="el" href="classPSK.html#a549ac113716a098fea0afed616d8d0f7">PSK</a>
 </li>
 <li>create()
 : <a class="el" href="classSocket.html#a6afde2dca985dacdfa770141192e2daf">Socket</a>

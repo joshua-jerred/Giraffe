@@ -18,8 +18,14 @@ var utility_configurables_8h =
     [ "MODULE_TELEMETRY_PREFIX", "utility-configurables_8h.html#abb6ab8dffcd191b09019f8dd493903a2", null ],
     [ "MODULE_SERVER_PREFIX", "utility-configurables_8h.html#a23d8eaf99634739d623c46bcf50c911a", null ],
     [ "MODULE_EXTENSION_PREFIX", "utility-configurables_8h.html#aa06bf5de13d4a6452d9e936bbc91bfa3", null ],
+    [ "EXTENSION_PREFIX", "utility-configurables_8h.html#ac8f761d33de144f6f6f95aacfd01bc6a", null ],
     [ "MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS", "utility-configurables_8h.html#ace68cdd0f39a28a3fb20d4f723f3e2ab", null ],
     [ "TELEMETRY_INTERVAL_MILI_SECONDS", "utility-configurables_8h.html#a1ecf9e29e7b1b5c3171c0c6a222c0da9", null ],
     [ "MODULE_SERVER_PORT", "utility-configurables_8h.html#aa9ec68f74add59b18319813b44e12cb0", null ],
-    [ "MODULE_SERVER_CHECK_COMMANDS_INTERVAL", "utility-configurables_8h.html#a53f81cc1c01e41f9c9028e8ce80e6eb6", null ]
+    [ "MODULE_SERVER_CHECK_COMMANDS_INTERVAL", "utility-configurables_8h.html#a53f81cc1c01e41f9c9028e8ce80e6eb6", null ],
+    [ "I2C_BUS_NUMBER_LOW", "utility-configurables_8h.html#af494aa94ea516700927664983f4c300c", null ],
+    [ "I2C_BUS_NUMBER_HIGH", "utility-configurables_8h.html#a1c6de961b9ac65d22fd6a0d1aff86768", null ],
+    [ "ONE_WIRE_LOCATION", "utility-configurables_8h.html#acf5c2c2b7557b675b6e34307cfbdaad1", null ],
+    [ "ONE_WIRE_FILE", "utility-configurables_8h.html#a1ef2dfab309d8824157ebabced832796", null ],
+    [ "TELEMETRY_WAV_LOCATION", "utility-configurables_8h.html#af84bcfbf5199161c933c5e2eb5071514", null ]
 ];

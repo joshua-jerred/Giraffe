@@ -1,5 +1,0 @@
-<map id="ConfigData::Loops" name="ConfigData::Loops">
-<area shape="rect" id="node1" title=" " alt="" coords="13,417,153,495"/>
-<area shape="rect" id="node2" href="$structFlightLoop.html" title="Struct containing the loop configuration. One for each loop type." alt="" coords="37,219,128,311"/>
-<area shape="rect" id="node3" href="$structFlightLoop.html#structFlightLoop_1_1Intervals" title=" " alt="" coords="5,5,160,156"/>
-</map>

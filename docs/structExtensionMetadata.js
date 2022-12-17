@@ -1,5 +1,10 @@
 var structExtensionMetadata =
 [
+    [ "ExtraArgs", "structExtensionMetadata.html#structExtensionMetadata_1_1ExtraArgs", [
+      [ "I2C_bus", "structExtensionMetadata.html#a78d6af837a9d4fc000812e600ef9823e", null ],
+      [ "I2C_device_address", "structExtensionMetadata.html#a6ed503a1dcbf81f21fba22aede61c941", null ],
+      [ "one_wire_id", "structExtensionMetadata.html#aa021b04d864dc03b3fa54fb31b211653", null ]
+    ] ],
     [ "Category", "structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96b", [
       [ "ERROR", "structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96babb1ca97ec761fc37101737ba0aa2e7c5", null ],
       [ "OTHER", "structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96ba03570470bad94692ce93e32700d2e1cb", null ],
@@ -26,5 +31,5 @@ var structExtensionMetadata =
     [ "interface", "structExtensionMetadata.html#aa0e2c1ed09bb4e03295db0abd1d97678", null ],
     [ "update_interval", "structExtensionMetadata.html#ae1818cf702bde997a305c94eb7ccf54f", null ],
     [ "critical", "structExtensionMetadata.html#a92c646389b08bc8fb8f8d75fca7d91e5", null ],
-    [ "address", "structExtensionMetadata.html#a07b78f614b4ea7443154e259e0adaa81", null ]
+    [ "extra_args", "structExtensionMetadata.html#a4b9ab11764e591530662ec680ed1949a", null ]
 ];

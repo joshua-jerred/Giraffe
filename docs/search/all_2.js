@@ -1,6 +1,25 @@
 var searchData=
 [
-  ['bind_22',['bind',['../classSocket.html#abfc7244009defd5c5e1ad173142a5059',1,'Socket']]],
-  ['bmp180_5fsim_23',['BMP180_SIM',['../classBMP180__SIM.html',1,'BMP180_SIM'],['../classBMP180__SIM.html#abb642d27a5ffef955867f72a7fb2e863',1,'BMP180_SIM::BMP180_SIM()']]],
-  ['bug_20list_24',['Bug List',['../bug.html',1,'']]]
+  ['b1_5f_41',['B1_',['../classBMP180.html#a016cb0761f907ed635104b7d663f5646',1,'BMP180']]],
+  ['b2_5f_42',['B2_',['../classBMP180.html#a13949048b114fbe3c82b8b5f35dcaa6c',1,'BMP180']]],
+  ['b3_5f_43',['B3_',['../classBMP180.html#aa6a48506086fdb6908a01b4aee0e714f',1,'BMP180']]],
+  ['b4_5f_44',['B4_',['../classBMP180.html#a87264d310f888baa9ea59c2062373a2a',1,'BMP180']]],
+  ['b5_5f_45',['B5_',['../classBMP180.html#a210f1b6fd39deb55fcfc21864f01a05c',1,'BMP180']]],
+  ['b6_5f_46',['B6_',['../classBMP180.html#a2b9f44c5663eb410f8010aa10b471db3',1,'BMP180']]],
+  ['b7_5f_47',['B7_',['../classBMP180.html#a9926b64fea00faa453dc9131a9139820',1,'BMP180']]],
+  ['bind_48',['bind',['../classSocket.html#abfc7244009defd5c5e1ad173142a5059',1,'Socket']]],
+  ['bit_5fstream_5f_49',['bit_stream_',['../classPSK.html#ab93e5c9607fcd02b1723c7fa9f08b3cd',1,'PSK']]],
+  ['bit_5fstream_5fbuffer_5f_50',['bit_stream_buffer_',['../classPSK.html#ae5ca94c858dfd148a0599b3d3b608d3e',1,'PSK']]],
+  ['bit_5fstream_5findex_5f_51',['bit_stream_index_',['../classPSK.html#ae06edbe78757cedb54fb9d9bfbbee97e',1,'PSK']]],
+  ['bit_5fstream_5foffset_5f_52',['bit_stream_offset_',['../classPSK.html#a848447fe2c840e995841e6184a3b656f',1,'PSK']]],
+  ['bits_5fper_5fsample_5f_53',['bits_per_sample_',['../classPSK.html#adc58ad3a0d2e3b23d294388961b0ac91',1,'PSK']]],
+  ['bmp180_54',['BMP180',['../classBMP180.html#a9b05726b2e6034cbd474637ea53e8876',1,'BMP180::BMP180()'],['../classBMP180.html',1,'BMP180']]],
+  ['bmp180_2ecpp_55',['bmp180.cpp',['../bmp180_8cpp.html',1,'']]],
+  ['bmp180_2eh_56',['bmp180.h',['../bmp180_8h.html',1,'']]],
+  ['bmp180_5fsim_57',['BMP180_SIM',['../classBMP180__SIM.html',1,'BMP180_SIM'],['../classBMP180__SIM.html#abb642d27a5ffef955867f72a7fb2e863',1,'BMP180_SIM::BMP180_SIM()']]],
+  ['bpsk_58',['BPSK',['../classPSK.html#a48bd150599c18ab087b5e2016ff33d30a8254924967b448f457f1d595294f7a5c',1,'PSK']]],
+  ['buffer_5f_59',['buffer_',['../classI2C.html#a45f3b739346fdfd5f14c95adfd273363',1,'I2C']]],
+  ['bug_20list_60',['Bug List',['../bug.html',1,'']]],
+  ['bus_5ferror_61',['BUS_ERROR',['../utility-i2c_8h.html#a360eb58851bf723bd1fe83eee7cb9c32a57316c450c6d8fc7887052ee0ad78edb',1,'utility-i2c.h']]],
+  ['bus_5fnumber_5f_62',['bus_number_',['../classBMP180.html#ab3e7837cdaf88576e6a5b6995a0a8f53',1,'BMP180::bus_number_()'],['../classI2C.html#acf7794ed885bfb6abf3a54e014da1c7f',1,'I2C::bus_number_()']]]
 ];

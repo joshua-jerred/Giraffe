@@ -19,6 +19,8 @@ var classDRA818V__SIM =
     [ "sendData", "classDRA818V__SIM.html#ac55fc1a6b1a93406726fd29559fc08f2", null ],
     [ "sendData", "classDRA818V__SIM.html#a3423453a8a3c3810ed4e45deb6edabf7", null ],
     [ "sendData", "classDRA818V__SIM.html#ad4a7fd6354982fdef16d203b6a8904e0", null ],
+    [ "error", "classDRA818V__SIM.html#a0fefd812bdb70c8279a21b8ba4e8405a", null ],
+    [ "error", "classDRA818V__SIM.html#a6bc05fc72304245e775ec18d4d543f28", null ],
     [ "setID", "classDRA818V__SIM.html#ace8ba3912124dd4e7cf78efbb6c73103", null ],
     [ "setName", "classDRA818V__SIM.html#a554811d7b73c19249df043c73a1206ea", null ],
     [ "setType", "classDRA818V__SIM.html#ae860e98ac2a40e85b8e94599efd60997", null ],

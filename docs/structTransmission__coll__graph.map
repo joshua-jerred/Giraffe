@@ -1,3 +1,3 @@
 <map id="Transmission" name="Transmission">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,128,97"/>
+<area shape="rect" id="node1" title="Used by the telemetry module in it&#39;s queue and by the data stream." alt="" coords="5,5,116,112"/>
 </map>

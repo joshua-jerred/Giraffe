@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('classTelemetryModule.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
-<p>This class is responsible for handling the radio and transmitting data upon request.  
+<p>This class is responsible for handling the radio and transmitting data upon request. Currently only supports <a class="el" href="classPSK.html">PSK</a>.  
  <a href="classTelemetryModule.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="module-telemetry_8h_source.html">module-telemetry.h</a>&gt;</code></p>
@@ -103,8 +103,8 @@ Inheritance diagram for TelemetryModule:</div>
 <div class="dyncontent">
 <div class="center"><img src="classTelemetryModule__inherit__graph.png" border="0" usemap="#aTelemetryModule_inherit__map" alt="Inheritance graph"/></div>
 <map name="aTelemetryModule_inherit__map" id="aTelemetryModule_inherit__map">
-<area shape="rect" title="This class is responsible for handling the radio and transmitting data upon request." alt="" coords="5,204,188,575"/>
-<area shape="rect" href="classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="27,5,167,156"/>
+<area shape="rect" title="This class is responsible for handling the radio and transmitting data upon request...." alt="" coords="5,204,155,633"/>
+<area shape="rect" href="classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="17,5,143,156"/>
 </map>
 </div>
 <div class="dynheader">
@@ -112,25 +112,25 @@ Collaboration diagram for TelemetryModule:</div>
 <div class="dyncontent">
 <div class="center"><img src="classTelemetryModule__coll__graph.png" border="0" usemap="#aTelemetryModule_coll__map" alt="Collaboration graph"/></div>
 <map name="aTelemetryModule_coll__map" id="aTelemetryModule_coll__map">
-<area shape="rect" title="This class is responsible for handling the radio and transmitting data upon request." alt="" coords="574,1317,757,1659"/>
-<area shape="rect" href="classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="454,1104,594,1255"/>
-<area shape="rect" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="1080,680,1283,1080"/>
-<area shape="rect" href="structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="1073,219,1197,311"/>
-<area shape="rect" href="structConfigData.html#structConfigData_1_1Procs" title=" " alt="" coords="1013,498,1150,575"/>
-<area shape="rect" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="1040,5,1229,156"/>
-<area shape="rect" href="structConfigData.html" title="Container for all config data. Mirrors the config file." alt="" coords="618,1141,713,1218"/>
-<area shape="rect" href="structConfigData.html#structConfigData_1_1Debugging" title=" " alt="" coords="767,476,988,597"/>
-<area shape="rect" href="structConfigData.html#structConfigData_1_1DataTypes" title=" " alt="" coords="5,498,176,575"/>
-<area shape="rect" href="structConfigData.html#structConfigData_1_1Extensions" title=" " alt="" coords="200,498,373,575"/>
-<area shape="rect" href="structConfigData.html#structConfigData_1_1Telemetry" title=" " alt="" coords="398,417,565,656"/>
-<area shape="rect" href="structConfigData.html#structConfigData_1_1General" title=" " alt="" coords="589,483,742,590"/>
+<area shape="rect" title="This class is responsible for handling the radio and transmitting data upon request...." alt="" coords="547,1273,697,1673"/>
+<area shape="rect" href="classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="429,1060,554,1211"/>
+<area shape="rect" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="1005,665,1188,1036"/>
+<area shape="rect" href="structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="997,219,1111,311"/>
+<area shape="rect" href="structConfigData.html#structConfigData_1_1Procs" title=" " alt="" coords="938,491,1069,568"/>
+<area shape="rect" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="969,5,1139,156"/>
+<area shape="rect" href="structConfigData.html" title="Container for all config data. Mirrors the config file." alt="" coords="578,1097,666,1174"/>
+<area shape="rect" href="structConfigData.html#structConfigData_1_1Debugging" title=" " alt="" coords="717,469,913,590"/>
+<area shape="rect" href="structConfigData.html#structConfigData_1_1DataTypes" title=" " alt="" coords="5,491,164,568"/>
+<area shape="rect" href="structConfigData.html#structConfigData_1_1Extensions" title=" " alt="" coords="188,491,349,568"/>
+<area shape="rect" href="structConfigData.html#structConfigData_1_1Telemetry" title=" " alt="" coords="373,417,527,641"/>
+<area shape="rect" href="structConfigData.html#structConfigData_1_1General" title=" " alt="" coords="551,476,693,583"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad184aee75e320ae3cba8ab757a1e6695"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule</a> (<a class="el" href="structConfigData.html">ConfigData</a> config_data, <a class="el" href="classDataStream.html">DataStream</a> *data_stream)</td></tr>
-<tr class="memdesc:ad184aee75e320ae3cba8ab757a1e6695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classTelemetryModule.html" title="This class is responsible for handling the radio and transmitting data upon request.">TelemetryModule</a> object.  <a href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">More...</a><br /></td></tr>
+<tr class="memdesc:ad184aee75e320ae3cba8ab757a1e6695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classTelemetryModule.html" title="This class is responsible for handling the radio and transmitting data upon request....">TelemetryModule</a> object.  <a href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">More...</a><br /></td></tr>
 <tr class="separator:ad184aee75e320ae3cba8ab757a1e6695"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4016fb3ae5ca00397b3134c6567e09bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a4016fb3ae5ca00397b3134c6567e09bf">~TelemetryModule</a> ()</td></tr>
 <tr class="memdesc:a4016fb3ae5ca00397b3134c6567e09bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the Telemetry <a class="el" href="classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin...">Module</a>:: Telemetry <a class="el" href="classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin...">Module</a> object.  <a href="classTelemetryModule.html#a4016fb3ae5ca00397b3134c6567e09bf">More...</a><br /></td></tr>
@@ -142,15 +142,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a06f3ff1e68c2e4fd3102706d80d28006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pulls data from the data snapshot and then uses the AFSK utility to create an APRS packet.  <a href="classTelemetryModule.html#a06f3ff1e68c2e4fd3102706d80d28006">More...</a><br /></td></tr>
 <tr class="separator:a06f3ff1e68c2e4fd3102706d80d28006"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbf9095c242039b873691050f62ed4f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">sendDataPacket</a> ()</td></tr>
-<tr class="memdesc:afbf9095c242039b873691050f62ed4f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds AX.25 encoded AFSK packets to the telemetry queue.  <a href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">More...</a><br /></td></tr>
+<tr class="memdesc:afbf9095c242039b873691050f62ed4f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Currently implemented with <a class="el" href="classPSK.html">PSK</a>.  <a href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">More...</a><br /></td></tr>
 <tr class="separator:afbf9095c242039b873691050f62ed4f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77b5ac8425bc7f4a10587fe8a4f73a64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a77b5ac8425bc7f4a10587fe8a4f73a64">sendPSK</a> (std::string message)</td></tr>
+<tr class="separator:a77b5ac8425bc7f4a10587fe8a4f73a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ff75f7a5ce59d69cbbdef526a992d28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a0ff75f7a5ce59d69cbbdef526a992d28">sendSSTVImage</a> ()</td></tr>
 <tr class="memdesc:a0ff75f7a5ce59d69cbbdef526a992d28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an SSTV image to the transmit queue. It will use the path of the most recent picture from the data snapshot, along with environmental data.  <a href="classTelemetryModule.html#a0ff75f7a5ce59d69cbbdef526a992d28">More...</a><br /></td></tr>
 <tr class="separator:a0ff75f7a5ce59d69cbbdef526a992d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c5521ff45155036cea0b6aa1a139040"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a2c5521ff45155036cea0b6aa1a139040">start</a> ()</td></tr>
 <tr class="memdesc:a2c5521ff45155036cea0b6aa1a139040"><td class="mdescLeft">&#160;</td><td class="mdescRight">This starts the telemetry module thread.  <a href="classTelemetryModule.html#a2c5521ff45155036cea0b6aa1a139040">More...</a><br /></td></tr>
 <tr class="separator:a2c5521ff45155036cea0b6aa1a139040"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad42262ed46e67685c45928c02f0e2f91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModule.html#ad42262ed46e67685c45928c02f0e2f91">status</a> ()</td></tr>
+<tr class="memitem:ad42262ed46e67685c45928c02f0e2f91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility-status_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModule.html#ad42262ed46e67685c45928c02f0e2f91">status</a> ()</td></tr>
 <tr class="separator:ad42262ed46e67685c45928c02f0e2f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9757e8adcd52b200b4e75d08097dc24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#ad9757e8adcd52b200b4e75d08097dc24">stop</a> ()</td></tr>
 <tr class="separator:ad9757e8adcd52b200b4e75d08097dc24"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,7 +161,7 @@ Public Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aca64a0aa6bd57eb12396e9e2a06d6975"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModule.html#aca64a0aa6bd57eb12396e9e2a06d6975">error_source_</a></td></tr>
 <tr class="separator:aca64a0aa6bd57eb12396e9e2a06d6975"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9262cb9b87896cb996138ca9af5812df"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">module_status_</a></td></tr>
+<tr class="memitem:a9262cb9b87896cb996138ca9af5812df"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="utility-status_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">module_status_</a></td></tr>
 <tr class="separator:a9262cb9b87896cb996138ca9af5812df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -167,41 +169,47 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ace9d9d32604ef045787fea27bbad7329"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">addToTXQueue</a> (<a class="el" href="structTransmission.html">Transmission</a> transmission)</td></tr>
 <tr class="memdesc:ace9d9d32604ef045787fea27bbad7329"><td class="mdescLeft">&#160;</td><td class="mdescRight">First checks the transmission for type, and verifies that the wav file actually exists. If both are good, it will acquire a lock on the transmission queue, add the data, then unlock it.  <a href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">More...</a><br /></td></tr>
 <tr class="separator:ace9d9d32604ef045787fea27bbad7329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b77f117e3082c0494917aa95da76cba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a7b77f117e3082c0494917aa95da76cba">error</a> (std::string error_code, std::string error_info)</td></tr>
+<tr class="separator:a7b77f117e3082c0494917aa95da76cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f2680f4a0a1fca8258071132c9c4f6f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a6f2680f4a0a1fca8258071132c9c4f6f">generateAFSK</a> (std::string message)</td></tr>
 <tr class="memdesc:a6f2680f4a0a1fca8258071132c9c4f6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the callsign, output location, and the message to be encoded. Generates an AX.25 encoded AFSK message that will be split into packets.  <a href="classTelemetryModule.html#a6f2680f4a0a1fca8258071132c9c4f6f">More...</a><br /></td></tr>
 <tr class="separator:a6f2680f4a0a1fca8258071132c9c4f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2adf2a6a2b8121fb007d14c485b58bfd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a2adf2a6a2b8121fb007d14c485b58bfd">generateAPRS</a> ()</td></tr>
 <tr class="separator:a2adf2a6a2b8121fb007d14c485b58bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f0594750066c203772482b2217ce7da"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a1f0594750066c203772482b2217ce7da">generatePSK</a> (std::string message)</td></tr>
+<tr class="separator:a1f0594750066c203772482b2217ce7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8fa5bec66c75d966459669c497d5014"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#ab8fa5bec66c75d966459669c497d5014">generateSSTV</a> ()</td></tr>
 <tr class="separator:ab8fa5bec66c75d966459669c497d5014"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3ff51edcb9e53799561c8e4255147c1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#ab3ff51edcb9e53799561c8e4255147c1">getNextTXNumber</a> ()</td></tr>
 <tr class="memdesc:ab3ff51edcb9e53799561c8e4255147c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incremented the tx number and returns the new value.  <a href="classTelemetryModule.html#ab3ff51edcb9e53799561c8e4255147c1">More...</a><br /></td></tr>
 <tr class="separator:ab3ff51edcb9e53799561c8e4255147c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac64ab0a522871231a320e0326ff6d682"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#ac64ab0a522871231a320e0326ff6d682">getNextTXQueueItem</a> ()</td></tr>
-<tr class="separator:ac64ab0a522871231a320e0326ff6d682"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ff9ac5f9eea9b73388abfd05a144c51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a7ff9ac5f9eea9b73388abfd05a144c51">playWav</a> (std::string wav_location, std::string tx_type, int tx_length)</td></tr>
+<tr class="separator:a7ff9ac5f9eea9b73388abfd05a144c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8235b90d6e03c08bff7798087d536e02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">runner</a> ()</td></tr>
 <tr class="separator:a8235b90d6e03c08bff7798087d536e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a1615a8742d7684a9ea1f07ffc5981c33"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a1615a8742d7684a9ea1f07ffc5981c33">aplay_fp_</a></td></tr>
+<tr class="separator:a1615a8742d7684a9ea1f07ffc5981c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeab9d584785ee21ecfc8bcff74899610"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#aeab9d584785ee21ecfc8bcff74899610">call_sign_</a></td></tr>
+<tr class="separator:aeab9d584785ee21ecfc8bcff74899610"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b2e60b3fbd43bd73d39ad545ad98c8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structConfigData.html">ConfigData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a7b2e60b3fbd43bd73d39ad545ad98c8e">config_data_</a></td></tr>
 <tr class="separator:a7b2e60b3fbd43bd73d39ad545ad98c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af45e2b62a0bfe1719e249c7a0968836f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDataStream.html">DataStream</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a></td></tr>
 <tr class="separator:af45e2b62a0bfe1719e249c7a0968836f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85ca205536d023d6d758d18a0e5d8d46"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a85ca205536d023d6d758d18a0e5d8d46">psk_length_</a></td></tr>
+<tr class="separator:a85ca205536d023d6d758d18a0e5d8d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef98a7e67286deea7b5c37ed8fbd51ee"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#aef98a7e67286deea7b5c37ed8fbd51ee">stop_flag_</a></td></tr>
 <tr class="separator:aef98a7e67286deea7b5c37ed8fbd51ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80ba339a59e7e2e15f58ffbe54191369"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a80ba339a59e7e2e15f58ffbe54191369">tx_number_</a></td></tr>
 <tr class="separator:a80ba339a59e7e2e15f58ffbe54191369"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b9a3a29d9991b719cb88b8a4f7f5d37"><td class="memItemLeft" align="right" valign="top">std::queue&lt; <a class="el" href="structTransmission.html">Transmission</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a2b9a3a29d9991b719cb88b8a4f7f5d37">tx_queue_</a></td></tr>
-<tr class="separator:a2b9a3a29d9991b719cb88b8a4f7f5d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f4dc74d6bd6face118fdd024f0e5fd5"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#a7f4dc74d6bd6face118fdd024f0e5fd5">tx_queue_lock_</a></td></tr>
-<tr class="separator:a7f4dc74d6bd6face118fdd024f0e5fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad524bf7ae6de60db4f3d1b756e7a091a"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetryModule.html#ad524bf7ae6de60db4f3d1b756e7a091a">tx_thread_</a></td></tr>
 <tr class="separator:ad524bf7ae6de60db4f3d1b756e7a091a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class is responsible for handling the radio and transmitting data upon request. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000041">Todo:</a></b></dt><dd>This is hardly implemented. </dd></dl>
+<div class="textblock"><p>This class is responsible for handling the radio and transmitting data upon request. Currently only supports <a class="el" href="classPSK.html">PSK</a>. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000042">Todo:</a></b></dt><dd>Two way communicaiton, AFSK, APRS, etc. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad184aee75e320ae3cba8ab757a1e6695"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad184aee75e320ae3cba8ab757a1e6695">&#9670;&nbsp;</a></span>TelemetryModule()</h2>
@@ -229,7 +237,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="classTelemetryModule.html" title="This class is responsible for handling the radio and transmitting data upon request.">TelemetryModule</a> object. </p>
+<p>Construct a new <a class="el" href="classTelemetryModule.html" title="This class is responsible for handling the radio and transmitting data upon request....">TelemetryModule</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">config_data</td><td>All configuration data. </td></tr>
@@ -238,7 +246,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="classTelemetryModule.html#a7b2e60b3fbd43bd73d39ad545ad98c8e">config_data_</a>, <a class="el" href="classModule.html#aca64a0aa6bd57eb12396e9e2a06d6975">Module::error_source_</a>, <a class="el" href="utility-configurables_8h.html#abb6ab8dffcd191b09019f8dd493903a2">MODULE_TELEMETRY_PREFIX</a>, <a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a>, and <a class="el" href="classTelemetryModule.html#a80ba339a59e7e2e15f58ffbe54191369">tx_number_</a>.</p>
+<p class="reference">References <a class="el" href="structConfigData.html#ad952f0b13d26754c51e198182dbd3b99">ConfigData::Telemetry::call_sign</a>, <a class="el" href="classTelemetryModule.html#aeab9d584785ee21ecfc8bcff74899610">call_sign_</a>, <a class="el" href="classTelemetryModule.html#a7b2e60b3fbd43bd73d39ad545ad98c8e">config_data_</a>, <a class="el" href="classModule.html#aca64a0aa6bd57eb12396e9e2a06d6975">Module::error_source_</a>, <a class="el" href="utility-configurables_8h.html#abb6ab8dffcd191b09019f8dd493903a2">MODULE_TELEMETRY_PREFIX</a>, <a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a>, <a class="el" href="structConfigData.html#ab87da4c949df066825e387fb919a085b">ConfigData::telemetry</a>, and <a class="el" href="classTelemetryModule.html#a80ba339a59e7e2e15f58ffbe54191369">tx_number_</a>.</p>
 
 </div>
 </div>
@@ -258,7 +266,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Destroy the Telemetry <a class="el" href="classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin...">Module</a>:: Telemetry <a class="el" href="classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin...">Module</a> object. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000035">Todo:</a></b></dt><dd>implement this in a safe way. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000036">Todo:</a></b></dt><dd>implement this in a safe way. </dd></dl>
 
 <p class="reference">References <a class="el" href="classTelemetryModule.html#ad9757e8adcd52b200b4e75d08097dc24">stop()</a>.</p>
 
@@ -289,7 +297,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This starts the telemetry module thread. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000036">Todo:</a></b></dt><dd>not implemented yet. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000037">Todo:</a></b></dt><dd>not implemented yet. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classModule.html#abe62ec0956737c3375845477623921e5">Module</a>.</p>
 
@@ -324,7 +332,7 @@ Private Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classModule.html#a2c1d0cee46e5811292925b88a519f5e9">Module</a>.</p>
 
-<p class="reference">References <a class="el" href="classModule.html#ad42262ed46e67685c45928c02f0e2f91">Module::status()</a>, <a class="el" href="classTelemetryModule.html#aef98a7e67286deea7b5c37ed8fbd51ee">stop_flag_</a>, <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a09d4d696b4e935115b9313e3c412509a">STOPPED</a>, and <a class="el" href="classTelemetryModule.html#ad524bf7ae6de60db4f3d1b756e7a091a">tx_thread_</a>.</p>
+<p class="reference">References <a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">Module::module_status_</a>, <a class="el" href="classModule.html#ad42262ed46e67685c45928c02f0e2f91">Module::status()</a>, <a class="el" href="classTelemetryModule.html#aef98a7e67286deea7b5c37ed8fbd51ee">stop_flag_</a>, <a class="el" href="utility-status_8h.html#a50a7721e11e14f338207a83b9ab26ec9a09d4d696b4e935115b9313e3c412509a">STOPPED</a>, and <a class="el" href="classTelemetryModule.html#ad524bf7ae6de60db4f3d1b756e7a091a">tx_thread_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a4016fb3ae5ca00397b3134c6567e09bf">~TelemetryModule()</a>, and <a class="el" href="classFlightRunner.html#a2c4f6f0be7bee5b423c4a2f9f2fa5433">FlightRunner::deconstruct()</a>.</p>
 
@@ -345,7 +353,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds AX.25 encoded AFSK packets to the telemetry queue. </p>
+<p>Currently implemented with <a class="el" href="classPSK.html">PSK</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -353,9 +361,9 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Void </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000037">Todo:</a></b></dt><dd>implement this. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000038">Todo:</a></b></dt><dd>implement this. </dd></dl>
 
-<p class="reference">References <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">addToTXQueue()</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78ae626a5fcc018875ee064b3de9dcca549">Transmission::AFSK</a>, <a class="el" href="classTelemetryModule.html#a6f2680f4a0a1fca8258071132c9c4f6f">generateAFSK()</a>, <a class="el" href="classDataStream.html#abc6714f00357d5852409aece9250f050">DataStream::getDataFrameCopy()</a>, <a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a>, <a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">Transmission::type</a>, and <a class="el" href="structTransmission.html#aba5ae63ba628c782699114e53d07b92b">Transmission::wav_location</a>.</p>
+<p class="reference">References <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">addToTXQueue()</a>, <a class="el" href="classTelemetryModule.html#aeab9d584785ee21ecfc8bcff74899610">call_sign_</a>, <a class="el" href="classTelemetryModule.html#a1f0594750066c203772482b2217ce7da">generatePSK()</a>, <a class="el" href="classDataStream.html#abc6714f00357d5852409aece9250f050">DataStream::getDataFrameCopy()</a>, <a class="el" href="structTransmission.html#a0c3b11240a0f1213f4fdf592c54307b5">Transmission::length</a>, <a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a16cc3047e5c555c8fb9904cc09c166bd">Transmission::PSK</a>, <a class="el" href="classTelemetryModule.html#a85ca205536d023d6d758d18a0e5d8d46">psk_length_</a>, <a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">Transmission::type</a>, and <a class="el" href="structTransmission.html#aba5ae63ba628c782699114e53d07b92b">Transmission::wav_location</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a7e1c107d3300c6995bf5fe4bd784e320">FlightRunner::flightLoop()</a>.</p>
 
@@ -386,7 +394,25 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="reference">References <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">addToTXQueue()</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78ae626a5fcc018875ee064b3de9dcca549">Transmission::AFSK</a>, <a class="el" href="classTelemetryModule.html#a6f2680f4a0a1fca8258071132c9c4f6f">generateAFSK()</a>, <a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">Transmission::type</a>, and <a class="el" href="structTransmission.html#aba5ae63ba628c782699114e53d07b92b">Transmission::wav_location</a>.</p>
+<p class="reference">References <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78ae626a5fcc018875ee064b3de9dcca549">Transmission::AFSK</a>, <a class="el" href="classTelemetryModule.html#a6f2680f4a0a1fca8258071132c9c4f6f">generateAFSK()</a>, <a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">Transmission::type</a>, and <a class="el" href="structTransmission.html#aba5ae63ba628c782699114e53d07b92b">Transmission::wav_location</a>.</p>
+
+</div>
+</div>
+<a id="a77b5ac8425bc7f4a10587fe8a4f73a64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77b5ac8425bc7f4a10587fe8a4f73a64">&#9670;&nbsp;</a></span>sendPSK()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TelemetryModule::sendPSK </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -406,9 +432,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Pulls data from the data snapshot and then uses the AFSK utility to create an APRS packet. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000038">Todo:</a></b></dt><dd>currently not implemented </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000039">Todo:</a></b></dt><dd>currently not implemented </dd></dl>
 
-<p class="reference">References <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">addToTXQueue()</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a0c2b593da5ed5bcd8e6a33bf06e24e3b">Transmission::APRS</a>, <a class="el" href="classTelemetryModule.html#a2adf2a6a2b8121fb007d14c485b58bfd">generateAPRS()</a>, <a class="el" href="classDataStream.html#abc6714f00357d5852409aece9250f050">DataStream::getDataFrameCopy()</a>, <a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a>, <a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">Transmission::type</a>, and <a class="el" href="structTransmission.html#aba5ae63ba628c782699114e53d07b92b">Transmission::wav_location</a>.</p>
+<p class="reference">References <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a0c2b593da5ed5bcd8e6a33bf06e24e3b">Transmission::APRS</a>, <a class="el" href="classTelemetryModule.html#a2adf2a6a2b8121fb007d14c485b58bfd">generateAPRS()</a>, <a class="el" href="classDataStream.html#abc6714f00357d5852409aece9250f050">DataStream::getDataFrameCopy()</a>, <a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a>, <a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">Transmission::type</a>, and <a class="el" href="structTransmission.html#aba5ae63ba628c782699114e53d07b92b">Transmission::wav_location</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a7e1c107d3300c6995bf5fe4bd784e320">FlightRunner::flightLoop()</a>.</p>
 
@@ -431,9 +457,49 @@ Private Attributes</h2></td></tr>
 
 <p>Adds an SSTV image to the transmit queue. It will use the path of the most recent picture from the data snapshot, along with environmental data. </p>
 
-<p class="reference">References <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">addToTXQueue()</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a9eed40bd951e903d55dd6c8f01a50cc2">Transmission::SSTV</a>, and <a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">Transmission::type</a>.</p>
+<p class="reference">References <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a9eed40bd951e903d55dd6c8f01a50cc2">Transmission::SSTV</a>, and <a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">Transmission::type</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a7e1c107d3300c6995bf5fe4bd784e320">FlightRunner::flightLoop()</a>.</p>
+
+</div>
+</div>
+<a id="a7b77f117e3082c0494917aa95da76cba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b77f117e3082c0494917aa95da76cba">&#9670;&nbsp;</a></span>error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TelemetryModule::error </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>error_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>error_info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">DataStream::addError()</a>, <a class="el" href="classModule.html#aca64a0aa6bd57eb12396e9e2a06d6975">Module::error_source_</a>, and <a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">addToTXQueue()</a>, <a class="el" href="classTelemetryModule.html#a1f0594750066c203772482b2217ce7da">generatePSK()</a>, and <a class="el" href="classTelemetryModule.html#a7ff9ac5f9eea9b73388abfd05a144c51">playWav()</a>.</p>
 
 </div>
 </div>
@@ -464,6 +530,8 @@ Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
 <p class="reference">References <a class="el" href="classTelemetryModule.html#a80ba339a59e7e2e15f58ffbe54191369">tx_number_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a1f0594750066c203772482b2217ce7da">generatePSK()</a>.</p>
 
 </div>
 </div>
@@ -499,37 +567,12 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structTransmission.html">Transmission</a> </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000039">Todo:</a></b></dt><dd>Fully implement the queue </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structTransmission.html" title="Used by the telemetry module in it&#39;s queue and by the data stream.">Transmission</a> </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000040">Todo:</a></b></dt><dd>Fully implement the queue </dd></dl>
 
-<p class="reference">References <a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">DataStream::addError()</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78abb1ca97ec761fc37101737ba0aa2e7c5">Transmission::ERROR</a>, <a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a>, <a class="el" href="classTelemetryModule.html#a2b9a3a29d9991b719cb88b8a4f7f5d37">tx_queue_</a>, <a class="el" href="classTelemetryModule.html#a7f4dc74d6bd6face118fdd024f0e5fd5">tx_queue_lock_</a>, and <a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">Transmission::type</a>.</p>
+<p class="reference">References <a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">DataStream::addError()</a>, <a class="el" href="classDataStream.html#a37fb48e98dc2c7d2865f0a8872b8f06f">DataStream::addToTxQueue()</a>, <a class="el" href="classTelemetryModule.html#a7b77f117e3082c0494917aa95da76cba">error()</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78abb1ca97ec761fc37101737ba0aa2e7c5">Transmission::ERROR</a>, <a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a>, <a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">Transmission::type</a>, and <a class="el" href="structTransmission.html#aba5ae63ba628c782699114e53d07b92b">Transmission::wav_location</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a96d8cdeb6dcbda4d83da2e556dbcc95a">sendAFSK()</a>, <a class="el" href="classTelemetryModule.html#a06f3ff1e68c2e4fd3102706d80d28006">sendAPRS()</a>, <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">sendDataPacket()</a>, and <a class="el" href="classTelemetryModule.html#a0ff75f7a5ce59d69cbbdef526a992d28">sendSSTVImage()</a>.</p>
-
-</div>
-</div>
-<a id="ac64ab0a522871231a320e0326ff6d682"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac64ab0a522871231a320e0326ff6d682">&#9670;&nbsp;</a></span>getNextTXQueueItem()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TelemetryModule::getNextTXQueueItem </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">sendDataPacket()</a>.</p>
 
 </div>
 </div>
@@ -558,10 +601,40 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Takes the callsign, output location, and the message to be encoded. Generates an AX.25 encoded AFSK message that will be split into packets. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000040">Todo:</a></b></dt><dd>Not Yet Implemented </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000041">Todo:</a></b></dt><dd>Not Yet Implemented </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>File path to the generated wav file. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a96d8cdeb6dcbda4d83da2e556dbcc95a">sendAFSK()</a>, and <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">sendDataPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a96d8cdeb6dcbda4d83da2e556dbcc95a">sendAFSK()</a>.</p>
+
+</div>
+</div>
+<a id="a1f0594750066c203772482b2217ce7da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f0594750066c203772482b2217ce7da">&#9670;&nbsp;</a></span>generatePSK()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string TelemetryModule::generatePSK </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classPSK.html#a48bd150599c18ab087b5e2016ff33d30a8254924967b448f457f1d595294f7a5c">PSK::BPSK</a>, <a class="el" href="classTelemetryModule.html#a7b2e60b3fbd43bd73d39ad545ad98c8e">config_data_</a>, <a class="el" href="classPSK.html#a209e094c4fe8de0a9ce97099820802c9">PSK::encodeTextData()</a>, <a class="el" href="classTelemetryModule.html#a7b77f117e3082c0494917aa95da76cba">error()</a>, <a class="el" href="classPSK.html#a186055607da8a69228f37033f4d4832c">PSK::getLength()</a>, <a class="el" href="classTelemetryModule.html#ab3ff51edcb9e53799561c8e4255147c1">getNextTXNumber()</a>, <a class="el" href="classTelemetryModule.html#a85ca205536d023d6d758d18a0e5d8d46">psk_length_</a>, <a class="el" href="structConfigData.html#a4d5522ef782e37730862c394e0f5faa5">ConfigData::Telemetry::psk_mode</a>, <a class="el" href="structConfigData.html#a2eb5465f2cb07e2b400759fa8e72cd57">ConfigData::Telemetry::psk_symbol_rate</a>, <a class="el" href="classPSK.html#a48bd150599c18ab087b5e2016ff33d30a06cec12163bab3be7a23a331e4cde0b1">PSK::QPSK</a>, <a class="el" href="classPSK.html#a3d2b7826da67ef4ebe34dcf12c8883d5a826485a0bb2842ddfd4642abd7074872">PSK::S125</a>, <a class="el" href="classPSK.html#a3d2b7826da67ef4ebe34dcf12c8883d5a834d3e246858bcaf440a07ccb2895b92">PSK::S250</a>, <a class="el" href="classPSK.html#a3d2b7826da67ef4ebe34dcf12c8883d5a48fa085e9d89f3805ca32eeccd8ec239">PSK::S500</a>, <a class="el" href="structConfigData.html#ab87da4c949df066825e387fb919a085b">ConfigData::telemetry</a>, and <a class="el" href="utility-configurables_8h.html#af84bcfbf5199161c933c5e2eb5071514">TELEMETRY_WAV_LOCATION</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">sendDataPacket()</a>.</p>
 
 </div>
 </div>
@@ -640,9 +713,58 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classDataStream.html#afa464698433537da651b85771587cd84">DataStream::addData()</a>, <a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">DataStream::addError()</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78ae626a5fcc018875ee064b3de9dcca549">Transmission::AFSK</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a0c2b593da5ed5bcd8e6a33bf06e24e3b">Transmission::APRS</a>, <a class="el" href="classModule.html#aca64a0aa6bd57eb12396e9e2a06d6975">Module::error_source_</a>, <a class="el" href="utility-configurables_8h.html#abb6ab8dffcd191b09019f8dd493903a2">MODULE_TELEMETRY_PREFIX</a>, <a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a9eed40bd951e903d55dd6c8f01a50cc2">Transmission::SSTV</a>, <a class="el" href="classTelemetryModule.html#aef98a7e67286deea7b5c37ed8fbd51ee">stop_flag_</a>, <a class="el" href="utility-configurables_8h.html#a1ecf9e29e7b1b5c3171c0c6a222c0da9">TELEMETRY_INTERVAL_MILI_SECONDS</a>, <a class="el" href="classTelemetryModule.html#a2b9a3a29d9991b719cb88b8a4f7f5d37">tx_queue_</a>, <a class="el" href="classTelemetryModule.html#a7f4dc74d6bd6face118fdd024f0e5fd5">tx_queue_lock_</a>, and <a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">Transmission::type</a>.</p>
+<p class="reference">References <a class="el" href="classDataStream.html#afa464698433537da651b85771587cd84">DataStream::addData()</a>, <a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">DataStream::addError()</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78ae626a5fcc018875ee064b3de9dcca549">Transmission::AFSK</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a0c2b593da5ed5bcd8e6a33bf06e24e3b">Transmission::APRS</a>, <a class="el" href="classModule.html#aca64a0aa6bd57eb12396e9e2a06d6975">Module::error_source_</a>, <a class="el" href="classDataStream.html#aa34c1b4cd239ed9ce25c4fe1de1d558a">DataStream::getNextTX()</a>, <a class="el" href="classDataStream.html#ae706ff404eb85a4132ba7c9abc6e4a5e">DataStream::getTXQueueSize()</a>, <a class="el" href="structTransmission.html#a0c3b11240a0f1213f4fdf592c54307b5">Transmission::length</a>, <a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">Module::module_status_</a>, <a class="el" href="utility-configurables_8h.html#abb6ab8dffcd191b09019f8dd493903a2">MODULE_TELEMETRY_PREFIX</a>, <a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a>, <a class="el" href="classTelemetryModule.html#a7ff9ac5f9eea9b73388abfd05a144c51">playWav()</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a16cc3047e5c555c8fb9904cc09c166bd">Transmission::PSK</a>, <a class="el" href="utility-status_8h.html#a50a7721e11e14f338207a83b9ab26ec9a43491564ebcfd38568918efbd6e840fd">RUNNING</a>, <a class="el" href="structTransmission.html#ae88e058c356841ec4b74c89004aeba78a9eed40bd951e903d55dd6c8f01a50cc2">Transmission::SSTV</a>, <a class="el" href="classTelemetryModule.html#aef98a7e67286deea7b5c37ed8fbd51ee">stop_flag_</a>, <a class="el" href="utility-configurables_8h.html#a1ecf9e29e7b1b5c3171c0c6a222c0da9">TELEMETRY_INTERVAL_MILI_SECONDS</a>, <a class="el" href="structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f">Transmission::type</a>, and <a class="el" href="structTransmission.html#aba5ae63ba628c782699114e53d07b92b">Transmission::wav_location</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a2c5521ff45155036cea0b6aa1a139040">start()</a>.</p>
+
+</div>
+</div>
+<a id="a7ff9ac5f9eea9b73388abfd05a144c51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ff9ac5f9eea9b73388abfd05a144c51">&#9670;&nbsp;</a></span>playWav()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TelemetryModule::playWav </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>wav_location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>tx_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tx_length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>aplay seems to return 0 when it's done playing, 256 when the file doesn't exist, and 2 when it was interrupted (ctrl+c).</p>
+<p>This allows me to stop a transmission early if needed and provides time to exit GFS with another ctrl+c.</p>
+<p>This is deffinetly a bit of a hack but it gives the functionality that I'm looking for. Eventually this could be replaced with popen or a built in library for playing the wav files. I have had no issues with this <em>so far</em>.</p>
+
+<p class="reference">References <a class="el" href="classDataStream.html#afa464698433537da651b85771587cd84">DataStream::addData()</a>, <a class="el" href="classTelemetryModule.html#a7b77f117e3082c0494917aa95da76cba">error()</a>, <a class="el" href="utility-configurables_8h.html#abb6ab8dffcd191b09019f8dd493903a2">MODULE_TELEMETRY_PREFIX</a>, and <a class="el" href="classTelemetryModule.html#af45e2b62a0bfe1719e249c7a0968836f">p_data_stream_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">runner()</a>.</p>
 
 </div>
 </div>
@@ -656,7 +778,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a> Module::status </td>
+          <td class="memname"><a class="el" href="utility-status_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a> Module::status </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -671,11 +793,33 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classModule.html#a9262cb9b87896cb996138ca9af5812df">Module::module_status_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classServerModule.html#aeec722419b40e3d1685a016b1a92e9f0">ServerModule::stop()</a>, and <a class="el" href="classTelemetryModule.html#ad9757e8adcd52b200b4e75d08097dc24">stop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule::sendDynamicData()</a>, <a class="el" href="classServerModule.html#aeec722419b40e3d1685a016b1a92e9f0">ServerModule::stop()</a>, and <a class="el" href="classTelemetryModule.html#ad9757e8adcd52b200b4e75d08097dc24">stop()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1615a8742d7684a9ea1f07ffc5981c33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1615a8742d7684a9ea1f07ffc5981c33">&#9670;&nbsp;</a></span>aplay_fp_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* TelemetryModule::aplay_fp_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a80ba339a59e7e2e15f58ffbe54191369"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a80ba339a59e7e2e15f58ffbe54191369">&#9670;&nbsp;</a></span>tx_number_</h2>
 
@@ -700,8 +844,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a7f4dc74d6bd6face118fdd024f0e5fd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f4dc74d6bd6face118fdd024f0e5fd5">&#9670;&nbsp;</a></span>tx_queue_lock_</h2>
+<a id="aeab9d584785ee21ecfc8bcff74899610"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeab9d584785ee21ecfc8bcff74899610">&#9670;&nbsp;</a></span>call_sign_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -710,7 +854,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::mutex TelemetryModule::tx_queue_lock_</td>
+          <td class="memname">std::string TelemetryModule::call_sign_</td>
         </tr>
       </table>
   </td>
@@ -720,31 +864,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">addToTXQueue()</a>, and <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">runner()</a>.</p>
-
-</div>
-</div>
-<a id="a2b9a3a29d9991b719cb88b8a4f7f5d37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b9a3a29d9991b719cb88b8a4f7f5d37">&#9670;&nbsp;</a></span>tx_queue_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::queue&lt;<a class="el" href="structTransmission.html">Transmission</a>&gt; TelemetryModule::tx_queue_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">addToTXQueue()</a>, and <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">runner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule()</a>, and <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">sendDataPacket()</a>.</p>
 
 </div>
 </div>
@@ -816,7 +936,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule()</a>, and <a class="el" href="classTelemetryModule.html#a1f0594750066c203772482b2217ce7da">generatePSK()</a>.</p>
 
 </div>
 </div>
@@ -840,7 +960,31 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule()</a>, <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">addToTXQueue()</a>, <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">runner()</a>, <a class="el" href="classTelemetryModule.html#a06f3ff1e68c2e4fd3102706d80d28006">sendAPRS()</a>, <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">sendDataPacket()</a>, and <a class="el" href="classTelemetryModule.html#a2c5521ff45155036cea0b6aa1a139040">start()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule()</a>, <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">addToTXQueue()</a>, <a class="el" href="classTelemetryModule.html#a7b77f117e3082c0494917aa95da76cba">error()</a>, <a class="el" href="classTelemetryModule.html#a7ff9ac5f9eea9b73388abfd05a144c51">playWav()</a>, <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">runner()</a>, <a class="el" href="classTelemetryModule.html#a06f3ff1e68c2e4fd3102706d80d28006">sendAPRS()</a>, <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">sendDataPacket()</a>, and <a class="el" href="classTelemetryModule.html#a2c5521ff45155036cea0b6aa1a139040">start()</a>.</p>
+
+</div>
+</div>
+<a id="a85ca205536d023d6d758d18a0e5d8d46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85ca205536d023d6d758d18a0e5d8d46">&#9670;&nbsp;</a></span>psk_length_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TelemetryModule::psk_length_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a1f0594750066c203772482b2217ce7da">generatePSK()</a>, and <a class="el" href="classTelemetryModule.html#afbf9095c242039b873691050f62ed4f6">sendDataPacket()</a>.</p>
 
 </div>
 </div>
@@ -854,7 +998,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::atomic&lt;<a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a>&gt; Module::module_status_</td>
+          <td class="memname">std::atomic&lt;<a class="el" href="utility-status_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a>&gt; Module::module_status_</td>
         </tr>
       </table>
   </td>
@@ -864,7 +1008,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDataModule.html#ac746f1e9faba3d094d7ce7f6bc835146">DataModule::runner()</a>, <a class="el" href="classServerModule.html#ae72c6ef5a46765e7d3ee1ea0d43dc765">ServerModule::runner()</a>, <a class="el" href="classDataModule.html#aaf9fcacae3b7059cb28c7ce6342225d3">DataModule::start()</a>, <a class="el" href="classModule.html#abe62ec0956737c3375845477623921e5">Module::start()</a>, <a class="el" href="classModule.html#ad42262ed46e67685c45928c02f0e2f91">Module::status()</a>, <a class="el" href="classDataModule.html#a2c6cc52926454c37a2d3a8e6f7cd0550">DataModule::stop()</a>, and <a class="el" href="classModule.html#a2c1d0cee46e5811292925b88a519f5e9">Module::stop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDataModule.html#ac746f1e9faba3d094d7ce7f6bc835146">DataModule::runner()</a>, <a class="el" href="classServerModule.html#ae72c6ef5a46765e7d3ee1ea0d43dc765">ServerModule::runner()</a>, <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">runner()</a>, <a class="el" href="classDataModule.html#aaf9fcacae3b7059cb28c7ce6342225d3">DataModule::start()</a>, <a class="el" href="classModule.html#abe62ec0956737c3375845477623921e5">Module::start()</a>, <a class="el" href="classModule.html#ad42262ed46e67685c45928c02f0e2f91">Module::status()</a>, <a class="el" href="classDataModule.html#a2c6cc52926454c37a2d3a8e6f7cd0550">DataModule::stop()</a>, <a class="el" href="classServerModule.html#aeec722419b40e3d1685a016b1a92e9f0">ServerModule::stop()</a>, <a class="el" href="classTelemetryModule.html#ad9757e8adcd52b200b4e75d08097dc24">stop()</a>, and <a class="el" href="classModule.html#a2c1d0cee46e5811292925b88a519f5e9">Module::stop()</a>.</p>
 
 </div>
 </div>
@@ -888,7 +1032,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule()</a>, and <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">runner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ad184aee75e320ae3cba8ab757a1e6695">TelemetryModule()</a>, <a class="el" href="classTelemetryModule.html#a7b77f117e3082c0494917aa95da76cba">error()</a>, and <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">runner()</a>.</p>
 
 </div>
 </div>

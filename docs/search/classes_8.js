@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['procs_392',['Procs',['../structConfigData.html#structConfigData_1_1Procs',1,'ConfigData']]]
+  ['onewire_622',['OneWire',['../classOneWire.html',1,'']]]
 ];

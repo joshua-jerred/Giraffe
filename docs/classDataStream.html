@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -101,16 +101,16 @@ Collaboration diagram for DataStream:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDataStream__coll__graph.png" border="0" usemap="#aDataStream_coll__map" alt="Collaboration graph"/></div>
 <map name="aDataStream_coll__map" id="aDataStream_coll__map">
-<area shape="rect" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="5,373,208,773"/>
-<area shape="rect" href="structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="45,219,169,311"/>
-<area shape="rect" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="12,5,201,156"/>
+<area shape="rect" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="5,373,188,744"/>
+<area shape="rect" href="structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="40,219,153,311"/>
+<area shape="rect" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="11,5,182,156"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aadb8f27fe18a349a25b2cd656d686f92"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#aadb8f27fe18a349a25b2cd656d686f92">DataStream</a> ()</td></tr>
-<tr class="memdesc:aadb8f27fe18a349a25b2cd656d686f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new DataStreamobject.  <a href="classDataStream.html#aadb8f27fe18a349a25b2cd656d686f92">More...</a><br /></td></tr>
+<tr class="memdesc:aadb8f27fe18a349a25b2cd656d686f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a> object.  <a href="classDataStream.html#aadb8f27fe18a349a25b2cd656d686f92">More...</a><br /></td></tr>
 <tr class="separator:aadb8f27fe18a349a25b2cd656d686f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1ab2421685bd8ee669ec94d3b0239b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#ab1ab2421685bd8ee669ec94d3b0239b8">~DataStream</a> ()</td></tr>
 <tr class="memdesc:ab1ab2421685bd8ee669ec94d3b0239b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a> object. Waits for other threads to finish first. Other threads that access the data should be stopped before this is called.  <a href="classDataStream.html#ab1ab2421685bd8ee669ec94d3b0239b8">More...</a><br /></td></tr>
@@ -121,6 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:affd058313f03c73fb22863fdcc379cc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">addError</a> (std::string error_source, std::string error_name, std::string error_info, int seconds_until_expiry)</td></tr>
 <tr class="memdesc:affd058313f03c73fb22863fdcc379cc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an error to the error stream. This function is thread safe.  <a href="classDataStream.html#affd058313f03c73fb22863fdcc379cc9">More...</a><br /></td></tr>
 <tr class="separator:affd058313f03c73fb22863fdcc379cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37fb48e98dc2c7d2865f0a8872b8f06f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a37fb48e98dc2c7d2865f0a8872b8f06f">addToTxQueue</a> (<a class="el" href="structTransmission.html">Transmission</a> tx)</td></tr>
+<tr class="separator:a37fb48e98dc2c7d2865f0a8872b8f06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa554bb896a82f6c10b33b8facd3fd28b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#aa554bb896a82f6c10b33b8facd3fd28b">getData</a> (std::string data_source, std::string data_name)</td></tr>
 <tr class="separator:aa554bb896a82f6c10b33b8facd3fd28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc6714f00357d5852409aece9250f050"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility-data-stream_8h.html#a50c4f16536972d939a55427100cb9943">DataFrame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#abc6714f00357d5852409aece9250f050">getDataFrameCopy</a> ()</td></tr>
@@ -128,6 +130,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abc6714f00357d5852409aece9250f050"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b4bed27924ec3a451cdc19f1f4c663c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility-data-stream_8h.html#a7c4d7f1a05093603ec7ed9234ff9601f">ErrorFrame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a8b4bed27924ec3a451cdc19f1f4c663c">getErrorFrameCopy</a> ()</td></tr>
 <tr class="separator:a8b4bed27924ec3a451cdc19f1f4c663c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31c5e1bc16260bf3a8b7de816a9fa1e4"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="utility-status_8h.html#acfd494192530021918d69e3a11d0f111">ExtensionStatus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a31c5e1bc16260bf3a8b7de816a9fa1e4">getExtensionStatuses</a> ()</td></tr>
+<tr class="separator:a31c5e1bc16260bf3a8b7de816a9fa1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05ae6139f152017adcb0ca4961f73ec7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFlightProcedure.html">FlightProcedure</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a05ae6139f152017adcb0ca4961f73ec7">getFlightProcedureCopy</a> ()</td></tr>
 <tr class="separator:a05ae6139f152017adcb0ca4961f73ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a461673b50357d77d842bbd6d3269a213"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility-data-stream_8h.html#structDataStreamPacket">DataStreamPacket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a461673b50357d77d842bbd6d3269a213">getNextDataPacket</a> ()</td></tr>
@@ -136,6 +140,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a05b09b8fc72973ed2e67ccfb563b1870"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility-data-stream_8h.html#structErrorStreamPacket">ErrorStreamPacket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a05b09b8fc72973ed2e67ccfb563b1870">getNextErrorPacket</a> ()</td></tr>
 <tr class="memdesc:a05b09b8fc72973ed2e67ccfb563b1870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next error. Thread safe.  <a href="classDataStream.html#a05b09b8fc72973ed2e67ccfb563b1870">More...</a><br /></td></tr>
 <tr class="separator:a05b09b8fc72973ed2e67ccfb563b1870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa34c1b4cd239ed9ce25c4fe1de1d558a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTransmission.html">Transmission</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#aa34c1b4cd239ed9ce25c4fe1de1d558a">getNextTX</a> ()</td></tr>
+<tr class="separator:aa34c1b4cd239ed9ce25c4fe1de1d558a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa98f6718306690366f5015e2a43c0b6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#aa98f6718306690366f5015e2a43c0b6f">getNumDataPackets</a> ()</td></tr>
 <tr class="separator:aa98f6718306690366f5015e2a43c0b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a64f1b0bbddc88ce06e18554584972e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a7a64f1b0bbddc88ce06e18554584972e">getNumErrorPackets</a> ()</td></tr>
@@ -144,13 +150,27 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2e8e10abc932bc0b1db4aa225f2f1689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a440ff69ddbb09b9d8adf52bfca0329ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a440ff69ddbb09b9d8adf52bfca0329ed">getTotalErrorPackets</a> ()</td></tr>
 <tr class="separator:a440ff69ddbb09b9d8adf52bfca0329ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fc8567036e6d658f9ad236b93ccfc7e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a3fc8567036e6d658f9ad236b93ccfc7e">getTotalTx</a> ()</td></tr>
+<tr class="separator:a3fc8567036e6d658f9ad236b93ccfc7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace70c263858de18fa0f7fdbc1403092c"><td class="memItemLeft" align="right" valign="top">const std::queue&lt; <a class="el" href="structTransmission.html">Transmission</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#ace70c263858de18fa0f7fdbc1403092c">getTXQueue</a> ()</td></tr>
+<tr class="separator:ace70c263858de18fa0f7fdbc1403092c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae706ff404eb85a4132ba7c9abc6e4a5e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#ae706ff404eb85a4132ba7c9abc6e4a5e">getTXQueueSize</a> ()</td></tr>
+<tr class="separator:ae706ff404eb85a4132ba7c9abc6e4a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad811b7fe85ed58f1381d5f8a1f6ccac4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#ad811b7fe85ed58f1381d5f8a1f6ccac4">lockTXQueue</a> ()</td></tr>
+<tr class="separator:ad811b7fe85ed58f1381d5f8a1f6ccac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac9f93ee3d28ed1494928e11a59f09e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#aac9f93ee3d28ed1494928e11a59f09e2">unlockTXQueue</a> ()</td></tr>
+<tr class="separator:aac9f93ee3d28ed1494928e11a59f09e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e97e9ecdd3cbb0422a21353c6a6b164"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a3e97e9ecdd3cbb0422a21353c6a6b164">updateDataFrame</a> (<a class="el" href="utility-data-stream_8h.html#a50c4f16536972d939a55427100cb9943">DataFrame</a> data_frame)</td></tr>
 <tr class="memdesc:a3e97e9ecdd3cbb0422a21353c6a6b164"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is called externally by the data module. It is used to update the data frame that can be accessed by everyone. Thread safe.  <a href="classDataStream.html#a3e97e9ecdd3cbb0422a21353c6a6b164">More...</a><br /></td></tr>
 <tr class="separator:a3e97e9ecdd3cbb0422a21353c6a6b164"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e88629f971c6273c739fe05fe7903b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a1e88629f971c6273c739fe05fe7903b8">updateErrorFrame</a> (<a class="el" href="utility-data-stream_8h.html#a7c4d7f1a05093603ec7ed9234ff9601f">ErrorFrame</a> error_frame)</td></tr>
 <tr class="separator:a1e88629f971c6273c739fe05fe7903b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af11dc52c49a644053af7d7702400f6dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#af11dc52c49a644053af7d7702400f6dc">updateExtensionStatus</a> (std::string extension_name, <a class="el" href="utility-status_8h.html#acfd494192530021918d69e3a11d0f111">ExtensionStatus</a> status)</td></tr>
+<tr class="separator:af11dc52c49a644053af7d7702400f6dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4672e75bcbe3979d79b7f4dce7a0de3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#ac4672e75bcbe3979d79b7f4dce7a0de3">updateFlightProcedure</a> (<a class="el" href="structFlightProcedure.html">FlightProcedure</a> flight_procedure)</td></tr>
 <tr class="separator:ac4672e75bcbe3979d79b7f4dce7a0de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d0b02d88fc5fc8d183617b2d7f53862"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a0d0b02d88fc5fc8d183617b2d7f53862">updateModuleStatus</a> (std::string module_name, <a class="el" href="utility-status_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a> status)</td></tr>
+<tr class="separator:a0d0b02d88fc5fc8d183617b2d7f53862"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -170,10 +190,18 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ac2560a5202001330fe5c89c7d959487a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96e00aacaccb3985eed4f8d5bf576a69"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a96e00aacaccb3985eed4f8d5bf576a69">error_stream_lock_</a></td></tr>
 <tr class="separator:a96e00aacaccb3985eed4f8d5bf576a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95ba4688fdf594636c1491e75ce10a0c"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="utility-status_8h.html#acfd494192530021918d69e3a11d0f111">ExtensionStatus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a95ba4688fdf594636c1491e75ce10a0c">extension_status_</a></td></tr>
+<tr class="separator:a95ba4688fdf594636c1491e75ce10a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac12fda023bfddab4a3efd26b64f40f7b"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#ac12fda023bfddab4a3efd26b64f40f7b">extension_status_lock_</a></td></tr>
+<tr class="separator:ac12fda023bfddab4a3efd26b64f40f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d862c70c29e6634d53c9d4b93de3164"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFlightProcedure.html">FlightProcedure</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a9d862c70c29e6634d53c9d4b93de3164">flight_procedure_</a></td></tr>
 <tr class="separator:a9d862c70c29e6634d53c9d4b93de3164"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42b7064dc5e5fdfd33e4a3bda0455a65"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a42b7064dc5e5fdfd33e4a3bda0455a65">flight_procedure_lock_</a></td></tr>
 <tr class="separator:a42b7064dc5e5fdfd33e4a3bda0455a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49467f3946a83ce16aa90202120ab48c"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="utility-status_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a49467f3946a83ce16aa90202120ab48c">module_status_</a></td></tr>
+<tr class="separator:a49467f3946a83ce16aa90202120ab48c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f71b18e1ff990a42e3c231b5edaccb8"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a4f71b18e1ff990a42e3c231b5edaccb8">module_status_lock_</a></td></tr>
+<tr class="separator:a4f71b18e1ff990a42e3c231b5edaccb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4b2f7b7fb2f9d0b3ee46555140a87be"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#ac4b2f7b7fb2f9d0b3ee46555140a87be">num_data_packets_</a></td></tr>
 <tr class="separator:ac4b2f7b7fb2f9d0b3ee46555140a87be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36d112d4fe7a90c78c6f6b77b619c5ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a36d112d4fe7a90c78c6f6b77b619c5ba">num_error_packets_</a></td></tr>
@@ -182,6 +210,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a1345e5de7131d7d1042287c7d64adeec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab230e026d697e338d690b9c2db6dd55a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#ab230e026d697e338d690b9c2db6dd55a">total_error_packets_</a></td></tr>
 <tr class="separator:ab230e026d697e338d690b9c2db6dd55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af18361e3a5072c6b52bcbdd7f01d6d80"><td class="memItemLeft" align="right" valign="top">std::queue&lt; <a class="el" href="structTransmission.html">Transmission</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#af18361e3a5072c6b52bcbdd7f01d6d80">tx_queue_</a></td></tr>
+<tr class="separator:af18361e3a5072c6b52bcbdd7f01d6d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da6b1d729f085da823d56dfe1db3549"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataStream.html#a4da6b1d729f085da823d56dfe1db3549">tx_queue_lock_</a></td></tr>
+<tr class="separator:a4da6b1d729f085da823d56dfe1db3549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class is passed to many extensions/modules. It is used to communicate data and errors to the data module from any location or even from other threads. There are locks when writing or reading from the streams that will allow for data safety when threads access the stream. This class is ultimately the communication bridge between sections of the flight computer. </p>
@@ -201,7 +233,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new DataStreamobject. </p>
+<p>Construct a new <a class="el" href="classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat...">DataStream</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -286,7 +318,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classDataStream.html#a663e34a1d5f5f3aeede15b53d1aa71c4">data_stream_</a>, <a class="el" href="classDataStream.html#a2df156b3c9b10633c3a7961a49b4ac00">data_stream_lock_</a>, <a class="el" href="classDataStream.html#ac4b2f7b7fb2f9d0b3ee46555140a87be">num_data_packets_</a>, and <a class="el" href="classDataStream.html#a1345e5de7131d7d1042287c7d64adeec">total_data_packets_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classServerModule.html#ae72c6ef5a46765e7d3ee1ea0d43dc765">ServerModule::runner()</a>, <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>, <a class="el" href="classExtension.html#ac55fc1a6b1a93406726fd29559fc08f2">Extension::sendData()</a>, and <a class="el" href="classTelemetryModule.html#a2c5521ff45155036cea0b6aa1a139040">TelemetryModule::start()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a7ff9ac5f9eea9b73388abfd05a144c51">TelemetryModule::playWav()</a>, <a class="el" href="classServerModule.html#ae72c6ef5a46765e7d3ee1ea0d43dc765">ServerModule::runner()</a>, <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>, <a class="el" href="classExtension.html#ac55fc1a6b1a93406726fd29559fc08f2">Extension::sendData()</a>, and <a class="el" href="classTelemetryModule.html#a2c5521ff45155036cea0b6aa1a139040">TelemetryModule::start()</a>.</p>
 
 </div>
 </div>
@@ -342,7 +374,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classDataStream.html#ac2560a5202001330fe5c89c7d959487a">error_stream_</a>, <a class="el" href="classDataStream.html#a96e00aacaccb3985eed4f8d5bf576a69">error_stream_lock_</a>, <a class="el" href="classDataStream.html#a36d112d4fe7a90c78c6f6b77b619c5ba">num_error_packets_</a>, and <a class="el" href="classDataStream.html#ab230e026d697e338d690b9c2db6dd55a">total_error_packets_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">TelemetryModule::addToTXQueue()</a>, <a class="el" href="classConfigModule.html#aa5deba27e7637c6c40564362036e4e1c">ConfigModule::error()</a>, <a class="el" href="classExtension.html#a537d2d6cabbd4cc5d453f053827a7636">Extension::runner()</a>, <a class="el" href="classServerModule.html#ae72c6ef5a46765e7d3ee1ea0d43dc765">ServerModule::runner()</a>, <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>, <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule::sendDynamicData()</a>, <a class="el" href="classExtension.html#a46a252fd2eb23471ede70b3df875cafc">Extension::setCritical()</a>, <a class="el" href="classExtension.html#ace8ba3912124dd4e7cf78efbb6c73103">Extension::setID()</a>, and <a class="el" href="classExtension.html#a554811d7b73c19249df043c73a1206ea">Extension::setName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">TelemetryModule::addToTXQueue()</a>, <a class="el" href="classTelemetryModule.html#a7b77f117e3082c0494917aa95da76cba">TelemetryModule::error()</a>, <a class="el" href="classExtension.html#a0fefd812bdb70c8279a21b8ba4e8405a">Extension::error()</a>, <a class="el" href="classConfigModule.html#aa5deba27e7637c6c40564362036e4e1c">ConfigModule::error()</a>, <a class="el" href="classExtension.html#a537d2d6cabbd4cc5d453f053827a7636">Extension::runner()</a>, <a class="el" href="classServerModule.html#ae72c6ef5a46765e7d3ee1ea0d43dc765">ServerModule::runner()</a>, <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>, <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule::sendDynamicData()</a>, <a class="el" href="classExtension.html#a46a252fd2eb23471ede70b3df875cafc">Extension::setCritical()</a>, <a class="el" href="classExtension.html#ace8ba3912124dd4e7cf78efbb6c73103">Extension::setID()</a>, and <a class="el" href="classExtension.html#a554811d7b73c19249df043c73a1206ea">Extension::setName()</a>.</p>
 
 </div>
 </div>
@@ -666,6 +698,233 @@ Private Attributes</h2></td></tr>
 <p class="reference">References <a class="el" href="classDataStream.html#ab230e026d697e338d690b9c2db6dd55a">total_error_packets_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>.</p>
+
+</div>
+</div>
+<a id="ad811b7fe85ed58f1381d5f8a1f6ccac4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad811b7fe85ed58f1381d5f8a1f6ccac4">&#9670;&nbsp;</a></span>lockTXQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataStream::lockTXQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#a4da6b1d729f085da823d56dfe1db3549">tx_queue_lock_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule::sendDynamicData()</a>.</p>
+
+</div>
+</div>
+<a id="ace70c263858de18fa0f7fdbc1403092c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace70c263858de18fa0f7fdbc1403092c">&#9670;&nbsp;</a></span>getTXQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::queue&lt; <a class="el" href="structTransmission.html">Transmission</a> &gt; &amp; DataStream::getTXQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#af18361e3a5072c6b52bcbdd7f01d6d80">tx_queue_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule::sendDynamicData()</a>.</p>
+
+</div>
+</div>
+<a id="aac9f93ee3d28ed1494928e11a59f09e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac9f93ee3d28ed1494928e11a59f09e2">&#9670;&nbsp;</a></span>unlockTXQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataStream::unlockTXQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#a4da6b1d729f085da823d56dfe1db3549">tx_queue_lock_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule::sendDynamicData()</a>.</p>
+
+</div>
+</div>
+<a id="a37fb48e98dc2c7d2865f0a8872b8f06f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37fb48e98dc2c7d2865f0a8872b8f06f">&#9670;&nbsp;</a></span>addToTxQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataStream::addToTxQueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTransmission.html">Transmission</a>&#160;</td>
+          <td class="paramname"><em>tx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#af18361e3a5072c6b52bcbdd7f01d6d80">tx_queue_</a>, and <a class="el" href="classDataStream.html#a4da6b1d729f085da823d56dfe1db3549">tx_queue_lock_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#ace9d9d32604ef045787fea27bbad7329">TelemetryModule::addToTXQueue()</a>.</p>
+
+</div>
+</div>
+<a id="aa34c1b4cd239ed9ce25c4fe1de1d558a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa34c1b4cd239ed9ce25c4fe1de1d558a">&#9670;&nbsp;</a></span>getNextTX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTransmission.html">Transmission</a> DataStream::getNextTX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#af18361e3a5072c6b52bcbdd7f01d6d80">tx_queue_</a>, and <a class="el" href="classDataStream.html#a4da6b1d729f085da823d56dfe1db3549">tx_queue_lock_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>.</p>
+
+</div>
+</div>
+<a id="ae706ff404eb85a4132ba7c9abc6e4a5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae706ff404eb85a4132ba7c9abc6e4a5e">&#9670;&nbsp;</a></span>getTXQueueSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DataStream::getTXQueueSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#af18361e3a5072c6b52bcbdd7f01d6d80">tx_queue_</a>, and <a class="el" href="classDataStream.html#a4da6b1d729f085da823d56dfe1db3549">tx_queue_lock_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classTelemetryModule.html#a8235b90d6e03c08bff7798087d536e02">TelemetryModule::runner()</a>.</p>
+
+</div>
+</div>
+<a id="a3fc8567036e6d658f9ad236b93ccfc7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fc8567036e6d658f9ad236b93ccfc7e">&#9670;&nbsp;</a></span>getTotalTx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DataStream::getTotalTx </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af11dc52c49a644053af7d7702400f6dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af11dc52c49a644053af7d7702400f6dc">&#9670;&nbsp;</a></span>updateExtensionStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataStream::updateExtensionStatus </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>extension_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="utility-status_8h.html#acfd494192530021918d69e3a11d0f111">ExtensionStatus</a>&#160;</td>
+          <td class="paramname"><em>status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#a95ba4688fdf594636c1491e75ce10a0c">extension_status_</a>, and <a class="el" href="classDataStream.html#ac12fda023bfddab4a3efd26b64f40f7b">extension_status_lock_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classExtension.html#a1ff51203eee0b75d5b6646b0fe2a7ccd">Extension::setStatus()</a>.</p>
+
+</div>
+</div>
+<a id="a0d0b02d88fc5fc8d183617b2d7f53862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d0b02d88fc5fc8d183617b2d7f53862">&#9670;&nbsp;</a></span>updateModuleStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataStream::updateModuleStatus </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>module_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="utility-status_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a>&#160;</td>
+          <td class="paramname"><em>status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#a49467f3946a83ce16aa90202120ab48c">module_status_</a>, and <a class="el" href="classDataStream.html#a4f71b18e1ff990a42e3c231b5edaccb8">module_status_lock_</a>.</p>
+
+</div>
+</div>
+<a id="a31c5e1bc16260bf3a8b7de816a9fa1e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31c5e1bc16260bf3a8b7de816a9fa1e4">&#9670;&nbsp;</a></span>getExtensionStatuses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt; std::string, <a class="el" href="utility-status_8h.html#acfd494192530021918d69e3a11d0f111">ExtensionStatus</a> &gt; DataStream::getExtensionStatuses </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDataStream.html#a95ba4688fdf594636c1491e75ce10a0c">extension_status_</a>, and <a class="el" href="classDataStream.html#ac12fda023bfddab4a3efd26b64f40f7b">extension_status_lock_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classServerModule.html#acb6b11801c0b7c44989cb66be472a7d2">ServerModule::sendDynamicData()</a>.</p>
 
 </div>
 </div>
@@ -1003,6 +1262,150 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">Referenced by <a class="el" href="classDataStream.html#a05ae6139f152017adcb0ca4961f73ec7">getFlightProcedureCopy()</a>, and <a class="el" href="classDataStream.html#ac4672e75bcbe3979d79b7f4dce7a0de3">updateFlightProcedure()</a>.</p>
+
+</div>
+</div>
+<a id="a4da6b1d729f085da823d56dfe1db3549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4da6b1d729f085da823d56dfe1db3549">&#9670;&nbsp;</a></span>tx_queue_lock_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex DataStream::tx_queue_lock_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#a37fb48e98dc2c7d2865f0a8872b8f06f">addToTxQueue()</a>, <a class="el" href="classDataStream.html#aa34c1b4cd239ed9ce25c4fe1de1d558a">getNextTX()</a>, <a class="el" href="classDataStream.html#ae706ff404eb85a4132ba7c9abc6e4a5e">getTXQueueSize()</a>, <a class="el" href="classDataStream.html#ad811b7fe85ed58f1381d5f8a1f6ccac4">lockTXQueue()</a>, and <a class="el" href="classDataStream.html#aac9f93ee3d28ed1494928e11a59f09e2">unlockTXQueue()</a>.</p>
+
+</div>
+</div>
+<a id="af18361e3a5072c6b52bcbdd7f01d6d80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af18361e3a5072c6b52bcbdd7f01d6d80">&#9670;&nbsp;</a></span>tx_queue_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;<a class="el" href="structTransmission.html">Transmission</a>&gt; DataStream::tx_queue_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#a37fb48e98dc2c7d2865f0a8872b8f06f">addToTxQueue()</a>, <a class="el" href="classDataStream.html#aa34c1b4cd239ed9ce25c4fe1de1d558a">getNextTX()</a>, <a class="el" href="classDataStream.html#ace70c263858de18fa0f7fdbc1403092c">getTXQueue()</a>, and <a class="el" href="classDataStream.html#ae706ff404eb85a4132ba7c9abc6e4a5e">getTXQueueSize()</a>.</p>
+
+</div>
+</div>
+<a id="ac12fda023bfddab4a3efd26b64f40f7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac12fda023bfddab4a3efd26b64f40f7b">&#9670;&nbsp;</a></span>extension_status_lock_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex DataStream::extension_status_lock_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#a31c5e1bc16260bf3a8b7de816a9fa1e4">getExtensionStatuses()</a>, and <a class="el" href="classDataStream.html#af11dc52c49a644053af7d7702400f6dc">updateExtensionStatus()</a>.</p>
+
+</div>
+</div>
+<a id="a95ba4688fdf594636c1491e75ce10a0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95ba4688fdf594636c1491e75ce10a0c">&#9670;&nbsp;</a></span>extension_status_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, <a class="el" href="utility-status_8h.html#acfd494192530021918d69e3a11d0f111">ExtensionStatus</a>&gt; DataStream::extension_status_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#a31c5e1bc16260bf3a8b7de816a9fa1e4">getExtensionStatuses()</a>, and <a class="el" href="classDataStream.html#af11dc52c49a644053af7d7702400f6dc">updateExtensionStatus()</a>.</p>
+
+</div>
+</div>
+<a id="a4f71b18e1ff990a42e3c231b5edaccb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f71b18e1ff990a42e3c231b5edaccb8">&#9670;&nbsp;</a></span>module_status_lock_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex DataStream::module_status_lock_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#a0d0b02d88fc5fc8d183617b2d7f53862">updateModuleStatus()</a>.</p>
+
+</div>
+</div>
+<a id="a49467f3946a83ce16aa90202120ab48c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49467f3946a83ce16aa90202120ab48c">&#9670;&nbsp;</a></span>module_status_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, <a class="el" href="utility-status_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a>&gt; DataStream::module_status_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classDataStream.html#a0d0b02d88fc5fc8d183617b2d7f53862">updateModuleStatus()</a>.</p>
 
 </div>
 </div>

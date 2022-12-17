@@ -1,13 +1,19 @@
 var searchData=
 [
-  ['data_5fframe_5f_593',['data_frame_',['../classDataStream.html#a3e9fe788ab4ba04467b7beaddb7639bf',1,'DataStream']]],
-  ['data_5fframe_5flock_5f_594',['data_frame_lock_',['../classDataStream.html#a5e64f93c8634844503f37134adc5b6ac',1,'DataStream']]],
-  ['data_5flog_595',['data_log',['../structFlightProcedure.html#a53ab2b7e6b20dc2253e7796a7cfeefee',1,'FlightProcedure::Intervals']]],
-  ['data_5flog_5ffile_5fpath_5f_596',['data_log_file_path_',['../classDataModule.html#a47bac1f029cf03c95ee343ea39ba41ec',1,'DataModule']]],
-  ['data_5fpacket_597',['data_packet',['../structFlightProcedure.html#a01cffa68bea2b4a4de10ad0a64ee1477',1,'FlightProcedure::Intervals']]],
-  ['data_5fstream_5f_598',['data_stream_',['../classConsoleModule.html#a7037260b7048662fac318a5a4241f622',1,'ConsoleModule::data_stream_()'],['../classExtensionsModule.html#a3f0bde918dcfcf04741d7508e895bcbf',1,'ExtensionsModule::data_stream_()'],['../classServerModule.html#a6325188837f8729562918465d474dbfe',1,'ServerModule::data_stream_()'],['../classDataStream.html#a663e34a1d5f5f3aeede15b53d1aa71c4',1,'DataStream::data_stream_()']]],
-  ['data_5fstream_5flock_5f_599',['data_stream_lock_',['../classDataStream.html#a2df156b3c9b10633c3a7961a49b4ac00',1,'DataStream']]],
-  ['data_5ftypes_600',['data_types',['../structConfigData.html#a7ec84cac4da490322148fa418ae2c23b',1,'ConfigData']]],
-  ['dataframe_5f_601',['dataframe_',['../classDataModule.html#a097126a4612081416bc30141f9ef37ec',1,'DataModule']]],
-  ['debug_602',['debug',['../structConfigData.html#a07617466d797cb3c379ecc9f2036611a',1,'ConfigData']]]
+  ['call_5fsign_918',['call_sign',['../structConfigData.html#ad952f0b13d26754c51e198182dbd3b99',1,'ConfigData::Telemetry']]],
+  ['call_5fsign_5f_919',['call_sign_',['../classTelemetryModule.html#aeab9d584785ee21ecfc8bcff74899610',1,'TelemetryModule::call_sign_()'],['../classPSK.html#a6c0453f1915f2223b1de8710006c47a6',1,'PSK::call_sign_()']]],
+  ['carrier_5ffreq_5f_920',['carrier_freq_',['../classPSK.html#a9b3cf90eb1beb898c3fd5e6261f34ad3',1,'PSK']]],
+  ['carrier_5fwave_5fangle_5f_921',['carrier_wave_angle_',['../classPSK.html#a0e335d22244f3d1de7d37b04736eaea9',1,'PSK']]],
+  ['category_922',['category',['../structExtensionMetadata.html#a459b0a95d85e1d2a46131984fdf5477b',1,'ExtensionMetadata']]],
+  ['category_5f_923',['category_',['../classExtension.html#a191292dec76d5526c7ae5a98b6db2a34',1,'Extension']]],
+  ['config_5fdata_5f_924',['config_data_',['../classServerModule.html#a8f85059453e979860d63b6643d0d049e',1,'ServerModule::config_data_()'],['../classTelemetryModule.html#a7b2e60b3fbd43bd73d39ad545ad98c8e',1,'TelemetryModule::config_data_()'],['../classExtensionsModule.html#a90a5bb7fe874941fa3a8bf4d2d37103d',1,'ExtensionsModule::config_data_()'],['../classConsoleModule.html#a1a16d780b2d86d67b51e50e4fc1bebea',1,'ConsoleModule::config_data_()'],['../classConfigModule.html#aa1ff00e9e070687363d76ea8faf62b87',1,'ConfigModule::config_data_()'],['../classFlightRunner.html#a939663318081a0c21383dd911a5022c8',1,'FlightRunner::config_data_()']]],
+  ['config_5ffile_5fpath_5f_925',['config_file_path_',['../classConfigModule.html#a528a165bcfa549f8953f2cc1ac11c629',1,'ConfigModule']]],
+  ['console_5fenabled_926',['console_enabled',['../structConfigData.html#a46a85cf89f38f2a727061ae877165b65',1,'ConfigData::Debugging']]],
+  ['console_5fupdate_5finterval_927',['console_update_interval',['../structConfigData.html#aa15e1be0624f143cba001548bee1018f',1,'ConfigData::Debugging']]],
+  ['conv_5fcode_928',['conv_code',['../utility-psk_8cpp.html#a26ec28b37512b74576011dc80cddd808',1,'utility-psk.cpp']]],
+  ['conv_5fcode_5fbuffer_5f_929',['conv_code_buffer_',['../classPSK.html#a549ac113716a098fea0afed616d8d0f7',1,'PSK']]],
+  ['critical_930',['critical',['../structExtensionMetadata.html#a92c646389b08bc8fb8f8d75fca7d91e5',1,'ExtensionMetadata']]],
+  ['critical_5f_931',['critical_',['../classExtension.html#ae5b42e52cc27906d9c9ebcfa90fd004e',1,'Extension']]],
+  ['current_5fflight_5fprocedure_5ftype_5f_932',['current_flight_procedure_type_',['../classFlightRunner.html#a93f1439c5ef27cefaa19c36371476fe0',1,'FlightRunner']]],
+  ['current_5fintervals_5f_933',['current_intervals_',['../classFlightRunner.html#ae0c7e0654631b88003ae585d309e641d',1,'FlightRunner']]]
 ];

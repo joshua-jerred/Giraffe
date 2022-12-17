@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['i2c_712',['I2C',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462afb87bf1fc88386ca21395991f90fff95',1,'ExtensionMetadata']]],
-  ['internal_713',['INTERNAL',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462a182fa1c42a2468f8488e6dcf75a81b81',1,'ExtensionMetadata']]],
-  ['internal_5fsensor_714',['INTERNAL_SENSOR',['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96ba0707594384635ca032ad92cd8c3ccb2e',1,'ExtensionMetadata']]]
+  ['gpio_1123',['GPIO',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462aa4b03abff0e37da035d6fc0f9a4b1235',1,'ExtensionMetadata']]],
+  ['gps_1124',['GPS',['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96ba8c578de37278ada488d763ea86c5cf20',1,'ExtensionMetadata']]]
 ];

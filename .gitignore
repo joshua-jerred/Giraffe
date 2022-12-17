@@ -2,10 +2,10 @@
 .vscode/settings.json
 .timetracker
 .VSCodeCounter
-
 # CMake Build Files
 build
 
+hardware
 # Doxygen output files, these can be user generated.
 # docs/Doxygen/output
 

@@ -1,4 +1,4 @@
 <map id="BMP180_SIM" name="BMP180_SIM">
-<area shape="rect" id="node1" title="The BMP180_SIM is a simulated BMP180 extension." alt="" coords="17,673,159,780"/>
-<area shape="rect" id="node2" href="$classExtension.html" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="5,5,171,625"/>
+<area shape="rect" id="node1" title="The BMP180_SIM is a simulated BMP180 extension." alt="" coords="13,703,143,809"/>
+<area shape="rect" id="node2" href="$classExtension.html" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="5,5,151,655"/>
 </map>

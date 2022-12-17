@@ -1,3 +1,4 @@
 <map id="ExtensionMetadata" name="ExtensionMetadata">
-<area shape="rect" id="node1" title="This struct is passed in for all new extension objects. It contains all metadata from the config file..." alt="" coords="5,5,153,185"/>
+<area shape="rect" id="node1" title="This struct is passed in for all new extension objects. It contains all metadata from the config file..." alt="" coords="15,189,149,355"/>
+<area shape="rect" id="node2" href="$structExtensionMetadata.html#structExtensionMetadata_1_1ExtraArgs" title=" " alt="" coords="5,5,159,127"/>
 </map>

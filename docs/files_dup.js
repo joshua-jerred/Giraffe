@@ -1,7 +1,16 @@
 var files_dup =
 [
+    [ "bmp180.cpp", "bmp180_8cpp.html", null ],
+    [ "bmp180.h", "bmp180_8h.html", "bmp180_8h" ],
+    [ "ds18b20.cpp", "ds18b20_8cpp.html", null ],
+    [ "ds18b20.h", "ds18b20_8h.html", [
+      [ "DS18B20", "classDS18B20.html", "classDS18B20" ]
+    ] ],
     [ "extension.cpp", "extension_8cpp.html", null ],
-    [ "extension.h", "extension_8h.html", "extension_8h" ],
+    [ "extension.h", "extension_8h.html", [
+      [ "Extension", "classExtension.html", "classExtension" ],
+      [ "ExtensionException", "classExtensionException.html", "classExtensionException" ]
+    ] ],
     [ "flight-runner.cpp", "flight-runner_8cpp.html", null ],
     [ "flight-runner.h", "flight-runner_8h.html", [
       [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ]
@@ -25,20 +34,17 @@ var files_dup =
     [ "module-server.h", "module-server_8h.html", "module-server_8h" ],
     [ "module-telemetry.cpp", "module-telemetry_8cpp.html", null ],
     [ "module-telemetry.h", "module-telemetry_8h.html", [
-      [ "TelemetryModule", "classTelemetryModule.html", "classTelemetryModule" ],
-      [ "Transmission", "structTransmission.html", "structTransmission" ]
+      [ "TelemetryModule", "classTelemetryModule.html", "classTelemetryModule" ]
     ] ],
-    [ "module.h", "module_8h.html", "module_8h" ],
+    [ "module.h", "module_8h.html", [
+      [ "Module", "classModule.html", "classModule" ]
+    ] ],
     [ "simulated-extensions.cpp", "simulated-extensions_8cpp.html", null ],
     [ "simulated-extensions.h", "simulated-extensions_8h.html", [
       [ "BMP180_SIM", "classBMP180__SIM.html", "classBMP180__SIM" ],
       [ "DRA818V_SIM", "classDRA818V__SIM.html", "classDRA818V__SIM" ],
       [ "DS18B20_SIM", "classDS18B20__SIM.html", "classDS18B20__SIM" ],
       [ "SAMM8Q_SIM", "classSAMM8Q__SIM.html", "classSAMM8Q__SIM" ],
-      [ "TestExtension", "classTestExtension.html", "classTestExtension" ]
-    ] ],
-    [ "test-ext.cpp", "test-ext_8cpp.html", null ],
-    [ "test-ext.h", "test-ext_8h.html", [
       [ "TestExtension", "classTestExtension.html", "classTestExtension" ]
     ] ],
     [ "utility-config-types.h", "utility-config-types_8h.html", [
@@ -80,9 +86,13 @@ var files_dup =
       ] ],
       [ "Telemetry", "structConfigData.html#structConfigData_1_1Telemetry", [
         [ "telemetry_enabled", "structConfigData.html#a3f844f2a09910d0bb737ac5750070738", null ],
-        [ "callsign", "structConfigData.html#af5c7fe53eb19e36090cc5c0f2e28a1f1", null ],
+        [ "call_sign", "structConfigData.html#ad952f0b13d26754c51e198182dbd3b99", null ],
         [ "afsk_enabled", "structConfigData.html#a3aa62802c64bb5c7f2c64ff2f59338bf", null ],
         [ "afsk_freq", "structConfigData.html#a2d2683771ccf6f1fbdf37c2b41c67cc5", null ],
+        [ "psk_enabled", "structConfigData.html#a719f3fd1f9bfc37247bffc5a8475102c", null ],
+        [ "psk_freq", "structConfigData.html#a1eec2887f65c1949cd253615f5047bd3", null ],
+        [ "psk_mode", "structConfigData.html#a4d5522ef782e37730862c394e0f5faa5", null ],
+        [ "psk_symbol_rate", "structConfigData.html#a2eb5465f2cb07e2b400759fa8e72cd57", null ],
         [ "sstv_enabled", "structConfigData.html#a1fd92ff646b261888a36ddf2a44be717", null ],
         [ "sstv_freq", "structConfigData.html#a175321e6cc174493c241f550e5e0b45f", null ],
         [ "aprs_enabled", "structConfigData.html#a3eddfe8d0e529244626ee3c2be7f6d36", null ],
@@ -93,6 +103,11 @@ var files_dup =
         [ "aprs_memo", "structConfigData.html#ac3c4eac1afef4e3b2373700cace62917", null ]
       ] ],
       [ "ExtensionMetadata", "structExtensionMetadata.html", "structExtensionMetadata" ],
+      [ "ExtraArgs", "structExtensionMetadata.html#structExtensionMetadata_1_1ExtraArgs", [
+        [ "I2C_bus", "structExtensionMetadata.html#a78d6af837a9d4fc000812e600ef9823e", null ],
+        [ "I2C_device_address", "structExtensionMetadata.html#a6ed503a1dcbf81f21fba22aede61c941", null ],
+        [ "one_wire_id", "structExtensionMetadata.html#aa021b04d864dc03b3fa54fb31b211653", null ]
+      ] ],
       [ "FlightProcedure", "structFlightProcedure.html", "structFlightProcedure" ],
       [ "Intervals", "structFlightProcedure.html#structFlightProcedure_1_1Intervals", [
         [ "data_log", "structFlightProcedure.html#a53ab2b7e6b20dc2253e7796a7cfeefee", null ],
@@ -101,13 +116,28 @@ var files_dup =
         [ "aprs", "structFlightProcedure.html#a05c56feae8dfe92c0339bcdbdd0e1cee", null ],
         [ "picture", "structFlightProcedure.html#a4754c38ef0e63193082f92987c274d1d", null ],
         [ "health_check", "structFlightProcedure.html#af4439c50603e63fa30b76b72dddf8273", null ]
-      ] ]
+      ] ],
+      [ "Transmission", "structTransmission.html", "structTransmission" ]
     ] ],
     [ "utility-configurables.h", "utility-configurables_8h.html", "utility-configurables_8h" ],
     [ "utility-data-stream.cpp", "utility-data-stream_8cpp.html", null ],
     [ "utility-data-stream.h", "utility-data-stream_8h.html", "utility-data-stream_8h" ],
+    [ "utility-i2c.cpp", "utility-i2c_8cpp.html", null ],
+    [ "utility-i2c.h", "utility-i2c_8h.html", "utility-i2c_8h" ],
+    [ "utility-interface-control.h", "utility-interface-control_8h.html", [
+      [ "InterfaceControl", "classInterfaceControl.html", "classInterfaceControl" ]
+    ] ],
+    [ "utility-one-wire.cpp", "utility-one-wire_8cpp.html", null ],
+    [ "utility-one-wire.h", "utility-one-wire_8h.html", [
+      [ "OneWire", "classOneWire.html", "classOneWire" ]
+    ] ],
+    [ "utility-psk.cpp", "utility-psk_8cpp.html", "utility-psk_8cpp" ],
+    [ "utility-psk.h", "utility-psk_8h.html", [
+      [ "PSK", "classPSK.html", "classPSK" ]
+    ] ],
     [ "utility-socket.cpp", "utility-socket_8cpp.html", null ],
     [ "utility-socket.h", "utility-socket_8h.html", "utility-socket_8h" ],
+    [ "utility-status.h", "utility-status_8h.html", "utility-status_8h" ],
     [ "utility-timer.cpp", "utility-timer_8cpp.html", null ],
     [ "utility-timer.h", "utility-timer_8h.html", [
       [ "Timer", "classTimer.html", "classTimer" ]

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['name_648',['name',['../structExtensionMetadata.html#a7d5b705efa5d2e00ce73079440803bd1',1,'ExtensionMetadata::name()'],['../structConfigData.html#a6c9f92937353bf902bf2ece62a086200',1,'ConfigData::DataTypes::ExtensionDataType::name()']]],
-  ['name_5f_649',['name_',['../classExtension.html#a1a2e6e9642efa7dab57cf8300439117f',1,'Extension']]],
-  ['num_5fdata_5fpackets_5f_650',['num_data_packets_',['../classDataStream.html#ac4b2f7b7fb2f9d0b3ee46555140a87be',1,'DataStream']]],
-  ['num_5ferror_5fpackets_5f_651',['num_error_packets_',['../classDataStream.html#a36d112d4fe7a90c78c6f6b77b619c5ba',1,'DataStream']]]
+  ['last_5fbit_5f_993',['last_bit_',['../classPSK.html#a628c610351cee588f277c68b3c11c2c8',1,'PSK']]],
+  ['last_5fsymbol_5fend_5ffiltered_5f_994',['last_symbol_end_filtered_',['../classPSK.html#a9304d86c124e68543ca21dc919dc5ce1',1,'PSK']]],
+  ['length_995',['length',['../structTransmission.html#a0c3b11240a0f1213f4fdf592c54307b5',1,'Transmission']]]
 ];

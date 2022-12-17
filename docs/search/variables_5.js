@@ -1,13 +1,22 @@
 var searchData=
 [
-  ['failsafe_619',['failsafe',['../structConfigData.html#af67c9a04c25d9a10a608abd7a05b679e',1,'ConfigData::Procs']]],
-  ['flight_620',['flight',['../main_8cpp.html#acef807038d1ae4064b262a0260367bef',1,'main.cpp']]],
-  ['flight_5fprocedure_5f_621',['flight_procedure_',['../classDataStream.html#a9d862c70c29e6634d53c9d4b93de3164',1,'DataStream']]],
-  ['flight_5fprocedure_5flock_5f_622',['flight_procedure_lock_',['../classDataStream.html#a42b7064dc5e5fdfd33e4a3bda0455a65',1,'DataStream']]],
-  ['flight_5fprocs_623',['flight_procs',['../structConfigData.html#aa7cb47a64041963a95200924a7096e9b',1,'ConfigData']]],
-  ['flt_5fproc_5fdescent_5f_624',['flt_proc_descent_',['../classFlightRunner.html#a5645d839468b064fedff3bb9a3104bb1',1,'FlightRunner']]],
-  ['flt_5fproc_5ffailsafe_5f_625',['flt_proc_failsafe_',['../classFlightRunner.html#a26f6f0e59166b80cc2f87a3c218a0a66',1,'FlightRunner']]],
-  ['flt_5fproc_5frecovery_5f_626',['flt_proc_recovery_',['../classFlightRunner.html#a7f0e20e43a2001fcc8bddce7b4ff2290',1,'FlightRunner']]],
-  ['flt_5fproc_5fstandard_5f_627',['flt_proc_standard_',['../classFlightRunner.html#ae0d2f6f6a902e19eec223f53196f03c0',1,'FlightRunner']]],
-  ['flt_5fproc_5ftesting_5f_628',['flt_proc_testing_',['../classFlightRunner.html#a390d679653f77c4d05e0e16e305f8791',1,'FlightRunner']]]
+  ['enabled_946',['enabled',['../structFlightProcedure.html#aed84c9638ebea9186b556d76e54f2859',1,'FlightProcedure']]],
+  ['error_5fframe_5f_947',['error_frame_',['../classDataStream.html#aefb614aa50aa3dd17b3c070ca70e4374',1,'DataStream']]],
+  ['error_5fframe_5flock_5f_948',['error_frame_lock_',['../classDataStream.html#a1bdcf1bb9cbc3b4cc77a83690456bc01',1,'DataStream']]],
+  ['error_5finfo_949',['error_info',['../utility-data-stream_8h.html#a559d38329805d5ae13220f5ea70e757a',1,'ErrorStreamPacket']]],
+  ['error_5flog_5ffile_5fpath_5f_950',['error_log_file_path_',['../classDataModule.html#a05c93f80b7e162363258223e861aeb2c',1,'DataModule']]],
+  ['error_5fname_951',['error_name',['../utility-data-stream_8h.html#aa6d9834429d66f80babf10145a8be821',1,'ErrorStreamPacket']]],
+  ['error_5fsource_952',['error_source',['../utility-data-stream_8h.html#acfff1009efba1b73c7682b2f0a87f820',1,'ErrorStreamPacket']]],
+  ['error_5fsource_5f_953',['error_source_',['../classModule.html#aca64a0aa6bd57eb12396e9e2a06d6975',1,'Module']]],
+  ['error_5fstream_5f_954',['error_stream_',['../classDataStream.html#ac2560a5202001330fe5c89c7d959487a',1,'DataStream']]],
+  ['error_5fstream_5flock_5f_955',['error_stream_lock_',['../classDataStream.html#a96e00aacaccb3985eed4f8d5bf576a69',1,'DataStream']]],
+  ['errorframe_5f_956',['errorframe_',['../classDataModule.html#a468c681c01343913470d2e91c7a52606',1,'DataModule']]],
+  ['expiration_5ftime_957',['expiration_time',['../utility-data-stream_8h.html#a11bf0682cb89b177992225d5d4ffee74',1,'DataStreamPacket::expiration_time()'],['../utility-data-stream_8h.html#a2bfd0803dcf829ce6ea6b2a8eb709f74',1,'ErrorStreamPacket::expiration_time()']]],
+  ['extension_5fstatus_5f_958',['extension_status_',['../classDataStream.html#a95ba4688fdf594636c1491e75ce10a0c',1,'DataStream']]],
+  ['extension_5fstatus_5flock_5f_959',['extension_status_lock_',['../classDataStream.html#ac12fda023bfddab4a3efd26b64f40f7b',1,'DataStream']]],
+  ['extension_5ftype_960',['extension_type',['../structExtensionMetadata.html#acc6aea7c33da64252d36f4221ded8379',1,'ExtensionMetadata']]],
+  ['extensions_961',['extensions',['../structConfigData.html#ab851c4ea2208a2eceec957ee7ff7aaeb',1,'ConfigData']]],
+  ['extensions_5f_962',['extensions_',['../classExtensionsModule.html#ac50a20a0577a66ebc61d41c5008de0b8',1,'ExtensionsModule']]],
+  ['extensions_5flist_963',['extensions_list',['../structConfigData.html#ab605cc94dccfdb9e903c5c8123d1be98',1,'ConfigData::Extensions']]],
+  ['extra_5fargs_964',['extra_args',['../structExtensionMetadata.html#a4b9ab11764e591530662ec680ed1949a',1,'ExtensionMetadata']]]
 ];

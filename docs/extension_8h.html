@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -84,8 +84,7 @@ $(document).ready(function(){initNavTree('extension_8h.html',''); initResizable(
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">extension.h File Reference</div>  </div>
 </div><!--header-->
@@ -102,25 +101,27 @@ $(document).ready(function(){initNavTree('extension_8h.html',''); initResizable(
 <code>#include &quot;<a class="el" href="utility-configurables_8h_source.html">utility-configurables.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="utility-config-types_8h_source.html">utility-config-types.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="utility-data-stream_8h_source.html">utility-data-stream.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utility-status_8h_source.html">utility-status.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="extension_8h_source.html">extension.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for extension.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="extension_8h__incl.png" border="0" usemap="#aextension_8h" alt=""/></div>
 <map name="aextension_8h" id="aextension_8h">
-<area shape="rect" title="This file declares the Extension class." alt="" coords="370,7,469,33"/>
-<area shape="rect" title=" " alt="" coords="133,231,191,257"/>
-<area shape="rect" title=" " alt="" coords="457,81,521,108"/>
-<area shape="rect" title=" " alt="" coords="545,81,611,108"/>
-<area shape="rect" title=" " alt="" coords="5,231,68,257"/>
-<area shape="rect" title=" " alt="" coords="635,81,715,108"/>
-<area shape="rect" title=" " alt="" coords="542,156,601,183"/>
-<area shape="rect" href="utility-configurables_8h.html" title="All macro definitions for the flight control software will be in this file. Macros should be avoided." alt="" coords="740,81,904,108"/>
-<area shape="rect" href="utility-config-types_8h.html" title=" " alt="" coords="83,156,241,183"/>
-<area shape="rect" href="utility-data-stream_8h.html" title="Contains the declaration of the DataStream class." alt="" coords="225,81,382,108"/>
-<area shape="rect" title=" " alt="" coords="241,231,365,257"/>
-<area shape="rect" title=" " alt="" coords="366,156,430,183"/>
-<area shape="rect" title=" " alt="" coords="455,156,517,183"/>
+<area shape="rect" title="This file declares the Extension class." alt="" coords="455,7,545,33"/>
+<area shape="rect" title=" " alt="" coords="126,231,181,257"/>
+<area shape="rect" title=" " alt="" coords="563,81,621,108"/>
+<area shape="rect" title=" " alt="" coords="645,81,707,108"/>
+<area shape="rect" title=" " alt="" coords="5,231,64,257"/>
+<area shape="rect" title=" " alt="" coords="731,81,803,108"/>
+<area shape="rect" title=" " alt="" coords="514,156,569,183"/>
+<area shape="rect" href="utility-configurables_8h.html" title="All macro definitions for the flight control software will be in this file. Macros should be avoided." alt="" coords="827,81,973,108"/>
+<area shape="rect" href="utility-config-types_8h.html" title=" " alt="" coords="84,156,223,183"/>
+<area shape="rect" href="utility-data-stream_8h.html" title="Contains the declaration of the DataStream class." alt="" coords="299,81,437,108"/>
+<area shape="rect" href="utility-status_8h.html" title="Contains types for status of modules and extensions." alt="" coords="593,156,697,183"/>
+<area shape="rect" title=" " alt="" coords="271,231,382,257"/>
+<area shape="rect" title=" " alt="" coords="431,156,489,183"/>
+<area shape="rect" title=" " alt="" coords="247,156,305,183"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -128,17 +129,19 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="extension_8h__dep__incl.png" border="0" usemap="#aextension_8hdep" alt=""/></div>
 <map name="aextension_8hdep" id="aextension_8hdep">
-<area shape="rect" title="This file declares the Extension class." alt="" coords="306,6,405,33"/>
-<area shape="rect" href="extension_8cpp.html" title="This file contains the implementation of the Extension class." alt="" coords="5,81,119,107"/>
-<area shape="rect" href="simulated-extensions_8h.html" title="This file contains the declarations of the simulated extensions." alt="" coords="143,81,317,107"/>
-<area shape="rect" href="module-extensions_8h.html" title="Declares the ExtensionsModule class." alt="" coords="253,155,412,182"/>
-<area shape="rect" href="test-ext_8cpp.html" title=" " alt="" coords="436,155,536,182"/>
-<area shape="rect" href="test-ext_8h.html" title=" " alt="" coords="443,81,529,107"/>
-<area shape="rect" href="simulated-extensions_8cpp.html" title="This file contains the implementation of the simulated extensions." alt="" coords="39,155,229,182"/>
-<area shape="rect" href="flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="192,230,305,257"/>
-<area shape="rect" href="module-extensions_8cpp.html" title="Defines the ExtensionsModule class." alt="" coords="329,230,504,257"/>
-<area shape="rect" href="flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="121,305,249,331"/>
-<area shape="rect" href="main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="273,305,355,331"/>
+<area shape="rect" title="This file declares the Extension class." alt="" coords="231,6,321,33"/>
+<area shape="rect" href="bmp180_8h.html" title="This file defines the extension for the BMP180." alt="" coords="81,81,159,107"/>
+<area shape="rect" href="module-extensions_8h.html" title="Declares the ExtensionsModule class." alt="" coords="126,155,269,182"/>
+<area shape="rect" href="ds18b20_8h.html" title="Declaration of the DSB18B20 class." alt="" coords="235,81,317,107"/>
+<area shape="rect" href="extension_8cpp.html" title="This file contains the implementation of the Extension class." alt="" coords="522,81,625,107"/>
+<area shape="rect" href="simulated-extensions_8h.html" title="This file contains the declarations of the simulated extensions." alt="" coords="342,81,498,107"/>
+<area shape="rect" href="bmp180_8cpp.html" title="This file contains the implementation of the BMP180 extension." alt="" coords="8,155,101,182"/>
+<area shape="rect" href="flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="71,230,171,257"/>
+<area shape="rect" href="module-extensions_8cpp.html" title="Defines the ExtensionsModule class." alt="" coords="195,230,351,257"/>
+<area shape="rect" href="flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="5,305,120,331"/>
+<area shape="rect" href="main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="144,305,219,331"/>
+<area shape="rect" href="ds18b20_8cpp.html" title="Implementation of the DSB18B20 class." alt="" coords="293,155,389,182"/>
+<area shape="rect" href="simulated-extensions_8cpp.html" title="This file contains the implementation of the simulated extensions." alt="" coords="413,155,584,182"/>
 </map>
 </div>
 </div>
@@ -149,20 +152,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtension.html">Extension</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is the base class for all extensions. Extensions include all sensors, actuators, radios, internal data collection tools, etc.  <a href="classExtension.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:acfd494192530021918d69e3a11d0f111"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111">ExtensionStatus</a> { <br />
-&#160;&#160;<a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a> = 0
-, <a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111a09d4d696b4e935115b9313e3c412509a">STOPPED</a> = 1
-, <a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111a034312d8adc8099c1c6f53aaff745e26">STARTING</a> = 2
-, <a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111a43491564ebcfd38568918efbd6e840fd">RUNNING</a> = 3
-, <br />
-&#160;&#160;<a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111af6cdb3c6710b50ec65ee07f740847e10">STOPPING</a> = 4
-<br />
- }</td></tr>
-<tr class="memdesc:acfd494192530021918d69e3a11d0f111"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the enum used to communicate with the extension runner.  <a href="extension_8h.html#acfd494192530021918d69e3a11d0f111">More...</a><br /></td></tr>
-<tr class="separator:acfd494192530021918d69e3a11d0f111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExtensionException.html">ExtensionException</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file declares the <a class="el" href="classExtension.html" title="This class is the base class for all extensions. Extensions include all sensors, actuators,...">Extension</a> class. </p>
@@ -170,41 +161,7 @@ Enumerations</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>0.0.9 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022-10-09 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022 </dd></dl>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="acfd494192530021918d69e3a11d0f111"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfd494192530021918d69e3a11d0f111">&#9670;&nbsp;</a></span>ExtensionStatus</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="extension_8h.html#acfd494192530021918d69e3a11d0f111">ExtensionStatus</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This is the enum used to communicate with the extension runner. </p>
-<p>When an extension is constructed it's status will be set to stopped. When <a class="el" href="classExtension.html#ace9c4e0b3ce3810b8f71344c708f4029" title="Starts the extension thread if it is stopped, changes status.">Extension::start()</a> is called the status will be set to starting. The <a class="el" href="classExtension.html#a537d2d6cabbd4cc5d453f053827a7636" title="This must be overridden by each extension.">Extension::runner()</a> (of the derived class) will be called and the status should be changed to running. When the ExtensionModule calls <a class="el" href="classExtension.html#a11e508a54ebc5bbb26990597e7de41cb" title="Signals the thread to stop.">Extension::stop()</a> the status will change to 'STOPPING'. The <a class="el" href="classExtension.html#a537d2d6cabbd4cc5d453f053827a7636" title="This must be overridden by each extension.">Extension::runner()</a> is then responsible for deconstructing and changing the status to 'STOPPED' right before it exits.</p>
-<p>If any errors occur the status will be set to 'ERROR' and there will be an error message in the data stream. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="acfd494192530021918d69e3a11d0f111abb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="acfd494192530021918d69e3a11d0f111a09d4d696b4e935115b9313e3c412509a"></a>STOPPED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="acfd494192530021918d69e3a11d0f111a034312d8adc8099c1c6f53aaff745e26"></a>STARTING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="acfd494192530021918d69e3a11d0f111a43491564ebcfd38568918efbd6e840fd"></a>RUNNING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="acfd494192530021918d69e3a11d0f111af6cdb3c6710b50ec65ee07f740847e10"></a>STOPPING&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

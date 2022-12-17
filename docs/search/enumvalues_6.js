@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['onewire_715',['ONEWIRE',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462a4328f7aa020d22a263d95a4010c08e2d',1,'ExtensionMetadata']]],
-  ['other_716',['OTHER',['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cda2115842fb156bf2cd2d1769a666fec9a',1,'ConfigData::OTHER()'],['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96ba03570470bad94692ce93e32700d2e1cb',1,'ExtensionMetadata::OTHER()'],['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462a03570470bad94692ce93e32700d2e1cb',1,'ExtensionMetadata::OTHER()']]]
+  ['i2c_1125',['I2C',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462afb87bf1fc88386ca21395991f90fff95',1,'ExtensionMetadata']]],
+  ['internal_1126',['INTERNAL',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462a182fa1c42a2468f8488e6dcf75a81b81',1,'ExtensionMetadata']]],
+  ['internal_5fsensor_1127',['INTERNAL_SENSOR',['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96ba0707594384635ca032ad92cd8c3ccb2e',1,'ExtensionMetadata']]]
 ];

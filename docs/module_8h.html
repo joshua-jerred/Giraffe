@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -84,8 +84,7 @@ $(document).ready(function(){initNavTree('module_8h.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">module.h File Reference</div>  </div>
 </div><!--header-->
@@ -95,14 +94,16 @@ $(document).ready(function(){initNavTree('module_8h.html',''); initResizable(); 
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;atomic&gt;</code><br />
+<code>#include &quot;<a class="el" href="utility-status_8h_source.html">utility-status.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for module.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="module_8h__incl.png" border="0" usemap="#amodule_8h" alt=""/></div>
 <map name="amodule_8h" id="amodule_8h">
-<area shape="rect" title="Defines the enum module_status and parent class for the modules." alt="" coords="36,5,119,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,64,107"/>
-<area shape="rect" title=" " alt="" coords="88,80,155,107"/>
+<area shape="rect" title="Defines the enum module_status and parent class for the modules." alt="" coords="78,5,153,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,60,107"/>
+<area shape="rect" title=" " alt="" coords="85,80,146,107"/>
+<area shape="rect" href="utility-status_8h.html" title="Contains types for status of modules and extensions." alt="" coords="170,80,274,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -110,21 +111,21 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="module_8h__dep__incl.png" border="0" usemap="#amodule_8hdep" alt=""/></div>
 <map name="amodule_8hdep" id="amodule_8hdep">
-<area shape="rect" title="Defines the enum module_status and parent class for the modules." alt="" coords="482,5,565,32"/>
-<area shape="rect" href="module-configuration_8cpp.html" title="This file implements the class ConfigModule which is defined in module&#45;configuration...." alt="" coords="5,80,193,107"/>
-<area shape="rect" href="module-console_8h.html" title=" " alt="" coords="871,80,1010,107"/>
-<area shape="rect" href="module-data_8h.html" title="This file declares the class DataModule." alt="" coords="218,80,335,107"/>
-<area shape="rect" href="module-extensions_8h.html" title="Declares the ExtensionsModule class." alt="" coords="360,80,519,107"/>
-<area shape="rect" href="module-server_8h.html" title=" " alt="" coords="543,80,671,107"/>
-<area shape="rect" href="module-telemetry_8h.html" title="This file defines the class TelemetryModule." alt="" coords="696,80,847,107"/>
-<area shape="rect" href="flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="475,155,588,181"/>
-<area shape="rect" href="module-console_8cpp.html" title="This file contains the Console Module class." alt="" coords="969,155,1123,181"/>
-<area shape="rect" href="flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="402,229,530,256"/>
-<area shape="rect" href="main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="554,229,637,256"/>
-<area shape="rect" href="module-data_8cpp.html" title="This file implements the class DataModule which is defined in module&#45;data.h." alt="" coords="120,155,252,181"/>
-<area shape="rect" href="module-extensions_8cpp.html" title="Defines the ExtensionsModule class." alt="" coords="276,155,451,181"/>
-<area shape="rect" href="module-server_8cpp.html" title=" " alt="" coords="612,155,755,181"/>
-<area shape="rect" href="module-telemetry_8cpp.html" title="This fle implements the class TelemetryModule which is defined in module&#45;telemetry...." alt="" coords="779,155,945,181"/>
+<area shape="rect" title="Defines the enum module_status and parent class for the modules." alt="" coords="435,5,510,32"/>
+<area shape="rect" href="module-configuration_8cpp.html" title="This file implements the class ConfigModule which is defined in module&#45;configuration...." alt="" coords="5,80,172,107"/>
+<area shape="rect" href="module-console_8h.html" title=" " alt="" coords="787,80,911,107"/>
+<area shape="rect" href="module-data_8h.html" title="This file declares the class DataModule." alt="" coords="197,80,301,107"/>
+<area shape="rect" href="module-extensions_8h.html" title="Declares the ExtensionsModule class." alt="" coords="325,80,468,107"/>
+<area shape="rect" href="module-server_8h.html" title=" " alt="" coords="493,80,607,107"/>
+<area shape="rect" href="module-telemetry_8h.html" title="This file defines the class TelemetryModule." alt="" coords="631,80,762,107"/>
+<area shape="rect" href="flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="429,155,529,181"/>
+<area shape="rect" href="module-console_8cpp.html" title="This file contains the Console Module class." alt="" coords="877,155,1015,181"/>
+<area shape="rect" href="flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="362,229,477,256"/>
+<area shape="rect" href="main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="501,229,575,256"/>
+<area shape="rect" href="module-data_8cpp.html" title="This file implements the class DataModule which is defined in module&#45;data.h." alt="" coords="107,155,225,181"/>
+<area shape="rect" href="module-extensions_8cpp.html" title="Defines the ExtensionsModule class." alt="" coords="249,155,405,181"/>
+<area shape="rect" href="module-server_8cpp.html" title=" " alt="" coords="554,155,682,181"/>
+<area shape="rect" href="module-telemetry_8cpp.html" title="This fle implements the class TelemetryModule which is defined in module&#45;telemetry...." alt="" coords="707,155,852,181"/>
 </map>
 </div>
 </div>
@@ -135,16 +136,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModule.html">Module</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">All modules used by the <a class="el" href="classFlightRunner.html" title="The FlightRunner class is responsible for pulling everything together. It manages the timing of each ...">FlightRunner</a> inherit this class. This allows for some simplicity when creating small modules.  <a href="classModule.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a50a7721e11e14f338207a83b9ab26ec9"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a> { <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a09d4d696b4e935115b9313e3c412509a">STOPPED</a> =0
-, <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a034312d8adc8099c1c6f53aaff745e26">STARTING</a> =1
-, <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a43491564ebcfd38568918efbd6e840fd">RUNNING</a> =2
-, <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9a397d3e35d1fdce0886c277e2b6bdee58">ERROR_STATE</a> =3
- }</td></tr>
-<tr class="memdesc:a50a7721e11e14f338207a83b9ab26ec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">module_status is used by the individual modules. Used by <a class="el" href="classFlightRunner.html" title="The FlightRunner class is responsible for pulling everything together. It manages the timing of each ...">FlightRunner</a>.  <a href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">More...</a><br /></td></tr>
-<tr class="separator:a50a7721e11e14f338207a83b9ab26ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines the enum module_status and parent class for the modules. </p>
@@ -152,39 +143,7 @@ Enumerations</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022-09-25</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022 </dd></dl>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a50a7721e11e14f338207a83b9ab26ec9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50a7721e11e14f338207a83b9ab26ec9">&#9670;&nbsp;</a></span>ModuleStatus</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="module_8h.html#a50a7721e11e14f338207a83b9ab26ec9">ModuleStatus</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>module_status is used by the individual modules. Used by <a class="el" href="classFlightRunner.html" title="The FlightRunner class is responsible for pulling everything together. It manages the timing of each ...">FlightRunner</a>. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classFlightRunner.html" title="The FlightRunner class is responsible for pulling everything together. It manages the timing of each ...">FlightRunner</a> </dd></dl>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a50a7721e11e14f338207a83b9ab26ec9a09d4d696b4e935115b9313e3c412509a"></a>STOPPED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a50a7721e11e14f338207a83b9ab26ec9a034312d8adc8099c1c6f53aaff745e26"></a>STARTING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a50a7721e11e14f338207a83b9ab26ec9a43491564ebcfd38568918efbd6e840fd"></a>RUNNING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a50a7721e11e14f338207a83b9ab26ec9a397d3e35d1fdce0886c277e2b6bdee58"></a>ERROR_STATE&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
