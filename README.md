@@ -34,6 +34,11 @@ mentioned here, so please see the [rest of the documentation](http://giraffe.jos
 
 Too see my more complete, python implementation of this project refer to [the AOS repo.](https://github.com/joshua-jerred/AOS)
 
-The old version lacked a lot in software, but even more in hardware. There was zero handling of EMI/RFI, it was *bad* but almost functional. The main issue was with the DRA818 module which will be handled a lot better in the future.
+# Interface Examples
+![image](https://user-images.githubusercontent.com/19292194/208215526-439dd080-304d-4f2b-99b7-bd36bc93d637.png)
+![image](https://user-images.githubusercontent.com/19292194/208215594-08b851af-7e70-4892-a6c8-c24be216a18a.png)
 
+
+
+The old version lacked a lot in software, but even more in hardware. There was zero handling of EMI/RFI, it was *bad* but almost functional. The main issue was with the DRA818 module which will be handled a lot better in the future.
 <img src="https://user-images.githubusercontent.com/19292194/174874402-ad9695dc-447e-425d-afe4-dd6350de5644.jpg" height="250">
