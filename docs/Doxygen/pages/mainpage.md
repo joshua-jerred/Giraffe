@@ -65,7 +65,7 @@ You can read more about each module on their respective pages.
 - Utility DataStream
     - Used by the data module and extensions to pass data between the two.
 - Utility Timer
-    - Super simple timer library usec by the flight runner in the flight procedure.
+    - Super simple timer library used by the flight runner in the flight procedure.
 - 
 
 
@@ -78,7 +78,7 @@ You can read more about each module on their respective pages.
 ### Extensions
 "Extensions" refer to each data collection tool or sensor. Each type of 
 extension has all of it's own code defined in a single class. Each extension
-also inherets a common "extension" class which allows for quick addition of
+also inherits a common "extension" class which allows for quick addition of
 new extensions and simple integration into the system.
 
 The extensions are started by the flight runner **in their own thread**.
@@ -87,7 +87,7 @@ and when they do it. Each extension interfaces with the data stream which
 connects them to the rest of the system.
 
 The extension module is what handles each extension. It creates the objects
-and controls the startup, stoping, and restarting of the extensions.
+and controls the startup, stopping, and restarting of the extensions.
 
 Here is a simple example of how an extension is set up.
 
@@ -121,7 +121,7 @@ so APRS and AFSK packets can stack up if needed. They will be sent after the
 SSTV transmission is complete. This allows the FlightRunner to continue on with
 it's work while the telemetry module worries about actually sending everything.
 
-### Debugging Webserver
+### Debugging Web Server
 The debugging Web Server is a simple module that allows you to view all of the
 data related to GFS. It currently needs to be started separately from
 ./bin/web-server/
