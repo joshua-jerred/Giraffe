@@ -7,5 +7,5 @@ permission of Joshua Jerred.
 
 License is subject to change.
 
-It will probably change in the near future. If you have any questions please reach out.
+It will probably be opened up in the near future. Feel free to reach out if you have any questions!
 
