@@ -69,7 +69,12 @@
         "sstv-frequency": "100.000",
 
         "afsk-enabled": true,
-        "afsk-frequency": "105.000"
+        "afsk-frequency": "105.000",
+
+        "psk-enabled":true,
+        "psk-frequency": "109.000",
+        "psk-mode": "bpsk",
+        "psk-symbol-rate": "250"
     },
     
     "data": [

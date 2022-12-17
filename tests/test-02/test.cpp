@@ -164,6 +164,15 @@ TEST_F(Configuration_Module_1, TelemetrySection) {
         << "AFSK enabled is incorrect";
     EXPECT_EQ("105.000", telemetry.afsk_freq)
         << "AFSK frequency is incorrect";
+
+    EXPECT_EQ(1, telemetry.psk_enabled)
+        << "PSK enabled is incorrect";
+    EXPECT_EQ("109.000", telemetry.psk_freq)
+        << "PSK frequency is incorrect";
+    EXPECT_EQ("bpsk", telemetry.psk_mode)
+        << "PSK mode is incorrect";
+    EXPECT_EQ("250", telemetry.psk_symbol_rate)
+        << "250";
 }
 
 TEST_F(Configuration_Module_1, FlightProcsSection) {
