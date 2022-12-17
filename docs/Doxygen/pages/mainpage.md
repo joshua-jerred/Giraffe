@@ -5,10 +5,11 @@
 
 V0.2.0
 
-Giraffe software is separated into two sections, the Flight Computer and Ground Station.
-
-
 # Giraffe Flight Software (GFS)
+### A project by Joshua Jerred
+https://joshuajer.red/
+
+https://github.com/joshua-jerred/Giraffe
 ## General
 
 GFS, or Giraffe Flight System, is what actually runs on the flight computer.
@@ -161,3 +162,6 @@ dedicated to the radio. This is done for form factor reasons and RFI reasons.
 ![PCB](GFC-prototype1.png)
 ![GFC Render](GFC-Render.png)
 ![GFC Render](GFC-Render-Bottom.png)
+
+
+Copyright 2022 Joshua Jerred
