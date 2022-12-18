@@ -150,17 +150,7 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [
-      "label_dangling|1079500|1016000|ec743bda-ff7b-4aa6-840b-837e7d0c8260|00000000-0000-0000-0000-000000000000",
-      "label_dangling|1079500|990600|6152c565-3906-49ce-9048-027dbb72b61f|00000000-0000-0000-0000-000000000000",
-      "label_dangling|1397000|1206500|ee56ed7c-dd9b-42e7-bb20-c061cd89f3dc|00000000-0000-0000-0000-000000000000",
-      "label_dangling|1841500|1079500|fcd1da7a-4737-40f3-8148-67611f38dccf|00000000-0000-0000-0000-000000000000",
-      "label_dangling|1841500|1130300|85402d7a-2fdf-4c83-bdf2-966e940f9938|00000000-0000-0000-0000-000000000000",
-      "label_dangling|203200|889000|09579834-b95c-448f-9a58-2ac1de8e2c1c|00000000-0000-0000-0000-000000000000",
-      "lib_symbol_issues|1892300|495300|e1555c97-ec53-4134-bbf3-763da1b89424|00000000-0000-0000-0000-000000000000",
-      "lib_symbol_issues|901700|1003300|3f473ed4-43f1-4aaa-baae-78a85659fde0|00000000-0000-0000-0000-000000000000",
-      "power_pin_not_driven|889000|1016000|2545dbca-8fbb-4d65-b207-036914a69dbd|00000000-0000-0000-0000-000000000000"
-    ],
+    "erc_exclusions": [],
     "meta": {
       "version": 0
     },
@@ -369,7 +359,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "GFC.kicad_pro",
+    "filename": "GFC-Hat.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -401,7 +391,7 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "",
+      "netlist": "../../../",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""

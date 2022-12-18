@@ -1,0 +1,113 @@
+26740913108785
+Library
+CP_Radial_D6.3mm_P2.50mm
+CP, Radial series, Radial, pin pitch=2.50mm, , diameter=6.3mm, Electrolytic Capacitor
+CP Radial series Radial pin pitch 2.50mm  diameter 6.3mm Electrolytic Capacitor
+0
+2
+2
+Library
+C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
+capacitor handsolder
+0
+2
+2
+Library
+D_DO-15_P12.70mm_Horizontal
+Diode, DO-15 series, Axial, Horizontal, pin pitch=12.7mm, , length*diameter=7.6*3.6mm^2, , http://www.diodes.com/_files/packages/DO-15.pdf
+Diode DO-15 series Axial Horizontal pin pitch 12.7mm  length 7.6mm diameter 3.6mm
+0
+2
+2
+Library
+OSTVN02A150 2x1 Terminal Block
+Through hole straight pin header, 1x02, 2.54mm pitch, single row
+Through hole pin header THT 1x02 2.54mm single row
+0
+2
+2
+Library
+PSON65P250X250X100-8N
+2.5 mm x 2.5 mm x 0.93 mm metal lid LGA
+
+0
+8
+8
+Library
+PinHeader_1x02_P2.54mm_Vertical
+Through hole straight pin header, 1x02, 2.54mm pitch, single row
+Through hole pin header THT 1x02 2.54mm single row
+0
+2
+2
+Library
+PinHeader_1x03_P2.00mm_Vertical
+Through hole straight pin header, 1x03, 2.00mm pitch, single row
+Through hole pin header THT 1x03 2.00mm single row
+0
+3
+3
+Library
+PinHeader_1x04_P2.00mm_Vertical
+Through hole straight pin header, 1x04, 2.00mm pitch, single row
+Through hole pin header THT 1x04 2.00mm single row
+0
+4
+4
+Library
+PinHeader_1x06_P2.00mm_Vertical
+Through hole straight pin header, 1x06, 2.00mm pitch, single row
+Through hole pin header THT 1x06 2.00mm single row
+0
+6
+6
+Library
+PinSocket_2x20_P2.54mm_Vertical
+Through hole straight socket strip, 2x20, 2.54mm pitch, double cols (from Kicad 4.0.7), script generated
+Through hole socket strip THT 2x20 2.54mm double row
+0
+40
+40
+Library
+R_0603_1608Metric_Pad0.98x0.95mm_HandSolder
+Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
+resistor handsolder
+0
+2
+2
+Library
+SOIC127P600X175-8N
+
+
+0
+8
+8
+Library
+SON50P200X200X80-9N
+
+
+0
+9
+9
+Library
+TO-263-3_TabPin2
+TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-3-1/
+D2PAK DDPAK TO-263 D2PAK-3 TO-263-3 SOT-404
+0
+8
+3
+Library
+TestPoint_Pad_D1.0mm
+SMD pad as test Point, diameter 1.0mm
+test point SMD pad
+0
+1
+1
+Library
+logo
+
+
+0
+0
+0
