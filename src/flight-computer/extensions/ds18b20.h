@@ -27,10 +27,10 @@ private:
     uint8_t calculateCRC(uint8_t *addr, uint8_t len);
 
     std::string one_wire_device_id_;
-    std::string raw_data_;
-    int16_t raw_temp_;
-    float temp_F_;
-    float temp_C_;
+    std::string raw_data_ = "";
+    int16_t raw_temp_ = 0;
+    float temp_F_ = 0;
+    float temp_C_ = 0;
 
     OneWire one_wire_device_;
 };

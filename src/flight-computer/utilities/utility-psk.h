@@ -20,6 +20,7 @@
 #include <vector>
 #include <math.h>
 #include <sstream>
+#include <iostream>
 
 class PSK {
     public:
@@ -38,7 +39,7 @@ class PSK {
         };
 
         PSK(std::string file_path, Mode mode, SymbolRate sym_rate);
-        PSK(std::string fuile_path, Mode mode, SymbolRate sym_rate, std::string call_sign);
+        //PSK(std::string file_path, Mode mode, SymbolRate sym_rate, std::string call_sign);
         ~PSK();
 
         bool encodeTextData(std::string message);
@@ -57,9 +58,9 @@ class PSK {
         const int postamble_length_ = 64; // symbols
 
         std::string file_path_;
-        Mode mode_;
-        bool morse_callsign_;
-        std::string call_sign_;
+        Mode mode_ = Mode::BPSK; 
+        //bool morse_callsign_; // Not implemented yet
+        //std::string call_sign_;
 
 
         // WAV file members and methods
@@ -73,7 +74,7 @@ class PSK {
         const int bits_per_sample_ = 16;
         const int max_amplitude_ = pow(2, bits_per_sample_ - 1) - 1;
         std::ofstream wav_file_; // File descriptor for the WAV file
-        int data_start_;
+        int data_start_ = 0;
 
         // Bit Stream members and methods
         void addVaricode(char c);
@@ -101,7 +102,7 @@ class PSK {
          * Although this may not be the best way to store the bit stream,
          * it makes it easier to understand.
          */
-        std::vector<uint32_t> bit_stream_;
+        std::vector<uint32_t> bit_stream_ = std::vector<uint32_t>();
         int bit_stream_index_ = 0;
         uint32_t bit_stream_buffer_ = 0;
         int bit_stream_offset_ = 0; // Write left to right. [0 - 31]
@@ -110,12 +111,12 @@ class PSK {
         void encodeBitStream();
         void addSymbol(double shift, int next_shift);
 
-        double symbol_rate_; // Symbol rate of the PSK modulation in Sym/s (125, 250, 500)
+        double symbol_rate_ = 125; // Symbol rate of the PSK modulation in Sym/s (125, 250, 500)
         int carrier_freq_ = 1500; // Carrier frequency in Hz (1500)
-        int samples_per_symbol_; // floor(sample_rate_ / symbol_rate_)
+        int samples_per_symbol_ = 0; // floor(sample_rate_ / symbol_rate_)
 
         double carrier_wave_angle_ = 0.0f;
-        double angle_delta_;
+        double angle_delta_ = 0.0f;
         int last_symbol_end_filtered_ = 1;
         
         int last_bit_ = 0;

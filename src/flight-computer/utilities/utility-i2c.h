@@ -51,13 +51,13 @@ public:
     int writeByte(uint8_t data);
     int writeByteToReg(uint8_t data, uint8_t reg);
 
-    uint8_t readByte();
-    uint8_t readByteFromReg(uint8_t reg_address);
+    int16_t readByte();
+    int16_t readByteFromReg(uint8_t reg_address);
 
 private:
     
-    uint8_t bus_number_;
-    uint8_t address_;
+    uint8_t bus_number_ = 1;
+    uint8_t address_ = 0x00;
     
     I2C_STATUS status_;
     

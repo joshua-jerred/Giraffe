@@ -80,7 +80,6 @@ int SAMM8Q_SIM::runner() {
     int alt = 0;
     std::string quality = "2";
     int vertical_speed = 5;
-    int horizontal_speed = 4;
     sendData("VERT_SPEED", vertical_speed);
     // ^This should test stale data
     while (!stop_flag_) {

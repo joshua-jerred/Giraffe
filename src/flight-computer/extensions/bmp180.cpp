@@ -10,7 +10,11 @@
 #include "bmp180.h"
 
 BMP180::BMP180(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
-    Extension(p_data_stream, extension_metadata) {
+    Extension(p_data_stream, extension_metadata), 
+	bus_number_((uint8_t) extension_metadata.extra_args.I2C_bus),
+	device_address_(0x77),
+	i2c_bus_(I2C()), 
+	raw_calibration_data_(0) {
 
     i2c_bus_ = I2C();
 

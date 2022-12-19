@@ -102,35 +102,37 @@ public:
     std::unordered_map<std::string, ExtensionStatus> getExtensionStatuses();
 
 private:
-    int num_data_packets_;
-    int total_data_packets_;
+    int num_data_packets_ = 0;
+    int total_data_packets_ = 0;
 
-    int num_error_packets_;
-    int total_error_packets_;
+    int num_error_packets_ = 0;
+    int total_error_packets_ = 0;
 
-    std::mutex data_stream_lock_;
-    std::queue<DataStreamPacket> data_stream_;
+    std::mutex data_stream_lock_ = std::mutex();
+    std::queue<DataStreamPacket> data_stream_ = std::queue<DataStreamPacket>();
 
-    std::mutex error_stream_lock_;
-    std::queue<ErrorStreamPacket> error_stream_;
+    std::mutex error_stream_lock_ = std::mutex();
+    std::queue<ErrorStreamPacket> error_stream_ = std::queue<ErrorStreamPacket>();
 
-    std::mutex data_frame_lock_;
-    DataFrame data_frame_;
+    std::mutex data_frame_lock_ = std::mutex();
+    DataFrame data_frame_ = DataFrame();
 
-    std::mutex error_frame_lock_;
-    ErrorFrame error_frame_;
+    std::mutex error_frame_lock_ = std::mutex();
+    ErrorFrame error_frame_ = ErrorFrame();
 
-    std::mutex flight_procedure_lock_;
-    FlightProcedure flight_procedure_;
+    std::mutex flight_procedure_lock_ = std::mutex();
+    FlightProcedure flight_procedure_ = FlightProcedure();
 
-    std::mutex tx_queue_lock_;
-    std::queue<Transmission> tx_queue_;
+    std::mutex tx_queue_lock_ = std::mutex();
+    std::queue<Transmission> tx_queue_ = std::queue<Transmission>();
 
-    std::mutex extension_status_lock_;
-    std::unordered_map<std::string, ExtensionStatus> extension_status_;
+    std::mutex extension_status_lock_ = std::mutex();
+    std::unordered_map<std::string, ExtensionStatus> extension_status_ = 
+        std::unordered_map<std::string, ExtensionStatus>();
 
-    std::mutex module_status_lock_;
-    std::unordered_map<std::string, ModuleStatus> module_status_;
+    std::mutex module_status_lock_ = std::mutex();
+    std::unordered_map<std::string, ModuleStatus> module_status_ = 
+        std::unordered_map<std::string, ModuleStatus>();
 };
 
 #endif // UTILITY_DATA_STREAM_H_

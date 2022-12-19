@@ -334,21 +334,19 @@ static std::map <unsigned char, double> conv_code = {
  * @param file_path Path to where the wav file will be saved
  * @param mode BPSK125, BPSK250, BPSK500, QPSK125, QPSK250, QPSK500
  */
-PSK::PSK(std::string file_path, Mode mode, SymbolRate sym_rate) {
-    file_path_ = file_path;
-    call_sign_ = "";
-    morse_callsign_ = false;
+PSK::PSK(std::string file_path, Mode mode, SymbolRate sym_rate):
+    file_path_(file_path),
+    wav_file_(file_path) {
     setup(mode, sym_rate);
 }
 
 /**
- * @brief Construct a PSK Modulator object with morese code callsign added to 
- * beginning and end of wav file.
+ * @brief Construct a PSK Modulator object with morse code callsign added to 
+ * beginning and end of wav file. NOT CURRENTLY IMPLEMENTED IN GFS.
  * 
  * @param file_path Path to where the wav file will be saved
  * @param mode BPSK125, BPSK250, BPSK500, QPSK125, QPSK250, QPSK500
  * @param call_sign Callsign - must be at least 4 characters
- */
 PSK::PSK(std::string file_path, Mode mode, SymbolRate sym_rate, std::string call_sign) {
     file_path_ = file_path;
     mode_ = mode;
@@ -356,6 +354,7 @@ PSK::PSK(std::string file_path, Mode mode, SymbolRate sym_rate, std::string call
     morse_callsign_ = true;
     setup(mode, sym_rate);
 }
+*/
 
 /**
  * @todo
@@ -391,16 +390,16 @@ bool PSK::encodeTextData(std::string message) {
     //    addCallSign();
     //}
 
-    addPreamble(); // Add PSK Preamble to bitstream (0's)
+    addPreamble(); // Add PSK Preamble to bit stream (0's)
     for (char &c : message) {
-        addVaricode(c); // Add each char of the message to the bitstream (varicode)
+        addVaricode(c); // Add each char of the message to the bit stream (varicode)
         static unsigned char zeros[1] = {0x00};
         addBits(zeros, 2); // Add two 0's between each character
     }
-    addPostamble(); // Add PSK Postamble to bitstream
-    pushBufferToBitStream(); // Push any remaining bits in the buffer to the bitstream
+    addPostamble(); // Add PSK Postamble to bit stream
+    pushBufferToBitStream(); // Push any remaining bits in the buffer to the bit stream
 
-    encodeBitStream(); // Encode the bitstream into PSK audio, write to wav file
+    encodeBitStream(); // Encode the bit stream into PSK audio, write to wav file
 
     //if (morse_callsign_) { // If callsign specified, add morse code callsign to end of audio
     //    addCallSign();
@@ -431,19 +430,19 @@ bool PSK::encodeRawData(unsigned char *data, int length) {
         writeHeader(); // Write Wav Header on success
     }
 
-    if (!morse_callsign_) { // If callsign specified, add morse code callsign
-        throw std::invalid_argument("Callsign required for raw data");
-    }
-    if (call_sign_.length() < 4) {
-        throw std::invalid_argument("Callsign must be at least 4 characters");
-    }
+    //if (!morse_callsign_) { // If callsign specified, add morse code callsign
+    //    throw std::invalid_argument("Callsign required for raw data");
+    //}
+    //if (call_sign_.length() < 4) {
+    //    throw std::invalid_argument("Callsign must be at least 4 characters");
+    //}
 
     addCallSign();
 
-    addPreamble(); // Add PSK Preamble to bitstream
-    //addBits(data, length*8); // Add raw data to bitstream
-    addPostamble(); // Add PSK Postamble to bitstream
-    encodeBitStream(); // Encode the bitstream into PSK audio, write to wav file
+    addPreamble(); // Add PSK Preamble to bit stream
+    addBits(data, length*8); // Add raw data to bit stream
+    addPostamble(); // Add PSK Postamble to bit stream
+    encodeBitStream(); // Encode the bit stream into PSK audio, write to wav file
 
     addCallSign();
 
@@ -457,7 +456,7 @@ int PSK::getLength() {
 
 /*
 void PSK::dumpBitStream() {
-    std::cout << "Bitstream:" << std::endl;
+    std::cout << "Bit stream:" << std::endl;
     for (int i = 0; i < bit_stream_.size(); i++) {
         std::cout << "[" << i << "]" << std::bitset<32>(bit_stream_[i]) << std::endl;
     }
@@ -578,12 +577,12 @@ void PSK::addCallSign() {
 }
 
 /**
- * @brief Converts a char to varicode and adds it to the bitstream
+ * @brief Converts a char to varicode and adds it to the bit stream
  * 
- * @param c char to add to the bistream
+ * @param c char to add to the bi stream
  */
 void PSK::addVaricode(char c) {
-    uint16_t varicode = ascii_to_varicode[c];
+    uint16_t varicode = ascii_to_varicode[(int)c];
     //std::cout << std::endl << "Adding varicode for " << c << ":" << std::bitset<16>(varicode) << " ";
     unsigned char bits[2];
     int previous_bit = 1;
@@ -669,7 +668,7 @@ void PSK::addPreamble() {
 /**
  * @brief Adds the postamble to the bit stream.
  * Fldigi seems to use the incorrect postamble in QPSK mode.
- * It uses reapeated 0s instead of 1s. This is a workaround.
+ * It uses repeated 0s instead of 1s. This is a workaround.
  * If you are not using fldigi, set the flag to 0.
  * @cite https://www.mail-archive.com/fldigi-alpha@lists.berlios.de/msg01032.html
  */
@@ -691,7 +690,7 @@ void PSK::addPostamble() {
  * @return int [1, 0, -1] -1 = no more bits in bit stream
  */
 int PSK::popNextBit() {
-    if (bit_stream_index_ >= bit_stream_.size()) { // No more bits in bit stream
+    if (bit_stream_index_ >= (int) bit_stream_.size()) { // No more bits in bit stream
         return -1;
     }
 
@@ -711,7 +710,7 @@ int PSK::popNextBit() {
  * @return int [1, 0, -1] -1 = no more bits in bit stream
  */
 int PSK::peakNextBit() {
-    if (bit_stream_index_ >= bit_stream_.size()) { // No more bits in bit stream
+    if (bit_stream_index_ >= (int) bit_stream_.size()) { // No more bits in bit stream
         return -1;
     }
     uint32_t bit = bit_stream_[bit_stream_index_] & (1 << (31 - bit_stream_offset_));
@@ -719,7 +718,7 @@ int PSK::peakNextBit() {
 }
 
 /**
- * @brief Goes throught he bit stream and modulates with the addSymbol method.
+ * @brief Goes through he bit stream and modulates with the addSymbol method.
  * @details With BPSK31, the bit 0 is encoded by switching phases and the bit 1 
  * is encoded by keeping the phase shift the same.
  */
@@ -737,18 +736,18 @@ void PSK::encodeBitStream() {
                 addSymbol(last_phase ? M_PI : 0, filter_end);
                 last_phase = !last_phase;
             }
-            last_phase ? "1" : "0";
+            //last_phase ? "1" : "0";
             bit = popNextBit();
             next_bit = peakNextBit();
         }
     } else if (mode_ == QPSK) { // QPSK modulation
         unsigned char buffer = 0;
         int bit = popNextBit();
-        int shift = 0;
+        double shift = 0;
         while (bit != -1) {
             buffer = ((buffer << 1) | bit) & 0x1f;
             int filter_end = 0;
-            if (shift != conv_code[buffer]) {
+            if (shift - (conv_code[buffer] < 0 ? -conv_code[buffer] : conv_code[buffer]) >= 0.1) {
                 filter_end = 1;
             }
             shift += conv_code[buffer];
@@ -762,7 +761,7 @@ void PSK::encodeBitStream() {
  * @brief Modulates a single symbol in BPSK/QPSK and saves the audio data to the
  * wav file.
  * 
- * @param shift The shift of the carrier wave in degrees
+ * @param shift The shift of the carrier wave in radians
  * @param filter_end Whether or not to apply the filter to the end of the symbol
  */
 void PSK::addSymbol(double shift, int filter_end) {

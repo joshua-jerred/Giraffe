@@ -1,8 +1,16 @@
 # GFS Errors
 
-## Prefixes:
-- ``CG_``  Configuration Errors
+``[Prefix]_[Source]_[Error Code] : [Info]`` Info is normally numeric, but can be a string.
+
+## Prefixes:  
 - ``M_``  Module Errors
+  - ``M_DA`` Data Module
+  - ``M_CF`` Configuration Module
+  - ``M_CO`` Console Module
+  - ``M_EX`` Extension Module
+  - ``M_SV`` Server Module
+  - ``M_TL`` Telemetry Module
+  
 - ``E_``  Extension Errors
 
 ## C_ Configuration Errors

@@ -96,6 +96,8 @@ NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Interface, {
 class ConfigModule {
 public:
     ConfigModule(DataStream *data_stream);
+    ConfigModule(const ConfigModule &other) = delete; // no copy constructor
+    ConfigModule &operator=(const ConfigModule &other) = delete; // no copy assignment
     ~ConfigModule();
 
     int load(std::string filepath);
@@ -119,13 +121,13 @@ private:
     void parseDataTypes();
     void parseFlightProcedures();
 
-    int number_of_errors_;
+    int number_of_errors_ = 0;
 
     DataStream *p_data_stream_;
 
-    std::string config_file_path_;
-    json json_buffer_;
-    ConfigData config_data_;
+    std::string config_file_path_ = "";
+    json json_buffer_ = json::object();
+    ConfigData config_data_ = ConfigData();
 };
 
 #endif // MODULE_CONFIGURATION_H_

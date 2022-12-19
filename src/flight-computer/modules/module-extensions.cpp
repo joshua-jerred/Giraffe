@@ -18,9 +18,11 @@
  * @param config_data 
  * @param stream 
  */
-ExtensionsModule::ExtensionsModule(const ConfigData config_data, DataStream *stream) {
-    config_data_ = config_data;
-    data_stream_ = stream;
+ExtensionsModule::ExtensionsModule(const ConfigData config_data, DataStream *stream):
+    Module(stream, MODULE_EXTENSION_PREFIX),
+    p_data_stream_(stream),
+    config_data_(config_data) {
+
     for (ExtensionMetadata extdata : config_data.extensions.extensions_list) {
         addExtension(extdata);
     }
@@ -73,18 +75,18 @@ void ExtensionsModule::stop() {
  */
 void ExtensionsModule::addExtension(ExtensionMetadata meta_data) {
     if (meta_data.extension_type == "TEST_EXT") {
-        extensions_.push_back(new TestExtension(data_stream_, meta_data));
+        extensions_.push_back(new TestExtension(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "BMP180_SIM") {
-        extensions_.push_back(new BMP180_SIM(data_stream_, meta_data));
+        extensions_.push_back(new BMP180_SIM(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "SAMM8Q_SIM") {
-        extensions_.push_back(new SAMM8Q_SIM(data_stream_, meta_data));
+        extensions_.push_back(new SAMM8Q_SIM(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "DS18B20_SIM") {
-        extensions_.push_back(new DS18B20_SIM(data_stream_, meta_data));
+        extensions_.push_back(new DS18B20_SIM(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "DRA818V_SIM") {
-        extensions_.push_back(new DRA818V_SIM(data_stream_, meta_data));
+        extensions_.push_back(new DRA818V_SIM(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "BMP180") {
-        extensions_.push_back(new BMP180(data_stream_, meta_data));
+        extensions_.push_back(new BMP180(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "DS18B20") {
-        extensions_.push_back(new DS18B20(data_stream_, meta_data));
+        extensions_.push_back(new DS18B20(p_data_stream_, meta_data));
     }
 }

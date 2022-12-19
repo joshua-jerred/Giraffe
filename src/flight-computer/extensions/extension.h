@@ -39,6 +39,8 @@
 class Extension {
 public:
     Extension(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
+    Extension(const Extension& other) = delete; // No copy constructor
+    Extension& operator=(const Extension& other) = delete; // No copy assignment
     virtual ~Extension();
 
     void start();
@@ -68,7 +70,7 @@ protected:
     void error(std::string error_code, std::string info);
     void error(std::string error_code);
 
-    std::atomic<int> stop_flag_; // 0 = continue, 1 = stop
+    std::atomic<int> stop_flag_ = 1; // 0 = continue, 1 = stop
 
 private:
     void setID(int num);
@@ -83,18 +85,18 @@ private:
 
     virtual void spawnRunner();
 
-    DataStream  *p_data_stream_;
+    DataStream * const p_data_stream_;
 
-    std::thread runner_thread_;
+    std::thread runner_thread_ = std::thread();
     std::atomic<ExtensionStatus> status_;
 
-    int id_;
-    std::string name_;
-    std::string type_;
-    ExtensionMetadata::Category category_;
-    ExtensionMetadata::Interface interface_;
-    int update_interval_;
-    int critical_;
+    int id_ = 0;
+    std::string name_ = "";
+    std::string type_ = "";
+    ExtensionMetadata::Category category_ = ExtensionMetadata::Category::ERROR;
+    ExtensionMetadata::Interface interface_ = ExtensionMetadata::Interface::ERROR;
+    int update_interval_ = 0;
+    int critical_ = 0;
 };
 
 class ExtensionException {

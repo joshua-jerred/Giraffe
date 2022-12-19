@@ -49,7 +49,7 @@ class Socket {
  private:
 
   int m_sock;
-  sockaddr_in m_addr;
+  sockaddr_in m_addr = {};
 };
 
 class SocketException

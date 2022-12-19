@@ -11,8 +11,10 @@
 
 #include "flight-runner.h"
 
-FlightRunner::FlightRunner() {
-    current_flight_procedure_type_ = FlightProcedure::ProcType::FAILSAFE;
+FlightRunner::FlightRunner():
+    current_flight_procedure_type_(FlightProcedure::ProcType::FAILSAFE),
+    shutdown_signal_(false)
+    {
 }
 
 FlightRunner::~FlightRunner() {

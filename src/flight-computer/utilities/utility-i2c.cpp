@@ -9,9 +9,8 @@
 
 #include "utility-i2c.h"
 
-I2C::I2C () {
-    status_ = I2C_STATUS::NOT_CONNECTED;
-    snprintf(file_name_, 19, "/dev/i2c-%d", bus_number_);
+I2C::I2C(): status_(I2C_STATUS::NOT_CONNECTED),
+            file_descriptor_(-1) {
 }
 
 I2C::~I2C () {
@@ -27,13 +26,14 @@ int I2C::connect(uint8_t bus_number, uint8_t address) {
         status_ = I2C_STATUS::CONFIG_ERROR_BUS;
         return -1;
     }
+    sprintf(file_name_, "/dev/i2c-%d", bus_number_);
     if (address < ADDRESS_LOW || address > ADDRESS_HIGH) {
         status_ = I2C_STATUS::CONFIG_ERROR_ADDRESS;
         return -1;
     }
     bus_number_ = bus_number;
     address_ = address;
-
+    
     file_descriptor_ = open(file_name_, O_RDWR);
 
     if (file_descriptor_ < 0) {
@@ -71,7 +71,7 @@ int I2C::writeByteToReg(uint8_t data, uint8_t reg) {
     return 0;
 }
 
-uint8_t I2C::readByte() {
+int16_t I2C::readByte() {
     uint8_t res = i2c_smbus_read_byte(file_descriptor_);
     if (res == 0) {
         status_ = I2C_STATUS::READ_ERROR;
@@ -81,8 +81,8 @@ uint8_t I2C::readByte() {
     }
 }
 
-uint8_t I2C::readByteFromReg(uint8_t reg_address) {
-    uint8_t res = i2c_smbus_read_byte_data(file_descriptor_, reg_address);
+int16_t I2C::readByteFromReg(uint8_t reg_address) {
+    int16_t res = i2c_smbus_read_byte_data(file_descriptor_, reg_address);
     if (res < 0) {
         return -1;
     } else {

@@ -16,21 +16,22 @@ struct FlightProcedure {
         TESTING = 1,
         STANDARD = 2,
         RECOVERY = 3,
+        DESCENT = 4,
         FAILSAFE = 4
     };
 
     struct Intervals {
         int data_log = 5; // Hard Coded Default, may change to macro
-        int data_packet = 0;
-        int sstv = 0;
-        int aprs = 0;
-        int picture = 0;
-        int health_check = 0;
+        int data_packet = 5;
+        int sstv = 5;
+        int aprs = 5;
+        int picture = 5;
+        int health_check = 5;
     };
 
-    int enabled;
-    ProcType type;
-    Intervals intervals;
+    int enabled = 0;
+    ProcType type = ProcType::ERROR;
+    Intervals intervals = Intervals();
 };
 
 
@@ -75,7 +76,7 @@ struct ExtensionMetadata {
     int update_interval = 0; // How often the extension polls for data and sends it to the data stream
     int critical = 0; // Indicates if this extension is critical to operation, this
                   // will be used by the Flight Runner during the healthCheck
-    ExtraArgs extra_args;
+    ExtraArgs extra_args {};
 };
 
 
@@ -138,9 +139,9 @@ struct ConfigData {
 
     struct DataTypes {
         struct ExtensionDataType {
-            std::string source;
-            std::string name;
-            std::string unit;
+            std::string source = "";
+            std::string name = "";
+            std::string unit = "";
             int include_in_telemetry = 0;
         };
         std::vector<ExtensionDataType> types {};
@@ -153,12 +154,12 @@ struct ConfigData {
         FlightProcedure failsafe {};
     };
 
-    General general;
-    Extensions extensions;
-    Debugging debug;
-    Telemetry telemetry;
-    DataTypes data_types;
-    Procs flight_procs;
+    General general {};
+    Extensions extensions {};
+    Debugging debug {};
+    Telemetry telemetry {};
+    DataTypes data_types {};
+    Procs flight_procs {};
 };
 
 /**

@@ -66,7 +66,7 @@ void DataStream::addData(
 
 /**
  * @brief Add an error to the error stream. This function is thread safe.
- * @param error_source The file or function that the error occured in.
+ * @param error_source The file or function that the error occurred in.
  * @param error_name The error code or name.
  * @param error_info Human readable information about the error.
  * @param seconds_until_expiry The number of seconds until the error

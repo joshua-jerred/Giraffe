@@ -17,12 +17,10 @@
  * @param config_data All configuration data.
  * @param data_stream A pointer to the data stream.
  */
-TelemetryModule::TelemetryModule(ConfigData config_data, DataStream *data_stream) {
-    error_source_ = MODULE_TELEMETRY_PREFIX;
-
-    config_data_ = config_data;
-
-    p_data_stream_ = data_stream;
+TelemetryModule::TelemetryModule(ConfigData config_data, DataStream *stream):
+    Module(stream, MODULE_TELEMETRY_PREFIX),
+    config_data_(config_data),
+    p_data_stream_(stream) {
 
     tx_number_ = 1;
 
@@ -110,9 +108,9 @@ void TelemetryModule::sendAFSK(std::string message){
  */
 void TelemetryModule::sendAPRS() {
     DataFrame data = p_data_stream_->getDataFrameCopy();
-    //std::string lat = data["GLAT"];
-    //std::string lon = data["GLON"];
-    //std::string alt = data["GALT"];
+    //std::string lat = data["LAT"];
+    //std::string lon = data["LON"];
+    //std::string alt = data["ALT"];
     Transmission newTX;
     newTX.type = Transmission::Type::APRS;
     newTX.wav_location = generateAPRS();
@@ -129,10 +127,6 @@ void TelemetryModule::sendSSTVImage() {
     newTX.type = Transmission::Type::SSTV;
     //newTX.wav_location = generateSSTV();
     //addToTXQueue(newTX);
-}
-
-void TelemetryModule::error(std::string error_code, std::string info) {
-	p_data_stream_->addError(error_source_, error_code, info, 0);
 }
 
 /**
@@ -176,6 +170,7 @@ void TelemetryModule::addToTXQueue(Transmission transmission) {
  * @return File path to the generated wav file.
  */
 std::string TelemetryModule::generateAFSK(std::string message) {
+    (void) message;
     return "not-implemented.wav";
 }
 
@@ -257,8 +252,7 @@ void TelemetryModule::runner() {
                     playWav(tx.wav_location, "PSK", tx.length);
                     break;
                 default:
-                    p_data_stream_->addError(error_source_, "BAD_TX_TYPE",
-                    std::to_string((int) tx.type), 0);
+                    error("BAD_TX_TYPE", std::to_string((int) tx.type));
                     break;
             }
             
@@ -274,7 +268,7 @@ void TelemetryModule::runner() {
 }
 
 void TelemetryModule::playWav(std::string wav_location, std::string tx_type, int tx_length) {
-    std::string command = "aplay " + wav_location + " >nul 2>nul"; // command to play with aplay supress output
+    std::string command = "aplay " + wav_location + " >nul 2>nul"; // command to play with aplay suppress output
 
     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
         "ACTIVE_TX",
@@ -288,7 +282,7 @@ void TelemetryModule::playWav(std::string wav_location, std::string tx_type, int
      * This allows me to stop a transmission early if needed and provides
      * time to exit GFS with another ctrl+c.
      * 
-     * This is deffinetly a bit of a hack but it gives the functionality
+     * This is definitely a bit of a hack but it gives the functionality
      * that I'm looking for. Eventually this could be replaced with popen
      * or a built in library for playing the wav files. I have had no issues
      * with this *so far*.

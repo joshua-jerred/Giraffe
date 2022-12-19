@@ -54,9 +54,8 @@
 DS18B20::DS18B20(DataStream *p_data_stream, 
                 ExtensionMetadata extension_metadata)
 			   : Extension(p_data_stream, extension_metadata),
-               one_wire_device_(extension_metadata.extra_args.one_wire_id) {
-
-	one_wire_device_id_ = extension_metadata.extra_args.one_wire_id;
+			   one_wire_device_id_(extension_metadata.extra_args.one_wire_id),
+               one_wire_device_(one_wire_device_id_) {
 }
 
 DS18B20::~DS18B20() {

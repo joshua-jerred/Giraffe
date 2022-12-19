@@ -25,17 +25,19 @@
 #include "utility-configurables.h"
 #include "utility-config-types.h"
 
-// Mdodulation Modes
+// Modulation Modes
 #include "utility-psk.h"
 
 /**
  * @brief This class is responsible for handling the radio
  * and transmitting data upon request. Currently only supports PSK.
- * @todo Two way communicaiton, AFSK, APRS, etc.
+ * @todo Two way communication, AFSK, APRS, etc.
  */
 class TelemetryModule : public Module {
 public:
     TelemetryModule(ConfigData config_data, DataStream *data_stream);
+    TelemetryModule(const TelemetryModule &other) = delete; // No copy constructor
+    TelemetryModule &operator=(const TelemetryModule &other) = delete; // No copy assignment
     ~TelemetryModule();
 
     void start();
@@ -48,7 +50,6 @@ public:
     void sendSSTVImage();
 
 private:
-    void error(std::string error_code, std::string error_info);
     int getNextTXNumber();
 
     void addToTXQueue(Transmission transmission);
@@ -60,19 +61,19 @@ private:
 
     void runner();
     void playWav(std::string wav_location, std::string tx_type, int tx_length);
-    FILE *aplay_fp_;
+    FILE *aplay_fp_ = nullptr;
 
 
-    int tx_number_;
-    std::string call_sign_;
+    int tx_number_ = 1;
+    std::string call_sign_ = CALLSIGN_FAILSAFE;
 
-    std::thread tx_thread_;
-    std::atomic<int> stop_flag_;
+    std::thread tx_thread_ = std::thread();
+    std::atomic<int> stop_flag_ = 0;
 
     ConfigData config_data_;
     DataStream *p_data_stream_;
 
-    int psk_length_;
+    int psk_length_ = 0;
 };
 
 #endif

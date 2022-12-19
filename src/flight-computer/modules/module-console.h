@@ -40,6 +40,8 @@
 class ConsoleModule : public Module {
 public:
     ConsoleModule(const ConfigData config_data, DataStream *data);
+    ConsoleModule(const ConsoleModule&) = delete; // No copy constructor
+    ConsoleModule& operator=(const ConsoleModule&) = delete; // No copy assignment
     ~ConsoleModule();
 
     void start();
@@ -51,17 +53,17 @@ private:
     void printData();
 
     ConfigData config_data_;
-    DataStream* data_stream_;
+    DataStream* p_data_stream_ = nullptr;
 
-    int update_interval_;
+    int update_interval_ = 10;
 
-    std::thread runner_thread_;
+    std::thread runner_thread_ = std::thread();
 
     /**
      * @details This flag is an atomic so it can be accessed by both the thread
      * and the main thread. It is set to 1 to signal the thread to stop.
      */
-    std::atomic <int> stop_flag_;
+    std::atomic <int> stop_flag_ = 1;
 };
 
 #endif // MODULE_CONSOLE_H_

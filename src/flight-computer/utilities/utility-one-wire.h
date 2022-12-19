@@ -25,7 +25,6 @@ class OneWire {
 
     private:
         std::string path_;
-        std::ifstream file_;
 };
 
 #endif // UTILITY_ONE_WIRE_H_

@@ -16,8 +16,9 @@
  * sets up the data frame. This does not start the module.
  * @param config_data
  */
-DataModule::DataModule() {
-  mpDataStream = new DataStream();
+DataModule::DataModule():
+  Module(nullptr, MODULE_DATA_PREFIX) {
+  p_data_stream_ = new DataStream();
 
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
@@ -39,8 +40,8 @@ DataModule::DataModule() {
  * @brief Destroys the DataModule object.
  */
 DataModule::~DataModule() {
-  delete mpDataStream;  // Deconstructor of data stream will first acquire all
-                        // locks
+  delete p_data_stream_;  // Deconstructor of data stream will first acquire all
+                          // locks
 }
 
 void DataModule::addConfigData(ConfigData config_data) {
@@ -82,7 +83,7 @@ void DataModule::stop() {
  * @param None
  * @return DataStream*
  */
-DataStream* DataModule::getDataStream() { return mpDataStream; }
+DataStream* DataModule::getDataStream() { return p_data_stream_; }
 
 /**
  * @brief logs the data in the data frame to the data log file.
@@ -95,7 +96,7 @@ void DataModule::log() {
   std::ofstream logfile;
   logfile.open(data_log_file_path_, std::ios_base::app);
 
-  DataFrame dataframe_copy(mpDataStream->getDataFrameCopy());
+  DataFrame dataframe_copy(p_data_stream_->getDataFrameCopy());
 
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
@@ -142,16 +143,16 @@ void DataModule::addDataTypeToFrame(
  * @return void
  */
 void DataModule::parseDataStream() {
-  int packetCount = mpDataStream->getNumDataPackets();
+  int packetCount = p_data_stream_->getNumDataPackets();
   DataStreamPacket dpacket;
   for (int i = 0; i < packetCount; i++) {
     /** @todo Check to see if it exists in the dataframe first, if not
      * add an error.
      */
-    dpacket = mpDataStream->getNextDataPacket();
+    dpacket = p_data_stream_->getNextDataPacket();
     dataframe_.insert_or_assign(dpacket.source + ":" + dpacket.unit, dpacket);
   }
-  mpDataStream->updateDataFrame(dataframe_);
+  p_data_stream_->updateDataFrame(dataframe_);
 }
 
 /**
@@ -166,14 +167,14 @@ void DataModule::parseErrorStream() {
   std::ofstream error_file;
   error_file.open(error_log_file_path_, std::ios_base::app);
 
-  int packetCount = mpDataStream->getNumErrorPackets();
+  int packetCount = p_data_stream_->getNumErrorPackets();
   ErrorStreamPacket epacket;
   for (int i = 0; i < packetCount; i++) {
-    epacket = mpDataStream->getNextErrorPacket();
+    epacket = p_data_stream_->getNextErrorPacket();
     errorframe_.insert_or_assign(
         epacket.error_source + ":" + epacket.error_name, epacket);
   }
-  mpDataStream->updateErrorFrame(errorframe_);
+  p_data_stream_->updateErrorFrame(errorframe_);
 }
 
 /**

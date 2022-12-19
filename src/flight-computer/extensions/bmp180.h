@@ -70,42 +70,42 @@ private:
     I2C i2c_bus_;
 
     // Environmental Data:
-    float temp_F_;
-    float temp_C_;
-    float pressure_HPA_;
-    float pressure_INHG_;
-    float pressure_altitude_meters_;
-    float pressure_altitude_feet_;
+    float temp_F_ = 0.0;
+    float temp_C_ = 0.0;
+    float pressure_HPA_ = 0.0;
+    float pressure_INHG_ = 0.0;
+    float pressure_altitude_meters_ = 0.0;
+    float pressure_altitude_feet_ = 0.0;
     std::vector<unsigned short> raw_calibration_data_; // [tempMSB, tempLSB, pressMSB, pressLSB, pressXLSB]
-    int raw_temperature_data_;
-    int raw_pressure_data_;
+    int raw_temperature_data_ = 0;
+    int raw_pressure_data_ = 0;
 
     // Calibration Data
-    volatile short AC1_;
-    volatile short AC2_;
-    volatile short AC3_;
-    volatile unsigned short AC4_;
-    volatile unsigned short AC5_;
-    volatile unsigned short AC6_;
-    volatile short B1_;
-    volatile short B2_;
-    volatile short MB_;
-    volatile short MC_;
-    volatile short MD_;
+    volatile short AC1_ = 0;
+    volatile short AC2_ = 0;
+    volatile short AC3_ = 0;
+    volatile unsigned short AC4_ = 0;
+    volatile unsigned short AC5_ = 0;
+    volatile unsigned short AC6_ = 0;
+    volatile short B1_ = 0;
+    volatile short B2_ = 0;
+    volatile short MB_ = 0;
+    volatile short MC_ = 0;
+    volatile short MD_ = 0;
 
     // Data
-    int UT_;
-    int UP_;
-    int X1_;
-    int X2_;
-    int X3_;
-    int B3_;
-    unsigned int B4_;
-    int B5_;
-    int B6_;
-    int B7_;
-    int T_;
-    int P_;
+    int UT_ = 0;
+    int UP_ = 0;
+    int X1_ = 0;
+    int X2_ = 0;
+    int X3_ = 0;
+    int B3_ = 0;
+    unsigned int B4_ = 0;
+    int B5_ = 0;
+    int B6_ = 0;
+    int B7_ = 0;
+    int T_ = 0;
+    int P_ = 0;
 };
 
 #endif // BMP180_H_

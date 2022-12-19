@@ -29,8 +29,8 @@ using json = nlohmann::ordered_json;
  * @brief Construct a new ConfigModule::ConfigModule object
  * @param None
  */
-ConfigModule::ConfigModule(DataStream *data_stream) {
-	p_data_stream_ = data_stream;
+ConfigModule::ConfigModule(DataStream *data_stream):
+	p_data_stream_(data_stream) {
 	number_of_errors_ = 0;
 }
 

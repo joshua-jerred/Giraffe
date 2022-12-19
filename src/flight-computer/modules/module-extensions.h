@@ -30,11 +30,13 @@
 /**
  * @brief The extension class manages all extensions.
  * @details This class is responsible for starting, stopping, and managing
- * extensions. This includes all sensors and data colleciton tools.
+ * extensions. This includes all sensors and data collection tools.
  */
 class ExtensionsModule : public Module {
 public:
     ExtensionsModule(const ConfigData config_data, DataStream *stream);
+    ExtensionsModule(const ExtensionsModule &other) = delete; // No copy constructor
+    ExtensionsModule &operator=(const ExtensionsModule &other) = delete; // No copy assignment
     ~ExtensionsModule();
     void start();
     void stop();
@@ -44,8 +46,8 @@ public:
 private:
     void addExtension(ExtensionMetadata meta_data);
 
-    std::vector<Extension*> extensions_;
-    DataStream *data_stream_;
+    std::vector<Extension*> extensions_ = {};
+    DataStream *p_data_stream_;
     ConfigData config_data_;
 };
 

@@ -21,10 +21,9 @@
  * config info
  */
 Extension::Extension(DataStream *p_data_stream, 
-                     ExtensionMetadata extension_metadata) {
-    
-    p_data_stream_ = p_data_stream;
-
+                     ExtensionMetadata extension_metadata):
+    p_data_stream_(p_data_stream),
+    status_(ExtensionStatus::STOPPED) {
 
     setID(extension_metadata.id);
     setName(extension_metadata.name);
@@ -196,7 +195,6 @@ void Extension::setStatus(ExtensionStatus status) {
  * @return void
  */
 void Extension::sendData(std::string unit, std::string value) {
-    std::time_t t = std::time(0);
     p_data_stream_->addData(getName(), unit, value, 
                             getUpdateInterval() / 1000);
 }
@@ -332,6 +330,7 @@ void Extension::setCritical(int critical){
  * parent class.
  */
 void Extension::spawnRunner() {
+    stop_flag_ = 0;
     runner_thread_ = std::thread(&Extension::runner, this);
 }
 

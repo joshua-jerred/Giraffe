@@ -3,11 +3,10 @@
 #include <iostream>
 
 ServerModule::ServerModule(const ConfigData config_data,
-													 DataStream *data_stream) {
-	config_data_ = config_data;
-	update_interval_ = config_data.debug.web_server_update_interval;
-	p_data_stream_ = data_stream;
-	gfs_shutdown_flag_ = 0;
+		DataStream *data_stream):
+			Module(data_stream, MODULE_SERVER_PREFIX),
+			config_data_(config_data),
+			p_data_stream_(data_stream) {
 }
 
 ServerModule::~ServerModule() {
@@ -108,7 +107,7 @@ void ServerModule::runner() {
 
 		} catch (SocketException &e) {
 			p_data_stream_->addError(MODULE_SERVER_PREFIX, "Socket Creation",
-										e.description(), update_interval_);
+										e.description(), 0);
 		}
 		
 		std::this_thread::sleep_for(std::chrono::milliseconds(50));
@@ -180,7 +179,7 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 
 		json extension_status = {};
 		std::unordered_map<std::string, ExtensionStatus> extension_status_map = p_data_stream_->getExtensionStatuses();
-		int k = 0;
+
 		for (auto const &[key, status] : extension_status_map) {
 			std::string status_str = "";
 
@@ -214,6 +213,6 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 		socket << dynamic_data.dump();  // Send the data
 	} catch (SocketException &e) {
 		p_data_stream_->addError(MODULE_SERVER_PREFIX, "Dynamic",
-			e.description(), update_interval_);
+			e.description(), 0);
 	}
 }

@@ -9,10 +9,8 @@
 
 #include "utility-one-wire.h"
 
-OneWire::OneWire(std::string device_id) {
-	std::string onewire_path = ONE_WIRE_LOCATION;
-	std::string onewire_file = ONE_WIRE_FILE;
-    path_ = onewire_path + device_id + onewire_file;
+OneWire::OneWire(std::string device_id):
+	path_(ONE_WIRE_LOCATION + device_id + ONE_WIRE_FILE) {
 }
 
 OneWire::~OneWire() {
@@ -20,7 +18,7 @@ OneWire::~OneWire() {
 
 std::string OneWire::read() {
 	std::string line = "";
-
+	std::ifstream file_;
 	file_.open(path_);
 	if (file_.is_open()) {
     	std::getline(file_, line);

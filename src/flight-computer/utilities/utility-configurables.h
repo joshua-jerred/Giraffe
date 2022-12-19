@@ -43,11 +43,13 @@
 // ---------------------------------------- //
 
 // ------- Error Prefixes ------- //
-#define MODULE_CONFIG_PREFIX "CG_"
-#define MODULE_DATA_PREFIX "M_DAT"
-#define MODULE_TELEMETRY_PREFIX "M_TEL"
-#define MODULE_SERVER_PREFIX "M_SRV"
-#define MODULE_EXTENSION_PREFIX "M_EXT"
+#define MODULE_DATA_PREFIX "M_DA"
+#define MODULE_CONFIG_PREFIX "M_CF"
+#define MODULE_TELEMETRY_PREFIX "M_TL"
+#define MODULE_SERVER_PREFIX "M_SV"
+#define MODULE_EXTENSION_PREFIX "M_EX"
+#define MODULE_CONSOLE_PREFIX "M_CO"
+
 #define EXTENSION_PREFIX "EXT"
 // ------------------------------ //
 
@@ -67,5 +69,7 @@
 #define ONE_WIRE_FILE "/w1_slave"
 
 #define TELEMETRY_WAV_LOCATION "./telem/" /** @todo look into moving this to ram disk */
+
+#define CALLSIGN_FAILSAFE "NO_CALLSIGN"
 
 #endif
