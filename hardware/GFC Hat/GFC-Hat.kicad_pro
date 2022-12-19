@@ -438,28 +438,8 @@
   },
   "sheets": [
     [
-      "aeb3ab2a-5210-4675-827c-3d0a48a55a21",
+      "ffee1734-e23e-4e28-bde1-33af0d1e9ce2",
       ""
-    ],
-    [
-      "d84b2fed-53e2-4de5-a414-c1e6b5d7f826",
-      "DAC"
-    ],
-    [
-      "396586ca-f5f9-4a76-9147-5e92d98907db",
-      "Power"
-    ],
-    [
-      "92df1a69-1d8c-4ef6-a3bf-336cd5425527",
-      "DRA818"
-    ],
-    [
-      "df20edee-d517-4379-9185-507209c08e25",
-      "GFC_HAT"
-    ],
-    [
-      "698f5ab9-77fa-4188-8fd5-d3131af8291a",
-      "GFC_SHOE"
     ]
   ],
   "text_variables": {}

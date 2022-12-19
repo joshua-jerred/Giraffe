@@ -1,7 +1,11 @@
+
+
 # Parts List
 
-### GFC Hat
- - 
+### GFC Hat Prototype 2
+(Diode)[https://www.digikey.com/en/products/detail/diodes-incorporated/B320A-13-F/717692]
+
+### GFC Hat Prototype 1 
 
 
 ### BME280 Protoboard
