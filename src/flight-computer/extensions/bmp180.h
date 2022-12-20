@@ -15,6 +15,7 @@
 #include <cmath>
 #include <unistd.h>
 #include <bitset>
+#include <unordered_map>
 
 #include "utility-i2c.h"
 
@@ -50,7 +51,7 @@ private:
     float pressure_INHG_ = 0.0;
     float pressure_altitude_meters_ = 0.0;
     float pressure_altitude_feet_ = 0.0;
-    // std::vector<unsigned short> raw_calibration_data_; // [tempMSB, tempLSB, pressMSB, pressLSB, pressXLSB] Can be used to send to data stream
+    std::unordered_map<std::string, int> raw_data_ = {}; 
     int raw_temperature_data_ = 0;
     int raw_pressure_data_ = 0;
 

@@ -11,6 +11,8 @@
 
 // Configurable
 #define SAMPLING_ACCURACY 1 // Refer to BMP180 data sheet "oversampling_setting", if this is changed BMP180_READPRESSURECMD must also 
+#define BMP180_DEBUG 1 // If set to 1, the extension will push debug data to the data stream (not recommended for flight)
+
 // BMP180 Registers Read Only
 #define REG_CAL_AC1 0xAA // Calibration Data starting register (0xAA-0xBF)
 #define REG_CAL_AC2 0xAC 
@@ -114,6 +116,13 @@ int BMP180::runner() {
 		} else {
 			error("RP");
 		}
+		
+		if (BMP180_DEBUG) {
+			for (std::pair<std::string, int> e: raw_data_) {
+				sendData(e.first, e.second);
+			}
+		}
+
 		std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
         );
@@ -135,19 +144,19 @@ int BMP180::readCalibrationData() {
 	MC_ = readShort(REG_CAL_MC);
 	MD_ = readShort(REG_CAL_MD);
 
-	// TODO: Add to data stream
-	//raw_calibration_data_.clear();
-	//raw_calibration_data_.push_back(AC1_);
-	//raw_calibration_data_.push_back(AC2_);
-	//raw_calibration_data_.push_back(AC3_);
-	//raw_calibration_data_.push_back((uint16_t) AC4_);
-	//raw_calibration_data_.push_back((uint16_t) AC5_);
-	//raw_calibration_data_.push_back((uint16_t) AC6_);
-	//raw_calibration_data_.push_back(B1_);
-	//raw_calibration_data_.push_back(B2_);
-	//raw_calibration_data_.push_back(MB_);
-	//raw_calibration_data_.push_back(MC_);
-	//raw_calibration_data_.push_back(MD_);
+	if (BMP180_DEBUG) {
+		raw_data_.insert_or_assign("B1", B1_);
+		raw_data_.insert_or_assign("B2", B2_);
+		raw_data_.insert_or_assign("MB", MB_);
+		raw_data_.insert_or_assign("MC", MC_);
+		raw_data_.insert_or_assign("MD", MD_);
+		raw_data_.insert_or_assign("AC1", AC1_);
+		raw_data_.insert_or_assign("AC2", AC2_);
+		raw_data_.insert_or_assign("AC3", AC3_);
+		raw_data_.insert_or_assign("AC4", AC4_);
+		raw_data_.insert_or_assign("AC5", AC5_);
+		raw_data_.insert_or_assign("AC6", AC6_);
+	}
 	
 	if (AC1_ == -1 || AC2_ == -1 || AC3_ == -1 || AC4_ == 0 || AC5_ == 0 // any i2c errors
 		|| AC6_ == 0 || B1_ == -1 || B2_ == -1 || MB_ == -1 || MC_ == -1
@@ -163,13 +172,19 @@ int BMP180::readRawTemperature() {
 	usleep(5000); // wait 4.5ms
 	volatile int MSB = i2c_bus_.readByteFromReg(REG_DATA);
 	volatile int LSB = i2c_bus_.readByteFromReg(REG_DATA + 1);
-	
+
+	if (BMP180_DEBUG) {
+		raw_data_.insert_or_assign("T_MSB", MSB);
+		raw_data_.insert_or_assign("T_LSB", LSB);
+	}
+
 	if (MSB == -1 || LSB == -1) {
 		return -1;
 	}
 	
 	UT_ = (MSB << 8) + LSB;
 	raw_temperature_data_ = UT_;
+
 	return 0;
 }
 
@@ -202,6 +217,12 @@ int BMP180::readRawPressure() {
 	MSB = i2c_bus_.readByteFromReg(REG_DATA);
 	LSB = i2c_bus_.readByteFromReg(REG_DATA + 1);
 	XLSB = i2c_bus_.readByteFromReg(REG_DATA + 2);
+
+	if (BMP180_DEBUG) {
+		raw_data_.insert_or_assign("P_MSB", MSB);
+		raw_data_.insert_or_assign("P_LSB", LSB);
+		raw_data_.insert_or_assign("P_XLSB", XLSB);
+	}
 
 	if (MSB == -1 || LSB == -1 || XLSB == -1) {
 		return -1;
