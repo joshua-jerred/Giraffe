@@ -14,6 +14,7 @@
 #include <sstream>
 #include <cmath>
 #include <unistd.h>
+#include <bitset>
 
 #include "utility-i2c.h"
 

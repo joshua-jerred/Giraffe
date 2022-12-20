@@ -80,7 +80,8 @@ int BMP180::runner() {
 		return -1;
 	} else if (result == -2) { // Value returned by device was not 0x55
 		setStatus(ExtensionStatus::ERROR);
-		error("HSK_U");
+		std::bitset<8> value = result;
+		error("HSK_U", value.to_string());
 		return -1;
 	}
 
@@ -267,13 +268,13 @@ int BMP180::calculatePressure() {
 }
 
 int BMP180::handshake() {
-	unsigned short i = readShortUnsigned(REG_ID);
+	int i = i2c_bus_.readByteFromReg(REG_ID);
 	if (i == 0x55) {
 		return 0; // Good handshake
 	} else if (i == 0) {
 		return -1; // I2C failure
 	} else {
-		return -2; // unknown failure
+		return i; // unknown failure
 	}
 }
 
