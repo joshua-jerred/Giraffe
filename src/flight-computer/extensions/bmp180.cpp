@@ -11,7 +11,7 @@
 
 // Configurable
 #define SAMPLING_ACCURACY 1 // Refer to BMP180 data sheet "oversampling_setting", if this is changed BMP180_READPRESSURECMD must also 
-#define BMP180_DEBUG 1 // If set to 1, the extension will push debug data to the data stream (not recommended for flight)
+#define BMP180_DEBUG 0 // If set to 1, the extension will push debug data to the data stream (not recommended for flight)
 
 // BMP180 Registers Read Only
 #define REG_CAL_AC1 0xAA // Calibration Data starting register (0xAA-0xBF)
