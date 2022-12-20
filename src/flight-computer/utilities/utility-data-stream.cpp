@@ -280,6 +280,13 @@ std::unordered_map<std::string, ExtensionStatus> DataStream::getExtensionStatuse
 	return extension_status;
 }
 
+std::ostream& operator << (std::ostream& o, const DataStreamPacket& d)
+{
+	o << "Source: " << d.source << "\tData Name: " << d.unit <<
+	"\tValue: " << d.value << std::endl;
+	return o;
+}
+
 std::ostream& operator << (std::ostream& o, const ErrorStreamPacket& e)
 {
     o << "Source: " << e.source << "\tError Code: " << e.error_code <<

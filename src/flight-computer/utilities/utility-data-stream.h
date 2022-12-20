@@ -34,7 +34,7 @@ struct DataStreamPacket {
     std::string value = ""; 
     std::time_t expiration_time = 0;
 };
-
+std::ostream& operator << (std::ostream& o, const DataStreamPacket& d);
 
 /**
  * @brief This struct is used by the DataStream and data module.

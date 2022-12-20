@@ -39,8 +39,17 @@ TEST_F(BMP180Test, BMP180Test1) {
     bmp180.start();
     sleep(1);
     bmp180.stop();
-    EXPECT_EQ(p_data_stream_->getNumDataPackets(), 6);
     
+    int num_data_packets = p_data_stream_->getNumDataPackets();
+    EXPECT_EQ(num_data_packets, 6);
+    if (num_data_packets > 0) {
+        std::cout << "Data packets: " << std::endl;
+        for (int i = 0; i < num_data_packets; i++) {
+            std::cout << p_data_stream_->getNextDataPacket() << std::endl;
+        }
+    }
+    
+
     int num_error_packets = p_data_stream_->getNumErrorPackets();
     EXPECT_EQ(num_error_packets, 0);
     if (num_error_packets > 0) {
@@ -49,4 +58,5 @@ TEST_F(BMP180Test, BMP180Test1) {
             std::cout << p_data_stream_->getNextErrorPacket() << std::endl;
         }
     }
+
 }
