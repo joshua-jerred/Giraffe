@@ -16,6 +16,7 @@
 #include <ctime>
 #include <string>
 #include <unordered_map>
+#include <iostream>
 
 #include "utility-config-types.h"
 #include "utility-status.h"
@@ -41,13 +42,15 @@ struct DataStreamPacket {
  * struct as it is handled by the DataStream class. 
  * 
  * @see DataStream::addError()
+ * @todo clean up var names in struct
  */
 struct ErrorStreamPacket {
-    std::string error_source = "";
-    std::string error_name  = "";
-    std::string error_info  = "";
+    std::string source = "";
+    std::string error_code  = "";
+    std::string info  = "";
     std::time_t expiration_time = 0;
 };
+std::ostream& operator << (std::ostream& o, const ErrorStreamPacket& e);
 
 typedef std::unordered_map<std::string, DataStreamPacket> DataFrame;
 typedef std::unordered_map<std::string, ErrorStreamPacket> ErrorFrame;
@@ -68,7 +71,7 @@ public:
     void addData(std::string data_source, 
 	std::string data_name, std::string data_value, int seconds_until_expiry);
 
-    void addError(std::string error_source, std::string error_name, 
+    void addError(std::string error_source, std::string error_code, 
                   std::string error_info, int seconds_until_expiry);
 
     void updateDataFrame(DataFrame data_frame);

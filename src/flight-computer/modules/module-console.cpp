@@ -302,7 +302,7 @@ void ConsoleModule::printData() {
     std::cout << "Errors - " << error_snapshot.size() << std::endl;
     i = 1;
     for (auto& [key, packet] : error_snapshot) {  
-        std::cout << packet.error_source << " - " << packet.error_name << " - ";
-        std::cout << packet.error_info << std::endl;
+        std::cout << packet.source << " - " << packet.error_code << " - ";
+        std::cout << packet.info << std::endl;
     }
 }

@@ -231,7 +231,7 @@ void Extension::setID(int num) {
         id_ = 0;
         setStatus(ExtensionStatus::ERROR);
         p_data_stream_->addError(name_, "EXT_ID", 
-                                 "Specified ID out of range.", 0);
+                                 "ID: " + std::to_string(num), 0);
         return;
     }
 }
@@ -346,7 +346,7 @@ void Extension::spawnRunner() {
 
 void Extension::error(std::string error_code, std::string info) {
 	p_data_stream_->addError(
-        EXTENSION_PREFIX + (std::string) ":" + std::to_string(getID()), 
+        EXTENSION_PREFIX + std::to_string(getID()), 
         error_code, 
         info, 
         update_interval_
@@ -355,7 +355,7 @@ void Extension::error(std::string error_code, std::string info) {
 
 void Extension::error(std::string error_code) {
 	p_data_stream_->addError(
-        EXTENSION_PREFIX + (std::string) ":" + std::to_string(getID()), 
+        EXTENSION_PREFIX + std::to_string(getID()), 
         error_code, 
         "", 
         update_interval_

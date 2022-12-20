@@ -110,8 +110,8 @@ void DataModule::log() {
   std::ofstream error_logfile;
   error_logfile.open(error_log_file_path_, std::ios_base::app);
   for (auto& [source_and_unit, packet] : errorframe_) {
-    error_logfile << packet.error_source << ", " << packet.error_name << ", "
-                  << packet.error_info << std::endl;
+    error_logfile << packet.source << ", " << packet.error_code << ", "
+                  << packet.info << std::endl;
   }
 }
 
@@ -172,7 +172,7 @@ void DataModule::parseErrorStream() {
   for (int i = 0; i < packetCount; i++) {
     epacket = p_data_stream_->getNextErrorPacket();
     errorframe_.insert_or_assign(
-        epacket.error_source + ":" + epacket.error_name, epacket);
+        epacket.source + ":" + epacket.error_code, epacket);
   }
   p_data_stream_->updateErrorFrame(errorframe_);
 }

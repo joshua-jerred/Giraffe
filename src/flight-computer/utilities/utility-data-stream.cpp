@@ -67,21 +67,21 @@ void DataStream::addData(
 /**
  * @brief Add an error to the error stream. This function is thread safe.
  * @param error_source The file or function that the error occurred in.
- * @param error_name The error code or name.
+ * @param error_code The error code or name.
  * @param error_info Human readable information about the error.
  * @param seconds_until_expiry The number of seconds until the error
  * should be considered expired. If this is 0, the error will never expire.
  * @return void
  */
 void DataStream::addError(std::string error_source, 
-	std::string error_name, std::string error_info,
+	std::string error_code, std::string error_info,
 	int seconds_until_expiry) {
 	std::time_t current_time = std::time(nullptr);
 	error_stream_lock_.lock();
 	if (seconds_until_expiry > 1) {
-		error_stream_.push({error_source, error_name, error_info, current_time + seconds_until_expiry});
+		error_stream_.push({error_source, error_code, error_info, current_time + seconds_until_expiry});
 	} else {
-		error_stream_.push({error_source, error_name, error_info, 0});
+		error_stream_.push({error_source, error_code, error_info, 0});
 	}
 	num_error_packets_++;
 	total_error_packets_++;
@@ -278,4 +278,11 @@ std::unordered_map<std::string, ExtensionStatus> DataStream::getExtensionStatuse
 	std::unordered_map<std::string, ExtensionStatus> extension_status(extension_status_);
 	extension_status_lock_.unlock();
 	return extension_status;
+}
+
+std::ostream& operator << (std::ostream& o, const ErrorStreamPacket& e)
+{
+    o << "Source: " << e.source << "\tError Code: " << e.error_code <<
+    "\t Info: " << e.info << std::endl;
+    return o;
 }

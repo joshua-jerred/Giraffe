@@ -62,7 +62,9 @@ target_include_directories(giraffe-flight-software PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/extensions
 )
 
-# ---- Flight Computer Tests ----
+# ------------------------------------------------------------------------------
+# ---- Flight Computer Tests ---------------------------------------------------
+# ------------------------------------------------------------------------------
 enable_testing()
 
 FetchContent_Declare(
@@ -72,7 +74,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-# test-01 - Data Stream
+# test-01 - Data Stream --------------------------------------------------------
 add_executable(test-01 
     tests/test-01/test.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
@@ -85,7 +87,7 @@ target_include_directories(test-01 PUBLIC
 )
 target_link_libraries(test-01 gtest_main)
 
-# test-02 - Configuration
+# test-02 - Configuration ------------------------------------------------------
 add_executable(test-02 
     tests/test-02/test.cpp
     src/flight-computer/modules/module-configuration.cpp
@@ -101,7 +103,7 @@ target_link_libraries(test-02 gtest_main)
 target_link_libraries(test-02 nlohmann_json::nlohmann_json)
 file(COPY "tests/test-02/input-1.json" DESTINATION ${CMAKE_SOURCE_DIR}/bin/tests/test-02)
 
-# test-03 - Data Module
+# test-03 - Data Module --------------------------------------------------------
 add_executable(test-03 
     tests/test-03/test.cpp
     src/flight-computer/modules/module-data.cpp
@@ -115,7 +117,7 @@ target_include_directories(test-03 PUBLIC
 )
 target_link_libraries(test-03 gtest_main)
 
-# test-04 - Extensions Module
+# test-04 - Extensions Module --------------------------------------------------
 add_executable(test-04
     tests/test-04/test.cpp
     src/flight-computer/modules/module-extensions.cpp
@@ -137,7 +139,7 @@ target_include_directories(test-04 PUBLIC
 )
 target_link_libraries(test-04 gtest_main)
 
-# test-05 - I2C Utility
+# test-05 - I2C Utility --------------------------------------------------------
 add_executable(test-05
     tests/test-05/test.cpp
     src/flight-computer/utilities/utility-i2c.cpp
@@ -148,6 +150,27 @@ target_include_directories(test-05 PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/utilities
 )
 target_link_libraries(test-05 gtest_main)
+
+# test-06 - BMP180 Extension ---------------------------------------------------
+add_executable(test-06
+    tests/test-06/test.cpp
+    src/flight-computer/extensions/bmp180.cpp
+    src/flight-computer/extensions/extension.cpp
+    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/utility-i2c.cpp
+)
+target_link_libraries(test-06 i2c)
+set_target_properties( test-06 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-06/ )
+target_include_directories(test-06 PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/utilities
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/extensions
+)
+target_link_libraries(test-06 gtest_main)
+
+# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
