@@ -14,8 +14,11 @@
 
 I2C::I2C(int bus_number, int address):
     bus_number_(bus_number),
-    address_(address) {
+    address_(address),
+    status_(I2C_STATUS::NOT_CONNECTED) {
+
     sprintf(file_name_, "/dev/i2c-%d", bus_number_);
+
 }
 
 I2C::~I2C () {
@@ -66,7 +69,7 @@ int I2C::writeByte(uint8_t data) {
         return -1;
     }
 
-    int32_t result = i2c_smbus_write_byte(i2c_fd_, data);
+    volatile int32_t result = i2c_smbus_write_byte(i2c_fd_, data);
     
     if (result < 0) {
         status_ = I2C_STATUS::WRITE_ERROR;
@@ -81,7 +84,7 @@ int I2C::writeByteToReg(uint8_t data, uint8_t reg) {
         return -1;
     }
 
-    int32_t result = i2c_smbus_write_byte_data(i2c_fd_, reg, data);
+    volatile int32_t result = i2c_smbus_write_byte_data(i2c_fd_, reg, data);
 
     return 0;
 }
@@ -91,7 +94,7 @@ int I2C::readByte() {
         return -1;
     }
 
-    int result = i2c_smbus_read_byte(i2c_fd_);
+    volatile int32_t result = i2c_smbus_read_byte(i2c_fd_);
     
     if (result < 0) {
         status_ = I2C_STATUS::READ_ERROR;
@@ -106,7 +109,7 @@ int I2C::readByteFromReg(uint8_t reg_address) {
         return -1;
     }
 
-    int result = i2c_smbus_read_byte_data(i2c_fd_, reg_address);
+    volatile int32_t result = i2c_smbus_read_byte_data(i2c_fd_, reg_address);
 
     if (result < 0) {
         status_ = I2C_STATUS::READ_ERROR;

@@ -26,11 +26,13 @@ protected:
 
 TEST_F(I2CUtilityTest, I2CTestBadBusNumber) {
     I2C i2c(0, 0x00);
-    EXPECT_EQ(i2c.status(), I2C_STATUS::CONFIG_ERROR_BUS);
+    EXPECT_EQ(i2c.status(), I2C_STATUS::NOT_CONNECTED);
 }
 
 TEST_F(I2CUtilityTest, I2CTestBadAddress) {
     I2C i2c(GOOD_BUS_NUMBER, 0x00);
+    EXPECT_EQ(i2c.status(), I2C_STATUS::NOT_CONNECTED);
+    EXPECT_EQ(i2c.connect(), -1);
     EXPECT_EQ(i2c.status(), I2C_STATUS::CONFIG_ERROR_ADDRESS);
 }
 
