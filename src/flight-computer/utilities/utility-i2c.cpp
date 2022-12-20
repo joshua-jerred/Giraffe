@@ -48,7 +48,7 @@ int I2C::connect() {
     }
 
     // Try to access the I2C device
-    if (ioctl(i2c_fd_, I2C_SLAVE, address_) < 0) {
+    if (ioctl(i2c_fd_, I2C_SLAVE_FORCE, address_) < 0) { // SLAVE_FORCE incase a kernel driver is already using the device
         status_ = I2C_STATUS::ADDRESS_ERROR;
         return -1;
     }
@@ -64,7 +64,7 @@ int I2C::disconnect() {
     return close(i2c_fd_);
 }
 
-int I2C::writeByte(uint8_t data) {
+int32_t I2C::writeByte(uint8_t data) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
@@ -79,17 +79,17 @@ int I2C::writeByte(uint8_t data) {
     }
 }
 
-int I2C::writeByteToReg(uint8_t data, uint8_t reg) {
+int32_t I2C::writeByteToReg(uint8_t data, uint8_t reg) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
 
     volatile int32_t result = i2c_smbus_write_byte_data(i2c_fd_, reg, data);
 
-    return 0;
+    return result;
 }
 
-int I2C::readByte() {
+int32_t I2C::readByte() {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
@@ -104,7 +104,7 @@ int I2C::readByte() {
     }
 }
 
-int I2C::readByteFromReg(uint8_t reg_address) {
+int32_t I2C::readByteFromReg(uint8_t reg_address) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }

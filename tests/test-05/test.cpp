@@ -38,8 +38,9 @@ TEST_F(I2CUtilityTest, I2CTestBadAddress) {
 
 TEST_F(I2CUtilityTest, I2CTestNoDevice) {
     I2C i2c(GOOD_BUS_NUMBER, NO_DEVICE_ADDRESS);
-    EXPECT_EQ(i2c.connect(), -1);
-    EXPECT_EQ(i2c.status(), I2C_STATUS::ADDRESS_ERROR);
+    EXPECT_EQ(i2c.connect(), 0);
+    EXPECT_EQ(i2c.status(), I2C_STATUS::OK);
+    EXPECT_EQ(i2c.writeByte(0x00), -1);
 }
 
 TEST_F(I2CUtilityTest, I2CBMP180Read) {
