@@ -68,6 +68,8 @@ CD_U: Calibration data is invalid (Not implemented)
 RT: Error reading raw temperature
 RP: Error reading raw pressure
 
+P_SLEEP: Error with usleep function call while reading temperature
+
 TBAR: Temperature below accuracy range (-40 C)
 TAAR: Temperature above accuracy range (85 C)
 PBAR: Pressure below accuracy range (305 hPa)

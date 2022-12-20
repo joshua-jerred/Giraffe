@@ -33,7 +33,7 @@ public:
     I2C_STATUS status();
 
     int writeByte(uint8_t data);
-    int writeByteToReg(uint8_t data, uint8_t reg);
+    int writeByteToReg(uint8_t reg_address, uint8_t data);
 
     int readByte();
     int readByteFromReg(uint8_t reg_address);

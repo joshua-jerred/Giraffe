@@ -80,12 +80,12 @@ int32_t I2C::writeByte(uint8_t data) {
     }
 }
 
-int32_t I2C::writeByteToReg(uint8_t data, uint8_t reg) {
+int32_t I2C::writeByteToReg(uint8_t reg_address, uint8_t data) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
 
-    volatile int32_t result = i2c_smbus_write_byte_data(i2c_fd_, reg, data);
+    volatile int32_t result = i2c_smbus_write_byte_data(i2c_fd_, reg_address, data);
     if (result < 0) {
         status_ = I2C_STATUS::WRITE_ERROR;
         return -1;

@@ -168,12 +168,12 @@ int BMP180::readCalibrationData() {
 }
 
 int BMP180::readRawTemperature() {
-    i2c_bus_.writeByteToReg(REG_CTRL, CMD_READTEMP); // write 0x2E into reg 0xF4
-	std::this_thread::sleep_for(
-            std::chrono::milliseconds(5) // wait 5ms (4.5ms according to data sheet)
-        );
-	volatile short MSB = i2c_bus_.readByteFromReg(REG_DATA);
-	volatile short LSB = (int8_t) i2c_bus_.readByteFromReg(REG_DATA + 1);
+    if (i2c_bus_.writeByteToReg(REG_CTRL, CMD_READTEMP)) { // write 0x2E into reg 0xF4
+		return -1;
+	}
+	usleep(5000); // wait 5ms (4.5ms minimum according to data sheet)
+	int MSB = i2c_bus_.readByteFromReg(REG_DATA);
+	int LSB = i2c_bus_.readByteFromReg(REG_DATA + 1);
 
 	if (BMP180_DEBUG) {
 		raw_data_.insert_or_assign("T_MSB", MSB);
