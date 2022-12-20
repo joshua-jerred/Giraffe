@@ -198,20 +198,27 @@ int BMP180::readRawPressure() {
 		return -1;
 	}
 
+	int sleep_result = -1;
+
 	switch (SAMPLING_ACCURACY) // wait 4.5ms to 25.5ms (refer to table 8 of bmp180 documentation)
 	{
 	case 0:
-		usleep(5000);
+		sleep_result = usleep(5000);
 		break;
 	case 1:
-		usleep(8000);
+		sleep_result = usleep(8000);
 		break;
 	case 2:
-		usleep(14000);
+		sleep_result = usleep(14000);
 		break;
 	case 3:
-		usleep(26000);
+		sleep_result = usleep(26000);
 		break;
+	}
+
+	if (sleep_result != 0) {
+		error("P_SLEEP");
+		return -1;
 	}
 
 	MSB = i2c_bus_.readByteFromReg(REG_DATA);

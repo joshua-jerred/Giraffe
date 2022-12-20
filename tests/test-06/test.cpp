@@ -12,6 +12,8 @@
 #include "bmp180.h"
 #include "utility-data-stream.h"
 
+#define BMP180_DEBUG 1 // Set to 1 when the bmp180 is in debug mode
+
 class BMP180Test : public ::testing::Test {
 protected:
     virtual void SetUp() { 
@@ -41,7 +43,13 @@ TEST_F(BMP180Test, BMP180Test1) {
     bmp180.stop();
     
     int num_data_packets = p_data_stream_->getNumDataPackets();
-    EXPECT_EQ(num_data_packets, 6);
+    if (BMP180_DEBUG) {
+        EXPECT_EQ(num_data_packets, 22);
+    } else {
+        EXPECT_EQ(num_data_packets, 6);
+    }
+
+
     if (num_data_packets > 0) {
         std::cout << "Data packets: " << std::endl;
         for (int i = 0; i < num_data_packets; i++) {
