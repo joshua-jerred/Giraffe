@@ -137,7 +137,17 @@ target_include_directories(test-04 PUBLIC
 )
 target_link_libraries(test-04 gtest_main)
 
-
+# test-05 - I2C Utility
+add_executable(test-05
+    tests/test-05/test.cpp
+    src/flight-computer/utilities/utility-i2c.cpp
+)
+target_link_libraries(test-05 i2c)
+set_target_properties( test-05 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-05/ )
+target_include_directories(test-05 PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/utilities
+)
+target_link_libraries(test-05 gtest_main)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

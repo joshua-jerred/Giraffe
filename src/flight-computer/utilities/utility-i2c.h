@@ -9,11 +9,6 @@
 #ifndef UTILITY_I2C_H_
 #define UTILITY_I2C_H_
 
-
-
-#define ADDRESS_LOW 0x03
-#define ADDRESS_HIGH 0x77
-
 #include <cstdint>
 #include <cstdio>
 #include <fcntl.h>
@@ -25,46 +20,31 @@ extern "C" {
 }
 
 #include "utility-configurables.h"
-
-enum class I2C_STATUS {
-    NOT_CONNECTED,
-    OK,
-    CONFIG_ERROR_BUS,
-    CONFIG_ERROR_ADDRESS,
-    BUS_ERROR,
-    ADDRESS_ERROR,
-    READ_ERROR,
-    WRITE_ERROR,
-    UNKNOWN_ERROR
-};
+#include "utility-status.h"
 
 class I2C {
 public:
-    I2C();
+    I2C(int bus_number, int address);
     ~I2C();
 
-    I2C_STATUS getStatus();
-
-    int connect(uint8_t bus_number, uint8_t address);
+    int connect();
     int disconnect();
+
+    I2C_STATUS status();
 
     int writeByte(uint8_t data);
     int writeByteToReg(uint8_t data, uint8_t reg);
 
-    int16_t readByte();
-    int16_t readByteFromReg(uint8_t reg_address);
+    int readByte();
+    int readByteFromReg(uint8_t reg_address);
 
 private:
-    
-    uint8_t bus_number_ = 1;
-    uint8_t address_ = 0x00;
-    
     I2C_STATUS status_;
-    
-    char file_name_[20];
-    int file_descriptor_;
 
-    char buffer_[2];
+    int bus_number_;
+    int address_;
+    char file_name_[20];
+    int i2c_fd_;
 };
 
 #endif /* UTILITY_I2C_H_ */

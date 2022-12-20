@@ -64,6 +64,8 @@
 
 #define I2C_BUS_NUMBER_LOW 1
 #define I2C_BUS_NUMBER_HIGH 1
+#define ADDRESS_LOW 0x04
+#define ADDRESS_HIGH 0x77
 
 #define ONE_WIRE_LOCATION "/sys/bus/w1/devices/"
 #define ONE_WIRE_FILE "/w1_slave"

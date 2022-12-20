@@ -43,4 +43,16 @@ enum class ModuleStatus {
     ERROR_STATE=4 
 };
 
+enum class I2C_STATUS {
+    NOT_CONNECTED,
+    OK,
+    CONFIG_ERROR_BUS,
+    CONFIG_ERROR_ADDRESS,
+    BUS_ERROR,
+    ADDRESS_ERROR,
+    READ_ERROR,
+    WRITE_ERROR,
+    UNKNOWN_ERROR
+};
+
 #endif
