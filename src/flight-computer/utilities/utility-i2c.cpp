@@ -13,9 +13,10 @@
 #include "utility-i2c.h"
 
 I2C::I2C(int bus_number, int address):
+    status_(I2C_STATUS::NOT_CONNECTED), 
     bus_number_(bus_number),
     address_(address),
-    status_(I2C_STATUS::NOT_CONNECTED) {
+    i2c_fd_(-1){
 
     sprintf(file_name_, "/dev/i2c-%d", bus_number_);
 

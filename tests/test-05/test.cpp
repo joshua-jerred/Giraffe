@@ -14,7 +14,11 @@
 #define BAD_BUS_NUMBER 0
 #define GOOD_BUS_NUMBER 1
 #define NO_DEVICE_ADDRESS 0x09
+
+// Test device with a known address and constant value register
 #define TEST_DEVICE_ADDRESS 0x77 // BMP180
+#define CONSTANT_VALUE_REGISTER 0xD0
+#define CONSTANT_VALUE 0x55
 
 class I2CUtilityTest : public ::testing::Test {
 protected:
@@ -41,11 +45,13 @@ TEST_F(I2CUtilityTest, I2CTestNoDevice) {
     EXPECT_EQ(i2c.connect(), 0);
     EXPECT_EQ(i2c.status(), I2C_STATUS::OK);
     EXPECT_EQ(i2c.writeByte(0x00), -1);
+    EXPECT_EQ(i2c.status(), I2C_STATUS::WRITE_ERROR);
 }
 
 TEST_F(I2CUtilityTest, I2CBMP180Read) {
     I2C i2c(GOOD_BUS_NUMBER, TEST_DEVICE_ADDRESS);
     EXPECT_EQ(i2c.connect(), 0);
     EXPECT_EQ(i2c.status(), I2C_STATUS::OK);
+    EXPECT_EQ(i2c.readByteFromReg(CONSTANT_VALUE_REGISTER), CONSTANT_VALUE);
     EXPECT_EQ(i2c.disconnect(), 0);
 }
