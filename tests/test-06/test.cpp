@@ -41,18 +41,42 @@ TEST_F(BMP180Test, BMP180Test1) {
     bmp180.stop();
     
     int num_data_packets = p_data_stream_->getNumDataPackets();
-    if (num_data_packets != 6 || num_data_packets != 22) {
+    if (num_data_packets != 6 && num_data_packets != 22) {
         ADD_FAILURE() << "Expected 6 or 22 (debug mode) data packets, got " << num_data_packets << std::endl;
     }
 
 
+    int packets_checked = 0;
     if (num_data_packets > 0) {
         std::cout << "Data packets: " << std::endl;
         for (int i = 0; i < num_data_packets; i++) {
-            std::cout << p_data_stream_->getNextDataPacket() << std::endl;
+            DataStreamPacket packet = p_data_stream_->getNextDataPacket();
+            std::cout << packet << std::endl;
+            if (num_data_packets == 6) {
+                if (packet.unit == "TEMP_F") {
+                    packets_checked++;
+                    EXPECT_LT(std::stod(packet.value), 90) << "Temperature is higher than expected range: " << packet.value;
+                    EXPECT_GT(std::stod(packet.value), 50) << "Temperature is lower than expected range: " << packet.value;
+                } else if (packet.unit == "P_ALT_F") {
+                    packets_checked++;
+                    EXPECT_LT(std::stod(packet.value), 4000) << "Altitude is higher than expected range: " << packet.value;
+                    EXPECT_GT(std::stod(packet.value), 2000) << "Altitude is lower than expected range: " << packet.value;
+                } else if (
+                        packet.unit == "TEMP_C"  ||
+                        packet.unit == "P_HPA"   ||
+                        packet.unit == "P_INHG"  ||
+                        packet.unit == "P_ALT_M"   ) {
+                    packets_checked++;
+                } else {
+                    ADD_FAILURE() << "Unexpected unit: " << packet.unit << std::endl;
+                }
+            }
         }
     }
     
+    if (num_data_packets == 6) {
+        EXPECT_EQ(packets_checked, 6);
+    }
 
     int num_error_packets = p_data_stream_->getNumErrorPackets();
     EXPECT_EQ(num_error_packets, 0);

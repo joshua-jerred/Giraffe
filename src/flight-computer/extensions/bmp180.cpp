@@ -168,10 +168,12 @@ int BMP180::readCalibrationData() {
 }
 
 int BMP180::readRawTemperature() {
-    if (i2c_bus_.writeByteToReg(REG_CTRL, CMD_READTEMP)) { // write 0x2E into reg 0xF4
+    if (i2c_bus_.writeByteToReg(REG_CTRL, CMD_READTEMP) != 0) { // write 0x2E into reg 0xF4
 		return -1;
 	}
-	usleep(5000); // wait 5ms (4.5ms minimum according to data sheet)
+
+	if (usleep(5000) != 0) { error("P_SLP"); } // wait 5ms (4.5ms minimum according to data sheet)
+
 	int MSB = i2c_bus_.readByteFromReg(REG_DATA);
 	int LSB = i2c_bus_.readByteFromReg(REG_DATA + 1);
 
@@ -219,7 +221,7 @@ int BMP180::readRawPressure() {
 	}
 
 	if (sleep_result != 0) {
-		error("P_SLEEP");
+		error("P_SLP");
 		return -1;
 	}
 
@@ -242,6 +244,10 @@ int BMP180::readRawPressure() {
 }
 
 int BMP180::calculateTemperature() { /** @todo POSSIBLE ARITHMETIC ERRORS*/
+	if (X1_ + MD_ == 0) { // prevent divide by zero
+		error("DIV0");
+		return -1;
+	}
 	X1_ = ((UT_ - AC6_) * AC5_) >> 15;
 	X2_ = (MC_ << 11) / (X1_ + MD_);
 	B5_ = X1_ + X2_;
@@ -274,11 +280,18 @@ int BMP180::calculatePressure() {
 	X3_ = ((X1_ + X2_) + 2) >> 2;
 	B4_ = (AC4_ * (X3_ + 32768)) >> 15;
 	B7_ = ((UP_ - B3_) * (50000 >> SAMPLING_ACCURACY));
+
+	if (B4_ == 0) { // prevent divide by zero
+		error("DIV0");
+		return -1;
+	}
+
 	if ((unsigned) B7_ < 0x80000000) {
 		P_ = (B7_ * 2) / B4_;
 	} else {
 		P_ = ((B7_ / B4_) * 2);
 	}
+
 	X1_ = P_ >> 8;
 	X1_ *= X1_;
 	X1_ = (X1_ * 3038) >> 16;
@@ -286,8 +299,14 @@ int BMP180::calculatePressure() {
 	P_ += (X1_ + X2_ + 3791) >> 4; // Pressure in Pa
 	pressure_HPA_ = (float)P_ / (float)100; // Cast to float to get decimal precision
 	pressure_INHG_ = pressure_HPA_ / 33.864;
-	pressure_altitude_meters_ = ((pow((1013.25 / pressure_HPA_), 1/5.257)-1) * (temp_C_ + 273.15)) / 0.0065;
-	pressure_altitude_feet_ = pressure_altitude_meters_ * 3.281;
+
+	if (pressure_HPA_ != 0) {
+		pressure_altitude_meters_ = ((pow((1013.25 / pressure_HPA_), 1/5.257)-1) * (temp_C_ + 273.15)) / 0.0065;
+		pressure_altitude_feet_ = pressure_altitude_meters_ * 3.281;
+	} else {
+		pressure_altitude_meters_ = 0;
+		pressure_altitude_feet_ = 0;
+	}
 	if (pressure_HPA_ <= 305) {
 		error("PBAR");
 	}
@@ -321,7 +340,7 @@ unsigned short BMP180::readShortUnsigned(int register_address) { // pass in the 
 	return (unsigned short)value;
 }
 
-short BMP180::readShort(int register_address) { // Used readShortUnsigned() and converts to signed.
+short BMP180::readShort(int register_address) { // Used readShortUnsigned() and casts to short
 	int value; 
 	value = readShortUnsigned(register_address);
 
