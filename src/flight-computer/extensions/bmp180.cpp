@@ -172,8 +172,8 @@ int BMP180::readRawTemperature() {
 	std::this_thread::sleep_for(
             std::chrono::milliseconds(5) // wait 5ms (4.5ms according to data sheet)
         );
-	volatile int MSB = i2c_bus_.readByteFromReg(REG_DATA);
-	volatile int LSB = i2c_bus_.readByteFromReg(REG_DATA + 1);
+	volatile int MSB = (int8_t) i2c_bus_.readByteFromReg(REG_DATA);
+	volatile int LSB = (int8_t) i2c_bus_.readByteFromReg(REG_DATA + 1);
 
 	if (BMP180_DEBUG) {
 		raw_data_.insert_or_assign("T_MSB", MSB);
