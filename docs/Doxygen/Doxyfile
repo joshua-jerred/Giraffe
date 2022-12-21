@@ -124,6 +124,8 @@ WARN_FORMAT            = "$file:$line: $text"
 
 INPUT                  = src/
 INPUT += docs/Doxygen/pages/
+INPUT += docs/dev-docs/
+INPUT += docs/user-docs/
 
 INPUT_ENCODING         = UTF-8
 

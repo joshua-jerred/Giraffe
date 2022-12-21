@@ -167,6 +167,21 @@ target_include_directories(test-06 PUBLIC
 )
 target_link_libraries(test-06 gtest_main)
 
+# test-07 - DS18B20 Extension --------------------------------------------------
+add_executable(test-07
+    tests/test-07/test.cpp
+    src/flight-computer/extensions/ds18b20.cpp
+    src/flight-computer/extensions/extension.cpp
+    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/utility-one-wire.cpp
+)
+target_link_libraries(test-07 i2c)
+set_target_properties( test-07 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-07/ )
+target_include_directories(test-07 PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/utilities
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/extensions
+)
+target_link_libraries(test-07 gtest_main)
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------

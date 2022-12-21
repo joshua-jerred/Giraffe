@@ -15,16 +15,23 @@
 #include <filesystem>
 
 #include "utility-configurables.h"
+#include "utility-status.h"
 
 class OneWire {
     public:
         OneWire(std::string device_id);
         ~OneWire();
-        std::string read();
-        int checkDevice();
+
+        ONEWIRE_STATUS status();
+
+        std::string read_w1_slave();
+        std::string read_temperature();
+
 
     private:
-        std::string path_;
+        int checkDevice();
+        std::string path_; // path to the device directory
+        ONEWIRE_STATUS status_;
 };
 
 #endif // UTILITY_ONE_WIRE_H_

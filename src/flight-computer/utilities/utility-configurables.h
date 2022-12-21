@@ -68,7 +68,6 @@
 #define ADDRESS_HIGH 0x77
 
 #define ONE_WIRE_LOCATION "/sys/bus/w1/devices/"
-#define ONE_WIRE_FILE "/w1_slave"
 
 #define TELEMETRY_WAV_LOCATION "./telem/" /** @todo look into moving this to ram disk */
 

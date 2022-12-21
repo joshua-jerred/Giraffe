@@ -2,6 +2,7 @@
  * @file utility-one-wire.cpp
  * @author Joshua Jerred (github.com/joshua-jerred)
  * @brief Implementation for the one wire utility class.
+ * @cite http://blog.foool.net/wp-content/uploads/linuxdocs/w1.pdf
  * @date 2022-11-02
  * @copyright Copyright (c) 2022
  * @version 0.1.0
@@ -10,21 +11,53 @@
 #include "utility-one-wire.h"
 
 OneWire::OneWire(std::string device_id):
-	path_(ONE_WIRE_LOCATION + device_id + ONE_WIRE_FILE) {
+	path_(ONE_WIRE_LOCATION + device_id),
+	status_(ONEWIRE_STATUS::NOT_FOUND) {
+	// Check to see if the device exists
+	if (checkDevice() == 0) { // Device exists
+		status_ = ONEWIRE_STATUS::OK;
+	} else { // Device does not exist
+		status_ = ONEWIRE_STATUS::NOT_FOUND;
+	}
 }
 
 OneWire::~OneWire() {
 }
 
-std::string OneWire::read() {
+ONEWIRE_STATUS OneWire::status() {
+	return status_;
+}
+
+/**
+ * @brief Read the temperature file
+ * @details This will still attempt to read even if the status is not OK.
+ * The connection is handled by the kernel, so you might as well try.
+ * @return std::string the contents of the w1_slave file
+ */
+std::string OneWire::read_w1_slave() { // Read the w1_slave file
 	std::string line = "";
 	std::ifstream file_;
-	file_.open(path_);
+	file_.open(path_ + "/w1_slave");
 	if (file_.is_open()) {
     	std::getline(file_, line);
 		return line;
 	} else {
+		status_ = ONEWIRE_STATUS::READ_ERROR;
+		return "";
+	}
+}
+
+
+std::string OneWire::read_temperature() { // Read the temperature file
+	std::string line = "";
+	std::ifstream file_;
+	file_.open(path_ + "/temperature");
+	if (file_.is_open()) {
+    	std::getline(file_, line);
 		return line;
+	} else {
+		status_ = ONEWIRE_STATUS::READ_ERROR;
+		return "";
 	}
 }
 

@@ -55,4 +55,11 @@ enum class I2C_STATUS {
     UNKNOWN_ERROR
 };
 
+enum class ONEWIRE_STATUS {
+    OK,
+    NOT_FOUND,
+    READ_ERROR,
+    UNKNOWN_ERROR
+};
+
 #endif

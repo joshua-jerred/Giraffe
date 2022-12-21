@@ -2,6 +2,8 @@
  * @file ds18b20.h
  * @author Joshua Jerred (github.com/joshua-jerred)
  * @brief Declaration of the DSB18B20 class.
+ * @details This extension will use the linux file system to read the 
+ * temperature as the kernel driver works great.
  * @date 2022-11-02
  * @copyright Copyright (c) 2022
  * @version 0.1.0

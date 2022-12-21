@@ -37,40 +37,35 @@
  - C_EXT_MISS [missing-item : extension-name]: Missing item in extension configuration
 
 #### Telemetry Config
-C_TL_PSK_F [_]: psk-mode or speed not found, defaulting to BPSK_125
-C_TL_PSK_M [mode]: Invalid PSK31 mode (not BPSK or QPSK)
-C_TL_PSK_S [speed]: Invalid PSK31 speed (not 125, 250, or 500)
+ - C_TL_PSK_F [_]: psk-mode or speed not found, defaulting to BPSK_125
+ - C_TL_PSK_M [mode]: Invalid PSK31 mode (not BPSK or QPSK)
+ - C_TL_PSK_S [speed]: Invalid PSK31 speed (not 125, 250, or 500)
 
 
 
 
 ## Telemetry Module Errors
 ### PSK31
-M_TL_PSK_M: Invalid PSK31 mode (not BPSK or QPSK) - Reverting to BPSK
-M_TL_PSK_S: Invalid PSK31 Symbol Rate (not 125, 250, or 500) - Reverting to 125
-M_TL_PSK_E: Failed to encode message
-
-
-
-
+ - M_TL_PSK_M: Invalid PSK31 mode (not BPSK or QPSK) - Reverting to BPSK
+ - M_TL_PSK_S: Invalid PSK31 Symbol Rate (not 125, 250, or 500) - Reverting to 125
+ - M_TL_PSK_E: Failed to encode message
 
 ## Extension Errors - All start with (EX_<ID>)
 ### BMP180
-HSK_F: Failed to handshake with BMP180
-HSK_U: Unrecognized handshake response from BMP180
-I2C_CB: Bad configuration for I2C bus (bus num out of range)
-I2C_CA: Bad configuration for I2C address (address out of range)
-I2C_BE: Failed to open I2C bus
-I2C_AE: Failed to configure I2C address
-I2C_CU: Unknown error connecting to I2C bus
-CD_R: I2C errors while reading calibration data
-CD_U: Calibration data is invalid (Not implemented)
-RT: Error reading raw temperature
-RP: Error reading raw pressure
-
-P_SLEEP: Error with usleep function call while reading temperature
-
-TBAR: Temperature below accuracy range (-40 C)
-TAAR: Temperature above accuracy range (85 C)
-PBAR: Pressure below accuracy range (305 hPa)
-PAAR: Pressure above accuracy range (1100 hPa)
+ - HSK_F: Failed to handshake with BMP180
+ - HSK_U: Unrecognized handshake response from BMP180
+ - I2C_CB: Bad configuration for I2C bus (bus num out of range)
+ - I2C_CA: Bad configuration for I2C address (address out of range)
+ - I2C_BE: Failed to open I2C bus
+ - I2C_AE: Failed to configure I2C address
+ - I2C_CU: Unknown error connecting to I2C bus
+ - CD_R: I2C errors while reading calibration data
+ - CD_U: Calibration data is invalid (Not implemented)
+ - RT: Error reading raw temperature
+ - RP: Error reading raw pressure
+ - P_SLP: Error with usleep, should be accompanied by another error
+ - DIV0: Prevented division by zero in temperature or pressure calculation, should be accompanied by another error
+ - TBAR: Temperature below accuracy range (-40 C)
+ - TAAR: Temperature above accuracy range (85 C)
+ - PBAR: Pressure below accuracy range (305 hPa)
+ - PAAR: Pressure above accuracy range (1100 hPa)
