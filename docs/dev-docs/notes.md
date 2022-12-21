@@ -1,3 +1,8 @@
+# sync:
+From Giraffe parent:
+rsync -v -r Giraffe/src/ balloon:Giraffe/src
+rsync -v -r Giraffe/tests/ balloon:Giraffe/tests
+
 # prereqs
  - sudo apt-get install libi2c-dev
 

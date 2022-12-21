@@ -196,7 +196,7 @@ void Extension::setStatus(ExtensionStatus status) {
  */
 void Extension::sendData(std::string unit, std::string value) {
     p_data_stream_->addData(getName(), unit, value, 
-                            getUpdateInterval() / 1000);
+                            data_expiration_time_);
 }
 
 /**
@@ -205,7 +205,7 @@ void Extension::sendData(std::string unit, std::string value) {
  */
 void Extension::sendData(std::string unit, int value) {
     p_data_stream_->addData(getName(), unit, std::to_string(value), 
-                            getUpdateInterval() / 1000);
+                            data_expiration_time_);
 }
 
 /**
@@ -214,7 +214,7 @@ void Extension::sendData(std::string unit, int value) {
  */
 void Extension::sendData(std::string unit, float value) {
     p_data_stream_->addData(getName(), unit, std::to_string(value), 
-                            getUpdateInterval() / 1000);
+                            data_expiration_time_);
 }
 
 /**
@@ -304,6 +304,11 @@ void Extension::setInterface(ExtensionMetadata::Interface interface){
  */
 void Extension::setUpdateInterval(int interval_ms){
     update_interval_ = interval_ms;
+    if (update_interval_ < 0) {
+        update_interval_ = 10000;
+        error("EXT_UPDATE_INTERVAL", "Update interval reverted to 10s");
+    }
+    data_expiration_time_ = (update_interval_/1000) * 2;
 }
 
 /**
@@ -349,7 +354,7 @@ void Extension::error(std::string error_code, std::string info) {
         EXTENSION_PREFIX + std::to_string(getID()), 
         error_code, 
         info, 
-        update_interval_
+        data_expiration_time_
         );
 }
 
@@ -358,6 +363,6 @@ void Extension::error(std::string error_code) {
         EXTENSION_PREFIX + std::to_string(getID()), 
         error_code, 
         "", 
-        update_interval_
+        data_expiration_time_
         );
 }

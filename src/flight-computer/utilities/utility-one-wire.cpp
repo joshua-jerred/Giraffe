@@ -10,6 +10,8 @@
 
 #include "utility-one-wire.h"
 
+#include <iostream> // debug
+
 OneWire::OneWire(std::string device_id):
 	path_(ONE_WIRE_LOCATION + device_id),
 	status_(ONEWIRE_STATUS::NOT_FOUND) {
@@ -39,8 +41,9 @@ std::string OneWire::read_w1_slave() { // Read the w1_slave file
 	std::ifstream file_;
 	file_.open(path_ + "/w1_slave");
 	if (file_.is_open()) {
-    	std::getline(file_, line);
-		return line;
+    	std::stringstream ss;
+		ss << file_.rdbuf();
+		return ss.str();
 	} else {
 		status_ = ONEWIRE_STATUS::READ_ERROR;
 		return "";
@@ -62,8 +65,7 @@ std::string OneWire::read_temperature() { // Read the temperature file
 }
 
 int OneWire::checkDevice() {
-	bool res = std::filesystem::exists(path_);
-
+	bool res = std::filesystem::is_directory(path_);
 	if (res == true) {
 		return 0;
 	} else {

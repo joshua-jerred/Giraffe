@@ -23,6 +23,7 @@ DS18B20::~DS18B20() {
 int DS18B20::runner() {
     if (one_wire_device_.status() != ONEWIRE_STATUS::OK) {
         setStatus(ExtensionStatus::ERROR);
+		error("1WNF");
         return -1;
     } else {
         setStatus(ExtensionStatus::RUNNING);
@@ -49,6 +50,11 @@ int DS18B20::readData() {
 	int tempC = std::stoi(one_wire_device_.read_temperature());
 	temp_C_ = (float)tempC / 1000.0;
 	temp_F_ = (temp_C_ * 9.0 / 5.0) + 32.0;
+	if (temp_C_ > 125) {
+		error("TAAR"); // Temperature Above Accurate Range
+	} else if (temp_C_ < -55) {
+		error("TBAR"); // Temperature Below Accurate Range
+	}
 	return 0;
 }
 

@@ -96,6 +96,7 @@ private:
     ExtensionMetadata::Category category_ = ExtensionMetadata::Category::ERROR;
     ExtensionMetadata::Interface interface_ = ExtensionMetadata::Interface::ERROR;
     int update_interval_ = 0;
+    int data_expiration_time_ = 1000;
     int critical_ = 0;
 };
 

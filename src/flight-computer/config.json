@@ -7,37 +7,27 @@
     "extensions": [
         {
             "id": 1,
-            "name": "testext",
-            "type": "TEST_EXT",
-            "category": "external_sensor",
-            "interface": "oneWire",
-            "update-interval": 1000,
-            "flight-critical": false,
-            "onewire-id": "28-000000000000"
-        },
-        {
-            "id": 2,
             "name": "press1",
-            "type": "BMP180_SIM",
+            "type": "BMP180",
             "category": "external_sensor",
             "interface": "i2c",
             "update-interval": 2000,
             "flight-critical": true,
             "i2c-bus": 1,
-            "i2c-address": "0x22"
+            "i2c-address": "0x77"
         },
         {
-            "id": 3,
+            "id": 2,
             "name": "temp2",
-            "type": "DS18B20_SIM",
+            "type": "DS18B20",
             "category": "external_sensor",
             "interface": "oneWire",
             "update-interval": 2000,
             "flight-critical": false,
-            "onewire-id": "28-000000000000"
+            "onewire-id": "28-03176038beff"
         },
         {
-            "id": 4,
+            "id": 3,
             "name": "gps",
             "type": "SAMM8Q_SIM",
             "category": "gps",
