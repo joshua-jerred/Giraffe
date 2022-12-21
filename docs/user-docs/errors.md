@@ -16,32 +16,30 @@
 
 
 ## C_ Configuration Errors
- - C_FNF: File Not Found
+ - FNF: File Not Found
 
 #### General Config
- - C_GEN_NF  : General Section not found in file
- - C_GEN_PN_R [name]: Project Name Out of Range
- - C_GEN_PN_I [name]: Project name invalid, does not match "^[a-zA-Z_ 0-9-]*$" 
+ - GEN_NF  : General Section not found in file
+ - GEN_PN_R [name]: Project Name Out of Range
+ - GEN_PN_I [name]: Project name invalid, does not match "^[a-zA-Z_ 0-9-]*$" 
   (Only a-z, A-Z, 0-9, _, - and spaces are allowed)
- - C_GEN_MB_I: Invalid mainboard type, reverting to 'error'.
- - C_GEN_SP_I: Starting Proc invalid, reverting to 'error'.
+ - GEN_MB_I: Invalid mainboard type, reverting to 'error'.
+ - GEN_SP_I: Starting Proc invalid, reverting to 'error'.
 
 #### Extension Config
- - C_EXT_ID_R [id]: ID out of range
- - C_EXT_ID_S [id]: Extension ID is not sequential.
- - C_EXT_NM_R [name]: Extension name out of range
- - C_EXT_NM_I [name]: Extension name invalid. Same requirements as project name but spaces are not allowed.
- - C_EXT_OW_I [id]: One Wire ID does not match pattern
- - C_EXT_I2_B [buss-num]: I2C bus number out of range
- - C_EXT_I2_A [address]: I2C address out of range
- - C_EXT_MISS [missing-item : extension-name]: Missing item in extension configuration
-
+ - EXT_ID_R [id]: ID out of range
+ - EXT_ID_S [id]: Extension ID is not sequential.
+ - EXT_NM_R [name]: Extension name out of range
+ - EXT_NM_I [name]: Extension name invalid. Same requirements as project name but spaces are not allowed.
+ - EXT_OW_I [id]: One Wire ID does not match pattern
+ - EXT_I2_B [buss-num]: I2C bus number out of range
+ - EXT_I2_A [address]: I2C address out of range
+ - EXT_MISS [missing-item : extension-name]: Missing item in extension configuration
+ - EXT_UI_R [interval]: Update interval out of range, reverting to 1000ms
 #### Telemetry Config
- - C_TL_PSK_F [_]: psk-mode or speed not found, defaulting to BPSK_125
- - C_TL_PSK_M [mode]: Invalid PSK31 mode (not BPSK or QPSK)
- - C_TL_PSK_S [speed]: Invalid PSK31 speed (not 125, 250, or 500)
-
-
+ - TL_PSK_F [_]: psk-mode or speed not found, defaulting to BPSK_125
+ - TL_PSK_M [mode]: Invalid PSK31 mode (not BPSK or QPSK)
+ - TL_PSK_S [speed]: Invalid PSK31 speed (not 125, 250, or 500)
 
 
 ## Telemetry Module Errors
@@ -69,3 +67,9 @@
  - TAAR: Temperature above accuracy range (85 C)
  - PBAR: Pressure below accuracy range (305 hPa)
  - PAAR: Pressure above accuracy range (1100 hPa)
+
+### DS18B20
+ - 1WNF: One Wire Device Not Found
+ - 1WNR: One Wire Not Readable (Bus was read, but data was non-integer)
+ - 1WNDP: One Wire No Data Present
+ - GRE: General Read Error

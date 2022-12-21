@@ -137,12 +137,12 @@ void ConfigModule::parseAll() {
  * */
 void ConfigModule::parseGeneral() { 
 	if (!json_buffer_.contains("general")) {
-		error("C_GEN_NF"); // General section does not exist in config
+		error("GEN_NF"); // General section does not exist in config
 		return;
 	}
 
 	if (!json_buffer_["general"].contains("project-name")) {
-		error("C_GEN_PN_NF"); // Project name does not exist in config
+		error("GEN_PN_NF"); // Project name does not exist in config
 		config_data_.general.project_name = "INVALID";
 	} else {
 
@@ -151,11 +151,11 @@ void ConfigModule::parseGeneral() {
 
 		if (name.length() < PROJECT_NAME_MIN_LENGTH || 
 		name.length() > PROJECT_NAME_MAX_LENGTH) {
-			error("C_GEN_PN_R", name);
+			error("GEN_PN_R", name);
 			config_data_.general.project_name = "INVALID";
 		} else if (!std::regex_search(name, std::regex("^[a-zA-Z_ 0-9-]*$"))) { 
 
-			error("C_GEN_PN_I", name);
+			error("GEN_PN_I", name);
 
 		} else {
 			config_data_.general.project_name = name;
@@ -166,7 +166,7 @@ void ConfigModule::parseGeneral() {
 	ConfigData::MainboardType mbtype = 
 	json_buffer_["general"]["main-board-type"].get<ConfigData::MainboardType>();
 	if (mbtype == ConfigData::MainboardType::ERROR) {
-		error("C_GEN_MB_I");
+		error("GEN_MB_I");
 	} else {
 		config_data_.general.main_board = mbtype;
 	}
@@ -174,7 +174,7 @@ void ConfigModule::parseGeneral() {
 	FlightProcedure::ProcType ltype = 
 	json_buffer_["general"]["starting-procedure"].get<FlightProcedure::ProcType>();
 	if (ltype == FlightProcedure::ProcType::ERROR) {
-		error("C_GEN_SP_I");
+		error("GEN_SP_I");
 	} else {
 		config_data_.general.starting_proc = ltype;
 	}
@@ -198,9 +198,9 @@ void ConfigModule::parseExtensions() {
 		
 		int id = item.value()["id"].get<int>();
 		if (id != number_of_extensions + 1) { 
-			error("C_EXT_ID_R", id);
+			error("EXT_ID_R", id);
 		} else if (id < EXTENSION_ID_MIN || id > EXTENSION_ID_MAX) {
-			error("C_EXT_ID_S", id);
+			error("EXT_ID_S", id);
 		} else {
 			newExtension.id = id;
 		}
@@ -208,9 +208,9 @@ void ConfigModule::parseExtensions() {
 		std::string name = item.value()["name"].get<std::string>();
 		if (name.length() < EXTENSION_NAME_MIN_LENGTH ||
 		name.length() >= EXTENSION_NAME_MAX_LENGTH) {
-			error("C_EXT_NM_R", name);
+			error("EXT_NM_R", name);
 		} else if (!std::regex_search(name, std::regex("^[a-zA-Z_0-9-]*$"))) {
-			error("C_EXT_NM_I", name);
+			error("EXT_NM_I", name);
 		}
 		else {
 			newExtension.name = name;
@@ -257,14 +257,14 @@ void ConfigModule::parseExtensions() {
 				strs >> address_num;
 
 				if (address_num < 0 || address_num > 127) {
-					error("C_EXT_I2_A", address);
+					error("EXT_I2_A", address);
 				} else {
 					newExtension.extra_args.I2C_device_address = address;
 				}
 
 				int bus = item.value()["i2c-bus"].get<int>();
 				if (bus < 0 || bus > 2) {
-					error("C_ETC_I2_B", bus);
+					error("ETC_I2_B", bus);
 				} else {
 					newExtension.extra_args.I2C_bus = bus;
 				}
@@ -276,9 +276,8 @@ void ConfigModule::parseExtensions() {
 		int interval = item.value()["update-interval"].get<int>();
 		if (interval < EXTENSION_INTERVAL_MIN || 
 		interval > EXTENSION_INTERVAL_MAX) {
-			//errors_.push_back("Extension interval must be between " + 
-			//std::to_string(EXTENSION_INTERVAL_MIN) + " and " + 
-			//std::to_string(EXTENSION_INTERVAL_MAX) + " ms.");
+			error("EXT_UI_R", interval);
+			newExtension.update_interval = 1000;
 		} else {
 			newExtension.update_interval = interval;
 		}
