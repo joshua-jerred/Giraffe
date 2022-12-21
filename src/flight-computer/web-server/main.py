@@ -99,7 +99,7 @@ class GFSData:
 class WebServer:
     def __init__(self):
         self.server_port = 8780
-        self.host_name = "localhost"
+        self.host_name = "0.0.0.0" # Accessible from LAN, otherwise use localhost for local access only
 
         self.gfs = GFSData()
         
