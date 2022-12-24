@@ -106,13 +106,6 @@ void DataModule::log() {
             << packet.source << ", " << packet.unit << ", " << packet.value
             << std::endl;
   }
-
-  std::ofstream error_logfile;
-  error_logfile.open(error_log_file_path_, std::ios_base::app);
-  for (auto& [source_and_unit, packet] : errorframe_) {
-    error_logfile << packet.source << ", " << packet.error_code << ", "
-                  << packet.info << std::endl;
-  }
 }
 
 /**
@@ -160,6 +153,8 @@ void DataModule::parseDataStream() {
  * @details This is called within the runner thread. It will pull all of the
  * errors from the stream and add them to the errorframe. These errors will
  * be removed from the frame after they expire or have been resolved.
+ * 
+ * This function will also log the errors to the error log file.
  * @param None
  * @return void
  */
@@ -171,6 +166,12 @@ void DataModule::parseErrorStream() {
   ErrorStreamPacket epacket;
   for (int i = 0; i < packetCount; i++) {
     epacket = p_data_stream_->getNextErrorPacket();
+
+    if (!errorframe_.contains(epacket.source + ":" + epacket.error_code)) { // Log the error if it doesn't exist
+      error_file << epacket.source << ", " << epacket.error_code << ", "
+              << epacket.info << std::endl;
+    }
+
     errorframe_.insert_or_assign(
         epacket.source + ":" + epacket.error_code, epacket);
   }

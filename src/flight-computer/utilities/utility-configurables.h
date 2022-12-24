@@ -38,8 +38,8 @@
 #define EXTENSION_NAME_MIN_LENGTH 3
 #define EXTENSION_NAME_MAX_LENGTH 15
 
-#define EXTENSION_INTERVAL_MIN 0
-#define EXTENSION_INTERVAL_MAX 3600
+#define EXTENSION_INTERVAL_MIN 200 // In milliseconds
+#define EXTENSION_INTERVAL_MAX 10000 // In milliseconds
 // ---------------------------------------- //
 
 // ------- Error Prefixes ------- //
