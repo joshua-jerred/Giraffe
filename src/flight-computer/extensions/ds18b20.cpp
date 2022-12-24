@@ -44,10 +44,19 @@ int DS18B20::readData() {
 	raw_data_ = one_wire_device_.read_temperature(); // returns empty string on failure
 	
 	if (raw_data_.size() == 0) {
+		error("1WNDP"); // 1-Wire No Data Present
 		return -1;
 	}
-
-	int tempC = std::stoi(one_wire_device_.read_temperature());
+	int tempC = -200; 
+	
+	try {
+		tempC = std::stoi(raw_data_);
+	}
+	catch (std::invalid_argument &e) {
+		error("1WNR"); // 1-Wire Not Readable
+		return -1;
+	}
+	
 	temp_C_ = (float)tempC / 1000.0;
 	temp_F_ = (temp_C_ * 9.0 / 5.0) + 32.0;
 	if (temp_C_ > 125) {
