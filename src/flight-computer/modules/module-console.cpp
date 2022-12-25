@@ -8,7 +8,10 @@
  * @copyright Copyright (c) 2022
  */
 
-#include "module-console.h"
+#include <iomanip>
+
+
+#include "modules.h"
 
 /**
  * @brief The constructor for the Console Module.

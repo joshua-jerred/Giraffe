@@ -8,8 +8,10 @@
  * @date 2022-10-11
  * @copyright Copyright (c) 2022
  */
+#include <vector>
+#include "extensions.h"
 
-#include "module-extensions.h"
+#include "modules.h"
 
 /**
  * @brief Construct a new ExtensionsModule object.

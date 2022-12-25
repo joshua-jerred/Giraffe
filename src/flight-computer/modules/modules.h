@@ -14,11 +14,15 @@
 #include <string>
 #include <atomic>
 #include <thread>
+#include <nlohmann/json.hpp>
+using json = nlohmann::ordered_json; 
 
 #include "utility-status.h"
 #include "utility-data-stream.h"
 #include "utility-configurables.h"
 #include "utility-socket.h"
+
+#include "extensions.h"
 
 /**
  * @brief All modules used by the FlightRunner inherit this class. This allows
@@ -137,5 +141,181 @@ private:
      */
     std::atomic <int> stop_flag_ = 0;
     std::atomic <int> gfs_shutdown_flag_ = 0;
+};
+
+/**
+ * @brief The extension class manages all extensions.
+ * @details This class is responsible for starting, stopping, and managing
+ * extensions. This includes all sensors and data collection tools.
+ */
+class ExtensionsModule : public Module {
+public:
+    ExtensionsModule(const ConfigData config_data, DataStream *stream);
+    ExtensionsModule(const ExtensionsModule &other) = delete; // No copy constructor
+    ExtensionsModule &operator=(const ExtensionsModule &other) = delete; // No copy assignment
+    ~ExtensionsModule();
+    void start();
+    void stop();
+
+    //extension_reply command(extension_command command);
+
+private:
+    void addExtension(ExtensionMetadata meta_data);
+
+    std::vector<Extension*> extensions_ = {};
+    DataStream *p_data_stream_;
+    ConfigData config_data_;
+};
+
+/**
+ * @brief The DataModule class is responsible for managing all data between
+ * modules. It is responsible for creating safe structures that different
+ * concurrently running threads can access. It is in charge of the
+ * DataStream. The DataStream is a queue that all of the extensions have
+ * access to. They can add data whenever they want. The data module is 
+ * responsible for collecting this data from the stream and placing it into a
+ * data frame which is then sent to the datastream so other modules can access 
+ * it.
+ * This module also continually goes through the DataFrame looking for stale
+ * data. If it finds stale data, it will set it's value to 'NO_DATA'.
+ * This is an indication of an error within an extension.
+ * 
+ * The DataModule is also responsible for logging the data in the dataframe
+ * to a log file when requested to do so.
+ * 
+ * The DataModule also logs errors which are collected through the datastream
+ * in the same way as the data.
+ * 
+ * The data and error log directories can be set inside of 
+ * 'utility-configurables.h'.
+ */
+class DataModule : public Module {
+public:
+    DataModule();
+    DataModule(const DataModule&) = delete; // No copy constructor
+    DataModule& operator=(const DataModule&) = delete; // No copy assignment
+    ~DataModule();
+
+    void addConfigData(ConfigData config_data);
+
+    void start();
+    void stop();
+
+    DataStream* getDataStream();
+    DataFrame getSnapshot();
+    void log();
+
+private:
+    void addDataTypeToFrame(ConfigData::DataTypes::ExtensionDataType data_type); // add a data type to the data frame
+    
+    void checkForStaleData(); // check for stale data in the data frame
+    void parseDataStream();
+
+    void checkForStaleErrors();
+    void parseErrorStream();
+    
+    void runner();
+
+    std::string data_log_file_path_ = "";
+    std::string error_log_file_path_ = "";
+
+    DataStream *p_data_stream_ = nullptr;
+
+    DataFrame dataframe_ = DataFrame();
+    ErrorFrame errorframe_ = ErrorFrame();
+
+    std::atomic<int> shutdown_signal_ = 0;
+    std::thread runner_thread_ = std::thread();
+};
+
+/**
+ * @brief This class takes data from a data frame snapshot and prints it out
+ * to a simple display in the console.
+ * @details Currently runs in it's own thread to prevent any interruptions to
+ * the main thread.
+ * @todo This class should stop using the data module and use the data stream
+ * instead.
+ * @todo Redo all of this with ncurses.
+ */
+class ConsoleModule : public Module {
+public:
+    ConsoleModule(const ConfigData config_data, DataStream *data);
+    ConsoleModule(const ConsoleModule&) = delete; // No copy constructor
+    ConsoleModule& operator=(const ConsoleModule&) = delete; // No copy assignment
+    ~ConsoleModule();
+
+    void start();
+    void stop();
+
+private:
+    void runner();
+    void clearScreen();
+    void printData();
+
+    ConfigData config_data_;
+    DataStream* p_data_stream_ = nullptr;
+
+    int update_interval_ = 10;
+
+    std::thread runner_thread_ = std::thread();
+
+    /**
+     * @details This flag is an atomic so it can be accessed by both the thread
+     * and the main thread. It is set to 1 to signal the thread to stop.
+     */
+    std::atomic <int> stop_flag_ = 1;
+};
+
+/**
+ * @brief ConfigModule is used to load all of the configuration data from the 
+ * config file. 
+ * @details The configuration is read with Nlohmann JSON and then the data is 
+ * placed into a common configuration type that is recognized system wide.
+ * During parsing, the configuration module will check for errors and will
+ * store them in a vector of strings. The errors can be retrieved with the
+ * getErrors() function later. If everything was read and parsed correctly,
+ * the getErrors() function will return an empty vector.
+ * 
+ * Basic usage looks like this:
+ * ConfigModule config;
+ * config.load("path/to/config.json");
+ * config.getErrors(); // check for errors
+ * config.getAll(); // get all of the configuration data
+ */
+class ConfigModule {
+public:
+    ConfigModule(DataStream *data_stream);
+    ConfigModule(const ConfigModule &other) = delete; // no copy constructor
+    ConfigModule &operator=(const ConfigModule &other) = delete; // no copy assignment
+    ~ConfigModule();
+
+    int load(std::string filepath);
+    ConfigData getAll();
+    // json getAllJson();
+    int getNumberOfErrors();
+
+private:
+    template <typename T>
+    void error(std::string error_code, T info);
+    void error(std::string error_code, std::string info);
+    void error(std::string error_code);
+
+
+    void parseAll();
+
+    void parseGeneral();
+    void parseExtensions();
+    void parseDebug();
+    void parseTelemetry();
+    void parseDataTypes();
+    void parseFlightProcedures();
+
+    int number_of_errors_ = 0;
+
+    DataStream *p_data_stream_;
+
+    std::string config_file_path_ = "";
+    json json_buffer_ = json::object();
+    ConfigData config_data_ = ConfigData();
 };
 #endif
