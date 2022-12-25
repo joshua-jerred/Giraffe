@@ -20,13 +20,6 @@
 
 #include "extension.h"
 
-/*----------------------------------------*/
-/* The headers for each extension go here */
-#include "simulated-extensions.h"
-#include "bmp180.h"
-#include "ds18b20.h"
-/*----------------------------------------*/
-
 /**
  * @brief The extension class manages all extensions.
  * @details This class is responsible for starting, stopping, and managing

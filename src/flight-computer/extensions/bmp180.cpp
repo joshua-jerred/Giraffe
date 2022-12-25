@@ -7,7 +7,14 @@
  * @version 0.1.0
  */
 
-#include "bmp180.h"
+#include <string>
+#include <sstream>
+#include <cmath>
+#include <unistd.h>
+#include <bitset>
+#include <unordered_map>
+
+#include "extension.h"
 
 // Configurable
 #define SAMPLING_ACCURACY 1 // Refer to BMP180 data sheet "oversampling_setting", if this is changed BMP180_READPRESSURECMD must also 

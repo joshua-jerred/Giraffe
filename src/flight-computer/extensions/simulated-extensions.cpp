@@ -10,7 +10,12 @@
  * @copyright Copyright (c) 2022
  */
 
-#include "simulated-extensions.h"
+#include <iostream>
+#include <thread>
+#include <atomic>
+#include <chrono> // For text extension
+
+#include "extension.h"
 
 // See simulated-extensions.h for documentation
 TestExtension::TestExtension(DataStream *p_data_stream, 

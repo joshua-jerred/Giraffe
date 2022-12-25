@@ -7,7 +7,7 @@
  * @version 0.1.0
  */
 
-#include "ds18b20.h"
+#include "extension.h"
 
 DS18B20::DS18B20(DataStream *p_data_stream, 
                 ExtensionMetadata extension_metadata)
