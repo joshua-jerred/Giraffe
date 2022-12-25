@@ -1,16 +1,16 @@
-/**
- * @file utility-i2c.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief Basic implementation of I2C interface class
- * @cite https://manpages.debian.org/unstable/i2c-tools/libi2c.3.en.html
- * @cite https://www.kernel.org/doc/html/latest/i2c/dev-interface.html
- * @date 2022-12-19 - Modified
- * @date 2022-10-31
- * @copyright Copyright (c) 2022
- * @version 0.0.9
- */
 
-#include "utility-i2c.h"
+#include <cstdint>
+#include <cstdio>
+#include <fcntl.h>
+#include <sys/ioctl.h>
+#include <unistd.h>
+extern "C" {
+    #include <linux/i2c-dev.h>
+    #include <i2c/smbus.h>
+}
+
+#include "utility-configurables.h"
+#include "extension-interface.h"
 
 I2C::I2C(int bus_number, int address):
     status_(I2C_STATUS::NOT_CONNECTED), 

@@ -31,9 +31,10 @@ add_executable(giraffe-flight-software
     src/flight-computer/utilities/utility-timer.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
     src/flight-computer/utilities/utility-socket.cpp
-    src/flight-computer/utilities/utility-i2c.cpp
-    src/flight-computer/utilities/utility-one-wire.cpp
     src/flight-computer/utilities/utility-psk.cpp
+
+    src/flight-computer/extension-interface/i2c.cpp
+    src/flight-computer/extension-interface/one-wire.cpp
 
     src/flight-computer/extensions/extension.cpp
     src/flight-computer/extensions/simulated-extensions.cpp
@@ -60,6 +61,7 @@ target_include_directories(giraffe-flight-software PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/modules
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/utilities
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/extensions
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/extension-interface
 )
 
 # ------------------------------------------------------------------------------
@@ -126,8 +128,8 @@ add_executable(test-04
     src/flight-computer/extensions/bmp180.cpp
     src/flight-computer/extensions/ds18b20.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
-    src/flight-computer/utilities/utility-i2c.cpp
-    src/flight-computer/utilities/utility-one-wire.cpp
+    src/flight-computer/extension-interface/i2c.cpp
+    src/flight-computer/extension-interface/one-wire.cpp
 )
 target_link_libraries(test-04 i2c)
 set_target_properties( test-04 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-04/ )
@@ -142,7 +144,7 @@ target_link_libraries(test-04 gtest_main)
 # test-05 - I2C Utility --------------------------------------------------------
 add_executable(test-05
     tests/test-05/test.cpp
-    src/flight-computer/utilities/utility-i2c.cpp
+    src/flight-computer/extension-interface/i2c.cpp
 )
 target_link_libraries(test-05 i2c)
 set_target_properties( test-05 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-05/ )
@@ -157,7 +159,7 @@ add_executable(test-06
     src/flight-computer/extensions/bmp180.cpp
     src/flight-computer/extensions/extension.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
-    src/flight-computer/utilities/utility-i2c.cpp
+    src/flight-computer/extension-interface/i2c.cpp
 )
 target_link_libraries(test-06 i2c)
 set_target_properties( test-06 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-06/ )
@@ -173,7 +175,7 @@ add_executable(test-07
     src/flight-computer/extensions/ds18b20.cpp
     src/flight-computer/extensions/extension.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
-    src/flight-computer/utilities/utility-one-wire.cpp
+    src/flight-computer/extension-interface/one-wire.cpp
 )
 target_link_libraries(test-07 i2c)
 set_target_properties( test-07 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-07/ )

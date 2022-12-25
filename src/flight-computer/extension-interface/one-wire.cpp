@@ -8,9 +8,13 @@
  * @version 0.1.0
  */
 
-#include "utility-one-wire.h"
-
+#include <fstream>
+#include <string>
+#include <filesystem>
+#include <sstream>
 #include <iostream> // debug
+
+#include "extension-interface.h"
 
 OneWire::OneWire(std::string device_id):
 	path_(ONE_WIRE_LOCATION + device_id),

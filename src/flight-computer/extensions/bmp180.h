@@ -17,7 +17,7 @@
 #include <bitset>
 #include <unordered_map>
 
-#include "utility-i2c.h"
+#include "extension-interface.h"
 
 #include "extension.h"
 

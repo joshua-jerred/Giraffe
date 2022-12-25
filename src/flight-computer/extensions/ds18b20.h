@@ -13,7 +13,7 @@
 #define DS18B20_H_
 
 #include "utility-data-stream.h"
-#include "utility-one-wire.h"
+#include "extension-interface.h"
 
 #include "extension.h"
 
