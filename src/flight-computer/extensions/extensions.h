@@ -1,5 +1,5 @@
 /**
- * @file extension.h
+ * @file extensions.h
  * @author Joshua Jerred (github.com/joshua-jerred)
  * @brief This file declares the Extension class.
  * 

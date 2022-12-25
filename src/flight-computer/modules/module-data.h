@@ -23,7 +23,7 @@
 #include "utility-configurables.h"
 #include "utility-config-types.h"
 
-#include "module.h"
+#include "modules.h"
 
 /**
  * @brief The DataModule class is responsible for managing all data between

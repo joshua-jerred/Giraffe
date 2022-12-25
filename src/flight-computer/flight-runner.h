@@ -16,12 +16,11 @@
 #include "utility-timer.h"
 #include "utility-data-stream.h"
 
+#include "modules.h"
 #include "module-configuration.h"
 #include "module-data.h"
 #include "module-extensions.h"
 #include "module-console.h"
-#include "module-server.h"
-#include "module-telemetry.h"
 
 /**
  * @brief The FlightRunner class is responsible for pulling everything together.

@@ -9,7 +9,17 @@
  * @copyright Copyright (c) 2022
  */
 
-#include "module-telemetry.h"
+#include <mutex>
+#include <fstream>
+#include <string>
+#include <thread>
+#include <vector>
+#include <queue>
+#include <atomic>
+#include <iostream>
+
+#include "modules.h"
+#include "utility-psk.h"
 
 /**
  * @brief Construct a new TelemetryModule object. 

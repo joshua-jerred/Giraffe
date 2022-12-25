@@ -19,7 +19,7 @@
 
 #include "utility-data-stream.h"
 
-#include "module.h"
+#include "modules.h"
 
 #include "module-configuration.h"
 

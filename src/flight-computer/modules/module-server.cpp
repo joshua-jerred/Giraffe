@@ -1,6 +1,9 @@
-#include "module-server.h"
-
 #include <iostream>
+#include <nlohmann/json.hpp>
+using json = nlohmann::ordered_json; 
+
+#include "utility-socket.h"
+#include "modules.h"
 
 ServerModule::ServerModule(const ConfigData config_data,
 		DataStream *data_stream):

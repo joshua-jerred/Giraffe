@@ -25,7 +25,7 @@
 #include "utility-config-types.h"
 #include "utility-data-stream.h"
 
-#include "module.h"
+#include "modules.h"
 
 
 /**

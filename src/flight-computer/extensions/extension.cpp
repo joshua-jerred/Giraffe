@@ -16,7 +16,7 @@
 #include "utility-configurables.h"
 #include "utility-config-types.h"
 #include "utility-status.h"
-#include "extension.h"
+#include "extensions.h"
 
 /**
  * @brief Constructor for the Extension base class.

@@ -15,7 +15,7 @@
 #include <atomic>
 #include <chrono> // For text extension
 
-#include "extension.h"
+#include "extensions.h"
 
 // See simulated-extensions.h for documentation
 TestExtension::TestExtension(DataStream *p_data_stream, 

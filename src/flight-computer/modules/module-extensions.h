@@ -16,9 +16,9 @@
 #include "utility-config-types.h"
 #include "utility-data-stream.h"
 
-#include "module.h"
+#include "modules.h"
 
-#include "extension.h"
+#include "extensions.h"
 
 /**
  * @brief The extension class manages all extensions.
