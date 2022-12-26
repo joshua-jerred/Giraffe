@@ -98,11 +98,11 @@ private:
     FlightProcedure::ProcType current_flight_procedure_type_;
     FlightProcedure::Intervals current_intervals_ = FlightProcedure::Intervals();
     
-    DataModule *p_data_module_ = nullptr;
-    ExtensionsModule *p_extension_module_ = nullptr;
-    ConsoleModule *p_console_module_ = nullptr;
-    ServerModule *p_server_module_ = nullptr;
-    TelemetryModule *p_telemetry_module_ = nullptr;
+    modules::DataModule *p_data_module_ = nullptr;
+    modules::ExtensionsModule *p_extension_module_ = nullptr;
+    modules::ConsoleModule *p_console_module_ = nullptr;
+    modules::ServerModule *p_server_module_ = nullptr;
+    modules::TelemetryModule *p_telemetry_module_ = nullptr;
     //ComModule *mpComModule;
     int shutdown_signal_;
 

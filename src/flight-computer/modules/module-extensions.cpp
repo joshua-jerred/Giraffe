@@ -12,6 +12,7 @@
 #include "extensions.h"
 
 #include "modules.h"
+using namespace modules;
 
 /**
  * @brief Construct a new ExtensionsModule object.

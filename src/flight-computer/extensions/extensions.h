@@ -270,4 +270,5 @@ class DRA818V_SIM :public Extension {
   ~DRA818V_SIM();
   int runner();
 };
+
 #endif // EXTENSION_H_

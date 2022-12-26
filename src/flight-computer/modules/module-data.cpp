@@ -11,6 +11,7 @@
 #include <fstream>
 
 #include "modules.h"
+using namespace modules;
 
 /**
  * @brief Construct a new DataModule object,

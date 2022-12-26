@@ -24,6 +24,7 @@ using json = nlohmann::ordered_json;
 
 #include "extensions.h"
 
+namespace modules {
 /**
  * @brief All modules used by the FlightRunner inherit this class. This allows
  * for some simplicity when creating small modules.
@@ -318,4 +319,6 @@ private:
     json json_buffer_ = json::object();
     ConfigData config_data_ = ConfigData();
 };
+
+}; // namespace modules
 #endif

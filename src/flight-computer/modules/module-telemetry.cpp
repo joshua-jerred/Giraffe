@@ -19,7 +19,9 @@
 #include <iostream>
 
 #include "modules.h"
-#include "utility-psk.h"
+using namespace modules;
+
+#include "utility-psk.h" // TODO: Remove this and use MWAV
 
 /**
  * @brief Construct a new TelemetryModule object. 

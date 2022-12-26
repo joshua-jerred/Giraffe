@@ -4,6 +4,7 @@ using json = nlohmann::ordered_json;
 
 #include "utility-socket.h"
 #include "modules.h"
+using namespace modules;
 
 ServerModule::ServerModule(const ConfigData config_data,
 		DataStream *data_stream):

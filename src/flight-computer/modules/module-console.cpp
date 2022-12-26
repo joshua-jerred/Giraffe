@@ -10,8 +10,8 @@
 
 #include <iomanip>
 
-
 #include "modules.h"
+using namespace modules;
 
 /**
  * @brief The constructor for the Console Module.

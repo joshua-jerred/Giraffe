@@ -20,6 +20,7 @@
 #include "utility-data-stream.h"
 
 #include "modules.h"
+using namespace modules;
 
 /**
  * @details
