@@ -13,18 +13,18 @@
 
 #include "gtest/gtest.h"
 
-#include "module-data.h"
+#include "modules.h"
 
 
 class DataModuleTests : public ::testing::Test {
 protected:
     virtual void SetUp() {
-        data_module_ = new DataModule();
+        data_module_ = new modules::DataModule();
     }
     virtual void TearDown() {
 
     }
-    DataModule *data_module_;
+    modules::DataModule *data_module_;
 };
 
 TEST_F(DataModuleTests, StartAndStop) {

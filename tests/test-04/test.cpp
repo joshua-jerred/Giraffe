@@ -14,7 +14,7 @@
 #include "gtest/gtest.h"
 
 #include "utility-data-stream.h"
-#include "module-extensions.h"
+#include "modules.h"
 
 
 class ExtensionsModuleTests : public ::testing::Test {
@@ -26,7 +26,7 @@ protected:
 
     }
     DataStream *data_stream_;
-    ExtensionsModule *extensions_module_;
+    modules::ExtensionsModule *extensions_module_;
 };
 
 TEST_F(ExtensionsModuleTests, StartAndStop) {

@@ -9,7 +9,7 @@
 
 #include "gtest/gtest.h"
 
-#include "utility-i2c.h"
+#include "extension-interface.h"
 
 #define BAD_BUS_NUMBER 0
 #define GOOD_BUS_NUMBER 1

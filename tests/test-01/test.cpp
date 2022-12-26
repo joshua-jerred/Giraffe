@@ -23,7 +23,7 @@ protected:
     virtual void TearDown() { 
         delete p_data_stream_;
     }
-    DataStream *p_data_stream_;
+    DataStream *p_data_stream_ = NULL;
 };
 
 TEST_F(DataStream_Utility, DataPackets) {

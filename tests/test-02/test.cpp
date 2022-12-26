@@ -15,13 +15,13 @@
 
 #include "utility-data-stream.h"
 
-#include "module-configuration.h"
+#include "modules.h"
 
 class Configuration_Module_1 : public ::testing::Test {
 protected:
     virtual void SetUp() {
         p_data_stream_ = new DataStream();
-        config_module_ = new ConfigModule(p_data_stream_);
+        config_module_ = new modules::ConfigModule(p_data_stream_);
         std::string input_file = "./input-1.json";
         int loaded = config_module_->load(input_file);
      }
@@ -29,9 +29,9 @@ protected:
         delete config_module_;
         delete p_data_stream_;
     }
-    DataStream *p_data_stream_;
-    ConfigModule *config_module_;
-    ConfigData config_data_;
+    DataStream *p_data_stream_ = nullptr;
+    modules::ConfigModule *config_module_ = nullptr;
+    ConfigData config_data_ = {};
 };
 
 TEST_F(Configuration_Module_1, OpenConfigFile) {
