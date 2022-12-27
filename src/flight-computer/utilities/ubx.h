@@ -7,12 +7,24 @@
 
 namespace ubx
 {
-
     enum class ACK {
         ACK,
         NACK,
         NONE,
-        WRITE_ERROR
+        WRITE_ERROR,
+        READ_ERROR
+    };
+
+    enum class DYNAMIC_MODEL {
+        PORTABLE = 0x00,
+        STATIONARY = 0x02,
+        PEDESTRIAN = 0x03,
+        AUTOMOTIVE = 0x04,
+        SEA = 0x05,
+        AIRBORNE_1G = 0x06,
+        AIRBORNE_2G = 0x07,
+        AIRBORNE_4G = 0x08,
+        ERROR = 0xFF
     };
 
     typedef struct UBXMessage 
@@ -45,13 +57,19 @@ namespace ubx
         const uint8_t msg_class, 
         const uint8_t msg_id);
 
-    // ACK reset(I2C &i2c);
+    bool sendResetCommand(I2C &i2c);
 
-    ACK setProtocolDDC(I2C &i2c, bool extended_timeout);
-
-    // bool setMessageRate
-    // bool setMeasurementRate
-    // bool setDynamicModel
+    ACK setProtocolDDC(I2C &i2c, const bool extended_timeout);
+    ACK setMessageRate(
+        I2C &i2c, 
+        uint8_t msg_class, 
+        uint8_t msg_id, 
+        uint8_t rate);
+    ACK setMeasurementRate(I2C &i2c, const uint16_t rate_ms);
+    ACK setDynamicModel(
+        I2C &i2c,
+        const DYNAMIC_MODEL model
+    );
     // UBXMessage getConfiguration
 } // namespace ubx
 

@@ -9,16 +9,10 @@
 #define UBX_SYNC_CHAR_1 0xB5
 #define UBX_SYNC_CHAR_2 0x62
 
-#define UBX_CLASS_ACK 0x05
-#define UBX_ACK_ACK 0x01
 #define UBX_ACK_NACK 0x00
 
-#define MESSAGE_RETRY_TIME 0.2  // seconds
+#define MESSAGE_RETRY_TIME 20000  // microseconds (200ms)
 #define MESSAGE_RETRY_COUNT 5   // number of times to retry (up to a second)
-
-
-
-
 
 /** @todo implement this*/
 #define MAX_MESSAGE_SIZE 2000  // bytes, prevents over reading when there is an 
@@ -90,16 +84,19 @@ int ubx::getStreamSize(I2C &i2c) {
     int msb = i2c.readByteFromReg(STREAM_SIZE_MSB_REG);
     int lsb = i2c.readByteFromReg(STREAM_SIZE_LSB_REG);
     int stream_size = (msb << 8) | lsb;
-    if (stream_size > MAX_MESSAGE_SIZE) {
-        stream_size = 0;
-        std::cout << "MESSAGE SIZE ERROR" << std::endl;
-    }
+    //if (stream_size > MAX_MESSAGE_SIZE) {
+    //    stream_size = 0;
+    //    std::cout << "MESSAGE SIZE ERROR" << std::endl;
+    //}
     return stream_size;
 }
 
 uint8_t *ubx::readUBX(I2C &i2c, const int stream_size) {
     uint8_t *buffer = new uint8_t[stream_size];
-    i2c.readChunkFromReg(STREAM_REG, buffer, stream_size);
+    if (i2c.readChunkFromReg(STREAM_REG, buffer, stream_size) != stream_size) {
+        delete[] buffer;
+        return nullptr;
+    }
     return buffer;
 }
 
@@ -107,6 +104,19 @@ ubx::UBXMessage ubx::readMessage(I2C &i2c, const uint8_t class_num,
                                  const uint8_t id_num) {
     int stream_size = getStreamSize(i2c);
     uint8_t *buffer = readUBX(i2c, stream_size);
+
+    if (buffer == nullptr) {
+        UBXMessage message;
+        message.sync1 = 0;
+        message.sync2 = 0;
+        message.classID = 0;
+        message.msgID = 0;
+        message.length = 0;
+        message.payload = nullptr;
+        message.ck_a = 0;
+        message.ck_b = 0;
+        return message;
+    }
 
     for (int i = 0; i < stream_size - 4; i++) {
         if (buffer[i] == UBX_SYNC_CHAR_1 && buffer[i + 1] == UBX_SYNC_CHAR_2) {
@@ -161,10 +171,17 @@ bool ubx::writeUBX(I2C &i2c, const ubx::UBXMessage &message) {
 }
 
 ubx::ACK ubx::checkForAck(I2C &i2c, const uint8_t msg_class, const uint8_t msg_id) {
-    int timeout = 0;
+    static const uint8_t kAckClassID = 0x05;
+    static const uint8_t kAckMsgID = 0x01;
+    static const uint8_t kNackMsgID = 0x00;
+    
     for (int i = 0; i < MESSAGE_RETRY_COUNT; i++) {
         int stream_size = getStreamSize(i2c);
         uint8_t *buffer = readUBX(i2c, stream_size);
+
+        if (buffer == nullptr) {
+            return ACK::READ_ERROR;
+        }
 
         for (int i = 0; i < stream_size - 4; i++) {
             // Find a UBX message
@@ -173,8 +190,8 @@ ubx::ACK ubx::checkForAck(I2C &i2c, const uint8_t msg_class, const uint8_t msg_i
                 // Found a frame, next check if it's an ACK class message,
                 // if not, skip over it by payload length + 2 bytes for the
                 // checksum
-                if (buffer[i + 2] != UBX_CLASS_ACK) {
-                    i += (buffer[i + 4] + (buffer[i + 5] << 8)) + 2;
+                if (buffer[i + 2] != kAckClassID) {
+                    //i += (buffer[i + 4] + (buffer[i + 5] << 8)) + 1;
                     continue;
                 }
                 // First check to make sure the payload length is 2 bytes
@@ -186,19 +203,42 @@ ubx::ACK ubx::checkForAck(I2C &i2c, const uint8_t msg_class, const uint8_t msg_i
                     continue; // Not the ACK we want, skip it.
                 }
                 // Check if the ACK message is an ACK or NACK
-                if (buffer[i + 3] == UBX_ACK_ACK) {
+                if (buffer[i + 3] == kAckMsgID) {
+                    delete[] buffer;
                     return ACK::ACK;
-                } else if (buffer[i + 3] == UBX_ACK_NACK) {
+                } else if (buffer[i + 3] == kNackMsgID) {
+                    delete[] buffer;
                     return ACK::NACK;
                 } else {
-                    return ACK::NONE;
+                    continue; // Try again
                 }
             }
         }
+        delete[] buffer;
         usleep(MESSAGE_RETRY_TIME);
-        timeout++;
+        std::cout << "Sleep" << std::endl;
     }
     return ACK::NONE;
+}
+
+/**
+ * @brief Send a UBX-CFG-RST command to the receiver (Hardware Reset)
+*/
+bool ubx::sendResetCommand(I2C &i2c) {
+    static const uint8_t  kMessageClass  = 0x06; // CFG
+    static const uint8_t  kMessageId     = 0x04; // RST
+    static const uint16_t kPayloadLength = 4;    // 4 bytes
+
+    // Create the payload
+    uint8_t payload[kPayloadLength] = 
+        {
+        0x00, 0x00, // navBbrMask (Hot Start)
+        0x00, 0x00  // resetMode  (Hardware Reset)
+        };
+    ubx::UBXMessage message(kMessageClass, kMessageId, kPayloadLength, payload);
+    int result = writeUBX(i2c, message);
+    usleep(5000); // Wait for the reset to complete (500 ms)
+    return result;
 }
 
 /**
@@ -214,9 +254,10 @@ ubx::ACK ubx::checkForAck(I2C &i2c, const uint8_t msg_class, const uint8_t msg_i
  * 
  * @see 32.10.25.5 of u-blox 8 / u-blox M8 Receiver Description
 */
-ubx::ACK ubx::setProtocolDDC(I2C &i2c, bool extended_timeout) {
-    static const uint8_t kClass_ID = 0x06; // CFG
-    static const uint8_t kMessage_ID = 0x00; // PRT
+ubx::ACK ubx::setProtocolDDC(I2C &i2c, const bool extended_timeout) {
+    static const uint8_t kMessageClass   = 0x06; // CFG
+    static const uint8_t kMessageId      = 0x00; // PRT
+    static const uint16_t kPayloadLength = 20;   // 20 bytes
 
     uint8_t i2c_address = i2c.getAddress();
     
@@ -235,14 +276,87 @@ ubx::ACK ubx::setProtocolDDC(I2C &i2c, bool extended_timeout) {
         extended_timeout_byte, 0x00, // flags (extended timeout)
         0x00, 0x00 // reserved2
     };
-
-    UBXMessage message(kClass_ID, kMessage_ID, 20, payload);
+    UBXMessage message(kMessageClass, kMessageId, kPayloadLength, payload);
 
     // Send the message
     if (!writeUBX(i2c, message)) {
         return ACK::WRITE_ERROR;
     }
-    return checkForAck(i2c, kClass_ID, kMessage_ID);
+    return checkForAck(i2c, kMessageClass, kMessageId);
 }
 
-//bool ubx::setMessageRate(I2C &i2c, uint16_t )
+/**
+ * @brief CFG-MSG (0x06 0x01) Configure Message Rate
+ * @details "Send rate is relative to the event a message is registered on. For 
+ * example, if the rate of a navigation message is set to 2, the message is sent 
+ * every second navigation solution."
+ * @see 32.10.18.3
+*/
+ubx::ACK ubx::setMessageRate(I2C &i2c, uint8_t msg_class, uint8_t msg_id, uint8_t rate) {
+    static const uint8_t kMessageClass   = 0x06; // CFG
+    static const uint8_t kMessageId      = 0x01; // MSG
+    static const uint16_t kPayloadLength = 3;    // 3 bytes
+
+    uint8_t payload[3] = {msg_class, msg_id, rate};
+    UBXMessage message(kMessageClass, kMessageId, kPayloadLength, payload);
+
+    // Send the message
+    if (!writeUBX(i2c, message)) {
+        return ACK::WRITE_ERROR;
+    }
+    return checkForAck(i2c, kMessageClass, kMessageId);
+}
+
+ubx::ACK ubx::setMeasurementRate(I2C &i2c, const uint16_t rate_ms) {
+    static const uint8_t kMessageClass   = 0x06; // CFG
+    static const uint8_t kMessageId      = 0x08; // RATE
+    static const uint16_t kPayloadLength = 6;    // 6 bytes
+
+    uint8_t payload[6] = {
+        (uint8_t)(rate_ms & 0xFF), (uint8_t)(rate_ms >> 8), // measRate (ms)
+        0x01, 0x00, // navRate (cycles)
+        0x00, 0x00  // timeRef (UTC)
+    };
+    UBXMessage message(kMessageClass, kMessageId, kPayloadLength, payload);
+
+    // Send the message
+    if (!writeUBX(i2c, message)) {
+        return ACK::WRITE_ERROR;
+    }
+    return checkForAck(i2c, kMessageClass, kMessageId);
+}
+
+ubx::ACK ubx::setDynamicModel(I2C &i2c, const ubx::DYNAMIC_MODEL model) {
+    static const uint8_t kMessageClass   = 0x06; // CFG
+    static const uint8_t kMessageId      = 0x24; // NAV5
+    static const uint16_t kPayloadLength = 36;   // 36 bytes
+
+    uint8_t payload[kPayloadLength] = {
+        0x01, 0x00, // mask (dynamic model only)
+        (uint8_t)model, // Dynamic Model
+        0x00, // fixMode
+        0x00, 0x00, 0x00, 0x00, // fixedAlt
+        0x00, 0x00, 0x00, 0x00, // fixedAltVar
+        0x00, // minElev
+        0x00, // drLimit (reserved)
+        0x00, 0x00, // pDop
+        0x00, 0x00, // tDop
+        0x00, 0x00, // pAcc
+        0x00, 0x00, // tAcc
+        0x00, // staticHoldThresh
+        0x00, // DGNSS timeout
+        0x00, // cnoThreshNumSVs
+        0x00, // cnoThresh
+        0x00, 0x00, // reserved1
+        0x00, 0x00, // staticHoldMax
+        0x00, // UTC standard
+        0x00, 0x00, 0x00, 0x00, 0x00 // reserved2
+    };
+    UBXMessage message(kMessageClass, kMessageId, kPayloadLength, payload);
+
+    // Send the message
+    if (!writeUBX(i2c, message)) {
+        return ACK::WRITE_ERROR;
+    }
+    return checkForAck(i2c, kMessageClass, kMessageId);
+}

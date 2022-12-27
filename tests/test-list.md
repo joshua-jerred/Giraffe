@@ -10,3 +10,4 @@ Uses gtest
 - [Test 06] - BMP180 Extension
 - [Test 07] - DS18B20 Extension
 - [Test 08] - u-blox UBX Utility test
+- [Test 09] - u-blox UBX Manual Test

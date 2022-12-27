@@ -24,7 +24,7 @@ protected:
         extension_metadata_.extension_type = "DRA818";
         extension_metadata_.category = ExtensionMetadata::Category::EXTERNAL_SENSOR;
         extension_metadata_.interface = ExtensionMetadata::Interface::ONEWIRE;
-        extension_metadata_.update_interval = 1000; // time in miliseconds
+        extension_metadata_.update_interval = 1100; // time in miliseconds
         extension_metadata_.critical = 0;
         extension_metadata_.extra_args.one_wire_id = TEST_GOOD_DEVICE_ID;
      }
@@ -73,7 +73,7 @@ TEST_F(DS18B20Test, OneWireBadDevice) {
 TEST_F(DS18B20Test, DS18B20Test) {
     DS18B20 ds18b20(p_data_stream_, extension_metadata_);
     ds18b20.start();
-    sleep(2);
+    sleep(1);
     ds18b20.stop();
 
     int num_data_packets = p_data_stream_->getNumDataPackets();

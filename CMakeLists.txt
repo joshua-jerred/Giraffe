@@ -157,7 +157,7 @@ target_link_libraries(test-07 i2c)
 set_target_properties( test-07 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-07/ )
 target_link_libraries(test-07 gtest_main)
 
-#test-08 - UBX Utility ---------------------------------------------------------
+# test-08 - UBX Utility --------------------------------------------------------
 add_executable(test-08
     tests/test-08/test.cpp
     src/flight-computer/extension-interface/i2c.cpp
@@ -166,6 +166,15 @@ add_executable(test-08
 target_link_libraries(test-08 i2c)
 set_target_properties( test-08 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-08/ )
 target_link_libraries(test-08 gtest_main)
+
+# test-09 - UBX Manual Test ----------------------------------------------------
+add_executable(test-09
+    tests/test-09/test.cpp
+    src/flight-computer/extension-interface/i2c.cpp
+    src/flight-computer/utilities/ubx.cpp
+)
+target_link_libraries(test-09 i2c)
+set_target_properties( test-09 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-09/ )
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------

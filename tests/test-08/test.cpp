@@ -1,7 +1,7 @@
 /**
  * @file test.cpp
  * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief Tests for the I2C Utility
+ * @brief Tests for the UBX Utility
  * @date 2022-12-26
  * @copyright Copyright (c) 2022
  * @version 0.1.0
@@ -12,8 +12,13 @@
 
 #define BUS_NUMBER 1
 #define DEVICE_ADDRESS 0x42
+#define VISUALIZATION true
 
 std::ostream& operator<<(std::ostream& o, const ubx::UBXMessage& ubx) {
+    if (ubx.payload == nullptr) {
+        o << "No Message" << std::endl;
+        return o;
+    }
     o << "UBX - Class: 0x" << std::hex << (int)ubx.classID;
     o << " ID: 0x" << std::hex << (int)ubx.msgID;
     o << " Length: " << std::dec << ubx.length;
@@ -93,7 +98,6 @@ TEST_F(UBXTest, UBXGenerateAndDetectNAK) {
     I2C i2c(BUS_NUMBER, DEVICE_ADDRESS);
     i2c.connect();
     ASSERT_EQ(i2c.status(), I2C_STATUS::OK) << "I2C connection failed";
-
     bool result = ubx::writeUBX(i2c, message);
     ASSERT_TRUE(result) << "Write error";
 
@@ -117,5 +121,32 @@ TEST_F(UBXTest, UBXNoACK) {
     ASSERT_EQ(i2c.status(), I2C_STATUS::OK) << "I2C connection failed";
 
     ubx::ACK ack = ubx::checkForAck(i2c, 0x00, 0x00);
+    EXPECT_NE(ack, ubx::ACK::ACK) << "ACK received";
+    EXPECT_NE(ack, ubx::ACK::NACK) << "NACK received";
     EXPECT_EQ(ack, ubx::ACK::NONE) << "ACK found";
+}
+
+TEST_F(UBXTest, UBXFullConfigTest) {
+    static const uint8_t kNavClass = 0x01;
+    static const uint8_t kNavPvt = 0x07; // Position Velocity Time Solution ID
+
+    I2C i2c(BUS_NUMBER, DEVICE_ADDRESS);
+    i2c.connect();
+    ASSERT_EQ(i2c.status(), I2C_STATUS::OK) << "I2C connection failed";
+
+    ubx::sendResetCommand(i2c); // Reset the module and wait
+    sleep(3);
+
+    ubx::ACK ack = ubx::setProtocolDDC(i2c, true);
+    ASSERT_EQ(ack, ubx::ACK::ACK) << "Failed to set DDC protocol";
+
+    ack = ubx::setMessageRate(i2c, kNavClass, kNavPvt, 1);
+    ASSERT_EQ(ack, ubx::ACK::ACK) << "Failed to set message rate";
+
+    ack = ubx::setMeasurementRate(i2c, 200); // 1 Hz
+    ASSERT_EQ(ack, ubx::ACK::ACK) << "Failed to set measurement rate";
+
+    ubx::DYNAMIC_MODEL dynamic_model = ubx::DYNAMIC_MODEL::AIRBORNE_1G;
+    ack = ubx::setDynamicModel(i2c, dynamic_model);
+    ASSERT_EQ(ack, ubx::ACK::ACK) << "Failed to set dynamic model";
 }
