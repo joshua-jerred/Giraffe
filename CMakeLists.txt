@@ -40,6 +40,7 @@ add_executable(giraffe-flight-software
     src/flight-computer/utilities/utility-data-stream.cpp
     src/flight-computer/utilities/utility-socket.cpp
     src/flight-computer/utilities/utility-psk.cpp
+    src/flight-computer/utilities/ubx.cpp
 
     src/flight-computer/extension-interface/i2c.cpp
     src/flight-computer/extension-interface/one-wire.cpp
@@ -48,6 +49,7 @@ add_executable(giraffe-flight-software
     src/flight-computer/extensions/simulated-extensions.cpp
     src/flight-computer/extensions/bmp180.cpp
     src/flight-computer/extensions/ds18b20.cpp
+    src/flight-computer/extensions/samm8q.cpp
 )
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
@@ -103,6 +105,7 @@ add_executable(test-03
 )
 set_target_properties( test-03 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-03/ )
 target_link_libraries(test-03 gtest_main)
+target_link_libraries(test-03 nlohmann_json::nlohmann_json)
 
 # test-04 - Extensions Module --------------------------------------------------
 add_executable(test-04
@@ -119,6 +122,7 @@ add_executable(test-04
 target_link_libraries(test-04 i2c)
 set_target_properties( test-04 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-04/ )
 target_link_libraries(test-04 gtest_main)
+target_link_libraries(test-04 nlohmann_json::nlohmann_json)
 
 # test-05 - I2C Utility --------------------------------------------------------
 add_executable(test-05
@@ -152,6 +156,16 @@ add_executable(test-07
 target_link_libraries(test-07 i2c)
 set_target_properties( test-07 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-07/ )
 target_link_libraries(test-07 gtest_main)
+
+#test-08 - UBX Utility ---------------------------------------------------------
+add_executable(test-08
+    tests/test-08/test.cpp
+    src/flight-computer/extension-interface/i2c.cpp
+    src/flight-computer/utilities/ubx.cpp
+)
+target_link_libraries(test-08 i2c)
+set_target_properties( test-08 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-08/ )
+target_link_libraries(test-08 gtest_main)
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
