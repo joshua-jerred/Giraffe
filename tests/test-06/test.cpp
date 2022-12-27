@@ -9,8 +9,7 @@
 
 #include "gtest/gtest.h"
 
-#include "bmp180.h"
-#include "utility-data-stream.h"
+#include "extensions.h"
 
 class BMP180Test : public ::testing::Test {
 protected:

@@ -9,9 +9,7 @@
 
 #include "gtest/gtest.h"
 
-#include "ds18b20.h"
-#include "utility-data-stream.h"
-#include "utility-one-wire.h"
+#include "extensions.h"
 
 #define TEST_GOOD_DEVICE_ID "28-03176038beff" // Actual device
 #define TEST_BAD_DEVICE_ID  "28-03176038aaaa" // Fake device

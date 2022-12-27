@@ -69,9 +69,13 @@ TEST_F(UBXTest, UBXMessageTest) {
 TEST_F(UBXTest, UBXSetDDCandAckTest) {
     // Test the setProtocolDDC function
     I2C i2c(BUS_NUMBER, DEVICE_ADDRESS);
+
+    int stream_size = ubx::getStreamSize(i2c);
+    ASSERT_EQ(stream_size, 0) << "Stream size is not 0. Reset the device or wait for timeout";
+
     bool extended_timeout = false;
     bool result = ubx::setProtocolDDC(i2c, extended_timeout);
-    EXPECT_EQ(result, true);
+    ASSERT_EQ(result, true);
 
     // Test for ACK
     uint8_t class_id = 0x06;

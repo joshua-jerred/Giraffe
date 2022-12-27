@@ -213,3 +213,5 @@ bool ubx::setProtocolDDC(I2C &i2c, bool extended_timeout) {
     // Send the message
     return writeUBX(i2c, message);
 }
+
+//bool ubx::setMessageRate(I2C &i2c, uint16_t )

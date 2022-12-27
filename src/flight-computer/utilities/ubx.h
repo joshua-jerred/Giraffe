@@ -42,6 +42,6 @@ namespace ubx
     // bool setMeasurementRate
     // bool setDynamicModel
     // UBXMessage getConfiguration
-}; // namespace ubx
+} // namespace ubx
 
 #endif // UBX_H_

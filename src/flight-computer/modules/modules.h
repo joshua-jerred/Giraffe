@@ -320,5 +320,5 @@ private:
     ConfigData config_data_ = ConfigData();
 };
 
-}; // namespace modules
+} // namespace modules
 #endif
