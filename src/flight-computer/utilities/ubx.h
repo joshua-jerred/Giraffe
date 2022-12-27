@@ -27,6 +27,10 @@ namespace ubx
         ERROR = 0xFF
     };
 
+    typedef struct NAV_DATA {
+
+    };
+
     typedef struct UBXMessage 
     {
         UBXMessage() {};
@@ -47,11 +51,12 @@ namespace ubx
 
     int getStreamSize(I2C &i2c);
     bool writeUBX(I2C &i2c, const UBXMessage &message);
-    uint8_t* readUBX(I2C &i2c, const int size);
-    UBXMessage readMessage(
+    bool readNextUBX(I2C &i2c, UBXMessage &message);
+    UBXMessage readSpecificMessage(
         I2C &i2c, 
         const uint8_t msg_class, 
-        const uint8_t msg_id);
+        const uint8_t msg_id,
+        ubx::UBXMessage &message);
     ACK checkForAck(
         I2C &i2c, 
         const uint8_t msg_class, 
@@ -71,6 +76,8 @@ namespace ubx
         const DYNAMIC_MODEL model
     );
     // UBXMessage getConfiguration
+
+    //
 } // namespace ubx
 
 #endif // UBX_H_

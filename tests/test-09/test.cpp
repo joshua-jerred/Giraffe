@@ -11,6 +11,8 @@
 #include <unordered_map>
 #include <string>
 #include <unistd.h>
+#include <thread>
+#include <chrono>
 
 #include "ubx.h"
 
@@ -115,10 +117,6 @@ static std::unordered_map<uint8_t, std::string> UbxIdToString = {
     {UBX_INF_DEBUG, "DEBUG"},
     {UBX_INF_ERROR, "ERROR"},
     {UBX_INF_NOTICE, "NOTICE"},
-    {UBX_INF_TEST, "TEST"},
-    {UBX_INF_WARNING, "WARNING"},
-    {UBX_MON_HW, "HW"},
-    {UBX_MON_IO, "IO"},
     {UBX_MON_MSGPP, "MSGPP"},
     {UBX_MON_RXR, "RXR"},
     {UBX_MON_VER, "VER"},
@@ -151,8 +149,8 @@ std::ostream& operator<<(std::ostream& o, const ubx::UBXMessage& ubx) {
         o << "No Message" << std::endl;
         return o;
     }
-    o << "UBX - Class: 0x" << std::hex << (int)ubx.classID;
-    o << " ID: 0x" << std::hex << (int)ubx.msgID;
+    o << UbxClassToString[ubx.classID];
+    o << " " << UbxIdToString[ubx.msgID];
     o << " Length: " << std::dec << ubx.length;
     o << " Payload: ";
     for (int i = 0; i < ubx.length; i++) {
@@ -175,6 +173,11 @@ int main() {
         return 1;
     } 
 
+    if (ubx::getStreamSize(i2c) != 0) {
+        ubx::sendResetCommand(i2c);
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+
     ubx::ACK ack = ubx::setProtocolDDC(i2c, true);
     if (ack != ubx::ACK::ACK) {
         std::cout << "Failed to set DDC protocol";
@@ -187,7 +190,7 @@ int main() {
         return 1;
     }
 
-    ack = ubx::setMeasurementRate(i2c, 200);
+    ack = ubx::setMeasurementRate(i2c, 500);
     if (ack != ubx::ACK::ACK) {
         std::cout << "Failed to set measurement rate";
         return 1;
@@ -200,33 +203,13 @@ int main() {
         return 1;
     }
 
-    uint8_t *buffer = nullptr;
+    ubx::UBXMessage msg;
     while (true) {
-        int size = ubx::getStreamSize(i2c);
-        if (size > 0) {
-            if (buffer != nullptr) {
-                delete[] buffer;
-            }
-            if (size > 1000) {
-                size = 1000;
-            }
-            buffer = ubx::readUBX(i2c, size);
-            if (buffer == nullptr) {
-                std::cout << "Failed to read" << std::endl;
-            } else {
-                for (int i = 0; i < size; i++) {
-                    if (buffer[i] == UBX_SYNC_CHAR_1 && buffer[i + 1] == UBX_SYNC_CHAR_2) {
-                        std::cout << "UBX Message: " << std::endl;
-                        uint8_t classID = buffer[i + 2];
-                        uint8_t msgID = buffer[i + 3];
-                        uint16_t length = (buffer[i + 4] | (buffer[i + 5] << 8));
-                        std::cout << "Found UBX message: " << UbxClassToString[classID] << " " << UbxIdToString[msgID] << " " << length << " ";
-                        i += 6 + length;
-                    }
-                    std::cout << " x" << std::hex << (int)buffer[i];
-                }
-            }
+        if (ubx::readNextUBX(i2c, msg)) {
+            std::cout << msg;
         }
-        sleep(1);
+        std::this_thread::sleep_for(std::chrono::milliseconds(300));
     }
+
+    return 0;
 }

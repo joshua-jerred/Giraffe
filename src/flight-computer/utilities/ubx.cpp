@@ -1,4 +1,6 @@
 #include <unistd.h>
+#include <chrono>
+#include <thread>
 #include <iostream>  // DEBUG
 #include "ubx.h"
 
@@ -11,11 +13,11 @@
 
 #define UBX_ACK_NACK 0x00
 
-#define MESSAGE_RETRY_TIME 20000  // microseconds (200ms)
+#define MESSAGE_RETRY_TIME 200  // milliseconds
 #define MESSAGE_RETRY_COUNT 5   // number of times to retry (up to a second)
 
 /** @todo implement this*/
-#define MAX_MESSAGE_SIZE 2000  // bytes, prevents over reading when there is an 
+#define MAX_MESSAGE_SIZE 4000  // bytes, prevents over reading when there is an 
                                // error with message size
 
 /**
@@ -79,72 +81,87 @@ bool ubx::UBXMessage::calculateChecksum() {
 
 int ubx::getStreamSize(I2C &i2c) {
     if (i2c.status() != I2C_STATUS::OK) {
-        return -1;
+        i2c.connect();
+        if (i2c.status() != I2C_STATUS::OK) {
+            std::cout << "I2C ERROR" << std::endl;
+            return -1;
+        }
     }
     int msb = i2c.readByteFromReg(STREAM_SIZE_MSB_REG);
     int lsb = i2c.readByteFromReg(STREAM_SIZE_LSB_REG);
     int stream_size = (msb << 8) | lsb;
-    //if (stream_size > MAX_MESSAGE_SIZE) {
-    //    stream_size = 0;
-    //    std::cout << "MESSAGE SIZE ERROR" << std::endl;
-    //}
+    if (stream_size > MAX_MESSAGE_SIZE) {
+        stream_size = 0;
+        std::cout << "MESSAGE SIZE ERROR" << std::endl;
+    }
     return stream_size;
 }
 
-uint8_t *ubx::readUBX(I2C &i2c, const int stream_size) {
-    uint8_t *buffer = new uint8_t[stream_size];
-    if (i2c.readChunkFromReg(STREAM_REG, buffer, stream_size) != stream_size) {
-        delete[] buffer;
-        return nullptr;
+bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
+    volatile int stream_size = ubx::getStreamSize(i2c);
+    if (stream_size <= 8) { // 8 is the minimum size of a UBX message
+        std::cout << "NOTHING TO READ " << stream_size << std::endl;
+        return false;
     }
-    return buffer;
+    uint8_t byte_buffer;
+    uint8_t *buffer = new uint8_t[stream_size];
+    for (int i = 0; i < stream_size; i++) {
+        // Search for sync characters
+        byte_buffer = i2c.readByteFromReg(STREAM_REG);
+        if (byte_buffer != UBX_SYNC_CHAR_1) {
+            continue;
+        }
+        byte_buffer = i2c.readByteFromReg(STREAM_REG);
+        if (byte_buffer != UBX_SYNC_CHAR_2) {
+            continue;
+        }
+
+        // UBX Sync Characters Found, read the class and ID, and length
+        int bytes_read = i2c.readChunkFromReg(STREAM_REG, buffer, 4);
+        if (bytes_read != 4) {
+            std::cout << "ERROR READING MESSAGE" << std::endl;
+            return false;
+        }
+
+        message.classID = buffer[0];
+        message.msgID = buffer[1];
+        message.length = (buffer[3] << 8) | buffer[2];
+
+        if (message.length + 8 > stream_size) {
+            std::cout << "PARTIAL MESSAGE" << std::endl;
+            std::cout << "MESSAGE SIZE: " << message.length << std::endl;
+            std::cout << "STREAM SIZE: " << stream_size << std::endl;
+            return false;
+        }
+
+        // Read the payload
+        if (message.payload != nullptr) { // delete the old payload
+            delete[] message.payload;
+        }
+        if (message.length > 0) {
+            message.payload = new uint8_t[message.length];
+            for (int j = 0; j < message.length; j++) {
+                message.payload[j] = i2c.readByteFromReg(STREAM_REG); /** @todo Use read chunk */
+            }
+        } else {
+            message.payload = nullptr;
+        }
+
+        // Read the checksum
+        message.ck_a = i2c.readByteFromReg(STREAM_REG);
+        message.ck_b = i2c.readByteFromReg(STREAM_REG);
+    }
+    return true;
 }
 
-ubx::UBXMessage ubx::readMessage(I2C &i2c, const uint8_t class_num,
-                                 const uint8_t id_num) {
-    int stream_size = getStreamSize(i2c);
-    uint8_t *buffer = readUBX(i2c, stream_size);
-
-    if (buffer == nullptr) {
-        UBXMessage message;
-        message.sync1 = 0;
-        message.sync2 = 0;
-        message.classID = 0;
-        message.msgID = 0;
-        message.length = 0;
-        message.payload = nullptr;
-        message.ck_a = 0;
-        message.ck_b = 0;
-        return message;
-    }
-
-    for (int i = 0; i < stream_size - 4; i++) {
-        if (buffer[i] == UBX_SYNC_CHAR_1 && buffer[i + 1] == UBX_SYNC_CHAR_2) {
-            if (buffer[i + 2] == class_num && buffer[i + 3] == id_num) {
-                uint16_t length = (buffer[i + 5] << 8) | buffer[i + 4];
-                uint8_t *payload = new uint8_t[length];
-                for (int j = 0; j < length; j++) {
-                    payload[j] = buffer[i + 6 + j];
-                }
-                uint8_t ck_a = buffer[i + 6 + length];
-                uint8_t ck_b = buffer[i + 7 + length];
-                UBXMessage message;
-                message.sync1 = buffer[i];
-                message.sync2 = buffer[i + 1];
-                message.classID = buffer[i + 2];
-                message.msgID = buffer[i + 3];
-                message.length = length;
-                message.payload = payload;
-                message.ck_a = ck_a;
-                message.ck_b = ck_b;
-                delete[] buffer;
-                return message;
-            }
+ubx::UBXMessage ubx::readSpecificMessage(I2C &i2c, const uint8_t class_num,
+        const uint8_t id_num, ubx::UBXMessage &message) {
+    while (readNextUBX(i2c, message)) {
+        if (message.classID == class_num && message.msgID == id_num) {
+            return message;
         }
     }
-    delete[] buffer;
-    return UBXMessage();  // Return an empty message (payload = nullptr) if no
-                          // message was found
+    return message;
 }
 
 bool ubx::writeUBX(I2C &i2c, const ubx::UBXMessage &message) {
@@ -176,46 +193,24 @@ ubx::ACK ubx::checkForAck(I2C &i2c, const uint8_t msg_class, const uint8_t msg_i
     static const uint8_t kNackMsgID = 0x00;
     
     for (int i = 0; i < MESSAGE_RETRY_COUNT; i++) {
-        int stream_size = getStreamSize(i2c);
-        uint8_t *buffer = readUBX(i2c, stream_size);
-
-        if (buffer == nullptr) {
-            return ACK::READ_ERROR;
-        }
-
-        for (int i = 0; i < stream_size - 4; i++) {
-            // Find a UBX message
-            if (buffer[i] == UBX_SYNC_CHAR_1 &&
-                buffer[i + 1] == UBX_SYNC_CHAR_2) {
-                // Found a frame, next check if it's an ACK class message,
-                // if not, skip over it by payload length + 2 bytes for the
-                // checksum
-                if (buffer[i + 2] != kAckClassID) {
-                    //i += (buffer[i + 4] + (buffer[i + 5] << 8)) + 1;
-                    continue;
-                }
-                // First check to make sure the payload length is 2 bytes
-                if (buffer[i + 4] != 0x02 || buffer[i + 5] != 0x00) {
-                    continue; // Try again
-                }
-                // Check if the ACK message is for the message we want
-                if (buffer[i + 6] != msg_class || buffer[i + 7] != msg_id) {
-                    continue; // Not the ACK we want, skip it.
-                }
-                // Check if the ACK message is an ACK or NACK
-                if (buffer[i + 3] == kAckMsgID) {
-                    delete[] buffer;
-                    return ACK::ACK;
-                } else if (buffer[i + 3] == kNackMsgID) {
-                    delete[] buffer;
-                    return ACK::NACK;
-                } else {
-                    continue; // Try again
+        while (getStreamSize(i2c) >= 8) {
+            ubx::UBXMessage message;
+            if (ubx::readNextUBX(i2c, message)) {
+                if (message.classID == kAckClassID) {
+                    if (message.msgID == kAckMsgID) {
+                        if (message.payload[0] == msg_class && message.payload[1] == msg_id) {
+                            return ACK::ACK;
+                        }
+                    } else if (message.msgID == kNackMsgID) {
+                        if (message.payload[0] == msg_class && message.payload[1] == msg_id) {
+                            return ACK::NACK;
+                        }
+                    }
                 }
             }
+        
         }
-        delete[] buffer;
-        usleep(MESSAGE_RETRY_TIME);
+        std::this_thread::sleep_for(std::chrono::milliseconds(MESSAGE_RETRY_TIME));
         std::cout << "Sleep" << std::endl;
     }
     return ACK::NONE;
@@ -360,3 +355,4 @@ ubx::ACK ubx::setDynamicModel(I2C &i2c, const ubx::DYNAMIC_MODEL model) {
     }
     return checkForAck(i2c, kMessageClass, kMessageId);
 }
+
