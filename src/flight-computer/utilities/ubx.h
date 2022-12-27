@@ -7,6 +7,14 @@
 
 namespace ubx
 {
+
+    enum class ACK {
+        ACK,
+        NACK,
+        NONE,
+        WRITE_ERROR
+    };
+
     typedef struct UBXMessage 
     {
         UBXMessage() {};
@@ -32,12 +40,15 @@ namespace ubx
         I2C &i2c, 
         const uint8_t msg_class, 
         const uint8_t msg_id);
-
-    bool checkForAck(
+    ACK checkForAck(
         I2C &i2c, 
         const uint8_t msg_class, 
         const uint8_t msg_id);
-    bool setProtocolDDC(I2C &i2c, bool extended_timeout);
+
+    // ACK reset(I2C &i2c);
+
+    ACK setProtocolDDC(I2C &i2c, bool extended_timeout);
+
     // bool setMessageRate
     // bool setMeasurementRate
     // bool setDynamicModel

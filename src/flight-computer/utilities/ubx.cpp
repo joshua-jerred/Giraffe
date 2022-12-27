@@ -9,8 +9,16 @@
 #define UBX_SYNC_CHAR_1 0xB5
 #define UBX_SYNC_CHAR_2 0x62
 
+#define UBX_CLASS_ACK 0x05
+#define UBX_ACK_ACK 0x01
+#define UBX_ACK_NACK 0x00
+
 #define MESSAGE_RETRY_TIME 0.2  // seconds
 #define MESSAGE_RETRY_COUNT 5   // number of times to retry (up to a second)
+
+
+
+
 
 /** @todo implement this*/
 #define MAX_MESSAGE_SIZE 2000  // bytes, prevents over reading when there is an 
@@ -76,6 +84,9 @@ bool ubx::UBXMessage::calculateChecksum() {
 }
 
 int ubx::getStreamSize(I2C &i2c) {
+    if (i2c.status() != I2C_STATUS::OK) {
+        return -1;
+    }
     int msb = i2c.readByteFromReg(STREAM_SIZE_MSB_REG);
     int lsb = i2c.readByteFromReg(STREAM_SIZE_LSB_REG);
     int stream_size = (msb << 8) | lsb;
@@ -149,28 +160,45 @@ bool ubx::writeUBX(I2C &i2c, const ubx::UBXMessage &message) {
            message.length + 8;  // Return true if all bytes were written.
 }
 
-bool ubx::checkForAck(I2C &i2c, const uint8_t msg_class, const uint8_t msg_id) {
-    UBXMessage ack;
+ubx::ACK ubx::checkForAck(I2C &i2c, const uint8_t msg_class, const uint8_t msg_id) {
     int timeout = 0;
     for (int i = 0; i < MESSAGE_RETRY_COUNT; i++) {
-        ack = readMessage(i2c, 0x05, 0x01);
-        if (ack.payload != nullptr) {
-            continue;
-        }
-        if (ack.length !=
-            2) {  // This is almost certainly a failure, but retry anyway
-            continue;
-        }
-        // According to u-blox documentation, the first byte of the payload is
-        // the class ID of the message being acknowledged, and the second byte
-        // is the message ID.
-        if (ack.payload[0] == msg_class && ack.payload[1] == msg_id) {
-            return true;
+        int stream_size = getStreamSize(i2c);
+        uint8_t *buffer = readUBX(i2c, stream_size);
+
+        for (int i = 0; i < stream_size - 4; i++) {
+            // Find a UBX message
+            if (buffer[i] == UBX_SYNC_CHAR_1 &&
+                buffer[i + 1] == UBX_SYNC_CHAR_2) {
+                // Found a frame, next check if it's an ACK class message,
+                // if not, skip over it by payload length + 2 bytes for the
+                // checksum
+                if (buffer[i + 2] != UBX_CLASS_ACK) {
+                    i += (buffer[i + 4] + (buffer[i + 5] << 8)) + 2;
+                    continue;
+                }
+                // First check to make sure the payload length is 2 bytes
+                if (buffer[i + 4] != 0x02 || buffer[i + 5] != 0x00) {
+                    continue; // Try again
+                }
+                // Check if the ACK message is for the message we want
+                if (buffer[i + 6] != msg_class || buffer[i + 7] != msg_id) {
+                    continue; // Not the ACK we want, skip it.
+                }
+                // Check if the ACK message is an ACK or NACK
+                if (buffer[i + 3] == UBX_ACK_ACK) {
+                    return ACK::ACK;
+                } else if (buffer[i + 3] == UBX_ACK_NACK) {
+                    return ACK::NACK;
+                } else {
+                    return ACK::NONE;
+                }
+            }
         }
         usleep(MESSAGE_RETRY_TIME);
         timeout++;
     }
-    return false;
+    return ACK::NONE;
 }
 
 /**
@@ -186,9 +214,9 @@ bool ubx::checkForAck(I2C &i2c, const uint8_t msg_class, const uint8_t msg_id) {
  * 
  * @see 32.10.25.5 of u-blox 8 / u-blox M8 Receiver Description
 */
-bool ubx::setProtocolDDC(I2C &i2c, bool extended_timeout) {
-    uint8_t kClass_ID = 0x06; // CFG
-    uint8_t kMessage_ID = 0x00; // PRT
+ubx::ACK ubx::setProtocolDDC(I2C &i2c, bool extended_timeout) {
+    static const uint8_t kClass_ID = 0x06; // CFG
+    static const uint8_t kMessage_ID = 0x00; // PRT
 
     uint8_t i2c_address = i2c.getAddress();
     
@@ -211,7 +239,10 @@ bool ubx::setProtocolDDC(I2C &i2c, bool extended_timeout) {
     UBXMessage message(kClass_ID, kMessage_ID, 20, payload);
 
     // Send the message
-    return writeUBX(i2c, message);
+    if (!writeUBX(i2c, message)) {
+        return ACK::WRITE_ERROR;
+    }
+    return checkForAck(i2c, kClass_ID, kMessage_ID);
 }
 
 //bool ubx::setMessageRate(I2C &i2c, uint16_t )

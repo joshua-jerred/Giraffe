@@ -1,3 +1,11 @@
+# helpful tools for hardware debugging:
+- ``i2cdetect -y 1`` (detects i2c devices)
+- A $10 logic analyzer and the Saleae Logic software
+- https://github.com/sparkfun/SparkFun_u-blox_UBX_HLA
+   This tool by sparkfun is *amazing* when debugging the GPS with the Saleae 
+   Logic software. It doesn't seem to get much love, but I think it's the
+   greatest time saver for debugging u-blox GPS modules.
+
 # sync:
 From Giraffe parent:
 rsync -v -r Giraffe/src/ balloon:Giraffe/src
