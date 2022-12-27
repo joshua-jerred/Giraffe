@@ -36,6 +36,7 @@ int I2C::connect() {
         status_ = I2C_STATUS::CONFIG_ERROR_BUS;
         return -1;
     } else if (address_ < ADDRESS_LOW || address_ > ADDRESS_HIGH) {
+        /** @todo consider a check for '& 0x01' as this bit should not be set */
         status_ = I2C_STATUS::CONFIG_ERROR_ADDRESS;
         return -1;
     }
@@ -63,6 +64,10 @@ int I2C::disconnect() {
         return 0;
     }
     return close(i2c_fd_);
+}
+
+uint8_t I2C::getAddress() {
+    return address_ & 0xFF;
 }
 
 int32_t I2C::writeByte(uint8_t data) {
@@ -95,6 +100,20 @@ int32_t I2C::writeByteToReg(uint8_t reg_address, uint8_t data) {
     return result;
 }
 
+int I2C::writeChunk(uint8_t* data, uint8_t length) {
+    if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
+        return -1;
+    }
+
+    int bytes_written = write(i2c_fd_, data, length);
+    if (bytes_written < 0) {
+        status_ = I2C_STATUS::WRITE_ERROR;
+        return -1;
+    } else {
+        return bytes_written;
+    }
+}
+
 int32_t I2C::readByte() {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
@@ -122,5 +141,19 @@ int32_t I2C::readByteFromReg(uint8_t reg_address) {
         return -1;
     } else {
         return result;
+    }
+}
+
+int I2C::readChunkFromReg(uint8_t reg_address, uint8_t* data, int length) {
+    if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
+        return -1;
+    }
+
+    int bytes_read = i2c_smbus_read_i2c_block_data(i2c_fd_, reg_address, length, data);
+    if (bytes_read < 0) {
+        status_ = I2C_STATUS::READ_ERROR;
+        return -1;
+    } else {
+        return bytes_read;
     }
 }

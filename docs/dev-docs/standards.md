@@ -1,10 +1,6 @@
 # File names:
 dashes-between-words.md
 
-### Utilities
-utility-name-of-utility.h
-### Modules
-module-name-of-module.h
 
 ### C++
 No lines longer than 80 characters.

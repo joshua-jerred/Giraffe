@@ -1,10 +1,11 @@
 #ifndef EXTENSION_INTERFACE_H_
 #define EXTENSION_INTERFACE_H_
 
+#include <string>
+
 #include "utility-status.h"
 #include "utility-configurables.h"
 
-#include <string>
 
 /*
 class InterfaceControl {
@@ -66,11 +67,15 @@ public:
 
     I2C_STATUS status();
 
+    uint8_t getAddress();
+
     int writeByte(uint8_t data);
     int writeByteToReg(uint8_t reg_address, uint8_t data);
+    int writeChunk(uint8_t* data, uint8_t length);
 
     int readByte();
     int readByteFromReg(uint8_t reg_address);
+    int readChunkFromReg(uint8_t reg_address, uint8_t* data, int length);
 
 private:
     I2C_STATUS status_;

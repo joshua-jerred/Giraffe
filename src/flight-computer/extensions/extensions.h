@@ -191,6 +191,19 @@ private:
     OneWire one_wire_device_;
 };
 
+
+class SAMM8Q: public Extension {
+public:
+    SAMM8Q(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
+    ~SAMM8Q();
+    int runner();
+private:
+    bool configure();
+
+    int bus_number_;
+    int device_address_;
+    I2C i2c_bus_;
+};
 /*
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -230,7 +243,7 @@ class BMP180_SIM : public Extension {
 /**
  * @brief The SAMM8Q_SIM is a simulated SAM-M8Q extension.
  * @details The SAMM8Q_SIM sends simulated data to the data stream every cycle.
- * It sends the following data unit pairs: <GPS_LAT, lattitude>, 
+ * It sends the following data unit pairs: <GPS_LAT, latitude>, 
  * <GPS_LON, longitude>, <GPS_ALT_M, altitude in meters>, 
  * <GPS_QUAL, quality 2, 1, 0>, <HORZ_SPEED, horizontal speed in m/s>,
  * <VERT_SPEED, vertical speed in m/s>.
