@@ -63,6 +63,7 @@ protected:
     void error(std::string error_code);
 
     std::atomic<int> stop_flag_ = 1; // 0 = continue, 1 = stop
+    int data_expiration_time_ = 1000;
 
 private:
     void setID(int num);
@@ -88,7 +89,6 @@ private:
     ExtensionMetadata::Category category_ = ExtensionMetadata::Category::ERROR;
     ExtensionMetadata::Interface interface_ = ExtensionMetadata::Interface::ERROR;
     int update_interval_ = 0;
-    int data_expiration_time_ = 1000;
     int critical_ = 0;
 };
 

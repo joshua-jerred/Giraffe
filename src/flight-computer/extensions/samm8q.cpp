@@ -30,6 +30,7 @@ SAMM8Q::~SAMM8Q() {
 
 int SAMM8Q::runner() {
     int result = i2c_.connect();
+    data_expiration_time_ = 20; // Data is good for 20 seconds
 	if (result != 0 || i2c_.status() != I2C_STATUS::OK) {
 		setStatus(ExtensionStatus::ERROR);
 
@@ -62,15 +63,20 @@ int SAMM8Q::runner() {
         }
 
       while (stop_flag_ == false && configured_ == true) {
+        setStatus(ExtensionStatus::RUNNING);
         if (ubx::readNextUBX(i2c_, msg)) {
           if (msg.mClass == kNavClass && msg.mID == kNavPvt) {
             if (msg.verifyChecksum() && ubx::parsePVT(msg, nav_data)) {
                 // Good Data
+                std::string time = std::to_string(nav_data.hour) + ":" + std::to_string(nav_data.minute) + ":" + std::to_string(nav_data.second);
+                sendData("GPS_TIME", time);
+
                 sendData("GPS_LAT", (float)(nav_data.latitude));
                 sendData("GPS_LON", (float)(nav_data.longitude));
                 sendData("GPS_ALT", (float)(nav_data.altitude));
                 sendData("GPS_H_SPD", (float)(nav_data.ground_speed));
                 sendData("GPS_HDG", (float)(nav_data.heading_of_motion));
+                
                 std::string fix;
                 switch (nav_data.fixType) {
                     case ubx::FIX_TYPE::NO_FIX:
@@ -95,10 +101,17 @@ int SAMM8Q::runner() {
                         fix = "UNKNOWN";
                         break;
                 }
+                sendData("GPS_FIX", fix);
             }
           }
         }
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(getUpdateInterval())
+            );
       }
+      std::this_thread::sleep_for(
+          std::chrono::milliseconds(getUpdateInterval())
+      );
     }
     return 0;
 }

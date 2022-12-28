@@ -130,8 +130,8 @@ bool ubx::UBXMessage::verifyChecksum() {
     }
     delete[] buffer;
     if (a != ck_a || b != ck_b) {
-        std::cout << "Checksum error [" << (int)a << ", " << (int)b << "] != [" 
-        << (int)ck_a << ", " << (int)ck_b << "]" << std::endl;
+        //std::cout << "Checksum error [" << (int)a << ", " << (int)b << "] != [" 
+        //<< (int)ck_a << ", " << (int)ck_b << "]" << std::endl;
         return false;
     }
     return true;
@@ -141,7 +141,7 @@ int ubx::getStreamSize(I2C &i2c) {
     if (i2c.status() != I2C_STATUS::OK) {
         i2c.connect();
         if (i2c.status() != I2C_STATUS::OK) {
-            std::cout << "I2C ERROR" << std::endl;
+            //std::cout << "I2C ERROR" << std::endl;
             return -1;
         }
     }
@@ -149,7 +149,7 @@ int ubx::getStreamSize(I2C &i2c) {
     int lsb = i2c.readByteFromReg(STREAM_SIZE_LSB_REG);
     int stream_size = (msb << 8) | lsb;
     if (stream_size > MAX_BUFFER_SIZE) {
-        std::cout << "MESSAGE SIZE ERROR " << stream_size  << std::endl;
+        //std::cout << "MESSAGE SIZE ERROR " << stream_size  << std::endl;
         stream_size = 0;
     }
     return stream_size;
@@ -195,7 +195,7 @@ bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
             break;
         }
         if (!found_sync) {
-            std::cout << "NO SYNC CHARACTERS FOUND" << std::endl;
+            //std::cout << "NO SYNC CHARACTERS FOUND" << std::endl;
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
             continue;
         } else {
@@ -213,7 +213,7 @@ bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
             stream_size = getStreamSize(i2c);
             start = time(NULL); // Reset the timeout
             if (time(NULL) - start > kTimeout_LengthSeconds) {
-                std::cout << "TIMEOUT 1" << std::endl;
+                //std::cout << "TIMEOUT 1" << std::endl;
                 return false;
             }
         }
@@ -222,7 +222,7 @@ bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
         uint8_t *buffer = new uint8_t[4];
         int bytes_read = i2c.readChunkFromReg(buffer, 4, STREAM_REG);
         if (bytes_read != 4) {
-            std::cout << "ERROR READING CLASS, ID, AND LENGTH" << std::endl;
+            //std::cout << "ERROR READING CLASS, ID, AND LENGTH" << std::endl;
             delete[] buffer;
             return false;
         }
@@ -232,18 +232,18 @@ bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
         delete[] buffer;
         // Make sure the class and ID are valid
         if (!UbxClassToString.contains(message.mClass)) {
-            std::cout << "READ INVALID CLASS" << std::endl;
+            //std::cout << "READ INVALID CLASS" << std::endl;
             return false;
         }
         if (!UbxIdToString.contains(message.mID)) {
-            std::cout << "READ INVALID ID" << std::endl;
+            //std::cout << "READ INVALID ID" << std::endl;
             return false;
         }
 
 
         // Verify the message length
         if (message.length > MAX_PAYLOAD_SIZE) {
-            std::cout << "MESSAGE LENGTH ERROR" << std::endl;
+            //std::cout << "MESSAGE LENGTH ERROR" << std::endl;
             return false;
         }
 
@@ -252,7 +252,7 @@ bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
         while (stream_size < message.length + 2) { // +2 for checksum
             stream_size = getStreamSize(i2c);
             if (time(NULL) - start > kTimeout_LengthSeconds) {
-                std::cout << "TIMEOUT 2" << std::endl;
+                //std::cout << "TIMEOUT 2" << std::endl;
                 return false;
             }
         }
@@ -261,7 +261,7 @@ bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
         buffer = new uint8_t[message.length];
         bytes_read = i2c.readChunkFromReg(buffer, message.length, STREAM_REG);
         if (bytes_read != message.length) {
-            std::cout << "ERROR READING PAYLOAD" << std::endl;
+            //std::cout << "ERROR READING PAYLOAD" << std::endl;
             delete[] buffer;
             return false;
         }
@@ -271,7 +271,7 @@ bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
         buffer = new uint8_t[2];
         bytes_read = i2c.readChunkFromReg(buffer, 2, STREAM_REG);
         if (bytes_read != 2) {
-            std::cout << "ERROR READING CHECKSUM" << std::endl;
+            //std::cout << "ERROR READING CHECKSUM" << std::endl;
             delete[] buffer;
             return false;
         }
@@ -351,7 +351,7 @@ ubx::ACK ubx::checkForAck(I2C &i2c, const uint8_t msg_class, const uint8_t msg_i
         
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(MESSAGE_RETRY_TIME));
-        std::cout << "Sleep" << std::endl;
+        //std::cout << "Sleep" << std::endl;
     }
     return ACK::NONE;
 }
