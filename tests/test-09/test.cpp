@@ -253,6 +253,8 @@ int main() {
                     std::cout << "-----ERROR START----- ss:";
                     std::cout << ubx::getStreamSize(i2c) << std::endl;
                     std::cout << msg << std::endl;
+                    ubx::parsePVT(msg, pvt);
+                    std::cout << pvt << std::endl;
                     std::cout << "------ERROR END-----" << std::endl;
                     continue;
                 }

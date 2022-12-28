@@ -155,6 +155,10 @@ int ubx::getStreamSize(I2C &i2c) {
     return stream_size;
 }
 
+/**
+ * @details First finds sync characters, then reads the rest of the message
+ * once it becomes available.
+*/
 bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
     volatile int stream_size = ubx::getStreamSize(i2c);
     if (stream_size <= 6) { // 8 is the minimum size of a UBX message
@@ -173,7 +177,7 @@ bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
         if (byte_buffer != UBX_SYNC_CHAR_2) {
             continue;
         }
-
+        
         // UBX Sync Characters Found, read the class and ID, and length
         int bytes_read = i2c.readChunk(buffer, 4);
         if (bytes_read != 4) {
@@ -186,9 +190,9 @@ bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
         message.length = (buffer[3] << 8) | buffer[2];
         stream_size = getStreamSize(i2c);
         if (message.length > stream_size) {
-            std::cout << "PARTIAL MESSAGE" << std::endl;
-            std::cout << "MESSAGE SIZE: " << message.length << std::endl;
-            std::cout << "STREAM SIZE: " << stream_size << std::endl;
+            std::cout << "/////////PARTIAL MESSAGE" << std::endl;
+            std::cout << "/////////MESSAGE SIZE: " << message.length << std::endl;
+            std::cout << "/////////STREAM SIZE: " << stream_size << std::endl;
             return false;
         } else if (message.length > MAX_PAYLOAD_SIZE) {
             std::cout << "PAYLOAD SIZE ERROR" << std::endl;
@@ -198,7 +202,7 @@ bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
         if (message.payload != nullptr) { // delete the old payload
             delete[] message.payload;
         }
-        if (message.length > 0 && message.length <= getStreamSize(i2c)) {
+        if (message.length > 0 && message.length < getStreamSize(i2c)) {
             message.payload = new uint8_t[message.length];
             bytes_read = i2c.readChunk(message.payload, message.length);
             if (bytes_read != message.length) {
@@ -210,6 +214,7 @@ bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
             //}
         } else {
             message.payload = nullptr;
+            std::cout << "NOT ENOUGH BYTES TO READ" << std::endl;
         }
 
         // Read the checksum
