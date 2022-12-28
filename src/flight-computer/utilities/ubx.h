@@ -27,8 +27,40 @@ namespace ubx
         ERROR = 0xFF
     };
 
-    typedef struct NAV_DATA {
+    enum class FIX_TYPE {
+        NO_FIX = 0x00,
+        DEAD_RECK = 0x01,
+        FIX_2D = 0x02,
+        FIX_3D = 0x03,
+        COMBINED = 0x04,
+        TIME_ONLY = 0x05,
+        ERROR = 0xFF
+    };
 
+    struct NAV_DATA {
+        bool valid = false;
+        int year = 0;
+        int month = 0;
+        int day = 0;
+        int hour = 0;
+        int minute = 0;
+        int second = 0;
+        
+        FIX_TYPE fixType = FIX_TYPE::NO_FIX;
+
+        int num_satellites = 0;
+        double longitude = 0.0;  // degrees
+        double latitude = 0.0;   // degrees
+        double horz_accuracy = 0.0; // meters
+
+        double altitude = 0.0;  // meters
+        double vert_accuracy = 0.0; // meters
+
+        double ground_speed = 0.0; // meters/second
+        double speed_accuracy = 0.0; // meters/second
+
+        double heading_of_motion = 0.0; // degrees
+        double heading_accuracy = 0.0;  // degrees
     };
 
     typedef struct UBXMessage 
@@ -39,10 +71,11 @@ namespace ubx
             std::uint16_t length, 
             std::uint8_t *payload);
         bool calculateChecksum();
+        bool verifyChecksum();
         std::uint8_t sync1 = 0;
         std::uint8_t sync2 = 0;
-        std::uint8_t classID = 0;
-        std::uint8_t msgID = 0;
+        std::uint8_t mClass = 0;
+        std::uint8_t mID = 0;
         std::uint16_t length = 0;
         std::uint8_t *payload = nullptr;
         std::uint8_t ck_a = 0;
@@ -52,11 +85,9 @@ namespace ubx
     int getStreamSize(I2C &i2c);
     bool writeUBX(I2C &i2c, const UBXMessage &message);
     bool readNextUBX(I2C &i2c, UBXMessage &message);
-    UBXMessage readSpecificMessage(
+    bool readSpecificMessage(
         I2C &i2c, 
-        const uint8_t msg_class, 
-        const uint8_t msg_id,
-        ubx::UBXMessage &message);
+        ubx::UBXMessage &message); // message should have class, id, and length set
     ACK checkForAck(
         I2C &i2c, 
         const uint8_t msg_class, 
@@ -77,7 +108,9 @@ namespace ubx
     );
     // UBXMessage getConfiguration
 
-    //
+    bool parsePVT(
+        const UBXMessage &message, 
+        NAV_DATA &data);
 } // namespace ubx
 
 #endif // UBX_H_

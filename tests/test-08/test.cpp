@@ -20,7 +20,7 @@ std::ostream& operator<<(std::ostream& o, const ubx::UBXMessage& ubx) {
         return o;
     }
     o << "UBX - Class: 0x" << std::hex << (int)ubx.classID;
-    o << " ID: 0x" << std::hex << (int)ubx.msgID;
+    o << " ID: 0x" << std::hex << (int)ubx.mID;
     o << " Length: " << std::dec << ubx.length;
     o << " Payload: ";
     for (int i = 0; i < ubx.length; i++) {
@@ -60,7 +60,7 @@ TEST_F(UBXTest, UBXMessageTest) {
 
     // Check the class_id, message_id, payload_length, and checksum
     EXPECT_EQ(message.classID, class_id);
-    EXPECT_EQ(message.msgID, message_id);
+    EXPECT_EQ(message.mID, message_id);
     EXPECT_EQ(message.length, payload_length);
     EXPECT_EQ(message.ck_a, 0xA0);
     EXPECT_EQ(message.ck_b, 0x96);

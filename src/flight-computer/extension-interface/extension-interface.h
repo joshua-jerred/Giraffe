@@ -75,7 +75,7 @@ public:
 
     int readByte();
     int readByteFromReg(uint8_t reg_address);
-    int readChunkFromReg(uint8_t reg_address, uint8_t* data, int length);
+    int readChunk(uint8_t* data, int length);
 
 private:
     I2C_STATUS status_;

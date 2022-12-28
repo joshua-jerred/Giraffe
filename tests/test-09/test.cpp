@@ -149,8 +149,8 @@ std::ostream& operator<<(std::ostream& o, const ubx::UBXMessage& ubx) {
         o << "No Message" << std::endl;
         return o;
     }
-    o << UbxClassToString[ubx.classID];
-    o << " " << UbxIdToString[ubx.msgID];
+    o << UbxClassToString[ubx.mClass];
+    o << " " << UbxIdToString[ubx.mID];
     o << " Length: " << std::dec << ubx.length;
     o << " Payload: ";
     for (int i = 0; i < ubx.length; i++) {
@@ -158,7 +158,48 @@ std::ostream& operator<<(std::ostream& o, const ubx::UBXMessage& ubx) {
     }
     o << " ck_a: 0x" << std::hex << (int)ubx.ck_a;
     o << " ck_b: 0x" << std::hex << (int)ubx.ck_b;
-    o << std::endl;
+    return o;
+}
+
+std::ostream& operator<<(std::ostream& o, const ubx::NAV_DATA& nv) {
+    if (nv.valid == true) {
+        o << "PVT Parse Error" << std::endl;
+        return o;
+    }
+    o << std::dec << nv.year << "-"  << nv.month << "-" << nv.day << " ";
+    o << nv.hour << ":" << nv.minute << ":" << nv.second << " -- ";
+    switch (nv.fixType) {
+        case ubx::FIX_TYPE::NO_FIX:
+            o << "No Fix";
+            break;
+        case ubx::FIX_TYPE::DEAD_RECK:
+            o << "Dead Reckoning Only";
+            break;
+        case ubx::FIX_TYPE::FIX_2D:
+            o << "2D Fix";
+            break;
+        case ubx::FIX_TYPE::FIX_3D:
+            o << "3D Fix";
+            break;
+        case ubx::FIX_TYPE::COMBINED:
+            o << "GPS + Dead Reckoning combined";
+            break;
+        case ubx::FIX_TYPE::TIME_ONLY:
+            o << "Time only fix";
+            break;
+        default:
+            o << "Unknown Fix Type";
+            break;
+    }
+    o << " -- ";
+    o << "Lat: " << nv.latitude << " ";
+    o << "Lon: " << nv.longitude << " ";
+    o << "Alt: " << nv.altitude << " ";
+    o << "Speed: " << nv.ground_speed << " ";
+    o << "Heading: " << nv.heading_of_motion << " ";
+    o << "Acc: " << nv.horz_accuracy << " " << nv.vert_accuracy << " ";
+    o << nv.speed_accuracy << " " << nv.heading_accuracy << " ";
+
     return o;
 }
 
@@ -175,10 +216,10 @@ int main() {
 
     if (ubx::getStreamSize(i2c) != 0) {
         ubx::sendResetCommand(i2c);
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     }
 
-    ubx::ACK ack = ubx::setProtocolDDC(i2c, true);
+    ubx::ACK ack = ubx::setProtocolDDC(i2c, false);
     if (ack != ubx::ACK::ACK) {
         std::cout << "Failed to set DDC protocol";
         return 1;
@@ -190,7 +231,7 @@ int main() {
         return 1;
     }
 
-    ack = ubx::setMeasurementRate(i2c, 500);
+    ack = ubx::setMeasurementRate(i2c, 1000);
     if (ack != ubx::ACK::ACK) {
         std::cout << "Failed to set measurement rate";
         return 1;
@@ -204,11 +245,25 @@ int main() {
     }
 
     ubx::UBXMessage msg;
+    ubx::NAV_DATA pvt;
     while (true) {
         if (ubx::readNextUBX(i2c, msg)) {
-            std::cout << msg;
+            if (msg.mClass == kNavClass && msg.mID == kNavPvt) {
+                if (msg.verifyChecksum() == false) {
+                    std::cout << "-----ERROR START----- ss:";
+                    std::cout << ubx::getStreamSize(i2c) << std::endl;
+                    std::cout << msg << std::endl;
+                    std::cout << "------ERROR END-----" << std::endl;
+                    continue;
+                }
+                ubx::parsePVT(msg, pvt);
+                std::cout << pvt << std::endl;
+            }
+            else {
+                std::cout << msg << std::endl;
+            }
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 
     return 0;

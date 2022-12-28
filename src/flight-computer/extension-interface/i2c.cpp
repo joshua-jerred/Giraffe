@@ -144,12 +144,12 @@ int32_t I2C::readByteFromReg(uint8_t reg_address) {
     }
 }
 
-int I2C::readChunkFromReg(uint8_t reg_address, uint8_t* data, int length) {
+int I2C::readChunk(uint8_t* data, int length) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
 
-    int bytes_read = i2c_smbus_read_i2c_block_data(i2c_fd_, reg_address, length, data);
+    int bytes_read = read(i2c_fd_, data, length);
     if (bytes_read < 0) {
         status_ = I2C_STATUS::READ_ERROR;
         return -1;
