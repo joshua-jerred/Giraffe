@@ -91,5 +91,7 @@ void ExtensionsModule::addExtension(ExtensionMetadata meta_data) {
         extensions_.push_back(new BMP180(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "DS18B20") {
         extensions_.push_back(new DS18B20(p_data_stream_, meta_data));
+    } else if (meta_data.extension_type == "SAMM8Q") {
+        extensions_.push_back(new SAMM8Q(p_data_stream_, meta_data));
     }
 }

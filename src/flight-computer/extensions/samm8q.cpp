@@ -8,14 +8,18 @@
  */
 
 #include "extensions.h"
+#include "ubx.h"
 
 #define SAMM8Q_I2C_ADDRESS 0x42
+
+static const uint8_t kNavClass = 0x01;
+static const uint8_t kNavPvt = 0x07; 
 
 SAMM8Q::SAMM8Q(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
     Extension(p_data_stream, extension_metadata),
     bus_number_(extension_metadata.extra_args.I2C_bus),
     device_address_(SAMM8Q_I2C_ADDRESS),
-    i2c_bus_(I2C(bus_number_, device_address_)) {
+    i2c_(I2C(bus_number_, device_address_)) {
     
 }
 
@@ -25,11 +29,11 @@ SAMM8Q::~SAMM8Q() {
 }
 
 int SAMM8Q::runner() {
-    int result = i2c_bus_.connect();
-	if (result != 0 || i2c_bus_.status() != I2C_STATUS::OK) {
+    int result = i2c_.connect();
+	if (result != 0 || i2c_.status() != I2C_STATUS::OK) {
 		setStatus(ExtensionStatus::ERROR);
 
-		I2C_STATUS status = i2c_bus_.status();
+		I2C_STATUS status = i2c_.status();
 		if (status == I2C_STATUS::CONFIG_ERROR_BUS) {
 			error("I2C_CB");
 		} else if (status == I2C_STATUS::CONFIG_ERROR_ADDRESS) {
@@ -44,28 +48,105 @@ int SAMM8Q::runner() {
 		return -1;
 	}
 
-    // Configure the device to be UBX only and check for ACK
+    ubx::UBXMessage msg;
+    ubx::NAV_DATA nav_data;
 
-    // Set the frequency of the messages
+    configured_ = false;
+    int retry_count = 0;
+    const int kMaxRetries = 5;
+    while (stop_flag_ == false) {
+        if (configured_ == false && retry_count < kMaxRetries) {
+            configured_ = configure();
+        } else if (configured_ == true) {
+            retry_count = 0;
+        }
 
-    // Set the internal measurement rate
-
-    // Change the dynamic model (high altitude), this provides for high altitude
-    // altitude data, as long as we stay below 1G of acceleration
+      while (stop_flag_ == false && configured_ == true) {
+        if (ubx::readNextUBX(i2c_, msg)) {
+          if (msg.mClass == kNavClass && msg.mID == kNavPvt) {
+            if (msg.verifyChecksum() && ubx::parsePVT(msg, nav_data)) {
+                // Good Data
+                sendData("GPS_LAT", (float)(nav_data.latitude));
+                sendData("GPS_LON", (float)(nav_data.longitude));
+                sendData("GPS_ALT", (float)(nav_data.altitude));
+                sendData("GPS_H_SPD", (float)(nav_data.ground_speed));
+                sendData("GPS_HDG", (float)(nav_data.heading_of_motion));
+                std::string fix;
+                switch (nav_data.fixType) {
+                    case ubx::FIX_TYPE::NO_FIX:
+                        fix = "NO_FIX";
+                        break;
+                    case ubx::FIX_TYPE::DEAD_RECK:
+                        fix = "DEAD_RECK";
+                        break;
+                    case ubx::FIX_TYPE::FIX_2D:
+                        fix = "2D";
+                        break;
+                    case ubx::FIX_TYPE::FIX_3D:
+                        fix = "3D";
+                        break;
+                    case ubx::FIX_TYPE::COMBINED:
+                        fix = "COMBINED";
+                        break;
+                    case ubx::FIX_TYPE::TIME_ONLY:
+                        fix = "TIME_ONLY";
+                        break;
+                    default:
+                        fix = "UNKNOWN";
+                        break;
+                }
+            }
+          }
+        }
+      }
+    }
     return 0;
 }
 
 bool SAMM8Q::configure() {
+    ubx::ACK ack;
+    
+    if (ubx::getStreamSize(i2c_) != 0) { // Restart the device if it is already running
+        ubx::sendResetCommand(i2c_);
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        if (i2c_.readByteFromReg(0xFF) != 0) {
+            if (i2c_.status() != I2C_STATUS::OK) {
+                error("UBX_RESTART");
+                return false;
+            }
+        }
+    }
+
     // Configure the device to be UBX only, check for ACK
+    ack = ubx::setProtocolDDC(i2c_, false);
+    if (ack != ubx::ACK::ACK) {
+        error("CFG_PRT");
+        return false;
+    }
 
-    // Set the frequency of the messages, check for ACK
+    // Set the frequency of the messages, check for ACK (1 for every solution)
+    ack = ubx::setMessageRate(i2c_, kNavClass, kNavPvt, 1);
+    if (ack != ubx::ACK::ACK) {
+        error("CFG_MSG");
+        return false;
+    }
 
-    // Set the internal measurement rate, check for ACK
+    // Set the measurement rate
+    ack = ubx::setMeasurementRate(i2c_, getUpdateInterval());
+    if (ack != ubx::ACK::ACK) {
+        error("CFG_RATE");
+        return false;
+    }
 
     // Change the dynamic model (high altitude), this provides for high altitude
     // altitude data, as long as we stay below 1G of acceleration, check for ACK
-    
-    // Read the configuration data and verify
+    ack = ubx::setDynamicModel(i2c_, ubx::DYNAMIC_MODEL::AIRBORNE_1G);
+    if (ack != ubx::ACK::ACK) {
+        error("CFG_NAV5");
+        return false;
+    }
+
+    /** @todo Read the configuration data and verify */ 
     return true;
 }
 

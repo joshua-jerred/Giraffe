@@ -202,7 +202,8 @@ private:
 
     int bus_number_;
     int device_address_;
-    I2C i2c_bus_;
+    I2C i2c_;
+    bool configured_ = false;
 };
 /*
 -------------------------------------------------------------------------------
