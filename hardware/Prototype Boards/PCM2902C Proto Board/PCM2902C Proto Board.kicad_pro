@@ -48,7 +48,13 @@
           "min_clearance": 0.508
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -97,23 +103,43 @@
         "allow_blind_buried_vias": false,
         "allow_microvias": false,
         "max_error": 0.005,
-        "min_clearance": 0.0,
-        "min_copper_edge_clearance": 0.0,
+        "min_clearance": 0.15239999999999998,
+        "min_copper_edge_clearance": 0.01,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
         "min_microvia_diameter": 0.19999999999999998,
         "min_microvia_drill": 0.09999999999999999,
         "min_silk_clearance": 0.0,
-        "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.19999999999999998,
+        "min_through_hole_diameter": 0.254,
+        "min_track_width": 0.15239999999999998,
         "min_via_annular_width": 0.049999999999999996,
-        "min_via_diameter": 0.39999999999999997,
+        "min_via_diameter": 0.6858,
         "solder_mask_clearance": 0.0,
         "solder_mask_min_width": 0.0,
         "use_height_for_length_calcs": true
       },
-      "track_widths": [],
-      "via_dimensions": [],
+      "track_widths": [
+        0.0,
+        0.1524,
+        0.254,
+        0.508,
+        0.762,
+        1.27
+      ],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        },
+        {
+          "diameter": 0.6858,
+          "drill": 0.3302
+        },
+        {
+          "diameter": 0.889,
+          "drill": 0.381
+        }
+      ],
       "zones_allow_external_fillets": false,
       "zones_use_no_outline": true
     },
@@ -333,7 +359,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "GFC Shoe.kicad_pro",
+    "filename": "PCM2902C Proto Board.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -410,6 +436,11 @@
     "subpart_first_id": 65,
     "subpart_id_separator": 0
   },
-  "sheets": [],
+  "sheets": [
+    [
+      "559f3904-c3f1-4450-ae60-5481c4ab09d5",
+      ""
+    ]
+  ],
   "text_variables": {}
 }
