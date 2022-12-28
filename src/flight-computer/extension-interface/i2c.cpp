@@ -144,8 +144,14 @@ int32_t I2C::readByteFromReg(uint8_t reg_address) {
     }
 }
 
-int I2C::readChunk(uint8_t* data, int length) {
+int I2C::readChunkFromReg(uint8_t* data, int length, uint8_t reg_address) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
+        return -1;
+    }
+
+    int status = write(i2c_fd_, &reg_address, 1);
+    if (status < 0) {
+        status_ = I2C_STATUS::WRITE_ERROR;
         return -1;
     }
 

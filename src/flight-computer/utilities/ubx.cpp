@@ -130,8 +130,8 @@ bool ubx::UBXMessage::verifyChecksum() {
     }
     delete[] buffer;
     if (a != ck_a || b != ck_b) {
-        std::cout << "Checksum error a:" << (int)a << " b:" << (int)b << std::endl;
-        std::cout << "Received a:" << (int)ck_a << " b:" << (int)ck_b << std::endl;
+        std::cout << "Checksum error [" << (int)a << ", " << (int)b << "] != [" 
+        << (int)ck_a << ", " << (int)ck_b << "]" << std::endl;
         return false;
     }
     return true;
@@ -149,8 +149,8 @@ int ubx::getStreamSize(I2C &i2c) {
     int lsb = i2c.readByteFromReg(STREAM_SIZE_LSB_REG);
     int stream_size = (msb << 8) | lsb;
     if (stream_size > MAX_BUFFER_SIZE) {
-        stream_size = 0;
         std::cout << "MESSAGE SIZE ERROR " << stream_size  << std::endl;
+        stream_size = 0;
     }
     return stream_size;
 }
@@ -160,68 +160,136 @@ int ubx::getStreamSize(I2C &i2c) {
  * once it becomes available.
 */
 bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
-    volatile int stream_size = ubx::getStreamSize(i2c);
-    if (stream_size <= 6) { // 8 is the minimum size of a UBX message
-        // std::cout << "NOTHING TO READ " << stream_size << std::endl;
-        return false;
+    if (message.payload != nullptr) { // Clear the old payload
+        delete[] message.payload;
+        message.payload = nullptr;
     }
+
+    // First find the sync characters
+    volatile int stream_size;
     uint8_t byte_buffer;
-    uint8_t *buffer = new uint8_t[stream_size];
-    for (int i = 0; i < stream_size; i++) {
-        // Search for sync characters
-        byte_buffer = i2c.readByteFromReg(STREAM_REG);
-        if (byte_buffer != UBX_SYNC_CHAR_1) {
-            continue;
-        }
-        byte_buffer = i2c.readByteFromReg(STREAM_REG);
-        if (byte_buffer != UBX_SYNC_CHAR_2) {
+    bool found_sync = false;
+    
+    time_t start = time(NULL);
+    static const int kTimeout_LengthSeconds = 1;
+    while (time(NULL) - start < kTimeout_LengthSeconds) {
+        stream_size = ubx::getStreamSize(i2c);
+        if (stream_size <= 8) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
             continue;
         }
         
-        // UBX Sync Characters Found, read the class and ID, and length
-        int bytes_read = i2c.readChunk(buffer, 4);
-        if (bytes_read != 4) {
-            std::cout << "ERROR READING MESSAGE" << std::endl;
-            return false;
+        // Find the sync characters
+        for (int i = 0; i < stream_size; i++) {
+            // Find the first sync char
+            byte_buffer = i2c.readByteFromReg(STREAM_REG);
+            if (byte_buffer != UBX_SYNC_CHAR_1) {
+                continue;
+            }
+            // Find the second sync char
+            byte_buffer = i2c.readByteFromReg(STREAM_REG);
+            if (byte_buffer != UBX_SYNC_CHAR_2) {
+                continue;
+            }
+            found_sync = true;
+            break;
+        }
+        if (!found_sync) {
+            std::cout << "NO SYNC CHARACTERS FOUND" << std::endl;
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            continue;
+        } else {
+            //std::cout << "SYNC CHARACTERS FOUND" << std::endl;
+        }
+        // Sync characters found, next read the rest of the message
+        // if it is available
+
+        // Read the rest of the message
+        stream_size = getStreamSize(i2c);
+        if (stream_size < 0) { // Error
+            continue;
+        }
+        while (stream_size < 6) {
+            stream_size = getStreamSize(i2c);
+            start = time(NULL); // Reset the timeout
+            if (time(NULL) - start > kTimeout_LengthSeconds) {
+                std::cout << "TIMEOUT 1" << std::endl;
+                return false;
+            }
         }
 
+        // Read the class, ID, and length
+        uint8_t *buffer = new uint8_t[4];
+        int bytes_read = i2c.readChunkFromReg(buffer, 4, STREAM_REG);
+        if (bytes_read != 4) {
+            std::cout << "ERROR READING CLASS, ID, AND LENGTH" << std::endl;
+            delete[] buffer;
+            return false;
+        }
         message.mClass = buffer[0];
         message.mID = buffer[1];
         message.length = (buffer[3] << 8) | buffer[2];
-        stream_size = getStreamSize(i2c);
-        if (message.length > stream_size) {
-            std::cout << "/////////PARTIAL MESSAGE" << std::endl;
-            std::cout << "/////////MESSAGE SIZE: " << message.length << std::endl;
-            std::cout << "/////////STREAM SIZE: " << stream_size << std::endl;
+        delete[] buffer;
+        // Make sure the class and ID are valid
+        if (!UbxClassToString.contains(message.mClass)) {
+            std::cout << "READ INVALID CLASS" << std::endl;
             return false;
-        } else if (message.length > MAX_PAYLOAD_SIZE) {
-            std::cout << "PAYLOAD SIZE ERROR" << std::endl;
+        }
+        if (!UbxIdToString.contains(message.mID)) {
+            std::cout << "READ INVALID ID" << std::endl;
+            return false;
+        }
+
+
+        // Verify the message length
+        if (message.length > MAX_PAYLOAD_SIZE) {
+            std::cout << "MESSAGE LENGTH ERROR" << std::endl;
+            return false;
+        }
+
+        // Wait for the rest of the message to be available
+        start = time(NULL);
+        while (stream_size < message.length + 2) { // +2 for checksum
+            stream_size = getStreamSize(i2c);
+            if (time(NULL) - start > kTimeout_LengthSeconds) {
+                std::cout << "TIMEOUT 2" << std::endl;
+                return false;
+            }
         }
 
         // Read the payload
-        if (message.payload != nullptr) { // delete the old payload
-            delete[] message.payload;
+        buffer = new uint8_t[message.length];
+        bytes_read = i2c.readChunkFromReg(buffer, message.length, STREAM_REG);
+        if (bytes_read != message.length) {
+            std::cout << "ERROR READING PAYLOAD" << std::endl;
+            delete[] buffer;
+            return false;
         }
-        if (message.length > 0 && message.length < getStreamSize(i2c)) {
-            message.payload = new uint8_t[message.length];
-            bytes_read = i2c.readChunk(message.payload, message.length);
-            if (bytes_read != message.length) {
-                std::cout << "ERROR READING PAYLOAD " << std::dec << (int)bytes_read << " " << std::dec << (int)message.length << std::endl;
-                return false;
-            }
-            //for (uint16_t j = 0; j < message.length; j++) {
-            //    message.payload[j] = i2c.readByteFromReg(STREAM_REG); /** @todo Use read chunk */
-            //}
-        } else {
-            message.payload = nullptr;
-            std::cout << "NOT ENOUGH BYTES TO READ" << std::endl;
-        }
+        message.payload = buffer;
 
         // Read the checksum
-        message.ck_a = i2c.readByteFromReg(STREAM_REG);
-        message.ck_b = i2c.readByteFromReg(STREAM_REG);
+        buffer = new uint8_t[2];
+        bytes_read = i2c.readChunkFromReg(buffer, 2, STREAM_REG);
+        if (bytes_read != 2) {
+            std::cout << "ERROR READING CHECKSUM" << std::endl;
+            delete[] buffer;
+            return false;
+        }
+        message.ck_a = buffer[0];
+        message.ck_b = buffer[1];
+        delete[] buffer;
+        
+        // Verify the checksum
+        if (message.verifyChecksum()) {
+            //std::cout << "CHECKSUM VERIFIED" << std::endl;
+            return true;
+        } else {
+            //std::cout << "||CHECKSUM ERROR ss: " << stream_size << "||";
+            //std::cout << message << "||" << std::endl;
+            return false;
+        }
     }
-    return true;
+    return false;
 }
 
 bool ubx::readSpecificMessage(I2C &i2c, ubx::UBXMessage &message) {
@@ -536,4 +604,77 @@ bool ubx::parsePVT(const UBXMessage &message, NAV_DATA &data) {
     data.heading_accuracy = (double)heading_accuracy / 100000.0;
 
     return true;
+}
+
+/* 
+----------------- 
+DEBUGGING HELPERS
+-----------------
+ */
+
+std::ostream& ubx::operator<<(std::ostream& o, const ubx::UBXMessage& ubx) {
+    if (ubx.payload == nullptr) {
+        o << "No Message" << std::endl;
+        return o;
+    }
+    if (!UbxClassToString.contains(ubx.mClass)) {
+        o << "Unknown Class: " << std::hex << ubx.mClass << " - ";
+    } else {
+        o << ubx::UbxClassToString.at(ubx.mClass);
+    }
+    if (!UbxIdToString.contains(ubx.mID)) {
+        o << "Unknown ID: " << std::hex << ubx.mID << " - ";
+    } else {
+        o << " " << ubx::UbxIdToString.at(ubx.mID);
+    }
+    o << " Length: " << std::dec << ubx.length;
+    o << " Payload: ";
+    for (int i = 0; i < ubx.length; i++) {
+        o << std::hex << (int)ubx.payload[i] << " ";
+    }
+    o << " ck_a: 0x" << std::hex << (int)ubx.ck_a;
+    o << " ck_b: 0x" << std::hex << (int)ubx.ck_b;
+    return o;
+}
+
+std::ostream& ubx::operator<<(std::ostream& o, const ubx::NAV_DATA& nv) {
+    if (nv.valid == true) {
+        o << "PVT Parse Error" << std::endl;
+        return o;
+    }
+    o << std::dec << nv.year << "-"  << nv.month << "-" << nv.day << " ";
+    o << nv.hour << ":" << nv.minute << ":" << nv.second << " -- ";
+    switch (nv.fixType) {
+        case ubx::FIX_TYPE::NO_FIX:
+            o << "No Fix";
+            break;
+        case ubx::FIX_TYPE::DEAD_RECK:
+            o << "Dead Reckoning Only";
+            break;
+        case ubx::FIX_TYPE::FIX_2D:
+            o << "2D Fix";
+            break;
+        case ubx::FIX_TYPE::FIX_3D:
+            o << "3D Fix";
+            break;
+        case ubx::FIX_TYPE::COMBINED:
+            o << "GPS + Dead Reckoning combined";
+            break;
+        case ubx::FIX_TYPE::TIME_ONLY:
+            o << "Time only fix";
+            break;
+        default:
+            o << "Unknown Fix Type";
+            break;
+    }
+    o << " -- ";
+    o << "Lat: " << nv.latitude << " ";
+    o << "Lon: " << nv.longitude << " ";
+    o << "Alt: " << nv.altitude << " ";
+    o << "Speed: " << nv.ground_speed << " ";
+    o << "Heading: " << nv.heading_of_motion << " ";
+    o << "Acc: " << nv.horz_accuracy << " " << nv.vert_accuracy << " ";
+    o << nv.speed_accuracy << " " << nv.heading_accuracy << " ";
+
+    return o;
 }
