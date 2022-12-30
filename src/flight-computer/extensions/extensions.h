@@ -205,6 +205,62 @@ private:
     I2C i2c_;
     bool configured_ = false;
 };
+
+class BME280: public Extension {
+public:
+    BME280(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
+    ~BME280();
+    int runner();
+
+private:
+    struct RawEnvironmentData {
+	    uint32_t pressure = 0;
+	    uint32_t temperature = 0;
+	    uint16_t humidity = 0;
+    };
+
+    struct TempeCompData {
+        uint16_t dig_T1 = 0;
+        int16_t dig_T2 = 0;
+        int16_t dig_T3 = 0;
+    };
+
+    struct PressCompData {
+        uint16_t dig_P1 = 0;
+        int16_t dig_P2 = 0;
+        int16_t dig_P3 = 0;
+        int16_t dig_P4 = 0;
+        int16_t dig_P5 = 0;
+        int16_t dig_P6 = 0;
+        int16_t dig_P7 = 0;
+        int16_t dig_P8 = 0;
+        int16_t dig_P9 = 0;
+    };
+
+    struct HumCompData {
+        uint8_t dig_H1 = 0;
+        int16_t dig_H2 = 0;
+        uint8_t dig_H3 = 0;
+        int16_t dig_H4 = 0;
+        int16_t dig_H5 = 0;
+        int8_t dig_H6 = 0;
+    };
+
+    int handshake();
+    int reset();
+    int configure();
+
+    int readCompensationData();
+    int readData(RawEnvironmentData &raw_data);
+
+    int bus_number_;
+    int device_address_;
+    I2C i2c_bus_;
+
+    TempeCompData temp_comp_data_ = {};
+    PressCompData press_comp_data_ = {};
+    HumCompData hum_comp_data_ = {};
+};
 /*
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------

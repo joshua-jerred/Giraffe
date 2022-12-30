@@ -175,6 +175,17 @@ add_executable(test-09
 )
 target_link_libraries(test-09 i2c)
 set_target_properties( test-09 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-09/ )
+# test-10 - BME280 Extension ---------------------------------------------------
+add_executable(test-10
+    tests/test-10/test.cpp
+    src/flight-computer/extensions/bme280.cpp
+    src/flight-computer/extensions/extension.cpp
+    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/extension-interface/i2c.cpp
+)
+target_link_libraries(test-10 i2c)
+set_target_properties( test-10 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-10/ )
+target_link_libraries(test-10 gtest_main)
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
