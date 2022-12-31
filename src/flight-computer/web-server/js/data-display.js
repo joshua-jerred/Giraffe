@@ -94,10 +94,11 @@ function updateDynamic(data) {
     let html_div = document.getElementById('dynamic-data');
     html_div.innerHTML = '';
     for (let key in dynamic) {
+        let source = dynamic[key]['source'];
         let name = dynamic[key]['unit'];
         let value = dynamic[key]['value'];
         let div = document.createElement('div');
-        div.innerHTML = name + ': ' + value;
+        div.innerHTML = source + '-' + name + ': ' + value;
         html_div.appendChild(div);
     }
 
