@@ -58,7 +58,7 @@
     },
     "telemetry": {
         "telemetry-enabled": true,
-        "callsign": "YOURCALLSIGN",
+        "callsign": "FccCallSign",
         
         "aprs-enabled": true,
         "aprs-frequency": "144.390",
@@ -74,8 +74,7 @@
 
         "psk-enabled":true,
         "psk-frequency": "100.000",
-        "psk-mode": "bpsk",
-        "psk-symbol-rate": "250"
+        "psk-mode": "bpsk500"
     },
     
     "data": [

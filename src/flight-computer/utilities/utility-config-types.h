@@ -124,7 +124,6 @@ struct ConfigData {
         int psk_enabled = 0;
         std::string psk_freq {};
         std::string psk_mode {};
-        std::string psk_symbol_rate{};
 
         int sstv_enabled = 0;
         std::string sstv_freq {};

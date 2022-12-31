@@ -21,11 +21,13 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/utilities
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/extensions
     ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/extension-interface
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/telemetry
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/telemetry/modulators
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/flight-computer/telemetry/utilities
 )
 
 # ---- Flight Computer ----
 add_executable(giraffe-flight-software
-
     src/flight-computer/main.cpp
     src/flight-computer/flight-runner.cpp
 
@@ -39,7 +41,6 @@ add_executable(giraffe-flight-software
     src/flight-computer/utilities/utility-timer.cpp
     src/flight-computer/utilities/utility-data-stream.cpp
     src/flight-computer/utilities/utility-socket.cpp
-    src/flight-computer/utilities/utility-psk.cpp
     src/flight-computer/utilities/ubx.cpp
 
     src/flight-computer/extension-interface/i2c.cpp
@@ -51,6 +52,13 @@ add_executable(giraffe-flight-software
     src/flight-computer/extensions/ds18b20.cpp
     src/flight-computer/extensions/samm8q.cpp
     src/flight-computer/extensions/bme280.cpp
+
+    src/flight-computer/telemetry/mwav.cpp
+    src/flight-computer/telemetry/utilities/wavgen.cpp
+    src/flight-computer/telemetry/utilities/bit-stream.cpp
+    src/flight-computer/telemetry/modulators/afsk.cpp
+    src/flight-computer/telemetry/modulators/psk.cpp
+    src/flight-computer/telemetry/modulators/morse.cpp
 )
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)

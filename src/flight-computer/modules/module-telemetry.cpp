@@ -1,8 +1,7 @@
 /**
  * @file module-telemetry.cpp
  * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This fle implements the class TelemetryModule which is defined in
- * module-telemetry.h.
+ * @brief This fle implements the class TelemetryModule.
  * 
  * @version 0.1.0
  * @date 2022-10-11
@@ -21,7 +20,7 @@
 #include "modules.h"
 using namespace modules;
 
-#include "utility-psk.h" // TODO: Remove this and use MWAV
+#include "mwav.h"
 
 /**
  * @brief Construct a new TelemetryModule object. 
@@ -189,36 +188,23 @@ std::string TelemetryModule::generateAFSK(std::string message) {
 std::string TelemetryModule::generatePSK(std::string message) {
     std::string file_path = TELEMETRY_WAV_LOCATION + (std::string) "psk-" + std::to_string(getNextTXNumber()) + ".wav";
     
-    PSK::Mode mode;
-    PSK::SymbolRate symbol_rate;
+    MWAVData::MODULATION mode = MWAVData::MODULATION::BPSK_125; // Default
 
     std::string requested_mode = config_data_.telemetry.psk_mode;
+    if (requested_mode == "BPSK125") {
+        mode = MWAVData::MODULATION::BPSK_125;
+    } else if (requested_mode == "bpsk250") {
+        mode = MWAVData::MODULATION::BPSK_250;
+    } else if (requested_mode == "bpsk500") {
+        mode = MWAVData::MODULATION::BPSK_500;
+    } else if (requested_mode == "bpsk1000") {
+        mode = MWAVData::MODULATION::BPSK_1000;
+    } 
 
-    if (requested_mode == "bpsk") {
-        mode = PSK::BPSK;
-    } else if (requested_mode == "qpsk") {
-        mode = PSK::QPSK;
-    } else {
-        error("PSK_M", requested_mode);
-        mode = PSK::BPSK; // Default to BPSK
-    }
-
-    std::string requested_symbol_rate = config_data_.telemetry.psk_symbol_rate;
-
-    if (requested_symbol_rate == "125") {
-        symbol_rate = PSK::S125;
-    } else if (requested_symbol_rate == "250") {
-        symbol_rate = PSK::S250;
-    } else if (requested_symbol_rate == "500") {
-        symbol_rate = PSK::S500;
-    } else {
-        error("PSK_S", requested_symbol_rate);
-        symbol_rate = PSK::S125; // Default to 125
-    }
-
-    PSK psk = PSK(file_path, mode, symbol_rate);
-    if (psk.encodeTextData(message)) {
-        psk_length_ = psk.getLength();
+    bool res = MWAVData::encode(mode, message, file_path);
+    
+    if (res) {
+        psk_length_ = 10; // TODO: Implement this
         return file_path;
     } else {
         error("PSK_E", "Failed to encode PSK data.");

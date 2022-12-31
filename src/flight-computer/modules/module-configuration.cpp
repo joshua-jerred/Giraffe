@@ -463,20 +463,16 @@ void ConfigModule::parseTelemetry() {
 			json_buffer_["telemetry"]["psk-frequency"].get<std::string>();
 		/** @todo Check if frequency is valid */
 
-		std::string psk_mode = "bpsk"; // Default
-		std::string psk_symbol_rate = "125"; // Default
+		std::string psk_mode = "bpsk125"; // Default
 
 		try {
 			psk_mode = 
 				json_buffer_["telemetry"]["psk-mode"].get<std::string>();
-			if (psk_mode != "bpsk" && psk_mode != "bpsk") {
+			if (psk_mode != "bpsk125" 
+				&& psk_mode != "bpsk250" 
+				&& psk_mode != "bpsk500"
+				&& psk_mode != "bpsk1000") {
 				error("TL_PSK_M");
-			}
-
-			psk_symbol_rate = 
-				json_buffer_["telemetry"]["psk-symbol-rate"].get<std::string>();
-			if ((psk_symbol_rate != "125") && (psk_symbol_rate != "250")) {
-				error("TL_PSK_S");
 			}
 		} catch (std::exception &e) {
 			error("TL_PSK_F");
@@ -484,7 +480,6 @@ void ConfigModule::parseTelemetry() {
 		config_data_.telemetry.psk_enabled = 1;
 		config_data_.telemetry.psk_freq = psk_frequency;
 		config_data_.telemetry.psk_mode = psk_mode;
-		config_data_.telemetry.psk_symbol_rate = psk_symbol_rate;
 	}
 }
 
