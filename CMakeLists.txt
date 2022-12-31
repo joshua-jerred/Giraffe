@@ -50,6 +50,7 @@ add_executable(giraffe-flight-software
     src/flight-computer/extensions/bmp180.cpp
     src/flight-computer/extensions/ds18b20.cpp
     src/flight-computer/extensions/samm8q.cpp
+    src/flight-computer/extensions/bme280.cpp
 )
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
@@ -111,13 +112,19 @@ target_link_libraries(test-03 nlohmann_json::nlohmann_json)
 add_executable(test-04
     tests/test-04/test.cpp
     src/flight-computer/modules/module-extensions.cpp
+
     src/flight-computer/extensions/extension.cpp
     src/flight-computer/extensions/simulated-extensions.cpp
     src/flight-computer/extensions/bmp180.cpp
     src/flight-computer/extensions/ds18b20.cpp
-    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/extensions/samm8q.cpp
+    src/flight-computer/extensions/bme280.cpp
+
     src/flight-computer/extension-interface/i2c.cpp
     src/flight-computer/extension-interface/one-wire.cpp
+    
+    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/ubx.cpp
 )
 target_link_libraries(test-04 i2c)
 set_target_properties( test-04 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-04/ )

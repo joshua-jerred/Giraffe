@@ -93,5 +93,7 @@ void ExtensionsModule::addExtension(ExtensionMetadata meta_data) {
         extensions_.push_back(new DS18B20(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "SAMM8Q") {
         extensions_.push_back(new SAMM8Q(p_data_stream_, meta_data));
+    } else if (meta_data.extension_type == "BME280") {
+        extensions_.push_back(new BME280(p_data_stream_, meta_data));
     }
 }

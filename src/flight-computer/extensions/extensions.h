@@ -251,7 +251,8 @@ private:
     int configure();
 
     int readCompensationData();
-    int readData(RawEnvironmentData &raw_data);
+    int readData();
+    int processData();
 
     int bus_number_;
     int device_address_;
@@ -260,6 +261,12 @@ private:
     TempeCompData temp_comp_data_ = {};
     PressCompData press_comp_data_ = {};
     HumCompData hum_comp_data_ = {};
+
+    RawEnvironmentData raw_data_ = {};
+
+    float temp_c_ = 0.0;
+    float press_mbar_ = 0.0;
+    float rh_ = 0.0;
 };
 /*
 -------------------------------------------------------------------------------

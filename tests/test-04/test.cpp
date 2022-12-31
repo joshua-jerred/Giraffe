@@ -25,8 +25,8 @@ protected:
     virtual void TearDown() {
 
     }
-    DataStream *data_stream_;
-    modules::ExtensionsModule *extensions_module_;
+    DataStream *data_stream_ = nullptr;
+    modules::ExtensionsModule *extensions_module_ = nullptr;
 };
 
 TEST_F(ExtensionsModuleTests, StartAndStop) {

@@ -73,3 +73,23 @@
  - 1WNR: One Wire Not Readable (Bus was read, but data was non-integer)
  - 1WNDP: One Wire No Data Present
  - GRE: General Read Error
+
+### BME280
+ - HSK_F: Failed to handshake with BME280 (I2C error)
+ - HSK_U: Unrecognized handshake response from BME280
+ - I2C_CB: Bad configuration for I2C bus (bus num out of range)
+ - I2C_CA: Bad configuration for I2C address (address out of range)
+ - I2C_BE: Failed to open I2C bus
+ - I2C_AE: Failed to configure I2C address
+ - I2C_CU: Unknown error connecting to I2C bus
+ - CFG: Failed to write configuration to BME280
+ - CD_R: I2C errors while reading calibration data
+ - PRS: Error parsing data
+ - RD: Error reading data
+ - DIV0: Prevented division by zero in temperature or pressure calculation, should be accompanied by another error
+ - TBAR: Temperature below accuracy range (-40 C)
+ - TAAR: Temperature above accuracy range (85 C)
+ - PBAR: Pressure below accuracy range (305 hPa)
+ - PAAR: Pressure above accuracy range (1100 hPa)
+ - RHOR: Relative Humidity out of range (0-100%)
+

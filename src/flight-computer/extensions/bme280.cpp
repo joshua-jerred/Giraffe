@@ -26,9 +26,69 @@ BME280::~BME280() {
 }
 
 int BME280::runner() {
-	if (handshake() != 0) {
-		error("BME280: Handshake failed");
+	// Connect to the I2C bus and configure the device address
+	int result = i2c_bus_.connect();
+	if (result != 0 || i2c_bus_.status() != I2C_STATUS::OK) {
+		setStatus(ExtensionStatus::ERROR);
+
+		I2C_STATUS status = i2c_bus_.status();
+		if (status == I2C_STATUS::CONFIG_ERROR_BUS) {
+			error("I2C_CB");
+		} else if (status == I2C_STATUS::CONFIG_ERROR_ADDRESS) {
+			error("I2C_CA");
+		} else if (status == I2C_STATUS::BUS_ERROR) {
+			error("I2C_BE");
+		} else if (status == I2C_STATUS::ADDRESS_ERROR) {
+			error("I2C_AE");
+		} else {
+			error("I2C_CU");
+		}
+		return -1;
 	}
+
+	result = handshake();
+	if (result == 0) { // Good handshake
+		setStatus(ExtensionStatus::RUNNING);
+	} else if (result == -1) {
+		setStatus(ExtensionStatus::ERROR);
+		error("HSK_F");
+		return -1;
+	} else {
+		setStatus(ExtensionStatus::ERROR);
+		error("HSK_U");
+		return -1;	
+	}
+
+	result = configure();
+	if (result != 0) {
+		setStatus(ExtensionStatus::ERROR);
+		error("CFG");
+		return -1;
+	}
+
+	result = readCompensationData();
+	if (result != 0) {
+		error("CD_R");
+	}
+
+	while (!stop_flag_) {
+		if (readData() == 0) {
+			if (processData() == 0) {
+				sendData("TEMP_C", temp_c_);
+				sendData("PRES_MBAR", press_mbar_);
+				sendData("RH_PER", rh_);
+			} else {
+				error("PRS");
+			}
+		} else {
+			error("RD");
+		}
+		std::this_thread::sleep_for(
+            std::chrono::milliseconds(getUpdateInterval())
+        );
+	}
+
+	setStatus(ExtensionStatus::STOPPED);
 	return 0;
 }
 
@@ -179,10 +239,9 @@ int BME280::readCompensationData() {
  * 0xFE data[7] 7:0 LSB - 8 bits
  * [15:8] [7:0]
  * 
- * @param raw_data 
  * @return int 0 on success, -1 on failure
  */
-int BME280::readData(RawEnvironmentData &raw_data) {
+int BME280::readData() {
 	const uint8_t kDataRegisterHead = 0xF7; 
 
 	int bytes_read = 0;
@@ -193,9 +252,85 @@ int BME280::readData(RawEnvironmentData &raw_data) {
 		return -1;
 	}
 
-	raw_data.pressure = (data[0] << 12) | (data[1] << 4) | (data[2] >> 4);
-	raw_data.temperature = (data[3] << 12) | (data[4] << 4) | (data[5] >> 4);
-	raw_data.humidity = (data[6] << 8) | data[7];
+	raw_data_.pressure = (data[0] << 12) | (data[1] << 4) | (data[2] >> 4);
+	raw_data_.temperature = (data[3] << 12) | (data[4] << 4) | (data[5] >> 4);
+	raw_data_.humidity = (data[6] << 8) | data[7];
+
+	return 0;
+}
+
+/**
+ * @brief Processes the raw environmental data into known units using the
+ * compensation data.
+ * @details This is directly copied from the BME280 datasheet, but with
+ * different variable names.
+*/
+int BME280::processData() {
+	// Temperature (See section 4.2.3 of the datasheet)
+	int32_t tvar1, tvar2, T;
+	tvar1 = ((((raw_data_.temperature >> 3) 
+			- ((int32_t)temp_comp_data_.dig_T1 << 1))) 
+			* ((int32_t)temp_comp_data_.dig_T2)) >> 11;
+	tvar2 = (((((raw_data_.temperature >> 4)
+			- ((int32_t)temp_comp_data_.dig_T1))
+			* ((raw_data_.temperature >> 4)
+			- ((int32_t)temp_comp_data_.dig_T1))) >> 12)
+			* ((int32_t)temp_comp_data_.dig_T3)) >> 14;
+	int32_t t_fine_ = tvar1 + tvar2;
+	T = (t_fine_ * 5 + 128) >> 8;
+	temp_c_ = (float) T / 100.0;
+
+	if (temp_c_ < -40) {
+		error("TBAR");
+	} else if (temp_c_ > 65) {
+		error("TAAR");
+	}
+
+	// Pressure (See section 4.2.3 of the datasheet)
+	int64_t pvar1, pvar2, p;
+	pvar1 = ((int64_t)t_fine_) - 128000;
+	pvar2 = pvar1 * pvar1 * (int64_t)press_comp_data_.dig_P6;
+	pvar2 = pvar2 + ((pvar1 * (int64_t)press_comp_data_.dig_P5) << 17);
+	pvar2 = pvar2 + (((int64_t)press_comp_data_.dig_P4) << 35);
+	pvar1 = ((pvar1 * pvar1 * (int64_t)press_comp_data_.dig_P3) >> 8) 
+			+ ((pvar1 * (int64_t)press_comp_data_.dig_P2) << 12);
+	pvar1 = (((((int64_t)1) << 47) + pvar1)) 
+			* ((int64_t)press_comp_data_.dig_P1) >> 33;
+	if (pvar1 == 0) {
+		error("DIV0");
+		return -1;
+	}
+	p = 1048576 - raw_data_.pressure;
+	p = (((p << 31) - pvar2) * 3125) / pvar1;
+	pvar1 = (((int64_t)press_comp_data_.dig_P9) * (p >> 13) * (p >> 13)) >> 25;
+	pvar2 = (((int64_t)press_comp_data_.dig_P8) * p) >> 19;
+	p = ((p + pvar1 + pvar2) >> 8) + (((int64_t)press_comp_data_.dig_P7) << 4);
+	press_mbar_ = ((float) p / 256.0) / 100.0;
+
+	if (press_mbar_ < 300) {
+		error("PBAR");
+	} else if (press_mbar_ > 1100) {
+		error("PAAR");
+	}
+
+	// Humidity (See section 4.2.3 of the datasheet)
+	int32_t h;
+	h = (t_fine_ - ((int32_t)76800));
+	h = (((((raw_data_.humidity << 14) - (((int32_t)hum_comp_data_.dig_H4) << 20)
+			- (((int32_t)hum_comp_data_.dig_H5) * h)) + ((int32_t)16384)) >> 15)
+			* (((((((h * ((int32_t)hum_comp_data_.dig_H6)) >> 10)
+			* (((h * ((int32_t)hum_comp_data_.dig_H3)) >> 11)
+			+ ((int32_t)32768))) >> 10) + ((int32_t)2097152))
+			* ((int32_t)hum_comp_data_.dig_H2) + 8192) >> 14));
+	h = (h - (((((h >> 15) * (h >> 15)) >> 7) * ((int32_t)hum_comp_data_.dig_H1))
+			>> 4));
+	h = (h < 0) ? 0 : h;
+	h = (h > 419430400) ? 419430400 : h;
+	rh_ = (float) (h >> 12) / 1024.0;
+
+	if (rh_ < 0 || rh_ > 100) {
+		error("RHOR");
+	}
 
 	return 0;
 }
