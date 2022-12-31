@@ -36,6 +36,17 @@
             "flight-critical": true,
             "i2c-bus": 1,
             "i2c-address": "0x42"
+        },
+        {
+            "id": 4,
+            "name": "pth_sen",
+            "type": "BME280",
+            "category": "external_sensor",
+            "interface": "i2c",
+            "update-interval": 1000,
+            "flight-critical": false,
+            "i2c-bus": 1,
+            "i2c-address": "0x76"
         }
         
     ],
