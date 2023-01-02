@@ -11,7 +11,8 @@
 
 #define BME280_ADDRESS 0x76
 
-BME280::BME280(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
+
+extension::BME280::BME280(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
     Extension(p_data_stream, extension_metadata), 
 	bus_number_(extension_metadata.extra_args.I2C_bus),
 	device_address_(BME280_ADDRESS),
@@ -21,11 +22,11 @@ BME280::BME280(DataStream *p_data_stream, ExtensionMetadata extension_metadata) 
 
 }
 
-BME280::~BME280() {
+extension::BME280::~BME280() {
 
 }
 
-int BME280::runner() {
+int extension::BME280::runner() {
 	// Connect to the I2C bus and configure the device address
 	int result = i2c_bus_.connect();
 	if (result != 0 || i2c_bus_.status() != I2C_STATUS::OK) {
@@ -98,7 +99,7 @@ int BME280::runner() {
  * @return int 0 on success, -1 on I2C failure, 
  * or the value of the register on failure.
  */
-int BME280::handshake() {
+int extension::BME280::handshake() {
 	const uint8_t kReg_Id = 0xD0;
 	const uint8_t kExpectedResult = 0x60;
 
@@ -112,7 +113,7 @@ int BME280::handshake() {
 	}
 }
 
-int BME280::reset() {
+int extension::BME280::reset() {
 	const uint8_t kReg_Reset = 0xE0;
 	const uint8_t kResetCommand = 0xB6;
 
@@ -130,7 +131,7 @@ int BME280::reset() {
  * 
  * @return int 
  */
-int BME280::configure() {
+int extension::BME280::configure() {
 	const uint8_t kReg_Ctrl_Hum = 0xF2; // Humidity oversampling (Written to before Ctrl_Meas)
 	const uint8_t kReg_Ctrl_Meas = 0xF4; // Temp and pressure oversampling
 	const uint8_t kReg_Config = 0xF5; // Rate, filter, interface
@@ -159,7 +160,7 @@ int BME280::configure() {
 	return 0;
 }
 
-int BME280::readCompensationData() {
+int extension::BME280::readCompensationData() {
 	const uint8_t kCalibrationDataHead_sec1 = 0x88; // Head of calibration data
 	const uint8_t kCalibrationDataLength_sec1 = 26; // Length of calibration data (section 1)
 
@@ -241,7 +242,7 @@ int BME280::readCompensationData() {
  * 
  * @return int 0 on success, -1 on failure
  */
-int BME280::readData() {
+int extension::BME280::readData() {
 	const uint8_t kDataRegisterHead = 0xF7; 
 
 	int bytes_read = 0;
@@ -265,7 +266,7 @@ int BME280::readData() {
  * @details This is directly copied from the BME280 datasheet, but with
  * different variable names.
 */
-int BME280::processData() {
+int extension::BME280::processData() {
 	// Temperature (See section 4.2.3 of the datasheet)
 	int32_t tvar1, tvar2, T;
 	tvar1 = ((((raw_data_.temperature >> 3) 

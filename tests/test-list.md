@@ -12,3 +12,4 @@ Uses gtest
 - [Test 08] - u-blox UBX Utility test
 - [Test 09] - u-blox UBX Manual Test
 - [Test 10] - BME280 Extension
+- [Test 11] - SYSINFO Extension

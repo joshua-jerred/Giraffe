@@ -99,3 +99,23 @@ jobs:
       run: cd build && make test-08
     - name: run test
       run: cd bin/tests/test-08 && ./test-08
+
+  test-10:
+    name: test-10 (BME280 Extension)
+    runs-on: self-hosted
+    needs: [test-01, test-05]
+    steps:
+    - name: build
+      run: cd build && make test-10
+    - name: run test
+      run: cd bin/tests/test-10 && ./test-10
+
+  test-11:
+    name: test-11 (SYSINFO Extension)
+    runs-on: self-hosted
+    needs: [test-01]
+    steps:
+    - name: build
+      run: cd build && make test-11
+    - name: run test
+      run: cd bin/tests/test-11 && ./test-11

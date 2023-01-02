@@ -47,8 +47,16 @@
             "flight-critical": false,
             "i2c-bus": 1,
             "i2c-address": "0x76"
+        },
+        {
+            "id": 5,
+            "name": "sys",
+            "type": "SYSINFO",
+            "category": "internal_sensor",
+            "interface": "internal",
+            "update-interval": 1000,
+            "flight-critical": false
         }
-        
     ],
     "debugging": {
         "console-enabled": false,

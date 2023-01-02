@@ -34,7 +34,7 @@ protected:
 };
 
 TEST_F(BMP180Test, BMP180Test1) {
-    BMP180 bmp180(p_data_stream_, extension_metadata_);
+    extension::BMP180 bmp180(p_data_stream_, extension_metadata_);
     bmp180.start();
     sleep(1);
     bmp180.stop();

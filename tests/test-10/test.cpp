@@ -34,7 +34,7 @@ protected:
 };
 
 TEST_F(BME280Test, BME280Test1) {
-    BME280 bme280(p_data_stream_, extension_metadata_);
+    extension::BME280 bme280(p_data_stream_, extension_metadata_);
     bme280.start();
     sleep(1);
     bme280.stop();

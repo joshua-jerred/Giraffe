@@ -71,7 +71,7 @@ TEST_F(DS18B20Test, OneWireBadDevice) {
 }
 
 TEST_F(DS18B20Test, DS18B20Test) {
-    DS18B20 ds18b20(p_data_stream_, extension_metadata_);
+    extension::DS18B20 ds18b20(p_data_stream_, extension_metadata_);
     ds18b20.start();
     sleep(1);
     ds18b20.stop();

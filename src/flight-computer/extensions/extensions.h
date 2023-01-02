@@ -17,6 +17,9 @@
 #include "utility-data-stream.h"
 #include "extension-interface.h"
 
+namespace extension {
+
+
 /**
  * @brief This class is the base class for all extensions. Extensions include
  * all sensors, actuators, radios, internal data collection tools, etc.
@@ -268,6 +271,14 @@ private:
     float press_mbar_ = 0.0;
     float rh_ = 0.0;
 };
+
+class SYSINFO: public Extension {
+public:
+    SYSINFO(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
+    ~SYSINFO();
+    int runner();
+};
+
 /*
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -347,5 +358,7 @@ class DRA818V_SIM :public Extension {
   ~DRA818V_SIM();
   int runner();
 };
+
+} // namespace extension
 
 #endif // EXTENSION_H_

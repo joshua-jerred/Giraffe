@@ -1,7 +1,7 @@
 /**
  * @file test.cpp
  * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief Tests for the I2C Utility
+ * @brief u-blox UBX Manual Test
  * @date 2022-12-26
  * @copyright Copyright (c) 2022
  * @version 0.1.0

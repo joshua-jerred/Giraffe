@@ -52,6 +52,7 @@ add_executable(giraffe-flight-software
     src/flight-computer/extensions/ds18b20.cpp
     src/flight-computer/extensions/samm8q.cpp
     src/flight-computer/extensions/bme280.cpp
+    src/flight-computer/extensions/sysinfo.cpp
 
     src/flight-computer/telemetry/mwav.cpp
     src/flight-computer/telemetry/utilities/wavgen.cpp
@@ -127,6 +128,7 @@ add_executable(test-04
     src/flight-computer/extensions/ds18b20.cpp
     src/flight-computer/extensions/samm8q.cpp
     src/flight-computer/extensions/bme280.cpp
+    src/flight-computer/extensions/sysinfo.cpp
 
     src/flight-computer/extension-interface/i2c.cpp
     src/flight-computer/extension-interface/one-wire.cpp
@@ -201,6 +203,15 @@ add_executable(test-10
 target_link_libraries(test-10 i2c)
 set_target_properties( test-10 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-10/ )
 target_link_libraries(test-10 gtest_main)
+# test-11 - SYSINFO Extension --------------------------------------------------
+add_executable(test-11
+    tests/test-11/test.cpp
+    src/flight-computer/extensions/sysinfo.cpp
+    src/flight-computer/extensions/extension.cpp
+    src/flight-computer/utilities/utility-data-stream.cpp
+)
+set_target_properties( test-11 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-11/ )
+target_link_libraries(test-11 gtest_main)
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------

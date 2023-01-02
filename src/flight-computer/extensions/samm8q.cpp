@@ -15,7 +15,7 @@
 static const uint8_t kNavClass = 0x01;
 static const uint8_t kNavPvt = 0x07; 
 
-SAMM8Q::SAMM8Q(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
+extension::SAMM8Q::SAMM8Q(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
     Extension(p_data_stream, extension_metadata),
     bus_number_(extension_metadata.extra_args.I2C_bus),
     device_address_(SAMM8Q_I2C_ADDRESS),
@@ -24,11 +24,11 @@ SAMM8Q::SAMM8Q(DataStream *p_data_stream, ExtensionMetadata extension_metadata) 
 }
 
 
-SAMM8Q::~SAMM8Q() {
+extension::SAMM8Q::~SAMM8Q() {
 
 }
 
-int SAMM8Q::runner() {
+int extension::SAMM8Q::runner() {
     int result = i2c_.connect();
     data_expiration_time_ = 20; // Data is good for 20 seconds
 	if (result != 0 || i2c_.status() != I2C_STATUS::OK) {
@@ -116,7 +116,7 @@ int SAMM8Q::runner() {
     return 0;
 }
 
-bool SAMM8Q::configure() {
+bool extension::SAMM8Q::configure() {
     ubx::ACK ack;
     
     if (ubx::getStreamSize(i2c_) != 0) { // Restart the device if it is already running

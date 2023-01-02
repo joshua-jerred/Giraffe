@@ -163,7 +163,7 @@ public:
 private:
     void addExtension(ExtensionMetadata meta_data);
 
-    std::vector<Extension*> extensions_ = {};
+    std::vector<extension::Extension*> extensions_ = {};
     DataStream *p_data_stream_;
     ConfigData config_data_;
 };

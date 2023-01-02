@@ -9,18 +9,18 @@
 
 #include "extensions.h"
 
-DS18B20::DS18B20(DataStream *p_data_stream, 
+extension::DS18B20::DS18B20(DataStream *p_data_stream, 
                 ExtensionMetadata extension_metadata)
 			   : Extension(p_data_stream, extension_metadata),
 			   one_wire_device_id_(extension_metadata.extra_args.one_wire_id),
                one_wire_device_(one_wire_device_id_) {
 }
 
-DS18B20::~DS18B20() {
+extension::DS18B20::~DS18B20() {
 	
 }
 
-int DS18B20::runner() {
+int extension::DS18B20::runner() {
     if (one_wire_device_.status() != ONEWIRE_STATUS::OK) {
         setStatus(ExtensionStatus::ERROR);
 		error("1WNF");
@@ -40,7 +40,7 @@ int DS18B20::runner() {
 	return 0;
 }
 
-int DS18B20::readData() {
+int extension::DS18B20::readData() {
 	raw_data_ = one_wire_device_.read_temperature(); // returns empty string on failure
 	
 	if (raw_data_.size() == 0) {

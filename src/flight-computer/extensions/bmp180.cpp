@@ -44,7 +44,7 @@
 
 #define BMP180_ADDRESS 0x77
 
-BMP180::BMP180(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
+extension::BMP180::BMP180(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
     Extension(p_data_stream, extension_metadata), 
 	bus_number_(extension_metadata.extra_args.I2C_bus),
 	device_address_(BMP180_ADDRESS),
@@ -54,11 +54,11 @@ BMP180::BMP180(DataStream *p_data_stream, ExtensionMetadata extension_metadata) 
 
 }
 
-BMP180::~BMP180() {
+extension::BMP180::~BMP180() {
 
 }
 
-int BMP180::runner() {
+int extension::BMP180::runner() {
 	// Connect to the I2C bus and configure the device address
 	int result = i2c_bus_.connect();
 	if (result != 0 || i2c_bus_.status() != I2C_STATUS::OK) {
@@ -138,7 +138,7 @@ int BMP180::runner() {
     return 0;
 }
 
-int BMP180::readCalibrationData() {
+int extension::BMP180::readCalibrationData() {
 	AC1_ = readShort(REG_CAL_AC1);
 	AC2_ = readShort(REG_CAL_AC2);
 	AC3_ = readShort(REG_CAL_AC3);
@@ -174,7 +174,7 @@ int BMP180::readCalibrationData() {
 	return 0;
 }
 
-int BMP180::readRawTemperature() {
+int extension::BMP180::readRawTemperature() {
     if (i2c_bus_.writeByteToReg(REG_CTRL, CMD_READTEMP) != 0) { // write 0x2E into reg 0xF4
 		return -1;
 	}
@@ -199,7 +199,7 @@ int BMP180::readRawTemperature() {
 	return 0;
 }
 
-int BMP180::readRawPressure() {
+int extension::BMP180::readRawPressure() {
     volatile int MSB;
 	volatile int LSB;
 	volatile int XLSB;
@@ -250,7 +250,7 @@ int BMP180::readRawPressure() {
 	return 0;
 }
 
-int BMP180::calculateTemperature() { /** @todo POSSIBLE ARITHMETIC ERRORS*/
+int extension::BMP180::calculateTemperature() { /** @todo POSSIBLE ARITHMETIC ERRORS*/
 	if (X1_ + MD_ == 0) { // prevent divide by zero
 		error("DIV0");
 		return -1;
@@ -269,7 +269,7 @@ int BMP180::calculateTemperature() { /** @todo POSSIBLE ARITHMETIC ERRORS*/
 	return 0;
 }
 
-int BMP180::calculatePressure() {
+int extension::BMP180::calculatePressure() {
 	B6_ = B5_ - 4000;
 
 	// calculate B3
@@ -323,7 +323,7 @@ int BMP180::calculatePressure() {
 	return 0;
 }
 
-int BMP180::handshake() {
+int extension::BMP180::handshake() {
 	int i = i2c_bus_.readByteFromReg(REG_ID);
 	if (i == 0x55) {
 		return 0; // Good handshake
@@ -334,7 +334,7 @@ int BMP180::handshake() {
 	}
 }
 
-unsigned short BMP180::readShortUnsigned(int register_address) { // pass in the lower register number
+unsigned short extension::BMP180::readShortUnsigned(int register_address) { // pass in the lower register number
 	int MSB, LSB;
 	MSB = i2c_bus_.readByteFromReg(register_address);
 	LSB = i2c_bus_.readByteFromReg(register_address + 1);
@@ -347,7 +347,7 @@ unsigned short BMP180::readShortUnsigned(int register_address) { // pass in the 
 	return (unsigned short)value;
 }
 
-short BMP180::readShort(int register_address) { // Used readShortUnsigned() and casts to short
+short extension::BMP180::readShort(int register_address) { // Used readShortUnsigned() and casts to short
 	int value; 
 	value = readShortUnsigned(register_address);
 
