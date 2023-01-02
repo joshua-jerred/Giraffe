@@ -62,3 +62,10 @@ table {
     width: 40%;
     padding: 20px;
 }
+
+#errors-content {
+    display: flex;
+    margin-top: 5px;
+    width: 100%;
+    background-color: #977359;
+}

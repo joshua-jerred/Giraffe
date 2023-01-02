@@ -120,6 +120,17 @@ function updateDynamic(data) {
         div.innerHTML = key + ': ' + extension_status[key];
         extension_status_div.appendChild(div);
     }
+
+    let errors_div = document.getElementById('error-log');
+    errors_div.innerHTML = '';
+    for (let key in data['errors']) {
+        let div = document.createElement('div');
+        let source = data['errors'][key]['source'];
+        let code = data['errors'][key]['code'];
+        let info = data['errors'][key]['info'];
+        div.innerHTML = source + ': ' + code + ' ' + info;
+        errors_div.appendChild(div);
+    }
 }
 
 function shutdownServer() {

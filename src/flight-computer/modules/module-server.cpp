@@ -208,10 +208,22 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 			extension_status[key] = status_str;
 		}
 
+		json errors = {};
+		ErrorFrame error_snapshot = p_data_stream_->getErrorFrameCopy();
+		int k = 0;
+		for (auto const &[key, error] : error_snapshot) {
+			errors[std::to_string(k++)] = {
+				{"source", error.source},
+				{"code", error.error_code},
+				{"info", error.info}
+			};
+		}
+
 		json dynamic_data = {
 			{"dynamic", data},
 			{"tx-queue", tx_queue_json},
-			{"extension-status", extension_status}
+			{"extension-status", extension_status},
+			{"errors", errors}
 		};
 
 		socket << dynamic_data.dump();  // Send the data
