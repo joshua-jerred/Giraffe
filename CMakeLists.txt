@@ -53,6 +53,7 @@ add_executable(giraffe-flight-software
     src/flight-computer/extensions/samm8q.cpp
     src/flight-computer/extensions/bme280.cpp
     src/flight-computer/extensions/sysinfo.cpp
+    src/flight-computer/extensions/max17049.cpp
 
     src/flight-computer/telemetry/mwav.cpp
     src/flight-computer/telemetry/utilities/wavgen.cpp
@@ -212,6 +213,17 @@ add_executable(test-11
 )
 set_target_properties( test-11 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-11/ )
 target_link_libraries(test-11 gtest_main)
+# test-12 - MAX17049 Extension -------------------------------------------------
+add_executable(test-12
+    tests/test-12/test.cpp
+    src/flight-computer/extensions/max17049.cpp
+    src/flight-computer/extensions/extension.cpp
+    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/extension-interface/i2c.cpp
+)
+target_link_libraries(test-12 i2c)
+set_target_properties( test-12 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-12/ )
+target_link_libraries(test-12 gtest_main)
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------

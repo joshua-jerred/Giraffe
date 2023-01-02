@@ -5,7 +5,7 @@
 		}
 	],
 	"settings": {
-		"doxdocgen.file.versionTag": "@version 0.0.9",
+		"doxdocgen.file.versionTag": "@version 0.3",
 		"doxdocgen.generic.authorName": "Joshua Jerred",
 		"doxdocgen.generic.authorEmail": "github.com/joshua-jerred",
 		"doxdocgen.file.fileOrder": [
