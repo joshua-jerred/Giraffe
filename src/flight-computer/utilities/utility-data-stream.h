@@ -104,6 +104,8 @@ public:
     void updateModuleStatus(std::string module_name, ModuleStatus status);
     std::unordered_map<std::string, ExtensionStatus> getExtensionStatuses();
 
+    std::mutex& getI2CBusLock();
+    
 private:
     int num_data_packets_ = 0;
     int total_data_packets_ = 0;
@@ -136,6 +138,8 @@ private:
     std::mutex module_status_lock_ = std::mutex();
     std::unordered_map<std::string, ModuleStatus> module_status_ = 
         std::unordered_map<std::string, ModuleStatus>();
+
+    std::mutex i2c_bus_lock_ = std::mutex();
 };
 
 #endif // UTILITY_DATA_STREAM_H_

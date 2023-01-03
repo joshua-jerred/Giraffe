@@ -20,7 +20,7 @@ extension::MAX17049::MAX17049(
         Extension(p_data_stream, extension_metadata),
         bus_number_(extension_metadata.extra_args.I2C_bus),
         device_address_(MAX17049_ADDRESS),
-        i2c_bus_(I2C(bus_number_, device_address_)) {
+        i2c_bus_(I2C(bus_number_, device_address_, p_data_stream->getI2CBusLock())) {
     
 }
 

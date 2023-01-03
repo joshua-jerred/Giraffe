@@ -4,6 +4,7 @@
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
+#include <mutex>
 extern "C" {
     #include <linux/i2c-dev.h>
     #include <i2c/smbus.h>
@@ -12,11 +13,12 @@ extern "C" {
 #include "utility-configurables.h"
 #include "extension-interface.h"
 
-I2C::I2C(int bus_number, int address):
+I2C::I2C(int bus_number, int address, std::mutex &bus_lock):
     status_(I2C_STATUS::NOT_CONNECTED), 
     bus_number_(bus_number),
     address_(address),
-    i2c_fd_(-1){
+    i2c_fd_(-1),
+    bus_lock_(bus_lock){
 
     sprintf(file_name_, "/dev/i2c-%d", bus_number_);
 
@@ -74,9 +76,10 @@ int32_t I2C::writeByte(uint8_t data) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
-
+    bus_lock_.lock();
     volatile int32_t result = i2c_smbus_write_byte(i2c_fd_, data);
-    
+    bus_lock_.unlock();
+
     if (result < 0) {
         status_ = I2C_STATUS::WRITE_ERROR;
         return -1;
@@ -89,8 +92,9 @@ int32_t I2C::writeByteToReg(uint8_t reg_address, uint8_t data) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
-
+    bus_lock_.lock();
     volatile int32_t result = i2c_smbus_write_byte_data(i2c_fd_, reg_address, data);
+    bus_lock_.unlock();
     if (result < 0) {
         status_ = I2C_STATUS::WRITE_ERROR;
         return -1;
@@ -105,7 +109,10 @@ int I2C::writeChunk(uint8_t* data, uint8_t length) {
         return -1;
     }
 
+    bus_lock_.lock();
     int bytes_written = write(i2c_fd_, data, length);
+    bus_lock_.unlock();
+
     if (bytes_written < 0) {
         status_ = I2C_STATUS::WRITE_ERROR;
         return -1;
@@ -119,8 +126,10 @@ int32_t I2C::readByte() {
         return -1;
     }
 
+    bus_lock_.lock();
     volatile int32_t result = i2c_smbus_read_byte(i2c_fd_);
-    
+    bus_lock_.unlock();
+
     if (result < 0) {
         status_ = I2C_STATUS::READ_ERROR;
         return -1;
@@ -134,7 +143,9 @@ int32_t I2C::readByteFromReg(uint8_t reg_address) {
         return -1;
     }
 
+    bus_lock_.lock();
     volatile int32_t result = i2c_smbus_read_byte_data(i2c_fd_, reg_address);
+    bus_lock_.unlock();
 
     if (result < 0) {
         status_ = I2C_STATUS::READ_ERROR;
@@ -149,17 +160,21 @@ int I2C::readChunkFromReg(uint8_t* data, int length, uint8_t reg_address) {
         return -1;
     }
 
+    bus_lock_.lock();
     int status = write(i2c_fd_, &reg_address, 1);
     if (status < 0) {
         status_ = I2C_STATUS::WRITE_ERROR;
+        bus_lock_.unlock();
         return -1;
     }
 
     int bytes_read = read(i2c_fd_, data, length);
     if (bytes_read < 0) {
         status_ = I2C_STATUS::READ_ERROR;
+        bus_lock_.unlock();
         return -1;
     } else {
+        bus_lock_.unlock();
         return bytes_read;
     }
 }

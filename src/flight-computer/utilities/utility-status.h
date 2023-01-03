@@ -44,6 +44,7 @@ enum class ModuleStatus {
 };
 
 enum class I2C_STATUS {
+    BUS_LOCK_CONFIG_ERROR, // Bus lock pointer is null
     NOT_CONNECTED,
     OK,
     CONFIG_ERROR_BUS,

@@ -2,6 +2,7 @@
 #define EXTENSION_INTERFACE_H_
 
 #include <string>
+#include <mutex>
 
 #include "utility-status.h"
 #include "utility-configurables.h"
@@ -59,7 +60,7 @@ private:
 
 class I2C {
 public:
-    I2C(int bus_number, int address);
+    I2C(int bus_number, int address, std::mutex &bus_lock);
     ~I2C();
 
     int connect();
@@ -84,6 +85,7 @@ private:
     int address_;
     char file_name_[20];
     int i2c_fd_;
+    std::mutex &bus_lock_;
 };
 
 class OneWire {

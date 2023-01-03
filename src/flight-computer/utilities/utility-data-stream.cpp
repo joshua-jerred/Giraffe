@@ -293,3 +293,7 @@ std::ostream& operator << (std::ostream& o, const ErrorStreamPacket& e)
     "\t Info: " << e.info << std::endl;
     return o;
 }
+
+std::mutex& DataStream::getI2CBusLock() {
+	return i2c_bus_lock_;
+}

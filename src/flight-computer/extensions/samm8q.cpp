@@ -19,7 +19,7 @@ extension::SAMM8Q::SAMM8Q(DataStream *p_data_stream, ExtensionMetadata extension
     Extension(p_data_stream, extension_metadata),
     bus_number_(extension_metadata.extra_args.I2C_bus),
     device_address_(SAMM8Q_I2C_ADDRESS),
-    i2c_(I2C(bus_number_, device_address_)) {
+    i2c_(I2C(bus_number_, device_address_, p_data_stream->getI2CBusLock())) {
     
 }
 

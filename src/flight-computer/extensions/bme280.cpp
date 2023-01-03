@@ -16,7 +16,7 @@ extension::BME280::BME280(DataStream *p_data_stream, ExtensionMetadata extension
     Extension(p_data_stream, extension_metadata), 
 	bus_number_(extension_metadata.extra_args.I2C_bus),
 	device_address_(BME280_ADDRESS),
-	i2c_bus_(I2C(bus_number_, device_address_))
+	i2c_bus_(I2C(bus_number_, device_address_, p_data_stream->getI2CBusLock()))
 	//raw_calibration_data_(0) 
 	{
 
