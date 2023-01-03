@@ -7,6 +7,7 @@
  * @version 0.1.0
  */
 
+#include <mutex>
 #include "gtest/gtest.h"
 #include "ubx.h"
 
@@ -36,6 +37,7 @@ class UBXTest : public ::testing::Test {
    protected:
     virtual void SetUp() {}
     virtual void TearDown() {}
+    std::mutex i2c_mutex_ = std::mutex();
 };
 
 TEST_F(UBXTest, UBXMessageTest) {
@@ -68,7 +70,7 @@ TEST_F(UBXTest, UBXMessageTest) {
 
 TEST_F(UBXTest, UBXSetDDCandAckTest) {
     // Test the setProtocolDDC function
-    I2C i2c(BUS_NUMBER, DEVICE_ADDRESS);
+    I2C i2c(BUS_NUMBER, DEVICE_ADDRESS, i2c_mutex_);
     i2c.connect();
     ASSERT_EQ(i2c.status(), I2C_STATUS::OK) << "I2C connection failed";
 
@@ -95,7 +97,7 @@ TEST_F(UBXTest, UBXGenerateAndDetectNAK) {
 
     ubx::UBXMessage message(class_id, message_id, payload_length, payload);
     
-    I2C i2c(BUS_NUMBER, DEVICE_ADDRESS);
+    I2C i2c(BUS_NUMBER, DEVICE_ADDRESS, i2c_mutex_);
     i2c.connect();
     ASSERT_EQ(i2c.status(), I2C_STATUS::OK) << "I2C connection failed";
     bool result = ubx::writeUBX(i2c, message);
@@ -108,7 +110,7 @@ TEST_F(UBXTest, UBXGenerateAndDetectNAK) {
 }
 
 TEST_F(UBXTest, UBXDetectWriteError) {
-    I2C i2c(0x00, 0x00); // Invalid bus number
+    I2C i2c(0x00, 0x00, i2c_mutex_); // Invalid bus number
     i2c.connect();
     ASSERT_EQ(i2c.status(), I2C_STATUS::CONFIG_ERROR_BUS) << "I2C connection did not fail as expected";
     ubx::ACK ack = ubx::setProtocolDDC(i2c, false);
@@ -116,7 +118,7 @@ TEST_F(UBXTest, UBXDetectWriteError) {
 }
 
 TEST_F(UBXTest, UBXNoACK) {
-    I2C i2c(BUS_NUMBER, DEVICE_ADDRESS);
+    I2C i2c(BUS_NUMBER, DEVICE_ADDRESS, i2c_mutex_);
     i2c.connect();
     ASSERT_EQ(i2c.status(), I2C_STATUS::OK) << "I2C connection failed";
 
@@ -130,7 +132,7 @@ TEST_F(UBXTest, UBXFullConfigTest) {
     static const uint8_t kNavClass = 0x01;
     static const uint8_t kNavPvt = 0x07; // Position Velocity Time Solution ID
 
-    I2C i2c(BUS_NUMBER, DEVICE_ADDRESS);
+    I2C i2c(BUS_NUMBER, DEVICE_ADDRESS, i2c_mutex_);
     i2c.connect();
     ASSERT_EQ(i2c.status(), I2C_STATUS::OK) << "I2C connection failed";
 

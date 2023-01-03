@@ -7,6 +7,7 @@
  * @version 0.1.0
  */
 
+#include <mutex>
 #include "gtest/gtest.h"
 
 #include "extension-interface.h"
@@ -26,22 +27,23 @@ protected:
     }
     virtual void TearDown() {
     }
+    std::mutex i2c_mutex_ = std::mutex();
 };
 
 TEST_F(I2CUtilityTest, I2CTestBadBusNumber) {
-    I2C i2c(0, 0x00);
+    I2C i2c(0, 0x00, i2c_mutex_);
     EXPECT_EQ(i2c.status(), I2C_STATUS::NOT_CONNECTED);
 }
 
 TEST_F(I2CUtilityTest, I2CTestBadAddress) {
-    I2C i2c(GOOD_BUS_NUMBER, 0x00);
+    I2C i2c(GOOD_BUS_NUMBER, 0x00, i2c_mutex_);
     EXPECT_EQ(i2c.status(), I2C_STATUS::NOT_CONNECTED);
     EXPECT_EQ(i2c.connect(), -1);
     EXPECT_EQ(i2c.status(), I2C_STATUS::CONFIG_ERROR_ADDRESS);
 }
 
 TEST_F(I2CUtilityTest, I2CTestNoDevice) {
-    I2C i2c(GOOD_BUS_NUMBER, NO_DEVICE_ADDRESS);
+    I2C i2c(GOOD_BUS_NUMBER, NO_DEVICE_ADDRESS, i2c_mutex_);
     EXPECT_EQ(i2c.connect(), 0);
     EXPECT_EQ(i2c.status(), I2C_STATUS::OK);
     EXPECT_EQ(i2c.writeByte(0x00), -1);
@@ -49,7 +51,7 @@ TEST_F(I2CUtilityTest, I2CTestNoDevice) {
 }
 
 TEST_F(I2CUtilityTest, I2CBMP180Read) {
-    I2C i2c(GOOD_BUS_NUMBER, TEST_DEVICE_ADDRESS);
+    I2C i2c(GOOD_BUS_NUMBER, TEST_DEVICE_ADDRESS, i2c_mutex_);
     EXPECT_EQ(i2c.connect(), 0);
     EXPECT_EQ(i2c.status(), I2C_STATUS::OK);
     EXPECT_EQ(i2c.readByteFromReg(CONSTANT_VALUE_REGISTER), CONSTANT_VALUE);

@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include <thread>
 #include <chrono>
+#include <mutex>
 
 #include "ubx.h"
 
@@ -20,10 +21,12 @@
 #define DEVICE_ADDRESS 0x42
 
 int main() {
+    std::mutex i2c_mutex = std::mutex();
+
     static const uint8_t kNavClass = 0x01;
     static const uint8_t kNavPvt = 0x07; // Position Velocity Time Solution ID
 
-    I2C i2c(BUS_NUMBER, DEVICE_ADDRESS);
+    I2C i2c(BUS_NUMBER, DEVICE_ADDRESS, i2c_mutex);
     i2c.connect();
     if (i2c.status() != I2C_STATUS::OK) {
         std::cout << "I2C connection failed";

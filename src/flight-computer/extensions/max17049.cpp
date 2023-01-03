@@ -56,6 +56,8 @@ int extension::MAX17049::runner() {
         error("HSK_F");
         return -1;	
     }
+    setStatus(ExtensionStatus::STOPPED);
+    return 0;
 }
 
 bool extension::MAX17049::handshake() {
@@ -63,7 +65,7 @@ bool extension::MAX17049::handshake() {
         return false;
     }
     
-    std::cout << "0x02: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x02)) << std::endl; 
+    std::cout << "0x02: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x02)) << std::endl;
     std::cout << "0x04: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x04)) << std::endl;
     std::cout << "0x08: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x08)) << std::endl;
     std::cout << "0x0A: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x0A)) << std::endl;
