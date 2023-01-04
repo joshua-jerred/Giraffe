@@ -56,6 +56,12 @@ int extension::MAX17049::runner() {
         error("HSK_F");
         return -1;	
     }
+    while (!stop_flag_) {
+        if (readData()) {
+
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(getUpdateInterval()));
+    }
     setStatus(ExtensionStatus::STOPPED);
     return 0;
 }
@@ -65,17 +71,32 @@ bool extension::MAX17049::handshake() {
         return false;
     }
     
-    std::cout << "0x02: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x02)) << std::endl;
-    std::cout << "0x04: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x04)) << std::endl;
-    std::cout << "0x08: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x08)) << std::endl;
-    std::cout << "0x0A: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x0A)) << std::endl;
-    std::cout << "0x0C: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x0C)) << std::endl;
-    std::cout << "0x14: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x14)) << std::endl;
-    std::cout << "0x16: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x16)) << std::endl;
-    std::cout << "0x18: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x18)) << std::endl;
-    std::cout << "0x1A: " << std::bitset<8>(i2c_bus_.readByteFromReg(0x1A)) << std::endl;
-    std::cout << "0xFE: " << std::bitset<8>(i2c_bus_.readByteFromReg(0xFE)) << std::endl;
+    uint8_t data[2];
+    if (i2c_bus_.readChunkFromReg(data, 2, 0x08) != 2) {// Version Register
+        return false;
+    } 
+    
+    if (i2c_bus_.status() != I2C_STATUS::OK) {
+        return false;
+    } else if (data[0] != 0x00 || data[1] >> 4 != 0x01) { // Version - 0x001_
+        return false;
+    }
 
+    return true;
+}
 
+bool extension::MAX17049::readData() {
+    if (i2c_bus_.status() != I2C_STATUS::OK) {
+        return false;
+    }
+    
+    uint8_t buffer[2];
+    if (i2c_bus_.readChunkFromReg(buffer, 2, 0x02) != 2) { // Read the voltage (VCELL, 0x02)
+        return false;
+    }
+
+    uint16_t v = (buffer[0] << 8 | buffer[1]) >> 4;
+    float voltage = (float)v * 78.125 / 1000000; // 78.125 uV per bit
+    std::cout << "V: " << v << " " << voltage << std::endl;
     return true;
 }
