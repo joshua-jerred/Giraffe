@@ -59,7 +59,7 @@
         }
     ],
     "debugging": {
-        "console-enabled": false,
+        "console-enabled": true,
         "console-update-interval": 1000,
         "web-server-enabled": true,
         "web-server-update-interval": 1000

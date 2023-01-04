@@ -12,6 +12,8 @@
 #include <vector>
 #include <iostream>
 #include <ctime>
+#include <iomanip>
+#include <sstream>
 
 #include "utility-configurables.h"
 #include "utility-config-types.h"
@@ -220,8 +222,11 @@ void extension::Extension::sendData(std::string unit, int value) {
  * @brief Override for floats. See sendData(std::string, std::string).
  * @todo Limit to float precision?
  */
-void extension::Extension::sendData(std::string unit, float value) {
-    p_data_stream_->addData(getName(), unit, std::to_string(value), 
+void extension::Extension::sendData(std::string unit, float value, int precision) {
+    std::stringstream stream;
+    stream << std::fixed << std::setprecision(precision) << value;
+    std::string rounded = stream.str();
+    p_data_stream_->addData(getName(), unit, rounded, 
                             data_expiration_time_);
 }
 
