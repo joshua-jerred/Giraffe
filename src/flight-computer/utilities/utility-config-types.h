@@ -137,13 +137,13 @@ struct ConfigData {
     };
 
     struct DataTypes {
-        struct ExtensionDataType {
+        struct DataType {
             std::string source = "";
-            std::string name = "";
             std::string unit = "";
             int include_in_telemetry = 0;
+            std::string telemetry_name = "";
         };
-        std::vector<ExtensionDataType> types {};
+        std::vector<DataType> types {};
     };
 
     struct Procs {

@@ -494,15 +494,15 @@ void ConfigModule::parseTelemetry() {
  * @todo Update error checking.
  */
 void ConfigModule::parseDataTypes() {
-	for (const auto& item : json_buffer_["data-types"].items()) {
-		ConfigData::DataTypes::ExtensionDataType newDataType;
+	for (const auto& item : json_buffer_["data-log-data-and-packet-contents"].items()) {
+		ConfigData::DataTypes::DataType newDataType;
 		try 
 		{
 			newDataType.source = item.value()["source"].get<std::string>();
-			newDataType.name = item.value()["name"].get<std::string>();
 			newDataType.unit = item.value()["unit"].get<std::string>();
 			newDataType.include_in_telemetry = 
 			item.value()["include-in-telemetry"].get<bool>();
+			newDataType.telemetry_name = item.value()["telemetry-name"].get<std::string>();
 
 			config_data_.data_types.types.push_back(newDataType);
 		} catch (const std::exception& e) {

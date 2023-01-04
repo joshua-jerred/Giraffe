@@ -48,7 +48,7 @@ DataModule::~DataModule() {
 }
 
 void DataModule::addConfigData(ConfigData config_data) {
-  for (ConfigData::DataTypes::ExtensionDataType data_type :
+  for (ConfigData::DataTypes::DataType data_type :
        config_data.data_types.types) {  // for each data type in the config file
     addDataTypeToFrame(data_type);
   }
@@ -121,7 +121,7 @@ void DataModule::log() {
  * @return void
  */
 void DataModule::addDataTypeToFrame(
-    ConfigData::DataTypes::ExtensionDataType data_type) {
+    ConfigData::DataTypes::DataType data_type) {
   DataStreamPacket packet;
   packet.source = data_type.source;
   packet.unit = data_type.unit;

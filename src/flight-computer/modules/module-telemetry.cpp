@@ -83,9 +83,21 @@ void TelemetryModule::sendDataPacket() {
     std::string message;
     message += "\n\n" + call_sign_ + "\n";
     message += "automated message - data to follow\n";
-    for (const auto & [ unit, packet ] : data) {
-        message += unit + ":" + packet.value + "\n";
+
+    std::string key = "";
+    for (ConfigData::DataTypes::DataType type : config_data_.data_types.types) {
+        if (type.include_in_telemetry) {
+            key = type.source + ":" + type.unit;
+            if (data.contains(key)) {
+                message += type.telemetry_name + ":" + data[key].value + "\n";
+            }
+        }
     }
+
+    //for (const auto & [ unit, packet ] : data) {
+    //    message += unit + ":" + packet.value + "\n";
+    //}
+
     message += call_sign_ + "\n";
     message.push_back((char) 4); // End of Transmission character
 
