@@ -19,9 +19,9 @@ using namespace modules;
  * sets up the data frame. This does not start the module.
  * @param config_data
  */
-DataModule::DataModule():
-  Module(nullptr, MODULE_DATA_PREFIX) {
-  p_data_stream_ = new DataStream();
+DataModule::DataModule(DataStream &data_stream):
+  Module(nullptr, MODULE_DATA_PREFIX),
+  p_data_stream_(data_stream) {
 
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
@@ -43,15 +43,10 @@ DataModule::DataModule():
  * @brief Destroys the DataModule object.
  */
 DataModule::~DataModule() {
-  delete p_data_stream_;  // Deconstructor of data stream will first acquire all
-                          // locks
 }
 
 void DataModule::addConfigData(ConfigData config_data) {
-  for (ConfigData::DataTypes::DataType data_type :
-       config_data.data_types.types) {  // for each data type in the config file
-    addDataTypeToFrame(data_type);
-  }
+    config_data_ = config_data;
 }
 
 /**
@@ -81,33 +76,33 @@ void DataModule::stop() {
   module_status_ = ModuleStatus::STOPPED;
 }
 
-/**
- * @brief Returns a pointer to the DataStream.
- * @param None
- * @return DataStream*
- */
-DataStream* DataModule::getDataStream() { return p_data_stream_; }
-
-/**
- * @brief logs the data in the data frame to the data log file.
- * @details This function will make a copy of the DataFrame and it will then log
- * it to the data log file.
- * @param None
- * @return void
- */
 void DataModule::log() {
   std::ofstream logfile;
   logfile.open(data_log_file_path_, std::ios_base::app);
 
-  DataFrame dataframe_copy(p_data_stream_->getDataFrameCopy());
+  DataFrame dataframe_copy(p_data_stream_.getDataFrameCopy());
 
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
 
-  for (auto& [source_and_unit, packet] : dataframe_copy) {
-    logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << ", "
-            << packet.source << ", " << packet.unit << ", " << packet.value
-            << std::endl;
+  logfile << std::endl; // Add a blank line between each log
+  logfile << now->tm_mday << "/" << now->tm_mon + 1 << " ";
+  logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << std::endl;
+  //for (auto& [source_and_unit, packet] : dataframe_copy) { // Log each item in the dataframe
+  //  logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << ", "
+  //          << packet.source << ", " << packet.unit << ", " << packet.value
+  //          << std::endl;
+  //}
+  std::string key = "";
+  for (ConfigData::DataTypes::DataType type : config_data_.data_types.types) {
+
+    key = type.source + ":" + type.unit;
+    if (dataframe_copy.contains(key)) {
+        logfile << key + " - " + dataframe_copy[key].value << std::endl;
+    } else {
+        logfile << key + " - NO_DATA" << std::endl;
+    }
+
   }
 }
 
@@ -139,16 +134,16 @@ void DataModule::addDataTypeToFrame(
  * @return void
  */
 void DataModule::parseDataStream() {
-  int packetCount = p_data_stream_->getNumDataPackets();
+  int packetCount = p_data_stream_.getNumDataPackets();
   DataStreamPacket dpacket;
   for (int i = 0; i < packetCount; i++) {
     /** @todo Check to see if it exists in the dataframe first, if not
      * add an error.
      */
-    dpacket = p_data_stream_->getNextDataPacket();
+    dpacket = p_data_stream_.getNextDataPacket();
     dataframe_.insert_or_assign(dpacket.source + ":" + dpacket.unit, dpacket);
   }
-  p_data_stream_->updateDataFrame(dataframe_);
+  p_data_stream_.updateDataFrame(dataframe_);
 }
 
 /**
@@ -165,10 +160,10 @@ void DataModule::parseErrorStream() {
   std::ofstream error_file;
   error_file.open(error_log_file_path_, std::ios_base::app);
 
-  int packetCount = p_data_stream_->getNumErrorPackets();
+  int packetCount = p_data_stream_.getNumErrorPackets();
   ErrorStreamPacket epacket;
   for (int i = 0; i < packetCount; i++) {
-    epacket = p_data_stream_->getNextErrorPacket();
+    epacket = p_data_stream_.getNextErrorPacket();
 
     if (!errorframe_.contains(epacket.source + ":" + epacket.error_code)) { // Log the error if it doesn't exist
       error_file << epacket.source << ", " << epacket.error_code << ", "
@@ -178,7 +173,7 @@ void DataModule::parseErrorStream() {
     errorframe_.insert_or_assign(
         epacket.source + ":" + epacket.error_code, epacket);
   }
-  p_data_stream_->updateErrorFrame(errorframe_);
+  p_data_stream_.updateErrorFrame(errorframe_);
 }
 
 /**

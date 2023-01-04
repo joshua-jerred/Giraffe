@@ -98,6 +98,8 @@ private:
     FlightProcedure::ProcType current_flight_procedure_type_;
     FlightProcedure::Intervals current_intervals_ = FlightProcedure::Intervals();
     
+    DataStream data_stream_ = DataStream();
+
     modules::DataModule *p_data_module_ = nullptr;
     modules::ExtensionsModule *p_extension_module_ = nullptr;
     modules::ConsoleModule *p_console_module_ = nullptr;

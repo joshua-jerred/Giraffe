@@ -192,7 +192,7 @@ private:
  */
 class DataModule : public Module {
 public:
-    DataModule();
+    DataModule(DataStream &data_stream);
     DataModule(const DataModule&) = delete; // No copy constructor
     DataModule& operator=(const DataModule&) = delete; // No copy assignment
     ~DataModule();
@@ -202,7 +202,6 @@ public:
     void start();
     void stop();
 
-    DataStream* getDataStream();
     DataFrame getSnapshot();
     void log();
 
@@ -220,13 +219,15 @@ private:
     std::string data_log_file_path_ = "";
     std::string error_log_file_path_ = "";
 
-    DataStream *p_data_stream_ = nullptr;
+    DataStream &p_data_stream_;
 
     DataFrame dataframe_ = DataFrame();
     ErrorFrame errorframe_ = ErrorFrame();
 
     std::atomic<int> shutdown_signal_ = 0;
     std::thread runner_thread_ = std::thread();
+
+    ConfigData config_data_ = {};
 };
 
 /**

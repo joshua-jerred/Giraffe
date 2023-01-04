@@ -22,11 +22,11 @@ FlightRunner::~FlightRunner() {
 
 int FlightRunner::start() {
     // ~~~ Create the Data Module ~~~ //
-    p_data_module_ = new modules::DataModule();
+    p_data_module_ = new modules::DataModule(data_stream_);
     // Do not start the DataModule yet because we need to add the config data
 
     // ~~~ Read The Config ~~~ //
-    modules::ConfigModule* config = new modules::ConfigModule(p_data_module_->getDataStream());
+    modules::ConfigModule* config = new modules::ConfigModule(&data_stream_);
     int status = config->load(CONFIG_LOCATION);
     if (status == -1) {
         std::cout << "Error: Could not load config file." << std::endl;
@@ -43,28 +43,28 @@ int FlightRunner::start() {
     
     // ~~~ Start the Extensions Module ~~~ //
     p_extension_module_ = new modules::ExtensionsModule(config_data_, 
-        p_data_module_->getDataStream()); // Enable Extensions
+        &data_stream_); // Enable Extensions
 
     p_extension_module_->start(); // Start Extensions
 
     // ~~~ Start the Console Module ~~~ //
     if (config_data_.debug.console_enabled) {
         p_console_module_ = new modules::ConsoleModule(config_data_, 
-            p_data_module_->getDataStream());
+            &data_stream_);
         p_console_module_->start();
     }
 
     // ~~~ Start the Server Module ~~~ //
     if (config_data_.debug.web_server_enabled) {
         p_server_module_ = new modules::ServerModule(config_data_, 
-            p_data_module_->getDataStream());
+            &data_stream_);
         p_server_module_->start();
     }
 
     // ~~~ Start the Telemetry Module ~~~ //
     if (config_data_.telemetry.telemetry_enabled) {
         p_telemetry_module_ = new modules::TelemetryModule(config_data_, 
-            p_data_module_->getDataStream());
+            &data_stream_);
         p_telemetry_module_->start();
     }
 
@@ -166,8 +166,7 @@ void FlightRunner::switchLoops(FlightProcedure::ProcType procType) {
         // Send the procedure to the data stream
         current_procedure.type = FlightProcedure::ProcType::TESTING;
         current_procedure.intervals = procs.testing.intervals;
-        p_data_module_->
-        getDataStream()->updateFlightProcedure(current_procedure);
+        data_stream_.updateFlightProcedure(current_procedure);
 
         break;
     default: // Default back to failsafe flight proc
@@ -177,8 +176,7 @@ void FlightRunner::switchLoops(FlightProcedure::ProcType procType) {
         // Send the procedure to the data stream
         current_procedure.type = FlightProcedure::ProcType::FAILSAFE;
         current_procedure.intervals = procs.failsafe.intervals;
-        p_data_module_->
-        getDataStream()->updateFlightProcedure(current_procedure);
+        data_stream_.updateFlightProcedure(current_procedure);
         break;
     }
 

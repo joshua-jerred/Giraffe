@@ -76,7 +76,6 @@ void TelemetryModule::stop() {
  * @brief Currently implemented with PSK
  * @param None
  * @return Void
- * @todo implement this.
  */
 void TelemetryModule::sendDataPacket() {
     DataFrame data = p_data_stream_->getDataFrameCopy();
@@ -84,6 +83,7 @@ void TelemetryModule::sendDataPacket() {
     message += "\n\n" + call_sign_ + "\n";
     message += "automated message - data to follow\n";
 
+    // Add data (specified in config) to the message that will be sent.
     std::string key = "";
     for (ConfigData::DataTypes::DataType type : config_data_.data_types.types) {
         if (type.include_in_telemetry) {
@@ -94,7 +94,7 @@ void TelemetryModule::sendDataPacket() {
         }
     }
 
-    //for (const auto & [ unit, packet ] : data) {
+    //for (const auto & [ unit, packet ] : data) { 
     //    message += unit + ":" + packet.value + "\n";
     //}
 
