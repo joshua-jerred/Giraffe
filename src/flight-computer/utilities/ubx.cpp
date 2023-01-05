@@ -3,6 +3,8 @@
 #include <thread>
 #include <iostream>  // DEBUG
 #include <unordered_map>
+#include <cstring>
+
 #include "ubx.h"
 
 #define STREAM_SIZE_MSB_REG 0xFD
@@ -22,6 +24,10 @@
 #define MAX_PAYLOAD_SIZE 256
 
 #define READ_NEXT_MESSAGE_TIMEOUT 500  // milliseconds
+
+inline void wait(int ms) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(ms));
+}
 
 /* U2 - Unsigned Short */
 inline uint16_t parseU2(const uint8_t msb, const uint8_t lsb) {
@@ -153,6 +159,22 @@ int ubx::getStreamSize(I2C &i2c) {
         stream_size = 0;
     }
     return stream_size;
+}
+
+bool ubx::flushStream(I2C &i2c) {
+    int stream_size = ubx::getStreamSize(i2c);
+    if (stream_size <= 0) { // No data to flush
+        return true;
+    }
+    uint8_t *buffer = new uint8_t[stream_size];
+    i2c.readChunkFromReg(buffer, stream_size, STREAM_REG);
+    delete[] buffer;
+    stream_size = ubx::getStreamSize(i2c);
+    if (stream_size != 0) {
+        std::cout << stream_size << " ";
+        return false;
+    }
+    return true;
 }
 
 /**
@@ -496,6 +518,131 @@ ubx::ACK ubx::setDynamicModel(I2C &i2c, const ubx::DYNAMIC_MODEL model) {
     return checkForAck(i2c, kMessageClass, kMessageId);
 }
 
+/**
+ * @brief Poll a message and read it from the GPS
+ * @details Messages can be polled by sending the header with a zero length 
+ * payload.
+*/
+bool ubx::pollMessage(I2C &i2c,
+        ubx::UBXMessage &message,
+        const uint8_t msg_class,
+        const uint8_t msg_id,
+        const int expected_size,
+        const unsigned int timeout_ms) {
+    
+    uint64_t start_time = std::chrono::duration_cast<std::chrono::milliseconds>(
+            std::chrono::system_clock::now().time_since_epoch()).count();
+    uint64_t current_time = start_time;
+
+    while (current_time - start_time < timeout_ms) {
+        current_time = std::chrono::duration_cast<std::chrono::milliseconds>(
+                std::chrono::system_clock::now().time_since_epoch()).count();
+        // Check if the stream is empty, if not, flush it.
+        int bytes_available = getStreamSize(i2c);
+        if (bytes_available > 0) { // Flush the stream
+            if (!flushStream(i2c)) { // Failed to flush the stream
+                wait(200);
+                continue;
+            }
+        }
+
+        uint8_t payload[1] = {0x00};
+        // Create a poll message, can not have a null ptr for payload
+        ubx::UBXMessage poll(msg_class, msg_id, 0, payload);
+
+        // Send the poll message
+        if (!writeUBX(i2c, poll)) { // If the write failed
+            continue;
+        }
+
+        // Wait for the response to be available
+
+        const int standard_delay = 300; // ms This should be changed depending on the measurement rate
+        const int max_retries = 3;
+        const int retry_delay = 150; // ms
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(standard_delay));
+
+        bool message_available = false;
+        int tries = 0;
+        while (tries < max_retries) {
+            bytes_available = getStreamSize(i2c);
+            if (bytes_available < 0) { // Failed to get stream size
+                return false;
+            }
+
+            if (bytes_available >= expected_size) {
+                message_available = true;
+                break;
+            }
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(retry_delay));
+            tries++;
+        }
+
+        if (!message_available) { // Message not available, try again
+            continue;
+        }
+
+        // Read the message
+        uint8_t *buffer = new uint8_t[bytes_available];
+        int bytes_read = i2c.readChunkFromReg(buffer, bytes_available, 0xFF);
+        if (bytes_read != bytes_available) { // Failed to read the message
+            delete[] buffer;
+            continue;
+        }
+
+        if (getStreamSize(i2c) > 0) { // Stream is not empty as expected
+            delete[] buffer;
+            continue;
+        }
+
+        if (buffer[0] != 0xB5 || buffer[1] != 0x62) { // Invalid header
+            //std::cout << "Invalid header" << std::endl;
+            delete[] buffer;
+            continue;
+        } else if (buffer[2] != msg_class || buffer[3] != msg_id) { // Wrong message
+            //std::cout << "Wrong message " << std::hex << (int)buffer[2] << " " << (int)buffer[3] << std::endl;
+            delete[] buffer;
+            continue;
+        }
+
+        uint16_t length = (buffer[5] << 8) | buffer[4]; // Little endian
+        if (length != (uint16_t) expected_size - 8) { // Wrong length
+            //std::cout << "Wrong length " << std::dec << length << std::endl;
+            delete[] buffer;
+            continue;
+        }
+
+        if (message.payload != nullptr) {
+            delete[] message.payload;
+            message.payload = nullptr;
+        }
+
+        uint8_t *message_buffer = new uint8_t[length]; // Must be deleted set to null ptr
+        std::memcpy(message_buffer, buffer + 6, length);
+        message.sync1 = buffer[0];
+        message.sync2 = buffer[1];
+        message.mClass = buffer[2];
+        message.mID = buffer[3];
+        message.length = length;
+        message.payload = message_buffer;
+        message.ck_a = buffer[bytes_available - 2];
+        message.ck_b = buffer[bytes_available - 1];
+        
+        if (message.verifyChecksum()) {
+            delete[] buffer;
+            return true;
+        } else {
+            //std::cout << "Invalid checksum" << std::endl;
+            delete[] buffer;
+            continue;
+        }
+    }
+    std::cout << "timeout" << std::endl;
+    return false;
+}
+
 bool ubx::parsePVT(const UBXMessage &message, NAV_DATA &data) {
     /*
     First check for message integrity.
@@ -678,3 +825,4 @@ std::ostream& ubx::operator<<(std::ostream& o, const ubx::NAV_DATA& nv) {
 
     return o;
 }
+

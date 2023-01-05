@@ -151,6 +151,7 @@ namespace ubx
     } UBXMessage;
 
     int getStreamSize(I2C &i2c);
+    bool flushStream(I2C &i2c);
     bool writeUBX(I2C &i2c, const UBXMessage &message);
     bool readNextUBX(I2C &i2c, UBXMessage &message);
     bool readSpecificMessage(
@@ -174,6 +175,14 @@ namespace ubx
         I2C &i2c,
         const DYNAMIC_MODEL model
     );
+
+    bool pollMessage(
+        I2C &i2c,
+        ubx::UBXMessage &message,
+        const uint8_t msg_class,
+        const uint8_t msg_id,
+        const int expected_size,
+        const unsigned int timeout_ms = 1500);
 
     // UBXMessage getConfiguration
     bool parsePVT(const UBXMessage &message, NAV_DATA &data);

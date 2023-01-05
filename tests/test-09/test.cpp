@@ -35,8 +35,8 @@ int main() {
 
     if (ubx::getStreamSize(i2c) != 0) {
         ubx::sendResetCommand(i2c);
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-        while (i2c.readByteFromReg(0xFF) != 0) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(1500));
+        while (i2c.readByteFromReg(0xFF) != 0xFF) { /** @todo this needs a timeout*/
             if (i2c.status() != I2C_STATUS::OK) {
                 std::cout << "I2C connection failed";
                 return 1;
@@ -50,13 +50,13 @@ int main() {
         return 1;
     }
 
-    ack = ubx::setMessageRate(i2c, kNavClass, kNavPvt, 1);
-    if (ack != ubx::ACK::ACK) {
-        std::cout << "Failed to set message rate";
-        return 1;
-    }
+    //ack = ubx::setMessageRate(i2c, kNavClass, kNavPvt, 1);
+    //if (ack != ubx::ACK::ACK) {
+    //    std::cout << "Failed to set message rate";
+    //    return 1;
+    //}
 
-    ack = ubx::setMeasurementRate(i2c, 1000);
+    ack = ubx::setMeasurementRate(i2c, 50);
     if (ack != ubx::ACK::ACK) {
         std::cout << "Failed to set measurement rate";
         return 1;
@@ -71,7 +71,10 @@ int main() {
 
     ubx::UBXMessage msg;
     ubx::NAV_DATA pvt;
+    int total_attempts = 0;
+    int success_attempts = 0;
     while (true) {
+        /*
         if (ubx::readNextUBX(i2c, msg)) {
             if (msg.mClass == kNavClass && msg.mID == kNavPvt) {
                 if (msg.verifyChecksum() == false) {
@@ -89,8 +92,23 @@ int main() {
             else {
                 std::cout << msg << std::endl;
             }
+        } 
+        */
+
+
+        total_attempts++;
+        if (ubx::pollMessage(i2c, msg, kNavClass, kNavPvt, 92 + 8, 2000)) {
+            success_attempts++;
+            ubx::parsePVT(msg, pvt);
+            std::cout << pvt << std::endl;
+        } else {
+            std::cout << "poll failed" << std::endl;
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            ubx::flushStream(i2c);
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+        //std::cout << (float)success_attempts / (float)total_attempts << std::endl;
     }
 
     return 0;
