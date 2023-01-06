@@ -115,7 +115,7 @@ void TelemetryModule::sendDataPacket() {
     newTX.wav_location = generatePSK(message_lower, newTX.tx_num);
     newTX.message = message;
     newTX.length = psk_length_;
-    addToTXQueue(newTX); // If the TX failed to generate the error must be handled somewhere else.
+    addToTXQueue(newTX); // If the TX failed to generate the error must be handled somewhere else. Thread Safe.
 }
 
 /**
@@ -147,6 +147,73 @@ void TelemetryModule::sendAPRS() {
     //addToTXQueue(newTX);
 }
 
+void TelemetryModule::addCommand(GFSCommand command) {
+    command_queue_lock_.lock();
+    command_queue_.push(command);
+    command_queue_lock_.unlock();
+}
+
+void TelemetryModule::parseCommands() {
+    command_queue_lock_.lock();
+    if (command_queue_.empty()) {
+        command_queue_lock_.unlock();
+        return;
+    }
+
+    while (!command_queue_.empty()) {
+        GFSCommand command = command_queue_.front();
+        command_queue_.pop();
+        doCommand(command);
+    }
+    command_queue_lock_.unlock();
+}
+
+void TelemetryModule::doCommand(GFSCommand command) {
+    std::cout << "Telemetry Module is doing the command:" << command.id << std::endl;
+    if (command.id == "rtx") {// Resend a transmission from the transmission log (by id)
+        int tx_id = 0;
+        try {
+            tx_id = std::stoi(command.arg);
+        } catch (std::invalid_argument &e) {
+            error("RTX_INV", command.arg);
+            return;
+        }
+
+        Transmission newTX;
+        if (p_data_stream_->requestTXFromLog(tx_id, newTX)) {
+            std::cout << "Re-sending transmission " << tx_id << std::endl;
+            if (newTX.type == Transmission::Type::PSK) {
+                std::string old_message = newTX.message;
+                int old_tx_num = newTX.tx_num;
+                newTX.tx_num = getNextTXNumber();
+                std::string new_message = "ReTx of #" + std::to_string(old_tx_num) + "\n";
+                new_message += old_message;
+
+                newTX.message = "";
+
+                for(auto c : new_message)
+                    newTX.message.push_back(std::tolower(c));
+
+                //newTX.message += old_message;
+                newTX.wav_location = generatePSK(newTX.message, newTX.tx_num);
+
+                if (newTX.wav_location != "") {
+                    addToTXQueue(newTX);
+                } else {
+                    error("RTX_MF", command.arg);
+                }
+            }
+        } else {
+            error("RTX_NF", command.arg);
+        }
+
+    } else {
+        error("INV_CMD", command.id);
+    }
+    /*
+    */
+}
+
 /**
  * @brief Adds an SSTV image to the transmit queue.
  * It will use the path of the most recent picture from
@@ -164,7 +231,7 @@ void TelemetryModule::sendSSTVImage() {
  * @return int 
  */
 int TelemetryModule::getNextTXNumber() {
-    return ++tx_number_;
+    return tx_number_++;
 }
 
 /**
@@ -243,11 +310,11 @@ std::string TelemetryModule::generateSSTV() {
 void TelemetryModule::runner() {
     module_status_ = ModuleStatus::RUNNING;
     while (!stop_flag_) {
+        // Check for commands
+        parseCommands();
+
         int queue_size = p_data_stream_->getTXQueueSize();
-
-
         data("TX_Q_SZ", queue_size, 5);
-
 
         // Report the info about the TX log
         DataStream::TXLogInfo lg = p_data_stream_->getTXLogInfo();

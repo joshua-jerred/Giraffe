@@ -246,8 +246,7 @@ function removeLogsFromFirstToLast(first, last) {
     let log_items = tx_log.querySelectorAll('.tx-log-item');
     for (let log_item of log_items) {
         let id = log_item.id.split('_',).pop();
-        if (id < first || id >= last) {
-            console.log('Removing log item with id ' + id);
+        if (id < first || id > last) {
             log_item.remove();
         }
     }
@@ -257,3 +256,14 @@ function clearTxLog() {
     let tx_log = document.querySelector('#telemetry-log');
     tx_log.innerHTML = '';
 }
+
+function retransmit(e) {
+    if (e.preventDefault) e.preventDefault();
+    let id = document.getElementById('request-txid').value;
+    POST("cmd/tlm/rtx/" + id);
+    return false;
+}
+
+window.addEventListener("DOMContentLoaded", function() {
+  document.getElementById('retx').addEventListener('submit', retransmit);
+});

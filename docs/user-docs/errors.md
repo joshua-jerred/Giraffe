@@ -41,6 +41,12 @@
  - TL_PSK_M [mode]: Invalid PSK31 mode (not BPSK or QPSK)
  - TL_PSK_S [speed]: Invalid PSK31 speed (not 125, 250, or 500)
 
+## DataStream Error - All start with (DS_)
+ - CMD_S [command]: Command string too short
+ - CMD_L [command]: Command string too long, only provides the first 30 characters
+ - CMD_Q [command]: Command queue is full
+ - CMD_B [command]: Command format is invalid
+ - CMD_C [command]: Unrecognized category
 
 ## Telemetry Module Errors - All start with (M_TL_)
 ### PSK31
@@ -51,6 +57,9 @@
  - DEL_WAV: Internal error, failed to delete wav file
  - APLAY_EXIT_CODE_[errno], [wav_location]: Internal error, aplay
     exited with a non-zero exit code that was not handled.
+ - RTX_INV: Request transmission command has an invalid argument.
+ - RTX_NF: Requested transmission not found in the log.
+ - RTX_MF: Modulation failure while encoding old transmission.
 
 ## Extension Errors - All start with (EX_<ID>)
 ### BMP180

@@ -55,6 +55,21 @@ std::ostream& operator << (std::ostream& o, const ErrorStreamPacket& e);
 typedef std::unordered_map<std::string, DataStreamPacket> DataFrame;
 typedef std::unordered_map<std::string, ErrorStreamPacket> ErrorFrame;
 
+
+struct GFSCommand {
+    enum class CommandCategory {
+        unknown = 0,
+        TLM = 1, // telemetry
+        MDL = 2, // modules
+        EXT = 3, // extensions
+        FLR = 4, // flight runner
+    };
+    CommandCategory category = CommandCategory::unknown;
+    std::string id = "";
+    std::string arg = "";
+};
+
+
 /**
  * @brief This class is passed to many extensions/modules. It is used
  * to communicate data and errors to the data module from any
@@ -68,11 +83,16 @@ class DataStream {
 public:
     DataStream();
     ~DataStream();
+
+    // Command Queue
+    void addToCommandQueue(std::string command);
+    bool getNextCommand(GFSCommand& command);
+
     void addData(std::string data_source, 
 	std::string data_name, std::string data_value, int seconds_until_expiry);
 
     void addError(std::string error_source, std::string error_code, 
-                  std::string error_info, int seconds_until_expiry);
+                  std::string error_info, int seconds_until_expiry = 0);
 
     void updateDataFrame(DataFrame data_frame);
     void updateErrorFrame(ErrorFrame error_frame);
@@ -114,6 +134,8 @@ public:
     };
     const TXLogInfo getTXLogInfo();
 
+    bool requestTXFromLog(int tx_id, Transmission& tx);
+
     // Status
     void updateExtensionStatus(std::string extension_name, ExtensionStatus status);
     void updateModuleStatus(std::string module_name, ModuleStatus status);
@@ -124,11 +146,17 @@ public:
 
     
 private:
+    void error(std::string code);
+    void error(std::string code, std::string info);
+
     int num_data_packets_ = 0;
     int total_data_packets_ = 0;
 
     int num_error_packets_ = 0;
     int total_error_packets_ = 0;
+
+    std::mutex command_queue_lock_ = std::mutex();
+    std::queue<GFSCommand> command_queue_ = std::queue<GFSCommand>(); 
 
     std::mutex data_stream_lock_ = std::mutex();
     std::queue<DataStreamPacket> data_stream_ = std::queue<DataStreamPacket>();
@@ -160,7 +188,7 @@ private:
 
     // Transmission Log
     std::mutex tx_log_lock_ = std::mutex();
-    const int kTXLogSize_ = 10;
+    const int kTXLogSize_ = 10; /** @todo make this user configurable */
     std::deque<Transmission> tx_log_ {};
     int first_tx_in_log_ = 0;
     int last_tx_in_log_ = 0;

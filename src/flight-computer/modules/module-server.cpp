@@ -83,6 +83,11 @@ void ServerModule::runner() {
 					}
 					continue;
 				}
+				std::string command_check = request.substr(0, 4);
+				if (command_check == "cmd/") {
+					p_data_stream_->addToCommandQueue(request);
+					continue;
+				}
 
 				if (request == "static") {
 					sendStaticData(new_sock);
@@ -120,12 +125,7 @@ void ServerModule::runner() {
 						);
 					break;
 				} else {
-					p_data_stream_->addData(
-						MODULE_SERVER_PREFIX, 
-						"SOCKET", 
-						"UNKNOWN_REQUEST", 
-						0
-						);
+					error("Unknown Request", request);
 					break;
 				}
 			}

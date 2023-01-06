@@ -85,3 +85,17 @@ table {
 .tx-log-info > div > div {
     display: inline;
 }
+
+#tx-log-stats {
+    display: flex;
+    width: 100%;
+}
+
+#tx-log-stats > div {
+    display: inline;
+    width: 33%;
+}
+
+#tx-log-stats > div > div {
+    display: inline;
+}

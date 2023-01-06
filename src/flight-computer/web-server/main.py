@@ -168,6 +168,11 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             sys.exit(0)
         elif command == "DISCONNECT":
             self.gfs.write("DISCONNECT")
+        elif command[0:4] == "cmd/":
+            print("Requesting retransmission of packet " + command[12:])
+            self.gfs.write(command)
+        else:
+            print("Unknown command: " + command)
 
     def do_GET(self):
         if self.path == "/":

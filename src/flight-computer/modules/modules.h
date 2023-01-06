@@ -97,6 +97,8 @@ public:
     void sendPSK(std::string message);
     void sendAPRS();
     void sendSSTVImage();
+    
+    void addCommand(GFSCommand command);
 
 private:
     int getNextTXNumber();
@@ -118,6 +120,12 @@ private:
 
     std::thread tx_thread_ = std::thread();
     std::atomic<int> stop_flag_ = 0;
+
+    // Separate command queue to avoid the numerous race conditions that will appear with later implementation.
+    std::mutex command_queue_lock_ = std::mutex();
+    std::queue<GFSCommand> command_queue_ = std::queue<GFSCommand>();
+    void parseCommands();
+    void doCommand(GFSCommand command);
 
     ConfigData config_data_;
     DataStream *p_data_stream_;

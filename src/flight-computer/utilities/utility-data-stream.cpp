@@ -9,6 +9,7 @@
  * @copyright Copyright (c) 2022
  */
 
+#include <regex>
 #include "utility-data-stream.h"
 
 /**
@@ -36,6 +37,81 @@ DataStream::~DataStream() {
 	error_stream_lock_.lock();
 	data_frame_lock_.lock();
 	error_frame_lock_.lock();
+}
+
+void DataStream::addToCommandQueue(std::string command) {
+	const int kMaxCommandSize = 30;
+	const int kMinCommandSize = 7;
+
+	const int kMaxCommandQueueSize = 10;
+
+	if (command.size() > kMaxCommandSize) {
+		error("CMD_L", command.substr(0, kMaxCommandSize));
+		return;
+	}
+	if (command.size() < kMinCommandSize) {
+		error("CMD_S", command);
+		return;
+	}
+
+	// Check if the the command is in the correct format
+	const std::regex command_regex("^cmd\\/[a-z]{3}\\/[a-z]{3}\\/[a-z0-9-]{0,20}$");
+	if (!std::regex_match(command, command_regex)) {
+		error("CMD_B", command);
+		return;
+	}
+
+	// Check if the command queue is full
+	command_queue_lock_.lock();
+	if (command_queue_.size() >= kMaxCommandQueueSize) {
+		command_queue_lock_.unlock();
+		error("CMD_Q");
+		return;
+	}
+
+	// Parse the command
+	GFSCommand gfs_command;
+	std::string category = command.substr(4, 3);
+	gfs_command.id = command.substr(8, 3);
+
+	if (category == "flr") { // Flight Runner
+		gfs_command.category = GFSCommand::CommandCategory::FLR;
+	} else if (category == "tlm") { // Telemetry
+		gfs_command.category = GFSCommand::CommandCategory::TLM;
+	} else if (category == "ext") { // Extension
+		gfs_command.category = GFSCommand::CommandCategory::EXT;
+	} else if (category == "mdl") { // Module
+		gfs_command.category = GFSCommand::CommandCategory::MDL;
+	} else {
+		command_queue_lock_.unlock();
+		error("CMD_C", category);
+		return;
+	}
+
+	// Add the command argument if it exists
+	int size = command.size(); 
+	if (size > 12) {
+		gfs_command.arg = command.substr(12, size - 12);
+	} else {
+		gfs_command.arg = "";
+	}
+
+	// Add the command to the queue
+	command_queue_.push(gfs_command);
+	command_queue_lock_.unlock();
+	return;
+}
+
+bool DataStream::getNextCommand(GFSCommand &command) {
+	command_queue_lock_.lock();
+	if (command_queue_.empty()) {
+		command_queue_lock_.unlock();
+		return false; // Return false if there are no commands in the queue
+	}
+	command = command_queue_.front(); 
+	command_queue_.pop();
+	command_queue_lock_.unlock();
+	return true;
 }
 
 /**
@@ -134,14 +210,14 @@ void DataStream::addToTxQueue(Transmission tx) {
 	tx_log_.push_back(tx); // Add the transmission to the log
 	last_tx_in_log_ = tx.tx_num;
 
-	int tx_log_size = last_tx_in_log_ - first_tx_in_log_;
-	if ((unsigned int)tx_log_size != tx_log_.size()) {
-		addError("DS", "TX_LOG_SZ", "", 0);
+	int tx_log_size = (last_tx_in_log_ - first_tx_in_log_) + 1;
+	if ((unsigned int)tx_log_size != tx_log_.size() && first_tx_in_log_ != 0) {
+		addError("DS", "TX_LOG_SZ", std::to_string(tx_log_size) + " " + std::to_string(tx_log_.size()), 0);
 	}
 	
 	// Remove old transmissions from the log if it is too big
 	if (tx_log_size > kTXLogSize_) {
-        first_tx_in_log_ = tx_log_.front().tx_num;
+        first_tx_in_log_ = tx_log_.front().tx_num + 1;
         tx_log_.pop_front();
     }
 	tx_log_lock_.unlock();
@@ -184,8 +260,29 @@ const DataStream::TXLogInfo DataStream::getTXLogInfo() {
 	info.first_tx_in_log = first_tx_in_log_;
 	info.last_tx_in_log = last_tx_in_log_;
 	info.tx_log_size = tx_log_.size();
+	info.max_size = kTXLogSize_;
 	tx_log_lock_.unlock();
 	return info;
+}
+
+bool DataStream::requestTXFromLog(int tx_num, Transmission& tx) {
+	if (tx_num < 0) {
+		return false;
+	}
+	tx_log_lock_.lock();
+	if (tx_num < first_tx_in_log_ || tx_num > last_tx_in_log_) {
+		tx_log_lock_.unlock();
+		return false;
+	}
+	int index = tx_num - first_tx_in_log_;
+	if (index >= (int)tx_log_.size() || index < 0) {
+		tx_log_lock_.unlock();
+		return false;
+	}
+
+	tx = tx_log_[index];
+	tx_log_lock_.unlock();
+	return true;
 }
 
 /**
@@ -335,4 +432,14 @@ std::ostream& operator << (std::ostream& o, const ErrorStreamPacket& e)
 
 std::mutex& DataStream::getI2CBusLock() {
 	return i2c_bus_lock_;
+}
+
+void DataStream::error(std::string code) {
+	static const std::string kDataStreamErrorPrefix = "DS_";
+	addError(kDataStreamErrorPrefix, code, "", 0);
+}
+
+void DataStream::error(std::string code, std::string info) {
+	static const std::string kDataStreamErrorPrefix = "DS_";
+	addError(kDataStreamErrorPrefix, code, info, 0);
 }

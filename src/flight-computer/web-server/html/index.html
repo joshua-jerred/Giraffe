@@ -79,11 +79,16 @@
                 <h4>Telemetry Log</h4>
 
                 <div class="tx-log-item">
+
+                    <form id="retx">
+                        <input type="number" id="request-txid" placeholder="Transmission ID">
+                        
+                        <button type="submit">Request Re-Transmit</button>
+                    </form>
+
                     <div id="tx-log-stats">
                         <div>Size:
-                            <div id="tx-log-size">0</div>
-                        </div>
-                        <div>Max Size
+                            <div id="tx-log-size">0</div> of
                             <div id="tx-log-max-size">0</div>
                         </div>
                         <div>First ID
