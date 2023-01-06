@@ -42,11 +42,15 @@
  - TL_PSK_S [speed]: Invalid PSK31 speed (not 125, 250, or 500)
 
 
-## Telemetry Module Errors
+## Telemetry Module Errors - All start with (M_TL_)
 ### PSK31
- - M_TL_PSK_M: Invalid PSK31 mode (not BPSK or QPSK) - Reverting to BPSK
- - M_TL_PSK_S: Invalid PSK31 Symbol Rate (not 125, 250, or 500) - Reverting to 125
- - M_TL_PSK_E: Failed to encode message
+ - PSK_M: Invalid PSK31 mode (not BPSK or QPSK) - Reverting to BPSK
+ - PSK_S: Invalid PSK31 Symbol Rate (not 125, 250, or 500) - Reverting to 125
+ - PSK_E: Failed to encode message
+ - TX_LOG_SZ: Internal error, tx log is not the correct size
+ - DEL_WAV: Internal error, failed to delete wav file
+ - APLAY_EXIT_CODE_[errno], [wav_location]: Internal error, aplay
+    exited with a non-zero exit code that was not handled.
 
 ## Extension Errors - All start with (EX_<ID>)
 ### BMP180

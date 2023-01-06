@@ -128,6 +128,23 @@ void DataStream::addToTxQueue(Transmission tx) {
 	tx_queue_lock_.lock();
 	tx_queue_.push(tx);
 	tx_queue_lock_.unlock();
+
+	// Handle the transmission log
+	tx_log_lock_.lock();
+	tx_log_.push_back(tx); // Add the transmission to the log
+	last_tx_in_log_ = tx.tx_num;
+
+	int tx_log_size = last_tx_in_log_ - first_tx_in_log_;
+	if ((unsigned int)tx_log_size != tx_log_.size()) {
+		addError("DS", "TX_LOG_SZ", "", 0);
+	}
+	
+	// Remove old transmissions from the log if it is too big
+	if (tx_log_size > kTXLogSize_) {
+        first_tx_in_log_ = tx_log_.front().tx_num;
+        tx_log_.pop_front();
+    }
+	tx_log_lock_.unlock();
 }
 
 Transmission DataStream::getNextTX() {
@@ -147,6 +164,28 @@ int DataStream::getTXQueueSize() {
 	size = tx_queue_.size();
 	tx_queue_lock_.unlock();
 	return size;
+}
+
+void DataStream::lockTXLog() {
+	tx_log_lock_.lock();
+}
+
+const std::deque<Transmission>& DataStream::getTXLog() {
+	return tx_log_;
+}
+
+void DataStream::unlockTXLog() {
+	tx_log_lock_.unlock();
+}
+
+const DataStream::TXLogInfo DataStream::getTXLogInfo() {
+	TXLogInfo info;
+	tx_log_lock_.lock();
+	info.first_tx_in_log = first_tx_in_log_;
+	info.last_tx_in_log = last_tx_in_log_;
+	info.tx_log_size = tx_log_.size();
+	tx_log_lock_.unlock();
+	return info;
 }
 
 /**

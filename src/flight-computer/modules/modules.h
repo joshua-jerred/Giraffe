@@ -58,6 +58,18 @@ class Module {
             }
         };
 
+        void data(std::string data_name, std::string data_value, int seconds_until_expiry) {
+            if (p_data_stream_ != nullptr) {
+                p_data_stream_->addData(error_source_, data_name, data_value, seconds_until_expiry);
+            }
+        };
+
+        void data(std::string data_name, int data_value, int second_until_expiry) {
+            if (p_data_stream_ != nullptr) {
+                p_data_stream_->addData(error_source_, data_name, std::to_string(data_value), second_until_expiry);
+            }
+        };
+
         DataStream *p_data_stream_;
         std::atomic<ModuleStatus> module_status_;
 
@@ -89,10 +101,11 @@ public:
 private:
     int getNextTXNumber();
 
+    // TX Queue is stored in the data stream
     void addToTXQueue(Transmission transmission);
 
-    std::string generateAFSK(std::string message);
-    std::string generatePSK(std::string message);
+    std::string generateAFSK(const std::string &message, const int tx_number);
+    std::string generatePSK(const std::string &message, const int tx_number);
     std::string generateAPRS();
     std::string generateSSTV();
 
@@ -100,8 +113,7 @@ private:
     void playWav(std::string wav_location, std::string tx_type, int tx_length);
     FILE *aplay_fp_ = nullptr;
 
-
-    int tx_number_ = 1;
+    int tx_number_ = 0; // TX ID, first TX is 1
     std::string call_sign_ = CALLSIGN_FAILSAFE;
 
     std::thread tx_thread_ = std::thread();
@@ -129,6 +141,7 @@ private:
     void runner();
     void sendStaticData(ServerSocket &socket);
     void sendDynamicData(ServerSocket &socket);
+    void sendTelemetryData(ServerSocket &socket);
 
     ConfigData config_data_;
     DataStream* p_data_stream_;

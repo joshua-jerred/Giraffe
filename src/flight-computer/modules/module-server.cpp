@@ -1,5 +1,24 @@
+/**
+ * @file module-server.cpp
+ * @author Joshua Jerred (https://joshuajer.red)
+ * @brief The debugging server module implementation
+ * @details This handles the server socket for the python client to
+ * connect to.
+ * 
+ * It currently sends large chunks of data even when nothing has changed.
+ * This should be changed in the future but it has not caused any
+ * problems yet and it makes catching weird bugs easier.
+ * This is not used during flight, so it isn't the biggest priority,
+ * but this can be optimized a lot.
+ * 
+ * @date 2023-01-05
+ * @copyright Copyright (c) 2023
+ * @version 0.1
+ */
+
 #include <iostream>
 #include <nlohmann/json.hpp>
+#include <deque>
 using json = nlohmann::ordered_json; 
 
 #include "utility-socket.h"
@@ -43,14 +62,14 @@ void ServerModule::runner() {
 	module_status_ = ModuleStatus::RUNNING;
 	while (!stop_flag_) {
 		try {
-			p_data_stream_->addData(
-				MODULE_SERVER_PREFIX, "SOCKET", "WAITING", 0);
-
 			ServerSocket new_sock;  // Create a new socket for the connection
-			server_socket.accept(new_sock);
-
-			p_data_stream_->addData(
-				MODULE_SERVER_PREFIX, "SOCKET", "CONNECTED", 0);
+			if (server_socket.accept(new_sock)) {
+				data("SOCKET", "CONNECTED", 0);
+			} else {
+				std::this_thread::sleep_for(std::chrono::milliseconds(50));
+				data("SOCKET", "DISCONNECTED", 0);
+				continue;
+			}
 			
 			while (!stop_flag_) {
 				std::this_thread::sleep_for(std::chrono::milliseconds(50));
@@ -69,6 +88,8 @@ void ServerModule::runner() {
 					sendStaticData(new_sock);
 				} else if (request == "dynamic") {
 					sendDynamicData(new_sock);
+				} else if (request == "telemetry"){
+					sendTelemetryData(new_sock);
 				} else if (request == "shutdownServer") {
 					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
@@ -229,6 +250,63 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 		socket << dynamic_data.dump();  // Send the data
 	} catch (SocketException &e) {
 		p_data_stream_->addError(MODULE_SERVER_PREFIX, "Dynamic",
+			e.description(), 0);
+	}
+}
+
+void ServerModule::sendTelemetryData(ServerSocket &socket) {
+	json tx_log_info = {}; // Transmission Log Info
+	json tx_log = {}; // Transmission Log
+	
+	const DataStream::TXLogInfo info = p_data_stream_->getTXLogInfo();
+	
+	tx_log_info["size"] = info.tx_log_size;
+	tx_log_info["max_size"] = info.max_size;
+	tx_log_info["first"] = info.first_tx_in_log;
+	tx_log_info["last"] = info.last_tx_in_log;
+
+	p_data_stream_->lockTXLog();
+	const std::deque<Transmission> &log = p_data_stream_->getTXLog();
+	int i = 0;
+	for (auto const &tx : log) {
+		std::string type = "";
+		switch (tx.type) {
+			case Transmission::Type::ERROR:
+				type = "ERROR";
+				break;
+			case Transmission::Type::APRS:
+				type = "APRS";
+				break;
+			case Transmission::Type::AFSK:
+				type = "AFSK";
+				break;
+			case Transmission::Type::PSK:
+				type = "PSK";
+				break;
+			case Transmission::Type::SSTV:
+				type = "SSTV";
+				break;
+			default:
+				type = "UNKNOWN";
+				break;
+		}
+		tx_log[std::to_string(i++)] = {
+			{"ID", tx.tx_num},
+			{"type", type},
+			{"message", tx.message},
+			{"length", tx.length}
+		};
+	}
+	p_data_stream_->unlockTXLog();
+
+	json telemetry_data = {
+		{"tx-log-info", tx_log_info},
+		{"tx-log", tx_log}
+	};
+	try {
+		socket << telemetry_data.dump();  // Send the data
+	} catch (SocketException &e) {
+		p_data_stream_->addError(MODULE_SERVER_PREFIX, "Telemetry",
 			e.description(), 0);
 	}
 }

@@ -91,6 +91,7 @@ public:
     int getTotalDataPackets();
     int getTotalErrorPackets();
 
+    // TX Queue
     void lockTXQueue();
     const std::queue<Transmission>& getTXQueue();
     void unlockTXQueue();
@@ -100,11 +101,27 @@ public:
     int getTXQueueSize();
     int getTotalTx();
 
+    // TX Log
+    void lockTXLog();
+    const std::deque<Transmission>& getTXLog();
+    void unlockTXLog();
+
+    struct TXLogInfo {
+        int tx_log_size = 0;
+        int max_size = 0;
+        int first_tx_in_log = 0;
+        int last_tx_in_log = 0;
+    };
+    const TXLogInfo getTXLogInfo();
+
+    // Status
     void updateExtensionStatus(std::string extension_name, ExtensionStatus status);
     void updateModuleStatus(std::string module_name, ModuleStatus status);
     std::unordered_map<std::string, ExtensionStatus> getExtensionStatuses();
 
     std::mutex& getI2CBusLock();
+
+
     
 private:
     int num_data_packets_ = 0;
@@ -140,6 +157,13 @@ private:
         std::unordered_map<std::string, ModuleStatus>();
 
     std::mutex i2c_bus_lock_ = std::mutex();
+
+    // Transmission Log
+    std::mutex tx_log_lock_ = std::mutex();
+    const int kTXLogSize_ = 10;
+    std::deque<Transmission> tx_log_ {};
+    int first_tx_in_log_ = 0;
+    int last_tx_in_log_ = 0;
 };
 
 #endif // UTILITY_DATA_STREAM_H_

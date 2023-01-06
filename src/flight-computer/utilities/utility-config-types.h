@@ -173,8 +173,10 @@ struct Transmission {
         SSTV = 4,
     };
     Type type = Type::ERROR;
+    std::string message = "";
     std::string wav_location = "";
     int length = 0; // Length in seconds
+    int tx_num = 0; // ID for the transmission
 };
 
 #endif
