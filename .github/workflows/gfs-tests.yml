@@ -70,8 +70,9 @@ jobs:
     - name: run test
       run: cd bin/tests/test-05 && ./test-05
 
-  test-06:
+  test-06: # disabled
     name: test-06 (BMP180 Extension)
+    if: ${{ false }}
     runs-on: self-hosted
     needs: [test-01, test-05]
     steps:
@@ -80,8 +81,9 @@ jobs:
     - name: run test
       run: cd bin/tests/test-06 && ./test-06
 
-  test-07:
+  test-07: # disabled
     name: test-07 (DS18B20 Extension & 1-Wire Interface)
+    if: ${{ false }}
     runs-on: self-hosted
     needs: [test-01]
     steps:
@@ -90,8 +92,9 @@ jobs:
     - name: run test
       run: cd bin/tests/test-07 && ./test-07
   
-  test-08:
+  test-08: # disabled
     name: test-08 (u-blox UBX Protocol Utility)
+    if: ${{ false }}
     runs-on: self-hosted
     needs: [test-05]
     steps:

@@ -1,10 +1,11 @@
 /**
  * @file samm8q.cpp
- * @author Joshua Jerred (https://joshuajer.red)
- * @brief Extension for the SAM M8Q GPS module
- * @date 2022-12-25
- * @copyright Copyright (c) 2022
- * @version 0.1
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief The extension for the SAM-M8Q GPS module. Uses the ubx utility.
+ * 
+ * @version 0.3
+ * @date 2023-01-06
+ * @copyright Copyright (c) 2023
  */
 
 #include "extensions.h"
@@ -56,8 +57,16 @@ int extension::SAMM8Q::runner() {
     int retry_count = 0;
     const int kMaxRetries = 5;
     while (stop_flag_ == false) {
+
+        if (retry_count >= kMaxRetries) {
+            setStatus(ExtensionStatus::ERROR);
+            error("CFG_T");
+            return -1;
+        }
+
         if (configured_ == false && retry_count < kMaxRetries) {
             configured_ = configure();
+            retry_count++;
         } else if (configured_ == true) {
             retry_count = 0;
         }
@@ -114,7 +123,7 @@ int extension::SAMM8Q::runner() {
           std::chrono::milliseconds(getUpdateInterval())
       );
     }
-    setStatus(ExtensionStatus::STOPPED);
+    setStatus(ExtensionStatus::STOPPING);
     return 0;
 }
 

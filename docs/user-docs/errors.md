@@ -135,6 +135,10 @@
  - PAAR: Pressure above accuracy range (1100 hPa)
  - RHOR: Relative Humidity out of range (0-100%)
 
+### SAM-M8Q
+ - ``CFG_T``
+   - Configuration failed, reached timeout.
+
 ## DataStream Errors
  - CMD_S [command]: Command string too short
  - CMD_L [command]: Command string too long, only provides the first 30 characters

@@ -47,23 +47,6 @@ doxygen header for all classes:
  * @details Longer description of the class. Can be multiple lines. Not required.
  */
 
-For all module files and classes:
-@addtogroup gfs-modules
-
-For all utility files and classes:
-@addtogroup gfs-utilities
-
-cpp and .h format example:
-/**
- * @file example.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This file contains the implementation the example class.
- * @details The definition is in example.h The Extension class is the base class 
- * for all extensions. 
- * @date 2022-10-08
- * @copyright Copyright (c) 2022
- * @version 0.0.9
- */
 
 #ifndef EXAMPLE_H_
 #define EXAMPLE_H_
