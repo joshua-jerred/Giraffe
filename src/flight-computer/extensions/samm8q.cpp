@@ -64,47 +64,48 @@ int extension::SAMM8Q::runner() {
 
       while (stop_flag_ == false && configured_ == true) {
         setStatus(ExtensionStatus::RUNNING);
-        if (ubx::readNextUBX(i2c_, msg)) {
-          if (msg.mClass == kNavClass && msg.mID == kNavPvt) {
-            if (msg.verifyChecksum() && ubx::parsePVT(msg, nav_data)) {
-                // Good Data
-                std::string time = std::to_string(nav_data.hour) + ":" + std::to_string(nav_data.minute) + ":" + std::to_string(nav_data.second);
-                sendData("GPS_TIME", time);
+        if (ubx::pollMessage(i2c_, msg, kNavClass, kNavPvt, 92 + 8, 2000)
+                && ubx::parsePVT(msg, nav_data)) { // Good Data
 
-                sendData("GPS_LAT", (float)(nav_data.latitude));
-                sendData("GPS_LON", (float)(nav_data.longitude));
-                sendData("GPS_ALT", (float)(nav_data.altitude));
-                sendData("GPS_H_SPD", (float)(nav_data.ground_speed));
-                sendData("GPS_HDG", (float)(nav_data.heading_of_motion));
-                
-                std::string fix;
-                switch (nav_data.fixType) {
-                    case ubx::FIX_TYPE::NO_FIX:
-                        fix = "NO_FIX";
-                        break;
-                    case ubx::FIX_TYPE::DEAD_RECK:
-                        fix = "DEAD_RECK";
-                        break;
-                    case ubx::FIX_TYPE::FIX_2D:
-                        fix = "2D";
-                        break;
-                    case ubx::FIX_TYPE::FIX_3D:
-                        fix = "3D";
-                        break;
-                    case ubx::FIX_TYPE::COMBINED:
-                        fix = "COMBINED";
-                        break;
-                    case ubx::FIX_TYPE::TIME_ONLY:
-                        fix = "TIME_ONLY";
-                        break;
-                    default:
-                        fix = "UNKNOWN";
-                        break;
-                }
-                sendData("GPS_FIX", fix);
+            std::string time = std::to_string(nav_data.hour) + ":" + std::to_string(nav_data.minute) + ":" + std::to_string(nav_data.second);
+            sendData("GPS_TIME", time);
+            sendData("GPS_LAT", (float)(nav_data.latitude));
+            sendData("GPS_LON", (float)(nav_data.longitude));
+            sendData("GPS_ALT", (float)(nav_data.altitude));
+            sendData("GPS_H_SPD", (float)(nav_data.ground_speed));
+            sendData("GPS_HDG", (float)(nav_data.heading_of_motion));
+            
+            std::string fix;
+            switch (nav_data.fixType) {
+                case ubx::FIX_TYPE::NO_FIX:
+                    fix = "NO_FIX";
+                    break;
+                case ubx::FIX_TYPE::DEAD_RECK:
+                    fix = "DEAD_RECK";
+                    break;
+                case ubx::FIX_TYPE::FIX_2D:
+                    fix = "2D";
+                    break;
+                case ubx::FIX_TYPE::FIX_3D:
+                    fix = "3D";
+                    break;
+                case ubx::FIX_TYPE::COMBINED:
+                    fix = "COMBINED";
+                    break;
+                case ubx::FIX_TYPE::TIME_ONLY:
+                    fix = "TIME_ONLY";
+                    break;
+                default:
+                    fix = "UNKNOWN";
+                    break;
             }
-          }
+            sendData("GPS_FIX", fix);
+        } else { // Bad Data
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            ubx::flushStream(i2c_);
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         }
+        
         std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
             );
@@ -113,6 +114,7 @@ int extension::SAMM8Q::runner() {
           std::chrono::milliseconds(getUpdateInterval())
       );
     }
+    setStatus(ExtensionStatus::STOPPED);
     return 0;
 }
 
@@ -137,15 +139,15 @@ bool extension::SAMM8Q::configure() {
         return false;
     }
 
-    // Set the frequency of the messages, check for ACK (1 for every solution)
-    ack = ubx::setMessageRate(i2c_, kNavClass, kNavPvt, 1);
-    if (ack != ubx::ACK::ACK) {
-        error("CFG_MSG");
-        return false;
-    }
+    //// Set the frequency of the messages, check for ACK (1 for every solution)
+    //ack = ubx::setMessageRate(i2c_, kNavClass, kNavPvt, 1);
+    //if (ack != ubx::ACK::ACK) {
+    //    error("CFG_MSG");
+    //    return false;
+    //}
 
     // Set the measurement rate
-    ack = ubx::setMeasurementRate(i2c_, getUpdateInterval());
+    ack = ubx::setMeasurementRate(i2c_, 100);
     if (ack != ubx::ACK::ACK) {
         error("CFG_RATE");
         return false;
