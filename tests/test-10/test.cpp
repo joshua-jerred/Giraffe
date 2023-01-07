@@ -48,7 +48,7 @@ TEST_F(BME280Test, BME280Test1) {
         
         if (packet.unit == "TEMP_C") {
             EXPECT_GT(std::stod(packet.value), 10.0) << "Temperature is too low";
-            EXPECT_LT(std::stod(packet.value), 32.0) << "Temperature is too high";
+            EXPECT_LT(std::stod(packet.value), 40.0) << "Temperature is too high"; // High value due to the sensor being right above the linear regulator
         } else if (packet.unit == "RH_PER") {
             EXPECT_GT(std::stod(packet.value), 0.0) << "Humidity is too low";
             EXPECT_LT(std::stod(packet.value), 100.0) << "Humidity is too high";
