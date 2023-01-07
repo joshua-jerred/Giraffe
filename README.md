@@ -1,7 +1,7 @@
 [![giraffe-flight-software tests](https://github.com/joshua-jerred/Giraffe/actions/workflows/gfs-tests.yml/badge.svg)](https://github.com/joshua-jerred/Giraffe/actions/workflows/gfs-tests.yml)
 # Giraffe
 ### A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.
-#### Iteration 0.1
+### [Iteration 0.2.0](https://giraffe.joshuajer.red/md_docs_Doxygen_pages_versions.html)
 
 <img src="https://user-images.githubusercontent.com/19292194/193437157-0a421f68-fa85-43bb-b372-1807a19c470d.png" height="200">
 
@@ -14,6 +14,7 @@ for the latest additions.
 Currently working on hardware prototypes.
 
 <p float="left">
+<img src="https://user-images.githubusercontent.com/19292194/208227412-e66f7161-9344-4b72-9d3e-354403b7205f.png" height="250">
 <img src="https://user-images.githubusercontent.com/19292194/206889714-6b0a2d1d-24f3-48b0-90d8-551f2f527981.png" height="250">
 <img src="https://user-images.githubusercontent.com/19292194/206889718-702cd933-8cd7-4ca7-aa9a-46176b9ce56a.png" height="250">
 <img src="https://user-images.githubusercontent.com/19292194/206889721-daaeecfa-2522-4d31-946d-b3c4137bdc87.png" height="250">
