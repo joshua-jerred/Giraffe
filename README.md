@@ -53,11 +53,24 @@ Giraffe is a flight control framework for high altitude balloon (HAB) flights.
 The framework includes flight computer hardware and software, as well as 
 ground station software. 
 
+The purpose of this project is mainly to have a 'learning lab' where I can
+experiment with all of the things that I'm interested in.
+So far everything is built from the ground up including my own implementations of:
+ - Device Drivers (Using Linux C Development Headers)
+   - BMP180
+   - BME280
+   - SAM-M8Q
+   - DRA818V
+ - Modulation (Using my WAV file and Modulation library)
+   - PSK
+   - AFSK
+ - Hardware
+   - Custom PCBs for the flight computer
+
 Everything is designed to be modular and extensible so that it can be used for
 all types of HAB flights. The software is made to work on any ARM based single board
 computer that runs Linux, like the Raspberry Pi. The framework utilizes open 
-communication protocols like APRS, AFSK, and SSTV to allow for easy integration
-into existing software. Two way communication allows you to send commands to the
+communication protocols/modulation modes like APRS, AFSK, and SSTV to allow for easy integration into existing software. Two way communication allows you to send commands to the
 flight computer from the ground station. There is a lot more included that isn't
 mentioned here, so please see the [rest of the documentation](http://giraffe.joshuajer.red/).
 
@@ -72,3 +85,7 @@ Too see my more simplified, but more complete, python implementation of this pro
 
 The old version lacked a lot in software, but even more in hardware. There was zero handling of EMI/RFI, it was *bad* but almost functional. The main issue was with the DRA818 module which will be handled a lot better in the future.
 <img src="https://user-images.githubusercontent.com/19292194/174874402-ad9695dc-447e-425d-afe4-dd6350de5644.jpg" height="250">
+
+There currently is no open source license for this project, still trying to
+decide, this will change in the future. Feel free to reference anything and if you want to use
+anything please feel free to reach out!
