@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2022
  */
 
-#include "utility-socket.h"
+#include "socket.h"
 
 #include <errno.h>
 #include <fcntl.h>

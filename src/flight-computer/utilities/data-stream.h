@@ -1,5 +1,5 @@
 /**
- * @file utility-data-stream.h
+ * @file data-stream.h
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Contains the declaration of the DataStream class.
  * @version 0.1
@@ -18,8 +18,8 @@
 #include <unordered_map>
 #include <iostream>
 
-#include "utility-config-types.h"
-#include "utility-status.h"
+#include "config-types.h"
+#include "status.h"
 
 
 /**

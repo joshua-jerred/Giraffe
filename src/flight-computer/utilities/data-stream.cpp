@@ -1,8 +1,8 @@
 /**
- * @file utility-data-stream.cpp
+ * @file data-stream.cpp
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Contains the implementation of the DataStream class.
- * @see utility-data-stream.h
+ * @see data-stream.h
  * @version 0.1
  * @date 2022-09-25
  * 
@@ -10,7 +10,7 @@
  */
 
 #include <regex>
-#include "utility-data-stream.h"
+#include "data-stream.h"
 
 /**
  * @brief Construct a new DataStream object

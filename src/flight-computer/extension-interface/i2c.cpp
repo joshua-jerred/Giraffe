@@ -19,7 +19,7 @@ extern "C" {
     #include <i2c/smbus.h>
 }
 
-#include "utility-configurables.h"
+#include "configurables.h"
 #include "extension-interface.h"
 
 I2C::I2C(int bus_number, int address, std::mutex &bus_lock):

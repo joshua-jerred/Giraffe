@@ -13,7 +13,7 @@
 
 #include "gtest/gtest.h"
 
-#include "utility-data-stream.h"
+#include "data-stream.h"
 
 #include "modules.h"
 

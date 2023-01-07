@@ -1,5 +1,5 @@
 /**
- * @file utility-status.h
+ * @file status.h
  * @author Joshua Jerred (https://joshuajer.red)
  * @brief Contains types for status enums for modules and extensions.
  * @date 2022-12-15

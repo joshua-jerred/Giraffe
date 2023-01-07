@@ -1,5 +1,5 @@
 /**
- * @file utility-timer.cpp
+ * @file timer.cpp
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief The implementation of the timer class.
  * 
@@ -10,7 +10,7 @@
  * @todo Ready to implement the rest of this!
  */
 
-#include "utility-timer.h"
+#include "timer.h"
 
 /**
  * @brief Constructs a new timer object and starts the stopwatch.

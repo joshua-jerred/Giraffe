@@ -38,9 +38,9 @@ add_executable(giraffe-flight-software
     src/flight-computer/modules/module-telemetry.cpp
     src/flight-computer/modules/module-server.cpp
 
-    src/flight-computer/utilities/utility-timer.cpp
-    src/flight-computer/utilities/utility-data-stream.cpp
-    src/flight-computer/utilities/utility-socket.cpp
+    src/flight-computer/utilities/timer.cpp
+    src/flight-computer/utilities/data-stream.cpp
+    src/flight-computer/utilities/socket.cpp
     src/flight-computer/utilities/ubx.cpp
 
     src/flight-computer/extension-interface/i2c.cpp
@@ -92,7 +92,7 @@ FetchContent_MakeAvailable(googletest)
 # test-01 - Data Stream --------------------------------------------------------
 add_executable(test-01 
     tests/test-01/test.cpp
-    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/data-stream.cpp
 )
 set_target_properties( test-01 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-01/ )
 target_link_libraries(test-01 gtest_main)
@@ -101,7 +101,7 @@ target_link_libraries(test-01 gtest_main)
 add_executable(test-02 
     tests/test-02/test.cpp
     src/flight-computer/modules/module-configuration.cpp
-    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/data-stream.cpp
 )
 set_target_properties( test-02 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-02/ )
 target_link_libraries(test-02 gtest_main)
@@ -112,7 +112,7 @@ file(COPY "tests/test-02/input-1.json" DESTINATION ${CMAKE_SOURCE_DIR}/bin/tests
 add_executable(test-03 
     tests/test-03/test.cpp
     src/flight-computer/modules/module-data.cpp
-    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/data-stream.cpp
 )
 set_target_properties( test-03 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-03/ )
 target_link_libraries(test-03 gtest_main)
@@ -134,7 +134,7 @@ add_executable(test-04
     src/flight-computer/extension-interface/i2c.cpp
     src/flight-computer/extension-interface/one-wire.cpp
     
-    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/data-stream.cpp
     src/flight-computer/utilities/ubx.cpp
 )
 target_link_libraries(test-04 i2c)
@@ -156,7 +156,7 @@ add_executable(test-06
     tests/test-06/test.cpp
     src/flight-computer/extensions/bmp180.cpp
     src/flight-computer/extensions/extension.cpp
-    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/data-stream.cpp
     src/flight-computer/extension-interface/i2c.cpp
 )
 target_link_libraries(test-06 i2c)
@@ -168,7 +168,7 @@ add_executable(test-07
     tests/test-07/test.cpp
     src/flight-computer/extensions/ds18b20.cpp
     src/flight-computer/extensions/extension.cpp
-    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/data-stream.cpp
     src/flight-computer/extension-interface/one-wire.cpp
 )
 target_link_libraries(test-07 i2c)
@@ -198,7 +198,7 @@ add_executable(test-10
     tests/test-10/test.cpp
     src/flight-computer/extensions/bme280.cpp
     src/flight-computer/extensions/extension.cpp
-    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/data-stream.cpp
     src/flight-computer/extension-interface/i2c.cpp
 )
 target_link_libraries(test-10 i2c)
@@ -209,7 +209,7 @@ add_executable(test-11
     tests/test-11/test.cpp
     src/flight-computer/extensions/sysinfo.cpp
     src/flight-computer/extensions/extension.cpp
-    src/flight-computer/utilities/utility-data-stream.cpp
+    src/flight-computer/utilities/data-stream.cpp
 )
 set_target_properties( test-11 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-11/ )
 target_link_libraries(test-11 gtest_main)

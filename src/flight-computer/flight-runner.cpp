@@ -87,7 +87,7 @@ void FlightRunner::shutdown() {
 
 int FlightRunner::flightLoop() {
     std::cout << "Starting Flight Loop" << std::endl;
-    Timer tsl_data_log; // Refer to utility-timer.h
+    Timer tsl_data_log; // Refer to timer.h
     Timer tsl_server; 
     Timer tsl_data_packet; // tsl = time since last
     Timer tsl_photo;

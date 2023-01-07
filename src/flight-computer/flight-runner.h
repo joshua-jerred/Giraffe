@@ -12,9 +12,9 @@
 #ifndef _FLIGHT_RUNNER_H_
 #define _FLIGHT_RUNNER_H_
 
-#include "utility-config-types.h"
-#include "utility-timer.h"
-#include "utility-data-stream.h"
+#include "config-types.h"
+#include "timer.h"
+#include "data-stream.h"
 
 #include "modules.h"
 

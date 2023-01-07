@@ -17,7 +17,7 @@
 
 #include <nlohmann/json.hpp>
 
-#include "utility-data-stream.h"
+#include "data-stream.h"
 
 #include "modules.h"
 using namespace modules;
@@ -33,7 +33,7 @@ using json = nlohmann::ordered_json;
 /**
  * @brief The following enumerations are used to link the values
  * in the configuration file with the values of enumerations
- * defined in utility-config-types.h
+ * defined in config-types.h
  * 
  * Important note from the nlohmann json documentation:
  * "When using get<ENUM_TYPE>(), undefined JSON values will default to the first 
@@ -42,7 +42,7 @@ using json = nlohmann::ordered_json;
  * This is why the first pair is 'error' so the configuration module can
  * detect an incorrect value in the config file.
  * 
- * @see utility-config-types.h
+ * @see config-types.h
  */
 NLOHMANN_JSON_SERIALIZE_ENUM( ConfigData::MainboardType, {
     {ConfigData::MainboardType::ERROR, "error"}, 

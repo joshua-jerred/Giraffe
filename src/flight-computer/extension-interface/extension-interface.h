@@ -16,8 +16,8 @@
 #include <string>
 #include <mutex>
 
-#include "utility-status.h"
-#include "utility-configurables.h"
+#include "status.h"
+#include "configurables.h"
 
 
 /*

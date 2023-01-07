@@ -1,5 +1,5 @@
 /**
- * @file utility-config-types.h
+ * @file config-types.h
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief The types/structs used for configuring the flight computer.
  * 

@@ -1,5 +1,5 @@
 /**
- * @file utility-configurables.h
+ * @file configurables.h
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief All macro definitions for the flight control software will be in
  * this file. Macros should be avoided.

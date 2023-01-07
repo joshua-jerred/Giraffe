@@ -14,7 +14,7 @@
 #include <atomic>
 #include <thread>
 
-#include "utility-data-stream.h"
+#include "data-stream.h"
 #include "extension-interface.h"
 
 namespace extension {

@@ -17,10 +17,10 @@
 #include <nlohmann/json.hpp>
 using json = nlohmann::ordered_json; 
 
-#include "utility-status.h"
-#include "utility-data-stream.h"
-#include "utility-configurables.h"
-#include "utility-socket.h"
+#include "status.h"
+#include "data-stream.h"
+#include "configurables.h"
+#include "socket.h"
 
 #include "extensions.h"
 
@@ -230,7 +230,7 @@ private:
  * in the same way as the data.
  * 
  * The data and error log directories can be set inside of 
- * 'utility-configurables.h'.
+ * 'configurables.h'.
  */
 class DataModule : public Module {
 public:

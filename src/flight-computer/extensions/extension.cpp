@@ -16,9 +16,9 @@
 #include <iomanip>
 #include <sstream>
 
-#include "utility-configurables.h"
-#include "utility-config-types.h"
-#include "utility-status.h"
+#include "configurables.h"
+#include "config-types.h"
+#include "status.h"
 #include "extensions.h"
 
 /**

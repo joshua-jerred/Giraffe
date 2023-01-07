@@ -1,5 +1,5 @@
 /**
- * @file utility-timer.h
+ * @file timer.h
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief The declaration of the timer class.
  * 
