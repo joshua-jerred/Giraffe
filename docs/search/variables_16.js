@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['x1_5f_1093',['X1_',['../classBMP180.html#a25ec943525df225c95ffe1dcfbb7ac57',1,'BMP180']]],
-  ['x2_5f_1094',['X2_',['../classBMP180.html#a71d81fdf2b2f66ad853c089e3c56326f',1,'BMP180']]],
-  ['x3_5f_1095',['X3_',['../classBMP180.html#a16b33773a65d398eaa620d985f6f3cf9',1,'BMP180']]]
+  ['wav_5ffile_5f_1536',['wav_file_',['../classWavGen.html#a664a7800c343e975768dee3f64ce4062',1,'WavGen']]],
+  ['wav_5flocation_1537',['wav_location',['../structTransmission.html#aba5ae63ba628c782699114e53d07b92b',1,'Transmission']]],
+  ['wave_5fangle_5f_1538',['wave_angle_',['../classWavGen.html#acd46b426eb8eee64b73e2b59dac26897',1,'WavGen']]],
+  ['wavgen_5f_1539',['wavgen_',['../classAFSK.html#a5f8432c39792e3821ea0490856b8cda6',1,'AFSK']]],
+  ['web_5fserver_5fenabled_1540',['web_server_enabled',['../structConfigData.html#aa3bd8e21ec73726ba851977c2d98ed1c',1,'ConfigData::Debugging']]],
+  ['web_5fserver_5fupdate_5finterval_1541',['web_server_update_interval',['../structConfigData.html#a2228fad9c5ba77ac2e6b47d4f4f7aee9',1,'ConfigData::Debugging']]]
 ];

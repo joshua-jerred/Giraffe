@@ -8,6 +8,8 @@ var structTransmission =
       [ "SSTV", "structTransmission.html#ae88e058c356841ec4b74c89004aeba78a9eed40bd951e903d55dd6c8f01a50cc2", null ]
     ] ],
     [ "type", "structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f", null ],
+    [ "message", "structTransmission.html#a73702650013175678589dfd54577aa5d", null ],
     [ "wav_location", "structTransmission.html#aba5ae63ba628c782699114e53d07b92b", null ],
-    [ "length", "structTransmission.html#a0c3b11240a0f1213f4fdf592c54307b5", null ]
+    [ "length", "structTransmission.html#a0c3b11240a0f1213f4fdf592c54307b5", null ],
+    [ "tx_num", "structTransmission.html#abd53eae6563e1d323ba8734b031c71f4", null ]
 ];

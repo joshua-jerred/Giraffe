@@ -25,31 +25,69 @@
 var NAVTREE =
 [
   [ "Giraffe", "index.html", [
-    [ "Giraffe Flight Software (GFS)", "index.html#autotoc_md9", [
-      [ "General", "index.html#autotoc_md11", null ],
-      [ "Modules", "index.html#autotoc_md12", null ],
-      [ "Utilities", "index.html#autotoc_md13", null ],
-      [ "Other Important Features", "index.html#autotoc_md14", [
-        [ "A project by Joshua Jerred", "index.html#autotoc_md10", null ],
-        [ "Extensions", "index.html#autotoc_md15", null ],
-        [ "Telemetry", "index.html#autotoc_md16", null ],
-        [ "Debugging Web Server", "index.html#autotoc_md17", null ]
+    [ "Giraffe Flight Software (GFS)", "index.html#autotoc_md4", [
+      [ "General", "index.html#autotoc_md6", null ],
+      [ "Modules", "index.html#autotoc_md7", null ],
+      [ "Utilities", "index.html#autotoc_md8", null ],
+      [ "Other Important Features", "index.html#autotoc_md9", [
+        [ "A project by Joshua Jerred", "index.html#autotoc_md5", null ],
+        [ "Extensions", "index.html#autotoc_md10", null ],
+        [ "Telemetry", "index.html#autotoc_md11", null ],
+        [ "Debugging Web Server", "index.html#autotoc_md12", null ]
       ] ]
     ] ],
-    [ "Giraffe Ground Station (GGS)", "index.html#autotoc_md18", null ],
-    [ "Giraffe Flight Computer (GFC)", "index.html#autotoc_md19", null ],
-    [ "GFS Errors", "md_docs_Doxygen_pages_errors.html", [
-      [ "Prefixes:", "md_docs_Doxygen_pages_errors.html#autotoc_md1", null ],
-      [ "C_ Configuration Errors", "md_docs_Doxygen_pages_errors.html#autotoc_md2", null ],
-      [ "Telemetry Module Errors", "md_docs_Doxygen_pages_errors.html#autotoc_md6", null ]
+    [ "Giraffe Ground Station (GGS)", "index.html#autotoc_md13", null ],
+    [ "Giraffe Flight Computer (GFC)", "index.html#autotoc_md14", null ],
+    [ "Build Guide (GFS)", "md_docs_user_docs_build_guide.html", [
+      [ "Build Requirements", "md_docs_user_docs_build_guide.html#autotoc_md16", null ],
+      [ "Build Instructions", "md_docs_user_docs_build_guide.html#autotoc_md19", [
+        [ "Main Branch", "md_docs_user_docs_build_guide.html#autotoc_md20", null ],
+        [ "Development Branch", "md_docs_user_docs_build_guide.html#autotoc_md21", null ],
+        [ "Unit Tests", "md_docs_user_docs_build_guide.html#autotoc_md22", null ]
+      ] ],
+      [ "Raspberry Pi Configuration", "md_docs_user_docs_build_guide.html#autotoc_md23", null ]
     ] ],
-    [ "GFS Version Change Log", "md_docs_Doxygen_pages_versions.html", [
-      [ "0.2.0", "md_docs_Doxygen_pages_versions.html#autotoc_md21", null ],
-      [ "0.1.0", "md_docs_Doxygen_pages_versions.html#autotoc_md22", null ],
-      [ "0.0.9", "md_docs_Doxygen_pages_versions.html#autotoc_md23", null ]
+    [ "Commands", "md_docs_user_docs_commands.html", [
+      [ "========", "md_docs_user_docs_commands.html#autotoc_md25", [
+        [ "Command Format", "md_docs_user_docs_commands.html#autotoc_md26", [
+          [ "The following packages must be installed on the host system before building:", "md_docs_user_docs_build_guide.html#autotoc_md17", null ],
+          [ "Automatically downloaded and built via cmake:", "md_docs_user_docs_build_guide.html#autotoc_md18", null ],
+          [ "Command Flag", "md_docs_user_docs_commands.html#autotoc_md27", null ],
+          [ "Category", "md_docs_user_docs_commands.html#autotoc_md28", null ],
+          [ "Command ID", "md_docs_user_docs_commands.html#autotoc_md29", null ],
+          [ "Command Argument", "md_docs_user_docs_commands.html#autotoc_md30", null ]
+        ] ]
+      ] ],
+      [ "Command List", "md_docs_user_docs_commands.html#autotoc_md31", null ]
+    ] ],
+    [ "GFS Errors", "md_docs_user_docs_errors.html", [
+      [ "Prefixes:", "md_docs_user_docs_errors.html#autotoc_md34", null ],
+      [ "Configuration Module", "md_docs_user_docs_errors.html#autotoc_md35", null ],
+      [ "Telemetry Module Errors", "md_docs_user_docs_errors.html#autotoc_md39", null ],
+      [ "Extension Module Errors", "md_docs_user_docs_errors.html#autotoc_md41", null ],
+      [ "Extension Errors", "md_docs_user_docs_errors.html#autotoc_md42", [
+        [ "BMP180", "md_docs_user_docs_errors.html#autotoc_md43", null ],
+        [ "DS18B20", "md_docs_user_docs_errors.html#autotoc_md44", null ],
+        [ "BME280", "md_docs_user_docs_errors.html#autotoc_md45", null ],
+        [ "SAM-M8Q", "md_docs_user_docs_errors.html#autotoc_md46", null ]
+      ] ],
+      [ "DataStream Errors", "md_docs_user_docs_errors.html#autotoc_md47", null ]
+    ] ],
+    [ "GFS Version Change Log", "md_docs_user_docs_versions.html", [
+      [ "0.3", "md_docs_user_docs_versions.html#autotoc_md49", null ],
+      [ "0.2.0", "md_docs_user_docs_versions.html#autotoc_md50", null ],
+      [ "0.1.0", "md_docs_user_docs_versions.html#autotoc_md51", null ],
+      [ "0.0.9", "md_docs_user_docs_versions.html#autotoc_md52", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Bug List", "bug.html", null ],
+    [ "Namespace Members", "namespacemembers.html", [
+      [ "All", "namespacemembers.html", null ],
+      [ "Functions", "namespacemembers_func.html", null ],
+      [ "Variables", "namespacemembers_vars.html", null ],
+      [ "Typedefs", "namespacemembers_type.html", null ],
+      [ "Enumerations", "namespacemembers_enum.html", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
@@ -78,11 +116,14 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"classDS18B20.html#a6bc05fc72304245e775ec18d4d543f28",
-"classInterfaceControl.html#a2543b00364c6df5a3965e7c3b2e74822",
-"classTestExtension.html#af03fcd31df1589ce8787a213bbf4994f",
-"structConfigData.html#structConfigData_1_1Extensions"
+"afsk_8cpp.html",
+"classWavGen.html#aa4931329f1665891fdf33483e2d99c31",
+"classextension_1_1DRA818V__SIM.html#a339f3388cef2d27ffbe98381f70321e4",
+"classextension_1_1SAMM8Q.html#a5b63e048be863e8fe7371fa37c2e022f",
+"classmodules_1_1ExtensionsModule.html#a6b5369a67ab00907f58cb8f0e1bd80aa",
+"hierarchy.html",
+"structConfigData.html#a719f3fd1f9bfc37247bffc5a8475102c",
+"ubx_8h.html#adeeda5a4fc125d1ad07f95b20a621e39"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

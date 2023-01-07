@@ -1,0 +1,4 @@
+<map id="extension::BMP180" name="extension::BMP180">
+<area shape="rect" id="node1" title="BMP180 sensor extension." alt="" coords="5,747,168,1117"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="7,5,167,699"/>
+</map>

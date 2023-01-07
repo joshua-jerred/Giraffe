@@ -1,0 +1,4 @@
+<map id="modules::ConsoleModule" name="modules::ConsoleModule">
+<area shape="rect" id="node1" title="This class takes data from a data frame snapshot and prints it out to a simple display in the console..." alt="" coords="5,336,175,589"/>
+<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="15,5,165,288"/>
+</map>

@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('structFlightProcedure.html',''); initR
 <p>Struct containing the procedure configuration. One for each type.  
  <a href="structFlightProcedure.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="utility-config-types_8h_source.html">utility-config-types.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="config-types_8h_source.html">config-types.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for FlightProcedure:</div>
 <div class="dyncontent">
@@ -120,18 +120,19 @@ Public Types</h2></td></tr>
 , <a class="el" href="structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1a8d4c739208de41f0b3d78ce6fc0d892e">STANDARD</a> = 2
 , <a class="el" href="structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1af803ba34b4694092f0ad086ef6ce1ff9">RECOVERY</a> = 3
 , <br />
-&#160;&#160;<a class="el" href="structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1a8e6a35d5162c1d62243ebeefb291ac38">FAILSAFE</a> = 4
+&#160;&#160;<a class="el" href="structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1a1d75e2f591e2488450e245cd4246954a">DESCENT</a> = 4
+, <a class="el" href="structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1a8e6a35d5162c1d62243ebeefb291ac38">FAILSAFE</a> = 4
 <br />
  }</td></tr>
 <tr class="separator:ac196c8a053c95d830c4bf08221fabec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aed84c9638ebea9186b556d76e54f2859"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFlightProcedure.html#aed84c9638ebea9186b556d76e54f2859">enabled</a></td></tr>
+<tr class="memitem:aed84c9638ebea9186b556d76e54f2859"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFlightProcedure.html#aed84c9638ebea9186b556d76e54f2859">enabled</a> = 0</td></tr>
 <tr class="separator:aed84c9638ebea9186b556d76e54f2859"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bf240ff599c2418964a865184e3ff81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals">Intervals</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFlightProcedure.html#a7bf240ff599c2418964a865184e3ff81">intervals</a></td></tr>
+<tr class="memitem:a7bf240ff599c2418964a865184e3ff81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals">Intervals</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFlightProcedure.html#a7bf240ff599c2418964a865184e3ff81">intervals</a> = <a class="el" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals">Intervals</a>()</td></tr>
 <tr class="separator:a7bf240ff599c2418964a865184e3ff81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae07a50e2b42e73a5d6f9dfd8f08f8d73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1">ProcType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFlightProcedure.html#ae07a50e2b42e73a5d6f9dfd8f08f8d73">type</a></td></tr>
+<tr class="memitem:ae07a50e2b42e73a5d6f9dfd8f08f8d73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1">ProcType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFlightProcedure.html#ae07a50e2b42e73a5d6f9dfd8f08f8d73">type</a> = ProcType::ERROR</td></tr>
 <tr class="separator:ae07a50e2b42e73a5d6f9dfd8f08f8d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -215,6 +216,7 @@ health_check</td>
 <tr><td class="fieldname"><a id="ac196c8a053c95d830c4bf08221fabec1addc98b588dd906ebd4015749f49208fe"></a>TESTING&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ac196c8a053c95d830c4bf08221fabec1a8d4c739208de41f0b3d78ce6fc0d892e"></a>STANDARD&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ac196c8a053c95d830c4bf08221fabec1af803ba34b4694092f0ad086ef6ce1ff9"></a>RECOVERY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac196c8a053c95d830c4bf08221fabec1a1d75e2f591e2488450e245cd4246954a"></a>DESCENT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ac196c8a053c95d830c4bf08221fabec1a8e6a35d5162c1d62243ebeefb291ac38"></a>FAILSAFE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
@@ -228,12 +230,12 @@ health_check</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int FlightProcedure::enabled</td>
+          <td class="memname">int FlightProcedure::enabled = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classConfigModule.html#a1735a8039d3b877eec94a4508bd216ff">ConfigModule::parseFlightProcedures()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1ConfigModule.html#a1735a8039d3b877eec94a4508bd216ff">modules::ConfigModule::parseFlightProcedures()</a>.</p>
 
 </div>
 </div>
@@ -244,12 +246,12 @@ health_check</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1">ProcType</a> FlightProcedure::type</td>
+          <td class="memname"><a class="el" href="structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1">ProcType</a> FlightProcedure::type = ProcType::ERROR</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classConfigModule.html#a1735a8039d3b877eec94a4508bd216ff">ConfigModule::parseFlightProcedures()</a>, <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>, and <a class="el" href="classFlightRunner.html#abf65cf81fbc6a8462d4dd95f448b430c">FlightRunner::switchLoops()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1ConfigModule.html#a1735a8039d3b877eec94a4508bd216ff">modules::ConfigModule::parseFlightProcedures()</a>, <a class="el" href="classmodules_1_1ConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">modules::ConsoleModule::printData()</a>, and <a class="el" href="classFlightRunner.html#abf65cf81fbc6a8462d4dd95f448b430c">FlightRunner::switchLoops()</a>.</p>
 
 </div>
 </div>
@@ -260,12 +262,12 @@ health_check</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals">Intervals</a> FlightProcedure::intervals</td>
+          <td class="memname"><a class="el" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals">Intervals</a> FlightProcedure::intervals = <a class="el" href="structFlightProcedure.html#structFlightProcedure_1_1Intervals">Intervals</a>()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classConfigModule.html#a1735a8039d3b877eec94a4508bd216ff">ConfigModule::parseFlightProcedures()</a>, <a class="el" href="classConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">ConsoleModule::printData()</a>, and <a class="el" href="classFlightRunner.html#abf65cf81fbc6a8462d4dd95f448b430c">FlightRunner::switchLoops()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1ConfigModule.html#a1735a8039d3b877eec94a4508bd216ff">modules::ConfigModule::parseFlightProcedures()</a>, <a class="el" href="classmodules_1_1ConsoleModule.html#a8ecc5bdd524e00987dbb6aa84608fbf2">modules::ConsoleModule::printData()</a>, and <a class="el" href="classFlightRunner.html#abf65cf81fbc6a8462d4dd95f448b430c">FlightRunner::switchLoops()</a>.</p>
 
 </div>
 </div>

@@ -1,0 +1,23 @@
+<map id="data&#45;stream.h" name="data&#45;stream.h">
+<area shape="rect" id="node1" title="Contains the declaration of the DataStream class." alt="" coords="1142,5,1245,32"/>
+<area shape="rect" id="node2" href="$extensions_8h.html" title="This file contains the definitions for the classes related to extensions." alt="" coords="620,80,716,107"/>
+<area shape="rect" id="node12" href="$modules_8h.html" title="Defines the enum module_status and parent class for the modules." alt="" coords="1152,155,1235,181"/>
+<area shape="rect" id="node13" href="$flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="935,229,1035,256"/>
+<area shape="rect" id="node16" href="$module-configuration_8cpp.html" title="This file implements the class configuration module." alt="" coords="1689,229,1855,256"/>
+<area shape="rect" id="node21" href="$data-stream_8cpp.html" title="Contains the implementation of the DataStream class." alt="" coords="1310,80,1426,107"/>
+<area shape="rect" id="node3" href="$bme280_8cpp.html" title="This file contains the implementation of the BME280 extension it&#39;s driver." alt="" coords="5,155,99,181"/>
+<area shape="rect" id="node4" href="$bmp180_8cpp.html" title="This file contains the implementation of the BMP180 extension." alt="" coords="123,155,216,181"/>
+<area shape="rect" id="node5" href="$ds18b20_8cpp.html" title="Implementation of the DSB18B20 extension." alt="" coords="240,155,336,181"/>
+<area shape="rect" id="node6" href="$extension_8cpp.html" title="This file contains the implementation of the Extension class, which is the base class for all extensi..." alt="" coords="361,155,463,181"/>
+<area shape="rect" id="node7" href="$max17049_8cpp.html" title="Driver for the MAX17049 fuel gauge, currently unused." alt="" coords="488,155,595,181"/>
+<area shape="rect" id="node8" href="$samm8q_8cpp.html" title="The extension for the SAM&#45;M8Q GPS module. Uses the ubx utility." alt="" coords="619,155,717,181"/>
+<area shape="rect" id="node9" href="$simulated-extensions_8cpp.html" title="This file contains the implementation of the simulated extensions." alt="" coords="741,155,912,181"/>
+<area shape="rect" id="node10" href="$sysinfo_8cpp.html" title="An extension that provides system information." alt="" coords="937,155,1026,181"/>
+<area shape="rect" id="node11" href="$module-extensions_8cpp.html" title="Defines the ExtensionsModule class." alt="" coords="755,229,911,256"/>
+<area shape="rect" id="node17" href="$module-console_8cpp.html" title="This file contains the Console Module class." alt="" coords="1525,229,1664,256"/>
+<area shape="rect" id="node18" href="$module-data_8cpp.html" title="This file implements the class DataModule which is defined in module&#45;data.h." alt="" coords="1059,229,1178,256"/>
+<area shape="rect" id="node19" href="$module-server_8cpp.html" title="The debugging server module implementation." alt="" coords="1203,229,1331,256"/>
+<area shape="rect" id="node20" href="$module-telemetry_8cpp.html" title="This fle implements the class TelemetryModule." alt="" coords="1355,229,1501,256"/>
+<area shape="rect" id="node14" href="$flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="869,304,984,331"/>
+<area shape="rect" id="node15" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="1008,304,1083,331"/>
+</map>

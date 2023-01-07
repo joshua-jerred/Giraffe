@@ -1,17 +1,17 @@
 var searchData=
 [
-  ['ok_333',['OK',['../utility-i2c_8h.html#a360eb58851bf723bd1fe83eee7cb9c32ae0aa021e21dddbd6d8cecec71e9cf564',1,'utility-i2c.h']]],
-  ['one_5fwire_5fdevice_5f_334',['one_wire_device_',['../classDS18B20.html#aea94e2424ac8940da9ee7091cc1bcbf1',1,'DS18B20']]],
-  ['one_5fwire_5fdevice_5fid_5f_335',['one_wire_device_id_',['../classDS18B20.html#ac0a4ad1f088a074d7ce800dbaf2229dc',1,'DS18B20']]],
-  ['one_5fwire_5ffile_336',['ONE_WIRE_FILE',['../utility-configurables_8h.html#a1ef2dfab309d8824157ebabced832796',1,'utility-configurables.h']]],
-  ['one_5fwire_5fid_337',['one_wire_id',['../structExtensionMetadata.html#aa021b04d864dc03b3fa54fb31b211653',1,'ExtensionMetadata::ExtraArgs']]],
-  ['one_5fwire_5flocation_338',['ONE_WIRE_LOCATION',['../utility-configurables_8h.html#acf5c2c2b7557b675b6e34307cfbdaad1',1,'utility-configurables.h']]],
-  ['one_5fwire_5fmutex_5f_339',['one_wire_mutex_',['../classInterfaceControl.html#a066b57c9c10d09180936716825e6bd53',1,'InterfaceControl']]],
-  ['onewire_340',['OneWire',['../classOneWire.html',1,'']]],
-  ['onewire_341',['ONEWIRE',['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462a4328f7aa020d22a263d95a4010c08e2d',1,'ExtensionMetadata']]],
-  ['onewire_342',['OneWire',['../classOneWire.html#a2013ff9b7cd570e8bc18907cab12feae',1,'OneWire']]],
-  ['openfile_343',['openFile',['../classPSK.html#a36aef2d37d2f6b56b4a8e405f7fe9511',1,'PSK']]],
-  ['operator_3c_3c_344',['operator&lt;&lt;',['../classServerSocket.html#ac58195b94a6cfdbdc0f87b33c2c43aa4',1,'ServerSocket']]],
-  ['operator_3e_3e_345',['operator&gt;&gt;',['../classServerSocket.html#a122ad21557c7ceeed54f308324ad4fe3',1,'ServerSocket']]],
-  ['other_346',['OTHER',['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cda2115842fb156bf2cd2d1769a666fec9a',1,'ConfigData::OTHER()'],['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96ba03570470bad94692ce93e32700d2e1cb',1,'ExtensionMetadata::OTHER()'],['../structExtensionMetadata.html#a40a356ac9ffc42340a07dab766957462a03570470bad94692ce93e32700d2e1cb',1,'ExtensionMetadata::OTHER()']]]
+  ['nack_472',['NACK',['../namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4aa68c6c77586d4c740ec1b75b65b37946',1,'ubx']]],
+  ['name_473',['name',['../structExtensionMetadata.html#a7d5b705efa5d2e00ce73079440803bd1',1,'ExtensionMetadata']]],
+  ['name_5f_474',['name_',['../classextension_1_1Extension.html#abf1b3e7e94f1a3553858e8d03148b9e0',1,'extension::Extension']]],
+  ['nav_5fdata_475',['NAV_DATA',['../namespaceubx.html#structubx_1_1NAV__DATA',1,'ubx']]],
+  ['nlohmann_5fjson_5fserialize_5fenum_476',['NLOHMANN_JSON_SERIALIZE_ENUM',['../module-configuration_8cpp.html#a55c0d5787772793028d000a43c4ad703',1,'NLOHMANN_JSON_SERIALIZE_ENUM(ConfigData::MainboardType, { {ConfigData::MainboardType::ERROR, &quot;error&quot;}, {ConfigData::MainboardType::OTHER, &quot;other&quot;}, {ConfigData::MainboardType::PI_ZERO, &quot;pi_zero&quot;}, {ConfigData::MainboardType::PI_ZERO_W, &quot;pi_zero_w&quot;}, {ConfigData::MainboardType::PI_2, &quot;pi_2&quot;}, {ConfigData::MainboardType::PI_3, &quot;pi_3&quot;}, {ConfigData::MainboardType::PI_4, &quot;pi_4&quot;} }) NLOHMANN_JSON_SERIALIZE_ENUM(FlightProcedure:&#160;module-configuration.cpp'],['../module-configuration_8cpp.html#af98aa2359eb2b4f75bef841bd16040e5',1,'NLOHMANN_JSON_SERIALIZE_ENUM(ExtensionMetadata::Category, { {ExtensionMetadata::Category::ERROR, &quot;error&quot;}, {ExtensionMetadata::Category::OTHER, &quot;other&quot;}, {ExtensionMetadata::Category::RADIO, &quot;radio&quot;}, {ExtensionMetadata::Category::GPS, &quot;gps&quot;}, {ExtensionMetadata::Category::CAMERA, &quot;camera&quot;}, {ExtensionMetadata::Category::INTERNAL_SENSOR, &quot;internal_sensor&quot;}, {ExtensionMetadata::Category::EXTERNAL_SENSOR, &quot;external_sensor&quot;} }) NLOHMANN_JSON_SERIALIZE_ENUM(ExtensionMetadata:&#160;module-configuration.cpp']]],
+  ['no_5ffix_477',['NO_FIX',['../namespaceubx.html#abf2bdd0bba91974003021efd5b754d54aa80630704b93114ed9e817a3f53f59c7',1,'ubx']]],
+  ['none_478',['NONE',['../namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4ab50339a10e1de285ac99d4c3990b8693',1,'ubx']]],
+  ['not_5fconnected_479',['NOT_CONNECTED',['../status_8h.html#a360eb58851bf723bd1fe83eee7cb9c32ad91be9b5ceb9fe0af02b9b02413eccf8',1,'status.h']]],
+  ['not_5ffound_480',['NOT_FOUND',['../status_8h.html#a55b895119b13b83904dd713a522687cca8c02547a8a3b02382bac3557bcb2280d',1,'status.h']]],
+  ['nrzi_481',['NRZI',['../classAFSK.html#a9ba179095d9d01b12045f8e4392a9cb5',1,'AFSK']]],
+  ['num_5fdata_5fpackets_5f_482',['num_data_packets_',['../classDataStream.html#ac4b2f7b7fb2f9d0b3ee46555140a87be',1,'DataStream']]],
+  ['num_5ferror_5fpackets_5f_483',['num_error_packets_',['../classDataStream.html#a36d112d4fe7a90c78c6f6b77b619c5ba',1,'DataStream']]],
+  ['num_5fsatellites_484',['num_satellites',['../namespaceubx.html#aa421fa7a15e2f6315b29fe8b0c7fd9cd',1,'ubx::NAV_DATA']]],
+  ['number_5fof_5ferrors_5f_485',['number_of_errors_',['../classmodules_1_1ConfigModule.html#aae1e1b6a2fa73f4dced5819325fe2210',1,'modules::ConfigModule']]]
 ];

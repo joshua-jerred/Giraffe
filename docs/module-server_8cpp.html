@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -83,46 +83,83 @@ $(document).ready(function(){initNavTree('module-server_8cpp.html',''); initResi
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">module-server.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="module-server_8h_source.html">module-server.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
+
+<p>The debugging server module implementation.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;nlohmann/json.hpp&gt;</code><br />
+<code>#include &lt;deque&gt;</code><br />
+<code>#include &quot;<a class="el" href="socket_8h_source.html">socket.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="modules_8h_source.html">modules.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for module-server.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="module-server_8cpp__incl.png" border="0" usemap="#amodule-server_8cpp" alt=""/></div>
 <map name="amodule-server_8cpp" id="amodule-server_8cpp">
-<area shape="rect" title=" " alt="" coords="1091,5,1219,32"/>
-<area shape="rect" href="module-server_8h.html" title=" " alt="" coords="1039,80,1153,107"/>
-<area shape="rect" title=" " alt="" coords="1177,80,1249,107"/>
-<area shape="rect" title=" " alt="" coords="629,304,683,331"/>
-<area shape="rect" title=" " alt="" coords="1179,155,1237,181"/>
-<area shape="rect" title=" " alt="" coords="693,229,755,256"/>
-<area shape="rect" title=" " alt="" coords="1261,155,1328,181"/>
-<area shape="rect" title=" " alt="" coords="1352,155,1413,181"/>
-<area shape="rect" title=" " alt="" coords="435,229,490,256"/>
-<area shape="rect" title=" " alt="" coords="1437,155,1568,181"/>
-<area shape="rect" href="utility-configurables_8h.html" title="All macro definitions for the flight control software will be in this file. Macros should be avoided." alt="" coords="1593,155,1738,181"/>
-<area shape="rect" href="utility-config-types_8h.html" title=" " alt="" coords="5,229,144,256"/>
-<area shape="rect" href="utility-data-stream_8h.html" title="Contains the declaration of the DataStream class." alt="" coords="295,155,433,181"/>
-<area shape="rect" href="utility-socket_8h.html" title="Source: https://tldp.org/LDP/LG/issue74/tougher.html." alt="" coords="997,155,1104,181"/>
-<area shape="rect" href="module_8h.html" title="Defines the enum module_status and parent class for the modules." alt="" coords="652,155,727,181"/>
-<area shape="rect" title=" " alt="" coords="43,304,101,331"/>
-<area shape="rect" title=" " alt="" coords="126,304,237,331"/>
-<area shape="rect" title=" " alt="" coords="219,229,277,256"/>
-<area shape="rect" title=" " alt="" coords="302,229,359,256"/>
-<area shape="rect" href="utility-status_8h.html" title="Contains types for status of modules and extensions." alt="" coords="515,229,619,256"/>
-<area shape="rect" title=" " alt="" coords="829,229,920,256"/>
-<area shape="rect" title=" " alt="" coords="945,229,1042,256"/>
-<area shape="rect" title=" " alt="" coords="1066,229,1153,256"/>
-<area shape="rect" title=" " alt="" coords="1177,229,1242,256"/>
-<area shape="rect" title=" " alt="" coords="1266,229,1334,256"/>
-<area shape="rect" title=" " alt="" coords="1359,229,1441,256"/>
+<area shape="rect" title="The debugging server module implementation." alt="" coords="916,5,1044,32"/>
+<area shape="rect" title=" " alt="" coords="692,304,764,331"/>
+<area shape="rect" title=" " alt="" coords="1304,155,1435,181"/>
+<area shape="rect" title=" " alt="" coords="1097,80,1154,107"/>
+<area shape="rect" href="socket_8h.html" title=" " alt="" coords="440,155,512,181"/>
+<area shape="rect" href="modules_8h.html" title="Defines the enum module_status and parent class for the modules." alt="" coords="939,80,1021,107"/>
+<area shape="rect" title=" " alt="" coords="5,229,96,256"/>
+<area shape="rect" title=" " alt="" coords="121,229,218,256"/>
+<area shape="rect" title=" " alt="" coords="242,229,329,256"/>
+<area shape="rect" title=" " alt="" coords="353,229,418,256"/>
+<area shape="rect" title=" " alt="" coords="442,229,510,256"/>
+<area shape="rect" title=" " alt="" coords="961,379,1015,405"/>
+<area shape="rect" title=" " alt="" coords="535,229,617,256"/>
+<area shape="rect" title=" " alt="" coords="867,229,928,256"/>
+<area shape="rect" title=" " alt="" coords="1120,229,1179,256"/>
+<area shape="rect" href="status_8h.html" title="Contains types for status enums for modules and extensions." alt="" coords="1108,304,1177,331"/>
+<area shape="rect" href="data-stream_8h.html" title="Contains the declaration of the DataStream class." alt="" coords="1254,229,1357,256"/>
+<area shape="rect" href="configurables_8h.html" title="All macro definitions for the flight control software will be in this file. Macros should be avoided." alt="" coords="839,304,950,331"/>
+<area shape="rect" href="extensions_8h.html" title="This file contains the definitions for the classes related to extensions." alt="" coords="976,155,1072,181"/>
+<area shape="rect" title=" " alt="" coords="1025,304,1084,331"/>
+<area shape="rect" title=" " alt="" coords="1461,304,1518,331"/>
+<area shape="rect" title=" " alt="" coords="1202,304,1257,331"/>
+<area shape="rect" title=" " alt="" coords="1469,379,1579,405"/>
+<area shape="rect" href="config-types_8h.html" title="The types/structs used for configuring the flight computer." alt="" coords="1332,304,1436,331"/>
+<area shape="rect" title=" " alt="" coords="1355,379,1413,405"/>
+<area shape="rect" href="extension-interface_8h.html" title="Header for interfacing with extensions via I2C and 1&#45;Wire." alt="" coords="953,229,1095,256"/>
 </map>
 </div>
-</div></div><!-- contents -->
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a14e105ccb5fd45948f970d3a740a2b3d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="module-server_8cpp.html#a14e105ccb5fd45948f970d3a740a2b3d">json</a> = nlohmann::ordered_json</td></tr>
+<tr class="separator:a14e105ccb5fd45948f970d3a740a2b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The debugging server module implementation. </p>
+<dl class="section author"><dt>Author</dt><dd>Joshua Jerred (<a href="https://joshuajer.red">https://joshuajer.red</a>)</dd></dl>
+<p>This handles the server socket for the python client to connect to.</p>
+<p>It currently sends large chunks of data even when nothing has changed. This should be changed in the future but it has not caused any problems yet and it makes catching weird bugs easier. This is not used during flight, so it isn't the biggest priority, but this can be optimized a lot.</p>
+<dl class="section date"><dt>Date</dt><dd>2023-01-05 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.3 </dd></dl>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a14e105ccb5fd45948f970d3a740a2b3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e105ccb5fd45948f970d3a740a2b3d">&#9670;&nbsp;</a></span>json</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="module-configuration_8cpp.html#a14e105ccb5fd45948f970d3a740a2b3d">json</a> =  nlohmann::ordered_json</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

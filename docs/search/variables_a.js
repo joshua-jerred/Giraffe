@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['json_5fbuffer_5f_992',['json_buffer_',['../classConfigModule.html#a9cab899b5c9c4439d6fd96c42ab3d927',1,'ConfigModule']]]
+  ['json_5fbuffer_5f_1405',['json_buffer_',['../classmodules_1_1ConfigModule.html#a5b1698725cdfc6218d0ce2bd0203bc8b',1,'modules::ConfigModule']]]
 ];

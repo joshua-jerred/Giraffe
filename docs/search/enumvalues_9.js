@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['pi_5f2_1132',['PI_2',['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cdad6c0a43c65e12697bd2a2d75acb24309',1,'ConfigData']]],
-  ['pi_5f3_1133',['PI_3',['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cdac874e29c492024d8261010c2d60a449e',1,'ConfigData']]],
-  ['pi_5f4_1134',['PI_4',['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cda95497b0d30b6302456079910b1a98b22',1,'ConfigData']]],
-  ['pi_5fzero_1135',['PI_ZERO',['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cdaafc1920e7cddc1497786d526ef245e5f',1,'ConfigData']]],
-  ['pi_5fzero_5fw_1136',['PI_ZERO_W',['../structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cda1574b0fc54fecdab47edbb1ba00ec8f2',1,'ConfigData']]],
-  ['psk_1137',['PSK',['../structTransmission.html#ae88e058c356841ec4b74c89004aeba78a16cc3047e5c555c8fb9904cc09c166bd',1,'Transmission']]]
+  ['nack_1608',['NACK',['../namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4aa68c6c77586d4c740ec1b75b65b37946',1,'ubx']]],
+  ['no_5ffix_1609',['NO_FIX',['../namespaceubx.html#abf2bdd0bba91974003021efd5b754d54aa80630704b93114ed9e817a3f53f59c7',1,'ubx']]],
+  ['none_1610',['NONE',['../namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4ab50339a10e1de285ac99d4c3990b8693',1,'ubx']]],
+  ['not_5fconnected_1611',['NOT_CONNECTED',['../status_8h.html#a360eb58851bf723bd1fe83eee7cb9c32ad91be9b5ceb9fe0af02b9b02413eccf8',1,'status.h']]],
+  ['not_5ffound_1612',['NOT_FOUND',['../status_8h.html#a55b895119b13b83904dd713a522687cca8c02547a8a3b02382bac3557bcb2280d',1,'status.h']]]
 ];

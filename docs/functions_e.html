@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -92,27 +92,31 @@ $(document).ready(function(){initNavTree('functions_e.html',''); initResizable()
 <li>enabled
 : <a class="el" href="structFlightProcedure.html#aed84c9638ebea9186b556d76e54f2859">FlightProcedure</a>
 </li>
+<li>encodeAscii()
+: <a class="el" href="classAFSK.html#a2a456652f109102c6f7d728e5f7944db">AFSK</a>
+</li>
 <li>encodeBitStream()
-: <a class="el" href="classPSK.html#acfcfceb41ac540413d7b947e1a5e218a">PSK</a>
+: <a class="el" href="classAFSK.html#a20e0398bd2393b2bb3e985e114a6928a">AFSK</a>
 </li>
 <li>encodeRawData()
-: <a class="el" href="classPSK.html#a6f32f253ca19005af0593fd0b90a93be">PSK</a>
-</li>
-<li>encodeTextData()
-: <a class="el" href="classPSK.html#a209e094c4fe8de0a9ce97099820802c9">PSK</a>
+: <a class="el" href="classAFSK.html#a854f5a688d1644aed1e3e4a2db7434a4">AFSK</a>
 </li>
 <li>ERROR
 : <a class="el" href="structConfigData.html#ab1cc15a2f795f1f4768259a3d08ca3cdacca04be27e7e27aeb4662abe0eea0ab1">ConfigData</a>
 </li>
 <li>error()
-: <a class="el" href="classConfigModule.html#aa5deba27e7637c6c40564362036e4e1c">ConfigModule</a>
-, <a class="el" href="classExtension.html#a0fefd812bdb70c8279a21b8ba4e8405a">Extension</a>
+: <a class="el" href="classDataStream.html#a6e73dcfb43cafd374a044b3ea03f402a">DataStream</a>
+, <a class="el" href="classextension_1_1Extension.html#a436f62a1c3b2a12bd5039be5485786bc">extension::Extension</a>
 </li>
 <li>ERROR
 : <a class="el" href="structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1a1c50f92d62c474176d1ab15fcd987ba7">FlightProcedure</a>
 </li>
 <li>error()
-: <a class="el" href="classTelemetryModule.html#a7b77f117e3082c0494917aa95da76cba">TelemetryModule</a>
+: <a class="el" href="classmodules_1_1ConfigModule.html#aa5deba27e7637c6c40564362036e4e1c">modules::ConfigModule</a>
+, <a class="el" href="classmodules_1_1Module.html#ad44480d9122c4ed2156f4e4fdd30e9b1">modules::Module</a>
+</li>
+<li>error_code
+: <a class="el" href="data-stream_8h.html#a0ad0ae72915e3b8ef1aa34f0ebf6818a">ErrorStreamPacket</a>
 </li>
 <li>error_frame_
 : <a class="el" href="classDataStream.html#aefb614aa50aa3dd17b3c070ca70e4374">DataStream</a>
@@ -120,20 +124,11 @@ $(document).ready(function(){initNavTree('functions_e.html',''); initResizable()
 <li>error_frame_lock_
 : <a class="el" href="classDataStream.html#a1bdcf1bb9cbc3b4cc77a83690456bc01">DataStream</a>
 </li>
-<li>error_info
-: <a class="el" href="utility-data-stream_8h.html#a559d38329805d5ae13220f5ea70e757a">ErrorStreamPacket</a>
-</li>
 <li>error_log_file_path_
-: <a class="el" href="classDataModule.html#a05c93f80b7e162363258223e861aeb2c">DataModule</a>
-</li>
-<li>error_name
-: <a class="el" href="utility-data-stream_8h.html#aa6d9834429d66f80babf10145a8be821">ErrorStreamPacket</a>
-</li>
-<li>error_source
-: <a class="el" href="utility-data-stream_8h.html#acfff1009efba1b73c7682b2f0a87f820">ErrorStreamPacket</a>
+: <a class="el" href="classmodules_1_1DataModule.html#a50e25c4a353f4458ea9d3a68f394aeea">modules::DataModule</a>
 </li>
 <li>error_source_
-: <a class="el" href="classModule.html#aca64a0aa6bd57eb12396e9e2a06d6975">Module</a>
+: <a class="el" href="classmodules_1_1Module.html#a6333ce32c798cc3935401096fd132cff">modules::Module</a>
 </li>
 <li>error_stream_
 : <a class="el" href="classDataStream.html#ac2560a5202001330fe5c89c7d959487a">DataStream</a>
@@ -142,14 +137,14 @@ $(document).ready(function(){initNavTree('functions_e.html',''); initResizable()
 : <a class="el" href="classDataStream.html#a96e00aacaccb3985eed4f8d5bf576a69">DataStream</a>
 </li>
 <li>errorframe_
-: <a class="el" href="classDataModule.html#a468c681c01343913470d2e91c7a52606">DataModule</a>
+: <a class="el" href="classmodules_1_1DataModule.html#a20de44519ace5c9ae663210cbfad4787">modules::DataModule</a>
 </li>
 <li>expiration_time
-: <a class="el" href="utility-data-stream_8h.html#a11bf0682cb89b177992225d5d4ffee74">DataStreamPacket</a>
-, <a class="el" href="utility-data-stream_8h.html#a2bfd0803dcf829ce6ea6b2a8eb709f74">ErrorStreamPacket</a>
+: <a class="el" href="data-stream_8h.html#a11bf0682cb89b177992225d5d4ffee74">DataStreamPacket</a>
+, <a class="el" href="data-stream_8h.html#a2bfd0803dcf829ce6ea6b2a8eb709f74">ErrorStreamPacket</a>
 </li>
 <li>Extension()
-: <a class="el" href="classExtension.html#a7138330f3436870a6e3b6a5b98549a68">Extension</a>
+: <a class="el" href="classextension_1_1Extension.html#a1663628dd14f164a1d1c678245527374">extension::Extension</a>
 </li>
 <li>extension_status_
 : <a class="el" href="classDataStream.html#a95ba4688fdf594636c1491e75ce10a0c">DataStream</a>
@@ -161,19 +156,19 @@ $(document).ready(function(){initNavTree('functions_e.html',''); initResizable()
 : <a class="el" href="structExtensionMetadata.html#acc6aea7c33da64252d36f4221ded8379">ExtensionMetadata</a>
 </li>
 <li>ExtensionException()
-: <a class="el" href="classExtensionException.html#a831cbb266b7fc191f11a22303ec85eae">ExtensionException</a>
+: <a class="el" href="classextension_1_1ExtensionException.html#a57c5237afc31659599f325c0a813a2fe">extension::ExtensionException</a>
 </li>
 <li>extensions
 : <a class="el" href="structConfigData.html#ab851c4ea2208a2eceec957ee7ff7aaeb">ConfigData</a>
 </li>
 <li>extensions_
-: <a class="el" href="classExtensionsModule.html#ac50a20a0577a66ebc61d41c5008de0b8">ExtensionsModule</a>
+: <a class="el" href="classmodules_1_1ExtensionsModule.html#a906825c03d8d86961fb612e1bb3f372f">modules::ExtensionsModule</a>
 </li>
 <li>extensions_list
 : <a class="el" href="structConfigData.html#ab605cc94dccfdb9e903c5c8123d1be98">ConfigData::Extensions</a>
 </li>
 <li>ExtensionsModule()
-: <a class="el" href="classExtensionsModule.html#a8afdc85d2489351f81055adde5468a97">ExtensionsModule</a>
+: <a class="el" href="classmodules_1_1ExtensionsModule.html#a8afdc85d2489351f81055adde5468a97">modules::ExtensionsModule</a>
 </li>
 <li>extra_args
 : <a class="el" href="structExtensionMetadata.html#a4b9ab11764e591530662ec680ed1949a">ExtensionMetadata</a>

@@ -1,9 +1,25 @@
 var searchData=
 [
-  ['name_1015',['name',['../structExtensionMetadata.html#a7d5b705efa5d2e00ce73079440803bd1',1,'ExtensionMetadata::name()'],['../structConfigData.html#a6c9f92937353bf902bf2ece62a086200',1,'ConfigData::DataTypes::ExtensionDataType::name()']]],
-  ['name_5f_1016',['name_',['../classExtension.html#a1a2e6e9642efa7dab57cf8300439117f',1,'Extension']]],
-  ['num_5fdata_5fpackets_5f_1017',['num_data_packets_',['../classDataStream.html#ac4b2f7b7fb2f9d0b3ee46555140a87be',1,'DataStream']]],
-  ['num_5ferror_5fpackets_5f_1018',['num_error_packets_',['../classDataStream.html#a36d112d4fe7a90c78c6f6b77b619c5ba',1,'DataStream']]],
-  ['num_5fsamples_5f_1019',['num_samples_',['../classPSK.html#a951a619db75c042e8ddaf8cba3d513f1',1,'PSK']]],
-  ['number_5fof_5ferrors_5f_1020',['number_of_errors_',['../classConfigModule.html#ab68b244641dd4dc58d0c0f41f3fb584d',1,'ConfigModule']]]
+  ['m_5faddr_1417',['m_addr',['../classSocket.html#ae75eeafabc1c13ff34b6fe47ee20cc0d',1,'Socket']]],
+  ['m_5fs_1418',['m_s',['../classextension_1_1ExtensionException.html#a6f78d05af4b9766a826f93e20e6169f5',1,'extension::ExtensionException::m_s()'],['../classSocketException.html#ae999851aee98bafd73a2904071cafb83',1,'SocketException::m_s()']]],
+  ['m_5fsock_1419',['m_sock',['../classSocket.html#aa3cc9f7b573a50cd3d7553424d280991',1,'Socket']]],
+  ['main_5fboard_1420',['main_board',['../structConfigData.html#a6c404a6ece0729f53abf8a034ec218da',1,'ConfigData::General']]],
+  ['max_5famplitude_5f_1421',['max_amplitude_',['../classAFSK.html#aa308793bd120d937b0832b766d14a368',1,'AFSK::max_amplitude_()'],['../classWavGen.html#aa9286bb92e015f794244dcbe4d56a312',1,'WavGen::max_amplitude_()']]],
+  ['max_5fsize_1422',['max_size',['../classDataStream.html#ab00a49da5df96155eaeda5d742debdcd',1,'DataStream::TXLogInfo']]],
+  ['maxconnections_1423',['MAXCONNECTIONS',['../socket_8h.html#a719f66becbdc13437ef42f8a069c48b8',1,'socket.h']]],
+  ['maxhostname_1424',['MAXHOSTNAME',['../socket_8h.html#a581bc472ab7048ed9ae963911e7f3f80',1,'socket.h']]],
+  ['maxrecv_1425',['MAXRECV',['../socket_8h.html#a5807c416b3aa3976c3df8cbc581e81cf',1,'socket.h']]],
+  ['mb_5f_1426',['MB_',['../classextension_1_1BMP180.html#a1fd48330898c662349acc54b01b5e6fb',1,'extension::BMP180']]],
+  ['mc_5f_1427',['MC_',['../classextension_1_1BMP180.html#a380a425e721121ac17daa0cc4c7ef78a',1,'extension::BMP180']]],
+  ['mclass_1428',['mClass',['../structubx_1_1UBXMessage.html#a0db78c43c622f8743cae075b3e8c4f27',1,'ubx::UBXMessage']]],
+  ['md_5f_1429',['MD_',['../classextension_1_1BMP180.html#ad76607e87c30ff114dae658e9c62ee5b',1,'extension::BMP180']]],
+  ['message_1430',['message',['../structTransmission.html#a73702650013175678589dfd54577aa5d',1,'Transmission']]],
+  ['mid_1431',['mID',['../structubx_1_1UBXMessage.html#aa815044800b80dd63ec106d786fa398d',1,'ubx::UBXMessage']]],
+  ['minute_1432',['minute',['../namespaceubx.html#a2624f809603e53bcf14abeb389a2b16a',1,'ubx::NAV_DATA']]],
+  ['mode_5f_1433',['mode_',['../classAFSK.html#aac9d939f581017a72c6e1e9b847c444c',1,'AFSK']]],
+  ['module_5fstatus_5f_1434',['module_status_',['../classmodules_1_1Module.html#a426ab2ac6825d9c54c4e58318f7763fb',1,'modules::Module::module_status_()'],['../classDataStream.html#a49467f3946a83ce16aa90202120ab48c',1,'DataStream::module_status_()']]],
+  ['module_5fstatus_5flock_5f_1435',['module_status_lock_',['../classDataStream.html#a4f71b18e1ff990a42e3c231b5edaccb8',1,'DataStream']]],
+  ['month_1436',['month',['../namespaceubx.html#a64bf9efe53eced6d470201f18cf5f5b9',1,'ubx::NAV_DATA']]],
+  ['morse_1437',['morse',['../morse_8cpp.html#ad48ab7368d9ba3bd7d5e5d62ed2a91a4',1,'MorseChar']]],
+  ['morse_5fchars_1438',['morse_chars',['../morse_8cpp.html#a3aed81dba69fbec446b1497e47f2a454',1,'morse.cpp']]]
 ];

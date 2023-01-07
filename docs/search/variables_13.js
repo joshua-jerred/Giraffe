@@ -1,9 +1,27 @@
 var searchData=
 [
-  ['uart_5fmutex_5f_1081',['uart_mutex_',['../classInterfaceControl.html#acb9be39aa66da335584b538ffa5e86e1',1,'InterfaceControl']]],
-  ['unit_1082',['unit',['../structConfigData.html#a12d3a033c43b89d945e4abe4fa7c80b3',1,'ConfigData::DataTypes::ExtensionDataType::unit()'],['../utility-data-stream_8h.html#a968dce3f0ac911fd42f0339fd6911790',1,'DataStreamPacket::unit()']]],
-  ['up_5f_1083',['UP_',['../classBMP180.html#a78fab06bdf60234ad7f16bc4b0abb284',1,'BMP180']]],
-  ['update_5finterval_1084',['update_interval',['../structExtensionMetadata.html#ae1818cf702bde997a305c94eb7ccf54f',1,'ExtensionMetadata']]],
-  ['update_5finterval_5f_1085',['update_interval_',['../classExtension.html#af03fcd31df1589ce8787a213bbf4994f',1,'Extension::update_interval_()'],['../classConsoleModule.html#a870ba4b608da414440660563a6c96931',1,'ConsoleModule::update_interval_()'],['../classServerModule.html#ac8a725ceb04bc958188f4ac9fafb4c82',1,'ServerModule::update_interval_()']]],
-  ['ut_5f_1086',['UT_',['../classBMP180.html#ab376f8eb5fde1c4b3c2f571c4b6bf5e0',1,'BMP180']]]
+  ['t_5f_1497',['T_',['../classextension_1_1BMP180.html#a08ff6861aaacb77eb62d22faca827894',1,'extension::BMP180']]],
+  ['telemetry_1498',['telemetry',['../structConfigData.html#ab87da4c949df066825e387fb919a085b',1,'ConfigData']]],
+  ['telemetry_5fenabled_1499',['telemetry_enabled',['../structConfigData.html#a3f844f2a09910d0bb737ac5750070738',1,'ConfigData::Telemetry']]],
+  ['telemetry_5fname_1500',['telemetry_name',['../structConfigData.html#a08a663ec01783e4ed812eeb7a04d2889',1,'ConfigData::DataTypes::DataType']]],
+  ['temp_5fc_5f_1501',['temp_c_',['../classextension_1_1BME280.html#aa99dc70949a1093a39abef42abb6ccbb',1,'extension::BME280']]],
+  ['temp_5fc_5f_1502',['temp_C_',['../classextension_1_1BMP180.html#a3d85e20b110eab4a5c7dda9a0d06dce2',1,'extension::BMP180::temp_C_()'],['../classextension_1_1DS18B20.html#a12e865019092af0c95f3ce942bdb8fe4',1,'extension::DS18B20::temp_C_()']]],
+  ['temp_5fcomp_5fdata_5f_1503',['temp_comp_data_',['../classextension_1_1BME280.html#a9e29ca2aa4ba67dcdb0741a855aed58e',1,'extension::BME280']]],
+  ['temp_5ff_5f_1504',['temp_F_',['../classextension_1_1BMP180.html#a4056087fbc4d61cc8135ba554f9397f1',1,'extension::BMP180::temp_F_()'],['../classextension_1_1DS18B20.html#acada9c78b3c59cee5726b4e289c763a8',1,'extension::DS18B20::temp_F_()']]],
+  ['temperature_1505',['temperature',['../classextension_1_1BME280.html#abb22db093feaf2af3a64d37df21ffb47',1,'extension::BME280::RawEnvironmentData']]],
+  ['testing_1506',['testing',['../structConfigData.html#a0db1b5e428a49490c3ddec226502ed2f',1,'ConfigData::Procs']]],
+  ['total_5fdata_5fpackets_5f_1507',['total_data_packets_',['../classDataStream.html#a1345e5de7131d7d1042287c7d64adeec',1,'DataStream']]],
+  ['total_5ferror_5fpackets_5f_1508',['total_error_packets_',['../classDataStream.html#ab230e026d697e338d690b9c2db6dd55a',1,'DataStream']]],
+  ['total_5fgb_1509',['total_gb',['../namespaceex__internal.html#ae50d3607fa7daca0b5674626a18af563',1,'ex_internal::disk_info']]],
+  ['tx_5flog_5f_1510',['tx_log_',['../classDataStream.html#a3e2e9f6a8baf1c6fb237ad585f2a5624',1,'DataStream']]],
+  ['tx_5flog_5flock_5f_1511',['tx_log_lock_',['../classDataStream.html#a80e5c7d39b9332fe436d634f1422fb84',1,'DataStream']]],
+  ['tx_5flog_5fsize_1512',['tx_log_size',['../classDataStream.html#a0685266c607e220cdbe3221926b791a0',1,'DataStream::TXLogInfo']]],
+  ['tx_5fnum_1513',['tx_num',['../structTransmission.html#abd53eae6563e1d323ba8734b031c71f4',1,'Transmission']]],
+  ['tx_5fnumber_5f_1514',['tx_number_',['../classmodules_1_1TelemetryModule.html#a622296a224bcc6e41191db13485e890c',1,'modules::TelemetryModule']]],
+  ['tx_5fqueue_5f_1515',['tx_queue_',['../classDataStream.html#af18361e3a5072c6b52bcbdd7f01d6d80',1,'DataStream']]],
+  ['tx_5fqueue_5flock_5f_1516',['tx_queue_lock_',['../classDataStream.html#a4da6b1d729f085da823d56dfe1db3549',1,'DataStream']]],
+  ['tx_5fthread_5f_1517',['tx_thread_',['../classmodules_1_1TelemetryModule.html#ac5b5faeec9df10411d17534133e0c712',1,'modules::TelemetryModule']]],
+  ['type_1518',['type',['../structFlightProcedure.html#ae07a50e2b42e73a5d6f9dfd8f08f8d73',1,'FlightProcedure::type()'],['../structTransmission.html#a60e3969fac2fe5ba08d1fc9a29c8572f',1,'Transmission::type()']]],
+  ['type_5f_1519',['type_',['../classextension_1_1Extension.html#aeff77573f90147d6760b5fffeb97d4c2',1,'extension::Extension']]],
+  ['types_1520',['types',['../structConfigData.html#a29a64c60a161dc13e3d693a105d0cada',1,'ConfigData::DataTypes']]]
 ];

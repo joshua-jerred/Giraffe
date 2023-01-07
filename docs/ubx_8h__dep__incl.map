@@ -1,0 +1,5 @@
+<map id="ubx.h" name="ubx.h">
+<area shape="rect" id="node1" title="Public interface for the u&#45;blox protocol." alt="" coords="80,5,135,32"/>
+<area shape="rect" id="node2" href="$samm8q_8cpp.html" title="The extension for the SAM&#45;M8Q GPS module. Uses the ubx utility." alt="" coords="5,80,103,107"/>
+<area shape="rect" id="node3" href="$ubx_8cpp.html" title="Initial implementation of the UBX protocol, in progress." alt="" coords="127,80,195,107"/>
+</map>

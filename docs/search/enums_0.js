@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['category_1101',['Category',['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96b',1,'ExtensionMetadata']]]
+  ['ack_1552',['ACK',['../namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4',1,'ubx']]]
 ];

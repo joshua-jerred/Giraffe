@@ -1,7 +1,0 @@
-<map id="DataModule" name="DataModule">
-<area shape="rect" id="node1" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea..." alt="" coords="6,807,173,1148"/>
-<area shape="rect" id="node2" href="$classModule.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="5,483,131,634"/>
-<area shape="rect" id="node3" href="$classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="155,373,338,744"/>
-<area shape="rect" id="node4" href="$structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="190,219,303,311"/>
-<area shape="rect" id="node5" href="$structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="161,5,332,156"/>
-</map>

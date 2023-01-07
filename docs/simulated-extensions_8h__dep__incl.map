@@ -1,9 +1,0 @@
-<map id="simulated&#45;extensions.h" name="simulated&#45;extensions.h">
-<area shape="rect" id="node1" title="This file contains the declarations of the simulated extensions." alt="" coords="103,5,259,32"/>
-<area shape="rect" id="node2" href="$simulated-extensions_8cpp.html" title="This file contains the implementation of the simulated extensions." alt="" coords="5,80,176,107"/>
-<area shape="rect" id="node3" href="$module-extensions_8h.html" title="Declares the ExtensionsModule class." alt="" coords="201,80,343,107"/>
-<area shape="rect" id="node4" href="$flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="146,155,246,181"/>
-<area shape="rect" id="node7" href="$module-extensions_8cpp.html" title="Defines the ExtensionsModule class." alt="" coords="270,155,426,181"/>
-<area shape="rect" id="node5" href="$flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="80,229,195,256"/>
-<area shape="rect" id="node6" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="219,229,293,256"/>
-</map>

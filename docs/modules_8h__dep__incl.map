@@ -1,0 +1,12 @@
+<map id="modules.h" name="modules.h">
+<area shape="rect" id="node1" title="Defines the enum module_status and parent class for the modules." alt="" coords="568,5,651,32"/>
+<area shape="rect" id="node2" href="$flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="71,80,171,107"/>
+<area shape="rect" id="node5" href="$module-configuration_8cpp.html" title="This file implements the class configuration module." alt="" coords="195,80,362,107"/>
+<area shape="rect" id="node6" href="$module-console_8cpp.html" title="This file contains the Console Module class." alt="" coords="387,80,525,107"/>
+<area shape="rect" id="node7" href="$module-data_8cpp.html" title="This file implements the class DataModule which is defined in module&#45;data.h." alt="" coords="550,80,669,107"/>
+<area shape="rect" id="node8" href="$module-extensions_8cpp.html" title="Defines the ExtensionsModule class." alt="" coords="693,80,849,107"/>
+<area shape="rect" id="node9" href="$module-server_8cpp.html" title="The debugging server module implementation." alt="" coords="873,80,1001,107"/>
+<area shape="rect" id="node10" href="$module-telemetry_8cpp.html" title="This fle implements the class TelemetryModule." alt="" coords="1026,80,1171,107"/>
+<area shape="rect" id="node3" href="$flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="5,155,120,181"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="144,155,219,181"/>
+</map>

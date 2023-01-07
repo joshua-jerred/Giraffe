@@ -5,7 +5,7 @@ var classServerSocket =
     [ "~ServerSocket", "classServerSocket.html#a510674d924c2544e6b0069e39c36516b", null ],
     [ "operator<<", "classServerSocket.html#ac58195b94a6cfdbdc0f87b33c2c43aa4", null ],
     [ "operator>>", "classServerSocket.html#a122ad21557c7ceeed54f308324ad4fe3", null ],
-    [ "accept", "classServerSocket.html#ae550e314a988575d05b1dec1c3c18020", null ],
+    [ "accept", "classServerSocket.html#adbd7326d982116dd7f71dc5c1a55c036", null ],
     [ "create", "classServerSocket.html#a6afde2dca985dacdfa770141192e2daf", null ],
     [ "bind", "classServerSocket.html#abfc7244009defd5c5e1ad173142a5059", null ],
     [ "listen", "classServerSocket.html#a4cafff80a6e9116615c663b58032e4c8", null ],

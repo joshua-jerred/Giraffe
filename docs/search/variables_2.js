@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['b1_5f_904',['B1_',['../classBMP180.html#a016cb0761f907ed635104b7d663f5646',1,'BMP180']]],
-  ['b2_5f_905',['B2_',['../classBMP180.html#a13949048b114fbe3c82b8b5f35dcaa6c',1,'BMP180']]],
-  ['b3_5f_906',['B3_',['../classBMP180.html#aa6a48506086fdb6908a01b4aee0e714f',1,'BMP180']]],
-  ['b4_5f_907',['B4_',['../classBMP180.html#a87264d310f888baa9ea59c2062373a2a',1,'BMP180']]],
-  ['b5_5f_908',['B5_',['../classBMP180.html#a210f1b6fd39deb55fcfc21864f01a05c',1,'BMP180']]],
-  ['b6_5f_909',['B6_',['../classBMP180.html#a2b9f44c5663eb410f8010aa10b471db3',1,'BMP180']]],
-  ['b7_5f_910',['B7_',['../classBMP180.html#a9926b64fea00faa453dc9131a9139820',1,'BMP180']]],
-  ['bit_5fstream_5f_911',['bit_stream_',['../classPSK.html#ab93e5c9607fcd02b1723c7fa9f08b3cd',1,'PSK']]],
-  ['bit_5fstream_5fbuffer_5f_912',['bit_stream_buffer_',['../classPSK.html#ae5ca94c858dfd148a0599b3d3b608d3e',1,'PSK']]],
-  ['bit_5fstream_5findex_5f_913',['bit_stream_index_',['../classPSK.html#ae06edbe78757cedb54fb9d9bfbbee97e',1,'PSK']]],
-  ['bit_5fstream_5foffset_5f_914',['bit_stream_offset_',['../classPSK.html#a848447fe2c840e995841e6184a3b656f',1,'PSK']]],
-  ['bits_5fper_5fsample_5f_915',['bits_per_sample_',['../classPSK.html#adc58ad3a0d2e3b23d294388961b0ac91',1,'PSK']]],
-  ['buffer_5f_916',['buffer_',['../classI2C.html#a45f3b739346fdfd5f14c95adfd273363',1,'I2C']]],
-  ['bus_5fnumber_5f_917',['bus_number_',['../classBMP180.html#ab3e7837cdaf88576e6a5b6995a0a8f53',1,'BMP180::bus_number_()'],['../classI2C.html#acf7794ed885bfb6abf3a54e014da1c7f',1,'I2C::bus_number_()']]]
+  ['b1_5f_1276',['B1_',['../classextension_1_1BMP180.html#ab026722e80d477233161407430c54ae9',1,'extension::BMP180']]],
+  ['b2_5f_1277',['B2_',['../classextension_1_1BMP180.html#ada8eeef07d20a451c243d371e17681c6',1,'extension::BMP180']]],
+  ['b3_5f_1278',['B3_',['../classextension_1_1BMP180.html#ad1e98603f34cf0d6519fcfd90c09a441',1,'extension::BMP180']]],
+  ['b4_5f_1279',['B4_',['../classextension_1_1BMP180.html#a6c562bf8afdf16766fabf8f86c0ee58e',1,'extension::BMP180']]],
+  ['b5_5f_1280',['B5_',['../classextension_1_1BMP180.html#a769e6beb684ceec9f6468dca3819b6ff',1,'extension::BMP180']]],
+  ['b6_5f_1281',['B6_',['../classextension_1_1BMP180.html#a8ba9fcf49d584497637118744ee77e0d',1,'extension::BMP180']]],
+  ['b7_5f_1282',['B7_',['../classextension_1_1BMP180.html#a0d7e5d99ca0d1ad56eb74626ce855869',1,'extension::BMP180']]],
+  ['baud_5frate_5f_1283',['baud_rate_',['../classAFSK.html#a3cc4fbdff25caba5dda92ef8e9063f5c',1,'AFSK']]],
+  ['bit_5fstream_5f_1284',['bit_stream_',['../classAFSK.html#ac9a1359d3c73d3b02c6f0a62bc2c6d0d',1,'AFSK::bit_stream_()'],['../classBitStream.html#af1001a0b8455f84053e0251a0528a149',1,'BitStream::bit_stream_()']]],
+  ['bit_5fstream_5fbuffer_5f_1285',['bit_stream_buffer_',['../classBitStream.html#ae2290648a2f231e1b8249e8326ca5c7b',1,'BitStream']]],
+  ['bit_5fstream_5findex_5f_1286',['bit_stream_index_',['../classBitStream.html#adadfc9c9d627341f4b37eb547be1bcdf',1,'BitStream']]],
+  ['bit_5fstream_5flength_5f_1287',['bit_stream_length_',['../classBitStream.html#ac93e48ee5226c73558a4349a9523056a',1,'BitStream']]],
+  ['bit_5fstream_5foffset_5f_1288',['bit_stream_offset_',['../classBitStream.html#abd2a871b1884d0b8683bcdc3eb4385de',1,'BitStream']]],
+  ['bits_5fper_5fsample_5f_1289',['bits_per_sample_',['../classAFSK.html#a8c99ffd9c53eeb3543b0eb40b9ceae7f',1,'AFSK::bits_per_sample_()'],['../classWavGen.html#ae529c9368a4ba513dcc137a6c5d9f127',1,'WavGen::bits_per_sample_()']]],
+  ['bus_5flock_5f_1290',['bus_lock_',['../classI2C.html#a9f7e3945db92cdc382b8f0c5b919d6b9',1,'I2C']]],
+  ['bus_5fnumber_5f_1291',['bus_number_',['../classI2C.html#a26d62a8c7ce81da6e19ed50717b8ba82',1,'I2C::bus_number_()'],['../classextension_1_1BMP180.html#a50661bc1742b255147e6745995a42b1c',1,'extension::BMP180::bus_number_()'],['../classextension_1_1SAMM8Q.html#a222d08f2699273bf668e62565dc58fca',1,'extension::SAMM8Q::bus_number_()'],['../classextension_1_1BME280.html#afea6bcd89bdf4c7f7c3d155eee299ae8',1,'extension::BME280::bus_number_()'],['../classextension_1_1MAX17049.html#ad217618dda66863d441cd89dd9715dfe',1,'extension::MAX17049::bus_number_()']]]
 ];

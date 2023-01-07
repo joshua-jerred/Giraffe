@@ -1,0 +1,4 @@
+<map id="modules::TelemetryModule" name="modules::TelemetryModule">
+<area shape="rect" id="node1" title="This class is responsible for handling the radio and transmitting data upon request...." alt="" coords="5,336,184,853"/>
+<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="19,5,170,288"/>
+</map>

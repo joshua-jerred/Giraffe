@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -90,31 +90,46 @@ $(document).ready(function(){initNavTree('functions_vars_c.html',''); initResiza
 : <a class="el" href="structConfigData.html#ad952f0b13d26754c51e198182dbd3b99">ConfigData::Telemetry</a>
 </li>
 <li>call_sign_
-: <a class="el" href="classPSK.html#a6c0453f1915f2223b1de8710006c47a6">PSK</a>
-, <a class="el" href="classTelemetryModule.html#aeab9d584785ee21ecfc8bcff74899610">TelemetryModule</a>
+: <a class="el" href="classmodules_1_1TelemetryModule.html#adcf4adeabef16b563e8c7c21eddb9a05">modules::TelemetryModule</a>
 </li>
-<li>carrier_freq_
-: <a class="el" href="classPSK.html#a9b3cf90eb1beb898c3fd5e6261f34ad3">PSK</a>
-</li>
-<li>carrier_wave_angle_
-: <a class="el" href="classPSK.html#a0e335d22244f3d1de7d37b04736eaea9">PSK</a>
+<li>carrier_wave_angle
+: <a class="el" href="psk_8cpp.html#a4b06a0b9fa94d5b621f26385e8f321ef">PskWave</a>
 </li>
 <li>category
 : <a class="el" href="structExtensionMetadata.html#a459b0a95d85e1d2a46131984fdf5477b">ExtensionMetadata</a>
+, <a class="el" href="structGFSCommand.html#aa1f5f625976d996658c9c0fd8ea758a6">GFSCommand</a>
 </li>
 <li>category_
-: <a class="el" href="classExtension.html#a191292dec76d5526c7ae5a98b6db2a34">Extension</a>
+: <a class="el" href="classextension_1_1Extension.html#ad41deb0bd5bceeea33bb4213b3912f4f">extension::Extension</a>
+</li>
+<li>ck_a
+: <a class="el" href="structubx_1_1UBXMessage.html#af3627a7d01d4bb9bc82dbe06d7e510d4">ubx::UBXMessage</a>
+</li>
+<li>ck_b
+: <a class="el" href="structubx_1_1UBXMessage.html#a6cddfb822a61a16c59a089ad7a05784b">ubx::UBXMessage</a>
+</li>
+<li>command_queue_
+: <a class="el" href="classDataStream.html#adb8158e50f5d4873b289e9dab6ab752c">DataStream</a>
+, <a class="el" href="classmodules_1_1TelemetryModule.html#ab67807504eee05ee3db0da897139e64f">modules::TelemetryModule</a>
+</li>
+<li>command_queue_lock_
+: <a class="el" href="classDataStream.html#a121e3382a5aa868efa1b654da39a2df9">DataStream</a>
+, <a class="el" href="classmodules_1_1TelemetryModule.html#ae7bd1e8db08969511bdd82f8147a1341">modules::TelemetryModule</a>
 </li>
 <li>config_data_
-: <a class="el" href="classConfigModule.html#aa1ff00e9e070687363d76ea8faf62b87">ConfigModule</a>
-, <a class="el" href="classConsoleModule.html#a1a16d780b2d86d67b51e50e4fc1bebea">ConsoleModule</a>
-, <a class="el" href="classExtensionsModule.html#a90a5bb7fe874941fa3a8bf4d2d37103d">ExtensionsModule</a>
-, <a class="el" href="classFlightRunner.html#a939663318081a0c21383dd911a5022c8">FlightRunner</a>
-, <a class="el" href="classServerModule.html#a8f85059453e979860d63b6643d0d049e">ServerModule</a>
-, <a class="el" href="classTelemetryModule.html#a7b2e60b3fbd43bd73d39ad545ad98c8e">TelemetryModule</a>
+: <a class="el" href="classFlightRunner.html#a939663318081a0c21383dd911a5022c8">FlightRunner</a>
+, <a class="el" href="classmodules_1_1ConfigModule.html#a7339c97e9e135bacdf66975f7dffa188">modules::ConfigModule</a>
+, <a class="el" href="classmodules_1_1ConsoleModule.html#afdb47a36bd150317adf033fc0cd9d0b1">modules::ConsoleModule</a>
+, <a class="el" href="classmodules_1_1DataModule.html#a6433d2708f8a5a267f8588ca207ac2c2">modules::DataModule</a>
+, <a class="el" href="classmodules_1_1ExtensionsModule.html#ad23559cb5d8cf7dda4765cd13e8fec30">modules::ExtensionsModule</a>
+, <a class="el" href="classmodules_1_1ServerModule.html#a09351c4d264de1b5bc1551e15b2e1eed">modules::ServerModule</a>
+, <a class="el" href="classmodules_1_1TelemetryModule.html#a5cac2b77632311ff51b2dd95b63be9b9">modules::TelemetryModule</a>
 </li>
 <li>config_file_path_
-: <a class="el" href="classConfigModule.html#a528a165bcfa549f8953f2cc1ac11c629">ConfigModule</a>
+: <a class="el" href="classmodules_1_1ConfigModule.html#a37c4e28a18ae7ac4869aa5e9446c8ea2">modules::ConfigModule</a>
+</li>
+<li>configured_
+: <a class="el" href="classextension_1_1SAMM8Q.html#a0aacc1a1f730689b17751f9b901e645e">extension::SAMM8Q</a>
 </li>
 <li>console_enabled
 : <a class="el" href="structConfigData.html#a46a85cf89f38f2a727061ae877165b65">ConfigData::Debugging</a>
@@ -122,14 +137,20 @@ $(document).ready(function(){initNavTree('functions_vars_c.html',''); initResiza
 <li>console_update_interval
 : <a class="el" href="structConfigData.html#aa15e1be0624f143cba001548bee1018f">ConfigData::Debugging</a>
 </li>
-<li>conv_code_buffer_
-: <a class="el" href="classPSK.html#a549ac113716a098fea0afed616d8d0f7">PSK</a>
+<li>cpu_load_avg_1
+: <a class="el" href="namespaceex__internal.html#aea857014b358def28cb6ef2c6e6eaf91">ex_internal::cpu_mem_info</a>
+</li>
+<li>cpu_load_avg_15
+: <a class="el" href="namespaceex__internal.html#a906b14969853f91fed5219e85587563c">ex_internal::cpu_mem_info</a>
+</li>
+<li>cpu_load_avg_5
+: <a class="el" href="namespaceex__internal.html#a72676f78e912d34312110c0b11ab3881">ex_internal::cpu_mem_info</a>
 </li>
 <li>critical
 : <a class="el" href="structExtensionMetadata.html#a92c646389b08bc8fb8f8d75fca7d91e5">ExtensionMetadata</a>
 </li>
 <li>critical_
-: <a class="el" href="classExtension.html#ae5b42e52cc27906d9c9ebcfa90fd004e">Extension</a>
+: <a class="el" href="classextension_1_1Extension.html#a90730c1277d6f4e158bafb215cbca058">extension::Extension</a>
 </li>
 <li>current_flight_procedure_type_
 : <a class="el" href="classFlightRunner.html#a93f1439c5ef27cefaa19c36371476fe0">FlightRunner</a>

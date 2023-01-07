@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -87,21 +87,29 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>sample_rate_
-: <a class="el" href="classPSK.html#a14ca299f08eb03700c360bfc2f493106">PSK</a>
+: <a class="el" href="classAFSK.html#ac390766d83fff617df2242af39e43638">AFSK</a>
+, <a class="el" href="classWavGen.html#a36e1c32d43cfb34ebbbe7090f4d98a9f">WavGen</a>
 </li>
-<li>samples_per_symbol_
-: <a class="el" href="classPSK.html#a435886ea1082e1f89eb5a7dfa8537e42">PSK</a>
+<li>samples_per_symbol
+: <a class="el" href="psk_8cpp.html#ab0824638f74e6f104bc662e969cc2411">PskWave</a>
+</li>
+<li>second
+: <a class="el" href="namespaceubx.html#a41038d05d2d2cfb06014964b4c30d58f">ubx::NAV_DATA</a>
 </li>
 <li>shutdown_signal_
-: <a class="el" href="classDataModule.html#a8bca7d6a482aa8f4e73d51b2f393274a">DataModule</a>
-, <a class="el" href="classFlightRunner.html#abb41d56e7d449e8a5efecfe994bc8c0b">FlightRunner</a>
+: <a class="el" href="classFlightRunner.html#abb41d56e7d449e8a5efecfe994bc8c0b">FlightRunner</a>
+, <a class="el" href="classmodules_1_1DataModule.html#a705e97e518751e48765bb67c2724e940">modules::DataModule</a>
+</li>
+<li>soc_
+: <a class="el" href="classextension_1_1MAX17049.html#a246be95278612d27551a483b3a4656c4">extension::MAX17049</a>
 </li>
 <li>source
-: <a class="el" href="structConfigData.html#a674e8527833ae5b4160b854a7e074e84">ConfigData::DataTypes::ExtensionDataType</a>
-, <a class="el" href="utility-data-stream_8h.html#a37169f0f0ad775c43ca260989c671992">DataStreamPacket</a>
+: <a class="el" href="structConfigData.html#a978c9fed64682904150190a6e1101693">ConfigData::DataTypes::DataType</a>
+, <a class="el" href="data-stream_8h.html#a37169f0f0ad775c43ca260989c671992">DataStreamPacket</a>
+, <a class="el" href="data-stream_8h.html#a1ea2dc102095931c51eb7a6725d83a2b">ErrorStreamPacket</a>
 </li>
-<li>spi_mutex_
-: <a class="el" href="classInterfaceControl.html#a17c3ffb6fb59501cfbdb54cabd111b44">InterfaceControl</a>
+<li>speed_accuracy
+: <a class="el" href="namespaceubx.html#ad5746c040bc6d30afa2638c67d94f8a8">ubx::NAV_DATA</a>
 </li>
 <li>sstv
 : <a class="el" href="structFlightProcedure.html#ab74794605aac9717281889f2d999f2a0">FlightProcedure::Intervals</a>
@@ -119,17 +127,22 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 : <a class="el" href="structConfigData.html#a95c3199dd99abc93cd4636b18a920de2">ConfigData::General</a>
 </li>
 <li>status_
-: <a class="el" href="classExtension.html#a892e4172806fd6279b2d21ca5d25e7db">Extension</a>
+: <a class="el" href="classextension_1_1Extension.html#a6d18e86aba3fed7ff9a728612d19aa32">extension::Extension</a>
 , <a class="el" href="classI2C.html#a569f68676daf29f477c993f1b85cd45c">I2C</a>
+, <a class="el" href="classOneWire.html#aca7f6dea43b1b2c80419b55eb0eebbdd">OneWire</a>
 </li>
 <li>stop_flag_
-: <a class="el" href="classConsoleModule.html#ab0a0b79004ba8248d2bba6c8ba48cb74">ConsoleModule</a>
-, <a class="el" href="classExtension.html#ab5ef31ae39b4da3d17fd1c7fc5a88b7a">Extension</a>
-, <a class="el" href="classServerModule.html#a62cff96f27cda95ca685026d7e48235b">ServerModule</a>
-, <a class="el" href="classTelemetryModule.html#aef98a7e67286deea7b5c37ed8fbd51ee">TelemetryModule</a>
+: <a class="el" href="classextension_1_1Extension.html#a28795706e5e2ebd762b1597af241b83e">extension::Extension</a>
+, <a class="el" href="classmodules_1_1ConsoleModule.html#a9ebb1820c76692c4654a8724a37dfa17">modules::ConsoleModule</a>
+, <a class="el" href="classmodules_1_1ExtensionsModule.html#a321965a9dd36efb91831fd16544a3bdd">modules::ExtensionsModule</a>
+, <a class="el" href="classmodules_1_1ServerModule.html#adebbf95fcb9164b83e400c531892b4f2">modules::ServerModule</a>
+, <a class="el" href="classmodules_1_1TelemetryModule.html#af3968ac93933fe04aa090d9447561ce6">modules::TelemetryModule</a>
 </li>
-<li>symbol_rate_
-: <a class="el" href="classPSK.html#a3acdbe76d3cb2d92c3f3586edc4b6028">PSK</a>
+<li>sync1
+: <a class="el" href="structubx_1_1UBXMessage.html#a921b11b70d6c0b80cef15d8164dc5df8">ubx::UBXMessage</a>
+</li>
+<li>sync2
+: <a class="el" href="structubx_1_1UBXMessage.html#abb0fa8d8991dde1f167951a93dbeead5">ubx::UBXMessage</a>
 </li>
 </ul>
 </div><!-- contents -->

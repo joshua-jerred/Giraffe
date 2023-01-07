@@ -4,7 +4,7 @@
 .VSCodeCounter
 # CMake Build Files
 build
-
+bin
 hardware
 # Doxygen output files, these can be user generated.
 # docs/Doxygen/output

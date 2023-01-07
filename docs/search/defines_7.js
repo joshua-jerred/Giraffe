@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['one_5fwire_5ffile_1186',['ONE_WIRE_FILE',['../utility-configurables_8h.html#a1ef2dfab309d8824157ebabced832796',1,'utility-configurables.h']]],
-  ['one_5fwire_5flocation_1187',['ONE_WIRE_LOCATION',['../utility-configurables_8h.html#acf5c2c2b7557b675b6e34307cfbdaad1',1,'utility-configurables.h']]]
+  ['letter_5fspace_5flength_1679',['LETTER_SPACE_LENGTH',['../morse_8cpp.html#a93d4c217480a4a2eec351b1ad0ae6a6f',1,'morse.cpp']]]
 ];

@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3</span>
    </div>
    <div id="projectbrief">A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework.</div>
   </td>
@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('classServerSocket.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="utility-socket_8h_source.html">utility-socket.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="socket_8h_source.html">socket.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ServerSocket:</div>
 <div class="dyncontent">
@@ -121,8 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4763b5ad69259f034933af745455a92f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a510674d924c2544e6b0069e39c36516b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerSocket.html#a510674d924c2544e6b0069e39c36516b">~ServerSocket</a> ()</td></tr>
 <tr class="separator:a510674d924c2544e6b0069e39c36516b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae550e314a988575d05b1dec1c3c18020"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerSocket.html#ae550e314a988575d05b1dec1c3c18020">accept</a> (<a class="el" href="classServerSocket.html">ServerSocket</a> &amp;)</td></tr>
-<tr class="separator:ae550e314a988575d05b1dec1c3c18020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbd7326d982116dd7f71dc5c1a55c036"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerSocket.html#adbd7326d982116dd7f71dc5c1a55c036">accept</a> (<a class="el" href="classServerSocket.html">ServerSocket</a> &amp;)</td></tr>
+<tr class="separator:adbd7326d982116dd7f71dc5c1a55c036"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac58195b94a6cfdbdc0f87b33c2c43aa4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classServerSocket.html">ServerSocket</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerSocket.html#ac58195b94a6cfdbdc0f87b33c2c43aa4">operator&lt;&lt;</a> (const std::string &amp;) const</td></tr>
 <tr class="separator:ac58195b94a6cfdbdc0f87b33c2c43aa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a122ad21557c7ceeed54f308324ad4fe3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classServerSocket.html">ServerSocket</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerSocket.html#a122ad21557c7ceeed54f308324ad4fe3">operator&gt;&gt;</a> (std::string &amp;) const</td></tr>
@@ -151,7 +151,7 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ae75eeafabc1c13ff34b6fe47ee20cc0d"><td class="memItemLeft" align="right" valign="top">sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#ae75eeafabc1c13ff34b6fe47ee20cc0d">m_addr</a></td></tr>
+<tr class="memitem:ae75eeafabc1c13ff34b6fe47ee20cc0d"><td class="memItemLeft" align="right" valign="top">sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#ae75eeafabc1c13ff34b6fe47ee20cc0d">m_addr</a> = {}</td></tr>
 <tr class="separator:ae75eeafabc1c13ff34b6fe47ee20cc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3cc9f7b573a50cd3d7553424d280991"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#aa3cc9f7b573a50cd3d7553424d280991">m_sock</a></td></tr>
 <tr class="separator:aa3cc9f7b573a50cd3d7553424d280991"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -278,14 +278,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ae550e314a988575d05b1dec1c3c18020"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae550e314a988575d05b1dec1c3c18020">&#9670;&nbsp;</a></span>accept() <span class="overload">[1/2]</span></h2>
+<a id="adbd7326d982116dd7f71dc5c1a55c036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbd7326d982116dd7f71dc5c1a55c036">&#9670;&nbsp;</a></span>accept() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ServerSocket::accept </td>
+          <td class="memname">bool ServerSocket::accept </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classServerSocket.html">ServerSocket</a> &amp;&#160;</td>
           <td class="paramname"><em>sock</em></td><td>)</td>
@@ -296,7 +296,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classSocket.html#a97890001096a3d61683992015eaffdfa">Socket::accept()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classServerModule.html#ae72c6ef5a46765e7d3ee1ea0d43dc765">ServerModule::runner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1ServerModule.html#ae72c6ef5a46765e7d3ee1ea0d43dc765">modules::ServerModule::runner()</a>.</p>
 
 </div>
 </div>
@@ -382,7 +382,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classSocket.html#aa1bf03020dfad0037edc66f8833f106b">Socket::is_valid()</a>, <a class="el" href="classSocket.html#aa3cc9f7b573a50cd3d7553424d280991">Socket::m_sock</a>, and <a class="el" href="utility-socket_8h.html#a719f66becbdc13437ef42f8a069c48b8">MAXCONNECTIONS</a>.</p>
+<p class="reference">References <a class="el" href="classSocket.html#aa1bf03020dfad0037edc66f8833f106b">Socket::is_valid()</a>, <a class="el" href="classSocket.html#aa3cc9f7b573a50cd3d7553424d280991">Socket::m_sock</a>, and <a class="el" href="socket_8h.html#a719f66becbdc13437ef42f8a069c48b8">MAXCONNECTIONS</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classServerSocket.html#a4763b5ad69259f034933af745455a92f">ServerSocket()</a>.</p>
 
@@ -414,7 +414,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classSocket.html#ae75eeafabc1c13ff34b6fe47ee20cc0d">Socket::m_addr</a>, and <a class="el" href="classSocket.html#aa3cc9f7b573a50cd3d7553424d280991">Socket::m_sock</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classServerSocket.html#ae550e314a988575d05b1dec1c3c18020">accept()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classServerSocket.html#adbd7326d982116dd7f71dc5c1a55c036">accept()</a>.</p>
 
 </div>
 </div>
@@ -510,7 +510,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classSocket.html#aa3cc9f7b573a50cd3d7553424d280991">Socket::m_sock</a>, and <a class="el" href="utility-socket_8h.html#a5807c416b3aa3976c3df8cbc581e81cf">MAXRECV</a>.</p>
+<p class="reference">References <a class="el" href="classSocket.html#aa3cc9f7b573a50cd3d7553424d280991">Socket::m_sock</a>, and <a class="el" href="socket_8h.html#a5807c416b3aa3976c3df8cbc581e81cf">MAXRECV</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classServerSocket.html#a122ad21557c7ceeed54f308324ad4fe3">operator&gt;&gt;()</a>.</p>
 
@@ -610,7 +610,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sockaddr_in Socket::m_addr</td>
+          <td class="memname">sockaddr_in Socket::m_addr = {}</td>
         </tr>
       </table>
   </td>

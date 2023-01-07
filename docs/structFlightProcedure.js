@@ -13,6 +13,7 @@ var structFlightProcedure =
       [ "TESTING", "structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1addc98b588dd906ebd4015749f49208fe", null ],
       [ "STANDARD", "structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1a8d4c739208de41f0b3d78ce6fc0d892e", null ],
       [ "RECOVERY", "structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1af803ba34b4694092f0ad086ef6ce1ff9", null ],
+      [ "DESCENT", "structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1a1d75e2f591e2488450e245cd4246954a", null ],
       [ "FAILSAFE", "structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1a8e6a35d5162c1d62243ebeefb291ac38", null ]
     ] ],
     [ "enabled", "structFlightProcedure.html#aed84c9638ebea9186b556d76e54f2859", null ],

@@ -1,6 +1,0 @@
-<map id="Extension" name="Extension">
-<area shape="rect" id="node1" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="24,807,169,1441"/>
-<area shape="rect" id="node2" href="$classDataStream.html" title="This class is passed to many extensions/modules. It is used to communicate data and errors to the dat..." alt="" coords="5,373,188,744"/>
-<area shape="rect" id="node3" href="$structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="40,219,153,311"/>
-<area shape="rect" id="node4" href="$structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="11,5,182,156"/>
-</map>

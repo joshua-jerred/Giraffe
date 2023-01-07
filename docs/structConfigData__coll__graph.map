@@ -1,11 +1,11 @@
 <map id="ConfigData" name="ConfigData">
-<area shape="rect" id="node1" title="Container for all config data. Mirrors the config file." alt="" coords="535,704,623,781"/>
-<area shape="rect" id="node2" href="$structConfigData.html#structConfigData_1_1Debugging" title=" " alt="" coords="5,469,201,590"/>
-<area shape="rect" id="node3" href="$structConfigData.html#structConfigData_1_1DataTypes" title=" " alt="" coords="225,491,384,568"/>
-<area shape="rect" id="node4" href="$structConfigData.html#structConfigData_1_1Extensions" title=" " alt="" coords="408,491,569,568"/>
-<area shape="rect" id="node5" href="$structConfigData.html#structConfigData_1_1Telemetry" title=" " alt="" coords="593,417,747,641"/>
-<area shape="rect" id="node6" href="$structConfigData.html#structConfigData_1_1General" title=" " alt="" coords="771,476,913,583"/>
-<area shape="rect" id="node7" href="$structConfigData.html#structConfigData_1_1Procs" title=" " alt="" coords="937,491,1067,568"/>
+<area shape="rect" id="node1" title="Container for all config data. Mirrors the config file." alt="" coords="535,763,623,840"/>
+<area shape="rect" id="node2" href="$structConfigData.html#structConfigData_1_1Debugging" title=" " alt="" coords="5,498,201,619"/>
+<area shape="rect" id="node3" href="$structConfigData.html#structConfigData_1_1DataTypes" title=" " alt="" coords="225,520,384,597"/>
+<area shape="rect" id="node4" href="$structConfigData.html#structConfigData_1_1Extensions" title=" " alt="" coords="408,520,569,597"/>
+<area shape="rect" id="node5" href="$structConfigData.html#structConfigData_1_1Telemetry" title=" " alt="" coords="593,417,747,700"/>
+<area shape="rect" id="node6" href="$structConfigData.html#structConfigData_1_1General" title=" " alt="" coords="771,505,913,612"/>
+<area shape="rect" id="node7" href="$structConfigData.html#structConfigData_1_1Procs" title=" " alt="" coords="937,520,1067,597"/>
 <area shape="rect" id="node8" href="$structFlightProcedure.html" title="Struct containing the procedure configuration. One for each type." alt="" coords="945,219,1059,311"/>
 <area shape="rect" id="node9" href="$structFlightProcedure.html#structFlightProcedure_1_1Intervals" title=" " alt="" coords="917,5,1087,156"/>
 </map>

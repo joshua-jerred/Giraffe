@@ -1,0 +1,8 @@
+<map id="modules::Module" name="modules::Module">
+<area shape="rect" id="node1" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="408,5,559,288"/>
+<area shape="rect" id="node2" href="$classmodules_1_1ConsoleModule.html" title="This class takes data from a data frame snapshot and prints it out to a simple display in the console..." alt="" coords="5,468,175,721"/>
+<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html" title="The DataModule class is responsible for managing all data between modules. It is responsible for crea..." alt="" coords="199,402,365,787"/>
+<area shape="rect" id="node4" href="$classmodules_1_1ExtensionsModule.html" title="The extension class manages all extensions." alt="" coords="390,475,577,714"/>
+<area shape="rect" id="node5" href="$classmodules_1_1ServerModule.html" title=" " alt="" coords="601,453,760,736"/>
+<area shape="rect" id="node6" href="$classmodules_1_1TelemetryModule.html" title="This class is responsible for handling the radio and transmitting data upon request...." alt="" coords="785,336,963,853"/>
+</map>

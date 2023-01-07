@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['extensionstatus_1102',['ExtensionStatus',['../utility-status_8h.html#acfd494192530021918d69e3a11d0f111',1,'utility-status.h']]]
+  ['category_1553',['Category',['../structExtensionMetadata.html#a0854cc5643b63901f8f5927c6df2f96b',1,'ExtensionMetadata']]],
+  ['commandcategory_1554',['CommandCategory',['../structGFSCommand.html#a3ebf639fbb830652cf495617a3bf9cba',1,'GFSCommand']]]
 ];

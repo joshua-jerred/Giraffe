@@ -1,0 +1,4 @@
+<map id="modules::ExtensionsModule" name="modules::ExtensionsModule">
+<area shape="rect" id="node1" title="The extension class manages all extensions." alt="" coords="5,336,192,575"/>
+<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title="All modules used by the FlightRunner inherit this class. This allows for some simplicity when creatin..." alt="" coords="23,5,174,288"/>
+</map>

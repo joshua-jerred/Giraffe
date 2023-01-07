@@ -1,0 +1,12 @@
+<map id="wavgen.h" name="wavgen.h">
+<area shape="rect" id="node1" title="See https://github.com/joshua&#45;jerred/WavGen." alt="" coords="221,5,299,32"/>
+<area shape="rect" id="node2" href="$afsk_8h.html" title="See https://github.com/joshua&#45;jerred/MWAV." alt="" coords="61,80,120,107"/>
+<area shape="rect" id="node4" href="$modulators_8h.html" title="See https://github.com/joshua&#45;jerred/MWAV." alt="" coords="169,80,266,107"/>
+<area shape="rect" id="node7" href="$mwav_8h.html" title="See https://github.com/joshua&#45;jerred/MWAV." alt="" coords="301,155,368,181"/>
+<area shape="rect" id="node10" href="$wavgen_8cpp.html" title="See https://github.com/joshua&#45;jerred/WavGen." alt="" coords="342,80,434,107"/>
+<area shape="rect" id="node3" href="$afsk_8cpp.html" title="See https://github.com/joshua&#45;jerred/MWAV." alt="" coords="5,155,77,181"/>
+<area shape="rect" id="node5" href="$morse_8cpp.html" title="See https://github.com/joshua&#45;jerred/MWAV." alt="" coords="101,155,184,181"/>
+<area shape="rect" id="node6" href="$psk_8cpp.html" title="See https://github.com/joshua&#45;jerred/MWAV." alt="" coords="209,155,277,181"/>
+<area shape="rect" id="node8" href="$module-telemetry_8cpp.html" title="This fle implements the class TelemetryModule." alt="" coords="194,229,339,256"/>
+<area shape="rect" id="node9" href="$mwav_8cpp.html" title="See https://github.com/joshua&#45;jerred/MWAV." alt="" coords="364,229,444,256"/>
+</map>

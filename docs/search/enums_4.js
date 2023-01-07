@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['proctype_1108',['ProcType',['../structFlightProcedure.html#ac196c8a053c95d830c4bf08221fabec1',1,'FlightProcedure']]]
+  ['fix_5ftype_1557',['FIX_TYPE',['../namespaceubx.html#abf2bdd0bba91974003021efd5b754d54',1,'ubx']]]
 ];

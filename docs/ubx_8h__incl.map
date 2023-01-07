@@ -1,0 +1,10 @@
+<map id="ubx.h" name="ubx.h">
+<area shape="rect" id="node1" title="Public interface for the u&#45;blox protocol." alt="" coords="93,5,147,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="91,80,149,107"/>
+<area shape="rect" id="node4" href="$extension-interface_8h.html" title="Header for interfacing with extensions via I2C and 1&#45;Wire." alt="" coords="174,80,317,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="93,155,147,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="172,155,231,181"/>
+<area shape="rect" id="node7" href="$status_8h.html" title="Contains types for status enums for modules and extensions." alt="" coords="255,155,324,181"/>
+<area shape="rect" id="node8" href="$configurables_8h.html" title="All macro definitions for the flight control software will be in this file. Macros should be avoided." alt="" coords="349,155,459,181"/>
+</map>

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['last_5fbit_5f_993',['last_bit_',['../classPSK.html#a628c610351cee588f277c68b3c11c2c8',1,'PSK']]],
-  ['last_5fsymbol_5fend_5ffiltered_5f_994',['last_symbol_end_filtered_',['../classPSK.html#a9304d86c124e68543ca21dc919dc5ce1',1,'PSK']]],
-  ['length_995',['length',['../structTransmission.html#a0c3b11240a0f1213f4fdf592c54307b5',1,'Transmission']]]
+  ['kdefaultsleeptime_5f_1406',['kDefaultSleepTime_',['../classmodules_1_1Module.html#a731abb66986a3e0fbdbbebe20dc7515d',1,'modules::Module']]],
+  ['knavclass_1407',['kNavClass',['../samm8q_8cpp.html#a585aca31131327911f11a122812a575a',1,'samm8q.cpp']]],
+  ['knavpvt_1408',['kNavPvt',['../samm8q_8cpp.html#a977da1349bc86c2664eec22b10b0da9d',1,'samm8q.cpp']]],
+  ['ktxlogsize_5f_1409',['kTXLogSize_',['../classDataStream.html#af5b666ec6bcb8f72873989195a984ed1',1,'DataStream']]]
 ];

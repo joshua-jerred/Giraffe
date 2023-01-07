@@ -1,13 +1,13 @@
 var structConfigData =
 [
     [ "DataTypes", "structConfigData.html#structConfigData_1_1DataTypes", [
-      [ "ExtensionDataType", "structConfigData.html#structConfigData_1_1DataTypes_1_1ExtensionDataType", [
-        [ "source", "structConfigData.html#a674e8527833ae5b4160b854a7e074e84", null ],
-        [ "name", "structConfigData.html#a6c9f92937353bf902bf2ece62a086200", null ],
-        [ "unit", "structConfigData.html#a12d3a033c43b89d945e4abe4fa7c80b3", null ],
-        [ "include_in_telemetry", "structConfigData.html#a52603357125e9e253067e090ea29bbe0", null ]
+      [ "DataType", "structConfigData.html#structConfigData_1_1DataTypes_1_1DataType", [
+        [ "source", "structConfigData.html#a978c9fed64682904150190a6e1101693", null ],
+        [ "unit", "structConfigData.html#af71da8669f7cdfaa9d8b65c534bed540", null ],
+        [ "include_in_telemetry", "structConfigData.html#ad5b937884af1b163929ab5628584b10a", null ],
+        [ "telemetry_name", "structConfigData.html#a08a663ec01783e4ed812eeb7a04d2889", null ]
       ] ],
-      [ "types", "structConfigData.html#a9cae25416e680205754c17380d9d5ec4", null ]
+      [ "types", "structConfigData.html#a29a64c60a161dc13e3d693a105d0cada", null ]
     ] ],
     [ "Debugging", "structConfigData.html#structConfigData_1_1Debugging", [
       [ "console_enabled", "structConfigData.html#a46a85cf89f38f2a727061ae877165b65", null ],
@@ -37,7 +37,6 @@ var structConfigData =
       [ "psk_enabled", "structConfigData.html#a719f3fd1f9bfc37247bffc5a8475102c", null ],
       [ "psk_freq", "structConfigData.html#a1eec2887f65c1949cd253615f5047bd3", null ],
       [ "psk_mode", "structConfigData.html#a4d5522ef782e37730862c394e0f5faa5", null ],
-      [ "psk_symbol_rate", "structConfigData.html#a2eb5465f2cb07e2b400759fa8e72cd57", null ],
       [ "sstv_enabled", "structConfigData.html#a1fd92ff646b261888a36ddf2a44be717", null ],
       [ "sstv_freq", "structConfigData.html#a175321e6cc174493c241f550e5e0b45f", null ],
       [ "aprs_enabled", "structConfigData.html#a3eddfe8d0e529244626ee3c2be7f6d36", null ],

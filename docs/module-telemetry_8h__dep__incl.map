@@ -1,7 +1,0 @@
-<map id="module&#45;telemetry.h" name="module&#45;telemetry.h">
-<area shape="rect" id="node1" title="This file defines the class TelemetryModule." alt="" coords="129,5,260,32"/>
-<area shape="rect" id="node2" href="$flight-runner_8h.html" title="This file defines the FlightRunner class." alt="" coords="71,80,171,107"/>
-<area shape="rect" id="node5" href="$module-telemetry_8cpp.html" title="This fle implements the class TelemetryModule which is defined in module&#45;telemetry...." alt="" coords="195,80,341,107"/>
-<area shape="rect" id="node3" href="$flight-runner_8cpp.html" title="This file contains the high level flight computer code." alt="" coords="5,155,120,181"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="144,155,219,181"/>
-</map>

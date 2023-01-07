@@ -1,0 +1,4 @@
+<map id="extension::DS18B20_SIM" name="extension::DS18B20_SIM">
+<area shape="rect" id="node1" title="The DS18B20_SIM is a simulated DS18B20 extension." alt="" coords="5,747,179,853"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title="This class is the base class for all extensions. Extensions include all sensors, actuators,..." alt="" coords="12,5,172,699"/>
+</map>
