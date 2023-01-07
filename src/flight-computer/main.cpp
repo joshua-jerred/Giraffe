@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Defines the entry point/main function of the Flight Computer software.
  * @version 0.1
  * @date 2022-09-20
@@ -33,5 +33,3 @@ int main(void) {
     signal(SIGINT, signalHandler); // Register signal handler
     return flight.start();
 }
-
-// File: src/flight-computer/main.cpp

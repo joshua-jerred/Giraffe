@@ -1,15 +1,18 @@
 
 /**
  * @file module-extensions.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Defines the ExtensionsModule class.
  * 
  * @version 0.0.9
  * @date 2022-10-11
  * @copyright Copyright (c) 2022
  */
+#include <vector>
+#include "extensions.h"
 
-#include "module-extensions.h"
+#include "modules.h"
+using namespace modules;
 
 /**
  * @brief Construct a new ExtensionsModule object.
@@ -18,9 +21,11 @@
  * @param config_data 
  * @param stream 
  */
-ExtensionsModule::ExtensionsModule(const ConfigData config_data, DataStream *stream) {
-    config_data_ = config_data;
-    data_stream_ = stream;
+ExtensionsModule::ExtensionsModule(const ConfigData config_data, DataStream *stream):
+    Module(stream, MODULE_EXTENSION_PREFIX),
+    p_data_stream_(stream),
+    config_data_(config_data) {
+
     for (ExtensionMetadata extdata : config_data.extensions.extensions_list) {
         addExtension(extdata);
     }
@@ -30,7 +35,7 @@ ExtensionsModule::ExtensionsModule(const ConfigData config_data, DataStream *str
  * @brief Destroys the ExtensionsModule object.
  */
 ExtensionsModule::~ExtensionsModule() {
-    for (Extension *ext : extensions_) {
+    for (extension::Extension *ext : extensions_) {
         delete ext;
     }
 }
@@ -42,9 +47,9 @@ ExtensionsModule::~ExtensionsModule() {
  * @return void
  */
 void ExtensionsModule::start() {
-    for (Extension *ext : extensions_) {
-        ext->start();
-    }
+    module_status_ = ModuleStatus::STARTING;
+    stop_flag_ = 0;
+    runner_thread_ = std::thread(&ExtensionsModule::runner, this);
 }
 
 /**
@@ -54,8 +59,82 @@ void ExtensionsModule::start() {
  */
 void ExtensionsModule::stop() {
     std::cout << std::endl;
-    for (Extension *ext : extensions_) {
-        std::cout << "Stopping extension " << ext->getName() << " ... ";
+    if (status() == ModuleStatus::STOPPED && !runner_thread_.joinable()) {
+		return;
+	}
+	stop_flag_ = 1;
+	if (runner_thread_.joinable()) {
+		runner_thread_.join();
+		module_status_ = ModuleStatus::STOPPED;
+	}
+}
+
+void ExtensionsModule::runner() {
+    //const int max_restart_count = 5;
+    //const int restart_delay_seconds = 10;
+
+    for (extension::Extension *ext : extensions_) {
+        ext->start();
+    }
+
+    ExtensionStatus ext_status;
+
+    int total_extensions = 0;
+    int num_error = 0;
+    int num_stopped_error_state = 0;
+    int num_stopped = 0;
+    int num_starting = 0;
+    int num_running = 0;
+    int num_stopping = 0;
+
+    module_status_ = ModuleStatus::RUNNING;
+    while (!stop_flag_) {
+        total_extensions = 0;
+        num_error = 0;
+        num_stopped_error_state = 0;
+        num_stopped = 0;
+        num_starting = 0;
+        num_running = 0;
+        num_stopping = 0;
+
+        for (extension::Extension *ext : extensions_){
+            total_extensions++;
+            ext_status = ext->getStatus();
+            if (ext_status == ExtensionStatus::ERROR) {
+                ext->restart_attempts_++;
+                ext->stop();
+                num_error++;
+            } else if (ext_status == ExtensionStatus::STOPPED_ERROR_STATE) {
+                num_stopped_error_state++;
+            } else if (ext_status == ExtensionStatus::STOPPED) {
+                num_stopped++;
+            } else if (ext_status == ExtensionStatus::STARTING) {
+                num_starting++;
+            } else if (ext_status == ExtensionStatus::RUNNING) {
+                num_running++;
+            } else if (ext_status == ExtensionStatus::STOPPING) {
+                num_stopping++;
+            } else {
+                num_error++;
+                error("STS");
+            }
+        }
+
+        data("ext_tot", total_extensions);
+        data("ext_err", num_error);
+        data("ext_stp", num_stopped);
+        data("ext_strt", num_starting);
+        data("ext_run", num_running);
+        data("ext_stpd", num_stopping);
+        data("ext_stp_err", num_stopped_error_state);
+
+        module_sleep();
+    }
+
+    module_status_ = ModuleStatus::STOPPING;
+    // Shutdown
+    for (extension::Extension *ext : extensions_) {
+        std::cout << "\tStopping extension " << ext->getName() << " ... ";
         ext->stop();
         if (ext->getStatus() == ExtensionStatus::STOPPED) {
             std::cout << "Stopped" << std::endl;
@@ -73,18 +152,26 @@ void ExtensionsModule::stop() {
  */
 void ExtensionsModule::addExtension(ExtensionMetadata meta_data) {
     if (meta_data.extension_type == "TEST_EXT") {
-        extensions_.push_back(new TestExtension(data_stream_, meta_data));
+        extensions_.push_back(new extension::TestExtension(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "BMP180_SIM") {
-        extensions_.push_back(new BMP180_SIM(data_stream_, meta_data));
+        extensions_.push_back(new extension::BMP180_SIM(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "SAMM8Q_SIM") {
-        extensions_.push_back(new SAMM8Q_SIM(data_stream_, meta_data));
+        extensions_.push_back(new extension::SAMM8Q_SIM(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "DS18B20_SIM") {
-        extensions_.push_back(new DS18B20_SIM(data_stream_, meta_data));
+        extensions_.push_back(new extension::DS18B20_SIM(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "DRA818V_SIM") {
-        extensions_.push_back(new DRA818V_SIM(data_stream_, meta_data));
+        extensions_.push_back(new extension::DRA818V_SIM(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "BMP180") {
-        extensions_.push_back(new BMP180(data_stream_, meta_data));
+        extensions_.push_back(new extension::BMP180(p_data_stream_, meta_data));
     } else if (meta_data.extension_type == "DS18B20") {
-        extensions_.push_back(new DS18B20(data_stream_, meta_data));
+        extensions_.push_back(new extension::DS18B20(p_data_stream_, meta_data));
+    } else if (meta_data.extension_type == "SAMM8Q") {
+        extensions_.push_back(new extension::SAMM8Q(p_data_stream_, meta_data));
+    } else if (meta_data.extension_type == "BME280") {
+        extensions_.push_back(new extension::BME280(p_data_stream_, meta_data));
+    } else if (meta_data.extension_type == "SYSINFO") {
+        extensions_.push_back(new extension::SYSINFO(p_data_stream_, meta_data));
+    } else {
+        error("Extension type not found: " + meta_data.extension_type);
     }
 }

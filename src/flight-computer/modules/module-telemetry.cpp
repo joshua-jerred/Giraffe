@@ -1,15 +1,27 @@
 /**
  * @file module-telemetry.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This fle implements the class TelemetryModule which is defined in
- * module-telemetry.h.
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief This fle implements the class TelemetryModule.
  * 
  * @version 0.1.0
  * @date 2022-10-11
  * @copyright Copyright (c) 2022
  */
 
-#include "module-telemetry.h"
+#include <mutex>
+#include <fstream>
+#include <string>
+#include <thread>
+#include <vector>
+#include <queue>
+#include <atomic>
+#include <iostream>
+#include <filesystem>
+
+#include "modules.h"
+using namespace modules;
+
+#include "mwav.h"
 
 /**
  * @brief Construct a new TelemetryModule object. 
@@ -17,14 +29,12 @@
  * @param config_data All configuration data.
  * @param data_stream A pointer to the data stream.
  */
-TelemetryModule::TelemetryModule(ConfigData config_data, DataStream *data_stream) {
-    error_source_ = MODULE_TELEMETRY_PREFIX;
+TelemetryModule::TelemetryModule(ConfigData config_data, DataStream *stream):
+    Module(stream, MODULE_TELEMETRY_PREFIX),
+    config_data_(config_data),
+    p_data_stream_(stream) {
 
-    config_data_ = config_data;
-
-    p_data_stream_ = data_stream;
-
-    tx_number_ = 1;
+    tx_number_ = 0; // First tx id will be 1
 
     call_sign_ = config_data_.telemetry.call_sign;
 }
@@ -43,7 +53,7 @@ TelemetryModule::~TelemetryModule() {
  */
 void TelemetryModule::start() {
     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
-        "TXQ_SZ", "0", 100);
+        "TX_Q_SZ", "0", 100);
     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
         "ACTIVE_TX",
         "NONE", 
@@ -67,16 +77,31 @@ void TelemetryModule::stop() {
  * @brief Currently implemented with PSK
  * @param None
  * @return Void
- * @todo implement this.
  */
 void TelemetryModule::sendDataPacket() {
+    int tx_num = getNextTXNumber();
+
     DataFrame data = p_data_stream_->getDataFrameCopy();
     std::string message;
     message += "\n\n" + call_sign_ + "\n";
     message += "automated message - data to follow\n";
-    for (const auto & [ unit, packet ] : data) {
-        message += unit + ":" + packet.value + "\n";
+    message += "pkt_id:" + std::to_string(tx_num) + "\n";
+
+    // Add data (specified in config) to the message that will be sent.
+    std::string key = "";
+    for (ConfigData::DataTypes::DataType type : config_data_.data_types.types) {
+        if (type.include_in_telemetry) {
+            key = type.source + ":" + type.unit;
+            if (data.contains(key)) {
+                message += type.telemetry_name + ":" + data[key].value + "\n";
+            }
+        }
     }
+
+    //for (const auto & [ unit, packet ] : data) { 
+    //    message += unit + ":" + packet.value + "\n";
+    //}
+
     message += call_sign_ + "\n";
     message.push_back((char) 4); // End of Transmission character
 
@@ -86,9 +111,11 @@ void TelemetryModule::sendDataPacket() {
 
     Transmission newTX;
     newTX.type = Transmission::Type::PSK;
-    newTX.wav_location = generatePSK(message_lower);
+    newTX.tx_num = tx_num;
+    newTX.wav_location = generatePSK(message_lower, newTX.tx_num);
+    newTX.message = message;
     newTX.length = psk_length_;
-    addToTXQueue(newTX);
+    addToTXQueue(newTX); // If the TX failed to generate the error must be handled somewhere else. Thread Safe.
 }
 
 /**
@@ -99,8 +126,9 @@ void TelemetryModule::sendDataPacket() {
 void TelemetryModule::sendAFSK(std::string message){
     Transmission newTX;
     newTX.type = Transmission::Type::AFSK;
-    newTX.wav_location = generateAFSK(message);
-   // addToTXQueue(newTX);
+    newTX.tx_num = getNextTXNumber();
+    newTX.wav_location = generateAFSK(message, newTX.tx_num);
+    // addToTXQueue(newTX);
 }
 
 /**
@@ -110,13 +138,80 @@ void TelemetryModule::sendAFSK(std::string message){
  */
 void TelemetryModule::sendAPRS() {
     DataFrame data = p_data_stream_->getDataFrameCopy();
-    //std::string lat = data["GLAT"];
-    //std::string lon = data["GLON"];
-    //std::string alt = data["GALT"];
+    //std::string lat = data["LAT"];
+    //std::string lon = data["LON"];
+    //std::string alt = data["ALT"];
     Transmission newTX;
     newTX.type = Transmission::Type::APRS;
     newTX.wav_location = generateAPRS();
     //addToTXQueue(newTX);
+}
+
+void TelemetryModule::addCommand(GFSCommand command) {
+    command_queue_lock_.lock();
+    command_queue_.push(command);
+    command_queue_lock_.unlock();
+}
+
+void TelemetryModule::parseCommands() {
+    command_queue_lock_.lock();
+    if (command_queue_.empty()) {
+        command_queue_lock_.unlock();
+        return;
+    }
+
+    while (!command_queue_.empty()) {
+        GFSCommand command = command_queue_.front();
+        command_queue_.pop();
+        doCommand(command);
+    }
+    command_queue_lock_.unlock();
+}
+
+void TelemetryModule::doCommand(GFSCommand command) {
+    std::cout << "Telemetry Module is doing the command:" << command.id << std::endl;
+    if (command.id == "rtx") {// Resend a transmission from the transmission log (by id)
+        int tx_id = 0;
+        try {
+            tx_id = std::stoi(command.arg);
+        } catch (std::invalid_argument &e) {
+            error("RTX_INV", command.arg);
+            return;
+        }
+
+        Transmission newTX;
+        if (p_data_stream_->requestTXFromLog(tx_id, newTX)) {
+            std::cout << "Re-sending transmission " << tx_id << std::endl;
+            if (newTX.type == Transmission::Type::PSK) {
+                std::string old_message = newTX.message;
+                int old_tx_num = newTX.tx_num;
+                newTX.tx_num = getNextTXNumber();
+                std::string new_message = "ReTx of #" + std::to_string(old_tx_num) + "\n";
+                new_message += old_message;
+
+                newTX.message = "";
+
+                for(auto c : new_message)
+                    newTX.message.push_back(std::tolower(c));
+
+                //newTX.message += old_message;
+                newTX.wav_location = generatePSK(newTX.message, newTX.tx_num);
+
+                if (newTX.wav_location != "") {
+                    addToTXQueue(newTX);
+                } else {
+                    error("RTX_MF", command.arg);
+                }
+            }
+        } else {
+            error("RTX_NF", command.arg);
+        }
+
+    } else {
+        error("INV_CMD", command.id);
+    }
+    /*
+    */
 }
 
 /**
@@ -131,16 +226,12 @@ void TelemetryModule::sendSSTVImage() {
     //addToTXQueue(newTX);
 }
 
-void TelemetryModule::error(std::string error_code, std::string info) {
-	p_data_stream_->addError(error_source_, error_code, info, 0);
-}
-
 /**
  * @brief Incremented the tx number and returns the new value.
  * @return int 
  */
 int TelemetryModule::getNextTXNumber() {
-    return ++tx_number_;
+    return tx_number_++;
 }
 
 /**
@@ -175,43 +266,32 @@ void TelemetryModule::addToTXQueue(Transmission transmission) {
  * @todo Not Yet Implemented
  * @return File path to the generated wav file.
  */
-std::string TelemetryModule::generateAFSK(std::string message) {
+std::string TelemetryModule::generateAFSK(const std::string &message, const int tx_number) {
+    (void) message;
+    (void) tx_number;
     return "not-implemented.wav";
 }
 
-std::string TelemetryModule::generatePSK(std::string message) {
-    std::string file_path = TELEMETRY_WAV_LOCATION + (std::string) "psk-" + std::to_string(getNextTXNumber()) + ".wav";
+std::string TelemetryModule::generatePSK(const std::string &message, const int tx_number) {
+    std::string file_path = TELEMETRY_WAV_LOCATION + (std::string) "psk-" + std::to_string(tx_number) + ".wav";
     
-    PSK::Mode mode;
-    PSK::SymbolRate symbol_rate;
+    MWAVData::MODULATION mode = MWAVData::MODULATION::BPSK_125; // Default
 
     std::string requested_mode = config_data_.telemetry.psk_mode;
+    if (requested_mode == "BPSK125") {
+        mode = MWAVData::MODULATION::BPSK_125;
+    } else if (requested_mode == "bpsk250") {
+        mode = MWAVData::MODULATION::BPSK_250;
+    } else if (requested_mode == "bpsk500") {
+        mode = MWAVData::MODULATION::BPSK_500;
+    } else if (requested_mode == "bpsk1000") {
+        mode = MWAVData::MODULATION::BPSK_1000;
+    } 
 
-    if (requested_mode == "bpsk") {
-        mode = PSK::BPSK;
-    } else if (requested_mode == "qpsk") {
-        mode = PSK::QPSK;
-    } else {
-        error("PSK_M", requested_mode);
-        mode = PSK::BPSK; // Default to BPSK
-    }
-
-    std::string requested_symbol_rate = config_data_.telemetry.psk_symbol_rate;
-
-    if (requested_symbol_rate == "125") {
-        symbol_rate = PSK::S125;
-    } else if (requested_symbol_rate == "250") {
-        symbol_rate = PSK::S250;
-    } else if (requested_symbol_rate == "500") {
-        symbol_rate = PSK::S500;
-    } else {
-        error("PSK_S", requested_symbol_rate);
-        symbol_rate = PSK::S125; // Default to 125
-    }
-
-    PSK psk = PSK(file_path, mode, symbol_rate);
-    if (psk.encodeTextData(message)) {
-        psk_length_ = psk.getLength();
+    bool res = MWAVData::encode(mode, message, file_path);
+    
+    if (res) {
+        psk_length_ = 10; // TODO: Implement this
         return file_path;
     } else {
         error("PSK_E", "Failed to encode PSK data.");
@@ -230,11 +310,19 @@ std::string TelemetryModule::generateSSTV() {
 void TelemetryModule::runner() {
     module_status_ = ModuleStatus::RUNNING;
     while (!stop_flag_) {
+        // Check for commands
+        parseCommands();
+
         int queue_size = p_data_stream_->getTXQueueSize();
+        data("TX_Q_SZ", queue_size, 5);
 
-        p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
-        "TXQ_SZ", std::to_string(queue_size), 100);
+        // Report the info about the TX log
+        DataStream::TXLogInfo lg = p_data_stream_->getTXLogInfo();
+        data("TX_LG_SZ", lg.tx_log_size, 5);
+        data("TX_LG_FRST", lg.first_tx_in_log, 5);
+        data("TX_LG_LAST", lg.last_tx_in_log, 5);
 
+        // Manage the TX queue
         if (queue_size > 0) {
 
             Transmission tx = p_data_stream_->getNextTX();
@@ -257,8 +345,7 @@ void TelemetryModule::runner() {
                     playWav(tx.wav_location, "PSK", tx.length);
                     break;
                 default:
-                    p_data_stream_->addError(error_source_, "BAD_TX_TYPE",
-                    std::to_string((int) tx.type), 0);
+                    error("BAD_TX_TYPE", std::to_string((int) tx.type));
                     break;
             }
             
@@ -274,7 +361,7 @@ void TelemetryModule::runner() {
 }
 
 void TelemetryModule::playWav(std::string wav_location, std::string tx_type, int tx_length) {
-    std::string command = "aplay " + wav_location + " >nul 2>nul"; // command to play with aplay supress output
+    std::string command = "aplay " + wav_location + " >nul 2>nul"; // command to play with aplay suppress output
 
     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
         "ACTIVE_TX",
@@ -288,7 +375,7 @@ void TelemetryModule::playWav(std::string wav_location, std::string tx_type, int
      * This allows me to stop a transmission early if needed and provides
      * time to exit GFS with another ctrl+c.
      * 
-     * This is deffinetly a bit of a hack but it gives the functionality
+     * This is definitely a bit of a hack but it gives the functionality
      * that I'm looking for. Eventually this could be replaced with popen
      * or a built in library for playing the wav files. I have had no issues
      * with this *so far*.
@@ -301,5 +388,10 @@ void TelemetryModule::playWav(std::string wav_location, std::string tx_type, int
         );
     } else if (exit_code != 0) {
         error("APLAY_EXIT_CODE_" + std::to_string(exit_code), wav_location);
+    }
+
+    // Delete the wav file, it's no longer needed as the data is in the log
+    if (!std::filesystem::remove(wav_location)) {
+        error("DEL_WAV", wav_location);
     }
 }

@@ -1,8 +1,8 @@
 /**
  * @file module-configuration.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This file implements the class ConfigModule which is defined
- * in module-configuration.h.
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief This file implements the class configuration module.
+ * 
  * @version 0.1
  * @date 2022-10-03
  * @copyright Copyright (c) 2022
@@ -17,20 +17,76 @@
 
 #include <nlohmann/json.hpp>
 
-#include "utility-data-stream.h"
+#include "data-stream.h"
 
-#include "module.h"
+#include "modules.h"
+using namespace modules;
 
-#include "module-configuration.h"
+/**
+ * @details
+ * Acts the same as the standard json object, but this maintains the same 
+ * structure as the config file upon loading and saving.
+ * Requires nlohmann json version 3.9 or higher.
+ */
+using json = nlohmann::ordered_json; 
 
-using json = nlohmann::ordered_json;
+/**
+ * @brief The following enumerations are used to link the values
+ * in the configuration file with the values of enumerations
+ * defined in config-types.h
+ * 
+ * Important note from the nlohmann json documentation:
+ * "When using get<ENUM_TYPE>(), undefined JSON values will default to the first 
+ * pair specified in your map. Select this default pair carefully."
+ * 
+ * This is why the first pair is 'error' so the configuration module can
+ * detect an incorrect value in the config file.
+ * 
+ * @see config-types.h
+ */
+NLOHMANN_JSON_SERIALIZE_ENUM( ConfigData::MainboardType, {
+    {ConfigData::MainboardType::ERROR, "error"}, 
+    {ConfigData::MainboardType::OTHER, "other"},
+    {ConfigData::MainboardType::PI_ZERO, "pi_zero"},
+    {ConfigData::MainboardType::PI_ZERO_W, "pi_zero_w"},
+    {ConfigData::MainboardType::PI_2, "pi_2"},
+    {ConfigData::MainboardType::PI_3, "pi_3"},
+    {ConfigData::MainboardType::PI_4, "pi_4"}
+})
 
+NLOHMANN_JSON_SERIALIZE_ENUM( FlightProcedure::ProcType, {
+    {FlightProcedure::ProcType::ERROR, "error"},
+    {FlightProcedure::ProcType::TESTING, "testing"},
+    {FlightProcedure::ProcType::STANDARD, "standard"},
+    {FlightProcedure::ProcType::RECOVERY, "recovery"},
+    {FlightProcedure::ProcType::FAILSAFE, "failsafe"}
+})
+
+NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Category, {
+    {ExtensionMetadata::Category::ERROR, "error"},
+    {ExtensionMetadata::Category::OTHER, "other"},
+    {ExtensionMetadata::Category::RADIO, "radio"},
+    {ExtensionMetadata::Category::GPS, "gps"},
+    {ExtensionMetadata::Category::CAMERA, "camera"},
+    {ExtensionMetadata::Category::INTERNAL_SENSOR, "internal_sensor"},
+    {ExtensionMetadata::Category::EXTERNAL_SENSOR, "external_sensor"}
+})
+
+NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Interface, {
+    {ExtensionMetadata::Interface::OTHER, "other"},
+    {ExtensionMetadata::Interface::INTERNAL, "internal"},
+    {ExtensionMetadata::Interface::I2C, "i2c"},
+    {ExtensionMetadata::Interface::SERIAL, "serial"},
+    {ExtensionMetadata::Interface::ONEWIRE, "oneWire"},
+    {ExtensionMetadata::Interface::USB, "USB"},
+    {ExtensionMetadata::Interface::GPIO, "gpio"}
+})
 /**
  * @brief Construct a new ConfigModule::ConfigModule object
  * @param None
  */
-ConfigModule::ConfigModule(DataStream *data_stream) {
-	p_data_stream_ = data_stream;
+ConfigModule::ConfigModule(DataStream *data_stream):
+	p_data_stream_(data_stream) {
 	number_of_errors_ = 0;
 }
 
@@ -82,10 +138,10 @@ ConfigData ConfigModule::getAll() {
  * @brief Returns a copy of the json data.
  * @param None
  * @return json - nlohmann json object
- */
 json ConfigModule::getAllJson() {
 	return json_buffer_;
 }
+*/
 
 int ConfigModule::getNumberOfErrors() {
 	return number_of_errors_;
@@ -137,12 +193,12 @@ void ConfigModule::parseAll() {
  * */
 void ConfigModule::parseGeneral() { 
 	if (!json_buffer_.contains("general")) {
-		error("C_GEN_NF"); // General section does not exist in config
+		error("GEN_NF"); // General section does not exist in config
 		return;
 	}
 
 	if (!json_buffer_["general"].contains("project-name")) {
-		error("C_GEN_PN_NF"); // Project name does not exist in config
+		error("GEN_PN_NF"); // Project name does not exist in config
 		config_data_.general.project_name = "INVALID";
 	} else {
 
@@ -151,11 +207,11 @@ void ConfigModule::parseGeneral() {
 
 		if (name.length() < PROJECT_NAME_MIN_LENGTH || 
 		name.length() > PROJECT_NAME_MAX_LENGTH) {
-			error("C_GEN_PN_R", name);
+			error("GEN_PN_R", name);
 			config_data_.general.project_name = "INVALID";
 		} else if (!std::regex_search(name, std::regex("^[a-zA-Z_ 0-9-]*$"))) { 
 
-			error("C_GEN_PN_I", name);
+			error("GEN_PN_I", name);
 
 		} else {
 			config_data_.general.project_name = name;
@@ -166,7 +222,7 @@ void ConfigModule::parseGeneral() {
 	ConfigData::MainboardType mbtype = 
 	json_buffer_["general"]["main-board-type"].get<ConfigData::MainboardType>();
 	if (mbtype == ConfigData::MainboardType::ERROR) {
-		error("C_GEN_MB_I");
+		error("GEN_MB_I");
 	} else {
 		config_data_.general.main_board = mbtype;
 	}
@@ -174,7 +230,7 @@ void ConfigModule::parseGeneral() {
 	FlightProcedure::ProcType ltype = 
 	json_buffer_["general"]["starting-procedure"].get<FlightProcedure::ProcType>();
 	if (ltype == FlightProcedure::ProcType::ERROR) {
-		error("C_GEN_SP_I");
+		error("GEN_SP_I");
 	} else {
 		config_data_.general.starting_proc = ltype;
 	}
@@ -198,9 +254,9 @@ void ConfigModule::parseExtensions() {
 		
 		int id = item.value()["id"].get<int>();
 		if (id != number_of_extensions + 1) { 
-			error("C_EXT_ID_R", id);
+			error("EXT_ID_R", id);
 		} else if (id < EXTENSION_ID_MIN || id > EXTENSION_ID_MAX) {
-			error("C_EXT_ID_S", id);
+			error("EXT_ID_S", id);
 		} else {
 			newExtension.id = id;
 		}
@@ -208,9 +264,9 @@ void ConfigModule::parseExtensions() {
 		std::string name = item.value()["name"].get<std::string>();
 		if (name.length() < EXTENSION_NAME_MIN_LENGTH ||
 		name.length() >= EXTENSION_NAME_MAX_LENGTH) {
-			error("C_EXT_NM_R", name);
+			error("EXT_NM_R", name);
 		} else if (!std::regex_search(name, std::regex("^[a-zA-Z_0-9-]*$"))) {
-			error("C_EXT_NM_I", name);
+			error("EXT_NM_I", name);
 		}
 		else {
 			newExtension.name = name;
@@ -257,14 +313,14 @@ void ConfigModule::parseExtensions() {
 				strs >> address_num;
 
 				if (address_num < 0 || address_num > 127) {
-					error("C_EXT_I2_A", address);
+					error("EXT_I2_A", address);
 				} else {
 					newExtension.extra_args.I2C_device_address = address;
 				}
 
 				int bus = item.value()["i2c-bus"].get<int>();
 				if (bus < 0 || bus > 2) {
-					error("C_ETC_I2_B", bus);
+					error("ETC_I2_B", bus);
 				} else {
 					newExtension.extra_args.I2C_bus = bus;
 				}
@@ -276,9 +332,8 @@ void ConfigModule::parseExtensions() {
 		int interval = item.value()["update-interval"].get<int>();
 		if (interval < EXTENSION_INTERVAL_MIN || 
 		interval > EXTENSION_INTERVAL_MAX) {
-			//errors_.push_back("Extension interval must be between " + 
-			//std::to_string(EXTENSION_INTERVAL_MIN) + " and " + 
-			//std::to_string(EXTENSION_INTERVAL_MAX) + " ms.");
+			error("EXT_UI_R", interval);
+			newExtension.update_interval = 1000;
 		} else {
 			newExtension.update_interval = interval;
 		}
@@ -408,20 +463,16 @@ void ConfigModule::parseTelemetry() {
 			json_buffer_["telemetry"]["psk-frequency"].get<std::string>();
 		/** @todo Check if frequency is valid */
 
-		std::string psk_mode = "bpsk"; // Default
-		std::string psk_symbol_rate = "125"; // Default
+		std::string psk_mode = "bpsk125"; // Default
 
 		try {
 			psk_mode = 
 				json_buffer_["telemetry"]["psk-mode"].get<std::string>();
-			if (psk_mode != "bpsk" && psk_mode != "bpsk") {
+			if (psk_mode != "bpsk125" 
+				&& psk_mode != "bpsk250" 
+				&& psk_mode != "bpsk500"
+				&& psk_mode != "bpsk1000") {
 				error("TL_PSK_M");
-			}
-
-			psk_symbol_rate = 
-				json_buffer_["telemetry"]["psk-symbol-rate"].get<std::string>();
-			if ((psk_symbol_rate != "125") && (psk_symbol_rate != "250")) {
-				error("TL_PSK_S");
 			}
 		} catch (std::exception &e) {
 			error("TL_PSK_F");
@@ -429,7 +480,6 @@ void ConfigModule::parseTelemetry() {
 		config_data_.telemetry.psk_enabled = 1;
 		config_data_.telemetry.psk_freq = psk_frequency;
 		config_data_.telemetry.psk_mode = psk_mode;
-		config_data_.telemetry.psk_symbol_rate = psk_symbol_rate;
 	}
 }
 
@@ -444,15 +494,15 @@ void ConfigModule::parseTelemetry() {
  * @todo Update error checking.
  */
 void ConfigModule::parseDataTypes() {
-	for (const auto& item : json_buffer_["data-types"].items()) {
-		ConfigData::DataTypes::ExtensionDataType newDataType;
+	for (const auto& item : json_buffer_["data-log-data-and-packet-contents"].items()) {
+		ConfigData::DataTypes::DataType newDataType;
 		try 
 		{
 			newDataType.source = item.value()["source"].get<std::string>();
-			newDataType.name = item.value()["name"].get<std::string>();
 			newDataType.unit = item.value()["unit"].get<std::string>();
 			newDataType.include_in_telemetry = 
 			item.value()["include-in-telemetry"].get<bool>();
+			newDataType.telemetry_name = item.value()["telemetry-name"].get<std::string>();
 
 			config_data_.data_types.types.push_back(newDataType);
 		} catch (const std::exception& e) {

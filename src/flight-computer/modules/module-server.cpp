@@ -1,13 +1,35 @@
-#include "module-server.h"
+/**
+ * @file module-server.cpp
+ * @author Joshua Jerred (https://joshuajer.red)
+ * @brief The debugging server module implementation
+ * @details This handles the server socket for the python client to
+ * connect to.
+ * 
+ * It currently sends large chunks of data even when nothing has changed.
+ * This should be changed in the future but it has not caused any
+ * problems yet and it makes catching weird bugs easier.
+ * This is not used during flight, so it isn't the biggest priority,
+ * but this can be optimized a lot.
+ * 
+ * @date 2023-01-05
+ * @copyright Copyright (c) 2023
+ * @version 0.3
+ */
 
 #include <iostream>
+#include <nlohmann/json.hpp>
+#include <deque>
+using json = nlohmann::ordered_json; 
+
+#include "socket.h"
+#include "modules.h"
+using namespace modules;
 
 ServerModule::ServerModule(const ConfigData config_data,
-													 DataStream *data_stream) {
-	config_data_ = config_data;
-	update_interval_ = config_data.debug.web_server_update_interval;
-	p_data_stream_ = data_stream;
-	gfs_shutdown_flag_ = 0;
+		DataStream *data_stream):
+			Module(data_stream, MODULE_SERVER_PREFIX),
+			config_data_(config_data),
+			p_data_stream_(data_stream) {
 }
 
 ServerModule::~ServerModule() {
@@ -40,14 +62,14 @@ void ServerModule::runner() {
 	module_status_ = ModuleStatus::RUNNING;
 	while (!stop_flag_) {
 		try {
-			p_data_stream_->addData(
-				MODULE_SERVER_PREFIX, "SOCKET", "WAITING", 0);
-
 			ServerSocket new_sock;  // Create a new socket for the connection
-			server_socket.accept(new_sock);
-
-			p_data_stream_->addData(
-				MODULE_SERVER_PREFIX, "SOCKET", "CONNECTED", 0);
+			if (server_socket.accept(new_sock)) {
+				data("SOCKET", "CONNECTED", 0);
+			} else {
+				std::this_thread::sleep_for(std::chrono::milliseconds(50));
+				data("SOCKET", "DISCONNECTED", 0);
+				continue;
+			}
 			
 			while (!stop_flag_) {
 				std::this_thread::sleep_for(std::chrono::milliseconds(50));
@@ -61,11 +83,18 @@ void ServerModule::runner() {
 					}
 					continue;
 				}
+				std::string command_check = request.substr(0, 4);
+				if (command_check == "cmd/") {
+					p_data_stream_->addToCommandQueue(request);
+					continue;
+				}
 
 				if (request == "static") {
 					sendStaticData(new_sock);
 				} else if (request == "dynamic") {
 					sendDynamicData(new_sock);
+				} else if (request == "telemetry"){
+					sendTelemetryData(new_sock);
 				} else if (request == "shutdownServer") {
 					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
@@ -96,19 +125,14 @@ void ServerModule::runner() {
 						);
 					break;
 				} else {
-					p_data_stream_->addData(
-						MODULE_SERVER_PREFIX, 
-						"SOCKET", 
-						"UNKNOWN_REQUEST", 
-						0
-						);
+					error("Unknown Request", request);
 					break;
 				}
 			}
 
 		} catch (SocketException &e) {
 			p_data_stream_->addError(MODULE_SERVER_PREFIX, "Socket Creation",
-										e.description(), update_interval_);
+										e.description(), 0);
 		}
 		
 		std::this_thread::sleep_for(std::chrono::milliseconds(50));
@@ -180,7 +204,7 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 
 		json extension_status = {};
 		std::unordered_map<std::string, ExtensionStatus> extension_status_map = p_data_stream_->getExtensionStatuses();
-		int k = 0;
+
 		for (auto const &[key, status] : extension_status_map) {
 			std::string status_str = "";
 
@@ -200,20 +224,92 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 				case ExtensionStatus::STOPPING:
 					status_str = "STOPPING";
 					break;
+				case ExtensionStatus::STOPPED_ERROR_STATE:
+					status_str = "STOPPED_ERROR_STATE";
+					break;
 			}
 
 			extension_status[key] = status_str;
 		}
 
+		json errors = {};
+		ErrorFrame error_snapshot = p_data_stream_->getErrorFrameCopy();
+		int k = 0;
+		for (auto const &[key, error] : error_snapshot) {
+			errors[std::to_string(k++)] = {
+				{"source", error.source},
+				{"code", error.error_code},
+				{"info", error.info}
+			};
+		}
+
 		json dynamic_data = {
 			{"dynamic", data},
 			{"tx-queue", tx_queue_json},
-			{"extension-status", extension_status}
+			{"extension-status", extension_status},
+			{"errors", errors}
 		};
 
 		socket << dynamic_data.dump();  // Send the data
 	} catch (SocketException &e) {
 		p_data_stream_->addError(MODULE_SERVER_PREFIX, "Dynamic",
-			e.description(), update_interval_);
+			e.description(), 0);
+	}
+}
+
+void ServerModule::sendTelemetryData(ServerSocket &socket) {
+	json tx_log_info = {}; // Transmission Log Info
+	json tx_log = {}; // Transmission Log
+	
+	const DataStream::TXLogInfo info = p_data_stream_->getTXLogInfo();
+	
+	tx_log_info["size"] = info.tx_log_size;
+	tx_log_info["max_size"] = info.max_size;
+	tx_log_info["first"] = info.first_tx_in_log;
+	tx_log_info["last"] = info.last_tx_in_log;
+
+	p_data_stream_->lockTXLog();
+	const std::deque<Transmission> &log = p_data_stream_->getTXLog();
+	int i = 0;
+	for (auto const &tx : log) {
+		std::string type = "";
+		switch (tx.type) {
+			case Transmission::Type::ERROR:
+				type = "ERROR";
+				break;
+			case Transmission::Type::APRS:
+				type = "APRS";
+				break;
+			case Transmission::Type::AFSK:
+				type = "AFSK";
+				break;
+			case Transmission::Type::PSK:
+				type = "PSK";
+				break;
+			case Transmission::Type::SSTV:
+				type = "SSTV";
+				break;
+			default:
+				type = "UNKNOWN";
+				break;
+		}
+		tx_log[std::to_string(i++)] = {
+			{"ID", tx.tx_num},
+			{"type", type},
+			{"message", tx.message},
+			{"length", tx.length}
+		};
+	}
+	p_data_stream_->unlockTXLog();
+
+	json telemetry_data = {
+		{"tx-log-info", tx_log_info},
+		{"tx-log", tx_log}
+	};
+	try {
+		socket << telemetry_data.dump();  // Send the data
+	} catch (SocketException &e) {
+		p_data_stream_->addError(MODULE_SERVER_PREFIX, "Telemetry",
+			e.description(), 0);
 	}
 }

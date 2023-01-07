@@ -73,28 +73,27 @@
 
         "psk-enabled":true,
         "psk-frequency": "109.000",
-        "psk-mode": "bpsk",
-        "psk-symbol-rate": "250"
+        "psk-mode": "bpsk125"
     },
     
-    "data": [
+    "data-log-data-and-packet-contents": [
         {
-            "source": "BMP180_SIM",
-            "name": "TEMP_F",
-            "unit": "TF",
-            "include-in-telemetry": 1
+            "source": "sys",
+            "unit": "load_avg_1",
+            "include-in-telemetry": true,
+            "telemetry-name": "ldav1"
         },
         {
-            "source": "BMP180_SIM",
-            "name": "PRESSURE_MBAR",
-            "unit": "PM",
-            "include-in-telemetry": 0
+            "source": "sys",
+            "unit": "cpu_temp",
+            "include-in-telemetry": true,
+            "telemetry-name": "cpu-tp"
         },
         {
-            "source": "BMP180_SIM",
-            "name": "TEMP_C",
-            "unit": "TF",
-            "include-in-telemetry": 1
+            "source": "pth_sen",
+            "unit": "temp_c",
+            "include-in-telemetry": true,
+            "telemetry-name": "tc"
         }
     ],
 

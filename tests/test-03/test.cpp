@@ -1,6 +1,6 @@
 /**
  * @file test.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Tests for the Data Module
  * @date 2022-11-03
  * @copyright Copyright (c) 2022
@@ -13,18 +13,21 @@
 
 #include "gtest/gtest.h"
 
-#include "module-data.h"
+#include "modules.h"
 
 
 class DataModuleTests : public ::testing::Test {
 protected:
     virtual void SetUp() {
-        data_module_ = new DataModule();
+        data_stream_ = new DataStream();
+        data_module_ = new modules::DataModule(*data_stream_);
     }
     virtual void TearDown() {
-
+        delete data_module_;
+        delete data_stream_;
     }
-    DataModule *data_module_;
+    modules::DataModule *data_module_;
+    DataStream *data_stream_;
 };
 
 TEST_F(DataModuleTests, StartAndStop) {
@@ -40,27 +43,32 @@ TEST_F(DataModuleTests, StartAndStop) {
 }
 
 TEST_F(DataModuleTests, DataStreamTests) {
-    DataStream *stream = data_module_->getDataStream();
-    EXPECT_EQ(0, stream->getNumDataPackets())
+    EXPECT_EQ(0, data_stream_->getNumDataPackets())
         << "Data stream is not empty";
-    EXPECT_EQ(0, stream->getNumErrorPackets())
-        << "Data stream is not empty";
+    EXPECT_EQ(0, data_stream_->getNumErrorPackets())
+        << "Error stream is not empty";
     
-    stream->addData("source", "name", "value", 0);
+    data_stream_->addData("source", "name", "value", 0);
 
-    EXPECT_EQ(1, stream->getNumDataPackets())
+    EXPECT_EQ(1, data_stream_->getNumDataPackets())
         << "Data stream is empty";
-    EXPECT_EQ(0, stream->getNumErrorPackets())
+    EXPECT_EQ(0, data_stream_->getNumErrorPackets())
         << "Error stream is not empty";
 
-    stream->addError("source", "name", "info", 0);
+    data_stream_->addError("source", "name", "info", 0);
 
     data_module_->start();
     /* Delay to allow the thread to start and process the data packet.*/
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-    EXPECT_EQ(0, stream->getNumDataPackets())
+    EXPECT_EQ(0, data_stream_->getNumDataPackets())
         << "Data stream is not empty";
-    EXPECT_EQ(0, stream->getNumErrorPackets())
+    EXPECT_EQ(0, data_stream_->getNumErrorPackets())
         << "Error stream is not empty";
+
+    data_module_->stop();
+
+    /**
+     * @todo Ready for more tests
+     */
 }

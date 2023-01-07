@@ -1,14 +1,25 @@
 /**
  * @file extension.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This file contains the implementation of the Extension class.
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief This file contains the implementation of the Extension class, which is
+ * the base class for all extensions.
  * 
  * @version 0.0.9
  * @date 2022-10-09
  * @copyright Copyright (c) 2022
  */
 
-#include "extension.h"
+#include <string>
+#include <vector>
+#include <iostream>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
+#include "configurables.h"
+#include "config-types.h"
+#include "status.h"
+#include "extensions.h"
 
 /**
  * @brief Constructor for the Extension base class.
@@ -20,11 +31,10 @@
  * @param extension_metadata - ExtensionMetadata struct with the extension 
  * config info
  */
-Extension::Extension(DataStream *p_data_stream, 
-                     ExtensionMetadata extension_metadata) {
-    
-    p_data_stream_ = p_data_stream;
-
+extension::Extension::Extension(DataStream *p_data_stream, 
+                     ExtensionMetadata extension_metadata):
+    p_data_stream_(p_data_stream),
+    status_(ExtensionStatus::STOPPED) {
 
     setID(extension_metadata.id);
     setName(extension_metadata.name);
@@ -42,7 +52,7 @@ Extension::Extension(DataStream *p_data_stream,
  * @todo Stop the thread if it is running, check for errors.
  * @bug Does not attempt to stop the thread.
  */
-Extension::~Extension() {
+extension::Extension::~Extension() {
 
 }
 
@@ -55,7 +65,7 @@ Extension::~Extension() {
  * @param None
  * @return void
  */
-void Extension::start() {
+void extension::Extension::start() {
     if (getStatus() == ExtensionStatus::STOPPED) {
         setStatus(ExtensionStatus::STARTING);
         spawnRunner();
@@ -73,13 +83,14 @@ void Extension::start() {
  * @param None
  * @return void
  */
-void Extension::stop() {
+void extension::Extension::stop() {
+    stop_flag_ = 1;
     if (getStatus() == ExtensionStatus::RUNNING) {
         setStatus(ExtensionStatus::STOPPING);
-        stop_flag_ = 1;
         runner_thread_.join();
     } else if (getStatus() == ExtensionStatus::ERROR) {
         runner_thread_.join();
+        setStatus(ExtensionStatus::STOPPED_ERROR_STATE);
     }
 }
 
@@ -89,63 +100,63 @@ void Extension::stop() {
  * result.
  * @todo Implement this.
  */
-void Extension::restart() {
+void extension::Extension::restart() {
 }
 
 /**
  * @return ExtensionStatus The status of the extension. Status is an atomic,
  * so it is thread safe.
  */
-ExtensionStatus Extension::getStatus() {
+ExtensionStatus extension::Extension::getStatus() {
     return status_;
 }
 
 /**
  * @return int The id of the extension.
  */
-int Extension::getID() {
+int extension::Extension::getID() {
     return id_;
 }
 
 /**
  * @return std::string The name of the extension.
  */
-std::string Extension::getName() {
+std::string extension::Extension::getName() {
     return name_;
 }
 
 /**
  * @return std::string The type of the extension.
  */
-std::string Extension::getType() {
+std::string extension::Extension::getType() {
     return type_;
 }
 
 /**
  * @return ExtensionMetadata::Category The category of the extension.
  */
-ExtensionMetadata::Category Extension::getCategory() {
+ExtensionMetadata::Category extension::Extension::getCategory() {
     return category_;
 }
 
 /**
  * @return ExtensionMetadata::Interface The interface of the extension.
  */
-ExtensionMetadata::Interface Extension::getInterface() {
+ExtensionMetadata::Interface extension::Extension::getInterface() {
     return interface_;
 }
 
 /**
  * @return int The update interval in milliseconds of the extension.
  */
-int Extension::getUpdateInterval() {
+int extension::Extension::getUpdateInterval() {
     return update_interval_;
 }
 
 /**
  * @return int Whether or not the extension is flight critical 0=no, 1=yes.
  */
-int Extension::getCritical() {
+int extension::Extension::getCritical() {
     return critical_;
 }
 
@@ -161,7 +172,7 @@ int Extension::getCritical() {
  * and return -1.
  * @return int -1, an error value. 0 is for a clean stop.
  */
-int Extension::runner() {
+int extension::Extension::runner() {
     setStatus(ExtensionStatus::ERROR);
     p_data_stream_->addError(name_, "EXT_RUNNER", "Runner not implemented in child class.", 0);
     return -1;
@@ -174,7 +185,7 @@ int Extension::runner() {
  * the base class and parent class.
  * @param status 
  */
-void Extension::setStatus(ExtensionStatus status) {
+void extension::Extension::setStatus(ExtensionStatus status) {
     status_ = status;
     p_data_stream_->updateExtensionStatus(getName(), status);
 }
@@ -195,28 +206,30 @@ void Extension::setStatus(ExtensionStatus status) {
  * @param float value
  * @return void
  */
-void Extension::sendData(std::string unit, std::string value) {
-    std::time_t t = std::time(0);
+void extension::Extension::sendData(std::string unit, std::string value) {
     p_data_stream_->addData(getName(), unit, value, 
-                            getUpdateInterval() / 1000);
+                            data_expiration_time_);
 }
 
 /**
  * @brief Override for integers. See sendData(std::string, std::string).
  * @todo Limit number size?
  */
-void Extension::sendData(std::string unit, int value) {
+void extension::Extension::sendData(std::string unit, int value) {
     p_data_stream_->addData(getName(), unit, std::to_string(value), 
-                            getUpdateInterval() / 1000);
+                            data_expiration_time_);
 }
 
 /**
  * @brief Override for floats. See sendData(std::string, std::string).
  * @todo Limit to float precision?
  */
-void Extension::sendData(std::string unit, float value) {
-    p_data_stream_->addData(getName(), unit, std::to_string(value), 
-                            getUpdateInterval() / 1000);
+void extension::Extension::sendData(std::string unit, float value, int precision) {
+    std::stringstream stream;
+    stream << std::fixed << std::setprecision(precision) << value;
+    std::string rounded = stream.str();
+    p_data_stream_->addData(getName(), unit, rounded, 
+                            data_expiration_time_);
 }
 
 /**
@@ -225,7 +238,7 @@ void Extension::sendData(std::string unit, float value) {
  * @param num The id
  * @return void
  */
-void Extension::setID(int num) {
+void extension::Extension::setID(int num) {
     if ((num >= EXTENSION_ID_MIN) && (EXTENSION_ID_MAX <= 255)) {
         id_ = num;
         return;
@@ -233,7 +246,7 @@ void Extension::setID(int num) {
         id_ = 0;
         setStatus(ExtensionStatus::ERROR);
         p_data_stream_->addError(name_, "EXT_ID", 
-                                 "Specified ID out of range.", 0);
+                                 "ID: " + std::to_string(num), 0);
         return;
     }
 }
@@ -248,7 +261,7 @@ void Extension::setID(int num) {
  * @param name The name of the extension.
  * @return void
  */
-void Extension::setName(std::string name) {
+void extension::Extension::setName(std::string name) {
     if ((name.size() <= EXTENSION_NAME_MAX_LENGTH) 
         && (name.size() >= EXTENSION_NAME_MIN_LENGTH)) {
         name_ = name;
@@ -269,7 +282,7 @@ void Extension::setName(std::string name) {
  * @param type
  * @return void
  */
-void Extension::setType(std::string type){
+void extension::Extension::setType(std::string type){
     type_ = type;
     return;
 }
@@ -279,7 +292,7 @@ void Extension::setType(std::string type){
  * @param category 
  * @return void
  */
-void Extension::setCategory(ExtensionMetadata::Category category) {
+void extension::Extension::setCategory(ExtensionMetadata::Category category) {
     category_ = category;
     return;
 }
@@ -292,7 +305,7 @@ void Extension::setCategory(ExtensionMetadata::Category category) {
  * 
  * @todo Add extra args handling here if for interface. Ex: i2c bus and address.
  */
-void Extension::setInterface(ExtensionMetadata::Interface interface){
+void extension::Extension::setInterface(ExtensionMetadata::Interface interface){
     interface_ = interface;
     return;
 }
@@ -304,8 +317,13 @@ void Extension::setInterface(ExtensionMetadata::Interface interface){
  * @param interval The update interval in milliseconds, 0 means the thread will
  * return after a single run.
  */
-void Extension::setUpdateInterval(int interval_ms){
+void extension::Extension::setUpdateInterval(int interval_ms){
     update_interval_ = interval_ms;
+    if (update_interval_ < 0) {
+        update_interval_ = 10000;
+        error("EXT_UPDATE_INTERVAL", "Update interval reverted to 10s");
+    }
+    data_expiration_time_ = (update_interval_/1000) * 2;
 }
 
 /**
@@ -316,7 +334,7 @@ void Extension::setUpdateInterval(int interval_ms){
  * @see health_check()
  * @param critical 1=yes, 0=no.
  */
-void Extension::setCritical(int critical){
+void extension::Extension::setCritical(int critical){
     if (critical != 0 && critical != 1) {
         critical_ = 0;
         p_data_stream_->addError(name_, "EXT_CRITICAL", 
@@ -331,7 +349,8 @@ void Extension::setCritical(int critical){
  * @brief This function will attempt to spawn the runner thread of the
  * parent class.
  */
-void Extension::spawnRunner() {
+void extension::Extension::spawnRunner() {
+    stop_flag_ = 0;
     runner_thread_ = std::thread(&Extension::runner, this);
 }
 
@@ -345,20 +364,20 @@ void Extension::spawnRunner() {
 //        );
 //}
 
-void Extension::error(std::string error_code, std::string info) {
+void extension::Extension::error(std::string error_code, std::string info) {
 	p_data_stream_->addError(
-        EXTENSION_PREFIX + (std::string) ":" + std::to_string(getID()), 
+        EXTENSION_PREFIX + std::to_string(getID()), 
         error_code, 
         info, 
-        update_interval_
+        data_expiration_time_
         );
 }
 
-void Extension::error(std::string error_code) {
+void extension::Extension::error(std::string error_code) {
 	p_data_stream_->addError(
-        EXTENSION_PREFIX + (std::string) ":" + std::to_string(getID()), 
+        EXTENSION_PREFIX + std::to_string(getID()), 
         error_code, 
         "", 
-        update_interval_
+        data_expiration_time_
         );
 }

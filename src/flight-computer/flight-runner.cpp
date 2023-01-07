@@ -1,6 +1,6 @@
 /**
  * @file flight-runner.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file contains the high level flight computer code.
  * @details This file implemented the FlightRunner class.
  * 
@@ -11,8 +11,10 @@
 
 #include "flight-runner.h"
 
-FlightRunner::FlightRunner() {
-    current_flight_procedure_type_ = FlightProcedure::ProcType::FAILSAFE;
+FlightRunner::FlightRunner():
+    current_flight_procedure_type_(FlightProcedure::ProcType::FAILSAFE),
+    shutdown_signal_(false)
+    {
 }
 
 FlightRunner::~FlightRunner() {
@@ -20,11 +22,11 @@ FlightRunner::~FlightRunner() {
 
 int FlightRunner::start() {
     // ~~~ Create the Data Module ~~~ //
-    p_data_module_ = new DataModule();
+    p_data_module_ = new modules::DataModule(data_stream_);
     // Do not start the DataModule yet because we need to add the config data
 
     // ~~~ Read The Config ~~~ //
-    ConfigModule* config = new ConfigModule(p_data_module_->getDataStream());
+    modules::ConfigModule* config = new modules::ConfigModule(&data_stream_);
     int status = config->load(CONFIG_LOCATION);
     if (status == -1) {
         std::cout << "Error: Could not load config file." << std::endl;
@@ -40,29 +42,29 @@ int FlightRunner::start() {
     p_data_module_->start(); // Start the DataModule
     
     // ~~~ Start the Extensions Module ~~~ //
-    p_extension_module_ = new ExtensionsModule(config_data_, 
-        p_data_module_->getDataStream()); // Enable Extensions
+    p_extension_module_ = new modules::ExtensionsModule(config_data_, 
+        &data_stream_); // Enable Extensions
 
     p_extension_module_->start(); // Start Extensions
 
     // ~~~ Start the Console Module ~~~ //
     if (config_data_.debug.console_enabled) {
-        p_console_module_ = new ConsoleModule(config_data_, 
-            p_data_module_->getDataStream());
+        p_console_module_ = new modules::ConsoleModule(config_data_, 
+            &data_stream_);
         p_console_module_->start();
     }
 
     // ~~~ Start the Server Module ~~~ //
     if (config_data_.debug.web_server_enabled) {
-        p_server_module_ = new ServerModule(config_data_, 
-            p_data_module_->getDataStream());
+        p_server_module_ = new modules::ServerModule(config_data_, 
+            &data_stream_);
         p_server_module_->start();
     }
 
     // ~~~ Start the Telemetry Module ~~~ //
     if (config_data_.telemetry.telemetry_enabled) {
-        p_telemetry_module_ = new TelemetryModule(config_data_, 
-            p_data_module_->getDataStream());
+        p_telemetry_module_ = new modules::TelemetryModule(config_data_, 
+            &data_stream_);
         p_telemetry_module_->start();
     }
 
@@ -85,7 +87,7 @@ void FlightRunner::shutdown() {
 
 int FlightRunner::flightLoop() {
     std::cout << "Starting Flight Loop" << std::endl;
-    Timer tsl_data_log; // Refer to utility-timer.h
+    Timer tsl_data_log; // Refer to timer.h
     Timer tsl_server; 
     Timer tsl_data_packet; // tsl = time since last
     Timer tsl_photo;
@@ -93,11 +95,33 @@ int FlightRunner::flightLoop() {
     Timer tsl_SSTV_image; 
     Timer tsl_health_check;
     
-    
+    GFSCommand command;
 
     /** @note FLIGHT LOOP */
     while (!shutdown_signal_) { // The endless loop where everything happens
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
+
+        if (data_stream_.getNextCommand(command)) { // Check for commands
+            switch (command.category) {
+                case GFSCommand::CommandCategory::FLR:
+                    
+                    break;
+                case GFSCommand::CommandCategory::TLM: // Telemetry Module
+                    if (p_telemetry_module_ != nullptr) {
+                        p_telemetry_module_->addCommand(command);
+                    }
+                    break;
+                case GFSCommand::CommandCategory::MDL:
+                    
+                    break;
+                case GFSCommand::CommandCategory::EXT:
+                    
+                    break;
+                default:
+                    std::cout << "unknown command category" << std::endl;
+                    break;
+            }
+        }
 
         if (tsl_data_log.elapsed() > current_intervals_.data_log) {
             p_data_module_->log();
@@ -164,8 +188,7 @@ void FlightRunner::switchLoops(FlightProcedure::ProcType procType) {
         // Send the procedure to the data stream
         current_procedure.type = FlightProcedure::ProcType::TESTING;
         current_procedure.intervals = procs.testing.intervals;
-        p_data_module_->
-        getDataStream()->updateFlightProcedure(current_procedure);
+        data_stream_.updateFlightProcedure(current_procedure);
 
         break;
     default: // Default back to failsafe flight proc
@@ -175,8 +198,7 @@ void FlightRunner::switchLoops(FlightProcedure::ProcType procType) {
         // Send the procedure to the data stream
         current_procedure.type = FlightProcedure::ProcType::FAILSAFE;
         current_procedure.intervals = procs.failsafe.intervals;
-        p_data_module_->
-        getDataStream()->updateFlightProcedure(current_procedure);
+        data_stream_.updateFlightProcedure(current_procedure);
         break;
     }
 

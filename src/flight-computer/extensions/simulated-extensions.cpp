@@ -1,6 +1,6 @@
 /**
  * @file simulated-extensions.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file contains the implementation of the simulated extensions.
  * @details Simulated extensions currently only send data to the data stream.
  * @todo Implement full simulation of the BMP180, DRA818V, DS18B20, and SAM-M8Q
@@ -10,16 +10,21 @@
  * @copyright Copyright (c) 2022
  */
 
-#include "simulated-extensions.h"
+#include <iostream>
+#include <thread>
+#include <atomic>
+#include <chrono> // For text extension
+
+#include "extensions.h"
 
 // See simulated-extensions.h for documentation
-TestExtension::TestExtension(DataStream *p_data_stream, 
+extension::TestExtension::TestExtension(DataStream *p_data_stream, 
                              ExtensionMetadata extension_metadata) :
                              Extension(p_data_stream, extension_metadata) {
 }
-TestExtension::~TestExtension() {
+extension::TestExtension::~TestExtension() {
 }
-int TestExtension::runner() {
+int extension::TestExtension::runner() {
     setStatus(ExtensionStatus::RUNNING);
     while (!stop_flag_) {
         std::this_thread::sleep_for(
@@ -35,12 +40,12 @@ int TestExtension::runner() {
 }
 
 // See simulated-extensions.h for documentation
-BMP180_SIM::BMP180_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
+extension::BMP180_SIM::BMP180_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
     Extension(p_data_stream, extension_metadata) {
 }
-BMP180_SIM::~BMP180_SIM() {
+extension::BMP180_SIM::~BMP180_SIM() {
 }
-int BMP180_SIM::runner() {
+int extension::BMP180_SIM::runner() {
     setStatus(ExtensionStatus::RUNNING);
     int temp = 75;
     int pressure = 1018;
@@ -69,18 +74,17 @@ int BMP180_SIM::runner() {
 }
 
 // See simulated-extensions.h for documentation
-SAMM8Q_SIM::SAMM8Q_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
+extension::SAMM8Q_SIM::SAMM8Q_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
     Extension(p_data_stream, extension_metadata) {}
-SAMM8Q_SIM::~SAMM8Q_SIM() {  
+extension::SAMM8Q_SIM::~SAMM8Q_SIM() {  
 }
-int SAMM8Q_SIM::runner() {
+int extension::SAMM8Q_SIM::runner() {
     setStatus(ExtensionStatus::RUNNING);
     float lat = 37.1010982;
     float lon = -113.5678354;
     int alt = 0;
     std::string quality = "2";
     int vertical_speed = 5;
-    int horizontal_speed = 4;
     sendData("VERT_SPEED", vertical_speed);
     // ^This should test stale data
     while (!stop_flag_) {
@@ -102,11 +106,11 @@ int SAMM8Q_SIM::runner() {
 }
 
 // See simulated-extensions.h for documentation
-DS18B20_SIM::DS18B20_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
+extension::DS18B20_SIM::DS18B20_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
     Extension(p_data_stream, extension_metadata) {
 }
-DS18B20_SIM::~DS18B20_SIM() {}
-int DS18B20_SIM::runner() {
+extension::DS18B20_SIM::~DS18B20_SIM() {}
+int extension::DS18B20_SIM::runner() {
     setStatus(ExtensionStatus::RUNNING);
     int temp = 75;
     int upordown = 1; // 1 = going up, 0 = going down
@@ -131,12 +135,12 @@ int DS18B20_SIM::runner() {
 }
 
 // See simulated-extensions.h for documentation
-DRA818V_SIM::DRA818V_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
+extension::DRA818V_SIM::DRA818V_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
     Extension(p_data_stream, extension_metadata) {
 }
-DRA818V_SIM::~DRA818V_SIM() { 
+extension::DRA818V_SIM::~DRA818V_SIM() { 
 }
-int DRA818V_SIM::runner() {
+int extension::DRA818V_SIM::runner() {
     setStatus(ExtensionStatus::RUNNING);
     while (!stop_flag_) {
         std::this_thread::sleep_for(

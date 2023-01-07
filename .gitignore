@@ -11,9 +11,7 @@ bin
 docs/Doxygen/output
 
 # KiCad files
-hardware/GFC/GFC-backups/
-hardware/GFC-prototypes/GFC-prototypes-backups
-hardware/GFC/#auto_saved_files#
-hardware/GFC/fp-info-cache
-hardware/GFC/sym-lib-table
-hardware/GFC-prototypes/fp-info-cache
+fp-info-cache
+sym-lib-table
+*.bak
+*.zip

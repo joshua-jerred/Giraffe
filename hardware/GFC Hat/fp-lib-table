@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "GFC-Footprints")(type "KiCad")(uri "/mnt/boron-vault/Projects/Giraffe/hardware/GFC-Footprints")(options "")(descr ""))
+)

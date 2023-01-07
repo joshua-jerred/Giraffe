@@ -1,6 +1,6 @@
 /**
  * @file flight-runner.h
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file defines the FlightRunner class.
  * @version 0.1
  * @date 2022-09-20
@@ -12,16 +12,11 @@
 #ifndef _FLIGHT_RUNNER_H_
 #define _FLIGHT_RUNNER_H_
 
-#include "utility-config-types.h"
-#include "utility-timer.h"
-#include "utility-data-stream.h"
+#include "config-types.h"
+#include "timer.h"
+#include "data-stream.h"
 
-#include "module-configuration.h"
-#include "module-data.h"
-#include "module-extensions.h"
-#include "module-console.h"
-#include "module-server.h"
-#include "module-telemetry.h"
+#include "modules.h"
 
 /**
  * @brief The FlightRunner class is responsible for pulling everything together.
@@ -36,6 +31,9 @@ public:
      * @brief Construct a new Flight Runner object.
      */
     FlightRunner();
+
+    FlightRunner(const FlightRunner&) = delete; // No copy constructor
+    FlightRunner& operator=(const FlightRunner&) = delete; // No copy assignment
 
     /**
      * @brief Deconstructs the flight runner object, called at program
@@ -96,23 +94,25 @@ private:
 
     void deconstruct();
 
-    ConfigData config_data_;
+    ConfigData config_data_ = ConfigData();
     FlightProcedure::ProcType current_flight_procedure_type_;
-    FlightProcedure::Intervals current_intervals_;
+    FlightProcedure::Intervals current_intervals_ = FlightProcedure::Intervals();
     
-    DataModule *p_data_module_;
-    ExtensionsModule *p_extension_module_;
-    ConsoleModule *p_console_module_;
-    ServerModule *p_server_module_;
-    TelemetryModule *p_telemetry_module_;
+    DataStream data_stream_ = DataStream();
+
+    modules::DataModule *p_data_module_ = nullptr;
+    modules::ExtensionsModule *p_extension_module_ = nullptr;
+    modules::ConsoleModule *p_console_module_ = nullptr;
+    modules::ServerModule *p_server_module_ = nullptr;
+    modules::TelemetryModule *p_telemetry_module_ = nullptr;
     //ComModule *mpComModule;
     int shutdown_signal_;
 
-    FlightProcedure flt_proc_testing_;
-    FlightProcedure flt_proc_standard_;
-    FlightProcedure flt_proc_descent_;
-    FlightProcedure flt_proc_recovery_;
-    FlightProcedure flt_proc_failsafe_;
+    FlightProcedure flt_proc_testing_ = FlightProcedure(FlightProcedure::ProcType::TESTING);
+    FlightProcedure flt_proc_standard_ = FlightProcedure(FlightProcedure::ProcType::STANDARD);
+    FlightProcedure flt_proc_descent_ = FlightProcedure(FlightProcedure::ProcType::DESCENT);
+    FlightProcedure flt_proc_recovery_ = FlightProcedure(FlightProcedure::ProcType::RECOVERY);
+    FlightProcedure flt_proc_failsafe_ = FlightProcedure(FlightProcedure::ProcType::FAILSAFE);
 };
 
 #endif

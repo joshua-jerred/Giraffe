@@ -1,6 +1,6 @@
 /**
  * @file test.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Data Stream utility tests
  * 
  * @version 0.1.0
@@ -13,7 +13,7 @@
 
 #include "gtest/gtest.h"
 
-#include "utility-data-stream.h"
+#include "data-stream.h"
 
 class DataStream_Utility : public ::testing::Test {
 protected:
@@ -23,7 +23,7 @@ protected:
     virtual void TearDown() { 
         delete p_data_stream_;
     }
-    DataStream *p_data_stream_;
+    DataStream *p_data_stream_ = NULL;
 };
 
 TEST_F(DataStream_Utility, DataPackets) {

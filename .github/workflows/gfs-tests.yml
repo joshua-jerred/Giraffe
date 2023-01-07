@@ -1,6 +1,6 @@
 name: giraffe-flight-software tests
 
-on: [push]
+on: push
 
 jobs:
 
@@ -33,7 +33,7 @@ jobs:
   test-02:
     name: test-02 (Configuration Module)
     runs-on: self-hosted
-    needs: [build]
+    needs: [build, test-01]
     steps:
     - name: build
       run: cd build && make test-02
@@ -43,7 +43,7 @@ jobs:
   test-03:
     name: test-03 (Data Module)
     runs-on: self-hosted
-    needs: [build]
+    needs: [build, test-01]
     steps:
     - name: build
       run: cd build && make test-03
@@ -53,9 +53,72 @@ jobs:
   test-04:
     name: test-04 (Extensions Module)
     runs-on: self-hosted
-    needs: [build]
+    needs: [build, test-01]
     steps:
     - name: build
       run: cd build && make test-04
     - name: run test
       run: cd bin/tests/test-04 && ./test-04
+
+  test-05:
+    name: test-05 I2C Interface
+    runs-on: self-hosted
+    needs: [build]
+    steps:
+    - name: build
+      run: cd build && make test-05
+    - name: run test
+      run: cd bin/tests/test-05 && ./test-05
+
+  test-06: # disabled
+    name: test-06 (BMP180 Extension)
+    if: ${{ false }}
+    runs-on: self-hosted
+    needs: [test-01, test-05]
+    steps:
+    - name: build
+      run: cd build && make test-06
+    - name: run test
+      run: cd bin/tests/test-06 && ./test-06
+
+  test-07: # disabled
+    name: test-07 (DS18B20 Extension & 1-Wire Interface)
+    if: ${{ false }}
+    runs-on: self-hosted
+    needs: [test-01]
+    steps:
+    - name: build
+      run: cd build && make test-07
+    - name: run test
+      run: cd bin/tests/test-07 && ./test-07
+  
+  test-08: # disabled
+    name: test-08 (u-blox UBX Protocol Utility)
+    if: ${{ false }}
+    runs-on: self-hosted
+    needs: [test-05]
+    steps:
+    - name: build
+      run: cd build && make test-08
+    - name: run test
+      run: cd bin/tests/test-08 && ./test-08
+
+  test-10:
+    name: test-10 (BME280 Extension)
+    runs-on: self-hosted
+    needs: [test-01, test-05]
+    steps:
+    - name: build
+      run: cd build && make test-10
+    - name: run test
+      run: cd bin/tests/test-10 && ./test-10
+
+  test-11:
+    name: test-11 (SYSINFO Extension)
+    runs-on: self-hosted
+    needs: [test-01]
+    steps:
+    - name: build
+      run: cd build && make test-11
+    - name: run test
+      run: cd bin/tests/test-11 && ./test-11

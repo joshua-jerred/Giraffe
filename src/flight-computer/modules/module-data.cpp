@@ -1,6 +1,6 @@
 /**
  * @file module-data.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file implements the class DataModule which is defined
  * in module-data.h.
  * @version 0.1
@@ -8,7 +8,10 @@
  * @copyright Copyright (c) 2022
  */
 
-#include "module-data.h"
+#include <fstream>
+
+#include "modules.h"
+using namespace modules;
 
 /**
  * @brief Construct a new DataModule object,
@@ -16,8 +19,9 @@
  * sets up the data frame. This does not start the module.
  * @param config_data
  */
-DataModule::DataModule() {
-  mpDataStream = new DataStream();
+DataModule::DataModule(DataStream &data_stream):
+  Module(nullptr, MODULE_DATA_PREFIX),
+  p_data_stream_(data_stream) {
 
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
@@ -39,15 +43,10 @@ DataModule::DataModule() {
  * @brief Destroys the DataModule object.
  */
 DataModule::~DataModule() {
-  delete mpDataStream;  // Deconstructor of data stream will first acquire all
-                        // locks
 }
 
 void DataModule::addConfigData(ConfigData config_data) {
-  for (ConfigData::DataTypes::ExtensionDataType data_type :
-       config_data.data_types.types) {  // for each data type in the config file
-    addDataTypeToFrame(data_type);
-  }
+    config_data_ = config_data;
 }
 
 /**
@@ -77,40 +76,33 @@ void DataModule::stop() {
   module_status_ = ModuleStatus::STOPPED;
 }
 
-/**
- * @brief Returns a pointer to the DataStream.
- * @param None
- * @return DataStream*
- */
-DataStream* DataModule::getDataStream() { return mpDataStream; }
-
-/**
- * @brief logs the data in the data frame to the data log file.
- * @details This function will make a copy of the DataFrame and it will then log
- * it to the data log file.
- * @param None
- * @return void
- */
 void DataModule::log() {
   std::ofstream logfile;
   logfile.open(data_log_file_path_, std::ios_base::app);
 
-  DataFrame dataframe_copy(mpDataStream->getDataFrameCopy());
+  DataFrame dataframe_copy(p_data_stream_.getDataFrameCopy());
 
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
 
-  for (auto& [source_and_unit, packet] : dataframe_copy) {
-    logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << ", "
-            << packet.source << ", " << packet.unit << ", " << packet.value
-            << std::endl;
-  }
+  logfile << std::endl; // Add a blank line between each log
+  logfile << now->tm_mday << "/" << now->tm_mon + 1 << " ";
+  logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << std::endl;
+  //for (auto& [source_and_unit, packet] : dataframe_copy) { // Log each item in the dataframe
+  //  logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << ", "
+  //          << packet.source << ", " << packet.unit << ", " << packet.value
+  //          << std::endl;
+  //}
+  std::string key = "";
+  for (ConfigData::DataTypes::DataType type : config_data_.data_types.types) {
 
-  std::ofstream error_logfile;
-  error_logfile.open(error_log_file_path_, std::ios_base::app);
-  for (auto& [source_and_unit, packet] : errorframe_) {
-    error_logfile << packet.error_source << ", " << packet.error_name << ", "
-                  << packet.error_info << std::endl;
+    key = type.source + ":" + type.unit;
+    if (dataframe_copy.contains(key)) {
+        logfile << key + " - " + dataframe_copy[key].value << std::endl;
+    } else {
+        logfile << key + " - NO_DATA" << std::endl;
+    }
+
   }
 }
 
@@ -124,7 +116,7 @@ void DataModule::log() {
  * @return void
  */
 void DataModule::addDataTypeToFrame(
-    ConfigData::DataTypes::ExtensionDataType data_type) {
+    ConfigData::DataTypes::DataType data_type) {
   DataStreamPacket packet;
   packet.source = data_type.source;
   packet.unit = data_type.unit;
@@ -142,16 +134,16 @@ void DataModule::addDataTypeToFrame(
  * @return void
  */
 void DataModule::parseDataStream() {
-  int packetCount = mpDataStream->getNumDataPackets();
+  int packetCount = p_data_stream_.getNumDataPackets();
   DataStreamPacket dpacket;
   for (int i = 0; i < packetCount; i++) {
     /** @todo Check to see if it exists in the dataframe first, if not
      * add an error.
      */
-    dpacket = mpDataStream->getNextDataPacket();
+    dpacket = p_data_stream_.getNextDataPacket();
     dataframe_.insert_or_assign(dpacket.source + ":" + dpacket.unit, dpacket);
   }
-  mpDataStream->updateDataFrame(dataframe_);
+  p_data_stream_.updateDataFrame(dataframe_);
 }
 
 /**
@@ -159,6 +151,8 @@ void DataModule::parseDataStream() {
  * @details This is called within the runner thread. It will pull all of the
  * errors from the stream and add them to the errorframe. These errors will
  * be removed from the frame after they expire or have been resolved.
+ * 
+ * This function will also log the errors to the error log file.
  * @param None
  * @return void
  */
@@ -166,14 +160,20 @@ void DataModule::parseErrorStream() {
   std::ofstream error_file;
   error_file.open(error_log_file_path_, std::ios_base::app);
 
-  int packetCount = mpDataStream->getNumErrorPackets();
+  int packetCount = p_data_stream_.getNumErrorPackets();
   ErrorStreamPacket epacket;
   for (int i = 0; i < packetCount; i++) {
-    epacket = mpDataStream->getNextErrorPacket();
+    epacket = p_data_stream_.getNextErrorPacket();
+
+    if (!errorframe_.contains(epacket.source + ":" + epacket.error_code)) { // Log the error if it doesn't exist
+      error_file << epacket.source << ", " << epacket.error_code << ", "
+              << epacket.info << std::endl;
+    }
+
     errorframe_.insert_or_assign(
-        epacket.error_source + ":" + epacket.error_name, epacket);
+        epacket.source + ":" + epacket.error_code, epacket);
   }
-  mpDataStream->updateErrorFrame(errorframe_);
+  p_data_stream_.updateErrorFrame(errorframe_);
 }
 
 /**
@@ -200,6 +200,22 @@ void DataModule::checkForStaleErrors() {
     return;
   }
   std::time_t now = std::time(NULL);
+
+  ErrorFrame::iterator it = errorframe_.begin();
+  while (it != errorframe_.end()) {
+    if (it->second.expiration_time == 0) { // 0 mean it never expires}
+      it++;
+      continue;
+    }
+    if ((int)it->second.expiration_time < (int)now) {
+      it = errorframe_.erase(it); // erase returns the next iterator
+    } else {
+      it++;
+    }
+  }
+
+  /* 12/21/22 - This created as error as the iterator was being deleted by
+   * the erase function.
   for (auto& [source_and_unit, packet] : errorframe_) {
     if (packet.expiration_time == 0) {  // 0 means it never expires
       continue;
@@ -208,6 +224,7 @@ void DataModule::checkForStaleErrors() {
       errorframe_.erase(source_and_unit);
     }
   }
+  */
 }
 
 /**

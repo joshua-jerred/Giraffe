@@ -1,6 +1,6 @@
 /**
  * @file test.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Tests for the Extension Module
  * @date 2022-11-03
  * @copyright Copyright (c) 2022
@@ -13,8 +13,8 @@
 
 #include "gtest/gtest.h"
 
-#include "utility-data-stream.h"
-#include "module-extensions.h"
+#include "data-stream.h"
+#include "modules.h"
 
 
 class ExtensionsModuleTests : public ::testing::Test {
@@ -25,8 +25,8 @@ protected:
     virtual void TearDown() {
 
     }
-    DataStream *data_stream_;
-    ExtensionsModule *extensions_module_;
+    DataStream *data_stream_ = nullptr;
+    modules::ExtensionsModule *extensions_module_ = nullptr;
 };
 
 TEST_F(ExtensionsModuleTests, StartAndStop) {

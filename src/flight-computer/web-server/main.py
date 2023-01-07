@@ -1,3 +1,17 @@
+"""
+@file main.py
+@author Joshua Jerred (https://joshuajer.red/)
+@brief HTTP server/Socket client for GFS
+@details 
+This file contains the HTTP server and socket client for the GFS.
+It requests json data from GFS upon a GET request.
+For example, once started if a user navigates to http://localhost:8780/telemetry.json
+the server will request the telemetry data from GFS and return it as a json file.
+
+It's a bit messy at the moment and could use some refactoring, but it works and
+does not interfere with GFS upon any known failure.
+"""
+
 import socket
 import time
 import http.server
@@ -32,7 +46,8 @@ class GFSData:
             ]
         }
 
-        self.dynamic_data = []
+        self.dynamic_data = {}
+        self.telemetry_data = {}
         self.openConnection()
 
     def openConnection(self):
@@ -46,6 +61,7 @@ class GFSData:
 
     def read(self):
         self.dynamic_data = {}
+        self.telemetry_data = {}
         try:
             data = self.client_socket.recv(5000).decode()  # receive response
             if len(data) > 0:
@@ -82,6 +98,10 @@ class GFSData:
             #    unit = data[key]["unit"]
             #    value = data[key]["value"]
             #    self.dynamic_data[key] = (source, unit, value)
+        elif "tx-log" in data:  # telemetry data
+            self.telemetry_data = data
+        else:
+            print("Unknown data type")
 
     def getStaticData(self):
         if (self.write("static")) == 0:
@@ -95,11 +115,18 @@ class GFSData:
             return {"dynamic": "failed"}
         return self.dynamic_data
 
+    def getTelemetryData(self):
+        if (self.write("telemetry")) == 0:
+            self.read()
+        else:
+            return {"telemetry": "failed"}
+        return self.telemetry_data
+
 
 class WebServer:
     def __init__(self):
         self.server_port = 8780
-        self.host_name = "localhost"
+        self.host_name = "0.0.0.0" # Accessible from LAN, otherwise use localhost for local access only
 
         self.gfs = GFSData()
         
@@ -141,6 +168,11 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             sys.exit(0)
         elif command == "DISCONNECT":
             self.gfs.write("DISCONNECT")
+        elif command[0:4] == "cmd/":
+            print("Requesting retransmission of packet " + command[12:])
+            self.gfs.write(command)
+        else:
+            print("Unknown command: " + command)
 
     def do_GET(self):
         if self.path == "/":
@@ -176,6 +208,12 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header("Content-type", "application/json")
             self.end_headers()
             self.wfile.write(bytes(json.dumps(self.gfs.getDynamicData()), "utf-8"))
+
+        elif self.path == "/telemetry-data.json":
+            self.send_response(200)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            self.wfile.write(bytes(json.dumps(self.gfs.getTelemetryData()), "utf-8"))
 
         elif self.path == "/data-display.js":
             self.send_response(200)
