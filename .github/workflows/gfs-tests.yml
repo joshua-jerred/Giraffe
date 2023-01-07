@@ -1,8 +1,6 @@
 name: giraffe-flight-software tests
 
-on: 
-  pull_request:
-    types: [opened, reopened]
+on: push
 
 jobs:
 
