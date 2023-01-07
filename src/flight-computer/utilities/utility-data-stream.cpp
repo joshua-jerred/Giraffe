@@ -1,6 +1,6 @@
 /**
  * @file utility-data-stream.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Contains the implementation of the DataStream class.
  * @see utility-data-stream.h
  * @version 0.1

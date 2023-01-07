@@ -1,7 +1,7 @@
 /**
  * @file bit-stream.cpp
  * @author Joshua Jerred (https://joshuajer.red)
- * @brief A implementation of a bit stream for MWAV
+ * @brief See https://github.com/joshua-jerred/MWAV
  * @date 2022-12-30
  * @copyright Copyright (c) 2022
  * @version 0.1

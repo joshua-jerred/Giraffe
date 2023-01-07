@@ -1,6 +1,6 @@
 /**
  * @file test.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Tests for the UBX Utility
  * @date 2022-12-26
  * @copyright Copyright (c) 2022

@@ -1,6 +1,6 @@
 /**
  * @file test.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Data Stream utility tests
  * 
  * @version 0.1.0

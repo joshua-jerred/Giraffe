@@ -1,8 +1,8 @@
 /**
  * @file module-configuration.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This file implements the class ConfigModule which is defined
- * in module-configuration.h.
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief This file implements the class configuration module.
+ * 
  * @version 0.1
  * @date 2022-10-03
  * @copyright Copyright (c) 2022

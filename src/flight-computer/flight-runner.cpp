@@ -1,6 +1,6 @@
 /**
  * @file flight-runner.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file contains the high level flight computer code.
  * @details This file implemented the FlightRunner class.
  * 

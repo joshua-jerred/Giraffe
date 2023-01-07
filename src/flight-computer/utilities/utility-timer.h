@@ -1,6 +1,6 @@
 /**
  * @file utility-timer.h
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief The declaration of the timer class.
  * 
  * @version 0.0.9
@@ -13,10 +13,6 @@
 
 #include <chrono>
 
-/**
- * @brief A simple timer class that can be used to time events.
- * @todo Isn't this what a stopwatch is called? I'm not timing anythging.
- */
 class Timer
 {
 public:

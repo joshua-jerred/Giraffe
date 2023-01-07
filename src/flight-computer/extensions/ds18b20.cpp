@@ -1,7 +1,7 @@
 /**
  * @file ds18b20.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief Implementation of the DSB18B20 class.
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief Implementation of the DSB18B20 extension.
  * @date 2022-11-02
  * @copyright Copyright (c) 2022
  * @version 0.1.0

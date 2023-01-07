@@ -1,6 +1,6 @@
 /**
  * @file module-telemetry.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This fle implements the class TelemetryModule.
  * 
  * @version 0.1.0
@@ -53,7 +53,7 @@ TelemetryModule::~TelemetryModule() {
  */
 void TelemetryModule::start() {
     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
-        "TXQ_SZ", "0", 100);
+        "TX_Q_SZ", "0", 100);
     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
         "ACTIVE_TX",
         "NONE", 

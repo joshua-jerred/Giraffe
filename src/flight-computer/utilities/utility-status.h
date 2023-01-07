@@ -1,7 +1,7 @@
 /**
  * @file utility-status.h
  * @author Joshua Jerred (https://joshuajer.red)
- * @brief Contains types for status of modules and extensions.
+ * @brief Contains types for status enums for modules and extensions.
  * @date 2022-12-15
  * @copyright Copyright (c) 2022
  * @version 0.2

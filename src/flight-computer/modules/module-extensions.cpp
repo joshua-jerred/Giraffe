@@ -1,7 +1,7 @@
 
 /**
  * @file module-extensions.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Defines the ExtensionsModule class.
  * 
  * @version 0.0.9

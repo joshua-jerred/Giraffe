@@ -1,11 +1,13 @@
 /**
  * @file utility-timer.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief The implementation of the timer class.
  * 
  * @version 0.0.9
  * @date 2022-10-11
  * @copyright Copyright (c) 2022
+ * 
+ * @todo Ready to implement the rest of this!
  */
 
 #include "utility-timer.h"

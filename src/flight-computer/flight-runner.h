@@ -1,6 +1,6 @@
 /**
  * @file flight-runner.h
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file defines the FlightRunner class.
  * @version 0.1
  * @date 2022-09-20

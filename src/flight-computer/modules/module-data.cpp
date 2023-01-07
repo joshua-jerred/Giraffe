@@ -1,6 +1,6 @@
 /**
  * @file module-data.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file implements the class DataModule which is defined
  * in module-data.h.
  * @version 0.1

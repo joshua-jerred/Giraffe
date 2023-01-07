@@ -1,3 +1,13 @@
+/**
+ * @file utility-config-types.h
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief The types/structs used for configuring the flight computer.
+ * 
+ * @version 0.3
+ * @date 2023-01-06
+ * @copyright Copyright (c) 2023
+ */
+
 #ifndef UTILITY_COMMON_TYPES_H_
 #define UTILITY_COMMON_TYPES_H_
 
@@ -163,6 +173,7 @@ struct ConfigData {
 
 /**
  * @brief Used by the telemetry module in it's queue and by the data stream.
+ * @todo move this
  */
 struct Transmission {
     enum class Type {

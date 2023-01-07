@@ -1,8 +1,7 @@
 /**
  * @file afsk.h
  * @author Joshua Jerred (https://joshuajer.red)
- * @brief AFSK Modulation according to the Bell 202 spec 
- * (1200/2200 Hz, NRZI, 1200 baud)
+ * @brief See https://github.com/joshua-jerred/MWAV
  * @date 2022-12-15
  * @copyright Copyright (c) 2022
  * @version 0.1

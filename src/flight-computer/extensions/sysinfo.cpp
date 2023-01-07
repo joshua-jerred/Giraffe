@@ -1,11 +1,11 @@
 /**
  * @file sysinfo.cpp
- * @author Joshua Jerred (https://joshuajer.red)
- * @brief An extension to get system information (CPU, RAM, Disk, etc.)
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief An extension that provides system information.
  * 
- * @date 2023-01-01
+ * @version 0.3
+ * @date 2023-01-06
  * @copyright Copyright (c) 2023
- * @version 0.1
  */
 
 #include <sys/sysinfo.h> // for sysinfo  (CPU, RAM)

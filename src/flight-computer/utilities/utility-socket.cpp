@@ -1,6 +1,6 @@
 /**
  * @file utility-socket.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Source: https://tldp.org/LDP/LG/issue74/tougher.html
  *
  * @version 0.0.9

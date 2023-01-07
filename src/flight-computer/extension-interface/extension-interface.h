@@ -1,3 +1,15 @@
+/**
+ * @file extension-interface.h
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief Header for interfacing with extensions via I2C and 1-Wire.
+ * 
+ * @version 0.3
+ * @date 2023-01-06
+ * @copyright Copyright (c) 2023
+ * 
+ * @todo Add SPI and UART support
+ */
+
 #ifndef EXTENSION_INTERFACE_H_
 #define EXTENSION_INTERFACE_H_
 

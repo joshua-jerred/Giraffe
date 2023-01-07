@@ -1,6 +1,6 @@
 /**
  * @file utility-data-stream.h
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Contains the declaration of the DataStream class.
  * @version 0.1
  * @date 2022-09-25

@@ -1,11 +1,11 @@
 /**
  * @file extensions.h
- * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This file declares the Extension class.
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief This file contains the definitions for the classes related to extensions.
  * 
- * @version 0.0.9
- * @date 2022-10-09
- * @copyright Copyright (c) 2022
+ * @version 0.3
+ * @date 2023-01-06
+ * @copyright Copyright (c) 2023
  */
 
 #ifndef EXTENSION_H_

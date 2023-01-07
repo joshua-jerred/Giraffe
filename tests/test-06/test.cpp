@@ -1,6 +1,6 @@
 /**
  * @file test.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Tests for the BMP180 extension.
  * @date 2022-12-19
  * @copyright Copyright (c) 2022

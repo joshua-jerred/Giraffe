@@ -1,7 +1,7 @@
 /**
  * @file bit-stream.h
  * @author Joshua Jerred (https://joshuajer.red)
- * @brief Header file for bit stream
+ * @brief See https://github.com/joshua-jerred/MWAV
  * @date 2022-12-30
  * @copyright Copyright (c) 2022
  * @version 0.1

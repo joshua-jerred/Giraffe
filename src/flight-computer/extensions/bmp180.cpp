@@ -1,10 +1,14 @@
 /**
  * @file bmp180.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file contains the implementation of the BMP180 extension.
+ * 
+ * @cite https://cdn-shop.adafruit.com/datasheets/BST-BMP180-DS000-09.pdf
  * @date 2022-11-01
  * @copyright Copyright (c) 2022
  * @version 0.1.0
+ * 
+ * @todo No need for the macros here
  */
 
 #include <string>

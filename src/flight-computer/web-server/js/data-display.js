@@ -1,6 +1,6 @@
 /**
  * @file data-display.js
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Javascript for the web server
  * @details I am not a web developer; this is my first real attempt at JS. 
  * I apologize to anyone who looks at this.

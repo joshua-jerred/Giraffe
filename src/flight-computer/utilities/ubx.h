@@ -1,3 +1,15 @@
+/**
+ * @file ubx.h
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief Public interface for the u-blox protocol
+ * 
+ * @version 0.3
+ * @date 2023-01-06
+ * @copyright Copyright (c) 2023
+ * 
+ * @todo remove the macros, they're not needed
+ */
+
 #ifndef UBX_H_
 #define UBX_H_
 

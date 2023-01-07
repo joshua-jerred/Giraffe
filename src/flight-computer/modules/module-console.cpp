@@ -1,6 +1,6 @@
 /**
  * @file module-console.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file contains the Console Module class.
  * 
  * @version 0.0.9

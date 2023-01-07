@@ -1,6 +1,6 @@
 """
 @file main.py
-@author Joshua Jerred (github.com/joshua-jerred)
+@author Joshua Jerred (https://joshuajer.red/)
 @brief HTTP server/Socket client for GFS
 @details 
 This file contains the HTTP server and socket client for the GFS.

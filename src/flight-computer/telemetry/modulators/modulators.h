@@ -1,3 +1,12 @@
+/**
+ * @file modulators.h
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief See https://github.com/joshua-jerred/MWAV
+ * @version 0.3
+ * @date 2023-01-06
+ * @copyright Copyright (c) 2023
+ */
+
 #ifndef MODULATORS_H_
 #define MODULATORS_H_
 

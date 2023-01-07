@@ -1,10 +1,16 @@
 /**
  * @file bme280.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This file contains the implementation of the BME280 extension.
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief This file contains the implementation of the BME280 extension it's 
+ * driver.
+ * 
+ * @cite https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf
+ * 
  * @date 2022-11-01
- * @copyright Copyright (c) 2022
- * @version 0.1.0
+ * @copyright Copyright (c) 2023
+ * @version 0.3
+ * 
+ * @todo Error detection after configuration in the runner
  */
 
 #include "extensions.h"
@@ -72,6 +78,7 @@ int extension::BME280::runner() {
 		error("CD_R");
 	}
 
+	setStatus(ExtensionStatus::RUNNING);
 	while (!stop_flag_) {
 		if (readData() == 0) {
 			if (processData() == 0) {

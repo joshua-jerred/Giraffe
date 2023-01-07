@@ -1,7 +1,7 @@
 /**
  * @file convolutional-code.h
  * @author Joshua Jerred (https://joshuajer.red)
- * @brief Contains a map of convolutional code values for PSK
+ * @brief See https://github.com/joshua-jerred/MWAV
  * @date 2022-12-30
  * @copyright Copyright (c) 2022
  * @version 0.1

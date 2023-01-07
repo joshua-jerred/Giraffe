@@ -1,10 +1,13 @@
 /**
  * @file max17049.cpp
- * @author Joshua Jerred (https://joshuajer.red)
- * @brief Driver for the MAX17049 fuel gauge IC
- * @date 2023-01-01
- * @copyright Copyright (c) 2023
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief Driver for the MAX17049 fuel gauge, currently unused.
+ * 
  * @version 0.3
+ * @date 2023-01-06
+ * @copyright Copyright (c) 2023
+ * 
+ * @todo consider removing this extension all together
  */
 
 #include <iostream> // DEBUG

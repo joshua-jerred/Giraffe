@@ -1,6 +1,6 @@
 /**
  * @file modules.h
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Defines the enum module_status and parent class for the modules.
  * @version 0.1
  * @date 2022-09-25

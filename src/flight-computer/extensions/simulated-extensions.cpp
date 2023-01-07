@@ -1,6 +1,6 @@
 /**
  * @file simulated-extensions.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
+ * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file contains the implementation of the simulated extensions.
  * @details Simulated extensions currently only send data to the data stream.
  * @todo Implement full simulation of the BMP180, DRA818V, DS18B20, and SAM-M8Q

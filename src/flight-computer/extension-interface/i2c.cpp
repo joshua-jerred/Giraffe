@@ -1,4 +1,13 @@
-
+/**
+ * @file i2c.cpp
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief The wrapper for simplifying I2C communication, error handling, and 
+ * making sure that only one thread is in a transaction at a time.
+ * 
+ * @version 0.3
+ * @date 2023-01-06
+ * @copyright Copyright (c) 2023
+ */
 #include <cstdint>
 #include <cstdio>
 #include <fcntl.h>

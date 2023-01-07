@@ -1,7 +1,8 @@
 /**
  * @file extension.cpp
- * @author Joshua Jerred (github.com/joshua-jerred)
- * @brief This file contains the implementation of the Extension class.
+ * @author Joshua Jerred (https://joshuajer.red/)
+ * @brief This file contains the implementation of the Extension class, which is
+ * the base class for all extensions.
  * 
  * @version 0.0.9
  * @date 2022-10-09
