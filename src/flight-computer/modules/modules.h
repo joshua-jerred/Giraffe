@@ -58,6 +58,35 @@ class Module {
             }
         };
 
+        void data(std::string data_name, std::string data_value, int seconds_until_expiry = 0) {
+            if (p_data_stream_ != nullptr) {
+                p_data_stream_->addData(error_source_, data_name, data_value, seconds_until_expiry);
+            }
+        };
+
+        void data(std::string data_name, int data_value, int second_until_expiry = 0) {
+            if (p_data_stream_ != nullptr) {
+                p_data_stream_->addData(error_source_, data_name, std::to_string(data_value), second_until_expiry);
+            }
+        };
+
+        const int kDefaultSleepTime_ = 1000; // 1 second, default sleep time
+
+        /**
+         * @brief std::this_thread::sleep_for() with a default sleep time set
+         * by kDefaultSleepTime_.
+         * 
+         * @param sleep_time Optional, time to sleep in milliseconds.
+         */
+        inline void module_sleep(int sleep_time = -1) {
+            if (sleep_time == -1) {
+                sleep_time = kDefaultSleepTime_;
+            }
+            std::this_thread::sleep_for(
+                std::chrono::milliseconds(sleep_time)
+            );
+        }
+
         DataStream *p_data_stream_;
         std::atomic<ModuleStatus> module_status_;
 
@@ -85,14 +114,17 @@ public:
     void sendPSK(std::string message);
     void sendAPRS();
     void sendSSTVImage();
+    
+    void addCommand(GFSCommand command);
 
 private:
     int getNextTXNumber();
 
+    // TX Queue is stored in the data stream
     void addToTXQueue(Transmission transmission);
 
-    std::string generateAFSK(std::string message);
-    std::string generatePSK(std::string message);
+    std::string generateAFSK(const std::string &message, const int tx_number);
+    std::string generatePSK(const std::string &message, const int tx_number);
     std::string generateAPRS();
     std::string generateSSTV();
 
@@ -100,12 +132,17 @@ private:
     void playWav(std::string wav_location, std::string tx_type, int tx_length);
     FILE *aplay_fp_ = nullptr;
 
-
-    int tx_number_ = 1;
+    int tx_number_ = 0; // TX ID, first TX is 1
     std::string call_sign_ = CALLSIGN_FAILSAFE;
 
     std::thread tx_thread_ = std::thread();
     std::atomic<int> stop_flag_ = 0;
+
+    // Separate command queue to avoid the numerous race conditions that will appear with later implementation.
+    std::mutex command_queue_lock_ = std::mutex();
+    std::queue<GFSCommand> command_queue_ = std::queue<GFSCommand>();
+    void parseCommands();
+    void doCommand(GFSCommand command);
 
     ConfigData config_data_;
     DataStream *p_data_stream_;
@@ -129,6 +166,7 @@ private:
     void runner();
     void sendStaticData(ServerSocket &socket);
     void sendDynamicData(ServerSocket &socket);
+    void sendTelemetryData(ServerSocket &socket);
 
     ConfigData config_data_;
     DataStream* p_data_stream_;
@@ -161,11 +199,15 @@ public:
     //extension_reply command(extension_command command);
 
 private:
-    void addExtension(ExtensionMetadata meta_data);
+    void runner();
+    std::thread runner_thread_ = std::thread();
+    std::atomic<int> stop_flag_ = 0;
 
     std::vector<extension::Extension*> extensions_ = {};
     DataStream *p_data_stream_;
     ConfigData config_data_;
+
+    void addExtension(ExtensionMetadata meta_data);
 };
 
 /**

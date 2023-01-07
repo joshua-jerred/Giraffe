@@ -95,11 +95,33 @@ int FlightRunner::flightLoop() {
     Timer tsl_SSTV_image; 
     Timer tsl_health_check;
     
-    
+    GFSCommand command;
 
     /** @note FLIGHT LOOP */
     while (!shutdown_signal_) { // The endless loop where everything happens
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
+
+        if (data_stream_.getNextCommand(command)) { // Check for commands
+            switch (command.category) {
+                case GFSCommand::CommandCategory::FLR:
+                    
+                    break;
+                case GFSCommand::CommandCategory::TLM: // Telemetry Module
+                    if (p_telemetry_module_ != nullptr) {
+                        p_telemetry_module_->addCommand(command);
+                    }
+                    break;
+                case GFSCommand::CommandCategory::MDL:
+                    
+                    break;
+                case GFSCommand::CommandCategory::EXT:
+                    
+                    break;
+                default:
+                    std::cout << "unknown command category" << std::endl;
+                    break;
+            }
+        }
 
         if (tsl_data_log.elapsed() > current_intervals_.data_log) {
             p_data_module_->log();

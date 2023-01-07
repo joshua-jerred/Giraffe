@@ -51,6 +51,7 @@
 #define MODULE_CONSOLE_PREFIX "M_CO"
 
 #define EXTENSION_PREFIX "EX_"
+
 // ------------------------------ //
 
 // This is the interval, in seconds, that determines how often the data module

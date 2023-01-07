@@ -307,7 +307,7 @@ int extension::BMP180::calculatePressure() {
 	pressure_HPA_ = (float)P_ / (float)100; // Cast to float to get decimal precision
 	pressure_INHG_ = pressure_HPA_ / 33.864;
 
-	if (pressure_HPA_ != 0) {
+	if (pressure_HPA_ > 0.1 || pressure_HPA_ < 0.1) { // prevent divide by zero without float == comparison
 		pressure_altitude_meters_ = ((pow((1013.25 / pressure_HPA_), 1/5.257)-1) * (temp_C_ + 273.15)) / 0.0065;
 		pressure_altitude_feet_ = pressure_altitude_meters_ * 3.281;
 	} else {

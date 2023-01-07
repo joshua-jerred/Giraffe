@@ -17,9 +17,9 @@
 #define NO_DEVICE_ADDRESS 0x09
 
 // Test device with a known address and constant value register
-#define TEST_DEVICE_ADDRESS 0x77 // BMP180
-#define CONSTANT_VALUE_REGISTER 0xD0
-#define CONSTANT_VALUE 0x55
+#define TEST_DEVICE_ADDRESS 0x76 // BMP180: 0x77, BMP280: 0x76
+#define CONSTANT_VALUE_REGISTER 0xD0 // BMP180: 0xD0, BMP280: 0xD0
+#define CONSTANT_VALUE 0x60 // BMP180: 0x55, BMP280: 0x60
 
 class I2CUtilityTest : public ::testing::Test {
 protected:

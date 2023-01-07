@@ -28,7 +28,8 @@ enum class ExtensionStatus {
     STOPPED = 1, 
     STARTING = 2, 
     RUNNING = 3,
-    STOPPING = 4
+    STOPPING = 4,
+    STOPPED_ERROR_STATE = 5
 };
 
 /**
@@ -36,11 +37,11 @@ enum class ExtensionStatus {
  * @see FlightRunner
  */
 enum class ModuleStatus {
-    STOPPED=0,
-    STARTING=1,
-    RUNNING=2,
-    STOPPING=3,
-    ERROR_STATE=4 
+    STARTING,
+    RUNNING,
+    STOPPING,
+    STOPPED,
+    ERROR_STATE 
 };
 
 enum class I2C_STATUS {

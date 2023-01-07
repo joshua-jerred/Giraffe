@@ -113,7 +113,7 @@ int extension::SYSINFO::runner() {
             sendData("load_avg_5", system_info.cpu_load_avg_5);
             sendData("load_avg_15", system_info.cpu_load_avg_15);
             sendData("ram_total_gb", system_info.ram_total_gb);
-            sendData("ram_used_percent", system_info.ram_used_percent);
+            sendData("ram_used_prcnt", system_info.ram_used_percent);
             sendData("ram_free_gb", system_info.ram_free_gb);
         } else {
             error("CM");
@@ -128,8 +128,8 @@ int extension::SYSINFO::runner() {
 
         if (ex_internal::getDiskInfo(disk_info)) {
             sendData("disk_total_gb", disk_info.total_gb);
-            sendData("disk_available_gb", disk_info.free_space_gb);
-            sendData("disk_used_percent", disk_info.used_percent);
+            sendData("disk_avail_gb", disk_info.free_space_gb);
+            sendData("disk_used_prcnt", disk_info.used_percent);
         } else {
             error("DI");
         }

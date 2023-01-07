@@ -185,8 +185,9 @@ const ServerSocket &ServerSocket::operator>>(std::string &s) const {
   return *this;
 }
 
-void ServerSocket::accept(ServerSocket &sock) {
+bool ServerSocket::accept(ServerSocket &sock) {
   if (!Socket::accept(sock)) {
-    //throw SocketException("Could not accept socket."); // Disabled for now
+    return false;
   }
+  return true;
 }

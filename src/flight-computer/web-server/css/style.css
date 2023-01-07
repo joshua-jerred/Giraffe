@@ -1,3 +1,10 @@
+/*
+ * @file style.css
+ * @author Joshua Jerred (github.com/joshua-jerred)
+ * @brief The CSS for the web server
+ * @details again, someone please fix this.
+*/
+
 body {
     font-family: Verdana, sans-serif;
     background-color: #F0ECE1;
@@ -35,13 +42,6 @@ body {
     height: -10px;
 }
 
-#main-content {
-    display: flex;
-    margin-top: 5px;
-    width: 100%;
-    background-color: #977359;
-}
-
 table, th, td {
     border: 1px solid;
 }
@@ -50,7 +50,7 @@ table {
     border-collapse: collapse;
 }
 
-#extension-content {
+.box{
     display: flex;
     margin-top: 5px;
     width: 100%;
@@ -63,9 +63,39 @@ table {
     padding: 20px;
 }
 
-#errors-content {
-    display: flex;
-    margin-top: 5px;
+/* Telemetry Log */
+.tx-log-item {
+    background-color: #574f4a;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    padding: 3px;
     width: 100%;
-    background-color: #977359;
+}
+
+.tx-log-info {
+    display: flex;
+    width: 100%;
+}
+
+.tx-log-info > div {
+    display: inline;
+    width: 33%;
+}
+
+.tx-log-info > div > div {
+    display: inline;
+}
+
+#tx-log-stats {
+    display: flex;
+    width: 100%;
+}
+
+#tx-log-stats > div {
+    display: inline;
+    width: 33%;
+}
+
+#tx-log-stats > div > div {
+    display: inline;
 }

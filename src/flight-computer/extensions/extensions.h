@@ -50,7 +50,10 @@ public:
     ExtensionMetadata::Interface getInterface();
     int getUpdateInterval();
     int getCritical();
-    std::vector<std::string> getExtraArgs(); /** @todo Implement this. */
+    //  std::vector<std::string> getExtraArgs(); /** @todo May be able to remove this */
+
+    // The following are used by the extensions module.
+    std::atomic<int> restart_attempts_ = 0;
 
 protected:
     virtual int runner(); // Must be overridden
