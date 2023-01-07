@@ -3,7 +3,7 @@
 
 ![Logo](logo-small.png)
 
-V0.2.0
+V0.3
 
 # Giraffe Flight Software (GFS)
 ### A project by Joshua Jerred

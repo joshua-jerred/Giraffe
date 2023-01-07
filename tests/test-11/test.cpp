@@ -4,7 +4,7 @@
  * @brief Tests for the BME280 extension.
  * @date 2022-12-30
  * @copyright Copyright (c) 2022
- * @version 0.2.0
+ * @version 0.3
  */
 
 #include "gtest/gtest.h"

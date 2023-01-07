@@ -40,7 +40,6 @@ to the category.
 ### Command Argument
 See the specific command
 
-## Command List
+# Command List
 ### Telemetry
- - ``cmd/tlm/rtx/[num]`` - Retransmit the transmission with a given number, as
-   long as it is in the log.
+ - ``cmd/tlm/rtx/[num]`` - Retransmit the transmission with a given number, as long as it is in the log.

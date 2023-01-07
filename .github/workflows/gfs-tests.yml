@@ -1,6 +1,8 @@
 name: giraffe-flight-software tests
 
-on: workflow_dispatch
+on: 
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
 

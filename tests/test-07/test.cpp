@@ -4,7 +4,7 @@
  * @brief Tests for the ds18b20 extension.
  * @date 2022-12-20
  * @copyright Copyright (c) 2022
- * @version 0.2.0
+ * @version 0.3
  */
 
 #include "gtest/gtest.h"
