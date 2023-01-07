@@ -224,6 +224,9 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 				case ExtensionStatus::STOPPING:
 					status_str = "STOPPING";
 					break;
+				case ExtensionStatus::STOPPED_ERROR_STATE:
+					status_str = "STOPPED_ERROR_STATE";
+					break;
 			}
 
 			extension_status[key] = status_str;

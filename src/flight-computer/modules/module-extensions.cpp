@@ -47,9 +47,9 @@ ExtensionsModule::~ExtensionsModule() {
  * @return void
  */
 void ExtensionsModule::start() {
-    for (extension::Extension *ext : extensions_) {
-        ext->start();
-    }
+    module_status_ = ModuleStatus::STARTING;
+    stop_flag_ = 0;
+    runner_thread_ = std::thread(&ExtensionsModule::runner, this);
 }
 
 /**
@@ -59,8 +59,82 @@ void ExtensionsModule::start() {
  */
 void ExtensionsModule::stop() {
     std::cout << std::endl;
+    if (status() == ModuleStatus::STOPPED && !runner_thread_.joinable()) {
+		return;
+	}
+	stop_flag_ = 1;
+	if (runner_thread_.joinable()) {
+		runner_thread_.join();
+		module_status_ = ModuleStatus::STOPPED;
+	}
+}
+
+void ExtensionsModule::runner() {
+    //const int max_restart_count = 5;
+    //const int restart_delay_seconds = 10;
+
     for (extension::Extension *ext : extensions_) {
-        std::cout << "Stopping extension " << ext->getName() << " ... ";
+        ext->start();
+    }
+
+    ExtensionStatus ext_status;
+
+    int total_extensions = 0;
+    int num_error = 0;
+    int num_stopped_error_state = 0;
+    int num_stopped = 0;
+    int num_starting = 0;
+    int num_running = 0;
+    int num_stopping = 0;
+
+    module_status_ = ModuleStatus::RUNNING;
+    while (!stop_flag_) {
+        total_extensions = 0;
+        num_error = 0;
+        num_stopped_error_state = 0;
+        num_stopped = 0;
+        num_starting = 0;
+        num_running = 0;
+        num_stopping = 0;
+
+        for (extension::Extension *ext : extensions_){
+            total_extensions++;
+            ext_status = ext->getStatus();
+            if (ext_status == ExtensionStatus::ERROR) {
+                ext->restart_attempts_++;
+                ext->stop();
+                num_error++;
+            } else if (ext_status == ExtensionStatus::STOPPED_ERROR_STATE) {
+                num_stopped_error_state++;
+            } else if (ext_status == ExtensionStatus::STOPPED) {
+                num_stopped++;
+            } else if (ext_status == ExtensionStatus::STARTING) {
+                num_starting++;
+            } else if (ext_status == ExtensionStatus::RUNNING) {
+                num_running++;
+            } else if (ext_status == ExtensionStatus::STOPPING) {
+                num_stopping++;
+            } else {
+                num_error++;
+                error("STS");
+            }
+        }
+
+        data("ext_tot", total_extensions);
+        data("ext_err", num_error);
+        data("ext_stp", num_stopped);
+        data("ext_strt", num_starting);
+        data("ext_run", num_running);
+        data("ext_stpd", num_stopping);
+        data("ext_stp_err", num_stopped_error_state);
+
+        module_sleep();
+    }
+
+    module_status_ = ModuleStatus::STOPPING;
+    // Shutdown
+    for (extension::Extension *ext : extensions_) {
+        std::cout << "\tStopping extension " << ext->getName() << " ... ";
         ext->stop();
         if (ext->getStatus() == ExtensionStatus::STOPPED) {
             std::cout << "Stopped" << std::endl;

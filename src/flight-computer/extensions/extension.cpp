@@ -83,12 +83,13 @@ void extension::Extension::start() {
  * @return void
  */
 void extension::Extension::stop() {
+    stop_flag_ = 1;
     if (getStatus() == ExtensionStatus::RUNNING) {
         setStatus(ExtensionStatus::STOPPING);
-        stop_flag_ = 1;
         runner_thread_.join();
     } else if (getStatus() == ExtensionStatus::ERROR) {
         runner_thread_.join();
+        setStatus(ExtensionStatus::STOPPED_ERROR_STATE);
     }
 }
 
