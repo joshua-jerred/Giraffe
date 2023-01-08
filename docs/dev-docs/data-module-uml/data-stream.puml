@@ -1,0 +1,67 @@
+@startuml DataStream
+title DataStream
+left to right direction
+
+
+
+node DataStream {
+    () addData
+    struct DataPacket {
+        + string source
+        + string unit
+        + string value
+        + uint64 timestamp
+    }
+    
+    object "DataStream Queue" as dataqueue
+    
+    () getNumDataPackets
+    () getNextDataPacket
+
+    addData --> DataPacket 
+    DataPacket --> dataqueue
+
+    dataqueue --> getNextDataPacket
+    dataqueue --> getNumDataPackets
+
+
+
+    () addError
+    () clearError
+    note left
+    Clear error sends an 
+    error packet with an 
+    error message of 'clear'.
+    It will clear an error
+    with that code.
+    end note
+    () clearAllErrors
+    note left
+    Clean all errors sends an
+    error packet with no error
+    code, with an error message
+    of 'clear'. It will clean
+    all errors from that source.
+    end note
+
+    struct ErrorPacket {
+        + string source
+        + string error_code
+        + string error_message
+        + uint64 timestamp
+    }
+    object "ErrorStream Queue" as errorqueue
+
+    () getNumErrorPackets
+    () getNextErrorPacket
+
+    addError --> ErrorPacket
+    clearError --> ErrorPacket
+    clearAllErrors --> ErrorPacket
+    ErrorPacket --> errorqueue
+
+    errorqueue --> getNumErrorPackets
+    errorqueue --> getNextErrorPacket
+}
+
+@enduml
