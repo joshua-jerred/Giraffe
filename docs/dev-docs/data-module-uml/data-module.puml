@@ -8,6 +8,31 @@ node DataModuleThread {
 
     getNextDataPacket --> DataFrame
     getNextErrorPacket --> ErrorFrame
+
+    struct ModuleStatus {
+
+    }
+
+    struct ExtensionStatus {
+
+    }
+
+    struct CriticalData {
+        + timestamp
+        + battery_voltage
+        + cpu_load_average_1_and_5
+        + mem_usage
+        + cpu_usage
+        + confidence
+        + lat
+        + lon
+        + heading
+        + alt
+        + h_speed
+        + v_speed
+    }
+
+     
 }
 
 @enduml

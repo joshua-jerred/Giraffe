@@ -11,15 +11,19 @@
 <div id="system-status-container" class="content-box">
     <h2 class="content-box-title">System Status<span>&#11167;</span></h2>
     <div class="content-box-content">
-        <div class="data-2col">
-            <p>System Date: <span id="data-system-date"></span></p>
-            <p>System Time [UTC]: <span id="data-system-time"></span></p>
-            <p>System Uptime: <span id="data-system-uptime"></span></p>
-            <p>CPU Load Average: <span id="data-cpu-load-avg"></span></p>
-            <p>CPU Temp: <span id="data-cpu-temp"></span></p>
-            <p>Memory Usage: <span id="data-ram-usage"></span></p>
-            <p>Storage Usage: <span id="data-storage-usage"></span></p>
-            <p>Battery Voltage: <span id="data-battery-voltage"></span></p>
+        <div id="system-status" class="data-box">
+            <div>
+                <p>System Date: <span id="data-system-date"></span></p>
+                <p>System Time [UTC]: <span id="data-system-time"></span></p>
+                <p>System Uptime: <span id="data-system-uptime"></span></p>
+                <p>CPU Load Average: <span id="data-cpu-load-avg"></span></p>
+            </div>
+            <div>
+                <p>CPU Temp: <span id="data-cpu-temp"></span></p>
+                <p>Memory Usage: <span id="data-ram-usage"></span></p>
+                <p>Storage Usage: <span id="data-storage-usage"></span></p>
+                <p>Battery Voltage: <span id="data-battery-voltage"></span></p>
+            </div>
         </div>
     </div>
 </div>
@@ -27,7 +31,7 @@
 <div id="gfs-status-container" class="content-box">
     <h2 class="content-box-title">GFS Status<span>&#11167;</span></h2>
     <div class="content-box-content">
-        <div class="data-2col">
+        <div id="gfs-status" class="data-box">
             <div>
                 <p>Health Status: <span id="data-health-status"></span></p>
                 <p>Reported Errors: <span id="data-reported-errors"></span></p>
@@ -48,7 +52,42 @@
 <div id="gfs-data-module-container" class="content-box">
     <h2 class="content-box-title">GFS Data<span>&#11167;</span></h2>
     <div class="content-box-content">
-
+        <div id="gfs-data-module" class="data-box">
+            <div>
+                <h3>DataStream</h3>
+                <p>Total Data Packets: <span id="data-total-data-packets"> </span></p>
+                <p>Current Data Packet: <span id="data-current-data-packet"> </span></p>
+                <p>Total Error Packets: <span id="data-total-error-packets"></span></p>
+                <p>Current Error Packet: <span id="data-current-error-packet"></span></p>
+            </div>
+            <div>
+                <h3>Critical Data</h3>
+                <p>Flight Phase: <span id="data-"></span></p>
+                <p>GPS Fix: <span id="data-"></span></p>
+                <p>GPS Alt: <span id="data-"></span></p>
+                <p>Lat: <span id="data-"></span></p>
+                <p>Lon: <span id="data-"></span></p>
+                <p>Battery Voltage: <span id="data-"></span></p>
+                <p>RAM Usage: <span id="data-"></span></p>
+                <p>Storage Usage: <span id="data-"></span></p>
+                <p></p>
+            </div>
+            <div>
+                <h3>Data Log</h3>
+            </div>
+            <div>
+                <h3>Position Data</h3>
+            </div>
+            <div style="grid-column: span 2;">
+                <h3>Environmental Data</h3>
+            </div>
+            <div style="grid-column: span 2;">
+                <h3>Calculated Data</h3>
+            </div>
+            <div style="grid-column: span 4;">
+                <h3>Other Data</h3>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -56,38 +95,63 @@
 <div id="gfs-extensions-container" class="content-box"> <!-- Extensions -->
     <h2 class="content-box-title">Extensions<span>&#11167;</span></h2>
     <div class="content-box-content">
-    
+        <div id="extension-list">
+            <div class="data-extension" id="extension-template">
+                <div>ID</div>
+                <div>Name</div>
+                <div>Type</div>
+                <div>Category</div>
+                <div>Interface</div>
+                <div>Interval</div>
+                <div>Critical</div>
+                <div>Extra Args</div>
+                <div>Status</div>
+                <div>Control</div>
+            </div>
+            <div class="data-extension" id="bmp180">
+                <div>255</div>
+                <div>pressure1maxlen</div>
+                <div>SIM-DS18B20</div>
+                <div>Env</div>
+                <div>Internal</div>
+                <div>10000</div>
+                <div>Yes</div>
+                <div>1w-ID: 28-201941239</div>
+                <div>Starting</div>
+                <div>buttons here</div>
+            </div>
+        </div>
     </div>
 </div>
 
 <div id="config-info-container" class="content-box"> <!-- Configuration Info -->
     <h2 class="content-box-title">Configuration Info<span>&#11167;</span></h2>
     <div class="content-box-content">
-        <div id="config-data">
+        <div id="config-data" class="data-box">
 
-            <div class="config-data-section">
+            <div>
                 <h3>General</h3>
                 <p>Project Name: <span class="data">None</span></p>
                 <p>GFS Version:  <span class="data">None</span></p>
                 <p>Main Board:   <span class="data">None</span></p>
             </div>
             
-            <div class="config-data-section">
+            <div>
                 <h3>Telemetry</h3>
                 this is data
             </div>
             
-            <div class="config-data-section">
+            <div>
                 <h3>Extensions</h3>
                 Total Extensions
             </div>
             
-            <div class="config-data-section">
+            <div>
                 <h3>Debug Services</h3>
                 Console Enabled: <span class="data">None</span>
             </div>
 
-            <div class="config-data-section">
+            <div>
                 <h3>Flight Procedures</h3>
                 Flight Procedures
             </div> 
