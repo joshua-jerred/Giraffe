@@ -66,7 +66,7 @@ struct ExtensionMetadata {
         OTHER = 1, 
         INTERNAL = 2, 
         I2C = 3, 
-        SERIAL = 4, 
+        UART = 4, 
         ONEWIRE = 5, 
         USB = 6,
         GPIO = 7 

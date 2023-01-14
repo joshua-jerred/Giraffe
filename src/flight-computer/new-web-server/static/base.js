@@ -116,6 +116,14 @@ async function uptime() {
     uptimeElement.innerText = uptime;
 }
 
+async function getConnectionStatus() {
+    let connected = await fetch('/api/get-connection-status')
+        .then((response) => response.json())
+        .then((data) => {return data["connected"]})
+        .catch((error) => {return false});
+    return connected;
+}
+
 window.addEventListener("DOMContentLoaded", function() {
     updateConnectionStatus()
 
@@ -129,10 +137,10 @@ window.addEventListener("DOMContentLoaded", function() {
         var content = this.nextElementSibling;
         if (content.style.display != "none") {
             content.style.display = "none";
-            title_arrow.innerText = "\u2B9C";
+            title_arrow.innerText = "\u25B2"; // hide, up arrow
         } else {
           content.style.display = "block";
-            title_arrow.innerText = "\u2B9F";
+            title_arrow.innerText = "\u25BC"; // show, down arrow
         }
       });
     }

@@ -76,7 +76,7 @@ NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Interface, {
     {ExtensionMetadata::Interface::OTHER, "other"},
     {ExtensionMetadata::Interface::INTERNAL, "internal"},
     {ExtensionMetadata::Interface::I2C, "i2c"},
-    {ExtensionMetadata::Interface::SERIAL, "serial"},
+    {ExtensionMetadata::Interface::UART, "uart"},
     {ExtensionMetadata::Interface::ONEWIRE, "oneWire"},
     {ExtensionMetadata::Interface::USB, "USB"},
     {ExtensionMetadata::Interface::GPIO, "gpio"}

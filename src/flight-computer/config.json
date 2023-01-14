@@ -21,7 +21,7 @@
             "name": "temp2",
             "type": "DS18B20",
             "category": "external_sensor",
-            "interface": "oneWire",
+            "interface": "onewire",
             "update-interval": 2000,
             "flight-critical": false,
             "onewire-id": "28-03176038beff"
@@ -62,20 +62,25 @@
         "console-enabled": true,
         "console-update-interval": 1000,
         "web-server-enabled": true,
+        "web-server-port": 8080,
         "web-server-update-interval": 1000
     },
     "telemetry": {
         "telemetry-enabled": true,
-        "callsign": "FccCallSign",
+        "call-sign": "FccCallSign",
+
+        "data-packet-mode":"aprs",
         
         "aprs-enabled": true,
         "aprs-frequency": "144.390",
         "aprs-ssid": 11,
         "aprs-symbol": "O",
+        "aprs-fi-pin": 1234,
         "aprs-memo": "GFS Balloon",
 
         "sstv-enabled": true,
         "sstv-frequency": "100.000",
+        "sstv-mode": "robot12bw",
 
         "afsk-enabled": true,
         "afsk-frequency": "100.000",
@@ -108,16 +113,16 @@
 
     "flight-procs": [
         {
-            "type": "testing",
-            "enabled": true,
-            "intervals": {
-                "data-log": 2,
-                "data-packet": 5,
-                "sstv": 10,
-                "aprs": 5,
-                "picture": 50,
-                "health-check": 10
-                }
+        "type": "testing",
+        "enabled": true,
+        "intervals": {
+            "data-log": 2,
+            "data-packet": 5,
+            "sstv": 10,
+            "aprs": 5,
+            "picture": 50,
+            "health-check": 10
+            }
         }
     ]
 }

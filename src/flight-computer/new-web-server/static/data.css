@@ -19,6 +19,12 @@ p {
     border-bottom: 1px solid #585858;
 }
 
+.data-box > div > div > h4 {
+    margin: 0em;
+    border-bottom: 1px dashed #585858;
+    width: 50%;
+}
+
 #gfs-data-module-container {
     grid-column: span 2;
 }
@@ -33,7 +39,7 @@ p {
 
 #config-data {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 10px;
 }
 
@@ -41,10 +47,6 @@ p {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 10px;
-}
-
-#extension-list {
-
 }
 
 #gfs-status {
@@ -59,13 +61,14 @@ p {
     grid-column-gap: 10px;
 }
 
-.data-extension {
-    display: grid;
-    grid-template-columns: 2rem 8rem 7rem 4.2rem 5rem 4rem 3.5rem 10rem 5em auto;
-    grid-column-gap: 5px;
+#extension-table {
+    width: 100%;
+    border:1px solid black;
+    border-collapse: collapse;
 }
 
-.data-extension > div {
-    width: 100%;
-    /*border-right: 1px solid #000000;*/
+#extension-table th, td {
+    border:1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
 }

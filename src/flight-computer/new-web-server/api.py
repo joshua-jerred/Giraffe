@@ -50,58 +50,10 @@ def add_handlers(app, gfs):
         uptime = gfs.getConnectionUptime()
         return flask.jsonify(uptime=uptime)
 
-    @app.route('/api/get-general', methods=['GET'])
+    @app.route('/api/get-config', methods=['GET'])
     def get_general():
         @after_this_request
         def add_header(response):
             response.headers['Access-Control-Allow-Origin'] = '*'
             return response
-        return flask.jsonify(gfs.cfg_getGeneral())
-
-    @app.route('/api/get-debug', methods=['GET'])
-    def get_debug():
-        @after_this_request
-        def add_header(response):
-            response.headers['Access-Control-Allow-Origin'] = '*'
-            return response
-        return flask.jsonify(gfs.cfg_getDebug())
-
-    @app.route('/api/get-flight-procedures', methods=['GET'])
-    def get_flight_procedures():
-        @after_this_request
-        def add_header(response):
-            response.headers['Access-Control-Allow-Origin'] = '*'
-            return response
-        return flask.jsonify(gfs.cfg_getFlightProcedures())
-
-    @app.route('/api/get-extensions', methods=['GET'])
-    def get_extension():
-        @after_this_request
-        def add_header(response):
-            response.headers['Access-Control-Allow-Origin'] = '*'
-            return response
-        return flask.jsonify(gfs.cfg_getExtensions())
-
-    @app.route('/api/get-telemetry', methods=['GET'])
-    def get_telemetry():
-        @after_this_request
-        def add_header(response):
-            response.headers['Access-Control-Allow-Origin'] = '*'
-            return response
-        return flask.jsonify(gfs.cfg_getTelemetry())
-
-    @app.route('/api/get-data-packet-contents', methods=['GET'])
-    def get_data_packet_contents():
-        @after_this_request
-        def add_header(response):
-            response.headers['Access-Control-Allow-Origin'] = '*'
-            return response
-        return flask.jsonify(gfs.cfg_getDataPacketContents())
-
-    @app.route('/api/get-data-log-contents', methods=['GET'])
-    def get_data_log_contents():
-        @after_this_request
-        def add_header(response):
-            response.headers['Access-Control-Allow-Origin'] = '*'
-            return response
-        return flask.jsonify(gfs.cfg_getDataLogContents())
+        return flask.jsonify(gfs.cfg_getConfig())
