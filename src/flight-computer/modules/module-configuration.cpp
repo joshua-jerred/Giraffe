@@ -47,10 +47,7 @@ using json = nlohmann::ordered_json;
 NLOHMANN_JSON_SERIALIZE_ENUM( ConfigData::MainboardType, {
     {ConfigData::MainboardType::ERROR, "error"}, 
     {ConfigData::MainboardType::OTHER, "other"},
-    {ConfigData::MainboardType::PI_ZERO, "pi_zero"},
-    {ConfigData::MainboardType::PI_ZERO_W, "pi_zero_w"},
-    {ConfigData::MainboardType::PI_2, "pi_2"},
-    {ConfigData::MainboardType::PI_3, "pi_3"},
+    {ConfigData::MainboardType::PI_ZERO_W_2, "pi_zero_w_2"},
     {ConfigData::MainboardType::PI_4, "pi_4"}
 })
 

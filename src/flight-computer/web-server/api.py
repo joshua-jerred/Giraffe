@@ -36,7 +36,7 @@ def add_handlers(app, gfs):
             response.headers['Access-Control-Allow-Origin'] = '*'
             return response
 
-        connected = gfs.getConnection()
+        connected = gfs.getConnectionStatus()
         connection_uptime = gfs.getConnectionUptime()
         return flask.jsonify(connected=connected, connection_uptime=connection_uptime)
 
@@ -56,4 +56,4 @@ def add_handlers(app, gfs):
         def add_header(response):
             response.headers['Access-Control-Allow-Origin'] = '*'
             return response
-        return flask.jsonify(gfs.cfg_getConfig())
+        return flask.jsonify(gfs.get('config'))

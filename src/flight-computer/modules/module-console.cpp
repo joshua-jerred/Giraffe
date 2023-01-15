@@ -117,25 +117,10 @@ void ConsoleModule::printData() {
     "    Mainboard: ";
     switch (config_data_.general.main_board)
     {
-    case 0:
-        std::cout << "error";
+    case ConfigData::MainboardType::PI_ZERO_W_2:
+        std::cout << "pi_zero_w_2";
         break;
-    case 1:
-        std::cout << "other";
-        break;
-    case 2:
-        std::cout << "Pi Zero";
-        break;
-    case 3:
-        std::cout << "Pi Zero W";
-        break;
-    case 4:
-        std::cout << "Pi 2";
-        break;
-    case 5:
-        std::cout << "Pi 3";
-        break;
-    case 6: std::cout << "Pi 4";
+    case ConfigData::MainboardType::PI_4: std::cout << "Pi 4";
         break;
     default: std::cout << "Unknown";
         break;

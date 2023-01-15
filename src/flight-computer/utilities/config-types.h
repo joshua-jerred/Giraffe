@@ -22,12 +22,13 @@
 struct FlightProcedure {
 
     enum ProcType {
-        ERROR = 0,
-        TESTING = 1,
-        STANDARD = 2,
-        RECOVERY = 3,
-        DESCENT = 4,
-        FAILSAFE = 4
+        ERROR,
+        TESTING,
+        PRE_LAUNCH,
+        STANDARD,
+        DESCENT,
+        RECOVERY,
+        FAILSAFE
     };
 
     struct Intervals {
@@ -99,10 +100,7 @@ struct ConfigData {
     enum MainboardType {
         ERROR = 0,
         OTHER = 1,
-        PI_ZERO = 2, 
-        PI_ZERO_W = 3, 
-        PI_2 = 4, 
-        PI_3 = 5, 
+        PI_ZERO_W_2 = 3, 
         PI_4 = 6
     };
 
@@ -121,12 +119,13 @@ struct ConfigData {
         int console_update_interval {};
         int web_server_enabled {};
         int web_server_update_interval {};
+        int web_server_socket_port {};
     };
 
     struct Telemetry {
         int telemetry_enabled = 0;
-
         std::string call_sign {};
+        std::string data_packet_mode = "";
 
         int afsk_enabled = 0;
         std::string afsk_freq {};
@@ -136,6 +135,7 @@ struct ConfigData {
         std::string psk_mode {};
 
         int sstv_enabled = 0;
+        std::string sstv_mode {};
         std::string sstv_freq {};
 
         int aprs_enabled = 0;

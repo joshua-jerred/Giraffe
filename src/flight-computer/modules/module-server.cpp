@@ -89,8 +89,8 @@ void ServerModule::runner() {
 					continue;
 				}
 
-				if (request == "static") {
-					sendStaticData(new_sock);
+				if (request == "get-config") {
+					sendConfig(new_sock);
 				} else if (request == "dynamic") {
 					sendDynamicData(new_sock);
 				} else if (request == "telemetry"){
@@ -140,22 +140,78 @@ void ServerModule::runner() {
 	return;
 }
 
-void ServerModule::sendStaticData(ServerSocket &socket) {
-	json static_data;
-	static_data["project-name"] = config_data_.general.project_name;
-	static_data["main-board"] = config_data_.general.main_board;
-	static_data["starting-proc"] = config_data_.general.starting_proc;
-	static_data["console-enabled"] = config_data_.debug.console_enabled;
-	static_data["telemetry-enabled"] = config_data_.telemetry.telemetry_enabled;
+void ServerModule::sendConfig(ServerSocket &socket) {
+	json general_config;
+	general_config["project-name"] = config_data_.general.project_name;
 
-	static_data["extensions"] = json::array();
+	std::string main_board_type;
+	switch (config_data_.general.main_board)
+	{
+	case ConfigData::MainboardType::ERROR:
+		main_board_type = "ERROR";
+		break;
+	case ConfigData::MainboardType::PI_ZERO_W_2:
+		main_board_type = "Pi Zero W 2";
+		break;
+	case ConfigData::MainboardType::PI_4:
+		main_board_type = "Pi 4";
+		break;
+	default:
+		main_board_type = "Unknown";
+		break;
+	}
+	general_config["main-board-type"] = main_board_type;
+
+	std::string starting_proc;
+	switch (config_data_.general.starting_proc) 
+	{
+	case FlightProcedure::ProcType::ERROR:
+		starting_proc = "ERROR";
+		break;
+	case FlightProcedure::ProcType::TESTING:
+		starting_proc = "TESTING";
+		break;
+	default:
+		starting_proc = "Unknown";
+		break;
+	}
+	general_config["starting-procedure"] = starting_proc;
+
+	general_config["gfs-version"] = (std::string)GFS_VERSION;
+
+
+	json debug_config;
+	debug_config["console-enabled"] = config_data_.debug.console_enabled;
+	debug_config["console-update-interval"] = config_data_.debug.console_update_interval;
+	debug_config["web-server-enabled"] = config_data_.debug.web_server_enabled;
+	debug_config["web-server-socket-port"] = config_data_.debug.web_server_socket_port;
+
+	json telemetry_config;
+	telemetry_config["telemetry-enabled"] = config_data_.telemetry.telemetry_enabled;
+	telemetry_config["call-sign"] = config_data_.telemetry.call_sign;
+	telemetry_config["data-packet-mode"] = config_data_.telemetry.data_packet_mode;
+	telemetry_config["aprs-enabled"] = config_data_.telemetry.aprs_enabled;
+	telemetry_config["aprs-frequency"] = config_data_.telemetry.aprs_freq;
+	telemetry_config["aprs-ssid"] = config_data_.telemetry.aprs_ssid;
+	telemetry_config["aprs-key"] = config_data_.telemetry.aprs_key;
+	telemetry_config["aprs-memo"] = config_data_.telemetry.aprs_memo;
+	telemetry_config["sstv-enabled"] = config_data_.telemetry.sstv_enabled;
+	telemetry_config["sstv-frequency"] = config_data_.telemetry.sstv_freq;
+	telemetry_config["sstv-mode"] = config_data_.telemetry.sstv_mode;
+	telemetry_config["afsk-enabled"] = config_data_.telemetry.afsk_enabled;
+	telemetry_config["afsk-frequency"] = config_data_.telemetry.afsk_freq;
+	telemetry_config["psk-enabled"] = config_data_.telemetry.psk_enabled;
+	telemetry_config["psk-frequency"] = config_data_.telemetry.psk_freq;
+	telemetry_config["psk-mode"] = config_data_.telemetry.psk_mode;
+
+	json extensions_config = json::array();
 	for (ExtensionMetadata extension : config_data_.extensions.extensions_list) {
 		json extension_json;
-		extension_json["name"] = extension.name;
 		extension_json["id"] = extension.id;
+		extension_json["name"] = extension.name;
 		extension_json["type"] = extension.extension_type;
-		extension_json["category"] = extension.category;
-		extension_json["interface"] = extension.interface;
+		//extension_json["category"] = extension.category;
+		//extension_json["interface"] = extension.interface;
 		extension_json["interval"] = extension.update_interval;
 		extension_json["critical"] = extension.critical;
 		// Extra Arguments (Optional)
@@ -169,9 +225,19 @@ void ServerModule::sendStaticData(ServerSocket &socket) {
 		} else {
 			extension_json["extra-args"] = "N/A";
 		}
-		static_data["extensions"].push_back(extension_json);
+		extensions_config.push_back(extension_json);
 	}
-	socket << static_data.dump();  // Send the static data
+
+	json config = {
+		{"general", general_config},
+		{"debugging", debug_config},
+		{"telemetry", telemetry_config},
+		{"extensions", extensions_config},
+		{"data-log-data-and-packet-contents", "N/A"},
+		{"flight-procs", "N/A"}
+	};
+	
+	socket << config.dump();  // Send the static data
 }
 
 void ServerModule::sendDynamicData(ServerSocket &socket) {

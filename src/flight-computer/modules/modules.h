@@ -164,7 +164,7 @@ public:
 
 private:
     void runner();
-    void sendStaticData(ServerSocket &socket);
+    void sendConfig(ServerSocket &socket);
     void sendDynamicData(ServerSocket &socket);
     void sendTelemetryData(ServerSocket &socket);
 
