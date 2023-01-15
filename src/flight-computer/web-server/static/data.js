@@ -2,7 +2,6 @@ var config_loaded = false;
 
 async function updateConfig() {
     let connected = await getConnectionStatus();
-    console.log("Connected: " + connected);
     if (connected) {
         let config = await fetch('/api/get-config')
             .then((response) => response.json())
@@ -144,7 +143,6 @@ async function parseExtensionsConfig(config) {
             new_extension.querySelector(".e_flight-critical").innerHTML = flight_critical;
             new_extension.querySelector(".e_extra-info").innerHTML = extra_info;
             new_extension.querySelector(".e_status").innerHTML = "Unknown";
-            console.log(new_extension);
             document.querySelector("#extension-table").appendChild(new_extension);
         }
         document.getElementById("cfg-total-extensions").innerHTML = total;
@@ -290,6 +288,94 @@ async function parseTelemetryConfig(config) {
     }
 }
 
+async function updateStatus() {
+    if (connection_status) {
+        let statuses = await fetch('/api/get-status-data')
+        .then((response) => response.json())
+        .then((data) => {return data})
+        .catch((error) => {return false});
+
+        if (statuses.hasOwnProperty("system") == false || statuses.hasOwnProperty("gfs") == false) {
+            console.log("Error fetching status data.");
+            return;
+        }
+
+        parseSystemStatus(statuses["system"]);
+        parseGFSStatus(statuses["gfs"]);
+    }
+}
+
+async function parseSystemStatus(data) {
+    update("#data-system-date", data["system-date"]);
+    update("#data-system-time-utc", data["system-time-utc"]);
+    update("#data-system-uptime", data["system-uptime"]);
+    update("#data-cpu-load-average", data["cpu-load-average"]);
+
+    update("#data-cpu-temp", data["cpu-temp"]);
+    update("#data-memory-usage", data["memory-usage"]);
+    update("#data-storage-usage", data["storage-usage"]);
+    update("#data-battery-voltage", data["battery-voltage"]);
+}
+
+async function parseGFSStatus(data) {
+    update("#data-gfs-uptime", data["gfs-uptime"]);
+    update("#data-health-status", data["health-status"]);
+    update("#data-reported-errors", data["reported-errors"]);
+    update("#data-current-flight-proc", data["current-flight-proc"]);
+    update("#data-flight-phase", data["flight-phase"]);
+    
+    let modules = data["modules-status"];
+    update("#module-status-config", modules["configuration"]);
+    update("#module-status-data", modules["data"]);
+    update("#module-status-extension", modules["extensions"]);
+    update("#module-status-telemetry", modules["telemetry"]);
+    update("#module-status-console", modules["console"]);
+    update("#module-status-server", modules["web-server"]);
+}
+
+async function updateGfsData() {
+    if (connection_status) {
+        let statuses = await fetch('/api/get-gfs-data')
+        .then((response) => response.json())
+        .then((data) => {return data})
+        .catch((error) => {return false});
+
+        parseDataFrame(statuses["dynamic"]);
+        parseErrors(statuses["errors"]);
+    }
+}
+
+async function parseDataFrame(data) {
+
+}
+
+async function parseErrors(data) { /* @todo Fix this */ 
+    let errors = document.getElementById("gfs-errors");
+    errors.innerHTML = "";
+    for (key in data) {
+        let newP = document.createElement("p");
+        newP.innerHTML += key + ":" + data[key]["source"];
+        newP.innerHTML += ":" + data[key]["code"];
+        newP.innerHTML += " - " + data[key]["info"];
+        errors.appendChild(newP);
+    }
+}
+
+function update(selector, value) {
+    document.querySelector(selector).innerHTML = value;
+}
+
+async function runner() {
+    try {
+        await updateStatus();
+        await updateGfsData();
+    } catch (error) {
+        console.log("Error running runner.");
+    }
+    setTimeout(runner, 1000);
+}
+
 window.addEventListener("DOMContentLoaded", function() {
     updateConfig();
+    runner();
 });

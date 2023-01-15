@@ -14,13 +14,13 @@
         <div id="system-status" class="data-box">
             <div>
                 <p>System Date: <span id="data-system-date"></span></p>
-                <p>System Time [UTC]: <span id="data-system-time"></span></p>
+                <p>System Time [UTC]: <span id="data-system-time-utc"></span></p>
                 <p>System Uptime: <span id="data-system-uptime"></span></p>
-                <p>CPU Load Average: <span id="data-cpu-load-avg"></span></p>
+                <p>CPU Load Average: <span id="data-cpu-load-average"></span></p>
             </div>
             <div>
                 <p>CPU Temp: <span id="data-cpu-temp"></span></p>
-                <p>Memory Usage: <span id="data-ram-usage"></span></p>
+                <p>Memory Usage: <span id="data-memory-usage"></span></p>
                 <p>Storage Usage: <span id="data-storage-usage"></span></p>
                 <p>Battery Voltage: <span id="data-battery-voltage"></span></p>
             </div>
@@ -33,6 +33,7 @@
     <div class="content-box-content">
         <div id="gfs-status" class="data-box">
             <div>
+                <p>GFS Uptime: <span id="data-gfs-uptime"></span></p>
                 <p>Health Status: <span id="data-health-status"></span></p>
                 <p>Reported Errors: <span id="data-reported-errors"></span></p>
                 <p>Current Flight Proc: <span id="data-current-flight-proc"></span></p>
@@ -41,9 +42,9 @@
             <div>
                 <span>Modules</span>
                 <p>Configuration: <span id="module-status-config"></span></p>
-                <p>Data: <span id="module-status-config"></span></p>
+                <p>Data: <span id="module-status-data"></span></p>
                 <p>Extension: <span id="module-status-extension"></span></p>
-                <p>Telemetry: <span id="module-status-telem"></span></p>
+                <p>Telemetry: <span id="module-status-telemetry"></span></p>
                 <p>Server: <span id="module-status-server"></span></p>
                 <p>Console: <span id="module-status-console"></span></p>
             </div>
@@ -87,7 +88,10 @@
                 <h3>Calculated Data</h3>
             </div>
             <div style="grid-column: span 4;">
-                <h3>Other Data</h3>
+                <h3>Data Frame</h3>
+                <div id="data-frame">
+
+                </div>
             </div>
         </div>
     </div>
@@ -200,6 +204,15 @@
             </div>
             
 
+        </div>
+    </div>
+</div>
+
+<div id="gfs-errors-container" class="content-box">
+    <h2 class="content-box-title">Errors<span>&#x25BC;</span></h2>
+    <div class="content-box-content">
+        <div id="gfs-errors">
+            <p>No Errors</p>
         </div>
     </div>
 </div>

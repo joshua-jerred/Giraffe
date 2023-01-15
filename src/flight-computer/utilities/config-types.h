@@ -169,6 +169,8 @@ struct Data {
         FlightProcedure failsafe {};
     };
 
+    time_t start_time = 0;
+
     General general {};
     Extensions extensions {};
     Debugging debug {};

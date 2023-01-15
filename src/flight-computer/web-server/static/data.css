@@ -37,6 +37,10 @@ p {
     grid-column: span 2;
 }
 
+#gfs-errors-container {
+    grid-column: span 2;
+}
+
 #config-data {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -71,4 +75,16 @@ p {
     border:1px solid black;
     border-collapse: collapse;
     padding: 5px;
+}
+
+#gfs-errors {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+}
+
+#gfs-errors > p {
+    margin-top: 0em;
+    margin-bottom: 0.1em;
+    font-size: 0.9em;
 }

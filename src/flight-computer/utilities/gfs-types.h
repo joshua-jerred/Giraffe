@@ -98,8 +98,8 @@ struct CriticalData {
     float battery_voltage = 0.0; // volts
 
     bool system_data_good = false;
-    float ram_usage = 0.0; // percent 0.0 - 1.0
-    float disk_usage = 0.0; // percent 0.0 - 1.0
+    float ram_usage = 0.0; // percent 0.0 - 100.0
+    float disk_usage = 0.0; // percent 0.0 - 100.0
 
     bool radio_good = false; // If the radio is functioning
 };

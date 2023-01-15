@@ -423,13 +423,13 @@ int DataStream::getTotalErrorPackets() {
 
 void DataStream::updateExtensionStatus(std::string extension_name, ExtensionStatus status) {
 	extension_status_lock_.lock();
-	extension_status_[extension_name] = status;
+	extension_status_.insert_or_assign(extension_name, status);
 	extension_status_lock_.unlock();
 }
 
 void DataStream::updateModuleStatus(std::string module_name, ModuleStatus status) {
 	module_status_lock_.lock();
-	module_status_[module_name] = status;
+	module_status_.insert_or_assign(module_name, status);
 	module_status_lock_.unlock();
 }
 

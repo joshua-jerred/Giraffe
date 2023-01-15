@@ -40,6 +40,16 @@ def add_handlers(app, gfs):
         connection_uptime = gfs.getConnectionUptime()
         return flask.jsonify(connected=connected, connection_uptime=connection_uptime)
 
+    @app.route('/api/get-connection-requested', methods=['GET'])
+    def get_connection_requested():
+        @after_this_request
+        def add_header(response):
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            return response
+
+        connection_requested = gfs.getConnectionRequested()
+        return flask.jsonify(connection_requested=connection_requested)
+
     @app.route('/api/get-connection-uptime', methods=['GET'])
     def get_uptime():
         @after_this_request

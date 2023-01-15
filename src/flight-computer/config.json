@@ -52,7 +52,7 @@
             "id": 5,
             "name": "sys",
             "type": "SYSINFO",
-            "category": "internal_sensor",
+            "category": "system",
             "interface": "internal",
             "update-interval": 1000,
             "flight-critical": false

@@ -87,6 +87,7 @@ NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Interface, {
 ConfigModule::ConfigModule(DataStream *data_stream):
 	p_data_stream_(data_stream) {
 	number_of_errors_ = 0;
+	config_data_.start_time = time(0);
 }
 
 /**
@@ -394,6 +395,19 @@ void ConfigModule::parseExtensions() {
 			error("EXT_P", number_of_extensions++); 
 		}
 	}	
+	
+	if (config_data_.extensions.battery_data_name.size() == 0) {
+		error("NO_BAT");
+	}
+	if (config_data_.extensions.system_data_name.size() == 0) {
+		error("NO_SYS");
+	}
+	if (config_data_.extensions.radio_data_name.size() == 0) {
+		error("NO_RAD");
+	}
+	if (config_data_.extensions.gps_data_name.size() == 0) {
+		error("NO_GPS");
+	}
 }
 
 /**

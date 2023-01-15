@@ -1,3 +1,4 @@
+var connection_requested = false;
 var connection_status = false;
 var connection_start = 0;
 
@@ -69,14 +70,28 @@ function getStringTime(time) {
 }
 
 async function toggleConnection() {
-    if (connection_status) {
+    if (connection_requested) { // Disconnect
         await fetch('/api/disconnect');
+        connection_requested = false;
         updateConnectionStatus();
-    } else {
-        await fetch('/api/connect');
-        updateConnectionStatus();
+    } else { // Connect
+        connection_requested = true;
+        await connect();
     }
 }
+
+async function connect() {
+    while (connection_requested && !connection_status) {
+        console.log("Attempting to connect...");
+        await fetch('/api/connect');
+        document.title = "GFS - Connecting...";
+        document.querySelector('#nav-connection-button').innerText = "Cancel";
+        document.querySelector('#nav-connection-status').innerText = "Connecting...";
+        updateConnectionStatus();
+        await new Promise(r => setTimeout(r, 1000));
+    }
+}
+
 
 async function updateConnectionStatus() {
     let connected = await fetch('/api/get-connection-status')
@@ -96,7 +111,7 @@ async function updateConnectionStatus() {
             gfs_control_buttons[i].style.display = "inline-block";
         }
         updateConnectionTime();
-    } else {
+    } else if (!connection_requested) {
         connection_status = false;
         document.title = "GFS - Disconnected";
         connectionButton.innerText = "Connect";
@@ -117,15 +132,58 @@ async function uptime() {
 }
 
 async function getConnectionStatus() {
-    let connected = await fetch('/api/get-connection-status')
+    let connection_data = await fetch('/api/get-connection-status')
         .then((response) => response.json())
-        .then((data) => {return data["connected"]})
+        .then((data) => {return data})
         .catch((error) => {return false});
-    return connected;
+    return connection_data["connected"];
+}
+
+async function utcClock() {
+    let date = new Date();
+    let hours = date.getUTCHours();
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+    let minutes = date.getUTCMinutes();
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+    let seconds = date.getUTCSeconds();
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+    let time = hours + ":" + minutes + ":" + seconds;
+    document.querySelector('#utc-clock').innerText = time;
+    setTimeout(utcClock, 1000);
+}
+
+async function connection_handler_runner() {
+    connection_requested = await fetch('/api/get-connection-requested')
+    .then((response) => response.json())
+    .then((data) => {
+        return data["connection_requested"]})
+        .catch((error) => {return false});
+    
+    if (connection_requested) {    
+        connection_status = await getConnectionStatus();
+        
+        if (connection_requested && !connection_status) {
+            document.querySelector('#nav-connection-button').innerText = "Cancel";
+            document.querySelector('#nav-connection-status').innerText = "Connecting...";
+            await connect();
+        } else if (connection_requested && connection_status) {
+            updateConnectionStatus();
+        } else {
+            console.log("Connection not requested");
+        }
+    }
+    setTimeout(connection_handler_runner, 2000);
 }
 
 window.addEventListener("DOMContentLoaded", function() {
-    updateConnectionStatus()
+    utcClock();
+    connection_handler_runner();
 
     let coll = document.getElementsByClassName("content-box-title");
     let i;

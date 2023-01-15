@@ -6,6 +6,7 @@ class GFS:
     def __init__(self):
         self.gfs_port = 8779
 
+        self.connection_requested = False
         self.connected = False
         self.connection_start_time = 0
 
@@ -13,6 +14,7 @@ class GFS:
         self.client_socket = socket.socket()
 
     def connect(self):
+        self.connection_requested = True
         try:
             self.client_socket.connect((self.host, self.gfs_port))
             self.connected = True
@@ -22,11 +24,16 @@ class GFS:
             print("Connection to GFS failed")
             self.connected = False
             self.__init__()
+            self.connection_requested = True
             return False
 
     def disconnect(self):
+        self.connection_requested = False
         self.client_socket.close()
         self.connected = False
+
+    def getConnectionRequested(self):
+        return self.connection_requested
 
     def getConnectionStatus(self): # Returns the connection status
         return self.connected
@@ -63,5 +70,8 @@ class GFS:
             return True
         except:
             print("Failed to write to GFS - reconnecting")
+            self.connected = False
+            connection_requested = self.connection_requested
             self.__init__()
+            self.connection_requested = connection_requested
             return False

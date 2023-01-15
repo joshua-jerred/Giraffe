@@ -131,7 +131,9 @@ public:
     // Status
     void updateExtensionStatus(std::string extension_name, ExtensionStatus status);
     void updateModuleStatus(std::string module_name, ModuleStatus status);
+
     std::unordered_map<std::string, ExtensionStatus> getExtensionStatuses();
+    std::unordered_map<std::string, ModuleStatus> getModuleStatuses();
 
     std::mutex& getI2CBusLock();
 
@@ -184,8 +186,13 @@ private:
         std::unordered_map<std::string, ExtensionStatus>();
 
     std::mutex module_status_lock_ = std::mutex();
-    std::unordered_map<std::string, ModuleStatus> module_status_ = 
-        std::unordered_map<std::string, ModuleStatus>();
+    std::unordered_map<std::string, ModuleStatus> module_status_ = { 
+        {"configuration", ModuleStatus::STOPPED},
+        {"data", ModuleStatus::STOPPED},
+        {"extension", ModuleStatus::STOPPED},
+        {"telemetry", ModuleStatus::STOPPED},
+        {"server", ModuleStatus::STOPPED},
+        {"console", ModuleStatus::STOPPED}};
 
     std::mutex i2c_bus_lock_ = std::mutex();
 

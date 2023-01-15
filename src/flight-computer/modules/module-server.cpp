@@ -19,6 +19,7 @@
 #include <iostream>
 #include <nlohmann/json.hpp>
 #include <deque>
+#include <ctime>
 using json = nlohmann::ordered_json; 
 
 #include "socket.h"
@@ -72,7 +73,7 @@ void ServerModule::runner() {
 			}
 			
 			while (!stop_flag_) {
-				std::this_thread::sleep_for(std::chrono::milliseconds(50));
+				std::this_thread::sleep_for(std::chrono::milliseconds(5));
 				std::string request;
 				new_sock >> request;  // Read the request from the client
 
@@ -242,20 +243,56 @@ void ServerModule::sendConfig(ServerSocket &socket) {
 }
 
 void ServerModule::sendStatus(ServerSocket &socket) {
+	time_t now = time(0); // UTC time
+	std::tm *gmt = gmtime(&now);
+	std::string system_time = 
+		(gmt->tm_hour < 10 ? "0" + std::to_string(gmt->tm_hour) : std::to_string(gmt->tm_hour)) + ":" + 
+		std::to_string(gmt->tm_min) + ":" + 
+		std::to_string(gmt->tm_sec);
+	std::string system_date = std::to_string(gmt->tm_mday) + "-" + std::to_string(gmt->tm_mon + 1) + "-" + std::to_string(gmt->tm_year + 1900);
+
+	std::string system_data_source = config_data_.extensions.system_data_name;
+	std::string system_uptime_hours = p_data_stream_->getData(system_data_source, "uptime_hours");
+	
+	std::string ld_1, ld_5, ld_15, load_avg;
+	ld_1 = p_data_stream_->getData(system_data_source, "load_avg_1");
+	ld_5 = p_data_stream_->getData(system_data_source, "load_avg_5");
+	ld_15 = p_data_stream_->getData(system_data_source, "load_avg_15");
+	load_avg = ld_1 + " " + ld_5 + " " + ld_15;
+
+	std::string cpu_temp = p_data_stream_->getData(system_data_source, "cpu_temp");
+	std::string mem_usage = p_data_stream_->getData(system_data_source, "ram_used_prcnt");
+	std::string storage_usage = p_data_stream_->getData(system_data_source, "disk_used_prcnt");
+
+	std::string battery_voltage =
+		p_data_stream_->getData(config_data_.extensions.battery_data_name, "voltage");
+
 	json system_status = {
-		{"system-date", },
-		{"system-time-utc", },
-		{"system-uptime", },
-		{"cpu-load-average", },
-		{"cpu-temp"},
-		{"memory-usage"},
-		{"storage-usage"},
-		{"battery-usage"}
+		{"system-time-utc", system_time},
+		{"system-date", system_date},
+		{"system-uptime", system_uptime_hours},
+		{"cpu-load-average", load_avg},
+		{"cpu-temp", cpu_temp},
+		{"memory-usage", mem_usage},
+		{"storage-usage", storage_usage},
+		{"battery-voltage", battery_voltage}
 	};
 
+	time_t gfs_uptime = now - config_data_.start_time;
+	std::string gfs_uptime_hours = std::to_string(gfs_uptime / 3600);
+	std::string gfs_uptime_minutes = std::to_string((gfs_uptime % 3600) / 60);
+	std::string gfs_uptime_seconds = std::to_string(gfs_uptime % 60);
+	std::string gfs_uptime_str = 
+		(gfs_uptime / 3600 < 10 ? "0" + gfs_uptime_hours : gfs_uptime_hours) + ":" + 
+		((gfs_uptime % 3600) / 60 < 10 ? "0" + gfs_uptime_minutes : gfs_uptime_minutes) + ":" + 
+		(gfs_uptime % 60 < 10 ? "0" + gfs_uptime_seconds : gfs_uptime_seconds);
+	
+
+
 	json gfs_status = {
+		{"gfs-uptime", gfs_uptime_str},
 		{"health-status", "good"},
-		{"reported-errors", 1},
+		{"reported-errors", p_data_stream_->getNumErrorPackets()},
 		{"current-flight-proc", "TESTING"},
 		{"flight-phase", "PRELAUNCH"},
 		{"modules-status", {
@@ -330,16 +367,17 @@ void ServerModule::sendGfsData(ServerSocket &socket) {
 			{"value", packet.value}
 		};
 	}
-		json errors = {};
-		ErrorFrame error_snapshot = p_data_stream_->getErrorFrameCopy();
-		int k = 0;
-		for (auto const &[key, error] : error_snapshot) {
-			errors[std::to_string(k++)] = {
-				{"source", error.source},
-				{"code", error.error_code},
-				{"info", error.info}
-			};
-		}
+	
+	json errors = {};
+	ErrorFrame error_snapshot = p_data_stream_->getErrorFrameCopy();
+	int k = 0;
+	for (auto const &[key, error] : error_snapshot) {
+		errors[std::to_string(k++)] = {
+			{"source", error.source},
+			{"code", error.error_code},
+			{"info", error.info}
+		};
+	}
 
 	json dynamic_data = {
 		{"dynamic", data},

@@ -284,20 +284,19 @@ void DataModule::checkForStaleErrors() {
   if (errorframe_.empty()) {
     return;
   }
-  std::time_t now = std::time(NULL);
-
-  ErrorFrame::iterator it = errorframe_.begin();
-  while (it != errorframe_.end()) {
-    if (it->second.expiration_time == 0) { // 0 mean it never expires}
-      it++;
-      continue;
-    }
-    if ((int)it->second.expiration_time < (int)now) {
-      it = errorframe_.erase(it); // erase returns the next iterator
-    } else {
-      it++;
-    }
-  }
+  //std::time_t now = std::time(NULL);
+  // ErrorFrame::iterator it = errorframe_.begin();
+  // while (it != errorframe_.end()) {
+  //   if (it->second.expiration_time == 0) { // 0 mean it never expires}
+  //     it++;
+  //     continue;
+  //   }
+  //   if ((int)it->second.expiration_time < (int)now) {
+  //     it = errorframe_.erase(it); // erase returns the next iterator
+  //   } else {
+  //     it++;
+  //   }
+  // }
 
   /* 12/21/22 - This created as error as the iterator was being deleted by
    * the erase function.

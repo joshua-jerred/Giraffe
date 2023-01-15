@@ -12,15 +12,19 @@ body {
 
     background-color: #353535;
     color: #CCCCCC;
-    }
-    
+}
+
 #nav-logo {
     grid-area: LCB;
     align-content: center;
     color: #CCCCCC;
-    font-size: 2.5em;
+    font-size: 2.5rem;
     font-weight: bold;
     margin: 0.2em;
+}
+
+#utc-clock-container {
+    font-size: 0.29em;
 }
 
 #error-notifier {
