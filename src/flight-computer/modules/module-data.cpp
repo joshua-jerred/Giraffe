@@ -45,8 +45,33 @@ DataModule::DataModule(DataStream &data_stream):
 DataModule::~DataModule() {
 }
 
-void DataModule::addConfigData(ConfigData config_data) {
+void DataModule::addConfigData(Data config_data) {
     config_data_ = config_data;
+
+    // Check for GPS Extensions
+    if (config_data_.extensions.gps_data_name.size() > 0) {
+        gps_data_source_ = config_data_.extensions.gps_data_name;
+    } else {
+        error("NGPS");
+    }
+
+    if (config_data_.extensions.battery_data_name.size() > 0) {
+        battery_data_source_ = config_data_.extensions.battery_data_name;
+    } else {
+        error("NBAT");
+    }
+
+    if (config_data_.extensions.system_data_name.size() > 0) {
+        system_data_source_ = config_data_.extensions.system_data_name;
+    } else {
+        error("NSYS");
+    }
+
+    if (config_data_.extensions.radio_data_name.size() > 0) {
+        radio_data_source_ = config_data_.extensions.radio_data_name;
+    } else {
+        error("NRAD");
+    }
 }
 
 /**
@@ -94,7 +119,7 @@ void DataModule::log() {
   //          << std::endl;
   //}
   std::string key = "";
-  for (ConfigData::DataTypes::DataType type : config_data_.data_types.types) {
+  for (Data::DataTypes::DataType type : config_data_.data_types.types) {
 
     key = type.source + ":" + type.unit;
     if (dataframe_copy.contains(key)) {
@@ -116,7 +141,7 @@ void DataModule::log() {
  * @return void
  */
 void DataModule::addDataTypeToFrame(
-    ConfigData::DataTypes::DataType data_type) {
+    Data::DataTypes::DataType data_type) {
   DataStreamPacket packet;
   packet.source = data_type.source;
   packet.unit = data_type.unit;
@@ -137,13 +162,26 @@ void DataModule::parseDataStream() {
   int packetCount = p_data_stream_.getNumDataPackets();
   DataStreamPacket dpacket;
   for (int i = 0; i < packetCount; i++) {
-    /** @todo Check to see if it exists in the dataframe first, if not
-     * add an error.
-     */
     dpacket = p_data_stream_.getNextDataPacket();
     dataframe_.insert_or_assign(dpacket.source + ":" + dpacket.unit, dpacket);
   }
   p_data_stream_.updateDataFrame(dataframe_);
+}
+
+void DataModule::parseGPSData() {
+  int packetCount = p_data_stream_.getNumGPSPackets();
+  GPSFrame frame;
+  for (int i = 0; i < packetCount; i++) {
+    bool status = p_data_stream_.getNextGPSFrame(frame);
+    if (status) {
+      latest_gps_frame_ = frame;
+      if (frame.fix == GPSFixType::FIX_3D || frame.fix == GPSFixType::FIX_2D) {
+        last_valid_fix_gps_frame_ = frame;
+      }
+    }
+  }
+
+  critical_data_.gps_data = latest_gps_frame_;
 }
 
 /**
@@ -176,23 +214,70 @@ void DataModule::parseErrorStream() {
   p_data_stream_.updateErrorFrame(errorframe_);
 }
 
-/**
- * @brief This function checks for state data within the dataframe.
- * @details This function looks at the expiry time of each item within the
- * data frame and if it has expired it will change it's value to "NO_DATA".
- * @param None
- * @return void
- */
-void DataModule::checkForStaleData() {
-  std::time_t now = std::time(NULL);
-  for (auto& [source_and_unit, packet] : dataframe_) {
-    if (packet.expiration_time == 0) {  // 0 means it never expires
-      continue;
+void DataModule::parseCriticalData() {
+  if (dataframe_.contains(battery_data_source_ + ":BAT_V")) {
+    try {
+      critical_data_.battery_voltage = std::stof(dataframe_[battery_data_source_ + ":battery-voltage"].value);
+    } catch (std::invalid_argument& e) {
+      error("CDPE", "BAT_V");
+      critical_data_.battery_data_good = false;
     }
-    if ((int)packet.expiration_time < (int)now) {
-      packet.value = "NO-DATA";
-    }
+  } else {
+    error("CD", "BAT_V");
+    critical_data_.battery_data_good = false;
   }
+
+  // Ram usage
+  if (dataframe_.contains(system_data_source_ + ":ram_used_prcnt")) { 
+    try {
+      critical_data_.ram_usage = std::stof(dataframe_[system_data_source_ + ":ram_used_prcnt"].value);
+    } catch (std::invalid_argument& e) {
+      error("CDPE", "RAM");
+      critical_data_.system_data_good = false;
+    }
+  } else {
+    error("CD", "RAM");
+    critical_data_.system_data_good = false;
+  }
+
+  // Disk usage
+  if (dataframe_.contains(system_data_source_ + ":disk_used_prcnt")) { 
+    try {
+      critical_data_.disk_usage = std::stof(dataframe_[system_data_source_ + ":disk_used_prcnt"].value);
+    } catch (std::invalid_argument& e) {
+      error("CDPE", "DISK");
+      critical_data_.system_data_good = false;
+    }
+  } else {
+    error("CD", "DISK");
+    critical_data_.system_data_good = false;
+  }
+
+  // Radio Status
+  if (dataframe_.contains(radio_data_source_ + ":radio_status")) {
+      if (dataframe_[radio_data_source_ + ":radio_status"].value == "GOOD") {
+        critical_data_.radio_good = true;
+      } else {
+        critical_data_.radio_good = false;
+      }
+  } else {
+    error("CD", "RADIO");
+    critical_data_.radio_good = false;
+  }
+
+  p_data_stream_.updateCriticalData(critical_data_);
+}
+
+void DataModule::checkForStaleData() {
+  //std::time_t now = std::time(NULL);
+  //for (auto& [source_and_unit, packet] : dataframe_) {
+  //  if (packet.expiration_time == 0) {  // 0 means it never expires
+  //    continue;
+  //  }
+  //  if ((int)packet.expiration_time + 1000 < (int)now) {
+  //    packet.value = "EXPIRED";
+  //  }
+  //}
 }
 
 void DataModule::checkForStaleErrors() {
@@ -242,7 +327,9 @@ void DataModule::runner() {
     std::this_thread::sleep_for(std::chrono::milliseconds(
         MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS));
     parseDataStream();
+    parseGPSData();
     parseErrorStream();
+    parseCriticalData();
     checkForStaleData();
     checkForStaleErrors();
   }

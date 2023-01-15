@@ -18,6 +18,7 @@
 #include <unordered_map>
 #include <iostream>
 
+#include "gfs-types.h"
 #include "config-types.h"
 #include "status.h"
 
@@ -55,21 +56,6 @@ std::ostream& operator << (std::ostream& o, const ErrorStreamPacket& e);
 typedef std::unordered_map<std::string, DataStreamPacket> DataFrame;
 typedef std::unordered_map<std::string, ErrorStreamPacket> ErrorFrame;
 
-
-struct GFSCommand {
-    enum class CommandCategory {
-        unknown = 0,
-        TLM = 1, // telemetry
-        MDL = 2, // modules
-        EXT = 3, // extensions
-        FLR = 4, // flight runner
-    };
-    CommandCategory category = CommandCategory::unknown;
-    std::string id = "";
-    std::string arg = "";
-};
-
-
 /**
  * @brief This class is passed to many extensions/modules. It is used
  * to communicate data and errors to the data module from any
@@ -89,7 +75,8 @@ public:
     bool getNextCommand(GFSCommand& command);
 
     void addData(std::string data_source, 
-	std::string data_name, std::string data_value, int seconds_until_expiry);
+	    std::string data_name, std::string data_value);
+    void addData(std::string data_source, GPSFrame gps_frame);
 
     void addError(std::string error_source, std::string error_code, 
                   std::string error_info, int seconds_until_expiry = 0);
@@ -100,15 +87,20 @@ public:
 
     DataStreamPacket getNextDataPacket();
     ErrorStreamPacket getNextErrorPacket();
+    bool getNextGPSFrame(GPSFrame &gps_frame);
 
     std::string getData(std::string data_source, std::string data_name);
     DataFrame getDataFrameCopy();
     ErrorFrame getErrorFrameCopy();
     FlightProcedure getFlightProcedureCopy();
 
+    int getNumGPSPackets();
+    int getTotalGPSPackets();
+
     int getNumDataPackets();
-    int getNumErrorPackets();
     int getTotalDataPackets();
+
+    int getNumErrorPackets();
     int getTotalErrorPackets();
 
     // TX Queue
@@ -143,7 +135,9 @@ public:
 
     std::mutex& getI2CBusLock();
 
-
+    // Critical Data
+    void updateCriticalData(CriticalData &critical_data);
+    CriticalData getCriticalData();
     
 private:
     void error(std::string code);
@@ -155,8 +149,17 @@ private:
     int num_error_packets_ = 0;
     int total_error_packets_ = 0;
 
+    int num_gps_packets_ = 0;
+    int total_gps_packets_ = 0;
+
+    std::mutex critical_data_lock_ = std::mutex();
+    CriticalData critical_data_ = CriticalData();
+
     std::mutex command_queue_lock_ = std::mutex();
     std::queue<GFSCommand> command_queue_ = std::queue<GFSCommand>(); 
+
+    std::mutex gps_data_stream_lock_ = std::mutex();
+    std::queue<GPSFrame> gps_data_stream_ = std::queue<GPSFrame>();
 
     std::mutex data_stream_lock_ = std::mutex();
     std::queue<DataStreamPacket> data_stream_ = std::queue<DataStreamPacket>();

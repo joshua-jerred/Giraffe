@@ -29,7 +29,7 @@ using namespace modules;
  * @param config_data All configuration data.
  * @param data_stream A pointer to the data stream.
  */
-TelemetryModule::TelemetryModule(ConfigData config_data, DataStream *stream):
+TelemetryModule::TelemetryModule(Data config_data, DataStream *stream):
     Module(stream, MODULE_TELEMETRY_PREFIX),
     config_data_(config_data),
     p_data_stream_(stream) {
@@ -53,11 +53,10 @@ TelemetryModule::~TelemetryModule() {
  */
 void TelemetryModule::start() {
     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
-        "TX_Q_SZ", "0", 100);
+        "TX_Q_SZ", "0");
     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
         "ACTIVE_TX",
-        "NONE", 
-        0);
+        "NONE");
     stop_flag_ = 0;
     tx_thread_ = std::thread(&TelemetryModule::runner, this);
 }
@@ -89,7 +88,7 @@ void TelemetryModule::sendDataPacket() {
 
     // Add data (specified in config) to the message that will be sent.
     std::string key = "";
-    for (ConfigData::DataTypes::DataType type : config_data_.data_types.types) {
+    for (Data::DataTypes::DataType type : config_data_.data_types.types) {
         if (type.include_in_telemetry) {
             key = type.source + ":" + type.unit;
             if (data.contains(key)) {
@@ -314,13 +313,13 @@ void TelemetryModule::runner() {
         parseCommands();
 
         int queue_size = p_data_stream_->getTXQueueSize();
-        data("TX_Q_SZ", queue_size, 5);
+        data("TX_Q_SZ", queue_size);
 
         // Report the info about the TX log
         DataStream::TXLogInfo lg = p_data_stream_->getTXLogInfo();
-        data("TX_LG_SZ", lg.tx_log_size, 5);
-        data("TX_LG_FRST", lg.first_tx_in_log, 5);
-        data("TX_LG_LAST", lg.last_tx_in_log, 5);
+        data("TX_LG_SZ", lg.tx_log_size);
+        data("TX_LG_FRST", lg.first_tx_in_log);
+        data("TX_LG_LAST", lg.last_tx_in_log);
 
         // Manage the TX queue
         if (queue_size > 0) {
@@ -351,8 +350,7 @@ void TelemetryModule::runner() {
             
             p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
                 "ACTIVE_TX",
-                "NONE", 
-                0);
+                "NONE");
         }
         std::this_thread::sleep_for(
             std::chrono::milliseconds(TELEMETRY_INTERVAL_MILI_SECONDS)
@@ -365,8 +363,7 @@ void TelemetryModule::playWav(std::string wav_location, std::string tx_type, int
 
     p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
         "ACTIVE_TX",
-        tx_type + std::to_string(tx_length), 
-        tx_length);
+        tx_type + std::to_string(tx_length));
 
     /**
      * @details aplay seems to return 0 when it's done playing, 256 when

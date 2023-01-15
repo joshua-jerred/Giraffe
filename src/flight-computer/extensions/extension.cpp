@@ -207,8 +207,7 @@ void extension::Extension::setStatus(ExtensionStatus status) {
  * @return void
  */
 void extension::Extension::sendData(std::string unit, std::string value) {
-    p_data_stream_->addData(getName(), unit, value, 
-                            data_expiration_time_);
+    p_data_stream_->addData(getName(), unit, value);
 }
 
 /**
@@ -216,8 +215,7 @@ void extension::Extension::sendData(std::string unit, std::string value) {
  * @todo Limit number size?
  */
 void extension::Extension::sendData(std::string unit, int value) {
-    p_data_stream_->addData(getName(), unit, std::to_string(value), 
-                            data_expiration_time_);
+    p_data_stream_->addData(getName(), unit, std::to_string(value));
 }
 
 /**
@@ -228,8 +226,11 @@ void extension::Extension::sendData(std::string unit, float value, int precision
     std::stringstream stream;
     stream << std::fixed << std::setprecision(precision) << value;
     std::string rounded = stream.str();
-    p_data_stream_->addData(getName(), unit, rounded, 
-                            data_expiration_time_);
+    p_data_stream_->addData(getName(), unit, rounded);
+}
+
+void extension::Extension::sendData(GPSFrame frame) {
+    p_data_stream_->addData(getName(), frame);
 }
 
 /**

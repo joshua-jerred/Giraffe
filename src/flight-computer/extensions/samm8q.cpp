@@ -24,7 +24,6 @@ extension::SAMM8Q::SAMM8Q(DataStream *p_data_stream, ExtensionMetadata extension
     
 }
 
-
 extension::SAMM8Q::~SAMM8Q() {
 
 }
@@ -75,40 +74,51 @@ int extension::SAMM8Q::runner() {
         setStatus(ExtensionStatus::RUNNING);
         if (ubx::pollMessage(i2c_, msg, kNavClass, kNavPvt, 92 + 8, 2000)
                 && ubx::parsePVT(msg, nav_data)) { // Good Data
+            GPSFrame gps_frame;
 
-            std::string time = std::to_string(nav_data.hour) + ":" + std::to_string(nav_data.minute) + ":" + std::to_string(nav_data.second);
-            sendData("GPS_TIME", time);
-            sendData("GPS_LAT", (float)(nav_data.latitude));
-            sendData("GPS_LON", (float)(nav_data.longitude));
-            sendData("GPS_ALT", (float)(nav_data.altitude));
-            sendData("GPS_H_SPD", (float)(nav_data.ground_speed));
-            sendData("GPS_HDG", (float)(nav_data.heading_of_motion));
+            gps_frame.time = std::to_string(nav_data.hour) + ":" + std::to_string(nav_data.minute) + ":" + std::to_string(nav_data.second);
             
-            std::string fix;
+            gps_frame.num_satellites = nav_data.num_satellites;
+            gps_frame.latitude = nav_data.latitude;
+            gps_frame.longitude = nav_data.longitude;
+            gps_frame.horz_accuracy = nav_data.horz_accuracy;
+
+            gps_frame.altitude = nav_data.altitude;
+            gps_frame.vert_accuracy = nav_data.vert_accuracy;
+
+            gps_frame.ground_speed = nav_data.ground_speed;
+            gps_frame.speed_accuracy = nav_data.speed_accuracy;
+
+            gps_frame.heading_of_motion = nav_data.heading_of_motion;
+            gps_frame.heading_accuracy = nav_data.heading_accuracy;
+            
             switch (nav_data.fixType) {
                 case ubx::FIX_TYPE::NO_FIX:
-                    fix = "NO_FIX";
+                    gps_frame.fix = GPSFixType::NO_FIX;
                     break;
                 case ubx::FIX_TYPE::DEAD_RECK:
-                    fix = "DEAD_RECK";
+                    error("DEAD_RECK");
+                    gps_frame.fix = GPSFixType::UNKNOWN;
                     break;
                 case ubx::FIX_TYPE::FIX_2D:
-                    fix = "2D";
+                    gps_frame.fix = GPSFixType::FIX_2D;
                     break;
                 case ubx::FIX_TYPE::FIX_3D:
-                    fix = "3D";
+                    gps_frame.fix = GPSFixType::FIX_3D;
                     break;
                 case ubx::FIX_TYPE::COMBINED:
-                    fix = "COMBINED";
+                    error("COMBINED");
+                    gps_frame.fix = GPSFixType::FIX_2D;
                     break;
                 case ubx::FIX_TYPE::TIME_ONLY:
-                    fix = "TIME_ONLY";
+                    gps_frame.fix = GPSFixType::UNKNOWN;
+                    error("TIME_ONLY");
                     break;
                 default:
-                    fix = "UNKNOWN";
+                    gps_frame.fix = GPSFixType::UNKNOWN;
                     break;
             }
-            sendData("GPS_FIX", fix);
+            sendData(gps_frame);
         } else { // Bad Data
             std::this_thread::sleep_for(std::chrono::milliseconds(1000));
             ubx::flushStream(i2c_);

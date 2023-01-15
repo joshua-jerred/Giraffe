@@ -57,3 +57,35 @@ def add_handlers(app, gfs):
             response.headers['Access-Control-Allow-Origin'] = '*'
             return response
         return flask.jsonify(gfs.get('config'))
+
+    @app.route('/api/get-status-data', methods=['GET'])
+    def get_status():
+        @after_this_request
+        def add_header(response):
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            return response
+        return flask.jsonify(gfs.get('status'))
+
+    @app.route('/api/get-gfs-data', methods=['GET'])
+    def get_gfs():
+        @after_this_request
+        def add_header(response):
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            return response
+        return flask.jsonify(gfs.get('gfs-data'))
+
+    @app.route('/api/get-extension-statuses', methods=['GET'])
+    def get_extension_statuses():
+        @after_this_request
+        def add_header(response):
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            return response
+        return flask.jsonify(gfs.get('extension-statuses'))
+
+    @app.route('/api/get-telemetry-data', methods=['GET'])
+    def get_telemetry():
+        @after_this_request
+        def add_header(response):
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            return response
+        return flask.jsonify(gfs.get('telemetry-data'))

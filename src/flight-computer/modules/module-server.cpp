@@ -25,7 +25,7 @@ using json = nlohmann::ordered_json;
 #include "modules.h"
 using namespace modules;
 
-ServerModule::ServerModule(const ConfigData config_data,
+ServerModule::ServerModule(const Data config_data,
 		DataStream *data_stream):
 			Module(data_stream, MODULE_SERVER_PREFIX),
 			config_data_(config_data),
@@ -64,10 +64,10 @@ void ServerModule::runner() {
 		try {
 			ServerSocket new_sock;  // Create a new socket for the connection
 			if (server_socket.accept(new_sock)) {
-				data("SOCKET", "CONNECTED", 0);
+				data("SOCKET", "CONNECTED");
 			} else {
 				std::this_thread::sleep_for(std::chrono::milliseconds(50));
-				data("SOCKET", "DISCONNECTED", 0);
+				data("SOCKET", "DISCONNECTED");
 				continue;
 			}
 			
@@ -91,17 +91,20 @@ void ServerModule::runner() {
 
 				if (request == "get-config") {
 					sendConfig(new_sock);
-				} else if (request == "dynamic") {
-					sendDynamicData(new_sock);
-				} else if (request == "telemetry"){
+				} else if (request == "get-status") {
+					sendStatus(new_sock);
+				} else if (request == "get-gfs-data") {
+					sendGfsData(new_sock);
+				} else if (request == "get-extension-statuses") {
+					sendExtensionStatuses(new_sock);
+				} else if (request == "get-telemetry-data"){
 					sendTelemetryData(new_sock);
-				} else if (request == "shutdownServer") {
+				} 
+				else if (request == "shutdownServer") {
 					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
-						"SHUTDOWN", 
-						0
-						);
+						"SHUTDOWN");
 					module_status_ = ModuleStatus::STOPPED;
 					stop_flag_ = 1;
 					return;
@@ -109,8 +112,7 @@ void ServerModule::runner() {
 					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
-						"SHUTDOWN_GFS", 
-						0
+						"SHUTDOWN_GFS"
 						);
 					module_status_ = ModuleStatus::STOPPED;
 					stop_flag_ = 1;
@@ -120,8 +122,7 @@ void ServerModule::runner() {
 					p_data_stream_->addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
-						"DISCONNECTED", 
-						0
+						"DISCONNECTED"
 						);
 					break;
 				} else {
@@ -147,13 +148,13 @@ void ServerModule::sendConfig(ServerSocket &socket) {
 	std::string main_board_type;
 	switch (config_data_.general.main_board)
 	{
-	case ConfigData::MainboardType::ERROR:
+	case Data::Mainboard::ERROR:
 		main_board_type = "ERROR";
 		break;
-	case ConfigData::MainboardType::PI_ZERO_W_2:
+	case Data::Mainboard::PI_ZERO_W_2:
 		main_board_type = "Pi Zero W 2";
 		break;
-	case ConfigData::MainboardType::PI_4:
+	case Data::Mainboard::PI_4:
 		main_board_type = "Pi 4";
 		break;
 	default:
@@ -165,10 +166,10 @@ void ServerModule::sendConfig(ServerSocket &socket) {
 	std::string starting_proc;
 	switch (config_data_.general.starting_proc) 
 	{
-	case FlightProcedure::ProcType::ERROR:
+	case FlightProcedure::Type::ERROR:
 		starting_proc = "ERROR";
 		break;
-	case FlightProcedure::ProcType::TESTING:
+	case FlightProcedure::Type::TESTING:
 		starting_proc = "TESTING";
 		break;
 	default:
@@ -240,64 +241,95 @@ void ServerModule::sendConfig(ServerSocket &socket) {
 	socket << config.dump();  // Send the static data
 }
 
-void ServerModule::sendDynamicData(ServerSocket &socket) {
+void ServerModule::sendStatus(ServerSocket &socket) {
+	json system_status = {
+		{"system-date", },
+		{"system-time-utc", },
+		{"system-uptime", },
+		{"cpu-load-average", },
+		{"cpu-temp"},
+		{"memory-usage"},
+		{"storage-usage"},
+		{"battery-usage"}
+	};
+
+	json gfs_status = {
+		{"health-status", "good"},
+		{"reported-errors", 1},
+		{"current-flight-proc", "TESTING"},
+		{"flight-phase", "PRELAUNCH"},
+		{"modules-status", {
+			{"configuration", "good"},
+			{"data", "good"},
+			{"extensions", "good"},
+			{"telemetry", "good"},
+			{"web-server", "good"},
+			{"console", "good"}
+		}}
+	};
+
+	json statuses = {
+		{"system", system_status},
+		{"gfs", gfs_status}
+	};
+
 	try {
-		DataFrame snapshot = p_data_stream_->getDataFrameCopy();
-		json data;
-		int i = 0;
-		for (auto const &[key, packet] : snapshot) {
-			data[std::to_string(i++)] = {
-				{"source", packet.source},
-				{"unit", packet.unit},
-				{"value", packet.value}
-			};
+		socket << statuses.dump();
+	} catch (SocketException &e) {
+		error("WE", "Status");
+	}
+}
+
+void ServerModule::sendExtensionStatuses(ServerSocket &socket) {
+	json extension_status = {};
+	std::unordered_map<std::string, ExtensionStatus> extension_status_map 
+		= p_data_stream_->getExtensionStatuses();
+
+	for (auto const &[key, status] : extension_status_map) {
+		
+		std::string status_str = "";
+		switch (status) {
+			case ExtensionStatus::ERROR:
+				status_str = "ERROR";
+				break;
+			case ExtensionStatus::STOPPED:
+				status_str = "STOPPED";
+				break;
+			case ExtensionStatus::STARTING:
+				status_str = "STARTING";
+				break;
+			case ExtensionStatus::RUNNING:
+				status_str = "RUNNING";
+				break;
+			case ExtensionStatus::STOPPING:
+				status_str = "STOPPING";
+				break;
+			case ExtensionStatus::STOPPED_ERROR_STATE:
+				status_str = "STOPPED_ERROR_STATE";
+				break;
 		}
 
-		json tx_queue_json = {};
-		p_data_stream_->lockTXQueue();
-		std::queue<Transmission> queue = p_data_stream_->getTXQueue();
-		int j = 0;
-		while (!queue.empty()) {
-			Transmission tx = queue.front();
-			queue.pop();
-			tx_queue_json[std::to_string(j++)] = {
-				{"file", tx.wav_location},
-				{"type", tx.type},
-				{"duration", tx.length}
-			};
-		}
-		p_data_stream_->unlockTXQueue();
+		extension_status[key] = status_str;
+	}
 
-		json extension_status = {};
-		std::unordered_map<std::string, ExtensionStatus> extension_status_map = p_data_stream_->getExtensionStatuses();
+	try {
+		socket << extension_status.dump();
+	} catch (SocketException &e) {
+		error("WE", "Extension Status");
+	}
+}
 
-		for (auto const &[key, status] : extension_status_map) {
-			std::string status_str = "";
-
-			switch (status) {
-				case ExtensionStatus::ERROR:
-					status_str = "ERROR";
-					break;
-				case ExtensionStatus::STOPPED:
-					status_str = "STOPPED";
-					break;
-				case ExtensionStatus::STARTING:
-					status_str = "STARTING";
-					break;
-				case ExtensionStatus::RUNNING:
-					status_str = "RUNNING";
-					break;
-				case ExtensionStatus::STOPPING:
-					status_str = "STOPPING";
-					break;
-				case ExtensionStatus::STOPPED_ERROR_STATE:
-					status_str = "STOPPED_ERROR_STATE";
-					break;
-			}
-
-			extension_status[key] = status_str;
-		}
-
+void ServerModule::sendGfsData(ServerSocket &socket) {
+	DataFrame snapshot = p_data_stream_->getDataFrameCopy();
+	json data;
+	int i = 0;
+	for (auto const &[key, packet] : snapshot) {
+		data[std::to_string(i++)] = {
+			{"source", packet.source},
+			{"unit", packet.unit},
+			{"value", packet.value}
+		};
+	}
 		json errors = {};
 		ErrorFrame error_snapshot = p_data_stream_->getErrorFrameCopy();
 		int k = 0;
@@ -309,13 +341,12 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 			};
 		}
 
-		json dynamic_data = {
-			{"dynamic", data},
-			{"tx-queue", tx_queue_json},
-			{"extension-status", extension_status},
-			{"errors", errors}
-		};
+	json dynamic_data = {
+		{"dynamic", data},
+		{"errors", errors}
+	};
 
+	try {
 		socket << dynamic_data.dump();  // Send the data
 	} catch (SocketException &e) {
 		p_data_stream_->addError(MODULE_SERVER_PREFIX, "Dynamic",
@@ -324,6 +355,21 @@ void ServerModule::sendDynamicData(ServerSocket &socket) {
 }
 
 void ServerModule::sendTelemetryData(ServerSocket &socket) {
+	json tx_queue_json = {};
+	p_data_stream_->lockTXQueue();
+	std::queue<Transmission> queue = p_data_stream_->getTXQueue();
+	int j = 0;
+	while (!queue.empty()) {
+		Transmission tx = queue.front();
+		queue.pop();
+		tx_queue_json[std::to_string(j++)] = {
+			{"file", tx.wav_location},
+			{"type", tx.type},
+			{"duration", tx.length}
+		};
+	}
+	p_data_stream_->unlockTXQueue();
+	
 	json tx_log_info = {}; // Transmission Log Info
 	json tx_log = {}; // Transmission Log
 	

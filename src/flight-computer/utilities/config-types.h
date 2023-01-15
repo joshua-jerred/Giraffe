@@ -21,7 +21,7 @@
  */
 struct FlightProcedure {
 
-    enum ProcType {
+    enum class Type {
         ERROR,
         TESTING,
         PRE_LAUNCH,
@@ -40,8 +40,8 @@ struct FlightProcedure {
         int health_check = 5;
     };
 
-    int enabled = 0;
-    ProcType type = ProcType::ERROR;
+    bool enabled = false;
+    Type type = Type::ERROR;
     Intervals intervals = Intervals();
 };
 
@@ -53,24 +53,26 @@ struct FlightProcedure {
 struct ExtensionMetadata {
     
     enum class Category {
-        ERROR = 0,
-        OTHER = 1, 
-        RADIO = 2, 
-        GPS = 3, 
-        CAMERA = 4, 
-        INTERNAL_SENSOR = 5, 
-        EXTERNAL_SENSOR = 6, 
+        ERROR,
+        OTHER, 
+        RADIO, 
+        GPS ,
+        CAMERA,
+        BATTERY,
+        SYSTEM,
+        INTERNAL_SENSOR,
+        EXTERNAL_SENSOR
     };
 
     enum class Interface {
-        ERROR = 0,
-        OTHER = 1, 
-        INTERNAL = 2, 
-        I2C = 3, 
-        UART = 4, 
-        ONEWIRE = 5, 
-        USB = 6,
-        GPIO = 7 
+        ERROR,
+        OTHER, 
+        INTERNAL, 
+        I2C, 
+        UART, 
+        ONEWIRE, 
+        USB,
+        GPIO
     };
 
     struct ExtraArgs {
@@ -85,7 +87,7 @@ struct ExtensionMetadata {
     Category category = (Category) 0;
     Interface interface = (Interface) 0;
     int update_interval = 0; // How often the extension polls for data and sends it to the data stream
-    int critical = 0; // Indicates if this extension is critical to operation, this
+    bool critical = false; // Indicates if this extension is critical to operation, this
                   // will be used by the Flight Runner during the healthCheck
     ExtraArgs extra_args {};
 };
@@ -95,50 +97,54 @@ struct ExtensionMetadata {
  * @brief Container for all config data. Mirrors the config file.
  * @see config.json
  */
-struct ConfigData {
+struct Data {
 
-    enum MainboardType {
-        ERROR = 0,
-        OTHER = 1,
-        PI_ZERO_W_2 = 3, 
-        PI_4 = 6
+    enum Mainboard {
+        ERROR ,
+        OTHER ,
+        PI_ZERO_W_2,
+        PI_4,
     };
 
     struct General {
-        std::string project_name {};
-        MainboardType main_board {};
-        FlightProcedure::ProcType starting_proc {}; // Default is standard
+        std::string project_name = "GFS Balloon";
+        Mainboard main_board = Mainboard::ERROR;
+        FlightProcedure::Type starting_proc = FlightProcedure::Type::STANDARD; // Default is standard
     };
 
     struct Extensions {
         std::vector<ExtensionMetadata> extensions_list {};
+        std::string gps_data_name = "";
+        std::string battery_data_name = "";
+        std::string system_data_name = "";
+        std::string radio_data_name = "";
     };
 
     struct Debugging {
-        int console_enabled {};
-        int console_update_interval {};
-        int web_server_enabled {};
-        int web_server_update_interval {};
-        int web_server_socket_port {};
+        bool console_enabled = false;
+        int console_update_interval = 1000;
+
+        bool web_server_enabled = false;
+        int web_server_socket_port = 8779;
     };
 
     struct Telemetry {
-        int telemetry_enabled = 0;
-        std::string call_sign {};
-        std::string data_packet_mode = "";
+        bool telemetry_enabled = false;
+        std::string call_sign = "error";
+        std::string data_packet_mode = "psk";
 
-        int afsk_enabled = 0;
+        bool afsk_enabled = false;
         std::string afsk_freq {};
 
-        int psk_enabled = 0;
+        bool psk_enabled = false;
         std::string psk_freq {};
         std::string psk_mode {};
 
-        int sstv_enabled = 0;
+        bool sstv_enabled = false;
         std::string sstv_mode {};
         std::string sstv_freq {};
 
-        int aprs_enabled = 0;
+        bool aprs_enabled = false;
         std::string aprs_freq {};
         int aprs_key = 0;
         int aprs_ssid = 0;
@@ -170,24 +176,4 @@ struct ConfigData {
     DataTypes data_types {};
     Procs flight_procs {};
 };
-
-/**
- * @brief Used by the telemetry module in it's queue and by the data stream.
- * @todo move this
- */
-struct Transmission {
-    enum class Type {
-        ERROR = 0,
-        APRS = 1,
-        AFSK = 2,
-        PSK = 3,
-        SSTV = 4,
-    };
-    Type type = Type::ERROR;
-    std::string message = "";
-    std::string wav_location = "";
-    int length = 0; // Length in seconds
-    int tx_num = 0; // ID for the transmission
-};
-
 #endif

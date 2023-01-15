@@ -19,7 +19,7 @@ using namespace modules;
  * @param data A pointer to the data module.
  * @todo Error on update interval being less than 1
  */
-ConsoleModule::ConsoleModule(const ConfigData config_data, DataStream *stream):
+ConsoleModule::ConsoleModule(const Data config_data, DataStream *stream):
     Module(stream, MODULE_CONSOLE_PREFIX),
     config_data_(config_data),
     p_data_stream_(stream) {
@@ -117,10 +117,10 @@ void ConsoleModule::printData() {
     "    Mainboard: ";
     switch (config_data_.general.main_board)
     {
-    case ConfigData::MainboardType::PI_ZERO_W_2:
+    case Data::Mainboard::PI_ZERO_W_2:
         std::cout << "pi_zero_w_2";
         break;
-    case ConfigData::MainboardType::PI_4: std::cout << "Pi 4";
+    case Data::Mainboard::PI_4: std::cout << "Pi 4";
         break;
     default: std::cout << "Unknown";
         break;
@@ -128,15 +128,15 @@ void ConsoleModule::printData() {
     std::cout << "    Starting Procedure: ";
     switch (config_data_.general.starting_proc)
     {
-    case 0: std::cout << "error";
+    case FlightProcedure::Type::ERROR: std::cout << "error";
         break;
-    case 1: std::cout << "Testing";
+    case FlightProcedure::Type::TESTING: std::cout << "Testing";
         break;
-    case 2: std::cout << "Standard";
+    case FlightProcedure::Type::STANDARD: std::cout << "Standard";
         break;
-    case 3: std::cout << "Recovery";
+    case FlightProcedure::Type::RECOVERY: std::cout << "Recovery";
         break;
-    case 4: std::cout << "Failsafe";
+    case FlightProcedure::Type::FAILSAFE: std::cout << "Failsafe";
         break;
     default:
         std::cout << "Unknown";
@@ -152,15 +152,15 @@ void ConsoleModule::printData() {
 
     switch (current_flt_proc.type)
     {
-    case 0: std::cout << "error";
+    case FlightProcedure::Type::ERROR: std::cout << "error";
         break;
-    case 1: std::cout << "Testing";
+    case FlightProcedure::Type::TESTING: std::cout << "Testing";
         break;
-    case 2: std::cout << "Standard";
+    case FlightProcedure::Type::STANDARD: std::cout << "Standard";
         break;
-    case 3: std::cout << "Recovery";
+    case FlightProcedure::Type::RECOVERY: std::cout << "Recovery";
         break;
-    case 4: std::cout << "Failsafe";
+    case FlightProcedure::Type::FAILSAFE: std::cout << "Failsafe";
         break;
     default:
         std::cout << "Unknown";

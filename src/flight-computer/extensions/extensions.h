@@ -62,6 +62,7 @@ protected:
     void sendData(std::string unit, std::string value);
     void sendData(std::string unit, int value);
     void sendData(std::string unit, float value, int precision = 1);
+    void sendData(GPSFrame gps_frame);
 
     //template <typename T>
     //void error(std::string error_code, T info);

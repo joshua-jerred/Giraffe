@@ -58,15 +58,15 @@ class Module {
             }
         };
 
-        void data(std::string data_name, std::string data_value, int seconds_until_expiry = 0) {
+        void data(std::string data_name, std::string data_value) {
             if (p_data_stream_ != nullptr) {
-                p_data_stream_->addData(error_source_, data_name, data_value, seconds_until_expiry);
+                p_data_stream_->addData(error_source_, data_name, data_value);
             }
         };
 
-        void data(std::string data_name, int data_value, int second_until_expiry = 0) {
+        void data(std::string data_name, int data_value) {
             if (p_data_stream_ != nullptr) {
-                p_data_stream_->addData(error_source_, data_name, std::to_string(data_value), second_until_expiry);
+                p_data_stream_->addData(error_source_, data_name, std::to_string(data_value));
             }
         };
 
@@ -101,7 +101,7 @@ class Module {
  */
 class TelemetryModule : public Module {
 public:
-    TelemetryModule(ConfigData config_data, DataStream *data_stream);
+    TelemetryModule(Data config_data, DataStream *data_stream);
     TelemetryModule(const TelemetryModule &other) = delete; // No copy constructor
     TelemetryModule &operator=(const TelemetryModule &other) = delete; // No copy assignment
     ~TelemetryModule();
@@ -144,7 +144,7 @@ private:
     void parseCommands();
     void doCommand(GFSCommand command);
 
-    ConfigData config_data_;
+    Data config_data_;
     DataStream *p_data_stream_;
 
     int psk_length_ = 0;
@@ -152,7 +152,7 @@ private:
 
 class ServerModule : public Module {
 public:
-    ServerModule(const ConfigData config_data, DataStream *data);
+    ServerModule(const Data config_data, DataStream *data);
     ServerModule(const ServerModule&) = delete; // No copy constructor
     ServerModule& operator=(const ServerModule&) = delete; // No copy assignment
     ~ServerModule();
@@ -165,10 +165,12 @@ public:
 private:
     void runner();
     void sendConfig(ServerSocket &socket);
-    void sendDynamicData(ServerSocket &socket);
+    void sendStatus(ServerSocket &socket);
+    void sendGfsData(ServerSocket &socket);
+    void sendExtensionStatuses(ServerSocket &socket);
     void sendTelemetryData(ServerSocket &socket);
 
-    ConfigData config_data_;
+    Data config_data_;
     DataStream* p_data_stream_;
 
     std::thread runner_thread_ = std::thread();
@@ -189,7 +191,7 @@ private:
  */
 class ExtensionsModule : public Module {
 public:
-    ExtensionsModule(const ConfigData config_data, DataStream *stream);
+    ExtensionsModule(const Data config_data, DataStream *stream);
     ExtensionsModule(const ExtensionsModule &other) = delete; // No copy constructor
     ExtensionsModule &operator=(const ExtensionsModule &other) = delete; // No copy assignment
     ~ExtensionsModule();
@@ -205,7 +207,7 @@ private:
 
     std::vector<extension::Extension*> extensions_ = {};
     DataStream *p_data_stream_;
-    ConfigData config_data_;
+    Data config_data_;
 
     void addExtension(ExtensionMetadata meta_data);
 };
@@ -239,7 +241,7 @@ public:
     DataModule& operator=(const DataModule&) = delete; // No copy assignment
     ~DataModule();
 
-    void addConfigData(ConfigData config_data);
+    void addConfigData(Data config_data);
 
     void start();
     void stop();
@@ -248,15 +250,23 @@ public:
     void log();
 
 private:
-    void addDataTypeToFrame(ConfigData::DataTypes::DataType data_type); // add a data type to the data frame
+    void addDataTypeToFrame(Data::DataTypes::DataType data_type); // add a data type to the data frame
     
     void checkForStaleData(); // check for stale data in the data frame
     void parseDataStream();
+    void parseGPSData();
+
+    void parseCriticalData();
 
     void checkForStaleErrors();
     void parseErrorStream();
     
     void runner();
+
+    CriticalData critical_data_ = CriticalData();
+    
+    GPSFrame latest_gps_frame_ = GPSFrame();
+    GPSFrame last_valid_fix_gps_frame_ = GPSFrame();
 
     std::string data_log_file_path_ = "";
     std::string error_log_file_path_ = "";
@@ -269,7 +279,12 @@ private:
     std::atomic<int> shutdown_signal_ = 0;
     std::thread runner_thread_ = std::thread();
 
-    ConfigData config_data_ = {};
+    Data config_data_ = {};
+
+    std::string gps_data_source_ = "";
+    std::string battery_data_source_ = "";
+    std::string system_data_source_ = "";
+    std::string radio_data_source_ = "";
 };
 
 /**
@@ -283,7 +298,7 @@ private:
  */
 class ConsoleModule : public Module {
 public:
-    ConsoleModule(const ConfigData config_data, DataStream *data);
+    ConsoleModule(const Data config_data, DataStream *data);
     ConsoleModule(const ConsoleModule&) = delete; // No copy constructor
     ConsoleModule& operator=(const ConsoleModule&) = delete; // No copy assignment
     ~ConsoleModule();
@@ -296,7 +311,7 @@ private:
     void clearScreen();
     void printData();
 
-    ConfigData config_data_;
+    Data config_data_;
     DataStream* p_data_stream_ = nullptr;
 
     int update_interval_ = 10;
@@ -334,7 +349,7 @@ public:
     ~ConfigModule();
 
     int load(std::string filepath);
-    ConfigData getAll();
+    Data getAll();
     // json getAllJson();
     int getNumberOfErrors();
 
@@ -360,7 +375,7 @@ private:
 
     std::string config_file_path_ = "";
     json json_buffer_ = json::object();
-    ConfigData config_data_ = ConfigData();
+    Data config_data_ = Data();
 };
 
 } // namespace modules

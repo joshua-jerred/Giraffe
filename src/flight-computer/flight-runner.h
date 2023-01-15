@@ -90,12 +90,12 @@ private:
 
     void healthCheck();
 
-    void switchLoops(FlightProcedure::ProcType procType);
+    void switchLoops(FlightProcedure::Type procType);
 
     void deconstruct();
 
-    ConfigData config_data_ = ConfigData();
-    FlightProcedure::ProcType current_flight_procedure_type_;
+    Data config_data_ = Data();
+    FlightProcedure::Type current_flight_procedure_type_;
     FlightProcedure::Intervals current_intervals_ = FlightProcedure::Intervals();
     
     DataStream data_stream_ = DataStream();
@@ -108,11 +108,11 @@ private:
     //ComModule *mpComModule;
     int shutdown_signal_;
 
-    FlightProcedure flt_proc_testing_ = FlightProcedure(FlightProcedure::ProcType::TESTING);
-    FlightProcedure flt_proc_standard_ = FlightProcedure(FlightProcedure::ProcType::STANDARD);
-    FlightProcedure flt_proc_descent_ = FlightProcedure(FlightProcedure::ProcType::DESCENT);
-    FlightProcedure flt_proc_recovery_ = FlightProcedure(FlightProcedure::ProcType::RECOVERY);
-    FlightProcedure flt_proc_failsafe_ = FlightProcedure(FlightProcedure::ProcType::FAILSAFE);
+    FlightProcedure flt_proc_testing_ = FlightProcedure(false, FlightProcedure::Type::TESTING, {});
+    FlightProcedure flt_proc_standard_ = FlightProcedure(false, FlightProcedure::Type::STANDARD, {});
+    FlightProcedure flt_proc_descent_ = FlightProcedure(false, FlightProcedure::Type::DESCENT, {});
+    FlightProcedure flt_proc_recovery_ = FlightProcedure(false, FlightProcedure::Type::RECOVERY, {});
+    FlightProcedure flt_proc_failsafe_ = FlightProcedure(false, FlightProcedure::Type::FAILSAFE, {});
 };
 
 #endif

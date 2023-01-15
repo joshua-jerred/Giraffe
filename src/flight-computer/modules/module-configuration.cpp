@@ -44,19 +44,19 @@ using json = nlohmann::ordered_json;
  * 
  * @see config-types.h
  */
-NLOHMANN_JSON_SERIALIZE_ENUM( ConfigData::MainboardType, {
-    {ConfigData::MainboardType::ERROR, "error"}, 
-    {ConfigData::MainboardType::OTHER, "other"},
-    {ConfigData::MainboardType::PI_ZERO_W_2, "pi_zero_w_2"},
-    {ConfigData::MainboardType::PI_4, "pi_4"}
+NLOHMANN_JSON_SERIALIZE_ENUM( Data::Mainboard, {
+    {Data::Mainboard::ERROR, "error"}, 
+    {Data::Mainboard::OTHER, "other"},
+    {Data::Mainboard::PI_ZERO_W_2, "pi_zero_w_2"},
+    {Data::Mainboard::PI_4, "pi_4"}
 })
 
-NLOHMANN_JSON_SERIALIZE_ENUM( FlightProcedure::ProcType, {
-    {FlightProcedure::ProcType::ERROR, "error"},
-    {FlightProcedure::ProcType::TESTING, "testing"},
-    {FlightProcedure::ProcType::STANDARD, "standard"},
-    {FlightProcedure::ProcType::RECOVERY, "recovery"},
-    {FlightProcedure::ProcType::FAILSAFE, "failsafe"}
+NLOHMANN_JSON_SERIALIZE_ENUM( FlightProcedure::Type, {
+    {FlightProcedure::Type::ERROR, "error"},
+    {FlightProcedure::Type::TESTING, "testing"},
+    {FlightProcedure::Type::STANDARD, "standard"},
+    {FlightProcedure::Type::RECOVERY, "recovery"},
+    {FlightProcedure::Type::FAILSAFE, "failsafe"}
 })
 
 NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Category, {
@@ -65,6 +65,8 @@ NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Category, {
     {ExtensionMetadata::Category::RADIO, "radio"},
     {ExtensionMetadata::Category::GPS, "gps"},
     {ExtensionMetadata::Category::CAMERA, "camera"},
+	{ExtensionMetadata::Category::BATTERY, "battery"},
+	{ExtensionMetadata::Category::SYSTEM, "system"},
     {ExtensionMetadata::Category::INTERNAL_SENSOR, "internal_sensor"},
     {ExtensionMetadata::Category::EXTERNAL_SENSOR, "external_sensor"}
 })
@@ -74,8 +76,8 @@ NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Interface, {
     {ExtensionMetadata::Interface::INTERNAL, "internal"},
     {ExtensionMetadata::Interface::I2C, "i2c"},
     {ExtensionMetadata::Interface::UART, "uart"},
-    {ExtensionMetadata::Interface::ONEWIRE, "oneWire"},
-    {ExtensionMetadata::Interface::USB, "USB"},
+    {ExtensionMetadata::Interface::ONEWIRE, "onewire"},
+    {ExtensionMetadata::Interface::USB, "usb"},
     {ExtensionMetadata::Interface::GPIO, "gpio"}
 })
 /**
@@ -127,7 +129,7 @@ int ConfigModule::load(std::string file_path) {
  * @param None
  * @return ConfigData - All of the configuration data.
  */
-ConfigData ConfigModule::getAll() {
+Data ConfigModule::getAll() {
 	return config_data_;
 }
 
@@ -207,29 +209,36 @@ void ConfigModule::parseGeneral() {
 			error("GEN_PN_R", name);
 			config_data_.general.project_name = "INVALID";
 		} else if (!std::regex_search(name, std::regex("^[a-zA-Z_ 0-9-]*$"))) { 
-
 			error("GEN_PN_I", name);
-
 		} else {
 			config_data_.general.project_name = name;
 		}
 	}
 
-
-	ConfigData::MainboardType mbtype = 
-	json_buffer_["general"]["main-board-type"].get<ConfigData::MainboardType>();
-	if (mbtype == ConfigData::MainboardType::ERROR) {
-		error("GEN_MB_I");
+	if (!json_buffer_["general"].contains("main-board-type")) {
+		error("GEN_MB_NF"); // Mainboard type does not exist in config
+		config_data_.general.main_board = Data::Mainboard::ERROR;
 	} else {
-		config_data_.general.main_board = mbtype;
+		Data::Mainboard mbtype = 
+		json_buffer_["general"]["main-board-type"].get<Data::Mainboard>();
+		if (mbtype == Data::Mainboard::ERROR) {
+			error("GEN_MB_I");
+		} else {
+			config_data_.general.main_board = mbtype;
+		}
 	}
-	
-	FlightProcedure::ProcType ltype = 
-	json_buffer_["general"]["starting-procedure"].get<FlightProcedure::ProcType>();
-	if (ltype == FlightProcedure::ProcType::ERROR) {
-		error("GEN_SP_I");
+
+	if (!json_buffer_["general"].contains("starting-procedure")) {
+		error("GEN_SP_NF"); // Starting procedure does not exist in config
+		config_data_.general.starting_proc = FlightProcedure::Type::ERROR;
 	} else {
-		config_data_.general.starting_proc = ltype;
+		FlightProcedure::Type ptype = 
+		json_buffer_["general"]["starting-procedure"].get<FlightProcedure::Type>();
+		if (ptype == FlightProcedure::Type::ERROR) {
+			error("GEN_SP_I");
+		} else {
+			config_data_.general.starting_proc = ptype;
+		}
 	}
 }
 
@@ -248,107 +257,143 @@ void ConfigModule::parseExtensions() {
 	int number_of_extensions = 0;
 	for (const auto& item : json_buffer_["extensions"].items()) {
 		ExtensionMetadata newExtension;
-		
-		int id = item.value()["id"].get<int>();
-		if (id != number_of_extensions + 1) { 
-			error("EXT_ID_R", id);
-		} else if (id < EXTENSION_ID_MIN || id > EXTENSION_ID_MAX) {
-			error("EXT_ID_S", id);
-		} else {
-			newExtension.id = id;
-		}
-
-		std::string name = item.value()["name"].get<std::string>();
-		if (name.length() < EXTENSION_NAME_MIN_LENGTH ||
-		name.length() >= EXTENSION_NAME_MAX_LENGTH) {
-			error("EXT_NM_R", name);
-		} else if (!std::regex_search(name, std::regex("^[a-zA-Z_0-9-]*$"))) {
-			error("EXT_NM_I", name);
-		}
-		else {
-			newExtension.name = name;
-		}
-
-		std::string etype = item.value()["type"].get<std::string>();
-		if (etype.length() < EXTENSION_NAME_MIN_LENGTH ||
-		etype.length() > EXTENSION_NAME_MAX_LENGTH) {
-		} else {
-			newExtension.extension_type = etype;
-		}
-
-		ExtensionMetadata::Category category =
-		item.value()["category"].get<ExtensionMetadata::Category>();
-		if (category == ExtensionMetadata::Category::ERROR) {
-		} else {
-			newExtension.category = category;
-		}
-
-		ExtensionMetadata::Interface interface =
-		item.value()["interface"].get<ExtensionMetadata::Interface>();
-		if (interface == ExtensionMetadata::Interface::ERROR) {
-			// Report error here
-		} else {
-			if (interface == ExtensionMetadata::Interface::ONEWIRE) { // On onewire
-				std::string id = 
-				item.value()["onewire-id"].get<std::string>();
-
-				if (!std::regex_search(id, std::regex("28-[0-9&a-f]{12}"))) {
-
-					error("C_EXT_OW_I", id);
-
-				} else {
-					newExtension.extra_args.one_wire_id = id;
-				}
-
-			} else if (interface == ExtensionMetadata::Interface::I2C) { // On I2C
-				std::string address = 
-				item.value()["i2c-address"].get<std::string>();
-
-				int address_num = -1;
-				std::stringstream strs;
-				strs << std::hex << address; // convert hex string to int
-				strs >> address_num;
-
-				if (address_num < 0 || address_num > 127) {
-					error("EXT_I2_A", address);
-				} else {
-					newExtension.extra_args.I2C_device_address = address;
-				}
-
-				int bus = item.value()["i2c-bus"].get<int>();
-				if (bus < 0 || bus > 2) {
-					error("ETC_I2_B", bus);
-				} else {
-					newExtension.extra_args.I2C_bus = bus;
-				}
-
+		try {
+			int id = item.value()["id"].get<int>();
+			if (id != number_of_extensions + 1) { 
+				error("EXT_ID_R", id);
+			} else if (id < EXTENSION_ID_MIN || id > EXTENSION_ID_MAX) {
+				error("EXT_ID_S", id);
+			} else {
+				newExtension.id = id;
 			}
-			newExtension.interface = interface;
-		}
+	
+			std::string name = item.value()["name"].get<std::string>();
+			if (name.length() < EXTENSION_NAME_MIN_LENGTH ||
+			name.length() >= EXTENSION_NAME_MAX_LENGTH) {
+				error("EXT_NM_R", name);
+			} else if (!std::regex_search(name, std::regex("^[a-zA-Z_0-9-]*$"))) {
+				error("EXT_NM_I", name);
+			}
+			else {
+				newExtension.name = name;
+			}
+	
+			std::string etype = item.value()["type"].get<std::string>();
+			if (etype.length() < EXTENSION_NAME_MIN_LENGTH ||
+			etype.length() > EXTENSION_NAME_MAX_LENGTH) {
+			} else {
+				newExtension.extension_type = etype;
+			}
+	
+			ExtensionMetadata::Category category =
+			item.value()["category"].get<ExtensionMetadata::Category>();
+			if (category == ExtensionMetadata::Category::ERROR) {
+			} else {
+				newExtension.category = category;
 
-		int interval = item.value()["update-interval"].get<int>();
-		if (interval < EXTENSION_INTERVAL_MIN || 
-		interval > EXTENSION_INTERVAL_MAX) {
-			error("EXT_UI_R", interval);
-			newExtension.update_interval = 1000;
-		} else {
-			newExtension.update_interval = interval;
-		}
+				if (category == ExtensionMetadata::Category::GPS) {
+					if (config_data_.extensions.gps_data_name.size() > 0) {
+						error("MGPS");
+					} else {
+						config_data_.extensions.gps_data_name = name;
+					}
+				} else if (category == ExtensionMetadata::Category::BATTERY) {
+					if (config_data_.extensions.battery_data_name.size() > 0) {
+						error("MBAT");
+					} else {
+						config_data_.extensions.battery_data_name = name;
+					}
+				} else if (category == ExtensionMetadata::Category::SYSTEM) {
+					if (config_data_.extensions.system_data_name.size() > 0) {
+						error("MSYS");
+					} else {
+						config_data_.extensions.system_data_name = name;
+					}
+				} else if (category == ExtensionMetadata::Category::RADIO) {
+					if (config_data_.extensions.radio_data_name.size() > 0) {
+						error("MRAD");
+					} else {
+						config_data_.extensions.radio_data_name = name;
+					}
+				}
+			}
+	
+			ExtensionMetadata::Interface interface =
+			item.value()["interface"].get<ExtensionMetadata::Interface>();
+			if (interface == ExtensionMetadata::Interface::ERROR) {
+				// Report error here
+			} else {
+				if (interface == ExtensionMetadata::Interface::ONEWIRE) { // On onewire
+					
+					if (!item.value().contains("onewire-id")) {
+						newExtension.extra_args.one_wire_id = "NOT FOUND";
+						error("EXT_OW_NF", id);
+					} else {
+						std::string id = 
+						item.value()["onewire-id"].get<std::string>();
 
-		int flight_critical = item.value()["flight-critical"].get<int>();
-		if (flight_critical != 0 && flight_critical != 1) {
-			//errors_.push_back("Extension flight-critical must be 0 or 1.");
-		} else {
-			newExtension.critical = flight_critical;
-		}
+						if (!std::regex_search(id, std::regex("28-[0-9&a-f]{12}"))) {
+						
+							error("EXT_OW_I", id);
 
-		if (newExtension.category == ExtensionMetadata::Category::RADIO) {
-			// Check for radio-specific fields
+						} else {
+							newExtension.extra_args.one_wire_id = id;
+						}
+					}
+	
+				} else if (interface == ExtensionMetadata::Interface::I2C) { // On I2C
+					std::string address = 
+					item.value()["i2c-address"].get<std::string>();
+	
+					int address_num = -1;
+					std::stringstream strs;
+					strs << std::hex << address; // convert hex string to int
+					strs >> address_num;
+	
+					if (address_num < 0 || address_num > 127) {
+						error("EXT_I2_A", address);
+					} else {
+						newExtension.extra_args.I2C_device_address = address;
+					}
+	
+					int bus = item.value()["i2c-bus"].get<int>();
+					if (bus < 0 || bus > 2) {
+						error("ETC_I2_B", bus);
+					} else {
+						newExtension.extra_args.I2C_bus = bus;
+					}
+	
+				}
+				newExtension.interface = interface;
+			}
+	
+			int interval = item.value()["update-interval"].get<int>();
+			if (interval < EXTENSION_INTERVAL_MIN || 
+			interval > EXTENSION_INTERVAL_MAX) {
+				error("EXT_UI_R", interval);
+				newExtension.update_interval = 1000;
+			} else {
+				newExtension.update_interval = interval;
+			}
+	
+			int flight_critical = item.value()["flight-critical"].get<int>();
+			if (flight_critical != 0 && flight_critical != 1) {
+				//errors_.push_back("Extension flight-critical must be 0 or 1.");
+			} else {
+				newExtension.critical = flight_critical;
+			}
+	
+			if (newExtension.category == ExtensionMetadata::Category::RADIO) {
+				// Check for radio-specific fields
+			}
+	
+			config_data_.extensions.extensions_list.push_back(newExtension);
+			number_of_extensions++;
 		}
-
-		config_data_.extensions.extensions_list.push_back(newExtension);
-		number_of_extensions++;
-	}
+		catch(const std::exception& e) {
+			error("EXT_P", number_of_extensions++); 
+		}
+	}	
 }
 
 /**
@@ -367,8 +412,8 @@ void ConfigModule::parseDebug() {
 	config_data_.debug.web_server_enabled = 
 		json_buffer_["debugging"]["web-server-enabled"].get<bool>();
 
-	config_data_.debug.web_server_update_interval = 
-		json_buffer_["debugging"]["web-server-update-interval"].get<int>();
+	config_data_.debug.web_server_socket_port = 
+		json_buffer_["debugging"]["web-server-socket-port"].get<int>();
 }
 
 
@@ -394,7 +439,7 @@ void ConfigModule::parseTelemetry() {
 	
 	config_data_.telemetry.telemetry_enabled = 1;
 
-	std::string callsign = json_buffer_["telemetry"]["callsign"].get<std::string>();
+	std::string callsign = json_buffer_["telemetry"]["call-sign"].get<std::string>();
 	if (callsign == "" || callsign == "NOCALL") {
 		//errors_.push_back("Your callsign is invalid.");
 	} else {
@@ -492,7 +537,7 @@ void ConfigModule::parseTelemetry() {
  */
 void ConfigModule::parseDataTypes() {
 	for (const auto& item : json_buffer_["data-log-data-and-packet-contents"].items()) {
-		ConfigData::DataTypes::DataType newDataType;
+		Data::DataTypes::DataType newDataType;
 		try 
 		{
 			newDataType.source = item.value()["source"].get<std::string>();
@@ -518,9 +563,9 @@ void ConfigModule::parseFlightProcedures() {
 	for (const auto& item : json_buffer_["flight-procs"].items()) {
 		FlightProcedure newFlightProcedure;
 
-		newFlightProcedure.type = item.value()["type"].get<FlightProcedure::ProcType>();
+		newFlightProcedure.type = item.value()["type"].get<FlightProcedure::Type>();
 
-		if (newFlightProcedure.type == FlightProcedure::ProcType::ERROR) {
+		if (newFlightProcedure.type == FlightProcedure::Type::ERROR) {
 			//errors_.push_back("Invalid flight proc type.");
 		}
 
@@ -540,11 +585,11 @@ void ConfigModule::parseFlightProcedures() {
 		item.value()["intervals"]["health-check"].get<int>();
 
 
-		if (newFlightProcedure.type == FlightProcedure::ProcType::TESTING) {
+		if (newFlightProcedure.type == FlightProcedure::Type::TESTING) {
 			config_data_.flight_procs.testing = newFlightProcedure;
-		} else if (newFlightProcedure.type == FlightProcedure::ProcType::STANDARD) {
+		} else if (newFlightProcedure.type == FlightProcedure::Type::STANDARD) {
 			config_data_.flight_procs.standard = newFlightProcedure;
-		} else if (newFlightProcedure.type == FlightProcedure::ProcType::RECOVERY) {
+		} else if (newFlightProcedure.type == FlightProcedure::Type::RECOVERY) {
 			config_data_.flight_procs.recovery = newFlightProcedure;
 		}
 	}

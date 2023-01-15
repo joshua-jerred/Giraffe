@@ -62,8 +62,7 @@
         "console-enabled": true,
         "console-update-interval": 1000,
         "web-server-enabled": true,
-        "web_server_socket_port": 8080,
-        "web-server-update-interval": 1000
+        "web-server-socket-port": 8080
     },
     "telemetry": {
         "telemetry-enabled": true,
@@ -85,7 +84,7 @@
         "afsk-enabled": true,
         "afsk-frequency": "100.000",
 
-        "psk-enabled":true,
+        "psk-enabled":false,
         "psk-frequency": "100.000",
         "psk-mode": "bpsk500"
     },
