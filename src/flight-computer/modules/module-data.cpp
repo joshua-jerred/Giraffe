@@ -19,9 +19,8 @@ using namespace modules;
  * sets up the data frame. This does not start the module.
  * @param config_data
  */
-DataModule::DataModule(DataStream &data_stream):
-  Module(nullptr, MODULE_DATA_PREFIX),
-  p_data_stream_(data_stream) {
+DataModule::DataModule(DataStream &stream):
+  Module(stream, MODULE_DATA_PREFIX, "data") {
 
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
@@ -82,7 +81,7 @@ void DataModule::addConfigData(Data config_data) {
  * @return void
  */
 void DataModule::start() {
-  module_status_ = ModuleStatus::STARTING;
+  updateStatus(ModuleStatus::STARTING);
   shutdown_signal_ = 0;
   runner_thread_ = std::thread(&DataModule::runner, this);
 }
@@ -96,16 +95,17 @@ void DataModule::start() {
  * @todo Implement this.
  */
 void DataModule::stop() {
+  updateStatus(ModuleStatus::STOPPING);
   shutdown_signal_ = 1;
   runner_thread_.join();
-  module_status_ = ModuleStatus::STOPPED;
+  updateStatus(ModuleStatus::STOPPED);
 }
 
 void DataModule::log() {
   std::ofstream logfile;
   logfile.open(data_log_file_path_, std::ios_base::app);
 
-  DataFrame dataframe_copy(p_data_stream_.getDataFrameCopy());
+  DataFrame dataframe_copy(data_stream_.getDataFrameCopy());
 
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
@@ -159,20 +159,20 @@ void DataModule::addDataTypeToFrame(
  * @return void
  */
 void DataModule::parseDataStream() {
-  int packetCount = p_data_stream_.getNumDataPackets();
+  int packetCount = data_stream_.getNumDataPackets();
   DataStreamPacket dpacket;
   for (int i = 0; i < packetCount; i++) {
-    dpacket = p_data_stream_.getNextDataPacket();
+    dpacket = data_stream_.getNextDataPacket();
     dataframe_.insert_or_assign(dpacket.source + ":" + dpacket.unit, dpacket);
   }
-  p_data_stream_.updateDataFrame(dataframe_);
+  data_stream_.updateDataFrame(dataframe_);
 }
 
 void DataModule::parseGPSData() {
-  int packetCount = p_data_stream_.getNumGPSPackets();
+  int packetCount = data_stream_.getNumGPSPackets();
   GPSFrame frame;
   for (int i = 0; i < packetCount; i++) {
-    bool status = p_data_stream_.getNextGPSFrame(frame);
+    bool status = data_stream_.getNextGPSFrame(frame);
     if (status) {
       latest_gps_frame_ = frame;
       if (frame.fix == GPSFixType::FIX_3D || frame.fix == GPSFixType::FIX_2D) {
@@ -198,10 +198,10 @@ void DataModule::parseErrorStream() {
   std::ofstream error_file;
   error_file.open(error_log_file_path_, std::ios_base::app);
 
-  int packetCount = p_data_stream_.getNumErrorPackets();
+  int packetCount = data_stream_.getNumErrorPackets();
   ErrorStreamPacket epacket;
   for (int i = 0; i < packetCount; i++) {
-    epacket = p_data_stream_.getNextErrorPacket();
+    epacket = data_stream_.getNextErrorPacket();
 
     if (!errorframe_.contains(epacket.source + ":" + epacket.error_code)) { // Log the error if it doesn't exist
       error_file << epacket.source << ", " << epacket.error_code << ", "
@@ -211,7 +211,7 @@ void DataModule::parseErrorStream() {
     errorframe_.insert_or_assign(
         epacket.source + ":" + epacket.error_code, epacket);
   }
-  p_data_stream_.updateErrorFrame(errorframe_);
+  data_stream_.updateErrorFrame(errorframe_);
 }
 
 void DataModule::parseCriticalData() {
@@ -265,7 +265,7 @@ void DataModule::parseCriticalData() {
     critical_data_.radio_good = false;
   }
 
-  p_data_stream_.updateCriticalData(critical_data_);
+  data_stream_.updateCriticalData(critical_data_);
 }
 
 void DataModule::checkForStaleData() {
@@ -321,8 +321,8 @@ void DataModule::checkForStaleErrors() {
  * @todo Implement the error frame.
  */
 void DataModule::runner() {
-  module_status_ = ModuleStatus::RUNNING;
   while (!shutdown_signal_) {
+    updateStatus(ModuleStatus::RUNNING);
     std::this_thread::sleep_for(std::chrono::milliseconds(
         MODULE_DATA_FRAME_UPDATE_INTERVAL_MILI_SECONDS));
     parseDataStream();

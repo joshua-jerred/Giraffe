@@ -84,8 +84,8 @@ NLOHMANN_JSON_SERIALIZE_ENUM( ExtensionMetadata::Interface, {
  * @brief Construct a new ConfigModule::ConfigModule object
  * @param None
  */
-ConfigModule::ConfigModule(DataStream *data_stream):
-	p_data_stream_(data_stream) {
+ConfigModule::ConfigModule(DataStream &stream):
+	data_stream_(stream) {
 	number_of_errors_ = 0;
 	config_data_.start_time = time(0);
 }
@@ -107,10 +107,12 @@ ConfigModule::~ConfigModule() {
  * @see parseAll()
  */
 int ConfigModule::load(std::string file_path) {
+	data_stream_.updateModuleStatus("config", ModuleStatus::RUNNING);
 	config_file_path_ = file_path;
 	
 	std::ifstream fs(config_file_path_); // open file
 	if (fs.fail()) {
+		data_stream_.updateModuleStatus("config", ModuleStatus::ERROR_STATE);
 		return -1; // file failed to open
 	}
 	
@@ -120,7 +122,7 @@ int ConfigModule::load(std::string file_path) {
 	//if (getErrors().size() > 0) {
 	//	return -2; // one or more errors parsing the file
 	//}
-
+	data_stream_.updateModuleStatus("config", ModuleStatus::STOPPED);
 	return 0;
 }
 
@@ -155,18 +157,18 @@ int ConfigModule::getNumberOfErrors() {
 template <typename T>
 void ConfigModule::error(std::string error_code, T info) {
 	number_of_errors_++;
-	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, 
+	data_stream_.addError(MODULE_CONFIG_PREFIX, error_code, 
 		std::to_string(info), 0);
 }
 
 void ConfigModule::error(std::string error_code, std::string info) {
 	number_of_errors_++;
-	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, info, 0);
+	data_stream_.addError(MODULE_CONFIG_PREFIX, error_code, info, 0);
 }
 
 void ConfigModule::error(std::string error_code) {
 	number_of_errors_++;
-	p_data_stream_->addError(MODULE_CONFIG_PREFIX, error_code, "", 0);
+	data_stream_.addError(MODULE_CONFIG_PREFIX, error_code, "", 0);
 }
 
 /**

@@ -21,9 +21,8 @@ using namespace modules;
  * @param config_data 
  * @param stream 
  */
-ExtensionsModule::ExtensionsModule(const Data config_data, DataStream *stream):
-    Module(stream, MODULE_EXTENSION_PREFIX),
-    p_data_stream_(stream),
+ExtensionsModule::ExtensionsModule(const Data config_data, DataStream &stream):
+    Module(stream, MODULE_EXTENSION_PREFIX, "extensions"),
     config_data_(config_data) {
 
     for (ExtensionMetadata extdata : config_data.extensions.extensions_list) {
@@ -47,7 +46,7 @@ ExtensionsModule::~ExtensionsModule() {
  * @return void
  */
 void ExtensionsModule::start() {
-    module_status_ = ModuleStatus::STARTING;
+    updateStatus(ModuleStatus::STARTING);
     stop_flag_ = 0;
     runner_thread_ = std::thread(&ExtensionsModule::runner, this);
 }
@@ -58,6 +57,7 @@ void ExtensionsModule::start() {
  * @return void
  */
 void ExtensionsModule::stop() {
+    updateStatus(ModuleStatus::STOPPING);
     std::cout << std::endl;
     if (status() == ModuleStatus::STOPPED && !runner_thread_.joinable()) {
 		return;
@@ -65,8 +65,8 @@ void ExtensionsModule::stop() {
 	stop_flag_ = 1;
 	if (runner_thread_.joinable()) {
 		runner_thread_.join();
-		module_status_ = ModuleStatus::STOPPED;
 	}
+	updateStatus(ModuleStatus::STOPPED);
 }
 
 void ExtensionsModule::runner() {
@@ -87,8 +87,8 @@ void ExtensionsModule::runner() {
     int num_running = 0;
     int num_stopping = 0;
 
-    module_status_ = ModuleStatus::RUNNING;
     while (!stop_flag_) {
+        updateStatus(ModuleStatus::RUNNING);
         total_extensions = 0;
         num_error = 0;
         num_stopped_error_state = 0;
@@ -152,25 +152,25 @@ void ExtensionsModule::runner() {
  */
 void ExtensionsModule::addExtension(ExtensionMetadata meta_data) {
     if (meta_data.extension_type == "TEST_EXT") {
-        extensions_.push_back(new extension::TestExtension(p_data_stream_, meta_data));
+        extensions_.push_back(new extension::TestExtension(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "BMP180_SIM") {
-        extensions_.push_back(new extension::BMP180_SIM(p_data_stream_, meta_data));
+        extensions_.push_back(new extension::BMP180_SIM(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "SAMM8Q_SIM") {
-        extensions_.push_back(new extension::SAMM8Q_SIM(p_data_stream_, meta_data));
+        extensions_.push_back(new extension::SAMM8Q_SIM(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "DS18B20_SIM") {
-        extensions_.push_back(new extension::DS18B20_SIM(p_data_stream_, meta_data));
+        extensions_.push_back(new extension::DS18B20_SIM(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "DRA818V_SIM") {
-        extensions_.push_back(new extension::DRA818V_SIM(p_data_stream_, meta_data));
+        extensions_.push_back(new extension::DRA818V_SIM(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "BMP180") {
-        extensions_.push_back(new extension::BMP180(p_data_stream_, meta_data));
+        extensions_.push_back(new extension::BMP180(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "DS18B20") {
-        extensions_.push_back(new extension::DS18B20(p_data_stream_, meta_data));
+        extensions_.push_back(new extension::DS18B20(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "SAMM8Q") {
-        extensions_.push_back(new extension::SAMM8Q(p_data_stream_, meta_data));
+        extensions_.push_back(new extension::SAMM8Q(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "BME280") {
-        extensions_.push_back(new extension::BME280(p_data_stream_, meta_data));
+        extensions_.push_back(new extension::BME280(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "SYSINFO") {
-        extensions_.push_back(new extension::SYSINFO(p_data_stream_, meta_data));
+        extensions_.push_back(new extension::SYSINFO(&data_stream_, meta_data));
     } else {
         error("Extension type not found: " + meta_data.extension_type);
     }

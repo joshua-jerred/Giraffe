@@ -428,9 +428,9 @@ void DataStream::updateExtensionStatus(std::string extension_name, ExtensionStat
 }
 
 void DataStream::updateModuleStatus(std::string module_name, ModuleStatus status) {
-	module_status_lock_.lock();
+	//module_status_lock_.lock();
 	module_status_.insert_or_assign(module_name, status);
-	module_status_lock_.unlock();
+	//module_status_lock_.unlock();
 }
 
 std::unordered_map<std::string, ExtensionStatus> DataStream::getExtensionStatuses() {
@@ -438,6 +438,13 @@ std::unordered_map<std::string, ExtensionStatus> DataStream::getExtensionStatuse
 	std::unordered_map<std::string, ExtensionStatus> extension_status(extension_status_);
 	extension_status_lock_.unlock();
 	return extension_status;
+}
+
+std::unordered_map<std::string, ModuleStatus> DataStream::getModuleStatuses() {
+	module_status_lock_.lock();
+	std::unordered_map<std::string, ModuleStatus> module_status(module_status_);
+	module_status_lock_.unlock();
+	return module_status;
 }
 
 void DataStream::updateCriticalData(CriticalData &critical_data) {

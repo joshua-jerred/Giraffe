@@ -19,10 +19,9 @@ using namespace modules;
  * @param data A pointer to the data module.
  * @todo Error on update interval being less than 1
  */
-ConsoleModule::ConsoleModule(const Data config_data, DataStream *stream):
-    Module(stream, MODULE_CONSOLE_PREFIX),
-    config_data_(config_data),
-    p_data_stream_(stream) {
+ConsoleModule::ConsoleModule(const Data config_data, DataStream &stream):
+    Module(stream, MODULE_CONSOLE_PREFIX, "console"),
+    config_data_(config_data) {
 
     update_interval_ = config_data.debug.console_update_interval;
     if (update_interval_ < 1) {
@@ -48,6 +47,7 @@ ConsoleModule::~ConsoleModule() {
 void ConsoleModule::start() {
     stop_flag_ = 0;
     runner_thread_ = std::thread(&ConsoleModule::runner, this);
+    updateStatus(ModuleStatus::STARTING);
 }
 
 /**
@@ -59,10 +59,12 @@ void ConsoleModule::start() {
  * @return void
  */
 void ConsoleModule::stop() {
+    updateStatus(ModuleStatus::STOPPING);
     stop_flag_ = 1;
     if (runner_thread_.joinable()) {
         runner_thread_.join();
     }
+    updateStatus(ModuleStatus::STOPPED);
 }
 
 /**
@@ -74,6 +76,7 @@ void ConsoleModule::stop() {
  */
 void ConsoleModule::runner() {
     while (!stop_flag_) {
+        updateStatus(ModuleStatus::RUNNING);
         clearScreen();
         printData();
         std::this_thread::sleep_for(
@@ -145,7 +148,7 @@ void ConsoleModule::printData() {
     
     std::cout << std::endl << std::endl;
 
-    FlightProcedure current_flt_proc = p_data_stream_->getFlightProcedureCopy();
+    FlightProcedure current_flt_proc = data_stream_.getFlightProcedureCopy();
 
     std::cout << "Flight Procedure- " << std::endl;
     std::cout << "Type: ";
@@ -265,12 +268,12 @@ void ConsoleModule::printData() {
     }
     std::cout << std::endl;
 
-    std::cout << p_data_stream_->getTotalDataPackets() << " " 
-    << p_data_stream_->getTotalErrorPackets() << std::endl;
-    std::cout << p_data_stream_->getNumDataPackets() << " " 
-    << p_data_stream_->getNumErrorPackets() << std::endl;
+    std::cout << data_stream_.getTotalDataPackets() << " " 
+    << data_stream_.getTotalErrorPackets() << std::endl;
+    std::cout << data_stream_.getNumDataPackets() << " " 
+    << data_stream_.getNumErrorPackets() << std::endl;
 
-    DataFrame snapshot = p_data_stream_->getDataFrameCopy();
+    DataFrame snapshot = data_stream_.getDataFrameCopy();
     std::cout << "Data - " << snapshot.size() << std::endl;
     const int width = 2;
     int i = 1;
@@ -286,7 +289,7 @@ void ConsoleModule::printData() {
 
     std::cout << std::endl << std::endl;
 
-    ErrorFrame error_snapshot = p_data_stream_->getErrorFrameCopy();
+    ErrorFrame error_snapshot = data_stream_.getErrorFrameCopy();
     std::cout << "Errors - " << error_snapshot.size() << std::endl;
     i = 1;
     for (auto& [key, packet] : error_snapshot) {  

@@ -29,10 +29,9 @@ using namespace modules;
  * @param config_data All configuration data.
  * @param data_stream A pointer to the data stream.
  */
-TelemetryModule::TelemetryModule(Data config_data, DataStream *stream):
-    Module(stream, MODULE_TELEMETRY_PREFIX),
-    config_data_(config_data),
-    p_data_stream_(stream) {
+TelemetryModule::TelemetryModule(Data config_data, DataStream &stream):
+    Module(stream, MODULE_TELEMETRY_PREFIX, "telemetry"),
+    config_data_(config_data) {
 
     tx_number_ = 0; // First tx id will be 1
 
@@ -52,9 +51,10 @@ TelemetryModule::~TelemetryModule() {
  * @todo not implemented yet.
  */
 void TelemetryModule::start() {
-    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
+    updateStatus(ModuleStatus::STARTING);
+    data_stream_.addData(MODULE_TELEMETRY_PREFIX,
         "TX_Q_SZ", "0");
-    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
+    data_stream_.addData(MODULE_TELEMETRY_PREFIX, 
         "ACTIVE_TX",
         "NONE");
     stop_flag_ = 0;
@@ -68,7 +68,7 @@ void TelemetryModule::stop() {
     stop_flag_ = 1;
     if (tx_thread_.joinable()) {
         tx_thread_.join();
-        module_status_ = ModuleStatus::STOPPED;
+        updateStatus(ModuleStatus::STOPPED);
     }
 }
 
@@ -80,7 +80,7 @@ void TelemetryModule::stop() {
 void TelemetryModule::sendDataPacket() {
     int tx_num = getNextTXNumber();
 
-    DataFrame data = p_data_stream_->getDataFrameCopy();
+    DataFrame data = data_stream_.getDataFrameCopy();
     std::string message;
     message += "\n\n" + call_sign_ + "\n";
     message += "automated message - data to follow\n";
@@ -136,7 +136,7 @@ void TelemetryModule::sendAFSK(std::string message){
  * @todo currently not implemented
  */
 void TelemetryModule::sendAPRS() {
-    DataFrame data = p_data_stream_->getDataFrameCopy();
+    DataFrame data = data_stream_.getDataFrameCopy();
     //std::string lat = data["LAT"];
     //std::string lon = data["LON"];
     //std::string alt = data["ALT"];
@@ -179,7 +179,7 @@ void TelemetryModule::doCommand(GFSCommand command) {
         }
 
         Transmission newTX;
-        if (p_data_stream_->requestTXFromLog(tx_id, newTX)) {
+        if (data_stream_.requestTXFromLog(tx_id, newTX)) {
             std::cout << "Re-sending transmission " << tx_id << std::endl;
             if (newTX.type == Transmission::Type::PSK) {
                 std::string old_message = newTX.message;
@@ -251,12 +251,12 @@ void TelemetryModule::addToTXQueue(Transmission transmission) {
     // This will be enabled once file generation is implemented.
     std::ifstream fs(transmission.wav_location);
 	if (!fs.good()) {
-        p_data_stream_->addError("M_TEL", "BAD_TX_FILE",
+        data_stream_.addError("M_TEL", "BAD_TX_FILE",
         transmission.wav_location, 10);
         return;
     }
 
-    p_data_stream_->addToTxQueue(transmission);
+    data_stream_.addToTxQueue(transmission);
 }
 
 /**
@@ -312,11 +312,11 @@ void TelemetryModule::runner() {
         // Check for commands
         parseCommands();
 
-        int queue_size = p_data_stream_->getTXQueueSize();
+        int queue_size = data_stream_.getTXQueueSize();
         data("TX_Q_SZ", queue_size);
 
         // Report the info about the TX log
-        DataStream::TXLogInfo lg = p_data_stream_->getTXLogInfo();
+        DataStream::TXLogInfo lg = data_stream_.getTXLogInfo();
         data("TX_LG_SZ", lg.tx_log_size);
         data("TX_LG_FRST", lg.first_tx_in_log);
         data("TX_LG_LAST", lg.last_tx_in_log);
@@ -324,7 +324,7 @@ void TelemetryModule::runner() {
         // Manage the TX queue
         if (queue_size > 0) {
 
-            Transmission tx = p_data_stream_->getNextTX();
+            Transmission tx = data_stream_.getNextTX();
             std::string tx_length = std::to_string(tx.length);
 
             switch (tx.type) {
@@ -348,7 +348,7 @@ void TelemetryModule::runner() {
                     break;
             }
             
-            p_data_stream_->addData(MODULE_TELEMETRY_PREFIX, 
+            data_stream_.addData(MODULE_TELEMETRY_PREFIX, 
                 "ACTIVE_TX",
                 "NONE");
         }
@@ -361,7 +361,7 @@ void TelemetryModule::runner() {
 void TelemetryModule::playWav(std::string wav_location, std::string tx_type, int tx_length) {
     std::string command = "aplay " + wav_location + " >nul 2>nul"; // command to play with aplay suppress output
 
-    p_data_stream_->addData(MODULE_TELEMETRY_PREFIX,
+    data_stream_.addData(MODULE_TELEMETRY_PREFIX,
         "ACTIVE_TX",
         tx_type + std::to_string(tx_length));
 

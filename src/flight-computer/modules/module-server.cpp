@@ -26,11 +26,9 @@ using json = nlohmann::ordered_json;
 #include "modules.h"
 using namespace modules;
 
-ServerModule::ServerModule(const Data config_data,
-		DataStream *data_stream):
-			Module(data_stream, MODULE_SERVER_PREFIX),
-			config_data_(config_data),
-			p_data_stream_(data_stream) {
+ServerModule::ServerModule(const Data config_data, DataStream &stream):
+			Module(stream, MODULE_SERVER_PREFIX, "server"),
+			config_data_(config_data) {
 }
 
 ServerModule::~ServerModule() {
@@ -38,18 +36,20 @@ ServerModule::~ServerModule() {
 }
 
 void ServerModule::start() {
+	updateStatus(ModuleStatus::STARTING);
 	stop_flag_ = 0;
 	runner_thread_ = std::thread(&ServerModule::runner, this);
 }
 
 void ServerModule::stop() {
+	updateStatus(ModuleStatus::STOPPING);
 	if (status() == ModuleStatus::STOPPED && !runner_thread_.joinable()) {
 		return;
 	}
 	stop_flag_ = 1;
 	if (runner_thread_.joinable()) {
 		runner_thread_.join();
-		module_status_ = ModuleStatus::STOPPED;
+		updateStatus(ModuleStatus::STOPPED);
 	}
 }
 
@@ -60,8 +60,8 @@ int ServerModule::checkShutdown() {
 void ServerModule::runner() {
 	ServerSocket server_socket(MODULE_SERVER_PORT, 1);  // Create non-blocking so it can be checked for shutdown
 	int empty_request_count = 0;
-	module_status_ = ModuleStatus::RUNNING;
 	while (!stop_flag_) {
+		updateStatus(ModuleStatus::RUNNING);
 		try {
 			ServerSocket new_sock;  // Create a new socket for the connection
 			if (server_socket.accept(new_sock)) {
@@ -86,7 +86,7 @@ void ServerModule::runner() {
 				}
 				std::string command_check = request.substr(0, 4);
 				if (command_check == "cmd/") {
-					p_data_stream_->addToCommandQueue(request);
+					data_stream_.addToCommandQueue(request);
 					continue;
 				}
 
@@ -102,7 +102,7 @@ void ServerModule::runner() {
 					sendTelemetryData(new_sock);
 				} 
 				else if (request == "shutdownServer") {
-					p_data_stream_->addData(
+					data_stream_.addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
 						"SHUTDOWN");
@@ -110,7 +110,7 @@ void ServerModule::runner() {
 					stop_flag_ = 1;
 					return;
 				} else if (request == "shutdownGFS") {
-					p_data_stream_->addData(
+					data_stream_.addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
 						"SHUTDOWN_GFS"
@@ -120,7 +120,7 @@ void ServerModule::runner() {
 					gfs_shutdown_flag_ = 1;
 					return;
 				} else if (request == "DISCONNECT") {
-					p_data_stream_->addData(
+					data_stream_.addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
 						"DISCONNECTED"
@@ -133,7 +133,7 @@ void ServerModule::runner() {
 			}
 
 		} catch (SocketException &e) {
-			p_data_stream_->addError(MODULE_SERVER_PREFIX, "Socket Creation",
+			data_stream_.addError(MODULE_SERVER_PREFIX, "Socket Creation",
 										e.description(), 0);
 		}
 		
@@ -252,20 +252,20 @@ void ServerModule::sendStatus(ServerSocket &socket) {
 	std::string system_date = std::to_string(gmt->tm_mday) + "-" + std::to_string(gmt->tm_mon + 1) + "-" + std::to_string(gmt->tm_year + 1900);
 
 	std::string system_data_source = config_data_.extensions.system_data_name;
-	std::string system_uptime_hours = p_data_stream_->getData(system_data_source, "uptime_hours");
+	std::string system_uptime_hours = data_stream_.getData(system_data_source, "uptime_hours");
 	
 	std::string ld_1, ld_5, ld_15, load_avg;
-	ld_1 = p_data_stream_->getData(system_data_source, "load_avg_1");
-	ld_5 = p_data_stream_->getData(system_data_source, "load_avg_5");
-	ld_15 = p_data_stream_->getData(system_data_source, "load_avg_15");
+	ld_1 = data_stream_.getData(system_data_source, "load_avg_1");
+	ld_5 = data_stream_.getData(system_data_source, "load_avg_5");
+	ld_15 = data_stream_.getData(system_data_source, "load_avg_15");
 	load_avg = ld_1 + " " + ld_5 + " " + ld_15;
 
-	std::string cpu_temp = p_data_stream_->getData(system_data_source, "cpu_temp");
-	std::string mem_usage = p_data_stream_->getData(system_data_source, "ram_used_prcnt");
-	std::string storage_usage = p_data_stream_->getData(system_data_source, "disk_used_prcnt");
+	std::string cpu_temp = data_stream_.getData(system_data_source, "cpu_temp");
+	std::string mem_usage = data_stream_.getData(system_data_source, "ram_used_prcnt");
+	std::string storage_usage = data_stream_.getData(system_data_source, "disk_used_prcnt");
 
 	std::string battery_voltage =
-		p_data_stream_->getData(config_data_.extensions.battery_data_name, "voltage");
+		data_stream_.getData(config_data_.extensions.battery_data_name, "voltage");
 
 	json system_status = {
 		{"system-time-utc", system_time},
@@ -289,19 +289,20 @@ void ServerModule::sendStatus(ServerSocket &socket) {
 	
 
 
+	std::unordered_map<std::string, ModuleStatus> module_statuses = data_stream_.getModuleStatuses();
 	json gfs_status = {
 		{"gfs-uptime", gfs_uptime_str},
 		{"health-status", "good"},
-		{"reported-errors", p_data_stream_->getNumErrorPackets()},
-		{"current-flight-proc", "TESTING"},
-		{"flight-phase", "PRELAUNCH"},
+		{"reported-errors", data_stream_.getNumErrorPackets()},
+		{"current-flight-proc", "no-data"},
+		{"flight-phase", "no-data"},
 		{"modules-status", {
-			{"configuration", "good"},
-			{"data", "good"},
-			{"extensions", "good"},
-			{"telemetry", "good"},
-			{"web-server", "good"},
-			{"console", "good"}
+			{"configuration", module_status_to_string_map.at(module_statuses["configuration"])},
+			{"data", module_status_to_string_map.at(module_statuses["data"])},
+			{"extensions", module_status_to_string_map.at(module_statuses["extensions"])},
+			{"telemetry", module_status_to_string_map.at(module_statuses["telemetry"])},
+			{"server", module_status_to_string_map.at(module_statuses["server"])},
+			{"console", module_status_to_string_map.at(module_statuses["console"])}
 		}}
 	};
 
@@ -320,7 +321,7 @@ void ServerModule::sendStatus(ServerSocket &socket) {
 void ServerModule::sendExtensionStatuses(ServerSocket &socket) {
 	json extension_status = {};
 	std::unordered_map<std::string, ExtensionStatus> extension_status_map 
-		= p_data_stream_->getExtensionStatuses();
+		= data_stream_.getExtensionStatuses();
 
 	for (auto const &[key, status] : extension_status_map) {
 		
@@ -357,7 +358,7 @@ void ServerModule::sendExtensionStatuses(ServerSocket &socket) {
 }
 
 void ServerModule::sendGfsData(ServerSocket &socket) {
-	DataFrame snapshot = p_data_stream_->getDataFrameCopy();
+	DataFrame snapshot = data_stream_.getDataFrameCopy();
 	json data;
 	int i = 0;
 	for (auto const &[key, packet] : snapshot) {
@@ -369,7 +370,7 @@ void ServerModule::sendGfsData(ServerSocket &socket) {
 	}
 	
 	json errors = {};
-	ErrorFrame error_snapshot = p_data_stream_->getErrorFrameCopy();
+	ErrorFrame error_snapshot = data_stream_.getErrorFrameCopy();
 	int k = 0;
 	for (auto const &[key, error] : error_snapshot) {
 		errors[std::to_string(k++)] = {
@@ -387,15 +388,15 @@ void ServerModule::sendGfsData(ServerSocket &socket) {
 	try {
 		socket << dynamic_data.dump();  // Send the data
 	} catch (SocketException &e) {
-		p_data_stream_->addError(MODULE_SERVER_PREFIX, "Dynamic",
+		data_stream_.addError(MODULE_SERVER_PREFIX, "Dynamic",
 			e.description(), 0);
 	}
 }
 
 void ServerModule::sendTelemetryData(ServerSocket &socket) {
 	json tx_queue_json = {};
-	p_data_stream_->lockTXQueue();
-	std::queue<Transmission> queue = p_data_stream_->getTXQueue();
+	data_stream_.lockTXQueue();
+	std::queue<Transmission> queue = data_stream_.getTXQueue();
 	int j = 0;
 	while (!queue.empty()) {
 		Transmission tx = queue.front();
@@ -406,20 +407,20 @@ void ServerModule::sendTelemetryData(ServerSocket &socket) {
 			{"duration", tx.length}
 		};
 	}
-	p_data_stream_->unlockTXQueue();
+	data_stream_.unlockTXQueue();
 	
 	json tx_log_info = {}; // Transmission Log Info
 	json tx_log = {}; // Transmission Log
 	
-	const DataStream::TXLogInfo info = p_data_stream_->getTXLogInfo();
+	const DataStream::TXLogInfo info = data_stream_.getTXLogInfo();
 	
 	tx_log_info["size"] = info.tx_log_size;
 	tx_log_info["max_size"] = info.max_size;
 	tx_log_info["first"] = info.first_tx_in_log;
 	tx_log_info["last"] = info.last_tx_in_log;
 
-	p_data_stream_->lockTXLog();
-	const std::deque<Transmission> &log = p_data_stream_->getTXLog();
+	data_stream_.lockTXLog();
+	const std::deque<Transmission> &log = data_stream_.getTXLog();
 	int i = 0;
 	for (auto const &tx : log) {
 		std::string type = "";
@@ -450,7 +451,7 @@ void ServerModule::sendTelemetryData(ServerSocket &socket) {
 			{"length", tx.length}
 		};
 	}
-	p_data_stream_->unlockTXLog();
+	data_stream_.unlockTXLog();
 
 	json telemetry_data = {
 		{"tx-log-info", tx_log_info},
@@ -459,7 +460,7 @@ void ServerModule::sendTelemetryData(ServerSocket &socket) {
 	try {
 		socket << telemetry_data.dump();  // Send the data
 	} catch (SocketException &e) {
-		p_data_stream_->addError(MODULE_SERVER_PREFIX, "Telemetry",
+		data_stream_.addError(MODULE_SERVER_PREFIX, "Telemetry",
 			e.description(), 0);
 	}
 }

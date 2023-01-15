@@ -26,7 +26,7 @@ int FlightRunner::start() {
     // Do not start the DataModule yet because we need to add the config data
 
     // ~~~ Read The Config ~~~ //
-    modules::ConfigModule* config = new modules::ConfigModule(&data_stream_);
+    modules::ConfigModule* config = new modules::ConfigModule(data_stream_);
     int status = config->load(CONFIG_LOCATION);
     if (status == -1) {
         std::cout << "Error: Could not load config file." << std::endl;
@@ -43,28 +43,28 @@ int FlightRunner::start() {
     
     // ~~~ Start the Extensions Module ~~~ //
     p_extension_module_ = new modules::ExtensionsModule(config_data_, 
-        &data_stream_); // Enable Extensions
+        data_stream_); // Enable Extensions
 
     p_extension_module_->start(); // Start Extensions
 
     // ~~~ Start the Console Module ~~~ //
     if (config_data_.debug.console_enabled) {
         p_console_module_ = new modules::ConsoleModule(config_data_, 
-            &data_stream_);
+            data_stream_);
         p_console_module_->start();
     }
 
     // ~~~ Start the Server Module ~~~ //
     if (config_data_.debug.web_server_enabled) {
         p_server_module_ = new modules::ServerModule(config_data_, 
-            &data_stream_);
+            data_stream_);
         p_server_module_->start();
     }
 
     // ~~~ Start the Telemetry Module ~~~ //
     if (config_data_.telemetry.telemetry_enabled) {
         p_telemetry_module_ = new modules::TelemetryModule(config_data_, 
-            &data_stream_);
+            data_stream_);
         p_telemetry_module_->start();
     }
 

@@ -189,7 +189,7 @@ private:
     std::unordered_map<std::string, ModuleStatus> module_status_ = { 
         {"configuration", ModuleStatus::STOPPED},
         {"data", ModuleStatus::STOPPED},
-        {"extension", ModuleStatus::STOPPED},
+        {"extensions", ModuleStatus::STOPPED},
         {"telemetry", ModuleStatus::STOPPED},
         {"server", ModuleStatus::STOPPED},
         {"console", ModuleStatus::STOPPED}};

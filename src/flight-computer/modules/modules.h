@@ -31,10 +31,11 @@ namespace modules {
  */
 class Module {
     public:
-        Module(DataStream *p_data_stream, std::string error_prefix):
-            p_data_stream_(p_data_stream),
+        Module(DataStream &stream, std::string error_prefix, std::string module_name):
+            data_stream_(stream),
             module_status_(ModuleStatus::STOPPED),
-            error_source_(error_prefix)
+            error_source_(error_prefix),
+            module_name_(module_name)
             { };
 
         Module(const Module&) = delete; // No copy constructor
@@ -42,32 +43,28 @@ class Module {
         virtual ~Module( ) { };
 
         ModuleStatus status( ) { return module_status_; };
-        virtual void start( ) { module_status_ = ModuleStatus::ERROR_STATE; };
-        virtual void stop( ) { module_status_ = ModuleStatus::ERROR_STATE; };
+        virtual void start( ) { updateStatus(ModuleStatus::ERROR_STATE); };
+        virtual void stop( ) { updateStatus(ModuleStatus::ERROR_STATE); };
 
     protected:
+        void updateStatus(ModuleStatus new_status) {
+            data_stream_.updateModuleStatus(module_name_, new_status);
+        }
+
         void error(std::string error_code, std::string info) {
-            if (p_data_stream_ != nullptr) {
-                p_data_stream_->addError("M_"+error_source_, error_code, info, 0);
-            }
+            data_stream_.addError("M_"+error_source_, error_code, info, 0);
         };
 
         void error(std::string error_code) {
-            if (p_data_stream_ != nullptr) {
-                p_data_stream_->addError(error_source_, error_code, "", 0);
-            }
+            data_stream_.addError(error_source_, error_code, "", 0);
         };
 
         void data(std::string data_name, std::string data_value) {
-            if (p_data_stream_ != nullptr) {
-                p_data_stream_->addData(error_source_, data_name, data_value);
-            }
+            data_stream_.addData(error_source_, data_name, data_value);
         };
 
         void data(std::string data_name, int data_value) {
-            if (p_data_stream_ != nullptr) {
-                p_data_stream_->addData(error_source_, data_name, std::to_string(data_value));
-            }
+            data_stream_.addData(error_source_, data_name, std::to_string(data_value));
         };
 
         const int kDefaultSleepTime_ = 1000; // 1 second, default sleep time
@@ -87,11 +84,12 @@ class Module {
             );
         }
 
-        DataStream *p_data_stream_;
+        DataStream &data_stream_;
         std::atomic<ModuleStatus> module_status_;
 
     private:
         std::string error_source_;
+        std::string module_name_;
 };
 
 /**
@@ -101,7 +99,7 @@ class Module {
  */
 class TelemetryModule : public Module {
 public:
-    TelemetryModule(Data config_data, DataStream *data_stream);
+    TelemetryModule(Data config_data, DataStream &stream);
     TelemetryModule(const TelemetryModule &other) = delete; // No copy constructor
     TelemetryModule &operator=(const TelemetryModule &other) = delete; // No copy assignment
     ~TelemetryModule();
@@ -145,14 +143,12 @@ private:
     void doCommand(GFSCommand command);
 
     Data config_data_;
-    DataStream *p_data_stream_;
-
     int psk_length_ = 0;
 };
 
 class ServerModule : public Module {
 public:
-    ServerModule(const Data config_data, DataStream *data);
+    ServerModule(const Data config_data, DataStream &stream);
     ServerModule(const ServerModule&) = delete; // No copy constructor
     ServerModule& operator=(const ServerModule&) = delete; // No copy assignment
     ~ServerModule();
@@ -171,7 +167,6 @@ private:
     void sendTelemetryData(ServerSocket &socket);
 
     Data config_data_;
-    DataStream* p_data_stream_;
 
     std::thread runner_thread_ = std::thread();
     //std::thread py_runner_thread_;
@@ -191,7 +186,7 @@ private:
  */
 class ExtensionsModule : public Module {
 public:
-    ExtensionsModule(const Data config_data, DataStream *stream);
+    ExtensionsModule(const Data config_data, DataStream &stream);
     ExtensionsModule(const ExtensionsModule &other) = delete; // No copy constructor
     ExtensionsModule &operator=(const ExtensionsModule &other) = delete; // No copy assignment
     ~ExtensionsModule();
@@ -206,7 +201,6 @@ private:
     std::atomic<int> stop_flag_ = 0;
 
     std::vector<extension::Extension*> extensions_ = {};
-    DataStream *p_data_stream_;
     Data config_data_;
 
     void addExtension(ExtensionMetadata meta_data);
@@ -271,8 +265,6 @@ private:
     std::string data_log_file_path_ = "";
     std::string error_log_file_path_ = "";
 
-    DataStream &p_data_stream_;
-
     DataFrame dataframe_ = DataFrame();
     ErrorFrame errorframe_ = ErrorFrame();
 
@@ -298,7 +290,7 @@ private:
  */
 class ConsoleModule : public Module {
 public:
-    ConsoleModule(const Data config_data, DataStream *data);
+    ConsoleModule(const Data config_data, DataStream &stream);
     ConsoleModule(const ConsoleModule&) = delete; // No copy constructor
     ConsoleModule& operator=(const ConsoleModule&) = delete; // No copy assignment
     ~ConsoleModule();
@@ -312,7 +304,6 @@ private:
     void printData();
 
     Data config_data_;
-    DataStream* p_data_stream_ = nullptr;
 
     int update_interval_ = 10;
 
@@ -343,7 +334,7 @@ private:
  */
 class ConfigModule {
 public:
-    ConfigModule(DataStream *data_stream);
+    ConfigModule(DataStream &stream);
     ConfigModule(const ConfigModule &other) = delete; // no copy constructor
     ConfigModule &operator=(const ConfigModule &other) = delete; // no copy assignment
     ~ConfigModule();
@@ -371,8 +362,7 @@ private:
 
     int number_of_errors_ = 0;
 
-    DataStream *p_data_stream_;
-
+    DataStream &data_stream_;
     std::string config_file_path_ = "";
     json json_buffer_ = json::object();
     Data config_data_ = Data();
