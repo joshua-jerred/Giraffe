@@ -307,7 +307,7 @@ std::string TelemetryModule::generateSSTV() {
 }
 
 void TelemetryModule::runner() {
-    module_status_ = ModuleStatus::RUNNING;
+    updateStatus(ModuleStatus::RUNNING);
     while (!stop_flag_) {
         // Check for commands
         parseCommands();

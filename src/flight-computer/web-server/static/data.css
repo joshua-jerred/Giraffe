@@ -53,6 +53,24 @@ p {
     grid-column-gap: 10px;
 }
 
+#environmental-data {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+}
+
+#environmental-data > div > h4 {
+    margin: 0em;
+    border-bottom: 1px dashed #585858;
+    width: 90%;
+}
+
+#calculated-data-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+}
+
 #gfs-status {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -87,4 +105,52 @@ p {
     margin-top: 0em;
     margin-bottom: 0.1em;
     font-size: 0.9em;
+}
+
+#data-frame-content {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: -10px;
+    width: 100%;
+}
+
+#data-frame-content > div {
+    flex: auto;
+    height: 250px;
+    min-width: 150px;
+    margin: 0 10px 10px 0;
+}
+
+#data-frame-content > div > h3 {
+    margin: 0em;
+    border-bottom: 1px dashed #585858;
+    width: 90%;
+    font-size: 1rem;
+}
+
+#data-frame-content > div > p {
+    margin: 0em;
+    font-size: 0.9em;
+}
+
+#gfs-errors {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: -10px;
+    width: 100%;
+}
+
+#gfs-errors > div {
+    flex: auto;
+    height: fit-content;
+    min-width: 23%;
+    max-width: 23%;
+    margin: 0 10px 10px 0;
+}
+
+#gfs-errors > div > h3 {
+    margin: 0em;
+    border-bottom: 1px dashed #585858;
+    width: 90%;
+    font-size: 1rem;
 }

@@ -330,34 +330,203 @@ async function parseGFSStatus(data) {
     update("#module-status-extension", modules["extensions"]);
     update("#module-status-telemetry", modules["telemetry"]);
     update("#module-status-console", modules["console"]);
-    update("#module-status-server", modules["web-server"]);
+    update("#module-status-server", modules["server"]);
 }
 
 async function updateGfsData() {
     if (connection_status) {
-        let statuses = await fetch('/api/get-gfs-data')
+        let gfs_data = await fetch('/api/get-gfs-data')
+        .then((response) => response.json())
+        .then((data) => {return data})
+        .catch((error) => {return false});
+        if (!gfs_data.hasOwnProperty("data-stream")) {
+            console.log("Error fetching GFS data.");
+            return;
+        }
+        parseDataStreamStats(gfs_data["data-stream"]);
+        parseCriticalData(gfs_data["critical-data"]);
+        parseDataLogStats(gfs_data["data-log"]);
+        parsePositionData(gfs_data["position-data"]);
+        parseEnvironmentalData(gfs_data["environmental-data"]);
+        parseCalculatedData(gfs_data["calculated-data"]);
+    }
+}
+
+function parseDataStreamStats(data) {
+    update("#data-total-data-packets", data["total-data-packets"]);
+    update("#data-current-data-packets", data["current-data-packets"]);
+    update("#data-total-gps-packets", data["total-gps-packets"]);
+    update("#data-current-gps-packets", data["current-gps-packets"]);
+    update("#data-total-error-packets", data["total-error-packets"]);
+    update("#data-current-error-packets", data["current-error-packets"]);
+}
+
+function parseCriticalData(data) {
+    update("#data-critical-flight-phase", data["flight-phase"]);
+    update("#data-critical-gps-data-valid", data["gps-data-valid"]);
+    update("#data-critical-gps-fix", data["gps-fix"]);
+    update("#data-critical-gps-alt", data["gps-alt"]);
+    update("#data-critical-gps-lat", data["gps-lat"]);
+    update("#data-critical-gps-lon", data["gps-lon"]);
+    update("#data-critical-pressure-data-valid", data["pressure-data-valid"]);
+    update("#data-critical-pressure-mbar", data["pressure-mbar"]);
+    update("#data-critical-battery-data-valid", data["battery-data-valid"]);
+    update("#data-critical-battery-voltage", data["battery-voltage"]);
+    update("#data-critical-system-data-valid", data["system-data-valid"]);
+    update("#data-critical-ram-usage", data["ram-usage"].toFixed(2));
+    update("#data-critical-disk-usage", data["disk-usage"].toFixed(2));
+    update("#data-critical-radio-status", data["radio-status"]);
+}
+
+function parseDataLogStats(data) {
+    update("#data-log-enabled", data["enabled"]);
+    update("#data-log-file-name", data["file-name"]);
+    update("#data-log-file-size", data["file-size-mb"] + " mb");
+}
+
+function parsePositionData(data) {
+    update("#data-gps-source-extension", data["source"]);
+    update("#data-gps-fix", data["fix"]);
+    update("#data-gps-time-stamp", data["time"]);
+    update("#data-gps-lat", data["latitude"]);
+    update("#data-gps-lon", data["longitude"]);
+    update("#data-gps-alt", data["altitude"]);
+    update("#data-gps-v-speed", data["vertical-speed"]);
+    update("#data-gps-ground-speed", data["ground-speed"]);
+    update("#data-gps-heading", data["heading-of-motion"]);
+    update("#data-gps-satellites", data["num-sats"]);
+    update("#data-gps-v-accuracy", data["vert-accuracy"]);
+    update("#data-gps-h-accuracy", data["horz-accuracy"]);
+    update("#data-gps-heading-accuracy", data["heading-accuracy"]);
+}
+
+function parseEnvironmentalData(data) {
+    let p_data = data["pressure"];
+    let t_data = data["temperature"];
+    let h_data = data["humidity"];
+    updateDataList("environmental-data-pressure", p_data);
+    updateDataList("environmental-data-temperature", t_data);
+    updateDataList("environmental-data-humidity", h_data);
+}
+
+/**
+ * @brief Updates the data list with the new data, if the data is not in the
+ * list it will be added.
+ * @param {*} selector selector for the list
+ * @param {*} list the json list of data
+ */
+function updateDataList(selector_id, data_list) {
+    let list = document.querySelector("#" + selector_id);
+    for (key in data_list) {
+        let data_selector = selector_id + "-" + key;
+        let data_p = document.querySelector("#" + data_selector);
+        if (data_p == null) {
+            let newP = document.createElement("p");
+            newP.id = data_selector;
+            newP.innerHTML = key + ": " + data_list[key]["unit"] + " " + data_list[key]["value"];
+            list.appendChild(newP);
+        } else {
+            data_p.innerHTML = key + ": " + data_list[key]["unit"] + " " + data_list[key]["value"];
+        }
+    }
+}
+
+async function parseCalculatedData(data) {
+    const selector = "calculated-data-content"
+    let content_div = document.getElementById(selector);
+    for (key in data) {
+        if (content_div.querySelector("#" + selector + "-" + key) == null) {
+            let newP = document.createElement("p");
+            newP.id = selector + "-" + key;
+            newP.innerHTML = key + ": " + data[key];
+            content_div.appendChild(newP);
+        } else {
+            content_div.querySelector("#" + selector + "-" + key).innerHTML = key + ": " + data[key];
+        }
+    }
+}
+
+async function updateDataFrame() {
+    if (connection_status) {
+        let data_frame = await fetch('/api/get-data-frame')
         .then((response) => response.json())
         .then((data) => {return data})
         .catch((error) => {return false});
 
-        parseDataFrame(statuses["dynamic"]);
-        parseErrors(statuses["errors"]);
+        if (data_frame.hasOwnProperty("0") == false) {
+            console.log("Error fetching data frame");
+            return;
+        }
+
+        let content_div = document.getElementById("data-frame-content");
+        for (key in data_frame) {
+            let selector = "data-frame-" + data_frame[key]["source"];
+            if (content_div.querySelector("#" + selector) == null) {
+                let newSourceDiv = document.createElement("div");
+                newSourceDiv.id = selector;
+                let newSourceHeader = document.createElement("h3");
+                newSourceHeader.innerHTML = data_frame[key]["source"];
+                newSourceDiv.appendChild(newSourceHeader);
+                content_div.appendChild(newSourceDiv);
+            }
+            // Update the data
+            let source_div = content_div.querySelector("#" + selector);
+            let data_selector = selector + "-" + data_frame[key]["unit"];
+            // Check if the data is in the list already
+            let data_p = source_div.querySelector("#" + data_selector);
+            if (data_p == null) {
+                let newP = document.createElement("p");
+                newP.id = data_selector;
+                newP.innerHTML = data_frame[key]["unit"] + ": " + data_frame[key]["value"];
+                source_div.appendChild(newP);
+            } else {
+                data_p.innerHTML = data_frame[key]["unit"] + ": " + data_frame[key]["value"];
+            }
+
+        }
+        
     }
 }
 
-async function parseDataFrame(data) {
+async function updateErrorFrame() {
+    if (connection_status) {
+        let error_frame = await fetch('/api/get-error-frame')
+        .then((response) => response.json())
+        .then((data) => {return data})
+        .catch((error) => {return false});
 
-}
+        if (error_frame.hasOwnProperty("0") == false) {
+            console.log("Error fetching error frame");
+            return;
+        }
 
-async function parseErrors(data) { /* @todo Fix this */ 
-    let errors = document.getElementById("gfs-errors");
-    errors.innerHTML = "";
-    for (key in data) {
-        let newP = document.createElement("p");
-        newP.innerHTML += key + ":" + data[key]["source"];
-        newP.innerHTML += ":" + data[key]["code"];
-        newP.innerHTML += " - " + data[key]["info"];
-        errors.appendChild(newP);
+        let content_div = document.getElementById("gfs-errors");
+        for (key in error_frame) {
+            let selector = "error-frame-" + error_frame[key]["source"];
+            if (content_div.querySelector("#" + selector) == null) {
+                let newSourceDiv = document.createElement("div");
+                newSourceDiv.id = selector;
+                let newSourceHeader = document.createElement("h3");
+                newSourceHeader.innerHTML = error_frame[key]["source"];
+                newSourceDiv.appendChild(newSourceHeader);
+                content_div.appendChild(newSourceDiv);
+            }
+            // Update the data
+            let source_div = content_div.querySelector("#" + selector);
+            let data_selector = selector + "-" + error_frame[key]["code"];
+            // Check if the data is in the list already
+            let data_p = source_div.querySelector("#" + data_selector);
+            if (data_p == null) {
+                let newP = document.createElement("p");
+                newP.id = data_selector;
+                newP.innerHTML = error_frame[key]["code"] + ": " + error_frame[key]["info"];
+                source_div.appendChild(newP);
+            } else {
+                data_p.innerHTML = error_frame[key]["code"] + ": " + error_frame[key]["info"];
+            }
+
+        }
+        
     }
 }
 
@@ -369,8 +538,11 @@ async function runner() {
     try {
         await updateStatus();
         await updateGfsData();
+        await updateDataFrame();
+        await updateErrorFrame();
     } catch (error) {
         console.log("Error running runner.");
+        console.log(error);
     }
     setTimeout(runner, 1000);
 }

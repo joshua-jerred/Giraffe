@@ -91,17 +91,20 @@ struct GPSFrame {
 struct CriticalData {
     FlightPhase phase = FlightPhase::ERROR;
 
-    bool gps_data_good = false;
+    bool gps_data_valid = false;
     GPSFrame gps_data = GPSFrame();
 
-    bool battery_data_good = false;
+    bool pressure_data_valid = false;
+    float pressure_mbar = 0.0; // millibars
+
+    bool battery_data_valid = false;
     float battery_voltage = 0.0; // volts
 
-    bool system_data_good = false;
+    bool system_data_valid = false;
     float ram_usage = 0.0; // percent 0.0 - 100.0
     float disk_usage = 0.0; // percent 0.0 - 100.0
 
-    bool radio_good = false; // If the radio is functioning
+    bool radio_status = false; // If the radio is functioning
 };
 
 static const std::unordered_map<Transmission::Type, std::string> TRANSMISSION_TYPE_TO_STRING = {

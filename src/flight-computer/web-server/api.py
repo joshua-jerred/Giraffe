@@ -99,3 +99,19 @@ def add_handlers(app, gfs):
             response.headers['Access-Control-Allow-Origin'] = '*'
             return response
         return flask.jsonify(gfs.get('telemetry-data'))
+
+    @app.route('/api/get-data-frame', methods=['GET'])
+    def get_data_frame():
+        @after_this_request
+        def add_header(response):
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            return response
+        return flask.jsonify(gfs.get('data-frame'))
+
+    @app.route('/api/get-error-frame', methods=['GET'])
+    def get_error_frame():
+        @after_this_request
+        def add_header(response):
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            return response
+        return flask.jsonify(gfs.get('error-frame'))

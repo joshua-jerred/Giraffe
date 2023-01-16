@@ -165,6 +165,8 @@ private:
     void sendGfsData(ServerSocket &socket);
     void sendExtensionStatuses(ServerSocket &socket);
     void sendTelemetryData(ServerSocket &socket);
+    void sendDataFrame(ServerSocket &socket);
+    void sendErrorFrame(ServerSocket &socket);
 
     Data config_data_;
 

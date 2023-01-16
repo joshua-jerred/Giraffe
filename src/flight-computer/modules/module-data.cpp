@@ -220,11 +220,11 @@ void DataModule::parseCriticalData() {
       critical_data_.battery_voltage = std::stof(dataframe_[battery_data_source_ + ":battery-voltage"].value);
     } catch (std::invalid_argument& e) {
       error("CDPE", "BAT_V");
-      critical_data_.battery_data_good = false;
+      critical_data_.battery_data_valid = false;
     }
   } else {
     error("CD", "BAT_V");
-    critical_data_.battery_data_good = false;
+    critical_data_.battery_data_valid = false;
   }
 
   // Ram usage
@@ -233,11 +233,11 @@ void DataModule::parseCriticalData() {
       critical_data_.ram_usage = std::stof(dataframe_[system_data_source_ + ":ram_used_prcnt"].value);
     } catch (std::invalid_argument& e) {
       error("CDPE", "RAM");
-      critical_data_.system_data_good = false;
+      critical_data_.system_data_valid = false;
     }
   } else {
     error("CD", "RAM");
-    critical_data_.system_data_good = false;
+    critical_data_.system_data_valid = false;
   }
 
   // Disk usage
@@ -246,23 +246,23 @@ void DataModule::parseCriticalData() {
       critical_data_.disk_usage = std::stof(dataframe_[system_data_source_ + ":disk_used_prcnt"].value);
     } catch (std::invalid_argument& e) {
       error("CDPE", "DISK");
-      critical_data_.system_data_good = false;
+      critical_data_.system_data_valid = false;
     }
   } else {
     error("CD", "DISK");
-    critical_data_.system_data_good = false;
+    critical_data_.system_data_valid = false;
   }
 
   // Radio Status
   if (dataframe_.contains(radio_data_source_ + ":radio_status")) {
       if (dataframe_[radio_data_source_ + ":radio_status"].value == "GOOD") {
-        critical_data_.radio_good = true;
+        critical_data_.radio_status = true;
       } else {
-        critical_data_.radio_good = false;
+        critical_data_.radio_status = false;
       }
   } else {
     error("CD", "RADIO");
-    critical_data_.radio_good = false;
+    critical_data_.radio_status = false;
   }
 
   data_stream_.updateCriticalData(critical_data_);

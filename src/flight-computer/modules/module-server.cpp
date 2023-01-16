@@ -100,7 +100,11 @@ void ServerModule::runner() {
 					sendExtensionStatuses(new_sock);
 				} else if (request == "get-telemetry-data"){
 					sendTelemetryData(new_sock);
-				} 
+				} else if (request == "get-data-frame") {
+					sendDataFrame(new_sock);
+				} else if (request == "get-error-frame") {
+					sendErrorFrame(new_sock);
+				}
 				else if (request == "shutdownServer") {
 					data_stream_.addData(
 						MODULE_SERVER_PREFIX, 
@@ -294,8 +298,8 @@ void ServerModule::sendStatus(ServerSocket &socket) {
 		{"gfs-uptime", gfs_uptime_str},
 		{"health-status", "good"},
 		{"reported-errors", data_stream_.getNumErrorPackets()},
-		{"current-flight-proc", "no-data"},
-		{"flight-phase", "no-data"},
+		{"current-flight-proc", "N-I"},
+		{"flight-phase", "N-I"},
 		{"modules-status", {
 			{"configuration", module_status_to_string_map.at(module_statuses["configuration"])},
 			{"data", module_status_to_string_map.at(module_statuses["data"])},
@@ -358,35 +362,121 @@ void ServerModule::sendExtensionStatuses(ServerSocket &socket) {
 }
 
 void ServerModule::sendGfsData(ServerSocket &socket) {
-	DataFrame snapshot = data_stream_.getDataFrameCopy();
-	json data;
-	int i = 0;
-	for (auto const &[key, packet] : snapshot) {
-		data[std::to_string(i++)] = {
-			{"source", packet.source},
-			{"unit", packet.unit},
-			{"value", packet.value}
-		};
-	}
-	
-	json errors = {};
-	ErrorFrame error_snapshot = data_stream_.getErrorFrameCopy();
-	int k = 0;
-	for (auto const &[key, error] : error_snapshot) {
-		errors[std::to_string(k++)] = {
-			{"source", error.source},
-			{"code", error.error_code},
-			{"info", error.info}
-		};
-	}
+	// DataStream Stats
+	int total_data_packets = data_stream_.getTotalDataPackets();
+	int current_data_packets = data_stream_.getNumDataPackets();
 
-	json dynamic_data = {
-		{"dynamic", data},
-		{"errors", errors}
+	int total_gps_packets = data_stream_.getTotalGPSPackets();
+	int current_gps_packets = data_stream_.getNumGPSPackets();
+
+	int total_error_packets = data_stream_.getTotalErrorPackets();
+	int current_error_packets = data_stream_.getNumErrorPackets();
+
+	json data_stream_stats_json = {
+		{"total-data-packets", total_data_packets},
+		{"current-data-packets", current_data_packets},
+		{"total-gps-packets", total_gps_packets},
+		{"current-gps-packets", current_gps_packets},
+		{"total-error-packets", total_error_packets},
+		{"current-error-packets", current_error_packets}
+	};
+
+	// Critical Data
+	CriticalData c_data = data_stream_.getCriticalData();
+	json critical_data_json = {
+		{"flight-phase", FLIGHT_PHASE_TO_STRING.at(c_data.phase)},
+		{"gps-data-valid", c_data.gps_data_valid},
+		{"gps-fix", GPS_FIX_TO_STRING.at(c_data.gps_data.fix)},
+		{"gps-alt", c_data.gps_data.altitude},
+		{"gps-lat", c_data.gps_data.latitude},
+		{"gps-lon", c_data.gps_data.longitude},
+		{"pressure-data-valid", c_data.pressure_data_valid},
+		{"pressure-mbar", c_data.pressure_mbar},
+		{"battery-data-valid", c_data.battery_data_valid},
+		{"battery-voltage", c_data.battery_voltage},
+		{"system-data-valid", c_data.system_data_valid},
+		{"ram-usage", c_data.ram_usage},
+		{"disk-usage", c_data.disk_usage},
+		{"radio-status", c_data.radio_status}
+	};
+
+	// Data Log Status
+	json data_log_status_json = {
+		{"enabled", "N-I"},
+		{"file-name", "N-I"},
+		{"file-size-mb", "N-I"}
+	};
+
+	// Position Data
+	//GPSFrame gps_frame = data_stream_.getLastGPSFrame();
+	json position_data_json = {
+		{"source", "N-I"},
+		{"time", "N-I"},
+		{"fix", "N-I"},
+		{"num-sats", "N-I"},
+		{"latitude", "N-I"},
+		{"longitude", "N-I"},
+		{"altitude", "N-I"},
+		{"ground-speed", "N-I"},
+		{"vertical-speed", "N-I"},
+		{"horz-accuracy", "N-I"},
+		{"vert-accuracy", "N-I"},
+		{"heading-of-motion", "N-I"},
+		{"heading-accuracy", "N-I"}
+	};
+
+	// Environmental Data
+	json environmental_data_json = {
+		{"pressure", {
+			{"source1", {
+				{"unit", "N-I"},
+				{"value", "N-I"}
+			}},
+			{"source2", {
+				{"unit", "N-I"},
+				{"value", "N-I"}
+			}}
+		}},
+		{"temperature", {
+			{"source1", {
+				{"unit", "N-I"},
+				{"value", "N-I"}
+			}},
+			{"source2", {
+				{"unit", "N-I"},
+				{"value", "N-I"}
+			}}
+		}},
+		{"humidity", {
+			{"source1", {
+				{"unit", "N-I"},
+				{"value", "N-I"}
+			}},
+			{"source2", {
+				{"unit", "N-I"},
+				{"value", "N-I"}
+			}}
+		}}
+	};
+
+	// Calculated Data
+	json calculated_data_json = {
+		{"distance-traveled", "N-I"},
+		{"overall-heading", "N-I"},
+		{"time-since-launch", "N-I"}
+	};
+
+	json gfs_data = {
+		{"data-stream", data_stream_stats_json},
+		{"critical-data", critical_data_json},
+		{"data-log", data_log_status_json},
+		{"position-data", position_data_json},
+		{"environmental-data", environmental_data_json},
+		{"calculated-data", calculated_data_json}
 	};
 
 	try {
-		socket << dynamic_data.dump();  // Send the data
+		socket << gfs_data.dump();  // Send the data
 	} catch (SocketException &e) {
 		data_stream_.addError(MODULE_SERVER_PREFIX, "Dynamic",
 			e.description(), 0);
@@ -461,6 +551,47 @@ void ServerModule::sendTelemetryData(ServerSocket &socket) {
 		socket << telemetry_data.dump();  // Send the data
 	} catch (SocketException &e) {
 		data_stream_.addError(MODULE_SERVER_PREFIX, "Telemetry",
+			e.description(), 0);
+	}
+}
+
+void ServerModule::sendDataFrame(ServerSocket &socket) {
+	// Data Frame
+	DataFrame snapshot = data_stream_.getDataFrameCopy();
+	json data_frame;
+	int i = 0;
+	for (auto const &[key, packet] : snapshot) {
+		data_frame[std::to_string(i++)] = {
+			{"source", packet.source},
+			{"unit", packet.unit},
+			{"value", packet.value}
+		};
+	}
+
+	try {
+		socket << data_frame.dump();  // Send the data
+	} catch (SocketException &e) {
+		data_stream_.addError(MODULE_SERVER_PREFIX, "Data",
+			e.description(), 0);
+	}
+}
+
+void ServerModule::sendErrorFrame(ServerSocket &socket) {
+	json errors = {};
+	ErrorFrame error_snapshot = data_stream_.getErrorFrameCopy();
+	int k = 0;
+	for (auto const &[key, error] : error_snapshot) {
+		errors[std::to_string(k++)] = {
+			{"source", error.source},
+			{"code", error.error_code},
+			{"info", error.info}
+		};
+	}
+
+	try {
+		socket << errors.dump();  // Send the data
+	} catch (SocketException &e) {
+		data_stream_.addError(MODULE_SERVER_PREFIX, "Error",
 			e.description(), 0);
 	}
 }
