@@ -216,11 +216,13 @@ void ServerModule::sendConfig(ServerSocket &socket) {
 		extension_json["id"] = extension.id;
 		extension_json["name"] = extension.name;
 		extension_json["type"] = extension.extension_type;
-		//extension_json["category"] = extension.category;
-		//extension_json["interface"] = extension.interface;
+		extension_json["category"] = 
+			kExtensionCategoryToString.at(extension.category);
+		extension_json["interface"] = 
+			kExtensionInterfaceToString.at(extension.interface);
 		extension_json["interval"] = extension.update_interval;
 		extension_json["critical"] = extension.critical;
-		// Extra Arguments (Optional)
+		// Extra Arguments
 		if (extension.interface == ExtensionMetadata::Interface::I2C) {
 			extension_json["extra-args"] =  "BS: " +
 				std::to_string(extension.extra_args.I2C_bus) + " ADDR:" 

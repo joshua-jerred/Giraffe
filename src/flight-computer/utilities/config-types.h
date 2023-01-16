@@ -178,4 +178,30 @@ struct Data {
     DataTypes data_types {};
     Procs flight_procs {};
 };
+
+static const std::unordered_map<ExtensionMetadata::Category, std::string> 
+        kExtensionCategoryToString = {
+    {ExtensionMetadata::Category::ERROR, "ERROR"},
+    {ExtensionMetadata::Category::OTHER, "OTHER"},
+    {ExtensionMetadata::Category::RADIO, "RADIO"},
+    {ExtensionMetadata::Category::GPS, "GPS"},
+    {ExtensionMetadata::Category::CAMERA, "CAMERA"},
+    {ExtensionMetadata::Category::BATTERY, "BATTERY"},
+    {ExtensionMetadata::Category::SYSTEM, "SYSTEM"},
+    {ExtensionMetadata::Category::INTERNAL_SENSOR, "INTERNAL_SENSOR"},
+    {ExtensionMetadata::Category::EXTERNAL_SENSOR, "EXTERNAL_SENSOR"}
+};
+
+static const std::unordered_map<ExtensionMetadata::Interface, std::string> 
+        kExtensionInterfaceToString = {
+    {ExtensionMetadata::Interface::ERROR, "ERROR"},
+    {ExtensionMetadata::Interface::OTHER, "OTHER"},
+    {ExtensionMetadata::Interface::INTERNAL, "INTERNAL"},
+    {ExtensionMetadata::Interface::I2C, "I2C"},
+    {ExtensionMetadata::Interface::UART, "UART"},
+    {ExtensionMetadata::Interface::ONEWIRE, "ONEWIRE"},
+    {ExtensionMetadata::Interface::USB, "USB"},
+    {ExtensionMetadata::Interface::GPIO, "GPIO"}
+};
+
 #endif

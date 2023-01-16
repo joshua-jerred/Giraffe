@@ -89,51 +89,13 @@ async function parseExtensionsConfig(config) {
                 other++;
             }
             let interface = ext["interface"];
-            let update_interval = ext["update-interval"];
-            let flight_critical = ext["flight-critical"];
-            let extra_info = "";
+            let update_interval = ext["interval"];
+            let flight_critical = ext["critical"];
+            let extra_args = ext["extra-args"];
 
-            if (interface == "i2c") {
-                if (ext.hasOwnProperty("i2c-bus")) {
-                    extra_info += "I2C(" + ext["i2c-bus"] + ", ";
-                } else {
-                    extra_info += "I2C(ERR, "
-                }
-                if (ext.hasOwnProperty("i2c-address")) {
-                    extra_info += ext["i2c-address"] + ")";
-                } else {
-                    extra_info += "ERR)";
-                }
-            } else if (interface == "onewire") {
-                if (ext.hasOwnProperty("onewire-id")) {
-                    extra_info += "1WID(" + ext["onewire-id"] + ")";
-                } else {
-                    extra_info += "1WID(ERR)";
-                }
-            } else if (interface == "spi") {
-                if (ext.hasOwnProperty("spi-bus")) {
-                    extra_info += "SPI(" + ext["spi-bus"] + ")";
-                } else {
-                    extra_info += "SPI(ERR)";
-                }
-            } else if (interface == "uart") {
-                if (ext.hasOwnProperty("uart-bus")) {
-                    extra_info += "UART(" + ext["uart-bus"] + ")";
-                } else {
-                    extra_info += "UART(ERR)";
-                }
-            } else if (interface == "gpio") {
-                if (ext.hasOwnProperty("gpio-pins")) {
-                    extra_info += "GPIO(" + ext["gpio-pins"] + ")";
-                } else {
-                    extra_info += "GPIO(ERR)";
-                }
-            } else {
-                extra_info = "N/A";
-            }
             let new_extension = document.querySelector("#ext_template").cloneNode(true);
             new_extension.style.display = "table-row";
-            new_extension.id = "ext_" + id;
+            new_extension.id = "ext_" + name;
             new_extension.querySelector(".e_id").innerHTML = id;
             new_extension.querySelector(".e_name").innerHTML = name;
             new_extension.querySelector(".e_type").innerHTML = type;
@@ -141,7 +103,7 @@ async function parseExtensionsConfig(config) {
             new_extension.querySelector(".e_interface").innerHTML = interface;
             new_extension.querySelector(".e_interval").innerHTML = update_interval;
             new_extension.querySelector(".e_flight-critical").innerHTML = flight_critical;
-            new_extension.querySelector(".e_extra-info").innerHTML = extra_info;
+            new_extension.querySelector(".e_extra-info").innerHTML = extra_args;
             new_extension.querySelector(".e_status").innerHTML = "Unknown";
             document.querySelector("#extension-table").appendChild(new_extension);
         }
@@ -530,6 +492,22 @@ async function updateErrorFrame() {
     }
 }
 
+async function updateExtensionStatuses() {
+    if (connection_status) {
+        let statuses = await fetch('/api/get-extension-statuses')
+                        .then((response) => response.json())
+                        .then((data) => {return data})
+                        .catch((error) => {return false});
+
+        for (key in statuses) {
+            console.log("Updating " + key);
+            let selector = "#ext_" + key;
+            document.querySelector(selector).querySelector(".e_status").innerHTML = statuses[key];
+        }
+
+    }
+}
+
 function update(selector, value) {
     document.querySelector(selector).innerHTML = value;
 }
@@ -540,6 +518,7 @@ async function runner() {
         await updateGfsData();
         await updateDataFrame();
         await updateErrorFrame();
+        await updateExtensionStatuses();
     } catch (error) {
         console.log("Error running runner.");
         console.log(error);
