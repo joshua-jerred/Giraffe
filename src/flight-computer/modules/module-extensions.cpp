@@ -151,16 +151,16 @@ void ExtensionsModule::runner() {
  * @return void
  */
 void ExtensionsModule::addExtension(ExtensionMetadata meta_data) {
-    if (meta_data.extension_type == "TEST_EXT") {
-        extensions_.push_back(new extension::TestExtension(&data_stream_, meta_data));
-    } else if (meta_data.extension_type == "BMP180_SIM") {
-        extensions_.push_back(new extension::BMP180_SIM(&data_stream_, meta_data));
-    } else if (meta_data.extension_type == "SAMM8Q_SIM") {
-        extensions_.push_back(new extension::SAMM8Q_SIM(&data_stream_, meta_data));
-    } else if (meta_data.extension_type == "DS18B20_SIM") {
-        extensions_.push_back(new extension::DS18B20_SIM(&data_stream_, meta_data));
-    } else if (meta_data.extension_type == "DRA818V_SIM") {
-        extensions_.push_back(new extension::DRA818V_SIM(&data_stream_, meta_data));
+    if (meta_data.extension_type == "PRESS_SENSOR_SIM") {
+        extensions_.push_back(new extension::PRESS_SENSOR_SIM(&data_stream_, meta_data));
+    } else if (meta_data.extension_type == "TEMP_SENSOR_SIM") {
+        extensions_.push_back(new extension::TEMP_SENSOR_SIM(&data_stream_, meta_data));
+    } else if (meta_data.extension_type == "RADIO_SIM") {
+        extensions_.push_back(new extension::RADIO_SIM(&data_stream_, meta_data));
+    } else if (meta_data.extension_type == "GPS_SIM") {
+        extensions_.push_back(new extension::GPS_SIM(&data_stream_, meta_data));
+    } else if (meta_data.extension_type == "BATT_SENSOR_SIM") {
+        extensions_.push_back(new extension::BATT_SENSOR_SIM(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "BMP180") {
         extensions_.push_back(new extension::BMP180(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "DS18B20") {
@@ -172,6 +172,6 @@ void ExtensionsModule::addExtension(ExtensionMetadata meta_data) {
     } else if (meta_data.extension_type == "SYSINFO") {
         extensions_.push_back(new extension::SYSINFO(&data_stream_, meta_data));
     } else {
-        error("Extension type not found: " + meta_data.extension_type);
+        error("Extension type not found", meta_data.name);
     }
 }

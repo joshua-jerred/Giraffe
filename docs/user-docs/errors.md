@@ -49,6 +49,8 @@
   - Extension name out of range
 - ``M_CF_EXT_NM_I <name>``
   - Extension name invalid. Same requirements as project name but spaces are not allowed.
+- ``M_CF_EXT_TP_R``
+  - Extensions type out of range
 - ``M_CF_EXT_OW_I <id>`` 
   - One Wire ID does not match pattern
 - ``M_CF_EXT_I2_B <buss-num>`` 

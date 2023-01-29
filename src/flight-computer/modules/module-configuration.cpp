@@ -282,8 +282,9 @@ void ConfigModule::parseExtensions() {
 			}
 	
 			std::string etype = item.value()["type"].get<std::string>();
-			if (etype.length() < EXTENSION_NAME_MIN_LENGTH ||
-			etype.length() > EXTENSION_NAME_MAX_LENGTH) {
+			if (etype.length() < 3 ||
+			etype.length() > 20) {
+				error("EXT_TP_R", etype);
 			} else {
 				newExtension.extension_type = etype;
 			}
