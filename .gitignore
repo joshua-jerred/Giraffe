@@ -18,3 +18,4 @@ sym-lib-table
 
 # Python
 *.pyc
+.vscode/arduino.json
