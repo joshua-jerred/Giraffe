@@ -23,6 +23,7 @@ protected:
         extension_metadata_.interface = ExtensionMetadata::Interface::I2C;
         extension_metadata_.update_interval = 1100; // time in miliseconds
         extension_metadata_.critical = 0;
+        extension_metadata_.extra_args.I2C_bus = 1;
      }
     virtual void TearDown() { 
         delete p_data_stream_;
