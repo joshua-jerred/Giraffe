@@ -300,6 +300,23 @@ private:
     float voltage_ = 0.0;
     float soc_ = 0.0;
 };
+
+class MCP3021: public Extension {
+public:
+    MCP3021(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
+    ~MCP3021();
+    int runner();
+
+private:
+    bool handshake();
+    bool readData();
+
+    int bus_number_;
+    int device_address_;
+    I2C i2c_bus_;
+
+    float voltage_ = 0.0;
+};
 /*
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------

@@ -187,3 +187,20 @@ int I2C::readChunkFromReg(uint8_t* data, int length, uint8_t reg_address) {
         return bytes_read;
     }
 }
+
+int I2C::readChunk(uint8_t* data, int length) {
+    if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
+        return -1;
+    }
+
+    bus_lock_.lock();
+    int bytes_read = read(i2c_fd_, data, length);
+    bus_lock_.unlock();
+
+    if (bytes_read < 0) {
+        status_ = I2C_STATUS::READ_ERROR;
+        return -1;
+    } else {
+        return bytes_read;
+    }
+}
