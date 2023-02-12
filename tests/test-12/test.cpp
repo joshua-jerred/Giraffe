@@ -39,12 +39,12 @@ TEST_F(mcp3021Test, mcp3021Test1) {
     mcp3021.stop();
 
     int num_data_packets = p_data_stream_->getNumDataPackets();
-    EXPECT_EQ(num_data_packets, 11);
+    EXPECT_EQ(num_data_packets, 1);
     DataStreamPacket packet;
     for (int i = 0; i < num_data_packets; i++) {
         packet = p_data_stream_->getNextDataPacket();
         EXPECT_EQ(packet.source, extension_metadata_.name);
-        //std::cout << packet << std::endl;
+        std::cout << packet << std::endl;
     }
 
     int num_error_packets = p_data_stream_->getNumErrorPackets();

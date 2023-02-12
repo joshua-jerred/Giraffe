@@ -395,7 +395,7 @@ void ConfigModule::parseExtensions() {
 			number_of_extensions++;
 		}
 		catch(const std::exception& e) {
-			error("EXT_P", number_of_extensions++); 
+			error("EXT_P", std::to_string(number_of_extensions++) + e.what()); 
 		}
 	}	
 	

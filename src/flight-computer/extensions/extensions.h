@@ -308,14 +308,18 @@ public:
     int runner();
 
 private:
-    bool handshake();
-    bool readData();
+    int handshake();
+    bool ReadVoltage();
 
     int bus_number_;
     int device_address_;
     I2C i2c_bus_;
 
     float voltage_ = 0.0;
+    
+    const float voltage_reference_;
+    float resistor_1_;
+    float resistor_2_;
 };
 /*
 -------------------------------------------------------------------------------

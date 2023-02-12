@@ -217,7 +217,7 @@ void DataModule::parseErrorStream() {
 void DataModule::parseCriticalData() {
   if (dataframe_.contains(battery_data_source_ + ":BAT_V")) {
     try {
-      critical_data_.battery_voltage = std::stof(dataframe_[battery_data_source_ + ":battery-voltage"].value);
+      critical_data_.battery_voltage = std::stof(dataframe_[battery_data_source_ + ":BAT_V"].value);
     } catch (std::invalid_argument& e) {
       error("CDPE", "BAT_V");
       critical_data_.battery_data_valid = false;

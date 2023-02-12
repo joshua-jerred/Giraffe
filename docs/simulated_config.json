@@ -7,55 +7,57 @@
     "extensions": [
         {
             "id": 1,
-            "name": "temp_sen_1",
-            "type": "DS18B20",
+            "name": "p1",
+            "type": "PRESS_SENSOR_SIM",
             "category": "external_sensor",
-            "interface": "onewire",
-            "update-interval": 2000,
-            "flight-critical": false,
-            "onewire-id": "28-03176038beff"
+            "interface": "internal",
+            "update-interval": 1000,
+            "flight-critical": false
         },
         {
             "id": 2,
-            "name": "gps",
-            "type": "SAMM8Q",
-            "category": "gps",
-            "interface": "i2c",
+            "name": "t1",
+            "type": "TEMP_SENSOR_SIM",
+            "category": "external_sensor",
+            "interface": "internal",
             "update-interval": 1000,
-            "flight-critical": true,
-            "i2c-bus": 1,
-            "i2c-address": "0x42"
+            "flight-critical": false
         },
         {
             "id": 3,
-            "name": "pth_sen",
-            "type": "BME280",
-            "category": "external_sensor",
-            "interface": "i2c",
+            "name": "radio1",
+            "type": "RADIO_SIM",
+            "category": "radio",
+            "interface": "internal",
             "update-interval": 1000,
-            "flight-critical": false,
-            "i2c-bus": 1,
-            "i2c-address": "0x76"
+            "flight-critical": true
         },
         {
             "id": 4,
+            "name": "gps1",
+            "type": "GPS_SIM",
+            "category": "gps",
+            "interface": "internal",
+            "update-interval": 1000,
+            "flight-critical": true
+        },
+        {
+            "id": 5,
+            "name": "bat1",
+            "type": "BATT_SENSOR_SIM",
+            "category": "battery",
+            "interface": "internal",
+            "update-interval": 1000,
+            "flight-critical": false
+        },
+        {
+            "id": 6,
             "name": "sys",
             "type": "SYSINFO",
             "category": "system",
             "interface": "internal",
             "update-interval": 1000,
             "flight-critical": false
-        },
-        { 
-            "id":5,
-            "name": "bat",
-            "type": "MCP3021",
-            "category": "battery",
-            "interface": "i2c",
-            "update-interval": 1000,
-            "flight-critical": true,
-            "i2c-bus": 1,
-            "i2c-address": "0x4d"
         }
     ],
     "debugging": {
