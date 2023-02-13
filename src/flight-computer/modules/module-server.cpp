@@ -20,6 +20,7 @@
 #include <nlohmann/json.hpp>
 #include <deque>
 #include <ctime>
+#include <sstream>
 using json = nlohmann::ordered_json; 
 
 #include "socket.h"
@@ -385,6 +386,10 @@ void ServerModule::sendGfsData(ServerSocket &socket) {
 
 	// Critical Data
 	CriticalData c_data = data_stream_.getCriticalData();
+	std::stringstream ss;
+	ss << std::fixed << std::setprecision(2) << c_data.battery_voltage;
+	std::string battery_voltage = ss.str();
+
 	json critical_data_json = {
 		{"flight-phase", FLIGHT_PHASE_TO_STRING.at(c_data.phase)},
 		{"gps-data-valid", c_data.gps_data_valid},
@@ -395,7 +400,7 @@ void ServerModule::sendGfsData(ServerSocket &socket) {
 		{"pressure-data-valid", c_data.pressure_data_valid},
 		{"pressure-mbar", c_data.pressure_mbar},
 		{"battery-data-valid", c_data.battery_data_valid},
-		{"battery-voltage", c_data.battery_voltage},
+		{"battery-voltage", battery_voltage},
 		{"system-data-valid", c_data.system_data_valid},
 		{"ram-usage", c_data.ram_usage},
 		{"disk-usage", c_data.disk_usage},
@@ -410,21 +415,21 @@ void ServerModule::sendGfsData(ServerSocket &socket) {
 	};
 
 	// Position Data
-	//GPSFrame gps_frame = data_stream_.getLastGPSFrame();
+	GPSFrame &gps_frame = c_data.gps_data;
 	json position_data_json = {
-		{"source", "N-I"},
-		{"time", "N-I"},
-		{"fix", "N-I"},
-		{"num-sats", "N-I"},
-		{"latitude", "N-I"},
-		{"longitude", "N-I"},
-		{"altitude", "N-I"},
-		{"ground-speed", "N-I"},
-		{"vertical-speed", "N-I"},
-		{"horz-accuracy", "N-I"},
-		{"vert-accuracy", "N-I"},
-		{"heading-of-motion", "N-I"},
-		{"heading-accuracy", "N-I"}
+		{"source", gps_frame.source},
+		{"time", gps_frame.time},
+		{"fix", GPS_FIX_TO_STRING.at(c_data.gps_data.fix)},
+		{"num-sats", gps_frame.num_satellites},
+		{"latitude", gps_frame.latitude},
+		{"longitude", gps_frame.longitude},
+		{"altitude", gps_frame.altitude},
+		{"ground-speed", gps_frame.ground_speed},
+		{"vertical-speed", gps_frame.vertical_speed},
+		{"horz-accuracy", gps_frame.horz_accuracy},
+		{"vert-accuracy", gps_frame.vert_accuracy},
+		{"heading-of-motion", gps_frame.heading_of_motion},
+		{"heading-accuracy", gps_frame.heading_accuracy}
 	};
 
 	// Environmental Data

@@ -78,6 +78,7 @@ struct GPSFrame {
     double altitude = 0.0;  // meters
     double vert_accuracy = 0.0; // meters
 
+    double vertical_speed = 0.0; // meters/second
     double ground_speed = 0.0; // meters/second
     double speed_accuracy = 0.0; // meters/second
 
