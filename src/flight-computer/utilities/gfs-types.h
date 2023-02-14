@@ -22,6 +22,7 @@ struct GFSCommand {
         MDL = 2, // modules
         EXT = 3, // extensions
         FLR = 4, // flight runner
+        DAT = 5  // data module
     };
     CommandCategory category = CommandCategory::unknown;
     std::string id = "";

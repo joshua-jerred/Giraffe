@@ -31,6 +31,7 @@ Categories are:
     - flr - Flight Runner
     - tlm - Telemetry
     - ext - Extension
+    - dat - Data module (errors/data commands)
     - mdl - Module
 
 ### Command ID
@@ -41,5 +42,9 @@ to the category.
 See the specific command
 
 # Command List
+### Data Module
+ - ``cmd/dat/cae/`` - Clear all errors
+### Extension Commands
+ - ``cmd/ext/stp/[num]`` - Stop the extension with the given number
 ### Telemetry
  - ``cmd/tlm/rtx/[num]`` - Retransmit the transmission with a given number, as long as it is in the log.

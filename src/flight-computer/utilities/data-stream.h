@@ -92,7 +92,7 @@ public:
     std::string getData(std::string data_source, std::string data_name);
     DataFrame getDataFrameCopy();
     ErrorFrame getErrorFrameCopy();
-    FlightProcedure getFlightProcedureCopy();
+    FlightProcedure getCurrentFlightProcedure();
 
     int getNumGPSPackets();
     int getTotalGPSPackets();

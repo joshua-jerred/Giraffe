@@ -13,6 +13,13 @@
 - ``EX_<extension id>``     Extension Errors, ie EX_1, EX_2, etc.
 - ``DS_`` DataStream Errors
 
+## Generic Module Errors
+- ``M_**_MCNI``
+  - Module Command Not Implemented
+- ``M_**_MCQF``
+  - Module Command Queue Full
+
+
 ## Configuration Module
 - ``M_CF_FNF``
   - Config File Not Found

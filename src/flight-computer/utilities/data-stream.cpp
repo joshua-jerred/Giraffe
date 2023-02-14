@@ -46,18 +46,18 @@ void DataStream::addToCommandQueue(std::string command) {
 	const int kMaxCommandQueueSize = 10;
 
 	if (command.size() > kMaxCommandSize) {
-		error("CMD_L", command.substr(0, kMaxCommandSize));
+		error("CMD_L", command.substr(0, kMaxCommandSize)); // Command too long
 		return;
 	}
 	if (command.size() < kMinCommandSize) {
-		error("CMD_S", command);
+		error("CMD_S", command); // Command too short
 		return;
 	}
 
 	// Check if the the command is in the correct format
 	const std::regex command_regex("^cmd\\/[a-z]{3}\\/[a-z]{3}\\/[a-z0-9-]{0,20}$");
 	if (!std::regex_match(command, command_regex)) {
-		error("CMD_B", command);
+		error("CMD_B", command); // Command is not in the correct format
 		return;
 	}
 
@@ -65,7 +65,7 @@ void DataStream::addToCommandQueue(std::string command) {
 	command_queue_lock_.lock();
 	if (command_queue_.size() >= kMaxCommandQueueSize) {
 		command_queue_lock_.unlock();
-		error("CMD_Q");
+		error("CMD_Q"); // Command queue is full
 		return;
 	}
 
@@ -82,9 +82,11 @@ void DataStream::addToCommandQueue(std::string command) {
 		gfs_command.category = GFSCommand::CommandCategory::EXT;
 	} else if (category == "mdl") { // Module
 		gfs_command.category = GFSCommand::CommandCategory::MDL;
+	} else if (category == "dat") {
+		gfs_command.category = GFSCommand::CommandCategory::DAT;
 	} else {
 		command_queue_lock_.unlock();
-		error("CMD_C", category);
+		error("CMD_C", category); // Command category is not valid
 		return;
 	}
 
@@ -376,7 +378,7 @@ ErrorFrame DataStream::getErrorFrameCopy() {
 	return error_frame;
 }
 
-FlightProcedure DataStream::getFlightProcedureCopy() {
+FlightProcedure DataStream::getCurrentFlightProcedure() {
 	flight_procedure_lock_.lock();
 	FlightProcedure flight_procedure(flight_procedure_);
 	flight_procedure_lock_.unlock();

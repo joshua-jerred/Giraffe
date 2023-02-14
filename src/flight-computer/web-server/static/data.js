@@ -464,7 +464,8 @@ async function updateErrorFrame() {
 
         let content_div = document.getElementById("gfs-errors");
         for (key in error_frame) {
-            let selector = "error-frame-" + error_frame[key]["source"];
+            let id = error_frame[key]["source"];
+            let selector = "error-frame-" + id;
             if (content_div.querySelector("#" + selector) == null) {
                 let newSourceDiv = document.createElement("div");
                 newSourceDiv.id = selector;

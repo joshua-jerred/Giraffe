@@ -115,3 +115,12 @@ def add_handlers(app, gfs):
             response.headers['Access-Control-Allow-Origin'] = '*'
             return response
         return flask.jsonify(gfs.get('error-frame'))
+
+    @app.route('/api/command', methods=['POST'])
+    def command():
+        @after_this_request
+        def add_header(response):
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            return response
+        command = flask.request.json['command']
+        return flask.jsonify(gfs.command(command))

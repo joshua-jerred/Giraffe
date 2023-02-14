@@ -54,6 +54,12 @@ void DataModule::addConfigData(Data config_data) {
         error("NGPS");
     }
 
+    if (config_data_.extensions.pressure_data_name.size() > 0) {
+        pressure_data_source_ = config_data_.extensions.pressure_data_name;
+    } else {
+        error("NPRES");
+    }
+
     if (config_data_.extensions.battery_data_name.size() > 0) {
         battery_data_source_ = config_data_.extensions.battery_data_name;
     } else {
@@ -215,34 +221,81 @@ void DataModule::parseErrorStream() {
 }
 
 void DataModule::parseCriticalData() {
-  if (dataframe_.contains(battery_data_source_ + ":BAT_V")) {
+  // Pressure
+  if (dataframe_.contains(pressure_data_source_ + ":PRES_MBAR")) {
     try {
-      critical_data_.battery_voltage = std::stof(dataframe_[battery_data_source_ + ":BAT_V"].value);
+      float pressure = std::stof(dataframe_[pressure_data_source_ + ":PRES_MBAR"].value);
+      const float kMinPressure = 0.0f; /** @todo make these configurable */
+      const float kMaxPressure = 1000.0f;
+      if (pressure < kMinPressure || pressure > kMaxPressure) {
+        critical_data_.pressure_data_valid = false;
+      } else {
+        critical_data_.pressure_data_valid = true;
+      }
+      critical_data_.pressure_mbar = pressure;
     } catch (std::invalid_argument& e) {
-      error("CDPE", "BAT_V");
+      error("CDPE", "PRES_MBAR");
+      critical_data_.pressure_data_valid = false;
+    }
+  } else {
+    critical_data_.pressure_data_valid = false;
+  }
+
+  // Battery voltage
+  if (dataframe_.contains(battery_data_source_ + ":BAT_V")) { // Check if the data is in the dataframe
+    try {
+      float voltage = std::stof(dataframe_[battery_data_source_ + ":BAT_V"].value);
+      const float kMinVoltage = 3.0f; /** @todo make these configurable */
+      const float kMaxVoltage = 17.0f; // 4S battery
+      if (voltage < kMinVoltage || voltage > kMaxVoltage) {
+        critical_data_.battery_data_valid = false;
+      } else {
+        critical_data_.battery_data_valid = true;
+      }
+      critical_data_.battery_voltage = voltage; // Report the voltage if it's valid or not
+    } catch (std::invalid_argument& e) { // If the data is not a float
+      error("CDPE", "BAT_V"); // Critical data parse error
       critical_data_.battery_data_valid = false;
     }
   } else {
-    error("CD", "BAT_V");
+    error("CD", "BAT_V"); // Data is not in the dataframe
     critical_data_.battery_data_valid = false;
   }
 
+  // System Data
+  critical_data_.system_data_valid = true; // Assume the data is valid until proven otherwise
   // Ram usage
   if (dataframe_.contains(system_data_source_ + ":ram_used_prcnt")) { 
     try {
-      critical_data_.ram_usage = std::stof(dataframe_[system_data_source_ + ":ram_used_prcnt"].value);
+      float ram_usage = std::stof(dataframe_[system_data_source_ + ":ram_used_prcnt"].value);
+      const float kMaxRamUsage = 99.9f; /** @todo make these configurable */
+      const float kMinRamUsage = 5.0f; // I don't expect the ram usage to be this low
+
+      if (ram_usage > kMaxRamUsage || ram_usage < kMinRamUsage) {
+        critical_data_.system_data_valid = false;
+      }
+
+      critical_data_.ram_usage = ram_usage;
     } catch (std::invalid_argument& e) {
-      error("CDPE", "RAM");
+      error("CDPE", "RAM"); // Critical data parse error
       critical_data_.system_data_valid = false;
     }
   } else {
-    error("CD", "RAM");
+    error("CD", "RAM"); // Data is not in the dataframe
     critical_data_.system_data_valid = false;
   }
 
   // Disk usage
   if (dataframe_.contains(system_data_source_ + ":disk_used_prcnt")) { 
     try {
+      float disk_usage = std::stof(dataframe_[system_data_source_ + ":disk_used_prcnt"].value);
+      const float kMaxDiskUsage = 99.9f; /** @todo make these configurable */
+      const float kMinDiskUsage = 5.0f; // I don't expect the disk usage to be this low
+
+      if (disk_usage > kMaxDiskUsage || disk_usage < kMinDiskUsage) {
+        critical_data_.system_data_valid = false;
+      }
+
       critical_data_.disk_usage = std::stof(dataframe_[system_data_source_ + ":disk_used_prcnt"].value);
     } catch (std::invalid_argument& e) {
       error("CDPE", "DISK");
@@ -331,5 +384,7 @@ void DataModule::runner() {
     parseCriticalData();
     checkForStaleData();
     checkForStaleErrors();
+
+    parseCommands();
   }
 }

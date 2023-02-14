@@ -49,6 +49,10 @@ class GFS:
         if (self._write(command)):
             return self._read()
 
+    def command(self, command: str):
+        if (self._write(command)):
+            return self._read()
+
     def set(key: str, value: str):
         pass
 

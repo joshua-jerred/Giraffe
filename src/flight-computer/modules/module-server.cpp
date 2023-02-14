@@ -88,6 +88,7 @@ void ServerModule::runner() {
 				std::string command_check = request.substr(0, 4);
 				if (command_check == "cmd/") {
 					data_stream_.addToCommandQueue(request);
+					new_sock << "{\"status\": \"received\"}";
 					continue;
 				}
 
@@ -106,7 +107,7 @@ void ServerModule::runner() {
 				} else if (request == "get-error-frame") {
 					sendErrorFrame(new_sock);
 				}
-				else if (request == "shutdownServer") {
+				else if (request == "shutdownServer") { /** @todo this should just be a command*/
 					data_stream_.addData(
 						MODULE_SERVER_PREFIX, 
 						"SOCKET", 
@@ -132,7 +133,8 @@ void ServerModule::runner() {
 						);
 					break;
 				} else {
-					error("Unknown Request", request);
+					error("UNR", request);
+					new_sock << "{\"status\": \"unknown request\"}";
 					break;
 				}
 			}
@@ -272,7 +274,7 @@ void ServerModule::sendStatus(ServerSocket &socket) {
 	std::string storage_usage = data_stream_.getData(system_data_source, "disk_used_prcnt");
 
 	std::string battery_voltage =
-		data_stream_.getData(config_data_.extensions.battery_data_name, "voltage");
+		data_stream_.getData(config_data_.extensions.battery_data_name, "BAT_V");
 
 	json system_status = {
 		{"system-time-utc", system_time},
@@ -301,7 +303,7 @@ void ServerModule::sendStatus(ServerSocket &socket) {
 		{"gfs-uptime", gfs_uptime_str},
 		{"health-status", "good"},
 		{"reported-errors", data_stream_.getNumErrorPackets()},
-		{"current-flight-proc", "N-I"},
+		{"current-flight-proc", kFlightProcedureTypeToString.at(data_stream_.getCurrentFlightProcedure().type)},
 		{"flight-phase", "N-I"},
 		{"modules-status", {
 			{"configuration", module_status_to_string_map.at(module_statuses["configuration"])},

@@ -90,13 +90,13 @@ private:
     std::thread runner_thread_ = std::thread();
     std::atomic<ExtensionStatus> status_;
 
-    int id_ = 0;
+    std::atomic<int> id_ = 0;
     std::string name_ = "";
     std::string type_ = "";
     ExtensionMetadata::Category category_ = ExtensionMetadata::Category::ERROR;
     ExtensionMetadata::Interface interface_ = ExtensionMetadata::Interface::ERROR;
     int update_interval_ = 0;
-    int critical_ = 0;
+    std::atomic<int> critical_ = 0;
 };
 
 class ExtensionException {

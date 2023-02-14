@@ -70,7 +70,7 @@ void ExtensionsModule::stop() {
 }
 
 void ExtensionsModule::runner() {
-    //const int max_restart_count = 5;
+    const int max_restart_count = 5;
     //const int restart_delay_seconds = 10;
 
     for (extension::Extension *ext : extensions_) {
@@ -105,6 +105,12 @@ void ExtensionsModule::runner() {
                 ext->stop();
                 num_error++;
             } else if (ext_status == ExtensionStatus::STOPPED_ERROR_STATE) {
+                if (ext->restart_attempts_ < max_restart_count || ext->getCritical() == true) {
+                    ext->restart_attempts_++;
+                    ext->start();
+                } else {
+                    num_stopped_error_state++;
+                }
                 num_stopped_error_state++;
             } else if (ext_status == ExtensionStatus::STOPPED) {
                 num_stopped++;

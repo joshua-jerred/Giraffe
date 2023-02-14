@@ -31,12 +31,7 @@ namespace modules {
  */
 class Module {
     public:
-        Module(DataStream &stream, std::string error_prefix, std::string module_name):
-            data_stream_(stream),
-            module_status_(ModuleStatus::STOPPED),
-            error_source_(error_prefix),
-            module_name_(module_name)
-            { };
+        Module(DataStream &stream, std::string error_prefix, std::string module_name);
 
         Module(const Module&) = delete; // No copy constructor
         Module& operator=(const Module&) = delete; // No copy assignment
@@ -46,26 +41,16 @@ class Module {
         virtual void start( ) { updateStatus(ModuleStatus::ERROR_STATE); };
         virtual void stop( ) { updateStatus(ModuleStatus::ERROR_STATE); };
 
+        bool addCommand(GFSCommand command);
+
     protected:
-        void updateStatus(ModuleStatus new_status) {
-            data_stream_.updateModuleStatus(module_name_, new_status);
-        }
+        void updateStatus(ModuleStatus new_status);
 
-        void error(std::string error_code, std::string info) {
-            data_stream_.addError("M_"+error_source_, error_code, info, 0);
-        };
+        void error(std::string error_code, std::string info);
+        void error(std::string error_code);
 
-        void error(std::string error_code) {
-            data_stream_.addError(error_source_, error_code, "", 0);
-        };
-
-        void data(std::string data_name, std::string data_value) {
-            data_stream_.addData(error_source_, data_name, data_value);
-        };
-
-        void data(std::string data_name, int data_value) {
-            data_stream_.addData(error_source_, data_name, std::to_string(data_value));
-        };
+        void data(std::string data_name, std::string data_value);
+        void data(std::string data_name, int data_value);
 
         const int kDefaultSleepTime_ = 1000; // 1 second, default sleep time
 
@@ -75,17 +60,19 @@ class Module {
          * 
          * @param sleep_time Optional, time to sleep in milliseconds.
          */
-        inline void module_sleep(int sleep_time = -1) {
-            if (sleep_time == -1) {
-                sleep_time = kDefaultSleepTime_;
-            }
-            std::this_thread::sleep_for(
-                std::chrono::milliseconds(sleep_time)
-            );
-        }
+        void module_sleep(int sleep_time = -1);
 
         DataStream &data_stream_;
         std::atomic<ModuleStatus> module_status_;
+
+        
+        // Separate command queue to avoid the numerous race conditions that will appear with later implementation.
+        void parseCommands();
+        virtual void doCommand(GFSCommand command) {
+            error("MCNI", command.id); // Module Command Not Implemented
+        }; 
+        std::mutex command_queue_lock_ = std::mutex();
+        std::queue<GFSCommand> command_queue_ = std::queue<GFSCommand>();
 
     private:
         std::string error_source_;
@@ -113,8 +100,6 @@ public:
     void sendAPRS();
     void sendSSTVImage();
     
-    void addCommand(GFSCommand command);
-
 private:
     int getNextTXNumber();
 
@@ -136,11 +121,7 @@ private:
     std::thread tx_thread_ = std::thread();
     std::atomic<int> stop_flag_ = 0;
 
-    // Separate command queue to avoid the numerous race conditions that will appear with later implementation.
-    std::mutex command_queue_lock_ = std::mutex();
-    std::queue<GFSCommand> command_queue_ = std::queue<GFSCommand>();
-    void parseCommands();
-    void doCommand(GFSCommand command);
+    void doCommand(GFSCommand command); // Override Module::doCommand()
 
     Data config_data_;
     int psk_length_ = 0;
@@ -276,6 +257,7 @@ private:
     Data config_data_ = {};
 
     std::string gps_data_source_ = "";
+    std::string pressure_data_source_ = "";
     std::string battery_data_source_ = "";
     std::string system_data_source_ = "";
     std::string radio_data_source_ = "";

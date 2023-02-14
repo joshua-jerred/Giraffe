@@ -146,27 +146,6 @@ void TelemetryModule::sendAPRS() {
     //addToTXQueue(newTX);
 }
 
-void TelemetryModule::addCommand(GFSCommand command) {
-    command_queue_lock_.lock();
-    command_queue_.push(command);
-    command_queue_lock_.unlock();
-}
-
-void TelemetryModule::parseCommands() {
-    command_queue_lock_.lock();
-    if (command_queue_.empty()) {
-        command_queue_lock_.unlock();
-        return;
-    }
-
-    while (!command_queue_.empty()) {
-        GFSCommand command = command_queue_.front();
-        command_queue_.pop();
-        doCommand(command);
-    }
-    command_queue_lock_.unlock();
-}
-
 void TelemetryModule::doCommand(GFSCommand command) {
     std::cout << "Telemetry Module is doing the command:" << command.id << std::endl;
     if (command.id == "rtx") {// Resend a transmission from the transmission log (by id)

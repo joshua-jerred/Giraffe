@@ -118,6 +118,7 @@ struct Data {
         std::string battery_data_name = "";
         std::string system_data_name = "";
         std::string radio_data_name = "";
+        std::string pressure_data_name = "";
     };
 
     struct Debugging {
@@ -202,6 +203,17 @@ static const std::unordered_map<ExtensionMetadata::Interface, std::string>
     {ExtensionMetadata::Interface::ONEWIRE, "ONEWIRE"},
     {ExtensionMetadata::Interface::USB, "USB"},
     {ExtensionMetadata::Interface::GPIO, "GPIO"}
+};
+
+static const std::unordered_map<FlightProcedure::Type, std::string> 
+        kFlightProcedureTypeToString = {
+    {FlightProcedure::Type::ERROR, "ERROR"},
+    {FlightProcedure::Type::TESTING, "TESTING"},
+    {FlightProcedure::Type::PRE_LAUNCH, "PRE_LAUNCH"},
+    {FlightProcedure::Type::STANDARD, "STANDARD"},
+    {FlightProcedure::Type::DESCENT, "DESCENT"},
+    {FlightProcedure::Type::RECOVERY, "RECOVERY"},
+    {FlightProcedure::Type::FAILSAFE, "FAILSAFE"}
 };
 
 #endif

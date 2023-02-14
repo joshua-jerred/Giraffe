@@ -148,7 +148,7 @@ void ConsoleModule::printData() {
     
     std::cout << std::endl << std::endl;
 
-    FlightProcedure current_flt_proc = data_stream_.getFlightProcedureCopy();
+    FlightProcedure current_flt_proc = data_stream_.getCurrentFlightProcedure();
 
     std::cout << "Flight Procedure- " << std::endl;
     std::cout << "Type: ";

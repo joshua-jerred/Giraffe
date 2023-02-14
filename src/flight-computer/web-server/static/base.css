@@ -125,3 +125,37 @@ body {
 #content-box-content {
     display: block;
 }
+
+#command-box {
+    bottom:0%;
+    right:0%;
+
+    width: fit-content;
+    height: fit-content;
+    padding: 2em;
+    margin: 1em;
+    position: fixed; 
+    background-color: #353535;
+    border-radius: 0.5em;
+}
+
+#command-box > input {
+    width: 20em;
+    height: 2em;
+    border-radius: 0.5em;
+    border: none;
+}
+
+#command-box > button {
+    width: 5em;
+    height: 2em;
+    margin-left: 1em;
+    border-radius: 0.5em;
+    border: none;
+    background-color: #0A81D1;
+}
+
+#command-box > button:hover {
+    background-color: #0a649f;
+    cursor: pointer;
+}

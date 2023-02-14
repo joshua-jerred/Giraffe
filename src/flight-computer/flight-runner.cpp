@@ -86,7 +86,7 @@ void FlightRunner::shutdown() {
 }
 
 int FlightRunner::flightLoop() {
-    std::cout << "Starting Flight Loop" << std::endl;
+    std::cout << "Starting Flight Procedure" << std::endl;
     Timer tsl_data_log; // Refer to timer.h
     Timer tsl_server; 
     Timer tsl_data_packet; // tsl = time since last
@@ -104,18 +104,31 @@ int FlightRunner::flightLoop() {
         if (data_stream_.getNextCommand(command)) { // Check for commands
             switch (command.category) {
                 case GFSCommand::CommandCategory::FLR:
-                    
+                    /** @todo implement flight runner commands*/
                     break;
                 case GFSCommand::CommandCategory::TLM: // Telemetry Module
                     if (p_telemetry_module_ != nullptr) {
                         p_telemetry_module_->addCommand(command);
+                    } else {
+                        // call to error
                     }
                     break;
                 case GFSCommand::CommandCategory::MDL:
-                    
+                    /** @todo implement module commands */
                     break;
                 case GFSCommand::CommandCategory::EXT:
-                    
+                    if (p_extension_module_ != nullptr) {
+                        p_extension_module_->addCommand(command);
+                    } else {
+                        // call to error
+                    }
+                    break;
+                case GFSCommand::CommandCategory::DAT:
+                    if (p_data_module_ != nullptr) {
+                        p_data_module_->addCommand(command);
+                    } else {
+                        // call to error
+                    }
                     break;
                 default:
                     std::cout << "unknown command category" << std::endl;

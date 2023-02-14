@@ -181,9 +181,31 @@ async function connection_handler_runner() {
     setTimeout(connection_handler_runner, 2000);
 }
 
+async function commandButtonHandler() {
+    let command = document.getElementById('command-input').value;
+    fetch('/api/command', {
+        method: 'POST',
+        headers: {
+            'Accept' : 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({"command": command})
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+}
+
 window.addEventListener("DOMContentLoaded", function() {
     utcClock();
     connection_handler_runner();
+
+    let commandButton = document.getElementById('command-button');
+    commandButton.addEventListener("click", commandButtonHandler);
 
     let coll = document.getElementsByClassName("content-box-title");
     let i;

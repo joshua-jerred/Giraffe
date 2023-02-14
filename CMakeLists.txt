@@ -31,6 +31,7 @@ add_executable(giraffe-flight-software
     src/flight-computer/main.cpp
     src/flight-computer/flight-runner.cpp
 
+    src/flight-computer/modules/module.cpp
     src/flight-computer/modules/module-configuration.cpp
     src/flight-computer/modules/module-data.cpp
     src/flight-computer/modules/module-extensions.cpp
