@@ -71,10 +71,11 @@ class Module {
         virtual void doCommand(GFSCommand command) {
             error("MCNI", command.id); // Module Command Not Implemented
         }; 
-        std::mutex command_queue_lock_ = std::mutex();
-        std::queue<GFSCommand> command_queue_ = std::queue<GFSCommand>();
 
     private:
+        std::mutex command_queue_lock_ = std::mutex();
+        std::queue<GFSCommand> command_queue_ = std::queue<GFSCommand>();
+        
         std::string error_source_;
         std::string module_name_;
 };
@@ -225,6 +226,8 @@ public:
 
     DataFrame getSnapshot();
     void log();
+
+    void doCommand(GFSCommand command); // Override Module::doCommand()
 
 private:
     void addDataTypeToFrame(Data::DataTypes::DataType data_type); // add a data type to the data frame

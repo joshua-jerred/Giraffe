@@ -364,6 +364,27 @@ void DataModule::checkForStaleErrors() {
   */
 }
 
+void DataModule::doCommand(GFSCommand command) {
+  if (command.category != GFSCommand::CommandCategory::DAT) {
+    error("CMDT", GFS_COMMAND_CATEGORY_TO_STRING.at(command.category));
+    return;
+  }
+
+  std::string command_name = command.id;
+  std::string command_arg = command.arg;
+
+  if (command_name == "cae") { // clear all errors
+    if (command_arg != "") { // There should be no arguments
+      error("CMD_A", command_name + "$" + command_arg + "$"); // Command Argument Error
+      return;
+    }
+    errorframe_.clear();
+  } else {
+    error("CMD_NF", command_name);
+  }
+
+}
+
 /**
  * @brief This is the function that will run in it's own thread. It parses all
  * data and errors automatically.

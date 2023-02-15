@@ -109,6 +109,15 @@ struct CriticalData {
     bool radio_status = false; // If the radio is functioning
 };
 
+static const std::unordered_map<GFSCommand::CommandCategory, std::string> GFS_COMMAND_CATEGORY_TO_STRING = {
+    {GFSCommand::CommandCategory::unknown, "unknown"},
+    {GFSCommand::CommandCategory::TLM, "TLM"},
+    {GFSCommand::CommandCategory::MDL, "MDL"},
+    {GFSCommand::CommandCategory::EXT, "EXT"},
+    {GFSCommand::CommandCategory::FLR, "FLR"},
+    {GFSCommand::CommandCategory::DAT, "DAT"},
+};
+
 static const std::unordered_map<Transmission::Type, std::string> TRANSMISSION_TYPE_TO_STRING = {
     {Transmission::Type::ERROR, "ERROR"},
     {Transmission::Type::APRS, "APRS"},

@@ -13,12 +13,17 @@
 - ``EX_<extension id>``     Extension Errors, ie EX_1, EX_2, etc.
 - ``DS_`` DataStream Errors
 
+## Command Errors
+- ``<any_prefix>_CMD_NF <command id>``
+  - Command Not Found
+- ``<any_prefix>_CMD_A <command id>$<command args>$``
+  - Command Arguments Invalid
+
 ## Generic Module Errors
 - ``M_**_MCNI``
-  - Module Command Not Implemented
+  - Module Command Structure Not Implemented
 - ``M_**_MCQF``
   - Module Command Queue Full
-
 
 ## Configuration Module
 - ``M_CF_FNF``

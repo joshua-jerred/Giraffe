@@ -8,6 +8,10 @@ Currently only the server is implemented, but others are soon to follow.
 
 All commands are sent as a string of characters/numbers with a known format.
 
+For safety reasons, argument requirements must be met exactly.
+This means if a command expects no arguments, there should be nothing
+after the command ID and the final `/`.
+
 ## Command Format
 
 Commands are separated into 4 sections with a `/` used as a separator.
@@ -43,7 +47,7 @@ See the specific command
 
 # Command List
 ### Data Module
- - ``cmd/dat/cae/`` - Clear all errors
+ - ``cmd/dat/cae/`` - Clear all errors from the error frame, they will remain in the log
 ### Extension Commands
  - ``cmd/ext/stp/[num]`` - Stop the extension with the given number
 ### Telemetry
