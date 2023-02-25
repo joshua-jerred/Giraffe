@@ -52,6 +52,7 @@
   - Starting Proc not found in config file
 - ``M_CF_GEN_SP_I``
   - Starting Proc invalid, reverting to 'error'.
+
 #### Extension Config
 - ``M_CF_EXT_ID_R <id>``
   - ID out of range
@@ -73,6 +74,7 @@
   - Missing item in extension configuration
 - ``M_CF_EXT_UI_R <interval>`` 
   - Update interval out of range, reverting to 1000ms
+
 #### Telemetry Config
 - ``TL_PSK_F <mode>`` 
   - psk-mode or speed not found, defaulting to BPSK_125
@@ -94,6 +96,8 @@
   - Critical Data not found for unit
 - ``M_DA_CDPE <unit>``
   - Critical Data Parse Error
+- ``M_DA_NLOG``
+  - Could not open log file when reading size
 
 ## Telemetry Module Errors
 #### PSK31

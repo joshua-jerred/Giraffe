@@ -1,0 +1,42 @@
+@startuml command
+title Command Example
+
+autonumber 1
+participant User as u
+entity "Giraffe\nGround Station" as ggs
+entity "Giraffe\nFlight Software" as gfs
+
+u -> ggs : \
+User selects a command\n\
+to send with arguments
+
+ggs -> ggs : \
+Command is parsed, \n\
+made into a packet, \n\
+and modulated.
+
+gfs -> ggs : \
+<font color=red>Modulated Packet\n\
+<font color=red>Sent Via Radio
+
+gfs -> gfs : \
+Command is \n\
+parsed and \n\
+checked for \n\
+validity
+
+gfs -> gfs : \
+ACK/NACK with\n\
+accompanying\n\
+data or error\n\
+code is generated\n\
+into a packet
+
+gfs -> ggs : \
+<font color=red>Modulated Packet\n\
+<font color=red>Sent Via Radio
+
+ggs -> u : \
+
+
+@enduml
