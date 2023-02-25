@@ -1,0 +1,3 @@
+[submodule "src/MWAV"]
+	path = src/MWAV
+	url = git@github.com:joshua-jerred/MWAV.git
