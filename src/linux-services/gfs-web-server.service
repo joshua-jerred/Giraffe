@@ -7,6 +7,7 @@ After=network.target
 User=giraffe
 WorkingDirectory=/home/giraffe
 ExecStart=/opt/giraffe/web-server/main.py
+Restart=always
 StartLimitIntervalSec=5
 
 [Install]
