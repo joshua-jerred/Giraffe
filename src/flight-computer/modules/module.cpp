@@ -22,19 +22,23 @@ void modules::Module::updateStatus(ModuleStatus new_status) {
 
 void modules::Module::error(std::string error_code, std::string info) {
   data_stream_.addError("M_" + error_source_, error_code, info, 0);
-};
+}
 
 void modules::Module::error(std::string error_code) {
   data_stream_.addError(error_source_, error_code, "", 0);
-};
+}
 
 void modules::Module::data(std::string data_name, std::string data_value) {
   data_stream_.addData(error_source_, data_name, data_value);
-};
+}
 
 void modules::Module::data(std::string data_name, int data_value) {
   data_stream_.addData(error_source_, data_name, std::to_string(data_value));
-};
+}
+
+void modules::Module::data(std::string data_name, double data_value) {
+  data_stream_.addData(error_source_, data_name, std::to_string(data_value));
+}
 
 void modules::Module::module_sleep(int sleep_time) {
   if (sleep_time == -1) {

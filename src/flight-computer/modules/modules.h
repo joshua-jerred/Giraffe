@@ -51,6 +51,7 @@ class Module {
 
         void data(std::string data_name, std::string data_value);
         void data(std::string data_name, int data_value);
+        void data(std::string data_name, double data_value);
 
         const int kDefaultSleepTime_ = 1000; // 1 second, default sleep time
 

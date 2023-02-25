@@ -9,6 +9,7 @@
  */
 
 #include <fstream>
+#include <filesystem>
 
 #include "modules.h"
 using namespace modules;
@@ -110,6 +111,15 @@ void DataModule::stop() {
 void DataModule::log() {
   std::ofstream logfile;
   logfile.open(data_log_file_path_, std::ios_base::app);
+
+  float size = -1;
+  try {
+    size = std::filesystem::file_size(data_log_file_path_);
+    size = size / 1024.0; // Convert to KB
+    data("DLOG", size);
+  } catch (std::filesystem::filesystem_error &e) {
+    error("NLOG");
+  }  
 
   DataFrame dataframe_copy(data_stream_.getDataFrameCopy());
 
