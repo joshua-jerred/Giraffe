@@ -88,7 +88,10 @@ install(TARGETS giraffe-flight-software DESTINATION /opt/giraffe)
 install(DIRECTORY ${GFS_SRC}/web-server DESTINATION /opt/giraffe)
 install(FILES ${GFS_SRC}/config.json DESTINATION /opt/giraffe)
 
+# Tests
 add_subdirectory(tests EXCLUDE_FROM_ALL)
+
+# CPack
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)

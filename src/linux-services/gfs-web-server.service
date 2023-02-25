@@ -1,0 +1,13 @@
+[Unit]
+StartLimitInterval=200
+Description=Giraffe GFS Web Server
+After=network.target
+
+[Service]
+User=giraffe
+WorkingDirectory=/home/giraffe
+ExecStart=/opt/giraffe/web-server/main.py
+StartLimitIntervalSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import flask
 import api
 from gfs import GFS
@@ -17,4 +19,4 @@ def index():
     return flask.render_template('data.html')
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0')
+    app.run(host='0.0.0.0', port=8672)
