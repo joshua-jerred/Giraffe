@@ -22,6 +22,8 @@ FetchContent_MakeAvailable(json)
 set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight-computer)
 set(MWAV_SRC ${CMAKE_SOURCE_DIR}/src/MWAV/src)
 
+set(TEST_BIN ${CMAKE_BINARY_DIR}/tests)
+
 include_directories(
 	${GFS_SRC}/flight-computer
 	${GFS_SRC}/modules

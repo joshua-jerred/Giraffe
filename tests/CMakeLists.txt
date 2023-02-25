@@ -14,7 +14,7 @@ add_executable(test-01
 	${TEST_SRC}/test-01/test.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
 )
-set_target_properties(test-01 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-01/)
+set_target_properties(test-01 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-01/)
 target_link_libraries(test-01 gtest_main)
 
 # test-02 - Configuration ------------------------------------------------------
@@ -23,10 +23,10 @@ add_executable(test-02
 	${GFS_SRC}/modules/module-configuration.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
 )
-set_target_properties(test-02 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-02/)
+set_target_properties(test-02 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-02/)
 target_link_libraries(test-02 gtest_main)
 target_link_libraries(test-02 nlohmann_json::nlohmann_json)
-file(COPY "test-02/input-1.json" DESTINATION ${CMAKE_SOURCE_DIR}/bin/tests/test-02)
+file(COPY "test-02/input-1.json" DESTINATION ${TEST_BIN}/test-02)
 
 # test-03 - Data Module --------------------------------------------------------
 add_executable(test-03 
@@ -34,7 +34,7 @@ add_executable(test-03
 	${GFS_SRC}/modules/module-data.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
 )
-set_target_properties(test-03 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-03/)
+set_target_properties(test-03 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-03/)
 target_link_libraries(test-03 gtest_main)
 target_link_libraries(test-03 nlohmann_json::nlohmann_json)
 
@@ -58,7 +58,7 @@ add_executable(test-04
 	${GFS_SRC}/utilities/ubx.cpp
 )
 target_link_libraries(test-04 i2c)
-set_target_properties(test-04 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-04/)
+set_target_properties(test-04 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-04/)
 target_link_libraries(test-04 gtest_main)
 target_link_libraries(test-04 nlohmann_json::nlohmann_json)
 
@@ -68,7 +68,7 @@ add_executable(test-05
 	${GFS_SRC}/extension-interface/i2c.cpp
 )
 target_link_libraries(test-05 i2c)
-set_target_properties(test-05 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-05/)
+set_target_properties(test-05 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-05/)
 target_link_libraries(test-05 gtest_main)
 
 # test-06 - BMP180 Extension ---------------------------------------------------
@@ -80,7 +80,7 @@ add_executable(test-06
 	${GFS_SRC}/extension-interface/i2c.cpp
 )
 target_link_libraries(test-06 i2c)
-set_target_properties(test-06 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-06/)
+set_target_properties(test-06 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-06/)
 target_link_libraries(test-06 gtest_main)
 
 # test-07 - DS18B20 Extension --------------------------------------------------
@@ -92,7 +92,7 @@ add_executable(test-07
 	${GFS_SRC}/extension-interface/one-wire.cpp
 )
 target_link_libraries(test-07 i2c)
-set_target_properties( test-07 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-07/ )
+set_target_properties( test-07 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-07/ )
 target_link_libraries(test-07 gtest_main)
 
 # test-08 - UBX Utility --------------------------------------------------------
@@ -102,7 +102,7 @@ add_executable(test-08
 	${GFS_SRC}/utilities/ubx.cpp
 )
 target_link_libraries(test-08 i2c)
-set_target_properties( test-08 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-08/ )
+set_target_properties( test-08 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-08/ )
 target_link_libraries(test-08 gtest_main)
 
 # test-09 - UBX Manual Test ----------------------------------------------------
@@ -112,7 +112,7 @@ add_executable(test-09
 	${GFS_SRC}/utilities/ubx.cpp
 )
 target_link_libraries(test-09 i2c)
-set_target_properties( test-09 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-09/ )
+set_target_properties( test-09 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-09/ )
 # test-10 - BME280 Extension ---------------------------------------------------
 add_executable(test-10
 	${TEST_SRC}/test-10/test.cpp
@@ -122,7 +122,7 @@ add_executable(test-10
 	${GFS_SRC}/extension-interface/i2c.cpp
 )
 target_link_libraries(test-10 i2c)
-set_target_properties( test-10 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-10/ )
+set_target_properties( test-10 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-10/ )
 target_link_libraries(test-10 gtest_main)
 # test-11 - SYSINFO Extension --------------------------------------------------
 add_executable(test-11
@@ -131,7 +131,7 @@ add_executable(test-11
 	${GFS_SRC}/extensions/extension.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
 )
-set_target_properties( test-11 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-11/ )
+set_target_properties( test-11 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-11/ )
 target_link_libraries(test-11 gtest_main)
 # test-12 - MCP3021 Extension --------------------------------------------------
 add_executable(test-12
@@ -142,5 +142,5 @@ add_executable(test-12
 	${GFS_SRC}/extension-interface/i2c.cpp
 )
 target_link_libraries(test-12 i2c)
-set_target_properties( test-12 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/tests/test-12/ )
+set_target_properties( test-12 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-12/ )
 target_link_libraries(test-12 gtest_main)
