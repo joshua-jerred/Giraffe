@@ -10,6 +10,8 @@
 
 #include <fstream>
 #include <filesystem>
+#include <iostream>
+#include <nlohmann/json.hpp>
 
 #include "modules.h"
 using namespace modules;
@@ -26,17 +28,27 @@ DataModule::DataModule(DataStream &stream):
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
 
-  data_log_file_path_ =
-      DATA_LOG_LOCATION + std::to_string(now->tm_year + 1900) + "-" +
+  const std::string absolute_path = std::filesystem::current_path().string();
+  const std::string current_time = std::to_string(now->tm_year + 1900) + "-" +
       std::to_string(now->tm_mon + 1) + "-" + std::to_string(now->tm_mday) +
       "-" + std::to_string(now->tm_hour) + "-" + std::to_string(now->tm_min) +
       "-" + std::to_string(now->tm_sec) + ".csv";
+  
+  data_log_file_path_ = absolute_path + "/data_logs/";
+  error_log_file_path_ = absolute_path + "/error_logs/";
 
-  error_log_file_path_ =
-      ERROR_LOG_LOCATION + std::to_string(now->tm_year + 1900) + "-" +
-      std::to_string(now->tm_mon + 1) + "-" + std::to_string(now->tm_mday) +
-      "-" + std::to_string(now->tm_hour) + "-" + std::to_string(now->tm_min) +
-      "-" + std::to_string(now->tm_sec) + ".csv";
+  if (!std::filesystem::exists(data_log_file_path_)) {
+    std::filesystem::create_directory(data_log_file_path_);
+  }
+  if (!std::filesystem::exists(error_log_file_path_)) {
+    std::filesystem::create_directory(error_log_file_path_);
+  }
+
+  data_log_file_path_ += current_time;
+  error_log_file_path_ += current_time;
+
+  std::cout << "Data Log: " << data_log_file_path_ << std::endl;
+  std::cout << "Error Log: " << error_log_file_path_ << std::endl;
 }
 
 /**
@@ -112,14 +124,9 @@ void DataModule::log() {
   std::ofstream logfile;
   logfile.open(data_log_file_path_, std::ios_base::app);
 
-  float size = -1;
-  try {
-    size = std::filesystem::file_size(data_log_file_path_);
-    size = size / 1024.0; // Convert to KB
-    data("DLOG", size);
-  } catch (std::filesystem::filesystem_error &e) {
-    error("NLOG");
-  }  
+  if (!logfile.is_open()) {
+    error("LOGFILE");
+  }
 
   DataFrame dataframe_copy(data_stream_.getDataFrameCopy());
 
@@ -143,7 +150,15 @@ void DataModule::log() {
     } else {
         logfile << key + " - NO_DATA" << std::endl;
     }
+  }
 
+  float size = -1;
+  try {
+    size = std::filesystem::file_size(data_log_file_path_);
+    size = size / 1024.0; // Convert to KB
+    data("DLOG", size);
+  } catch (std::filesystem::filesystem_error &e) {
+    error("NLOG");
   }
 }
 

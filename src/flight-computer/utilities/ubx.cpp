@@ -655,7 +655,7 @@ bool ubx::pollMessage(I2C &i2c,
             continue;
         }
     }
-    std::cout << "timeout" << std::endl;
+    //std::cout << "timeout" << std::endl;
     return false;
 }
 
