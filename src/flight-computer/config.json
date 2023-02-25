@@ -68,6 +68,14 @@
         "telemetry-enabled": true,
         "call-sign": "FccCallSign",
 
+        "radio": {
+            "radio-enabled": true,
+            "radio-communication-uart": {
+                "uart-port": "/dev/ttyAMA0",
+                "uart-baudrate": 9600
+            }
+        },
+
         "data-packet-mode":"aprs",
         
         "aprs-enabled": true,
@@ -88,7 +96,6 @@
         "psk-frequency": "100.000",
         "psk-mode": "bpsk500"
     },
-    
     "data-log-data-and-packet-contents": [
         {
             "source": "sys",
