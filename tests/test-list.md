@@ -14,3 +14,4 @@ Uses gtest
 - [Test 10] - BME280 Extension
 - [Test 11] - SYSINFO Extension
 - [Test 12] - MCP3021 Extension
+- [Test 13] - Image Processing Utility

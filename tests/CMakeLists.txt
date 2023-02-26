@@ -92,7 +92,7 @@ add_executable(test-07
 	${GFS_SRC}/extension-interface/one-wire.cpp
 )
 target_link_libraries(test-07 i2c)
-set_target_properties( test-07 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-07/ )
+set_target_properties(test-07 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-07/)
 target_link_libraries(test-07 gtest_main)
 
 # test-08 - UBX Utility --------------------------------------------------------
@@ -102,7 +102,7 @@ add_executable(test-08
 	${GFS_SRC}/utilities/ubx.cpp
 )
 target_link_libraries(test-08 i2c)
-set_target_properties( test-08 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-08/ )
+set_target_properties(test-08 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-08/)
 target_link_libraries(test-08 gtest_main)
 
 # test-09 - UBX Manual Test ----------------------------------------------------
@@ -112,7 +112,8 @@ add_executable(test-09
 	${GFS_SRC}/utilities/ubx.cpp
 )
 target_link_libraries(test-09 i2c)
-set_target_properties( test-09 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-09/ )
+set_target_properties(test-09 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-09/)
+
 # test-10 - BME280 Extension ---------------------------------------------------
 add_executable(test-10
 	${TEST_SRC}/test-10/test.cpp
@@ -122,8 +123,9 @@ add_executable(test-10
 	${GFS_SRC}/extension-interface/i2c.cpp
 )
 target_link_libraries(test-10 i2c)
-set_target_properties( test-10 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-10/ )
+set_target_properties(test-10 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-10/)
 target_link_libraries(test-10 gtest_main)
+
 # test-11 - SYSINFO Extension --------------------------------------------------
 add_executable(test-11
 	${TEST_SRC}/test-11/test.cpp
@@ -131,8 +133,9 @@ add_executable(test-11
 	${GFS_SRC}/extensions/extension.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
 )
-set_target_properties( test-11 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-11/ )
+set_target_properties(test-11 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-11/)
 target_link_libraries(test-11 gtest_main)
+
 # test-12 - MCP3021 Extension --------------------------------------------------
 add_executable(test-12
 	${TEST_SRC}/test-12/test.cpp
@@ -142,5 +145,21 @@ add_executable(test-12
 	${GFS_SRC}/extension-interface/i2c.cpp
 )
 target_link_libraries(test-12 i2c)
-set_target_properties( test-12 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-12/ )
+set_target_properties(test-12 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-12/)
 target_link_libraries(test-12 gtest_main)
+
+# test-13 - Image Tools --------------------------------------------------------
+add_executable(test-13
+	${TEST_SRC}/test-13/test.cpp
+	${GFS_SRC}/utilities/image-tools.cpp
+)
+set_target_properties(test-13 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-13/)
+file(COPY "test-13/test-pattern.png" DESTINATION ${TEST_BIN}/test-13)
+file(COPY "test-13/test-image.png" DESTINATION ${TEST_BIN}/test-13)
+
+# ImageMagick
+add_definitions(-DMAGICKCORE_QUANTUM_DEPTH=16)
+add_definitions(-DMAGICKCORE_HDRI_ENABLE=0)
+find_package(ImageMagick COMPONENTS Magick++)
+include_directories(${ImageMagick_INCLUDE_DIRS})
+target_link_libraries(test-13 ${ImageMagick_LIBRARIES} )
