@@ -32,7 +32,7 @@ DataModule::DataModule(DataStream& stream)
       std::to_string(now->tm_year + 1900) + "-" +
       std::to_string(now->tm_mon + 1) + "-" + std::to_string(now->tm_mday) +
       "-" + std::to_string(now->tm_hour) + "-" + std::to_string(now->tm_min) +
-      "-" + std::to_string(now->tm_sec) + ".csv";
+      "-" + std::to_string(now->tm_sec) + ".json";
 
   data_log_directory_ = absolute_path + "/data_logs/";
   error_log_directory_ = absolute_path + "/error_logs/";
@@ -175,6 +175,11 @@ void DataModule::log() {
     size = std::filesystem::file_size(data_log_directory_ + log_files_name_);
     size = size / 1024.0 / 1024.0;  // Convert to MB
     data("da_log_size_mb", size, 2);
+
+    if (size > configurables::data_module::kMaxLogFileSizeMB) {
+      RotateLogFiles();
+    }
+
   } catch (std::filesystem::filesystem_error& e) {
     error("SZ_DL");  // Error getting size of data log
   }
@@ -269,6 +274,11 @@ void DataModule::parseErrorStream() {
     size = std::filesystem::file_size(error_log_directory_ + log_files_name_);
     size = size / 1024.0 / 1024.0;  // Convert to MB
     data("er_log_size_mb", size, 2);
+
+    if (size > configurables::data_module::kMaxLogFileSizeMB) {
+      RotateLogFiles();
+    }
+
   } catch (std::filesystem::filesystem_error& e) {
     error("SZ_EL");
   }
@@ -449,6 +459,12 @@ void DataModule::doCommand(GFSCommand command) {
       return;
     }
     UpdateLogFilesList();
+  } else if (command_name == "rlf") {
+        if (command_arg != "") {  // There should be no arguments
+      CommandArgumentError(command_name, command_arg);
+      return;
+    }
+    RotateLogFiles();
   } else {
     error("CMD_NF", command_name);
   }
@@ -504,3 +520,28 @@ void DataModule::UpdateLogFilesList() {
   }
   data_stream_.UnlockLogFiles();
 }
+
+void DataModule::RotateLogFiles() {
+  std::time_t t = std::time(0);
+  std::tm* now = std::localtime(&t);
+
+  std::string new_log_file_name =
+      std::to_string(now->tm_year + 1900) + "-" +
+      std::to_string(now->tm_mon + 1) + "-" + std::to_string(now->tm_mday) +
+      "-" + std::to_string(now->tm_hour) + "-" + std::to_string(now->tm_min) +
+      "-" + std::to_string(now->tm_sec) + ".json";
+
+  // Create the files
+  std::ofstream data_log_file(data_log_directory_ + new_log_file_name);
+  std::ofstream error_log_file(error_log_directory_ + new_log_file_name);
+
+  if (!data_log_file.is_open() || !error_log_file.is_open()) {
+    error("LFRE");  // Data Log Creation Failed
+  }
+  
+  log_files_name_ = new_log_file_name;
+  data("LFR", new_log_file_name);  // Log File Rotation
+  
+  UpdateLogFilesList();
+}
+

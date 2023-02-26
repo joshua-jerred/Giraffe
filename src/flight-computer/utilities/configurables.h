@@ -11,6 +11,12 @@
 #ifndef UTILITY_CONFIGURABLES_H
 #define UTILITY_CONFIGURABLES_H
 
+namespace configurables{
+  namespace data_module {
+    const float kMaxLogFileSizeMB = 50; // MB
+  }
+}
+
 #define GFS_VERSION "0.4"
 
 /** @brief The location of the configuration file. It is safe to change 

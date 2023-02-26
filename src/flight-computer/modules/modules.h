@@ -233,20 +233,18 @@ public:
     void doCommand(GFSCommand command); // Override Module::doCommand()
 
 private:
-    void addDataTypeToFrame(Data::DataTypes::DataType data_type); // add a data type to the data frame
-    
+    void runner();
+    void addDataTypeToFrame(Data::DataTypes::DataType data_type); // add a data type to the data frame    
     void checkForStaleData();
     void parseDataStream();
     void parseGPSData();
-
     void parseCriticalData();
+    void parseErrorStream();
 
     void checkForStaleErrors();
-    void parseErrorStream();
     
-    void runner();
-
     void UpdateLogFilesList();
+    void RotateLogFiles();
 
     CriticalData critical_data_ = CriticalData();
     
