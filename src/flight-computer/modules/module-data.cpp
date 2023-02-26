@@ -141,32 +141,33 @@ void DataModule::log() {
 
   if (!logfile.is_open()) {
     error("LOGFILE");
-  }
+  } else {
+    DataFrame dataframe_copy(data_stream_.getDataFrameCopy());
 
-  DataFrame dataframe_copy(data_stream_.getDataFrameCopy());
+    std::time_t t = std::time(0);
+    std::tm* now = std::localtime(&t);
+    std::string date_time_string =
+        std::to_string(now->tm_mday) + "/" + std::to_string(now->tm_mon + 1) +
+        " " + std::to_string(now->tm_hour) + ":" + std::to_string(now->tm_min) +
+        ":" + std::to_string(now->tm_sec);
 
-  std::time_t t = std::time(0);
-  std::tm* now = std::localtime(&t);
-
-  logfile << std::endl;  // Add a blank line between each log
-  logfile << now->tm_mday << "/" << now->tm_mon + 1 << " ";
-  logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec
-          << std::endl;
-  // for (auto& [source_and_unit, packet] : dataframe_copy) { // Log each item
-  // in the dataframe
-  //   logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << ",
-  //   "
-  //           << packet.source << ", " << packet.unit << ", " << packet.value
-  //           << std::endl;
-  // }
-  std::string key = "";
-  for (Data::DataTypes::DataType type : config_data_.data_types.types) {
-    key = type.source + ":" + type.unit;
-    if (dataframe_copy.contains(key)) {
-      logfile << key + " - " + dataframe_copy[key].value << std::endl;
-    } else {
-      logfile << key + " - NO_DATA" << std::endl;
+    json data_json = json::object();
+    for (Data::DataTypes::DataType type : config_data_.data_types.types) {
+      if (!data_json.contains(type.source)) {
+        data_json[type.source] = json::array();
+      }
+      std::string key = type.source + ":" + type.unit;
+      json data_item = json::object();
+      if (dataframe_copy.contains(key)) {
+        data_item[type.unit] = dataframe_copy[key].value;
+      } else {
+        data_item[type.unit] = "NO_DATA";
+      }
+      data_json[type.source].push_back(data_item);
     }
+    json data_log_entry = {{"time", date_time_string}, {"data", data_json}};
+
+    logfile << data_log_entry.dump() << std::endl;
   }
 
   float size = -1;
@@ -443,7 +444,7 @@ void DataModule::doCommand(GFSCommand command) {
     }
     errorframe_.clear();
   } else if (command_name == "ufl") {
-    if (command_arg != "") {    // There should be no arguments
+    if (command_arg != "") {  // There should be no arguments
       CommandArgumentError(command_name, command_arg);
       return;
     }
@@ -488,7 +489,8 @@ void DataModule::UpdateLogFilesList() {
     file_size_mb = (float)std::filesystem::file_size(path) / 1024.0f / 1024.0f;
     std::stringstream ss;
     ss << std::fixed << std::setprecision(2) << file_size_mb;
-    std::string path_and_size = path.path().filename().string() + " " + ss.str() + "MB";
+    std::string path_and_size =
+        path.path().filename().string() + " " + ss.str() + "MB";
     data_stream_.GetDataLogFiles().push_back(path_and_size);
   }
   for (const auto& path :
@@ -496,7 +498,8 @@ void DataModule::UpdateLogFilesList() {
     file_size_mb = (float)std::filesystem::file_size(path) / 1024.0f / 1024.0f;
     std::stringstream ss;
     ss << std::fixed << std::setprecision(2) << file_size_mb;
-    std::string path_and_size = path.path().filename().string() + " " + ss.str() + "MB";
+    std::string path_and_size =
+        path.path().filename().string() + " " + ss.str() + "MB";
     data_stream_.GetErrorLogFiles().push_back(path_and_size);
   }
   data_stream_.UnlockLogFiles();
