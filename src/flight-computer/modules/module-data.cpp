@@ -143,6 +143,26 @@ void DataModule::log() {
     error("LOGFILE");
   } else {
     DataFrame dataframe_copy(data_stream_.getDataFrameCopy());
+    GPSFrame gps_data = latest_gps_frame_;
+
+    json gps_data_json = json::object({
+        {"source", gps_data.source},
+        {"time", gps_data.time},
+        {"fix", GPS_FIX_TO_STRING.at(gps_data.fix)},
+        {"satellites", gps_data.num_satellites},
+        
+        {"latitude", gps_data.latitude},
+        {"longitude", gps_data.longitude},
+        {"horz_accuracy", gps_data.horz_accuracy},
+
+        {"altitude", gps_data.altitude},
+        {"vert_accuracy", gps_data.vert_accuracy},
+
+        {"v_speed", gps_data.vertical_speed},
+        {"speed", gps_data.ground_speed},
+        {"heading", gps_data.heading_of_motion},
+        {"heading_accuracy", gps_data.heading_accuracy}
+    });
 
     std::time_t t = std::time(0);
     std::tm* now = std::localtime(&t);
@@ -165,7 +185,7 @@ void DataModule::log() {
       }
       data_json[type.source].push_back(data_item);
     }
-    json data_log_entry = {{"time", date_time_string}, {"data", data_json}};
+    json data_log_entry = {{"time", date_time_string}, {"data", data_json}, {"gps", gps_data_json}};
 
     logfile << data_log_entry.dump() << std::endl;
   }

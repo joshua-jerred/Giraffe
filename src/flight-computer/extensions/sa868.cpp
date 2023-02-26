@@ -20,5 +20,6 @@ extension::SA868::~SA868() {
 }
 
 int extension::SA868::runner() {
+  setStatus(ExtensionStatus::STOPPED_ERROR_STATE);
   return 0;
 }

@@ -20,5 +20,6 @@ extension::RaspPiCamera::~RaspPiCamera() {
 }
 
 int extension::RaspPiCamera::runner() {
+  setStatus(ExtensionStatus::STOPPED_ERROR_STATE);
   return 0;
 }

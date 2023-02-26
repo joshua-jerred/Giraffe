@@ -37,7 +37,7 @@ namespace configurables{
 #define EXTENSION_NAME_MAX_LENGTH 15
 
 #define EXTENSION_INTERVAL_MIN 200 // In milliseconds
-#define EXTENSION_INTERVAL_MAX 10000 // In milliseconds
+#define EXTENSION_INTERVAL_MAX 1800000 // In milliseconds
 // ---------------------------------------- //
 
 // ------- Error Prefixes ------- //
