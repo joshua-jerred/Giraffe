@@ -245,6 +245,8 @@ private:
     
     void UpdateLogFilesList();
     void RotateLogFiles();
+    void DeleteDataLogFile(std::string file_name);
+    void DeleteErrorLogFile(std::string file_name);
 
     CriticalData critical_data_ = CriticalData();
     

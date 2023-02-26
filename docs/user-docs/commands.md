@@ -49,6 +49,9 @@ See the specific command
 ### Data Module
  - ``cmd/dat/cae/`` - Clear all errors from the error frame, they will remain in the log
  - ``cmd/dat/ufl/`` - Update the file list
+ - ``cmd/dat/rlf/`` - Rotate the log file
+ - ``cmd/dat/ddf/[file name without extension]`` - Delete the data log file with the given name
+ - ``cmd/dat/def/[file name without extension]`` - Delete the error log file with the given name
 ### Extension Commands
  - ``cmd/ext/stp/[num]`` - Stop the extension with the given number
 ### Telemetry

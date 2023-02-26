@@ -465,6 +465,10 @@ void DataModule::doCommand(GFSCommand command) {
       return;
     }
     RotateLogFiles();
+  } else if (command_name == "ddf") {
+    DeleteDataLogFile(command_arg);
+  } else if (command_name == "efd") {
+    DeleteErrorLogFile(command_arg);
   } else {
     error("CMD_NF", command_name);
   }
@@ -545,3 +549,44 @@ void DataModule::RotateLogFiles() {
   UpdateLogFilesList();
 }
 
+void DataModule::DeleteDataLogFile(std::string file_name) {
+  file_name += ".json";
+  if (file_name == log_files_name_) {
+    error("LFD_CL"); // Cannot delete current log file
+    return;
+  }
+  if (file_name.find("/")  != std::string::npos ||
+      file_name.find("\\") != std::string::npos) { // This is a safety thing
+    error("LFD_IC"); // Log file name is not valid
+    return;
+  }
+  std::string file_path = data_log_directory_ + file_name;
+  if (std::filesystem::exists(file_path)) {
+    std::cout << "Deleting data log file: " << file_path << std::endl;
+    std::filesystem::remove(file_path);
+    data("LFD", file_name); // Log File Deleted
+  } else {
+    error("LFD_NF", file_name); // Log File Not Found
+  }
+}
+
+void DataModule::DeleteErrorLogFile(std::string file_name) {
+  file_name += ".json";
+  if (file_name == log_files_name_) {
+    error("EFD_CL"); // Cannot delete current error file
+    return;
+  }
+  if (file_name.find("/")  != std::string::npos ||
+      file_name.find("\\") != std::string::npos) { // Safety checks
+    error("EFD_IC"); // Error file name is not valid
+    return;
+  }
+  std::string file_path = error_log_directory_ + file_name;
+  if (std::filesystem::exists(file_path)) {
+    std::cout << "Deleting error log file: " << file_path << std::endl;
+    std::filesystem::remove(file_path);
+    data("EFD", file_name); // Error File Deleted
+  } else {
+    error("EFD_NF", file_name); // Error File Not Found
+  } 
+}

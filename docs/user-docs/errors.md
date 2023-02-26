@@ -100,6 +100,14 @@
   - Could not open data log file when reading size
 - ``M_DA_SZ_EL``
   - Could not open error log file when reading size
+- ``M_DA_LFRE`` 
+  - Error while trying to rotate/create new log files
+- ``M_DA_LFD_CL`` or ``M_DA_EFD_CL``
+  - Can't delete current log file
+- ``M_DA_LFD_NF`` or ``M_DA_EFD_NF``
+  - Can't find log file to delete
+- ``M_DA_LFD_IC`` or ``M_DA_EFD_IC``
+  - Illegal characters in log file name when trying to delete (/, \, .)
 
 ## Telemetry Module Errors
 #### PSK31
