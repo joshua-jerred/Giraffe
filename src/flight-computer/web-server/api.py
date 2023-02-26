@@ -1,5 +1,5 @@
 import flask
-from gfs import GFS
+from web_server import GiraffeWebServer
 from flask import after_this_request
 
 def add_pages(app):
@@ -7,6 +7,11 @@ def add_pages(app):
     def config():
         config = flask.render_template('config.html')
         return config
+
+    @app.route("/log-files")
+    def logs_files():
+        logs_files = flask.render_template('log-files.html')
+        return logs_files
 
 def add_handlers(app, gfs):
     @app.route('/api/connect', methods=['GET'])
@@ -124,3 +129,20 @@ def add_handlers(app, gfs):
             return response
         command = flask.request.json['command']
         return flask.jsonify(gfs.command(command))
+    
+    @app.route('/api/log-files', methods=['GET'])
+    def data_logs():
+        @after_this_request
+        def add_header(response):
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            return response
+        return flask.jsonify(gfs.get('log-files'))
+    
+    @app.route('/api/delete-data-log-file', methods=['POST'])
+    def delete_log_file():
+        @after_this_request
+        def add_header(response):
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            return response
+        file_name = flask.request.json['file_name']
+        return flask.jsonify(gfs.delete_log_file(file_name))

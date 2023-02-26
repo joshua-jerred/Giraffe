@@ -8,8 +8,8 @@
  * @copyright Copyright (c) 2022
  */
 
-#include <fstream>
 #include <filesystem>
+#include <fstream>
 #include <iostream>
 #include <nlohmann/json.hpp>
 
@@ -22,74 +22,89 @@ using namespace modules;
  * sets up the data frame. This does not start the module.
  * @param config_data
  */
-DataModule::DataModule(DataStream &stream):
-  Module(stream, MODULE_DATA_PREFIX, "data") {
-
+DataModule::DataModule(DataStream& stream)
+    : Module(stream, MODULE_DATA_PREFIX, "data") {
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
 
   const std::string absolute_path = std::filesystem::current_path().string();
-  const std::string current_time = std::to_string(now->tm_year + 1900) + "-" +
+  log_files_name_ =
+      std::to_string(now->tm_year + 1900) + "-" +
       std::to_string(now->tm_mon + 1) + "-" + std::to_string(now->tm_mday) +
       "-" + std::to_string(now->tm_hour) + "-" + std::to_string(now->tm_min) +
       "-" + std::to_string(now->tm_sec) + ".csv";
-  
-  data_log_file_path_ = absolute_path + "/data_logs/";
-  error_log_file_path_ = absolute_path + "/error_logs/";
 
-  if (!std::filesystem::exists(data_log_file_path_)) {
-    std::filesystem::create_directory(data_log_file_path_);
+  data_log_directory_ = absolute_path + "/data_logs/";
+  error_log_directory_ = absolute_path + "/error_logs/";
+
+  if (!std::filesystem::exists(data_log_directory_)) {
+    std::filesystem::create_directory(data_log_directory_);
   }
-  if (!std::filesystem::exists(error_log_file_path_)) {
-    std::filesystem::create_directory(error_log_file_path_);
+  if (!std::filesystem::exists(error_log_directory_)) {
+    std::filesystem::create_directory(error_log_directory_);
   }
 
-  data_log_file_path_ += current_time;
-  error_log_file_path_ += current_time;
+  // Create the files
+  std::ofstream data_log_file(data_log_directory_ + log_files_name_);
+  std::ofstream error_log_file(error_log_directory_ + log_files_name_);
 
-  std::cout << "Data Log: " << data_log_file_path_ << std::endl;
-  std::cout << "Error Log: " << error_log_file_path_ << std::endl;
+  if (!data_log_file.is_open()) {
+    error("DL_CF");  // Data Log Creation Failed
+    std::cout << "Failed to create data log file";
+  } else {
+    std::cout << "Data Log: " << data_log_directory_ + log_files_name_
+              << std::endl;
+  }
+
+  if (!error_log_file.is_open()) {
+    error("EL_CF");  // Error Log Creation Failed
+    std::cout << "Failed to create error log file";
+  } else {
+    std::cout << "Error Log: " << error_log_directory_ + log_files_name_
+              << std::endl;
+  }
+
+  UpdateLogFilesList();
 }
 
 /**
  * @brief Destroys the DataModule object.
  */
-DataModule::~DataModule() {
-}
+DataModule::~DataModule() {}
 
 void DataModule::addConfigData(Data config_data) {
-    config_data_ = config_data;
+  config_data_ = config_data;
 
-    // Check for GPS Extensions
-    if (config_data_.extensions.gps_data_name.size() > 0) {
-        gps_data_source_ = config_data_.extensions.gps_data_name;
-    } else {
-        error("NGPS");
-    }
+  // Check for GPS Extensions
+  if (config_data_.extensions.gps_data_name.size() > 0) {
+    gps_data_source_ = config_data_.extensions.gps_data_name;
+  } else {
+    error("NGPS");
+  }
 
-    if (config_data_.extensions.pressure_data_name.size() > 0) {
-        pressure_data_source_ = config_data_.extensions.pressure_data_name;
-    } else {
-        error("NPRES");
-    }
+  if (config_data_.extensions.pressure_data_name.size() > 0) {
+    pressure_data_source_ = config_data_.extensions.pressure_data_name;
+  } else {
+    error("NPRES");
+  }
 
-    if (config_data_.extensions.battery_data_name.size() > 0) {
-        battery_data_source_ = config_data_.extensions.battery_data_name;
-    } else {
-        error("NBAT");
-    }
+  if (config_data_.extensions.battery_data_name.size() > 0) {
+    battery_data_source_ = config_data_.extensions.battery_data_name;
+  } else {
+    error("NBAT");
+  }
 
-    if (config_data_.extensions.system_data_name.size() > 0) {
-        system_data_source_ = config_data_.extensions.system_data_name;
-    } else {
-        error("NSYS");
-    }
+  if (config_data_.extensions.system_data_name.size() > 0) {
+    system_data_source_ = config_data_.extensions.system_data_name;
+  } else {
+    error("NSYS");
+  }
 
-    if (config_data_.extensions.radio_data_name.size() > 0) {
-        radio_data_source_ = config_data_.extensions.radio_data_name;
-    } else {
-        error("NRAD");
-    }
+  if (config_data_.extensions.radio_data_name.size() > 0) {
+    radio_data_source_ = config_data_.extensions.radio_data_name;
+  } else {
+    error("NRAD");
+  }
 }
 
 /**
@@ -122,7 +137,7 @@ void DataModule::stop() {
 
 void DataModule::log() {
   std::ofstream logfile;
-  logfile.open(data_log_file_path_, std::ios_base::app);
+  logfile.open(data_log_directory_ + log_files_name_, std::ios_base::app);
 
   if (!logfile.is_open()) {
     error("LOGFILE");
@@ -133,32 +148,34 @@ void DataModule::log() {
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
 
-  logfile << std::endl; // Add a blank line between each log
+  logfile << std::endl;  // Add a blank line between each log
   logfile << now->tm_mday << "/" << now->tm_mon + 1 << " ";
-  logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << std::endl;
-  //for (auto& [source_and_unit, packet] : dataframe_copy) { // Log each item in the dataframe
-  //  logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << ", "
-  //          << packet.source << ", " << packet.unit << ", " << packet.value
-  //          << std::endl;
-  //}
+  logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec
+          << std::endl;
+  // for (auto& [source_and_unit, packet] : dataframe_copy) { // Log each item
+  // in the dataframe
+  //   logfile << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << ",
+  //   "
+  //           << packet.source << ", " << packet.unit << ", " << packet.value
+  //           << std::endl;
+  // }
   std::string key = "";
   for (Data::DataTypes::DataType type : config_data_.data_types.types) {
-
     key = type.source + ":" + type.unit;
     if (dataframe_copy.contains(key)) {
-        logfile << key + " - " + dataframe_copy[key].value << std::endl;
+      logfile << key + " - " + dataframe_copy[key].value << std::endl;
     } else {
-        logfile << key + " - NO_DATA" << std::endl;
+      logfile << key + " - NO_DATA" << std::endl;
     }
   }
 
   float size = -1;
-  try {
-    size = std::filesystem::file_size(data_log_file_path_);
-    size = size / 1024.0; // Convert to KB
-    data("DLOG", size);
-  } catch (std::filesystem::filesystem_error &e) {
-    error("NLOG");
+  try {  // Get the size of the data log
+    size = std::filesystem::file_size(data_log_directory_ + log_files_name_);
+    size = size / 1024.0 / 1024.0;  // Convert to MB
+    data("da_log_size_mb", size, 2);
+  } catch (std::filesystem::filesystem_error& e) {
+    error("SZ_DL");  // Error getting size of data log
   }
 }
 
@@ -171,8 +188,7 @@ void DataModule::log() {
  * @param data_type The actual data type
  * @return void
  */
-void DataModule::addDataTypeToFrame(
-    Data::DataTypes::DataType data_type) {
+void DataModule::addDataTypeToFrame(Data::DataTypes::DataType data_type) {
   DataStreamPacket packet;
   packet.source = data_type.source;
   packet.unit = data_type.unit;
@@ -211,7 +227,6 @@ void DataModule::parseGPSData() {
       }
     }
   }
-
   critical_data_.gps_data = latest_gps_frame_;
 }
 
@@ -220,36 +235,50 @@ void DataModule::parseGPSData() {
  * @details This is called within the runner thread. It will pull all of the
  * errors from the stream and add them to the errorframe. These errors will
  * be removed from the frame after they expire or have been resolved.
- * 
+ *
  * This function will also log the errors to the error log file.
  * @param None
  * @return void
  */
 void DataModule::parseErrorStream() {
   std::ofstream error_file;
-  error_file.open(error_log_file_path_, std::ios_base::app);
+  error_file.open(error_log_directory_ + log_files_name_, std::ios_base::app);
 
   int packetCount = data_stream_.getNumErrorPackets();
   ErrorStreamPacket epacket;
   for (int i = 0; i < packetCount; i++) {
     epacket = data_stream_.getNextErrorPacket();
 
-    if (!errorframe_.contains(epacket.source + ":" + epacket.error_code)) { // Log the error if it doesn't exist
+    if (!errorframe_.contains(
+            epacket.source + ":" +
+            epacket.error_code)) {  // Log the error if it doesn't exist
       error_file << epacket.source << ", " << epacket.error_code << ", "
-              << epacket.info << std::endl;
+                 << epacket.info << std::endl;
     }
 
-    errorframe_.insert_or_assign(
-        epacket.source + ":" + epacket.error_code, epacket);
+    errorframe_.insert_or_assign(epacket.source + ":" + epacket.error_code,
+                                 epacket);
   }
   data_stream_.updateErrorFrame(errorframe_);
+
+  error_file.close();
+
+  float size = -1;
+  try {
+    size = std::filesystem::file_size(error_log_directory_ + log_files_name_);
+    size = size / 1024.0 / 1024.0;  // Convert to MB
+    data("er_log_size_mb", size, 2);
+  } catch (std::filesystem::filesystem_error& e) {
+    error("SZ_EL");
+  }
 }
 
 void DataModule::parseCriticalData() {
   // Pressure
   if (dataframe_.contains(pressure_data_source_ + ":PRES_MBAR")) {
     try {
-      float pressure = std::stof(dataframe_[pressure_data_source_ + ":PRES_MBAR"].value);
+      float pressure =
+          std::stof(dataframe_[pressure_data_source_ + ":PRES_MBAR"].value);
       const float kMinPressure = 0.0f; /** @todo make these configurable */
       const float kMaxPressure = 1000.0f;
       if (pressure < kMinPressure || pressure > kMaxPressure) {
@@ -267,34 +296,40 @@ void DataModule::parseCriticalData() {
   }
 
   // Battery voltage
-  if (dataframe_.contains(battery_data_source_ + ":BAT_V")) { // Check if the data is in the dataframe
+  if (dataframe_.contains(battery_data_source_ +
+                          ":BAT_V")) {  // Check if the data is in the dataframe
     try {
-      float voltage = std::stof(dataframe_[battery_data_source_ + ":BAT_V"].value);
-      const float kMinVoltage = 3.0f; /** @todo make these configurable */
-      const float kMaxVoltage = 17.0f; // 4S battery
+      float voltage =
+          std::stof(dataframe_[battery_data_source_ + ":BAT_V"].value);
+      const float kMinVoltage = 3.0f;   /** @todo make these configurable */
+      const float kMaxVoltage = 17.0f;  // 4S battery
       if (voltage < kMinVoltage || voltage > kMaxVoltage) {
         critical_data_.battery_data_valid = false;
       } else {
         critical_data_.battery_data_valid = true;
       }
-      critical_data_.battery_voltage = voltage; // Report the voltage if it's valid or not
-    } catch (std::invalid_argument& e) { // If the data is not a float
-      error("CDPE", "BAT_V"); // Critical data parse error
+      critical_data_.battery_voltage =
+          voltage;  // Report the voltage if it's valid or not
+    } catch (std::invalid_argument& e) {  // If the data is not a float
+      error("CDPE", "BAT_V");             // Critical data parse error
       critical_data_.battery_data_valid = false;
     }
   } else {
-    error("CD", "BAT_V"); // Data is not in the dataframe
+    error("CD", "BAT_V");  // Data is not in the dataframe
     critical_data_.battery_data_valid = false;
   }
 
   // System Data
-  critical_data_.system_data_valid = true; // Assume the data is valid until proven otherwise
+  critical_data_.system_data_valid =
+      true;  // Assume the data is valid until proven otherwise
   // Ram usage
-  if (dataframe_.contains(system_data_source_ + ":ram_used_prcnt")) { 
+  if (dataframe_.contains(system_data_source_ + ":ram_used_prcnt")) {
     try {
-      float ram_usage = std::stof(dataframe_[system_data_source_ + ":ram_used_prcnt"].value);
+      float ram_usage =
+          std::stof(dataframe_[system_data_source_ + ":ram_used_prcnt"].value);
       const float kMaxRamUsage = 99.9f; /** @todo make these configurable */
-      const float kMinRamUsage = 5.0f; // I don't expect the ram usage to be this low
+      const float kMinRamUsage =
+          5.0f;  // I don't expect the ram usage to be this low
 
       if (ram_usage > kMaxRamUsage || ram_usage < kMinRamUsage) {
         critical_data_.system_data_valid = false;
@@ -302,26 +337,29 @@ void DataModule::parseCriticalData() {
 
       critical_data_.ram_usage = ram_usage;
     } catch (std::invalid_argument& e) {
-      error("CDPE", "RAM"); // Critical data parse error
+      error("CDPE", "RAM");  // Critical data parse error
       critical_data_.system_data_valid = false;
     }
   } else {
-    error("CD", "RAM"); // Data is not in the dataframe
+    error("CD", "RAM");  // Data is not in the dataframe
     critical_data_.system_data_valid = false;
   }
 
   // Disk usage
-  if (dataframe_.contains(system_data_source_ + ":disk_used_prcnt")) { 
+  if (dataframe_.contains(system_data_source_ + ":disk_used_prcnt")) {
     try {
-      float disk_usage = std::stof(dataframe_[system_data_source_ + ":disk_used_prcnt"].value);
+      float disk_usage =
+          std::stof(dataframe_[system_data_source_ + ":disk_used_prcnt"].value);
       const float kMaxDiskUsage = 99.9f; /** @todo make these configurable */
-      const float kMinDiskUsage = 5.0f; // I don't expect the disk usage to be this low
+      const float kMinDiskUsage =
+          5.0f;  // I don't expect the disk usage to be this low
 
       if (disk_usage > kMaxDiskUsage || disk_usage < kMinDiskUsage) {
         critical_data_.system_data_valid = false;
       }
 
-      critical_data_.disk_usage = std::stof(dataframe_[system_data_source_ + ":disk_used_prcnt"].value);
+      critical_data_.disk_usage =
+          std::stof(dataframe_[system_data_source_ + ":disk_used_prcnt"].value);
     } catch (std::invalid_argument& e) {
       error("CDPE", "DISK");
       critical_data_.system_data_valid = false;
@@ -333,11 +371,11 @@ void DataModule::parseCriticalData() {
 
   // Radio Status
   if (dataframe_.contains(radio_data_source_ + ":radio_status")) {
-      if (dataframe_[radio_data_source_ + ":radio_status"].value == "GOOD") {
-        critical_data_.radio_status = true;
-      } else {
-        critical_data_.radio_status = false;
-      }
+    if (dataframe_[radio_data_source_ + ":radio_status"].value == "GOOD") {
+      critical_data_.radio_status = true;
+    } else {
+      critical_data_.radio_status = false;
+    }
   } else {
     error("CD", "RADIO");
     critical_data_.radio_status = false;
@@ -347,34 +385,34 @@ void DataModule::parseCriticalData() {
 }
 
 void DataModule::checkForStaleData() {
-  //std::time_t now = std::time(NULL);
-  //for (auto& [source_and_unit, packet] : dataframe_) {
-  //  if (packet.expiration_time == 0) {  // 0 means it never expires
-  //    continue;
-  //  }
-  //  if ((int)packet.expiration_time + 1000 < (int)now) {
-  //    packet.value = "EXPIRED";
-  //  }
-  //}
+  // std::time_t now = std::time(NULL);
+  // for (auto& [source_and_unit, packet] : dataframe_) {
+  //   if (packet.expiration_time == 0) {  // 0 means it never expires
+  //     continue;
+  //   }
+  //   if ((int)packet.expiration_time + 1000 < (int)now) {
+  //     packet.value = "EXPIRED";
+  //   }
+  // }
 }
 
 void DataModule::checkForStaleErrors() {
   if (errorframe_.empty()) {
     return;
   }
-  //std::time_t now = std::time(NULL);
-  // ErrorFrame::iterator it = errorframe_.begin();
-  // while (it != errorframe_.end()) {
-  //   if (it->second.expiration_time == 0) { // 0 mean it never expires}
-  //     it++;
-  //     continue;
-  //   }
-  //   if ((int)it->second.expiration_time < (int)now) {
-  //     it = errorframe_.erase(it); // erase returns the next iterator
-  //   } else {
-  //     it++;
-  //   }
-  // }
+  // std::time_t now = std::time(NULL);
+  //  ErrorFrame::iterator it = errorframe_.begin();
+  //  while (it != errorframe_.end()) {
+  //    if (it->second.expiration_time == 0) { // 0 mean it never expires}
+  //      it++;
+  //      continue;
+  //    }
+  //    if ((int)it->second.expiration_time < (int)now) {
+  //      it = errorframe_.erase(it); // erase returns the next iterator
+  //    } else {
+  //      it++;
+  //    }
+  //  }
 
   /* 12/21/22 - This created as error as the iterator was being deleted by
    * the erase function.
@@ -398,16 +436,21 @@ void DataModule::doCommand(GFSCommand command) {
   std::string command_name = command.id;
   std::string command_arg = command.arg;
 
-  if (command_name == "cae") { // clear all errors
-    if (command_arg != "") { // There should be no arguments
-      error("CMD_A", command_name + "$" + command_arg + "$"); // Command Argument Error
+  if (command_name == "cae") {  // clear all errors
+    if (command_arg != "") {    // There should be no arguments
+      CommandArgumentError(command_name, command_arg);
       return;
     }
     errorframe_.clear();
+  } else if (command_name == "ufl") {
+    if (command_arg != "") {    // There should be no arguments
+      CommandArgumentError(command_name, command_arg);
+      return;
+    }
+    UpdateLogFilesList();
   } else {
     error("CMD_NF", command_name);
   }
-
 }
 
 /**
@@ -433,4 +476,28 @@ void DataModule::runner() {
 
     parseCommands();
   }
+}
+
+void DataModule::UpdateLogFilesList() {
+  data_stream_.LockLogFiles();
+  data_stream_.GetDataLogFiles().clear();
+  data_stream_.GetErrorLogFiles().clear();
+  float file_size_mb = 0;
+  for (const auto& path :
+       std::filesystem::directory_iterator(data_log_directory_)) {
+    file_size_mb = (float)std::filesystem::file_size(path) / 1024.0f / 1024.0f;
+    std::stringstream ss;
+    ss << std::fixed << std::setprecision(2) << file_size_mb;
+    std::string path_and_size = path.path().filename().string() + " " + ss.str() + "MB";
+    data_stream_.GetDataLogFiles().push_back(path_and_size);
+  }
+  for (const auto& path :
+       std::filesystem::directory_iterator(error_log_directory_)) {
+    file_size_mb = (float)std::filesystem::file_size(path) / 1024.0f / 1024.0f;
+    std::stringstream ss;
+    ss << std::fixed << std::setprecision(2) << file_size_mb;
+    std::string path_and_size = path.path().filename().string() + " " + ss.str() + "MB";
+    data_stream_.GetErrorLogFiles().push_back(path_and_size);
+  }
+  data_stream_.UnlockLogFiles();
 }

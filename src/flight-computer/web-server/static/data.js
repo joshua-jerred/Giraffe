@@ -151,10 +151,6 @@ async function parseExtensionsConfig(config) {
         }
 
         document.getElementById("cfg-other-extensions").innerHTML = other + "x";
-        
-
-
-
     } catch (error) {
         console.log("Error parsing extensions config.");
         console.log(error);

@@ -68,7 +68,9 @@ set_permissions() {
 
 sync_web_server() {
     echo "Syncing web server"
+    #ssh $SSH_HOST "sudo systemctl stop $GFS_WEB_SERVICE"
     rsync -v -r --rsync-path="sudo rsync" src/flight-computer/web-server/ $SSH_HOST:/opt/giraffe/web-server
+    #ssh $SSH_HOST "sudo systemctl start $GFS_WEB_SERVICE"
 }
 
 if [ "$REQUEST" == "start-web" ]; then
@@ -122,6 +124,7 @@ elif [ "$REQUEST" == "full-sync" ]; then
     start_services
 elif [ "$REQUEST" == "sync-web-server" ]; then
     sync_web_server
+    set_permissions
 else
     echo "Unknown request"
     exit 1

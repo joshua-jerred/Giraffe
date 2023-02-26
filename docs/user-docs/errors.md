@@ -96,8 +96,10 @@
   - Critical Data not found for unit
 - ``M_DA_CDPE <unit>``
   - Critical Data Parse Error
-- ``M_DA_NLOG``
-  - Could not open log file when reading size
+- ``M_DA_SZ_DL``
+  - Could not open data log file when reading size
+- ``M_DA_SZ_EL``
+  - Could not open error log file when reading size
 
 ## Telemetry Module Errors
 #### PSK31

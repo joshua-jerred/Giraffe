@@ -106,6 +106,8 @@ void ServerModule::runner() {
 					sendDataFrame(new_sock);
 				} else if (request == "get-error-frame") {
 					sendErrorFrame(new_sock);
+				} else if (request == "get-log-files") {
+					sendLogFiles(new_sock);
 				}
 				else if (request == "shutdownServer") { /** @todo this should just be a command*/
 					data_stream_.addData(
@@ -603,4 +605,30 @@ void ServerModule::sendErrorFrame(ServerSocket &socket) {
 		data_stream_.addError(MODULE_SERVER_PREFIX, "Error",
 			e.description(), 0);
 	}
+}
+
+void ServerModule::sendLogFiles(ServerSocket &socket) {
+	json data_log_files = {};
+	json error_log_files = {};
+	data_stream_.LockLogFiles();
+	for (const std::string &file : data_stream_.GetDataLogFiles()) {
+		data_log_files.push_back(file);
+	}
+	for (const std::string &file : data_stream_.GetErrorLogFiles()) {
+		error_log_files.push_back(file);
+	}
+	data_stream_.UnlockLogFiles();
+
+	json log_files = {
+		{"data", data_log_files},
+		{"error", error_log_files}
+	};
+
+	try {
+		socket << log_files.dump();  // Send the data
+	} catch (SocketException &e) {
+		data_stream_.addError(MODULE_SERVER_PREFIX, "Log Files",
+			e.description(), 0);
+	}
+	data_stream_.addToCommandQueue("cmd/dat/ufl/");
 }

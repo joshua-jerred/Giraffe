@@ -36,7 +36,10 @@ void modules::Module::data(std::string data_name, int data_value) {
   data_stream_.addData(error_source_, data_name, std::to_string(data_value));
 }
 
-void modules::Module::data(std::string data_name, double data_value) {
+void modules::Module::data(std::string data_name, double data_value, int precision) {
+  std::stringstream stream;
+  stream << std::fixed << std::setprecision(precision) << data_value;
+  std::string rounded = stream.str();
   data_stream_.addData(error_source_, data_name, std::to_string(data_value));
 }
 
@@ -73,4 +76,8 @@ void modules::Module::parseCommands() {
     doCommand(command);
   }
   command_queue_lock_.unlock();
+}
+
+void modules::Module::CommandArgumentError(std::string command_name, std::string argument) {
+  error("CMD_A", command_name + "$" + argument + "$");
 }

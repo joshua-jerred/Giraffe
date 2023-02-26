@@ -2,9 +2,9 @@
 
 import flask
 import api
-from gfs import GFS
+from web_server import GiraffeWebServer
 
-gfs = GFS()
+gfs = GiraffeWebServer()
 
 app = flask.Flask(__name__)
 
@@ -19,4 +19,4 @@ def index():
     return flask.render_template('data.html')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8672)
+    app.run(host='0.0.0.0', port=8672, debug=True)

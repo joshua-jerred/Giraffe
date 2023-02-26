@@ -51,7 +51,7 @@ class Module {
 
         void data(std::string data_name, std::string data_value);
         void data(std::string data_name, int data_value);
-        void data(std::string data_name, double data_value);
+        void data(std::string data_name, double data_value, int precision = 2);
 
         const int kDefaultSleepTime_ = 1000; // 1 second, default sleep time
 
@@ -72,6 +72,7 @@ class Module {
         virtual void doCommand(GFSCommand command) {
             error("MCNI", command.id); // Module Command Not Implemented
         }; 
+        void CommandArgumentError(std::string command_name, std::string argument);
 
     private:
         std::mutex command_queue_lock_ = std::mutex();
@@ -150,6 +151,7 @@ private:
     void sendTelemetryData(ServerSocket &socket);
     void sendDataFrame(ServerSocket &socket);
     void sendErrorFrame(ServerSocket &socket);
+    void sendLogFiles(ServerSocket &socket);
 
     Data config_data_;
 
@@ -233,7 +235,7 @@ public:
 private:
     void addDataTypeToFrame(Data::DataTypes::DataType data_type); // add a data type to the data frame
     
-    void checkForStaleData(); // check for stale data in the data frame
+    void checkForStaleData();
     void parseDataStream();
     void parseGPSData();
 
@@ -244,13 +246,16 @@ private:
     
     void runner();
 
+    void UpdateLogFilesList();
+
     CriticalData critical_data_ = CriticalData();
     
     GPSFrame latest_gps_frame_ = GPSFrame();
     GPSFrame last_valid_fix_gps_frame_ = GPSFrame();
 
-    std::string data_log_file_path_ = "";
-    std::string error_log_file_path_ = "";
+    std::string data_log_directory_ = "";
+    std::string error_log_directory_ = "";
+    std::string log_files_name_ = "";
 
     DataFrame dataframe_ = DataFrame();
     ErrorFrame errorframe_ = ErrorFrame();

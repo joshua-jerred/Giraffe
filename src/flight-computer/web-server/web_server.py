@@ -2,7 +2,7 @@ import time
 import json
 import socket
 
-class GFS:
+class GiraffeWebServer:
     def __init__(self):
         self.gfs_port = 8779
 

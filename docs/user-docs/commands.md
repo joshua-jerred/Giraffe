@@ -48,6 +48,7 @@ See the specific command
 # Command List
 ### Data Module
  - ``cmd/dat/cae/`` - Clear all errors from the error frame, they will remain in the log
+ - ``cmd/dat/ufl/`` - Update the file list
 ### Extension Commands
  - ``cmd/ext/stp/[num]`` - Stop the extension with the given number
 ### Telemetry
