@@ -107,7 +107,7 @@ body {
     width: auto;
     background-color: #838383;
     border-radius: 4px;
-    padding: 1%;
+    padding: 2%;
 }
 
 .content-box > h2 { /* Content Box Title */
@@ -156,6 +156,20 @@ body {
 }
 
 #command-box > button:hover {
+    background-color: #0a649f;
+    cursor: pointer;
+}
+
+.gfs-button {
+    height: 2em;
+    margin: 1em;
+    border-radius: 0.5em;
+    border: none;
+    color: #CCCCCC;
+    background-color: #0A81D1;
+}
+
+.gfs-button:hover {
     background-color: #0a649f;
     cursor: pointer;
 }

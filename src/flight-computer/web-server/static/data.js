@@ -509,6 +509,11 @@ function update(selector, value) {
     document.querySelector(selector).innerHTML = value;
 }
 
+function clearErrors() {
+    sendCommand('cmd/dat/cae/');
+    document.querySelector("#gfs-errors").innerHTML = "";
+}
+
 async function runner() {
     try {
         await updateStatus();
@@ -526,4 +531,5 @@ async function runner() {
 window.addEventListener("DOMContentLoaded", function() {
     updateConfig();
     runner();
+    document.querySelector("#clear-errors-button").addEventListener("click", clearErrors);
 });

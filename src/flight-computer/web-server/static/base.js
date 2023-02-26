@@ -181,8 +181,8 @@ async function connection_handler_runner() {
     setTimeout(connection_handler_runner, 2000);
 }
 
-async function commandButtonHandler() {
-    let command = document.getElementById('command-input').value;
+async function sendCommand(command) {
+    console.log(command);
     fetch('/api/command', {
         method: 'POST',
         headers: {
@@ -198,6 +198,11 @@ async function commandButtonHandler() {
     .catch((error) => {
         console.log(error);
     });
+}
+
+async function commandButtonHandler() {
+    let command = document.getElementById('command-input').value;
+    sendCommand(command);
 }
 
 window.addEventListener("DOMContentLoaded", function() {

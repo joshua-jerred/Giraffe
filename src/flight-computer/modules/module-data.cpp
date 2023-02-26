@@ -467,7 +467,7 @@ void DataModule::doCommand(GFSCommand command) {
     RotateLogFiles();
   } else if (command_name == "ddf") {
     DeleteDataLogFile(command_arg);
-  } else if (command_name == "efd") {
+  } else if (command_name == "def") {
     DeleteErrorLogFile(command_arg);
   } else {
     error("CMD_NF", command_name);
@@ -504,6 +504,7 @@ void DataModule::UpdateLogFilesList() {
   data_stream_.GetDataLogFiles().clear();
   data_stream_.GetErrorLogFiles().clear();
   float file_size_mb = 0;
+  // I'm sure this can be refactored
   for (const auto& path :
        std::filesystem::directory_iterator(data_log_directory_)) {
     file_size_mb = (float)std::filesystem::file_size(path) / 1024.0f / 1024.0f;
@@ -511,6 +512,9 @@ void DataModule::UpdateLogFilesList() {
     ss << std::fixed << std::setprecision(2) << file_size_mb;
     std::string path_and_size =
         path.path().filename().string() + " " + ss.str() + "MB";
+    if (path.path().filename().string() == log_files_name_) {
+      path_and_size += " (C)";
+    }
     data_stream_.GetDataLogFiles().push_back(path_and_size);
   }
   for (const auto& path :
@@ -520,6 +524,9 @@ void DataModule::UpdateLogFilesList() {
     ss << std::fixed << std::setprecision(2) << file_size_mb;
     std::string path_and_size =
         path.path().filename().string() + " " + ss.str() + "MB";
+    if (path.path().filename().string() == log_files_name_) {
+      path_and_size += " (C)";
+    }
     data_stream_.GetErrorLogFiles().push_back(path_and_size);
   }
   data_stream_.UnlockLogFiles();
