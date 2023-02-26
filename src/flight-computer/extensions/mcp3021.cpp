@@ -4,10 +4,8 @@
  * @brief Driver for the MCP3021
  * @date 2023-02-07
  * @copyright Copyright (c) 2023
- * @version 0.1
+ * @version 0.4
  */
-
-#include <bitset>
 
 #include "extensions.h"
 

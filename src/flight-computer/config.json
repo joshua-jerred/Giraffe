@@ -33,9 +33,10 @@
             "category": "external_sensor",
             "interface": "i2c",
             "update-interval": 1000,
-            "flight-critical": false,
+            "flight-critical": true,
             "i2c-bus": 1,
-            "i2c-address": "0x76"
+            "i2c-address": "0x76",
+            "critical-source":"PRES_MBAR"
         },
         {
             "id": 4,
@@ -56,6 +57,26 @@
             "flight-critical": true,
             "i2c-bus": 1,
             "i2c-address": "0x4d"
+        },
+        {
+            "id": 6,
+            "name": "radio",
+            "type": "SA868",
+            "category": "radio",
+            "interface": "uart",
+            "update-interval": 1000,
+            "flight-critical": true,
+            "uart-port": "/dev/ttyAMA0",
+            "uart-baudrate": 9600
+        },
+        {
+            "id": 7,
+            "name": "cam",
+            "type": "RPI_CAM",
+            "category": "camera",
+            "interface": "internal",
+            "update-interval": 100000,
+            "flight-critical": false
         }
     ],
     "debugging": {

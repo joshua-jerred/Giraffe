@@ -380,9 +380,14 @@ void ConfigModule::parseExtensions() {
 				newExtension.update_interval = interval;
 			}
 	
-			int flight_critical = item.value()["flight-critical"].get<int>();
+			bool flight_critical = item.value()["flight-critical"].get<bool>();
 			if (flight_critical != 0 && flight_critical != 1) {
-				//errors_.push_back("Extension flight-critical must be 0 or 1.");
+				if (item.value().contains("critical-source")) {
+					std::string critical_source = item.value()["critical-source"].get<std::string>();
+					if (critical_source == "PRES_MBAR") {
+						config_data_.extensions.pressure_data_name = name;
+					}
+				}
 			} else {
 				newExtension.critical = flight_critical;
 			}

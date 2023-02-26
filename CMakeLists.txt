@@ -67,6 +67,8 @@ add_executable(giraffe-flight-software
 	${GFS_SRC}/extensions/sysinfo.cpp
 	${GFS_SRC}/extensions/max17049.cpp
 	${GFS_SRC}/extensions/mcp3021.cpp
+	${GFS_SRC}/extensions/sa868.cpp
+	${GFS_SRC}/extensions/rpicam.cpp
 
 	${MWAV_SRC}/mwav.cpp
 	${MWAV_SRC}/utilities/wavgen.cpp

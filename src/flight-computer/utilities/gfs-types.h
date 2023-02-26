@@ -14,6 +14,7 @@
 
 #include <string>
 #include <unordered_map>
+#include <ctime>
 
 struct GFSCommand {
     enum class CommandCategory {
@@ -64,7 +65,7 @@ enum class GPSFixType {
     FIX_3D,
 };
 
-struct GPSFrame {
+struct GPSFrame {    
     std::string source = ""; // The source of the GPS data
     std::string time = ""; // UTC time string
 

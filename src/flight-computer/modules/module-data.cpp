@@ -228,12 +228,18 @@ void DataModule::parseGPSData() {
     bool status = data_stream_.getNextGPSFrame(frame);
     if (status) {
       latest_gps_frame_ = frame;
-      if (frame.fix == GPSFixType::FIX_3D || frame.fix == GPSFixType::FIX_2D) {
-        last_valid_fix_gps_frame_ = frame;
+      if (!checkGPSFrame(frame)) {
+        continue;
+      } else {
+        if (frame.fix == GPSFixType::FIX_3D ||
+            frame.fix == GPSFixType::FIX_2D) {
+          last_valid_fix_gps_frame_ = frame;
+          critical_data_.gps_data = frame;
+          critical_data_.gps_data_valid = true;
+        }
       }
     }
   }
-  critical_data_.gps_data = latest_gps_frame_;
 }
 
 /**
@@ -304,6 +310,7 @@ void DataModule::parseCriticalData() {
     }
   } else {
     critical_data_.pressure_data_valid = false;
+    error("CD", "PRES_MBAR");
   }
 
   // Battery voltage
@@ -460,7 +467,7 @@ void DataModule::doCommand(GFSCommand command) {
     }
     UpdateLogFilesList();
   } else if (command_name == "rlf") {
-        if (command_arg != "") {  // There should be no arguments
+    if (command_arg != "") {  // There should be no arguments
       CommandArgumentError(command_name, command_arg);
       return;
     }
@@ -549,51 +556,90 @@ void DataModule::RotateLogFiles() {
   if (!data_log_file.is_open() || !error_log_file.is_open()) {
     error("LFRE");  // Data Log Creation Failed
   }
-  
+
   log_files_name_ = new_log_file_name;
   data("LFR", new_log_file_name);  // Log File Rotation
-  
+
   UpdateLogFilesList();
 }
 
 void DataModule::DeleteDataLogFile(std::string file_name) {
   file_name += ".json";
   if (file_name == log_files_name_) {
-    error("LFD_CL"); // Cannot delete current log file
+    error("LFD_CL");  // Cannot delete current log file
     return;
   }
-  if (file_name.find("/")  != std::string::npos ||
-      file_name.find("\\") != std::string::npos) { // This is a safety thing
-    error("LFD_IC"); // Log file name is not valid
+  if (file_name.find("/") != std::string::npos ||
+      file_name.find("\\") != std::string::npos) {  // This is a safety thing
+    error("LFD_IC");  // Log file name is not valid
     return;
   }
   std::string file_path = data_log_directory_ + file_name;
   if (std::filesystem::exists(file_path)) {
     std::cout << "Deleting data log file: " << file_path << std::endl;
     std::filesystem::remove(file_path);
-    data("LFD", file_name); // Log File Deleted
+    data("LFD", file_name);  // Log File Deleted
   } else {
-    error("LFD_NF", file_name); // Log File Not Found
+    error("LFD_NF", file_name);  // Log File Not Found
   }
 }
 
 void DataModule::DeleteErrorLogFile(std::string file_name) {
   file_name += ".json";
   if (file_name == log_files_name_) {
-    error("EFD_CL"); // Cannot delete current error file
+    error("EFD_CL");  // Cannot delete current error file
     return;
   }
-  if (file_name.find("/")  != std::string::npos ||
-      file_name.find("\\") != std::string::npos) { // Safety checks
-    error("EFD_IC"); // Error file name is not valid
+  if (file_name.find("/") != std::string::npos ||
+      file_name.find("\\") != std::string::npos) {  // Safety checks
+    error("EFD_IC");  // Error file name is not valid
     return;
   }
   std::string file_path = error_log_directory_ + file_name;
   if (std::filesystem::exists(file_path)) {
     std::cout << "Deleting error log file: " << file_path << std::endl;
     std::filesystem::remove(file_path);
-    data("EFD", file_name); // Error File Deleted
+    data("EFD", file_name);  // Error File Deleted
   } else {
-    error("EFD_NF", file_name); // Error File Not Found
-  } 
+    error("EFD_NF", file_name);  // Error File Not Found
+  }
+}
+
+/**
+ * @brief Checks if the GPS frame contains a valid fix. There have been issues
+ * with getting weird data anomalies from the I2C GPS module. Even with a valid
+ * CRC, the data can be bad.
+ * @param frame
+ * @return true If the frame contains a valid fix.
+ * @return false If the frame does not contain a valid fix.
+ */
+bool DataModule::checkGPSFrame(const GPSFrame& frame) {
+  if (frame.fix != GPSFixType::FIX_2D && frame.fix != GPSFixType::FIX_3D) {
+    return false;
+  }
+  if (frame.num_satellites < 3) {  // Need at least 3 for a 2D fix
+    error("GPS_A_NS", std::to_string(frame.num_satellites));
+    return false;
+  }
+  if (frame.latitude < -90 || frame.latitude > 90) {
+    error("GPS_A_LA", std::to_string(frame.latitude));
+    return false;
+  }
+  if (frame.longitude < -180 || frame.longitude > 180) {
+    error("GPS_A_LO", std::to_string(frame.longitude));
+    return false;
+  }
+  if (frame.altitude < -90 || frame.altitude > 50000) {
+    error("GPS_A_AL", std::to_string(frame.altitude));
+    return false;
+  }
+  if (frame.heading_of_motion < 0 || frame.heading_of_motion > 360) {
+    error("GPS_A_HD", std::to_string(frame.heading_of_motion));
+    return false;
+  }
+  if (frame.ground_speed < 0 || frame.ground_speed > 200) {
+    error("GPS_A_GS", std::to_string(frame.ground_speed));
+    return false;
+  }
+  return true;
 }

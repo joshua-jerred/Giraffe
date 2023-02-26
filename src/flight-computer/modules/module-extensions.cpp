@@ -179,6 +179,10 @@ void ExtensionsModule::addExtension(ExtensionMetadata meta_data) {
         extensions_.push_back(new extension::SYSINFO(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "MCP3021") {
         extensions_.push_back(new extension::MCP3021(&data_stream_, meta_data));
+    } else if (meta_data.extension_type == "SA868") {
+        extensions_.push_back(new extension::SA868(&data_stream_, meta_data));
+    } else if (meta_data.extension_type == "RPI_CAM") {
+        extensions_.push_back(new extension::RaspPiCamera(&data_stream_, meta_data));
     } else {
         error("Extension type not found", meta_data.name);
     }

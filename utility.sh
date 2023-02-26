@@ -13,6 +13,8 @@
 # --- Web Server ---
 # set-permissions
 # sync-web-server
+# --- Misc ---
+# update-config (updates the config file on the balloon with the one in src)
 
 SSH_HOST="balloon"
 GFS_USER="giraffe"
@@ -125,6 +127,8 @@ elif [ "$REQUEST" == "full-sync" ]; then
 elif [ "$REQUEST" == "sync-web-server" ]; then
     sync_web_server
     set_permissions
+elif [ "$REQUEST" == "update-config" ]; then
+    rsync -v --rsync-path="sudo rsync" src/flight-computer/config.json $SSH_HOST:/opt/giraffe/config.json
 else
     echo "Unknown request"
     exit 1

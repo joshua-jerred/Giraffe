@@ -248,6 +248,8 @@ private:
     void DeleteDataLogFile(std::string file_name);
     void DeleteErrorLogFile(std::string file_name);
 
+    bool checkGPSFrame(const GPSFrame &gps_frame);
+
     CriticalData critical_data_ = CriticalData();
     
     GPSFrame latest_gps_frame_ = GPSFrame();
