@@ -94,6 +94,7 @@ install(FILES ${GFS_SRC}/config.json DESTINATION /opt/giraffe)
 
 # Tests
 add_subdirectory(tests EXCLUDE_FROM_ALL)
+add_subdirectory(src/MWAV EXCLUDE_FROM_ALL)
 
 # CPack
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

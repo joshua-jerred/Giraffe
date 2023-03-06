@@ -407,6 +407,13 @@ int DataStream::getNumErrorPackets() {
 	return num_error_packets_;
 }
 
+int DataStream::getNumCurrentErrors() {
+	error_frame_lock_.lock();
+	int num_errors = error_frame_.size();
+	error_frame_lock_.unlock();
+	return num_errors;
+}
+
 /**
  * @return int The total number of data packets that have been added to the
  * data stream since the data stream was created.

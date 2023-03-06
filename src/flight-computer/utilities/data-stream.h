@@ -69,38 +69,46 @@ class DataStream {
   DataStream();
   ~DataStream();
 
+  // Data Stream/Frame
+  void addData(std::string data_source, std::string data_name,
+               std::string data_value);
+
+  DataStreamPacket getNextDataPacket();
+  int getNumDataPackets();
+  int getTotalDataPackets();
+
+  void updateDataFrame(DataFrame data_frame);
+  DataFrame getDataFrameCopy();
+
+
+  // GPS Stream/Frame
+  void addData(std::string data_source, GPSFrame gps_frame);
+  bool getNextGPSFrame(GPSFrame& gps_frame);
+  int getNumGPSPackets();
+  int getTotalGPSPackets();
+
+
+  // Error Stream/Frame
+  void addError(std::string error_source, std::string error_code,
+                std::string error_info, int seconds_until_expiry = 0);
+
+  ErrorStreamPacket getNextErrorPacket();
+  int getNumErrorPackets();
+  int getTotalErrorPackets();
+
+  void updateErrorFrame(ErrorFrame error_frame);
+  ErrorFrame getErrorFrameCopy();
+  int getNumCurrentErrors();
+
   // Command Queue
   void addToCommandQueue(std::string command);
   bool getNextCommand(GFSCommand& command);
 
-  void addData(std::string data_source, std::string data_name,
-               std::string data_value);
-  void addData(std::string data_source, GPSFrame gps_frame);
 
-  void addError(std::string error_source, std::string error_code,
-                std::string error_info, int seconds_until_expiry = 0);
-
-  void updateDataFrame(DataFrame data_frame);
-  void updateErrorFrame(ErrorFrame error_frame);
   void updateFlightProcedure(FlightProcedure flight_procedure);
-
-  DataStreamPacket getNextDataPacket();
-  ErrorStreamPacket getNextErrorPacket();
-  bool getNextGPSFrame(GPSFrame& gps_frame);
-
-  std::string getData(std::string data_source, std::string data_name);
-  DataFrame getDataFrameCopy();
-  ErrorFrame getErrorFrameCopy();
   FlightProcedure getCurrentFlightProcedure();
 
-  int getNumGPSPackets();
-  int getTotalGPSPackets();
-
-  int getNumDataPackets();
-  int getTotalDataPackets();
-
-  int getNumErrorPackets();
-  int getTotalErrorPackets();
+  std::string getData(std::string data_source, std::string data_name);
 
   // TX Queue
   void lockTXQueue();

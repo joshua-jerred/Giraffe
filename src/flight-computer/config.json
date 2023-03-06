@@ -113,7 +113,7 @@
         "afsk-enabled": true,
         "afsk-frequency": "100.000",
 
-        "psk-enabled":false,
+        "psk-enabled":true,
         "psk-frequency": "100.000",
         "psk-mode": "bpsk500"
     },

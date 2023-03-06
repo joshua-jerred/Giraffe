@@ -46,13 +46,22 @@ to the category.
 See the specific command
 
 # Command List
-### Data Module
+## Configuration
+ - ``cmd/cfg/rlc/`` - Reload the configuration file
+### Telemetry Configuration
+ - ``cmd/cfg/tel/enable=[0|1]`` - Enable or disable telemetry
+ - ``cmd/cfg/tel/datapacket=[0|1]`` - Enable or disable data packets
+   - ``cmd/cfg/tel/dpfreq=[xxx.xxxx]`` - Set the data packet frequency
+ - ``cmd/cfg/tel/aprs=[0|1]`` - Enable or disable APRS
+ - ``cmd/cfg/tel/sstv=[0|1]`` - Enable or disable SSTV
+   - ``cmd/cfg/tel/sstvmode=[r8|r16|r32]`` - Set the SSTV mode
+## Data Module
  - ``cmd/dat/cae/`` - Clear all errors from the error frame, they will remain in the log
  - ``cmd/dat/ufl/`` - Update the file list
  - ``cmd/dat/rlf/`` - Rotate the log file
  - ``cmd/dat/ddf/[file name without extension]`` - Delete the data log file with the given name
  - ``cmd/dat/def/[file name without extension]`` - Delete the error log file with the given name
-### Extension Commands
+## Extension Commands
  - ``cmd/ext/stp/[num]`` - Stop the extension with the given number
-### Telemetry
+## Telemetry
  - ``cmd/tlm/rtx/[num]`` - Retransmit the transmission with a given number, as long as it is in the log.

@@ -149,6 +149,9 @@ int ConfigModule::getNumberOfErrors() {
 	return number_of_errors_;
 }
 
+void ConfigModule::doCommand(GFSCommand command) {
+}
+
 /**
  * @brief Simple override for adding errors to the data stream.
  * @param error_code The error code

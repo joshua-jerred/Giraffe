@@ -18,12 +18,13 @@
 
 struct GFSCommand {
     enum class CommandCategory {
-        unknown = 0,
-        TLM = 1, // telemetry
-        MDL = 2, // modules
-        EXT = 3, // extensions
-        FLR = 4, // flight runner
-        DAT = 5  // data module
+        unknown,
+        CFG, // config
+        TLM, // telemetry
+        MDL, // modules
+        EXT, // extensions
+        FLR, // flight runner
+        DAT  // data module
     };
     CommandCategory category = CommandCategory::unknown;
     std::string id = "";

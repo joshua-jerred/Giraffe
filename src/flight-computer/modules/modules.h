@@ -336,8 +336,9 @@ public:
 
     int load(std::string filepath);
     Data getAll();
-    // json getAllJson();
     int getNumberOfErrors();
+
+    void doCommand(GFSCommand command); // Override Module::doCommand()
 
 private:
     template <typename T>

@@ -303,8 +303,8 @@ void ServerModule::sendStatus(ServerSocket &socket) {
 	std::unordered_map<std::string, ModuleStatus> module_statuses = data_stream_.getModuleStatuses();
 	json gfs_status = {
 		{"gfs-uptime", gfs_uptime_str},
-		{"health-status", "good"},
-		{"reported-errors", data_stream_.getNumErrorPackets()},
+		{"health-status", "N-I"},
+		{"reported-errors", data_stream_.getNumCurrentErrors()},
 		{"current-flight-proc", kFlightProcedureTypeToString.at(data_stream_.getCurrentFlightProcedure().type)},
 		{"flight-phase", "N-I"},
 		{"modules-status", {
