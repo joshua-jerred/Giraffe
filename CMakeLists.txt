@@ -73,7 +73,7 @@ add_executable(giraffe-flight-software
 	${MWAV_SRC}/mwav.cpp
 	${MWAV_SRC}/utilities/wavgen.cpp
 	${MWAV_SRC}/utilities/bit-stream.cpp
-	${MWAV_SRC}/utilities/ax25.cpp
+	${MWAV_SRC}/modulators/ax25.cpp
 	${MWAV_SRC}/modulators/afsk.cpp
 	${MWAV_SRC}/modulators/aprs.cpp
 	${MWAV_SRC}/modulators/psk.cpp
