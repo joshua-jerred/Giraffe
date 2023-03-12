@@ -35,6 +35,7 @@ include_directories(
 	${MWAV_SRC}/modulators
 	${MWAV_SRC}/utilities
 	${MWAV_SRC}/demodulators
+	${MWAV_SRC}/WavGen
 )
 
 # ---- Flight Computer ----
@@ -71,7 +72,7 @@ add_executable(giraffe-flight-software
 	${GFS_SRC}/extensions/rpicam.cpp
 
 	${MWAV_SRC}/mwav.cpp
-	${MWAV_SRC}/utilities/wavgen.cpp
+	${MWAV_SRC}/WavGen/wavgen.cpp
 	${MWAV_SRC}/utilities/bit-stream.cpp
 	${MWAV_SRC}/modulators/ax25.cpp
 	${MWAV_SRC}/modulators/afsk.cpp

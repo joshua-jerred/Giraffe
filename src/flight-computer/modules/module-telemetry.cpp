@@ -253,23 +253,23 @@ std::string TelemetryModule::generateAFSK(const std::string &message, const int 
 std::string TelemetryModule::generatePSK(const std::string &message, const int tx_number) {
     std::string file_path = TELEMETRY_WAV_LOCATION + (std::string) "psk-" + std::to_string(tx_number) + ".wav";
     
-    MWAVData::MODULATION mode = MWAVData::MODULATION::BPSK_125; // Default
+    mwav::DataModulation mode = mwav::DataModulation::BPSK_125; // Default
 
     std::string requested_mode = config_data_.telemetry.psk_mode;
     if (requested_mode == "BPSK125") {
-        mode = MWAVData::MODULATION::BPSK_125;
+        mode = mwav::DataModulation::BPSK_125;
     } else if (requested_mode == "bpsk250") {
-        mode = MWAVData::MODULATION::BPSK_250;
+        mode = mwav::DataModulation::BPSK_250;
     } else if (requested_mode == "bpsk500") {
-        mode = MWAVData::MODULATION::BPSK_500;
+        mode = mwav::DataModulation::BPSK_500;
     } else if (requested_mode == "bpsk1000") {
-        mode = MWAVData::MODULATION::BPSK_1000;
-    } 
+        mode = mwav::DataModulation::BPSK_1000;
+    }
 
-    bool res = MWAVData::encode(mode, message, file_path);
+    bool res = mwav::EncodeString(mode, message, file_path, call_sign_);
     
     if (res) {
-        psk_length_ = 10; // TODO: Implement this
+        psk_length_ = 10; /** @todo implement this */
         return file_path;
     } else {
         error("PSK_E", "Failed to encode PSK data.");
