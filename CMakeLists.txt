@@ -29,7 +29,7 @@ include_directories(
 	${GFS_SRC}/extensions
 	${GFS_SRC}/extension-interface
 
-	src/mwav/include
+	src/MWAV/include
 )
 
 # ---- Flight Computer ----
