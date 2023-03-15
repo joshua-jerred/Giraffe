@@ -22,7 +22,6 @@
 #include "unit-conversions.h"
 using namespace modules;
 
-#include "mwav-exception.h"
 #include "mwav.h"
 
 /**
@@ -47,8 +46,12 @@ TelemetryModule::TelemetryModule(Data config_data, DataStream &stream)
       configurables::telemetry_module::kAprsDestinationSSID;
 
   aprs_generic_.symbol = config_data_.telemetry.aprs_symbol;
-  aprs_generic_.symbol_table =
-      configurables::telemetry_module::kAprsSymbolTable;
+
+  if (configurables::telemetry_module::kAlternateSymbolTable) {
+    aprs_generic_.symbol_table = mwav::AprsSymbolTable::SECONDARY;
+  } else {
+    aprs_generic_.symbol_table = mwav::AprsSymbolTable::PRIMARY;
+  }
 }
 
 /**
@@ -294,6 +297,7 @@ std::string TelemetryModule::generatePSK(const std::string &message,
 }
 
 std::string TelemetryModule::GenerateAprsTelemetry(const int tx_number) {
+  (void)tx_number;
   return "";
 }
 

@@ -20,8 +20,6 @@ FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download
 FetchContent_MakeAvailable(json)
 
 set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight-computer)
-set(MWAV_SRC ${CMAKE_SOURCE_DIR}/src/MWAV/src)
-
 set(TEST_BIN ${CMAKE_BINARY_DIR}/tests)
 
 include_directories(
@@ -31,11 +29,7 @@ include_directories(
 	${GFS_SRC}/extensions
 	${GFS_SRC}/extension-interface
 
-	${MWAV_SRC}/
-	${MWAV_SRC}/modulators
-	${MWAV_SRC}/utilities
-	${MWAV_SRC}/demodulators
-	${MWAV_SRC}/WavGen
+	src/mwav/include
 )
 
 # ---- Flight Computer ----
@@ -70,16 +64,8 @@ add_executable(giraffe-flight-software
 	${GFS_SRC}/extensions/mcp3021.cpp
 	${GFS_SRC}/extensions/sa868.cpp
 	${GFS_SRC}/extensions/rpicam.cpp
-
-	${MWAV_SRC}/mwav.cpp
-	${MWAV_SRC}/WavGen/wavgen.cpp
-	${MWAV_SRC}/utilities/bit-stream.cpp
-	${MWAV_SRC}/modulators/ax25.cpp
-	${MWAV_SRC}/modulators/afsk.cpp
-	${MWAV_SRC}/modulators/aprs.cpp
-	${MWAV_SRC}/modulators/psk.cpp
-	${MWAV_SRC}/modulators/morse.cpp
 )
+target_link_libraries(giraffe-flight-software PRIVATE MWAVlib)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
