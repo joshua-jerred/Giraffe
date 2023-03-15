@@ -96,7 +96,7 @@ struct CriticalData {
     FlightPhase phase = FlightPhase::ERROR;
 
     bool gps_data_valid = false;
-    GPSFrame gps_data = GPSFrame();
+    GPSFrame latest_valid_gps_data = GPSFrame(); // Last valid GPS data
 
     bool pressure_data_valid = false;
     float pressure_mbar = 0.0; // millibars

@@ -1,6 +1,23 @@
 #include "image-tools.h"
+
 #include <Magick++.h>
+
 #include <iostream>
+
+SstvImageTools::SstvImageTools(std::string source_image_path,
+                               std::string destination_image_path) {
+  source_path_ = source_image_path;
+  if (destination_image_path == "") {
+    destination_path_ = source_image_path;
+  } else {
+    destination_path_ = destination_image_path;
+  }
+  try {
+    image_.read(source_image_path);
+  } catch (Magick::Exception &error_) {
+    throw SstvImageToolsException("Failed to read image: " + source_image_path);
+  }
+}
 
 bool ConvertToRobot8(std::string image_path) {
   Magick::Image image;

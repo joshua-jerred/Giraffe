@@ -397,10 +397,10 @@ void ServerModule::sendGfsData(ServerSocket &socket) {
 	json critical_data_json = {
 		{"flight-phase", FLIGHT_PHASE_TO_STRING.at(c_data.phase)},
 		{"gps-data-valid", c_data.gps_data_valid},
-		{"gps-fix", GPS_FIX_TO_STRING.at(c_data.gps_data.fix)},
-		{"gps-alt", c_data.gps_data.altitude},
-		{"gps-lat", c_data.gps_data.latitude},
-		{"gps-lon", c_data.gps_data.longitude},
+		{"gps-fix", GPS_FIX_TO_STRING.at(c_data.latest_valid_gps_data.fix)},
+		{"gps-alt", c_data.latest_valid_gps_data.altitude},
+		{"gps-lat", c_data.latest_valid_gps_data.latitude},
+		{"gps-lon", c_data.latest_valid_gps_data.longitude},
 		{"pressure-data-valid", c_data.pressure_data_valid},
 		{"pressure-mbar", c_data.pressure_mbar},
 		{"battery-data-valid", c_data.battery_data_valid},
@@ -419,11 +419,11 @@ void ServerModule::sendGfsData(ServerSocket &socket) {
 	};
 
 	// Position Data
-	GPSFrame &gps_frame = c_data.gps_data;
+	GPSFrame &gps_frame = c_data.latest_valid_gps_data;
 	json position_data_json = {
 		{"source", gps_frame.source},
 		{"time", gps_frame.time},
-		{"fix", GPS_FIX_TO_STRING.at(c_data.gps_data.fix)},
+		{"fix", GPS_FIX_TO_STRING.at(c_data.latest_valid_gps_data.fix)},
 		{"num-sats", gps_frame.num_satellites},
 		{"latitude", gps_frame.latitude},
 		{"longitude", gps_frame.longitude},

@@ -130,7 +130,7 @@ elif [ "$REQUEST" == "sync-web-server" ]; then
 elif [ "$REQUEST" == "update-config" ]; then
     rsync -v --rsync-path="sudo rsync" src/flight-computer/config.json $SSH_HOST:/opt/giraffe/config.json
 else
-    echo "Unknown request"
+    echo "Unknown command"
     exit 1
 fi
 

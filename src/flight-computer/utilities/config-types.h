@@ -149,7 +149,7 @@ struct Data {
         std::string aprs_freq {};
         int aprs_key = 0;
         int aprs_ssid = 0;
-        std::string aprs_symbol = "O";
+        char aprs_symbol = 'O';
         std::string aprs_memo = "GFS Balloon";
     };
 

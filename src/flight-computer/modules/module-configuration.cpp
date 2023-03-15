@@ -150,6 +150,7 @@ int ConfigModule::getNumberOfErrors() {
 }
 
 void ConfigModule::doCommand(GFSCommand command) {
+	(void)command;
 }
 
 /**
@@ -482,8 +483,8 @@ void ConfigModule::parseTelemetry() {
 		int ssid = json_buffer_["telemetry"]["aprs-ssid"].get<int>();
 		/** @todo Check if ssid is valid */
 
-		std::string symbol = 
-		json_buffer_["telemetry"]["aprs-symbol"].get<std::string>();
+		char symbol = 
+		json_buffer_["telemetry"]["aprs-symbol"].get<std::string>()[0];
 		/** @todo Check if symbol is valid */
 
 		std::string memo = 

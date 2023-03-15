@@ -254,7 +254,7 @@ void DataModule::parseGPSData() {
         if (frame.fix == GPSFixType::FIX_3D ||
             frame.fix == GPSFixType::FIX_2D) {
           last_valid_fix_gps_frame_ = frame;
-          critical_data_.gps_data = frame;
+          critical_data_.latest_valid_gps_data = frame;
           critical_data_.gps_data_valid = true;
         }
       }
@@ -659,6 +659,23 @@ bool DataModule::checkGPSFrame(const GPSFrame& frame) {
   }
   if (frame.ground_speed < 0 || frame.ground_speed > 200) {
     error("GPS_A_GS", std::to_string(frame.ground_speed));
+    return false;
+  }
+
+  if (frame.horz_accuracy < 0 || frame.horz_accuracy > 1000) {
+    error("GPS_A_HA", std::to_string(frame.horz_accuracy));
+    return false;
+  }
+  if (frame.vert_accuracy < 0 || frame.vert_accuracy > 1000) {
+    error("GPS_A_VA", std::to_string(frame.vert_accuracy));
+    return false;
+  }
+  if (frame.speed_accuracy < 0 || frame.speed_accuracy > 1000) {
+    error("GPS_A_SA", std::to_string(frame.speed_accuracy));
+    return false;
+  }
+  if (frame.heading_accuracy < 0 || frame.heading_accuracy > 360) {
+    error("GPS_A_HA", std::to_string(frame.heading_accuracy));
     return false;
   }
   return true;

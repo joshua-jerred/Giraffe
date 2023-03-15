@@ -11,9 +11,19 @@
 #ifndef UTILITY_CONFIGURABLES_H
 #define UTILITY_CONFIGURABLES_H
 
+#include <string>
+
+#include "mwav.h"
+
 namespace configurables{
   namespace data_module {
     const float kMaxLogFileSizeMB = 50; // MB
+  }
+  namespace telemetry_module {
+    const uint8_t kAprsSourceSSID = 0;
+    const std::string kAprsDestination = "APZGFS";
+    const uint8_t kAprsDestinationSSID = 0;
+    const mwav::AprsSymbolTable kAprsSymbolTable = mwav::AprsSymbolTable::PRIMARY;
   }
 }
 
