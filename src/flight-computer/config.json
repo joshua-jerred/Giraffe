@@ -87,7 +87,7 @@
     },
     "telemetry": {
         "telemetry-enabled": true,
-        "call-sign": "TSTCAL",
+        "call-sign": "KD9GDC",
 
         "radio": {
             "radio-enabled": true,
@@ -144,9 +144,9 @@
         "enabled": true,
         "intervals": {
             "data-log": 2,
-            "data-packet": 5,
-            "sstv": 10,
-            "aprs": 5,
+            "data-packet": 30,
+            "sstv": 45,
+            "aprs": 30,
             "picture": 50,
             "health-check": 10
             }

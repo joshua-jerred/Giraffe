@@ -2,6 +2,23 @@ cmake_minimum_required(VERSION 3.14)
 project(Giraffe VERSION 0.4)
 set(CMAKE_CXX_STANDARD 20)
 
+# ---- Options ----
+set(GIRAFFE_INSTALL_DIR /opt/giraffe)
+set(GIRAFFE_DATA_DIR ${GIRAFFE_INSTALL_DIR}/data_logs)
+
+option(SSTV_ENABLED "Enable SSTV - Requires Magick++" ON) # ON or OFF
+
+# -----------------
+string(STRIP "${PROGRAM_VERSION}" PROGRAM_VERSION)
+
+if(SSTV_ENABLED)
+    message(STATUS "SSTV Enabled In Giraffe Flight Software")
+    add_compile_definitions(SSTV_ENABLED=1)
+else()
+    message(STATUS "SSTV Disabled In Giraffe Flight Software")
+    add_compile_definitions(SSTV_ENABLED=0)
+endif()
+
 set(CMAKE_BUILD_TYPE Debug) # Change to Release for production
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 	-fno-omit-frame-pointer \
@@ -74,12 +91,25 @@ target_link_libraries(giraffe-flight-software PRIVATE Threads::Threads)
 target_link_libraries(giraffe-flight-software PUBLIC i2c)
 target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
 
-# Installation
-install(TARGETS giraffe-flight-software DESTINATION /opt/giraffe)
-install(DIRECTORY ${GFS_SRC}/web-server DESTINATION /opt/giraffe)
-install(FILES ${GFS_SRC}/config.json DESTINATION /opt/giraffe)
+# Installation ---------------------------------------------------------------
+set(GFS_RUNTIME_DIRECTORIES 
+	${GIRAFFE_INSTALL_DIR}/data_logs
+	${GIRAFFE_INSTALL_DIR}/error_logs
+	${GIRAFFE_INSTALL_DIR}/telemetry
+	${GIRAFFE_INSTALL_DIR}/images
+	${GIRAFFE_INSTALL_DIR}/images/sstv
+)
 
-# Tests
+install(
+	DIRECTORY ${GFS_RUNTIME_DIRECTORIES}
+	DESTINATION ${GIRAFFE_INSTALL_DIR}
+)
+
+install(TARGETS giraffe-flight-software DESTINATION ${GIRAFFE_INSTALL_DIR})
+install(DIRECTORY ${GFS_SRC}/web-server DESTINATION ${GIRAFFE_INSTALL_DIR})
+install(FILES ${GFS_SRC}/config.json DESTINATION ${GIRAFFE_INSTALL_DIR})
+
+# Tests ---------------------------------------------------------------------
 add_subdirectory(tests EXCLUDE_FROM_ALL)
 add_subdirectory(src/MWAV EXCLUDE_FROM_ALL)
 

@@ -155,6 +155,12 @@ class DataStream {
   std::vector<std::string>& GetDataLogFiles() { return data_log_files_; }
   std::vector<std::string>& GetErrorLogFiles() { return error_log_files_; }
 
+
+  // Image Files
+  void UpdateLatestImage(const std::string &image_path);
+  const std::string GetLatestImage();
+
+
  private:
   void error(std::string code);
   void error(std::string code, std::string info);
@@ -216,6 +222,10 @@ class DataStream {
   std::deque<Transmission> tx_log_{};
   int first_tx_in_log_ = 0;
   int last_tx_in_log_ = 0;
+
+  // Image Files
+  std::mutex image_files_lock_ = std::mutex();
+  std::string latest_image_path_ = "";
 
   // Data/Error Files
   std::mutex log_files_lock_ = std::mutex();

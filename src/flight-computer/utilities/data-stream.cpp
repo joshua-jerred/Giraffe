@@ -483,6 +483,19 @@ void DataStream::error(std::string code, std::string info) {
 	addError(kDataStreamErrorPrefix, code, info, 0);
 }
 
+void DataStream::UpdateLatestImage(const std::string& path) {
+	image_files_lock_.lock();
+	latest_image_path_ = path;
+	image_files_lock_.unlock();
+}
+
+const std::string DataStream::GetLatestImage() {
+	image_files_lock_.lock();
+	std::string path = latest_image_path_;
+	image_files_lock_.unlock();
+	return path;
+}
+
 std::ostream& operator << (std::ostream& o, const DataStreamPacket& d)
 {
 	o << "Source: " << d.source << "\tData Name: " << d.unit <<

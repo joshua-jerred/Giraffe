@@ -19,7 +19,7 @@ using namespace modules;
  * @param data A pointer to the data module.
  * @todo Error on update interval being less than 1
  */
-ConsoleModule::ConsoleModule(const Data config_data, DataStream &stream):
+ConsoleModule::ConsoleModule(const ConfigData config_data, DataStream &stream):
     Module(stream, MODULE_CONSOLE_PREFIX, "console"),
     config_data_(config_data) {
 
@@ -120,10 +120,10 @@ void ConsoleModule::printData() {
     "    Mainboard: ";
     switch (config_data_.general.main_board)
     {
-    case Data::Mainboard::PI_ZERO_W_2:
+    case ConfigData::Mainboard::PI_ZERO_W_2:
         std::cout << "pi_zero_w_2";
         break;
-    case Data::Mainboard::PI_4: std::cout << "Pi 4";
+    case ConfigData::Mainboard::PI_4: std::cout << "Pi 4";
         break;
     default: std::cout << "Unknown";
         break;

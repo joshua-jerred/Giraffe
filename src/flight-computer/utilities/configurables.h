@@ -14,14 +14,23 @@
 #include <string>
 
 namespace configurables{
+  const std::string GIRAFFE_VERSION = "@PROGRAM_VERSION@"; // This is set by CMake
+
   namespace data_module {
-    const float kMaxLogFileSizeMB = 50; // MB
+    static const float kMaxLogFileSizeMB = 50; // MB
   }
   namespace telemetry_module {
-    const uint8_t kAprsSourceSSID = 0;
-    const std::string kAprsDestination = "APZGFS";
-    const uint8_t kAprsDestinationSSID = 0;
-    const bool kAlternateSymbolTable = false;
+    static const uint8_t kAprsSourceSSID = 0;
+    static const std::string kAprsDestination = "APZGFS";
+    static const uint8_t kAprsDestinationSSID = 0;
+    static const bool kAlternateSymbolTable = false;
+  }
+  namespace file_paths {
+    static const std::string kConfigFilePath = "./config.json";
+    static const std::string kDataLogLocation = "./data_logs/";
+    static const std::string kErrorLogLocation = "./error_logs/";
+    static const std::string kTelemetryWavLocation = "./telemetry/";
+    static const std::string kImagesLocation = "./images/";
   }
 }
 
@@ -30,8 +39,6 @@ namespace configurables{
 /** @brief The location of the configuration file. It is safe to change 
  * this value. */
 #define CONFIG_LOCATION "./config.json"
-
-#define TELEMETRY_WAV_LOCATION "./telem/"
 
 // ------- Config File Range Limits ------- //
 // Changing these results in undefined behavior, it is not recommended.
@@ -75,8 +82,6 @@ namespace configurables{
 #define ADDRESS_HIGH 0x77
 
 #define ONE_WIRE_LOCATION "/sys/bus/w1/devices/"
-
-#define TELEMETRY_WAV_LOCATION "./telem/" /** @todo look into moving this to ram disk */
 
 #define CALLSIGN_FAILSAFE "NO_CALLSIGN"
 

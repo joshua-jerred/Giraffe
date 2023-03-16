@@ -44,11 +44,11 @@ using json = nlohmann::ordered_json;
  * 
  * @see config-types.h
  */
-NLOHMANN_JSON_SERIALIZE_ENUM( Data::Mainboard, {
-    {Data::Mainboard::ERROR, "error"}, 
-    {Data::Mainboard::OTHER, "other"},
-    {Data::Mainboard::PI_ZERO_W_2, "pi_zero_w_2"},
-    {Data::Mainboard::PI_4, "pi_4"}
+NLOHMANN_JSON_SERIALIZE_ENUM( ConfigData::Mainboard, {
+    {ConfigData::Mainboard::ERROR, "error"}, 
+    {ConfigData::Mainboard::OTHER, "other"},
+    {ConfigData::Mainboard::PI_ZERO_W_2, "pi_zero_w_2"},
+    {ConfigData::Mainboard::PI_4, "pi_4"}
 })
 
 NLOHMANN_JSON_SERIALIZE_ENUM( FlightProcedure::Type, {
@@ -132,7 +132,7 @@ int ConfigModule::load(std::string file_path) {
  * @param None
  * @return ConfigData - All of the configuration data.
  */
-Data ConfigModule::getAll() {
+ConfigData ConfigModule::getAll() {
 	return config_data_;
 }
 
@@ -224,11 +224,11 @@ void ConfigModule::parseGeneral() {
 
 	if (!json_buffer_["general"].contains("main-board-type")) {
 		error("GEN_MB_NF"); // Mainboard type does not exist in config
-		config_data_.general.main_board = Data::Mainboard::ERROR;
+		config_data_.general.main_board = ConfigData::Mainboard::ERROR;
 	} else {
-		Data::Mainboard mbtype = 
-		json_buffer_["general"]["main-board-type"].get<Data::Mainboard>();
-		if (mbtype == Data::Mainboard::ERROR) {
+		ConfigData::Mainboard mbtype = 
+		json_buffer_["general"]["main-board-type"].get<ConfigData::Mainboard>();
+		if (mbtype == ConfigData::Mainboard::ERROR) {
 			error("GEN_MB_I");
 		} else {
 			config_data_.general.main_board = mbtype;
@@ -563,7 +563,7 @@ void ConfigModule::parseTelemetry() {
  */
 void ConfigModule::parseDataTypes() {
 	for (const auto& item : json_buffer_["data-log-data-and-packet-contents"].items()) {
-		Data::DataTypes::DataType newDataType;
+		ConfigData::DataTypes::DataType newDataType;
 		try 
 		{
 			newDataType.source = item.value()["source"].get<std::string>();

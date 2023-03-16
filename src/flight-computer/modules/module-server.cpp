@@ -27,7 +27,7 @@ using json = nlohmann::ordered_json;
 #include "modules.h"
 using namespace modules;
 
-ServerModule::ServerModule(const Data config_data, DataStream &stream):
+ServerModule::ServerModule(const ConfigData config_data, DataStream &stream):
 			Module(stream, MODULE_SERVER_PREFIX, "server"),
 			config_data_(config_data) {
 }
@@ -158,13 +158,13 @@ void ServerModule::sendConfig(ServerSocket &socket) {
 	std::string main_board_type;
 	switch (config_data_.general.main_board)
 	{
-	case Data::Mainboard::ERROR:
+	case ConfigData::Mainboard::ERROR:
 		main_board_type = "ERROR";
 		break;
-	case Data::Mainboard::PI_ZERO_W_2:
+	case ConfigData::Mainboard::PI_ZERO_W_2:
 		main_board_type = "Pi Zero W 2";
 		break;
-	case Data::Mainboard::PI_4:
+	case ConfigData::Mainboard::PI_4:
 		main_board_type = "Pi 4";
 		break;
 	default:

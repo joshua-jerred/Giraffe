@@ -94,7 +94,7 @@ private:
 
     void deconstruct();
 
-    Data config_data_ = Data();
+    ConfigData config_data_ = ConfigData();
     FlightProcedure::Type current_flight_procedure_type_;
     FlightProcedure::Intervals current_intervals_ = FlightProcedure::Intervals();
     

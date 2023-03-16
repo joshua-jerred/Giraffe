@@ -82,6 +82,12 @@
   - Invalid PSK31 mode (not BPSK or QPSK)
 - ``TL_PSK_S <speed>`` 
   - Invalid PSK31 speed (not 125, 250, or 500)
+- ``TL_SSTV_NI``
+  - No image path exists 
+- ``TL_SSTV_IDE '<path>'``
+  - Image file does not exist
+- ``TL_SSTV_EX <mwav exception>``
+  - Exception in mwav when trying to encode SSTV image
 
 ## Data Module Errors
 - ``M_DA_NGPS``

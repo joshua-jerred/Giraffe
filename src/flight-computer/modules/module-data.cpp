@@ -72,7 +72,7 @@ DataModule::DataModule(DataStream& stream)
  */
 DataModule::~DataModule() {}
 
-void DataModule::addConfigData(Data config_data) {
+void DataModule::addConfigData(ConfigData config_data) {
   config_data_ = config_data;
 
   // Check for GPS Extensions
@@ -172,7 +172,7 @@ void DataModule::log() {
         ":" + std::to_string(now->tm_sec);
 
     json data_json = json::object();
-    for (Data::DataTypes::DataType type : config_data_.data_types.types) {
+    for (ConfigData::DataTypes::DataType type : config_data_.data_types.types) {
       if (!data_json.contains(type.source)) {
         data_json[type.source] = json::array();
       }
@@ -214,7 +214,7 @@ void DataModule::log() {
  * @param data_type The actual data type
  * @return void
  */
-void DataModule::addDataTypeToFrame(Data::DataTypes::DataType data_type) {
+void DataModule::addDataTypeToFrame(ConfigData::DataTypes::DataType data_type) {
   DataStreamPacket packet;
   packet.source = data_type.source;
   packet.unit = data_type.unit;
@@ -236,6 +236,9 @@ void DataModule::parseDataStream() {
   DataStreamPacket dpacket;
   for (int i = 0; i < packetCount; i++) {
     dpacket = data_stream_.getNextDataPacket();
+    if (dpacket.unit == "NEW_IMAGE") {
+      data_stream_.UpdateLatestImage(dpacket.value);
+    }
     dataframe_.insert_or_assign(dpacket.source + ":" + dpacket.unit, dpacket);
   }
   data_stream_.updateDataFrame(dataframe_);

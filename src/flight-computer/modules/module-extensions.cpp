@@ -21,7 +21,7 @@ using namespace modules;
  * @param config_data 
  * @param stream 
  */
-ExtensionsModule::ExtensionsModule(const Data config_data, DataStream &stream):
+ExtensionsModule::ExtensionsModule(const ConfigData config_data, DataStream &stream):
     Module(stream, MODULE_EXTENSION_PREFIX, "extensions"),
     config_data_(config_data) {
 

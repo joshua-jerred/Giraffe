@@ -89,7 +89,7 @@ class Module {
  */
 class TelemetryModule : public Module {
  public:
-  TelemetryModule(Data config_data, DataStream &stream);
+  TelemetryModule(ConfigData config_data, DataStream &stream);
   TelemetryModule(const TelemetryModule &other) =
       delete;  // No copy constructor
   TelemetryModule &operator=(const TelemetryModule &other) =
@@ -115,7 +115,7 @@ class TelemetryModule : public Module {
   std::string generatePSK(const std::string &message, const int tx_number);
   std::string GenerateAprsLocation(const int tx_number);
   std::string GenerateAprsTelemetry(const int tx_number);
-  std::string generateSSTV();
+  std::string GenerateSSTV(const int tx_number);
 
   void runner();
   void playWav(std::string wav_location, std::string tx_type, int tx_length);
@@ -131,13 +131,13 @@ class TelemetryModule : public Module {
 
   void doCommand(GFSCommand command);  // Override Module::doCommand()
 
-  Data config_data_;
+  ConfigData config_data_;
   int psk_length_ = 0;
 };
 
 class ServerModule : public Module {
  public:
-  ServerModule(const Data config_data, DataStream &stream);
+  ServerModule(const ConfigData config_data, DataStream &stream);
   ServerModule(const ServerModule &) = delete;  // No copy constructor
   ServerModule &operator=(const ServerModule &) = delete;  // No copy assignment
   ~ServerModule();
@@ -158,7 +158,7 @@ class ServerModule : public Module {
   void sendErrorFrame(ServerSocket &socket);
   void sendLogFiles(ServerSocket &socket);
 
-  Data config_data_;
+  ConfigData config_data_;
 
   std::thread runner_thread_ = std::thread();
   // std::thread py_runner_thread_;
@@ -178,7 +178,7 @@ class ServerModule : public Module {
  */
 class ExtensionsModule : public Module {
  public:
-  ExtensionsModule(const Data config_data, DataStream &stream);
+  ExtensionsModule(const ConfigData config_data, DataStream &stream);
   ExtensionsModule(const ExtensionsModule &other) =
       delete;  // No copy constructor
   ExtensionsModule &operator=(const ExtensionsModule &other) =
@@ -195,7 +195,7 @@ class ExtensionsModule : public Module {
   std::atomic<int> stop_flag_ = 0;
 
   std::vector<extension::Extension *> extensions_ = {};
-  Data config_data_;
+  ConfigData config_data_;
 
   void addExtension(ExtensionMetadata meta_data);
 };
@@ -229,7 +229,7 @@ class DataModule : public Module {
   DataModule &operator=(const DataModule &) = delete;  // No copy assignment
   ~DataModule();
 
-  void addConfigData(Data config_data);
+  void addConfigData(ConfigData config_data);
 
   void start();
   void stop();
@@ -241,7 +241,7 @@ class DataModule : public Module {
 
  private:
   void runner();
-  void addDataTypeToFrame(Data::DataTypes::DataType
+  void addDataTypeToFrame(ConfigData::DataTypes::DataType
                               data_type);  // add a data type to the data frame
   void checkForStaleData();
   void parseDataStream();
@@ -273,7 +273,7 @@ class DataModule : public Module {
   std::atomic<int> shutdown_signal_ = 0;
   std::thread runner_thread_ = std::thread();
 
-  Data config_data_ = {};
+  ConfigData config_data_ = {};
 
   std::string gps_data_source_ = "";
   std::string pressure_data_source_ = "";
@@ -293,7 +293,7 @@ class DataModule : public Module {
  */
 class ConsoleModule : public Module {
  public:
-  ConsoleModule(const Data config_data, DataStream &stream);
+  ConsoleModule(const ConfigData config_data, DataStream &stream);
   ConsoleModule(const ConsoleModule &) = delete;  // No copy constructor
   ConsoleModule &operator=(const ConsoleModule &) =
       delete;  // No copy assignment
@@ -307,7 +307,7 @@ class ConsoleModule : public Module {
   void clearScreen();
   void printData();
 
-  Data config_data_;
+  ConfigData config_data_;
 
   int update_interval_ = 10;
 
@@ -345,7 +345,7 @@ class ConfigModule {
   ~ConfigModule();
 
   int load(std::string filepath);
-  Data getAll();
+  ConfigData getAll();
   int getNumberOfErrors();
 
   void doCommand(GFSCommand command);  // Override Module::doCommand()
@@ -370,7 +370,7 @@ class ConfigModule {
   DataStream &data_stream_;
   std::string config_file_path_ = "";
   json json_buffer_ = json::object();
-  Data config_data_ = Data();
+  ConfigData config_data_ = ConfigData();
 };
 
 }  // namespace modules

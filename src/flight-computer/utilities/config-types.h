@@ -97,7 +97,7 @@ struct ExtensionMetadata {
  * @brief Container for all config data. Mirrors the config file.
  * @see config.json
  */
-struct Data {
+struct ConfigData {
 
     enum Mainboard {
         ERROR ,

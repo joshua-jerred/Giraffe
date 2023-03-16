@@ -24,13 +24,18 @@ using namespace modules;
 
 #include "mwav.h"
 
+bool FileExists(const std::string &name) {
+  std::ifstream f(name.c_str());
+  return f.good();
+}
+
 /**
  * @brief Construct a new TelemetryModule object.
  *
  * @param config_data All configuration data.
  * @param data_stream A pointer to the data stream.
  */
-TelemetryModule::TelemetryModule(Data config_data, DataStream &stream)
+TelemetryModule::TelemetryModule(ConfigData config_data, DataStream &stream)
     : Module(stream, MODULE_TELEMETRY_PREFIX, "telemetry"),
       config_data_(config_data) {
   tx_number_ = 0;  // First tx id will be 1
@@ -99,7 +104,7 @@ void TelemetryModule::sendDataPacket() {
 
   // Add data (specified in config) to the message that will be sent.
   std::string key = "";
-  for (Data::DataTypes::DataType type : config_data_.data_types.types) {
+  for (ConfigData::DataTypes::DataType type : config_data_.data_types.types) {
     if (type.include_in_telemetry) {
       key = type.source + ":" + type.unit;
       if (data.contains(key)) {
@@ -211,8 +216,8 @@ void TelemetryModule::doCommand(GFSCommand command) {
 void TelemetryModule::sendSSTVImage() {
   Transmission newTX;
   newTX.type = Transmission::Type::SSTV;
-  // newTX.wav_location = generateSSTV();
-  // addToTXQueue(newTX);
+  newTX.wav_location = GenerateSSTV(getNextTXNumber());
+  addToTXQueue(newTX);
 }
 
 /**
@@ -262,8 +267,9 @@ std::string TelemetryModule::generateAFSK(const std::string &message,
 
 std::string TelemetryModule::generatePSK(const std::string &message,
                                          const int tx_number) {
-  std::string file_path = TELEMETRY_WAV_LOCATION + (std::string) "psk-" +
-                          std::to_string(tx_number) + ".wav";
+  std::string file_path = configurables::file_paths::kTelemetryWavLocation +
+                          (std::string) "psk-" + std::to_string(tx_number) +
+                          ".wav";
 
   mwav::DataModulation mode = mwav::DataModulation::BPSK_125;  // Default
 
@@ -302,8 +308,9 @@ std::string TelemetryModule::GenerateAprsTelemetry(const int tx_number) {
 }
 
 std::string TelemetryModule::GenerateAprsLocation(const int tx_number) {
-  std::string file_path = TELEMETRY_WAV_LOCATION + (std::string) "aprs-" +
-                          std::to_string(tx_number) + ".wav";
+  std::string file_path = configurables::file_paths::kTelemetryWavLocation +
+                          (std::string) "aprs-" + std::to_string(tx_number) +
+                          ".wav";
   CriticalData critical_data = data_stream_.getCriticalData();
   GPSFrame gps = critical_data.latest_valid_gps_data;
   bool gps_valid = critical_data.gps_data_valid;
@@ -343,7 +350,33 @@ std::string TelemetryModule::GenerateAprsLocation(const int tx_number) {
   }
 }
 
-std::string TelemetryModule::generateSSTV() { return "not-implemented.wav"; }
+std::string TelemetryModule::GenerateSSTV(const int tx_number) {
+  std::string image = data_stream_.GetLatestImage();
+  std::string image_path = configurables::file_paths::kImagesLocation + image;
+  if (image == "") {
+    error("SSTV_NI");
+    return "";
+  } else if (!FileExists(image_path)) {
+    error("SSTV_IDE", image_path);
+    return "";
+  }
+  std::string file_path = configurables::file_paths::kTelemetryWavLocation +
+                          (std::string) "sstv-" + std::to_string(tx_number) +
+                          ".wav";
+
+  std::vector<std::string> data = {"Giraffe SSTV Test"};
+
+  try {
+    mwav::EncodeSSTV(file_path, image_path, false,
+                     config_data_.telemetry.call_sign,
+                     mwav::Sstv_Mode::ROBOT_36, data);
+  } catch (mwav::Exception &e) {
+    error("SSTV_EX", e.what());
+    return "";
+  }
+
+  return file_path;
+}
 
 void TelemetryModule::runner() {
   updateStatus(ModuleStatus::RUNNING);
@@ -375,9 +408,7 @@ void TelemetryModule::runner() {
           playWav(tx.wav_location, "APRS", tx.length);
           break;
         case Transmission::Type::SSTV:
-
-          std::this_thread::sleep_for(
-              std::chrono::seconds(2));  // Will be removed once implemented
+          playWav(tx.wav_location, "SSTV", tx.length);
           break;
         case Transmission::Type::PSK:
           playWav(tx.wav_location, "PSK", tx.length);

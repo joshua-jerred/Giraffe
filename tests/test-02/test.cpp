@@ -31,7 +31,7 @@ protected:
     }
     DataStream *p_data_stream_ = nullptr;
     modules::ConfigModule *config_module_ = nullptr;
-    Data config_data_ = {};
+    ConfigData config_data_ = {};
 };
 
 TEST_F(Configuration_Module_1, OpenConfigFile) {
@@ -54,14 +54,14 @@ TEST_F(Configuration_Module_1, GeneralSection) {
 
     EXPECT_EQ("projname", config_data_.general.project_name)
         << "Project name is incorrect";
-    EXPECT_EQ(Data::Mainboard::PI_ZERO_W, config_data_.general.main_board)
+    EXPECT_EQ(ConfigData::Mainboard::PI_ZERO_W, config_data_.general.main_board)
         << "Mainboard type is incorrect";
     EXPECT_EQ(FlightProcedure::ProcType::TESTING, config_data_.general.starting_proc)
         << "Starting procedure is incorrect";
 }
 
 TEST_F(Configuration_Module_1, ExtensionsSection) {
-    Data::Extensions extensions = config_module_->getAll().extensions;
+    ConfigData::Extensions extensions = config_module_->getAll().extensions;
     
     EXPECT_EQ(4, extensions.extensions_list.size())
         << "Incorrect number of extensions";
@@ -124,7 +124,7 @@ TEST_F(Configuration_Module_1, ExtensionsSection) {
 }
 
 TEST_F(Configuration_Module_1, Debugging) {
-    Data::Debugging debugging = config_module_->getAll().debug;
+    ConfigData::Debugging debugging = config_module_->getAll().debug;
 
     EXPECT_EQ(1, debugging.console_enabled) << "Console debugging is incorrect";
     EXPECT_EQ(1002, debugging.console_update_interval) 
@@ -137,7 +137,7 @@ TEST_F(Configuration_Module_1, Debugging) {
 }
 
 TEST_F(Configuration_Module_1, TelemetrySection) {
-    Data::Telemetry telemetry = config_module_->getAll().telemetry;
+    ConfigData::Telemetry telemetry = config_module_->getAll().telemetry;
 
     EXPECT_EQ(1 , telemetry.telemetry_enabled)
         << "Telemetry enabled is incorrect";
@@ -174,7 +174,7 @@ TEST_F(Configuration_Module_1, TelemetrySection) {
 }
 
 TEST_F(Configuration_Module_1, FlightProcsSection) {
-    Data::Procs procs = config_module_->getAll().flight_procs;
+    ConfigData::Procs procs = config_module_->getAll().flight_procs;
     FlightProcedure test_proc = procs.testing;
 
     EXPECT_EQ(1, test_proc.enabled)
