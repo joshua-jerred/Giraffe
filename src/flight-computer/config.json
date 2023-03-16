@@ -87,7 +87,7 @@
     },
     "telemetry": {
         "telemetry-enabled": true,
-        "call-sign": "FccCallSign",
+        "call-sign": "TSTCAL",
 
         "radio": {
             "radio-enabled": true,
