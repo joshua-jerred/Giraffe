@@ -21,7 +21,7 @@ extension::DS18B20::~DS18B20() {
 }
 
 int extension::DS18B20::runner() {
-    if (one_wire_device_.status() != extension_interface::ONEWIRE_STATUS::OK) {
+    if (one_wire_device_.status() != interface::ONEWIRE_STATUS::OK) {
         setStatus(ExtensionStatus::ERROR);
 		error("1WNF");
         return -1;

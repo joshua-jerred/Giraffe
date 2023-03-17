@@ -13,12 +13,13 @@
 #ifndef EXTENSION_INTERFACE_H_
 #define EXTENSION_INTERFACE_H_
 
+#include <exception>
 #include <mutex>
 #include <string>
 
 #include "configurables.h"
 
-namespace extension_interface {
+namespace interface {
 
 enum class I2C_STATUS {
   BUS_LOCK_CONFIG_ERROR,  // Bus lock pointer is null
@@ -84,22 +85,59 @@ class OneWire {
 
 class Serial {
  public:
-  Serial(std::string device_path, int baud_rate);
+  enum class BaudRate {  // To be expanded as needed
+    BR9600 = 9600
+  };
+
+  Serial(std::string device_path, Serial::BaudRate baud_rate, int timeout = 10);
   ~Serial();
 
-  int Connect();
-  int Disconnect();
+  void Connect();
+  void Disconnect();
+  bool IsConnected();
 
   std::string Read();
   int Write(std::string data);
 
  private:
   std::string device_path_;
-  int baud_rate_;
-  int fd_;
-  bool connected_;
+  Serial::BaudRate baud_rate_;
+  int timeout_;  // in tenths of a second
+
+  int fd_ = -1;
+  bool connected_ = false;
 };
 
-}  // namespace extension_interface
+// interface::Exception
+class SerialException : public std::exception {
+ public:
+  enum class Type {
+    OPEN = 0,
+    GET_ATTRIBUTE = 1,
+    SET_BAUD = 2,
+    SET_ATTRIBUTE = 3,
+    WRITE = 4,
+    READ = 5,
+    CLOSE = 6,
+    NOT_CONNECTED = 7,
+    ALREADY_CONNECTED = 8,
+    UNKNOWN = 9,
+    TIMEOUT = 10
+  };  // To be expanded
+
+  SerialException(SerialException::Type type, int errno_value,
+                  std::string message)
+      : type_(type), errno_value_(errno_value), message_(message) {}
+  SerialException::Type type() const throw() { return type_; }
+  int errno_value() const throw() { return errno_value_; }
+  const char* what() const throw() { return message_.c_str(); }
+
+ private:
+  SerialException::Type type_;
+  int errno_value_;
+  std::string message_;
+};
+
+}  // namespace interface
 
 #endif /* UTILITY_INTERFACE_CONTROL_H_ */

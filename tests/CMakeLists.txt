@@ -9,6 +9,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
+# gtest based test function ----------------------------------------------------
+function(add_gtest_test test_name)
+	add_executable(${test_name} ${ARGN})
+	target_link_libraries(${test_name} gtest_main)
+	add_test(NAME ${test_name} COMMAND ${test_name})
+endfunction()
+
 # test-01 - Data Stream --------------------------------------------------------
 add_executable(test-01 
 	${TEST_SRC}/test-01/test.cpp
@@ -163,3 +170,9 @@ add_definitions(-DMAGICKCORE_HDRI_ENABLE=0)
 find_package(ImageMagick COMPONENTS Magick++)
 include_directories(${ImageMagick_INCLUDE_DIRS})
 target_link_libraries(test-13 ${ImageMagick_LIBRARIES} )
+
+# test-14 - Serial Interface ---------------------------------------------------
+add_gtest_test(test-14
+	${TEST_SRC}/test-14/test.cpp
+	${GFS_SRC}/extension-interface/serial.cpp
+)

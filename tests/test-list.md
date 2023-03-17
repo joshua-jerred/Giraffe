@@ -1,12 +1,12 @@
 # Unit Tests
-Uses gtest
+Uses gtest, many of these are out of date and need to be updated.
 
 ## Test List
 - [Test 01] - Data Stream
 - [Test 02] - Configuration Module
 - [Test 03] - Data Module
 - [Test 04] - Extension Module (Not Yet Implemented)
-- [Test 05] - I2C Utility
+- [Test 05] - I2C Interface
 - [Test 06] - BMP180 Extension
 - [Test 07] - DS18B20 Extension
 - [Test 08] - u-blox UBX Utility test
@@ -15,3 +15,4 @@ Uses gtest
 - [Test 11] - SYSINFO Extension
 - [Test 12] - MCP3021 Extension
 - [Test 13] - Image Processing Utility
+- [Test 14] - Serial Interface

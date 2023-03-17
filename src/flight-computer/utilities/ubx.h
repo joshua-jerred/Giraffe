@@ -162,34 +162,34 @@ namespace ubx
         std::uint8_t ck_b = 0;
     } UBXMessage;
 
-    int getStreamSize(extension_interface::I2C &i2c);
-    bool flushStream(extension_interface::I2C &i2c);
-    bool writeUBX(extension_interface::I2C &i2c, const UBXMessage &message);
-    bool readNextUBX(extension_interface::I2C &i2c, UBXMessage &message);
+    int getStreamSize(interface::I2C &i2c);
+    bool flushStream(interface::I2C &i2c);
+    bool writeUBX(interface::I2C &i2c, const UBXMessage &message);
+    bool readNextUBX(interface::I2C &i2c, UBXMessage &message);
     bool readSpecificMessage(
-        extension_interface::I2C &i2c, 
+        interface::I2C &i2c, 
         ubx::UBXMessage &message); // message should have class, id, and length set
     ACK checkForAck(
-        extension_interface::I2C &i2c, 
+        interface::I2C &i2c, 
         const uint8_t msg_class, 
         const uint8_t msg_id);
 
-    bool sendResetCommand(extension_interface::I2C &i2c);
+    bool sendResetCommand(interface::I2C &i2c);
 
-    ACK setProtocolDDC(extension_interface::I2C &i2c, const bool extended_timeout);
+    ACK setProtocolDDC(interface::I2C &i2c, const bool extended_timeout);
     ACK setMessageRate(
-        extension_interface::I2C &i2c, 
+        interface::I2C &i2c, 
         uint8_t msg_class, 
         uint8_t msg_id, 
         uint8_t rate);
-    ACK setMeasurementRate(extension_interface::I2C &i2c, const uint16_t rate_ms);
+    ACK setMeasurementRate(interface::I2C &i2c, const uint16_t rate_ms);
     ACK setDynamicModel(
-        extension_interface::I2C &i2c,
+        interface::I2C &i2c,
         const DYNAMIC_MODEL model
     );
 
     bool pollMessage(
-        extension_interface::I2C &i2c,
+        interface::I2C &i2c,
         ubx::UBXMessage &message,
         const uint8_t msg_class,
         const uint8_t msg_id,

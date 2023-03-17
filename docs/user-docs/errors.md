@@ -198,6 +198,10 @@
  - ``CFG_T``
    - Configuration failed, reached timeout.
 
+### Pi Camera
+ - ``ICF``
+   - Image capture failed
+
 ## DataStream Errors
  - CMD_S [command]: Command string too short
  - CMD_L [command]: Command string too long, only provides the first 30 characters

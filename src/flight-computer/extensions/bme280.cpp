@@ -22,7 +22,7 @@ extension::BME280::BME280(DataStream *p_data_stream, ExtensionMetadata extension
     Extension(p_data_stream, extension_metadata), 
 	bus_number_(extension_metadata.extra_args.I2C_bus),
 	device_address_(BME280_ADDRESS),
-	i2c_bus_(extension_interface::I2C(bus_number_, device_address_, p_data_stream->getI2CBusLock()))
+	i2c_bus_(interface::I2C(bus_number_, device_address_, p_data_stream->getI2CBusLock()))
 	//raw_calibration_data_(0) 
 	{
 
@@ -35,17 +35,17 @@ extension::BME280::~BME280() {
 int extension::BME280::runner() {
 	// Connect to the I2C bus and configure the device address
 	int result = i2c_bus_.connect();
-	if (result != 0 || i2c_bus_.status() != extension_interface::I2C_STATUS::OK) {
+	if (result != 0 || i2c_bus_.status() != interface::I2C_STATUS::OK) {
 		setStatus(ExtensionStatus::ERROR);
 
-		extension_interface::I2C_STATUS status = i2c_bus_.status();
-		if (status == extension_interface::I2C_STATUS::CONFIG_ERROR_BUS) {
+		interface::I2C_STATUS status = i2c_bus_.status();
+		if (status == interface::I2C_STATUS::CONFIG_ERROR_BUS) {
 			error("I2C_CB");
-		} else if (status == extension_interface::I2C_STATUS::CONFIG_ERROR_ADDRESS) {
+		} else if (status == interface::I2C_STATUS::CONFIG_ERROR_ADDRESS) {
 			error("I2C_CA");
-		} else if (status == extension_interface::I2C_STATUS::BUS_ERROR) {
+		} else if (status == interface::I2C_STATUS::BUS_ERROR) {
 			error("I2C_BE");
-		} else if (status == extension_interface::I2C_STATUS::ADDRESS_ERROR) {
+		} else if (status == interface::I2C_STATUS::ADDRESS_ERROR) {
 			error("I2C_AE");
 		} else {
 			error("I2C_CU");

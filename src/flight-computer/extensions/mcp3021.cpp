@@ -20,7 +20,7 @@ extension::MCP3021::MCP3021(DataStream *p_data_stream,
       bus_number_(extension_metadata.extra_args.I2C_bus),
       device_address_(MCP3021_ADDRESS),
       i2c_bus_(
-          extension_interface::I2C(bus_number_, device_address_, p_data_stream->getI2CBusLock())),
+          interface::I2C(bus_number_, device_address_, p_data_stream->getI2CBusLock())),
       voltage_reference_(VOLTAGE_REFERENCE),
       resistor_1_(RESISTOR_1),
       resistor_2_(RESISTOR_2) {}
@@ -29,17 +29,17 @@ extension::MCP3021::~MCP3021() {}
 
 int extension::MCP3021::runner() {
   int result = i2c_bus_.connect();
-  if (result != 0 || i2c_bus_.status() != extension_interface::I2C_STATUS::OK) {
+  if (result != 0 || i2c_bus_.status() != interface::I2C_STATUS::OK) {
     setStatus(ExtensionStatus::ERROR);
 
-    extension_interface::I2C_STATUS status = i2c_bus_.status();
-    if (status == extension_interface::I2C_STATUS::CONFIG_ERROR_BUS) {
+    interface::I2C_STATUS status = i2c_bus_.status();
+    if (status == interface::I2C_STATUS::CONFIG_ERROR_BUS) {
       error("I2C_CB");
-    } else if (status == extension_interface::I2C_STATUS::CONFIG_ERROR_ADDRESS) {
+    } else if (status == interface::I2C_STATUS::CONFIG_ERROR_ADDRESS) {
       error("I2C_CA");
-    } else if (status == extension_interface::I2C_STATUS::BUS_ERROR) {
+    } else if (status == interface::I2C_STATUS::BUS_ERROR) {
       error("I2C_BE");
-    } else if (status == extension_interface::I2C_STATUS::ADDRESS_ERROR) {
+    } else if (status == interface::I2C_STATUS::ADDRESS_ERROR) {
       error("I2C_AE");
     } else {
       error("I2C_CU");

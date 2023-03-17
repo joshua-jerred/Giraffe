@@ -136,7 +136,7 @@ class BMP180 : public Extension {
 
   int bus_number_;
   int device_address_;
-  extension_interface::I2C i2c_bus_;
+  interface::I2C i2c_bus_;
 
   // Environmental Data:
   float temp_F_ = 0.0;
@@ -194,7 +194,7 @@ class DS18B20 : public Extension {
   float temp_F_ = 0;
   float temp_C_ = 0;
 
-  extension_interface::OneWire one_wire_device_;
+  interface::OneWire one_wire_device_;
 };
 
 class SAMM8Q : public Extension {
@@ -208,7 +208,7 @@ class SAMM8Q : public Extension {
 
   int bus_number_;
   int device_address_;
-  extension_interface::I2C i2c_;
+  interface::I2C i2c_;
   bool configured_ = false;
 };
 
@@ -262,7 +262,7 @@ class BME280 : public Extension {
 
   int bus_number_;
   int device_address_;
- extension_interface::I2C i2c_bus_;
+ interface::I2C i2c_bus_;
 
   TempeCompData temp_comp_data_ = {};
   PressCompData press_comp_data_ = {};
@@ -294,7 +294,7 @@ class MAX17049 : public Extension {
 
   int bus_number_;
   int device_address_;
-  extension_interface::I2C i2c_bus_;
+  interface::I2C i2c_bus_;
 
   float voltage_ = 0.0;
   float soc_ = 0.0;
@@ -312,7 +312,7 @@ class MCP3021 : public Extension {
 
   int bus_number_;
   int device_address_;
-  extension_interface::I2C i2c_bus_;
+  interface::I2C i2c_bus_;
 
   float voltage_ = 0.0;
 
