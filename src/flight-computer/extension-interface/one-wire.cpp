@@ -17,7 +17,7 @@
 
 #include "extension-interface.h"
 
-OneWire::OneWire(std::string device_id):
+extension_interface::OneWire::OneWire(std::string device_id):
 	path_(ONE_WIRE_LOCATION + device_id),
 	status_(ONEWIRE_STATUS::NOT_FOUND) {
 	// Check to see if the device exists
@@ -28,10 +28,10 @@ OneWire::OneWire(std::string device_id):
 	}
 }
 
-OneWire::~OneWire() {
+extension_interface::OneWire::~OneWire() {
 }
 
-ONEWIRE_STATUS OneWire::status() {
+extension_interface::ONEWIRE_STATUS extension_interface::OneWire::status() {
 	return status_;
 }
 
@@ -41,7 +41,7 @@ ONEWIRE_STATUS OneWire::status() {
  * The connection is handled by the kernel, so you might as well try.
  * @return std::string the contents of the w1_slave file
  */
-std::string OneWire::read_w1_slave() { // Read the w1_slave file
+std::string extension_interface::OneWire::read_w1_slave() { // Read the w1_slave file
 	std::string line = "";
 	std::ifstream file_;
 	file_.open(path_ + "/w1_slave");
@@ -50,13 +50,13 @@ std::string OneWire::read_w1_slave() { // Read the w1_slave file
 		ss << file_.rdbuf();
 		return ss.str();
 	} else {
-		status_ = ONEWIRE_STATUS::READ_ERROR;
+		status_ = extension_interface::ONEWIRE_STATUS::READ_ERROR;
 		return "";
 	}
 }
 
 
-std::string OneWire::read_temperature() { // Read the temperature file
+std::string extension_interface::OneWire::read_temperature() { // Read the temperature file
 	std::string line = "";
 	std::ifstream file_;
 	file_.open(path_ + "/temperature");
@@ -64,12 +64,12 @@ std::string OneWire::read_temperature() { // Read the temperature file
     	std::getline(file_, line);
 		return line;
 	} else {
-		status_ = ONEWIRE_STATUS::READ_ERROR;
+		status_ = extension_interface::ONEWIRE_STATUS::READ_ERROR;
 		return "";
 	}
 }
 
-int OneWire::checkDevice() {
+int extension_interface::OneWire::checkDevice() {
 	bool res = std::filesystem::is_directory(path_);
 	if (res == true) {
 		return 0;

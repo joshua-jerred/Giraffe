@@ -22,7 +22,7 @@ extern "C" {
 #include "configurables.h"
 #include "extension-interface.h"
 
-I2C::I2C(int bus_number, int address, std::mutex &bus_lock):
+extension_interface::I2C::I2C(int bus_number, int address, std::mutex &bus_lock):
     status_(I2C_STATUS::NOT_CONNECTED), 
     bus_number_(bus_number),
     address_(address),
@@ -33,15 +33,15 @@ I2C::I2C(int bus_number, int address, std::mutex &bus_lock):
 
 }
 
-I2C::~I2C () {
+extension_interface::I2C::~I2C () {
     disconnect();
 }
 
-I2C_STATUS I2C::status() {
+extension_interface::I2C_STATUS extension_interface::I2C::status() {
     return status_;
 }
 
-int I2C::connect() {
+int extension_interface::I2C::connect() {
     // Check if the bus number and address are valid
     if (bus_number_ < I2C_BUS_NUMBER_LOW || bus_number_ > I2C_BUS_NUMBER_HIGH) {
         status_ = I2C_STATUS::CONFIG_ERROR_BUS;
@@ -70,18 +70,18 @@ int I2C::connect() {
     return 0;
 }
 
-int I2C::disconnect() {
+int extension_interface::I2C::disconnect() {
     if (i2c_fd_ < 0) { // Check if the bus is open
         return 0;
     }
     return close(i2c_fd_);
 }
 
-uint8_t I2C::getAddress() {
+uint8_t extension_interface::I2C::getAddress() {
     return address_ & 0xFF;
 }
 
-int32_t I2C::writeByte(uint8_t data) {
+int32_t extension_interface::I2C::writeByte(uint8_t data) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
@@ -97,7 +97,7 @@ int32_t I2C::writeByte(uint8_t data) {
     }
 }
 
-int32_t I2C::writeByteToReg(uint8_t reg_address, uint8_t data) {
+int32_t extension_interface::I2C::writeByteToReg(uint8_t reg_address, uint8_t data) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
@@ -113,7 +113,7 @@ int32_t I2C::writeByteToReg(uint8_t reg_address, uint8_t data) {
     return result;
 }
 
-int I2C::writeChunk(uint8_t* data, uint8_t length) {
+int extension_interface::I2C::writeChunk(uint8_t* data, uint8_t length) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
@@ -130,7 +130,7 @@ int I2C::writeChunk(uint8_t* data, uint8_t length) {
     }
 }
 
-int32_t I2C::readByte() {
+int32_t extension_interface::I2C::readByte() {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
@@ -147,7 +147,7 @@ int32_t I2C::readByte() {
     }
 }
 
-int32_t I2C::readByteFromReg(uint8_t reg_address) {
+int32_t extension_interface::I2C::readByteFromReg(uint8_t reg_address) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
@@ -164,7 +164,7 @@ int32_t I2C::readByteFromReg(uint8_t reg_address) {
     }
 }
 
-int I2C::readChunkFromReg(uint8_t* data, int length, uint8_t reg_address) {
+int extension_interface::I2C::readChunkFromReg(uint8_t* data, int length, uint8_t reg_address) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }
@@ -188,7 +188,7 @@ int I2C::readChunkFromReg(uint8_t* data, int length, uint8_t reg_address) {
     }
 }
 
-int I2C::readChunk(uint8_t* data, int length) {
+int extension_interface::I2C::readChunk(uint8_t* data, int length) {
     if (i2c_fd_ < 0 || status_ != I2C_STATUS::OK) {
         return -1;
     }

@@ -20,7 +20,7 @@ extension::SAMM8Q::SAMM8Q(DataStream *p_data_stream, ExtensionMetadata extension
     Extension(p_data_stream, extension_metadata),
     bus_number_(extension_metadata.extra_args.I2C_bus),
     device_address_(SAMM8Q_I2C_ADDRESS),
-    i2c_(I2C(bus_number_, device_address_, p_data_stream->getI2CBusLock())) {
+    i2c_(extension_interface::I2C(bus_number_, device_address_, p_data_stream->getI2CBusLock())) {
     
 }
 
@@ -31,17 +31,17 @@ extension::SAMM8Q::~SAMM8Q() {
 int extension::SAMM8Q::runner() {
     int result = i2c_.connect();
     data_expiration_time_ = 20; // Data is good for 20 seconds
-	if (result != 0 || i2c_.status() != I2C_STATUS::OK) {
+	if (result != 0 || i2c_.status() != extension_interface::I2C_STATUS::OK) {
 		setStatus(ExtensionStatus::ERROR);
 
-		I2C_STATUS status = i2c_.status();
-		if (status == I2C_STATUS::CONFIG_ERROR_BUS) {
+		extension_interface::I2C_STATUS status = i2c_.status();
+		if (status == extension_interface::I2C_STATUS::CONFIG_ERROR_BUS) {
 			error("I2C_CB");
-		} else if (status == I2C_STATUS::CONFIG_ERROR_ADDRESS) {
+		} else if (status == extension_interface::I2C_STATUS::CONFIG_ERROR_ADDRESS) {
 			error("I2C_CA");
-		} else if (status == I2C_STATUS::BUS_ERROR) {
+		} else if (status == extension_interface::I2C_STATUS::BUS_ERROR) {
 			error("I2C_BE");
-		} else if (status == I2C_STATUS::ADDRESS_ERROR) {
+		} else if (status == extension_interface::I2C_STATUS::ADDRESS_ERROR) {
 			error("I2C_AE");
 		} else {
 			error("I2C_CU");
@@ -144,7 +144,7 @@ bool extension::SAMM8Q::configure() {
         ubx::sendResetCommand(i2c_);
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
         if (i2c_.readByteFromReg(0xFF) != 0) {
-            if (i2c_.status() != I2C_STATUS::OK) {
+            if (i2c_.status() != extension_interface::I2C_STATUS::OK) {
                 error("UBX_RESTART");
                 return false;
             }

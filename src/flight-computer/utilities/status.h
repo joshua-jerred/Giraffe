@@ -55,24 +55,4 @@ static const std::unordered_map<ModuleStatus, std::string> module_status_to_stri
     {ModuleStatus::ERROR_STATE, "ERROR_STATE"}
 };
 
-enum class I2C_STATUS {
-    BUS_LOCK_CONFIG_ERROR, // Bus lock pointer is null
-    NOT_CONNECTED,
-    OK,
-    CONFIG_ERROR_BUS,
-    CONFIG_ERROR_ADDRESS,
-    BUS_ERROR,
-    ADDRESS_ERROR,
-    READ_ERROR,
-    WRITE_ERROR,
-    UNKNOWN_ERROR
-};
-
-enum class ONEWIRE_STATUS {
-    OK,
-    NOT_FOUND,
-    READ_ERROR,
-    UNKNOWN_ERROR
-};
-
 #endif
