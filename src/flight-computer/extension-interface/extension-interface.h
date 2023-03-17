@@ -89,20 +89,21 @@ class Serial {
     BR9600 = 9600
   };
 
-  Serial(std::string device_path, Serial::BaudRate baud_rate, int timeout = 10);
+  Serial(const std::string device_path, const Serial::BaudRate baud_rate,
+         const int timeout = 10);
   ~Serial();
 
   void Connect();
   void Disconnect();
-  bool IsConnected();
+  bool IsConnected() const;
 
   std::string Read();
   int Write(std::string data);
 
  private:
-  std::string device_path_;
-  Serial::BaudRate baud_rate_;
-  int timeout_;  // in tenths of a second
+  const std::string device_path_;
+  const Serial::BaudRate baud_rate_;
+  const int timeout_;  // in tenths of a second
 
   int fd_ = -1;
   bool connected_ = false;

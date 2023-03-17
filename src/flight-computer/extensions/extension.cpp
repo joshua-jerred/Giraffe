@@ -367,7 +367,7 @@ void extension::Extension::spawnRunner() {
 
 void extension::Extension::error(std::string error_code, std::string info) {
 	p_data_stream_->addError(
-        EXTENSION_PREFIX + std::to_string(getID()), 
+        configurables::prefix::kExtension + std::to_string(getID()), 
         error_code, 
         info, 
         data_expiration_time_
@@ -376,7 +376,7 @@ void extension::Extension::error(std::string error_code, std::string info) {
 
 void extension::Extension::error(std::string error_code) {
 	p_data_stream_->addError(
-        EXTENSION_PREFIX + std::to_string(getID()), 
+        configurables::prefix::kExtension + std::to_string(getID()), 
         error_code, 
         "", 
         data_expiration_time_

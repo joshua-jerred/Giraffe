@@ -37,8 +37,8 @@ class Serial {
 };
 */
 
-interface::Serial::Serial(std::string device_path, Serial::BaudRate baud_rate,
-                          int timeout)
+interface::Serial::Serial(const std::string device_path, const Serial::BaudRate baud_rate,
+                          const int timeout)
     : device_path_(device_path), baud_rate_(baud_rate), timeout_(timeout) {
   fd_ = -1;
   connected_ = false;
@@ -146,7 +146,7 @@ void interface::Serial::Disconnect() {
   connected_ = false;
 }
 
-bool interface::Serial::IsConnected() { return connected_; }
+bool interface::Serial::IsConnected() const { return connected_; }
 
 std::string interface::Serial::Read() {
   if (!connected_) {

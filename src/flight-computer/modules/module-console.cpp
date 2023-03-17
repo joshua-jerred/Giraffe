@@ -20,7 +20,7 @@ using namespace modules;
  * @todo Error on update interval being less than 1
  */
 ConsoleModule::ConsoleModule(const ConfigData config_data, DataStream &stream):
-    Module(stream, MODULE_CONSOLE_PREFIX, "console"),
+    Module(stream, configurables::prefix::kConsoleModule, "console"),
     config_data_(config_data) {
 
     update_interval_ = config_data.debug.console_update_interval;
@@ -102,7 +102,7 @@ void ConsoleModule::clearScreen() {
  */
 void ConsoleModule::printData() {
     std::cout << "GFS  -  Giraffe Flight Software  -  V" + 
-    (std::string) GFS_VERSION << std::endl;
+    configurables::GIRAFFE_VERSION << std::endl;
     std::time_t t = std::time(0);   // get time now
     std::tm* now = std::localtime(&t);
     std::cout << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec
@@ -189,15 +189,10 @@ void ConsoleModule::printData() {
 
         std::cout << "APRS Enabled: " << config_data_.telemetry.aprs_enabled;
         std::cout << "  Frequency: " << config_data_.telemetry.aprs_freq;
-        std::cout << "  Key: " << config_data_.telemetry.aprs_key;
         std::cout << std::endl;
         std::cout << "SSID: " << config_data_.telemetry.aprs_ssid;
         std::cout << "  Symbol: " << config_data_.telemetry.aprs_symbol;
-        std::cout << "  Memo: " << config_data_.telemetry.aprs_memo;
-        std::cout << std::endl;
-        
-        std::cout << "AFSK Enabled: " << config_data_.telemetry.afsk_enabled;
-        std::cout << "  Frequency: " << config_data_.telemetry.afsk_freq;
+        std::cout << "  Memo: " << config_data_.telemetry.aprs_comment;
         std::cout << std::endl;
         
         std::cout << "SSTV Enabled: " << config_data_.telemetry.sstv_enabled;

@@ -42,7 +42,7 @@ int FlightRunner::start() {
 
   // ~~~ Read The Config ~~~ //
   modules::ConfigModule* config = new modules::ConfigModule(data_stream_);
-  int status = config->load(CONFIG_LOCATION);
+  int status = config->load(configurables::file_paths::kConfigFilePath);
   if (status == -1) {
     std::cout << "Error: Could not load config file." << std::endl;
     return 1; /** @todo change to hardcoded failsafe */
@@ -160,7 +160,7 @@ int FlightRunner::flightLoop() {
     }
 
     if (config_data_.telemetry.telemetry_enabled) {
-      if (config_data_.telemetry.psk_enabled &&
+      if (config_data_.telemetry.data_packets_enabled &&
           tsl_data_packet.elapsed() > current_intervals_.data_packet) {
         p_telemetry_module_->sendDataPacket();
         tsl_data_packet.reset();

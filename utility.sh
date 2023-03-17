@@ -35,6 +35,7 @@ fi
 syncronize_src() {
     echo "Syncing"
     rsync -v -r src/ balloon:Giraffe/src
+    rsync -v -r lib/ balloon:Giraffe/lib
     rsync -v -r tests/ balloon:Giraffe/tests
     rsync -v -r CMakeLists.txt balloon:Giraffe/CMakeLists.txt
 }
@@ -119,8 +120,8 @@ elif [ "$REQUEST" == "set-permissions" ]; then
 elif [ "$REQUEST" == "full-sync" ]; then
     echo "Full sync"
     stop_services
-    syncronize_src
-    build
+    #syncronize_src
+    #build
     install
     set_permissions
     start_services
@@ -129,6 +130,10 @@ elif [ "$REQUEST" == "sync-web-server" ]; then
     set_permissions
 elif [ "$REQUEST" == "update-config" ]; then
     rsync -v --rsync-path="sudo rsync" src/flight-computer/config.json $SSH_HOST:/opt/giraffe/config.json
+elif [ "$REQUEST" == "camera-test" ]; then
+    ssh $SSH_HOST "libcamera-still -e png -o test.png --immediate"
+    scp balloon:/home/pi/test.png test.png
+    exit 0
 else
     echo "Unknown command"
     exit 1

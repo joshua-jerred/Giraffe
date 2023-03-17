@@ -262,7 +262,7 @@ class BME280 : public Extension {
 
   int bus_number_;
   int device_address_;
- interface::I2C i2c_bus_;
+  interface::I2C i2c_bus_;
 
   TempeCompData temp_comp_data_ = {};
   PressCompData press_comp_data_ = {};
@@ -319,16 +319,6 @@ class MCP3021 : public Extension {
   const float voltage_reference_;
   float resistor_1_;
   float resistor_2_;
-};
-
-class SA868 : public Extension {
- public:
-  SA868(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
-  ~SA868();
-  int runner();
-
- private:
-
 };
 
 class RaspPiCamera : public Extension {

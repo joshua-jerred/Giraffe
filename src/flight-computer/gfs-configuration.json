@@ -36,7 +36,7 @@
             "flight-critical": true,
             "i2c-bus": 1,
             "i2c-address": "0x76",
-            "critical-source":"PRES_MBAR"
+            "critical-source": "PRES_MBAR"
         },
         {
             "id": 4,
@@ -47,8 +47,8 @@
             "update-interval": 1000,
             "flight-critical": false
         },
-        { 
-            "id":5,
+        {
+            "id": 5,
             "name": "bat",
             "type": "MCP3021",
             "category": "battery",
@@ -60,17 +60,6 @@
         },
         {
             "id": 6,
-            "name": "radio",
-            "type": "SA868",
-            "category": "radio",
-            "interface": "uart",
-            "update-interval": 1000,
-            "flight-critical": true,
-            "uart-port": "/dev/ttyAMA0",
-            "uart-baudrate": 9600
-        },
-        {
-            "id": 7,
             "name": "cam",
             "type": "RPI_CAM",
             "category": "camera",
@@ -80,42 +69,77 @@
         }
     ],
     "debugging": {
-        "console-enabled": false,
+        "console-enabled": true,
         "console-update-interval": 1000,
         "web-server-enabled": true,
         "web-server-socket-port": 8080
     },
     "telemetry": {
         "telemetry-enabled": true,
-        "call-sign": "KD9GDC",
-
-        "radio": {
-            "radio-enabled": true,
-            "radio-communication-uart": {
-                "uart-port": "/dev/ttyAMA0",
-                "uart-baudrate": 9600
+        "callsign": "NOCALL",
+        "radios": [
+            {
+                "id": 1,
+                "radio-type": "dra-sa",
+                "priority": 1,
+                "frequency-ranges": [
+                    {
+                        "min": 144.390,
+                        "max": 144.390
+                    }
+                ],
+                "modes": [
+                    "TX",
+                    "RX",
+                    "APRS",
+                    "SSTV",
+                    "DATA"
+                ],
+                "features": [
+                    "frequency-switching",
+                    "power-saving",
+                    "high-low-tx",
+                    "separate-tx-rx",
+                    "bandwidth",
+                    "rssi",
+                    "volume",
+                    "squelch"
+                ],
+                "interface": {
+                    "type": "uart",
+                    "uart-port": "/dev/ttyAMA0",
+                    "uart-baudrate": 9600,
+                    "gpio-ptt": 17,
+                    "gpio-power": 6
+                }
             }
+        ],
+        "aprs": {
+            "enabled": true,
+            "frequency": "144.390",
+            "ssid": 11,
+            "destination-address": "APRS",
+            "destination-ssid": 0,
+            "symbol-table": "/",
+            "symbol": "O",
+            "telemetry-enabled": true,
+            "telemetry-destination": "APRS",
+            "position-enabled": true,
+            "comment": "GFS Balloon"
         },
-
-        "data-packet-mode":"aprs",
-        
-        "aprs-enabled": true,
-        "aprs-frequency": "144.390",
-        "aprs-ssid": 11,
-        "aprs-symbol": "O",
-        "aprs-fi-pin": 1234,
-        "aprs-memo": "GFS Balloon",
-
-        "sstv-enabled": true,
-        "sstv-frequency": "100.000",
-        "sstv-mode": "robot12bw",
-
-        "afsk-enabled": true,
-        "afsk-frequency": "100.000",
-
-        "psk-enabled":true,
-        "psk-frequency": "100.000",
-        "psk-mode": "bpsk500"
+        "sstv": {
+            "enabled": true,
+            "frequency": "145.550",
+            "mode": "robot36",
+            "comment": "GFS Balloon",
+            "save-images": true,
+            "overlay-data": true
+        },
+        "data-packets": {
+            "enabled": true,
+            "frequency": "145.550",
+            "mode": "bpsk500"
+        }
     },
     "data-log-data-and-packet-contents": [
         {
@@ -137,18 +161,17 @@
             "telemetry-name": "tc"
         }
     ],
-
-    "flight-procs": [
+    "flight-procedures": [
         {
-        "type": "testing",
-        "enabled": true,
-        "intervals": {
-            "data-log": 2,
-            "data-packet": 30,
-            "sstv": 45,
-            "aprs": 30,
-            "picture": 50,
-            "health-check": 10
+            "type": "testing",
+            "enabled": true,
+            "intervals": {
+                "data-log": 2,
+                "data-packet": 30,
+                "sstv": 45,
+                "aprs": 30,
+                "picture": 50,
+                "health-check": 10
             }
         }
     ]

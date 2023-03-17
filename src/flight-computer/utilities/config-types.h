@@ -55,7 +55,6 @@ struct ExtensionMetadata {
     enum class Category {
         ERROR,
         OTHER, 
-        RADIO, 
         GPS ,
         CAMERA,
         BATTERY,
@@ -90,6 +89,37 @@ struct ExtensionMetadata {
     bool critical = false; // Indicates if this extension is critical to operation, this
                   // will be used by the Flight Runner during the healthCheck
     ExtraArgs extra_args {};
+};
+
+struct RadioMetadata {
+    int radio_id = 0;
+    std::string radio_type = "";
+    int priority = 0;
+
+    // Frequency ranges in MHz [min, max] (inclusive)
+    std::vector<std::pair<std::string, std::string>> frequency_ranges {};
+
+    // Modes
+    bool TX_enabled = false;
+    bool RX_enabled = false;
+    bool APRS_enabled = false;
+    bool SSTV_enabled = false;
+    bool DATA_enabled = false;
+
+    // Capabilities
+    bool frequency_switching_capable = false;
+    bool power_saving_capable = false;
+    bool high_low_power_capable = false;
+    bool separate_tx_rx_capable = false;
+    bool bandwidth_switching_capable = false;
+    bool rssi_capable = false;
+    bool volume_adjust_capable = false;
+
+    // Interface
+    ExtensionMetadata::Interface interface = ExtensionMetadata::Interface::ERROR;
+    ExtensionMetadata::ExtraArgs extra_args {};
+    int PTT_pin = -1;     // If it's a raspberry pi, these are BCM pin numbers
+    int power_pin = -1;
 };
 
 
@@ -132,25 +162,31 @@ struct ConfigData {
     struct Telemetry {
         bool telemetry_enabled = false;
         std::string call_sign = "error";
-        std::string data_packet_mode = "psk";
 
-        bool afsk_enabled = false;
-        std::string afsk_freq {};
+        std::vector<RadioMetadata> radios {};
 
-        bool psk_enabled = false;
-        std::string psk_freq {};
-        std::string psk_mode {};
+        bool aprs_enabled = false;
+        std::string aprs_freq {};
+        int aprs_ssid = 0;
+        std::string aprs_destination_address = "APRS";
+        int aprs_destination_ssid = 0;
+        bool aprs_alternate_symbol_table = false;
+        char aprs_symbol = 'O';
+        std::string aprs_comment = "GFS Balloon";
+        bool aprs_position_packets = false;
+        bool aprs_telemetry_packets = false;
 
         bool sstv_enabled = false;
         std::string sstv_mode {};
         std::string sstv_freq {};
+        std::string sstv_comment = "";
+        bool sstv_save_images = false;
+        bool sstv_overlay_data = true;
 
-        bool aprs_enabled = false;
-        std::string aprs_freq {};
-        int aprs_key = 0;
-        int aprs_ssid = 0;
-        char aprs_symbol = 'O';
-        std::string aprs_memo = "GFS Balloon";
+        bool data_packets_enabled = false;
+        std::string data_packets_freq {};
+        std::string data_packets_mode {};
+
     };
 
     struct DataTypes {
@@ -184,7 +220,6 @@ static const std::unordered_map<ExtensionMetadata::Category, std::string>
         kExtensionCategoryToString = {
     {ExtensionMetadata::Category::ERROR, "ERROR"},
     {ExtensionMetadata::Category::OTHER, "OTHER"},
-    {ExtensionMetadata::Category::RADIO, "RADIO"},
     {ExtensionMetadata::Category::GPS, "GPS"},
     {ExtensionMetadata::Category::CAMERA, "CAMERA"},
     {ExtensionMetadata::Category::BATTERY, "BATTERY"},

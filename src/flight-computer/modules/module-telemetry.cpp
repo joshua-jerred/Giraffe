@@ -20,6 +20,8 @@
 
 #include "modules.h"
 #include "unit-conversions.h"
+#include "radio.h"
+
 using namespace modules;
 
 #include "mwav.h"
@@ -36,23 +38,22 @@ bool FileExists(const std::string &name) {
  * @param data_stream A pointer to the data stream.
  */
 TelemetryModule::TelemetryModule(ConfigData config_data, DataStream &stream)
-    : Module(stream, MODULE_TELEMETRY_PREFIX, "telemetry"),
+    : Module(stream, configurables::prefix::kTelemetryModule, "telemetry"),
       config_data_(config_data) {
   tx_number_ = 0;  // First tx id will be 1
 
   call_sign_ = config_data_.telemetry.call_sign;
 
-  aprs_generic_.source_address = call_sign_;
-  aprs_generic_.source_ssid = configurables::telemetry_module::kAprsSourceSSID;
+  aprs_generic_.source_address = config_data_.telemetry.call_sign;
+  aprs_generic_.source_ssid = config_data_.telemetry.aprs_ssid;
 
   aprs_generic_.destination_address =
-      configurables::telemetry_module::kAprsDestination;
-  aprs_generic_.destination_ssid =
-      configurables::telemetry_module::kAprsDestinationSSID;
+      config_data_.telemetry.aprs_destination_address;
+  aprs_generic_.destination_ssid = config_data_.telemetry.aprs_destination_ssid;
 
   aprs_generic_.symbol = config_data_.telemetry.aprs_symbol;
 
-  if (configurables::telemetry_module::kAlternateSymbolTable) {
+  if (config_data_.telemetry.aprs_alternate_symbol_table) {
     aprs_generic_.symbol_table = mwav::AprsSymbolTable::SECONDARY;
   } else {
     aprs_generic_.symbol_table = mwav::AprsSymbolTable::PRIMARY;
@@ -71,8 +72,8 @@ TelemetryModule::~TelemetryModule() { stop(); }
  */
 void TelemetryModule::start() {
   updateStatus(ModuleStatus::STARTING);
-  data_stream_.addData(MODULE_TELEMETRY_PREFIX, "TX_Q_SZ", "0");
-  data_stream_.addData(MODULE_TELEMETRY_PREFIX, "ACTIVE_TX", "NONE");
+  data("TX_Q_SZ", "0");
+  data("ACTIVE_TX", "NONE");
   stop_flag_ = 0;
   tx_thread_ = std::thread(&TelemetryModule::runner, this);
 }
@@ -273,8 +274,8 @@ std::string TelemetryModule::generatePSK(const std::string &message,
 
   mwav::DataModulation mode = mwav::DataModulation::BPSK_125;  // Default
 
-  std::string requested_mode = config_data_.telemetry.psk_mode;
-  if (requested_mode == "BPSK125") {
+  std::string requested_mode = config_data_.telemetry.data_packets_mode;
+  if (requested_mode == "bpsk125") {
     mode = mwav::DataModulation::BPSK_125;
   } else if (requested_mode == "bpsk250") {
     mode = mwav::DataModulation::BPSK_250;
@@ -282,6 +283,9 @@ std::string TelemetryModule::generatePSK(const std::string &message,
     mode = mwav::DataModulation::BPSK_500;
   } else if (requested_mode == "bpsk1000") {
     mode = mwav::DataModulation::BPSK_1000;
+  } else {
+    error("PSK_INV", requested_mode);
+    mode = mwav::DataModulation::BPSK_125;
   }
 
   bool res = false;
@@ -323,7 +327,7 @@ std::string TelemetryModule::GenerateAprsLocation(const int tx_number) {
     aprs_loc.altitude = unit_conversions::MetersToFeet(gps.altitude);
     aprs_loc.speed = unit_conversions::MetersPerSecondToKnots(gps.ground_speed);
     aprs_loc.course = gps.heading_of_motion;
-    aprs_loc.comment = config_data_.telemetry.aprs_memo;
+    aprs_loc.comment = config_data_.telemetry.aprs_comment;
     /** @todo verify that the restricting in
     MWAV match the restrictions in GFS for the memo length*/
     try {
@@ -417,8 +421,7 @@ void TelemetryModule::runner() {
           error("BAD_TX_TYPE", std::to_string((int)tx.type));
           break;
       }
-
-      data_stream_.addData(MODULE_TELEMETRY_PREFIX, "ACTIVE_TX", "NONE");
+      data("ACTIVE_TX", "NONE");
     }
     std::this_thread::sleep_for(
         std::chrono::milliseconds(TELEMETRY_INTERVAL_MILI_SECONDS));
@@ -431,8 +434,7 @@ void TelemetryModule::playWav(std::string wav_location, std::string tx_type,
       "aplay " + wav_location +
       " >nul 2>nul";  // command to play with aplay suppress output
 
-  data_stream_.addData(MODULE_TELEMETRY_PREFIX, "ACTIVE_TX",
-                       tx_type + std::to_string(tx_length));
+  data("ACTIVE_TX", tx_type + std::to_string(tx_length));
 
   /**
    * @details aplay seems to return 0 when it's done playing, 256 when

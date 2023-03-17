@@ -22,7 +22,7 @@ using namespace modules;
  * @param stream 
  */
 ExtensionsModule::ExtensionsModule(const ConfigData config_data, DataStream &stream):
-    Module(stream, MODULE_EXTENSION_PREFIX, "extensions"),
+    Module(stream, configurables::prefix::kExtensionModule, "Extensions"),
     config_data_(config_data) {
 
     for (ExtensionMetadata extdata : config_data.extensions.extensions_list) {
@@ -179,8 +179,6 @@ void ExtensionsModule::addExtension(ExtensionMetadata meta_data) {
         extensions_.push_back(new extension::SYSINFO(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "MCP3021") {
         extensions_.push_back(new extension::MCP3021(&data_stream_, meta_data));
-    } else if (meta_data.extension_type == "SA868") {
-        extensions_.push_back(new extension::SA868(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "RPI_CAM") {
         extensions_.push_back(new extension::RaspPiCamera(&data_stream_, meta_data));
     } else {

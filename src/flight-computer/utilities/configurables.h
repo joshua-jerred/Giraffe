@@ -1,8 +1,7 @@
 /**
  * @file configurables.h
  * @author Joshua Jerred (https://joshuajer.red/)
- * @brief All macro definitions for the flight control software will be in
- * this file. Macros should be avoided.
+ * @brief Configurable constants.
  * @version 0.1
  * @date 2022-10-02
  * @copyright Copyright (c) 2022
@@ -15,30 +14,52 @@
 
 namespace configurables{
   const std::string GIRAFFE_VERSION = "@PROGRAM_VERSION@"; // This is set by CMake
+  namespace config_defaults {
+    static const std::string kAprsFrequency = "144.390";
+    static const uint8_t kAprsSourceSSID = 0;
+    static const bool kAprsPositionPacketEnabled = true;
+    static const bool kAprsTelemetryPacketEnabled = false;
+    static const std::string kAprsDestinationAddress = "APZGFS";
+    static const uint8_t kAprsDestinationSSID = 0;
+    static const char kAprsSymbol = '/'; // '/' is a dot
 
+    static const std::string kSstvFrequency = "145.550";
+    static const std::string kSstvMode = "robot36";
+    static const bool kSstvSaveImages = false;
+    static const bool kSstvOverlayData = true;
+
+    static const std::string kDataPacketsFrequency = "145.550";
+    static const std::string kDataPacketsMode = "bpsk500";
+  }
+  namespace config_limits {
+    static const int kAprsMemoMaxSize = 30;
+    static const int kSstvCommentMaxSize = 15;
+  }
   namespace data_module {
     static const float kMaxLogFileSizeMB = 50; // MB
   }
   namespace telemetry_module {
-    static const uint8_t kAprsSourceSSID = 0;
-    static const std::string kAprsDestination = "APZGFS";
-    static const uint8_t kAprsDestinationSSID = 0;
-    static const bool kAlternateSymbolTable = false;
+    
+        
   }
   namespace file_paths {
-    static const std::string kConfigFilePath = "./config.json";
+    static const std::string kConfigFilePath = "./gfs-configuration.json";
     static const std::string kDataLogLocation = "./data_logs/";
     static const std::string kErrorLogLocation = "./error_logs/";
     static const std::string kTelemetryWavLocation = "./telemetry/";
     static const std::string kImagesLocation = "./images/";
   }
+  namespace prefix {
+    static const std::string kDataModule = "M_DA";
+    static const std::string kConfigModule = "M_CF";
+    static const std::string kTelemetryModule = "M_TL";
+    static const std::string kServerModule = "M_SV";
+    static const std::string kExtensionModule = "M_EX";
+    static const std::string kConsoleModule = "M_CO";
+
+    static const std::string kExtension = "EX_";
+  }
 }
-
-#define GFS_VERSION "0.4"
-
-/** @brief The location of the configuration file. It is safe to change 
- * this value. */
-#define CONFIG_LOCATION "./config.json"
 
 // ------- Config File Range Limits ------- //
 // Changing these results in undefined behavior, it is not recommended.
@@ -54,18 +75,6 @@ namespace configurables{
 #define EXTENSION_INTERVAL_MIN 200 // In milliseconds
 #define EXTENSION_INTERVAL_MAX 1800000 // In milliseconds
 // ---------------------------------------- //
-
-// ------- Error Prefixes ------- //
-#define MODULE_DATA_PREFIX "M_DA"
-#define MODULE_CONFIG_PREFIX "M_CF"
-#define MODULE_TELEMETRY_PREFIX "M_TL"
-#define MODULE_SERVER_PREFIX "M_SV"
-#define MODULE_EXTENSION_PREFIX "M_EX"
-#define MODULE_CONSOLE_PREFIX "M_CO"
-
-#define EXTENSION_PREFIX "EX_"
-
-// ------------------------------ //
 
 // This is the interval, in seconds, that determines how often the data module
 // will parse the data stream and update the data frame.

@@ -23,7 +23,7 @@ using namespace modules;
  * @param config_data
  */
 DataModule::DataModule(DataStream& stream)
-    : Module(stream, MODULE_DATA_PREFIX, "data") {
+    : Module(stream, configurables::prefix::kDataModule, "data") {
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
 

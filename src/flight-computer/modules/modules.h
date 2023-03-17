@@ -47,6 +47,7 @@ class Module {
   void updateStatus(ModuleStatus new_status);
 
   void error(std::string error_code, std::string info);
+  void error(std::string error_code, int info);
   void error(std::string error_code);
 
   void data(std::string data_name, std::string data_value);
@@ -336,7 +337,7 @@ class ConsoleModule : public Module {
  * config.getErrors(); // check for errors
  * config.getAll(); // get all of the configuration data
  */
-class ConfigModule {
+class ConfigModule : public Module {
  public:
   ConfigModule(DataStream &stream);
   ConfigModule(const ConfigModule &other) = delete;  // no copy constructor
@@ -351,23 +352,15 @@ class ConfigModule {
   void doCommand(GFSCommand command);  // Override Module::doCommand()
 
  private:
-  template <typename T>
-  void error(std::string error_code, T info);
-  void error(std::string error_code, std::string info);
-  void error(std::string error_code);
-
-  void parseAll();
+  void ParseAll();
 
   void parseGeneral();
   void parseExtensions();
   void parseDebug();
   void parseTelemetry();
+  void ParseRadio(json radio_json);
   void parseDataTypes();
   void parseFlightProcedures();
-
-  int number_of_errors_ = 0;
-
-  DataStream &data_stream_;
   std::string config_file_path_ = "";
   json json_buffer_ = json::object();
   ConfigData config_data_ = ConfigData();

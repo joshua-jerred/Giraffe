@@ -24,6 +24,10 @@ void modules::Module::error(std::string error_code, std::string info) {
   data_stream_.addError("M_" + error_source_, error_code, info, 0);
 }
 
+void modules::Module::error(std::string error_code, int info) {
+  data_stream_.addError("M_" + error_source_, error_code, std::to_string(info), 0);
+}
+
 void modules::Module::error(std::string error_code) {
   data_stream_.addError(error_source_, error_code, "", 0);
 }
