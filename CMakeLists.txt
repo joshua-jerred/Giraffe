@@ -69,6 +69,7 @@ add_executable(giraffe-flight-software
 
 	${GFS_SRC}/extension-interface/i2c.cpp
 	${GFS_SRC}/extension-interface/one-wire.cpp
+	${GFS_SRC}/extension-interface/serial.cpp
 
 	${GFS_SRC}/extensions/extension.cpp
 	${GFS_SRC}/extensions/simulated-extensions.cpp
@@ -92,18 +93,17 @@ target_link_libraries(giraffe-flight-software PUBLIC i2c)
 target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
 
 # Installation ---------------------------------------------------------------
-set(GFS_RUNTIME_DIRECTORIES 
-	${GIRAFFE_INSTALL_DIR}/data_logs
-	${GIRAFFE_INSTALL_DIR}/error_logs
-	${GIRAFFE_INSTALL_DIR}/telemetry
-	${GIRAFFE_INSTALL_DIR}/images
-	${GIRAFFE_INSTALL_DIR}/images/sstv
-)
-
-install(
-	DIRECTORY ${GFS_RUNTIME_DIRECTORIES}
-	DESTINATION ${GIRAFFE_INSTALL_DIR}
-)
+#set(GFS_RUNTIME_DIRECTORIES 
+#	${GIRAFFE_INSTALL_DIR}/data_logs
+#	${GIRAFFE_INSTALL_DIR}/error_logs
+#	${GIRAFFE_INSTALL_DIR}/telemetry
+#	${GIRAFFE_INSTALL_DIR}/images
+#)
+#
+#install(
+#	DIRECTORY ${GFS_RUNTIME_DIRECTORIES}
+#	DESTINATION ${GIRAFFE_INSTALL_DIR}
+#)
 
 install(TARGETS giraffe-flight-software DESTINATION ${GIRAFFE_INSTALL_DIR})
 install(DIRECTORY ${GFS_SRC}/web-server DESTINATION ${GIRAFFE_INSTALL_DIR})
