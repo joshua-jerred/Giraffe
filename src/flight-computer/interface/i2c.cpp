@@ -20,7 +20,7 @@ extern "C" {
 }
 
 #include "configurables.h"
-#include "extension-interface.h"
+#include "interface.h"
 
 interface::I2C::I2C(int bus_number, int address, std::mutex &bus_lock):
     status_(I2C_STATUS::NOT_CONNECTED), 

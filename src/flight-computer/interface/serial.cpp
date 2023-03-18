@@ -15,7 +15,7 @@
 
 #include <string>
 
-#include "extension-interface.h"
+#include "interface.h"
 
 /*
 class Serial {
@@ -36,6 +36,14 @@ class Serial {
   bool connected_;
 };
 */
+
+interface::Serial::Serial(const std::string device_path, const int baud_rate,
+                          const int timeout)
+    : device_path_(device_path), baud_rate_(static_cast<Serial::BaudRate>(baud_rate)),
+      timeout_(timeout) {
+  fd_ = -1;
+  connected_ = false;
+}
 
 interface::Serial::Serial(const std::string device_path, const Serial::BaudRate baud_rate,
                           const int timeout)

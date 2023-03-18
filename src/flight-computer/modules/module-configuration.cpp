@@ -404,9 +404,6 @@ void ConfigModule::parseExtensions() {
   if (config_data_.extensions.system_data_name.size() == 0) {
     error("NO_SYS");
   }
-  if (config_data_.extensions.radio_data_name.size() == 0) {
-    error("NO_RAD");
-  }
   if (config_data_.extensions.gps_data_name.size() == 0) {
     error("NO_GPS");
   }
@@ -432,6 +429,182 @@ void ConfigModule::parseDebug() {
       json_buffer_["debugging"]["web-server-socket-port"].get<int>();
 }
 
+void ConfigModule::ParseRadios(json radios_json) {
+  if (!radios_json.is_array()) {
+    error("RAD_NA");
+    return;
+  }
+
+  int number_of_radios = radios_json.size();
+  if (number_of_radios == 0) {
+    error("RAD_NR");
+    return;
+  }
+
+  for (int i = 0; i < number_of_radios; i++) {
+    json radio = radios_json[i];
+    RadioMetadata new_radio;
+
+    int radio_id = GetInt(radio, "id");
+    if (radio_id < 0) {
+      error("RAD_ID_N", std::to_string(radio_id));
+      return;
+    }
+		new_radio.radio_id = radio_id;
+
+    std::string radio_name = GetString(radio, "name");
+    if (radio_name == "") {
+      error("RAD_N_N", std::to_string(radio_id));
+      return;
+    }
+    if (radio_name.size() > EXTENSION_NAME_MAX_LENGTH || radio_name.size() < EXTENSION_NAME_MIN_LENGTH) {
+      error("RAD_N_L", std::to_string(radio_id));
+      return;
+    }
+    new_radio.radio_name = radio_name;
+
+    std::string radio_type = GetString(radio, "radio-type");
+    if (radio_type == "") {
+      error("RAD_T_N", std::to_string(radio_id));
+      return;
+    }
+		new_radio.radio_type = radio_type;
+
+    int priority = GetInt(radio, "priority");
+    if (priority < 0) {
+      error("RAD_PR_N", std::to_string(radio_id));
+      priority = 1;
+    }
+
+    if (radio.contains("frequency-ranges") &&
+        radio["frequency-ranges"].is_array()) {
+      json frequency_ranges = radio["frequency-ranges"];
+      for (unsigned int j = 0; j < frequency_ranges.size(); j++) {
+        json frequency_range = frequency_ranges[j];
+
+        std::string min_frequency = GetString(frequency_range, "min");
+        if (IsDouble(min_frequency) < 0) {
+          error("RAD_FR_H", min_frequency);
+          return;
+        }
+
+        std::string max_frequency = GetString(frequency_range, "max");
+        if (IsDouble(max_frequency) < 0) {
+          error("RAD_FR_L", max_frequency);
+          return;
+        }
+
+        min_frequency = FormatFrequency(min_frequency);
+        max_frequency = FormatFrequency(max_frequency);
+        new_radio.frequency_ranges.push_back(
+            std::make_pair(min_frequency, max_frequency));
+      }
+    }
+
+    if (!radio.contains("modes") || !radio["modes"].is_array()) {
+      error("RAD_MDS");
+      return;
+    }
+
+    json& modes = radio["modes"];
+    if (modes.contains("TX")) {
+      new_radio.TX_enabled = true;
+    }
+    if (modes.contains("RX")) {
+      new_radio.RX_enabled = true;
+    }
+    if (modes.contains("APRS")) {
+      new_radio.APRS_enabled = true;
+    }
+    if (modes.contains("SSTV")) {
+      new_radio.SSTV_enabled = true;
+    }
+    if (modes.contains("DATA")) {
+      new_radio.DATA_enabled = true;
+    }
+
+    if (!radio.contains("features") || !radio["features"].is_array()) {
+      error("RAD_FTS");
+      return;
+    }
+
+    json& features = radio["features"];
+    if (features.contains("frequency-switching")) {
+      new_radio.frequency_switching_capable = true;
+    }
+    if (features.contains("power-saving")) {
+      new_radio.power_saving_capable = true;
+    }
+    if (features.contains("high-low-power")) {
+      new_radio.high_low_power_capable = true;
+    }
+    if (features.contains("separate-tx-rx")) {
+      new_radio.separate_tx_rx_capable = true;
+    }
+    if (features.contains("bandwidth-switching")) {
+      new_radio.bandwidth_switching_capable = true;
+    }
+    if (features.contains("rssi")) {
+      new_radio.rssi_capable = true;
+    }
+    if (features.contains("volume-control")) {
+      new_radio.volume_control_capable = true;
+    }
+    if (features.contains("squelch-control")) {
+      new_radio.squelch_control_capable = true;
+    }
+    if (!radio.contains("interface")) {
+      error("RAD_INT");
+      return;
+    }
+
+    json& interface_json = radio["interface"];
+
+    ExtensionMetadata::Interface interface;
+    try {
+      interface = interface_json["type"].get<ExtensionMetadata::Interface>();
+      if (interface == ExtensionMetadata::Interface::ERROR) {
+        error("RAD_INT_E");
+      }
+    } catch (nlohmann::detail::type_error& e) {
+      error("RAD_INT_U");
+      return;
+    }
+    std::cout << "Radio 1" << std::endl;
+    if (interface == ExtensionMetadata::Interface::UART) {
+      new_radio.interface = ExtensionMetadata::Interface::UART;
+
+      std::string uart_path = GetString(interface_json, "uart-port");
+      if (uart_path.size() == 0) {
+        error("RAD_INT_U");
+        return;
+      }
+      new_radio.extra_args.uart_device_path = uart_path;
+
+      int baud_rate = GetInt(interface_json, "uart-baud-rate");
+      if (baud_rate < 50) {
+        error("RAD_UART_BR");
+        return;
+      }
+      new_radio.extra_args.uart_baud_rate = baud_rate;
+    } else {
+      error("RAD_INT_NI");
+    }
+
+    if (interface_json.contains("gpio") && interface_json["gpio"].is_array()) {
+      json &gpio_json = interface_json["gpio"];
+      int ptt = GetInt(gpio_json, "ptt");
+      int power = GetInt(gpio_json, "power");
+      int squelch = GetInt(gpio_json, "squelch-detect");
+
+      new_radio.gpio_ptt = ptt > 0 ? ptt : -1;
+      new_radio.gpio_power = power > 0 ? power : -1;
+      new_radio.gpio_squelch_detect = squelch > 0 ? squelch : -1;
+    }
+
+    config_data_.telemetry.radios.push_back(new_radio);
+  }
+}
 /**
  * @brief Parses the telemetry section of the configuration file.
  * @details Currently not fully implemented. It will first check in the config
@@ -463,6 +636,13 @@ void ConfigModule::parseTelemetry() {
   } else if (callsign.size() > 6 || callsign.size() < 3) {
     error("TEL_CS_L", callsign);
     return;
+  }
+
+  if (!telemetry.contains("radios")) {
+    error("TEL_NO_RAD");  // Radios required for telemetry
+    return;
+  } else {
+    ParseRadios(telemetry["radios"]);
   }
 
   // Ensure callsign is uppercase
@@ -556,7 +736,8 @@ void ConfigModule::parseTelemetry() {
     config_data_.telemetry.aprs_telemetry_packets = telemetry_packets;
   }  // End APRS
 
-  // SSTV Configuration -------------------------------------------------------
+  // SSTV Configuration
+  // -------------------------------------------------------
   if (json_buffer_["telemetry"].contains("sstv") &&
       (GetBool(json_buffer_["telemetry"]["sstv"], "enabled") == 1)) {
     // SSTV is enabled
@@ -607,7 +788,8 @@ void ConfigModule::parseTelemetry() {
     config_data_.telemetry.sstv_overlay_data = sstv_overlay_data;
   }  // End SSTV
 
-  // Data Packets Configuration ------------------------------------------------
+  // Data Packets Configuration
+  // ------------------------------------------------
   if (json_buffer_["telemetry"].contains("data-packets") &&
       (GetBool(json_buffer_["telemetry"]["data-packets"], "enabled") == 1)) {
     // Data Packets is enabled
@@ -677,7 +859,7 @@ void ConfigModule::parseDataTypes() {
  * @return void
  */
 void ConfigModule::parseFlightProcedures() {
-  for (const auto& item : json_buffer_["flight-procs"].items()) {
+  for (const auto& item : json_buffer_["flight-procedures"].items()) {
     FlightProcedure newFlightProcedure;
 
     newFlightProcedure.type = item.value()["type"].get<FlightProcedure::Type>();

@@ -10,7 +10,7 @@
 #include <mutex>
 #include "gtest/gtest.h"
 
-#include "extension-interface.h"
+#include "interface.h"
 
 #define BAD_BUS_NUMBER 0
 #define GOOD_BUS_NUMBER 1

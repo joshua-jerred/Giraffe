@@ -1,5 +1,5 @@
 /**
- * @file extension-interface.h
+ * @file interface.h
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Header for interfacing with extensions via I2C and 1-Wire.
  *
@@ -88,7 +88,8 @@ class Serial {
   enum class BaudRate {  // To be expanded as needed
     BR9600 = 9600
   };
-
+  Serial(const std::string device_path, const int baud_rate,
+         const int timeout = 10);
   Serial(const std::string device_path, const Serial::BaudRate baud_rate,
          const int timeout = 10);
   ~Serial();

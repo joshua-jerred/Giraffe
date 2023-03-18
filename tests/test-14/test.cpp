@@ -11,7 +11,7 @@
 #include <string>
 #include <thread>
 
-#include "extension-interface.h"
+#include "interface.h"
 #include "gtest/gtest.h"
 
 class SerialInterface : public ::testing::Test {

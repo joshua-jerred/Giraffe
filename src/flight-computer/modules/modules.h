@@ -23,6 +23,7 @@ using json = nlohmann::ordered_json;
 #include "socket.h"
 #include "status.h"
 #include "mwav.h"
+#include "radio.h"
 
 namespace modules {
 /**
@@ -108,6 +109,7 @@ class TelemetryModule : public Module {
 
  private:
   int getNextTXNumber();
+  void ChooseRadio();
 
   // TX Queue is stored in the data stream
   void addToTXQueue(Transmission transmission);
@@ -119,21 +121,29 @@ class TelemetryModule : public Module {
   std::string GenerateSSTV(const int tx_number);
 
   void runner();
-  void playWav(std::string wav_location, std::string tx_type, int tx_length);
+  void Transmit(std::string wav_location, std::string tx_type, int tx_length);
   FILE *aplay_fp_ = nullptr;
 
   mwav::AprsRequiredFields aprs_generic_ = mwav::AprsRequiredFields();
 
   int tx_number_ = 0;  // TX ID, first TX is 1
-  std::string call_sign_ = CALLSIGN_FAILSAFE;
+  std::string call_sign_ = "";
 
   std::thread tx_thread_ = std::thread();
   std::atomic<int> stop_flag_ = 0;
 
   void doCommand(GFSCommand command);  // Override Module::doCommand()
 
-  ConfigData config_data_;
+  std::vector<RadioMetadata> &radio_metadata_;
+  std::vector<radio::Radio *> radios_= {};
+  int primary_radio_index_ = -1;
+
+  std::string data_frequency = {};
+  std::string aprs_frequency = {};
+  std::string sstv_frequency = {};
+
   int psk_length_ = 0;
+  ConfigData config_data_;
 };
 
 class ServerModule : public Module {
@@ -358,7 +368,7 @@ class ConfigModule : public Module {
   void parseExtensions();
   void parseDebug();
   void parseTelemetry();
-  void ParseRadio(json radio_json);
+  void ParseRadios(json radio_json);
   void parseDataTypes();
   void parseFlightProcedures();
   std::string config_file_path_ = "";

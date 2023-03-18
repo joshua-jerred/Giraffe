@@ -16,7 +16,7 @@
 #include <thread>
 
 #include "data-stream.h"
-#include "extension-interface.h"
+#include "interface.h"
 
 namespace extension {
 

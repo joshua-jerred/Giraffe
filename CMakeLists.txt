@@ -69,7 +69,8 @@ include_directories(
 	${GFS_SRC}/modules
 	${GFS_SRC}/utilities
 	${GFS_SRC}/extensions
-	${GFS_SRC}/extension-interface
+	${GFS_SRC}/interface
+	${GFS_SRC}/radios
 
 	lib/MWAV/include
 )
@@ -92,9 +93,9 @@ add_executable(giraffe-flight-software
 	${GFS_SRC}/utilities/socket.cpp
 	${GFS_SRC}/utilities/ubx.cpp
 
-	${GFS_SRC}/extension-interface/i2c.cpp
-	${GFS_SRC}/extension-interface/one-wire.cpp
-	${GFS_SRC}/extension-interface/serial.cpp
+	${GFS_SRC}/interface/i2c.cpp
+	${GFS_SRC}/interface/one-wire.cpp
+	${GFS_SRC}/interface/serial.cpp
 
 	${GFS_SRC}/extensions/extension.cpp
 	${GFS_SRC}/extensions/simulated-extensions.cpp
@@ -105,8 +106,10 @@ add_executable(giraffe-flight-software
 	${GFS_SRC}/extensions/sysinfo.cpp
 	${GFS_SRC}/extensions/max17049.cpp
 	${GFS_SRC}/extensions/mcp3021.cpp
-	${GFS_SRC}/extensions/sa868.cpp
 	${GFS_SRC}/extensions/rpicam.cpp
+	
+	${GFS_SRC}/radios/radio.cpp
+	${GFS_SRC}/radios/dra-sa-radio.cpp
 )
 set_target_properties(giraffe-flight-software PROPERTIES OUTPUT_NAME gfs)
 set_target_properties(

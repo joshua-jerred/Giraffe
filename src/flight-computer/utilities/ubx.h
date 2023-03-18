@@ -15,7 +15,7 @@
 
 #include <cstdint>
 #include <vector>
-#include "extension-interface.h"
+#include "interface.h"
 
 
 /** @todo These macros should be changed to something else */

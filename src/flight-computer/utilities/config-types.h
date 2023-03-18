@@ -78,6 +78,8 @@ struct ExtensionMetadata {
         int I2C_bus = -1;
         std::string I2C_device_address = "";
         std::string one_wire_id = "";
+        std::string uart_device_path = "";
+        int uart_baud_rate = 0;
     };
 
     int id = 0; // User defined ID for the extension
@@ -92,7 +94,11 @@ struct ExtensionMetadata {
 };
 
 struct RadioMetadata {
+    // This is used to disable the radio in the telemetry module
+    bool enabled = true; 
+
     int radio_id = 0;
+    std::string radio_name = "";
     std::string radio_type = "";
     int priority = 0;
 
@@ -113,13 +119,15 @@ struct RadioMetadata {
     bool separate_tx_rx_capable = false;
     bool bandwidth_switching_capable = false;
     bool rssi_capable = false;
-    bool volume_adjust_capable = false;
+    bool volume_control_capable = false;
+    bool squelch_control_capable = false;
 
     // Interface
     ExtensionMetadata::Interface interface = ExtensionMetadata::Interface::ERROR;
     ExtensionMetadata::ExtraArgs extra_args {};
-    int PTT_pin = -1;     // If it's a raspberry pi, these are BCM pin numbers
-    int power_pin = -1;
+    int gpio_ptt = -1;     // If it's a raspberry pi, these are BCM pin numbers
+    int gpio_power = -1;
+    int gpio_squelch_detect = -1;
 };
 
 
@@ -147,7 +155,6 @@ struct ConfigData {
         std::string gps_data_name = "";
         std::string battery_data_name = "";
         std::string system_data_name = "";
-        std::string radio_data_name = "";
         std::string pressure_data_name = "";
     };
 

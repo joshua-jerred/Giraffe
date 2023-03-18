@@ -58,8 +58,8 @@ add_executable(test-04
 	${GFS_SRC}/extensions/bme280.cpp
 	${GFS_SRC}/extensions/sysinfo.cpp
 
-	${GFS_SRC}/extension-interface/i2c.cpp
-	${GFS_SRC}/extension-interface/one-wire.cpp
+	${GFS_SRC}/interface/i2c.cpp
+	${GFS_SRC}/interface/one-wire.cpp
 	
 	${GFS_SRC}/utilities/data-stream.cpp
 	${GFS_SRC}/utilities/ubx.cpp
@@ -72,7 +72,7 @@ target_link_libraries(test-04 nlohmann_json::nlohmann_json)
 # test-05 - I2C Utility --------------------------------------------------------
 add_executable(test-05
 	${TEST_SRC}/test-05/test.cpp
-	${GFS_SRC}/extension-interface/i2c.cpp
+	${GFS_SRC}/interface/i2c.cpp
 )
 target_link_libraries(test-05 i2c)
 set_target_properties(test-05 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-05/)
@@ -84,7 +84,7 @@ add_executable(test-06
 	${GFS_SRC}/extensions/bmp180.cpp
 	${GFS_SRC}/extensions/extension.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
-	${GFS_SRC}/extension-interface/i2c.cpp
+	${GFS_SRC}/interface/i2c.cpp
 )
 target_link_libraries(test-06 i2c)
 set_target_properties(test-06 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-06/)
@@ -96,7 +96,7 @@ add_executable(test-07
 	${GFS_SRC}/extensions/ds18b20.cpp
 	${GFS_SRC}/extensions/extension.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
-	${GFS_SRC}/extension-interface/one-wire.cpp
+	${GFS_SRC}/interface/one-wire.cpp
 )
 target_link_libraries(test-07 i2c)
 set_target_properties(test-07 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-07/)
@@ -105,7 +105,7 @@ target_link_libraries(test-07 gtest_main)
 # test-08 - UBX Utility --------------------------------------------------------
 add_executable(test-08
 	${TEST_SRC}/test-08/test.cpp
-	${GFS_SRC}/extension-interface/i2c.cpp
+	${GFS_SRC}/interface/i2c.cpp
 	${GFS_SRC}/utilities/ubx.cpp
 )
 target_link_libraries(test-08 i2c)
@@ -115,7 +115,7 @@ target_link_libraries(test-08 gtest_main)
 # test-09 - UBX Manual Test ----------------------------------------------------
 add_executable(test-09
 	${TEST_SRC}/test-09/test.cpp
-	${GFS_SRC}/extension-interface/i2c.cpp
+	${GFS_SRC}/interface/i2c.cpp
 	${GFS_SRC}/utilities/ubx.cpp
 )
 target_link_libraries(test-09 i2c)
@@ -127,7 +127,7 @@ add_executable(test-10
 	${GFS_SRC}/extensions/bme280.cpp
 	${GFS_SRC}/extensions/extension.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
-	${GFS_SRC}/extension-interface/i2c.cpp
+	${GFS_SRC}/interface/i2c.cpp
 )
 target_link_libraries(test-10 i2c)
 set_target_properties(test-10 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-10/)
@@ -149,7 +149,7 @@ add_executable(test-12
 	${GFS_SRC}/extensions/mcp3021.cpp
 	${GFS_SRC}/extensions/extension.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
-	${GFS_SRC}/extension-interface/i2c.cpp
+	${GFS_SRC}/interface/i2c.cpp
 )
 target_link_libraries(test-12 i2c)
 set_target_properties(test-12 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-12/)
@@ -174,5 +174,5 @@ target_link_libraries(test-13 ${ImageMagick_LIBRARIES} )
 # test-14 - Serial Interface ---------------------------------------------------
 add_gtest_test(test-14
 	${TEST_SRC}/test-14/test.cpp
-	${GFS_SRC}/extension-interface/serial.cpp
+	${GFS_SRC}/interface/serial.cpp
 )

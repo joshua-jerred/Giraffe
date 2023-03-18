@@ -15,7 +15,7 @@
 #include <filesystem>
 #include <sstream>
 
-#include "extension-interface.h"
+#include "interface.h"
 
 interface::OneWire::OneWire(std::string device_id):
 	path_(ONE_WIRE_LOCATION + device_id),

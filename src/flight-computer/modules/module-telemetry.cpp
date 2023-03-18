@@ -19,8 +19,8 @@
 #include <vector>
 
 #include "modules.h"
-#include "unit-conversions.h"
 #include "radio.h"
+#include "unit-conversions.h"
 
 using namespace modules;
 
@@ -37,10 +37,19 @@ bool FileExists(const std::string &name) {
  * @param config_data All configuration data.
  * @param data_stream A pointer to the data stream.
  */
-TelemetryModule::TelemetryModule(ConfigData config_data, DataStream &stream)
-    : Module(stream, configurables::prefix::kTelemetryModule, "telemetry"),
+TelemetryModule::TelemetryModule(ConfigData config_data, DataStream &data_stream)
+    : Module(data_stream, configurables::prefix::kTelemetryModule, "telemetry"),
+      radio_metadata_(config_data.telemetry.radios),
       config_data_(config_data) {
   tx_number_ = 0;  // First tx id will be 1
+
+  if (radio_metadata_.size() == 0) {
+    error("NO_RADIOS");
+  } else {
+    data("RADIOS", std::to_string(radio_metadata_.size()));
+  }
+
+  ChooseRadio();
 
   call_sign_ = config_data_.telemetry.call_sign;
 
@@ -71,7 +80,21 @@ TelemetryModule::~TelemetryModule() { stop(); }
  * @todo not implemented yet.
  */
 void TelemetryModule::start() {
+  if (status() != ModuleStatus::STOPPED) {
+    return;
+  }
+
   updateStatus(ModuleStatus::STARTING);
+
+  for (RadioMetadata &radio_metadata : radio_metadata_) {
+    if (radio_metadata.radio_type == "dra-sa") {
+      
+      radios_.push_back(new radio::DraSaRadio(data_stream_, radio_metadata));
+    } else {
+      error("UNKNOWN_RADIO_TYPE", radio_metadata.radio_type);
+    }
+  }
+
   data("TX_Q_SZ", "0");
   data("ACTIVE_TX", "NONE");
   stop_flag_ = 0;
@@ -79,6 +102,12 @@ void TelemetryModule::start() {
 }
 
 void TelemetryModule::stop() {
+  for (radio::Radio *radio : radios_) {
+    delete radio;
+    radio = nullptr;
+  }
+  radios_.clear();
+
   if (status() == ModuleStatus::STOPPED) {
     return;
   }
@@ -125,26 +154,13 @@ void TelemetryModule::sendDataPacket() {
   for (auto c : message) message_lower.push_back(std::tolower(c));
 
   Transmission newTX;
-  newTX.type = Transmission::Type::PSK;
+  newTX.type = Transmission::Type::DATA;
   newTX.tx_num = tx_num;
   newTX.wav_location = generatePSK(message_lower, newTX.tx_num);
   newTX.message = message;
   newTX.length = psk_length_;
   addToTXQueue(newTX);  // If the TX failed to generate the error must be
                         // handled somewhere else. Thread Safe.
-}
-
-/**
- * @brief Send a raw AFSK message (callsign is added).
- * @param message The message to send.
- * @return void
- */
-void TelemetryModule::sendAFSK(std::string message) {
-  Transmission newTX;
-  newTX.type = Transmission::Type::AFSK;
-  newTX.tx_num = getNextTXNumber();
-  newTX.wav_location = generateAFSK(message, newTX.tx_num);
-  // addToTXQueue(newTX);
 }
 
 /**
@@ -177,7 +193,7 @@ void TelemetryModule::doCommand(GFSCommand command) {
     Transmission newTX;
     if (data_stream_.requestTXFromLog(tx_id, newTX)) {
       std::cout << "Re-sending transmission " << tx_id << std::endl;
-      if (newTX.type == Transmission::Type::PSK) {
+      if (newTX.type == Transmission::Type::DATA) {
         std::string old_message = newTX.message;
         int old_tx_num = newTX.tx_num;
         newTX.tx_num = getNextTXNumber();
@@ -227,6 +243,32 @@ void TelemetryModule::sendSSTVImage() {
  */
 int TelemetryModule::getNextTXNumber() { return tx_number_++; }
 
+void TelemetryModule::ChooseRadio() {
+  if (radio_metadata_.size() == 0) {
+    error("NO_RADIOS", "");
+  }
+
+  int lowest_priority = radio_metadata_[0].priority;
+  primary_radio_index_ = 0;
+  int num_enabled = 0;
+  for (unsigned int i = 0; i < radio_metadata_.size(); i++) {
+    if (!radio_metadata_[i].enabled) {
+      continue;
+    }
+    num_enabled++;
+    int priority = radio_metadata_[i].priority;
+    if (priority < lowest_priority) {
+      lowest_priority = priority;
+      primary_radio_index_ = i;
+    }
+  }
+
+  if (num_enabled == 0) {
+    error("NO_EN_RAD", "");
+  }
+  data("PRI_RAD", radio_metadata_[primary_radio_index_].radio_name);
+}
+
 /**
  * @brief First checks the transmission for type, and verifies
  * that the wav file actually exists. If both are good,
@@ -251,19 +293,6 @@ void TelemetryModule::addToTXQueue(Transmission transmission) {
   }
 
   data_stream_.addToTxQueue(transmission);
-}
-
-/**
- * @brief Takes the callsign, output location, and the message to be encoded.
- * Generates an AX.25 encoded AFSK message that will be split into packets.
- * @todo Not Yet Implemented
- * @return File path to the generated wav file.
- */
-std::string TelemetryModule::generateAFSK(const std::string &message,
-                                          const int tx_number) {
-  (void)message;
-  (void)tx_number;
-  return "not-implemented.wav";
 }
 
 std::string TelemetryModule::generatePSK(const std::string &message,
@@ -403,19 +432,14 @@ void TelemetryModule::runner() {
       std::string tx_length = std::to_string(tx.length);
 
       switch (tx.type) {
-        case Transmission::Type::AFSK:
-
-          std::this_thread::sleep_for(
-              std::chrono::seconds(2));  // Will be removed once implemented
-          break;
         case Transmission::Type::APRS:
-          playWav(tx.wav_location, "APRS", tx.length);
+          Transmit(tx.wav_location, "APRS", tx.length);
           break;
         case Transmission::Type::SSTV:
-          playWav(tx.wav_location, "SSTV", tx.length);
+          Transmit(tx.wav_location, "SSTV", tx.length);
           break;
-        case Transmission::Type::PSK:
-          playWav(tx.wav_location, "PSK", tx.length);
+        case Transmission::Type::DATA:
+          Transmit(tx.wav_location, "PSK", tx.length);
           break;
         default:
           error("BAD_TX_TYPE", std::to_string((int)tx.type));
@@ -428,7 +452,7 @@ void TelemetryModule::runner() {
   }
 }
 
-void TelemetryModule::playWav(std::string wav_location, std::string tx_type,
+void TelemetryModule::Transmit(std::string wav_location, std::string tx_type,
                               int tx_length) {
   std::string command =
       "aplay " + wav_location +

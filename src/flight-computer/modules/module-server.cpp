@@ -484,10 +484,7 @@ void ServerModule::sendTelemetryData(ServerSocket &socket) {
       case Transmission::Type::APRS:
         type = "APRS";
         break;
-      case Transmission::Type::AFSK:
-        type = "AFSK";
-        break;
-      case Transmission::Type::PSK:
+      case Transmission::Type::DATA:
         type = "PSK";
         break;
       case Transmission::Type::SSTV:

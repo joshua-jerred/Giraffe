@@ -39,8 +39,7 @@ struct Transmission {
     enum class Type {
         ERROR,
         APRS,
-        AFSK,
-        PSK,
+        DATA,
         SSTV,
     };
     Type type = Type::ERROR;
@@ -123,8 +122,7 @@ static const std::unordered_map<GFSCommand::CommandCategory, std::string> GFS_CO
 static const std::unordered_map<Transmission::Type, std::string> TRANSMISSION_TYPE_TO_STRING = {
     {Transmission::Type::ERROR, "ERROR"},
     {Transmission::Type::APRS, "APRS"},
-    {Transmission::Type::AFSK, "AFSK"},
-    {Transmission::Type::PSK, "PSK"},
+    {Transmission::Type::DATA, "DATA"},
     {Transmission::Type::SSTV, "SSTV"},
 };
 

@@ -100,8 +100,8 @@ void DataModule::addConfigData(ConfigData config_data) {
     error("NSYS");
   }
 
-  if (config_data_.extensions.radio_data_name.size() > 0) {
-    radio_data_source_ = config_data_.extensions.radio_data_name;
+  if (config_data_.telemetry.radios.size() > 0) {
+    radio_data_source_ = config_data_.telemetry.radios[0].radio_name; /** @todo fix this */
   } else {
     error("NRAD");
   }
