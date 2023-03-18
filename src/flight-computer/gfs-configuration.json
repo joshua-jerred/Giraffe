@@ -80,12 +80,13 @@
         "radios": [
             {
                 "id": 1,
+                "name": "radio-1",
                 "radio-type": "dra-sa",
                 "priority": 1,
                 "frequency-ranges": [
                     {
-                        "min": 144.390,
-                        "max": 144.390
+                        "min": "144.390",
+                        "max": "144.500"
                     }
                 ],
                 "modes": [
@@ -98,19 +99,22 @@
                 "features": [
                     "frequency-switching",
                     "power-saving",
-                    "high-low-tx",
+                    "high-low-power",
                     "separate-tx-rx",
-                    "bandwidth",
+                    "bandwidth-switching",
                     "rssi",
-                    "volume",
-                    "squelch"
+                    "volume-control",
+                    "squelch-control"
                 ],
                 "interface": {
                     "type": "uart",
                     "uart-port": "/dev/ttyAMA0",
-                    "uart-baudrate": 9600,
-                    "gpio-ptt": 17,
-                    "gpio-power": 6
+                    "uart-baud-rate": 9600,
+                    "gpio" : {
+                        "ptt":17,
+                        "power":6,
+                        "squelch-detect": 5
+                    }
                 }
             }
         ],
