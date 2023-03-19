@@ -176,3 +176,11 @@ add_gtest_test(test-14
 	${TEST_SRC}/test-14/test.cpp
 	${GFS_SRC}/interface/serial.cpp
 )
+
+# test-15 - GPIO Interface -----------------------------------------------------
+add_executable(test-15
+	${TEST_SRC}/test-15/test.cpp
+
+	${GFS_SRC}/interface/gpio.cpp
+)
+target_include_directories(test-15 PRIVATE ${TEST_SRC}/test-15)

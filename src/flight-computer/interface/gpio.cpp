@@ -15,58 +15,204 @@
  * @version 0.4
  */
 
-#include "gpio.h"
-
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <unistd.h>
 
 #include <cstdint>
+#include <mutex>
 #include <string>
 
-// Global gpio memory map
-static volatile uint32_t* GLOBAL_GPIO_MEMORY_MAP = (uint32_t*)MAP_FAILED;
-static uint32_t PIN_RESERVATION_MAP = 0;
+#include "interface.h"
 
-// Size of the GPIO memory map. Used for mmap and munmap
-inline constexpr uint32_t kGpioMemoryMapSize = 0x1000;
-inline void CheckInitialized() {
-  if (GLOBAL_GPIO_MEMORY_MAP == MAP_FAILED) {
-    throw gpio::GpioException("GPIO not initialized");
+using namespace interface;
+
+// GPIO Pin
+Gpio::Pin::Pin(uint8_t pin_number, Gpio::PinMode mode, bool initial_state)
+    : pin_number_(pin_number), mode_(mode), initial_state_(initial_state) {
+  if (pin_number > 27) {  // 0-27 pins on the raspberry pi
+    throw GpioException("Invalid pin number");
+  }
+  if (mode == PinMode::UNINITIALIZED) {
+    throw GpioException("Invalid pin mode: " + this->ToString());
+  }
+  if (mode == PinMode::INPUT && initial_state) {
+    throw GpioException("Cannot set initial state on input pin: " +
+                        this->ToString());
   }
 }
 
-inline void VerifyNotReserved(uint8_t pin) {
-  if (PIN_RESERVATION_MAP & (1 << pin)) {
-    throw gpio::GpioException("Pin " + std::to_string(pin) +
-                              " is already reserved");
-  }
+std::string Gpio::Pin::Pin::ToString() const {
+  return std::to_string(pin_number_) + ":" +
+         (mode_ == PinMode::INPUT ? "I" : "O") +
+         (mode_ == PinMode::OUTPUT ? ":" + std::to_string(initial_state_) : "");
 }
 
-inline void VerifyReserved(uint8_t pin) {
-  if (!(PIN_RESERVATION_MAP & (1 << pin))) {
-    throw gpio::GpioException("Pin " + std::to_string(pin) +
-                              " is not reserved");
+// Static members
+volatile uint32_t *Gpio::gpio_memory_map_ = (uint32_t *)MAP_FAILED;
+std::array<Gpio::Pin, 28> Gpio::reserved_pins_ = {};
+std::mutex Gpio::gpio_lock_;
+
+// Static
+void Gpio::Initialize() {
+  gpio_lock_.lock();
+  if (gpio_memory_map_ != MAP_FAILED) {  // Already initialized
+    gpio_lock_.unlock();
+    return;
   }
+
+  int memfd = open("/dev/gpiomem", O_RDWR | O_SYNC);
+  if (memfd < 0) {
+    gpio_lock_.unlock();
+    throw GpioException("Failed to open /dev/gpiomem");
+  }
+
+  gpio_memory_map_ = static_cast<uint32_t *>(mmap(NULL, kGpioMemoryMapSize,
+                                                  (PROT_READ | PROT_WRITE),
+                                                  MAP_SHARED, memfd, 0));
+
+  if (gpio_memory_map_ == MAP_FAILED) {
+    gpio_lock_.unlock();
+    throw GpioException("Failed to map the GPIO registers");
+  }
+  close(memfd);
+  gpio_lock_.unlock();
 }
 
-inline void ReservePin(uint8_t pin) { 
-  VerifyNotReserved(pin); // I can't think of a reason why this would be needed
-  PIN_RESERVATION_MAP |= (1 << pin); 
+void Gpio::Close() {
+  gpio_lock_.lock();
+  if (gpio_memory_map_ == MAP_FAILED) {
+    gpio_lock_.unlock();
+    return;
+  }
+  munmap((void *)gpio_memory_map_, kGpioMemoryMapSize);
+  gpio_memory_map_ = (uint32_t *)MAP_FAILED;
+
+  reserved_pins_ = {};
+  gpio_lock_.unlock();
 }
 
-gpio::Pin::Pin(uint8_t bcm_pin_number, PinMode mode)
-    : bcm_pin_number(bcm_pin_number), mode(mode) {
-  if (bcm_pin_number > 27) {
-    throw gpio::GpioException("Invalid pin number: " +
-                              std::to_string(bcm_pin_number));
+bool Gpio::IsInitialized() {
+  gpio_lock_.lock();
+  bool initialized = gpio_memory_map_ != MAP_FAILED;
+  gpio_lock_.unlock();
+  return initialized;
+}
+
+void Gpio::SetupPin(Pin pin) {
+  gpio_lock_.lock();
+  if (!VerifyInitialized()) {
+    gpio_lock_.unlock();
+    throw GpioException("GPIO not initialized, can not setup pin: " +
+                        pin.ToString());
   }
+  if (IsPinReserved(pin)) {
+    gpio_lock_.unlock();
+    throw GpioException("Pin" + pin.ToString() + " is already reserved");
+  }
+  if (pin.mode_ == PinMode::UNINITIALIZED) {
+    gpio_lock_.unlock();
+    throw GpioException("Pin" + pin.ToString() + " has an invalid mode");
+  }
+
+  const uint32_t kSetUpPinOffset = 0x00;
+  const uint32_t kGpioSelectMask = 0x07;
+
+  volatile uint32_t *pin_address =
+      gpio_memory_map_ + kSetUpPinOffset / 4 + (pin.pin_number_ / 10);
+  uint8_t shift = (pin.pin_number_ % 10) * 3;
+  uint32_t mask = kGpioSelectMask << shift;
+
+  uint8_t mode = pin.mode_ == PinMode::INPUT ? 0x00 : 0x01;
+  uint32_t value = mode << shift;
+
+  volatile uint32_t current_value = ReadWithBarrier(pin_address);
+  current_value = (current_value & ~mask) | (value & mask);  // see bcm2835.c
+  WriteWithBarrier(pin_address, current_value);
+  ReservePin(pin);
+  SetOwner(pin);
+  gpio_lock_.unlock();
+}
+
+void Gpio::Write(Pin pin, bool on) {
+  gpio_lock_.lock();
+  if (!VerifyInitialized()) {
+    gpio_lock_.unlock();
+    throw GpioException("GPIO not initialized, can not write pin: " +
+                        pin.ToString());
+  }
+  if (!IsPinReserved(pin) || !IsOwner(pin)) {
+    gpio_lock_.unlock();
+    throw GpioException("Pin" + pin.ToString() + " is not reserved");
+  }
+  if (pin.mode_ != PinMode::OUTPUT) {
+    gpio_lock_.unlock();
+    throw GpioException("Pin" + std::to_string(pin.pin_number_) +
+                        " is not in output mode");
+  }
+
+  const uint32_t kPinOn = 0x1c;
+  const uint32_t kPinOff = 0x28;
+
+  uint8_t state = on ? kPinOn : kPinOff;
+  WriteWithBarrier(CalculateAddress(state, pin.pin_number_),
+                   1 << pin.pin_number_);
+  gpio_lock_.unlock();
+}
+
+bool Gpio::Read(Pin pin) {
+  gpio_lock_.lock();
+  const uint32_t kReadPin = 0x34;
+
+  if (!VerifyInitialized()) {
+    gpio_lock_.unlock();
+    throw GpioException("GPIO not initialized, can not read pin: " +
+                        pin.ToString());
+  }
+  if (!IsPinReserved(pin) || !IsOwner(pin)) {
+    gpio_lock_.unlock();
+    throw GpioException("Pin" + pin.ToString() + " is not reserved");
+  }
+  if (pin.mode_ != PinMode::INPUT) {
+    gpio_lock_.unlock();
+    throw Gpio::GpioException("Pin" + std::to_string(pin.pin_number_) +
+                              " is not in input mode");
+  }
+
+  uint32_t value = ReadWithBarrier(CalculateAddress(kReadPin, pin.pin_number_));
+  uint8_t shift = pin.pin_number_;
+  gpio_lock_.unlock();
+  return (value & (1 << shift)) ? 1 : 0;
+}
+
+// Lock must be held
+bool Gpio::VerifyInitialized() { return !(gpio_memory_map_ == MAP_FAILED); }
+
+// Lock must be held
+bool Gpio::IsPinReserved(const Pin &pin) {
+  if (reserved_pins_[pin.pin_number_].mode_ == PinMode::UNINITIALIZED &&
+      reserved_pins_[pin.pin_number_].pin_number_ == 0) {
+    return false;
+  }
+  return true;
+}
+
+void Gpio::ReservePin(Pin pin) {
+  reserved_pins_[pin.pin_number_] = pin;
+}
+
+bool Gpio::IsOwner(const Pin &pin) {
+  bool is_owner = pins_owned_ & (1 << pin.pin_number_);
+  return is_owner;
+}
+
+void Gpio::SetOwner(const Pin &pin) {
+  pins_owned_ |= (1 << pin.pin_number_);
 }
 
 // From bcm2835.c
 // Write with a memory barrier
-inline void WriteWithBarrier(volatile uint32_t *address, uint32_t value) {
-  CheckInitialized();
+void Gpio::WriteWithBarrier(volatile uint32_t *address, uint32_t value) {
   __sync_synchronize();
   *address = value;
   __sync_synchronize();
@@ -74,8 +220,7 @@ inline void WriteWithBarrier(volatile uint32_t *address, uint32_t value) {
 
 // From bcm2835.c
 // Read with a memory barrier
-inline uint32_t ReadWithBarrier(volatile uint32_t *address) {
-  CheckInitialized();
+uint32_t Gpio::ReadWithBarrier(volatile uint32_t *address) {
   uint32_t value;
   __sync_synchronize();
   value = *address;
@@ -83,87 +228,7 @@ inline uint32_t ReadWithBarrier(volatile uint32_t *address) {
   return value;
 }
 
-inline volatile uint32_t *CalculateAddress(uint8_t offset, uint8_t pin) {
-  return (uint32_t *)(GLOBAL_GPIO_MEMORY_MAP + offset / 4 + pin / 32);
+volatile uint32_t *Gpio::CalculateAddress(uint8_t offset, uint8_t pin) {
+  return (uint32_t *)(gpio_memory_map_ + offset / 4 + pin / 32);
 }
 
-void gpio::Initialize() {
-  if (GLOBAL_GPIO_MEMORY_MAP != MAP_FAILED) {
-    return;
-  }
-
-  int memfd = open("/dev/gpiomem", O_RDWR | O_SYNC);
-  if (memfd < 0) {
-    throw gpio::GpioException("Failed to open /dev/gpiomem");
-  }
-
-  GLOBAL_GPIO_MEMORY_MAP = static_cast<uint32_t *>(
-      mmap(NULL, kGpioMemoryMapSize, (PROT_READ | PROT_WRITE), MAP_SHARED,
-           memfd, 0));
-
-  if (GLOBAL_GPIO_MEMORY_MAP == MAP_FAILED) {
-    throw gpio::GpioException("Failed to map the GPIO registers");
-  }
-
-  close(memfd);
-}
-
-void gpio::Close() {
-  if (GLOBAL_GPIO_MEMORY_MAP == MAP_FAILED) {
-    return;
-  }
-  munmap((void *)GLOBAL_GPIO_MEMORY_MAP, kGpioMemoryMapSize);
-  GLOBAL_GPIO_MEMORY_MAP = (uint32_t *)MAP_FAILED;
-}
-
-void gpio::SetupPin(Pin pin) {
-  CheckInitialized();
-  VerifyNotReserved(pin.bcm_pin_number);
-  const uint32_t kSetUpPinOffset = 0x00;
-  const uint32_t kGpioSelectMask = 0x07;
-
-  volatile uint32_t *paddr =
-      GLOBAL_GPIO_MEMORY_MAP + kSetUpPinOffset / 4 + (pin.bcm_pin_number / 10);
-  uint8_t shift = (pin.bcm_pin_number % 10) * 3;
-  uint32_t mask = kGpioSelectMask << shift;
-
-  uint8_t mode = pin.mode == PinMode::INPUT ? 0x00 : 0x01;
-  uint32_t value = mode << shift;
-
-  uint32_t current_value = ReadWithBarrier(paddr);
-  current_value = (current_value & ~mask) | (value & mask);  // see bcm2835.c
-  WriteWithBarrier(paddr, current_value);
-  ReservePin(pin.bcm_pin_number);
-}
-
-void gpio::Write(Pin pin, bool on) {
-  const uint32_t kPinOn = 0x1c;
-  const uint32_t kPinOff = 0x28;
-
-  VerifyReserved(pin.bcm_pin_number);
-
-  if (pin.mode != PinMode::OUTPUT) {
-    throw gpio::GpioException("Pin" + std::to_string(pin.bcm_pin_number) +
-                              " is not in output mode");
-  }
-
-  uint8_t state = on ? kPinOn : kPinOff;
-  WriteWithBarrier(CalculateAddress(state, pin.bcm_pin_number),
-                   1 << pin.bcm_pin_number % 32);
-}
-
-bool gpio::Read(Pin pin) {
-  const uint32_t kReadPin = 0x34;
-
-  VerifyReserved(pin.bcm_pin_number);
-
-  if (pin.mode != PinMode::INPUT) {
-    throw gpio::GpioException("Pin" + std::to_string(pin.bcm_pin_number) +
-                              " is not in input mode");
-  }
-
-  uint32_t value =
-      ReadWithBarrier(CalculateAddress(kReadPin, pin.bcm_pin_number));
-  uint8_t shift = pin.bcm_pin_number % 32;
-  return (value & (1 << shift)) ? 1 : 0;
-}

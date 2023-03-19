@@ -140,6 +140,64 @@ class SerialException : public std::exception {
   std::string message_;
 };
 
+class Gpio {
+ public:
+  enum class PinMode { INPUT, OUTPUT, UNINITIALIZED };
+  struct Pin {
+    Pin(uint8_t bcm_pin_number, PinMode mode, bool initial_state = false);
+    Pin()
+        : pin_number_(0),
+          mode_(PinMode::UNINITIALIZED),
+          initial_state_(false) {}
+          
+    std::string ToString() const;
+
+    uint8_t pin_number_ = 0;
+    PinMode mode_ = PinMode::UNINITIALIZED;
+    bool initial_state_ = false;
+  };
+
+  static void Initialize();
+  static void Close();
+
+  static bool IsInitialized();
+
+  void SetupPin(Pin pin);
+  void Write(Pin pin, bool on);
+  bool Read(Pin pin);
+
+  class GpioException : public std::exception {
+   public:
+    GpioException(std::string message) : message_(message) {}
+    const char* what() const throw() { return message_.c_str(); }
+
+   private:
+    std::string message_;
+  };
+
+ private:
+  // gpio_lock_ must  be held before calling these functions
+  bool VerifyInitialized();
+  void ReservePin(Pin pin);
+  bool IsPinReserved(const Pin &pin);
+
+  bool IsOwner(const Pin& pin);
+  void SetOwner(const Pin& pin);
+
+  uint32_t ReadWithBarrier(volatile uint32_t* addr);
+  void WriteWithBarrier(volatile uint32_t* addr, uint32_t value);
+
+  volatile uint32_t* CalculateAddress(uint8_t pin_number, uint8_t offset);
+
+  static volatile uint32_t* gpio_memory_map_;
+  static std::array<Pin, 28> reserved_pins_;
+  uint32_t pins_owned_ = 0; // Bitmask of pins owned by this instance
+
+  static std::mutex gpio_lock_;
+
+  static const uint32_t kGpioMemoryMapSize = 0x1000;
+};
+
 }  // namespace interface
 
 #endif /* UTILITY_INTERFACE_CONTROL_H_ */
