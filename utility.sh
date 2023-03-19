@@ -134,6 +134,9 @@ elif [ "$REQUEST" == "camera-test" ]; then
     ssh $SSH_HOST "libcamera-still -e png -o test.png --immediate"
     scp balloon:/home/pi/test.png test.png
     exit 0
+elif [ "$REQUEST" == "gpio-test" ]; then
+    ssh $SSH_HOST "cd ./Giraffe/build/ && make test-15 && tests/test-15"
+    exit 0
 else
     echo "Unknown command"
     exit 1
