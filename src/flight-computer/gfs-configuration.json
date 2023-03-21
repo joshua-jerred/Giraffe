@@ -69,20 +69,22 @@
         }
     ],
     "debugging": {
-        "console-enabled": true,
+        "debug-mode-print-errors": true,
+        "console-enabled": false,
         "console-update-interval": 1000,
         "web-server-enabled": true,
         "web-server-socket-port": 8080
     },
     "telemetry": {
         "telemetry-enabled": true,
-        "callsign": "NOCALL",
+        "callsign": "KD9GDC",
         "radios": [
             {
                 "id": 1,
                 "name": "radio-1",
                 "radio-type": "dra-sa",
                 "priority": 1,
+                "ptt-delay": 200,
                 "frequency-ranges": [
                     {
                         "min": "144.390",
@@ -99,7 +101,6 @@
                 "features": [
                     "frequency-switching",
                     "power-saving",
-                    "high-low-power",
                     "separate-tx-rx",
                     "bandwidth-switching",
                     "rssi",
@@ -119,7 +120,7 @@
             }
         ],
         "aprs": {
-            "enabled": true,
+            "enabled": false,
             "frequency": "144.390",
             "ssid": 11,
             "destination-address": "APRS",
@@ -132,8 +133,8 @@
             "comment": "GFS Balloon"
         },
         "sstv": {
-            "enabled": true,
-            "frequency": "145.550",
+            "enabled": false,
+            "frequency": "145.510",
             "mode": "robot36",
             "comment": "GFS Balloon",
             "save-images": true,
@@ -141,7 +142,7 @@
         },
         "data-packets": {
             "enabled": true,
-            "frequency": "145.550",
+            "frequency": "145.510",
             "mode": "bpsk500"
         }
     },
@@ -171,7 +172,7 @@
             "enabled": true,
             "intervals": {
                 "data-log": 2,
-                "data-packet": 30,
+                "data-packet": 10,
                 "sstv": 45,
                 "aprs": 30,
                 "picture": 50,

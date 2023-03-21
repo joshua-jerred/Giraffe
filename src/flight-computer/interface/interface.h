@@ -98,7 +98,7 @@ class Serial {
   void Disconnect();
   bool IsConnected() const;
 
-  std::string Read();
+  std::string ReadLine();
   int Write(std::string data);
 
  private:

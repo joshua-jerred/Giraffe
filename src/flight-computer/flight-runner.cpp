@@ -12,6 +12,8 @@
 
 #include <filesystem>
 
+#include "interface.h"
+
 FlightRunner::FlightRunner()
     : current_flight_procedure_type_(FlightProcedure::Type::FAILSAFE),
       shutdown_signal_(false) {}
@@ -45,17 +47,31 @@ int FlightRunner::start() {
   int status = config->load(configurables::file_paths::kConfigFilePath);
   if (status == -1) {
     std::cout << "Error: Could not load config file." << std::endl;
-    return 1; /** @todo change to hardcoded failsafe */
+    return 1; /** @todo change this */
   } else {
     config_data_ = config->getAll();
   }
 
-  delete config;  // The config module is not needed after loading config data
+  // The config module is not needed after loading config data
+  // This may change in the future
+  delete config;  
 
   p_data_module_->addConfigData(
       config_data_);  // Add the config data to the DataModule
 
   p_data_module_->start();  // Start the DataModule
+
+  // ~~~ Initialize BCM/GPIO Interface ~~~ //
+  if (config_data_.bcm_interface_used) {
+    std::cout << "Initializing BCM Interface... ";
+    try {
+      interface::Gpio::Initialize();
+      std::cout << "Success" << std::endl;
+    } catch (interface::Gpio::GpioException& e) {
+      std::cout << "Failed: " << e.what()
+                << std::endl;
+    }
+  }
 
   // ~~~ Start the Extensions Module ~~~ //
   p_extension_module_ =
@@ -270,5 +286,16 @@ void FlightRunner::deconstruct() {
     std::cout << "Stopped" << std::endl;
   } else {
     std::cout << "Not Running" << std::endl;
+  }
+  std::cout << "Closing BCM Interface ... ";
+  if (config_data_.bcm_interface_used) {
+    try {
+      interface::Gpio::Close();
+      std::cout << "Closed" << std::endl;
+    } catch (interface::Gpio::GpioException &e) {
+      std::cout << "Error: " << e.what() << std::endl;
+    }
+  } else {
+    std::cout << "Not Used" << std::endl;
   }
 }

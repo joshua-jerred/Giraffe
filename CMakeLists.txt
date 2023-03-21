@@ -96,6 +96,7 @@ add_executable(giraffe-flight-software
 	${GFS_SRC}/interface/i2c.cpp
 	${GFS_SRC}/interface/one-wire.cpp
 	${GFS_SRC}/interface/serial.cpp
+	${GFS_SRC}/interface/gpio.cpp
 
 	${GFS_SRC}/extensions/extension.cpp
 	${GFS_SRC}/extensions/simulated-extensions.cpp

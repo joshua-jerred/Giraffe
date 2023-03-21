@@ -85,11 +85,11 @@ std::string GetString(const json& j, const std::string& key) {
   }
 }
 
-int GetBool(const json& j, const std::string& key) {
+int GetBool(const json& j, const std::string& key, int default_value = -1) {
   if (j.contains(key) && j[key].is_boolean()) {
     return j[key].get<bool>() ? 1 : 0;
   } else {
-    return -1;
+    return default_value;
   }
 }
 
@@ -416,11 +416,23 @@ void ConfigModule::parseExtensions() {
  * @todo Error checking
  */
 void ConfigModule::parseDebug() {
-  config_data_.debug.console_enabled =
-      json_buffer_["debugging"]["console-enabled"].get<bool>();
+  if (!json_buffer_.contains("debugging")) {
+    error("NO_DBG");
+    return;
+  }
+  json& debug_json = json_buffer_["debugging"];
 
-  config_data_.debug.console_update_interval =
-      json_buffer_["debugging"]["console-update-interval"].get<int>();
+  bool print_errors = GetBool(debug_json, "debug-mode-print-errors", false);
+  if (print_errors) {
+    config_data_.debug.print_errors = true;
+  } else {
+    config_data_.debug.print_errors = false;
+    config_data_.debug.console_enabled =
+        json_buffer_["debugging"]["console-enabled"].get<bool>();
+
+    config_data_.debug.console_update_interval =
+        json_buffer_["debugging"]["console-update-interval"].get<int>();
+  }
 
   config_data_.debug.web_server_enabled =
       json_buffer_["debugging"]["web-server-enabled"].get<bool>();
@@ -450,14 +462,15 @@ void ConfigModule::ParseRadios(json radios_json) {
       error("RAD_ID_N", std::to_string(radio_id));
       return;
     }
-		new_radio.radio_id = radio_id;
+    new_radio.radio_id = radio_id;
 
     std::string radio_name = GetString(radio, "name");
     if (radio_name == "") {
       error("RAD_N_N", std::to_string(radio_id));
       return;
     }
-    if (radio_name.size() > EXTENSION_NAME_MAX_LENGTH || radio_name.size() < EXTENSION_NAME_MIN_LENGTH) {
+    if (radio_name.size() > EXTENSION_NAME_MAX_LENGTH ||
+        radio_name.size() < EXTENSION_NAME_MIN_LENGTH) {
       error("RAD_N_L", std::to_string(radio_id));
       return;
     }
@@ -468,13 +481,20 @@ void ConfigModule::ParseRadios(json radios_json) {
       error("RAD_T_N", std::to_string(radio_id));
       return;
     }
-		new_radio.radio_type = radio_type;
+    new_radio.radio_type = radio_type;
 
     int priority = GetInt(radio, "priority");
     if (priority < 0) {
       error("RAD_PR_N", std::to_string(radio_id));
       priority = 1;
     }
+
+    int ptt_delay = GetInt(radio, "ptt-delay");
+    if (ptt_delay < 0) {
+      error("RAD_PD_N", std::to_string(radio_id));
+      ptt_delay = 0;
+    }
+    new_radio.ptt_delay = ptt_delay;
 
     if (radio.contains("frequency-ranges") &&
         radio["frequency-ranges"].is_array()) {
@@ -551,7 +571,7 @@ void ConfigModule::ParseRadios(json radios_json) {
       new_radio.volume_control_capable = true;
     }
     if (features.contains("squelch-control")) {
-      new_radio.squelch_control_capable = true;
+      new_radio.squelch_detect_capable = true;
     }
     if (!radio.contains("interface")) {
       error("RAD_INT");
@@ -570,7 +590,6 @@ void ConfigModule::ParseRadios(json radios_json) {
       error("RAD_INT_U");
       return;
     }
-    std::cout << "Radio 1" << std::endl;
     if (interface == ExtensionMetadata::Interface::UART) {
       new_radio.interface = ExtensionMetadata::Interface::UART;
 
@@ -590,9 +609,10 @@ void ConfigModule::ParseRadios(json radios_json) {
     } else {
       error("RAD_INT_NI");
     }
+    if (interface_json.contains("gpio")) {
+      config_data_.bcm_interface_used = true;
 
-    if (interface_json.contains("gpio") && interface_json["gpio"].is_array()) {
-      json &gpio_json = interface_json["gpio"];
+      json& gpio_json = interface_json["gpio"];
       int ptt = GetInt(gpio_json, "ptt");
       int power = GetInt(gpio_json, "power");
       int squelch = GetInt(gpio_json, "squelch-detect");

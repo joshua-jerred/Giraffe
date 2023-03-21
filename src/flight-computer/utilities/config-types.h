@@ -101,6 +101,7 @@ struct RadioMetadata {
     std::string radio_name = "";
     std::string radio_type = "";
     int priority = 0;
+    int ptt_delay = 0;
 
     // Frequency ranges in MHz [min, max] (inclusive)
     std::vector<std::pair<std::string, std::string>> frequency_ranges {};
@@ -120,7 +121,7 @@ struct RadioMetadata {
     bool bandwidth_switching_capable = false;
     bool rssi_capable = false;
     bool volume_control_capable = false;
-    bool squelch_control_capable = false;
+    bool squelch_detect_capable = false;
 
     // Interface
     ExtensionMetadata::Interface interface = ExtensionMetadata::Interface::ERROR;
@@ -159,6 +160,8 @@ struct ConfigData {
     };
 
     struct Debugging {
+        bool print_errors = false;
+
         bool console_enabled = false;
         int console_update_interval = 1000;
 
@@ -214,6 +217,7 @@ struct ConfigData {
     };
 
     time_t start_time = 0;
+    bool bcm_interface_used = false;
 
     General general {};
     Extensions extensions {};

@@ -134,8 +134,8 @@ class TelemetryModule : public Module {
 
   void doCommand(GFSCommand command);  // Override Module::doCommand()
 
-  std::vector<RadioMetadata> &radio_metadata_;
   std::vector<radio::Radio *> radios_= {};
+  radio::Radio *primary_radio_ = nullptr;
   int primary_radio_index_ = -1;
 
   std::string data_frequency = {};

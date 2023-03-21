@@ -18,17 +18,7 @@
 
 namespace radio {
 
-enum class Status {
-  OFF,
-  UNCONFIGURED,
-  CONFIGURING,
-  CONFIGURED,
-  READY,
-  TRANSMITTING,
-  RECEIVING,
-  PARAMETER_ERROR,
-  UNKNOWN_ERROR
-};
+enum class Status { OFF, NOT_CONFIGURED, CONFIGURED, ERROR };
 
 enum class TxPowerLevel { HIGH = 0, LOW = 1 };
 
@@ -36,9 +26,7 @@ enum class Bandwidth { HIGH = 0, LOW = 1 };
 
 class Radio {
  public:
-  Radio(DataStream &data_stream, const RadioMetadata &radio_metadata);
-  Radio(const Radio &other) = delete;             // No copy constructor
-  Radio &operator=(const Radio &other) = delete;  // No copy assignment
+  Radio(DataStream &data_stream, const RadioMetadata radio_metadata);
   virtual ~Radio();
 
   RadioMetadata GetRadioMetadata() const { return radio_metadata_; }
@@ -50,31 +38,35 @@ class Radio {
 
   virtual float GetRSSI();
 
-  virtual bool Initialize();
+  virtual bool Initialize(const std::string &init_frequency);
+
   virtual bool PowerOn();
   virtual bool PowerOff();
 
   virtual bool PTTOn();
   virtual bool PTTOff();
 
-  virtual bool SetTXFrequency(const std::string &frequency);
-  virtual bool SetRXFrequency(const std::string &frequency);
+  virtual bool SetFrequency(const std::string &frequency);
+  // virtual bool SetRXFrequency(const std::string &frequency);
   virtual bool SetTXPowerLevel(TxPowerLevel power_level);
   virtual bool SetBandwidth(Bandwidth bandwidth);
 
   /**
    * @brief Set the Squelch of the radio
-   * @param squelch A value between 0 and 10, where 0 is "monitor"
+   * @param squelch A value between 0 and 9, where 0 is "monitor"
    */
   virtual bool SetSquelch(int squelch);
 
  protected:
+  void error(const std::string &error_code,
+             const std::string &error_message = "");
+
   radio::Status radio_status_ = radio::Status::OFF;
   std::string tx_frequency_ = "";
   std::string rx_frequency_ = "";
   radio::TxPowerLevel tx_power_level_ = radio::TxPowerLevel::HIGH;
   radio::Bandwidth bandwidth_ = radio::Bandwidth::HIGH;
-  int squelch_ = 5;
+  int squelch_ = 5; // 0-9, 0 is monitor
 
   DataStream &data_stream_;
   const RadioMetadata radio_metadata_;
@@ -82,30 +74,38 @@ class Radio {
 
 class DraSaRadio : public Radio {
  public:
-  DraSaRadio(DataStream &data_stream, const RadioMetadata &radio_metadata);
+  DraSaRadio(DataStream &data_stream, const RadioMetadata radio_metadata);
   ~DraSaRadio();
 
   float GetRSSI();
 
-  bool Initialize();
+  bool Initialize(const std::string &init_frequency);
   bool PowerOn();
   bool PowerOff();
 
   bool PTTOn();
   bool PTTOff();
 
-  bool SetTXFrequency(const std::string &frequency);
-  bool SetRXFrequency(const std::string &frequency);
+  bool SetFrequency(const std::string &frequency);
+  // bool SetRXFrequency(const std::string &frequency);
   bool SetTXPowerLevel(TxPowerLevel power_level);
   bool SetBandwidth(Bandwidth bandwidth);
   bool SetSquelch(int squelch);
 
  private:
+  bool Handshake();
+  bool SetFilters();
+  bool SetGroup();
+  std::string SerialWriteRead(const std::string &command);
+
   interface::Serial serial_;
+
+  interface::Gpio gpio = {};
+  interface::Gpio::Pin ptt_gpio = {};
 
   int power_pin_;
   int ptt_pin_;
-  int squelch_pin_;
+  int squelch_detect_pin_;
 };
 
 }  // namespace radio

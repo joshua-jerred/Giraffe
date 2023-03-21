@@ -101,7 +101,8 @@ void DataModule::addConfigData(ConfigData config_data) {
   }
 
   if (config_data_.telemetry.radios.size() > 0) {
-    radio_data_source_ = config_data_.telemetry.radios[0].radio_name; /** @todo fix this */
+    radio_data_source_ =
+        config_data_.telemetry.radios[0].radio_name; /** @todo fix this */
   } else {
     error("NRAD");
   }
@@ -145,24 +146,23 @@ void DataModule::log() {
     DataFrame dataframe_copy(data_stream_.getDataFrameCopy());
     GPSFrame gps_data = latest_gps_frame_;
 
-    json gps_data_json = json::object({
-        {"source", gps_data.source},
-        {"time", gps_data.time},
-        {"fix", GPS_FIX_TO_STRING.at(gps_data.fix)},
-        {"satellites", gps_data.num_satellites},
-        
-        {"latitude", gps_data.latitude},
-        {"longitude", gps_data.longitude},
-        {"horz_accuracy", gps_data.horz_accuracy},
+    json gps_data_json =
+        json::object({{"source", gps_data.source},
+                      {"time", gps_data.time},
+                      {"fix", GPS_FIX_TO_STRING.at(gps_data.fix)},
+                      {"satellites", gps_data.num_satellites},
 
-        {"altitude", gps_data.altitude},
-        {"vert_accuracy", gps_data.vert_accuracy},
+                      {"latitude", gps_data.latitude},
+                      {"longitude", gps_data.longitude},
+                      {"horz_accuracy", gps_data.horz_accuracy},
 
-        {"v_speed", gps_data.vertical_speed},
-        {"speed", gps_data.ground_speed},
-        {"heading", gps_data.heading_of_motion},
-        {"heading_accuracy", gps_data.heading_accuracy}
-    });
+                      {"altitude", gps_data.altitude},
+                      {"vert_accuracy", gps_data.vert_accuracy},
+
+                      {"v_speed", gps_data.vertical_speed},
+                      {"speed", gps_data.ground_speed},
+                      {"heading", gps_data.heading_of_motion},
+                      {"heading_accuracy", gps_data.heading_accuracy}});
 
     std::time_t t = std::time(0);
     std::tm* now = std::localtime(&t);
@@ -185,7 +185,9 @@ void DataModule::log() {
       }
       data_json[type.source].push_back(data_item);
     }
-    json data_log_entry = {{"time", date_time_string}, {"data", data_json}, {"gps", gps_data_json}};
+    json data_log_entry = {{"time", date_time_string},
+                           {"data", data_json},
+                           {"gps", gps_data_json}};
 
     logfile << data_log_entry.dump() << std::endl;
   }
@@ -284,11 +286,17 @@ void DataModule::parseErrorStream() {
   for (int i = 0; i < packetCount; i++) {
     epacket = data_stream_.getNextErrorPacket();
 
-    if (!errorframe_.contains(
-            epacket.source + ":" +
-            epacket.error_code)) {  // Log the error if it doesn't exist
+    if (!errorframe_
+             .contains(/** @todo This will be a problem if the info changes */
+                       epacket.source + ":" +
+                       epacket
+                           .error_code)) {  // Log the error if it doesn't exist
       error_file << epacket.source << ", " << epacket.error_code << ", "
                  << epacket.info << std::endl;
+      if (config_data_.debug.print_errors) {
+        std::cout << epacket.source << ":" << epacket.error_code << " - "
+                  << epacket.info << std::endl;
+      }
     }
 
     errorframe_.insert_or_assign(epacket.source + ":" + epacket.error_code,

@@ -26,7 +26,7 @@ class Serial {
   int Connect();
   int Disconnect();
 
-  std::string Read();
+  std::string ReadLine();
   int Write(std::string data);
 
  private:
@@ -156,7 +156,7 @@ void interface::Serial::Disconnect() {
 
 bool interface::Serial::IsConnected() const { return connected_; }
 
-std::string interface::Serial::Read() {
+std::string interface::Serial::ReadLine() {
   if (!connected_) {
     throw interface::SerialException(
         interface::SerialException::Type::NOT_CONNECTED, 0,

@@ -26,7 +26,7 @@ TEST_F(SerialInterface, SerialInterface) {
     serial.Connect();
     serial.Write("AT+DMOCONNECT\r\n");
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    std::string response = serial.Read();
+    std::string response = serial.ReadLine();
     EXPECT_EQ(response, "+DMOCONNECT:0\r\n") << "Serial Handshake Failed";
   } catch (interface::SerialException& e) {
     FAIL() << e.what();

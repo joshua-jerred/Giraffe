@@ -39,17 +39,15 @@ bool FileExists(const std::string &name) {
  */
 TelemetryModule::TelemetryModule(ConfigData config_data, DataStream &data_stream)
     : Module(data_stream, configurables::prefix::kTelemetryModule, "telemetry"),
-      radio_metadata_(config_data.telemetry.radios),
       config_data_(config_data) {
   tx_number_ = 0;  // First tx id will be 1
-
-  if (radio_metadata_.size() == 0) {
+  std::vector<RadioMetadata> &radio_metadata_ = config_data_.telemetry.radios;
+  if (config_data_.telemetry.radios.size() == 0) {
     error("NO_RADIOS");
   } else {
     data("RADIOS", std::to_string(radio_metadata_.size()));
-  }
 
-  ChooseRadio();
+  }
 
   call_sign_ = config_data_.telemetry.call_sign;
 
@@ -85,7 +83,7 @@ void TelemetryModule::start() {
   }
 
   updateStatus(ModuleStatus::STARTING);
-
+  std::vector<RadioMetadata> &radio_metadata_ = config_data_.telemetry.radios;
   for (RadioMetadata &radio_metadata : radio_metadata_) {
     if (radio_metadata.radio_type == "dra-sa") {
       
@@ -94,6 +92,7 @@ void TelemetryModule::start() {
       error("UNKNOWN_RADIO_TYPE", radio_metadata.radio_type);
     }
   }
+  ChooseRadio();
 
   data("TX_Q_SZ", "0");
   data("ACTIVE_TX", "NONE");
@@ -102,12 +101,6 @@ void TelemetryModule::start() {
 }
 
 void TelemetryModule::stop() {
-  for (radio::Radio *radio : radios_) {
-    delete radio;
-    radio = nullptr;
-  }
-  radios_.clear();
-
   if (status() == ModuleStatus::STOPPED) {
     return;
   }
@@ -116,6 +109,11 @@ void TelemetryModule::stop() {
     tx_thread_.join();
     updateStatus(ModuleStatus::STOPPED);
   }
+  for (radio::Radio *radio : radios_) {
+    delete radio;
+    radio = nullptr;
+  }
+  radios_.clear();
 }
 
 /**
@@ -234,6 +232,10 @@ void TelemetryModule::sendSSTVImage() {
   Transmission newTX;
   newTX.type = Transmission::Type::SSTV;
   newTX.wav_location = GenerateSSTV(getNextTXNumber());
+  if (newTX.wav_location == "") {
+    error("SSTV_MF", "");
+    return;
+  }
   addToTXQueue(newTX);
 }
 
@@ -244,6 +246,7 @@ void TelemetryModule::sendSSTVImage() {
 int TelemetryModule::getNextTXNumber() { return tx_number_++; }
 
 void TelemetryModule::ChooseRadio() {
+  std::vector<RadioMetadata> &radio_metadata_ = config_data_.telemetry.radios;
   if (radio_metadata_.size() == 0) {
     error("NO_RADIOS", "");
   }
@@ -265,6 +268,9 @@ void TelemetryModule::ChooseRadio() {
 
   if (num_enabled == 0) {
     error("NO_EN_RAD", "");
+    primary_radio_ = nullptr;
+  } else {
+    primary_radio_ = radios_[primary_radio_index_];
   }
   data("PRI_RAD", radio_metadata_[primary_radio_index_].radio_name);
 }
@@ -413,7 +419,26 @@ std::string TelemetryModule::GenerateSSTV(const int tx_number) {
 
 void TelemetryModule::runner() {
   updateStatus(ModuleStatus::RUNNING);
+
+  if (primary_radio_ == nullptr) {
+    error("NO_PRIM_RADIO");
+    updateStatus(ModuleStatus::STOPPED);
+    return;
+  }
+
   while (!stop_flag_) {
+    if (primary_radio_->GetStatus() != radio::Status::CONFIGURED) {
+      if (primary_radio_->GetStatus() == radio::Status::OFF) {
+        primary_radio_->PowerOn();
+        primary_radio_->Initialize(config_data_.telemetry.data_packets_freq);
+      }
+      if (primary_radio_->GetStatus() == radio::Status::ERROR) {
+        error("PRIM_RADIO_ERR");
+        updateStatus(ModuleStatus::STOPPED);
+        primary_radio_->Initialize(config_data_.telemetry.data_packets_freq);
+      }
+    }
+
     // Check for commands
     parseCommands();
 
@@ -433,12 +458,15 @@ void TelemetryModule::runner() {
 
       switch (tx.type) {
         case Transmission::Type::APRS:
+          primary_radio_->SetFrequency(config_data_.telemetry.aprs_freq);
           Transmit(tx.wav_location, "APRS", tx.length);
           break;
         case Transmission::Type::SSTV:
+          primary_radio_->SetFrequency(config_data_.telemetry.sstv_freq);
           Transmit(tx.wav_location, "SSTV", tx.length);
           break;
         case Transmission::Type::DATA:
+          primary_radio_->SetFrequency(config_data_.telemetry.data_packets_freq);
           Transmit(tx.wav_location, "PSK", tx.length);
           break;
         default:
@@ -454,6 +482,15 @@ void TelemetryModule::runner() {
 
 void TelemetryModule::Transmit(std::string wav_location, std::string tx_type,
                               int tx_length) {
+  if (primary_radio_->GetStatus() != radio::Status::CONFIGURED) {
+    error("RAD_NCFG");
+    return;
+  }
+  if (!primary_radio_->PTTOn()) {
+    primary_radio_->PTTOff();
+    error("RAD_PTT_ERR");
+    return;
+  }
   std::string command =
       "aplay " + wav_location +
       " >nul 2>nul";  // command to play with aplay suppress output
@@ -487,4 +524,5 @@ void TelemetryModule::Transmit(std::string wav_location, std::string tx_type,
   if (!std::filesystem::remove(wav_location)) {
     error("DEL_WAV", wav_location);
   }
+  primary_radio_->PTTOff();
 }
