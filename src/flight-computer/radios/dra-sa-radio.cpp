@@ -24,6 +24,16 @@ DraSaRadio::DraSaRadio(DataStream &data_stream,
       ptt_pin_(radio_metadata.gpio_ptt),
       squelch_detect_pin_(radio_metadata.gpio_squelch_detect) {
   std::cout << "PTT Pin: " << ptt_pin_ << std::endl;
+  try {
+    serial_.Connect();
+    if (!serial_.IsConnected()) {
+      radio_status_ = Status::ERROR;
+      error("UART_CONNECT");
+    }
+  } catch (interface::SerialException &e) {
+    radio_status_ = Status::ERROR;
+    error("UART_INIT", e.what());
+  }
   if (!gpio.IsInitialized()) {
     radio_status_ = Status::ERROR;
     error("GPIO_INIT");
@@ -60,7 +70,6 @@ float DraSaRadio::GetRSSI() {
 bool DraSaRadio::Initialize(const std::string &init_frequency) {
   std::cout << "Initialize" << std::endl;
   SetFrequency(init_frequency);
-  /* DEBUG
   if (!Handshake()) {
     radio_status_ = Status::ERROR;
     error("INIT_HS");
@@ -73,7 +82,6 @@ bool DraSaRadio::Initialize(const std::string &init_frequency) {
     radio_status_ = Status::ERROR;
     error("INIT_SG");
   }
-  */
   radio_status_ = Status::NOT_CONFIGURED;
   return true;
 }
@@ -91,8 +99,8 @@ bool DraSaRadio::PowerOff() {
 bool DraSaRadio::PTTOn() {
   try {
     gpio.Write(ptt_gpio, true);
-    std::this_thread::sleep_for(
-        std::chrono::milliseconds(radio_metadata_.ptt_delay));  // Wait for radio to settle
+    std::this_thread::sleep_for(std::chrono::milliseconds(
+        radio_metadata_.ptt_delay));  // Wait for radio to settle
   } catch (interface::Gpio::GpioException &e) {
     radio_status_ = Status::ERROR;
     error("GPIO_PTT_T");
@@ -198,9 +206,9 @@ bool DraSaRadio::Handshake() {
 
 bool DraSaRadio::SetFilters() {
   // Not control of this is implemented
-  // AT+DMOSETFILTER=PRE/DE-EMPHASIS, HIGH PASS, LOW PASS
+  // AT+SETFILTER=PRE/DE-EMPHASIS, HIGH PASS, LOW PASS
   // 0 = on, 1 = off
-  const std::string command = "AT+DMOSETFILTER=0,0,0\r\n";
+  const std::string command = "AT+SETFILTER=1,0,0\r\n";
   const std::string expected_response = "+DMOSETFILTER:0\r\n";
   std::string response = SerialWriteRead(command);
   if (response == expected_response) {
@@ -212,7 +220,6 @@ bool DraSaRadio::SetFilters() {
 }
 
 bool DraSaRadio::SetGroup() {
-  return true;  // DEBUG
   // AT+DMOSETGROUP= Bandwidth，TFV，RFV，Tx_CXCSS，SQ，Rx_CXCSS
 
   // 0 = 25 kHz kHz, 1 = 12.5 kHz
@@ -246,10 +253,10 @@ bool DraSaRadio::SetGroup() {
   std::string sq = std::to_string(squelch_);
 
   // Put it all together
-  std::string command = "AT+DMOSETGROUP" + bandwidth + "," + tx_frequency_ +
+  std::string command = "AT+DMOSETGROUP=" + bandwidth + "," + tx_frequency_ +
                         "," + rx_frequency_ + "," + tx_ctcss + "," + sq + "," +
                         rx_ctcss + "\r\n";
-  std::string expected_response = "+DMOSETGROUP=0\r\n";
+  std::string expected_response = "+DMOSETGROUP:0\r\n";
 
   std::string response = SerialWriteRead(command);
   if (response != expected_response) {
@@ -260,13 +267,17 @@ bool DraSaRadio::SetGroup() {
 }
 
 std::string DraSaRadio::SerialWriteRead(const std::string &command) {
-  const int wait_for_response_time_ = 100;  // ms
+  const int wait_for_response_time_ = 200;  // ms
 
   try {
+    std::this_thread::sleep_for(
+        std::chrono::milliseconds(wait_for_response_time_));
+    std::cout << command << std::endl;
     serial_.Write(command);
     std::this_thread::sleep_for(
         std::chrono::milliseconds(wait_for_response_time_));
     std::string response = serial_.ReadLine();
+    std::cout << response << std::endl;
     return response;
   } catch (const interface::SerialException &e) {
     error("SE", e.what());

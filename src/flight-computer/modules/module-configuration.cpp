@@ -835,10 +835,18 @@ void ConfigModule::parseTelemetry() {
       data_packets_mode = configurables::config_defaults::kDataPacketsMode;
     }
 
+    bool morse_callsign = GetBool(data_packets, "morse-callsign", false);
+
+    std::string data_packet_comment = GetString(data_packets, "comment");
+
+
+
     // Set in config_data_
     config_data_.telemetry.data_packets_enabled = true;
     config_data_.telemetry.data_packets_freq = data_packets_frequency;
     config_data_.telemetry.data_packets_mode = data_packets_mode;
+    config_data_.telemetry.data_packets_morse_callsign = morse_callsign;
+    config_data_.telemetry.data_packets_comment = data_packet_comment;
   }  // End Data Packets
 }
 

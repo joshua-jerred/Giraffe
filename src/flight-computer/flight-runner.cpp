@@ -8,11 +8,13 @@
  * @date 2022-10-10
  * @copyright Copyright (c) 2022
  */
+#include "data-stream.h"
 #include "flight-runner.h"
 
 #include <filesystem>
 
 #include "interface.h"
+
 
 FlightRunner::FlightRunner()
     : current_flight_procedure_type_(FlightProcedure::Type::FAILSAFE),
@@ -32,6 +34,9 @@ void CheckForOrCreateDirectory(std::string path) {
 }
 
 int FlightRunner::start() {
+  std::cout << "Giraffe Flight Software v" << configurables::kGiraffeVersion
+            << std::endl;
+
   // Check for working directories
   CheckForOrCreateDirectory(configurables::file_paths::kDataLogLocation);
   CheckForOrCreateDirectory(configurables::file_paths::kErrorLogLocation);
@@ -54,7 +59,7 @@ int FlightRunner::start() {
 
   // The config module is not needed after loading config data
   // This may change in the future
-  delete config;  
+  delete config;
 
   p_data_module_->addConfigData(
       config_data_);  // Add the config data to the DataModule
@@ -68,8 +73,7 @@ int FlightRunner::start() {
       interface::Gpio::Initialize();
       std::cout << "Success" << std::endl;
     } catch (interface::Gpio::GpioException& e) {
-      std::cout << "Failed: " << e.what()
-                << std::endl;
+      std::cout << "Failed: " << e.what() << std::endl;
     }
   }
 
@@ -292,7 +296,7 @@ void FlightRunner::deconstruct() {
     try {
       interface::Gpio::Close();
       std::cout << "Closed" << std::endl;
-    } catch (interface::Gpio::GpioException &e) {
+    } catch (interface::Gpio::GpioException& e) {
       std::cout << "Error: " << e.what() << std::endl;
     }
   } else {

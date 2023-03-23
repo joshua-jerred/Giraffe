@@ -37,7 +37,8 @@ bool FileExists(const std::string &name) {
  * @param config_data All configuration data.
  * @param data_stream A pointer to the data stream.
  */
-TelemetryModule::TelemetryModule(ConfigData config_data, DataStream &data_stream)
+TelemetryModule::TelemetryModule(ConfigData config_data,
+                                 DataStream &data_stream)
     : Module(data_stream, configurables::prefix::kTelemetryModule, "telemetry"),
       config_data_(config_data) {
   tx_number_ = 0;  // First tx id will be 1
@@ -46,7 +47,6 @@ TelemetryModule::TelemetryModule(ConfigData config_data, DataStream &data_stream
     error("NO_RADIOS");
   } else {
     data("RADIOS", std::to_string(radio_metadata_.size()));
-
   }
 
   call_sign_ = config_data_.telemetry.call_sign;
@@ -86,7 +86,6 @@ void TelemetryModule::start() {
   std::vector<RadioMetadata> &radio_metadata_ = config_data_.telemetry.radios;
   for (RadioMetadata &radio_metadata : radio_metadata_) {
     if (radio_metadata.radio_type == "dra-sa") {
-      
       radios_.push_back(new radio::DraSaRadio(data_stream_, radio_metadata));
     } else {
       error("UNKNOWN_RADIO_TYPE", radio_metadata.radio_type);
@@ -326,7 +325,11 @@ std::string TelemetryModule::generatePSK(const std::string &message,
   bool res = false;
 
   try {
-    res = mwav::EncodeString(mode, message, file_path, call_sign_);
+    if (config_data_.telemetry.data_packets_morse_callsign) {
+      res = mwav::EncodeString(mode, message, file_path, call_sign_);
+    } else {
+      res = mwav::EncodeString(mode, message, file_path);
+    }
   } catch (mwav::Exception &e) {
     error("PSK_EX", e.what());
     return "";
@@ -466,7 +469,8 @@ void TelemetryModule::runner() {
           Transmit(tx.wav_location, "SSTV", tx.length);
           break;
         case Transmission::Type::DATA:
-          primary_radio_->SetFrequency(config_data_.telemetry.data_packets_freq);
+          primary_radio_->SetFrequency(
+              config_data_.telemetry.data_packets_freq);
           Transmit(tx.wav_location, "PSK", tx.length);
           break;
         default:
@@ -481,7 +485,7 @@ void TelemetryModule::runner() {
 }
 
 void TelemetryModule::Transmit(std::string wav_location, std::string tx_type,
-                              int tx_length) {
+                               int tx_length) {
   if (primary_radio_->GetStatus() != radio::Status::CONFIGURED) {
     error("RAD_NCFG");
     return;

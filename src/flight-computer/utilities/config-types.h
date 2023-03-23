@@ -194,9 +194,10 @@ struct ConfigData {
         bool sstv_overlay_data = true;
 
         bool data_packets_enabled = false;
-        std::string data_packets_freq {};
-        std::string data_packets_mode {};
-
+        std::string data_packets_freq = "";
+        std::string data_packets_mode = "";
+        bool data_packets_morse_callsign = false;
+        std::string data_packets_comment = "";
     };
 
     struct DataTypes {
