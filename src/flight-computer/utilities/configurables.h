@@ -13,7 +13,8 @@
 #include <string>
 
 namespace configurables{
-  const std::string GIRAFFE_VERSION = "@PROGRAM_VERSION@"; // This is set by CMake
+  const std::string kGiraffeVersion = GIRAFFE_VERSION_NUMBER; // This is set by CMake
+  const std::string kGiraffeVersionStage = GIRAFFE_VERSION_STAGE; // This is set by CMake
   namespace config_defaults {
     static const std::string kAprsFrequency = "144.390";
     static const uint8_t kAprsSourceSSID = 0;

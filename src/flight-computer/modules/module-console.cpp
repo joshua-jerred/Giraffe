@@ -102,7 +102,7 @@ void ConsoleModule::clearScreen() {
  */
 void ConsoleModule::printData() {
     std::cout << "GFS  -  Giraffe Flight Software  -  V" + 
-    configurables::GIRAFFE_VERSION << std::endl;
+    configurables::kGiraffeVersion << std::endl;
     std::time_t t = std::time(0);   // get time now
     std::tm* now = std::localtime(&t);
     std::cout << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec

@@ -173,7 +173,7 @@ void ServerModule::sendConfig(ServerSocket &socket) {
   }
   general_config["starting-procedure"] = starting_proc;
 
-  general_config["gfs-version"] = configurables::GIRAFFE_VERSION;
+  general_config["gfs-version"] = configurables::kGiraffeVersion;
 
   json debug_config;
   debug_config["console-enabled"] = config_data_.debug.console_enabled;
