@@ -18,6 +18,9 @@ for the latest additions.
 
 ## Table of Contents <!-- omit from toc -->
 - [About](#about)
+  - [Current High Level Functionality](#current-high-level-functionality)
+  - [Planned High Level Functionality Prior to the First Flight](#planned-high-level-functionality-prior-to-the-first-flight)
+  - [Development Details](#development-details)
 - [Hardware](#hardware)
   - [Hat](#hat)
   - [Shoe](#shoe)
@@ -57,13 +60,32 @@ ground station software. The purpose of this project is mainly to have a
 'learning lab' where I can experiment with all of the things that I'm interested 
 in.
 
+## Current High Level Functionality
+- Detailed configuration file which allows for quick and easy setup of every 
+  aspect of the flight software. (See [Flight Software Configuration](#flight-software-configuration))
+- Sensors/Extensions are modular and can fail without affecting the rest of the
+  flight computer. They're also threaded so that they can be continuously
+  reading data without interfering with other components.
+- Telemetry support for APRS, SSTV, and Data Packets.
+- Aggressive error handling for all software components. Everything is designed
+  to be able to fail gracefully and recover when possible.
+- Web interface for flight computer debugging, configuration, and control.
+- Detailed and configurable logging of data and telemetry.
+
+## Planned High Level Functionality Prior to the First Flight
+- Support for the BMI088 6-Axis IMU
+- Command reception from the ground station to the flight computer
+- Full configuration via the web interface
+- Ground Station software using the same web interface
+
+## Development Details
 The flight software is written in C++, the web server in Python, and the web
 interface is plain HTML, CSS, and JavaScript.
 
 Being a 'learning lab' project, nearly everything is built from the ground up 
 including my own implementations of:
 - Linux I2C and Serial wrappers
-- Raspberry Pi BCM Interface for direct GPIO control
+- BCM Interface for direct GPIO control on the Raspberry Pi
 - Device Drivers
    - BMP180 (I2C Environmental Sensor)
    - BME280 (I2C Environmental Sensor)
@@ -77,6 +99,16 @@ including my own implementations of:
 - A web interface for flight computer debugging, configuration, and control
 - Custom hardware for the flight computer
 - Simple configuration file for the flight computer
+
+Libraries that I've written for this project:
+- [WavGen, a .wav File Generator](https://github.com/joshua-jerred/WavGen)
+- [MWAV, a library for modulating AFSK, AX.25, APRS, PSK31, and SSTV signals using WavGen](https://github.com/joshua-jerred/MWAV)
+- [SSTV Image Tools, a library for overlaying text and getting pixel data for SSTV images](https://github.com/joshua-jerred/SSTV-Image-Tools)
+
+Places where I used existing libraries:
+- JSON parsing for the web server module and configuration reading (nlohmann/json)
+- Image Manipulation for PNG/JPEG support in my SSTV Image Tools Library (Magick++)
+- Google Test for unit testing
 
 Everything is designed to be modular and extensible so that it can be used for
 all types of HAB flights or other implementations. The software is made to work 
