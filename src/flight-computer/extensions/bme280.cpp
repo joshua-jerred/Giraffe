@@ -11,6 +11,8 @@
  * @version 0.3
  * 
  * @todo Error detection after configuration in the runner
+ * @todo Documentation
+ * @todo Unit Tests
  */
 
 #include "extensions.h"

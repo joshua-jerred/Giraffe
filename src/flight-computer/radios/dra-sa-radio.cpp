@@ -5,6 +5,10 @@
  * @date 2023-02-25
  * @copyright Copyright (c) 2023
  * @version 0.4
+ * 
+ * @todo Documentation
+ * @todo Unit Tests
+ * @warning This is currently an early implementation for basic testing.
  */
 
 #include <iostream>

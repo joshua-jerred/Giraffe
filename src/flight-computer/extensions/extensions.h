@@ -112,8 +112,7 @@ class ExtensionException {
 };
 
 /**
- * @brief BMP180 sensor extension.
- *
+ * @brief BMP180 I2C temperature and pressure sensor driver/extension.
  */
 class BMP180 : public Extension {
  public:
@@ -177,6 +176,9 @@ class BMP180 : public Extension {
   int P_ = 0;
 };
 
+/**
+ * @brief DS18B20 1Wire temperature sensor driver/extension.
+ */
 class DS18B20 : public Extension {
  public:
   DS18B20(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
@@ -197,6 +199,9 @@ class DS18B20 : public Extension {
   interface::OneWire one_wire_device_;
 };
 
+/**
+ * @brief SAM-M8Q I2C GPS sensor driver/extension.
+ */
 class SAMM8Q : public Extension {
  public:
   SAMM8Q(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
@@ -275,6 +280,11 @@ class BME280 : public Extension {
   float rh_ = 0.0;
 };
 
+/**
+ * @brief SYSINFO extension for reading system information.
+ * @details Functional on Linux machines. Includes CPU, RAM, and Disk 
+ * Information.
+ */
 class SYSINFO : public Extension {
  public:
   SYSINFO(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
@@ -282,6 +292,11 @@ class SYSINFO : public Extension {
   int runner();
 };
 
+/**
+ * @brief MAX17049 I2C Fuel Gauge driver/extension.
+ * @details This was removed from the hardware, it will probably be removed.
+ * @todo Remove this extension.
+ */
 class MAX17049 : public Extension {
  public:
   MAX17049(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
@@ -300,6 +315,10 @@ class MAX17049 : public Extension {
   float soc_ = 0.0;
 };
 
+/**
+ * @brief MCP3021 I2C ADC driver/extension for reading voltage.
+ * @todo Resistor values should be read from the config file.
+ */
 class MCP3021 : public Extension {
  public:
   MCP3021(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
@@ -321,6 +340,10 @@ class MCP3021 : public Extension {
   float resistor_2_;
 };
 
+/**
+ * @brief Raspberry Pi Camera extension.
+ * @todo Needs a major overhaul, temporary implementation.
+ */
 class RaspPiCamera : public Extension {
  public:
   RaspPiCamera(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
@@ -341,6 +364,10 @@ class RaspPiCamera : public Extension {
 -------------------------------------------------------------------------------
 */
 
+/**
+ * @brief Simulated pressure sensor extension.
+ * @details Simulates pressure readings, not based on real data/physics.
+ */
 class PRESS_SENSOR_SIM : public Extension {
  public:
   PRESS_SENSOR_SIM(DataStream *p_data_stream,
@@ -364,6 +391,10 @@ class PRESS_SENSOR_SIM : public Extension {
       (apogee_pressure_ - landing_pressure_) / seconds_to_landing_;
 };
 
+/**
+ * @brief Simulated temperature sensor extension.
+ * @details Not based on real data/physics.
+ */
 class TEMP_SENSOR_SIM : public Extension {
  public:
   TEMP_SENSOR_SIM(DataStream *p_data_stream,
@@ -372,6 +403,10 @@ class TEMP_SENSOR_SIM : public Extension {
   int runner();
 };
 
+/**
+ * @brief No longer used, to be removed.
+ * @todo Remove this extension.
+ */
 class RADIO_SIM : public Extension {
  public:
   RADIO_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
@@ -379,6 +414,10 @@ class RADIO_SIM : public Extension {
   int runner();
 };
 
+/**
+ * @brief Simulated GPS extension, not based on real data/physics.
+ * @todo Needs to be updated to use the new GPSFrame data structure.
+ */
 class GPS_SIM : public Extension {
  public:
   GPS_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
@@ -391,6 +430,10 @@ class GPS_SIM : public Extension {
   float altitude_ = 0.0;
 };
 
+/**
+ * @brief Simulated battery sensor extension.
+ * @todo Verify compatibility with critical data structures.
+ */
 class BATT_SENSOR_SIM : public Extension {
  public:
   BATT_SENSOR_SIM(DataStream *p_data_stream,

@@ -7,6 +7,9 @@
  * @version 0.3
  * @date 2023-01-06
  * @copyright Copyright (c) 2023
+ * 
+ * @todo Documentation
+ * @todo Unit Tests
  */
 #include <cstdint>
 #include <cstdio>

@@ -6,6 +6,7 @@
  * @date 2022-09-25
  *
  * @copyright Copyright (c) 2022
+ * @todo Documentation
  */
 
 #ifndef MODULE_H_

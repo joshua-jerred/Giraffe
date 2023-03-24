@@ -1,5 +1,45 @@
 # GFS Version Change Log
 
+## 0.4
+2023-03-23
+The 0.4 iteration produced the first "fully functional" version of the flight
+software. There was again a focus on the hardware and software for this 
+iteration. Telemetry (out) is now functional including SSTV, APRS, and PSK
+on separate frequencies.
+
+### Software
+- Telemetry
+  - Implemented AX.25 protocol alongside APRS in MWAV
+    - Added APRS position packets in the telemetry module
+  - Implemented SSTV in MWAV and added to the telemetry module
+  - Created a simple image tools library for image manipulation (callsign)
+  - Logic for radio control including frequency switching and future flexibility
+      for multiple radios.
+- MCP3021 ADC driver
+- Better handling of GPS data along with data anomaly detection
+- SA868 driver (flexible for other DRA/SA modules)
+- BCM GPIO implementation that will be used across the threads
+- Web server overhaul
+  - Switched to using Flask
+  - More reliable but still needs work
+  - Completely different site structure and design
+  - Basic linux service implementation
+- Large server module changes to support the new web server
+- Large structure changes to the project
+  - CMake overhaul
+  - Submoduled MWAV, WavGen, and SSTV Image Tools
+- Various bug fixes and small improvements
+
+### Hardware
+The main flight computer PCB (Hat) was tested and debugged along side the 
+prototype boards that will be made into the telemetry PCB (Shoe). The Hat
+is mostly functional but has major issues with it's power supply. The Shoe
+prototype board was also nearly fully functional but had issues with it's
+power switching circuit and the squelch detection circuit. The sound card
+is fully functional but may require better filtering.
+
+
+
 ## 0.3
 2023-01-06
  - This iteration focused on working with the actual GFC hardware for the first time,

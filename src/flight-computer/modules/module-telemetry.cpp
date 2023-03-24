@@ -6,6 +6,9 @@
  * @version 0.1.0
  * @date 2022-10-11
  * @copyright Copyright (c) 2022
+ * 
+ * @todo Documentation
+ * @todo Unit Tests
  */
 
 #include <atomic>

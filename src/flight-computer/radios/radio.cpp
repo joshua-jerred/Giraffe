@@ -5,6 +5,9 @@
  * @date 2023-03-17
  * @copyright Copyright (c) 2023
  * @version 0.4
+ * 
+ * @todo Documentation
+ * @todo Unit Tests
  */
 
 #include "radio.h"

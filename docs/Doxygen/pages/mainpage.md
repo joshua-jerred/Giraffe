@@ -3,13 +3,22 @@
 
 ![Logo](logo-small.png)
 
-V0.3
+V0.4
 
 # Giraffe Flight Software (GFS)
 ### A project by Joshua Jerred
 https://joshuajer.red/
 
 https://github.com/joshua-jerred/Giraffe
+
+## Important Warning
+- This project is still in early stages of development. It is not quite ready
+for use on a HAB flight. 
+- I've recently switched to a 'faster' development cycle. This means that
+this documentation is unfortunately not fully up to date. The majority of the
+documentation is from iteration 0.2.
+- If you have any questions, comments, or anything please feel free to reach out!
+
 ## General
 
 GFS, or Giraffe Flight System, is what actually runs on the flight computer.

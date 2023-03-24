@@ -7,7 +7,9 @@
  * @date 2023-01-06
  * @copyright Copyright (c) 2023
  *
- * @todo Add SPI and UART support
+ * @todo Add SPI
+ * @todo Documentation
+ * @todo Unit Tests
  */
 
 #ifndef EXTENSION_INTERFACE_H_
@@ -140,16 +142,36 @@ class SerialException : public std::exception {
   std::string message_;
 };
 
+/**
+ * @brief This class is used to interface extensions with the BCM Gpio pins.
+ * @details Currently this only supports the Raspberry Pi. It has not been
+ * thoroughly tested.
+ *
+ * Detailed Documentation of the methods can be found in gpio.cpp
+ *
+ * @todo Unit Tests
+ * @bug If Gpio::Close() is called, instances of Gpio may have weird behavior.
+ */
 class Gpio {
  public:
+  /**
+   * @brief PinMode is used to specify the mode of a pin, i.e. input or output.
+   * @details UNINITIALIZED is only used internally, using it will result in a
+   * GpioException.
+   */
   enum class PinMode { INPUT, OUTPUT, UNINITIALIZED };
+
+  /**
+   * @brief Pin is used to safely pass pin information to the Gpio class.
+   * @todo Make this struct immutable.
+   */
   struct Pin {
     Pin(uint8_t bcm_pin_number, PinMode mode, bool initial_state = false);
     Pin()
-        : pin_number_(0),
+        : pin_number_(-1),
           mode_(PinMode::UNINITIALIZED),
           initial_state_(false) {}
-          
+
     std::string ToString() const;
 
     uint8_t pin_number_ = 0;
@@ -166,6 +188,10 @@ class Gpio {
   void Write(Pin pin, bool on);
   bool Read(Pin pin);
 
+  /**
+   * @brief GpioException is used to throw exceptions related to the Gpio class.
+   * @details Currently this only contains a message.
+   */
   class GpioException : public std::exception {
    public:
     GpioException(std::string message) : message_(message) {}
@@ -179,7 +205,7 @@ class Gpio {
   // gpio_lock_ must  be held before calling these functions
   bool VerifyInitialized();
   void ReservePin(Pin pin);
-  bool IsPinReserved(const Pin &pin);
+  bool IsPinReserved(const Pin& pin);
 
   bool IsOwner(const Pin& pin);
   void SetOwner(const Pin& pin);
@@ -189,12 +215,42 @@ class Gpio {
 
   volatile uint32_t* CalculateAddress(uint8_t pin_number, uint8_t offset);
 
+  /**
+   * @brief The Gpio memory map is used store the mapping to the BCM registers.
+   * @details Initialized in Gpio::Initialize().
+   */
   static volatile uint32_t* gpio_memory_map_;
-  static std::array<Pin, 28> reserved_pins_;
-  uint32_t pins_owned_ = 0; // Bitmask of pins owned by this instance
 
+  /**
+   * @brief This array is used to keep track of which pins are reserved.
+   * @details Initialized in Gpio::Initialize(), all pins are initially
+   * set with mode PinMode::UNINITIALIZED and a pin number of -1.
+   * 
+   * @see Gpio::ReservePin()
+   * @see Gpio::IsPinReserved()
+   * @see Gpio::Close()
+   */
+  static std::array<Pin, 28> reserved_pins_;
+
+  /**
+   * @brief Contains the pins owned by a particular instance of Gpio.
+   * @details This is a bitmask, where each bit corresponds to a pin.
+   * 
+   * @see Gpio::SetOwner()
+   * @see Gpio::IsOwner()
+   */
+  uint32_t pins_owned_ = 0;  // Bitmask of pins owned by this instance
+
+  /**
+   * @brief This mutex is used to ensure that only one instance of Gpio can
+   * access the BCM registers at a time along with static members.
+   */
   static std::mutex gpio_lock_;
 
+  /**
+   * @brief Size of the memory map, one page.
+   * @todo I need to find a source for this.
+   */
   static const uint32_t kGpioMemoryMapSize = 0x1000;
 };
 

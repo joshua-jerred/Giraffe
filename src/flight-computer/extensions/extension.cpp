@@ -7,6 +7,9 @@
  * @version 0.0.9
  * @date 2022-10-09
  * @copyright Copyright (c) 2022
+ * 
+ * @todo Documentation
+ * @todo Unit Tests
  */
 
 #include <string>

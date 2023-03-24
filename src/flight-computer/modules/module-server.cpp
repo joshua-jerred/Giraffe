@@ -14,6 +14,10 @@
  * @date 2023-01-05
  * @copyright Copyright (c) 2023
  * @version 0.3
+ * 
+ * @todo Needs an overhaul to match new structure and better API design
+ * @todo Network Socket
+ * @todo Unit Tests
  */
 
 #include <ctime>

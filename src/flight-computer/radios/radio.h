@@ -8,6 +8,8 @@
  * @date 2023-03-17
  * @copyright Copyright (c) 2023
  * @version 0.1
+ * 
+ * @todo Documentation
  */
 
 #ifndef RADIO_H_

@@ -6,6 +6,9 @@
  * @version 0.1
  * @date 2022-10-03
  * @copyright Copyright (c) 2022
+ * 
+ * @todo Documentation updates
+ * @todo Unit tests
  */
 
 #include <filesystem>

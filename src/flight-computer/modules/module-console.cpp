@@ -6,6 +6,8 @@
  * @version 0.0.9
  * @date 2022-10-10
  * @copyright Copyright (c) 2022
+ * 
+ * @todo Needs updates to match new structure
  */
 
 #include <iomanip>

@@ -8,7 +8,9 @@
  * @copyright Copyright (c) 2022
  * @version 0.1.0
  * 
- * @todo No need for the macros here
+ * @todo Desperately need to remove the macros from this file.
+ * @todo Documentation
+ * @todo Unit Tests
  */
 
 #include <string>

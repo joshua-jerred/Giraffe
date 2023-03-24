@@ -5,6 +5,8 @@
  * @date 2023-02-25
  * @copyright Copyright (c) 2023
  * @version 0.4
+ * 
+ * @todo In desperate need of a better implementation.
  */
 
 /*
