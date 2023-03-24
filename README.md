@@ -254,6 +254,10 @@ CMake will automatically download and build the following 3rd party libraries:
 # Clone the repo with it's submodules (MWAV, WAVGen, and SSTV Image Tools)
 git clone --recurse-submodules https://github.com/joshua-jerred/Giraffe.git
 
+# If using the --recurse-submodules flag didn't work for any reason, you can use:
+# git submodule update --init --recursive --remote
+# and then pull the latest change.
+
 # Move into the repo and create a build directory
 cd Giraffe && mkdir build && cd build
 
