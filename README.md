@@ -24,11 +24,11 @@ for the latest additions.
 - [Hardware](#hardware)
   - [Hat](#hat)
   - [Shoe](#shoe)
-- [Building and Installing the Flight Software](#building-and-installing-the-flight-software)
-  - [Installing Prerequisites](#installing-prerequisites)
 - [Interface](#interface)
     - [Web Interface](#web-interface)
     - [CLI](#cli)
+- [Building and Installing the Flight Software](#building-and-installing-the-flight-software)
+  - [Installing Prerequisites](#installing-prerequisites)
   - [Building the Flight Software](#building-the-flight-software)
 - [Flight Software Configuration](#flight-software-configuration)
   - [Overview](#overview)
@@ -105,7 +105,7 @@ Libraries that I've written for this project:
 - [MWAV, a library for modulating AFSK, AX.25, APRS, PSK31, and SSTV signals using WavGen](https://github.com/joshua-jerred/MWAV)
 - [SSTV Image Tools, a library for overlaying text and getting pixel data for SSTV images](https://github.com/joshua-jerred/SSTV-Image-Tools)
 
-Places where I used existing libraries:
+Where I used existing 3rd party libraries:
 - JSON parsing for the web server module and configuration reading (nlohmann/json)
 - Image Manipulation for PNG/JPEG support in my SSTV Image Tools Library (Magick++)
 - Google Test for unit testing
@@ -215,22 +215,6 @@ ordering this one.
 >Unfortunately, I don't have the equipment to test it properly, but the SA868
 >PCB includes a low pass filter to take care of the messy RF output that these
 >modules are known to have.
-***
-# Building and Installing the Flight Software
-## Installing Prerequisites
-
-```bash
-# For the flight software
-sudo apt install build-essential cmake libi2c-dev
-
-# For the web interface/server
-sudo apt install python3 python3-pip
-pip3 install flask
-```
-
-CMake will automatically download and build the following 3rd party libraries:
-- Nlohmann JSON
-- Google Test
 
 ***
 
@@ -248,6 +232,22 @@ is native to the flight computer software.
 ![image](https://user-images.githubusercontent.com/19292194/211131919-e34518e6-2f79-4cfe-aa36-dedf77819e29.png)
 
 ***
+
+# Building and Installing the Flight Software
+## Installing Prerequisites
+
+```bash
+# For the flight software
+sudo apt install build-essential cmake libi2c-dev
+
+# For the web interface/server
+sudo apt install python3 python3-pip
+pip3 install flask
+```
+
+CMake will automatically download and build the following 3rd party libraries:
+- Nlohmann JSON
+- Google Test
 
 ## Building the Flight Software
 ```bash
@@ -724,8 +724,13 @@ click the connect button and it should start working!
 
 
 ***
+***
+***
+
 
 # Other Details/Notes
+
+The following is from the previous README.
 
 Currently working on hardware prototypes.
 The radio/telemetry module will be on a separate board.
