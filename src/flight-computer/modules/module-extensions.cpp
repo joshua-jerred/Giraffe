@@ -161,8 +161,6 @@ void ExtensionsModule::addExtension(ExtensionMetadata meta_data) {
         extensions_.push_back(new extension::PRESS_SENSOR_SIM(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "TEMP_SENSOR_SIM") {
         extensions_.push_back(new extension::TEMP_SENSOR_SIM(&data_stream_, meta_data));
-    } else if (meta_data.extension_type == "RADIO_SIM") {
-        extensions_.push_back(new extension::RADIO_SIM(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "GPS_SIM") {
         extensions_.push_back(new extension::GPS_SIM(&data_stream_, meta_data));
     } else if (meta_data.extension_type == "BATT_SENSOR_SIM") {
