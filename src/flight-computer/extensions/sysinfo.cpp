@@ -6,11 +6,16 @@
  * @version 0.3
  * @date 2023-01-06
  * @copyright Copyright (c) 2023
+ * 
+ * @todo Documentation
+ * @todo Unit Tests
  */
 
 #include <sys/sysinfo.h> // for sysinfo  (CPU, RAM)
 #include <sys/statfs.h>  // for statfs   (disk info)
 #include <fstream>       // for ifstream (CPU temp)
+#include <ctime>         // for time_t   (time)
+#include <sstream>       // for stringstream (time)
 
 #include "extensions.h"
 
@@ -87,6 +92,14 @@ namespace ex_internal {
             (info.total_gb - info.free_space_gb) / info.total_gb * 100.0;
         return true;
     }
+
+    std::string sysUtcTime() {
+        std::time_t t = std::time(nullptr);
+        std::tm tm = *std::gmtime(&t);
+        char buf[15];
+        std::strftime(buf, sizeof(buf), "%X", &tm);
+        return buf;
+    }
 }
 
 extension::SYSINFO::SYSINFO(
@@ -133,6 +146,8 @@ int extension::SYSINFO::runner() {
         } else {
             error("DI");
         }
+
+        sendData("utc_time", ex_internal::sysUtcTime());
 
         std::this_thread::sleep_for(std::chrono::milliseconds(getUpdateInterval()));
     }

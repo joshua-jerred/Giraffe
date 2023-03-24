@@ -6,6 +6,8 @@
  * @version 0.0.9
  * @date 2022-10-10
  * @copyright Copyright (c) 2022
+ * 
+ * @todo Needs updates to match new structure
  */
 
 #include <iomanip>
@@ -19,10 +21,9 @@ using namespace modules;
  * @param data A pointer to the data module.
  * @todo Error on update interval being less than 1
  */
-ConsoleModule::ConsoleModule(const ConfigData config_data, DataStream *stream):
-    Module(stream, MODULE_CONSOLE_PREFIX),
-    config_data_(config_data),
-    p_data_stream_(stream) {
+ConsoleModule::ConsoleModule(const ConfigData config_data, DataStream &stream):
+    Module(stream, configurables::prefix::kConsoleModule, "console"),
+    config_data_(config_data) {
 
     update_interval_ = config_data.debug.console_update_interval;
     if (update_interval_ < 1) {
@@ -48,6 +49,7 @@ ConsoleModule::~ConsoleModule() {
 void ConsoleModule::start() {
     stop_flag_ = 0;
     runner_thread_ = std::thread(&ConsoleModule::runner, this);
+    updateStatus(ModuleStatus::STARTING);
 }
 
 /**
@@ -59,10 +61,12 @@ void ConsoleModule::start() {
  * @return void
  */
 void ConsoleModule::stop() {
+    updateStatus(ModuleStatus::STOPPING);
     stop_flag_ = 1;
     if (runner_thread_.joinable()) {
         runner_thread_.join();
     }
+    updateStatus(ModuleStatus::STOPPED);
 }
 
 /**
@@ -74,6 +78,7 @@ void ConsoleModule::stop() {
  */
 void ConsoleModule::runner() {
     while (!stop_flag_) {
+        updateStatus(ModuleStatus::RUNNING);
         clearScreen();
         printData();
         std::this_thread::sleep_for(
@@ -99,7 +104,7 @@ void ConsoleModule::clearScreen() {
  */
 void ConsoleModule::printData() {
     std::cout << "GFS  -  Giraffe Flight Software  -  V" + 
-    (std::string) GFS_VERSION << std::endl;
+    configurables::kGiraffeVersion << std::endl;
     std::time_t t = std::time(0);   // get time now
     std::tm* now = std::localtime(&t);
     std::cout << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec
@@ -117,25 +122,10 @@ void ConsoleModule::printData() {
     "    Mainboard: ";
     switch (config_data_.general.main_board)
     {
-    case 0:
-        std::cout << "error";
+    case ConfigData::Mainboard::PI_ZERO_W_2:
+        std::cout << "pi_zero_w_2";
         break;
-    case 1:
-        std::cout << "other";
-        break;
-    case 2:
-        std::cout << "Pi Zero";
-        break;
-    case 3:
-        std::cout << "Pi Zero W";
-        break;
-    case 4:
-        std::cout << "Pi 2";
-        break;
-    case 5:
-        std::cout << "Pi 3";
-        break;
-    case 6: std::cout << "Pi 4";
+    case ConfigData::Mainboard::PI_4: std::cout << "Pi 4";
         break;
     default: std::cout << "Unknown";
         break;
@@ -143,15 +133,15 @@ void ConsoleModule::printData() {
     std::cout << "    Starting Procedure: ";
     switch (config_data_.general.starting_proc)
     {
-    case 0: std::cout << "error";
+    case FlightProcedure::Type::ERROR: std::cout << "error";
         break;
-    case 1: std::cout << "Testing";
+    case FlightProcedure::Type::TESTING: std::cout << "Testing";
         break;
-    case 2: std::cout << "Standard";
+    case FlightProcedure::Type::STANDARD: std::cout << "Standard";
         break;
-    case 3: std::cout << "Recovery";
+    case FlightProcedure::Type::RECOVERY: std::cout << "Recovery";
         break;
-    case 4: std::cout << "Failsafe";
+    case FlightProcedure::Type::FAILSAFE: std::cout << "Failsafe";
         break;
     default:
         std::cout << "Unknown";
@@ -160,22 +150,22 @@ void ConsoleModule::printData() {
     
     std::cout << std::endl << std::endl;
 
-    FlightProcedure current_flt_proc = p_data_stream_->getFlightProcedureCopy();
+    FlightProcedure current_flt_proc = data_stream_.getCurrentFlightProcedure();
 
     std::cout << "Flight Procedure- " << std::endl;
     std::cout << "Type: ";
 
     switch (current_flt_proc.type)
     {
-    case 0: std::cout << "error";
+    case FlightProcedure::Type::ERROR: std::cout << "error";
         break;
-    case 1: std::cout << "Testing";
+    case FlightProcedure::Type::TESTING: std::cout << "Testing";
         break;
-    case 2: std::cout << "Standard";
+    case FlightProcedure::Type::STANDARD: std::cout << "Standard";
         break;
-    case 3: std::cout << "Recovery";
+    case FlightProcedure::Type::RECOVERY: std::cout << "Recovery";
         break;
-    case 4: std::cout << "Failsafe";
+    case FlightProcedure::Type::FAILSAFE: std::cout << "Failsafe";
         break;
     default:
         std::cout << "Unknown";
@@ -201,15 +191,10 @@ void ConsoleModule::printData() {
 
         std::cout << "APRS Enabled: " << config_data_.telemetry.aprs_enabled;
         std::cout << "  Frequency: " << config_data_.telemetry.aprs_freq;
-        std::cout << "  Key: " << config_data_.telemetry.aprs_key;
         std::cout << std::endl;
         std::cout << "SSID: " << config_data_.telemetry.aprs_ssid;
         std::cout << "  Symbol: " << config_data_.telemetry.aprs_symbol;
-        std::cout << "  Memo: " << config_data_.telemetry.aprs_memo;
-        std::cout << std::endl;
-        
-        std::cout << "AFSK Enabled: " << config_data_.telemetry.afsk_enabled;
-        std::cout << "  Frequency: " << config_data_.telemetry.afsk_freq;
+        std::cout << "  Memo: " << config_data_.telemetry.aprs_comment;
         std::cout << std::endl;
         
         std::cout << "SSTV Enabled: " << config_data_.telemetry.sstv_enabled;
@@ -280,12 +265,12 @@ void ConsoleModule::printData() {
     }
     std::cout << std::endl;
 
-    std::cout << p_data_stream_->getTotalDataPackets() << " " 
-    << p_data_stream_->getTotalErrorPackets() << std::endl;
-    std::cout << p_data_stream_->getNumDataPackets() << " " 
-    << p_data_stream_->getNumErrorPackets() << std::endl;
+    std::cout << data_stream_.getTotalDataPackets() << " " 
+    << data_stream_.getTotalErrorPackets() << std::endl;
+    std::cout << data_stream_.getNumDataPackets() << " " 
+    << data_stream_.getNumErrorPackets() << std::endl;
 
-    DataFrame snapshot = p_data_stream_->getDataFrameCopy();
+    DataFrame snapshot = data_stream_.getDataFrameCopy();
     std::cout << "Data - " << snapshot.size() << std::endl;
     const int width = 2;
     int i = 1;
@@ -301,7 +286,7 @@ void ConsoleModule::printData() {
 
     std::cout << std::endl << std::endl;
 
-    ErrorFrame error_snapshot = p_data_stream_->getErrorFrameCopy();
+    ErrorFrame error_snapshot = data_stream_.getErrorFrameCopy();
     std::cout << "Errors - " << error_snapshot.size() << std::endl;
     i = 1;
     for (auto& [key, packet] : error_snapshot) {  

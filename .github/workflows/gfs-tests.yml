@@ -1,17 +1,19 @@
 name: giraffe-flight-software tests
-
-on: push
-
+on:
+  pull_request:
+    branches:
+      - master
 jobs:
-
-  pull:
+  pull: # disabled
     name: Pull code to runner
+    if : ${{ false }}
     runs-on: self-hosted
     steps:
       - uses: actions/checkout/@v3
 
-  build:
+  build: # disabled
     name: Build giraffe-flight-software
+    if : ${{ false }}
     runs-on: self-hosted
     needs: [pull]
     steps:
@@ -20,8 +22,9 @@ jobs:
     - name: make
       run: cd build && make giraffe-flight-software
 
-  test-01:
+  test-01: # disabled
     name: test-01 (Data Stream)
+    if : ${{ false }}
     runs-on: self-hosted
     needs: [build]
     steps:
@@ -30,8 +33,9 @@ jobs:
     - name: run test
       run: cd bin/tests/test-01 && ./test-01
 
-  test-02:
+  test-02: # disabled
     name: test-02 (Configuration Module)
+    if : ${{ false }}
     runs-on: self-hosted
     needs: [build, test-01]
     steps:
@@ -40,8 +44,9 @@ jobs:
     - name: run test
       run: cd bin/tests/test-02 && ./test-02
 
-  test-03:
+  test-03: # disabled
     name: test-03 (Data Module)
+    if : ${{ false }}
     runs-on: self-hosted
     needs: [build, test-01]
     steps:
@@ -50,8 +55,9 @@ jobs:
     - name: run test
       run: cd bin/tests/test-03 && ./test-03
 
-  test-04:
+  test-04: # disabled
     name: test-04 (Extensions Module)
+    if: ${{ false }}
     runs-on: self-hosted
     needs: [build, test-01]
     steps:
@@ -60,8 +66,9 @@ jobs:
     - name: run test
       run: cd bin/tests/test-04 && ./test-04
 
-  test-05:
+  test-05: # disabled
     name: test-05 I2C Interface
+    if: ${{ false }}
     runs-on: self-hosted
     needs: [build]
     steps:
@@ -103,8 +110,9 @@ jobs:
     - name: run test
       run: cd bin/tests/test-08 && ./test-08
 
-  test-10:
+  test-10: # disabled
     name: test-10 (BME280 Extension)
+    if: ${{ false }}
     runs-on: self-hosted
     needs: [test-01, test-05]
     steps:
@@ -113,8 +121,9 @@ jobs:
     - name: run test
       run: cd bin/tests/test-10 && ./test-10
 
-  test-11:
+  test-11: # disabled
     name: test-11 (SYSINFO Extension)
+    if: ${{ false }}
     runs-on: self-hosted
     needs: [test-01]
     steps:

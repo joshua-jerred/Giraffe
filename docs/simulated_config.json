@@ -1,0 +1,129 @@
+{
+    "general": {
+        "project-name": "Test Project",
+        "main-board-type": "pi_zero_w_2",
+        "starting-procedure": "testing"
+    },
+    "extensions": [
+        {
+            "id": 1,
+            "name": "p1",
+            "type": "PRESS_SENSOR_SIM",
+            "category": "external_sensor",
+            "interface": "internal",
+            "update-interval": 1000,
+            "flight-critical": false
+        },
+        {
+            "id": 2,
+            "name": "t1",
+            "type": "TEMP_SENSOR_SIM",
+            "category": "external_sensor",
+            "interface": "internal",
+            "update-interval": 1000,
+            "flight-critical": false
+        },
+        {
+            "id": 3,
+            "name": "radio1",
+            "type": "RADIO_SIM",
+            "category": "radio",
+            "interface": "internal",
+            "update-interval": 1000,
+            "flight-critical": true
+        },
+        {
+            "id": 4,
+            "name": "gps1",
+            "type": "GPS_SIM",
+            "category": "gps",
+            "interface": "internal",
+            "update-interval": 1000,
+            "flight-critical": true
+        },
+        {
+            "id": 5,
+            "name": "bat1",
+            "type": "BATT_SENSOR_SIM",
+            "category": "battery",
+            "interface": "internal",
+            "update-interval": 1000,
+            "flight-critical": false
+        },
+        {
+            "id": 6,
+            "name": "sys",
+            "type": "SYSINFO",
+            "category": "system",
+            "interface": "internal",
+            "update-interval": 1000,
+            "flight-critical": false
+        }
+    ],
+    "debugging": {
+        "console-enabled": true,
+        "console-update-interval": 1000,
+        "web-server-enabled": true,
+        "web-server-socket-port": 8080
+    },
+    "telemetry": {
+        "telemetry-enabled": true,
+        "call-sign": "FccCallSign",
+
+        "data-packet-mode":"aprs",
+        
+        "aprs-enabled": true,
+        "aprs-frequency": "144.390",
+        "aprs-ssid": 11,
+        "aprs-symbol": "O",
+        "aprs-fi-pin": 1234,
+        "aprs-memo": "GFS Balloon",
+
+        "sstv-enabled": true,
+        "sstv-frequency": "100.000",
+        "sstv-mode": "robot12bw",
+
+        "afsk-enabled": true,
+        "afsk-frequency": "100.000",
+
+        "psk-enabled":false,
+        "psk-frequency": "100.000",
+        "psk-mode": "bpsk500"
+    },
+    
+    "data-log-data-and-packet-contents": [
+        {
+            "source": "sys",
+            "unit": "load_avg_1",
+            "include-in-telemetry": true,
+            "telemetry-name": "ldav1"
+        },
+        {
+            "source": "sys",
+            "unit": "cpu_temp",
+            "include-in-telemetry": true,
+            "telemetry-name": "cpu-tp"
+        },
+        {
+            "source": "pth_sen",
+            "unit": "temp_c",
+            "include-in-telemetry": true,
+            "telemetry-name": "tc"
+        }
+    ],
+
+    "flight-procs": [
+        {
+        "type": "testing",
+        "enabled": true,
+        "intervals": {
+            "data-log": 2,
+            "data-packet": 5,
+            "sstv": 10,
+            "aprs": 5,
+            "picture": 50,
+            "health-check": 10
+            }
+        }
+    ]
+}

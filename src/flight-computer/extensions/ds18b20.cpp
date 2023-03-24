@@ -5,6 +5,9 @@
  * @date 2022-11-02
  * @copyright Copyright (c) 2022
  * @version 0.1.0
+ * 
+ * @todo Documentation
+ * @todo Unit Tests
  */
 
 #include "extensions.h"
@@ -21,7 +24,7 @@ extension::DS18B20::~DS18B20() {
 }
 
 int extension::DS18B20::runner() {
-    if (one_wire_device_.status() != ONEWIRE_STATUS::OK) {
+    if (one_wire_device_.status() != interface::ONEWIRE_STATUS::OK) {
         setStatus(ExtensionStatus::ERROR);
 		error("1WNF");
         return -1;

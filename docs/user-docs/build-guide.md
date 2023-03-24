@@ -16,16 +16,21 @@ All can be installed via apt install
 ### Main Branch
 ``` bash
 git clone https://github.com/joshua-jerred/Giraffe.git
-cd Giraffe && mkdir build && cd build
-cmake .. && make giraffe-flight-software
+cd Giraffe 
+git submodule update --init --recursive
+mkdir build && cd build
+cmake ..
+sudo make install giraffe-flight-software
 ```
 ### Development Branch
 ``` bash
 git clone https://github.com/joshua-jerred/Giraffe.git
 cd Giraffe
 git switch development
+git submodule update --init --recursive
 cd Giraffe && mkdir build && cd build
-cmake .. && make giraffe-flight-software
+cmake ..
+sudo make giraffe-flight-software
 ```
 
 ### Unit Tests

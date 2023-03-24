@@ -21,13 +21,14 @@
  */
 struct FlightProcedure {
 
-    enum ProcType {
-        ERROR = 0,
-        TESTING = 1,
-        STANDARD = 2,
-        RECOVERY = 3,
-        DESCENT = 4,
-        FAILSAFE = 4
+    enum class Type {
+        ERROR,
+        TESTING,
+        PRE_LAUNCH,
+        STANDARD,
+        DESCENT,
+        RECOVERY,
+        FAILSAFE
     };
 
     struct Intervals {
@@ -39,8 +40,8 @@ struct FlightProcedure {
         int health_check = 5;
     };
 
-    int enabled = 0;
-    ProcType type = ProcType::ERROR;
+    bool enabled = false;
+    Type type = Type::ERROR;
     Intervals intervals = Intervals();
 };
 
@@ -52,30 +53,33 @@ struct FlightProcedure {
 struct ExtensionMetadata {
     
     enum class Category {
-        ERROR = 0,
-        OTHER = 1, 
-        RADIO = 2, 
-        GPS = 3, 
-        CAMERA = 4, 
-        INTERNAL_SENSOR = 5, 
-        EXTERNAL_SENSOR = 6, 
+        ERROR,
+        OTHER, 
+        GPS ,
+        CAMERA,
+        BATTERY,
+        SYSTEM,
+        INTERNAL_SENSOR,
+        EXTERNAL_SENSOR
     };
 
     enum class Interface {
-        ERROR = 0,
-        OTHER = 1, 
-        INTERNAL = 2, 
-        I2C = 3, 
-        SERIAL = 4, 
-        ONEWIRE = 5, 
-        USB = 6,
-        GPIO = 7 
+        ERROR,
+        OTHER, 
+        INTERNAL, 
+        I2C, 
+        UART, 
+        ONEWIRE, 
+        USB,
+        GPIO
     };
 
     struct ExtraArgs {
         int I2C_bus = -1;
         std::string I2C_device_address = "";
         std::string one_wire_id = "";
+        std::string uart_device_path = "";
+        int uart_baud_rate = 0;
     };
 
     int id = 0; // User defined ID for the extension
@@ -84,9 +88,47 @@ struct ExtensionMetadata {
     Category category = (Category) 0;
     Interface interface = (Interface) 0;
     int update_interval = 0; // How often the extension polls for data and sends it to the data stream
-    int critical = 0; // Indicates if this extension is critical to operation, this
+    bool critical = false; // Indicates if this extension is critical to operation, this
                   // will be used by the Flight Runner during the healthCheck
     ExtraArgs extra_args {};
+};
+
+struct RadioMetadata {
+    // This is used to disable the radio in the telemetry module
+    bool enabled = true; 
+
+    int radio_id = 0;
+    std::string radio_name = "";
+    std::string radio_type = "";
+    int priority = 0;
+    int ptt_delay = 0;
+
+    // Frequency ranges in MHz [min, max] (inclusive)
+    std::vector<std::pair<std::string, std::string>> frequency_ranges {};
+
+    // Modes
+    bool TX_enabled = false;
+    bool RX_enabled = false;
+    bool APRS_enabled = false;
+    bool SSTV_enabled = false;
+    bool DATA_enabled = false;
+
+    // Capabilities
+    bool frequency_switching_capable = false;
+    bool power_saving_capable = false;
+    bool high_low_power_capable = false;
+    bool separate_tx_rx_capable = false;
+    bool bandwidth_switching_capable = false;
+    bool rssi_capable = false;
+    bool volume_control_capable = false;
+    bool squelch_detect_capable = false;
+
+    // Interface
+    ExtensionMetadata::Interface interface = ExtensionMetadata::Interface::ERROR;
+    ExtensionMetadata::ExtraArgs extra_args {};
+    int gpio_ptt = -1;     // If it's a raspberry pi, these are BCM pin numbers
+    int gpio_power = -1;
+    int gpio_squelch_detect = -1;
 };
 
 
@@ -96,54 +138,66 @@ struct ExtensionMetadata {
  */
 struct ConfigData {
 
-    enum MainboardType {
-        ERROR = 0,
-        OTHER = 1,
-        PI_ZERO = 2, 
-        PI_ZERO_W = 3, 
-        PI_2 = 4, 
-        PI_3 = 5, 
-        PI_4 = 6
+    enum Mainboard {
+        ERROR ,
+        OTHER ,
+        PI_ZERO_W_2,
+        PI_4,
     };
 
     struct General {
-        std::string project_name {};
-        MainboardType main_board {};
-        FlightProcedure::ProcType starting_proc {}; // Default is standard
+        std::string project_name = "GFS Balloon";
+        Mainboard main_board = Mainboard::ERROR;
+        FlightProcedure::Type starting_proc = FlightProcedure::Type::STANDARD; // Default is standard
     };
 
     struct Extensions {
         std::vector<ExtensionMetadata> extensions_list {};
+        std::string gps_data_name = "";
+        std::string battery_data_name = "";
+        std::string system_data_name = "";
+        std::string pressure_data_name = "";
     };
 
     struct Debugging {
-        int console_enabled {};
-        int console_update_interval {};
-        int web_server_enabled {};
-        int web_server_update_interval {};
+        bool print_errors = false;
+
+        bool console_enabled = false;
+        int console_update_interval = 1000;
+
+        bool web_server_enabled = false;
+        int web_server_socket_port = 8779;
     };
 
     struct Telemetry {
-        int telemetry_enabled = 0;
+        bool telemetry_enabled = false;
+        std::string call_sign = "error";
 
-        std::string call_sign {};
+        std::vector<RadioMetadata> radios {};
 
-        int afsk_enabled = 0;
-        std::string afsk_freq {};
-
-        int psk_enabled = 0;
-        std::string psk_freq {};
-        std::string psk_mode {};
-
-        int sstv_enabled = 0;
-        std::string sstv_freq {};
-
-        int aprs_enabled = 0;
+        bool aprs_enabled = false;
         std::string aprs_freq {};
-        int aprs_key = 0;
         int aprs_ssid = 0;
-        std::string aprs_symbol = "O";
-        std::string aprs_memo = "GFS Balloon";
+        std::string aprs_destination_address = "APRS";
+        int aprs_destination_ssid = 0;
+        bool aprs_alternate_symbol_table = false;
+        char aprs_symbol = 'O';
+        std::string aprs_comment = "GFS Balloon";
+        bool aprs_position_packets = false;
+        bool aprs_telemetry_packets = false;
+
+        bool sstv_enabled = false;
+        std::string sstv_mode {};
+        std::string sstv_freq {};
+        std::string sstv_comment = "";
+        bool sstv_save_images = false;
+        bool sstv_overlay_data = true;
+
+        bool data_packets_enabled = false;
+        std::string data_packets_freq = "";
+        std::string data_packets_mode = "";
+        bool data_packets_morse_callsign = false;
+        std::string data_packets_comment = "";
     };
 
     struct DataTypes {
@@ -163,6 +217,9 @@ struct ConfigData {
         FlightProcedure failsafe {};
     };
 
+    time_t start_time = 0;
+    bool bcm_interface_used = false;
+
     General general {};
     Extensions extensions {};
     Debugging debug {};
@@ -171,23 +228,39 @@ struct ConfigData {
     Procs flight_procs {};
 };
 
-/**
- * @brief Used by the telemetry module in it's queue and by the data stream.
- * @todo move this
- */
-struct Transmission {
-    enum class Type {
-        ERROR = 0,
-        APRS = 1,
-        AFSK = 2,
-        PSK = 3,
-        SSTV = 4,
-    };
-    Type type = Type::ERROR;
-    std::string message = "";
-    std::string wav_location = "";
-    int length = 0; // Length in seconds
-    int tx_num = 0; // ID for the transmission
+static const std::unordered_map<ExtensionMetadata::Category, std::string> 
+        kExtensionCategoryToString = {
+    {ExtensionMetadata::Category::ERROR, "ERROR"},
+    {ExtensionMetadata::Category::OTHER, "OTHER"},
+    {ExtensionMetadata::Category::GPS, "GPS"},
+    {ExtensionMetadata::Category::CAMERA, "CAMERA"},
+    {ExtensionMetadata::Category::BATTERY, "BATTERY"},
+    {ExtensionMetadata::Category::SYSTEM, "SYSTEM"},
+    {ExtensionMetadata::Category::INTERNAL_SENSOR, "INTERNAL_SENSOR"},
+    {ExtensionMetadata::Category::EXTERNAL_SENSOR, "EXTERNAL_SENSOR"}
+};
+
+static const std::unordered_map<ExtensionMetadata::Interface, std::string> 
+        kExtensionInterfaceToString = {
+    {ExtensionMetadata::Interface::ERROR, "ERROR"},
+    {ExtensionMetadata::Interface::OTHER, "OTHER"},
+    {ExtensionMetadata::Interface::INTERNAL, "INTERNAL"},
+    {ExtensionMetadata::Interface::I2C, "I2C"},
+    {ExtensionMetadata::Interface::UART, "UART"},
+    {ExtensionMetadata::Interface::ONEWIRE, "ONEWIRE"},
+    {ExtensionMetadata::Interface::USB, "USB"},
+    {ExtensionMetadata::Interface::GPIO, "GPIO"}
+};
+
+static const std::unordered_map<FlightProcedure::Type, std::string> 
+        kFlightProcedureTypeToString = {
+    {FlightProcedure::Type::ERROR, "ERROR"},
+    {FlightProcedure::Type::TESTING, "TESTING"},
+    {FlightProcedure::Type::PRE_LAUNCH, "PRE_LAUNCH"},
+    {FlightProcedure::Type::STANDARD, "STANDARD"},
+    {FlightProcedure::Type::DESCENT, "DESCENT"},
+    {FlightProcedure::Type::RECOVERY, "RECOVERY"},
+    {FlightProcedure::Type::FAILSAFE, "FAILSAFE"}
 };
 
 #endif

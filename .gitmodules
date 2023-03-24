@@ -1,0 +1,3 @@
+[submodule "MWAV"]
+	path = lib/MWAV
+	url = https://github.com/joshua-jerred/MWAV

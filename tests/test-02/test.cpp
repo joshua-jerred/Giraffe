@@ -54,7 +54,7 @@ TEST_F(Configuration_Module_1, GeneralSection) {
 
     EXPECT_EQ("projname", config_data_.general.project_name)
         << "Project name is incorrect";
-    EXPECT_EQ(ConfigData::MainboardType::PI_ZERO_W, config_data_.general.main_board)
+    EXPECT_EQ(ConfigData::Mainboard::PI_ZERO_W, config_data_.general.main_board)
         << "Mainboard type is incorrect";
     EXPECT_EQ(FlightProcedure::ProcType::TESTING, config_data_.general.starting_proc)
         << "Starting procedure is incorrect";

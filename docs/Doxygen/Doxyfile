@@ -2,7 +2,7 @@
 DOXYFILE_ENCODING      = UTF-8
 
 PROJECT_NAME           = "Giraffe"
-PROJECT_NUMBER         = 0.3
+PROJECT_NUMBER         = 0.4
 PROJECT_BRIEF          = "A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework."
 PROJECT_LOGO           =
 
@@ -123,6 +123,7 @@ WARN_FORMAT            = "$file:$line: $text"
 #---------------------------------------------------------------------------
 
 INPUT                  = src/
+INPUT += lib/
 INPUT += docs/Doxygen/pages/
 # INPUT += docs/dev-docs/
 INPUT += docs/user-docs/

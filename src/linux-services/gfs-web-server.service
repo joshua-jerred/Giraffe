@@ -1,0 +1,15 @@
+# TODO needs to be worked on
+
+[Unit]
+Description=Giraffe GFS Web Server
+After=network.target
+
+[Service]
+User=giraffe
+WorkingDirectory=/home/giraffe
+ExecStart=/opt/giraffe/web-server/main.py
+Restart=always
+StartLimitIntervalSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -10,6 +10,9 @@
 #ifndef UTILITY_STATUS_H_
 #define UTILITY_STATUS_H_
 
+#include <unordered_map>
+#include <string>
+
 /**
  * @brief This is the enum used to communicate with the extension runner.
  * @details When an extension is constructed it's status will be set to stopped.
@@ -44,24 +47,12 @@ enum class ModuleStatus {
     ERROR_STATE 
 };
 
-enum class I2C_STATUS {
-    BUS_LOCK_CONFIG_ERROR, // Bus lock pointer is null
-    NOT_CONNECTED,
-    OK,
-    CONFIG_ERROR_BUS,
-    CONFIG_ERROR_ADDRESS,
-    BUS_ERROR,
-    ADDRESS_ERROR,
-    READ_ERROR,
-    WRITE_ERROR,
-    UNKNOWN_ERROR
-};
-
-enum class ONEWIRE_STATUS {
-    OK,
-    NOT_FOUND,
-    READ_ERROR,
-    UNKNOWN_ERROR
+static const std::unordered_map<ModuleStatus, std::string> module_status_to_string_map = {
+    {ModuleStatus::STARTING, "STARTING"},
+    {ModuleStatus::RUNNING, "RUNNING"},
+    {ModuleStatus::STOPPING, "STOPPING"},
+    {ModuleStatus::STOPPED, "STOPPED"},
+    {ModuleStatus::ERROR_STATE, "ERROR_STATE"}
 };
 
 #endif

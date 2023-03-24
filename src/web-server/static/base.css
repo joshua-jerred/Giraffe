@@ -1,0 +1,175 @@
+body {
+    font-family: Verdana, sans-serif;
+    background-color: #f0f0f0;
+}
+
+#nav-bar {
+    display: grid;
+    grid-template-areas: "LCB CD B";
+    height: auto;
+    width: auto;
+    align-items: center;
+
+    background-color: #353535;
+    color: #CCCCCC;
+}
+
+#nav-logo {
+    grid-area: LCB;
+    align-content: center;
+    color: #CCCCCC;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0.2em;
+}
+
+#utc-clock-container {
+    font-size: 0.29em;
+}
+
+#error-notifier {
+    color:#e22534;
+    font-size: 1em;
+    display: none;
+}
+
+#nav-connection-button {
+    border-radius: 7px;
+    background-color: #0A81D1;
+    color: #F0ECE1;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#nav-connection-data {
+    grid-area: CD;
+}
+
+.nav-connection-item {
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+#nav-control-menu {
+    grid-area: B;
+}
+
+.nav-buttons > button {
+    height: 2em;
+    border: none;
+    margin: 0.2em;
+    width: 15%;
+    min-width: max-content;
+    color: #F0ECE1;
+    cursor: pointer;
+}
+
+#shutdown-server {
+    background-color: #dd5f39;
+}
+
+#shutdown-gfs {
+    background-color: #e22534;
+}
+
+#configure-gfs {
+    background-color: #0A81D1;
+}
+
+#logs {
+    background-color: #0A81D1;
+}
+
+#data-page {
+    background-color: #0A81D1;
+}
+
+#main-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.5em;
+    column-gap: 1.5em;
+    row-gap: .5em;
+    width: auto;
+    height: auto;
+    background-color: #CCCCCC;
+}
+
+#main-content > h1 {
+    grid-column: span 2;
+    border-bottom: 2px solid #1c1b1b86;
+    margin: 0;
+}
+
+.content-box {
+    width: auto;
+    background-color: #838383;
+    border-radius: 4px;
+    padding: 2%;
+}
+
+.content-box > h2 { /* Content Box Title */
+    color: #121212;
+    border-bottom: 1px solid #2b2b2b;
+    margin: 0;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.content-box > h2:hover {
+    color: #2e2e2e;
+}
+
+#content-box-content {
+    display: block;
+}
+
+#command-box {
+    bottom:0%;
+    right:0%;
+
+    width: fit-content;
+    height: fit-content;
+    padding: 2em;
+    margin: 1em;
+    position: fixed; 
+    background-color: #353535;
+    border-radius: 0.5em;
+}
+
+#command-box > input {
+    width: 20em;
+    height: 2em;
+    border-radius: 0.5em;
+    border: none;
+}
+
+#command-box > button {
+    width: 5em;
+    height: 2em;
+    margin-left: 1em;
+    border-radius: 0.5em;
+    border: none;
+    background-color: #0A81D1;
+}
+
+#command-box > button:hover {
+    background-color: #0a649f;
+    cursor: pointer;
+}
+
+.gfs-button {
+    height: 2em;
+    margin: 1em;
+    border-radius: 0.5em;
+    border: none;
+    color: #CCCCCC;
+    background-color: #0A81D1;
+}
+
+.gfs-button:hover {
+    background-color: #0a649f;
+    cursor: pointer;
+}

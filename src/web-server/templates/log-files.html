@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='log-files.css') }}" type="text/css">
+<script type="text/javascript" src="{{ url_for('static', filename='log-files.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<h1>Data and Error Logs<button id="rotate-log-files-button" class="gfs-button">Rotate Log Files</button></h1>
+<div class="content-box">
+  <h2 class="content-box-title">Data Log Files</h2>
+  <div class="content-box-content">
+    <ul id="data-log-files">
+
+    </ul>
+  </div>
+</div>
+
+<div class="content-box">
+  <h2 class="content-box-title">Error Log Files</h2>
+  <div class="content-box-content">
+    <ul id="error-log-files">
+
+    </ul>
+  </div>
+</div>
+{% endblock %}

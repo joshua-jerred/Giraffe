@@ -159,10 +159,10 @@ bool ubx::UBXMessage::verifyChecksum() {
     return true;
 }
 
-int ubx::getStreamSize(I2C &i2c) {
-    if (i2c.status() != I2C_STATUS::OK) {
+int ubx::getStreamSize(interface::I2C &i2c) {
+    if (i2c.status() != interface::I2C_STATUS::OK) {
         i2c.connect();
-        if (i2c.status() != I2C_STATUS::OK) {
+        if (i2c.status() != interface::I2C_STATUS::OK) {
             //std::cout << "I2C ERROR" << std::endl;
             return -1;
         }
@@ -177,7 +177,7 @@ int ubx::getStreamSize(I2C &i2c) {
     return stream_size;
 }
 
-bool ubx::flushStream(I2C &i2c) {
+bool ubx::flushStream(interface::I2C &i2c) {
     int stream_size = ubx::getStreamSize(i2c);
     if (stream_size <= 0) { // No data to flush
         return true;
@@ -197,7 +197,7 @@ bool ubx::flushStream(I2C &i2c) {
  * @details First finds sync characters, then reads the rest of the message
  * once it becomes available.
 */
-bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
+bool ubx::readNextUBX(interface::I2C &i2c, ubx::UBXMessage &message) {
     if (message.payload != nullptr) { // Clear the old payload
         delete[] message.payload;
         message.payload = nullptr;
@@ -330,7 +330,7 @@ bool ubx::readNextUBX(I2C &i2c, ubx::UBXMessage &message) {
     return false;
 }
 
-bool ubx::readSpecificMessage(I2C &i2c, ubx::UBXMessage &message) {
+bool ubx::readSpecificMessage(interface::I2C &i2c, ubx::UBXMessage &message) {
     uint8_t class_num = message.mClass;
     uint8_t id_num = message.mID;
     uint16_t length = message.length;
@@ -342,7 +342,7 @@ bool ubx::readSpecificMessage(I2C &i2c, ubx::UBXMessage &message) {
     return false;
 }
 
-bool ubx::writeUBX(I2C &i2c, const ubx::UBXMessage &message) {
+bool ubx::writeUBX(interface::I2C &i2c, const ubx::UBXMessage &message) {
     // Create the buffer space. Fixed size is 8 bytes for the header
     // (and checksum) plus the payload size.
     uint8_t *buffer = new uint8_t[message.length + 8];
@@ -365,7 +365,7 @@ bool ubx::writeUBX(I2C &i2c, const ubx::UBXMessage &message) {
            message.length + 8;  // Return true if all bytes were written.
 }
 
-ubx::ACK ubx::checkForAck(I2C &i2c, const uint8_t msg_class, const uint8_t msg_id) {
+ubx::ACK ubx::checkForAck(interface::I2C &i2c, const uint8_t msg_class, const uint8_t msg_id) {
     static const uint8_t kAckClassID = 0x05;
     static const uint8_t kAckMsgID = 0x01;
     static const uint8_t kNackMsgID = 0x00;
@@ -397,7 +397,7 @@ ubx::ACK ubx::checkForAck(I2C &i2c, const uint8_t msg_class, const uint8_t msg_i
 /**
  * @brief Send a UBX-CFG-RST command to the receiver (Hardware Reset)
 */
-bool ubx::sendResetCommand(I2C &i2c) {
+bool ubx::sendResetCommand(interface::I2C &i2c) {
     static const uint8_t  kMessageClass  = 0x06; // CFG
     static const uint8_t  kMessageId     = 0x04; // RST
     static const uint16_t kPayloadLength = 4;    // 4 bytes
@@ -427,7 +427,7 @@ bool ubx::sendResetCommand(I2C &i2c) {
  * 
  * @see 32.10.25.5 of u-blox 8 / u-blox M8 Receiver Description
 */
-ubx::ACK ubx::setProtocolDDC(I2C &i2c, const bool extended_timeout) {
+ubx::ACK ubx::setProtocolDDC(interface::I2C &i2c, const bool extended_timeout) {
     static const uint8_t kMessageClass   = 0x06; // CFG
     static const uint8_t kMessageId      = 0x00; // PRT
     static const uint16_t kPayloadLength = 20;   // 20 bytes
@@ -465,7 +465,7 @@ ubx::ACK ubx::setProtocolDDC(I2C &i2c, const bool extended_timeout) {
  * every second navigation solution."
  * @see 32.10.18.3
 */
-ubx::ACK ubx::setMessageRate(I2C &i2c, uint8_t msg_class, uint8_t msg_id, uint8_t rate) {
+ubx::ACK ubx::setMessageRate(interface::I2C &i2c, uint8_t msg_class, uint8_t msg_id, uint8_t rate) {
     static const uint8_t kMessageClass   = 0x06; // CFG
     static const uint8_t kMessageId      = 0x01; // MSG
     static const uint16_t kPayloadLength = 3;    // 3 bytes
@@ -480,7 +480,7 @@ ubx::ACK ubx::setMessageRate(I2C &i2c, uint8_t msg_class, uint8_t msg_id, uint8_
     return checkForAck(i2c, kMessageClass, kMessageId);
 }
 
-ubx::ACK ubx::setMeasurementRate(I2C &i2c, const uint16_t rate_ms) {
+ubx::ACK ubx::setMeasurementRate(interface::I2C &i2c, const uint16_t rate_ms) {
     static const uint8_t kMessageClass   = 0x06; // CFG
     static const uint8_t kMessageId      = 0x08; // RATE
     static const uint16_t kPayloadLength = 6;    // 6 bytes
@@ -499,7 +499,7 @@ ubx::ACK ubx::setMeasurementRate(I2C &i2c, const uint16_t rate_ms) {
     return checkForAck(i2c, kMessageClass, kMessageId);
 }
 
-ubx::ACK ubx::setDynamicModel(I2C &i2c, const ubx::DYNAMIC_MODEL model) {
+ubx::ACK ubx::setDynamicModel(interface::I2C &i2c, const ubx::DYNAMIC_MODEL model) {
     static const uint8_t kMessageClass   = 0x06; // CFG
     static const uint8_t kMessageId      = 0x24; // NAV5
     static const uint16_t kPayloadLength = 36;   // 36 bytes
@@ -539,7 +539,7 @@ ubx::ACK ubx::setDynamicModel(I2C &i2c, const ubx::DYNAMIC_MODEL model) {
  * @details Messages can be polled by sending the header with a zero length 
  * payload.
 */
-bool ubx::pollMessage(I2C &i2c,
+bool ubx::pollMessage(interface::I2C &i2c,
         ubx::UBXMessage &message,
         const uint8_t msg_class,
         const uint8_t msg_id,
@@ -655,7 +655,7 @@ bool ubx::pollMessage(I2C &i2c,
             continue;
         }
     }
-    std::cout << "timeout" << std::endl;
+    //std::cout << "timeout" << std::endl;
     return false;
 }
 

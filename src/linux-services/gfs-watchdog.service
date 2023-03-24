@@ -1,0 +1,15 @@
+# TODO: This needs to be expanded
+
+[Unit] 
+Description=GFS Watchdog
+After=network.target
+
+[Service]
+User=giraffe
+WorkingDirectory=/opt/giraffe
+ExecStart=/opt/giraffe/giraffe-flight-software
+Restart=always
+StartLimitIntervalSec=5
+
+[Install]
+WantedBy=multi-user.target

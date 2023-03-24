@@ -1,149 +1,132 @@
 /**
  * @file simulated-extensions.cpp
- * @author Joshua Jerred (https://joshuajer.red/)
- * @brief This file contains the implementation of the simulated extensions.
- * @details Simulated extensions currently only send data to the data stream.
- * @todo Implement full simulation of the BMP180, DRA818V, DS18B20, and SAM-M8Q
- * This should include configuration identical to the real extensions.
- * @version 0.0.9
- * @date 2022-10-09
- * @copyright Copyright (c) 2022
+ * @author Joshua Jerred (https://joshuajer.red)
+ * @brief Simulated extensions for testing purposes.
+ * @date 2023-01-29
+ * @copyright Copyright (c) 2023
+ * @version 0.1
+ * 
+ * @todo Documentation
+ * @todo Unit Tests
  */
 
 #include <iostream>
 #include <thread>
 #include <atomic>
-#include <chrono> // For text extension
 
 #include "extensions.h"
 
-// See simulated-extensions.h for documentation
-extension::TestExtension::TestExtension(DataStream *p_data_stream, 
-                             ExtensionMetadata extension_metadata) :
-                             Extension(p_data_stream, extension_metadata) {
+using namespace extension;
+
+PRESS_SENSOR_SIM::PRESS_SENSOR_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata)
+    : Extension(p_data_stream, extension_metadata) {
+    // Do nothing
+    start_time_ = std::time(0);
 }
-extension::TestExtension::~TestExtension() {
+PRESS_SENSOR_SIM::~PRESS_SENSOR_SIM() {
+    // Do nothing
 }
-int extension::TestExtension::runner() {
+int PRESS_SENSOR_SIM::runner() {
     setStatus(ExtensionStatus::RUNNING);
     while (!stop_flag_) {
-        std::this_thread::sleep_for(
-            std::chrono::milliseconds(getUpdateInterval())
-            );
-        auto timepoint =  static_cast<int>(duration_cast<std::chrono::milliseconds>(
-		std::chrono::system_clock::now().time_since_epoch()).count());
+        // calculate time passed since start
+        std::time_t now = std::time(0);
+        std::time_t time_passed = now - start_time_;
 
-        sendData("time", timepoint);
-    }
-    setStatus(ExtensionStatus::STOPPED);
-    return 0;
-}
-
-// See simulated-extensions.h for documentation
-extension::BMP180_SIM::BMP180_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
-    Extension(p_data_stream, extension_metadata) {
-}
-extension::BMP180_SIM::~BMP180_SIM() {
-}
-int extension::BMP180_SIM::runner() {
-    setStatus(ExtensionStatus::RUNNING);
-    int temp = 75;
-    int pressure = 1018;
-    int upOrDown = 1; // 1 = going up, 0 = going down
-    while (!stop_flag_) {
-        if (upOrDown == 1) {
-            temp -= 1;
-            pressure -= 7;
-        } else {
-            temp += 1;
-            pressure += 1;
+        // calculate pressure
+        if (time_passed < seconds_to_apogee_) { // Pressure Decreases
+            pressure_ += pressure_delta_down_;
+        } else { // Pressure Increases
+            pressure_ += pressure_delta_up_;
         }
-        if (temp == -50) {
-            upOrDown = 0;
-        } else if (temp == 75) {
-            upOrDown = 1;
-        }
-        std::this_thread::sleep_for(
-            std::chrono::milliseconds(getUpdateInterval())
-            );
-        sendData("TEMP_F", temp);
-        sendData("PRES_M", pressure);
-    }
-    setStatus(ExtensionStatus::STOPPED);
-    return 0;
-}
 
-// See simulated-extensions.h for documentation
-extension::SAMM8Q_SIM::SAMM8Q_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
-    Extension(p_data_stream, extension_metadata) {}
-extension::SAMM8Q_SIM::~SAMM8Q_SIM() {  
-}
-int extension::SAMM8Q_SIM::runner() {
-    setStatus(ExtensionStatus::RUNNING);
-    float lat = 37.1010982;
-    float lon = -113.5678354;
-    int alt = 0;
-    std::string quality = "2";
-    int vertical_speed = 5;
-    sendData("VERT_SPEED", vertical_speed);
-    // ^This should test stale data
-    while (!stop_flag_) {
-        lat += 0.00001;
-        lon += 0.00001;
-        alt += 5;
-        int horizontal_speed = 2 + (rand() % static_cast<int>(5 - 2 + 1));
-        std::this_thread::sleep_for(
+        // write pressure to data stream
+        sendData("PRES_MBAR", pressure_);
+		std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
         );
-        sendData("GPS_LAT", lat);
-        sendData("GPS_LON", lon);
-        sendData("GPS_ALT_M", alt);
-        sendData("GPS_QUAL", quality);
-        sendData("HORZ_SPEED", horizontal_speed);
     }
     setStatus(ExtensionStatus::STOPPED);
     return 0;
 }
 
-// See simulated-extensions.h for documentation
-extension::DS18B20_SIM::DS18B20_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
-    Extension(p_data_stream, extension_metadata) {
+
+
+TEMP_SENSOR_SIM::TEMP_SENSOR_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata)
+    : Extension(p_data_stream, extension_metadata) {
+    // Do nothing
 }
-extension::DS18B20_SIM::~DS18B20_SIM() {}
-int extension::DS18B20_SIM::runner() {
+TEMP_SENSOR_SIM::~TEMP_SENSOR_SIM() {
+    // Do nothing
+}
+int TEMP_SENSOR_SIM::runner() {
     setStatus(ExtensionStatus::RUNNING);
-    int temp = 75;
-    int upordown = 1; // 1 = going up, 0 = going down
     while (!stop_flag_) {
-        std::this_thread::sleep_for(
+        
+
+		std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
         );
-        if (upordown == 1) {
-            temp -= 1;
-        } else {
-            temp += 1;
-        }
-        if (temp == -50) {
-            upordown = 0;
-        } else if (temp == 75) {
-            upordown = 1;
-        }
-        sendData("TEMP_C", temp);
     }
     setStatus(ExtensionStatus::STOPPED);
     return 0;
 }
 
-// See simulated-extensions.h for documentation
-extension::DRA818V_SIM::DRA818V_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
-    Extension(p_data_stream, extension_metadata) {
+
+
+RADIO_SIM::RADIO_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata)
+    : Extension(p_data_stream, extension_metadata) {
+    // Do nothing
 }
-extension::DRA818V_SIM::~DRA818V_SIM() { 
+RADIO_SIM::~RADIO_SIM() {
+    // Do nothing
 }
-int extension::DRA818V_SIM::runner() {
+int RADIO_SIM::runner() {
     setStatus(ExtensionStatus::RUNNING);
     while (!stop_flag_) {
-        std::this_thread::sleep_for(
+        
+
+		std::this_thread::sleep_for(
+            std::chrono::milliseconds(getUpdateInterval())
+        );
+    }
+    setStatus(ExtensionStatus::STOPPED);
+    return 0;
+}
+
+GPS_SIM::GPS_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata)
+    : Extension(p_data_stream, extension_metadata) {
+    // Do nothing
+}
+GPS_SIM::~GPS_SIM() {
+    // Do nothing
+}
+int GPS_SIM::runner() {
+    setStatus(ExtensionStatus::RUNNING);
+    while (!stop_flag_) {
+        GPSFrame gps_frame;
+        
+		std::this_thread::sleep_for(
+            std::chrono::milliseconds(getUpdateInterval())
+        );
+    }
+    setStatus(ExtensionStatus::STOPPED);
+    return 0;
+}
+
+BATT_SENSOR_SIM::BATT_SENSOR_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata)
+    : Extension(p_data_stream, extension_metadata) {
+    // Do nothing
+}
+BATT_SENSOR_SIM::~BATT_SENSOR_SIM() {
+    // Do nothing
+}
+int BATT_SENSOR_SIM::runner() {
+    setStatus(ExtensionStatus::RUNNING);
+    while (!stop_flag_) {
+        
+
+		std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
         );
     }

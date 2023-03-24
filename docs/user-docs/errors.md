@@ -13,48 +13,107 @@
 - ``EX_<extension id>``     Extension Errors, ie EX_1, EX_2, etc.
 - ``DS_`` DataStream Errors
 
+## Command Errors
+- ``<any_prefix>_CMD_NF <command id>``
+  - Command Not Found
+- ``<any_prefix>_CMD_A <command id>$<command args>$``
+  - Command Arguments Invalid
+
+## Generic Module Errors
+- ``M_**_MCNI``
+  - Module Command Structure Not Implemented
+- ``M_**_MCQF``
+  - Module Command Queue Full
+
 ## Configuration Module
- - ``M_CF_FNF``
-   - Config File Not Found
+- ``M_CF_FNF``
+  - Config File Not Found
+- ``M_CF_MGPS``
+  - Multiple GPS Data Sources, choosing first
+- ``M_CF_MBAT``
+  - Multiple Battery Data Sources, choosing first
+- ``M_CF_MSYS``
+  - Multiple System Data Sources, choosing first
+- ``M_CF_MRAD``
+  - Multiple Radio Data Sources, choosing first
 
 #### General Config
- - ``M_CF_GEN_NF`` 
-   - General Section not found in file
- - ``M_CF_GEN_PN_R ``
-   - Project Name Out of Range
- - ``M_CF_GEN_PN_I <name>`` 
-   - Project name invalid, does not match "\^[a-zA-Z_ 0-9-]*$" (Only a-z, A-Z, 0-9, _, - and spaces are allowed)
- - ``M_CF_GEN_MB_I``
-   - Invalid mainboard type, reverting to 'error'.
- - ``M_CF_GEN_SP_I``
-   - Starting Proc invalid, reverting to 'error'.
+- ``M_CF_GEN_NF`` 
+  - General Section not found in file
+- ``M_CF_GEN_PN_R ``
+  - Project Name Out of Range
+- ``M_CF_GEN_PN_I <name>`` 
+  - Project name invalid, does not match "\^[a-zA-Z_ 0-9-]*$" (Only a-z, A-Z, 0-9, _, - and spaces are allowed)
+- ``M_CF_GEN_MB_NF``
+  - Mainboard not found in config file
+- ``M_CF_GEN_MB_I``
+  - Invalid mainboard type, reverting to 'error'.
+- ``M_CF_GEN_SP_NF``
+  - Starting Proc not found in config file
+- ``M_CF_GEN_SP_I``
+  - Starting Proc invalid, reverting to 'error'.
 
 #### Extension Config
- - ``M_CF_EXT_ID_R <id>``
-   - ID out of range
- - ``M_CF_EXT_ID_S <id>``
-   - Extension ID is not sequential.
- - ``M_CF_EXT_NM_R <name>``
-   - Extension name out of range
- - ``M_CF_EXT_NM_I <name>``
-   - Extension name invalid. Same requirements as project name but spaces are not allowed.
- - ``M_CF_EXT_OW_I <id>`` 
-   - One Wire ID does not match pattern
- - ``M_CF_EXT_I2_B <buss-num>`` 
-   - I2C bus number out of range
- - ``M_CF_EXT_I2_A <address>`` 
-   - I2C address out of range
- - ``M_CF_EXT_MISS <address>`` 
-   - Missing item in extension configuration
- - ``M_CF_EXT_UI_R <interval>`` 
-   - Update interval out of range, reverting to 1000ms
+- ``M_CF_EXT_ID_R <id>``
+  - ID out of range
+- ``M_CF_EXT_ID_S <id>``
+  - Extension ID is not sequential.
+- ``M_CF_EXT_NM_R <name>``
+  - Extension name out of range
+- ``M_CF_EXT_NM_I <name>``
+  - Extension name invalid. Same requirements as project name but spaces are not allowed.
+- ``M_CF_EXT_TP_R``
+  - Extensions type out of range
+- ``M_CF_EXT_OW_I <id>`` 
+  - One Wire ID does not match pattern
+- ``M_CF_EXT_I2_B <buss-num>`` 
+  - I2C bus number out of range
+- ``M_CF_EXT_I2_A <address>`` 
+  - I2C address out of range
+- ``M_CF_EXT_MISS <address>`` 
+  - Missing item in extension configuration
+- ``M_CF_EXT_UI_R <interval>`` 
+  - Update interval out of range, reverting to 1000ms
+
 #### Telemetry Config
- - ``TL_PSK_F <mode>`` 
-   - psk-mode or speed not found, defaulting to BPSK_125
- - ``TL_PSK_M <mode>`` 
-   - Invalid PSK31 mode (not BPSK or QPSK)
- - ``TL_PSK_S <speed>`` 
-   - Invalid PSK31 speed (not 125, 250, or 500)
+- ``TL_PSK_F <mode>`` 
+  - psk-mode or speed not found, defaulting to BPSK_125
+- ``TL_PSK_M <mode>`` 
+  - Invalid PSK31 mode (not BPSK or QPSK)
+- ``TL_PSK_S <speed>`` 
+  - Invalid PSK31 speed (not 125, 250, or 500)
+- ``TL_SSTV_NI``
+  - No image path exists 
+- ``TL_SSTV_IDE '<path>'``
+  - Image file does not exist
+- ``TL_SSTV_EX <mwav exception>``
+  - Exception in mwav when trying to encode SSTV image
+
+## Data Module Errors
+- ``M_DA_NGPS``
+  - No GPS Data Source
+- ``M_DA_NBAT``
+  - No Battery Data Source
+- ``M_DA_NSYS``
+  - No System Data Source
+- ``M_DA_NRAD``
+  - No Radio Data Source
+- ``M_DA_CD <unit>``
+  - Critical Data not found for unit
+- ``M_DA_CDPE <unit>``
+  - Critical Data Parse Error
+- ``M_DA_SZ_DL``
+  - Could not open data log file when reading size
+- ``M_DA_SZ_EL``
+  - Could not open error log file when reading size
+- ``M_DA_LFRE`` 
+  - Error while trying to rotate/create new log files
+- ``M_DA_LFD_CL`` or ``M_DA_EFD_CL``
+  - Can't delete current log file
+- ``M_DA_LFD_NF`` or ``M_DA_EFD_NF``
+  - Can't find log file to delete
+- ``M_DA_LFD_IC`` or ``M_DA_EFD_IC``
+  - Illegal characters in log file name when trying to delete (/, \, .)
 
 ## Telemetry Module Errors
 #### PSK31
@@ -138,6 +197,10 @@
 ### SAM-M8Q
  - ``CFG_T``
    - Configuration failed, reached timeout.
+
+### Pi Camera
+ - ``ICF``
+   - Image capture failed
 
 ## DataStream Errors
  - CMD_S [command]: Command string too short

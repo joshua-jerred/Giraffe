@@ -46,18 +46,18 @@ void DataStream::addToCommandQueue(std::string command) {
 	const int kMaxCommandQueueSize = 10;
 
 	if (command.size() > kMaxCommandSize) {
-		error("CMD_L", command.substr(0, kMaxCommandSize));
+		error("CMD_L", command.substr(0, kMaxCommandSize)); // Command too long
 		return;
 	}
 	if (command.size() < kMinCommandSize) {
-		error("CMD_S", command);
+		error("CMD_S", command); // Command too short
 		return;
 	}
 
 	// Check if the the command is in the correct format
 	const std::regex command_regex("^cmd\\/[a-z]{3}\\/[a-z]{3}\\/[a-z0-9-]{0,20}$");
 	if (!std::regex_match(command, command_regex)) {
-		error("CMD_B", command);
+		error("CMD_B", command); // Command is not in the correct format
 		return;
 	}
 
@@ -65,7 +65,7 @@ void DataStream::addToCommandQueue(std::string command) {
 	command_queue_lock_.lock();
 	if (command_queue_.size() >= kMaxCommandQueueSize) {
 		command_queue_lock_.unlock();
-		error("CMD_Q");
+		error("CMD_Q"); // Command queue is full
 		return;
 	}
 
@@ -82,9 +82,11 @@ void DataStream::addToCommandQueue(std::string command) {
 		gfs_command.category = GFSCommand::CommandCategory::EXT;
 	} else if (category == "mdl") { // Module
 		gfs_command.category = GFSCommand::CommandCategory::MDL;
+	} else if (category == "dat") {
+		gfs_command.category = GFSCommand::CommandCategory::DAT;
 	} else {
 		command_queue_lock_.unlock();
-		error("CMD_C", category);
+		error("CMD_C", category); // Command category is not valid
 		return;
 	}
 
@@ -125,19 +127,22 @@ bool DataStream::getNextCommand(GFSCommand &command) {
 void DataStream::addData(
 		std::string data_source, 
 		std::string data_name, 
-		std::string data_value, 
-		int seconds_until_expiry
-		) {
+		std::string data_value) {
 	std::time_t current_time = std::time(nullptr);
-	std::time_t expiry_time = current_time + seconds_until_expiry;
 	data_stream_lock_.lock(); // Lock the data stream to prevent other threads from accessing it when adding an item to it
-	if (seconds_until_expiry == 0) {
-		expiry_time = 0; // Set the expiry time to 0 if the data should never expire
-	}
-	data_stream_.push({data_source, data_name, data_value, expiry_time});
+	data_stream_.push({data_source, data_name, data_value, current_time});
 	num_data_packets_++;
 	total_data_packets_++;
 	data_stream_lock_.unlock(); // Unlock the data stream to make it available
+}
+
+void DataStream::addData(std::string data_source, GPSFrame gps_frame) {
+	gps_data_stream_lock_.lock();
+	gps_frame.source = data_source;
+	gps_data_stream_.push(gps_frame);
+	num_gps_packets_++;
+	total_gps_packets_++;
+	gps_data_stream_lock_.unlock();
 }
 
 /**
@@ -325,6 +330,19 @@ ErrorStreamPacket DataStream::getNextErrorPacket() {
 	return packet;
 }
 
+bool DataStream::getNextGPSFrame(GPSFrame& frame) {
+	gps_data_stream_lock_.lock();
+	if (gps_data_stream_.size() == 0) {
+		gps_data_stream_lock_.unlock();
+		return false;
+	}
+	frame = gps_data_stream_.front();
+	gps_data_stream_.pop();
+	num_gps_packets_--;
+	gps_data_stream_lock_.unlock();
+	return true;
+}
+
 std::string DataStream::getData(std::string data_source, std::string data_name) 
 	{
 	std::string value;
@@ -360,11 +378,19 @@ ErrorFrame DataStream::getErrorFrameCopy() {
 	return error_frame;
 }
 
-FlightProcedure DataStream::getFlightProcedureCopy() {
+FlightProcedure DataStream::getCurrentFlightProcedure() {
 	flight_procedure_lock_.lock();
 	FlightProcedure flight_procedure(flight_procedure_);
 	flight_procedure_lock_.unlock();
 	return flight_procedure;
+}
+
+int DataStream::getNumGPSPackets() {
+	return num_gps_packets_;
+}
+
+int DataStream::getTotalGPSPackets() {
+	return total_gps_packets_;
 }
 
 /**
@@ -379,6 +405,13 @@ int DataStream::getNumDataPackets() {
  */
 int DataStream::getNumErrorPackets() {
 	return num_error_packets_;
+}
+
+int DataStream::getNumCurrentErrors() {
+	error_frame_lock_.lock();
+	int num_errors = error_frame_.size();
+	error_frame_lock_.unlock();
+	return num_errors;
 }
 
 /**
@@ -399,14 +432,14 @@ int DataStream::getTotalErrorPackets() {
 
 void DataStream::updateExtensionStatus(std::string extension_name, ExtensionStatus status) {
 	extension_status_lock_.lock();
-	extension_status_[extension_name] = status;
+	extension_status_.insert_or_assign(extension_name, status);
 	extension_status_lock_.unlock();
 }
 
 void DataStream::updateModuleStatus(std::string module_name, ModuleStatus status) {
-	module_status_lock_.lock();
-	module_status_[module_name] = status;
-	module_status_lock_.unlock();
+	//module_status_lock_.lock();
+	module_status_.insert_or_assign(module_name, status);
+	//module_status_lock_.unlock();
 }
 
 std::unordered_map<std::string, ExtensionStatus> DataStream::getExtensionStatuses() {
@@ -416,18 +449,24 @@ std::unordered_map<std::string, ExtensionStatus> DataStream::getExtensionStatuse
 	return extension_status;
 }
 
-std::ostream& operator << (std::ostream& o, const DataStreamPacket& d)
-{
-	o << "Source: " << d.source << "\tData Name: " << d.unit <<
-	"\tValue: " << d.value << std::endl;
-	return o;
+std::unordered_map<std::string, ModuleStatus> DataStream::getModuleStatuses() {
+	module_status_lock_.lock();
+	std::unordered_map<std::string, ModuleStatus> module_status(module_status_);
+	module_status_lock_.unlock();
+	return module_status;
 }
 
-std::ostream& operator << (std::ostream& o, const ErrorStreamPacket& e)
-{
-    o << "Source: " << e.source << "\tError Code: " << e.error_code <<
-    "\t Info: " << e.info << std::endl;
-    return o;
+void DataStream::updateCriticalData(CriticalData &critical_data) {
+	critical_data_lock_.lock();
+	critical_data_ = critical_data;
+	critical_data_lock_.unlock();
+}
+
+CriticalData DataStream::getCriticalData() {
+	critical_data_lock_.lock();
+	CriticalData critical_data(critical_data_);
+	critical_data_lock_.unlock();
+	return critical_data;
 }
 
 std::mutex& DataStream::getI2CBusLock() {
@@ -442,4 +481,31 @@ void DataStream::error(std::string code) {
 void DataStream::error(std::string code, std::string info) {
 	static const std::string kDataStreamErrorPrefix = "DS_";
 	addError(kDataStreamErrorPrefix, code, info, 0);
+}
+
+void DataStream::UpdateLatestImage(const std::string& path) {
+	image_files_lock_.lock();
+	latest_image_path_ = path;
+	image_files_lock_.unlock();
+}
+
+const std::string DataStream::GetLatestImage() {
+	image_files_lock_.lock();
+	std::string path = latest_image_path_;
+	image_files_lock_.unlock();
+	return path;
+}
+
+std::ostream& operator << (std::ostream& o, const DataStreamPacket& d)
+{
+	o << "Source: " << d.source << "\tData Name: " << d.unit <<
+	"\tValue: " << d.value << std::endl;
+	return o;
+}
+
+std::ostream& operator << (std::ostream& o, const ErrorStreamPacket& e)
+{
+    o << "Source: " << e.source << "\tError Code: " << e.error_code <<
+    "\t Info: " << e.info << std::endl;
+    return o;
 }
