@@ -1,44 +1,121 @@
 {% extends "base.html" %}
 
 {% block head %}
+<script type="text/javascript" src="loader.js"></script>
 <script type="text/javascript" src="gfs_config.js"></script>
+<script type="text/javascript" src="utils.js"></script>
+<link rel="stylesheet" href="config.css" type="text/css">
+<link rel="stylesheet" href="loader.css" type="text/css">
 <script> SetThisPageMode("gfs") </script>
 {% endblock %}
 
-{% block page_title %} 
+{% block page_title %}
 Giraffe Flight Software Configuration
 {% endblock %}
 
 {% block content %}
 
-<div class="content-box wide">
-    <h2 class="content-box-title">General</h2>
-    <div class="content-box-content">
-        <p>test</p>
+<div class="content-box wide" id="loader-box"></div>
+
+<!-- General Configuration -->
+<div class="content-box">
+    <h2 class="content-box-title">General <button class="cfg-edit-button" id="cfg-general-edit">Edit</button></h2>
+
+    <div class="content-box-content" id="cfg-general">
     </div>
 </div>
 
+<!-- Debug Configuration -->
+<div class="content-box">
+    <h2 class="content-box-title">Debugging <button class="cfg-edit-button" id="cfg-debug-edit">Edit</button></h2>
+
+    <div class="content-box-content" id="cfg-debug">
+    </div>
+</div>
+
+<!-- Extensions Configuration -->
 <div class="content-box wide">
     <h2 class="content-box-title">Extensions</h2>
     <div class="content-box-content">
-        <p>test</p>
+        <table id="extension-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Category</th>
+                    <th>Interface</th>
+                    <th>Interval</th>
+                    <th>Critical<button id="expand-all-button">+</button></th>
+
+                </tr>
+            </thead>
+            <tbody id="extension-list">
+
+            </tbody>
+        </table>
     </div>
 </div>
 
-<div class="content-box wide">
+
+
+<!-- Telemetry Configuration -->
+<div class="content-box">
     <h2 class="content-box-title">Telemetry</h2>
     <div class="content-box-content">
-        <p>test</p>
+
+        <div id="cfg-telemetry-general">
+
+        </div>
+
+        <div class="collapsible-box">
+            <div class="collapsible-title">APRS</div>
+            <div class="collapsible-content" id="cfg-telemetry-aprs">
+            </div>
+        </div>
+
+        <div class="collapsible-box">
+            <div class="collapsible-title">SSTV</div>
+            <div class="collapsible-content" id="cfg-telemetry-sstv">
+            </div>
+        </div>
+
+        <div class="collapsible-box">
+            <div class="collapsible-title">Data Packets</div>
+            <div class="collapsible-content" id="cfg-telemetry-data-packets">
+            </div>
+        </div>
+
     </div>
 </div>
 
-<div class="content-box wide">
-    <h2 class="content-box-title">Data Log and Data Packets</h2>
+
+<!-- Radios Configuration -->
+<div class="content-box">
+    <h2 class="content-box-title">Radios</h2>
+    <div class="content-box-content">
+
+    </div>
+</div>
+
+
+<!-- Data Log Configuration -->
+<div class="content-box">
+    <h2 class="content-box-title">Data Log</h2>
+    <div class="content-box-content">
+        <div>test</div>
+    </div>
+</div>
+
+<!-- Error Log Configuration -->
+<div class="content-box">
+    <h2 class="content-box-title">Error Log</h2>
     <div class="content-box-content">
         <p>test</p>
     </div>
 </div>
 
+<!-- Flight Procedures Configuration -->
 <div class="content-box wide">
     <h2 class="content-box-title">Flight Procedures</h2>
     <div class="content-box-content">

@@ -37,6 +37,9 @@ class Files:
         elif ext == "ico":
             path_to_file = self.static_dir + "/" + "assets/" + file
             content_type = "image/x-icon"
+        elif ext == "json":
+            path_to_file = self.static_dir + "/" + "assets/" + file
+            content_type = "application/json"
         else:
             path_to_file = self.static_dir + "assets/" + file
             content_type = "image/" + ext

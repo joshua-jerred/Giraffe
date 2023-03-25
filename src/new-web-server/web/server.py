@@ -55,14 +55,15 @@ class RequestHandler(BaseHTTPRequestHandler):
         if api_parts[0] == "gws":
             content, content_type = self.gws.Get(api_parts)    
         elif api_parts[0] == "gfs":
-            #content, content_type = self.gfs.Get(api_parts)
-            self.handleResponseCode(501, "Not implemented")
+            content, content_type = self.gws.gfs.Get(api_parts)
+            #self.handleResponseCode(501, "Not implemented")
         elif api_parts[0] == "ggs":
             #content, content_type = self.ggs.Get(api_parts)
             self.handleResponseCode(501, "Not implemented")
         else:
             self.handleResponseCode(404, "API not found" + str(api_parts))
             return
+        
         if type(content_type) == int:
             self.handleResponseCode(content_type, content)
             return

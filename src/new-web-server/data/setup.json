@@ -29,7 +29,11 @@
             "html",
             "css",
             "js",
-            "ico"
+            "ico",
+            "json"
         ]
+    },
+    "api": {
+        "encoding": "utf-8"
     }
 }

@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 1%;
-  column-gap: 1.5em;
+  column-gap: 0.5em;
   row-gap: .5em;
   width: 98%;
   height: auto;
@@ -34,12 +34,19 @@
   border-bottom: 1px solid #2b2b2b;
   margin: 0;
   font-size: 1.5em;
-  cursor: pointer;
+  padding-bottom: 0.3em;
+
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
+/*
 .content-box>h2:hover {
   color: #2e2e2e;
 }
+*/
 
 #content-box-content {
   display: block;

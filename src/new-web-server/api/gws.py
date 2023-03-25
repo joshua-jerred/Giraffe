@@ -3,15 +3,17 @@
 import os
 import json
 
+import api.api
 import api.gfs
 import api.ggs
 
-class GWS:
-    def __init__(self, setup_file_path, encoding="utf-8"):
-        self.gfs = api.gfs.GFS(setup_file_path)
-        self.ggs = api.ggs.GGS(setup_file_path)
+class GWS(api.api.GiraffeApi):
+    def __init__(self, setup_file_path):
+        config = self.jsonPathToDict(setup_file_path)["api"]
+        api.api.GiraffeApi.__init__(self, config)
+        self.gfs = api.gfs.GFS(config)
+        self.ggs = api.ggs.GGS(config)
 
-        self.encoding = encoding
         self.setup_file_path = setup_file_path
 
         self.get_options = ["status", "setup"]
@@ -26,20 +28,12 @@ class GWS:
             "gfs-connected": True,
             "ggs-connected": True,
         }
-        
-    def DictToBytes(self, dict):
-        content_type = "application/json"
-        return (bytes(json.dumps(dict), self.encoding), content_type)
 
+        
+        
     def UpdateStatus(self):
         self.status["gfs-connected"] = self.gfs.GetStatus()
         self.status["ggs-connected"] = self.ggs.GetStatus()
-
-    def handleError(self, error_code, error_message="GWS API Error"):
-        return (error_message, error_code)
-
-    def handleSuccess(self, code=200, message="GWS API Success"):
-        return (message, code)
 
     def handleGetSetup(self, path):
         if path[1] != "setup":
@@ -55,7 +49,6 @@ class GWS:
             return self.handleError(404)
     
     def handlePostSetup(self, path, data):
-        print(path)
         if path[1] != "setup":
             return self.handleError(404)
         if len(path) == 3 and path[2] == "web-config":

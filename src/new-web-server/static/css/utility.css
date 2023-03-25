@@ -60,6 +60,23 @@ input:checked + .switch:before {
 
 /* BUTTONS */
 /* GLOBAL BUTTON PROPERTIES */
+button {
+  height: 2em;
+  border: none;
+  margin: 0.2em;
+  width: 5em;
+  min-width: max-content;
+  color: var(--button-global-text);
+  background-color: var(--button-global);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--button-global-hover);
+  -webkit-transition: var(--button-global-transition-webkit);
+  transition: var(--button-global-transition);
+}
+
 .button-container > button {
   height: 2em;
   border: none;
@@ -142,4 +159,80 @@ input:checked + .switch:before {
 
 .button-grid > button {
   width: 10em;
+}
+
+/* Tooltips */
+
+.tooltip {
+  display: block;
+  border-bottom: 1px dotted black;
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  pointer-events: none;
+  width: 30em;
+  font-size: 0.9em;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 1em;
+  visibility: hidden;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -10em;
+  left: 0%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltiptext.left {
+  right: 205%;
+  top: -1em;
+}
+
+.tooltiptext.right {
+  left: 105%;
+  top: -1em;
+}
+
+.tooltiptext.top {
+  bottom: 125%;
+  left: 0%;
+}
+
+/* Collapsible (utils.js) */
+.collapsible-box {
+  width: 100%;
+  margin-top: 0.5em;
+}
+
+.collapsible-title {
+  width: 100%;
+  height: 2em;
+  padding: 0px;
+  background-color: var(--collapsible-title-block);
+  color: var(--collapsible-title-text);
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.collapsible-title:hover {
+  background-color: var(--collapsible-title-block-hover);
+  cursor: pointer;
+}
+
+.collapsible-content {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  background-color: var(--collapsible-content-block);
 }

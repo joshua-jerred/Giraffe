@@ -1,4 +1,9 @@
 :root {
+  --mode-color: #1e88e5;
+  --gfs-color: #1e88e5;
+  --ggs-color: #BB9457;
+
+
   /* Content */
   --content-background: #CCCCCC;
   --content-title-underline: #1c1b1b86;
@@ -50,4 +55,27 @@
   --switch-hover-shadow-color: #aaaaaa;
   --switch-hover-shadow-size: 0 0 5px;
 
+
+  /* Loader */
+  --loader-color: #1e88e5;
+  --loader-background: #6e6e6e;
+  --loader-size: 50px;
+  --loader-speed: 2s;
+
+  /* Extension Table */
+  --extension-table-header-background: #353535;
+  --extension-table-header-text: #CCCCCC;
+
+  --extension-table-row-even-background: #5a5a5a;
+  --extension-table-row-odd-background: #6e6e6e;
+  --extension-table-row-text: #CCCCCC;
+
+  --extension-table-row-hover-background: #9c9c9c;
+
+  /* Collapsible */
+  --collapsible-title-block: #353535;
+  --collapsible-title-block-hover: #2c2c2c;
+  --collapsible-title-text: #CCCCCC;
+
+  --collapsible-content-block: #5a5a5a;
 }

@@ -93,6 +93,19 @@ function UpdatedModeIndicator() {
 }
 
 async function UpdateLocalMode() {
+    let color = "";
+    if (mode == "gfs") {
+        color = getComputedStyle(document.documentElement)
+            .getPropertyValue('--gfs-color');
+    } else if (mode == "ggs") {
+        color = getComputedStyle(document.documentElement)
+            .getPropertyValue('--ggs-color');
+    } else {
+        color = getComputedStyle(document.documentElement)
+            .getPropertyValue('--warn');
+    }
+    document.documentElement.style.setProperty('--mode-color', color);
+
     let nav_button_display = "grid";
 
     let connected = false;

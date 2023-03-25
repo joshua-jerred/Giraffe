@@ -1,6 +1,7 @@
 # Giraffe Ground Station API
+import api.api
 
-class GGS:
+class GGS(api.api.GiraffeApi):
     def __init__(self, setup_file_path, encoding="utf-8"):
         self.encoding = encoding
         self.setup_file_path = setup_file_path
