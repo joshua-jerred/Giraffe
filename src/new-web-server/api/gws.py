@@ -15,7 +15,7 @@ class GWS:
         self.setup_file_path = setup_file_path
 
         self.get_options = ["status", "setup"]
-        self.post_options = ["mode"]
+        self.post_options = ["mode", "setup"]
         self.put_options = []
 
         self.mode_options = ["gfs", "ggs"]
@@ -35,6 +35,62 @@ class GWS:
         self.status["gfs-connected"] = self.gfs.GetStatus()
         self.status["ggs-connected"] = self.ggs.GetStatus()
 
+    def handleError(self, error_code, error_message="GWS API Error"):
+        return (error_message, error_code)
+
+    def handleSuccess(self, code=200, message="GWS API Success"):
+        return (message, code)
+
+    def handleGetSetup(self, path):
+        if path[1] != "setup":
+            return ("GWS API Not Found" + str(path), 404)
+        data_file = open(self.setup_file_path, "r")
+        data = json.load(data_file)
+        data_file.close()
+        if len(path) == 2:
+            return self.DictToBytes(data)
+        elif len(path) == 3 and path[2] == "web-config":
+            return self.DictToBytes(data["web-config"])
+        else:
+            return self.handleError(404)
+    
+    def handlePostSetup(self, path, data):
+        print(path)
+        if path[1] != "setup":
+            return self.handleError(404)
+        if len(path) == 3 and path[2] == "web-config":
+            expected_objects = [
+                ("developer-mode", bool), ("gws-address", str), 
+                ("gws-http-port", int), ("gfs-socket-address", str),
+                ("gfs-socket-port", int), ("ggs-socket-address", str),
+                ("ggs-socket-port", int)]
+            for obj in expected_objects:
+                if obj[0] not in data:
+                    return self.handleError(400, "Missing " + obj[0])
+                if type(data[obj[0]]) != obj[1]:
+                    if obj[1] == bool:
+                        if data[obj[0]] == "true":
+                            data[obj[0]] = True
+                        elif data[obj[0]] == "false":
+                            data[obj[0]] = False
+                        else:
+                            return self.handleError(400, "Invalid " + obj[0])
+                    try:
+                        data[obj[0]] = obj[1](data[obj[0]])
+                    except:
+                        return self.handleError(400, "Invalid " + obj[0])
+            try:
+                data_file = open(self.setup_file_path, "r")
+                setup_data = json.load(data_file)
+                setup_data["web-config"] = data
+                data_file.close()
+                data_file = open(self.setup_file_path, "w")
+                json.dump(setup_data, data_file, indent=4)
+                data_file.close()
+                return self.handleSuccess()
+            except:
+                return self.handleError(500, "Internal Server Error")
+
     def Get(self, path):
         if len(path) < 2 or path[1] not in self.get_options:
             return ("GWS API Not Found" + str(path), 404)
@@ -42,10 +98,8 @@ class GWS:
         if path[1] == "status" and len(path) == 2:          # GET /gws/status
             self.UpdateStatus()
             return self.DictToBytes(self.status)
-        elif path[1] == "setup" and len(path) == 2:         # GET /gws/setup
-            with open(self.setup_file_path) as f:
-                setup = json.load(f)
-                return self.DictToBytes(setup)
+        elif path[1] == "setup":                            # GET /gws/setup
+            return self.handleGetSetup(path)
         else:
             return ("GWS API Not Found" + str(path), 404)    
     
@@ -63,5 +117,7 @@ class GWS:
                     return ("Mode not valid", 400)
             else:
                 return ("Mode not specified", 400)
+        if path[1] == "setup":
+            return self.handlePostSetup(path, data)
         else:
             return ("GWS API Not Found" + str(path), 404)

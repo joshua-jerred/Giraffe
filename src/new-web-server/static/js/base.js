@@ -1,4 +1,5 @@
 var mode = "error"; // gfs, ggs, or error
+var this_page_mode = "global"; // gfs, ggs, or global
 var gws_status = false;
 var gfs_status = false;
 var ggs_status = false;
@@ -22,6 +23,22 @@ async function UtcClock() {
     let time = hours + ":" + minutes + ":" + seconds;
     document.querySelector('#utc-clock').innerText = time;
     setTimeout(UtcClock, 1000);
+}
+
+function CheckMode() {
+    if (this_page_mode == "global") {
+        return;
+    }
+    if (mode == "ggs" && this_page_mode != "ggs") {
+      alert("GWS has been switched to GGS mode! This page will not function.")
+    } else if (mode == "gfs" && this_page_mode != "gfs") {
+      alert("GWS has been switched to GFS mode! This page will not function.")
+    }
+}
+
+function SetThisPageMode(this_page) {
+    this_page_mode = this_page;
+    CheckMode();
 }
 
 function UpdatedModeIndicator() {
@@ -128,7 +145,7 @@ async function UpdateLocalMode() {
         status_elm.innerText = "Connected";
         status_elm.style.color = "green";
     }
-
+    CheckMode();
     document.dispatchEvent(status_event);
 }
 

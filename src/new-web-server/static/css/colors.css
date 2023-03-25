@@ -5,6 +5,15 @@
 
   --content-box-background: #838383;
 
+  /* Editable */
+  --editable-label-color: #515151;
+  --editable-data-underline-color: #515151;
+  --editable-comment-color: #515151;
+
+  /* data-box */
+  --data-box-underline-color: #515151;
+
+
   /* Navigation Bar */
   --nav-bar: #353535;
   --nav-bar-text: #CCCCCC;

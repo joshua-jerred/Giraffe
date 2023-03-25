@@ -97,8 +97,6 @@ class RequestHandler(BaseHTTPRequestHandler):
             return
         self.handleResponseCode(response_code, content)
         
-
-
     def do_GET(self):
         path_parts = self.path.split("/")
         if self.path == "/" or "." in self.path:
@@ -120,6 +118,9 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.handleResponseCode(404)
 
 def start():
+    FALLBACK_ADDRESS = "localhost"
+    FALLBACK_PORT = 7890
+
     setup = {}
     with open(SETUP_FILE, "r") as f:
         setup = json.load(f)["web-config"]
@@ -131,6 +132,11 @@ def start():
     gws_api = api.gws.GWS(SETUP_FILE)
 
     request_handler = partial(RequestHandler, gws_api)
-
-    server = HTTPServer((address, port), request_handler)
-    server.serve_forever()
+    try:
+        server = HTTPServer((address, port), request_handler)
+        server.serve_forever()
+    except:
+        print("Failed to start server at http://{}:{}/".format(address, port))
+        print("Starting server at http://{}:{}/".format(FALLBACK_ADDRESS, FALLBACK_PORT))
+        server = HTTPServer((FALLBACK_ADDRESS, FALLBACK_PORT), request_handler)
+        server.serve_forever()
