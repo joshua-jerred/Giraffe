@@ -1,0 +1,13 @@
+.editable {
+
+}
+
+.editable > div {
+  width: 100%;
+  padding-bottom: 0.1em;
+}
+
+.editable > div > span {
+  border-bottom: 1px solid #ccc;
+  float: right;
+}

@@ -1,0 +1,156 @@
+body {
+  font-family: Verdana, sans-serif;
+  background-color: #f0f0f0;
+}
+
+#nav-bar {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+
+  height: auto;
+  width: 98%;
+  padding: 1%;
+
+  background-color: var(--nav-bar);
+  color: var(--nav-bar-text);
+}
+
+/* MAIN NAV-BAR CONTENT  ----------------------------  */
+#nav-main {
+  grid-area: MAIN;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: fill-available;
+}
+
+/* Logo/Clock */
+#nav-logo-container {
+  color: #CCCCCC;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding-right: 1em;
+}
+
+#nav-clock {
+  margin-left: 0.2em;
+  font-size: 0.33em;
+}
+/* ------------------ */
+
+
+/* Mode Slider/Button/Status */
+#nav-mode-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#nav-mode-container > * {
+  display: inline-block;
+  margin: 0.2em;
+  height: 1em;
+}
+
+#nav-mode-container > div {
+  font-size: 1.4em;
+  border-radius: 0.5%;
+  border-color: var(--error);
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#nav-gfs-mode {
+  background-color: var(--button-gfs);
+}
+
+#nav-ggs-mode {
+  background-color: var(--button-ggs);
+}
+
+.active-mode {
+  background-color: var(--good);
+}
+
+#nav-connection-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nav-connection-item {
+  display: block;
+  margin-right: 0.5em;
+}
+
+/* Switch */
+#mode-switch { /* GFS Mode Switch Color */
+  background-color: var(--button-gfs);
+}
+
+input:checked + #mode-switch { /* GGS Mode Switch Color */
+  background-color: var(--button-ggs);
+}
+
+input:hover + #mode-switch {
+  box-shadow: 0 0 50px red;
+}
+
+/* Warning Notification */
+#nav-warning {
+  color: var(--error);
+  font-size: 1em;
+}
+
+/* ------------------ */
+/* end MAIN NAV-BAR CONTENT  ----------------------------  */
+
+#nav-buttons-container {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+
+  width: 35em;
+}
+
+
+/* Command Box  ----------------------------  */
+
+#command-box {
+  bottom: 0%;
+  right: 0%;
+
+  width: fit-content;
+  height: fit-content;
+  padding: 2em;
+  margin: 1em;
+  position: fixed;
+  background-color: #353535;
+  border-radius: 0.5em;
+}
+
+#command-box>input {
+  width: 20em;
+  height: 2em;
+  border-radius: 0.5em;
+  border: none;
+}
+
+#command-box>button {
+  width: 5em;
+  height: 2em;
+  margin-left: 1em;
+  border-radius: 0.5em;
+  border: none;
+  background-color: #0A81D1;
+}
+
+#command-box>button:hover {
+  background-color: #0a649f;
+  cursor: pointer;
+}

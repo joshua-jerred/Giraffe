@@ -1,0 +1,156 @@
+p {
+    margin-top: 0em;
+    margin-bottom: 0.1em;
+
+}
+
+.data-box > div {
+    width: 100%;
+}  
+
+.data-box > div > p {
+    margin-top: 0em;
+    margin-bottom: 0.1em;
+    font-size: 1rem;
+}
+
+.data-box > div > h3 {
+    margin-bottom: 0em;
+    border-bottom: 1px solid #585858;
+}
+
+.data-box > div > div > h4 {
+    margin: 0em;
+    border-bottom: 1px dashed #585858;
+    width: 50%;
+}
+
+#gfs-data-module-container {
+    grid-column: span 2;
+}
+
+#gfs-extensions-container {
+    grid-column: span 2;
+}
+
+#config-info-container {
+    grid-column: span 2;
+}
+
+#gfs-errors-container {
+    grid-column: span 2;
+}
+
+#config-data {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+}
+
+#gfs-data-module {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+}
+
+#environmental-data {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+}
+
+#environmental-data > div > h4 {
+    margin: 0em;
+    border-bottom: 1px dashed #585858;
+    width: 90%;
+}
+
+#calculated-data-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+}
+
+#gfs-status {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+}
+
+#system-status {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+}
+
+#extension-table {
+    width: 100%;
+    border:1px solid black;
+    border-collapse: collapse;
+}
+
+#extension-table th, td {
+    border:1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+#gfs-errors {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+}
+
+#gfs-errors > p {
+    margin-top: 0em;
+    margin-bottom: 0.1em;
+    font-size: 0.9em;
+}
+
+#data-frame-content {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: -10px;
+    width: 100%;
+}
+
+#data-frame-content > div {
+    flex: auto;
+    height: 250px;
+    min-width: 150px;
+    margin: 0 10px 10px 0;
+}
+
+#data-frame-content > div > h3 {
+    margin: 0em;
+    border-bottom: 1px dashed #585858;
+    width: 90%;
+    font-size: 1rem;
+}
+
+#data-frame-content > div > p {
+    margin: 0em;
+    font-size: 0.9em;
+}
+
+#gfs-errors {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: -10px;
+    width: 100%;
+}
+
+#gfs-errors > div {
+    flex: auto;
+    height: fit-content;
+    min-width: 23%;
+    max-width: 23%;
+    margin: 0 10px 10px 0;
+}
+
+#gfs-errors > div > h3 {
+    margin: 0em;
+    border-bottom: 1px dashed #585858;
+    width: 90%;
+    font-size: 1rem;
+}

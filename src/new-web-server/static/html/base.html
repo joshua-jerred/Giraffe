@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="colors.css" type="text/css">
+  <link rel="stylesheet" href="utility.css" type="text/css">
+  <link rel="stylesheet" href="base.css" type="text/css">
+  <link rel="stylesheet" href="content.css" type="text/css">
+  <script type="text/javascript" src="base.js"></script>
+  {% block head %}
+  {% endblock %}
+  <title>
+    GWS
+  </title>
+</head>
+
+<body>
+  <div id="nav-bar" class="no-select">
+    <div id="nav-main">
+      <div id="nav-logo-container">
+        <div id="nav-logo">GWS</div>
+        <div id="nav-clock">UTC <span id="utc-clock">00:00:00</span></div>
+      </div>
+
+      <div id="nav-connection-container">
+
+        <div id="nav-mode-container" class="nav-connection-item">
+
+          <div id="nav-gfs-mode">GFS</div>
+
+          <label class="switch-box" id="mode-switch-box">
+            <input type="checkbox" id="mode-check-box">
+            <span class="switch" id="mode-switch"></span>
+          </label>
+
+          <div id="nav-ggs-mode">GGS</div>
+
+        </div>
+
+        <div class="nav-connection-item">
+          Server:
+          <span id="nav-connection-status">Disconnected</span>
+        </div>
+        <div id="nav-warning">
+          None
+        </div>
+
+      </div>
+    </div>
+
+    <div id="nav-buttons-container">
+
+      <div id="nav-global-buttons" class="button-grid button-container">
+        <button type="button" value="" onclick="location.href='/setup'">GWS Setup</button>
+        <button type="submit" value="" onclick="NotImplemented()">Reboot Server</button>
+        <button type="submit" value="" onclick="NotImplemented()">Shutdown Server</button>
+      </div>
+
+      <div id="nav-mode-buttons-gfs" class="button-grid nav-mode-buttons button-container gfs-buttons">
+        <button type="button" value="" onclick="location.href='/gfs_data'">Data Stream</button>
+        <button type="button" value="" onclick="location.href='/gfs_logs'">Log Files</button>
+        <button type="button" value="" onclick="location.href='/gfs_config'">Configure GFS</button>
+        <button type="submit" value="" onclick="NotImplemented()">Restart GFS</button>
+      </div>
+
+      <div id="nav-mode-buttons-ggs" class="button-grid nav-mode-buttons button-container ggs-buttons">
+        <button type="button" value="" onclick="location.href='/ggs_command_center'">Command Center</button>
+        <button type="button" value="" onclick="location.href='/ggs_telemetry_logs'">Telemetry Logs</button>
+        <button type="button" value="" onclick="location.href='/ggs_config'">Configure GGS</button>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <div id="main-content">
+    <h1 id="main-content-title">{% block page_title %} {% endblock %}</h1>
+    {% block content %}
+    {% endblock %}
+  </div>
+  <!--
+
+    <div id="command-box">
+      <input type="text" id="command-input" placeholder="Enter Command Here">
+      <button id="command-button">Send</button>
+    </div>
+  -->
+
+</body>
+
+</html>

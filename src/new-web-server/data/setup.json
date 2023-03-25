@@ -1,0 +1,23 @@
+{
+  "version": "0.5",
+  "web-config": {
+    "developer-mode": false,
+    "previous-mode": "none",
+    "gws-address":"localhost",
+    "gws-http-port":7890,
+    "gfs-configured":false,
+    "gfs-socket-address":"",
+    "gfs-socket-port":7893,
+    "ggs-configured":false,
+    "ggs-socket-address":"",
+    "ggs-socket-port":7894
+  },
+  "pages":{
+    "home-page":"setup",
+    "encoding":"utf-8",
+    "pages":["setup", "gfs_config", "ggs_config", "gfs_data","gfs_logs", "ggs_command_center", "ggs_telemetry_logs"],
+    "static-dir":"./static",
+    "jinja-dirs":["./static/html"],
+    "allowed-extensions":["html", "css", "js"]
+  }
+}

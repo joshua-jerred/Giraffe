@@ -1,0 +1,44 @@
+:root {
+  /* Content */
+  --content-background: #CCCCCC;
+  --content-title-underline: #1c1b1b86;
+
+  --content-box-background: #838383;
+
+  /* Navigation Bar */
+  --nav-bar: #353535;
+  --nav-bar-text: #CCCCCC;
+
+  /* Useful Colors */
+  --good: #00ff0088;
+  --good-muted: #00ff0044;
+  --warn: #DD5F39;
+  --warn-muted: #DD5F39;
+  --error: #E22534;
+  --error-muted: #b22934;
+
+  /* Global Buttons */
+  --button-global: #9c9c9c;
+  --button-global-text: #3d3d3d;
+  --button-global-hover: #737373;
+
+  --button-global-transition: .1s;
+  --button-global-transition-webkit: .1;
+
+  /* Mode Buttons */
+  --button-gfs: #1e88e5;
+  --button-gfs-text: #cecece;
+  --button-gfs-hover: #0a649f;
+
+  --button-ggs: #BB9457;
+  --button-ggs-text: #cecece;
+  --button-ggs-hover: #9c7a3f;
+
+  /* Switch */
+  --switch-left-color: #9c9c9c;
+  --switch-right-color: #1e88e5;
+  --switch-slider-color: #353535;
+  --switch-hover-shadow-color: #aaaaaa;
+  --switch-hover-shadow-size: 0 0 5px;
+
+}

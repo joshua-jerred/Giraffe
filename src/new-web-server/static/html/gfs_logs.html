@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="log-files.css" type="text/css">
+<script type="text/javascript" src="log-files.js"></script>
+{% endblock %}
+
+{% block page_title %} 
+Giraffe Flight Software - Data and Error Logs
+{% endblock %}
+
+{% block content %}
+<div class="content-box">
+  <h2 class="content-box-title">Data Log Files</h2>
+  <div class="content-box-content">
+    <ul id="data-log-files">
+      
+    </ul>
+  </div>
+</div>
+
+<div class="content-box">
+  <h2 class="content-box-title">Error Log Files</h2>
+  <div class="content-box-content">
+    <ul id="error-log-files">
+      
+    </ul>
+  </div>
+</div>
+
+<button id="rotate-log-files-button" class="gfs-button wide">Rotate Log Files</button>
+
+{% endblock %}

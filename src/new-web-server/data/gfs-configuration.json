@@ -1,0 +1,185 @@
+{
+    "general": {
+        "project-name": "Test Project",
+        "main-board-type": "pi_zero_w_2",
+        "starting-procedure": "testing"
+    },
+    "extensions": [
+        {
+            "id": 1,
+            "name": "temp_sen_1",
+            "type": "DS18B20",
+            "category": "external_sensor",
+            "interface": "onewire",
+            "update-interval": 2000,
+            "flight-critical": false,
+            "onewire-id": "28-03176038beff"
+        },
+        {
+            "id": 2,
+            "name": "gps",
+            "type": "SAMM8Q",
+            "category": "gps",
+            "interface": "i2c",
+            "update-interval": 1000,
+            "flight-critical": true,
+            "i2c-bus": 1,
+            "i2c-address": "0x42"
+        },
+        {
+            "id": 3,
+            "name": "pth_sen",
+            "type": "BME280",
+            "category": "external_sensor",
+            "interface": "i2c",
+            "update-interval": 1000,
+            "flight-critical": true,
+            "i2c-bus": 1,
+            "i2c-address": "0x76",
+            "critical-source": "PRES_MBAR"
+        },
+        {
+            "id": 4,
+            "name": "sys",
+            "type": "SYSINFO",
+            "category": "system",
+            "interface": "internal",
+            "update-interval": 1000,
+            "flight-critical": false
+        },
+        {
+            "id": 5,
+            "name": "bat",
+            "type": "MCP3021",
+            "category": "battery",
+            "interface": "i2c",
+            "update-interval": 1000,
+            "flight-critical": true,
+            "i2c-bus": 1,
+            "i2c-address": "0x4d"
+        },
+        {
+            "id": 6,
+            "name": "cam",
+            "type": "RPI_CAM",
+            "category": "camera",
+            "interface": "internal",
+            "update-interval": 100000,
+            "flight-critical": false
+        }
+    ],
+    "debugging": {
+        "debug-mode-print-errors": true,
+        "console-enabled": false,
+        "console-update-interval": 1000,
+        "web-server-enabled": true,
+        "web-server-socket-port": 8080
+    },
+    "telemetry": {
+        "telemetry-enabled": true,
+        "callsign": "NOCALL",
+        "radios": [
+            {
+                "id": 1,
+                "name": "radio-1",
+                "radio-type": "dra-sa",
+                "priority": 1,
+                "ptt-delay": 200,
+                "frequency-ranges": [
+                    {
+                        "min": "144.390",
+                        "max": "144.500"
+                    }
+                ],
+                "modes": [
+                    "TX",
+                    "RX",
+                    "APRS",
+                    "SSTV",
+                    "DATA"
+                ],
+                "features": [
+                    "frequency-switching",
+                    "power-saving",
+                    "separate-tx-rx",
+                    "bandwidth-switching",
+                    "rssi",
+                    "volume-control",
+                    "squelch-control"
+                ],
+                "interface": {
+                    "type": "uart",
+                    "uart-port": "/dev/ttyS0",
+                    "uart-baud-rate": 9600,
+                    "gpio" : {
+                        "ptt":17,
+                        "power":6,
+                        "squelch-detect": 5
+                    }
+                }
+            }
+        ],
+        "aprs": {
+            "enabled": false,
+            "frequency": "144.390",
+            "ssid": 11,
+            "destination-address": "APRS",
+            "destination-ssid": 0,
+            "symbol-table": "/",
+            "symbol": "O",
+            "telemetry-enabled": true,
+            "telemetry-destination": "APRS",
+            "position-enabled": true,
+            "comment": "GFS Balloon"
+        },
+        "sstv": {
+            "enabled": false,
+            "frequency": "145.510",
+            "mode": "robot36",
+            "comment": "GFS Balloon",
+            "save-images": true,
+            "overlay-data": true
+        },
+        "data-packets": {
+            "enabled": true,
+            "frequency": "145.510",
+            "mode": "bpsk500",
+            "morse-callsign": false,
+            "comment": "Testing my GFS Balloon Hardware and Software"
+        }
+    },
+    "data-log-data-and-packet-contents": [
+        {
+            "source": "sys",
+            "unit": "load_avg_1",
+            "include-in-telemetry": true,
+            "telemetry-name": "ldav1"
+        },
+        {
+            "source": "sys",
+            "unit": "cpu_temp",
+            "include-in-telemetry": true,
+            "telemetry-name": "cpu-tp"
+        },
+        {
+            "source": "pth_sen",
+            "unit": "temp_c",
+            "include-in-telemetry": true,
+            "telemetry-name": "tc"
+        }
+    ],
+    "flight-procedures": [
+        {
+            "type": "testing",
+            "enabled": true,
+            "intervals": {
+                "data-log": 2,
+                "data-packet": 10,
+                "sstv": 45,
+                "aprs": 30,
+                "picture": 50,
+                "health-check": 10
+            }
+        }
+    ]
+}
