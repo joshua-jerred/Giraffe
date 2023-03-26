@@ -41,33 +41,3 @@ function GetStringTime(time) {
 
     return timeString;
 }
-
-// <div class="collapsible-box">
-//  <div class="collapsible-title">Title</div>
-//    <div class="collapsible-content" onclick>
-//          Content
-//    </div>
-// </div>
-function Collapsible(content) {
-    if (content.style.display != "none") {
-        content.style.display = "none";
-    } else {
-        content.style.display = "block";
-    }
-}
-
-window.addEventListener("DOMContentLoaded", function () {
-    let collapsibles = document.querySelectorAll(".collapsible-box");
-    if (collapsibles.length == 0) {
-        return;
-    }
-    for (let i = 0; i < collapsibles.length; i++) {
-        let box_title = collapsibles[i].querySelector(".collapsible-title");
-        let box_content = collapsibles[i].querySelector(".collapsible-content");
-
-        box_title.addEventListener("click", function () {
-            Collapsible(box_content);
-        });
-
-    }
-});

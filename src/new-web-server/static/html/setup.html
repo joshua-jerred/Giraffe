@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
 {% block head %}
-<link rel="stylesheet" href="editable.css" type="text/css">
-<script type="text/javascript" src="editable.js"></script>
+<script type="text/javascript" src="util-editable.js"></script>
 <script type="text/javascript" src="setup.js"></script>
 <title>GWS Setup</title>
 {% endblock %}
@@ -12,7 +11,7 @@
 
 {% block content %}
 
-<div class="content-box">
+<nav class="content-box">
   <h2>Info</h2>
   <div class="content-box-content data-box">
     <div id="gws-version">GWS Version <span></span></div>
@@ -25,7 +24,7 @@
       <div id="allowed-extensions">Allowed Extensions<span></span></div>
     </div>
   </div>
-</div>
+</nav>
 
 <div class="content-box">
   <h2>Configuration</h2>

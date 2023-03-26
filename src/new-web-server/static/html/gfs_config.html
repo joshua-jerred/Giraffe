@@ -3,7 +3,7 @@
 {% block head %}
 <script type="text/javascript" src="loader.js"></script>
 <script type="text/javascript" src="gfs_config.js"></script>
-<script type="text/javascript" src="utils.js"></script>
+<script type="text/javascript" src="util-collapsible.js"></script>
 <link rel="stylesheet" href="config.css" type="text/css">
 <link rel="stylesheet" href="loader.css" type="text/css">
 <script> SetThisPageMode("gfs") </script>
@@ -68,23 +68,14 @@ Giraffe Flight Software Configuration
 
         </div>
 
-        <div class="collapsible-box">
-            <div class="collapsible-title">APRS</div>
-            <div class="collapsible-content" id="cfg-telemetry-aprs">
-            </div>
-        </div>
+        <button class="collapsible">APRS</button>
+        <div id="cfg-telemetry-aprs" class="collapsible-content"></div>
 
-        <div class="collapsible-box">
-            <div class="collapsible-title">SSTV</div>
-            <div class="collapsible-content" id="cfg-telemetry-sstv">
-            </div>
-        </div>
+        <button class="collapsible">SSTV</button>
+        <div id="cfg-telemetry-sstv" class="collapsible-content"></div>
 
-        <div class="collapsible-box">
-            <div class="collapsible-title">Data Packets</div>
-            <div class="collapsible-content" id="cfg-telemetry-data-packets">
-            </div>
-        </div>
+        <button class="collapsible">Data Packets</button>
+        <div id="cfg-telemetry-data-packets" class="collapsible-content"></div>
 
     </div>
 </div>

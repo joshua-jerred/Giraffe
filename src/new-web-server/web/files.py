@@ -32,7 +32,10 @@ class Files:
             return ("Forbidden", 403)
         
         if ext in ["css", "js"]:
-            path_to_file = self.static_dir + "/" + ext + "/" + file
+            if file[0:5] == "util-":
+                path_to_file = self.static_dir + "/" + ext + "/utilities/" + file
+            else:
+                path_to_file = self.static_dir + "/" + ext + "/" + file 
             content_type = "text/css" if ext == "css" else "application/javascript"
         elif ext == "ico":
             path_to_file = self.static_dir + "/" + "assets/" + file
