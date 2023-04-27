@@ -19,3 +19,11 @@ sym-lib-table
 # Python
 *.pyc
 .vscode/arduino.json
+
+# Node/React --
+node_modules
+coverage
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
