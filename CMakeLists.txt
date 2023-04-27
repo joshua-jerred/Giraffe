@@ -8,9 +8,8 @@ option(SSTV_ENABLED "Enable SSTV - Requires Magick++" ON) # ON or OFF
 
 # ---- Development Variables ----
 # Changing these variables can break the build
-set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight-computer)
+set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_software)
 set(LIB_SRC ${CMAKE_SOURCE_DIR}/lib)
-set(WEB_SERVER_SRC ${CMAKE_SOURCE_DIR}/src/web-server)
 set(TEST_BIN ${CMAKE_BINARY_DIR}/tests)
 set(GIRAFFE_CONFIG_FILE_NAME "gfs-configuration.json")
 set(GIRAFFE_BUILD_OUTPUT_DIR ${CMAKE_SOURCE_DIR}/bin)
