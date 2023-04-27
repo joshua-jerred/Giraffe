@@ -46,6 +46,10 @@
   width: 8em !important;
 }
 
+.gfs-ggs-buttons:hover {
+  cursor: pointer;
+}
+
 /* ------------------ */
 
 /* Logo/Clock */
@@ -95,7 +99,7 @@
   cursor: pointer;
 }
 
-.no-select * {
+.no-select {
   -webkit-user-select: none;
   /* Safari */
   -moz-user-select: none;

@@ -1,0 +1,224 @@
+<mxfile host="65bd71144e">
+    <diagram id="xH-T24poy5hYIG6f6IRd" name="Page-1">
+        <mxGraphModel dx="2122" dy="1145" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="359" value="Giraffe Flight Computer (GFC)" style="swimlane;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;connectable=1;" parent="1" vertex="1">
+                    <mxGeometry x="-280" y="73" width="553" height="298" as="geometry">
+                        <mxRectangle x="-280" y="73" width="206" height="26" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="361" value="influxDB&lt;br&gt;" style="shape=datastore;whiteSpace=wrap;html=1;" parent="359" vertex="1">
+                    <mxGeometry x="148" y="199" width="78" height="87" as="geometry"/>
+                </mxCell>
+                <mxCell id="373" value="" style="edgeStyle=elbowEdgeStyle;html=1;elbow=horizontal;startArrow=classic;endArrow=classic;endFill=1;startFill=1;" parent="359" source="368" target="372" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="450" value="File Socket" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#FFFFFF;" parent="373" vertex="1" connectable="0">
+                    <mxGeometry x="0.2155" y="-1" relative="1" as="geometry">
+                        <mxPoint x="-10" y="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="392" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=classic;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;endFill=1;" parent="359" source="368" target="361" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="109" y="156"/>
+                            <mxPoint x="117" y="204"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="448" value="Local HTTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#FFFFFF;" parent="392" vertex="1" connectable="0">
+                    <mxGeometry x="-0.3876" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <UserObject label="GFS Watchdog&lt;br&gt;(Linux Service)" treeRoot="1" id="368">
+                    <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};fontStyle=1" parent="359" vertex="1">
+                        <mxGeometry x="15" y="82.5" width="125" height="63" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="389" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=classic;endArrow=classic;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=1;endFill=1;" parent="359" source="372" target="377" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="390" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=classic;exitX=1;exitY=0.25;exitDx=0;exitDy=0;endFill=1;" parent="359" source="372" target="383" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="391" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=classic;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.3;entryDx=0;entryDy=0;startFill=0;endFill=1;" parent="359" source="372" target="361" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="259" y="176"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="449" value="Local HTTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#FFFFFF;" parent="391" vertex="1" connectable="0">
+                    <mxGeometry x="-0.4322" y="-2" relative="1" as="geometry">
+                        <mxPoint y="3" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="422" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=classic;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endFill=1;" parent="359" source="372" target="421" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="322" y="74"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <UserObject label="Giraffe Flight Software&lt;br&gt;(GFS)" treeRoot="1" id="372">
+                    <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};fillColor=rgb(24, 20, 29);fontStyle=1" parent="359" vertex="1">
+                        <mxGeometry x="228" y="82.5" width="125" height="63" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="377" value="AX.25 (AFSK/PSK)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1,&quot;sourcePerimeterSpacing&quot;:0,&quot;targetPerimeterSpacing&quot;:0};fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="359" vertex="1">
+                    <mxGeometry x="382" y="128" width="147" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="380" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=classic;endArrow=classic;segment=10;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;endFill=1;startFill=1;" parent="359" source="379" target="372" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="322" y="162"/>
+                            <mxPoint x="322" y="178"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="379" value="TCP Socket" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1,&quot;sourcePerimeterSpacing&quot;:0,&quot;targetPerimeterSpacing&quot;:0};fillColor=#6d8764;strokeColor=#3A5431;fontColor=#ffffff;" parent="359" vertex="1">
+                    <mxGeometry x="382" y="191" width="103" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="383" value="SSTV" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1,&quot;sourcePerimeterSpacing&quot;:0,&quot;targetPerimeterSpacing&quot;:0};fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="359" vertex="1">
+                    <mxGeometry x="382" y="90.5" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="421" value="APRS" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1,&quot;sourcePerimeterSpacing&quot;:0,&quot;targetPerimeterSpacing&quot;:0};fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="359" vertex="1">
+                    <mxGeometry x="382" y="55" width="151" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="360" value="Giraffe Ground Computer (GGC)" style="swimlane;" parent="1" vertex="1">
+                    <mxGeometry x="487" y="73" width="375" height="302" as="geometry"/>
+                </mxCell>
+                <mxCell id="406" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=classic;endArrow=classic;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startFill=1;endFill=1;" parent="360" source="396" target="397" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="430" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=classic;entryX=0;entryY=0.3;entryDx=0;entryDy=0;endFill=1;" parent="360" source="396" target="398" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <UserObject label="Telemetry Server" treeRoot="1" id="396">
+                    <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};fillColor=rgb(24, 20, 29);fontStyle=1" parent="360" vertex="1">
+                        <mxGeometry x="58.5" y="74" width="125" height="63" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <UserObject label="Giraffe Ground Station Backend" treeRoot="1" id="397">
+                    <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};fillColor=rgb(24, 20, 29);fontStyle=1" parent="360" vertex="1">
+                        <mxGeometry x="58.5" y="195" width="125" height="63" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="455" style="edgeStyle=elbowEdgeStyle;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;elbow=vertical;startArrow=classic;startFill=1;" edge="1" parent="360" source="398" target="397">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="398" value="influxDB&lt;br&gt;" style="shape=datastore;whiteSpace=wrap;html=1;" parent="360" vertex="1">
+                    <mxGeometry x="252" y="62" width="78" height="87" as="geometry"/>
+                </mxCell>
+                <UserObject label="Giraffe Ground Station Frontend Server" treeRoot="1" id="409">
+                    <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};fillColor=rgb(24, 20, 29);fontStyle=1" parent="360" vertex="1">
+                        <mxGeometry x="243" y="232" width="125" height="63" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="416" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;" parent="1" source="415" target="409" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="451" value="HTTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#FFFFFF;" parent="416" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0911" y="2" relative="1" as="geometry">
+                        <mxPoint x="2" y="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="415" value="Client(s)" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="550.5" y="419" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="417" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=classic;endArrow=classic;startFill=1;endFill=1;" parent="1" source="397" target="415" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="452" value="Web Socket/HTTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#FFFFFF;" parent="417" vertex="1" connectable="0">
+                    <mxGeometry x="0.3063" relative="1" as="geometry">
+                        <mxPoint x="-3" y="5" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="424" value="APRS Network" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="258" y="-9" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="427" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=classic;segment=10;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endFill=1;elbow=vertical;fillColor=#a0522d;strokeColor=#6D1F00;strokeWidth=3;dashed=1;dashPattern=1 1;" parent="1" source="421" target="424" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="341" y="141"/>
+                            <mxPoint x="412" y="112"/>
+                            <mxPoint x="434" y="51"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="428" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=none;segment=10;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;fillColor=#6d8764;strokeColor=#3A5431;strokeWidth=3;dashed=1;dashPattern=1 1;" parent="1" source="379" target="397" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="309" y="284"/>
+                            <mxPoint x="400" y="235"/>
+                            <mxPoint x="466" y="251"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="433" value="TCP/802.11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#3A5431;" parent="428" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0208" relative="1" as="geometry">
+                        <mxPoint x="9" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="429" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=none;segment=10;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=3;fillColor=#6d8764;strokeColor=#3A5431;dashed=1;dashPattern=1 1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="361" target="397" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="204" y="315.5" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="396" y="313"/>
+                            <mxPoint x="432" y="267"/>
+                            <mxPoint x="479" y="299"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="432" value="HTTP/802.11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#3A5431;" parent="429" vertex="1" connectable="0">
+                    <mxGeometry x="-0.3905" y="1" relative="1" as="geometry">
+                        <mxPoint x="250" y="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="437" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=classic;segment=10;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=1 1;strokeWidth=3;fontSize=19;fontColor=#006600;fillColor=#a0522d;strokeColor=#6D1F00;startFill=0;endFill=1;" parent="1" source="383" target="396" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="443" value="RF DOWN" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#6D1F00;" parent="437" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2812" y="4" relative="1" as="geometry">
+                        <mxPoint x="12" y="4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="441" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=classic;endArrow=classic;segment=10;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;dashed=1;dashPattern=1 1;strokeWidth=3;fontSize=19;fontColor=#006600;fillColor=#a0522d;strokeColor=#6D1F00;startFill=1;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="377" target="396" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="477" y="202"/>
+                            <mxPoint x="295" y="216"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="445" value="RF UP/DOWN" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#6D1F00;" parent="441" vertex="1" connectable="0">
+                    <mxGeometry x="-0.197" y="3" relative="1" as="geometry">
+                        <mxPoint x="-1" y="3" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="442" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=classic;segment=10;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;entryX=0.012;entryY=0.116;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=1 1;strokeWidth=3;fontSize=19;fontColor=#006600;fillColor=#a0522d;strokeColor=#6D1F00;endFill=1;" parent="1" source="421" target="396" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="475" y="141"/>
+                            <mxPoint x="476" y="143"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="446" value="RF DOWN" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#6D1F00;" parent="442" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2469" y="-2" relative="1" as="geometry">
+                        <mxPoint x="1" y="-2" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="454" style="edgeStyle=elbowEdgeStyle;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="453" target="397">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="453" value="aprs.fi" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="886" y="235" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
