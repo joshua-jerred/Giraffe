@@ -11,7 +11,9 @@ function loadMetaData(api, category = null, subcategory = null, key = null) {
     throw new Error("invalid api");
   }
 
-  if (meta_data === null || meta_data[category] === undefined) {
+  if (category === null) {
+    return meta_data;
+  } else if (meta_data[category] === undefined) {
     return null;
   } else if (subcategory === null) {
     return meta_data[category];

@@ -12,7 +12,7 @@ const setting_schema = {
     name: {
       type: "string",
       minLength: 4,
-      maxLength: 30,
+      maxLength: 35,
     },
     description: {
       type: "string",
@@ -50,12 +50,12 @@ const data_schema = {
     description: {
       type: "string",
     },
-    initial_value: {},
+    default: {},
     units: {
       type: "string",
     },
   },
-  required: ["name", "description", "initial_value"],
+  required: ["name", "description", "default"],
   additionalProperties: false,
 };
 test("verify_data", async (t) => {
