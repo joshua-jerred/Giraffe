@@ -1,0 +1,50 @@
+{
+  "settings": {
+    "gfs": {
+      "gfs_server_address": {
+        "type": "string",
+        "name": "GFS Server",
+        "description": "The address for the Giraffe Flight Software socket. The web server will use this to communicate while on the ground.",
+        "default": "localhost:8432"
+      },
+      "gfs_update_interval_ms": {
+        "type": "int",
+        "name": "GFS Update Interval (ms)",
+        "description": "The interval at which the web server will request updates from the Flight Software.",
+        "min": 100,
+        "max": 5000,
+        "default": 1000
+      }
+    },
+    "influx_db": {
+      "influx_server_address": {
+        "type": "string",
+        "name": "Influx Server",
+        "description": "The address for the InfluxDB server.",
+        "default": "localhost:8086"
+      },
+      "influx_database": {
+        "type": "string",
+        "name": "Influx Database",
+        "description": "The name of the InfluxDB database to use.",
+        "default": "giraffe"
+      }
+    }
+  },
+  "data": {
+    "made_up": {
+      "made_up_data": {
+        "name": "Made Up Data",
+        "description": "This is a made up data point.",
+        "initial_value": 0,
+        "units": "meters"
+      },
+      "made_up_data_2": {
+        "name": "Made Up Data 2",
+        "description": "This is another made up data point.",
+        "initial_value": 0,
+        "units": "meters"
+      }
+    }
+  }
+}

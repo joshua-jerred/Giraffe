@@ -1,0 +1,26 @@
+{
+  "name": "giraffe-ground-station-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "ava"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "ajv-errors": "^3.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "giraffe-protocol": "file:../protocol",
+    "uuid": "^9.0.0",
+    "uuidv4": "^6.2.13",
+    "websocket": "^1.0.34",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "ava": "^5.2.0"
+  }
+}
