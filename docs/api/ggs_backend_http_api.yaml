@@ -1,0 +1,154 @@
+openapi: 3.0.0
+info:
+  title: Giraffe Ground Station
+  description: Giraffe Ground Station API
+  version: 0.5.0
+
+paths:
+  /test:
+    get:
+      description: Test the connection to the ggs server
+      responses:
+        200:
+          description: OK - Connection successful. The response body will always be the same and can be used to verify communication with the correct server.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: ggs
+  /{resource}/settings:
+    get:
+      description: Get the current settings and metadata related to the settings
+      parameters:
+        - in: path
+          name: resource
+          schema:
+            type: string
+            enum: [ggs, gfs]
+          description: Specify between the ground station and the flight computer
+          required: true
+        - in: query
+          name: category
+          schema:
+            type: string
+            enum: [gfs_connection, influx_db]
+          description: >
+              - `gfs_connection` - ggs - The connection settings for the flight computer
+              
+              - `influx_db` - ggs - The connection settings for the influx database
+
+              - `ggs_telemetry` - ggs - The telemetry settings for the ground station
+          required: true
+        - in: query
+          name: include
+          schema:
+            type: string
+            enum: [values, metadata, all]
+            default: all
+          description: The data to return in the response. 'values' returns the current values, 'metadata' returns metadata about the setting, 'all' returns both.
+      responses:
+        200:
+          description: OK - The settings were found and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SettingsResponse'
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: No connection to the flight computer
+        404:
+          description: Setting category not found
+
+components:
+  schemas:
+    SettingsResponse:
+      type: object
+      additionalProperties:
+        oneOf:
+          - $ref: '#/components/schemas/ExtendedSettingMetaData'
+          - $ref: '#/components/schemas/SettingValue'
+          - allOf:
+            - $ref: '#/components/schemas/ExtendedSettingMetaData'
+            - $ref: '#/components/schemas/SettingValue'
+
+      example:
+        gfs_server_address:
+          "type": "string"
+          "name": "GFS Server Address"
+          "description": "The address of the GFS server"
+          "default": "localhost"
+        gfs_server_port:
+          "type": "int"
+          "name": "GFS Server Address"
+          "description": "The address of the GFS server"
+          "default": 8123
+
+    MinimalSettingMetaData:
+      type: object
+      properties:
+        "type":
+          type: string
+          enum: ["int", "float", "bool", "enum", "string"]
+          description: The data type of the setting
+          example: "string"
+        name:
+          type: string
+          description: Human readable name of the setting
+          example: "GFS Server Address"
+        description:
+          type: string
+          description: Human readable name of the string
+        default:
+          oneOf:
+          - type: string
+          - type: integer
+          - type: number
+          description: The default value of this setting, in it's appropriate type.
+      required:
+        - type
+        - name
+        - description
+        - default
+
+    ExtendedSettingMetaData:
+      allOf:
+        - $ref: '#/components/schemas/MinimalSettingMetaData'
+        - type: "object"
+          properties:
+            wingsColors:
+              type: "string"
+              default: "RED"
+            max:
+              type: integer
+              description: This will only be included with integer, float, and string type. This is either the maximum number of characters, or the maximum value.
+            min:
+              type: integer
+              description: This will only be included with integer, float, and string type. This is either the minimum number of characters, or the minimum value.
+            true_state:
+              type: string
+              description: This is a semantic item that is included with boolean type settings.
+              example: "enabled"
+            false_state:
+              type: string
+              description: This is a semantic item that is included with boolean type settings.
+              example: "disconnected"
+
+    SettingValue:
+      properties:
+        value:
+          oneOf:
+          - type: string
+          - type: integer
+          - type: number
+          - type: boolean
+          description: The current value of the setting, in it's appropriate type.
