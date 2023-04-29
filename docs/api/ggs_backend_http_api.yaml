@@ -49,6 +49,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Resource'
       - $ref: '#/components/parameters/Category'
+      
     get:
       description: Get the current settings and metadata related to the settings
       parameters:
@@ -73,11 +74,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
         404:
-          description: Setting category not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
+          $ref: '#/components/responses/NotFound'
         500:
           description: Internal server error - could be related to there being no connection to the flight computer
           content:
@@ -125,9 +122,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-
+    delete:
+      description: Delete the settings in the resource/category and reset them to their default values
+      responses:
+        200:
+          description: OK - The settings have been reset
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        400:
+          description: Bad Request - The request was not formatted correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          $ref: '#/components/responses/NotFound'
+        
 
 components:
+  responses:
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: The request was not formatted correctly
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
   parameters:
     Resource:
       in: path
@@ -257,7 +285,7 @@ components:
     SuccessResponse:
       type: object
       properties:
-        info:
+        message:
           type: string
           description: A human readable success message
           example: "Info message"
@@ -265,7 +293,7 @@ components:
     ErrorResponse:
       type: object
       properties:
-        error:
+        message:
           type: string
           description: A human readable error message
           example: "Error message"

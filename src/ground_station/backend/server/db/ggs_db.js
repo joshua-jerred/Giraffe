@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const loadMetaData = require("../metadata/metaLoader");
-const file_name = "ggs_setup.json";
+const file_name = "db.json";
 
 const db_tables = ["settings", "data"];
 
@@ -16,14 +16,11 @@ class GgsDataBase {
   load() {
     if (fs.existsSync(this.file_path) === false) {
       fs.writeFileSync(this.file_path, "{}");
-      console.log("Created new database file: " + this.file_path);
     }
 
     try {
       this.db = JSON.parse(fs.readFileSync(this.file_path));
     } catch (err) {
-      console.log("Error reading database file: " + this.file_path);
-      console.log(err);
       fs.writeFileSync(this.file_path, JSON.stringify({}, null, 2));
     }
 
@@ -73,9 +70,11 @@ class GgsDataBase {
     }
   }
 
-  setKey(table, category, key, value) {
+  setKey(table, category, key, value, save = true) {
     this.db[table][category][key] = value;
-    this.save();
+    if (save) {
+      this.save();
+    }
   }
 
   setCategory(resource, category, value) {
@@ -87,6 +86,19 @@ class GgsDataBase {
     // settings / data
     this.db[resource] = value;
     this.save();
+  }
+
+  resetCategory(resource, category) {
+    if (this.db[resource] === undefined) {
+      return false;
+    } else if (this.db[resource][category] === undefined) {
+      return false;
+    } else {
+      this.db[resource][category] = {};
+      this.save();
+      this.load();
+      return true;
+    }
   }
 
   resetDb() {

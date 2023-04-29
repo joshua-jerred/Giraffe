@@ -1,4 +1,4 @@
-const errorResponse = require("./error_response");
+const errorResponse = require("./generic_response");
 
 const valid_resources = ["status", "static", "ggs", "gfs"];
 
@@ -36,20 +36,6 @@ var verifyPathSchema = function (req, res, next) {
     next();
   }
 };
-
-function verifySettingsSchema(req, res, next) {
-  
-  if (req.method == "GET") {
-
-
-    
-  } else if (req.method == "POST") {
-  } else {
-    errorResponse(res, 404, "Invalid API method.");
-    return;
-  }
-  next();
-}
 
 module.exports = {
   verifyPathSchema: verifyPathSchema,

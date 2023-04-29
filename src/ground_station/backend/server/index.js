@@ -5,7 +5,7 @@ const cors = require("cors");
 const PORT = 3020; //process.env.PORT || 3006;
 
 const httpRoutes = require("./http_api/routes");
-const httpSchema = require("./http_api/schema");
+const httpSchema = require("./http_api/http_schema");
 
 const GlobalState = require("./state");
 const global_state = new GlobalState();
