@@ -12,12 +12,14 @@ import TelemetryPage from './pages/telemetry';
 import TrackingPage from './pages/tracking';
 import DataLogsPage from './pages/data_logs';
 import ConfigureGgsPage from './pages/configure_ggs';
+
 // GFS
 import GfsDataStreamPage from './pages/gfs/data_stream';
 import ConfigureGfsPage from './pages/gfs/configure_gfs';
 
 import ClientSetupPage from './pages/client_setup';
 import DocsPage from './pages/docs/docs';
+import TestPage from './pages/test';
 
 import NotFound from './pages/404';
 
@@ -39,6 +41,7 @@ function App() {
     <AppStyle darkMode={darkMode}>
       <BrowserRouter>
         <Routes>
+          <Route path="/test" element={<TestPage />} />
           <Route path="/" element={<Layout />}>
             <Route index element={<CommandCenter />} />
             <Route path="telemetry" element={<TelemetryPage />} />

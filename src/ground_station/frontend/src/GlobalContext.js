@@ -33,7 +33,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
     lastJsonMessage,
     readyState,
     getWebSocket,
-  } = useWebSocket('ws://' + ggsSocketAddress, {
+  } = useWebSocket(ggsSocketAddress + "/api/ws", {
     share: true,
     shouldReconnect: (closeEvent) => true,
     reconnectAttempts: 10,

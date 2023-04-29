@@ -1,5 +1,5 @@
-const GgsConfigure = require("../db/ggs_db");
-const loadMetaData = require("../metadata/metaLoader");
+const GgsConfigure = require("../../db/ggs_db");
+const loadMetaData = require("../../metadata/metaLoader");
 const create = require("giraffe-protocol/message").create;
 const save_ack = require("giraffe-protocol/message").create_save_ack;
 
