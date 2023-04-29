@@ -1,5 +1,9 @@
+const GgsDataBase = require("./db/ggs_db.js");
+
 class GlobalState {
   constructor() {
+    this.ggs_db = new GgsDataBase();
+
     this.statuses = { // disconnected, connected
       ggs: "connected",
       influx_db: "disconnected", 

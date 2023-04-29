@@ -1,6 +1,6 @@
 {
   "settings": {
-    "gfs": {
+    "gfs_connection": {
       "gfs_server_address": {
         "type": "string",
         "name": "GFS Server",

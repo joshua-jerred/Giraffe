@@ -1,7 +1,7 @@
 const gfs_meta_data = require("./gfs_meta.json");
 const ggs_meta_data = require("./ggs_meta.json");
 
-function loadMetaData(api, category = null, subcategory = null, key = null) {
+function loadMetaData(api, resource = null, category = null) {
   var meta_data = null;
   if (api === "gfs") {
     meta_data = gfs_meta_data;
@@ -11,18 +11,16 @@ function loadMetaData(api, category = null, subcategory = null, key = null) {
     throw new Error("invalid api");
   }
 
-  if (category === null) {
+  if (resource === null) {
     return meta_data;
-  } else if (meta_data[category] === undefined) {
+  } else if (meta_data[resource] === undefined) {
     return null;
-  } else if (subcategory === null) {
-    return meta_data[category];
-  } else if (meta_data[category][subcategory] === undefined) {
+  } else if (category === null) {
+    return meta_data[resource];
+  } else if (meta_data[resource][category] === undefined) {
     return null;
-  } else if (key === null) {
-    return meta_data[category][subcategory];
   } else {
-    return meta_data[category][subcategory][key];
+    return meta_data[resource][category];
   }
 }
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
-    "test": "ava"
+    "test": "ava --verbose"
   },
   "author": "",
   "license": "",
@@ -22,6 +22,7 @@
     "ws": "^8.13.0"
   },
   "devDependencies": {
-    "ava": "^5.2.0"
+    "ava": "^5.2.0",
+    "test-listen": "^1.1.0"
   }
 }

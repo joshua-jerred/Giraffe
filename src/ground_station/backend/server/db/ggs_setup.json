@@ -1,6 +1,6 @@
 {
   "settings": {
-    "gfs": {
+    "gfs_connection": {
       "gfs_server_address": "localhost",
       "gfs_server_port": 8123,
       "gfs_update_interval_ms": 1000

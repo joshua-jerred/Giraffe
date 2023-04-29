@@ -66,14 +66,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetSettingsResponse'
-        500:
-          description: Internal server error - could be related to there being no connection to the flight computer
+        400:
+          description: Bad Request - Query parameters were invalid.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
         404:
           description: Setting category not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Internal server error - could be related to there being no connection to the flight computer
           content:
             application/json:
               schema:
@@ -91,8 +97,16 @@ paths:
       responses:
         200:
           description: OK - The new settings have been set
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
         202:
           description: Accepted - The new settings have been received and will be set. This will happen when the settings need to be set on the flight computer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
         400:
           description: Bad Request - The request was not formatted correctly
           content:
@@ -142,31 +156,40 @@ components:
   schemas:
     EntityStatus:
       type: string
-      enum: [CONNECTED, DISCONNECTED]
+      enum: [connected, disconnected]
 
     GetSettingsResponse:
       type: object
-      additionalProperties:
-        oneOf:
-          - $ref: '#/components/schemas/ExtendedSettingMetaData'
-          - $ref: '#/components/schemas/SettingValue'
-          - allOf:
-            - $ref: '#/components/schemas/ExtendedSettingMetaData'
-            - $ref: '#/components/schemas/SettingValue'
-
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SettingMetaData'
+        values:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SettingValue'
       example:
-        gfs_server_address:
-          "type": "string"
-          "name": "GFS Server Address"
-          "description": "The address of the GFS server"
-          "default": "localhost"
-        gfs_server_port:
-          "type": "int"
-          "name": "GFS Server Address"
-          "description": "The address of the GFS server"
-          "default": 8123
+        metadata:
+          gfs_server_address:
+            type: string
+            name: GFS Server Address
+            description: The address of the GFS server
+            default: localhost
+          gfs_server_port:
+            type: integer
+            name: GFS Server Port
+            description: The port of the GFS server
+            default: 5000
+            min: 0
+            max: 65535
+        values:
+          gfs_server_address: localhost
+          gfs_server_port: 5000
 
-    MinimalSettingMetaData:
+
+
+    SettingMetaData:
       type: object
       properties:
         "type":
@@ -187,34 +210,25 @@ components:
           - type: integer
           - type: number
           description: The default value of this setting, in it's appropriate type.
+        max:
+          type: integer
+          description: This will only be included with integer, float, and string type. This is either the maximum number of characters, or the maximum value.
+        min:
+          type: integer
+          description: This will only be included with integer, float, and string type. This is either the minimum number of characters, or the minimum value.
+        true_state:
+          type: string
+          description: This is a semantic item that is included with boolean type settings.
+          example: "enabled"
+        false_state:
+          type: string
+          description: This is a semantic item that is included with boolean type settings.
+          example: "disconnected"
       required:
         - type
         - name
         - description
         - default
-
-    ExtendedSettingMetaData:
-      allOf:
-        - $ref: '#/components/schemas/MinimalSettingMetaData'
-        - type: "object"
-          properties:
-            wingsColors:
-              type: "string"
-              default: "RED"
-            max:
-              type: integer
-              description: This will only be included with integer, float, and string type. This is either the maximum number of characters, or the maximum value.
-            min:
-              type: integer
-              description: This will only be included with integer, float, and string type. This is either the minimum number of characters, or the minimum value.
-            true_state:
-              type: string
-              description: This is a semantic item that is included with boolean type settings.
-              example: "enabled"
-            false_state:
-              type: string
-              description: This is a semantic item that is included with boolean type settings.
-              example: "disconnected"
 
     SettingValue:
       properties:
@@ -225,6 +239,8 @@ components:
           - type: number
           - type: boolean
           description: The current value of the setting, in it's appropriate type.
+      example:
+        value: "t"
 
     PutSettingValues:
       type: object
@@ -238,8 +254,18 @@ components:
         gfs_server_address: "192.168.0.2"
         gfs_server_port: "8123"
 
+    SuccessResponse:
+      type: object
+      properties:
+        info:
+          type: string
+          description: A human readable success message
+          example: "Info message"
+
     ErrorResponse:
+      type: object
       properties:
         error:
           type: string
           description: A human readable error message
+          example: "Error message"

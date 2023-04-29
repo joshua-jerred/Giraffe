@@ -40,14 +40,10 @@ class GgsDataBase {
         }
 
         // Iterate through the subcategories
-        for (var subcategory in loadMetaData("ggs", db_tables[i], category)) {
+        let subcategories_meta = loadMetaData("ggs", db_tables[i], category);
+        for (var subcategory in subcategories_meta) {
           if (this.db[db_tables[i]][category][subcategory] === undefined) {
-            this.db[db_tables[i]][category][subcategory] = loadMetaData(
-              "ggs",
-              db_tables[i],
-              category,
-              subcategory
-            )["default"];
+            this.db[db_tables[i]][category][subcategory] = subcategories_meta[subcategory].default;
           }
         }
       }
@@ -60,13 +56,20 @@ class GgsDataBase {
     fs.writeFileSync(this.file_path, JSON.stringify(this.db, null, 2));
   }
 
-  get(table, category = null, key = null) {
-    if (category === null || category === undefined) {
-      return this.db[table];
+  get(resource, category = null, key = null) {
+    let loaded = null
+    if (category === null) {
+      loaded = this.db[resource];
     } else if (key === null) {
-      return this.db[table][category];
+      loaded = this.db[resource][category];
     } else {
-      return this.db[table][category][key];
+      loaded = this.db[resource][category][key];
+    }
+
+    if (loaded === undefined || loaded === null) {
+      return null;
+    } else {
+      return loaded;
     }
   }
 
@@ -75,18 +78,18 @@ class GgsDataBase {
     this.save();
   }
 
-  setCategory(table, category, value) {
-    this.db[table][category] = value;
+  setCategory(resource, category, value) {
+    this.db[resource][category] = value;
     this.save();
   }
 
-  setTable(table, value) {
+  setResource(resource, value) {
     // settings / data
-    this.db[table] = value;
+    this.db[resource] = value;
     this.save();
   }
 
-  resetDb(table) {
+  resetDb() {
     this.db = {};
     this.save();
     this.load();
