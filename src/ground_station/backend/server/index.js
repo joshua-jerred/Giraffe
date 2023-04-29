@@ -1,68 +1,36 @@
-const WebSocketServer = require("ws").Server;
-const WebSocket = require("ws");
-const { v4: uuidv4 } = require("uuid");
+const express = require("express");
+const path = require("path");
+const httpRoutes = require("./http_api/routes");
+const app = express();
+const cors = require("cors");
+const PORT = 3020; //process.env.PORT || 3006;
 
-const Validate = require("giraffe-protocol/message").validate;
+const GlobalState = require("./state");
+const global_state = new GlobalState();
 
-const telemetryController = require("./controllers/telemetry");
-const clientController = require("./controllers/client");
+// For testing purposes
+var request_counter = function (req, res, next) {
+  global_state.total_http_requests++;
+  next();
+}
+app.use(request_counter);
 
-const ggs_ws = new WebSocketServer({ port: 8000 });
+// HTTP Server Setup
+app.use(cors({ origin: "*" }));
+app.use(express.json());
 
-const Status = require("./status");
-const ggs_status = new Status();
+// API Handler Setup
+app.use("/api", httpRoutes(global_state));
 
-ggs_ws.on("connection", function connection(ws, req) {
-  sendStatus();
-  ws.on("error", console.error);
-  ws.type = "unknown";
-  ws.id = uuidv4();
+// API Endpoint - /api/static/*
+app.use("/static", express.static(path.join(__dirname, "public")));
 
-  const ip = req.socket.remoteAddress;
-  console.log("connected to client: " + ip);
-
-  ws.on("message", function message(data) {
-    var msg = JSON.parse(data);
-    if (Validate(msg)) {
-      switch (msg.source) {
-        case "telemetry":
-          ws.type = "telemetry";
-          telemetryController(msg);
-          break;
-        case "client":
-          ws.type = "client";
-          if (msg.type === "path") {
-            ws.path = msg.body.path;
-            console.log("client path: " + ws.path);
-            break;
-          }
-          clientController(msg, ws);
-          break;
-      }
-    } else {
-      console.log("invalid message");
-    }
-  });
+// 404 Handler
+app.use((req, res, next) => {
+  res.status(404).send("API endpoint not found");
 });
 
-console.log("GGS listening on port 8000...");
-
-async function sendStatus() {
-  const statusMessage = ggs_status.getStatusMessage();
-  let num_clients = 0;
-  let telemetry = false;
-  ggs_ws.clients.forEach(function each(client) {
-    if (client.readyState === WebSocket.OPEN) {
-      if (client.type === "client") {
-        num_clients++;
-        client.send(statusMessage);
-      } else if (client.type === "telemetry") {
-        telemetry = true;
-      }
-    }
-  });
-  ggs_status.num_clients = num_clients;
-  ggs_status.telemetry_connection = telemetry ? "connected" : "disconnected";
-}
-
-setInterval(sendStatus, 1500);
+// Enable the server
+app.listen(PORT, () => {
+  console.log(`app is running on PORT ${PORT}`);
+});

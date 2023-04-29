@@ -7,7 +7,7 @@ info:
 paths:
   /api/status:
     get:
-      description: Test the connection to the ggs server
+      description: Used to test your connection with the GGS server and to get the current status of it's resources.
       responses:
         200:
           description: OK - Connection successful. The response body will always be the same and can be used to verify communication with the correct server.
@@ -16,9 +16,14 @@ paths:
               schema:
                 type: object
                 properties:
-                  id:
-                    type: string
-                    example: ggs
+                  ggs:
+                    $ref: '#/components/schemas/EntityStatus'
+                  gfs:
+                    $ref: '#/components/schemas/EntityStatus'
+                  influx_db:
+                    $ref: '#/components/schemas/EntityStatus'
+                  telemetry:
+                    $ref: '#/components/schemas/EntityStatus'
 
   /api/static/{file}:
     get:
@@ -135,6 +140,10 @@ components:
 
 
   schemas:
+    EntityStatus:
+      type: string
+      enum: [CONNECTED, DISCONNECTED]
+
     GetSettingsResponse:
       type: object
       additionalProperties:
