@@ -5,7 +5,7 @@ info:
   version: 0.5.0
 
 paths:
-  /test:
+  /api/status:
     get:
       description: Test the connection to the ggs server
       responses:
@@ -19,29 +19,34 @@ paths:
                   id:
                     type: string
                     example: ggs
-  /{resource}/settings:
+
+  /api/static/{file}:
+    get:
+      description: Get a static file from the server. Used for documentation.
+      parameters:
+      - in: path
+        name: file
+        schema:
+          type: string
+        required: true
+        description: The file to get
+      responses:
+        200:
+          description: OK - The file was found and returned
+          content:
+            text/html:
+              schema:
+                type: string
+                format: binary
+                example: This is a documentation file.
+
+  /api/{resource}/settings:
+    parameters:
+      - $ref: '#/components/parameters/Resource'
+      - $ref: '#/components/parameters/Category'
     get:
       description: Get the current settings and metadata related to the settings
       parameters:
-        - in: path
-          name: resource
-          schema:
-            type: string
-            enum: [ggs, gfs]
-          description: Specify between the ground station and the flight computer
-          required: true
-        - in: query
-          name: category
-          schema:
-            type: string
-            enum: [gfs_connection, influx_db]
-          description: >
-              - `gfs_connection` - ggs - The connection settings for the flight computer
-              
-              - `influx_db` - ggs - The connection settings for the influx database
-
-              - `ggs_telemetry` - ggs - The telemetry settings for the ground station
-          required: true
         - in: query
           name: include
           schema:
@@ -55,23 +60,82 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SettingsResponse'
+                $ref: '#/components/schemas/GetSettingsResponse'
         500:
-          description: Internal server error
+          description: Internal server error - could be related to there being no connection to the flight computer
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    example: No connection to the flight computer
+                $ref: '#/components/schemas/ErrorResponse'
         404:
           description: Setting category not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      description: Set new values for the settings
+      parameters:
+        - $ref: '#/components/parameters/Resource'
+      requestBody:
+        description: The new values for the settings in the resource/category that you want to set.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutSettingValues'
+      responses:
+        200:
+          description: OK - The new settings have been set
+        202:
+          description: Accepted - The new settings have been received and will be set. This will happen when the settings need to be set on the flight computer.
+        400:
+          description: Bad Request - The request was not formatted correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Setting category not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        503:
+          description: Service Unavailable - The settings could not be set. This will happen if the flight software is not connected with the ground station.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
 
 components:
+  parameters:
+    Resource:
+      in: path
+      name: resource
+      schema:
+        type: string
+        enum: [ggs, gfs]
+      description: Specify between the ground station and the flight computer
+      required: true
+
+    Category:
+      in: query
+      name: category
+      schema:
+        type: string
+        enum: [gfs_connection, influx_db]
+      description: >
+          - `gfs_connection` - ggs - The connection settings for the flight computer
+          
+          - `influx_db` - ggs - The connection settings for the influx database
+
+          - `ggs_telemetry` - ggs - The telemetry settings for the ground station
+      required: true
+
+
   schemas:
-    SettingsResponse:
+    GetSettingsResponse:
       type: object
       additionalProperties:
         oneOf:
@@ -152,3 +216,21 @@ components:
           - type: number
           - type: boolean
           description: The current value of the setting, in it's appropriate type.
+
+    PutSettingValues:
+      type: object
+      additionalProperties:
+        oneOf:
+        - type: string
+        - type: integer
+        - type: number
+        - type: boolean
+      example:
+        gfs_server_address: "192.168.0.2"
+        gfs_server_port: "8123"
+
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+          description: A human readable error message
