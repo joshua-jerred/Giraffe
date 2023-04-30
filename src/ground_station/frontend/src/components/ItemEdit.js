@@ -5,7 +5,9 @@ import styled from 'styled-components';
 import { GwsGlobal } from '../GlobalContext';
 import Tooltip from './Tooltip';
 
-const ItemEditContainer = styled.div``;
+const ItemEditContainer = styled.div`
+  margin: 0.2em 0;
+`;
 
 const ItemEditTitle = styled.div``;
 

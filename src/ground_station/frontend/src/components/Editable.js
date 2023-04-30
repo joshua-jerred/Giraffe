@@ -4,11 +4,9 @@ import styled from 'styled-components';
 import Tooltip from './Tooltip';
 import { Button, Input, Switch, Select, Option } from './StyledComponents';
 
-import { create_request_meta } from 'giraffe-protocol/message';
-
 import { GwsGlobal } from '../GlobalContext';
 
-import { validate, create_save_values } from 'giraffe-protocol/message';
+import { create_save_values, create_request_meta } from 'giraffe-protocol/socket_schema';
 
 const EditBoxContainer = styled.form`
   list-style: none;
@@ -199,7 +197,7 @@ export function EditBox({ api, category, subcategory }) {
       sendJsonMessage(req);
       if (
         lastJsonMessage !== null &&
-        validate(lastJsonMessage) === true &&
+        //validate(lastJsonMessage) === true &&
         lastJsonMessage.body.category === category
       ) {
         if (

@@ -8,8 +8,7 @@ import StatusBar from './StatusBar';
 
 import { useLocation } from 'react-router-dom';
 
-import { GwsGlobal } from '../GlobalContext';
-import { create } from 'giraffe-protocol/message';
+import { GGS_WS } from '../api_interface/ws_api';
 
 const Content = styled.div`
   margin-left: ${(props) =>
@@ -20,7 +19,7 @@ const Content = styled.div`
 `;
 
 function Layout() {
-  const { ggsConnectionStatus, sendJsonMessage } = React.useContext(GwsGlobal);
+  const { sendPathMessage, ggsConnectionStatus } = React.useContext(GGS_WS);
 
   let direction = localStorage.getItem('nav_expanded') === 'true';
   const [navExpanded, setNavExpanded] = React.useState(direction);
@@ -29,14 +28,13 @@ function Layout() {
     localStorage.setItem('nav_expanded', navExpanded);
   }, [navExpanded]);
 
+  // Send the current path to the server
   const location = useLocation();
   React.useEffect(() => {
     if (ggsConnectionStatus === 'connected') {
-      let path = location.pathname;
-      let message = create('client', 'path', { path: path });
-      sendJsonMessage(message);
+      sendPathMessage(location.pathname);
     }
-  }, [ggsConnectionStatus, location, sendJsonMessage]);
+  }, [location, ggsConnectionStatus]);
 
   return (
     <>

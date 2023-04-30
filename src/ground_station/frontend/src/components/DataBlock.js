@@ -3,11 +3,9 @@ import styled from 'styled-components';
 
 import Tooltip from './Tooltip';
 
-import { create_request_meta } from 'giraffe-protocol/message';
+import { create_request_meta } from 'giraffe-protocol/socket_schema';
 
 import { GwsGlobal } from '../GlobalContext';
-
-import { validate } from 'giraffe-protocol/message';
 
 const DataBoxContainer = styled.form`
   list-style: none;
@@ -92,7 +90,7 @@ export function DataBox({ api, category, subcategory }) {
       sendJsonMessage(req);
       if (
         lastJsonMessage !== null &&
-        validate(lastJsonMessage) === true &&
+        //validate(lastJsonMessage) === true &&
         (lastJsonMessage.type === 'meta' || lastJsonMessage.type === 'nack') &&
         lastJsonMessage.body.api === api &&
         lastJsonMessage.body.category === category &&

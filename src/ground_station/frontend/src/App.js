@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useContext } from 'react';
 
-import { GwsGlobal } from './GlobalContext';
 import { AppStyle } from './style/theme';
 import Layout from './core/Layout';
 
@@ -24,21 +23,8 @@ import TestPage from './pages/test';
 import NotFound from './pages/404';
 
 function App() {
-  const { darkMode, GwsConnectionStatus } = useContext(GwsGlobal);
-
-  // Test connection to the GWS server, and set the connection status.
-  function Connect() {}
-
-  // Connect on first load
-  if (GwsConnectionStatus === 'unknown') {
-    Connect();
-  }
-
-  useEffect(() => {
-    localStorage.setItem('darkmode', darkMode);
-  }, [darkMode]);
   return (
-    <AppStyle darkMode={darkMode}>
+    <AppStyle>
       <BrowserRouter>
         <Routes>
           <Route path="/test" element={<TestPage />} />

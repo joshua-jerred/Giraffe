@@ -4,30 +4,19 @@ class GlobalState {
   constructor() {
     this.ggs_db = new GgsDataBase();
 
-    this.statuses = {
+    this.ggs_status = {
       // disconnected, connected
-      ggs: "connected",
       influx_db: "disconnected",
       gfs: "disconnected",
       telemetry: "disconnected",
+      num_ws_clients: 0,
+      current_clients: [],
+      total_http_requests: 0,
+      total_ws_messages: 0,
     };
-
-    this.num_ws_clients = 0;
-    this.total_http_requests = 0;
-    this.total_ws_messages = 0;
   }
-  getStatuses() {
-    return this.statuses;
-  }
-  getStatusMessage() {
-    return JSON.stringify({
-      status: this.statuses,
-      data: {
-        num_ws_clients: this.num_ws_clients,
-        total_http_requests: this.total_http_requests,
-        total_ws_messages: this.total_ws_messages,
-      },
-    });
+  getStatus() {
+    return this.ggs_status;
   }
 }
 

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { useContext, useEffect, useState } from 'react';
-import { GwsGlobal } from '../GlobalContext';
+import { useContext } from 'react';
+import { GGS_WS } from '../api_interface/ws_api';
 
 const StatusCard = styled.div`
   display: inline-grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
 
   font-size: ${(props) => props.theme.fonts.status_bar.size};
   font-family: ${(props) => props.theme.fonts.status_bar.family};
@@ -27,27 +27,13 @@ const StatusCard = styled.div`
 const StatusItem = styled.div``;
 
 function StatusBar() {
-  const { ggsConnectionStatus, lastJsonMessage } = useContext(GwsGlobal);
-  const [current_clients, setCurrentClients] = useState(0);
-  const [telemetry_connection, setTelemetryConnection] =
-    useState('disconnected');
-  const [gfs_connection, setGfsConnection] = useState('disconnected');
-
-  useEffect(() => {
-    if (lastJsonMessage !== null && lastJsonMessage['type'] === 'status') {
-      let body = lastJsonMessage['body'];
-      setCurrentClients(body['num_clients']);
-      setTelemetryConnection(body['telemetry_connection']);
-      setGfsConnection(body['gfs_connection']);
-    }
-  }, [lastJsonMessage]);
+  const { statusMessage, ggsConnectionStatus } = useContext(GGS_WS);
 
   return (
     <StatusCard>
       <StatusItem>GGS Connection: {ggsConnectionStatus}</StatusItem>
-      <StatusItem>Current Clients: {current_clients}</StatusItem>
-      <StatusItem>Telemetry: {telemetry_connection}</StatusItem>
-      <StatusItem>GFS: {gfs_connection}</StatusItem>
+      <StatusItem>Telemetry: {statusMessage.telemetry}</StatusItem>
+      <StatusItem>GFS: {statusMessage.gfs}</StatusItem>
     </StatusCard>
   );
 }

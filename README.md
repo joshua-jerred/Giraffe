@@ -1,5 +1,7 @@
 [![giraffe-flight-software tests](https://github.com/joshua-jerred/Giraffe/actions/workflows/gfs-tests.yml/badge.svg)](https://github.com/joshua-jerred/Giraffe/actions/workflows/gfs-tests.yml)
 
+[![giraffe-ground-station-tests](https://github.com/joshua-jerred/Giraffe/actions/workflows/ground_station_tests.yml/badge.svg)](https://github.com/joshua-jerred/Giraffe/actions/workflows/ground_station_tests.yml)
+
 # Giraffe <!-- omit from toc -->
 ### A Unified High Altitude Balloon Flight Control Framework. <!-- omit from toc -->
 ### [Iteration 0.4](https://giraffe.joshuajer.red/md_docs_Doxygen_pages_versions.html) 

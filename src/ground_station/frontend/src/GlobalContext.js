@@ -1,67 +1,33 @@
 import React from 'react';
-import useWebSocket, { ReadyState } from 'react-use-websocket';
-
-function loadTheme() {
-  const theme = localStorage.getItem('darkmode');
-  if (theme !== 'false') {
-    return true;
-  }
-  return false;
-}
 
 export const GwsGlobal = React.createContext(null);
-
 export const GwsGlobalContextProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = React.useState(loadTheme());
+  function save(key, value) {
+    window.localStorage.setItem(key, value);
+  }
+  function load(key) {
+    return window.localStorage.getItem(key);
+  }
 
-  const [ggsSocketAddress, setGgsSocketAddress] = React.useState(() => {
-    const gws_server_address =
-      window.localStorage.getItem('ggs_server_address');
-    return gws_server_address || '';
-  });
+  const [clientDarkTheme, setClientDarkTheme] = React.useState(load('client_dark_theme') !== 'false');
+  const [clientName, setClientName] = React.useState(load('client_name') || 'not set');
+  const [ggsAddress, setGgsAddress] = React.useState(load('client_ggs_address') || 'not set');
+
   React.useEffect(() => {
-    window.localStorage.setItem(
-      'ggs_server_address',
-      ggsSocketAddress !== null ? ggsSocketAddress : ''
-    );
-  }, [ggsSocketAddress]);
-
-  const {
-    sendMessage,
-    sendJsonMessage,
-    lastMessage,
-    lastJsonMessage,
-    readyState,
-    getWebSocket,
-  } = useWebSocket(ggsSocketAddress + "/api/ws", {
-    share: true,
-    shouldReconnect: (closeEvent) => true,
-    reconnectAttempts: 10,
-    reconnectInterval: 3000,
-  });
-
-  const ggsConnectionStatus = {
-    [ReadyState.CONNECTING]: 'connecting',
-    [ReadyState.OPEN]: 'connected',
-    [ReadyState.CLOSING]: 'closing',
-    [ReadyState.CLOSED]: 'closed',
-    [ReadyState.UNINSTANTIATED]: 'uninstantiated',
-  }[readyState];
+    save('client_dark_theme', clientDarkTheme);
+    save('client_name', clientName);
+    save('client_ggs_address', ggsAddress);
+  }, [clientDarkTheme, clientName, ggsAddress]);
 
   return (
     <GwsGlobal.Provider
       value={{
-        darkMode,
-        setDarkMode,
-        ggsSocketAddress,
-        setGgsSocketAddress,
-        sendMessage,
-        sendJsonMessage,
-        lastMessage,
-        lastJsonMessage,
-        readyState,
-        getWebSocket,
-        ggsConnectionStatus,
+        clientDarkTheme,
+        clientName,
+        ggsAddress,
+        setClientDarkTheme,
+        setClientName,
+        setGgsAddress,
       }}
     >
       {children}

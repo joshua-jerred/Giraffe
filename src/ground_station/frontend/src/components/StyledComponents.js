@@ -211,3 +211,30 @@ export function Switch({ checked, setChecked, onChange, defaultChecked }) {
     </SwitchLabel>
   );
 }
+
+const SwitchWithLabelContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.2em 0;
+`;
+
+export function SwitchWithLabel({
+  checked,
+  setChecked,
+  onChange,
+  defaultChecked,
+  label,
+}) {
+  return (
+    <SwitchWithLabelContainer>
+      <label>{label}</label>
+      <Switch
+        checked={checked}
+        setChecked={setChecked}
+        onChange={onChange}
+        defaultChecked={defaultChecked}
+      />
+    </SwitchWithLabelContainer>
+  );
+}

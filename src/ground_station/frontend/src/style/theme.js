@@ -1,8 +1,10 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import React from "react";
 
 import {FontFiles, StyleFonts} from "./fonts";
 import StyleStructure from "./structure"
 import { lightTheme2, darkTheme2 } from "./colors"
+import { GwsGlobal } from '../GlobalContext';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -21,12 +23,13 @@ const providedTheme = {
   },
 };
 
-export function AppStyle({ darkMode, children }) {
+export function AppStyle({ children }) {
+  const { clientDarkTheme } = React.useContext(GwsGlobal);
   return (
     <>
       <FontFiles />
       <ThemeProvider theme={providedTheme}>
-        <ThemeProvider theme={darkMode ? darkTheme2 : lightTheme2}>
+        <ThemeProvider theme={clientDarkTheme ? darkTheme2 : lightTheme2}>
           <GlobalStyle />
           {children}
         </ThemeProvider>
