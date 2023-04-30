@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 const {
   StatusMessage,
   parseMessage,
+  DataMessage
 } = require("giraffe-protocol/socket_schema");
 
 module.exports = async (server, global_state) => {
@@ -26,7 +27,7 @@ module.exports = async (server, global_state) => {
         let name = query[1];
 
         // Ensure that the client name is not already in use.
-        if (name in global_state.client_names) {
+        if (name in global_state.current_client_names) {
           console.log("Client name already in use " + name);
           ws.close();
           // Check if the client name is in the database
@@ -36,6 +37,7 @@ module.exports = async (server, global_state) => {
           console.log("New client name " + name);
           ws.id = uuidv4();
           global_state.all_client_names[name] = ws.id;
+          
           global_state.saveData();
         }
         console.log("Client connected " + ws.id);
@@ -43,6 +45,7 @@ module.exports = async (server, global_state) => {
           client_name: name,
           current_path: "",
           queries: 0,
+          streams: []
         };
 
       } else {
@@ -65,8 +68,28 @@ module.exports = async (server, global_state) => {
         var message = JSON.parse(msg);
         message = parseMessage(message);
         global_state.clients[ws.id].queries++;
+        console.log(JSON.stringify(message.body));
+
+        // Path message
         if (message.type == "path") {
           global_state.clients[ws.id].current_path = message.body;
+          console.log(global_state.clients[ws.id]);
+
+        // Data stream request message
+        } else if (message.type == "data_stream_request") {
+          console.log("Data stream request ");
+          console.log(message.body);
+          let sr = message.body;
+          let streams = global_state.clients[ws.id].streams;
+          
+          let num_streams = streams.length;
+          for (let i = 0; i < streams.length; i++) {
+            if (streams[i] == sr) {
+              console.log("Stream already exists " + sr);
+              return;
+            }
+          }
+          streams.push(sr);
         }
       } catch (e) {
         console.log(e);
@@ -103,6 +126,7 @@ module.exports = async (server, global_state) => {
     }
   });
 
+  // Send status messages to all clients
   setInterval(() => {
     const status_contents = global_state.getStatus();
     let status_message = new StatusMessage("ggs", status_contents);
@@ -110,13 +134,30 @@ module.exports = async (server, global_state) => {
     let current_clients = [];
     client_wss.clients.forEach(function each(client) {
       if (client.readyState === WebSocket.OPEN) {
-        current_clients.push(client.client_name);
+        current_clients.push(global_state.clients[client.id].client_name);
         num_clients++;
-        client.send(status_message.string());
+        //client.send(status_message.string());
       }
     });
-    global_state.ggs_status.current_clients = current_clients;
+    global_state.ggs_status.current_client_names = current_clients;
     global_state.ggs_status.num_ws_clients = num_clients;
+  }, 1000);
+
+  // Temporary stream implementation
+  setInterval(() => {
+    client_wss.clients.forEach(function each(client) {
+      if (client.readyState === WebSocket.OPEN) {
+        let streams = global_state.clients[client.id].streams;
+        for (let i = 0; i < streams.length; i++) {
+          let stream = streams[i];
+          let data = global_state.getStreamData(stream);
+          let message = new DataMessage(stream, data);
+          if (data !== undefined) {
+            client.send(message.string());
+          }
+        }
+      }
+    });
   }, 1000);
 
   return client_wss;

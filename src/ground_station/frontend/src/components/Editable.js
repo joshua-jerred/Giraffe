@@ -4,9 +4,8 @@ import styled from 'styled-components';
 import Tooltip from './Tooltip';
 import { Button, Input, Switch, Select, Option } from './StyledComponents';
 
+import { GGS_WS } from '../api_interface/ws_api';
 import { GwsGlobal } from '../GlobalContext';
-
-import { create_save_values, create_request_meta } from 'giraffe-protocol/socket_schema';
 
 const EditBoxContainer = styled.form`
   list-style: none;
@@ -50,7 +49,7 @@ const EditBoxStatus = styled.div`
   align-items: center;
 `;
 
-function Item({ json, input, value, values, setValues }) {
+function Item({ id, json, input, value, values, setValues }) {
   const types = ['string', 'int', 'float', 'bool', 'enum'];
 
   const onChange = (event) => {
@@ -62,12 +61,12 @@ function Item({ json, input, value, values, setValues }) {
     } else if (json.type === 'float') {
       new_value = parseFloat(new_value);
     }
-    setValues({ ...values, [json.id]: new_value });
+    setValues({ ...values, [id]: new_value });
   };
 
   // Check if the item is valid
   if (
-    json.id === undefined ||
+    id === undefined ||
     json.type === undefined ||
     json.name === undefined
   ) {
@@ -82,7 +81,7 @@ function Item({ json, input, value, values, setValues }) {
   if (!types.includes(json.type)) {
     return (
       <ItemStyle>
-        <span>Unknown type: {json.id}</span>
+        <span>Unknown type: {id}</span>
       </ItemStyle>
     );
   }
@@ -91,7 +90,7 @@ function Item({ json, input, value, values, setValues }) {
   if (json.type === 'enum' && json.options === undefined) {
     return (
       <ItemStyle>
-        <span>Enum type missing options: {json.id}</span>
+        <span>Enum type missing options: {id}</span>
       </ItemStyle>
     );
   }
@@ -176,71 +175,48 @@ function Item({ json, input, value, values, setValues }) {
   );
 }
 
-export function EditBox({ api, category, subcategory }) {
-  const { ggsConnectionStatus, sendJsonMessage, lastJsonMessage } =
-    React.useContext(GwsGlobal);
+export function EditBox({ resource, category }) {
+  const { ggsAddress } = React.useContext(GwsGlobal);
+  const { ggsConnectionStatus } = React.useContext(GGS_WS);
 
   const [metadata, setMetadata] = React.useState(null);
+  const [values, setValues] = React.useState({});
   const [error, setError] = React.useState(null);
   const [editMode, setEditMode] = React.useState(false);
-  const [values, setValues] = React.useState(null);
+
+  const encoded_category = encodeURIComponent(category);
+  const path = `http://${ggsAddress}/api/${resource}/settings?category=${encoded_category}&include=all`;
 
   React.useEffect(() => {
-    if (error !== null) {
-      return;
-    } else if (ggsConnectionStatus !== 'connected') {
-      setMetadata(null);
-      setValues(null);
-      setEditMode(false);
-    } else if (metadata === null) {
-      let req = create_request_meta('client', api, category, subcategory);
-      sendJsonMessage(req);
-      if (
-        lastJsonMessage !== null &&
-        //validate(lastJsonMessage) === true &&
-        lastJsonMessage.body.category === category
-      ) {
-        if (
-          lastJsonMessage.type === 'nack' &&
-          lastJsonMessage.body.category === category
-        ) {
-          setError('nack');
-          return;
+    console.log('Loading metadata from: ' + path);
+    fetch(path)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to load metadata.');
+        } else {
+          return response.json();
         }
-        let body = lastJsonMessage.body;
-        if (body.meta !== undefined && body.meta !== null) {
-          setMetadata(body);
+      })
+      .then((data) => {
+        if (data.values === undefined) {
+          throw new Error('Metadata missing values.');
         }
-      }
-    } else if (values === null) {
-      const new_values = {};
-      for (const [key, value] of Object.entries(metadata.values)) {
-        new_values[key] = value;
+        if (data.metadata === undefined) {
+          throw new Error('Metadata missing meta.');
+        }
+        setMetadata(data.metadata);
+        const new_values = {};
+        for (const [key, value] of Object.entries(data.values)) {
+          new_values[key] = value;
+        }
         setValues(new_values);
-      }
-    } else if (editMode) {
-      if (lastJsonMessage.type === 'save_ack') {
-        let body = lastJsonMessage.body;
-        if (body.api === api && body.category === category) {
-          setEditMode(false);
-          setValues(null);
-          setMetadata(null);
-          setError(null);
-        }
-      }
-    }
-  }, [
-    editMode,
-    lastJsonMessage,
-    metadata,
-    api,
-    category,
-    subcategory,
-    values,
-    sendJsonMessage,
-    ggsConnectionStatus,
-    error,
-  ]);
+      })
+      .catch((error) => {
+        console.error('Error attempting to load metadata:\n', error);
+        setError('Failed to load metadata. (Check console for details.)');
+      });
+    console.log('EditBox: useEffect');
+  }, [editMode, path]);
 
   if (ggsConnectionStatus !== 'connected') {
     return <div>Not connected to GWS.</div>;
@@ -248,9 +224,21 @@ export function EditBox({ api, category, subcategory }) {
 
   function Save() {
     const data = values;
-
-    let save_packet = create_save_values(api, category, subcategory, data);
-    sendJsonMessage(save_packet);
+    fetch(path, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to save metadata.');
+        } else {
+          setEditMode(false);
+        }
+      })
+      .catch((error) => {});
   }
 
   function toggleEditMode() {
@@ -261,6 +249,8 @@ export function EditBox({ api, category, subcategory }) {
     }
   }
 
+  //console.log(metadata)
+
   return (
     <>
       {error != null ? (
@@ -270,13 +260,13 @@ export function EditBox({ api, category, subcategory }) {
       ) : (
         <>
           <EditBoxContainer>
-            {metadata.meta.map((item) => (
+            {Object.entries(metadata).map(([key, value]) => (
               <Item
-                key={item.id}
-                json={item}
+                key={key}
+                json={value}
                 input={editMode}
-                value={metadata.values[item.id]}
-                id={item.id}
+                value={values[key]}
+                id={key}
                 values={values}
                 setValues={setValues}
               />

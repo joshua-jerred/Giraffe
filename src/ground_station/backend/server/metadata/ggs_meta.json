@@ -1,5 +1,23 @@
 {
   "settings": {
+    "ggs_server": {
+      "stream_rate": {
+        "type": "int",
+        "name": "Stream Max Rate (ms)",
+        "description": "The maximum rate at which the server will send data to the clients. If data is updated on the server faster than this, a stream will be limited by this value.",
+        "min": 100,
+        "max": 10000,
+        "default": 500
+      },
+      "max_streams_per_client": {
+        "type": "int",
+        "name": "Max Streams Per Client",
+        "description": "The maximum number of streams that each client can have open at once.",
+        "min": 1,
+        "max": 10,
+        "default": 5
+      }
+    },
     "gfs_connection": {
       "gfs_server_address": {
         "type": "string",

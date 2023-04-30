@@ -16,16 +16,27 @@ class GlobalState {
     };
 
     this.clients = {};
-    this.client_names = {};
+    this.current_client_names = {};
     this.all_client_names = this.ggs_db.get("data", "clients", "client_names");
   }
 
   saveData() {
-    this.ggs_db.setKey("data", "clients", "client_names", this.all_client_names);
+    this.ggs_db.setKey(
+      "data",
+      "clients",
+      "client_names",
+      this.all_client_names
+    );
   }
 
   getStatus() {
     return this.ggs_status;
+  }
+
+  getStreamData(stream) {
+    if (stream === "ggs_stats") {
+      return { status: this.ggs_status, clients: this.clients, current_client_names: this.current_client_names, all_client_names: this.all_client_names };
+    }
   }
 }
 
