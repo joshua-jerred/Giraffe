@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const GwsGlobal = React.createContext(null);
+export const GwsGlobal = React.createContext("");
 export const GwsGlobalContextProvider = ({ children }) => {
   function save(key, value) {
     window.localStorage.setItem(key, value);

@@ -16,3 +16,17 @@ jobs:
         working-directory: ./src/ground_station/backend
       - run: npm test
         working-directory: ./src/ground_station/backend
+
+  frontend-tests:
+    name: Frontend Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - run: npm install
+        working-directory: ./src/ground_station/frontend
+      - run: npm test
+        working-directory: ./src/ground_station/frontend

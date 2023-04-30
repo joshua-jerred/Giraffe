@@ -14,7 +14,7 @@ module.exports = function (global_state) {
 
   // API Endpoint - GET /api/status
   router.get("/status", (req, res) => {
-    res.json(global_state.getStatuses());
+    res.json(global_state.getStatus());
   });
 
   return router;

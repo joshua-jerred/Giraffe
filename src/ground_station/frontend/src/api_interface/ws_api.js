@@ -4,7 +4,7 @@ import { GwsGlobal } from '../GlobalContext';
 import { PathMessage } from 'giraffe-protocol/socket_schema';
 import { parseMessage } from 'giraffe-protocol/socket_schema';
 
-export const GGS_WS = createContext(null);
+export const GGS_WS = createContext("");
 
 export const GgsWsContextProvider = ({ children }) => {
   const { ggsAddress, clientName } = useContext(GwsGlobal);
@@ -18,6 +18,8 @@ export const GgsWsContextProvider = ({ children }) => {
 
   const onConnect = () => console.log('ws connected');
   const onClosed = () => console.log('ws closed');
+  const onError = () => console.log('ws error');
+  const onReconnectStop = () => console.log('ws reconnect stop');
 
   const {
     sendMessage,
@@ -33,6 +35,8 @@ export const GgsWsContextProvider = ({ children }) => {
     reconnectInterval: 3000,
     onOpen: onConnect,
     onClose: onClosed,
+    onError: onError,
+    onReconnectStop: onReconnectStop,
   });
 
   const ggsConnectionStatus = {

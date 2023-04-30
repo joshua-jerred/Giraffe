@@ -15,14 +15,8 @@
     }
   },
   "data": {
-    "made_up": {
-      "made_up_data": 0,
-      "made_up_data_2": 0
-    },
     "clients": {
-      "client_names": {
-        "giraffe": "4f2b9866-9a95-4d29-a704-a0f55378e09e"
-      },
+      "client_names": {},
       "made_up_data_2": 0
     }
   }
