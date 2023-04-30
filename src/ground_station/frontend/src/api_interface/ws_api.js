@@ -51,7 +51,6 @@ export const GgsWsContextProvider = ({ children }) => {
       let received = parseMessage(lastJsonMessage);
       if (received.type === "status") {
         setStatusMessage(received.body);
-        console.log(received.body);
       }
       //console.log(received.toString());
     } catch (e) {

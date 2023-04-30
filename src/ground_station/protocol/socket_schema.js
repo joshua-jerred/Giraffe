@@ -1,5 +1,5 @@
 const valid_sources = ["telemetry", "ggs", "client", "gfs"];
-const valid_types = ["status", "path"];
+const valid_types = ["status", "path", "id"];
 
 class Message {
   constructor(source = null, type = null, body = {}) {
@@ -33,7 +33,7 @@ class Message {
 
 class PathMessage extends Message {
   constructor(path) {
-    super("client", "path", { path: path });
+    super("client", "path", path);
   }
 };
 

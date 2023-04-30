@@ -70,8 +70,9 @@ class GgsDataBase {
     }
   }
 
-  setKey(table, category, key, value, save = true) {
-    this.db[table][category][key] = value;
+  setKey(resource, category, key, value, save = true) {
+    this.db[resource][category][key] = value;
+    console.log("setKey", resource, category, key, value);
     if (save) {
       this.save();
     }

@@ -1,7 +1,10 @@
 const WebSocket = require("ws");
 const parse = require("node:url").parse;
 const { v4: uuidv4 } = require("uuid");
-const { StatusMessage, parseMessage } = require("giraffe-protocol/socket_schema");
+const {
+  StatusMessage,
+  parseMessage,
+} = require("giraffe-protocol/socket_schema");
 
 module.exports = async (server, global_state) => {
   const client_wss = new WebSocket.Server({
@@ -16,28 +19,56 @@ module.exports = async (server, global_state) => {
 
   client_wss.on("connection", function connection(ws, req) {
     try {
+      // Get the client name from the query string 'client_name=...'
       let query_string = req.url.split("?")[1];
-      console.log(query_string);
       let query = query_string.split("=");
-      console.log(JSON.stringify(query));
       if (query[0] === "client_name") {
-        ws.client_name = query[1];
+        let name = query[1];
+
+        // Ensure that the client name is not already in use.
+        if (name in global_state.client_names) {
+          console.log("Client name already in use " + name);
+          ws.close();
+          // Check if the client name is in the database
+        } else if (name in global_state.all_client_names) {
+          ws.id = global_state.all_client_names[name];
+        } else {
+          console.log("New client name " + name);
+          ws.id = uuidv4();
+          global_state.all_client_names[name] = ws.id;
+          global_state.saveData();
+        }
+        console.log("Client connected " + ws.id);
+        global_state.clients[ws.id] = {
+          client_name: name,
+          current_path: "",
+          queries: 0,
+        };
+
       } else {
         console.log("Invalid client query parameter");
         ws.close();
       }
     } catch (e) {
-      console.log("Invalid query string");
+      console.log("Invalid query string" + e);
       ws.close();
     }
-    ws.id = uuidv4();
+
     ws.on("message", (msg) => {
+      if (ws.id === undefined || !(ws.id in global_state.clients)) {
+        console.log("Client not registered");
+        // wait
+        return;
+      }
+
       try {
         var message = JSON.parse(msg);
         message = parseMessage(message);
-        console.log(message.toString());
-      }
-      catch (e) {
+        global_state.clients[ws.id].queries++;
+        if (message.type == "path") {
+          global_state.clients[ws.id].current_path = message.body;
+        }
+      } catch (e) {
         console.log(e);
       }
       global_state.ggs_status.total_ws_messages++;
@@ -45,6 +76,8 @@ module.exports = async (server, global_state) => {
     });
     ws.on("close", () => {
       console.log("closed");
+      console.log(global_state.clients);
+      delete global_state.clients[ws.id];
     });
   });
 

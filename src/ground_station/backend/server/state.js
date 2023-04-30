@@ -14,7 +14,16 @@ class GlobalState {
       total_http_requests: 0,
       total_ws_messages: 0,
     };
+
+    this.clients = {};
+    this.client_names = {};
+    this.all_client_names = this.ggs_db.get("data", "clients", "client_names");
   }
+
+  saveData() {
+    this.ggs_db.setKey("data", "clients", "client_names", this.all_client_names);
+  }
+
   getStatus() {
     return this.ggs_status;
   }
