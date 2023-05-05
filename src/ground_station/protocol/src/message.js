@@ -1,6 +1,6 @@
 const valid_src_dst = ["telemetry", "ggs", "client", "gfs"];
 const valid_types = ["info", "req", "rsp"];
-const valid_categories = ["ping", "data"];
+const valid_categories = ["ping", "data", "error"];
 
 const GenId = require("./id");
 
@@ -21,7 +21,7 @@ module.exports = class Message {
     this.body = body; // Body JSON Object
 
     // Verify source validity
-    if (!valid_src_dst.includes(this.src) && this.src !== null)
+    if (!valid_src_dst.includes(this.src))
       throw new Error("Invalid source: " + this.src);
 
     // Verify destination validity

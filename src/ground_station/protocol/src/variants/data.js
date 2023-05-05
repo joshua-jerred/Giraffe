@@ -11,7 +11,7 @@ class DataRequest extends Message {
 }
 
 class DataResponse extends Message {
-  constructor(src, dst, id, data, parameters) {
+  constructor(src, dst, id, data, parameters={}) {
     if (typeof parameters !== "object") {
       throw new Error(`Invalid parameters: ${parameters}`);
     }

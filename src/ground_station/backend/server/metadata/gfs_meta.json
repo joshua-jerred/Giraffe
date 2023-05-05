@@ -1,7 +1,7 @@
 {
     "general": [
         {
-            "id": "project-name",
+            "id": "project_name",
             "type": "string",
             "max": 15,
             "default": "Giraffe Flight 1",
@@ -10,7 +10,7 @@
             "description": "The name of the project. This is used in telemetry and other places to identify your flight."
         },
         {
-            "id": "main-board-type",
+            "id": "main_board_type",
             "type": "enum",
             "options": [
                 "other",
@@ -23,7 +23,7 @@
             "description": "The type of computer that the flight software is running on. This is important for the interfacing with the hardware."
         },
         {
-            "id": "starting-procedure",
+            "id": "starting_procedure",
             "type": "enum",
             "options": [
                 "testing",
@@ -41,7 +41,7 @@
     ],
     "debugging": [
         {
-            "id": "debug-mode-print-errors",
+            "id": "debug_mode_print_errors",
             "type": "bool",
             "true": "enabled",
             "false": "disabled",
@@ -51,7 +51,7 @@
             "description": "Whether or not to print errors to the console instead of capturing them in the error stream. This is useful for debugging."
         },
         {
-            "id": "console-enabled",
+            "id": "console_enabled",
             "type": "bool",
             "true": "enabled",
             "false": "disabled",
@@ -61,7 +61,7 @@
             "description": "Whether or not to enable the console interface. Helpful for debugging without the web interface."
         },
         {
-            "id": "console-update-interval",
+            "id": "console_update_interval",
             "type": "int",
             "max": 10000,
             "min": 100,
@@ -71,7 +71,7 @@
             "description": "How often the console interface should update in milliseconds. A higher value will result in less frequent updates."
         },
         {
-            "id": "web-socket-enabled",
+            "id": "web_socket_enabled",
             "type": "bool",
             "true": "enabled",
             "false": "disabled",
@@ -81,7 +81,7 @@
             "description": "Whether or not to enabled the web socket. This is used for the web interface. If disabled, GWS will no longer be able to communicate to GFS via a network connection. It must be reenabled manually."
         },
         {
-            "id": "web-socket-port",
+            "id": "web_socket_port",
             "type": "int",
             "max": 65535,
             "min": 1024,
@@ -94,7 +94,7 @@
     "telemetry": {
         "general": [
             {
-                "id": "telemetry-enabled",
+                "id": "telemetry_enabled",
                 "true": "enabled",
                 "false": "disabled",
                 "type": "bool",
@@ -104,7 +104,7 @@
                 "description": "Whether or not to enabled telemetry. This is required for APRS, SSTV, and Data Packets. In the current implementation, this requires an amateur radio license."
             },
             {
-                "id": "call-sign",
+                "id": "call_sign",
                 "type": "string",
                 "max": 6,
                 "min": 3,
@@ -127,7 +127,7 @@
             "description": "Whether or not to enable APRS. Requires a callsign and a valid telemetry configuration. The rate at which packets are sent is determined by the flight procedure defined by the user."
         },
         {
-            "id": "telemetry-enabled",
+            "id": "telemetry_packets",
             "type": "bool",
             "default": false,
             "required": false,
@@ -137,7 +137,7 @@
             "description": "If enabled, critical data will be sent as APRS telemetry packets. This will be configurable in the future."
         },
         {
-            "id": "position-enabled",
+            "id": "position_packets",
             "type": "bool",
             "default": true,
             "required": false,
@@ -165,7 +165,7 @@
             "description": "The SSID that will be used to identify your callsign. See the APRS specification for more information."
         },
         {
-            "id": "destination-address",
+            "id": "destination_address",
             "type": "string",
             "max": 6,
             "min": 3,
@@ -175,7 +175,7 @@
             "description": "This is the destination address that will be used in all packets. See the APRS specification for more information."
         },
         {
-            "id": "destination-ssid",
+            "id": "destination_ssid",
             "type": "int",
             "max": 15,
             "min": 0,
@@ -185,7 +185,7 @@
             "description": "This is the SSID that will be used to identify the destination callsign. See the APRS specification for more information."
         },
         {
-            "id": "symbol-table",
+            "id": "symbol_table",
             "type": "enum",
             "options": [
                 "/",
@@ -207,7 +207,7 @@
             "description": "The symbol that will be used to identify your position. This is a single character. The default is '/' which is a dot on both tables. See the APRS specification for more information."
         },
         {
-            "id": "telemetry-destination",
+            "id": "telemetry_destination",
             "type": "string",
             "max": 6,
             "min": 3,
@@ -257,7 +257,7 @@
                 "description": "The SSTV mode that will be used. Currently, only Robot 36 is supported."
             },
             {
-                "id": "overlay-data",
+                "id": "overlay_data",
                 "type": "bool",
                 "default": true,
                 "required": false,
@@ -265,7 +265,7 @@
                 "description": "If enabled, data defined internally as 'critical' will be overlaid on the image."
             }
         ],
-        "data-packets": [
+        "data_packets": [
             {
                 "id": "enabled",
                 "type": "bool",
@@ -300,7 +300,7 @@
                 "description": "The PSK31 mode that will be used. All modes supported by FLDIGI are supported for both BPSK and QPSK."
             },
             {
-                "id": "morse-callsign",
+                "id": "morse_callsign",
                 "type": "bool",
                 "default": true,
                 "required": false,
