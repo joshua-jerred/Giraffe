@@ -19,26 +19,60 @@
       }
     },
     "gfs_connection": {
-      "gfs_server_address": {
+      "gfs_socket_address": {
         "type": "string",
         "name": "GFS Server",
         "description": "The address for the Giraffe Flight Software socket. The web server will use this to communicate while on the ground.",
         "default": "localhost"
       },
-      "gfs_server_port": {
+      "gfs_socket_port": {
         "type": "int",
         "name": "GFS Port",
         "description": "The port for the Giraffe Flight Software socket. The web server will use this to communicate while on the ground.",
         "min": 0,
         "max": 65535,
         "default": 8123
-      },
-      "gfs_update_interval_ms": {
+      }
+    },
+    "gfs_state_intervals":{
+      "config": {
         "type": "int",
-        "name": "GFS Update Interval (ms)",
-        "description": "The interval at which the web server will request updates from the Flight Software.",
+        "name": "GFS Config Interval (ms)",
+        "description": "",
+        "min": 1000,
+        "max": 60000,
+        "default": 5000
+      },
+      "status": {
+        "type": "int",
+        "name": "GFS Status Interval (ms)",
+        "description": "",
         "min": 100,
-        "max": 5000,
+        "max": 60000,
+        "default": 1000
+      },
+      "data": {
+        "type": "int",
+        "name": "GFS Data Interval (ms)",
+        "description": "",
+        "min": 100,
+        "max": 60000,
+        "default": 1000
+      },
+      "errors": {
+        "type": "int",
+        "name": "GFS Errors Interval (ms)",
+        "description": "",
+        "min": 100,
+        "max": 60000,
+        "default": 1000
+      },
+      "log_files": {
+        "type": "int",
+        "name": "GFS Log Files Interval (ms)",
+        "description": "",
+        "min": 100,
+        "max": 60000,
         "default": 1000
       }
     },
@@ -103,6 +137,13 @@
         "description": "This is another made up data point.",
         "default": 0,
         "units": "meters"
+      }
+    },
+    "status":{
+      "this_doesnt_exist": {
+        "name": "This Doesn't Exist",
+        "description": "This is a made up data point.",
+        "default": "unknown"
       }
     }
   }

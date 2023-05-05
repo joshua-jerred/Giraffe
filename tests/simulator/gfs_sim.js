@@ -1,11 +1,10 @@
 var net = require("net");
 const cfg = require("./sim_params.json").gfs;
-const parse = require("giraffe-protocol").parse;
-const Message = require("giraffe-protocol").Message;
-const DataResponse = require("giraffe-protocol").DataResponse;
+const {parse, Message, DataResponse, ErrorMessage} = require("giraffe-protocol");
+
 
 let state = {
-  config: {
+  settings: {
     general: {
       project_name: "GFS Simulator",
       main_board_type: "pi_zero_w_2",
@@ -125,7 +124,7 @@ let state = {
       },
       radio_status: "good",
     },
-    position: {
+    position: { 
       gps: {
         source: "gps-1",
         time: "2020-01-01T00:00:00Z",
@@ -168,16 +167,19 @@ let state = {
 };
 function getItem(resource, category, subcategory, env) {
   if (!(resource in state)) {
+    console.log(`Resource not found: ${resource}`);
     return null;
   }
   if (!(category in state[resource])) {
+    console.log(`Category not found: ${category}`);
     return null;
   }
+  if (subcategory === "all") {
+    return state[resource][category];
+  } 
 
   if (subcategory in state[resource][category]) {
     return state[resource][category][subcategory];
-  } else if (subcategory === "all") {
-    return state[resource][category];
   } else {
     return null;
   }
@@ -190,16 +192,16 @@ function dataResponse(dataRequest, env) {
   let resource = params.resource;
   let category = params.category;
   let subcategory = params.subcategory;
-  if (!params || !resource || !category || !subcategory) {
+  if (!params || !resource || !category) {
     return new Message("gfs", src, "info", "error", id, {
-      error: "Invalid parameters",
+      error: `Invalid parameters ${resource}:${category}:${subcategory}`,
     });
   }
 
   let item = getItem(resource, category, subcategory, env);
   if (item === null) {
     return new Message("gfs", src, "info", "error", id, {
-      error: "Item not found",
+      error: `Item not found: ${resource}:${category}:${subcategory}`,
     });
   } else {
     return new DataResponse("gfs", src, id, item);
@@ -208,10 +210,11 @@ function dataResponse(dataRequest, env) {
 
 module.exports = (env) => {
   var server = net.createServer(function (s) {
-    console.log(`Connected to: ${s.remoteAddress}:${s.remotePort}`);
+    //console.log(`Connected to: ${s.remoteAddress}:${s.remotePort}`);
     s.on("data", function (data) {
       //console.log("Received: " + typeof data);
       let msg = parse(data.toString());
+      //console.log(msg);
       if (msg.typ === "req" && msg.cat === "data") {
         let rsp = dataResponse(msg, env);
         s.write(JSON.stringify(rsp));

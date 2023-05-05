@@ -20,7 +20,7 @@ class DataResponse extends Message {
       throw new Error(`Invalid data: ${data}`);
     }
 
-    super(src, dst, "rsp", "data", id, { data: data, params: parameters });
+    super(src, dst, "rsp", "data", id, { data: data });
   }
 }
 

@@ -1,6 +1,6 @@
 const valid_src_dst = ["telemetry", "ggs", "client", "gfs"];
 const valid_types = ["info", "req", "rsp"];
-const valid_categories = ["ping", "data", "error"];
+const valid_categories = ["ping", "data", "error", "stream", "path"];
 
 const GenId = require("./id");
 
@@ -16,7 +16,7 @@ module.exports = class Message {
     this.src = src;
     this.dst = dst;
     this.typ = typ; // [info, req, rsp]
-    this.cat = cat; // [ping]
+    this.cat = cat; // [ping, data, error, stream]
     this.id = id; // ID
     this.body = body; // Body JSON Object
 
@@ -40,7 +40,7 @@ module.exports = class Message {
     }
 
     // Verify id validity
-    if (typeof this.id !== "string" && this.id !== null) {
+    if (typeof this.id !== "string") {
       this.id = GenId();
     }
 
@@ -48,6 +48,10 @@ module.exports = class Message {
     if (typeof this.body !== "object" && this.body !== null) {
       throw new Error("Invalid body: " + this.body);
     }
+  }
+
+  get json() {
+    return this.getJson();
   }
 
   getJson() {
@@ -69,20 +73,3 @@ module.exports = class Message {
       return JSON.stringify(this.getJson());
   }
 }
-
-// class DataStreamRequestMessage extends Message {
-//   // stream, rat in ms
-//   constructor(stream, rate) {
-//     if (!Array.isArray(data_stream_requests)) {
-//       throw new Error("Data stream requests must be an array");
-//     }
-//     for (let i = 0; i < data_stream_requests.length; i++) {
-//       if (!valid_data_streams.includes(data_stream_requests[i])) {
-//         throw new Error(
-//           "Invalid data stream request: " + data_stream_requests[i]
-//         );
-//       }
-//     }
-//     super("client", "data_stream_request", data_stream_requests);
-//   }
-// }

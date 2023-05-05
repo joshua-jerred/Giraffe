@@ -4,13 +4,17 @@ import {
   Card,
   CardMasonryLayout,
 } from '../core/PageParts';
+import { DataStreamBlock } from '../components/DynamicDataBlock';
+
 function DataLogsPage() {
   return (
     <>
       <PageTitle>Giraffe Ground Station - Data Logs</PageTitle>
       <PageContent>
         <CardMasonryLayout>
-          <Card title="card1"> </Card>
+          <Card title="card1"> 
+          <DataStreamBlock resource="ggs" category="status" stream_name="status" />
+          </Card>
           <Card title="card2"> </Card>
         </CardMasonryLayout>
       </PageContent>

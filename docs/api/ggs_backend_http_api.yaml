@@ -139,7 +139,13 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
         404:
           $ref: '#/components/responses/NotFound'
-        
+
+  /api/{resource}/data:
+    parameters:
+      - $ref: '#/components/parameters/Resource'
+      - $ref: '#/components/parameters/DataCategory'
+    get:
+      description: Used to get data from the ground station, including telemetry and fligth software data
 
 components:
   responses:
@@ -180,6 +186,33 @@ components:
           - `ggs_telemetry` - ggs - The telemetry settings for the ground station
       required: true
 
+    DataCategory:
+      in: query
+      name: category
+      schema:
+        type: string
+        enum: [critical, position, status, errors, logs]
+      description: >
+          - `critical` - gfs - Critical data from the flight computer
+          
+          - `position` - gfs - Position data (GPS, IMU) from the flight computer
+
+          - `status_system` - gfs
+
+          - `status_general` - gfs 
+
+          - `status_modules` - gfs
+
+          - `status_extensions` - gfs
+
+          - `status_datastream` - gfs
+
+          - `status_telemetry` - gfs
+
+          - `status_datalog` - gfs
+
+          - `errors` - gfs - Error data from the flight computer
+      required: true
 
   schemas:
     EntityStatus:

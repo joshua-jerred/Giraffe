@@ -10,7 +10,7 @@ module.exports = (global_state) => {
   const httpSchema = require("./http_schema");
 
   var request_counter = function (req, res, next) {
-    global_state.total_http_requests++;
+    global_state.ggs_status.total_http_requests++;
     next();
   };
 

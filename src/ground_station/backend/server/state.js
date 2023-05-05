@@ -1,8 +1,10 @@
 const GgsDataBase = require("./db/ggs_db.js");
+const GfsConnection = require("./gfs_connection/gfs_connection.js");
 
 class GlobalState {
   constructor() {
     this.ggs_db = new GgsDataBase();
+    this.gfs_connection = new GfsConnection(this);
 
     this.ggs_status = {
       // disconnected, connected
@@ -18,6 +20,8 @@ class GlobalState {
     this.clients = {};
     this.current_client_names = {};
     this.all_client_names = this.ggs_db.get("data", "clients", "client_names");
+
+    setInterval(this.cycle.bind(this), 1000);
   }
 
   saveData() {
@@ -34,9 +38,18 @@ class GlobalState {
   }
 
   getStreamData(stream) {
-    if (stream === "ggs_stats") {
-      return { status: this.ggs_status, clients: this.clients, current_client_names: this.current_client_names, all_client_names: this.all_client_names };
+    if (stream === "status") {
+      return this.getStatus();
     }
+  }
+
+  get status() {
+    return this.ggs_status;
+  }
+
+  cycle() {
+    this.gfs_connection.update();
+    this.ggs_status.gfs = this.gfs_connection.status;
   }
 }
 

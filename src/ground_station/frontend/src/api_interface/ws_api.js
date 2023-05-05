@@ -1,8 +1,7 @@
 import { useState, createContext, useContext, useEffect } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import { GwsGlobal } from '../GlobalContext';
-import { PathMessage } from 'giraffe-protocol/socket_schema';
-import { parseMessage } from 'giraffe-protocol/socket_schema';
+import { parse, PathMessage, StreamRequest } from 'giraffe-protocol';
 
 export const GGS_WS = createContext("");
 
@@ -50,9 +49,10 @@ export const GgsWsContextProvider = ({ children }) => {
   // Message Received
   const [numMessages, setNumMessages] = useState(0);
   useEffect(() => {
+    //console.log('Message Received: ' + lastJsonMessage);
     setNumMessages(numMessages + 1);
     try {
-      let received = parseMessage(lastJsonMessage);
+      let received = parse(lastJsonMessage);
       if (received.type === "status") {
         setStatusMessage(received.body);
       }
@@ -65,14 +65,19 @@ export const GgsWsContextProvider = ({ children }) => {
 
   // Send Message
   const sendWsMessage = (message) => {
-    console.log('Sending Message: ' + message.string());
+    console.log('Sending Message: ' + message);
     if (ggsConnectionStatus === 'connected') {
-      sendJsonMessage(message.json());
+      sendJsonMessage(message.json);
     }
   };
 
   const sendPathMessage = (path) => {
     const message = new PathMessage(path);
+    sendWsMessage(message);
+  }
+
+  const sendStreamRequest = (stream_name) => {
+    const message = new StreamRequest('client', 'ggs', 'add', stream_name);
     sendWsMessage(message);
   }
 
@@ -83,6 +88,8 @@ export const GgsWsContextProvider = ({ children }) => {
         sendWsMessage,
         sendPathMessage,
         ggsConnectionStatus,
+        sendStreamRequest,
+        lastJsonMessage
       }}
     >
       {children}

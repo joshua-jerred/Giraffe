@@ -1,0 +1,71 @@
+{
+  "settings": {
+    "general": {
+      "resource": "settings",
+      "category": "general",
+      "subcategory": "all"
+    },
+    "debug": {
+      "resource": "settings",
+      "category": "debug",
+      "subcategory": "all"
+    },
+    "telemetry_general": {
+      "resource": "settings",
+      "category": "telemetry",
+      "subcategory": "general"
+    },
+    "telemetry_aprs": {
+      "resource": "settings",
+      "category": "telemetry",
+      "subcategory": "aprs"
+    }
+  },
+  "data": {
+    "critical": {
+      "resource": "data",
+      "category": "critical",
+      "subcategory": "all"
+    },
+    "position": {
+      "resource": "data",
+      "category": "position",
+      "subcategory": "all"
+    },
+    "status_system": {
+      "resource": "status",
+      "category": "system",
+      "subcategory": "all"
+    },
+    "status_general": {
+      "resource": "status",
+      "category": "general",
+      "subcategory": "all"
+    },
+    "status_modules": {
+      "resource": "status",
+      "category": "modules",
+      "subcategory": "all"
+    },
+    "status_extensions": {
+      "resource": "status",
+      "category": "extensions",
+      "subcategory": "all"
+    },
+    "status_datastream": {
+      "resource": "status",
+      "category": "data_stream",
+      "subcategory": "all"
+    },
+    "status_telemetry": {
+      "resource": "status",
+      "category": "telemetry",
+      "subcategory": "all"
+    },
+    "status_datalog": {
+      "resource": "status",
+      "category": "data_log",
+      "subcategory": "all"
+    }
+  }
+}

@@ -2,10 +2,84 @@ const WebSocket = require("ws");
 const parse = require("node:url").parse;
 const { v4: uuidv4 } = require("uuid");
 const {
-  StatusMessage,
-  parseMessage,
-  DataMessage
-} = require("giraffe-protocol/socket_schema");
+  parse: parseMessage,
+  StreamResponse,
+  ErrorMessage,
+} = require("giraffe-protocol");
+
+function SendError(ws, message, error_message) {
+  let error = new ErrorMessage("ggs", message.src, error_message, message.id);
+  ws.send(JSON.stringify(error));
+}
+
+function GetDataItem(ws, message) {
+  const valid_systems = ["gfs", "ggs"];
+
+  let params = message.body.params;
+  let system = params.system;
+  if (!valid_systems.includes(system)) {
+    SendError(ws, message, "Invalid System - ClientRequest: " + system);
+    return;
+  }
+
+  if (system === "gfs") {
+  } else if (system === "ggs") {
+    console.log("GGS");
+  }
+}
+
+// Data Stream Request
+function ClientStream(ws, message, global_state) {
+  let action = message.body.action;
+  let stream = message.body.stream;
+  console.log("Client Stream Request: " + action + " " + stream);
+  if (action === "add" || action === "remove") {
+    let streams = global_state.clients[ws.id].streams;
+    if (action === "add") {
+      if (streams.includes(stream)) {
+        return;
+      } else {
+        streams.push(stream);
+      }
+    } else if (action === "remove") {
+      if (streams.includes(stream)) {
+        streams.splice(streams.indexOf(stream), 1);
+      } else {
+        return;
+      }
+    }
+  } else if (action === "clear_all") {
+    global_state.clients[ws.id].streams = [];
+  } else {
+    SendError(ws, message, "Invalid Action - ClientRequest: " + action);
+  }
+  //   console.log("Data stream request ");
+  //   console.log(message.body);
+  //   let sr = message.body;
+  //   let streams = global_state.clients[ws.id].streams;
+
+  //   let num_streams = streams.length;
+  //   for (let i = 0; i < streams.length; i++) {
+  //     if (streams[i] == sr) {
+  //       console.log("Stream already exists " + sr);
+  //       return;
+  //     }
+  //   }
+  //   streams.push(sr);
+  // }
+}
+
+function ClientRequest(ws, message, global_state) {
+  let cat = message.cat;
+
+  if (cat === "data") {
+    return GetDataItem(ws, message);
+  } else if (cat === "stream") {
+    return ClientStream(ws, message, global_state);
+  } else {
+    SendError(ws, message, "Invalid Message Category - ClientRequest: " + cat);
+  }
+}
 
 module.exports = async (server, global_state) => {
   const client_wss = new WebSocket.Server({
@@ -37,7 +111,7 @@ module.exports = async (server, global_state) => {
           console.log("New client name " + name);
           ws.id = uuidv4();
           global_state.all_client_names[name] = ws.id;
-          
+
           global_state.saveData();
         }
         console.log("Client connected " + ws.id);
@@ -45,9 +119,8 @@ module.exports = async (server, global_state) => {
           client_name: name,
           current_path: "",
           queries: 0,
-          streams: []
+          streams: [],
         };
-
       } else {
         console.log("Invalid client query parameter");
         ws.close();
@@ -58,40 +131,43 @@ module.exports = async (server, global_state) => {
     }
 
     ws.on("message", (msg) => {
+      global_state.ggs_status.total_ws_messages++;
       if (ws.id === undefined || !(ws.id in global_state.clients)) {
         console.log("Client not registered");
-        // wait
         return;
       }
 
       try {
         var message = JSON.parse(msg);
-        message = parseMessage(message);
         global_state.clients[ws.id].queries++;
-        console.log(JSON.stringify(message.body));
+
+        message = parseMessage(message);
+        if (message.src === "client") {
+          if (message.typ === "info") {
+            if (message.cat === "path") {
+              global_state.clients[ws.id].current_path = message.body.path;
+              global_state.clients[ws.id].streams = [];
+            }
+            return;
+          } else if (message.typ === "req") {
+            ClientRequest(ws, message, global_state);
+            return;
+          }
+        } else if (message.src === "telemetry") {
+          // Todo
+        } else {
+          console.log("Invalid message source");
+          return;
+        }
+        //console.log(message);
 
         // Path message
-        if (message.type == "path") {
-          global_state.clients[ws.id].current_path = message.body;
-          console.log(global_state.clients[ws.id]);
-
-        // Data stream request message
-        } else if (message.type == "data_stream_request") {
-          console.log("Data stream request ");
-          console.log(message.body);
-          let sr = message.body;
-          let streams = global_state.clients[ws.id].streams;
-          
-          let num_streams = streams.length;
-          for (let i = 0; i < streams.length; i++) {
-            if (streams[i] == sr) {
-              console.log("Stream already exists " + sr);
-              return;
-            }
-          }
-          streams.push(sr);
-        }
+        // if (message.typ == "path") {
+        //   global_state.clients[ws.id].current_path = message.body;
+        //   console.log(global_state.clients[ws.id]);
       } catch (e) {
+        let err = new ErrorMessage("ggs", "client", e.toString(), message.id);
+        ws.send(JSON.stringify(err));
         console.log(e);
       }
       global_state.ggs_status.total_ws_messages++;
@@ -126,24 +202,24 @@ module.exports = async (server, global_state) => {
     }
   });
 
-  // Send status messages to all clients
+  // Update the status of GGS
   setInterval(() => {
-    const status_contents = global_state.getStatus();
-    let status_message = new StatusMessage("ggs", status_contents);
+    const status_contents = global_state.status;
+    //   let status_message = new StatusMessage("ggs", status_contents);
     let num_clients = 0;
     let current_clients = [];
     client_wss.clients.forEach(function each(client) {
       if (client.readyState === WebSocket.OPEN) {
         current_clients.push(global_state.clients[client.id].client_name);
         num_clients++;
-        //client.send(status_message.string());
+        //       //client.send(status_message.string());
       }
     });
     global_state.ggs_status.current_client_names = current_clients;
     global_state.ggs_status.num_ws_clients = num_clients;
   }, 1000);
 
-  // Temporary stream implementation
+  //Temporary stream implementation
   setInterval(() => {
     client_wss.clients.forEach(function each(client) {
       if (client.readyState === WebSocket.OPEN) {
@@ -151,9 +227,9 @@ module.exports = async (server, global_state) => {
         for (let i = 0; i < streams.length; i++) {
           let stream = streams[i];
           let data = global_state.getStreamData(stream);
-          let message = new DataMessage(stream, data);
+          let message = new StreamResponse("ggs", "client", stream, data);
           if (data !== undefined) {
-            client.send(message.string());
+            client.send(JSON.stringify(message));
           }
         }
       }

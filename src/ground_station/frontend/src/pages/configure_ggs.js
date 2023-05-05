@@ -3,9 +3,8 @@ import {
   PageContent,
   Card,
   CardMasonryLayout,
-} from '../core/PageParts';
-import { EditBox } from '../components/Editable';
-import { DataBox } from '../components/DataBlock';
+} from "../core/PageParts";
+import { EditBox } from "../components/Editable";
 
 function ConfigureGgsPage() {
   return (
@@ -13,19 +12,21 @@ function ConfigureGgsPage() {
       <PageTitle>Giraffe Ground Station - Configuration</PageTitle>
       <PageContent>
         <CardMasonryLayout>
-          <Card title="Ground Station Settings">
+          <Card title="Ground Station Server Settings">
+            <EditBox resource="ggs" category="ggs_server" />
+          </Card>
 
+          <Card title="Giraffe Flight Software Connection">
             <EditBox resource="ggs" category="gfs_connection" />
-
-          </Card>
-          <Card title="Ground Stations System Information">
-            <DataBox api="ggs" category="data" />
           </Card>
 
-          <Card title="card2">
-            content
+          <Card title="Ground Station Update Intervals">
+            <EditBox resource="ggs" category="gfs_state_intervals" />
           </Card>
 
+          <Card title="InfluxDB Setup">
+            <EditBox resource="ggs" category="influx_db" />
+          </Card>
         </CardMasonryLayout>
       </PageContent>
     </>

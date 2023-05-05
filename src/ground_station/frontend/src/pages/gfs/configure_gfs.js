@@ -15,18 +15,18 @@ function ConfigureGfsPage() {
       <PageContent>
         <CardMasonryLayout>
           <Card title="General">
-            <EditBox api_path="/gfs/general" />
+            <EditBox resource="gfs" category="general"/>
           </Card>
           <Card title="Debugging">
-            <EditBox api_path="/gfs/debugging" />
+           <EditBox resource="gfs" category="debug"/>
           </Card>
 
           <Card title="Telemetry">
             <CardSectionTitle>General</CardSectionTitle>
-            <EditBox api_path="/gfs/telemetry/general" />
+            <EditBox resource="gfs" category="telemetry_general"/>
             <CardBreak />
             <CardSectionTitle>APRS</CardSectionTitle>
-            <EditBox api_path="/gfs/telemetry/aprs" />
+            <EditBox resource="gfs" category="telemetry_aprs" />
             <CardBreak />
             <CardSectionTitle>SSTV</CardSectionTitle>
             <EditBox api_path="/gfs/telemetry/sstv" />
