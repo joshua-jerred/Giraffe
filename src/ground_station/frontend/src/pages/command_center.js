@@ -1,10 +1,10 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from "react";
 import {
   PageTitle,
   PageContent,
   Card,
   CardMasonryLayout,
-} from '../core/PageParts';
+} from "../core/PageParts";
 import {
   Button,
   Input,
@@ -12,13 +12,13 @@ import {
   Option,
   WarningButton,
   NeutralButton,
-} from '../components/StyledComponents';
+} from "../components/StyledComponents";
 
-import { GwsGlobal } from '../GlobalContext';
+import { GwsGlobal } from "../GlobalContext";
 
 function CommandCenterPage() {
   const { sendJsonMessage, lastMessage } = useContext(GwsGlobal);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -27,15 +27,16 @@ function CommandCenterPage() {
     }
   }, [lastMessage]);
 
-  useEffect(() => {}, [input]);
+  useEffect(() => {
+  }, [input]);
 
   const onsend = () => {
     let msg = {
-      source: 'client',
-      type: 'get',
-      body: { resource: 'ggs', category: 'setup' },
+      source: "client",
+      type: "get",
+      body: { resource: "ggs", category: "setup" },
     };
-    console.log(msg, 'sent');
+    console.log(msg, "sent");
     sendJsonMessage(msg);
   };
   return (

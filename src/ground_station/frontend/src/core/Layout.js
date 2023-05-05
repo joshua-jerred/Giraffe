@@ -41,12 +41,7 @@ function Layout() {
       <NavBar navExpanded={navExpanded} setNavExpanded={setNavExpanded} />
       <Content navExpanded={navExpanded}>
         <Page>
-          <StatusBar
-            status_content={[
-              'This is the status bar',
-              'OH SHIT, THE MUSTARD IS WATERY',
-            ]}
-          />
+          <StatusBar/>
           <Outlet />
         </Page>
       </Content>

@@ -27,7 +27,7 @@ function App() {
     <AppStyle>
       <BrowserRouter>
         <Routes>
-          <Route path="/test" element={<TestPage />} />
+          {/* <Route path="/test" element={<TestPage />} /> */}
           <Route path="/" element={<Layout />}>
             <Route index element={<CommandCenter />} />
             <Route path="telemetry" element={<TelemetryPage />} />
@@ -40,6 +40,7 @@ function App() {
               path="gfs"
               element={<Navigate to="/gfs/data-stream" />}
             />
+            
             <Route path="gfs">
               <Route path="data-stream" element={<GfsDataStreamPage />} />
               <Route path="configure" element={<ConfigureGfsPage />} />

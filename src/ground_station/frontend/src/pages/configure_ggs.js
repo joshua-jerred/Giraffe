@@ -14,12 +14,18 @@ function ConfigureGgsPage() {
       <PageContent>
         <CardMasonryLayout>
           <Card title="Ground Station Settings">
+
             <EditBox resource="ggs" category="gfs_connection" />
+
           </Card>
           <Card title="Ground Stations System Information">
             <DataBox api="ggs" category="data" />
           </Card>
-          <Card title="card2"> </Card>
+
+          <Card title="card2">
+            content
+          </Card>
+
         </CardMasonryLayout>
       </PageContent>
     </>
