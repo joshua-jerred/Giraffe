@@ -119,7 +119,7 @@ module.exports = async (server, global_state) => {
           client_name: name,
           current_path: "",
           queries: 0,
-          streams: [],
+          streams: ["status"],
         };
       } else {
         console.log("Invalid client query parameter");
@@ -146,7 +146,7 @@ module.exports = async (server, global_state) => {
           if (message.typ === "info") {
             if (message.cat === "path") {
               global_state.clients[ws.id].current_path = message.body.path;
-              global_state.clients[ws.id].streams = [];
+              global_state.clients[ws.id].streams = ["status"];
             }
             return;
           } else if (message.typ === "req") {
@@ -226,10 +226,14 @@ module.exports = async (server, global_state) => {
         let streams = global_state.clients[client.id].streams;
         for (let i = 0; i < streams.length; i++) {
           let stream = streams[i];
-          let data = global_state.getStreamData(stream);
-          let message = new StreamResponse("ggs", "client", stream, data);
-          if (data !== undefined) {
-            client.send(JSON.stringify(message));
+          try {
+            let data = global_state.getStreamData(stream);
+            let message = new StreamResponse("ggs", "client", stream, data);
+            if (data !== undefined) {
+              client.send(JSON.stringify(message));
+            }
+          } catch (e) {
+            console.log(e);
           }
         }
       }

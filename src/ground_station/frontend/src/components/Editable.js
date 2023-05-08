@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Tooltip from './Tooltip';
-import { Button, Input, Switch, Select, Option } from './StyledComponents';
+import { StyButton, StyInput, Switch, StySelect, StyOption } from './styled/StyledComponents';
 
 import { GGS_WS } from '../api_interface/ws_api';
 import { GwsGlobal } from '../GlobalContext';
@@ -101,7 +101,7 @@ function Item({ id, json, input, value, values, setValues }) {
 
   if (value === undefined) {
     if (json.default !== undefined) {
-      value = json.default;
+      //value = json.default;
     }
   }
 
@@ -118,7 +118,7 @@ function Item({ id, json, input, value, values, setValues }) {
   let input_field = null;
   if (json.type === 'string') {
     input_field = (
-      <Input
+      <StyInput
         type="text"
         pattern={json.pattern}
         defaultValue={value}
@@ -127,7 +127,7 @@ function Item({ id, json, input, value, values, setValues }) {
     );
   } else if (json.type === 'int') {
     input_field = (
-      <Input
+      <StyInput
         type="number"
         step={1}
         min={json.min}
@@ -153,15 +153,15 @@ function Item({ id, json, input, value, values, setValues }) {
     );
   } else if (json.type === 'enum') {
     input_field = (
-      <Select defaultValue={value} onChange={onChange}>
+      <StySelect defaultValue={value} onChange={onChange}>
         {json.options.map((option, i) => {
           return (
-            <Option key={i} value={option}>
+            <StyOption key={i} value={option}>
               {option}
-            </Option>
+            </StyOption>
           );
         })}
-      </Select>
+      </StySelect>
     );
   }
 
@@ -273,9 +273,9 @@ export function EditBox({ resource, category }) {
             ))}
           </EditBoxContainer>
           <EditButtonCont>
-            <Button onClick={toggleEditMode}>
+            <StyButton onClick={toggleEditMode}>
               {editMode ? 'save' : 'edit'}
-            </Button>
+            </StyButton>
           </EditButtonCont>
         </>
       )}

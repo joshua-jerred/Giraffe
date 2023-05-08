@@ -210,99 +210,154 @@
                 "description": "This is the comment that will be sent with each APRS position report. See the APRS specification for more information."
             }
         },
-        "sstv": {
-            "values": [
-                {
-                    "id": "enabled",
-                    "type": "bool",
-                    "default": false,
-                    "required": false,
-                    "name": "SSTV Enabled",
-                    "description": "Indicates whether or not SSTV is enabled. This requires a valid telemetry configuration, a callsign, and a camera extension. The rate at which images are sent is determined by the flight procedure defined by the user."
-                },
-                {
-                    "id": "frequency",
-                    "type": "string",
-                    "default": "145.510",
-                    "required": true,
-                    "name": "SSTV Frequency",
-                    "description": "The frequency that will be used to transmit SSTV images. See your relevant Band Plan for more information."
-                },
-                {
-                    "id": "mode",
-                    "type": "enum",
-                    "options": [
-                        "robot36"
-                    ],
-                    "default": "robot36",
-                    "required": false,
-                    "name": "SSTV Mode",
-                    "description": "The SSTV mode that will be used. Currently, only Robot 36 is supported."
-                },
-                {
-                    "id": "overlay_data",
-                    "type": "bool",
-                    "default": true,
-                    "required": false,
-                    "name": "SSTV Data Overlay",
-                    "description": "If enabled, data defined internally as 'critical' will be overlaid on the image."
-                }
-            ],
-            "data_packets": [
-                {
-                    "id": "enabled",
-                    "type": "bool",
-                    "default": false,
-                    "required": false,
-                    "name": "Data Packets Enabled",
-                    "description": "If enabled, PSK data packets can be sent. These can be decoded with FLDIGI The contents of these packets are defined by the user. The rate at which packets are sent is determined by the flight procedure defined by the user."
-                },
-                {
-                    "id": "frequency",
-                    "type": "string",
-                    "default": "145.510",
-                    "required": true,
-                    "name": "Data Packets Frequency",
-                    "description": "The frequency that will be used to transmit data packets. See your relevant Band Plan for more information."
-                },
-                {
-                    "id": "mode",
-                    "type": "enum",
-                    "options": [
-                        "bpsk125",
-                        "bpsk250",
-                        "bpsk500",
-                        "bpsk1000",
-                        "qpsk125",
-                        "qpsk250",
-                        "qpsk500"
-                    ],
-                    "default": "bpsk125",
-                    "required": false,
-                    "name": "Data Packets Mode",
-                    "description": "The PSK31 mode that will be used. All modes supported by FLDIGI are supported for both BPSK and QPSK."
-                },
-                {
-                    "id": "morse_callsign",
-                    "type": "bool",
-                    "default": true,
-                    "required": false,
-                    "name": "Morse Callsign",
-                    "description": "If enabled, the callsign will be sent in 20wpm morse code at the end of each packet. This may be a legal requirement, for station identification, in some places so please check your local regulations."
-                },
-                {
-                    "id": "comment",
-                    "type": "string",
-                    "max": 200,
-                    "min": 0,
-                    "default": "Giraffe Flight Software",
-                    "required": false,
-                    "name": "Data Packets Comment",
-                    "description": "This is a comment that will be sent with each data packet. This is not required but may be added. There is a maximum length of 200 characters."
-                }
-            ]
+        "telemetry_sstv": {
+            "enabled": {
+                "type": "bool",
+                "default": false,
+                "required": false,
+                "name": "SSTV Enabled",
+                "description": "Indicates whether or not SSTV is enabled. This requires a valid telemetry configuration, a callsign, and a camera extension. The rate at which images are sent is determined by the flight procedure defined by the user."
+            },
+            "frequency": {
+                "type": "string",
+                "default": "145.510",
+                "required": true,
+                "name": "SSTV Frequency",
+                "description": "The frequency that will be used to transmit SSTV images. See your relevant Band Plan for more information."
+            },
+            "mode": {
+                "type": "enum",
+                "options": [
+                    "robot36"
+                ],
+                "default": "robot36",
+                "required": false,
+                "name": "SSTV Mode",
+                "description": "The SSTV mode that will be used. Currently, only Robot 36 is supported."
+            },
+            "overlay_data": {
+                "type": "bool",
+                "default": true,
+                "required": false,
+                "name": "SSTV Data Overlay",
+                "description": "If enabled, data defined internally as 'critical' will be overlaid on the image."
+            }
         },
-        "radios": []
+        "telemetry_data_packets": {
+            "enabled": {
+                "type": "bool",
+                "default": false,
+                "required": false,
+                "name": "Data Packets Enabled",
+                "description": "If enabled, PSK data packets can be sent. These can be decoded with FLDIGI The contents of these packets are defined by the user. The rate at which packets are sent is determined by the flight procedure defined by the user."
+            },
+            "frequency": {
+                "type": "string",
+                "default": "145.510",
+                "required": true,
+                "name": "Data Packets Frequency",
+                "description": "The frequency that will be used to transmit data packets. See your relevant Band Plan for more information."
+            },
+            "mode": {
+                "type": "enum",
+                "options": [
+                    "bpsk125",
+                    "bpsk250",
+                    "bpsk500",
+                    "bpsk1000",
+                    "qpsk125",
+                    "qpsk250",
+                    "qpsk500"
+                ],
+                "default": "bpsk125",
+                "required": false,
+                "name": "Data Packets Mode",
+                "description": "The PSK31 mode that will be used. All modes supported by FLDIGI are supported for both BPSK and QPSK."
+            },
+            "morse_callsign": {
+                "type": "bool",
+                "default": true,
+                "required": false,
+                "name": "Morse Callsign",
+                "description": "If enabled, the callsign will be sent in 20wpm morse code at the end of each packet. This may be a legal requirement, for station identification, in some places so please check your local regulations."
+            },
+            "comment": {
+                "type": "string",
+                "max": 200,
+                "min": 0,
+                "default": "Giraffe Flight Software",
+                "required": false,
+                "name": "Data Packets Comment",
+                "description": "This is a comment that will be sent with each data packet. This is not required but may be added. There is a maximum length of 200 characters."
+            }
+        },
+        "radios": {
+
+        },
+        "flight_procedures": {
+
+        },
+        "extensions": [
+            {
+                "accessor": "id",
+                "name": "ID",
+                "type": "int",
+                "description": ""
+            },
+            {
+                "accessor":"name",
+                "name": "Name",
+                "type": "string",
+                "description": ""
+            },
+            {
+                "accessor":"type", 
+                "name": "Type",
+                "type": "enum",
+                "options": [
+                    "DS18B20",
+                    "SAMM8Q",
+                    "BME280",
+                    "SYSINFO",
+                    "MCP3021"
+                ],
+                "description": ""
+            },
+            {
+                "accessor":"category",
+                "name": "Category",
+                "type": "enum",
+                "options": [
+                    "external_sensor",
+                    "system"
+                ],
+                "description": ""
+            },
+            {
+                "accessor":"interface",
+                "name": "Interface",
+                "type": "enum",
+                "options": [
+                    "i2c",
+                    "spi",
+                    "uart",
+                    "gpio"
+                ],
+                "description": ""
+            }, 
+            {
+                "accessor":"update_interval",
+                "name": "Interval",
+                "type": "int",
+                "description": ""
+            },
+            {
+                "accessor":"flight_critical",
+                "type": "bool",
+                "name": "Flight Critical",
+                "description": ""
+            }
+        ]
     },
     "data": {
         "critical": {
@@ -311,6 +366,24 @@
                 "description": "The current fligth phase.",
                 "default": "Unknown"
             }
+        },
+        "position_gps": {
+            "lat": {
+                "name": "Latitude",
+                "description": "The current latitude.",
+                "default": 0.0
+            }
+        },
+        "position_imu": {
+            "lat": {
+                "name": "Latitude",
+                "description": "The current latitude.",
+                "default": 0.0
+            }
+        },
+        "gfs_status": {
+            "general": {},
+            "system": {}
         }
     }
 }

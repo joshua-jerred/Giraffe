@@ -9,7 +9,7 @@ import gws_setup from '../assets/gws_setup.jpg';
 import { useContext, useState } from 'react';
 import { GwsGlobal } from '../GlobalContext';
 import { LocalItemEdit } from '../components/ItemEdit';
-import { SwitchWithLabel } from '../components/StyledComponents';
+import { SwitchWithLabel } from '../components/styled/StyledComponents';
 
 function ClientSetupPage() {
   // For GWS Client Configuration

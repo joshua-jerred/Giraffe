@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+export const StyButton = styled.button`
   font-size: ${(props) => props.theme.fonts.button.size};
   font-family: ${(props) => props.theme.fonts.button.family};
   font-weight: ${(props) => props.theme.fonts.button.weight};
@@ -26,7 +26,7 @@ export const Button = styled.button`
   }
 `;
 
-export const WarningButton = styled(Button)`
+export const StyWarningButton = styled(StyButton)`
   background: ${(props) => props.theme.error};
   color: ${(props) => props.theme.on_error};
 
@@ -35,7 +35,7 @@ export const WarningButton = styled(Button)`
   }
 `;
 
-export const NeutralButton = styled(Button)`
+export const StyNeutralButton = styled(StyButton)`
   background: ${(props) => props.theme.surface_hover_hard};
   color: ${(props) => props.theme.on_surface};
 
@@ -44,7 +44,7 @@ export const NeutralButton = styled(Button)`
   }
 `;
 
-export const SaveButton = styled(Button)`
+export const StySaveButton = styled(StyButton)`
   background: ${(props) =>
     props.saved === 'yes'
       ? props.theme.surface_hover_hard
@@ -67,7 +67,7 @@ export const SaveButton = styled(Button)`
   }
 `;
 
-export const Input = styled.input`
+export const StyInput = styled.input`
   font-size: ${(props) => props.theme.fonts.input.size};
   font-family: ${(props) => props.theme.fonts.input.family};
   font-weight: ${(props) => props.theme.fonts.input.weight};
@@ -94,7 +94,7 @@ export const Input = styled.input`
   }
 `;
 
-export const Select = styled.select`
+export const StySelect = styled.select`
   font-size: ${(props) => props.theme.fonts.input.size};
   font-family: ${(props) => props.theme.fonts.input.family};
   font-weight: ${(props) => props.theme.fonts.input.weight};
@@ -122,7 +122,7 @@ export const Select = styled.select`
   }
 `;
 
-export const Option = styled.option`
+export const StyOption = styled.option`
   background: ${(props) => props.theme.surface_alt};
   color: ${(props) => props.theme.on_surface};
 
@@ -145,12 +145,12 @@ export const Option = styled.option`
   }
 `;
 
-const SwitchLabel = styled.label`
+const StySwitchLabel = styled.label`
   cursor: pointer;
   display: inline-block;
 `;
 
-const StyledSwitch = styled.div`
+const StySwitch = styled.div`
   position: relative;
   margin: ${(props) => props.theme.components.switch.margin};
   width: ${(props) => props.theme.components.switch.width};
@@ -176,11 +176,11 @@ const StyledSwitch = styled.div`
   }
 `;
 
-const StyledInput = styled.input`
+const StySwitchInput = styled.input`
   opacity: 0;
   position: absolute;
 
-  &:checked + ${StyledSwitch} {
+  &:checked + ${StySwitch} {
     background: ${(props) => props.theme.primary};
 
     &:before {
@@ -200,15 +200,15 @@ export function Switch({ checked, setChecked, onChange, defaultChecked }) {
     setChecked(!checked);
   };
   return (
-    <SwitchLabel>
-      <StyledInput
+    <StySwitchLabel>
+      <StySwitchInput
         type="checkbox"
         checked={checked}
         onChange={onChange != null ? onChange : handleChange}
         defaultChecked={defaultChecked}
       />
-      <StyledSwitch />
-    </SwitchLabel>
+      <StySwitch />
+    </StySwitchLabel>
   );
 }
 

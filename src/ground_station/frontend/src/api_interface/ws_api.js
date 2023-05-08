@@ -11,8 +11,8 @@ export const GgsWsContextProvider = ({ children }) => {
   const [statusMessage, setStatusMessage] = useState({
     current_clients: 'unknown',
     connection_status: 'disconnected',
-    telemetry_connection: 'unknown',
-    gfs_connection: 'unknown',
+    telemetry: 'unknown',
+    gfs: 'unknown',
   });
 
   const onConnect = () => console.log('ws connected');
@@ -53,7 +53,7 @@ export const GgsWsContextProvider = ({ children }) => {
     setNumMessages(numMessages + 1);
     try {
       let received = parse(lastJsonMessage);
-      if (received.type === "status") {
+      if (received.cat === "stream" && received.id === "status") {
         setStatusMessage(received.body);
       }
       //console.log(received.toString());

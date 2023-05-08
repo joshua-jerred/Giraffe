@@ -6,15 +6,13 @@ import {
 } from "../core/PageParts";
 import { DataBox } from "../components/StaticDataBlock";
 
-import { GwsGlobal } from "../GlobalContext";
-
 function CommandCenterPage() {
   return (
     <>
-      <PageTitle>Giraffe Ground Station</PageTitle>
+      <PageTitle>Giraffe Ground Station - Command Center</PageTitle>
       <PageContent>
         <CardMasonryLayout>
-          <Card title="this is a card title">
+          <Card title="Ground Station Status">
           <DataBox resource="ggs" category="status" />
           </Card>
         </CardMasonryLayout>

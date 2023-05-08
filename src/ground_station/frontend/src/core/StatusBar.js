@@ -34,6 +34,7 @@ function StatusBar() {
       <StatusItem>GGS Connection: {ggsConnectionStatus}</StatusItem>
       <StatusItem>Telemetry: {statusMessage !== undefined ? statusMessage.telemetry : "unknown"}</StatusItem>
       <StatusItem>GFS: {statusMessage !== undefined ? statusMessage.gfs : "unknown"}</StatusItem>
+      <StatusItem>GFS: {statusMessage !== undefined ? statusMessage.gfs : "unknown"}</StatusItem>
     </StatusCard>
   );
 }

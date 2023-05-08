@@ -39,6 +39,9 @@ module.exports = class GfsConnection {
   }
 
   getSettings(category) {
+    if (!this.settings_resources[category]) {
+      return null;
+    }
     let data = this.settings_resources[category].data;
     return data;
   }
@@ -46,6 +49,9 @@ module.exports = class GfsConnection {
   update() {
     this.updateDataResources();
     this.updateSettingsResources();
+    this.global_state.ggs_status.gfs = this.connected
+      ? "connected"
+      : "disconnected";
   }
 
   updateDataResources() {
@@ -70,9 +76,9 @@ module.exports = class GfsConnection {
     }
   }
 
-
   requestData(item) {
     item.meta.requests += 1;
+    var that = this;
 
     let params = {
       resource: item.resource,
@@ -84,6 +90,7 @@ module.exports = class GfsConnection {
 
     let con = new net.Socket();
     con.connect(8321, "127.0.0.1", function () {
+      this.connected = true;
       con.write(JSON.stringify(request));
     });
 
@@ -93,27 +100,28 @@ module.exports = class GfsConnection {
 
         if (msg.cat === "error") {
           console.log(msg);
+          return;
         }
 
         if (msg.id === request.id) {
           item.data = msg.body.data;
         }
-        if (!this.connected) {
-          this.connected = true;
-        }
+
+        that.connected = true;
       } catch (e) {
         console.log("Error parsing data");
-        if (this.connected) {
-          this.connected = false;
-        }
+
+        that.connected = false;
       }
       con.destroy();
+      
     });
+
     con.on("close", function () {});
+
     con.on("error", function (err) {
-      if (this.connected) {
-        this.connected = false;
-      }
+      console.log("Error connecting to GFS" + err);
+      that.connected = false;
     });
   }
 

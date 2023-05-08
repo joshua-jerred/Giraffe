@@ -1,7 +1,7 @@
 const Message = require("../message");
 
 const valid_actions = ["add", "remove", "clear_all", "get"];
-const valid_streams = ["status"];
+const valid_streams = ["status", "critical", "position_gps", "position_imu", "gfs_status"];
 
 class StreamRequest extends Message {
   constructor(src, dst, action, name) {

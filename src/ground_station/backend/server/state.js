@@ -40,7 +40,16 @@ class GlobalState {
   getStreamData(stream) {
     if (stream === "status") {
       return this.getStatus();
+    } else if (stream === "critical") {
+      return this.gfs_connection.getData("critical");
+    } else if (stream === "position_gps") {
+      return this.gfs_connection.getData("position_gps");
+    } else if (stream === "position_imu") {
+      return this.gfs_connection.getData("position_imu");
+    } else if (stream === "gfs_status") {
+      return this.gfs_connection.getData("gfs_status");
     }
+
   }
 
   get status() {

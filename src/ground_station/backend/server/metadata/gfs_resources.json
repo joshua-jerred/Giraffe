@@ -19,6 +19,26 @@
       "resource": "settings",
       "category": "telemetry",
       "subcategory": "aprs"
+    },
+    "telemetry_sstv": {
+      "resource": "settings",
+      "category": "telemetry",
+      "subcategory": "sstv"
+    },
+    "telemetry_data_packets": {
+      "resource": "settings",
+      "category": "telemetry",
+      "subcategory": "data_packets"
+    },
+    "flight_procedures": {
+      "resource": "settings",
+      "category": "flight_procedures",
+      "subcategory": "all"
+    },
+    "extensions": {
+      "resource": "settings",
+      "category": "extensions",
+      "subcategory": "all"
     }
   },
   "data": {
@@ -27,44 +47,19 @@
       "category": "critical",
       "subcategory": "all"
     },
-    "position": {
+    "position_gps": {
       "resource": "data",
       "category": "position",
-      "subcategory": "all"
+      "subcategory": "gps"
     },
-    "status_system": {
-      "resource": "status",
-      "category": "system",
-      "subcategory": "all"
+    "position_imu": {
+      "resource": "data",
+      "category": "position",
+      "subcategory": "imu"
     },
-    "status_general": {
+    "gfs_status": {
       "resource": "status",
-      "category": "general",
-      "subcategory": "all"
-    },
-    "status_modules": {
-      "resource": "status",
-      "category": "modules",
-      "subcategory": "all"
-    },
-    "status_extensions": {
-      "resource": "status",
-      "category": "extensions",
-      "subcategory": "all"
-    },
-    "status_datastream": {
-      "resource": "status",
-      "category": "data_stream",
-      "subcategory": "all"
-    },
-    "status_telemetry": {
-      "resource": "status",
-      "category": "telemetry",
-      "subcategory": "all"
-    },
-    "status_datalog": {
-      "resource": "status",
-      "category": "data_log",
+      "category": "all",
       "subcategory": "all"
     }
   }

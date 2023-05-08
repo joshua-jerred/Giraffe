@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useEffect, useContext } from 'react';
 
 import { AppStyle } from './style/theme';
 import Layout from './core/Layout';
@@ -27,8 +26,8 @@ function App() {
     <AppStyle>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/test" element={<TestPage />} /> */}
           <Route path="/" element={<Layout />}>
+          <Route path="/test" element={<TestPage />} />
             <Route index element={<CommandCenter />} />
             <Route path="telemetry" element={<TelemetryPage />} />
             <Route path="tracking" element={<TrackingPage />} />

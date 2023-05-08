@@ -1,54 +1,16 @@
 var net = require("net");
 const cfg = require("./sim_params.json").gfs;
-const {parse, Message, DataResponse, ErrorMessage} = require("giraffe-protocol");
+const {
+  parse,
+  Message,
+  DataResponse,
+  ErrorMessage,
+} = require("giraffe-protocol");
 
+const gfs_settings = require("./gfs_settings.json");
 
 let state = {
-  settings: {
-    general: {
-      project_name: "GFS Simulator",
-      main_board_type: "pi_zero_w_2",
-      starting_procedure: "testing",
-    },
-    debug: {
-      debug_mode_print_errors: true,
-      console_enabled: true,
-      console_update_interval: 1000,
-      web_socket_enabled: true,
-      web_socket_port: 7893,
-    },
-    telemetry: {
-      general: {
-        telemetry_enabled: true,
-        call_sign: "GFS",
-      },
-      aprs: {
-        enabled: true,
-        telemetry_packets: true,
-        position_packets: true,
-        frequency: 144.39,
-        ssid: 0,
-        destination_address: "APRS",
-        destination_ssid: 0,
-        symbol_table: "/",
-        telemetry_destination: "APRS",
-        comment: "GFS Simulator",
-      },
-      sstv: {
-        enabled: true,
-        frequency: 145.8,
-        mode: "robot36",
-        overlay_data: true,
-      },
-      data_packets: {
-        enabled: true,
-        frequency: 144.39,
-        mode: "bpsk500",
-        morse_callsign: true,
-        comment: "GFS Simulator",
-      },
-    },
-  },
+  settings: gfs_settings,
   status: {
     system: {
       time_utc: "2020-01-01T00:00:00Z",
@@ -72,6 +34,13 @@ let state = {
       console: "running",
       network: "running",
     },
+    data_log: {
+      enabled: true,
+      file_name: "data_log.csv",
+      file_size: 10,
+    },
+  },
+  data: {
     extensions: {
       "temp-1": "running",
       "gps-2": "running",
@@ -94,37 +63,26 @@ let state = {
         max_size: 10,
       },
       radios: {
-        "radio-1": "good"
-      }
+        "radio-1": "good",
+      },
     },
-    data_log: {
-      enabled: true,
-      file_name: "data_log.csv",
-      file_size: 10,
-    },
-  },
-  data: {
     critical: {
       flight_phase: "ascent",
       gps_valid: true,
-      gps: {
-        lat: 0,
-        lon: 0,
-        alt: 0,
-        fix: "3D",
-      },
+      lat: 0,
+      lon: 0,
+      alt: 0,
+      fix: "3D",
       pressure_valid: true,
       pressure: 1013.25,
       battery_valid: true,
       battery_voltage: 12.5,
       system_valid: true,
-      system: {
-        mem_usage: 0.1,
-        disk_usage: 0.1,
-      },
+      mem_usage: 0.1,
+      disk_usage: 0.1,
       radio_status: "good",
     },
-    position: { 
+    position: {
       gps: {
         source: "gps-1",
         time: "2020-01-01T00:00:00Z",
@@ -155,28 +113,31 @@ let state = {
           y: 0,
           z: 0,
         },
-      }
+      },
     },
   },
   errors: {
-    "error:1":"msg"
+    "error:1": "msg",
   },
-  log_files: {
-    
-  }
+  log_files: {},
 };
 function getItem(resource, category, subcategory, env) {
   if (!(resource in state)) {
     console.log(`Resource not found: ${resource}`);
     return null;
   }
+
+  if (category === "all") {
+    return state[resource];
+  }
+
   if (!(category in state[resource])) {
     console.log(`Category not found: ${category}`);
     return null;
   }
   if (subcategory === "all") {
     return state[resource][category];
-  } 
+  }
 
   if (subcategory in state[resource][category]) {
     return state[resource][category][subcategory];

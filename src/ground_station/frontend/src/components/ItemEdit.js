@@ -1,4 +1,4 @@
-import { SaveButton, Button, Input } from './StyledComponents';
+import { StySaveButton, StyButton, StyInput } from './styled/StyledComponents';
 import { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 
@@ -11,15 +11,15 @@ const ItemEditContainer = styled.div`
 
 const ItemEditTitle = styled.div``;
 
-const ItemSaveButton = styled(SaveButton)`
+const ItemSaveButton = styled(StySaveButton)`
   max-width: 5em;
 `;
 
-const ItemEditButton = styled(Button)`
+const ItemEditButton = styled(StyButton)`
   max-width: 5em;
 `;
 
-const ItemEditInput = styled(Input)`
+const ItemEditInput = styled(StyInput)`
   width: 98%;
   min-width: 10em;
 `;
@@ -29,7 +29,7 @@ const ItemEditForm = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  & > ${Button} {
+  & > ${StyButton} {
     margin-right: 0.2em;
     margin-left: 0.2em;
   }

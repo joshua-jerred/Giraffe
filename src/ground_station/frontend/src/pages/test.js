@@ -1,21 +1,18 @@
-import {
-  PageTitle,
-  PageContent,
-  Card,
-  CardMasonryLayout,
-} from '../core/PageParts';
+import { PageTitle, PageContent, Card } from "../core/PageParts";
 
-function TrackingPage() {
+import EditableTable from "../components/EditableTable";
+
+function TestPage() {
   return (
     <>
       <PageTitle>Test Page</PageTitle>
       <PageContent>
-        <CardMasonryLayout>
-          <Card title="card1"> </Card>
-        </CardMasonryLayout>
+        <Card title="Extensions">
+          <EditableTable resource={"gfs"} category="extensions"></EditableTable>
+        </Card>
       </PageContent>
     </>
   );
 }
 
-export default TrackingPage;
+export default TestPage;
