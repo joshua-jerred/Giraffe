@@ -7,11 +7,17 @@ option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF) # ON or OFF
 
 
 # ---- Development Variables ----
-# Changing these variables can break the build
+set(COMMON_SRC ${CMAKE_SOURCE_DIR}/src/common)
+set(COMMON_BIN ${CMAKE_BINARY_DIR}/common)
+set(COMMON_TEST_SRC ${COMMON_SRC}/tests)
+set(COMMON_TEST_BIN ${CMAKE_BINARY_DIR}/tests/common)
+
 set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_software)
+set(GFS_BIN ${CMAKE_BINARY_DIR}/flight_software)
 set(GFS_TEST_SRC ${GFS_SRC}/tests)
+set(GFS_TEST_BIN ${CMAKE_BINARY_DIR}/tests/flight_software)
+
 set(LIB_SRC ${CMAKE_SOURCE_DIR}/lib)
-set(TEST_BIN ${CMAKE_BINARY_DIR}/tests)
 set(GIRAFFE_CONFIG_FILE_NAME "gfs-configuration.json")
 set(GIRAFFE_BUILD_OUTPUT_DIR ${CMAKE_SOURCE_DIR}/bin)
 set(GIRAFFE_INSTALL_DIR /opt/giraffe)
@@ -105,8 +111,14 @@ include_directories(
 
 
 # ---- Giraffe Components ----
-add_subdirectory(${GFS_SRC}) 							# Giraffe Flight Software
+add_subdirectory(${GFS_SRC} ./flight_software)
 
 # ---- External Libraries ----
 add_subdirectory(${LIB_SRC}/MWAV ./lib)
+# ----------------------------
+
+
+# -------- Unit Tests --------
+add_subdirectory(${GFS_TEST_SRC} ${GFS_TEST_BIN})
+add_subdirectory(${COMMON_TEST_SRC} ${COMMON_TEST_BIN})
 # ----------------------------

@@ -1,9 +1,11 @@
+set(TEST_SRC ${CMAKE_SOURCE_DIR}/tests)
+
 enable_testing()
 
 # gtest based test function ----------------------------------------------------
 function(add_gtest_test test_id test_name)
 	add_executable(${test_name}
-	${GFS_TEST_SRC}/${test_id}/test.cpp
+	${COMMON_TEST_SRC}/${test_id}/test.cpp
 		${ARGN}
 	)
 	target_link_libraries(${test_name} gtest_main)
@@ -15,14 +17,7 @@ endfunction()
 # test-01 - Configuration ------------------------------------------------------
 add_gtest_test(
 	test_01
-	gfs_01_configuration_class
+	common_01_configuration_scheme
 )
-target_link_libraries(gfs_01_configuration_class yaml-cpp)
-#configure_file()
-
-#add_executable(test-01-configuration
-#	${TEST_SRC}/test-01/test.cpp
-#	${GFS_SRC}/modules/configuration/configuration.cpp
-#)
-#set_target_properties(test-01 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-01/)
-#target_link_libraries(test-01 gtest_main)
+target_link_libraries(common_01_configuration_scheme yaml-cpp)
+configure_file(${COMMON_SRC}/gfs_configuration_metadata.yaml ${COMMON_TEST_BIN}/gfs_configuration_metadata.yaml)

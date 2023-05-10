@@ -86,11 +86,6 @@ target_link_libraries(giraffe-flight-software PUBLIC i2c)
 target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(giraffe-flight-software PRIVATE yaml-cpp)
 
-# Unit Tests ---------------
-add_subdirectory(${GFS_SRC}/tests)
-
-
-
 # Installation ---------------------------------------------------------------
 #set(GFS_RUNTIME_DIRECTORIES 
 #	${GIRAFFE_INSTALL_DIR}/data_logs

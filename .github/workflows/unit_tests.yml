@@ -8,8 +8,10 @@ on:
     branches: ['main']
 
 env:
-  BUILD_TEST: ./src/flight_software/tests/build_test.sh
-  RUN_TEST: ./src/flight_software/tests/run_test.sh
+  GFS_BUILD: ./src/flight_software/tests/build_test.sh
+  GFS_RUN: ./src/flight_software/tests/run_test.sh
+  COMMON_BUILD: ./src/common/tests/build_test.sh
+  COMMON_RUN: ./src/common/tests/run_test.sh
 
 jobs:
   pull:
@@ -21,7 +23,7 @@ jobs:
           submodules: recursive
 
   configure:
-    name: Configure with CMake
+    name: Configure
     needs: ['pull']
     runs-on: self-hosted
     steps:
@@ -29,13 +31,13 @@ jobs:
       run: mkdir build && cd build && cmake ..
 
   test-01:
-    name: 01 - Configuration
+    name: Common / Configuration Scheme
     env:
-      TEST_NAME: '01_configuration_definition'
+      TEST_NAME: 'common_01_configuration_scheme'
     needs: ['configure']
     runs-on: self-hosted
     steps:
     - name: Build Test
-      run: $BUILD_TEST
+      run: $COMMON_BUILD
     - name: Run Test
-      run: $RUN_TEST
+      run: $COMMON_RUN
