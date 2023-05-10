@@ -8,8 +8,8 @@ on:
     branches: ['main']
 
 env:
-  BUILD_TEST: cd build && make -j4 -o2 $TEST_NAME
-  RUN_TEST: ./build/tests/flight_software/$TEST_NAME
+  BUILD_TEST: ./tests/flight_software/build_test.sh
+  RUN_TEST: ./tests/flight_software/run_test.sh
 
 jobs:
   pull:
