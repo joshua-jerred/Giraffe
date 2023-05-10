@@ -4,6 +4,8 @@ import sys
 
 print("Giraffe - Installer")
 
+REQUIRE_VALIDATION = True
+
 def GetInputOption(options, prompt="$: "):
     options = options.copy()
     options.append("Exit")
@@ -23,6 +25,8 @@ def GetInputOption(options, prompt="$: "):
         print("Invalid choice")
         
 def Verify(promt):
+    if not REQUIRE_VALIDATION:
+        return True
     print(promt)
     while True:
         choice = input("y/n: ")
@@ -63,4 +67,13 @@ def MainMenu():
             FlightSoftwareMenu()
 
 if __name__ == "__main__":
-    MainMenu()
+    if len(sys.argv) != 2:
+        MainMenu()
+    
+    REQUIRE_VALIDATION = False
+    
+    if (sys.argv[1] == "gfs_pr"):
+        print("Installing Flight Software Pre-requisites")
+        InstallFlightSoftwarePrereqs()
+    else:
+        sys.exit(1);
