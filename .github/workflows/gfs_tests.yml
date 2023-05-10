@@ -3,6 +3,7 @@ name: GFS Unit Tests
 on:
   push:
     paths:
+      - workflows/**
       - src/flight_software/**
   pull_request:
 

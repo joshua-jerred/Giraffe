@@ -3,6 +3,7 @@ name: GGS Unit Tests
 on: 
   push:
     paths:
+      - workflows/**
       - src/ground_station/**
   pull_request:
 
