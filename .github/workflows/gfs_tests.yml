@@ -7,7 +7,8 @@ on:
   pull_request:
 
 env:
-  MAKE_OPTIMIZATION: "-j4 -o2"
+  BUILD_TEST: "cd build && make -j4 -o2"
+  RUN_TEST: "./build/tests/flight_software"
 
 jobs:
   pull:
@@ -26,5 +27,12 @@ jobs:
     - name: Configure
       run: mkdir build && cd build && cmake ..
 
-
-  
+  test-01:
+    name: 01 - Configuration
+    needs: ['configure']
+    runs-on: self-hosted
+    steps:
+    - name: Build Test
+      run: $BUILD_TEST 01_configuration
+    - name: Run Test
+      run: $RUN_TEST/01_configuration
