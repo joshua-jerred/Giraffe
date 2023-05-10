@@ -8,7 +8,7 @@ on:
     branches: ['main']
 
 env:
-  BUILD_TEST: ./tests/flight_software/build_test.sh
+  BUILD_TEST: cd build && make $TEST_NAME
   RUN_TEST: ./tests/flight_software/run_test.sh
 
 jobs:
