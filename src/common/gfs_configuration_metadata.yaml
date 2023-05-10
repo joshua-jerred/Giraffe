@@ -1,0 +1,10 @@
+general:
+  project_name:
+    name: Project Name
+    description: "The name of the project. This is used in telemetry and other places to identify your flight."
+    type: string
+    min: 1
+    max: 20
+    pattern: ^(?!\s)[a-zA-Z0-9_ -]{0,20}[^\s]$
+    required: true
+    default: Giraffe Flight 1

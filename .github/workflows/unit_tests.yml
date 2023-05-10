@@ -8,8 +8,8 @@ on:
     branches: ['main']
 
 env:
-  BUILD_TEST: ./tests/flight_software/build_test.sh
-  RUN_TEST: ./tests/flight_software/run_test.sh
+  BUILD_TEST: ./src/flight_software/tests/build_test.sh
+  RUN_TEST: ./src/flight_software/tests/run_test.sh
 
 jobs:
   pull:
@@ -31,7 +31,7 @@ jobs:
   test-01:
     name: 01 - Configuration
     env:
-      TEST_NAME: '01_configuration'
+      TEST_NAME: '01_configuration_definition'
     needs: ['configure']
     runs-on: self-hosted
     steps:

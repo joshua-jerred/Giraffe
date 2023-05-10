@@ -23,12 +23,7 @@ else()
     add_compile_definitions(SSTV_ENABLED=0)
 endif()
 
-# nlhomann_json
-include(FetchContent)
-FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
-FetchContent_MakeAvailable(json)
-
-
+# ---- Giraffe Flight Software ----
 include_directories(
 	${GFS_SRC}/flight-computer
 	${GFS_SRC}/modules
@@ -40,7 +35,6 @@ include_directories(
 	${LIB_SRC}/MWAV/include
 )
 
-# ---- Flight Computer ----
 add_executable(giraffe-flight-software
 	${GFS_SRC}/main.cpp
 	${GFS_SRC}/flight-runner.cpp
@@ -90,6 +84,12 @@ target_link_libraries(giraffe-flight-software PRIVATE Threads::Threads)
 
 target_link_libraries(giraffe-flight-software PUBLIC i2c)
 target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
+target_link_libraries(giraffe-flight-software PRIVATE yaml-cpp)
+
+# Unit Tests ---------------
+add_subdirectory(${GFS_SRC}/tests)
+
+
 
 # Installation ---------------------------------------------------------------
 #set(GFS_RUNTIME_DIRECTORIES 

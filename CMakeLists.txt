@@ -9,6 +9,7 @@ option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF) # ON or OFF
 # ---- Development Variables ----
 # Changing these variables can break the build
 set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_software)
+set(GFS_TEST_SRC ${GFS_SRC}/tests)
 set(LIB_SRC ${CMAKE_SOURCE_DIR}/lib)
 set(TEST_BIN ${CMAKE_BINARY_DIR}/tests)
 set(GIRAFFE_CONFIG_FILE_NAME "gfs-configuration.json")
@@ -21,7 +22,7 @@ set(GIRAFFE_INSTALL_DIR /opt/giraffe)
 file(READ ${CMAKE_SOURCE_DIR}/src/version ver_file)
 string(
 	REGEX MATCH 
-	"VERSION_NUMBER <([0-9\.]+)>[\n\r]+STAGE <([A-Za-z ]+)>" 
+	"VERSION_NUMBER<([0-9\.]+)>[\n\r]+STAGE<([A-Za-z ]+)>" 
 	GIRAFFE_VERSION_STAGE 
 	${ver_file}
 )
@@ -63,18 +64,49 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 # ----------------------------
 
 
+# ----- Third Party Libs -----
+# nlhomann_json
+include(FetchContent)
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
+FetchContent_MakeAvailable(json)
+
+# yaml-cpp
+FetchContent_Declare(
+        yaml-cpp
+        GIT_REPOSITORY https://github.com/jbeder/yaml-cpp.git
+)
+set(YAML_CPP_BUILD_TESTS OFF)
+FetchContent_MakeAvailable(yaml-cpp)
+
+# gtest
+FetchContent_Declare(
+	googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG release-1.12.1
+	)
+FetchContent_MakeAvailable(googletest)
+include(GoogleTest)
 # ----------------------------
+
+
+# ----- Common Includes ------
+include_directories(
+	${GFS_SRC}/modules
+	${GFS_SRC}/modules/configuration
+
+	${GFS_SRC}/utilities
+	${GFS_SRC}/extensions
+	${GFS_SRC}/interface
+	${GFS_SRC}/radios
+
+	${LIB_SRC}/MWAV/include
+)
+# ----------------------------
+
+
 # ---- Giraffe Components ----
 add_subdirectory(${GFS_SRC}) 							# Giraffe Flight Software
-	                                        # Giraffe Ground Software
-
-# --- Unit Tests ---
-set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/flight_software)
-add_subdirectory(tests EXCLUDE_FROM_ALL)  # Giraffe Tests (Flight and Ground)
-# ----------------------------
-# ----------------------------
-
 
 # ---- External Libraries ----
-add_subdirectory(${LIB_SRC}/MWAV EXCLUDE_FROM_ALL)
+add_subdirectory(${LIB_SRC}/MWAV ./lib)
 # ----------------------------

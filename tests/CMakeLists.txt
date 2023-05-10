@@ -1,1 +1,0 @@
-add_subdirectory(flight_software EXCLUDE_FROM_ALL)
