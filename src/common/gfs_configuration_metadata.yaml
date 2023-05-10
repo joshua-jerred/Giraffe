@@ -9,3 +9,10 @@ general:
     max: 20
     pattern: ^(?!\s)[a-zA-Z0-9_ -]{0,19}[^\s]$
 
+  main_board:
+    name: Main Board
+    description: "The type of computer that the flight software is running on."
+    type: enum
+    default: other
+
+    options: ["other", "pi_zero_w_2", "pi_4"]

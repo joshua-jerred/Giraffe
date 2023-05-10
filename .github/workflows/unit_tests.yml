@@ -14,7 +14,7 @@ env:
   COMMON_RUN: ./src/common/tests/run_test.sh
 
 jobs:
-  pull:
+  setup-pull:
     name: Pull and Sync Submodules
     runs-on: self-hosted
     steps:
@@ -22,22 +22,34 @@ jobs:
         with:
           submodules: recursive
 
-  configure:
+  setup-configure:
     name: Configure
-    needs: ['pull']
+    needs: ['setup-pull']
     runs-on: self-hosted
     steps:
     - name: Configure
       run: mkdir build && cd build && cmake ..
 
-  test-01:
+  common-test-01:
     name: Common / Configuration Scheme
     env:
       TEST_NAME: 'common_01_configuration_scheme'
-    needs: ['configure']
+    needs: ['setup-configure']
     runs-on: self-hosted
     steps:
     - name: Build Test
       run: $COMMON_BUILD
     - name: Run Test
       run: $COMMON_RUN
+
+  gfs-test-01:
+    name: GFS / Configuration / Validators
+    env:
+      TEST_NAME: 'gfs_01_configuration_validators'
+    needs: ['setup-configure']
+    runs-on: self-hosted
+    steps:
+    - name: Build Test
+      run: $GFS_BUILD
+    - name: Run Test
+      run: $GFS_RUN

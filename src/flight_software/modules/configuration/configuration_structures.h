@@ -26,37 +26,37 @@ struct General {
   MainBoard main_board_type;
 };
 
-namespace flight_mode { // cfg::flight_modes
+// namespace flight_mode { // cfg::flight_modes
 
-struct Procedure {
-};
+// struct Procedure {
+// };
 
-enum class Type {
-  TESTING,
-  ASCENT,
-  DESCENT,
-  RECOVERY,
-  FAILSAFE,
-  OTHER
-};
+// enum class Type {
+//   TESTING,
+//   ASCENT,
+//   DESCENT,
+//   RECOVERY,
+//   FAILSAFE,
+//   OTHER
+// };
 
-struct Services {
-  bool data_logging;
+// struct Services {
+//   bool data_logging;
 
-  bool telem_data_log;
-  bool telem_data_packet;
-  bool telem_sstv;
-  bool telem_aprs_location;
-  bool telem_aprs_telemetry;
-  
-  bool image_capture;
-  bool health_check;
-};
+//   bool telem_data_log;
+//   bool telem_data_packet;
+//   bool telem_sstv;
+//   bool telem_aprs_location;
+//   bool telem_aprs_telemetry;
 
-bool enabled;
-Type type;
-std::string name;
+//   bool image_capture;
+//   bool health_check;
+// };
 
-};  // namespace flight_mode
+// bool enabled;
+// Type type;
+// std::string name;
+
+// };  // namespace flight_mode
 };  // namespace cfg
 #endif

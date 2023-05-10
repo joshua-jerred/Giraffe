@@ -11,14 +11,17 @@ function(add_gtest_test test_id test_name)
 	gtest_discover_tests(${test_name})
 endfunction()
 
-
-# test-01 - Configuration ------------------------------------------------------
 add_gtest_test(
 	test_01
-	gfs_01_configuration_class
+	gfs_01_configuration_validators
+	${GFS_SRC}/modules/configuration/validators.cpp
 )
-target_link_libraries(gfs_01_configuration_class yaml-cpp)
-#configure_file()
+
+#target_link_libraries(gfs_01_configuration_class yaml-cpp)
+#configure_file(${GFS_TEST_SRC}/test_01/01_valid_config.yaml ${GFS_TEST_BIN}/01_valid_config.yaml)
+#configure_file(${GFS_TEST_SRC}/test_01/01_empty_config.yaml ${GFS_TEST_BIN}/01_empty_config.yaml)
+#configure_file(${GFS_TEST_SRC}/test_01/01_invalid_config.yaml ${GFS_TEST_BIN}/01_invalid_config.yaml)
+
 
 #add_executable(test-01-configuration
 #	${TEST_SRC}/test-01/test.cpp
