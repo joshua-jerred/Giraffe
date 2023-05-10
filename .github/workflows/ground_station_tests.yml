@@ -2,11 +2,10 @@ name: GGS Unit Tests
 
 on: 
   push:
-    paths:
-      - workflows/**
-      - src/ground_station/**
+    branches: ['main', '0.5.0-development']
+    paths: ['workflows/**', 'src/ground_station/**']
   pull_request:
-
+    branches: ['main']
 jobs:
   protocol-parse-tests:
     name: Protocol Tests

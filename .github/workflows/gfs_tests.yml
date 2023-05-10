@@ -2,10 +2,10 @@ name: GFS Unit Tests
 
 on:
   push:
-    paths:
-    - workflows/**
-    - src/flight_software/**
+    branches: ['main', '0.5.0-development']
+    paths: ['workflows/**', 'src/flight_software/**']
   pull_request:
+    branches: ['main']
 
 env:
   BUILD_TEST: "cd build && make -j4 -o2"
