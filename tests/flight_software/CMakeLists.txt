@@ -9,6 +9,17 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
+include_directories(
+	${GFS_SRC}/flight-computer
+	${GFS_SRC}/modules
+	${GFS_SRC}/utilities
+	${GFS_SRC}/extensions
+	${GFS_SRC}/interface
+	${GFS_SRC}/radios
+
+	${LIB_SRC}/MWAV/include
+)
+
 # gtest based test function ----------------------------------------------------
 function(add_gtest_test test_id test_name)
 	add_executable(${test_name}
