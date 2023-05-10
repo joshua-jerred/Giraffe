@@ -8,10 +8,17 @@ on:
       - master
 
 jobs:
-  pull_and_configure:
-    name: Pull and Configure
+  pull:
+    name: Pull and Sync Submodules
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout/@v3
-      - name: Configure
-        run: mkdir build && cd build && cmake ..
+        with:
+          submodules: recursive
+
+  configure:
+    name: Configure with CMake
+    runs-on: ubuntu-latest
+    steps:
+    - name: Configure
+      run: mkdir build && cd build && cmake ..
