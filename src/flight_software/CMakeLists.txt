@@ -51,7 +51,7 @@ add_executable(giraffe-flight-software
 	${GFS_SRC}/modules/module-extensions.cpp
 	${GFS_SRC}/modules/module-console.cpp
 	${GFS_SRC}/modules/module-telemetry.cpp
-	${GFS_SRC}/modules/module-server.cpp
+	${GFS_SRC}/modules/server/module-server.cpp
 
 	${GFS_SRC}/utilities/timer.cpp
 	${GFS_SRC}/utilities/data-stream.cpp

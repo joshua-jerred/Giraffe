@@ -6,7 +6,7 @@
  * @version 0.1.0
  * @date 2022-10-11
  * @copyright Copyright (c) 2022
- * 
+ *
  * @todo Documentation
  * @todo Unit Tests
  */
@@ -74,7 +74,9 @@ TelemetryModule::TelemetryModule(ConfigData config_data,
  * @brief Destroy the Telemetry Module:: Telemetry Module object
  * @todo implement this in a safe way.
  */
-TelemetryModule::~TelemetryModule() { stop(); }
+TelemetryModule::~TelemetryModule() {
+  stop();
+}
 
 /**
  * @brief This starts the telemetry module thread.
@@ -245,7 +247,9 @@ void TelemetryModule::sendSSTVImage() {
  * @brief Incremented the tx number and returns the new value.
  * @return int
  */
-int TelemetryModule::getNextTXNumber() { return tx_number_++; }
+int TelemetryModule::getNextTXNumber() {
+  return tx_number_++;
+}
 
 void TelemetryModule::ChooseRadio() {
   std::vector<RadioMetadata> &radio_metadata_ = config_data_.telemetry.radios;
@@ -412,9 +416,14 @@ std::string TelemetryModule::GenerateSSTV(const int tx_number) {
   std::vector<std::string> data = {"Giraffe SSTV Test"};
 
   try {
+#if SSTV_ENABLED
     mwav::EncodeSSTV(file_path, image_path, false,
                      config_data_.telemetry.call_sign,
                      mwav::Sstv_Mode::ROBOT_36, data);
+#else
+    error("SSTV_DIS");
+    return "";
+#endif
   } catch (mwav::Exception &e) {
     error("SSTV_EX", e.what());
     return "";

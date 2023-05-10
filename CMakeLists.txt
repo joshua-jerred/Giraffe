@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 
 # ---- Options ----
 # The following options are configurable by the user
-option(SSTV_ENABLED "Enable SSTV - Requires Magick++" ON) # ON or OFF
+option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF) # ON or OFF
 # -----------------
 
 
