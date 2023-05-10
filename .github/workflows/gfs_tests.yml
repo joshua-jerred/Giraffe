@@ -8,8 +8,8 @@ on:
     branches: ['main']
 
 env:
-  BUILD_TEST: "cd build && make -j4 -o2"
-  RUN_TEST: "./build/tests/flight_software"
+  BUILD_TEST: cd build && make -j4 -o2 $TEST_NAME
+  RUN_TEST: ./build/tests/flight_software/$TEST_NAME
 
 jobs:
   pull:
@@ -30,10 +30,12 @@ jobs:
 
   test-01:
     name: 01 - Configuration
+    env:
+      TEST_NAME: '01_configuration'
     needs: ['configure']
     runs-on: self-hosted
     steps:
     - name: Build Test
-      run: $BUILD_TEST 01_configuration
+      run: $BUILD_TEST
     - name: Run Test
-      run: $RUN_TEST/01_configuration
+      run: $RUN_TEST
