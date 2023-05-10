@@ -68,6 +68,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 # ---- Giraffe Components ----
 add_subdirectory(${GFS_SRC}) 							# Giraffe Flight Software
 	                                        # Giraffe Ground Software
+
+# --- Unit Tests ---
+set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/flight_software)
 add_subdirectory(tests EXCLUDE_FROM_ALL)  # Giraffe Tests (Flight and Ground)
 # ----------------------------
 # ----------------------------

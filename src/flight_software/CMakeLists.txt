@@ -46,7 +46,7 @@ add_executable(giraffe-flight-software
 	${GFS_SRC}/flight-runner.cpp
 
 	${GFS_SRC}/modules/module.cpp
-	${GFS_SRC}/modules/module-configuration.cpp
+	${GFS_SRC}/modules/configuration/module_configuration.cpp
 	${GFS_SRC}/modules/module-data.cpp
 	${GFS_SRC}/modules/module-extensions.cpp
 	${GFS_SRC}/modules/module-console.cpp

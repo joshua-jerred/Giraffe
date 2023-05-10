@@ -1,1 +1,1 @@
-# Units Tests (Not Setup Yet)
+add_subdirectory(flight_software EXCLUDE_FROM_ALL)
