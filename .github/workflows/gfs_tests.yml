@@ -10,7 +10,7 @@ on:
 jobs:
   pull:
     name: Pull and Sync Submodules
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout/@v3
         with:
@@ -18,7 +18,7 @@ jobs:
 
   configure:
     name: Configure with CMake
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: Configure
       run: mkdir build && cd build && cmake ..
