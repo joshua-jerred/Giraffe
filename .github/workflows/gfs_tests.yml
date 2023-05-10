@@ -3,7 +3,7 @@ name: GFS Unit Tests
 on:
   push:
     branches: ['main', '0.5.0-development']
-    paths: ['workflows/**', 'src/flight_software/**']
+    #paths: ['workflows/**', 'src/flight_software/**']
   pull_request:
     branches: ['main']
 
