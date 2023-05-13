@@ -6,7 +6,7 @@
  * @copyright Copyright (c) 2023
  */
 
-#include "validators.h"
+#include "configuration_internal.h"
 
 #include <regex>
 #include <string>
@@ -39,7 +39,7 @@ inline bool macroInOptions(
 
 // General
 
-bool cfg::validator::general::projectName(const std::string &project_name, std::string &error) {
+bool cfg::general::validators::projectName(const std::string &project_name, std::string &error) {
   const std::string pattern = "^(?!\\s)[a-zA-Z0-9_ -]{0,19}[^\\s]$";
   constexpr unsigned int min = 1;
   constexpr unsigned int max = 20;
@@ -57,7 +57,7 @@ bool cfg::validator::general::projectName(const std::string &project_name, std::
   return true;
 }
 
-bool cfg::validator::general::mainBoard(const std::string &main_board, std::string &error) {
+bool cfg::general::validators::mainBoard(const std::string &main_board, std::string &error) {
   bool res = macroInOptions(main_board_enum, main_board);
   if (!res) {
     error = "Main Board selection is invalid.";
@@ -66,7 +66,7 @@ bool cfg::validator::general::mainBoard(const std::string &main_board, std::stri
   return true;
 }
 
-bool cfg::validator::general::startingProcedure(const std::string &starting_procedure, std::string &error) {
+bool cfg::general::validators::startingProcedure(const std::string &starting_procedure, std::string &error) {
   bool res = macroInOptions(procedure_name_enum, starting_procedure);
   if (!res) {
     error = "Starting flight procedure selection is invalid.";
@@ -77,7 +77,7 @@ bool cfg::validator::general::startingProcedure(const std::string &starting_proc
 
 // Interface
 
-bool cfg::validator::interface::consoleUpdateInterval(const int update_interval_ms, std::string &error) {
+bool cfg::interface::validators::consoleUpdateInterval(const int update_interval_ms, std::string &error) {
   if (!(update_interval_ms >= 100) || !(update_interval_ms <= 10000)) {
     error = "Console update interval is outside of the allowed range.";
     return false;
@@ -88,7 +88,7 @@ bool cfg::validator::interface::consoleUpdateInterval(const int update_interval_
   return true;
 }
 
-bool cfg::validator::interface::webSocketPort(const int port_number, std::string &error) {
+bool cfg::interface::validators::webSocketPort(const int port_number, std::string &error) {
   bool res = port_number >= 1024 && port_number <= 65535;
   if (!res) {
     error = "Port number " + std::to_string(port_number) + " is outside of the allowed range.";

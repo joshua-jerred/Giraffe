@@ -10,7 +10,7 @@
 #include <vector>
 
 #include "gtest/gtest.h"
-#include "validators.h"
+#include "configuration_internal.h"
 
 class ConfigurationValidators : public ::testing::Test {
  protected:
@@ -34,7 +34,7 @@ TEST_F(ConfigurationValidators, General_projectName) {
       "12345678901234567890",
       "MiXeD-Cases_ _123"};
   for (std::string input : valid_inputs) {
-    if (!cfg::validator::general::projectName(input, error)) {
+    if (!cfg::general::validators::projectName(input, error)) {
       FAIL() << error;
     }
   }
@@ -46,7 +46,7 @@ TEST_F(ConfigurationValidators, General_projectName) {
       "",
       "123456789012345678901"};
   for (std::string input : invalid_inputs) {
-    EXPECT_FALSE(cfg::validator::general::projectName(input, error)) << input;
+    EXPECT_FALSE(cfg::general::validators::projectName(input, error)) << input;
   }
 }
 
@@ -56,7 +56,7 @@ TEST_F(ConfigurationValidators, General_mainBoard) {
       "pi_zero_w_2",
       "pi_4"};
   for (std::string input : valid_inputs) {
-    if (!cfg::validator::general::mainBoard(input, error)) {
+    if (!cfg::general::validators::mainBoard(input, error)) {
       FAIL();
     }
   }
@@ -68,7 +68,7 @@ TEST_F(ConfigurationValidators, General_mainBoard) {
       "",
       "ascent"};
   for (std::string input : invalid_inputs) {
-    EXPECT_FALSE(cfg::validator::general::mainBoard(input, error)) << input;
+    EXPECT_FALSE(cfg::general::validators::mainBoard(input, error)) << input;
   }
 }
 
@@ -81,7 +81,7 @@ TEST_F(ConfigurationValidators, General_startingProcedure) {
       "recovery",
       "failsafe"};
   for (std::string input : valid_inputs) {
-    if (!cfg::validator::general::startingProcedure(input, error)) {
+    if (!cfg::general::validators::startingProcedure(input, error)) {
       FAIL();
     }
   }
@@ -93,34 +93,34 @@ TEST_F(ConfigurationValidators, General_startingProcedure) {
       "pi_zero_w_2",
       "1234"};
   for (std::string input : invalid_inputs) {
-    EXPECT_FALSE(cfg::validator::general::startingProcedure(input, error)) << input;
+    EXPECT_FALSE(cfg::general::validators::startingProcedure(input, error)) << input;
   }
 }
 
 TEST_F(ConfigurationValidators, Interface_consoleUpdateInterval) {
   std::vector<int> valid_inputs = {100, 200, 300, 400, 500, 1000, 5000, 10000};
   for (int input : valid_inputs) {
-    if (!cfg::validator::interface::consoleUpdateInterval(input, error)) {
+    if (!cfg::interface::validators::consoleUpdateInterval(input, error)) {
       FAIL();
     }
   }
 
   std::vector<int> invalid_inputs = {50, 79, 101, 5050, 10100};
   for (int input : invalid_inputs) {
-    EXPECT_FALSE(cfg::validator::interface::consoleUpdateInterval(input, error)) << input;
+    EXPECT_FALSE(cfg::interface::validators::consoleUpdateInterval(input, error)) << input;
   }
 }
 
 TEST_F(ConfigurationValidators, Interface_webSocketPortNumber) {
   std::vector<int> valid_inputs = {1024, 65535, 2000, 2512, 8291, 5000, 10000};
   for (int input : valid_inputs) {
-    if (!cfg::validator::interface::webSocketPort(input, error)) {
+    if (!cfg::interface::validators::webSocketPort(input, error)) {
       FAIL();
     }
   }
 
   std::vector<int> invalid_inputs = {50, 79, 101, 1023, 65536};
   for (int input : invalid_inputs) {
-    EXPECT_FALSE(cfg::validator::interface::webSocketPort(input, error)) << input;
+    EXPECT_FALSE(cfg::interface::validators::webSocketPort(input, error)) << input;
   }
 }

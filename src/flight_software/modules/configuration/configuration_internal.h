@@ -1,28 +1,41 @@
 /**
- * @file config_structure.cpp
+ * @file configuration_internal.h
  * @author Joshua Jerred (https://joshuajer.red)
- * @brief Header for the 'Configuration' class.
- * @date 2023-05-09
+ * @brief Internal functionality for the configuration module.
+ * @date 2023-05-13
  * @copyright Copyright (c) 2023
  */
 
-#ifndef CONFIGURATION_H_
-#define CONFIGURATION_H_
+#ifndef CONFIGURATION_INTERNAL_H_
+#define CONFIGURATION_INTERNAL_H_
 
 #include <string>
 
+#include "configuration_structures.h"
+
 namespace cfg {
 
-namespace validator {
 namespace general {
+
+namespace defaults {
+const std::string project_name = "Giraffe 1";
+inline constexpr cfg::General::MainBoard main_board = cfg::General::MainBoard::OTHER;
+}  // namespace defaults
+
+namespace validators {
 bool projectName(const std::string &project_name, std::string &error);
 bool mainBoard(const std::string &main_board, std::string &error);
 bool startingProcedure(const std::string &starting_procedure, std::string &error);
+}  // namespace validators
 };  // namespace general
+
 namespace interface {
+namespace validators {
 bool consoleUpdateInterval(const int update_interval_ms, std::string &error);
 bool webSocketPort(const int port_number, std::string &error);
+}  // namespace validators
 };  // namespace interface
+
 // namespace telemetry {
 // bool callSign(const std::string &call_sign);
 // bool frequency(const std::string &frequency);
@@ -34,7 +47,6 @@ bool webSocketPort(const int port_number, std::string &error);
 
 // bool sstvMode(const std::string &comment);
 // };
-};  // namespace validator
 };  // namespace cfg
 
 #endif

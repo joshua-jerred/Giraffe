@@ -15,6 +15,17 @@
 
 namespace cfg {
 
+struct Procedure {
+ enum class Type {
+   TESTING,
+   ASCENT,
+   DESCENT,
+   RECOVERY,
+   FAILSAFE,
+   OTHER
+ };
+};
+
 struct General {
   enum class MainBoard {
     OTHER,
@@ -24,21 +35,10 @@ struct General {
 
   std::string project_name;
   MainBoard main_board_type;
+  Procedure::Type starting_procedure;
 };
 
-// namespace flight_mode { // cfg::flight_modes
 
-// struct Procedure {
-// };
-
-// enum class Type {
-//   TESTING,
-//   ASCENT,
-//   DESCENT,
-//   RECOVERY,
-//   FAILSAFE,
-//   OTHER
-// };
 
 // struct Services {
 //   bool data_logging;
