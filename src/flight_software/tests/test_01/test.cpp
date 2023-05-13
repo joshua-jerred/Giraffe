@@ -100,27 +100,27 @@ TEST_F(ConfigurationValidators, General_startingProcedure) {
 TEST_F(ConfigurationValidators, Interface_consoleUpdateInterval) {
   std::vector<int> valid_inputs = {100, 200, 300, 400, 500, 1000, 5000, 10000};
   for (int input : valid_inputs) {
-    if (!cfg::interface::validators::consoleUpdateInterval(input, error)) {
+    if (!cfg::debug::validators::consoleUpdateInterval(input, error)) {
       FAIL();
     }
   }
 
   std::vector<int> invalid_inputs = {50, 79, 101, 5050, 10100};
   for (int input : invalid_inputs) {
-    EXPECT_FALSE(cfg::interface::validators::consoleUpdateInterval(input, error)) << input;
+    EXPECT_FALSE(cfg::debug::validators::consoleUpdateInterval(input, error)) << input;
   }
 }
 
-TEST_F(ConfigurationValidators, Interface_webSocketPortNumber) {
+TEST_F(ConfigurationValidators, Server_tcpSocketPortNumber) {
   std::vector<int> valid_inputs = {1024, 65535, 2000, 2512, 8291, 5000, 10000};
   for (int input : valid_inputs) {
-    if (!cfg::interface::validators::webSocketPort(input, error)) {
+    if (!cfg::server::validators::tcpSocketPort(input, error)) {
       FAIL();
     }
   }
 
   std::vector<int> invalid_inputs = {50, 79, 101, 1023, 65536};
   for (int input : invalid_inputs) {
-    EXPECT_FALSE(cfg::interface::validators::webSocketPort(input, error)) << input;
+    EXPECT_FALSE(cfg::server::validators::tcpSocketPort(input, error)) << input;
   }
 }

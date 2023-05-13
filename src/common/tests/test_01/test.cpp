@@ -161,14 +161,24 @@ TEST_F(GfsMetaData, general_section) {
   }
 }
 
-TEST_F(GfsMetaData, interface_section) {
-  std::array<std::string, 4> sections = {
+TEST_F(GfsMetaData, debug_section) {
+  std::array<std::string, 3> sections = {
       "print_errors",
-      "console",
-      "console_update_interval",
-      "web_socket_port"};
+      "console_enabled",
+      "console_update_interval"};
 
-  validateCategory("interface");
+  validateCategory("debug");
+  for (std::string &section : sections) {
+    validateSettingMetadata(section);
+  }
+}
+
+TEST_F(GfsMetaData, server_section) {
+  std::array<std::string, 1> sections = {
+    "tcp_socket_port"
+  };
+
+  validateCategory("server");
   for (std::string &section : sections) {
     validateSettingMetadata(section);
   }

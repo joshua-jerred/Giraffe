@@ -2,10 +2,10 @@ name: GFS Unit Tests
 
 on:
   push:
-    branches: ['main', '0.5.0-development']
+    branches: ["main", "0.5.0-development"]
     #paths: ['workflows/**', 'src/flight_software/**']
   pull_request:
-    branches: ['main']
+    branches: ["main"]
 
 env:
   GFS_BUILD: ./src/flight_software/tests/build_test.sh
@@ -24,32 +24,44 @@ jobs:
 
   setup-configure:
     name: Configure
-    needs: ['setup-pull']
+    needs: ["setup-pull"]
     runs-on: self-hosted
     steps:
-    - name: Configure
-      run: mkdir build && cd build && cmake ..
+      - name: Configure
+        run: mkdir build && cd build && cmake ..
 
   common-test-01:
     name: Common / Configuration Scheme
     env:
-      TEST_NAME: 'common_01_configuration_scheme'
-    needs: ['setup-configure']
+      TEST_NAME: "common_01_configuration_scheme"
+    needs: ["setup-configure"]
     runs-on: self-hosted
     steps:
-    - name: Build Test
-      run: $COMMON_BUILD
-    - name: Run Test
-      run: $COMMON_RUN
+      - name: Build Test
+        run: $COMMON_BUILD
+      - name: Run Test
+        run: $COMMON_RUN
 
   gfs-test-01:
     name: GFS / Configuration / Validators
     env:
-      TEST_NAME: 'gfs_01_configuration_validators'
-    needs: ['setup-configure']
+      TEST_NAME: "gfs_01_configuration_validators"
+    needs: ["setup-configure"]
     runs-on: self-hosted
     steps:
-    - name: Build Test
-      run: $GFS_BUILD
-    - name: Run Test
-      run: $GFS_RUN
+      - name: Build Test
+        run: $GFS_BUILD
+      - name: Run Test
+        run: $GFS_RUN
+
+  gfs-test-02:
+    name: GFS / Configuration / Configuration Class
+    env:
+      TEST_NAME: "gfs_02_configuration_class"
+    needs: ["setup-configure"]
+    runs-on: self-hosted
+    steps:
+      - name: Build Test
+        run: $GFS_BUILD
+      - name: Run Test
+        run: $GFS_RUN

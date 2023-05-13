@@ -11,7 +11,7 @@
 
 #include <string>
 
-#include "configuration_structures.h"
+#include "configuration.h"
 
 namespace cfg {
 
@@ -20,6 +20,7 @@ namespace general {
 namespace defaults {
 const std::string project_name = "Giraffe 1";
 inline constexpr cfg::General::MainBoard main_board = cfg::General::MainBoard::OTHER;
+inline constexpr cfg::Procedure::Type starting_procedure = cfg::Procedure::Type::FAILSAFE;
 }  // namespace defaults
 
 namespace validators {
@@ -29,12 +30,26 @@ bool startingProcedure(const std::string &starting_procedure, std::string &error
 }  // namespace validators
 };  // namespace general
 
-namespace interface {
+namespace debug {
+namespace defaults {
+inline constexpr bool print_errors = false;
+inline constexpr bool console_enabled = false;
+inline constexpr int console_update_interval = 1000;
+}
+
 namespace validators {
 bool consoleUpdateInterval(const int update_interval_ms, std::string &error);
-bool webSocketPort(const int port_number, std::string &error);
 }  // namespace validators
-};  // namespace interface
+};  // namespace debug
+
+namespace server {
+namespace defaults {
+  inline constexpr int tcp_socket_port = 7893;
+}
+namespace validators {
+bool tcpSocketPort(const int port_number, std::string &error);
+}
+}  // namespace server
 
 // namespace telemetry {
 // bool callSign(const std::string &call_sign);

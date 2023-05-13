@@ -77,7 +77,7 @@ bool cfg::general::validators::startingProcedure(const std::string &starting_pro
 
 // Interface
 
-bool cfg::interface::validators::consoleUpdateInterval(const int update_interval_ms, std::string &error) {
+bool cfg::debug::validators::consoleUpdateInterval(const int update_interval_ms, std::string &error) {
   if (!(update_interval_ms >= 100) || !(update_interval_ms <= 10000)) {
     error = "Console update interval is outside of the allowed range.";
     return false;
@@ -88,7 +88,7 @@ bool cfg::interface::validators::consoleUpdateInterval(const int update_interval
   return true;
 }
 
-bool cfg::interface::validators::webSocketPort(const int port_number, std::string &error) {
+bool cfg::server::validators::tcpSocketPort(const int port_number, std::string &error) {
   bool res = port_number >= 1024 && port_number <= 65535;
   if (!res) {
     error = "Port number " + std::to_string(port_number) + " is outside of the allowed range.";

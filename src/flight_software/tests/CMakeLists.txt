@@ -17,6 +17,12 @@ add_gtest_test(
 	${GFS_SRC}/modules/configuration/validators.cpp
 )
 
+add_gtest_test(
+	test_02
+	gfs_02_configuration_class
+	${GFS_SRC}/modules/configuration/configuration.cpp
+)
+
 #target_link_libraries(gfs_01_configuration_class yaml-cpp)
 #configure_file(${GFS_TEST_SRC}/test_01/01_valid_config.yaml ${GFS_TEST_BIN}/01_valid_config.yaml)
 #configure_file(${GFS_TEST_SRC}/test_01/01_empty_config.yaml ${GFS_TEST_BIN}/01_empty_config.yaml)
