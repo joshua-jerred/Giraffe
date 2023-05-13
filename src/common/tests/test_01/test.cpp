@@ -7,195 +7,261 @@
  * @copyright Copyright (c) 2023
  */
 
-#include <iostream>
-#include <regex>
+#include <array>
+#include <fstream>
+#include <nlohmann/json.hpp>
 #include <string>
 
 #include "gtest/gtest.h"
-#include "yaml-cpp/yaml.h"
 
-class TEST_Configuration_Definition : public ::testing::Test {
+inline constexpr int setting_name_min_length = 4;
+inline constexpr int setting_name_max_length = 25;
+
+inline constexpr int setting_description_min_length = 20;
+inline constexpr int setting_description_max_length = 300;
+
+using json = nlohmann::ordered_json;
+
+class GfsMetaData : public ::testing::Test {
  protected:
   virtual void SetUp() {
+    std::ifstream fs(file_path_);  // open file
+    if (fs.fail()) {
+      FAIL() << "Failed to open configuration";
+    }
+    cfg = json::parse(fs);
   }
   virtual void TearDown() {
   }
 
-  /**
-   * @brief Verify that a key is contained with a node.
-   * @param node
-   * @param key
-   */
-  void C_EXPECT_DEFINED(YAML::Node &node, std::string key) {
-    EXPECT_TRUE(node[key].IsDefined()) << "Key " + key + " is not defined.";
+  void validateCategory(std::string category_name) {
+    ASSERT_TRUE(cfg.contains(category_name)) << "Category " + category_name + " not found.";
+    ASSERT_TRUE(cfg[category_name].is_structured()) << "Category " + category_name + " is not an object.";
+    category = cfg[category_name];
   }
 
-  /**
-   * @brief Verify that a key is not defined within a node.
-   * @param node
-   * @param key
-   */
-  void C_EXPECT_NOT_DEFINED(YAML::Node &node, std::string key) {
-    EXPECT_FALSE(node[key].IsDefined()) << "Key " + key + " is not defined.";
-  }
+  void validateSettingMetadata(std::string setting_name) {
+    ASSERT_TRUE(category.contains(setting_name)) << "Setting " + setting_name + " not found";
+    setting = category[setting_name];
+    ASSERT_TRUE(setting.is_structured()) << "Setting " + setting_name + " is not an object.";
 
-  /**
-   * @brief Verify that every string in a vector matches the pattern.
-   * @param pattern 
-   * @param inputs 
-   */
-  void C_VERIFY_VALID_STRINGS(std::string pattern, std::vector<std::string> &inputs) {
-    for (std::string input : inputs) {
-      EXPECT_TRUE(std::regex_match(input, std::regex(pattern))) << "Input " + input + " does not match pattern " + pattern + " - this is a valid input.";
-    }
-  }
+    // Check for default value first so the type check can verify that the default value is of appropriate type.
+    ASSERT_TRUE(setting.contains("default")) << "Setting " + setting_name + " does not contain a default value.";
 
-  /**
-   * @brief Verify that every string in a vector does *not* match the pattern.
-   * @param pattern 
-   * @param inputs 
-   */
-  void C_VERIFY_INVALID_STRINGS(std::string pattern, std::vector<std::string> &inputs) {
-    for (std::string input : inputs) {
-      EXPECT_FALSE(std::regex_match(input, std::regex(pattern))) << "Input " + input + " matches the pattern " + pattern + " - this is not a valid input.";
-    }
-  }
+    ASSERT_TRUE(setting.contains("type")) << "Setting " + setting_name + " does not contain a type.";
+    ASSERT_TRUE(setting["type"].is_string()) << "Setting " + setting_name + " type is not a string.";
+    std::string type = setting["type"].get<std::string>();
 
-  /**
-   * @brief Validate a regex pattern against a vector of valid inputs and a vector of invalid inputs.
-   * @param pattern 
-   * @param valid_inputs 
-   * @param invalid_inputs 
-   */
-  void C_VERIFY_STRINGS_MATCH(std::string pattern, std::vector<std::string> &valid_inputs, std::vector<std::string> &invalid_inputs) {
-    C_VERIFY_VALID_STRINGS(pattern, valid_inputs);
-    C_VERIFY_INVALID_STRINGS(pattern, invalid_inputs);
-  }
-
-  /**
-   * @brief Verify that the minimum fields for a given setting exist along
-   * with type verification.
-   * @param node The setting node
-   */
-  void C_CHECK_MINIMUM_SETTING_FIELDS(YAML::Node &setting) {
-    ASSERT_FALSE(setting.IsScalar());
-
-    C_EXPECT_DEFINED(setting, "name");
-    ASSERT_TRUE(setting["name"].IsScalar());
-
-    C_EXPECT_DEFINED(setting, "description");
-    ASSERT_TRUE(setting["description"].IsScalar());
-
-    C_EXPECT_DEFINED(setting, "type");
-    ASSERT_TRUE(setting["type"].IsScalar());
-
-    std::string type = setting["type"].as<std::string>();
     if (type == "string") {
-      C_CHECK_STRING_TYPE_SETTING(setting);
+      validateStringTypeSetting(setting_name);
     } else if (type == "int") {
-      C_CHECK_INT_TYPE_SETTING(setting);
+      validateIntTypeSetting(setting_name);
     } else if (type == "float") {
-      C_CHECK_FLOAT_TYPE_SETTING(setting);
+      validateFloatTypeSetting(setting_name);
     } else if (type == "bool") {
-      C_CHECK_BOOLEAN_TYPE_SETTING(setting);
+      validateBoolTypeSetting(setting_name);
     } else if (type == "enum") {
-      C_CHECK_ENUM_TYPE_SETTING(setting);
+      validateEnumTypeSetting(setting_name);
     } else {
-      FAIL() << "Invalid type: " + type;
+      FAIL() << "Setting " + setting_name + " has an invalid type.";
     }
 
-    C_EXPECT_DEFINED(setting, "default");
-    ASSERT_TRUE(setting["default"].IsScalar());
+    ASSERT_TRUE(setting.contains("name")) << "Setting " + setting_name + " does not contain a name.";
+    ASSERT_TRUE(setting["name"].is_string()) << "Setting " + setting_name + " name is not a string.";
+    int name_len = setting["name"].get<std::string>().length();
+    ASSERT_GE(name_len, setting_name_min_length) << "Setting " + setting_name + " name is too short.";
+    ASSERT_LE(name_len, setting_name_max_length) << "Setting " + setting_name + " name is too long.";
+
+    ASSERT_TRUE(setting.contains("description")) << "Setting " + setting_name + " does not contain a description.";
+    ASSERT_TRUE(setting["description"].is_string()) << "Setting " + setting_name + " description is not a string.";
+    int description_len = setting["description"].get<std::string>().length();
+    ASSERT_GE(description_len, setting_description_min_length) << "Setting " + setting_name + " description is too short.";
   }
 
-/**
- * @brief Verify that a string valued setting has it's needed additional parameters. (min/max length or regex pattern).
- * This will also verify that the default value is a valid input.
- * @param setting 
- */
-  void C_CHECK_STRING_TYPE_SETTING(YAML::Node &setting) {
-    bool has_max = setting["max"].IsDefined();
-    bool has_min = setting["min"].IsDefined();
-    bool has_pattern = setting["pattern"].IsDefined();
+  void validateStringTypeSetting(std::string setting_name) {
+    ASSERT_TRUE(setting.contains("min")) << "Setting " + setting_name + " does not contain a min.";
+    ASSERT_TRUE(setting["min"].is_number_integer()) << "Setting " + setting_name + " min is not an integer.";
 
-    if (!has_max && !has_min && !has_pattern) {
-      FAIL() << "String type settings must have either a max and min or a pattern.";
-    } else if ((has_max && !has_min) || (!has_max && has_min)) {
-      FAIL() << "If a string type setting can not have only a max or a min, it must have both.";
+    ASSERT_TRUE(setting.contains("max")) << "Setting " + setting_name + " does not contain a max.";
+    ASSERT_TRUE(setting["max"].is_number_integer()) << "Setting " + setting_name + " max is not an integer.";
+
+    ASSERT_GE(setting["min"].get<int>(), 0) << "Setting " + setting_name + " min is not greater than 0.";
+    ASSERT_GE(setting["max"].get<int>(), 1) << "Setting " + setting_name + " max is not greater than 1.";
+    ASSERT_GE(setting["max"].get<int>(), setting["min"].get<int>()) << "Setting " + setting_name + " max is not greater than min.";
+
+    ASSERT_TRUE(setting.contains("pattern")) << "Setting " + setting_name + " does not contain a pattern.";
+    ASSERT_TRUE(setting["pattern"].is_string()) << "Setting " + setting_name + " pattern is not a string.";
+  }
+
+  void validateIntTypeSetting(std::string setting_name) {
+    ASSERT_TRUE(setting.contains("min")) << "Setting " + setting_name + " does not contain a min.";
+    ASSERT_TRUE(setting["min"].is_number_integer()) << "Setting " + setting_name + " min is not an integer.";
+
+    ASSERT_TRUE(setting.contains("max")) << "Setting " + setting_name + " does not contain a max.";
+    ASSERT_TRUE(setting["max"].is_number_integer()) << "Setting " + setting_name + " max is not an integer.";
+
+    ASSERT_TRUE(setting.contains("step")) << "Setting " + setting_name + " does not contain a step value.";
+    ASSERT_TRUE(setting["step"].is_number_integer()) << "Setting " + setting_name + " step is not an integer.";
+
+    ASSERT_GE(setting["max"].get<int>(), setting["min"].get<int>()) << "Setting " + setting_name + " max is not greater than min.";
+    ASSERT_GE(setting["step"].get<int>(), 1) << "Setting " + setting_name + " step is less than 1";
+  }
+
+  void validateFloatTypeSetting(std::string setting_name) {
+    ASSERT_TRUE(setting.contains("min")) << "Setting " + setting_name + " does not contain a min.";
+    ASSERT_TRUE(setting["min"].is_number_float()) << "Setting " + setting_name + " min is not a float.";
+
+    ASSERT_TRUE(setting.contains("max")) << "Setting " + setting_name + " does not contain a max.";
+    ASSERT_TRUE(setting["max"].is_number_float()) << "Setting " + setting_name + " max is not a float.";
+
+    ASSERT_TRUE(setting.contains("step")) << "Setting " + setting_name + " does not contain a step value.";
+    ASSERT_TRUE(setting["step"].is_number_float()) << "Setting " + setting_name + " step is not a float.";
+
+    ASSERT_GE(setting["max"].get<float>(), setting["min"].get<float>()) << "Setting " + setting_name + " max is not greater than min.";
+    ASSERT_GT(setting["step"].get<float>(), 0.0) << "Setting " + setting_name + " step is less than 0.0";
+  }
+
+  void validateBoolTypeSetting(std::string setting_name) {
+    ASSERT_TRUE(setting.contains("true")) << "Setting " + setting_name + " does not contain a true string.";
+    ASSERT_TRUE(setting["true"].is_string()) << "Setting " + setting_name + " true is not a string.";
+
+    ASSERT_TRUE(setting.contains("false")) << "Setting " + setting_name + " does not contain a false string.";
+    ASSERT_TRUE(setting["false"].is_string()) << "Setting " + setting_name + " false is not a string.";
+  }
+
+  void validateEnumTypeSetting(std::string setting_name) {
+    ASSERT_TRUE(setting.contains("options")) << "Setting " + setting_name + " does not contain an options array.";
+    ASSERT_TRUE(setting["options"].is_array()) << "Setting " + setting_name + " options is not an array.";
+
+    std::vector<std::string> options = setting["options"].get<std::vector<std::string>>();
+    ASSERT_GE(options.size(), 1) << "Setting " + setting_name + " options array is empty.";
+    for (std::string &option : options) {
+      ASSERT_TRUE(option.length() > 0) << "Setting " + setting_name + " option is empty.";
     }
-
-    // Verify that the default value is a valid setting.
-    std::string default_value = setting["default"].as<std::string>();
-    if (has_max && has_min) {
-      int min = setting["min"].as<int>();
-      if (min < 0) {
-        FAIL() << "The minimum value for a string needs to be set equal to or greater than 0.";
-      }
-      int max = setting["max"].as<int>();
-      if (default_value.length() < (unsigned int)min || default_value.length() > (unsigned int)max) {
-        FAIL() << "Default value for string type setting must be between min and max length.";
-      }
-    } 
-    
-    if (has_pattern) {
-      std::string pattern = setting["pattern"].as<std::string>();
-      if (!std::regex_match(default_value, std::regex(pattern))) {
-        FAIL() << "Default value for string type setting must match the pattern.";
-      }
-    }
   }
 
-  void C_CHECK_INT_TYPE_SETTING(YAML::Node &setting) {
-    (void)setting;
-  }
+  json cfg;
+  json category;
+  json setting;
+  const std::string file_path_ = "gfs_configuration_metadata.json";
 
-  void C_CHECK_FLOAT_TYPE_SETTING(YAML::Node &setting) {
-    (void)setting;
-  }
-
-  void C_CHECK_BOOLEAN_TYPE_SETTING(YAML::Node &setting) {
-    (void)setting;
-  }
-
-  void C_CHECK_ENUM_TYPE_SETTING(YAML::Node &setting) {
-    (void)setting;
-  }
-
-  YAML::Node doc = YAML::LoadFile("gfs_configuration_metadata.yaml");
+  std::vector<std::string> valid_settings_;
 };
 
-TEST_F(TEST_Configuration_Definition, CategoriesExist) {
-  C_EXPECT_DEFINED(doc, "general");
+TEST_F(GfsMetaData, general_section) {
+  std::array<std::string, 3> sections = {
+      "project_name",
+      "main_board",
+      "starting_procedure"};
+
+  validateCategory("general");
+
+  for (std::string &section : sections) {
+    validateSettingMetadata(section);
+  }
 }
 
-TEST_F(TEST_Configuration_Definition, General_SettingsExist) {
-  YAML::Node general = doc["general"];
-  C_EXPECT_DEFINED(general, "project_name");
+TEST_F(GfsMetaData, interface_section) {
+  std::array<std::string, 4> sections = {
+      "print_errors",
+      "console",
+      "console_update_interval",
+      "web_socket_port"};
+
+  validateCategory("interface");
+  for (std::string &section : sections) {
+    validateSettingMetadata(section);
+  }
 }
 
-TEST_F(TEST_Configuration_Definition, General_ProjectName) {
-  YAML::Node project_name = doc["general"]["project_name"];
-  C_CHECK_MINIMUM_SETTING_FIELDS(project_name);
+TEST_F(GfsMetaData, telemetry_section) {
+  std::array<std::string, 2> sections = {
+      "telemetry_enabled",
+      "call_sign"};
 
-  std::string pattern = project_name["pattern"].as<std::string>();
+  validateCategory("telemetry");
 
-  // Between 1 and 20 characters long, can't start or end with a space.
-  // Valid Character <space>, a-z, A-Z, `-`, `_`, 0-9.
-  std::vector<std::string> valid_inputs = {
-      "a",
-      "b",
-      "name with spaces",
-      "name-with-dashes",
-      "a               b",
-      "12345678901234567890",
-      "MiXeD-Cases_ _123"};
+  for (std::string &section : sections) {
+    validateSettingMetadata(section);
+  }
+}
 
-  std::vector<std::string> invalid_inputs = {
-      " a",
-      " starts with space",
-      "ends with space ",
-      "",
-      "123456789012345678901"};
+TEST_F(GfsMetaData, telemetry_aprs_section) {
+  std::array<std::string, 10> sections = {
+      "telemetry_packets",
+      "position_packets",
+      "frequency",
+      "ssid",
+      "destination_address",
+      "destination_ssid",
+      "symbol_table",
+      "symbol",
+      "telemetry_destination",
+      "comment"
+      };
 
-  C_VERIFY_STRINGS_MATCH(pattern, valid_inputs, invalid_inputs);
+  validateCategory("telemetry_aprs");
+
+  for (std::string &section : sections) {
+    validateSettingMetadata(section);
+  }
+}
+
+TEST_F(GfsMetaData, telemetry_sstv_section) {
+  std::array<std::string, 4> sections = {
+      "enabled",
+      "frequency",
+      "mode",
+      "overlay_data"};
+
+  validateCategory("telemetry_sstv");
+
+  for (std::string &section : sections) {
+    validateSettingMetadata(section);
+  }
+}
+
+TEST_F(GfsMetaData, data_packets_section) {
+  std::array<std::string, 5> sections = {
+      "enabled",
+      "frequency",
+      "mode",
+      "morse_callsign",
+      "comment"};
+
+  validateCategory("telemetry_data_packets");
+
+  for (std::string &section : sections) {
+    validateSettingMetadata(section);
+  }
+}
+
+TEST_F(GfsMetaData, radios_section) {
+  std::array<std::string, 0> sections = {};
+
+  validateCategory("radios");
+
+  for (std::string &section : sections) {
+    validateSettingMetadata(section);
+  }
+}
+
+TEST_F(GfsMetaData, flight_procedures) {
+  std::array<std::string, 0> sections = {};
+
+  validateCategory("flight_procedures");
+
+  for (std::string &section : sections) {
+    validateSettingMetadata(section);
+  }
+}
+
+TEST_F(GfsMetaData, extensions_section) {
+  std::array<std::string, 0> sections = {};
+
+  validateCategory("extensions");
+
+  for (std::string &section : sections) {
+    validateSettingMetadata(section);
+  }
 }

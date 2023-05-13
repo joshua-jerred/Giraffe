@@ -76,14 +76,6 @@ include(FetchContent)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
 FetchContent_MakeAvailable(json)
 
-# yaml-cpp
-FetchContent_Declare(
-        yaml-cpp
-        GIT_REPOSITORY https://github.com/jbeder/yaml-cpp.git
-)
-set(YAML_CPP_BUILD_TESTS OFF)
-FetchContent_MakeAvailable(yaml-cpp)
-
 # gtest
 FetchContent_Declare(
 	googletest

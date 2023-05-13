@@ -1,7 +1,7 @@
 /**
  * @file test.cpp
  * @author Joshua Jerred (https://joshuajer.red)
- * @brief Unit Tests for the Configuration Definition
+ * @brief Unit Tests for the Configuration Validators
  * @date 2023-05-09
  * @copyright Copyright (c) 2023
  */
@@ -12,17 +12,19 @@
 #include "gtest/gtest.h"
 #include "validators.h"
 
-class TEST_Configuration_Validators : public ::testing::Test {
+class ConfigurationValidators : public ::testing::Test {
  protected:
   virtual void SetUp() {
+    error = "";
   }
   virtual void TearDown() {
   }
+
+  std::string error;
 };
 
-TEST_F(TEST_Configuration_Validators, General_ProjectName) {
-  std::string error;
-
+TEST_F(ConfigurationValidators, General_projectName) {
+  
   std::vector<std::string> valid_inputs = {
       "a",
       "b",
@@ -48,24 +50,77 @@ TEST_F(TEST_Configuration_Validators, General_ProjectName) {
   }
 }
 
-TEST_F(TEST_Configuration_Validators, General_MainBoard) {
+TEST_F(ConfigurationValidators, General_mainBoard) {
   std::vector<std::string> valid_inputs = {
       "other",
       "pi_zero_w_2",
       "pi_4"};
   for (std::string input : valid_inputs) {
-    if (!cfg::validator::general::mainBoard(input)) {
+    if (!cfg::validator::general::mainBoard(input, error)) {
       FAIL();
     }
   }
 
   std::vector<std::string> invalid_inputs = {
-      " a",
-      "error",
+      "not_an_option",
+      "another",
       "does_not_exist",
       "",
+      "ascent"};
+  for (std::string input : invalid_inputs) {
+    EXPECT_FALSE(cfg::validator::general::mainBoard(input, error)) << input;
+  }
+}
+
+TEST_F(ConfigurationValidators, General_startingProcedure) {
+  std::vector<std::string> valid_inputs = {
+      "testing",
+      "pre_launch",
+      "ascent",
+      "descent",
+      "recovery",
+      "failsafe"};
+  for (std::string input : valid_inputs) {
+    if (!cfg::validator::general::startingProcedure(input, error)) {
+      FAIL();
+    }
+  }
+
+  std::vector<std::string> invalid_inputs = {
+      "not_an_option",
+      "another",
+      "does_not_exist",
+      "pi_zero_w_2",
       "1234"};
   for (std::string input : invalid_inputs) {
-    EXPECT_FALSE(cfg::validator::general::mainBoard(input)) << input;
+    EXPECT_FALSE(cfg::validator::general::startingProcedure(input, error)) << input;
+  }
+}
+
+TEST_F(ConfigurationValidators, Interface_consoleUpdateInterval) {
+  std::vector<int> valid_inputs = {100, 200, 300, 400, 500, 1000, 5000, 10000};
+  for (int input : valid_inputs) {
+    if (!cfg::validator::interface::consoleUpdateInterval(input, error)) {
+      FAIL();
+    }
+  }
+
+  std::vector<int> invalid_inputs = {50, 79, 101, 5050, 10100};
+  for (int input : invalid_inputs) {
+    EXPECT_FALSE(cfg::validator::interface::consoleUpdateInterval(input, error)) << input;
+  }
+}
+
+TEST_F(ConfigurationValidators, Interface_webSocketPortNumber) {
+  std::vector<int> valid_inputs = {1024, 65535, 2000, 2512, 8291, 5000, 10000};
+  for (int input : valid_inputs) {
+    if (!cfg::validator::interface::webSocketPort(input, error)) {
+      FAIL();
+    }
+  }
+
+  std::vector<int> invalid_inputs = {50, 79, 101, 1023, 65536};
+  for (int input : invalid_inputs) {
+    EXPECT_FALSE(cfg::validator::interface::webSocketPort(input, error)) << input;
   }
 }

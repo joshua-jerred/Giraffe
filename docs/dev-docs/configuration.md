@@ -4,15 +4,15 @@
 - Everything (where possible) must have a default
 - No Deep Nesting
 
-`category[setting][setting_field]`
+`section[setting][setting_field]`
 
 ## Required Fields :
 - `name`
   - A string containing a human readable name
-  - 2 to 25 Characters
+  - 4 to 25 Characters
 - `description`
   - A string containing a description of the setting
-  - 2 to 300 Characters
+  - 20 to 300 Characters
 - `type`
     - `bool` 
       - true/false
@@ -20,7 +20,6 @@
         - `true`: The relevant word for when it's set to true. Ex: "enabled"
         - `false`: Same as above, but for false
     - `string` 
-      - Must be between quotes
       - Required Additional Fields
         - `min`/`max` (Number of characters)
           and/or 
@@ -29,7 +28,6 @@
       - Required Additional Fields
         - `min` Minimum value
         - `max` Maximum Value
-      - Optional
         - `step` An integer step value from 1 to n. Ex: A step value of 5 would allow 0, 5, 10, ...
     - `float`
       - Same as with the `int` type, but the step value can be a decimal value

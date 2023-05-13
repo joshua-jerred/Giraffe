@@ -1,0 +1,342 @@
+{
+    "general": {
+        "project_name": {
+            "type": "string",
+            "name": "Project Name",
+            "description": "The name of the project. This is used in telemetry and other places to identify your flight.",
+            "default": "Giraffe Flight 1",
+            "min": 1,
+            "max": 20,
+            "pattern": "^(?!\\s)[a-zA-Z0-9_ -]{0,19}[^\\s]$"
+        },
+        "main_board": {
+            "type": "enum",
+            "name": "Main Board Type",
+            "description": "The type of computer that the flight software is running on. This is important for the interfacing with the hardware.",
+            "default": "pi_zero_w_2",
+            "options": [
+                "other",
+                "pi_zero_w_2",
+                "pi_4"
+            ]
+        },
+        "starting_procedure": {
+            "type": "enum",
+            "name": "Starting Procedure",
+            "description": "The flight procedure that the flight software should start with. See the flight procedures section.",
+            "default": "testing",
+            "options": [
+                "testing",
+                "pre_launch",
+                "ascent",
+                "descent",
+                "recovery",
+                "failsafe"
+            ]
+        }
+    },
+    "interface": {
+        "print_errors": {
+            "type": "bool",
+            "name": "Print Errors to Console",
+            "description": "Whether or not to print errors to the console instead of capturing them in the error stream. This is useful for debugging.",
+            "default": false,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "console": {
+            "type": "bool",
+            "name": "Console Interface",
+            "description": "Whether or not to enable the console interface. Helpful for debugging without the web interface.",
+            "default": false,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "console_update_interval": {
+            "type": "int",
+            "name": "Console Update Interval",
+            "description": "How often the console interface should update in milliseconds. A higher value will result in less frequent updates.",
+            "default": 1000,
+            "max": 10000,
+            "min": 100,
+            "step": 100
+        },
+        "web_socket_port": {
+            "type": "int",
+            "name": "Web Socket Port",
+            "description": "The port that the web socket will use. Used for connecting to the web interface. This should be left unchanged unless you have a reason for it.",
+            "default": 7893,
+            "max": 65535,
+            "min": 1024,
+            "step": 1
+        }
+    },
+    "telemetry": {
+        "telemetry_enabled": {
+            "type": "bool",
+            "name": "Telemetry Enabled",
+            "description": "Whether or not to enabled telemetry. This is required for APRS, SSTV, and Data Packets. In the current implementation, this requires an amateur radio license.",
+            "default": false,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "call_sign": {
+            "type": "string",
+            "name": "Call Sign",
+            "description": "A FCC (or equivalent) registered call sign. This is required for telemetry.",
+            "default": "N0CALL",
+            "max": 6,
+            "min": 3,
+            "pattern": "[a-zA-Z0-9]{1,3}[0-9][a-zA-Z0-9]{0,3}[a-zA-Z]"
+        }
+    },
+    "telemetry_aprs": {
+        "telemetry_packets": {
+            "type": "bool",
+            "name": "APRS Telemetry Packets",
+            "description": "If enabled, critical data will be sent as APRS telemetry packets. This will be configurable in the future.",
+            "default": false,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "position_packets": {
+            "type": "bool",
+            "name": "APRS Position Packets",
+            "description": "If enabled, compressed position reports will be sent. This is required for APRS tracking.",
+            "default": false,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "frequency": {
+            "type": "string",
+            "name": "APRS Frequency",
+            "description": "The frequency that APRS packets will be transmitted on. See aprs.fi for more information.",
+            "default": "144.3900",
+            "max": 8,
+            "min": 8,
+            "pattern": "[0-9]{3}.[0-9]{4}"
+        },
+        "ssid": {
+            "type": "int",
+            "name": "Source SSID",
+            "description": "The SSID that will be used to identify your callsign. See the APRS specification for more information.",
+            "default": 0,
+            "max": 15,
+            "min": 0,
+            "step": 1
+        },
+        "destination_address": {
+            "type": "string",
+            "name": "APRS Destination Address",
+            "description": "This is the destination address that will be used in all packets. See the APRS specification for more information.",
+            "default": "APRS",
+            "max": 6,
+            "min": 3,
+            "pattern": ""
+        },
+        "destination_ssid": {
+            "type": "int",
+            "name": "APRS Destination SSID",
+            "description": "This is the SSID that will be used to identify the destination callsign. See the APRS specification for more information.",
+            "default": 0,
+            "max": 15,
+            "min": 0,
+            "step": 1
+        },
+        "symbol_table": {
+            "type": "enum",
+            "name": "APRS Symbol Table",
+            "description": "The symbol table that will be used. `/` is the primary table and `\\` is the alternate table. See the APRS specification for more information.",
+            "options": [
+                "/",
+                "\\"
+            ],
+            "default": "/"
+        },
+        "symbol": {
+            "type": "string",
+            "name": "APRS Symbol",
+            "description": "The symbol that will be used to identify your position. This is a single character. The default is '/' which is a dot on both tables. See the APRS specification for more information.",
+            "default": "/",
+            "max": 1,
+            "min": 1,
+            "pattern": ""
+        },
+        "telemetry_destination": {
+            "type": "string",
+            "name": "Telemetry Destination",
+            "description": "This is the destination address that will be used in all telemetry packets. See the APRS specification for more information.",
+            "default": "APRS",
+            "max": 6,
+            "min": 3,
+            "pattern": ""
+        },
+        "comment": {
+            "type": "string",
+            "name": "Comment",
+            "description": "This is the comment that will be sent with each APRS position report. See the APRS specification for more information.",
+            "default": "Giraffe Flight Software",
+            "max": 43,
+            "min": 0,
+            "pattern": ""
+        }
+    },
+    "telemetry_sstv": {
+        "enabled": {
+            "type": "bool",
+            "name": "SSTV Enabled",
+            "description": "Indicates whether or not SSTV is enabled. This requires a valid telemetry configuration, a callsign, and a camera extension. The rate at which images are sent is determined by the flight procedure defined by the user.",
+            "default": false,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "frequency": {
+            "type": "string",
+            "name": "SSTV Frequency",
+            "description": "The frequency that will be used to transmit SSTV images. See your relevant Band Plan for more information.",
+            "default": "145.510",
+            "max": 8,
+            "min": 8,
+            "pattern": "[0-9]{3}.[0-9]{4}"
+        },
+        "mode": {
+            "type": "enum",
+            "options": [
+                "robot36"
+            ],
+            "default": "robot36",
+            "required": false,
+            "name": "SSTV Mode",
+            "description": "The SSTV mode that will be used. Currently, only Robot 36 is supported."
+        },
+        "overlay_data": {
+            "type": "bool",
+            "default": true,
+            "required": false,
+            "name": "SSTV Data Overlay",
+            "description": "If enabled, data defined internally as 'critical' will be overlaid on the image.",
+            "true": "enabled",
+            "false": "disabled"
+        }
+    },
+    "telemetry_data_packets": {
+        "enabled": {
+            "type": "bool",
+            "default": false,
+            "required": false,
+            "name": "Data Packets Enabled",
+            "description": "If enabled, PSK data packets can be sent. These can be decoded with FLDIGI The contents of these packets are defined by the user. The rate at which packets are sent is determined by the flight procedure defined by the user.",
+            "true":"enabled",
+            "false":"disabled"
+        },
+        "frequency": {
+            "type": "string",
+            "default": "145.510",
+            "required": true,
+            "name": "Data Packets Frequency",
+            "description": "The frequency that will be used to transmit data packets. See your relevant Band Plan for more information.",
+            "max": 8,
+            "min": 8,
+            "pattern": "[0-9]{3}.[0-9]{4}"
+        },
+        "mode": {
+            "type": "enum",
+            "options": [
+                "bpsk125",
+                "bpsk250",
+                "bpsk500",
+                "bpsk1000",
+                "qpsk125",
+                "qpsk250",
+                "qpsk500",
+                "afsk_ax.25"
+            ],
+            "default": "bpsk250",
+            "required": false,
+            "name": "Data Packets Mode",
+            "description": "The PSK31 mode that will be used. All modes supported by FLDIGI are supported for both BPSK and QPSK."
+        },
+        "morse_callsign": {
+            "type": "bool",
+            "default": true,
+            "required": false,
+            "name": "Morse Callsign",
+            "description": "If enabled, the callsign will be sent in 20wpm morse code at the end of each packet. This may be a legal requirement, for station identification, in some places so please check your local regulations.",
+            "true":"enabled",
+            "false":"disabled"
+        },
+        "comment": {
+            "type": "string",
+            "max": 200,
+            "min": 0,
+            "default": "Giraffe Flight Software",
+            "required": false,
+            "name": "Data Packets Comment",
+            "description": "This is a comment that will be sent with each data packet. This is not required but may be added. There is a maximum length of 200 characters.",
+            "pattern":""
+        }
+    },
+    "radios": {},
+    "flight_procedures": {},
+    "extensions": [
+        {
+            "accessor": "id",
+            "name": "ID",
+            "type": "int",
+            "description": ""
+        },
+        {
+            "accessor": "name",
+            "name": "Name",
+            "type": "string",
+            "description": ""
+        },
+        {
+            "accessor": "type",
+            "name": "Type",
+            "type": "enum",
+            "options": [
+                "DS18B20",
+                "SAMM8Q",
+                "BME280",
+                "SYSINFO",
+                "MCP3021"
+            ],
+            "description": ""
+        },
+        {
+            "accessor": "category",
+            "name": "Category",
+            "type": "enum",
+            "options": [
+                "external_sensor",
+                "system"
+            ],
+            "description": ""
+        },
+        {
+            "accessor": "interface",
+            "name": "Interface",
+            "type": "enum",
+            "options": [
+                "i2c",
+                "spi",
+                "uart",
+                "gpio"
+            ],
+            "description": ""
+        },
+        {
+            "accessor": "update_interval",
+            "name": "Interval",
+            "type": "int",
+            "description": ""
+        },
+        {
+            "accessor": "flight_critical",
+            "type": "bool",
+            "name": "Flight Critical",
+            "description": ""
+        }
+    ]
+}

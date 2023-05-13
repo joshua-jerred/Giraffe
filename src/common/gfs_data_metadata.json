@@ -1,0 +1,27 @@
+{
+  "critical": {
+      "flight_phase": {
+          "name": "Flight Phase",
+          "description": "The current fligth phase.",
+          "default": "Unknown"
+      }
+  },
+  "position_gps": {
+      "lat": {
+          "name": "Latitude",
+          "description": "The current latitude.",
+          "default": 0.0
+      }
+  },
+  "position_imu": {
+      "lat": {
+          "name": "Latitude",
+          "description": "The current latitude.",
+          "default": 0.0
+      }
+  },
+  "gfs_status": {
+      "general": {},
+      "system": {}
+  }
+}

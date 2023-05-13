@@ -84,7 +84,6 @@ target_link_libraries(giraffe-flight-software PRIVATE Threads::Threads)
 
 target_link_libraries(giraffe-flight-software PUBLIC i2c)
 target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
-target_link_libraries(giraffe-flight-software PRIVATE yaml-cpp)
 
 # Installation ---------------------------------------------------------------
 #set(GFS_RUNTIME_DIRECTORIES 
