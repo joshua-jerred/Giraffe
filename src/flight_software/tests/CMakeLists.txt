@@ -21,9 +21,18 @@ add_gtest_test(
 	test_02
 	gfs_02_configuration_class
 	${GFS_SRC}/modules/configuration/configuration.cpp
+	${GFS_SRC}/modules/configuration/validators.cpp
 )
 
-#target_link_libraries(gfs_01_configuration_class yaml-cpp)
+add_gtest_test(
+	test_03
+	gfs_03_configuration_file
+	${GFS_SRC}/modules/configuration/configuration.cpp
+	${GFS_SRC}/modules/configuration/validators.cpp
+	${GFS_SRC}/modules/configuration/file.cpp
+)
+target_link_libraries(gfs_03_configuration_file nlohmann_json::nlohmann_json)
+
 #configure_file(${GFS_TEST_SRC}/test_01/01_valid_config.yaml ${GFS_TEST_BIN}/01_valid_config.yaml)
 #configure_file(${GFS_TEST_SRC}/test_01/01_empty_config.yaml ${GFS_TEST_BIN}/01_empty_config.yaml)
 #configure_file(${GFS_TEST_SRC}/test_01/01_invalid_config.yaml ${GFS_TEST_BIN}/01_invalid_config.yaml)

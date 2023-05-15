@@ -15,6 +15,10 @@
 
 namespace cfg {
 
+namespace file {
+  bool saveConfiguration(const cfg::Configuration &config, const std::string &file_path);
+}
+
 namespace general {
 
 namespace defaults {
@@ -88,7 +92,7 @@ namespace sstv {
 namespace defaults {
 inline constexpr bool enabled = false;
 const std::string frequency = "145.5100";
-inline constexpr cfg::SSTV::Mode mode = cfg::SSTV::Mode::ROBOT_36;
+inline constexpr cfg::Sstv::Mode mode = cfg::Sstv::Mode::ROBOT_36;
 inline constexpr bool overlay_data = true;
 
 }  // namespace defaults
@@ -103,7 +107,7 @@ namespace data_packets {
 namespace defaults {
 inline constexpr bool enabled = false;
 const std::string frequency = "145.5100";
-//inline constexpr cfg::data_packets::Mode mode = false;
+inline constexpr cfg::DataPackets::Mode mode = cfg::DataPackets::Mode::BPSK250;
 inline constexpr bool morse_call_sign = true;
 const std::string comment = "Giraffe Flight Software";
 }  // namespace defaults

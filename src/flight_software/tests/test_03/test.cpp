@@ -1,7 +1,7 @@
 /**
  * @file test.cpp
  * @author Joshua Jerred (https://joshuajer.red)
- * @brief Unit test for the configuration class.
+ * @brief Unit test for the configuration file handler.
  * @date 2023-05-13
  * @copyright Copyright (c) 2023
  */

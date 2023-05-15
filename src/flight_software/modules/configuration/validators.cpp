@@ -56,7 +56,10 @@ inline bool macroInOptions(
 }
 
 // General
-
+/**
+ * @todo This guy still accepts illegal characters
+ * 
+ */
 bool cfg::general::validators::projectName(const std::string &project_name, std::string &error) {
   const std::string pattern = "^(?!\\s)[a-zA-Z0-9_ -]{0,19}[^\\s]$";
   constexpr unsigned int min = 1;

@@ -98,12 +98,12 @@ struct Aprs {
   std::string comment;
 };
 
-struct SSTV {
+struct Sstv {
   enum class Mode { ROBOT_36 };
 
   bool enabled;
   cfg::Frequency frequency;
-  cfg::SSTV::Mode mode;
+  cfg::Sstv::Mode mode;
   bool overlay_data;
 };
 
@@ -122,6 +122,8 @@ struct DataPackets {
   bool enabled;
   cfg::Frequency frequency;
   cfg::DataPackets::Mode mode;
+  bool morse_call_sign;
+  std::string comment;
 };
 
 class Configuration {
@@ -129,19 +131,36 @@ class Configuration {
   Configuration();
   ~Configuration();
 
-  void setGeneral(cfg::General &general);
+  bool setGeneral(const cfg::General &general, std::string &error);
   cfg::General getGeneral();
 
-  void setDebug(cfg::Debug &interface);
+  bool setDebug(const cfg::Debug &interface, std::string &error);
   cfg::Debug getDebug();
 
-  void setServer(cfg::Server &server);
+  bool setServer(const cfg::Server &server, std::string &error);
   cfg::Server getServer();
+
+  bool setTelemetry(const cfg::Telemetry &telemetry, std::string &error);
+  cfg::Telemetry getTelemetry();
+
+  bool setAprs(const cfg::Aprs &aprs, std::string &error);
+  cfg::Aprs getAprs();
+
+  bool setSstv(const cfg::Sstv &sstv, std::string &error);
+  cfg::Sstv getSstv();
+
+  bool setDataPackets(const cfg::DataPackets &data_packets, std::string &error);
+  cfg::DataPackets getDataPackets();
 
  private:
   cfg::General general_;
   cfg::Debug debug_;
   cfg::Server server_;
+
+  cfg::Telemetry telemetry_;
+  cfg::Aprs aprs_;
+  cfg::Sstv sstv_;
+  cfg::DataPackets data_packets_;
 
   std::mutex config_lock_;
 };
