@@ -46,6 +46,7 @@ jobs:
     name: GFS / Configuration / Validators
     env:
       TEST_NAME: "gfs_01_configuration_validators"
+      TEST_ID: "test_01"
     needs: ["setup-configure"]
     runs-on: self-hosted
     steps:
@@ -58,6 +59,7 @@ jobs:
     name: GFS / Configuration / Configuration Class
     env:
       TEST_NAME: "gfs_02_configuration_class"
+      TEST_ID: "test_02"
     needs: ["setup-configure"]
     runs-on: self-hosted
     steps:

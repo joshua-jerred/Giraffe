@@ -9,6 +9,9 @@ function(add_gtest_test test_id test_name)
 	target_link_libraries(${test_name} gtest_main)
 	add_test(NAME ${test_name} COMMAND ${test_name})
 	gtest_discover_tests(${test_name})
+
+	file(MAKE_DIRECTORY ${GFS_TEST_BIN}/${test_id})
+	set_target_properties(${test_name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GFS_TEST_BIN}/${test_id})
 endfunction()
 
 add_gtest_test(
