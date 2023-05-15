@@ -9,6 +9,7 @@
 #ifndef CONFIGURATION_INTERNAL_H_
 #define CONFIGURATION_INTERNAL_H_
 
+#include <nlohmann/json.hpp>
 #include <string>
 
 #include "configuration.h"
@@ -16,21 +17,36 @@
 namespace cfg {
 
 namespace file {
-  bool saveConfiguration(const cfg::Configuration &config, const std::string &file_path);
+bool saveConfiguration(const cfg::Configuration &config,
+                       const std::string &file_path);
 }
+
+namespace json {
+using json = nlohmann::ordered_json;
+json generalToJson(const cfg::General &general_section);
+json debugToJson(const cfg::Debug &debug_section);
+json serverToJson(const cfg::Server &server_section);
+json telemetryToJson(const cfg::Telemetry &telemetry_section);
+json aprsToJson(const cfg::Aprs &aprs_section);
+json sstvToJson(const cfg::Sstv &sstv_section);
+json dataPacketsToJson(const cfg::DataPackets &data_packets_section);
+}  // namespace json
 
 namespace general {
 
 namespace defaults {
 const std::string project_name = "Giraffe 1";
-inline constexpr cfg::General::MainBoard main_board = cfg::General::MainBoard::OTHER;
-inline constexpr cfg::Procedure::Type starting_procedure = cfg::Procedure::Type::FAILSAFE;
+inline constexpr cfg::General::MainBoard main_board =
+    cfg::General::MainBoard::OTHER;
+inline constexpr cfg::Procedure::Type starting_procedure =
+    cfg::Procedure::Type::FAILSAFE;
 }  // namespace defaults
 
 namespace validators {
 bool projectName(const std::string &project_name, std::string &error);
 bool mainBoard(const std::string &main_board, std::string &error);
-bool startingProcedure(const std::string &starting_procedure, std::string &error);
+bool startingProcedure(const std::string &starting_procedure,
+                       std::string &error);
 }  // namespace validators
 };  // namespace general
 
@@ -75,7 +91,8 @@ const std::string frequency = "144.3900";
 inline constexpr int ssid = 0;
 const std::string destination_address = "APRS";
 inline constexpr int destination_ssid = 0;
-inline constexpr cfg::Aprs::SymbolTable symbol_table = cfg::Aprs::SymbolTable::PRIMARY;
+inline constexpr cfg::Aprs::SymbolTable symbol_table =
+    cfg::Aprs::SymbolTable::PRIMARY;
 inline constexpr char symbol = '/';
 const std::string comment = "Giraffe Flight Software";
 }  // namespace defaults
@@ -84,9 +101,9 @@ namespace validators {
 bool ssid(const int ssid, std::string &error);
 bool destinationAddress(const std::string &address, std::string &error);
 bool symbol(const std::string &symbol, std::string &error);
-bool comment(const std::string &comment, std::string &error); 
-}
-}  // namespace telemetry_aprs
+bool comment(const std::string &comment, std::string &error);
+}  // namespace validators
+}  // namespace aprs
 
 namespace sstv {
 namespace defaults {
@@ -99,9 +116,9 @@ inline constexpr bool overlay_data = true;
 
 namespace validators {
 bool mode(const std::string &mode, std::string &error);
-//bool dataOverlayContents(..., std::string &error);
-}
-}  // namespace telemetry_aprs
+// bool dataOverlayContents(..., std::string &error);
+}  // namespace validators
+}  // namespace sstv
 
 namespace data_packets {
 namespace defaults {
@@ -115,8 +132,8 @@ const std::string comment = "Giraffe Flight Software";
 namespace validators {
 bool mode(const std::string &mode, std::string &error);
 bool comment(const std::string &mode, std::string &error);
-}
-}  // namespace telemetry_aprs
+}  // namespace validators
+}  // namespace data_packets
 
 };  // namespace cfg
 

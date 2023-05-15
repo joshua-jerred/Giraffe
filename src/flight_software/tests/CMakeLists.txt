@@ -14,29 +14,31 @@ function(add_gtest_test test_id test_name)
 	set_target_properties(${test_name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GFS_TEST_BIN}/${test_id})
 endfunction()
 
+include(${GFS_SRC}/sourcelist.CMake)
+
 add_gtest_test(
 	test_01
 	gfs_01_configuration_validators
-	${GFS_SRC}/modules/configuration/validators.cpp
+	${configuration_module_sources}
 )
+target_link_libraries(gfs_01_configuration_validators nlohmann_json::nlohmann_json)
 
 add_gtest_test(
 	test_02
 	gfs_02_configuration_class
-	${GFS_SRC}/modules/configuration/configuration.cpp
-	${GFS_SRC}/modules/configuration/validators.cpp
+	${configuration_module_sources}
 )
+target_link_libraries(gfs_02_configuration_class nlohmann_json::nlohmann_json)
+
 
 add_gtest_test(
 	test_03
-	gfs_03_configuration_file
-	${GFS_SRC}/modules/configuration/configuration.cpp
-	${GFS_SRC}/modules/configuration/validators.cpp
-	${GFS_SRC}/modules/configuration/file.cpp
+	gfs_03_configuration_json
+	${configuration_module_sources}
 )
-target_link_libraries(gfs_03_configuration_file nlohmann_json::nlohmann_json)
+target_link_libraries(gfs_03_configuration_json nlohmann_json::nlohmann_json)
+configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${GFS_TEST_BIN}/test_03/gfs_configuration_metadata.json)
 
-#configure_file(${GFS_TEST_SRC}/test_01/01_valid_config.yaml ${GFS_TEST_BIN}/01_valid_config.yaml)
 #configure_file(${GFS_TEST_SRC}/test_01/01_empty_config.yaml ${GFS_TEST_BIN}/01_empty_config.yaml)
 #configure_file(${GFS_TEST_SRC}/test_01/01_invalid_config.yaml ${GFS_TEST_BIN}/01_invalid_config.yaml)
 

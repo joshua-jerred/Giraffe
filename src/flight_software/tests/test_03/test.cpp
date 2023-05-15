@@ -6,26 +6,66 @@
  * @copyright Copyright (c) 2023
  */
 
+#include <fstream>
+#include <nlohmann/json.hpp>
 #include <string>
+#include <vector>
 
 #include "configuration.h"
 #include "configuration_internal.h"
 #include "gtest/gtest.h"
 
-class ConfigurationFile : public ::testing::Test {
+using json = nlohmann::ordered_json;
+
+const std::string meta_data_path = "./gfs_configuration_metadata.json";
+json gMetaData;
+
+class ConfigurationJson : public ::testing::Test {
  protected:
+  static void SetUpTestSuite() {
+    std::ifstream fs(meta_data_path);
+    if (fs.fail()) {
+      FAIL() << "Failed to open meta data json file!";
+    }
+    gMetaData = json::parse(fs);
+  }
+
   virtual void SetUp() {
   }
   virtual void TearDown() {
   }
 
-  cfg::Configuration config;
+  cfg::Configuration config_;
 };
 
-TEST_F(ConfigurationFile, SavesAFile) {
-  cfg::General general = config.getGeneral();
+testing::AssertionResult HAS_SETTINGS(const json &section_metadata,
+                                      const json &section, int num_settings) {
+  int settings_count = 0;
+  for (auto &[key, val] : section_metadata.items()) {
+    settings_count++;
+    if (!section.contains(key)) {
+      return testing::AssertionFailure()
+             << "The key '" << key << "' is missing.";
+    }
+  }
+  EXPECT_EQ(num_settings, settings_count);
+  return testing::AssertionSuccess();
+}
 
-  ASSERT_EQ(general.project_name, cfg::general::defaults::project_name);
-  ASSERT_EQ(general.main_board_type, cfg::general::defaults::main_board);
-  ASSERT_EQ(general.starting_procedure, cfg::general::defaults::starting_procedure);
+TEST_F(ConfigurationJson, sectionToJson) {
+  ASSERT_TRUE(HAS_SETTINGS(gMetaData["general"],
+                           cfg::json::generalToJson(config_.getGeneral()), 3));
+  ASSERT_TRUE(HAS_SETTINGS(gMetaData["debug"],
+                           cfg::json::debugToJson(config_.getDebug()), 3));
+  ASSERT_TRUE(HAS_SETTINGS(gMetaData["server"],
+                           cfg::json::serverToJson(config_.getServer()), 1));
+  ASSERT_TRUE(HAS_SETTINGS(gMetaData["telemetry"],
+                           cfg::json::telemetryToJson(config_.getTelemetry()), 2));
+  ASSERT_TRUE(HAS_SETTINGS(gMetaData["telemetry_aprs"],
+                           cfg::json::aprsToJson(config_.getAprs()), 9));
+  ASSERT_TRUE(HAS_SETTINGS(gMetaData["telemetry_sstv"],
+                           cfg::json::sstvToJson(config_.getSstv()), 4));
+  ASSERT_TRUE(
+      HAS_SETTINGS(gMetaData["telemetry_data_packets"],
+                   cfg::json::dataPacketsToJson(config_.getDataPackets()), 5));
 }

@@ -74,7 +74,7 @@ struct Frequency {
   void setFrequency(std::string freq) {
     frequency = freq;
   }
-  std::string getFrequency() {
+  std::string getFrequency() const {
     return frequency;
   }
 };
@@ -93,6 +93,7 @@ struct Aprs {
   cfg::Frequency frequency;
   int ssid;
   std::string destination_address;
+  int destination_ssid;
   cfg::Aprs::SymbolTable symbol_table;
   char symbol;
   std::string comment;

@@ -17,7 +17,7 @@ endfunction()
 # test-01 - Configuration ------------------------------------------------------
 add_gtest_test(
 	test_01
-	common_01_configuration_scheme
+	common_01_gfs_configuration_scheme
 )
-target_link_libraries(common_01_configuration_scheme nlohmann_json::nlohmann_json)
+target_link_libraries(common_01_gfs_configuration_scheme nlohmann_json::nlohmann_json)
 configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${COMMON_TEST_BIN}/gfs_configuration_metadata.json)

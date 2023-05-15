@@ -31,9 +31,9 @@ jobs:
         run: mkdir build && cd build && cmake ..
 
   common-test-01:
-    name: Common / Configuration Scheme
+    name: Common / GFS Configuration Scheme
     env:
-      TEST_NAME: "common_01_configuration_scheme"
+      TEST_NAME: "common_01_gfs_configuration_scheme"
     needs: ["setup-configure"]
     runs-on: self-hosted
     steps:
@@ -60,7 +60,20 @@ jobs:
     env:
       TEST_NAME: "gfs_02_configuration_class"
       TEST_ID: "test_02"
-    needs: ["setup-configure"]
+    needs: ["setup-configure", "gfs-test-01"]
+    runs-on: self-hosted
+    steps:
+      - name: Build Test
+        run: $GFS_BUILD
+      - name: Run Test
+        run: $GFS_RUN
+
+  gfs-test-03:
+    name: GFS / Configuration / JSON Objects
+    env:
+      TEST_NAME: "gfs_03_configuration_json"
+      TEST_ID: "test_03"
+    needs: ["setup-configure", "gfs-test-01"]
     runs-on: self-hosted
     steps:
       - name: Build Test

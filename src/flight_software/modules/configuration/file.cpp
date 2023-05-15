@@ -6,10 +6,12 @@
  * @copyright Copyright (c) 2023
  */
 
+#include <filesystem>
 #include <fstream>
 #include <nlohmann/json.hpp>
 
 #include "configuration_internal.h"
+#include "configuration.h"
 
 using json = nlohmann::ordered_json;
 

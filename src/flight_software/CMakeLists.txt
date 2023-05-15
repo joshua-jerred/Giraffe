@@ -25,7 +25,6 @@ endif()
 
 # ---- Giraffe Flight Software ----
 include_directories(
-	${GFS_SRC}/flight-computer
 	${GFS_SRC}/modules
 	${GFS_SRC}/utilities
 	${GFS_SRC}/extensions
@@ -35,6 +34,10 @@ include_directories(
 	${LIB_SRC}/MWAV/include
 )
 
+# --------- Module Sources --------
+include(${GFS_SRC}/sourcelist.CMake)
+
+# -------- GFS Executable ---------
 add_executable(giraffe-flight-software
 	${GFS_SRC}/main.cpp
 	${GFS_SRC}/flight-runner.cpp
@@ -84,20 +87,3 @@ target_link_libraries(giraffe-flight-software PRIVATE Threads::Threads)
 
 target_link_libraries(giraffe-flight-software PUBLIC i2c)
 target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
-
-# Installation ---------------------------------------------------------------
-#set(GFS_RUNTIME_DIRECTORIES 
-#	${GIRAFFE_INSTALL_DIR}/data_logs
-#	${GIRAFFE_INSTALL_DIR}/error_logs
-#	${GIRAFFE_INSTALL_DIR}/telemetry
-#	${GIRAFFE_INSTALL_DIR}/images
-#)
-#
-#install(
-#	DIRECTORY ${GFS_RUNTIME_DIRECTORIES}
-#	DESTINATION ${GIRAFFE_INSTALL_DIR}
-#)
-
-#install(TARGETS giraffe-flight-software DESTINATION ${GIRAFFE_INSTALL_DIR})
-#install(DIRECTORY ${WEB_SERVER_SRC} DESTINATION ${GIRAFFE_INSTALL_DIR})
-#install(FILES ${GFS_SRC}/gfs-configuration.json DESTINATION ${GIRAFFE_INSTALL_DIR})
