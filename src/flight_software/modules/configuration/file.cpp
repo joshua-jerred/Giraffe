@@ -16,8 +16,19 @@
 using json = nlohmann::ordered_json;
 
 bool cfg::file::saveConfiguration(cfg::Configuration &config,
-                                  const std::string &file_path) {
-  std::string data = cfg::json::allToJson(config).dump();
-  std::cout << data;
+                                  const std::string &file_path,
+                                  bool overwrite) {
+  if (!overwrite && std::filesystem::exists(file_path)) {
+    std::cout << "will not overwrite config";
+    return false;
+  }
+  std::ofstream out(file_path);
+  if (out.fail()) {
+    std::cout << "failed to open file";
+    return false;
+  }
+  constexpr int indent = 2;
+  std::string data = cfg::json::allToJson(config).dump(indent);
+  out << data;
   return true;
 }

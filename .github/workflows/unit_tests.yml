@@ -73,7 +73,20 @@ jobs:
     env:
       TEST_NAME: "gfs_03_configuration_json"
       TEST_ID: "test_03"
-    needs: ["setup-configure", "gfs-test-01"]
+    needs: ["gfs-test-02"]
+    runs-on: self-hosted
+    steps:
+      - name: Build Test
+        run: $GFS_BUILD
+      - name: Run Test
+        run: $GFS_RUN
+
+  gfs-test-04:
+    name: GFS / Configuration / File Save/Load
+    env:
+      TEST_NAME: "gfs_04_configuration_file"
+      TEST_ID: "test_04"
+    needs: ["gfs-test-03"]
     runs-on: self-hosted
     steps:
       - name: Build Test

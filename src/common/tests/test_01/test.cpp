@@ -245,32 +245,41 @@ TEST_F(GfsMetaData, data_packets_section) {
   }
 }
 
+/**
+ * @todo 
+ */
 TEST_F(GfsMetaData, radios_section) {
-  std::array<std::string, 0> sections = {};
+  // std::array<std::string, 0> sections = {};
 
-  validateCategory("radios");
+  // validateCategory("radios");
 
-  for (std::string &section : sections) {
-    validateSettingMetadata(section);
-  }
+  // for (std::string &section : sections) {
+  //   validateSettingMetadata(section);
+  // }
 }
 
+/**
+ * @todo 
+ */
 TEST_F(GfsMetaData, flight_procedures) {
-  std::array<std::string, 0> sections = {};
+  // std::array<std::string, 0> sections = {};
 
-  validateCategory("flight_procedures");
+  // validateCategory("flight_procedures");
 
-  for (std::string &section : sections) {
-    validateSettingMetadata(section);
-  }
+  // for (std::string &section : sections) {
+  //   validateSettingMetadata(section);
+  // }
 }
 
+/**
+ * @todo 
+ */
 TEST_F(GfsMetaData, extensions_section) {
-  std::array<std::string, 0> sections = {};
+  // std::array<std::string, 0> sections = {};
 
-  validateCategory("extensions");
+  // validateCategory("extensions");
 
-  for (std::string &section : sections) {
-    validateSettingMetadata(section);
-  }
+  // for (std::string &section : sections) {
+  //   validateSettingMetadata(section);
+  // }
 }

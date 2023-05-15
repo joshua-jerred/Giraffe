@@ -18,7 +18,8 @@ namespace cfg {
 
 namespace file {
 bool saveConfiguration(cfg::Configuration &config,
-                       const std::string &file_path);
+                       const std::string &file_path, 
+                       bool overwrite = true);
 }
 
 namespace json {

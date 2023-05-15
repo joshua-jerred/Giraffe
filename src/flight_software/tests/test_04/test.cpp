@@ -52,20 +52,7 @@ testing::AssertionResult HAS_SETTINGS(const json &section_metadata,
   return testing::AssertionSuccess();
 }
 
-TEST_F(ConfigurationJson, sectionToJson) {
-  ASSERT_TRUE(HAS_SETTINGS(gMetaData["general"],
-                           cfg::json::generalToJson(config_.getGeneral()), 3));
-  ASSERT_TRUE(HAS_SETTINGS(gMetaData["debug"],
-                           cfg::json::debugToJson(config_.getDebug()), 3));
-  ASSERT_TRUE(HAS_SETTINGS(gMetaData["server"],
-                           cfg::json::serverToJson(config_.getServer()), 1));
-  ASSERT_TRUE(HAS_SETTINGS(gMetaData["telemetry"],
-                           cfg::json::telemetryToJson(config_.getTelemetry()), 2));
-  ASSERT_TRUE(HAS_SETTINGS(gMetaData["telemetry_aprs"],
-                           cfg::json::aprsToJson(config_.getAprs()), 9));
-  ASSERT_TRUE(HAS_SETTINGS(gMetaData["telemetry_sstv"],
-                           cfg::json::sstvToJson(config_.getSstv()), 4));
-  ASSERT_TRUE(
-      HAS_SETTINGS(gMetaData["telemetry_data_packets"],
-                   cfg::json::dataPacketsToJson(config_.getDataPackets()), 5));
+TEST_F(ConfigurationJson, savesDefaultConfiguration) {
+  const std::string path = "default_config.json";
+  cfg::file::saveConfiguration(config_, path);
 }
