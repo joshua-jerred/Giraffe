@@ -197,7 +197,7 @@ TEST_F(GfsMetaData, telemetry_section) {
 }
 
 TEST_F(GfsMetaData, telemetry_aprs_section) {
-  std::array<std::string, 10> sections = {
+  std::array<std::string, 9> sections = {
       "telemetry_packets",
       "position_packets",
       "frequency",
@@ -206,7 +206,6 @@ TEST_F(GfsMetaData, telemetry_aprs_section) {
       "destination_ssid",
       "symbol_table",
       "symbol",
-      "telemetry_destination",
       "comment"
       };
 
