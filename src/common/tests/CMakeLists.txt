@@ -13,11 +13,16 @@ function(add_gtest_test test_id test_name)
 	gtest_discover_tests(${test_name})
 endfunction()
 
-
-# test-01 - Configuration ------------------------------------------------------
 add_gtest_test(
 	test_01
 	common_01_gfs_configuration_scheme
 )
 target_link_libraries(common_01_gfs_configuration_scheme nlohmann_json::nlohmann_json)
 configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${COMMON_TEST_BIN}/gfs_configuration_metadata.json)
+
+add_gtest_test(
+	test_02
+	common_02_giraffe_protocol
+	${COMMON_SRC}/protocol.cpp
+)
+target_link_libraries(common_02_giraffe_protocol nlohmann_json::nlohmann_json)

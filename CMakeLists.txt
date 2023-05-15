@@ -89,6 +89,8 @@ include(GoogleTest)
 
 # ----- Common Includes ------
 include_directories(
+	${COMMON_SRC}/
+
 	${GFS_SRC}/modules
 	${GFS_SRC}/modules/configuration
 

@@ -1,5 +1,5 @@
 const valid_src_dst = ["telemetry", "ggs", "client", "gfs"];
-const valid_types = ["info", "req", "rsp"];
+const valid_types = ["info", "req", "set", "rsp"];
 const valid_categories = ["ping", "data", "error", "stream", "path"];
 
 const GenId = require("./id");
