@@ -39,6 +39,14 @@ add_gtest_test(
 target_link_libraries(gfs_03_configuration_json nlohmann_json::nlohmann_json)
 configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${GFS_TEST_BIN}/test_03/gfs_configuration_metadata.json)
 
+add_gtest_test(
+	test_04
+	gfs_04_configuration_file
+	${configuration_module_sources}
+)
+target_link_libraries(gfs_04_configuration_file nlohmann_json::nlohmann_json)
+configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${GFS_TEST_BIN}/test_04/gfs_configuration_metadata.json)
+
 #configure_file(${GFS_TEST_SRC}/test_01/01_empty_config.yaml ${GFS_TEST_BIN}/01_empty_config.yaml)
 #configure_file(${GFS_TEST_SRC}/test_01/01_invalid_config.yaml ${GFS_TEST_BIN}/01_invalid_config.yaml)
 

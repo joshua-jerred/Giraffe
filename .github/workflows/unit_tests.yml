@@ -23,7 +23,7 @@ jobs:
           submodules: recursive
 
   setup-configure:
-    name: Configure
+    name: CMake Configure
     needs: ["setup-pull"]
     runs-on: self-hosted
     steps:

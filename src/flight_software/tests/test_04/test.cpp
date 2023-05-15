@@ -1,7 +1,7 @@
 /**
  * @file test.cpp
  * @author Joshua Jerred (https://joshuajer.red)
- * @brief Unit test for the configuration json handlers.
+ * @brief Unit test for the configuration file handler.
  * @date 2023-05-13
  * @copyright Copyright (c) 2023
  */
@@ -10,7 +10,6 @@
 #include <nlohmann/json.hpp>
 #include <string>
 #include <vector>
-#include <iostream>
 
 #include "configuration.h"
 #include "configuration_internal.h"
@@ -69,11 +68,4 @@ TEST_F(ConfigurationJson, sectionToJson) {
   ASSERT_TRUE(
       HAS_SETTINGS(gMetaData["telemetry_data_packets"],
                    cfg::json::dataPacketsToJson(config_.getDataPackets()), 5));
-}
-
-TEST_F(ConfigurationJson, allToJson) {
-  json all = cfg::json::allToJson(config_);
-  for (auto &[key, val] : gMetaData.items()) {
-    EXPECT_TRUE(all.contains(key)) << "The JSON does not contain the key: " << key;
-  }
 }
