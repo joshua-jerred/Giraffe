@@ -35,7 +35,7 @@ namespace defaults {
 inline constexpr bool print_errors = false;
 inline constexpr bool console_enabled = false;
 inline constexpr int console_update_interval = 1000;
-}
+}  // namespace defaults
 
 namespace validators {
 bool consoleUpdateInterval(const int update_interval_ms, std::string &error);
@@ -44,24 +44,76 @@ bool consoleUpdateInterval(const int update_interval_ms, std::string &error);
 
 namespace server {
 namespace defaults {
-  inline constexpr int tcp_socket_port = 7893;
+inline constexpr int tcp_socket_port = 7893;
 }
 namespace validators {
 bool tcpSocketPort(const int port_number, std::string &error);
 }
 }  // namespace server
 
-// namespace telemetry {
-// bool callSign(const std::string &call_sign);
-// bool frequency(const std::string &frequency);
+namespace telemetry {
+namespace defaults {
+inline constexpr bool telemetry_enabled = false;
+const std::string call_sign = "N0CALL";
+}  // namespace defaults
 
-// bool aprsSsid(const int ssid);
-// bool aprsAddress(const int address);
-// bool aprsSymbol(const std::string &symbol);
-// bool aprsComment(const std::string &comment);
+namespace validators {
+bool callSign(const std::string &call_sign, std::string &error);
+bool frequency(const std::string &frequency, std::string &error);
+}  // namespace validators
+}  // namespace telemetry
 
-// bool sstvMode(const std::string &comment);
-// };
+namespace aprs {
+namespace defaults {
+inline constexpr bool telemetry_packets = false;
+inline constexpr bool position_packets = false;
+const std::string frequency = "144.3900";
+inline constexpr int ssid = 0;
+const std::string destination_address = "APRS";
+inline constexpr int destination_ssid = 0;
+inline constexpr cfg::Aprs::SymbolTable symbol_table = cfg::Aprs::SymbolTable::PRIMARY;
+inline constexpr char symbol = '/';
+const std::string comment = "Giraffe Flight Software";
+}  // namespace defaults
+
+namespace validators {
+bool ssid(const int ssid, std::string &error);
+bool destinationAddress(const std::string &address, std::string &error);
+bool symbol(const std::string &symbol, std::string &error);
+bool comment(const std::string &comment, std::string &error); 
+}
+}  // namespace telemetry_aprs
+
+namespace sstv {
+namespace defaults {
+inline constexpr bool enabled = false;
+const std::string frequency = "145.5100";
+inline constexpr cfg::SSTV::Mode mode = cfg::SSTV::Mode::ROBOT_36;
+inline constexpr bool overlay_data = true;
+
+}  // namespace defaults
+
+namespace validators {
+bool mode(const std::string &mode, std::string &error);
+//bool dataOverlayContents(..., std::string &error);
+}
+}  // namespace telemetry_aprs
+
+namespace data_packets {
+namespace defaults {
+inline constexpr bool enabled = false;
+const std::string frequency = "145.5100";
+//inline constexpr cfg::data_packets::Mode mode = false;
+inline constexpr bool morse_call_sign = true;
+const std::string comment = "Giraffe Flight Software";
+}  // namespace defaults
+
+namespace validators {
+bool mode(const std::string &mode, std::string &error);
+bool comment(const std::string &mode, std::string &error);
+}
+}  // namespace telemetry_aprs
+
 };  // namespace cfg
 
 #endif

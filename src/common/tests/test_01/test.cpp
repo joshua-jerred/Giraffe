@@ -236,7 +236,7 @@ TEST_F(GfsMetaData, data_packets_section) {
       "enabled",
       "frequency",
       "mode",
-      "morse_callsign",
+      "morse_call_sign",
       "comment"};
 
   validateCategory("telemetry_data_packets");

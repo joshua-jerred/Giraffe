@@ -9,38 +9,38 @@
 #ifndef CONFIGURATION_H_
 #define CONFIGURATION_H_
 
+#include <mutex>
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <mutex>
 
 namespace cfg {
 
 struct Procedure {
- enum class Type {
-   TESTING,
-   ASCENT,
-   DESCENT,
-   RECOVERY,
-   FAILSAFE
-};
+  enum class Type {
+    TESTING,
+    ASCENT,
+    DESCENT,
+    RECOVERY,
+    FAILSAFE
+  };
 
-// struct Services {
-//   bool data_logging;
+  // struct Services {
+  //   bool data_logging;
 
-//   bool telem_data_log;
-//   bool telem_data_packet;
-//   bool telem_sstv;
-//   bool telem_aprs_location;
-//   bool telem_aprs_telemetry;
+  //   bool telem_data_log;
+  //   bool telem_data_packet;
+  //   bool telem_sstv;
+  //   bool telem_aprs_location;
+  //   bool telem_aprs_telemetry;
 
-//   bool image_capture;
-//   bool health_check;
-// };
+  //   bool image_capture;
+  //   bool health_check;
+  // };
 
-// bool enabled;
-// Type type;
-// std::string name;
+  // bool enabled;
+  // Type type;
+  // std::string name;
 };
 
 struct General {
@@ -65,8 +65,67 @@ struct Server {
   int tcp_socket_port;
 };
 
+/**
+ * @todo to be expanded, as needed.
+ */
+struct Frequency {
+  std::string frequency;
+
+  void setFrequency(std::string freq) {
+    frequency = freq;
+  }
+  std::string getFrequency() {
+    return frequency;
+  }
+};
+
+struct Telemetry {
+  bool telemetry_enabled;
+  std::string call_sign;
+};
+
+struct Aprs {
+  enum class SymbolTable { PRIMARY,
+                           ALTERNATE };
+
+  bool telemetry_packets;
+  bool position_packets;
+  cfg::Frequency frequency;
+  int ssid;
+  std::string destination_address;
+  cfg::Aprs::SymbolTable symbol_table;
+  char symbol;
+  std::string comment;
+};
+
+struct SSTV {
+  enum class Mode { ROBOT_36 };
+
+  bool enabled;
+  cfg::Frequency frequency;
+  cfg::SSTV::Mode mode;
+  bool overlay_data;
+};
+
+struct DataPackets {
+  enum class Mode {
+    BPSK125,
+    BPSK250,
+    BPSK500,
+    BPSK1000,
+    QPSK125,
+    QPSK250,
+    QPSK500,
+    AFSK_AX25
+  };
+
+  bool enabled;
+  cfg::Frequency frequency;
+  cfg::DataPackets::Mode mode;
+};
+
 class Configuration {
-public:
+ public:
   Configuration();
   ~Configuration();
 
@@ -79,7 +138,7 @@ public:
   void setServer(cfg::Server &server);
   cfg::Server getServer();
 
-private:
+ private:
   cfg::General general_;
   cfg::Debug debug_;
   cfg::Server server_;

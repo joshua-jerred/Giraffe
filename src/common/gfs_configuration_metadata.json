@@ -164,15 +164,6 @@
             "min": 1,
             "pattern": ""
         },
-        "telemetry_destination": {
-            "type": "string",
-            "name": "Telemetry Destination",
-            "description": "This is the destination address that will be used in all telemetry packets. See the APRS specification for more information.",
-            "default": "APRS",
-            "max": 6,
-            "min": 3,
-            "pattern": ""
-        },
         "comment": {
             "type": "string",
             "name": "Comment",
@@ -196,44 +187,41 @@
             "type": "string",
             "name": "SSTV Frequency",
             "description": "The frequency that will be used to transmit SSTV images. See your relevant Band Plan for more information.",
-            "default": "145.510",
+            "default": "145.5100",
             "max": 8,
             "min": 8,
             "pattern": "[0-9]{3}.[0-9]{4}"
         },
         "mode": {
             "type": "enum",
+            "name": "SSTV Mode",
+            "default": "robot36",
+            "description": "The SSTV mode that will be used. Currently, only Robot 36 is supported.",
             "options": [
                 "robot36"
-            ],
-            "default": "robot36",
-            "required": false,
-            "name": "SSTV Mode",
-            "description": "The SSTV mode that will be used. Currently, only Robot 36 is supported."
+            ]
         },
         "overlay_data": {
             "type": "bool",
-            "default": true,
-            "required": false,
             "name": "SSTV Data Overlay",
             "description": "If enabled, data defined internally as 'critical' will be overlaid on the image.",
+            "default": true,
             "true": "enabled",
             "false": "disabled"
         }
     },
     "telemetry_data_packets": {
         "enabled": {
+            "name": "Data Packets Enabled",
             "type": "bool",
             "default": false,
-            "required": false,
-            "name": "Data Packets Enabled",
             "description": "If enabled, PSK data packets can be sent. These can be decoded with FLDIGI The contents of these packets are defined by the user. The rate at which packets are sent is determined by the flight procedure defined by the user.",
             "true": "enabled",
             "false": "disabled"
         },
         "frequency": {
             "type": "string",
-            "default": "145.510",
+            "default": "145.5100",
             "required": true,
             "name": "Data Packets Frequency",
             "description": "The frequency that will be used to transmit data packets. See your relevant Band Plan for more information.",
@@ -243,6 +231,9 @@
         },
         "mode": {
             "type": "enum",
+            "name": "Data Packets Mode",
+            "default": "bpsk250",
+            "description": "The PSK31 mode that will be used. All modes supported by FLDIGI are supported for both BPSK and QPSK.",
             "options": [
                 "bpsk125",
                 "bpsk250",
@@ -251,30 +242,24 @@
                 "qpsk125",
                 "qpsk250",
                 "qpsk500",
-                "afsk_ax.25"
-            ],
-            "default": "bpsk250",
-            "required": false,
-            "name": "Data Packets Mode",
-            "description": "The PSK31 mode that will be used. All modes supported by FLDIGI are supported for both BPSK and QPSK."
+                "afsk_ax25"
+            ]
         },
-        "morse_callsign": {
+        "morse_call_sign": {
             "type": "bool",
-            "default": true,
-            "required": false,
             "name": "Morse Callsign",
-            "description": "If enabled, the callsign will be sent in 20wpm morse code at the end of each packet. This may be a legal requirement, for station identification, in some places so please check your local regulations.",
+            "description": "If enabled, the call sign will be sent in 20wpm morse code at the end of each packet. This may be a legal requirement, for station identification, in some places so please check your local regulations.",
+            "default": true,
             "true": "enabled",
             "false": "disabled"
         },
         "comment": {
             "type": "string",
+            "name": "Data Packets Comment",
+            "default": "Giraffe Flight Software",
+            "description": "This is a comment that will be sent with each data packet. This is not required but may be added. There is a maximum length of 200 characters.",
             "max": 200,
             "min": 0,
-            "default": "Giraffe Flight Software",
-            "required": false,
-            "name": "Data Packets Comment",
-            "description": "This is a comment that will be sent with each data packet. This is not required but may be added. There is a maximum length of 200 characters.",
             "pattern": ""
         }
     },
