@@ -1,5 +1,12 @@
 enable_testing()
 
+include_directories(
+	${GFS_SRC}/modules
+	${GFS_SRC}/modules/configuration
+	${GFS_SRC}/modules/data
+)
+
+
 # gtest based test function ----------------------------------------------------
 function(add_gtest_test test_id test_name)
 	add_executable(${test_name}
@@ -50,6 +57,12 @@ configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${GFS_TEST_BIN}/tes
 add_gtest_test(
 	test_05
 	gfs_05_gfs_exception
+)
+
+add_gtest_test(
+	test_06
+	gfs_06_data_error_stream
+	${data_module_sources}
 )
 
 #configure_file(${GFS_TEST_SRC}/test_01/01_empty_config.yaml ${GFS_TEST_BIN}/01_empty_config.yaml)

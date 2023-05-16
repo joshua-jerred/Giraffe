@@ -161,16 +161,27 @@ class Configuration {
 
 static const std::unordered_map<cfg::Procedure::Type, std::string>
     kProcedureTypeToString = {{cfg::Procedure::Type::TESTING, "testing"},
-                              {cfg::Procedure::Type::ASCENT, "testing"},
-                              {cfg::Procedure::Type::DESCENT, "testing"},
-                              {cfg::Procedure::Type::RECOVERY, "testing"},
+                              {cfg::Procedure::Type::ASCENT, "ascent"},
+                              {cfg::Procedure::Type::DESCENT, "descent"},
+                              {cfg::Procedure::Type::RECOVERY, "recovery"},
                               {cfg::Procedure::Type::FAILSAFE, "failsafe"}};
+static const std::unordered_map<std::string, cfg::Procedure::Type>
+    kStringToProcedureType = {{"testing", cfg::Procedure::Type::TESTING},
+                              {"ascent", cfg::Procedure::Type::ASCENT},
+                              {"descent", cfg::Procedure::Type::DESCENT},
+                              {"recovery", cfg::Procedure::Type::RECOVERY},
+                              {"failsafe", cfg::Procedure::Type::FAILSAFE}};
 
 static const std::unordered_map<cfg::General::MainBoard, std::string>
     kMainBoardToString = {
         {cfg::General::MainBoard::OTHER, "other"},
         {cfg::General::MainBoard::PI_4, "pi_4"},
         {cfg::General::MainBoard::PI_ZERO_W_2, "pi_zero_w_2"}};
+static const std::unordered_map<std::string, cfg::General::MainBoard>
+    kStringToMainBoard = {
+        {"other", cfg::General::MainBoard::OTHER},
+        {"pi_4", cfg::General::MainBoard::PI_4},
+        {"pi_zero_w_2", cfg::General::MainBoard::PI_ZERO_W_2}};
 
 static const std::unordered_map<cfg::Aprs::SymbolTable, std::string>
     kAprsSymbolTable = {{cfg::Aprs::SymbolTable::PRIMARY, "primary"},

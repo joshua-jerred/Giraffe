@@ -26,10 +26,13 @@ endif()
 # ---- Giraffe Flight Software ----
 include_directories(
 	${GFS_SRC}/modules
+	${GFS_SRC}/modules/configuration
+	${GFS_SRC}/modules/data
 	${GFS_SRC}/utilities
 	${GFS_SRC}/extensions
 	${GFS_SRC}/interface
 	${GFS_SRC}/radios
+	${COMMON_SRC}/
 
 	${LIB_SRC}/MWAV/include
 )

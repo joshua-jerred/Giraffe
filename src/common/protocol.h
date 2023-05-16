@@ -9,6 +9,7 @@
 #ifndef PROTOCOL_H_
 #define PROTOCOL_H_
 
+#include <stdexcept>
 #include <string>
 
 namespace protocol {
@@ -22,6 +23,7 @@ struct Message {
   Message(const protocol::Endpoint src, const protocol::Endpoint dst,
           const protocol::Type typ, const protocol::Category cat,
           const protocol::Id id, const protocol::Body body);
+  Message(const std::string &json_string);
 
   std::string getMessageString();
 
@@ -33,7 +35,13 @@ struct Message {
   protocol::Body body_;
 };
 
-protocol::Message parseMessageString(std::string message_string);
+class ProtocolException : public std::runtime_error {
+ public:
+  ProtocolException(const std::string& message) : std::runtime_error(message) {
+  }
+};
+
+
 
 }  // namespace protocol
 

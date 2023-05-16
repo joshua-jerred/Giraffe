@@ -2,6 +2,7 @@
  * @file config_json.cpp
  * @author Joshua Jerred (https://joshuajer.red)
  * @brief Implementation of JSON handlers.
+ * @details All "json to X" functions are "best effort" functions.
  * @date 2023-05-14
  * @copyright Copyright (c) 2023
  */
@@ -11,6 +12,7 @@
 
 using json = nlohmann::ordered_json;
 
+// To Json
 json cfg::json::allToJson(cfg::Configuration &cfg) {
   json all = {
       {"general", cfg::json::generalToJson(cfg.getGeneral())},
@@ -27,8 +29,10 @@ json cfg::json::allToJson(cfg::Configuration &cfg) {
 
 json cfg::json::generalToJson(const cfg::General &general_section) {
   json data({{"project_name", general_section.project_name},
-             {"main_board", cfg::kMainBoardToString.at(general_section.main_board_type)},
-             {"starting_procedure", cfg::kProcedureTypeToString.at(general_section.starting_procedure)}});
+             {"main_board",
+              cfg::kMainBoardToString.at(general_section.main_board_type)},
+             {"starting_procedure", cfg::kProcedureTypeToString.at(
+                                        general_section.starting_procedure)}});
   return data;
 }
 
@@ -52,15 +56,16 @@ json cfg::json::telemetryToJson(const cfg::Telemetry &telemetry_section) {
 }
 
 json cfg::json::aprsToJson(const cfg::Aprs &aprs_section) {
-  json data({{"telemetry_packets", aprs_section.telemetry_packets},
-             {"position_packets", aprs_section.position_packets},
-             {"frequency", aprs_section.frequency.getFrequency()},
-             {"ssid", aprs_section.ssid},
-             {"destination_address", aprs_section.destination_address},
-             {"destination_ssid", aprs_section.destination_ssid},
-             {"symbol_table", cfg::kAprsSymbolTable.at(aprs_section.symbol_table)},
-             {"symbol", std::string(1, aprs_section.symbol)},
-             {"comment", aprs_section.comment}});
+  json data(
+      {{"telemetry_packets", aprs_section.telemetry_packets},
+       {"position_packets", aprs_section.position_packets},
+       {"frequency", aprs_section.frequency.getFrequency()},
+       {"ssid", aprs_section.ssid},
+       {"destination_address", aprs_section.destination_address},
+       {"destination_ssid", aprs_section.destination_ssid},
+       {"symbol_table", cfg::kAprsSymbolTable.at(aprs_section.symbol_table)},
+       {"symbol", std::string(1, aprs_section.symbol)},
+       {"comment", aprs_section.comment}});
   return data;
 }
 
@@ -84,4 +89,140 @@ json cfg::json::dataPacketsToJson(
       {"comment", data_packets_section.comment},
   });
   return data;
+}
+
+// From JSON
+
+inline bool validString(const json &json_data, const std::string &key,
+                        std::string &error) {
+  if (!json_data.contains(key)) {
+    error += key + " not found in json data | ";
+    return false;
+  } else if (!json_data[key].is_string()) {
+    error += key + " is not a valid string | ";
+    return false;
+  }
+  return true;
+}
+
+inline bool validInt(const json &json_data, const std::string &key,
+                     std::string &error) {
+  if (!json_data.contains(key)) {
+    error += key + " not found in json data | ";
+    return false;
+  } else if (!json_data[key].is_number_integer()) {
+    error += key + " is not a valid int | ";
+    return false;
+  }
+  return true;
+}
+
+inline bool validBool(const json &json_data, const std::string &key,
+                      std::string &error) {
+  if (!json_data.contains(key)) {
+    error += key + " not found in json data | ";
+    return false;
+  } else if (!json_data[key].is_boolean()) {
+    error += key + " is not a valid bool | ";
+    return false;
+  }
+
+  return true;
+}
+
+template <typename T>
+inline bool validEnum(
+    const json &json_data, const std::string &key, std::string &error,
+    const std::unordered_map<std::string, T> &string_to_enum) {
+  if (!json_data.contains(key)) {
+    error += key + " not found in json data | ";
+    return false;
+  } else if (!json_data[key].is_string()) {
+    error += key + " is not a valid string (enum value) | ";
+    return false;
+  }
+
+  std::string val = json_data[key].get<std::string>();
+
+  if (!string_to_enum.contains(key)) {
+    error += val + " not a valid value of " + key;
+    return false;
+  }
+
+  return true;
+}
+
+bool cfg::json::jsonToGeneral(const json &json_data, cfg::General &general,
+                              std::string &error) {
+  error = "";
+
+  if (validString(json_data, "project_name", error))
+    general.project_name = json_data["project_name"].get<std::string>();
+
+  if (validEnum(json_data, "main_board", error, cfg::kStringToMainBoard)) {
+    general.main_board_type =
+        cfg::kStringToMainBoard.at(json_data["main_board"].get<std::string>());
+  }
+
+  if (validEnum(json_data, "starting_procedure", error,
+                cfg::kStringToProcedureType))
+    general.starting_procedure = cfg::kStringToProcedureType.at(
+        json_data["starting_procedure"].get<std::string>());
+
+  return error.empty();
+}
+
+bool cfg::json::jsonToDebug(const json &json_data, cfg::Debug &debug,
+                            std::string &error) {
+  (void)json_data;
+  (void)debug;
+  (void)error;
+
+  return error.empty();
+}
+
+bool cfg::json::jsonToServer(const json &json_data, cfg::Server &server,
+                             std::string &error) {
+  (void)json_data;
+  (void)server;
+  (void)error;
+
+  return error.empty();
+}
+
+bool cfg::json::jsonToTelemetry(const json &json_data,
+                                cfg::Telemetry &telemetry, std::string &error) {
+  (void)json_data;
+  (void)telemetry;
+  (void)error;
+
+  return error.empty();
+}
+
+bool cfg::json::jsonToAprs(const json &json_data, cfg::Aprs &aprs,
+                           std::string &error) {
+  (void)json_data;
+  (void)aprs;
+  (void)error;
+
+  return error.empty();
+}
+
+bool cfg::json::jsonToSstv(const json &json_data, cfg::Sstv &sstv,
+                           std::string &error) {
+  (void)json_data;
+  (void)sstv;
+  (void)error;
+
+  return error.empty();
+}
+
+bool cfg::json::jsonToDataPackets(const json &json_data,
+                                  cfg::DataPackets &data_packets,
+                                  std::string &error) {
+  (void)json_data;
+  (void)data_packets;
+  (void)error;
+
+  return error.empty();
 }
