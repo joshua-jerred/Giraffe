@@ -58,7 +58,6 @@ cfg::Configuration::~Configuration() {
 bool cfg::Configuration::setGeneral(const cfg::General &general, std::string &error) {
   bool error_free = true;
 
-  
   config_lock_.lock();
 
   if (!cfg::general::validators::projectName(general.project_name, error)) {

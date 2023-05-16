@@ -13,8 +13,16 @@
 #include <string>
 
 #include "configuration.h"
+#include "gfs_exception.h"
 
 namespace cfg {
+
+class ConfigurationException : public GfsException {
+public:
+  ConfigurationException(std::string error_code, std::string info)
+      : GfsException("M_CFG", error_code, info) {
+  }
+};
 
 namespace file {
 void saveConfiguration(cfg::Configuration &config, const std::string &file_path,
