@@ -66,6 +66,13 @@ add_gtest_test(
 	${data_module_sources}
 )
 
+add_gtest_test(
+	test_07
+	gfs_07_module
+	${data_module_sources}
+	${module_sources}
+)
+
 #configure_file(${GFS_TEST_SRC}/test_01/01_empty_config.yaml ${GFS_TEST_BIN}/01_empty_config.yaml)
 #configure_file(${GFS_TEST_SRC}/test_01/01_invalid_config.yaml ${GFS_TEST_BIN}/01_invalid_config.yaml)
 

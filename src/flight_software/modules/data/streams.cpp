@@ -1,5 +1,5 @@
 /**
- * @file error_stream.cpp
+ * @file streams.cpp
  * @author Joshua Jerred (https://joshuajer.red)
  * @brief Implementation of the error stream.
  * @date 2023-05-15

@@ -9,7 +9,7 @@
  * @todo Documentation
  */
 
-#include "modules.h"
+#include "module.h"
 
 modules::Module::Module(DataStream &stream, std::string error_prefix,
                         std::string module_name)

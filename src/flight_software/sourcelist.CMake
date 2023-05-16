@@ -6,5 +6,9 @@ set(configuration_module_sources
 )
 
 set(data_module_sources
-	${GFS_SRC}/modules/data/error_stream.cpp
+	${GFS_SRC}/modules/data/streams.cpp
+)
+
+set(module_sources
+	${GFS_SRC}/modules/module.cpp
 )

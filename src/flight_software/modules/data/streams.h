@@ -18,6 +18,11 @@
 
 namespace data {
 
+struct Streams {
+  data::DataStream &data_stream;
+  data::ErrorStream &error_stream;
+};
+
 enum class Source { NONE, CONFIGURATION_MODULE, DATA_MODULE };
 
 struct BaseStreamPacket {
@@ -91,6 +96,24 @@ class ErrorStream : public Stream<ErrorStreamPacket> {
     pkt.source = source;
     pkt.code = code;
     pkt.info = info;
+    pkt.resetTime();
+
+    addPacket(pkt);
+  }
+};
+
+struct DataStreamPacket : public BaseStreamPacket {
+  std::string identifier;
+  std::string value;
+};
+
+class DataStream : public Stream<DataStreamPacket> {
+ public:
+  void addData(data::Source source, std::string identifier, std::string value) {
+    DataStreamPacket pkt;
+    pkt.source = source;
+    pkt.identifier = identifier;
+    pkt.value = value;
     pkt.resetTime();
 
     addPacket(pkt);

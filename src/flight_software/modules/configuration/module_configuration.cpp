@@ -11,127 +11,8 @@
  * @todo Documentation Update
  */
 
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <nlohmann/json.hpp>
-#include <regex>
-#include <string>
-#include <vector>
-
-#include "data-stream.h"
 #include "modules.h"
 using namespace modules;
-
-/**
- * @details
- * Acts the same as the standard json object, but this maintains the same
- * structure as the config file upon loading and saving.
- * Requires nlohmann json version 3.9 or higher.
- */
-using json = nlohmann::ordered_json;
-
-/**
- * @brief The following enumerations are used to link the values
- * in the configuration file with the values of enumerations
- * defined in config-types.h
- *
- * Important note from the nlohmann json documentation:
- * "When using get<ENUM_TYPE>(), undefined JSON values will default to the first
- * pair specified in your map. Select this default pair carefully."
- *
- * This is why the first pair is 'error' so the configuration module can
- * detect an incorrect value in the config file.
- *
- * @see config-types.h
- */
-NLOHMANN_JSON_SERIALIZE_ENUM(ConfigData::Mainboard,
-                             {{ConfigData::Mainboard::ERROR, "error"},
-                              {ConfigData::Mainboard::OTHER, "other"},
-                              {ConfigData::Mainboard::PI_ZERO_W_2,
-                               "pi_zero_w_2"},
-                              {ConfigData::Mainboard::PI_4, "pi_4"}})
-
-NLOHMANN_JSON_SERIALIZE_ENUM(FlightProcedure::Type,
-                             {{FlightProcedure::Type::ERROR, "error"},
-                              {FlightProcedure::Type::TESTING, "testing"},
-                              {FlightProcedure::Type::STANDARD, "standard"},
-                              {FlightProcedure::Type::RECOVERY, "recovery"},
-                              {FlightProcedure::Type::FAILSAFE, "failsafe"}})
-
-NLOHMANN_JSON_SERIALIZE_ENUM(
-    ExtensionMetadata::Category,
-    {{ExtensionMetadata::Category::ERROR, "error"},
-     {ExtensionMetadata::Category::OTHER, "other"},
-     {ExtensionMetadata::Category::GPS, "gps"},
-     {ExtensionMetadata::Category::CAMERA, "camera"},
-     {ExtensionMetadata::Category::BATTERY, "battery"},
-     {ExtensionMetadata::Category::SYSTEM, "system"},
-     {ExtensionMetadata::Category::INTERNAL_SENSOR, "internal_sensor"},
-     {ExtensionMetadata::Category::EXTERNAL_SENSOR, "external_sensor"}})
-
-NLOHMANN_JSON_SERIALIZE_ENUM(
-    ExtensionMetadata::Interface,
-    {{ExtensionMetadata::Interface::OTHER, "other"},
-     {ExtensionMetadata::Interface::INTERNAL, "internal"},
-     {ExtensionMetadata::Interface::I2C, "i2c"},
-     {ExtensionMetadata::Interface::UART, "uart"},
-     {ExtensionMetadata::Interface::ONEWIRE, "onewire"},
-     {ExtensionMetadata::Interface::USB, "usb"},
-     {ExtensionMetadata::Interface::GPIO, "gpio"}})
-
-std::string GetString(const json& j, const std::string& key) {
-  if (j.contains(key) && j[key].is_string()) {
-    return j[key].get<std::string>();
-  } else {
-    return "";
-  }
-}
-
-int GetBool(const json& j, const std::string& key, int default_value = -1) {
-  if (j.contains(key) && j[key].is_boolean()) {
-    return j[key].get<bool>() ? 1 : 0;
-  } else {
-    return default_value;
-  }
-}
-
-int GetInt(const json& j, const std::string& key) {
-  if (j.contains(key) && j[key].is_number_integer()) {
-    return j[key].get<int>();
-  } else {
-    return -1;
-  }
-}
-
-double GetDouble(const json& j, const std::string& key) {
-  if (j.contains(key) && j[key].is_number_float()) {
-    return j[key].get<double>();
-  } else {
-    return -1;
-  }
-}
-
-double IsDouble(std::string s) {
-  try {
-    return std::stod(s);
-  } catch (std::invalid_argument const& e) {
-    return -1;
-  }
-}
-
-char GetChar(const json& j, const std::string& key) {
-  if (j.contains(key) && j[key].is_string()) {
-    std::string s = j[key].get<std::string>();
-    if (s.length() == 1) {
-      return s[0];
-    }
-  }
-  return 0;
-}
-
-/** @todo Convert freq to XXX.XXXX format*/
-std::string FormatFrequency(std::string frequency) { return frequency; }
 
 /**
  * @brief Construct a new ConfigModule::ConfigModule object
@@ -148,16 +29,6 @@ ConfigModule::ConfigModule(DataStream& data_stream)
  */
 ConfigModule::~ConfigModule() {}
 
-/**
- * @brief Load and parse a configuration file from a given path.
- * @details This function will load and parse a json file from a given path.
- * If the file fails to open or if it does not exists it will return -1.
- * If it does load, it will call ParseAll()
- * @param file_path The local path to the configuration file.
- * @return int 0 if successfully loaded and parsed, -1 if the file failed to
- * open, -2 if there were any errors parsing the file.
- * @see ParseAll()
- */
 int ConfigModule::load(std::string file_path) {
   data_stream_.updateModuleStatus("config", ModuleStatus::RUNNING);
   config_file_path_ = file_path;
@@ -175,29 +46,9 @@ int ConfigModule::load(std::string file_path) {
   return 0;
 }
 
-/**
- * @brief Returns all of the configuration data as a ConfigData object. All
- * errors will be included, refer to getErrors() for a list of errors.
- * @param None
- * @return ConfigData - All of the configuration data.
- */
 ConfigData ConfigModule::getAll() { return config_data_; }
 
 void ConfigModule::doCommand(GFSCommand command) { (void)command; }
-
-/**
- * @brief Calls all of the parse functions to load the configuration data.
- * @param None
- * @return void
- */
-void ConfigModule::ParseAll() {
-  parseGeneral();
-  parseExtensions();
-  parseDebug();
-  parseTelemetry();
-  parseDataTypes();
-  parseFlightProcedures();
-}
 
 /**
  * @brief Parses the general section of the configuration file.
@@ -208,54 +59,7 @@ void ConfigModule::ParseAll() {
  * @return void
  * */
 void ConfigModule::parseGeneral() {
-  if (!json_buffer_.contains("general")) {
-    error("GEN_NF");  // General section does not exist in config
-    return;
-  }
 
-  if (!json_buffer_["general"].contains("project-name")) {
-    error("GEN_PN_NF");  // Project name does not exist in config
-    config_data_.general.project_name = "INVALID";
-  } else {
-    std::string name =
-        json_buffer_["general"]["project-name"].get<std::string>();
-
-    if (name.length() < PROJECT_NAME_MIN_LENGTH ||
-        name.length() > PROJECT_NAME_MAX_LENGTH) {
-      error("GEN_PN_R", name);
-      config_data_.general.project_name = "INVALID";
-    } else if (!std::regex_search(name, std::regex("^[a-zA-Z_ 0-9-]*$"))) {
-      error("GEN_PN_I", name);
-    } else {
-      config_data_.general.project_name = name;
-    }
-  }
-
-  if (!json_buffer_["general"].contains("main-board-type")) {
-    error("GEN_MB_NF");  // Mainboard type does not exist in config
-    config_data_.general.main_board = ConfigData::Mainboard::ERROR;
-  } else {
-    ConfigData::Mainboard mbtype =
-        json_buffer_["general"]["main-board-type"].get<ConfigData::Mainboard>();
-    if (mbtype == ConfigData::Mainboard::ERROR) {
-      error("GEN_MB_I");
-    } else {
-      config_data_.general.main_board = mbtype;
-    }
-  }
-
-  if (!json_buffer_["general"].contains("starting-procedure")) {
-    error("GEN_SP_NF");  // Starting procedure does not exist in config
-    config_data_.general.starting_proc = FlightProcedure::Type::ERROR;
-  } else {
-    FlightProcedure::Type ptype = json_buffer_["general"]["starting-procedure"]
-                                      .get<FlightProcedure::Type>();
-    if (ptype == FlightProcedure::Type::ERROR) {
-      error("GEN_SP_I");
-    } else {
-      config_data_.general.starting_proc = ptype;
-    }
-  }
 }
 
 /**
