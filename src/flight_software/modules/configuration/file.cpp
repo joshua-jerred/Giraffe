@@ -19,6 +19,8 @@ void cfg::file::saveConfiguration(data::ErrorStream &es,
                                   cfg::Configuration &config,
                                   const std::string &file_path,
                                   bool overwrite) {
+  (void) es;
+
   if (!overwrite && std::filesystem::exists(file_path)) {
     throw cfg::ConfigurationException(
         "SV_NO_OW", "will not overwrite the configuration file");
@@ -58,7 +60,7 @@ void cfg::file::loadConfiguration(data::ErrorStream &es,
   try {
     parsed = json::parse(in);
   } catch (json::parse_error &e) {
-    throw cfg::ConfigurationException("LD_PERR",
+    throw cfg::ConfigurationException("LD_PE",
                                       "while parsing the file: " + file_path);
   }
 
@@ -69,7 +71,56 @@ void cfg::file::loadConfiguration(data::ErrorStream &es,
     cfg::json::jsonToGeneral(parsed["general"], general, es, num_errors);
     config.setGeneral(general);
   } else {
-    es.addError(data::Source::CONFIGURATION_MODULE, "LD_SNF_GEN");
+    cfg::reportError(es, "LD_SNF_GEN", "general section not found in config file");
+  }
+
+  if (valid_section(parsed, "debug")) {
+    cfg::Debug debug = config.getDebug();
+    cfg::json::jsonToDebug(parsed["debug"], debug, es, num_errors);
+    config.setDebug(debug);
+  } else {
+    cfg::reportError(es, "LD_SNF_DBG", "debug section not found in config file");
+  }
+
+  if (valid_section(parsed, "server")) {
+    cfg::Server server = config.getServer();
+    cfg::json::jsonToServer(parsed["server"], server, es, num_errors);
+    config.setServer(server);
+  } else {
+    cfg::reportError(es, "LD_SNF_SRV", "server section not found in config file");
+  }
+
+  if (valid_section(parsed, "telemetry")) {
+    cfg::Telemetry telem = config.getTelemetry();
+    cfg::json::jsonToTelemetry(parsed["telemetry"], telem, es, num_errors);
+    config.setTelemetry(telem);
+  } else {
+    cfg::reportError(es, "LD_SNF_TLM", "telemetry section not found in config file");
+  }
+
+  if (valid_section(parsed, "telemetry_aprs")) {
+    cfg::Aprs aprs = config.getAprs();
+    cfg::json::jsonToAprs(parsed["telemetry_aprs"], aprs, es, num_errors);
+    config.setAprs(aprs);
+  } else {
+    cfg::reportError(es, "LD_SNF_APRS", "aprs section not found in config file");
+  }
+
+  if (valid_section(parsed, "telemetry_sstv")) {
+    cfg::Sstv sstv = config.getSstv();
+    cfg::json::jsonToSstv(parsed["telemetry_sstv"], sstv, es, num_errors);
+    config.setSstv(sstv);
+  } else {
+    cfg::reportError(es, "LD_SNF_SSTV", "sstv section not found in config file");
+  }
+
+  if (valid_section(parsed, "telemetry_data_packets")) {
+    cfg::DataPackets data_packets = config.getDataPackets();
+    cfg::json::jsonToDataPackets(parsed["telemetry_data_packets"], data_packets,
+                                 es, num_errors);
+    config.setDataPackets(data_packets);
+  } else {
+    cfg::reportError(es, "LD_SNF_DATPKTS", "data packets section not found in config file");
   }
 
   // if (valid_section(parsed, "debug")) {
@@ -136,8 +187,10 @@ void cfg::file::loadConfiguration(data::ErrorStream &es,
   //   std::string error;
   //   cfg::DataPackets data_packets = config.getDataPackets();
 
-  //   if (!cfg::json::jsonToDataPackets(parsed["telemetry_data_packets"], data_packets, error)) {
-  //     es.addError(data::Source::CONFIGURATION_MODULE, "LD_PE_DATPKTS", error);
+  //   if (!cfg::json::jsonToDataPackets(parsed["telemetry_data_packets"],
+  //   data_packets, error)) {
+  //     es.addError(data::Source::CONFIGURATION_MODULE, "LD_PE_DATPKTS",
+  //     error);
   //   }
   //   config.setDataPackets(data_packets);
   // } else {

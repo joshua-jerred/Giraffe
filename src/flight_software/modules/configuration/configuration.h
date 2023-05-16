@@ -170,6 +170,7 @@ static const std::unordered_map<cfg::Procedure::Type, std::string>
                               {cfg::Procedure::Type::DESCENT, "descent"},
                               {cfg::Procedure::Type::RECOVERY, "recovery"},
                               {cfg::Procedure::Type::FAILSAFE, "failsafe"}};
+
 static const std::unordered_map<std::string, cfg::Procedure::Type>
     kStringToProcedureType = {{"testing", cfg::Procedure::Type::TESTING},
                               {"ascent", cfg::Procedure::Type::ASCENT},
@@ -182,6 +183,7 @@ static const std::unordered_map<cfg::General::MainBoard, std::string>
         {cfg::General::MainBoard::OTHER, "other"},
         {cfg::General::MainBoard::PI_4, "pi_4"},
         {cfg::General::MainBoard::PI_ZERO_W_2, "pi_zero_w_2"}};
+
 static const std::unordered_map<std::string, cfg::General::MainBoard>
     kStringToMainBoard = {
         {"other", cfg::General::MainBoard::OTHER},
@@ -189,24 +191,45 @@ static const std::unordered_map<std::string, cfg::General::MainBoard>
         {"pi_zero_w_2", cfg::General::MainBoard::PI_ZERO_W_2}};
 
 static const std::unordered_map<cfg::Aprs::SymbolTable, std::string>
-    kAprsSymbolTable = {{cfg::Aprs::SymbolTable::PRIMARY, "primary"},
-                        {cfg::Aprs::SymbolTable::ALTERNATE, "alternate"}};
+    kAprsSymbolTableToString = {
+        {cfg::Aprs::SymbolTable::PRIMARY, "primary"},
+        {cfg::Aprs::SymbolTable::ALTERNATE, "alternate"}};
+
+static const std::unordered_map<std::string, cfg::Aprs::SymbolTable>
+    kStringToAprsSymbolTable = {
+        {"primary", cfg::Aprs::SymbolTable::PRIMARY},
+        {"alternate", cfg::Aprs::SymbolTable::ALTERNATE}};
 
 static const std::unordered_map<cfg::Sstv::Mode, std::string>
-    kSstvModeToString = {{cfg::Sstv::Mode::ROBOT_36, "robot_36"}};
+    kSstvModeToString = {{cfg::Sstv::Mode::ROBOT_36, "robot36"}};
+
+static const std::unordered_map<std::string, cfg::Sstv::Mode>
+    kStringToSstvMode = {{"robot36", cfg::Sstv::Mode::ROBOT_36}};
 
 static const std::unordered_map<cfg::DataPackets::Mode, std::string>
     kDataPacketsModeToString = {
         {cfg::DataPackets::Mode::BPSK125, "bpsk125"},
         {cfg::DataPackets::Mode::BPSK250, "bpsk250"},
         {cfg::DataPackets::Mode::BPSK500, "bpsk500"},
-        {cfg::DataPackets::Mode::BPSK1000, "bpsk100"},
+        {cfg::DataPackets::Mode::BPSK1000, "bpsk1000"},
         {cfg::DataPackets::Mode::QPSK125, "qpsk125"},
         {cfg::DataPackets::Mode::QPSK250, "qpsk250"},
         {cfg::DataPackets::Mode::QPSK500, "qpsk500"},
         {cfg::DataPackets::Mode::AFSK_AX25, "afsk_ax25"}};
 
-inline void reportError(data::ErrorStream &es, const std::string code, const std::string info) {
+static const std::unordered_map<std::string, cfg::DataPackets::Mode>
+    kStringToDataPacketsMode = {
+        {"bpsk125", cfg::DataPackets::Mode::BPSK125},
+        {"bpsk250", cfg::DataPackets::Mode::BPSK250},
+        {"bpsk500", cfg::DataPackets::Mode::BPSK500},
+        {"bpsk1000", cfg::DataPackets::Mode::BPSK1000},
+        {"qpsk125", cfg::DataPackets::Mode::QPSK125},
+        {"qpsk250", cfg::DataPackets::Mode::QPSK250},
+        {"qpsk500", cfg::DataPackets::Mode::QPSK500},
+        {"afsk_ax25", cfg::DataPackets::Mode::AFSK_AX25}};
+
+inline void reportError(data::ErrorStream &es, const std::string code,
+                        const std::string info) {
   es.addError(data::Source::CONFIGURATION_MODULE, code, info);
 }
 

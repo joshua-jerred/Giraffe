@@ -136,6 +136,7 @@ namespace validators {
 bool ssid(const int ssid, std::string &error);
 bool destinationAddress(const std::string &address, std::string &error);
 bool symbol(const std::string &symbol, std::string &error);
+bool symbolTable(const std::string &symbol, std::string &error);
 bool comment(const std::string &comment, std::string &error);
 }  // namespace validators
 }  // namespace aprs

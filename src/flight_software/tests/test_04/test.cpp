@@ -113,14 +113,28 @@ TEST_F(Configuration_File, savesChangedConfiguration) {
 
   cfg::Aprs new_aprs = config.getAprs();
   new_aprs.telemetry_packets = true;
+  new_aprs.position_packets = true;
+  new_aprs.frequency.setFrequency("000.0000");
+  new_aprs.ssid = 2;
+  new_aprs.destination_address = "TEST";
+  new_aprs.destination_ssid = 3;
+  new_aprs.symbol_table = cfg::Aprs::SymbolTable::ALTERNATE;
+  new_aprs.symbol = 'a';
+  new_aprs.comment = "Hello";
   ASSERT_TRUE(config.setAprs(new_aprs));
 
   cfg::Sstv new_sstv = config.getSstv();
   new_sstv.enabled = true;
+  new_sstv.frequency.setFrequency("100.0000");
+  new_sstv.overlay_data = false;
   ASSERT_TRUE(config.setSstv(new_sstv));
 
   cfg::DataPackets new_data_packets = config.getDataPackets();
   new_data_packets.enabled = true;
+  new_data_packets.frequency.setFrequency("200.0000");
+  new_data_packets.mode = cfg::DataPackets::Mode::BPSK1000;
+  new_data_packets.morse_call_sign = false;
+  new_data_packets.comment = "Hello BPSK!";
   ASSERT_TRUE(config.setDataPackets(new_data_packets));
 
   cfg::file::saveConfiguration(es_, config, path);
@@ -178,21 +192,34 @@ TEST_F(Configuration_File, loadsChangedConfiguration) {
 
   cfg::Telemetry tlm = new_config.getTelemetry();
   EXPECT_EQ(tlm.telemetry_enabled, true);
+  EXPECT_EQ(tlm.call_sign, "CA2LL");
 
   cfg::Aprs aprs = new_config.getAprs();
   EXPECT_EQ(aprs.telemetry_packets, true);
+  EXPECT_EQ(aprs.position_packets, true);
+  EXPECT_EQ(aprs.frequency.getFrequency(), "000.0000");
+  EXPECT_EQ(aprs.ssid, 2);
+  EXPECT_EQ(aprs.destination_address, "TEST");
+  EXPECT_EQ(aprs.destination_ssid, 3);
+  EXPECT_EQ(aprs.symbol_table, cfg::Aprs::SymbolTable::ALTERNATE);
+  EXPECT_EQ(aprs.symbol, 'a');
+  EXPECT_EQ(aprs.comment, "Hello");
 
   cfg::Sstv sstv = new_config.getSstv();
   EXPECT_EQ(sstv.enabled, true);
+  EXPECT_EQ(sstv.frequency.getFrequency(), "100.0000");
+  EXPECT_EQ(sstv.overlay_data, false);
 
   cfg::DataPackets data_packets = new_config.getDataPackets();
   EXPECT_EQ(data_packets.enabled, true);
+  EXPECT_EQ(data_packets.frequency.getFrequency(), "200.0000");
+  EXPECT_EQ(data_packets.mode, cfg::DataPackets::Mode::BPSK1000);
+  EXPECT_EQ(data_packets.morse_call_sign, false);
+  EXPECT_EQ(data_packets.comment, "Hello BPSK!");
 
   EXPECT_EQ(es_.getTotalPackets(), 0);
 
-  if (es_.getTotalPackets() != 0) {
-    std::cout << "Error stream packets: " << std::endl;
-
+  while (es_.getNumPackets() != 0) {
     data::ErrorStreamPacket pkt;
     es_.getPacket(pkt);
     std::cout << pkt << std::endl;
