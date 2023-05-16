@@ -5,85 +5,104 @@
  * @date 2023-02-14
  * @copyright Copyright (c) 2023
  * @version 0.4
- * 
+ *
  * @todo Documentation
  */
 
 #include "module.h"
 
-modules::Module::Module(DataStream &stream, std::string error_prefix,
-                        std::string module_name)
-    : data_stream_(stream),
-      module_status_(ModuleStatus::STOPPED),
-      error_source_(error_prefix),
-      module_name_(module_name) {}
+#include <iomanip>
+#include <sstream>
+#include <thread>
+#include <type_traits>
 
-void modules::Module::updateStatus(ModuleStatus new_status) {
-  data_stream_.updateModuleStatus(module_name_, new_status);
+modules::Module::Module(modules::MetaData metadata, data::Streams &streams)
+    : metadata_(metadata),
+      streams_(streams),
+      runner_thread_(),
+      command_queue_(metadata.command_destination) {
 }
 
-void modules::Module::error(std::string error_code, std::string info) {
-  data_stream_.addError("M_" + error_source_, error_code, info, 0);
-}
-
-void modules::Module::error(std::string error_code, int info) {
-  data_stream_.addError("M_" + error_source_, error_code, std::to_string(info), 0);
-}
-
-void modules::Module::error(std::string error_code) {
-  data_stream_.addError(error_source_, error_code, "", 0);
-}
-
-void modules::Module::data(std::string data_name, std::string data_value) {
-  data_stream_.addData(error_source_, data_name, data_value);
-}
-
-void modules::Module::data(std::string data_name, int data_value) {
-  data_stream_.addData(error_source_, data_name, std::to_string(data_value));
-}
-
-void modules::Module::data(std::string data_name, double data_value, int precision) {
-  std::stringstream stream;
-  stream << std::fixed << std::setprecision(precision) << data_value;
-  std::string rounded = stream.str();
-  data_stream_.addData(error_source_, data_name, std::to_string(data_value));
-}
-
-void modules::Module::module_sleep(int sleep_time) {
-  if (sleep_time == -1) {
-    sleep_time = kDefaultSleepTime_;
-  }
-  std::this_thread::sleep_for(std::chrono::milliseconds(sleep_time));
-}
-
-bool modules::Module::addCommand(GFSCommand command) {
-  const int kMaxCommandQueueSize = 20;
-  command_queue_lock_.lock();
-  if (command_queue_.size() > kMaxCommandQueueSize) {
-    command_queue_lock_.unlock();
-    error("MCQF");  // Module Command Queue Full
-    return false;
-  }
-  command_queue_.push(command);
-  command_queue_lock_.unlock();
-  return true;
-}
-
-void modules::Module::parseCommands() {
-  command_queue_lock_.lock();
-  if (command_queue_.empty()) {
-    command_queue_lock_.unlock();
+void modules::Module::start() {
+  if (status_ == modules::Status::RUNNING ||
+      status_ == modules::Status::SLEEPING) {
     return;
   }
 
-  while (!command_queue_.empty()) {
-    GFSCommand command = command_queue_.front();
-    command_queue_.pop();
-    doCommand(command);
-  }
-  command_queue_lock_.unlock();
+  stop_flag_ = false;
+  runner_thread_ = std::thread(&modules::Module::runner, this);
 }
 
-void modules::Module::CommandArgumentError(std::string command_name, std::string argument) {
-  error("CMD_A", command_name + "$" + argument + "$");
+void modules::Module::stop() {
+  stop_flag_ = true;
+  if (runner_thread_.joinable()) {
+    runner_thread_.join();
+  }
+}
+
+modules::Status modules::Module::getStatus() const {
+  return status_;
+}
+
+/**
+ * @todo report status to status stream
+ */
+void modules::Module::setStatus(const modules::Status status) {
+  status_ = status;
+}
+
+/**
+ * @todo
+ */
+void modules::Module::error(std::string error_code, std::string info) {
+  (void)error_code;
+  (void)info;
+}
+
+template <typename T>
+void modules::Module::data(std::string identifier, T value, int precision) {
+  if constexpr (std::is_same<T, std::string>::value) {
+    streams_.data_stream.addData(metadata_.source, identifier, value);
+  } else if (std::is_same<T, float>::value || std::is_same<T, double>::value) {
+    std::stringstream stream;
+    stream << std::fixed << std::setprecision(precision) << value;
+    std::string rounded = stream.str();
+    streams_.data_stream.addData(metadata_.source, identifier, rounded);
+  } else {
+    streams_.data_stream.addData(metadata_.source, identifier,
+                                 std::to_string(value));
+  }
+}
+
+template void modules::Module::data<int>(std::string, int, int);
+template void modules::Module::data<float>(std::string, float, int);
+template void modules::Module::data<double>(std::string, double, int);
+template void modules::Module::data<std::string>(std::string, std::string, int);
+
+void modules::Module::runner() {
+  setStatus(modules::Status::STARTING);
+  startup();
+  while (!stop_flag_) {
+    loop();
+    setStatus(modules::Status::SLEEPING);
+    sleep();
+    setStatus(modules::Status::RUNNING);
+  }
+  setStatus(modules::Status::STOPPING);
+  shutdown();
+  setStatus(modules::Status::STOPPED);
+}
+
+void modules::Module::sleep() {
+  constexpr int kMinimumSleepTimeMs = 100;
+  constexpr int kMaximumSleepTimeMs = 5000;
+
+  int sleep_ms = metadata_.sleep_interval;
+  if (metadata_.sleep_interval < kMinimumSleepTimeMs) {
+    sleep_ms = kMinimumSleepTimeMs;
+  } else if (metadata_.sleep_interval > kMaximumSleepTimeMs) {
+    sleep_ms = kMaximumSleepTimeMs;
+  }
+
+  std::this_thread::sleep_for(std::chrono::milliseconds(sleep_ms));
 }

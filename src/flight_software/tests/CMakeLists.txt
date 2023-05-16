@@ -72,14 +72,6 @@ add_gtest_test(
 	${data_module_sources}
 	${module_sources}
 )
-
-#configure_file(${GFS_TEST_SRC}/test_01/01_empty_config.yaml ${GFS_TEST_BIN}/01_empty_config.yaml)
-#configure_file(${GFS_TEST_SRC}/test_01/01_invalid_config.yaml ${GFS_TEST_BIN}/01_invalid_config.yaml)
-
-
-#add_executable(test-01-configuration
-#	${TEST_SRC}/test-01/test.cpp
-#	${GFS_SRC}/modules/configuration/configuration.cpp
-#)
-#set_target_properties(test-01 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-01/)
-#target_link_libraries(test-01 gtest_main)
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+target_link_libraries(gfs_07_module Threads::Threads)

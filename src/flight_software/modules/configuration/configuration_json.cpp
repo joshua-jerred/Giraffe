@@ -97,43 +97,6 @@ json cfg::json::dataPacketsToJson(
 
 // From JSON
 
-// void setValidString(
-//     data::ErrorStream &es, const json &json_data, const std::string &section,
-//     const std::string &key, std::string &string_to_set,
-//     std::function<bool(const std::string &, std::string &)> validator,
-//     const std::string &error_code_prefix, int &errors_accumulator) {
-//   // Check if the setting key is in the json data
-//   if (!json_data.contains(key)) {
-//     cfg::reportError(es, error_code_prefix + "_NF",
-//                      section + "[" + key + "] not found");
-//     errors_accumulator++;
-//     return;
-//   }
-
-//   // Ensure that the value at this key is actually a string before reading
-//   if (!json_data[key].is_string()) {
-//     cfg::reportError(es, error_code_prefix + "_IT",
-//                      section + "[" + key + "] has an invalid type");
-//     errors_accumulator++;
-//     return;
-//   }
-
-//   // read the value
-//   std::string value = json_data[key].get<std::string>();
-
-//   // call the validator function that was passed in
-//   std::string error;
-//   if (!validator(value, error)) {
-//     cfg::reportError(es, error_code_prefix + "_VF",
-//                      section + "[" + key + "] failed validation: " + error);
-//     errors_accumulator++;
-//     return;
-//   }
-
-//   // finally, set the value
-//   string_to_set = value;
-// }
-
 /**
  * @brief This function validates a setting string or enum before setting it.
  *

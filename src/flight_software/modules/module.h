@@ -9,51 +9,68 @@
 #ifndef MODULE_H_
 #define MODULE_H_
 
+#include <atomic>
+#include <thread>
+
+#include "command.h"
 #include "streams.h"
 
-namespace module {
+namespace modules {
 
 struct MetaData {
+  MetaData(std::string name, data::Source source, command::Destination destination)
+      : name(name), source(source), command_destination(destination)  {
+  }
+  
   std::string name;
   data::Source source;
+  command::Destination command_destination;
   int sleep_interval = 1000;  // 1 second, default sleep time
 };
 
-struct CommandQueue {
-  std::mutex lock_ = std::mutex();
-  //std::queue<GFSCommand> queue_ = std::queue<GFSCommand>();
-};
+enum Status { STOPPED, STARTING, RUNNING, SLEEPING, STOPPING, ERROR };
 
 class Module {
  public:
-  Module(const module::MetaData metadata, data::Streams &streams);
+  Module(modules::MetaData metadata, data::Streams &streams);
 
   Module(const Module &) = delete;             // No copy constructor
   Module &operator=(const Module &) = delete;  // No copy assignment
-  virtual ~Module();
+  virtual ~Module(){};
 
   void start();
   void stop();
+  modules::Status getStatus() const;
 
  protected:
-  virtual void startup();
-  virtual void loop();
-  virtual void processCommand();
+  virtual void startup() {
+  }
+  virtual void loop() {
+  }
+  virtual void shutdown() {
+  }
+  virtual void processCommand(const command::Command &command) {
+    (void)command;
+  }
 
+  void setStatus(const modules::Status status);
   void error(std::string error_code, std::string info = "");
   template <typename T>
-  void data(std::string identifier, T value);
+  void data(std::string identifier, T value, int precision = 2);
 
-  module::MetaData metadata_;
+  modules::MetaData metadata_;
   data::Streams &streams_;
 
-  virtual void doCommand(GFSCommand command) {
-    error("MCNI", command.id);  // Module Command Not Implemented
-  };
-
  private:
-  CommandQueue command_queue_;
+  void runner();
+  void sleep();
+
+  std::atomic<modules::Status> status_ = modules::Status::STOPPED;
+  std::atomic<bool> stop_flag_ = true;
+  std::thread runner_thread_;
+
+  command::CommandQueue command_queue_;
 };
 
-}  // namespace module
+}  // namespace modules
 #endif

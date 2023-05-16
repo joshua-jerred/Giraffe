@@ -6,13 +6,41 @@
  * @copyright Copyright (c) 2023
  */
 
+#include <iostream>
 #include <string>
+#include <thread>
 
 #include "gtest/gtest.h"
-#include "streams.h"
 #include "module.h"
+#include "streams.h"
 
-class Streams : public ::testing::Test {
+data::Streams streams;
+
+modules::MetaData metadata("test_module", data::Source::NONE,
+                           command::Destination::UNKNOWN);
+
+class BasicModule : public modules::Module {
+ public:
+  BasicModule(data::Streams &streams) : modules::Module(metadata, streams) {
+  }
+
+ private:
+  void startup() override {
+    data<std::string>("ident", "start");
+  }
+  void loop() override {
+    data<std::string>("ident", "loop");
+  }
+  void shutdown() override {
+    data<std::string>("ident", "stop");
+    std::cout << "shutdown" << std::endl;
+  }
+  void processCommand(const command::Command &command) override {
+    (void)command;
+  }
+};
+
+class ModuleTests : public ::testing::Test {
  protected:
   virtual void SetUp() {
   }
@@ -20,26 +48,9 @@ class Streams : public ::testing::Test {
   }
 };
 
-TEST_F(Streams, error_stream) {
-  data::ErrorStream es;
-  data::ErrorStreamPacket packet;
-
-  packet.source = data::Source::CONFIGURATION_MODULE;
-  packet.code = "123";
-  packet.info = "456";
-
-  es.addPacket(packet);
-
-  EXPECT_EQ(es.getNumPackets(), 1);
-  EXPECT_EQ(es.getTotalPackets(), 1);
-
-  data::ErrorStreamPacket packet_from_stream;
-  ASSERT_TRUE(es.getPacket(packet_from_stream));
-
-  EXPECT_EQ(es.getNumPackets(), 0);
-  EXPECT_EQ(es.getTotalPackets(), 1);
-
-  EXPECT_EQ(packet_from_stream.source, data::Source::CONFIGURATION_MODULE);
-  EXPECT_EQ(packet_from_stream.code, "123");
-  EXPECT_EQ(packet_from_stream.info, "456");
+TEST_F(ModuleTests, start_and_stop) {
+  BasicModule mod(streams);
+  mod.start();
+  std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+  mod.stop();
 }

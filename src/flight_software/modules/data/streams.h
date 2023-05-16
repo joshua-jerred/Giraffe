@@ -18,10 +18,7 @@
 
 namespace data {
 
-struct Streams {
-  data::DataStream &data_stream;
-  data::ErrorStream &error_stream;
-};
+
 
 enum class Source { NONE, CONFIGURATION_MODULE, DATA_MODULE };
 
@@ -37,12 +34,15 @@ struct BaseStreamPacket {
 template <class T>
 class Stream {
  public:
+  Stream() : packet_queue_() {}
+
   void addPacket(T packet) {
-    std::lock_guard<std::mutex> lock(stream_mutex_);
+    stream_mutex_.lock();
 
     packet_queue_.push(packet);
     current_packets_++;
     total_packets_++;
+    stream_mutex_.unlock();
   }
 
   bool getPacket(T &packet) {
@@ -77,7 +77,7 @@ class Stream {
   }
 
  private:
-  std::mutex stream_mutex_;
+  std::mutex stream_mutex_ = std::mutex();
   std::queue<T> packet_queue_;
 
   int current_packets_ = 0;
@@ -85,8 +85,8 @@ class Stream {
 };
 
 struct ErrorStreamPacket : public BaseStreamPacket {
-  std::string code;
-  std::string info;
+  std::string code = "";
+  std::string info = "";
 };
 
 class ErrorStream : public Stream<ErrorStreamPacket> {
@@ -103,8 +103,8 @@ class ErrorStream : public Stream<ErrorStreamPacket> {
 };
 
 struct DataStreamPacket : public BaseStreamPacket {
-  std::string identifier;
-  std::string value;
+  std::string identifier = "";
+  std::string value = "";
 };
 
 class DataStream : public Stream<DataStreamPacket> {
@@ -119,6 +119,12 @@ class DataStream : public Stream<DataStreamPacket> {
     addPacket(pkt);
   }
 };
+
+struct Streams {
+  data::DataStream data_stream = data::DataStream();
+  data::ErrorStream error_stream = data::ErrorStream();
+};
+
 }  // namespace data
 
 /**
