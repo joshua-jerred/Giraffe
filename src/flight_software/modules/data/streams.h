@@ -23,6 +23,10 @@ enum class Source { NONE, CONFIGURATION_MODULE, DATA_MODULE };
 struct BaseStreamPacket {
   data::Source source = data::Source::NONE;
   giraffe_time::TimePoint created_time = giraffe_time::TimePoint();
+
+  void resetTime() {
+    created_time = giraffe_time::TimePoint();
+  }
 };
 
 template <class T>
@@ -87,7 +91,7 @@ class ErrorStream : public Stream<ErrorStreamPacket> {
     pkt.source = source;
     pkt.code = code;
     pkt.info = info;
-    pkt.created_time = giraffe_time::Clock::now();
+    pkt.resetTime();
 
     addPacket(pkt);
   }

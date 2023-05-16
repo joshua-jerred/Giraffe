@@ -25,13 +25,52 @@ class Configuration_Class : public ::testing::Test {
   cfg::Configuration config = cfg::Configuration(es_);
 };
 
-TEST_F(Configuration_Class, General_SetsDefaults) {
+TEST_F(Configuration_Class, SetsDefaults) {
   cfg::General general = config.getGeneral();
-
   ASSERT_EQ(general.project_name, cfg::general::defaults::project_name);
   ASSERT_EQ(general.main_board_type, cfg::general::defaults::main_board);
   ASSERT_EQ(general.starting_procedure,
             cfg::general::defaults::starting_procedure);
+
+  cfg::Debug debug = config.getDebug();
+  ASSERT_EQ(debug.console_enabled, cfg::debug::defaults::console_enabled);
+  ASSERT_EQ(debug.console_update_interval,
+            cfg::debug::defaults::console_update_interval);
+  ASSERT_EQ(debug.print_errors, cfg::debug::defaults::print_errors);
+
+  cfg::Server server = config.getServer();
+  ASSERT_EQ(server.tcp_socket_port, cfg::server::defaults::tcp_socket_port);
+
+  cfg::Telemetry telem = config.getTelemetry();
+  ASSERT_EQ(telem.telemetry_enabled,
+            cfg::telemetry::defaults::telemetry_enabled);
+  ASSERT_EQ(telem.call_sign, cfg::telemetry::defaults::call_sign);
+
+  cfg::Aprs aprs = config.getAprs();
+  ASSERT_EQ(aprs.telemetry_packets, cfg::aprs::defaults::telemetry_packets);
+  ASSERT_EQ(aprs.position_packets, cfg::aprs::defaults::position_packets);
+  ASSERT_EQ(aprs.frequency.getFrequency(), cfg::aprs::defaults::frequency);
+  ASSERT_EQ(aprs.ssid, cfg::aprs::defaults::ssid);
+  ASSERT_EQ(aprs.destination_address, cfg::aprs::defaults::destination_address);
+  ASSERT_EQ(aprs.symbol_table, cfg::aprs::defaults::symbol_table);
+  ASSERT_EQ(aprs.symbol, cfg::aprs::defaults::symbol);
+  ASSERT_EQ(aprs.comment, cfg::aprs::defaults::comment);
+
+  cfg::Sstv sstv = config.getSstv();
+  ASSERT_EQ(sstv.enabled, cfg::sstv::defaults::enabled);
+  ASSERT_EQ(sstv.frequency.getFrequency(), cfg::sstv::defaults::frequency);
+  ASSERT_EQ(sstv.mode, cfg::sstv::defaults::mode);
+  ASSERT_EQ(sstv.overlay_data, cfg::sstv::defaults::overlay_data);
+
+  cfg::DataPackets data_packets = config.getDataPackets();
+
+  ASSERT_EQ(data_packets.enabled, cfg::data_packets::defaults::enabled);
+  ASSERT_EQ(data_packets.frequency.getFrequency(),
+            cfg::data_packets::defaults::frequency);
+  ASSERT_EQ(data_packets.mode, cfg::data_packets::defaults::mode);
+  ASSERT_EQ(data_packets.morse_call_sign,
+            cfg::data_packets::defaults::morse_call_sign);
+  ASSERT_EQ(data_packets.comment, cfg::data_packets::defaults::comment);
 }
 
 TEST_F(Configuration_Class, General_Setter_ProjectName_Valid) {
@@ -92,61 +131,4 @@ TEST_F(Configuration_Class, General_Setter_SetsValidFields) {
   ASSERT_EQ(updated_general.starting_procedure, new_general.starting_procedure);
 
   ASSERT_EQ(es_.getTotalPackets(), 1);
-}
-
-TEST_F(Configuration_Class, SetsDefaults_Debug) {
-  cfg::Debug debug = config.getDebug();
-
-  ASSERT_EQ(debug.console_enabled, cfg::debug::defaults::console_enabled);
-  ASSERT_EQ(debug.console_update_interval,
-            cfg::debug::defaults::console_update_interval);
-  ASSERT_EQ(debug.print_errors, cfg::debug::defaults::print_errors);
-}
-
-TEST_F(Configuration_Class, SetsDefaults_Server) {
-  cfg::Server server = config.getServer();
-
-  ASSERT_EQ(server.tcp_socket_port, cfg::server::defaults::tcp_socket_port);
-}
-
-TEST_F(Configuration_Class, SetsDefaults_Telemetry) {
-  cfg::Telemetry telem = config.getTelemetry();
-
-  ASSERT_EQ(telem.telemetry_enabled,
-            cfg::telemetry::defaults::telemetry_enabled);
-  ASSERT_EQ(telem.call_sign, cfg::telemetry::defaults::call_sign);
-}
-
-TEST_F(Configuration_Class, SetsDefaults_Aprs) {
-  cfg::Aprs aprs = config.getAprs();
-
-  ASSERT_EQ(aprs.telemetry_packets, cfg::aprs::defaults::telemetry_packets);
-  ASSERT_EQ(aprs.position_packets, cfg::aprs::defaults::position_packets);
-  ASSERT_EQ(aprs.frequency.getFrequency(), cfg::aprs::defaults::frequency);
-  ASSERT_EQ(aprs.ssid, cfg::aprs::defaults::ssid);
-  ASSERT_EQ(aprs.destination_address, cfg::aprs::defaults::destination_address);
-  ASSERT_EQ(aprs.symbol_table, cfg::aprs::defaults::symbol_table);
-  ASSERT_EQ(aprs.symbol, cfg::aprs::defaults::symbol);
-  ASSERT_EQ(aprs.comment, cfg::aprs::defaults::comment);
-}
-
-TEST_F(Configuration_Class, SetsDefaults_Sstv) {
-  cfg::Sstv sstv = config.getSstv();
-
-  ASSERT_EQ(sstv.enabled, cfg::sstv::defaults::enabled);
-  ASSERT_EQ(sstv.frequency.getFrequency(), cfg::sstv::defaults::frequency);
-  ASSERT_EQ(sstv.mode, cfg::sstv::defaults::mode);
-  ASSERT_EQ(sstv.overlay_data, cfg::sstv::defaults::overlay_data);
-}
-
-TEST_F(Configuration_Class, SetsDefaults_DataPackets) {
-  cfg::DataPackets data_packets = config.getDataPackets();
-
-  ASSERT_EQ(data_packets.enabled, cfg::data_packets::defaults::enabled);
-  ASSERT_EQ(data_packets.frequency.getFrequency(),
-            cfg::data_packets::defaults::frequency);
-  ASSERT_EQ(data_packets.mode, cfg::data_packets::defaults::mode);
-  ASSERT_EQ(data_packets.morse_call_sign,
-            cfg::data_packets::defaults::morse_call_sign);
-  ASSERT_EQ(data_packets.comment, cfg::data_packets::defaults::comment);
 }

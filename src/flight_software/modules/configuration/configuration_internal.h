@@ -19,15 +19,15 @@
 namespace cfg {
 
 class ConfigurationException : public GfsException {
-public:
+ public:
   ConfigurationException(std::string error_code, std::string info)
       : GfsException("M_CFG", error_code, info) {
   }
 };
 
 namespace file {
-void saveConfiguration(data::ErrorStream &es, cfg::Configuration &config, const std::string &file_path,
-                       bool overwrite = true);
+void saveConfiguration(data::ErrorStream &es, cfg::Configuration &config,
+                       const std::string &file_path, bool overwrite = true);
 void loadConfiguration(data::ErrorStream &es, cfg::Configuration &config,
                        const std::string &file_path);
 }  // namespace file
@@ -44,13 +44,27 @@ json aprsToJson(const cfg::Aprs &aprs_section);
 json sstvToJson(const cfg::Sstv &sstv_section);
 json dataPacketsToJson(const cfg::DataPackets &data_packets_section);
 
-bool jsonToGeneral(const json &json_data, cfg::General &general, std::string &error);
-bool jsonToDebug(const json &json_data, cfg::Debug &debug, std::string &error);
-bool jsonToServer(const json &json_data, cfg::Server &server, std::string &error);
-bool jsonToTelemetry(const json &json_data, cfg::Telemetry &telemetry, std::string &error);
-bool jsonToAprs(const json &json_data, cfg::Aprs &aprs, std::string &error);
-bool jsonToSstv(const json &json_data, cfg::Sstv &sstv, std::string &error);
-bool jsonToDataPackets(const json &json_data, cfg::DataPackets &data_packets, std::string &error);
+void jsonToGeneral(const json &json_data, cfg::General &general,
+                   data::ErrorStream &es, int &num_errors);
+
+void jsonToDebug(const json &json_data, cfg::Debug &debug,
+                 data::ErrorStream &es, int &num_errors);
+
+void jsonToServer(const json &json_data, cfg::Server &server,
+                 data::ErrorStream &es, int &num_errors);
+
+void jsonToTelemetry(const json &json_data, cfg::Telemetry &telemetry,
+                 data::ErrorStream &es, int &num_errors);
+
+void jsonToAprs(const json &json_data, cfg::Aprs &aprs,
+                 data::ErrorStream &es, int &num_errors);
+
+void jsonToSstv(const json &json_data, cfg::Sstv &sstv,
+                 data::ErrorStream &es, int &num_errors);
+
+void jsonToDataPackets(const json &json_data, cfg::DataPackets &data_packets,
+                 data::ErrorStream &es, int &num_errors);
+
 }  // namespace json
 
 namespace general {

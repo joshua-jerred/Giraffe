@@ -206,6 +206,10 @@ static const std::unordered_map<cfg::DataPackets::Mode, std::string>
         {cfg::DataPackets::Mode::QPSK500, "qpsk500"},
         {cfg::DataPackets::Mode::AFSK_AX25, "afsk_ax25"}};
 
+inline void reportError(data::ErrorStream &es, const std::string code, const std::string info) {
+  es.addError(data::Source::CONFIGURATION_MODULE, code, info);
+}
+
 };  // namespace cfg
 
 #endif

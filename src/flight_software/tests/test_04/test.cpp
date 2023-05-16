@@ -154,16 +154,7 @@ TEST_F(Configuration_File, savesChangedConfiguration) {
 
 TEST_F(Configuration_File, loadsChangedConfiguration) {
   cfg::Configuration config = cfg::Configuration(es_);
-  const std::string path = "config_to_load.json";
-
-  cfg::General new_general;
-  new_general.project_name = "New Project Name";
-  new_general.main_board_type = cfg::General::MainBoard::PI_4;
-  new_general.starting_procedure = cfg::Procedure::Type::ASCENT;
-
-  ASSERT_TRUE(config.setGeneral(new_general));
-
-  cfg::file::saveConfiguration(es_, config, path);
+  const std::string path = "changed_config.json";
 
   ASSERT_TRUE(std::filesystem::exists(path))
       << "File does not exist when it should.";
@@ -171,14 +162,37 @@ TEST_F(Configuration_File, loadsChangedConfiguration) {
   // Load in the same file
   cfg::Configuration new_config = cfg::Configuration(es_);
   cfg::file::loadConfiguration(es_, new_config, path);
-  cfg::General loaded_general = new_config.getGeneral();
 
-  EXPECT_EQ(loaded_general.project_name, new_general.project_name);
-  EXPECT_EQ(loaded_general.main_board_type, new_general.main_board_type);
-  EXPECT_EQ(loaded_general.starting_procedure, new_general.starting_procedure);
+  cfg::General gen = new_config.getGeneral();
+  EXPECT_EQ(gen.project_name, "New Project Name");
+  EXPECT_EQ(gen.main_board_type, cfg::General::MainBoard::PI_4);
+  EXPECT_EQ(gen.starting_procedure, cfg::Procedure::Type::ASCENT);
+
+  cfg::Debug dbg = new_config.getDebug();
+  EXPECT_EQ(dbg.console_enabled, true);
+  EXPECT_EQ(dbg.print_errors, true);
+  EXPECT_EQ(dbg.console_update_interval, 1100);
+
+  cfg::Server srv = new_config.getServer();
+  EXPECT_EQ(srv.tcp_socket_port, 7800);
+
+  cfg::Telemetry tlm = new_config.getTelemetry();
+  EXPECT_EQ(tlm.telemetry_enabled, true);
+
+  cfg::Aprs aprs = new_config.getAprs();
+  EXPECT_EQ(aprs.telemetry_packets, true);
+
+  cfg::Sstv sstv = new_config.getSstv();
+  EXPECT_EQ(sstv.enabled, true);
+
+  cfg::DataPackets data_packets = new_config.getDataPackets();
+  EXPECT_EQ(data_packets.enabled, true);
+
   EXPECT_EQ(es_.getTotalPackets(), 0);
 
   if (es_.getTotalPackets() != 0) {
+    std::cout << "Error stream packets: " << std::endl;
+
     data::ErrorStreamPacket pkt;
     es_.getPacket(pkt);
     std::cout << pkt << std::endl;

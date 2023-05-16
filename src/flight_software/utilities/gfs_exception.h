@@ -6,8 +6,8 @@
  * @copyright Copyright (c) 2023
  */
 
-#ifndef CONFIGURATION_EXCEPTION_H_
-#define CONFIGURATION_EXCEPTION_H_
+#ifndef GFS_EXCEPTION_H_
+#define GFS_EXCEPTION_H_
 
 #include <exception>
 #include <string>

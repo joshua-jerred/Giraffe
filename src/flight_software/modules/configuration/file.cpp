@@ -62,15 +62,85 @@ void cfg::file::loadConfiguration(data::ErrorStream &es,
                                       "while parsing the file: " + file_path);
   }
 
+  int num_errors = 0;
+
   if (valid_section(parsed, "general")) {
-    std::string error;
     cfg::General general = config.getGeneral();
-    
-    if (!cfg::json::jsonToGeneral(parsed["general"], general, error)) {
-      es.addError(data::Source::CONFIGURATION_MODULE, "LD_PE_GEN", error);
-    }
+    cfg::json::jsonToGeneral(parsed["general"], general, es, num_errors);
     config.setGeneral(general);
   } else {
     es.addError(data::Source::CONFIGURATION_MODULE, "LD_SNF_GEN");
   }
+
+  // if (valid_section(parsed, "debug")) {
+  //   std::string error;
+  //   cfg::Debug debug = config.getDebug();
+
+  //   if (!cfg::json::jsonToDebug(parsed["debug"], debug, error)) {
+  //     es.addError(data::Source::CONFIGURATION_MODULE, "LD_PE_DBG", error);
+  //   }
+  //   config.setDebug(debug);
+  // } else {
+  //   es.addError(data::Source::CONFIGURATION_MODULE, "LD_SNF_DBG");
+  // }
+
+  // if (valid_section(parsed, "server")) {
+  //   std::string error;
+  //   cfg::Server server = config.getServer();
+
+  //   if (!cfg::json::jsonToServer(parsed["server"], server, error)) {
+  //     es.addError(data::Source::CONFIGURATION_MODULE, "LD_PE_SRV", error);
+  //   }
+  //   config.setServer(server);
+  // } else {
+  //   es.addError(data::Source::CONFIGURATION_MODULE, "LD_SNF_SRV");
+  // }
+
+  // if (valid_section(parsed, "telemetry")) {
+  //   std::string error;
+  //   cfg::Telemetry telem = config.getTelemetry();
+
+  //   if (!cfg::json::jsonToTelemetry(parsed["telemetry"], telem, error)) {
+  //     es.addError(data::Source::CONFIGURATION_MODULE, "LD_PE_TLM", error);
+  //   }
+  //   config.setTelemetry(telem);
+  // } else {
+  //   es.addError(data::Source::CONFIGURATION_MODULE, "LD_SNF_TLM");
+  // }
+
+  // if (valid_section(parsed, "telemetry_aprs")) {
+  //   std::string error;
+  //   cfg::Aprs aprs = config.getAprs();
+
+  //   if (!cfg::json::jsonToAprs(parsed["telemetry_aprs"], aprs, error)) {
+  //     es.addError(data::Source::CONFIGURATION_MODULE, "LD_PE_APRS", error);
+  //   }
+  //   config.setAprs(aprs);
+  // } else {
+  //   es.addError(data::Source::CONFIGURATION_MODULE, "LD_SNF_APRS");
+  // }
+
+  // if (valid_section(parsed, "telemetry_sstv")) {
+  //   std::string error;
+  //   cfg::Sstv sstv = config.getSstv();
+
+  //   if (!cfg::json::jsonToSstv(parsed["telemetry_sstv"], sstv, error)) {
+  //     es.addError(data::Source::CONFIGURATION_MODULE, "LD_PE_SSTV", error);
+  //   }
+  //   config.setSstv(sstv);
+  // } else {
+  //   es.addError(data::Source::CONFIGURATION_MODULE, "LD_SNF_SSTV");
+  // }
+
+  // if (valid_section(parsed, "telemetry_data_packets")) {
+  //   std::string error;
+  //   cfg::DataPackets data_packets = config.getDataPackets();
+
+  //   if (!cfg::json::jsonToDataPackets(parsed["telemetry_data_packets"], data_packets, error)) {
+  //     es.addError(data::Source::CONFIGURATION_MODULE, "LD_PE_DATPKTS", error);
+  //   }
+  //   config.setDataPackets(data_packets);
+  // } else {
+  //   es.addError(data::Source::CONFIGURATION_MODULE, "LD_SNF_DATPKTS");
+  // }
 }

@@ -7,6 +7,9 @@
  * @copyright Copyright (c) 2023
  */
 
+#include <functional>
+#include <string>
+
 #include "configuration.h"
 #include "configuration_internal.h"
 
@@ -93,20 +96,96 @@ json cfg::json::dataPacketsToJson(
 
 // From JSON
 
-inline bool validString(const json &json_data, const std::string &key,
-                        std::string &error) {
+/**
+ * @brief This function validates a setting string or enum before setting it.
+ *
+ * @param es - The error stream
+ * @param json_data - The section of data that contains the key
+ * @param section - The name of this section, only used for error reporting
+ * @param key - The key related to the setting
+ * @param string_to_set - A reference to the actual string variable to update
+ * @param validator - A function specific to each setting. Validates the value.
+ * @param error_code_prefix - Used for errors only
+ * @param errors_accumulator - A integer to increment if there is an error
+ */
+void setValidString(
+    data::ErrorStream &es, const json &json_data, const std::string &section,
+    const std::string &key, std::string &string_to_set,
+    std::function<bool(const std::string &, std::string &)> validator,
+    const std::string &error_code_prefix, int &errors_accumulator) {
+  // Check if the setting key is in the json data
   if (!json_data.contains(key)) {
-    error += key + " not found in json data | ";
-    return false;
-  } else if (!json_data[key].is_string()) {
-    error += key + " is not a valid string/enum value | ";
-    return false;
+    cfg::reportError(es, error_code_prefix + "_NF",
+                     section + "[" + key + "] not found");
+    errors_accumulator++;
+    return;
   }
-  return true;
+
+  // Ensure that the value at this key is actually a string before reading
+  if (!json_data[key].is_string()) {
+    cfg::reportError(es, error_code_prefix + "_IT",
+                     section + "[" + key + "] has an invalid type");
+    errors_accumulator++;
+    return;
+  }
+
+  // read the value
+  std::string value = json_data[key].get<std::string>();
+
+  // call the validator function that was passed in
+  std::string error;
+  if (!validator(value, error)) {
+    cfg::reportError(es, error_code_prefix + "_VF",
+                     section + "[" + key + "] failed validation: " + error);
+    errors_accumulator++;
+    return;
+  }
+
+  // finally, set the value
+  string_to_set = value;
 }
 
-inline bool validInt(const json &json_data, const std::string &key,
-                     std::string &error) {
+template <typename T>
+void setValidEnum(
+    data::ErrorStream &es, const json &json_data, const std::string &section,
+    const std::string &key, T &value_to_set,
+    const std::unordered_map<std::string, T> string_to_value,
+    std::function<bool(const std::string &, std::string &)> validator,
+    const std::string &error_code_prefix, int &errors_accumulator) {
+  // Check if the setting key is in the json data
+  if (!json_data.contains(key)) {
+    cfg::reportError(es, error_code_prefix + "_NF",
+                     section + "[" + key + "] not found");
+    errors_accumulator++;
+    return;
+  }
+
+  // Ensure that the value at this key is actually a string before reading
+  if (!json_data[key].is_string()) {
+    cfg::reportError(es, error_code_prefix + "_IT",
+                     section + "[" + key + "] has an invalid type");
+    errors_accumulator++;
+    return;
+  }
+
+  // read the value
+  std::string value = json_data[key].get<std::string>();
+
+  // call the validator function that was passed in
+  std::string error;
+  if (!validator(value, error)) {
+    cfg::reportError(es, error_code_prefix + "_VF",
+                     section + "[" + key + "] failed validation: " + error);
+    errors_accumulator++;
+    return;
+  }
+
+  // finally, set the value with the string to enum value map
+  value_to_set = string_to_value.at(value);
+}
+
+inline bool setValidInt(const json &json_data, const std::string &key,
+                        std::string &error) {
   if (!json_data.contains(key)) {
     error += key + " not found in json data | ";
     return false;
@@ -117,97 +196,61 @@ inline bool validInt(const json &json_data, const std::string &key,
   return true;
 }
 
-inline bool validBool(const json &json_data, const std::string &key,
-                      std::string &error) {
+inline bool setValidBool(const json &json_data, const std::string &key,
+                         std::string &error, bool &bool_to_set) {
   if (!json_data.contains(key)) {
     error += key + " not found in json data | ";
     return false;
   } else if (!json_data[key].is_boolean()) {
     error += key + " is not a valid bool | ";
     return false;
+  } else {
+    bool_to_set = json_data[key].get<bool>();
   }
 
   return true;
 }
 
-bool cfg::json::jsonToGeneral(const json &json_data, cfg::General &general,
-                              std::string &error) {
-  error = "";
+void cfg::json::jsonToGeneral(const json &json_data, cfg::General &general,
+                              data::ErrorStream &es, int &num_errors) {
+  setValidString(es, json_data, "general", "project_name", general.project_name,
+                 &cfg::general::validators::projectName, "GEN_PN", num_errors);
 
-  if (validString(json_data, "project_name", error)) {
-    general.project_name = json_data["project_name"].get<std::string>();
-  }
+  setValidEnum(es, json_data, "general", "main_board", general.main_board_type,
+               cfg::kStringToMainBoard, &cfg::general::validators::mainBoard,
+               "GEN_PN", num_errors);
 
-  if (validString(json_data, "main_board", error)) {
-    std::string val = json_data["main_board"].get<std::string>();
-
-    if (cfg::general::validators::mainBoard(val, error)) {
-      general.main_board_type = cfg::kStringToMainBoard.at(val);
-    }
-  }
-
-  if (validString(json_data, "starting_procedure", error)) {
-    std::string val = json_data["starting_procedure"].get<std::string>();
-
-    if (cfg::general::validators::startingProcedure(val, error)) {
-      general.starting_procedure = cfg::kStringToProcedureType.at(val);
-    }
-  }
-
-  return error.empty();
+  setValidEnum(es, json_data, "general", "starting_procedure",
+               general.starting_procedure, cfg::kStringToProcedureType,
+               &cfg::general::validators::startingProcedure, "GEN_PN",
+               num_errors);
 }
 
-bool cfg::json::jsonToDebug(const json &json_data, cfg::Debug &debug,
-                            std::string &error) {
-  (void)json_data;
-  (void)debug;
-  (void)error;
+void cfg::json::jsonToDebug(const json &json_data, cfg::Debug &debug,
+                 data::ErrorStream &es, int &num_errors) {
+  //setValidBool(json_data, "console_enabled", error, debug.console_enabled);
+  //setValidBool(json_data, "print_errors", error, debug.print_errors);
 
-  return error.empty();
+  // int val = 0;
+  // if (validInt(json_data)) return error.empty();
 }
 
-bool cfg::json::jsonToServer(const json &json_data, cfg::Server &server,
-                             std::string &error) {
-  (void)json_data;
-  (void)server;
-  (void)error;
-
-  return error.empty();
+void jsonToServer(const json &json_data, cfg::Server &server,
+                  data::ErrorStream &es, int &num_errors) {
 }
 
-bool cfg::json::jsonToTelemetry(const json &json_data,
-                                cfg::Telemetry &telemetry, std::string &error) {
-  (void)json_data;
-  (void)telemetry;
-  (void)error;
-
-  return error.empty();
+void jsonToTelemetry(const json &json_data, cfg::Telemetry &telemetry,
+                     data::ErrorStream &es, int &num_errors) {
 }
 
-bool cfg::json::jsonToAprs(const json &json_data, cfg::Aprs &aprs,
-                           std::string &error) {
-  (void)json_data;
-  (void)aprs;
-  (void)error;
-
-  return error.empty();
+void jsonToAprs(const json &json_data, cfg::Aprs &aprs, data::ErrorStream &es,
+                int &num_errors) {
 }
 
-bool cfg::json::jsonToSstv(const json &json_data, cfg::Sstv &sstv,
-                           std::string &error) {
-  (void)json_data;
-  (void)sstv;
-  (void)error;
-
-  return error.empty();
+void jsonToSstv(const json &json_data, cfg::Sstv &sstv, data::ErrorStream &es,
+                int &num_errors) {
 }
 
-bool cfg::json::jsonToDataPackets(const json &json_data,
-                                  cfg::DataPackets &data_packets,
-                                  std::string &error) {
-  (void)json_data;
-  (void)data_packets;
-  (void)error;
-
-  return error.empty();
+void jsonToDataPackets(const json &json_data, cfg::DataPackets &data_packets,
+                       data::ErrorStream &es, int &num_errors) {
 }
