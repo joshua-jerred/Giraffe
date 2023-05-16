@@ -12,16 +12,16 @@
 #include <mutex>
 #include <queue>
 #include <string>
+#include <iostream>
 
 #include "time_types.h"
 
 namespace data {
-namespace streams {
 
 enum class Source { NONE, CONFIGURATION_MODULE, DATA_MODULE };
 
 struct BaseStreamPacket {
-  data::streams::Source source = data::streams::Source::NONE;
+  data::Source source = data::Source::NONE;
   giraffe_time::TimePoint created_time = giraffe_time::TimePoint();
 };
 
@@ -60,6 +60,13 @@ class Stream {
     return total_packets_;
   }
 
+  void reset() {
+    std::lock_guard<std::mutex> lock(stream_mutex_);
+    current_packets_ = 0;
+    total_packets_ = 0;
+    packet_queue_ = std::queue<T>();
+  }
+
  private:
   std::mutex stream_mutex_;
   std::queue<T> packet_queue_;
@@ -73,9 +80,23 @@ struct ErrorStreamPacket : public BaseStreamPacket {
   std::string info;
 };
 
-typedef Stream<ErrorStreamPacket> ErrorStream;
+class ErrorStream : public Stream<ErrorStreamPacket> {
+ public:
+  void addError(data::Source source, std::string code, std::string info = "") {
+    ErrorStreamPacket pkt;
+    pkt.source = source;
+    pkt.code = code;
+    pkt.info = info;
+    pkt.created_time = giraffe_time::Clock::now();
 
-}  // namespace streams
+    addPacket(pkt);
+  }
+};
 }  // namespace data
+
+/**
+ * @todo print source
+ */
+std::ostream& operator << (std::ostream& o, const data::ErrorStreamPacket& e);
 
 #endif

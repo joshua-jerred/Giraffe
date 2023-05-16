@@ -99,7 +99,7 @@ inline bool validString(const json &json_data, const std::string &key,
     error += key + " not found in json data | ";
     return false;
   } else if (!json_data[key].is_string()) {
-    error += key + " is not a valid string | ";
+    error += key + " is not a valid string/enum value | ";
     return false;
   }
   return true;
@@ -130,44 +130,29 @@ inline bool validBool(const json &json_data, const std::string &key,
   return true;
 }
 
-template <typename T>
-inline bool validEnum(
-    const json &json_data, const std::string &key, std::string &error,
-    const std::unordered_map<std::string, T> &string_to_enum) {
-  if (!json_data.contains(key)) {
-    error += key + " not found in json data | ";
-    return false;
-  } else if (!json_data[key].is_string()) {
-    error += key + " is not a valid string (enum value) | ";
-    return false;
-  }
-
-  std::string val = json_data[key].get<std::string>();
-
-  if (!string_to_enum.contains(key)) {
-    error += val + " not a valid value of " + key;
-    return false;
-  }
-
-  return true;
-}
-
 bool cfg::json::jsonToGeneral(const json &json_data, cfg::General &general,
                               std::string &error) {
   error = "";
 
-  if (validString(json_data, "project_name", error))
+  if (validString(json_data, "project_name", error)) {
     general.project_name = json_data["project_name"].get<std::string>();
-
-  if (validEnum(json_data, "main_board", error, cfg::kStringToMainBoard)) {
-    general.main_board_type =
-        cfg::kStringToMainBoard.at(json_data["main_board"].get<std::string>());
   }
 
-  if (validEnum(json_data, "starting_procedure", error,
-                cfg::kStringToProcedureType))
-    general.starting_procedure = cfg::kStringToProcedureType.at(
-        json_data["starting_procedure"].get<std::string>());
+  if (validString(json_data, "main_board", error)) {
+    std::string val = json_data["main_board"].get<std::string>();
+
+    if (cfg::general::validators::mainBoard(val, error)) {
+      general.main_board_type = cfg::kStringToMainBoard.at(val);
+    }
+  }
+
+  if (validString(json_data, "starting_procedure", error)) {
+    std::string val = json_data["starting_procedure"].get<std::string>();
+
+    if (cfg::general::validators::startingProcedure(val, error)) {
+      general.starting_procedure = cfg::kStringToProcedureType.at(val);
+    }
+  }
 
   return error.empty();
 }

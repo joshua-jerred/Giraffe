@@ -14,6 +14,7 @@
 
 #include "configuration.h"
 #include "gfs_exception.h"
+#include "streams.h"
 
 namespace cfg {
 
@@ -25,9 +26,9 @@ public:
 };
 
 namespace file {
-void saveConfiguration(cfg::Configuration &config, const std::string &file_path,
+void saveConfiguration(data::ErrorStream &es, cfg::Configuration &config, const std::string &file_path,
                        bool overwrite = true);
-void loadConfiguration(cfg::Configuration &config,
+void loadConfiguration(data::ErrorStream &es, cfg::Configuration &config,
                        const std::string &file_path);
 }  // namespace file
 

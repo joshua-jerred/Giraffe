@@ -7,14 +7,15 @@
  */
 
 #include <fstream>
+#include <iostream>
 #include <nlohmann/json.hpp>
 #include <string>
 #include <vector>
-#include <iostream>
 
 #include "configuration.h"
 #include "configuration_internal.h"
 #include "gtest/gtest.h"
+#include "streams.h"
 
 using json = nlohmann::ordered_json;
 
@@ -32,11 +33,13 @@ class Configuration_Json : public ::testing::Test {
   }
 
   virtual void SetUp() {
+    es_.reset();
   }
   virtual void TearDown() {
   }
 
-  cfg::Configuration config_;
+  data::ErrorStream es_;
+  cfg::Configuration config_ = cfg::Configuration(es_);
 };
 
 testing::AssertionResult HAS_SETTINGS(const json &section_metadata,
@@ -61,7 +64,8 @@ TEST_F(Configuration_Json, sectionToJson) {
   ASSERT_TRUE(HAS_SETTINGS(gMetaData["server"],
                            cfg::json::serverToJson(config_.getServer()), 1));
   ASSERT_TRUE(HAS_SETTINGS(gMetaData["telemetry"],
-                           cfg::json::telemetryToJson(config_.getTelemetry()), 2));
+                           cfg::json::telemetryToJson(config_.getTelemetry()),
+                           2));
   ASSERT_TRUE(HAS_SETTINGS(gMetaData["telemetry_aprs"],
                            cfg::json::aprsToJson(config_.getAprs()), 9));
   ASSERT_TRUE(HAS_SETTINGS(gMetaData["telemetry_sstv"],
@@ -74,6 +78,7 @@ TEST_F(Configuration_Json, sectionToJson) {
 TEST_F(Configuration_Json, allToJson) {
   json all = cfg::json::allToJson(config_);
   for (auto &[key, val] : gMetaData.items()) {
-    EXPECT_TRUE(all.contains(key)) << "The JSON does not contain the key: " << key;
+    EXPECT_TRUE(all.contains(key))
+        << "The JSON does not contain the key: " << key;
   }
 }

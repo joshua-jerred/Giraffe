@@ -10,7 +10,7 @@
 
 #include "configuration_internal.h"
 
-cfg::Configuration::Configuration() {
+cfg::Configuration::Configuration(data::ErrorStream &es): es_(es) {
   config_lock_.lock();
 
   general_.project_name = cfg::general::defaults::project_name;
@@ -55,13 +55,15 @@ cfg::Configuration::~Configuration() {
   config_lock_.unlock();
 }
 
-bool cfg::Configuration::setGeneral(const cfg::General &general, std::string &error) {
+bool cfg::Configuration::setGeneral(const cfg::General &general) {
   bool error_free = true;
 
   config_lock_.lock();
 
+  std::string error;
   if (!cfg::general::validators::projectName(general.project_name, error)) {
     error_free = false;
+    reportError("ST_GEN_PN", error);
   } else {
     general_.project_name = general.project_name;
   }
@@ -81,9 +83,7 @@ cfg::General cfg::Configuration::getGeneral() {
   return ret;
 }
 
-bool cfg::Configuration::setDebug(const cfg::Debug &debug, std::string &error) {
-  (void) error;
-
+bool cfg::Configuration::setDebug(const cfg::Debug &debug) {
   config_lock_.lock();
   debug_ = debug;
   config_lock_.unlock();
@@ -97,8 +97,11 @@ cfg::Debug cfg::Configuration::getDebug() {
   return ret;
 }
 
-bool cfg::Configuration::setServer(const cfg::Server &server, std::string &error) {
-  cfg::server::validators::tcpSocketPort(server.tcp_socket_port, error);
+bool cfg::Configuration::setServer(const cfg::Server &server) {
+  std::string error;
+  if (!cfg::server::validators::tcpSocketPort(server.tcp_socket_port, error)) {
+    reportError("ST_SRV_TSP", error);
+  }
 
   config_lock_.lock();
   server_ = server;
@@ -113,7 +116,7 @@ cfg::Server cfg::Configuration::getServer() {
   return ret;
 }
 
-bool cfg::Configuration::setTelemetry(const cfg::Telemetry &telemetry, std::string &error) {
+bool cfg::Configuration::setTelemetry(const cfg::Telemetry &telemetry) {
   config_lock_.lock();
   telemetry_ = telemetry;
   config_lock_.unlock();
@@ -127,7 +130,7 @@ cfg::Telemetry cfg::Configuration::getTelemetry() {
   return ret;
 }
 
-bool cfg::Configuration::setAprs(const cfg::Aprs &aprs, std::string &error) {
+bool cfg::Configuration::setAprs(const cfg::Aprs &aprs) {
   config_lock_.lock();
   aprs_ = aprs;
   config_lock_.unlock();
@@ -141,7 +144,7 @@ cfg::Aprs cfg::Configuration::getAprs() {
   return ret;
 }
 
-bool cfg::Configuration::setSstv(const cfg::Sstv &sstv, std::string &error) {
+bool cfg::Configuration::setSstv(const cfg::Sstv &sstv) {
   config_lock_.lock();
   sstv_ = sstv;
   config_lock_.unlock();
@@ -155,7 +158,7 @@ cfg::Sstv cfg::Configuration::getSstv() {
   return ret;
 }
 
-bool cfg::Configuration::setDataPackets(const cfg::DataPackets &data_packets, std::string &error) {
+bool cfg::Configuration::setDataPackets(const cfg::DataPackets &data_packets) {
   config_lock_.lock();
   data_packets_ = data_packets;
   config_lock_.unlock();
@@ -167,4 +170,8 @@ cfg::DataPackets cfg::Configuration::getDataPackets() {
   cfg::DataPackets ret = data_packets_;
   config_lock_.unlock();
   return ret;
+}
+
+void cfg::Configuration::reportError(std::string code, std::string info) {
+  es_.addError(data::Source::CONFIGURATION_MODULE, code, info);
 }

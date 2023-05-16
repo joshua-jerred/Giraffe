@@ -7,3 +7,8 @@
  */
 
 #include "streams.h"
+
+std::ostream& operator<<(std::ostream& o, const data::ErrorStreamPacket& e) {
+  o << "\tError Code: " << e.code << "\t Info: " << e.info << std::endl;
+  return o;
+}

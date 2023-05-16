@@ -20,22 +20,25 @@ class Streams : public ::testing::Test {
 };
 
 TEST_F(Streams, error_stream) {
-  data::streams::ErrorStream es;
-  data::streams::ErrorStreamPacket packet;
+  data::ErrorStream es;
+  data::ErrorStreamPacket packet;
 
-  packet.source = data::streams::Source::CONFIGURATION_MODULE;
+  packet.source = data::Source::CONFIGURATION_MODULE;
   packet.code = "123";
   packet.info = "456";
 
   es.addPacket(packet);
 
-  ASSERT_EQ(es.getNumPackets(), 1);
-  ASSERT_EQ(es.getTotalPackets(), 1);
+  EXPECT_EQ(es.getNumPackets(), 1);
+  EXPECT_EQ(es.getTotalPackets(), 1);
 
-  data::streams::ErrorStreamPacket packet_from_stream;
+  data::ErrorStreamPacket packet_from_stream;
   ASSERT_TRUE(es.getPacket(packet_from_stream));
 
-  ASSERT_EQ(packet_from_stream.source, data::streams::Source::CONFIGURATION_MODULE);
-  ASSERT_EQ(packet_from_stream.code, "123");
-  ASSERT_EQ(packet_from_stream.info, "456");
+  EXPECT_EQ(es.getNumPackets(), 0);
+  EXPECT_EQ(es.getTotalPackets(), 1);
+
+  EXPECT_EQ(packet_from_stream.source, data::Source::CONFIGURATION_MODULE);
+  EXPECT_EQ(packet_from_stream.code, "123");
+  EXPECT_EQ(packet_from_stream.info, "456");
 }

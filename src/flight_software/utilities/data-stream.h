@@ -50,7 +50,7 @@ struct ErrorStreamPacket {
   std::string info = "";
   std::time_t expiration_time = 0;
 };
-std::ostream& operator<<(std::ostream& o, const ErrorStreamPacket& e);
+//std::ostream& operator<<(std::ostream& o, const ErrorStreamPacket& e);
 
 typedef std::unordered_map<std::string, DataStreamPacket> DataFrame;
 typedef std::unordered_map<std::string, ErrorStreamPacket> ErrorFrame;

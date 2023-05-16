@@ -14,6 +14,8 @@
 #include <unordered_map>
 #include <vector>
 
+#include "streams.h"
+
 namespace cfg {
 
 struct Procedure {
@@ -122,35 +124,38 @@ struct DataPackets {
 
 class Configuration {
  public:
-  Configuration();
+  Configuration(data::ErrorStream &es);
   ~Configuration();
 
-  bool setGeneral(const cfg::General &general, std::string &error);
+  bool setGeneral(const cfg::General &general);
   cfg::General getGeneral();
 
-  bool setDebug(const cfg::Debug &interface, std::string &error);
+  bool setDebug(const cfg::Debug &interface);
   cfg::Debug getDebug();
 
-  bool setServer(const cfg::Server &server, std::string &error);
+  bool setServer(const cfg::Server &server);
   cfg::Server getServer();
 
-  bool setTelemetry(const cfg::Telemetry &telemetry, std::string &error);
+  bool setTelemetry(const cfg::Telemetry &telemetry);
   cfg::Telemetry getTelemetry();
 
-  bool setAprs(const cfg::Aprs &aprs, std::string &error);
+  bool setAprs(const cfg::Aprs &aprs);
   cfg::Aprs getAprs();
 
-  bool setSstv(const cfg::Sstv &sstv, std::string &error);
+  bool setSstv(const cfg::Sstv &sstv);
   cfg::Sstv getSstv();
 
-  bool setDataPackets(const cfg::DataPackets &data_packets, std::string &error);
+  bool setDataPackets(const cfg::DataPackets &data_packets);
   cfg::DataPackets getDataPackets();
 
  private:
+  void reportError(std::string code, std::string info = "");
+
+  data::ErrorStream &es_;
+
   cfg::General general_;
   cfg::Debug debug_;
   cfg::Server server_;
-
   cfg::Telemetry telemetry_;
   cfg::Aprs aprs_;
   cfg::Sstv sstv_;

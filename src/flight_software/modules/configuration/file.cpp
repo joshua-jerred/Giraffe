@@ -11,10 +11,12 @@
 
 #include "configuration.h"
 #include "configuration_internal.h"
+#include "streams.h"
 
 using json = nlohmann::ordered_json;
 
-void cfg::file::saveConfiguration(cfg::Configuration &config,
+void cfg::file::saveConfiguration(data::ErrorStream &es,
+                                  cfg::Configuration &config,
                                   const std::string &file_path,
                                   bool overwrite) {
   if (!overwrite && std::filesystem::exists(file_path)) {
@@ -31,11 +33,14 @@ void cfg::file::saveConfiguration(cfg::Configuration &config,
   out << data;
 }
 
-inline bool valid_section(const json &config_json, const std::string &section_key) {
-  return config_json.contains(section_key) && config_json[section_key].is_object();
+inline bool valid_section(const json &config_json,
+                          const std::string &section_key) {
+  return config_json.contains(section_key) &&
+         config_json[section_key].is_object();
 }
 
-void cfg::file::loadConfiguration(cfg::Configuration &config,
+void cfg::file::loadConfiguration(data::ErrorStream &es,
+                                  cfg::Configuration &config,
                                   const std::string &file_path) {
   using json = nlohmann::ordered_json;
 
@@ -58,7 +63,14 @@ void cfg::file::loadConfiguration(cfg::Configuration &config,
   }
 
   if (valid_section(parsed, "general")) {
-
+    std::string error;
+    cfg::General general = config.getGeneral();
+    
+    if (!cfg::json::jsonToGeneral(parsed["general"], general, error)) {
+      es.addError(data::Source::CONFIGURATION_MODULE, "LD_PE_GEN", error);
+    }
+    config.setGeneral(general);
+  } else {
+    es.addError(data::Source::CONFIGURATION_MODULE, "LD_SNF_GEN");
   }
-
 }

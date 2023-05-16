@@ -11,15 +11,18 @@
 #include "configuration.h"
 #include "configuration_internal.h"
 #include "gtest/gtest.h"
+#include "streams.h"
 
 class Configuration_Class : public ::testing::Test {
  protected:
   virtual void SetUp() {
+    es_.reset();
   }
   virtual void TearDown() {
   }
 
-  cfg::Configuration config;
+  data::ErrorStream es_;
+  cfg::Configuration config = cfg::Configuration(es_);
 };
 
 TEST_F(Configuration_Class, General_SetsDefaults) {
@@ -27,62 +30,55 @@ TEST_F(Configuration_Class, General_SetsDefaults) {
 
   ASSERT_EQ(general.project_name, cfg::general::defaults::project_name);
   ASSERT_EQ(general.main_board_type, cfg::general::defaults::main_board);
-  ASSERT_EQ(general.starting_procedure, cfg::general::defaults::starting_procedure);
+  ASSERT_EQ(general.starting_procedure,
+            cfg::general::defaults::starting_procedure);
 }
 
 TEST_F(Configuration_Class, General_Setter_ProjectName_Valid) {
   const std::vector<std::string> valid_names = {
-      "Project Name",
-      "Another Project Name",
-      "valid-project-name"};
+      "Project Name", "Another Project Name", "valid-project-name"};
 
   cfg::General default_general = config.getGeneral();
   for (const std::string &project_name : valid_names) {
-    std::string error = "";
-
     cfg::General new_general = default_general;
     new_general.project_name = project_name;
-    bool set = config.setGeneral(new_general, error);
+    bool set = config.setGeneral(new_general);
     cfg::General current_general = config.getGeneral();
 
     ASSERT_TRUE(set) << "Setter reported that it did not set the value!";
     ASSERT_EQ(project_name, current_general.project_name);
-    ASSERT_EQ(error, "");
+    ASSERT_EQ(es_.getTotalPackets(), 0);
   }
 }
 
 TEST_F(Configuration_Class, General_Setter_ProjectName_Invalid) {
-  const std::vector<std::string> invalid_names = {
-      " illegal name",
-      "bad : character",
-      ""};
+  const std::vector<std::string> invalid_names = {" illegal name",
+                                                  "bad : character", ""};
 
   cfg::General default_general = config.getGeneral();
   for (const std::string &project_name : invalid_names) {
-    std::string error;
-
     cfg::General new_general = default_general;
     new_general.project_name = project_name;
-    bool set = config.setGeneral(new_general, error);
+    bool set = config.setGeneral(new_general);
     cfg::General current_general = config.getGeneral();
 
-    ASSERT_FALSE(set) << "Setter reported that it did set the illegal value: " << project_name;
+    ASSERT_FALSE(set) << "Setter reported that it did set the illegal value: "
+                      << project_name;
     ASSERT_NE(project_name, current_general.project_name);
     ASSERT_EQ(default_general.project_name, current_general.project_name);
-    ASSERT_NE(error, "");
+    ASSERT_EQ(es_.getTotalPackets(), 1);
+    es_.reset();
   }
 }
 
 TEST_F(Configuration_Class, General_Setter_SetsValidFields) {
-  std::string error;
-
   cfg::General initial_config = config.getGeneral();
   cfg::General new_general;
   new_general.project_name = "  Invalid Name";
   new_general.main_board_type = cfg::General::MainBoard::PI_4;
   new_general.starting_procedure = cfg::Procedure::Type::TESTING;
 
-  config.setGeneral(new_general, error);
+  config.setGeneral(new_general);
   cfg::General updated_general = config.getGeneral();
 
   // Verify that the new general contains different values from the current ones
@@ -94,13 +90,16 @@ TEST_F(Configuration_Class, General_Setter_SetsValidFields) {
   ASSERT_NE(updated_general.project_name, new_general.project_name);
   ASSERT_EQ(updated_general.main_board_type, new_general.main_board_type);
   ASSERT_EQ(updated_general.starting_procedure, new_general.starting_procedure);
+
+  ASSERT_EQ(es_.getTotalPackets(), 1);
 }
 
 TEST_F(Configuration_Class, SetsDefaults_Debug) {
   cfg::Debug debug = config.getDebug();
 
   ASSERT_EQ(debug.console_enabled, cfg::debug::defaults::console_enabled);
-  ASSERT_EQ(debug.console_update_interval, cfg::debug::defaults::console_update_interval);
+  ASSERT_EQ(debug.console_update_interval,
+            cfg::debug::defaults::console_update_interval);
   ASSERT_EQ(debug.print_errors, cfg::debug::defaults::print_errors);
 }
 
@@ -113,7 +112,8 @@ TEST_F(Configuration_Class, SetsDefaults_Server) {
 TEST_F(Configuration_Class, SetsDefaults_Telemetry) {
   cfg::Telemetry telem = config.getTelemetry();
 
-  ASSERT_EQ(telem.telemetry_enabled, cfg::telemetry::defaults::telemetry_enabled);
+  ASSERT_EQ(telem.telemetry_enabled,
+            cfg::telemetry::defaults::telemetry_enabled);
   ASSERT_EQ(telem.call_sign, cfg::telemetry::defaults::call_sign);
 }
 
@@ -143,8 +143,10 @@ TEST_F(Configuration_Class, SetsDefaults_DataPackets) {
   cfg::DataPackets data_packets = config.getDataPackets();
 
   ASSERT_EQ(data_packets.enabled, cfg::data_packets::defaults::enabled);
-  ASSERT_EQ(data_packets.frequency.getFrequency(), cfg::data_packets::defaults::frequency);
+  ASSERT_EQ(data_packets.frequency.getFrequency(),
+            cfg::data_packets::defaults::frequency);
   ASSERT_EQ(data_packets.mode, cfg::data_packets::defaults::mode);
-  ASSERT_EQ(data_packets.morse_call_sign, cfg::data_packets::defaults::morse_call_sign);
+  ASSERT_EQ(data_packets.morse_call_sign,
+            cfg::data_packets::defaults::morse_call_sign);
   ASSERT_EQ(data_packets.comment, cfg::data_packets::defaults::comment);
 }
