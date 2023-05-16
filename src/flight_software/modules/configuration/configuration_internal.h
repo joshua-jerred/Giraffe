@@ -17,10 +17,11 @@
 namespace cfg {
 
 namespace file {
-bool saveConfiguration(cfg::Configuration &config,
-                       const std::string &file_path, 
+void saveConfiguration(cfg::Configuration &config, const std::string &file_path,
                        bool overwrite = true);
-}
+void loadConfiguration(cfg::Configuration &config,
+                       const std::string &file_path);
+}  // namespace file
 
 namespace json {
 using json = nlohmann::ordered_json;

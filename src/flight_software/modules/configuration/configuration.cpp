@@ -31,6 +31,7 @@ cfg::Configuration::Configuration() {
   aprs_.frequency.setFrequency(cfg::aprs::defaults::frequency);
   aprs_.ssid = cfg::aprs::defaults::ssid;
   aprs_.destination_address = cfg::aprs::defaults::destination_address;
+  aprs_.destination_ssid = cfg::aprs::defaults::destination_ssid;
   aprs_.symbol_table = cfg::aprs::defaults::symbol_table;
   aprs_.symbol = cfg::aprs::defaults::symbol;
   aprs_.comment = cfg::aprs::defaults::comment;

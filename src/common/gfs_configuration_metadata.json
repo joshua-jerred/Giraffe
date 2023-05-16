@@ -148,10 +148,10 @@
         "symbol_table": {
             "type": "enum",
             "name": "APRS Symbol Table",
-            "description": "The symbol table that will be used. `/` is the primary table and `\\` is the alternate table. See the APRS specification for more information.",
+            "description": "The symbol table that will be used. See the APRS specification for more information.",
             "options": [
-                "/",
-                "\\"
+                "primary",
+                "alternate"
             ],
             "default": "/"
         },

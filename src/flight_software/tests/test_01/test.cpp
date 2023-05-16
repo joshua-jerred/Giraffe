@@ -12,7 +12,7 @@
 #include "configuration_internal.h"
 #include "gtest/gtest.h"
 
-class ConfigurationValidators : public ::testing::Test {
+class Configuration_Validators : public ::testing::Test {
  protected:
   virtual void SetUp() {
     error = "";
@@ -23,7 +23,7 @@ class ConfigurationValidators : public ::testing::Test {
   std::string error;
 };
 
-TEST_F(ConfigurationValidators, General_projectName) {
+TEST_F(Configuration_Validators, General_projectName) {
   std::vector<std::string> valid_inputs = {
       "a",
       "b",
@@ -49,7 +49,7 @@ TEST_F(ConfigurationValidators, General_projectName) {
   }
 }
 
-TEST_F(ConfigurationValidators, General_mainBoard) {
+TEST_F(Configuration_Validators, General_mainBoard) {
   std::vector<std::string> valid_inputs = {
       "other",
       "pi_zero_w_2",
@@ -71,7 +71,7 @@ TEST_F(ConfigurationValidators, General_mainBoard) {
   }
 }
 
-TEST_F(ConfigurationValidators, General_startingProcedure) {
+TEST_F(Configuration_Validators, General_startingProcedure) {
   std::vector<std::string> valid_inputs = {
       "testing",
       "pre_launch",
@@ -96,7 +96,7 @@ TEST_F(ConfigurationValidators, General_startingProcedure) {
   }
 }
 
-TEST_F(ConfigurationValidators, Interface_consoleUpdateInterval) {
+TEST_F(Configuration_Validators, Interface_consoleUpdateInterval) {
   std::vector<int> valid_inputs = {100, 200, 300, 400, 500, 1000, 5000, 10000};
   for (int input : valid_inputs) {
     if (!cfg::debug::validators::consoleUpdateInterval(input, error)) {
@@ -110,7 +110,7 @@ TEST_F(ConfigurationValidators, Interface_consoleUpdateInterval) {
   }
 }
 
-TEST_F(ConfigurationValidators, Server_tcpSocketPortNumber) {
+TEST_F(Configuration_Validators, Server_tcpSocketPortNumber) {
   std::vector<int> valid_inputs = {1024, 65535, 2000, 2512, 8291, 5000, 10000};
   for (int input : valid_inputs) {
     if (!cfg::server::validators::tcpSocketPort(input, error)) {
@@ -124,7 +124,7 @@ TEST_F(ConfigurationValidators, Server_tcpSocketPortNumber) {
   }
 }
 
-TEST_F(ConfigurationValidators, Telemetry_CallSign) {
+TEST_F(Configuration_Validators, Telemetry_CallSign) {
   std::vector<std::string> valid_inputs = {
       "A4X",
       "A2AA",
@@ -147,7 +147,7 @@ TEST_F(ConfigurationValidators, Telemetry_CallSign) {
   }
 }
 
-TEST_F(ConfigurationValidators, Telemetry_Frequency) {
+TEST_F(Configuration_Validators, Telemetry_Frequency) {
   std::vector<std::string> valid_inputs = {
       "000.0000",
       "999.9999",
@@ -169,7 +169,7 @@ TEST_F(ConfigurationValidators, Telemetry_Frequency) {
   }
 }
 
-TEST_F(ConfigurationValidators, APRS_SSID) {
+TEST_F(Configuration_Validators, APRS_SSID) {
   std::vector<int> valid_inputs = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
   for (int input : valid_inputs) {
     if (!cfg::aprs::validators::ssid(input, error)) {
@@ -186,7 +186,7 @@ TEST_F(ConfigurationValidators, APRS_SSID) {
 /**
  * @todo APRS Symbol CFG Validator unit test. Update with symbol pattern.
  */
-TEST_F(ConfigurationValidators, APRS_Symbol) {
+TEST_F(Configuration_Validators, APRS_Symbol) {
   std::vector<std::string> valid_inputs = {
       "a",
       "b",
@@ -212,7 +212,7 @@ TEST_F(ConfigurationValidators, APRS_Symbol) {
 /**
  * @todo APRS Comment CFG Validator unit test. Update with pattern.
  */
-TEST_F(ConfigurationValidators, APRS_Comment) {
+TEST_F(Configuration_Validators, APRS_Comment) {
   std::vector<std::string> valid_inputs = {
       "this is a comment",
       "",
@@ -231,7 +231,7 @@ TEST_F(ConfigurationValidators, APRS_Comment) {
   }
 }
 
-TEST_F(ConfigurationValidators, SSTV_Mode) {
+TEST_F(Configuration_Validators, SSTV_Mode) {
   std::vector<std::string> valid_inputs = {
       "robot36"
   };
@@ -251,7 +251,7 @@ TEST_F(ConfigurationValidators, SSTV_Mode) {
   }
 }
 
-TEST_F(ConfigurationValidators, DataPackets_Mode) {
+TEST_F(Configuration_Validators, DataPackets_Mode) {
   std::vector<std::string> valid_inputs = {
       "bpsk125",
       "bpsk250",
@@ -279,7 +279,7 @@ TEST_F(ConfigurationValidators, DataPackets_Mode) {
 /**
  * @todo Data Packets Comment CFG Validator unit test. Update with pattern.
  */
-TEST_F(ConfigurationValidators, DataPackets_Comment) {
+TEST_F(Configuration_Validators, DataPackets_Comment) {
   std::vector<std::string> valid_inputs = {
       "this is a comment",
       "",

@@ -21,7 +21,7 @@ using json = nlohmann::ordered_json;
 const std::string meta_data_path = "./gfs_configuration_metadata.json";
 json gMetaData;
 
-class ConfigurationJson : public ::testing::Test {
+class Configuration_Json : public ::testing::Test {
  protected:
   static void SetUpTestSuite() {
     std::ifstream fs(meta_data_path);
@@ -53,7 +53,7 @@ testing::AssertionResult HAS_SETTINGS(const json &section_metadata,
   return testing::AssertionSuccess();
 }
 
-TEST_F(ConfigurationJson, sectionToJson) {
+TEST_F(Configuration_Json, sectionToJson) {
   ASSERT_TRUE(HAS_SETTINGS(gMetaData["general"],
                            cfg::json::generalToJson(config_.getGeneral()), 3));
   ASSERT_TRUE(HAS_SETTINGS(gMetaData["debug"],
@@ -71,7 +71,7 @@ TEST_F(ConfigurationJson, sectionToJson) {
                    cfg::json::dataPacketsToJson(config_.getDataPackets()), 5));
 }
 
-TEST_F(ConfigurationJson, allToJson) {
+TEST_F(Configuration_Json, allToJson) {
   json all = cfg::json::allToJson(config_);
   for (auto &[key, val] : gMetaData.items()) {
     EXPECT_TRUE(all.contains(key)) << "The JSON does not contain the key: " << key;

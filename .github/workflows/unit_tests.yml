@@ -22,7 +22,7 @@ jobs:
         with:
           submodules: recursive
 
-  setup-configure:
+  cmake_configure:
     name: CMake Configure
     needs: ["setup-pull"]
     runs-on: self-hosted
@@ -34,7 +34,7 @@ jobs:
     name: Common / GFS Configuration Scheme
     env:
       TEST_NAME: "common_01_gfs_configuration_scheme"
-    needs: ["setup-configure"]
+    needs: ["cmake_configure"]
     runs-on: self-hosted
     steps:
       - name: Build Test
@@ -47,7 +47,7 @@ jobs:
     env:
       TEST_NAME: "gfs_01_configuration_validators"
       TEST_ID: "test_01"
-    needs: ["setup-configure"]
+    needs: ["cmake_configure"]
     runs-on: self-hosted
     steps:
       - name: Build Test
@@ -60,7 +60,7 @@ jobs:
     env:
       TEST_NAME: "gfs_02_configuration_class"
       TEST_ID: "test_02"
-    needs: ["setup-configure", "gfs-test-01"]
+    needs: ["cmake_configure", "gfs-test-01"]
     runs-on: self-hosted
     steps:
       - name: Build Test
@@ -86,6 +86,19 @@ jobs:
     env:
       TEST_NAME: "gfs_04_configuration_file"
       TEST_ID: "test_04"
+    needs: ["gfs-test-03"]
+    runs-on: self-hosted
+    steps:
+      - name: Build Test
+        run: $GFS_BUILD
+      - name: Run Test
+        run: $GFS_RUN
+
+  gfs-test-05:
+    name: GFS / Exception
+    env:
+      TEST_NAME: "cmake_configure"
+      TEST_ID: "test_05"
     needs: ["gfs-test-03"]
     runs-on: self-hosted
     steps:

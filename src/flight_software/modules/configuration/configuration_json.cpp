@@ -27,8 +27,8 @@ json cfg::json::allToJson(cfg::Configuration &cfg) {
 
 json cfg::json::generalToJson(const cfg::General &general_section) {
   json data({{"project_name", general_section.project_name},
-             {"main_board", general_section.main_board_type},
-             {"starting_procedure", general_section.starting_procedure}});
+             {"main_board", cfg::kMainBoardToString.at(general_section.main_board_type)},
+             {"starting_procedure", cfg::kProcedureTypeToString.at(general_section.starting_procedure)}});
   return data;
 }
 
@@ -58,8 +58,8 @@ json cfg::json::aprsToJson(const cfg::Aprs &aprs_section) {
              {"ssid", aprs_section.ssid},
              {"destination_address", aprs_section.destination_address},
              {"destination_ssid", aprs_section.destination_ssid},
-             {"symbol_table", aprs_section.symbol_table},
-             {"symbol", aprs_section.symbol},
+             {"symbol_table", cfg::kAprsSymbolTable.at(aprs_section.symbol_table)},
+             {"symbol", std::string(1, aprs_section.symbol)},
              {"comment", aprs_section.comment}});
   return data;
 }
@@ -68,7 +68,7 @@ json cfg::json::sstvToJson(const cfg::Sstv &sstv_section) {
   json data({
       {"enabled", sstv_section.enabled},
       {"frequency", sstv_section.frequency.getFrequency()},
-      {"mode", sstv_section.mode},
+      {"mode", cfg::kSstvModeToString.at(sstv_section.mode)},
       {"overlay_data", sstv_section.overlay_data},
   });
   return data;
@@ -79,7 +79,7 @@ json cfg::json::dataPacketsToJson(
   json data({
       {"enabled", data_packets_section.enabled},
       {"frequency", data_packets_section.frequency.getFrequency()},
-      {"mode", data_packets_section.mode},
+      {"mode", cfg::kDataPacketsModeToString.at(data_packets_section.mode)},
       {"morse_call_sign", data_packets_section.morse_call_sign},
       {"comment", data_packets_section.comment},
   });

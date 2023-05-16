@@ -12,7 +12,7 @@
 #include "configuration_internal.h"
 #include "gtest/gtest.h"
 
-class ConfigurationClass : public ::testing::Test {
+class Configuration_Class : public ::testing::Test {
  protected:
   virtual void SetUp() {
   }
@@ -22,7 +22,7 @@ class ConfigurationClass : public ::testing::Test {
   cfg::Configuration config;
 };
 
-TEST_F(ConfigurationClass, General_SetsDefaults) {
+TEST_F(Configuration_Class, General_SetsDefaults) {
   cfg::General general = config.getGeneral();
 
   ASSERT_EQ(general.project_name, cfg::general::defaults::project_name);
@@ -30,7 +30,7 @@ TEST_F(ConfigurationClass, General_SetsDefaults) {
   ASSERT_EQ(general.starting_procedure, cfg::general::defaults::starting_procedure);
 }
 
-TEST_F(ConfigurationClass, General_Setter_ProjectName_Valid) {
+TEST_F(Configuration_Class, General_Setter_ProjectName_Valid) {
   const std::vector<std::string> valid_names = {
       "Project Name",
       "Another Project Name",
@@ -51,7 +51,7 @@ TEST_F(ConfigurationClass, General_Setter_ProjectName_Valid) {
   }
 }
 
-TEST_F(ConfigurationClass, General_Setter_ProjectName_Invalid) {
+TEST_F(Configuration_Class, General_Setter_ProjectName_Invalid) {
   const std::vector<std::string> invalid_names = {
       " illegal name",
       "bad : character",
@@ -73,7 +73,7 @@ TEST_F(ConfigurationClass, General_Setter_ProjectName_Invalid) {
   }
 }
 
-TEST_F(ConfigurationClass, General_Setter_SetsValidFields) {
+TEST_F(Configuration_Class, General_Setter_SetsValidFields) {
   std::string error;
 
   cfg::General initial_config = config.getGeneral();
@@ -96,7 +96,7 @@ TEST_F(ConfigurationClass, General_Setter_SetsValidFields) {
   ASSERT_EQ(updated_general.starting_procedure, new_general.starting_procedure);
 }
 
-TEST_F(ConfigurationClass, SetsDefaults_Debug) {
+TEST_F(Configuration_Class, SetsDefaults_Debug) {
   cfg::Debug debug = config.getDebug();
 
   ASSERT_EQ(debug.console_enabled, cfg::debug::defaults::console_enabled);
@@ -104,20 +104,20 @@ TEST_F(ConfigurationClass, SetsDefaults_Debug) {
   ASSERT_EQ(debug.print_errors, cfg::debug::defaults::print_errors);
 }
 
-TEST_F(ConfigurationClass, SetsDefaults_Server) {
+TEST_F(Configuration_Class, SetsDefaults_Server) {
   cfg::Server server = config.getServer();
 
   ASSERT_EQ(server.tcp_socket_port, cfg::server::defaults::tcp_socket_port);
 }
 
-TEST_F(ConfigurationClass, SetsDefaults_Telemetry) {
+TEST_F(Configuration_Class, SetsDefaults_Telemetry) {
   cfg::Telemetry telem = config.getTelemetry();
 
   ASSERT_EQ(telem.telemetry_enabled, cfg::telemetry::defaults::telemetry_enabled);
   ASSERT_EQ(telem.call_sign, cfg::telemetry::defaults::call_sign);
 }
 
-TEST_F(ConfigurationClass, SetsDefaults_Aprs) {
+TEST_F(Configuration_Class, SetsDefaults_Aprs) {
   cfg::Aprs aprs = config.getAprs();
 
   ASSERT_EQ(aprs.telemetry_packets, cfg::aprs::defaults::telemetry_packets);
@@ -130,7 +130,7 @@ TEST_F(ConfigurationClass, SetsDefaults_Aprs) {
   ASSERT_EQ(aprs.comment, cfg::aprs::defaults::comment);
 }
 
-TEST_F(ConfigurationClass, SetsDefaults_Sstv) {
+TEST_F(Configuration_Class, SetsDefaults_Sstv) {
   cfg::Sstv sstv = config.getSstv();
 
   ASSERT_EQ(sstv.enabled, cfg::sstv::defaults::enabled);
@@ -139,7 +139,7 @@ TEST_F(ConfigurationClass, SetsDefaults_Sstv) {
   ASSERT_EQ(sstv.overlay_data, cfg::sstv::defaults::overlay_data);
 }
 
-TEST_F(ConfigurationClass, SetsDefaults_DataPackets) {
+TEST_F(Configuration_Class, SetsDefaults_DataPackets) {
   cfg::DataPackets data_packets = config.getDataPackets();
 
   ASSERT_EQ(data_packets.enabled, cfg::data_packets::defaults::enabled);

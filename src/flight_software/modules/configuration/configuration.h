@@ -17,13 +17,7 @@
 namespace cfg {
 
 struct Procedure {
-  enum class Type {
-    TESTING,
-    ASCENT,
-    DESCENT,
-    RECOVERY,
-    FAILSAFE
-  };
+  enum class Type { TESTING, ASCENT, DESCENT, RECOVERY, FAILSAFE };
 
   // struct Services {
   //   bool data_logging;
@@ -85,8 +79,7 @@ struct Telemetry {
 };
 
 struct Aprs {
-  enum class SymbolTable { PRIMARY,
-                           ALTERNATE };
+  enum class SymbolTable { PRIMARY, ALTERNATE };
 
   bool telemetry_packets;
   bool position_packets;
@@ -165,6 +158,38 @@ class Configuration {
 
   std::mutex config_lock_;
 };
+
+static const std::unordered_map<cfg::Procedure::Type, std::string>
+    kProcedureTypeToString = {{cfg::Procedure::Type::TESTING, "testing"},
+                              {cfg::Procedure::Type::ASCENT, "testing"},
+                              {cfg::Procedure::Type::DESCENT, "testing"},
+                              {cfg::Procedure::Type::RECOVERY, "testing"},
+                              {cfg::Procedure::Type::FAILSAFE, "failsafe"}};
+
+static const std::unordered_map<cfg::General::MainBoard, std::string>
+    kMainBoardToString = {
+        {cfg::General::MainBoard::OTHER, "other"},
+        {cfg::General::MainBoard::PI_4, "pi_4"},
+        {cfg::General::MainBoard::PI_ZERO_W_2, "pi_zero_w_2"}};
+
+static const std::unordered_map<cfg::Aprs::SymbolTable, std::string>
+    kAprsSymbolTable = {{cfg::Aprs::SymbolTable::PRIMARY, "primary"},
+                        {cfg::Aprs::SymbolTable::ALTERNATE, "alternate"}};
+
+static const std::unordered_map<cfg::Sstv::Mode, std::string>
+    kSstvModeToString = {{cfg::Sstv::Mode::ROBOT_36, "robot_36"}};
+
+static const std::unordered_map<cfg::DataPackets::Mode, std::string>
+    kDataPacketsModeToString = {
+        {cfg::DataPackets::Mode::BPSK125, "bpsk125"},
+        {cfg::DataPackets::Mode::BPSK250, "bpsk250"},
+        {cfg::DataPackets::Mode::BPSK500, "bpsk500"},
+        {cfg::DataPackets::Mode::BPSK1000, "bpsk100"},
+        {cfg::DataPackets::Mode::QPSK125, "qpsk125"},
+        {cfg::DataPackets::Mode::QPSK250, "qpsk250"},
+        {cfg::DataPackets::Mode::QPSK500, "qpsk500"},
+        {cfg::DataPackets::Mode::AFSK_AX25, "afsk_ax25"}};
+
 };  // namespace cfg
 
 #endif
