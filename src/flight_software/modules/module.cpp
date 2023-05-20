@@ -20,7 +20,7 @@ modules::Module::Module(modules::MetaData metadata, data::Streams &streams)
     : metadata_(metadata),
       streams_(streams),
       runner_thread_(),
-      command_queue_(metadata.command_destination) {
+      command_queue_(metadata.id_) {
 }
 
 void modules::Module::start() {
@@ -62,14 +62,14 @@ void modules::Module::error(std::string error_code, std::string info) {
 template <typename T>
 void modules::Module::data(std::string identifier, T value, int precision) {
   if constexpr (std::is_same<T, std::string>::value) {
-    streams_.data_stream.addData(metadata_.source, identifier, value);
+    streams_.data_stream.addData(metadata_.id_, identifier, value);
   } else if (std::is_same<T, float>::value || std::is_same<T, double>::value) {
     std::stringstream stream;
     stream << std::fixed << std::setprecision(precision) << value;
     std::string rounded = stream.str();
-    streams_.data_stream.addData(metadata_.source, identifier, rounded);
+    streams_.data_stream.addData(metadata_.id_, identifier, rounded);
   } else {
-    streams_.data_stream.addData(metadata_.source, identifier,
+    streams_.data_stream.addData(metadata_.id_, identifier,
                                  std::to_string(value));
   }
 }

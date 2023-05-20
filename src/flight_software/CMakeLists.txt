@@ -25,6 +25,7 @@ endif()
 
 # ---- Giraffe Flight Software ----
 include_directories(
+	${GFS_SRC}/
 	${GFS_SRC}/modules
 	${GFS_SRC}/modules/configuration
 	${GFS_SRC}/modules/data
@@ -41,9 +42,10 @@ include_directories(
 include(${GFS_SRC}/sourcelist.CMake)
 
 # -------- GFS Executable ---------
-#add_executable(giraffe-flight-software
-#	${GFS_SRC}/main.cpp
-#	${GFS_SRC}/flight-runner.cpp
+add_executable(giraffe-flight-software
+	${GFS_SRC}/main.cpp
+	${GFS_SRC}/flight_runner.cpp
+	${gfs_all_modules}
 #
 #	${GFS_SRC}/modules/module.cpp
 #	${GFS_SRC}/modules/configuration/module_configuration.cpp
@@ -76,17 +78,17 @@ include(${GFS_SRC}/sourcelist.CMake)
 #	
 #	${GFS_SRC}/radios/radio.cpp
 #	${GFS_SRC}/radios/dra-sa-radio.cpp
-#)
-#set_target_properties(giraffe-flight-software PROPERTIES OUTPUT_NAME gfs)
-#set_target_properties(
-#	giraffe-flight-software PROPERTIES 
-#	RUNTIME_OUTPUT_DIRECTORY ${GIRAFFE_BUILD_OUTPUT_DIR}
-#)
+)
+set_target_properties(giraffe-flight-software PROPERTIES OUTPUT_NAME gfs)
+set_target_properties(
+	giraffe-flight-software PROPERTIES 
+	RUNTIME_OUTPUT_DIRECTORY ${GIRAFFE_BUILD_OUTPUT_DIR}
+)
 #target_link_libraries(giraffe-flight-software PRIVATE MWAVlib)
 
-#set(THREADS_PREFER_PTHREAD_FLAG ON)
-#find_package(Threads REQUIRED)
-#target_link_libraries(giraffe-flight-software PRIVATE Threads::Threads)
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+target_link_libraries(giraffe-flight-software PRIVATE Threads::Threads)
 
 #target_link_libraries(giraffe-flight-software PUBLIC i2c)
-#target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
+target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)

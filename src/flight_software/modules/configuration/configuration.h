@@ -230,7 +230,7 @@ static const std::unordered_map<std::string, cfg::DataPackets::Mode>
 
 inline void reportError(data::ErrorStream &es, const std::string code,
                         const std::string info) {
-  es.addError(data::Source::CONFIGURATION_MODULE, code, info);
+  es.addError(node::Identification::CONFIGURATION_MODULE, code, info);
 }
 
 };  // namespace cfg

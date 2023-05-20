@@ -9,21 +9,18 @@
 #ifndef STREAM_H_
 #define STREAM_H_
 
+#include <iostream>
 #include <mutex>
 #include <queue>
 #include <string>
-#include <iostream>
 
 #include "time_types.h"
+#include "node.h"
 
 namespace data {
 
-
-
-enum class Source { NONE, CONFIGURATION_MODULE, DATA_MODULE };
-
 struct BaseStreamPacket {
-  data::Source source = data::Source::NONE;
+  node::Identification source = node::Identification::UNKNOWN;
   giraffe_time::TimePoint created_time = giraffe_time::TimePoint();
 
   void resetTime() {
@@ -34,7 +31,8 @@ struct BaseStreamPacket {
 template <class T>
 class Stream {
  public:
-  Stream() : packet_queue_() {}
+  Stream() : packet_queue_() {
+  }
 
   void addPacket(T packet) {
     stream_mutex_.lock();
@@ -45,7 +43,7 @@ class Stream {
     stream_mutex_.unlock();
   }
 
-  bool getPacket(T &packet) {
+  bool getPacket(T& packet) {
     std::lock_guard<std::mutex> lock(stream_mutex_);
 
     if (packet_queue_.empty()) {
@@ -91,7 +89,7 @@ struct ErrorStreamPacket : public BaseStreamPacket {
 
 class ErrorStream : public Stream<ErrorStreamPacket> {
  public:
-  void addError(data::Source source, std::string code, std::string info = "") {
+  void addError(node::Identification source, std::string code, std::string info = "") {
     ErrorStreamPacket pkt;
     pkt.source = source;
     pkt.code = code;
@@ -109,7 +107,7 @@ struct DataStreamPacket : public BaseStreamPacket {
 
 class DataStream : public Stream<DataStreamPacket> {
  public:
-  void addData(data::Source source, std::string identifier, std::string value) {
+  void addData(node::Identification source, std::string identifier, std::string value) {
     DataStreamPacket pkt;
     pkt.source = source;
     pkt.identifier = identifier;
@@ -130,6 +128,6 @@ struct Streams {
 /**
  * @todo print source
  */
-std::ostream& operator << (std::ostream& o, const data::ErrorStreamPacket& e);
+std::ostream& operator<<(std::ostream& o, const data::ErrorStreamPacket& e);
 
 #endif

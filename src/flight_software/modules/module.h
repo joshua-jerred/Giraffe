@@ -13,18 +13,20 @@
 #include <thread>
 
 #include "command.h"
+#include "node.h"
 #include "streams.h"
 
 namespace modules {
 
 struct MetaData {
-  MetaData(std::string name, data::Source source, command::Destination destination)
-      : name(name), source(source), command_destination(destination)  {
+  MetaData(std::string name, node::Identification id)
+      : name_(name), id_(id) {
   }
-  
-  std::string name;
-  data::Source source;
-  command::Destination command_destination;
+
+  std::string name_;
+  node::Identification id_;
+  // data::Source source;
+  // command::Destination command_destination;
   int sleep_interval = 1000;  // 1 second, default sleep time
 };
 

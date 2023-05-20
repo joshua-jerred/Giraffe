@@ -173,5 +173,5 @@ cfg::DataPackets cfg::Configuration::getDataPackets() {
 }
 
 void cfg::Configuration::reportError(std::string code, std::string info) {
-  es_.addError(data::Source::CONFIGURATION_MODULE, code, info);
+  es_.addError(node::Identification::CONFIGURATION_MODULE, code, info);
 }

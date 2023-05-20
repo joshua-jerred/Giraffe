@@ -9,7 +9,7 @@
 
 #include <csignal>
 
-#include "flight-runner.h"
+#include "flight_runner.h"
 
 FlightRunner flight;
 
