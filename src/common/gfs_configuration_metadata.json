@@ -35,6 +35,186 @@
             ]
         }
     },
+    "data_logs": {
+        "log_data_to_file": {
+            "type": "bool",
+            "name": "Log Data To File",
+            "description": "This is the master toggle for logging data to a local json file.",
+            "default": true,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "log_strategy": {
+            "type": "enum",
+            "name": "Log Strategy",
+            "description": "The strategy to use for logging data. If set to all, then every data point collected will be logged. If set to interval then data will be logged at a set interval.",
+            "default": "interval",
+            "options": [
+                "interval",
+                "all"
+            ]
+        },
+        "log_detail": {
+            "type": "enum",
+            "name": "Log Detail",
+            "description": "The amount of metadata to include. If set to full then timestamps of when data was collected will be included. If set to partial, only timestamps of when the data was logged will be included. This can save space.",
+            "default": "full",
+            "options": [
+                "full",
+                "partial"
+            ]
+        },
+        "log_interval_ms": {
+            "type": "int",
+            "name": "Log Interval MS",
+            "description": "The interval as to how often to log data. Only used if the Log Strategy is set to 'interval'.",
+            "default": 10,
+            "max": 600000,
+            "min": 100,
+            "step": 1
+        },
+        "max_data_log_file_size_mb": {
+            "type": "int",
+            "name": "Max Data Log File Size MB",
+            "description": "The maximum log file size in Mega-Bytes before overwrite or rotation.",
+            "default": 10,
+            "max": 500,
+            "min": 1,
+            "step": 1
+        },
+        "max_data_archive_size_mb": {
+            "type": "int",
+            "name": "Max Data Archive Size MB",
+            "description": "The maximum log file archive size in Mega-Bytes before overwrite. The oldest log file will be overwritten first.",
+            "default": 10,
+            "max": 100000,
+            "min": 100,
+            "step": 1
+        },
+        "data_archive_method": {
+            "type": "enum",
+            "name": "Data Archive Method",
+            "description": "Method of data archival/compression.",
+            "default": "none",
+            "options": [
+                "none"
+            ]
+        }
+    },
+    "error_logs": {
+        "log_errors_to_file": {
+            "type": "bool",
+            "name": "Log Errors To File",
+            "description": "This is the master toggle for logging errors to a local json file.",
+            "default": true,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "max_error_log_file_size_mb": {
+            "type": "int",
+            "name": "Max Log File Size MB",
+            "description": "The maximum error log file size in Mega-Bytes before overwrite or rotation.",
+            "default": 10,
+            "max": 500,
+            "min": 1,
+            "step": 1
+        },
+        "max_error_archive_size_mb": {
+            "type": "int",
+            "name": "Max Error Archive Size MB",
+            "description": "The maximum log file archive size in Mega-Bytes before overwrite. The oldest log file will be overwritten first.",
+            "default": 10,
+            "max": 100000,
+            "min": 100,
+            "step": 1
+        },
+        "error_archive_method": {
+            "type": "enum",
+            "name": "Archive Method",
+            "description": "Method of data archival/compression.",
+            "default": "none",
+            "options": [
+                "none"
+            ]
+        }
+    },
+    "influx_db": {
+        "influx_enabled": {
+            "type": "bool",
+            "name": "Enable InfluxDB Integration",
+            "description": "This is the master toggle for InfluxDB (2.X) logging.",
+            "default": false,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "log_errors": {
+            "type": "bool",
+            "name": "Log Errors",
+            "description": "Log errors to the influx db database",
+            "default": false,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "url": {
+            "type": "string",
+            "name": "InfluxDB URL",
+            "description": "The URL (generally localhost) for the influx DB server.",
+            "default": "localhost",
+            "min": 1,
+            "max": 50,
+            "pattern": ""
+        },
+        "token": {
+            "type": "string",
+            "name": "InfluxDB Access Token",
+            "description": "The API token for the InfluxDB user. This is stored in plain text!",
+            "default": "none",
+            "min": 0,
+            "max": 50,
+            "pattern": ""
+        },
+        "organization": {
+            "type": "string",
+            "name": "InfluxDB Organization",
+            "description": "The InfluxDB Organization",
+            "default": "giraffe",
+            "min": 0,
+            "max": 50,
+            "pattern": ""
+        },
+        "data_bucket": {
+            "type": "string",
+            "name": "InfluxDB Data Bucket",
+            "description": "The name of the bucket to stream data to.",
+            "default": "giraffe_flight_software_data",
+            "min": 0,
+            "max": 50,
+            "pattern": ""
+        },
+        "errors_bucket": {
+            "type": "string",
+            "name": "InfluxDB Errors Bucket",
+            "description": "The name of the bucket to stream errors to.",
+            "default": "giraffe_flight_software_errors",
+            "min": 0,
+            "max": 50,
+            "pattern": ""
+        },
+        "retention_policy": {
+            "type": "enum",
+            "name": "InfluxDB Retention Policy",
+            "description": "Method of data archival/compression.",
+            "default": "INF",
+            "options": [
+                "1 Hour",
+                "1 Day",
+                "1 Week",
+                "1 Month",
+                "1 Year",
+                "INF"
+            ]
+        }
+    },
     "debug": {
         "print_errors": {
             "type": "bool",
