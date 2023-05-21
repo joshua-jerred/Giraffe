@@ -18,6 +18,8 @@ using json = nlohmann::ordered_json;
 #include "gtest/gtest.h"
 #include "streams.h"
 
+const std::string kDefaultConfigPath = "config.json";
+
 const std::string meta_data_path = "./gfs_configuration_metadata.json";
 json gMetaData;
 
@@ -88,8 +90,8 @@ class Configuration_Class : public ::testing::Test {
   }
 
   virtual void SetUp() {
-    if (std::filesystem::exists(cfg::kDefaultConfigPath)) {
-      std::filesystem::remove(cfg::kDefaultConfigPath);
+    if (std::filesystem::exists(kDefaultConfigPath)) {
+      std::filesystem::remove(kDefaultConfigPath);
     }
 
     streams_ = new data::Streams();
@@ -122,10 +124,10 @@ class Configuration_Class : public ::testing::Test {
 };
 
 TEST_F(Configuration_Class, GeneratesDefaultConfiguration) {
-  ASSERT_TRUE(std::filesystem::exists(cfg::kDefaultConfigPath))
+  ASSERT_TRUE(std::filesystem::exists(kDefaultConfigPath))
       << "New config file did not save!";
 
-  std::ifstream fs(cfg::kDefaultConfigPath);
+  std::ifstream fs(kDefaultConfigPath);
   json saved_config = json::parse(fs);
 
   cfg::General general = config->getGeneral();

@@ -30,7 +30,7 @@ jobs:
       - name: Configure
         run: mkdir build && cd build && cmake ..
 
-  common-test-01:
+  common_test_01:
     name: Common / GFS Configuration Scheme
     env:
       TEST_NAME: "common_01_gfs_configuration_scheme"
@@ -70,8 +70,8 @@ jobs:
   gfs-test-05:
     name: GFS / Exception
     env:
-      TEST_NAME: "gfs_05_gfs_exception"
-      TEST_ID: "test_05"
+      TEST_NAME: "gfs_02_gfs_exception"
+      TEST_ID: "test_02"
     needs: ["cmake_configure"]
     runs-on: self-hosted
     steps:
@@ -83,8 +83,8 @@ jobs:
   gfs_test_06:
     name: GFS / Stream
     env:
-      TEST_NAME: "gfs_06_data_error_stream"
-      TEST_ID: "test_06"
+      TEST_NAME: "gfs_03_data_error_stream"
+      TEST_ID: "test_03"
     needs: ["cmake_configure"]
     runs-on: self-hosted
     steps:
@@ -93,11 +93,11 @@ jobs:
       - name: Run Test
         run: $GFS_RUN
 
-  gfs_test_07:
+  gfs_test_04:
     name: GFS / Module Base
     env:
-      TEST_NAME: "gfs_07_module"
-      TEST_ID: "test_07"
+      TEST_NAME: "gfs_04_module"
+      TEST_ID: "test_04"
     needs: ["gfs_test_06"]
     runs-on: self-hosted
     steps:

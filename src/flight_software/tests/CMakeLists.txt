@@ -1,10 +1,10 @@
 enable_testing()
 
-#include_directories(
-#	${GFS_SRC}/
-#	${GFS_SRC}/configuration
-#	${GFS_SRC}/modules/data
-#)
+include_directories(
+	${GFS_SRC}/
+	${GFS_SRC}/configuration
+	${GFS_SRC}/modules/data
+)
 
 # gtest based test function ----------------------------------------------------
 function(add_gtest_test test_id test_name)
@@ -33,22 +33,25 @@ target_link_libraries(gfs_01_configuration nlohmann_json::nlohmann_json)
 configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${GFS_TEST_BIN}/test_01/gfs_configuration_metadata.json)
 
 add_gtest_test(
-	test_05
-	gfs_05_gfs_exception
+	test_02
+	gfs_02_gfs_exception
 )
 
 add_gtest_test(
-	test_06
-	gfs_06_data_error_stream
-	${data_module_sources}
-)
-
-add_gtest_test(
-	test_07
-	gfs_07_module
+	test_03
+	gfs_03_data_error_stream
 	${data_module_sources}
 	${module_sources}
 )
+target_link_libraries(gfs_03_data_error_stream nlohmann_json::nlohmann_json)
+
+add_gtest_test(
+	test_04
+	gfs_04_module
+	${data_module_sources}
+	${module_sources}
+)
+target_link_libraries(gfs_04_module nlohmann_json::nlohmann_json)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
-target_link_libraries(gfs_07_module Threads::Threads)
+target_link_libraries(gfs_04_module Threads::Threads)
