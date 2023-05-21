@@ -8,29 +8,18 @@
 
 namespace modules {
 
-static MetaData metadata("test_data_module", node::Identification::DATA_MODULE);
+static MetaData metadata("data_module", node::Identification::DATA_MODULE);
 
 class DataModule : public Module {
  public:
-  DataModule(data::Streams &streams) : modules::Module(metadata, streams) {
-  }
+  DataModule(data::Streams &streams, cfg::Configuration &config);
+  ~DataModule() override;
 
  private:
-  void startup() override {
-    data<std::string>("ident", "start");
-    std::cout << "data module start" << std::endl;
-  }
-  void loop() override {
-    data<std::string>("ident", "loop");
-    std::cout << "data module" << std::endl;
-  }
-  void shutdown() override {
-    data<std::string>("ident", "stop");
-    std::cout << "shutdown" << std::endl;
-  }
-  void processCommand(const command::Command &command) override {
-    (void)command;
-  }
+  void startup() override;
+  void loop() override;
+  void shutdown() override;
+  void processCommand(const command::Command &command);
 };
 
 }  // namespace modules

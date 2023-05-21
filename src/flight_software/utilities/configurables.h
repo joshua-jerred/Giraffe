@@ -7,58 +7,21 @@
  * @copyright Copyright (c) 2022
  */
 
-#ifndef UTILITY_CONFIGURABLES_H
-#define UTILITY_CONFIGURABLES_H
+#ifndef CONFIGURABLES_H_
+#define CONFIGURABLES_H_
 
 #include <string>
 
 namespace configurables{
   const std::string kGiraffeVersion = GIRAFFE_VERSION_NUMBER; // This is set by CMake
   const std::string kGiraffeVersionStage = GIRAFFE_VERSION_STAGE; // This is set by CMake
-  namespace config_defaults {
-    static const std::string kAprsFrequency = "144.390";
-    static const uint8_t kAprsSourceSSID = 0;
-    static const bool kAprsPositionPacketEnabled = true;
-    static const bool kAprsTelemetryPacketEnabled = false;
-    static const std::string kAprsDestinationAddress = "APZGFS";
-    static const uint8_t kAprsDestinationSSID = 0;
-    static const char kAprsSymbol = '/'; // '/' is a dot
 
-    static const std::string kSstvFrequency = "145.550";
-    static const std::string kSstvMode = "robot36";
-    static const bool kSstvSaveImages = false;
-    static const bool kSstvOverlayData = true;
-
-    static const std::string kDataPacketsFrequency = "145.550";
-    static const std::string kDataPacketsMode = "bpsk500";
-  }
-  namespace config_limits {
-    static const int kAprsMemoMaxSize = 30;
-    static const int kSstvCommentMaxSize = 15;
-  }
-  namespace data_module {
-    static const float kMaxLogFileSizeMB = 50; // MB
-  }
-  namespace telemetry_module {
-    
-        
-  }
   namespace file_paths {
-    static const std::string kConfigFilePath = "./gfs-configuration.json";
+    static const std::string kConfigFilePath = "./gfs_config.json";
     static const std::string kDataLogLocation = "./data_logs/";
     static const std::string kErrorLogLocation = "./error_logs/";
     static const std::string kTelemetryWavLocation = "./telemetry/";
     static const std::string kImagesLocation = "./images/";
-  }
-  namespace prefix {
-    static const std::string kDataModule = "M_DA";
-    static const std::string kConfigModule = "M_CF";
-    static const std::string kTelemetryModule = "M_TL";
-    static const std::string kServerModule = "M_SV";
-    static const std::string kExtensionModule = "M_EX";
-    static const std::string kConsoleModule = "M_CO";
-
-    static const std::string kExtension = "EX_";
   }
 }
 

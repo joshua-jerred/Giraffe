@@ -8,11 +8,11 @@ file(MAKE_DIRECTORY ${GIRAFFE_BUILD_OUTPUT_DIR}/error_logs)
 file(MAKE_DIRECTORY ${GIRAFFE_BUILD_OUTPUT_DIR}/telemetry)
 file(MAKE_DIRECTORY ${GIRAFFE_BUILD_OUTPUT_DIR}/images)
 
-configure_file(
-	${GFS_SRC}/${GIRAFFE_CONFIG_FILE_NAME}
-	${GIRAFFE_BUILD_OUTPUT_DIR}/${GIRAFFE_CONFIG_FILE_NAME}
-	COPYONLY
-)
+#configure_file(
+#	${GFS_SRC}/${GIRAFFE_CONFIG_FILE_NAME}
+#	${GIRAFFE_BUILD_OUTPUT_DIR}/${GIRAFFE_CONFIG_FILE_NAME}
+#	COPYONLY
+#)
 # ------------------------------------------------------------
 
 if(SSTV_ENABLED)
@@ -23,12 +23,14 @@ else()
     add_compile_definitions(SSTV_ENABLED=0)
 endif()
 
+# ---------------- Sources --------
+include(${GFS_SRC}/sourcelist.CMake)
+
 # ---- Giraffe Flight Software ----
 include_directories(
 	${GFS_SRC}/
-	${GFC_SRC}/configuration
+	${GFS_SRC}/configuration
 	${GFS_SRC}/modules
-	${GFS_SRC}/modules/configuration
 	${GFS_SRC}/modules/data
 	${GFS_SRC}/utilities
 	${GFS_SRC}/extensions
@@ -39,8 +41,7 @@ include_directories(
 	${LIB_SRC}/MWAV/include
 )
 
-# --------- Module Sources --------
-include(${GFS_SRC}/sourcelist.CMake)
+
 
 # -------- GFS Executable ---------
 add_executable(giraffe-flight-software

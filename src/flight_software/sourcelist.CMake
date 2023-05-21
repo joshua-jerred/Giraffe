@@ -14,7 +14,6 @@ set(module_sources
 )
 
 set(gfs_all_modules
-	${configuration_module_sources}
 	${data_module_sources}
 	${module_sources}
 )

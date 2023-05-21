@@ -1,7 +1,7 @@
 #ifndef FLIGHT_RUNNER_H_
 #define FLIGHT_RUNNER_H_
 
-#include "configuration_module.h"
+#include "configuration.h"
 #include "data_module.h"
 #include "streams.h"
 
@@ -21,11 +21,10 @@ class FlightRunner {
   int flightLoop();
 
   bool shutdown_signal_ = false;
-  data::Streams streams_ = data::Streams();
+  data::Streams *p_streams_ = nullptr;
+  cfg::Configuration *p_config_ = nullptr;
 
-  modules::ConfigurationModule config_module_ =
-      modules::ConfigurationModule(streams_);
-  modules::DataModule data_module_ = modules::DataModule(streams_);
+  modules::DataModule *data_module_ = nullptr;
 
   //  void healthCheck();
 

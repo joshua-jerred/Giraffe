@@ -1,5 +1,6 @@
 #include "flight_runner.h"
 
+#include "configurables.h"
 // #include <filesystem>
 
 // #include "config-types.h"
@@ -26,9 +27,11 @@ FlightRunner::~FlightRunner() {
 // }
 
 int FlightRunner::start() {
-  std::cout << "Starting Giraffe Flight Software" << std::endl;
-  // std::cout << "Giraffe Flight Software v" << configurables::kGiraffeVersion
-  //           << std::endl;
+  std::cout << "Giraffe Flight Software v" << configurables::kGiraffeVersion
+            << std::endl;
+
+  p_streams_ = new data::Streams();
+  p_config_ = new cfg::Configuration(*p_streams_);
 
   // Check for working directories
   // CheckForOrCreateDirectory(configurables::file_paths::kDataLogLocation);

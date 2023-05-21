@@ -10,13 +10,16 @@
 
 #include <filesystem>
 #include <fstream>
+#include <iostream>
+#include <string>
 
 #include "configuration_internal.h"
 
 using json = nlohmann::ordered_json;
 
 cfg::Configuration::Configuration(data::Streams &streams) : streams_(streams) {
-  if (!std::filesystem::exists(cfg::kDefaultConfigPath)) {
+  if (!std::filesystem::exists(kConfigurationPath)) {
+    std::cout << "Generation Configuration File" << std::endl;
     std::lock_guard<std::mutex> lock(config_lock_);
     saveConfig();
   } else {
@@ -45,7 +48,7 @@ bool cfg::Configuration::setGeneral(const cfg::General &general) {
 
   general_.main_board_type = general.main_board_type;
   general_.starting_procedure = general.starting_procedure;
-  
+
   saveConfig();
   return error_free;
 }
@@ -138,18 +141,17 @@ cfg::DataPackets cfg::Configuration::getDataPackets() {
 }
 
 /**
- * @brief Save the configuration. Lock must be held before calling this function.
- * 
+ * @brief Save the configuration. Lock must be held before calling this
+ * function.
+ *
  * @param file_path - optional, if empty it will save to the default location.
  */
-void cfg::Configuration::saveConfig(std::string file_path) {
-  if (file_path.empty()) {
-    file_path = cfg::kDefaultConfigPath;
-  }
+void cfg::Configuration::saveConfig() {
+  const std::string kTestStr = "gfs_config.json";
 
   using json = nlohmann::ordered_json;
 
-  std::ofstream out(file_path);
+  std::ofstream out(kConfigurationPath);
 
   if (out.fail()) {
     reportError("SV_FOF", "failed to open the file while saving");
@@ -163,8 +165,7 @@ void cfg::Configuration::saveConfig(std::string file_path) {
       {"telemetry", cfg::json::telemetryToJson(telemetry_)},
       {"telemetry_aprs", cfg::json::aprsToJson(aprs_)},
       {"telemetry_sstv", cfg::json::sstvToJson(sstv_)},
-      {"telemetry_data_packets",
-       cfg::json::dataPacketsToJson(data_packets_)},
+      {"telemetry_data_packets", cfg::json::dataPacketsToJson(data_packets_)},
   };
 
   constexpr int json_indent = 2;
@@ -191,22 +192,18 @@ inline bool valid_section(const json &config_json,
  * @param file_path The optional file path to load from. If empty, it will
  * use the default path.
  */
-void cfg::Configuration::loadConfig(std::string file_path) {
-  if (file_path.empty()) {
-    file_path = cfg::kDefaultConfigPath;
-  }
-
+void cfg::Configuration::loadConfig() {
   // Check if the file exists, if not report the error and return early.
-  if (!std::filesystem::exists(file_path)) {
-    reportError("LD_FDE", "while loading, file does not exist: " + file_path);
+  if (!std::filesystem::exists(kConfigurationPath)) {
+    reportError("LD_FDE", "while loading, file does not exist: " + kConfigurationPath);
     return;
   }
 
-  std::ifstream in(file_path);  // Attempt to open the file
+  std::ifstream in(kConfigurationPath);  // Attempt to open the file
   // If the file failed to open, report the error and return early.
   if (in.fail()) {
     reportError("LD_FOF",
-                "could not open the file while loading: " + file_path);
+                "could not open the file while loading: " + kConfigurationPath);
     return;
   }
 
@@ -216,7 +213,7 @@ void cfg::Configuration::loadConfig(std::string file_path) {
   try {
     parsed = json::parse(in);
   } catch (json::parse_error &e) {
-    reportError("LD_PE", "while parsing the file: " + file_path);
+    reportError("LD_PE", "while parsing the file: " + kConfigurationPath);
     return;
   }
 

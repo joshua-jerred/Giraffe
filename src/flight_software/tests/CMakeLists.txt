@@ -1,10 +1,10 @@
 enable_testing()
 
-include_directories(
-	${GFS_SRC}/
-	${GFS_SRC}/configuration
-	${GFS_SRC}/modules/data
-)
+#include_directories(
+#	${GFS_SRC}/
+#	${GFS_SRC}/configuration
+#	${GFS_SRC}/modules/data
+#)
 
 # gtest based test function ----------------------------------------------------
 function(add_gtest_test test_id test_name)
