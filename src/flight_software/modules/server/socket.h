@@ -6,10 +6,16 @@
 #include <string>
 
 namespace sock {
+constexpr int kMaxHostName = 200;
+constexpr int kMaxConnections = 5;
+constexpr int kMaxReceive = 500;
+
 class TcpSocketServer {
  public:
   TcpSocketServer();
   ~TcpSocketServer();
+
+  bool init(int port_number);
 
   bool create();
   bool bind(const int port);

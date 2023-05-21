@@ -20,14 +20,15 @@
 namespace modules {
 
 struct MetaData {
-  MetaData(std::string name, node::Identification id) : name_(name), id_(id) {
+  MetaData(std::string name, node::Identification id, int sleep_interval = 1000)
+      : name_(name), id_(id), sleep_interval_(sleep_interval)  {
   }
 
   std::string name_;
   node::Identification id_;
   // data::Source source;
   // command::Destination command_destination;
-  int sleep_interval = 1000;  // 1 second, default sleep time
+  int sleep_interval_;  // 1 second, default sleep time
 };
 
 enum Status { STOPPED, STARTING, RUNNING, SLEEPING, STOPPING, ERROR };

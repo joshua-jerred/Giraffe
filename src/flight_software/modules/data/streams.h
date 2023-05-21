@@ -14,8 +14,8 @@
 #include <queue>
 #include <string>
 
-#include "time_types.h"
 #include "node.h"
+#include "time_types.h"
 
 namespace data {
 
@@ -89,7 +89,8 @@ struct ErrorStreamPacket : public BaseStreamPacket {
 
 class ErrorStream : public Stream<ErrorStreamPacket> {
  public:
-  void addError(node::Identification source, std::string code, std::string info = "") {
+  void addError(node::Identification source, std::string code,
+                std::string info = "") {
     ErrorStreamPacket pkt;
     pkt.source = source;
     pkt.code = code;
@@ -107,7 +108,8 @@ struct DataStreamPacket : public BaseStreamPacket {
 
 class DataStream : public Stream<DataStreamPacket> {
  public:
-  void addData(node::Identification source, std::string identifier, std::string value) {
+  void addData(node::Identification source, std::string identifier,
+               std::string value) {
     DataStreamPacket pkt;
     pkt.source = source;
     pkt.identifier = identifier;
@@ -115,6 +117,51 @@ class DataStream : public Stream<DataStreamPacket> {
     pkt.resetTime();
 
     addPacket(pkt);
+  }
+};
+
+struct SysInfoPacket : public BaseStreamPacket {
+  struct CpuInfo {
+    float load_avg_1 = 0.0;
+    float load_avg_5 = 0.0;
+    float load_avg_15 = 0.0;
+  };
+
+  struct MemoryInfo {
+    float total_gb = 0.0;
+    float used_percent = 0.0;
+    float free_gb = 0.0;
+  };
+
+  struct DiskInfo {
+    float total_capacity_gb = 0.0;
+    float free_space_gb = 0.0;
+    float used_percent = 0.0;
+  };
+
+  struct NetworkInfo {
+    float rx_bytes = 0.0;
+    float tx_bytes = 0.0;
+  };
+
+  struct MiscSysInfo {
+    float uptime_hours = 0.0;
+  };
+
+  CpuInfo cpu_info = {};
+  MemoryInfo mem_info = {};
+  DiskInfo disk_info = {};
+  NetworkInfo network_info = {};
+  MiscSysInfo misc_info = {};
+};
+
+class SystemDataStream : public Stream<SysInfoPacket> {
+ public:
+  void addData(SysInfoPacket info_packet) {
+    info_packet.source = node::Identification::SYSTEM_MODULE;
+    info_packet.resetTime();
+
+    addPacket(info_packet);
   }
 };
 

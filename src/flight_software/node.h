@@ -8,7 +8,8 @@ enum class Identification {
   CONFIGURATION,
   DATA_MODULE,
   CONSOLE_MODULE,
-  SERVER_MODULE
+  SERVER_MODULE,
+  SYSTEM_MODULE
 };
 
 }

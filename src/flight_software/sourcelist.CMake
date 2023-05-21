@@ -17,14 +17,20 @@ set(data_module_sources
 set(server_module_sources
 	${GFS_SRC}/modules/server/socket.cpp
 	${GFS_SRC}/modules/server/server_module.cpp
+	${GFS_SRC}/modules/server/request_handler.cpp
+	${COMMON_SRC}/protocol.cpp
 )
 
+set(system_module_sources
+	${GFS_SRC}/modules/system/system_module.cpp
+)
 
 set(module_sources
 	${GFS_SRC}/modules/module.cpp
 )
 
 set(gfs_all_modules
+	${system_module_sources}
 	${console_module_sources}
 	${data_module_sources}
 	${server_module_sources}

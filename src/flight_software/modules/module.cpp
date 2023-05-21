@@ -99,10 +99,10 @@ void modules::Module::sleep() {
   constexpr int kMinimumSleepTimeMs = 100;
   constexpr int kMaximumSleepTimeMs = 5000;
 
-  int sleep_ms = metadata_.sleep_interval;
-  if (metadata_.sleep_interval < kMinimumSleepTimeMs) {
+  int sleep_ms = metadata_.sleep_interval_;
+  if (metadata_.sleep_interval_ < kMinimumSleepTimeMs) {
     sleep_ms = kMinimumSleepTimeMs;
-  } else if (metadata_.sleep_interval > kMaximumSleepTimeMs) {
+  } else if (metadata_.sleep_interval_ > kMaximumSleepTimeMs) {
     sleep_ms = kMaximumSleepTimeMs;
   }
 

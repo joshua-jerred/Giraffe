@@ -1,4 +1,4 @@
-#include "flight_runner.h"
+#include "flight_runner.hpp"
 
 #include "configurables.h"
 // #include <filesystem>
@@ -12,6 +12,12 @@ FlightRunner::FlightRunner() {
 }
 
 FlightRunner::~FlightRunner() {
+  p_system_module_->stop();
+  delete p_system_module_;
+  
+  p_server_module_->stop();
+  delete p_server_module_;
+
   if (p_console_module_ != nullptr) {
     p_console_module_->stop();
     delete p_console_module_;
@@ -51,15 +57,20 @@ int FlightRunner::start() {
 
   /*
   Start the console module if it's enabled.
-  Start the server module.
   */
   cfg::Debug debug_cfg = p_config_->getDebug();
   if (debug_cfg.console_enabled) {
     p_console_module_ = new modules::ConsoleModule(*p_streams_, *p_config_);
     p_console_module_->start();
   }
+
+  /*
+    Start the server module, then the system module.
+  */
   p_server_module_ = new modules::ServerModule(*p_streams_, *p_config_);
   p_server_module_->start();
+  p_system_module_ = new modules::SystemModule(*p_streams_, *p_config_);
+  p_system_module_->start();
 
   // Check for working directories
   // CheckForOrCreateDirectory(configurables::file_paths::kDataLogLocation);

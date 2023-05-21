@@ -11,7 +11,7 @@ static modules::MetaData metadata("console_module",
 modules::ConsoleModule::ConsoleModule(data::Streams &streams,
                                       cfg::Configuration &config)
     : modules::Module(metadata, streams, config) {
-  metadata_.sleep_interval =
+  metadata_.sleep_interval_ =
       100;  // for key processing, not the actual update rate
 }
 

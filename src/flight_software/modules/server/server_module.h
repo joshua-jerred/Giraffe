@@ -10,6 +10,8 @@
 #define SERVER_MODULE_H_
 
 #include "module.h"
+#include "request_handler.hpp"
+#include "socket.h"
 #include "streams.h"
 
 namespace modules {
@@ -24,6 +26,9 @@ class ServerModule : public Module {
   void loop() override;
   void shutdown() override;
   void processCommand(const command::Command &command);
+
+  sock::TcpSocketServer server_socket_ = {};
+  req::RequestRouter request_router_;
 };
 
 }  // namespace modules

@@ -35,6 +35,17 @@
             ]
         }
     },
+    "system_module":{
+        "system_info_poll_rate_ms": {
+            "type": "int",
+            "name": "System Information Poll Rate ms",
+            "description": "The interval to poll system data at (cpu, memory, disk usage, etc).",
+            "default": 10,
+            "max": 600000,
+            "min": 100,
+            "step": 1
+        }
+    },
     "data_logs": {
         "log_data_to_file": {
             "type": "bool",

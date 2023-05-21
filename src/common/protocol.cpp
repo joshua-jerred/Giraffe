@@ -13,8 +13,14 @@
 
 using json = nlohmann::ordered_json;
 
+protocol::Id protocol::generateId() {
+  return "tmpid";
+}
+
 inline std::string endpointToString(protocol::Endpoint endpoint) {
   switch (endpoint) {
+    case protocol::Endpoint::UNKNOWN:
+      return "unknown";
     case protocol::Endpoint::CLIENT:
       return "client";
     case protocol::Endpoint::GFS:
@@ -52,6 +58,8 @@ inline std::string typeToString(protocol::Type type) {
       return "rsp";
     case protocol::Type::SET:
       return "set";
+    case protocol::Type::UNKNOWN:
+      return "unknown";
   }
   throw protocol::ProtocolException("Invalid type.");
 }
@@ -78,6 +86,10 @@ inline std::string categoryToString(protocol::Category category) {
       return "data";
     case protocol::Category::SETTING:
       return "setting";
+    case protocol::Category::ERROR:
+      return "error";
+    case protocol::Category::UNKNOWN:
+      return "unknown";
   }
   throw protocol::ProtocolException("Invalid category.");
 }

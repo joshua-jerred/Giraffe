@@ -13,11 +13,13 @@
 #include <string>
 
 namespace protocol {
-enum class Endpoint { GFS, GGS, CLIENT, TELEMETRY };
-enum class Type { INFO, REQUEST, SET, RESPONSE };
-enum class Category { PING, DATA, SETTING };
+enum class Endpoint { UNKNOWN, GFS, GGS, CLIENT, TELEMETRY };
+enum class Type { UNKNOWN, INFO, REQUEST, SET, RESPONSE };
+enum class Category { UNKNOWN, PING, DATA, SETTING, ERROR };
 typedef std::string Id;
 typedef std::string Body;
+
+protocol::Id generateId();
 
 struct Message {
   Message(const protocol::Endpoint src, const protocol::Endpoint dst,
@@ -27,12 +29,12 @@ struct Message {
 
   std::string getMessageString();
 
-  protocol::Endpoint src_;
-  protocol::Endpoint dst_;
-  protocol::Type typ_;
-  protocol::Category cat_;
-  protocol::Id id_;
-  protocol::Body body_;
+  protocol::Endpoint src_ = protocol::Endpoint::UNKNOWN;
+  protocol::Endpoint dst_ = protocol::Endpoint::UNKNOWN;
+  protocol::Type typ_ = protocol::Type::UNKNOWN;
+  protocol::Category cat_ = protocol::Category::UNKNOWN;
+  protocol::Id id_ = "";
+  protocol::Body body_ = "";
 };
 
 class ProtocolException : public std::runtime_error {
