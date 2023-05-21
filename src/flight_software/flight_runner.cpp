@@ -61,8 +61,6 @@ int FlightRunner::start() {
   p_server_module_ = new modules::ServerModule(*p_streams_, *p_config_);
   p_server_module_->start();
 
-
-
   // Check for working directories
   // CheckForOrCreateDirectory(configurables::file_paths::kDataLogLocation);
   // CheckForOrCreateDirectory(configurables::file_paths::kErrorLogLocation);
@@ -91,18 +89,6 @@ int FlightRunner::start() {
   //                                   data_stream_);  // Enable Extensions
 
   // p_extension_module_->start();  // Start Extensions
-
-  // // ~~~ Start the Console Module ~~~ //
-  // if (config_data_.debug.console_enabled) {
-  //   p_console_module_ = new modules::ConsoleModule(config_data_,
-  //   data_stream_); p_console_module_->start();
-  // }
-
-  // // ~~~ Start the Server Module ~~~ //
-  // if (config_data_.debug.web_server_enabled) {
-  //   p_server_module_ = new modules::ServerModule(config_data_, data_stream_);
-  //   p_server_module_->start();
-  // }
 
   // // ~~~ Start the Telemetry Module ~~~ //
   // if (config_data_.telemetry.telemetry_enabled) {

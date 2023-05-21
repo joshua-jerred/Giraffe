@@ -8,6 +8,7 @@
 
 #include "server_module.h"
 
+
 static modules::MetaData metadata("server_module", node::Identification::SERVER_MODULE);
 
 modules::ServerModule::ServerModule(data::Streams &streams,
