@@ -14,6 +14,12 @@ set(data_module_sources
 	${GFS_SRC}/modules/data/data_module.cpp
 )
 
+set(server_module_sources
+	${GFS_SRC}/modules/server/socket.cpp
+	${GFS_SRC}/modules/server/server_module.cpp
+)
+
+
 set(module_sources
 	${GFS_SRC}/modules/module.cpp
 )
@@ -21,5 +27,6 @@ set(module_sources
 set(gfs_all_modules
 	${console_module_sources}
 	${data_module_sources}
+	${server_module_sources}
 	${module_sources}
 )

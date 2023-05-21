@@ -33,6 +33,7 @@ include_directories(
 	${GFS_SRC}/modules
 	${GFS_SRC}/modules/data
 	${GFS_SRC}/modules/console
+	${GFS_SRC}/modules/server
 	${GFS_SRC}/utilities
 	${GFS_SRC}/extensions
 	${GFS_SRC}/interface

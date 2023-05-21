@@ -49,15 +49,18 @@ int FlightRunner::start() {
   p_data_module_ = new modules::DataModule(*p_streams_, *p_config_);
   p_data_module_->start();
 
-
   /*
   Start the console module if it's enabled.
+  Start the server module.
   */
   cfg::Debug debug_cfg = p_config_->getDebug();
   if (debug_cfg.console_enabled) {
     p_console_module_ = new modules::ConsoleModule(*p_streams_, *p_config_);
     p_console_module_->start();
   }
+  p_server_module_ = new modules::ServerModule(*p_streams_, *p_config_);
+  p_server_module_->start();
+
 
 
   // Check for working directories
@@ -65,23 +68,6 @@ int FlightRunner::start() {
   // CheckForOrCreateDirectory(configurables::file_paths::kErrorLogLocation);
   // CheckForOrCreateDirectory(configurables::file_paths::kTelemetryWavLocation);
   // CheckForOrCreateDirectory(configurables::file_paths::kImagesLocation);
-
-  // ~~~ Create the Data Module ~~~ //
-  // p_data_module_ = new modules::DataModule(data_stream_);
-
-  // ~~~ Read The Config ~~~ //
-  // modules::ConfigModule* config = new modules::ConfigModule(data_stream_);
-  // int status = config->load(configurables::file_paths::kConfigFilePath);
-  // if (status == -1) {
-  //   std::cout << "Error: Could not load config file." << std::endl;
-  //   return 1; /** @todo change this */
-  // } else {
-  //   config_data_ = config->getAll();
-  // }
-
-  // The config module is not needed after loading config data
-  // This may change in the future
-  // delete config;
 
   // p_data_module_->addConfigData(
   //     config_data_);  // Add the config data to the DataModule

@@ -7,7 +7,8 @@ enum class Identification {
   UNKNOWN,
   CONFIGURATION,
   DATA_MODULE,
-  CONSOLE_MODULE
+  CONSOLE_MODULE,
+  SERVER_MODULE
 };
 
 }

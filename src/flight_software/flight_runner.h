@@ -4,6 +4,7 @@
 #include "configuration.h"
 #include "data_module.h"
 #include "console_module.h"
+#include "server_module.h"
 #include "streams.h"
 
 class FlightRunner {
@@ -26,6 +27,7 @@ class FlightRunner {
   cfg::Configuration *p_config_ = nullptr;
 
   modules::DataModule *p_data_module_ = nullptr;
+  modules::ServerModule *p_server_module_ = nullptr;
   modules::ConsoleModule *p_console_module_ = nullptr;
 
   //  void healthCheck();
