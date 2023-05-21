@@ -25,7 +25,10 @@ class ConsoleModule : public Module {
   ncurs::Environment ncurs_env_ = ncurs::Environment();
 
   std::vector<std::string> status();
+
   std::vector<std::string> generalConfig();
+  std::vector<std::string> debugConfig();
+  std::vector<std::string> serverConfig();
 };
 
 }  // namespace modules

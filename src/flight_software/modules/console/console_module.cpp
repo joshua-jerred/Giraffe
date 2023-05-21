@@ -27,19 +27,23 @@ std::vector<std::string> doAThing2() {
 }
 
 void modules::ConsoleModule::startup() {
-  ncurs::MenuOption status = ncurs::MenuOption("Status");
-  status.console_data_ = std::bind(&modules::ConsoleModule::status, this);
+  ncurs::MenuOption status = ncurs::MenuOption(
+      "Status", {}, std::bind(&modules::ConsoleModule::status, this));
 
-  ncurs::MenuOption gen_cfg = ncurs::MenuOption("General");
-  gen_cfg.console_data_ =
-      std::bind(&modules::ConsoleModule::generalConfig, this);
+  ncurs::MenuOption gen_cfg = ncurs::MenuOption(
+      "General", {}, std::bind(&modules::ConsoleModule::generalConfig, this));
+
+  ncurs::MenuOption debug_cfg = ncurs::MenuOption(
+      "Debug", {}, std::bind(&modules::ConsoleModule::debugConfig, this));
+
+  ncurs::MenuOption server_cfg = ncurs::MenuOption(
+      "Server", {}, std::bind(&modules::ConsoleModule::serverConfig, this));
 
   ncurs::Menu main_menu = {status,
-                           {"Configuration", {gen_cfg, {"cfg2"}, {"cfg3"}}},
+                           {"Configuration", {gen_cfg, debug_cfg, server_cfg}},
                            {"Data", {{"data1"}, {"data2"}, {"data3"}}}};
 
   cfg::Debug debug_cfg_ = configuration_.getDebug();
-
   ncurs_env_.initialize(main_menu, debug_cfg_.console_update_interval);
 }
 
@@ -55,7 +59,7 @@ void modules::ConsoleModule::processCommand(const command::Command &command) {
   (void)command;
 }
 
-inline std::string boolToString(bool val) {
+inline std::string b2str(bool val) {
   return val ? "true" : "false";
 }
 
@@ -83,4 +87,19 @@ std::vector<std::string> modules::ConsoleModule::generalConfig() {
            cfg::kMainBoardToString.at(general.main_board_type),
        "Starting Procedure: " +
            cfg::kProcedureTypeToString.at(general.starting_procedure)});
+}
+
+std::vector<std::string> modules::ConsoleModule::debugConfig() {
+  cfg::Debug debug = configuration_.getDebug();
+  return std::vector<std::string>(
+      {"Console Enabled: " + b2str(debug.console_enabled),
+       "Console Update Interval: " +
+           std::to_string(debug.console_update_interval),
+       "Print Errors: " + b2str(debug.print_errors)});
+}
+
+std::vector<std::string> modules::ConsoleModule::serverConfig() {
+  cfg::Server server = configuration_.getServer();
+  return std::vector<std::string>(
+      {"TCP Socket Port: " + std::to_string(server.tcp_socket_port)});
 }
