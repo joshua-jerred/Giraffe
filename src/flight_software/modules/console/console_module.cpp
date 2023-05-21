@@ -1,4 +1,5 @@
 #include "console_module.h"
+#include "configuration_internal.h"
 
 #include <functional>
 #include <iostream>
@@ -16,31 +17,20 @@ modules::ConsoleModule::ConsoleModule(data::Streams &streams,
 modules::ConsoleModule::~ConsoleModule() {
 }
 
-void doAThing1() {
-  std::cout << "Doing a thing 1!!!" << std::endl;
+std::vector<std::string> doAThing1() {
+  return std::vector<std::string>({"not empty"});
 }
 
-void doAThing2() {
-  std::cout << "Doing a thing 2!!!" << std::endl;
+std::vector<std::string> doAThing2() {
+  return std::vector<std::string>({"not empty 2"});
 }
 
 void modules::ConsoleModule::startup() {
-  // ncurs::Menu config_menu = {"Configuration", {{"cfg Option 1"}, {"cfg Option
-  // 2"}}}; ncurs::Menu data_menu = {"Streams", {{"data Option 1"}, {"data
-  // Option 2"}}};
+  ncurs::MenuOption gen_cfg = ncurs::MenuOption("General");
+  gen_cfg.console_data_ = std::bind(&modules::ConsoleModule::generalConfig, this);
 
-  ncurs::Menu main_menu = {
-    {"Configuration", {
-      {"cfg1"},
-      {"cfg2"},
-      {"cfg3"}
-      }}, 
-    {"Data", {
-      {"data1"},
-      {"data2"},
-      {"data3"}
-    }}
-  };
+  ncurs::Menu main_menu = {{"Configuration", {gen_cfg, {"cfg2"}, {"cfg3"}}},
+                           {"Data", {{"data1"}, {"data2"}, {"data3"}}}};
   ncurs_env_.initialize(main_menu);
 }
 
@@ -54,4 +44,18 @@ void modules::ConsoleModule::shutdown() {
 
 void modules::ConsoleModule::processCommand(const command::Command &command) {
   (void)command;
+}
+
+inline std::string boolToString(bool val) {
+  return val ? "true" : "false";
+}
+
+std::vector<std::string> modules::ConsoleModule::generalConfig() {
+  cfg::General general = configuration_.getGeneral();
+
+  return std::vector<std::string>({
+    "Project Name: " + general.project_name,
+    "Main Board Type: " + cfg::kMainBoardToString.at(general.main_board_type),
+    "Starting Procedure: " + cfg::kProcedureTypeToString.at(general.starting_procedure)
+    });
 }

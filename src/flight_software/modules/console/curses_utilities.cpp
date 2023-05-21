@@ -148,29 +148,44 @@ void ncurs::Environment::displayMenu() {
     } else {
       wattroff(menu_window_.p_window_, A_REVERSE);
     }
-    mvwprintw(menu_window_.p_window_, i++, 1, "%s", option.title_.c_str());
+    std::string title = option.title_;
+    if (!option.endpoint) {  // has sub-options
+      title += " +";
+    }
+    mvwprintw(menu_window_.p_window_, i++, 1, "%s", title.c_str());
   }
   menu_window_.win_refresh();
 }
 
 void ncurs::Environment::displayData() {
   data_window_.win_clear();
-
   static int i = 0;
-  mvwprintw(data_window_.p_window_, 1, 1, "iter: %i", i++);
-  mvwprintw(data_window_.p_window_, 2, 1, "Current Menu Options: %i",
-            current_menu_num_options_);
-  mvwprintw(data_window_.p_window_, 3, 1, "Current Hover: %i",
-            current_menu_hover_);
 
-  std::string path = "";
-  for (auto &menu : menu_path_) {
-    path += " > ";
+  if (current_menu_->at(current_menu_hover_).endpoint) {
+    mvwprintw(data_window_.p_window_, 1, 1, "iter: %i", i++);
+    std::vector<std::string> out = current_menu_->at(current_menu_hover_).console_data_();
+
+    int line_num = 1;
+    for (std::string &line : out) {
+      mvwprintw(data_window_.p_window_, line_num++, 1, "%s", line.c_str());
+    }
+
+  } else {
+    mvwprintw(data_window_.p_window_, 1, 1, "iter: %i", i++);
+    mvwprintw(data_window_.p_window_, 2, 1, "Current Menu Options: %i",
+              current_menu_num_options_);
+    mvwprintw(data_window_.p_window_, 3, 1, "Current Hover: %i",
+              current_menu_hover_);
+
+    std::string path = "";
+    for (auto &menu : menu_path_) {
+      path += " > ";
+    }
+
+    mvwprintw(data_window_.p_window_, 4, 1, "Current Path: %s", path.c_str());
+
+    mvwprintw(data_window_.p_window_, 5, 1, "Last Key: %s", last_key.c_str());
   }
-
-  mvwprintw(data_window_.p_window_, 4, 1, "Current Path: %s", path.c_str());
-
-  mvwprintw(data_window_.p_window_, 5, 1, "Last Key: %s", last_key.c_str());
 
   data_window_.win_refresh();
 }

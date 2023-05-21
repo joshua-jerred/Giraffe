@@ -23,6 +23,8 @@ class ConsoleModule : public Module {
   void processCommand(const command::Command &command);
 
   ncurs::Environment ncurs_env_ = ncurs::Environment();
+
+  std::vector<std::string> generalConfig();
 };
 
 }  // namespace modules

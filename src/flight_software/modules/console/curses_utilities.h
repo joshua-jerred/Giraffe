@@ -3,6 +3,7 @@
 
 #include <ncurses.h>
 
+#include <functional>
 #include <string>
 #include <vector>
 
@@ -47,10 +48,18 @@ class Window {
 struct MenuOption {
   MenuOption(std::string title, std::vector<MenuOption> sub_menus = {})
       : title_(title), sub_menus_(sub_menus) {
+    if (sub_menus_.size() == 0) {
+      endpoint = true;
+    }
   }
 
   std::string title_;
   std::vector<MenuOption> sub_menus_;
+  std::function<std::vector<std::string>(void)> console_data_ = []() {
+    return std::vector<std::string>({"empty"});
+  };
+
+  bool endpoint = false;
 };
 
 typedef std::vector<MenuOption> Menu;
