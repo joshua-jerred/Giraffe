@@ -12,6 +12,15 @@ FlightRunner::FlightRunner() {
 }
 
 FlightRunner::~FlightRunner() {
+  if (p_console_module_ != nullptr) {
+    p_console_module_->stop();
+    delete p_console_module_;
+  }
+
+  p_data_module_->stop();
+  delete p_data_module_;
+  delete p_config_;
+  delete p_streams_;
 }
 
 // void CheckForOrCreateDirectory(std::string path) {
@@ -30,8 +39,26 @@ int FlightRunner::start() {
   std::cout << "Giraffe Flight Software v" << configurables::kGiraffeVersion
             << std::endl;
 
+  /*
+    First, initialize the data streams to facilitate cross-thread communication.
+    Then, load the configuration, if it exists, otherwise, create one.
+    After that, startup the data module to start processing the data streams.
+  */
   p_streams_ = new data::Streams();
   p_config_ = new cfg::Configuration(*p_streams_);
+  p_data_module_ = new modules::DataModule(*p_streams_, *p_config_);
+  p_data_module_->start();
+
+
+  /*
+  Start the console module if it's enabled.
+  */
+  cfg::Debug debug_cfg = p_config_->getDebug();
+  if (debug_cfg.console_enabled) {
+    p_console_module_ = new modules::ConsoleModule(*p_streams_, *p_config_);
+    p_console_module_->start();
+  }
+
 
   // Check for working directories
   // CheckForOrCreateDirectory(configurables::file_paths::kDataLogLocation);
@@ -41,7 +68,6 @@ int FlightRunner::start() {
 
   // ~~~ Create the Data Module ~~~ //
   // p_data_module_ = new modules::DataModule(data_stream_);
-  // Do not start the DataModule yet because we need to add the config data
 
   // ~~~ Read The Config ~~~ //
   // modules::ConfigModule* config = new modules::ConfigModule(data_stream_);
@@ -82,8 +108,8 @@ int FlightRunner::start() {
 
   // // ~~~ Start the Console Module ~~~ //
   // if (config_data_.debug.console_enabled) {
-  //   p_console_module_ = new modules::ConsoleModule(config_data_, data_stream_);
-  //   p_console_module_->start();
+  //   p_console_module_ = new modules::ConsoleModule(config_data_,
+  //   data_stream_); p_console_module_->start();
   // }
 
   // // ~~~ Start the Server Module ~~~ //
@@ -101,13 +127,15 @@ int FlightRunner::start() {
 
   // ~~~ Setup Done, Start the Flight Loop ~~~ //
   // if (config_data_.general.starting_proc ==
-  //     FlightProcedure::Type::TESTING) {  // If user specified in config to use
+  //     FlightProcedure::Type::TESTING) {  // If user specified in config to
+  //     use
   //                                        // the testing proc, it's selected
   //                                        // here.
   //   switchLoops(FlightProcedure::Type::TESTING);
   //   std::cout << "Starting in Testing Loop" << std::endl;
   // } else {
-  //   healthCheck();  // Perform a health check to determine the flight proc type
+  //   healthCheck();  // Perform a health check to determine the flight proc
+  //   type
   // }
   return flightLoop();  // This will only return on shutdown
 }
@@ -205,7 +233,7 @@ int FlightRunner::flightLoop() {
     // }
   }
   std::cout << "Shutdown signal received." << std::endl;
-  //deconstruct();
+  // deconstruct();
   return 0;
 }
 

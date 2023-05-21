@@ -32,6 +32,7 @@ include_directories(
 	${GFS_SRC}/configuration
 	${GFS_SRC}/modules
 	${GFS_SRC}/modules/data
+	${GFS_SRC}/modules/console
 	${GFS_SRC}/utilities
 	${GFS_SRC}/extensions
 	${GFS_SRC}/interface
@@ -40,8 +41,6 @@ include_directories(
 
 	${LIB_SRC}/MWAV/include
 )
-
-
 
 # -------- GFS Executable ---------
 add_executable(giraffe-flight-software
@@ -63,3 +62,4 @@ target_link_libraries(giraffe-flight-software PRIVATE Threads::Threads)
 
 #target_link_libraries(giraffe-flight-software PUBLIC i2c)
 target_link_libraries(giraffe-flight-software PRIVATE nlohmann_json::nlohmann_json)
+target_link_libraries(giraffe-flight-software PRIVATE ${CURSES_LIBRARIES})

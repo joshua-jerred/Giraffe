@@ -6,7 +6,8 @@ namespace node {
 enum class Identification {
   UNKNOWN,
   CONFIGURATION,
-  DATA_MODULE
+  DATA_MODULE,
+  CONSOLE_MODULE
 };
 
 }

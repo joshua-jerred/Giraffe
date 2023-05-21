@@ -18,7 +18,6 @@ void modules::DataModule::startup() {
 
 void modules::DataModule::loop() {
   data<std::string>("ident", "loop");
-  std::cout << "data module" << std::endl;
 }
 
 void modules::DataModule::shutdown() {

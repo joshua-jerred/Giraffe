@@ -8,8 +8,6 @@
 
 namespace modules {
 
-static MetaData metadata("data_module", node::Identification::DATA_MODULE);
-
 class DataModule : public Module {
  public:
   DataModule(data::Streams &streams, cfg::Configuration &config);
