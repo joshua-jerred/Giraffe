@@ -60,7 +60,19 @@ inline std::string boolToString(bool val) {
 }
 
 std::vector<std::string> modules::ConsoleModule::status() {
-  return std::vector<std::string>({"status info"});
+  int current_data_packets = streams_.data_stream.getNumPackets();
+  int total_data_packets = streams_.data_stream.getTotalPackets();
+
+  int current_error_packets = streams_.error_stream.getNumPackets();
+  int total_error_packets = streams_.error_stream.getTotalPackets();
+
+  return std::vector<std::string>({
+      "-- Streams -- (current/total)",
+      "Data: " + std::to_string(current_data_packets) + "/" +
+          std::to_string(total_data_packets),
+      "Error: " + std::to_string(current_error_packets) + "/" +
+          std::to_string(total_error_packets),
+  });
 };
 
 std::vector<std::string> modules::ConsoleModule::generalConfig() {
