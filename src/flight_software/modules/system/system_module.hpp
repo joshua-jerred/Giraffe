@@ -18,6 +18,14 @@ class SystemModule : public Module {
   void loop() override;
   void shutdown() override;
   void processCommand(const command::Command &command);
+
+  void updateMiscInfo();
+  void updateCpuAndMemoryInfo();
+  void updateCpuTemp();
+  void updateDiskInfo();
+  void updateNetworkInfo();
+
+  data::SysInfoPacket data_ = data::SysInfoPacket();
 };
 
 }  // namespace modules

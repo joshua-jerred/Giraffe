@@ -125,16 +125,21 @@ struct SysInfoPacket : public BaseStreamPacket {
     float load_avg_1 = 0.0;
     float load_avg_5 = 0.0;
     float load_avg_15 = 0.0;
+
+    float cpu_temp_c = 0.0;
   };
 
   struct MemoryInfo {
-    float total_gb = 0.0;
-    float used_percent = 0.0;
-    float free_gb = 0.0;
+    float mem_total_gb = 0.0;
+    float mem_used_percent = 0.0;
+    float mem_free_gb = 0.0;
+    
+    float swap_total_gb = 0.0;
+    float swap_free_gb = 0.0;
   };
 
   struct DiskInfo {
-    float total_capacity_gb = 0.0;
+    float capacity_gb = 0.0;
     float free_space_gb = 0.0;
     float used_percent = 0.0;
   };
@@ -146,6 +151,7 @@ struct SysInfoPacket : public BaseStreamPacket {
 
   struct MiscSysInfo {
     float uptime_hours = 0.0;
+    std::string utc_time = "";
   };
 
   CpuInfo cpu_info = {};
@@ -155,7 +161,7 @@ struct SysInfoPacket : public BaseStreamPacket {
   MiscSysInfo misc_info = {};
 };
 
-class SystemDataStream : public Stream<SysInfoPacket> {
+class SystemInfoStream : public Stream<SysInfoPacket> {
  public:
   void addData(SysInfoPacket info_packet) {
     info_packet.source = node::Identification::SYSTEM_MODULE;
@@ -168,6 +174,7 @@ class SystemDataStream : public Stream<SysInfoPacket> {
 struct Streams {
   data::DataStream data_stream = data::DataStream();
   data::ErrorStream error_stream = data::ErrorStream();
+  data::SystemInfoStream system_info_stream = data::SystemInfoStream();
 };
 
 }  // namespace data
