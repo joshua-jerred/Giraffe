@@ -73,11 +73,12 @@ class Environment {
   Environment(const Environment &) = delete;             // No copy constructor
   Environment &operator=(const Environment &) = delete;  // No copy assignment
 
-  void initialize(Menu &main_menu);
+  void initialize(Menu &main_menu, int endpoint_update_rate_ms = 1000);
   void update();
   void end();
 
  private:
+
   enum class Focus { MENU, DATA };
   enum class NavKey { LEFT, RIGHT, UP, DOWN };
 
@@ -102,6 +103,8 @@ class Environment {
 
   int current_menu_hover_ = 0;
   int current_menu_num_options_ = 0;
+
+  int endpoint_update_rate_ms_ = 1000;
 
   WINDOW *screen_ = nullptr;
   internal::Window menu_window_ = internal::Window();

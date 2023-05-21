@@ -16,6 +16,7 @@ namespace giraffe_time {
   typedef std::chrono::time_point<giraffe_time::Clock> TimePoint;
   
   typedef std::chrono::duration<int, std::ratio<1>> Seconds;
+  typedef std::chrono::duration<int, std::ratio<1, 1000>> Milliseconds;
 
   inline void start(giraffe_time::TimePoint &time_point) {
     time_point = giraffe_time::Clock::now();
@@ -24,6 +25,11 @@ namespace giraffe_time {
   inline int secondsElapsed(giraffe_time::TimePoint &time_point) {
     return std::chrono::duration_cast<giraffe_time::Seconds>(giraffe_time::Clock::now() - time_point).count();
   }
+
+  inline int millisecondsElapsed(giraffe_time::TimePoint &time_point) {
+    return std::chrono::duration_cast<giraffe_time::Milliseconds>(giraffe_time::Clock::now() - time_point).count();
+  }
+
 }
 
 #endif

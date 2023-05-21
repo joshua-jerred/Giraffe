@@ -1,5 +1,7 @@
 #include "curses_utilities.h"
 
+#include "time_types.h"
+
 void ncurs::internal::Window::win_init() {
   p_window_ = newwin(height_, width_, y_, x_);
   box(p_window_, 0, 0);
@@ -26,8 +28,10 @@ void ncurs::internal::Window::win_clear() {
   box(p_window_, 0, 0);
 }
 
-void ncurs::Environment::initialize(Menu &main_menu) {
+void ncurs::Environment::initialize(Menu &main_menu,
+                                    int endpoint_update_rate_ms) {
   main_menu_ = main_menu;
+  endpoint_update_rate_ms_ = endpoint_update_rate_ms;
 
   screen_ = initscr();  // Start curses mode
   nodelay(screen_, TRUE);
@@ -49,7 +53,13 @@ void ncurs::Environment::initialize(Menu &main_menu) {
 
 void ncurs::Environment::update() {
   checkInput();
-  // refresh();
+
+  static giraffe_time::TimePoint update_clock = giraffe_time::Clock::now();
+  int mils_elapsed = giraffe_time::millisecondsElapsed(update_clock);
+  if (mils_elapsed > endpoint_update_rate_ms_) {
+    displayData();
+    update_clock = giraffe_time::Clock::now();
+  }
   //  menu_window_.refreshWindow();
   //  wrefresh(screen_);
 }
@@ -163,7 +173,8 @@ void ncurs::Environment::displayData() {
 
   if (current_menu_->at(current_menu_hover_).endpoint) {
     mvwprintw(data_window_.p_window_, 1, 1, "iter: %i", i++);
-    std::vector<std::string> out = current_menu_->at(current_menu_hover_).console_data_();
+    std::vector<std::string> out =
+        current_menu_->at(current_menu_hover_).console_data_();
 
     int line_num = 1;
     for (std::string &line : out) {
