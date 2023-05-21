@@ -26,6 +26,7 @@ endif()
 # ---- Giraffe Flight Software ----
 include_directories(
 	${GFS_SRC}/
+	${GFC_SRC}/configuration
 	${GFS_SRC}/modules
 	${GFS_SRC}/modules/configuration
 	${GFS_SRC}/modules/data
@@ -45,39 +46,8 @@ include(${GFS_SRC}/sourcelist.CMake)
 add_executable(giraffe-flight-software
 	${GFS_SRC}/main.cpp
 	${GFS_SRC}/flight_runner.cpp
+	${configuration_sources}
 	${gfs_all_modules}
-#
-#	${GFS_SRC}/modules/module.cpp
-#	${GFS_SRC}/modules/configuration/module_configuration.cpp
-#	${GFS_SRC}/modules/module-data.cpp
-#	${GFS_SRC}/modules/module-extensions.cpp
-#	${GFS_SRC}/modules/module-console.cpp
-#	${GFS_SRC}/modules/module-telemetry.cpp
-#	${GFS_SRC}/modules/server/module-server.cpp
-#
-#	${GFS_SRC}/utilities/timer.cpp
-#	${GFS_SRC}/utilities/data-stream.cpp
-#	${GFS_SRC}/utilities/socket.cpp
-#	${GFS_SRC}/utilities/ubx.cpp
-#
-#	${GFS_SRC}/interface/i2c.cpp
-#	${GFS_SRC}/interface/one-wire.cpp
-#	${GFS_SRC}/interface/serial.cpp
-#	${GFS_SRC}/interface/gpio.cpp
-#
-#	${GFS_SRC}/extensions/extension.cpp
-#	${GFS_SRC}/extensions/simulated-extensions.cpp
-#	${GFS_SRC}/extensions/bmp180.cpp
-#	${GFS_SRC}/extensions/ds18b20.cpp
-#	${GFS_SRC}/extensions/samm8q.cpp
-#	${GFS_SRC}/extensions/bme280.cpp
-#	${GFS_SRC}/extensions/sysinfo.cpp
-#	${GFS_SRC}/extensions/max17049.cpp
-#	${GFS_SRC}/extensions/mcp3021.cpp
-#	${GFS_SRC}/extensions/rpicam.cpp
-#	
-#	${GFS_SRC}/radios/radio.cpp
-#	${GFS_SRC}/radios/dra-sa-radio.cpp
 )
 set_target_properties(giraffe-flight-software PROPERTIES OUTPUT_NAME gfs)
 set_target_properties(

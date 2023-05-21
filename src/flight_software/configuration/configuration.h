@@ -10,6 +10,7 @@
 #define CONFIGURATION_H_
 
 #include <mutex>
+#include <nlohmann/json.hpp>
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -17,6 +18,7 @@
 #include "streams.h"
 
 namespace cfg {
+const std::string kDefaultConfigPath = "gfs_config.json";
 
 struct Procedure {
   enum class Type { TESTING, ASCENT, DESCENT, RECOVERY, FAILSAFE };
@@ -46,27 +48,34 @@ struct General {
     PI_4,
   };
 
-  std::string project_name;
-  MainBoard main_board_type;
-  Procedure::Type starting_procedure;
+  std::string project_name = "Giraffe Flight 1";
+  MainBoard main_board_type = cfg::General::MainBoard::OTHER;
+  Procedure::Type starting_procedure =
+      cfg::Procedure::Type::FAILSAFE;
 };
 
 struct Debug {
-  bool print_errors;
-  bool console_enabled;
-  int console_update_interval;
+  bool print_errors = false;
+  bool console_enabled = false;
+  int console_update_interval = 1000; // in ms
 };
 
 struct Server {
-  int tcp_socket_port;
+  int tcp_socket_port = 7893;
 };
 
 /**
  * @todo to be expanded, as needed.
  */
 struct Frequency {
-  std::string frequency;
+  Frequency() : frequency("000.0000") {}
+  Frequency(std::string freq) : frequency(freq) {}
 
+  std::string frequency = "000.0000";
+
+  /**
+   * @todo need to do validation
+   */
   void setFrequency(std::string freq) {
     frequency = freq;
   }
@@ -76,31 +85,31 @@ struct Frequency {
 };
 
 struct Telemetry {
-  bool telemetry_enabled;
-  std::string call_sign;
+  bool telemetry_enabled = false;
+  std::string call_sign = "N0CALL";
 };
 
 struct Aprs {
   enum class SymbolTable { PRIMARY, ALTERNATE };
 
-  bool telemetry_packets;
-  bool position_packets;
-  cfg::Frequency frequency;
-  int ssid;
-  std::string destination_address;
-  int destination_ssid;
-  cfg::Aprs::SymbolTable symbol_table;
-  char symbol;
-  std::string comment;
+  bool telemetry_packets = false;
+  bool position_packets = false;
+  cfg::Frequency frequency = cfg::Frequency("144.3900");
+  int ssid = 0;
+  std::string destination_address = "APRS";
+  int destination_ssid = 0;
+  cfg::Aprs::SymbolTable symbol_table = cfg::Aprs::SymbolTable::PRIMARY;
+  char symbol = '/';
+  std::string comment = "Giraffe Flight Software";
 };
 
 struct Sstv {
   enum class Mode { ROBOT_36 };
 
-  bool enabled;
-  cfg::Frequency frequency;
-  cfg::Sstv::Mode mode;
-  bool overlay_data;
+  bool enabled = false;
+  cfg::Frequency frequency = cfg::Frequency("145.5100");
+  cfg::Sstv::Mode mode = cfg::Sstv::Mode::ROBOT_36;
+  bool overlay_data = true;
 };
 
 struct DataPackets {
@@ -115,16 +124,18 @@ struct DataPackets {
     AFSK_AX25
   };
 
-  bool enabled;
-  cfg::Frequency frequency;
-  cfg::DataPackets::Mode mode;
-  bool morse_call_sign;
-  std::string comment;
+  bool enabled = false;
+  cfg::Frequency frequency = cfg::Frequency("145.5100");
+  cfg::DataPackets::Mode mode = cfg::DataPackets::Mode::BPSK250;
+  bool morse_call_sign = true;
+  std::string comment = "Giraffe Flight Software";
 };
 
 class Configuration {
  public:
-  Configuration(data::ErrorStream &es);
+  using json = nlohmann::ordered_json;
+
+  Configuration(data::Streams &streams);
   ~Configuration();
 
   bool setGeneral(const cfg::General &general);
@@ -149,19 +160,22 @@ class Configuration {
   cfg::DataPackets getDataPackets();
 
  private:
+  void saveConfig(std::string file_path = "");
+  void loadConfig(std::string file_path = "");
+
   void reportError(std::string code, std::string info = "");
 
-  data::ErrorStream &es_;
 
-  cfg::General general_;
-  cfg::Debug debug_;
-  cfg::Server server_;
-  cfg::Telemetry telemetry_;
-  cfg::Aprs aprs_;
-  cfg::Sstv sstv_;
-  cfg::DataPackets data_packets_;
+  cfg::General general_ = cfg::General();
+  cfg::Debug debug_ = cfg::Debug();
+  cfg::Server server_ = cfg::Server();
+  cfg::Telemetry telemetry_ = cfg::Telemetry();
+  cfg::Aprs aprs_ = cfg::Aprs();
+  cfg::Sstv sstv_ = cfg::Sstv();
+  cfg::DataPackets data_packets_ = cfg::DataPackets();
 
-  std::mutex config_lock_;
+  data::Streams &streams_;
+  std::mutex config_lock_ = std::mutex();
 };
 
 static const std::unordered_map<cfg::Procedure::Type, std::string>
@@ -230,7 +244,7 @@ static const std::unordered_map<std::string, cfg::DataPackets::Mode>
 
 inline void reportError(data::ErrorStream &es, const std::string code,
                         const std::string info) {
-  es.addError(node::Identification::CONFIGURATION_MODULE, code, info);
+  es.addError(node::Identification::CONFIGURATION, code, info);
 }
 
 };  // namespace cfg

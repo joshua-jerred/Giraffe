@@ -1,9 +1,7 @@
-set(configuration_module_sources
-	${GFS_SRC}/modules/configuration/configuration_module.cpp
-	${GFS_SRC}/modules/configuration/configuration.cpp
-	${GFS_SRC}/modules/configuration/configuration_json.cpp
-	${GFS_SRC}/modules/configuration/validators.cpp
-	${GFS_SRC}/modules/configuration/file.cpp
+set(configuration_sources
+	${GFS_SRC}/configuration/configuration.cpp
+	${GFS_SRC}/configuration/configuration_json.cpp
+	${GFS_SRC}/configuration/validators.cpp
 )
 
 set(data_module_sources

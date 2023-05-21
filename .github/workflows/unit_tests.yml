@@ -54,51 +54,12 @@ jobs:
       - name: Run Test
         run: $COMMON_RUN
 
-  gfs-test-01:
-    name: GFS / Configuration / Validators
+  gfs_test_01:
+    name: GFS / Configuration
     env:
-      TEST_NAME: "gfs_01_configuration_validators"
+      TEST_NAME: "gfs_01_configuration"
       TEST_ID: "test_01"
     needs: ["cmake_configure"]
-    runs-on: self-hosted
-    steps:
-      - name: Build Test
-        run: $GFS_BUILD
-      - name: Run Test
-        run: $GFS_RUN
-
-  gfs-test-02:
-    name: GFS / Configuration / Configuration Class
-    env:
-      TEST_NAME: "gfs_02_configuration_class"
-      TEST_ID: "test_02"
-    needs: ["cmake_configure", "gfs-test-01"]
-    runs-on: self-hosted
-    steps:
-      - name: Build Test
-        run: $GFS_BUILD
-      - name: Run Test
-        run: $GFS_RUN
-
-  gfs-test-03:
-    name: GFS / Configuration / JSON Objects
-    env:
-      TEST_NAME: "gfs_03_configuration_json"
-      TEST_ID: "test_03"
-    needs: ["gfs-test-02"]
-    runs-on: self-hosted
-    steps:
-      - name: Build Test
-        run: $GFS_BUILD
-      - name: Run Test
-        run: $GFS_RUN
-
-  gfs-test-04:
-    name: GFS / Configuration / File Save/Load
-    env:
-      TEST_NAME: "gfs_04_configuration_file"
-      TEST_ID: "test_04"
-    needs: ["gfs-test-03"]
     runs-on: self-hosted
     steps:
       - name: Build Test

@@ -17,20 +17,6 @@
 using json = nlohmann::ordered_json;
 
 // To Json
-json cfg::json::allToJson(cfg::Configuration &cfg) {
-  json all = {
-      {"general", cfg::json::generalToJson(cfg.getGeneral())},
-      {"debug", cfg::json::debugToJson(cfg.getDebug())},
-      {"server", cfg::json::serverToJson(cfg.getServer())},
-      {"telemetry", cfg::json::telemetryToJson(cfg.getTelemetry())},
-      {"telemetry_aprs", cfg::json::aprsToJson(cfg.getAprs())},
-      {"telemetry_sstv", cfg::json::sstvToJson(cfg.getSstv())},
-      {"telemetry_data_packets",
-       cfg::json::dataPacketsToJson(cfg.getDataPackets())},
-  };
-  return all;
-}
-
 json cfg::json::generalToJson(const cfg::General &general_section) {
   json data({{"project_name", general_section.project_name},
              {"main_board",

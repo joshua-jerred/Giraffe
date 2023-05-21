@@ -1,16 +1,15 @@
 enable_testing()
 
 include_directories(
-	${GFS_SRC}/modules
-	${GFS_SRC}/modules/configuration
+	${GFS_SRC}/
+	${GFS_SRC}/configuration
 	${GFS_SRC}/modules/data
 )
-
 
 # gtest based test function ----------------------------------------------------
 function(add_gtest_test test_id test_name)
 	add_executable(${test_name}
-	${GFS_TEST_SRC}/${test_id}/test.cpp
+		${GFS_TEST_SRC}/${test_id}/test.cpp
 		${ARGN}
 	)
 	target_link_libraries(${test_name} gtest_main)
@@ -25,35 +24,13 @@ include(${GFS_SRC}/sourcelist.CMake)
 
 add_gtest_test(
 	test_01
-	gfs_01_configuration_validators
-	${configuration_module_sources}
+	gfs_01_configuration
+	${configuration_sources}
+	${GFS_TEST_SRC}/test_01/test_cfg_validators.cpp
+	${GFS_TEST_SRC}/test_01/test_cfg_configuration_class.cpp
 )
-target_link_libraries(gfs_01_configuration_validators nlohmann_json::nlohmann_json)
-
-add_gtest_test(
-	test_02
-	gfs_02_configuration_class
-	${configuration_module_sources}
-)
-target_link_libraries(gfs_02_configuration_class nlohmann_json::nlohmann_json)
-
-
-add_gtest_test(
-	test_03
-	gfs_03_configuration_json
-	${configuration_module_sources}
-)
-target_link_libraries(gfs_03_configuration_json nlohmann_json::nlohmann_json)
-configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${GFS_TEST_BIN}/test_03/gfs_configuration_metadata.json)
-
-add_gtest_test(
-	test_04
-	gfs_04_configuration_file
-	${configuration_module_sources}
-	${data_module_sources}
-)
-target_link_libraries(gfs_04_configuration_file nlohmann_json::nlohmann_json)
-configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${GFS_TEST_BIN}/test_04/gfs_configuration_metadata.json)
+target_link_libraries(gfs_01_configuration nlohmann_json::nlohmann_json)
+configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${GFS_TEST_BIN}/test_01/gfs_configuration_metadata.json)
 
 add_gtest_test(
 	test_05

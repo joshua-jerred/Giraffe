@@ -13,14 +13,14 @@
 #include <thread>
 
 #include "command.h"
+#include "configuration.h"
 #include "node.h"
 #include "streams.h"
 
 namespace modules {
 
 struct MetaData {
-  MetaData(std::string name, node::Identification id)
-      : name_(name), id_(id) {
+  MetaData(std::string name, node::Identification id) : name_(name), id_(id) {
   }
 
   std::string name_;
@@ -34,7 +34,8 @@ enum Status { STOPPED, STARTING, RUNNING, SLEEPING, STOPPING, ERROR };
 
 class Module {
  public:
-  Module(modules::MetaData metadata, data::Streams &streams);
+  Module(modules::MetaData metadata, data::Streams &streams,
+         cfg::Configuration &configuration);
 
   Module(const Module &) = delete;             // No copy constructor
   Module &operator=(const Module &) = delete;  // No copy assignment
@@ -62,6 +63,7 @@ class Module {
 
   modules::MetaData metadata_;
   data::Streams &streams_;
+  cfg::Configuration &configuration_;
 
  private:
   void runner();

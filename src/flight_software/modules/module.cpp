@@ -16,9 +16,11 @@
 #include <thread>
 #include <type_traits>
 
-modules::Module::Module(modules::MetaData metadata, data::Streams &streams)
+modules::Module::Module(modules::MetaData metadata, data::Streams &streams,
+                        cfg::Configuration &configuration)
     : metadata_(metadata),
       streams_(streams),
+      configuration_(configuration),
       runner_thread_(),
       command_queue_(metadata.id_) {
 }

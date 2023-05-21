@@ -13,7 +13,7 @@
             "type": "enum",
             "name": "Main Board Type",
             "description": "The type of computer that the flight software is running on. This is important for the interfacing with the hardware.",
-            "default": "pi_zero_w_2",
+            "default": "other",
             "options": [
                 "other",
                 "pi_zero_w_2",

@@ -23,7 +23,7 @@ TEST_F(Streams, error_stream) {
   data::ErrorStream es;
   data::ErrorStreamPacket packet;
 
-  packet.source = data::Source::CONFIGURATION_MODULE;
+  packet.source = data::Source::CONFIGURATION;
   packet.code = "123";
   packet.info = "456";
 
@@ -38,7 +38,7 @@ TEST_F(Streams, error_stream) {
   EXPECT_EQ(es.getNumPackets(), 0);
   EXPECT_EQ(es.getTotalPackets(), 1);
 
-  EXPECT_EQ(packet_from_stream.source, data::Source::CONFIGURATION_MODULE);
+  EXPECT_EQ(packet_from_stream.source, data::Source::CONFIGURATION);
   EXPECT_EQ(packet_from_stream.code, "123");
   EXPECT_EQ(packet_from_stream.info, "456");
 }
