@@ -22,7 +22,7 @@ class ConsoleModule : public Module {
   void shutdown() override;
   void processCommand(const command::Command &command);
 
-  ncurs::Environment ncurs_env_ = ncurs::Environment(50, 60);
+  ncurs::Environment ncurs_env_ = ncurs::Environment();
 };
 
 }  // namespace modules

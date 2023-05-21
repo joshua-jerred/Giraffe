@@ -7,42 +7,96 @@
 #include <vector>
 
 namespace ncurs {
+namespace internal {
+class Window {
+ public:
+  Window() {
+  }
+  ~Window() {
+    delwin(p_window_);
+  }
+
+  Window(const Window &) = delete;             // No copy constructor
+  Window &operator=(const Window &) = delete;  // No copy assignment
+
+  void setPosition(int x, int y) {
+    x_ = x;
+    y_ = y;
+  }
+
+  void setSize(int width, int height) {
+    width_ = width;
+    height_ = height;
+  }
+
+  void win_init();
+  void win_reset();
+  void win_refresh();
+  void win_clear();
+
+  WINDOW *p_window_ = nullptr;
+
+  std::string title_ = "";
+  int height_ = 5;
+  int width_ = 5;
+  int x_ = 0;
+  int y_ = 0;
+};
+}  // namespace internal
+
 struct MenuOption {
-  MenuOption(std::string title) : title_(title) {
+  MenuOption(std::string title, std::vector<MenuOption> sub_menus = {})
+      : title_(title), sub_menus_(sub_menus) {
   }
 
-  std::string title_ = "";
+  std::string title_;
+  std::vector<MenuOption> sub_menus_;
 };
 
-struct SubMenu {
-  SubMenu(std::string title, std::vector<MenuOption> options)
-      : title_(title), options_(options) {
-  }
-
-  std::string title_ = "";
-  std::vector<MenuOption> options_ = {};
-};
-
-typedef std::vector<SubMenu> MainMenu;
+typedef std::vector<MenuOption> Menu;
 
 class Environment {
  public:
-  Environment(int height, int width);
-  ~Environment();
+  Environment() {
+  }
+  ~Environment() {
+  }
   Environment(const Environment &) = delete;             // No copy constructor
   Environment &operator=(const Environment &) = delete;  // No copy assignment
 
-  void init(MainMenu &main_menu);
+  void initialize(Menu &main_menu);
   void update();
   void end();
 
  private:
-  void checkInput();
+  enum class Focus { MENU, DATA };
+  enum class NavKey { LEFT, RIGHT, UP, DOWN };
 
-  int height_;
-  int width_;
-  MainMenu main_menu_ = {};
+  void checkInput();
+  void displayMenu();
+  void displayData();
+  void navigateMenu(NavKey key);
+
+  Environment::Focus focus_ = Environment::Focus::MENU;
+
+  std::string last_key = "";  // Remove this
+
+  const int kHeight_ = 15;
+  const int kMenuWidth_ = 20;
+  const int kDataWidth_ = 40;
+  const int kPadding_ = 1;
+
+  Menu main_menu_ = {};
+
+  std::vector<Menu *> menu_path_ = {&main_menu_};
+  Menu *current_menu_ = &main_menu_;
+
+  int current_menu_hover_ = 0;
+  int current_menu_num_options_ = 0;
+
   WINDOW *screen_ = nullptr;
+  internal::Window menu_window_ = internal::Window();
+  internal::Window data_window_ = internal::Window();
 };
 
 }  // namespace ncurs
