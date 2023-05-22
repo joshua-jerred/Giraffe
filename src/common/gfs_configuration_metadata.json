@@ -101,7 +101,7 @@
             "description": "The maximum log file archive size in Mega-Bytes before overwrite. The oldest log file will be overwritten first.",
             "default": 100,
             "max": 100000,
-            "min": 100,
+            "min": 50,
             "step": 1
         },
         "archive_method": {
@@ -221,7 +221,7 @@
             "description": "The maximum log file archive size in Mega-Bytes before overwrite. The oldest log file will be overwritten first.",
             "default": 50,
             "max": 100000,
-            "min": 100,
+            "min": 50,
             "step": 1
         },
         "error_archive_method": {

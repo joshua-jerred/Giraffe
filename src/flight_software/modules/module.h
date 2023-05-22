@@ -66,9 +66,10 @@ class Module {
   data::Streams &streams_;
   cfg::Configuration &configuration_;
 
+  void sleep();
+  
  private:
   void runner();
-  void sleep();
 
   std::atomic<modules::Status> status_ = modules::Status::STOPPED;
   std::atomic<bool> stop_flag_ = true;

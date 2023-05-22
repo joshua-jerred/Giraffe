@@ -164,7 +164,7 @@ bool cfg::dm_data_log::validators::maxFileSize(const int input,
 
 bool cfg::dm_data_log::validators::maxArchiveSize(const int input,
                                                   std::string &error) {
-  if (!(input >= 100) || !(input <= 100000)) {
+  if (!(input >= 50) || !(input <= 100000)) {
     error = "Max archive size is outside of the allowed range.";
     return false;
   }

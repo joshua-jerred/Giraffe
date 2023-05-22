@@ -86,7 +86,7 @@ bool cfg::Configuration::setDataModuleDataLog(
 
   std::string error;
   if (!cfg::dm_data_log::validators::logInterval(section.log_interval_ms,
-                                                error)) {
+                                                 error)) {
     reportError("ST_DMDL_LGI", error);
   } else {
     dm_data_log_.log_interval_ms = section.log_interval_ms;
@@ -215,19 +215,20 @@ cfg::DataModuleDebug cfg::Configuration::getDataModuleDebug() {
   return dm_debug_;
 }
 
-
 // ----- Console Module
 
 bool cfg::Configuration::setConsoleModule(const cfg::ConsoleModule &section) {
   std::lock_guard<std::mutex> lock(config_lock_);
 
   std::string error;
-  if (!cfg::console_module::validators::updateInterval(section.update_interval ,
-                                                     error)) {
+  if (!cfg::console_module::validators::updateInterval(section.update_interval,
+                                                       error)) {
     reportError("ST_CNSL_UI", error);
   } else {
     console_module_.update_interval = section.update_interval;
   }
+
+  console_module_.enabled = section.enabled;
 
   saveConfig();
   return true;
@@ -237,8 +238,6 @@ cfg::ConsoleModule cfg::Configuration::getConsoleModule() {
   std::lock_guard<std::mutex> lock(config_lock_);
   return console_module_;
 }
-
-
 
 // ----- Server Module
 
@@ -268,8 +267,8 @@ bool cfg::Configuration::setSystemModule(const cfg::SystemModule &section) {
   std::lock_guard<std::mutex> lock(config_lock_);
 
   std::string error;
-  if (!cfg::system_module::validators::systemInfoPollRate(section.system_info_poll_rate_ms,
-                                                     error)) {
+  if (!cfg::system_module::validators::systemInfoPollRate(
+          section.system_info_poll_rate_ms, error)) {
     reportError("ST_SYS_SIPR", error);
   } else {
     system_module_.system_info_poll_rate_ms = section.system_info_poll_rate_ms;
@@ -342,7 +341,9 @@ cfg::DataPackets cfg::Configuration::getDataPackets() {
  * @param file_path - optional, if empty it will save to the default location.
  */
 void cfg::Configuration::saveConfig() {
-  const std::string kTestStr = "gfs_config.json";
+  if (load_mode_) {
+    return;
+  }
 
   using json = nlohmann::ordered_json;
 
@@ -423,6 +424,7 @@ void cfg::Configuration::loadConfig() {
   }
 
   int num_errors = 0;  // Number or errors accumulator
+  load_mode_ = true; // Prevent saving
 
   /*
   Now check that each section is a valid json object and if so, parse it
@@ -551,6 +553,8 @@ void cfg::Configuration::loadConfig() {
     reportError("LD_SNF_DATPKTS",
                 "data packets section not found in config file");
   }
+
+  load_mode_ = false; // Allow saving again
 }
 
 void cfg::Configuration::reportError(std::string code, std::string info) {

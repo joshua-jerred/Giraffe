@@ -50,7 +50,7 @@ json cfg::json::dataModuleInfluxDbToJson(const cfg::DataModuleInfluxDb &sec) {
              {"token", sec.token},
              {"organization", sec.organization},
              {"data_bucket", sec.data_bucket},
-             {"errors_bucket", sec.error_bucket},
+             {"error_bucket", sec.error_bucket},
              {"retention_policy",
               cfg::kRetentionPolicyToString.at(sec.retention_policy)}});
   return data;
@@ -60,7 +60,7 @@ json cfg::json::dataModuleErrorLogToJson(const cfg::DataModuleErrorLog &sec) {
   json data({{"log_errors_to_file", sec.log_errors_to_file},
              {"max_error_log_file_size_mb", sec.max_error_log_file_size_mb},
              {"max_error_archive_size_mb", sec.max_error_archive_size_mb},
-             {"error_archive_method",
+             {"archive_method",
               cfg::kArchivalMethodToString.at(sec.archival_method)}});
   return data;
 }

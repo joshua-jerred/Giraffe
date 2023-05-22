@@ -12,6 +12,7 @@ modules::DataModule::~DataModule() {
 }
 
 void modules::DataModule::startup() {
+  sleep(); // wait to start
 }
 
 void modules::DataModule::loop() {
@@ -32,6 +33,18 @@ void modules::DataModule::parseStreams() {
     bool got_packet = streams_.data_stream.getPacket(ds_packet);
     if (!got_packet) return;
     std::string source = node::identification_to_string.at(ds_packet.source);
-    std::cout << source << ":" << ds_packet.identifier << ":" << ds_packet.value << std::endl; 
+    std::cout << source << ":" << ds_packet.identifier << ":" << ds_packet.value
+              << std::endl;
+  }
+
+  int error_packet_count = streams_.error_stream.getNumPackets();
+  data::ErrorStreamPacket es_packet;
+  for (int i = 0; i < error_packet_count; i++) {
+    bool got_packet = streams_.error_stream.getPacket(es_packet);
+    if (!got_packet) return;
+    std::string source = node::identification_to_string.at(es_packet.source);
+
+    std::cout << source << ":" << es_packet.code << " - " << es_packet.info
+              << std::endl;
   }
 }

@@ -13,6 +13,7 @@
 #include <nlohmann/json.hpp>
 #include <string>
 #include <vector>
+#include <atomic>
 
 #include "node.h"
 #include "streams.h"
@@ -238,6 +239,8 @@ class Configuration {
   void loadConfig();
 
   void reportError(std::string code, std::string info = "");
+
+  std::atomic<bool> load_mode_ = false;
 
   const std::string kConfigurationPath = "config.json";
 
