@@ -68,11 +68,16 @@ bool cfg::Configuration::setDataModuleGeneral(
                                                    error)) {
     reportError("ST_DMG_FPT", error);
   } else {
-    data_module_general_.frame_purge_time = section.frame_purge_time;
+    dm_general_.frame_purge_time = section.frame_purge_time;
   }
 
   saveConfig();
   return true;
+}
+
+cfg::DataModuleGeneral cfg::Configuration::getDataModuleGeneral() {
+  std::lock_guard<std::mutex> lock(config_lock_);
+  return dm_general_;
 }
 
 bool cfg::Configuration::setDataModuleDataLog(
@@ -80,7 +85,7 @@ bool cfg::Configuration::setDataModuleDataLog(
   std::lock_guard<std::mutex> lock(config_lock_);
 
   std::string error;
-  if (!cfg::dm_general::validators::logInterval(section.log_interval_ms,
+  if (!cfg::dm_data_log::validators::logInterval(section.log_interval_ms,
                                                 error)) {
     reportError("ST_DMDL_LGI", error);
   } else {
@@ -108,6 +113,11 @@ bool cfg::Configuration::setDataModuleDataLog(
 
   saveConfig();
   return true;
+}
+
+cfg::DataModuleDataLog cfg::Configuration::getDataModuleDataLog() {
+  std::lock_guard<std::mutex> lock(config_lock_);
+  return dm_data_log_;
 }
 
 bool cfg::Configuration::setDataModuleInfluxDb(
@@ -153,6 +163,83 @@ bool cfg::Configuration::setDataModuleInfluxDb(
   return true;
 }
 
+cfg::DataModuleInfluxDb cfg::Configuration::getDataModuleInfluxDb() {
+  std::lock_guard<std::mutex> lock(config_lock_);
+  return dm_influxdb_;
+}
+
+bool cfg::Configuration::setDataModuleErrorLog(
+    const cfg::DataModuleErrorLog &section) {
+  std::lock_guard<std::mutex> lock(config_lock_);
+
+  std::string error;
+  if (!cfg::dm_data_log::validators::maxFileSize(
+          section.max_error_log_file_size_mb, error)) {
+    reportError("ST_DMEL_MFS", error);
+  } else {
+    dm_error_log_.max_error_log_file_size_mb =
+        section.max_error_log_file_size_mb;
+  }
+
+  if (!cfg::dm_data_log::validators::maxArchiveSize(
+          section.max_error_archive_size_mb, error)) {
+    reportError("ST_DMEL_MAS", error);
+  } else {
+    dm_error_log_.max_error_archive_size_mb = section.max_error_archive_size_mb;
+  }
+
+  dm_error_log_.log_errors_to_file = section.log_errors_to_file;
+  dm_error_log_.archival_method = section.archival_method;
+
+  saveConfig();
+  return true;
+}
+
+cfg::DataModuleErrorLog cfg::Configuration::getDataModuleErrorLog() {
+  std::lock_guard<std::mutex> lock(config_lock_);
+  return dm_error_log_;
+}
+
+bool cfg::Configuration::setDataModuleDebug(
+    const cfg::DataModuleDebug &section) {
+  std::lock_guard<std::mutex> lock(config_lock_);
+
+  dm_debug_ = section;
+
+  saveConfig();
+  return true;
+}
+
+cfg::DataModuleDebug cfg::Configuration::getDataModuleDebug() {
+  std::lock_guard<std::mutex> lock(config_lock_);
+  return dm_debug_;
+}
+
+
+// ----- Console Module
+
+bool cfg::Configuration::setConsoleModule(const cfg::ConsoleModule &section) {
+  std::lock_guard<std::mutex> lock(config_lock_);
+
+  std::string error;
+  if (!cfg::console_module::validators::updateInterval(section.update_interval ,
+                                                     error)) {
+    reportError("ST_CNSL_UI", error);
+  } else {
+    console_module_.update_interval = section.update_interval;
+  }
+
+  saveConfig();
+  return true;
+}
+
+cfg::ConsoleModule cfg::Configuration::getConsoleModule() {
+  std::lock_guard<std::mutex> lock(config_lock_);
+  return console_module_;
+}
+
+
+
 // ----- Server Module
 
 bool cfg::Configuration::setServerModule(const cfg::ServerModule &server) {
@@ -174,6 +261,30 @@ cfg::ServerModule cfg::Configuration::getServerModule() {
   std::lock_guard<std::mutex> lock(config_lock_);
   return server_module_;
 }
+
+// ----- System Module
+
+bool cfg::Configuration::setSystemModule(const cfg::SystemModule &section) {
+  std::lock_guard<std::mutex> lock(config_lock_);
+
+  std::string error;
+  if (!cfg::system_module::validators::systemInfoPollRate(section.system_info_poll_rate_ms,
+                                                     error)) {
+    reportError("ST_SYS_SIPR", error);
+  } else {
+    system_module_.system_info_poll_rate_ms = section.system_info_poll_rate_ms;
+  }
+
+  saveConfig();
+  return true;
+}
+
+cfg::SystemModule cfg::Configuration::getSystemModule() {
+  std::lock_guard<std::mutex> lock(config_lock_);
+  return system_module_;
+}
+
+// ----- Telemetry
 
 bool cfg::Configuration::setTelemetry(const cfg::Telemetry &telemetry) {
   std::lock_guard<std::mutex> lock(config_lock_);

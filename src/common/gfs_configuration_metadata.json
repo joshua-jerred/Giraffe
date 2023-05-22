@@ -170,7 +170,7 @@
             "max": 50,
             "pattern": ""
         },
-        "errors_bucket": {
+        "error_bucket": {
             "type": "string",
             "name": "InfluxDB Errors Bucket",
             "description": "The name of the bucket to stream errors to.",

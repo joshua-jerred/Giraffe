@@ -72,8 +72,8 @@ json cfg::json::dataModuleDebugToJson(const cfg::DataModuleDebug &sec) {
 }
 
 json cfg::json::consoleModuleToJson(const cfg::ConsoleModule &sec) {
-  json data({{"enabled", sec.enabled},
-             {"update_interval", sec.update_interval}});
+  json data(
+      {{"enabled", sec.enabled}, {"update_interval", sec.update_interval}});
   return data;
 }
 
@@ -265,8 +265,129 @@ void cfg::json::jsonToDataModuleGeneral(const json &json_data,
                                         data::ErrorStream &es,
                                         int &num_errors) {
   setValidValue<int>(es, json_data, "data_module_general", "frame_purge_time",
-                     dmGeneral.frame_purge_time, "DM_FPT", num_errors,
+                     dmGeneral.frame_purge_time, "DMG_FPT", num_errors,
                      &cfg::dm_general::validators::framePurgeTime);
+}
+
+void cfg::json::jsonToDataModuleDataLog(const json &json_data,
+                                        cfg::DataModuleDataLog &cfg_section,
+                                        data::ErrorStream &es,
+                                        int &num_errors) {
+  setValidValue<bool>(es, json_data, "data_module_data_log", "log_data_to_file",
+                      cfg_section.log_data_to_file, "DMDL_LDTF", num_errors);
+
+  setValidEnum(es, json_data, "data_module_data_log", "log_strategy",
+               cfg_section.log_strategy, cfg::kStringToLogStrategy,
+               "LD_DMDL_LS", num_errors,
+               &cfg::dm_data_log::validators::logStrategy);
+
+  setValidEnum(es, json_data, "data_module_data_log", "log_detail",
+               cfg_section.log_detail, cfg::kStringToLogDetail, "LD_DMDL_LD",
+               num_errors, &cfg::dm_data_log::validators::logDetail);
+
+  setValidValue<int>(es, json_data, "data_module_data_log", "log_interval_ms",
+                     cfg_section.log_interval_ms, "DMDL_LIMS", num_errors,
+                     &cfg::dm_data_log::validators::logInterval);
+
+  setValidValue<int>(es, json_data, "data_module_data_log",
+                     "max_data_log_file_size_mb",
+                     cfg_section.max_data_log_file_size_mb, "DMDL_MDLFS",
+                     num_errors, &cfg::dm_data_log::validators::maxFileSize);
+
+  setValidValue<int>(es, json_data, "data_module_data_log",
+                     "max_data_archive_size_mb",
+                     cfg_section.max_data_archive_size_mb, "DMDL_MDAS",
+                     num_errors, &cfg::dm_data_log::validators::maxArchiveSize);
+
+  setValidEnum(es, json_data, "data_module_data_log", "archive_method",
+               cfg_section.archival_method, cfg::kStringToArchivalMethod,
+               "LD_DMDL_AM", num_errors,
+               &cfg::dm_data_log::validators::archiveMethod);
+}
+
+void cfg::json::jsonToDataModuleInfluxDb(const json &json_data,
+                                         cfg::DataModuleInfluxDb &cfg_section,
+                                         data::ErrorStream &es,
+                                         int &num_errors) {
+  setValidValue<bool>(es, json_data, "data_module_influxdb", "influx_enabled",
+                      cfg_section.influx_enabled, "IFLX_EN", num_errors);
+
+  setValidValue<bool>(es, json_data, "data_module_influxdb", "log_errors",
+                      cfg_section.log_errors, "IFLX_LE", num_errors);
+
+  setValidValue<std::string>(es, json_data, "data_module_influxdb", "url",
+                             cfg_section.url, "IFLX_URL", num_errors,
+                             &cfg::dm_influx_db::validators::url);
+
+  setValidValue<std::string>(es, json_data, "data_module_influxdb", "token",
+                             cfg_section.token, "IFLX_TKN", num_errors,
+                             &cfg::dm_influx_db::validators::token);
+
+  setValidValue<std::string>(es, json_data, "data_module_influxdb",
+                             "organization", cfg_section.organization,
+                             "IFLX_ORG", num_errors,
+                             &cfg::dm_influx_db::validators::org);
+
+  setValidValue<std::string>(es, json_data, "data_module_influxdb",
+                             "data_bucket", cfg_section.data_bucket,
+                             "IFLX_DBKT", num_errors,
+                             &cfg::dm_influx_db::validators::bucket);
+
+  setValidValue<std::string>(es, json_data, "data_module_influxdb",
+                             "error_bucket", cfg_section.error_bucket,
+                             "IFLX_EBKT", num_errors,
+                             &cfg::dm_influx_db::validators::bucket);
+
+  setValidEnum(es, json_data, "data_module_influxdb", "retention_policy",
+               cfg_section.retention_policy, cfg::kStringToRetentionPolicy,
+               "LD_IFLX_RTP", num_errors,
+               &cfg::dm_influx_db::validators::retentionPolicy);
+}
+
+void cfg::json::jsonToDataModuleErrorLog(const json &json_data,
+                                         cfg::DataModuleErrorLog &cfg_section,
+                                         data::ErrorStream &es,
+                                         int &num_errors) {
+  setValidValue<bool>(es, json_data, "data_module_error_log",
+                      "log_errors_to_file", cfg_section.log_errors_to_file,
+                      "DMEL_LETF", num_errors);
+
+  setValidValue<int>(es, json_data, "data_module_error_log",
+                     "max_error_log_file_size_mb",
+                     cfg_section.max_error_log_file_size_mb, "DMEL_MELFS",
+                     num_errors, &cfg::dm_data_log::validators::maxFileSize);
+
+  setValidValue<int>(es, json_data, "data_module_error_log",
+                     "max_error_archive_size_mb",
+                     cfg_section.max_error_archive_size_mb, "DMEL_MEAS",
+                     num_errors, &cfg::dm_data_log::validators::maxArchiveSize);
+
+  setValidEnum(es, json_data, "data_module_error_log", "archive_method",
+               cfg_section.archival_method, cfg::kStringToArchivalMethod,
+               "LD_DMEL_AM", num_errors,
+               &cfg::dm_data_log::validators::archiveMethod);
+}
+
+void cfg::json::jsonToDataModuleDebug(const json &json_data,
+                                      cfg::DataModuleDebug &cfg_section,
+                                      data::ErrorStream &es, int &num_errors) {
+  setValidValue<bool>(es, json_data, "data_module_debug", "enabled",
+                      cfg_section.debug_enabled, "DMDBG_EN", num_errors);
+
+  setValidEnum(es, json_data, "data_module_debug", "log_level",
+               cfg_section.log_level, cfg::kStringToLogLevel, "LD_DMDBG_LL",
+               num_errors, &cfg::dm_debug::validators::debugLevel);
+}
+
+void cfg::json::jsonToConsoleModule(const json &json_data,
+                                    cfg::ConsoleModule &cfg_section,
+                                    data::ErrorStream &es, int &num_errors) {
+  setValidValue<bool>(es, json_data, "console_module", "enabled",
+                      cfg_section.enabled, "CSL_EN", num_errors);
+
+  setValidValue<int>(es, json_data, "console_module", "update_interval",
+                     cfg_section.update_interval, "CSL_UI", num_errors,
+                     &cfg::console_module::validators::updateInterval);
 }
 
 void cfg::json::jsonToServerModule(const json &json_data,
@@ -278,6 +399,18 @@ void cfg::json::jsonToServerModule(const json &json_data,
   setValidValue<int>(es, json_data, "server_module", "tcp_socket_port",
                      server_module.tcp_socket_port, "SRV_TSP", num_errors,
                      &cfg::server_module::validators::tcpSocketPort);
+}
+
+void cfg::json::jsonToSystemModule(const json &json_data,
+                                   cfg::SystemModule &cfg_section,
+                                   data::ErrorStream &es, int &num_errors) {
+  setValidValue<bool>(es, json_data, "system_module", "enabled",
+                      cfg_section.enabled, "SYS_EN", num_errors);
+
+  setValidValue<int>(es, json_data, "system_module", "system_info_poll_rate_ms",
+                     cfg_section.system_info_poll_rate_ms, "SYS_SIPR",
+                     num_errors,
+                     &cfg::system_module::validators::systemInfoPollRate);
 }
 
 void cfg::json::jsonToTelemetry(const json &json_data,
