@@ -18,6 +18,20 @@ static const std::array<std::string, 3> main_board_enum = {
 static const std::array<std::string, 6> procedure_name_enum = {
     "testing", "pre_launch", "ascent", "descent", "recovery", "failsafe"};
 
+static const std::array<std::string, 4> log_strategy_enum = {
+    "interval", "all", "selection_interval", "selection_all"};
+
+static const std::array<std::string, 2> log_detail_enum = {"full", "partial"};
+
+static const std::array<std::string, 1> archive_method_enum = {"plain_text"};
+
+static const std::array<std::string, 6> influx_retention_policy_enum = {
+    "1 Hour", "1 Day", "1 Week", "1 Month", "1 Year", "INF"};
+
+static const std::array<std::string, 3> debug_levels_enum = {
+  "error", "warn", "info"
+};
+
 static const std::array<std::string, 2> aprs_symbol_table = {"primary",
                                                              "alternate"};
 
@@ -97,10 +111,139 @@ bool cfg::general::validators::startingProcedure(
   return true;
 }
 
-// Interface
+// Data Module General
 
-bool cfg::debug::validators::consoleUpdateInterval(const int update_interval_ms,
-                                                   std::string &error) {
+bool cfg::dm_general::validators::framePurgeTime(const int input,
+                                                 std::string &error) {
+  if (!(input >= 100) || !(input <= 600000)) {
+    error = "Frame purge time is outside of the allowed range.";
+    return false;
+  }
+  return true;
+}
+
+// Data Module Data Log
+
+bool cfg::dm_data_log::validators::logStrategy(const std::string &input,
+                                               std::string &error) {
+  bool res = macroInOptions(log_strategy_enum, input);
+  if (!res) {
+    error = "log strategy selection is invalid.";
+    return false;
+  }
+  return true;
+}
+
+bool cfg::dm_data_log::validators::logDetail(const std::string &input,
+                                             std::string &error) {
+  bool res = macroInOptions(log_detail_enum, input);
+  if (!res) {
+    error = "log detail selection is invalid.";
+    return false;
+  }
+  return true;
+}
+
+bool cfg::dm_data_log::validators::logInterval(const int input,
+                                               std::string &error) {
+  if (!(input >= 100) || !(input <= 600000)) {
+    error = "Log interval time is outside of the allowed range.";
+    return false;
+  }
+  return true;
+}
+
+bool cfg::dm_data_log::validators::maxFileSize(const int input,
+                                               std::string &error) {
+  if (!(input >= 1) || !(input <= 500)) {
+    error = "Max log file size is outside of the allowed range.";
+    return false;
+  }
+  return true;
+}
+
+bool cfg::dm_data_log::validators::maxArchiveSize(const int input,
+                                                  std::string &error) {
+  if (!(input >= 100) || !(input <= 100000)) {
+    error = "Max archive size is outside of the allowed range.";
+    return false;
+  }
+  return true;
+}
+
+bool cfg::dm_data_log::validators::archiveMethod(const std::string &input,
+                                                 std::string &error) {
+  bool res = macroInOptions(archive_method_enum, input);
+  if (!res) {
+    error = "archive method selection is invalid.";
+    return false;
+  }
+  return true;
+}
+
+// Data Module Influx DB
+bool cfg::dm_influx_db::validators::url(const std::string &input,
+                                        std::string &error) {
+  if (!inRange(0, 50, input)) {
+    error = "InfluxDB URL is outside of the allowed length range.";
+    return false;
+  }
+  return true;
+}
+
+bool cfg::dm_influx_db::validators::token(const std::string &input,
+                                          std::string &error) {
+  if (!inRange(0, 50, input)) {
+    error = "InfluxDB Token is outside of the allowed length range.";
+    return false;
+  }
+  return true;
+}
+
+bool cfg::dm_influx_db::validators::org(const std::string &input,
+                                        std::string &error) {
+  if (!inRange(0, 50, input)) {
+    error = "InfluxDB Organization u outside of the allowed length range.";
+    return false;
+  }
+  return true;
+}
+
+bool cfg::dm_influx_db::validators::bucket(const std::string &input,
+                                           std::string &error) {
+  if (!inRange(0, 50, input)) {
+    error = "InfluxDB Bucket u outside of the allowed length range.";
+    return false;
+  }
+  return true;
+}
+
+bool cfg::dm_influx_db::validators::retentionPolicy(const std::string &input,
+                                                    std::string &error) {
+  bool res = macroInOptions(influx_retention_policy_enum, input);
+  if (!res) {
+    error = "influxdb retention policy selection is invalid.";
+    return false;
+  }
+  return true;
+}
+
+// Data Module Debug
+
+bool cfg::dm_debug::validators::debugLevel(const std::string &input,
+                                           std::string &error) {
+  bool res = macroInOptions(debug_levels_enum, input);
+  if (!res) {
+    error = "debug level selection is invalid.";
+    return false;
+  }
+  return true;
+}
+
+// Console Module
+
+bool cfg::console_module::validators::updateInterval(
+    const int update_interval_ms, std::string &error) {
   if (!(update_interval_ms >= 100) || !(update_interval_ms <= 10000)) {
     error = "Console update interval is outside of the allowed range.";
     return false;
@@ -111,16 +254,30 @@ bool cfg::debug::validators::consoleUpdateInterval(const int update_interval_ms,
   return true;
 }
 
-// Server
+// Server Module
 
-bool cfg::server::validators::tcpSocketPort(const int port_number,
-                                            std::string &error) {
+bool cfg::server_module::validators::tcpSocketPort(const int port_number,
+                                                   std::string &error) {
   bool res = port_number >= 1024 && port_number <= 65535;
   if (!res) {
     error = "Port number " + std::to_string(port_number) +
             " is outside of the allowed range.";
   }
   return res;
+}
+
+// System Module
+
+bool cfg::system_module::validators::systemInfoPollRate(const int poll_rate_ms,
+                                                        std::string &error) {
+  if (!(poll_rate_ms >= 100) || !(poll_rate_ms <= 600000)) {
+    error = "System info poll rate is outside of the allowed range.";
+    return false;
+  } else if (poll_rate_ms % 100 != 0) {
+    error = "System info poll rate is expected to be divisible by 100.";
+    return false;
+  }
+  return true;
 }
 
 // Telemetry
@@ -212,7 +369,7 @@ bool cfg::aprs::validators::symbol(const std::string &symbol,
 }
 
 bool cfg::aprs::validators::symbolTable(const std::string &symbol_table,
-                                   std::string &error) {
+                                        std::string &error) {
   bool res = macroInOptions(aprs_symbol_table, symbol_table);
   if (!res) {
     error = "APRS Symbol Table macro option is invalid.";

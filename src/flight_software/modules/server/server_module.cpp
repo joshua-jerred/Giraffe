@@ -25,7 +25,7 @@ modules::ServerModule::~ServerModule() {
 void modules::ServerModule::startup() {
   data<std::string>("ident", "start");
 
-  int port_number = configuration_.getServer().tcp_socket_port;
+  int port_number = configuration_.getServerModule().tcp_socket_port;
   if (server_socket_.init(port_number)) {
     data<std::string>("tcp_sck_init", "initialized and running on port " +
                                           std::to_string(port_number));

@@ -58,37 +58,121 @@ cfg::General cfg::Configuration::getGeneral() {
   return general_;
 }
 
-// ----- Debug
-
-bool cfg::Configuration::setDebug(const cfg::Debug &debug) {
-  std::lock_guard<std::mutex> lock(config_lock_);
-  debug_ = debug;
-  saveConfig();
-  return true;
-}
-
-cfg::Debug cfg::Configuration::getDebug() {
-  std::lock_guard<std::mutex> lock(config_lock_);
-  cfg::Debug ret = debug_;
-  return ret;
-}
-
-bool cfg::Configuration::setServer(const cfg::Server &server) {
+// ----- Data Module
+bool cfg::Configuration::setDataModuleGeneral(
+    const cfg::DataModuleGeneral &section) {
   std::lock_guard<std::mutex> lock(config_lock_);
 
   std::string error;
-  if (!cfg::server::validators::tcpSocketPort(server.tcp_socket_port, error)) {
-    reportError("ST_SRV_TSP", error);
+  if (!cfg::dm_general::validators::framePurgeTime(section.frame_purge_time,
+                                                   error)) {
+    reportError("ST_DMG_FPT", error);
+  } else {
+    data_module_general_.frame_purge_time = section.frame_purge_time;
   }
 
-  server_ = server;
   saveConfig();
   return true;
 }
 
-cfg::Server cfg::Configuration::getServer() {
+bool cfg::Configuration::setDataModuleDataLog(
+    const cfg::DataModuleDataLog &section) {
   std::lock_guard<std::mutex> lock(config_lock_);
-  return server_;
+
+  std::string error;
+  if (!cfg::dm_general::validators::logInterval(section.log_interval_ms,
+                                                error)) {
+    reportError("ST_DMDL_LGI", error);
+  } else {
+    dm_data_log_.log_interval_ms = section.log_interval_ms;
+  }
+
+  if (!cfg::dm_data_log::validators::maxFileSize(
+          section.max_data_log_file_size_mb, error)) {
+    reportError("ST_DMDL_MFS", error);
+  } else {
+    dm_data_log_.max_data_log_file_size_mb = section.max_data_log_file_size_mb;
+  }
+
+  if (!cfg::dm_data_log::validators::maxArchiveSize(
+          section.max_data_archive_size_mb, error)) {
+    reportError("ST_DMDL_MAS", error);
+  } else {
+    dm_data_log_.max_data_archive_size_mb = section.max_data_archive_size_mb;
+  }
+
+  dm_data_log_.log_data_to_file = section.log_data_to_file;
+  dm_data_log_.log_strategy = section.log_strategy;
+  dm_data_log_.log_detail = section.log_detail;
+  dm_data_log_.archival_method = section.archival_method;
+
+  saveConfig();
+  return true;
+}
+
+bool cfg::Configuration::setDataModuleInfluxDb(
+    const cfg::DataModuleInfluxDb &section) {
+  std::lock_guard<std::mutex> lock(config_lock_);
+
+  std::string error;
+  if (!cfg::dm_influx_db::validators::url(section.url, error)) {
+    reportError("ST_DMIFLX_URL", error);
+  } else {
+    dm_influxdb_.url = section.url;
+  }
+
+  if (!cfg::dm_influx_db::validators::token(section.token, error)) {
+    reportError("ST_DMIFLX_TKN", error);
+  } else {
+    dm_influxdb_.token = section.token;
+  }
+
+  if (!cfg::dm_influx_db::validators::org(section.organization, error)) {
+    reportError("ST_DMIFLX_ORG", error);
+  } else {
+    dm_influxdb_.organization = section.organization;
+  }
+
+  if (!cfg::dm_influx_db::validators::bucket(section.data_bucket, error)) {
+    reportError("ST_DMIFLX_DBKT", error);
+  } else {
+    dm_influxdb_.data_bucket = section.data_bucket;
+  }
+
+  if (!cfg::dm_influx_db::validators::bucket(section.error_bucket, error)) {
+    reportError("ST_DMIFLX_EBKT", error);
+  } else {
+    dm_influxdb_.error_bucket = section.error_bucket;
+  }
+
+  dm_influxdb_.influx_enabled = section.influx_enabled;
+  dm_influxdb_.log_errors = section.log_errors;
+  dm_influxdb_.retention_policy = section.retention_policy;
+
+  saveConfig();
+  return true;
+}
+
+// ----- Server Module
+
+bool cfg::Configuration::setServerModule(const cfg::ServerModule &server) {
+  std::lock_guard<std::mutex> lock(config_lock_);
+
+  std::string error;
+  if (!cfg::server_module::validators::tcpSocketPort(server.tcp_socket_port,
+                                                     error)) {
+    reportError("ST_SRV_TSP", error);
+  } else {
+    server_module_.tcp_socket_port = server.tcp_socket_port;
+  }
+
+  saveConfig();
+  return true;
+}
+
+cfg::ServerModule cfg::Configuration::getServerModule() {
+  std::lock_guard<std::mutex> lock(config_lock_);
+  return server_module_;
 }
 
 bool cfg::Configuration::setTelemetry(const cfg::Telemetry &telemetry) {
@@ -160,8 +244,17 @@ void cfg::Configuration::saveConfig() {
 
   json all = {
       {"general", cfg::json::generalToJson(general_)},
-      {"debug", cfg::json::debugToJson(debug_)},
-      {"server", cfg::json::serverToJson(server_)},
+      {"data_module_general", cfg::json::dataModuleGeneralToJson(dm_general_)},
+      {"data_module_data_log",
+       cfg::json::dataModuleDataLogToJson(dm_data_log_)},
+      {"data_module_influxdb",
+       cfg::json::dataModuleInfluxDbToJson(dm_influxdb_)},
+      {"data_module_error_log",
+       cfg::json::dataModuleErrorLogToJson(dm_error_log_)},
+      {"data_module_debug", cfg::json::dataModuleDebugToJson(dm_debug_)},
+      {"console_module", cfg::json::consoleModuleToJson(console_module_)},
+      {"server_module", cfg::json::serverModuleToJson(server_module_)},
+      {"system_module", cfg::json::systemModuleToJson(system_module_)},
       {"telemetry", cfg::json::telemetryToJson(telemetry_)},
       {"telemetry_aprs", cfg::json::aprsToJson(aprs_)},
       {"telemetry_sstv", cfg::json::sstvToJson(sstv_)},
@@ -195,7 +288,8 @@ inline bool valid_section(const json &config_json,
 void cfg::Configuration::loadConfig() {
   // Check if the file exists, if not report the error and return early.
   if (!std::filesystem::exists(kConfigurationPath)) {
-    reportError("LD_FDE", "while loading, file does not exist: " + kConfigurationPath);
+    reportError("LD_FDE",
+                "while loading, file does not exist: " + kConfigurationPath);
     return;
   }
 
@@ -233,22 +327,81 @@ void cfg::Configuration::loadConfig() {
     reportError("LD_SNF_GEN", "general section not found in config file");
   }
 
-  if (valid_section(parsed, "debug")) {
-    cfg::Debug debug = getDebug();
-    cfg::json::jsonToDebug(parsed["debug"], debug, streams_.error_stream,
-                           num_errors);
-    setDebug(debug);
+  if (valid_section(parsed, "data_module_general")) {
+    cfg::DataModuleGeneral dm_gen = getDataModuleGeneral();
+    cfg::json::jsonToDataModuleGeneral(parsed["data_module_general"], dm_gen,
+                                       streams_.error_stream, num_errors);
+    setDataModuleGeneral(dm_gen);
   } else {
-    reportError("LD_SNF_DBG", "debug section not found in config file");
+    reportError("LD_SNF_DM_GEN",
+                "data module general section not found in config file");
   }
 
-  if (valid_section(parsed, "server")) {
-    cfg::Server server = getServer();
-    cfg::json::jsonToServer(parsed["server"], server, streams_.error_stream,
-                            num_errors);
-    setServer(server);
+  if (valid_section(parsed, "data_module_data_log")) {
+    cfg::DataModuleDataLog sec = getDataModuleDataLog();
+    cfg::json::jsonToDataModuleDataLog(parsed["data_module_data_log"], sec,
+                                       streams_.error_stream, num_errors);
+    setDataModuleDataLog(sec);
   } else {
-    reportError("LD_SNF_SRV", "server section not found in config file");
+    reportError("LD_SNF_DM_DL",
+                "data module data log section not found in config file");
+  }
+
+  if (valid_section(parsed, "data_module_influxdb")) {
+    cfg::DataModuleInfluxDb sec = getDataModuleInfluxDb();
+    cfg::json::jsonToDataModuleInfluxDb(parsed["data_module_influxdb"], sec,
+                                        streams_.error_stream, num_errors);
+    setDataModuleInfluxDb(sec);
+  } else {
+    reportError("LD_SNF_DM_IFXDB",
+                "data module influxdb section not found in config file");
+  }
+
+  if (valid_section(parsed, "data_module_error_log")) {
+    cfg::DataModuleErrorLog sec = getDataModuleErrorLog();
+    cfg::json::jsonToDataModuleErrorLog(parsed["data_module_error_log"], sec,
+                                        streams_.error_stream, num_errors);
+    setDataModuleErrorLog(sec);
+  } else {
+    reportError("LD_SNF_DM_EL",
+                "data module error log section not found in config file");
+  }
+
+  if (valid_section(parsed, "data_module_debug")) {
+    cfg::DataModuleDebug sec = getDataModuleDebug();
+    cfg::json::jsonToDataModuleDebug(parsed["data_module_debug"], sec,
+                                     streams_.error_stream, num_errors);
+    setDataModuleDebug(sec);
+  } else {
+    reportError("LD_SNF_DM_DBG",
+                "data module error log section not found in config file");
+  }
+
+  if (valid_section(parsed, "console_module")) {
+    cfg::ConsoleModule sec = getConsoleModule();
+    cfg::json::jsonToConsoleModule(parsed["console_module"], sec,
+                                   streams_.error_stream, num_errors);
+    setConsoleModule(sec);
+  } else {
+    reportError("LD_SNF_CM", "console_module section not found in config file");
+  }
+
+  if (valid_section(parsed, "server_module")) {
+    cfg::ServerModule server = getServerModule();
+    cfg::json::jsonToServerModule(parsed["server_module"], server,
+                                  streams_.error_stream, num_errors);
+    setServerModule(server);
+  } else {
+    reportError("LD_SNF_SRV", "server_module section not found in config file");
+  }
+
+  if (valid_section(parsed, "system_module")) {
+    cfg::SystemModule sec = getSystemModule();
+    cfg::json::jsonToSystemModule(parsed["system_module"], sec,
+                                  streams_.error_stream, num_errors);
+    setSystemModule(sec);
+  } else {
+    reportError("LD_SNF_SM", "system_module section not found in config file");
   }
 
   if (valid_section(parsed, "telemetry")) {

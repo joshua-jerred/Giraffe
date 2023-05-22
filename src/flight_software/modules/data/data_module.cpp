@@ -1,6 +1,7 @@
 #include "data_module.h"
 
-static modules::MetaData metadata("data_module", node::Identification::DATA_MODULE);
+static modules::MetaData metadata("data_module",
+                                  node::Identification::DATA_MODULE);
 
 modules::DataModule::DataModule(data::Streams &streams,
                                 cfg::Configuration &config)
@@ -8,21 +9,29 @@ modules::DataModule::DataModule(data::Streams &streams,
 }
 
 modules::DataModule::~DataModule() {
-
 }
 
 void modules::DataModule::startup() {
-
 }
 
 void modules::DataModule::loop() {
-  data<std::string>("ident", "loop");
+  parseStreams();
 }
 
 void modules::DataModule::shutdown() {
-
 }
 
 void modules::DataModule::processCommand(const command::Command &command) {
   (void)command;
+}
+
+void modules::DataModule::parseStreams() {
+  int data_packet_count = streams_.data_stream.getNumPackets();
+  data::DataStreamPacket ds_packet;
+  for (int i = 0; i < data_packet_count; i++) {
+    bool got_packet = streams_.data_stream.getPacket(ds_packet);
+    if (!got_packet) return;
+    std::string source = node::identification_to_string.at(ds_packet.source);
+    std::cout << source << ":" << ds_packet.identifier << ":" << ds_packet.value << std::endl; 
+  }
 }

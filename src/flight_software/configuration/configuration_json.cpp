@@ -26,16 +26,66 @@ json cfg::json::generalToJson(const cfg::General &general_section) {
   return data;
 }
 
-json cfg::json::debugToJson(const cfg::Debug &debug_section) {
-  json data(
-      {{"print_errors", debug_section.print_errors},
-       {"console_enabled", debug_section.console_enabled},
-       {"console_update_interval", debug_section.console_update_interval}});
+json cfg::json::dataModuleGeneralToJson(const cfg::DataModuleGeneral &sec) {
+  json data({{"frame_purge_time", sec.frame_purge_time}});
   return data;
 }
 
-json cfg::json::serverToJson(const cfg::Server &server_section) {
-  json data({{"tcp_socket_port", server_section.tcp_socket_port}});
+json cfg::json::dataModuleDataLogToJson(const cfg::DataModuleDataLog &sec) {
+  json data({{"log_data_to_file", sec.log_data_to_file},
+             {"log_strategy", cfg::kLogStrategyToString.at(sec.log_strategy)},
+             {"log_detail", cfg::kLogDetailToString.at(sec.log_detail)},
+             {"log_interval_ms", sec.log_interval_ms},
+             {"max_data_log_file_size_mb", sec.max_data_log_file_size_mb},
+             {"max_data_archive_size_mb", sec.max_data_archive_size_mb},
+             {"archive_method",
+              cfg::kArchivalMethodToString.at(sec.archival_method)}});
+  return data;
+}
+
+json cfg::json::dataModuleInfluxDbToJson(const cfg::DataModuleInfluxDb &sec) {
+  json data({{"influx_enabled", sec.influx_enabled},
+             {"log_errors", sec.log_errors},
+             {"url", sec.url},
+             {"token", sec.token},
+             {"organization", sec.organization},
+             {"data_bucket", sec.data_bucket},
+             {"errors_bucket", sec.error_bucket},
+             {"retention_policy",
+              cfg::kRetentionPolicyToString.at(sec.retention_policy)}});
+  return data;
+}
+
+json cfg::json::dataModuleErrorLogToJson(const cfg::DataModuleErrorLog &sec) {
+  json data({{"log_errors_to_file", sec.log_errors_to_file},
+             {"max_error_log_file_size_mb", sec.max_error_log_file_size_mb},
+             {"max_error_archive_size_mb", sec.max_error_archive_size_mb},
+             {"error_archive_method",
+              cfg::kArchivalMethodToString.at(sec.archival_method)}});
+  return data;
+}
+
+json cfg::json::dataModuleDebugToJson(const cfg::DataModuleDebug &sec) {
+  json data({{"enabled", sec.debug_enabled},
+             {"log_level", cfg::kLogLevelToString.at(sec.log_level)}});
+  return data;
+}
+
+json cfg::json::consoleModuleToJson(const cfg::ConsoleModule &sec) {
+  json data({{"enabled", sec.enabled},
+             {"update_interval", sec.update_interval}});
+  return data;
+}
+
+json cfg::json::serverModuleToJson(const cfg::ServerModule &server_section) {
+  json data({{"enabled", server_section.enabled},
+             {"tcp_socket_port", server_section.tcp_socket_port}});
+  return data;
+}
+
+json cfg::json::systemModuleToJson(const cfg::SystemModule &sec) {
+  json data({{"enabled", sec.enabled},
+             {"system_info_poll_rate_ms", sec.system_info_poll_rate_ms}});
   return data;
 }
 
@@ -210,24 +260,24 @@ void cfg::json::jsonToGeneral(const json &json_data, cfg::General &general,
                &cfg::general::validators::startingProcedure);
 }
 
-void cfg::json::jsonToDebug(const json &json_data, cfg::Debug &debug,
-                            data::ErrorStream &es, int &num_errors) {
-  setValidValue<bool>(es, json_data, "debug", "console_enabled",
-                      debug.console_enabled, "DBG_CE", num_errors);
-
-  setValidValue<bool>(es, json_data, "debug", "print_errors",
-                      debug.print_errors, "DBG_PE", num_errors);
-
-  setValidValue<int>(es, json_data, "debug", "console_update_interval",
-                     debug.console_update_interval, "DBG_CUI", num_errors,
-                     &cfg::debug::validators::consoleUpdateInterval);
+void cfg::json::jsonToDataModuleGeneral(const json &json_data,
+                                        cfg::DataModuleGeneral &dmGeneral,
+                                        data::ErrorStream &es,
+                                        int &num_errors) {
+  setValidValue<int>(es, json_data, "data_module_general", "frame_purge_time",
+                     dmGeneral.frame_purge_time, "DM_FPT", num_errors,
+                     &cfg::dm_general::validators::framePurgeTime);
 }
 
-void cfg::json::jsonToServer(const json &json_data, cfg::Server &server,
-                             data::ErrorStream &es, int &num_errors) {
-  setValidValue<int>(es, json_data, "server", "tcp_socket_port",
-                     server.tcp_socket_port, "SRV_TSP", num_errors,
-                     &cfg::server::validators::tcpSocketPort);
+void cfg::json::jsonToServerModule(const json &json_data,
+                                   cfg::ServerModule &server_module,
+                                   data::ErrorStream &es, int &num_errors) {
+  setValidValue<bool>(es, json_data, "server_module", "enabled",
+                      server_module.enabled, "SRV_EN", num_errors);
+
+  setValidValue<int>(es, json_data, "server_module", "tcp_socket_port",
+                     server_module.tcp_socket_port, "SRV_TSP", num_errors,
+                     &cfg::server_module::validators::tcpSocketPort);
 }
 
 void cfg::json::jsonToTelemetry(const json &json_data,
@@ -304,20 +354,21 @@ void cfg::json::jsonToSstv(const json &json_data, cfg::Sstv &sstv,
 void cfg::json::jsonToDataPackets(const json &json_data,
                                   cfg::DataPackets &data_packets,
                                   data::ErrorStream &es, int &num_errors) {
-
   setValidValue<bool>(es, json_data, "telemetry_data_packets", "enabled",
                       data_packets.enabled, "DATPKTS_EN", num_errors);
 
   std::string freq = data_packets.frequency.getFrequency();
-  setValidValue<std::string>(es, json_data, "telemetry_data_packets", "frequency", freq,
-                             "DATPKTS_FQ", num_errors,
+  setValidValue<std::string>(es, json_data, "telemetry_data_packets",
+                             "frequency", freq, "DATPKTS_FQ", num_errors,
                              &cfg::telemetry::validators::frequency);
   data_packets.frequency.setFrequency(freq);
 
-  setValidEnum(es, json_data, "telemetry_data_packets", "mode", data_packets.mode, cfg::kStringToDataPacketsMode,
-               "DATPKTS_MD", num_errors, &cfg::data_packets::validators::mode);
+  setValidEnum(es, json_data, "telemetry_data_packets", "mode",
+               data_packets.mode, cfg::kStringToDataPacketsMode, "DATPKTS_MD",
+               num_errors, &cfg::data_packets::validators::mode);
 
-  setValidValue<bool>(es, json_data, "telemetry_data_packets", "morse_call_sign", data_packets.morse_call_sign,
+  setValidValue<bool>(es, json_data, "telemetry_data_packets",
+                      "morse_call_sign", data_packets.morse_call_sign,
                       "DATPKTS_MCS", num_errors);
 
   setValidValue<std::string>(es, json_data, "telemetry_data_packets", "comment",

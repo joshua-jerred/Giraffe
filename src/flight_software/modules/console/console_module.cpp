@@ -33,18 +33,15 @@ void modules::ConsoleModule::startup() {
   ncurs::MenuOption gen_cfg = ncurs::MenuOption(
       "General", {}, std::bind(&modules::ConsoleModule::generalConfig, this));
 
-  ncurs::MenuOption debug_cfg = ncurs::MenuOption(
-      "Debug", {}, std::bind(&modules::ConsoleModule::debugConfig, this));
-
   ncurs::MenuOption server_cfg = ncurs::MenuOption(
-      "Server", {}, std::bind(&modules::ConsoleModule::serverConfig, this));
+      "Server", {}, std::bind(&modules::ConsoleModule::serverModuleConfig, this));
 
   ncurs::Menu main_menu = {status,
-                           {"Configuration", {gen_cfg, debug_cfg, server_cfg}},
+                           {"Configuration", {gen_cfg, server_cfg}},
                            {"Data", {{"data1"}, {"data2"}, {"data3"}}}};
 
-  cfg::Debug debug_cfg_ = configuration_.getDebug();
-  ncurs_env_.initialize(main_menu, debug_cfg_.console_update_interval);
+  cfg::ConsoleModule cns_cfg = configuration_.getConsoleModule();
+  ncurs_env_.initialize(main_menu, cns_cfg.update_interval);
 }
 
 void modules::ConsoleModule::loop() {
@@ -89,17 +86,9 @@ std::vector<std::string> modules::ConsoleModule::generalConfig() {
            cfg::kProcedureTypeToString.at(general.starting_procedure)});
 }
 
-std::vector<std::string> modules::ConsoleModule::debugConfig() {
-  cfg::Debug debug = configuration_.getDebug();
+std::vector<std::string> modules::ConsoleModule::serverModuleConfig() {
+  cfg::ServerModule server = configuration_.getServerModule();
   return std::vector<std::string>(
-      {"Console Enabled: " + b2str(debug.console_enabled),
-       "Console Update Interval: " +
-           std::to_string(debug.console_update_interval),
-       "Print Errors: " + b2str(debug.print_errors)});
-}
-
-std::vector<std::string> modules::ConsoleModule::serverConfig() {
-  cfg::Server server = configuration_.getServer();
-  return std::vector<std::string>(
-      {"TCP Socket Port: " + std::to_string(server.tcp_socket_port)});
+      {"Enabled: " + std::to_string(server.enabled),
+      "TCP Socket Port: " + std::to_string(server.tcp_socket_port)});
 }

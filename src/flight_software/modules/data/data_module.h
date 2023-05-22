@@ -18,6 +18,8 @@ class DataModule : public Module {
   void loop() override;
   void shutdown() override;
   void processCommand(const command::Command &command);
+
+  void parseStreams();
 };
 
 }  // namespace modules

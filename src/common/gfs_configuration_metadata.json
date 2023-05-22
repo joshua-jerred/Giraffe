@@ -35,18 +35,18 @@
             ]
         }
     },
-    "system_module":{
-        "system_info_poll_rate_ms": {
+    "data_module_general": {
+        "frame_purge_time": {
             "type": "int",
-            "name": "System Information Poll Rate ms",
-            "description": "The interval to poll system data at (cpu, memory, disk usage, etc).",
-            "default": 10,
+            "name": "Purge Stale Data Time ms",
+            "description": "How long data will remain in the data stream data frame without updates before being removed.",
+            "default": 30000,
             "max": 600000,
             "min": 100,
             "step": 1
         }
     },
-    "data_logs": {
+    "data_module_data_log": {
         "log_data_to_file": {
             "type": "bool",
             "name": "Log Data To File",
@@ -62,7 +62,9 @@
             "default": "interval",
             "options": [
                 "interval",
-                "all"
+                "all",
+                "selection_interval",
+                "selection_all"
             ]
         },
         "log_detail": {
@@ -79,7 +81,7 @@
             "type": "int",
             "name": "Log Interval MS",
             "description": "The interval as to how often to log data. Only used if the Log Strategy is set to 'interval'.",
-            "default": 10,
+            "default": 5000,
             "max": 600000,
             "min": 100,
             "step": 1
@@ -97,59 +99,25 @@
             "type": "int",
             "name": "Max Data Archive Size MB",
             "description": "The maximum log file archive size in Mega-Bytes before overwrite. The oldest log file will be overwritten first.",
-            "default": 10,
+            "default": 100,
             "max": 100000,
             "min": 100,
             "step": 1
         },
-        "data_archive_method": {
+        "archive_method": {
             "type": "enum",
             "name": "Data Archive Method",
             "description": "Method of data archival/compression.",
-            "default": "none",
+            "default": "plain_text",
             "options": [
-                "none"
+                "plain_text"
             ]
         }
     },
-    "error_logs": {
-        "log_errors_to_file": {
-            "type": "bool",
-            "name": "Log Errors To File",
-            "description": "This is the master toggle for logging errors to a local json file.",
-            "default": true,
-            "true": "enabled",
-            "false": "disabled"
-        },
-        "max_error_log_file_size_mb": {
-            "type": "int",
-            "name": "Max Log File Size MB",
-            "description": "The maximum error log file size in Mega-Bytes before overwrite or rotation.",
-            "default": 10,
-            "max": 500,
-            "min": 1,
-            "step": 1
-        },
-        "max_error_archive_size_mb": {
-            "type": "int",
-            "name": "Max Error Archive Size MB",
-            "description": "The maximum log file archive size in Mega-Bytes before overwrite. The oldest log file will be overwritten first.",
-            "default": 10,
-            "max": 100000,
-            "min": 100,
-            "step": 1
-        },
-        "error_archive_method": {
-            "type": "enum",
-            "name": "Archive Method",
-            "description": "Method of data archival/compression.",
-            "default": "none",
-            "options": [
-                "none"
-            ]
-        }
+    "data_module_data_log_contents": {
+        "list": []
     },
-    "influx_db": {
+    "data_module_influxdb": {
         "influx_enabled": {
             "type": "bool",
             "name": "Enable InfluxDB Integration",
@@ -171,7 +139,7 @@
             "name": "InfluxDB URL",
             "description": "The URL (generally localhost) for the influx DB server.",
             "default": "localhost",
-            "min": 1,
+            "min": 0,
             "max": 50,
             "pattern": ""
         },
@@ -197,7 +165,7 @@
             "type": "string",
             "name": "InfluxDB Data Bucket",
             "description": "The name of the bucket to stream data to.",
-            "default": "giraffe_flight_software_data",
+            "default": "gfs_data",
             "min": 0,
             "max": 50,
             "pattern": ""
@@ -206,7 +174,7 @@
             "type": "string",
             "name": "InfluxDB Errors Bucket",
             "description": "The name of the bucket to stream errors to.",
-            "default": "giraffe_flight_software_errors",
+            "default": "gfs_errors",
             "min": 0,
             "max": 50,
             "pattern": ""
@@ -226,16 +194,48 @@
             ]
         }
     },
-    "debug": {
-        "print_errors": {
+    "data_module_influxdb_contents": {
+        "list": []
+    },
+    "data_module_error_log": {
+        "log_errors_to_file": {
             "type": "bool",
-            "name": "Print Errors to Console",
-            "description": "Whether or not to print errors to the console instead of capturing them in the error stream. This is useful for debugging.",
-            "default": false,
+            "name": "Log Errors To File",
+            "description": "This is the master toggle for logging errors to a local json file.",
+            "default": true,
             "true": "enabled",
             "false": "disabled"
         },
-        "console_enabled": {
+        "max_error_log_file_size_mb": {
+            "type": "int",
+            "name": "Max Log File Size MB",
+            "description": "The maximum error log file size in Mega-Bytes before overwrite or rotation.",
+            "default": 10,
+            "max": 500,
+            "min": 1,
+            "step": 1
+        },
+        "max_error_archive_size_mb": {
+            "type": "int",
+            "name": "Max Error Archive Size MB",
+            "description": "The maximum log file archive size in Mega-Bytes before overwrite. The oldest log file will be overwritten first.",
+            "default": 50,
+            "max": 100000,
+            "min": 100,
+            "step": 1
+        },
+        "error_archive_method": {
+            "type": "enum",
+            "name": "Archive Method",
+            "description": "Method of data archival/compression.",
+            "default": "plain_text",
+            "options": [
+                "plain_text"
+            ]
+        }
+    },
+    "data_module_debug": {
+        "enabled": {
             "type": "bool",
             "name": "Console Interface",
             "description": "Whether or not to enable the console interface. Helpful for debugging without the web interface.",
@@ -243,7 +243,28 @@
             "true": "enabled",
             "false": "disabled"
         },
-        "console_update_interval": {
+        "log_level": {
+            "type": "enum",
+            "name": "Log Level",
+            "description": "",
+            "default": "info",
+            "options": [
+                "info",
+                "warn",
+                "error"
+            ]
+        }
+    },
+    "console_module": {
+        "enabled": {
+            "type": "bool",
+            "name": "Console Interface",
+            "description": "Whether or not to enable the console interface. Helpful for debugging without the web interface.",
+            "default": true,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "update_interval": {
             "type": "int",
             "name": "Console Update Interval",
             "description": "How often the console interface should update in milliseconds. A higher value will result in less frequent updates.",
@@ -253,7 +274,15 @@
             "step": 100
         }
     },
-    "server": {
+    "server_module": {
+        "enabled": {
+            "type": "bool",
+            "name": "TCP Socket Enabled",
+            "description": "",
+            "default": false,
+            "true": "enabled",
+            "false": "disabled"
+        },
         "tcp_socket_port": {
             "type": "int",
             "name": "Web Socket Port",
@@ -261,6 +290,25 @@
             "default": 7893,
             "max": 65535,
             "min": 1024,
+            "step": 1
+        }
+    },
+    "system_module": {
+        "enabled": {
+            "type": "bool",
+            "name": "System Module Enabled",
+            "description": "",
+            "default": true,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "system_info_poll_rate_ms": {
+            "type": "int",
+            "name": "System Information Poll Rate ms",
+            "description": "The interval to poll system data at (cpu, memory, disk usage, etc).",
+            "default": 1000,
+            "max": 600000,
+            "min": 100,
             "step": 1
         }
     },
@@ -312,7 +360,7 @@
         "ssid": {
             "type": "int",
             "name": "Source SSID",
-            "description": "The SSID that will be used to identify your callsign. See the APRS specification for more information.",
+            "description": "The SSID that will be used to identify your call sign. See the APRS specification for more information.",
             "default": 0,
             "max": 15,
             "min": 0,
@@ -330,7 +378,7 @@
         "destination_ssid": {
             "type": "int",
             "name": "APRS Destination SSID",
-            "description": "This is the SSID that will be used to identify the destination callsign. See the APRS specification for more information.",
+            "description": "This is the SSID that will be used to identify the destination call sign. See the APRS specification for more information.",
             "default": 0,
             "max": 15,
             "min": 0,
@@ -369,7 +417,7 @@
         "enabled": {
             "type": "bool",
             "name": "SSTV Enabled",
-            "description": "Indicates whether or not SSTV is enabled. This requires a valid telemetry configuration, a callsign, and a camera extension. The rate at which images are sent is determined by the flight procedure defined by the user.",
+            "description": "Indicates whether or not SSTV is enabled. This requires a valid telemetry configuration, a call sign, and a camera extension. The rate at which images are sent is determined by the flight procedure defined by the user.",
             "default": false,
             "true": "enabled",
             "false": "disabled"
@@ -438,7 +486,7 @@
         },
         "morse_call_sign": {
             "type": "bool",
-            "name": "Morse Callsign",
+            "name": "Morse Call Sign",
             "description": "If enabled, the call sign will be sent in 20wpm morse code at the end of each packet. This may be a legal requirement, for station identification, in some places so please check your local regulations.",
             "default": true,
             "true": "enabled",
@@ -453,5 +501,11 @@
             "min": 0,
             "pattern": ""
         }
-    }
+    },
+    "telemetry_radios": {
+        "list": []
+    },
+    "extension_module": {},
+    "extensions": [],
+    "flight_procedures": {}
 }

@@ -140,12 +140,12 @@ class GfsMetaData : public ::testing::Test {
     }
   }
 
-  json cfg;
-  json category;
-  json setting;
+  json cfg = {};
+  json category = {};
+  json setting = {};
   const std::string file_path_ = "gfs_configuration_metadata.json";
 
-  std::vector<std::string> valid_settings_;
+  std::vector<std::string> valid_settings_ = {};
 };
 
 TEST_F(GfsMetaData, general_section) {
@@ -161,24 +161,28 @@ TEST_F(GfsMetaData, general_section) {
   }
 }
 
-TEST_F(GfsMetaData, debug_section) {
-  std::array<std::string, 3> sections = {
-      "print_errors",
-      "console_enabled",
-      "console_update_interval"};
+TEST_F(GfsMetaData, data_module_general_section) {
+  std::array<std::string, 1> sections = {
+      "data_stream_frame_purge_time"};
 
-  validateCategory("debug");
+  validateCategory("data_module_general");
   for (std::string &section : sections) {
     validateSettingMetadata(section);
   }
 }
 
-TEST_F(GfsMetaData, server_section) {
-  std::array<std::string, 1> sections = {
-    "tcp_socket_port"
+TEST_F(GfsMetaData, data_module_data_log_setup) {
+  std::array<std::string, 7> sections = {
+    "log_data_to_file",
+    "log_strategy",
+    "log_detail",
+    "log_interval_ms",
+    "max_data_log_file_size_mb",
+    "max_data_archive_size_mb",
+    "data_archive_method"
   };
 
-  validateCategory("server");
+  validateCategory("data_module_data_log_setup");
   for (std::string &section : sections) {
     validateSettingMetadata(section);
   }

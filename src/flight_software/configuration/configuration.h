@@ -14,6 +14,7 @@
 #include <string>
 #include <vector>
 
+#include "node.h"
 #include "streams.h"
 
 namespace cfg {
@@ -47,26 +48,84 @@ struct General {
 
   std::string project_name = "Giraffe Flight 1";
   MainBoard main_board_type = cfg::General::MainBoard::OTHER;
-  Procedure::Type starting_procedure =
-      cfg::Procedure::Type::FAILSAFE;
+  Procedure::Type starting_procedure = cfg::Procedure::Type::FAILSAFE;
 };
 
-struct Debug {
-  bool print_errors = false;
-  bool console_enabled = false;
-  int console_update_interval = 1000; // in ms
+struct DataModuleGeneral {
+  int frame_purge_time = 30000;
 };
 
-struct Server {
+enum class ArchivalMethod { PLAIN_TEXT };
+
+struct DataModuleDataLog {
+  enum class LogStrategy { INTERVAL, ALL, SELECTION_INTERVAL, SELECTION_ALL };
+  enum class LogDetail { FULL, PARTIAL };
+
+  bool log_data_to_file = true;
+  LogStrategy log_strategy = LogStrategy::INTERVAL;
+  LogDetail log_detail = LogDetail::FULL;
+  int log_interval_ms = 5000;
+  int max_data_log_file_size_mb = 10;
+  int max_data_archive_size_mb = 100;
+  ArchivalMethod archival_method = ArchivalMethod::PLAIN_TEXT;
+};
+
+struct DataItem {
+  // node::Identifier source;
+  std::string identifier = "none";
+};
+typedef std::vector<DataItem> DataSelection;
+
+struct DataModuleInfluxDb {
+  enum class RetentionPolicy { HOUR, DAY, WEEK, MONTH, YEAR, INF };
+
+  bool influx_enabled = false;
+  bool log_errors = false;
+  std::string url = "localhost";
+  std::string token = "none";
+  std::string organization = "giraffe";
+  std::string data_bucket = "gfs_data";
+  std::string error_bucket = "gfs_errors";
+  RetentionPolicy retention_policy = RetentionPolicy::INF;
+};
+
+struct DataModuleErrorLog {
+  bool log_errors_to_file = true;
+  int max_error_log_file_size_mb = 10;
+  int max_error_archive_size_mb = 50;
+  ArchivalMethod archival_method = ArchivalMethod::PLAIN_TEXT;
+};
+
+struct DataModuleDebug {
+  enum class LogLevel { INFO, WARN, ERROR };
+
+  bool debug_enabled = false;
+  LogLevel log_level = LogLevel::INFO;
+};
+
+struct ConsoleModule {
+  bool enabled = false;
+  int update_interval = 1000;  // in ms
+};
+
+struct ServerModule {
+  bool enabled = true;
   int tcp_socket_port = 7893;
+};
+
+struct SystemModule {
+  bool enabled = true;
+  int system_info_poll_rate_ms = 1000;
 };
 
 /**
  * @todo to be expanded, as needed.
  */
 struct Frequency {
-  Frequency() : frequency("000.0000") {}
-  Frequency(std::string freq) : frequency(freq) {}
+  Frequency() : frequency("000.0000") {
+  }
+  Frequency(std::string freq) : frequency(freq) {
+  }
 
   std::string frequency = "000.0000";
 
@@ -135,14 +194,32 @@ class Configuration {
   Configuration(data::Streams &streams);
   ~Configuration();
 
-  bool setGeneral(const cfg::General &general);
+  bool setGeneral(const cfg::General &);
   cfg::General getGeneral();
 
-  bool setDebug(const cfg::Debug &interface);
-  cfg::Debug getDebug();
+  bool setDataModuleGeneral(const cfg::DataModuleGeneral &);
+  cfg::DataModuleGeneral getDataModuleGeneral();
 
-  bool setServer(const cfg::Server &server);
-  cfg::Server getServer();
+  bool setDataModuleDataLog(const cfg::DataModuleDataLog &);
+  cfg::DataModuleDataLog getDataModuleDataLog();
+
+  bool setDataModuleInfluxDb(const cfg::DataModuleInfluxDb &);
+  cfg::DataModuleInfluxDb getDataModuleInfluxDb();
+
+  bool setDataModuleErrorLog(const cfg::DataModuleErrorLog &);
+  cfg::DataModuleErrorLog getDataModuleErrorLog();
+
+  bool setDataModuleDebug(const cfg::DataModuleDebug &);
+  cfg::DataModuleDebug getDataModuleDebug();
+
+  bool setConsoleModule(const cfg::ConsoleModule &);
+  cfg::ConsoleModule getConsoleModule();
+
+  bool setServerModule(const cfg::ServerModule &);
+  cfg::ServerModule getServerModule();
+
+  bool setSystemModule(const cfg::SystemModule &);
+  cfg::SystemModule getSystemModule();
 
   bool setTelemetry(const cfg::Telemetry &telemetry);
   cfg::Telemetry getTelemetry();
@@ -165,8 +242,18 @@ class Configuration {
   const std::string kConfigurationPath = "config.json";
 
   cfg::General general_ = cfg::General();
-  cfg::Debug debug_ = cfg::Debug();
-  cfg::Server server_ = cfg::Server();
+  cfg::DataModuleGeneral dm_general_ = cfg::DataModuleGeneral();
+  cfg::DataModuleDataLog dm_data_log_ =
+      cfg::DataModuleDataLog();
+  cfg::DataModuleInfluxDb dm_influxdb_ =
+      cfg::DataModuleInfluxDb();
+  cfg::DataModuleErrorLog dm_error_log_ =
+      cfg::DataModuleErrorLog();
+  cfg::DataModuleDebug dm_debug_ = cfg::DataModuleDebug();
+  cfg::ConsoleModule console_module_ = cfg::ConsoleModule();
+  cfg::SystemModule system_module_ = cfg::SystemModule();
+  cfg::ServerModule server_module_ = cfg::ServerModule();
+
   cfg::Telemetry telemetry_ = cfg::Telemetry();
   cfg::Aprs aprs_ = cfg::Aprs();
   cfg::Sstv sstv_ = cfg::Sstv();

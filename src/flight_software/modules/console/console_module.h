@@ -27,8 +27,7 @@ class ConsoleModule : public Module {
   std::vector<std::string> status();
 
   std::vector<std::string> generalConfig();
-  std::vector<std::string> debugConfig();
-  std::vector<std::string> serverConfig();
+  std::vector<std::string> serverModuleConfig();
 };
 
 }  // namespace modules

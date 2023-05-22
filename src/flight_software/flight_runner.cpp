@@ -58,8 +58,8 @@ int FlightRunner::start() {
   /*
   Start the console module if it's enabled.
   */
-  cfg::Debug debug_cfg = p_config_->getDebug();
-  if (debug_cfg.console_enabled) {
+  cfg::ConsoleModule cns_cfg = p_config_->getConsoleModule();
+  if (cns_cfg.enabled) {
     p_console_module_ = new modules::ConsoleModule(*p_streams_, *p_config_);
     p_console_module_->start();
   }
