@@ -6,8 +6,8 @@
  * @copyright Copyright (c) 2023
  */
 
-#ifndef STREAM_H_
-#define STREAM_H_
+#ifndef STREAM_HPP_
+#define STREAM_HPP_
 
 #include <iostream>
 #include <mutex>
@@ -21,10 +21,10 @@ namespace data {
 
 struct BaseStreamPacket {
   node::Identification source = node::Identification::UNKNOWN;
-  giraffe_time::TimePoint created_time = giraffe_time::TimePoint();
+  giraffe_time::TimePoint created_time = giraffe_time::now();
 
   void resetTime() {
-    created_time = giraffe_time::TimePoint();
+    created_time = giraffe_time::now();
   }
 };
 
@@ -133,7 +133,7 @@ struct SysInfoPacket : public BaseStreamPacket {
     float mem_total_gb = 0.0;
     float mem_used_percent = 0.0;
     float mem_free_gb = 0.0;
-    
+
     float swap_total_gb = 0.0;
     float swap_free_gb = 0.0;
   };
@@ -161,6 +161,13 @@ struct SysInfoPacket : public BaseStreamPacket {
   MiscSysInfo misc_info = {};
 };
 
+struct StatusStreamPacket : public BaseStreamPacket {
+  node::Status status = node::Status::UNKNOWN;
+  std::string identifier = "";  // unique identifier, not required
+};
+
+class StatusStream : public Stream<StatusStreamPacket> {};
+
 class SystemInfoStream : public Stream<SysInfoPacket> {
  public:
   void addData(SysInfoPacket info_packet) {
@@ -171,17 +178,6 @@ class SystemInfoStream : public Stream<SysInfoPacket> {
   }
 };
 
-struct Streams {
-  data::DataStream data_stream = data::DataStream();
-  data::ErrorStream error_stream = data::ErrorStream();
-  data::SystemInfoStream system_info_stream = data::SystemInfoStream();
-};
-
 }  // namespace data
-
-/**
- * @todo print source
- */
-std::ostream& operator<<(std::ostream& o, const data::ErrorStreamPacket& e);
 
 #endif

@@ -93,7 +93,7 @@ class Environment {
   std::string last_key = "";  // Remove this
 
   const int kHeight_ = 15;
-  const int kMenuWidth_ = 20;
+  const int kMenuWidth_ = 25;
   const int kDataWidth_ = 40;
   const int kPadding_ = 1;
 

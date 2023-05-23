@@ -10,7 +10,6 @@ set(console_module_sources
 )
 
 set(data_module_sources
-	${GFS_SRC}/modules/data/streams.cpp
 	${GFS_SRC}/modules/data/data_module.cpp
 )
 

@@ -5,12 +5,11 @@
 
 #include "curses_utilities.h"
 #include "module.h"
-#include "streams.h"
 
 namespace modules {
 class ConsoleModule : public Module {
  public:
-  ConsoleModule(data::Streams &streams, cfg::Configuration &config);
+  ConsoleModule(data::SharedData &, cfg::Configuration &);
   ~ConsoleModule() override;
   ConsoleModule(const ConsoleModule &) = delete;  // No copy constructor
   ConsoleModule &operator=(const ConsoleModule &) =
@@ -20,14 +19,13 @@ class ConsoleModule : public Module {
   void startup() override;
   void loop() override;
   void shutdown() override;
-  void processCommand(const command::Command &command);
+  void processCommand(const command::Command &);
 
   ncurs::Environment ncurs_env_ = ncurs::Environment();
 
   std::vector<std::string> status();
 
-  std::vector<std::string> generalConfig();
-  std::vector<std::string> serverModuleConfig();
+  std::vector<std::string> configSection(cfg::Section);
 };
 
 }  // namespace modules

@@ -22,6 +22,22 @@ static const std::map<Identification, std::string> identification_to_string = {
     {Identification::SERVER_MODULE, "server_module"},
     {Identification::SYSTEM_MODULE, "system_module"}};
 
+enum class Status {
+  UNKNOWN,
+  DISABLED,
+  STOPPED,
+  STARTING,
+  RUNNING,
+  SLEEPING,
+  STOPPING,
+  ERROR
+};
+
+static const std::map<Status, std::string> status_to_string = {
+    {Status::UNKNOWN, "unknown"},   {Status::DISABLED, "disabled"},
+    {Status::STOPPED, "stopped"},   {Status::STARTING, "starting"},
+    {Status::RUNNING, "running"},   {Status::SLEEPING, "sleeping"},
+    {Status::STOPPING, "stopping"}, {Status::ERROR, "error"}};
 
 }  // namespace node
 

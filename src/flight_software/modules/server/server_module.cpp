@@ -13,10 +13,10 @@
 static modules::MetaData metadata("server_module",
                                   node::Identification::SERVER_MODULE, 200);
 
-modules::ServerModule::ServerModule(data::Streams &streams,
+modules::ServerModule::ServerModule(data::SharedData &shared_data,
                                     cfg::Configuration &config)
-    : modules::Module(metadata, streams, config),
-      request_router_(streams, config) {
+    : modules::Module(metadata, shared_data, config),
+      request_router_(shared_data_, config) {
 }
 
 modules::ServerModule::~ServerModule() {

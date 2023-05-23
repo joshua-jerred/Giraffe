@@ -22,12 +22,16 @@ namespace giraffe_time {
     time_point = giraffe_time::Clock::now();
   }
 
+  inline giraffe_time::TimePoint now() {
+    return giraffe_time::Clock::now();
+  }
+
   inline int secondsElapsed(giraffe_time::TimePoint &time_point) {
-    return std::chrono::duration_cast<giraffe_time::Seconds>(giraffe_time::Clock::now() - time_point).count();
+    return std::chrono::duration_cast<giraffe_time::Seconds>(giraffe_time::now() - time_point).count();
   }
 
   inline int millisecondsElapsed(giraffe_time::TimePoint &time_point) {
-    return std::chrono::duration_cast<giraffe_time::Milliseconds>(giraffe_time::Clock::now() - time_point).count();
+    return std::chrono::duration_cast<giraffe_time::Milliseconds>(giraffe_time::now() - time_point).count();
   }
 
 }

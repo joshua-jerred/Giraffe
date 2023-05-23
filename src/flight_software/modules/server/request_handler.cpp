@@ -5,8 +5,8 @@
 
 using namespace req;
 
-RequestRouter::RequestRouter(data::Streams &streams, cfg::Configuration &config)
-    : streams_(streams), config_(config) {
+RequestRouter::RequestRouter(data::SharedData &shared_data, cfg::Configuration &config)
+    : shared_data_(shared_data), config_(config) {
 }
 
 RequestRouter::~RequestRouter() {

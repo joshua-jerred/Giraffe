@@ -12,20 +12,19 @@
 #include "module.h"
 #include "request_handler.hpp"
 #include "socket.h"
-#include "streams.h"
 
 namespace modules {
 
 class ServerModule : public Module {
  public:
-  ServerModule(data::Streams &streams, cfg::Configuration &config);
+  ServerModule(data::SharedData &, cfg::Configuration &);
   ~ServerModule() override;
 
  private:
   void startup() override;
   void loop() override;
   void shutdown() override;
-  void processCommand(const command::Command &command);
+  void processCommand(const command::Command &);
 
   sock::TcpSocketServer server_socket_ = {};
   req::RequestRouter request_router_;

@@ -10,9 +10,9 @@
 static modules::MetaData metadata("system_module",
                                   node::Identification::SYSTEM_MODULE);
 
-modules::SystemModule::SystemModule(data::Streams &streams,
+modules::SystemModule::SystemModule(data::SharedData &shared_data,
                                     cfg::Configuration &config)
-    : modules::Module(metadata, streams, config) {
+    : modules::Module(metadata, shared_data, config) {
 }
 
 modules::SystemModule::~SystemModule() {
@@ -28,7 +28,7 @@ void modules::SystemModule::loop() {
   updateDiskInfo();
   updateNetworkInfo();
 
-  streams_.system_info_stream.addData(data_);
+  shared_data_.streams.system_info.addData(data_);
 }
 
 void modules::SystemModule::shutdown() {

@@ -4,12 +4,12 @@
 #include "configuration.h"
 #include "protocol.h"
 #include "socket.h"
-#include "streams.h"
+#include "shared_data.hpp"
 
 namespace req {
 class RequestRouter {
  public:
-  RequestRouter(data::Streams &streams, cfg::Configuration &config);
+  RequestRouter(data::SharedData &, cfg::Configuration &);
   ~RequestRouter();
 
   void handleRequest(sock::TcpSocketServer &client, std::string &request);
@@ -20,7 +20,7 @@ class RequestRouter {
 
   void handlePingRequest(sock::TcpSocketServer &client, protocol::Message &msg);
 
-  data::Streams &streams_;
+  data::SharedData &shared_data_;
   cfg::Configuration &config_;
 };
 }  // namespace req

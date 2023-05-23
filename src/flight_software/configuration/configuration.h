@@ -9,16 +9,34 @@
 #ifndef CONFIGURATION_H_
 #define CONFIGURATION_H_
 
+#include <atomic>
 #include <mutex>
 #include <nlohmann/json.hpp>
 #include <string>
 #include <vector>
-#include <atomic>
 
 #include "node.h"
-#include "streams.h"
+#include "shared_data.hpp"
 
 namespace cfg {
+enum class Section {
+  general,
+  data_module_general,
+  data_module_data_log,
+  data_module_data_log_contents,
+  data_module_influxdb,
+  data_module_influxdb_contents,
+  data_module_error_log,
+  data_module_debug,
+  console_module,
+  server_module,
+  system_module,
+  telemetry,
+  telemetry_aprs,
+  telemetry_sstv,
+  telemetry_data_packets
+};
+
 struct Procedure {
   enum class Type { TESTING, ASCENT, DESCENT, RECOVERY, FAILSAFE };
 
@@ -192,7 +210,7 @@ class Configuration {
  public:
   using json = nlohmann::ordered_json;
 
-  Configuration(data::Streams &streams);
+  Configuration(data::SharedData &);
   ~Configuration();
 
   bool setGeneral(const cfg::General &);
@@ -246,12 +264,9 @@ class Configuration {
 
   cfg::General general_ = cfg::General();
   cfg::DataModuleGeneral dm_general_ = cfg::DataModuleGeneral();
-  cfg::DataModuleDataLog dm_data_log_ =
-      cfg::DataModuleDataLog();
-  cfg::DataModuleInfluxDb dm_influxdb_ =
-      cfg::DataModuleInfluxDb();
-  cfg::DataModuleErrorLog dm_error_log_ =
-      cfg::DataModuleErrorLog();
+  cfg::DataModuleDataLog dm_data_log_ = cfg::DataModuleDataLog();
+  cfg::DataModuleInfluxDb dm_influxdb_ = cfg::DataModuleInfluxDb();
+  cfg::DataModuleErrorLog dm_error_log_ = cfg::DataModuleErrorLog();
   cfg::DataModuleDebug dm_debug_ = cfg::DataModuleDebug();
   cfg::ConsoleModule console_module_ = cfg::ConsoleModule();
   cfg::SystemModule system_module_ = cfg::SystemModule();
@@ -262,7 +277,7 @@ class Configuration {
   cfg::Sstv sstv_ = cfg::Sstv();
   cfg::DataPackets data_packets_ = cfg::DataPackets();
 
-  data::Streams &streams_;
+  data::SharedData &shared_data_;
   std::mutex config_lock_ = std::mutex();
 };
 

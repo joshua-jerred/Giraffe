@@ -26,7 +26,6 @@ FlightRunner::~FlightRunner() {
   p_data_module_->stop();
   delete p_data_module_;
   delete p_config_;
-  delete p_streams_;
 }
 
 // void CheckForOrCreateDirectory(std::string path) {
@@ -50,9 +49,8 @@ int FlightRunner::start() {
     Then, load the configuration, if it exists, otherwise, create one.
     After that, startup the data module to start processing the data streams.
   */
-  p_streams_ = new data::Streams();
-  p_config_ = new cfg::Configuration(*p_streams_);
-  p_data_module_ = new modules::DataModule(*p_streams_, *p_config_);
+  p_config_ = new cfg::Configuration(shared_data_);
+  p_data_module_ = new modules::DataModule(shared_data_, *p_config_);
   p_data_module_->start();
 
   /*
@@ -60,16 +58,16 @@ int FlightRunner::start() {
   */
   cfg::ConsoleModule cns_cfg = p_config_->getConsoleModule();
   if (cns_cfg.enabled) {
-    p_console_module_ = new modules::ConsoleModule(*p_streams_, *p_config_);
+    p_console_module_ = new modules::ConsoleModule(shared_data_, *p_config_);
     p_console_module_->start();
   }
 
   /*
     Start the server module, then the system module.
   */
-  p_server_module_ = new modules::ServerModule(*p_streams_, *p_config_);
+  p_server_module_ = new modules::ServerModule(shared_data_, *p_config_);
   p_server_module_->start();
-  p_system_module_ = new modules::SystemModule(*p_streams_, *p_config_);
+  p_system_module_ = new modules::SystemModule(shared_data_, *p_config_);
   p_system_module_->start();
 
   // Check for working directories

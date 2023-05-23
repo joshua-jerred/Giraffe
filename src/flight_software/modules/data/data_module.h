@@ -4,20 +4,23 @@
 #include <iostream>
 
 #include "module.h"
-#include "streams.h"
 
 namespace modules {
 
 class DataModule : public Module {
  public:
-  DataModule(data::Streams &streams, cfg::Configuration &config);
+  DataModule(data::SharedData &, cfg::Configuration &);
   ~DataModule() override;
 
  private:
   void startup() override;
   void loop() override;
   void shutdown() override;
-  void processCommand(const command::Command &command);
+  void processCommand(const command::Command &);
+
+  template <class PKT>
+  void parseStream(data::Stream<PKT> &stream,
+                   std::function<void(PKT &)> callback);
 
   void parseStreams();
 };

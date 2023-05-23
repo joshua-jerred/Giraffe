@@ -15,28 +15,25 @@
 #include "command.h"
 #include "configuration.h"
 #include "node.h"
-#include "streams.h"
+#include "shared_data.hpp"
 
 namespace modules {
 
 struct MetaData {
   MetaData(std::string name, node::Identification id, int sleep_interval = 1000)
-      : name_(name), id_(id), sleep_interval_(sleep_interval)  {
+      : name_(name), id_(id), sleep_interval_(sleep_interval) {
   }
 
-  std::string name_;
-  node::Identification id_;
+  const std::string name_;
+  const node::Identification id_;
   // data::Source source;
   // command::Destination command_destination;
   int sleep_interval_;  // 1 second, default sleep time
 };
 
-enum Status { STOPPED, STARTING, RUNNING, SLEEPING, STOPPING, ERROR };
-
 class Module {
  public:
-  Module(modules::MetaData metadata, data::Streams &streams,
-         cfg::Configuration &configuration);
+  Module(modules::MetaData &, data::SharedData &, cfg::Configuration &);
 
   Module(const Module &) = delete;             // No copy constructor
   Module &operator=(const Module &) = delete;  // No copy assignment
@@ -44,7 +41,7 @@ class Module {
 
   void start();
   void stop();
-  modules::Status getStatus() const;
+  node::Status getStatus() const;
 
  protected:
   virtual void startup() {
@@ -57,21 +54,21 @@ class Module {
     (void)command;
   }
 
-  void setStatus(const modules::Status status);
+  void setStatus(const node::Status status);
   void error(std::string error_code, std::string info = "");
   template <typename T>
   void data(std::string identifier, T value, int precision = 2);
 
   modules::MetaData metadata_;
-  data::Streams &streams_;
+  data::SharedData &shared_data_;
   cfg::Configuration &configuration_;
 
   void sleep();
-  
+
  private:
   void runner();
 
-  std::atomic<modules::Status> status_ = modules::Status::STOPPED;
+  std::atomic<node::Status> status_ = node::Status::UNKNOWN;
   std::atomic<bool> stop_flag_ = true;
   std::thread runner_thread_;
 

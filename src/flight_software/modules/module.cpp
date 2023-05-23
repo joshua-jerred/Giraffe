@@ -16,18 +16,20 @@
 #include <thread>
 #include <type_traits>
 
-modules::Module::Module(modules::MetaData metadata, data::Streams &streams,
+modules::Module::Module(modules::MetaData &metadata,
+                        data::SharedData &shared_data,
                         cfg::Configuration &configuration)
     : metadata_(metadata),
-      streams_(streams),
+      shared_data_(shared_data),
       configuration_(configuration),
       runner_thread_(),
       command_queue_(metadata.id_) {
 }
 
 void modules::Module::start() {
-  if (status_ == modules::Status::RUNNING ||
-      status_ == modules::Status::SLEEPING) {
+  if (status_ == node::Status::RUNNING ||
+      status_ == node::Status::SLEEPING) {
+        error("MD_ALST"); // Module Already Started
     return;
   }
 
@@ -42,36 +44,32 @@ void modules::Module::stop() {
   }
 }
 
-modules::Status modules::Module::getStatus() const {
+node::Status modules::Module::getStatus() const {
   return status_;
 }
 
 /**
  * @todo report status to status stream
  */
-void modules::Module::setStatus(const modules::Status status) {
+void modules::Module::setStatus(const node::Status status) {
   status_ = status;
 }
 
-/**
- * @todo
- */
 void modules::Module::error(std::string error_code, std::string info) {
-  (void)error_code;
-  (void)info;
+  shared_data_.streams.error.addError(metadata_.id_, error_code, info);
 }
 
 template <typename T>
 void modules::Module::data(std::string identifier, T value, int precision) {
   if constexpr (std::is_same<T, std::string>::value) {
-    streams_.data_stream.addData(metadata_.id_, identifier, value);
+    shared_data_.streams.data.addData(metadata_.id_, identifier, value);
   } else if (std::is_same<T, float>::value || std::is_same<T, double>::value) {
     std::stringstream stream;
     stream << std::fixed << std::setprecision(precision) << value;
     std::string rounded = stream.str();
-    streams_.data_stream.addData(metadata_.id_, identifier, rounded);
+    shared_data_.streams.data.addData(metadata_.id_, identifier, rounded);
   } else {
-    streams_.data_stream.addData(metadata_.id_, identifier,
+    shared_data_.streams.data.addData(metadata_.id_, identifier,
                                  std::to_string(value));
   }
 }
@@ -82,17 +80,17 @@ template void modules::Module::data<double>(std::string, double, int);
 template void modules::Module::data<std::string>(std::string, std::string, int);
 
 void modules::Module::runner() {
-  setStatus(modules::Status::STARTING);
+  setStatus(node::Status::STARTING);
   startup();
   while (!stop_flag_) {
     loop();
-    setStatus(modules::Status::SLEEPING);
+    setStatus(node::Status::SLEEPING);
     sleep();
-    setStatus(modules::Status::RUNNING);
+    setStatus(node::Status::RUNNING);
   }
-  setStatus(modules::Status::STOPPING);
+  setStatus(node::Status::STOPPING);
   shutdown();
-  setStatus(modules::Status::STOPPED);
+  setStatus(node::Status::STOPPED);
 }
 
 void modules::Module::sleep() {

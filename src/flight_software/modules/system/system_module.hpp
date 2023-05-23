@@ -4,20 +4,19 @@
 #include <iostream>
 
 #include "module.h"
-#include "streams.h"
 
 namespace modules {
 
 class SystemModule : public Module {
  public:
-  SystemModule(data::Streams &streams, cfg::Configuration &config);
+  SystemModule(data::SharedData &, cfg::Configuration &);
   ~SystemModule() override;
 
  private:
   void startup() override;
   void loop() override;
   void shutdown() override;
-  void processCommand(const command::Command &command);
+  void processCommand(const command::Command &);
 
   void updateMiscInfo();
   void updateCpuAndMemoryInfo();

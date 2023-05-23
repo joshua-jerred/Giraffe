@@ -7,8 +7,8 @@
  * @version 0.2
  */
 
-#ifndef UTILITY_STATUS_H_
-#define UTILITY_STATUS_H_
+#ifndef UTILITY_STATUS_HPP_
+#define UTILITY_STATUS_HPP_
 
 #include <unordered_map>
 #include <string>

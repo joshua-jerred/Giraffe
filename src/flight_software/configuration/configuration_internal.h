@@ -16,7 +16,7 @@
 
 #include "configuration.h"
 #include "gfs_exception.h"
-#include "streams.h"
+#include "shared_data.hpp"
 
 namespace cfg {
 

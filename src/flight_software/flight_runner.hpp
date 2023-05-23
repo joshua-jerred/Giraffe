@@ -6,7 +6,7 @@
 #include "console_module.h"
 #include "server_module.h"
 #include "system_module.hpp"
-#include "streams.h"
+#include "shared_data.hpp"
 
 class FlightRunner {
  public:
@@ -24,7 +24,8 @@ class FlightRunner {
   int flightLoop();
 
   bool shutdown_signal_ = false;
-  data::Streams *p_streams_ = nullptr;
+  data::SharedData shared_data_ = data::SharedData();
+
   cfg::Configuration *p_config_ = nullptr;
 
   modules::DataModule *p_data_module_ = nullptr;
