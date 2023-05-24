@@ -1,27 +1,16 @@
+import file_gen_utils as utils
 import json
 import sys
 
 INDENT = "  "
 SECTION_TYPE_KEY = "SECTION_TYPE"
 SECTION_ID_KEY = "ID"
+
 CFG_NAMESPACE = "cfg"
-CFG_ENUM_NAMESPACE = "g_enum"
+CFG_ENUM_NAMESPACE = "gEnum"
+CFG_SECTIONS_NAMESPACE = "sections"
 
 RESERVED_KEYS = [SECTION_TYPE_KEY, SECTION_ID_KEY]
-
-def headerFileHeader(file_name: str): # file_name ex: structure - turns into structure.hpp
-    return """// * * * GENERATED WITH config_gen.py * * *
-
-#ifndef {1}_HPP_
-#define {1}_HPP_
-""".format(file_name, file_name.upper())
-
-def headerFileFooter(file_name: str):
-    return """
-#endif // {0}_HPP_
-
-// * * * GENERATED WITH config_gen.py * * *
-""".format(file_name.upper())
 
 # Default Data
 def defData(json_section_key, json_setting_key, name):
@@ -32,8 +21,15 @@ class StructItem:
         self.default = default_data
     
     def getDataMember(self):
-        return f"{self.type} {self.member_name}"
-    
+        return f"{self.type} {self.member_name} = default;"
+
+def enumType(name):
+    name = name.replace("_", " ").title().replace(" ", "")
+    return f'{CFG_NAMESPACE}::{CFG_ENUM_NAMESPACE}::{name}'
+
+def enumValue(type_name, value):
+    return f'{enumType(type_name)}::{value.upper()}'
+
 class Enum:
     def __init__(self, enum_name: str, enum_options: list):
         # Remove underscores from name and capitalize
@@ -41,7 +37,7 @@ class Enum:
         self.name_with_ns = f'{CFG_NAMESPACE}::{CFG_ENUM_NAMESPACE}::{self.name}'
         # Upper all options
         self.options = [option.upper() for option in enum_options]
-        
+    
     def getDefinition(self):
         return f"enum class {self.name} {{\n{self.getOptions()}\n}};"
     
@@ -79,6 +75,47 @@ class Enum:
         close_line = "\n};"
         return open_line + cases + close_line
 
+class StructItem:
+    def __init__(self):
+        self.type = None;
+        self.member_name = None;
+        self.default_value = None;
+        self.validator = None;
+    
+    def setVals(self, cpp_type, member_name, default_value):
+        self.type = cpp_type
+        self.member_name = member_name
+        self.default_value = default_value
+        
+    def setStringValidator(self, min, max, pattern):
+        self.validator = "validator"
+    
+    def setNumValidator(self, min, max):
+        self.validator = "validator"
+        
+    def setEnumValidator(self, enum_name):
+        self.validator = "validator"
+        
+    def setBoolValidator(self):
+        self.validator = "validator"
+    
+    def getDef(self):
+        return f'{self.type} {self.member_name} = {self.default_value};'
+    
+class Section:
+    def __init__(self, section_id):
+        self.section_id = section_id
+        self.items = []
+
+    def addItem(self, struct_item):
+        self.items.append(struct_item)
+
+    def getStruct(self):
+        strs = []
+        for item in self.items:
+            strs.append(item.getDef())
+        return utils.struct(self.section_id, strs)
+
 class ConfigGen:
     def __init__(self, meta: dict, out_dir: str):
         self.meta = meta
@@ -88,6 +125,7 @@ class ConfigGen:
         self.sec_name = None
         self.sec_contents = None
         self.sec_type = None
+        self.sec_id = "NO_ID"
         
         self.struct_items = []
         self.enums = []
@@ -106,6 +144,7 @@ class ConfigGen:
 
             if SECTION_TYPE_KEY in self.sec_contents:
                 self.sec_type = self.sec_contents[SECTION_TYPE_KEY]
+                self.sec_id = self.sec_contents[SECTION_ID_KEY]
             else:
                 self.error("No Section Type")
                 continue
@@ -124,9 +163,12 @@ class ConfigGen:
             i += 1
 
     def parseStructSection(self):
+        section = Section(self.sec_id)
         for key in self.sec_contents:
             if key in RESERVED_KEYS:
                 continue
+            
+            item = StructItem()
             
             set_data = self.sec_contents[key]
             
@@ -142,42 +184,71 @@ class ConfigGen:
             set_pattern = None
             
             cpp_type = ""
-            cpp_member_name = ""
+            cpp_member_name = key
             
             if set_type == "string":
                 cpp_type = "std::string"
+                set_default = f'"{set_default}"'
                 set_min = set_data["min"]
                 set_min = set_data["max"]
                 set_pattern = set_data["pattern"]
+                
             elif set_type == "bool":
                 cpp_type = "bool"
+                
             elif set_type == "int":
-                cpp_type == "int"
+                cpp_type = "int"
+                
+                
             elif set_type == "float":
-                cpp_type == "float"
+                cpp_type = "float"
+
             elif set_type == "enum":
                 enum_name = set_data["enum_name"]
                 enum_options = set_data["options"]
-                enum = Enum(enum_name, enum_options)
-                self.enums.append(enum)
-                self.defined_enum_ids.append(enum_name)
-
-            print(f"{cpp_type}")
+                cpp_type = enumType(enum_name)
+                
+                set_default = enumValue(enum_name, set_default)
+                
+                if enum_name not in self.defined_enum_ids:
+                    enum = Enum(enum_name, enum_options)
+                    self.enums.append(enum)
+                    self.defined_enum_ids.append(enum_name)
+            item.setVals(cpp_type, key, set_default)
+            
+            section.addItem(item)
+            
+        self.struct_items.append(section)
             
     def StructureFile(self):
-        file = headerFileHeader("structure")
-        file += f"\nnamespace {CFG_NAMESPACE} {{\nnamespace {CFG_ENUM_NAMESPACE} {{\n\n"
+        STRUCTURE_FILE_NAME = "configuration_structure"
+        STRUCTURE_FILE_INCLUDES = ["<string>"]
+        
+        file = utils.headerFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
+        file += utils.enterNameSpace(CFG_NAMESPACE)
+        
+        # enums
+        file += utils.enterNameSpace(CFG_ENUM_NAMESPACE) + "\n"
         for enum in self.enums:
             file += enum.getDefinition() + "\n\n"
-        file += f'}} // namespace {CFG_ENUM_NAMESPACE}\n'
+        file += utils.exitNameSpace(CFG_ENUM_NAMESPACE)
+        
+        
+        # sections
+        file += utils.enterNameSpace(CFG_SECTIONS_NAMESPACE)
+        for section in self.struct_items:
+            file += section.getStruct();
+        file += utils.exitNameSpace(CFG_SECTIONS_NAMESPACE)
+
         
         file += f'}} // namespace {CFG_NAMESPACE}\n'
-        file += headerFileFooter("structure")
-        return file
+        file += utils.headerFileFooter(STRUCTURE_FILE_NAME)
         
+        f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".hpp", "w")
+        f.write(file)
         
-
-
+    def ValidatorsFile(self):
+        pass
 
 if __name__ == "__main__":
     print("\nGenerating Configuration Code")

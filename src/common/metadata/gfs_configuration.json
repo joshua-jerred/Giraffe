@@ -1,7 +1,7 @@
 {
     "general": {
         "SECTION_TYPE":"struct",
-        "ID":"GEN",
+        "ID":"General",
         "project_name": {
             "type": "string",
             "name": "Project Name",
@@ -43,6 +43,7 @@
     },
     "data_module_general": {
         "SECTION_TYPE":"struct",
+        "ID":"DataModGen",
         "frame_purge_time": {
             "type": "int",
             "name": "Purge Stale Data Time ms",

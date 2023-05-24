@@ -18,7 +18,7 @@ add_gtest_test(
 	common_01_gfs_configuration_scheme
 )
 target_link_libraries(common_01_gfs_configuration_scheme nlohmann_json::nlohmann_json)
-configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${COMMON_TEST_BIN}/gfs_configuration_metadata.json)
+#configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${COMMON_TEST_BIN}/gfs_configuration_metadata.json)
 
 add_gtest_test(
 	test_02

@@ -36,22 +36,22 @@ execute_process(
 )
 
 # data_ids.hpp
-execute_process(
-	COMMAND python3 ${GFS_SRC}/generators/ids_gen.py 
-	"${COMMON_SRC}/metadata/gfs_data.json"  # in json as arg
-	"${GFS_SRC}/modules/data/data_ids.hpp" # out hpp as arg
-	"data"
-	WORKING_DIRECTORY ${GFS_SRC}/
-)
+# execute_process(
+# 	COMMAND python3 ${GFS_SRC}/generators/ids_gen.py 
+# 	"${COMMON_SRC}/metadata/gfs_data.json"  # in json as arg
+# 	"${GFS_SRC}/modules/data/data_ids.hpp" # out hpp as arg
+# 	"data"
+# 	WORKING_DIRECTORY ${GFS_SRC}/
+# )
 
-# log_ids.hpp
-execute_process(
-	COMMAND python3 ${GFS_SRC}/generators/ids_gen.py 
-	"${COMMON_SRC}/metadata//gfs_log.json"  # in json as arg
-	"${GFS_SRC}/metadata/log_ids.hpp" # out hpp as arg
-	"log"
-	WORKING_DIRECTORY ${GFS_SRC}/
-)
+# # log_ids.hpp
+# execute_process(
+# 	COMMAND python3 ${GFS_SRC}/generators/ids_gen.py 
+# 	"${COMMON_SRC}/metadata//gfs_log.json"  # in json as arg
+# 	"${GFS_SRC}/metadata/log_ids.hpp" # out hpp as arg
+# 	"log"
+# 	WORKING_DIRECTORY ${GFS_SRC}/
+# )
 
 # ---- Giraffe Flight Software ----
 include_directories(

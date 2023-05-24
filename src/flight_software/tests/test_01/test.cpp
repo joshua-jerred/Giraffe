@@ -1,7 +1,14 @@
-#include "gtest/gtest.h"
+#include <functional>
+#include <iostream>
+#include <string>
+#include <utility>
 
-int main(int argc, char **argv)
-{
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+#include "configuration_structure.hpp"
+#include "validation.h"
+
+int main() {
+  std::cout << validate("test_str", 1, 20) << std::endl;
+  std::cout << validate("", 2, 20) << std::endl;
+  std::cout << validate("testasdddddddddddddddddd_str", 1, 20) << std::endl;
+  return 0;
 }

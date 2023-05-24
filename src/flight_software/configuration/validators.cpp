@@ -42,21 +42,6 @@ static const std::array<std::string, 8> data_packet_modes_enum = {
     "qpsk125", "qpsk250", "qpsk500", "afsk_ax25"};
 
 // Checking Utilities
-
-inline bool matchesPattern(const std::string &pattern,
-                           const std::string &input) {
-  return std::regex_match(input, std::regex(pattern));
-}
-
-inline bool inRange(const unsigned int min, const unsigned int max,
-                    const std::string &input) {
-  return input.length() >= min && input.length() <= max;
-}
-
-inline bool inRange(const int min, const int max, const int input) {
-  return input >= min && input <= max;
-}
-
 template <std::size_t SIZE>
 inline bool macroInOptions(const std::array<std::string, SIZE> &options,
                            const std::string value_to_compare) {
@@ -267,7 +252,6 @@ bool cfg::server_module::validators::tcpSocketPort(const int port_number,
 }
 
 // System Module
-
 bool cfg::system_module::validators::systemInfoPollRate(const int poll_rate_ms,
                                                         std::string &error) {
   if (!(poll_rate_ms >= 100) || !(poll_rate_ms <= 600000)) {

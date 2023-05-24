@@ -42,39 +42,39 @@ json sstvToJson(const cfg::Sstv &sstv_section);
 json dataPacketsToJson(const cfg::DataPackets &data_packets_section);
 
 void jsonToGeneral(const json &json_data, cfg::General &general,
-                   data::ErrorStream &es, int &num_errors);
+                   data::SharedData &sd, int &num_errors);
 
 void jsonToDataModuleGeneral(const json &json_data,
                              cfg::DataModuleGeneral &data_module_general,
-                             data::ErrorStream &es, int &num_errors);
+                             data::SharedData &es, int &num_errors);
 
 void jsonToDataModuleDataLog(const json &json_data,
                              cfg::DataModuleDataLog &data_module_data_log,
-                             data::ErrorStream &es, int &num_errors);
+                             data::SharedData &es, int &num_errors);
 
 void jsonToDataModuleInfluxDb(const json &json_data,
                               cfg::DataModuleInfluxDb &data_module_influx_db,
-                              data::ErrorStream &es, int &num_errors);
+                              data::SharedData &es, int &num_errors);
 
 void jsonToDataModuleErrorLog(const json &json_data,
                               cfg::DataModuleErrorLog &data_module_error_log,
-                              data::ErrorStream &es, int &num_errors);
+                              data::SharedData &es, int &num_errors);
 
 void jsonToDataModuleDebug(const json &json_data,
                            cfg::DataModuleDebug &data_module_debug,
-                           data::ErrorStream &es, int &num_errors);
+                           data::SharedData &es, int &num_errors);
 
 void jsonToConsoleModule(const json &json_data, cfg::ConsoleModule &console,
-                         data::ErrorStream &es, int &num_errors);
+                         data::SharedData &es, int &num_errors);
 
 void jsonToServerModule(const json &json_data, cfg::ServerModule &server,
-                        data::ErrorStream &es, int &num_errors);
+                        data::SharedData &es, int &num_errors);
 
 void jsonToSystemModule(const json &json_data, cfg::SystemModule &system,
-                        data::ErrorStream &es, int &num_errors);
+                        data::SharedData &es, int &num_errors);
 
 void jsonToTelemetry(const json &json_data, cfg::Telemetry &telemetry,
-                     data::ErrorStream &es, int &num_errors);
+                     data::SharedData &es, int &num_errors);
 
 void jsonToAprs(const json &json_data, cfg::Aprs &aprs, data::ErrorStream &es,
                 int &num_errors);

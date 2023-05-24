@@ -2,6 +2,7 @@ enable_testing()
 
 include_directories(
 	${GFS_SRC}/
+	${GFS_SRC}/configuration/generated
 	${GFS_SRC}/configuration
 	${GFS_SRC}/modules/data
 )
@@ -25,12 +26,8 @@ include(${GFS_SRC}/sourcelist.CMake)
 add_gtest_test(
 	test_01
 	gfs_01_configuration
-	${configuration_sources}
-	${GFS_TEST_SRC}/test_01/test_cfg_validators.cpp
-	${GFS_TEST_SRC}/test_01/test_cfg_configuration_class.cpp
 )
 target_link_libraries(gfs_01_configuration nlohmann_json::nlohmann_json)
-configure_file(${COMMON_SRC}/gfs_configuration_metadata.json ${GFS_TEST_BIN}/test_01/gfs_configuration_metadata.json)
 
 add_gtest_test(
 	test_02
