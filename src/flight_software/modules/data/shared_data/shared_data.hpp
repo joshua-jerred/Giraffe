@@ -9,9 +9,7 @@ namespace data {
 
 struct Streams {
   data::DataStream data = data::DataStream();
-  data::ErrorStream error = data::ErrorStream();
-  data::StatusStream status = data::StatusStream();
-  data::SystemInfoStream system_info = data::SystemInfoStream();
+  data::LogStream error = data::LogStream();
 };
 
 struct Frames {

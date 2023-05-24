@@ -26,12 +26,40 @@ endif()
 # ---------------- Sources --------
 include(${GFS_SRC}/sourcelist.CMake)
 
+# --- File Generation ---
+# configuration
+execute_process(
+	COMMAND python3 ${GFS_SRC}/generators/config_gen.py 
+	"${COMMON_SRC}/metadata/gfs_configuration.json"  # in json as arg
+	"${GFS_SRC}/configuration/generated" # out dir
+	WORKING_DIRECTORY ${GFS_SRC}/
+)
+
+# data_ids.hpp
+execute_process(
+	COMMAND python3 ${GFS_SRC}/generators/ids_gen.py 
+	"${COMMON_SRC}/metadata/gfs_data.json"  # in json as arg
+	"${GFS_SRC}/modules/data/data_ids.hpp" # out hpp as arg
+	"data"
+	WORKING_DIRECTORY ${GFS_SRC}/
+)
+
+# log_ids.hpp
+execute_process(
+	COMMAND python3 ${GFS_SRC}/generators/ids_gen.py 
+	"${COMMON_SRC}/metadata//gfs_log.json"  # in json as arg
+	"${GFS_SRC}/metadata/log_ids.hpp" # out hpp as arg
+	"log"
+	WORKING_DIRECTORY ${GFS_SRC}/
+)
+
 # ---- Giraffe Flight Software ----
 include_directories(
 	${GFS_SRC}/
 	${GFS_SRC}/configuration
 	${GFS_SRC}/modules
 	${GFS_SRC}/modules/data
+	${GFS_SRC}/modules/data/shared_data
 	${GFS_SRC}/modules/console
 	${GFS_SRC}/modules/server
 	${GFS_SRC}/modules/system

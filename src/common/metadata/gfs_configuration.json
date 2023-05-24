@@ -1,5 +1,7 @@
 {
     "general": {
+        "SECTION_TYPE":"struct",
+        "ID":"GEN",
         "project_name": {
             "type": "string",
             "name": "Project Name",
@@ -14,9 +16,11 @@
             "name": "Main Board Type",
             "description": "The type of computer that the flight software is running on. This is important for the interfacing with the hardware.",
             "default": "other",
+
+            "enum_name":"main_board",
             "options": [
                 "other",
-                "pi_zero_w_2",
+                "pi_zero_w2",
                 "pi_4"
             ]
         },
@@ -25,6 +29,8 @@
             "name": "Starting Procedure",
             "description": "The flight procedure that the flight software should start with. See the flight procedures section.",
             "default": "failsafe",
+
+            "enum_name":"procedure_type",
             "options": [
                 "testing",
                 "pre_launch",
@@ -36,6 +42,7 @@
         }
     },
     "data_module_general": {
+        "SECTION_TYPE":"struct",
         "frame_purge_time": {
             "type": "int",
             "name": "Purge Stale Data Time ms",
@@ -47,6 +54,7 @@
         }
     },
     "data_module_data_log": {
+        "SECTION_TYPE":"struct",
         "log_data_to_file": {
             "type": "bool",
             "name": "Log Data To File",
@@ -115,9 +123,11 @@
         }
     },
     "data_module_data_log_contents": {
+        "SECTION_TYPE":"list",
         "list": []
     },
     "data_module_influxdb": {
+        "SECTION_TYPE":"struct",
         "influx_enabled": {
             "type": "bool",
             "name": "Enable InfluxDB Integration",
@@ -195,9 +205,11 @@
         }
     },
     "data_module_influxdb_contents": {
+        "SECTION_TYPE":"list",
         "list": []
     },
     "data_module_error_log": {
+        "SECTION_TYPE":"struct",
         "log_errors_to_file": {
             "type": "bool",
             "name": "Log Errors To File",
@@ -235,6 +247,7 @@
         }
     },
     "data_module_debug": {
+        "SECTION_TYPE":"struct",
         "enabled": {
             "type": "bool",
             "name": "Console Interface",
@@ -256,6 +269,7 @@
         }
     },
     "console_module": {
+        "SECTION_TYPE":"struct",
         "enabled": {
             "type": "bool",
             "name": "Console Interface",
@@ -275,6 +289,7 @@
         }
     },
     "server_module": {
+        "SECTION_TYPE":"struct",
         "enabled": {
             "type": "bool",
             "name": "TCP Socket Enabled",
@@ -294,6 +309,7 @@
         }
     },
     "system_module": {
+        "SECTION_TYPE":"struct",
         "enabled": {
             "type": "bool",
             "name": "System Module Enabled",
@@ -313,6 +329,7 @@
         }
     },
     "telemetry": {
+        "SECTION_TYPE":"struct",
         "telemetry_enabled": {
             "type": "bool",
             "name": "Telemetry Enabled",
@@ -332,6 +349,7 @@
         }
     },
     "telemetry_aprs": {
+        "SECTION_TYPE":"struct",
         "telemetry_packets": {
             "type": "bool",
             "name": "APRS Telemetry Packets",
@@ -414,6 +432,7 @@
         }
     },
     "telemetry_sstv": {
+        "SECTION_TYPE":"struct",
         "enabled": {
             "type": "bool",
             "name": "SSTV Enabled",
@@ -450,6 +469,7 @@
         }
     },
     "telemetry_data_packets": {
+        "SECTION_TYPE":"struct",
         "enabled": {
             "name": "Data Packets Enabled",
             "type": "bool",
@@ -503,9 +523,16 @@
         }
     },
     "telemetry_radios": {
+        "SECTION_TYPE":"list",
         "list": []
     },
-    "extension_module": {},
-    "extensions": [],
-    "flight_procedures": {}
+    "extension_module": {
+        "SECTION_TYPE":"struct"
+    },
+    "extensions": {
+        "SECTION_TYPE":"list"
+    },
+    "flight_procedures": {
+        "SECTION_TYPE":"struct"
+    }
 }

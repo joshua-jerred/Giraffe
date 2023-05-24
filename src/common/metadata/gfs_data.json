@@ -1,15 +1,31 @@
 {
-    "modules_statuses": {
-        "data":{},
-        "console":{},
-        "server":{},
-        "system":{}
+    "generic": {
+        "ID": "Generic",
+        "unknown":{
+            "ID":"unknown"
+        }
     },
-    "health": {
-        
+    "modules_statuses": {
+        "ID":"ModuleStatus",
+        "data":{
+            "ID":"data",
+            "name":"Data Module Status"
+        },
+        "console":{
+            "ID":"console"
+        },
+        "server":{
+            "ID":"server"
+        },
+        "system":{
+            "ID":"system"
+        }
     },
     "system_module":{
-
+        "ID":"SystemModule",
+        "cpu": {
+            
+        }
     },
     "data_module":{
         "ds_pd":{

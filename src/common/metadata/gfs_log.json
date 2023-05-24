@@ -1,0 +1,20 @@
+{
+  "Generic": {
+    "ID": "Generic",
+    "UNKNOWN": {
+      "ID": "unknown"
+    },
+    "info": {
+      "ID": "info"
+    },
+    "debug": {
+      "ID": "debug"
+    }
+  },
+  "Module": {
+    "ID": "Module",
+    "STARTFAIL": {
+      "ID": "startUpFailure"
+    }
+  }
+}
