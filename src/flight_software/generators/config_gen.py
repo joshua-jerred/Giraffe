@@ -1,3 +1,5 @@
+# absolute spaghetti monster below, you've been warned.
+
 import file_gen_utils as utils
 import json
 import sys
@@ -8,10 +10,12 @@ SECTION_ID_KEY = "ID"
 
 CFG_NAMESPACE = "cfg"
 CFG_ENUM_NAMESPACE = "gEnum"
+CFG_JSON_NAMESPACE = "json"
 
 RESERVED_KEYS = [SECTION_TYPE_KEY, SECTION_ID_KEY]
 
 STRUCTURE_FILE_NAME = "configuration_structure"
+JSON_FILE_NAME = "configuration_json"
 
 # Default Data
 def defData(json_section_key, json_setting_key, name):
@@ -107,7 +111,7 @@ class SectionItem:
         self.validator = "validator"
     
     def getDef(self):
-        return f'{self.type} {self.member_name} = {self.default_value};'
+        return f'{self.type} {self.member_name}_ = {self.default_value};'
     
     def getGetterDec(self):
         return f'{self.type} get{self.name_capitalized}() const;'
@@ -118,13 +122,13 @@ class SectionItem:
     def getGetterDef(self, class_name):
         return f'''{self.type} {class_name}::get{self.name_capitalized}() const {{
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return {self.member_name};
+  return {self.member_name}_;
 }}\n'''
 
     def getSetterDef(self, class_name):
         return f'''void {class_name}::set{self.name_capitalized}({self.type} val) {{
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  {self.member_name} = val;
+  {self.member_name}_ = val;
 }}\n'''
     
 class Section:
@@ -159,6 +163,9 @@ class Section:
         for item in self.items:
             ret_str += item.getSetterDef(f'{CFG_NAMESPACE}::{self.section_id}') + "\n"
         return ret_str
+    
+    def getStructDecString(self):
+        return f"{INDENT}{CFG_NAMESPACE}::{self.section_id} {self.section_member};"
 
     def _public_members(self):
         public = ""
@@ -219,6 +226,7 @@ class ConfigGen:
             
             self.StructureHeader()
             self.StructureCpp()
+            self.JsonHeader()
             # temporary
             if i == 1:
                 return 
@@ -261,7 +269,6 @@ class ConfigGen:
             elif set_type == "int":
                 cpp_type = "int"
                 
-                
             elif set_type == "float":
                 cpp_type = "float"
 
@@ -298,9 +305,14 @@ class ConfigGen:
         for section in self.sections:
             file += section.getHeaderString();
         
+        # main config struct
+        file += "struct Configuration {\n"
+        for section in self.sections:
+            file += f"{section.getStructDecString()}\n"
+        file += "};\n\n"
+        
         file += f'}} // namespace {CFG_NAMESPACE}\n'
         file += utils.headerFileFooter(STRUCTURE_FILE_NAME)
-        
         f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".hpp", "w")
         f.write(file)
 
@@ -317,6 +329,23 @@ class ConfigGen:
             file += section.getCppStringSetter();
         
         f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".cpp", "w")
+        f.write(file)
+
+    def JsonHeader(self):
+        JSON_FILE_INCLUDES = ["<string>"]
+        
+        file = utils.headerFileHeader(JSON_FILE_NAME, JSON_FILE_INCLUDES)
+        file += utils.enterNameSpace(CFG_NAMESPACE)
+        file += utils.enterNameSpace(CFG_JSON_NAMESPACE)
+
+        # sections
+        for section in self.sections:
+            file += section.getHeaderString();
+        
+        file += f'}} // namespace {CFG_NAMESPACE}\n'
+        file += utils.headerFileFooter(JSON_FILE_NAME)
+        
+        f = open(self.out_dir + "/" + JSON_FILE_NAME + ".hpp", "w")
         f.write(file)
 
     def ValidatorsFile(self):

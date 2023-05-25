@@ -2,11 +2,11 @@
 
 
 # ---- Create Needed Directories and Transfer The Configuration File ----
-file(MAKE_DIRECTORY ${GIRAFFE_BUILD_OUTPUT_DIR})
-file(MAKE_DIRECTORY ${GIRAFFE_BUILD_OUTPUT_DIR}/data_logs)
-file(MAKE_DIRECTORY ${GIRAFFE_BUILD_OUTPUT_DIR}/error_logs)
-file(MAKE_DIRECTORY ${GIRAFFE_BUILD_OUTPUT_DIR}/telemetry)
-file(MAKE_DIRECTORY ${GIRAFFE_BUILD_OUTPUT_DIR}/images)
+file(MAKE_DIRECTORY ${GFS_BIN})
+file(MAKE_DIRECTORY ${GFS_BIN}/data_logs)
+file(MAKE_DIRECTORY ${GFS_BIN}/error_logs)
+file(MAKE_DIRECTORY ${GFS_BIN}/telemetry)
+file(MAKE_DIRECTORY ${GFS_BIN}/images)
 
 #configure_file(
 #	${GFS_SRC}/${GIRAFFE_CONFIG_FILE_NAME}
@@ -22,9 +22,6 @@ else()
     message(STATUS "SSTV Disabled In Giraffe Flight Software")
     add_compile_definitions(SSTV_ENABLED=0)
 endif()
-
-# ---------------- Sources --------
-include(${GFS_SRC}/sourcelist.CMake)
 
 # --- File Generation ---
 # configuration
@@ -75,14 +72,12 @@ include_directories(
 # -------- GFS Executable ---------
 add_executable(giraffe-flight-software
 	${GFS_SRC}/main.cpp
-	${GFS_SRC}/flight_runner.cpp
-	${configuration_sources}
-	${gfs_all_modules}
+	${gfs_sources}
 )
 set_target_properties(giraffe-flight-software PROPERTIES OUTPUT_NAME gfs)
 set_target_properties(
 	giraffe-flight-software PROPERTIES 
-	RUNTIME_OUTPUT_DIRECTORY ${GIRAFFE_BUILD_OUTPUT_DIR}
+	RUNTIME_OUTPUT_DIRECTORY ${GFS_BIN}
 )
 #target_link_libraries(giraffe-flight-software PRIVATE MWAVlib)
 

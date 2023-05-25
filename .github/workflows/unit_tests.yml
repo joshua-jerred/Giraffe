@@ -6,13 +6,7 @@ on:
     #paths: ['workflows/**', 'src/flight_software/**']
   pull_request:
     branches: ["main"]
-
-env:
-  GFS_BUILD: ./src/flight_software/tests/build_test.sh
-  GFS_RUN: ./src/flight_software/tests/run_test.sh
-  COMMON_BUILD: ./src/common/tests/build_test.sh
-  COMMON_RUN: ./src/common/tests/run_test.sh
-
+ 
 jobs:
   setup-pull:
     name: Pull and Sync Submodules
@@ -30,78 +24,24 @@ jobs:
       - name: Configure
         run: mkdir build && cd build && cmake ..
 
-  common_test_01:
-    name: Common / GFS Configuration Scheme
-    env:
-      TEST_NAME: "common_01_gfs_configuration_scheme"
+  common_tests:
+    name: Unit Tests / Common
     needs: ["cmake_configure"]
     runs-on: self-hosted
     steps:
       - name: Build Test
-        run: $COMMON_BUILD
+        run: cd build && make unit_test_common
       - name: Run Test
-        run: $COMMON_RUN
+        run: cd build/tests/common && ./unit_test_common
 
-  common_test_02:
-    name: Common / Giraffe Protocol
+  gfs_tests:
+    name: Unit Tests / Flight Software
     env:
       TEST_NAME: "common_02_giraffe_protocol"
-    needs: ["cmake_configure"]
+    needs: ["common_tests"]
     runs-on: self-hosted
     steps:
       - name: Build Test
-        run: $COMMON_BUILD
+        run: cd build && make unit_test_common
       - name: Run Test
-        run: $COMMON_RUN
-
-  gfs_test_01:
-    name: GFS / Configuration
-    env:
-      TEST_NAME: "gfs_01_configuration"
-      TEST_ID: "test_01"
-    needs: ["cmake_configure"]
-    runs-on: self-hosted
-    steps:
-      - name: Build Test
-        run: $GFS_BUILD
-      - name: Run Test
-        run: $GFS_RUN
-
-  gfs-test-05:
-    name: GFS / Exception
-    env:
-      TEST_NAME: "gfs_02_gfs_exception"
-      TEST_ID: "test_02"
-    needs: ["cmake_configure"]
-    runs-on: self-hosted
-    steps:
-      - name: Build Test
-        run: $GFS_BUILD
-      - name: Run Test
-        run: $GFS_RUN
-
-  gfs_test_06:
-    name: GFS / Stream
-    env:
-      TEST_NAME: "gfs_03_data_error_stream"
-      TEST_ID: "test_03"
-    needs: ["cmake_configure"]
-    runs-on: self-hosted
-    steps:
-      - name: Build Test
-        run: $GFS_BUILD
-      - name: Run Test
-        run: $GFS_RUN
-
-  gfs_test_04:
-    name: GFS / Module Base
-    env:
-      TEST_NAME: "gfs_04_module"
-      TEST_ID: "test_04"
-    needs: ["gfs_test_06"]
-    runs-on: self-hosted
-    steps:
-      - name: Build Test
-        run: $GFS_BUILD
-      - name: Run Test
-        run: $GFS_RUN
+        run: cd build/tests/common && ./unit_test_gfs

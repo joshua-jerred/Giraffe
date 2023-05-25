@@ -1,32 +1,13 @@
 // * * * AUTOMATICALLY GENERATED WITH CMake/Python * * *
 
-#ifndef CONFIGURATION_STRUCTURE_HPP_
-#define CONFIGURATION_STRUCTURE_HPP_
+#ifndef CONFIGURATION_JSON_HPP_
+#define CONFIGURATION_JSON_HPP_
 
 #include <string>
-#include <mutex>
 
 namespace cfg {
 
-namespace gEnum {
-
-
-enum class MainBoard {
-  OTHER,
-  PI_ZERO_W2,
-  PI_4
-};
-
-enum class ProcedureType {
-  TESTING,
-  PRE_LAUNCH,
-  ASCENT,
-  DESCENT,
-  RECOVERY,
-  FAILSAFE
-};
-
-} // namespace gEnum
+namespace json {
 
 class General {
 public:
@@ -56,13 +37,8 @@ private:
   mutable std::mutex cfg_lock_ = std::mutex();
 };
 
-struct Configuration {
-  cfg::General general;
-  cfg::DataModuleGeneral data_module_general;
-};
-
 } // namespace cfg
 
-#endif // CONFIGURATION_STRUCTURE_HPP_
+#endif // CONFIGURATION_JSON_HPP_
 
 // * * * AUTOMATICALLY GENERATED WITH CMake/Python * * *

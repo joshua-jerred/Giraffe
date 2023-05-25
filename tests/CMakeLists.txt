@@ -1,0 +1,31 @@
+# Unit Tests
+
+# --- Common ---
+file(GLOB common_test_sources
+     "${COMMON_TEST_SRC}/test_*.cpp"
+)
+
+add_executable(unit_test_common
+  ${COMMON_TEST_SRC}/test.cpp
+  ${common_test_sources}
+)
+target_link_libraries(unit_test_common gtest_main)
+set_target_properties(
+	unit_test_common PROPERTIES 
+	RUNTIME_OUTPUT_DIRECTORY ${COMMON_TEST_BIN}
+)
+
+# --- Flight Software ---
+file(GLOB gfs_test_sources
+     "${GFS_TEST_SRC}/test_*.cpp"
+)
+
+add_executable(unit_test_gfs
+  ${GFS_TEST_SRC}/test.cpp
+  ${gfs_test_sources}
+)
+target_link_libraries(unit_test_gfs gtest_main)
+set_target_properties(
+	unit_test_gfs PROPERTIES 
+	RUNTIME_OUTPUT_DIRECTORY ${GFS_TEST_BIN}
+)
