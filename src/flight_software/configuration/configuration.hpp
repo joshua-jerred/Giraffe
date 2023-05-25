@@ -7,6 +7,7 @@
 #include <mutex>
 #include <unordered_map>
 #include <nlohmann/json.hpp>
+#include "shared_data.hpp"
 
 namespace cfg {
 namespace gEnum {
@@ -23,10 +24,9 @@ static std::unordered_map<std::string, cfg::gEnum::MainBoard> const KeyToMainBoa
 };
 constexpr const char* MainBoardToKey(cfg::gEnum::MainBoard val) throw() {
   switch (val) {
-    case cfg::gEnum::MainBoard::OTHER: "other";
-    case cfg::gEnum::MainBoard::PI_ZERO_W2: "pi_zero_w2";
-    case cfg::gEnum::MainBoard::PI_4: "pi_4";
-    default: throw std::invalid_argument("String Not Implemented in MainBoard");
+    case cfg::gEnum::MainBoard::OTHER: return "other";
+    case cfg::gEnum::MainBoard::PI_ZERO_W2: return "pi_zero_w2";
+    case cfg::gEnum::MainBoard::PI_4: return "pi_4";
   }
 }
 
@@ -48,13 +48,12 @@ static std::unordered_map<std::string, cfg::gEnum::ProcedureType> const KeyToPro
 };
 constexpr const char* ProcedureTypeToKey(cfg::gEnum::ProcedureType val) throw() {
   switch (val) {
-    case cfg::gEnum::ProcedureType::TESTING: "testing";
-    case cfg::gEnum::ProcedureType::PRE_LAUNCH: "pre_launch";
-    case cfg::gEnum::ProcedureType::ASCENT: "ascent";
-    case cfg::gEnum::ProcedureType::DESCENT: "descent";
-    case cfg::gEnum::ProcedureType::RECOVERY: "recovery";
-    case cfg::gEnum::ProcedureType::FAILSAFE: "failsafe";
-    default: throw std::invalid_argument("String Not Implemented in ProcedureType");
+    case cfg::gEnum::ProcedureType::TESTING: return "testing";
+    case cfg::gEnum::ProcedureType::PRE_LAUNCH: return "pre_launch";
+    case cfg::gEnum::ProcedureType::ASCENT: return "ascent";
+    case cfg::gEnum::ProcedureType::DESCENT: return "descent";
+    case cfg::gEnum::ProcedureType::RECOVERY: return "recovery";
+    case cfg::gEnum::ProcedureType::FAILSAFE: return "failsafe";
   }
 }
 
@@ -88,12 +87,13 @@ private:
 
 class Configuration {
  public:
-  Configuration(data::Streams streams): streams_(streams){}
-  cfg::General general;
+  Configuration(data::Streams &streams): streams_(streams){}
+  cfg::General general = cfg::General(streams_);
  private:
   void error(data::logId error_code, std::string info = "") {
-    streams_.log.error(error_code, info);
+    streams_.log.error(node::Identification::CONFIGURATION, error_code, info);
   }
+  data::Streams &streams_;
 };
 
 } // namespace cfg

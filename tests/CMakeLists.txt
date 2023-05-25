@@ -23,9 +23,11 @@ file(GLOB gfs_test_sources
 add_executable(unit_test_gfs
   ${GFS_TEST_SRC}/test.cpp
   ${gfs_test_sources}
+  ${gfs_sources}
 )
 target_link_libraries(unit_test_gfs gtest_main)
 set_target_properties(
 	unit_test_gfs PROPERTIES 
 	RUNTIME_OUTPUT_DIRECTORY ${GFS_TEST_BIN}
 )
+target_link_libraries(unit_test_gfs nlohmann_json::nlohmann_json)

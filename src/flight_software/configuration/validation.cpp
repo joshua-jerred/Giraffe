@@ -41,7 +41,7 @@ void setValidValue(data::LogStream &log, const json &json_data,
                    const std::string &section, const std::string &key,
                    T &value_to_set, float min, float max, std::string pattern) {
   // error source
-  constexpr e_src = node::Identification::CONFIGURATION;
+  constexpr node::Identification e_src = node::Identification::CONFIGURATION;
 
   // check for key existence
   if (!json_data.contains(key)) {
@@ -73,7 +73,7 @@ void setValidValue(data::LogStream &log, const json &json_data,
   bool valid_value = false;
   if constexpr (std::is_same<T, int>::value) {
     valid_value = validate(value, (int)min, (int)max);
-  } else if constexpr (std::is_same<T, float>) {
+  } else if constexpr (std::is_same<T, float>::value) {
     valid_value = validate(value, min, max);
   } else if constexpr (std::is_same<T, std::string>::value) {
     valid_value = validate(value, min, max, pattern);
@@ -97,7 +97,7 @@ void setValidEnum(data::LogStream &log, const json &json_data,
                   const std::string &section, const std::string &key,
                   T &value_to_set,
                   const std::unordered_map<std::string, T> string_to_value) {
-  constexpr e_src = node::Identification::CONFIGURATION;
+  constexpr node::Identification e_src = node::Identification::CONFIGURATION;
 
   // Check if the setting key is in the json data
   if (!json_data.contains(key)) {

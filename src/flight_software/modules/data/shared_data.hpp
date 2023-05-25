@@ -9,15 +9,15 @@ namespace data {
 
 struct Streams {
   data::DataStream data = data::DataStream();
-  data::LogStream error = data::LogStream();
+  data::LogStream log = data::LogStream();
 };
 
 struct Frames {
-  data::Frame<std::string, data::DataStreamPacket> data =
-      data::Frame<std::string, data::DataStreamPacket>();
+  data::Frame<std::string, data::DataPacket> data =
+      data::Frame<std::string, data::DataPacket>();
 
-  data::Frame<std::string, data::ErrorStreamPacket> error =
-      data::Frame<std::string, data::ErrorStreamPacket>();
+  data::Frame<std::string, data::LogPacket> log =
+      data::Frame<std::string, data::LogPacket>();
 };
 
 struct Blocks {

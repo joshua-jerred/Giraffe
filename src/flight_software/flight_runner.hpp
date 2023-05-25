@@ -1,7 +1,7 @@
 #ifndef FLIGHT_RUNNER_H_
 #define FLIGHT_RUNNER_H_
 
-#include "configuration.h"
+#include "configuration.hpp"
 #include "data_module.h"
 #include "console_module.h"
 #include "server_module.h"

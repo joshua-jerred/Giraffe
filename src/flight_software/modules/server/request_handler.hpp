@@ -1,7 +1,7 @@
 #ifndef REQUEST_HANDLER_HPP_
 #define REQUEST_HANDLER_HPP_
 
-#include "configuration.h"
+#include "configuration.hpp"
 #include "protocol.h"
 #include "socket.h"
 #include "shared_data.hpp"

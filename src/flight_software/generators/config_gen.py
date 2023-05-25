@@ -61,10 +61,11 @@ class Enum:
         cases = ""
         
         for option in self.options:
-            cases += f'{INDENT}{INDENT}case {self.name_with_ns}::{option}: "{option.lower()}";\n'
+            cases += f'{INDENT}{INDENT}case {self.name_with_ns}::{option}: return "{option.lower()}";\n'
         
-        close_line = f'{INDENT}{INDENT}default: throw std::invalid_argument("String Not Implemented in {self.name}");\n{INDENT}}}\n}}\n'
-        return open_line + cases + close_line
+        default_case = ""# f'{INDENT}{INDENT}default: throw std::invalid_argument("String Not Implemented in {self.name}");\n'
+        close = f'{INDENT}}}\n}}\n'
+        return open_line + cases + default_case + close
 
     def getJsonKeyToEnum(self):
         open_line = f'static std::unordered_map<std::string, {self.name_with_ns}> const KeyTo{self.name} = {{\n'
@@ -106,7 +107,7 @@ class SectionItem:
         member = self.member_name + "_"
         
         if self.json_type == "enum":
-            return f'{CFG_NAMESPACE}::{CFG_ENUM_NAMESPACE}::{self.name_capitalized}ToKey({member})'
+            return f'{self.type}ToKey({member})'
         return member
         
     def setStringValidator(self, min, max, pattern):
@@ -178,7 +179,7 @@ class Section:
         return ret_str
     
     def getStructDecString(self):
-        return f"{INDENT}{CFG_NAMESPACE}::{self.section_id} {self.section_member};"
+        return f"{INDENT}{CFG_NAMESPACE}::{self.section_id} {self.section_member} = {CFG_NAMESPACE}::{self.section_id}(streams_);"
 
     def _public_members(self):
         public = ""
@@ -336,7 +337,7 @@ class ConfigGen:
         self.sections.append(section)
             
     def StructureHeader(self):
-        STRUCTURE_FILE_INCLUDES = ["<string>", "<mutex>", "<unordered_map>", "<nlohmann/json.hpp>"]
+        STRUCTURE_FILE_INCLUDES = ["<string>", "<mutex>", "<unordered_map>", "<nlohmann/json.hpp>", '"shared_data.hpp"']
         
         file = utils.headerFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
         file += utils.enterNameSpace(CFG_NAMESPACE)
@@ -358,14 +359,17 @@ class ConfigGen:
         
         # main config struct
         file += "class Configuration {\n public:\n"
-        file += f"{INDENT}Configuration(data::Streams streams): streams_(streams){{}}\n"
+        file += f"{INDENT}Configuration(data::Streams &streams): streams_(streams){{}}\n"
         for section in self.sections:
             file += f"{section.getStructDecString()}\n"
         
         file += " private:\n"
         
-        content = f'{{\n{INDENT*2}streams_.log.error(error_code, info);\n{INDENT}}}'
+        content = f'{{\n{INDENT*2}streams_.log.error(node::Identification::CONFIGURATION, error_code, info);\n{INDENT}}}'
         file += f'{INDENT}void error(data::logId error_code, std::string info = "") {content}\n'
+        
+        file += f'{INDENT}data::Streams &streams_;\n'
+        
         file += "};\n\n"
         
         file += f'}} // namespace {CFG_NAMESPACE}\n'

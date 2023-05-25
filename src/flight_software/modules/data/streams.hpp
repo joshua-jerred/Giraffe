@@ -118,7 +118,7 @@ class LogStream : public Stream<LogPacket> {
   }
 
   void debug(node::Identification source, std::string info = "",
-             data::logId log_id) {
+             data::logId log_id = data::logId::Generic_debug) {
     LogPacket pkt;
     pkt.source = source;
     pkt.level = LogPacket::Level::DEBUG;

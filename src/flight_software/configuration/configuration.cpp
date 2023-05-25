@@ -44,7 +44,7 @@ json cfg::General::getJson() const {
   return json({
     {"project_name", project_name_},
     {"main_board", cfg::gEnum::MainBoardToKey(main_board_)},
-    {"starting_procedure", cfg::gEnum::StartingProcedureToKey(starting_procedure_)}
+    {"starting_procedure", cfg::gEnum::ProcedureTypeToKey(starting_procedure_)}
   });
 }
 

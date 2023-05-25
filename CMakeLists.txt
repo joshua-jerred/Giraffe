@@ -81,15 +81,7 @@ include(GoogleTest)
 # ----- Common Includes ------
 include_directories(
 	${COMMON_SRC}/
-
-	${GFS_SRC}/modules
-	${GFS_SRC}/modules/configuration
-
-	${GFS_SRC}/utilities
-	${GFS_SRC}/extensions
-	${GFS_SRC}/interface
-	${GFS_SRC}/radios
-
+	${gfs_include_dirs}
 	${LIB_SRC}/MWAV/include
 )
 # ----------------------------

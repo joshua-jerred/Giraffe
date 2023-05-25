@@ -52,18 +52,8 @@ execute_process(
 
 # ---- Giraffe Flight Software ----
 include_directories(
-	${GFS_SRC}/
-	${GFS_SRC}/configuration
-	${GFS_SRC}/modules
-	${GFS_SRC}/modules/data
-	${GFS_SRC}/modules/data/shared_data
-	${GFS_SRC}/modules/console
-	${GFS_SRC}/modules/server
-	${GFS_SRC}/modules/system
-	${GFS_SRC}/utilities
-	${GFS_SRC}/extensions
-	${GFS_SRC}/interface
-	${GFS_SRC}/radios
+	${gfs_include_dirs}
+
 	${COMMON_SRC}/
 
 	${LIB_SRC}/MWAV/include

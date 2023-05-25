@@ -6,6 +6,8 @@
 #include <unordered_map>
 #include <string>
 
+using json = nlohmann::ordered_json;
+
 template <typename T>
 void setValidEnum(
     data::LogStream &log, const json &json_data, const std::string &section,

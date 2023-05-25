@@ -26,6 +26,9 @@
       "ID":"settingNotFound"
     },
     "invalid_json_type":{
+      "ID":"invalidJsonType"
+    },
+    "invalid_setting_value":{
       "ID":"invalidSettingValue"
     },
     "enum_not_string":{

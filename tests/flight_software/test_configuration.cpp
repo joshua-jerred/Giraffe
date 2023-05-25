@@ -1,7 +1,7 @@
-#include <string>
-#include <time.h>
-
 #include "gtest/gtest.h"
+
+#include "shared_data.hpp"
+#include "configuration.hpp"
 
 class ConfigurationTest : public ::testing::Test {
 protected:
@@ -12,5 +12,6 @@ protected:
 };
 
 TEST_F(ConfigurationTest, test1) {
-
+    data::SharedData shared_data = data::SharedData();
+    cfg::Configuration config(shared_data.streams);
 }

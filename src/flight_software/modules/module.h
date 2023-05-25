@@ -13,7 +13,7 @@
 #include <thread>
 
 #include "command.h"
-#include "configuration.h"
+#include "configuration.hpp"
 #include "node.h"
 #include "shared_data.hpp"
 
