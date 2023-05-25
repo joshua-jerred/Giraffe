@@ -67,7 +67,7 @@ class Enum:
         return open_line + cases + close_line
 
     def getJsonKeyToEnum(self):
-        open_line = f'static std::unordered_map<std::string, {self.name_with_ns}> const table = {{\n'
+        open_line = f'static std::unordered_map<std::string, {self.name_with_ns}> const KeyTo{self.name} = {{\n'
         cases = ""
         
         first = True
@@ -87,16 +87,27 @@ class SectionItem:
         self.default_value = None;
         self.validator = None;
     
-    def setVals(self, cpp_type, member_name, default_value):
+    def setVals(self, cpp_type, member_name, default_value, json_type, section_name):
         self.type = cpp_type
         self.member_name = member_name
         self.default_value = default_value
+        self.json_type = json_type
+        self.section_name = section_name
 
         name_parts = self.member_name.split("_");
         self.name_capitalized = ""
         for i in name_parts:
             self.name_capitalized += i.title()
             
+    def getJsonKey(self):
+        return self.member_name
+    
+    def getJsonValueFromStruct(self):
+        member = self.member_name + "_"
+        
+        if self.json_type == "enum":
+            return f'{CFG_NAMESPACE}::{CFG_ENUM_NAMESPACE}::{self.name_capitalized}ToKey({member})'
+        return member
         
     def setStringValidator(self, min, max, pattern):
         self.validator = "validator"
@@ -179,7 +190,7 @@ class Section:
         
         public += "\n"
         
-        public += f"{INDENT}void setFromJson(json data);\n"
+        public += f"{INDENT}void setFromJson(const json&);\n"
         public += f"{INDENT}json getJson() const;\n"
         return public
 
@@ -192,26 +203,31 @@ class Section:
         
         private += f"{INDENT}mutable std::mutex cfg_lock_ = std::mutex();\n{INDENT}data::Streams &streams_;\n"
         return private
-    
-    def parseJsonToStructDec(self):
-        return f'void json_to_struct_{self.section_id}(const json &, {self.section_id}&);\n'
-    
-    def parseStructToJsonDec(self):
-        return f'void struct_to_json_{self.section_id}(json &, const {self.section_id}&);'
 
     def parseJsonToStructDef(self):
-        contents = " {\n"
+        contents = "{\n"
         contents += f'{INDENT}const std::lock_guard<std::mutex> lock(cfg_lock_);\n'
-        
+
         contents += "}\n"
-        return f'void {CFG_NAMESPACE}::{self.section_id}::json_to_struct_{self.section_id}(const json &, {self.section_id}&){contents}\n'
+        return f'void {CFG_NAMESPACE}::{self.section_id}::setFromJson(const json &json_data) {contents}\n'
     
     def parseStructToJsonDef(self):
-        contents = " {\n"
+        contents = "{\n"
         contents += f'{INDENT}const std::lock_guard<std::mutex> lock(cfg_lock_);\n'
         
+        contents += f'{INDENT}return json({{\n'
+        
+        first = True
+        for item in self.items:
+            if not first:
+                contents += ",\n"
+            contents += f'{INDENT*2}{{"{item.getJsonKey()}", {item.getJsonValueFromStruct()}}}'
+            first = False
+            
+        contents += f"\n{INDENT}}});\n"
+        
         contents += "}\n"
-        return f'void {CFG_NAMESPACE}::{self.section_id}::struct_to_json_{self.section_id}(json &, const {self.section_id}&){contents}'
+        return f'json {CFG_NAMESPACE}::{self.section_id}::getJson() const {contents}'
 
 class ConfigGen:
     def __init__(self, meta: dict, out_dir: str):
@@ -311,7 +327,7 @@ class ConfigGen:
                     enum = Enum(enum_name, enum_options)
                     self.enums.append(enum)
                     self.defined_enum_ids.append(enum_name)
-            item.setVals(cpp_type, key, set_default)
+            item.setVals(cpp_type, key, set_default, set_type, self.sec_name)
             
             section.addItem(item)
             
@@ -352,7 +368,7 @@ class ConfigGen:
     def StructureCpp(self):
         STRUCTURE_FILE_INCLUDES = [f'"{STRUCTURE_FILE_NAME}.hpp"']
         file = utils.cppFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
-        
+        file += "using json = nlohmann::ordered_json;\n\n"
         # getters
         for section in self.sections:
             file += section.getCppStringGetter();
@@ -364,6 +380,8 @@ class ConfigGen:
         for section in self.sections:
             pass
         
+        file += utils.cppFileFooter(STRUCTURE_FILE_NAME)
+
         f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".cpp", "w")
         f.write(file)
 
