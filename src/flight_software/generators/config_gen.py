@@ -8,15 +8,16 @@ SECTION_ID_KEY = "ID"
 
 CFG_NAMESPACE = "cfg"
 CFG_ENUM_NAMESPACE = "gEnum"
-CFG_SECTIONS_NAMESPACE = "sections"
 
 RESERVED_KEYS = [SECTION_TYPE_KEY, SECTION_ID_KEY]
+
+STRUCTURE_FILE_NAME = "configuration_structure"
 
 # Default Data
 def defData(json_section_key, json_setting_key, name):
     return {"json_section_key": json_section_key, "json_setting_key": json_setting_key, "name": name}
 
-class StructItem:
+class SectionItem:
     def __init__(self, default_data):
         self.default = default_data
     
@@ -75,7 +76,7 @@ class Enum:
         close_line = "\n};"
         return open_line + cases + close_line
 
-class StructItem:
+class SectionItem:
     def __init__(self):
         self.type = None;
         self.member_name = None;
@@ -86,6 +87,12 @@ class StructItem:
         self.type = cpp_type
         self.member_name = member_name
         self.default_value = default_value
+
+        name_parts = self.member_name.split("_");
+        self.name_capitalized = ""
+        for i in name_parts:
+            self.name_capitalized += i.title()
+            
         
     def setStringValidator(self, min, max, pattern):
         self.validator = "validator"
@@ -102,19 +109,73 @@ class StructItem:
     def getDef(self):
         return f'{self.type} {self.member_name} = {self.default_value};'
     
+    def getGetterDec(self):
+        return f'{self.type} get{self.name_capitalized}() const;'
+    
+    def getSetterDec(self):
+        return f'void set{self.name_capitalized}({self.type});'
+    
+    def getGetterDef(self, class_name):
+        return f'''{self.type} {class_name}::get{self.name_capitalized}() const {{
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return {self.member_name};
+}}\n'''
+
+    def getSetterDef(self, class_name):
+        return f'''void {class_name}::set{self.name_capitalized}({self.type} val) {{
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  {self.member_name} = val;
+}}\n'''
+    
 class Section:
     def __init__(self, section_id):
-        self.section_id = section_id
+        self.section_member = section_id # The member name in the main struct
+        sec_id = section_id.split("_")
+        self.section_id = ""
+        for i in sec_id:
+            self.section_id += i.title()
         self.items = []
 
     def addItem(self, struct_item):
         self.items.append(struct_item)
 
-    def getStruct(self):
-        strs = []
+    def getHeaderString(self):        
+        ret_str = f"class {self.section_id} {{\n"
+        ret_str += "public:\n"
+        ret_str += self._public_members()
+        ret_str += "\nprivate:\n"
+        ret_str += self._private_members()
+        ret_str += "};\n\n"
+        return ret_str
+    
+    def getCppStringGetter(self):
+        ret_str = ""
         for item in self.items:
-            strs.append(item.getDef())
-        return utils.struct(self.section_id, strs)
+            ret_str += item.getGetterDef(f'{CFG_NAMESPACE}::{self.section_id}') + "\n"
+        return ret_str
+
+    def getCppStringSetter(self):
+        ret_str = ""
+        for item in self.items:
+            ret_str += item.getSetterDef(f'{CFG_NAMESPACE}::{self.section_id}') + "\n"
+        return ret_str
+
+    def _public_members(self):
+        public = ""
+        for item in self.items:
+            public += f'{INDENT}{item.getGetterDec()}\n'
+        public += "\n"
+        for item in self.items:
+            public += f'{INDENT}{item.getSetterDec()}\n'
+        return public
+
+    def _private_members(self):
+        private = ""
+        for item in self.items:
+            private += f'{INDENT}{item.getDef()}\n'
+        
+        private += f"{INDENT}mutable std::mutex cfg_lock_ = std::mutex();\n"
+        return private
 
 class ConfigGen:
     def __init__(self, meta: dict, out_dir: str):
@@ -127,7 +188,7 @@ class ConfigGen:
         self.sec_type = None
         self.sec_id = "NO_ID"
         
-        self.struct_items = []
+        self.sections = []
         self.enums = []
         self.defined_enum_ids = [] # list of json ids that are already enums
 
@@ -144,7 +205,7 @@ class ConfigGen:
 
             if SECTION_TYPE_KEY in self.sec_contents:
                 self.sec_type = self.sec_contents[SECTION_TYPE_KEY]
-                self.sec_id = self.sec_contents[SECTION_ID_KEY]
+                self.sec_id = key
             else:
                 self.error("No Section Type")
                 continue
@@ -156,9 +217,10 @@ class ConfigGen:
             else:
                 self.error("Invalid Section Type")
             
+            self.StructureHeader()
+            self.StructureCpp()
             # temporary
             if i == 1:
-                print(self.StructureFile())
                 return 
             i += 1
 
@@ -168,7 +230,7 @@ class ConfigGen:
             if key in RESERVED_KEYS:
                 continue
             
-            item = StructItem()
+            item = SectionItem()
             
             set_data = self.sec_contents[key]
             
@@ -218,11 +280,10 @@ class ConfigGen:
             
             section.addItem(item)
             
-        self.struct_items.append(section)
+        self.sections.append(section)
             
-    def StructureFile(self):
-        STRUCTURE_FILE_NAME = "configuration_structure"
-        STRUCTURE_FILE_INCLUDES = ["<string>"]
+    def StructureHeader(self):
+        STRUCTURE_FILE_INCLUDES = ["<string>", "<mutex>"]
         
         file = utils.headerFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
         file += utils.enterNameSpace(CFG_NAMESPACE)
@@ -232,21 +293,32 @@ class ConfigGen:
         for enum in self.enums:
             file += enum.getDefinition() + "\n\n"
         file += utils.exitNameSpace(CFG_ENUM_NAMESPACE)
-        
-        
-        # sections
-        file += utils.enterNameSpace(CFG_SECTIONS_NAMESPACE)
-        for section in self.struct_items:
-            file += section.getStruct();
-        file += utils.exitNameSpace(CFG_SECTIONS_NAMESPACE)
 
+        # sections
+        for section in self.sections:
+            file += section.getHeaderString();
         
         file += f'}} // namespace {CFG_NAMESPACE}\n'
         file += utils.headerFileFooter(STRUCTURE_FILE_NAME)
         
         f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".hpp", "w")
         f.write(file)
+
+    def StructureCpp(self):
+        STRUCTURE_FILE_INCLUDES = [f'"{STRUCTURE_FILE_NAME}.hpp"']
+        file = utils.cppFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
         
+        # getters
+        for section in self.sections:
+            file += section.getCppStringGetter();
+        
+        # setters
+        for section in self.sections:
+            file += section.getCppStringSetter();
+        
+        f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".cpp", "w")
+        f.write(file)
+
     def ValidatorsFile(self):
         pass
 

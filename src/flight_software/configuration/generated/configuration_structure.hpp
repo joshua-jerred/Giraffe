@@ -4,6 +4,7 @@
 #define CONFIGURATION_STRUCTURE_HPP_
 
 #include <string>
+#include <mutex>
 
 namespace cfg {
 
@@ -27,19 +28,33 @@ enum class ProcedureType {
 
 } // namespace gEnum
 
-namespace sections {
+class General {
+public:
+  std::string getProjectName() const;
+  cfg::gEnum::MainBoard getMainBoard() const;
+  cfg::gEnum::ProcedureType getStartingProcedure() const;
 
-struct General {
+  void setProjectName(std::string);
+  void setMainBoard(cfg::gEnum::MainBoard);
+  void setStartingProcedure(cfg::gEnum::ProcedureType);
+
+private:
   std::string project_name = "Giraffe Flight 1";
   cfg::gEnum::MainBoard main_board = cfg::gEnum::MainBoard::OTHER;
   cfg::gEnum::ProcedureType starting_procedure = cfg::gEnum::ProcedureType::FAILSAFE;
+  mutable std::mutex cfg_lock_ = std::mutex();
 };
 
-struct DataModGen {
+class DataModuleGeneral {
+public:
+  int getFramePurgeTime() const;
+
+  void setFramePurgeTime(int);
+
+private:
   int frame_purge_time = 30000;
+  mutable std::mutex cfg_lock_ = std::mutex();
 };
-
-} // namespace sections
 
 } // namespace cfg
 

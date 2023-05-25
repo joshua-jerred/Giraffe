@@ -17,6 +17,15 @@ def headerFileFooter(file_name: str):
 // * * * AUTOMATICALLY GENERATED WITH CMake/Python * * *
 """.format(file_name.upper())
 
+def cppFileHeader(file_name: str, includes: list = []): # file_name ex: structure - turns into structure.hpp
+    includes_content = ""
+    for item in includes:
+        includes_content += f"#include {item}\n"
+    return """// * * * AUTOMATICALLY GENERATED WITH CMake/Python * * *
+
+{2}
+""".format(file_name, file_name.upper(), includes_content)
+
 def enterNameSpace(name):
     return f"namespace {name} {{\n\n"
   
