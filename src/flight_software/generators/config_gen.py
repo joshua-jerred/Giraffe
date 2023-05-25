@@ -10,7 +10,7 @@ SECTION_ID_KEY = "ID"
 
 CFG_NAMESPACE = "cfg"
 CFG_ENUM_NAMESPACE = "gEnum"
-CFG_JSON_NAMESPACE = "json"
+CFG_JSON_NAMESPACE = "json_data"
 
 RESERVED_KEYS = [SECTION_TYPE_KEY, SECTION_ID_KEY]
 
@@ -63,7 +63,7 @@ class Enum:
         for option in self.options:
             cases += f'{INDENT}{INDENT}case {self.name_with_ns}::{option}: "{option.lower()}";\n'
         
-        close_line = f'{INDENT}{INDENT}default: throw std::invalid_argument("String Not Implemented in {self.name}");\n{INDENT}}}\n}}'
+        close_line = f'{INDENT}{INDENT}default: throw std::invalid_argument("String Not Implemented in {self.name}");\n{INDENT}}}\n}}\n'
         return open_line + cases + close_line
 
     def getJsonKeyToEnum(self):
@@ -77,7 +77,7 @@ class Enum:
             cases += f'{INDENT}{{"{option.lower()}", {self.name_with_ns}::{option}}}'
             first = False
         
-        close_line = "\n};"
+        close_line = "\n};\n"
         return open_line + cases + close_line
 
 class SectionItem:
@@ -130,7 +130,8 @@ class SectionItem:
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   {self.member_name}_ = val;
 }}\n'''
-    
+
+
 class Section:
     def __init__(self, section_id):
         self.section_member = section_id # The member name in the main struct
@@ -146,6 +147,7 @@ class Section:
     def getHeaderString(self):        
         ret_str = f"class {self.section_id} {{\n"
         ret_str += "public:\n"
+        ret_str += f"{INDENT}{self.section_id}(data::Streams &streams): streams_(streams){{}}\n\n"
         ret_str += self._public_members()
         ret_str += "\nprivate:\n"
         ret_str += self._private_members()
@@ -174,6 +176,11 @@ class Section:
         public += "\n"
         for item in self.items:
             public += f'{INDENT}{item.getSetterDec()}\n'
+        
+        public += "\n"
+        
+        public += f"{INDENT}void setFromJson(json data);\n"
+        public += f"{INDENT}json getJson() const;\n"
         return public
 
     def _private_members(self):
@@ -181,8 +188,30 @@ class Section:
         for item in self.items:
             private += f'{INDENT}{item.getDef()}\n'
         
-        private += f"{INDENT}mutable std::mutex cfg_lock_ = std::mutex();\n"
+        private += "\n"
+        
+        private += f"{INDENT}mutable std::mutex cfg_lock_ = std::mutex();\n{INDENT}data::Streams &streams_;\n"
         return private
+    
+    def parseJsonToStructDec(self):
+        return f'void json_to_struct_{self.section_id}(const json &, {self.section_id}&);\n'
+    
+    def parseStructToJsonDec(self):
+        return f'void struct_to_json_{self.section_id}(json &, const {self.section_id}&);'
+
+    def parseJsonToStructDef(self):
+        contents = " {\n"
+        contents += f'{INDENT}const std::lock_guard<std::mutex> lock(cfg_lock_);\n'
+        
+        contents += "}\n"
+        return f'void {CFG_NAMESPACE}::{self.section_id}::json_to_struct_{self.section_id}(const json &, {self.section_id}&){contents}\n'
+    
+    def parseStructToJsonDef(self):
+        contents = " {\n"
+        contents += f'{INDENT}const std::lock_guard<std::mutex> lock(cfg_lock_);\n'
+        
+        contents += "}\n"
+        return f'void {CFG_NAMESPACE}::{self.section_id}::struct_to_json_{self.section_id}(json &, const {self.section_id}&){contents}'
 
 class ConfigGen:
     def __init__(self, meta: dict, out_dir: str):
@@ -226,9 +255,8 @@ class ConfigGen:
             
             self.StructureHeader()
             self.StructureCpp()
-            self.JsonHeader()
             # temporary
-            if i == 1:
+            if i == 0:
                 return 
             i += 1
 
@@ -290,7 +318,7 @@ class ConfigGen:
         self.sections.append(section)
             
     def StructureHeader(self):
-        STRUCTURE_FILE_INCLUDES = ["<string>", "<mutex>"]
+        STRUCTURE_FILE_INCLUDES = ["<string>", "<mutex>", "<unordered_map>", "<nlohmann/json.hpp>"]
         
         file = utils.headerFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
         file += utils.enterNameSpace(CFG_NAMESPACE)
@@ -298,15 +326,20 @@ class ConfigGen:
         # enums
         file += utils.enterNameSpace(CFG_ENUM_NAMESPACE) + "\n"
         for enum in self.enums:
-            file += enum.getDefinition() + "\n\n"
-        file += utils.exitNameSpace(CFG_ENUM_NAMESPACE)
+            file += enum.getDefinition() + "\n"
+            file += enum.getJsonKeyToEnum()
+            file += enum.getEnumToJsonKey()
+            file += "\n"
 
+        file += utils.exitNameSpace(CFG_ENUM_NAMESPACE)
+        
         # sections
+        file += "using json = nlohmann::ordered_json;\n\n"
         for section in self.sections:
             file += section.getHeaderString();
         
         # main config struct
-        file += "struct Configuration {\n"
+        file += "class Configuration {\n"
         for section in self.sections:
             file += f"{section.getStructDecString()}\n"
         file += "};\n\n"
@@ -323,29 +356,15 @@ class ConfigGen:
         # getters
         for section in self.sections:
             file += section.getCppStringGetter();
-        
+            file += section.getCppStringSetter();
+            file += section.parseJsonToStructDef();
+            file += section.parseStructToJsonDef();
+
         # setters
         for section in self.sections:
-            file += section.getCppStringSetter();
+            pass
         
         f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".cpp", "w")
-        f.write(file)
-
-    def JsonHeader(self):
-        JSON_FILE_INCLUDES = ["<string>"]
-        
-        file = utils.headerFileHeader(JSON_FILE_NAME, JSON_FILE_INCLUDES)
-        file += utils.enterNameSpace(CFG_NAMESPACE)
-        file += utils.enterNameSpace(CFG_JSON_NAMESPACE)
-
-        # sections
-        for section in self.sections:
-            file += section.getHeaderString();
-        
-        file += f'}} // namespace {CFG_NAMESPACE}\n'
-        file += utils.headerFileFooter(JSON_FILE_NAME)
-        
-        f = open(self.out_dir + "/" + JSON_FILE_NAME + ".hpp", "w")
         f.write(file)
 
     def ValidatorsFile(self):

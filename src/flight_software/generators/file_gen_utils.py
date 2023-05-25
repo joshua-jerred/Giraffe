@@ -27,7 +27,7 @@ def cppFileHeader(file_name: str, includes: list = []): # file_name ex: structur
 """.format(file_name, file_name.upper(), includes_content)
 
 def enterNameSpace(name):
-    return f"namespace {name} {{\n\n"
+    return f"namespace {name} {{\n"
   
 def exitNameSpace(name):
     return f'}} // namespace {name}\n\n'
