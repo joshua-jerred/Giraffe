@@ -14,8 +14,8 @@ CFG_JSON_NAMESPACE = "json_data"
 
 RESERVED_KEYS = [SECTION_TYPE_KEY, SECTION_ID_KEY]
 
-STRUCTURE_FILE_NAME = "configuration_structure"
-JSON_FILE_NAME = "configuration_json"
+STRUCTURE_FILE_NAME = "configuration"
+JSON_FILE_NAME = "configuration"
 
 # Default Data
 def defData(json_section_key, json_setting_key, name):
@@ -206,8 +206,10 @@ class Section:
 
     def parseJsonToStructDef(self):
         contents = "{\n"
-        contents += f'{INDENT}const std::lock_guard<std::mutex> lock(cfg_lock_);\n'
+        contents += f'{INDENT}const std::lock_guard<std::mutex> lock(cfg_lock_);\n\n'
 
+        
+        
         contents += "}\n"
         return f'void {CFG_NAMESPACE}::{self.section_id}::setFromJson(const json &json_data) {contents}\n'
     
@@ -355,9 +357,15 @@ class ConfigGen:
             file += section.getHeaderString();
         
         # main config struct
-        file += "class Configuration {\n"
+        file += "class Configuration {\n public:\n"
+        file += f"{INDENT}Configuration(data::Streams streams): streams_(streams){{}}\n"
         for section in self.sections:
             file += f"{section.getStructDecString()}\n"
+        
+        file += " private:\n"
+        
+        content = f'{{\n{INDENT*2}streams_.log.error(error_code, info);\n{INDENT}}}'
+        file += f'{INDENT}void error(data::logId error_code, std::string info = "") {content}\n'
         file += "};\n\n"
         
         file += f'}} // namespace {CFG_NAMESPACE}\n'

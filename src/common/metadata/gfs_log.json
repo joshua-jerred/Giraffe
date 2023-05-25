@@ -13,8 +13,26 @@
   },
   "Module": {
     "ID": "Module",
-    "STARTFAIL": {
+    "start_fail": {
       "ID": "startUpFailure"
+    }
+  },
+  "Configuration": {
+    "ID": "Config",
+    "section_not_found": {
+      "ID":"sectionNowFound"
+    },
+    "setting_not_found":{
+      "ID":"settingNotFound"
+    },
+    "invalid_json_type":{
+      "ID":"invalidSettingValue"
+    },
+    "enum_not_string":{
+      "ID":"enumIsNotString"
+    },
+    "key_not_found_in_enum":{
+      "ID":"keyNotFoundInEnum"
     }
   }
 }

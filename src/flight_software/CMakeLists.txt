@@ -28,7 +28,7 @@ endif()
 execute_process(
 	COMMAND python3 ${GFS_SRC}/generators/config_gen.py 
 	"${COMMON_SRC}/metadata/gfs_configuration.json"  # in json as arg
-	"${GFS_SRC}/configuration/generated" # out dir
+	"${GFS_SRC}/configuration" # out dir
 	WORKING_DIRECTORY ${GFS_SRC}/
 )
 
@@ -41,14 +41,14 @@ execute_process(
 # 	WORKING_DIRECTORY ${GFS_SRC}/
 # )
 
-# # log_ids.hpp
-# execute_process(
-# 	COMMAND python3 ${GFS_SRC}/generators/ids_gen.py 
-# 	"${COMMON_SRC}/metadata//gfs_log.json"  # in json as arg
-# 	"${GFS_SRC}/metadata/log_ids.hpp" # out hpp as arg
-# 	"log"
-# 	WORKING_DIRECTORY ${GFS_SRC}/
-# )
+# log_ids.hpp
+execute_process(
+	COMMAND python3 ${GFS_SRC}/generators/ids_gen.py 
+	"${COMMON_SRC}/metadata/gfs_log.json"  # in json as arg
+	"${GFS_SRC}/modules/data/log_ids.hpp" # out hpp as arg
+	"log"
+	WORKING_DIRECTORY ${GFS_SRC}/
+)
 
 # ---- Giraffe Flight Software ----
 include_directories(
