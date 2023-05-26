@@ -40,7 +40,8 @@ enum class ProcedureType {
   ASCENT,
   DESCENT,
   RECOVERY,
-  FAILSAFE
+  FAILSAFE,
+  OTHER
 };
 static std::unordered_map<std::string, cfg::gEnum::ProcedureType> const KeyToProcedureType = {
   {"testing", cfg::gEnum::ProcedureType::TESTING},
@@ -48,7 +49,8 @@ static std::unordered_map<std::string, cfg::gEnum::ProcedureType> const KeyToPro
   {"ascent", cfg::gEnum::ProcedureType::ASCENT},
   {"descent", cfg::gEnum::ProcedureType::DESCENT},
   {"recovery", cfg::gEnum::ProcedureType::RECOVERY},
-  {"failsafe", cfg::gEnum::ProcedureType::FAILSAFE}
+  {"failsafe", cfg::gEnum::ProcedureType::FAILSAFE},
+  {"other", cfg::gEnum::ProcedureType::OTHER}
 };
 constexpr const char* ProcedureTypeToKey(cfg::gEnum::ProcedureType val) throw() {
   switch (val) {
@@ -58,6 +60,7 @@ constexpr const char* ProcedureTypeToKey(cfg::gEnum::ProcedureType val) throw() 
     case cfg::gEnum::ProcedureType::DESCENT: return "descent";
     case cfg::gEnum::ProcedureType::RECOVERY: return "recovery";
     case cfg::gEnum::ProcedureType::FAILSAFE: return "failsafe";
+    case cfg::gEnum::ProcedureType::OTHER: return "other";
   }
   __builtin_unreachable();
 }
@@ -91,7 +94,7 @@ public:
 private:
   std::string project_name_ = "Giraffe Flight 1";
   cfg::gEnum::MainBoard main_board_ = cfg::gEnum::MainBoard::OTHER;
-  cfg::gEnum::ProcedureType starting_procedure_ = cfg::gEnum::ProcedureType::FAILSAFE;
+  cfg::gEnum::ProcedureType starting_procedure_ = cfg::gEnum::ProcedureType::OTHER;
 };
 
 class Configuration {

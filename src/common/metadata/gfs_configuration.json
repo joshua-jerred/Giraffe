@@ -27,7 +27,7 @@
             "type": "enum",
             "name": "Starting Procedure",
             "description": "The flight procedure that the flight software should start with. See the flight procedures section.",
-            "default": "failsafe",
+            "default": "other",
 
             "enum_name":"procedure_type",
             "options": [
@@ -36,7 +36,8 @@
                 "ascent",
                 "descent",
                 "recovery",
-                "failsafe"
+                "failsafe",
+                "other"
             ]
         }
     },

@@ -416,14 +416,10 @@ class ConfigGen:
         
         file += config_gen_components.getConfigurationSaveAndLoad(section_member_names)
 
-        
         file += utils.cppFileFooter(STRUCTURE_FILE_NAME)
 
         f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".cpp", "w")
         f.write(file)
-
-    def ValidatorsFile(self):
-        pass
 
 if __name__ == "__main__":
     print("\nGenerating Configuration Code")
