@@ -68,6 +68,8 @@
             "name": "Log Strategy",
             "description": "The strategy to use for logging data. If set to all, then every data point collected will be logged. If set to interval then data will be logged at a set interval.",
             "default": "interval",
+
+            "enum_name":"log_strategy",
             "options": [
                 "interval",
                 "all",
@@ -80,6 +82,8 @@
             "name": "Log Detail",
             "description": "The amount of metadata to include. If set to full then timestamps of when data was collected will be included. If set to partial, only timestamps of when the data was logged will be included. This can save space.",
             "default": "full",
+
+            "enum_name":"log_detail",
             "options": [
                 "full",
                 "partial"
@@ -117,6 +121,8 @@
             "name": "Data Archive Method",
             "description": "Method of data archival/compression.",
             "default": "plain_text",
+
+            "enum_name":"archive_method",
             "options": [
                 "plain_text"
             ]
@@ -193,14 +199,16 @@
             "type": "enum",
             "name": "InfluxDB Retention Policy",
             "description": "Method of data archival/compression.",
-            "default": "INF",
+            "default": "inf",
+
+            "enum_name":"influxdb_retention_policy",
             "options": [
-                "1 Hour",
-                "1 Day",
-                "1 Week",
-                "1 Month",
-                "1 Year",
-                "INF"
+                "hour",
+                "day",
+                "week",
+                "month",
+                "year",
+                "inf"
             ]
         }
     },
@@ -241,6 +249,8 @@
             "name": "Archive Method",
             "description": "Method of data archival/compression.",
             "default": "plain_text",
+
+            "enum_name":"archive_method",
             "options": [
                 "plain_text"
             ]
@@ -261,6 +271,8 @@
             "name": "Log Level",
             "description": "",
             "default": "info",
+
+            "enum_name":"log_level",
             "options": [
                 "info",
                 "warn",
@@ -406,11 +418,13 @@
             "type": "enum",
             "name": "APRS Symbol Table",
             "description": "The symbol table that will be used. See the APRS specification for more information.",
+            
+            "enum_name":"aprs_symbol_table",
             "options": [
                 "primary",
                 "alternate"
             ],
-            "default": "/"
+            "default": "primary"
         },
         "symbol": {
             "type": "string",
@@ -455,6 +469,7 @@
             "name": "SSTV Mode",
             "default": "robot36",
             "description": "The SSTV mode that will be used. Currently, only Robot 36 is supported.",
+            "enum_name":"sstv_mode",
             "options": [
                 "robot36"
             ]
@@ -493,6 +508,7 @@
             "name": "Data Packets Mode",
             "default": "bpsk250",
             "description": "The PSK31 mode that will be used. All modes supported by FLDIGI are supported for both BPSK and QPSK.",
+            "enum_name":"data_packets_mode",
             "options": [
                 "bpsk125",
                 "bpsk250",

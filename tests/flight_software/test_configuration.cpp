@@ -19,6 +19,14 @@ protected:
 
   data::SharedData *shared_data = nullptr;
   cfg::Configuration *conf = nullptr;
+
+  void printStreamErrors() {
+    data::LogPacket packet;
+    while (shared_data->streams.log.getNumPackets() > 0) {
+      shared_data->streams.log.getPacket(packet);
+      std::cout << " -- ERROR -- " << (int)packet.id << " info:" << packet.info << std::endl;
+    }
+  }
 };
 
 TEST_F(ConfigurationTest, general_constructor_defaults) {
@@ -93,6 +101,7 @@ TEST_F(ConfigurationTest, loads_default_config_file) {
       << "starting_procedure";
 
   EXPECT_EQ(0, shared_data->streams.log.getNumPackets());
+  printStreamErrors();
 }
 
 TEST_F(ConfigurationTest, loads_modified_config_file) {

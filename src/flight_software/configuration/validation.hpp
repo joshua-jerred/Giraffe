@@ -101,7 +101,7 @@ void setValidValue(data::LogStream &log, const json &json_data,
   } else if constexpr (std::is_same<T, std::string>::value) {
     valid_value = validate(value, min, max, pattern);
   } else if constexpr (std::is_same<T, bool>::value) {
-    // nothing to do
+    valid_value = true; // no validation needed
   }
 
   if (!valid_value) {

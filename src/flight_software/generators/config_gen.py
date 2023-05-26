@@ -295,7 +295,7 @@ class ConfigGen:
             self.StructureHeader()
             self.StructureCpp()
             # temporary
-            if i == 0:
+            if i == 12:
                 return 
             i += 1
 
@@ -308,17 +308,12 @@ class ConfigGen:
             item = SectionItem()
             
             set_data = self.sec_contents[key]
-            
-            default_data = defData(self.sec_name, key, set_data["name"])
-            #print(default_data)
-            
             set_type = set_data["type"]
-            
             set_default = set_data["default"]
             
-            set_min = None
-            set_max = None
-            set_pattern = None
+            set_min = 0
+            set_max = 0
+            set_pattern = ""
             
             cpp_type = ""
             cpp_member_name = key
@@ -332,12 +327,17 @@ class ConfigGen:
                 
             elif set_type == "bool":
                 cpp_type = "bool"
+                set_default = "true" if set_default else "false"
                 
             elif set_type == "int":
                 cpp_type = "int"
+                set_min = set_data["min"]
+                set_max = set_data["max"]
                 
             elif set_type == "float":
                 cpp_type = "float"
+                set_min = set_data["min"]
+                set_max = set_data["max"]
 
             elif set_type == "enum":
                 enum_name = set_data["enum_name"]

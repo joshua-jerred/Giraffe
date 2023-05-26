@@ -59,7 +59,7 @@ def getConfigurationSaveAndLoad(members):
         json_loaders += f'{IND*2}{member}.setFromJson(parsed["{member}"]);'
         json_loaders += f'\n{IND}}} else {{'
         json_loaders += f'\n{IND*2}error(data::logId::Config_load_sectionNotFound, "{member}");'
-        json_loaders += f'\n{IND}}}'
+        json_loaders += f'\n{IND}}}\n\n'
     return """
 void cfg::Configuration::save(std::string file_path) {{
   const std::lock_guard<std::mutex> lock(file_lock_);
@@ -73,7 +73,6 @@ void cfg::Configuration::save(std::string file_path) {{
   
   json config_json = {{
 {0}  }};
-  
   constexpr int json_indent = 2;
   std::string data = config_json.dump(json_indent);
   out << data;
@@ -104,8 +103,7 @@ void cfg::Configuration::load(std::string file_path) {{
   }} catch (json::parse_error &e) {{
     return;
   }}
-
-{1}
-}}
+  
+{1}}}
 
 """.format(json_initializers, json_loaders)
