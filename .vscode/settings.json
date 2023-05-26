@@ -1,0 +1,10 @@
+{
+  // CMake
+  "cmake.sourceDirectory": "${workspaceFolder}",
+
+  // Formating
+  "clang-format.style": "file",
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  }
+}
