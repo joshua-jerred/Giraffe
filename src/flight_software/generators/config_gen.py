@@ -1,6 +1,7 @@
 # absolute spaghetti monster below, you've been warned.
 
 import file_gen_utils as utils
+import config_gen_components
 import json
 import sys
 
@@ -63,9 +64,10 @@ class Enum:
         for option in self.options:
             cases += f'{INDENT}{INDENT}case {self.name_with_ns}::{option}: return "{option.lower()}";\n'
         
-        default_case = ""# f'{INDENT}{INDENT}default: throw std::invalid_argument("String Not Implemented in {self.name}");\n'
-        close = f'{INDENT}}}\n}}\n'
-        return open_line + cases + default_case + close
+        unreachable = f"{INDENT}__builtin_unreachable();"# f'{INDENT}{INDENT}default: throw std::invalid_argument("String Not Implemented in {self.name}");\n'
+        
+        close = f'{INDENT}}}\n{unreachable}\n}}\n'
+        return open_line + cases + close
 
     def getJsonKeyToEnum(self):
         open_line = f'static std::unordered_map<std::string, {self.name_with_ns}> const KeyTo{self.name} = {{\n'
@@ -88,12 +90,13 @@ class SectionItem:
         self.default_value = None;
         self.validator = None;
     
-    def setVals(self, cpp_type, member_name, default_value, json_type, section_name):
+    def setVals(self, cpp_type, member_name, default_value, json_type, section_name, validation):
         self.type = cpp_type
         self.member_name = member_name
         self.default_value = default_value
         self.json_type = json_type
         self.section_name = section_name
+        self.validation = validation
 
         name_parts = self.member_name.split("_");
         self.name_capitalized = ""
@@ -110,18 +113,34 @@ class SectionItem:
             return f'{self.type}ToKey({member})'
         return member
         
-    def setStringValidator(self, min, max, pattern):
-        self.validator = "validator"
-    
-    def setNumValidator(self, min, max):
-        self.validator = "validator"
+    def setValidator(self):
+        nl = "\n" + INDENT * 4 # newline with indent
+        ret_val = ""
         
-    def setEnumValidator(self, enum_name):
-        self.validator = "validator"
+        # enum types
+        if (self.json_type == "enum"):
+            ret_val += f'{INDENT}validation::setValidEnum<{self.type}>({nl}'
+            ret_val += f'streams_.log,{nl}json_data,{nl}'
+            ret_val += f'"{self.section_name}",'
+            ret_val += f'{nl}"{self.member_name}",'
+            ret_val += f'{nl}{self.member_name}_,'
+            
+            map_name = "cfg::gEnum::KeyTo" + self.type.split("::")[-1]
+            ret_val += f'{nl}{map_name}'
         
-    def setBoolValidator(self):
-        self.validator = "validator"
-    
+        else: # all types
+            ret_val += f'{INDENT}validation::setValidValue<{self.type}>({nl}'
+            ret_val += f'streams_.log,{nl}json_data,{nl}'
+            ret_val += f'"{self.section_name}",'
+            ret_val += f'{nl}"{self.member_name}",'
+            ret_val += f'{nl}{self.member_name}_,'
+            ret_val += f'{nl}{self.validation["min"]},'
+            ret_val += f'{nl}{self.validation["max"]},'
+            ret_val += f'{nl}"{self.validation["pattern"]}"'
+        
+        ret_val += f'\n{INDENT});'
+        return ret_val
+
     def getDef(self):
         return f'{self.type} {self.member_name}_ = {self.default_value};'
     
@@ -157,9 +176,9 @@ class Section:
         self.items.append(struct_item)
 
     def getHeaderString(self):        
-        ret_str = f"class {self.section_id} {{\n"
+        ret_str = f"class {self.section_id} : public cfg::CfgSection {{\n"
         ret_str += "public:\n"
-        ret_str += f"{INDENT}{self.section_id}(data::Streams &streams): streams_(streams){{}}\n\n"
+        ret_str += f"{INDENT}{self.section_id}(data::Streams &streams): cfg::CfgSection(streams){{}}\n\n"
         ret_str += self._public_members()
         ret_str += "\nprivate:\n"
         ret_str += self._private_members()
@@ -179,7 +198,7 @@ class Section:
         return ret_str
     
     def getStructDecString(self):
-        return f"{INDENT}{CFG_NAMESPACE}::{self.section_id} {self.section_member} = {CFG_NAMESPACE}::{self.section_id}(streams_);"
+        return f"{INDENT}{CFG_NAMESPACE}::{self.section_id} {self.section_member};" # = {CFG_NAMESPACE}::{self.section_id}(streams_);"
 
     def _public_members(self):
         public = ""
@@ -200,16 +219,17 @@ class Section:
         for item in self.items:
             private += f'{INDENT}{item.getDef()}\n'
         
-        private += "\n"
+        #private += "\n"
         
-        private += f"{INDENT}mutable std::mutex cfg_lock_ = std::mutex();\n{INDENT}data::Streams &streams_;\n"
+        #private += f"{INDENT}mutable std::mutex cfg_lock_ = std::mutex();\n{INDENT}data::Streams &streams_;\n"
         return private
 
     def parseJsonToStructDef(self):
         contents = "{\n"
-        contents += f'{INDENT}const std::lock_guard<std::mutex> lock(cfg_lock_);\n\n'
+        contents += f'{INDENT}const std::lock_guard<std::mutex> lock(cfg_lock_);\n'
 
-        
+        for item in self.items:
+            contents += f'{item.setValidator()}\n'
         
         contents += "}\n"
         return f'void {CFG_NAMESPACE}::{self.section_id}::setFromJson(const json &json_data) {contents}\n'
@@ -307,7 +327,7 @@ class ConfigGen:
                 cpp_type = "std::string"
                 set_default = f'"{set_default}"'
                 set_min = set_data["min"]
-                set_min = set_data["max"]
+                set_max = set_data["max"]
                 set_pattern = set_data["pattern"]
                 
             elif set_type == "bool":
@@ -330,7 +350,12 @@ class ConfigGen:
                     enum = Enum(enum_name, enum_options)
                     self.enums.append(enum)
                     self.defined_enum_ids.append(enum_name)
-            item.setVals(cpp_type, key, set_default, set_type, self.sec_name)
+            validation = {
+                "min":set_min,
+                "max":set_max,
+                "pattern":set_pattern
+            }
+            item.setVals(cpp_type, key, set_default, set_type, self.sec_name, validation)
             
             section.addItem(item)
             
@@ -340,6 +365,7 @@ class ConfigGen:
         STRUCTURE_FILE_INCLUDES = ["<string>", "<mutex>", "<unordered_map>", "<nlohmann/json.hpp>", '"shared_data.hpp"']
         
         file = utils.headerFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
+        file += "using json = nlohmann::ordered_json;\n\n"
         file += utils.enterNameSpace(CFG_NAMESPACE)
         
         # enums
@@ -353,24 +379,18 @@ class ConfigGen:
         file += utils.exitNameSpace(CFG_ENUM_NAMESPACE)
         
         # sections
-        file += "using json = nlohmann::ordered_json;\n\n"
+        file += config_gen_components.base_class
+        
         for section in self.sections:
             file += section.getHeaderString();
         
-        # main config struct
-        file += "class Configuration {\n public:\n"
-        file += f"{INDENT}Configuration(data::Streams &streams): streams_(streams){{}}\n"
+        general_class_members = []
         for section in self.sections:
-            file += f"{section.getStructDecString()}\n"
+            general_class_members.append(f"{section.getStructDecString().strip()}")
         
-        file += " private:\n"
+        file += config_gen_components.getConfigurationClass(["general"], general_class_members)
         
-        content = f'{{\n{INDENT*2}streams_.log.error(node::Identification::CONFIGURATION, error_code, info);\n{INDENT}}}'
-        file += f'{INDENT}void error(data::logId error_code, std::string info = "") {content}\n'
-        
-        file += f'{INDENT}data::Streams &streams_;\n'
-        
-        file += "};\n\n"
+        # main config struct
         
         file += f'}} // namespace {CFG_NAMESPACE}\n'
         file += utils.headerFileFooter(STRUCTURE_FILE_NAME)
@@ -378,7 +398,7 @@ class ConfigGen:
         f.write(file)
 
     def StructureCpp(self):
-        STRUCTURE_FILE_INCLUDES = [f'"{STRUCTURE_FILE_NAME}.hpp"']
+        STRUCTURE_FILE_INCLUDES = [f'"{STRUCTURE_FILE_NAME}.hpp"', '"validation.hpp"']
         file = utils.cppFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
         file += "using json = nlohmann::ordered_json;\n\n"
         # getters

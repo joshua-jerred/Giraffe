@@ -9,6 +9,8 @@
 #include <nlohmann/json.hpp>
 #include "shared_data.hpp"
 
+using json = nlohmann::ordered_json;
+
 namespace cfg {
 namespace gEnum {
 
@@ -28,6 +30,7 @@ constexpr const char* MainBoardToKey(cfg::gEnum::MainBoard val) throw() {
     case cfg::gEnum::MainBoard::PI_ZERO_W2: return "pi_zero_w2";
     case cfg::gEnum::MainBoard::PI_4: return "pi_4";
   }
+  __builtin_unreachable();
 }
 
 enum class ProcedureType {
@@ -55,15 +58,23 @@ constexpr const char* ProcedureTypeToKey(cfg::gEnum::ProcedureType val) throw() 
     case cfg::gEnum::ProcedureType::RECOVERY: return "recovery";
     case cfg::gEnum::ProcedureType::FAILSAFE: return "failsafe";
   }
+  __builtin_unreachable();
 }
 
 } // namespace gEnum
 
-using json = nlohmann::ordered_json;
+class CfgSection {
+ public:
+  CfgSection(data::Streams &streams): streams_(streams){}
+  
+ protected:
+  mutable std::mutex cfg_lock_ = std::mutex();
+  data::Streams &streams_;
+};
 
-class General {
+class General : public cfg::CfgSection {
 public:
-  General(data::Streams &streams): streams_(streams){}
+  General(data::Streams &streams): cfg::CfgSection(streams){}
 
   std::string getProjectName() const;
   cfg::gEnum::MainBoard getMainBoard() const;
@@ -80,19 +91,17 @@ private:
   std::string project_name_ = "Giraffe Flight 1";
   cfg::gEnum::MainBoard main_board_ = cfg::gEnum::MainBoard::OTHER;
   cfg::gEnum::ProcedureType starting_procedure_ = cfg::gEnum::ProcedureType::FAILSAFE;
-
-  mutable std::mutex cfg_lock_ = std::mutex();
-  data::Streams &streams_;
 };
 
 class Configuration {
  public:
-  Configuration(data::Streams &streams): streams_(streams){}
-  cfg::General general = cfg::General(streams_);
+  Configuration(data::Streams &streams):
+    general(streams),
+    streams_(streams){}
+
+  cfg::General general;
+ 
  private:
-  void error(data::logId error_code, std::string info = "") {
-    streams_.log.error(node::Identification::CONFIGURATION, error_code, info);
-  }
   data::Streams &streams_;
 };
 

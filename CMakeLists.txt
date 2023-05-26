@@ -53,7 +53,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 	-Weffc++ \
 	-Wdisabled-optimization \
 	-Wfloat-equal \
-	-Wno-unused-variable"
+	-Wno-unused-variable \
+	-Wswitch-enum"
 )
 # ----------------------------
 
