@@ -27,9 +27,85 @@ def getConfigurationClass(initializers, private_members):
   Configuration(data::Streams &streams):
 {0}
     streams_(streams){{}}
+    
+    void save(std::string file_path = "");
+    void load(std::string file_path = "");
 
 {1} 
  private:
+  void error(data::logId error_code, std::string info = "") {{
+      streams_.log.error(node::Identification::CONFIGURATION, error_code, info);
+  }}
+ 
   data::Streams &streams_;
+  std::mutex file_lock_ = std::mutex();
 }};\n
 """.format(init_part, members)
+
+
+def getConfigurationSaveAndLoad(members):
+    json_initializers = ""
+    first = True
+    for member in members:
+        if not first:
+            json_initializers += ","
+        else:
+            first = False
+        json_initializers += f'{IND*2}{{"{member}", {member}.getJson()}}\n'
+    
+    json_loaders = ""
+    for member in members:
+        json_loaders += f'{IND}if (sectionExists(parsed, "{member}")) {{\n'
+        json_loaders += f'{IND*2}{member}.setFromJson(parsed["{member}"]);'
+        json_loaders += f'\n{IND}}} else {{'
+        json_loaders += f'\n{IND*2}error(data::logId::Config_load_sectionNotFound, "{member}");'
+        json_loaders += f'\n{IND}}}'
+    return """
+void cfg::Configuration::save(std::string file_path) {{
+  const std::lock_guard<std::mutex> lock(file_lock_);
+  
+  std::ofstream out(file_path);
+  
+  if (out.fail()) {{
+    error(data::logId::Config_failedToSaveToPath, file_path);
+    return;
+  }}
+  
+  json config_json = {{
+{0}  }};
+  
+  constexpr int json_indent = 2;
+  std::string data = config_json.dump(json_indent);
+  out << data;
+}}
+
+inline bool sectionExists(const json &all_data, const std::string &section_key) {{
+  return all_data.contains(section_key);
+}}
+
+void cfg::Configuration::load(std::string file_path) {{
+  const std::lock_guard<std::mutex> lock(file_lock_);
+
+  if (!std::filesystem::exists(file_path)) {{
+    error(data::logId::Config_failedToLoadFromPathDoesNotExist, file_path);
+    return; 
+  }}
+
+  std::ifstream in(file_path);
+  
+  if (in.fail()) {{
+    error(data::logId::Config_failedToLoadFromPathFileOpenFailure, file_path);
+    return;
+  }}
+  
+  json parsed;
+  try {{
+    parsed = json::parse(in);
+  }} catch (json::parse_error &e) {{
+    return;
+  }}
+
+{1}
+}}
+
+""".format(json_initializers, json_loaders)

@@ -20,7 +20,7 @@
   "Configuration": {
     "ID": "Config",
     "section_not_found": {
-      "ID":"sectionNowFound"
+      "ID":"sectionNotFound"
     },
     "setting_not_found":{
       "ID":"settingNotFound"
@@ -36,6 +36,18 @@
     },
     "key_not_found_in_enum":{
       "ID":"keyNotFoundInEnum"
+    },
+    "failed_to_save_to_path":{
+      "ID":"failedToSaveToPath"
+    },
+    "failed_to_load_from_path_open":{
+      "ID":"failedToLoadFromPathFileOpenFailure"
+    },
+    "failed_to_load_from_path_exists":{
+      "ID":"failedToLoadFromPathDoesNotExist"
+    },
+    "failed_to_load_section_not_found":{
+      "ID":"load_sectionNotFound"
     }
   }
 }

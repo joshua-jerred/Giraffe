@@ -1,5 +1,6 @@
 // * * * AUTOMATICALLY GENERATED WITH CMake/Python * * *
 
+#include <filesystem>
 #include "configuration.hpp"
 #include "validation.hpp"
 
@@ -73,6 +74,59 @@ json cfg::General::getJson() const {
     {"starting_procedure", cfg::gEnum::ProcedureTypeToKey(starting_procedure_)}
   });
 }
+
+void cfg::Configuration::save(std::string file_path) {
+  const std::lock_guard<std::mutex> lock(file_lock_);
+  
+  std::ofstream out(file_path);
+  
+  if (out.fail()) {
+    error(data::logId::Config_failedToSaveToPath, file_path);
+    return;
+  }
+  
+  json config_json = {
+    {"general", general.getJson()}
+  };
+  
+  constexpr int json_indent = 2;
+  std::string data = config_json.dump(json_indent);
+  out << data;
+}
+
+inline bool sectionExists(const json &all_data, const std::string &section_key) {
+  return all_data.contains(section_key);
+}
+
+void cfg::Configuration::load(std::string file_path) {
+  const std::lock_guard<std::mutex> lock(file_lock_);
+
+  if (!std::filesystem::exists(file_path)) {
+    error(data::logId::Config_failedToLoadFromPathDoesNotExist, file_path);
+    return; 
+  }
+
+  std::ifstream in(file_path);
+  
+  if (in.fail()) {
+    error(data::logId::Config_failedToLoadFromPathFileOpenFailure, file_path);
+    return;
+  }
+  
+  json parsed;
+  try {
+    parsed = json::parse(in);
+  } catch (json::parse_error &e) {
+    return;
+  }
+
+  if (sectionExists(parsed, "general")) {
+    general.setFromJson(parsed["general"]);
+  } else {
+    error(data::logId::Config_load_sectionNotFound, "general");
+  }
+}
+
 
 // * * * AUTOMATICALLY GENERATED WITH CMake/Python * * *
 // configuration.cpp

@@ -362,7 +362,7 @@ class ConfigGen:
         self.sections.append(section)
             
     def StructureHeader(self):
-        STRUCTURE_FILE_INCLUDES = ["<string>", "<mutex>", "<unordered_map>", "<nlohmann/json.hpp>", '"shared_data.hpp"']
+        STRUCTURE_FILE_INCLUDES = ["<string>", "<fstream>", "<mutex>", "<unordered_map>", "<nlohmann/json.hpp>", '"shared_data.hpp"']
         
         file = utils.headerFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
         file += "using json = nlohmann::ordered_json;\n\n"
@@ -384,33 +384,38 @@ class ConfigGen:
         for section in self.sections:
             file += section.getHeaderString();
         
-        general_class_members = []
-        for section in self.sections:
-            general_class_members.append(f"{section.getStructDecString().strip()}")
-        
-        file += config_gen_components.getConfigurationClass(["general"], general_class_members)
         
         # main config struct
+        general_config_member_names = []
+        general_class_member_decs = []
+        for section in self.sections:
+            general_config_member_names.append(section.section_member)
+            general_class_member_decs.append(f"{section.getStructDecString().strip()}")
+            
+        file += config_gen_components.getConfigurationClass(general_config_member_names, general_class_member_decs)
         
+
         file += f'}} // namespace {CFG_NAMESPACE}\n'
         file += utils.headerFileFooter(STRUCTURE_FILE_NAME)
         f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".hpp", "w")
         f.write(file)
 
     def StructureCpp(self):
-        STRUCTURE_FILE_INCLUDES = [f'"{STRUCTURE_FILE_NAME}.hpp"', '"validation.hpp"']
+        STRUCTURE_FILE_INCLUDES = ["<filesystem>", f'"{STRUCTURE_FILE_NAME}.hpp"', '"validation.hpp"']
         file = utils.cppFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
         file += "using json = nlohmann::ordered_json;\n\n"
-        # getters
+        
+        section_member_names = []
+        # getters/setters
         for section in self.sections:
+            section_member_names.append(section.section_member)
             file += section.getCppStringGetter();
             file += section.getCppStringSetter();
             file += section.parseJsonToStructDef();
             file += section.parseStructToJsonDef();
+        
+        file += config_gen_components.getConfigurationSaveAndLoad(section_member_names)
 
-        # setters
-        for section in self.sections:
-            pass
         
         file += utils.cppFileFooter(STRUCTURE_FILE_NAME)
 

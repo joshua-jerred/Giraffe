@@ -12,7 +12,6 @@ set(gfs_sources
 
 	# configuration 
 	${GFS_SRC}/configuration/configuration.cpp
-	${GFS_SRC}/configuration/validation.cpp
 
 	# module base
 	# ${GFS_SRC}/modules/module.cpp

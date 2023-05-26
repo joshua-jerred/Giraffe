@@ -4,6 +4,7 @@
 #define CONFIGURATION_HPP_
 
 #include <string>
+#include <fstream>
 #include <mutex>
 #include <unordered_map>
 #include <nlohmann/json.hpp>
@@ -98,11 +99,19 @@ class Configuration {
   Configuration(data::Streams &streams):
     general(streams),
     streams_(streams){}
+    
+    void save(std::string file_path = "");
+    void load(std::string file_path = "");
 
   cfg::General general;
  
  private:
+  void error(data::logId error_code, std::string info = "") {
+      streams_.log.error(node::Identification::CONFIGURATION, error_code, info);
+  }
+ 
   data::Streams &streams_;
+  std::mutex file_lock_ = std::mutex();
 };
 
 } // namespace cfg
