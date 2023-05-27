@@ -6,8 +6,8 @@
  * @copyright Copyright (c) 2023
  */
 
-#ifndef MODULE_H_
-#define MODULE_H_
+#ifndef MODULE_HPP_
+#define MODULE_HPP_
 
 #include <atomic>
 #include <thread>
@@ -21,43 +21,44 @@ namespace modules {
 
 struct MetaData {
   MetaData(std::string name, node::Identification id, int sleep_interval = 1000)
-      : name_(name), id_(id), sleep_interval_(sleep_interval) {
-  }
+      : name_(name), id_(id), sleep_interval_(sleep_interval) {}
 
   const std::string name_;
   const node::Identification id_;
   // data::Source source;
   // command::Destination command_destination;
-  int sleep_interval_;  // 1 second, default sleep time
+  int sleep_interval_; // 1 second, default sleep time
 };
 
 class Module {
- public:
+public:
   Module(modules::MetaData &, data::SharedData &, cfg::Configuration &);
 
-  Module(const Module &) = delete;             // No copy constructor
-  Module &operator=(const Module &) = delete;  // No copy assignment
+  Module(const Module &) = delete;            // No copy constructor
+  Module &operator=(const Module &) = delete; // No copy assignment
   virtual ~Module(){};
 
   void start();
   void stop();
   node::Status getStatus() const;
 
- protected:
-  virtual void startup() {
-  }
-  virtual void loop() {
-  }
-  virtual void shutdown() {
-  }
+protected:
+  virtual void startup() {}
+  virtual void loop() {}
+  virtual void shutdown() {}
   virtual void processCommand(const command::Command &command) {
     (void)command;
   }
 
   void setStatus(const node::Status status);
-  void error(std::string error_code, std::string info = "");
+
+  void error(data::LogId, std::string info = "");
+  void error(data::LogId log_id, int info);
+
+  void info(std::string info = "");
+
   template <typename T>
-  void data(std::string identifier, T value, int precision = 2);
+  void data(data::DataId identifier, T value, int precision = 2);
 
   modules::MetaData metadata_;
   data::SharedData &shared_data_;
@@ -65,7 +66,7 @@ class Module {
 
   void sleep();
 
- private:
+private:
   void runner();
 
   std::atomic<node::Status> status_ = node::Status::UNKNOWN;
@@ -75,5 +76,5 @@ class Module {
   command::CommandQueue command_queue_;
 };
 
-}  // namespace modules
+} // namespace modules
 #endif

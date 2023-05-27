@@ -9,7 +9,7 @@
  * @todo Documentation
  */
 
-#include "module.h"
+#include "module.hpp"
 
 #include <iomanip>
 #include <sstream>
@@ -19,17 +19,13 @@
 modules::Module::Module(modules::MetaData &metadata,
                         data::SharedData &shared_data,
                         cfg::Configuration &configuration)
-    : metadata_(metadata),
-      shared_data_(shared_data),
-      configuration_(configuration),
-      runner_thread_(),
-      command_queue_(metadata.id_) {
-}
+    : metadata_(metadata), shared_data_(shared_data),
+      configuration_(configuration), runner_thread_(),
+      command_queue_(metadata.id_) {}
 
 void modules::Module::start() {
-  if (status_ == node::Status::RUNNING ||
-      status_ == node::Status::SLEEPING) {
-        error("MD_ALST"); // Module Already Started
+  if (status_ == node::Status::RUNNING || status_ == node::Status::SLEEPING) {
+    error(data::LogId::MODULE_moduleAlreadyStarted);
     return;
   }
 
@@ -38,29 +34,38 @@ void modules::Module::start() {
 }
 
 void modules::Module::stop() {
+  setStatus(node::Status::STOPPING);
   stop_flag_ = true;
   if (runner_thread_.joinable()) {
     runner_thread_.join();
   }
+  setStatus(node::Status::STOPPED);
 }
 
-node::Status modules::Module::getStatus() const {
-  return status_;
-}
+node::Status modules::Module::getStatus() const { return status_; }
 
 /**
  * @todo report status to status stream
  */
 void modules::Module::setStatus(const node::Status status) {
   status_ = status;
+  shared_data_.streams.data.reportStatus(metadata_.id_, status);
 }
 
-void modules::Module::error(std::string error_code, std::string info) {
-  shared_data_.streams.error.addError(metadata_.id_, error_code, info);
+void modules::Module::error(data::LogId log_id, std::string info) {
+  shared_data_.streams.log.error(metadata_.id_, log_id, info);
+}
+
+void modules::Module::error(data::LogId log_id, int info) {
+  shared_data_.streams.log.error(metadata_.id_, log_id, std::to_string(info));
+}
+
+void modules::Module::info(std::string info) {
+  shared_data_.streams.log.info(metadata_.id_, info);
 }
 
 template <typename T>
-void modules::Module::data(std::string identifier, T value, int precision) {
+void modules::Module::data(data::DataId identifier, T value, int precision) {
   if constexpr (std::is_same<T, std::string>::value) {
     shared_data_.streams.data.addData(metadata_.id_, identifier, value);
   } else if (std::is_same<T, float>::value || std::is_same<T, double>::value) {
@@ -70,21 +75,24 @@ void modules::Module::data(std::string identifier, T value, int precision) {
     shared_data_.streams.data.addData(metadata_.id_, identifier, rounded);
   } else {
     shared_data_.streams.data.addData(metadata_.id_, identifier,
-                                 std::to_string(value));
+                                      std::to_string(value));
   }
 }
 
-template void modules::Module::data<int>(std::string, int, int);
-template void modules::Module::data<float>(std::string, float, int);
-template void modules::Module::data<double>(std::string, double, int);
-template void modules::Module::data<std::string>(std::string, std::string, int);
+template void modules::Module::data<int>(data::DataId, int, int);
+template void modules::Module::data<float>(data::DataId, float, int);
+template void modules::Module::data<double>(data::DataId, double, int);
+template void modules::Module::data<std::string>(data::DataId, std::string,
+                                                 int);
 
 void modules::Module::runner() {
   setStatus(node::Status::STARTING);
   startup();
   while (!stop_flag_) {
     loop();
-    setStatus(node::Status::SLEEPING);
+    if (metadata_.sleep_interval_ > 2000) {
+      setStatus(node::Status::SLEEPING); // Really no point if it's less than 2s
+    }
     sleep();
     setStatus(node::Status::RUNNING);
   }
@@ -94,7 +102,7 @@ void modules::Module::runner() {
 }
 
 void modules::Module::sleep() {
-  constexpr int kMinimumSleepTimeMs = 100;
+  constexpr int kMinimumSleepTimeMs = 50;
   constexpr int kMaximumSleepTimeMs = 5000;
 
   int sleep_ms = metadata_.sleep_interval_;

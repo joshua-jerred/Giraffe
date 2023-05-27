@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "curses_utilities.h"
-#include "module.h"
+#include "module.hpp"
 
 namespace modules {
 class ConsoleModule : public Module {
@@ -25,7 +25,7 @@ class ConsoleModule : public Module {
 
   std::vector<std::string> status();
 
-  std::vector<std::string> configSection(cfg::Section);
+  std::vector<std::string> configSection();
 };
 
 }  // namespace modules

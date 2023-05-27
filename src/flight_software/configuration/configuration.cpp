@@ -74,112 +74,92 @@ json cfg::General::getJson() const {
     {"starting_procedure", cfg::gEnum::ProcedureTypeToKey(starting_procedure_)}
   });
 }
-int cfg::DataModuleGeneral::getFramePurgeTime() const {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return frame_purge_time_;
-}
-
-void cfg::DataModuleGeneral::setFramePurgeTime(int val) {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  frame_purge_time_ = val;
-}
-
-void cfg::DataModuleGeneral::setFromJson(const json &json_data) {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "data_module_general",
-        "frame_purge_time",
-        frame_purge_time_,
-        100,
-        600000,
-        ""
-  );
-}
-
-json cfg::DataModuleGeneral::getJson() const {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return json({
-    {"frame_purge_time", frame_purge_time_}
-  });
-}
-bool cfg::DataModuleDataLog::getLogDataToFile() const {
+bool cfg::DataModuleData::getLogDataToFile() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return log_data_to_file_;
 }
 
-cfg::gEnum::LogStrategy cfg::DataModuleDataLog::getLogStrategy() const {
+cfg::gEnum::LogStrategy cfg::DataModuleData::getLogStrategy() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return log_strategy_;
 }
 
-cfg::gEnum::LogDetail cfg::DataModuleDataLog::getLogDetail() const {
+cfg::gEnum::LogDetail cfg::DataModuleData::getLogDetail() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return log_detail_;
 }
 
-int cfg::DataModuleDataLog::getLogIntervalMs() const {
+int cfg::DataModuleData::getLogIntervalMs() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return log_interval_ms_;
 }
 
-int cfg::DataModuleDataLog::getMaxDataLogFileSizeMb() const {
+int cfg::DataModuleData::getMaxDataLogFileSizeMb() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return max_data_log_file_size_mb_;
 }
 
-int cfg::DataModuleDataLog::getMaxDataArchiveSizeMb() const {
+int cfg::DataModuleData::getMaxDataArchiveSizeMb() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return max_data_archive_size_mb_;
 }
 
-cfg::gEnum::ArchiveMethod cfg::DataModuleDataLog::getArchiveMethod() const {
+cfg::gEnum::ArchiveMethod cfg::DataModuleData::getArchiveMethod() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return archive_method_;
 }
 
-void cfg::DataModuleDataLog::setLogDataToFile(bool val) {
+std::string cfg::DataModuleData::getDataLogFileContents() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return data_log_file_contents_;
+}
+
+void cfg::DataModuleData::setLogDataToFile(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   log_data_to_file_ = val;
 }
 
-void cfg::DataModuleDataLog::setLogStrategy(cfg::gEnum::LogStrategy val) {
+void cfg::DataModuleData::setLogStrategy(cfg::gEnum::LogStrategy val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   log_strategy_ = val;
 }
 
-void cfg::DataModuleDataLog::setLogDetail(cfg::gEnum::LogDetail val) {
+void cfg::DataModuleData::setLogDetail(cfg::gEnum::LogDetail val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   log_detail_ = val;
 }
 
-void cfg::DataModuleDataLog::setLogIntervalMs(int val) {
+void cfg::DataModuleData::setLogIntervalMs(int val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   log_interval_ms_ = val;
 }
 
-void cfg::DataModuleDataLog::setMaxDataLogFileSizeMb(int val) {
+void cfg::DataModuleData::setMaxDataLogFileSizeMb(int val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   max_data_log_file_size_mb_ = val;
 }
 
-void cfg::DataModuleDataLog::setMaxDataArchiveSizeMb(int val) {
+void cfg::DataModuleData::setMaxDataArchiveSizeMb(int val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   max_data_archive_size_mb_ = val;
 }
 
-void cfg::DataModuleDataLog::setArchiveMethod(cfg::gEnum::ArchiveMethod val) {
+void cfg::DataModuleData::setArchiveMethod(cfg::gEnum::ArchiveMethod val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   archive_method_ = val;
 }
 
-void cfg::DataModuleDataLog::setFromJson(const json &json_data) {
+void cfg::DataModuleData::setDataLogFileContents(std::string val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  data_log_file_contents_ = val;
+}
+
+void cfg::DataModuleData::setFromJson(const json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   validation::setValidValue<bool>(
         streams_.log,
         json_data,
-        "data_module_data_log",
+        "data_module_data",
         "log_data_to_file",
         log_data_to_file_,
         0,
@@ -189,7 +169,7 @@ void cfg::DataModuleDataLog::setFromJson(const json &json_data) {
   validation::setValidEnum<cfg::gEnum::LogStrategy>(
         streams_.log,
         json_data,
-        "data_module_data_log",
+        "data_module_data",
         "log_strategy",
         log_strategy_,
         cfg::gEnum::KeyToLogStrategy
@@ -197,7 +177,7 @@ void cfg::DataModuleDataLog::setFromJson(const json &json_data) {
   validation::setValidEnum<cfg::gEnum::LogDetail>(
         streams_.log,
         json_data,
-        "data_module_data_log",
+        "data_module_data",
         "log_detail",
         log_detail_,
         cfg::gEnum::KeyToLogDetail
@@ -205,7 +185,7 @@ void cfg::DataModuleDataLog::setFromJson(const json &json_data) {
   validation::setValidValue<int>(
         streams_.log,
         json_data,
-        "data_module_data_log",
+        "data_module_data",
         "log_interval_ms",
         log_interval_ms_,
         100,
@@ -215,7 +195,7 @@ void cfg::DataModuleDataLog::setFromJson(const json &json_data) {
   validation::setValidValue<int>(
         streams_.log,
         json_data,
-        "data_module_data_log",
+        "data_module_data",
         "max_data_log_file_size_mb",
         max_data_log_file_size_mb_,
         1,
@@ -225,7 +205,7 @@ void cfg::DataModuleDataLog::setFromJson(const json &json_data) {
   validation::setValidValue<int>(
         streams_.log,
         json_data,
-        "data_module_data_log",
+        "data_module_data",
         "max_data_archive_size_mb",
         max_data_archive_size_mb_,
         50,
@@ -235,14 +215,24 @@ void cfg::DataModuleDataLog::setFromJson(const json &json_data) {
   validation::setValidEnum<cfg::gEnum::ArchiveMethod>(
         streams_.log,
         json_data,
-        "data_module_data_log",
+        "data_module_data",
         "archive_method",
         archive_method_,
         cfg::gEnum::KeyToArchiveMethod
   );
+  validation::setValidValue<std::string>(
+        streams_.log,
+        json_data,
+        "data_module_data",
+        "data_log_file_contents",
+        data_log_file_contents_,
+        0,
+        50,
+        ""
+  );
 }
 
-json cfg::DataModuleDataLog::getJson() const {
+json cfg::DataModuleData::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return json({
     {"log_data_to_file", log_data_to_file_},
@@ -251,7 +241,8 @@ json cfg::DataModuleDataLog::getJson() const {
     {"log_interval_ms", log_interval_ms_},
     {"max_data_log_file_size_mb", max_data_log_file_size_mb_},
     {"max_data_archive_size_mb", max_data_archive_size_mb_},
-    {"archive_method", cfg::gEnum::ArchiveMethodToKey(archive_method_)}
+    {"archive_method", cfg::gEnum::ArchiveMethodToKey(archive_method_)},
+    {"data_log_file_contents", data_log_file_contents_}
   });
 }
 bool cfg::DataModuleInfluxdb::getInfluxEnabled() const {
@@ -294,6 +285,11 @@ cfg::gEnum::InfluxdbRetentionPolicy cfg::DataModuleInfluxdb::getRetentionPolicy(
   return retention_policy_;
 }
 
+std::string cfg::DataModuleInfluxdb::getContents() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return contents_;
+}
+
 void cfg::DataModuleInfluxdb::setInfluxEnabled(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   influx_enabled_ = val;
@@ -332,6 +328,11 @@ void cfg::DataModuleInfluxdb::setErrorBucket(std::string val) {
 void cfg::DataModuleInfluxdb::setRetentionPolicy(cfg::gEnum::InfluxdbRetentionPolicy val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   retention_policy_ = val;
+}
+
+void cfg::DataModuleInfluxdb::setContents(std::string val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  contents_ = val;
 }
 
 void cfg::DataModuleInfluxdb::setFromJson(const json &json_data) {
@@ -414,6 +415,16 @@ void cfg::DataModuleInfluxdb::setFromJson(const json &json_data) {
         retention_policy_,
         cfg::gEnum::KeyToInfluxdbRetentionPolicy
   );
+  validation::setValidValue<std::string>(
+        streams_.log,
+        json_data,
+        "data_module_influxdb",
+        "contents",
+        contents_,
+        0,
+        50,
+        ""
+  );
 }
 
 json cfg::DataModuleInfluxdb::getJson() const {
@@ -426,57 +437,68 @@ json cfg::DataModuleInfluxdb::getJson() const {
     {"organization", organization_},
     {"data_bucket", data_bucket_},
     {"error_bucket", error_bucket_},
-    {"retention_policy", cfg::gEnum::InfluxdbRetentionPolicyToKey(retention_policy_)}
+    {"retention_policy", cfg::gEnum::InfluxdbRetentionPolicyToKey(retention_policy_)},
+    {"contents", contents_}
   });
 }
-bool cfg::DataModuleErrorLog::getLogErrorsToFile() const {
+bool cfg::DataModuleLog::getLogToFile() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return log_errors_to_file_;
+  return log_to_file_;
 }
 
-int cfg::DataModuleErrorLog::getMaxErrorLogFileSizeMb() const {
+int cfg::DataModuleLog::getMaxLogFileSizeMb() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return max_error_log_file_size_mb_;
+  return max_log_file_size_mb_;
 }
 
-int cfg::DataModuleErrorLog::getMaxErrorArchiveSizeMb() const {
+int cfg::DataModuleLog::getMaxLogArchiveSizeMb() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return max_error_archive_size_mb_;
+  return max_log_archive_size_mb_;
 }
 
-cfg::gEnum::ArchiveMethod cfg::DataModuleErrorLog::getErrorArchiveMethod() const {
+cfg::gEnum::ArchiveMethod cfg::DataModuleLog::getErrorArchiveMethod() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return error_archive_method_;
 }
 
-void cfg::DataModuleErrorLog::setLogErrorsToFile(bool val) {
+cfg::gEnum::LogLevel cfg::DataModuleLog::getLogLevel() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  log_errors_to_file_ = val;
+  return log_level_;
 }
 
-void cfg::DataModuleErrorLog::setMaxErrorLogFileSizeMb(int val) {
+void cfg::DataModuleLog::setLogToFile(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  max_error_log_file_size_mb_ = val;
+  log_to_file_ = val;
 }
 
-void cfg::DataModuleErrorLog::setMaxErrorArchiveSizeMb(int val) {
+void cfg::DataModuleLog::setMaxLogFileSizeMb(int val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  max_error_archive_size_mb_ = val;
+  max_log_file_size_mb_ = val;
 }
 
-void cfg::DataModuleErrorLog::setErrorArchiveMethod(cfg::gEnum::ArchiveMethod val) {
+void cfg::DataModuleLog::setMaxLogArchiveSizeMb(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  max_log_archive_size_mb_ = val;
+}
+
+void cfg::DataModuleLog::setErrorArchiveMethod(cfg::gEnum::ArchiveMethod val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   error_archive_method_ = val;
 }
 
-void cfg::DataModuleErrorLog::setFromJson(const json &json_data) {
+void cfg::DataModuleLog::setLogLevel(cfg::gEnum::LogLevel val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  log_level_ = val;
+}
+
+void cfg::DataModuleLog::setFromJson(const json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   validation::setValidValue<bool>(
         streams_.log,
         json_data,
-        "data_module_error_log",
-        "log_errors_to_file",
-        log_errors_to_file_,
+        "data_module_log",
+        "log_to_file",
+        log_to_file_,
         0,
         0,
         ""
@@ -484,9 +506,9 @@ void cfg::DataModuleErrorLog::setFromJson(const json &json_data) {
   validation::setValidValue<int>(
         streams_.log,
         json_data,
-        "data_module_error_log",
-        "max_error_log_file_size_mb",
-        max_error_log_file_size_mb_,
+        "data_module_log",
+        "max_log_file_size_mb",
+        max_log_file_size_mb_,
         1,
         500,
         ""
@@ -494,9 +516,9 @@ void cfg::DataModuleErrorLog::setFromJson(const json &json_data) {
   validation::setValidValue<int>(
         streams_.log,
         json_data,
-        "data_module_error_log",
-        "max_error_archive_size_mb",
-        max_error_archive_size_mb_,
+        "data_module_log",
+        "max_log_archive_size_mb",
+        max_log_archive_size_mb_,
         50,
         100000,
         ""
@@ -504,68 +526,28 @@ void cfg::DataModuleErrorLog::setFromJson(const json &json_data) {
   validation::setValidEnum<cfg::gEnum::ArchiveMethod>(
         streams_.log,
         json_data,
-        "data_module_error_log",
+        "data_module_log",
         "error_archive_method",
         error_archive_method_,
         cfg::gEnum::KeyToArchiveMethod
   );
-}
-
-json cfg::DataModuleErrorLog::getJson() const {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return json({
-    {"log_errors_to_file", log_errors_to_file_},
-    {"max_error_log_file_size_mb", max_error_log_file_size_mb_},
-    {"max_error_archive_size_mb", max_error_archive_size_mb_},
-    {"error_archive_method", cfg::gEnum::ArchiveMethodToKey(error_archive_method_)}
-  });
-}
-bool cfg::DataModuleDebug::getEnabled() const {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return enabled_;
-}
-
-cfg::gEnum::LogLevel cfg::DataModuleDebug::getLogLevel() const {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return log_level_;
-}
-
-void cfg::DataModuleDebug::setEnabled(bool val) {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  enabled_ = val;
-}
-
-void cfg::DataModuleDebug::setLogLevel(cfg::gEnum::LogLevel val) {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  log_level_ = val;
-}
-
-void cfg::DataModuleDebug::setFromJson(const json &json_data) {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "data_module_debug",
-        "enabled",
-        enabled_,
-        0,
-        0,
-        ""
-  );
   validation::setValidEnum<cfg::gEnum::LogLevel>(
         streams_.log,
         json_data,
-        "data_module_debug",
+        "data_module_log",
         "log_level",
         log_level_,
         cfg::gEnum::KeyToLogLevel
   );
 }
 
-json cfg::DataModuleDebug::getJson() const {
+json cfg::DataModuleLog::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return json({
-    {"enabled", enabled_},
+    {"log_to_file", log_to_file_},
+    {"max_log_file_size_mb", max_log_file_size_mb_},
+    {"max_log_archive_size_mb", max_log_archive_size_mb_},
+    {"error_archive_method", cfg::gEnum::ArchiveMethodToKey(error_archive_method_)},
     {"log_level", cfg::gEnum::LogLevelToKey(log_level_)}
   });
 }
@@ -969,6 +951,219 @@ json cfg::TelemetryAprs::getJson() const {
     {"comment", comment_}
   });
 }
+bool cfg::TelemetrySstv::getEnabled() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return enabled_;
+}
+
+std::string cfg::TelemetrySstv::getFrequency() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return frequency_;
+}
+
+cfg::gEnum::SstvMode cfg::TelemetrySstv::getMode() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return mode_;
+}
+
+bool cfg::TelemetrySstv::getOverlayData() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return overlay_data_;
+}
+
+void cfg::TelemetrySstv::setEnabled(bool val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  enabled_ = val;
+}
+
+void cfg::TelemetrySstv::setFrequency(std::string val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  frequency_ = val;
+}
+
+void cfg::TelemetrySstv::setMode(cfg::gEnum::SstvMode val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  mode_ = val;
+}
+
+void cfg::TelemetrySstv::setOverlayData(bool val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  overlay_data_ = val;
+}
+
+void cfg::TelemetrySstv::setFromJson(const json &json_data) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  validation::setValidValue<bool>(
+        streams_.log,
+        json_data,
+        "telemetry_sstv",
+        "enabled",
+        enabled_,
+        0,
+        0,
+        ""
+  );
+  validation::setValidValue<std::string>(
+        streams_.log,
+        json_data,
+        "telemetry_sstv",
+        "frequency",
+        frequency_,
+        8,
+        8,
+        "[0-9]{3}.[0-9]{4}"
+  );
+  validation::setValidEnum<cfg::gEnum::SstvMode>(
+        streams_.log,
+        json_data,
+        "telemetry_sstv",
+        "mode",
+        mode_,
+        cfg::gEnum::KeyToSstvMode
+  );
+  validation::setValidValue<bool>(
+        streams_.log,
+        json_data,
+        "telemetry_sstv",
+        "overlay_data",
+        overlay_data_,
+        0,
+        0,
+        ""
+  );
+}
+
+json cfg::TelemetrySstv::getJson() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return json({
+    {"enabled", enabled_},
+    {"frequency", frequency_},
+    {"mode", cfg::gEnum::SstvModeToKey(mode_)},
+    {"overlay_data", overlay_data_}
+  });
+}
+bool cfg::TelemetryDataPackets::getEnabled() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return enabled_;
+}
+
+std::string cfg::TelemetryDataPackets::getFrequency() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return frequency_;
+}
+
+cfg::gEnum::DataPacketsMode cfg::TelemetryDataPackets::getMode() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return mode_;
+}
+
+bool cfg::TelemetryDataPackets::getMorseCallSign() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return morse_call_sign_;
+}
+
+std::string cfg::TelemetryDataPackets::getComment() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return comment_;
+}
+
+void cfg::TelemetryDataPackets::setEnabled(bool val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  enabled_ = val;
+}
+
+void cfg::TelemetryDataPackets::setFrequency(std::string val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  frequency_ = val;
+}
+
+void cfg::TelemetryDataPackets::setMode(cfg::gEnum::DataPacketsMode val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  mode_ = val;
+}
+
+void cfg::TelemetryDataPackets::setMorseCallSign(bool val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  morse_call_sign_ = val;
+}
+
+void cfg::TelemetryDataPackets::setComment(std::string val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  comment_ = val;
+}
+
+void cfg::TelemetryDataPackets::setFromJson(const json &json_data) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  validation::setValidValue<bool>(
+        streams_.log,
+        json_data,
+        "telemetry_data_packets",
+        "enabled",
+        enabled_,
+        0,
+        0,
+        ""
+  );
+  validation::setValidValue<std::string>(
+        streams_.log,
+        json_data,
+        "telemetry_data_packets",
+        "frequency",
+        frequency_,
+        8,
+        8,
+        "[0-9]{3}.[0-9]{4}"
+  );
+  validation::setValidEnum<cfg::gEnum::DataPacketsMode>(
+        streams_.log,
+        json_data,
+        "telemetry_data_packets",
+        "mode",
+        mode_,
+        cfg::gEnum::KeyToDataPacketsMode
+  );
+  validation::setValidValue<bool>(
+        streams_.log,
+        json_data,
+        "telemetry_data_packets",
+        "morse_call_sign",
+        morse_call_sign_,
+        0,
+        0,
+        ""
+  );
+  validation::setValidValue<std::string>(
+        streams_.log,
+        json_data,
+        "telemetry_data_packets",
+        "comment",
+        comment_,
+        0,
+        200,
+        ""
+  );
+}
+
+json cfg::TelemetryDataPackets::getJson() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return json({
+    {"enabled", enabled_},
+    {"frequency", frequency_},
+    {"mode", cfg::gEnum::DataPacketsModeToKey(mode_)},
+    {"morse_call_sign", morse_call_sign_},
+    {"comment", comment_}
+  });
+}
+void cfg::ExtensionModule::setFromJson(const json &json_data) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+}
+
+json cfg::ExtensionModule::getJson() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return json({
+
+  });
+}
 
 void cfg::Configuration::save(std::string file_path) {
   const std::lock_guard<std::mutex> lock(file_lock_);
@@ -982,16 +1177,17 @@ void cfg::Configuration::save(std::string file_path) {
   
   json config_json = {
     {"general", general.getJson()}
-,    {"data_module_general", data_module_general.getJson()}
-,    {"data_module_data_log", data_module_data_log.getJson()}
+,    {"data_module_data", data_module_data.getJson()}
 ,    {"data_module_influxdb", data_module_influxdb.getJson()}
-,    {"data_module_error_log", data_module_error_log.getJson()}
-,    {"data_module_debug", data_module_debug.getJson()}
+,    {"data_module_log", data_module_log.getJson()}
 ,    {"console_module", console_module.getJson()}
 ,    {"server_module", server_module.getJson()}
 ,    {"system_module", system_module.getJson()}
 ,    {"telemetry", telemetry.getJson()}
 ,    {"telemetry_aprs", telemetry_aprs.getJson()}
+,    {"telemetry_sstv", telemetry_sstv.getJson()}
+,    {"telemetry_data_packets", telemetry_data_packets.getJson()}
+,    {"extension_module", extension_module.getJson()}
   };
   constexpr int json_indent = 2;
   std::string data = config_json.dump(json_indent);
@@ -1030,16 +1226,10 @@ void cfg::Configuration::load(std::string file_path) {
     error(data::LogId::CONFIG_failedToLoadSectionNotFound, "general");
   }
 
-  if (sectionExists(parsed, "data_module_general")) {
-    data_module_general.setFromJson(parsed["data_module_general"]);
+  if (sectionExists(parsed, "data_module_data")) {
+    data_module_data.setFromJson(parsed["data_module_data"]);
   } else {
-    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "data_module_general");
-  }
-
-  if (sectionExists(parsed, "data_module_data_log")) {
-    data_module_data_log.setFromJson(parsed["data_module_data_log"]);
-  } else {
-    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "data_module_data_log");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "data_module_data");
   }
 
   if (sectionExists(parsed, "data_module_influxdb")) {
@@ -1048,16 +1238,10 @@ void cfg::Configuration::load(std::string file_path) {
     error(data::LogId::CONFIG_failedToLoadSectionNotFound, "data_module_influxdb");
   }
 
-  if (sectionExists(parsed, "data_module_error_log")) {
-    data_module_error_log.setFromJson(parsed["data_module_error_log"]);
+  if (sectionExists(parsed, "data_module_log")) {
+    data_module_log.setFromJson(parsed["data_module_log"]);
   } else {
-    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "data_module_error_log");
-  }
-
-  if (sectionExists(parsed, "data_module_debug")) {
-    data_module_debug.setFromJson(parsed["data_module_debug"]);
-  } else {
-    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "data_module_debug");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "data_module_log");
   }
 
   if (sectionExists(parsed, "console_module")) {
@@ -1088,6 +1272,24 @@ void cfg::Configuration::load(std::string file_path) {
     telemetry_aprs.setFromJson(parsed["telemetry_aprs"]);
   } else {
     error(data::LogId::CONFIG_failedToLoadSectionNotFound, "telemetry_aprs");
+  }
+
+  if (sectionExists(parsed, "telemetry_sstv")) {
+    telemetry_sstv.setFromJson(parsed["telemetry_sstv"]);
+  } else {
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "telemetry_sstv");
+  }
+
+  if (sectionExists(parsed, "telemetry_data_packets")) {
+    telemetry_data_packets.setFromJson(parsed["telemetry_data_packets"]);
+  } else {
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "telemetry_data_packets");
+  }
+
+  if (sectionExists(parsed, "extension_module")) {
+    extension_module.setFromJson(parsed["extension_module"]);
+  } else {
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "extension_module");
   }
 
 }

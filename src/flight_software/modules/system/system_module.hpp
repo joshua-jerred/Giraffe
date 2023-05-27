@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "module.h"
+#include "module.hpp"
 
 namespace modules {
 
@@ -18,13 +18,12 @@ class SystemModule : public Module {
   void shutdown() override;
   void processCommand(const command::Command &);
 
-  void updateMiscInfo();
   void updateCpuAndMemoryInfo();
   void updateCpuTemp();
   void updateDiskInfo();
   void updateNetworkInfo();
 
-  data::SysInfoPacket data_ = data::SysInfoPacket();
+  data::blocks::SystemInfo data_ = data::blocks::SystemInfo();
 };
 
 }  // namespace modules

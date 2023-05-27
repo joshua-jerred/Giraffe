@@ -179,6 +179,53 @@ constexpr const char* AprsSymbolTableToKey(cfg::gEnum::AprsSymbolTable val) thro
   __builtin_unreachable();
 }
 
+enum class SstvMode {
+  ROBOT36
+};
+static std::unordered_map<std::string, cfg::gEnum::SstvMode> const KeyToSstvMode = {
+  {"robot36", cfg::gEnum::SstvMode::ROBOT36}
+};
+constexpr const char* SstvModeToKey(cfg::gEnum::SstvMode val) throw() {
+  switch (val) {
+    case cfg::gEnum::SstvMode::ROBOT36: return "robot36";
+  }
+  __builtin_unreachable();
+}
+
+enum class DataPacketsMode {
+  BPSK125,
+  BPSK250,
+  BPSK500,
+  BPSK1000,
+  QPSK125,
+  QPSK250,
+  QPSK500,
+  AFSK_AX25
+};
+static std::unordered_map<std::string, cfg::gEnum::DataPacketsMode> const KeyToDataPacketsMode = {
+  {"bpsk125", cfg::gEnum::DataPacketsMode::BPSK125},
+  {"bpsk250", cfg::gEnum::DataPacketsMode::BPSK250},
+  {"bpsk500", cfg::gEnum::DataPacketsMode::BPSK500},
+  {"bpsk1000", cfg::gEnum::DataPacketsMode::BPSK1000},
+  {"qpsk125", cfg::gEnum::DataPacketsMode::QPSK125},
+  {"qpsk250", cfg::gEnum::DataPacketsMode::QPSK250},
+  {"qpsk500", cfg::gEnum::DataPacketsMode::QPSK500},
+  {"afsk_ax25", cfg::gEnum::DataPacketsMode::AFSK_AX25}
+};
+constexpr const char* DataPacketsModeToKey(cfg::gEnum::DataPacketsMode val) throw() {
+  switch (val) {
+    case cfg::gEnum::DataPacketsMode::BPSK125: return "bpsk125";
+    case cfg::gEnum::DataPacketsMode::BPSK250: return "bpsk250";
+    case cfg::gEnum::DataPacketsMode::BPSK500: return "bpsk500";
+    case cfg::gEnum::DataPacketsMode::BPSK1000: return "bpsk1000";
+    case cfg::gEnum::DataPacketsMode::QPSK125: return "qpsk125";
+    case cfg::gEnum::DataPacketsMode::QPSK250: return "qpsk250";
+    case cfg::gEnum::DataPacketsMode::QPSK500: return "qpsk500";
+    case cfg::gEnum::DataPacketsMode::AFSK_AX25: return "afsk_ax25";
+  }
+  __builtin_unreachable();
+}
+
 } // namespace gEnum
 
 class CfgSection {
@@ -211,24 +258,9 @@ private:
   cfg::gEnum::ProcedureType starting_procedure_ = cfg::gEnum::ProcedureType::OTHER;
 };
 
-class DataModuleGeneral : public cfg::CfgSection {
+class DataModuleData : public cfg::CfgSection {
 public:
-  DataModuleGeneral(data::Streams &streams): cfg::CfgSection(streams){}
-
-  int getFramePurgeTime() const;
-
-  void setFramePurgeTime(int);
-
-  void setFromJson(const json&);
-  json getJson() const;
-
-private:
-  int frame_purge_time_ = 30000;
-};
-
-class DataModuleDataLog : public cfg::CfgSection {
-public:
-  DataModuleDataLog(data::Streams &streams): cfg::CfgSection(streams){}
+  DataModuleData(data::Streams &streams): cfg::CfgSection(streams){}
 
   bool getLogDataToFile() const;
   cfg::gEnum::LogStrategy getLogStrategy() const;
@@ -237,6 +269,7 @@ public:
   int getMaxDataLogFileSizeMb() const;
   int getMaxDataArchiveSizeMb() const;
   cfg::gEnum::ArchiveMethod getArchiveMethod() const;
+  std::string getDataLogFileContents() const;
 
   void setLogDataToFile(bool);
   void setLogStrategy(cfg::gEnum::LogStrategy);
@@ -245,6 +278,7 @@ public:
   void setMaxDataLogFileSizeMb(int);
   void setMaxDataArchiveSizeMb(int);
   void setArchiveMethod(cfg::gEnum::ArchiveMethod);
+  void setDataLogFileContents(std::string);
 
   void setFromJson(const json&);
   json getJson() const;
@@ -257,6 +291,7 @@ private:
   int max_data_log_file_size_mb_ = 10;
   int max_data_archive_size_mb_ = 100;
   cfg::gEnum::ArchiveMethod archive_method_ = cfg::gEnum::ArchiveMethod::PLAIN_TEXT;
+  std::string data_log_file_contents_ = "not implemented";
 };
 
 class DataModuleInfluxdb : public cfg::CfgSection {
@@ -271,6 +306,7 @@ public:
   std::string getDataBucket() const;
   std::string getErrorBucket() const;
   cfg::gEnum::InfluxdbRetentionPolicy getRetentionPolicy() const;
+  std::string getContents() const;
 
   void setInfluxEnabled(bool);
   void setLogErrors(bool);
@@ -280,6 +316,7 @@ public:
   void setDataBucket(std::string);
   void setErrorBucket(std::string);
   void setRetentionPolicy(cfg::gEnum::InfluxdbRetentionPolicy);
+  void setContents(std::string);
 
   void setFromJson(const json&);
   json getJson() const;
@@ -293,47 +330,33 @@ private:
   std::string data_bucket_ = "gfs_data";
   std::string error_bucket_ = "gfs_errors";
   cfg::gEnum::InfluxdbRetentionPolicy retention_policy_ = cfg::gEnum::InfluxdbRetentionPolicy::INF;
+  std::string contents_ = "not implemented";
 };
 
-class DataModuleErrorLog : public cfg::CfgSection {
+class DataModuleLog : public cfg::CfgSection {
 public:
-  DataModuleErrorLog(data::Streams &streams): cfg::CfgSection(streams){}
+  DataModuleLog(data::Streams &streams): cfg::CfgSection(streams){}
 
-  bool getLogErrorsToFile() const;
-  int getMaxErrorLogFileSizeMb() const;
-  int getMaxErrorArchiveSizeMb() const;
+  bool getLogToFile() const;
+  int getMaxLogFileSizeMb() const;
+  int getMaxLogArchiveSizeMb() const;
   cfg::gEnum::ArchiveMethod getErrorArchiveMethod() const;
-
-  void setLogErrorsToFile(bool);
-  void setMaxErrorLogFileSizeMb(int);
-  void setMaxErrorArchiveSizeMb(int);
-  void setErrorArchiveMethod(cfg::gEnum::ArchiveMethod);
-
-  void setFromJson(const json&);
-  json getJson() const;
-
-private:
-  bool log_errors_to_file_ = true;
-  int max_error_log_file_size_mb_ = 10;
-  int max_error_archive_size_mb_ = 50;
-  cfg::gEnum::ArchiveMethod error_archive_method_ = cfg::gEnum::ArchiveMethod::PLAIN_TEXT;
-};
-
-class DataModuleDebug : public cfg::CfgSection {
-public:
-  DataModuleDebug(data::Streams &streams): cfg::CfgSection(streams){}
-
-  bool getEnabled() const;
   cfg::gEnum::LogLevel getLogLevel() const;
 
-  void setEnabled(bool);
+  void setLogToFile(bool);
+  void setMaxLogFileSizeMb(int);
+  void setMaxLogArchiveSizeMb(int);
+  void setErrorArchiveMethod(cfg::gEnum::ArchiveMethod);
   void setLogLevel(cfg::gEnum::LogLevel);
 
   void setFromJson(const json&);
   json getJson() const;
 
 private:
-  bool enabled_ = false;
+  bool log_to_file_ = true;
+  int max_log_file_size_mb_ = 10;
+  int max_log_archive_size_mb_ = 50;
+  cfg::gEnum::ArchiveMethod error_archive_method_ = cfg::gEnum::ArchiveMethod::PLAIN_TEXT;
   cfg::gEnum::LogLevel log_level_ = cfg::gEnum::LogLevel::INFO;
 };
 
@@ -448,26 +471,90 @@ private:
   std::string comment_ = "Giraffe Flight Software";
 };
 
+class TelemetrySstv : public cfg::CfgSection {
+public:
+  TelemetrySstv(data::Streams &streams): cfg::CfgSection(streams){}
+
+  bool getEnabled() const;
+  std::string getFrequency() const;
+  cfg::gEnum::SstvMode getMode() const;
+  bool getOverlayData() const;
+
+  void setEnabled(bool);
+  void setFrequency(std::string);
+  void setMode(cfg::gEnum::SstvMode);
+  void setOverlayData(bool);
+
+  void setFromJson(const json&);
+  json getJson() const;
+
+private:
+  bool enabled_ = false;
+  std::string frequency_ = "145.5100";
+  cfg::gEnum::SstvMode mode_ = cfg::gEnum::SstvMode::ROBOT36;
+  bool overlay_data_ = true;
+};
+
+class TelemetryDataPackets : public cfg::CfgSection {
+public:
+  TelemetryDataPackets(data::Streams &streams): cfg::CfgSection(streams){}
+
+  bool getEnabled() const;
+  std::string getFrequency() const;
+  cfg::gEnum::DataPacketsMode getMode() const;
+  bool getMorseCallSign() const;
+  std::string getComment() const;
+
+  void setEnabled(bool);
+  void setFrequency(std::string);
+  void setMode(cfg::gEnum::DataPacketsMode);
+  void setMorseCallSign(bool);
+  void setComment(std::string);
+
+  void setFromJson(const json&);
+  json getJson() const;
+
+private:
+  bool enabled_ = false;
+  std::string frequency_ = "145.5100";
+  cfg::gEnum::DataPacketsMode mode_ = cfg::gEnum::DataPacketsMode::BPSK250;
+  bool morse_call_sign_ = true;
+  std::string comment_ = "Giraffe Flight Software";
+};
+
+class ExtensionModule : public cfg::CfgSection {
+public:
+  ExtensionModule(data::Streams &streams): cfg::CfgSection(streams){}
+
+
+
+  void setFromJson(const json&);
+  json getJson() const;
+
+private:
+};
+
 class Configuration {
  public:
   Configuration(data::Streams &streams):
-    general(streams),    data_module_general(streams),    data_module_data_log(streams),    data_module_influxdb(streams),    data_module_error_log(streams),    data_module_debug(streams),    console_module(streams),    server_module(streams),    system_module(streams),    telemetry(streams),    telemetry_aprs(streams),
+    general(streams),    data_module_data(streams),    data_module_influxdb(streams),    data_module_log(streams),    console_module(streams),    server_module(streams),    system_module(streams),    telemetry(streams),    telemetry_aprs(streams),    telemetry_sstv(streams),    telemetry_data_packets(streams),    extension_module(streams),
     streams_(streams){}
     
     void save(std::string file_path = "");
     void load(std::string file_path = "");
 
   cfg::General general;
-  cfg::DataModuleGeneral data_module_general;
-  cfg::DataModuleDataLog data_module_data_log;
+  cfg::DataModuleData data_module_data;
   cfg::DataModuleInfluxdb data_module_influxdb;
-  cfg::DataModuleErrorLog data_module_error_log;
-  cfg::DataModuleDebug data_module_debug;
+  cfg::DataModuleLog data_module_log;
   cfg::ConsoleModule console_module;
   cfg::ServerModule server_module;
   cfg::SystemModule system_module;
   cfg::Telemetry telemetry;
   cfg::TelemetryAprs telemetry_aprs;
+  cfg::TelemetrySstv telemetry_sstv;
+  cfg::TelemetryDataPackets telemetry_data_packets;
+  cfg::ExtensionModule extension_module;
  
  private:
   void error(data::LogId error_code, std::string info = "") {

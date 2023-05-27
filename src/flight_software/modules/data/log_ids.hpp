@@ -8,7 +8,6 @@ enum class LogId {
   GENERIC_unknown,
   GENERIC_info,
   GENERIC_debug,
-  MODULE_startFail,
   CONFIG_sectionNotFound,
   CONFIG_settingNotFound,
   CONFIG_invalidJsonType,
@@ -18,7 +17,14 @@ enum class LogId {
   CONFIG_failedToSaveToPath,
   CONFIG_failedToOpenConfig,
   CONFIG_configFileDoesNotExist,
-  CONFIG_failedToLoadSectionNotFound
+  CONFIG_failedToLoadSectionNotFound,
+  MODULE_startFailure,
+  MODULE_moduleAlreadyStarted,
+  DATA_MODULE_statusDataPacketUnknownSource,
+  DATA_MODULE_dataPacketUnknownType,
+  SYSTEM_MODULE_systemInfoReadFail,
+  SYSTEM_MODULE_cpuTempReadFail,
+  SYSTEM_MODULE_diskInfoReadFail
 };
 } // namespace data
 

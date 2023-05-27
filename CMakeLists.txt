@@ -54,7 +54,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 	-Wdisabled-optimization \
 	-Wfloat-equal \
 	-Wno-unused-variable \
-	-Wswitch-enum"
+	-Wswitch-enum \
+	-Wno-switch-enum"
 )
 # ----------------------------
 

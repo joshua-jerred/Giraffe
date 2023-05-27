@@ -9,7 +9,7 @@
 #ifndef SERVER_MODULE_H_
 #define SERVER_MODULE_H_
 
-#include "module.h"
+#include "module.hpp"
 #include "request_handler.hpp"
 #include "socket.h"
 

@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "module.h"
+#include "module.hpp"
 
 namespace modules {
 
@@ -18,11 +18,11 @@ class DataModule : public Module {
   void shutdown() override;
   void processCommand(const command::Command &);
 
-  template <class PKT>
-  void parseStream(data::Stream<PKT> &stream,
-                   std::function<void(PKT &)> callback);
+  void parseDataStream();
+  void parseGeneralDataPacket(const data::DataPacket &packet);
+  void parseStatusDataPacket(const data::DataPacket &packet);
 
-  void parseStreams();
+  void parseLogStream();
 };
 
 }  // namespace modules

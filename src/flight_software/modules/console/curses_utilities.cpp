@@ -1,6 +1,6 @@
 #include "curses_utilities.h"
 
-#include "time_types.h"
+#include "time_types.hpp"
 
 void ncurs::internal::Window::win_init() {
   p_window_ = newwin(height_, width_, y_, x_);

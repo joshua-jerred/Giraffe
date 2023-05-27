@@ -4,35 +4,47 @@
 #include "blocks.hpp"
 #include "frame.hpp"
 #include "streams.hpp"
+#include "time_types.hpp"
 
 namespace data {
 
 struct Streams {
-  data::DataStream data = data::DataStream();
-  data::LogStream log = data::LogStream();
+  DataStream data = DataStream();
+  LogStream log = LogStream();
 };
 
 struct Frames {
-  data::Frame<std::string, data::DataPacket> data =
-      data::Frame<std::string, data::DataPacket>();
+  Frame<std::string, DataPacket> data = Frame<std::string, DataPacket>();
 
-  data::Frame<std::string, data::LogPacket> log =
-      data::Frame<std::string, data::LogPacket>();
+  Frame<std::string, LogPacket> log = Frame<std::string, LogPacket>();
 };
 
 struct Blocks {
-  data::Block<data::blocks::StreamsStats> stream_stats =
-      data::Block<data::blocks::StreamsStats>();
-  data::Block<data::blocks::ModulesStatuses> modules_statuses =
-      data::Block<data::blocks::ModulesStatuses>();
+  Block<blocks::StreamsStats> stream_stats = Block<blocks::StreamsStats>();
+  Block<blocks::ModulesStatuses> modules_statuses =
+      Block<blocks::ModulesStatuses>();
+  Block<blocks::SystemInfo> system_info = Block<blocks::SystemInfo>();
+};
+
+struct Misc {
+  double getUptimeHours() const {
+    return giraffe_time::secondsElapsed(start_time) / 3600.0;
+  }
+
+  std::string getUptimeString() const {
+    return giraffe_time::elapsedAsciiClock(start_time);
+  }
+
+  const giraffe_time::TimePoint start_time = giraffe_time::now();
 };
 
 struct SharedData {
-  data::Streams streams = data::Streams();
-  data::Frames frames = data::Frames();
-  data::Blocks blocks = data::Blocks();
+  Streams streams = Streams();
+  Frames frames = Frames();
+  Blocks blocks = Blocks();
+  Misc misc = Misc();
 };
 
-}  // namespace data
+} // namespace data
 
 #endif

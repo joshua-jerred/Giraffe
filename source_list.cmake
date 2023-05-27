@@ -8,28 +8,28 @@ set(common_includes
 
 set(gfs_sources
 	# main
-	#${GFS_SRC}/flight_runner.cpp
+	${GFS_SRC}/flight_runner.cpp
 
 	# configuration 
 	${GFS_SRC}/configuration/configuration.cpp
 
 	# module base
-	# ${GFS_SRC}/modules/module.cpp
+	${GFS_SRC}/modules/module.cpp
 
 	# data module
-	# ${GFS_SRC}/modules/data/data_module.cpp
+	${GFS_SRC}/modules/data/data_module.cpp
 
 	# console module
-	# ${GFS_SRC}/modules/console/console_module.cpp
-	# ${GFS_SRC}/modules/console/curses_utilities.cpp
+	${GFS_SRC}/modules/console/console_module.cpp
+	${GFS_SRC}/modules/console/curses_utilities.cpp
 
 	# server module
-	# ${GFS_SRC}/modules/server/socket.cpp
-	# ${GFS_SRC}/modules/server/server_module.cpp
-	# ${GFS_SRC}/modules/server/request_handler.cpp
+	${GFS_SRC}/modules/server/socket.cpp
+	${GFS_SRC}/modules/server/server_module.cpp
+	${GFS_SRC}/modules/server/request_handler.cpp
 
 	# system module
-	# ${GFS_SRC}/modules/system/system_module.cpp
+	${GFS_SRC}/modules/system/system_module.cpp
 )
 
 set(gfs_include_dirs

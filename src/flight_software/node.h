@@ -7,6 +7,7 @@ namespace node {
 
 enum class Identification {
   UNKNOWN,
+  FLIGHT_RUNNER,
   CONFIGURATION,
   DATA_MODULE,
   CONSOLE_MODULE,
@@ -16,6 +17,7 @@ enum class Identification {
 
 static const std::map<Identification, std::string> identification_to_string = {
     {Identification::UNKNOWN, "unknown"},
+    {Identification::FLIGHT_RUNNER, "flight_runner"},
     {Identification::CONFIGURATION, "configuration"},
     {Identification::DATA_MODULE, "data_module"},
     {Identification::CONSOLE_MODULE, "console_module"},
@@ -39,6 +41,6 @@ static const std::map<Status, std::string> status_to_string = {
     {Status::RUNNING, "running"},   {Status::SLEEPING, "sleeping"},
     {Status::STOPPING, "stopping"}, {Status::ERROR, "error"}};
 
-}  // namespace node
+} // namespace node
 
 #endif

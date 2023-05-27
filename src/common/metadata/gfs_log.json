@@ -8,9 +8,6 @@
     "info": {},
     "debug": {}
   },
-  "module": {
-    "start_fail": {}
-  },
   "config": {
     "section_not_found": {},
     "setting_not_found": {},
@@ -22,5 +19,19 @@
     "failed_to_open_config": {},
     "config_file_does_not_exist": {},
     "failed_to_load_section_not_found": {}
+  },
+  "module": {
+    "start_failure": {},
+    "module_already_started": {}
+  },
+  "data_module": {
+    "status_data_packet_unknown_source": {},
+    "data_packet_unknown_type": {}
+  },
+  "console_module": {},
+  "system_module": {
+    "system_info_read_fail": {},
+    "cpu_temp_read_fail": {},
+    "disk_info_read_fail": {}
   }
 }

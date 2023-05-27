@@ -9,6 +9,7 @@
 #ifndef STREAMS_HPP_
 #define STREAMS_HPP_
 
+#include <atomic>
 #include <iostream>
 #include <mutex>
 #include <queue>
@@ -17,24 +18,21 @@
 #include "data_ids.hpp"
 #include "log_ids.hpp"
 #include "node.h"
-#include "time_types.h"
+#include "time_types.hpp"
 
 namespace data {
 
 struct BaseStreamPacket {
   node::Identification source = node::Identification::UNKNOWN;
+  std::string secondary_identifier = "";
   giraffe_time::TimePoint created_time = giraffe_time::now();
 
-  void resetTime() {
-    created_time = giraffe_time::now();
-  }
+  void resetTime() { created_time = giraffe_time::now(); }
 };
 
-template <class T>
-class Stream {
- public:
-  Stream() : packet_queue_() {
-  }
+template <class T> class Stream {
+public:
+  Stream() : packet_queue_() {}
 
   void addPacket(T packet) {
     stream_mutex_.lock();
@@ -45,7 +43,7 @@ class Stream {
     stream_mutex_.unlock();
   }
 
-  bool getPacket(T& packet) {
+  bool getPacket(T &packet) {
     std::lock_guard<std::mutex> lock(stream_mutex_);
 
     if (packet_queue_.empty()) {
@@ -59,13 +57,12 @@ class Stream {
     return true;
   }
 
-  int getNumPackets() {
+  int getNumPackets() { // not atomic as this is used for stream processing
     std::lock_guard<std::mutex> lock(stream_mutex_);
     return current_packets_;
   }
 
-  int getTotalPackets() {
-    std::lock_guard<std::mutex> lock(stream_mutex_);
+  int getTotalPackets() { // atomic
     return total_packets_;
   }
 
@@ -76,12 +73,12 @@ class Stream {
     packet_queue_ = std::queue<T>();
   }
 
- private:
+private:
   std::mutex stream_mutex_ = std::mutex();
   std::queue<T> packet_queue_;
 
   int current_packets_ = 0;
-  int total_packets_ = 0;
+  std::atomic<int> total_packets_ = 0;
 };
 
 struct LogPacket : public BaseStreamPacket {
@@ -92,7 +89,7 @@ struct LogPacket : public BaseStreamPacket {
 };
 
 class LogStream : public Stream<LogPacket> {
- public:
+public:
   void error(node::Identification source, data::LogId error_id,
              std::string info = "") {
     LogPacket pkt;
@@ -131,9 +128,12 @@ class LogStream : public Stream<LogPacket> {
 };
 
 struct DataPacket : public BaseStreamPacket {
+  enum class Type { GENERIC, STATUS };
+
   // Generics
+  data::DataPacket::Type type = data::DataPacket::Type::GENERIC;
   data::DataId identifier = data::DataId::GENERIC_unknown;
-  std::string value = "";
+  std::string value = ""; // generic data
 
   // Extra (Uses so little space, not really a problem to include it
   // in all packets)
@@ -141,7 +141,7 @@ struct DataPacket : public BaseStreamPacket {
 };
 
 class DataStream : public Stream<DataPacket> {
- public:
+public:
   void addData(node::Identification source, data::DataId data_id,
                std::string value) {
     DataPacket pkt;
@@ -152,7 +152,19 @@ class DataStream : public Stream<DataPacket> {
 
     addPacket(pkt);
   }
+  void reportStatus(
+      node::Identification status_to_update, node::Status status,
+      data::DataId extra_identifier = data::DataId::MODULE_statusUpdate) {
+    DataPacket pkt;
+    pkt.source = status_to_update;
+    pkt.type = DataPacket::Type::STATUS;
+    pkt.node_status = status;
+    pkt.identifier = extra_identifier;
+    pkt.resetTime();
+
+    addPacket(pkt);
+  }
 };
-}  // namespace data
+} // namespace data
 
 #endif

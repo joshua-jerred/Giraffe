@@ -41,19 +41,7 @@
             ]
         }
     },
-    "data_module_general": {
-        "SECTION_TYPE":"struct",
-        "frame_purge_time": {
-            "type": "int",
-            "name": "Purge Stale Data Time ms",
-            "description": "How long data will remain in the data stream data frame without updates before being removed.",
-            "default": 30000,
-            "max": 600000,
-            "min": 100,
-            "step": 1
-        }
-    },
-    "data_module_data_log": {
+    "data_module_data": {
         "SECTION_TYPE":"struct",
         "log_data_to_file": {
             "type": "bool",
@@ -126,11 +114,17 @@
             "options": [
                 "plain_text"
             ]
+        },
+        "data_log_file_contents": {
+            "type": "string",
+            "name": "Data Log File Contents",
+            "description": "Not implemented",
+            "default": "not implemented",
+
+            "max": 50,
+            "min": 0,
+            "pattern": ""
         }
-    },
-    "data_module_data_log_contents": {
-        "SECTION_TYPE":"list",
-        "list": []
     },
     "data_module_influxdb": {
         "SECTION_TYPE":"struct",
@@ -210,34 +204,40 @@
                 "year",
                 "inf"
             ]
+        },
+        "contents": {
+            "type": "string",
+            "name": "Contents",
+            "description": "Not implemented",
+            "default": "not implemented",
+
+            "max": 50,
+            "min": 0,
+            "pattern": ""
         }
     },
-    "data_module_influxdb_contents": {
-        "SECTION_TYPE":"list",
-        "list": []
-    },
-    "data_module_error_log": {
+    "data_module_log": {
         "SECTION_TYPE":"struct",
-        "log_errors_to_file": {
+        "log_to_file": {
             "type": "bool",
-            "name": "Log Errors To File",
+            "name": "Log To File",
             "description": "This is the master toggle for logging errors to a local json file.",
             "default": true,
             "true": "enabled",
             "false": "disabled"
         },
-        "max_error_log_file_size_mb": {
+        "max_log_file_size_mb": {
             "type": "int",
             "name": "Max Log File Size MB",
-            "description": "The maximum error log file size in Mega-Bytes before overwrite or rotation.",
+            "description": "The maximum log file size in Mega-Bytes before overwrite or rotation.",
             "default": 10,
             "max": 500,
             "min": 1,
             "step": 1
         },
-        "max_error_archive_size_mb": {
+        "max_log_archive_size_mb": {
             "type": "int",
-            "name": "Max Error Archive Size MB",
+            "name": "Max Log Archive Size MB",
             "description": "The maximum log file archive size in Mega-Bytes before overwrite. The oldest log file will be overwritten first.",
             "default": 50,
             "max": 100000,
@@ -254,17 +254,6 @@
             "options": [
                 "plain_text"
             ]
-        }
-    },
-    "data_module_debug": {
-        "SECTION_TYPE":"struct",
-        "enabled": {
-            "type": "bool",
-            "name": "Console Interface",
-            "description": "Whether or not to enable the console interface. Helpful for debugging without the web interface.",
-            "default": false,
-            "true": "enabled",
-            "false": "disabled"
         },
         "log_level": {
             "type": "enum",

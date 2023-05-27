@@ -1,89 +1,126 @@
 #include "data_module.h"
 
-#include "time_types.h"
+#include "time_types.hpp"
 
 static modules::MetaData metadata("data_module",
-                                  node::Identification::DATA_MODULE);
+                                  node::Identification::DATA_MODULE, 100);
 
 modules::DataModule::DataModule(data::SharedData &shared_data,
                                 cfg::Configuration &config)
-    : modules::Module(metadata, shared_data, config) {
-}
+    : modules::Module(metadata, shared_data, config) {}
 
-modules::DataModule::~DataModule() {
-}
+modules::DataModule::~DataModule() {}
 
 void modules::DataModule::startup() {
-  sleep();  // wait to start
+  sleep(); // wait to start
 }
 
 void modules::DataModule::loop() {
-  parseStreams();
-  data<std::string>("test", "t1");
-  error("code");
+  parseDataStream();
+  parseLogStream();
 }
 
-void modules::DataModule::shutdown() {
-}
+void modules::DataModule::shutdown() {}
 
 void modules::DataModule::processCommand(const command::Command &command) {
   (void)command;
 }
 
-template <class PKT>
-void modules::DataModule::parseStream(data::Stream<PKT> &stream,
-                                      std::function<void(PKT &)> callback) {
-  int packet_count = stream.getNumPackets();
-  PKT packet;
+// ------------------ Data Stream Parsing ------------------
+
+void modules::DataModule::parseDataStream() {
+  int packet_count = shared_data_.streams.data.getNumPackets();
+  data::DataPacket packet;
   bool first = true;
   int delay_ms = 0;
   for (int i = 0; i < packet_count; i++) {
-    bool got_packet = stream.getPacket(packet);
-    if (!got_packet) return;
+    bool got_packet = shared_data_.streams.data.getPacket(packet);
+    if (!got_packet)
+      return;
     if (first) {
       delay_ms = giraffe_time::millisecondsElapsed(packet.created_time);
       first = false;
     }
-    callback(packet);
-  }
 
-  // detect it's stream type, set it's stats.
-  data::blocks::StreamsStats streams_statuses_ =
-      shared_data_.blocks.stream_stats.get();
+    if (packet.type == data::DataPacket::Type::GENERIC) {
+      parseGeneralDataPacket(packet);
+    } else if (packet.type == data::DataPacket::Type::STATUS) {
+      parseStatusDataPacket(packet);
+    } else {
+      error(data::LogId::DATA_MODULE_dataPacketUnknownType, (int)packet.type);
+    }
+  }
 
   data::blocks::StreamsStats::StreamStats stats_;
-  stats_.current = packet_count;
-  stats_.total = stream.getTotalPackets();
+  stats_.current_packets = packet_count;
+  stats_.total_packets = shared_data_.streams.data.getTotalPackets();
   stats_.processing_delay_ms = delay_ms;
-  // this could be easier by passing in a reference to the values, but
-  // I wanted to play around with if constexpr
-  if constexpr (std::is_same<PKT, data::DataStreamPacket>::value) {
-    streams_statuses_.data = stats_;
-  } else if (std::is_same<PKT, data::ErrorStreamPacket>::value) {
-    streams_statuses_.error = stats_;
-  } else if (std::is_same<PKT, data::StatusStreamPacket>::value) {
-    streams_statuses_.status = stats_;
-  } else if (std::is_same<PKT, data::SysInfoPacket>::value) {
-    streams_statuses_.system_info = stats_;
-  }
+
+  data::blocks::StreamsStats streams_statuses_ =
+      shared_data_.blocks.stream_stats.get();
+  streams_statuses_.data = stats_;
   shared_data_.blocks.stream_stats.set(streams_statuses_);
 }
 
-void modules::DataModule::parseStreams() {
+void modules::DataModule::parseGeneralDataPacket(
+    const data::DataPacket &packet) {
+  (void) packet;
+  // Process packet here
+}
 
+void modules::DataModule::parseStatusDataPacket(
+    const data::DataPacket &packet) {
+  data::blocks::ModulesStatuses statuses =
+      shared_data_.blocks.modules_statuses.get();
 
+  switch (packet.source) {
+  case node::Identification::DATA_MODULE:
+    statuses.data = packet.node_status;
+    break;
+  case node::Identification::CONSOLE_MODULE:
+    statuses.console = packet.node_status;
+    break;
+  case node::Identification::SERVER_MODULE:
+    statuses.server = packet.node_status;
+    break;
+  case node::Identification::SYSTEM_MODULE:
+    statuses.system = packet.node_status;
+    break;
+  default:
+    error(data::LogId::DATA_MODULE_statusDataPacketUnknownSource,
+          (int)packet.source);
+    return;
+  }
 
-  parseStream<data::DataStreamPacket>(shared_data_.streams.data,
-                                      [](data::DataStreamPacket &pkt) {});
-  parseStream<data::ErrorStreamPacket>(
-      shared_data_.streams.error, [](data::ErrorStreamPacket &pkt) {
-        std::string source = node::identification_to_string.at(pkt.source);
-        std::cout << source << ":" << pkt.code << " - " << pkt.info
-                  << std::endl;
-      });
-  parseStream<data::SysInfoPacket>(shared_data_.streams.system_info,
-                                   [](data::SysInfoPacket &pkt) { (void)pkt; });
-  parseStream<data::StatusStreamPacket>(
-      shared_data_.streams.status,
-      [](data::StatusStreamPacket &pkt) { (void)pkt; });
+  shared_data_.blocks.modules_statuses.set(statuses);
+}
+
+// ------------------ Log Stream Parsing ------------------
+
+void modules::DataModule::parseLogStream() {
+  int packet_count = shared_data_.streams.log.getNumPackets();
+  data::LogPacket packet;
+  bool first = true;
+  int delay_ms = 0;
+  for (int i = 0; i < packet_count; i++) {
+    bool got_packet = shared_data_.streams.log.getPacket(packet);
+    if (!got_packet)
+      return;
+    if (first) {
+      delay_ms = giraffe_time::millisecondsElapsed(packet.created_time);
+      first = false;
+    }
+
+    // Process packet here
+  }
+
+  data::blocks::StreamsStats::StreamStats stats_;
+  stats_.current_packets = packet_count;
+  stats_.total_packets = shared_data_.streams.log.getTotalPackets();
+  stats_.processing_delay_ms = delay_ms;
+
+  data::blocks::StreamsStats streams_statuses_ =
+      shared_data_.blocks.stream_stats.get();
+  streams_statuses_.log = stats_;
+  shared_data_.blocks.stream_stats.set(streams_statuses_);
 }

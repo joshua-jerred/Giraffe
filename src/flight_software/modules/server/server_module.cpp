@@ -8,32 +8,25 @@
 
 #include "server_module.h"
 
-#include <iostream> /** @todo remove this */
-
 static modules::MetaData metadata("server_module",
                                   node::Identification::SERVER_MODULE, 200);
 
 modules::ServerModule::ServerModule(data::SharedData &shared_data,
                                     cfg::Configuration &config)
     : modules::Module(metadata, shared_data, config),
-      request_router_(shared_data_, config) {
-}
+      request_router_(shared_data_, config) {}
 
-modules::ServerModule::~ServerModule() {
-}
+modules::ServerModule::~ServerModule() {}
 
 void modules::ServerModule::startup() {
-  data<std::string>("ident", "start");
-
-  int port_number = configuration_.getServerModule().tcp_socket_port;
+  int port_number = configuration_.server_module.getTcpSocketPort();
   if (server_socket_.init(port_number)) {
-    data<std::string>("tcp_sck_init", "initialized and running on port " +
-                                          std::to_string(port_number));
+    info("initialized and running on port " + std::to_string(port_number));
   }
 }
 
 void modules::ServerModule::loop() {
-  sock::TcpSocketServer client;  // Create client socket
+  sock::TcpSocketServer client; // Create client socket
   /*
   The following is non-blocking. It will first "accept" the connection
   request from the client. If a client does not exist it will fail gracefully
@@ -51,10 +44,7 @@ void modules::ServerModule::loop() {
   }
 }
 
-void modules::ServerModule::shutdown() {
-  data<std::string>("ident", "stop");
-  std::cout << "shutdown" << std::endl;
-}
+void modules::ServerModule::shutdown() {}
 
 void modules::ServerModule::processCommand(const command::Command &command) {
   (void)command;

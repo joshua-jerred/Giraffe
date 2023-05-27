@@ -4,43 +4,42 @@
         "enum_name": "DataId"
     },
     "generic": {
-        "unknown":{
-        }
+        "unknown": {},
+        "test": {}
     },
-    "modules_statuses": {
-        "data":{
-            "name":"Data Module Status"
-        },
-        "console":{
-        },
-        "server":{
-        },
-        "system":{
-        }
+    "module":{
+        "status_update":{}
     },
-    "system_module":{
-        "cpu": {
-        }
+    "module_status": {
+        "data": {
+            "name": "Data Module Status"
+        },
+        "console": {},
+        "server": {},
+        "system": {}
     },
-    "data_module":{
-        "ds_process_delay":{
-            "name":"Data Stream Processing Delay"
+    "system_module": {
+        "cpu": {}
+    },
+    "data_module": {
+        "ds_process_delay": {
+            "name": "Data Stream Processing Delay"
         },
-        "es_pd":{
-            "name":"Error Stream Processing Delay"
+        "es_pd": {
+            "name": "Error Stream Processing Delay"
         },
-        "logging_data_to_file":{},
-        "logging_errors_to_file":{}
+        "logging_data_to_file": {},
+        "logging_errors_to_file": {}
     },
     "server_module": {
-        "num_total_packets_recv":{},
-        "num_total_packets_sent":{},
-        "num_failed_packets":{},
-        "client_address":{},
-        "connection_status":{}
+        "num_total_packets_recv": {},
+        "num_total_packets_sent": {},
+        "num_failed_packets": {},
+        "client_address": {},
+        "connection_status": {}
     },
-    "configuration":{
-        "configuration_errors":{}
+    "configuration": {
+        "configuration_errors": {}
     },
     "streams": {
         "data_stream_current": {},
@@ -60,8 +59,8 @@
         "lon": {}
     },
     "position_imu": {
-        "x_roll":{},
-        "y_roll":{},
-        "z_roll":{}
+        "x_roll": {},
+        "y_roll": {},
+        "z_roll": {}
     }
 }

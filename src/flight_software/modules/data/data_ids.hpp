@@ -6,10 +6,12 @@
 namespace data {
 enum class DataId {
   GENERIC_unknown,
-  MODULES_STATUSES_data, // Data Module Status
-  MODULES_STATUSES_console,
-  MODULES_STATUSES_server,
-  MODULES_STATUSES_system,
+  GENERIC_test,
+  MODULE_statusUpdate,
+  MODULE_STATUS_data, // Data Module Status
+  MODULE_STATUS_console,
+  MODULE_STATUS_server,
+  MODULE_STATUS_system,
   SYSTEM_MODULE_cpu,
   DATA_MODULE_dsProcessDelay, // Data Stream Processing Delay
   DATA_MODULE_esPd, // Error Stream Processing Delay

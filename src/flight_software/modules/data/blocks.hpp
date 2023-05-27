@@ -3,7 +3,7 @@
 
 #include <mutex>
 
-#include "time_types.h"
+#include "time_types.hpp"
 #include "node.h"
 
 namespace data {
@@ -44,19 +44,19 @@ class Block {
 
 namespace blocks {
 
-struct ConfigurationStats {
+struct ConfigurationStats { // Set by the data module
   int load_errors = 0;
   int save_errors = 0;
 };
 
-struct ModulesStatuses {
+struct ModulesStatuses { // Set by the data module
   node::Status data = node::Status::UNKNOWN;
-  //modules::Status console = modules::Status::UNKNOWN;
-  //modules::Status server = modules::Status::UNKNOWN;
-  //modules::Status system = modules::Status::UNKNOWN;
+  node::Status console = node::Status::UNKNOWN;
+  node::Status server = node::Status::UNKNOWN;
+  node::Status system = node::Status::UNKNOWN;
 };
 
-struct ServerModuleStats {
+struct ServerModuleStats { // Set by the server module
   bool enabled = false;
   int total_packets_received = 0;
   int total_packets_sent = 0;
@@ -66,17 +66,43 @@ struct ServerModuleStats {
   std::string connection_status = "none";
 };
 
-struct StreamsStats {
+struct StreamsStats {  // Set by the data module
   struct StreamStats {
-    int current = 0;
-    int total = 0;
+    int current_packets = 0;
+    int total_packets = 0;
     int processing_delay_ms = 0;
   };
 
   StreamStats data = StreamStats();
-  StreamStats error = StreamStats();
-  StreamStats status = StreamStats();
-  StreamStats system_info = StreamStats();
+  StreamStats log = StreamStats();
+};
+
+struct SystemInfo { // Set by the system module
+  // misc
+  float uptime_hours = 0.0;
+
+  // cpu
+  float cpu_load_avg_1 = 0.0; // 1 minute
+  float cpu_load_avg_5 = 0.0; // 5 minutes
+  float cpu_load_avg_15 = 0.0; // 15 minutes
+  float cpu_temp_c = 0.0;
+
+  // mem
+  float mem_total_gb = 0.0;
+  float mem_free_gb = 0.0;
+  float mem_used_percent = 0.0;
+
+  // swap
+  float swap_total_gb = 0.0;
+  float swap_free_gb = 0.0;
+  float swap_used_percent = 0.0;
+
+  // disk
+  float disk_total_gb = 0.0;
+  float disk_free_gb = 0.0;
+  float disk_used_percent = 0.0;
+
+  // network (tbd)
 };
 
 }  // namespace blocks

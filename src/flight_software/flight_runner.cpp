@@ -1,6 +1,6 @@
 #include "flight_runner.hpp"
 
-#include "configurables.h"
+#include "configurables.hpp"
 // #include <filesystem>
 
 // #include "config-types.h"
@@ -8,13 +8,12 @@
 // #include "interface.h"
 // #include "timer.h"
 
-FlightRunner::FlightRunner() {
-}
+FlightRunner::FlightRunner() {}
 
 FlightRunner::~FlightRunner() {
   p_system_module_->stop();
   delete p_system_module_;
-  
+
   p_server_module_->stop();
   delete p_server_module_;
 
@@ -50,17 +49,21 @@ int FlightRunner::start() {
     After that, startup the data module to start processing the data streams.
   */
   p_config_ = new cfg::Configuration(shared_data_.streams);
+  p_config_->load(configurables::file_paths::kConfigFilePath);
   p_data_module_ = new modules::DataModule(shared_data_, *p_config_);
   p_data_module_->start();
 
   /*
   Start the console module if it's enabled.
   */
-  //cfg::ConsoleModule cns_cfg = p_config_->getConsoleModule();
-  //if (cns_cfg.enabled) {
-  //  p_console_module_ = new modules::ConsoleModule(shared_data_, *p_config_);
-  //  p_console_module_->start();
-  //}
+  if (p_config_->console_module.getEnabled()) {
+    p_console_module_ = new modules::ConsoleModule(shared_data_, *p_config_);
+    p_console_module_->start();
+  } else {
+    shared_data_.streams.data.reportStatus(
+        node::Identification::CONSOLE_MODULE, 
+        node::Status::DISABLED);
+  }
 
   /*
     Start the server module, then the system module.
@@ -118,7 +121,7 @@ int FlightRunner::start() {
   //   healthCheck();  // Perform a health check to determine the flight proc
   //   type
   // }
-  return flightLoop();  // This will only return on shutdown
+  return flightLoop(); // This will only return on shutdown
 }
 
 void FlightRunner::shutdown() {
@@ -128,6 +131,7 @@ void FlightRunner::shutdown() {
 }
 
 int FlightRunner::flightLoop() {
+
   std::cout << "Starting Flight Procedure" << std::endl;
   // Timer tsl_data_log;  // Refer to timer.h
   // Timer tsl_server;
@@ -138,9 +142,12 @@ int FlightRunner::flightLoop() {
   // Timer tsl_health_check;
 
   // GFSCommand command;
-
-  while (!shutdown_signal_) {  // The endless loop where everything happens
+  static int count = 0;
+  while (!shutdown_signal_) { // The endless loop where everything happens
     std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    shared_data_.streams.data.addData(node::Identification::UNKNOWN,
+                                      data::DataId::GENERIC_test,
+                                      std::to_string(count++));
 
     // if (data_stream_.getNextCommand(command)) {  // Check for commands
     //   switch (command.category) {
@@ -214,7 +221,7 @@ int FlightRunner::flightLoop() {
     // }
   }
   std::cout << "Shutdown signal received." << std::endl;
-  // deconstruct();
+  p_config_->save(configurables::file_paths::kConfigFilePath);
   return 0;
 }
 

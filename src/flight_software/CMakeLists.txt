@@ -20,8 +20,7 @@ endif()
 # ---- Giraffe Flight Software ----
 include_directories(
 	${gfs_include_dirs}
-
-	${COMMON_SRC}/
+	${common_includes}
 
 	${LIB_SRC}/MWAV/include
 )
@@ -30,6 +29,7 @@ include_directories(
 add_executable(giraffe-flight-software
 	${GFS_SRC}/main.cpp
 	${gfs_sources}
+	${common_sources}
 )
 set_target_properties(giraffe-flight-software PROPERTIES OUTPUT_NAME gfs)
 set_target_properties(
