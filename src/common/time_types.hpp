@@ -28,12 +28,6 @@ inline void start(giraffe_time::TimePoint &time_point) {
 
 inline giraffe_time::TimePoint now() { return giraffe_time::Clock::now(); }
 
-inline int secondsElapsed(const giraffe_time::TimePoint &time_point) {
-  return std::chrono::duration_cast<giraffe_time::Seconds>(giraffe_time::now() -
-                                                           time_point)
-      .count();
-}
-
 inline int millisecondsElapsed(const giraffe_time::TimePoint &time_point) {
   return std::chrono::duration_cast<giraffe_time::Milliseconds>(
              giraffe_time::now() - time_point)

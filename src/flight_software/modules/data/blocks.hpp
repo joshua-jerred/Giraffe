@@ -3,7 +3,8 @@
 
 #include <mutex>
 
-#include "time_types.hpp"
+#include <BoosterSeat/time.hpp> 
+#include <BoosterSeat/clock.hpp>
 #include "node.h"
 
 namespace data {
@@ -18,7 +19,7 @@ class Block {
   void set(T data) {
     std::lock_guard<std::mutex> lock(mutex_);
     data_ = data;
-    last_updated_ = giraffe_time::now();
+    last_updated_ = BoosterSeat::clck::now();
   }
 
   T get() {
@@ -28,18 +29,18 @@ class Block {
 
   int age_ms() {
     std::lock_guard<std::mutex> lock(mutex_);
-    return giraffe_time::millisecondsElapsed(last_updated_);
+    return BoosterSeat::clck::millisecondsElapsed(last_updated_);
   }
 
   int age_s() {
     std::lock_guard<std::mutex> lock(mutex_);
-    return giraffe_time::secondsElapsed(last_updated_);
+    return BoosterSeat::clck::secondsElapsed(last_updated_);
   }
 
  private:
   std::mutex mutex_ = std::mutex();
   T data_ = T();  // Must have default constructor
-  giraffe_time::TimePoint last_updated_ = giraffe_time::now();
+  BoosterSeat::clck::TimePoint last_updated_ = BoosterSeat::clck::now();
 };
 
 namespace blocks {

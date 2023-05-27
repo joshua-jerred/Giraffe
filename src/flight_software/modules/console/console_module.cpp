@@ -1,6 +1,7 @@
 #include "console_module.h"
 #include <functional>
 #include <iostream>
+#include <BoosterSeat/time.hpp>
 
 #include "time_types.hpp"
 #include "units.hpp"
@@ -51,18 +52,14 @@ inline std::string b2str(bool val) { return val ? "true" : "false"; }
 inline std::string title_and_data(std::string title, std::string data) {
   return title + ": " + data;
 }
-inline std::string row_align(const std::string &left, const std::string &center_char,
-                             const std::string &right) {
-                              
-                             }
 
 std::vector<std::string> modules::ConsoleModule::status() {
   data::blocks::StreamsStats stats = shared_data_.blocks.stream_stats.get();
   data::blocks::ModulesStatuses mod_stats =
       shared_data_.blocks.modules_statuses.get();
 
-  std::string header = giraffe_time::utcTimeString() + " UTC | " +
-                       giraffe_time::localTimeString() + " Local";
+  std::string header = BoosterSeat::time::utcTimeString() + " UTC | " +
+                       BoosterSeat::time::localTimeString() + " Local";
 
   // lambda formatter
   auto fmt_stream_stats =

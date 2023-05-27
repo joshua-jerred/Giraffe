@@ -37,6 +37,7 @@ set_target_properties(
 	RUNTIME_OUTPUT_DIRECTORY ${GFS_BIN}
 )
 #target_link_libraries(giraffe-flight-software PRIVATE MWAVlib)
+target_link_libraries(giraffe-flight-software PRIVATE BoosterSeat)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)

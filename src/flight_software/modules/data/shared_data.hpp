@@ -6,6 +6,9 @@
 #include "streams.hpp"
 #include "time_types.hpp"
 
+#include <BoosterSeat/clock.hpp>
+#include <BoosterSeat/time.hpp>
+
 namespace data {
 
 struct Streams {
@@ -28,14 +31,14 @@ struct Blocks {
 
 struct Misc {
   double getUptimeHours() const {
-    return giraffe_time::secondsElapsed(start_time) / 3600.0;
+    return BoosterSeat::clck::secondsElapsed(start_time) / 3600.0;
   }
 
   std::string getUptimeString() const {
-    return giraffe_time::elapsedAsciiClock(start_time);
+    return BoosterSeat::time::elapsedAsciiClock(start_time);
   }
 
-  const giraffe_time::TimePoint start_time = giraffe_time::now();
+  const BoosterSeat::clck::TimePoint start_time = giraffe_time::now();
 };
 
 struct SharedData {

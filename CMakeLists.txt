@@ -94,7 +94,8 @@ include_directories(
 add_subdirectory(${GFS_SRC} ./flight_software)
 
 # External Libraries
-add_subdirectory(${LIB_SRC}/MWAV ./lib)
+add_subdirectory(${LIB_SRC}/MWAV)
+add_subdirectory(${LIB_SRC}/Boost_erSeat)
 
 # Unit Tests
 enable_testing()
