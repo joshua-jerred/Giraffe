@@ -1,53 +1,26 @@
 {
-  "Generic": {
-    "ID": "Generic",
-    "UNKNOWN": {
-      "ID": "unknown"
-    },
-    "info": {
-      "ID": "info"
-    },
-    "debug": {
-      "ID": "debug"
-    }
+  "FILE_META": {
+    "namespace": "data",
+    "enum_name": "LogId"
   },
-  "Module": {
-    "ID": "Module",
-    "start_fail": {
-      "ID": "startUpFailure"
-    }
+  "generic": {
+    "unknown": {},
+    "info": {},
+    "debug": {}
   },
-  "Configuration": {
-    "ID": "Config",
-    "section_not_found": {
-      "ID":"sectionNotFound"
-    },
-    "setting_not_found":{
-      "ID":"settingNotFound"
-    },
-    "invalid_json_type":{
-      "ID":"invalidJsonType"
-    },
-    "invalid_setting_value":{
-      "ID":"invalidSettingValue"
-    },
-    "enum_not_string":{
-      "ID":"enumIsNotString"
-    },
-    "key_not_found_in_enum":{
-      "ID":"keyNotFoundInEnum"
-    },
-    "failed_to_save_to_path":{
-      "ID":"failedToSaveToPath"
-    },
-    "failed_to_load_from_path_open":{
-      "ID":"failedToLoadFromPathFileOpenFailure"
-    },
-    "failed_to_load_from_path_exists":{
-      "ID":"failedToLoadFromPathDoesNotExist"
-    },
-    "failed_to_load_section_not_found":{
-      "ID":"load_sectionNotFound"
-    }
+  "module": {
+    "start_fail": {}
+  },
+  "config": {
+    "section_not_found": {},
+    "setting_not_found": {},
+    "invalid_json_type": {},
+    "invalid_setting_value": {},
+    "enum_not_string": {},
+    "key_not_found_in_enum": {},
+    "failed_to_save_to_path": {},
+    "failed_to_open_config": {},
+    "config_file_does_not_exist": {},
+    "failed_to_load_section_not_found": {}
   }
 }

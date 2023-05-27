@@ -14,6 +14,10 @@ set_target_properties(
 	unit_test_common PROPERTIES 
 	RUNTIME_OUTPUT_DIRECTORY ${COMMON_TEST_BIN}
 )
+#add_test(
+#  NAME unit_test_common
+#  COMMAND unit_test_common
+#)
 
 # --- Flight Software ---
 file(GLOB gfs_test_sources
@@ -30,3 +34,8 @@ set_target_properties(
 	RUNTIME_OUTPUT_DIRECTORY ${GFS_TEST_BIN}
 )
 target_link_libraries(unit_test_gfs nlohmann_json::nlohmann_json)
+
+add_test(
+  NAME unit_test_gfs
+  COMMAND unit_test_gfs
+)

@@ -96,5 +96,6 @@ add_subdirectory(${GFS_SRC} ./flight_software)
 add_subdirectory(${LIB_SRC}/MWAV ./lib)
 
 # Unit Tests
+enable_testing()
 add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
 # ----------------------------
