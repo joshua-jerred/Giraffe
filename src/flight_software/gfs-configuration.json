@@ -68,13 +68,6 @@
             "flight-critical": false
         }
     ],
-    "debugging": {
-        "debug-mode-print-errors": true,
-        "console-enabled": false,
-        "console-update-interval": 1000,
-        "web-server-enabled": true,
-        "web-server-socket-port": 8080
-    },
     "telemetry": {
         "telemetry-enabled": true,
         "callsign": "NOCALL",

@@ -1,34 +1,29 @@
 {
+    "FILE_META": {
+        "namespace": "data",
+        "enum_name": "DataId"
+    },
     "generic": {
-        "ID": "Generic",
         "unknown":{
-            "ID":"unknown"
         }
     },
     "modules_statuses": {
-        "ID":"ModuleStatus",
         "data":{
-            "ID":"data",
             "name":"Data Module Status"
         },
         "console":{
-            "ID":"console"
         },
         "server":{
-            "ID":"server"
         },
         "system":{
-            "ID":"system"
         }
     },
     "system_module":{
-        "ID":"SystemModule",
         "cpu": {
-            
         }
     },
     "data_module":{
-        "ds_pd":{
+        "ds_process_delay":{
             "name":"Data Stream Processing Delay"
         },
         "es_pd":{

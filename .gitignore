@@ -3,10 +3,6 @@
 #.timetracker
 .VSCodeCounter
 
-# generated files
-log_ids.hpp
-data_ids.hpp
-
 # CMake Build Files
 build
 bin
