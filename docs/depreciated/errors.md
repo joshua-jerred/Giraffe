@@ -1,3 +1,5 @@
+# DEPRECIATED
+
 # GFS Errors
 
 ``[Prefix][Source]_[Error Code] : [Info]`` Info is normally numeric, but can be a string.
