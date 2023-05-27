@@ -14,7 +14,9 @@
         "data": {
             "name": "Data Module Status"
         },
-        "console": {},
+        "console": {
+            "name": "Console Module Status"
+        },
         "server": {},
         "system": {}
     },

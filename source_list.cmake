@@ -22,6 +22,7 @@ set(gfs_sources
 	# console module
 	${GFS_SRC}/modules/console/console_module.cpp
 	${GFS_SRC}/modules/console/curses_utilities.cpp
+	${GFS_SRC}/modules/console/console_pages.cpp
 
 	# server module
 	${GFS_SRC}/modules/server/socket.cpp

@@ -3,9 +3,9 @@
 
 #include <ncurses.h>
 
-#include <functional>
 #include <string>
 #include <vector>
+#include "console_pages.hpp"
 
 namespace ncurs {
 namespace internal {
@@ -45,41 +45,22 @@ class Window {
 };
 }  // namespace internal
 
-struct MenuOption {
-  MenuOption(
-      std::string title, std::vector<MenuOption> sub_menus = {},
-      std::function<std::vector<std::string>(void)> console_data =
-          []() { return std::vector<std::string>({"empty"}); })
-      : title_(title), sub_menus_(sub_menus), console_data_(console_data) {
-
-    if (sub_menus_.size() == 0) {
-      endpoint = true;
-    }
-  }
-
-  std::string title_;
-  std::vector<MenuOption> sub_menus_;
-  std::function<std::vector<std::string>(void)> console_data_;
-
-      bool endpoint = false;
-};
-
-typedef std::vector<MenuOption> Menu;
-
 class Environment {
  public:
-  Environment() {
+  Environment(console_pages::Pages &pages) : pages_(pages) {
   }
   ~Environment() {
   }
   Environment(const Environment &) = delete;             // No copy constructor
   Environment &operator=(const Environment &) = delete;  // No copy assignment
 
-  void initialize(Menu &main_menu, int endpoint_update_rate_ms = 1000);
+  void start(int endpoint_update_rate_ms = 1000);
   void update();
   void end();
 
  private:
+  console_pages::Pages &pages_;
+
   enum class Focus { MENU, DATA };
   enum class NavKey { LEFT, RIGHT, UP, DOWN };
 
@@ -96,11 +77,6 @@ class Environment {
   const int kMenuWidth_ = 25;
   const int kDataWidth_ = 40;
   const int kPadding_ = 1;
-
-  Menu main_menu_ = {};
-
-  std::vector<Menu *> menu_path_ = {&main_menu_};
-  Menu *current_menu_ = &main_menu_;
 
   int current_menu_hover_ = 0;
   int current_menu_num_options_ = 0;

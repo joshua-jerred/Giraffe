@@ -28,15 +28,13 @@ void ncurs::internal::Window::win_clear() {
   box(p_window_, 0, 0);
 }
 
-void ncurs::Environment::initialize(Menu &main_menu,
-                                    int endpoint_update_rate_ms) {
-  main_menu_ = main_menu;
+void ncurs::Environment::start(int endpoint_update_rate_ms) {
   endpoint_update_rate_ms_ = endpoint_update_rate_ms;
 
-  screen_ = initscr();  // Start curses mode
+  screen_ = initscr(); // Start curses mode
   nodelay(screen_, TRUE);
-  noecho();     // Don't echo input
-  curs_set(0);  // Hide cursor
+  noecho();    // Don't echo input
+  curs_set(0); // Hide cursor
 
   menu_window_.setPosition(0, 0);
   menu_window_.setSize(kMenuWidth_, kHeight_);
@@ -73,95 +71,88 @@ void ncurs::Environment::end() {
 void ncurs::Environment::checkInput() {
   int ch = getch();
   switch (ch) {
-    case 0x1B:  // Possible Arrow Key
-      if (getch() == 0x5B) {
-        ch = getch();
-        switch (ch) {
-          case 0x42:
-            last_key = "down";
-            navigateMenu(Environment::NavKey::DOWN);
-            break;
-          case 0x44:
-            last_key = "left";
-            navigateMenu(Environment::NavKey::LEFT);
-            break;
-          case 0x41:
-            last_key = "up";
-            navigateMenu(Environment::NavKey::UP);
-            break;
-          case 0x43:
-            last_key = "right";
-            navigateMenu(Environment::NavKey::RIGHT);
-            break;
-          default:
-            last_key = "other special";
-            break;
-        }
-        displayMenu();
-        displayData();
+  case 0x1B: // Possible Arrow Key
+    if (getch() == 0x5B) {
+      ch = getch();
+      switch (ch) {
+      case 0x42:
+        last_key = "down";
+        navigateMenu(Environment::NavKey::DOWN);
+        break;
+      case 0x44:
+        last_key = "left";
+        navigateMenu(Environment::NavKey::LEFT);
+        break;
+      case 0x41:
+        last_key = "up";
+        navigateMenu(Environment::NavKey::UP);
+        break;
+      case 0x43:
+        last_key = "right";
+        navigateMenu(Environment::NavKey::RIGHT);
+        break;
+      default:
+        last_key = "other special";
+        break;
       }
-      break;
-    case -1:  // No key
-      break;
-    case 10:
-      last_key = "enter";
-      break;
-    default:
-      last_key = "other " + std::to_string(ch);
-      break;
+      displayMenu();
+      displayData();
+    }
+    break;
+  case -1: // No key
+    break;
+  case 10:
+    last_key = "enter";
+    break;
+  default:
+    last_key = "other " + std::to_string(ch);
+    break;
   }
   flushinp();
 }
 
 void ncurs::Environment::navigateMenu(Environment::NavKey key) {
   switch (key) {
-    case Environment::NavKey::DOWN:
-      current_menu_hover_ +=
-          current_menu_hover_ < current_menu_num_options_ - 1 ? 1 : 0;
-      break;
+  case Environment::NavKey::DOWN:
+    current_menu_hover_ +=
+        current_menu_hover_ < current_menu_num_options_ - 1 ? 1 : 0;
+    break;
 
-    case Environment::NavKey::UP:
-      current_menu_hover_ -= current_menu_hover_ > 0 ? 1 : 0;
-      break;
+  case Environment::NavKey::UP:
+    current_menu_hover_ -= current_menu_hover_ > 0 ? 1 : 0;
+    break;
 
-    case Environment::NavKey::RIGHT:
-      if (current_menu_->at(current_menu_hover_).sub_menus_.size() > 0) {
-        menu_path_.push_back(current_menu_);
-        current_menu_ = &(current_menu_->at(current_menu_hover_).sub_menus_);
-        current_menu_hover_ = 0;
-        current_menu_num_options_ = current_menu_->size();
-      }
-      break;
+  case Environment::NavKey::RIGHT:
 
-    case Environment::NavKey::LEFT:
-      if (menu_path_.size() > 1) {
-        current_menu_ = menu_path_.back();
-        menu_path_.pop_back();
-        current_menu_hover_ = 0;
-        current_menu_num_options_ = current_menu_->size();
-      }
-      break;
-    default:
-      break;
+    break;
+
+  case Environment::NavKey::LEFT:
+
+    break;
+  default:
+    break;
   };
+
+  pages_.navigateMenu(pages_.getCurrentMenu()[current_menu_hover_].second);
 }
 
 void ncurs::Environment::displayMenu() {
   menu_window_.win_clear();
 
   int i = 1;
-  current_menu_num_options_ = current_menu_->size();
+  current_menu_num_options_ = pages_.getCurrentMenu().size();
 
-  for (MenuOption &option : *current_menu_) {
+  for (const console_pages::Option &option : pages_.getCurrentMenu()) {
     if (i - 1 == current_menu_hover_) {
       wattron(menu_window_.p_window_, A_REVERSE);
     } else {
       wattroff(menu_window_.p_window_, A_REVERSE);
     }
-    std::string title = option.title_;
-    if (!option.endpoint) {  // has sub-options
-      title += " +";
-    }
+    std::string title = option.first;
+    //pages_.navigateMenu(option.second);
+    //if (!option.endpoint) { // has sub-options
+    //  title += " +";
+    //}
     mvwprintw(menu_window_.p_window_, i++, 1, "%s", title.c_str());
   }
   menu_window_.win_refresh();
@@ -171,13 +162,11 @@ void ncurs::Environment::displayData() {
   data_window_.win_clear();
   static int i = 0;
 
-  if (current_menu_->at(current_menu_hover_).endpoint) {
+  if (true) {
     mvwprintw(data_window_.p_window_, 1, 1, "iter: %i", i++);
-    std::vector<std::string> out =
-        current_menu_->at(current_menu_hover_).console_data_();
 
     int line_num = 1;
-    for (std::string &line : out) {
+    for (std::string &line : pages_.getCurrentPage()) {
       mvwprintw(data_window_.p_window_, line_num++, 1, "%s", line.c_str());
     }
 
@@ -189,9 +178,9 @@ void ncurs::Environment::displayData() {
               current_menu_hover_);
 
     std::string path = "";
-    for (auto &menu : menu_path_) {
-      path += " > ";
-    }
+    //for (auto &menu : menu_path_) {
+    //  path += " > ";
+    //}
 
     mvwprintw(data_window_.p_window_, 4, 1, "Current Path: %s", path.c_str());
 

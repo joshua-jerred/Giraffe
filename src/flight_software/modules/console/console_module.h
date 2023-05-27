@@ -5,6 +5,7 @@
 
 #include "curses_utilities.h"
 #include "module.hpp"
+#include "console_pages.hpp"
 
 namespace modules {
 class ConsoleModule : public Module {
@@ -21,7 +22,8 @@ class ConsoleModule : public Module {
   void shutdown() override;
   void processCommand(const command::Command &);
 
-  ncurs::Environment ncurs_env_ = ncurs::Environment();
+  console_pages::Pages pages_;
+  ncurs::Environment ncurs_env_;
 
   std::vector<std::string> status();
 
