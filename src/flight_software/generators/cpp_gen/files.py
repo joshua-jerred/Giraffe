@@ -85,6 +85,7 @@ class HppGenerator(Generator):
 
     def __addIncludeGuard(self):
         self.addLine(f'#ifndef {self.name.upper()}_HPP_')
+        self.addLine(f'#define {self.name.upper()}_HPP_')
         self.addLine("")
     
     def __addEndIncludeGuard(self):

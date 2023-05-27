@@ -87,13 +87,13 @@ class Stream {
 struct LogPacket : public BaseStreamPacket {
   enum class Level { DEBUG, INFO, WARN, ERROR };
   Level level = Level::INFO;
-  data::logId id = data::logId::Generic_unknown;
+  data::LogId id = data::LogId::GENERIC_unknown;
   std::string info = "";
 };
 
 class LogStream : public Stream<LogPacket> {
  public:
-  void error(node::Identification source, data::logId error_id,
+  void error(node::Identification source, data::LogId error_id,
              std::string info = "") {
     LogPacket pkt;
     pkt.source = source;
@@ -106,7 +106,7 @@ class LogStream : public Stream<LogPacket> {
   }
 
   void info(node::Identification source, std::string info = "",
-            data::logId log_id = data::logId::Generic_info) {
+            data::LogId log_id = data::LogId::GENERIC_info) {
     LogPacket pkt;
     pkt.source = source;
     pkt.level = LogPacket::Level::INFO;
@@ -118,7 +118,7 @@ class LogStream : public Stream<LogPacket> {
   }
 
   void debug(node::Identification source, std::string info = "",
-             data::logId log_id = data::logId::Generic_debug) {
+             data::LogId log_id = data::LogId::GENERIC_debug) {
     LogPacket pkt;
     pkt.source = source;
     pkt.level = LogPacket::Level::DEBUG;
@@ -132,7 +132,7 @@ class LogStream : public Stream<LogPacket> {
 
 struct DataPacket : public BaseStreamPacket {
   // Generics
-  data::dataId identifier = data::dataId::Generic_unknown;
+  data::DataId identifier = data::DataId::GENERIC_unknown;
   std::string value = "";
 
   // Extra (Uses so little space, not really a problem to include it
@@ -142,7 +142,7 @@ struct DataPacket : public BaseStreamPacket {
 
 class DataStream : public Stream<DataPacket> {
  public:
-  void addData(node::Identification source, data::dataId data_id,
+  void addData(node::Identification source, data::DataId data_id,
                std::string value) {
     DataPacket pkt;
     pkt.source = source;

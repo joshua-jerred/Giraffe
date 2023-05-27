@@ -976,7 +976,7 @@ void cfg::Configuration::save(std::string file_path) {
   std::ofstream out(file_path);
   
   if (out.fail()) {
-    error(data::logId::Config_failedToSaveToPath, file_path);
+    error(data::LogId::CONFIG_failedToSaveToPath, file_path);
     return;
   }
   
@@ -1006,14 +1006,14 @@ void cfg::Configuration::load(std::string file_path) {
   const std::lock_guard<std::mutex> lock(file_lock_);
 
   if (!std::filesystem::exists(file_path)) {
-    error(data::logId::Config_failedToLoadFromPathDoesNotExist, file_path);
+    error(data::LogId::CONFIG_configFileDoesNotExist, file_path);
     return; 
   }
 
   std::ifstream in(file_path);
   
   if (in.fail()) {
-    error(data::logId::Config_failedToLoadFromPathFileOpenFailure, file_path);
+    error(data::LogId::CONFIG_failedToOpenConfig, file_path);
     return;
   }
   
@@ -1027,67 +1027,67 @@ void cfg::Configuration::load(std::string file_path) {
   if (sectionExists(parsed, "general")) {
     general.setFromJson(parsed["general"]);
   } else {
-    error(data::logId::Config_load_sectionNotFound, "general");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "general");
   }
 
   if (sectionExists(parsed, "data_module_general")) {
     data_module_general.setFromJson(parsed["data_module_general"]);
   } else {
-    error(data::logId::Config_load_sectionNotFound, "data_module_general");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "data_module_general");
   }
 
   if (sectionExists(parsed, "data_module_data_log")) {
     data_module_data_log.setFromJson(parsed["data_module_data_log"]);
   } else {
-    error(data::logId::Config_load_sectionNotFound, "data_module_data_log");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "data_module_data_log");
   }
 
   if (sectionExists(parsed, "data_module_influxdb")) {
     data_module_influxdb.setFromJson(parsed["data_module_influxdb"]);
   } else {
-    error(data::logId::Config_load_sectionNotFound, "data_module_influxdb");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "data_module_influxdb");
   }
 
   if (sectionExists(parsed, "data_module_error_log")) {
     data_module_error_log.setFromJson(parsed["data_module_error_log"]);
   } else {
-    error(data::logId::Config_load_sectionNotFound, "data_module_error_log");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "data_module_error_log");
   }
 
   if (sectionExists(parsed, "data_module_debug")) {
     data_module_debug.setFromJson(parsed["data_module_debug"]);
   } else {
-    error(data::logId::Config_load_sectionNotFound, "data_module_debug");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "data_module_debug");
   }
 
   if (sectionExists(parsed, "console_module")) {
     console_module.setFromJson(parsed["console_module"]);
   } else {
-    error(data::logId::Config_load_sectionNotFound, "console_module");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "console_module");
   }
 
   if (sectionExists(parsed, "server_module")) {
     server_module.setFromJson(parsed["server_module"]);
   } else {
-    error(data::logId::Config_load_sectionNotFound, "server_module");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "server_module");
   }
 
   if (sectionExists(parsed, "system_module")) {
     system_module.setFromJson(parsed["system_module"]);
   } else {
-    error(data::logId::Config_load_sectionNotFound, "system_module");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "system_module");
   }
 
   if (sectionExists(parsed, "telemetry")) {
     telemetry.setFromJson(parsed["telemetry"]);
   } else {
-    error(data::logId::Config_load_sectionNotFound, "telemetry");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "telemetry");
   }
 
   if (sectionExists(parsed, "telemetry_aprs")) {
     telemetry_aprs.setFromJson(parsed["telemetry_aprs"]);
   } else {
-    error(data::logId::Config_load_sectionNotFound, "telemetry_aprs");
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "telemetry_aprs");
   }
 
 }

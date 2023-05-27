@@ -77,8 +77,9 @@ class IdGenerator:
         self.enum.addValue(enum_name, comment)
 
     def __write(self):
-        file_name = OUT_FILE.split("/")[-1]
+        file_name = OUT_FILE.split("/")[-1].split(".")[0]
         file = cpp.files.HppGenerator(file_name)
+        file.enterNamespace(self.namespace)
         file.addComponent(self.enum)
         print(file)
         file.save(OUT_FILE)

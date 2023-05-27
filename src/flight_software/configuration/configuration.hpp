@@ -470,7 +470,7 @@ class Configuration {
   cfg::TelemetryAprs telemetry_aprs;
  
  private:
-  void error(data::logId error_code, std::string info = "") {
+  void error(data::LogId error_code, std::string info = "") {
       streams_.log.error(node::Identification::CONFIGURATION, error_code, info);
   }
  

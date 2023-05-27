@@ -1,0 +1,59 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "generate data ids",
+			"type": "shell",
+			"command": "python3 ${workspaceFolder}/src/flight_software/generators/ids_gen.py",
+			"detail": "Generate data IDs for the flight software",
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			},
+			"options": {
+				"env": {
+					"ID_GEN_IN_FILE_PATH": "${workspaceFolder}/src/common/metadata/gfs_data.json",
+					"ID_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/flight_software/modules/data/data_ids.hpp",
+					"PRINT_OUTPUT": "false"
+				}
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "generate log ids",
+			"type": "shell",
+			"command": "python3 ${workspaceFolder}/src/flight_software/generators/ids_gen.py",
+			"detail": "Generate log IDs for the flight software",
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			},
+			"options": {
+				"env": {
+					"ID_GEN_IN_FILE_PATH": "${workspaceFolder}/src/common/metadata/gfs_log.json",
+					"ID_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/flight_software/modules/data/log_ids.hpp",
+					"PRINT_OUTPUT": "false"
+				}
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "generate GFS configuration",
+			"type": "shell",
+			"command": "python3 ${workspaceFolder}/src/flight_software/generators/config_gen.py",
+			"detail": "Generate log IDs for the flight software",
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			},
+			"options": {
+				"env": {
+					"CONFIG_GEN_IN_FILE_PATH": "${workspaceFolder}/src/common/metadata/gfs_configuration.json",
+					"CONFIG_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/flight_software/configuration/",
+					"PRINT_OUTPUT": "false"
+				}
+			},
+			"problemMatcher": []
+		}
+	]
+}

@@ -1,7 +1,9 @@
 // * * * * GENERATED AUTOMATICALLY, DO NOT MANUALLY MODIFY * * * *
 
-#ifndef DATA_IDS.HPP_HPP_
+#ifndef DATA_IDS_HPP_
+#define DATA_IDS_HPP_
 
+namespace data {
 enum class DataId {
   GENERIC_unknown,
   MODULES_STATUSES_data, // Data Module Status
@@ -30,7 +32,8 @@ enum class DataId {
   POSITION_IMU_yRoll,
   POSITION_IMU_zRoll
 };
+} // namespace data
 
-#endif // DATA_IDS.HPP_HPP_
+#endif // DATA_IDS_HPP_
 
 // * * * * GENERATED AUTOMATICALLY, DO NOT MANUALLY MODIFY * * * *

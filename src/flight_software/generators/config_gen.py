@@ -4,6 +4,7 @@ import file_gen_utils as utils
 import config_gen_components
 import json
 import sys
+import os
 
 INDENT = "  "
 SECTION_TYPE_KEY = "SECTION_TYPE"
@@ -424,12 +425,22 @@ class ConfigGen:
 if __name__ == "__main__":
     print("\nGenerating Configuration Code")
     
-    if len(sys.argv) != 3:
-        print("ERROR: Invalid Args!\n")
-        sys.exit(-1)
+    IN_FILE = os.getenv('CONFIG_GEN_IN_FILE_PATH')
+    if (IN_FILE == None):
+        print("Error: CONFIG_GEN_IN_FILE_PATH environment variable not set. Set from vscode tasks.json")
+        sys.exit(1)
+    else:
+        print("IN_FILE: " + IN_FILE)
+
+    OUT_DIR = os.getenv('CONFIG_GEN_OUT_FILE_PATH')
+    if (OUT_DIR == None):
+        print("Error: CONFIG_GEN_OUT_FILE_PATH environment variable not set. Set from vscode tasks.json")
+        sys.exit(1)
+    else:
+        print("OUT_FILE: " + OUT_DIR)
     
-    meta_path = sys.argv[1]
-    config_dir = sys.argv[2]
+    meta_path = IN_FILE
+    config_dir = OUT_DIR
     meta = json.load(open(meta_path))
 
     cfg_gen = ConfigGen(meta, config_dir)

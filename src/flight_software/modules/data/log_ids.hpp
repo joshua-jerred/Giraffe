@@ -1,7 +1,9 @@
 // * * * * GENERATED AUTOMATICALLY, DO NOT MANUALLY MODIFY * * * *
 
-#ifndef LOG_IDS.HPP_HPP_
+#ifndef LOG_IDS_HPP_
+#define LOG_IDS_HPP_
 
+namespace data {
 enum class LogId {
   GENERIC_unknown,
   GENERIC_info,
@@ -18,7 +20,8 @@ enum class LogId {
   CONFIG_configFileDoesNotExist,
   CONFIG_failedToLoadSectionNotFound
 };
+} // namespace data
 
-#endif // LOG_IDS.HPP_HPP_
+#endif // LOG_IDS_HPP_
 
 // * * * * GENERATED AUTOMATICALLY, DO NOT MANUALLY MODIFY * * * *

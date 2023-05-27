@@ -68,7 +68,7 @@ void setValidValue(data::LogStream &log, const json &json_data,
 
   // check for key existence
   if (!json_data.contains(key)) {
-    log.error(e_src, data::logId::Config_settingNotFound, section + " " + key);
+    log.error(e_src, data::LogId::CONFIG_settingNotFound, section + " " + key);
     return;
   }
 
@@ -85,7 +85,7 @@ void setValidValue(data::LogStream &log, const json &json_data,
   }
 
   if (!valid_type) {
-    log.error(e_src, data::logId::Config_invalidJsonType, section + " " + key);
+    log.error(e_src, data::LogId::CONFIG_invalidJsonType, section + " " + key);
     return;
   }
 
@@ -105,7 +105,7 @@ void setValidValue(data::LogStream &log, const json &json_data,
   }
 
   if (!valid_value) {
-    log.error(e_src, data::logId::Config_invalidSettingValue,
+    log.error(e_src, data::LogId::CONFIG_invalidSettingValue,
               section + " " + key);
     return;
   }
@@ -124,13 +124,13 @@ void setValidEnum(
 
   // Check if the setting key is in the json data
   if (!json_data.contains(key)) {
-    log.error(e_src, data::logId::Config_settingNotFound, section + " " + key);
+    log.error(e_src, data::LogId::CONFIG_sectionNotFound, section + " " + key);
     return;
   }
 
   // Ensure that the value at this key is actually a string before reading
   if (!json_data[key].is_string()) {
-    log.error(e_src, data::logId::Config_enumIsNotString, section + " " + key);
+    log.error(e_src, data::LogId::CONFIG_enumNotString, section + " " + key);
     return;
   }
 
@@ -139,7 +139,7 @@ void setValidEnum(
 
   // check if the key is in the map
   if (!string_to_value.contains(value)) {
-    log.error(e_src, data::logId::Config_keyNotFoundInEnum,
+    log.error(e_src, data::LogId::CONFIG_keyNotFoundInEnum,
               section + " " + key);
     return;
   }
