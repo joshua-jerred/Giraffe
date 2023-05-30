@@ -10,9 +10,9 @@ packet = {
   "src":"ggs",
   "dst":"gfs",
   "typ":"req",
-  "cat":"ping",
+  "cat":"setting",
   "id":"",
-  "body":""
+  "body":"data_module_data"
 }
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:

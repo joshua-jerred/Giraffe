@@ -1165,17 +1165,8 @@ json cfg::ExtensionModule::getJson() const {
   });
 }
 
-void cfg::Configuration::save(std::string file_path) {
-  const std::lock_guard<std::mutex> lock(file_lock_);
-  
-  std::ofstream out(file_path);
-  
-  if (out.fail()) {
-    error(data::LogId::CONFIG_failedToSaveToPath, file_path);
-    return;
-  }
-  
-  json config_json = {
+void cfg::Configuration::getAllJson(json &all_data) const {
+  all_data = {
     {"general", general.getJson()}
 ,    {"data_module_data", data_module_data.getJson()}
 ,    {"data_module_influxdb", data_module_influxdb.getJson()}
@@ -1189,6 +1180,21 @@ void cfg::Configuration::save(std::string file_path) {
 ,    {"telemetry_data_packets", telemetry_data_packets.getJson()}
 ,    {"extension_module", extension_module.getJson()}
   };
+}
+  
+void cfg::Configuration::save(std::string file_path) {
+  const std::lock_guard<std::mutex> lock(file_lock_);
+  
+  std::ofstream out(file_path);
+  
+  if (out.fail()) {
+    error(data::LogId::CONFIG_failedToSaveToPath, file_path);
+    return;
+  }
+  
+  json config_json;
+  getAllJson(config_json);
+
   constexpr int json_indent = 2;
   std::string data = config_json.dump(json_indent);
   out << data;

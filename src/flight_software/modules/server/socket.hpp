@@ -1,5 +1,5 @@
-#ifndef SOCKET_H_
-#define SOCKET_H_
+#ifndef SOCKET_HPP_
+#define SOCKET_HPP_
 
 #include <netinet/in.h>
 
@@ -21,6 +21,7 @@ class TcpSocketServer {
   bool bind(const int port);
   bool listen() const;
   bool accept(sock::TcpSocketServer &sock);
+  bool close();
 
   bool send(const std::string &data) const;
   bool receive(std::string &data) const;

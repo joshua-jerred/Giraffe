@@ -13,7 +13,7 @@
 
 FlightRunner flight;
 
-void signalHandler(int signal_number) {
+auto signalHandler(int signal_number) -> void {
     signal(SIGINT, signalHandler);
     if (signal_number == SIGINT) {
         flight.shutdown();
@@ -29,7 +29,7 @@ void signalHandler(int signal_number) {
  * @todo update docs
  * @bug FlightRunner currently only returns 0.
  */ 
-int main(void) {
+auto main() -> int {
     signal(SIGINT, signalHandler); // Register signal handler
     return flight.start();
 }

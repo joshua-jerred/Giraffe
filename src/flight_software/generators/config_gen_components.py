@@ -28,6 +28,8 @@ def getConfigurationClass(initializers, private_members):
 {0}
     streams_(streams){{}}
     
+    void getAllJson(json &all_data) const;
+    
     void save(std::string file_path = "");
     void load(std::string file_path = "");
 
@@ -61,6 +63,11 @@ def getConfigurationSaveAndLoad(members):
         json_loaders += f'\n{IND*2}error(data::LogId::CONFIG_failedToLoadSectionNotFound, "{member}");'
         json_loaders += f'\n{IND}}}\n\n'
     return """
+void cfg::Configuration::getAllJson(json &all_data) const {{
+  all_data = {{
+{0}  }};
+}}
+  
 void cfg::Configuration::save(std::string file_path) {{
   const std::lock_guard<std::mutex> lock(file_lock_);
   
@@ -71,8 +78,9 @@ void cfg::Configuration::save(std::string file_path) {{
     return;
   }}
   
-  json config_json = {{
-{0}  }};
+  json config_json;
+  getAllJson(config_json);
+
   constexpr int json_indent = 2;
   std::string data = config_json.dump(json_indent);
   out << data;

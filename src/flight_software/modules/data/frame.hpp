@@ -68,7 +68,7 @@ class Frame {
 
 
   private:
-    std::mutex frame_lock_ = std::mutex();
+    mutable std::mutex frame_lock_ = std::mutex();
     std::unordered_map<ID, DATA> frame_ = std::unordered_map<ID, DATA>();
 };
 

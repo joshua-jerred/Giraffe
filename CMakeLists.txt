@@ -10,6 +10,10 @@ include(${CMAKE_SOURCE_DIR}/directories.cmake)
 include(${CMAKE_SOURCE_DIR}/source_list.cmake)
 # -----------------------------------
 
+# Clang-Tidy
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+# find_program(CLANG_TIDY_EXE NAMES "clang-tidy") 
+# set(CLANG_TIDY_CMD "${CLANG_TIDY_EXE}" "-checks=-*,modernize-*")
 
 # ---- Version File Parseing ----
 file(READ ${CMAKE_SOURCE_DIR}/src/version ver_file)

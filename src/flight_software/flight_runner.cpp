@@ -8,8 +8,6 @@
 // #include "interface.h"
 // #include "timer.h"
 
-FlightRunner::FlightRunner() {}
-
 FlightRunner::~FlightRunner() {
   p_system_module_->stop();
   delete p_system_module_;
@@ -39,7 +37,7 @@ FlightRunner::~FlightRunner() {
 //   }
 // }
 
-int FlightRunner::start() {
+auto FlightRunner::start() -> int {
   std::cout << "Giraffe Flight Software v" << configurables::kGiraffeVersion
             << std::endl;
 
@@ -124,13 +122,17 @@ int FlightRunner::start() {
   return flightLoop(); // This will only return on shutdown
 }
 
-void FlightRunner::shutdown() {
+/**
+ * @brief Called from main via a keyboard interrupt, this function sends a
+ * shutdown signal to the flight runner.
+ */
+auto FlightRunner::shutdown() -> void {
   std::cout << "Shutting down" << std::endl;
   shutdown_signal_ = true;
   return;
 }
 
-int FlightRunner::flightLoop() {
+auto FlightRunner::flightLoop() -> int {
 
   std::cout << "Starting Flight Procedure" << std::endl;
   // Timer tsl_data_log;  // Refer to timer.h

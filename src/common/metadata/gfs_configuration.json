@@ -295,7 +295,7 @@
             "type": "bool",
             "name": "TCP Socket Enabled",
             "description": "",
-            "default": false,
+            "default": true,
             "true": "enabled",
             "false": "disabled"
         },

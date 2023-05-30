@@ -9,7 +9,12 @@ modules::DataModule::DataModule(data::SharedData &shared_data,
                                 cfg::Configuration &config)
     : modules::Module(metadata, shared_data, config) {}
 
-modules::DataModule::~DataModule() {}
+modules::DataModule::~DataModule() {
+  (void) shared_data_;
+  /**
+   * @todo Empty the streams
+   */
+}
 
 void modules::DataModule::startup() {
   sleep(); // wait to start

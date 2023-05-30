@@ -2,26 +2,26 @@
 #define FLIGHT_RUNNER_H_
 
 #include "configuration.hpp"
-#include "data_module.h"
 #include "console_module.h"
+#include "data_module.h"
 #include "server_module.h"
-#include "system_module.hpp"
 #include "shared_data.hpp"
+#include "system_module.hpp"
 
 class FlightRunner {
- public:
-  FlightRunner();
+public:
+  FlightRunner() = default;
 
-  FlightRunner(const FlightRunner &) = delete;  // No copy constructor
-  FlightRunner &operator=(const FlightRunner &) = delete;  // No copy assignment
+  FlightRunner(const FlightRunner &) = delete;            // No copy constructor
+  FlightRunner &operator=(const FlightRunner &) = delete; // No copy assignment
 
   ~FlightRunner();
 
-  int start();
-  void shutdown();
+  auto start() -> int;
+  auto shutdown() -> void;
 
- private:
-  int flightLoop();
+private:
+  auto flightLoop() -> int;
 
   bool shutdown_signal_ = false;
   data::SharedData shared_data_ = data::SharedData();
@@ -32,7 +32,6 @@ class FlightRunner {
   modules::ConsoleModule *p_console_module_ = nullptr;
   modules::ServerModule *p_server_module_ = nullptr;
   modules::SystemModule *p_system_module_ = nullptr;
-
 
   //  void healthCheck();
 

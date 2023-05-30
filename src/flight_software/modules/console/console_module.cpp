@@ -9,14 +9,17 @@ static modules::MetaData metadata("console_module",
 
 modules::ConsoleModule::ConsoleModule(data::SharedData &shared_data,
                                       cfg::Configuration &config)
-    : modules::Module(metadata, shared_data, config), pages_(shared_data), ncurs_env_(pages_) {
+    : modules::Module(metadata, shared_data, config),
+      pages_(config, shared_data), ncurs_env_(pages_) {
   metadata_.sleep_interval_ =
       100; // for key board processing, not the actual update rate
 }
 
 modules::ConsoleModule::~ConsoleModule() {}
 
-void modules::ConsoleModule::startup() { ncurs_env_.start(metadata_.sleep_interval_); }
+void modules::ConsoleModule::startup() {
+  ncurs_env_.start(metadata_.sleep_interval_);
+}
 
 void modules::ConsoleModule::loop() { ncurs_env_.update(); }
 

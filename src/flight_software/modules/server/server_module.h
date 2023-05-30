@@ -11,16 +11,16 @@
 
 #include "module.hpp"
 #include "request_handler.hpp"
-#include "socket.h"
+#include "socket.hpp"
 
 namespace modules {
 
 class ServerModule : public Module {
- public:
+public:
   ServerModule(data::SharedData &, cfg::Configuration &);
-  ~ServerModule() override;
+  ~ServerModule() override = default;
 
- private:
+private:
   void startup() override;
   void loop() override;
   void shutdown() override;
@@ -30,6 +30,6 @@ class ServerModule : public Module {
   req::RequestRouter request_router_;
 };
 
-}  // namespace modules
+} // namespace modules
 
 #endif

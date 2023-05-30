@@ -392,7 +392,7 @@ public:
   json getJson() const;
 
 private:
-  bool enabled_ = false;
+  bool enabled_ = true;
   int tcp_socket_port_ = 7893;
 };
 
@@ -539,6 +539,8 @@ class Configuration {
   Configuration(data::Streams &streams):
     general(streams),    data_module_data(streams),    data_module_influxdb(streams),    data_module_log(streams),    console_module(streams),    server_module(streams),    system_module(streams),    telemetry(streams),    telemetry_aprs(streams),    telemetry_sstv(streams),    telemetry_data_packets(streams),    extension_module(streams),
     streams_(streams){}
+    
+    void getAllJson(json &all_data) const;
     
     void save(std::string file_path = "");
     void load(std::string file_path = "");

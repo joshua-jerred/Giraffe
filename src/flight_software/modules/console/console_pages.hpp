@@ -1,6 +1,7 @@
 #ifndef CONSOLE_PAGES_HPP_
 #define CONSOLE_PAGES_HPP_
 
+#include "configuration.hpp"
 #include "shared_data.hpp"
 #include <array>
 #include <string>
@@ -17,7 +18,8 @@ typedef std::vector<Option> Menu;
 
 class Pages {
 public:
-  Pages(data::SharedData &shared_data) : shared_data_(shared_data) {}
+  Pages(cfg::Configuration &config, data::SharedData &shared_data)
+      : config_(config), shared_data_(shared_data) {}
   ~Pages() = default;
 
   std::array<std::string, kNumPageLines> getCurrentPage();
@@ -31,10 +33,11 @@ private:
   void server();
   void console();
 
-  PageOption current_page_ = PageOption::GFS_STATUS;
+  cfg::Configuration &config_;
   data::SharedData &shared_data_;
-  std::array<std::string, kNumPageLines> content_ = {"Test", "Test2",
-                                                          "Test3"};
+
+  PageOption current_page_ = PageOption::GFS_STATUS;
+  std::array<std::string, kNumPageLines> content_ = {"Test", "Test2", "Test3"};
   Menu current_menu_ = {
       {"GFS Status", PageOption::GFS_STATUS},
       {"Data", PageOption::DATA},
