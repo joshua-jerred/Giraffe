@@ -1,0 +1,28 @@
+{
+  "base_packet_fields": {
+    "src": {
+      "name": "Packet Source",
+      "options":[
+        "ggs",
+        "gfs",
+        "web_client",
+        "ggs_telemetry"
+      ]
+    },
+    "dst": {
+      "name": "Packet Destination",
+      "options":[
+        "ggs",
+        "gfs",
+        "web_client",
+        "ggs_telemetry"
+      ]
+    },
+    "type": {
+      "name": "Packet Type"
+    },
+    "body": {
+      "name": "Packet Body"
+    }
+  }
+}

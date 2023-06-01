@@ -17,8 +17,12 @@
         "console": {
             "name": "Console Module Status"
         },
-        "server": {},
-        "system": {}
+        "server": {
+
+        },
+        "system": {
+            
+        }
     },
     "system_module": {
         "cpu": {}
