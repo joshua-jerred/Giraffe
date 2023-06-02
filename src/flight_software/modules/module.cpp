@@ -4,9 +4,7 @@
  * @brief Implementation of the module base class.
  * @date 2023-02-14
  * @copyright Copyright (c) 2023
- * @version 0.4
- *
- * @todo Documentation
+ * @version 0.5
  */
 
 #include "module.hpp"
@@ -44,9 +42,6 @@ void modules::Module::stop() {
 
 node::Status modules::Module::getStatus() const { return status_; }
 
-/**
- * @todo report status to status stream
- */
 void modules::Module::setStatus(const node::Status status) {
   status_ = status;
   shared_data_.streams.data.reportStatus(metadata_.id_, status);

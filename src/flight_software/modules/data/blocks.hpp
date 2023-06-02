@@ -3,9 +3,9 @@
 
 #include <mutex>
 
-#include <BoosterSeat/time.hpp> 
-#include <BoosterSeat/clock.hpp>
 #include "node.h"
+#include <BoosterSeat/clock.hpp>
+#include <BoosterSeat/time.hpp>
 
 namespace data {
 
@@ -13,9 +13,8 @@ namespace data {
  * @brief Simple Struct Container with a mutex.
  * The struct must have a valid default constructor.
  */
-template <class T>
-class Block {
- public:
+template <class T> class Block {
+public:
   void set(T data) {
     std::lock_guard<std::mutex> lock(mutex_);
     data_ = data;
@@ -37,19 +36,25 @@ class Block {
     return BoosterSeat::clck::secondsElapsed(last_updated_);
   }
 
- private:
+private:
   std::mutex mutex_ = std::mutex();
-  T data_ = T();  // Must have default constructor
+  T data_ = T(); // Must have default constructor
   BoosterSeat::clck::TimePoint last_updated_ = BoosterSeat::clck::now();
 };
 
 namespace blocks {
 
+/**
+ * @todo implement this
+ */
 struct ConfigurationStats { // Set by the data module
   int load_errors = 0;
   int save_errors = 0;
 };
 
+/**
+ * @brief Struct containing the status of each module.
+ */
 struct ModulesStatuses { // Set by the data module
   node::Status data = node::Status::UNKNOWN;
   node::Status console = node::Status::UNKNOWN;
@@ -57,6 +62,9 @@ struct ModulesStatuses { // Set by the data module
   node::Status system = node::Status::UNKNOWN;
 };
 
+/**
+ * @todo implement this
+ */
 struct ServerModuleStats { // Set by the server module
   bool enabled = false;
   int total_packets_received = 0;
@@ -67,7 +75,10 @@ struct ServerModuleStats { // Set by the server module
   std::string connection_status = "none";
 };
 
-struct StreamsStats {  // Set by the data module
+/**
+ * @brief Struct containing statistics about the data and log streams.
+ */
+struct StreamsStats { // Set by the data module
   struct StreamStats {
     int current_packets = 0;
     int total_packets = 0;
@@ -78,13 +89,16 @@ struct StreamsStats {  // Set by the data module
   StreamStats log = StreamStats();
 };
 
+/**
+ * @brief Struct containing system information related to the system module.
+ */
 struct SystemInfo { // Set by the system module
   // misc
   float uptime_hours = 0.0;
 
   // cpu
-  float cpu_load_avg_1 = 0.0; // 1 minute
-  float cpu_load_avg_5 = 0.0; // 5 minutes
+  float cpu_load_avg_1 = 0.0;  // 1 minute
+  float cpu_load_avg_5 = 0.0;  // 5 minutes
   float cpu_load_avg_15 = 0.0; // 15 minutes
   float cpu_temp_c = 0.0;
 
@@ -106,8 +120,8 @@ struct SystemInfo { // Set by the system module
   // network (tbd)
 };
 
-}  // namespace blocks
+} // namespace blocks
 
-}  // namespace data
+} // namespace data
 
 #endif

@@ -101,11 +101,6 @@ auto RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
                                          protocol::Message &msg) -> void {
   std::string res_body;
 
-  //if (msg.body_.length() < 2 || msg.body_.length() > 30) {
-  //  sendErrorPacket(client, "setting section malformed");
-  //  return;
-  //}
-
   json all_config;
   config_.getAllJson(all_config);
   std::cout << "body: " << msg.body_ << std::endl;
@@ -124,12 +119,14 @@ auto RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
   client.send(setting_response.getMessageString());
 }
 
+/**
+ * @brief This function responds to data requests.
+ * 
+ * @param client 
+ * @param msg 
+ */
 auto RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
                                       protocol::Message &msg) -> void {
-  //if (msg.body_.length() < 2 || msg.body_.length() > 30) {
-  //  sendErrorPacket(client, "data section malformed");
-  //  return;
-  //}
   
   std::string requested_data = "";
   try {
