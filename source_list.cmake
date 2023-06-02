@@ -18,6 +18,8 @@ set(gfs_sources
 
 	# data module
 	${GFS_SRC}/modules/data/data_module.cpp
+	${GFS_SRC}/modules/data/data_log.cpp
+	${GFS_SRC}/modules/data/influxdb.cpp
 
 	# console module
 	${GFS_SRC}/modules/console/console_module.cpp

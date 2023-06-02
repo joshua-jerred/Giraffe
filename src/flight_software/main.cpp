@@ -7,6 +7,9 @@
  * @copyright Copyright (c) 2022
  */
 
+// Suppress exceptions from BoosterSeat
+//#define BOOSTERSEAT_NO_EXCEPTION
+
 #include <csignal>
 
 #include "flight_runner.hpp"
