@@ -9,12 +9,13 @@ import os
 INDENT = "  "
 SECTION_TYPE_KEY = "SECTION_TYPE"
 SECTION_ID_KEY = "ID"
+LIST_STRUCT_NAME_KEY = "LIST_STRUCT_NAME"
 
 CFG_NAMESPACE = "cfg"
 CFG_ENUM_NAMESPACE = "gEnum"
 CFG_JSON_NAMESPACE = "json_data"
 
-RESERVED_KEYS = [SECTION_TYPE_KEY, SECTION_ID_KEY]
+RESERVED_KEYS = [SECTION_TYPE_KEY, SECTION_ID_KEY, LIST_STRUCT_NAME_KEY]
 
 STRUCTURE_FILE_NAME = "configuration"
 JSON_FILE_NAME = "configuration"
@@ -23,12 +24,9 @@ JSON_FILE_NAME = "configuration"
 def defData(json_section_key, json_setting_key, name):
     return {"json_section_key": json_section_key, "json_setting_key": json_setting_key, "name": name}
 
-class SectionItem:
-    def __init__(self, default_data):
-        self.default = default_data
-    
-    def getDataMember(self):
-        return f"{self.type} {self.member_name} = default;"
+def structType(name):
+    name = name.replace("_", " ").title().replace(" ", "")
+    return f'{CFG_NAMESPACE}::{name}'
 
 def enumType(name):
     name = name.replace("_", " ").title().replace(" ", "")
@@ -165,8 +163,12 @@ class SectionItem:
 
 
 class Section:
-    def __init__(self, section_id):
+    def __init__(self, section_id, is_list, list_struct_name = None):
         self.section_member = section_id # The member name in the main struct
+        self.is_list = is_list
+        if is_list:
+            self.list_name = section_id
+            self.section_member = list_struct_name
         sec_id = section_id.split("_")
         self.section_id = ""
         for i in sec_id:
@@ -199,7 +201,11 @@ class Section:
         return ret_str
     
     def getStructDecString(self):
-        return f"{INDENT}{CFG_NAMESPACE}::{self.section_id} {self.section_member};" # = {CFG_NAMESPACE}::{self.section_id}(streams_);"
+        if not self.is_list:
+            return f"{INDENT}{CFG_NAMESPACE}::{self.section_id} {self.section_member};" # = {CFG_NAMESPACE}::{self.section_id}(streams_);"
+        else:
+            vector_type = structType(self.list_name)
+            return f"{INDENT}std::vector<{vector_type}> {self.section_member} = {{}};"
 
     def _public_members(self):
         public = ""
@@ -287,21 +293,18 @@ class ConfigGen:
                 continue
 
             if self.sec_type == "struct":
-                self.parseStructSection()
+                self.parseStructSection(False)
             elif self.sec_type == "list":
-                self.error("list not implemented")
+                list_name = self.sec_contents["LIST_STRUCT_NAME"]
+                self.parseStructSection(True, list_name)
             else:
                 self.error("Invalid Section Type")
             
             self.StructureHeader()
             self.StructureCpp()
-            # temporary
-            if i == 12:
-                return 
-            i += 1
 
-    def parseStructSection(self):
-        section = Section(self.sec_id)
+    def parseStructSection(self, is_list, list_name=""):
+        section = Section(self.sec_id, is_list, list_name)
         for key in self.sec_contents:
             if key in RESERVED_KEYS:
                 continue
@@ -317,7 +320,6 @@ class ConfigGen:
             set_pattern = ""
             
             cpp_type = ""
-            cpp_member_name = key
             
             if set_type == "string":
                 cpp_type = "std::string"
@@ -363,7 +365,7 @@ class ConfigGen:
         self.sections.append(section)
             
     def StructureHeader(self):
-        STRUCTURE_FILE_INCLUDES = ["<string>", "<fstream>", "<mutex>", "<unordered_map>", "<nlohmann/json.hpp>", '"shared_data.hpp"']
+        STRUCTURE_FILE_INCLUDES = ["<string>", "<fstream>", "<mutex>", "<unordered_map>", "<vector>", "<nlohmann/json.hpp>", '"shared_data.hpp"']
         
         file = utils.headerFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
         file += "using json = nlohmann::ordered_json;\n\n"
@@ -390,8 +392,10 @@ class ConfigGen:
         general_config_member_names = []
         general_class_member_decs = []
         for section in self.sections:
-            general_config_member_names.append(section.section_member)
             general_class_member_decs.append(f"{section.getStructDecString().strip()}")
+            if section.is_list:
+                continue
+            general_config_member_names.append(section.section_member)
             
         file += config_gen_components.getConfigurationClass(general_config_member_names, general_class_member_decs)
         

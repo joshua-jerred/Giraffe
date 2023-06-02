@@ -527,15 +527,86 @@
             "pattern": ""
         }
     },
-    "telemetry_radios": {
+    "telemetry_radio": {
         "SECTION_TYPE":"list",
-        "list": []
+        "LIST_STRUCT_NAME":"radios"
     },
     "extension_module": {
         "SECTION_TYPE":"struct"
     },
-    "extensions": {
-        "SECTION_TYPE":"list"
+    "extension": {
+        "SECTION_TYPE":"list",
+        "LIST_STRUCT_NAME":"extensions",
+        "enabled":{
+            "type": "bool",
+            "name": "Extensions Enabled",
+            "description": "Indicates whether or an extension is enabled.",
+            "default": false,
+            
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "name": {
+            "type": "string",
+            "name": "Name",
+            "description": "The name of the extension.",
+            "default": "no_name",
+            "max": 20,
+            "min": 1,
+            "pattern": ""
+        },
+        "extension_type": {
+            "type": "enum",
+            "name": "Extension Type",
+            "description": "The type of extension.",
+            "default": "none",
+
+            "enum_name":"extension_type",
+            "options": [
+                "bmp180",
+                "bme280",
+                "ds18b20",
+                "ublox_sam_m8q",
+                "mcp3021",
+                "rpi_camera",
+                "sim_gps",
+                "none"
+            ]
+        },
+        "interface_type": {
+            "type": "enum",
+            "name": "Interface Type",
+            "description": "The interface that the extension will use.",
+            "default": "none",
+
+            "enum_name":"extension_interface",
+            "options": [
+                "i2c",
+                "spi",
+                "uart",
+                "gpio",
+                "none",
+                "internal"
+            ]
+        },
+        "update_interval": {
+            "type": "int",
+            "name": "Update Interval",
+            "description": "The interval at which the extension will be updated. This is in milliseconds.",
+            "default": 1000,
+            
+            "max": 10000,
+            "min": 1
+        },
+        "critical": {
+            "type": "bool",
+            "name": "Critical",
+            "description": "If enabled, the extension will be considered critical. This is used to determine if it's safe to disable the extension depending on the flight procedure.",
+            "default": false,
+            
+            "true": "enabled",
+            "false": "disabled"
+        }
     },
     "flight_procedures": {
         "SECTION_TYPE":"struct"
