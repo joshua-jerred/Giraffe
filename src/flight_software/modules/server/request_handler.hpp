@@ -23,6 +23,8 @@ private:
   void handleSettingRequest(sock::TcpSocketServer &client,
                             protocol::Message &msg);
 
+  void handleDataRequest(sock::TcpSocketServer &client, protocol::Message &msg);
+
   data::SharedData &shared_data_;
   cfg::Configuration &config_;
 };

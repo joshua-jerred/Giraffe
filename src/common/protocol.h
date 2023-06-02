@@ -11,13 +11,16 @@
 
 #include <stdexcept>
 #include <string>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::ordered_json;
 
 namespace protocol {
 enum class Endpoint { UNKNOWN, GFS, GGS, CLIENT, TELEMETRY };
 enum class Type { UNKNOWN, INFO, REQUEST, SET, RESPONSE };
 enum class Category { UNKNOWN, PING, DATA, SETTING, ERROR };
 typedef std::string Id;
-typedef std::string Body;
+typedef json Body;
 
 protocol::Id generateId();
 

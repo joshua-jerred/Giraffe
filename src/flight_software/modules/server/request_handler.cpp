@@ -1,4 +1,5 @@
 #include "request_handler.hpp"
+#include "to_json.hpp"
 #include <iostream> /** @todo remove this */
 
 using namespace req;
@@ -10,7 +11,8 @@ using namespace req;
  */
 RequestRouter::RequestRouter(data::SharedData &shared_data,
                              cfg::Configuration &config)
-    : shared_data_(shared_data), config_(config) {}
+    : shared_data_(shared_data), config_(config) {
+}
 
 /**
  * @brief This function is responsible for parsing a request and routing it to
@@ -43,6 +45,8 @@ void RequestRouter::handleRequest(sock::TcpSocketServer &client,
         return handlePingRequest(client, msg);
       } else if (msg.cat_ == protocol::Category::SETTING) {
         return handleSettingRequest(client, msg);
+      } else if (msg.cat_ == protocol::Category::DATA) {
+        return handleDataRequest(client, msg);
       }
     }
 
@@ -97,10 +101,10 @@ auto RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
                                          protocol::Message &msg) -> void {
   std::string res_body;
 
-  if (msg.body_.length() < 2 || msg.body_.length() > 30) {
-    sendErrorPacket(client, "setting section malformed");
-    return;
-  }
+  //if (msg.body_.length() < 2 || msg.body_.length() > 30) {
+  //  sendErrorPacket(client, "setting section malformed");
+  //  return;
+  //}
 
   json all_config;
   config_.getAllJson(all_config);
@@ -118,4 +122,34 @@ auto RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
       protocol::Category::SETTING, msg.id_, res_body);
 
   client.send(setting_response.getMessageString());
+}
+
+auto RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
+                                      protocol::Message &msg) -> void {
+  //if (msg.body_.length() < 2 || msg.body_.length() > 30) {
+  //  sendErrorPacket(client, "data section malformed");
+  //  return;
+  //}
+  
+  std::string requested_data = "";
+  try {
+    requested_data = msg.body_["section"].get<std::string>();
+  } catch (const std::exception &e) {
+    sendErrorPacket(client, "data section malformed " + std::string(e.what()));
+    return;
+  }
+
+  json res_body;
+  if (requested_data == "system_info") {
+    res_body = to_json(shared_data_.blocks.system_info.get());
+  } else {
+    sendErrorPacket(client, "data section not found");
+    return;
+  }
+
+  protocol::Message data_response(protocol::Endpoint::GFS, msg.src_,
+                                  protocol::Type::RESPONSE,
+                                  protocol::Category::DATA, msg.id_, res_body);
+
+  client.send(data_response.getMessageString());
 }

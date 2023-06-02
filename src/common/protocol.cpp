@@ -146,7 +146,7 @@ protocol::Message::Message(const std::string& json_string) {
   typ_ = stringToType(message_json["typ"].get<std::string>());
   cat_ = stringToCategory(message_json["cat"].get<std::string>());
   id_ = message_json["id"].get<std::string>();
-  body_ = message_json["body"].get<std::string>();
+  body_ = message_json["body"];
 }
 
 std::string protocol::Message::getMessageString() {

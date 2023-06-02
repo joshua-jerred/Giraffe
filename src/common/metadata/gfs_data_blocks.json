@@ -1,0 +1,60 @@
+{
+  "system_info": {
+    "uptime_hours": {
+      "name": "",
+      "description": ""
+    },
+    "cpu_load_avg_1": {
+      "name": "",
+      "description": ""
+    },
+    "cpu_load_avg_5": {
+      "name": "",
+      "description": ""
+    },
+    "cpu_load_avg_15": {
+      "name": "",
+      "description": ""
+    },
+    "cpu_temp_c": {
+      "name": "",
+      "description": ""
+    },
+    "mem_total_gb": {
+      "name": "",
+      "description": ""
+    },
+    "mem_free_gb": {
+      "name": "",
+      "description": ""
+    },
+    "mem_used_percent": {
+      "name": "",
+      "description": ""
+    },
+    "swap_total_gb": {
+      "name": "",
+      "description": ""
+    },
+    "swap_free_gb": {
+      "name": "",
+      "description": ""
+    },
+    "swap_used_percent": {
+      "name": "",
+      "description": ""
+    },
+    "disk_total_gb": {
+      "name": "",
+      "description": ""
+    },
+    "disk_free_gb": {
+      "name": "",
+      "description": ""
+    },
+    "disk_used_percent": {
+      "name": "",
+      "description": ""
+    }
+  }
+}
