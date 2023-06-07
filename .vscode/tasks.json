@@ -2,6 +2,16 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+			"label": "Clang Tidy",
+			"type": "shell",
+			"command": "",
+			"detail": "Run clang-tidy on the project",
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			},
+		},
+		{
 			"label": "generate data ids",
 			"type": "shell",
 			"command": "python3 ${workspaceFolder}/src/flight_software/generators/ids_gen.py",

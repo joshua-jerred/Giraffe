@@ -73,7 +73,7 @@ class Environment {
 
   std::string last_key = "";  // Remove this
 
-  const int kHeight_ = 15;
+  const int kHeight_ = pages_.getNumLines() + 2;
   const int kMenuWidth_ = 25;
   const int kDataWidth_ = 40;
   const int kPadding_ = 1;

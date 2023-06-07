@@ -9,7 +9,7 @@
 #include <vector>
 
 namespace console_pages {
-inline constexpr int kNumPageLines = 12;
+inline constexpr int kNumPageLines = 15;
 
 enum class PageOption { GFS_STATUS, DATA, LOG, SERVER, CONSOLE, BACK };
 
@@ -26,6 +26,8 @@ public:
   Menu getCurrentMenu();
   void navigateMenu(PageOption key);
 
+  int getNumLines() const { return kNumPageLines; }
+
 private:
   void gfsStatus();
   void data();
@@ -37,7 +39,7 @@ private:
   data::SharedData &shared_data_;
 
   PageOption current_page_ = PageOption::GFS_STATUS;
-  std::array<std::string, kNumPageLines> content_ = {"Test", "Test2", "Test3"};
+  std::array<std::string, kNumPageLines> content_ = {};
   Menu current_menu_ = {
       {"GFS Status", PageOption::GFS_STATUS},
       {"Data", PageOption::DATA},

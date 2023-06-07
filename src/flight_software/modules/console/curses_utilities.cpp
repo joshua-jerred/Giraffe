@@ -52,14 +52,14 @@ void ncurs::Environment::start(int endpoint_update_rate_ms) {
 void ncurs::Environment::update() {
   checkInput();
 
+  data_window_.win_reset();
+
   static giraffe_time::TimePoint update_clock = giraffe_time::Clock::now();
   int mils_elapsed = giraffe_time::millisecondsElapsed(update_clock);
   if (mils_elapsed > endpoint_update_rate_ms_) {
     displayData();
     update_clock = giraffe_time::Clock::now();
   }
-  //  menu_window_.refreshWindow();
-  //  wrefresh(screen_);
 }
 
 void ncurs::Environment::end() {

@@ -84,6 +84,20 @@
     "cinttypes": "cpp",
     "typeinfo": "cpp",
     "valarray": "cpp",
-    "variant": "cpp"
-  }
+    "variant": "cpp",
+    "cassert": "cpp",
+    "cerrno": "cpp",
+    "cfloat": "cpp",
+    "climits": "cpp",
+    "filesystem": "cpp",
+    "ios": "cpp",
+    "locale": "cpp",
+    "queue": "cpp",
+    "stack": "cpp",
+    "cstdbool": "cpp",
+    "version": "cpp"
+  },
+  "docwriter.hotkey.mac": "⌥ + .",
+  "docwriter.progress.trackClasses": true,
+  "docwriter.progress.trackTypes": true
 }

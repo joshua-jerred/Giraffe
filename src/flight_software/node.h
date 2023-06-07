@@ -5,6 +5,10 @@
 
 namespace node {
 
+/**
+ * @brief Node identification, used for logging, telemetry, command routing,
+ * and more.
+ */
 enum class Identification {
   UNKNOWN,
   FLIGHT_RUNNER,
@@ -15,6 +19,10 @@ enum class Identification {
   SYSTEM_MODULE
 };
 
+/**
+ * @brief Map of node identification to string
+ * @see node::Identification
+ */
 static const std::map<Identification, std::string> identification_to_string = {
     {Identification::UNKNOWN, "unknown"},
     {Identification::FLIGHT_RUNNER, "flight_runner"},
@@ -24,6 +32,9 @@ static const std::map<Identification, std::string> identification_to_string = {
     {Identification::SERVER_MODULE, "server_module"},
     {Identification::SYSTEM_MODULE, "system_module"}};
 
+/**
+ * @brief Node status, used for modules and extensions.
+ */
 enum class Status {
   UNKNOWN,
   DISABLED,
@@ -35,6 +46,10 @@ enum class Status {
   ERROR
 };
 
+/**
+ * @brief Map of node status to string
+ * @see node::Status
+ */
 static const std::map<Status, std::string> status_to_string = {
     {Status::UNKNOWN, "unknown"},   {Status::DISABLED, "disabled"},
     {Status::STOPPED, "stopped"},   {Status::STARTING, "starting"},

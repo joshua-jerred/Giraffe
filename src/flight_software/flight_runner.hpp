@@ -1,5 +1,5 @@
-#ifndef FLIGHT_RUNNER_H_
-#define FLIGHT_RUNNER_H_
+#ifndef FLIGHT_RUNNER_HPP_
+#define FLIGHT_RUNNER_HPP_
 
 #include "configuration.hpp"
 #include "console_module.h"

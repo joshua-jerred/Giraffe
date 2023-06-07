@@ -1,25 +1,25 @@
 #include "data_log.hpp"
+#include <BoosterSeat/filesystem.hpp>
+#include <BoosterSeat/time.hpp>
 #include <nlohmann/json.hpp>
 
 #include <iostream>
 
 using namespace data_middleware;
 
-/**
- * @brief Construct a new DataLog::DataLog object
- * 
- * @param shared_data @see data::SharedData
- * @param config @see cfg::Configuration
- */
+std::string generateFileName() {
+  std::string file_name = "data_log_" + BoosterSeat::time::getDateAndTimeStr();
+  file_name += ".txt";
+  return file_name;
+}
+
 DataLog::DataLog(data::SharedData &shared_data, cfg::Configuration &config)
     : shared_data_(shared_data), config_(config) {
   data_frame_stopwatch_.start();
+  data_log_file_path_ = kDataLogPath + generateFileName();
+  checkFileSystem();
 };
 
-/**
- * @brief Used to add a single data packet to the file log.
- * @param packet @see data::DataPacket
- */
 void DataLog::logDataPacket(const data::DataPacket &packet) {
   // ignore status packets, there are a lot of them.
   if (packet.type == data::DataPacket::Type::GENERIC) {
@@ -30,10 +30,6 @@ void DataLog::logDataPacket(const data::DataPacket &packet) {
   }
 }
 
-/**
- * @brief Used for periodic logging of all data.
- * @param packet @see data::LogPacket
- */
 void DataLog::logDataFrame() {
   int log_interval_ms = config_.data_module_data.getLogIntervalMs();
   int time_since_last_log_ms =
@@ -47,26 +43,21 @@ void DataLog::logDataFrame() {
   }
 }
 
-/**
- * @brief Used to log a single log packet to the file log.
- * @param packet @see data::LogPacket
- */
 void DataLog::logLogPacket(const data::LogPacket &packet) {
   (void)packet;
   std::cout << "DataLog::logLogPacket" << std::endl;
 }
 
-/**
- * @brief Creates a new data log file.
- */
-void DataLog::createDataLogFile() {
+void DataLog::checkFileSystem() {
   std::cout << "DataLog::createDataLogFile" << std::endl;
+  data::blocks::DataLogStats data_log_stats =
+      shared_data_.blocks.data_log_stats.get();
+  
+  data_log_stats.data_log_file_path = data_log_file_path_;
+
+  shared_data_.blocks.data_log_stats.set(data_log_stats);
 }
 
-/**
- * @brief Appends a string to the data log file.
- * @param text The string to append to the data log file.
- */
 void DataLog::appendStringToDataLog(const std::string &text) {
   (void)text;
   std::cout << "DataLog::appendStringToDataLog" << std::endl;

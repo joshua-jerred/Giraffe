@@ -6,7 +6,7 @@
 #include <BoosterSeat/numbers.hpp>
 
 using json = nlohmann::ordered_json;
-inline auto rnd = BoosterSeat::doubleToPrecisionTwo;
+inline auto rnd = BoosterSeat::numbers::doubleToPrecisionTwo;
 
 static json to_json(const data::blocks::SystemInfo &system_info) {
   json j;

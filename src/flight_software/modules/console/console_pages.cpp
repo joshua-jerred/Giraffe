@@ -3,13 +3,18 @@
 #include <BoosterSeat/time.hpp>
 #include <functional>
 
-inline std::string b2str(bool val) { return val ? "true" : "false"; }
+inline std::string b2str(bool val) {
+  return val ? "true" : "false";
+}
 inline std::string title_and_data(std::string title, std::string data) {
   return title + ": " + data;
 }
 
 std::array<std::string, console_pages::kNumPageLines>
 console_pages::Pages::getCurrentPage() {
+
+  content_ = {}; // Clear the content (set all lines to "")
+
   switch (current_page_) {
   case PageOption::GFS_STATUS:
     gfsStatus();
@@ -85,14 +90,40 @@ void console_pages::Pages::data() {
            std::to_string(stat.processing_delay_ms);
   };
 
-  content_[0] = "Streams (current/total : delay ms)";
+  content_ = {
+      "Streams (current/total : delay ms)", // -- streams --
+      stream_stat("Data", stats.data),      // data stream
+      stream_stat("Log", stats.log),        // log stream
 
-  content_[1] = stream_stat("Data", stats.data);
+      "", // empty line
 
-  content_[2] = stream_stat("Log", stats.log);
+      " -- Data Logging Config -- ", // -- data logging config --
+      "Enabled: " +
+          b2str(config_.data_module_data.getLogDataToFile()), // enabled
+      "Strategy: " +
+          std::string(cfg::gEnum::LogStrategyToKey(
+              config_.data_module_data.getLogStrategy())), // log strategy
+      "Detail: " +
+          std::string(cfg::gEnum::LogDetailToKey(
+              config_.data_module_data.getLogDetail())), // detail level
+      "Interval (ms): " +
+          std::to_string(
+              config_.data_module_data.getLogIntervalMs()), // log interval
+      "Max File Size (MB): " +
+          std::to_string(config_.data_module_data
+                             .getMaxDataLogFileSizeMb()), // max file size
+      "Max Archive Size (MB): " +
+          std::to_string(config_.data_module_data
+                             .getMaxDataArchiveSizeMb()), // max archive size
+      "Archive Method: " +
+          std::string(cfg::gEnum::ArchiveMethodToKey(
+              config_.data_module_data.getArchiveMethod())) // archive method
+  };
 }
 
-void console_pages::Pages::log() { content_[5] = "log"; }
+void console_pages::Pages::log() {
+  content_[5] = "log";
+}
 
 void console_pages::Pages::server() {
   content_[0] = "Enabled: " + b2str(config_.server_module.getEnabled());
@@ -101,7 +132,9 @@ void console_pages::Pages::server() {
   content_[5] = "server";
 }
 
-void console_pages::Pages::console() { content_[5] = "console"; }
+void console_pages::Pages::console() {
+  content_[5] = "console";
+}
 
 // const console_pages::ConsolePage &console_pages::Pages::gfsStatus() {
 

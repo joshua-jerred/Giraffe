@@ -90,6 +90,15 @@ struct StreamsStats { // Set by the data module
 };
 
 /**
+ * @brief Struct containing statistics about the data log.
+ */
+struct DataLogStats {
+  std::string data_log_file_path = "";
+  bool valid_data_log_file_path = false;
+};
+
+
+/**
  * @brief Struct containing system information related to the system module.
  */
 struct SystemInfo { // Set by the system module
