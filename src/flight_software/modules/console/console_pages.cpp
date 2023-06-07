@@ -10,7 +10,7 @@ inline std::string title_and_data(std::string title, std::string data) {
   return title + ": " + data;
 }
 
-std::array<std::string, console_pages::kNumPageLines>
+const std::array<std::string, console_pages::kMaxNumPageLines>&
 console_pages::Pages::getCurrentPage() {
 
   content_ = {}; // Clear the content (set all lines to "")
@@ -59,6 +59,8 @@ std::string LandR(const std::string &l, const std::string &r) {
   return ret;
 }
 void console_pages::Pages::gfsStatus() {
+  current_num_lines_ = 8;
+
   data::blocks::ModulesStatuses mod_stats =
       shared_data_.blocks.modules_statuses.get();
   data::blocks::SystemInfo sys_info = shared_data_.blocks.system_info.get();
@@ -81,7 +83,11 @@ void console_pages::Pages::gfsStatus() {
 }
 
 void console_pages::Pages::data() {
+  current_num_lines_ = 20;
+
   data::blocks::StreamsStats stats = shared_data_.blocks.stream_stats.get();
+  data::blocks::DataLogStats log_stats =
+      shared_data_.blocks.data_log_stats.get();
 
   auto stream_stat = [](const std::string &name,
                         const data::blocks::StreamsStats::StreamStats &stat) {
@@ -96,7 +102,10 @@ void console_pages::Pages::data() {
       stream_stat("Log", stats.log),        // log stream
 
       "", // empty line
-
+      " -- Data Log Info -- ", // -- data log info --
+      "File: " + log_stats.data_log_file_path,
+      "File Valid: " + b2str(log_stats.valid_data_log_file_path),
+      "",
       " -- Data Logging Config -- ", // -- data logging config --
       "Enabled: " +
           b2str(config_.data_module_data.getLogDataToFile()), // enabled
@@ -122,10 +131,12 @@ void console_pages::Pages::data() {
 }
 
 void console_pages::Pages::log() {
+  current_num_lines_ = 6;
   content_[5] = "log";
 }
 
 void console_pages::Pages::server() {
+  current_num_lines_ = 6;
   content_[0] = "Enabled: " + b2str(config_.server_module.getEnabled());
   content_[1] = "Socket Port: " +
                 std::to_string(config_.server_module.getTcpSocketPort());
@@ -133,7 +144,18 @@ void console_pages::Pages::server() {
 }
 
 void console_pages::Pages::console() {
+  current_num_lines_ = 6;
   content_[5] = "console";
+}
+
+void console_pages::Pages::setNumLinesOnPage(const int num_lines) {
+  if (num_lines > console_pages::kMaxNumPageLines) {
+    // This should never happen as it's an array.
+    // Pick the value properly.
+    throw std::runtime_error("num_lines > kMaxNumLines");
+  }
+
+  current_num_lines_ = num_lines;
 }
 
 // const console_pages::ConsolePage &console_pages::Pages::gfsStatus() {

@@ -9,7 +9,7 @@
 #include <vector>
 
 namespace console_pages {
-inline constexpr int kNumPageLines = 15;
+inline constexpr int kMaxNumPageLines = 20;
 
 enum class PageOption { GFS_STATUS, DATA, LOG, SERVER, CONSOLE, BACK };
 
@@ -22,11 +22,11 @@ public:
       : config_(config), shared_data_(shared_data) {}
   ~Pages() = default;
 
-  std::array<std::string, kNumPageLines> getCurrentPage();
+  const std::array<std::string, kMaxNumPageLines>& getCurrentPage();
+  int getNumLinesOnPage() const { return current_num_lines_; }
   Menu getCurrentMenu();
   void navigateMenu(PageOption key);
-
-  int getNumLines() const { return kNumPageLines; }
+  int getMaxNumPageLines() const { return kMaxNumPageLines; }
 
 private:
   void gfsStatus();
@@ -34,12 +34,14 @@ private:
   void log();
   void server();
   void console();
+  void setNumLinesOnPage(const int num_lines);
 
   cfg::Configuration &config_;
   data::SharedData &shared_data_;
 
   PageOption current_page_ = PageOption::GFS_STATUS;
-  std::array<std::string, kNumPageLines> content_ = {};
+  int current_num_lines_ = 0;
+  std::array<std::string, kMaxNumPageLines> content_ = {};
   Menu current_menu_ = {
       {"GFS Status", PageOption::GFS_STATUS},
       {"Data", PageOption::DATA},

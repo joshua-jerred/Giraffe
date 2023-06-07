@@ -43,6 +43,7 @@ class Window {
   int x_ = 0;
   int y_ = 0;
 };
+
 }  // namespace internal
 
 class Environment {
@@ -67,25 +68,31 @@ class Environment {
   void checkInput();
   void displayMenu();
   void displayData();
+  void displayScrollBar();
   void navigateMenu(NavKey key);
+  void scrollDataDown();
+  void scrollDataUp();
 
   Environment::Focus focus_ = Environment::Focus::MENU;
 
   std::string last_key = "";  // Remove this
 
-  const int kHeight_ = pages_.getNumLines() + 2;
+  const int kHeight_ = 10;
   const int kMenuWidth_ = 25;
-  const int kDataWidth_ = 40;
+  const int kDataWidth_ = 60;
   const int kPadding_ = 1;
 
   int current_menu_hover_ = 0;
   int current_menu_num_options_ = 0;
+  int current_scroll_pos_ = 0;
+  int scroll_handle_height_ = 1;
 
   int endpoint_update_rate_ms_ = 1000;
 
   WINDOW *screen_ = nullptr;
   internal::Window menu_window_ = internal::Window();
   internal::Window data_window_ = internal::Window();
+  internal::Window data_scroll_bar_ = internal::Window();
 };
 
 }  // namespace ncurs
