@@ -30,6 +30,11 @@ void ncurs::internal::Window::win_clear() {
   box(p_window_, 0, 0);
 }
 
+void ncurs::internal::Window::win_hide() {
+  wclear(p_window_);
+  wrefresh(p_window_);
+}
+
 void ncurs::Environment::start(int endpoint_update_rate_ms) {
   endpoint_update_rate_ms_ = endpoint_update_rate_ms;
 
@@ -53,7 +58,7 @@ void ncurs::Environment::start(int endpoint_update_rate_ms) {
 
   displayMenu();
   displayData();
-  displayScrollBar();
+  data_scroll_bar_.win_hide(); // Hide scroll bar until data is displayed
 }
 
 void ncurs::Environment::update() {
@@ -77,46 +82,46 @@ void ncurs::Environment::end() {
 
 void ncurs::Environment::checkInput() {
   int ch = getch();
+
+  if (ch == -1) { // No key
+    return;
+  }
+
   switch (ch) {
   case 0x1B: // Possible Arrow Key
     if (getch() == 0x5B) {
       ch = getch();
       switch (ch) {
       case 0x42:
-        last_key = "down";
         navigateMenu(Environment::NavKey::DOWN);
         break;
       case 0x44:
-        last_key = "left";
         navigateMenu(Environment::NavKey::LEFT);
         break;
       case 0x41:
-        last_key = "up";
         navigateMenu(Environment::NavKey::UP);
         break;
       case 0x43:
-        last_key = "right";
         navigateMenu(Environment::NavKey::RIGHT);
         break;
-      default:
-        last_key = "other special";
+      default: // Other special keys, maybe for future use.
         break;
       }
       displayMenu();
       displayData();
-      displayScrollBar();
+      if (focus_ == Focus::DATA) {
+        displayScrollBar();
+      } else {
+        data_scroll_bar_.win_hide();
+      }
     }
     break;
-  case -1: // No key
+  case 10: // Enter
     break;
-  case 10:
-    last_key = "enter";
-    break;
-  default:
-    last_key = "other " + std::to_string(ch);
+  default: // Other
     break;
   }
-  flushinp();
+  flushinp(); // Clear input buffer
 }
 
 void ncurs::Environment::navigateMenu(Environment::NavKey key) {
@@ -125,6 +130,7 @@ void ncurs::Environment::navigateMenu(Environment::NavKey key) {
     if (focus_ == Focus::MENU) {
       current_menu_hover_ +=
           current_menu_hover_ < current_menu_num_options_ - 1 ? 1 : 0;
+      enforceScrollBounds();
     } else if (focus_ == Focus::DATA) {
       scrollDataDown();
     }
@@ -133,6 +139,7 @@ void ncurs::Environment::navigateMenu(Environment::NavKey key) {
   case Environment::NavKey::UP:
     if (focus_ == Focus::MENU) {
       current_menu_hover_ -= current_menu_hover_ > 0 ? 1 : 0;
+      enforceScrollBounds();
     } else if (focus_ == Focus::DATA) {
       scrollDataUp();
     }
@@ -182,81 +189,62 @@ void ncurs::Environment::displayMenu() {
 
 void ncurs::Environment::displayData() {
   data_window_.win_clear();
-  static int j = 0;
 
-  if (true) {
-    /**
-     * @todo remove this
-     */
-    mvwprintw(data_window_.p_window_, 1, 1, "iter: %i", j++);
+  int window_line_pos = 1; // start below the border
+  const std::array<std::string, console_pages::kMaxNumPageLines> &page =
+      pages_.getCurrentPage();
 
-    int window_line_pos = 1; // start below the border
-    const std::array<std::string, console_pages::kMaxNumPageLines> &page =
-        pages_.getCurrentPage();
-
-    for (int i = current_scroll_pos_ + 1; i < current_scroll_pos_ + kHeight_ - 1; i++) {
-      if (i >= console_pages::kMaxNumPageLines) {
-        throw std::runtime_error("Scroll pos out of bounds");
-      }
-      std::string line = page[i];
-      mvwprintw(data_window_.p_window_, window_line_pos++, 1, "%s", line.c_str());
+  for (int i = current_scroll_pos_; i < current_scroll_pos_ + kHeight_ - 2;
+       i++) {
+    if (i >= console_pages::kMaxNumPageLines) {
+      throw std::runtime_error("Scroll pos out of bounds");
     }
-  } else {
-    mvwprintw(data_window_.p_window_, 1, 1, "iter: %i", j++);
-    mvwprintw(data_window_.p_window_, 2, 1, "Current Menu Options: %i",
-              current_menu_num_options_);
-    mvwprintw(data_window_.p_window_, 3, 1, "Current Hover: %i",
-              current_menu_hover_);
-
-    std::string path = "";
-    // for (auto &menu : menu_path_) {
-    //   path += " > ";
-    // }
-
-    mvwprintw(data_window_.p_window_, 4, 1, "Current Path: %s", path.c_str());
-
-    mvwprintw(data_window_.p_window_, 5, 1, "Last Key: %s", last_key.c_str());
+    std::string line = page[i];
+    mvwprintw(data_window_.p_window_, window_line_pos++, 1, "%s", line.c_str());
   }
 
   data_window_.win_refresh();
 }
 
+/**
+ * @todo Scroll bar.
+ * 
+ */
 void ncurs::Environment::displayScrollBar() {
   data_scroll_bar_.win_clear();
   data_scroll_bar_.win_refresh();
 
-  scroll_handle_height_ =
-      std::clamp(pages_.getNumLinesOnPage() / kHeight_, 1, kHeight_ - 2);
-  int scroll_handle_end = current_scroll_pos_ + scroll_handle_height_;
-
-  if (pages_.getNumLinesOnPage() < kHeight_) {
-    scroll_handle_end = kHeight_;
-  }
-
-  for (int i = 0; i < kHeight_; i++) {
-    if (focus_ != Focus::DATA) {
-      mvwprintw(data_scroll_bar_.p_window_, i, 0, "  ");
-    } else {
-      if (i >= current_scroll_pos_ && i < scroll_handle_end) {
-        mvwprintw(data_scroll_bar_.p_window_, i, 0, "||");
-        continue;
-      }
-      mvwprintw(data_scroll_bar_.p_window_, i, 0, "--");
-    }
-  }
+  // for (int i = 0; i < kHeight_; i++) {
+  //   if (focus_ != Focus::DATA) {
+  //     mvwprintw(data_scroll_bar_.p_window_, i, 0, "  ");
+  //   } else {
+  //     if (i >= current_scroll_pos_ && i < scroll_handle_end) {
+  //       mvwprintw(data_scroll_bar_.p_window_, i, 0, "||");
+  //       continue;
+  //     }
+  //     mvwprintw(data_scroll_bar_.p_window_, i, 0, "--");
+  //   }
+  // }
   data_scroll_bar_.win_refresh();
 }
 
 void ncurs::Environment::scrollDataUp() {
-  if (current_scroll_pos_ > 0) {
-    current_scroll_pos_--;
-  }
+  current_scroll_pos_--;
+  enforceScrollBounds();
 }
 
 void ncurs::Environment::scrollDataDown() {
-  if (current_scroll_pos_ <
-      pages_.getNumLinesOnPage() - kHeight_ - scroll_handle_height_ &&
-      current_scroll_pos_ < pages_.getMaxNumPageLines()) {
-    current_scroll_pos_++;
-  }
+
+  current_scroll_pos_++;
+  enforceScrollBounds();
+}
+
+int ncurs::Environment::getMaxScrollPos() {
+  int lines_on_page = pages_.getNumLinesOnPage();
+  return std::clamp(lines_on_page - kHeight_ - scroll_handle_height_, 0,
+                    lines_on_page);
+}
+
+void ncurs::Environment::enforceScrollBounds() {
+  current_scroll_pos_ = std::clamp(current_scroll_pos_, 0, getMaxScrollPos());
 }

@@ -1,7 +1,12 @@
 #include "console_pages.hpp"
 #include <BoosterSeat/string_formatting.hpp>
 #include <BoosterSeat/time.hpp>
+#include <BoosterSeat/numbers.hpp>
 #include <functional>
+
+inline auto rnd = BoosterSeat::numbers::doubleToPrecisionTwo;
+namespace bst = BoosterSeat::time;
+
 
 inline std::string b2str(bool val) {
   return val ? "true" : "false";
@@ -10,7 +15,7 @@ inline std::string title_and_data(std::string title, std::string data) {
   return title + ": " + data;
 }
 
-const std::array<std::string, console_pages::kMaxNumPageLines>&
+const std::array<std::string, console_pages::kMaxNumPageLines> &
 console_pages::Pages::getCurrentPage() {
 
   content_ = {}; // Clear the content (set all lines to "")
@@ -50,7 +55,7 @@ void console_pages::Pages::navigateMenu(const console_pages::PageOption key) {
 }
 
 std::string LandR(const std::string &l, const std::string &r) {
-  constexpr int kWidth = 19;
+  constexpr int kWidth = console_pages::kDataWindowWidth / 2 - 1;
   std::string ret = "";
   ret += BoosterSeat::layout::fixedWidthString(
       l, BoosterSeat::layout::Alignment::LEFT, kWidth);
@@ -58,6 +63,7 @@ std::string LandR(const std::string &l, const std::string &r) {
       r, BoosterSeat::layout::Alignment::RIGHT, kWidth);
   return ret;
 }
+
 void console_pages::Pages::gfsStatus() {
   current_num_lines_ = 8;
 
@@ -65,8 +71,8 @@ void console_pages::Pages::gfsStatus() {
       shared_data_.blocks.modules_statuses.get();
   data::blocks::SystemInfo sys_info = shared_data_.blocks.system_info.get();
 
-  content_[0] = LandR(BoosterSeat::time::utcTimeString() + " UTC ",
-                      BoosterSeat::time::localTimeString() + " Local");
+  content_[0] = LandR(bst::timeString(bst::TimeZone::UTC) + " UTC ",
+                      bst::timeString(bst::TimeZone::LOCAL) + " Local");
   content_[1] =
       LandR("Uptime: " + shared_data_.misc.getUptimeString(),
             "Ld Avg: " + BoosterSeat::string::f2s(sys_info.cpu_load_avg_1, 1) +
@@ -83,7 +89,8 @@ void console_pages::Pages::gfsStatus() {
 }
 
 void console_pages::Pages::data() {
-  current_num_lines_ = 20;
+  constexpr int kNumLines = 19;
+  setNumLinesOnPage(kNumLines);
 
   data::blocks::StreamsStats stats = shared_data_.blocks.stream_stats.get();
   data::blocks::DataLogStats log_stats =
@@ -97,14 +104,25 @@ void console_pages::Pages::data() {
   };
 
   content_ = {
-      "Streams (current/total : delay ms)", // -- streams --
-      stream_stat("Data", stats.data),      // data stream
-      stream_stat("Log", stats.log),        // log stream
+      "Streams (current/total : delay ms)",  // -- streams --
+      LandR(stream_stat("Data", stats.data), // data stream
+            stream_stat("Log", stats.log)),  // log stream
 
-      "", // empty line
-      " -- Data Log Info -- ", // -- data log info --
-      "File: " + log_stats.data_log_file_path,
-      "File Valid: " + b2str(log_stats.valid_data_log_file_path),
+      "",
+      " -- Data/Log Files Info -- ", 
+      "Data Dir/File Valid: " + b2str(log_stats.data_dir) +
+          " / " + b2str(log_stats.data_file),
+      "Data File Path: " + log_stats.data_file_path,
+      "Data File Size: " + std::to_string(log_stats.data_file_size) + " MB",
+      "Log Dir/File Valid: " + b2str(log_stats.log_dir) +
+          " / " + b2str(log_stats.log_file),
+      "Log File Path: " + log_stats.log_file_path,
+      "Log File Size: " + std::to_string(log_stats.log_file_size) + " MB",
+
+      "Data/Log Archive Dirs Valid: " + b2str(log_stats.data_archive_dir) +
+          " / " + b2str(log_stats.log_archive_dir),
+      ""
+
       "",
       " -- Data Logging Config -- ", // -- data logging config --
       "Enabled: " +

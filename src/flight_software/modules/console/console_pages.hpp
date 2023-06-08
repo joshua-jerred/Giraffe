@@ -9,9 +9,12 @@
 #include <vector>
 
 namespace console_pages {
-inline constexpr int kMaxNumPageLines = 20;
-
 enum class PageOption { GFS_STATUS, DATA, LOG, SERVER, CONSOLE, BACK };
+
+inline constexpr int kMaxNumPageLines = 25;
+inline constexpr int kDataWindowWidth = 60;
+inline constexpr int kDataWindowHeight = 10;
+inline constexpr PageOption kInitialPage = PageOption::DATA;
 
 typedef std::pair<std::string, PageOption> Option;
 typedef std::vector<Option> Menu;
@@ -39,7 +42,7 @@ private:
   cfg::Configuration &config_;
   data::SharedData &shared_data_;
 
-  PageOption current_page_ = PageOption::GFS_STATUS;
+  PageOption current_page_ = kInitialPage;
   int current_num_lines_ = 0;
   std::array<std::string, kMaxNumPageLines> content_ = {};
   Menu current_menu_ = {

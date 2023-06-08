@@ -90,13 +90,27 @@ struct StreamsStats { // Set by the data module
 };
 
 /**
- * @brief Struct containing statistics about the data log.
+ * @brief Struct containing statistics about the data file log.
  */
 struct DataLogStats {
-  std::string data_log_file_path = "";
-  bool valid_data_log_file_path = false;
-};
+  // Data Files
+  bool data_dir = false;
+  bool data_archive_dir = false;
+  bool data_file = false;
 
+  int data_file_size = 0.0;
+  int archive_dir_size = 0.0;
+  std::string data_file_path = "";
+
+  // Log Files
+  bool log_dir = false;
+  bool log_archive_dir = false;
+  bool log_file = false;
+
+  int log_file_size = 0.0;
+  int log_archive_dir_size = 0.0;
+  std::string log_file_path = "";
+};
 
 /**
  * @brief Struct containing system information related to the system module.

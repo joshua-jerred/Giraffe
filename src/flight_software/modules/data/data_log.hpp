@@ -7,10 +7,12 @@
 
 namespace data_middleware {
 
-inline const std::string kDataLogPath = "./data/";
-inline const std::string kDataLogArchivePath = "./data/archive/";
-
 class DataLog {
+  /**
+   * @brief Used to store the validity status of the data log files and paths.
+   * @details All "sizes" are in MB.
+   */
+
 public:
   /**
    * @brief Construct a new DataLog::DataLog object
@@ -40,23 +42,131 @@ public:
 
 private:
   /**
-   * @brief Checks the log file(s) for validity and size. Creates a new log
-   * file if necessary. Also checks the archive directories for size.
+   * @brief Handles the file system management.
+   *
+   * @details Checks the following:
+   * - Creates a new log file if necessary.
+   *   - If it's the first start.
+   *   - If the current log file is too large.
+   * - Checks the log file(s) for validity and size.
+   * - Checks the archive directories for size.
+   * It then updates the data block with relevant information.
+   *
+   * @see kMaxDirCreationAttempts
+   * @todo Error Log
    */
-  void checkFileSystem();
-  std::string data_log_file_path_ = "";
-  bool valid_data_log_file_path_ = false;
+  void updateFileSystem();
 
   /**
-   * @brief Appends a string to the data log file.
-   * @param text The string to append to the data log file.
+   * @brief Checks for the existence of the data log directories and files.
+   * @details
+   * - Checks if the directories exist.
+   * - If they do not it will attempt to create them a set number of times.
+   *
+   *
    */
-  void appendStringToDataLog(const std::string &text);
+  void validateFileSystem();
+
+  //// START //// File System Management Methods
+  /**
+   * @defgroup DataLog.Filesystem
+   * @brief Used to generate the file structure and manage the log files.
+   * @details These methods all use BoosterSeat::filesystem to create the
+   * necessary directories and files for the data log. Any errors or exceptions
+   * should be caught and logged explicitly with unique error codes for each.
+   *
+   * DataDir: ./data
+   * DataArchiveDir: ./data/archive
+   * DataFile: ./data/data_YYYY-MM-DD_HHMMSS.json
+   *
+   * LogDir: ./log
+   * LogArchiveDir: ./log/archive
+   * LogFile: ./log/log_YYYY-MM-DD_HHMMSS.json
+   *
+   * @{
+   */
+
+  /**
+   * @brief Attempt to create a directory, log any errors, and set the validity
+   * flag in fs_status_.
+   *
+   * @param path - The path to the directory.
+   * @param booster_seat_log_id - The log id for
+   * BoosterSeat::BoosterSeatException.
+   * @param std_except_log_id - The log id for std::exception.
+   * @param validity_flag - The flag of fs_status_ to set if the directory is
+   * valid.
+   *
+   * @see DataLog::FsStatus
+   */
+  void createDirectory(const std::string &path,
+                       const data::LogId booster_seat_log_id,
+                       const data::LogId std_except_log_id,
+                       bool &validity_flag);
+
+  /**
+   * @brief Attempt to create a file, log any errors, and set the validity
+   * flag in fs_status_.
+   *
+   * @param new_file_path - The path to the directory.
+   * @param booster_seat_log_id - The log id for
+   * BoosterSeat::BoosterSeatException.
+   * @param std_except_log_id - The log id for std::exception.
+   * @param validity_flag - The flag of fs_status_ to set if the directory is
+   * valid.
+   *
+   * @see DataLog::FsStatus
+   */
+  void createFile(const std::string &new_file_path,
+                  const data::LogId booster_seat_log_id,
+                  const data::LogId std_except_log_id, bool &validity_flag);
+
+  void createDataDir();
+  void createLogDir();
+  void createDataArchiveDir();
+  void createLogArchiveDir();
+
+  void createNewDataFile();
+  void createNewLogFile();
+
+  /**
+   * @brief Validates the existence of a directory.
+   *
+   * @param dir_path
+   * @param log_id
+   * @param validity_flag
+   */
+  void validateDirExists(const std::string &path,
+                         const data::LogId does_not_exist_log_id,
+                         const data::LogId booster_seat_log_id,
+                         const data::LogId std_except_log_id,
+                         bool &validity_flag);
+
+  /**
+   * @brief Validates the existence of a file.
+   *
+   * @param file_path
+   * @param log_id
+   * @param file_size
+   * @param validity_flag
+   */
+  void validateFileExists(const std::string &path,
+                          const data::LogId does_not_exist_log_id,
+                          const data::LogId booster_seat_log_id,
+                          const data::LogId std_except_log_id,
+                          bool &validity_flag);
+
+  /** @} */ // end of DataLog.Filesystem
+  //// END //// File System Management Methods
+
+  // START // Private Data Members
+  data::blocks::DataLogStats fs_status_ = {};
+
+  BoosterSeat::Stopwatch validation_stopwatch_ = BoosterSeat::Stopwatch();
+  BoosterSeat::Stopwatch data_frame_stopwatch_ = BoosterSeat::Stopwatch();
 
   data::SharedData &shared_data_;
   cfg::Configuration &config_;
-
-  BoosterSeat::Stopwatch data_frame_stopwatch_ = BoosterSeat::Stopwatch();
 };
 
 }; // namespace data_middleware

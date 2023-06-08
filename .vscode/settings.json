@@ -28,9 +28,6 @@
     "@date{indent:12}{date}",
     "@copyright{indent:12}{year} (license to be defined)",
   ],
-  "doxdocgen.generic.customTags":[
-    "@full_log_coverage",
-  ],
 
   // DocWriter
   "docwriter.hotkey.windows": "Alt + .",
@@ -39,6 +36,7 @@
 
   // Spell Checker
   "cSpell.words": [
-    "bstrst"
-  ],
+    "bstrst",
+    "stdexcept"
+  ]
 }

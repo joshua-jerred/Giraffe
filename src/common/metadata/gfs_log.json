@@ -31,7 +31,6 @@
   },
   "data_log": {
     // -------- Directory Errors --------
-
     // Data Directory Errors
     "create_data_dir_bstrst": {
       "name": "Failed to create data directory at startup (BoosterSeat errno)"
@@ -45,6 +44,12 @@
     "data_dir_existence_bstrst": {
       "name": "Failed to check data directory existence (BoosterSeat errno)"
     },
+    "data_dir_existence_stdexcept": {
+      "name": "Failed to check data directory existence (std::exception)"
+    },
+    "data_dir_create_failed": {
+      "name": "Failed after reaching max attempts to create data directory"
+    },
     // Data Archive Directory Errors
     "create_data_archive_dir_bstrst": {
       "name": "Failed to create data archive directory at startup (BoosterSeat errno)"
@@ -56,9 +61,14 @@
       "name": "Data archive directory does not exist - after startup"
     },
     "data_archive_dir_existence_bstrst": {
-      "name": "Failed to check data directory existence (BoosterSeat errno)"
+      "name": "Failed to check data archive directory existence (BoosterSeat errno)"
     },
-
+    "data_archive_dir_existence_stdexcept": {
+      "name": "Failed to check data archive directory existence (std::exception)"
+    },
+    "data_archive_dir_create_failed": {
+      "name": "Failed after reaching max attempts to create data archive directory"
+    },
     // Log Directory Errors
     "create_log_dir_bstrst": {
       "name": "Failed to create log directory at startup (BoosterSeat errno)"
@@ -71,6 +81,12 @@
     },
     "log_dir_existence_bstrst": {
       "name": "Failed to check log directory existence (BoosterSeat errno)"
+    },
+    "log_dir_existence_stdexcept": {
+      "name": "Failed to check log directory existence (std::exception)"
+    },
+    "log_dir_create_failed": {
+      "name": "Failed after reaching max attempts to create log directory"
     },
     // Log Archive Directory Errors
     "create_log_archive_dir_bstrst": {
@@ -85,12 +101,26 @@
     "log_archive_dir_existence_bstrst": {
       "name": "Failed to check log directory existence (BoosterSeat errno)"
     },
-
+    "log_archive_dir_existence_stdexcept": {
+      "name": "Failed to check log archive directory existence (std::exception)"
+    },
+    "log_archive_dir_create_failed": {
+      "name": "Failed after reaching max attempts to create log directory"
+    },
     // -------- File Errors --------
-    // Data File Errors
+    // Create New File Errors
     "create_new_data_file_bstrst": {
       "name": "Failed to create new data file (BoosterSeat errno)"
-    }
+    },
+    "create_new_data_file_stdexcept": {
+      "name": "Failed to create new data file (std::exception)"
+    },
+    "create_new_log_file_bstrst": {
+      "name": "Failed to create new log file (BoosterSeat errno)"
+    },
+    "create_new_log_file_stdexcept": {
+      "name": "Failed to create new log file (std::exception)"
+    },
   },
   "console_module": {},
   "system_module": {

@@ -34,6 +34,7 @@ class Window {
   void win_reset();
   void win_refresh();
   void win_clear();
+  void win_hide();
 
   WINDOW *p_window_ = nullptr;
 
@@ -72,14 +73,14 @@ class Environment {
   void navigateMenu(NavKey key);
   void scrollDataDown();
   void scrollDataUp();
+  void enforceScrollBounds();
+  int getMaxScrollPos();
 
   Environment::Focus focus_ = Environment::Focus::MENU;
 
-  std::string last_key = "";  // Remove this
-
-  const int kHeight_ = 10;
+  const int kHeight_ = console_pages::kDataWindowHeight + 2;
   const int kMenuWidth_ = 25;
-  const int kDataWidth_ = 60;
+  const int kDataWidth_ = console_pages::kDataWindowWidth;
   const int kPadding_ = 1;
 
   int current_menu_hover_ = 0;
