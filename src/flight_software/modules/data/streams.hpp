@@ -9,6 +9,7 @@
 #ifndef STREAMS_HPP_
 #define STREAMS_HPP_
 
+#include <BoosterSeat/exception.hpp>
 #include <atomic>
 #include <iostream>
 #include <mutex>
@@ -27,12 +28,15 @@ struct BaseStreamPacket {
   std::string secondary_identifier = "";
   giraffe_time::TimePoint created_time = giraffe_time::now();
 
-  void resetTime() { created_time = giraffe_time::now(); }
+  void resetTime() {
+    created_time = giraffe_time::now();
+  }
 };
 
 template <class T> class Stream {
 public:
-  Stream() : packet_queue_() {}
+  Stream() : packet_queue_() {
+  }
 
   void addPacket(T packet) {
     stream_mutex_.lock();
@@ -121,6 +125,32 @@ public:
     pkt.level = LogPacket::Level::DEBUG;
     pkt.id = log_id;
     pkt.info = info;
+    pkt.resetTime();
+
+    addPacket(pkt);
+  }
+
+  void errorBoosterSeatException(const node::Identification source,
+                                 const data::LogId error_id,
+                                 const BoosterSeat::BoosterSeatException &e) {
+    LogPacket pkt;
+    pkt.source = source;
+    pkt.level = LogPacket::Level::ERROR;
+    pkt.id = error_id;
+    pkt.info = "Errno: " + std::to_string(e.errorNumber());
+    pkt.resetTime();
+
+    addPacket(pkt);
+  }
+
+  void errorStdException(const node::Identification source,
+                         const data::LogId error_id,
+                         const std::exception &e) {
+    LogPacket pkt;
+    pkt.source = source;
+    pkt.level = LogPacket::Level::ERROR;
+    pkt.id = error_id;
+    pkt.info = "what: " + std::string(e.what());
     pkt.resetTime();
 
     addPacket(pkt);
