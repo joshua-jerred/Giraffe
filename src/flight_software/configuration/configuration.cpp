@@ -21,6 +21,11 @@ cfg::gEnum::ProcedureType cfg::General::getStartingProcedure() const {
   return starting_procedure_;
 }
 
+int cfg::General::getModuleStatusUpdateRate() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return module_status_update_rate_;
+}
+
 void cfg::General::setProjectName(std::string val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   project_name_ = val;
@@ -34,6 +39,11 @@ void cfg::General::setMainBoard(cfg::gEnum::MainBoard val) {
 void cfg::General::setStartingProcedure(cfg::gEnum::ProcedureType val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   starting_procedure_ = val;
+}
+
+void cfg::General::setModuleStatusUpdateRate(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  module_status_update_rate_ = val;
 }
 
 void cfg::General::setFromJson(const json &json_data) {
@@ -64,6 +74,16 @@ void cfg::General::setFromJson(const json &json_data) {
         starting_procedure_,
         cfg::gEnum::KeyToProcedureType
   );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "general",
+        "module_status_update_rate",
+        module_status_update_rate_,
+        50,
+        60000,
+        ""
+  );
 }
 
 json cfg::General::getJson() const {
@@ -71,12 +91,18 @@ json cfg::General::getJson() const {
   return json({
     {"project_name", project_name_},
     {"main_board", cfg::gEnum::MainBoardToKey(main_board_)},
-    {"starting_procedure", cfg::gEnum::ProcedureTypeToKey(starting_procedure_)}
+    {"starting_procedure", cfg::gEnum::ProcedureTypeToKey(starting_procedure_)},
+    {"module_status_update_rate", module_status_update_rate_}
   });
 }
 bool cfg::DataModuleData::getLogDataToFile() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return log_data_to_file_;
+}
+
+int cfg::DataModuleData::getFileSystemCheckInterval() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return file_system_check_interval_;
 }
 
 cfg::gEnum::LogStrategy cfg::DataModuleData::getLogStrategy() const {
@@ -117,6 +143,11 @@ std::string cfg::DataModuleData::getDataLogFileContents() const {
 void cfg::DataModuleData::setLogDataToFile(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   log_data_to_file_ = val;
+}
+
+void cfg::DataModuleData::setFileSystemCheckInterval(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  file_system_check_interval_ = val;
 }
 
 void cfg::DataModuleData::setLogStrategy(cfg::gEnum::LogStrategy val) {
@@ -164,6 +195,16 @@ void cfg::DataModuleData::setFromJson(const json &json_data) {
         log_data_to_file_,
         0,
         0,
+        ""
+  );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "data_module_data",
+        "file_system_check_interval",
+        file_system_check_interval_,
+        500,
+        60000,
         ""
   );
   validation::setValidEnum<cfg::gEnum::LogStrategy>(
@@ -236,6 +277,7 @@ json cfg::DataModuleData::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return json({
     {"log_data_to_file", log_data_to_file_},
+    {"file_system_check_interval", file_system_check_interval_},
     {"log_strategy", cfg::gEnum::LogStrategyToKey(log_strategy_)},
     {"log_detail", cfg::gEnum::LogDetailToKey(log_detail_)},
     {"log_interval_ms", log_interval_ms_},
@@ -1154,16 +1196,6 @@ json cfg::TelemetryDataPackets::getJson() const {
     {"comment", comment_}
   });
 }
-void cfg::ExtensionModule::setFromJson(const json &json_data) {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-}
-
-json cfg::ExtensionModule::getJson() const {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return json({
-
-  });
-}
 
 void cfg::Configuration::getAllJson(json &all_data) const {
   all_data = {
@@ -1178,7 +1210,6 @@ void cfg::Configuration::getAllJson(json &all_data) const {
 ,    {"telemetry_aprs", telemetry_aprs.getJson()}
 ,    {"telemetry_sstv", telemetry_sstv.getJson()}
 ,    {"telemetry_data_packets", telemetry_data_packets.getJson()}
-,    {"extension_module", extension_module.getJson()}
   };
 }
   
@@ -1290,12 +1321,6 @@ void cfg::Configuration::load(std::string file_path) {
     telemetry_data_packets.setFromJson(parsed["telemetry_data_packets"]);
   } else {
     error(data::LogId::CONFIG_failedToLoadSectionNotFound, "telemetry_data_packets");
-  }
-
-  if (sectionExists(parsed, "extension_module")) {
-    extension_module.setFromJson(parsed["extension_module"]);
-  } else {
-    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "extension_module");
   }
 
 }

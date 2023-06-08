@@ -39,6 +39,15 @@
                 "failsafe",
                 "other"
             ]
+        },
+        "module_status_update_rate": {
+            "type": "int",
+            "name": "Module Status Updates Rate (ms)",
+            "description": "The rate at which the modules will push their status to the flight software. The lower the number, the more up to date the status of each module will be, but it will also increase the amount of data being processed internally.",
+            "default": 1000,
+            "max": 60000,
+            "min": 50,
+            "step": 1
         }
     },
     "data_module_data": {
@@ -50,6 +59,15 @@
             "default": true,
             "true": "enabled",
             "false": "disabled"
+        },
+        "file_system_check_interval": {
+            "type": "int",
+            "name": "File System Check Interval (ms)",
+            "description": "The interval at which the file system will be checked for errors. This is important to ensure that the data is being logged correctly.",
+            "default": 10000,
+            "max": 60000,
+            "min": 500,
+            "step": 1
         },
         "log_strategy": {
             "type": "enum",
@@ -528,13 +546,16 @@
         }
     },
     "telemetry_radio": {
+        "IGNORE":"not implemented, this tells the generator to ignore this section",
         "SECTION_TYPE":"list",
         "LIST_STRUCT_NAME":"radios"
     },
     "extension_module": {
+        "IGNORE":"not implemented, this tells the generator to ignore this section",
         "SECTION_TYPE":"struct"
     },
     "extension": {
+        "IGNORE":"not implemented, this tells the generator to ignore this section",
         "SECTION_TYPE":"list",
         "LIST_STRUCT_NAME":"extensions",
         "enabled":{
@@ -609,6 +630,7 @@
         }
     },
     "flight_procedures": {
+        "IGNORE":"not implemented, this tells the generator to ignore this section",
         "SECTION_TYPE":"struct"
     }
 }

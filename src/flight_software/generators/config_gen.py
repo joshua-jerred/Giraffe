@@ -285,6 +285,9 @@ class ConfigGen:
             print(self.sec_name)
             self.sec_contents = self.meta[key]
 
+            if "IGNORE" in self.sec_contents: # ignore this section
+                continue
+
             if SECTION_TYPE_KEY in self.sec_contents:
                 self.sec_type = self.sec_contents[SECTION_TYPE_KEY]
                 self.sec_id = key

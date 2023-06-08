@@ -7,6 +7,7 @@
 #include <fstream>
 #include <mutex>
 #include <unordered_map>
+#include <vector>
 #include <nlohmann/json.hpp>
 #include "shared_data.hpp"
 
@@ -244,10 +245,12 @@ public:
   std::string getProjectName() const;
   cfg::gEnum::MainBoard getMainBoard() const;
   cfg::gEnum::ProcedureType getStartingProcedure() const;
+  int getModuleStatusUpdateRate() const;
 
   void setProjectName(std::string);
   void setMainBoard(cfg::gEnum::MainBoard);
   void setStartingProcedure(cfg::gEnum::ProcedureType);
+  void setModuleStatusUpdateRate(int);
 
   void setFromJson(const json&);
   json getJson() const;
@@ -256,6 +259,7 @@ private:
   std::string project_name_ = "Giraffe Flight 1";
   cfg::gEnum::MainBoard main_board_ = cfg::gEnum::MainBoard::OTHER;
   cfg::gEnum::ProcedureType starting_procedure_ = cfg::gEnum::ProcedureType::OTHER;
+  int module_status_update_rate_ = 1000;
 };
 
 class DataModuleData : public cfg::CfgSection {
@@ -263,6 +267,7 @@ public:
   DataModuleData(data::Streams &streams): cfg::CfgSection(streams){}
 
   bool getLogDataToFile() const;
+  int getFileSystemCheckInterval() const;
   cfg::gEnum::LogStrategy getLogStrategy() const;
   cfg::gEnum::LogDetail getLogDetail() const;
   int getLogIntervalMs() const;
@@ -272,6 +277,7 @@ public:
   std::string getDataLogFileContents() const;
 
   void setLogDataToFile(bool);
+  void setFileSystemCheckInterval(int);
   void setLogStrategy(cfg::gEnum::LogStrategy);
   void setLogDetail(cfg::gEnum::LogDetail);
   void setLogIntervalMs(int);
@@ -285,6 +291,7 @@ public:
 
 private:
   bool log_data_to_file_ = true;
+  int file_system_check_interval_ = 10000;
   cfg::gEnum::LogStrategy log_strategy_ = cfg::gEnum::LogStrategy::INTERVAL;
   cfg::gEnum::LogDetail log_detail_ = cfg::gEnum::LogDetail::FULL;
   int log_interval_ms_ = 5000;
@@ -522,22 +529,10 @@ private:
   std::string comment_ = "Giraffe Flight Software";
 };
 
-class ExtensionModule : public cfg::CfgSection {
-public:
-  ExtensionModule(data::Streams &streams): cfg::CfgSection(streams){}
-
-
-
-  void setFromJson(const json&);
-  json getJson() const;
-
-private:
-};
-
 class Configuration {
  public:
   Configuration(data::Streams &streams):
-    general(streams),    data_module_data(streams),    data_module_influxdb(streams),    data_module_log(streams),    console_module(streams),    server_module(streams),    system_module(streams),    telemetry(streams),    telemetry_aprs(streams),    telemetry_sstv(streams),    telemetry_data_packets(streams),    extension_module(streams),
+    general(streams),    data_module_data(streams),    data_module_influxdb(streams),    data_module_log(streams),    console_module(streams),    server_module(streams),    system_module(streams),    telemetry(streams),    telemetry_aprs(streams),    telemetry_sstv(streams),    telemetry_data_packets(streams),
     streams_(streams){}
     
     void getAllJson(json &all_data) const;
@@ -556,7 +551,6 @@ class Configuration {
   cfg::TelemetryAprs telemetry_aprs;
   cfg::TelemetrySstv telemetry_sstv;
   cfg::TelemetryDataPackets telemetry_data_packets;
-  cfg::ExtensionModule extension_module;
  
  private:
   void error(data::LogId error_code, std::string info = "") {

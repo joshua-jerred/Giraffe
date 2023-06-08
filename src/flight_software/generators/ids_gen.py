@@ -1,5 +1,5 @@
 import sys
-import json
+import json5 as json
 import os
 
 import cpp_gen as cpp

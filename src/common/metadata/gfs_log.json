@@ -1,3 +1,4 @@
+// json5
 {
   "FILE_META": {
     "namespace": "data",
@@ -27,6 +28,69 @@
   "data_module": {
     "status_data_packet_unknown_source": {},
     "data_packet_unknown_type": {}
+  },
+  "data_log": {
+    // -------- Directory Errors --------
+
+    // Data Directory Errors
+    "create_data_dir_bstrst": {
+      "name": "Failed to create data directory at startup (BoosterSeat errno)"
+    },
+    "create_data_dir_stdexcept": {
+      "name": "Failed to create data directory at startup (std::exception)"
+    },
+    "data_dir_does_not_exist": {
+      "name": "Data directory does not exist - after startup"
+    },
+    "data_dir_existence_bstrst": {
+      "name": "Failed to check data directory existence (BoosterSeat errno)"
+    },
+    // Data Archive Directory Errors
+    "create_data_archive_dir_bstrst": {
+      "name": "Failed to create data archive directory at startup (BoosterSeat errno)"
+    },
+    "create_data_archive_dir_stdexcept": {
+      "name": "Failed to create data archive directory at startup (std::exception)"
+    },
+    "data_archive_dir_does_not_exist": {
+      "name": "Data archive directory does not exist - after startup"
+    },
+    "data_archive_dir_existence_bstrst": {
+      "name": "Failed to check data directory existence (BoosterSeat errno)"
+    },
+
+    // Log Directory Errors
+    "create_log_dir_bstrst": {
+      "name": "Failed to create log directory at startup (BoosterSeat errno)"
+    },
+    "create_log_dir_stdexcept": {
+      "name": "Failed to create log directory at startup (std::exception)"
+    },
+    "log_dir_does_not_exist": {
+      "name": "Data directory does not exist - after startup"
+    },
+    "log_dir_existence_bstrst": {
+      "name": "Failed to check log directory existence (BoosterSeat errno)"
+    },
+    // Log Archive Directory Errors
+    "create_log_archive_dir_bstrst": {
+      "name": "Failed to create log archive directory at startup (BoosterSeat errno)"
+    },
+    "create_log_archive_dir_stdexcept": {
+      "name": "Failed to create log archive directory at startup (std::exception)"
+    },
+    "log_archive_dir_does_not_exist": {
+      "name": "Data archive directory does not exist - after startup"
+    },
+    "log_archive_dir_existence_bstrst": {
+      "name": "Failed to check log directory existence (BoosterSeat errno)"
+    },
+
+    // -------- File Errors --------
+    // Data File Errors
+    "create_new_data_file_bstrst": {
+      "name": "Failed to create new data file (BoosterSeat errno)"
+    }
   },
   "console_module": {},
   "system_module": {
