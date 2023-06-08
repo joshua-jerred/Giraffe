@@ -42,6 +42,8 @@ struct Blocks {
   Block<blocks::StreamsStats> stream_stats = Block<blocks::StreamsStats>();
   Block<blocks::ModulesStatuses> modules_statuses =
       Block<blocks::ModulesStatuses>();
+  Block<blocks::ServerModuleStats> server_module_stats =
+      Block<blocks::ServerModuleStats>();
   Block<blocks::DataLogStats> data_log_stats = Block<blocks::DataLogStats>();
   Block<blocks::SystemInfo> system_info = Block<blocks::SystemInfo>();
 };

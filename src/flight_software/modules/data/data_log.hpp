@@ -2,24 +2,20 @@
 #define DATA_LOG_HPP_
 
 #include "configuration.hpp"
+#include "data_formatting.hpp"
 #include "shared_data.hpp"
 #include <BoosterSeat/stopwatch.hpp>
 
 namespace data_middleware {
 
+/**
+ * @brief Used to write data and log information to files. Used by the data
+ * module.
+ *
+ */
 class DataLog {
-  /**
-   * @brief Used to store the validity status of the data log files and paths.
-   * @details All "sizes" are in MB.
-   */
 
 public:
-  /**
-   * @brief Construct a new DataLog::DataLog object
-   *
-   * @param shared_data @see data::SharedData
-   * @param config @see cfg::Configuration
-   */
   DataLog(data::SharedData &shared_data, cfg::Configuration &config);
   ~DataLog() = default;
 
@@ -31,8 +27,11 @@ public:
 
   /**
    * @brief Used for periodic logging of all data.
+   * @details The strategy was recently read from the configuration prior to
+   * this method being called (from the data module). No need to read it again.
+   * @param strategy - The strategy to use for logging.
    */
-  void logDataFrame();
+  void logDataFrame(cfg::gEnum::LogStrategy strategy);
 
   /**
    * @brief Used to log a single log packet to the file log.
@@ -41,6 +40,18 @@ public:
   void logLogPacket(const data::LogPacket &packet);
 
 private:
+  /**
+   * @brief Used to append data to the data file.
+   * @param content - The content to append.
+   */
+  void appendToDataFile(const std::string &content);
+
+  /**
+   * @brief Used to append data to the log file.
+   * @param content - The content to append.
+   */
+  void appendToLogFile(const std::string &content);
+
   /**
    * @brief Handles the file system management.
    *
@@ -156,17 +167,91 @@ private:
                           const data::LogId std_except_log_id,
                           bool &validity_flag);
 
+  /**
+   * @brief Attempts to append data to a file. Only checks the file validity.
+   *
+   * @param path - The path to the file.
+   * @param data - The data to append.
+   * @param error_id - The error id to log if an error occurs.
+   */
+  void appendToFile(const std::string &path, const std::string &data,
+                    const data::LogId error_id);
+
+  /**
+   * @brief Checks the size of a file.
+   *
+   * @param file_path - The path to the file.
+   * @param file_size - The variable to store the file size in.
+   */
+  void updateFileSize(const std::string &file_path, const data::LogId error_id,
+                      data::blocks::DataLogStats::FileSizeType &file_size);
+
+  /**
+   * @brief Checks the size of a directory. (Recursive)
+   *
+   * @param dir_path - The path to the directory.
+   * @param dir_size - The variable to store the directory size in.
+   */
+  void updateDirSize(const std::string &dir_path, const data::LogId error_id,
+                     data::blocks::DataLogStats::FileSizeType &dir_size);
+
+  /**
+   * @brief Moves a file to the archive directory according to the archive
+   * method.
+   * 
+   * @param file_path 
+   * @param archive_dir_path 
+   * @param error_id
+   * @return true if the file was archived successfully, false otherwise.
+   * 
+   * @todo Archive Methods
+   */
+  bool archiveFile(const std::string &file_path,
+                   const std::string &archive_dir_path,
+                   const data::LogId error_id);
+
+  /**
+   * @brief Called on startup. If there are any files in the data or log
+   * directories that have been left behind, they will be archived.
+   * @param dir_path 
+   * @param archive_dir_path 
+   * @param current_file_name 
+   * @param error_id 
+   */
+  void archiveOtherFilesInDir(const std::string &dir_path,
+                              const std::string &archive_dir_path,
+                              const std::string &current_file_name,
+                              data::LogId error_id);
+
+  /**
+   * @brief This method will check to see if a data or log file needs to be
+   * rotated/archived. 
+   * 
+   * @details This method will archive the file and create a new one if it
+   * exceeds the configured file size limit.
+   */
+  void rotateFiles();
+
+  /**
+   * @brief This method will use the configured archive settings to trim the
+   * oldest files in the archive directory if the archive size limit is
+   * exceeded.
+   */
+  void trimArchive();
+
   /** @} */ // end of DataLog.Filesystem
   //// END //// File System Management Methods
 
   // START // Private Data Members
+  data::SharedData &shared_data_;
+  cfg::Configuration &config_;
+
   data::blocks::DataLogStats fs_status_ = {};
 
   BoosterSeat::Stopwatch validation_stopwatch_ = BoosterSeat::Stopwatch();
   BoosterSeat::Stopwatch data_frame_stopwatch_ = BoosterSeat::Stopwatch();
 
-  data::SharedData &shared_data_;
-  cfg::Configuration &config_;
+  DataFormatter formatter_;
 };
 
 }; // namespace data_middleware

@@ -1,13 +1,6 @@
 # This one is messy, it should be cleaned up eventually
 
-# ---- Create Needed Directories and Transfer The Configuration File ----
 file(MAKE_DIRECTORY ${GFS_BIN})
-file(MAKE_DIRECTORY ${GFS_BIN}/data_logs)
-file(MAKE_DIRECTORY ${GFS_BIN}/error_logs)
-file(MAKE_DIRECTORY ${GFS_BIN}/telemetry)
-file(MAKE_DIRECTORY ${GFS_BIN}/images)
-
-# ------------------------------------------------------------
 
 if(SSTV_ENABLED)
     message(STATUS "SSTV Enabled In Giraffe Flight Software")

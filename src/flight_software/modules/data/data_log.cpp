@@ -2,11 +2,9 @@
 #include <BoosterSeat/exception.hpp>
 #include <BoosterSeat/filesystem.hpp>
 #include <BoosterSeat/time.hpp>
-#include <nlohmann/json.hpp>
 
 #include <iostream>
 
-typedef nlohmann::ordered_json json;
 namespace mw = data_middleware;
 namespace bs = BoosterSeat;
 namespace bsfs = BoosterSeat::filesystem;
@@ -23,7 +21,7 @@ inline const std::string kLogDirPath = "./log";
 inline const std::string kLogArchiveDirPath = kLogDirPath + "/archive";
 
 // File Names
-inline constexpr bst::TimeZone kFileNameTimeZone = bst::TimeZone::UTC;
+inline constexpr bst::TimeZone kDataTimeZone = bst::TimeZone::UTC;
 inline const std::string kDataFilePrefix = "data_";
 inline const std::string kLogFilePrefix = "log_";
 inline const std::string kFileExtension = ".json";
@@ -31,8 +29,12 @@ inline const std::string kFileExtension = ".json";
 // File Creation
 inline constexpr int kMaxDirCreateAttempts = 2;
 
+// File System
+inline constexpr bsfs::units::Size kDataSizeUnit = bsfs::units::Size::MEGABYTES;
+
 mw::DataLog::DataLog(data::SharedData &shared_data, cfg::Configuration &config)
-    : shared_data_(shared_data), config_(config) {
+    : shared_data_(shared_data), config_(config),
+      formatter_(config, shared_data) {
   data_frame_stopwatch_.start();
   validation_stopwatch_.start();
 
@@ -46,6 +48,19 @@ mw::DataLog::DataLog(data::SharedData &shared_data, cfg::Configuration &config)
   createNewDataFile();
   createNewLogFile();
 
+  // Clear up the old files if they exist.
+  if (fs_status_.data_dir) {
+    archiveOtherFilesInDir(kDataDirPath, kDataArchiveDirPath,
+                           fs_status_.data_file_path,
+                           data::LogId::DATA_LOG_archiveOldDataFiles);
+  }
+  if (fs_status_.log_dir) {
+    archiveOtherFilesInDir(kLogDirPath, kLogArchiveDirPath,
+                           fs_status_.log_file_path,
+                           data::LogId::DATA_LOG_archiveOldLogFiles);
+  }
+
+  // Update the file system status.
   shared_data_.blocks.data_log_stats.set(fs_status_);
 };
 
@@ -60,16 +75,38 @@ void mw::DataLog::logDataPacket(const data::DataPacket &packet) {
   }
 }
 
-void mw::DataLog::logDataFrame() {
+void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
+  // Verify that the strategy is valid. If it's not, revert to interval.
+  if (strategy != cfg::gEnum::LogStrategy::INTERVAL &&
+      strategy != cfg::gEnum::LogStrategy::SELECTION_INTERVAL) {
+    shared_data_.streams.log.error(
+        kNodeId, data::LogId::DATA_LOG_invalidDataframeStrategy);
+    strategy = cfg::gEnum::LogStrategy::INTERVAL;
+  }
+
   int log_interval_ms = config_.data_module_data.getLogIntervalMs();
   int time_since_last_log_ms =
       data_frame_stopwatch_.elapsed(BoosterSeat::Resolution::MILLISECONDS);
 
   if (time_since_last_log_ms > log_interval_ms) {
+    // first, reset the stopwatch before logging
     data_frame_stopwatch_.reset();
     data_frame_stopwatch_.start();
   } else {
-    return;
+    return; // don't log if the interval hasn't passed
+  }
+
+  if (strategy == cfg::gEnum::LogStrategy::INTERVAL) {
+    // log all data
+    appendToDataFile(formatter_.fullFrame());
+  } else if (strategy == cfg::gEnum::LogStrategy::SELECTION_INTERVAL) {
+    // log selected data
+    /**
+     * @todo Implement this. Requires configuration list loading.
+     */
+    shared_data_.streams.log.error(kNodeId,
+                                   data::LogId::GENERIC_notYetImplemented,
+                                   "DataLog::logDataFrame SELECTION_INTERVAL");
   }
 }
 
@@ -77,19 +114,41 @@ void mw::DataLog::logLogPacket(const data::LogPacket &packet) {
   (void)packet;
 }
 
+void mw::DataLog::appendToDataFile(const std::string &content) {
+  // There should be plenty of error coverage everywhere else,
+  // so we can just return if the file path is not valid.
+  if (!fs_status_.data_file) {
+    return;
+  }
+
+  appendToFile(fs_status_.data_file_path, content,
+               data::LogId::DATA_LOG_appendToDataFile);
+}
+
+void mw::DataLog::appendToLogFile(const std::string &content) {
+  // There should be plenty of error coverage everywhere else,
+  // so we can just return if the file path is not valid.
+  if (!fs_status_.log_file) {
+    return;
+  }
+
+  appendToFile(fs_status_.log_file_path, content,
+               data::LogId::DATA_LOG_appendToLogFile);
+}
+
 void mw::DataLog::updateFileSystem() {
   long ms_since_last_validation = static_cast<int>(
       validation_stopwatch_.elapsed(BoosterSeat::Resolution::MILLISECONDS));
 
-  // Only check the filesystem every at a specified interval.
   if (ms_since_last_validation >
       config_.data_module_data.getFileSystemCheckInterval()) {
     validation_stopwatch_.reset();
     validation_stopwatch_.start();
   } else {
-    return;
+    return; // don't check the filesystem if the interval hasn't passed
   }
-
+  validateFileSystem();
+  rotateFiles();
   shared_data_.blocks.data_log_stats.set(fs_status_);
 }
 
@@ -117,11 +176,14 @@ void mw::DataLog::validateFileSystem() {
   // Create the directories if they do not exist.
   if (!fs_status_.data_dir) {
     createDataDir();
-  } else if (!fs_status_.data_archive_dir) {
+  }
+  if (!fs_status_.data_archive_dir) {
     createDataArchiveDir();
-  } else if (!fs_status_.log_dir) {
+  }
+  if (!fs_status_.log_dir) {
     createLogDir();
-  } else if (!fs_status_.log_archive_dir) {
+  }
+  if (!fs_status_.log_archive_dir) {
     createLogArchiveDir();
   }
 
@@ -129,8 +191,43 @@ void mw::DataLog::validateFileSystem() {
   // them if they don't exist.
   if (fs_status_.data_dir && !fs_status_.data_file) {
     createNewDataFile();
-  } else if (fs_status_.log_dir && !fs_status_.log_file) {
+  }
+  if (fs_status_.log_dir && !fs_status_.log_file) {
     createNewLogFile();
+  }
+
+  // Update File sizes
+  if (fs_status_.data_dir && fs_status_.data_file) {
+    updateFileSize(fs_status_.data_file_path,
+                   data::LogId::DATA_LOG_dataFileSizeRead,
+                   fs_status_.data_file_size);
+  } else {
+    fs_status_.data_file_size = 0;
+  }
+
+  if (fs_status_.log_dir && fs_status_.log_file) {
+    updateFileSize(fs_status_.log_file_path,
+                   data::LogId::DATA_LOG_logFileSizeRead,
+                   fs_status_.log_file_size);
+  } else {
+    fs_status_.log_file_size = 0;
+  }
+
+  // Update Directory sizes
+  if (fs_status_.data_archive_dir) {
+    updateDirSize(kDataArchiveDirPath,
+                  data::LogId::DATA_LOG_dataArchiveDirSizeRead,
+                  fs_status_.data_archive_dir_size);
+  } else {
+    fs_status_.data_archive_dir_size = 0;
+  }
+
+  if (fs_status_.log_archive_dir) {
+    updateDirSize(kLogArchiveDirPath,
+                  data::LogId::DATA_LOG_logArchiveDirSizeRead,
+                  fs_status_.log_archive_dir_size);
+  } else {
+    fs_status_.log_archive_dir_size = 0;
   }
 }
 
@@ -256,8 +353,7 @@ void mw::DataLog::createLogArchiveDir() {
 inline std::string generateFilePath(const std::string path,
                                     const std::string &file_prefix) {
   return path + "/" + file_prefix + "_" +
-         bst::dateAndTimeString(kFileNameTimeZone, '-', '_', ':') +
-         kFileExtension;
+         bst::dateAndTimeString(kDataTimeZone, '-', '_', ':') + kFileExtension;
 }
 
 void mw::DataLog::createNewDataFile() {
@@ -325,4 +421,102 @@ void mw::DataLog::validateFileExists(const std::string &path,
     validity_flag = false;
     shared_data_.streams.log.errorStdException(kNodeId, std_except_log_id, e);
   }
+}
+
+void mw::DataLog::appendToFile(const std::string &path, const std::string &data,
+                               const data::LogId error_id) {
+  try {
+    bsfs::appendToFile(path, data);
+  } catch (const bs::BoosterSeatException &e) {
+    shared_data_.streams.log.errorBoosterSeatException(kNodeId, error_id, e);
+  } catch (const std::exception &e) {
+    shared_data_.streams.log.errorStdException(kNodeId, error_id, e);
+  }
+}
+
+void mw::DataLog::updateFileSize(
+    const std::string &file_path, const data::LogId error_id,
+    data::blocks::DataLogStats::FileSizeType &file_size) {
+  try {
+    file_size = bsfs::getFileSize(file_path, kDataSizeUnit);
+  } catch (const bs::BoosterSeatException &e) {
+    shared_data_.streams.log.errorBoosterSeatException(kNodeId, error_id, e);
+  } catch (const std::exception &e) {
+    shared_data_.streams.log.errorStdException(kNodeId, error_id, e);
+  }
+}
+
+void mw::DataLog::updateDirSize(
+    const std::string &dir_path, const data::LogId error_id,
+    data::blocks::DataLogStats::FileSizeType &dir_size) {
+  try {
+    dir_size = bsfs::getDirectorySize(dir_path, kDataSizeUnit);
+  } catch (const bs::BoosterSeatException &e) {
+    shared_data_.streams.log.errorBoosterSeatException(kNodeId, error_id, e);
+  } catch (const std::exception &e) {
+    shared_data_.streams.log.errorStdException(kNodeId, error_id, e);
+  }
+}
+
+bool mw::DataLog::archiveFile(const std::string &file_path,
+                              const std::string &archive_dir_path,
+                              const data::LogId error_id) {
+  try {
+    if (!bsfs::doesFileExist(file_path) ||
+        !bsfs::doesDirectoryExist(archive_dir_path)) {
+      shared_data_.streams.log.error(kNodeId, error_id);
+      return false;
+    }
+    std::string file_name = bsfs::getFileName(file_path);
+    std::string new_file_path = archive_dir_path + "/" + file_name;
+    bsfs::moveFile(file_path, new_file_path);
+  } catch (const bs::BoosterSeatException &e) {
+    shared_data_.streams.log.errorBoosterSeatException(kNodeId, error_id, e);
+    return false;
+  } catch (const std::exception &e) {
+    shared_data_.streams.log.errorStdException(kNodeId, error_id, e);
+    return false;
+  }
+  return true;
+}
+
+void mw::DataLog::archiveOtherFilesInDir(const std::string &dir_path,
+                                         const std::string &archive_dir_path,
+                                         const std::string &current_file_name,
+                                         data::LogId error_id) {
+  (void)dir_path;
+  (void)archive_dir_path;
+  (void)current_file_name;
+  (void)error_id;
+}
+
+void mw::DataLog::rotateFiles() {
+  int max_data_size = config_.data_module_data.getMaxDataLogFileSizeMb();
+  int max_log_size = config_.data_module_log.getMaxLogFileSizeMb();
+
+  if (fs_status_.data_file && fs_status_.data_file_size >= max_data_size) {
+    if (!archiveFile(fs_status_.data_file_path, kDataArchiveDirPath,
+                     data::LogId::DATA_LOG_archiveDataFile)) {
+      shared_data_.streams.log.error(kNodeId,
+                                     data::LogId::DATA_LOG_rotateDataFile);
+      return;
+    }
+    createNewDataFile();
+  }
+
+  if (fs_status_.log_file && fs_status_.log_file_size >= max_log_size) {
+    if (!archiveFile(fs_status_.log_file_path, kLogArchiveDirPath,
+                     data::LogId::DATA_LOG_archiveLogFile)) {
+      shared_data_.streams.log.error(kNodeId,
+                                     data::LogId::DATA_LOG_rotateLogFile);
+      return;
+    }
+    createNewLogFile();
+  }
+}
+
+/**
+ * @todo Implement this function
+ */
+void mw::DataLog::trimArchive() {
 }

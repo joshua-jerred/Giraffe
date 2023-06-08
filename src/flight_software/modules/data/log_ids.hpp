@@ -8,6 +8,7 @@ enum class LogId {
   GENERIC_unknown,
   GENERIC_info,
   GENERIC_debug,
+  GENERIC_notYetImplemented, // Not yet implemented
   CONFIG_sectionNotFound,
   CONFIG_settingNotFound,
   CONFIG_invalidJsonType,
@@ -22,6 +23,9 @@ enum class LogId {
   MODULE_moduleAlreadyStarted,
   DATA_MODULE_statusDataPacketUnknownSource,
   DATA_MODULE_dataPacketUnknownType,
+  DATA_LOG_invalidDataframeStrategy, // Invalid data log strategy
+  DATA_LOG_archiveOldDataFiles, // Failed to archive old data files
+  DATA_LOG_archiveOldLogFiles, // Failed to archive old log files
   DATA_LOG_createDataDirBstrst, // Failed to create data directory at startup (BoosterSeat errno)
   DATA_LOG_createDataDirStdexcept, // Failed to create data directory at startup (std::exception)
   DATA_LOG_dataDirDoesNotExist, // Data directory does not exist - after startup
@@ -50,6 +54,16 @@ enum class LogId {
   DATA_LOG_createNewDataFileStdexcept, // Failed to create new data file (std::exception)
   DATA_LOG_createNewLogFileBstrst, // Failed to create new log file (BoosterSeat errno)
   DATA_LOG_createNewLogFileStdexcept, // Failed to create new log file (std::exception)
+  DATA_LOG_appendToDataFile, // Failed to append data to file
+  DATA_LOG_appendToLogFile, // Failed to append data to file
+  DATA_LOG_dataFileSizeRead, // Failed to read data file size
+  DATA_LOG_logFileSizeRead, // Failed to read log file size
+  DATA_LOG_dataArchiveDirSizeRead, // Failed to read data archive directory size
+  DATA_LOG_logArchiveDirSizeRead, // Failed to read log archive directory size
+  DATA_LOG_archiveDataFile, // Failed to archive data file
+  DATA_LOG_archiveLogFile, // Failed to archive log file
+  DATA_LOG_rotateDataFile, // Failed to rotate data file
+  DATA_LOG_rotateLogFile, // Failed to rotate log file
   SYSTEM_MODULE_systemInfoReadFail,
   SYSTEM_MODULE_cpuTempReadFail,
   SYSTEM_MODULE_diskInfoReadFail

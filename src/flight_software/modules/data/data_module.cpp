@@ -29,8 +29,10 @@ void modules::DataModule::loop() {
   parseLogStream();
 
   if (data_file_enabled_ &&
-      data_file_logging_strategy_ == cfg::gEnum::LogStrategy::INTERVAL) {
-    data_log_.logDataFrame(); // timer taken care of inside of data_log_
+          data_file_logging_strategy_ == cfg::gEnum::LogStrategy::INTERVAL ||
+      data_file_logging_strategy_ ==
+          cfg::gEnum::LogStrategy::SELECTION_INTERVAL) {
+    data_log_.logDataFrame(data_file_logging_strategy_); // timer taken care of inside of data_log_
   }
 }
 

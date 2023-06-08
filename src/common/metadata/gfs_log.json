@@ -7,7 +7,11 @@
   "generic": {
     "unknown": {},
     "info": {},
-    "debug": {}
+    "debug": {},
+    "not_yet_implemented": {
+      "name": "Not yet implemented",
+      "details": "Reserved for features that are not expected to function yet."
+    }
   },
   "config": {
     "section_not_found": {},
@@ -30,6 +34,18 @@
     "data_packet_unknown_type": {}
   },
   "data_log": {
+    "invalid_dataframe_strategy":{
+      "name": "Invalid data log strategy",
+      "details": "It should not be possible for this to happen. The strategy will revert to 'interval' and the whole dataframe will be logged."
+    },
+    "archive_old_data_files":{
+      "name": "Failed to archive old data files",
+      "details": "On startup, the data log module will attempt to archive old data files that are sitting in the data directory. This error is thrown if the archive fails."
+    },
+    "archive_old_log_files":{
+      "name": "Failed to archive old log files",
+      "details": "On startup, the data log module will attempt to archive old log files that are sitting in the log directory. This error is thrown if the archive fails."
+    },
     // -------- Directory Errors --------
     // Data Directory Errors
     "create_data_dir_bstrst": {
@@ -107,7 +123,6 @@
     "log_archive_dir_create_failed": {
       "name": "Failed after reaching max attempts to create log directory"
     },
-    // -------- File Errors --------
     // Create New File Errors
     "create_new_data_file_bstrst": {
       "name": "Failed to create new data file (BoosterSeat errno)"
@@ -120,6 +135,40 @@
     },
     "create_new_log_file_stdexcept": {
       "name": "Failed to create new log file (std::exception)"
+    },
+    // Append Data Errors
+    "append_to_data_file": {
+      "name": "Failed to append data to file"
+    },
+    "append_to_log_file": {
+      "name": "Failed to append data to file"
+    },
+    // Size Read Errors
+    "data_file_size_read": {
+      "name": "Failed to read data file size"
+    },
+    "log_file_size_read": {
+      "name": "Failed to read log file size"
+    },
+    "data_archive_dir_size_read": {
+      "name": "Failed to read data archive directory size"
+    },
+    "log_archive_dir_size_read": {
+      "name": "Failed to read log archive directory size"
+    },
+    // File Archive Errors
+    "archive_data_file": {
+      "name": "Failed to archive data file"
+    },
+    "archive_log_file": {
+      "name": "Failed to archive log file"
+    },
+    // File Rotation Errors
+    "rotate_data_file": {
+      "name": "Failed to rotate data file"
+    },
+    "rotate_log_file": {
+      "name": "Failed to rotate log file"
     },
   },
   "console_module": {},
