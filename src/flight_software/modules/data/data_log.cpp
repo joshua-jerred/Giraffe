@@ -76,14 +76,6 @@ void mw::DataLog::logDataPacket(const data::DataPacket &packet) {
 }
 
 void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
-  // Verify that the strategy is valid. If it's not, revert to interval.
-  if (strategy != cfg::gEnum::LogStrategy::INTERVAL &&
-      strategy != cfg::gEnum::LogStrategy::SELECTION_INTERVAL) {
-    shared_data_.streams.log.error(
-        kNodeId, data::LogId::DATA_LOG_invalidDataframeStrategy);
-    strategy = cfg::gEnum::LogStrategy::INTERVAL;
-  }
-
   int log_interval_ms = config_.data_module_data.getLogIntervalMs();
   int time_since_last_log_ms =
       data_frame_stopwatch_.elapsed(BoosterSeat::Resolution::MILLISECONDS);
@@ -94,6 +86,14 @@ void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
     data_frame_stopwatch_.start();
   } else {
     return; // don't log if the interval hasn't passed
+  }
+
+  // Verify that the strategy is valid. If it's not, revert to interval.
+  if (strategy != cfg::gEnum::LogStrategy::INTERVAL &&
+      strategy != cfg::gEnum::LogStrategy::SELECTION_INTERVAL) {
+    shared_data_.streams.log.error(
+        kNodeId, data::LogId::DATA_LOG_invalidDataframeStrategy);
+    strategy = cfg::gEnum::LogStrategy::INTERVAL;
   }
 
   if (strategy == cfg::gEnum::LogStrategy::INTERVAL) {
@@ -108,6 +108,8 @@ void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
                                    data::LogId::GENERIC_notYetImplemented,
                                    "DataLog::logDataFrame SELECTION_INTERVAL");
   }
+
+  updateFileSystem();
 }
 
 void mw::DataLog::logLogPacket(const data::LogPacket &packet) {

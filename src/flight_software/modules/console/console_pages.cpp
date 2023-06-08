@@ -1,12 +1,11 @@
 #include "console_pages.hpp"
+#include <BoosterSeat/numbers.hpp>
 #include <BoosterSeat/string_formatting.hpp>
 #include <BoosterSeat/time.hpp>
-#include <BoosterSeat/numbers.hpp>
 #include <functional>
 
 inline auto rnd = BoosterSeat::numbers::doubleToPrecisionTwo;
 namespace bst = BoosterSeat::time;
-
 
 inline std::string b2str(bool val) {
   return val ? "true" : "false";
@@ -109,15 +108,19 @@ void console_pages::Pages::data() {
             stream_stat("Log", stats.log)),  // log stream
 
       "",
-      " -- Data/Log Files Info -- ", 
-      "Data Dir/File Valid: " + b2str(log_stats.data_dir) +
-          " / " + b2str(log_stats.data_file),
+      " -- Data/Log Files Info -- ",
+      "Data Dir/File Valid: " + b2str(log_stats.data_dir) + " / " +
+          b2str(log_stats.data_file),
+      "Log Dir/File Valid: " + b2str(log_stats.log_dir) + " / " +
+          b2str(log_stats.log_file),
       "Data File Path: " + log_stats.data_file_path,
-      "Data File Size: " + std::to_string(log_stats.data_file_size) + " MB",
-      "Log Dir/File Valid: " + b2str(log_stats.log_dir) +
-          " / " + b2str(log_stats.log_file),
       "Log File Path: " + log_stats.log_file_path,
+      "Data File Size: " + std::to_string(log_stats.data_file_size) + " MB",
       "Log File Size: " + std::to_string(log_stats.log_file_size) + " MB",
+      "Data/Log Archive Dirs Valid: " + b2str(log_stats.data_archive_dir) +
+          " / " + b2str(log_stats.log_archive_dir),
+      "Data/Log Archive Size: " + std::to_string(log_stats.data_archive_dir_size) +
+          " MB / " + std::to_string(log_stats.log_archive_dir_size) + " MB",
 
       "Data/Log Archive Dirs Valid: " + b2str(log_stats.data_archive_dir) +
           " / " + b2str(log_stats.log_archive_dir),
@@ -139,12 +142,12 @@ void console_pages::Pages::data() {
       "Max File Size (MB): " +
           std::to_string(config_.data_module_data
                              .getMaxDataLogFileSizeMb()), // max file size
-      "Max Archive Size (MB): " +
-          std::to_string(config_.data_module_data
-                             .getMaxDataArchiveSizeMb()), // max archive size
-      "Archive Method: " +
-          std::string(cfg::gEnum::ArchiveMethodToKey(
-              config_.data_module_data.getArchiveMethod())) // archive method
+      // "Max Archive Size (MB): " +
+      //     std::to_string(config_.data_module_data
+      //                        .getMaxDataArchiveSizeMb()), // max archive size
+      // "Archive Method: " +
+      //     std::string(cfg::gEnum::ArchiveMethodToKey(
+      //         config_.data_module_data.getArchiveMethod())) // archive method
   };
 }
 
