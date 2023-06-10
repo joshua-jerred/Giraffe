@@ -1,8 +1,7 @@
 module.exports = {
   parse: require("./parse"),
-  Message: require("./message"),
-  DataRequest: require("./variants/data").DataRequest,
-  DataResponse: require("./variants/data").DataResponse,
+  Message: require("./protocol"),
+  RequestMessage: require("./req").RequestMessage,
   StreamRequest: require("./variants/stream").StreamRequest,
   StreamResponse: require("./variants/stream").StreamResponse,
   PingRequest: require("./variants/ping").PingRequest,

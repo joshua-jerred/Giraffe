@@ -11,7 +11,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
 
   const [clientDarkTheme, setClientDarkTheme] = React.useState(load('client_dark_theme') !== 'false');
   const [clientName, setClientName] = React.useState(load('client_name') || 'not set');
-  const [ggsAddress, setGgsAddress] = React.useState(load('client_ggs_address') || 'not set');
+  const [ggsAddress, setGgsAddress] = React.useState(load('client_ggs_address') || 'http://localhost:7892');
 
   React.useEffect(() => {
     save('client_dark_theme', clientDarkTheme);

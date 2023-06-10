@@ -219,7 +219,7 @@ module.exports = async (server, global_state) => {
     global_state.ggs_status.num_ws_clients = num_clients;
   }, 1000);
 
-  //Temporary stream implementation
+  // Temporary stream implementation
   setInterval(() => {
     client_wss.clients.forEach(function each(client) {
       if (client.readyState === WebSocket.OPEN) {

@@ -1,4 +1,4 @@
-const Message = require("./message");
+const Message = require("./protocol");
 
 module.exports = function (message) {
   if (typeof message === "string") {
@@ -16,7 +16,6 @@ module.exports = function (message) {
       message.src,
       message.dst,
       message.typ,
-      message.cat,
       message.id,
       message.body
     );

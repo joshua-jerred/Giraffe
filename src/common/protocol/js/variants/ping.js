@@ -1,15 +1,16 @@
-const Message = require("../message");
+const Message = require("../protocol");
+const { RequestMessage } = require("../req");
+const { ResponseMessage } = require("../rsp");
 
-class PingRequest extends Message {
+class PingRequest extends RequestMessage {
   constructor(src, dst) {
-    super(src, dst, "req", "ping", null, {});
+    super(src, dst, "ping");
   }
-};
+}
 
-
-class PingResponse extends Message {
+class PingResponse extends ResponseMessage {
   constructor(src, dst, request_id) {
-    super(src, dst, "rsp", "ping", request_id, {});
+    super(src, dst, request_id, "ok", { "": "" });
   }
 }
 

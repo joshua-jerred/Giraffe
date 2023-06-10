@@ -31,7 +31,7 @@
         "description": "The port for the Giraffe Flight Software socket. The web server will use this to communicate while on the ground.",
         "min": 0,
         "max": 65535,
-        "default": 8123
+        "default": 7893
       }
     },
     "gfs_state_intervals":{
@@ -42,14 +42,6 @@
         "min": 1000,
         "max": 60000,
         "default": 5000
-      },
-      "status": {
-        "type": "int",
-        "name": "GFS Status Interval (ms)",
-        "description": "",
-        "min": 100,
-        "max": 60000,
-        "default": 1000
       },
       "data": {
         "type": "int",
@@ -71,7 +63,7 @@
         "type": "int",
         "name": "GFS Log Files Interval (ms)",
         "description": "",
-        "min": 100,
+        "min": 1000,
         "max": 60000,
         "default": 1000
       }

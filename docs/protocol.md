@@ -74,6 +74,13 @@ The message body, unique to each
 
 # Response Codes
 - `er` error
-  - Response body will be `{"error":""}` with a message
+  - Response dat section will be `{"error":""}` with a message
 - `ok` 
   - good request, expected values should be in the message
+- `un`
+  - unknown
+
+# Ports
+- GFS: 7893
+- GGS: 7892
+- GWC: 3000

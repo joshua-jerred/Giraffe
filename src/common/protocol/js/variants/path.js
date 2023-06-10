@@ -1,10 +1,10 @@
-const Message = require("../message");
+const { SetMessage } = require("../set");
 
-class PathMessage extends Message {
+class PathMessage extends SetMessage {
   constructor(path) {
-    super('client', 'ggs', "info", "path", null, { path: path});
+    super("gws", "ggs", "path", { path: path });
   }
-};
+}
 
 module.exports = {
   PathMessage,

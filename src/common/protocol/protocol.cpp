@@ -134,10 +134,10 @@ bool protocol::parseMessage(const std::string &json_string,
 
   if (message.typ == protocol::MessageType::RSP) {
     try {
-      message.rsp =
-          stringToResponseCodeMap.at(body_json["rsp"].get<std::string>());
+      message.cde =
+          stringToResponseCodeMap.at(body_json["cde"].get<std::string>());
     } catch (const std::exception &e) {
-      message.rsp = protocol::ResponseCode::UNKNOWN;
+      message.cde = protocol::ResponseCode::UNKNOWN;
       valid = false;
     }
   }
@@ -167,7 +167,7 @@ json protocol::Message::getBodyJson() {
     body["dat"] = dat;
   }
   if (typ == protocol::MessageType::RSP) {
-    body["rsp"] = responseCodeToStringMap.at(rsp);
+    body["cde"] = responseCodeToStringMap.at(cde);
   }
   return body;
 }
@@ -198,11 +198,11 @@ void protocol::createResponseMessage(protocol::Message &message,
                                      protocol::Endpoint src,
                                      protocol::Endpoint dst,
                                      protocol::MessageId id,
-                                     protocol::ResponseCode rsp, json dat) {
+                                     protocol::ResponseCode cde, json dat) {
   message.src = src;
   message.dst = dst;
   message.typ = protocol::MessageType::RSP;
   message.id = id;
-  message.rsp = rsp;
+  message.cde = cde;
   message.dat = dat;
 }

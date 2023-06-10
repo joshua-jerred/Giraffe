@@ -1,0 +1,160 @@
+{
+  "system_info": {
+    "uptime_hours": {
+      "name": "",
+      "description": ""
+    },
+    "cpu_load_avg_1": {
+      "name": "",
+      "description": ""
+    },
+    "cpu_load_avg_5": {
+      "name": "",
+      "description": ""
+    },
+    "cpu_load_avg_15": {
+      "name": "",
+      "description": ""
+    },
+    "cpu_temp_c": {
+      "name": "",
+      "description": ""
+    },
+    "mem_total_gb": {
+      "name": "",
+      "description": ""
+    },
+    "mem_free_gb": {
+      "name": "",
+      "description": ""
+    },
+    "mem_used_percent": {
+      "name": "",
+      "description": ""
+    },
+    "swap_total_gb": {
+      "name": "",
+      "description": ""
+    },
+    "swap_free_gb": {
+      "name": "",
+      "description": ""
+    },
+    "swap_used_percent": {
+      "name": "",
+      "description": ""
+    },
+    "disk_total_gb": {
+      "name": "",
+      "description": ""
+    },
+    "disk_free_gb": {
+      "name": "",
+      "description": ""
+    },
+    "disk_used_percent": {
+      "name": "",
+      "description": ""
+    }
+  },
+  "data_log_stats":{
+    "data_dir": {
+      "name": "Data Directory Valid",
+      "description": ""
+    },
+    "data_archive_dir": {
+      "name": "Data Archive Directory Valid",
+      "description": ""
+    },
+    "data_file": {
+      "name": "Data File Valid",
+      "description": ""
+    },
+    "data_file_size":{
+      "name": "",
+      "description": ""
+    },
+    "data_dir_size":{
+      "name": "",
+      "description": ""
+    },
+    "data_file_path":{
+      "name": "",
+      "description": ""
+    },
+    "log_dir":{
+      "name": "Log Directory Valid",
+      "description": ""
+    },
+    "log_archive_dir":{
+      "name": "Log Archive Directory Valid",
+      "description": ""
+    },
+    "log_archive_dir_size":{
+      "name": "",
+      "description": ""
+    },
+    "log_file":{
+      "name": "Log File Valid",
+      "description": ""
+    },
+    "log_file_size":{
+      "name": "",
+      "description": ""
+    },
+    "log_file_path":{
+      "name": "",
+      "description": ""
+    }
+  },
+  "modules_statuses":{
+    "data":{
+      "name": "Data Module Status",
+      "description": ""
+    },
+    "console": {
+      "name": "Console Module Status",
+      "description": ""
+    },
+    "server": {
+      "name": "Server Module Status",
+      "description": ""
+    },
+    "system": {
+      "name": "System Module Status",
+      "description": ""
+    }
+  },
+  "stream_stats":{
+    "data":{
+      "name": "Data Stream Status",
+      "description": ""
+    },
+    "log": {
+      "name": "Log Stream Status",
+      "description": ""
+    }
+  },
+  "server_module_stats":{
+    "num_messages_received":{
+      "name": "",
+      "description": ""
+    },
+    "num_invalid_received":{
+      "name": "",
+      "description": ""
+    },
+    "bytes_per_second_up": {
+      "name": "",
+      "description": ""
+    },
+    "bytes_per_second_down": {
+      "name": "",
+      "description": ""
+    },
+    "connection_status": {
+      "name": "",
+      "description": ""
+    }
+  }
+}

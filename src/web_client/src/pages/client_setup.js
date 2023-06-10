@@ -26,7 +26,7 @@ function ClientSetupPage() {
   // Test client connection to the GWS server
   function TestGws(address) {
     setTestConnection('testing...');
-    fetch(address + '/gws/status')
+    fetch(address + '/api/status')
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 'ok') {

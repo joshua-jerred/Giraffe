@@ -87,7 +87,7 @@ struct Message {
   // Type Specific Fields
   std::string rsc = "";      // Resource identification, for REQ and SET
   json dat = json::object(); // Data, for SET and RSP
-  protocol::ResponseCode rsp =
+  protocol::ResponseCode cde =
       protocol::ResponseCode::UNKNOWN; // Response Code, for RSP
 };
 
