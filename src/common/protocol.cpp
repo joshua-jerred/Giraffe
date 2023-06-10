@@ -1,160 +1,166 @@
 /**
- * @file protocol.cpp
- * @author Joshua Jerred (https://joshuajer.red)
- * @brief Implementation for the Giraffe Protocol C++ Implementation
- * @date 2023-05-15
- * @copyright Copyright (c) 2023
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   protocol.cpp
+ * @brief  The C++ implementation of the Giraffe Protocol.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-10
+ * @copyright  2023 (license to be defined)
  */
 
-#include "protocol.h"
+#include "protocol.hpp"
+#include "giraffe_exception.hpp"
 
-#include <nlohmann/json.hpp>
+#include <BoosterSeat/random.hpp>
+#include <array>
 #include <unordered_map>
 
-using json = nlohmann::ordered_json;
+namespace protocol = common::protocol;
 
-protocol::Id protocol::generateId() {
-  return "tmpid";
-}
+/**
+ * @brief Map from protocol::Type to std::string.
+ */
+static const std::unordered_map<protocol::Endpoint, std::string>
+    endpointToStringMap = {{protocol::Endpoint::UNKNOWN, "unknown"},
+                           {protocol::Endpoint::GFS, "gfs"},
+                           {protocol::Endpoint::GGS, "ggs"},
+                           {protocol::Endpoint::GDL, "gdl"},
+                           {protocol::Endpoint::GWC, "gwc"}};
 
-inline std::string endpointToString(protocol::Endpoint endpoint) {
-  switch (endpoint) {
-    case protocol::Endpoint::UNKNOWN:
-      return "unknown";
-    case protocol::Endpoint::CLIENT:
-      return "client";
-    case protocol::Endpoint::GFS:
-      return "gfs";
-    case protocol::Endpoint::GGS:
-      return "ggs";
-    case protocol::Endpoint::TELEMETRY:
-      return "telemetry";
-  }
+static const std::unordered_map<std::string, protocol::Endpoint>
+    stringToEndpointMap = {{"unknown", protocol::Endpoint::UNKNOWN},
+                           {"gfs", protocol::Endpoint::GFS},
+                           {"ggs", protocol::Endpoint::GGS},
+                           {"gdl", protocol::Endpoint::GDL},
+                           {"gwc", protocol::Endpoint::GWC}};
 
-  throw protocol::ProtocolException("Invalid endpoint.");
-}
+static const std::unordered_map<protocol::Type, std::string> typeToStringMap = {
+    {protocol::Type::UNKNOWN, "unknown"},
+    {protocol::Type::REQ, "req"},
+    {protocol::Type::SET, "set"},
+    {protocol::Type::RSP, "rsp"}};
 
-inline protocol::Endpoint stringToEndpoint(std::string endpoint_string) {
-  if (endpoint_string == "client") {
-    return protocol::Endpoint::CLIENT;
-  } else if (endpoint_string == "gfs") {
-    return protocol::Endpoint::GFS;
-  } else if (endpoint_string == "ggs") {
-    return protocol::Endpoint::GGS;
-  } else if (endpoint_string == "telemetry") {
-    return protocol::Endpoint::TELEMETRY;
-  } else {
-    throw protocol::ProtocolException("Invalid endpoint string.");
-  }
-}
+static const std::unordered_map<std::string, protocol::Type> stringToTypeMap = {
+    {"unknown", protocol::Type::UNKNOWN},
+    {"req", protocol::Type::REQ},
+    {"set", protocol::Type::SET},
+    {"rsp", protocol::Type::RSP}};
 
-inline std::string typeToString(protocol::Type type) {
-  switch (type) {
-    case protocol::Type::INFO:
-      return "info";
-    case protocol::Type::REQUEST:
-      return "req";
-    case protocol::Type::RESPONSE:
-      return "rsp";
-    case protocol::Type::SET:
-      return "set";
-    case protocol::Type::UNKNOWN:
-      return "unknown";
-  }
-  throw protocol::ProtocolException("Invalid type.");
-}
+static const std::unordered_map<protocol::ResponseCode, std::string>
+    responseCodeToStringMap = {{protocol::ResponseCode::UNKNOWN, "unknown"},
+                               {protocol::ResponseCode::OK, "ok"},
+                               {protocol::ResponseCode::ERR, "err"}};
 
-inline protocol::Type stringToType(std::string type_string) {
-  if (type_string == "info") {
-    return protocol::Type::INFO;
-  } else if (type_string == "req") {
-    return protocol::Type::REQUEST;
-  } else if (type_string == "rsp") {
-    return protocol::Type::RESPONSE;
-  } else if (type_string == "set") {
-    return protocol::Type::SET;
-  } else {
-    throw protocol::ProtocolException("Invalid type string.");
-  }
-}
+static const std::unordered_map<std::string, protocol::ResponseCode>
+    stringToResponseCodeMap = {{"unknown", protocol::ResponseCode::UNKNOWN},
+                               {"ok", protocol::ResponseCode::OK},
+                               {"err", protocol::ResponseCode::ERR}};
 
-inline std::string categoryToString(protocol::Category category) {
-  switch (category) {
-    case protocol::Category::PING:
-      return "ping";
-    case protocol::Category::DATA:
-      return "data";
-    case protocol::Category::SETTING:
-      return "setting";
-    case protocol::Category::ERROR:
-      return "error";
-    case protocol::Category::UNKNOWN:
-      return "unknown";
-  }
-  throw protocol::ProtocolException("Invalid category.");
-}
-
-inline protocol::Category stringToCategory(std::string category_string) {
-  if (category_string == "ping") {
-    return protocol::Category::PING;
-  } else if (category_string == "data") {
-    return protocol::Category::DATA;
-  } else if (category_string == "setting") {
-    return protocol::Category::SETTING;
-  } else {
-    throw protocol::ProtocolException("Invalid category string.");
-  }
-}
-
-protocol::Message::Message(const protocol::Endpoint src,
-                           const protocol::Endpoint dst,
-                           const protocol::Type typ,
-                           const protocol::Category cat,
-                           const protocol::Id ident, const protocol::Body body)
-    : src_(src), dst_(dst), typ_(typ), cat_(cat), id_(ident), body_(body) {
-}
-
-protocol::Message::Message(const std::string& json_string) {
+bool parseMessage(const std::string &json_string, protocol::Message &message) {
   json message_json;
 
   try {
     message_json = json::parse(json_string);
-  } catch (const std::exception& e) {
-    throw protocol::ProtocolException("Could not parse message string as JSON");
+  } catch (const std::exception &e) {
+    return false;
   }
 
-  if (!message_json.contains("src"))
-    throw protocol::ProtocolException("Missing src field.");
+  bool valid = true;
 
-  if (!message_json.contains("dst"))
-    throw protocol::ProtocolException("Missing dst field.");
+  // Parse the required fields.
+  try {
+    message.src =
+        stringToEndpointMap.at(message_json["src"].get<std::string>());
+  } catch (const std::exception &e) {
+    message.src = protocol::Endpoint::UNKNOWN;
+    valid = false;
+  }
+  try {
+    message.dst =
+        stringToEndpointMap.at(message_json["dst"].get<std::string>());
+  } catch (const std::exception &e) {
+    message.dst = protocol::Endpoint::UNKNOWN;
+    valid = false;
+  }
+  try {
+    message.typ = stringToTypeMap.at(message_json["typ"].get<std::string>());
+  } catch (const std::exception &e) {
+    message.typ = protocol::Type::UNKNOWN;
+    valid = false;
+  }
+  try {
+    message.id = message_json["id"].get<std::string>();
+  } catch (const std::exception &e) {
+    message.id = "";
+    valid = false;
+  }
 
-  if (!message_json.contains("typ"))
-    throw protocol::ProtocolException("Missing typ field.");
+  // Type-specific fields.
+  if (message.typ == protocol::Type::REQ ||
+      message.typ == protocol::Type::SET) {
+    try {
+      message.rsc = message_json["rsc"].get<std::string>();
+    } catch (const std::exception &e) {
+      message.rsc = "";
+      valid = false;
+    }
+  }
 
-  if (!message_json.contains("cat"))
-    throw protocol::ProtocolException("Missing cat field.");
+  if (message.typ == protocol::Type::SET ||
+      message.typ == protocol::Type::RSP) {
+    try {
+      if (!message_json["dat"].is_object()) {
+        throw std::exception();
+      }
+      message.dat = message_json["dat"];
+    } catch (const std::exception &e) {
+      message.dat = json::object();
+      valid = false;
+    }
+  }
 
-  if (!message_json.contains("id"))
-    throw protocol::ProtocolException("Missing id field.");
+  if (message.typ == protocol::Type::RSP) {
+    try {
+      message.rsp =
+          stringToResponseCodeMap.at(message_json["rsp"].get<std::string>());
+    } catch (const std::exception &e) {
+      message.rsp = protocol::ResponseCode::UNKNOWN;
+      valid = false;
+    }
+  }
 
-  if (!message_json.contains("body"))
-    throw protocol::ProtocolException("Missing body field");
-
-  src_ = stringToEndpoint(message_json["src"].get<std::string>());
-  dst_ = stringToEndpoint(message_json["dst"].get<std::string>());
-  typ_ = stringToType(message_json["typ"].get<std::string>());
-  cat_ = stringToCategory(message_json["cat"].get<std::string>());
-  id_ = message_json["id"].get<std::string>();
-  body_ = message_json["body"];
+  return valid;
 }
 
-std::string protocol::Message::getMessageString() {
-  json message = {{"src", endpointToString(src_)},
-                  {"dst", endpointToString(dst_)},
-                  {"typ", typeToString(typ_)},
-                  {"cat", categoryToString(cat_)},
-                  {"id", id_},
-                  {"body", body_}};
-  return message.dump();
+std::string protocol::Message::getJsonString() {
+  return getJson().dump();
+}
+
+json protocol::Message::getJson() {
+  json message = {{"src", endpointToStringMap.at(src)},
+                  {"dst", endpointToStringMap.at(dst)},
+                  {"typ", typeToStringMap.at(typ)},
+                  {"id", id},
+                  {"body", getBodyJson()}};
+  return message;
+}
+
+json protocol::Message::getBodyJson() {
+  json body;
+  if (typ == protocol::Type::REQ || typ == protocol::Type::SET) {
+    body["rsc"] = rsc;
+  }
+  if (typ == protocol::Type::SET || typ == protocol::Type::RSP) {
+    body["dat"] = dat;
+  }
+  if (typ == protocol::Type::RSP) {
+    body["rsp"] = responseCodeToStringMap.at(rsp);
+  }
+  return body.dump();
 }

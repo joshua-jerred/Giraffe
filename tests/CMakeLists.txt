@@ -6,7 +6,6 @@ file(GLOB common_test_sources
 )
 
 add_executable(unit_test_common
-  ${COMMON_TEST_SRC}/test.cpp
   ${common_test_sources}
 )
 target_link_libraries(unit_test_common gtest_main)
@@ -14,10 +13,8 @@ set_target_properties(
 	unit_test_common PROPERTIES 
 	RUNTIME_OUTPUT_DIRECTORY ${COMMON_TEST_BIN}
 )
-#add_test(
-#  NAME unit_test_common
-#  COMMAND unit_test_common
-#)
+target_link_libraries(unit_test_common nlohmann_json::nlohmann_json)
+
 
 # --- Flight Software ---
 file(GLOB gfs_test_sources
