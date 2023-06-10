@@ -87,6 +87,7 @@ include(GoogleTest)
 # ----- Common Includes ------
 include_directories(
 	${COMMON_SRC}/
+	${COMMON_SRC}/protocol
 	${LIB_SRC}/MWAV/include
 )
 # ----------------------------

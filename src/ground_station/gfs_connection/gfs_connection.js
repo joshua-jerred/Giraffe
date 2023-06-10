@@ -120,7 +120,6 @@ module.exports = class GfsConnection {
     con.on("close", function () {});
 
     con.on("error", function (err) {
-      console.log("Error connecting to GFS" + err);
       that.connected = false;
     });
   }

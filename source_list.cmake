@@ -1,5 +1,5 @@
 set(common_sources
-	${COMMON_SRC}/protocol.cpp
+	${COMMON_SRC}/protocol/protocol.cpp
 )
 
 set(common_includes
