@@ -57,10 +57,12 @@
       "description": ""
     }
   },
-  "data_log":{
+  "data_log_stats":{
 
   },
-  "module_statuses":{
+  "modules_statuses":{
 
-  }
+  },
+  "stream_stats":{},
+  "server_module_stats":{}
 }

@@ -5,12 +5,13 @@
 
 #include "node.h"
 #include <BoosterSeat/clock.hpp>
+#include <BoosterSeat/numbers.hpp>
 #include <BoosterSeat/time.hpp>
-#include <nlohmann/json.hpp>
 
-using json = nlohmann::ordered_json;
+#include "json.hpp"
 
 namespace data {
+inline auto rnd = BoosterSeat::doubleToPrecisionTwo;
 
 /**
  * @brief Simple Struct Container with a mutex.
@@ -46,7 +47,6 @@ private:
 };
 
 namespace blocks {
-
 /**
  * @todo implement this
  */
@@ -85,23 +85,19 @@ struct ModulesStatuses { // Set by the data module
  * @todo implement this
  */
 struct ServerModuleStats { // Set by the server module
-  bool enabled = false;
-  int total_packets_received = 0;
-  int total_packets_sent = 0;
-  int packet_receive_errors = 0;
-  int packet_send_errors = 0;
-  int packet_parse_errors = 0;
-  std::string connection_status = "none";
+  int num_messages_received = 0;
+  int num_invalid_received = 0;
+  double bytes_per_second_down = 0.0;
+  double bytes_per_second_up = 0.0;
+  bool is_connected = false;
 
   json toJson() {
     json j;
-    j["enabled"] = enabled;
-    j["total_packets_received"] = total_packets_received;
-    j["total_packets_sent"] = total_packets_sent;
-    j["packet_receive_errors"] = packet_receive_errors;
-    j["packet_send_errors"] = packet_send_errors;
-    j["packet_parse_errors"] = packet_parse_errors;
-    j["connection_status"] = connection_status;
+    j["num_messages_received"] = num_messages_received;
+    j["num_invalid_received"] = num_invalid_received;
+    j["bytes_per_second_down"] = rnd(bytes_per_second_down);
+    j["bytes_per_second_up"] = rnd(bytes_per_second_up);
+    j["connection_status"] = is_connected;
     return j;
   }
 };

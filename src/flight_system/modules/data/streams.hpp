@@ -9,27 +9,28 @@
 #ifndef STREAMS_HPP_
 #define STREAMS_HPP_
 
-#include <BoosterSeat/exception.hpp>
 #include <atomic>
 #include <iostream>
 #include <mutex>
 #include <queue>
 #include <string>
 
+#include <BoosterSeat/clock.hpp>
+#include <BoosterSeat/exception.hpp>
+
 #include "data_ids.hpp"
 #include "log_ids.hpp"
 #include "node.h"
-#include "time_types.hpp"
 
 namespace data {
 
 struct BaseStreamPacket {
   node::Identification source = node::Identification::UNKNOWN;
   std::string secondary_identifier = "";
-  giraffe_time::TimePoint created_time = giraffe_time::now();
+  BoosterSeat::clck::TimePoint created_time = BoosterSeat::clck::now();
 
   void resetTime() {
-    created_time = giraffe_time::now();
+    created_time = BoosterSeat::clck::now();
   }
 };
 
@@ -144,8 +145,7 @@ public:
   }
 
   void errorStdException(const node::Identification source,
-                         const data::LogId error_id,
-                         const std::exception &e) {
+                         const data::LogId error_id, const std::exception &e) {
     LogPacket pkt;
     pkt.source = source;
     pkt.level = LogPacket::Level::ERROR;

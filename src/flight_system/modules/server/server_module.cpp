@@ -9,12 +9,13 @@
 #include "server_module.h"
 
 static modules::MetaData metadata("server_module",
-                                  node::Identification::SERVER_MODULE, 200);
+                                  node::Identification::SERVER_MODULE, 50);
 
 modules::ServerModule::ServerModule(data::SharedData &shared_data,
                                     cfg::Configuration &config)
     : modules::Module(metadata, shared_data, config),
-      request_router_(shared_data_, config) {}
+      request_router_(shared_data_, config, stats_) {
+}
 
 /**
  * @brief Startup the server module.
@@ -26,6 +27,8 @@ void modules::ServerModule::startup() {
   if (server_socket_.init(port_number)) {
     info("initialized and running on port " + std::to_string(port_number));
   }
+  rolling_average_timer_.reset();
+  connected_timeout_.reset();
 }
 
 /**
@@ -47,8 +50,24 @@ void modules::ServerModule::loop() {
   if (server_socket_.accept(client)) {
     std::string request;
     if (client.receive(request)) {
-      request_router_.handleRequest(client, request);
+      request_router_.handleMessage(client, request);
+      connected_timeout_.reset();
+      stats_.is_connected = true;
     }
+  }
+
+  if (connected_timeout_.isDone()) {
+    stats_.is_connected = false;
+  }
+
+  // Update the rolling average every second and update the stats
+  if (rolling_average_timer_.isDone()) {
+    rolling_average_timer_.reset();
+    request_router_.oneSecondTick();
+    stats_.bytes_per_second_down = request_router_.getBytesPerSecondDown();
+    stats_.bytes_per_second_up = request_router_.getBytesPerSecondUp();
+
+    shared_data_.blocks.server_module_stats.set(stats_);
   }
 }
 
@@ -56,7 +75,8 @@ void modules::ServerModule::loop() {
  * @brief Shutdown the server module.
  * @details Closes the socket. Override of Module::shutdown()
  */
-void modules::ServerModule::shutdown() {}
+void modules::ServerModule::shutdown() {
+}
 
 void modules::ServerModule::processCommand(const command::Command &command) {
   (void)command;

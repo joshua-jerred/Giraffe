@@ -3,6 +3,7 @@
 
 #include <netinet/in.h>
 
+#include <BoosterSeat/rolling_average.hpp>
 #include <string>
 
 namespace sock {
@@ -11,7 +12,7 @@ constexpr int kMaxConnections = 5;
 constexpr int kMaxReceive = 500;
 
 class TcpSocketServer {
- public:
+public:
   TcpSocketServer();
   ~TcpSocketServer();
 
@@ -28,10 +29,10 @@ class TcpSocketServer {
 
   bool is_valid() const;
 
- private:
+private:
   int sock_ = -1;
   sockaddr_in addr_ = {};
 };
-}  // namespace sock
+} // namespace sock
 
 #endif

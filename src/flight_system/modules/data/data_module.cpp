@@ -1,7 +1,5 @@
 #include "data_module.h"
 
-#include "time_types.hpp"
-
 static modules::MetaData metadata("data_module",
                                   node::Identification::DATA_MODULE, 100);
 
@@ -29,10 +27,11 @@ void modules::DataModule::loop() {
   parseLogStream();
 
   if (data_file_enabled_ &&
-          data_file_logging_strategy_ == cfg::gEnum::LogStrategy::INTERVAL ||
-      data_file_logging_strategy_ ==
-          cfg::gEnum::LogStrategy::SELECTION_INTERVAL) {
-    data_log_.logDataFrame(data_file_logging_strategy_); // timer taken care of inside of data_log_
+      (data_file_logging_strategy_ == cfg::gEnum::LogStrategy::INTERVAL ||
+       data_file_logging_strategy_ ==
+           cfg::gEnum::LogStrategy::SELECTION_INTERVAL)) {
+    data_log_.logDataFrame(
+        data_file_logging_strategy_); // timer taken care of inside of data_log_
   }
 }
 
@@ -66,7 +65,7 @@ void modules::DataModule::parseDataStream() {
     if (!got_packet)
       return;
     if (first) {
-      delay_ms = giraffe_time::millisecondsElapsed(packet.created_time);
+      delay_ms = BoosterSeat::clck::millisecondsElapsed(packet.created_time);
       first = false;
     }
 
@@ -143,7 +142,7 @@ void modules::DataModule::parseLogStream() {
     if (!got_packet)
       return;
     if (first) {
-      delay_ms = giraffe_time::millisecondsElapsed(packet.created_time);
+      delay_ms = BoosterSeat::clck::millisecondsElapsed(packet.created_time);
       first = false;
     }
 

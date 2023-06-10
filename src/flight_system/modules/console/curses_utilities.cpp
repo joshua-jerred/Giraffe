@@ -1,8 +1,8 @@
-#include "curses_utilities.h"
-
-#include "time_types.hpp"
-
 #include <algorithm>
+
+#include <BoosterSeat/clock.hpp>
+
+#include "curses_utilities.h"
 
 void ncurs::internal::Window::win_init() {
   p_window_ = newwin(height_, width_, y_, x_);
@@ -66,11 +66,12 @@ void ncurs::Environment::update() {
 
   data_window_.win_reset();
 
-  static giraffe_time::TimePoint update_clock = giraffe_time::Clock::now();
-  int mils_elapsed = giraffe_time::millisecondsElapsed(update_clock);
+  static BoosterSeat::clck::TimePoint update_clock =
+      BoosterSeat::clck::Clock::now();
+  int mils_elapsed = BoosterSeat::clck::millisecondsElapsed(update_clock);
   if (mils_elapsed > endpoint_update_rate_ms_) {
     displayData();
-    update_clock = giraffe_time::Clock::now();
+    update_clock = BoosterSeat::clck::Clock::now();
   }
 }
 
@@ -208,7 +209,7 @@ void ncurs::Environment::displayData() {
 
 /**
  * @todo Scroll bar.
- * 
+ *
  */
 void ncurs::Environment::displayScrollBar() {
   data_scroll_bar_.win_clear();

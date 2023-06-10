@@ -21,7 +21,6 @@
 #include "blocks.hpp"
 #include "frame.hpp"
 #include "streams.hpp"
-#include "time_types.hpp"
 
 #include <BoosterSeat/clock.hpp>
 #include <BoosterSeat/time.hpp>
@@ -57,7 +56,7 @@ struct Misc {
     return BoosterSeat::time::elapsedAsciiClock(start_time);
   }
 
-  const BoosterSeat::clck::TimePoint start_time = giraffe_time::now();
+  const BoosterSeat::clck::TimePoint start_time = BoosterSeat::clck::now();
 };
 
 struct SharedData {

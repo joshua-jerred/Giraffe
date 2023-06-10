@@ -21,8 +21,6 @@
 #include <array>
 #include <unordered_map>
 
-namespace protocol = common::protocol;
-
 /**
  * @brief Map from protocol::Type to std::string.
  */
@@ -40,29 +38,30 @@ static const std::unordered_map<std::string, protocol::Endpoint>
                            {"gdl", protocol::Endpoint::GDL},
                            {"gwc", protocol::Endpoint::GWC}};
 
-static const std::unordered_map<protocol::Type, std::string> typeToStringMap = {
-    {protocol::Type::UNKNOWN, "unknown"},
-    {protocol::Type::REQ, "req"},
-    {protocol::Type::SET, "set"},
-    {protocol::Type::RSP, "rsp"}};
+static const std::unordered_map<protocol::MessageType, std::string>
+    typeToStringMap = {{protocol::MessageType::UNKNOWN, "unknown"},
+                       {protocol::MessageType::REQ, "req"},
+                       {protocol::MessageType::SET, "set"},
+                       {protocol::MessageType::RSP, "rsp"}};
 
-static const std::unordered_map<std::string, protocol::Type> stringToTypeMap = {
-    {"unknown", protocol::Type::UNKNOWN},
-    {"req", protocol::Type::REQ},
-    {"set", protocol::Type::SET},
-    {"rsp", protocol::Type::RSP}};
+static const std::unordered_map<std::string, protocol::MessageType>
+    stringToTypeMap = {{"unknown", protocol::MessageType::UNKNOWN},
+                       {"req", protocol::MessageType::REQ},
+                       {"set", protocol::MessageType::SET},
+                       {"rsp", protocol::MessageType::RSP}};
 
 static const std::unordered_map<protocol::ResponseCode, std::string>
-    responseCodeToStringMap = {{protocol::ResponseCode::UNKNOWN, "unknown"},
-                               {protocol::ResponseCode::OK, "ok"},
-                               {protocol::ResponseCode::ERR, "err"}};
+    responseCodeToStringMap = {{protocol::ResponseCode::UNKNOWN, "uk"},
+                               {protocol::ResponseCode::GOOD, "ok"},
+                               {protocol::ResponseCode::ERROR, "er"}};
 
 static const std::unordered_map<std::string, protocol::ResponseCode>
-    stringToResponseCodeMap = {{"unknown", protocol::ResponseCode::UNKNOWN},
-                               {"ok", protocol::ResponseCode::OK},
-                               {"err", protocol::ResponseCode::ERR}};
+    stringToResponseCodeMap = {{"uk", protocol::ResponseCode::UNKNOWN},
+                               {"ok", protocol::ResponseCode::GOOD},
+                               {"er", protocol::ResponseCode::ERROR}};
 
-bool parseMessage(const std::string &json_string, protocol::Message &message) {
+bool protocol::parseMessage(const std::string &json_string,
+                            protocol::Message &message) {
   json message_json;
 
   try {
@@ -91,7 +90,7 @@ bool parseMessage(const std::string &json_string, protocol::Message &message) {
   try {
     message.typ = stringToTypeMap.at(message_json["typ"].get<std::string>());
   } catch (const std::exception &e) {
-    message.typ = protocol::Type::UNKNOWN;
+    message.typ = protocol::MessageType::UNKNOWN;
     valid = false;
   }
   try {
@@ -101,34 +100,42 @@ bool parseMessage(const std::string &json_string, protocol::Message &message) {
     valid = false;
   }
 
+  if (!message_json.contains("body")) {
+    return false; // return early, everything else is the body.
+  } else if (!message_json["body"].is_object()) {
+    return false; // body must be an object.
+  }
+
+  json &body_json = message_json["body"];
+
   // Type-specific fields.
-  if (message.typ == protocol::Type::REQ ||
-      message.typ == protocol::Type::SET) {
+  if (message.typ == protocol::MessageType::REQ ||
+      message.typ == protocol::MessageType::SET) {
     try {
-      message.rsc = message_json["rsc"].get<std::string>();
+      message.rsc = body_json["rsc"].get<std::string>();
     } catch (const std::exception &e) {
       message.rsc = "";
       valid = false;
     }
   }
 
-  if (message.typ == protocol::Type::SET ||
-      message.typ == protocol::Type::RSP) {
+  if (message.typ == protocol::MessageType::SET ||
+      message.typ == protocol::MessageType::RSP) {
     try {
-      if (!message_json["dat"].is_object()) {
+      if (!body_json["dat"].is_object()) {
         throw std::exception();
       }
-      message.dat = message_json["dat"];
+      message.dat = body_json["dat"];
     } catch (const std::exception &e) {
       message.dat = json::object();
       valid = false;
     }
   }
 
-  if (message.typ == protocol::Type::RSP) {
+  if (message.typ == protocol::MessageType::RSP) {
     try {
       message.rsp =
-          stringToResponseCodeMap.at(message_json["rsp"].get<std::string>());
+          stringToResponseCodeMap.at(body_json["rsp"].get<std::string>());
     } catch (const std::exception &e) {
       message.rsp = protocol::ResponseCode::UNKNOWN;
       valid = false;
@@ -153,14 +160,49 @@ json protocol::Message::getJson() {
 
 json protocol::Message::getBodyJson() {
   json body;
-  if (typ == protocol::Type::REQ || typ == protocol::Type::SET) {
+  if (typ == protocol::MessageType::REQ || typ == protocol::MessageType::SET) {
     body["rsc"] = rsc;
   }
-  if (typ == protocol::Type::SET || typ == protocol::Type::RSP) {
+  if (typ == protocol::MessageType::SET || typ == protocol::MessageType::RSP) {
     body["dat"] = dat;
   }
-  if (typ == protocol::Type::RSP) {
+  if (typ == protocol::MessageType::RSP) {
     body["rsp"] = responseCodeToStringMap.at(rsp);
   }
-  return body.dump();
+  return body;
+}
+
+void protocol::createRequestMessage(protocol::Message &message,
+                                    protocol::Endpoint src,
+                                    protocol::Endpoint dst,
+                                    protocol::Resource rsc) {
+  message.src = src;
+  message.dst = dst;
+  message.typ = protocol::MessageType::REQ;
+  message.id = BoosterSeat::randomHexString(8);
+  message.rsc = rsc;
+}
+
+void protocol::createSetMessage(protocol::Message &message,
+                                protocol::Endpoint src, protocol::Endpoint dst,
+                                protocol::Resource rsc, json dat) {
+  message.src = src;
+  message.dst = dst;
+  message.typ = protocol::MessageType::SET;
+  message.id = BoosterSeat::randomHexString(8);
+  message.rsc = rsc;
+  message.dat = dat;
+}
+
+void protocol::createResponseMessage(protocol::Message &message,
+                                     protocol::Endpoint src,
+                                     protocol::Endpoint dst,
+                                     protocol::MessageId id,
+                                     protocol::ResponseCode rsp, json dat) {
+  message.src = src;
+  message.dst = dst;
+  message.typ = protocol::MessageType::RSP;
+  message.id = id;
+  message.rsp = rsp;
+  message.dat = dat;
 }

@@ -4,7 +4,7 @@
 #include <BoosterSeat/time.hpp>
 #include <functional>
 
-inline auto rnd = BoosterSeat::numbers::doubleToPrecisionTwo;
+inline auto rnd = BoosterSeat::doubleToPrecisionTwo;
 namespace bst = BoosterSeat::time;
 
 inline std::string b2str(bool val) {
@@ -119,8 +119,9 @@ void console_pages::Pages::data() {
       "Log File Size: " + std::to_string(log_stats.log_file_size) + " MB",
       "Data/Log Archive Dirs Valid: " + b2str(log_stats.data_archive_dir) +
           " / " + b2str(log_stats.log_archive_dir),
-      "Data/Log Archive Size: " + std::to_string(log_stats.data_archive_dir_size) +
-          " MB / " + std::to_string(log_stats.log_archive_dir_size) + " MB",
+      "Data/Log Archive Size: " +
+          std::to_string(log_stats.data_archive_dir_size) + " MB / " +
+          std::to_string(log_stats.log_archive_dir_size) + " MB",
 
       "Data/Log Archive Dirs Valid: " + b2str(log_stats.data_archive_dir) +
           " / " + b2str(log_stats.log_archive_dir),

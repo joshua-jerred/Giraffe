@@ -1,152 +1,149 @@
+#include <BoosterSeat/string_utils.hpp>
+
 #include "request_handler.hpp"
-#include "to_json.hpp"
 #include <iostream> /** @todo remove this */
 
-using namespace req;
-
-/**
- * @brief Construct a new RequestRouter::RequestRouter object.
- * @param shared_data
- * @param config
- */
 RequestRouter::RequestRouter(data::SharedData &shared_data,
-                             cfg::Configuration &config)
-    : shared_data_(shared_data), config_(config) {
+                             cfg::Configuration &config,
+                             data::blocks::ServerModuleStats &stats)
+    : shared_data_(shared_data), config_(config), stats_(stats) {
 }
 
-/**
- * @brief This function is responsible for parsing a request and routing it to
- * the right place.
- *
- * @details The function handles incoming requests from a TCP socket server by
- * parsing them as JSON strings and checking their type and category before
- * sending the appropriate response or an error packet if they are not
- * implemented or malformed.
- *
- * @param client The `client` parameter is a reference to a
- * `sock::TcpSocketServer` object, which represents the client that sent the
- * request to the server.
- * @param request The `request` parameter is a reference to a `std::string`
- * object that contains the json message received from the client.
- *
- */
-void RequestRouter::handleRequest(sock::TcpSocketServer &client,
+void RequestRouter::handleMessage(sock::TcpSocketServer &client,
                                   std::string &request) {
+  stats_.num_messages_received++;
+  bytes_per_second_down_.count(static_cast<double>(request.size()));
+  protocol::Message msg;
   // Attempt to parse as a json string
-  try {
-    protocol::Message msg(request);
-    if (msg.dst_ != protocol::Endpoint::GFS) {
-      sendErrorPacket(client, "Endpoint it not GFS");
+  if (!protocol::parseMessage(request, msg)) {
+    sendErrorPacket(client, "malformed json");
+    return;
+  }
+
+  if (msg.dst != protocol::Endpoint::GFS) {
+    sendErrorPacket(client, "Endpoint it not GFS");
+    return;
+  }
+
+  if (msg.typ == protocol::MessageType::REQ) {
+    if (msg.rsc == "ping") {
+      handlePingRequest(client, msg);
       return;
     }
 
-    if (msg.typ_ == protocol::Type::REQUEST) {
-      if (msg.cat_ == protocol::Category::PING) {
-        return handlePingRequest(client, msg);
-      } else if (msg.cat_ == protocol::Category::SETTING) {
-        return handleSettingRequest(client, msg);
-      } else if (msg.cat_ == protocol::Category::DATA) {
-        return handleDataRequest(client, msg);
-      }
+    if (BoosterSeat::containsPrefix(msg.rsc, "setting/")) {
+      handleSettingRequest(client, msg);
+      return;
     }
 
-    sendErrorPacket(client, "message type or category not implemented");
-
-  } catch (const std::exception &e) {
-    sendErrorPacket(client, e.what());
+    if (BoosterSeat::containsPrefix(msg.rsc, "data/")) {
+      handleDataRequest(client, msg);
+      return;
+    }
   }
+
+  sendErrorPacket(client, "message type or category not implemented");
 }
 
-/**
- * @brief This function is the generic error response function.
- *
- * @param client The `client` is a the client socket.
- * @param error A `std::string` containing the error message.
- */
 void RequestRouter::sendErrorPacket(sock::TcpSocketServer &client,
                                     const std::string &error) {
-  std::string body = "{\"info\":\"" + error + "\"}";
+  stats_.num_invalid_received++;
+  json body = {{"error", error}};
 
-  protocol::Message error_response(
-      protocol::Endpoint::GFS, protocol::Endpoint::UNKNOWN,
-      protocol::Type::RESPONSE, protocol::Category::ERROR,
-      protocol::generateId(), body);
+  protocol::Message response_message;
+  protocol::createResponseMessage(response_message, protocol::Endpoint::GFS,
+                                  protocol::Endpoint::UNKNOWN, "",
+                                  protocol::ResponseCode::ERROR, body);
 
-  client.send(error_response.getMessageString());
+  sendMessage(response_message, client);
 }
 
-/**
- * @brief This function responds to a ping request.
- * @param client
- * @param msg
- */
 void RequestRouter::handlePingRequest(sock::TcpSocketServer &client,
                                       protocol::Message &msg) {
-  protocol::Message ping_response(protocol::Endpoint::GFS, msg.src_,
-                                  protocol::Type::RESPONSE,
-                                  protocol::Category::PING, msg.id_, "{}");
-
-  client.send(ping_response.getMessageString());
+  protocol::Message response_message;
+  protocol::createResponseMessage(response_message, protocol::Endpoint::GFS,
+                                  msg.src, msg.id, protocol::ResponseCode::GOOD,
+                                  {});
+  sendMessage(response_message, client);
 }
 
-/**
- * @brief This function responds to a setting request.
- * @details It will respond with the configuration portion requested
- * if it exists. Otherwise it will respond with an error.
- *
- * @param client
- * @param msg
- */
 auto RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
                                          protocol::Message &msg) -> void {
   std::string res_body;
 
-  json all_config;
-  config_.getAllJson(all_config);
-  std::cout << "body: " << msg.body_ << std::endl;
+  std::string req = msg.rsc.substr(msg.rsc.find('/') + 1);
 
-  if (all_config.contains(msg.body_)) {
-    res_body = all_config[msg.body_].dump();
+  // it ain't pretty, but it works and it's faster than getting all the json at
+  // once
+  if (req == "general") {
+    res_body = config_.general.getJson().dump();
+  } else if (req == "data_module_data") {
+    res_body = config_.data_module_data.getJson().dump();
+  } else if (req == "data_module_influxdb") {
+    res_body = config_.data_module_influxdb.getJson().dump();
+  } else if (req == "data_module_log") {
+    res_body = config_.data_module_log.getJson().dump();
+  } else if (req == "console_module") {
+    res_body = config_.console_module.getJson().dump();
+  } else if (req == "server_module") {
+    res_body = config_.server_module.getJson().dump();
+  } else if (req == "system_module") {
+    res_body = config_.system_module.getJson().dump();
+  } else if (req == "telemetry") {
+    res_body = config_.telemetry.getJson().dump();
+  } else if (req == "telemetry_aprs") {
+    res_body = config_.telemetry_aprs.getJson().dump();
+  } else if (req == "telemetry_sstv") {
+    res_body = config_.telemetry_sstv.getJson().dump();
+  } else if (req == "telemetry_data_packets") {
+    res_body = config_.telemetry_data_packets.getJson().dump();
   } else {
     sendErrorPacket(client, "setting section not found");
     return;
   }
 
-  protocol::Message setting_response(
-      protocol::Endpoint::GFS, msg.src_, protocol::Type::RESPONSE,
-      protocol::Category::SETTING, msg.id_, res_body);
+  protocol::Message response_message;
+  protocol::createResponseMessage(response_message, protocol::Endpoint::GFS,
+                                  msg.src, msg.id, protocol::ResponseCode::GOOD,
+                                  res_body);
 
-  client.send(setting_response.getMessageString());
+  sendMessage(response_message, client);
 }
 
-/**
- * @brief This function responds to data requests.
- * 
- * @param client 
- * @param msg 
- */
 auto RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
                                       protocol::Message &msg) -> void {
-  
-  std::string requested_data = "";
-  try {
-    requested_data = msg.body_["section"].get<std::string>();
-  } catch (const std::exception &e) {
-    sendErrorPacket(client, "data section malformed " + std::string(e.what()));
-    return;
-  }
+
+  // format of msg.rec is data/<section>, so split on '/'
+  std::string requested_data = msg.rsc.substr(msg.rsc.find('/') + 1);
 
   json res_body;
+
   if (requested_data == "system_info") {
-    res_body = to_json(shared_data_.blocks.system_info.get());
+    res_body = shared_data_.blocks.system_info.get().toJson();
+  } else if (requested_data == "data_log_stats") {
+    res_body = shared_data_.blocks.data_log_stats.get().toJson();
+  } else if (requested_data == "modules_statuses") {
+    res_body = shared_data_.blocks.modules_statuses.get().toJson();
+  } else if (requested_data == "stream_stats") {
+    res_body = shared_data_.blocks.stream_stats.get().toJson();
+  } else if (requested_data == "server_module_stats") {
+    res_body = shared_data_.blocks.server_module_stats.get().toJson();
   } else {
     sendErrorPacket(client, "data section not found");
     return;
   }
 
-  protocol::Message data_response(protocol::Endpoint::GFS, msg.src_,
-                                  protocol::Type::RESPONSE,
-                                  protocol::Category::DATA, msg.id_, res_body);
+  protocol::Message response_message;
+  protocol::createResponseMessage(response_message, protocol::Endpoint::GFS,
+                                  msg.src, msg.id, protocol::ResponseCode::GOOD,
+                                  res_body);
 
-  client.send(data_response.getMessageString());
+  sendMessage(response_message, client);
+}
+
+void RequestRouter::sendMessage(protocol::Message &response_json,
+                                sock::TcpSocketServer &client) {
+  std::string response = response_json.getJsonString();
+  client.send(response);
+  bytes_per_second_up_.count(static_cast<double>(response.size()));
 }

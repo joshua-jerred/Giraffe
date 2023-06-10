@@ -67,4 +67,13 @@ The message body, unique to each
 
 ***
 
-# Valid IDs
+# Valid Resources
+- `ping` : req
+- `setting/<setting_id>` : req, set
+- `data/<data_id>` : req
+
+# Response Codes
+- `er` error
+  - Response body will be `{"error":""}` with a message
+- `ok` 
+  - good request, expected values should be in the message

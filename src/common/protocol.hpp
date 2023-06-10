@@ -22,8 +22,6 @@
 #include "json.hpp"
 #include <string>
 
-namespace common {
-
 namespace protocol {
 /**
  * @brief Endpoint enum, for the source and destination of a message.
@@ -39,7 +37,7 @@ enum class Endpoint {
 /**
  * @brief Type enum, for the type of message.
  */
-enum class Type {
+enum class MessageType {
   UNKNOWN, // Error Type
   REQ,     // Request
   SET,     // Set
@@ -48,14 +46,14 @@ enum class Type {
 
 enum class ResponseCode {
   UNKNOWN, // Error Response Code
-  OK,      // OK
-  ERR      // Error
+  GOOD,    // OK
+  ERROR    // Error
 };
 
 /**
- * @brief Id type, for the id of a message.
+ * @brief MessageId type, for the id of a message.
  */
-typedef std::string Id;
+typedef std::string MessageId;
 typedef std::string Resource;
 
 /**
@@ -83,8 +81,8 @@ struct Message {
   // Required Fields
   protocol::Endpoint src = protocol::Endpoint::UNKNOWN;
   protocol::Endpoint dst = protocol::Endpoint::UNKNOWN;
-  protocol::Type typ = protocol::Type::UNKNOWN;
-  protocol::Id id = "";
+  protocol::MessageType typ = protocol::MessageType::UNKNOWN;
+  MessageId id = "";
 
   // Type Specific Fields
   std::string rsc = "";      // Resource identification, for REQ and SET
@@ -100,7 +98,7 @@ struct Message {
  * @return true - If the message was parsed successfully.
  * @return false - If the message was not parsed successfully.
  */
-bool parseMessage(std::string &json_string, protocol::Message &message);
+bool parseMessage(const std::string &json_string, Message &message);
 
 /**
  * @brief Create a Request Message.
@@ -111,8 +109,8 @@ bool parseMessage(std::string &json_string, protocol::Message &message);
  * @return true - If the message is valid.
  * @return false - If the message is not valid.
  */
-bool createRequest(protocol::Endpoint src, protocol::Endpoint dst,
-                   protocol::Resource rsc);
+void createRequestMessage(Message &message, protocol::Endpoint src,
+                          protocol::Endpoint dst, Resource rsc);
 
 /**
  * @brief Create a Set Message.
@@ -124,8 +122,8 @@ bool createRequest(protocol::Endpoint src, protocol::Endpoint dst,
  * @return true - If the message is valid.
  * @return false - If the message is not valid.
  */
-bool createSet(protocol::Endpoint src, protocol::Endpoint dst,
-               protocol::Resource rsc, json dat);
+void createSetMessage(Message &message, protocol::Endpoint src,
+                      protocol::Endpoint dst, Resource rsc, json dat);
 
 /**
  * @brief Create a Response Message.
@@ -138,10 +136,10 @@ bool createSet(protocol::Endpoint src, protocol::Endpoint dst,
  * @return true - If the message is valid.
  * @return false - If the message is not valid.
  */
-bool createResponse(protocol::Endpoint src, protocol::Endpoint dst,
-                    protocol::Id id, protocol::ResponseCode rsp, json dat);
+void createResponseMessage(Message &message, protocol::Endpoint src,
+                           protocol::Endpoint dst, MessageId id,
+                           protocol::ResponseCode rsp, json dat);
 
 } // namespace protocol
-} // namespace common
 
 #endif // PROTOCOL_HPP_

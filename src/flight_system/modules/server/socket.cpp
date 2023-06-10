@@ -14,7 +14,8 @@ sock::TcpSocketServer::TcpSocketServer() {
 }
 
 sock::TcpSocketServer::~TcpSocketServer() {
-  if (is_valid()) ::close(sock_);
+  if (is_valid())
+    ::close(sock_);
 }
 
 bool sock::TcpSocketServer::init(int port_number) {
@@ -50,7 +51,8 @@ bool sock::TcpSocketServer::init(int port_number) {
 
 bool sock::TcpSocketServer::create() {
   sock_ = socket(AF_INET, SOCK_STREAM, 0);
-  if (!is_valid()) return false;
+  if (!is_valid())
+    return false;
 
   int on = 1;
   if (setsockopt(sock_, SOL_SOCKET, SO_REUSEADDR, (const char *)&on,

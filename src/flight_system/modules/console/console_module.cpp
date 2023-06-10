@@ -1,11 +1,8 @@
 #include "console_module.h"
 #include <functional>
 
-#include "time_types.hpp"
-#include "units.hpp"
-
 /**
- * @brief The update interval is manually set to 50ms in this module.
+ * @details The update interval is manually set to 50ms in this module.
  * This is for keyboard input processing. In the configuration there
  * is still a sleep interval that is used for actually updating the
  * data.
