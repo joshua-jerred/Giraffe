@@ -15,29 +15,23 @@ import {
 function GfsDataMonitorPage() {
   return (
     <>
-      <PageTitle>Giraffe Ground Station - GFS Data Stream</PageTitle>
+      <PageTitle>Giraffe Flight System Data Monitor</PageTitle>
       <PageContent>
         <CardMasonryLayout>
           <Card title="Module Statuses">
-            <DataStreamBlock
-              resource="gfs"
-              category="modules_statuses"
-              stream_name="modules_statuses"
-            />
+            <DataStreamBlock resource="gfs" category="modules_statuses" />
           </Card>
           <Card title="Server Module Stats">
-            <DataStreamBlock
-              resource="gfs"
-              category="server_module_stats"
-              stream_name="server_module_stats"
-            />
+            <DataStreamBlock resource="gfs" category="server_module_stats" />
           </Card>
           <Card title="System Info">
-            <DataStreamBlock
-              resource="gfs"
-              category="system_info"
-              stream_name="system_info"
-            />
+            <DataStreamBlock resource="gfs" category="system_info" />
+          </Card>
+          <Card title="Data Log">
+            <DataStreamBlock resource="gfs" category="data_log_stats" />
+          </Card>
+          <Card title="Data Stream">
+            <DataStreamBlock resource="gfs" category="stream_stats" />
           </Card>
           <Card title="Position Data">
             <CardSectionTitle>GPS</CardSectionTitle>

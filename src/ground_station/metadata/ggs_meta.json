@@ -69,6 +69,12 @@
       }
     },
     "influx_db": {
+      "influx_enabled": {
+        "type": "bool",
+        "name": "InfluxDB Enabled",
+        "description": "Whether or not to enable InfluxDB.",
+        "default": false
+      },
       "influx_db_url": {
         "type": "string",
         "name": "Influx URL",

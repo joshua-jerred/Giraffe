@@ -1,14 +1,14 @@
-import { Outlet } from 'react-router-dom';
-import styled from 'styled-components';
-import React from 'react';
+import { Outlet } from "react-router-dom";
+import styled from "styled-components";
+import React from "react";
 
-import NavBar from './Nav';
-import { Page } from './PageParts';
-import StatusBar from './StatusBar';
+import NavBar from "./Nav";
+import { Page } from "./PageParts";
+import StatusBar from "./StatusBar";
 
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
-import { GGS_WS } from '../api_interface/ws_api';
+import { GGS_WS } from "../api_interface/ws_api";
 
 const Content = styled.div`
   margin-left: ${(props) =>
@@ -19,29 +19,27 @@ const Content = styled.div`
 `;
 
 function Layout() {
-  const { sendPathMessage, ggsConnectionStatus } = React.useContext(GGS_WS);
+  const { removeAllStreams } = React.useContext(GGS_WS);
 
-  let direction = localStorage.getItem('nav_expanded') === 'true';
+  let direction = localStorage.getItem("nav_expanded") === "true";
   const [navExpanded, setNavExpanded] = React.useState(direction);
 
   React.useEffect(() => {
-    localStorage.setItem('nav_expanded', navExpanded);
+    localStorage.setItem("nav_expanded", navExpanded);
   }, [navExpanded]);
 
-  // Send the current path to the server
+  // Remove all streams when navigating away from a page
   const location = useLocation();
   React.useEffect(() => {
-    if (ggsConnectionStatus === 'connected') {
-      sendPathMessage(location.pathname);
-    }
-  }, [location, ggsConnectionStatus]);
+    removeAllStreams();
+  }, [location]);
 
   return (
     <>
       <NavBar navExpanded={navExpanded} setNavExpanded={setNavExpanded} />
       <Content navExpanded={navExpanded}>
         <Page>
-          <StatusBar/>
+          <StatusBar />
           <Outlet />
         </Page>
       </Content>

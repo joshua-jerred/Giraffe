@@ -5,55 +5,55 @@
       "description": "How long the system has been running, not GFS."
     },
     "cpu_load_avg_1": {
-      "name": "",
+      "name": "CPU Load Average (1 min)",
       "description": ""
     },
     "cpu_load_avg_5": {
-      "name": "",
+      "name": "CPU Load Average (5 min)",
       "description": ""
     },
     "cpu_load_avg_15": {
-      "name": "",
+      "name": "CPU Load Average (15 min)",
       "description": ""
     },
     "cpu_temp_c": {
-      "name": "",
+      "name": "CPU Temperature (C)",
       "description": ""
     },
     "mem_total_gb": {
-      "name": "",
+      "name": "Ram Total (GB)",
       "description": ""
     },
     "mem_free_gb": {
-      "name": "",
+      "name": "Ram Free (GB)",
       "description": ""
     },
     "mem_used_percent": {
-      "name": "",
+      "name": "Ram Used (%)",
       "description": ""
     },
     "swap_total_gb": {
-      "name": "",
+      "name": "Swap Total (GB)",
       "description": ""
     },
     "swap_free_gb": {
-      "name": "",
+      "name": "Swap Free (GB)",
       "description": ""
     },
     "swap_used_percent": {
-      "name": "",
+      "name": "Swap Used (%)",
       "description": ""
     },
     "disk_total_gb": {
-      "name": "",
+      "name": "Disk Total (GB)",
       "description": ""
     },
     "disk_free_gb": {
-      "name": "",
+      "name": "Disk Free (GB)",
       "description": ""
     },
     "disk_used_percent": {
-      "name": "",
+      "name": "Disk Used (%)",
       "description": ""
     }
   },
@@ -71,15 +71,15 @@
       "description": ""
     },
     "data_file_size":{
-      "name": "",
+      "name": "Data File Size (MB)",
       "description": ""
     },
     "data_dir_size":{
-      "name": "",
+      "name": "Data Directory Size (MB)",
       "description": ""
     },
     "data_file_path":{
-      "name": "",
+      "name": "Data File Path",
       "description": ""
     },
     "log_dir":{
@@ -91,7 +91,7 @@
       "description": ""
     },
     "log_archive_dir_size":{
-      "name": "",
+      "name": "Log Archive Directory Size (MB)",
       "description": ""
     },
     "log_file":{
@@ -99,11 +99,11 @@
       "description": ""
     },
     "log_file_size":{
-      "name": "",
+      "name": "Log File Size (MB)",
       "description": ""
     },
     "log_file_path":{
-      "name": "",
+      "name": "Log File Path",
       "description": ""
     }
   },

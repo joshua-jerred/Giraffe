@@ -1,7 +1,7 @@
 import { useState, createContext, useContext, useEffect } from "react";
 import useWebSocket, { ReadyState } from "react-use-websocket";
 import { GwsGlobal } from "../GlobalContext";
-import { parse, PathMessage, StreamRequest } from "giraffe-protocol";
+import { parse, StreamRequest } from "giraffe-protocol";
 
 export const GGS_WS = createContext("");
 
@@ -69,10 +69,11 @@ export const GgsWsContextProvider = ({ children }) => {
     }
   };
 
-  // DEPRECATED
-  const sendPathMessage = (path) => {
-    // const message = new PathMessage(path);
-    // sendWsMessage(message);
+  const removeAllStreams = () => {
+    if (ggsConnectionStatus === "connected") {
+      const message = new StreamRequest("gwc", "ggs", "remove_all", "");
+      sendWsMessage(message);
+    }
   };
 
   const sendStreamRequest = (stream_name) => {
@@ -85,7 +86,7 @@ export const GgsWsContextProvider = ({ children }) => {
       value={{
         statusMessage,
         sendWsMessage,
-        sendPathMessage,
+        removeAllStreams,
         ggsConnectionStatus,
         sendStreamRequest,
         lastJsonMessage,
