@@ -12,7 +12,7 @@ import DataLogsPage from './pages/data_logs';
 import ConfigureGgsPage from './pages/configure_ggs';
 
 // GFS
-import GfsDataStreamPage from './pages/gfs/data_stream';
+import GfsMonitorPage from './pages/gfs/data_monitor';
 import ConfigureGfsPage from './pages/gfs/configure_gfs';
 
 import ClientSetupPage from './pages/client_setup';
@@ -37,11 +37,11 @@ function App() {
             <Route
               exact
               path="gfs"
-              element={<Navigate to="/gfs/data-stream" />}
+              element={<Navigate to="/gfs/data-monitor" />}
             />
             
             <Route path="gfs">
-              <Route path="data-stream" element={<GfsDataStreamPage />} />
+              <Route path="data-monitor" element={<GfsMonitorPage />} />
               <Route path="configure" element={<ConfigureGfsPage />} />
             </Route>
 

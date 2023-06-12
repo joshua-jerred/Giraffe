@@ -3,23 +3,19 @@ const valid_types = ["req", "set", "rsp"];
 
 function generateId() {
   const size = 8;
-  let out = [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+  let out = [...Array(size)]
+    .map(() => Math.floor(Math.random() * 16).toString(16))
+    .join("");
   return out;
 }
 
 module.exports = class Message {
-  constructor(
-    src = null,
-    dst = null,
-    typ = null,
-    id = null,
-    body = {}
-  ) {
+  constructor(src = null, dst = null, typ = null, id = null, bdy = {}) {
     this.src = src;
     this.dst = dst;
     this.typ = typ;
     this.id = id;
-    this.body = body;
+    this.bdy = bdy;
 
     // Verify source validity
     if (!valid_endpoints.includes(this.src))
@@ -41,8 +37,8 @@ module.exports = class Message {
     }
 
     // Verify body validity
-    if (typeof this.body !== "object" && this.body !== null) {
-      throw new Error("Invalid body: " + this.body);
+    if (typeof this.bdy !== "object" && this.bdy !== null) {
+      throw new Error("Invalid body: " + this.bdy);
     }
   }
 
@@ -51,13 +47,13 @@ module.exports = class Message {
   }
 
   getJson() {
-    return { 
-      src: this.src, 
+    return {
+      src: this.src,
       dst: this.dst,
-      typ: this.typ, 
+      typ: this.typ,
       cat: this.cat,
       id: this.id,
-      body: this.body 
+      bdy: this.bdy,
     };
   }
 
@@ -66,6 +62,6 @@ module.exports = class Message {
   }
 
   toString() {
-      return JSON.stringify(this.getJson());
+    return JSON.stringify(this.getJson());
   }
-}
+};

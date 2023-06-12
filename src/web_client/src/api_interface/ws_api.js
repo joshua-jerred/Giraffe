@@ -49,11 +49,10 @@ export const GgsWsContextProvider = ({ children }) => {
   // Message Received
   const [numMessages, setNumMessages] = useState(0);
   useEffect(() => {
-    //console.log('Message Received: ' + lastJsonMessage);
     setNumMessages(numMessages + 1);
     try {
       let received = parse(lastJsonMessage);
-      if (received.cat === "stream" && received.id === "status") {
+      if (received.body.cde === "ok" && received.body.dat.stream === "status") {
         setStatusMessage(received.body);
       }
       //console.log(received.toString());
@@ -77,7 +76,7 @@ export const GgsWsContextProvider = ({ children }) => {
   }
 
   const sendStreamRequest = (stream_name) => {
-    const message = new StreamRequest('client', 'ggs', 'add', stream_name);
+    const message = new StreamRequest('gwc', 'ggs', 'add', stream_name);
     sendWsMessage(message);
   }
 

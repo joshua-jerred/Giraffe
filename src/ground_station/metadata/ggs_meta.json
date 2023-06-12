@@ -118,17 +118,11 @@
     }
   },
   "data": {
-    "clients": {
-      "client_names": {
-        "name": "The Names of All Clients",
-        "description": "An object containing the names of all clients that have connected to the server.",
+    "streams": {
+      "clients": {
+        "name": "All Clients",
+        "description": "An object containing all of the clients that have connected with statistics.",
         "default": {}
-      },
-      "made_up_data_2": {
-        "name": "Made Up Data 2",
-        "description": "This is another made up data point.",
-        "default": 0,
-        "units": "meters"
       }
     },
     "status":{

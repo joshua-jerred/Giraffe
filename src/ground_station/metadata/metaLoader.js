@@ -1,11 +1,12 @@
-const gfs_meta_data = require("./gfs_meta.json");
 const ggs_meta_data = require("./ggs_meta.json");
+const gfs_data_meta = require("../../common/metadata/gfs_resources.json");
 const gfs_configuration_meta = require("../../common/metadata/gfs_configuration.json")
 
 function loadMetaData(api, resource = null, category = null) {
-  var meta_data = null;
+  var meta_data = {};
   if (api === "gfs") {
-    meta_data = gfs_configuration_meta;
+    meta_data["settings"] = gfs_configuration_meta;
+    meta_data["data"] = gfs_data_meta;
   } else if (api === "ggs") {
     meta_data = ggs_meta_data;
   } else {

@@ -1,6 +1,5 @@
-const valid_src_dst = ["client", "telemetry", "ggs", "gfs"];
-const valid_typ = ["info", "req", "rsp"];
-const valid_cat = ["ping", "data"];
+const valid_src_dst = ["gwc", "gdl", "ggs", "gfs"];
+const valid_typ = ["set", "req", "rsp"];
 
 const base_message_schema = {
   type: "object",
@@ -8,11 +7,10 @@ const base_message_schema = {
     src: { type: "string", enum: valid_src_dst },
     dst: { type: "string", enum: valid_src_dst },
     typ: { type: "string", enum: valid_typ },
-    cat: { type: "string", enum: valid_cat },
     id: { type: "string" },
     body: { type: "object" },
   },
-  required: ["src", "dst", "typ", "cat", "id", "body"],
+  required: ["src", "dst", "typ", "id", "body"],
   additionalProperties: false,
 };
 

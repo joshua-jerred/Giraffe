@@ -22,6 +22,7 @@ module.exports = class GfsDataSync {
   constructor(global_state) {
     this.global_state = global_state;
     this.resources = {};
+    this.connected = false;
     this.updateClassSettings();
 
     for (let category in DataMeta) {
@@ -33,12 +34,13 @@ module.exports = class GfsDataSync {
         data: {},
       };
       for (let data_item in DataMeta[category]) {
-        this.resources[category].data[data_item] = {
-          name: DataMeta[category][data_item].name,
-          description: DataMeta[category][data_item].description,
-        };
+        this.resources[category].data[data_item] = "no data";
       }
     }
+  }
+
+  getConnectionStatus() {
+    return this.connected;
   }
 
   updateClassSettings() {
@@ -61,21 +63,26 @@ module.exports = class GfsDataSync {
     );
   }
 
-  getResource(category) {
+  getData(category) {
     if (!this.resources[category]) {
       return null;
     }
-    return this.resources[category];
+    return this.resources[category].data;
   }
 
-  setResource(category, message) {
+  setLocalResource(category, message) {
     let data_section = message.body.dat;
     for (let data_item in data_section) {
-      if (!this.resources[category].data[data_item]) {
-        console.log("Not metadata for " + data_item + " in " + category)
-        continue;
+      try {
+        this.resources[category].data[data_item] = data_section[data_item];
+      } catch (e) {
+        console.log(
+          "Failed to set local resource for: " +
+            data_item +
+            " in " +
+            data_section
+        );
       }
-      this.resources[category].data[data_item].value = data_section[data_item];
     }
   }
 
@@ -85,18 +92,18 @@ module.exports = class GfsDataSync {
     let that = this;
 
     con.connect(this.port, this.address, function () {
-      this.connected = true;
       con.write(JSON.stringify(request));
     });
 
     con.on("data", function (data) {
+      that.connected = true;
       try {
         let msg = parse(data.toString());
         if (msg.body.cde !== "ok") {
           console.log("Error: " + msg.body.dat);
           return;
         }
-        that.setResource(category, msg);
+        that.setLocalResource(category, msg);
       } catch (e) {
         console.log("Error parsing data " + e);
       }
@@ -106,7 +113,7 @@ module.exports = class GfsDataSync {
     con.on("close", function () {});
 
     con.on("error", function (err) {
-      console.log(err);
+      that.connected = false;
     });
   }
 

@@ -154,7 +154,7 @@ json protocol::Message::getJson() {
                   {"dst", endpointToStringMap.at(dst)},
                   {"typ", typeToStringMap.at(typ)},
                   {"id", id},
-                  {"body", getBodyJson()}};
+                  {"bdy", getBodyJson()}};
   return message;
 }
 

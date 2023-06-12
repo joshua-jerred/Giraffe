@@ -123,7 +123,8 @@ export function DataStreamBlock({ resource, category, stream_name }) {
     const stream = lastJsonMessage;
     if (stream === undefined || stream === null) {
       return;
-    } else if (stream.cat === "stream" && stream.id === stream_name) {
+    } else if (stream.body.cde === "ok" && stream.body.dat.stream === stream_name) {
+      console.log("yay!")
       let new_items = stream.body;
       let old_items = items;
       for (const [key, value] of Object.entries(new_items)) {
@@ -134,8 +135,10 @@ export function DataStreamBlock({ resource, category, stream_name }) {
         }
       }
       setItems(old_items);
+    } else {
+      console.log(stream.body.cde, stream.body.dat.stream)
     }
-  }, [lastJsonMessage]);
+  }, [lastJsonMessage, items, stream_name]);
 
   if (ggsConnectionStatus !== "connected") {
     return <div>Not connected to GGS.</div>;

@@ -2,10 +2,17 @@
   // CMake
   "cmake.sourceDirectory": "${workspaceFolder}",
 
-  // Formating
+  // Formating (C++, Clang-Format)
   "clang-format.style": "file",
   "[cpp]": {
-    "editor.defaultFormatter": "xaver.clang-format"
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.formatOnSave": true
+  },
+
+  // Formating (javascript, prettier)
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
   },
 
   // Doxygen
@@ -40,5 +47,7 @@
     "dataframe",
     "stdexcept",
     "telem"
-  ]
+  ],
+  "docwriter.style": "Doxygen",
+  "docwriter.hotkey.mac": "⌘ + ."
 }

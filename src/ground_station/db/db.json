@@ -24,11 +24,13 @@
     }
   },
   "data": {
-    "clients": {
-      "client_names": {
-        "user1": "436f8cae-a3c4-4383-ba50-39b08e03e90f"
-      },
-      "made_up_data_2": 0
+    "streams": {
+      "clients": {
+        "user1": {
+          "name": "user1",
+          "times_connected": 1
+        }
+      }
     },
     "status": {
       "this_doesnt_exist": "unknown"

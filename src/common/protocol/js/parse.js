@@ -17,11 +17,10 @@ module.exports = function (message) {
       message.dst,
       message.typ,
       message.id,
-      message.body
+      message.bdy
     );
     return msg;
-  }
-  catch (e) {
+  } catch (e) {
     throw new Error("Couldn't parse the message: " + e);
   }
-}
+};

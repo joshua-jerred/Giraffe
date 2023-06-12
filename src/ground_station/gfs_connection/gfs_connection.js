@@ -37,24 +37,16 @@ module.exports = class GfsConnection {
   }
 
   getData(category) {
-    let data = this.data_resources[category].data;
-    return data;
+    return this.data_sync.getData(category);
   }
 
   getSettings(category) {
-    if (!this.settings_resources[category]) {
-      return null;
-    }
-    let data = this.settings_resources[category].data;
-    return data;
+    return null;
   }
 
   update() {
     this.data_sync.update();
-    this.updateSettingsResources();
-    this.global_state.ggs_status.gfs = this.connected
-      ? "connected"
-      : "disconnected";
+    this.connected = this.data_sync.getConnectionStatus();
   }
 
   get status() {

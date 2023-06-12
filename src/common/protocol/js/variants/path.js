@@ -2,7 +2,7 @@ const { SetMessage } = require("../set");
 
 class PathMessage extends SetMessage {
   constructor(path) {
-    super("gws", "ggs", "path", { path: path });
+    super("gwc", "ggs", "path", { path: path });
   }
 }
 

@@ -1,6 +1,9 @@
 const GgsDataBase = require("./db/ggs_db.js");
 const GfsConnection = require("./gfs_connection/gfs_connection.js");
 
+// Update interval for the global state
+const kGlobalStateUpdateInterval = 1000;
+
 class GlobalState {
   constructor() {
     this.ggs_db = new GgsDataBase();
@@ -17,20 +20,11 @@ class GlobalState {
       total_ws_messages: 0,
     };
 
-    this.clients = {};
-    this.current_client_names = {};
-    this.all_client_names = this.ggs_db.get("data", "clients", "client_names");
-
-    setInterval(this.cycle.bind(this), 1000);
+    setInterval(this.cycle.bind(this), kGlobalStateUpdateInterval);
   }
 
   saveData() {
-    this.ggs_db.setKey(
-      "data",
-      "clients",
-      "client_names",
-      this.all_client_names
-    );
+    this.ggs_db.setKey("data", "streams", "clients", this.all_clients);
   }
 
   getStatus() {
@@ -38,24 +32,26 @@ class GlobalState {
   }
 
   getStreamData(stream) {
+    const gfs_data_streams = [
+      "system_info",
+      "data_log_stats",
+      "modules_statuses",
+      "stream_stats",
+      "server_module_stats",
+    ];
+
     if (stream === "status") {
       return this.getStatus();
-    } else if (stream === "critical") {
-      return this.gfs_connection.getData("critical");
-    } else if (stream === "position_gps") {
-      return this.gfs_connection.getData("position_gps");
-    } else if (stream === "position_imu") {
-      return this.gfs_connection.getData("position_imu");
-    } else if (stream === "gfs_status") {
-      return this.gfs_connection.getData("gfs_status");
+    } else if (gfs_data_streams.includes(stream)) {
+      return this.gfs_connection.getData(stream);
     }
-
   }
 
   get status() {
     return this.ggs_status;
   }
 
+  // Called every kGlobalStateUpdateInterval milliseconds
   cycle() {
     this.gfs_connection.update();
     this.ggs_status.gfs = this.gfs_connection.status;

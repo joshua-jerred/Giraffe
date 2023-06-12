@@ -201,7 +201,7 @@ function NavBar({ navExpanded, setNavExpanded }) {
         <NavItem title="Configure GGS" label="CFG" path="/configure" />
 
         <NavItem title="GFS" icon="fa-rocket" path={'/gfs'}>
-          <NavItem title="Data Stream" label="DAT" path="/gfs/data-stream" />
+          <NavItem title="Data Monitor" label="DAT" path="/gfs/data-monitor" />
           <NavItem title="Configure" label="CFG" path="/gfs/configure" />
         </NavItem>
 

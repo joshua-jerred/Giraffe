@@ -2,9 +2,6 @@ const express = require("express");
 const router = express.Router();
 const parseGetQuery = require("./query_parse");
 
-
-
-
 module.exports = function (global_state) {
   // /api/gfs/settings
   router.get("/settings", (req, res, next) => {
