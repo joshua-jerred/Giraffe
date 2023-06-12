@@ -1,8 +1,8 @@
 {
   "system_info": {
     "uptime_hours": {
-      "name": "",
-      "description": ""
+      "name": "System Uptime (Hours)",
+      "description": "How long the system has been running, not GFS."
     },
     "cpu_load_avg_1": {
       "name": "",
@@ -137,24 +137,26 @@
   },
   "server_module_stats":{
     "num_messages_received":{
-      "name": "",
+      "name": "Messages Received",
       "description": ""
     },
     "num_invalid_received":{
-      "name": "",
+      "name": "Invalid Messages Received",
       "description": ""
     },
     "bytes_per_second_up": {
-      "name": "",
+      "name": "Bps Up",
       "description": ""
     },
     "bytes_per_second_down": {
-      "name": "",
+      "name": "Bps Down",
       "description": ""
     },
     "connection_status": {
-      "name": "",
-      "description": ""
+      "name": "Connection Status",
+      "description": "",
+      "true": "Connected",
+      "false": "Disconnected"
     }
   }
 }

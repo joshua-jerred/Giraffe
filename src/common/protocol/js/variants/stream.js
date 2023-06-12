@@ -22,13 +22,6 @@ class StreamRequest extends Message {
       throw new Error(`Invalid action: ${action}`);
     }
 
-    if (
-      (action === "add" || action === "remove") &&
-      !valid_streams.includes(name)
-    ) {
-      throw new Error(`Invalid stream: ${name}`);
-    }
-
     const typ = "req"; // request type (must have "rsc" field)
     const body = { rsc: "stream", action: action, stream: name };
     super(src, dst, typ, null, body); // id is generated

@@ -29,6 +29,10 @@
         "postman": {
           "user_name": "postman",
           "times_connected": 7
+        },
+        "user1": {
+          "user_name": "user1",
+          "times_connected": 30
         }
       }
     },

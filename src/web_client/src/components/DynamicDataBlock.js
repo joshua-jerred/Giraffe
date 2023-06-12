@@ -79,7 +79,7 @@ function Item({ id, item_data }) {
   );
 }
 
-export function DataStreamBlock({ resource, category, stream_name }) {
+export function DataStreamBlock({ resource, category }) {
   const { ggsAddress } = React.useContext(GwsGlobal);
   const { ggsConnectionStatus, sendStreamRequest, lastJsonMessage } =
     React.useContext(GGS_WS);
@@ -88,7 +88,7 @@ export function DataStreamBlock({ resource, category, stream_name }) {
   const [error, setError] = React.useState(null);
 
   const encoded_category = encodeURIComponent(category);
-  const path = `http://${ggsAddress}/api/${resource}/data?category=${encoded_category}`;
+  const path = `http://${ggsAddress}/api/${resource}/data?category=${encoded_category}&include=metadata`;
   React.useEffect(() => {
     console.log("Loading metadata from: " + path);
     fetch(path)
@@ -101,8 +101,8 @@ export function DataStreamBlock({ resource, category, stream_name }) {
       })
       .then((data) => {
         let new_items = {};
-        for (const [key, value] of Object.entries(data.values)) {
-          new_items[key] = { value: value };
+        for (const [key, meta] of Object.entries(data.metadata)) {
+          new_items[key] = meta;
         }
         for (const [key, value] of Object.entries(data.metadata)) {
           if (new_items[key] === undefined) {
@@ -111,21 +111,20 @@ export function DataStreamBlock({ resource, category, stream_name }) {
           new_items[key].meta = value;
         }
         setItems(new_items);
-        sendStreamRequest(stream_name);
+        sendStreamRequest(category);
       })
       .catch((error) => {
         console.error(error);
         setError("Failed to load metadata. (Check console for details.)");
       });
-  }, [path]);
+  }, [path, ggsConnectionStatus]);
 
   React.useEffect(() => {
     const stream = lastJsonMessage;
     if (stream === undefined || stream === null) {
       return;
-    } else if (stream.body.cde === "ok" && stream.body.dat.stream === stream_name) {
-      console.log("yay!")
-      let new_items = stream.body;
+    } else if (stream.bdy.cde === "ok" && stream.bdy.stream === category) {
+      let new_items = stream.bdy.data;
       let old_items = items;
       for (const [key, value] of Object.entries(new_items)) {
         if (old_items[key] === undefined) {
@@ -135,102 +134,8 @@ export function DataStreamBlock({ resource, category, stream_name }) {
         }
       }
       setItems(old_items);
-    } else {
-      console.log(stream.body.cde, stream.body.dat.stream)
     }
-  }, [lastJsonMessage, items, stream_name]);
-
-  if (ggsConnectionStatus !== "connected") {
-    return <div>Not connected to GGS.</div>;
-  }
-
-  return (
-    <>
-      {error != null ? (
-        <DataBoxStatus>{error}</DataBoxStatus>
-      ) : items === null || items === undefined ? (
-        <DataBoxStatus>Loading Data...</DataBoxStatus>
-      ) : (
-        <>
-          <DataBoxContainer>
-            {Object.entries(items).map(([key, value]) => (
-              <Item id={key} key={key} item_data={value} />
-            ))}
-          </DataBoxContainer>
-        </>
-      )}
-    </>
-  );
-}
-
-export function NestedDataStreamBlock({
-  resource,
-  category,
-  stream_name,
-  nested,
-}) {
-  const { ggsAddress } = React.useContext(GwsGlobal);
-  const { ggsConnectionStatus, sendStreamRequest, lastJsonMessage } =
-    React.useContext(GGS_WS);
-
-  const [items, setItems] = React.useState({});
-  const [error, setError] = React.useState(null);
-
-  const encoded_category = encodeURIComponent(category);
-  const path = `http://${ggsAddress}/api/${resource}/data?category=${encoded_category}`;
-  React.useEffect(() => {
-    console.log("Loading metadata from: " + path);
-    fetch(path)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to load metadata.");
-        } else {
-          return response.json();
-        }
-      })
-      .then((data) => {
-        let new_items = {};
-        for (const [key, value] of Object.entries(data.values)) {
-          for (const [key2, value2] of Object.entries(value)) {
-          new_items[key2] = { value: value2 };
-          }
-        }
-        for (const [key, value] of Object.entries(data.metadata)) {
-          for (const [key2, value2] of Object.entries(value)) {
-            if (new_items[key2] === undefined) {
-              new_items[key2] = { value: value2.default };
-            }
-            new_items[key2].meta = value2;
-          }
-        }
-        setItems(new_items);
-        sendStreamRequest(stream_name);
-      })
-      .catch((error) => {
-        console.error(error);
-        setError("Failed to load metadata. (Check console for details.)");
-      });
-  }, [path]);
-
-  React.useEffect(() => {
-    const stream = lastJsonMessage;
-    if (stream === undefined || stream === null) {
-      return;
-    } else if (stream.cat === "stream" && stream.id === stream_name) {
-      let new_categories = stream.body;
-      let old_items = items;
-      for (const [key, value] of Object.entries(new_categories)) {
-        for (const [key2, value2] of Object.entries(value)) {
-          if (old_items[key2] === undefined) {
-            old_items[key2] = { value: value2 };
-          } else {
-            old_items[key2].value = value2;
-          }
-        }
-      }
-      setItems(old_items);
-    }
-  }, [lastJsonMessage]);
+  }, [lastJsonMessage, items, category]);
 
   if (ggsConnectionStatus !== "connected") {
     return <div>Not connected to GGS.</div>;
