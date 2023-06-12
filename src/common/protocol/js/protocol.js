@@ -1,3 +1,20 @@
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   protocol.js
+ * @brief  The base Giraffe Protocol implementation for javascript.
+ * @addtogroup protocol
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-11
+ * @copyright  2023 (license to be defined)
+ */
+
 const valid_endpoints = ["gfs", "ggs", "gdl", "gwc"];
 const valid_types = ["req", "set", "rsp"];
 
@@ -9,6 +26,9 @@ function generateId() {
   return out;
 }
 
+/**
+ * @brief The base JS message class for the Giraffe Protocol.
+ */
 module.exports = class Message {
   constructor(src = null, dst = null, typ = null, id = null, bdy = {}) {
     this.src = src;

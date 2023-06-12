@@ -10,5 +10,5 @@ class RequestMessage extends Message {
 }
 
 module.exports = {
-  RequestMessage
+  RequestMessage,
 };

@@ -40,6 +40,10 @@ module.exports = class GfsConnection {
     return this.data_sync.getData(category);
   }
 
+  doesDataExist(category) {
+    return this.data_sync.doesDataExist(category);
+  }
+
   getSettings(category) {
     return null;
   }

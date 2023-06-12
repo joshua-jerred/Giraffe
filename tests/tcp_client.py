@@ -12,7 +12,7 @@ packet = {
   "dst":"gfs",
   "typ":"req",
   "id":"",
-  "body":{
+  "bdy":{
     "rsc":"data/server_module_stats"
   }
 }
@@ -23,7 +23,7 @@ while True:
         json_msg = json.dumps(packet)
         s.sendall(json_msg.encode("utf-8"))
         data = s.recv(1024).decode("utf-8")
-        data = json.loads(data)["body"]
+        data = json.loads(data)["bdy"]
     # wait
     time.sleep(0.1)
     print(f"Received {data!r}")

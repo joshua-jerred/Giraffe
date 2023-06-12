@@ -160,14 +160,14 @@ struct DataLogStats {
     j["data_dir"] = data_dir;
     j["data_archive_dir"] = data_archive_dir;
     j["data_file"] = data_file;
-    j["data_file_size"] = data_file_size;
-    j["data_dir_size"] = data_archive_dir_size;
+    j["data_file_size"] = rnd(data_file_size);
+    j["data_dir_size"] = rnd(data_archive_dir_size);
     j["data_file_path"] = data_file_path;
     j["log_dir"] = log_dir;
     j["log_archive_dir"] = log_archive_dir;
     j["log_file"] = log_file;
-    j["log_file_size"] = log_file_size;
-    j["log_archive_dir_size"] = log_archive_dir_size;
+    j["log_file_size"] = rnd(log_file_size);
+    j["log_archive_dir_size"] = rnd(log_archive_dir_size);
     j["log_file_path"] = log_file_path;
     return j;
   }
@@ -205,20 +205,20 @@ struct SystemInfo { // Set by the system module
 
   json toJson() {
     json j;
-    j["uptime_hours"] = uptime_hours;
-    j["cpu_load_avg_1"] = cpu_load_avg_1;
-    j["cpu_load_avg_5"] = cpu_load_avg_5;
-    j["cpu_load_avg_15"] = cpu_load_avg_15;
-    j["cpu_temp_c"] = cpu_temp_c;
-    j["mem_total_gb"] = mem_total_gb;
-    j["mem_free_gb"] = mem_free_gb;
-    j["mem_used_percent"] = mem_used_percent;
-    j["swap_total_gb"] = swap_total_gb;
-    j["swap_free_gb"] = swap_free_gb;
-    j["swap_used_percent"] = swap_used_percent;
-    j["disk_total_gb"] = disk_total_gb;
-    j["disk_free_gb"] = disk_free_gb;
-    j["disk_used_percent"] = disk_used_percent;
+    j["uptime_hours"] = rnd(uptime_hours);
+    j["cpu_load_avg_1"] = rnd(cpu_load_avg_1);
+    j["cpu_load_avg_5"] = rnd(cpu_load_avg_5);
+    j["cpu_load_avg_15"] = rnd(cpu_load_avg_15);
+    j["cpu_temp_c"] = rnd(cpu_temp_c);
+    j["mem_total_gb"] = rnd(mem_total_gb);
+    j["mem_free_gb"] = rnd(mem_free_gb);
+    j["mem_used_percent"] = rnd(mem_used_percent);
+    j["swap_total_gb"] = rnd(swap_total_gb);
+    j["swap_free_gb"] = rnd(swap_free_gb);
+    j["swap_used_percent"] = rnd(swap_used_percent);
+    j["disk_total_gb"] = rnd(disk_total_gb);
+    j["disk_free_gb"] = rnd(disk_free_gb);
+    j["disk_used_percent"] = rnd(disk_used_percent);
     return j;
   }
 };

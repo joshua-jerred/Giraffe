@@ -1,3 +1,20 @@
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   parse.js
+ * @brief  For parsing giraffe protocol messages.
+ * @addtogroup protocol
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-11
+ * @copyright  2023 (license to be defined)
+ */
+
 const Message = require("./protocol");
 
 module.exports = function (message) {

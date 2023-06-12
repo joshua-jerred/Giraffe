@@ -100,13 +100,13 @@ bool protocol::parseMessage(const std::string &json_string,
     valid = false;
   }
 
-  if (!message_json.contains("body")) {
+  if (!message_json.contains("bdy")) {
     return false; // return early, everything else is the body.
-  } else if (!message_json["body"].is_object()) {
+  } else if (!message_json["bdy"].is_object()) {
     return false; // body must be an object.
   }
 
-  json &body_json = message_json["body"];
+  json &body_json = message_json["bdy"];
 
   // Type-specific fields.
   if (message.typ == protocol::MessageType::REQ ||

@@ -119,10 +119,33 @@
   },
   "data": {
     "streams": {
-      "clients": {
-        "name": "All Clients",
-        "description": "An object containing all of the clients that have connected with statistics.",
+      "users": {
+        "name": "GGS WebSocket Users",
+        "description": "An object containing all of the users that have connected with statistics.",
         "default": {}
+      }
+    },
+    "stream_stats": {
+      "NOT_IN_DB":"NOT_IN_DB",
+      "num_current_clients":{
+        "name": "Number of Current Clients",
+        "description": "The number of clients that are currently connected to the ggs web socket.",
+        "default": "unknown"
+      },
+      "num_current_streams":{
+        "name": "Number of Current Streams",
+        "description": "The number of streams that are currently open.",
+        "default": "unknown"
+      },
+      "num_current_users":{
+        "name": "Number of Current Users",
+        "description": "The number of users that are currently connected to the ggs web socket.",
+        "default": "unknown"
+      },
+      "current_users":{
+        "name": "Current Users",
+        "description": "The users that are currently connected to the ggs web socket.",
+        "default": "unknown"
       }
     },
     "status":{

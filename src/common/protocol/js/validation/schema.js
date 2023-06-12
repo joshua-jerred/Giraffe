@@ -1,3 +1,5 @@
+// DEPRECATED
+
 const valid_src_dst = ["gwc", "gdl", "ggs", "gfs"];
 const valid_typ = ["set", "req", "rsp"];
 
@@ -24,7 +26,7 @@ _data_request.properties.cat.enum = ["data"];
 _data_request.properties.body = {
   type: "object",
   properties: {
-    "params": { type: "object" },
+    params: { type: "object" },
   },
   required: ["params"],
   additionalProperties: false,
@@ -35,8 +37,8 @@ _data_response.properties.typ.enum = ["rsp"];
 _data_response.properties.body = {
   type: "object",
   properties: {
-    "params": { type: "object" },
-    "data": { type: "object" },
+    params: { type: "object" },
+    data: { type: "object" },
   },
   required: ["params", "data"],
   additionalProperties: false,
@@ -44,7 +46,6 @@ _data_response.properties.body = {
 
 const data_request_schema = _data_request;
 const data_response_schema = _data_response;
-
 
 const ping_schema = _ping;
 module.exports = {
@@ -54,5 +55,5 @@ module.exports = {
   base_message_schema,
   ping_schema,
   data_request_schema,
-  data_response_schema
-}
+  data_response_schema,
+};

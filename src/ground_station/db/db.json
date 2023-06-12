@@ -25,10 +25,10 @@
   },
   "data": {
     "streams": {
-      "clients": {
-        "user1": {
-          "name": "user1",
-          "times_connected": 1
+      "users": {
+        "postman": {
+          "user_name": "postman",
+          "times_connected": 7
         }
       }
     },

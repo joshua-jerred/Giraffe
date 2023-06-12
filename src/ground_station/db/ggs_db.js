@@ -24,7 +24,7 @@ class GgsDataBase {
       fs.writeFileSync(this.file_path, JSON.stringify({}, null, 2));
     }
 
-    // Iterate through the tables
+    // Iterate through the tables (settings, data)
     for (var i in db_tables) {
       if (this.db[db_tables[i]] === undefined) {
         this.db[db_tables[i]] = {};
@@ -32,15 +32,22 @@ class GgsDataBase {
 
       // Iterate through the categories
       for (var category in loadMetaData("ggs", db_tables[i])) {
+        let subcategories_meta = loadMetaData("ggs", db_tables[i], category);
+        // Don't load subcategories that are not supposed to be in the db
+        if ("NOT_IN_DB" in subcategories_meta) {
+          continue;
+        }
+
         if (this.db[db_tables[i]][category] === undefined) {
           this.db[db_tables[i]][category] = {};
         }
 
         // Iterate through the subcategories
-        let subcategories_meta = loadMetaData("ggs", db_tables[i], category);
+
         for (var subcategory in subcategories_meta) {
           if (this.db[db_tables[i]][category][subcategory] === undefined) {
-            this.db[db_tables[i]][category][subcategory] = subcategories_meta[subcategory].default;
+            this.db[db_tables[i]][category][subcategory] =
+              subcategories_meta[subcategory].default;
           }
         }
       }
@@ -54,7 +61,7 @@ class GgsDataBase {
   }
 
   get(resource, category = null, key = null) {
-    let loaded = null
+    let loaded = null;
     if (category === null) {
       loaded = this.db[resource];
     } else if (key === null) {

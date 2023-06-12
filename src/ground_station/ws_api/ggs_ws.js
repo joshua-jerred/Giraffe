@@ -1,3 +1,21 @@
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   ggs_ws.js
+ * @brief  This sets up the websocket server for GGS for communication with GWC.
+ *
+ * @todo Remove or implement the telemetry websocket server.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-09
+ * @copyright  2023 (license to be defined)
+ */
+
 const WebSocket = require("ws");
 const parse = require("node:url").parse;
 const { v4: uuidv4 } = require("uuid");
@@ -32,8 +50,6 @@ module.exports = async (server, global_state) => {
 
   /**
    * @brief Called when a client first connects to the websocket server.
-   *
-   * @note user_name
    */
   client_wss.on("connection", function connection(ws, req) {
     // query_string should be ['/api/ws', 'user_name=<name>']
@@ -124,46 +140,6 @@ module.exports = async (server, global_state) => {
       socket.destroy();
     }
   });
-
-  // Update the status of GGS
-  setInterval(() => {
-    // const status_contents = global_state.status;
-    //   let status_message = new StatusMessage("ggs", status_contents);
-    // let num_clients = 0;
-    // let current_clients = [];
-    // client_wss.clients.forEach(function each(client) {
-    //   if (client.readyState === WebSocket.OPEN) {
-    //     try {
-    //       current_clients.push(global_state.clients[client.id].client_name);
-    //       num_clients++;
-    //     } catch (e) {
-    //       console.log("err");
-    //     }
-    //     //       //client.send(status_message.string());
-    //   }
-    // });
-    // global_state.ggs_status.current_client_names = current_clients;
-    // global_state.ggs_status.num_ws_clients = num_clients;
-  }, 1000);
-
-  // Temporary stream implementation
-  setInterval(() => {
-    // client_wss.clients.forEach(function each(client) {
-    //   try {
-    //     if (client.readyState === WebSocket.OPEN) {
-    //       let streams = global_state.clients[client.id].streams;
-    //       for (let i = 0; i < streams.length; i++) {
-    //         let stream = streams[i];
-    //         let data = global_state.getStreamData(stream);
-    //         let message = new StreamResponse("ggs", "gwc", stream, data);
-    //         if (data !== undefined) {
-    //           client.send(JSON.stringify(message));
-    //         }
-    //       }
-    //     }
-    //   } catch (e) {}
-    // });
-  }, 1000);
 
   return client_wss;
 };

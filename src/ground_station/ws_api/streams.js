@@ -14,7 +14,7 @@
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
- * @date       2023-06-09
+ * @date       2023-06-11
  * @copyright  2023 (license to be defined)
  */
 
@@ -23,7 +23,7 @@ const { ErrorMessage, StreamResponse } = require("giraffe-protocol");
 
 const USER_STATS = {
   user_name: "",
-  times_connected: 0,
+  times_connected: 1,
 };
 
 /**
@@ -45,15 +45,21 @@ class ClientDataStreams {
     this.clients = {};
 
     // Contains users and their statistics. Users may have multiple clients.
-    this.users = this.gs.ggs_db.get("data", "streams", "clients");
+    this.users = this.gs.ggs_db.get("data", "streams", "users");
 
     this.stats = {
-      total_clients: 0,
-      total_streams: 0,
-      total_users: 0,
+      num_current_clients: 0,
+      num_current_streams: 0,
+      num_current_users: 0,
+      current_users: [],
     };
 
-    this.update_interval = 1000; // change to use config
+    this.update_interval = this.gs.ggs_db.get(
+      "settings",
+      "ggs_server",
+      "stream_rate"
+    );
+
     this.update_timer = setInterval(
       this.#cycle.bind(this),
       this.update_interval
@@ -74,6 +80,16 @@ class ClientDataStreams {
       streams: [],
       user_name: user_name,
     };
+
+    // Add user to the list of users if they don't exist
+    if (!this.users[user_name]) {
+      let stats = USER_STATS;
+      stats.user_name = user_name;
+      this.users[user_name] = stats;
+    } else {
+      this.users[user_name].times_connected++;
+    }
+    this.gs.ggs_db.setKey("data", "streams", "users", this.users);
   }
 
   /**
@@ -177,7 +193,12 @@ class ClientDataStreams {
     switch (stream_name) {
       case "ggs_status":
         return { status: "online" };
+      case "gwc_socket_stats":
+        return this.stats;
       default:
+        if (this.gs.gfs_connection.doesDataExist(stream_name)) {
+          return this.gs.gfs_connection.getData(stream_name);
+        }
         return {};
     }
   }
@@ -195,8 +216,10 @@ class ClientDataStreams {
    * @brief Returns true if a stream name is valid/exists.
    */
   #doesStreamExist(stream_name) {
-    const static_stream_list = ["ggs_status"];
+    const static_stream_list = ["ggs_status", "gwc_socket_stats"];
     if (static_stream_list.includes(stream_name)) {
+      return true;
+    } else if (this.gs.gfs_connection.doesDataExist(stream_name)) {
       return true;
     }
     return false;
@@ -216,17 +239,25 @@ class ClientDataStreams {
   #cycle() {
     let num_clients_buffer = 0;
     let num_streams_buffer = 0;
+    let current_users_buffer = [];
 
     for (let client_id in this.clients) {
       num_clients_buffer++;
       let client = this.clients[client_id];
       let ws = client.client; // client websocket
 
+      // for stats only
+      if (!current_users_buffer.includes(client.user_name)) {
+        current_users_buffer.push(client.user_name);
+      }
+
+      // Check if client is open (shouldn't get here?)
       if (ws.readyState !== WebSocket.OPEN) {
         console.log("Client not open - [cycle]");
         return;
       }
 
+      // Send all streams to the client
       let streams = client.streams;
       for (let stream_name of streams) {
         num_streams_buffer++;
@@ -234,6 +265,12 @@ class ClientDataStreams {
         this.#sendStreamData(ws, stream_name, data);
       }
     }
+
+    // Update stats
+    this.stats.num_current_clients = num_clients_buffer;
+    this.stats.num_current_streams = num_streams_buffer;
+    this.stats.current_users = current_users_buffer;
+    this.stats.num_current_users = current_users_buffer.length;
   }
 }
 
