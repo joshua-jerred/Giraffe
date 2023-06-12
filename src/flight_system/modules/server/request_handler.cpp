@@ -69,34 +69,34 @@ void RequestRouter::handlePingRequest(sock::TcpSocketServer &client,
 
 auto RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
                                          protocol::Message &msg) -> void {
-  std::string res_body;
+  json res_body;
 
   std::string req = msg.rsc.substr(msg.rsc.find('/') + 1);
 
   // it ain't pretty, but it works and it's faster than getting all the json at
   // once
   if (req == "general") {
-    res_body = config_.general.getJson().dump();
+    res_body = config_.general.getJson();
   } else if (req == "data_module_data") {
-    res_body = config_.data_module_data.getJson().dump();
+    res_body = config_.data_module_data.getJson();
   } else if (req == "data_module_influxdb") {
-    res_body = config_.data_module_influxdb.getJson().dump();
+    res_body = config_.data_module_influxdb.getJson();
   } else if (req == "data_module_log") {
-    res_body = config_.data_module_log.getJson().dump();
+    res_body = config_.data_module_log.getJson();
   } else if (req == "console_module") {
-    res_body = config_.console_module.getJson().dump();
+    res_body = config_.console_module.getJson();
   } else if (req == "server_module") {
-    res_body = config_.server_module.getJson().dump();
+    res_body = config_.server_module.getJson();
   } else if (req == "system_module") {
-    res_body = config_.system_module.getJson().dump();
+    res_body = config_.system_module.getJson();
   } else if (req == "telemetry") {
-    res_body = config_.telemetry.getJson().dump();
+    res_body = config_.telemetry.getJson();
   } else if (req == "telemetry_aprs") {
-    res_body = config_.telemetry_aprs.getJson().dump();
+    res_body = config_.telemetry_aprs.getJson();
   } else if (req == "telemetry_sstv") {
-    res_body = config_.telemetry_sstv.getJson().dump();
+    res_body = config_.telemetry_sstv.getJson();
   } else if (req == "telemetry_data_packets") {
-    res_body = config_.telemetry_data_packets.getJson().dump();
+    res_body = config_.telemetry_data_packets.getJson();
   } else {
     sendErrorPacket(client, "setting section not found");
     return;

@@ -2,6 +2,7 @@ const net = require("net");
 const gfsResources = require("../../common/metadata/gfs_resources.json");
 const { DataRequest, parse } = require("giraffe-protocol");
 const GfsDataSync = require("./data_sync.js");
+const GfsSettingSync = require("./setting_sync.js");
 
 module.exports = class GfsConnection {
   constructor(global_state) {
@@ -25,15 +26,10 @@ module.exports = class GfsConnection {
     }
 
     this.global_state = global_state;
-    this.address = "localhost";
-    this.port = 8321;
     this.connected = false;
 
     this.data_sync = new GfsDataSync(global_state);
-  }
-
-  get settings_res() {
-    return this.settings_resources;
+    this.setting_sync = new GfsSettingSync(global_state);
   }
 
   getData(category) {
@@ -45,11 +41,16 @@ module.exports = class GfsConnection {
   }
 
   getSettings(category) {
-    return null;
+    return this.setting_sync.getData(category);
+  }
+
+  doSettingsExist(category) {
+    return this.setting_sync.doesDataExist(category);
   }
 
   update() {
     this.data_sync.update();
+    this.setting_sync.update();
     this.connected = this.data_sync.getConnectionStatus();
   }
 

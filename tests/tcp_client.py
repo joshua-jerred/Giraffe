@@ -13,7 +13,7 @@ packet = {
   "typ":"req",
   "id":"",
   "bdy":{
-    "rsc":"data/server_module_stats"
+    "rsc":"setting/general"
   }
 }
 

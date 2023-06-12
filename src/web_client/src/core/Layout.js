@@ -28,11 +28,11 @@ function Layout() {
     localStorage.setItem("nav_expanded", navExpanded);
   }, [navExpanded]);
 
-  // Remove all streams when navigating away from a page
-  const location = useLocation();
-  React.useEffect(() => {
-    removeAllStreams();
-  }, [location]);
+  // Remove all streams when navigating away from a page (this is a bad solution)
+  // const location = useLocation();
+  // React.useEffect(() => {
+  //   removeAllStreams();
+  // }, [location]);
 
   return (
     <>

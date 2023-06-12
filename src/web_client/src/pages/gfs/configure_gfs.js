@@ -17,29 +17,33 @@ function ConfigureGfsPage() {
           <Card title="General">
             <EditBox resource="gfs" category="general" />
           </Card>
-          <Card title="Debugging">
-            <EditBox resource="gfs" category="debug" />
+          <Card title="Data Module - General/Data File Log">
+            <EditBox resource="gfs" category="data_module_data" />
           </Card>
 
-          <Card title="Flight Procedures">
-            {/* <EditBox resource="gfs" category="flight_procedures" /> */}
+          <Card title="Data Module - Logging">
+            <EditBox resource="gfs" category="data_module_log" />
           </Card>
 
-          <Card title="Extensions">
-            {/* <EditBox resource="gfs" category="extensions" /> */}
+          <Card title="Console Module">
+            <EditBox resource="gfs" category="console_module" />
           </Card>
 
           <Card title="Data Loging">
-            {/* <EditBox resource="gfs" category="data_log" /> */}
+            <EditBox resource="gfs" category="data_module_log" />
           </Card>
 
-          <Card title="Radios">
-            {/* <EditBox resource="gfs" category="radios" /> */}
+          <Card title="Server Module">
+            <EditBox resource="gfs" category="server_module" />
           </Card>
-          
+
+          <Card title="System Module">
+            <EditBox resource="gfs" category="system_module" />
+          </Card>
+
           <Card title="Telemetry">
             <CardSectionTitle>General</CardSectionTitle>
-            <EditBox resource="gfs" category="telemetry_general" />
+            <EditBox resource="gfs" category="telemetry" />
             <CardBreak />
             <CardSectionTitle>APRS</CardSectionTitle>
             <EditBox resource="gfs" category="telemetry_aprs" />
@@ -49,6 +53,14 @@ function ConfigureGfsPage() {
             <CardBreak />
             <CardSectionTitle>Data Packets</CardSectionTitle>
             <EditBox resource="gfs" category="telemetry_data_packets" />
+          </Card>
+
+          <Card title="Extensions">
+            {/* <EditBox resource="gfs" category="system_module" /> */}
+          </Card>
+
+          <Card title="Flight Procedures">
+            {/* <EditBox resource="gfs" category="system_module" /> */}
           </Card>
         </CardMasonryLayout>
       </PageContent>

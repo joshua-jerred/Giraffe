@@ -1,6 +1,14 @@
 const ggs_meta_data = require("./ggs_meta.json");
 const gfs_data_meta = require("../../common/metadata/gfs_resources.json");
-const gfs_configuration_meta = require("../../common/metadata/gfs_configuration.json")
+const gfs_configuration_meta = require("../../common/metadata/gfs_configuration.json");
+
+for (let category in gfs_configuration_meta) {
+  for (let data_item in gfs_configuration_meta[category]) {
+    if (data_item === "SECTION_TYPE") {
+      delete gfs_configuration_meta[category][data_item];
+    }
+  }
+}
 
 function loadMetaData(api, resource = null, category = null) {
   var meta_data = {};
