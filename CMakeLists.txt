@@ -5,10 +5,9 @@ option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF) # ON or OFF
 # ----------------- ***  END CONFIGUREABLE ITEMS  *** --------------------------
 
 
-# ---- Source Files/Directories -----
-include(${CMAKE_SOURCE_DIR}/directories.cmake)
-include(${CMAKE_SOURCE_DIR}/source_list.cmake)
-# -----------------------------------
+# ---- Source Files -----
+include(${CMAKE_SOURCE_DIR}/sources.cmake)
+# -----------------------
 
 # Clang-Tidy
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -83,18 +82,8 @@ FetchContent_MakeAvailable(googletest)
 include(GoogleTest)
 # ----------------------------
 
-
-# ----- Common Includes ------
-include_directories(
-	${COMMON_SRC}/
-	${COMMON_SRC}/protocol
-	${LIB_SRC}/MWAV/include
-)
-# ----------------------------
-
-
 # ---- Giraffe Components ----
-# Flight Software
+# Flight System
 add_subdirectory(${GFS_SRC} ./flight_software)
 
 # External Libraries

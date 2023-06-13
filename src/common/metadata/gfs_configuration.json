@@ -544,5 +544,65 @@
             "min": 0,
             "pattern": ""
         }
+    },
+    "extensions":{
+        "SECTION_TYPE":"list",
+        "name": {
+            "type": "string",
+            "default": "none",
+            "name": "Extension Name",
+            "description": "The name of the extension, used for identifying the extension. This must be unique.",
+            "max": 3,
+            "min": 10,
+            "pattern": ""
+        },
+        "enabled": {
+            "type": "bool",
+            "default": false,
+            "name": "Enabled",
+            "description": "If enabled, the extension will be used.",
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "type": {
+            "type": "enum",
+            "name": "Extension Type",
+            "default": "unknown",
+            "description": "The type of extension.",
+            "enum_name":"extension_type",
+            "options": [
+                "unknown",
+                "bmp180",
+                "bme280",
+                "sam_m8q",
+                "ds18b20"
+            ]
+        },
+        "update_interval":{
+            "type": "int",
+            "default": 0,
+            "name": "Update Interval (ms)",
+            "description": "The interval at which the extension will be allowed to poll for data.",
+            "max": 60000,
+            "min": 5,
+            "pattern": ""
+        },
+        "critical":{
+            "type": "bool",
+            "default": false,
+            "name": "Critical Extension",
+            "description": "If enabled, the extension will be considered critical. This will change the way that the extension is handled internally.",
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "extra_args":{
+            "type":"string",
+            "default":"",
+            "name":"Extra Arguments",
+            "description":"Some extensions allow for extra configuration, this is where that configuration is defined.",
+            "max": 100,
+            "min": 0,
+            "pattern": ""
+        }
     }
 }

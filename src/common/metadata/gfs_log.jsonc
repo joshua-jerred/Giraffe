@@ -1,4 +1,5 @@
-// json5
+// jsonc!!! (comments are allowed) The generator for this one used a non-builtin 
+// library for parsing.
 {
   "FILE_META": {
     "namespace": "data",
@@ -23,7 +24,23 @@
     "failed_to_save_to_path": {},
     "failed_to_open_config": {},
     "config_file_does_not_exist": {},
-    "failed_to_load_section_not_found": {}
+    "failed_to_load_section_not_found": {},
+    "extensions_not_array":{
+      "name": "Extensions in config file is not an array",
+      "description": "The extensions field in the config file must be an array, could not load any extensions."
+    },
+    "extension_not_object":{
+      "name":"Extension is not an object",
+      "description": "An item in the extensions array is not an object. This is reported along with the index of the item."
+    },
+    "extension_name_already_exists":{
+      "name":"Extension Name Already Exists",
+      "description":"This will happen during the loading or when adding an extension. Extension names must be unique."
+    },
+    "extension_name_does_not_exist":{
+      "name":"Extension Name Does Not Exist",
+      "description":"This will happen when trying to remove/alter an extension that does not exist."
+    },
   },
   "module": {
     "start_failure": {},
