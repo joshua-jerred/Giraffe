@@ -50,9 +50,14 @@ void modules::ServerModule::loop() {
   if (server_socket_.accept(client)) {
     std::string request;
     if (client.receive(request)) {
+      if (stopRequested()) { // Helps with hanging on shutdown
+        client.close();
+        return;
+      }
       request_router_.handleMessage(client, request);
       connected_timeout_.reset();
       stats_.is_connected = true;
+      client.close();
     }
   }
 

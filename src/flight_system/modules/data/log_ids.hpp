@@ -19,6 +19,10 @@ enum class LogId {
   CONFIG_failedToOpenConfig,
   CONFIG_configFileDoesNotExist,
   CONFIG_failedToLoadSectionNotFound,
+  CONFIG_extensionsNotArray, // Extensions in config file is not an array
+  CONFIG_extensionNotObject, // Extension is not an object
+  CONFIG_extensionNameAlreadyExists, // Extension Name Already Exists
+  CONFIG_extensionNameDoesNotExist, // Extension Name Does Not Exist
   MODULE_startFailure,
   MODULE_moduleAlreadyStarted,
   DATA_MODULE_statusDataPacketUnknownSource,

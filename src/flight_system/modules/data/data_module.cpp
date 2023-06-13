@@ -121,6 +121,9 @@ void modules::DataModule::parseStatusDataPacket(
   case node::Identification::SYSTEM_MODULE:
     statuses.system = packet.node_status;
     break;
+  case node::Identification::EXTENSION_MODULE:
+    statuses.extension = packet.node_status;
+    break;
   default:
     error(data::LogId::DATA_MODULE_statusDataPacketUnknownSource,
           (int)packet.source);

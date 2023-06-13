@@ -4,6 +4,7 @@
 #include "configuration.hpp"
 #include "console_module.h"
 #include "data_module.h"
+#include "extension_module.hpp"
 #include "server_module.h"
 #include "shared_data.hpp"
 #include "system_module.hpp"
@@ -32,6 +33,7 @@ private:
   modules::ConsoleModule *p_console_module_ = nullptr;
   modules::ServerModule *p_server_module_ = nullptr;
   modules::SystemModule *p_system_module_ = nullptr;
+  modules::ExtensionModule *p_extension_module_ = nullptr;
 
   //  void healthCheck();
 

@@ -9,235 +9,14 @@
 #include <unordered_map>
 #include <vector>
 #include <nlohmann/json.hpp>
+#include "configuration_enums.hpp"
 #include "shared_data.hpp"
+#include "sections/cfg_section.hpp"
+#include "sections/cfg_extensions.hpp"
 
 using json = nlohmann::ordered_json;
 
 namespace cfg {
-namespace gEnum {
-
-enum class MainBoard {
-  OTHER,
-  PI_ZERO_W2,
-  PI_4
-};
-static std::unordered_map<std::string, cfg::gEnum::MainBoard> const KeyToMainBoard = {
-  {"other", cfg::gEnum::MainBoard::OTHER},
-  {"pi_zero_w2", cfg::gEnum::MainBoard::PI_ZERO_W2},
-  {"pi_4", cfg::gEnum::MainBoard::PI_4}
-};
-constexpr const char* MainBoardToKey(cfg::gEnum::MainBoard val) throw() {
-  switch (val) {
-    case cfg::gEnum::MainBoard::OTHER: return "other";
-    case cfg::gEnum::MainBoard::PI_ZERO_W2: return "pi_zero_w2";
-    case cfg::gEnum::MainBoard::PI_4: return "pi_4";
-  }
-  __builtin_unreachable();
-}
-
-enum class ProcedureType {
-  TESTING,
-  PRE_LAUNCH,
-  ASCENT,
-  DESCENT,
-  RECOVERY,
-  FAILSAFE,
-  OTHER
-};
-static std::unordered_map<std::string, cfg::gEnum::ProcedureType> const KeyToProcedureType = {
-  {"testing", cfg::gEnum::ProcedureType::TESTING},
-  {"pre_launch", cfg::gEnum::ProcedureType::PRE_LAUNCH},
-  {"ascent", cfg::gEnum::ProcedureType::ASCENT},
-  {"descent", cfg::gEnum::ProcedureType::DESCENT},
-  {"recovery", cfg::gEnum::ProcedureType::RECOVERY},
-  {"failsafe", cfg::gEnum::ProcedureType::FAILSAFE},
-  {"other", cfg::gEnum::ProcedureType::OTHER}
-};
-constexpr const char* ProcedureTypeToKey(cfg::gEnum::ProcedureType val) throw() {
-  switch (val) {
-    case cfg::gEnum::ProcedureType::TESTING: return "testing";
-    case cfg::gEnum::ProcedureType::PRE_LAUNCH: return "pre_launch";
-    case cfg::gEnum::ProcedureType::ASCENT: return "ascent";
-    case cfg::gEnum::ProcedureType::DESCENT: return "descent";
-    case cfg::gEnum::ProcedureType::RECOVERY: return "recovery";
-    case cfg::gEnum::ProcedureType::FAILSAFE: return "failsafe";
-    case cfg::gEnum::ProcedureType::OTHER: return "other";
-  }
-  __builtin_unreachable();
-}
-
-enum class LogStrategy {
-  INTERVAL,
-  ALL,
-  SELECTION_INTERVAL,
-  SELECTION_ALL
-};
-static std::unordered_map<std::string, cfg::gEnum::LogStrategy> const KeyToLogStrategy = {
-  {"interval", cfg::gEnum::LogStrategy::INTERVAL},
-  {"all", cfg::gEnum::LogStrategy::ALL},
-  {"selection_interval", cfg::gEnum::LogStrategy::SELECTION_INTERVAL},
-  {"selection_all", cfg::gEnum::LogStrategy::SELECTION_ALL}
-};
-constexpr const char* LogStrategyToKey(cfg::gEnum::LogStrategy val) throw() {
-  switch (val) {
-    case cfg::gEnum::LogStrategy::INTERVAL: return "interval";
-    case cfg::gEnum::LogStrategy::ALL: return "all";
-    case cfg::gEnum::LogStrategy::SELECTION_INTERVAL: return "selection_interval";
-    case cfg::gEnum::LogStrategy::SELECTION_ALL: return "selection_all";
-  }
-  __builtin_unreachable();
-}
-
-enum class LogDetail {
-  FULL,
-  PARTIAL
-};
-static std::unordered_map<std::string, cfg::gEnum::LogDetail> const KeyToLogDetail = {
-  {"full", cfg::gEnum::LogDetail::FULL},
-  {"partial", cfg::gEnum::LogDetail::PARTIAL}
-};
-constexpr const char* LogDetailToKey(cfg::gEnum::LogDetail val) throw() {
-  switch (val) {
-    case cfg::gEnum::LogDetail::FULL: return "full";
-    case cfg::gEnum::LogDetail::PARTIAL: return "partial";
-  }
-  __builtin_unreachable();
-}
-
-enum class ArchiveMethod {
-  PLAIN_TEXT
-};
-static std::unordered_map<std::string, cfg::gEnum::ArchiveMethod> const KeyToArchiveMethod = {
-  {"plain_text", cfg::gEnum::ArchiveMethod::PLAIN_TEXT}
-};
-constexpr const char* ArchiveMethodToKey(cfg::gEnum::ArchiveMethod val) throw() {
-  switch (val) {
-    case cfg::gEnum::ArchiveMethod::PLAIN_TEXT: return "plain_text";
-  }
-  __builtin_unreachable();
-}
-
-enum class InfluxdbRetentionPolicy {
-  HOUR,
-  DAY,
-  WEEK,
-  MONTH,
-  YEAR,
-  INF
-};
-static std::unordered_map<std::string, cfg::gEnum::InfluxdbRetentionPolicy> const KeyToInfluxdbRetentionPolicy = {
-  {"hour", cfg::gEnum::InfluxdbRetentionPolicy::HOUR},
-  {"day", cfg::gEnum::InfluxdbRetentionPolicy::DAY},
-  {"week", cfg::gEnum::InfluxdbRetentionPolicy::WEEK},
-  {"month", cfg::gEnum::InfluxdbRetentionPolicy::MONTH},
-  {"year", cfg::gEnum::InfluxdbRetentionPolicy::YEAR},
-  {"inf", cfg::gEnum::InfluxdbRetentionPolicy::INF}
-};
-constexpr const char* InfluxdbRetentionPolicyToKey(cfg::gEnum::InfluxdbRetentionPolicy val) throw() {
-  switch (val) {
-    case cfg::gEnum::InfluxdbRetentionPolicy::HOUR: return "hour";
-    case cfg::gEnum::InfluxdbRetentionPolicy::DAY: return "day";
-    case cfg::gEnum::InfluxdbRetentionPolicy::WEEK: return "week";
-    case cfg::gEnum::InfluxdbRetentionPolicy::MONTH: return "month";
-    case cfg::gEnum::InfluxdbRetentionPolicy::YEAR: return "year";
-    case cfg::gEnum::InfluxdbRetentionPolicy::INF: return "inf";
-  }
-  __builtin_unreachable();
-}
-
-enum class LogLevel {
-  INFO,
-  WARN,
-  ERROR
-};
-static std::unordered_map<std::string, cfg::gEnum::LogLevel> const KeyToLogLevel = {
-  {"info", cfg::gEnum::LogLevel::INFO},
-  {"warn", cfg::gEnum::LogLevel::WARN},
-  {"error", cfg::gEnum::LogLevel::ERROR}
-};
-constexpr const char* LogLevelToKey(cfg::gEnum::LogLevel val) throw() {
-  switch (val) {
-    case cfg::gEnum::LogLevel::INFO: return "info";
-    case cfg::gEnum::LogLevel::WARN: return "warn";
-    case cfg::gEnum::LogLevel::ERROR: return "error";
-  }
-  __builtin_unreachable();
-}
-
-enum class AprsSymbolTable {
-  PRIMARY,
-  ALTERNATE
-};
-static std::unordered_map<std::string, cfg::gEnum::AprsSymbolTable> const KeyToAprsSymbolTable = {
-  {"primary", cfg::gEnum::AprsSymbolTable::PRIMARY},
-  {"alternate", cfg::gEnum::AprsSymbolTable::ALTERNATE}
-};
-constexpr const char* AprsSymbolTableToKey(cfg::gEnum::AprsSymbolTable val) throw() {
-  switch (val) {
-    case cfg::gEnum::AprsSymbolTable::PRIMARY: return "primary";
-    case cfg::gEnum::AprsSymbolTable::ALTERNATE: return "alternate";
-  }
-  __builtin_unreachable();
-}
-
-enum class SstvMode {
-  ROBOT36
-};
-static std::unordered_map<std::string, cfg::gEnum::SstvMode> const KeyToSstvMode = {
-  {"robot36", cfg::gEnum::SstvMode::ROBOT36}
-};
-constexpr const char* SstvModeToKey(cfg::gEnum::SstvMode val) throw() {
-  switch (val) {
-    case cfg::gEnum::SstvMode::ROBOT36: return "robot36";
-  }
-  __builtin_unreachable();
-}
-
-enum class DataPacketsMode {
-  BPSK125,
-  BPSK250,
-  BPSK500,
-  BPSK1000,
-  QPSK125,
-  QPSK250,
-  QPSK500,
-  AFSK_AX25
-};
-static std::unordered_map<std::string, cfg::gEnum::DataPacketsMode> const KeyToDataPacketsMode = {
-  {"bpsk125", cfg::gEnum::DataPacketsMode::BPSK125},
-  {"bpsk250", cfg::gEnum::DataPacketsMode::BPSK250},
-  {"bpsk500", cfg::gEnum::DataPacketsMode::BPSK500},
-  {"bpsk1000", cfg::gEnum::DataPacketsMode::BPSK1000},
-  {"qpsk125", cfg::gEnum::DataPacketsMode::QPSK125},
-  {"qpsk250", cfg::gEnum::DataPacketsMode::QPSK250},
-  {"qpsk500", cfg::gEnum::DataPacketsMode::QPSK500},
-  {"afsk_ax25", cfg::gEnum::DataPacketsMode::AFSK_AX25}
-};
-constexpr const char* DataPacketsModeToKey(cfg::gEnum::DataPacketsMode val) throw() {
-  switch (val) {
-    case cfg::gEnum::DataPacketsMode::BPSK125: return "bpsk125";
-    case cfg::gEnum::DataPacketsMode::BPSK250: return "bpsk250";
-    case cfg::gEnum::DataPacketsMode::BPSK500: return "bpsk500";
-    case cfg::gEnum::DataPacketsMode::BPSK1000: return "bpsk1000";
-    case cfg::gEnum::DataPacketsMode::QPSK125: return "qpsk125";
-    case cfg::gEnum::DataPacketsMode::QPSK250: return "qpsk250";
-    case cfg::gEnum::DataPacketsMode::QPSK500: return "qpsk500";
-    case cfg::gEnum::DataPacketsMode::AFSK_AX25: return "afsk_ax25";
-  }
-  __builtin_unreachable();
-}
-
-} // namespace gEnum
-
-class CfgSection {
- public:
-  CfgSection(data::Streams &streams): streams_(streams){}
-  
- protected:
-  mutable std::mutex cfg_lock_ = std::mutex();
-  data::Streams &streams_;
-};
-
 class General : public cfg::CfgSection {
 public:
   General(data::Streams &streams): cfg::CfgSection(streams){}
@@ -532,7 +311,19 @@ private:
 class Configuration {
  public:
   Configuration(data::Streams &streams):
-    general(streams),    data_module_data(streams),    data_module_influxdb(streams),    data_module_log(streams),    console_module(streams),    server_module(streams),    system_module(streams),    telemetry(streams),    telemetry_aprs(streams),    telemetry_sstv(streams),    telemetry_data_packets(streams),
+    
+    general(streams),    
+    data_module_data(streams),    
+    data_module_influxdb(streams),    
+    data_module_log(streams),    
+    console_module(streams),    
+    server_module(streams),    
+    system_module(streams),    
+    telemetry(streams),    
+    telemetry_aprs(streams),    
+    telemetry_sstv(streams),    
+    telemetry_data_packets(streams),    
+    extensions(streams),
     streams_(streams){}
     
     void getAllJson(json &all_data) const;
@@ -551,6 +342,7 @@ class Configuration {
   cfg::TelemetryAprs telemetry_aprs;
   cfg::TelemetrySstv telemetry_sstv;
   cfg::TelemetryDataPackets telemetry_data_packets;
+  cfg::Extensions extensions;
  
  private:
   void error(data::LogId error_code, std::string info = "") {

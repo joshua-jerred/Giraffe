@@ -1210,6 +1210,7 @@ void cfg::Configuration::getAllJson(json &all_data) const {
 ,    {"telemetry_aprs", telemetry_aprs.getJson()}
 ,    {"telemetry_sstv", telemetry_sstv.getJson()}
 ,    {"telemetry_data_packets", telemetry_data_packets.getJson()}
+,    {"extensions", extensions.getJson()}
   };
 }
   
@@ -1321,6 +1322,12 @@ void cfg::Configuration::load(std::string file_path) {
     telemetry_data_packets.setFromJson(parsed["telemetry_data_packets"]);
   } else {
     error(data::LogId::CONFIG_failedToLoadSectionNotFound, "telemetry_data_packets");
+  }
+
+  if (sectionExists(parsed, "extensions")) {
+    extensions.setFromJson(parsed["extensions"]);
+  } else {
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "extensions");
   }
 
 }

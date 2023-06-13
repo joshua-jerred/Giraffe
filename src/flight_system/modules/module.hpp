@@ -98,7 +98,7 @@ protected:
 
   /**
    * @brief Called when a command is received.
-   * @param command 
+   * @param command
    */
   virtual void processCommand(const command::Command &command) {
     (void)command;
@@ -149,13 +149,17 @@ protected:
   template <typename T>
   void data(data::DataId identifier, T value, int precision = 2);
 
+  bool stopRequested() const {
+    return stop_flag_;
+  }
+
   modules::MetaData metadata_;
   data::SharedData &shared_data_;
   cfg::Configuration &configuration_;
 
   /**
    * @brief Sleeps the module for the sleep interval.
-   * 
+   *
    * @details Default of 1 second, this is blocking.
    */
   void sleep();
@@ -165,7 +169,7 @@ private:
    * @brief This is the main function for each module.
    * @details This function is what runs in the thread. It calls startup, then
    * loops until the stop flag is set to true. It then calls shutdown.
-   * 
+   *
    * It also handles the command queue.
    */
   void runner();

@@ -58,29 +58,17 @@ auto FlightRunner::start() -> int {
     p_console_module_ = new modules::ConsoleModule(shared_data_, *p_config_);
     p_console_module_->start();
   } else {
-    shared_data_.streams.data.reportStatus(
-        node::Identification::CONSOLE_MODULE, 
-        node::Status::DISABLED);
+    shared_data_.streams.data.reportStatus(node::Identification::CONSOLE_MODULE,
+                                           node::Status::DISABLED);
   }
 
   /*
-    Start the server module, then the system module.
+    Start the server and system modules.
   */
   p_server_module_ = new modules::ServerModule(shared_data_, *p_config_);
   p_server_module_->start();
   p_system_module_ = new modules::SystemModule(shared_data_, *p_config_);
   p_system_module_->start();
-
-  // Check for working directories
-  // CheckForOrCreateDirectory(configurables::file_paths::kDataLogLocation);
-  // CheckForOrCreateDirectory(configurables::file_paths::kErrorLogLocation);
-  // CheckForOrCreateDirectory(configurables::file_paths::kTelemetryWavLocation);
-  // CheckForOrCreateDirectory(configurables::file_paths::kImagesLocation);
-
-  // p_data_module_->addConfigData(
-  //     config_data_);  // Add the config data to the DataModule
-
-  // p_data_module_->start();  // Start the DataModule
 
   // ~~~ Initialize BCM/GPIO Interface ~~~ //
   // if (config_data_.bcm_interface_used) {
@@ -93,12 +81,11 @@ auto FlightRunner::start() -> int {
   //   }
   // }
 
-  // // ~~~ Start the Extensions Module ~~~ //
-  // p_extension_module_ =
-  //     new modules::ExtensionsModule(config_data_,
-  //                                   data_stream_);  // Enable Extensions
-
-  // p_extension_module_->start();  // Start Extensions
+  /*
+    Start the extension module (along with its extensions)
+  */
+  p_extension_module_ = new modules::ExtensionModule(shared_data_, *p_config_);
+  p_extension_module_->start();
 
   // // ~~~ Start the Telemetry Module ~~~ //
   // if (config_data_.telemetry.telemetry_enabled) {

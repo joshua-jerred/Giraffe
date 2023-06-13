@@ -97,6 +97,8 @@ auto RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
     res_body = config_.telemetry_sstv.getJson();
   } else if (req == "telemetry_data_packets") {
     res_body = config_.telemetry_data_packets.getJson();
+  } else if (req == "extensions") {
+    res_body = config_.extensions.getJson();
   } else {
     sendErrorPacket(client, "setting section not found");
     return;

@@ -16,7 +16,8 @@ enum class Identification {
   DATA_MODULE,
   CONSOLE_MODULE,
   SERVER_MODULE,
-  SYSTEM_MODULE
+  SYSTEM_MODULE,
+  EXTENSION_MODULE
 };
 
 /**

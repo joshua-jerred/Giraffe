@@ -133,3 +133,13 @@ bool sock::TcpSocketServer::receive(std::string &data) const {
 bool sock::TcpSocketServer::is_valid() const {
   return sock_ != -1;
 }
+
+bool sock::TcpSocketServer::close() {
+  if (is_valid()) {
+    ::close(sock_);
+    sock_ = -1;
+    return true;
+  } else {
+    return false;
+  }
+}

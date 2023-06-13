@@ -1,11 +1,11 @@
 #ifndef VALIDATION_HPP_
 #define VALIDATION_HPP_
 
-#include <nlohmann/json.hpp>
 #include <regex>
 #include <string>
 #include <unordered_map>
 
+#include "json.hpp"
 #include "streams.hpp"
 
 using json = nlohmann::ordered_json;
@@ -24,8 +24,6 @@ namespace validation {
 //                    std::string pattern = "");
 // // error
 // }  // namespace validation
-
-using json = nlohmann::ordered_json;
 
 /**
  * @brief Validates that a string is both in range, and that it
@@ -60,9 +58,8 @@ inline bool validate(const float input, const float min, const float max) {
 
 template <typename T>
 void setValidValue(data::LogStream &log, const json &json_data,
-                               const std::string &section,
-                               const std::string &key, T &value_to_set,
-                               float min, float max, std::string pattern) {
+                   const std::string &section, const std::string &key,
+                   T &value_to_set, float min, float max, std::string pattern) {
   // error source
   constexpr node::Identification e_src = node::Identification::CONFIGURATION;
 
@@ -116,10 +113,10 @@ void setValidValue(data::LogStream &log, const json &json_data,
 }
 
 template <typename T>
-void setValidEnum(
-    data::LogStream &log, const json &json_data, const std::string &section,
-    const std::string &key, T &value_to_set,
-    const std::unordered_map<std::string, T> string_to_value) {
+void setValidEnum(data::LogStream &log, const json &json_data,
+                  const std::string &section, const std::string &key,
+                  T &value_to_set,
+                  const std::unordered_map<std::string, T> string_to_value) {
   constexpr node::Identification e_src = node::Identification::CONFIGURATION;
 
   // Check if the setting key is in the json data
@@ -148,6 +145,6 @@ void setValidEnum(
   value_to_set = string_to_value.at(value);
 }
 
-}  // namespace validation
+} // namespace validation
 
 #endif

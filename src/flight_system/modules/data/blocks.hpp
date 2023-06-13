@@ -70,6 +70,7 @@ struct ModulesStatuses { // Set by the data module
   node::Status console = node::Status::UNKNOWN;
   node::Status server = node::Status::UNKNOWN;
   node::Status system = node::Status::UNKNOWN;
+  node::Status extension = node::Status::UNKNOWN;
 
   json toJson() {
     json j;
@@ -77,6 +78,7 @@ struct ModulesStatuses { // Set by the data module
     j["console"] = node::status_to_string.at(console);
     j["server"] = node::status_to_string.at(server);
     j["system"] = node::status_to_string.at(system);
+    j["extension"] = node::status_to_string.at(extension);
     return j;
   }
 };

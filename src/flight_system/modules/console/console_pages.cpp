@@ -64,7 +64,7 @@ std::string LandR(const std::string &l, const std::string &r) {
 }
 
 void console_pages::Pages::gfsStatus() {
-  current_num_lines_ = 8;
+  current_num_lines_ = 9;
 
   data::blocks::ModulesStatuses mod_stats =
       shared_data_.blocks.modules_statuses.get();
@@ -85,6 +85,7 @@ void console_pages::Pages::gfsStatus() {
   content_[5] = "Server:  " + node::status_to_string.at(mod_stats.server);
   content_[6] = "Console: " + node::status_to_string.at(mod_stats.console);
   content_[7] = "System:  " + node::status_to_string.at(mod_stats.system);
+  content_[8] = "Extension: " + node::status_to_string.at(mod_stats.extension);
 }
 
 void console_pages::Pages::data() {
