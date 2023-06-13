@@ -2,7 +2,11 @@
 
 IND = "  " # indent
 
-base_class = """class CfgSection {
+# more spaghetification
+base_class = "" 
+
+
+"""class CfgSection {
  public:
   CfgSection(data::Streams &streams): streams_(streams){}
   

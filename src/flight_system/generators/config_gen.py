@@ -1,5 +1,21 @@
 # absolute spaghetti monster below, you've been warned.
 
+
+
+
+
+
+
+
+
+
+
+# seriously, it's bad, turn away now
+
+
+
+
+
 import file_gen_utils as utils
 import config_gen_components
 import json
@@ -9,15 +25,15 @@ import os
 INDENT = "  "
 SECTION_TYPE_KEY = "SECTION_TYPE"
 SECTION_ID_KEY = "ID"
-LIST_STRUCT_NAME_KEY = "LIST_STRUCT_NAME"
 
 CFG_NAMESPACE = "cfg"
 CFG_ENUM_NAMESPACE = "gEnum"
 CFG_JSON_NAMESPACE = "json_data"
 
-RESERVED_KEYS = [SECTION_TYPE_KEY, SECTION_ID_KEY, LIST_STRUCT_NAME_KEY]
+RESERVED_KEYS = [SECTION_TYPE_KEY, SECTION_ID_KEY]
 
 STRUCTURE_FILE_NAME = "configuration"
+ENUM_FILE_NAME = "configuration_enums"
 JSON_FILE_NAME = "configuration"
 
 # Default Data
@@ -69,7 +85,7 @@ class Enum:
         return open_line + cases + close
 
     def getJsonKeyToEnum(self):
-        open_line = f'static std::unordered_map<std::string, {self.name_with_ns}> const KeyTo{self.name} = {{\n'
+        open_line = f'std::unordered_map<std::string, {self.name_with_ns}> const KeyTo{self.name} = {{\n'
         cases = ""
         
         first = True
@@ -163,12 +179,9 @@ class SectionItem:
 
 
 class Section:
-    def __init__(self, section_id, is_list, list_struct_name = None):
+    def __init__(self, section_id, is_list):
         self.section_member = section_id # The member name in the main struct
         self.is_list = is_list
-        if is_list:
-            self.list_name = section_id
-            self.section_member = list_struct_name
         sec_id = section_id.split("_")
         self.section_id = ""
         for i in sec_id:
@@ -178,7 +191,7 @@ class Section:
     def addItem(self, struct_item):
         self.items.append(struct_item)
 
-    def getHeaderString(self):        
+    def getHeaderString(self):
         ret_str = f"class {self.section_id} : public cfg::CfgSection {{\n"
         ret_str += "public:\n"
         ret_str += f"{INDENT}{self.section_id}(data::Streams &streams): cfg::CfgSection(streams){{}}\n\n"
@@ -201,11 +214,8 @@ class Section:
         return ret_str
     
     def getStructDecString(self):
-        if not self.is_list:
-            return f"{INDENT}{CFG_NAMESPACE}::{self.section_id} {self.section_member};" # = {CFG_NAMESPACE}::{self.section_id}(streams_);"
-        else:
-            vector_type = structType(self.list_name)
-            return f"{INDENT}std::vector<{vector_type}> {self.section_member} = {{}};"
+        return f"{INDENT}{CFG_NAMESPACE}::{self.section_id} {self.section_member};" # = {CFG_NAMESPACE}::{self.section_id}(streams_);"
+
 
     def _public_members(self):
         public = ""
@@ -298,16 +308,16 @@ class ConfigGen:
             if self.sec_type == "struct":
                 self.parseStructSection(False)
             elif self.sec_type == "list":
-                list_name = self.sec_contents["LIST_STRUCT_NAME"]
-                self.parseStructSection(True, list_name)
+                self.parseStructSection(True)
             else:
                 self.error("Invalid Section Type")
             
             self.StructureHeader()
+            self.EnumHeader()
             self.StructureCpp()
 
-    def parseStructSection(self, is_list, list_name=""):
-        section = Section(self.sec_id, is_list, list_name)
+    def parseStructSection(self, is_list):
+        section = Section(self.sec_id, is_list)
         for key in self.sec_contents:
             if key in RESERVED_KEYS:
                 continue
@@ -368,12 +378,56 @@ class ConfigGen:
         self.sections.append(section)
             
     def StructureHeader(self):
-        STRUCTURE_FILE_INCLUDES = ["<string>", "<fstream>", "<mutex>", "<unordered_map>", "<vector>", "<nlohmann/json.hpp>", '"shared_data.hpp"']
+        STRUCTURE_FILE_INCLUDES = ["<string>", "<fstream>", "<mutex>", "<unordered_map>", "<vector>", "<nlohmann/json.hpp>", f'"{ENUM_FILE_NAME}.hpp"', '"shared_data.hpp"', '"sections/cfg_section.hpp"']
+        
+        # add external section includes
+        for section in self.sections:
+            if section.is_list:
+                name = section.section_id.lower()
+                STRUCTURE_FILE_INCLUDES.append(f'"sections/cfg_{name}.hpp"')
         
         file = utils.headerFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
         file += "using json = nlohmann::ordered_json;\n\n"
         file += utils.enterNameSpace(CFG_NAMESPACE)
         
+        # # enums
+        # file += utils.enterNameSpace(CFG_ENUM_NAMESPACE) + "\n"
+        # for enum in self.enums:
+        #     file += enum.getDefinition() + "\n"
+        #     file += enum.getJsonKeyToEnum()
+        #     file += enum.getEnumToJsonKey()
+        #     file += "\n"
+
+        # file += utils.exitNameSpace(CFG_ENUM_NAMESPACE)
+        
+        # sections
+        file += config_gen_components.base_class
+        
+        for section in self.sections:
+            if section.is_list:
+                continue
+            file += section.getHeaderString();
+        
+        
+        # main config struct
+        general_config_member_names = []
+        general_class_member_decs = []
+        for section in self.sections:
+            general_class_member_decs.append(f"{section.getStructDecString().strip()}")
+            general_config_member_names.append("\n    "+section.section_member)
+            
+        file += config_gen_components.getConfigurationClass(general_config_member_names, general_class_member_decs)
+        
+
+        file += f'}} // namespace {CFG_NAMESPACE}\n'
+        file += utils.headerFileFooter(STRUCTURE_FILE_NAME)
+        f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".hpp", "w")
+        f.write(file)
+
+    def EnumHeader(self):
+        ENUM_FILE_INCLUDES = ["<string>", "<unordered_map>"]
+        file = utils.headerFileHeader(ENUM_FILE_NAME, ENUM_FILE_INCLUDES)
+        file += utils.enterNameSpace(CFG_NAMESPACE)
         # enums
         file += utils.enterNameSpace(CFG_ENUM_NAMESPACE) + "\n"
         for enum in self.enums:
@@ -383,30 +437,11 @@ class ConfigGen:
             file += "\n"
 
         file += utils.exitNameSpace(CFG_ENUM_NAMESPACE)
-        
-        # sections
-        file += config_gen_components.base_class
-        
-        for section in self.sections:
-            file += section.getHeaderString();
-        
-        
-        # main config struct
-        general_config_member_names = []
-        general_class_member_decs = []
-        for section in self.sections:
-            general_class_member_decs.append(f"{section.getStructDecString().strip()}")
-            if section.is_list:
-                continue
-            general_config_member_names.append(section.section_member)
-            
-        file += config_gen_components.getConfigurationClass(general_config_member_names, general_class_member_decs)
-        
-
-        file += f'}} // namespace {CFG_NAMESPACE}\n'
-        file += utils.headerFileFooter(STRUCTURE_FILE_NAME)
-        f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".hpp", "w")
+        file += utils.exitNameSpace(CFG_NAMESPACE)
+        file += utils.headerFileFooter(ENUM_FILE_NAME)
+        f = open(self.out_dir + "/" + ENUM_FILE_NAME + ".hpp", "w")
         f.write(file)
+        
 
     def StructureCpp(self):
         STRUCTURE_FILE_INCLUDES = ["<filesystem>", f'"{STRUCTURE_FILE_NAME}.hpp"', '"validation.hpp"']
@@ -417,6 +452,8 @@ class ConfigGen:
         # getters/setters
         for section in self.sections:
             section_member_names.append(section.section_member)
+            if section.is_list:
+                continue
             file += section.getCppStringGetter();
             file += section.getCppStringSetter();
             file += section.parseJsonToStructDef();
