@@ -68,5 +68,10 @@
         "x_roll": {},
         "y_roll": {},
         "z_roll": {}
+    },
+    "extension": {
+        "status_update":{
+
+        }
     }
 }

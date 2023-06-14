@@ -127,8 +127,12 @@ struct StreamsStats { // Set by the data module
 
   json toJson() {
     json j;
-    j["data"] = data.toJson();
-    j["log"] = log.toJson();
+    j["data_current_packets"] = data.current_packets;
+    j["data_total_packets"] = data.total_packets;
+    j["data_processing_delay_ms"] = data.processing_delay_ms;
+    j["log_current_packets"] = log.current_packets;
+    j["log_total_packets"] = log.total_packets;
+    j["log_processing_delay_ms"] = log.processing_delay_ms;
     return j;
   }
 };
@@ -221,6 +225,24 @@ struct SystemInfo { // Set by the system module
     j["disk_total_gb"] = rnd(disk_total_gb);
     j["disk_free_gb"] = rnd(disk_free_gb);
     j["disk_used_percent"] = rnd(disk_used_percent);
+    return j;
+  }
+};
+
+struct ExtensionModuleStats {
+  int num_extensions = 0;
+  int num_invalid_metadata = 0;
+  int num_extensions_enabled = 0;
+  int num_extensions_running = 0;
+  int num_extensions_failed = 0;
+
+  json toJson() {
+    json j;
+    j["num_extensions"] = num_extensions;
+    j["num_invalid_metadata"] = num_invalid_metadata;
+    j["num_extensions_enabled"] = num_extensions_enabled;
+    j["num_extensions_running"] = num_extensions_running;
+    j["num_extensions_failed"] = num_extensions_failed;
     return j;
   }
 };

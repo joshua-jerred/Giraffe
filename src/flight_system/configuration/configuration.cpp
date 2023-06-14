@@ -1196,6 +1196,99 @@ json cfg::TelemetryDataPackets::getJson() const {
     {"comment", comment_}
   });
 }
+int cfg::ExtensionModule::getStatusPollingRate() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return status_polling_rate_;
+}
+
+int cfg::ExtensionModule::getMaxRestartAttempts() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return max_restart_attempts_;
+}
+
+int cfg::ExtensionModule::getRestartDelayMinimum() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return restart_delay_minimum_;
+}
+
+int cfg::ExtensionModule::getStartTimeout() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return start_timeout_;
+}
+
+void cfg::ExtensionModule::setStatusPollingRate(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  status_polling_rate_ = val;
+}
+
+void cfg::ExtensionModule::setMaxRestartAttempts(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  max_restart_attempts_ = val;
+}
+
+void cfg::ExtensionModule::setRestartDelayMinimum(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  restart_delay_minimum_ = val;
+}
+
+void cfg::ExtensionModule::setStartTimeout(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  start_timeout_ = val;
+}
+
+void cfg::ExtensionModule::setFromJson(const json &json_data) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "extension_module",
+        "status_polling_rate",
+        status_polling_rate_,
+        500,
+        60000,
+        ""
+  );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "extension_module",
+        "max_restart_attempts",
+        max_restart_attempts_,
+        1,
+        100,
+        ""
+  );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "extension_module",
+        "restart_delay_minimum",
+        restart_delay_minimum_,
+        500,
+        60000,
+        ""
+  );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "extension_module",
+        "start_timeout",
+        start_timeout_,
+        500,
+        60000,
+        ""
+  );
+}
+
+json cfg::ExtensionModule::getJson() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return json({
+    {"status_polling_rate", status_polling_rate_},
+    {"max_restart_attempts", max_restart_attempts_},
+    {"restart_delay_minimum", restart_delay_minimum_},
+    {"start_timeout", start_timeout_}
+  });
+}
 
 void cfg::Configuration::getAllJson(json &all_data) const {
   all_data = {
@@ -1211,6 +1304,7 @@ void cfg::Configuration::getAllJson(json &all_data) const {
 ,    {"telemetry_sstv", telemetry_sstv.getJson()}
 ,    {"telemetry_data_packets", telemetry_data_packets.getJson()}
 ,    {"extensions", extensions.getJson()}
+,    {"extension_module", extension_module.getJson()}
   };
 }
   
@@ -1328,6 +1422,12 @@ void cfg::Configuration::load(std::string file_path) {
     extensions.setFromJson(parsed["extensions"]);
   } else {
     error(data::LogId::CONFIG_failedToLoadSectionNotFound, "extensions");
+  }
+
+  if (sectionExists(parsed, "extension_module")) {
+    extension_module.setFromJson(parsed["extension_module"]);
+  } else {
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "extension_module");
   }
 
 }

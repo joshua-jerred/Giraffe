@@ -45,6 +45,8 @@ struct Blocks {
       Block<blocks::ServerModuleStats>();
   Block<blocks::DataLogStats> data_log_stats = Block<blocks::DataLogStats>();
   Block<blocks::SystemInfo> system_info = Block<blocks::SystemInfo>();
+  Block<blocks::ExtensionModuleStats> extension_module_stats =
+      Block<blocks::ExtensionModuleStats>();
 };
 
 struct Misc {

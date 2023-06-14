@@ -17,7 +17,8 @@ enum class Identification {
   CONSOLE_MODULE,
   SERVER_MODULE,
   SYSTEM_MODULE,
-  EXTENSION_MODULE
+  EXTENSION_MODULE,
+  EXTENSION
 };
 
 /**
@@ -36,16 +37,26 @@ static const std::map<Identification, std::string> identification_to_string = {
 /**
  * @brief Node status, used for modules and extensions.
  */
-enum class Status {
-  UNKNOWN,
-  DISABLED,
-  STOPPED,
-  STARTING,
-  RUNNING,
-  SLEEPING,
-  STOPPING,
-  ERROR
+enum class Status : uint8_t {
+  UNKNOWN = 0b00000001,
+  DISABLED = 0b00000010,
+  STOPPED = 0b00000100,
+  STARTING = 0b00001000,
+  RUNNING = 0b00010000,
+  SLEEPING = 0b00100000,
+  STOPPING = 0b01000000,
+  ERROR = 0b10000000
 };
+
+inline constexpr uint8_t kNodeInactiveStatuses =
+    static_cast<uint8_t>(Status::DISABLED) |
+    static_cast<uint8_t>(Status::STOPPED) | static_cast<uint8_t>(Status::ERROR);
+
+inline constexpr uint8_t kNodeActiveStatuses =
+    static_cast<uint8_t>(Status::STARTING) |
+    static_cast<uint8_t>(Status::RUNNING) |
+    static_cast<uint8_t>(Status::SLEEPING) |
+    static_cast<uint8_t>(Status::STOPPING);
 
 /**
  * @brief Map of node status to string

@@ -58,6 +58,7 @@ set(gfs_sources
 
 	# extensions module and extensions
 	${GFS_SRC}/modules/extensions/extension_module.cpp
+	${GFS_SRC}/extensions/extension.cpp
 )
 
 set(gfs_include_dirs

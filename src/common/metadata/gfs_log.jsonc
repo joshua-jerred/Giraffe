@@ -193,5 +193,11 @@
     "system_info_read_fail": {},
     "cpu_temp_read_fail": {},
     "disk_info_read_fail": {}
+  },
+  "extension":{
+    "start_call":{
+      "name": "Can not start if already running, starting, or sleeping.",
+      "description": "This case should not happen, but it can happen on a call to start."
+    }
   }
 }

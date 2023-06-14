@@ -70,7 +70,8 @@ enum class LogId {
   DATA_LOG_rotateLogFile, // Failed to rotate log file
   SYSTEM_MODULE_systemInfoReadFail,
   SYSTEM_MODULE_cpuTempReadFail,
-  SYSTEM_MODULE_diskInfoReadFail
+  SYSTEM_MODULE_diskInfoReadFail,
+  EXTENSION_startCall  // Can not start if already running, starting, or sleeping.
 };
 } // namespace data
 

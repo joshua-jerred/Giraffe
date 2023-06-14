@@ -9,7 +9,7 @@ enum class DataId {
   GENERIC_test,
   MODULE_statusUpdate,
   MODULE_STATUS_data, // Data Module Status
-  MODULE_STATUS_console,
+  MODULE_STATUS_console, // Console Module Status
   MODULE_STATUS_server,
   MODULE_STATUS_system,
   SYSTEM_MODULE_cpu,
@@ -32,7 +32,8 @@ enum class DataId {
   POSITION_GPS_lon,
   POSITION_IMU_xRoll,
   POSITION_IMU_yRoll,
-  POSITION_IMU_zRoll
+  POSITION_IMU_zRoll,
+  EXTENSION_statusUpdate
 };
 } // namespace data
 

@@ -126,12 +126,28 @@
     }
   },
   "stream_stats":{
-    "data":{
-      "name": "Data Stream Status",
+    "data_current_packets":{
+      "name": "",
       "description": ""
     },
-    "log": {
-      "name": "Log Stream Status",
+    "data_total_packets": {
+      "name": "",
+      "description": ""
+    },
+    "data_processing_delay_ms":{
+      "name": "",
+      "description": ""
+    },
+    "log_current_packets":{
+      "name": "",
+      "description": ""
+    },
+    "log_total_packets": {
+      "name": "",
+      "description": ""
+    },
+    "log_processing_delay_ms":{
+      "name": "",
       "description": ""
     }
   },
@@ -158,5 +174,13 @@
       "true": "Connected",
       "false": "Disconnected"
     }
+  },
+  "extension_module_stats":{
+    "num_extensions":{},
+    "num_extensions_enabled":{},
+    "num_extensions_disabled":{},
+    "num_extensions_running":{},
+    "num_extensions_stopped":{},
+    "num_extensions_errored":{}
   }
 }

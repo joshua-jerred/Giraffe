@@ -43,7 +43,7 @@ public:
 
   Module(const Module &) = delete;            // No copy constructor
   Module &operator=(const Module &) = delete; // No copy assignment
-  virtual ~Module(){};
+  virtual ~Module() = default;
 
   /**
    * @brief Starts a thread to run the module.
@@ -153,16 +153,16 @@ protected:
     return stop_flag_;
   }
 
-  modules::MetaData metadata_;
-  data::SharedData &shared_data_;
-  cfg::Configuration &configuration_;
-
   /**
    * @brief Sleeps the module for the sleep interval.
    *
    * @details Default of 1 second, this is blocking.
    */
   void sleep();
+
+  modules::MetaData metadata_;
+  data::SharedData &shared_data_;
+  cfg::Configuration &configuration_;
 
 private:
   /**

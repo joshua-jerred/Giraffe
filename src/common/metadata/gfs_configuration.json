@@ -583,8 +583,8 @@
             "default": 0,
             "name": "Update Interval (ms)",
             "description": "The interval at which the extension will be allowed to poll for data.",
-            "max": 60000,
-            "min": 5,
+            "max": 600000,
+            "min": 50,
             "pattern": ""
         },
         "critical":{
@@ -603,6 +603,41 @@
             "max": 100,
             "min": 0,
             "pattern": ""
+        }
+    },
+    "extension_module":{
+        "SECTION_TYPE":"struct",
+        "status_polling_rate":{
+            "type": "int",
+            "default": 1000,
+            "name": "Status Polling Rate (ms)",
+            "description": "The rate at which the status of the extension will be polled. This is used to determine if the extension is still alive.",
+            "max": 60000,
+            "min": 500
+        },
+        "max_restart_attempts":{
+            "type": "int",
+            "default": 5,
+            "name": "Max Restart Attempts",
+            "description": "The maximum number of times that the extension will be restarted before it is considered dead. Resets after each successful restart.",
+            "max": 100,
+            "min": 1
+        },
+        "restart_delay_minimum":{
+            "type": "int",
+            "default": 1000,
+            "name": "Restart Delay Minimum (ms)",
+            "description": "The minimum amount of time that the extension module will wait before trying to restart and extension.",
+            "max": 60000,
+            "min": 500
+        },
+        "start_timeout":{
+            "type": "int",
+            "default": 10000,
+            "name": "Start Timeout (ms)",
+            "description": "The amount of time that the extension module will wait for an extension to start before it's considered 'stalled'.",
+            "max": 60000,
+            "min": 500
         }
     }
 }

@@ -308,6 +308,30 @@ private:
   std::string comment_ = "Giraffe Flight Software";
 };
 
+class ExtensionModule : public cfg::CfgSection {
+public:
+  ExtensionModule(data::Streams &streams): cfg::CfgSection(streams){}
+
+  int getStatusPollingRate() const;
+  int getMaxRestartAttempts() const;
+  int getRestartDelayMinimum() const;
+  int getStartTimeout() const;
+
+  void setStatusPollingRate(int);
+  void setMaxRestartAttempts(int);
+  void setRestartDelayMinimum(int);
+  void setStartTimeout(int);
+
+  void setFromJson(const json&);
+  json getJson() const;
+
+private:
+  int status_polling_rate_ = 1000;
+  int max_restart_attempts_ = 5;
+  int restart_delay_minimum_ = 1000;
+  int start_timeout_ = 10000;
+};
+
 class Configuration {
  public:
   Configuration(data::Streams &streams):
@@ -323,7 +347,8 @@ class Configuration {
     telemetry_aprs(streams),    
     telemetry_sstv(streams),    
     telemetry_data_packets(streams),    
-    extensions(streams),
+    extensions(streams),    
+    extension_module(streams),
     streams_(streams){}
     
     void getAllJson(json &all_data) const;
@@ -343,6 +368,7 @@ class Configuration {
   cfg::TelemetrySstv telemetry_sstv;
   cfg::TelemetryDataPackets telemetry_data_packets;
   cfg::Extensions extensions;
+  cfg::ExtensionModule extension_module;
  
  private:
   void error(data::LogId error_code, std::string info = "") {
