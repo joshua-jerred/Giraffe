@@ -130,6 +130,11 @@ void Extensions::toggleExtension(const std::string &name, bool enabled) {
   error(data::LogId::CONFIG_extensionNameDoesNotExist, "on toggle " + name);
 }
 
+std::vector<ExtensionMetadata> Extensions::getExtensions() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return extensions_;
+}
+
 bool Extensions::doesNameExist(const std::string &name) const {
   for (const ExtensionMetadata &ext_meta : extensions_) {
     if (ext_meta.name == name) {

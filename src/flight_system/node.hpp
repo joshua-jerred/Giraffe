@@ -1,5 +1,22 @@
-#ifndef NODE_H_
-#define NODE_H_
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   node.hpp
+ * @brief  Contains structures that are used to identify components of the
+ * flight system.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-13
+ * @copyright  2023 (license to be defined)
+ */
+
+#ifndef NODE_HPP_
+#define NODE_HPP_
 
 #include <map>
 

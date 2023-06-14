@@ -8,15 +8,15 @@
 namespace modules {
 
 class SystemModule : public Module {
- public:
+public:
   SystemModule(data::SharedData &, cfg::Configuration &);
   ~SystemModule() override;
 
- private:
+private:
   void startup() override;
   void loop() override;
   void shutdown() override;
-  void processCommand(const command::Command &);
+  void processCommand(const cmd::Command &);
 
   void updateCpuAndMemoryInfo();
   void updateCpuTemp();
@@ -26,6 +26,6 @@ class SystemModule : public Module {
   data::blocks::SystemInfo data_ = data::blocks::SystemInfo();
 };
 
-}  // namespace modules
+} // namespace modules
 
 #endif

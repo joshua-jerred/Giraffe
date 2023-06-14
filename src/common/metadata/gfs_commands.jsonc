@@ -1,0 +1,19 @@
+// Metadata for all GFS commands
+{
+  "FILE_META": {
+    "namespace": "cmd",
+    "enum_name": "CommandId"
+  },
+  "general":{
+    "unknown":{
+      "name":"Unknown",
+      "description":"Placeholder, used as a default/fallback value. This commands will be responded to with and error."
+    }
+  },
+  "node":{
+    "reload_configuration":{
+      "name":"Reload Configuration",
+      "description":"Tells a node to reload it's relevant configuration items (e.g. after a config change)."
+    }
+  }
+}

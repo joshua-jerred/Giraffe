@@ -34,6 +34,6 @@ void modules::ConsoleModule::shutdown() {
   ncurs_env_.end();
 }
 
-void modules::ConsoleModule::processCommand(const command::Command &command) {
+void modules::ConsoleModule::processCommand(const cmd::Command &command) {
   (void)command;
 }

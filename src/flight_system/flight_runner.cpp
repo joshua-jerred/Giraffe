@@ -1,10 +1,8 @@
 #include "flight_runner.hpp"
 
 #include "configurables.hpp"
-// #include <filesystem>
+#include "giraffe_assert.hpp"
 
-// #include "config-types.h"
-// #include "data-stream.h"
 // #include "interface.h"
 // #include "timer.h"
 
@@ -24,18 +22,6 @@ FlightRunner::~FlightRunner() {
   delete p_data_module_;
   delete p_config_;
 }
-
-// void CheckForOrCreateDirectory(std::string path) {
-//   if (!std::filesystem::exists(path)) {
-//     // Create the directory
-//     std::filesystem::create_directory(path);
-//     if (!std::filesystem::exists(path)) {
-//       std::cout << "Error: Could not create directory: " << path <<
-//       std::endl;
-//     }
-//     std::cout << "Created directory: " << path << std::endl;
-//   }
-// }
 
 auto FlightRunner::start() -> int {
   std::cout << "Giraffe Flight Software v" << configurables::kGiraffeVersion
@@ -300,3 +286,12 @@ auto FlightRunner::flightLoop() -> int {
 //     std::cout << "Not Used" << std::endl;
 //   }
 // }
+
+#ifndef DNDEBUG // If debug mode is enabled.
+void __assert_func(const char *__file, int __line, const char *__expr) {
+  printf("ASSERT: %s:%d: Assertion `%s' failed.\n", __file, __line, __expr);
+  throw std::exception();
+}
+#else
+
+#endif /* DNDEBUG */

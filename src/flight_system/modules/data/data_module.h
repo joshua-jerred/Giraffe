@@ -18,7 +18,7 @@ private:
   void startup() override;
   void loop() override;
   void shutdown() override;
-  void processCommand(const command::Command &);
+  void processCommand(const cmd::Command &);
 
   void parseDataStream();
   void parseGeneralDataPacket(const data::DataPacket &packet);
@@ -33,10 +33,8 @@ private:
   bool log_file_enabled_ = false;
   bool influxdb_enabled_ = false;
 
-  cfg::gEnum::LogStrategy data_file_logging_strategy_
-    = cfg::gEnum::LogStrategy::INTERVAL;
-
-
+  cfg::gEnum::LogStrategy data_file_logging_strategy_ =
+      cfg::gEnum::LogStrategy::INTERVAL;
 };
 
 } // namespace modules

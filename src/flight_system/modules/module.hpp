@@ -12,9 +12,10 @@
 #include <atomic>
 #include <thread>
 
-#include "command.h"
+#include "command.hpp"
 #include "configuration.hpp"
-#include "node.h"
+#include "giraffe_assert.hpp"
+#include "node.hpp"
 #include "shared_data.hpp"
 
 namespace modules {
@@ -100,8 +101,13 @@ protected:
    * @brief Called when a command is received.
    * @param command
    */
-  virtual void processCommand(const command::Command &command) {
+  virtual void processCommand(const cmd::Command &command) {
     (void)command;
+    giraffe_assert(false);
+  }
+
+  virtual void updateLocalConfig() {
+    giraffe_assert(false);
   }
 
   /**
@@ -149,6 +155,15 @@ protected:
   template <typename T>
   void data(data::DataId identifier, T value, int precision = 2);
 
+  /**
+   * @brief Returns true if the stop flag is set to true.
+   *
+   * @details Used internally in a module to check if the module should stop
+   * in between large tasks.
+   *
+   * @return true
+   * @return false
+   */
   bool stopRequested() const {
     return stop_flag_;
   }
@@ -193,9 +208,9 @@ private:
 
   /**
    * @brief The command queue for the module.
-   * @see command::CommandQueue
+   * @see cmd::CommandQueue
    */
-  command::CommandQueue command_queue_;
+  cmd::CommandQueue command_queue_;
 };
 
 } // namespace modules

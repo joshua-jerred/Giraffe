@@ -83,6 +83,6 @@ void modules::ServerModule::loop() {
 void modules::ServerModule::shutdown() {
 }
 
-void modules::ServerModule::processCommand(const command::Command &command) {
+void modules::ServerModule::processCommand(const cmd::Command &command) {
   (void)command;
 }

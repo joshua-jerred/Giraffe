@@ -101,6 +101,12 @@ public:
    */
   void toggleExtension(const std::string &name, bool enabled);
 
+  /**
+   * @brief Returns a copy of the extension metadata configuration vector.
+   * @return std::vector<ExtensionMetadata> All extension metadata loaded.
+   */
+  std::vector<ExtensionMetadata> getExtensions() const;
+
 private:
   /**
    * @brief Checks if an extension with the given name exists.

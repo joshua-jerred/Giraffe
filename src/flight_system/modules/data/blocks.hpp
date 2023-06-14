@@ -3,7 +3,7 @@
 
 #include <mutex>
 
-#include "node.h"
+#include "node.hpp"
 #include <BoosterSeat/clock.hpp>
 #include <BoosterSeat/numbers.hpp>
 #include <BoosterSeat/time.hpp>

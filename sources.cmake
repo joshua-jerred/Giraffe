@@ -57,7 +57,7 @@ set(gfs_sources
 	${GFS_SRC}/modules/system/system_module.cpp
 
 	# extensions module and extensions
-	${GFS_SRC}/modules/extensions/extension_module.cpp
+	${GFS_SRC}/modules/extension/extension_module.cpp
 	${GFS_SRC}/extensions/extension.cpp
 )
 
@@ -66,10 +66,16 @@ set(gfs_include_dirs
 	${GFS_SRC}/
 	${GFS_SRC}/utilities
 	${GFS_SRC}/configuration
+	${GFS_SRC}/command
+
+	# modules
 	${GFS_SRC}/modules
 	${GFS_SRC}/modules/data
 	${GFS_SRC}/modules/console
 	${GFS_SRC}/modules/server
 	${GFS_SRC}/modules/system
-	${GFS_SRC}/modules/extensions
+	${GFS_SRC}/modules/extension
+
+	# extensions
+	${GFS_SRC}/extensions
 )

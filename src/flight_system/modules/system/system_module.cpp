@@ -1,11 +1,11 @@
 #include "system_module.hpp"
 
-#include <sys/statfs.h>   // for statfs   (disk info)
-#include <sys/sysinfo.h>  // for sysinfo  (CPU, RAM)
+#include <sys/statfs.h>  // for statfs   (disk info)
+#include <sys/sysinfo.h> // for sysinfo  (CPU, RAM)
 
-#include <ctime>    // for time_t   (time)
-#include <fstream>  // for ifstream (CPU temp)
-#include <sstream>  // for stringstream (time)
+#include <ctime>   // for time_t   (time)
+#include <fstream> // for ifstream (CPU temp)
+#include <sstream> // for stringstream (time)
 
 static modules::MetaData metadata("system_module",
                                   node::Identification::SYSTEM_MODULE);
@@ -33,12 +33,12 @@ void modules::SystemModule::loop() {
 void modules::SystemModule::shutdown() {
 }
 
-void modules::SystemModule::processCommand(const command::Command &command) {
+void modules::SystemModule::processCommand(const cmd::Command &command) {
   (void)command;
 }
 
 void modules::SystemModule::updateCpuAndMemoryInfo() {
-  struct sysinfo sys_info;  // from sys/sysinfo.h
+  struct sysinfo sys_info; // from sys/sysinfo.h
 
   if (sysinfo(&sys_info) != 0) {
     error(data::LogId::SYSTEM_MODULE_systemInfoReadFail);
@@ -75,7 +75,7 @@ void modules::SystemModule::updateCpuTemp() {
 }
 
 void modules::SystemModule::updateDiskInfo() {
-  struct statfs disk_stat;  // from sys/statfs.h
+  struct statfs disk_stat; // from sys/statfs.h
 
   if (statfs("/", &disk_stat) != 0) {
     error(data::LogId::SYSTEM_MODULE_diskInfoReadFail);
@@ -83,16 +83,15 @@ void modules::SystemModule::updateDiskInfo() {
   }
 
   data_.disk_total_gb = (unsigned long long)(disk_stat.f_blocks) *
-                             (unsigned long long)(disk_stat.f_bsize) / 1024.0 /
-                             1024.0 / 1024.0;
+                        (unsigned long long)(disk_stat.f_bsize) / 1024.0 /
+                        1024.0 / 1024.0;
 
   data_.disk_free_gb = (unsigned long long)(disk_stat.f_bavail) *
-                                  (unsigned long long)(disk_stat.f_bsize) /
-                                  1024.0 / 1024.0 / 1024.0;
+                       (unsigned long long)(disk_stat.f_bsize) / 1024.0 /
+                       1024.0 / 1024.0;
 
   data_.disk_used_percent =
-      (data_.disk_total_gb - data_.disk_free_gb) /
-      data_.disk_total_gb * 100.0;
+      (data_.disk_total_gb - data_.disk_free_gb) / data_.disk_total_gb * 100.0;
 }
 
 void modules::SystemModule::updateNetworkInfo() {

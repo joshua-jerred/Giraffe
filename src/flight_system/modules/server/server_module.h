@@ -26,7 +26,7 @@ private:
   void startup() override;
   void loop() override;
   void shutdown() override;
-  void processCommand(const command::Command &);
+  void processCommand(const cmd::Command &);
 
   RequestRouter request_router_;
   sock::TcpSocketServer server_socket_ = {};

@@ -40,7 +40,7 @@ void modules::DataModule::shutdown() {
   parseLogStream();
 }
 
-void modules::DataModule::processCommand(const command::Command &command) {
+void modules::DataModule::processCommand(const cmd::Command &command) {
   (void)command;
 }
 

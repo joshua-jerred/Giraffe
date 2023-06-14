@@ -20,7 +20,7 @@
 
 #include "data_ids.hpp"
 #include "log_ids.hpp"
-#include "node.h"
+#include "node.hpp"
 
 namespace data {
 

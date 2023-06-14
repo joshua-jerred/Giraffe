@@ -3,24 +3,24 @@
 
 #include <vector>
 
+#include "console_pages.hpp"
 #include "curses_utilities.h"
 #include "module.hpp"
-#include "console_pages.hpp"
 
 namespace modules {
 class ConsoleModule : public Module {
- public:
+public:
   ConsoleModule(data::SharedData &, cfg::Configuration &);
   ~ConsoleModule() override;
-  ConsoleModule(const ConsoleModule &) = delete;  // No copy constructor
-  ConsoleModule &operator=(const ConsoleModule &) =
-      delete;  // No copy assignment
+  ConsoleModule(const ConsoleModule &) = delete; // No copy constructor
+  ConsoleModule &
+  operator=(const ConsoleModule &) = delete; // No copy assignment
 
- private:
+private:
   void startup() override;
   void loop() override;
   void shutdown() override;
-  void processCommand(const command::Command &);
+  void processCommand(const cmd::Command &);
 
   console_pages::Pages pages_;
   ncurs::Environment ncurs_env_;
@@ -30,6 +30,6 @@ class ConsoleModule : public Module {
   std::vector<std::string> configSection();
 };
 
-}  // namespace modules
+} // namespace modules
 
 #endif

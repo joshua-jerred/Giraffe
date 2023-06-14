@@ -8,6 +8,9 @@
  * @file   giraffe_assert.hpp
  * @brief  For absolute failures in the code.
  *
+ * @ref
+ * https://mcuoneclipse.com/2021/01/23/assert-__file__-path-and-other-cool-gnu-gcc-tricks-to-be-aware-of/
+ *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       2023-06-13
@@ -17,18 +20,12 @@
 #ifndef GIRAFFE_ASSERT_HPP_
 #define GIRAFFE_ASSERT_HPP_
 
-#ifndef DNDEBUG // If debug mode is enabled.
+#include <exception>
+#include <stdio.h>
 
-#define giraffe_assert(condition) assert(condition __FILE__ __LINE__)
+void __assert_func(const char *__file, int __line, const char *__expr);
 
-#else // If debug mode is disabled.
-/**
- * @brief Currently just a no-op in release mode.
- * @todo Find a way to handle asserts in release mode.
- * @param condition
- */
-void giraffe_assert(bool condition) {
-}
-#endif
+#define giraffe_assert(__e)                                                    \
+  ((__e) ? (void)0 : __assert_func(__FILE__, __LINE__, #__e))
 
 #endif /* GIRAFFE_ASSERT_HPP_ */
