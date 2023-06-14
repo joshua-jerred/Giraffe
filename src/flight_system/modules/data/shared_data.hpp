@@ -29,6 +29,8 @@ namespace data {
 struct Streams {
   DataStream data = DataStream();
   LogStream log = LogStream();
+  GpsFrameStream gps = GpsFrameStream();
+  ImuFrameStream imu = ImuFrameStream();
 };
 
 struct Frames {

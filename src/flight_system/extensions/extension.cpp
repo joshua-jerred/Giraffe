@@ -132,6 +132,11 @@ template void Extension::data<float>(data::DataId, float, int);
 template void Extension::data<double>(data::DataId, double, int);
 template void Extension::data<std::string>(data::DataId, std::string, int);
 
+void Extension::data(data::GpsFrame frame) {
+  interfaces_.streams.gps.addFrame(node::Identification::EXTENSION,
+                                   metadata_.name, frame);
+}
+
 void Extension::sleep() {
   constexpr int kMinimumSleepTimeMs = 50;
   constexpr int kMaximumSleepTimeMs = 600000;

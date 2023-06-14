@@ -21,6 +21,7 @@
 #include "data_ids.hpp"
 #include "log_ids.hpp"
 #include "node.hpp"
+#include "positional.hpp"
 
 namespace data {
 
@@ -195,6 +196,33 @@ public:
     addPacket(pkt);
   }
 };
+
+struct GpsFramePacket : public BaseStreamPacket {
+  data::GpsFrame frame{};
+};
+
+class GpsFrameStream : public Stream<GpsFramePacket> {
+public:
+  void addFrame(node::Identification source, std::string secondary_id,
+                data::GpsFrame frame) {
+    GpsFramePacket pkt{source, secondary_id, BoosterSeat::clck::now(), frame};
+    addPacket(pkt);
+  }
+};
+
+struct ImuFramePacket : public BaseStreamPacket {
+  data::ImuFrame frame{};
+};
+
+class ImuFrameStream : public Stream<ImuFramePacket> {
+public:
+  void addFrame(node::Identification source, std::string secondary_id,
+                data::ImuFrame frame) {
+    ImuFramePacket pkt{source, secondary_id, BoosterSeat::clck::now(), frame};
+    addPacket(pkt);
+  }
+};
+
 } // namespace data
 
 #endif

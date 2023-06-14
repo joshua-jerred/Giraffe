@@ -29,9 +29,6 @@ public:
       : Extension(resources, metadata) {
   }
 
-  void startup() override {
-  }
-
   void loop() override {
     data(data::DataId::ENVIRONMENTAL_temperature, temperature_);
     temperature_ += increasing_ ? 0.1 : -0.1;
@@ -43,11 +40,82 @@ public:
     }
   }
 
-  void shutdown() override {
+private:
+  double temperature_ = 20.0;
+  bool increasing_ = false;
+};
+
+class SimPressureSensor : public Extension {
+public:
+  SimPressureSensor(ExtensionResources &resources,
+                    cfg::ExtensionMetadata metadata)
+      : Extension(resources, metadata) {
+  }
+
+  void loop() override {
+    data(data::DataId::ENVIRONMENTAL_pressure, pressure_);
+    pressure_ += increasing_ ? 0.5 : -0.5;
+
+    if (pressure_ > 1000) {
+      increasing_ = false;
+    } else if (pressure_ < 100) {
+      increasing_ = true;
+    }
   }
 
 private:
-  double temperature_ = 20.0;
+  double pressure_ = 1000.0;
+  bool increasing_ = false;
+};
+
+class SimHumiditySensor : public Extension {
+public:
+  SimHumiditySensor(ExtensionResources &resources,
+                    cfg::ExtensionMetadata metadata)
+      : Extension(resources, metadata) {
+  }
+
+  void loop() override {
+    data(data::DataId::ENVIRONMENTAL_humidity, rh_);
+    rh_ += increasing_ ? 0.1 : -0.1;
+
+    if (rh_ > 99) {
+      increasing_ = false;
+    } else if (rh_ < 2) {
+      increasing_ = true;
+    }
+  }
+
+private:
+  double rh_ = 1000.0;
+  bool increasing_ = false;
+};
+
+class SimGpsSensor : public Extension {
+public:
+  SimGpsSensor(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
+      : Extension(resources, metadata) {
+  }
+
+  void loop() override {
+    // data(data::DataId::ENVIRONMENTAL_humidity, rh_);
+  }
+
+private:
+  bool increasing_ = false;
+};
+
+class SimImuSensor : public Extension {
+public:
+  SimImuSensor(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
+      : Extension(resources, metadata) {
+  }
+
+  void loop() override {
+    // data(data::DataId::ENVIRONMENTAL_humidity, rh_);
+  }
+
+private:
   bool increasing_ = false;
 };
 }; // namespace extension

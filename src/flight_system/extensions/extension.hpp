@@ -106,6 +106,7 @@ protected:
 
   template <typename T>
   void data(data::DataId identifier, T value, int precision = 2);
+  void data(data::GpsFrame frame);
   void error(data::LogId, const std::string &info = "");
   void error(data::LogId log_id, int info);
   void info(std::string info);
