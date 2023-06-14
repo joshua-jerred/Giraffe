@@ -25,7 +25,8 @@ namespace cfg {
 json ExtensionMetadata::getJson() const {
   return json::object({
       {"name", name},
-      {"type", static_cast<int>(type)},
+      {"enabled", enabled},
+      {"type", gEnum::ExtensionTypeToKey(type)},
       {"update_interval", update_interval},
       {"critical", critical},
       {"extra_args", extra_args},

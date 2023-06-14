@@ -6,21 +6,55 @@
 // #include "interface.h"
 // #include "timer.h"
 
+inline void _start(const std::string &module_name) {
+  std::cout << module_name << " module starting ... ";
+}
+
+inline void _done() {
+  std::cout << "done." << std::endl;
+}
+
+inline void _disabled(const std::string &module_name) {
+  std::cout << module_name << " module disabled." << std::endl;
+}
+
+inline void _stop(const std::string &module_name) {
+  std::cout << module_name << " module stopping ... ";
+}
+
 FlightRunner::~FlightRunner() {
+  _stop("extension");
+  std::cout << std::endl;
+  p_extension_module_->stop();
+  delete p_extension_module_;
+  _done();
+
+  _stop("system");
   p_system_module_->stop();
   delete p_system_module_;
+  _done();
 
+  _stop("server");
   p_server_module_->stop();
   delete p_server_module_;
+  _done();
 
   if (p_console_module_ != nullptr) {
+    _stop("console");
     p_console_module_->stop();
     delete p_console_module_;
+    _done();
+  } else {
+    _disabled("console");
   }
 
+  _stop("data");
   p_data_module_->stop();
   delete p_data_module_;
   delete p_config_;
+  _done();
+
+  std::cout << "Flight Runner stopped." << std::endl;
 }
 
 auto FlightRunner::start() -> int {
@@ -100,7 +134,6 @@ auto FlightRunner::start() -> int {
  * shutdown signal to the flight runner.
  */
 auto FlightRunner::shutdown() -> void {
-  std::cout << "Shutting down" << std::endl;
   shutdown_signal_ = true;
   return;
 }
@@ -192,7 +225,9 @@ auto FlightRunner::flightLoop() -> int {
     //     healthCheck();
     // }
   }
-  std::cout << "Shutdown signal received." << std::endl;
+  std::cout << std::endl
+            << "Shutdown signal received." << std::endl
+            << std::endl;
   p_config_->save(configurables::file_paths::kConfigFilePath);
   return 0;
 }

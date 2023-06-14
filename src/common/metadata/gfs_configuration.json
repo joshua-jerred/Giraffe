@@ -572,6 +572,12 @@
             "enum_name":"extension_type",
             "options": [
                 "unknown",
+                "sim_temp",
+                "sim_pres",
+                "sim_hum",
+                "sim_gps",
+                "sim_bat",
+                "sim_imu",
                 "bmp180",
                 "bme280",
                 "sam_m8q",
@@ -580,7 +586,7 @@
         },
         "update_interval":{
             "type": "int",
-            "default": 0,
+            "default": 1000,
             "name": "Update Interval (ms)",
             "description": "The interval at which the extension will be allowed to poll for data.",
             "max": 600000,
@@ -619,8 +625,8 @@
             "type": "int",
             "default": 5,
             "name": "Max Restart Attempts",
-            "description": "The maximum number of times that the extension will be restarted before it is considered dead. Resets after each successful restart.",
-            "max": 100,
+            "description": "The maximum number of times that the extension will be restarted before it is disabled. Resets after each successful restart.",
+            "max": 10,
             "min": 1
         },
         "restart_delay_minimum":{
@@ -638,6 +644,14 @@
             "description": "The amount of time that the extension module will wait for an extension to start before it's considered 'stalled'.",
             "max": 60000,
             "min": 500
+        },
+        "max_startup_attempts":{
+            "type": "int",
+            "default": 5,
+            "name": "Max Startup Attempts",
+            "description": "The maximum number of times that the extension will be restarted before it is considered dead. Resets after each successful restart.",
+            "max": 10,
+            "min": 1
         }
     }
 }

@@ -194,10 +194,29 @@
     "cpu_temp_read_fail": {},
     "disk_info_read_fail": {}
   },
+  "extension_module":{
+    "failed_to_create":{
+      "name": "Failed to Create Extension"
+    }
+  },
   "extension":{
     "start_call":{
       "name": "Can not start if already running, starting, or sleeping.",
       "description": "This case should not happen, but it can happen on a call to start."
+    },
+    "stop_timeout":{
+      "name":"Failed to stop in time",
+      "description": "The extension failed to stop in the time allotted."
+    }
+  },
+  "ext_fault":{
+    "none":{
+      "name": "No fault",
+      "description": "Default, should not be thrown."
+    },
+    "fatal_config":{
+      "name":"Fatal Configuration Error",
+      "description": "The extension has a fatal configuration error, it will not be restarted."
     }
   }
 }

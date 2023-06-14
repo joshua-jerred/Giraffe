@@ -4,74 +4,23 @@
         "enum_name": "DataId"
     },
     "generic": {
-        "unknown": {},
-        "test": {}
+        "unknown": {}
     },
-    "module":{
-        "status_update":{}
-    },
-    "module_status": {
-        "data": {
-            "name": "Data Module Status"
-        },
-        "console": {
-            "name": "Console Module Status"
-        },
-        "server": {
-
-        },
-        "system": {
-            
-        }
-    },
-    "system_module": {
-        "cpu": {}
-    },
-    "data_module": {
-        "ds_process_delay": {
-            "name": "Data Stream Processing Delay"
-        },
-        "es_pd": {
-            "name": "Error Stream Processing Delay"
-        },
-        "logging_data_to_file": {},
-        "logging_errors_to_file": {}
-    },
-    "server_module": {
-        "num_total_packets_recv": {},
-        "num_total_packets_sent": {},
-        "num_failed_packets": {},
-        "client_address": {},
-        "connection_status": {}
-    },
-    "configuration": {
-        "configuration_errors": {}
-    },
-    "streams": {
-        "data_stream_current": {},
-        "data_stream_total": {},
-        "error_stream_current": {},
-        "error_stream_total": {}
-    },
-    "critical": {
-        "flight_phase": {
-            "name": "Flight Phase",
-            "description": "The current flight phase.",
-            "default": "Unknown"
-        }
-    },
-    "position_gps": {
-        "lat": {},
-        "lon": {}
-    },
-    "position_imu": {
-        "x_roll": {},
-        "y_roll": {},
-        "z_roll": {}
+    "module": {
+        "status_update": {}
     },
     "extension": {
-        "status_update":{
-
+        "status_update": {}
+    },
+    "environmental":{
+        "temperature": {
+            "name": "Temperature (Celsius)"
+        },
+        "humidity": {
+            "name": "Relative Humidity (%)"
+        },
+        "pressure": {
+            "name": "Pressure (mbar)"
         }
     }
 }

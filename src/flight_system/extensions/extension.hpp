@@ -23,13 +23,13 @@
 #include "sections/cfg_extensions.hpp"
 #include "shared_data.hpp"
 
-namespace ext {
+namespace extension {
 
 /**
  * @brief This contains objects that are shared between all extensions.
  */
-struct ExtensionInterfaces {
-  ExtensionInterfaces(data::Streams &streams) : streams(streams) {
+struct ExtensionResources {
+  ExtensionResources(data::Streams &streams) : streams(streams) {
   }
   data::Streams &streams;
 };
@@ -53,8 +53,7 @@ struct ExtensionInterfaces {
  */
 class Extension {
 public:
-  Extension(ExtensionInterfaces &extension_interfaces,
-            cfg::ExtensionMetadata metadata);
+  Extension(ExtensionResources &resources, cfg::ExtensionMetadata metadata);
   Extension(const Extension &) = delete;            // no copy constructor
   Extension &operator=(const Extension &) = delete; // no copy assignment
 
@@ -78,38 +77,72 @@ public:
   void stop();
 
   /**
-   * @brief Get the Status of the extension.
-   * @return node::Status
+   * @brief Only to be called when an extension is in the Error state. This
+   * joins the thread and fixes the status.
+   *
    */
-  node::Status getStatus() const;
+  void reset();
+
+  /**
+   * @brief Get the Status of the extension.
+   * @return node::Status The status of the extension.
+   */
+  node::Status getStatus() const {
+    return status_;
+  }
+
+  /**
+   * @brief Get the Fault Code when the status is ERROR
+   * @return data::LogId The fault code.
+   */
+  data::LogId getFaultCode() const {
+    return fault_code_;
+  }
 
 protected:
   virtual void startup(){};
   virtual void loop(){};
   virtual void shutdown(){};
 
-  void setStatus(node::Status status);
+  template <typename T>
+  void data(data::DataId identifier, T value, int precision = 2);
   void error(data::LogId, const std::string &info = "");
   void error(data::LogId log_id, int info);
   void info(std::string info);
 
-  template <typename T>
-  void data(data::DataId identifier, T value, int precision = 2);
-
   bool stopRequested() const;
 
-  cfg::ExtensionMetadata metadata_;
+  /**
+   * @brief Used internally to raise a fault.
+   * This will stop an extension.
+   */
+  void raiseFault(data::LogId ext_fault_code);
 
 private:
   void sleep();
   void runner();
 
-  std::atomic<node::Status> status_ = node::Status::UNKNOWN;
+  /**
+   * @brief This is raised with a call to raiseFault().
+   * @details This is used to stop the extension. Cleared on a call to
+   * start().
+   */
+  std::atomic<bool> fault_flag_ = false;
+
+  /**
+   * @brief The fault code associated with the fault.
+   * @details This is set when raiseFault() is called. Cleared on a call to
+   * start().
+   */
+  std::atomic<data::LogId> fault_code_ = data::LogId::EXT_FAULT_none;
+
+  std::atomic<node::Status> status_ = node::Status::STOPPED;
   std::atomic<bool> stop_flag_ = true;
   std::thread runner_thread_ = std::thread();
 
-  ExtensionInterfaces &interfaces_;
+  cfg::ExtensionMetadata metadata_;
+  ExtensionResources &interfaces_;
 };
-} // namespace ext
+} // namespace extension
 
 #endif /* EXTENSION_HPP_ */

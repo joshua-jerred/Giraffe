@@ -1216,6 +1216,11 @@ int cfg::ExtensionModule::getStartTimeout() const {
   return start_timeout_;
 }
 
+int cfg::ExtensionModule::getMaxStartupAttempts() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return max_startup_attempts_;
+}
+
 void cfg::ExtensionModule::setStatusPollingRate(int val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   status_polling_rate_ = val;
@@ -1234,6 +1239,11 @@ void cfg::ExtensionModule::setRestartDelayMinimum(int val) {
 void cfg::ExtensionModule::setStartTimeout(int val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   start_timeout_ = val;
+}
+
+void cfg::ExtensionModule::setMaxStartupAttempts(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  max_startup_attempts_ = val;
 }
 
 void cfg::ExtensionModule::setFromJson(const json &json_data) {
@@ -1255,7 +1265,7 @@ void cfg::ExtensionModule::setFromJson(const json &json_data) {
         "max_restart_attempts",
         max_restart_attempts_,
         1,
-        100,
+        10,
         ""
   );
   validation::setValidValue<int>(
@@ -1278,6 +1288,16 @@ void cfg::ExtensionModule::setFromJson(const json &json_data) {
         60000,
         ""
   );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "extension_module",
+        "max_startup_attempts",
+        max_startup_attempts_,
+        1,
+        10,
+        ""
+  );
 }
 
 json cfg::ExtensionModule::getJson() const {
@@ -1286,7 +1306,8 @@ json cfg::ExtensionModule::getJson() const {
     {"status_polling_rate", status_polling_rate_},
     {"max_restart_attempts", max_restart_attempts_},
     {"restart_delay_minimum", restart_delay_minimum_},
-    {"start_timeout", start_timeout_}
+    {"start_timeout", start_timeout_},
+    {"max_startup_attempts", max_startup_attempts_}
   });
 }
 

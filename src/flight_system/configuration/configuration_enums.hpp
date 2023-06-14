@@ -222,6 +222,12 @@ constexpr const char* DataPacketsModeToKey(cfg::gEnum::DataPacketsMode val) thro
 
 enum class ExtensionType {
   UNKNOWN,
+  SIM_TEMP,
+  SIM_PRES,
+  SIM_HUM,
+  SIM_GPS,
+  SIM_BAT,
+  SIM_IMU,
   BMP180,
   BME280,
   SAM_M8Q,
@@ -229,6 +235,12 @@ enum class ExtensionType {
 };
 std::unordered_map<std::string, cfg::gEnum::ExtensionType> const KeyToExtensionType = {
   {"unknown", cfg::gEnum::ExtensionType::UNKNOWN},
+  {"sim_temp", cfg::gEnum::ExtensionType::SIM_TEMP},
+  {"sim_pres", cfg::gEnum::ExtensionType::SIM_PRES},
+  {"sim_hum", cfg::gEnum::ExtensionType::SIM_HUM},
+  {"sim_gps", cfg::gEnum::ExtensionType::SIM_GPS},
+  {"sim_bat", cfg::gEnum::ExtensionType::SIM_BAT},
+  {"sim_imu", cfg::gEnum::ExtensionType::SIM_IMU},
   {"bmp180", cfg::gEnum::ExtensionType::BMP180},
   {"bme280", cfg::gEnum::ExtensionType::BME280},
   {"sam_m8q", cfg::gEnum::ExtensionType::SAM_M8Q},
@@ -237,6 +249,12 @@ std::unordered_map<std::string, cfg::gEnum::ExtensionType> const KeyToExtensionT
 constexpr const char* ExtensionTypeToKey(cfg::gEnum::ExtensionType val) throw() {
   switch (val) {
     case cfg::gEnum::ExtensionType::UNKNOWN: return "unknown";
+    case cfg::gEnum::ExtensionType::SIM_TEMP: return "sim_temp";
+    case cfg::gEnum::ExtensionType::SIM_PRES: return "sim_pres";
+    case cfg::gEnum::ExtensionType::SIM_HUM: return "sim_hum";
+    case cfg::gEnum::ExtensionType::SIM_GPS: return "sim_gps";
+    case cfg::gEnum::ExtensionType::SIM_BAT: return "sim_bat";
+    case cfg::gEnum::ExtensionType::SIM_IMU: return "sim_imu";
     case cfg::gEnum::ExtensionType::BMP180: return "bmp180";
     case cfg::gEnum::ExtensionType::BME280: return "bme280";
     case cfg::gEnum::ExtensionType::SAM_M8Q: return "sam_m8q";

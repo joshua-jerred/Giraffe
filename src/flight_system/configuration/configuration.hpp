@@ -316,11 +316,13 @@ public:
   int getMaxRestartAttempts() const;
   int getRestartDelayMinimum() const;
   int getStartTimeout() const;
+  int getMaxStartupAttempts() const;
 
   void setStatusPollingRate(int);
   void setMaxRestartAttempts(int);
   void setRestartDelayMinimum(int);
   void setStartTimeout(int);
+  void setMaxStartupAttempts(int);
 
   void setFromJson(const json&);
   json getJson() const;
@@ -330,6 +332,7 @@ private:
   int max_restart_attempts_ = 5;
   int restart_delay_minimum_ = 1000;
   int start_timeout_ = 10000;
+  int max_startup_attempts_ = 5;
 };
 
 class Configuration {

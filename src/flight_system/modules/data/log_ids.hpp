@@ -71,7 +71,11 @@ enum class LogId {
   SYSTEM_MODULE_systemInfoReadFail,
   SYSTEM_MODULE_cpuTempReadFail,
   SYSTEM_MODULE_diskInfoReadFail,
-  EXTENSION_startCall  // Can not start if already running, starting, or sleeping.
+  EXTENSION_MODULE_failedToCreate, // Failed to Create Extension
+  EXTENSION_startCall, // Can not start if already running, starting, or sleeping.
+  EXTENSION_stopTimeout, // Failed to stop in time
+  EXT_FAULT_none, // No fault
+  EXT_FAULT_fatalConfig  // Fatal Configuration Error
 };
 } // namespace data
 

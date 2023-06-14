@@ -54,7 +54,7 @@ static const std::map<Identification, std::string> identification_to_string = {
 /**
  * @brief Node status, used for modules and extensions.
  */
-enum class Status : uint8_t {
+enum class Status : uint16_t {
   UNKNOWN = 0b00000001,
   DISABLED = 0b00000010,
   STOPPED = 0b00000100,
@@ -65,15 +65,16 @@ enum class Status : uint8_t {
   ERROR = 0b10000000
 };
 
-inline constexpr uint8_t kNodeInactiveStatuses =
-    static_cast<uint8_t>(Status::DISABLED) |
-    static_cast<uint8_t>(Status::STOPPED) | static_cast<uint8_t>(Status::ERROR);
+inline constexpr uint16_t kNodeInactiveStatuses =
+    static_cast<uint16_t>(Status::DISABLED) |
+    static_cast<uint16_t>(Status::STOPPED) |
+    static_cast<uint16_t>(Status::ERROR);
 
-inline constexpr uint8_t kNodeActiveStatuses =
-    static_cast<uint8_t>(Status::STARTING) |
-    static_cast<uint8_t>(Status::RUNNING) |
-    static_cast<uint8_t>(Status::SLEEPING) |
-    static_cast<uint8_t>(Status::STOPPING);
+inline constexpr uint16_t kNodeActiveStatuses =
+    static_cast<uint16_t>(Status::STARTING) |
+    static_cast<uint16_t>(Status::RUNNING) |
+    static_cast<uint16_t>(Status::SLEEPING) |
+    static_cast<uint16_t>(Status::STOPPING);
 
 /**
  * @brief Map of node status to string
