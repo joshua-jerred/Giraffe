@@ -1,7 +1,6 @@
 #include "flight_runner.hpp"
 
 #include "configurables.hpp"
-#include "giraffe_assert.hpp"
 
 // #include "interface.h"
 // #include "timer.h"
@@ -30,6 +29,16 @@ inline void _stop(const std::string &module_name) {
 /** @} */ // end of FlightRunnerConsoleHelpers
 
 FlightRunner::~FlightRunner() {
+  // Shutdown the console module first as it will hijack the terminal.
+  if (p_console_module_ != nullptr) {
+    _stop("console");
+    p_console_module_->stop();
+    delete p_console_module_;
+    _done();
+  } else {
+    _disabled("console");
+  }
+
   _stop("extension");
   std::cout << std::endl;
   p_extension_module_->stop();
@@ -45,15 +54,6 @@ FlightRunner::~FlightRunner() {
   p_server_module_->stop();
   delete p_server_module_;
   _done();
-
-  if (p_console_module_ != nullptr) {
-    _stop("console");
-    p_console_module_->stop();
-    delete p_console_module_;
-    _done();
-  } else {
-    _disabled("console");
-  }
 
   _stop("data");
   p_data_module_->stop();
@@ -328,12 +328,3 @@ auto FlightRunner::flightLoop() -> int {
 //     std::cout << "Not Used" << std::endl;
 //   }
 // }
-
-#ifndef DNDEBUG // If debug mode is enabled.
-void __assert_func(const char *__file, int __line, const char *__expr) {
-  printf("ASSERT: %s:%d: Assertion `%s' failed.\n", __file, __line, __expr);
-  throw std::exception();
-}
-#else
-
-#endif /* DNDEBUG */

@@ -44,9 +44,20 @@ struct SharedBlocks {
 };
 
 struct Frames {
-  Frame<std::string, DataPacket> data = Frame<std::string, DataPacket>();
+  /**
+   * @brief Temperature data from environmental extensions.
+   */
+  Frame<std::string, DataPacket> env_temp = Frame<std::string, DataPacket>();
 
-  Frame<std::string, LogPacket> log = Frame<std::string, LogPacket>();
+  /**
+   * @brief Pressure data from environmental extensions.
+   */
+  Frame<std::string, DataPacket> env_pres = Frame<std::string, DataPacket>();
+
+  /**
+   * @brief Humidity data from environmental extensions.
+   */
+  Frame<std::string, DataPacket> env_hum = Frame<std::string, DataPacket>();
 };
 
 struct Misc {

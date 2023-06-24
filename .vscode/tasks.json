@@ -59,7 +59,7 @@
 			"options": {
 				"env": {
 					"ID_GEN_IN_FILE_PATH": "${workspaceFolder}/src/common/metadata/gfs_commands.jsonc",
-					"ID_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/flight_system/command/command_ids.hpp",
+					"ID_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/common/command/command_ids.hpp",
 					"PRINT_OUTPUT": "false"
 				}
 			},

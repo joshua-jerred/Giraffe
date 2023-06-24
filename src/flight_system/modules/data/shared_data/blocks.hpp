@@ -236,19 +236,18 @@ struct SystemInfo { // Set by the system module
  * extensions.
  */
 struct ExtensionModuleStats {
-  int num_extensions = 0;
-  int num_invalid_metadata = 0;
-  int num_extensions_enabled = 0;
-  int num_extensions_running = 0;
-  int num_extensions_failed = 0;
+  /**
+   * @brief The number of extensions that are in the configuration.
+   */
+  int num_configured = 0;
+  int num_active = 0;
+  int num_inactive = 0;
 
   json toJson() {
     json j;
-    j["num_extensions"] = num_extensions;
-    j["num_invalid_metadata"] = num_invalid_metadata;
-    j["num_extensions_enabled"] = num_extensions_enabled;
-    j["num_extensions_running"] = num_extensions_running;
-    j["num_extensions_failed"] = num_extensions_failed;
+    j["num_configured"] = num_configured;
+    j["num_active"] = num_active;
+    j["num_inactive"] = num_inactive;
     return j;
   }
 };

@@ -13,6 +13,9 @@ inline std::string b2str(bool val) {
 inline std::string title_and_data(std::string title, std::string data) {
   return title + ": " + data;
 }
+std::string f2s(double val) {
+  return BoosterSeat::string::f2s(val, 2);
+}
 
 const std::array<std::string, console_pages::kMaxNumPageLines> &
 console_pages::Pages::getCurrentPage() {
@@ -34,6 +37,12 @@ console_pages::Pages::getCurrentPage() {
     break;
   case PageOption::EXTENSIONS:
     extensions();
+    break;
+  case PageOption::SYSTEM:
+    system();
+    break;
+  case PageOption::LOCATION:
+    location();
     break;
   default:
     break;
@@ -164,21 +173,90 @@ void console_pages::Pages::data() {
 }
 
 void console_pages::Pages::log() {
-  current_num_lines_ = 6;
+  constexpr int kNumLines = 6;
+  setNumLinesOnPage(kNumLines);
   content_[5] = "log";
 }
 
 void console_pages::Pages::server() {
-  current_num_lines_ = 6;
-  content_[0] = "Enabled: " + b2str(config_.server_module.getEnabled());
-  content_[1] = "Socket Port: " +
-                std::to_string(config_.server_module.getTcpSocketPort());
-  content_[5] = "server";
+  constexpr int kNumLines = 9;
+  setNumLinesOnPage(kNumLines);
+  auto stats = shared_data_.blocks.server_module_stats.get();
+  // clang-format off
+  content_ = {
+    "Enabled: " + b2str(config_.server_module.getEnabled()),
+    "Socket Port: " + std::to_string(config_.server_module.getTcpSocketPort()),
+    "",
+    " -- Socket Stats -- ",
+    "Connected: " + b2str(stats.is_connected),
+    "Bps Up: " + f2s(stats.bytes_per_second_up),
+    "Bps Down: " + f2s(stats.bytes_per_second_down),
+    "Messages Received: " + std::to_string(stats.num_messages_received),
+    "Invalid Received: " + std::to_string(stats.num_invalid_received)
+  };
+  // clang-format on
 }
 
 void console_pages::Pages::extensions() {
-  current_num_lines_ = 6;
-  content_[5] = "extensions";
+  constexpr int kNumLines = 6;
+  setNumLinesOnPage(kNumLines);
+  auto stats = shared_data_.blocks.extension_module_stats.get();
+  // clang-format off
+  content_ = {
+    "Num Configured: " + std::to_string(stats.num_configured),
+    "Num Active: " + std::to_string(stats.num_active),
+    "Num Inactive: " + std::to_string(stats.num_inactive)
+  };
+  // clang-format on
+}
+
+void console_pages::Pages::system() {
+  constexpr int kNumLines = 7;
+  setNumLinesOnPage(kNumLines);
+
+  auto sys = shared_data_.blocks.system_info.get();
+  // clang-format off
+  content_ = {
+    "CPU Load Avg: " + BoosterSeat::string::f2s(sys.cpu_load_avg_1, 1) +
+      " " + BoosterSeat::string::f2s(sys.cpu_load_avg_5, 1) +
+      " " + BoosterSeat::string::f2s(sys.cpu_load_avg_15, 1),
+    "CPU Temp (c): " + f2s(sys.cpu_temp_c),
+    "",
+    "-- Free GB | Total GB | (usage percent) --",
+    "RAM: " + f2s(sys.mem_free_gb) + " | " + 
+      f2s(sys.mem_total_gb) + " | (" + f2s(sys.mem_used_percent) + "%)",
+    "SWAP: " + f2s(sys.swap_free_gb) + " | " + 
+      f2s(sys.swap_total_gb) + " | (" + f2s(sys.swap_used_percent) + "%)",
+    "DISK: " + f2s(sys.disk_free_gb) + " | " + 
+      f2s(sys.disk_total_gb) + " | (" + f2s(sys.disk_used_percent) + "%)"
+  };
+  // clang-format on
+}
+
+void console_pages::Pages::location() {
+  constexpr int kNumLines = 5;
+  setNumLinesOnPage(kNumLines);
+
+  auto data = shared_data_.blocks.location_data.get();
+  // auto last_valid = data.last_valid_gps_frame;
+  auto cur = data.last_gps_frame;
+  // clang-format off
+  content_ = {
+    " -- Most Recent GPS Frame -- ",
+    "Fix, Num Sats, UTC:   " + data::GpsFixStringMap.at(cur.fix) + ", " +
+      std::to_string(cur.num_satellites) + ", utc time",
+    "Lat, Lon, H/S:   " + BoosterSeat::string::f2s(cur.latitude, 6) + ", " 
+      + BoosterSeat::string::f2s(cur.longitude, 6) + ", " +
+      BoosterSeat::string::f2s(cur.horizontal_speed, 1) + " m/s",
+    "ALT, V/S, HDG:   " + BoosterSeat::string::f2s(cur.altitude, 1) 
+      + " m" + ", " + BoosterSeat::string::f2s(cur.heading_of_motion, 1) + 
+      " deg",
+    "Accuracy - Hor, Vert, H/S: " + 
+      BoosterSeat::string::f2s(cur.horz_accuracy, 1) + " m, " +
+      BoosterSeat::string::f2s(cur.vert_accuracy, 1) + " m, " +
+      BoosterSeat::string::f2s(cur.horizontal_speed, 1) + " m/s"
+  };
+  // clang-format on
 }
 
 void console_pages::Pages::setNumLinesOnPage(const int num_lines) {

@@ -123,6 +123,8 @@ private:
 
   BoosterSeat::Timer status_polling_timer_{};
 
+  data::blocks::ExtensionModuleStats stats_{};
+
   // configuration variables
   int status_polling_interval_ = 0;
   int max_restart_attempts_ = 0;

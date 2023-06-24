@@ -54,10 +54,24 @@ void ExtensionModule::loop() {
   }
   status_polling_timer_.reset();
 
+  stats_.num_configured = extension_metadata_.size();
+  stats_.num_active = 0;
+  stats_.num_inactive = 0;
+
   // Send the extensions through the state machine.
   for (auto &ext : extensions_) {
     stateMachine(ext);
+
+    auto status = ext.extension->getStatus();
+    if (static_cast<uint16_t>(status) & node::kNodeActiveStatuses) {
+      stats_.num_active++;
+    } else {
+      stats_.num_inactive++;
+    }
   }
+
+  // Update the stats.
+  shared_data_.blocks.extension_module_stats.set(stats_);
 }
 
 void ExtensionModule::shutdown() {
@@ -105,6 +119,22 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
   case cfg::gEnum::ExtensionType::SIM_TEMP:
     extension = std::make_shared<extension::SimTemperatureSensor>(
         extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::SIM_PRES:
+    extension = std::make_shared<extension::SimPressureSensor>(
+        extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::SIM_HUM:
+    extension = std::make_shared<extension::SimHumiditySensor>(
+        extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::SIM_GPS:
+    extension =
+        std::make_shared<extension::SimGpsSensor>(extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::SIM_IMU:
+    extension =
+        std::make_shared<extension::SimImuSensor>(extension_resources_, meta);
     break;
   default:
     giraffe_assert(false); // Shouldn't get here

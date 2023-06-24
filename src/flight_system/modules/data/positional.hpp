@@ -17,12 +17,21 @@
 #ifndef POSITIONAL_HPP_
 #define POSITIONAL_HPP_
 
-#include <BoosterSeat/clock.hpp>
 #include <cstdint>
+#include <map>
+#include <string>
+
+#include <BoosterSeat/clock.hpp>
 
 namespace data {
 
 enum class GpsFix : uint8_t { ERROR = 0, NO_FIX = 1, FIX_2D = 2, FIX_3D = 3 };
+
+static const std::map<GpsFix, std::string> GpsFixStringMap = {
+    {GpsFix::ERROR, "unknown"},
+    {GpsFix::NO_FIX, "no_fix"},
+    {GpsFix::FIX_2D, "2d_fix"},
+    {GpsFix::FIX_3D, "3d_fix"}};
 
 /**
  * @brief A frame of GPS data straight from a GPS extension.

@@ -7,8 +7,7 @@
 namespace data {
 template <class ID, class DATA> class Frame {
 public:
-  Frame() {
-  }
+  Frame() = default;
 
   /**
    * @brief Insert or replace an item.
@@ -29,10 +28,12 @@ public:
   }
 
   /**
-   * @brief Returns
+   * @brief Get an item from the frame.
    *
-   * @return true
-   * @return false
+   * @param id - The identifier of the item to get.
+   * @param data - The data to be returned.
+   * @return true - If the item was found.
+   * @return false - If the item was not found.
    */
   bool get(const ID &id, DATA &data) {
     std::lock_guard<std::mutex> lock(frame_lock_);
@@ -44,7 +45,7 @@ public:
   }
 
   /**
-   * @brief Clear all contents of the frame.
+   * @brief Clears all contents of the frame.
    */
   void clear() {
     std::lock_guard<std::mutex> lock(frame_lock_);
@@ -59,6 +60,13 @@ public:
     return frame_.size();
   }
 
+  /**
+   * @brief Removes an item from the frame.
+   *
+   * @param id - The identifier of the item to remove.
+   * @return true - If the item was removed.
+   * @return false - If the item was not removed.
+   */
   bool remove(const ID &id) {
     std::lock_guard<std::mutex> lock(frame_lock_);
     return frame_.erase(id);
