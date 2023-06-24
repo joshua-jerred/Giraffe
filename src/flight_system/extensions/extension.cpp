@@ -137,6 +137,11 @@ void Extension::data(data::GpsFrame frame) {
                                    metadata_.name, frame);
 }
 
+void Extension::data(data::ImuFrame frame) {
+  interfaces_.streams.imu.addFrame(node::Identification::EXTENSION,
+                                   metadata_.name, frame);
+}
+
 void Extension::sleep() {
   constexpr int kMinimumSleepTimeMs = 50;
   constexpr int kMaximumSleepTimeMs = 600000;

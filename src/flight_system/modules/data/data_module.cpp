@@ -23,8 +23,7 @@ void modules::DataModule::loop() {
   log_file_enabled_ = configuration_.data_module_log.getLogToFile();
   influxdb_enabled_ = configuration_.data_module_influxdb.getInfluxEnabled();
 
-  parseDataStream();
-  parseLogStream();
+  processAllStreams();
 
   if (data_file_enabled_ &&
       (data_file_logging_strategy_ == cfg::gEnum::LogStrategy::INTERVAL ||
@@ -36,68 +35,74 @@ void modules::DataModule::loop() {
 }
 
 void modules::DataModule::shutdown() {
-  parseDataStream();
-  parseLogStream();
+  processAllStreams();
 }
 
 void modules::DataModule::processCommand(const cmd::Command &command) {
   (void)command;
 }
 
+void modules::DataModule::processAllStreams() {
+  data::blocks::StreamsStats stats{};
+
+  auto data_packet_parser =
+      std::bind(&DataModule::processDataPacket, this, std::placeholders::_1);
+  processStream<data::DataPacket>(
+      dynamic_cast<data::Stream<data::DataPacket> &>(shared_data_.streams.data),
+      stats.data, data_packet_parser);
+
+  auto log_packet_parser =
+      std::bind(&DataModule::processLogPacket, this, std::placeholders::_1);
+  processStream<data::LogPacket>(
+      dynamic_cast<data::Stream<data::LogPacket> &>(shared_data_.streams.log),
+      stats.log, log_packet_parser);
+
+  auto gps_frame_packet_parser = std::bind(&DataModule::processGpsFramePacket,
+                                           this, std::placeholders::_1);
+  processStream<data::GpsFramePacket>(
+      dynamic_cast<data::Stream<data::GpsFramePacket> &>(
+          shared_data_.streams.gps),
+      stats.gps, gps_frame_packet_parser);
+
+  auto imu_frame_packet_parser = std::bind(&DataModule::processImuFramePacket,
+                                           this, std::placeholders::_1);
+  processStream<data::ImuFramePacket>(
+      dynamic_cast<data::Stream<data::ImuFramePacket> &>(
+          shared_data_.streams.imu),
+      stats.imu, imu_frame_packet_parser);
+
+  // Each process function call updates this struct, so update the shared data
+  // here
+  shared_data_.blocks.stream_stats.set(stats);
+}
+
 // ------------------ Data Stream Parsing ------------------
 
-/**
- * @brief Read all data packets that are currently in the data stream.
- *
- * @details This function will read packets from the data stream and route
- * them to the appropriate place. This includes influxdb/datalog middleware
- * if enabled. After all packets are processed, the stream stats will be
- * updated. If data packets are added to the stream while this function
- * is running, they will be processed on the next call.
- */
-void modules::DataModule::parseDataStream() {
-  int packet_count = shared_data_.streams.data.getNumPackets();
-  data::DataPacket packet;
-  bool first = true;
-  int delay_ms = 0;
-  for (int i = 0; i < packet_count; i++) {
-    bool got_packet = shared_data_.streams.data.getPacket(packet);
-    if (!got_packet)
-      return;
-    if (first) {
-      delay_ms = BoosterSeat::clck::millisecondsElapsed(packet.created_time);
-      first = false;
-    }
+void modules::DataModule::processDataPacket(const data::DataPacket &packet) {
 
-    // Log data packet to file (if enabled)
-    if (data_file_enabled_ &&
-        data_file_logging_strategy_ == cfg::gEnum::LogStrategy::ALL) {
-      data_log_.logDataPacket(packet);
-    }
-
-    // Log data packet to influxdb (if enabled)
-
-    if (packet.type == data::DataPacket::Type::GENERIC) {
-      parseGeneralDataPacket(packet);
-    } else if (packet.type == data::DataPacket::Type::STATUS) {
-      parseStatusDataPacket(packet);
-    } else {
-      error(data::LogId::DATA_MODULE_dataPacketUnknownType, (int)packet.type);
-    }
+  // Log data packet to file (if enabled)
+  if (data_file_enabled_ &&
+      data_file_logging_strategy_ == cfg::gEnum::LogStrategy::ALL) {
+    data_log_.logDataPacket(packet);
   }
 
-  data::blocks::StreamsStats::StreamStats stats_;
-  stats_.current_packets = packet_count;
-  stats_.total_packets = shared_data_.streams.data.getTotalPackets();
-  stats_.processing_delay_ms = delay_ms;
-
-  data::blocks::StreamsStats streams_statuses_ =
-      shared_data_.blocks.stream_stats.get();
-  streams_statuses_.data = stats_;
-  shared_data_.blocks.stream_stats.set(streams_statuses_);
+  // Log data packet to influxdb (if enabled)
+  if (packet.type == data::DataPacket::Type::GENERIC) {
+    parseGeneralDataPacket(packet);
+  } else if (packet.type == data::DataPacket::Type::STATUS) {
+    parseStatusDataPacket(packet);
+  } else {
+    error(data::LogId::DATA_MODULE_dataPacketUnknownType, (int)packet.type);
+  }
 }
 
 void modules::DataModule::parseGeneralDataPacket(
+    const data::DataPacket &packet) {
+  (void)packet;
+  // Process packet here
+}
+
+void modules::DataModule::parseExtensionDataPacket(
     const data::DataPacket &packet) {
   (void)packet;
   // Process packet here
@@ -135,40 +140,28 @@ void modules::DataModule::parseStatusDataPacket(
 
 // ------------------ Log Stream Parsing ------------------
 
-void modules::DataModule::parseLogStream() {
-  int packet_count = shared_data_.streams.log.getNumPackets();
-  data::LogPacket packet;
-  bool first = true;
-  int delay_ms = 0;
-  for (int i = 0; i < packet_count; i++) {
-    bool got_packet = shared_data_.streams.log.getPacket(packet);
-    if (!got_packet)
-      return;
-    if (first) {
-      delay_ms = BoosterSeat::clck::millisecondsElapsed(packet.created_time);
-      first = false;
-    }
-
-    // Log log packet to file (if enabled)
-    if (log_file_enabled_) {
-      data_log_.logLogPacket(packet);
-    }
-
-    // Log log packet to influxdb (if enabled)
-    if (influxdb_enabled_) {
-      influxdb_.logLogPacket(packet);
-    }
-
-    // Process packet here
+void modules::DataModule::processLogPacket(const data::LogPacket &packet) {
+  // Log log packet to file (if enabled)
+  if (log_file_enabled_) {
+    data_log_.logLogPacket(packet);
   }
 
-  data::blocks::StreamsStats::StreamStats stats_;
-  stats_.current_packets = packet_count;
-  stats_.total_packets = shared_data_.streams.log.getTotalPackets();
-  stats_.processing_delay_ms = delay_ms;
+  // Log log packet to influxdb (if enabled)
+  if (influxdb_enabled_) {
+    influxdb_.logLogPacket(packet);
+  }
 
-  data::blocks::StreamsStats streams_statuses_ =
-      shared_data_.blocks.stream_stats.get();
-  streams_statuses_.log = stats_;
-  shared_data_.blocks.stream_stats.set(streams_statuses_);
+  // Process packet here
+}
+
+// ------------------ GPS Stream Parsing ------------------
+void modules::DataModule::processGpsFramePacket(
+    const data::GpsFramePacket &packet) {
+  (void)packet;
+}
+
+// ------------------ IMU Stream Parsing ------------------
+void modules::DataModule::processImuFramePacket(
+    const data::ImuFramePacket &packet) {
+  (void)packet;
 }

@@ -32,8 +32,8 @@ console_pages::Pages::getCurrentPage() {
   case PageOption::SERVER:
     server();
     break;
-  case PageOption::CONSOLE:
-    console();
+  case PageOption::EXTENSIONS:
+    extensions();
     break;
   default:
     break;
@@ -53,6 +53,14 @@ void console_pages::Pages::navigateMenu(const console_pages::PageOption key) {
   current_page_ = key;
 }
 
+/**
+ * @brief Helper function to format two strings to be left and right aligned
+ * within the console window.
+ *
+ * @param l - left string
+ * @param r - right string
+ * @return std::string - formatted string
+ */
 std::string LandR(const std::string &l, const std::string &r) {
   constexpr int kWidth = console_pages::kDataWindowWidth / 2 - 1;
   std::string ret = "";
@@ -107,6 +115,8 @@ void console_pages::Pages::data() {
       "Streams (current/total : delay ms)",  // -- streams --
       LandR(stream_stat("Data", stats.data), // data stream
             stream_stat("Log", stats.log)),  // log stream
+      LandR(stream_stat("GPS", stats.gps),   // gps stream
+            stream_stat("IMU", stats.imu)),  // imu stream
 
       "",
       " -- Data/Log Files Info -- ",
@@ -166,9 +176,9 @@ void console_pages::Pages::server() {
   content_[5] = "server";
 }
 
-void console_pages::Pages::console() {
+void console_pages::Pages::extensions() {
   current_num_lines_ = 6;
-  content_[5] = "console";
+  content_[5] = "extensions";
 }
 
 void console_pages::Pages::setNumLinesOnPage(const int num_lines) {
@@ -180,22 +190,3 @@ void console_pages::Pages::setNumLinesOnPage(const int num_lines) {
 
   current_num_lines_ = num_lines;
 }
-
-// const console_pages::ConsolePage &console_pages::Pages::gfsStatus() {
-
-// }
-
-// ConsolePage gfs_status_ = {
-//   "", // time utc/local
-//   "", // uptime/cpu ldv
-//   "", // memory
-//   "-- Streams -- (current/total)",
-//   "", // data
-//   "", // log
-//   "", // empty line
-//   "-- Modules --",
-//   "", // data
-//   "", // server
-//   "", // console
-//   "", // system
-// };

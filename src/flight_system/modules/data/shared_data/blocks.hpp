@@ -3,16 +3,18 @@
 
 #include <mutex>
 
-#include "node.hpp"
 #include <BoosterSeat/clock.hpp>
 #include <BoosterSeat/numbers.hpp>
 #include <BoosterSeat/time.hpp>
 
+#include "blocks.hpp"
 #include "json.hpp"
+#include "node.hpp"
 
 namespace data {
 inline auto rnd = BoosterSeat::doubleToPrecisionTwo;
 
+namespace blocks {
 /**
  * @brief Simple Struct Container with a mutex.
  * The struct must have a valid default constructor.
@@ -46,7 +48,6 @@ private:
   BoosterSeat::clck::TimePoint last_updated_ = BoosterSeat::clck::now();
 };
 
-namespace blocks {
 /**
  * @todo implement this
  */
@@ -112,18 +113,12 @@ struct StreamsStats { // Set by the data module
     int current_packets = 0;
     int total_packets = 0;
     int processing_delay_ms = 0;
-
-    json toJson() {
-      json j;
-      j["current_packets"] = current_packets;
-      j["total_packets"] = total_packets;
-      j["processing_delay_ms"] = processing_delay_ms;
-      return j;
-    }
   };
 
   StreamStats data = StreamStats();
   StreamStats log = StreamStats();
+  StreamStats gps = StreamStats();
+  StreamStats imu = StreamStats();
 
   json toJson() {
     json j;
@@ -133,6 +128,12 @@ struct StreamsStats { // Set by the data module
     j["log_current_packets"] = log.current_packets;
     j["log_total_packets"] = log.total_packets;
     j["log_processing_delay_ms"] = log.processing_delay_ms;
+    j["gps_current_packets"] = gps.current_packets;
+    j["gps_total_packets"] = gps.total_packets;
+    j["gps_processing_delay_ms"] = gps.processing_delay_ms;
+    j["imu_current_packets"] = imu.current_packets;
+    j["imu_total_packets"] = imu.total_packets;
+    j["imu_processing_delay_ms"] = imu.processing_delay_ms;
     return j;
   }
 };

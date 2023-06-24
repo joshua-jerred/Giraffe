@@ -98,7 +98,21 @@ public:
   }
 
   void loop() override {
-    // data(data::DataId::ENVIRONMENTAL_humidity, rh_);
+    data::GpsFrame frame;
+    frame.gps_utc_time = BoosterSeat::clck::now();
+    frame.fix = data::GpsFix::FIX_3D;
+    frame.num_satellites = 10;
+    frame.latitude = 40.0;
+    frame.longitude = -80.0;
+    frame.horz_accuracy = 5.0;
+    frame.altitude = 1000.0;
+    frame.vert_accuracy = 5.0;
+    frame.vertical_speed = 0.0;
+    frame.horizontal_speed = 0.0;
+    frame.speed_accuracy = 0.0;
+    frame.heading_of_motion = 0.0;
+    frame.heading_accuracy = 0.0;
+    data(frame);
   }
 
 private:
@@ -112,7 +126,17 @@ public:
   }
 
   void loop() override {
-    // data(data::DataId::ENVIRONMENTAL_humidity, rh_);
+    data::ImuFrame frame;
+    frame.x_acceleration = 0.0;
+    frame.y_acceleration = 0.0;
+    frame.z_acceleration = 0.0;
+    frame.x_rotation = 0.0;
+    frame.y_rotation = 0.0;
+    frame.z_rotation = 0.0;
+    frame.x_magnetic_field = 0.0;
+    frame.y_magnetic_field = 0.0;
+    frame.z_magnetic_field = 0.0;
+    data(frame);
   }
 
 private:

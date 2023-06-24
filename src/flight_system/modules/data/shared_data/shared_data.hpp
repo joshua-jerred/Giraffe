@@ -19,7 +19,7 @@
 #define SHARED_DATA_HPP_
 
 #include "blocks.hpp"
-#include "frame.hpp"
+#include "frames.hpp"
 #include "streams.hpp"
 
 #include <BoosterSeat/clock.hpp>
@@ -33,22 +33,19 @@ struct Streams {
   ImuFrameStream imu = ImuFrameStream();
 };
 
+struct SharedBlocks {
+  blocks::Block<blocks::StreamsStats> stream_stats{};
+  blocks::Block<blocks::ModulesStatuses> modules_statuses{};
+  blocks::Block<blocks::ServerModuleStats> server_module_stats{};
+  blocks::Block<blocks::DataLogStats> data_log_stats{};
+  blocks::Block<blocks::SystemInfo> system_info{};
+  blocks::Block<blocks::ExtensionModuleStats> extension_module_stats{};
+};
+
 struct Frames {
   Frame<std::string, DataPacket> data = Frame<std::string, DataPacket>();
 
   Frame<std::string, LogPacket> log = Frame<std::string, LogPacket>();
-};
-
-struct Blocks {
-  Block<blocks::StreamsStats> stream_stats = Block<blocks::StreamsStats>();
-  Block<blocks::ModulesStatuses> modules_statuses =
-      Block<blocks::ModulesStatuses>();
-  Block<blocks::ServerModuleStats> server_module_stats =
-      Block<blocks::ServerModuleStats>();
-  Block<blocks::DataLogStats> data_log_stats = Block<blocks::DataLogStats>();
-  Block<blocks::SystemInfo> system_info = Block<blocks::SystemInfo>();
-  Block<blocks::ExtensionModuleStats> extension_module_stats =
-      Block<blocks::ExtensionModuleStats>();
 };
 
 struct Misc {
@@ -66,7 +63,7 @@ struct Misc {
 struct SharedData {
   Streams streams = Streams();
   Frames frames = Frames();
-  Blocks blocks = Blocks();
+  SharedBlocks blocks{};
   Misc misc = Misc();
 
 #ifndef DNDEBUG // Defined by CMake

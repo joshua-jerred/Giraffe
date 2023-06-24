@@ -9,7 +9,7 @@
 #include <vector>
 
 namespace console_pages {
-enum class PageOption { GFS_STATUS, DATA, LOG, SERVER, CONSOLE, BACK };
+enum class PageOption { GFS_STATUS, DATA, LOG, SERVER, EXTENSIONS };
 
 inline constexpr int kMaxNumPageLines = 25;
 inline constexpr int kDataWindowWidth = 60;
@@ -22,21 +22,26 @@ typedef std::vector<Option> Menu;
 class Pages {
 public:
   Pages(cfg::Configuration &config, data::SharedData &shared_data)
-      : config_(config), shared_data_(shared_data) {}
+      : config_(config), shared_data_(shared_data) {
+  }
   ~Pages() = default;
 
-  const std::array<std::string, kMaxNumPageLines>& getCurrentPage();
-  int getNumLinesOnPage() const { return current_num_lines_; }
+  const std::array<std::string, kMaxNumPageLines> &getCurrentPage();
+  int getNumLinesOnPage() const {
+    return current_num_lines_;
+  }
   Menu getCurrentMenu();
   void navigateMenu(PageOption key);
-  int getMaxNumPageLines() const { return kMaxNumPageLines; }
+  int getMaxNumPageLines() const {
+    return kMaxNumPageLines;
+  }
 
 private:
   void gfsStatus();
   void data();
   void log();
   void server();
-  void console();
+  void extensions();
   void setNumLinesOnPage(const int num_lines);
 
   cfg::Configuration &config_;
@@ -50,7 +55,7 @@ private:
       {"Data", PageOption::DATA},
       {"Log", PageOption::LOG},
       {"Server", PageOption::SERVER},
-      {"Console", PageOption::CONSOLE},
+      {"Extensions", PageOption::EXTENSIONS},
   };
 };
 

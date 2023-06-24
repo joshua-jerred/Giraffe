@@ -6,6 +6,12 @@
 // #include "interface.h"
 // #include "timer.h"
 
+/**
+ * @brief These are helper functions to print out startup and shutdown messages
+ *
+ * @defgroup FlightRunnerConsoleHelpers
+ * @{
+ */
 inline void _start(const std::string &module_name) {
   std::cout << module_name << " module starting ... ";
 }
@@ -21,6 +27,7 @@ inline void _disabled(const std::string &module_name) {
 inline void _stop(const std::string &module_name) {
   std::cout << module_name << " module stopping ... ";
 }
+/** @} */ // end of FlightRunnerConsoleHelpers
 
 FlightRunner::~FlightRunner() {
   _stop("extension");

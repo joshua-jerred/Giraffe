@@ -28,7 +28,8 @@ enum class GpsFix : uint8_t { ERROR = 0, NO_FIX = 1, FIX_2D = 2, FIX_3D = 3 };
  * @brief A frame of GPS data straight from a GPS extension.
  */
 struct GpsFrame {
-  BoosterSeat::clck::TimePoint gps_utc_time;
+  /// @brief The UTC time of the GPS fix from the actual GPS clock.
+  BoosterSeat::clck::TimePoint gps_utc_time = BoosterSeat::clck::TimePoint();
 
   /// @brief The GPS fix type.
   GpsFix fix = GpsFix::ERROR;
