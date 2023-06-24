@@ -84,7 +84,7 @@ include(GoogleTest)
 
 # ---- Giraffe Components ----
 # Flight System
-add_subdirectory(${GFS_SRC} ./flight_software)
+add_subdirectory(${GFS_SRC})
 
 # External Libraries
 add_subdirectory(${LIB_SRC}/MWAV)

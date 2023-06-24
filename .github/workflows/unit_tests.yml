@@ -1,4 +1,4 @@
-name: Giraffe Flight System CI
+name: Giraffe Unit Tests
 
 on:
    pull_request:
@@ -31,7 +31,7 @@ jobs:
       - name: Build Test
         run: cd build && make unit_test_common
       - name: Run Test
-        run: cd build/tests/common && ./unit_test_common
+        run: cd build/bin/tests/common && ./unit_test_common
 
   gfs_tests:
     name: Unit Tests / Giraffe Flight System
@@ -41,4 +41,4 @@ jobs:
       - name: Build Test
         run: cd build && make unit_test_gfs
       - name: Run Test
-        run: cd build/tests/common && ./unit_test_gfs
+        run: cd build/bin/tests/flight_system && ./unit_test_gfs
