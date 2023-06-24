@@ -6,7 +6,7 @@
  * =*=======================*=
  *
  * @file   positional.hpp
- * @brief  Positional data for the flight system (gps/imu)
+ * @brief  Positional data for the flight system (gps/imu data)
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
@@ -81,6 +81,21 @@ struct ImuFrame {
   double y_magnetic_field = 0.0;
   double z_magnetic_field = 0.0;
 };
+
+/**
+ * @todo Implement this function.
+ * @warning This function is not yet implemented!
+ *
+ * @brief Checks if a GPS frame is valid. Currently not implemented.
+ * @details Simply checks if the data fields are within logical bounds. Does
+ * not have any knowledge of the previous location, so it cannot check
+ * for a sudden jump in position.
+ *
+ * @param frame - The frame to check.
+ * @return true - If the frame is valid.
+ * @return false - If the frame is invalid.
+ */
+bool isGpsFrameValid(const data::GpsFrame &frame);
 
 } // namespace data
 

@@ -19,16 +19,13 @@ set(common_sources
 
 set(common_include_dirs
 	${COMMON_SRC}
-	${COMMON_SRC}/protocol
+	"${COMMON_SRC}/protocol"
+	"${COMMON_SRC}/command"
 )
 
 set(gfs_sources
 	# common
 	${common_sources}
-
-	# main
-	${GFS_SRC}/main.cpp
-	${GFS_SRC}/flight_runner.cpp
 
 	# configuration 
 	${GFS_SRC}/configuration/configuration.cpp
@@ -42,6 +39,7 @@ set(gfs_sources
 	${GFS_SRC}/modules/data/data_log.cpp
 	${GFS_SRC}/modules/data/influxdb.cpp
 	${GFS_SRC}/modules/data/data_formatting.cpp
+	${GFS_SRC}/modules/data/positional.cpp
 
 	# console module
 	${GFS_SRC}/modules/console/console_module.cpp

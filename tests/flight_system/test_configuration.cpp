@@ -1,10 +1,15 @@
 #include "configuration.hpp"
 #include "shared_data.hpp"
-#include "test.h"
+#include "unit_test.hpp"
 
 #include <filesystem>
 #include <fstream>
 #include <nlohmann/json.hpp>
+
+void __assert_func(const char *__file, int __line, const char *__expr) {
+  printf("ASSERT: %s:%d: Assertion `%s' failed.\n", __file, __line, __expr);
+  throw std::exception();
+}
 
 class ConfigurationTest : public ::testing::Test {
 protected:
@@ -24,7 +29,8 @@ protected:
     data::LogPacket packet;
     while (shared_data->streams.log.getNumPackets() > 0) {
       shared_data->streams.log.getPacket(packet);
-      std::cout << " -- ERROR -- " << (int)packet.id << " info:" << packet.info << std::endl;
+      std::cout << " -- ERROR -- " << (int)packet.id << " info:" << packet.info
+                << std::endl;
     }
   }
 };
@@ -143,7 +149,8 @@ TEST_F(ConfigurationTest, set_from_json_valid_values) {
   nlohmann::json json_data =
       nlohmann::json::object({{"project_name", "test_name"},
                               {"main_board", "pi_zero_w2"},
-                              {"starting_procedure", "ascent"}});
+                              {"starting_procedure", "ascent"},
+                              {"module_status_update_rate", 1000}});
 
   conf->general.setFromJson(json_data);
 
@@ -163,7 +170,7 @@ TEST_F(ConfigurationTest, set_from_json_invalid_values) {
 
   conf->general.setFromJson(json_data);
 
-  ASSERT_EQ(3, shared_data->streams.log.getNumPackets());
+  ASSERT_EQ(4, shared_data->streams.log.getNumPackets());
 
   EXPECT_NE("test_name", conf->general.getProjectName());
   EXPECT_NE(cfg::gEnum::MainBoard::PI_ZERO_W2, conf->general.getMainBoard());

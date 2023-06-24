@@ -18,6 +18,7 @@
 #ifndef NODE_HPP_
 #define NODE_HPP_
 
+#include <cstdint>
 #include <map>
 
 namespace node {

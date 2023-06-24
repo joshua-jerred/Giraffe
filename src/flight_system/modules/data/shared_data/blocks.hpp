@@ -10,6 +10,7 @@
 #include "blocks.hpp"
 #include "json.hpp"
 #include "node.hpp"
+#include "positional.hpp"
 
 namespace data {
 inline auto rnd = BoosterSeat::doubleToPrecisionTwo;
@@ -230,6 +231,10 @@ struct SystemInfo { // Set by the system module
   }
 };
 
+/**
+ * @brief Struct containing statistics about the extension module and its
+ * extensions.
+ */
 struct ExtensionModuleStats {
   int num_extensions = 0;
   int num_invalid_metadata = 0;
@@ -246,6 +251,32 @@ struct ExtensionModuleStats {
     j["num_extensions_failed"] = num_extensions_failed;
     return j;
   }
+};
+
+/**
+ * @brief Struct containing location data (gps).
+ */
+struct LocationData {
+  /**
+   * @brief The current gps fix.
+   */
+  data::GpsFix current_gps_fix = data::GpsFix::NO_FIX;
+
+  /**
+   * @brief The last valid gps fix. If it is NO_FIX, there never was a valid
+   * fix.
+   */
+  data::GpsFix last_valid_gps_fix = data::GpsFix::NO_FIX;
+
+  /**
+   * @brief The last valid gps fix.
+   */
+  data::GpsFrame last_valid_gps_frame{};
+
+  /**
+   * @brief The most recent gps frame.
+   */
+  data::GpsFrame last_gps_frame{};
 };
 
 } // namespace blocks

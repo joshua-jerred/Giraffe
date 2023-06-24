@@ -15,6 +15,9 @@ set(EXE_NAME giraffe_flight_system)
 # -------- GFS Executable ---------
 add_executable( # see sources.cmake for source files
 	${EXE_NAME}
+		# main
+		${GFS_SRC}/main.cpp
+		${GFS_SRC}/flight_runner.cpp
 	${gfs_sources}
 )
 

@@ -157,7 +157,16 @@ void modules::DataModule::processLogPacket(const data::LogPacket &packet) {
 // ------------------ GPS Stream Parsing ------------------
 void modules::DataModule::processGpsFramePacket(
     const data::GpsFramePacket &packet) {
-  (void)packet;
+  data::blocks::LocationData location_data =
+      shared_data_.blocks.location_data.get();
+
+  location_data.last_gps_frame = packet.frame;
+  location_data.current_gps_fix = packet.frame.fix;
+
+  if (isGpsFrameValid(packet.frame)) {
+    location_data.last_valid_gps_frame = packet.frame;
+    location_data.last_valid_gps_fix = packet.frame.fix;
+  }
 }
 
 // ------------------ IMU Stream Parsing ------------------

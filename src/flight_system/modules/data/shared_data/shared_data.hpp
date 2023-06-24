@@ -40,6 +40,7 @@ struct SharedBlocks {
   blocks::Block<blocks::DataLogStats> data_log_stats{};
   blocks::Block<blocks::SystemInfo> system_info{};
   blocks::Block<blocks::ExtensionModuleStats> extension_module_stats{};
+  blocks::Block<blocks::LocationData> location_data{};
 };
 
 struct Frames {
