@@ -1,11 +1,10 @@
-name: GFS Unit Tests
+name: Giraffe Flight System CI
 
 on:
-  push:
-    branches: ["main", "0.5.0-development"]
-    #paths: ['workflows/**', 'src/flight_software/**']
-  pull_request:
-    branches: ["main"]
+   pull_request:
+    branches: [ main ]
+   push:
+    branches-ignore: [ gh-pages-doxygen ]
  
 jobs:
   setup-pull:
@@ -35,13 +34,11 @@ jobs:
         run: cd build/tests/common && ./unit_test_common
 
   gfs_tests:
-    name: Unit Tests / Flight Software
-    env:
-      TEST_NAME: "common_02_giraffe_protocol"
+    name: Unit Tests / Giraffe Flight System
     needs: ["common_tests"]
     runs-on: self-hosted
     steps:
       - name: Build Test
-        run: cd build && make unit_test_common
+        run: cd build && make unit_test_gfs
       - name: Run Test
         run: cd build/tests/common && ./unit_test_gfs

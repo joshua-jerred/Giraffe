@@ -7,17 +7,20 @@ file(GLOB common_test_sources
 
 add_executable(unit_test_common
   ${common_test_sources}
+  ${common_sources}
 )
 target_link_libraries(unit_test_common 
   gtest_main
-  # Common
-  giraffe_common
 )
+target_include_directories(unit_test_common PRIVATE ${common_include_dirs})
 set_target_properties(
 	unit_test_common PROPERTIES 
 	RUNTIME_OUTPUT_DIRECTORY ${COMMON_TEST_BIN}
 )
-target_link_libraries(unit_test_common nlohmann_json::nlohmann_json)
+target_link_libraries(unit_test_common 
+  BoosterSeat
+  nlohmann_json::nlohmann_json
+)
 
 add_test(
   NAME common_tests
