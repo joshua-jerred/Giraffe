@@ -38,7 +38,7 @@
       "config": {
         "type": "int",
         "name": "GFS Config Interval (ms)",
-        "description": "",
+        "description": "The interval at which the web server will pull the config from the Flight Software.",
         "min": 1000,
         "max": 60000,
         "default": 5000
@@ -46,7 +46,7 @@
       "data": {
         "type": "int",
         "name": "GFS Data Interval (ms)",
-        "description": "",
+        "description": "The interval at which the web server will pull data from the Flight Software.",
         "min": 100,
         "max": 60000,
         "default": 1000
@@ -54,7 +54,7 @@
       "errors": {
         "type": "int",
         "name": "GFS Errors Interval (ms)",
-        "description": "",
+        "description": "The interval at which the web server will pull errors from the Flight Software.",
         "min": 100,
         "max": 60000,
         "default": 1000
@@ -62,7 +62,7 @@
       "log_files": {
         "type": "int",
         "name": "GFS Log Files Interval (ms)",
-        "description": "",
+        "description": "The interval at which the web server will pull log file information from the Flight Software.",
         "min": 1000,
         "max": 60000,
         "default": 1000

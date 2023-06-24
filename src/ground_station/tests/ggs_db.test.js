@@ -1,13 +1,13 @@
 const test = require("ava");
 const GgsDataBase = require("../db/ggs_db");
 
-test("load_value", (t) => {
+test("Load value from DB", (t) => {
   const db = new GgsDataBase();
 
   db.resetDb();
 
-  const value = db.get("settings", "gfs_connection", "gfs_server_address");
-  t.is(value, "localhost");
+  const value = db.get("settings", "ggs_server", "stream_rate");
+  t.is(value, 500);
 });
 
 test("set_value", async (t) => {

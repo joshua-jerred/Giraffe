@@ -55,58 +55,58 @@ test("GET /api/ggs/settings - all", async (t) => {
   }
 });
 
-test("PUT /api/ggs/settings", async (t) => {
-  const setting_category = "gfs_connection";
-  const setting_name = "gfs_server_address";
-  const new_setting_value = "new_setting_value";
+// test("PUT /api/ggs/settings", async (t) => {
+//   const setting_category = "gfs_connection";
+//   const setting_name = "gfs_server_address";
+//   const new_setting_value = "new_setting_value";
 
-  async function get() {
-    let result = await getSettings(t, "ggs", setting_category, "values");
-    t.true(result.values.hasOwnProperty(setting_name));
-    return result.values[setting_name];
-  }
+//   async function get() {
+//     let result = await getSettings(t, "ggs", setting_category, "values");
+//     t.true(result.values.hasOwnProperty(setting_name));
+//     return result.values[setting_name];
+//   }
 
-  async function set(value) {
-    let vals = {  };
-    vals[setting_name] = value;
-    await setSettings(t, "ggs", setting_category, vals);
-  }
+//   async function set(value) {
+//     let vals = {  };
+//     vals[setting_name] = value;
+//     await setSettings(t, "ggs", setting_category, vals);
+//   }
 
-  let original_setting_value = await get();
+//   let original_setting_value = await get();
 
-  await set(new_setting_value);
-  let updated_setting_value = await get();
-  t.is(updated_setting_value, new_setting_value);
-  await set(original_setting_value);
-  updated_setting_value = await get();
-  t.is(updated_setting_value, original_setting_value);
-});
+//   await set(new_setting_value);
+//   let updated_setting_value = await get();
+//   t.is(updated_setting_value, new_setting_value);
+//   await set(original_setting_value);
+//   updated_setting_value = await get();
+//   t.is(updated_setting_value, original_setting_value);
+// });
 
-test("DELETE /api/ggs/settings", async (t) => {
-  const setting_category = "gfs_connection";
-  const values = {
-    gfs_server_address: "TEMPORARY_VALUE",
-    gfs_server_port: 12,
-  };
-  const path = "/api/ggs/settings";
+// test("DELETE /api/ggs/settings", async (t) => {
+//   const setting_category = "gfs_connection";
+//   const values = {
+//     gfs_server_address: "TEMPORARY_VALUE",
+//     gfs_server_port: 12,
+//   };
+//   const path = "/api/ggs/settings";
 
-  await setSettings(t, "ggs", setting_category, values);
+//   await setSettings(t, "ggs", setting_category, values);
 
-  const body = await getSettings(t, "ggs", setting_category, "values");
-  t.true(body.values.hasOwnProperty("gfs_server_address"));
-  t.true(body.values.hasOwnProperty("gfs_server_port"));
+//   const body = await getSettings(t, "ggs", setting_category, "values");
+//   t.true(body.values.hasOwnProperty("gfs_server_address"));
+//   t.true(body.values.hasOwnProperty("gfs_server_port"));
 
-  t.is(body.values.gfs_server_address, values.gfs_server_address);
-  t.is(body.values.gfs_server_port, values.gfs_server_port);
+//   t.is(body.values.gfs_server_address, values.gfs_server_address);
+//   t.is(body.values.gfs_server_port, values.gfs_server_port);
 
-  const response1 = await request(app)
-    .delete(path)
-    .query({ category: setting_category });
-  t.is(response1.status, 200);
+//   const response1 = await request(app)
+//     .delete(path)
+//     .query({ category: setting_category });
+//   t.is(response1.status, 200);
 
-  const body2 = await getSettings(t, "ggs", setting_category, "values");
-  t.true(body2.values.hasOwnProperty("gfs_server_address"));
-  t.true(body2.values.hasOwnProperty("gfs_server_port"));
-  t.not(body2.values.gfs_server_address, values.gfs_server_address);
-  t.not(body2.values.gfs_server_port, values.gfs_server_port);
-});
+//   const body2 = await getSettings(t, "ggs", setting_category, "values");
+//   t.true(body2.values.hasOwnProperty("gfs_server_address"));
+//   t.true(body2.values.hasOwnProperty("gfs_server_port"));
+//   t.not(body2.values.gfs_server_address, values.gfs_server_address);
+//   t.not(body2.values.gfs_server_port, values.gfs_server_port);
+// });

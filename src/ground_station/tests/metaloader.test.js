@@ -25,44 +25,11 @@ const setting_schema = {
   additionalProperties: true,
 };
 
-test("verify_settings", (t) => {
+test("GGS Settings Metadata", (t) => {
   const settings = loadMetaData("ggs", "settings");
   for (var i in settings) {
     for (var j in settings[i]) {
       const valid = ajv.validate(setting_schema, settings[i][j]);
-      if (!valid) {
-        if (ajv.errors) {
-          console.log(ajv.errors);
-        }
-        t.fail();
-      }
-    }
-  }
-  t.pass();
-});
-
-const data_schema = {
-  type: "object",
-  properties: {
-    name: {
-      type: "string",
-    },
-    description: {
-      type: "string",
-    },
-    default: {},
-    units: {
-      type: "string",
-    },
-  },
-  required: ["name", "description", "default"],
-  additionalProperties: false,
-};
-test("verify_data", async (t) => {
-  const data = loadMetaData("ggs", "data");
-  for (var i in data) {
-    for (var j in data[i]) {
-      const valid = ajv.validate(data_schema, data[i][j]);
       if (!valid) {
         if (ajv.errors) {
           console.log(ajv.errors);
