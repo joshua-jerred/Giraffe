@@ -43,6 +43,16 @@ jobs:
       - name: Run Test
         run: cd build/bin/tests/flight_system && ./unit_test_gfs
 
+  data_link_tests:
+    name: Unit Tests / Data Link
+    needs: ["common_tests_cpp"]
+    runs-on: self-hosted
+    steps:
+      - name: Build Test
+        run: cd build && make unit_test_gdl
+      - name: Run Test
+        run: cd build/bin/tests/data_link && ./unit_test_gdl
+
   common_tests_js:
     name: Unit Tests / Common JS
     runs-on: ubuntu-latest

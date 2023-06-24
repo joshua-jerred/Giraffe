@@ -86,6 +86,9 @@ include(GoogleTest)
 # Flight System
 add_subdirectory(${GFS_SRC})
 
+# Data Link
+add_subdirectory(${GDL_SRC})
+
 # External Libraries
 add_subdirectory(${LIB_SRC}/MWAV)
 add_subdirectory(${LIB_SRC}/Boost_erSeat)

@@ -4,7 +4,6 @@
 file(GLOB common_test_sources
      "${COMMON_TEST_SRC}/test_*.cpp"
 )
-
 add_executable(unit_test_common
   ${common_test_sources}
   ${common_sources}
@@ -21,10 +20,30 @@ target_link_libraries(unit_test_common
   BoosterSeat
   nlohmann_json::nlohmann_json
 )
-
 add_test(
   NAME common_tests
   COMMAND unit_test_common
+)
+
+# --- Data Link ---
+file(GLOB data_link_test_sources
+     "${GDL_TEST_SRC}/test_*.cpp"
+)
+add_executable(unit_test_gdl
+  ${data_link_test_sources}
+)
+target_link_libraries(unit_test_gdl 
+  gtest_main
+  giraffe_data_link
+)
+target_include_directories(unit_test_gdl PRIVATE ${GDL_SRC})
+set_target_properties(
+	unit_test_gdl PROPERTIES 
+	RUNTIME_OUTPUT_DIRECTORY ${GDL_TEST_BIN}
+)
+add_test(
+  NAME data_link_tests
+  COMMAND unit_test_gdl
 )
 
 # --- Flight Software ---
