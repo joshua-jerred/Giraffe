@@ -72,6 +72,11 @@ public:
     return frame_.erase(id);
   }
 
+  std::unordered_map<ID, DATA> getAll() const {
+    std::lock_guard<std::mutex> lock(frame_lock_);
+    return frame_;
+  }
+
 private:
   mutable std::mutex frame_lock_ = std::mutex();
   std::unordered_map<ID, DATA> frame_ = std::unordered_map<ID, DATA>();

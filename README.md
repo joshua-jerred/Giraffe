@@ -1,6 +1,4 @@
-[![giraffe-flight-software tests](https://github.com/joshua-jerred/Giraffe/actions/workflows/gfs-tests.yml/badge.svg)](https://github.com/joshua-jerred/Giraffe/actions/workflows/gfs-tests.yml)
-
-[![giraffe-ground-station-tests](https://github.com/joshua-jerred/Giraffe/actions/workflows/ground_station_tests.yml/badge.svg)](https://github.com/joshua-jerred/Giraffe/actions/workflows/ground_station_tests.yml)
+[![Giraffe Unit Tests](https://github.com/joshua-jerred/Giraffe/actions/workflows/unit_tests.yml/badge.svg?branch=main)](https://github.com/joshua-jerred/Giraffe/actions/workflows/unit_tests.yml)
 
 # Giraffe <!-- omit from toc -->
 ### A Unified Flight Command and Control System <!-- omit from toc -->

@@ -87,7 +87,7 @@ public:
   }
 
 private:
-  double rh_ = 1000.0;
+  double rh_ = 100.0;
   bool increasing_ = false;
 };
 

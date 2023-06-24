@@ -15,8 +15,9 @@ enum class PageOption {
   LOG,
   SERVER,
   EXTENSIONS,
+  EXTENSION_DATA,
   SYSTEM,
-  LOCATION
+  LOCATION,
 };
 
 inline constexpr int kMaxNumPageLines = 25;
@@ -52,6 +53,7 @@ private:
   void extensions();
   void system();
   void location();
+  void extensionData();
 
   void setNumLinesOnPage(const int num_lines);
 
@@ -67,6 +69,7 @@ private:
       {"Log", PageOption::LOG},
       {"Server", PageOption::SERVER},
       {"Extensions", PageOption::EXTENSIONS},
+      {"Extension Data", PageOption::EXTENSION_DATA},
       {"System", PageOption::SYSTEM},
       {"Location", PageOption::LOCATION},
   };

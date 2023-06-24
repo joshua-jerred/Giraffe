@@ -116,6 +116,8 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
   std::optional<ExtContainer> option;
 
   switch (meta.type) {
+  case cfg::gEnum::ExtensionType::UNKNOWN: // generally means config error
+    return option;
   case cfg::gEnum::ExtensionType::SIM_TEMP:
     extension = std::make_shared<extension::SimTemperatureSensor>(
         extension_resources_, meta);

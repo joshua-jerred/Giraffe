@@ -50,5 +50,12 @@
     "telem"
   ],
   "docwriter.style": "Doxygen",
-  "docwriter.hotkey.mac": "⌘ + ."
+  "docwriter.hotkey.mac": "⌘ + .",
+  "files.associations": {
+    "array": "cpp",
+    "string": "cpp",
+    "string_view": "cpp",
+    "ranges": "cpp",
+    "span": "cpp"
+  }
 }

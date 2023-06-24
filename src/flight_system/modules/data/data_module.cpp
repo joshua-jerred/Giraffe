@@ -87,7 +87,13 @@ void modules::DataModule::processDataPacket(const data::DataPacket &packet) {
   }
 
   // Log data packet to influxdb (if enabled)
-  if (packet.type == data::DataPacket::Type::GENERIC) {
+  if (influxdb_enabled_) {
+    influxdb_.logDataPacket(packet);
+  }
+
+  if (packet.source == node::Identification::EXTENSION) {
+    parseExtensionDataPacket(packet);
+  } else if (packet.type == data::DataPacket::Type::GENERIC) {
     parseGeneralDataPacket(packet);
   } else if (packet.type == data::DataPacket::Type::STATUS) {
     parseStatusDataPacket(packet);
@@ -104,8 +110,18 @@ void modules::DataModule::parseGeneralDataPacket(
 
 void modules::DataModule::parseExtensionDataPacket(
     const data::DataPacket &packet) {
-  (void)packet;
-  // Process packet here
+  auto ext_id = packet.secondary_identifier;
+  auto type = packet.identifier;
+
+  if (type == data::DataId::ENVIRONMENTAL_temperature) {
+    shared_data_.frames.env_temp.insert(ext_id, packet);
+  } else if (type == data::DataId::ENVIRONMENTAL_pressure) {
+    shared_data_.frames.env_pres.insert(ext_id, packet);
+  } else if (type == data::DataId::ENVIRONMENTAL_humidity) {
+    shared_data_.frames.env_hum.insert(ext_id, packet);
+  } else {
+    giraffe_assert(false);
+  }
 }
 
 void modules::DataModule::parseStatusDataPacket(

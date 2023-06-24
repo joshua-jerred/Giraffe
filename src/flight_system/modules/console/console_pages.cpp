@@ -38,6 +38,9 @@ console_pages::Pages::getCurrentPage() {
   case PageOption::EXTENSIONS:
     extensions();
     break;
+  case PageOption::EXTENSION_DATA:
+    extensionData();
+    break;
   case PageOption::SYSTEM:
     system();
     break;
@@ -206,6 +209,41 @@ void console_pages::Pages::extensions() {
     "Num Configured: " + std::to_string(stats.num_configured),
     "Num Active: " + std::to_string(stats.num_active),
     "Num Inactive: " + std::to_string(stats.num_inactive)
+  };
+  // clang-format on
+}
+
+void console_pages::Pages::extensionData() {
+  constexpr int kNumLines = 6;
+  setNumLinesOnPage(kNumLines);
+  auto &frames = shared_data_.frames;
+
+  auto temp = frames.env_temp.getAll();
+  auto hum = frames.env_hum.getAll();
+  auto pres = frames.env_pres.getAll();
+
+  std::string temp_str = "";
+  std::string hum_str = "";
+  std::string pres_str = "";
+
+  for (auto &item : temp) {
+    temp_str += item.first + ":" + item.second.value + ", ";
+  }
+  for (auto &item : hum) {
+    hum_str += item.first + ":" + item.second.value + ", ";
+  }
+  for (auto &item : pres) {
+    pres_str += item.first + ":" + item.second.value + ", ";
+  }
+
+  // clang-format off
+  content_ = {
+    "Frame Sizes (temp, hum, pres): " + std::to_string(frames.env_temp.size())
+      + ", " + std::to_string(frames.env_hum.size()) + ", "
+      + std::to_string(frames.env_pres.size()),
+    "Temp: " + temp_str,
+    "Hum: " + hum_str,
+    "Pres: " + pres_str
   };
   // clang-format on
 }
