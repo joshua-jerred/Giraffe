@@ -53,9 +53,9 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm install
-        working-directory: ./src/ground_station/protocol
+        working-directory: ./src/common/protocol
       - run: npm test
-        working-directory: ./src/ground_station/protocol
+        working-directory: ./src/common/protocol
 
   ggs_tests:
     name: Unit Tests / Giraffe Ground Station
