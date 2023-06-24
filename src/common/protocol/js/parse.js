@@ -38,6 +38,6 @@ module.exports = function (message) {
     );
     return msg;
   } catch (e) {
-    throw new Error("Couldn't parse the message: " + e);
+    throw new Error(e);
   }
 };

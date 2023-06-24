@@ -71,7 +71,6 @@ module.exports = class Message {
       src: this.src,
       dst: this.dst,
       typ: this.typ,
-      cat: this.cat,
       id: this.id,
       bdy: this.bdy,
     };
