@@ -30,6 +30,7 @@ enum class DataFrameComponent {
   STREAM_STATS,
   SERVER_STATS,
   SYSTEM_INFO,
+  ENVIRONMENTAL_DATA
 };
 
 class DataFormatter {
@@ -54,6 +55,6 @@ private:
   data::SharedData &shared_data_;
 };
 
-}; // namespace data
+}; // namespace data_middleware
 
 #endif /* FILE_FORMATTING_HPP_ */

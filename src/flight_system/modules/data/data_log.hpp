@@ -198,12 +198,12 @@ private:
   /**
    * @brief Moves a file to the archive directory according to the archive
    * method.
-   * 
-   * @param file_path 
-   * @param archive_dir_path 
+   *
+   * @param file_path
+   * @param archive_dir_path
    * @param error_id
    * @return true if the file was archived successfully, false otherwise.
-   * 
+   *
    * @todo Archive Methods
    */
   bool archiveFile(const std::string &file_path,
@@ -213,10 +213,10 @@ private:
   /**
    * @brief Called on startup. If there are any files in the data or log
    * directories that have been left behind, they will be archived.
-   * @param dir_path 
-   * @param archive_dir_path 
-   * @param current_file_name 
-   * @param error_id 
+   * @param dir_path
+   * @param archive_dir_path
+   * @param current_file_name
+   * @param error_id
    */
   void archiveOtherFilesInDir(const std::string &dir_path,
                               const std::string &archive_dir_path,
@@ -225,8 +225,8 @@ private:
 
   /**
    * @brief This method will check to see if a data or log file needs to be
-   * rotated/archived. 
-   * 
+   * rotated/archived.
+   *
    * @details This method will archive the file and create a new one if it
    * exceeds the configured file size limit.
    */

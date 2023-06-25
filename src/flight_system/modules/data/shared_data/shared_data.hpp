@@ -101,6 +101,8 @@ struct SharedData {
 #endif
 };
 
+json to_json(data::Frame<std::string, data::DataPacket> &frame);
+
 } // namespace data
 
 #endif

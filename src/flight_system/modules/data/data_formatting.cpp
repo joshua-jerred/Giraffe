@@ -27,6 +27,7 @@ std::string DataFormatter::fullFrame() {
   addComponent(DataFrameComponent::STREAM_STATS, frame);
   addComponent(DataFrameComponent::SERVER_STATS, frame);
   addComponent(DataFrameComponent::SYSTEM_INFO, frame);
+  addComponent(DataFrameComponent::ENVIRONMENTAL_DATA, frame);
   return frame.dump();
 }
 
@@ -65,6 +66,14 @@ void DataFormatter::addComponent(DataFrameComponent component, json &frame) {
   case DataFrameComponent::SYSTEM_INFO:
     frame["data"]["system_info"] =
         shared_data_.blocks.system_info.get().toJson();
+    break;
+  case DataFrameComponent::ENVIRONMENTAL_DATA:
+    frame["environmental"]["temperature"] =
+        data::to_json(shared_data_.frames.env_temp);
+    frame["environmental"]["pressure"] =
+        data::to_json(shared_data_.frames.env_pres);
+    frame["environmental"]["humidity"] =
+        data::to_json(shared_data_.frames.env_hum);
     break;
   }
 }
