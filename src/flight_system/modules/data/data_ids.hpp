@@ -8,9 +8,9 @@ enum class DataId {
   GENERIC_unknown,
   MODULE_statusUpdate,
   EXTENSION_statusUpdate,
-  ENVIRONMENTAL_temperature,
-  ENVIRONMENTAL_humidity,
-  ENVIRONMENTAL_pressure
+  ENVIRONMENTAL_temperature, // Temperature (Celsius)
+  ENVIRONMENTAL_humidity, // Relative Humidity (%)
+  ENVIRONMENTAL_pressure  // Pressure (mbar)
 };
 } // namespace data
 

@@ -109,13 +109,14 @@ class Component:
             raise Exception("Indent level not zero after finishing component.")
 
 class EnumValue:
-    def __init__(self, value, comment):
+    def __init__(self, value, comment, numeric_value):
         self.value = value
         self.last = False
         self.comment = comment
+        self.numeric_value = numeric_value
     
     def getLine(self):
-        ret_val = f'{self.value}{"," if not self.last else ""}'
+        ret_val = f'{self.value}{"" if self.numeric_value == None else "="+self.numeric_value}{"," if not self.last else ""}'
         if self.comment != None:
             ret_val += f'{" " if not self.last else "  "}// {self.comment}'
         return ret_val
@@ -124,17 +125,18 @@ class EnumValue:
         self.last = True
 
 class Enum(Component):
-    def __init__(self, name, enum_class = True):
+    def __init__(self, name, enum_class = True, enum_type = None):
         super().__init__()
         self.name = name
         self.values = []
+        
         if (enum_class):
-            self.addLineWithBracket("enum class " + name, "};")
+            self.addLineWithBracket("enum class " + name + f'{"" if enum_type==None else " : "+enum_type}', "};")
         else:
             self.addLineWithBracket(f"enum {name}")
 
-    def addValue(self, enum_value_name, comment = None): # ex: pass ing 'ENUM_ITEM' without a comma
-        self.values.append(EnumValue(enum_value_name, comment))
+    def addValue(self, enum_value_name, comment = None, value = None): # ex: pass ing 'ENUM_ITEM' without a comma
+        self.values.append(EnumValue(enum_value_name, comment, value))
 
     def addValues(self, enum_value_names): # ex: pass in ['ENUM_ITEM', 'ENUM_ITEM2', 'ENUM_ITEM3']
         for enum_value_name in enum_value_names:

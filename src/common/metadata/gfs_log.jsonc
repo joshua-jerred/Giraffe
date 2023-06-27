@@ -7,19 +7,32 @@
     "enum_type": "uint16_t"
   },
   "generic": {
-    "unknown": {},
-    "info": {},
-    "debug": {},
+    "unknown": {
+      "name": "Unknown",
+      "details": "The error is unknown.",
+      "value": "0xF000"
+    },
+    "info": {
+      "name": "Info",
+      "details": "Info messages are used to provide additional information about the state of the system.",
+      "value": "0xF001"
+    },
+    "debug": {
+      "name": "Debug",
+      "details": "Debug messages are used to provide additional information about the state of the system.",
+      "value": "0xF002"
+    },
     "not_yet_implemented": {
       "name": "Not yet implemented",
-      "details": "Reserved for features that are not expected to function yet."
+      "details": "Reserved for features that are not expected to function yet.",
+      "value": "0xF003"
     }
   },
   "config": {
     "section_not_found": {
       "name": "Section not found",
       "details": "The section was not found in the config file.",
-      "value": "0x0000"
+      "value": "0x000E"
     },
     "setting_not_found": {
       "name": "Setting not found",
@@ -330,33 +343,51 @@
   },
   "console_module": {},
   "system_module": {
-    "system_info_read_fail": {},
-    "cpu_temp_read_fail": {},
-    "disk_info_read_fail": {}
+    "system_info_read_fail": {
+      "name": "Failed to read system info",
+      "details": "The system info could not be read in the system module",
+      "value": "0x4001"
+    },
+    "cpu_temp_read_fail": {
+      "name": "Failed to read CPU temperature",
+      "details": "The CPU temperature could not be read in the system module",
+      "value": "0x4002"
+    },
+    "disk_info_read_fail": {
+      "name": "Failed to read disk info",
+      "details": "The disk info could not be read in the system module",
+      "value": "0x4003"
+    }
   },
   "extension_module":{
     "failed_to_create":{
-      "name": "Failed to Create Extension"
+      "name": "Failed to Create Extension",
+      "details": "The extension could not be created.",
+      "value": "0x4004"
     }
   },
   "extension":{
     "start_call":{
       "name": "Can not start if already running, starting, or sleeping.",
-      "details": "This case should not happen, but it can happen on a call to start."
+      "details": "This case should not happen, but it can happen on a call to start.",
+      "value": "0x5001"
     },
     "stop_timeout":{
       "name":"Failed to stop in time",
-      "details": "The extension failed to stop in the time allotted."
+      "details": "The extension failed to stop in the time allotted.",
+      "value": "0x5002"
     }
   },
   "ext_fault":{
     "none":{
       "name": "No fault",
-      "details": "Default, should not be thrown."
+      "details": "Default, should not be thrown.",
+      "value": "0x6000"
     },
     "fatal_config":{
       "name":"Fatal Configuration Error",
-      "details": "The extension has a fatal configuration error, it will not be restarted."
+      "details": "The extension has a fatal configuration error, it will not be restarted.",
+      "value": "0x6001"
     }
   }
 }
