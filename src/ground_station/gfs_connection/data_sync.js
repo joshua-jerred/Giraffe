@@ -157,7 +157,7 @@ module.exports = class GfsDataSync {
         }
         that.#setLocalResource(category, msg);
       } catch (e) {
-        console.log("Error parsing data " + e);
+        console.log("Error parsing data for category:" + category);
       }
       con.destroy();
     });

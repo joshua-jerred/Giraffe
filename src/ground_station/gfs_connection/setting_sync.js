@@ -165,7 +165,7 @@ module.exports = class GfsSettingSync {
         }
         that.#setLocalResource(category, msg);
       } catch (e) {
-        console.log("Error parsing data " + e);
+        console.log("Error getting settings for " + category);
       }
       con.destroy();
     });

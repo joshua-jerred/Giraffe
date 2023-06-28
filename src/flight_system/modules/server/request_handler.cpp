@@ -99,6 +99,8 @@ auto RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
     res_body = config_.telemetry_data_packets.getJson();
   } else if (req == "extensions") {
     res_body = config_.extensions.getJson();
+  } else if (req == "extension_module") {
+    res_body = config_.extension_module.getJson();
   } else {
     sendErrorPacket(client, "setting section not found");
     return;
@@ -130,6 +132,12 @@ auto RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
     res_body = shared_data_.blocks.stream_stats.get().toJson();
   } else if (requested_data == "server_module_stats") {
     res_body = shared_data_.blocks.server_module_stats.get().toJson();
+  } else if (requested_data == "extension_module_stats") {
+    res_body = shared_data_.blocks.extension_module_stats.get().toJson();
+  } else if (requested_data == "environmental") {
+    res_body["temperature"] = to_json(shared_data_.frames.env_temp);
+    res_body["pressure"] = to_json(shared_data_.frames.env_pres);
+    res_body["humidity"] = to_json(shared_data_.frames.env_hum);
   } else {
     sendErrorPacket(client, "data section not found");
     return;

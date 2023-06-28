@@ -176,11 +176,7 @@
     }
   },
   "extension_module_stats":{
-    "num_extensions":{},
-    "num_extensions_enabled":{},
-    "num_extensions_disabled":{},
-    "num_extensions_running":{},
-    "num_extensions_stopped":{},
-    "num_extensions_errored":{}
-  }
+
+  },
+  "environmental":{}
 }

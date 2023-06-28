@@ -50,9 +50,13 @@ function GfsDataMonitorPage() {
           </Card>
           <Card title="Telemetry Data"></Card>
 
-          <Card title="Extensions"></Card>
+          <Card title="Extensions">
+            <DataStreamBlock resource="gfs" category="extension_module_stats" />
+          </Card>
 
-          <Card title="Modules"></Card>
+          <Card title="Environmental">
+            <DataStreamBlock resource="gfs" category="environmental" />
+          </Card>
         </CardMasonryLayout>
       </PageContent>
     </>
