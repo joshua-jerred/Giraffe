@@ -1,7 +1,5 @@
 
 # --- DIRECTORIES --- #
-set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/)
-
 set(COMMON_SRC ${CMAKE_SOURCE_DIR}/src/common)
 set(COMMON_BIN ${CMAKE_BINARY_DIR}/common)
 set(COMMON_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/common)
