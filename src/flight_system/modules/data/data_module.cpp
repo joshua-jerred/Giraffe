@@ -175,18 +175,28 @@ void modules::DataModule::processGpsFramePacket(
     const data::GpsFramePacket &packet) {
   data::blocks::LocationData location_data =
       shared_data_.blocks.location_data.get();
+  location_data.have_gps_source = true;
 
   location_data.last_gps_frame = packet.frame;
   location_data.current_gps_fix = packet.frame.fix;
-
   if (isGpsFrameValid(packet.frame)) {
     location_data.last_valid_gps_frame = packet.frame;
     location_data.last_valid_gps_fix = packet.frame.fix;
   }
+
+  shared_data_.blocks.location_data.set(location_data);
 }
 
 // ------------------ IMU Stream Parsing ------------------
 void modules::DataModule::processImuFramePacket(
     const data::ImuFramePacket &packet) {
-  (void)packet;
+  auto data_block = shared_data_.blocks.imu_data.get();
+  data_block.have_imu_source = true;
+
+  data_block.most_recent_imu_frame = packet.frame;
+  if (isImuFrameValid(packet.frame)) {
+    data_block.last_valid_imu_frame = packet.frame;
+  }
+
+  shared_data_.blocks.imu_data.set(data_block);
 }

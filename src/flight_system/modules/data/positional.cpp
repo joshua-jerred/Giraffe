@@ -79,3 +79,40 @@ bool data::isGpsFrameValid(const data::GpsFrame &frame) {
 
   return true;
 }
+
+bool data::isImuFrameValid(const data::ImuFrame &frame) {
+  constexpr int kMaxTimeDiffSeconds = 10;         // seconds
+  constexpr double kMinAcceleration = -24.0;      // m/s^2
+  constexpr double kMaxAcceleration = 24.0;       // m/s^2
+  constexpr double kMinAngularVelocity = -2000.0; // deg/s
+  constexpr double kMaxAngularVelocity = 2000.0;  // deg/s
+
+  if (!frame.is_valid) {
+    return false;
+  }
+  // Validate the time
+  BoosterSeat::clck::TimePoint now = BoosterSeat::clck::now();
+  if (std::chrono::duration_cast<std::chrono::seconds>(now - frame.time)
+          .count() > kMaxTimeDiffSeconds) {
+    return false;
+  }
+  if (frame.x_acceleration < kMinAcceleration ||
+      frame.x_acceleration > kMaxAcceleration ||
+      frame.y_acceleration < kMinAcceleration ||
+      frame.y_acceleration > kMaxAcceleration ||
+      frame.z_acceleration < kMinAcceleration ||
+      frame.z_acceleration > kMaxAcceleration) {
+    return false;
+  }
+
+  if (frame.x_angular_velocity < kMinAngularVelocity ||
+      frame.x_angular_velocity > kMaxAngularVelocity ||
+      frame.y_angular_velocity < kMinAngularVelocity ||
+      frame.y_angular_velocity > kMaxAngularVelocity ||
+      frame.z_angular_velocity < kMinAngularVelocity ||
+      frame.z_angular_velocity > kMaxAngularVelocity) {
+    return false;
+  }
+
+  return true;
+}

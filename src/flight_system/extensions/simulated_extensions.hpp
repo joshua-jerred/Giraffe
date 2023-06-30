@@ -130,12 +130,9 @@ public:
     frame.x_acceleration = 0.0;
     frame.y_acceleration = 0.0;
     frame.z_acceleration = 0.0;
-    frame.x_rotation = 0.0;
-    frame.y_rotation = 0.0;
-    frame.z_rotation = 0.0;
-    frame.x_magnetic_field = 0.0;
-    frame.y_magnetic_field = 0.0;
-    frame.z_magnetic_field = 0.0;
+    frame.x_angular_velocity = 0.0;
+    frame.y_angular_velocity = 0.0;
+    frame.z_angular_velocity = 0.0;
     data(frame);
   }
 

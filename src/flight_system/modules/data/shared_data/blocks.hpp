@@ -257,6 +257,13 @@ struct ExtensionModuleStats {
  */
 struct LocationData {
   /**
+   * @brief Whether or not we have a gps source.
+   * @details Set to true if we have had a single gps frame come through the
+   * stream.
+   */
+  bool have_gps_source = false;
+
+  /**
    * @brief The current gps fix.
    */
   data::GpsFix current_gps_fix = data::GpsFix::NO_FIX;
@@ -276,6 +283,25 @@ struct LocationData {
    * @brief The most recent gps frame.
    */
   data::GpsFrame last_gps_frame{};
+};
+
+struct ImuData {
+  /**
+   * @brief Whether or not we have an imu source.
+   * @details Set to true if we have had a single imu frame comes through the
+   * stream.
+   */
+  bool have_imu_source = false;
+
+  /**
+   * @brief The most recent imu frame.
+   */
+  data::ImuFrame most_recent_imu_frame{};
+
+  /**
+   * @brief Last valid imu frame.
+   */
+  data::ImuFrame last_valid_imu_frame{};
 };
 
 } // namespace blocks
