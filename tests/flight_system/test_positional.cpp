@@ -324,3 +324,113 @@ TEST(isGpsFrameValidTest, headingOfMotionValidity) {
  * @warning Not verifying validity of speeds, speed accuracy, or heading
  * accuracy.
  */
+
+/**
+ * @brief Verify validity of heading of motion (0-360 degrees)
+ */
+TEST(isImuFrameValid, emptyIsInvalid) {
+  data::ImuFrame frame{};
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+}
+
+/**
+ * @brief All zeros is valid, if is_valid is set to true.
+ */
+TEST(isImuFrameValid, validSetIsValid) {
+  data::ImuFrame frame{};
+  frame.is_valid = true;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+}
+
+/**
+ * @brief Time delta out of range.
+ */
+TEST(isImuFrameValid, timeValidity) {
+  data::ImuFrame frame{};
+  frame.is_valid = true;
+
+  BoosterSeat::clck::TimePoint time_too_old = BoosterSeat::clck::now();
+  time_too_old -= std::chrono::seconds(11);
+  BoosterSeat::clck::TimePoint time_too_new{};
+  time_too_new += std::chrono::seconds(2);
+
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.time = time_too_old;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+  frame.time = time_too_new;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+}
+
+/**
+ * @brief Verify validity of acceleration (m/s^2)
+ */
+TEST(isImuFrameValid, accelerationValidity) {
+  constexpr double kMaxAccel = 24.0; // 24 m/s^2
+  data::ImuFrame frame{};
+  frame.is_valid = true;
+  frame.x_acceleration = -kMaxAccel - 0.1;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+  frame.x_acceleration = -kMaxAccel;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.x_acceleration = kMaxAccel;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.x_acceleration = kMaxAccel + 0.1;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+  frame.x_acceleration = 0.0;
+
+  frame.y_acceleration = -kMaxAccel - 0.1;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+  frame.y_acceleration = -kMaxAccel;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.y_acceleration = kMaxAccel;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.y_acceleration = kMaxAccel + 0.1;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+  frame.y_acceleration = 0.0;
+
+  frame.z_acceleration = -kMaxAccel - 0.1;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+  frame.z_acceleration = -kMaxAccel;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.z_acceleration = kMaxAccel;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.z_acceleration = kMaxAccel + 0.1;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+}
+
+/**
+ * @brief Verify validity of angular velocity (rad/s)
+ */
+TEST(isImuFrameValid, angularVelocityValidity) {
+  constexpr double kMaxAngularVelocity = 2000.0; // 2000 deg/s
+  data::ImuFrame frame{};
+  frame.is_valid = true;
+  frame.x_angular_velocity = -kMaxAngularVelocity - 0.1;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+  frame.x_angular_velocity = -kMaxAngularVelocity;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.x_angular_velocity = kMaxAngularVelocity;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.x_angular_velocity = kMaxAngularVelocity + 0.1;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+  frame.x_angular_velocity = 0.0;
+
+  frame.y_angular_velocity = -kMaxAngularVelocity - 0.1;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+  frame.y_angular_velocity = -kMaxAngularVelocity;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.y_angular_velocity = kMaxAngularVelocity;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.y_angular_velocity = kMaxAngularVelocity + 0.1;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+  frame.y_angular_velocity = 0.0;
+
+  frame.z_angular_velocity = -kMaxAngularVelocity - 0.1;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+  frame.z_angular_velocity = -kMaxAngularVelocity;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.z_angular_velocity = kMaxAngularVelocity;
+  EXPECT_TRUE(data::isImuFrameValid(frame));
+  frame.z_angular_velocity = kMaxAngularVelocity + 0.1;
+  EXPECT_FALSE(data::isImuFrameValid(frame));
+}
