@@ -1,0 +1,44 @@
+{
+  "settings": {
+    "ggs_server": {
+      "stream_rate": 530,
+      "max_streams_per_client": 5
+    },
+    "gfs_connection": {
+      "gfs_socket_address": "localhost",
+      "gfs_socket_port": 7893
+    },
+    "gfs_state_intervals": {
+      "config": 5000,
+      "data": 1000,
+      "errors": 1000,
+      "log_files": 1000
+    },
+    "influx_db": {
+      "influx_db_url": "localhost",
+      "influx_db_token": "none",
+      "influx_org": "giraffe",
+      "influx_bucket": "giraffe_ground_station",
+      "influx_interval_ms": 999,
+      "influx_retention_duration": "1 Month",
+      "influx_enabled": false
+    }
+  },
+  "data": {
+    "streams": {
+      "users": {
+        "postman": {
+          "user_name": "postman",
+          "times_connected": 7
+        },
+        "user1": {
+          "user_name": "user1",
+          "times_connected": 66
+        }
+      }
+    },
+    "status": {
+      "this_doesnt_exist": "unknown"
+    }
+  }
+}

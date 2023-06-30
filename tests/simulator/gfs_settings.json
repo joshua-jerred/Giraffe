@@ -1,0 +1,89 @@
+{
+  "general": {
+    "project_name": "GFS Simulator",
+    "main_board_type": "pi_zero_w_2",
+    "starting_procedure": "testing"
+  },
+  "debug": {
+    "debug_mode_print_errors": true,
+    "console_enabled": true,
+    "console_update_interval": 1000,
+    "web_socket_enabled": true,
+    "web_socket_port": 7893
+  },
+  "telemetry": {
+    "general": {
+      "telemetry_enabled": true,
+      "call_sign": "GFS"
+    },
+    "aprs": {
+      "enabled": true,
+      "telemetry_packets": true,
+      "position_packets": true,
+      "frequency": 144.39,
+      "ssid": 0,
+      "destination_address": "APRS",
+      "destination_ssid": 0,
+      "symbol_table": "/",
+      "telemetry_destination": "APRS",
+      "comment": "GFS Simulator"
+    },
+    "sstv": {
+      "enabled": true,
+      "frequency": 145.8,
+      "mode": "robot36",
+      "overlay_data": true
+    },
+    "data_packets": {
+      "enabled": true,
+      "frequency": 144.39,
+      "mode": "bpsk500",
+      "morse_callsign": true,
+      "comment": "GFS Simulator"
+    }
+  },
+  "flight_procedures": {
+    "testing": {}
+  },
+  "extensions": [
+    {
+      "id": 1,
+      "name": "temp_sen_1",
+      "type": "DS18B20",
+      "category": "external_sensor",
+      "interface": "onewire",
+      "update_interval": 2000,
+      "flight_critical": false,
+      "extra_args": {
+        "onewire_id": "28-03176038beff"
+      }
+    },
+    {
+      "id": 2,
+      "name": "gps",
+      "type": "SAMM8Q",
+      "category": "gps",
+      "interface": "i2c",
+      "update_interval": 1000,
+      "flight_critical": true,
+      "extra_args": {
+        "i2c_bus": 1,
+        "i2c_address": "0x42"
+      }
+    },
+    {
+      "id": 3,
+      "name": "pth_sen",
+      "type": "BME280",
+      "category": "external_sensor",
+      "interface": "i2c",
+      "update_interval": 1000,
+      "flight_critical": true,
+      "extra_args": {
+        "i2c_bus": 1,
+        "i2c_address": "0x76",
+        "critical_source": "PRES_MBAR"
+      }
+    }
+  ]
+}

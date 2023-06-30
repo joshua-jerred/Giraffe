@@ -1,0 +1,393 @@
+// jsonc!!! (comments are allowed) The generator for this one used a non-builtin 
+// library for parsing.
+{
+  "FILE_META": {
+    "namespace": "data",
+    "enum_name": "LogId",
+    "enum_type": "uint16_t"
+  },
+  "generic": {
+    "unknown": {
+      "name": "Unknown",
+      "details": "The error is unknown.",
+      "value": "0xF000"
+    },
+    "info": {
+      "name": "Info",
+      "details": "Info messages are used to provide additional information about the state of the system.",
+      "value": "0xF001"
+    },
+    "debug": {
+      "name": "Debug",
+      "details": "Debug messages are used to provide additional information about the state of the system.",
+      "value": "0xF002"
+    },
+    "not_yet_implemented": {
+      "name": "Not yet implemented",
+      "details": "Reserved for features that are not expected to function yet.",
+      "value": "0xF003"
+    }
+  },
+  "config": {
+    "section_not_found": {
+      "name": "Section not found",
+      "details": "The section was not found in the config file.",
+      "value": "0x000E"
+    },
+    "setting_not_found": {
+      "name": "Setting not found",
+      "details": "The setting was not found in the config file.",
+      "value": "0x0001"
+    },
+    "invalid_json_type": {
+      "name": "Invalid JSON type",
+      "details": "The type of the JSON value is not the expected type.",
+      "value": "0x0002"
+    },
+    "invalid_setting_value": {
+      "name": "Invalid setting value",
+      "details": "The value of the setting is not valid.",
+      "value": "0x0003"
+    },
+    "enum_not_string": {
+      "name": "Enum value is not a string",
+      "details": "The value of the enum is not a string.",
+      "value": "0x0004"
+    },
+    "key_not_found_in_enum": {
+      "name": "Key not found in enum",
+      "details": "The key was not found in the enum.",
+      "value": "0x0005"
+    },
+    "failed_to_save_to_path": {
+      "name": "Failed to save to path",
+      "details": "The config file could not be saved to the path.",
+      "value": "0x0006"
+    },
+    "failed_to_open_config": {
+      "name": "Failed to open config",
+      "details": "The config file could not be opened.",
+      "value": "0x0007"
+    },
+    "config_file_does_not_exist": {
+      "name": "Config file does not exist",
+      "details": "The config file does not exist.",
+      "value": "0x0008"
+    },
+    "failed_to_load_section_not_found": {
+      "name": "Failed to load config, section not found",
+      "details": "A section of the config file could not be loaded because it was not found.",
+      "value": "0x0009"
+    },
+    "extensions_not_array":{
+      "name": "Extensions in config file is not an array",
+      "details": "The extensions field in the config file must be an array, could not load any extensions.",
+      "value": "0x000A"
+    },
+    "extension_not_object":{
+      "name":"Extension is not an object",
+      "details": "An item in the extensions array is not an object. This is reported along with the index of the item.",
+      "value": "0x000B"
+    },
+    "extension_name_already_exists":{
+      "name":"Extension Name Already Exists",
+      "details":"This will happen during the loading or when adding an extension. Extension names must be unique.",
+      "value": "0x000C"
+    },
+    "extension_name_does_not_exist":{
+      "name":"Extension Name Does Not Exist",
+      "details":"This will happen when trying to remove/alter an extension that does not exist.",
+      "value": "0x000D"
+    }
+  },
+  "module": {
+    "start_failure": {
+      "name": "Failed to start module",
+      "details": "A module failed to start",
+      "value": "0x1000"
+    },
+    "module_already_started": {
+      "name": "Module already started",
+      "details": "A module was started twice",
+      "value": "0x1001"
+    }
+  },
+  "data_module": {
+    "status_data_packet_unknown_source": {
+      "name": "Unknown data packet source",
+      "details": "The data packet source is not known to the data module",
+      "value": "0x2000"
+    },
+    "data_packet_unknown_type": {
+      "name": "Unknown data packet type",
+      "details": "The data packet type is not known to the data module",
+      "value": "0x2001"
+    }
+  },
+  "data_log": {
+    "invalid_dataframe_strategy":{
+      "name": "Invalid data log strategy",
+      "details": "It should not be possible for this to happen. The strategy will revert to 'interval' and the whole dataframe will be logged.",
+      "value": "0x3000"
+    },
+    "archive_old_data_files":{
+      "name": "Failed to archive old data files",
+      "details": "On startup, the data log module will attempt to archive old data files that are sitting in the data directory. This error is thrown if the archive fails.",
+      "value": "0x3001"
+    },
+    "archive_old_log_files":{
+      "name": "Failed to archive old log files",
+      "details": "On startup, the data log module will attempt to archive old log files that are sitting in the log directory. This error is thrown if the archive fails.",
+      "value": "0x3002"
+    },
+    // -------- Directory Errors --------
+    // Data Directory Errors
+    "create_data_dir_bstrst": {
+      "name": "Failed to create data directory at startup (BoosterSeat errno)",
+      "details": "BoosterSeat exception thrown when attempting to create the data directory at startup.",
+      "value": "0x3003"
+    },
+    "create_data_dir_stdexcept": {
+      "name": "Failed to create data directory at startup (std::exception)",
+      "details": "std::exception thrown when attempting to create the data directory at startup.",
+      "value": "0x3004"
+    },
+    "data_dir_does_not_exist": {
+      "name": "Data directory does not exist - after startup",
+      "details": "The data directory does not exist after startup. This is a fatal error.",
+      "value": "0x3005"
+    },
+    "data_dir_existence_bstrst": {
+      "name": "Failed to check data directory existence (BoosterSeat errno)",
+      "details": "BoosterSeat exception thrown when attempting to check the data directory existence.",
+      "value": "0x3006"
+    },
+    "data_dir_existence_stdexcept": {
+      "name": "Failed to check data directory existence (std::exception)",
+      "details": "std::exception thrown when attempting to check the data directory existence.",
+      "value": "0x3007"
+    },
+    "data_dir_create_failed": {
+      "name": "Failed after reaching max attempts to create data directory",
+      "details": "The data directory could not be created.",
+      "value": "0x3008"
+    },
+    // Data Archive Directory Errors
+    "create_data_archive_dir_bstrst": {
+      "name": "Failed to create data archive directory at startup (BoosterSeat errno)",
+      "details": "BoosterSeat exception thrown when attempting to create the data archive directory at startup.",
+      "value": "0x3009"
+    },
+    "create_data_archive_dir_stdexcept": {
+      "name": "Failed to create data archive directory at startup (std::exception)",
+      "details": "std::exception thrown when attempting to create the data archive directory at startup.",
+      "value": "0x300A"
+    },
+    "data_archive_dir_does_not_exist": {
+      "name": "Data archive directory does not exist - after startup",
+      "details": "The data archive directory does not exist after startup. This is a fatal error.",
+      "value": "0x300B"
+    },
+    "data_archive_dir_existence_bstrst": {
+      "name": "Failed to check data archive directory existence (BoosterSeat errno)",
+      "details": "BoosterSeat exception thrown when attempting to check the data archive directory existence.",
+      "value": "0x300C"
+    },
+    "data_archive_dir_existence_stdexcept": {
+      "name": "Failed to check data archive directory existence (std::exception)",
+      "details": "std::exception thrown when attempting to check the data archive directory existence.",
+      "value": "0x300D"
+    },
+    "data_archive_dir_create_failed": {
+      "name": "Failed after reaching max attempts to create data archive directory",
+      "details": "The data archive directory could not be created.",
+      "value": "0x300E"
+    },
+    // Log Directory Errors
+    "create_log_dir_bstrst": {
+      "name": "Failed to create log directory at startup (BoosterSeat errno)",
+      "details": "BoosterSeat exception thrown when attempting to create the log directory at startup.",
+      "value": "0x300F"
+    },
+    "create_log_dir_stdexcept": {
+      "name": "Failed to create log directory at startup (std::exception)",
+      "details": "std::exception thrown when attempting to create the log directory at startup.",
+      "value": "0x3010"
+    },
+    "log_dir_does_not_exist": {
+      "name": "Data directory does not exist - after startup",
+      "details": "The log directory does not exist after startup.",
+      "value": "0x3011"
+    },
+    "log_dir_existence_bstrst": {
+      "name": "Failed to check log directory existence (BoosterSeat errno)",
+      "details": "BoosterSeat exception thrown when attempting to check the log directory existence.",
+      "value": "0x3012"
+    },
+    "log_dir_existence_stdexcept": {
+      "name": "Failed to check log directory existence (std::exception)",
+      "details": "std::exception thrown when attempting to check the log directory existence.",
+      "value": "0x3013"
+    },
+    "log_dir_create_failed": {
+      "name": "Failed after reaching max attempts to create log directory",
+      "details": "The log directory could not be created.",
+      "value": "0x3014"
+    },
+    // Log Archive Directory Errors
+    "create_log_archive_dir_bstrst": {
+      "name": "Failed to create log archive directory at startup (BoosterSeat errno)",
+      "details": "BoosterSeat exception thrown when attempting to create the log archive directory at startup.",
+      "value": "0x3015"
+    },
+    "create_log_archive_dir_stdexcept": {
+      "name": "Failed to create log archive directory at startup (std::exception)",
+      "details": "std::exception thrown when attempting to create the log archive directory at startup.",
+      "value": "0x3016"
+    },
+    "log_archive_dir_does_not_exist": {
+      "name": "Data archive directory does not exist - after startup",
+      "details": "The log archive directory does not exist after startup.",
+      "value": "0x3017"
+    },
+    "log_archive_dir_existence_bstrst": {
+      "name": "Failed to check log directory existence (BoosterSeat errno)",
+      "details": "BoosterSeat exception thrown when attempting to check the log archive directory existence.",
+      "value": "0x3018"
+    },
+    "log_archive_dir_existence_stdexcept": {
+      "name": "Failed to check log archive directory existence (std::exception)",
+      "details": "std::exception thrown when attempting to check the log archive directory existence.",
+      "value": "0x3019"
+    },
+    "log_archive_dir_create_failed": {
+      "name": "Failed after reaching max attempts to create log directory",
+      "details": "The log archive directory could not be created.",
+      "value": "0x301A"
+    },
+    // Create New File Errors
+    "create_new_data_file_bstrst": {
+      "name": "Failed to create new data file (BoosterSeat errno)",
+      "details": "BoosterSeat exception thrown when attempting to create a new data file.",
+      "value": "0x301B"
+    },
+    "create_new_data_file_stdexcept": {
+      "name": "Failed to create new data file (std::exception)",
+      "details": "std::exception thrown when attempting to create a new data file.",
+      "value": "0x301C"
+    },
+    "create_new_log_file_bstrst": {
+      "name": "Failed to create new log file (BoosterSeat errno)",
+      "details": "BoosterSeat exception thrown when attempting to create a new log file.",
+      "value": "0x301D"
+    },
+    "create_new_log_file_stdexcept": {
+      "name": "Failed to create new log file (std::exception)",
+      "details": "std::exception thrown when attempting to create a new log file.",
+      "value": "0x301E"
+    },
+    // Append Data Errors
+    "append_to_data_file": {
+      "name": "Failed to append data to file",
+      "details": "The data could not be appended to the data file.",
+      "value": "0x301F"
+    },
+    "append_to_log_file": {
+      "name": "Failed to append data to file",
+      "details": "The data could not be appended to the log file.",
+      "value": "0x3020"
+    },
+    // Size Read Errors
+    "data_file_size_read": {
+      "name": "Failed to read data file size",
+      "details": "The data file size could not be read.",
+      "value": "0x3021"
+    },
+    "log_file_size_read": {
+      "name": "Failed to read log file size",
+      "details": "The log file size could not be read.",
+      "value": "0x3022"
+    },
+    "data_archive_dir_size_read": {
+      "name": "Failed to read data archive directory size",
+      "details": "The data archive directory size could not be read.",
+      "value": "0x3023"
+    },
+    "log_archive_dir_size_read": {
+      "name": "Failed to read log archive directory size",
+      "details": "The log archive directory size could not be read.",
+      "value": "0x3024"
+    },
+    // File Archive Errors
+    "archive_data_file": {
+      "name": "Failed to archive data file",
+      "details": "The data file could not be archived.",
+      "value": "0x3025"
+    },
+    "archive_log_file": {
+      "name": "Failed to archive log file",
+      "details": "The log file could not be archived.",
+      "value": "0x3026"
+    },
+    // File Rotation Errors
+    "rotate_data_file": {
+      "name": "Failed to rotate data file",
+      "details": "The data file could not be rotated.",
+      "value": "0x3027"
+    },
+    "rotate_log_file": {
+      "name": "Failed to rotate log file",
+      "details": "The log file could not be rotated.",
+      "value": "0x3028"
+    }
+  },
+  "console_module": {},
+  "system_module": {
+    "system_info_read_fail": {
+      "name": "Failed to read system info",
+      "details": "The system info could not be read in the system module",
+      "value": "0x4001"
+    },
+    "cpu_temp_read_fail": {
+      "name": "Failed to read CPU temperature",
+      "details": "The CPU temperature could not be read in the system module",
+      "value": "0x4002"
+    },
+    "disk_info_read_fail": {
+      "name": "Failed to read disk info",
+      "details": "The disk info could not be read in the system module",
+      "value": "0x4003"
+    }
+  },
+  "extension_module":{
+    "failed_to_create":{
+      "name": "Failed to Create Extension",
+      "details": "The extension could not be created.",
+      "value": "0x4004"
+    }
+  },
+  "extension":{
+    "start_call":{
+      "name": "Can not start if already running, starting, or sleeping.",
+      "details": "This case should not happen, but it can happen on a call to start.",
+      "value": "0x5001"
+    },
+    "stop_timeout":{
+      "name":"Failed to stop in time",
+      "details": "The extension failed to stop in the time allotted.",
+      "value": "0x5002"
+    }
+  },
+  "ext_fault":{
+    "none":{
+      "name": "No fault",
+      "details": "Default, should not be thrown.",
+      "value": "0x6000"
+    },
+    "fatal_config":{
+      "name":"Fatal Configuration Error",
+      "details": "The extension has a fatal configuration error, it will not be restarted.",
+      "value": "0x6001"
+    }
+  }
+}

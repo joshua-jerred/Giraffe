@@ -1,0 +1,87 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Clang Tidy",
+			"type": "shell",
+			"command": "",
+			"detail": "Run clang-tidy on the project",
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			},
+		},
+		{
+			"label": "generate data ids",
+			"type": "shell",
+			"command": "python3 ${workspaceFolder}/src/flight_system/generators/ids_gen.py",
+			"detail": "Generate data IDs for the flight system",
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			},
+			"options": {
+				"env": {
+					"ID_GEN_IN_FILE_PATH": "${workspaceFolder}/src/common/metadata/gfs_data.jsonc",
+					"ID_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/flight_system/modules/data/data_ids.hpp",
+					"PRINT_OUTPUT": "false"
+				}
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "generate log ids",
+			"type": "shell",
+			"command": "python3 ${workspaceFolder}/src/flight_system/generators/ids_gen.py",
+			"detail": "Generate log IDs for the flight system",
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			},
+			"options": {
+				"env": {
+					"ID_GEN_IN_FILE_PATH": "${workspaceFolder}/src/common/metadata/gfs_log.jsonc",
+					"ID_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/flight_system/modules/data/log_ids.hpp",
+					"PRINT_OUTPUT": "false"
+				}
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "generate command ids",
+			"type": "shell",
+			"command": "python3 ${workspaceFolder}/src/flight_system/generators/ids_gen.py",
+			"detail": "Generate command IDs for the flight system",
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			},
+			"options": {
+				"env": {
+					"ID_GEN_IN_FILE_PATH": "${workspaceFolder}/src/common/metadata/gfs_commands.jsonc",
+					"ID_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/common/command/command_ids.hpp",
+					"PRINT_OUTPUT": "false"
+				}
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "generate GFS configuration",
+			"type": "shell",
+			"command": "python3 ${workspaceFolder}/src/flight_system/generators/config_gen.py",
+			"detail": "Generate log IDs for the flight system",
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			},
+			"options": {
+				"env": {
+					"CONFIG_GEN_IN_FILE_PATH": "${workspaceFolder}/src/common/metadata/gfs_configuration.json",
+					"CONFIG_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/flight_system/configuration/",
+					"PRINT_OUTPUT": "false"
+				}
+			},
+			"problemMatcher": []
+		}
+	]
+}

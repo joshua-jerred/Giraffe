@@ -1,3 +1,6 @@
 [submodule "MWAV"]
 	path = lib/MWAV
 	url = https://github.com/joshua-jerred/MWAV
+[submodule "lib/Boost_erSeat"]
+	path = lib/Boost_erSeat
+	url = https://github.com/joshua-jerred/Boost_erSeat.git

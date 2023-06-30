@@ -1,0 +1,96 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Flight Hardware %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Flight Hardware Requirements}
+
+The flight hardware will contain the following distinct components:
+\begin{itemize}
+  \item Primary Flight Computer (PFC) -
+    This is the main computer that runs the flight software and interfaces with the sensor package and telemetry package.
+  \item Flight Sensor Package (FSP) -
+    The sensor package will contain all sensors that are used to collect data during the flight.
+  \item Flight Telemetry Package (FTP) -
+    The telemetry package will contain all hardware that is used to transmit data to the ground station using the GDL software.
+  \item Power Supply Package (PSP)
+    The power supply package will contain all hardware that is used to power all components of the flight hardware.
+\end{itemize}
+
+%%%%%%%%%%% General Requirements %%%%%%%%%%%
+
+\subsection{General Requirements}
+\req{All hardware components must be able to operate in temperatures ranging from $-20\degree C$ to $30\degree C$.}
+
+This requirement is based on the fact that the hardware package will be operating in the lower stratosphere, but with the expectation that the hardware package will be insulated to some degree. Along with this, the upon launch and landing, the hardware package will be exposed to summer temperatures.
+
+\req{All hardware components must be able to operate in altitudes ranging from 0 meters to 35,000 meters.}
+
+Given some margin, this altitude range expects the package to be able to operate in the lower stratosphere. With this comes low air pressure and low temperatures.
+
+\req{The hardware package must weigh less than 1.5kg.}
+
+TODO
+
+\req{The hardware package must be able to run for at least 5 hours.}
+
+TODO
+
+%%%%%%%%%%%%% Primary Computer %%%%%%%%%%%%%
+
+\subsection{Primary Computer}
+
+\req{The PFC must run an ARM based, non-RTOS, linux system, without a GUI.}
+
+TODO
+
+\req{The PFC must have a minimum of 512MB of RAM, a clock speed of at least 1GHz, and a minimum of 20GB of free storage.}
+
+TODO
+
+\req{The PFC must have WiFi capabilities for interfacing with the ground station while on the ground.}
+
+TODO
+
+\req{The PFC must have a current draw of less than 0.2A when idle, and less than 1.3A when under full load.}
+
+TODO
+
+\req{The PFC must have a GPIO interface for interfacing with the sensor and telemetry packages.}
+
+TODO
+
+\req{The PFC must have up to date software support for C++17 with threading libraries.}
+
+%%%%%%%%%%% Power Supply Package %%%%%%%%%%%
+
+\subsection{Power Supply Package}
+
+
+The following requirements are based on the assumptions of this table with conservative estimates for the current draw of each component (assuming a 5v common bus voltage).
+
+\begin{tabular}{| c | c | c | c | c |} \hline
+  \textbf{Component} & \textbf{Idle Current Draw} & \textbf{Maximum Current Draw} & \textbf{Duty Cycle} & \textbf{Average Current} \\\hline
+  PFC & 0.2A & 1.3A & 0.5 & 0.75A \\\hline
+  FSP & 0.1A & 0.2A & 0.8 & 0.26A \\\hline
+  FTP & 0.1A & 0.9  & 0.5 & 0.50A \\\hline
+  PSP & 0.1A & 0.1A & 1.0 & 0.10A \\\hline
+  \textbf{Total} & \textbf{0.5A} & \textbf{2.5A} & & \textbf{1.61A} \\\hline
+\end{tabular}
+
+\req{The PSP must be able to supply constant 5V power at 3.0A, with brief spikes of up to 3.5A.}
+
+\req{The PSP must have a common I2C interface for interfacing with the PFC to provide the following information: battery voltage, 5v bus voltage, current draw, battery temperature, battery state of charge, and estimated time remaining.}
+
+\req{The PSP must have at least a battery capacity of }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% Data Link %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Data Link Requirements}
+The data link will be used to transmit data to and from the ground station. The data link will be used on amateur radio frequencies. Given that affordability is the biggest concern, the data link must operate on the 2m or 70cm bands.
+
+\req{GDL must be able to transmit digital data at a rate of at least 1200 bps.}
+\req{GDL must be able to work with the APRS network.}
+\req{GDL must be able to reliably switch frequencies from APRS to a frequency that is not commonly used inorder to not interfere with other portions of the 2m/70cm bands.}
+\req{GDL must have a UDP and TCP style interface for reliable data transfer.}

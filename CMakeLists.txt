@@ -1,28 +1,24 @@
 cmake_minimum_required(VERSION 3.14)
 
-# ---- Options ----
-# The following options are configurable by the user
-option(SSTV_ENABLED "Enable SSTV - Requires Magick++" ON) # ON or OFF
-# -----------------
+# ----------------- *** START CONFIGUREABLE ITEMS *** --------------------------
+option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF) # ON or OFF
+# ----------------- ***  END CONFIGUREABLE ITEMS  *** --------------------------
 
 
-# ---- Development Variables ----
-# Changing these variables can break the build
-set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight-computer)
-set(LIB_SRC ${CMAKE_SOURCE_DIR}/lib)
-set(WEB_SERVER_SRC ${CMAKE_SOURCE_DIR}/src/web-server)
-set(TEST_BIN ${CMAKE_BINARY_DIR}/tests)
-set(GIRAFFE_CONFIG_FILE_NAME "gfs-configuration.json")
-set(GIRAFFE_BUILD_OUTPUT_DIR ${CMAKE_SOURCE_DIR}/bin)
-set(GIRAFFE_INSTALL_DIR /opt/giraffe)
-# ---------------------------
+# ---- Source Files -----
+include(${CMAKE_SOURCE_DIR}/sources.cmake)
+# -----------------------
 
+# Clang-Tidy
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+# find_program(CLANG_TIDY_EXE NAMES "clang-tidy") 
+# set(CLANG_TIDY_CMD "${CLANG_TIDY_EXE}" "-checks=-*,modernize-*")
 
 # ---- Version File Parseing ----
 file(READ ${CMAKE_SOURCE_DIR}/src/version ver_file)
 string(
 	REGEX MATCH 
-	"VERSION_NUMBER <([0-9\.]+)>[\n\r]+STAGE <([A-Za-z ]+)>" 
+	"VERSION_NUMBER<([0-9\.]+)>[\n\r]+STAGE<([A-Za-z ]+)>" 
 	GIRAFFE_VERSION_STAGE 
 	${ver_file}
 )
@@ -60,20 +56,44 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 	-Weffc++ \
 	-Wdisabled-optimization \
 	-Wfloat-equal \
-	-Wno-unused-variable"
+	-Wno-unused-variable \
+	-Wswitch-enum \
+	-Wno-switch-enum"
 )
 # ----------------------------
 
 
+# ----- Third Party Libs -----
+# nlhomann_json
+include(FetchContent)
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
+FetchContent_MakeAvailable(json)
+
+# ncurses
+find_package(Curses REQUIRED)
+
+# gtest
+FetchContent_Declare(
+	googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG release-1.12.1
+)
+FetchContent_MakeAvailable(googletest)
+include(GoogleTest)
 # ----------------------------
+
 # ---- Giraffe Components ----
-add_subdirectory(${GFS_SRC}) 							# Giraffe Flight Software
-	                                        # Giraffe Ground Software
-add_subdirectory(tests EXCLUDE_FROM_ALL)  # Giraffe Tests (Flight and Ground)
-# ----------------------------
-# ----------------------------
+# Flight System
+add_subdirectory(${GFS_SRC})
 
+# Data Link
+add_subdirectory(${GDL_SRC})
 
-# ---- External Libraries ----
-add_subdirectory(${LIB_SRC}/MWAV EXCLUDE_FROM_ALL)
+# External Libraries
+add_subdirectory(${LIB_SRC}/MWAV)
+add_subdirectory(${LIB_SRC}/Boost_erSeat)
+
+# Unit Tests
+enable_testing()
+add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
 # ----------------------------

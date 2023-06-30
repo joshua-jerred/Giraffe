@@ -1,0 +1,46 @@
+// Metadata for data that is passed around GFS
+{
+    "FILE_META": {
+        "namespace": "data",
+        "enum_name": "DataId",
+        "enum_type": "uint16_t"
+    },
+    "generic": {
+        "unknown": {
+            "name": "Unknown",
+            "details": "Unknown data id. This is an error.",
+            "value": "0x0000"
+        }
+    },
+    "module": {
+        "status_update": {
+            "name": "Status Update",
+            "details": "Status update from a module",
+            "value": "0x0001"
+        }
+    },
+    "extension": {
+        "status_update": {
+            "name": "Status Update",
+            "details": "Status update from an extension",
+            "value": "0x0002"
+        }
+    },
+    "environmental":{
+        "temperature": {
+            "name": "Temperature (Celsius)",
+            "details": "Environmental temperature in degrees Celsius",
+            "value": "0xE001"
+        },
+        "humidity": {
+            "name": "Relative Humidity (%)",
+            "details": "Relative humidity in percent",
+            "value": "0xE002"
+        },
+        "pressure": {
+            "name": "Pressure (mbar)",
+            "details": "Atmospheric pressure in millibars",
+            "value": "0xE003"
+        }
+    }
+}

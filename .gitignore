@@ -15,7 +15,22 @@ fp-info-cache
 sym-lib-table
 *.bak
 *.zip
+hardware/Prototype Boards/5v Power Supply/_autosave-5v Power Supply.kicad_sch
+hardware/Prototype Boards/5v Power Supply/#auto_saved_files#
 
 # Python
 *.pyc
 .vscode/arduino.json
+
+# Node/React --
+node_modules
+coverage
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.vscode/settings.json
+
+# LaTeX --
+docs/latex/out
+

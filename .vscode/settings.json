@@ -1,0 +1,53 @@
+{
+  // CMake
+  "cmake.sourceDirectory": "${workspaceFolder}",
+
+  // Formating (C++, Clang-Format)
+  "clang-format.style": "file",
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.formatOnSave": true
+  },
+
+  // Formating (javascript, prettier)
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  // Doxygen
+  "doxdocgen.file.fileOrder": [
+    "custom",
+  ],
+  "doxdocgen.file.customTag": [
+    "=*========GIRAFFE========*=",
+    "A Unified Flight Command and Control System",
+    "https://github.com/joshua-jerred/Giraffe",
+    "https://giraffe.joshuajer.red/",
+    "=*=======================*=",
+    "",
+    "@file{indent:8}{file}",
+    "@brief{indent:8}",
+    "",
+    "=*=======================*=",
+    "@author{indent:12}{author} ({email})", // Gets replaced by user's settings
+    "@date{indent:12}{date}",
+    "@copyright{indent:12}{year} (license to be defined)",
+  ],
+
+  // DocWriter
+  "docwriter.hotkey.windows": "Alt + .",
+  "docwriter.progress.trackClasses": true,
+  "docwriter.progress.trackTypes": true,
+
+  // Spell Checker
+  "cSpell.words": [
+    "bstrst",
+    "dataframe",
+    "puml",
+    "stdexcept",
+    "telem"
+  ],
+  "docwriter.style": "Doxygen",
+  "docwriter.hotkey.mac": "⌘ + .",
+}
