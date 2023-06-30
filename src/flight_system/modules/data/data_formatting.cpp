@@ -46,7 +46,7 @@ DataFormatter::partialFrame(std::vector<DataFrameComponent> components) {
 }
 
 void DataFormatter::setupFrameStructure(json &frame) {
-  frame["timestamp"] = bst::dateAndTimeString();
+  frame["timestamp"] = generateTimestamp();
   frame["uptime"] = shared_data_.misc.getUptimeString();
   frame["data"] = json::object();
 }
@@ -98,7 +98,8 @@ DataFormatter::dataPacketToJsonString(const data::DataPacket &packet) const {
                                      4, false, true);
 
   value = packet.value;
-
+  auto time = packet.created_time;
+  timestamp = generateTimestamp(time);
   timestamp = BoosterSeat::time::timeString(BoosterSeat::time::TimeZone::LOCAL,
                                             ':', packet.created_time);
 
@@ -106,4 +107,25 @@ DataFormatter::dataPacketToJsonString(const data::DataPacket &packet) const {
   json data_packet = {
       {"src", source}, {"id", id}, {"ts", timestamp}, {"val", value}};
   return data_packet.dump();
+}
+
+std::string DataFormatter::generateTimestamp(
+    const BoosterSeat::clck::TimePoint time_point) const {
+  cfg::gEnum::TimestampDetail detail =
+      config_.data_module_data.getTimestampDetail();
+  cfg::gEnum::TimestampTimezone timezone =
+      config_.data_module_data.getTimestampTimezone();
+
+  BoosterSeat::time::TimeZone tz;
+  if (timezone == cfg::gEnum::TimestampTimezone::UTC) {
+    tz = BoosterSeat::time::TimeZone::UTC;
+  } else {
+    tz = BoosterSeat::time::TimeZone::LOCAL;
+  }
+
+  if (detail == cfg::gEnum::TimestampDetail::DATE_HHMMSS) {
+    return bst::dateAndTimeString(tz, '-', '_', ':', time_point);
+  } else {
+    return bst::timeString(tz, ':', time_point);
+  }
 }

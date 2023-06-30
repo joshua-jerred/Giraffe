@@ -81,18 +81,34 @@ constexpr const char* LogStrategyToKey(cfg::gEnum::LogStrategy val) throw() {
   __builtin_unreachable();
 }
 
-enum class LogDetail {
-  FULL,
-  PARTIAL
+enum class TimestampDetail {
+  HHMMSS,
+  DATE_HHMMSS
 };
-std::unordered_map<std::string, cfg::gEnum::LogDetail> const KeyToLogDetail = {
-  {"full", cfg::gEnum::LogDetail::FULL},
-  {"partial", cfg::gEnum::LogDetail::PARTIAL}
+std::unordered_map<std::string, cfg::gEnum::TimestampDetail> const KeyToTimestampDetail = {
+  {"hhmmss", cfg::gEnum::TimestampDetail::HHMMSS},
+  {"date_hhmmss", cfg::gEnum::TimestampDetail::DATE_HHMMSS}
 };
-constexpr const char* LogDetailToKey(cfg::gEnum::LogDetail val) throw() {
+constexpr const char* TimestampDetailToKey(cfg::gEnum::TimestampDetail val) throw() {
   switch (val) {
-    case cfg::gEnum::LogDetail::FULL: return "full";
-    case cfg::gEnum::LogDetail::PARTIAL: return "partial";
+    case cfg::gEnum::TimestampDetail::HHMMSS: return "hhmmss";
+    case cfg::gEnum::TimestampDetail::DATE_HHMMSS: return "date_hhmmss";
+  }
+  __builtin_unreachable();
+}
+
+enum class TimestampTimezone {
+  SYSTEM,
+  UTC
+};
+std::unordered_map<std::string, cfg::gEnum::TimestampTimezone> const KeyToTimestampTimezone = {
+  {"system", cfg::gEnum::TimestampTimezone::SYSTEM},
+  {"utc", cfg::gEnum::TimestampTimezone::UTC}
+};
+constexpr const char* TimestampTimezoneToKey(cfg::gEnum::TimestampTimezone val) throw() {
+  switch (val) {
+    case cfg::gEnum::TimestampTimezone::SYSTEM: return "system";
+    case cfg::gEnum::TimestampTimezone::UTC: return "utc";
   }
   __builtin_unreachable();
 }

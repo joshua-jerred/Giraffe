@@ -157,9 +157,6 @@ void console_pages::Pages::data() {
       "Strategy: " +
           std::string(cfg::gEnum::LogStrategyToKey(
               config_.data_module_data.getLogStrategy())), // log strategy
-      "Detail: " +
-          std::string(cfg::gEnum::LogDetailToKey(
-              config_.data_module_data.getLogDetail())), // detail level
       "Interval (ms): " +
           std::to_string(
               config_.data_module_data.getLogIntervalMs()), // log interval

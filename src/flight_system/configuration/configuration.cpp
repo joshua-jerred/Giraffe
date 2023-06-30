@@ -110,9 +110,14 @@ cfg::gEnum::LogStrategy cfg::DataModuleData::getLogStrategy() const {
   return log_strategy_;
 }
 
-cfg::gEnum::LogDetail cfg::DataModuleData::getLogDetail() const {
+cfg::gEnum::TimestampDetail cfg::DataModuleData::getTimestampDetail() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return log_detail_;
+  return timestamp_detail_;
+}
+
+cfg::gEnum::TimestampTimezone cfg::DataModuleData::getTimestampTimezone() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return timestamp_timezone_;
 }
 
 int cfg::DataModuleData::getLogIntervalMs() const {
@@ -155,9 +160,14 @@ void cfg::DataModuleData::setLogStrategy(cfg::gEnum::LogStrategy val) {
   log_strategy_ = val;
 }
 
-void cfg::DataModuleData::setLogDetail(cfg::gEnum::LogDetail val) {
+void cfg::DataModuleData::setTimestampDetail(cfg::gEnum::TimestampDetail val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  log_detail_ = val;
+  timestamp_detail_ = val;
+}
+
+void cfg::DataModuleData::setTimestampTimezone(cfg::gEnum::TimestampTimezone val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  timestamp_timezone_ = val;
 }
 
 void cfg::DataModuleData::setLogIntervalMs(int val) {
@@ -215,13 +225,21 @@ void cfg::DataModuleData::setFromJson(const json &json_data) {
         log_strategy_,
         cfg::gEnum::KeyToLogStrategy
   );
-  validation::setValidEnum<cfg::gEnum::LogDetail>(
+  validation::setValidEnum<cfg::gEnum::TimestampDetail>(
         streams_.log,
         json_data,
         "data_module_data",
-        "log_detail",
-        log_detail_,
-        cfg::gEnum::KeyToLogDetail
+        "timestamp_detail",
+        timestamp_detail_,
+        cfg::gEnum::KeyToTimestampDetail
+  );
+  validation::setValidEnum<cfg::gEnum::TimestampTimezone>(
+        streams_.log,
+        json_data,
+        "data_module_data",
+        "timestamp_timezone",
+        timestamp_timezone_,
+        cfg::gEnum::KeyToTimestampTimezone
   );
   validation::setValidValue<int>(
         streams_.log,
@@ -279,7 +297,8 @@ json cfg::DataModuleData::getJson() const {
     {"log_data_to_file", log_data_to_file_},
     {"file_system_check_interval", file_system_check_interval_},
     {"log_strategy", cfg::gEnum::LogStrategyToKey(log_strategy_)},
-    {"log_detail", cfg::gEnum::LogDetailToKey(log_detail_)},
+    {"timestamp_detail", cfg::gEnum::TimestampDetailToKey(timestamp_detail_)},
+    {"timestamp_timezone", cfg::gEnum::TimestampTimezoneToKey(timestamp_timezone_)},
     {"log_interval_ms", log_interval_ms_},
     {"max_data_log_file_size_mb", max_data_log_file_size_mb_},
     {"max_data_archive_size_mb", max_data_archive_size_mb_},
