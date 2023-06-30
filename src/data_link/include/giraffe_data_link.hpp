@@ -28,10 +28,24 @@
 
 namespace gdl {
 /**
- * @brief The Giraffe Data Link core class/interface
+ * @brief The Giraffe Data Link core class/interface - Layer 4 (Application)
  */
 class GiraffeDataLink {
 public:
+  /**
+   * @brief The status of the GDL instance.
+   * @details All values are uint8_t, stopped/error states start with 0x0,
+   * running states start with 0xF.
+   */
+  enum class Status : uint8_t {
+    ERROR = 0x00,
+    STOPPED = 0x01,
+    IDLE = 0xF1,
+    RECEIVING = 0xF2,
+    TRANSMITTING = 0xF3,
+    STOPPING = 0xF4
+  };
+
   /**
    * @brief Create a new Giraffe Data Link instance
    * @param config - The configuration for the GDL instance
@@ -52,8 +66,15 @@ public:
 
   /**
    * @brief Stop the GDL instance.
+   * @details If it's already stopped, this will do nothing.
    */
   void stop();
+
+  /**
+   * @brief Get the status of the GDL instance.
+   * @return GiraffeDataLink::Status - The status of the GDL instance.
+   */
+  GiraffeDataLink::Status status() const;
 
   /**
    * @brief Add a message to the exchange queue.
@@ -76,7 +97,11 @@ public:
 private:
   const GdlConfig config_;
   std::thread gdl_thread{};
-  std::atomic<bool> running_ = false;
+
+  /**
+   * @brief The status of the GDL instance.
+   */
+  std::atomic<Status> status_{Status::STOPPED};
 };
 
 } // namespace gdl
