@@ -42,6 +42,7 @@ public:
 
   std::string fullFrame();
   std::string partialFrame(std::vector<DataFrameComponent> components);
+  std::string dataPacketToJsonString(const data::DataPacket &packet) const;
 
 private:
   /**

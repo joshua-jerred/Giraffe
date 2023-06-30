@@ -67,12 +67,11 @@ mw::DataLog::DataLog(data::SharedData &shared_data, cfg::Configuration &config)
 void mw::DataLog::logDataPacket(const data::DataPacket &packet) {
   updateFileSystem();
   // ignore status packets, there are a lot of them.
-  if (packet.type == data::DataPacket::Type::GENERIC) {
-    std::cout << "DataLog::logDataPacket" << std::endl;
-    std::cout << node::identification_to_string.at(packet.source) << std::endl;
-    std::cout << static_cast<int>(packet.identifier) << std::endl;
-    std::cout << packet.value << std::endl;
+  if (packet.type == data::DataPacket::Type::STATUS) {
+    return;
   }
+  // Format the packet into json and append it to the data file.
+  appendToDataFile(formatter_.dataPacketToJsonString(packet));
 }
 
 void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {

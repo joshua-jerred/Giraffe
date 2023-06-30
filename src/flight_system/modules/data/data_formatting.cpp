@@ -15,7 +15,9 @@
  */
 
 #include "data_formatting.hpp"
+#include <BoosterSeat/string_formatting.hpp>
 #include <BoosterSeat/time.hpp>
+#include <type_traits>
 
 namespace bst = BoosterSeat::time;
 using namespace data_middleware;
@@ -76,4 +78,32 @@ void DataFormatter::addComponent(DataFrameComponent component, json &frame) {
         data::to_json(shared_data_.frames.env_hum);
     break;
   }
+}
+
+std::string
+DataFormatter::dataPacketToJsonString(const data::DataPacket &packet) const {
+  std::string source;
+  std::string id;
+  std::string timestamp;
+  std::string value;
+
+  if (packet.source == node::Identification::EXTENSION) {
+    // Extensions all have the same source, so use the secondary.
+    source = "ext." + packet.secondary_identifier;
+  } else {
+    source = node::identification_to_string.at(packet.source);
+  }
+
+  id = BoosterSeat::string::intToHex(static_cast<uint16_t>(packet.identifier),
+                                     4, false, true);
+
+  value = packet.value;
+
+  timestamp = BoosterSeat::time::timeString(BoosterSeat::time::TimeZone::LOCAL,
+                                            ':', packet.created_time);
+
+  // Format into json
+  json data_packet = {
+      {"src", source}, {"id", id}, {"ts", timestamp}, {"val", value}};
+  return data_packet.dump();
 }
