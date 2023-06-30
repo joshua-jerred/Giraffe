@@ -220,7 +220,6 @@ private:
    */
   void archiveOtherFilesInDir(const std::string &dir_path,
                               const std::string &archive_dir_path,
-                              const std::string &current_file_name,
                               data::LogId error_id);
 
   /**

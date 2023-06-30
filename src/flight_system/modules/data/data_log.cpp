@@ -2,6 +2,7 @@
 #include <BoosterSeat/exception.hpp>
 #include <BoosterSeat/filesystem.hpp>
 #include <BoosterSeat/time.hpp>
+#include <filesystem>
 
 #include <iostream>
 
@@ -44,21 +45,19 @@ mw::DataLog::DataLog(data::SharedData &shared_data, cfg::Configuration &config)
   createDataArchiveDir();
   createLogArchiveDir();
 
-  // Create the data and log files.
-  createNewDataFile();
-  createNewLogFile();
-
-  // Clear up the old files if they exist.
+  // Clear up the old files if they exist, before creating new ones.
   if (fs_status_.data_dir) {
     archiveOtherFilesInDir(kDataDirPath, kDataArchiveDirPath,
-                           fs_status_.data_file_path,
                            data::LogId::DATA_LOG_archiveOldDataFiles);
   }
   if (fs_status_.log_dir) {
     archiveOtherFilesInDir(kLogDirPath, kLogArchiveDirPath,
-                           fs_status_.log_file_path,
                            data::LogId::DATA_LOG_archiveOldLogFiles);
   }
+
+  // Create the data and log files.
+  createNewDataFile();
+  createNewLogFile();
 
   // Update the file system status.
   shared_data_.blocks.data_log_stats.set(fs_status_);
@@ -353,7 +352,7 @@ void mw::DataLog::createLogArchiveDir() {
  */
 inline std::string generateFilePath(const std::string path,
                                     const std::string &file_prefix) {
-  return path + "/" + file_prefix + "_" +
+  return path + "/" + file_prefix +
          bst::dateAndTimeString(kDataTimeZone, '-', '_', ':') + kFileExtension;
 }
 
@@ -483,12 +482,16 @@ bool mw::DataLog::archiveFile(const std::string &file_path,
 
 void mw::DataLog::archiveOtherFilesInDir(const std::string &dir_path,
                                          const std::string &archive_dir_path,
-                                         const std::string &current_file_name,
                                          data::LogId error_id) {
-  (void)dir_path;
-  (void)archive_dir_path;
-  (void)current_file_name;
-  (void)error_id;
+  try {
+    std::filesystem::path dir(dir_path);
+    for (const auto &file : std::filesystem::directory_iterator(dir)) {
+      std::string file_path = file.path().string();
+      archiveFile(file_path, archive_dir_path, error_id);
+    }
+  } catch (const std::exception &e) {
+    shared_data_.streams.log.errorStdException(kNodeId, error_id, e);
+  }
 }
 
 void mw::DataLog::rotateFiles() {
