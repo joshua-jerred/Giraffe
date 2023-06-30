@@ -48,7 +48,8 @@ public:
   bool getLogDataToFile() const;
   int getFileSystemCheckInterval() const;
   cfg::gEnum::LogStrategy getLogStrategy() const;
-  cfg::gEnum::LogDetail getLogDetail() const;
+  cfg::gEnum::TimestampDetail getTimestampDetail() const;
+  cfg::gEnum::TimestampTimezone getTimestampTimezone() const;
   int getLogIntervalMs() const;
   int getMaxDataLogFileSizeMb() const;
   int getMaxDataArchiveSizeMb() const;
@@ -58,7 +59,8 @@ public:
   void setLogDataToFile(bool);
   void setFileSystemCheckInterval(int);
   void setLogStrategy(cfg::gEnum::LogStrategy);
-  void setLogDetail(cfg::gEnum::LogDetail);
+  void setTimestampDetail(cfg::gEnum::TimestampDetail);
+  void setTimestampTimezone(cfg::gEnum::TimestampTimezone);
   void setLogIntervalMs(int);
   void setMaxDataLogFileSizeMb(int);
   void setMaxDataArchiveSizeMb(int);
@@ -72,7 +74,8 @@ private:
   bool log_data_to_file_ = true;
   int file_system_check_interval_ = 10000;
   cfg::gEnum::LogStrategy log_strategy_ = cfg::gEnum::LogStrategy::INTERVAL;
-  cfg::gEnum::LogDetail log_detail_ = cfg::gEnum::LogDetail::FULL;
+  cfg::gEnum::TimestampDetail timestamp_detail_ = cfg::gEnum::TimestampDetail::HHMMSS;
+  cfg::gEnum::TimestampTimezone timestamp_timezone_ = cfg::gEnum::TimestampTimezone::SYSTEM;
   int log_interval_ms_ = 5000;
   int max_data_log_file_size_mb_ = 10;
   int max_data_archive_size_mb_ = 100;

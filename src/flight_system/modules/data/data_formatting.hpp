@@ -52,6 +52,18 @@ private:
   void setupFrameStructure(json &frame);
   void addComponent(DataFrameComponent component, json &frame);
 
+  /**
+   * @brief Generates a timestamp based off of the current configuration.
+   * @details Uses either UTC or local time, either generates HH:MM:SS or
+   * DD/MM/YYYY_HH:MM:SS. 24 hour time is used.
+   *
+   * @param time_point - The time point to generate the timestamp from (defaults
+   * to now)
+   * @return std::string - The generated timestamp
+   */
+  std::string generateTimestamp(const BoosterSeat::clck::TimePoint time_point =
+                                    BoosterSeat::clck::now()) const;
+
   cfg::Configuration &config_;
   data::SharedData &shared_data_;
 };

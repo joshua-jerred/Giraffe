@@ -83,16 +83,28 @@
                 "selection_all"
             ]
         },
-        "log_detail": {
+        "timestamp_detail": {
             "type": "enum",
-            "name": "Log Detail",
-            "description": "The amount of metadata to include. If set to full then timestamps of when data was collected will be included. If set to partial, only timestamps of when the data was logged will be included. This can save space.",
-            "default": "full",
+            "name": "Timestamp Detail",
+            "description": "Timestamp format for data logging",
+            "default": "hhmmss",
 
-            "enum_name":"log_detail",
+            "enum_name":"timestamp_detail",
             "options": [
-                "full",
-                "partial"
+                "hhmmss",
+                "date_hhmmss"
+            ]
+        },
+        "timestamp_timezone": {
+            "type": "enum",
+            "name": "Timestamp Timezone",
+            "description": "Timezone for data logged timestamps, system timezone or UTC",
+            "default": "system",
+
+            "enum_name":"timestamp_timezone",
+            "options": [
+                "system",
+                "utc"
             ]
         },
         "log_interval_ms": {
