@@ -16,6 +16,22 @@ Check out the [Giraffe GitHub Project](https://github.com/users/joshua-jerred/pr
 
 ***
 
+## Photos
+>![Giraffe Network Diagram](https://github.com/joshua-jerred/Boost_erSeat/assets/19292194/ad96b114-5cb1-4863-8c5f-f746747301ee)
+> The Giraffe Network - A diagram of Giraffe's components and how they interact with each other.
+
+><img src="https://user-images.githubusercontent.com/19292194/227384300-c94dd48b-5649-4411-8b46-8a4faeb5d7dc.png" height="500">
+>
+> The flight computer prototype 2 PCB on top of a Pi 4. It's accompanied by the SA868 testing PCB with a dummy load antenna and it's supporting PCM2902 sound card testing PCB. Connected with debugging spaghetti.
+
+
+>![The Data Monitor Page from GWC](https://github.com/joshua-jerred/Giraffe/assets/19292194/916d2c24-f5f0-4ec3-a7f1-9a830c0bef41)
+>![The Configuration Page from GWC](https://github.com/joshua-jerred/Giraffe/assets/19292194/143f6b7d-5324-4dfa-b378-d6788fffb702)
+> This is the web client, used to configure the flight computer on the ground
+> and to monitor/control it in the air.
+
+***
+
 ## Table of Contents <!-- omit from toc -->
 - [About](#about)
   - [Current High Level Functionality](#current-high-level-functionality)
@@ -27,13 +43,15 @@ Check out the [Giraffe GitHub Project](https://github.com/users/joshua-jerred/pr
 - [Building and Installing the Flight Software](#building-and-installing-the-flight-software)
   - [Installing Prerequisites](#installing-prerequisites)
   - [Building the Flight Software](#building-the-flight-software)
-- [Flight Software Configuration](#flight-software-configuration)
+- [Flight Software Configuration/Web Client](#flight-software-configurationweb-client)
 
 ***
 
 # About
 Giraffe is a "flight command and control system" first developed for high 
 altitude balloon flights.
+
+The purpose of this project is mainly to have a 'learning lab' where I can experiment with all of the things that I'm interested in. This includes C++, Linux Embedded Development, Circuit Design, RF/Amateur Radio, Node.js, CI, interfacing hardware with the web, meta-programming, and more.
 
 The system includes the following key components:
 - **GFS** Giraffe Flight System
@@ -48,32 +66,28 @@ The system includes the following key components:
   - A web client to easily configure, control, and monitor all Giraffe 
     components in one place.
 
-The framework includes flight computer hardware and software, as well as 
-ground station software. The purpose of this project is mainly to have a 
-'learning lab' where I can experiment with all of the things that I'm 
-interested in.
-
 ## Current High Level Functionality
-- Detailed configuration file which allows for quick and easy setup of every 
-  aspect of the flight software. (See [Flight Software Configuration](#flight-software-configuration))
-- Sensors/Extensions are modular and can fail without affecting the rest of the
-  flight computer. They're also threaded so that they can be continuously
-  reading data without interfering with other components.
+- Detailed configuration via the web interface of all system components.
 - Telemetry support for APRS, SSTV, and Data Packets.
 - Aggressive error handling for all software components. Everything is designed
   to be able to fail gracefully and recover when possible.
-- Web interface for flight computer debugging, configuration, and control.
 - Detailed and configurable logging of data and telemetry.
+- Drivers/Firmware for the Raspberry Pi BCM interface along with many different sensors, radios, and other hardware.
 
 ## Planned High Level Functionality Prior to the First Flight
-- Support for the BMI088 6-Axis IMU
-- Command reception from the ground station to the flight computer
-- Full configuration via the web interface
-- Ground Station software using the same web interface
+- Two way communication via GDL
 
 ## Development Details
-The flight software is written in C++, the web server in Python, and the web
-interface is plain HTML, CSS, and JavaScript.
+The flight software is written in C++, the web interface and ground stations are written in Node.js, and some Python is sprinkled in.
+
+There are common components, including a large collection of configuration
+and data point metadata files that are used to generate code for both the 
+flight system and the ground station. For example, to add a configuration
+option for the flight computer, you just need to add the information to the
+metadata file, run the generator, rebuild, and redeploy. It will then be inside
+of the flight software, configurable via the web interface, and safely 
+implemented to restrained values to prevent misconfiguration.
+This works for integers, floats, strings, and enums.
 
 Being a 'learning lab' project, nearly everything is built from the ground up 
 including my own implementations of:
@@ -94,6 +108,7 @@ including my own implementations of:
 - Simple configuration file for the flight computer
 
 Libraries that I've written for this project:
+- [Boost_erSeat, a library with a few useful functions that I use in many different projects](https://github.com/joshua-jerred/Boost_erSeat)
 - [WavGen, a .wav File Generator](https://github.com/joshua-jerred/WavGen)
 - [MWAV, a library for modulating AFSK, AX.25, APRS, PSK31, and SSTV signals using WavGen](https://github.com/joshua-jerred/MWAV)
 - [SSTV Image Tools, a library for overlaying text and getting pixel data for SSTV images](https://github.com/joshua-jerred/SSTV-Image-Tools)
@@ -104,13 +119,16 @@ Where I used existing 3rd party libraries:
 - Google Test for unit testing
 
 Everything is designed to be modular and extensible so that it can be used for
-all types of HAB flights or other implementations. The software is made to work 
-on any ARM based single board computer that runs Linux, like the Raspberry Pi
-but it is targeted towards the Pi Zero 2 and Pi 4. The framework utilizes open 
-communication protocols/modulation modes like APRS, AFSK, PSK31, and SSTV to 
-allow for easy integration into existing software. Two way communication allows 
-you to send commands to the flight computer from the ground station. 
-There is a lot more included that isn't mentioned here, so please see the 
+all types of HAB flights or even some other future implementations where command 
+and control is needed. The software is made to work  on any ARM based single 
+board computer that runs Linux, like the Raspberry Pi but it is targeted towards 
+the Pi Zero 2 and Pi 4. 
+
+The framework utilizes open communication protocols/modulation modes like APRS, 
+AFSK, PSK31, and SSTV to allow for easy integration into existing software. Two 
+way communication, which is currently in development, allows you to send 
+commands to the flight computer from the ground station. There is a lot more 
+included that isn't mentioned here, so please see the 
 [rest of the documentation](http://giraffe.joshuajer.red/).
 
 Too see my more older, simplified, python implementation of this 
@@ -119,10 +137,6 @@ project check out the [the AOS repo.](https://github.com/joshua-jerred/AOS)
 
 # Hardware
 I'm currently working on hardware prototypes.
-
-><img src="https://user-images.githubusercontent.com/19292194/227384300-c94dd48b-5649-4411-8b46-8a4faeb5d7dc.png" height="500">
->
->Seen here: The flight computer prototype 2 PCB on top of a Pi 4. It's accompanied by the SA868 testing PCB with a dummy load antenna and it's supporting PCM2902 sound card testing PCB. Connected with debugging spaghetti.
 
 The flight computer is (will be) made up of two boards; it is targeted towards the 
 Raspberry Pi Zero 2 and maintains the same footprint. The Raspberry Pi will
@@ -153,14 +167,11 @@ lock.
 
 ### Known Issues <!-- omit in toc -->
 There are a few known issues with prototype 2:
-- Power Management can not reliably handle the current draw of the SA868 when 
-    transmitting.
-- With the voltage drop from the diode and the drop out voltage of the linear
-regulator, the voltage input must be above 7.2v to maintain clean 5v output.
-- The BME280 is too close to the linear regulator. This results in much higher
+- Power Management! I'm currently working on replacing the linear regulator with
+  a boost converter.
+- The BME280 is too close to the power supply. This results in much higher
 temperature readings and inaccurate pressure/humidity readings as they're
 temperature compensated.
-- The silkscreen is too small; this is the biggest issue with this prototype!
 
 Other than that, this prototype is working great!
 
@@ -188,7 +199,7 @@ it from the rest of the hardware.
 - Power control circuitry is not functional. Although 5v power is fully cut off
   with the GPIO controlled optical relay, the SA868 still draw power from
   the serial logic level converter. This results is the SA868 being unreliable
-  after restarts and frequency changes.
+  after restarts and frequency changes. More isolation needs to be added.
 
 ### Shoe Testing PCBs <!-- omit in toc -->
 I'm just waiting to finish debugging the SA868 and PCM2902 testing PCBs before
@@ -230,14 +241,28 @@ cd Giraffe && mkdir build && cd build
 # Configure the build
 cmake .. # You can add -DSSTV_ENABLED=OFF to disable SSTV (Requires Magick++)
 
-# Build the flight software
-make giraffe-flight-software
+# Build the flight system
+make giraffe_flight_system
 
 # Install is currently disabled until some details are finalized
-# Install the flight software (Optional)
+# Install the flight system (Optional)
 # sudo make install
 ```
 
 ***
 
-# Flight Software Configuration
+# Flight Software Configuration/Web Client
+
+Configuration is no longer done through the config file, but instead through
+the web interface! This is where the ground station and flight system are
+configured.
+
+Multiple clients can be connected to the web interface at once to allow for a
+team to monitor the flight together.
+
+![The Configuration Page from GWC](https://github.com/joshua-jerred/Giraffe/assets/19292194/143f6b7d-5324-4dfa-b378-d6788fffb702)
+
+***
+
+Development is no longer done by release, but instead features will be added
+as they are completed.
