@@ -4,7 +4,7 @@
 ### A Unified Flight Command and Control System <!-- omit from toc -->
 ### [Iteration 0.5](https://giraffe.joshuajer.red/md_docs_Doxygen_pages_versions.html) 
 
-<img src="https://user-images.githubusercontent.com/19292194/193437157-0a421f68-fa85-43bb-b372-1807a19c470d.png" height="150">
+<img src="https://user-images.githubusercontent.com/19292194/193437157-0a421f68-fa85-43bb-b372-1807a19c470d.png" height="100">
 
 ***
 ## Learn More About it

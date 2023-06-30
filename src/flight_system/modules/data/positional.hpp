@@ -70,7 +70,7 @@ struct GpsFrame {
   /// @brief The horizontal speed accuracy in meters/second.
   double speed_accuracy = 0.0;
 
-  /// @brief The heading of motion in degrees.
+  /// @brief The heading of motion in degrees. (not magnetic)
   double heading_of_motion = 0.0;
 
   /// @brief The heading of motion accuracy in degrees.
@@ -92,13 +92,11 @@ struct ImuFrame {
 };
 
 /**
- * @todo Implement this function.
- * @warning This function is not yet implemented!
- *
- * @brief Checks if a GPS frame is valid. Currently not implemented.
+ * @brief Checks if a GPS frame contains valid location data.
  * @details Simply checks if the data fields are within logical bounds. Does
  * not have any knowledge of the previous location, so it cannot check
- * for a sudden jump in position.
+ * for a sudden jump in position. This also checks for a time skew of
+ * less than 1 day in the hopes that the system data is correct.
  *
  * @param frame - The frame to check.
  * @return true - If the frame is valid.
