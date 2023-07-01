@@ -385,10 +385,11 @@ void mw::DataLog::createLogArchiveDir() {
 }
 
 /**
- * @brief Generates a file name with a prefix followed by the current date
- * and time.
- * @param prefix - The prefix to use for the file name.
- * @return std::string - The generated file name.
+ * @brief Generates a file path with the current date and time.
+ *
+ * @param path - The path to the directory where the file will be created.
+ * @param file_prefix - The prefix before the date and time.
+ * @return std::string - The generated file path.
  */
 inline std::string generateFilePath(const std::string path,
                                     const std::string &file_prefix) {

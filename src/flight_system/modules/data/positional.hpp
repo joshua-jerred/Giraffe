@@ -93,7 +93,7 @@ struct ImuFrame {
 
   /**
    * @brief X, Y, and Z acceleration in meters/second^2.
-   * @defgroup acceleration
+   * @defgroup acceleration Acceleration
    * @{
    */
   double x_acceleration = 0.0;
@@ -103,7 +103,7 @@ struct ImuFrame {
 
   /**
    * @brief X, Y, and Z rotation in degrees/second.
-   * @defgroup rotation
+   * @defgroup rotation Rotation
    * @{
    */
   double x_angular_velocity = 0.0;

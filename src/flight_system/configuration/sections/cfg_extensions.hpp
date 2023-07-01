@@ -54,15 +54,31 @@ struct ExtensionMetadata {
    */
   bool critical = false;
 
-  // extra arguments
+  /**
+   * @brief Any extra arguments to pass to the extension. (extension specific)
+   */
   std::string extra_args = "";
 
+  /**
+   * @brief Returns a json object representing the extension metadata.
+   * @return json - The json object
+   */
   json getJson() const;
 
-  void setFromJson(const json &j, data::LogStream &log,
+  /**
+   * @brief Sets the extension metadata from a json object
+   *
+   * @param json - The json object
+   * @param log - The log stream to log errors to
+   * @param ext_index - The index of the extension in the extensions array
+   */
+  void setFromJson(const json &json, data::LogStream &log,
                    const std::string &ext_index);
 };
 
+/**
+ * @brief The extensions section of the configuration.
+ */
 class Extensions : public cfg::CfgSection {
 public:
   Extensions(data::Streams &streams) : cfg::CfgSection(streams) {
@@ -98,6 +114,7 @@ public:
    * already in the state requested, nothing happens.
    *
    * @param name The name of the extension to toggle.
+   * @param enabled Whether or not the extension should be enabled.
    */
   void toggleExtension(const std::string &name, bool enabled);
 

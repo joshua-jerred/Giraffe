@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   file_formatting.hpp
+ * @file   data_formatting.hpp
  * @brief  This file contains the DataFormatter class, which is used to
  * format data for the data and log files.
  *
@@ -50,7 +50,8 @@ public:
 private:
   /**
    * @brief Used to set up the frame json structure.
-   * @param frame
+   * @param frame - The json object to set up.
+   * @param body_field - The name of the field that will contain the body.
    */
   void setupFrameStructure(json &frame, const std::string &body_field);
   void addComponent(DataFrameComponent component, json &frame);

@@ -1,7 +1,6 @@
 #include <BoosterSeat/string_utils.hpp>
 
 #include "request_handler.hpp"
-#include <iostream> /** @todo remove this */
 
 RequestRouter::RequestRouter(data::SharedData &shared_data,
                              cfg::Configuration &config,

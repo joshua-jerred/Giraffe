@@ -11,10 +11,11 @@ public:
   /**
    * @brief Construct a RequestRouter object.
    * @param shared_data - The shared data object.
-   * @param config - The configuration object.
+   * @param config - The global configuration.
+   * @param server_stats - The server stats data block.
    */
-  RequestRouter(data::SharedData &, cfg::Configuration &,
-                data::blocks::ServerModuleStats &);
+  RequestRouter(data::SharedData &shared_data, cfg::Configuration &config,
+                data::blocks::ServerModuleStats &server_stats);
   ~RequestRouter() = default;
 
   /**

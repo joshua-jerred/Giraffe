@@ -2,7 +2,7 @@
 DOXYFILE_ENCODING      = UTF-8
 
 PROJECT_NAME           = "Giraffe"
-PROJECT_NUMBER         = 0.4
+PROJECT_NUMBER         = 0.5
 PROJECT_BRIEF          = "A Unified, Semi-Autonomous, High Altitude Balloon Flight Control Framework."
 PROJECT_LOGO           =
 
@@ -115,16 +115,18 @@ WARNINGS               = YES
 WARN_IF_UNDOCUMENTED   = YES
 WARN_IF_DOC_ERROR      = YES
 WARN_NO_PARAMDOC       = YES
-WARN_AS_ERROR          = NO
+WARN_AS_ERROR          = YES
 WARN_FORMAT            = "$file:$line: $text"
 
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
 
-INPUT                  = src/flight_system
-INPUT                  += src/data_link
+INPUT =  src/flight_system
+INPUT += src/data_link
 # INPUT += lib/
+INPUT += docs/Doxygen/pages/
+INPUT += docs/user-docs/
 # INPUT += docs/Doxygen/pages/
 # INPUT += docs/dev-docs/
 INPUT += docs/user-docs/
@@ -132,7 +134,7 @@ INPUT += docs/user-docs/
 INPUT_ENCODING         = UTF-8
 
 FILE_PATTERNS          = *.cpp \
-                         *.h \
+                         *.hpp \
                          *.md \
                          *.dox \
 
@@ -215,12 +217,10 @@ IGNORE_PREFIX          =
 # Configuration options related to the HTML output
 #---------------------------------------------------------------------------
 
-GENERATE_HTML          = NO
+GENERATE_HTML          = YES
 HTML_OUTPUT            = html
 HTML_FILE_EXTENSION    = .html
-HTML_HEADER            =
-HTML_FOOTER            =
-HTML_STYLESHEET        =
+HTML_STYLESHEET        = ./docs/Doxygen/stylesheet.css
 HTML_EXTRA_STYLESHEET  =
 HTML_EXTRA_FILES       =
 HTML_COLORSTYLE_HUE    = 220
@@ -322,3 +322,5 @@ GENERATE_TAGFILE       =
 ALLEXTERNALS           = NO
 EXTERNAL_GROUPS        = YES
 EXTERNAL_PAGES         = YES
+
+CITE_BIB_FILES = docs/Doxygen/references.bib

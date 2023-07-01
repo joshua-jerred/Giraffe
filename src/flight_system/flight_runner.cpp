@@ -18,7 +18,7 @@ static const std::string kConfigFilePath = "./config.json";
 /**
  * @brief These are helper functions to print out startup and shutdown messages
  *
- * @defgroup FlightRunnerConsoleHelpers
+ * @defgroup FlightRunnerConsoleHelpers Flight Runner Console Helpers
  * @{
  */
 inline void _start(const std::string &module_name) {

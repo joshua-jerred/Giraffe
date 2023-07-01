@@ -124,7 +124,7 @@ private:
    * influxdb/datalog middleware if enabled. After all packets are processed,
    * the stream stats will be updated.
    *
-   * @defgroup DataStreamParsing
+   * @defgroup DataStreamParsing Data Stream Parsing
    * @{
    */
   void processDataPacket(const data::DataPacket &packet);

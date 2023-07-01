@@ -1,9 +1,17 @@
 /**
- * @file stream.h
- * @author Joshua Jerred (https://joshuajer.red)
- * @brief Generics for the stream.
- * @date 2023-05-15
- * @copyright Copyright (c) 2023
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   streams.hpp
+ * @brief  The header file for the data streams.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
  */
 
 #ifndef STREAMS_HPP_
