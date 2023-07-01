@@ -1,3 +1,5 @@
+#include <filesystem>
+
 #include "data_module.hpp"
 #include "to_string.hpp"
 
@@ -144,6 +146,8 @@ void modules::DataModule::parseExtensionDataPacket(
     shared_data_.frames.env_pres.insert(ext_id, packet);
   } else if (type == data::DataId::ENVIRONMENTAL_humidity) {
     shared_data_.frames.env_hum.insert(ext_id, packet);
+  } else if (type == data::DataId::CAMERA_newImagePath) {
+    parseCameraNewImageDataPacket(packet);
   } else {
     giraffe_assert(false);
   }
@@ -177,6 +181,26 @@ void modules::DataModule::parseStatusDataPacket(
   }
 
   shared_data_.blocks.modules_statuses.set(statuses);
+}
+
+void modules::DataModule::parseCameraNewImageDataPacket(
+    const data::DataPacket &packet) {
+  if (packet.source != node::Identification::EXTENSION) {
+    error(data::LogId::DATA_MODULE_cameraNewImagePacketInvalidFields, "source");
+    return;
+  }
+  std::string path = packet.value;
+  std::filesystem::path p(path);
+  if (!std::filesystem::exists(p) || !std::filesystem::is_regular_file(p)) {
+    error(data::LogId::DATA_MODULE_cameraNewImagePacketInvalidPath, path);
+    return;
+  }
+
+  auto camera_block = shared_data_.blocks.camera.get();
+  camera_block.have_camera_source = true;
+  camera_block.last_valid_image_path = path;
+  camera_block.num_images++;
+  shared_data_.blocks.camera.set(camera_block);
 }
 
 // ------------------ Log Stream Parsing ------------------

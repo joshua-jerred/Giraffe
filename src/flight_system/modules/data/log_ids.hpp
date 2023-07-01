@@ -50,6 +50,8 @@ enum class LogId : uint16_t {
   MODULE_moduleAlreadyStarted=0x1001, // Module already started
   DATA_MODULE_statusDataPacketUnknownSource=0x2000, // Unknown data packet source
   DATA_MODULE_dataPacketUnknownType=0x2001, // Unknown data packet type
+  DATA_MODULE_cameraNewImagePacketInvalidPath=0x2002, // Camera New Image Packet - Invalid Path
+  DATA_MODULE_cameraNewImagePacketInvalidFields=0x2003, // Camera New Image Packet - Invalid Fields
   DATA_LOG_invalidDataframeStrategy=0x3000, // Invalid data log strategy
   DATA_LOG_archiveOldDataFiles=0x3001, // Failed to archive old data files
   DATA_LOG_archiveOldLogFiles=0x3002, // Failed to archive old log files

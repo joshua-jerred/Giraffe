@@ -307,6 +307,15 @@ struct ImuData {
   data::ImuFrame last_valid_imu_frame{};
 };
 
+/**
+ * @brief Struct containing image data from a camera.
+ */
+struct CameraImages {
+  bool have_camera_source = false;
+  std::string last_valid_image_path = "";
+  int num_images = 0;
+};
+
 } // namespace blocks
 
 } // namespace data
