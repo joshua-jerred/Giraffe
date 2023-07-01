@@ -20,34 +20,22 @@
 #include <exception>
 #include <string>
 
-namespace common {
+#include "giraffe_diagnostic_ids.hpp"
 
-class Exception : public std::exception {
+class GiraffeException : public std::exception {
 public:
-  Exception(const std::string &error_code,
-            const std::string &info = "")
-      : error_code_(error_code), info_(info),
-        message_(error_code + " : " + info) {
-  }
+  GiraffeException(const DiagnosticId diagnostic_id,
+                   const std::string &info = "");
 
-  const char *what() const throw() {
-    return message_.c_str();
-  }
+  DiagnosticId id() const throw();
 
-  std::string error_code() const throw() {
-    return error_code_;
-  }
+  std::string info() const throw();
 
-  std::string info() const throw() {
-    return info_.c_str();
-  }
+  const char *what() const throw() override;
 
 private:
-  std::string error_code_;
+  DiagnosticId diagnostic_id_;
   std::string info_;
-  std::string message_;
 };
-
-} // namespace common
 
 #endif // GIRAFFE_EXCEPTION_HPP_

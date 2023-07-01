@@ -24,8 +24,6 @@
 #include "gdl_configuration.hpp"
 #include "gdl_message.hpp"
 
-#include "message_queue.hpp"
-
 namespace gdl {
 /**
  * @brief The Giraffe Data Link core class/interface - Layer 4 (Application)
@@ -34,17 +32,8 @@ class GiraffeDataLink {
 public:
   /**
    * @brief The status of the GDL instance.
-   * @details All values are uint8_t, stopped/error states start with 0x0,
-   * running states start with 0xF.
    */
-  enum class Status : uint8_t {
-    ERROR = 0x00,
-    STOPPED = 0x01,
-    IDLE = 0xF1,
-    RECEIVING = 0xF2,
-    TRANSMITTING = 0xF3,
-    STOPPING = 0xF4
-  };
+  enum class Status { ERROR, STOPPED, STARTING, RUNNING, STOPPING };
 
   /**
    * @brief Create a new Giraffe Data Link instance
@@ -74,7 +63,7 @@ public:
    * @brief Get the status of the GDL instance.
    * @return GiraffeDataLink::Status - The status of the GDL instance.
    */
-  GiraffeDataLink::Status status() const;
+  GiraffeDataLink::Status getStatus() const;
 
   /**
    * @brief Add a message to the exchange queue.

@@ -83,6 +83,9 @@ include(GoogleTest)
 # ----------------------------
 
 # ---- Giraffe Components ----
+# Common
+add_subdirectory(${COMMON_SRC})
+
 # Flight System
 add_subdirectory(${GFS_SRC})
 
