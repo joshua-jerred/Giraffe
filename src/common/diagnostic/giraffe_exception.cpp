@@ -15,8 +15,6 @@
 
 #include "giraffe_diagnostics.hpp"
 
-#include <iostream>
-
 template <typename IntType>
 std::string hexString(IntType w, size_t hex_length = sizeof(IntType) << 1) {
   static const char *digits = "0123456789ABCDEF";
@@ -40,9 +38,9 @@ std::string GiraffeException::info() const throw() {
 }
 
 const char *GiraffeException::what() const throw() {
-  std::string what = hexString(static_cast<uint16_t>(diagnostic_id_), 4);
-  if (!info_.empty()) {
-    what += " - " + info_;
-  }
+  static const std::string what =
+      hexString(static_cast<uint16_t>(diagnostic_id_), 4) + ":" +
+      diagnosticIdStringMap.at(diagnostic_id_) + (info_.empty() ? "" : " - ") +
+      info_;
   return what.c_str();
 }

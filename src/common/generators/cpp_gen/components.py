@@ -180,6 +180,7 @@ class UnorderedMap(Component):
         self.value_type = value_type
         self.addLineWithBracket(f"{additional}std::unordered_map<{key_type}, {value_type}> {self.name}", "};")
         self.values:tuple = []
+        self.additional = additional
 
     def __repr__(self) -> str:
         self.__finish()
@@ -190,6 +191,9 @@ class UnorderedMap(Component):
             self.values[-1].setLast()
         while (len(self.values) > 0):
             self.addLine(self.values.pop(0).getLine())
+            
+    def getDeclaration(self):
+        return f"{self.additional}std::unordered_map<{self.key_type}, {self.value_type}> {self.name};"
             
     def addPair(self, key, value, comment = None):
         self.values.append(UnorderedMapPair(key, value, comment))

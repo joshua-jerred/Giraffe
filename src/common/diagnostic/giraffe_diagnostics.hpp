@@ -17,9 +17,10 @@
 #ifndef GIRAFFE_DIAGNOSTICS_HPP_
 #define GIRAFFE_DIAGNOSTICS_HPP_
 
+#include <string>
+#include <unordered_map>
+
 #include "giraffe_diagnostic_ids.hpp"
 #include "giraffe_exception.hpp"
-
-std::string diagnosticIdToString(const DiagnosticId diagnostic_id);
 
 #endif /* GIRAFFE_DIAGNOSTICS_HPP_ */

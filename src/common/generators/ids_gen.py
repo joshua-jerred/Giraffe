@@ -115,10 +115,18 @@ class IdGenerator:
     def __write(self):
         file_name = OUT_FILE.split("/")[-1].split(".")[0]
         file = cpp.files.HppGenerator(file_name)
-        file.addIncludes(["<cstdint>"])
+        if self.generate_string_map:
+            file.addIncludes(["<unordered_map>", "<string>", "<cstdint>"])
+        else:
+            file.addIncludes(["<cstdint>"])
         if self.namespaced:
             file.enterNamespace(self.namespace)
         file.addComponent(self.enum)
+        
+        if self.generate_string_map:
+            file.addLine("")
+            file.addLine("extern " + self.string_map.getDeclaration())
+        
         if PRINT_OUTPUT: 
             print(file)
         file.save(OUT_FILE)
@@ -130,7 +138,7 @@ class IdGenerator:
         file_name = STRING_MAP_OUT.split("/")[-1].split(".")[0]
         hpp_include_name = file_name = OUT_FILE.split("/")[-1].split(".")[0]
         file = cpp.files.CppGenerator(file_name)
-        file.addIncludes(['<string>', '<unordered_map>', f'"{hpp_include_name}.hpp"'])
+        file.addIncludes([f'"{hpp_include_name}.hpp"'])
         file.addComponent(self.string_map)
 
         if PRINT_OUTPUT:

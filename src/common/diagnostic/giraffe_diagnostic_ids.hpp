@@ -26,6 +26,8 @@
 #ifndef GIRAFFE_DIAGNOSTIC_IDS_HPP_
 #define GIRAFFE_DIAGNOSTIC_IDS_HPP_
 
+#include <unordered_map>
+#include <string>
 #include <cstdint>
 
 enum class DiagnosticId : uint16_t {
@@ -102,6 +104,8 @@ enum class DiagnosticId : uint16_t {
   EXT_FAULT_fatalConfig=0x6001, // Fatal Configuration Error
   GDL_invalidStartCall=0xA000  // Invalid Start Call
 };
+
+extern const std::unordered_map<DiagnosticId, std::string> diagnosticIdStringMap;
 
 #endif // GIRAFFE_DIAGNOSTIC_IDS_HPP_
 

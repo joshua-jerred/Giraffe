@@ -23,8 +23,6 @@
  */
 
 
-#include <string>
-#include <unordered_map>
 #include "giraffe_diagnostic_ids.hpp"
 
 const std::unordered_map<DiagnosticId, std::string> diagnosticIdStringMap {
