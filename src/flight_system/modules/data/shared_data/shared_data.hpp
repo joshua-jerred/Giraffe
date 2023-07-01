@@ -18,12 +18,13 @@
 #ifndef SHARED_DATA_HPP_
 #define SHARED_DATA_HPP_
 
-#include "blocks.hpp"
-#include "frames.hpp"
-#include "streams.hpp"
-
 #include <BoosterSeat/clock.hpp>
 #include <BoosterSeat/time.hpp>
+
+#include "blocks.hpp"
+#include "error_frame.hpp"
+#include "frame.hpp"
+#include "streams.hpp"
 
 namespace data {
 struct Streams {
@@ -46,19 +47,24 @@ struct SharedBlocks {
 
 struct Frames {
   /**
+   * @brief Data frame containing all active error messages.
+   */
+  ErrorFrame error_frame{};
+
+  /**
    * @brief Temperature data from environmental extensions.
    */
-  Frame<std::string, DataPacket> env_temp = Frame<std::string, DataPacket>();
+  Frame<std::string, DataPacket> env_temp{};
 
   /**
    * @brief Pressure data from environmental extensions.
    */
-  Frame<std::string, DataPacket> env_pres = Frame<std::string, DataPacket>();
+  Frame<std::string, DataPacket> env_pres{};
 
   /**
    * @brief Humidity data from environmental extensions.
    */
-  Frame<std::string, DataPacket> env_hum = Frame<std::string, DataPacket>();
+  Frame<std::string, DataPacket> env_hum{};
 };
 
 struct Misc {

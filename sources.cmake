@@ -46,6 +46,7 @@ set(gfs_sources
 	${GFS_SRC}/modules/data/data_formatting.cpp
 	${GFS_SRC}/modules/data/positional.cpp
 	${GFS_SRC}/modules/data/shared_data/to_json.cpp
+	${GFS_SRC}/modules/data/shared_data/error_frame.cpp
 
 	# console module
 	${GFS_SRC}/modules/console/console_module.cpp
