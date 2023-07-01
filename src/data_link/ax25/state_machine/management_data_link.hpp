@@ -25,28 +25,6 @@ enum class ManagementDataLinkStates {
   NEGOTIATING = 1,
 };
 
-enum class ManagementDataLinkErrorCodes {
-  /**
-   * @brief XID Command without P=1
-   */
-  A,
-
-  /**
-   * @brief Unexpected XID response
-   */
-  B,
-
-  /**
-   * @brief Management retry limit exceeded
-   */
-  C,
-
-  /**
-   * @brief XID response without F=1
-   */
-  D
-};
-
 enum class ManagementDataLinkFlags {
   /**
    * @brief Retry count
@@ -82,8 +60,6 @@ private:
   void set_state(ManagementDataLinkStates state) {
     state_ = state;
   }
-
-  void indicate(ManagementDataLinkErrorCodes error_code);
 
   void state_ready();
   void state_negotiating();

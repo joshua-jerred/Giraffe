@@ -28,6 +28,7 @@ public:
 
 protected:
   void generateSignal(Primitive primitive);
+  void indicateError(StateMachineErrors error_code, bool active);
   // void indicate(ErrorCode error_code);
 
   StateMachineData &data_;

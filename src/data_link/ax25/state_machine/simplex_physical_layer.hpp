@@ -31,10 +31,6 @@ enum class SimplexPhysicalLayerStates {
   RECEIVER_START = 6
 };
 
-enum class SimplexPhysicalLayerErrorCodes {
-  // none used
-};
-
 enum class SimplexPhysicalLayerFlags {
   /**
    * @brief Set when this transmission is for digipeating frames. Cleared when
@@ -60,18 +56,6 @@ enum class SimplexPhysicalLayerFlags {
   P
 };
 
-enum class SimplexPhysicalLayerTimers {
-  T100, // Repeater Hand (AXHANG)
-  T101, // Priority Window (PRIACK)
-  T102, // Slot Time (p-persistence)
-  T103, // Transmitter Startup (TXDELAY)
-  T104, // Repeater Startup (AXDELAY)
-  T105, // Remote Receiver Sync
-  T106, // Ten Minute Transmission Limit
-  T107, // Anti-Hogging Limit
-  T108  // Receiver Startup
-};
-
 class SimplexPhysicalLayerStateMachine : public BaseAX25StateMachine {
 public:
   SimplexPhysicalLayerStateMachine(StateMachineData &data)
@@ -88,8 +72,6 @@ private:
   void set_state(SimplexPhysicalLayerStates state) {
     state_ = state;
   }
-
-  void indicate(SimplexPhysicalLayerErrorCodes error_code);
 
   void state_ready();
   void state_receiving();

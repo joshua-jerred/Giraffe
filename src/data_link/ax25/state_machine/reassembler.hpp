@@ -27,25 +27,11 @@ enum class ReassemblerStates {
   REASSEMBLING_UNIT_DATA = 2
 };
 
-enum class ReassemblerErrorCodes {
-  /**
-   * @brief Reassembly error
-   */
-  Z
-};
-
 enum class ReassemblerFlags {
   /**
    * @brief number of segments remaining to be reassembled
    */
   N
-};
-
-enum class ReassemblerTimers {
-  /**
-   * @brief time limit for receipt of next segment
-   */
-  TR210
 };
 
 class ReassemblerStateMachine : public BaseAX25StateMachine {
@@ -63,8 +49,6 @@ private:
   void set_state(ReassemblerStates state) {
     state_ = state;
   }
-
-  void indicate(ReassemblerStates error_code);
 
   void state_null();
   void state_reassemblingData();

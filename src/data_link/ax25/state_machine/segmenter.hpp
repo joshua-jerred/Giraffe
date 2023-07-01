@@ -22,13 +22,6 @@
 namespace ax25 {
 enum class SegmenterStates { READY = 0 };
 
-enum class SegmenterErrorCodes {
-  /**
-   * @brief Data too large to segment
-   */
-  Y
-};
-
 enum class SegmenterFlags {
 
 };
@@ -52,8 +45,6 @@ private:
   void set_state(SegmenterStates state) {
     state_ = state;
   }
-
-  void indicate(SegmenterErrorCodes error_code);
 
   void state_ready();
 

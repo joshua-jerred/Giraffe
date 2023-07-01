@@ -305,6 +305,34 @@ enum class Primitive {
   MDL_ERROR_indicate
 };
 
+enum class StateMachineErrors {
+  DATA_LINK_A, // F=1 received but P=1 not outstanding
+  DATA_LINK_B, // Unexpected DM with F=1 in states 3, 4, or 5
+  DATA_LINK_C, // Unexpected UA in states 3, 4, or 5
+  DATA_LINK_D, // UA received without F=1 when SABM or DISC was sent P=1
+  DATA_LINK_E, // DM received in states 3, 4, or 5
+  DATA_LINK_F, // Data link reset; i.e., SABM received in state 3, 4, or 5
+  DATA_LINK_I, // N2 timeouts; unacknowledged data
+  DATA_LINK_J, // N(r) sequence error
+  DATA_LINK_L, // Control field error
+  DATA_LINK_M, // Information field was received in a U or S frame
+  DATA_LINK_N, // Length of frame incorrect for frame type
+  DATA_LINK_O, // I frame exceeded maximum allowed length
+  DATA_LINK_P, // N(s) out of the window
+  DATA_LINK_Q, // UI response received, or UI command with P=1 received
+  DATA_LINK_R, // UI frame exceeded maximum allowed length
+  DATA_LINK_S, // I response received
+  DATA_LINK_T, // N2 timeouts; no response to enquiry
+  DATA_LINK_U, // N2 timeouts; extended peer busy condition
+  DATA_LINK_V, // No DL machines available to establish connection
+  MANAGEMENT_DATA_LINK_A, // XID Command without P=1
+  MANAGEMENT_DATA_LINK_B, // Unexpected XID response
+  MANAGEMENT_DATA_LINK_C, // Management retry limit exceeded
+  MANAGEMENT_DATA_LINK_D, // XID response without F=1
+  REASSEMBLER_Z,          // Reassembly error
+  SEGMENTER_Y,            // Data too large to segment
+};
+
 /**
  * @brief Data that is shared between the state machines.
  */

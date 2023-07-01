@@ -26,10 +26,6 @@ enum class LinkMultiplexerStates {
   SEIZED = 2,
 };
 
-enum class LinkMultiplexerErrorCodes {
-  // none used
-};
-
 enum class LinkMultiplexerFlags {
   /**
    * @brief Identifies the Data-link State Machine currently using the
@@ -44,10 +40,6 @@ enum class LinkMultiplexerFlags {
    *
    */
   SERVED_LIST
-};
-
-enum class LinkMultiplexerTimers {
-  // none used
 };
 
 class LinkMultiplexerStateMachine : public BaseAX25StateMachine {
@@ -66,8 +58,6 @@ private:
   void set_state(LinkMultiplexerStates state) {
     state_ = state;
   }
-
-  void indicate(LinkMultiplexerErrorCodes error_code);
 
   void state_idle();
   void state_seizePending();

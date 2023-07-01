@@ -28,10 +28,6 @@ enum class DuplexPhysicalLayerStates {
   TRANSMITTING = 4
 };
 
-enum class DuplexPhysicalLayerErrorCodes {
-  // none used
-};
-
 enum class DuplexPhysicalLayerFlags { Interrupted };
 
 enum class DuplexPhysicalLayerTimers {
@@ -56,8 +52,6 @@ private:
   void set_state(DuplexPhysicalLayerStates state) {
     state_ = state;
   }
-
-  void indicate(DuplexPhysicalLayerErrorCodes error_code);
 
   void state_receiverReady();
   void state_receiving();
