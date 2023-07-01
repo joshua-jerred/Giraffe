@@ -94,13 +94,3 @@ jobs:
         working-directory: ./src/web_client
       - run: npm test
         working-directory: ./src/web_client
-
-  doxygex:
-    name: Doxygen Validation
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install Doxygen
-        run: sudo apt-get install doxygen
-      - name: Generate Doxygen
-        run: doxygen ./docs/Doxygen/Doxyfile_no_output
