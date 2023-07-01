@@ -1,5 +1,39 @@
 # A set of utilities to generate C++ code.
 
+AUTO_GEN_HEADER = """/**
+ *
+ * 
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ *
+ *
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ * 
+ * 
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
+ * =*=======================*=
+ *
+ * @verbatim
+ */
+"""
+
+AUTO_GEN_FOOTER = """
+/**
+ * @endverbatim
+ * 
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ */"""
+
 AUTO_GEN_LINE = "// * * * * GENERATED AUTOMATICALLY, DO NOT MANUALLY MODIFY * * * *"
 NL = "\n"
 
@@ -13,7 +47,7 @@ class Generator:
         self.finished = False
         
         # start of file content
-        self.addLine(AUTO_GEN_LINE)
+        self.addLine(AUTO_GEN_HEADER)
         self.addLine("")
     
     def addLine(self, line: str):
@@ -64,7 +98,7 @@ class Generator:
             raise Exception("Indent level must be zero to finish.")
         
         self.addLine("")
-        self.addLine(AUTO_GEN_LINE)
+        self.addLine(AUTO_GEN_FOOTER)
     
     def addComponent(self, component):
         self.addLines(component.getLines())

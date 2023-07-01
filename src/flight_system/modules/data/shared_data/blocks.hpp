@@ -163,6 +163,9 @@ struct DataLogStats {
   FileSizeType log_archive_dir_size = 0.0;
   std::string log_file_path = "";
 
+  std::vector<std::string> archived_data_files_list{};
+  std::vector<std::string> archived_log_files_list{};
+
   json toJson() {
     json j;
     j["data_dir"] = data_dir;
@@ -302,6 +305,15 @@ struct ImuData {
    * @brief Last valid imu frame.
    */
   data::ImuFrame last_valid_imu_frame{};
+};
+
+/**
+ * @brief Struct containing image data from a camera.
+ */
+struct CameraImages {
+  bool have_camera_source = false;
+  std::string last_valid_image_path = "";
+  int num_images = 0;
 };
 
 } // namespace blocks

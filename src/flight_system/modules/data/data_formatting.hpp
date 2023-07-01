@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   file_formatting.hpp
+ * @file   data_formatting.hpp
  * @brief  This file contains the DataFormatter class, which is used to
  * format data for the data and log files.
  *
@@ -44,12 +44,16 @@ public:
   std::string partialFrame(std::vector<DataFrameComponent> components);
   std::string dataPacketToJsonString(const data::DataPacket &packet) const;
 
+  std::string fullErrorFrame();
+  std::string logPacketToJsonString(const data::LogPacket &packet) const;
+
 private:
   /**
    * @brief Used to set up the frame json structure.
-   * @param frame
+   * @param frame - The json object to set up.
+   * @param body_field - The name of the field that will contain the body.
    */
-  void setupFrameStructure(json &frame);
+  void setupFrameStructure(json &frame, const std::string &body_field);
   void addComponent(DataFrameComponent component, json &frame);
 
   /**
@@ -63,6 +67,8 @@ private:
    */
   std::string generateTimestamp(const BoosterSeat::clck::TimePoint time_point =
                                     BoosterSeat::clck::now()) const;
+
+  json fullFrameLogPacketToJson(const data::ErrorFrameItem &item) const;
 
   cfg::Configuration &config_;
   data::SharedData &shared_data_;

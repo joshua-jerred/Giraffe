@@ -122,7 +122,17 @@
       "name": "Unknown data packet type",
       "details": "The data packet type is not known to the data module",
       "value": "0x2001"
-    }
+    },
+    "camera_new_image_packet_invalid_path":{
+      "name": "Camera New Image Packet - Invalid Path",
+      "details": "The path to the image is invalid.",
+      "value": "0x2002"
+    },
+    "camera_new_image_packet_invalid_fields":{
+      "name": "Camera New Image Packet - Invalid Fields",
+      "details": "Error info contains the fields that are invalid. These packets must come from an extension.",
+      "value": "0x2003"
+    },
   },
   "data_log": {
     "invalid_dataframe_strategy":{
@@ -339,6 +349,11 @@
       "name": "Failed to rotate log file",
       "details": "The log file could not be rotated.",
       "value": "0x3028"
+    },
+    "file_list_fail":{
+      "name": "Failed to update archive file list",
+      "details": "The archive file list could not be generated due to an exception.",
+      "value": "0x3029"
     }
   },
   "console_module": {},

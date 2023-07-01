@@ -1,4 +1,7 @@
-#include "data_module.h"
+#include <filesystem>
+
+#include "data_module.hpp"
+#include "to_string.hpp"
 
 static modules::MetaData metadata("data_module",
                                   node::Identification::DATA_MODULE, 100);
@@ -10,6 +13,7 @@ modules::DataModule::DataModule(data::SharedData &shared_data,
 }
 
 void modules::DataModule::startup() {
+  console_module_enabled_ = configuration_.console_module.getEnabled();
   /** @todo why the call to sleep()? */
   sleep(); // wait to start
 }
@@ -21,6 +25,11 @@ void modules::DataModule::loop() {
         configuration_.data_module_data.getLogStrategy();
   }
   log_file_enabled_ = configuration_.data_module_log.getLogToFile();
+  if (log_file_enabled_) {
+    error_file_logging_strategy_ =
+        configuration_.data_module_log.getErrorLogStrategy();
+  }
+
   influxdb_enabled_ = configuration_.data_module_influxdb.getInfluxEnabled();
 
   processAllStreams();
@@ -32,10 +41,28 @@ void modules::DataModule::loop() {
     data_log_.logDataFrame(
         data_file_logging_strategy_); // timer taken care of inside of data_log_
   }
+
+  if (log_file_enabled_ && error_file_logging_strategy_ ==
+                               cfg::gEnum::ErrorLogStrategy::ERROR_FRAME) {
+    data_log_.logErrorFrame();
+  }
 }
 
 void modules::DataModule::shutdown() {
+  // If the logging strategy is all, then this will log the remaining packets.
   processAllStreams();
+
+  // If the logging strategy is interval, then this will log the frame
+  if (data_file_enabled_ &&
+      data_file_logging_strategy_ == cfg::gEnum::LogStrategy::INTERVAL) {
+    data_log_.logDataFrame(data_file_logging_strategy_);
+  }
+
+  // Same as above, but for error frames
+  if (log_file_enabled_ && error_file_logging_strategy_ ==
+                               cfg::gEnum::ErrorLogStrategy::ERROR_FRAME) {
+    data_log_.logErrorFrame();
+  }
 }
 
 void modules::DataModule::processCommand(const cmd::Command &command) {
@@ -119,6 +146,8 @@ void modules::DataModule::parseExtensionDataPacket(
     shared_data_.frames.env_pres.insert(ext_id, packet);
   } else if (type == data::DataId::ENVIRONMENTAL_humidity) {
     shared_data_.frames.env_hum.insert(ext_id, packet);
+  } else if (type == data::DataId::CAMERA_newImagePath) {
+    parseCameraNewImageDataPacket(packet);
   } else {
     giraffe_assert(false);
   }
@@ -154,11 +183,37 @@ void modules::DataModule::parseStatusDataPacket(
   shared_data_.blocks.modules_statuses.set(statuses);
 }
 
+void modules::DataModule::parseCameraNewImageDataPacket(
+    const data::DataPacket &packet) {
+  if (packet.source != node::Identification::EXTENSION) {
+    error(data::LogId::DATA_MODULE_cameraNewImagePacketInvalidFields, "source");
+    return;
+  }
+  std::string path = packet.value;
+  std::filesystem::path p(path);
+  if (!std::filesystem::exists(p) || !std::filesystem::is_regular_file(p)) {
+    error(data::LogId::DATA_MODULE_cameraNewImagePacketInvalidPath, path);
+    return;
+  }
+
+  auto camera_block = shared_data_.blocks.camera.get();
+  camera_block.have_camera_source = true;
+  camera_block.last_valid_image_path = path;
+  camera_block.num_images++;
+  shared_data_.blocks.camera.set(camera_block);
+}
+
 // ------------------ Log Stream Parsing ------------------
 
 void modules::DataModule::processLogPacket(const data::LogPacket &packet) {
+
+  if (console_module_enabled_) {
+    shared_data_.log_container.add(util::to_string(packet));
+  }
+
   // Log log packet to file (if enabled)
-  if (log_file_enabled_) {
+  if (log_file_enabled_ &&
+      error_file_logging_strategy_ == cfg::gEnum::ErrorLogStrategy::ALL) {
     data_log_.logLogPacket(packet);
   }
 
@@ -167,7 +222,14 @@ void modules::DataModule::processLogPacket(const data::LogPacket &packet) {
     influxdb_.logLogPacket(packet);
   }
 
-  // Process packet here
+  // Add to the error frame if it is an error
+  if (packet.level == data::LogPacket::Level::ERROR) {
+    shared_data_.frames.error_frame.addError(packet);
+  }
+
+  /**
+   * @todo debug/log packets should be processed here
+   */
 }
 
 // ------------------ GPS Stream Parsing ------------------

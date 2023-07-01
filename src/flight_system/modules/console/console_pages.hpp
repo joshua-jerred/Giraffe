@@ -21,8 +21,8 @@ enum class PageOption {
 };
 
 inline constexpr int kMaxNumPageLines = 25;
-inline constexpr int kDataWindowWidth = 60;
-inline constexpr int kDataWindowHeight = 10;
+inline constexpr int kDataWindowWidth = 100;
+inline constexpr int kDataWindowHeight = 15;
 inline constexpr PageOption kInitialPage = PageOption::GFS_STATUS;
 
 typedef std::pair<std::string, PageOption> Option;

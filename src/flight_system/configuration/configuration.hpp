@@ -1,4 +1,27 @@
-// * * * AUTOMATICALLY GENERATED WITH CMake/Python * * *
+/**
+ *
+ * 
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ *
+ *
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ * 
+ * 
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
+ * =*=======================*=
+ *
+ * @verbatim
+ */
+
 
 #ifndef CONFIGURATION_HPP_
 #define CONFIGURATION_HPP_
@@ -131,12 +154,16 @@ public:
   int getMaxLogArchiveSizeMb() const;
   cfg::gEnum::ArchiveMethod getErrorArchiveMethod() const;
   cfg::gEnum::LogLevel getLogLevel() const;
+  cfg::gEnum::ErrorLogStrategy getErrorLogStrategy() const;
+  int getErrorFrameLogInterval() const;
 
   void setLogToFile(bool);
   void setMaxLogFileSizeMb(int);
   void setMaxLogArchiveSizeMb(int);
   void setErrorArchiveMethod(cfg::gEnum::ArchiveMethod);
   void setLogLevel(cfg::gEnum::LogLevel);
+  void setErrorLogStrategy(cfg::gEnum::ErrorLogStrategy);
+  void setErrorFrameLogInterval(int);
 
   void setFromJson(const json&);
   json getJson() const;
@@ -147,6 +174,8 @@ private:
   int max_log_archive_size_mb_ = 50;
   cfg::gEnum::ArchiveMethod error_archive_method_ = cfg::gEnum::ArchiveMethod::PLAIN_TEXT;
   cfg::gEnum::LogLevel log_level_ = cfg::gEnum::LogLevel::INFO;
+  cfg::gEnum::ErrorLogStrategy error_log_strategy_ = cfg::gEnum::ErrorLogStrategy::ALL;
+  int error_frame_log_interval_ = 60000;
 };
 
 class ConsoleModule : public cfg::CfgSection {
@@ -389,4 +418,11 @@ class Configuration {
 
 #endif // CONFIGURATION_HPP_
 
-// * * * AUTOMATICALLY GENERATED WITH CMake/Python * * *
+
+/**
+ * @endverbatim
+ * 
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ */

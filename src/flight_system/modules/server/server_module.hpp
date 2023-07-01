@@ -1,13 +1,21 @@
 /**
- * @file module_server.h
- * @author Joshua Jerred (https://joshuajer.red)
- * @brief
- * @date 2023-05-16
- * @copyright Copyright (c) 2023
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   server_module.hpp
+ * @brief  Header file for the server module.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
  */
 
-#ifndef SERVER_MODULE_H_
-#define SERVER_MODULE_H_
+#ifndef SERVER_MODULE_HPP_
+#define SERVER_MODULE_HPP_
 
 #include "module.hpp"
 #include "request_handler.hpp"

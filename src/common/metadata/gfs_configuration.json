@@ -297,6 +297,27 @@
                 "warn",
                 "error"
             ]
+        },
+        "error_log_strategy": {
+            "type": "enum",
+            "name": "Log Strategy",
+            "description": "If it is all, every error (or info/debug with respect to level) will be logged as it comes in. If it's error_frame, only the error frame will be logged. The error frame will be logged at the configured interval.",
+            "default": "all",
+
+            "enum_name":"error_log_strategy",
+            "options": [
+                "all",
+                "error_frame"
+            ]
+        },
+        "error_frame_log_interval": {
+            "type": "int",
+            "name": "Error Frame Log Interval",
+            "description": "The interval at which the error frame will be logged in milliseconds.",
+            "default": 60000,
+            "max": 600000,
+            "min": 500,
+            "step": 500
         }
     },
     "console_module": {

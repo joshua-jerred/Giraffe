@@ -1,10 +1,24 @@
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   data_log.cpp
+ * @brief  The implementation of the data log class.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
+ */
+
 #include "data_log.hpp"
 #include <BoosterSeat/exception.hpp>
 #include <BoosterSeat/filesystem.hpp>
 #include <BoosterSeat/time.hpp>
 #include <filesystem>
-
-#include <iostream>
 
 namespace mw = data_middleware;
 namespace bs = BoosterSeat;
@@ -36,8 +50,9 @@ inline constexpr bsfs::units::Size kDataSizeUnit = bsfs::units::Size::MEGABYTES;
 mw::DataLog::DataLog(data::SharedData &shared_data, cfg::Configuration &config)
     : shared_data_(shared_data), config_(config),
       formatter_(config, shared_data) {
-  data_frame_stopwatch_.start();
   validation_stopwatch_.start();
+  data_frame_stopwatch_.start();
+  error_frame_stopwatch_.start();
 
   // Generate the file system.
   createDataDir();
@@ -58,6 +73,7 @@ mw::DataLog::DataLog(data::SharedData &shared_data, cfg::Configuration &config)
   // Create the data and log files.
   createNewDataFile();
   createNewLogFile();
+  updateFileList();
 
   // Update the file system status.
   shared_data_.blocks.data_log_stats.set(fs_status_);
@@ -110,8 +126,31 @@ void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
   updateFileSystem();
 }
 
+void mw::DataLog::logErrorFrame() {
+  int log_interval_ms = config_.data_module_log.getErrorFrameLogInterval();
+  int time_since_last_log_ms =
+      error_frame_stopwatch_.elapsed(BoosterSeat::Resolution::MILLISECONDS);
+
+  if (time_since_last_log_ms > log_interval_ms) {
+    // first, reset the stopwatch before logging
+    error_frame_stopwatch_.reset();
+    error_frame_stopwatch_.start();
+  } else {
+    return; // don't log if the interval hasn't passed
+  }
+
+  appendToLogFile(formatter_.fullErrorFrame());
+
+  updateFileSystem();
+}
+
 void mw::DataLog::logLogPacket(const data::LogPacket &packet) {
-  (void)packet;
+  auto log_level = config_.data_module_log.getLogLevel();
+  auto packet_level = packet.level;
+
+  if (static_cast<int>(packet_level) >= static_cast<int>(log_level)) {
+    appendToLogFile(formatter_.logPacketToJsonString(packet));
+  }
 }
 
 void mw::DataLog::appendToDataFile(const std::string &content) {
@@ -345,10 +384,11 @@ void mw::DataLog::createLogArchiveDir() {
 }
 
 /**
- * @brief Generates a file name with a prefix followed by the current date
- * and time.
- * @param prefix - The prefix to use for the file name.
- * @return std::string - The generated file name.
+ * @brief Generates a file path with the current date and time.
+ *
+ * @param path - The path to the directory where the file will be created.
+ * @param file_prefix - The prefix before the date and time.
+ * @return std::string - The generated file path.
  */
 inline std::string generateFilePath(const std::string path,
                                     const std::string &file_prefix) {
@@ -517,10 +557,32 @@ void mw::DataLog::rotateFiles() {
     }
     createNewLogFile();
   }
+
+  updateFileList();
 }
 
 /**
  * @todo Implement this function
  */
 void mw::DataLog::trimArchive() {
+}
+
+void getFileNamesInDir(const std::string &dir_path,
+                       std::vector<std::string> &file_list) {
+  file_list.clear();
+  std::filesystem::path dir(dir_path);
+  for (const auto &file : std::filesystem::directory_iterator(dir)) {
+    std::string file_path = file.path().filename().string();
+    file_list.push_back(file_path);
+  }
+}
+
+void mw::DataLog::updateFileList() {
+  try {
+    getFileNamesInDir(kDataArchiveDirPath, fs_status_.archived_data_files_list);
+    getFileNamesInDir(kLogArchiveDirPath, fs_status_.archived_log_files_list);
+  } catch (const std::exception &e) {
+    shared_data_.streams.log.errorStdException(
+        kNodeId, data::LogId::DATA_LOG_fileListFail, e);
+  }
 }

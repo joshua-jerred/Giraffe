@@ -1,4 +1,27 @@
-// * * * AUTOMATICALLY GENERATED WITH CMake/Python * * *
+/**
+ *
+ * 
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ *
+ *
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ * 
+ * 
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
+ * =*=======================*=
+ *
+ * @verbatim
+ */
+
 
 #ifndef CONFIGURATION_ENUMS_HPP_
 #define CONFIGURATION_ENUMS_HPP_
@@ -173,6 +196,22 @@ constexpr const char* LogLevelToKey(cfg::gEnum::LogLevel val) throw() {
   __builtin_unreachable();
 }
 
+enum class ErrorLogStrategy {
+  ALL,
+  ERROR_FRAME
+};
+std::unordered_map<std::string, cfg::gEnum::ErrorLogStrategy> const KeyToErrorLogStrategy = {
+  {"all", cfg::gEnum::ErrorLogStrategy::ALL},
+  {"error_frame", cfg::gEnum::ErrorLogStrategy::ERROR_FRAME}
+};
+constexpr const char* ErrorLogStrategyToKey(cfg::gEnum::ErrorLogStrategy val) throw() {
+  switch (val) {
+    case cfg::gEnum::ErrorLogStrategy::ALL: return "all";
+    case cfg::gEnum::ErrorLogStrategy::ERROR_FRAME: return "error_frame";
+  }
+  __builtin_unreachable();
+}
+
 enum class AprsSymbolTable {
   PRIMARY,
   ALTERNATE
@@ -286,4 +325,11 @@ constexpr const char* ExtensionTypeToKey(cfg::gEnum::ExtensionType val) throw() 
 
 #endif // CONFIGURATION_ENUMS_HPP_
 
-// * * * AUTOMATICALLY GENERATED WITH CMake/Python * * *
+
+/**
+ * @endverbatim
+ * 
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ */

@@ -1,4 +1,27 @@
-// * * * * GENERATED AUTOMATICALLY, DO NOT MANUALLY MODIFY * * * *
+/**
+ *
+ * 
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ *
+ *
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ * 
+ * 
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
+ * =*=======================*=
+ *
+ * @verbatim
+ */
+
 
 #ifndef LOG_IDS_HPP_
 #define LOG_IDS_HPP_
@@ -27,6 +50,8 @@ enum class LogId : uint16_t {
   MODULE_moduleAlreadyStarted=0x1001, // Module already started
   DATA_MODULE_statusDataPacketUnknownSource=0x2000, // Unknown data packet source
   DATA_MODULE_dataPacketUnknownType=0x2001, // Unknown data packet type
+  DATA_MODULE_cameraNewImagePacketInvalidPath=0x2002, // Camera New Image Packet - Invalid Path
+  DATA_MODULE_cameraNewImagePacketInvalidFields=0x2003, // Camera New Image Packet - Invalid Fields
   DATA_LOG_invalidDataframeStrategy=0x3000, // Invalid data log strategy
   DATA_LOG_archiveOldDataFiles=0x3001, // Failed to archive old data files
   DATA_LOG_archiveOldLogFiles=0x3002, // Failed to archive old log files
@@ -68,6 +93,7 @@ enum class LogId : uint16_t {
   DATA_LOG_archiveLogFile=0x3026, // Failed to archive log file
   DATA_LOG_rotateDataFile=0x3027, // Failed to rotate data file
   DATA_LOG_rotateLogFile=0x3028, // Failed to rotate log file
+  DATA_LOG_fileListFail=0x3029, // Failed to update archive file list
   SYSTEM_MODULE_systemInfoReadFail=0x4001, // Failed to read system info
   SYSTEM_MODULE_cpuTempReadFail=0x4002, // Failed to read CPU temperature
   SYSTEM_MODULE_diskInfoReadFail=0x4003, // Failed to read disk info
@@ -81,4 +107,11 @@ enum class LogId : uint16_t {
 
 #endif // LOG_IDS_HPP_
 
-// * * * * GENERATED AUTOMATICALLY, DO NOT MANUALLY MODIFY * * * *
+
+/**
+ * @endverbatim
+ * 
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ */

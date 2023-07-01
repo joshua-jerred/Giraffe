@@ -2,10 +2,10 @@
 #define FLIGHT_RUNNER_HPP_
 
 #include "configuration.hpp"
-#include "console_module.h"
-#include "data_module.h"
+#include "console_module.hpp"
+#include "data_module.hpp"
 #include "extension_module.hpp"
-#include "server_module.h"
+#include "server_module.hpp"
 #include "shared_data.hpp"
 #include "system_module.hpp"
 

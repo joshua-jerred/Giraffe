@@ -18,19 +18,21 @@
 #ifndef SHARED_DATA_HPP_
 #define SHARED_DATA_HPP_
 
-#include "blocks.hpp"
-#include "frames.hpp"
-#include "streams.hpp"
-
 #include <BoosterSeat/clock.hpp>
 #include <BoosterSeat/time.hpp>
 
+#include "blocks.hpp"
+#include "error_frame.hpp"
+#include "frame.hpp"
+#include "log_container.hpp"
+#include "streams.hpp"
+
 namespace data {
 struct Streams {
-  DataStream data = DataStream();
-  LogStream log = LogStream();
-  GpsFrameStream gps = GpsFrameStream();
-  ImuFrameStream imu = ImuFrameStream();
+  DataStream data{};
+  LogStream log{};
+  GpsFrameStream gps{};
+  ImuFrameStream imu{};
 };
 
 struct SharedBlocks {
@@ -42,23 +44,29 @@ struct SharedBlocks {
   blocks::Block<blocks::ExtensionModuleStats> extension_module_stats{};
   blocks::Block<blocks::LocationData> location_data{};
   blocks::Block<blocks::ImuData> imu_data{};
+  blocks::Block<blocks::CameraImages> camera{};
 };
 
 struct Frames {
   /**
+   * @brief Data frame containing all active error messages.
+   */
+  ErrorFrame error_frame{};
+
+  /**
    * @brief Temperature data from environmental extensions.
    */
-  Frame<std::string, DataPacket> env_temp = Frame<std::string, DataPacket>();
+  Frame<std::string, DataPacket> env_temp{};
 
   /**
    * @brief Pressure data from environmental extensions.
    */
-  Frame<std::string, DataPacket> env_pres = Frame<std::string, DataPacket>();
+  Frame<std::string, DataPacket> env_pres{};
 
   /**
    * @brief Humidity data from environmental extensions.
    */
-  Frame<std::string, DataPacket> env_hum = Frame<std::string, DataPacket>();
+  Frame<std::string, DataPacket> env_hum{};
 };
 
 struct Misc {
@@ -78,6 +86,7 @@ struct SharedData {
   Frames frames = Frames();
   SharedBlocks blocks{};
   Misc misc = Misc();
+  LogContainer log_container{};
 
 #ifndef DNDEBUG // Defined by CMake
   /**

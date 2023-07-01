@@ -1,3 +1,20 @@
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   data_log.hpp
+ * @brief  The data log is responsible for writing data to files and managing
+ * the file system.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
+ */
+
 #ifndef DATA_LOG_HPP_
 #define DATA_LOG_HPP_
 
@@ -11,7 +28,6 @@ namespace data_middleware {
 /**
  * @brief Used to write data and log information to files. Used by the data
  * module.
- *
  */
 class DataLog {
 
@@ -32,6 +48,8 @@ public:
    * @param strategy - The strategy to use for logging.
    */
   void logDataFrame(cfg::gEnum::LogStrategy strategy);
+
+  void logErrorFrame();
 
   /**
    * @brief Used to log a single log packet to the file log.
@@ -132,20 +150,47 @@ private:
                   const data::LogId booster_seat_log_id,
                   const data::LogId std_except_log_id, bool &validity_flag);
 
+  /**
+   * @brief Used to create the data directory with createDirectory().
+   */
   void createDataDir();
+
+  /**
+   * @brief Used to create the log directory with createDirectory().
+   */
   void createLogDir();
+
+  /**
+   * @brief Used to create the data archive directory with createDirectory().
+   */
   void createDataArchiveDir();
+
+  /**
+   * @brief Used to create the log archive directory with createDirectory().
+   */
   void createLogArchiveDir();
 
+  /**
+   * @brief Generates a new file path and attempts to create a new data file.
+   */
   void createNewDataFile();
+
+  /**
+   * @brief Generates a new file path and attempts to create a new log file.
+   */
   void createNewLogFile();
 
   /**
    * @brief Validates the existence of a directory.
-   *
-   * @param dir_path
-   * @param log_id
-   * @param validity_flag
+   * @param path - The path to the directory.
+   * @param does_not_exist_log_id - The error id to report if the directory does
+   * not exist.
+   * @param booster_seat_log_id - The error id to report if
+   * BoosterSeat::BoosterSeatException is thrown.
+   * @param std_except_log_id - The error id to report if std::exception is
+   * thrown.
+   * @param validity_flag (out) - The 'valid' flag to set if the directory is
+   * valid.
    */
   void validateDirExists(const std::string &path,
                          const data::LogId does_not_exist_log_id,
@@ -155,11 +200,14 @@ private:
 
   /**
    * @brief Validates the existence of a file.
-   *
-   * @param file_path
-   * @param log_id
-   * @param file_size
-   * @param validity_flag
+   * @param path - The path to the file.
+   * @param does_not_exist_log_id - The error id to report if the file does not
+   * exist.
+   * @param booster_seat_log_id - The error id to report if
+   * BoosterSeat::BoosterSeatException is thrown.
+   * @param std_except_log_id - The error id to report if std::exception is
+   * thrown.
+   * @param validity_flag (out) - The 'valid' flag to set if the file is valid.
    */
   void validateFileExists(const std::string &path,
                           const data::LogId does_not_exist_log_id,
@@ -171,25 +219,26 @@ private:
    * @brief Attempts to append data to a file. Only checks the file validity.
    *
    * @param path - The path to the file.
-   * @param data - The data to append.
+   * @param data - The string to append.
    * @param error_id - The error id to log if an error occurs.
    */
   void appendToFile(const std::string &path, const std::string &data,
                     const data::LogId error_id);
 
   /**
-   * @brief Checks the size of a file.
-   *
+   * @brief Attempts to read the size of a  file.
    * @param file_path - The path to the file.
-   * @param file_size - The variable to store the file size in.
+   * @param error_id - The error id to log if an error occurs.
+   * @param file_size (out) - The variable to store the file size in.
    */
   void updateFileSize(const std::string &file_path, const data::LogId error_id,
                       data::blocks::DataLogStats::FileSizeType &file_size);
 
   /**
-   * @brief Checks the size of a directory. (Recursive)
+   * @brief Attempts to read the size of a directory.
    *
    * @param dir_path - The path to the directory.
+   * @param error_id - The error id to log if an error occurs.
    * @param dir_size - The variable to store the directory size in.
    */
   void updateDirSize(const std::string &dir_path, const data::LogId error_id,
@@ -199,9 +248,9 @@ private:
    * @brief Moves a file to the archive directory according to the archive
    * method.
    *
-   * @param file_path
-   * @param archive_dir_path
-   * @param error_id
+   * @param file_path - The path to the file to archive.
+   * @param archive_dir_path - The path to the archive directory.
+   * @param error_id - The error id to log if an error occurs.
    * @return true if the file was archived successfully, false otherwise.
    *
    * @todo Archive Methods
@@ -211,23 +260,24 @@ private:
                    const data::LogId error_id);
 
   /**
-   * @brief Called on startup. If there are any files in the data or log
-   * directories that have been left behind, they will be archived.
-   * @param dir_path
-   * @param archive_dir_path
-   * @param current_file_name
-   * @param error_id
+   * @brief Called only startup. If there are any files in the data or log
+   * directories that have been left behind, they will be archived. Not
+   * recursive.
+   * @param dir_path - The path to the directory to check for stray files.
+   * @param archive_dir_path - The path to the archive directory.
+   * @param error_id - The error id to log if an error occurs.
    */
   void archiveOtherFilesInDir(const std::string &dir_path,
                               const std::string &archive_dir_path,
                               data::LogId error_id);
 
   /**
-   * @brief This method will check to see if a data or log file needs to be
-   * rotated/archived.
-   *
-   * @details This method will archive the file and create a new one if it
-   * exceeds the configured file size limit.
+   * @brief This method checks the size of the data and log files and archives
+   * them if they have exceeded the maximum size.
+   * @details This method first checks the size of the two files, if they are
+   * both under the maximum size, nothing happens. If a file is over the maximum
+   * configured size, it will attempt to archive the file and then create a new
+   * one.
    */
   void rotateFiles();
 
@@ -235,21 +285,56 @@ private:
    * @brief This method will use the configured archive settings to trim the
    * oldest files in the archive directory if the archive size limit is
    * exceeded.
+   * @warning This method is not implemented yet.
    */
   void trimArchive();
+
+  /**
+   * @brief This method will update the file list in the relevant data block.
+   */
+  void updateFileList();
 
   /** @} */ // end of DataLog.Filesystem
   //// END //// File System Management Methods
 
-  // START // Private Data Members
+  /**
+   * @brief The shared data.
+   */
   data::SharedData &shared_data_;
+
+  /**
+   * @brief The configuration.
+   */
   cfg::Configuration &config_;
 
+  /**
+   * @brief The file system status data block. Used to keep track of the file
+   * system locally to reduce the number of times the data block is set.
+   */
   data::blocks::DataLogStats fs_status_ = {};
 
+  /**
+   * @brief Used within 'updateFileSystem'. Keeps track of the last time the
+   * file system was checked.
+   */
   BoosterSeat::Stopwatch validation_stopwatch_ = BoosterSeat::Stopwatch();
+
+  /**
+   * @brief Used to time how often the full data frame is logged if the
+   * appropriate log strategy is selected.
+   */
   BoosterSeat::Stopwatch data_frame_stopwatch_ = BoosterSeat::Stopwatch();
 
+  /**
+   * @brief Used to time how often the error data frame is logged if the
+   * appropriate error log strategy is selected.
+   */
+  BoosterSeat::Stopwatch error_frame_stopwatch_ = BoosterSeat::Stopwatch();
+
+  /**
+   * @brief Used to format the data before it is written to the files. (turns
+   * things into json strings.)
+   */
   DataFormatter formatter_;
 };
 
