@@ -42,5 +42,12 @@
             "details": "Atmospheric pressure in millibars",
             "value": "0xE003"
         }
+    },
+    "camera":{
+        "new_image_path": {
+            "name": "New Image Path",
+            "details": "Path to a new image",
+            "value": "0xC001"
+        }
     }
 }

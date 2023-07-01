@@ -33,7 +33,8 @@ enum class DataId : uint16_t {
   EXTENSION_statusUpdate=0x0002, // Status Update
   ENVIRONMENTAL_temperature=0xE001, // Temperature (Celsius)
   ENVIRONMENTAL_humidity=0xE002, // Relative Humidity (%)
-  ENVIRONMENTAL_pressure=0xE003  // Pressure (mbar)
+  ENVIRONMENTAL_pressure=0xE003, // Pressure (mbar)
+  CAMERA_newImagePath=0xC001  // New Image Path
 };
 } // namespace data
 

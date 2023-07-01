@@ -142,6 +142,13 @@ private:
   void parseStatusDataPacket(const data::DataPacket &packet);
 
   /**
+   * @brief Process a data packet with ID data::DataId::CAMERA_newImagePath
+   * @details Validates that the packet contains a file path that exists and
+   * updates the data block.
+   */
+  void parseCameraNewImageDataPacket(const data::DataPacket &packet);
+
+  /**
    * @brief Parses all data from extensions and updates the data frame.
    * @param packet
    */
