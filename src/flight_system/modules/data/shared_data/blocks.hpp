@@ -163,6 +163,9 @@ struct DataLogStats {
   FileSizeType log_archive_dir_size = 0.0;
   std::string log_file_path = "";
 
+  std::vector<std::string> archived_data_files_list{};
+  std::vector<std::string> archived_log_files_list{};
+
   json toJson() {
     json j;
     j["data_dir"] = data_dir;

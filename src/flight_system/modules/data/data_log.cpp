@@ -20,8 +20,6 @@
 #include <BoosterSeat/time.hpp>
 #include <filesystem>
 
-#include <iostream>
-
 namespace mw = data_middleware;
 namespace bs = BoosterSeat;
 namespace bsfs = BoosterSeat::filesystem;
@@ -75,6 +73,7 @@ mw::DataLog::DataLog(data::SharedData &shared_data, cfg::Configuration &config)
   // Create the data and log files.
   createNewDataFile();
   createNewLogFile();
+  updateFileList();
 
   // Update the file system status.
   shared_data_.blocks.data_log_stats.set(fs_status_);
@@ -558,10 +557,32 @@ void mw::DataLog::rotateFiles() {
     }
     createNewLogFile();
   }
+
+  updateFileList();
 }
 
 /**
  * @todo Implement this function
  */
 void mw::DataLog::trimArchive() {
+}
+
+void getFileNamesInDir(const std::string &dir_path,
+                       std::vector<std::string> &file_list) {
+  file_list.clear();
+  std::filesystem::path dir(dir_path);
+  for (const auto &file : std::filesystem::directory_iterator(dir)) {
+    std::string file_path = file.path().filename().string();
+    file_list.push_back(file_path);
+  }
+}
+
+void mw::DataLog::updateFileList() {
+  try {
+    getFileNamesInDir(kDataArchiveDirPath, fs_status_.archived_data_files_list);
+    getFileNamesInDir(kLogArchiveDirPath, fs_status_.archived_log_files_list);
+  } catch (const std::exception &e) {
+    shared_data_.streams.log.errorStdException(
+        kNodeId, data::LogId::DATA_LOG_fileListFail, e);
+  }
 }

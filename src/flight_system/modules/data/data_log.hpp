@@ -289,6 +289,11 @@ private:
    */
   void trimArchive();
 
+  /**
+   * @brief This method will update the file list in the relevant data block.
+   */
+  void updateFileList();
+
   /** @} */ // end of DataLog.Filesystem
   //// END //// File System Management Methods
 

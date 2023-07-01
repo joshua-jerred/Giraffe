@@ -91,6 +91,7 @@ enum class LogId : uint16_t {
   DATA_LOG_archiveLogFile=0x3026, // Failed to archive log file
   DATA_LOG_rotateDataFile=0x3027, // Failed to rotate data file
   DATA_LOG_rotateLogFile=0x3028, // Failed to rotate log file
+  DATA_LOG_fileListFail=0x3029, // Failed to update archive file list
   SYSTEM_MODULE_systemInfoReadFail=0x4001, // Failed to read system info
   SYSTEM_MODULE_cpuTempReadFail=0x4002, // Failed to read CPU temperature
   SYSTEM_MODULE_diskInfoReadFail=0x4003, // Failed to read disk info
