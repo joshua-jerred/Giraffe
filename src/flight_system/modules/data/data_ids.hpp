@@ -1,4 +1,27 @@
-// * * * * GENERATED AUTOMATICALLY, DO NOT MANUALLY MODIFY * * * *
+/**
+ *
+ * 
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ *
+ *
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ * 
+ * 
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
+ * =*=======================*=
+ *
+ * @verbatim
+ */
+
 
 #ifndef DATA_IDS_HPP_
 #define DATA_IDS_HPP_
@@ -16,4 +39,11 @@ enum class DataId : uint16_t {
 
 #endif // DATA_IDS_HPP_
 
-// * * * * GENERATED AUTOMATICALLY, DO NOT MANUALLY MODIFY * * * *
+
+/**
+ * @endverbatim
+ * 
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ */

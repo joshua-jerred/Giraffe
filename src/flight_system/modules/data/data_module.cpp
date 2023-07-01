@@ -1,4 +1,4 @@
-#include "data_module.h"
+#include "data_module.hpp"
 #include "to_string.hpp"
 
 static modules::MetaData metadata("data_module",

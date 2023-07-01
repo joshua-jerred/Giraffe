@@ -127,10 +127,19 @@ void Extension::data(data::DataId identifier, T value, int precision) {
   interfaces_.streams.data.addPacket(packet);
 }
 
+/**
+ * @brief templates for Extension::data
+ * @verbatim
+ */
+
 template void Extension::data<int>(data::DataId, int, int);
 template void Extension::data<float>(data::DataId, float, int);
 template void Extension::data<double>(data::DataId, double, int);
 template void Extension::data<std::string>(data::DataId, std::string, int);
+
+/**
+ * @endverbatim
+ */
 
 void Extension::data(data::GpsFrame frame) {
   interfaces_.streams.gps.addFrame(node::Identification::EXTENSION,

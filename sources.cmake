@@ -45,6 +45,7 @@ set(gfs_sources
 	${GFS_SRC}/modules/data/influxdb.cpp
 	${GFS_SRC}/modules/data/data_formatting.cpp
 	${GFS_SRC}/modules/data/positional.cpp
+	${GFS_SRC}/modules/data/to_string.cpp
 	${GFS_SRC}/modules/data/shared_data/to_json.cpp
 	${GFS_SRC}/modules/data/shared_data/error_frame.cpp
 
@@ -64,9 +65,6 @@ set(gfs_sources
 	# extensions module and extensions
 	${GFS_SRC}/modules/extension/extension_module.cpp
 	${GFS_SRC}/extensions/extension.cpp
-
-	# utilities
-	${GFS_SRC}/utilities/to_string.cpp
 )
 
 set(gfs_include_dirs

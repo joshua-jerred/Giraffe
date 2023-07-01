@@ -8,8 +8,7 @@
  * @file   giraffe_assert.hpp
  * @brief  For absolute failures in the code.
  *
- * @ref
- * https://mcuoneclipse.com/2021/01/23/assert-__file__-path-and-other-cool-gnu-gcc-tricks-to-be-aware-of/
+ * @cite Styger
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)

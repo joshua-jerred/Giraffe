@@ -1,12 +1,20 @@
 /**
- * @file module_server.cpp
- * @author Joshua Jerred (https://joshuajer.red)
- * @brief
- * @date 2023-05-16
- * @copyright Copyright (c) 2023
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   server_module.cpp
+ * @brief  The server module class implementation.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
  */
 
-#include "server_module.h"
+#include "server_module.hpp"
 
 static modules::MetaData metadata("server_module",
                                   node::Identification::SERVER_MODULE, 50);

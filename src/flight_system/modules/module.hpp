@@ -1,9 +1,17 @@
 /**
- * @file module.h
- * @author Joshua Jerred (https://joshuajer.red)
- * @brief Base module
- * @date 2023-05-16
- * @copyright Copyright (c) 2023
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   module.hpp
+ * @brief  The header file for the base module class.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
  */
 
 #ifndef MODULE_HPP_

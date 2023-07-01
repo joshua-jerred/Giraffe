@@ -2,7 +2,7 @@
 
 #include <BoosterSeat/clock.hpp>
 
-#include "curses_utilities.h"
+#include "curses_utilities.hpp"
 
 void ncurs::internal::Window::win_init() {
   p_window_ = newwin(height_, width_, y_, x_);

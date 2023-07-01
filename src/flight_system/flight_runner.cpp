@@ -1,14 +1,24 @@
 #include "flight_runner.hpp"
 
-#include "configurables.hpp"
+/**
+ * @brief The release version of Giraffe, set by CMake.
+ */
+const std::string kGiraffeVersion = GIRAFFE_VERSION_NUMBER;
 
-// #include "interface.h"
-// #include "timer.h"
+/**
+ * @brief The release stage of Giraffe, set by CMake.
+ */
+const std::string kGiraffeVersionStage = GIRAFFE_VERSION_STAGE;
+
+/**
+ * @brief The path to the configuration file.
+ */
+static const std::string kConfigFilePath = "./config.json";
 
 /**
  * @brief These are helper functions to print out startup and shutdown messages
  *
- * @defgroup FlightRunnerConsoleHelpers
+ * @defgroup FlightRunnerConsoleHelpers Flight Runner Console Helpers
  * @{
  */
 inline void _start(const std::string &module_name) {
@@ -65,8 +75,7 @@ FlightRunner::~FlightRunner() {
 }
 
 auto FlightRunner::start() -> int {
-  std::cout << "Giraffe Flight Software v" << configurables::kGiraffeVersion
-            << std::endl;
+  std::cout << "Giraffe Flight Software v" << kGiraffeVersion << std::endl;
 
   /*
     First, initialize the data streams to facilitate cross-thread communication.
@@ -74,7 +83,7 @@ auto FlightRunner::start() -> int {
     After that, startup the data module to start processing the data streams.
   */
   p_config_ = new cfg::Configuration(shared_data_.streams);
-  p_config_->load(configurables::file_paths::kConfigFilePath);
+  p_config_->load(kConfigFilePath);
   p_data_module_ = new modules::DataModule(shared_data_, *p_config_);
   p_data_module_->start();
 
@@ -235,7 +244,7 @@ auto FlightRunner::flightLoop() -> int {
   std::cout << std::endl
             << "Shutdown signal received." << std::endl
             << std::endl;
-  p_config_->save(configurables::file_paths::kConfigFilePath);
+  p_config_->save(kConfigFilePath);
   return 0;
 }
 

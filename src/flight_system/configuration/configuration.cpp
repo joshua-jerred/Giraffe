@@ -1,4 +1,27 @@
-// * * * AUTOMATICALLY GENERATED WITH CMake/Python * * *
+/**
+ *
+ * 
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ *
+ *
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ * 
+ * 
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
+ * =*=======================*=
+ *
+ * @verbatim
+ */
+
 
 #include <filesystem>
 #include "configuration.hpp"
@@ -1513,5 +1536,10 @@ void cfg::Configuration::load(std::string file_path) {
 }
 
 
-// * * * AUTOMATICALLY GENERATED WITH CMake/Python * * *
-// configuration.cpp
+/**
+ * @endverbatim
+ * 
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ */
