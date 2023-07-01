@@ -217,7 +217,7 @@ IGNORE_PREFIX          =
 # Configuration options related to the HTML output
 #---------------------------------------------------------------------------
 
-GENERATE_HTML          = YES
+GENERATE_HTML          = NO
 HTML_OUTPUT            = html
 HTML_FILE_EXTENSION    = .html
 HTML_STYLESHEET        = ./docs/Doxygen/stylesheet.css
@@ -256,40 +256,6 @@ SEARCHDATA_FILE        = searchdata.xml
 EXTERNAL_SEARCH_ID     =
 EXTRA_SEARCH_MAPPINGS  =
 
-#---------------------------------------------------------------------------
-# Configuration options related to the LaTeX output
-#---------------------------------------------------------------------------
-
-GENERATE_LATEX         = NO
-LATEX_OUTPUT           = latex
-LATEX_CMD_NAME         =
-MAKEINDEX_CMD_NAME     = makeindex
-LATEX_MAKEINDEX_CMD    = makeindex
-
-COMPACT_LATEX          = YES
-PAPER_TYPE             = a4
-
-EXTRA_PACKAGES         =
-LATEX_HEADER           =
-LATEX_FOOTER           =
-
-LATEX_EXTRA_STYLESHEET =
-LATEX_EXTRA_FILES      =
-
-PDF_HYPERLINKS         = YES
-USE_PDFLATEX           = YES
-
-LATEX_BATCHMODE        = NO
-
-LATEX_HIDE_INDICES     = NO
-
-LATEX_SOURCE_CODE      = NO
-
-LATEX_BIB_STYLE        = plain
-
-LATEX_TIMESTAMP        = NO
-
-LATEX_EMOJI_DIRECTORY  =
 
 #---------------------------------------------------------------------------
 # Configuration options related to the preprocessor
