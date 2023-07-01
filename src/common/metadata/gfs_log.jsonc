@@ -339,6 +339,11 @@
       "name": "Failed to rotate log file",
       "details": "The log file could not be rotated.",
       "value": "0x3028"
+    },
+    "file_list_fail":{
+      "name": "Failed to update archive file list",
+      "details": "The archive file list could not be generated due to an exception.",
+      "value": "0x3029"
     }
   },
   "console_module": {},
