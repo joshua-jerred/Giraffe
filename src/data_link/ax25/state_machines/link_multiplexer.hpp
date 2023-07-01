@@ -68,28 +68,19 @@ private:
   void generateSignal(Primitive primitive, PrimitiveAction action);
   void indicate(LinkMultiplexerErrorCodes error_code);
 
-  void state_receiverReady();
-  void state_receiving();
-  void state_transmitterReady();
-  void state_transmitterStart();
-  void state_transmitting();
+  void state_idle();
+  void state_seizePending();
+  void state_seized();
 
-  void subroutine_startTransmitter();
-  void subroutine_acquisition();
+  void subroutine_frameReceived();
+  void subroutine_finishCurrentTransmission();
+  void subroutine_queueEvent();
 
-  // To the radio
-  bool turnTransmitterOn();
-  bool turnTransmitterOff();
-  void frame();
+  LinkMultiplexerStates state_ = LinkMultiplexerStates::IDLE;
 
-  // From the radio
-  bool acquisitionOfSignal();
-  bool lossOfSignal();
-  void frame();
-
-  DuplexPhysicalLayerStates state_ = DuplexPhysicalLayerStates::RECEIVER_READY;
-
-  // NormalQueue;
+  // AwaitingQueue;
+  // CurrentQueue;
+  // ServedQueue;
 };
 } // namespace ax25
 

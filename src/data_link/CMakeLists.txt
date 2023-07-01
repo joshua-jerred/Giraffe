@@ -13,3 +13,8 @@ add_executable(gdl_terminal
   "./gdl_terminal.cpp"
 )
 target_link_libraries(gdl_terminal giraffe_data_link)
+
+add_executable(fft_test
+  "./fft/fft_test.cpp"
+)
+target_link_libraries(fft_test fftw3)

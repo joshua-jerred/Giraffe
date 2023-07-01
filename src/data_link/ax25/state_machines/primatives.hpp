@@ -35,10 +35,14 @@ enum class Primitive {
   DL_ERROR,
   DL_FLOW_ON,
   DL_FLOW_OFF,
+  // LM = Link Multiplexer
   LM_SEIZE,
   LM_RELEASE,
   LM_DATA,
-  LM_EXPEDITED_DATA
+  LM_EXPEDITED_DATA,
+  // MDL = Management Data Link
+  MDL_NEGOTIATE,
+  MDL_ERROR
 };
 
 enum class PrimitiveAction {
