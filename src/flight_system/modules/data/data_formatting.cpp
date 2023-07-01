@@ -14,17 +14,20 @@
  * @copyright  2023 (license to be defined)
  */
 
-#include "data_formatting.hpp"
+#include <type_traits>
+
 #include <BoosterSeat/string_formatting.hpp>
 #include <BoosterSeat/time.hpp>
-#include <type_traits>
+
+#include "data_formatting.hpp"
+#include "to_string.hpp"
 
 namespace bst = BoosterSeat::time;
 using namespace data_middleware;
 
 std::string DataFormatter::fullFrame() {
   json frame;
-  setupFrameStructure(frame);
+  setupFrameStructure(frame, "data");
   addComponent(DataFrameComponent::MODULES_STATUSES, frame);
   addComponent(DataFrameComponent::STREAM_STATS, frame);
   addComponent(DataFrameComponent::SERVER_STATS, frame);
@@ -36,7 +39,7 @@ std::string DataFormatter::fullFrame() {
 std::string
 DataFormatter::partialFrame(std::vector<DataFrameComponent> components) {
   json frame;
-  setupFrameStructure(frame);
+  setupFrameStructure(frame, "data");
 
   for (auto component : components) {
     addComponent(component, frame);
@@ -45,10 +48,11 @@ DataFormatter::partialFrame(std::vector<DataFrameComponent> components) {
   return frame.dump();
 }
 
-void DataFormatter::setupFrameStructure(json &frame) {
+void DataFormatter::setupFrameStructure(json &frame,
+                                        const std::string &body_field) {
   frame["timestamp"] = generateTimestamp();
   frame["uptime"] = shared_data_.misc.getUptimeString();
-  frame["data"] = json::object();
+  frame[body_field] = json::object();
 }
 
 void DataFormatter::addComponent(DataFrameComponent component, json &frame) {
@@ -106,6 +110,83 @@ DataFormatter::dataPacketToJsonString(const data::DataPacket &packet) const {
   // Format into json
   json data_packet = {
       {"src", source}, {"id", id}, {"ts", timestamp}, {"val", value}};
+  return data_packet.dump();
+}
+
+json DataFormatter::fullFrameLogPacketToJson(
+    const data::ErrorFrameItem &item) const {
+
+  std::string id = BoosterSeat::string::intToHex(
+      static_cast<uint16_t>(item.packet.id), 4, false);
+  std::string first = BoosterSeat::time::timeString(
+      BoosterSeat::time::TimeZone::LOCAL, ':', item.first_reported);
+  std::string last = BoosterSeat::time::timeString(
+      BoosterSeat::time::TimeZone::LOCAL, ':', item.last_reported);
+  int count = item.occurrences;
+
+  // clang-format off
+  json output = {
+    {"id", id},
+    {"first", first},
+    {"last", last},
+    {"count", count}
+  };
+  // clang-format on
+
+  return output;
+}
+
+std::string DataFormatter::fullErrorFrame() {
+  json full_frame = {
+      {"timestamp", generateTimestamp()},
+      {"uptime", shared_data_.misc.getUptimeString()},
+      {"errors", json::array()},
+  };
+
+  auto error_frame = shared_data_.frames.error_frame.getFullFrame();
+  for (auto error_pair : error_frame) {
+    full_frame["errors"].push_back(fullFrameLogPacketToJson(error_pair.second));
+  }
+
+  return full_frame.dump();
+}
+
+std::string
+DataFormatter::logPacketToJsonString(const data::LogPacket &packet) const {
+  std::string timestamp;
+  std::string level;
+  std::string source;
+  std::string id;
+  std::string info;
+
+  if (packet.source == node::Identification::EXTENSION) {
+    // Extensions all have the same source, so use the secondary.
+    source = "ext." + packet.secondary_identifier;
+  } else {
+    source = node::identification_to_string.at(packet.source);
+  }
+
+  id = BoosterSeat::string::intToHex(static_cast<uint16_t>(packet.id), 4, false,
+                                     true);
+
+  level = util::to_string(packet.level);
+
+  info = packet.info;
+  auto time = packet.created_time;
+  timestamp = generateTimestamp(time);
+  timestamp = BoosterSeat::time::timeString(BoosterSeat::time::TimeZone::LOCAL,
+                                            ':', packet.created_time);
+
+  // Format into json
+  // clang-format off
+  json data_packet = {
+    {"lvl", level},
+    {"src", source},
+    {"id", id},
+    {"ts", timestamp},
+    {"info", info}
+  };
+  // clang-format on
   return data_packet.dump();
 }
 

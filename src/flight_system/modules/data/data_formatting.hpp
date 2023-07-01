@@ -44,12 +44,15 @@ public:
   std::string partialFrame(std::vector<DataFrameComponent> components);
   std::string dataPacketToJsonString(const data::DataPacket &packet) const;
 
+  std::string fullErrorFrame();
+  std::string logPacketToJsonString(const data::LogPacket &packet) const;
+
 private:
   /**
    * @brief Used to set up the frame json structure.
    * @param frame
    */
-  void setupFrameStructure(json &frame);
+  void setupFrameStructure(json &frame, const std::string &body_field);
   void addComponent(DataFrameComponent component, json &frame);
 
   /**
@@ -63,6 +66,8 @@ private:
    */
   std::string generateTimestamp(const BoosterSeat::clck::TimePoint time_point =
                                     BoosterSeat::clck::now()) const;
+
+  json fullFrameLogPacketToJson(const data::ErrorFrameItem &item) const;
 
   cfg::Configuration &config_;
   data::SharedData &shared_data_;

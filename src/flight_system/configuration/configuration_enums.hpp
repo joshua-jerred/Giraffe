@@ -173,6 +173,22 @@ constexpr const char* LogLevelToKey(cfg::gEnum::LogLevel val) throw() {
   __builtin_unreachable();
 }
 
+enum class ErrorLogStrategy {
+  ALL,
+  ERROR_FRAME
+};
+std::unordered_map<std::string, cfg::gEnum::ErrorLogStrategy> const KeyToErrorLogStrategy = {
+  {"all", cfg::gEnum::ErrorLogStrategy::ALL},
+  {"error_frame", cfg::gEnum::ErrorLogStrategy::ERROR_FRAME}
+};
+constexpr const char* ErrorLogStrategyToKey(cfg::gEnum::ErrorLogStrategy val) throw() {
+  switch (val) {
+    case cfg::gEnum::ErrorLogStrategy::ALL: return "all";
+    case cfg::gEnum::ErrorLogStrategy::ERROR_FRAME: return "error_frame";
+  }
+  __builtin_unreachable();
+}
+
 enum class AprsSymbolTable {
   PRIMARY,
   ALTERNATE

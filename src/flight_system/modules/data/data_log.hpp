@@ -33,6 +33,8 @@ public:
    */
   void logDataFrame(cfg::gEnum::LogStrategy strategy);
 
+  void logErrorFrame();
+
   /**
    * @brief Used to log a single log packet to the file log.
    * @param packet @see data::LogPacket
@@ -249,6 +251,7 @@ private:
 
   BoosterSeat::Stopwatch validation_stopwatch_ = BoosterSeat::Stopwatch();
   BoosterSeat::Stopwatch data_frame_stopwatch_ = BoosterSeat::Stopwatch();
+  BoosterSeat::Stopwatch error_frame_stopwatch_ = BoosterSeat::Stopwatch();
 
   DataFormatter formatter_;
 };

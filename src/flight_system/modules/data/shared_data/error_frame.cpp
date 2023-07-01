@@ -112,4 +112,10 @@ bool ErrorFrame::lastOccurrence(data::LogId id,
   return true;
 }
 
+std::unordered_map<data::LogId, ErrorFrameItem>
+ErrorFrame::getFullFrame() const {
+  std::lock_guard<std::mutex> lock(error_frame_mutex_);
+  return Frame::frame_;
+}
+
 } // namespace data

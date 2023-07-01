@@ -23,6 +23,11 @@ void modules::DataModule::loop() {
         configuration_.data_module_data.getLogStrategy();
   }
   log_file_enabled_ = configuration_.data_module_log.getLogToFile();
+  if (log_file_enabled_) {
+    error_file_logging_strategy_ =
+        configuration_.data_module_log.getErrorLogStrategy();
+  }
+
   influxdb_enabled_ = configuration_.data_module_influxdb.getInfluxEnabled();
 
   processAllStreams();
@@ -34,10 +39,28 @@ void modules::DataModule::loop() {
     data_log_.logDataFrame(
         data_file_logging_strategy_); // timer taken care of inside of data_log_
   }
+
+  if (log_file_enabled_ && error_file_logging_strategy_ ==
+                               cfg::gEnum::ErrorLogStrategy::ERROR_FRAME) {
+    data_log_.logErrorFrame();
+  }
 }
 
 void modules::DataModule::shutdown() {
+  // If the logging strategy is all, then this will log the remaining packets.
   processAllStreams();
+
+  // If the logging strategy is interval, then this will log the frame
+  if (data_file_enabled_ &&
+      data_file_logging_strategy_ == cfg::gEnum::LogStrategy::INTERVAL) {
+    data_log_.logDataFrame(data_file_logging_strategy_);
+  }
+
+  // Same as above, but for error frames
+  if (log_file_enabled_ && error_file_logging_strategy_ ==
+                               cfg::gEnum::ErrorLogStrategy::ERROR_FRAME) {
+    data_log_.logErrorFrame();
+  }
 }
 
 void modules::DataModule::processCommand(const cmd::Command &command) {
@@ -165,7 +188,8 @@ void modules::DataModule::processLogPacket(const data::LogPacket &packet) {
   }
 
   // Log log packet to file (if enabled)
-  if (log_file_enabled_) {
+  if (log_file_enabled_ &&
+      error_file_logging_strategy_ == cfg::gEnum::ErrorLogStrategy::ALL) {
     data_log_.logLogPacket(packet);
   }
 

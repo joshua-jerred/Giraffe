@@ -88,7 +88,7 @@ private:
 };
 
 struct LogPacket : public BaseStreamPacket {
-  enum class Level { DEBUG, INFO, WARN, ERROR };
+  enum class Level : int { DEBUG = 0, INFO = 1, WARN = 2, ERROR = 3 };
   Level level = Level::INFO;
   data::LogId id = data::LogId::GENERIC_unknown;
   std::string info = "";

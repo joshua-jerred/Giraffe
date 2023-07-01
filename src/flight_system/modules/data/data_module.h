@@ -150,6 +150,8 @@ private:
 
   cfg::gEnum::LogStrategy data_file_logging_strategy_ =
       cfg::gEnum::LogStrategy::INTERVAL;
+  cfg::gEnum::ErrorLogStrategy error_file_logging_strategy_ =
+      cfg::gEnum::ErrorLogStrategy::ALL;
 };
 
 } // namespace modules

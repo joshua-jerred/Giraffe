@@ -25,6 +25,9 @@
 
 namespace data {
 
+/**
+ * @brief A struct to store information about an error in the error frame.
+ */
 struct ErrorFrameItem {
   BoosterSeat::clck::TimePoint last_reported{};
   BoosterSeat::clck::TimePoint first_reported{};
@@ -129,6 +132,12 @@ public:
    * @return false - The error was not found in the frame.
    */
   bool lastOccurrence(data::LogId id, BoosterSeat::clck::TimePoint &time) const;
+
+  /**
+   * @brief Get the full error frame.
+   * @return std::unordered_map<data::LogId, ErrorFrameItem> - The error frame.
+   */
+  std::unordered_map<data::LogId, ErrorFrameItem> getFullFrame() const;
 
 private:
   /**

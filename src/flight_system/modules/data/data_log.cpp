@@ -36,8 +36,9 @@ inline constexpr bsfs::units::Size kDataSizeUnit = bsfs::units::Size::MEGABYTES;
 mw::DataLog::DataLog(data::SharedData &shared_data, cfg::Configuration &config)
     : shared_data_(shared_data), config_(config),
       formatter_(config, shared_data) {
-  data_frame_stopwatch_.start();
   validation_stopwatch_.start();
+  data_frame_stopwatch_.start();
+  error_frame_stopwatch_.start();
 
   // Generate the file system.
   createDataDir();
@@ -110,8 +111,31 @@ void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
   updateFileSystem();
 }
 
+void mw::DataLog::logErrorFrame() {
+  int log_interval_ms = config_.data_module_log.getErrorFrameLogInterval();
+  int time_since_last_log_ms =
+      error_frame_stopwatch_.elapsed(BoosterSeat::Resolution::MILLISECONDS);
+
+  if (time_since_last_log_ms > log_interval_ms) {
+    // first, reset the stopwatch before logging
+    error_frame_stopwatch_.reset();
+    error_frame_stopwatch_.start();
+  } else {
+    return; // don't log if the interval hasn't passed
+  }
+
+  appendToLogFile(formatter_.fullErrorFrame());
+
+  updateFileSystem();
+}
+
 void mw::DataLog::logLogPacket(const data::LogPacket &packet) {
-  (void)packet;
+  auto log_level = config_.data_module_log.getLogLevel();
+  auto packet_level = packet.level;
+
+  if (static_cast<int>(packet_level) >= static_cast<int>(log_level)) {
+    appendToLogFile(formatter_.logPacketToJsonString(packet));
+  }
 }
 
 void mw::DataLog::appendToDataFile(const std::string &content) {
