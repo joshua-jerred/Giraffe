@@ -1,5 +1,21 @@
-#ifndef DATA_MODULE_H_
-#define DATA_MODULE_H_
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   data_module.hpp
+ * @brief  The data module header file.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-06-30
+ * @copyright  2023 (license to be defined)
+ */
+
+#ifndef DATA_MODULE_HPP_
+#define DATA_MODULE_HPP_
 
 #include <functional>
 
@@ -9,9 +25,18 @@
 
 namespace modules {
 
+/**
+ * @brief  A major module of the Giraffe Flight System that handles data flow
+ * through the system.
+ */
 class DataModule : public Module {
 public:
-  DataModule(data::SharedData &, cfg::Configuration &);
+  /**
+   * @brief Constructor for the data module.
+   * @param shared_data - System wide shared data object.
+   * @param configuration - System wide configuration object.
+   */
+  DataModule(data::SharedData &shared_data, cfg::Configuration &configuration);
   ~DataModule() override = default;
 
 private:
@@ -86,7 +111,8 @@ private:
   }
 
   /**
-   * @brief Process all shared streams.
+   * @brief Processes all of the data streams and updates the data block that
+   * contains the stream stats.
    */
   void processAllStreams();
 
@@ -139,17 +165,51 @@ private:
    */
   void processImuFramePacket(const data::ImuFramePacket &packet);
 
+  /**
+   * @brief The data log object, used to log data and errors to files.
+   */
   data_middleware::DataLog data_log_;
+
+  /**
+   * @brief Used to access the influxdb database.
+   */
   data_middleware::InfluxDb influxdb_;
 
+  /**
+   * @brief True if data file logging is enabled.
+   * @details This is updated every loop based on the configuration.
+   */
   bool data_file_enabled_ = false;
+
+  /**
+   * @brief True if error file logging is enabled.
+   * @details This is updated every loop based on the configuration.
+   */
   bool log_file_enabled_ = false;
+
+  /**
+   * @brief True if influxdb logging is enabled.
+   * @details This is updated every loop based on the configuration.
+   */
   bool influxdb_enabled_ = false;
 
+  /**
+   * @brief User to determine if shared 'log_container' needs to be updated so
+   * the console module can print the log.
+   */
   bool console_module_enabled_ = false;
 
+  /**
+   * @brief The current data file logging strategy.
+   * @details This is updated every loop based on the configuration.
+   */
   cfg::gEnum::LogStrategy data_file_logging_strategy_ =
       cfg::gEnum::LogStrategy::INTERVAL;
+
+  /**
+   * @brief The current error file logging strategy.
+   * @details This is updated every loop based on the configuration.
+   */
   cfg::gEnum::ErrorLogStrategy error_file_logging_strategy_ =
       cfg::gEnum::ErrorLogStrategy::ALL;
 };

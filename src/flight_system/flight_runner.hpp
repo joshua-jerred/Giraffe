@@ -3,7 +3,7 @@
 
 #include "configuration.hpp"
 #include "console_module.h"
-#include "data_module.h"
+#include "data_module.hpp"
 #include "extension_module.hpp"
 #include "server_module.h"
 #include "shared_data.hpp"
