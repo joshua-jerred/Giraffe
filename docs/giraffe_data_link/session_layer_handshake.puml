@@ -1,0 +1,12 @@
+@startuml
+
+title Session Layer Handshake
+
+participant initiator as I
+participant responder as R
+
+I -> R: Syn
+R -> I: SynAck
+I -> R: Ack
+
+@enduml
