@@ -1,4 +1,5 @@
 #include "data_module.h"
+#include "to_string.hpp"
 
 static modules::MetaData metadata("data_module",
                                   node::Identification::DATA_MODULE, 100);
@@ -10,6 +11,7 @@ modules::DataModule::DataModule(data::SharedData &shared_data,
 }
 
 void modules::DataModule::startup() {
+  console_module_enabled_ = configuration_.console_module.getEnabled();
   /** @todo why the call to sleep()? */
   sleep(); // wait to start
 }
@@ -157,6 +159,11 @@ void modules::DataModule::parseStatusDataPacket(
 // ------------------ Log Stream Parsing ------------------
 
 void modules::DataModule::processLogPacket(const data::LogPacket &packet) {
+
+  if (console_module_enabled_) {
+    shared_data_.log_container.add(util::to_string(packet));
+  }
+
   // Log log packet to file (if enabled)
   if (log_file_enabled_) {
     data_log_.logLogPacket(packet);
@@ -167,7 +174,14 @@ void modules::DataModule::processLogPacket(const data::LogPacket &packet) {
     influxdb_.logLogPacket(packet);
   }
 
-  // Process packet here
+  // Add to the error frame if it is an error
+  if (packet.level == data::LogPacket::Level::ERROR) {
+    shared_data_.frames.error_frame.addError(packet);
+  }
+
+  /**
+   * @todo debug/log packets should be processed here
+   */
 }
 
 // ------------------ GPS Stream Parsing ------------------

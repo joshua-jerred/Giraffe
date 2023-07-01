@@ -24,14 +24,15 @@
 #include "blocks.hpp"
 #include "error_frame.hpp"
 #include "frame.hpp"
+#include "log_container.hpp"
 #include "streams.hpp"
 
 namespace data {
 struct Streams {
-  DataStream data = DataStream();
-  LogStream log = LogStream();
-  GpsFrameStream gps = GpsFrameStream();
-  ImuFrameStream imu = ImuFrameStream();
+  DataStream data{};
+  LogStream log{};
+  GpsFrameStream gps{};
+  ImuFrameStream imu{};
 };
 
 struct SharedBlocks {
@@ -84,6 +85,7 @@ struct SharedData {
   Frames frames = Frames();
   SharedBlocks blocks{};
   Misc misc = Misc();
+  LogContainer log_container{};
 
 #ifndef DNDEBUG // Defined by CMake
   /**

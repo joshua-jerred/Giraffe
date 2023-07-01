@@ -64,6 +64,9 @@ set(gfs_sources
 	# extensions module and extensions
 	${GFS_SRC}/modules/extension/extension_module.cpp
 	${GFS_SRC}/extensions/extension.cpp
+
+	# utilities
+	${GFS_SRC}/utilities/to_string.cpp
 )
 
 set(gfs_include_dirs
