@@ -2,7 +2,7 @@
 
 #include "gdl_configuration.hpp"
 #include "gdl_message.hpp"
-#include "message_queue.hpp"
+#include "gdl_message_queue.hpp"
 
 TEST(GdlMessageQueueTest, Push) {
   constexpr uint8_t max_queue_size = 10;

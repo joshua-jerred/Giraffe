@@ -14,24 +14,71 @@
  * @copyright  2023 (license to be defined)
  */
 
-#include <giraffe_data_link.hpp>
-#include <giraffe_exception.hpp>
+#include <BoosterSeat/sleep.hpp>
+
+#include <giraffe_diagnostics.hpp>
+
+#include "giraffe_data_link.hpp"
 
 namespace gdl {
-GiraffeDataLink::GiraffeDataLink(GdlConfig config) : config_(config) {
+
+GiraffeDataLink::GiraffeDataLink(GdlConfig config)
+    : config_(config),
+      queues_(config.exchange_queue_size, config.broadcast_queue_size,
+              config.received_queue_size) {
 }
 
 GiraffeDataLink::~GiraffeDataLink() {
-}
-
-GiraffeDataLink::Status GiraffeDataLink::getStatus() const {
-  return status_;
+  if (status_ == Status::RUNNING) {
+    stop();
+  }
 }
 
 void GiraffeDataLink::start() {
   if (status_ != Status::STOPPED) {
     throw GiraffeException(DiagnosticId::GDL_invalidStartCall);
   }
+  status_ = Status::STARTING;
+  gdl_thread_ = std::thread(&GiraffeDataLink::gdlThread, this);
+}
+
+void GiraffeDataLink::stop() {
+  if (status_ != Status::RUNNING) {
+    throw GiraffeException(DiagnosticId::GDL_invalidStopCall);
+  }
+  status_ = Status::STOPPING;
+  gdl_thread_.join();
+}
+
+GiraffeDataLink::Status GiraffeDataLink::getStatus() const {
+  return status_;
+}
+
+GiraffeDataLink::ConnectionStatus GiraffeDataLink::getConnectionStatus() const {
+  return connection_status_;
+}
+
+void GiraffeDataLink::gdlThread() {
+  constexpr int kSleepIntervalMs = 50;
+
+  status_ = Status::RUNNING;
+  while (status_ == Status::RUNNING) {
+    BoosterSeat::threadSleep(kSleepIntervalMs);
+  }
+}
+
+bool GiraffeDataLink::addExchangeMessage(Message message) {
+  if (status_ != Status::RUNNING) {
+    throw GiraffeException(DiagnosticId::GDL_invalidExchangeCall);
+  }
+  return queues_.exchange.push(message);
+}
+
+bool GiraffeDataLink::addBroadcastMessage(Message message) {
+  if (status_ != Status::RUNNING) {
+    throw GiraffeException(DiagnosticId::GDL_invalidBroadcastCall);
+  }
+  return queues_.broadcast.push(message);
 }
 
 } // namespace gdl

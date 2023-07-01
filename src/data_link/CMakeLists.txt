@@ -4,7 +4,10 @@ add_library(giraffe_data_link STATIC
 )
 target_include_directories(giraffe_data_link PUBLIC include)
 target_include_directories(giraffe_data_link PRIVATE "./")
-target_link_libraries(giraffe_data_link giraffe_diagnostics)
+target_link_libraries(giraffe_data_link 
+  giraffe_diagnostics
+  BoosterSeat
+)
 
 add_executable(gdl_terminal
   "./gdl_terminal.cpp"

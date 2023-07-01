@@ -97,7 +97,10 @@ const std::unordered_map<DiagnosticId, std::string> diagnosticIdStringMap {
   {DiagnosticId::EXTENSION_stopTimeout,"EXTENSION_stopTimeout"},
   {DiagnosticId::EXT_FAULT_none,"EXT_FAULT_none"},
   {DiagnosticId::EXT_FAULT_fatalConfig,"EXT_FAULT_fatalConfig"},
-  {DiagnosticId::GDL_invalidStartCall,"GDL_invalidStartCall"}
+  {DiagnosticId::GDL_invalidStartCall,"GDL_invalidStartCall"},
+  {DiagnosticId::GDL_invalidStopCall,"GDL_invalidStopCall"},
+  {DiagnosticId::GDL_invalidBroadcastCall,"GDL_invalidBroadcastCall"},
+  {DiagnosticId::GDL_invalidExchangeCall,"GDL_invalidExchangeCall"}
 };
 
 

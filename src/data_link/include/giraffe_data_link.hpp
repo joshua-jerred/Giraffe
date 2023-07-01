@@ -23,6 +23,7 @@
 
 #include "gdl_configuration.hpp"
 #include "gdl_message.hpp"
+#include "gdl_message_queue.hpp"
 
 namespace gdl {
 /**
@@ -34,6 +35,8 @@ public:
    * @brief The status of the GDL instance.
    */
   enum class Status { ERROR, STOPPED, STARTING, RUNNING, STOPPING };
+
+  enum class ConnectionStatus { DISCONNECTED, CONNECTED };
 
   /**
    * @brief Create a new Giraffe Data Link instance
@@ -66,13 +69,19 @@ public:
   GiraffeDataLink::Status getStatus() const;
 
   /**
+   * @brief Get the connection status of the GDL instance.
+   * @return GiraffeDataLink::ConnectionStatus - The connection status
+   */
+  ConnectionStatus getConnectionStatus() const;
+
+  /**
    * @brief Add a message to the exchange queue.
    *
    * @param message - The message to add to the queue.
    * @return true - If the message was added to the queue.
    * @return false - If the message was not added to the queue.
    */
-  bool exchange(Message message);
+  bool addExchangeMessage(Message message);
 
   /**
    * @brief Add a message to the broadcast queue.
@@ -81,16 +90,51 @@ public:
    * @return true - If the message was added to the queue.
    * @return false - If the message was not added to the queue.
    */
-  bool broadcast(Message message);
+  bool addBroadcastMessage(Message message);
 
 private:
+  struct MessageQueues {
+    MessageQueues(int exchange_queue_size, int broadcast_queue_size,
+                  int receive_queue_size)
+        : exchange(exchange_queue_size), broadcast(broadcast_queue_size),
+          receive(receive_queue_size) {
+    }
+
+    MessageQueue exchange;
+    MessageQueue broadcast;
+    MessageQueue receive;
+  };
+
+  /**
+   * @brief The main thread function for GDL.
+   */
+  void gdlThread();
+
+  /**
+   * @brief The configuration for the GDL instance.
+   */
   const GdlConfig config_;
-  std::thread gdl_thread{};
+
+  /**
+   * @brief The queues for the GDL instance.
+   */
+  MessageQueues queues_;
+
+  /**
+   * @brief The thread that runs GDL.
+   */
+  std::thread gdl_thread_{};
 
   /**
    * @brief The status of the GDL instance.
    */
   std::atomic<Status> status_{Status::STOPPED};
+
+  /**
+   * @brief The status of the connection.
+   */
+  std::atomic<ConnectionStatus> connection_status_{
+      ConnectionStatus::DISCONNECTED};
 };
 
 } // namespace gdl

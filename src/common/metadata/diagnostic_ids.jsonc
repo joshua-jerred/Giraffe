@@ -395,6 +395,21 @@
       "name": "Invalid Start Call",
       "details": "Call to GDL::start() when not in the stopped state.",
       "value": "0xA000"
+    },
+    "invalid_stop_call":{
+      "name": "Invalid Stop Call",
+      "details": "Call to GDL::stop() when not in the running state.",
+      "value": "0xA001"
+    },
+    "invalid_broadcast_call":{
+      "name": "Invalid Broadcast Call",
+      "details": "Call to GDL::broadcast() when not in the running state.",
+      "value": "0xA002"
+    },
+    "invalid_exchange_call":{
+      "name": "Invalid Exchange Call",
+      "details": "Call to GDL::exchange() when not in the running state.",
+      "value": "0xA003"
     }
   }
 }

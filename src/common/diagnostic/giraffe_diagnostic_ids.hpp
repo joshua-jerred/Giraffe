@@ -102,7 +102,10 @@ enum class DiagnosticId : uint16_t {
   EXTENSION_stopTimeout=0x5002, // Failed to stop in time
   EXT_FAULT_none=0x6000, // No fault
   EXT_FAULT_fatalConfig=0x6001, // Fatal Configuration Error
-  GDL_invalidStartCall=0xA000  // Invalid Start Call
+  GDL_invalidStartCall=0xA000, // Invalid Start Call
+  GDL_invalidStopCall=0xA001, // Invalid Stop Call
+  GDL_invalidBroadcastCall=0xA002, // Invalid Broadcast Call
+  GDL_invalidExchangeCall=0xA003  // Invalid Exchange Call
 };
 
 extern const std::unordered_map<DiagnosticId, std::string> diagnosticIdStringMap;
