@@ -58,6 +58,20 @@ GiraffeDataLink::ConnectionStatus GiraffeDataLink::getConnectionStatus() const {
   return connection_status_;
 }
 
+bool GiraffeDataLink::getReceivedMessage(Message &message) {
+  return queues_.received.pop(message);
+}
+
+int GiraffeDataLink::getExchangeQueueSize() const {
+  return queues_.exchange.size();
+}
+int GiraffeDataLink::getBroadcastQueueSize() const {
+  return queues_.broadcast.size();
+}
+int GiraffeDataLink::getReceiveQueueSize() const {
+  return queues_.received.size();
+}
+
 void GiraffeDataLink::gdlThread() {
   constexpr int kSleepIntervalMs = 50;
 
@@ -67,14 +81,14 @@ void GiraffeDataLink::gdlThread() {
   }
 }
 
-bool GiraffeDataLink::addExchangeMessage(Message message) {
+bool GiraffeDataLink::sendExchangeMessage(Message message) {
   if (status_ != Status::RUNNING) {
     throw GiraffeException(DiagnosticId::GDL_invalidExchangeCall);
   }
   return queues_.exchange.push(message);
 }
 
-bool GiraffeDataLink::addBroadcastMessage(Message message) {
+bool GiraffeDataLink::sendBroadcastMessage(Message message) {
   if (status_ != Status::RUNNING) {
     throw GiraffeException(DiagnosticId::GDL_invalidBroadcastCall);
   }

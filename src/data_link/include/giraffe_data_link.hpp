@@ -24,6 +24,7 @@
 #include "gdl_configuration.hpp"
 #include "gdl_message.hpp"
 #include "gdl_message_queue.hpp"
+#include "gdl_session_layer.hpp"
 
 namespace gdl {
 /**
@@ -42,7 +43,7 @@ public:
    * @brief Create a new Giraffe Data Link instance
    * @param config - The configuration for the GDL instance
    */
-  GiraffeDataLink(GdlConfig config);
+  GiraffeDataLink(GdlConfig config, SessionLayer &session_layer);
 
   /**
    * @brief Deconstruct the GDL instance, this will stop the GDL instance if it
@@ -76,33 +77,46 @@ public:
 
   /**
    * @brief Add a message to the exchange queue.
-   *
+   * @details Requires a connection.
    * @param message - The message to add to the queue.
    * @return true - If the message was added to the queue.
    * @return false - If the message was not added to the queue.
    */
-  bool addExchangeMessage(Message message);
+  bool sendExchangeMessage(Message message);
 
   /**
    * @brief Add a message to the broadcast queue.
-   *
+   * @details Does not require a connection.
    * @param message - The message to add to the queue.
    * @return true - If the message was added to the queue.
    * @return false - If the message was not added to the queue.
    */
-  bool addBroadcastMessage(Message message);
+  bool sendBroadcastMessage(Message message);
+
+  /**
+   * @brief Get a message from the receive queue.
+   *
+   * @param message (out) - The message to get from the queue.
+   * @return true - If a message was available.
+   * @return false - If a message was not available.
+   */
+  bool getReceivedMessage(Message &message);
+
+  int getExchangeQueueSize() const;
+  int getBroadcastQueueSize() const;
+  int getReceiveQueueSize() const;
 
 private:
   struct MessageQueues {
     MessageQueues(int exchange_queue_size, int broadcast_queue_size,
                   int receive_queue_size)
         : exchange(exchange_queue_size), broadcast(broadcast_queue_size),
-          receive(receive_queue_size) {
+          received(receive_queue_size) {
     }
 
     MessageQueue exchange;
     MessageQueue broadcast;
-    MessageQueue receive;
+    MessageQueue received;
   };
 
   /**
@@ -119,6 +133,11 @@ private:
    * @brief The queues for the GDL instance.
    */
   MessageQueues queues_;
+
+  /**
+   * @brief The session layer for the GDL instance.
+   */
+  SessionLayer &session_layer_;
 
   /**
    * @brief The thread that runs GDL.

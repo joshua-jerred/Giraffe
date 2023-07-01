@@ -28,14 +28,16 @@ Transport Layer Interface:
 
 ## Transport Layer
 - This layer will provide the following functionality:
-  - Reliable message delivery option (RDP)
+  - Reliable message delivery option (RTP)
   - Message Segmentation
   - Message Reassembly
   - Message Acknowledgement
 
 ## Data Link Layer
+- AX.25
 
 ## Physical Layer
+- VHF/UHF
 
 ***
 
