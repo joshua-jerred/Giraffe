@@ -131,12 +131,16 @@ public:
   int getMaxLogArchiveSizeMb() const;
   cfg::gEnum::ArchiveMethod getErrorArchiveMethod() const;
   cfg::gEnum::LogLevel getLogLevel() const;
+  cfg::gEnum::ErrorLogStrategy getErrorLogStrategy() const;
+  int getErrorFrameLogInterval() const;
 
   void setLogToFile(bool);
   void setMaxLogFileSizeMb(int);
   void setMaxLogArchiveSizeMb(int);
   void setErrorArchiveMethod(cfg::gEnum::ArchiveMethod);
   void setLogLevel(cfg::gEnum::LogLevel);
+  void setErrorLogStrategy(cfg::gEnum::ErrorLogStrategy);
+  void setErrorFrameLogInterval(int);
 
   void setFromJson(const json&);
   json getJson() const;
@@ -147,6 +151,8 @@ private:
   int max_log_archive_size_mb_ = 50;
   cfg::gEnum::ArchiveMethod error_archive_method_ = cfg::gEnum::ArchiveMethod::PLAIN_TEXT;
   cfg::gEnum::LogLevel log_level_ = cfg::gEnum::LogLevel::INFO;
+  cfg::gEnum::ErrorLogStrategy error_log_strategy_ = cfg::gEnum::ErrorLogStrategy::ALL;
+  int error_frame_log_interval_ = 60000;
 };
 
 class ConsoleModule : public cfg::CfgSection {

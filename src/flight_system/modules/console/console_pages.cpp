@@ -84,7 +84,8 @@ std::string LandR(const std::string &l, const std::string &r) {
 }
 
 void console_pages::Pages::gfsStatus() {
-  current_num_lines_ = 9;
+  constexpr int kNumLines = 15;
+  setNumLinesOnPage(kNumLines);
 
   data::blocks::ModulesStatuses mod_stats =
       shared_data_.blocks.modules_statuses.get();
@@ -106,6 +107,31 @@ void console_pages::Pages::gfsStatus() {
   content_[6] = "Console: " + node::status_to_string.at(mod_stats.console);
   content_[7] = "System:  " + node::status_to_string.at(mod_stats.system);
   content_[8] = "Extension: " + node::status_to_string.at(mod_stats.extension);
+
+  content_[9] = "";
+
+  auto &ef = shared_data_.frames.error_frame;
+  content_[10] =
+      "Error Frame | Active: " + std::to_string(ef.numActiveErrors()) +
+      " | Total: " + std::to_string(ef.numTotalErrors());
+
+  int i = 11;
+  auto error_ids = ef.getActiveErrorIds();
+  std::string line_buffer = "";
+  for (auto &id : error_ids) {
+    line_buffer +=
+        BoosterSeat::string::intToHex(static_cast<uint16_t>(id)) + "  ";
+    if (line_buffer.size() > kDataWindowWidth - 2) {
+      content_[i++] = line_buffer;
+      line_buffer = "";
+    }
+    if (i >= current_num_lines_ - 1) {
+      break;
+    }
+  }
+  if (line_buffer.size() > 0) {
+    content_[i++] = line_buffer;
+  }
 }
 
 void console_pages::Pages::data() {
@@ -173,9 +199,16 @@ void console_pages::Pages::data() {
 }
 
 void console_pages::Pages::log() {
-  constexpr int kNumLines = 6;
+  constexpr int kNumLines = 10;
   setNumLinesOnPage(kNumLines);
-  content_[5] = "log";
+  auto log = shared_data_.log_container.get();
+  int num_lines = log.size();
+
+  int i = 0;
+  while (i < num_lines && i < kNumLines) {
+    content_[i] = log[i];
+    ++i;
+  }
 }
 
 void console_pages::Pages::server() {

@@ -146,8 +146,12 @@ private:
   bool log_file_enabled_ = false;
   bool influxdb_enabled_ = false;
 
+  bool console_module_enabled_ = false;
+
   cfg::gEnum::LogStrategy data_file_logging_strategy_ =
       cfg::gEnum::LogStrategy::INTERVAL;
+  cfg::gEnum::ErrorLogStrategy error_file_logging_strategy_ =
+      cfg::gEnum::ErrorLogStrategy::ALL;
 };
 
 } // namespace modules

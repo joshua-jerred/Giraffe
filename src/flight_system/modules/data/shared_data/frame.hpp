@@ -1,13 +1,22 @@
-#ifndef FRAMES_HPP_
-#define FRAMES_HPP_
+#ifndef FRAME_HPP_
+#define FRAME_HPP_
 
 #include <mutex>
 #include <unordered_map>
 
 namespace data {
+
+/**
+ * @brief A generic frame (map) for storing data.
+ * @details This class is thread safe.
+ *
+ * @tparam ID - The identifier type.
+ * @tparam DATA - The data type.
+ */
 template <class ID, class DATA> class Frame {
 public:
   Frame() = default;
+  ~Frame() = default;
 
   /**
    * @brief Insert or replace an item.
@@ -35,7 +44,7 @@ public:
    * @return true - If the item was found.
    * @return false - If the item was not found.
    */
-  bool get(const ID &id, DATA &data) {
+  bool get(const ID id, DATA &data) const {
     std::lock_guard<std::mutex> lock(frame_lock_);
     if (frame_.contains(id)) {
       data = frame_.at(id);
@@ -77,11 +86,13 @@ public:
     return frame_;
   }
 
+protected:
+  std::unordered_map<ID, DATA> frame_ = std::unordered_map<ID, DATA>();
+
 private:
   mutable std::mutex frame_lock_ = std::mutex();
-  std::unordered_map<ID, DATA> frame_ = std::unordered_map<ID, DATA>();
 };
 
 } // namespace data
 
-#endif
+#endif /* FRAME_HPP_ */

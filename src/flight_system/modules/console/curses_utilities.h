@@ -3,22 +3,22 @@
 
 #include <ncurses.h>
 
+#include "console_pages.hpp"
 #include <string>
 #include <vector>
-#include "console_pages.hpp"
 
 namespace ncurs {
 namespace internal {
 class Window {
- public:
+public:
   Window() {
   }
   ~Window() {
     delwin(p_window_);
   }
 
-  Window(const Window &) = delete;             // No copy constructor
-  Window &operator=(const Window &) = delete;  // No copy assignment
+  Window(const Window &) = delete;            // No copy constructor
+  Window &operator=(const Window &) = delete; // No copy assignment
 
   void setPosition(int x, int y) {
     x_ = x;
@@ -45,22 +45,22 @@ class Window {
   int y_ = 0;
 };
 
-}  // namespace internal
+} // namespace internal
 
 class Environment {
- public:
+public:
   Environment(console_pages::Pages &pages) : pages_(pages) {
   }
   ~Environment() {
   }
-  Environment(const Environment &) = delete;             // No copy constructor
-  Environment &operator=(const Environment &) = delete;  // No copy assignment
+  Environment(const Environment &) = delete;            // No copy constructor
+  Environment &operator=(const Environment &) = delete; // No copy assignment
 
   void start(int endpoint_update_rate_ms = 1000);
   void update();
   void end();
 
- private:
+private:
   console_pages::Pages &pages_;
 
   enum class Focus { MENU, DATA };
@@ -96,6 +96,6 @@ class Environment {
   internal::Window data_scroll_bar_ = internal::Window();
 };
 
-}  // namespace ncurs
+} // namespace ncurs
 
 #endif

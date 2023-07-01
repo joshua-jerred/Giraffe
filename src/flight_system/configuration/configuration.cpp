@@ -527,6 +527,16 @@ cfg::gEnum::LogLevel cfg::DataModuleLog::getLogLevel() const {
   return log_level_;
 }
 
+cfg::gEnum::ErrorLogStrategy cfg::DataModuleLog::getErrorLogStrategy() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return error_log_strategy_;
+}
+
+int cfg::DataModuleLog::getErrorFrameLogInterval() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return error_frame_log_interval_;
+}
+
 void cfg::DataModuleLog::setLogToFile(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   log_to_file_ = val;
@@ -550,6 +560,16 @@ void cfg::DataModuleLog::setErrorArchiveMethod(cfg::gEnum::ArchiveMethod val) {
 void cfg::DataModuleLog::setLogLevel(cfg::gEnum::LogLevel val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   log_level_ = val;
+}
+
+void cfg::DataModuleLog::setErrorLogStrategy(cfg::gEnum::ErrorLogStrategy val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  error_log_strategy_ = val;
+}
+
+void cfg::DataModuleLog::setErrorFrameLogInterval(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  error_frame_log_interval_ = val;
 }
 
 void cfg::DataModuleLog::setFromJson(const json &json_data) {
@@ -600,6 +620,24 @@ void cfg::DataModuleLog::setFromJson(const json &json_data) {
         log_level_,
         cfg::gEnum::KeyToLogLevel
   );
+  validation::setValidEnum<cfg::gEnum::ErrorLogStrategy>(
+        streams_.log,
+        json_data,
+        "data_module_log",
+        "error_log_strategy",
+        error_log_strategy_,
+        cfg::gEnum::KeyToErrorLogStrategy
+  );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "data_module_log",
+        "error_frame_log_interval",
+        error_frame_log_interval_,
+        500,
+        600000,
+        ""
+  );
 }
 
 json cfg::DataModuleLog::getJson() const {
@@ -609,7 +647,9 @@ json cfg::DataModuleLog::getJson() const {
     {"max_log_file_size_mb", max_log_file_size_mb_},
     {"max_log_archive_size_mb", max_log_archive_size_mb_},
     {"error_archive_method", cfg::gEnum::ArchiveMethodToKey(error_archive_method_)},
-    {"log_level", cfg::gEnum::LogLevelToKey(log_level_)}
+    {"log_level", cfg::gEnum::LogLevelToKey(log_level_)},
+    {"error_log_strategy", cfg::gEnum::ErrorLogStrategyToKey(error_log_strategy_)},
+    {"error_frame_log_interval", error_frame_log_interval_}
   });
 }
 bool cfg::ConsoleModule::getEnabled() const {
