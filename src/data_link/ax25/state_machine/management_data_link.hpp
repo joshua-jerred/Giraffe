@@ -17,7 +17,7 @@
 #ifndef MANAGEMENT_DATA_LINK_HPP_
 #define MANAGEMENT_DATA_LINK_HPP_
 
-#include "primatives.hpp"
+#include "base_ax25_state_machine.hpp"
 
 namespace ax25 {
 enum class ManagementDataLinkStates {
@@ -59,16 +59,18 @@ enum class ManagementDataLinkFlags {
   NM201
 };
 
-enum class LinkMultiplexerTimers {
+enum class ManagementDataLinkTimers {
   /**
    * @brief Retry timer for management functions.
    */
   TM201
 };
 
-class ManagementDataLinkStateMachine {
+class ManagementDataLinkStateMachine : public BaseAX25StateMachine {
 public:
-  ManagementDataLinkStateMachine() = default;
+  ManagementDataLinkStateMachine(StateMachineData &data)
+      : BaseAX25StateMachine(data) {
+  }
   ~ManagementDataLinkStateMachine() = default;
 
   ManagementDataLinkStates getCurrentState() const {
@@ -81,7 +83,6 @@ private:
     state_ = state;
   }
 
-  void generateSignal(Primitive primitive, PrimitiveAction action);
   void indicate(ManagementDataLinkErrorCodes error_code);
 
   void state_ready();

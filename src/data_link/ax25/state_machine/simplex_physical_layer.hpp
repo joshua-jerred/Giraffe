@@ -18,7 +18,7 @@
 #ifndef SIMPLEX_PHYSICAL_LAYER_HPP_
 #define SIMPLEX_PHYSICAL_LAYER_HPP_
 
-#include "primatives.hpp"
+#include "base_ax25_state_machine.hpp"
 
 namespace ax25 {
 enum class SimplexPhysicalLayerStates {
@@ -72,9 +72,11 @@ enum class SimplexPhysicalLayerTimers {
   T108  // Receiver Startup
 };
 
-class SimplexPhysicalLayerStateMachine {
+class SimplexPhysicalLayerStateMachine : public BaseAX25StateMachine {
 public:
-  SimplexPhysicalLayerStateMachine() = default;
+  SimplexPhysicalLayerStateMachine(StateMachineData &data)
+      : BaseAX25StateMachine(data) {
+  }
   ~SimplexPhysicalLayerStateMachine() = default;
 
   SimplexPhysicalLayerStates getCurrentState() const {
@@ -87,7 +89,6 @@ private:
     state_ = state;
   }
 
-  void generateSignal(Primitive primitive, PrimitiveAction action);
   void indicate(SimplexPhysicalLayerErrorCodes error_code);
 
   void state_ready();
@@ -104,12 +105,12 @@ private:
   // To the radio
   bool turnTransmitterOn();
   bool turnTransmitterOff();
-  void frame();
+  void sendFrameToRadio();
 
   // From the radio
   bool acquisitionOfSignal();
   bool lossOfSignal();
-  void frame();
+  void getFrameFromRadio();
 
   SimplexPhysicalLayerStates state_ = SimplexPhysicalLayerStates::READY;
 

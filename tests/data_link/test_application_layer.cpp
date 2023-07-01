@@ -12,7 +12,9 @@ using namespace gdl;
 GdlConfig config;
 
 TEST(ApplicationLayer, Start) {
-  GiraffeDataLink gdl(config);
+  SessionLayer session_layer;
+
+  GiraffeDataLink gdl(config, session_layer);
   EXPECT_EQ(gdl.getStatus(), GiraffeDataLink::Status::STOPPED);
   gdl.start();
   EXPECT_EQ(gdl.getStatus(), GiraffeDataLink::Status::STARTING);

@@ -17,7 +17,7 @@
 #ifndef DUPLEX_PHYSICAL_LAYER_HPP_
 #define DUPLEX_PHYSICAL_LAYER_HPP_
 
-#include "primatives.hpp"
+#include "base_ax25_state_machine.hpp"
 
 namespace ax25 {
 enum class DuplexPhysicalLayerStates {
@@ -40,9 +40,11 @@ enum class DuplexPhysicalLayerTimers {
   T107  // anti-hogging limit
 };
 
-class DuplexPhysicalLayerStateMachine {
+class DuplexPhysicalLayerStateMachine : public BaseAX25StateMachine {
 public:
-  DuplexPhysicalLayerStateMachine() = default;
+  DuplexPhysicalLayerStateMachine(StateMachineData &data)
+      : BaseAX25StateMachine(data) {
+  }
   ~DuplexPhysicalLayerStateMachine() = default;
 
   DuplexPhysicalLayerStates getCurrentState() const {
@@ -55,7 +57,6 @@ private:
     state_ = state;
   }
 
-  void generateSignal(Primitive primitive, PrimitiveAction action);
   void indicate(DuplexPhysicalLayerErrorCodes error_code);
 
   void state_receiverReady();
@@ -70,12 +71,12 @@ private:
   // To the radio
   bool turnTransmitterOn();
   bool turnTransmitterOff();
-  void frame();
+  void sendFrameToRadio();
 
   // From the radio
   bool acquisitionOfSignal();
   bool lossOfSignal();
-  void frame();
+  void getFrameFromRadio();
 
   DuplexPhysicalLayerStates state_ = DuplexPhysicalLayerStates::RECEIVER_READY;
 

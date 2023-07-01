@@ -6,7 +6,7 @@
  * =*=======================*=
  *
  * @file   reassembler.hpp
- * @brief
+ * @brief  Reassembler State Machine
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
@@ -17,11 +17,12 @@
 #ifndef REASSEMBLER_HPP_
 #define REASSEMBLER_HPP_
 
-#include "primatives.hpp"
+#include "base_ax25_state_machine.hpp"
 
 namespace ax25 {
+
 enum class ReassemblerStates {
-  NULL = 0,
+  NULL_STATE = 0,
   REASSEMBLING_DATA = 1,
   REASSEMBLING_UNIT_DATA = 2
 };
@@ -47,9 +48,10 @@ enum class ReassemblerTimers {
   TR210
 };
 
-class ReassemblerStateMachine {
+class ReassemblerStateMachine : public BaseAX25StateMachine {
 public:
-  ReassemblerStateMachine() = default;
+  ReassemblerStateMachine(StateMachineData &data) : BaseAX25StateMachine(data) {
+  }
   ~ReassemblerStateMachine() = default;
 
   ReassemblerStates getCurrentState() const {
@@ -62,7 +64,6 @@ private:
     state_ = state;
   }
 
-  void generateSignal(Primitive primitive, PrimitiveAction action);
   void indicate(ReassemblerStates error_code);
 
   void state_null();
@@ -71,7 +72,7 @@ private:
 
   void subroutine_initiateN1Notification();
 
-  ReassemblerStates state_ = ReassemblerStates::NULL;
+  ReassemblerStates state_ = ReassemblerStates::NULL_STATE;
 };
 } // namespace ax25
 

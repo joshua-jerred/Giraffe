@@ -17,7 +17,7 @@
 #include "data_link.hpp"
 
 namespace ax25 {
-void DataLinkStateMachine::disconnected() {
+void DataLinkStateMachine::state_disconnected() {
   // SR = Signal Reception
   // SG = Signal Generation
 
@@ -42,7 +42,7 @@ void DataLinkStateMachine::disconnected() {
   // Stay disconnected
 
   // SR - UI
-  subroutine_ui_check();
+  subroutine_uiCheck();
   // P = 1?
   // -- No -- Stay disconnected
   // -- Yes -- SG DM F=1, Stay disconnected
@@ -99,7 +99,7 @@ void DataLinkStateMachine::disconnected() {
   // Transition to 'connected' state
 }
 
-void DataLinkStateMachine::awaiting_connection() {
+void DataLinkStateMachine::state_awaitingConnection() {
   // SR - control field error
   indicate(DataLinkErrorCodes::L);
   // Stay in 'awaiting connection' state
@@ -143,7 +143,7 @@ void DataLinkStateMachine::awaiting_connection() {
   // Stay in 'awaiting connection' state
 
   // SR - UI
-  subroutine_ui_check();
+  subroutine_uiCheck();
   // P = 1?
   // -- No -- Stay in 'awaiting connection' state
   // -- Yes -- DM F=1, Stay in 'awaiting connection' state
@@ -182,7 +182,7 @@ void DataLinkStateMachine::awaiting_connection() {
   // awaiting connect 2.2
 }
 
-void DataLinkStateMachine::awaiting_release() {
+void DataLinkStateMachine::state_awaitingRelease() {
   // SR - control field error
   indicate(DataLinkErrorCodes::L);
   // Stay in 'awaiting release' state
@@ -217,7 +217,7 @@ void DataLinkStateMachine::awaiting_release() {
   // stay in 'awaiting release' state
 
   // SR - UI
-  subroutine_ui_check();
+  subroutine_uiCheck();
   // ..
   // stay in 'awaiting release' state
 
@@ -240,7 +240,7 @@ void DataLinkStateMachine::awaiting_release() {
   //
 }
 
-void DataLinkStateMachine::connected() {
+void DataLinkStateMachine::state_connected() {
   // SR - control field error
   indicate(DataLinkErrorCodes::L);
   // ...
@@ -321,7 +321,7 @@ void DataLinkStateMachine::connected() {
   ///////////////// weird transition
 }
 
-void DataLinkStateMachine::timer_recovery() {
+void DataLinkStateMachine::state_timerRecovery() {
   // SR - control field error
   indicate(DataLinkErrorCodes::L);
   // ...
@@ -395,7 +395,7 @@ void DataLinkStateMachine::timer_recovery() {
   // ......
 }
 
-void DataLinkStateMachine::awaiting_connection_v2_2() {
+void DataLinkStateMachine::state_awaitingConnectionV2_2() {
   // SR - control field error
   // ..
 
@@ -434,6 +434,9 @@ void DataLinkStateMachine::awaiting_connection_v2_2() {
   // SABME
 
   // FRMR
+}
+
+void DataLinkStateMachine::subroutine_uiCheck() {
 }
 
 } // namespace ax25

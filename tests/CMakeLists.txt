@@ -34,6 +34,8 @@ add_executable(unit_test_gdl
 target_link_libraries(unit_test_gdl 
   gtest_main
   giraffe_data_link
+  ax25_state_machine
+  BoosterSeat
 )
 target_include_directories(unit_test_gdl PRIVATE ${GDL_SRC})
 set_target_properties(

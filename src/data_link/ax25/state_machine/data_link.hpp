@@ -15,7 +15,7 @@
  * @copyright  2023 (license to be defined)
  */
 
-#include "primatives.hpp"
+#include "base_ax25_state_machine.hpp"
 
 namespace ax25 {
 enum class DataLinkStates {
@@ -70,9 +70,10 @@ enum class DataLinkTimers {
   T3  // Idle supervision (keep alive)
 };
 
-class DataLinkStateMachine {
+class DataLinkStateMachine : public BaseAX25StateMachine {
 public:
-  DataLinkStateMachine() = default;
+  DataLinkStateMachine(StateMachineData &data) : BaseAX25StateMachine(data) {
+  }
   ~DataLinkStateMachine() = default;
 
   DataLinkStates getCurrentState() const {
@@ -85,7 +86,6 @@ private:
     state_ = state;
   }
 
-  void generateSignal(Primitive primitive, PrimitiveAction action);
   void indicate(DataLinkErrorCodes error_code);
 
   void state_disconnected();

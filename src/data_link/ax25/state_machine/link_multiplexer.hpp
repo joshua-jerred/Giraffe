@@ -17,7 +17,7 @@
 #ifndef LINK_MULTIPLEXER_HPP_
 #define LINK_MULTIPLEXER_HPP_
 
-#include "primatives.hpp"
+#include "base_ax25_state_machine.hpp"
 
 namespace ax25 {
 enum class LinkMultiplexerStates {
@@ -50,9 +50,11 @@ enum class LinkMultiplexerTimers {
   // none used
 };
 
-class LinkMultiplexerStateMachine {
+class LinkMultiplexerStateMachine : public BaseAX25StateMachine {
 public:
-  LinkMultiplexerStateMachine() = default;
+  LinkMultiplexerStateMachine(StateMachineData &data)
+      : BaseAX25StateMachine(data) {
+  }
   ~LinkMultiplexerStateMachine() = default;
 
   LinkMultiplexerStates getCurrentState() const {
@@ -65,7 +67,6 @@ private:
     state_ = state;
   }
 
-  void generateSignal(Primitive primitive, PrimitiveAction action);
   void indicate(LinkMultiplexerErrorCodes error_code);
 
   void state_idle();

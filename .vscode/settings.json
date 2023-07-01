@@ -45,6 +45,7 @@
     "bstrst",
     "dataframe",
     "puml",
+    "Reassembler",
     "stdexcept",
     "telem"
   ],
