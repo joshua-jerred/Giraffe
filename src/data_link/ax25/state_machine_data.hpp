@@ -337,7 +337,7 @@ enum class StateMachineErrors {
  * @brief Data that is shared between the state machines.
  */
 struct StateMachineData {
-  ax25::Timers timers_{};
+  ax25::Timers timers{};
 };
 
 } // namespace ax25

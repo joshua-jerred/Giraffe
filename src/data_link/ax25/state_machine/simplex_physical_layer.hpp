@@ -21,15 +21,6 @@
 #include "base_ax25_state_machine.hpp"
 
 namespace ax25 {
-enum class SimplexPhysicalLayerStates {
-  READY = 0,
-  RECEIVING = 1,
-  TRANSMITTER_SUPPRESSION = 2,
-  TRANSMITTER_START = 3,
-  TRANSMITTING = 4,
-  DIGIPEATING = 5,
-  RECEIVER_START = 6
-};
 
 enum class SimplexPhysicalLayerFlags {
   /**
@@ -58,18 +49,28 @@ enum class SimplexPhysicalLayerFlags {
 
 class SimplexPhysicalLayerStateMachine : public BaseAX25StateMachine {
 public:
+  enum class State {
+    READY = 0,
+    RECEIVING = 1,
+    TRANSMITTER_SUPPRESSION = 2,
+    TRANSMITTER_START = 3,
+    TRANSMITTING = 4,
+    DIGIPEATING = 5,
+    RECEIVER_START = 6
+  };
+
   SimplexPhysicalLayerStateMachine(StateMachineData &data)
       : BaseAX25StateMachine(data) {
   }
   ~SimplexPhysicalLayerStateMachine() = default;
 
-  SimplexPhysicalLayerStates getCurrentState() const {
+  States getCurrentState() const {
     return state_;
   }
   void receive(Primitive primitive);
 
 private:
-  void set_state(SimplexPhysicalLayerStates state) {
+  void set_state(State state) {
     state_ = state;
   }
 
@@ -94,7 +95,7 @@ private:
   bool lossOfSignal();
   void getFrameFromRadio();
 
-  SimplexPhysicalLayerStates state_ = SimplexPhysicalLayerStates::READY;
+  State state_ = State::READY;
 
   /**
    * @brief Queue of information to be transmitted in I frames.

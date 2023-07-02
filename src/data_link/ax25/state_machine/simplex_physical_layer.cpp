@@ -19,18 +19,41 @@
 namespace ax25 {
 
 void SimplexPhysicalLayerStateMachine::state_ready() {
-  // SR - PH-EXPEDITED-DATA request
-  // ..
+  if (isSignalPresent(Primitive::PH_EXPEDITED_DATA_request)) {
+    // add frame to priority queue
+    // set digipeating
+    // start transmitter
+    set_state(States::TRANSMITTER_START);
+    return;
+  }
 
   // SR - all other primitives
+  // add to normal queue
+  // keep state the same
 
-  // SR - PH-SEIZE-REQUEST
+  if (isSignalPresent(Primitive::PH_SEIZE_request)) {
+    // clear digipeating
+    // start transmitter
+    set_state(States::TRANSMITTER_START);
+    return;
+  }
 
-  // SR - PH-RELEASE-REQUEST
+  if (isSignalPresent(Primitive::PH_RELEASE_request)) {
+    // keep state the same
+    return;
+  }
 
-  // SR - PH-DATA-REQUEST
+  if (isSignalPresent(Primitive::PD_DATA_request)) {
+    // discard erroneous primitive
+    return;
+  }
 
   // SR - T102 expiry
+  if (data_.timers.t102.expired()) {
+    // clear repeater up
+    // keep state the same
+    return;
+  }
 
   // SR - Acquisition of signal
 
