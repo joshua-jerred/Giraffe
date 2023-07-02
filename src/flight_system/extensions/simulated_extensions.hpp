@@ -139,6 +139,6 @@ public:
 private:
   bool increasing_ = false;
 };
-}; // namespace extension
+} // namespace extension
 
 #endif /* SIMULATED_EXTENSIONS_HPP_ */
