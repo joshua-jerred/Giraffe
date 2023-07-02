@@ -1392,6 +1392,34 @@ json cfg::ExtensionModule::getJson() const {
     {"max_startup_attempts", max_startup_attempts_}
   });
 }
+cfg::gEnum::I2CBus cfg::HardwareInterface::getI2CBus() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return i2c_bus_;
+}
+
+void cfg::HardwareInterface::setI2CBus(cfg::gEnum::I2CBus val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  i2c_bus_ = val;
+}
+
+void cfg::HardwareInterface::setFromJson(const json &json_data) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  validation::setValidEnum<cfg::gEnum::I2CBus>(
+        streams_.log,
+        json_data,
+        "hardware_interface",
+        "i2c_bus",
+        i2c_bus_,
+        cfg::gEnum::KeyToI2CBus
+  );
+}
+
+json cfg::HardwareInterface::getJson() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return json({
+    {"i2c_bus", cfg::gEnum::I2CBusToKey(i2c_bus_)}
+  });
+}
 
 void cfg::Configuration::getAllJson(json &all_data) const {
   all_data = {
@@ -1408,6 +1436,7 @@ void cfg::Configuration::getAllJson(json &all_data) const {
 ,    {"telemetry_data_packets", telemetry_data_packets.getJson()}
 ,    {"extensions", extensions.getJson()}
 ,    {"extension_module", extension_module.getJson()}
+,    {"hardware_interface", hardware_interface.getJson()}
   };
 }
   
@@ -1531,6 +1560,12 @@ void cfg::Configuration::load(std::string file_path) {
     extension_module.setFromJson(parsed["extension_module"]);
   } else {
     error(data::LogId::CONFIG_failedToLoadSectionNotFound, "extension_module");
+  }
+
+  if (sectionExists(parsed, "hardware_interface")) {
+    hardware_interface.setFromJson(parsed["hardware_interface"]);
+  } else {
+    error(data::LogId::CONFIG_failedToLoadSectionNotFound, "hardware_interface");
   }
 
 }

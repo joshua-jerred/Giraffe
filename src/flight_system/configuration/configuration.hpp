@@ -367,6 +367,21 @@ private:
   int max_startup_attempts_ = 5;
 };
 
+class HardwareInterface : public cfg::CfgSection {
+public:
+  HardwareInterface(data::Streams &streams): cfg::CfgSection(streams){}
+
+  cfg::gEnum::I2CBus getI2CBus() const;
+
+  void setI2CBus(cfg::gEnum::I2CBus);
+
+  void setFromJson(const json&);
+  json getJson() const;
+
+private:
+  cfg::gEnum::I2CBus i2c_bus_ = cfg::gEnum::I2CBus::I2C_1;
+};
+
 class Configuration {
  public:
   Configuration(data::Streams &streams):
@@ -383,7 +398,8 @@ class Configuration {
     telemetry_sstv(streams),    
     telemetry_data_packets(streams),    
     extensions(streams),    
-    extension_module(streams),
+    extension_module(streams),    
+    hardware_interface(streams),
     streams_(streams){}
     
     void getAllJson(json &all_data) const;
@@ -404,6 +420,7 @@ class Configuration {
   cfg::TelemetryDataPackets telemetry_data_packets;
   cfg::Extensions extensions;
   cfg::ExtensionModule extension_module;
+  cfg::HardwareInterface hardware_interface;
  
  private:
   void error(data::LogId error_code, std::string info = "") {

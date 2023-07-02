@@ -318,6 +318,19 @@ constexpr const char* ExtensionTypeToKey(cfg::gEnum::ExtensionType val) throw() 
   __builtin_unreachable();
 }
 
+enum class I2CBus {
+  I2C_1
+};
+std::unordered_map<std::string, cfg::gEnum::I2CBus> const KeyToI2CBus = {
+  {"i2c_1", cfg::gEnum::I2CBus::I2C_1}
+};
+constexpr const char* I2CBusToKey(cfg::gEnum::I2CBus val) throw() {
+  switch (val) {
+    case cfg::gEnum::I2CBus::I2C_1: return "i2c_1";
+  }
+  __builtin_unreachable();
+}
+
 } // namespace gEnum
 
 } // namespace cfg

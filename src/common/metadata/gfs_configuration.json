@@ -1,6 +1,6 @@
 {
     "general": {
-        "SECTION_TYPE":"struct",
+        "SECTION_TYPE": "struct",
         "project_name": {
             "type": "string",
             "name": "Project Name",
@@ -15,8 +15,7 @@
             "name": "Main Board Type",
             "description": "The type of computer that the flight software is running on. This is important for the interfacing with the hardware.",
             "default": "other",
-
-            "enum_name":"main_board",
+            "enum_name": "main_board",
             "options": [
                 "other",
                 "pi_zero_w2",
@@ -28,8 +27,7 @@
             "name": "Starting Procedure",
             "description": "The flight procedure that the flight software should start with. See the flight procedures section.",
             "default": "other",
-
-            "enum_name":"procedure_type",
+            "enum_name": "procedure_type",
             "options": [
                 "testing",
                 "pre_launch",
@@ -51,7 +49,7 @@
         }
     },
     "data_module_data": {
-        "SECTION_TYPE":"struct",
+        "SECTION_TYPE": "struct",
         "log_data_to_file": {
             "type": "bool",
             "name": "Log Data To File",
@@ -74,8 +72,7 @@
             "name": "Log Strategy",
             "description": "The strategy to use for logging data. If set to all, then every data point collected will be logged. If set to interval then data will be logged at a set interval.",
             "default": "interval",
-
-            "enum_name":"log_strategy",
+            "enum_name": "log_strategy",
             "options": [
                 "interval",
                 "all",
@@ -88,8 +85,7 @@
             "name": "Timestamp Detail",
             "description": "Timestamp format for data logging",
             "default": "hhmmss",
-
-            "enum_name":"timestamp_detail",
+            "enum_name": "timestamp_detail",
             "options": [
                 "hhmmss",
                 "date_hhmmss"
@@ -100,8 +96,7 @@
             "name": "Timestamp Timezone",
             "description": "Timezone for data logged timestamps, system timezone or UTC",
             "default": "system",
-
-            "enum_name":"timestamp_timezone",
+            "enum_name": "timestamp_timezone",
             "options": [
                 "system",
                 "utc"
@@ -139,8 +134,7 @@
             "name": "Data Archive Method",
             "description": "Method of data archival/compression.",
             "default": "plain_text",
-
-            "enum_name":"archive_method",
+            "enum_name": "archive_method",
             "options": [
                 "plain_text"
             ]
@@ -150,14 +144,13 @@
             "name": "Data Log File Contents",
             "description": "Not implemented",
             "default": "not implemented",
-
             "max": 50,
             "min": 0,
             "pattern": ""
         }
     },
     "data_module_influxdb": {
-        "SECTION_TYPE":"struct",
+        "SECTION_TYPE": "struct",
         "influx_enabled": {
             "type": "bool",
             "name": "Enable InfluxDB Integration",
@@ -224,8 +217,7 @@
             "name": "InfluxDB Retention Policy",
             "description": "Method of data archival/compression.",
             "default": "inf",
-
-            "enum_name":"influxdb_retention_policy",
+            "enum_name": "influxdb_retention_policy",
             "options": [
                 "hour",
                 "day",
@@ -240,14 +232,13 @@
             "name": "Contents",
             "description": "Not implemented",
             "default": "not implemented",
-
             "max": 50,
             "min": 0,
             "pattern": ""
         }
     },
     "data_module_log": {
-        "SECTION_TYPE":"struct",
+        "SECTION_TYPE": "struct",
         "log_to_file": {
             "type": "bool",
             "name": "Log To File",
@@ -279,8 +270,7 @@
             "name": "Archive Method",
             "description": "Method of data archival/compression.",
             "default": "plain_text",
-
-            "enum_name":"archive_method",
+            "enum_name": "archive_method",
             "options": [
                 "plain_text"
             ]
@@ -290,8 +280,7 @@
             "name": "Log Level",
             "description": "",
             "default": "info",
-
-            "enum_name":"log_level",
+            "enum_name": "log_level",
             "options": [
                 "info",
                 "warn",
@@ -303,8 +292,7 @@
             "name": "Log Strategy",
             "description": "If it is all, every error (or info/debug with respect to level) will be logged as it comes in. If it's error_frame, only the error frame will be logged. The error frame will be logged at the configured interval.",
             "default": "all",
-
-            "enum_name":"error_log_strategy",
+            "enum_name": "error_log_strategy",
             "options": [
                 "all",
                 "error_frame"
@@ -321,7 +309,7 @@
         }
     },
     "console_module": {
-        "SECTION_TYPE":"struct",
+        "SECTION_TYPE": "struct",
         "enabled": {
             "type": "bool",
             "name": "Console Interface",
@@ -341,7 +329,7 @@
         }
     },
     "server_module": {
-        "SECTION_TYPE":"struct",
+        "SECTION_TYPE": "struct",
         "enabled": {
             "type": "bool",
             "name": "TCP Socket Enabled",
@@ -361,7 +349,7 @@
         }
     },
     "system_module": {
-        "SECTION_TYPE":"struct",
+        "SECTION_TYPE": "struct",
         "enabled": {
             "type": "bool",
             "name": "System Module Enabled",
@@ -381,7 +369,7 @@
         }
     },
     "telemetry": {
-        "SECTION_TYPE":"struct",
+        "SECTION_TYPE": "struct",
         "telemetry_enabled": {
             "type": "bool",
             "name": "Telemetry Enabled",
@@ -401,7 +389,7 @@
         }
     },
     "telemetry_aprs": {
-        "SECTION_TYPE":"struct",
+        "SECTION_TYPE": "struct",
         "telemetry_packets": {
             "type": "bool",
             "name": "APRS Telemetry Packets",
@@ -458,8 +446,7 @@
             "type": "enum",
             "name": "APRS Symbol Table",
             "description": "The symbol table that will be used. See the APRS specification for more information.",
-            
-            "enum_name":"aprs_symbol_table",
+            "enum_name": "aprs_symbol_table",
             "options": [
                 "primary",
                 "alternate"
@@ -486,7 +473,7 @@
         }
     },
     "telemetry_sstv": {
-        "SECTION_TYPE":"struct",
+        "SECTION_TYPE": "struct",
         "enabled": {
             "type": "bool",
             "name": "SSTV Enabled",
@@ -509,7 +496,7 @@
             "name": "SSTV Mode",
             "default": "robot36",
             "description": "The SSTV mode that will be used. Currently, only Robot 36 is supported.",
-            "enum_name":"sstv_mode",
+            "enum_name": "sstv_mode",
             "options": [
                 "robot36"
             ]
@@ -524,7 +511,7 @@
         }
     },
     "telemetry_data_packets": {
-        "SECTION_TYPE":"struct",
+        "SECTION_TYPE": "struct",
         "enabled": {
             "name": "Data Packets Enabled",
             "type": "bool",
@@ -548,7 +535,7 @@
             "name": "Data Packets Mode",
             "default": "bpsk250",
             "description": "The PSK31 mode that will be used. All modes supported by FLDIGI are supported for both BPSK and QPSK.",
-            "enum_name":"data_packets_mode",
+            "enum_name": "data_packets_mode",
             "options": [
                 "bpsk125",
                 "bpsk250",
@@ -578,8 +565,8 @@
             "pattern": ""
         }
     },
-    "extensions":{
-        "SECTION_TYPE":"list",
+    "extensions": {
+        "SECTION_TYPE": "list",
         "name": {
             "type": "string",
             "default": "none",
@@ -602,7 +589,7 @@
             "name": "Extension Type",
             "default": "unknown",
             "description": "The type of extension.",
-            "enum_name":"extension_type",
+            "enum_name": "extension_type",
             "options": [
                 "unknown",
                 "sim_temp",
@@ -617,7 +604,7 @@
                 "ds18b20"
             ]
         },
-        "update_interval":{
+        "update_interval": {
             "type": "int",
             "default": 1000,
             "name": "Update Interval (ms)",
@@ -626,7 +613,7 @@
             "min": 50,
             "pattern": ""
         },
-        "critical":{
+        "critical": {
             "type": "bool",
             "default": false,
             "name": "Critical Extension",
@@ -634,19 +621,19 @@
             "true": "enabled",
             "false": "disabled"
         },
-        "extra_args":{
-            "type":"string",
-            "default":"",
-            "name":"Extra Arguments",
-            "description":"Some extensions allow for extra configuration, this is where that configuration is defined.",
+        "extra_args": {
+            "type": "string",
+            "default": "",
+            "name": "Extra Arguments",
+            "description": "Some extensions allow for extra configuration, this is where that configuration is defined.",
             "max": 100,
             "min": 0,
             "pattern": ""
         }
     },
-    "extension_module":{
-        "SECTION_TYPE":"struct",
-        "status_polling_rate":{
+    "extension_module": {
+        "SECTION_TYPE": "struct",
+        "status_polling_rate": {
             "type": "int",
             "default": 1000,
             "name": "Status Polling Rate (ms)",
@@ -654,7 +641,7 @@
             "max": 60000,
             "min": 500
         },
-        "max_restart_attempts":{
+        "max_restart_attempts": {
             "type": "int",
             "default": 5,
             "name": "Max Restart Attempts",
@@ -662,7 +649,7 @@
             "max": 10,
             "min": 1
         },
-        "restart_delay_minimum":{
+        "restart_delay_minimum": {
             "type": "int",
             "default": 1000,
             "name": "Restart Delay Minimum (ms)",
@@ -670,7 +657,7 @@
             "max": 60000,
             "min": 500
         },
-        "start_timeout":{
+        "start_timeout": {
             "type": "int",
             "default": 10000,
             "name": "Start Timeout (ms)",
@@ -678,13 +665,26 @@
             "max": 60000,
             "min": 500
         },
-        "max_startup_attempts":{
+        "max_startup_attempts": {
             "type": "int",
             "default": 5,
             "name": "Max Startup Attempts",
             "description": "The maximum number of times that the extension will be restarted before it is considered dead. Resets after each successful restart.",
             "max": 10,
             "min": 1
+        }
+    },
+    "hardware_interface": {
+        "SECTION_TYPE": "struct",
+        "i2c_bus": {
+            "type": "enum",
+            "name": "I2C Bus",
+            "default": "i2c_1",
+            "description": "The I2C bus that will be used. Currently Giraffe only supports a single bus at a time.",
+            "enum_name": "i2c_bus",
+            "options": [
+                "i2c_1"
+            ]
         }
     }
 }
