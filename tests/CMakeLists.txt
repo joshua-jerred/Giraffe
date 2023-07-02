@@ -9,16 +9,15 @@ add_executable(unit_test_common
   ${common_sources}
 )
 target_link_libraries(unit_test_common 
+  giraffe_diagnostics
   gtest_main
+  BoosterSeat
+  nlohmann_json::nlohmann_json
 )
 target_include_directories(unit_test_common PRIVATE ${common_include_dirs})
 set_target_properties(
 	unit_test_common PROPERTIES 
 	RUNTIME_OUTPUT_DIRECTORY ${COMMON_TEST_BIN}
-)
-target_link_libraries(unit_test_common 
-  BoosterSeat
-  nlohmann_json::nlohmann_json
 )
 add_test(
   NAME common_tests
@@ -35,6 +34,8 @@ add_executable(unit_test_gdl
 target_link_libraries(unit_test_gdl 
   gtest_main
   giraffe_data_link
+  ax25_state_machine
+  BoosterSeat
 )
 target_include_directories(unit_test_gdl PRIVATE ${GDL_SRC})
 set_target_properties(
@@ -57,6 +58,7 @@ add_executable(unit_test_gfs
 )
 target_include_directories(unit_test_gfs PRIVATE ${gfs_include_dirs})
 target_link_libraries(unit_test_gfs 
+  giraffe_diagnostics
   gtest_main
   BoosterSeat
   ${CURSES_LIBRARIES}

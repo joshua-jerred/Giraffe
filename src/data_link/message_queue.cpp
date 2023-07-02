@@ -14,7 +14,7 @@
  * @copyright  2023 (license to be defined)
  */
 
-#include "message_queue.hpp"
+#include "gdl_message_queue.hpp"
 
 namespace gdl {
 

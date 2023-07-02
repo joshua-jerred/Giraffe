@@ -156,11 +156,74 @@ class Enum(Component):
         while (len(self.values) > 0):
             self.addLine(self.values.pop(0).getLine())
 
+class UnorderedMapPair:
+    def __init__(self, key, value, comment = None):
+        self.key = key
+        self.value = value
+        self.last = False
+        self.comment = comment
+    
+    def getLine(self):
+        ret_val = f'{{{self.key},{self.value}}}{"," if not self.last else ""}'
+        if self.comment != None:
+            ret_val += f'{" " if not self.last else "  "}// {self.comment}'
+        return ret_val
+    
+    def setLast(self):
+        self.last = True
+
+class UnorderedMap(Component):
+    def __init__(self, name, key_type, value_type, additional = ""):
+        super().__init__()
+        self.name = name
+        self.key_type = key_type
+        self.value_type = value_type
+        self.addLineWithBracket(f"{additional}std::unordered_map<{key_type}, {value_type}> {self.name}", "};")
+        self.values:tuple = []
+        self.additional = additional
+
+    def __repr__(self) -> str:
+        self.__finish()
+        return super().__repr__()
+    
+    def __finish(self):
+        if (len(self.values) > 0):
+            self.values[-1].setLast()
+        while (len(self.values) > 0):
+            self.addLine(self.values.pop(0).getLine())
+            
+    def getDeclaration(self):
+        return f"{self.additional}std::unordered_map<{self.key_type}, {self.value_type}> {self.name};"
+            
+    def addPair(self, key, value, comment = None):
+        self.values.append(UnorderedMapPair(key, value, comment))
+    
+    def getLines(self):
+        self.__finish()
+        return super().getLines()
+    
+    def __repr__(self) -> str:
+        self.__finish()
+        return super().__repr__()
+    
+    def __finish(self):
+        if (len(self.values) > 0):
+            self.values[-1].setLast()
+        while (len(self.values) > 0):
+            self.addLine(self.values.pop(0).getLine())
+
 # quick test
 if __name__ == "__main__":
     x = Enum("test")
     x.addValues(["ENUM_ITEM", "ENUM_ITEM2", "ENUM_ITEM3"])
     x.addValue("ENUM_ITEM4", "comment")
     x.addValue("ENUM_ITEM5", "comment")
+    print(x.getLines())
+    print(x)
+    print()
+    
+    x = UnorderedMap("test", "int", "int")
+    x.addPair("1", "2")
+    x.addPair("3", "4")
     print(x.getLines())
     print(x)

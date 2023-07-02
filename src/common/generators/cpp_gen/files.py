@@ -70,6 +70,11 @@ class Generator:
         self.namespace.append(namespace)
         self.addLine("namespace " + namespace + " {")
         # self.increase_indent() google style guide
+        
+    def addIncludes(self, includes: list):
+        for include in includes:
+            self.addLine("#include " + include)
+        self.addLine("")
 
     def exitNamespace(self):
         if (len(self.namespace) == 0):
@@ -110,7 +115,23 @@ class Generator:
         f.close()
 
 class CppGenerator(Generator):
-    pass
+    def __init__(self, name: str, indent = "  "):
+        super().__init__(name, indent)
+        
+    def __repr__(self):
+        self.finish()
+        return super().__repr__()
+    
+    def finish(self):
+        if (self.finished):
+            return
+        
+        super().closeAllNamespaces()
+        super().finish()
+    
+    def save(self, path: str):
+        self.finish()
+        super().save(path)
 
 class HppGenerator(Generator):
     def __init__(self, name: str, indent = "  "):

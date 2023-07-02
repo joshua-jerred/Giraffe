@@ -30,8 +30,8 @@ struct Message {
     UNDEFINED = 0b00000000,
     BROADCAST = 0b11000011,
     EXCHANGE = 0b00111100,
-    ALIVE_REQUEST = 0b01010101,
-    ALIVE_RESPONSE = 0b10101010,
+    ACK = 0b11110000,
+    NACK = 0b00001111,
   };
 
   uint16_t id{0};

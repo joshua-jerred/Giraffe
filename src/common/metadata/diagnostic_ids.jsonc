@@ -2,30 +2,15 @@
 // library for parsing.
 {
   "FILE_META": {
-    "namespace": "data",
-    "enum_name": "LogId",
-    "enum_type": "uint16_t"
+    "enum_name": "DiagnosticId",
+    "enum_type": "uint16_t",
+    "generate_string_map": "diagnosticIdStringMap"
   },
   "generic": {
     "unknown": {
       "name": "Unknown",
       "details": "The error is unknown.",
       "value": "0xF000"
-    },
-    "info": {
-      "name": "Info",
-      "details": "Info messages are used to provide additional information about the state of the system.",
-      "value": "0xF001"
-    },
-    "debug": {
-      "name": "Debug",
-      "details": "Debug messages are used to provide additional information about the state of the system.",
-      "value": "0xF002"
-    },
-    "not_yet_implemented": {
-      "name": "Not yet implemented",
-      "details": "Reserved for features that are not expected to function yet.",
-      "value": "0xF003"
     }
   },
   "config": {
@@ -403,6 +388,28 @@
       "name":"Fatal Configuration Error",
       "details": "The extension has a fatal configuration error, it will not be restarted.",
       "value": "0x6001"
+    }
+  },
+  "gdl":{
+    "invalid_start_call":{
+      "name": "Invalid Start Call",
+      "details": "Call to GDL::start() when not in the stopped state.",
+      "value": "0xA000"
+    },
+    "invalid_stop_call":{
+      "name": "Invalid Stop Call",
+      "details": "Call to GDL::stop() when not in the running state.",
+      "value": "0xA001"
+    },
+    "invalid_broadcast_call":{
+      "name": "Invalid Broadcast Call",
+      "details": "Call to GDL::broadcast() when not in the running state.",
+      "value": "0xA002"
+    },
+    "invalid_exchange_call":{
+      "name": "Invalid Exchange Call",
+      "details": "Call to GDL::exchange() when not in the running state.",
+      "value": "0xA003"
     }
   }
 }

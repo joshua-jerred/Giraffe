@@ -38,7 +38,7 @@ struct GdlConfig {
   /**
    * @brief The size of the queue for received messages.
    */
-  uint8_t received_queue_size = 10;
+  uint8_t received_queue_size = 20;
 
   /**
    * @brief The maximum number of retries for a message.
@@ -49,7 +49,7 @@ struct GdlConfig {
   /**
    * @brief The interval between retries in seconds.
    */
-  uint16_t retry_interval = 10;
+  uint16_t retry_interval = 5;
 
   /**
    * @brief The interval between connection status messages in seconds.
