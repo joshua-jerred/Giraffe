@@ -44,4 +44,4 @@ std::string to_string(const data::LogPacket &packet) {
   output += " " + packet.info;
   return output;
 }
-}; // namespace util
+} // namespace util

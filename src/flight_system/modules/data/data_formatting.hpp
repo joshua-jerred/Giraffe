@@ -74,6 +74,6 @@ private:
   data::SharedData &shared_data_;
 };
 
-}; // namespace data_middleware
+} // namespace data_middleware
 
 #endif /* FILE_FORMATTING_HPP_ */

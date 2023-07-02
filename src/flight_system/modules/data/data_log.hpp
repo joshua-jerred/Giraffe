@@ -338,6 +338,6 @@ private:
   DataFormatter formatter_;
 };
 
-}; // namespace data_middleware
+} // namespace data_middleware
 
 #endif /* DATALOG_HPP_ */

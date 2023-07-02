@@ -77,7 +77,7 @@ mw::DataLog::DataLog(data::SharedData &shared_data, cfg::Configuration &config)
 
   // Update the file system status.
   shared_data_.blocks.data_log_stats.set(fs_status_);
-};
+}
 
 void mw::DataLog::logDataPacket(const data::DataPacket &packet) {
   updateFileSystem();

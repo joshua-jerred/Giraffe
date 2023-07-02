@@ -22,6 +22,6 @@
 namespace util {
 std::string to_string(const data::LogPacket &packet);
 std::string to_string(const data::LogPacket::Level &level);
-}; // namespace util
+} // namespace util
 
 #endif /* TO_STRING_HPP_ */

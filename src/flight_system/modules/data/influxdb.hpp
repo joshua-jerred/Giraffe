@@ -21,6 +21,6 @@ private:
   cfg::Configuration &config_;
 };
 
-}; // namespace data_middleware
+} // namespace data_middleware
 
 #endif /* INFLUXDB_HPP_ */
