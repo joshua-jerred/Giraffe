@@ -5,6 +5,6 @@
 int main() {
   std::cout << "Giraffe Data Link" << std::endl;
   gdl::GdlConfig config;
-  gdl::GiraffeDataLink gdl{config};
+  // gdl::GiraffeDataLink gdl{config};
   return 0;
 }

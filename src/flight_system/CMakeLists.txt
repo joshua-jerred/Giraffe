@@ -35,10 +35,10 @@ set_target_properties(
 
 # -------- First Party Libraries ---------
 target_link_libraries(
-	giraffe_flight_system 
+	giraffe_flight_system
 	PRIVATE 
 	BoosterSeat
-	#MWAVlib
+	giraffe_diagnostics
 )
 
 # -------- Third Party Libraries ---------

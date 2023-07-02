@@ -22,5 +22,8 @@
 void __assert_func(const char *__file, int __line, const char *__expr) {
   std::cout << "ASSERT: " << __file << ":" << __line << ": Assertion `"
             << __expr << "' failed." << std::endl;
+  std::abort();
 }
+#else
+static_assert(false);
 #endif /* NDEBUG */

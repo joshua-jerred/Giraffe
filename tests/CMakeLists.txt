@@ -58,6 +58,7 @@ add_executable(unit_test_gfs
 )
 target_include_directories(unit_test_gfs PRIVATE ${gfs_include_dirs})
 target_link_libraries(unit_test_gfs 
+  giraffe_diagnostics
   gtest_main
   BoosterSeat
   ${CURSES_LIBRARIES}

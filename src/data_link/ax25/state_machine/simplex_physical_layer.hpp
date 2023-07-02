@@ -64,7 +64,7 @@ public:
   }
   ~SimplexPhysicalLayerStateMachine() = default;
 
-  States getCurrentState() const {
+  State getCurrentState() const {
     return state_;
   }
   void receive(Primitive primitive);
