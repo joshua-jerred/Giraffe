@@ -29,7 +29,8 @@ namespace extension {
  * @brief This contains objects that are shared between all extensions.
  */
 struct ExtensionResources {
-  ExtensionResources(data::Streams &streams) : streams(streams) {
+  ExtensionResources(data::Streams &streams, cfg::gEnum::I2CBus i2c_bus)
+      : streams(streams), i2c_bus(i2c_bus) {
   }
 
   /**
@@ -145,7 +146,7 @@ protected:
    * @brief Used internally to raise a fault.
    * This will stop an extension.
    */
-  void raiseFault(DiagnosticId ext_fault_code);
+  void raiseFault(DiagnosticId ext_fault_code, std::string info = "");
 
   /**
    * @brief For when debugging is enabled, simple debug messages can be sent to

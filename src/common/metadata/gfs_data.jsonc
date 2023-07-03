@@ -3,7 +3,8 @@
     "FILE_META": {
         "namespace": "data",
         "enum_name": "DataId",
-        "enum_type": "uint16_t"
+        "enum_type": "uint16_t",
+        "generate_string_map": "dataIdStringMap"
     },
     "generic": {
         "unknown": {

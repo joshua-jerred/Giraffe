@@ -44,4 +44,13 @@ std::string to_string(const data::LogPacket &packet) {
   output += " " + packet.info;
   return output;
 }
+
+std::string to_string(const data::DataPacket &packet) {
+  std::string output = "";
+  output += data::dataIdStringMap.at(packet.identifier);
+  output += " - ";
+  output += packet.value;
+  return output;
+}
+
 } // namespace util

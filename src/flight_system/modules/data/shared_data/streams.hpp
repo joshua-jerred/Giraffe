@@ -27,7 +27,7 @@
 #include <BoosterSeat/exception.hpp>
 
 #include "data_ids.hpp"
-#include "log_ids.hpp"
+#include "giraffe_diagnostic_ids.hpp"
 #include "node.hpp"
 #include "positional.hpp"
 

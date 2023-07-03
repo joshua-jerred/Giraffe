@@ -1,6 +1,6 @@
 /**
  *
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -11,8 +11,8 @@
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- * 
- * 
+ *
+ *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       2023-06-30
@@ -22,34 +22,20 @@
  * @verbatim
  */
 
+#include "data_ids.hpp"
 
-#ifndef DATA_IDS_HPP_
-#define DATA_IDS_HPP_
-
-#include <unordered_map>
-#include <string>
-#include <cstdint>
-
-namespace data {
-enum class DataId : uint16_t {
-  GENERIC_unknown=0x0000, // Unknown
-  MODULE_statusUpdate=0x0001, // Status Update
-  EXTENSION_statusUpdate=0x0002, // Status Update
-  ENVIRONMENTAL_temperature=0xE001, // Temperature (Celsius)
-  ENVIRONMENTAL_humidity=0xE002, // Relative Humidity (%)
-  ENVIRONMENTAL_pressure=0xE003, // Pressure (mbar)
-  CAMERA_newImagePath=0xC001  // New Image Path
-};
-
-extern const std::unordered_map<DataId, std::string> dataIdStringMap;
-} // namespace data
-
-#endif // DATA_IDS_HPP_
-
+const std::unordered_map<data::DataId, std::string> data::dataIdStringMap{
+    {data::DataId::GENERIC_unknown, "GENERIC_unknown"},
+    {data::DataId::MODULE_statusUpdate, "MODULE_statusUpdate"},
+    {data::DataId::EXTENSION_statusUpdate, "EXTENSION_statusUpdate"},
+    {data::DataId::ENVIRONMENTAL_temperature, "ENVIRONMENTAL_temperature"},
+    {data::DataId::ENVIRONMENTAL_humidity, "ENVIRONMENTAL_humidity"},
+    {data::DataId::ENVIRONMENTAL_pressure, "ENVIRONMENTAL_pressure"},
+    {data::DataId::CAMERA_newImagePath, "CAMERA_newImagePath"}};
 
 /**
  * @endverbatim
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&

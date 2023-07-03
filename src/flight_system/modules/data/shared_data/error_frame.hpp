@@ -20,7 +20,7 @@
 #include <BoosterSeat/clock.hpp>
 
 #include "frame.hpp"
-#include "log_ids.hpp"
+#include "giraffe_diagnostic_ids.hpp"
 #include "streams.hpp"
 
 namespace data {

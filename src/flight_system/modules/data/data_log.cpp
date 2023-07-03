@@ -119,7 +119,7 @@ void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
      * @todo Implement this. Requires configuration list loading.
      */
     shared_data_.streams.log.error(kNodeId,
-                                   DiagnosticId::GENERIC_notYetImplemented,
+                                   DiagnosticId::GENERIC_notImplemented,
                                    "DataLog::logDataFrame SELECTION_INTERVAL");
   }
 

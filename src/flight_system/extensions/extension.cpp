@@ -206,4 +206,15 @@ void Extension::runner() {
   status_ = node::Status::STOPPED;
 }
 
+bool Extension::stopRequested() const {
+  return stop_flag_;
+}
+
+void Extension::raiseFault(DiagnosticId fault_code, std::string extra_info) {
+  fault_flag_ = true;
+  fault_code_ = fault_code;
+  error(fault_code, extra_info);
+  stop_flag_ = true;
+}
+
 } // namespace extension

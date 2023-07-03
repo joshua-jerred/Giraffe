@@ -65,6 +65,7 @@ target_sources(gfs_data_module INTERFACE
 	${GFS_SRC}/modules/data/data_formatting.cpp
 	${GFS_SRC}/modules/data/positional.cpp
 	${GFS_SRC}/modules/data/to_string.cpp
+	${GFS_SRC}/modules/data/data_ids_string_map.cpp
 	${GFS_SRC}/modules/data/shared_data/to_json.cpp
 	${GFS_SRC}/modules/data/shared_data/error_frame.cpp
 )
