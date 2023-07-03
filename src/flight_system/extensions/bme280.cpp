@@ -39,7 +39,9 @@ enum class StartupState {
 };
 
 void Bme280Extension::startup() {
-  constexpr uint32_t kStartupTimeout = 5000; // ms
+  constexpr uint32_t kStartupTimeout = 5000;   // ms
+  constexpr uint32_t kStartupRetryDelay = 100; // ms
+
   BoosterSeat::Timer startup_timer(kStartupTimeout);
   startup_timer.reset();
 
@@ -53,22 +55,30 @@ void Bme280Extension::startup() {
       connect_result = i2c_.connect();
       if (connect_result == I2cInterface::Result::SUCCESS) {
         state = StartupState::HANDSHAKE;
+        break;
       }
+      extSleep(kStartupRetryDelay);
       break;
     case StartupState::HANDSHAKE:
       if (handshake()) {
         state = StartupState::CONFIGURE;
+        break;
       }
+      extSleep(kStartupRetryDelay);
       break;
     case StartupState::CONFIGURE:
       if (configureSensor()) {
         state = StartupState::READ_COMPENSATION_DATA;
+        break;
       }
+      extSleep(kStartupRetryDelay);
       break;
     case StartupState::READ_COMPENSATION_DATA:
       if (readCompensationData()) {
         state = StartupState::DONE;
+        break;
       }
+      extSleep(kStartupRetryDelay);
       break;
     case StartupState::DONE: // Return, startup is complete
       return;

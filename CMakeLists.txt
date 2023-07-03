@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 
 # ----------------- *** START CONFIGUREABLE ITEMS *** --------------------------
 option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF) # ON or OFF
+option(EXTENSION_DEBUG_PRINT "Enable Debug Printing for Extensions" OFF) # ON or OFF
 # ----------------- ***  END CONFIGUREABLE ITEMS  *** --------------------------
 
 
@@ -13,6 +14,14 @@ include(${CMAKE_SOURCE_DIR}/sources.cmake)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # find_program(CLANG_TIDY_EXE NAMES "clang-tidy") 
 # set(CLANG_TIDY_CMD "${CLANG_TIDY_EXE}" "-checks=-*,modernize-*")
+
+# Debug Printing
+if(EXTENSION_DEBUG_PRINT)
+	add_compile_definitions(EXTENSION_DEBUG_PRINT=1)
+	message(STATUS "EXTENSION DEBUG PRINTING ENABLED")
+else()
+	add_compile_definitions(EXTENSION_DEBUG_PRINT=0)
+endif()
 
 # ---- Version File Parseing ----
 file(READ ${CMAKE_SOURCE_DIR}/src/version ver_file)

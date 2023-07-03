@@ -20,6 +20,7 @@
 #include <atomic>
 #include <thread>
 
+#include "giraffe_debug.hpp"
 #include "sections/cfg_extensions.hpp"
 #include "shared_data.hpp"
 
@@ -163,6 +164,8 @@ protected:
    */
   void extSleep(uint32_t ms);
 
+  cfg::ExtensionMetadata metadata_;
+
 private:
   void sleep();
   void runner();
@@ -185,7 +188,6 @@ private:
   std::atomic<bool> stop_flag_ = true;
   std::thread runner_thread_ = std::thread();
 
-  cfg::ExtensionMetadata metadata_;
   ExtensionResources &interfaces_;
 };
 } // namespace extension

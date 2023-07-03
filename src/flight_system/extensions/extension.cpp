@@ -151,6 +151,14 @@ void Extension::data(data::ImuFrame frame) {
                                    metadata_.name, frame);
 }
 
+void Extension::extSleep(uint32_t ms) {
+  const uint32_t kMaxSleepTimeMs = 1000;
+  if (ms > kMaxSleepTimeMs) {
+    ms = kMaxSleepTimeMs;
+  }
+  BoosterSeat::threadSleep(ms);
+}
+
 void Extension::sleep() {
   constexpr int kMinimumSleepTimeMs = 50;
   constexpr int kMaximumSleepTimeMs = 600000;
@@ -170,7 +178,7 @@ void Extension::sleep() {
   BoosterSeat::Timer timer(sleep_ms);
   while (!timer.isDone()) {
     BoosterSeat::threadSleep(check_interval);
-    if (stop_flag_) {
+    if (stopRequested()) {
       return;
     }
   }
@@ -194,6 +202,10 @@ void Extension::runner() {
       return;
     }
     sleep();
+  }
+  if (fault_flag_) {
+    status_ = node::Status::ERROR;
+    return;
   }
 
   // -- SHUTDOWN -- //
