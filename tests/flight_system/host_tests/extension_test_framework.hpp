@@ -17,15 +17,20 @@
 #ifndef EXTENSION_TEST_FRAMEWORK_HPP_
 #define EXTENSION_TEST_FRAMEWORK_HPP_
 
-#include <iostream>
-
 #include "configuration_enums.hpp"
 #include "extension.hpp"
 
 class ExtensionTestFramework {
 public:
+  void printStreams();
+  int getTotalDataPackets();
+  int getTotalLogPackets();
+  void sleep(int ms);
+  void runExtensionFor(extension::Extension &ext, int ms);
+
   data::Streams streams{};
   extension::ExtensionResources resources{streams, cfg::gEnum::I2CBus::I2C_1};
+  cfg::ExtensionMetadata meta{};
 };
 
 #endif /* EXTENSION_TEST_FRAMEWORK_HPP_ */

@@ -48,6 +48,7 @@
     "Reassembler",
     "smbus",
     "stdexcept",
+    "stoi",
     "telem"
   ]
 }

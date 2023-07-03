@@ -29,6 +29,7 @@ target_include_directories(gfs_configuration INTERFACE
 add_library(gfs_interface INTERFACE)
 target_sources(gfs_interface INTERFACE
 	${GFS_SRC}/interface/i2c_interface.cpp
+	${GFS_SRC}/interface/one_wire_interface.cpp
 )
 target_include_directories(gfs_interface INTERFACE
   ./interface
@@ -42,6 +43,7 @@ add_library(gfs_extensions INTERFACE)
 target_sources(gfs_extensions INTERFACE
 	${GFS_SRC}/extensions/extension.cpp
 	${GFS_SRC}/extensions/bme280.cpp
+	${GFS_SRC}/extensions/ds18b20.cpp
 )
 target_include_directories(gfs_extensions INTERFACE
 	${GFS_SRC}/extensions

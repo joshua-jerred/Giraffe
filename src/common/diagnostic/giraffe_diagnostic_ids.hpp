@@ -107,6 +107,7 @@ enum class DiagnosticId : uint16_t {
   EXTENSION_bme280PressureRange=0x5004, // BME280 Pressure Range Warning
   EXTENSION_bme280HumidityRange=0x5005, // BME280 Humidity Range Warning
   EXTENSION_bme280Div0=0x5006, // BME280 DIV0
+  EXTENSION_ds18b20TemperatureRange=0x5007, // DS18B20 Temperature Range Warning
   EXT_FAULT_none=0x7000, // No fault
   EXT_FAULT_fatalConfig=0x7001, // Fatal Configuration Error
   EXT_FAULT_bme280StartupI2CConnect=0x7002, // BME280 Startup I2C Connect Fault
@@ -114,6 +115,13 @@ enum class DiagnosticId : uint16_t {
   EXT_FAULT_bme280StartupConfigure=0x7003, // BME280 Startup Configure Fault
   EXT_FAULT_bme280StartupReadCompensation=0x7003, // BME280 Startup Read Compensation Fault
   EXT_FAULT_bme280ReadTimeout=0x7004, // BME280 Read Timeout Fault
+  EXT_FAULT_ds18b20IdInvalid=0x7005, // DS18B20 Invalid ID Fault
+  EXT_FAULT_ds18b20DeviceNotFound=0x7006, // DS18B20 Device Not Found Fault
+  EXT_FAULT_ds18b20ReadRaw=0x7007, // DS18B20 Timeout - Read Raw
+  EXT_FAULT_ds18b20RawTempEmpty=0x7008, // DS18B20 Timeout - Raw Temp Empty
+  EXT_FAULT_ds18b20RawTempStoi=0x7009, // DS18B20 Timeout - STOI
+  EXT_FAULT_ds18b20InitTimeout=0x700A, // DS18B20 Timeout - Init
+  EXT_FAULT_ds18b20ReadTimeout=0x700B, // DS18B20 Timeout - Read
   GDL_invalidStartCall=0xA000, // Invalid Start Call
   GDL_invalidStopCall=0xA001, // Invalid Stop Call
   GDL_invalidBroadcastCall=0xA002, // Invalid Broadcast Call

@@ -97,6 +97,7 @@ file(GLOB gfs_host_test_sources
      "${GFS_TEST_SRC}/host_tests/test_*.cpp"
 )
 add_executable(unit_test_gfs_host
+  "${GFS_TEST_SRC}/host_tests/extension_test_framework.cpp"
   ${gfs_host_test_sources}
 )
 target_link_libraries(unit_test_gfs_host 

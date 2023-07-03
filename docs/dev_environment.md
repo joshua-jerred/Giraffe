@@ -1,7 +1,7 @@
 # Giraffe Development Environment
 
 ## Linux Packages
-
+libi2c-dev
 
 ## Python
 Python 3 is required, created and tested with Python 3.10.6

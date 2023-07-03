@@ -132,7 +132,7 @@
       "name": "Camera New Image Packet - Invalid Fields",
       "details": "Error info contains the fields that are invalid. These packets must come from an extension.",
       "value": "0x2003"
-    },
+    }
   },
   "data_log": {
     "invalid_dataframe_strategy":{
@@ -412,6 +412,11 @@
       "details": "Prevented a DIV0 while processing BME280 data.",
       "value": "0x5006"
     },
+    "ds18b20_temperature_range":{
+      "name":"DS18B20 Temperature Range Warning",
+      "details":"The temperature value read from the DS18B20 is outside of it's accurate range.",
+      "value": "0x5007"
+    }
   },
   "ext_fault":{ 
     // These are only reported by extensions when they must stop
@@ -450,6 +455,41 @@
       "name":"BME280 Read Timeout Fault",
       "details":"While running, the BME280 failed to successfully read good data from the sensor before the timeout.",
       "value": "0x7004"
+    },
+    "ds18b20_id_invalid":{
+      "name":"DS18B20 Invalid ID Fault",
+      "details":"The configured DS18B20 ID does not match the regex pattern.",
+      "value": "0x7005"
+    },
+    "ds18b20_device_not_found":{
+      "name":"DS18B20 Device Not Found Fault",
+      "details":"The configured DS18B20 ID was not found on the bus.",
+      "value": "0x7006"
+    },
+    "ds18b20_read_raw":{
+      "name":"DS18B20 Timeout - Read Raw",
+      "details":"The DS18B20 timed out, it's last failure was while trying to read raw data.",
+      "value": "0x7007"
+    },
+    "ds18b20_raw_temp_empty":{
+      "name":"DS18B20 Timeout - Raw Temp Empty",
+      "details":"The DS18B20 timed out, it's last failure was having an empty raw temperature value.",
+      "value": "0x7008"
+    },
+    "ds18b20_raw_temp_stoi":{
+      "name":"DS18B20 Timeout - STOI",
+      "details":"The DS18B20 timed out, it's last failure was on trying to convert the raw temperature string to a integer.",
+      "value": "0x7009"
+    },
+    "ds18b20_init_timeout":{
+      "name":"DS18B20 Timeout - Init",
+      "details":"The DS18B20 timed out on initialization but did not provide a more specific error. This should not happen.",
+      "value": "0x700A"
+    },
+    "ds18b20_read_timeout":{
+      "name":"DS18B20 Timeout - Read",
+      "details":"The DS18B20 timed out on read but did not provide a more specific error. This should not happen.",
+      "value": "0x700B"
     }
   },
   "gdl":{
