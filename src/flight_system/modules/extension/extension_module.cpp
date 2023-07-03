@@ -28,7 +28,8 @@ static MetaData metadata("extension_module",
 ExtensionModule::ExtensionModule(data::SharedData &shared_data,
                                  cfg::Configuration &config)
     : modules::Module(metadata, shared_data, config),
-      extension_resources_(shared_data.streams) {
+      extension_resources_(shared_data.streams,
+                           config.hardware_interface.getI2CBus()) {
 }
 
 void ExtensionModule::startup() {

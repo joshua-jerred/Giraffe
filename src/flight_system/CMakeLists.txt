@@ -98,11 +98,12 @@ set_target_properties(
 # -------- First Party Libraries ---------
 target_link_libraries(giraffe_flight_system PRIVATE
 	# internal
+	giraffe_common
 	gfs_interface
+	gfs_data_module
 
 	# external
 	BoosterSeat
-	giraffe_diagnostics
 )
 
 # -------- Third Party Libraries ---------
