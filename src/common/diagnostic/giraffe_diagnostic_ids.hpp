@@ -100,8 +100,12 @@ enum class DiagnosticId : uint16_t {
   EXTENSION_MODULE_failedToCreate=0x4004, // Failed to Create Extension
   EXTENSION_startCall=0x5001, // Can not start if already running, starting, or sleeping.
   EXTENSION_stopTimeout=0x5002, // Failed to stop in time
-  EXT_FAULT_none=0x6000, // No fault
-  EXT_FAULT_fatalConfig=0x6001, // Fatal Configuration Error
+  EXT_FAULT_none=0x7000, // No fault
+  EXT_FAULT_fatalConfig=0x7001, // Fatal Configuration Error
+  EXT_FAULT_bme280StartupI2CConnect=0x7002, // BME280 Startup I2C Connect Fault
+  EXT_FAULT_bme280StartupHandshake=0x7003, // BME280 Startup Handshake Fault
+  EXT_FAULT_bme280StartupConfigure=0x7003, // BME280 Startup Configure Fault
+  EXT_FAULT_bme280StartupReadCompensation=0x7003, // BME280 Startup Read Compensation Fault
   GDL_invalidStartCall=0xA000, // Invalid Start Call
   GDL_invalidStopCall=0xA001, // Invalid Stop Call
   GDL_invalidBroadcastCall=0xA002, // Invalid Broadcast Call

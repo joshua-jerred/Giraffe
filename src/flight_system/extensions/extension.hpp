@@ -31,7 +31,24 @@ namespace extension {
 struct ExtensionResources {
   ExtensionResources(data::Streams &streams) : streams(streams) {
   }
+
+  /**
+   * @brief The global data/log streams.
+   */
   data::Streams &streams;
+
+  /**
+   * @brief The mutex for the I2C bus.
+   * @details The flight system currently supports only one I2C bus.
+   * This is to prevent multiple extensions from trying to use the
+   * bus at the same time.
+   */
+  std::mutex i2c_bus_lock{};
+
+  /**
+   * @brief The bus to use for I2C communication.
+   */
+  cfg::gEnum::I2CBus i2c_bus;
 };
 
 /**
@@ -112,6 +129,16 @@ protected:
   void error(data::LogId log_id, int info);
   void info(std::string info);
 
+  /**
+   * @brief Returns true if the extension has been requested to stop.
+   * @details This should be used in the loop() function for extensions that
+   * take a long time to complete a single loop iteration. This is helpful
+   * for to stop extensions quickly upon request. Fast extensions do not need to
+   * use this.
+   *
+   * @return true - The extension has been requested to stop.
+   * @return false - The extension has not been requested to stop.
+   */
   bool stopRequested() const;
 
   /**
@@ -119,6 +146,21 @@ protected:
    * This will stop an extension.
    */
   void raiseFault(data::LogId ext_fault_code);
+
+  /**
+   * @brief For when debugging is enabled, simple debug messages can be sent to
+   * the log.
+   * @param message
+   */
+  void debug(std::string message);
+
+  /**
+   * @brief Sleep internally for a given number of milliseconds.
+   * @details This has a limit of 1 second.
+   *
+   * @param ms - The number of milliseconds to sleep.
+   */
+  void extSleep(uint32_t ms);
 
 private:
   void sleep();

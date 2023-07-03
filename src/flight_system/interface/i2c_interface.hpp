@@ -88,10 +88,18 @@ public:
   Result connect();
 
   /**
-   * @brief Disconnect from the bus.
+   * @brief Disconnect from the bus. Reports an error if the bus is not
+   * connected.
    * @return Result - 'SUCCESS' if successful, otherwise an error code.
    */
   Result disconnect();
+
+  /**
+   * @brief Disconnect from the bus if it's connected, otherwise do nothing.
+   * @details Will not report any error. This is really just a safe way to
+   * reset the connection.
+   */
+  void reset();
 
   /**
    * @brief Get the address of the device on the bus.

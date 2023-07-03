@@ -14,6 +14,17 @@ set(EXE_NAME giraffe_flight_system)
 
 # -------- Interface Libs ---------
 
+# # # Flight System Configuration
+add_library(gfs_configuration INTERFACE)
+target_sources(gfs_configuration INTERFACE
+	${GFS_SRC}/configuration/configuration.cpp
+	${GFS_SRC}/configuration/sections/cfg_extensions.cpp
+)
+target_include_directories(gfs_configuration INTERFACE
+  ./configuration
+	./configuration/sections
+)
+
 # # # Hardware Interface
 add_library(gfs_interface INTERFACE)
 target_sources(gfs_interface INTERFACE
@@ -26,14 +37,40 @@ target_link_libraries(gfs_interface INTERFACE
 	i2c
 )
 
-# # # Flight System Configuration
-add_library(gfs_configuration INTERFACE
-"./configuration/configuration.cpp"
-"./configuration/sections/cfg_extensions.cpp"
+# # # Extensions
+add_library(gfs_extensions INTERFACE)
+target_sources(gfs_extensions INTERFACE
+	${GFS_SRC}/extensions/extension.cpp
+	${GFS_SRC}/extensions/bme280.cpp
 )
-target_include_directories(gfs_interface INTERFACE
-  "./configuration"
-	"./configuration/sections"
+target_include_directories(gfs_extensions INTERFACE
+	${GFS_SRC}/extensions
+)
+
+# # # Module Base
+add_library(gfs_module_base INTERFACE)
+target_sources(gfs_module_base INTERFACE
+	${GFS_SRC}/modules/module.cpp
+)
+target_include_directories(gfs_module_base INTERFACE
+  ${GFS_SRC}/modules
+)
+
+# # # Data Module
+add_library(gfs_data_module INTERFACE)
+target_sources(gfs_data_module INTERFACE
+	${GFS_SRC}/modules/data/data_module.cpp
+	${GFS_SRC}/modules/data/data_log.cpp
+	${GFS_SRC}/modules/data/influxdb.cpp
+	${GFS_SRC}/modules/data/data_formatting.cpp
+	${GFS_SRC}/modules/data/positional.cpp
+	${GFS_SRC}/modules/data/to_string.cpp
+	${GFS_SRC}/modules/data/shared_data/to_json.cpp
+	${GFS_SRC}/modules/data/shared_data/error_frame.cpp
+)
+target_include_directories(gfs_data_module INTERFACE
+  ${GFS_SRC}/modules/data
+	${GFS_SRC}/modules/data/shared_data
 )
 
 # -------- GFS Executable ---------

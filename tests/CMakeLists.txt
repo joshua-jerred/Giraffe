@@ -82,14 +82,19 @@ add_executable(unit_test_gfs_host
   ${gfs_host_test_sources}
 )
 target_link_libraries(unit_test_gfs_host 
-  giraffe_diagnostics
+  giraffe_common
 
+  gfs_module_base
   gfs_interface
+  gfs_extensions
   gfs_configuration
+  gfs_data_module
   
   BoosterSeat
   unit_test
+
   gtest_main
+  nlohmann_json::nlohmann_json
 )
 set_target_properties(
 	unit_test_gfs_host PROPERTIES 

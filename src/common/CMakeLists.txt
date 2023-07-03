@@ -1,6 +1,10 @@
-add_library(giraffe_diagnostics STATIC
+add_library(giraffe_common STATIC
   diagnostic/giraffe_exception.cpp
   diagnostic/giraffe_debug_assert.cpp
   diagnostic/diagnostic_id_strings.cpp
 )
-target_include_directories(giraffe_diagnostics PUBLIC ./diagnostic)
+target_include_directories(giraffe_common PUBLIC 
+  ./
+  ./diagnostic
+  ./command
+)

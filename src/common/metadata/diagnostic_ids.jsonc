@@ -378,16 +378,38 @@
       "value": "0x5002"
     }
   },
-  "ext_fault":{
+  "ext_fault":{ 
+    // These are only reported by extensions when they must stop
+    // Other errors should have already been reported.
     "none":{
       "name": "No fault",
       "details": "Default, should not be thrown.",
-      "value": "0x6000"
+      "value": "0x7000"
     },
     "fatal_config":{
       "name":"Fatal Configuration Error",
       "details": "The extension has a fatal configuration error, it will not be restarted.",
-      "value": "0x6001"
+      "value": "0x7001"
+    },
+    "bme280_startup_i2c_connect":{
+      "name":"BME280 Startup I2C Connect Fault",
+      "details": "The extension failed to connect to the I2C bus on startup.",
+      "value": "0x7002"
+    },
+    "bme280_startup_handshake":{
+      "name":"BME280 Startup Handshake Fault",
+      "details": "The BME280 failed to handshake on startup after a set number of retry attempt.",
+      "value": "0x7003"
+    },
+    "bme280_startup_configure":{
+      "name":"BME280 Startup Configure Fault",
+      "details": "Failed to configure the BME280 on startup.",
+      "value": "0x7003"
+    },
+    "bme280_startup_read_compensation":{
+      "name":"BME280 Startup Read Compensation Fault",
+      "details": "Failed to read compensation data from the BME280 on startup.",
+      "value": "0x7003"
     }
   },
   "gdl":{

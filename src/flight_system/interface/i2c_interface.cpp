@@ -75,6 +75,16 @@ I2cInterface::Result I2cInterface::disconnect() {
   return Result::DISCONNECT_CLOSE_ERROR;
 }
 
+void I2cInterface::reset() {
+  std::lock_guard<std::mutex> lock(bus_lock_);
+
+  if (!isConnected()) { // Check if the bus is open
+    return;
+  }
+
+  close(i2c_fd_);
+}
+
 uint8_t I2cInterface::getAddress() const {
   return address_;
 }
