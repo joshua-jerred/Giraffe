@@ -32,10 +32,10 @@ namespace extension {
  * @see simple-extension.cpp for example usage.
  */
 class Extension {
- public:
+public:
   Extension(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
-  Extension(const Extension &other) = delete;             // No copy constructor
-  Extension &operator=(const Extension &other) = delete;  // No copy assignment
+  Extension(const Extension &other) = delete;            // No copy constructor
+  Extension &operator=(const Extension &other) = delete; // No copy assignment
   virtual ~Extension();
 
   void start();
@@ -56,8 +56,8 @@ class Extension {
   // The following are used by the extensions module.
   std::atomic<int> restart_attempts_ = 0;
 
- protected:
-  virtual int runner();  // Must be overridden
+protected:
+  virtual int runner(); // Must be overridden
   void setStatus(ExtensionStatus status);
 
   void sendData(std::string unit, std::string value);
@@ -70,10 +70,10 @@ class Extension {
   void error(std::string error_code, std::string info);
   void error(std::string error_code);
 
-  std::atomic<int> stop_flag_ = 1;  // 0 = continue, 1 = stop
+  std::atomic<int> stop_flag_ = 1; // 0 = continue, 1 = stop
   int data_expiration_time_ = 1000;
 
- private:
+private:
   void setID(int num);
   void setName(std::string name);
   void setType(std::string type);
@@ -101,13 +101,15 @@ class Extension {
 };
 
 class ExtensionException {
- public:
+public:
   ExtensionException(std::string s) : m_s(s){};
   ~ExtensionException(){};
 
-  std::string description() { return m_s; }
+  std::string description() {
+    return m_s;
+  }
 
- private:
+private:
   std::string m_s;
 };
 
@@ -115,12 +117,12 @@ class ExtensionException {
  * @brief BMP180 I2C temperature and pressure sensor driver/extension.
  */
 class BMP180 : public Extension {
- public:
+public:
   BMP180(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
   ~BMP180();
   int runner();
 
- private:
+private:
   int readCalibrationData();
   int readRawTemperature();
   int readRawPressure();
@@ -180,12 +182,12 @@ class BMP180 : public Extension {
  * @brief DS18B20 1Wire temperature sensor driver/extension.
  */
 class DS18B20 : public Extension {
- public:
+public:
   DS18B20(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
   ~DS18B20();
   int runner();
 
- private:
+private:
   int readData();
   int processData();
   uint8_t calculateCRC(uint8_t *addr, uint8_t len);
@@ -203,12 +205,12 @@ class DS18B20 : public Extension {
  * @brief SAM-M8Q I2C GPS sensor driver/extension.
  */
 class SAMM8Q : public Extension {
- public:
+public:
   SAMM8Q(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
   ~SAMM8Q();
   int runner();
 
- private:
+private:
   bool configure();
 
   int bus_number_;
@@ -218,12 +220,12 @@ class SAMM8Q : public Extension {
 };
 
 class BME280 : public Extension {
- public:
+public:
   BME280(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
   ~BME280();
   int runner();
 
- private:
+private:
   struct RawEnvironmentData {
     uint32_t pressure = 0;
     uint32_t temperature = 0;
@@ -282,11 +284,11 @@ class BME280 : public Extension {
 
 /**
  * @brief SYSINFO extension for reading system information.
- * @details Functional on Linux machines. Includes CPU, RAM, and Disk 
+ * @details Functional on Linux machines. Includes CPU, RAM, and Disk
  * Information.
  */
 class SYSINFO : public Extension {
- public:
+public:
   SYSINFO(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
   ~SYSINFO();
   int runner();
@@ -298,12 +300,12 @@ class SYSINFO : public Extension {
  * @todo Remove this extension.
  */
 class MAX17049 : public Extension {
- public:
+public:
   MAX17049(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
   ~MAX17049();
   int runner();
 
- private:
+private:
   bool handshake();
   bool readData();
 
@@ -320,12 +322,12 @@ class MAX17049 : public Extension {
  * @todo Resistor values should be read from the config file.
  */
 class MCP3021 : public Extension {
- public:
+public:
   MCP3021(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
   ~MCP3021();
   int runner();
 
- private:
+private:
   int handshake();
   bool ReadVoltage();
 
@@ -345,12 +347,12 @@ class MCP3021 : public Extension {
  * @todo Needs a major overhaul, temporary implementation.
  */
 class RaspPiCamera : public Extension {
- public:
+public:
   RaspPiCamera(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
   ~RaspPiCamera();
   int runner();
 
- private:
+private:
   std::string CaptureImage();
   // bool CaptureVideo();
 };
@@ -369,13 +371,13 @@ class RaspPiCamera : public Extension {
  * @details Simulates pressure readings, not based on real data/physics.
  */
 class PRESS_SENSOR_SIM : public Extension {
- public:
+public:
   PRESS_SENSOR_SIM(DataStream *p_data_stream,
                    ExtensionMetadata extension_metadata);
   ~PRESS_SENSOR_SIM();
   int runner();
 
- private:
+private:
   float pressure_ = 1012.00;
 
   std::time_t start_time_ = 0;
@@ -396,7 +398,7 @@ class PRESS_SENSOR_SIM : public Extension {
  * @details Not based on real data/physics.
  */
 class TEMP_SENSOR_SIM : public Extension {
- public:
+public:
   TEMP_SENSOR_SIM(DataStream *p_data_stream,
                   ExtensionMetadata extension_metadata);
   ~TEMP_SENSOR_SIM();
@@ -408,7 +410,7 @@ class TEMP_SENSOR_SIM : public Extension {
  * @todo Remove this extension.
  */
 class RADIO_SIM : public Extension {
- public:
+public:
   RADIO_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
   ~RADIO_SIM();
   int runner();
@@ -419,12 +421,12 @@ class RADIO_SIM : public Extension {
  * @todo Needs to be updated to use the new GPSFrame data structure.
  */
 class GPS_SIM : public Extension {
- public:
+public:
   GPS_SIM(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
   ~GPS_SIM();
   int runner();
 
- private:
+private:
   float latitude_ = 38.686823;
   float longitude_ = -110.989557;
   float altitude_ = 0.0;
@@ -435,13 +437,13 @@ class GPS_SIM : public Extension {
  * @todo Verify compatibility with critical data structures.
  */
 class BATT_SENSOR_SIM : public Extension {
- public:
+public:
   BATT_SENSOR_SIM(DataStream *p_data_stream,
                   ExtensionMetadata extension_metadata);
   ~BATT_SENSOR_SIM();
   int runner();
 };
 
-}  // namespace extension
+} // namespace extension
 
-#endif  // EXTENSION_H_
+#endif // EXTENSION_H_

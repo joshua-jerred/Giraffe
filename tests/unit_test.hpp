@@ -4,10 +4,10 @@
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- * 
+ *
  * @file   unit_test.hpp
  * @brief  Simple wrapper for GTest to get rid of compiler warnings.
- * 
+ *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       2023-06-09

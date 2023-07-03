@@ -19,7 +19,6 @@
 #define SIMULATED_EXTENSIONS_HPP_
 
 #include "extension.hpp"
-#include <iostream>
 
 namespace extension {
 class SimTemperatureSensor : public Extension {

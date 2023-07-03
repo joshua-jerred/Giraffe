@@ -32,6 +32,9 @@
 
 enum class DiagnosticId : uint16_t {
   GENERIC_unknown=0xF000, // Unknown
+  GENERIC_info=0xF001, // info
+  GENERIC_debug=0xF002, // debug
+  GENERIC_notImplemented=0xF003, // Not Implemented
   CONFIG_sectionNotFound=0x000E, // Section not found
   CONFIG_settingNotFound=0x0001, // Setting not found
   CONFIG_invalidJsonType=0x0002, // Invalid JSON type
@@ -100,8 +103,17 @@ enum class DiagnosticId : uint16_t {
   EXTENSION_MODULE_failedToCreate=0x4004, // Failed to Create Extension
   EXTENSION_startCall=0x5001, // Can not start if already running, starting, or sleeping.
   EXTENSION_stopTimeout=0x5002, // Failed to stop in time
-  EXT_FAULT_none=0x6000, // No fault
-  EXT_FAULT_fatalConfig=0x6001, // Fatal Configuration Error
+  EXTENSION_bme280TemperatureRange=0x5003, // BME280 Temperature Range Warning
+  EXTENSION_bme280PressureRange=0x5004, // BME280 Pressure Range Warning
+  EXTENSION_bme280HumidityRange=0x5005, // BME280 Humidity Range Warning
+  EXTENSION_bme280Div0=0x5006, // BME280 DIV0
+  EXT_FAULT_none=0x7000, // No fault
+  EXT_FAULT_fatalConfig=0x7001, // Fatal Configuration Error
+  EXT_FAULT_bme280StartupI2CConnect=0x7002, // BME280 Startup I2C Connect Fault
+  EXT_FAULT_bme280StartupHandshake=0x7003, // BME280 Startup Handshake Fault
+  EXT_FAULT_bme280StartupConfigure=0x7003, // BME280 Startup Configure Fault
+  EXT_FAULT_bme280StartupReadCompensation=0x7003, // BME280 Startup Read Compensation Fault
+  EXT_FAULT_bme280ReadTimeout=0x7004, // BME280 Read Timeout Fault
   GDL_invalidStartCall=0xA000, // Invalid Start Call
   GDL_invalidStopCall=0xA001, // Invalid Stop Call
   GDL_invalidBroadcastCall=0xA002, // Invalid Broadcast Call

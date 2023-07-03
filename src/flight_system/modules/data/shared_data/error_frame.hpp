@@ -20,7 +20,7 @@
 #include <BoosterSeat/clock.hpp>
 
 #include "frame.hpp"
-#include "log_ids.hpp"
+#include "giraffe_diagnostic_ids.hpp"
 #include "streams.hpp"
 
 namespace data {
@@ -42,7 +42,7 @@ struct ErrorFrameItem {
  * Specifically, the number of occurrences of each error along with the first
  * and last time the error was reported.
  */
-class ErrorFrame : private Frame<data::LogId, ErrorFrameItem> {
+class ErrorFrame : private Frame<DiagnosticId, ErrorFrameItem> {
 public:
   ErrorFrame() = default;
   ~ErrorFrame() = default;
@@ -59,7 +59,7 @@ public:
    * @brief Clear an individual error from the frame by id.
    * @param id - The id of the error to clear.
    */
-  void clearError(data::LogId id);
+  void clearError(DiagnosticId id);
 
   /**
    * @brief Clear all errors from the error frame.
@@ -90,13 +90,13 @@ public:
    * @return true - The error was found in the frame.
    * @return false - The error was not found in the frame.
    */
-  bool getError(data::LogId id, ErrorFrameItem &item) const;
+  bool getError(DiagnosticId id, ErrorFrameItem &item) const;
 
   /**
    * @brief Get all active error ids that are currently in the frame.
-   * @return std::vector<data::LogId> - A vector of all active error ids.
+   * @return std::vector<DiagnosticId> - A vector of all active error ids.
    */
-  std::vector<data::LogId> getActiveErrorIds() const;
+  std::vector<DiagnosticId> getActiveErrorIds() const;
 
   /**
    * @brief Returns true if the error is active in the frame.
@@ -104,7 +104,7 @@ public:
    * @return true - The error is active in the frame.
    * @return false - The error is not active in the frame.
    */
-  bool isActive(data::LogId id) const;
+  bool isActive(DiagnosticId id) const;
 
   /**
    * @brief Returns the number of occurrences of an error. If the error is not
@@ -112,7 +112,7 @@ public:
    * @param id - The id of the error to check.
    * @return int - The number of occurrences of the error.
    */
-  int numOccurrences(data::LogId id) const;
+  int numOccurrences(DiagnosticId id) const;
 
   /**
    * @brief Returns a time point representing when the last time was that an
@@ -131,13 +131,14 @@ public:
    * @return true - The error was found in the frame.
    * @return false - The error was not found in the frame.
    */
-  bool lastOccurrence(data::LogId id, BoosterSeat::clck::TimePoint &time) const;
+  bool lastOccurrence(DiagnosticId id,
+                      BoosterSeat::clck::TimePoint &time) const;
 
   /**
    * @brief Get the full error frame.
-   * @return std::unordered_map<data::LogId, ErrorFrameItem> - The error frame.
+   * @return std::unordered_map<DiagnosticId, ErrorFrameItem> - The error frame.
    */
-  std::unordered_map<data::LogId, ErrorFrameItem> getFullFrame() const;
+  std::unordered_map<DiagnosticId, ErrorFrameItem> getFullFrame() const;
 
 private:
   /**

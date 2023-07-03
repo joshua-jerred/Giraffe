@@ -50,7 +50,9 @@ static const std::map<Identification, std::string> identification_to_string = {
     {Identification::DATA_MODULE, "data_module"},
     {Identification::CONSOLE_MODULE, "console_module"},
     {Identification::SERVER_MODULE, "server_module"},
-    {Identification::SYSTEM_MODULE, "system_module"}};
+    {Identification::SYSTEM_MODULE, "system_module"},
+    {Identification::EXTENSION_MODULE, "extension_module"},
+    {Identification::EXTENSION, "extension"}};
 
 /**
  * @brief Node status, used for modules and extensions.

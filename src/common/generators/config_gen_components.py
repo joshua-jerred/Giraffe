@@ -39,7 +39,7 @@ def getConfigurationClass(initializers, private_members):
 
 {1} 
  private:
-  void error(data::LogId error_code, std::string info = "") {{
+  void error(DiagnosticId error_code, std::string info = "") {{
       streams_.log.error(node::Identification::CONFIGURATION, error_code, info);
   }}
  
@@ -64,7 +64,7 @@ def getConfigurationSaveAndLoad(members):
         json_loaders += f'{IND}if (sectionExists(parsed, "{member}")) {{\n'
         json_loaders += f'{IND*2}{member}.setFromJson(parsed["{member}"]);'
         json_loaders += f'\n{IND}}} else {{'
-        json_loaders += f'\n{IND*2}error(data::LogId::CONFIG_failedToLoadSectionNotFound, "{member}");'
+        json_loaders += f'\n{IND*2}error(DiagnosticId::CONFIG_failedToLoadSectionNotFound, "{member}");'
         json_loaders += f'\n{IND}}}\n\n'
     return """
 void cfg::Configuration::getAllJson(json &all_data) const {{
@@ -78,7 +78,7 @@ void cfg::Configuration::save(std::string file_path) {{
   std::ofstream out(file_path);
   
   if (out.fail()) {{
-    error(data::LogId::CONFIG_failedToSaveToPath, file_path);
+    error(DiagnosticId::CONFIG_failedToSaveToPath, file_path);
     return;
   }}
   
@@ -98,14 +98,14 @@ void cfg::Configuration::load(std::string file_path) {{
   const std::lock_guard<std::mutex> lock(file_lock_);
 
   if (!std::filesystem::exists(file_path)) {{
-    error(data::LogId::CONFIG_configFileDoesNotExist, file_path);
+    error(DiagnosticId::CONFIG_configFileDoesNotExist, file_path);
     return; 
   }}
 
   std::ifstream in(file_path);
   
   if (in.fail()) {{
-    error(data::LogId::CONFIG_failedToOpenConfig, file_path);
+    error(DiagnosticId::CONFIG_failedToOpenConfig, file_path);
     return;
   }}
   

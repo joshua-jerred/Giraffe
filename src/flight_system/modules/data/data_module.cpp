@@ -125,7 +125,7 @@ void modules::DataModule::processDataPacket(const data::DataPacket &packet) {
   } else if (packet.type == data::DataPacket::Type::STATUS) {
     parseStatusDataPacket(packet);
   } else {
-    error(data::LogId::DATA_MODULE_dataPacketUnknownType, (int)packet.type);
+    error(DiagnosticId::DATA_MODULE_dataPacketUnknownType, (int)packet.type);
   }
 }
 
@@ -175,7 +175,7 @@ void modules::DataModule::parseStatusDataPacket(
     statuses.extension = packet.node_status;
     break;
   default:
-    error(data::LogId::DATA_MODULE_statusDataPacketUnknownSource,
+    error(DiagnosticId::DATA_MODULE_statusDataPacketUnknownSource,
           (int)packet.source);
     return;
   }
@@ -186,13 +186,14 @@ void modules::DataModule::parseStatusDataPacket(
 void modules::DataModule::parseCameraNewImageDataPacket(
     const data::DataPacket &packet) {
   if (packet.source != node::Identification::EXTENSION) {
-    error(data::LogId::DATA_MODULE_cameraNewImagePacketInvalidFields, "source");
+    error(DiagnosticId::DATA_MODULE_cameraNewImagePacketInvalidFields,
+          "source");
     return;
   }
   std::string path = packet.value;
   std::filesystem::path p(path);
   if (!std::filesystem::exists(p) || !std::filesystem::is_regular_file(p)) {
-    error(data::LogId::DATA_MODULE_cameraNewImagePacketInvalidPath, path);
+    error(DiagnosticId::DATA_MODULE_cameraNewImagePacketInvalidPath, path);
     return;
   }
 

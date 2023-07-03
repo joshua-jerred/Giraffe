@@ -27,7 +27,7 @@
 #include <BoosterSeat/exception.hpp>
 
 #include "data_ids.hpp"
-#include "log_ids.hpp"
+#include "giraffe_diagnostic_ids.hpp"
 #include "node.hpp"
 #include "positional.hpp"
 
@@ -98,13 +98,13 @@ private:
 struct LogPacket : public BaseStreamPacket {
   enum class Level : int { DEBUG = 0, INFO = 1, WARN = 2, ERROR = 3 };
   Level level = Level::INFO;
-  data::LogId id = data::LogId::GENERIC_unknown;
+  DiagnosticId id = DiagnosticId::GENERIC_unknown;
   std::string info = "";
 };
 
 class LogStream : public Stream<LogPacket> {
 public:
-  void error(node::Identification source, data::LogId error_id,
+  void error(node::Identification source, DiagnosticId error_id,
              std::string info = "") {
     LogPacket pkt;
     pkt.source = source;
@@ -117,7 +117,7 @@ public:
   }
 
   void info(node::Identification source, std::string info = "",
-            data::LogId log_id = data::LogId::GENERIC_info) {
+            DiagnosticId log_id = DiagnosticId::GENERIC_info) {
     LogPacket pkt;
     pkt.source = source;
     pkt.level = LogPacket::Level::INFO;
@@ -129,7 +129,7 @@ public:
   }
 
   void debug(node::Identification source, std::string info = "",
-             data::LogId log_id = data::LogId::GENERIC_debug) {
+             DiagnosticId log_id = DiagnosticId::GENERIC_debug) {
     LogPacket pkt;
     pkt.source = source;
     pkt.level = LogPacket::Level::DEBUG;
@@ -141,7 +141,7 @@ public:
   }
 
   void errorBoosterSeatException(const node::Identification source,
-                                 const data::LogId error_id,
+                                 const DiagnosticId error_id,
                                  const BoosterSeat::BoosterSeatException &e) {
     LogPacket pkt;
     pkt.source = source;
@@ -154,7 +154,7 @@ public:
   }
 
   void errorStdException(const node::Identification source,
-                         const data::LogId error_id, const std::exception &e) {
+                         const DiagnosticId error_id, const std::exception &e) {
     LogPacket pkt;
     pkt.source = source;
     pkt.level = LogPacket::Level::ERROR;

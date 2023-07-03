@@ -59,7 +59,7 @@ void Extensions::setFromJson(const json &j) {
 
   // Ensure that the extensions are an array.
   if (!j.is_array()) {
-    error(data::LogId::CONFIG_extensionsNotArray);
+    error(DiagnosticId::CONFIG_extensionsNotArray);
     return;
   }
 
@@ -67,7 +67,7 @@ void Extensions::setFromJson(const json &j) {
   int num_attempted = 0;
   for (const json &ext_meta_j : j) {
     if (!ext_meta_j.is_object()) {
-      error(data::LogId::CONFIG_extensionNotObject,
+      error(DiagnosticId::CONFIG_extensionNotObject,
             std::to_string(num_attempted++));
       continue;
     }
@@ -79,7 +79,7 @@ void Extensions::setFromJson(const json &j) {
 
     // Check if the extension name is already in use.
     if (doesNameExist(ext_meta.name)) {
-      error(data::LogId::CONFIG_extensionNameAlreadyExists,
+      error(DiagnosticId::CONFIG_extensionNameAlreadyExists,
             "on load " + ext_meta.name);
       continue;
     }
@@ -102,7 +102,7 @@ json Extensions::getJson() const {
 void Extensions::addExtension(const ExtensionMetadata &metadata) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   if (doesNameExist(metadata.name)) {
-    error(data::LogId::CONFIG_extensionNameAlreadyExists,
+    error(DiagnosticId::CONFIG_extensionNameAlreadyExists,
           "on add " + metadata.name);
     return;
   }
@@ -116,7 +116,7 @@ void Extensions::removeExtension(const std::string &name) {
       return;
     }
   }
-  error(data::LogId::CONFIG_extensionNameDoesNotExist, "on remove " + name);
+  error(DiagnosticId::CONFIG_extensionNameDoesNotExist, "on remove " + name);
 }
 
 void Extensions::toggleExtension(const std::string &name, bool enabled) {
@@ -128,7 +128,7 @@ void Extensions::toggleExtension(const std::string &name, bool enabled) {
     }
   }
 
-  error(data::LogId::CONFIG_extensionNameDoesNotExist, "on toggle " + name);
+  error(DiagnosticId::CONFIG_extensionNameDoesNotExist, "on toggle " + name);
 }
 
 std::vector<ExtensionMetadata> Extensions::getExtensions() const {

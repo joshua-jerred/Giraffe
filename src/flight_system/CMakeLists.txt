@@ -12,6 +12,68 @@ endif()
 
 set(EXE_NAME giraffe_flight_system)
 
+# -------- Interface Libs ---------
+
+# # # Flight System Configuration
+add_library(gfs_configuration INTERFACE)
+target_sources(gfs_configuration INTERFACE
+	${GFS_SRC}/configuration/configuration.cpp
+	${GFS_SRC}/configuration/sections/cfg_extensions.cpp
+)
+target_include_directories(gfs_configuration INTERFACE
+  ./configuration
+	./configuration/sections
+)
+
+# # # Hardware Interface
+add_library(gfs_interface INTERFACE)
+target_sources(gfs_interface INTERFACE
+	${GFS_SRC}/interface/i2c_interface.cpp
+)
+target_include_directories(gfs_interface INTERFACE
+  ./interface
+)
+target_link_libraries(gfs_interface INTERFACE
+	i2c
+)
+
+# # # Extensions
+add_library(gfs_extensions INTERFACE)
+target_sources(gfs_extensions INTERFACE
+	${GFS_SRC}/extensions/extension.cpp
+	${GFS_SRC}/extensions/bme280.cpp
+)
+target_include_directories(gfs_extensions INTERFACE
+	${GFS_SRC}/extensions
+)
+
+# # # Module Base
+add_library(gfs_module_base INTERFACE)
+target_sources(gfs_module_base INTERFACE
+	${GFS_SRC}/modules/module.cpp
+)
+target_include_directories(gfs_module_base INTERFACE
+  ${GFS_SRC}/modules
+)
+
+# # # Data Module
+add_library(gfs_data_module INTERFACE)
+target_sources(gfs_data_module INTERFACE
+	${GFS_SRC}/modules/data/data_module.cpp
+	${GFS_SRC}/modules/data/data_log.cpp
+	${GFS_SRC}/modules/data/influxdb.cpp
+	${GFS_SRC}/modules/data/data_formatting.cpp
+	${GFS_SRC}/modules/data/positional.cpp
+	${GFS_SRC}/modules/data/to_string.cpp
+	${GFS_SRC}/modules/data/data_ids_string_map.cpp
+	${GFS_SRC}/modules/data/shared_data/to_json.cpp
+	${GFS_SRC}/modules/data/shared_data/error_frame.cpp
+)
+target_include_directories(gfs_data_module INTERFACE
+  ${GFS_SRC}/modules/data
+	${GFS_SRC}/modules/data/shared_data
+)
+
 # -------- GFS Executable ---------
 add_executable( # see sources.cmake for source files
 	${EXE_NAME}
@@ -34,11 +96,14 @@ set_target_properties(
 )
 
 # -------- First Party Libraries ---------
-target_link_libraries(
-	giraffe_flight_system
-	PRIVATE 
+target_link_libraries(giraffe_flight_system PRIVATE
+	# internal
+	giraffe_common
+	gfs_interface
+	gfs_data_module
+
+	# external
 	BoosterSeat
-	giraffe_diagnostics
 )
 
 # -------- Third Party Libraries ---------

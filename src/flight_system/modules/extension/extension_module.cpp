@@ -28,7 +28,8 @@ static MetaData metadata("extension_module",
 ExtensionModule::ExtensionModule(data::SharedData &shared_data,
                                  cfg::Configuration &config)
     : modules::Module(metadata, shared_data, config),
-      extension_resources_(shared_data.streams) {
+      extension_resources_(shared_data.streams,
+                           config.hardware_interface.getI2CBus()) {
 }
 
 void ExtensionModule::startup() {
@@ -39,7 +40,7 @@ void ExtensionModule::startup() {
     // Create the extension.
     auto extension = createExtension(ext_meta);
     if (!extension.has_value()) {
-      error(data::LogId::EXTENSION_MODULE_failedToCreate, ext_meta.name);
+      error(DiagnosticId::EXTENSION_MODULE_failedToCreate, ext_meta.name);
       continue;
     }
 

@@ -129,8 +129,8 @@ private:
    * @see DataLog::FsStatus
    */
   void createDirectory(const std::string &path,
-                       const data::LogId booster_seat_log_id,
-                       const data::LogId std_except_log_id,
+                       const DiagnosticId booster_seat_log_id,
+                       const DiagnosticId std_except_log_id,
                        bool &validity_flag);
 
   /**
@@ -147,8 +147,8 @@ private:
    * @see DataLog::FsStatus
    */
   void createFile(const std::string &new_file_path,
-                  const data::LogId booster_seat_log_id,
-                  const data::LogId std_except_log_id, bool &validity_flag);
+                  const DiagnosticId booster_seat_log_id,
+                  const DiagnosticId std_except_log_id, bool &validity_flag);
 
   /**
    * @brief Used to create the data directory with createDirectory().
@@ -193,9 +193,9 @@ private:
    * valid.
    */
   void validateDirExists(const std::string &path,
-                         const data::LogId does_not_exist_log_id,
-                         const data::LogId booster_seat_log_id,
-                         const data::LogId std_except_log_id,
+                         const DiagnosticId does_not_exist_log_id,
+                         const DiagnosticId booster_seat_log_id,
+                         const DiagnosticId std_except_log_id,
                          bool &validity_flag);
 
   /**
@@ -210,9 +210,9 @@ private:
    * @param validity_flag (out) - The 'valid' flag to set if the file is valid.
    */
   void validateFileExists(const std::string &path,
-                          const data::LogId does_not_exist_log_id,
-                          const data::LogId booster_seat_log_id,
-                          const data::LogId std_except_log_id,
+                          const DiagnosticId does_not_exist_log_id,
+                          const DiagnosticId booster_seat_log_id,
+                          const DiagnosticId std_except_log_id,
                           bool &validity_flag);
 
   /**
@@ -223,7 +223,7 @@ private:
    * @param error_id - The error id to log if an error occurs.
    */
   void appendToFile(const std::string &path, const std::string &data,
-                    const data::LogId error_id);
+                    const DiagnosticId error_id);
 
   /**
    * @brief Attempts to read the size of a  file.
@@ -231,7 +231,7 @@ private:
    * @param error_id - The error id to log if an error occurs.
    * @param file_size (out) - The variable to store the file size in.
    */
-  void updateFileSize(const std::string &file_path, const data::LogId error_id,
+  void updateFileSize(const std::string &file_path, const DiagnosticId error_id,
                       data::blocks::DataLogStats::FileSizeType &file_size);
 
   /**
@@ -241,7 +241,7 @@ private:
    * @param error_id - The error id to log if an error occurs.
    * @param dir_size - The variable to store the directory size in.
    */
-  void updateDirSize(const std::string &dir_path, const data::LogId error_id,
+  void updateDirSize(const std::string &dir_path, const DiagnosticId error_id,
                      data::blocks::DataLogStats::FileSizeType &dir_size);
 
   /**
@@ -257,7 +257,7 @@ private:
    */
   bool archiveFile(const std::string &file_path,
                    const std::string &archive_dir_path,
-                   const data::LogId error_id);
+                   const DiagnosticId error_id);
 
   /**
    * @brief Called only startup. If there are any files in the data or log
@@ -269,7 +269,7 @@ private:
    */
   void archiveOtherFilesInDir(const std::string &dir_path,
                               const std::string &archive_dir_path,
-                              data::LogId error_id);
+                              DiagnosticId error_id);
 
   /**
    * @brief This method checks the size of the data and log files and archives

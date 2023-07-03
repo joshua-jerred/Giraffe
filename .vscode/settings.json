@@ -46,9 +46,8 @@
     "dataframe",
     "puml",
     "Reassembler",
+    "smbus",
     "stdexcept",
     "telem"
-  ],
-  "docwriter.style": "Doxygen",
-  "docwriter.hotkey.mac": "⌘ + ."
+  ]
 }

@@ -16,7 +16,7 @@
 
 #include <BoosterSeat/sleep.hpp>
 
-#include <giraffe_diagnostics.hpp>
+#include "giraffe_diagnostics.hpp"
 
 #include "giraffe_data_link.hpp"
 

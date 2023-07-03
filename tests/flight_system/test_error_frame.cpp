@@ -20,9 +20,9 @@
 
 #include "unit_test.hpp"
 
-data::LogId id1 = data::LogId::DATA_LOG_appendToDataFile;
-data::LogId id2 = data::LogId::EXTENSION_startCall;
-data::LogId id3 = data::LogId::CONFIG_configFileDoesNotExist;
+DiagnosticId id1 = DiagnosticId::DATA_LOG_appendToDataFile;
+DiagnosticId id2 = DiagnosticId::EXTENSION_startCall;
+DiagnosticId id3 = DiagnosticId::CONFIG_configFileDoesNotExist;
 
 TEST(ErrorFrameTest, initialState) {
   data::ErrorFrame f{};
