@@ -132,13 +132,13 @@ protected:
    * @param log_id The log id of the error.
    * @param info Optional information to add to the log.
    */
-  void error(data::LogId, std::string info = "");
+  void error(DiagnosticId, std::string info = "");
 
   /**
    * @brief Same as the other error function, but takes an int instead of a
    * string.
    */
-  void error(data::LogId log_id, int info);
+  void error(DiagnosticId log_id, int info);
 
   /**
    * @brief Used internally in the module. This function adds a info message to

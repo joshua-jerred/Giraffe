@@ -97,6 +97,10 @@ void Bme280Extension::startup() {
 }
 
 void Bme280Extension::loop() {
+  if (read_timer_.isDone()) {
+    raiseFault(DiagnosticId::EXT_FAULT_bme280ReadTimeout);
+  }
+
   if (compensation_timer_.isDone()) {
     if (!readCompensationData()) {
       // TODO
@@ -106,7 +110,7 @@ void Bme280Extension::loop() {
       // TODO
       return;
     }
-    if (!processData()) {
+    if (!processEnvironmentalData()) {
       // TODO
       return;
     }

@@ -33,14 +33,14 @@ Extension::~Extension() {
 
 void Extension::start() {
   if (static_cast<uint16_t>(status_.load()) & node::kNodeActiveStatuses) {
-    error(data::LogId::EXTENSION_startCall);
+    error(DiagnosticId::EXTENSION_startCall);
     return;
   }
 
   // Reset flags
   stop_flag_ = false;
   fault_flag_ = false;
-  fault_code_ = data::LogId::EXT_FAULT_none;
+  fault_code_ = DiagnosticId::EXT_FAULT_none;
 
   runner_thread_ = std::thread(&Extension::runner, this);
 }
@@ -72,7 +72,7 @@ void Extension::stop() {
       return; // If the extension has stopped, return.
     }
   }
-  error(data::LogId::EXTENSION_stopTimeout);
+  error(DiagnosticId::EXTENSION_stopTimeout);
 }
 
 void Extension::reset() {
@@ -80,7 +80,7 @@ void Extension::reset() {
   status_ = node::Status::STOPPED;
 }
 
-void Extension::error(data::LogId log_id, const std::string &extra_info) {
+void Extension::error(DiagnosticId log_id, const std::string &extra_info) {
   data::LogPacket packet;
   packet.source = kExtensionId;
   packet.id = log_id;
@@ -89,7 +89,7 @@ void Extension::error(data::LogId log_id, const std::string &extra_info) {
   interfaces_.streams.log.addPacket(packet);
 }
 
-void Extension::error(data::LogId log_id, int info) {
+void Extension::error(DiagnosticId log_id, int info) {
   data::LogPacket packet;
   packet.source = kExtensionId;
   packet.id = log_id;
@@ -101,7 +101,7 @@ void Extension::error(data::LogId log_id, int info) {
 void Extension::info(std::string info) {
   data::LogPacket packet;
   packet.source = kExtensionId;
-  packet.id = data::LogId::GENERIC_info;
+  packet.id = DiagnosticId::GENERIC_info;
   packet.secondary_identifier = metadata_.name;
   packet.info = info;
   interfaces_.streams.log.addPacket(packet);

@@ -110,9 +110,9 @@ public:
 
   /**
    * @brief Get the Fault Code when the status is ERROR
-   * @return data::LogId The fault code.
+   * @return DiagnosticId The fault code.
    */
-  data::LogId getFaultCode() const {
+  DiagnosticId getFaultCode() const {
     return fault_code_;
   }
 
@@ -125,8 +125,8 @@ protected:
   void data(data::DataId identifier, T value, int precision = 2);
   void data(data::GpsFrame frame);
   void data(data::ImuFrame frame);
-  void error(data::LogId, const std::string &info = "");
-  void error(data::LogId log_id, int info);
+  void error(DiagnosticId, const std::string &info = "");
+  void error(DiagnosticId log_id, int info);
   void info(std::string info);
 
   /**
@@ -145,7 +145,7 @@ protected:
    * @brief Used internally to raise a fault.
    * This will stop an extension.
    */
-  void raiseFault(data::LogId ext_fault_code);
+  void raiseFault(DiagnosticId ext_fault_code);
 
   /**
    * @brief For when debugging is enabled, simple debug messages can be sent to
@@ -178,7 +178,7 @@ private:
    * @details This is set when raiseFault() is called. Cleared on a call to
    * start().
    */
-  std::atomic<data::LogId> fault_code_ = data::LogId::EXT_FAULT_none;
+  std::atomic<DiagnosticId> fault_code_ = DiagnosticId::EXT_FAULT_none;
 
   std::atomic<node::Status> status_ = node::Status::STOPPED;
   std::atomic<bool> stop_flag_ = true;

@@ -19,11 +19,12 @@ modules::Module::Module(modules::MetaData &metadata,
                         cfg::Configuration &configuration)
     : metadata_(metadata), shared_data_(shared_data),
       configuration_(configuration), runner_thread_(),
-      command_queue_(metadata.id_) {}
+      command_queue_(metadata.id_) {
+}
 
 void modules::Module::start() {
   if (status_ == node::Status::RUNNING || status_ == node::Status::SLEEPING) {
-    error(data::LogId::MODULE_moduleAlreadyStarted);
+    error(DiagnosticId::MODULE_moduleAlreadyStarted);
     return;
   }
 
@@ -40,18 +41,20 @@ void modules::Module::stop() {
   setStatus(node::Status::STOPPED);
 }
 
-node::Status modules::Module::getStatus() const { return status_; }
+node::Status modules::Module::getStatus() const {
+  return status_;
+}
 
 void modules::Module::setStatus(const node::Status status) {
   status_ = status;
   shared_data_.streams.data.reportStatus(metadata_.id_, status);
 }
 
-void modules::Module::error(data::LogId log_id, std::string info) {
+void modules::Module::error(DiagnosticId log_id, std::string info) {
   shared_data_.streams.log.error(metadata_.id_, log_id, info);
 }
 
-void modules::Module::error(data::LogId log_id, int info) {
+void modules::Module::error(DiagnosticId log_id, int info) {
   shared_data_.streams.log.error(metadata_.id_, log_id, std::to_string(info));
 }
 

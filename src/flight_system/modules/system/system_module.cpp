@@ -41,7 +41,7 @@ void modules::SystemModule::updateCpuAndMemoryInfo() {
   struct sysinfo sys_info; // from sys/sysinfo.h
 
   if (sysinfo(&sys_info) != 0) {
-    error(data::LogId::SYSTEM_MODULE_systemInfoReadFail);
+    error(DiagnosticId::SYSTEM_MODULE_systemInfoReadFail);
     return;
   }
 
@@ -70,7 +70,7 @@ void modules::SystemModule::updateCpuTemp() {
       data_.cpu_temp_c = std::stof(str) / 1000.0;
     }
   } catch (std::runtime_error &e) {
-    error(data::LogId::SYSTEM_MODULE_cpuTempReadFail, e.what());
+    error(DiagnosticId::SYSTEM_MODULE_cpuTempReadFail, e.what());
   }
 }
 
@@ -78,7 +78,7 @@ void modules::SystemModule::updateDiskInfo() {
   struct statfs disk_stat; // from sys/statfs.h
 
   if (statfs("/", &disk_stat) != 0) {
-    error(data::LogId::SYSTEM_MODULE_diskInfoReadFail);
+    error(DiagnosticId::SYSTEM_MODULE_diskInfoReadFail);
     return;
   }
 

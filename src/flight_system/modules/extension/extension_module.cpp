@@ -39,7 +39,7 @@ void ExtensionModule::startup() {
     // Create the extension.
     auto extension = createExtension(ext_meta);
     if (!extension.has_value()) {
-      error(data::LogId::EXTENSION_MODULE_failedToCreate, ext_meta.name);
+      error(DiagnosticId::EXTENSION_MODULE_failedToCreate, ext_meta.name);
       continue;
     }
 

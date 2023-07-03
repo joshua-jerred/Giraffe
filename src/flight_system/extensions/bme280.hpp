@@ -82,6 +82,11 @@ private:
    * configured interval.
    */
   BoosterSeat::Timer compensation_timer_;
+
+  /**
+   * @brief A timer used with loop() to verify that the sensor is functioning.
+   */
+  BoosterSeat::Timer read_timer_;
 };
 
 } // namespace extension

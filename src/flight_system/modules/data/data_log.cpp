@@ -63,11 +63,11 @@ mw::DataLog::DataLog(data::SharedData &shared_data, cfg::Configuration &config)
   // Clear up the old files if they exist, before creating new ones.
   if (fs_status_.data_dir) {
     archiveOtherFilesInDir(kDataDirPath, kDataArchiveDirPath,
-                           data::LogId::DATA_LOG_archiveOldDataFiles);
+                           DiagnosticId::DATA_LOG_archiveOldDataFiles);
   }
   if (fs_status_.log_dir) {
     archiveOtherFilesInDir(kLogDirPath, kLogArchiveDirPath,
-                           data::LogId::DATA_LOG_archiveOldLogFiles);
+                           DiagnosticId::DATA_LOG_archiveOldLogFiles);
   }
 
   // Create the data and log files.
@@ -106,7 +106,7 @@ void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
   if (strategy != cfg::gEnum::LogStrategy::INTERVAL &&
       strategy != cfg::gEnum::LogStrategy::SELECTION_INTERVAL) {
     shared_data_.streams.log.error(
-        kNodeId, data::LogId::DATA_LOG_invalidDataframeStrategy);
+        kNodeId, DiagnosticId::DATA_LOG_invalidDataframeStrategy);
     strategy = cfg::gEnum::LogStrategy::INTERVAL;
   }
 
@@ -119,7 +119,7 @@ void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
      * @todo Implement this. Requires configuration list loading.
      */
     shared_data_.streams.log.error(kNodeId,
-                                   data::LogId::GENERIC_notYetImplemented,
+                                   DiagnosticId::GENERIC_notYetImplemented,
                                    "DataLog::logDataFrame SELECTION_INTERVAL");
   }
 
@@ -161,7 +161,7 @@ void mw::DataLog::appendToDataFile(const std::string &content) {
   }
 
   appendToFile(fs_status_.data_file_path, content,
-               data::LogId::DATA_LOG_appendToDataFile);
+               DiagnosticId::DATA_LOG_appendToDataFile);
 }
 
 void mw::DataLog::appendToLogFile(const std::string &content) {
@@ -172,7 +172,7 @@ void mw::DataLog::appendToLogFile(const std::string &content) {
   }
 
   appendToFile(fs_status_.log_file_path, content,
-               data::LogId::DATA_LOG_appendToLogFile);
+               DiagnosticId::DATA_LOG_appendToLogFile);
 }
 
 void mw::DataLog::updateFileSystem() {
@@ -193,23 +193,23 @@ void mw::DataLog::updateFileSystem() {
 
 void mw::DataLog::validateFileSystem() {
   // check state of the filesystem and attempt to fix it if necessary
-  validateDirExists(kDataDirPath, data::LogId::DATA_LOG_dataDirDoesNotExist,
-                    data::LogId::DATA_LOG_dataDirExistenceBstrst,
-                    data::LogId::DATA_LOG_dataDirExistenceStdexcept,
+  validateDirExists(kDataDirPath, DiagnosticId::DATA_LOG_dataDirDoesNotExist,
+                    DiagnosticId::DATA_LOG_dataDirExistenceBstrst,
+                    DiagnosticId::DATA_LOG_dataDirExistenceStdexcept,
                     fs_status_.data_dir);
   validateDirExists(kDataArchiveDirPath,
-                    data::LogId::DATA_LOG_dataArchiveDirDoesNotExist,
-                    data::LogId::DATA_LOG_dataArchiveDirExistenceBstrst,
-                    data::LogId::DATA_LOG_dataArchiveDirExistenceStdexcept,
+                    DiagnosticId::DATA_LOG_dataArchiveDirDoesNotExist,
+                    DiagnosticId::DATA_LOG_dataArchiveDirExistenceBstrst,
+                    DiagnosticId::DATA_LOG_dataArchiveDirExistenceStdexcept,
                     fs_status_.data_archive_dir);
-  validateDirExists(kLogDirPath, data::LogId::DATA_LOG_logDirDoesNotExist,
-                    data::LogId::DATA_LOG_logDirExistenceBstrst,
-                    data::LogId::DATA_LOG_logDirExistenceStdexcept,
+  validateDirExists(kLogDirPath, DiagnosticId::DATA_LOG_logDirDoesNotExist,
+                    DiagnosticId::DATA_LOG_logDirExistenceBstrst,
+                    DiagnosticId::DATA_LOG_logDirExistenceStdexcept,
                     fs_status_.log_dir);
   validateDirExists(kLogArchiveDirPath,
-                    data::LogId::DATA_LOG_logArchiveDirDoesNotExist,
-                    data::LogId::DATA_LOG_logArchiveDirExistenceBstrst,
-                    data::LogId::DATA_LOG_logArchiveDirExistenceStdexcept,
+                    DiagnosticId::DATA_LOG_logArchiveDirDoesNotExist,
+                    DiagnosticId::DATA_LOG_logArchiveDirExistenceBstrst,
+                    DiagnosticId::DATA_LOG_logArchiveDirExistenceStdexcept,
                     fs_status_.log_archive_dir);
 
   // Create the directories if they do not exist.
@@ -238,7 +238,7 @@ void mw::DataLog::validateFileSystem() {
   // Update File sizes
   if (fs_status_.data_dir && fs_status_.data_file) {
     updateFileSize(fs_status_.data_file_path,
-                   data::LogId::DATA_LOG_dataFileSizeRead,
+                   DiagnosticId::DATA_LOG_dataFileSizeRead,
                    fs_status_.data_file_size);
   } else {
     fs_status_.data_file_size = 0;
@@ -246,7 +246,7 @@ void mw::DataLog::validateFileSystem() {
 
   if (fs_status_.log_dir && fs_status_.log_file) {
     updateFileSize(fs_status_.log_file_path,
-                   data::LogId::DATA_LOG_logFileSizeRead,
+                   DiagnosticId::DATA_LOG_logFileSizeRead,
                    fs_status_.log_file_size);
   } else {
     fs_status_.log_file_size = 0;
@@ -255,7 +255,7 @@ void mw::DataLog::validateFileSystem() {
   // Update Directory sizes
   if (fs_status_.data_archive_dir) {
     updateDirSize(kDataArchiveDirPath,
-                  data::LogId::DATA_LOG_dataArchiveDirSizeRead,
+                  DiagnosticId::DATA_LOG_dataArchiveDirSizeRead,
                   fs_status_.data_archive_dir_size);
   } else {
     fs_status_.data_archive_dir_size = 0;
@@ -263,7 +263,7 @@ void mw::DataLog::validateFileSystem() {
 
   if (fs_status_.log_archive_dir) {
     updateDirSize(kLogArchiveDirPath,
-                  data::LogId::DATA_LOG_logArchiveDirSizeRead,
+                  DiagnosticId::DATA_LOG_logArchiveDirSizeRead,
                   fs_status_.log_archive_dir_size);
   } else {
     fs_status_.log_archive_dir_size = 0;
@@ -271,8 +271,8 @@ void mw::DataLog::validateFileSystem() {
 }
 
 void mw::DataLog::createDirectory(const std::string &path,
-                                  const data::LogId booster_seat_log_id,
-                                  const data::LogId std_except_log_id,
+                                  const DiagnosticId booster_seat_log_id,
+                                  const DiagnosticId std_except_log_id,
                                   bool &validity_flag) {
   try {
     // Verify that the directory does not exist before creating it.
@@ -295,8 +295,8 @@ void mw::DataLog::createDirectory(const std::string &path,
 }
 
 void mw::DataLog::createFile(const std::string &new_file_path,
-                             const data::LogId booster_seat_log_id,
-                             const data::LogId std_except_log_id,
+                             const DiagnosticId booster_seat_log_id,
+                             const DiagnosticId std_except_log_id,
                              bool &validity_flag) {
   try {
     bsfs::createFile(new_file_path);
@@ -321,12 +321,12 @@ void mw::DataLog::createDataDir() {
     return;
   } else if (num_attempts == kMaxDirCreateAttempts) {
     shared_data_.streams.log.error(kNodeId,
-                                   data::LogId::DATA_LOG_dataDirCreateFailed);
+                                   DiagnosticId::DATA_LOG_dataDirCreateFailed);
     return;
   }
 
-  createDirectory(kDataDirPath, data::LogId::DATA_LOG_createDataDirBstrst,
-                  data::LogId::DATA_LOG_createDataDirStdexcept,
+  createDirectory(kDataDirPath, DiagnosticId::DATA_LOG_createDataDirBstrst,
+                  DiagnosticId::DATA_LOG_createDataDirStdexcept,
                   fs_status_.data_dir);
 }
 
@@ -338,13 +338,13 @@ void mw::DataLog::createDataArchiveDir() {
     return;
   } else if (num_attempts == kMaxDirCreateAttempts) {
     shared_data_.streams.log.error(kNodeId,
-                                   data::LogId::DATA_LOG_dataDirCreateFailed);
+                                   DiagnosticId::DATA_LOG_dataDirCreateFailed);
     return;
   }
 
   createDirectory(kDataArchiveDirPath,
-                  data::LogId::DATA_LOG_createDataArchiveDirBstrst,
-                  data::LogId::DATA_LOG_createDataArchiveDirStdexcept,
+                  DiagnosticId::DATA_LOG_createDataArchiveDirBstrst,
+                  DiagnosticId::DATA_LOG_createDataArchiveDirStdexcept,
                   fs_status_.data_archive_dir);
 }
 
@@ -356,12 +356,12 @@ void mw::DataLog::createLogDir() {
     return;
   } else if (num_attempts == kMaxDirCreateAttempts) {
     shared_data_.streams.log.error(kNodeId,
-                                   data::LogId::DATA_LOG_dataDirCreateFailed);
+                                   DiagnosticId::DATA_LOG_dataDirCreateFailed);
     return;
   }
 
-  createDirectory(kLogDirPath, data::LogId::DATA_LOG_createLogDirBstrst,
-                  data::LogId::DATA_LOG_createLogDirStdexcept,
+  createDirectory(kLogDirPath, DiagnosticId::DATA_LOG_createLogDirBstrst,
+                  DiagnosticId::DATA_LOG_createLogDirStdexcept,
                   fs_status_.log_dir);
 }
 
@@ -373,13 +373,13 @@ void mw::DataLog::createLogArchiveDir() {
     return;
   } else if (num_attempts == kMaxDirCreateAttempts) {
     shared_data_.streams.log.error(kNodeId,
-                                   data::LogId::DATA_LOG_dataDirCreateFailed);
+                                   DiagnosticId::DATA_LOG_dataDirCreateFailed);
     return;
   }
 
   createDirectory(kLogArchiveDirPath,
-                  data::LogId::DATA_LOG_createLogArchiveDirBstrst,
-                  data::LogId::DATA_LOG_createLogArchiveDirStdexcept,
+                  DiagnosticId::DATA_LOG_createLogArchiveDirBstrst,
+                  DiagnosticId::DATA_LOG_createLogArchiveDirStdexcept,
                   fs_status_.log_archive_dir);
 }
 
@@ -399,8 +399,8 @@ inline std::string generateFilePath(const std::string path,
 void mw::DataLog::createNewDataFile() {
   std::string new_file_path = generateFilePath(kDataDirPath, kDataFilePrefix);
 
-  createFile(new_file_path, data::LogId::DATA_LOG_createNewDataFileBstrst,
-             data::LogId::DATA_LOG_createNewDataFileStdexcept,
+  createFile(new_file_path, DiagnosticId::DATA_LOG_createNewDataFileBstrst,
+             DiagnosticId::DATA_LOG_createNewDataFileStdexcept,
              fs_status_.data_file);
 
   if (fs_status_.data_file) {
@@ -410,8 +410,8 @@ void mw::DataLog::createNewDataFile() {
 
 void mw::DataLog::createNewLogFile() {
   std::string new_file_path = generateFilePath(kLogDirPath, kLogFilePrefix);
-  createFile(new_file_path, data::LogId::DATA_LOG_createNewLogFileBstrst,
-             data::LogId::DATA_LOG_createNewLogFileStdexcept,
+  createFile(new_file_path, DiagnosticId::DATA_LOG_createNewLogFileBstrst,
+             DiagnosticId::DATA_LOG_createNewLogFileStdexcept,
              fs_status_.log_file);
 
   if (fs_status_.log_file) {
@@ -420,9 +420,9 @@ void mw::DataLog::createNewLogFile() {
 }
 
 void mw::DataLog::validateDirExists(const std::string &path,
-                                    const data::LogId does_not_exist_log_id,
-                                    const data::LogId booster_seat_log_id,
-                                    const data::LogId std_except_log_id,
+                                    const DiagnosticId does_not_exist_log_id,
+                                    const DiagnosticId booster_seat_log_id,
+                                    const DiagnosticId std_except_log_id,
                                     bool &validity_flag) {
   try {
     if (bsfs::doesDirectoryExist(path)) {
@@ -442,9 +442,9 @@ void mw::DataLog::validateDirExists(const std::string &path,
 }
 
 void mw::DataLog::validateFileExists(const std::string &path,
-                                     const data::LogId does_not_exist_log_id,
-                                     const data::LogId booster_seat_log_id,
-                                     const data::LogId std_except_log_id,
+                                     const DiagnosticId does_not_exist_log_id,
+                                     const DiagnosticId booster_seat_log_id,
+                                     const DiagnosticId std_except_log_id,
                                      bool &validity_flag) {
   try {
     if (bsfs::doesFileExist(path)) {
@@ -464,7 +464,7 @@ void mw::DataLog::validateFileExists(const std::string &path,
 }
 
 void mw::DataLog::appendToFile(const std::string &path, const std::string &data,
-                               const data::LogId error_id) {
+                               const DiagnosticId error_id) {
   try {
     bsfs::appendToFile(path, data);
   } catch (const bs::BoosterSeatException &e) {
@@ -475,7 +475,7 @@ void mw::DataLog::appendToFile(const std::string &path, const std::string &data,
 }
 
 void mw::DataLog::updateFileSize(
-    const std::string &file_path, const data::LogId error_id,
+    const std::string &file_path, const DiagnosticId error_id,
     data::blocks::DataLogStats::FileSizeType &file_size) {
   try {
     file_size = bsfs::getFileSize(file_path, kDataSizeUnit);
@@ -487,7 +487,7 @@ void mw::DataLog::updateFileSize(
 }
 
 void mw::DataLog::updateDirSize(
-    const std::string &dir_path, const data::LogId error_id,
+    const std::string &dir_path, const DiagnosticId error_id,
     data::blocks::DataLogStats::FileSizeType &dir_size) {
   try {
     dir_size = bsfs::getDirectorySize(dir_path, kDataSizeUnit);
@@ -500,7 +500,7 @@ void mw::DataLog::updateDirSize(
 
 bool mw::DataLog::archiveFile(const std::string &file_path,
                               const std::string &archive_dir_path,
-                              const data::LogId error_id) {
+                              const DiagnosticId error_id) {
   try {
     if (!bsfs::doesFileExist(file_path) ||
         !bsfs::doesDirectoryExist(archive_dir_path)) {
@@ -522,7 +522,7 @@ bool mw::DataLog::archiveFile(const std::string &file_path,
 
 void mw::DataLog::archiveOtherFilesInDir(const std::string &dir_path,
                                          const std::string &archive_dir_path,
-                                         data::LogId error_id) {
+                                         DiagnosticId error_id) {
   try {
     std::filesystem::path dir(dir_path);
     for (const auto &file : std::filesystem::directory_iterator(dir)) {
@@ -540,9 +540,9 @@ void mw::DataLog::rotateFiles() {
 
   if (fs_status_.data_file && fs_status_.data_file_size >= max_data_size) {
     if (!archiveFile(fs_status_.data_file_path, kDataArchiveDirPath,
-                     data::LogId::DATA_LOG_archiveDataFile)) {
+                     DiagnosticId::DATA_LOG_archiveDataFile)) {
       shared_data_.streams.log.error(kNodeId,
-                                     data::LogId::DATA_LOG_rotateDataFile);
+                                     DiagnosticId::DATA_LOG_rotateDataFile);
       return;
     }
     createNewDataFile();
@@ -550,9 +550,9 @@ void mw::DataLog::rotateFiles() {
 
   if (fs_status_.log_file && fs_status_.log_file_size >= max_log_size) {
     if (!archiveFile(fs_status_.log_file_path, kLogArchiveDirPath,
-                     data::LogId::DATA_LOG_archiveLogFile)) {
+                     DiagnosticId::DATA_LOG_archiveLogFile)) {
       shared_data_.streams.log.error(kNodeId,
-                                     data::LogId::DATA_LOG_rotateLogFile);
+                                     DiagnosticId::DATA_LOG_rotateLogFile);
       return;
     }
     createNewLogFile();
@@ -583,6 +583,6 @@ void mw::DataLog::updateFileList() {
     getFileNamesInDir(kLogArchiveDirPath, fs_status_.archived_log_files_list);
   } catch (const std::exception &e) {
     shared_data_.streams.log.errorStdException(
-        kNodeId, data::LogId::DATA_LOG_fileListFail, e);
+        kNodeId, DiagnosticId::DATA_LOG_fileListFail, e);
   }
 }

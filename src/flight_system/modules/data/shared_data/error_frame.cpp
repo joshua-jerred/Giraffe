@@ -46,7 +46,7 @@ void ErrorFrame::addError(const data::LogPacket &packet) {
   Frame::insert(packet.id, current_in_frame);
 }
 
-void ErrorFrame::clearError(data::LogId id) {
+void ErrorFrame::clearError(DiagnosticId id) {
   std::lock_guard<std::mutex> lock(error_frame_mutex_);
   Frame::remove(id);
 }
@@ -66,14 +66,14 @@ int ErrorFrame::numActiveErrors() const {
   return Frame::size();
 }
 
-bool ErrorFrame::getError(data::LogId id, ErrorFrameItem &item) const {
+bool ErrorFrame::getError(DiagnosticId id, ErrorFrameItem &item) const {
   std::lock_guard<std::mutex> lock(error_frame_mutex_);
   return Frame::get(id, item);
 }
 
-std::vector<data::LogId> ErrorFrame::getActiveErrorIds() const {
+std::vector<DiagnosticId> ErrorFrame::getActiveErrorIds() const {
   std::lock_guard<std::mutex> lock(error_frame_mutex_);
-  std::vector<data::LogId> error_ids{};
+  std::vector<DiagnosticId> error_ids{};
 
   for (auto &item : Frame::frame_) {
     error_ids.push_back(item.first);
@@ -82,12 +82,12 @@ std::vector<data::LogId> ErrorFrame::getActiveErrorIds() const {
   return error_ids;
 }
 
-bool ErrorFrame::isActive(data::LogId id) const {
+bool ErrorFrame::isActive(DiagnosticId id) const {
   std::lock_guard<std::mutex> lock(error_frame_mutex_);
   return Frame::in(id);
 }
 
-int ErrorFrame::numOccurrences(data::LogId id) const {
+int ErrorFrame::numOccurrences(DiagnosticId id) const {
   std::lock_guard<std::mutex> lock(error_frame_mutex_);
   ErrorFrameItem item{};
   if (!Frame::get(id, item)) {
@@ -101,7 +101,7 @@ BoosterSeat::clck::TimePoint ErrorFrame::timeOfLastErrorReported() const {
   return last_error_reported_;
 }
 
-bool ErrorFrame::lastOccurrence(data::LogId id,
+bool ErrorFrame::lastOccurrence(DiagnosticId id,
                                 BoosterSeat::clck::TimePoint &time) const {
   std::lock_guard<std::mutex> lock(error_frame_mutex_);
   ErrorFrameItem item{};
@@ -112,7 +112,7 @@ bool ErrorFrame::lastOccurrence(data::LogId id,
   return true;
 }
 
-std::unordered_map<data::LogId, ErrorFrameItem>
+std::unordered_map<DiagnosticId, ErrorFrameItem>
 ErrorFrame::getFullFrame() const {
   std::lock_guard<std::mutex> lock(error_frame_mutex_);
   return Frame::frame_;
