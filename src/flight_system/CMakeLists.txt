@@ -12,6 +12,30 @@ endif()
 
 set(EXE_NAME giraffe_flight_system)
 
+# -------- Interface Libs ---------
+
+# # # Hardware Interface
+add_library(gfs_interface INTERFACE)
+target_sources(gfs_interface INTERFACE
+	${GFS_SRC}/interface/i2c_interface.cpp
+)
+target_include_directories(gfs_interface INTERFACE
+  ./interface
+)
+target_link_libraries(gfs_interface INTERFACE
+	i2c
+)
+
+# # # Flight System Configuration
+add_library(gfs_configuration INTERFACE
+"./configuration/configuration.cpp"
+"./configuration/sections/cfg_extensions.cpp"
+)
+target_include_directories(gfs_interface INTERFACE
+  "./configuration"
+	"./configuration/sections"
+)
+
 # -------- GFS Executable ---------
 add_executable( # see sources.cmake for source files
 	${EXE_NAME}
@@ -34,9 +58,11 @@ set_target_properties(
 )
 
 # -------- First Party Libraries ---------
-target_link_libraries(
-	giraffe_flight_system
-	PRIVATE 
+target_link_libraries(giraffe_flight_system PRIVATE
+	# internal
+	gfs_interface
+
+	# external
 	BoosterSeat
 	giraffe_diagnostics
 )

@@ -20,6 +20,7 @@
 #include <string>
 #include <unordered_map>
 
+#include "giraffe_assert.hpp"
 #include "giraffe_diagnostic_ids.hpp"
 #include "giraffe_exception.hpp"
 

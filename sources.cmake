@@ -65,6 +65,9 @@ set(gfs_sources
 	# extensions module and extensions
 	${GFS_SRC}/modules/extension/extension_module.cpp
 	${GFS_SRC}/extensions/extension.cpp
+
+	# interface
+	${GFS_SRC}/interface/i2c_interface.cpp
 )
 
 set(gfs_include_dirs
@@ -85,4 +88,7 @@ set(gfs_include_dirs
 
 	# extensions
 	${GFS_SRC}/extensions
+
+	# interface
+	${GFS_SRC}/interface
 )

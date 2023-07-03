@@ -76,6 +76,11 @@ sync_web_server() {
     #ssh $SSH_HOST "sudo systemctl start $GFS_WEB_SERVICE"
 }
 
+run_host_tests() {
+    echo "Transfering Test Executable"
+    rsync -v -r --rsync-path="sudo rsync" build/bin/tests/flight_system/unit_test_gfs_host $SSH_HOST:/home/pi/gfs_tests/unit_test_gfs_host
+}
+
 if [ "$REQUEST" == "start-web" ]; then
     echo "Starting web server"
     ssh $SSH_HOST "sudo systemctl start $GFS_WEB_SERVICE"
@@ -136,6 +141,10 @@ elif [ "$REQUEST" == "camera-test" ]; then
     exit 0
 elif [ "$REQUEST" == "gpio-test" ]; then
     ssh $SSH_HOST "cd ./Giraffe/build/ && make test-15 && tests/test-15"
+    exit 0
+elif [ "$REQUEST" == "host-test" ]; then
+    run_host_tests
+    ssh $SSH_HOST "cd /home/pi/gfs_tests && sudo ./unit_test_gfs_host"
     exit 0
 else
     echo "Unknown command"

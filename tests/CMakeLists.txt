@@ -1,4 +1,6 @@
 # Unit Tests
+add_library(unit_test INTERFACE)
+target_include_directories(unit_test INTERFACE "./")
 
 # --- Common ---
 file(GLOB common_test_sources
@@ -51,7 +53,6 @@ add_test(
 file(GLOB gfs_test_sources
      "${GFS_TEST_SRC}/test_*.cpp"
 )
-
 add_executable(unit_test_gfs
   ${gfs_test_sources}
   ${gfs_sources}
@@ -68,8 +69,29 @@ set_target_properties(
 	unit_test_gfs PROPERTIES 
 	RUNTIME_OUTPUT_DIRECTORY ${GFS_TEST_BIN}
 )
-
 add_test(
   NAME flight_system_tests
   COMMAND unit_test_gfs
+)
+
+# --- Flight Software : Host Tests ---
+file(GLOB gfs_host_test_sources
+     "${GFS_TEST_SRC}/host_tests/test_*.cpp"
+)
+add_executable(unit_test_gfs_host
+  ${gfs_host_test_sources}
+)
+target_link_libraries(unit_test_gfs_host 
+  giraffe_diagnostics
+
+  gfs_interface
+  gfs_configuration
+  
+  BoosterSeat
+  unit_test
+  gtest_main
+)
+set_target_properties(
+	unit_test_gfs_host PROPERTIES 
+	RUNTIME_OUTPUT_DIRECTORY ${GFS_TEST_BIN}
 )
