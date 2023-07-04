@@ -19,6 +19,7 @@
 
 #include "bme280.hpp"
 #include "ds18b20.hpp"
+#include "samm8q.hpp"
 
 TEST(ExtensionsTest, BME280Test) {
   ExtensionTestFramework tf{};
@@ -42,6 +43,20 @@ TEST(ExtensionsTest, DS18B20Test) {
   extension::Ds18b20Extension ds18b20{tf.resources, tf.meta};
 
   tf.runExtensionFor(ds18b20, 2000);
+
+  EXPECT_GT(tf.getTotalDataPackets(), 0);
+  EXPECT_EQ(tf.getTotalLogPackets(), 0);
+
+  tf.printStreams();
+}
+
+TEST(ExtensionsTest, SAMM8QTest) {
+  ExtensionTestFramework tf{};
+  tf.meta.update_interval = 1000;
+
+  extension::SamM8qExtension sam_m8q{tf.resources, tf.meta};
+
+  tf.runExtensionFor(sam_m8q, 5000);
 
   EXPECT_GT(tf.getTotalDataPackets(), 0);
   EXPECT_EQ(tf.getTotalLogPackets(), 0);
