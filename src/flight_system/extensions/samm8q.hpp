@@ -17,6 +17,8 @@
 #ifndef SAMM8Q_HPP_
 #define SAMM8Q_HPP_
 
+#include <BoosterSeat/timer.hpp>
+
 #include "extension.hpp"
 #include "i2c_interface.hpp"
 #include "positional.hpp"
@@ -55,6 +57,7 @@ private:
   /**
    * @brief The SAM-M8Q state machine.
    * @defgroup SAMM8QState SAM-M8Q State Machine
+   * @see sam_m8q_gps_state_machine.puml
    * @{
    */
 
@@ -65,27 +68,13 @@ private:
   enum class ReadState { READ_PACKET, WAIT };
 
   State state_ = State::CONFIGURE;
-  bool transition_in_ = true;
+  ResetState reset_state_ = ResetState::SEND_RESET;
+  ReadState read_state_ = ReadState::WAIT;
+
   void transitionState(State new_state);
 
   void stateConfigure();
-
-  /**
-   * @brief Resets the GPS and attempts a handshake.
-   * On transition into the reset state, this will send the reset command. After
-   * it will attempt to handshake. If it can handshake, it will transition to
-   * the configure state. If it can't, it will increment the restart attempts
-   * and try again. After hitting the limit (see function definition), it will
-   * hard fault the extension.
-   */
   void stateReset();
-
-  /**
-   * @brief Restart attempts for the reset state.
-   * @details This gets cleared with a call to transitionState(reset)
-   */
-  uint32_t restart_attempts_ = 0;
-
   void stateRead();
 
   /** @} */ // end of SAMM8QState
@@ -94,8 +83,33 @@ private:
   bool resetSensor();
 
   I2cInterface i2c_;
-  BoosterSeat::Timer read_timer_;
+
+  /**
+   * @brief This timer should have the largest value of all timers.
+   */
+  BoosterSeat::Timer primary_watchdog_timer_;
+
+  /**
+   * @brief
+   */
+  BoosterSeat::Timer read_watchdog_timer_;
+
+  /**
+   * @brief The timer used to give the sensor time to reset after the reset
+   * command is sent.
+   */
+  BoosterSeat::Timer reset_wait_timer_;
+
+  /**
+   * @brief Use to keep track of how many times we have attempted to configure
+   * the sensor.
+   * @details This is reset to 0 after successful configuration. The maximum is
+   * defined in the CPP file.
+   */
+  uint32_t configure_attempts_ = 0;
+  uint32_t reset_attempts_ = 0;
 };
+
 } // namespace extension
 
 #endif /* SAMM8Q_HPP_ */

@@ -18,6 +18,7 @@
 #include "ubx_protocol.hpp"
 
 inline constexpr uint8_t kSamM8qI2cAddress = 0x42;
+inline constexpr uint32_t kResetWaitTimerLength = 1000;
 
 namespace extension {
 
@@ -89,32 +90,133 @@ void SamM8qExtension::shutdown() {
 // ////////////////                       ////////////////
 // ---------------- SAM-M8Q State Machine ----------------
 
-void SamM8qExtension::stateConfigure() {
-  if (transition_in_) {
-    transition_in_ = false;
+void SamM8qExtension::transitionState(State new_state) {
+  switch (new_state) {
+  case State::CONFIGURE:
+    break;
+  case State::RESET:
+    reset_state_ = ResetState::SEND_RESET;
+    reset_watchdog_timer_.reset();
+    break;
+  case State::READ:
+    read_state_ = ReadState::WAIT;
+    read_watchdog_timer_.reset();
+    break;
   }
 }
 
+void SamM8qExtension::stateConfigure() {
+  /**
+   * @brief Allow each command to be sent up to 3 times before giving up.
+   */
+  constexpr uint32_t kCommandAttempts = 3;
+
+  ubx::ACK ack;
+
+  // Configure the device to be UBX only, check for ACK
+  uint32_t attempts = 0;
+  while (attempts < kCommandAttempts) {
+    ack = ubx::setProtocolUBX(i2c_, false);
+    if (ack == ubx::ACK::ACK) {
+      break;
+    }
+    attempts++;
+  }
+  if (attempts == kCommandAttempts) {
+    error(DiagnosticId::);
+    transitionState(State::RESET);
+    return;
+  }
+
+  // Set the measurement rate
+  attempts = 0;
+  while (attempts < kCommandAttempts) {
+    ack = ubx::setMeasurementRate(i2c_, 100);
+    if (ack == ubx::ACK::ACK) {
+      break;
+    }
+    attempts++;
+  }
+  if (attempts == kCommandAttempts) {
+    error(DiagnosticId::);
+    transitionState(State::RESET);
+    return;
+  }
+
+  // Change the dynamic model (high altitude), this provides for high altitude
+  // altitude data, as long as we stay below 1G of acceleration, check for ACK
+  attempts = 0;
+  while (attempts < kCommandAttempts) {
+    ack = ubx::setDynamicModel(i2c_, ubx::DYNAMIC_MODEL::AIRBORNE_1G);
+    if (ack == ubx::ACK::ACK) {
+      break;
+    }
+    attempts++;
+  }
+  if (ack != ubx::ACK::ACK) {
+    error(DiagnosticId::);
+    transitionState(State::RESET);
+    return;
+  }
+
+  transitionState(State::READ);
+  /** @todo Read the configuration data and verify */
+}
+
 void SamM8qExtension::stateReset() {
-  if (transition_in_) {
-    transition_in_ = false;
+  inline constexpr uint32_t kMaxResetAttempts = 3;
+
+  switch (reset_state_) {
+  // Send a reset command, then wait for the sensor
+  case ResetState::SEND_RESET:
+    if (reset_attempts_ >= kMaxResetAttempts) {
+      raiseFault(DiagnosticId::);
+      return;
+    }
+    ubx::sendResetCommand(i2c_);
+    reset_wait_timer_.reset();
+    reset_state_ = ResetState::WAIT;
+    reset_attempts_++;
+    break;
+
+  // Wait for the sensor to reset
+  case ResetState::WAIT:
+    if (reset_wait_timer_.isDone()) {
+      reset_state_ = ResetState::HANDSHAKE;
+    }
+    break;
+
+  // Try to handshake with the sensor
+  case ResetState::HANDSHAKE:
+    if (handshake()) {
+      restart_attempts_ = 0;
+      transitionState(State::CONFIGURE);
+    } else {
+      reset_state_ = ResetState::SEND_RESET;
+    }
+    break;
   }
 }
 
 void SamM8qExtension::stateRead() {
-  if (transition_in_) {
-    transition_in_ = false;
+  if (read_watchdog_timer_.isDone()) {
+    error(DiagnosticId::);
+    transitionState(State::RESET);
+    return;
   }
 
+  // I don't remember what this section actually accomplishes...
+  // Just labeled with 'Bad Data', no clue what I meant by that.
+  constexpr uint32_t kBadDataSleepTime = 200;
   if (!ubx::pollMessage(i2c_, msg, ubx::kNavClass, ubx::kNavPvt, 92 + 8,
                         2000) ||
-      !ubx::parsePVT(msg, nav_data)) { // Bad Data
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+      !ubx::parsePVT(msg, nav_data)) {
+    extSleep(kBadDataSleepTime);
     ubx::flushStream(i2c_);
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    extSleep(kBadDataSleepTime);
   }
 
-  GPSFrame gps_frame;
+  data::GPSFrame gps_frame;
 
   gps_frame.time = std::to_string(nav_data.hour) + ":" +
                    std::to_string(nav_data.minute) + ":" +
@@ -134,58 +236,10 @@ void SamM8qExtension::stateRead() {
   gps_frame.heading_of_motion = nav_data.heading_of_motion;
   gps_frame.heading_accuracy = nav_data.heading_accuracy;
 
-  sendData(gps_frame);
+  data(gps_frame);
 }
 
 // ////////////////                          ////////////////
 // ---------------- SAM-M8Q Helper Functions ----------------
-
-bool SAMM8Q::configure() {
-  ubx::ACK ack;
-
-  if (ubx::getStreamSize(i2c_) !=
-      0) { // Restart the device if it is already running
-    ubx::sendResetCommand(i2c_);
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    if (i2c_.readByteFromReg(0xFF) != 0) {
-      if (i2c_.status() != interface::I2C_STATUS::OK) {
-        error("UBX_RESTART");
-        return false;
-      }
-    }
-  }
-
-  // Configure the device to be UBX only, check for ACK
-  ack = ubx::setProtocolDDC(i2c_, false);
-  if (ack != ubx::ACK::ACK) {
-    error("CFG_PRT");
-    return false;
-  }
-
-  //// Set the frequency of the messages, check for ACK (1 for every solution)
-  // ack = ubx::setMessageRate(i2c_, kNavClass, kNavPvt, 1);
-  // if (ack != ubx::ACK::ACK) {
-  //     error("CFG_MSG");
-  //     return false;
-  // }
-
-  // Set the measurement rate
-  ack = ubx::setMeasurementRate(i2c_, 100);
-  if (ack != ubx::ACK::ACK) {
-    error("CFG_RATE");
-    return false;
-  }
-
-  // Change the dynamic model (high altitude), this provides for high altitude
-  // altitude data, as long as we stay below 1G of acceleration, check for ACK
-  ack = ubx::setDynamicModel(i2c_, ubx::DYNAMIC_MODEL::AIRBORNE_1G);
-  if (ack != ubx::ACK::ACK) {
-    error("CFG_NAV5");
-    return false;
-  }
-
-  /** @todo Read the configuration data and verify */
-  return true;
-}
 
 } // namespace extension

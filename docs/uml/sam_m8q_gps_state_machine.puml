@@ -58,13 +58,14 @@ note on link
 state reset {
   note as n2
   <b>State Members</b>
-  - int max_restarts: n (configurable, default 3)
-  - timer reset_main: reset_wait * max_restarts + 500ms
-  - timer reset_wait: 500ms
+  - int max_reset_attempts: n (configurable, default 3)
+  - int reset_attempts: 0
+  - timer reset_wait: 1000ms
   end note
 
   state send_reset : - send reset command
   state send_reset : - restart the reset_wait timer
+  state send_reset : - increment reset_attempts
 
   state wait_reset : - do nothing
   state wait_reset : - (allow device to reset)
@@ -72,13 +73,14 @@ state reset {
 
   [*] --> send_reset
   note on link
-    - restart the reset_main timer
+    - set reset_attempts to 0
     end note
 
     send_reset --> wait_reset
-    send_reset --> hard_fault : reset_main expired
+    send_reset --> hard_fault : reset_attempts > max_reset_attempts
 
     wait_reset --> handshake : wait timer expired
+
     handshake --> configure : handshake success
     handshake --> send_reset : handshake failed
   }
