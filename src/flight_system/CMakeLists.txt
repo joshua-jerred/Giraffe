@@ -30,6 +30,7 @@ add_library(gfs_interface INTERFACE)
 target_sources(gfs_interface INTERFACE
 	${GFS_SRC}/interface/i2c_interface.cpp
 	${GFS_SRC}/interface/one_wire_interface.cpp
+	${GFS_SRC}/interface/ubx_protocol.cpp
 )
 target_include_directories(gfs_interface INTERFACE
   ./interface

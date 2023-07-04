@@ -17,4 +17,28 @@
 #ifndef SAMM8Q_HPP_
 #define SAMM8Q_HPP_
 
+#include "extension.hpp"
+#include "i2c_interface.hpp"
+#include "positional.hpp"
+
+namespace extension {
+class SamM8qExtension : public Extension {
+public:
+  SamM8qExtension(ExtensionResources &resources,
+                  cfg::ExtensionMetadata metadata);
+
+  void startup() override;
+  void loop() override;
+  void shutdown() override;
+
+private:
+  bool handshake();
+  bool configure();
+
+  I2cInterface i2c_;
+  data::GpsFrame gps_frame_;
+  BoosterSeat::Timer read_timer_;
+};
+} // namespace extension
+
 #endif /* SAMM8Q_HPP_ */
