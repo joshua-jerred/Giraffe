@@ -523,7 +523,7 @@ bool mw::DataLog::archiveFile(const std::string &file_path,
         shared_data_.streams.log.error(kNodeId, error_id);
         return false;
       }
-      bsfs::removeFile(file_path);
+      bsfs::deleteFile(file_path);
     }
   } catch (const bs::BoosterSeatException &e) {
     shared_data_.streams.log.errorBoosterSeatException(kNodeId, error_id, e);
