@@ -100,7 +100,7 @@ std::string to_string(const data::GpsFrame &frame) noexcept {
 }
 
 std::string to_string(const data::GpsFramePacket &packet) noexcept {
-  std::string output = "";
+  std::string output = "GpsFramePacket - ";
   output += packet.secondary_identifier + " | ";
   output += to_string(packet.frame);
   return output;

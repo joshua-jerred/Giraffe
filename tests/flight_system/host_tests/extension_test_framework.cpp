@@ -29,19 +29,19 @@ void ExtensionTestFramework::printStreams() {
   std::cout << "Data Packets:" << std::endl;
   data::DataPacket d_packet;
   while (ds.getPacket(d_packet)) {
-    std::cout << util::to_string(d_packet) << std::endl;
+    std::cout << "  |" << util::to_string(d_packet) << std::endl;
   }
 
   std::cout << "Log Packets:" << std::endl;
   data::LogPacket l_packet;
   while (ls.getPacket(l_packet)) {
-    std::cout << util::to_string(l_packet) << std::endl;
+    std::cout << "  |" << util::to_string(l_packet) << std::endl;
   }
 
   std::cout << "GPS Packets:" << std::endl;
   data::GpsFramePacket g_packet;
   while (streams.gps.getPacket(g_packet)) {
-    std::cout << util::to_string(g_packet) << std::endl;
+    std::cout << "  |" << util::to_string(g_packet) << std::endl;
   }
 }
 

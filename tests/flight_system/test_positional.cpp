@@ -35,6 +35,7 @@ TEST(isGpsFrameValidTest, emptyFrameInvalid) {
 TEST(isGpsFrameValidTest, validFrame) {
   data::GpsFrame frame{
       BoosterSeat::clck::now(), // time now
+      true,                     // is_valid
       data::GpsFix::FIX_3D,     // fix
       10,                       // num_satellites
       0.0,                      // latitude
@@ -64,6 +65,7 @@ TEST(isGpsFrameValidTest, invalidTime) {
 
   data::GpsFrame frame_1{
       time_too_old,         // time (too old)
+      true,                 // is_valid
       data::GpsFix::FIX_3D, // fix
       10,                   // num_satellites
       0.0,                  // latitude
@@ -81,6 +83,7 @@ TEST(isGpsFrameValidTest, invalidTime) {
 
   data::GpsFrame frame_2{
       time_too_new,         // time (too new)
+      true,                 // is_valid
       data::GpsFix::FIX_3D, // fix
       10,                   // num_satellites
       0.0,                  // latitude
@@ -106,6 +109,7 @@ TEST(isGpsFrameValidTest, invalidTime) {
 TEST(isGpsFrameValidTest, fixValidity) {
   data::GpsFrame frame{
       BoosterSeat::clck::now(), // time now
+      true,                     // is_valid
       data::GpsFix::ERROR,      // fix
       10,                       // num_satellites
       0.0,                      // latitude
@@ -139,6 +143,7 @@ TEST(isGpsFrameValidTest, fixValidity) {
 TEST(isGpsFrameValidTest, numSatsValidity) {
   data::GpsFrame frame{
       BoosterSeat::clck::now(), // time now
+      true,                     // is_valid
       data::GpsFix::ERROR,      // fix
       0,                        // num_satellites
       0.0,                      // latitude
@@ -174,6 +179,7 @@ TEST(isGpsFrameValidTest, numSatsValidity) {
 TEST(isGpsFrameValidTest, latitudeValidity) {
   data::GpsFrame frame{
       BoosterSeat::clck::now(), // time now
+      true,                     // is_valid
       data::GpsFix::FIX_3D,     // fix
       10,                       // num_satellites
       0.0,                      // latitude
@@ -204,6 +210,7 @@ TEST(isGpsFrameValidTest, latitudeValidity) {
 TEST(isGpsFrameValidTest, longitudeValidity) {
   data::GpsFrame frame{
       BoosterSeat::clck::now(), // time now
+      true,                     // is_valid
       data::GpsFix::FIX_3D,     // fix
       10,                       // num_satellites
       0.0,                      // latitude
@@ -235,6 +242,7 @@ TEST(isGpsFrameValidTest, longitudeValidity) {
 TEST(isGpsFrameValidTest, horzAccuracyValidity) {
   data::GpsFrame frame{
       BoosterSeat::clck::now(), // time now
+      true,                     // is_valid
       data::GpsFix::FIX_3D,     // fix
       10,                       // num_satellites
       0.0,                      // latitude
@@ -266,18 +274,19 @@ TEST(isGpsFrameValidTest, horzAccuracyValidity) {
 TEST(isGpsFrameValidTest, altitudeValidity) {
   data::GpsFrame frame{
       BoosterSeat::clck::now(), // time now
-      data::GpsFix::FIX_3D,     // fix
-      10,                       // num_satellites
-      0.0,                      // latitude
-      0.0,                      // longitude
-      0.0,                      // horz_accuracy
-      0.0,                      // altitude
-      0.0,                      // vert_accuracy
-      0.0,                      // vertical_speed,
-      0.0,                      // horizontal_speed
-      0.0,                      // speed_accuracy
-      0.0,                      // heading_of_motion
-      0.0                       // heading_accuracy
+      true,
+      data::GpsFix::FIX_3D, // fix
+      10,                   // num_satellites
+      0.0,                  // latitude
+      0.0,                  // longitude
+      0.0,                  // horz_accuracy
+      0.0,                  // altitude
+      0.0,                  // vert_accuracy
+      0.0,                  // vertical_speed,
+      0.0,                  // horizontal_speed
+      0.0,                  // speed_accuracy
+      0.0,                  // heading_of_motion
+      0.0                   // heading_accuracy
   };
 
   frame.altitude = -450.1;
@@ -296,6 +305,7 @@ TEST(isGpsFrameValidTest, altitudeValidity) {
 TEST(isGpsFrameValidTest, headingOfMotionValidity) {
   data::GpsFrame frame{
       BoosterSeat::clck::now(), // time now
+      true,                     // is_valid
       data::GpsFix::FIX_3D,     // fix
       10,                       // num_satellites
       0.0,                      // latitude
