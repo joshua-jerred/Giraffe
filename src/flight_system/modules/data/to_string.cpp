@@ -19,7 +19,15 @@
 #include <BoosterSeat/string_formatting.hpp>
 
 namespace util {
-std::string to_string(const data::LogPacket::Level &level) {
+std::string to_string(const node::Identification id) noexcept {
+  try {
+    return node::identification_to_string.at(id);
+  } catch (const std::out_of_range &e) {
+    return "UNKNOWN";
+  }
+}
+
+std::string to_string(const data::LogPacket::Level level) noexcept {
   switch (level) {
   case data::LogPacket::Level::DEBUG:
     return "DEBUG";
@@ -34,22 +42,56 @@ std::string to_string(const data::LogPacket::Level &level) {
   }
 }
 
-std::string to_string(const data::LogPacket &packet) {
+std::string to_string(const data::LogPacket &packet) noexcept {
   std::string output = "";
   output += "LogPkt: ";
   output += to_string(packet.level) + " ";
-  output += node::identification_to_string.at(packet.source) + " " +
-            packet.secondary_identifier;
+  output += to_string(packet.source) + " ";
+  if (!packet.secondary_identifier.empty()) {
+    output += " " + packet.secondary_identifier + " ";
+  }
   output += BoosterSeat::string::intToHex(static_cast<uint16_t>(packet.id));
   output += " " + packet.info;
   return output;
 }
 
-std::string to_string(const data::DataPacket &packet) {
+std::string to_string(const data::DataId id) noexcept {
+  try {
+    return data::dataIdStringMap.at(id);
+  } catch (const std::out_of_range &e) {
+    return "UNKNOWN";
+  }
+}
+
+std::string to_string(const data::DataPacket &packet) noexcept {
   std::string output = "";
-  output += data::dataIdStringMap.at(packet.identifier);
-  output += " - ";
+  output += to_string(packet.identifier) + " - ";
   output += packet.value;
+  return output;
+}
+
+std::string to_string(const data::GpsFix fix_type) noexcept {
+  try {
+    return data::GpsFixStringMap.at(fix_type);
+  } catch (const std::out_of_range &e) {
+    return "UNKNOWN";
+  }
+}
+
+std::string to_string(const data::GpsFrame &frame) noexcept {
+  std::string output = "";
+  output += to_string(frame.fix) + " ";
+  output += BoosterSeat::string::f2s(frame.latitude, 6) + " ";
+  output += BoosterSeat::string::f2s(frame.longitude, 6) + " ";
+  output += BoosterSeat::string::f2s(frame.altitude, 1) + " ";
+  output += BoosterSeat::string::f2s(frame.horizontal_speed, 1) + " ";
+  return output;
+}
+
+std::string to_string(const data::GpsFramePacket &packet) noexcept {
+  std::string output = "";
+  output += packet.secondary_identifier + " | ";
+  output += to_string(packet.frame);
   return output;
 }
 
