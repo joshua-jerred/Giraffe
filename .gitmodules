@@ -4,3 +4,6 @@
 [submodule "lib/Boost_erSeat"]
 	path = lib/Boost_erSeat
 	url = https://github.com/joshua-jerred/Boost_erSeat.git
+[submodule "lib/bzip2-cpp"]
+	path = lib/bzip2-cpp
+	url = https://github.com/joshua-jerred/bzip2-cpp

@@ -14,11 +14,14 @@
  * @copyright  2023 (license to be defined)
  */
 
-#include "data_log.hpp"
+#include <filesystem>
+
 #include <BoosterSeat/exception.hpp>
 #include <BoosterSeat/filesystem.hpp>
 #include <BoosterSeat/time.hpp>
-#include <filesystem>
+#include <bzip2-cpp-lib.hpp>
+
+#include "data_log.hpp"
 
 namespace mw = data_middleware;
 namespace bs = BoosterSeat;
@@ -509,7 +512,19 @@ bool mw::DataLog::archiveFile(const std::string &file_path,
     }
     std::string file_name = bsfs::getFileName(file_path);
     std::string new_file_path = archive_dir_path + "/" + file_name;
-    bsfs::moveFile(file_path, new_file_path);
+
+    auto method = config_.data_module_data.getArchiveMethod();
+
+    if (method == cfg::gEnum::ArchiveMethod::PLAIN_TEXT) {
+      bsfs::moveFile(file_path, new_file_path);
+    } else if (method == cfg::gEnum::ArchiveMethod::BZIP2) {
+      auto res = bzip2::compress(file_path, new_file_path + ".bz2");
+      if (res != bzip2::Result::SUCCESS) {
+        shared_data_.streams.log.error(kNodeId, error_id);
+        return false;
+      }
+      bsfs::deleteFile(file_path);
+    }
   } catch (const bs::BoosterSeatException &e) {
     shared_data_.streams.log.errorBoosterSeatException(kNodeId, error_id, e);
     return false;

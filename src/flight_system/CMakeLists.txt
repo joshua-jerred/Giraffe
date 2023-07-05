@@ -78,6 +78,9 @@ target_include_directories(gfs_data_module INTERFACE
   ${GFS_SRC}/modules/data
 	${GFS_SRC}/modules/data/shared_data
 )
+target_link_libraries(gfs_data_module INTERFACE
+	bzip2-cpp-lib
+)
 
 # -------- GFS Executable ---------
 add_executable( # see sources.cmake for source files
