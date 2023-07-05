@@ -137,14 +137,17 @@ constexpr const char* TimestampTimezoneToKey(cfg::gEnum::TimestampTimezone val) 
 }
 
 enum class ArchiveMethod {
-  PLAIN_TEXT
+  PLAIN_TEXT,
+  BZIP2
 };
 std::unordered_map<std::string, cfg::gEnum::ArchiveMethod> const KeyToArchiveMethod = {
-  {"plain_text", cfg::gEnum::ArchiveMethod::PLAIN_TEXT}
+  {"plain_text", cfg::gEnum::ArchiveMethod::PLAIN_TEXT},
+  {"bzip2", cfg::gEnum::ArchiveMethod::BZIP2}
 };
 constexpr const char* ArchiveMethodToKey(cfg::gEnum::ArchiveMethod val) throw() {
   switch (val) {
     case cfg::gEnum::ArchiveMethod::PLAIN_TEXT: return "plain_text";
+    case cfg::gEnum::ArchiveMethod::BZIP2: return "bzip2";
   }
   __builtin_unreachable();
 }

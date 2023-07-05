@@ -136,7 +136,8 @@
             "default": "plain_text",
             "enum_name": "archive_method",
             "options": [
-                "plain_text"
+                "plain_text",
+                "bzip2"
             ]
         },
         "data_log_file_contents": {

@@ -104,6 +104,7 @@ add_subdirectory(${GDL_SRC})
 # External Libraries
 add_subdirectory(${LIB_SRC}/MWAV)
 add_subdirectory(${LIB_SRC}/Boost_erSeat)
+add_subdirectory(${LIB_SRC}/bzip2-cpp)
 
 # Unit Tests
 enable_testing()
