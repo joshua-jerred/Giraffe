@@ -25,6 +25,7 @@ public:
   void printStreams();
   int getTotalDataPackets();
   int getTotalLogPackets();
+  int getTotalGpsPackets();
   void sleep(int ms);
   void runExtensionFor(extension::Extension &ext, int ms);
 

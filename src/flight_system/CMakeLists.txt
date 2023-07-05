@@ -30,9 +30,11 @@ add_library(gfs_interface INTERFACE)
 target_sources(gfs_interface INTERFACE
 	${GFS_SRC}/interface/i2c_interface.cpp
 	${GFS_SRC}/interface/one_wire_interface.cpp
+	${GFS_SRC}/interface/ubx/ubx_protocol.cpp
 )
 target_include_directories(gfs_interface INTERFACE
   ./interface
+	./interface/ubx
 )
 target_link_libraries(gfs_interface INTERFACE
 	i2c
@@ -44,6 +46,7 @@ target_sources(gfs_extensions INTERFACE
 	${GFS_SRC}/extensions/extension.cpp
 	${GFS_SRC}/extensions/bme280.cpp
 	${GFS_SRC}/extensions/ds18b20.cpp
+	${GFS_SRC}/extensions/samm8q.cpp
 )
 target_include_directories(gfs_extensions INTERFACE
 	${GFS_SRC}/extensions

@@ -17,6 +17,10 @@
 #include "positional.hpp"
 
 bool data::isGpsFrameValid(const data::GpsFrame &frame) {
+  if (!frame.is_valid) {
+    return false;
+  }
+
   // Validate the time
   constexpr int kMaxTimeDiffHours = 24;
   BoosterSeat::clck::TimePoint now = BoosterSeat::clck::now();

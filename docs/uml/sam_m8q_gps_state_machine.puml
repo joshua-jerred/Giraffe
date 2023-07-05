@@ -1,0 +1,95 @@
+@startuml
+
+title SAM-M8Q GPS Module State Machine
+
+
+note as n
+<b>State Machine Members</b>
+- int read_rate: n (configurable, default 1Hz)
+end note
+
+state hard_fault
+
+state "loop()" as loop {
+
+state read {
+  note as n0
+  <b>State Members</b>
+  - timer read_timeout: min(read_rate * 2, 2000ms) : for timeout
+  - timer read_wait: read_rate
+end note
+
+state get_packet : try to get a packet from the stream
+state get_packet : process the packet if it exists
+state read_wait : wait for read_wait timer to expire
+
+[*] --> get_packet
+note on link
+  restart the read_timeout timer
+end note
+
+get_packet --> read_wait : always transition
+get_packet --> reset : read_timeout expired
+read_wait --> get_packet : read_wait expired
+}
+
+state configure {
+note as n1
+<b>State Members</b>
+- int max_configure_attempts: n (configurable, default 3)
+- int configure_attempts
+end note
+
+state send_config : - increment configure_attempts
+state send_config : - ubx::setProtocolDDC
+state send_config : - ubx::setMeasurmentRate
+state send_config : - ubx::setDynamicModel
+
+[*] --> send_config
+send_config --> read : configure success
+send_config --> reset : configure failed
+note on link
+  set configure_attempts to 0
+  end note
+
+  send_config --> hard_fault : configure_attempts > max_configure_attempts
+}
+
+state reset {
+  note as n2
+  <b>State Members</b>
+  - int max_reset_attempts: n (configurable, default 3)
+  - int reset_attempts: 0
+  - timer reset_wait: 1000ms
+  end note
+
+  state send_reset : - send reset command
+  state send_reset : - restart the reset_wait timer
+  state send_reset : - increment reset_attempts
+
+  state wait_reset : - do nothing
+  state wait_reset : - (allow device to reset)
+  state handshake : send handshake command
+
+  [*] --> send_reset
+  note on link
+    - set reset_attempts to 0
+    end note
+
+    send_reset --> wait_reset
+    send_reset --> hard_fault : reset_attempts > max_reset_attempts
+
+    wait_reset --> handshake : wait timer expired
+
+    handshake --> configure : handshake success
+    handshake --> send_reset : handshake failed
+  }
+
+  [*] --> configure
+}
+
+hard_fault --> [*]
+loop --> hard_fault : primary_timer expired
+loop --> [*] : shutdown requested
+
+@enduml

@@ -46,6 +46,7 @@
     "dataframe",
     "puml",
     "Reassembler",
+    "SAMM",
     "smbus",
     "stdexcept",
     "stoi",

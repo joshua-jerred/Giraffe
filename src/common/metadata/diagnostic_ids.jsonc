@@ -416,6 +416,31 @@
       "name":"DS18B20 Temperature Range Warning",
       "details":"The temperature value read from the DS18B20 is outside of it's accurate range.",
       "value": "0x5007"
+    },
+    "samm8q_read_watchdog":{
+      "name":"SAMM8Q Read Watchdog",
+      "details":"The SAMM8Q read watchdog has expired.",
+      "value": "0x5008"
+    },
+    "samm8q_configure_set_protocol":{
+      "name":"SAMM8Q Configure Set Protocol",
+      "details":"The SAMM8Q failed to set the protocol.",
+      "value": "0x5009"
+    },
+    "samm8q_configure_set_measurement_rate":{
+      "name":"SAMM8Q Configure Set Measurement Rate",
+      "details":"The SAMM8Q failed to set the measurement rate.",
+      "value": "0x500A"
+    },
+    "samm8q_configure_set_dynamic_model":{
+      "name":"SAMM8Q Configure Set Dynamic Model",
+      "details":"The SAMM8Q failed to set the dynamic model.",
+      "value": "0x500B"
+    },
+    "samm8q_read_timeout":{
+      "name":"SAMM8Q Read Timeout",
+      "details":"The SAM-M8Q extension failed to read a frame in time.",
+      "value": "0x500C"
     }
   },
   "ext_fault":{ 
@@ -490,6 +515,21 @@
       "name":"DS18B20 Timeout - Read",
       "details":"The DS18B20 timed out on read but did not provide a more specific error. This should not happen.",
       "value": "0x700B"
+    },
+    "samm8q_i2c_connect":{
+      "name":"SAMM8Q I2C Connect Fault",
+      "details":"The SAMM8Q extension failed to connect to the I2C bus.",
+      "value": "0x700C"
+    },
+    "samm8q_startup_handshake":{
+      "name":"SAMM8Q Startup Handshake Fault",
+      "details":"The SAMM8Q extension failed to handshake in time.",
+      "value": "0x700D"
+    },
+    "samm8q_reset_failure":{
+      "name":"SAMM8Q Reset Failure Fault",
+      "details":"The SAMM8Q extension failed to reset in time.",
+      "value": "0x700E"
     }
   },
   "gdl":{

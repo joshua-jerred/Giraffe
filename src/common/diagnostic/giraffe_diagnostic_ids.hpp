@@ -108,6 +108,11 @@ enum class DiagnosticId : uint16_t {
   EXTENSION_bme280HumidityRange=0x5005, // BME280 Humidity Range Warning
   EXTENSION_bme280Div0=0x5006, // BME280 DIV0
   EXTENSION_ds18b20TemperatureRange=0x5007, // DS18B20 Temperature Range Warning
+  EXTENSION_samm8qReadWatchdog=0x5008, // SAMM8Q Read Watchdog
+  EXTENSION_samm8qConfigureSetProtocol=0x5009, // SAMM8Q Configure Set Protocol
+  EXTENSION_samm8qConfigureSetMeasurementRate=0x500A, // SAMM8Q Configure Set Measurement Rate
+  EXTENSION_samm8qConfigureSetDynamicModel=0x500B, // SAMM8Q Configure Set Dynamic Model
+  EXTENSION_samm8qReadTimeout=0x500C, // SAMM8Q Read Timeout
   EXT_FAULT_none=0x7000, // No fault
   EXT_FAULT_fatalConfig=0x7001, // Fatal Configuration Error
   EXT_FAULT_bme280StartupI2CConnect=0x7002, // BME280 Startup I2C Connect Fault
@@ -122,6 +127,9 @@ enum class DiagnosticId : uint16_t {
   EXT_FAULT_ds18b20RawTempStoi=0x7009, // DS18B20 Timeout - STOI
   EXT_FAULT_ds18b20InitTimeout=0x700A, // DS18B20 Timeout - Init
   EXT_FAULT_ds18b20ReadTimeout=0x700B, // DS18B20 Timeout - Read
+  EXT_FAULT_samm8qI2CConnect=0x700C, // SAMM8Q I2C Connect Fault
+  EXT_FAULT_samm8qStartupHandshake=0x700D, // SAMM8Q Startup Handshake Fault
+  EXT_FAULT_samm8qResetFailure=0x700E, // SAMM8Q Reset Failure Fault
   GDL_invalidStartCall=0xA000, // Invalid Start Call
   GDL_invalidStopCall=0xA001, // Invalid Stop Call
   GDL_invalidBroadcastCall=0xA002, // Invalid Broadcast Call

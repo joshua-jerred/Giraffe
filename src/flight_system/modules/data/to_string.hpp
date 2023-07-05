@@ -19,10 +19,23 @@
 
 #include "streams.hpp"
 
+/**
+ * @brief Generic to_string functions for a variety of types.
+ * @details The only requirement is that they must be exception safe. So if they
+ * use a map, first map sure the key exists.
+ */
 namespace util {
-std::string to_string(const data::LogPacket &packet);
-std::string to_string(const data::LogPacket::Level &level);
-std::string to_string(const data::DataPacket &packet);
+std::string to_string(const node::Identification id) noexcept;
+
+std::string to_string(const data::DataId id) noexcept;
+std::string to_string(const data::DataPacket &packet) noexcept;
+
+std::string to_string(const data::LogPacket::Level level) noexcept;
+std::string to_string(const data::LogPacket &packet) noexcept;
+
+std::string to_string(const data::GpsFix fix_type) noexcept;
+std::string to_string(const data::GpsFrame &frame) noexcept;
+std::string to_string(const data::GpsFramePacket &packet) noexcept;
 } // namespace util
 
 #endif /* TO_STRING_HPP_ */

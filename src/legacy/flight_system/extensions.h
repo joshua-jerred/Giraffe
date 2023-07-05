@@ -179,29 +179,6 @@ private:
 };
 
 /**
- * @brief DS18B20 1Wire temperature sensor driver/extension.
- */
-class DS18B20 : public Extension {
-public:
-  DS18B20(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
-  ~DS18B20();
-  int runner();
-
-private:
-  int readData();
-  int processData();
-  uint8_t calculateCRC(uint8_t *addr, uint8_t len);
-
-  std::string one_wire_device_id_;
-  std::string raw_data_ = "";
-  int16_t raw_temp_ = 0;
-  float temp_F_ = 0;
-  float temp_C_ = 0;
-
-  interface::OneWire one_wire_device_;
-};
-
-/**
  * @brief SAM-M8Q I2C GPS sensor driver/extension.
  */
 class SAMM8Q : public Extension {
@@ -217,104 +194,6 @@ private:
   int device_address_;
   interface::I2C i2c_;
   bool configured_ = false;
-};
-
-class BME280 : public Extension {
-public:
-  BME280(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
-  ~BME280();
-  int runner();
-
-private:
-  struct RawEnvironmentData {
-    uint32_t pressure = 0;
-    uint32_t temperature = 0;
-    uint16_t humidity = 0;
-  };
-
-  struct TempeCompData {
-    uint16_t dig_T1 = 0;
-    int16_t dig_T2 = 0;
-    int16_t dig_T3 = 0;
-  };
-
-  struct PressCompData {
-    uint16_t dig_P1 = 0;
-    int16_t dig_P2 = 0;
-    int16_t dig_P3 = 0;
-    int16_t dig_P4 = 0;
-    int16_t dig_P5 = 0;
-    int16_t dig_P6 = 0;
-    int16_t dig_P7 = 0;
-    int16_t dig_P8 = 0;
-    int16_t dig_P9 = 0;
-  };
-
-  struct HumCompData {
-    uint8_t dig_H1 = 0;
-    int16_t dig_H2 = 0;
-    uint8_t dig_H3 = 0;
-    int16_t dig_H4 = 0;
-    int16_t dig_H5 = 0;
-    int8_t dig_H6 = 0;
-  };
-
-  int handshake();
-  int reset();
-  int configure();
-
-  int readCompensationData();
-  int readData();
-  int processData();
-
-  int bus_number_;
-  int device_address_;
-  interface::I2C i2c_bus_;
-
-  TempeCompData temp_comp_data_ = {};
-  PressCompData press_comp_data_ = {};
-  HumCompData hum_comp_data_ = {};
-
-  RawEnvironmentData raw_data_ = {};
-
-  float temp_c_ = 0.0;
-  float press_mbar_ = 0.0;
-  float rh_ = 0.0;
-};
-
-/**
- * @brief SYSINFO extension for reading system information.
- * @details Functional on Linux machines. Includes CPU, RAM, and Disk
- * Information.
- */
-class SYSINFO : public Extension {
-public:
-  SYSINFO(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
-  ~SYSINFO();
-  int runner();
-};
-
-/**
- * @brief MAX17049 I2C Fuel Gauge driver/extension.
- * @details This was removed from the hardware, it will probably be removed.
- * @todo Remove this extension.
- */
-class MAX17049 : public Extension {
-public:
-  MAX17049(DataStream *p_data_stream, ExtensionMetadata extension_metadata);
-  ~MAX17049();
-  int runner();
-
-private:
-  bool handshake();
-  bool readData();
-
-  int bus_number_;
-  int device_address_;
-  interface::I2C i2c_bus_;
-
-  float voltage_ = 0.0;
-  float soc_ = 0.0;
 };
 
 /**
