@@ -33,7 +33,7 @@ enum class DYNAMIC_MODEL {
   ERROR = 0xFF
 };
 
-enum class FIX_TYPE {
+enum class FixType {
   NO_FIX = 0x00,
   DEAD_RECK = 0x01,
   FIX_2D = 0x02,
@@ -43,7 +43,7 @@ enum class FIX_TYPE {
   ERROR = 0xFF
 };
 
-struct NAV_DATA {
+struct NavData {
   bool valid = false;
   int year = 0;
   int month = 0;
@@ -52,11 +52,11 @@ struct NAV_DATA {
   int minute = 0;
   int second = 0;
 
-  FIX_TYPE fixType = FIX_TYPE::NO_FIX;
+  FixType fix_type = FixType::NO_FIX;
 
   int num_satellites = 0;
-  double longitude = 0.0;     // degrees
   double latitude = 0.0;      // degrees
+  double longitude = 0.0;     // degrees
   double horz_accuracy = 0.0; // meters
 
   double altitude = 0.0;      // meters
@@ -119,11 +119,11 @@ bool pollMessage(I2cInterface &i2c, ubx::UBXMessage &message,
                  const int expected_size, const unsigned int timeout_ms = 1500);
 
 // UBXMessage getConfiguration
-bool parsePVT(const UBXMessage &message, NAV_DATA &data);
+bool parsePVT(const UBXMessage &message, NavData &data);
 
 // ---------- DEBUGGING ----------
 std::ostream &operator<<(std::ostream &o, const UBXMessage &ubx);
-std::ostream &operator<<(std::ostream &o, const NAV_DATA &nv);
+std::ostream &operator<<(std::ostream &o, const NavData &nv);
 
 // -------------------------------
 } // namespace ubx

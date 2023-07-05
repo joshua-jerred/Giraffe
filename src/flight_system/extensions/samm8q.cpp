@@ -14,6 +14,8 @@
  * @copyright  2023 (license to be defined)
  */
 
+#include <BoosterSeat/time.hpp>
+
 #include "samm8q.hpp"
 #include "ubx_ids.hpp"
 #include "ubx_protocol.hpp"
@@ -248,7 +250,7 @@ void SamM8qExtension::stateRead() {
   }
 
   ubx::UBXMessage msg;
-  ubx::NAV_DATA nav_data;
+  ubx::NavData nav_data;
 
   // I don't remember what this section actually accomplishes...
   // Just labeled with 'Bad Data', no clue what I meant by that.
@@ -266,6 +268,26 @@ void SamM8qExtension::stateRead() {
   read_watchdog_timer_.reset();
 
   data::GpsFrame gps_frame;
+
+  switch (nav_data.fix_type) {
+  case ubx::FixType::NO_FIX:
+    gps_frame.fix = data::GpsFix::NO_FIX;
+    break;
+  case ubx::FixType::FIX_2D:
+    gps_frame.fix = data::GpsFix::FIX_2D;
+    break;
+  case ubx::FixType::FIX_3D:
+    gps_frame.fix = data::GpsFix::FIX_3D;
+    break;
+  default:
+    gps_frame.fix = data::GpsFix::ERROR;
+  }
+
+  gps_frame.is_valid = nav_data.valid;
+
+  gps_frame.gps_utc_time = BoosterSeat::time::dateAndTimeToTimePoint(
+      nav_data.year, nav_data.month, nav_data.day, nav_data.hour + 1,
+      nav_data.minute, nav_data.second);
 
   gps_frame.num_satellites = nav_data.num_satellites;
   gps_frame.latitude = nav_data.latitude;

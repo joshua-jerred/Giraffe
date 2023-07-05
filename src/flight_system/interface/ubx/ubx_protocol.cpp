@@ -660,7 +660,7 @@ bool pollMessage(I2cInterface &i2c, UBXMessage &message,
   return false;
 }
 
-bool parsePVT(const UBXMessage &message, NAV_DATA &data) {
+bool parsePVT(const UBXMessage &message, NavData &data) {
   /*
   First check for message integrity.
   PVT Messages are 92 bytes long
@@ -681,7 +681,7 @@ bool parsePVT(const UBXMessage &message, NAV_DATA &data) {
   payload[11] - U1 valid (Validity Flag)
   payload[12] - U4 tAcc (Time Accuracy Estimate in UTC)
   payload[16] - I4 nano (Fraction of second in nanoseconds)
-  payload[20] - U1 fixType (fix Type)
+  payload[20] - U1 fix_type (fix Type)
       0x00 - No Fix
       0x01 - Dead Reckoning only
       0x02 - 2D-Fix
@@ -720,28 +720,28 @@ bool parsePVT(const UBXMessage &message, NAV_DATA &data) {
   data.minute = message.payload.at(9);
   data.second = message.payload.at(10);
 
-  uint8_t fixType = message.payload.at(20);
-  switch (fixType) {
+  uint8_t fix_type = message.payload.at(20);
+  switch (fix_type) {
   case (0x00):
-    data.fixType = FIX_TYPE::NO_FIX;
+    data.fix_type = FixType::NO_FIX;
     break;
   case (0x01):
-    data.fixType = FIX_TYPE::DEAD_RECK;
+    data.fix_type = FixType::DEAD_RECK;
     break;
   case (0x02):
-    data.fixType = FIX_TYPE::FIX_2D;
+    data.fix_type = FixType::FIX_2D;
     break;
   case (0x03):
-    data.fixType = FIX_TYPE::FIX_3D;
+    data.fix_type = FixType::FIX_3D;
     break;
   case (0x04):
-    data.fixType = FIX_TYPE::COMBINED;
+    data.fix_type = FixType::COMBINED;
     break;
   case (0x05):
-    data.fixType = FIX_TYPE::TIME_ONLY;
+    data.fix_type = FixType::TIME_ONLY;
     break;
   default:
-    data.fixType = FIX_TYPE::ERROR;
+    data.fix_type = FixType::ERROR;
   }
 
   data.num_satellites = message.payload.at(23);
@@ -812,30 +812,30 @@ std::ostream &operator<<(std::ostream &o, const UBXMessage &ubx) {
   return o;
 }
 
-std::ostream &operator<<(std::ostream &o, const NAV_DATA &nv) {
+std::ostream &operator<<(std::ostream &o, const NavData &nv) {
   if (nv.valid == true) {
     o << "PVT Parse Error" << std::endl;
     return o;
   }
   o << std::dec << nv.year << "-" << nv.month << "-" << nv.day << " ";
   o << nv.hour << ":" << nv.minute << ":" << nv.second << " -- ";
-  switch (nv.fixType) {
-  case FIX_TYPE::NO_FIX:
+  switch (nv.fix_type) {
+  case FixType::NO_FIX:
     o << "No Fix";
     break;
-  case FIX_TYPE::DEAD_RECK:
+  case FixType::DEAD_RECK:
     o << "Dead Reckoning Only";
     break;
-  case FIX_TYPE::FIX_2D:
+  case FixType::FIX_2D:
     o << "2D Fix";
     break;
-  case FIX_TYPE::FIX_3D:
+  case FixType::FIX_3D:
     o << "3D Fix";
     break;
-  case FIX_TYPE::COMBINED:
+  case FixType::COMBINED:
     o << "GPS + Dead Reckoning combined";
     break;
-  case FIX_TYPE::TIME_ONLY:
+  case FixType::TIME_ONLY:
     o << "Time only fix";
     break;
   default:

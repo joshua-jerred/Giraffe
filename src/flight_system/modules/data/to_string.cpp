@@ -17,6 +17,7 @@
 #include "to_string.hpp"
 #include "node.hpp"
 #include <BoosterSeat/string_formatting.hpp>
+#include <BoosterSeat/time.hpp>
 
 namespace util {
 std::string to_string(const node::Identification id) noexcept {
@@ -80,11 +81,21 @@ std::string to_string(const data::GpsFix fix_type) noexcept {
 
 std::string to_string(const data::GpsFrame &frame) noexcept {
   std::string output = "";
+  output +=
+      "UTC: " +
+      BoosterSeat::time::dateAndTimeString(BoosterSeat::time::TimeZone::UTC,
+                                           '-', ' ', ':', frame.gps_utc_time) +
+      " ";
+  output +=
+      "Local: " +
+      BoosterSeat::time::dateAndTimeString(BoosterSeat::time::TimeZone::LOCAL,
+                                           '-', ' ', ':', frame.gps_utc_time) +
+      " ";
   output += to_string(frame.fix) + " ";
-  output += BoosterSeat::string::f2s(frame.latitude, 6) + " ";
-  output += BoosterSeat::string::f2s(frame.longitude, 6) + " ";
-  output += BoosterSeat::string::f2s(frame.altitude, 1) + " ";
-  output += BoosterSeat::string::f2s(frame.horizontal_speed, 1) + " ";
+  output += "lat: " + BoosterSeat::string::f2s(frame.latitude, 6) + " ";
+  output += "lon: " + BoosterSeat::string::f2s(frame.longitude, 6) + " ";
+  output += "alt: " + BoosterSeat::string::f2s(frame.altitude, 1) + " ";
+  output += "hs:" + BoosterSeat::string::f2s(frame.horizontal_speed, 1) + " ";
   return output;
 }
 
