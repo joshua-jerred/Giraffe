@@ -285,7 +285,6 @@ private:
    * @brief This method will use the configured archive settings to trim the
    * oldest files in the archive directory if the archive size limit is
    * exceeded.
-   * @warning This method is not implemented yet.
    */
   void trimArchive();
 

@@ -354,6 +354,17 @@
       "name": "Failed to update archive file list",
       "details": "The archive file list could not be generated due to an exception.",
       "value": "0x3029"
+    },
+    // Archive Trim
+    "data_archive_trimmed":{
+      "name":"Data Archive Trimmed",
+      "details": "The data archive directory ran out of space and a file was deleted.",
+      "value": "0x2004"
+    },
+    "data_archive_trim_failed":{
+      "name":"Data Archive Trim Failed",
+      "details": "The data archive directory is out of space, but a file could not be deleted.",
+      "value": "0x302A"
     }
   },
   "console_module": {},

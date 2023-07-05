@@ -271,6 +271,12 @@ void mw::DataLog::validateFileSystem() {
   } else {
     fs_status_.log_archive_dir_size = 0;
   }
+
+  // trim the data archive directory if it's too big
+  if (fs_status_.data_archive_dir_size >
+      config_.data_module_data.getMaxDataArchiveSizeMb()) {
+    trimArchive();
+  }
 }
 
 void mw::DataLog::createDirectory(const std::string &path,
@@ -576,10 +582,36 @@ void mw::DataLog::rotateFiles() {
   updateFileList();
 }
 
-/**
- * @todo Implement this function
- */
 void mw::DataLog::trimArchive() {
+  try {
+    std::filesystem::path dir(kDataArchiveDirPath);
+    int num_files = 0;
+    std::filesystem::path oldest_file_path;
+    std::chrono::time_point<std::chrono::file_clock> oldest_file_time;
+
+    // Find the oldest file
+    for (const auto &file : std::filesystem::directory_iterator(dir)) {
+      if (num_files == 0) {
+        oldest_file_path = file.path();
+        oldest_file_time = file.last_write_time();
+      } else {
+        if (file.last_write_time() < oldest_file_time) {
+          oldest_file_path = file.path();
+          oldest_file_time = file.last_write_time();
+        }
+      }
+      num_files++;
+    }
+    if (num_files > 0) {
+      bsfs::deleteFile(oldest_file_path.string());
+      shared_data_.streams.log.error(kNodeId,
+                                     DiagnosticId::DATA_LOG_dataArchiveTrimmed,
+                                     oldest_file_path.string());
+    }
+  } catch (const std::exception &e) {
+    shared_data_.streams.log.errorStdException(
+        kNodeId, DiagnosticId::DATA_LOG_dataArchiveTrimFailed, e);
+  }
 }
 
 void getFileNamesInDir(const std::string &dir_path,

@@ -158,6 +158,11 @@ int cfg::DataModuleData::getMaxDataArchiveSizeMb() const {
   return max_data_archive_size_mb_;
 }
 
+bool cfg::DataModuleData::getWarnOnTrim() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return warn_on_trim_;
+}
+
 cfg::gEnum::ArchiveMethod cfg::DataModuleData::getArchiveMethod() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return archive_method_;
@@ -206,6 +211,11 @@ void cfg::DataModuleData::setMaxDataLogFileSizeMb(int val) {
 void cfg::DataModuleData::setMaxDataArchiveSizeMb(int val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   max_data_archive_size_mb_ = val;
+}
+
+void cfg::DataModuleData::setWarnOnTrim(bool val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  warn_on_trim_ = val;
 }
 
 void cfg::DataModuleData::setArchiveMethod(cfg::gEnum::ArchiveMethod val) {
@@ -294,6 +304,16 @@ void cfg::DataModuleData::setFromJson(const json &json_data) {
         100000,
         ""
   );
+  validation::setValidValue<bool>(
+        streams_.log,
+        json_data,
+        "data_module_data",
+        "warn_on_trim",
+        warn_on_trim_,
+        0,
+        0,
+        ""
+  );
   validation::setValidEnum<cfg::gEnum::ArchiveMethod>(
         streams_.log,
         json_data,
@@ -325,6 +345,7 @@ json cfg::DataModuleData::getJson() const {
     {"log_interval_ms", log_interval_ms_},
     {"max_data_log_file_size_mb", max_data_log_file_size_mb_},
     {"max_data_archive_size_mb", max_data_archive_size_mb_},
+    {"warn_on_trim", warn_on_trim_},
     {"archive_method", cfg::gEnum::ArchiveMethodToKey(archive_method_)},
     {"data_log_file_contents", data_log_file_contents_}
   });

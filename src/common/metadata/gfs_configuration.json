@@ -129,6 +129,14 @@
             "min": 50,
             "step": 1
         },
+        "warn_on_trim": {
+            "type":"bool",
+            "name": "Warn on Archive Trim",
+            "description":"When archive files are deleted (max archive size exceeded), an error will be logged if this is enabled.",
+            "default": true,
+            "true": "enabled",
+            "false": "disabled"
+        },
         "archive_method": {
             "type": "enum",
             "name": "Data Archive Method",

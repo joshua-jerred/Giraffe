@@ -76,6 +76,7 @@ public:
   int getLogIntervalMs() const;
   int getMaxDataLogFileSizeMb() const;
   int getMaxDataArchiveSizeMb() const;
+  bool getWarnOnTrim() const;
   cfg::gEnum::ArchiveMethod getArchiveMethod() const;
   std::string getDataLogFileContents() const;
 
@@ -87,6 +88,7 @@ public:
   void setLogIntervalMs(int);
   void setMaxDataLogFileSizeMb(int);
   void setMaxDataArchiveSizeMb(int);
+  void setWarnOnTrim(bool);
   void setArchiveMethod(cfg::gEnum::ArchiveMethod);
   void setDataLogFileContents(std::string);
 
@@ -102,6 +104,7 @@ private:
   int log_interval_ms_ = 5000;
   int max_data_log_file_size_mb_ = 10;
   int max_data_archive_size_mb_ = 100;
+  bool warn_on_trim_ = true;
   cfg::gEnum::ArchiveMethod archive_method_ = cfg::gEnum::ArchiveMethod::PLAIN_TEXT;
   std::string data_log_file_contents_ = "not implemented";
 };
