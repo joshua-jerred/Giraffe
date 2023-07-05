@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 
 # ----------------- *** START CONFIGUREABLE ITEMS *** --------------------------
 option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF) # ON or OFF
-option(EXTENSION_DEBUG_PRINT "Enable Debug Printing for Extensions" OFF) # ON or OFF
+option(EXTENSION_DEBUG_PRINT "Enable Debug Printing for Extensions" ON) # ON or OFF
 # ----------------- ***  END CONFIGUREABLE ITEMS  *** --------------------------
 
 
@@ -18,7 +18,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Debug Printing
 if(EXTENSION_DEBUG_PRINT)
 	add_compile_definitions(EXTENSION_DEBUG_PRINT=1)
-	message(STATUS "EXTENSION DEBUG PRINTING ENABLED")
+	message(WARNING "EXTENSION DEBUG PRINTING ENABLED")
 else()
 	add_compile_definitions(EXTENSION_DEBUG_PRINT=0)
 endif()

@@ -23,6 +23,9 @@ namespace util {
 std::string to_string(const data::LogPacket &packet);
 std::string to_string(const data::LogPacket::Level &level);
 std::string to_string(const data::DataPacket &packet);
+std::string to_string(const data::GpsFix &fix_type);
+std::string to_string(const data::GpsFrame &frame);
+std::string to_string(const data::GpsFramePacket &packet);
 } // namespace util
 
 #endif /* TO_STRING_HPP_ */

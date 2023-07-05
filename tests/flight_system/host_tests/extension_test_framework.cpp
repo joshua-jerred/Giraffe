@@ -25,7 +25,7 @@
 void ExtensionTestFramework::printStreams() {
   auto &ds = streams.data;
   auto &ls = streams.log;
-
+  std::cout << std::endl << "-- STREAMS --" << std::endl;
   std::cout << "Data Packets:" << std::endl;
   data::DataPacket d_packet;
   while (ds.getPacket(d_packet)) {
@@ -37,6 +37,12 @@ void ExtensionTestFramework::printStreams() {
   while (ls.getPacket(l_packet)) {
     std::cout << util::to_string(l_packet) << std::endl;
   }
+
+  std::cout << "GPS Packets:" << std::endl;
+  data::GpsFramePacket g_packet;
+  while (streams.gps.getPacket(g_packet)) {
+    std::cout << util::to_string(g_packet) << std::endl;
+  }
 }
 
 int ExtensionTestFramework::getTotalDataPackets() {
@@ -45,6 +51,10 @@ int ExtensionTestFramework::getTotalDataPackets() {
 
 int ExtensionTestFramework::getTotalLogPackets() {
   return streams.log.getTotalPackets();
+}
+
+int ExtensionTestFramework::getTotalGpsPackets() {
+  return streams.gps.getTotalPackets();
 }
 
 void ExtensionTestFramework::sleep(int ms) {

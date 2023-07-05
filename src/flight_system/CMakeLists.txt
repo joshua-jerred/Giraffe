@@ -46,6 +46,7 @@ target_sources(gfs_extensions INTERFACE
 	${GFS_SRC}/extensions/extension.cpp
 	${GFS_SRC}/extensions/bme280.cpp
 	${GFS_SRC}/extensions/ds18b20.cpp
+	${GFS_SRC}/extensions/samm8q.cpp
 )
 target_include_directories(gfs_extensions INTERFACE
 	${GFS_SRC}/extensions

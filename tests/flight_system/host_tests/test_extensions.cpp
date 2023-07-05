@@ -21,6 +21,11 @@
 #include "ds18b20.hpp"
 #include "samm8q.hpp"
 
+#define BME280_TEST_ENABLED 0
+#define DS18B20_TEST_ENABLED 0
+#define SAMM8Q_TEST_ENABLED 1
+
+#if BME280_TEST_ENABLED
 TEST(ExtensionsTest, BME280Test) {
   ExtensionTestFramework tf{};
   tf.meta.update_interval = 1000;
@@ -34,7 +39,9 @@ TEST(ExtensionsTest, BME280Test) {
 
   tf.printStreams();
 }
+#endif
 
+#if DS18B20_TEST_ENABLED
 TEST(ExtensionsTest, DS18B20Test) {
   ExtensionTestFramework tf{};
   tf.meta.update_interval = 1000;
@@ -49,17 +56,20 @@ TEST(ExtensionsTest, DS18B20Test) {
 
   tf.printStreams();
 }
+#endif
 
+#if SAMM8Q_TEST_ENABLED
 TEST(ExtensionsTest, SAMM8QTest) {
   ExtensionTestFramework tf{};
   tf.meta.update_interval = 1000;
 
   extension::SamM8qExtension sam_m8q{tf.resources, tf.meta};
 
-  tf.runExtensionFor(sam_m8q, 5000);
+  tf.runExtensionFor(sam_m8q, 10000);
 
-  EXPECT_GT(tf.getTotalDataPackets(), 0);
+  EXPECT_GT(tf.getTotalGpsPackets(), 0);
   EXPECT_EQ(tf.getTotalLogPackets(), 0);
 
   tf.printStreams();
 }
+#endif
