@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   extension.hpp
+ * @file   extension_base.hpp
  * @brief  The new implementation of the extension system.
  *
  * =*=======================*=
@@ -14,8 +14,8 @@
  * @copyright  2023 (license to be defined)
  */
 
-#ifndef EXTENSION_HPP_
-#define EXTENSION_HPP_
+#ifndef EXTENSION_BASE_HPP_
+#define EXTENSION_BASE_HPP_
 
 #include <atomic>
 #include <thread>
@@ -116,6 +116,14 @@ public:
    */
   DiagnosticId getFaultCode() const {
     return fault_code_;
+  }
+
+  /**
+   * @brief Returns true if the extension is in a faulted state.
+   * @return true if the extension is in a faulted state, false otherwise.
+   */
+  bool isFaulted() const {
+    return fault_flag_;
   }
 
 protected:

@@ -43,10 +43,12 @@ target_link_libraries(gfs_interface INTERFACE
 # # # Extensions
 add_library(gfs_extensions INTERFACE)
 target_sources(gfs_extensions INTERFACE
-	${GFS_SRC}/extensions/extension.cpp
+	${GFS_SRC}/extensions/extension_base.cpp
+	${GFS_SRC}/extensions/adc_configuration.cpp
 	${GFS_SRC}/extensions/bme280.cpp
 	${GFS_SRC}/extensions/ds18b20.cpp
 	${GFS_SRC}/extensions/samm8q.cpp
+	${GFS_SRC}/extensions/mcp3021.cpp
 )
 target_include_directories(gfs_extensions INTERFACE
 	${GFS_SRC}/extensions

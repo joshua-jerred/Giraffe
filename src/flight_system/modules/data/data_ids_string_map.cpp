@@ -1,6 +1,6 @@
 /**
  *
- *
+ * 
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -11,8 +11,8 @@
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- *
- *
+ * 
+ * 
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       2023-06-30
@@ -22,20 +22,30 @@
  * @verbatim
  */
 
+
 #include "data_ids.hpp"
 
-const std::unordered_map<data::DataId, std::string> data::dataIdStringMap{
-    {data::DataId::GENERIC_unknown, "GENERIC_unknown"},
-    {data::DataId::MODULE_statusUpdate, "MODULE_statusUpdate"},
-    {data::DataId::EXTENSION_statusUpdate, "EXTENSION_statusUpdate"},
-    {data::DataId::ENVIRONMENTAL_temperature, "ENVIRONMENTAL_temperature"},
-    {data::DataId::ENVIRONMENTAL_humidity, "ENVIRONMENTAL_humidity"},
-    {data::DataId::ENVIRONMENTAL_pressure, "ENVIRONMENTAL_pressure"},
-    {data::DataId::CAMERA_newImagePath, "CAMERA_newImagePath"}};
+namespace data {
+
+const std::unordered_map<DataId, std::string> dataIdStringMap {
+  {DataId::GENERIC_unknown,"GENERIC_unknown"},
+  {DataId::MODULE_statusUpdate,"MODULE_statusUpdate"},
+  {DataId::EXTENSION_statusUpdate,"EXTENSION_statusUpdate"},
+  {DataId::ENVIRONMENTAL_temperature,"ENVIRONMENTAL_temperature"},
+  {DataId::ENVIRONMENTAL_humidity,"ENVIRONMENTAL_humidity"},
+  {DataId::ENVIRONMENTAL_pressure,"ENVIRONMENTAL_pressure"},
+  {DataId::CAMERA_newImagePath,"CAMERA_newImagePath"},
+  {DataId::ADC_rawCount,"ADC_rawCount"},
+  {DataId::ADC_percentage,"ADC_percentage"},
+  {DataId::ADC_voltage,"ADC_voltage"}
+};
+
+} // namespace data
+
 
 /**
  * @endverbatim
- *
+ * 
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&

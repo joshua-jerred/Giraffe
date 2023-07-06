@@ -50,5 +50,22 @@
             "details": "Path to a new image",
             "value": "0xC001"
         }
+    },
+    "adc":{
+        "raw_count": {
+            "name": "ADC Raw Count",
+            "details": "Raw ADC count",
+            "value": "0xA001"
+        },
+        "percentage": {
+            "name": "ADC Percentage",
+            "details": "ADC percentage",
+            "value": "0xA002"
+        },
+        "voltage": {
+            "name": "ADC Voltage",
+            "details": "ADC voltage",
+            "value": "0xA003"
+        }
     }
 }

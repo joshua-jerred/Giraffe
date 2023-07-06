@@ -139,7 +139,11 @@ class IdGenerator:
         hpp_include_name = file_name = OUT_FILE.split("/")[-1].split(".")[0]
         file = cpp.files.CppGenerator(file_name)
         file.addIncludes([f'"{hpp_include_name}.hpp"'])
+        if self.namespaced:
+            file.enterNamespace(self.namespace)
+        file.addLine("")
         file.addComponent(self.string_map)
+        file.addLine("")
 
         if PRINT_OUTPUT:
             print(file)

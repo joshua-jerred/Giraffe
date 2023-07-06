@@ -441,6 +441,11 @@
       "name":"SAMM8Q Read Timeout",
       "details":"The SAM-M8Q extension failed to read a frame in time.",
       "value": "0x500C"
+    },
+    "adc_config_fail":{
+      "name":"ADC Config Failure",
+      "details":"The ADC configuration string is invalid, defaulting to raw ADC count output",
+      "value": "0x500D"
     }
   },
   "ext_fault":{ 
@@ -530,6 +535,31 @@
       "name":"SAMM8Q Reset Failure Fault",
       "details":"The SAMM8Q extension failed to reset in time.",
       "value": "0x700E"
+    },
+    "i2c_bus_connect_fault":{
+      "name":"I2C Bus Connect Fault",
+      "details":"The I2C bus failed to connect. Does it exist and is it enabled?",
+      "value": "0x700F"
+    },
+    "i2c_address_set_fault":{
+      "name":"I2C Address Set Fault",
+      "details":"The I2C address failed to set.",
+      "value": "0x7010"
+    },
+    "i2c_unknown_fault": {
+      "name":"I2C Unknown Fault",
+      "details":"The I2C bus failed for an unknown reason.",
+      "value": "0x7011"
+    },
+    "i2c_handshake_timeout_fault":{
+      "name":"I2C Handshake Timeout Fault",
+      "details":"The I2C handshake timed out.",
+      "value": "0x7012"
+    },
+    "adc_watchdog_timeout":{
+      "name":"ADC Watchdog Timeout Fault",
+      "details":"The ADC did not successfully read a value before the watchdog timer expired.",
+      "value": "0x7013"
     }
   },
   "gdl":{

@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   extension.cpp
+ * @file   extension_base.cpp
  * @brief  The new implementation of the extension system.
  *
  * =*=======================*=
@@ -14,7 +14,7 @@
  * @copyright  2023 (license to be defined)
  */
 
-#include "extension.hpp"
+#include "extension_base.hpp"
 #include <BoosterSeat/sleep.hpp>
 #include <BoosterSeat/timer.hpp>
 
@@ -135,6 +135,7 @@ void Extension::data(data::DataId identifier, T value, int precision) {
 template void Extension::data<int>(data::DataId, int, int);
 template void Extension::data<float>(data::DataId, float, int);
 template void Extension::data<double>(data::DataId, double, int);
+template void Extension::data<uint32_t>(data::DataId, uint32_t, int);
 template void Extension::data<std::string>(data::DataId, std::string, int);
 
 /**

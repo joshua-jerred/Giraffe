@@ -22,7 +22,7 @@
 
 #include <BoosterSeat/timer.hpp>
 
-#include "extension.hpp"
+#include "extension_base.hpp"
 #include "module.hpp"
 
 namespace modules {

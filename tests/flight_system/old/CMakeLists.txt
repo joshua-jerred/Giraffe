@@ -50,7 +50,7 @@ add_executable(test-04
 	${TEST_SRC}/test-04/test.cpp
 	${GFS_SRC}/modules/module-extensions.cpp
 
-	${GFS_SRC}/extensions/extension.cpp
+	${GFS_SRC}/extensions/extension_base.cpp
 	${GFS_SRC}/extensions/simulated-extensions.cpp
 	${GFS_SRC}/extensions/bmp180.cpp
 	${GFS_SRC}/extensions/ds18b20.cpp
@@ -82,7 +82,7 @@ target_link_libraries(test-05 gtest_main)
 add_executable(test-06
 	${TEST_SRC}/test-06/test.cpp
 	${GFS_SRC}/extensions/bmp180.cpp
-	${GFS_SRC}/extensions/extension.cpp
+	${GFS_SRC}/extensions/extension_base.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
 	${GFS_SRC}/interface/i2c.cpp
 )
@@ -94,7 +94,7 @@ target_link_libraries(test-06 gtest_main)
 add_executable(test-07
 	${TEST_SRC}/test-07/test.cpp
 	${GFS_SRC}/extensions/ds18b20.cpp
-	${GFS_SRC}/extensions/extension.cpp
+	${GFS_SRC}/extensions/extension_base.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
 	${GFS_SRC}/interface/one-wire.cpp
 )
@@ -125,7 +125,7 @@ set_target_properties(test-09 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/te
 add_executable(test-10
 	${TEST_SRC}/test-10/test.cpp
 	${GFS_SRC}/extensions/bme280.cpp
-	${GFS_SRC}/extensions/extension.cpp
+	${GFS_SRC}/extensions/extension_base.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
 	${GFS_SRC}/interface/i2c.cpp
 )
@@ -137,7 +137,7 @@ target_link_libraries(test-10 gtest_main)
 add_executable(test-11
 	${TEST_SRC}/test-11/test.cpp
 	${GFS_SRC}/extensions/sysinfo.cpp
-	${GFS_SRC}/extensions/extension.cpp
+	${GFS_SRC}/extensions/extension_base.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
 )
 set_target_properties(test-11 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/test-11/)
@@ -147,7 +147,7 @@ target_link_libraries(test-11 gtest_main)
 add_executable(test-12
 	${TEST_SRC}/test-12/test.cpp
 	${GFS_SRC}/extensions/mcp3021.cpp
-	${GFS_SRC}/extensions/extension.cpp
+	${GFS_SRC}/extensions/extension_base.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
 	${GFS_SRC}/interface/i2c.cpp
 )
