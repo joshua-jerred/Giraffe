@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   extension.hpp
+ * @file   extension_base.hpp
  * @brief  The new implementation of the extension system.
  *
  * =*=======================*=
@@ -14,8 +14,8 @@
  * @copyright  2023 (license to be defined)
  */
 
-#ifndef EXTENSION_HPP_
-#define EXTENSION_HPP_
+#ifndef EXTENSION_BASE_HPP_
+#define EXTENSION_BASE_HPP_
 
 #include <atomic>
 #include <thread>

@@ -18,7 +18,7 @@
 #define EXTENSION_TEST_FRAMEWORK_HPP_
 
 #include "configuration_enums.hpp"
-#include "extension.hpp"
+#include "extension_base.hpp"
 
 class ExtensionTestFramework {
 public:

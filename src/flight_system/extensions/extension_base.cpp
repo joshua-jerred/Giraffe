@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   extension.cpp
+ * @file   extension_base.cpp
  * @brief  The new implementation of the extension system.
  *
  * =*=======================*=
@@ -14,7 +14,7 @@
  * @copyright  2023 (license to be defined)
  */
 
-#include "extension.hpp"
+#include "extension_base.hpp"
 #include <BoosterSeat/sleep.hpp>
 #include <BoosterSeat/timer.hpp>
 
