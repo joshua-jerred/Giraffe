@@ -30,11 +30,11 @@ public:
     height_ = height;
   }
 
-  void win_init();
-  void win_reset();
-  void win_refresh();
-  void win_clear();
-  void win_hide();
+  void winInit();
+  void winReset();
+  void winRefresh();
+  void winClear();
+  void winHide();
 
   WINDOW *p_window_ = nullptr;
 
@@ -78,9 +78,9 @@ private:
 
   Environment::Focus focus_ = Environment::Focus::MENU;
 
-  const int kHeight_ = console_pages::kDataWindowHeight + 2;
+  const int kHeight_ = console_pages::K_DATA_WINDOW_HEIGHT + 2;
   const int kMenuWidth_ = 25;
-  const int kDataWidth_ = console_pages::kDataWindowWidth;
+  const int kDataWidth_ = console_pages::K_DATA_WINDOW_WIDTH;
   const int kPadding_ = 1;
 
   int current_menu_hover_ = 0;

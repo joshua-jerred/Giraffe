@@ -34,7 +34,7 @@ namespace modules {
  * be changed if needed obviously. The only case where this
  * limit would be hit right now, would be on a configuration failure.
  */
-inline constexpr int kMaxExtensionCount = 10;
+inline constexpr int K_MAX_EXTENSION_COUNT = 10;
 
 class ExtensionModule : public Module {
 public:

@@ -95,7 +95,7 @@ DataFormatter::dataPacketToJsonString(const data::DataPacket &packet) const {
     // Extensions all have the same source, so use the secondary.
     source = "ext." + packet.secondary_identifier;
   } else {
-    source = node::identification_to_string.at(packet.source);
+    source = node::K_IDENTIFICATION_TO_STRING_MAP.at(packet.source);
   }
 
   id = BoosterSeat::string::intToHex(static_cast<uint16_t>(packet.identifier),
@@ -163,7 +163,7 @@ DataFormatter::logPacketToJsonString(const data::LogPacket &packet) const {
     // Extensions all have the same source, so use the secondary.
     source = "ext." + packet.secondary_identifier;
   } else {
-    source = node::identification_to_string.at(packet.source);
+    source = node::K_IDENTIFICATION_TO_STRING_MAP.at(packet.source);
   }
 
   id = BoosterSeat::string::intToHex(static_cast<uint16_t>(packet.id), 4, false,

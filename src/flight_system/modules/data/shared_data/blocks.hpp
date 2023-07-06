@@ -33,12 +33,12 @@ public:
     return data_;
   }
 
-  int age_ms() {
+  int getAgeMs() {
     std::lock_guard<std::mutex> lock(mutex_);
     return BoosterSeat::clck::millisecondsElapsed(last_updated_);
   }
 
-  int age_s() {
+  int getAgeSec() {
     std::lock_guard<std::mutex> lock(mutex_);
     return BoosterSeat::clck::secondsElapsed(last_updated_);
   }
@@ -76,11 +76,11 @@ struct ModulesStatuses { // Set by the data module
 
   json toJson() {
     json j;
-    j["data"] = node::status_to_string.at(data);
-    j["console"] = node::status_to_string.at(console);
-    j["server"] = node::status_to_string.at(server);
-    j["system"] = node::status_to_string.at(system);
-    j["extension"] = node::status_to_string.at(extension);
+    j["data"] = node::K_STATUS_TO_STRING_MAP.at(data);
+    j["console"] = node::K_STATUS_TO_STRING_MAP.at(console);
+    j["server"] = node::K_STATUS_TO_STRING_MAP.at(server);
+    j["system"] = node::K_STATUS_TO_STRING_MAP.at(system);
+    j["extension"] = node::K_STATUS_TO_STRING_MAP.at(extension);
     return j;
   }
 };

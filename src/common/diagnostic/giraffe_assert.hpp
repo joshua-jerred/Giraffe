@@ -22,7 +22,8 @@
 #include <exception>
 #include <stdio.h>
 
-void __assert_func(const char *__file, int __line, const char *__expr);
+void __assert_func(const char *file_name, int line_number,
+                   const char *expression);
 
 #define giraffe_assert(__e)                                                    \
   ((__e) ? (void)0 : __assert_func(__FILE__, __LINE__, #__e))

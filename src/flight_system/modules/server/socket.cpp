@@ -14,7 +14,7 @@ sock::TcpSocketServer::TcpSocketServer() {
 }
 
 sock::TcpSocketServer::~TcpSocketServer() {
-  if (is_valid())
+  if (isValid())
     ::close(sock_);
 }
 
@@ -51,7 +51,7 @@ bool sock::TcpSocketServer::init(int port_number) {
 
 bool sock::TcpSocketServer::create() {
   sock_ = socket(AF_INET, SOCK_STREAM, 0);
-  if (!is_valid())
+  if (!isValid())
     return false;
 
   int on = 1;
@@ -64,7 +64,7 @@ bool sock::TcpSocketServer::create() {
 }
 
 bool sock::TcpSocketServer::bind(const int port) {
-  if (!is_valid()) {
+  if (!isValid()) {
     return false;
   }
 
@@ -80,11 +80,11 @@ bool sock::TcpSocketServer::bind(const int port) {
 }
 
 bool sock::TcpSocketServer::listen() const {
-  if (!is_valid()) {
+  if (!isValid()) {
     return false;
   }
 
-  int listen_status = ::listen(sock_, sock::kMaxConnections);
+  int listen_status = ::listen(sock_, sock::K_MAX_CONNECTIONS);
   if (listen_status == -1) {
     return false;
   }
@@ -112,13 +112,13 @@ bool sock::TcpSocketServer::send(const std::string &data) const {
 }
 
 bool sock::TcpSocketServer::receive(std::string &data) const {
-  char buf[sock::kMaxReceive + 1];
+  char buf[sock::K_MAX_RECEIVE + 1];
 
   data = "";
 
-  memset(buf, 0, sock::kMaxReceive + 1);
+  memset(buf, 0, sock::K_MAX_RECEIVE + 1);
 
-  int status = ::recv(sock_, buf, sock::kMaxReceive, 0);
+  int status = ::recv(sock_, buf, sock::K_MAX_RECEIVE, 0);
 
   if (status == -1) {
     return 0;
@@ -130,12 +130,12 @@ bool sock::TcpSocketServer::receive(std::string &data) const {
   }
 }
 
-bool sock::TcpSocketServer::is_valid() const {
+bool sock::TcpSocketServer::isValid() const {
   return sock_ != -1;
 }
 
 bool sock::TcpSocketServer::close() {
-  if (is_valid()) {
+  if (isValid()) {
     ::close(sock_);
     sock_ = -1;
     return true;

@@ -32,7 +32,7 @@ Extension::~Extension() {
 }
 
 void Extension::start() {
-  if (static_cast<uint16_t>(status_.load()) & node::kNodeActiveStatuses) {
+  if (static_cast<uint16_t>(status_.load()) & node::K_ACTIVE_STATUSES) {
     error(DiagnosticId::EXTENSION_startCall);
     return;
   }
@@ -53,7 +53,7 @@ void Extension::stop() {
 
   // If the extension is already inactive, join the thread if it's joinable and
   // return.
-  if (static_cast<uint16_t>(status_.load()) & node::kNodeInactiveStatuses) {
+  if (static_cast<uint16_t>(status_.load()) & node::K_INACTIVE_STATUSES) {
     if (runner_thread_.joinable()) {
       runner_thread_.join();
     }
@@ -65,7 +65,7 @@ void Extension::stop() {
 
   while (!timer.isDone()) {
     BoosterSeat::threadSleep(kExtensionStopCheckIntervalMs);
-    if (static_cast<uint16_t>(status_.load()) & node::kNodeInactiveStatuses) {
+    if (static_cast<uint16_t>(status_.load()) & node::K_INACTIVE_STATUSES) {
       if (runner_thread_.joinable()) {
         runner_thread_.join();
       }

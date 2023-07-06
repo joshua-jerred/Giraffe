@@ -4,11 +4,11 @@
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- * 
+ *
  * @file   json.hpp
  * @brief  Simple wrapper around nlohmann/json.hpp to provide a common
  *         interface.
- * 
+ *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       2023-06-09
