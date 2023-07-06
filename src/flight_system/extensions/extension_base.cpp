@@ -135,6 +135,7 @@ void Extension::data(data::DataId identifier, T value, int precision) {
 template void Extension::data<int>(data::DataId, int, int);
 template void Extension::data<float>(data::DataId, float, int);
 template void Extension::data<double>(data::DataId, double, int);
+template void Extension::data<uint32_t>(data::DataId, uint32_t, int);
 template void Extension::data<std::string>(data::DataId, std::string, int);
 
 /**

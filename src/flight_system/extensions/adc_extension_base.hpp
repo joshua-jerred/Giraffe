@@ -21,6 +21,7 @@
 
 #include "adc_configuration.hpp"
 #include "extension_base.hpp"
+#include "giraffe_assert.hpp"
 
 namespace extension {
 
@@ -30,6 +31,8 @@ namespace extension {
 inline constexpr uint32_t kWatchdogMultiplier = 4;
 
 template <uint32_t AdcResolution> class AdcExtensionBase : public Extension {
+  static_assert(AdcResolution >= 4 && AdcResolution <= 16);
+
 public:
   AdcExtensionBase(ExtensionResources &resources,
                    cfg::ExtensionMetadata metadata)
@@ -49,7 +52,7 @@ protected:
 private:
   void startup() override {
     adcStartup();
-    if (fault_flag_) {
+    if (isFaulted()) {
       return;
     }
     adc_watchdog_.reset();
@@ -67,13 +70,16 @@ private:
 
     switch (adc_config_.type) {
     case AdcType::RAW_COUNT:
-      rawCount(adc_value);
+      data(data::DataId::ADC_rawCount, adc_value);
       break;
     case AdcType::PERCENTAGE:
       percentage(adc_value);
       break;
     case AdcType::VOLTAGE_DIVIDER:
       voltageDivider(adc_value);
+      break;
+    case AdcType::VOLTAGE_REFERENCE:
+      voltageReference(adc_value);
       break;
     default:
       giraffe_assert(false);
@@ -86,13 +92,28 @@ private:
   void shutdown() override {
   }
 
-  void rawCount(uint32_t value) {
-  }
-
   void percentage(uint32_t value) {
+    int max = adc_config_.max;
+    int min = adc_config_.min;
+    int range = max - min;
+    int scaled = value - min;
+    int percentage = (scaled * 100) / range;
+    data(data::DataId::ADC_percentage, percentage);
   }
 
   void voltageDivider(uint32_t value) {
+    uint32_t unscaled =
+        (value * adc_config_.voltage_reference) / (1 << adc_resolution_);
+    uint32_t millivolts =
+        (unscaled * (adc_config_.resistor_1 + adc_config_.resistor_2)) /
+        adc_config_.resistor_2;
+    data(data::DataId::ADC_voltage, millivolts);
+  }
+
+  void voltageReference(uint32_t value) {
+    uint32_t millivolts =
+        (value * adc_config_.voltage_reference) / (1 << adc_resolution_);
+    data(data::DataId::ADC_voltage, millivolts);
   }
 
   const uint32_t adc_resolution_ = AdcResolution;

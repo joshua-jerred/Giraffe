@@ -146,3 +146,22 @@ TEST(AdcTest, InvalidConfigs) {
     EXPECT_EQ(config.type, extension::AdcType::RAW_COUNT);
   }
 }
+
+TEST(AdcTest, VoltageReference) {
+  std::string v1 = "type=v_ref,ref=5000";
+  std::string v2 = "type=v_ref,ref=3500";
+  std::string v3 = "type=v_ref";
+
+  AdcConfig config;
+  EXPECT_TRUE(parseAdcConfig(v1, config));
+  EXPECT_EQ(config.type, extension::AdcType::VOLTAGE_REFERENCE);
+  EXPECT_EQ(config.voltage_reference, 5000);
+
+  EXPECT_TRUE(parseAdcConfig(v2, config));
+  EXPECT_EQ(config.type, extension::AdcType::VOLTAGE_REFERENCE);
+  EXPECT_EQ(config.voltage_reference, 3500);
+
+  EXPECT_TRUE(parseAdcConfig(v3, config));
+  EXPECT_EQ(config.type, extension::AdcType::VOLTAGE_REFERENCE);
+  EXPECT_EQ(config.voltage_reference, 3300);
+}

@@ -32,8 +32,6 @@ private:
   void adcStartup() override;
   bool i2cHandshake() override;
   bool readAdc(uint32_t &value) override;
-
-  std::vector<uint8_t> read_buffer_{2};
 };
 
 } // namespace extension

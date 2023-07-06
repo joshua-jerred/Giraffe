@@ -36,6 +36,12 @@ Output:
 Example:
 `type=raw`
 
+### Voltage Reference
+Arguments:
+- type: v_ref
+- ref: reference voltage in millivolts (1-50000) - optional
+  - default: 3300
+
 ### Voltage Divider
 Arguments:
 - type: v_div

@@ -38,7 +38,10 @@ enum class DataId : uint16_t {
   ENVIRONMENTAL_temperature=0xE001, // Temperature (Celsius)
   ENVIRONMENTAL_humidity=0xE002, // Relative Humidity (%)
   ENVIRONMENTAL_pressure=0xE003, // Pressure (mbar)
-  CAMERA_newImagePath=0xC001  // New Image Path
+  CAMERA_newImagePath=0xC001, // New Image Path
+  ADC_rawCount=0xA001, // ADC Raw Count
+  ADC_percentage=0xA002, // ADC Percentage
+  ADC_voltage=0xA003  // ADC Voltage
 };
 
 extern const std::unordered_map<DataId, std::string> dataIdStringMap;

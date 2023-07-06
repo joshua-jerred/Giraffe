@@ -24,26 +24,13 @@ namespace extension {
 
 /**
  * @brief ADC Types, a way to specify how to interpret the ADC values.
+ * @see adc_config.md
  */
 enum class AdcType {
-  /**
-   * @brief Raw ADC count (default).
-   * @details Requires no additional configuration.
-   */
   RAW_COUNT,
-
-  /**
-   * @brief Percentage of max resolution.
-   * @details If a min and max are provided, the percentage will be calculated
-   * off of that. Otherwise, the percentage will be calculated off of the
-   * resolution.
-   */
   PERCENTAGE,
-
-  /**
-   * @brief Voltage divider
-   */
-  VOLTAGE_DIVIDER
+  VOLTAGE_DIVIDER,
+  VOLTAGE_REFERENCE
 };
 
 /**

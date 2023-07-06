@@ -79,8 +79,8 @@ TEST(ExtensionsTest, SAMM8QTest) {
 #if MCP3021_TEST_ENABLED
 TEST(ExtensionsTest, MCP3021Test) {
   ExtensionTestFramework tf{};
-  tf.meta.update_interval = 1000;
-
+  tf.meta.update_interval = 500;
+  tf.meta.extra_args = "type=v_div,r1=30000,r2=7500,v_ref=3385";
   extension::Mcp3021Extension mcp3021{tf.resources, tf.meta};
 
   tf.runExtensionFor(mcp3021, 2000);

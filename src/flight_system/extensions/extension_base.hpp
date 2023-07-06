@@ -118,6 +118,14 @@ public:
     return fault_code_;
   }
 
+  /**
+   * @brief Returns true if the extension is in a faulted state.
+   * @return true if the extension is in a faulted state, false otherwise.
+   */
+  bool isFaulted() const {
+    return fault_flag_;
+  }
+
 protected:
   virtual void startup(){};
   virtual void loop(){};
