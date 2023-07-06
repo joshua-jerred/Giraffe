@@ -44,7 +44,7 @@ enum class DataId : uint16_t {
   ADC_voltage=0xA003  // ADC Voltage
 };
 
-extern const std::unordered_map<DataId, std::string> dataIdStringMap;
+extern const std::unordered_map<DataId, std::string> K_DATA_ID_TO_STRING_MAP;
 } // namespace data
 
 #endif // DATA_IDS_HPP_

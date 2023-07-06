@@ -27,7 +27,7 @@
 
 namespace data {
 
-const std::unordered_map<DataId, std::string> dataIdStringMap {
+const std::unordered_map<DataId, std::string> K_DATA_ID_TO_STRING_MAP {
   {DataId::GENERIC_unknown,"GENERIC_unknown"},
   {DataId::MODULE_statusUpdate,"MODULE_statusUpdate"},
   {DataId::EXTENSION_statusUpdate,"EXTENSION_statusUpdate"},

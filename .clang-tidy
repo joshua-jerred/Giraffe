@@ -1,4 +1,20 @@
-Checks: '-*,readability-identifier-naming,misc-assert-side-effect,readability-container-size-empty'
+Checks: >
+  -*,
+  bugprone-*,
+  google-*,
+  misc-*,
+  modernize-*,
+  performance-*,
+  portability-*,
+  readability-*,
+  -google-readability-namespace-comments,
+  -google-runtime-int,
+  -google-runtime-references,
+  -misc-non-private-member-variables-in-classes,
+  -readability-named-parameter,
+  -readability-braces-around-statements,
+  -readability-magic-numbers
+
 HeaderFilterRegex: '.*'
 CheckOptions:
   - key: readability-identifier-naming.TypedefCase
@@ -25,3 +41,5 @@ CheckOptions:
     value: 1
   - key: misc-assert-side-effect.AssertMacros
     value: 'assert'
+  - key: modernize-use-trailing-return-type
+    value: false

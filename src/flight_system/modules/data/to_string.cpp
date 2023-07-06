@@ -58,7 +58,7 @@ std::string to_string(const data::LogPacket &packet) noexcept {
 
 std::string to_string(const data::DataId id) noexcept {
   try {
-    return data::dataIdStringMap.at(id);
+    return data::K_DATA_ID_TO_STRING_MAP.at(id);
   } catch (const std::out_of_range &e) {
     return "UNKNOWN";
   }
