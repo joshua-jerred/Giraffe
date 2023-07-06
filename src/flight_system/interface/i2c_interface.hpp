@@ -53,7 +53,15 @@ public:
      * @brief Generic success code.
      */
     SUCCESS = 0,
+
+    /**
+     * @brief Could not open the bus (e.g. the file descriptor is -1)
+     */
     BUS_OPEN_ERROR = 1,
+
+    /**
+     * @brief Failed to set the address of the device on the bus.
+     */
     ADDRESS_SET_ERROR = 2,
 
     /**

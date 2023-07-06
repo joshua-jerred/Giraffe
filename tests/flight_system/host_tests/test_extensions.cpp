@@ -19,11 +19,13 @@
 
 #include "bme280.hpp"
 #include "ds18b20.hpp"
+#include "mcp3021.hpp"
 #include "samm8q.hpp"
 
 #define BME280_TEST_ENABLED 0
 #define DS18B20_TEST_ENABLED 0
-#define SAMM8Q_TEST_ENABLED 1
+#define SAMM8Q_TEST_ENABLED 0
+#define MCP3021_TEST_ENABLED 1
 
 #if BME280_TEST_ENABLED
 TEST(ExtensionsTest, BME280Test) {
@@ -68,6 +70,22 @@ TEST(ExtensionsTest, SAMM8QTest) {
   tf.runExtensionFor(sam_m8q, 10000);
 
   EXPECT_GT(tf.getTotalGpsPackets(), 0);
+  EXPECT_EQ(tf.getTotalLogPackets(), 0);
+
+  tf.printStreams();
+}
+#endif
+
+#if MCP3021_TEST_ENABLED
+TEST(ExtensionsTest, MCP3021Test) {
+  ExtensionTestFramework tf{};
+  tf.meta.update_interval = 1000;
+
+  extension::Mcp3021Extension mcp3021{tf.resources, tf.meta};
+
+  tf.runExtensionFor(mcp3021, 2000);
+
+  EXPECT_GT(tf.getTotalDataPackets(), 0);
   EXPECT_EQ(tf.getTotalLogPackets(), 0);
 
   tf.printStreams();

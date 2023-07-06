@@ -19,7 +19,7 @@
 
 #include <BoosterSeat/timer.hpp>
 
-#include "extension.hpp"
+#include "extension_base.hpp"
 #include "one_wire_interface.hpp"
 
 namespace extension {
