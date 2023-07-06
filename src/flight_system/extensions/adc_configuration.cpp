@@ -160,6 +160,40 @@ inline bool parseVoltageDividerAdc(std::string config_string,
   return true;
 }
 
+inline bool parseVoltageReferenceAdc(std::string config_string,
+                                     AdcConfig &out_config) {
+  const std::string exact = "type=v_ref";
+  if (config_string == exact) {
+    out_config.type = AdcType::VOLTAGE_REFERENCE;
+    out_config.voltage_reference = 3300;
+    return true;
+  }
+
+  std::string vref = getKeyValue(config_string, "ref");
+  if (vref.empty()) {
+    out_config.type = AdcType::RAW_COUNT;
+    return false;
+  }
+
+  int vref_int = 0;
+  try {
+    vref_int = std::stoi(vref);
+  } catch (std::exception &e) {
+    out_config.type = AdcType::RAW_COUNT;
+    return false;
+  }
+
+  constexpr int kMaximumMillivolts = 50000;
+  if (vref_int < 1 || vref_int > kMaximumMillivolts) {
+    out_config.type = AdcType::RAW_COUNT;
+    return false;
+  }
+
+  out_config.voltage_reference = vref_int;
+
+  return true;
+}
+
 bool parseAdcConfig(std::string config_string, AdcConfig &out_config) {
   uint32_t resolution = out_config.resolution;
   out_config = AdcConfig();
@@ -180,6 +214,9 @@ bool parseAdcConfig(std::string config_string, AdcConfig &out_config) {
   } else if (type == "v_div") {
     out_config.type = AdcType::VOLTAGE_DIVIDER;
     return parseVoltageDividerAdc(config_string, out_config);
+  } else if (type == "v_ref") {
+    out_config.type = AdcType::VOLTAGE_REFERENCE;
+    return parseVoltageReferenceAdc(config_string, out_config);
   } else {
     out_config.type = AdcType::RAW_COUNT;
     return false;
