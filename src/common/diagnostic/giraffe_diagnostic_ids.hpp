@@ -113,6 +113,7 @@ enum class DiagnosticId : uint16_t {
   EXTENSION_samm8qConfigureSetMeasurementRate=0x500A, // SAMM8Q Configure Set Measurement Rate
   EXTENSION_samm8qConfigureSetDynamicModel=0x500B, // SAMM8Q Configure Set Dynamic Model
   EXTENSION_samm8qReadTimeout=0x500C, // SAMM8Q Read Timeout
+  EXTENSION_adcConfigFail=0x500D, // ADC Config Failure
   EXT_FAULT_none=0x7000, // No fault
   EXT_FAULT_fatalConfig=0x7001, // Fatal Configuration Error
   EXT_FAULT_bme280StartupI2CConnect=0x7002, // BME280 Startup I2C Connect Fault
@@ -130,6 +131,11 @@ enum class DiagnosticId : uint16_t {
   EXT_FAULT_samm8qI2CConnect=0x700C, // SAMM8Q I2C Connect Fault
   EXT_FAULT_samm8qStartupHandshake=0x700D, // SAMM8Q Startup Handshake Fault
   EXT_FAULT_samm8qResetFailure=0x700E, // SAMM8Q Reset Failure Fault
+  EXT_FAULT_i2cBusConnectFault=0x700F, // I2C Bus Connect Fault
+  EXT_FAULT_i2cAddressSetFault=0x7010, // I2C Address Set Fault
+  EXT_FAULT_i2cUnknownFault=0x7011, // I2C Unknown Fault
+  EXT_FAULT_i2cHandshakeTimeoutFault=0x7012, // I2C Handshake Timeout Fault
+  EXT_FAULT_adcWatchdogTimeout=0x7013, // ADC Watchdog Timeout Fault
   GDL_invalidStartCall=0xA000, // Invalid Start Call
   GDL_invalidStopCall=0xA001, // Invalid Stop Call
   GDL_invalidBroadcastCall=0xA002, // Invalid Broadcast Call
