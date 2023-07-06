@@ -10,10 +10,7 @@ option(EXTENSION_DEBUG_PRINT "Enable Debug Printing for Extensions" OFF) # ON or
 include(${CMAKE_SOURCE_DIR}/sources.cmake)
 # -----------------------
 
-# Clang-Tidy
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-# find_program(CLANG_TIDY_EXE NAMES "clang-tidy") 
-# set(CLANG_TIDY_CMD "${CLANG_TIDY_EXE}" "-checks=-*,modernize-*")
+set(CMAKE_EXPORT_COMPILE_COMMANDS OFF)
 
 # Debug Printing
 if(EXTENSION_DEBUG_PRINT)
@@ -58,37 +55,28 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_BUILD_TYPE Debug)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
-	-fno-omit-frame-pointer \
-	-Wpedantic \
-	-Wall \
-	-Wextra \
-	-Weffc++ \
-	-Wdisabled-optimization \
-	-Wfloat-equal \
-	-Wno-unused-variable \
-	-Wswitch-enum \
-	-Wno-switch-enum"
+-fno-omit-frame-pointer \
+-Wpedantic \
+-Wall \
+-Wextra \
+-Weffc++ \
+-Wdisabled-optimization \
+-Wfloat-equal \
+-Wno-unused-variable \
+-Wswitch-enum \
+-Wno-switch-enum"
 )
 # ----------------------------
 
 
 # ----- Third Party Libs -----
 # nlhomann_json
-include(FetchContent)
-FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
-FetchContent_MakeAvailable(json)
-
+find_package(nlohmann_json 3.9.0 REQUIRED)
 # ncurses
 find_package(Curses REQUIRED)
 
 # gtest
-FetchContent_Declare(
-	googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG release-1.12.1
-)
-FetchContent_MakeAvailable(googletest)
-include(GoogleTest)
+find_library(GTEST_LIB NAMES gtest)
 # ----------------------------
 
 # ---- Giraffe Components ----

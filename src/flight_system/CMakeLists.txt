@@ -87,7 +87,6 @@ target_link_libraries(gfs_data_module INTERFACE
 # -------- GFS Executable ---------
 add_executable( # see sources.cmake for source files
 	${EXE_NAME}
-		# main
 		${GFS_SRC}/main.cpp
 		${GFS_SRC}/flight_runner.cpp
 	${gfs_sources}
@@ -103,6 +102,7 @@ set_target_properties(
 	${EXE_NAME} PROPERTIES 
 	RUNTIME_OUTPUT_DIRECTORY ${GFS_BIN}
 	OUTPUT_NAME gfs
+	EXPORT_COMPILE_COMMANDS ON
 )
 
 # -------- First Party Libraries ---------
