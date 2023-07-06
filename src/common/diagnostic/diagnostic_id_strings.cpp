@@ -92,6 +92,8 @@ const std::unordered_map<DiagnosticId, std::string> diagnosticIdStringMap {
   {DiagnosticId::DATA_LOG_rotateDataFile,"DATA_LOG_rotateDataFile"},
   {DiagnosticId::DATA_LOG_rotateLogFile,"DATA_LOG_rotateLogFile"},
   {DiagnosticId::DATA_LOG_fileListFail,"DATA_LOG_fileListFail"},
+  {DiagnosticId::DATA_LOG_dataArchiveTrimmed,"DATA_LOG_dataArchiveTrimmed"},
+  {DiagnosticId::DATA_LOG_dataArchiveTrimFailed,"DATA_LOG_dataArchiveTrimFailed"},
   {DiagnosticId::SYSTEM_MODULE_systemInfoReadFail,"SYSTEM_MODULE_systemInfoReadFail"},
   {DiagnosticId::SYSTEM_MODULE_cpuTempReadFail,"SYSTEM_MODULE_cpuTempReadFail"},
   {DiagnosticId::SYSTEM_MODULE_diskInfoReadFail,"SYSTEM_MODULE_diskInfoReadFail"},
