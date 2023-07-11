@@ -52,7 +52,7 @@
 		{
 			"label": "generate command ids",
 			"type": "shell",
-			"command": "python3 ${workspaceFolder}/src/flight_system/generators/ids_gen.py",
+			"command": "python3 ${workspaceFolder}/src/common/generators/ids_gen.py",
 			"detail": "Generate command IDs for the flight system",
 			"presentation": {
 				"reveal": "always",

@@ -66,7 +66,14 @@ void modules::DataModule::shutdown() {
 }
 
 void modules::DataModule::processCommand(const cmd::Command &command) {
-  (void)command;
+  switch (command.command_id) {
+  case cmd::CommandId::DATA_MODULE_clearAllErrors:
+    shared_data_.frames.error_frame.clearAllErrors();
+    break;
+  default:
+    error(DiagnosticId::DATA_MODULE_unrecognizedCommand);
+    break;
+  }
 }
 
 void modules::DataModule::processAllStreams() {

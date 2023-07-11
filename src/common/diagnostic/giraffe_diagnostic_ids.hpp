@@ -56,6 +56,7 @@ enum class DiagnosticId : uint16_t {
   DATA_MODULE_dataPacketUnknownType=0x2001, // Unknown data packet type
   DATA_MODULE_cameraNewImagePacketInvalidPath=0x2002, // Camera New Image Packet - Invalid Path
   DATA_MODULE_cameraNewImagePacketInvalidFields=0x2003, // Camera New Image Packet - Invalid Fields
+  DATA_MODULE_unrecognizedCommand=0x2004, // Unrecognized Command
   DATA_LOG_invalidDataframeStrategy=0x3000, // Invalid data log strategy
   DATA_LOG_archiveOldDataFiles=0x3001, // Failed to archive old data files
   DATA_LOG_archiveOldLogFiles=0x3002, // Failed to archive old log files
