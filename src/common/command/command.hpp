@@ -28,6 +28,8 @@ namespace cmd {
 struct Command {
   node::Identification destination = node::Identification::UNKNOWN;
   cmd::CommandId command_id = cmd::CommandId::GENERAL_unknown;
+  int32_t int_arg = 0;
+  std::string str_arg{};
 };
 
 class CommandQueue {

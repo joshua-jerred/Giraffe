@@ -33,7 +33,8 @@ namespace cmd {
 enum class CommandId : uint16_t {
   GENERAL_unknown=0x0000, // Unknown
   NODE_reloadConfiguration=0x0001, // Reload Configuration
-  DATA_MODULE_clearAllErrors=0x1001  // Clear All Errors
+  DATA_MODULE_clearAllErrors=0x1001, // Clear All Errors
+  DATA_MODULE_clearError=0x1002  // Clear a Specific Error
 };
 // NOLINTEND(readability-identifier-naming)
 } // namespace cmd

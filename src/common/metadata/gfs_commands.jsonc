@@ -24,6 +24,11 @@
       "name":"Clear All Errors",
       "details":"Clears all errors from the error frame",
       "value":"0x1001"
+    },
+    "clear_error":{
+      "name":"Clear a Specific Error",
+      "details":"Clears a specific error from the error frame given an error code (uint16_t).",
+      "value":"0x1002"
     }
   }
 }
