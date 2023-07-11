@@ -132,6 +132,11 @@
       "name": "Camera New Image Packet - Invalid Fields",
       "details": "Error info contains the fields that are invalid. These packets must come from an extension.",
       "value": "0x2003"
+    },
+    "unrecognized_command":{
+      "name": "Unrecognized Command",
+      "details": "The command is not recognized by the data module.",
+      "value": "0x2004"
     }
   },
   "data_log": {
