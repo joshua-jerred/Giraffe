@@ -183,7 +183,7 @@ void console_pages::Pages::data() {
       "Enabled: " +
           b2str(config_.data_module_data.getLogDataToFile()), // enabled
       "Strategy: " +
-          std::string(cfg::gEnum::LogStrategyToKey(
+          std::string(cfg::gEnum::K_LOG_STRATEGY_TO_STRING_MAP(
               config_.data_module_data.getLogStrategy())), // log strategy
       "Interval (ms): " +
           std::to_string(

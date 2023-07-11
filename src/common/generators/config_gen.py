@@ -55,6 +55,7 @@ class Enum:
     def __init__(self, enum_name: str, enum_options: list):
         # Remove underscores from name and capitalize
         self.name = enum_name.replace("_", " ").title().replace(" ", "")
+        self.constant_name = enum_name.upper()
         self.name_with_ns = f'{CFG_NAMESPACE}::{CFG_ENUM_NAMESPACE}::{self.name}'
         # Upper all options
         self.options = [option.upper() for option in enum_options]
@@ -73,7 +74,7 @@ class Enum:
         return options
     
     def getEnumToJsonKey(self):
-        open_line = f"constexpr const char* {self.name}ToKey({self.name_with_ns} val) throw() {{\n{INDENT}switch (val) {{\n"
+        open_line = f"constexpr const char* K_{self.constant_name}_TO_STRING_MAP({self.name_with_ns} val) noexcept {{\n{INDENT}switch (val) {{\n"
         cases = ""
         
         for option in self.options:
@@ -85,7 +86,7 @@ class Enum:
         return open_line + cases + close
 
     def getJsonKeyToEnum(self):
-        open_line = f'std::unordered_map<std::string, {self.name_with_ns}> const KeyTo{self.name} = {{\n'
+        open_line = f'std::unordered_map<std::string, {self.name_with_ns}> const K_STRING_TO_{self.constant_name}_MAP = {{\n'
         cases = ""
         
         first = True
@@ -105,13 +106,14 @@ class SectionItem:
         self.default_value = None;
         self.validator = None;
     
-    def setVals(self, cpp_type, member_name, default_value, json_type, section_name, validation):
+    def setVals(self, cpp_type, member_name, default_value, json_type, section_name, validation, const_type):
         self.type = cpp_type
         self.member_name = member_name
         self.default_value = default_value
         self.json_type = json_type
         self.section_name = section_name
         self.validation = validation
+        self.const_type = const_type
 
         name_parts = self.member_name.split("_");
         self.name_capitalized = ""
@@ -125,7 +127,7 @@ class SectionItem:
         member = self.member_name + "_"
         
         if self.json_type == "enum":
-            return f'{self.type}ToKey({member})'
+            return "cfg::gEnum::K_" + f'{self.const_type}_TO_STRING_MAP({member})'
         return member
         
     def setValidator(self):
@@ -140,7 +142,7 @@ class SectionItem:
             ret_val += f'{nl}"{self.member_name}",'
             ret_val += f'{nl}{self.member_name}_,'
             
-            map_name = "cfg::gEnum::KeyTo" + self.type.split("::")[-1]
+            map_name = "cfg::gEnum::K_STRING_TO_" + self.const_type + "_MAP"
             ret_val += f'{nl}{map_name}'
         
         else: # all types
@@ -227,8 +229,8 @@ class Section:
         
         public += "\n"
         
-        public += f"{INDENT}void setFromJson(const json&);\n"
-        public += f"{INDENT}json getJson() const;\n"
+        public += f"{INDENT}void setFromJson(const Json&);\n"
+        public += f"{INDENT}Json getJson() const;\n"
         return public
 
     def _private_members(self):
@@ -249,13 +251,13 @@ class Section:
             contents += f'{item.setValidator()}\n'
         
         contents += "}\n"
-        return f'void {CFG_NAMESPACE}::{self.section_id}::setFromJson(const json &json_data) {contents}\n'
+        return f'void {CFG_NAMESPACE}::{self.section_id}::setFromJson(const Json &json_data) {contents}\n'
     
     def parseStructToJsonDef(self):
         contents = "{\n"
         contents += f'{INDENT}const std::lock_guard<std::mutex> lock(cfg_lock_);\n'
         
-        contents += f'{INDENT}return json({{\n'
+        contents += f'{INDENT}return Json({{\n'
         
         first = True
         for item in self.items:
@@ -267,7 +269,7 @@ class Section:
         contents += f"\n{INDENT}}});\n"
         
         contents += "}\n"
-        return f'json {CFG_NAMESPACE}::{self.section_id}::getJson() const {contents}'
+        return f'Json {CFG_NAMESPACE}::{self.section_id}::getJson() const {contents}'
 
 class ConfigGen:
     def __init__(self, meta: dict, out_dir: str):
@@ -333,6 +335,7 @@ class ConfigGen:
             set_pattern = ""
             
             cpp_type = ""
+            const_type = ""
             
             if set_type == "string":
                 cpp_type = "std::string"
@@ -361,6 +364,7 @@ class ConfigGen:
                 cpp_type = enumType(enum_name)
                 
                 set_default = enumValue(enum_name, set_default)
+                const_type = enum_name.split("::")[-1].upper()
                 
                 if enum_name not in self.defined_enum_ids:
                     enum = Enum(enum_name, enum_options)
@@ -371,14 +375,14 @@ class ConfigGen:
                 "max":set_max,
                 "pattern":set_pattern
             }
-            item.setVals(cpp_type, key, set_default, set_type, self.sec_name, validation)
+            item.setVals(cpp_type, key, set_default, set_type, self.sec_name, validation, const_type)
             
             section.addItem(item)
             
         self.sections.append(section)
             
     def StructureHeader(self):
-        STRUCTURE_FILE_INCLUDES = ["<string>", "<fstream>", "<mutex>", "<unordered_map>", "<vector>", "<nlohmann/json.hpp>", f'"{ENUM_FILE_NAME}.hpp"', '"shared_data.hpp"', '"sections/cfg_section.hpp"']
+        STRUCTURE_FILE_INCLUDES = ["<string>", "<fstream>", "<mutex>", "<unordered_map>", "<vector>", '"json.hpp"', f'"{ENUM_FILE_NAME}.hpp"', '"shared_data.hpp"', '"sections/cfg_section.hpp"']
         
         # add external section includes
         for section in self.sections:
@@ -387,7 +391,8 @@ class ConfigGen:
                 STRUCTURE_FILE_INCLUDES.append(f'"sections/cfg_{name}.hpp"')
         
         file = utils.headerFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
-        file += "using json = nlohmann::ordered_json;\n\n"
+        # file += "using Json = nlohmann::ordered_json;\n\n"
+        file += "\n"
         file += utils.enterNameSpace(CFG_NAMESPACE)
         
         # # enums
@@ -427,17 +432,17 @@ class ConfigGen:
     def EnumHeader(self):
         ENUM_FILE_INCLUDES = ["<string>", "<unordered_map>"]
         file = utils.headerFileHeader(ENUM_FILE_NAME, ENUM_FILE_INCLUDES)
-        file += utils.enterNameSpace(CFG_NAMESPACE)
+        file += utils.enterNameSpace(CFG_NAMESPACE + "::" + CFG_ENUM_NAMESPACE) + "\n"
         # enums
-        file += utils.enterNameSpace(CFG_ENUM_NAMESPACE) + "\n"
+        # file += utils.enterNameSpace(CFG_ENUM_NAMESPACE) + "\n"
         for enum in self.enums:
             file += enum.getDefinition() + "\n"
             file += enum.getJsonKeyToEnum()
             file += enum.getEnumToJsonKey()
             file += "\n"
 
-        file += utils.exitNameSpace(CFG_ENUM_NAMESPACE)
-        file += utils.exitNameSpace(CFG_NAMESPACE)
+        file += utils.exitNameSpace(CFG_NAMESPACE + "::" + CFG_ENUM_NAMESPACE)
+        # file += utils.exitNameSpace(CFG_NAMESPACE)
         file += utils.headerFileFooter(ENUM_FILE_NAME)
         f = open(self.out_dir + "/" + ENUM_FILE_NAME + ".hpp", "w")
         f.write(file)
@@ -446,7 +451,8 @@ class ConfigGen:
     def StructureCpp(self):
         STRUCTURE_FILE_INCLUDES = ["<filesystem>", f'"{STRUCTURE_FILE_NAME}.hpp"', '"validation.hpp"']
         file = utils.cppFileHeader(STRUCTURE_FILE_NAME, STRUCTURE_FILE_INCLUDES)
-        file += "using json = nlohmann::ordered_json;\n\n"
+        # file += "using Json = nlohmann::ordered_json;\n\n"
+        file += "\n"
         
         section_member_names = []
         # getters/setters

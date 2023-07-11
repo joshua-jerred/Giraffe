@@ -29,20 +29,19 @@
 #include <string>
 #include <unordered_map>
 
-namespace cfg {
-namespace gEnum {
+namespace cfg::gEnum {
 
 enum class MainBoard {
   OTHER,
   PI_ZERO_W2,
   PI_4
 };
-std::unordered_map<std::string, cfg::gEnum::MainBoard> const KeyToMainBoard = {
+std::unordered_map<std::string, cfg::gEnum::MainBoard> const K_STRING_TO_MAIN_BOARD_MAP = {
   {"other", cfg::gEnum::MainBoard::OTHER},
   {"pi_zero_w2", cfg::gEnum::MainBoard::PI_ZERO_W2},
   {"pi_4", cfg::gEnum::MainBoard::PI_4}
 };
-constexpr const char* MainBoardToKey(cfg::gEnum::MainBoard val) throw() {
+constexpr const char* K_MAIN_BOARD_TO_STRING_MAP(cfg::gEnum::MainBoard val) noexcept {
   switch (val) {
     case cfg::gEnum::MainBoard::OTHER: return "other";
     case cfg::gEnum::MainBoard::PI_ZERO_W2: return "pi_zero_w2";
@@ -60,7 +59,7 @@ enum class ProcedureType {
   FAILSAFE,
   OTHER
 };
-std::unordered_map<std::string, cfg::gEnum::ProcedureType> const KeyToProcedureType = {
+std::unordered_map<std::string, cfg::gEnum::ProcedureType> const K_STRING_TO_PROCEDURE_TYPE_MAP = {
   {"testing", cfg::gEnum::ProcedureType::TESTING},
   {"pre_launch", cfg::gEnum::ProcedureType::PRE_LAUNCH},
   {"ascent", cfg::gEnum::ProcedureType::ASCENT},
@@ -69,7 +68,7 @@ std::unordered_map<std::string, cfg::gEnum::ProcedureType> const KeyToProcedureT
   {"failsafe", cfg::gEnum::ProcedureType::FAILSAFE},
   {"other", cfg::gEnum::ProcedureType::OTHER}
 };
-constexpr const char* ProcedureTypeToKey(cfg::gEnum::ProcedureType val) throw() {
+constexpr const char* K_PROCEDURE_TYPE_TO_STRING_MAP(cfg::gEnum::ProcedureType val) noexcept {
   switch (val) {
     case cfg::gEnum::ProcedureType::TESTING: return "testing";
     case cfg::gEnum::ProcedureType::PRE_LAUNCH: return "pre_launch";
@@ -88,13 +87,13 @@ enum class LogStrategy {
   SELECTION_INTERVAL,
   SELECTION_ALL
 };
-std::unordered_map<std::string, cfg::gEnum::LogStrategy> const KeyToLogStrategy = {
+std::unordered_map<std::string, cfg::gEnum::LogStrategy> const K_STRING_TO_LOG_STRATEGY_MAP = {
   {"interval", cfg::gEnum::LogStrategy::INTERVAL},
   {"all", cfg::gEnum::LogStrategy::ALL},
   {"selection_interval", cfg::gEnum::LogStrategy::SELECTION_INTERVAL},
   {"selection_all", cfg::gEnum::LogStrategy::SELECTION_ALL}
 };
-constexpr const char* LogStrategyToKey(cfg::gEnum::LogStrategy val) throw() {
+constexpr const char* K_LOG_STRATEGY_TO_STRING_MAP(cfg::gEnum::LogStrategy val) noexcept {
   switch (val) {
     case cfg::gEnum::LogStrategy::INTERVAL: return "interval";
     case cfg::gEnum::LogStrategy::ALL: return "all";
@@ -108,11 +107,11 @@ enum class TimestampDetail {
   HHMMSS,
   DATE_HHMMSS
 };
-std::unordered_map<std::string, cfg::gEnum::TimestampDetail> const KeyToTimestampDetail = {
+std::unordered_map<std::string, cfg::gEnum::TimestampDetail> const K_STRING_TO_TIMESTAMP_DETAIL_MAP = {
   {"hhmmss", cfg::gEnum::TimestampDetail::HHMMSS},
   {"date_hhmmss", cfg::gEnum::TimestampDetail::DATE_HHMMSS}
 };
-constexpr const char* TimestampDetailToKey(cfg::gEnum::TimestampDetail val) throw() {
+constexpr const char* K_TIMESTAMP_DETAIL_TO_STRING_MAP(cfg::gEnum::TimestampDetail val) noexcept {
   switch (val) {
     case cfg::gEnum::TimestampDetail::HHMMSS: return "hhmmss";
     case cfg::gEnum::TimestampDetail::DATE_HHMMSS: return "date_hhmmss";
@@ -124,11 +123,11 @@ enum class TimestampTimezone {
   SYSTEM,
   UTC
 };
-std::unordered_map<std::string, cfg::gEnum::TimestampTimezone> const KeyToTimestampTimezone = {
+std::unordered_map<std::string, cfg::gEnum::TimestampTimezone> const K_STRING_TO_TIMESTAMP_TIMEZONE_MAP = {
   {"system", cfg::gEnum::TimestampTimezone::SYSTEM},
   {"utc", cfg::gEnum::TimestampTimezone::UTC}
 };
-constexpr const char* TimestampTimezoneToKey(cfg::gEnum::TimestampTimezone val) throw() {
+constexpr const char* K_TIMESTAMP_TIMEZONE_TO_STRING_MAP(cfg::gEnum::TimestampTimezone val) noexcept {
   switch (val) {
     case cfg::gEnum::TimestampTimezone::SYSTEM: return "system";
     case cfg::gEnum::TimestampTimezone::UTC: return "utc";
@@ -140,11 +139,11 @@ enum class ArchiveMethod {
   PLAIN_TEXT,
   BZIP2
 };
-std::unordered_map<std::string, cfg::gEnum::ArchiveMethod> const KeyToArchiveMethod = {
+std::unordered_map<std::string, cfg::gEnum::ArchiveMethod> const K_STRING_TO_ARCHIVE_METHOD_MAP = {
   {"plain_text", cfg::gEnum::ArchiveMethod::PLAIN_TEXT},
   {"bzip2", cfg::gEnum::ArchiveMethod::BZIP2}
 };
-constexpr const char* ArchiveMethodToKey(cfg::gEnum::ArchiveMethod val) throw() {
+constexpr const char* K_ARCHIVE_METHOD_TO_STRING_MAP(cfg::gEnum::ArchiveMethod val) noexcept {
   switch (val) {
     case cfg::gEnum::ArchiveMethod::PLAIN_TEXT: return "plain_text";
     case cfg::gEnum::ArchiveMethod::BZIP2: return "bzip2";
@@ -160,7 +159,7 @@ enum class InfluxdbRetentionPolicy {
   YEAR,
   INF
 };
-std::unordered_map<std::string, cfg::gEnum::InfluxdbRetentionPolicy> const KeyToInfluxdbRetentionPolicy = {
+std::unordered_map<std::string, cfg::gEnum::InfluxdbRetentionPolicy> const K_STRING_TO_INFLUXDB_RETENTION_POLICY_MAP = {
   {"hour", cfg::gEnum::InfluxdbRetentionPolicy::HOUR},
   {"day", cfg::gEnum::InfluxdbRetentionPolicy::DAY},
   {"week", cfg::gEnum::InfluxdbRetentionPolicy::WEEK},
@@ -168,7 +167,7 @@ std::unordered_map<std::string, cfg::gEnum::InfluxdbRetentionPolicy> const KeyTo
   {"year", cfg::gEnum::InfluxdbRetentionPolicy::YEAR},
   {"inf", cfg::gEnum::InfluxdbRetentionPolicy::INF}
 };
-constexpr const char* InfluxdbRetentionPolicyToKey(cfg::gEnum::InfluxdbRetentionPolicy val) throw() {
+constexpr const char* K_INFLUXDB_RETENTION_POLICY_TO_STRING_MAP(cfg::gEnum::InfluxdbRetentionPolicy val) noexcept {
   switch (val) {
     case cfg::gEnum::InfluxdbRetentionPolicy::HOUR: return "hour";
     case cfg::gEnum::InfluxdbRetentionPolicy::DAY: return "day";
@@ -185,12 +184,12 @@ enum class LogLevel {
   WARN,
   ERROR
 };
-std::unordered_map<std::string, cfg::gEnum::LogLevel> const KeyToLogLevel = {
+std::unordered_map<std::string, cfg::gEnum::LogLevel> const K_STRING_TO_LOG_LEVEL_MAP = {
   {"info", cfg::gEnum::LogLevel::INFO},
   {"warn", cfg::gEnum::LogLevel::WARN},
   {"error", cfg::gEnum::LogLevel::ERROR}
 };
-constexpr const char* LogLevelToKey(cfg::gEnum::LogLevel val) throw() {
+constexpr const char* K_LOG_LEVEL_TO_STRING_MAP(cfg::gEnum::LogLevel val) noexcept {
   switch (val) {
     case cfg::gEnum::LogLevel::INFO: return "info";
     case cfg::gEnum::LogLevel::WARN: return "warn";
@@ -203,11 +202,11 @@ enum class ErrorLogStrategy {
   ALL,
   ERROR_FRAME
 };
-std::unordered_map<std::string, cfg::gEnum::ErrorLogStrategy> const KeyToErrorLogStrategy = {
+std::unordered_map<std::string, cfg::gEnum::ErrorLogStrategy> const K_STRING_TO_ERROR_LOG_STRATEGY_MAP = {
   {"all", cfg::gEnum::ErrorLogStrategy::ALL},
   {"error_frame", cfg::gEnum::ErrorLogStrategy::ERROR_FRAME}
 };
-constexpr const char* ErrorLogStrategyToKey(cfg::gEnum::ErrorLogStrategy val) throw() {
+constexpr const char* K_ERROR_LOG_STRATEGY_TO_STRING_MAP(cfg::gEnum::ErrorLogStrategy val) noexcept {
   switch (val) {
     case cfg::gEnum::ErrorLogStrategy::ALL: return "all";
     case cfg::gEnum::ErrorLogStrategy::ERROR_FRAME: return "error_frame";
@@ -219,11 +218,11 @@ enum class AprsSymbolTable {
   PRIMARY,
   ALTERNATE
 };
-std::unordered_map<std::string, cfg::gEnum::AprsSymbolTable> const KeyToAprsSymbolTable = {
+std::unordered_map<std::string, cfg::gEnum::AprsSymbolTable> const K_STRING_TO_APRS_SYMBOL_TABLE_MAP = {
   {"primary", cfg::gEnum::AprsSymbolTable::PRIMARY},
   {"alternate", cfg::gEnum::AprsSymbolTable::ALTERNATE}
 };
-constexpr const char* AprsSymbolTableToKey(cfg::gEnum::AprsSymbolTable val) throw() {
+constexpr const char* K_APRS_SYMBOL_TABLE_TO_STRING_MAP(cfg::gEnum::AprsSymbolTable val) noexcept {
   switch (val) {
     case cfg::gEnum::AprsSymbolTable::PRIMARY: return "primary";
     case cfg::gEnum::AprsSymbolTable::ALTERNATE: return "alternate";
@@ -234,10 +233,10 @@ constexpr const char* AprsSymbolTableToKey(cfg::gEnum::AprsSymbolTable val) thro
 enum class SstvMode {
   ROBOT36
 };
-std::unordered_map<std::string, cfg::gEnum::SstvMode> const KeyToSstvMode = {
+std::unordered_map<std::string, cfg::gEnum::SstvMode> const K_STRING_TO_SSTV_MODE_MAP = {
   {"robot36", cfg::gEnum::SstvMode::ROBOT36}
 };
-constexpr const char* SstvModeToKey(cfg::gEnum::SstvMode val) throw() {
+constexpr const char* K_SSTV_MODE_TO_STRING_MAP(cfg::gEnum::SstvMode val) noexcept {
   switch (val) {
     case cfg::gEnum::SstvMode::ROBOT36: return "robot36";
   }
@@ -254,7 +253,7 @@ enum class DataPacketsMode {
   QPSK500,
   AFSK_AX25
 };
-std::unordered_map<std::string, cfg::gEnum::DataPacketsMode> const KeyToDataPacketsMode = {
+std::unordered_map<std::string, cfg::gEnum::DataPacketsMode> const K_STRING_TO_DATA_PACKETS_MODE_MAP = {
   {"bpsk125", cfg::gEnum::DataPacketsMode::BPSK125},
   {"bpsk250", cfg::gEnum::DataPacketsMode::BPSK250},
   {"bpsk500", cfg::gEnum::DataPacketsMode::BPSK500},
@@ -264,7 +263,7 @@ std::unordered_map<std::string, cfg::gEnum::DataPacketsMode> const KeyToDataPack
   {"qpsk500", cfg::gEnum::DataPacketsMode::QPSK500},
   {"afsk_ax25", cfg::gEnum::DataPacketsMode::AFSK_AX25}
 };
-constexpr const char* DataPacketsModeToKey(cfg::gEnum::DataPacketsMode val) throw() {
+constexpr const char* K_DATA_PACKETS_MODE_TO_STRING_MAP(cfg::gEnum::DataPacketsMode val) noexcept {
   switch (val) {
     case cfg::gEnum::DataPacketsMode::BPSK125: return "bpsk125";
     case cfg::gEnum::DataPacketsMode::BPSK250: return "bpsk250";
@@ -291,7 +290,7 @@ enum class ExtensionType {
   SAM_M8Q,
   DS18B20
 };
-std::unordered_map<std::string, cfg::gEnum::ExtensionType> const KeyToExtensionType = {
+std::unordered_map<std::string, cfg::gEnum::ExtensionType> const K_STRING_TO_EXTENSION_TYPE_MAP = {
   {"unknown", cfg::gEnum::ExtensionType::UNKNOWN},
   {"sim_temp", cfg::gEnum::ExtensionType::SIM_TEMP},
   {"sim_pres", cfg::gEnum::ExtensionType::SIM_PRES},
@@ -304,7 +303,7 @@ std::unordered_map<std::string, cfg::gEnum::ExtensionType> const KeyToExtensionT
   {"sam_m8q", cfg::gEnum::ExtensionType::SAM_M8Q},
   {"ds18b20", cfg::gEnum::ExtensionType::DS18B20}
 };
-constexpr const char* ExtensionTypeToKey(cfg::gEnum::ExtensionType val) throw() {
+constexpr const char* K_EXTENSION_TYPE_TO_STRING_MAP(cfg::gEnum::ExtensionType val) noexcept {
   switch (val) {
     case cfg::gEnum::ExtensionType::UNKNOWN: return "unknown";
     case cfg::gEnum::ExtensionType::SIM_TEMP: return "sim_temp";
@@ -324,19 +323,17 @@ constexpr const char* ExtensionTypeToKey(cfg::gEnum::ExtensionType val) throw() 
 enum class I2CBus {
   I2C_1
 };
-std::unordered_map<std::string, cfg::gEnum::I2CBus> const KeyToI2CBus = {
+std::unordered_map<std::string, cfg::gEnum::I2CBus> const K_STRING_TO_I2C_BUS_MAP = {
   {"i2c_1", cfg::gEnum::I2CBus::I2C_1}
 };
-constexpr const char* I2CBusToKey(cfg::gEnum::I2CBus val) throw() {
+constexpr const char* K_I2C_BUS_TO_STRING_MAP(cfg::gEnum::I2CBus val) noexcept {
   switch (val) {
     case cfg::gEnum::I2CBus::I2C_1: return "i2c_1";
   }
   __builtin_unreachable();
 }
 
-} // namespace gEnum
-
-} // namespace cfg
+} // namespace cfg::gEnum
 
 
 #endif // CONFIGURATION_ENUMS_HPP_

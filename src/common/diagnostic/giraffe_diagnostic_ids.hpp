@@ -144,7 +144,7 @@ enum class DiagnosticId : uint16_t {
   GDL_invalidExchangeCall=0xA003  // Invalid Exchange Call
 };
 
-extern const std::unordered_map<DiagnosticId, std::string> diagnosticIdStringMap;
+extern const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP;
 
 #endif // GIRAFFE_DIAGNOSTIC_IDS_HPP_
 

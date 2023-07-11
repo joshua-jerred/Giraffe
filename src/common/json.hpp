@@ -20,6 +20,6 @@
 
 #include <nlohmann/json.hpp>
 
-typedef nlohmann::ordered_json json;
+typedef nlohmann::ordered_json Json;
 
 #endif /* JSON_HPP_ */

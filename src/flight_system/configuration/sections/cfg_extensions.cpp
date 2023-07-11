@@ -22,18 +22,18 @@ namespace cfg {
 
 // ExtensionMetadata (struct) ------------------
 
-json ExtensionMetadata::getJson() const {
-  return json::object({
+Json ExtensionMetadata::getJson() const {
+  return Json::object({
       {"name", name},
       {"enabled", enabled},
-      {"type", gEnum::ExtensionTypeToKey(type)},
+      {"type", gEnum::K_EXTENSION_TYPE_TO_STRING_MAP(type)},
       {"update_interval", update_interval},
       {"critical", critical},
       {"extra_args", extra_args},
   });
 }
 
-void ExtensionMetadata::setFromJson(const json &j, data::LogStream &log,
+void ExtensionMetadata::setFromJson(const Json &j, data::LogStream &log,
                                     const std::string &ext_index) {
 
   const std::string section_name = "extensions." + ext_index;
@@ -43,7 +43,8 @@ void ExtensionMetadata::setFromJson(const json &j, data::LogStream &log,
   validation::setValidValue<bool>(log, j, section_name, "enabled", enabled, 0,
                                   0, "");
   validation::setValidEnum<gEnum::ExtensionType>(
-      log, j, section_name, "type", type, gEnum::KeyToExtensionType);
+      log, j, section_name, "type", type,
+      gEnum::K_STRING_TO_EXTENSION_TYPE_MAP);
   validation::setValidValue<int>(log, j, section_name, "update_interval",
                                  update_interval, 5, 60000, "");
   validation::setValidValue<bool>(log, j, section_name, "critical", critical, 0,
@@ -54,7 +55,7 @@ void ExtensionMetadata::setFromJson(const json &j, data::LogStream &log,
 
 // Extensions (class) --------------------------
 
-void Extensions::setFromJson(const json &j) {
+void Extensions::setFromJson(const Json &j) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
 
   // Ensure that the extensions are an array.
@@ -65,7 +66,7 @@ void Extensions::setFromJson(const json &j) {
 
   // Iterate over the extensions.
   int num_attempted = 0;
-  for (const json &ext_meta_j : j) {
+  for (const Json &ext_meta_j : j) {
     if (!ext_meta_j.is_object()) {
       error(DiagnosticId::CONFIG_extensionNotObject,
             std::to_string(num_attempted++));
@@ -90,9 +91,9 @@ void Extensions::setFromJson(const json &j) {
   }
 }
 
-json Extensions::getJson() const {
+Json Extensions::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  json j = json::array();
+  Json j = Json::array();
   for (const ExtensionMetadata &ext_meta : extensions_) {
     j.push_back(ext_meta.getJson());
   }

@@ -61,18 +61,18 @@ struct ExtensionMetadata {
 
   /**
    * @brief Returns a json object representing the extension metadata.
-   * @return json - The json object
+   * @return Json - The json object
    */
-  json getJson() const;
+  Json getJson() const;
 
   /**
-   * @brief Sets the extension metadata from a json object
+   * @brief Sets the extension metadata from a Json object
    *
    * @param json - The json object
    * @param log - The log stream to log errors to
    * @param ext_index - The index of the extension in the extensions array
    */
-  void setFromJson(const json &json, data::LogStream &log,
+  void setFromJson(const Json &json, data::LogStream &log,
                    const std::string &ext_index);
 };
 
@@ -84,8 +84,8 @@ public:
   Extensions(data::Streams &streams) : cfg::CfgSection(streams) {
   }
 
-  void setFromJson(const json &j);
-  json getJson() const;
+  void setFromJson(const Json &j);
+  Json getJson() const;
 
   /**
    * @brief Add an extension to the configuration.

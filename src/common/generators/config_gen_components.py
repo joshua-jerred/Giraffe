@@ -32,7 +32,7 @@ def getConfigurationClass(initializers, private_members):
 {0}
     streams_(streams){{}}
     
-    void getAllJson(json &all_data) const;
+    void getAllJson(Json &all_data) const;
     
     void save(std::string file_path = "");
     void load(std::string file_path = "");
@@ -67,7 +67,7 @@ def getConfigurationSaveAndLoad(members):
         json_loaders += f'\n{IND*2}error(DiagnosticId::CONFIG_failedToLoadSectionNotFound, "{member}");'
         json_loaders += f'\n{IND}}}\n\n'
     return """
-void cfg::Configuration::getAllJson(json &all_data) const {{
+void cfg::Configuration::getAllJson(Json &all_data) const {{
   all_data = {{
 {0}  }};
 }}
@@ -82,7 +82,7 @@ void cfg::Configuration::save(std::string file_path) {{
     return;
   }}
   
-  json config_json;
+  Json config_json;
   getAllJson(config_json);
 
   constexpr int json_indent = 2;
@@ -90,7 +90,7 @@ void cfg::Configuration::save(std::string file_path) {{
   out << data;
 }}
 
-inline bool sectionExists(const json &all_data, const std::string &section_key) {{
+inline bool sectionExists(const Json &all_data, const std::string &section_key) {{
   return all_data.contains(section_key);
 }}
 
@@ -109,10 +109,10 @@ void cfg::Configuration::load(std::string file_path) {{
     return;
   }}
   
-  json parsed;
+  Json parsed;
   try {{
-    parsed = json::parse(in);
-  }} catch (json::parse_error &e) {{
+    parsed = Json::parse(in);
+  }} catch (Json::parse_error &e) {{
     return;
   }}
   

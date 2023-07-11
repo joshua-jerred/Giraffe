@@ -4,7 +4,7 @@
   "FILE_META": {
     "enum_name": "DiagnosticId",
     "enum_type": "uint16_t",
-    "generate_string_map": "diagnosticIdStringMap"
+    "generate_string_map": "K_DIAGNOSTIC_ID_STRING_MAP"
   },
   "generic": {
     "unknown": {
