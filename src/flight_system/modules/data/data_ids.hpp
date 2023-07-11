@@ -31,6 +31,7 @@
 #include <cstdint>
 
 namespace data {
+// NOLINTBEGIN(readability-identifier-naming)
 enum class DataId : uint16_t {
   GENERIC_unknown=0x0000, // Unknown
   MODULE_statusUpdate=0x0001, // Status Update
@@ -43,6 +44,7 @@ enum class DataId : uint16_t {
   ADC_percentage=0xA002, // ADC Percentage
   ADC_voltage=0xA003  // ADC Voltage
 };
+// NOLINTEND(readability-identifier-naming)
 
 extern const std::unordered_map<DataId, std::string> K_DATA_ID_TO_STRING_MAP;
 } // namespace data

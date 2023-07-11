@@ -168,9 +168,9 @@ protected:
    * @brief Sleep internally for a given number of milliseconds.
    * @details This has a limit of 1 second.
    *
-   * @param ms - The number of milliseconds to sleep.
+   * @param milliseconds - The number of milliseconds to sleep.
    */
-  void extSleep(uint32_t ms);
+  void extSleep(uint32_t milliseconds);
 
   cfg::ExtensionMetadata metadata_;
 

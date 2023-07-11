@@ -30,7 +30,7 @@ struct ExtensionMetadata {
    * @brief The name of the extension, must be unique, used to identify the
    * extension.
    */
-  std::string name = "";
+  std::string name{};
 
   /**
    * @brief Whether or not the extension is enabled.
@@ -57,7 +57,7 @@ struct ExtensionMetadata {
   /**
    * @brief Any extra arguments to pass to the extension. (extension specific)
    */
-  std::string extra_args = "";
+  std::string extra_args{};
 
   /**
    * @brief Returns a json object representing the extension metadata.
@@ -84,7 +84,7 @@ public:
   Extensions(data::Streams &streams) : cfg::CfgSection(streams) {
   }
 
-  void setFromJson(const Json &j);
+  void setFromJson(const Json &json_data);
   Json getJson() const;
 
   /**

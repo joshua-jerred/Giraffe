@@ -20,14 +20,14 @@ namespace extension {
 
 inline constexpr uint8_t kBme280I2cAddress = 0x76;
 inline constexpr int kCompensationDataReadRate = 5000; // ms
-inline constexpr int kReadTimeout = 5000;              // ms
+inline constexpr int K_READ_TIMEOUT = 5000;            // ms
 
 Bme280Extension::Bme280Extension(ExtensionResources &resources,
                                  cfg::ExtensionMetadata metadata)
     : Extension(resources, metadata),
       i2c_(resources.i2c_bus, kBme280I2cAddress, resources.i2c_bus_lock),
       compensation_timer_(kCompensationDataReadRate),
-      read_timer_(kReadTimeout + metadata.update_interval) {
+      read_timer_(K_READ_TIMEOUT + metadata.update_interval) {
 }
 
 enum class StartupState {
@@ -154,15 +154,16 @@ void Bme280Extension::loop() {
 }
 
 bool Bme280Extension::handshake() {
-  constexpr uint8_t kRegId = 0xD0;
-  constexpr uint8_t kExpectedResult = 0x60;
+  constexpr uint8_t K_ID_REGISTER = 0xD0;
+  constexpr uint8_t K_EXPECTED_ID = 0x60;
 
   uint8_t result;
-  if (i2c_.readByteFromReg(result, kRegId) != I2cInterface::Result::SUCCESS) {
+  if (i2c_.readByteFromReg(result, K_ID_REGISTER) !=
+      I2cInterface::Result::SUCCESS) {
     return false;
   }
 
-  if (result != kExpectedResult) {
+  if (result != K_EXPECTED_ID) {
     return false;
   }
 
@@ -200,44 +201,45 @@ bool Bme280Extension::configureSensor() {
 }
 
 bool Bme280Extension::readCompensationData() {
-  constexpr uint8_t kCalibrationDataHead_sec1 =
+  constexpr uint8_t K_CALIBRATION_DATA_HEAD_SEC1 =
       0x88; // Head of calibration data
-  constexpr uint8_t kCalibrationDataLength_sec1 =
+  constexpr uint8_t K_CALIBRATION_DATA_LENGTH_SEC1 =
       26; // Length of calibration data (section 1)
 
-  constexpr uint8_t kCalibrationDataHead_sec2 =
+  constexpr uint8_t K_CALIBRATION_DATA_HEAD_SEC2 =
       0xE1; // Head of calibration data
-  constexpr uint8_t kCalibrationDataLength_sec2 =
+  constexpr uint8_t K_CALIBRATION_DATA_LENGTH_SEC2 =
       7; // Length of calibration data (section 2)
 
-  std::vector<uint8_t> data_section1(kCalibrationDataLength_sec1, 0);
-  std::vector<uint8_t> data_section2(kCalibrationDataLength_sec2, 0);
+  std::vector<uint8_t> data_section1(K_CALIBRATION_DATA_LENGTH_SEC1, 0);
+  std::vector<uint8_t> data_section2(K_CALIBRATION_DATA_LENGTH_SEC2, 0);
 
-  if (i2c_.readChunkFromReg(data_section1, kCalibrationDataHead_sec1,
-                            kCalibrationDataLength_sec1) !=
+  if (i2c_.readChunkFromReg(data_section1, K_CALIBRATION_DATA_HEAD_SEC1,
+                            K_CALIBRATION_DATA_LENGTH_SEC1) !=
       I2cInterface::Result::SUCCESS) {
     return false;
   }
 
-  if (i2c_.readChunkFromReg(data_section2, kCalibrationDataHead_sec2,
-                            kCalibrationDataLength_sec2) !=
+  if (i2c_.readChunkFromReg(data_section2, K_CALIBRATION_DATA_HEAD_SEC2,
+                            K_CALIBRATION_DATA_LENGTH_SEC2) !=
       I2cInterface::Result::SUCCESS) {
     return false;
   }
 
-  comp_data_.dig_T1 = (data_section1[1] << 8) | data_section1[0];
-  comp_data_.dig_T2 = (data_section1[3] << 8) | data_section1[2];
-  comp_data_.dig_T3 = (data_section1[5] << 8) | data_section1[4];
+  comp_data_.dig_T1 =
+      static_cast<uint16_t>((data_section1.at(1) << 8) | data_section1.at(0));
+  comp_data_.dig_T2 = (data_section1.at(3) << 8) | data_section1.at(2);
+  comp_data_.dig_T3 = (data_section1.at(5) << 8) | data_section1.at(4);
 
-  comp_data_.dig_P1 = (data_section1[7] << 8) | data_section1[6];
-  comp_data_.dig_P2 = (data_section1[9] << 8) | data_section1[8];
-  comp_data_.dig_P3 = (data_section1[11] << 8) | data_section1[10];
-  comp_data_.dig_P4 = (data_section1[13] << 8) | data_section1[12];
-  comp_data_.dig_P5 = (data_section1[15] << 8) | data_section1[14];
-  comp_data_.dig_P6 = (data_section1[17] << 8) | data_section1[16];
-  comp_data_.dig_P7 = (data_section1[19] << 8) | data_section1[18];
-  comp_data_.dig_P8 = (data_section1[21] << 8) | data_section1[20];
-  comp_data_.dig_P9 = (data_section1[23] << 8) | data_section1[22];
+  comp_data_.dig_P1 = (data_section1.at(7) << 8) | data_section1.at(6);
+  comp_data_.dig_P2 = (data_section1.at(9) << 8) | data_section1.at(8);
+  comp_data_.dig_P3 = (data_section1.at(11) << 8) | data_section1.at(10);
+  comp_data_.dig_P4 = (data_section1.at(13) << 8) | data_section1.at(12);
+  comp_data_.dig_P5 = (data_section1.at(15) << 8) | data_section1.at(14);
+  comp_data_.dig_P6 = (data_section1.at(17) << 8) | data_section1.at(16);
+  comp_data_.dig_P7 = (data_section1.at(19) << 8) | data_section1.at(18);
+  comp_data_.dig_P8 = (data_section1.at(21) << 8) | data_section1.at(20);
+  comp_data_.dig_P9 = (data_section1.at(23) << 8) | data_section1.at(22);
 
   comp_data_.dig_H1 = data_section1[25];
   comp_data_.dig_H2 = (data_section2[1] << 8) | data_section2[0];
@@ -250,12 +252,12 @@ bool Bme280Extension::readCompensationData() {
 }
 
 bool Bme280Extension::readEnvironmentalData() {
-  constexpr uint8_t kDataRegisterHead = 0xF7;
-  constexpr size_t kDataLength = 8;
+  constexpr uint8_t K_DATA_REGISTER_HEAD = 0xF7;
+  constexpr size_t K_DATA_LENGTH = 8;
 
-  std::vector<uint8_t> data(kDataLength, 0);
+  std::vector<uint8_t> data(K_DATA_LENGTH, 0);
 
-  if (i2c_.readChunkFromReg(data, kDataRegisterHead, kDataLength) !=
+  if (i2c_.readChunkFromReg(data, K_DATA_REGISTER_HEAD, K_DATA_LENGTH) !=
       I2cInterface::Result::SUCCESS) {
     return false;
   }
@@ -269,7 +271,9 @@ bool Bme280Extension::readEnvironmentalData() {
 
 bool Bme280Extension::processEnvironmentalData() {
   // Temperature (See section 4.2.3 of the datasheet)
-  int32_t tvar1, tvar2, T;
+  int32_t tvar1;
+  int32_t tvar2;
+  int32_t raw_temperature;
   tvar1 = ((((raw_temperature_ >> 3) - ((int32_t)comp_data_.dig_T1 << 1))) *
            ((int32_t)comp_data_.dig_T2)) >>
           11;
@@ -278,13 +282,15 @@ bool Bme280Extension::processEnvironmentalData() {
             12) *
            ((int32_t)comp_data_.dig_T3)) >>
           14;
-  int32_t t_fine_ = tvar1 + tvar2;
-  T = (t_fine_ * 5 + 128) >> 8;
-  temperature_ = (float)T / 100.0;
+  int32_t t_fine = tvar1 + tvar2;
+  raw_temperature = (t_fine * 5 + 128) >> 8;
+  temperature_ = (float)raw_temperature / 100.0;
 
   // Pressure (See section 4.2.3 of the datasheet)
-  int64_t pvar1, pvar2, p;
-  pvar1 = ((int64_t)t_fine_) - 128000;
+  int64_t pvar1;
+  int64_t pvar2;
+  int64_t p;
+  pvar1 = ((int64_t)t_fine) - 128000;
   pvar2 = pvar1 * pvar1 * (int64_t)comp_data_.dig_P6;
   pvar2 = pvar2 + ((pvar1 * (int64_t)comp_data_.dig_P5) << 17);
   pvar2 = pvar2 + (((int64_t)comp_data_.dig_P4) << 35);
@@ -304,7 +310,7 @@ bool Bme280Extension::processEnvironmentalData() {
 
   // Humidity (See section 4.2.3 of the datasheet)
   int32_t h;
-  h = (t_fine_ - ((int32_t)76800));
+  h = (t_fine - ((int32_t)76800));
   h = (((((raw_humidity_ << 14) - (((int32_t)comp_data_.dig_H4) << 20) -
           (((int32_t)comp_data_.dig_H5) * h)) +
          ((int32_t)16384)) >>
@@ -326,9 +332,9 @@ bool Bme280Extension::processEnvironmentalData() {
 }
 
 void Bme280Extension::resetSensor() {
-  const uint8_t kReg_Reset = 0xE0;
-  const uint8_t kResetCommand = 0xB6;
-  i2c_.writeByteToReg(kResetCommand, kReg_Reset);
+  const uint8_t K_REGISTER_RESET = 0xE0;
+  const uint8_t K_RESET_COMMAND = 0xB6;
+  i2c_.writeByteToReg(K_RESET_COMMAND, K_REGISTER_RESET);
 }
 
 } // namespace extension

@@ -134,9 +134,9 @@ auto RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
   } else if (requested_data == "extension_module_stats") {
     res_body = shared_data_.blocks.extension_module_stats.get().toJson();
   } else if (requested_data == "environmental") {
-    res_body["temperature"] = to_json(shared_data_.frames.env_temp);
-    res_body["pressure"] = to_json(shared_data_.frames.env_pres);
-    res_body["humidity"] = to_json(shared_data_.frames.env_hum);
+    res_body["temperature"] = toJson(shared_data_.frames.env_temp);
+    res_body["pressure"] = toJson(shared_data_.frames.env_pres);
+    res_body["humidity"] = toJson(shared_data_.frames.env_hum);
   } else {
     sendErrorPacket(client, "data section not found");
     return;

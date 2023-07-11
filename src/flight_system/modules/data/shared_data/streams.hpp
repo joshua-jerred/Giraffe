@@ -35,7 +35,7 @@ namespace data {
 
 struct BaseStreamPacket {
   node::Identification source = node::Identification::UNKNOWN;
-  std::string secondary_identifier = "";
+  std::string secondary_identifier{};
   BoosterSeat::clck::TimePoint created_time = BoosterSeat::clck::now();
 
   void resetTime() {
@@ -99,7 +99,7 @@ struct LogPacket : public BaseStreamPacket {
   enum class Level : int { DEBUG = 0, INFO = 1, WARN = 2, ERROR = 3 };
   Level level = Level::INFO;
   DiagnosticId id = DiagnosticId::GENERIC_unknown;
-  std::string info = "";
+  std::string info{};
 };
 
 class LogStream : public Stream<LogPacket> {
@@ -110,7 +110,7 @@ public:
     pkt.source = source;
     pkt.level = LogPacket::Level::ERROR;
     pkt.id = error_id;
-    pkt.info = info;
+    pkt.info = std::move(info);
     pkt.resetTime();
 
     addPacket(pkt);
@@ -122,7 +122,7 @@ public:
     pkt.source = source;
     pkt.level = LogPacket::Level::INFO;
     pkt.id = log_id;
-    pkt.info = info;
+    pkt.info = std::move(info);
     pkt.resetTime();
 
     addPacket(pkt);
@@ -134,32 +134,33 @@ public:
     pkt.source = source;
     pkt.level = LogPacket::Level::DEBUG;
     pkt.id = log_id;
-    pkt.info = info;
+    pkt.info = std::move(info);
     pkt.resetTime();
 
     addPacket(pkt);
   }
 
-  void errorBoosterSeatException(const node::Identification source,
-                                 const DiagnosticId error_id,
-                                 const BoosterSeat::BoosterSeatException &e) {
+  void errorBoosterSeatException(
+      const node::Identification source, const DiagnosticId error_id,
+      const BoosterSeat::BoosterSeatException &exception) {
     LogPacket pkt;
     pkt.source = source;
     pkt.level = LogPacket::Level::ERROR;
     pkt.id = error_id;
-    pkt.info = "Errno: " + std::to_string(e.errorNumber());
+    pkt.info = "Errno: " + std::to_string(exception.errorNumber());
     pkt.resetTime();
 
     addPacket(pkt);
   }
 
   void errorStdException(const node::Identification source,
-                         const DiagnosticId error_id, const std::exception &e) {
+                         const DiagnosticId error_id,
+                         const std::exception &exception) {
     LogPacket pkt;
     pkt.source = source;
     pkt.level = LogPacket::Level::ERROR;
     pkt.id = error_id;
-    pkt.info = "what: " + std::string(e.what());
+    pkt.info = "what: " + std::string(exception.what());
     pkt.resetTime();
 
     addPacket(pkt);
@@ -172,7 +173,7 @@ struct DataPacket : public BaseStreamPacket {
   // Generics
   data::DataPacket::Type type = data::DataPacket::Type::GENERIC;
   data::DataId identifier = data::DataId::GENERIC_unknown;
-  std::string value = ""; // generic data
+  std::string value{}; // generic data
 
   // Extra (Uses so little space, not really a problem to include it
   // in all packets)
@@ -186,7 +187,7 @@ public:
     DataPacket pkt;
     pkt.source = source;
     pkt.identifier = data_id;
-    pkt.value = value;
+    pkt.value = std::move(value);
     pkt.resetTime();
 
     addPacket(pkt);
@@ -213,7 +214,8 @@ class GpsFrameStream : public Stream<GpsFramePacket> {
 public:
   void addFrame(node::Identification source, std::string secondary_id,
                 data::GpsFrame frame) {
-    GpsFramePacket pkt{source, secondary_id, BoosterSeat::clck::now(), frame};
+    GpsFramePacket pkt{source, std::move(secondary_id),
+                       BoosterSeat::clck::now(), frame};
     addPacket(pkt);
   }
 };
@@ -226,7 +228,8 @@ class ImuFrameStream : public Stream<ImuFramePacket> {
 public:
   void addFrame(node::Identification source, std::string secondary_id,
                 data::ImuFrame frame) {
-    ImuFramePacket pkt{source, secondary_id, BoosterSeat::clck::now(), frame};
+    ImuFramePacket pkt{source, std::move(secondary_id),
+                       BoosterSeat::clck::now(), frame};
     addPacket(pkt);
   }
 };

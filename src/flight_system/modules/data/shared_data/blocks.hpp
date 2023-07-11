@@ -56,7 +56,7 @@ struct ConfigurationStats { // Set by the data module
   int load_errors = 0;
   int save_errors = 0;
 
-  Json toJson() {
+  Json toJson() const {
     Json json_data;
     json_data["load_errors"] = load_errors;
     json_data["save_errors"] = save_errors;
@@ -74,7 +74,7 @@ struct ModulesStatuses { // Set by the data module
   node::Status system = node::Status::UNKNOWN;
   node::Status extension = node::Status::UNKNOWN;
 
-  Json toJson() {
+  Json toJson() const {
     Json json_data;
     json_data["data"] = node::K_STATUS_TO_STRING_MAP.at(data);
     json_data["console"] = node::K_STATUS_TO_STRING_MAP.at(console);
@@ -152,7 +152,7 @@ struct DataLogStats {
 
   FileSizeType data_file_size = 0.0;
   FileSizeType data_archive_dir_size = 0.0;
-  std::string data_file_path = "";
+  std::string data_file_path{};
 
   // Log Files
   bool log_dir = false;
@@ -161,7 +161,7 @@ struct DataLogStats {
 
   FileSizeType log_file_size = 0.0;
   FileSizeType log_archive_dir_size = 0.0;
-  std::string log_file_path = "";
+  std::string log_file_path{};
 
   std::vector<std::string> archived_data_files_list{};
   std::vector<std::string> archived_log_files_list{};

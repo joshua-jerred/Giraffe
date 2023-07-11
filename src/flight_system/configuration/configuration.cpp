@@ -112,8 +112,8 @@ Json cfg::General::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return Json({
     {"project_name", project_name_},
-    {"main_board", cfg::gEnum::K_MAIN_BOARD_TO_STRING_MAP(main_board_)},
-    {"starting_procedure", cfg::gEnum::K_PROCEDURE_TYPE_TO_STRING_MAP(starting_procedure_)},
+    {"main_board", cfg::gEnum::K_MAIN_BOARD_TO_STRING_MAP.at(main_board_)},
+    {"starting_procedure", cfg::gEnum::K_PROCEDURE_TYPE_TO_STRING_MAP.at(starting_procedure_)},
     {"module_status_update_rate", module_status_update_rate_}
   });
 }
@@ -338,14 +338,14 @@ Json cfg::DataModuleData::getJson() const {
   return Json({
     {"log_data_to_file", log_data_to_file_},
     {"file_system_check_interval", file_system_check_interval_},
-    {"log_strategy", cfg::gEnum::K_LOG_STRATEGY_TO_STRING_MAP(log_strategy_)},
-    {"timestamp_detail", cfg::gEnum::K_TIMESTAMP_DETAIL_TO_STRING_MAP(timestamp_detail_)},
-    {"timestamp_timezone", cfg::gEnum::K_TIMESTAMP_TIMEZONE_TO_STRING_MAP(timestamp_timezone_)},
+    {"log_strategy", cfg::gEnum::K_LOG_STRATEGY_TO_STRING_MAP.at(log_strategy_)},
+    {"timestamp_detail", cfg::gEnum::K_TIMESTAMP_DETAIL_TO_STRING_MAP.at(timestamp_detail_)},
+    {"timestamp_timezone", cfg::gEnum::K_TIMESTAMP_TIMEZONE_TO_STRING_MAP.at(timestamp_timezone_)},
     {"log_interval_ms", log_interval_ms_},
     {"max_data_log_file_size_mb", max_data_log_file_size_mb_},
     {"max_data_archive_size_mb", max_data_archive_size_mb_},
     {"warn_on_trim", warn_on_trim_},
-    {"archive_method", cfg::gEnum::K_ARCHIVE_METHOD_TO_STRING_MAP(archive_method_)},
+    {"archive_method", cfg::gEnum::K_ARCHIVE_METHOD_TO_STRING_MAP.at(archive_method_)},
     {"data_log_file_contents", data_log_file_contents_}
   });
 }
@@ -541,7 +541,7 @@ Json cfg::DataModuleInfluxdb::getJson() const {
     {"organization", organization_},
     {"data_bucket", data_bucket_},
     {"error_bucket", error_bucket_},
-    {"retention_policy", cfg::gEnum::K_INFLUXDB_RETENTION_POLICY_TO_STRING_MAP(retention_policy_)},
+    {"retention_policy", cfg::gEnum::K_INFLUXDB_RETENTION_POLICY_TO_STRING_MAP.at(retention_policy_)},
     {"contents", contents_}
   });
 }
@@ -689,9 +689,9 @@ Json cfg::DataModuleLog::getJson() const {
     {"log_to_file", log_to_file_},
     {"max_log_file_size_mb", max_log_file_size_mb_},
     {"max_log_archive_size_mb", max_log_archive_size_mb_},
-    {"error_archive_method", cfg::gEnum::K_ARCHIVE_METHOD_TO_STRING_MAP(error_archive_method_)},
-    {"log_level", cfg::gEnum::K_LOG_LEVEL_TO_STRING_MAP(log_level_)},
-    {"error_log_strategy", cfg::gEnum::K_ERROR_LOG_STRATEGY_TO_STRING_MAP(error_log_strategy_)},
+    {"error_archive_method", cfg::gEnum::K_ARCHIVE_METHOD_TO_STRING_MAP.at(error_archive_method_)},
+    {"log_level", cfg::gEnum::K_LOG_LEVEL_TO_STRING_MAP.at(log_level_)},
+    {"error_log_strategy", cfg::gEnum::K_ERROR_LOG_STRATEGY_TO_STRING_MAP.at(error_log_strategy_)},
     {"error_frame_log_interval", error_frame_log_interval_}
   });
 }
@@ -1090,7 +1090,7 @@ Json cfg::TelemetryAprs::getJson() const {
     {"ssid", ssid_},
     {"destination_address", destination_address_},
     {"destination_ssid", destination_ssid_},
-    {"symbol_table", cfg::gEnum::K_APRS_SYMBOL_TABLE_TO_STRING_MAP(symbol_table_)},
+    {"symbol_table", cfg::gEnum::K_APRS_SYMBOL_TABLE_TO_STRING_MAP.at(symbol_table_)},
     {"symbol", symbol_},
     {"comment", comment_}
   });
@@ -1182,7 +1182,7 @@ Json cfg::TelemetrySstv::getJson() const {
   return Json({
     {"enabled", enabled_},
     {"frequency", frequency_},
-    {"mode", cfg::gEnum::K_SSTV_MODE_TO_STRING_MAP(mode_)},
+    {"mode", cfg::gEnum::K_SSTV_MODE_TO_STRING_MAP.at(mode_)},
     {"overlay_data", overlay_data_}
   });
 }
@@ -1293,7 +1293,7 @@ Json cfg::TelemetryDataPackets::getJson() const {
   return Json({
     {"enabled", enabled_},
     {"frequency", frequency_},
-    {"mode", cfg::gEnum::K_DATA_PACKETS_MODE_TO_STRING_MAP(mode_)},
+    {"mode", cfg::gEnum::K_DATA_PACKETS_MODE_TO_STRING_MAP.at(mode_)},
     {"morse_call_sign", morse_call_sign_},
     {"comment", comment_}
   });
@@ -1437,7 +1437,7 @@ void cfg::HardwareInterface::setFromJson(const Json &json_data) {
 Json cfg::HardwareInterface::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return Json({
-    {"i2c_bus", cfg::gEnum::K_I2C_BUS_TO_STRING_MAP(i2c_bus_)}
+    {"i2c_bus", cfg::gEnum::K_I2C_BUS_TO_STRING_MAP.at(i2c_bus_)}
   });
 }
 

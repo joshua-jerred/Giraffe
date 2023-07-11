@@ -75,11 +75,11 @@ void DataFormatter::addComponent(DataFrameComponent component, Json &frame) {
     break;
   case DataFrameComponent::ENVIRONMENTAL_DATA:
     frame["environmental"]["temperature"] =
-        data::to_json(shared_data_.frames.env_temp);
+        data::toJson(shared_data_.frames.env_temp);
     frame["environmental"]["pressure"] =
-        data::to_json(shared_data_.frames.env_pres);
+        data::toJson(shared_data_.frames.env_pres);
     frame["environmental"]["humidity"] =
-        data::to_json(shared_data_.frames.env_hum);
+        data::toJson(shared_data_.frames.env_hum);
     break;
   }
 }

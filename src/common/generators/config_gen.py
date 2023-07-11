@@ -74,16 +74,18 @@ class Enum:
         return options
     
     def getEnumToJsonKey(self):
-        open_line = f"constexpr const char* K_{self.constant_name}_TO_STRING_MAP({self.name_with_ns} val) noexcept {{\n{INDENT}switch (val) {{\n"
-        cases = ""
+        open_line = f"std::map<{self.name_with_ns}, std::string> const K_{self.constant_name}_TO_STRING_MAP = {{\n"
+        options = ""
         
+        first = True
         for option in self.options:
-            cases += f'{INDENT}{INDENT}case {self.name_with_ns}::{option}: return "{option.lower()}";\n'
+            if not first:
+                options += ",\n"
+            options += f'{INDENT}{{{self.name_with_ns}::{option}, "{option.lower()}"}}'
+            first = False
         
-        unreachable = f"{INDENT}__builtin_unreachable();"# f'{INDENT}{INDENT}default: throw std::invalid_argument("String Not Implemented in {self.name}");\n'
-        
-        close = f'{INDENT}}}\n{unreachable}\n}}\n'
-        return open_line + cases + close
+        close = f'\n}};\n'
+        return open_line + options + close
 
     def getJsonKeyToEnum(self):
         open_line = f'std::unordered_map<std::string, {self.name_with_ns}> const K_STRING_TO_{self.constant_name}_MAP = {{\n'
@@ -127,7 +129,7 @@ class SectionItem:
         member = self.member_name + "_"
         
         if self.json_type == "enum":
-            return "cfg::gEnum::K_" + f'{self.const_type}_TO_STRING_MAP({member})'
+            return "cfg::gEnum::K_" + f'{self.const_type}_TO_STRING_MAP.at({member})'
         return member
         
     def setValidator(self):
@@ -430,7 +432,7 @@ class ConfigGen:
         f.write(file)
 
     def EnumHeader(self):
-        ENUM_FILE_INCLUDES = ["<string>", "<unordered_map>"]
+        ENUM_FILE_INCLUDES = ["<string>", "<unordered_map>", "<map>"]
         file = utils.headerFileHeader(ENUM_FILE_NAME, ENUM_FILE_INCLUDES)
         file += utils.enterNameSpace(CFG_NAMESPACE + "::" + CFG_ENUM_NAMESPACE) + "\n"
         # enums

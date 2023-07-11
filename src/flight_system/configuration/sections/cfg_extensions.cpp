@@ -26,7 +26,7 @@ Json ExtensionMetadata::getJson() const {
   return Json::object({
       {"name", name},
       {"enabled", enabled},
-      {"type", gEnum::K_EXTENSION_TYPE_TO_STRING_MAP(type)},
+      {"type", gEnum::K_EXTENSION_TYPE_TO_STRING_MAP.at(type)},
       {"update_interval", update_interval},
       {"critical", critical},
       {"extra_args", extra_args},

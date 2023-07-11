@@ -30,6 +30,7 @@
 #include <string>
 #include <cstdint>
 
+// NOLINTBEGIN(readability-identifier-naming)
 enum class DiagnosticId : uint16_t {
   GENERIC_unknown=0xF000, // Unknown
   GENERIC_info=0xF001, // info
@@ -143,6 +144,7 @@ enum class DiagnosticId : uint16_t {
   GDL_invalidBroadcastCall=0xA002, // Invalid Broadcast Call
   GDL_invalidExchangeCall=0xA003  // Invalid Exchange Call
 };
+// NOLINTEND(readability-identifier-naming)
 
 extern const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP;
 

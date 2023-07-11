@@ -95,8 +95,9 @@ struct SharedData {
    * @param id - Node identification
    * @param info - Debug message
    */
-  void debugLog(const node::Identification id, const std::string &info) {
-    streams.log.debug(id, info);
+  void debugLog(const node::Identification node_identification,
+                const std::string &info) {
+    streams.log.debug(node_identification, info);
   }
 #else
   /**
@@ -111,7 +112,7 @@ struct SharedData {
 #endif
 };
 
-Json to_json(data::Frame<std::string, data::DataPacket> &frame);
+Json toJson(data::Frame<std::string, data::DataPacket> &frame);
 
 } // namespace data
 

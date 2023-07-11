@@ -43,6 +43,7 @@
   // Spell Checker
   "cSpell.words": [
     "bstrst",
+    "bugprone",
     "dataframe",
     "datasheet",
     "endverbatim",
@@ -56,6 +57,7 @@
     "smbus",
     "stdexcept",
     "stoi",
+    "Struct",
     "telem"
   ]
 }
