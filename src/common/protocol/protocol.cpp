@@ -62,10 +62,10 @@ static const std::unordered_map<std::string, protocol::ResponseCode>
 
 bool protocol::parseMessage(const std::string &json_string,
                             protocol::Message &message) {
-  json message_json;
+  Json message_json;
 
   try {
-    message_json = json::parse(json_string);
+    message_json = Json::parse(json_string);
   } catch (const std::exception &e) {
     return false;
   }
@@ -106,7 +106,7 @@ bool protocol::parseMessage(const std::string &json_string,
     return false; // body must be an object.
   }
 
-  json &body_json = message_json["bdy"];
+  Json &body_json = message_json["bdy"];
 
   // Type-specific fields.
   if (message.typ == protocol::MessageType::REQ ||
@@ -127,7 +127,7 @@ bool protocol::parseMessage(const std::string &json_string,
       }
       message.dat = body_json["dat"];
     } catch (const std::exception &e) {
-      message.dat = json::object();
+      message.dat = Json::object();
       valid = false;
     }
   }
@@ -149,8 +149,8 @@ std::string protocol::Message::getJsonString() {
   return getJson().dump();
 }
 
-json protocol::Message::getJson() {
-  json message = {{"src", endpointToStringMap.at(src)},
+Json protocol::Message::getJson() {
+  Json message = {{"src", endpointToStringMap.at(src)},
                   {"dst", endpointToStringMap.at(dst)},
                   {"typ", typeToStringMap.at(typ)},
                   {"id", id},
@@ -158,8 +158,8 @@ json protocol::Message::getJson() {
   return message;
 }
 
-json protocol::Message::getBodyJson() {
-  json body;
+Json protocol::Message::getBodyJson() {
+  Json body;
   if (typ == protocol::MessageType::REQ || typ == protocol::MessageType::SET) {
     body["rsc"] = rsc;
   }
@@ -185,7 +185,7 @@ void protocol::createRequestMessage(protocol::Message &message,
 
 void protocol::createSetMessage(protocol::Message &message,
                                 protocol::Endpoint src, protocol::Endpoint dst,
-                                protocol::Resource rsc, json dat) {
+                                protocol::Resource rsc, Json dat) {
   message.src = src;
   message.dst = dst;
   message.typ = protocol::MessageType::SET;
@@ -198,7 +198,7 @@ void protocol::createResponseMessage(protocol::Message &message,
                                      protocol::Endpoint src,
                                      protocol::Endpoint dst,
                                      protocol::MessageId id,
-                                     protocol::ResponseCode cde, json dat) {
+                                     protocol::ResponseCode cde, Json dat) {
   message.src = src;
   message.dst = dst;
   message.typ = protocol::MessageType::RSP;

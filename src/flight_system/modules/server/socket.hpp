@@ -7,9 +7,9 @@
 #include <string>
 
 namespace sock {
-constexpr int kMaxHostName = 200;
-constexpr int kMaxConnections = 5;
-constexpr int kMaxReceive = 500;
+constexpr int K_MAX_HOST_NAME_SIZE = 200;
+constexpr int K_MAX_CONNECTIONS = 5;
+constexpr int K_MAX_RECEIVE = 500;
 
 class TcpSocketServer {
 public:
@@ -27,7 +27,7 @@ public:
   bool send(const std::string &data) const;
   bool receive(std::string &data) const;
 
-  bool is_valid() const;
+  bool isValid() const;
 
 private:
   int sock_ = -1;

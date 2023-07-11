@@ -4,33 +4,33 @@
 
 #include "curses_utilities.hpp"
 
-void ncurs::internal::Window::win_init() {
+void ncurs::internal::Window::winInit() {
   p_window_ = newwin(height_, width_, y_, x_);
   box(p_window_, 0, 0);
   refresh();
-  win_refresh();
+  winRefresh();
 }
 
-void ncurs::internal::Window::win_reset() {
+void ncurs::internal::Window::winReset() {
   // box(p_window_, 0, 0);
   //  mvwprintw(p_window_, 0, 1, "%s", title_.c_str());
   refresh();
   wrefresh(p_window_);
 }
 
-void ncurs::internal::Window::win_refresh() {
+void ncurs::internal::Window::winRefresh() {
   // box(p_window_, 0, 0);
   //  mvwprintw(p_window_, 0, 1, "%s", title_.c_str());
   wrefresh(p_window_);
 }
 
-void ncurs::internal::Window::win_clear() {
+void ncurs::internal::Window::winClear() {
   wclear(p_window_);
   wattroff(p_window_, A_REVERSE);
   box(p_window_, 0, 0);
 }
 
-void ncurs::internal::Window::win_hide() {
+void ncurs::internal::Window::winHide() {
   wclear(p_window_);
   wrefresh(p_window_);
 }
@@ -52,19 +52,19 @@ void ncurs::Environment::start(int endpoint_update_rate_ms) {
   data_scroll_bar_.setPosition(kMenuWidth_ + kPadding_ + kDataWidth_, 0);
   data_scroll_bar_.setSize(2, kHeight_);
 
-  menu_window_.win_init();
-  data_window_.win_init();
-  data_scroll_bar_.win_init();
+  menu_window_.winInit();
+  data_window_.winInit();
+  data_scroll_bar_.winInit();
 
   displayMenu();
   displayData();
-  data_scroll_bar_.win_hide(); // Hide scroll bar until data is displayed
+  data_scroll_bar_.winHide(); // Hide scroll bar until data is displayed
 }
 
 void ncurs::Environment::update() {
   checkInput();
 
-  data_window_.win_reset();
+  data_window_.winReset();
 
   static BoosterSeat::clck::TimePoint update_clock =
       BoosterSeat::clck::Clock::now();
@@ -113,7 +113,7 @@ void ncurs::Environment::checkInput() {
       if (focus_ == Focus::DATA) {
         displayScrollBar();
       } else {
-        data_scroll_bar_.win_hide();
+        data_scroll_bar_.winHide();
       }
     }
     break;
@@ -161,7 +161,7 @@ void ncurs::Environment::navigateMenu(Environment::NavKey key) {
 }
 
 void ncurs::Environment::displayMenu() {
-  menu_window_.win_clear();
+  menu_window_.winClear();
 
   int i = 1;
   current_menu_num_options_ = pages_.getCurrentMenu().size();
@@ -185,26 +185,26 @@ void ncurs::Environment::displayMenu() {
     // }
     mvwprintw(menu_window_.p_window_, i++, 1, "%s", title.c_str());
   }
-  menu_window_.win_refresh();
+  menu_window_.winRefresh();
 }
 
 void ncurs::Environment::displayData() {
-  data_window_.win_clear();
+  data_window_.winClear();
 
   int window_line_pos = 1; // start below the border
-  const std::array<std::string, console_pages::kMaxNumPageLines> &page =
+  const std::array<std::string, console_pages::K_MAX_NUM_PAGE_LINES> &page =
       pages_.getCurrentPage();
 
   for (int i = current_scroll_pos_; i < current_scroll_pos_ + kHeight_ - 2;
        i++) {
-    if (i >= console_pages::kMaxNumPageLines) {
+    if (i >= console_pages::K_MAX_NUM_PAGE_LINES) {
       throw std::runtime_error("Scroll pos out of bounds");
     }
     std::string line = page[i];
     mvwprintw(data_window_.p_window_, window_line_pos++, 1, "%s", line.c_str());
   }
 
-  data_window_.win_refresh();
+  data_window_.winRefresh();
 }
 
 /**
@@ -212,8 +212,8 @@ void ncurs::Environment::displayData() {
  *
  */
 void ncurs::Environment::displayScrollBar() {
-  data_scroll_bar_.win_clear();
-  data_scroll_bar_.win_refresh();
+  data_scroll_bar_.winClear();
+  data_scroll_bar_.winRefresh();
 
   // for (int i = 0; i < kHeight_; i++) {
   //   if (focus_ != Focus::DATA) {
@@ -226,7 +226,7 @@ void ncurs::Environment::displayScrollBar() {
   //     mvwprintw(data_scroll_bar_.p_window_, i, 0, "--");
   //   }
   // }
-  data_scroll_bar_.win_refresh();
+  data_scroll_bar_.winRefresh();
 }
 
 void ncurs::Environment::scrollDataUp() {

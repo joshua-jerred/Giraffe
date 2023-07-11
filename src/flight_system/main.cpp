@@ -33,15 +33,17 @@ auto signalHandler(int signal_number) -> void {
  * @todo update docs
  * @bug FlightRunner currently only returns 0.
  */
-auto main() -> int {
+int main() {
   signal(SIGINT, signalHandler); // Register signal handler
   return flight.start();
 }
 
 #ifndef DNDEBUG // If debug mode is enabled.
-void __assert_func(const char *__file, int __line, const char *__expr) {
+void __assert_func(const char *file_name, int line_number,
+                   const char *expression) {
   flight.shutdown();
-  printf("ASSERT: %s:%d: Assertion `%s' failed.\n", __file, __line, __expr);
+  printf("ASSERT: %s:%d: Assertion `%s' failed.\n", file_name, line_number,
+         expression);
 }
 #else
 

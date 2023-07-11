@@ -27,7 +27,7 @@ namespace data {
 
 enum class GpsFix : uint8_t { ERROR = 0, NO_FIX = 1, FIX_2D = 2, FIX_3D = 3 };
 
-static const std::map<GpsFix, std::string> GpsFixStringMap = {
+static const std::map<GpsFix, std::string> K_GPS_FIX_TO_STRING_MAP = {
     {GpsFix::ERROR, "error_fix"},
     {GpsFix::NO_FIX, "no_fix"},
     {GpsFix::FIX_2D, "2d_fix"},

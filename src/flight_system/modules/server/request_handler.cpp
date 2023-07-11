@@ -47,7 +47,7 @@ void RequestRouter::handleMessage(sock::TcpSocketServer &client,
 void RequestRouter::sendErrorPacket(sock::TcpSocketServer &client,
                                     const std::string &error) {
   stats_.num_invalid_received++;
-  json body = {{"error", error}};
+  Json body = {{"error", error}};
 
   protocol::Message response_message;
   protocol::createResponseMessage(response_message, protocol::Endpoint::GFS,
@@ -68,7 +68,7 @@ void RequestRouter::handlePingRequest(sock::TcpSocketServer &client,
 
 auto RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
                                          protocol::Message &msg) -> void {
-  json res_body;
+  Json res_body;
 
   std::string req = msg.rsc.substr(msg.rsc.find('/') + 1);
 
@@ -119,7 +119,7 @@ auto RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
   // format of msg.rec is data/<section>, so split on '/'
   std::string requested_data = msg.rsc.substr(msg.rsc.find('/') + 1);
 
-  json res_body;
+  Json res_body;
 
   if (requested_data == "system_info") {
     res_body = shared_data_.blocks.system_info.get().toJson();
@@ -134,9 +134,9 @@ auto RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
   } else if (requested_data == "extension_module_stats") {
     res_body = shared_data_.blocks.extension_module_stats.get().toJson();
   } else if (requested_data == "environmental") {
-    res_body["temperature"] = to_json(shared_data_.frames.env_temp);
-    res_body["pressure"] = to_json(shared_data_.frames.env_pres);
-    res_body["humidity"] = to_json(shared_data_.frames.env_hum);
+    res_body["temperature"] = toJson(shared_data_.frames.env_temp);
+    res_body["pressure"] = toJson(shared_data_.frames.env_pres);
+    res_body["humidity"] = toJson(shared_data_.frames.env_hum);
   } else {
     sendErrorPacket(client, "data section not found");
     return;

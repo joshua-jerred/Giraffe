@@ -17,7 +17,7 @@ std::string f2s(double val) {
   return BoosterSeat::string::f2s(val, 2);
 }
 
-const std::array<std::string, console_pages::kMaxNumPageLines> &
+const std::array<std::string, console_pages::K_MAX_NUM_PAGE_LINES> &
 console_pages::Pages::getCurrentPage() {
 
   content_ = {}; // Clear the content (set all lines to "")
@@ -74,7 +74,7 @@ void console_pages::Pages::navigateMenu(const console_pages::PageOption key) {
  * @return std::string - formatted string
  */
 std::string LandR(const std::string &l, const std::string &r) {
-  constexpr int kWidth = console_pages::kDataWindowWidth / 2 - 1;
+  constexpr int kWidth = console_pages::K_DATA_WINDOW_WIDTH / 2 - 1;
   std::string ret = "";
   ret += BoosterSeat::layout::fixedWidthString(
       l, BoosterSeat::layout::Alignment::LEFT, kWidth);
@@ -102,11 +102,13 @@ void console_pages::Pages::gfsStatus() {
   content_[2] = "";
 
   content_[3] = "Modules";
-  content_[4] = "Data:    " + node::status_to_string.at(mod_stats.data);
-  content_[5] = "Server:  " + node::status_to_string.at(mod_stats.server);
-  content_[6] = "Console: " + node::status_to_string.at(mod_stats.console);
-  content_[7] = "System:  " + node::status_to_string.at(mod_stats.system);
-  content_[8] = "Extension: " + node::status_to_string.at(mod_stats.extension);
+  content_[4] = "Data:    " + node::K_STATUS_TO_STRING_MAP.at(mod_stats.data);
+  content_[5] = "Server:  " + node::K_STATUS_TO_STRING_MAP.at(mod_stats.server);
+  content_[6] =
+      "Console: " + node::K_STATUS_TO_STRING_MAP.at(mod_stats.console);
+  content_[7] = "System:  " + node::K_STATUS_TO_STRING_MAP.at(mod_stats.system);
+  content_[8] =
+      "Extension: " + node::K_STATUS_TO_STRING_MAP.at(mod_stats.extension);
 
   content_[9] = "";
 
@@ -121,7 +123,7 @@ void console_pages::Pages::gfsStatus() {
   for (auto &id : error_ids) {
     line_buffer +=
         BoosterSeat::string::intToHex(static_cast<uint16_t>(id)) + "  ";
-    if (line_buffer.size() > kDataWindowWidth - 2) {
+    if (line_buffer.size() > K_DATA_WINDOW_WIDTH - 2) {
       content_[i++] = line_buffer;
       line_buffer = "";
     }
@@ -181,7 +183,7 @@ void console_pages::Pages::data() {
       "Enabled: " +
           b2str(config_.data_module_data.getLogDataToFile()), // enabled
       "Strategy: " +
-          std::string(cfg::gEnum::LogStrategyToKey(
+          std::string(cfg::gEnum::K_LOG_STRATEGY_TO_STRING_MAP.at(
               config_.data_module_data.getLogStrategy())), // log strategy
       "Interval (ms): " +
           std::to_string(
@@ -311,7 +313,7 @@ void console_pages::Pages::location() {
   // clang-format off
   content_ = {
     " -- Most Recent GPS Frame -- ",
-    "Fix, Num Sats, UTC:   " + data::GpsFixStringMap.at(cur.fix) + ", " +
+    "Fix, Num Sats, UTC:   " + data::K_GPS_FIX_TO_STRING_MAP.at(cur.fix) + ", " +
       std::to_string(cur.num_satellites) + ", utc time",
     "Lat, Lon, H/S:   " + BoosterSeat::string::f2s(cur.latitude, 6) + ", " 
       + BoosterSeat::string::f2s(cur.longitude, 6) + ", " +
@@ -328,7 +330,7 @@ void console_pages::Pages::location() {
 }
 
 void console_pages::Pages::setNumLinesOnPage(const int num_lines) {
-  if (num_lines > console_pages::kMaxNumPageLines) {
+  if (num_lines > console_pages::K_MAX_NUM_PAGE_LINES) {
     // This should never happen as it's an array.
     // Pick the value properly.
     throw std::runtime_error("num_lines > kMaxNumLines");

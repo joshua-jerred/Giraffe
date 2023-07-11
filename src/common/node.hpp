@@ -43,16 +43,17 @@ enum class Identification {
  * @brief Map of node identification to string
  * @see node::Identification
  */
-static const std::map<Identification, std::string> identification_to_string = {
-    {Identification::UNKNOWN, "unknown"},
-    {Identification::FLIGHT_RUNNER, "flight_runner"},
-    {Identification::CONFIGURATION, "configuration"},
-    {Identification::DATA_MODULE, "data_module"},
-    {Identification::CONSOLE_MODULE, "console_module"},
-    {Identification::SERVER_MODULE, "server_module"},
-    {Identification::SYSTEM_MODULE, "system_module"},
-    {Identification::EXTENSION_MODULE, "extension_module"},
-    {Identification::EXTENSION, "extension"}};
+static const std::map<Identification, std::string>
+    K_IDENTIFICATION_TO_STRING_MAP = {
+        {Identification::UNKNOWN, "unknown"},
+        {Identification::FLIGHT_RUNNER, "flight_runner"},
+        {Identification::CONFIGURATION, "configuration"},
+        {Identification::DATA_MODULE, "data_module"},
+        {Identification::CONSOLE_MODULE, "console_module"},
+        {Identification::SERVER_MODULE, "server_module"},
+        {Identification::SYSTEM_MODULE, "system_module"},
+        {Identification::EXTENSION_MODULE, "extension_module"},
+        {Identification::EXTENSION, "extension"}};
 
 /**
  * @brief Node status, used for modules and extensions.
@@ -68,12 +69,12 @@ enum class Status : uint16_t {
   ERROR = 0b10000000
 };
 
-inline constexpr uint16_t kNodeInactiveStatuses =
+inline constexpr uint16_t K_INACTIVE_STATUSES =
     static_cast<uint16_t>(Status::DISABLED) |
     static_cast<uint16_t>(Status::STOPPED) |
     static_cast<uint16_t>(Status::ERROR);
 
-inline constexpr uint16_t kNodeActiveStatuses =
+inline constexpr uint16_t K_ACTIVE_STATUSES =
     static_cast<uint16_t>(Status::STARTING) |
     static_cast<uint16_t>(Status::RUNNING) |
     static_cast<uint16_t>(Status::SLEEPING) |
@@ -83,7 +84,7 @@ inline constexpr uint16_t kNodeActiveStatuses =
  * @brief Map of node status to string
  * @see node::Status
  */
-static const std::map<Status, std::string> status_to_string = {
+static const std::map<Status, std::string> K_STATUS_TO_STRING_MAP = {
     {Status::UNKNOWN, "unknown"},   {Status::DISABLED, "disabled"},
     {Status::STOPPED, "stopped"},   {Status::STARTING, "starting"},
     {Status::RUNNING, "running"},   {Status::SLEEPING, "sleeping"},

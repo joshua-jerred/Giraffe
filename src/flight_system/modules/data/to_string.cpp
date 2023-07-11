@@ -22,7 +22,7 @@
 namespace util {
 std::string to_string(const node::Identification id) noexcept {
   try {
-    return node::identification_to_string.at(id);
+    return node::K_IDENTIFICATION_TO_STRING_MAP.at(id);
   } catch (const std::out_of_range &e) {
     return "UNKNOWN";
   }
@@ -58,7 +58,7 @@ std::string to_string(const data::LogPacket &packet) noexcept {
 
 std::string to_string(const data::DataId id) noexcept {
   try {
-    return data::dataIdStringMap.at(id);
+    return data::K_DATA_ID_TO_STRING_MAP.at(id);
   } catch (const std::out_of_range &e) {
     return "UNKNOWN";
   }
@@ -73,7 +73,7 @@ std::string to_string(const data::DataPacket &packet) noexcept {
 
 std::string to_string(const data::GpsFix fix_type) noexcept {
   try {
-    return data::GpsFixStringMap.at(fix_type);
+    return data::K_GPS_FIX_TO_STRING_MAP.at(fix_type);
   } catch (const std::out_of_range &e) {
     return "UNKNOWN";
   }

@@ -121,7 +121,9 @@ class IdGenerator:
             file.addIncludes(["<cstdint>"])
         if self.namespaced:
             file.enterNamespace(self.namespace)
+        file.addLine("// NOLINTBEGIN(readability-identifier-naming)")
         file.addComponent(self.enum)
+        file.addLine("// NOLINTEND(readability-identifier-naming)")
         
         if self.generate_string_map:
             file.addLine("")

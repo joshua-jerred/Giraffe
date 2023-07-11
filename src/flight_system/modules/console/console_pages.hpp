@@ -20,10 +20,10 @@ enum class PageOption {
   LOCATION,
 };
 
-inline constexpr int kMaxNumPageLines = 25;
-inline constexpr int kDataWindowWidth = 100;
-inline constexpr int kDataWindowHeight = 15;
-inline constexpr PageOption kInitialPage = PageOption::GFS_STATUS;
+inline constexpr int K_MAX_NUM_PAGE_LINES = 25;
+inline constexpr int K_DATA_WINDOW_WIDTH = 100;
+inline constexpr int K_DATA_WINDOW_HEIGHT = 15;
+inline constexpr PageOption K_INITIAL_PAGE = PageOption::GFS_STATUS;
 
 typedef std::pair<std::string, PageOption> Option;
 typedef std::vector<Option> Menu;
@@ -35,14 +35,14 @@ public:
   }
   ~Pages() = default;
 
-  const std::array<std::string, kMaxNumPageLines> &getCurrentPage();
+  const std::array<std::string, K_MAX_NUM_PAGE_LINES> &getCurrentPage();
   int getNumLinesOnPage() const {
     return current_num_lines_;
   }
   Menu getCurrentMenu();
   void navigateMenu(PageOption key);
   int getMaxNumPageLines() const {
-    return kMaxNumPageLines;
+    return K_MAX_NUM_PAGE_LINES;
   }
 
 private:
@@ -60,9 +60,9 @@ private:
   cfg::Configuration &config_;
   data::SharedData &shared_data_;
 
-  PageOption current_page_ = kInitialPage;
+  PageOption current_page_ = K_INITIAL_PAGE;
   int current_num_lines_ = 0;
-  std::array<std::string, kMaxNumPageLines> content_ = {};
+  std::array<std::string, K_MAX_NUM_PAGE_LINES> content_ = {};
   Menu current_menu_ = {
       {"GFS Status", PageOption::GFS_STATUS},
       {"Data", PageOption::DATA},

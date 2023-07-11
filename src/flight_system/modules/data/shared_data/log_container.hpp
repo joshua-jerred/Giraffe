@@ -20,7 +20,7 @@
 #include <deque>
 #include <mutex>
 
-constexpr int kLogContainerSize = 20;
+constexpr int K_LOG_CONTAINER_SIZE = 20;
 
 class LogContainer {
 public:
@@ -29,7 +29,7 @@ public:
 
   void add(std::string message) {
     std::lock_guard<std::mutex> lock(log_mutex_);
-    if (log_container_.size() >= kLogContainerSize) {
+    if (log_container_.size() >= K_LOG_CONTAINER_SIZE) {
       log_container_.pop_front();
     }
     log_container_.push_back(message);

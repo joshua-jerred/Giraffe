@@ -43,13 +43,21 @@
   // Spell Checker
   "cSpell.words": [
     "bstrst",
+    "bugprone",
     "dataframe",
+    "datasheet",
+    "endverbatim",
+    "fstream",
+    "HHMMSS",
+    "nlohmann",
     "puml",
     "Reassembler",
     "SAMM",
+    "Sats",
     "smbus",
     "stdexcept",
     "stoi",
+    "Struct",
     "telem"
   ]
 }

@@ -21,9 +21,9 @@ public:
   /**
    * @brief Insert or replace an item.
    */
-  void insert(const ID &id, const DATA &data) {
+  void insert(const ID &key, const DATA &value) {
     std::lock_guard<std::mutex> lock(frame_lock_);
-    frame_.insert_or_assign(id, data);
+    frame_.insert_or_assign(key, value);
   }
 
   /**
@@ -31,9 +31,9 @@ public:
    * @return true
    * @return false
    */
-  bool in(const ID &id) const {
+  bool in(const ID &key) const {
     std::lock_guard<std::mutex> lock(frame_lock_);
-    return frame_.contains(id);
+    return frame_.contains(key);
   }
 
   /**
@@ -44,10 +44,10 @@ public:
    * @return true - If the item was found.
    * @return false - If the item was not found.
    */
-  bool get(const ID id, DATA &data) const {
+  bool get(const ID key, DATA &data) const {
     std::lock_guard<std::mutex> lock(frame_lock_);
-    if (frame_.contains(id)) {
-      data = frame_.at(id);
+    if (frame_.contains(key)) {
+      data = frame_.at(key);
       return true;
     }
     return false;
@@ -76,9 +76,9 @@ public:
    * @return true - If the item was removed.
    * @return false - If the item was not removed.
    */
-  bool remove(const ID &id) {
+  bool remove(const ID &key) {
     std::lock_guard<std::mutex> lock(frame_lock_);
-    return frame_.erase(id);
+    return frame_.erase(key);
   }
 
   std::unordered_map<ID, DATA> getAll() const {

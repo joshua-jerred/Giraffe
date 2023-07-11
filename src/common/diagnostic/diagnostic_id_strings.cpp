@@ -25,7 +25,8 @@
 
 #include "giraffe_diagnostic_ids.hpp"
 
-const std::unordered_map<DiagnosticId, std::string> diagnosticIdStringMap {
+
+const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::GENERIC_unknown,"GENERIC_unknown"},
   {DiagnosticId::GENERIC_info,"GENERIC_info"},
   {DiagnosticId::GENERIC_debug,"GENERIC_debug"},
@@ -138,6 +139,7 @@ const std::unordered_map<DiagnosticId, std::string> diagnosticIdStringMap {
   {DiagnosticId::GDL_invalidBroadcastCall,"GDL_invalidBroadcastCall"},
   {DiagnosticId::GDL_invalidExchangeCall,"GDL_invalidExchangeCall"}
 };
+
 
 
 /**

@@ -30,12 +30,12 @@ inline constexpr int kInitTimeout = 2000;
  * this.
  * @details This thing is slow through the 1w file interface
  */
-inline constexpr int kReadTimeout = 5000;
+inline constexpr int K_READ_TIMEOUT = 5000;
 
 Ds18b20Extension::Ds18b20Extension(ExtensionResources &resources,
                                    cfg::ExtensionMetadata metadata)
     : Extension(resources, metadata), init_timer_(kInitTimeout),
-      read_timer_(kReadTimeout + metadata_.update_interval) {
+      read_timer_(K_READ_TIMEOUT + metadata_.update_interval) {
 }
 
 void Ds18b20Extension::startup() {

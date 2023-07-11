@@ -40,7 +40,7 @@ std::string GiraffeException::info() const throw() {
 const char *GiraffeException::what() const throw() {
   static const std::string what =
       hexString(static_cast<uint16_t>(diagnostic_id_), 4) + ":" +
-      diagnosticIdStringMap.at(diagnostic_id_) + (info_.empty() ? "" : " - ") +
-      info_;
+      K_DIAGNOSTIC_ID_STRING_MAP.at(diagnostic_id_) +
+      (info_.empty() ? "" : " - ") + info_;
   return what.c_str();
 }

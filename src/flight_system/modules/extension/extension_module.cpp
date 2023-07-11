@@ -64,7 +64,7 @@ void ExtensionModule::loop() {
     stateMachine(ext);
 
     auto status = ext.extension->getStatus();
-    if (static_cast<uint16_t>(status) & node::kNodeActiveStatuses) {
+    if (static_cast<uint16_t>(status) & node::K_ACTIVE_STATUSES) {
       stats_.num_active++;
     } else {
       stats_.num_inactive++;
@@ -81,7 +81,7 @@ void ExtensionModule::shutdown() {
   for (auto &ext : extensions_) {
     std::cout << indent << "stopping extension: " << ext.metadata.name;
     if (static_cast<uint16_t>(ext.extension->getStatus()) &
-        node::kNodeActiveStatuses) {
+        node::K_ACTIVE_STATUSES) {
       ext.extension->stop();
       std::cout << " done" << std::endl;
     } else {

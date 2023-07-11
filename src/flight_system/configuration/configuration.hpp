@@ -31,13 +31,12 @@
 #include <mutex>
 #include <unordered_map>
 #include <vector>
-#include <nlohmann/json.hpp>
+#include "json.hpp"
 #include "configuration_enums.hpp"
 #include "shared_data.hpp"
 #include "sections/cfg_section.hpp"
 #include "sections/cfg_extensions.hpp"
 
-using json = nlohmann::ordered_json;
 
 namespace cfg {
 class General : public cfg::CfgSection {
@@ -54,8 +53,8 @@ public:
   void setStartingProcedure(cfg::gEnum::ProcedureType);
   void setModuleStatusUpdateRate(int);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   std::string project_name_ = "Giraffe Flight 1";
@@ -92,8 +91,8 @@ public:
   void setArchiveMethod(cfg::gEnum::ArchiveMethod);
   void setDataLogFileContents(std::string);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   bool log_data_to_file_ = true;
@@ -133,8 +132,8 @@ public:
   void setRetentionPolicy(cfg::gEnum::InfluxdbRetentionPolicy);
   void setContents(std::string);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   bool influx_enabled_ = false;
@@ -168,8 +167,8 @@ public:
   void setErrorLogStrategy(cfg::gEnum::ErrorLogStrategy);
   void setErrorFrameLogInterval(int);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   bool log_to_file_ = true;
@@ -191,8 +190,8 @@ public:
   void setEnabled(bool);
   void setUpdateInterval(int);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   bool enabled_ = true;
@@ -209,8 +208,8 @@ public:
   void setEnabled(bool);
   void setTcpSocketPort(int);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   bool enabled_ = true;
@@ -227,8 +226,8 @@ public:
   void setEnabled(bool);
   void setSystemInfoPollRateMs(int);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   bool enabled_ = true;
@@ -245,8 +244,8 @@ public:
   void setTelemetryEnabled(bool);
   void setCallSign(std::string);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   bool telemetry_enabled_ = false;
@@ -277,8 +276,8 @@ public:
   void setSymbol(std::string);
   void setComment(std::string);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   bool telemetry_packets_ = false;
@@ -306,8 +305,8 @@ public:
   void setMode(cfg::gEnum::SstvMode);
   void setOverlayData(bool);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   bool enabled_ = false;
@@ -332,8 +331,8 @@ public:
   void setMorseCallSign(bool);
   void setComment(std::string);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   bool enabled_ = false;
@@ -359,8 +358,8 @@ public:
   void setStartTimeout(int);
   void setMaxStartupAttempts(int);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   int status_polling_rate_ = 1000;
@@ -378,8 +377,8 @@ public:
 
   void setI2CBus(cfg::gEnum::I2CBus);
 
-  void setFromJson(const json&);
-  json getJson() const;
+  void setFromJson(const Json&);
+  Json getJson() const;
 
 private:
   cfg::gEnum::I2CBus i2c_bus_ = cfg::gEnum::I2CBus::I2C_1;
@@ -405,7 +404,7 @@ class Configuration {
     hardware_interface(streams),
     streams_(streams){}
     
-    void getAllJson(json &all_data) const;
+    void getAllJson(Json &all_data) const;
     
     void save(std::string file_path = "");
     void load(std::string file_path = "");

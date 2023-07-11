@@ -26,7 +26,7 @@ namespace bst = BoosterSeat::time;
 using namespace data_middleware;
 
 std::string DataFormatter::fullFrame() {
-  json frame;
+  Json frame;
   setupFrameStructure(frame, "data");
   addComponent(DataFrameComponent::MODULES_STATUSES, frame);
   addComponent(DataFrameComponent::STREAM_STATS, frame);
@@ -38,7 +38,7 @@ std::string DataFormatter::fullFrame() {
 
 std::string
 DataFormatter::partialFrame(std::vector<DataFrameComponent> components) {
-  json frame;
+  Json frame;
   setupFrameStructure(frame, "data");
 
   for (auto component : components) {
@@ -48,14 +48,14 @@ DataFormatter::partialFrame(std::vector<DataFrameComponent> components) {
   return frame.dump();
 }
 
-void DataFormatter::setupFrameStructure(json &frame,
+void DataFormatter::setupFrameStructure(Json &frame,
                                         const std::string &body_field) {
   frame["timestamp"] = generateTimestamp();
   frame["uptime"] = shared_data_.misc.getUptimeString();
-  frame[body_field] = json::object();
+  frame[body_field] = Json::object();
 }
 
-void DataFormatter::addComponent(DataFrameComponent component, json &frame) {
+void DataFormatter::addComponent(DataFrameComponent component, Json &frame) {
   switch (component) {
   case DataFrameComponent::MODULES_STATUSES:
     frame["data"]["modules_statuses"] =
@@ -75,11 +75,11 @@ void DataFormatter::addComponent(DataFrameComponent component, json &frame) {
     break;
   case DataFrameComponent::ENVIRONMENTAL_DATA:
     frame["environmental"]["temperature"] =
-        data::to_json(shared_data_.frames.env_temp);
+        data::toJson(shared_data_.frames.env_temp);
     frame["environmental"]["pressure"] =
-        data::to_json(shared_data_.frames.env_pres);
+        data::toJson(shared_data_.frames.env_pres);
     frame["environmental"]["humidity"] =
-        data::to_json(shared_data_.frames.env_hum);
+        data::toJson(shared_data_.frames.env_hum);
     break;
   }
 }
@@ -95,7 +95,7 @@ DataFormatter::dataPacketToJsonString(const data::DataPacket &packet) const {
     // Extensions all have the same source, so use the secondary.
     source = "ext." + packet.secondary_identifier;
   } else {
-    source = node::identification_to_string.at(packet.source);
+    source = node::K_IDENTIFICATION_TO_STRING_MAP.at(packet.source);
   }
 
   id = BoosterSeat::string::intToHex(static_cast<uint16_t>(packet.identifier),
@@ -108,12 +108,12 @@ DataFormatter::dataPacketToJsonString(const data::DataPacket &packet) const {
                                             ':', packet.created_time);
 
   // Format into json
-  json data_packet = {
+  Json data_packet = {
       {"src", source}, {"id", id}, {"ts", timestamp}, {"val", value}};
   return data_packet.dump();
 }
 
-json DataFormatter::fullFrameLogPacketToJson(
+Json DataFormatter::fullFrameLogPacketToJson(
     const data::ErrorFrameItem &item) const {
 
   std::string id = BoosterSeat::string::intToHex(
@@ -125,7 +125,7 @@ json DataFormatter::fullFrameLogPacketToJson(
   int count = item.occurrences;
 
   // clang-format off
-  json output = {
+  Json output = {
     {"id", id},
     {"first", first},
     {"last", last},
@@ -137,10 +137,10 @@ json DataFormatter::fullFrameLogPacketToJson(
 }
 
 std::string DataFormatter::fullErrorFrame() {
-  json full_frame = {
+  Json full_frame = {
       {"timestamp", generateTimestamp()},
       {"uptime", shared_data_.misc.getUptimeString()},
-      {"errors", json::array()},
+      {"errors", Json::array()},
   };
 
   auto error_frame = shared_data_.frames.error_frame.getFullFrame();
@@ -163,7 +163,7 @@ DataFormatter::logPacketToJsonString(const data::LogPacket &packet) const {
     // Extensions all have the same source, so use the secondary.
     source = "ext." + packet.secondary_identifier;
   } else {
-    source = node::identification_to_string.at(packet.source);
+    source = node::K_IDENTIFICATION_TO_STRING_MAP.at(packet.source);
   }
 
   id = BoosterSeat::string::intToHex(static_cast<uint16_t>(packet.id), 4, false,
@@ -179,7 +179,7 @@ DataFormatter::logPacketToJsonString(const data::LogPacket &packet) const {
 
   // Format into json
   // clang-format off
-  json data_packet = {
+  Json data_packet = {
     {"lvl", level},
     {"src", source},
     {"id", id},

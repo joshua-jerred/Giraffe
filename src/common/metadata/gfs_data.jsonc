@@ -4,7 +4,7 @@
         "namespace": "data",
         "enum_name": "DataId",
         "enum_type": "uint16_t",
-        "generate_string_map": "dataIdStringMap"
+        "generate_string_map": "K_DATA_ID_TO_STRING_MAP"
     },
     "generic": {
         "unknown": {

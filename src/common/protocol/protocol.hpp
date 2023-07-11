@@ -70,13 +70,13 @@ struct Message {
    * @brief Get the message as a JSON object.
    * @return json - The message as a JSON object.
    */
-  json getJson();
+  Json getJson();
 
   /**
    * @brief Get the message body as a JSON object.
-   * @return json
+   * @return Json
    */
-  json getBodyJson();
+  Json getBodyJson();
 
   // Required Fields
   protocol::Endpoint src = protocol::Endpoint::UNKNOWN;
@@ -86,7 +86,7 @@ struct Message {
 
   // Type Specific Fields
   std::string rsc = "";      // Resource identification, for REQ and SET
-  json dat = json::object(); // Data, for SET and RSP
+  Json dat = Json::object(); // Data, for SET and RSP
   protocol::ResponseCode cde =
       protocol::ResponseCode::UNKNOWN; // Response Code, for RSP
 };
@@ -123,7 +123,7 @@ void createRequestMessage(Message &message, protocol::Endpoint src,
  * @return false - If the message is not valid.
  */
 void createSetMessage(Message &message, protocol::Endpoint src,
-                      protocol::Endpoint dst, Resource rsc, json dat);
+                      protocol::Endpoint dst, Resource rsc, Json dat);
 
 /**
  * @brief Create a Response Message.
@@ -138,7 +138,7 @@ void createSetMessage(Message &message, protocol::Endpoint src,
  */
 void createResponseMessage(Message &message, protocol::Endpoint src,
                            protocol::Endpoint dst, MessageId id,
-                           protocol::ResponseCode rsp, json dat);
+                           protocol::ResponseCode rsp, Json dat);
 
 } // namespace protocol
 

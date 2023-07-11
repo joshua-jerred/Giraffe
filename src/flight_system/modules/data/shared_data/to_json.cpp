@@ -1,9 +1,9 @@
 #include "shared_data.hpp"
 
-json data::to_json(data::Frame<std::string, data::DataPacket> &frame) {
-  json j;
+Json data::toJson(data::Frame<std::string, data::DataPacket> &frame) {
+  Json json_data;
   for (auto &item : frame.getAll()) {
-    j[item.first] = item.second.value;
+    json_data[item.first] = item.second.value;
   }
-  return j;
+  return json_data;
 }

@@ -8,7 +8,6 @@
 #include "json.hpp"
 #include "streams.hpp"
 
-using json = nlohmann::ordered_json;
 namespace validation {
 
 // template <typename T>
@@ -57,7 +56,7 @@ inline bool validate(const float input, const float min, const float max) {
 }
 
 template <typename T>
-void setValidValue(data::LogStream &log, const json &json_data,
+void setValidValue(data::LogStream &log, const Json &json_data,
                    const std::string &section, const std::string &key,
                    T &value_to_set, float min, float max, std::string pattern) {
   // error source
@@ -113,7 +112,7 @@ void setValidValue(data::LogStream &log, const json &json_data,
 }
 
 template <typename T>
-void setValidEnum(data::LogStream &log, const json &json_data,
+void setValidEnum(data::LogStream &log, const Json &json_data,
                   const std::string &section, const std::string &key,
                   T &value_to_set,
                   const std::unordered_map<std::string, T> string_to_value) {

@@ -22,7 +22,7 @@
 
 inline constexpr uint8_t kSamM8qI2cAddress = 0x42;
 inline constexpr uint32_t kResetWaitTimerLength = 1000;
-inline constexpr uint32_t kReadTimeout = 5000;
+inline constexpr uint32_t K_READ_TIMEOUT = 5000;
 
 namespace extension {
 
@@ -30,8 +30,8 @@ SamM8qExtension::SamM8qExtension(ExtensionResources &resources,
                                  cfg::ExtensionMetadata metadata)
     : Extension(resources, metadata),
       i2c_(resources.i2c_bus, kSamM8qI2cAddress, resources.i2c_bus_lock),
-      primary_watchdog_timer_((kReadTimeout + metadata.update_interval) * 4),
-      read_watchdog_timer_(kReadTimeout + metadata.update_interval),
+      primary_watchdog_timer_((K_READ_TIMEOUT + metadata.update_interval) * 4),
+      read_watchdog_timer_(K_READ_TIMEOUT + metadata.update_interval),
       reset_wait_timer_(kResetWaitTimerLength) {
 }
 

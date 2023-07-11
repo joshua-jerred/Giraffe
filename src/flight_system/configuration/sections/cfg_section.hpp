@@ -46,8 +46,9 @@ protected:
    * @param id The id of the log.
    * @param info The information to log.
    */
-  void error(DiagnosticId id, const std::string &info = "") {
-    streams_.log.error(node::Identification::CONFIGURATION, id, info);
+  void error(DiagnosticId diagnostic_id, const std::string &info = "") {
+    streams_.log.error(node::Identification::CONFIGURATION, diagnostic_id,
+                       info);
   }
 };
 
