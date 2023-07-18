@@ -1,0 +1,64 @@
+@startuml
+
+title Extension Module Actions
+
+' This diagram shows how the extension
+' module will handle extension 'actions'
+
+left to right direction
+
+note as n1
+  <b>Constants</b>
+  restart_interval: duration
+end note
+
+note as n2
+  <b>Persistant Extension Data</b>
+  enabled: bool
+  state: enum
+  last_start: timepoint
+  start_attempts: unsigned int
+end note
+
+state stopped
+stopped: The default initial state of each extension
+
+state starting
+starting: Attempting to start the extension
+
+state running
+running: Keep the extension running
+
+state stopping
+stopping: Attempting to stop the extension
+
+state fault
+fault : report fault and attempt to stop the extension
+
+state disabled
+disabled: Extension is disabled
+
+[*] --> stopped
+stopped --> starting
+note on link
+  If the extension is enabled, and the 'last_start' timepoint
+  is older than the 'restart_interval' then the extension
+  will be started.
+end note
+stopped --> disabled : enabled == false
+
+disabled --> stopped : external command to enable received
+
+starting --> running : extension started
+starting --> fault : extension faulted or failed to start
+
+running --> stopping : on shutdown
+running --> stopping : external command to restart/disable requested
+
+fault --> stopped : after extension stopped
+
+running --> fault : extension faulted
+
+
+
+@enduml
