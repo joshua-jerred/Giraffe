@@ -5,27 +5,15 @@ on:
     branches: [ main ]
 
 jobs:
-  setup-pull:
-    name: Pull and Sync Submodules
-    runs-on: self-hosted
+  common_tests_cpp:
+    name: Unit Tests / Common C++
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout/@v3
         with:
           submodules: recursive
-
-  cmake_configure:
-    name: CMake Configure
-    needs: ["setup-pull"]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Configure
+      - name: CMake Configure
         run: mkdir build && cd build && cmake ..
-
-  common_tests_cpp:
-    name: Unit Tests / Common C++
-    needs: ["cmake_configure"]
-    runs-on: ubuntu-latest
-    steps:
       - name: Build Test
         run: cd build && make unit_test_common
       - name: Run Test
