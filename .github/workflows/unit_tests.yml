@@ -23,11 +23,17 @@ jobs:
 
   gfs_tests:
     name: Unit Tests / Giraffe Flight System
-    needs: ["common_tests_cpp"]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout/@v3
+        with:
+          submodules: recursive
+      - name : Install Pre-Reqs
+        run: sudo apt install -y nlohmann-json3-dev libgtest-dev
+      - name: CMake Configure 
+        run: mkdir build && cd build && cmake ..
       - name: Build Test
-        run: cd build && make unit_test_gfs
+        run: cd build && make unit_test_common
       - name: Run Test
         run: cd build/bin/tests/flight_system && ./unit_test_gfs
 
