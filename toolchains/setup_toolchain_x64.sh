@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Run from the root of the project
+
 SSH_HOST="balloon"
 DOWNLOAD_LINK=https://cytranet.dl.sourceforge.net/project/raspberry-pi-cross-compilers/Bonus%20Raspberry%20Pi%20GCC%2064-Bit%20Toolchains/Raspberry%20Pi%20GCC%2064-Bit%20Cross-Compiler%20Toolchains/Bullseye/GCC%2010.3.0/cross-gcc-10.3.0-pi_64.tar.gz
 INSTALL_DIR="${HOME}/toolchain"
