@@ -33,15 +33,21 @@ jobs:
       - name: CMake Configure 
         run: mkdir build && cd build && cmake ..
       - name: Build Test
-        run: cd build && make unit_test_common
+        run: cd build && make unit_test_gfs
       - name: Run Test
         run: cd build/bin/tests/flight_system && ./unit_test_gfs
 
   data_link_tests:
     name: Unit Tests / Data Link
-    needs: ["common_tests_cpp"]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout/@v3
+        with:
+          submodules: recursive
+      - name : Install Pre-Reqs
+        run: sudo apt install -y nlohmann-json3-dev libgtest-dev
+      - name: CMake Configure 
+        run: mkdir build && cd build && cmake ..
       - name: Build Test
         run: cd build && make unit_test_gdl
       - name: Run Test
