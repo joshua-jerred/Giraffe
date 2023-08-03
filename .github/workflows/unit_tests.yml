@@ -16,7 +16,7 @@ jobs:
   cmake_configure:
     name: CMake Configure
     needs: ["setup-pull"]
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Configure
         run: mkdir build && cd build && cmake ..
@@ -24,7 +24,7 @@ jobs:
   common_tests_cpp:
     name: Unit Tests / Common C++
     needs: ["cmake_configure"]
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Build Test
         run: cd build && make unit_test_common
@@ -34,7 +34,7 @@ jobs:
   gfs_tests:
     name: Unit Tests / Giraffe Flight System
     needs: ["common_tests_cpp"]
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Build Test
         run: cd build && make unit_test_gfs
@@ -44,7 +44,7 @@ jobs:
   data_link_tests:
     name: Unit Tests / Data Link
     needs: ["common_tests_cpp"]
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Build Test
         run: cd build && make unit_test_gdl
