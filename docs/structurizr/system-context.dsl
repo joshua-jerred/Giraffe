@@ -14,7 +14,7 @@ workspace {
     }
 
     views {
-                systemcontext giraffeSystem "SystemContext" {
+        systemcontext giraffeSystem "SystemContext" {
             include *
             animation {
                 giraffeSystem

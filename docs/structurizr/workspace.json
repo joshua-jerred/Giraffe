@@ -1,0 +1,633 @@
+{
+  "id" : 1,
+  "name" : "Giraffe - A High Altitude Balloon Command and Control System",
+  "description" : "Software architecture of Giraffe.",
+  "lastModifiedDate" : "2023-10-13T23:14:53Z",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlIGV4dGVuZHMgLi9jb250YWluZXIuZHNsIHsKICAgICFpZGVudGlmaWVycyBoaWVyYXJjaGljYWwKCiAgICBuYW1lICJHaXJhZmZlIC0gQSBIaWdoIEFsdGl0dWRlIEJhbGxvb24gQ29tbWFuZCBhbmQgQ29udHJvbCBTeXN0ZW0iCiAgICBkZXNjcmlwdGlvbiAiU29mdHdhcmUgYXJjaGl0ZWN0dXJlIG9mIEdpcmFmZmUuIgoKICAgIG1vZGVsIHsKICAgICAgICAhcmVmIGdpcmFmZmVGbGlnaHRTb2Z0d2FyZSB7CiAgICAgICAgICAgIGZsaWdodFJ1bm5lciA9IGNvbXBvbmVudCAiRmxpZ2h0IFJ1bm5lciIKICAgICAgICAgICAgY29uZmlndXJhdGlvbiA9IGNvbXBvbmVudCAiQ29uZmlndXJhdGlvbiIKICAgIAogICAgICAgICAgICBncm91cCAiRGF0YSBNb2R1bGUiIHsKICAgICAgICAgICAgICAgIGRhdGFNb2R1bGVSdW5uZXJUaHJlYWQgPSBjb21wb25lbnQgIkRhdGEgTW9kdWxlIC0gUnVubmVyIFRocmVhZCIKICAgICAgICAgICAgICAgIGRhdGFTdHJlYW1zID0gY29tcG9uZW50ICJEYXRhIFN0cmVhbXMiCiAgICAgICAgICAgICAgICBkYXRhRnJhbWVzID0gY29tcG9uZW50ICJEYXRhIEZyYW1lcyIKICAgICAgICAgICAgICAgIGRhdGFCbG9ja3MgPSBjb21wb25lbnQgIkRhdGEgQmxvY2tzIgogICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgZ3JvdXAgIlNlcnZlciBNb2R1bGUiIHsKICAgICAgICAgICAgICAgIHNlcnZlck1vZHVsZVJ1bm5lclRocmVhZCA9IGNvbXBvbmVudCAiU2VydmVyIE1vZHVsZSAtIFJ1bm5lciBUaHJlYWQiCiAgICAgICAgICAgICAgICB0Y3BTb2NrZXQgPSBjb21wb25lbnQgIlRDUCBTb2NrZXQiCiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICBncm91cCAiRXh0ZW5zaW9uIE1vZHVsZSIgewogICAgICAgICAgICAgICAgZXh0ZW5zaW9uTW9kdWxlUnVubmVyVGhyZWFkID0gY29tcG9uZW50ICJFeHRlbnNpb24gTW9kdWxlIC0gUnVubmVyIFRocmVhZCIKICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgIGZsaWdodFJ1bm5lciAtPiBjb25maWd1cmF0aW9uICJMb2FkcyB0aGUgY29uZmlndXJhdGlvbiBmaWxlIGF0IHN0YXJ0dXAuIgogICAgICAgICAgICBmbGlnaHRSdW5uZXIgLT4gZGF0YU1vZHVsZVJ1bm5lclRocmVhZCAiU3RhcnRzIHRoZSBkYXRhIG1vZHVsZS4iCiAgICAgICAgICAgIGZsaWdodFJ1bm5lciAtPiBzZXJ2ZXJNb2R1bGVSdW5uZXJUaHJlYWQgIlN0YXJ0cyB0aGUgc2VydmVyIG1vZHVsZS4iCiAgICAgICAgfQogICAgfQogICAgCiAgICB2aWV3cyB7CiAgICAKICAgICAgICBjb21wb25lbnQgZ2lyYWZmZUZsaWdodFNvZnR3YXJlICJDb21wb25lbnRzIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhbmltYXRpb24gewogICAgCiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICBkZXNjcmlwdGlvbiAiVGhlIGNvbXBvbmVudCBkaWFncmFtIGZvciB0aGUgZmxpZ2h0IHNvZnR3YXJlLiIKICAgICAgICB9CiAgICB9Cn0K"
+  },
+  "configuration" : { },
+  "model" : {
+    "people" : [ {
+      "id" : "1",
+      "tags" : "Element,Person,User",
+      "properties" : {
+        "structurizr.dsl.identifier" : "user"
+      },
+      "name" : "Giraffe User",
+      "description" : "A user of the hardware and software suite, controlling the flight.",
+      "relationships" : [ {
+        "id" : "4",
+        "tags" : "Relationship",
+        "properties" : {
+          "structurizr.dsl.identifier" : "7df4f1b8-af9c-4bde-ba89-0555015cad5d"
+        },
+        "sourceId" : "1",
+        "destinationId" : "3",
+        "description" : "TODO"
+      }, {
+        "id" : "5",
+        "tags" : "Relationship",
+        "properties" : {
+          "structurizr.dsl.identifier" : "a93861ea-2eed-41dc-8b8f-02180521e6b8"
+        },
+        "sourceId" : "1",
+        "destinationId" : "2",
+        "description" : "Views position reports using aprs.fi"
+      }, {
+        "id" : "15",
+        "tags" : "Relationship",
+        "properties" : {
+          "structurizr.dsl.identifier" : "c1644fb0-ca4e-4419-842e-4f8fb8d37337"
+        },
+        "sourceId" : "1",
+        "destinationId" : "8",
+        "description" : "TODO"
+      } ],
+      "location" : "Unspecified"
+    } ],
+    "softwareSystems" : [ {
+      "id" : "2",
+      "tags" : "Element,Software System,Existing System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "aprsnetwork"
+      },
+      "name" : "APRS Network",
+      "group" : "Giraffe",
+      "location" : "Unspecified",
+      "documentation" : { }
+    }, {
+      "id" : "3",
+      "tags" : "Element,Software System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "giraffesystem"
+      },
+      "name" : "Giraffe",
+      "description" : "Hardware and software suite for hosting and controlling high altitude balloon flights.",
+      "relationships" : [ {
+        "id" : "6",
+        "tags" : "Relationship",
+        "properties" : {
+          "structurizr.dsl.identifier" : "baebb3ff-ad18-44be-bbc0-c548c3fff844"
+        },
+        "sourceId" : "3",
+        "destinationId" : "2",
+        "description" : "Broadcasts APRS position reports"
+      } ],
+      "group" : "Giraffe",
+      "location" : "Unspecified",
+      "containers" : [ {
+        "id" : "11",
+        "tags" : "Element,Container,",
+        "properties" : {
+          "structurizr.dsl.identifier" : "giraffeflightsoftware"
+        },
+        "name" : "Giraffe Flight Software",
+        "relationships" : [ {
+          "id" : "24",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "bee7b5cd-1cf3-456e-8426-2d1b18847e41"
+          },
+          "sourceId" : "11",
+          "destinationId" : "12",
+          "description" : "TODO"
+        }, {
+          "id" : "26",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "5ab23a0c-180d-44f8-ae21-ab521ef0c3e2"
+          },
+          "sourceId" : "11",
+          "destinationId" : "14",
+          "description" : "TODO"
+        } ],
+        "group" : "Giraffe Flight System",
+        "components" : [ {
+          "id" : "33",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "giraffeflightsoftware.servermodulerunnerthread"
+          },
+          "name" : "Server Module - Runner Thread",
+          "group" : "Server Module",
+          "documentation" : { }
+        }, {
+          "id" : "31",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "giraffeflightsoftware.dataframes"
+          },
+          "name" : "Data Frames",
+          "group" : "Data Module",
+          "documentation" : { }
+        }, {
+          "id" : "28",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "giraffeflightsoftware.configuration"
+          },
+          "name" : "Configuration",
+          "documentation" : { }
+        }, {
+          "id" : "32",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "giraffeflightsoftware.datablocks"
+          },
+          "name" : "Data Blocks",
+          "group" : "Data Module",
+          "documentation" : { }
+        }, {
+          "id" : "27",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "giraffeflightsoftware.flightrunner"
+          },
+          "name" : "Flight Runner",
+          "relationships" : [ {
+            "id" : "36",
+            "tags" : "Relationship",
+            "properties" : {
+              "structurizr.dsl.identifier" : "4ac0b65d-d4ab-4100-8bd7-c17ed19722eb"
+            },
+            "sourceId" : "27",
+            "destinationId" : "28",
+            "description" : "Loads the configuration file at startup."
+          }, {
+            "id" : "37",
+            "tags" : "Relationship",
+            "properties" : {
+              "structurizr.dsl.identifier" : "4f015bb2-c294-4787-9f04-08177c9af5b3"
+            },
+            "sourceId" : "27",
+            "destinationId" : "29",
+            "description" : "Starts the data module."
+          }, {
+            "id" : "38",
+            "tags" : "Relationship",
+            "properties" : {
+              "structurizr.dsl.identifier" : "0694f47a-2737-4d96-ae2c-2d3cf3e6e337"
+            },
+            "sourceId" : "27",
+            "destinationId" : "33",
+            "description" : "Starts the server module."
+          } ],
+          "documentation" : { }
+        }, {
+          "id" : "29",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "giraffeflightsoftware.datamodulerunnerthread"
+          },
+          "name" : "Data Module - Runner Thread",
+          "group" : "Data Module",
+          "documentation" : { }
+        }, {
+          "id" : "35",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "giraffeflightsoftware.extensionmodulerunnerthread"
+          },
+          "name" : "Extension Module - Runner Thread",
+          "group" : "Extension Module",
+          "documentation" : { }
+        }, {
+          "id" : "34",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "giraffeflightsoftware.tcpsocket"
+          },
+          "name" : "TCP Socket",
+          "group" : "Server Module",
+          "documentation" : { }
+        }, {
+          "id" : "30",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "giraffeflightsoftware.datastreams"
+          },
+          "name" : "Data Streams",
+          "group" : "Data Module",
+          "documentation" : { }
+        } ],
+        "documentation" : { }
+      }, {
+        "id" : "7",
+        "tags" : "Element,Container,",
+        "properties" : {
+          "structurizr.dsl.identifier" : "giraffegroundstation"
+        },
+        "name" : "Giraffe Ground Station",
+        "description" : "Ground Station for Giraffe",
+        "relationships" : [ {
+          "id" : "17",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "0e9ce67d-9419-41ec-9223-5dac3b045cfc"
+          },
+          "sourceId" : "7",
+          "destinationId" : "9",
+          "description" : "TODO"
+        }, {
+          "id" : "18",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "121d7683-149c-4c78-81d0-c90531abba34"
+          },
+          "sourceId" : "7",
+          "destinationId" : "10",
+          "description" : "TODO"
+        }, {
+          "id" : "22",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "7c4c2fe2-1e62-4faf-a0b7-304946470845"
+          },
+          "sourceId" : "7",
+          "destinationId" : "11",
+          "description" : "TCP Socket"
+        } ],
+        "group" : "Giraffe Ground Station",
+        "documentation" : { }
+      }, {
+        "id" : "9",
+        "tags" : "Element,Container,",
+        "properties" : {
+          "structurizr.dsl.identifier" : "giraffedatalinkground"
+        },
+        "name" : "Giraffe Data Link (GGS)",
+        "relationships" : [ {
+          "id" : "19",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "bac91497-f846-4e67-8624-ceec5f4094bc"
+          },
+          "sourceId" : "9",
+          "destinationId" : "10",
+          "description" : "TODO"
+        }, {
+          "id" : "21",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "68cdad76-2a48-4dbe-9301-d5587b1afdbd"
+          },
+          "sourceId" : "9",
+          "destinationId" : "12",
+          "description" : "TODO"
+        } ],
+        "group" : "Giraffe Ground Station",
+        "documentation" : { }
+      }, {
+        "id" : "8",
+        "tags" : "Element,Container,Web Browser",
+        "properties" : {
+          "structurizr.dsl.identifier" : "giraffewebclient"
+        },
+        "name" : "Giraffe Web Client",
+        "description" : "React Based Web Client",
+        "relationships" : [ {
+          "id" : "16",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "128dde83-22b7-4753-bdbd-b7383b30dc11"
+          },
+          "sourceId" : "8",
+          "destinationId" : "7",
+          "description" : "TODO"
+        } ],
+        "group" : "Giraffe Ground Station",
+        "technology" : "JS/React",
+        "documentation" : { }
+      }, {
+        "id" : "13",
+        "tags" : "Element,Container,",
+        "properties" : {
+          "structurizr.dsl.identifier" : "giraffeflightwatchdog"
+        },
+        "name" : "Giraffe Flight Watchdog",
+        "relationships" : [ {
+          "id" : "25",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "c39df0ee-2ff6-4c05-9cfb-9cdac619b046"
+          },
+          "sourceId" : "13",
+          "destinationId" : "11",
+          "description" : "TODO"
+        } ],
+        "group" : "Giraffe Flight System",
+        "documentation" : { }
+      }, {
+        "id" : "10",
+        "tags" : "Element,Container,Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "influxground"
+        },
+        "name" : "InfluxDB - Ground",
+        "group" : "Giraffe Ground Station",
+        "documentation" : { }
+      }, {
+        "id" : "12",
+        "tags" : "Element,Container,",
+        "properties" : {
+          "structurizr.dsl.identifier" : "giraffedatalinkair"
+        },
+        "name" : "Giraffe Data Link (GFS)",
+        "relationships" : [ {
+          "id" : "20",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "40866e78-fec5-4f27-acdb-cdc995a2e101"
+          },
+          "sourceId" : "12",
+          "destinationId" : "9",
+          "description" : "TODO"
+        }, {
+          "id" : "23",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "8623b463-fe4c-43d4-8b07-d6b9ed907a81"
+          },
+          "sourceId" : "12",
+          "destinationId" : "2",
+          "description" : "TODO"
+        } ],
+        "group" : "Giraffe Flight System",
+        "documentation" : { }
+      }, {
+        "id" : "14",
+        "tags" : "Element,Container,Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "influxair"
+        },
+        "name" : "InfluxDB - Flight",
+        "group" : "Giraffe Flight System",
+        "documentation" : { }
+      } ],
+      "documentation" : { }
+    } ]
+  },
+  "documentation" : { },
+  "views" : {
+    "systemContextViews" : [ {
+      "key" : "SystemContext",
+      "order" : 1,
+      "description" : "The system context diagram for Giraffe.",
+      "properties" : {
+        "structurizr.groups" : "false"
+      },
+      "softwareSystemId" : "3",
+      "dimensions" : {
+        "width" : 1580,
+        "height" : 1427
+      },
+      "animations" : [ {
+        "order" : 1,
+        "elements" : [ "3" ]
+      }, {
+        "order" : 2,
+        "elements" : [ "1" ],
+        "relationships" : [ "4" ]
+      }, {
+        "order" : 3,
+        "elements" : [ "2" ],
+        "relationships" : [ "5", "6" ]
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "elements" : [ {
+        "id" : "1",
+        "x" : 224,
+        "y" : 200
+      }, {
+        "id" : "2",
+        "x" : 929,
+        "y" : 250
+      }, {
+        "id" : "3",
+        "x" : 199,
+        "y" : 927
+      } ],
+      "relationships" : [ {
+        "id" : "4"
+      }, {
+        "id" : "5"
+      }, {
+        "id" : "6",
+        "vertices" : [ {
+          "x" : 1149,
+          "y" : 1075
+        } ]
+      } ]
+    } ],
+    "containerViews" : [ {
+      "key" : "Containers",
+      "order" : 2,
+      "description" : "The container diagram for the Internet Banking System.",
+      "softwareSystemId" : "3",
+      "dimensions" : {
+        "width" : 3754,
+        "height" : 2121
+      },
+      "animations" : [ {
+        "order" : 1,
+        "elements" : [ "1" ]
+      }, {
+        "order" : 2,
+        "elements" : [ "8" ],
+        "relationships" : [ "15" ]
+      }, {
+        "order" : 3,
+        "elements" : [ "9" ]
+      }, {
+        "order" : 4,
+        "elements" : [ "2" ],
+        "relationships" : [ "5" ]
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "11",
+        "x" : 3064,
+        "y" : 1456
+      }, {
+        "id" : "1",
+        "x" : 256,
+        "y" : 200
+      }, {
+        "id" : "12",
+        "x" : 2320,
+        "y" : 1456
+      }, {
+        "id" : "13",
+        "x" : 3064,
+        "y" : 856
+      }, {
+        "id" : "2",
+        "x" : 1745,
+        "y" : 245
+      }, {
+        "id" : "14",
+        "x" : 2324,
+        "y" : 856
+      }, {
+        "id" : "7",
+        "x" : 240,
+        "y" : 1455
+      }, {
+        "id" : "8",
+        "x" : 240,
+        "y" : 855
+      }, {
+        "id" : "9",
+        "x" : 1111,
+        "y" : 1455
+      }, {
+        "id" : "10",
+        "x" : 1111,
+        "y" : 855
+      } ],
+      "relationships" : [ {
+        "id" : "21",
+        "vertices" : [ {
+          "x" : 1945,
+          "y" : 1695
+        } ]
+      }, {
+        "id" : "20",
+        "vertices" : [ {
+          "x" : 1935,
+          "y" : 1510
+        } ]
+      }, {
+        "id" : "18"
+      }, {
+        "id" : "17"
+      }, {
+        "id" : "16"
+      }, {
+        "id" : "15"
+      }, {
+        "id" : "26"
+      }, {
+        "id" : "25"
+      }, {
+        "id" : "24"
+      }, {
+        "id" : "5"
+      }, {
+        "id" : "23",
+        "vertices" : [ {
+          "x" : 1970,
+          "y" : 1280
+        } ]
+      }, {
+        "id" : "22",
+        "vertices" : [ {
+          "x" : 695,
+          "y" : 1890
+        }, {
+          "x" : 3145,
+          "y" : 1880
+        } ]
+      }, {
+        "id" : "19"
+      } ]
+    } ],
+    "componentViews" : [ {
+      "key" : "Components",
+      "order" : 3,
+      "description" : "The component diagram for the flight software.",
+      "dimensions" : {
+        "width" : 2985,
+        "height" : 2045
+      },
+      "containerId" : "11",
+      "externalContainerBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "33",
+        "x" : 1285,
+        "y" : 995
+      }, {
+        "id" : "34",
+        "x" : 1280,
+        "y" : 1385
+      }, {
+        "id" : "35",
+        "x" : 1880,
+        "y" : 990
+      }, {
+        "id" : "27",
+        "x" : 1254,
+        "y" : 220
+      }, {
+        "id" : "28",
+        "x" : 265,
+        "y" : 215
+      }, {
+        "id" : "29",
+        "x" : 241,
+        "y" : 1000
+      }, {
+        "id" : "30",
+        "x" : 240,
+        "y" : 1390
+      }, {
+        "id" : "31",
+        "x" : 751,
+        "y" : 1390
+      }, {
+        "id" : "32",
+        "x" : 751,
+        "y" : 1005
+      } ],
+      "relationships" : [ {
+        "id" : "37"
+      }, {
+        "id" : "36"
+      }, {
+        "id" : "38"
+      } ]
+    } ],
+    "configuration" : {
+      "branding" : { },
+      "styles" : {
+        "elements" : [ {
+          "tag" : "Person",
+          "color" : "#ffffff",
+          "fontSize" : 22,
+          "shape" : "Person"
+        }, {
+          "tag" : "User",
+          "background" : "#08427b"
+        }, {
+          "tag" : "Software System",
+          "background" : "#1168bd",
+          "color" : "#ffffff"
+        }, {
+          "tag" : "Existing System",
+          "background" : "#999999",
+          "color" : "#ffffff"
+        }, {
+          "tag" : "Container",
+          "background" : "#438dd5",
+          "color" : "#ffffff"
+        }, {
+          "tag" : "Web Browser",
+          "shape" : "WebBrowser"
+        }, {
+          "tag" : "Database",
+          "shape" : "Cylinder"
+        }, {
+          "tag" : "Component",
+          "background" : "#85bbf0",
+          "color" : "#000000"
+        }, {
+          "tag" : "Failover",
+          "opacity" : 25
+        } ]
+      },
+      "terminology" : { },
+      "lastSavedView" : "Components"
+    }
+  }
+}
