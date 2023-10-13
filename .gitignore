@@ -34,3 +34,4 @@ package-lock.json
 # LaTeX --
 docs/latex/out
 
+docs/structurizr/.structurizr
