@@ -5,25 +5,19 @@ on:
     branches: [ main ]
 
 jobs:
-  setup-pull:
-    name: Pull and Sync Submodules
+  setup:
+    name: Pull w/Submodules & CMake Configure
     runs-on: self-hosted
     steps:
       - uses: actions/checkout/@v3
         with:
           submodules: recursive
-
-  cmake_configure:
-    name: CMake Configure
-    needs: ["setup-pull"]
-    runs-on: self-hosted
-    steps:
       - name: Configure
         run: mkdir build && cd build && cmake ..
 
   common_tests_cpp:
     name: Unit Tests / Common C++
-    needs: ["cmake_configure"]
+    needs: ["setup"]
     runs-on: self-hosted
     steps:
       - name: Build Test
@@ -33,7 +27,7 @@ jobs:
 
   gfs_tests:
     name: Unit Tests / Giraffe Flight System
-    needs: ["common_tests_cpp"]
+    needs: ["setup"]
     runs-on: self-hosted
     steps:
       - name: Build Test
@@ -43,7 +37,7 @@ jobs:
 
   data_link_tests:
     name: Unit Tests / Data Link
-    needs: ["common_tests_cpp"]
+    needs: ["setup"]
     runs-on: self-hosted
     steps:
       - name: Build Test
