@@ -95,7 +95,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Doxygen
-        run: sudo apt-get install doxygen
+        run: sudo apt-get install doxygen graphviz -y
       - name: Create Build Directory
         run: mkdir build && mkdir build/dox
       - name: Build Doxygen
