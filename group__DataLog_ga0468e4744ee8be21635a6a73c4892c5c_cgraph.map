@@ -1,0 +1,4 @@
+<map id="data_middleware::DataLog::createNewDataFile" name="data_middleware::DataLog::createNewDataFile">
+<area shape="rect" id="node1" title="Generates a new file path and attempts to create a new data file." alt="" coords="5,5,203,47"/>
+<area shape="rect" id="node2" href="$data__log_8cpp.html#ab904b162018e2d4127cabd758fb064b1" title="Generates a file path with the current date and time." alt="" coords="251,13,381,39"/>
+</map>

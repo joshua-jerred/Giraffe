@@ -1,0 +1,5 @@
+<map id="i2c_extension_adapter.hpp" name="i2c_extension_adapter.hpp">
+<area shape="rect" id="node1" title="Adapter for I2C Extensions." alt="" coords="5,5,201,32"/>
+<area shape="rect" id="node2" href="$mcp3021_8hpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="48,80,159,107"/>
+<area shape="rect" id="node3" href="$mcp3021_8cpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="49,155,158,181"/>
+</map>

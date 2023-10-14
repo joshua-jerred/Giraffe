@@ -1,0 +1,4 @@
+<map id="data_middleware::DataLog::createNewLogFile" name="data_middleware::DataLog::createNewLogFile">
+<area shape="rect" id="node1" title="Generates a new file path and attempts to create a new log file." alt="" coords="251,5,448,47"/>
+<area shape="rect" id="node2" href="$classdata__middleware_1_1DataLog.html#a957234a0f7b3ce34cc4f3ffffb222f0c" title=" " alt="" coords="5,5,203,47"/>
+</map>

@@ -1,0 +1,58 @@
+var namespaceubx =
+[
+    [ "NavData", "namespaceubx.html#structubx_1_1NavData", "namespaceubx_structubx_1_1NavData_dup" ],
+    [ "UBXMessage", "structubx_1_1UBXMessage.html", "structubx_1_1UBXMessage" ],
+    [ "UBXMessage", "namespaceubx.html#a326ecd141c5e2c7e1ff9ec60519b8a43", null ],
+    [ "ACK", "namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4", [
+      [ "ACK", "namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4a0fc437bc317835cad5faafc12a83fad5", null ],
+      [ "NACK", "namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4aa68c6c77586d4c740ec1b75b65b37946", null ],
+      [ "NONE", "namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4ab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "WRITE_ERROR", "namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4a6ffd8aa558c1ab84ddc0a01e4f14ed0d", null ],
+      [ "READ_ERROR", "namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4a54481c80b10e75ecba9c621f1eee91fe", null ]
+    ] ],
+    [ "DYNAMIC_MODEL", "namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39", [
+      [ "PORTABLE", "namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39a265b3c9234cdcf1d21a1cdc817c24d6b", null ],
+      [ "STATIONARY", "namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39a4120eb7591bd0789af75a8973d5f9146", null ],
+      [ "PEDESTRIAN", "namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39afb97c381a019025eba60f0fbd236197c", null ],
+      [ "AUTOMOTIVE", "namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39ad5b209a2367d0fa577875ade4dbf26a8", null ],
+      [ "SEA", "namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39a9abd3d9b983e99aa1fd94837498b0bea", null ],
+      [ "AIRBORNE_1G", "namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39a8b8e6bc7cc013f12e6976ba186a0dc1e", null ],
+      [ "AIRBORNE_2G", "namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39a2ed54b19daae17a6201b512cfcd58ab5", null ],
+      [ "AIRBORNE_4G", "namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39ab91a23bbd633e16917c4f5a3e2c815c2", null ],
+      [ "ERROR", "namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "FixType", "namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8", [
+      [ "NO_FIX", "namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8aa80630704b93114ed9e817a3f53f59c7", null ],
+      [ "DEAD_RECK", "namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8a59702a99c94cc9d928e9b1a89023a972", null ],
+      [ "FIX_2D", "namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8a8b433e3f63d83e78dfbfe6da3ff61b3e", null ],
+      [ "FIX_3D", "namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8a5eddc8631075de75c679f84846de5d51", null ],
+      [ "COMBINED", "namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8a448285d39c3f159c017938c7c367d0d2", null ],
+      [ "TIME_ONLY", "namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8ad4277ea6f261aab6f786ba008436f7bd", null ],
+      [ "ERROR", "namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "getStreamSize", "namespaceubx.html#a138e86b90eb81df7287b0687e2e647fd", null ],
+    [ "flushStream", "namespaceubx.html#a38953bf12f38edbcb63bc5a878529d4c", null ],
+    [ "readNextUBX", "namespaceubx.html#a269ab03f7fe578994b76b9be220b4fbe", null ],
+    [ "readSpecificMessage", "namespaceubx.html#a3d316505ccc4d2c34426c15c887a369e", null ],
+    [ "writeUBX", "namespaceubx.html#a9c61bbe6a93b89e72b9102bfd1b5fa0e", null ],
+    [ "checkForAck", "namespaceubx.html#a496e6e180876a9a83b2d1751620f6dd5", null ],
+    [ "sendResetCommand", "namespaceubx.html#a906fc03b89d3045be5d60355cf25ac3e", null ],
+    [ "setProtocolDDC", "namespaceubx.html#a6c27feec78affa320dc73abe6c52b8db", null ],
+    [ "setMessageRate", "namespaceubx.html#a0a9dbb84c0d3dfd9234df8e6f7e5ad72", null ],
+    [ "setMeasurementRate", "namespaceubx.html#a56ec4bce3dc8bf99a601036cda46a9b0", null ],
+    [ "setDynamicModel", "namespaceubx.html#a1fb85f5c220b3095792f3e9495c432b9", null ],
+    [ "pollMessage", "namespaceubx.html#a5a8edb14df1ca1f59ff23d5c4b8b1f6e", null ],
+    [ "parsePVT", "namespaceubx.html#aac1881b13eb8b71cece1b9d432cc5bae", null ],
+    [ "operator<<", "namespaceubx.html#a93d5c119d880bcbc11b0aecd4dfb6889", null ],
+    [ "operator<<", "namespaceubx.html#a6bb269ccd255a310d77f993a7499d276", null ],
+    [ "writeUBX", "namespaceubx.html#af47199a721b4a51e96c09fb29e481547", null ],
+    [ "kNavClassId", "namespaceubx.html#af6ed75c23a51f207014f4f642ac1b74a", null ],
+    [ "kInfClassId", "namespaceubx.html#a13e8f9a2d763cb57749c40503354eadc", null ],
+    [ "kAckClassId", "namespaceubx.html#a53de759cde49be882cab83d5eb55b9cf", null ],
+    [ "kCfgClassId", "namespaceubx.html#acd832e2db2f8a510f4a3549a7c4e52ac", null ],
+    [ "kMonClassId", "namespaceubx.html#ab375e51e0e25ebf276bd60d684238bc3", null ],
+    [ "kMgaClassId", "namespaceubx.html#ac96f10dd65dfcf31cbed255aa60001f6", null ],
+    [ "kNavPvt", "namespaceubx.html#aebd0fba183197d54bcbcec6e8a7f92f6", null ],
+    [ "UbxClassToString", "namespaceubx.html#a093512436a3d7775da945026e0d9e7a0", null ],
+    [ "UbxIdToString", "namespaceubx.html#aadb88e5ae8b3a372f543553167ab1c24", null ]
+];

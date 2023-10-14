@@ -1,0 +1,5 @@
+<map id="ubx::getStreamSize" name="ubx::getStreamSize">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,155,32"/>
+<area shape="rect" id="node2" href="$classI2cInterface.html#ad067c20fef20b8338d0e4ec12dc94ec6" title="Read a single byte from the device at the specified register." alt="" coords="203,5,427,32"/>
+<area shape="rect" id="node3" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="475,5,661,32"/>
+</map>

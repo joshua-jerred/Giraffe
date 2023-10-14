@@ -1,0 +1,10 @@
+<map id="data::ImuFramePacket" name="data::ImuFramePacket">
+<area shape="rect" id="node1" title=" " alt="" coords="274,359,441,436"/>
+<area shape="rect" id="node2" href="$structdata_1_1BaseStreamPacket.html" title=" " alt="" coords="179,219,359,296"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,112,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="136,5,195,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="353,5,441,83"/>
+<area shape="rect" id="node6" href="$namespacedata.html#structdata_1_1ImuFrame" title="A frame of IMU data, straight from an IMU extension." alt="" coords="451,219,576,296"/>
+<area shape="rect" id="node7" title=" " alt="" coords="519,5,585,83"/>
+<area shape="rect" id="node8" title=" " alt="" coords="692,5,743,83"/>
+</map>

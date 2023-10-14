@@ -1,0 +1,5 @@
+<map id="I2cInterface::~I2cInterface" name="I2cInterface::~I2cInterface">
+<area shape="rect" id="node1" title="Destroy the I2cInterface instance. Disconnects from the bus if it&#39;s open." alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node2" href="$classI2cInterface.html#a17fea93bddeb70674d088922385bcb14" title="Disconnect from the bus. Reports an error if the bus is not connected." alt="" coords="248,5,425,32"/>
+<area shape="rect" id="node3" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="473,5,660,32"/>
+</map>

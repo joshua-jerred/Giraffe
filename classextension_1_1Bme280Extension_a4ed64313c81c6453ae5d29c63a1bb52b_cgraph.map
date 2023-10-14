@@ -1,0 +1,13 @@
+<map id="extension::Bme280Extension::loop" name="extension::Bme280Extension::loop">
+<area shape="rect" id="node1" title=" " alt="" coords="5,129,217,170"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="563,158,722,199"/>
+<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="563,63,722,105"/>
+<area shape="rect" id="node6" href="$classextension_1_1Bme280Extension.html#a1b641dc5fbd209f4e5395da20d556384" title="Processes the raw environmental data into known units using the compensation data." alt="" coords="265,34,477,75"/>
+<area shape="rect" id="node7" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="292,99,451,141"/>
+<area shape="rect" id="node8" href="$classextension_1_1Bme280Extension.html#a421a720a012ceebd0b80d5f04377e444" title="Reads and stores the compensation data from the BME280." alt="" coords="265,282,477,323"/>
+<area shape="rect" id="node11" href="$classextension_1_1Bme280Extension.html#a11e779a4c15360a0fa490174647c6b94" title="Reads the raw environmental data from the BME280." alt="" coords="265,217,477,258"/>
+<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="811,108,991,135"/>
+<area shape="rect" id="node4" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="847,165,955,192"/>
+<area shape="rect" id="node9" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="525,256,760,283"/>
+<area shape="rect" id="node10" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="808,256,995,283"/>
+</map>

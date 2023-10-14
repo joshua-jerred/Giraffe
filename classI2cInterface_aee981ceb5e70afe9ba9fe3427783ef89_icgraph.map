@@ -1,0 +1,6 @@
+<map id="I2cInterface::writeByteToReg" name="I2cInterface::writeByteToReg">
+<area shape="rect" id="node1" title="Write a single byte to the device at the specified register." alt="" coords="525,46,735,73"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bme280Extension.html#ae9ee268a19ab036aa3fe40fe20f878af" title="Configures the BME280. (Weather Monitoring config, Section 3.5.1)" alt="" coords="265,5,477,47"/>
+<area shape="rect" id="node4" href="$classextension_1_1Bme280Extension.html#a47f9394ed25123b3ae4e9d2087640a64" title="Send the reset command to the sensor." alt="" coords="265,71,477,112"/>
+<area shape="rect" id="node3" href="$classextension_1_1Bme280Extension.html#a8ddf780160059241fa4069d2426145c6" title=" " alt="" coords="5,5,217,47"/>
+</map>

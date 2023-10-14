@@ -1,0 +1,4 @@
+<map id="data::ErrorFrame::clearError" name="data::ErrorFrame::clearError">
+<area shape="rect" id="node1" title="Clear an individual error from the frame by id." alt="" coords="5,5,208,32"/>
+<area shape="rect" id="node2" href="$classdata_1_1Frame.html#abdaffe5fb32e167e5b758b874b4c7c19" title="Removes an item from the frame." alt="" coords="256,5,415,32"/>
+</map>

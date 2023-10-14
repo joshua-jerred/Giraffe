@@ -1,0 +1,4 @@
+<map id="extension::Bme280Extension::handshake" name="extension::Bme280Extension::handshake">
+<area shape="rect" id="node1" title="Reads the &#39;ID&#39; register on the BME280, which should return 0x60." alt="" coords="265,5,477,47"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bme280Extension.html#a8ddf780160059241fa4069d2426145c6" title=" " alt="" coords="5,5,217,47"/>
+</map>

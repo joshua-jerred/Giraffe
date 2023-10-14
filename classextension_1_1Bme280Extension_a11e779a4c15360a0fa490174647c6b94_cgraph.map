@@ -1,0 +1,8 @@
+<map id="extension::Bme280Extension::readEnvironmentalData" name="extension::Bme280Extension::readEnvironmentalData">
+<area shape="rect" id="node1" title="Reads the raw environmental data from the BME280." alt="" coords="5,74,217,115"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="303,45,462,86"/>
+<area shape="rect" id="node5" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="265,111,500,137"/>
+<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="551,5,731,32"/>
+<area shape="rect" id="node4" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="587,56,695,83"/>
+<area shape="rect" id="node6" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="548,111,735,137"/>
+</map>

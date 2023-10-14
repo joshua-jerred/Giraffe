@@ -1,0 +1,12 @@
+<map id="extension::Extension::raiseFault" name="extension::Extension::raiseFault">
+<area shape="rect" id="node1" title="Used internally to raise a fault. This will stop an extension." alt="" coords="533,235,692,276"/>
+<area shape="rect" id="node2" href="$classextension_1_1Mcp3021Extension.html#a0b4a922296eee439c978eeab5022a869" title=" " alt="" coords="268,5,485,47"/>
+<area shape="rect" id="node3" href="$classextension_1_1AdcExtensionBase.html#ab11b609d90a14f558df951d28bc42d85" title=" " alt="" coords="269,71,484,112"/>
+<area shape="rect" id="node4" href="$classextension_1_1Bme280Extension.html#a4ed64313c81c6453ae5d29c63a1bb52b" title=" " alt="" coords="271,136,483,177"/>
+<area shape="rect" id="node5" href="$classextension_1_1Ds18b20Extension.html#ad4dfdbd9d9cd1b114437c1c31d36088a" title=" " alt="" coords="269,201,484,243"/>
+<area shape="rect" id="node6" href="$classextension_1_1Bme280Extension.html#a8ddf780160059241fa4069d2426145c6" title=" " alt="" coords="271,267,483,308"/>
+<area shape="rect" id="node7" href="$classextension_1_1Ds18b20Extension.html#a07f16533bc914dd5f3172b22680bdf8e" title=" " alt="" coords="269,332,484,373"/>
+<area shape="rect" id="node8" href="$classextension_1_1SamM8qExtension.html#a38b81447c461ed78fbbf433779c2040e" title="Startup the extension." alt="" coords="269,397,484,439"/>
+<area shape="rect" id="node9" href="$group__SAMM8QState.html#ga3bb302bf898dc03f6a83bf9c87ef028c" title=" " alt="" coords="269,463,484,504"/>
+<area shape="rect" id="node10" href="$classextension_1_1SamM8qExtension.html#abd1b7a24f87efe0353c00f6caf9c7945" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,463,220,504"/>
+</map>

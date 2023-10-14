@@ -1,0 +1,35 @@
+var namespacedata =
+[
+    [ "blocks", "namespacedata_1_1blocks.html", "namespacedata_1_1blocks" ],
+    [ "BaseStreamPacket", "structdata_1_1BaseStreamPacket.html", "structdata_1_1BaseStreamPacket" ],
+    [ "DataPacket", "structdata_1_1DataPacket.html", "structdata_1_1DataPacket" ],
+    [ "DataStream", "classdata_1_1DataStream.html", "classdata_1_1DataStream" ],
+    [ "ErrorFrame", "classdata_1_1ErrorFrame.html", "classdata_1_1ErrorFrame" ],
+    [ "ErrorFrameItem", "namespacedata.html#structdata_1_1ErrorFrameItem", "namespacedata_structdata_1_1ErrorFrameItem_dup" ],
+    [ "Frame", "classdata_1_1Frame.html", "classdata_1_1Frame" ],
+    [ "Frames", "namespacedata.html#structdata_1_1Frames", "namespacedata_structdata_1_1Frames_dup" ],
+    [ "GpsFrame", "namespacedata.html#structdata_1_1GpsFrame", "namespacedata_structdata_1_1GpsFrame_dup" ],
+    [ "GpsFramePacket", "structdata_1_1GpsFramePacket.html", "structdata_1_1GpsFramePacket" ],
+    [ "GpsFrameStream", "classdata_1_1GpsFrameStream.html", "classdata_1_1GpsFrameStream" ],
+    [ "ImuFrame", "namespacedata.html#structdata_1_1ImuFrame", "namespacedata_structdata_1_1ImuFrame_dup" ],
+    [ "ImuFramePacket", "structdata_1_1ImuFramePacket.html", "structdata_1_1ImuFramePacket" ],
+    [ "ImuFrameStream", "classdata_1_1ImuFrameStream.html", "classdata_1_1ImuFrameStream" ],
+    [ "LogPacket", "structdata_1_1LogPacket.html", "structdata_1_1LogPacket" ],
+    [ "LogStream", "classdata_1_1LogStream.html", "classdata_1_1LogStream" ],
+    [ "Misc", "structdata_1_1Misc.html", "structdata_1_1Misc" ],
+    [ "SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", "namespacedata_structdata_1_1SharedBlocks_dup" ],
+    [ "SharedData", "structdata_1_1SharedData.html", "structdata_1_1SharedData" ],
+    [ "Stream", "classdata_1_1Stream.html", "classdata_1_1Stream" ],
+    [ "Streams", "namespacedata.html#structdata_1_1Streams", "namespacedata_structdata_1_1Streams_dup" ],
+    [ "GpsFix", "namespacedata.html#ab828a916e0a524f5d9d29e881a1e829b", [
+      [ "ERROR", "namespacedata.html#ab828a916e0a524f5d9d29e881a1e829babb1ca97ec761fc37101737ba0aa2e7c5", null ],
+      [ "NO_FIX", "namespacedata.html#ab828a916e0a524f5d9d29e881a1e829baa80630704b93114ed9e817a3f53f59c7", null ],
+      [ "FIX_2D", "namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba8b433e3f63d83e78dfbfe6da3ff61b3e", null ],
+      [ "FIX_3D", "namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba5eddc8631075de75c679f84846de5d51", null ]
+    ] ],
+    [ "isGpsFrameValid", "namespacedata.html#ad86e1d5fdd64e533c7b5833ece53c37e", null ],
+    [ "isImuFrameValid", "namespacedata.html#a1843909ee9dc73d01c721427f3836781", null ],
+    [ "toJson", "namespacedata.html#ad7272e7b88e216047b649704df787d95", null ],
+    [ "K_GPS_FIX_TO_STRING_MAP", "namespacedata.html#a846dc2ae65a53c15143e31eed61ab2e6", null ],
+    [ "rnd", "namespacedata.html#a7ae5fef66d65212dc3a3902cc660cee9", null ]
+];

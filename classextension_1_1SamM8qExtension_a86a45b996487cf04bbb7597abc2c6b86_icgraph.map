@@ -1,0 +1,6 @@
+<map id="extension::SamM8qExtension::handshake" name="extension::SamM8qExtension::handshake">
+<area shape="rect" id="node1" title=" " alt="" coords="531,39,745,80"/>
+<area shape="rect" id="node2" href="$classextension_1_1SamM8qExtension.html#a38b81447c461ed78fbbf433779c2040e" title="Startup the extension." alt="" coords="268,5,483,47"/>
+<area shape="rect" id="node3" href="$group__SAMM8QState.html#ga3bb302bf898dc03f6a83bf9c87ef028c" title=" " alt="" coords="268,71,483,112"/>
+<area shape="rect" id="node4" href="$classextension_1_1SamM8qExtension.html#abd1b7a24f87efe0353c00f6caf9c7945" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,71,220,112"/>
+</map>

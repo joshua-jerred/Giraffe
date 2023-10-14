@@ -1,0 +1,12 @@
+<map id="ubx::setMeasurementRate" name="ubx::setMeasurementRate">
+<area shape="rect" id="node1" title=" " alt="" coords="5,132,200,159"/>
+<area shape="rect" id="node2" href="$namespaceubx.html#a496e6e180876a9a83b2d1751620f6dd5" title=" " alt="" coords="248,81,384,108"/>
+<area shape="rect" id="node9" href="$namespaceubx.html#a9c61bbe6a93b89e72b9102bfd1b5fa0e" title=" " alt="" coords="259,157,373,184"/>
+<area shape="rect" id="node3" href="$namespaceubx.html#a138e86b90eb81df7287b0687e2e647fd" title=" " alt="" coords="675,5,824,32"/>
+<area shape="rect" id="node6" href="$namespaceubx.html#a269ab03f7fe578994b76b9be220b4fbe" title=" " alt="" coords="432,81,575,108"/>
+<area shape="rect" id="node4" href="$classI2cInterface.html#ad067c20fef20b8338d0e4ec12dc94ec6" title="Read a single byte from the device at the specified register." alt="" coords="929,56,1153,83"/>
+<area shape="rect" id="node5" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="1207,107,1393,133"/>
+<area shape="rect" id="node7" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="924,107,1159,133"/>
+<area shape="rect" id="node8" href="$structubx_1_1UBXMessage.html#a8df918b403f338508a235d7378238d3b" title=" " alt="" coords="623,157,876,184"/>
+<area shape="rect" id="node10" href="$classI2cInterface.html#ad2c0dca6c1c239a1c4aba651035b6bff" title="Write a chunk of data to the device at the specified register." alt="" coords="951,183,1132,209"/>
+</map>

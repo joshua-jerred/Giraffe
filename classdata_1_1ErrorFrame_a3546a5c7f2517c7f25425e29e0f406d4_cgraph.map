@@ -1,0 +1,5 @@
+<map id="data::ErrorFrame::addError" name="data::ErrorFrame::addError">
+<area shape="rect" id="node1" title="Add an error (LogPacket) to the error frame." alt="" coords="5,31,200,57"/>
+<area shape="rect" id="node2" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="256,5,385,32"/>
+<area shape="rect" id="node3" href="$classdata_1_1Frame.html#ae846d0c2d52a509b215edf195036afe6" title="Insert or replace an item." alt="" coords="248,56,393,83"/>
+</map>

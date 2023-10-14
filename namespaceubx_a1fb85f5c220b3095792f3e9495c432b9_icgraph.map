@@ -1,0 +1,5 @@
+<map id="ubx::setDynamicModel" name="ubx::setDynamicModel">
+<area shape="rect" id="node1" title=" " alt="" coords="531,13,703,39"/>
+<area shape="rect" id="node2" href="$group__SAMM8QState.html#ga1578e22215eaa305be52aa4c7245bff5" title=" " alt="" coords="268,5,483,47"/>
+<area shape="rect" id="node3" href="$classextension_1_1SamM8qExtension.html#abd1b7a24f87efe0353c00f6caf9c7945" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,5,220,47"/>
+</map>

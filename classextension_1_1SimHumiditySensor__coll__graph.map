@@ -1,0 +1,29 @@
+<map id="extension::SimHumiditySensor" name="extension::SimHumiditySensor">
+<area shape="rect" id="node1" title=" " alt="" coords="1381,1631,1604,1723"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="883,1139,1041,1568"/>
+<area shape="rect" id="node3" href="$structextension_1_1ExtensionResources.html" title="This contains objects that are shared between all extensions." alt="" coords="624,977,849,1054"/>
+<area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="623,815,736,892"/>
+<area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="702,616,923,752"/>
+<area shape="rect" id="node6" href="$classdata_1_1Stream.html" title=" " alt="" coords="721,359,923,553"/>
+<area shape="rect" id="node7" href="$classdata_1_1Stream.html" title=" " alt="" coords="501,145,649,296"/>
+<area shape="rect" id="node13" href="$classdata_1_1Stream.html" title=" " alt="" coords="947,359,1191,553"/>
+<area shape="rect" id="node15" href="$classdata_1_1Stream.html" title=" " alt="" coords="220,359,429,553"/>
+<area shape="rect" id="node17" href="$classdata_1_1Stream.html" title=" " alt="" coords="453,359,697,553"/>
+<area shape="rect" id="node8" title=" " alt="" coords="223,5,287,83"/>
+<area shape="rect" id="node9" title=" " alt="" coords="1044,5,1083,83"/>
+<area shape="rect" id="node23" href="$structcfg_1_1ExtensionMetadata.html" title="The metadata for an extension." alt="" coords="874,969,1050,1061"/>
+<area shape="rect" id="node10" title=" " alt="" coords="5,5,105,83"/>
+<area shape="rect" id="node11" title=" " alt="" coords="518,5,633,83"/>
+<area shape="rect" id="node12" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="957,645,1129,723"/>
+<area shape="rect" id="node14" href="$classdata_1_1DataStream.html" title=" " alt="" coords="319,638,456,730"/>
+<area shape="rect" id="node16" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="503,645,675,723"/>
+<area shape="rect" id="node18" title=" " alt="" coords="761,815,827,892"/>
+<area shape="rect" id="node19" title=" " alt="" coords="1074,977,1253,1054"/>
+<area shape="rect" id="node20" title=" " alt="" coords="1277,977,1455,1054"/>
+<area shape="rect" id="node21" title=" " alt="" coords="387,977,513,1054"/>
+<area shape="rect" id="node22" title=" " alt="" coords="537,977,601,1054"/>
+<area shape="rect" id="node24" title=" " alt="" coords="955,815,1071,892"/>
+<area shape="rect" id="node25" title=" " alt="" coords="1378,815,1429,892"/>
+<area shape="rect" id="node26" title=" " alt="" coords="867,815,926,892"/>
+<area shape="rect" id="node27" title=" " alt="" coords="1530,1315,1597,1392"/>
+</map>

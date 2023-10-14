@@ -1,0 +1,35 @@
+var classI2cInterface =
+[
+    [ "Result", "classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518", [
+      [ "SUCCESS", "classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "BUS_OPEN_ERROR", "classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a0d5d4ff33032f733f227c7d8497372e7", null ],
+      [ "ADDRESS_SET_ERROR", "classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518af7a0d079ef0a8f709e89942bd1440d5d", null ],
+      [ "FD_NOT_OPEN", "classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a85c674de9efd7ba2e8a7e4e0a3381e77", null ],
+      [ "DISCONNECT_CLOSE_ERROR", "classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518af4643d166247f86790d3ffc2951ed56c", null ],
+      [ "WRITE_ERROR", "classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a6ffd8aa558c1ab84ddc0a01e4f14ed0d", null ],
+      [ "WRITE_ERROR_NUM_BYTES", "classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518afa600aa4ab392a8ffac682106a9cf43f", null ],
+      [ "DATA_SIZE_ERROR", "classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518aa9161fefddef1519f4a6d6410df85cb2", null ],
+      [ "READ_ERROR", "classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a54481c80b10e75ecba9c621f1eee91fe", null ],
+      [ "READ_ERROR_WRITE_REG", "classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518ac4d55475d8174b51bee3a2246644551a", null ],
+      [ "READ_ERROR_NUM_BYTES", "classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a69f1b43db081373334e9eec47fa0baf3", null ]
+    ] ],
+    [ "I2cInterface", "classI2cInterface.html#ad9a0841d58b2b1bf3fae0c9df1d3bed4", null ],
+    [ "~I2cInterface", "classI2cInterface.html#af44b816fa87253a5eebd5c4ede52eaa6", null ],
+    [ "connect", "classI2cInterface.html#a98edf9a116cb2f865adb2a19f59728e3", null ],
+    [ "disconnect", "classI2cInterface.html#a17fea93bddeb70674d088922385bcb14", null ],
+    [ "reset", "classI2cInterface.html#a7596bd91955f76c2ef20972f5abddbf8", null ],
+    [ "getAddress", "classI2cInterface.html#ac75338c8037820454944348a91613d2c", null ],
+    [ "writeByte", "classI2cInterface.html#aceaa0e0dd635461538ef4df878f89364", null ],
+    [ "writeByteToReg", "classI2cInterface.html#aee981ceb5e70afe9ba9fe3427783ef89", null ],
+    [ "writeChunk", "classI2cInterface.html#ad2c0dca6c1c239a1c4aba651035b6bff", null ],
+    [ "readByte", "classI2cInterface.html#ad376251c1495621beb87c226c9d2e615", null ],
+    [ "readByteFromReg", "classI2cInterface.html#ad067c20fef20b8338d0e4ec12dc94ec6", null ],
+    [ "readChunkFromReg", "classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d", null ],
+    [ "readChunk", "classI2cInterface.html#a34290cc689cc9025fe8fd4641b5f4023", null ],
+    [ "isConnected", "classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85", null ],
+    [ "bus_", "classI2cInterface.html#a09ae6d567efc5fdb2880fe472e936715", null ],
+    [ "address_", "classI2cInterface.html#abe9443fd1f51926167c506adaf3f1b4f", null ],
+    [ "bus_lock_", "classI2cInterface.html#aa54a9cd4a36177460f8322e6ec17bc2d", null ],
+    [ "file_name_", "classI2cInterface.html#a71fa4003f52442e321b885fe96072c8c", null ],
+    [ "i2c_fd_", "classI2cInterface.html#ac2abfd34d2410340d5a6752d454c6fe6", null ]
+];

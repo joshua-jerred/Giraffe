@@ -1,0 +1,7 @@
+<map id="I2cInterface::connect" name="I2cInterface::connect">
+<area shape="rect" id="node1" title="Connect to the bus. If it&#39;s already connected, disconnect and reconnect." alt="" coords="547,78,705,105"/>
+<area shape="rect" id="node2" href="$classextension_1_1I2cExtensionAdapter.html#abc3de151f12e02167df5e32ce24638d3" title=" " alt="" coords="271,5,499,47"/>
+<area shape="rect" id="node4" href="$classextension_1_1Bme280Extension.html#a8ddf780160059241fa4069d2426145c6" title=" " alt="" coords="279,71,491,112"/>
+<area shape="rect" id="node5" href="$classextension_1_1SamM8qExtension.html#a38b81447c461ed78fbbf433779c2040e" title="Startup the extension." alt="" coords="277,136,492,177"/>
+<area shape="rect" id="node3" href="$classextension_1_1Mcp3021Extension.html#a0b4a922296eee439c978eeab5022a869" title=" " alt="" coords="5,5,223,47"/>
+</map>

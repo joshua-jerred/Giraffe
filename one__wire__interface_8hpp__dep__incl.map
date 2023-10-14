@@ -1,0 +1,6 @@
+<map id="one_wire_interface.hpp" name="one_wire_interface.hpp">
+<area shape="rect" id="node1" title="1&#45;Wire interface header file." alt="" coords="52,5,227,32"/>
+<area shape="rect" id="node2" href="$ds18b20_8hpp.html" title="DS18B20 extension header file." alt="" coords="5,80,111,107"/>
+<area shape="rect" id="node4" href="$one__wire__interface_8cpp.html" title="1&#45;Wire interface (linux)" alt="" coords="135,80,309,107"/>
+<area shape="rect" id="node3" href="$ds18b20_8cpp.html" title="DS18B20 extension." alt="" coords="6,155,110,181"/>
+</map>

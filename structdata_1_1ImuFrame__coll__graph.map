@@ -1,0 +1,6 @@
+<map id="data::ImuFrame" name="data::ImuFrame">
+<area shape="rect" id="node1" title="A frame of IMU data, straight from an IMU extension." alt="" coords="141,219,267,296"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,72,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="179,5,229,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="256,5,344,83"/>
+</map>

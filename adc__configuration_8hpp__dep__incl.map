@@ -1,0 +1,7 @@
+<map id="adc_configuration.hpp" name="adc_configuration.hpp">
+<area shape="rect" id="node1" title="ADC Configuration through &#39;extra_args&#39;." alt="" coords="103,5,269,32"/>
+<area shape="rect" id="node2" href="$adc__configuration_8cpp.html" title="ADC Configuration through &#39;extra_args&#39;." alt="" coords="5,80,169,107"/>
+<area shape="rect" id="node3" href="$adc__extension__base_8hpp.html" title="Generic ADC Extension Wrapper." alt="" coords="193,80,376,107"/>
+<area shape="rect" id="node4" href="$mcp3021_8hpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="229,155,340,181"/>
+<area shape="rect" id="node5" href="$mcp3021_8cpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="230,229,339,256"/>
+</map>

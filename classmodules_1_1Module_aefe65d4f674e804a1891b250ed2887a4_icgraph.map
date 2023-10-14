@@ -1,0 +1,4 @@
+<map id="modules::Module::stop" name="modules::Module::stop">
+<area shape="rect" id="node1" title="Stops the module by setting the stop flag to true and joining the runner thread." alt="" coords="260,5,431,32"/>
+<area shape="rect" id="node2" href="$classFlightRunner.html#a6904cac87e21bb4d2957eab383a4f597" title=" " alt="" coords="5,5,212,32"/>
+</map>

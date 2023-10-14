@@ -1,0 +1,4 @@
+<map id="extension::parseAdcConfig" name="extension::parseAdcConfig">
+<area shape="rect" id="node1" title="Parse an ADC config string into an AdcConfig struct." alt="" coords="268,13,463,39"/>
+<area shape="rect" id="node2" href="$classextension_1_1AdcExtensionBase.html#af07213580bd12e06b6858ccababe9913" title=" " alt="" coords="5,5,220,47"/>
+</map>

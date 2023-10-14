@@ -1,0 +1,8 @@
+<map id="extension::Extension::runner" name="extension::Extension::runner">
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,164,145"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef" title=" " alt="" coords="212,5,371,47"/>
+<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a8c2ff02720daaaf27849c087b064d4c3" title=" " alt="" coords="212,71,371,112"/>
+<area shape="rect" id="node4" href="$classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d" title=" " alt="" coords="212,136,371,177"/>
+<area shape="rect" id="node6" href="$classextension_1_1Extension.html#a75c23dd1442c50aa49a1ecd87ada6912" title=" " alt="" coords="212,201,371,243"/>
+<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b" title="Returns true if the extension has been requested to stop." alt="" coords="419,136,577,177"/>
+</map>

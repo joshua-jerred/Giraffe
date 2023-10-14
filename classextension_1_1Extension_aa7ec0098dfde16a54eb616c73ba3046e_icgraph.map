@@ -1,0 +1,17 @@
+<map id="extension::Extension::data" name="extension::Extension::data">
+<area shape="rect" id="node1" title=" " alt="" coords="539,384,697,425"/>
+<area shape="rect" id="node2" href="$classextension_1_1AdcExtensionBase.html#ab11b609d90a14f558df951d28bc42d85" title=" " alt="" coords="5,600,220,641"/>
+<area shape="rect" id="node3" href="$classextension_1_1Bme280Extension.html#a4ed64313c81c6453ae5d29c63a1bb52b" title=" " alt="" coords="7,35,219,76"/>
+<area shape="rect" id="node4" href="$classextension_1_1Ds18b20Extension.html#ad4dfdbd9d9cd1b114437c1c31d36088a" title=" " alt="" coords="272,123,487,164"/>
+<area shape="rect" id="node5" href="$classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d" title=" " alt="" coords="279,188,480,229"/>
+<area shape="rect" id="node6" href="$classextension_1_1SimPressureSensor.html#aaf5a09dba391f216ca5ee5a7890a1e85" title=" " alt="" coords="270,253,489,295"/>
+<area shape="rect" id="node7" href="$classextension_1_1SimHumiditySensor.html#a59e5059ebb6e2e81ca3a6ef30a632456" title=" " alt="" coords="268,319,491,360"/>
+<area shape="rect" id="node8" href="$classextension_1_1SimGpsSensor.html#a80265d0b8468fc4e90a46409a6178ab2" title=" " alt="" coords="285,384,473,425"/>
+<area shape="rect" id="node9" href="$classextension_1_1SimImuSensor.html#a1acef31a7be54226957d58d2f9d174d1" title=" " alt="" coords="285,449,473,491"/>
+<area shape="rect" id="node10" href="$classextension_1_1AdcExtensionBase.html#acc1cba94f6676036181990cb2e0296d3" title=" " alt="" coords="272,632,487,673"/>
+<area shape="rect" id="node11" href="$classextension_1_1Bme280Extension.html#a11e779a4c15360a0fa490174647c6b94" title="Reads the raw environmental data from the BME280." alt="" coords="273,5,485,47"/>
+<area shape="rect" id="node12" href="$group__SAMM8QState.html#gaa031a3e0ad98da916ebca6836c9c1a30" title=" " alt="" coords="272,763,487,804"/>
+<area shape="rect" id="node14" href="$classextension_1_1AdcExtensionBase.html#ad0be2808763e50886aeecd7de1e344a0" title=" " alt="" coords="272,697,487,739"/>
+<area shape="rect" id="node15" href="$classextension_1_1AdcExtensionBase.html#a8dfeb20998d7257afac6e381e5351d30" title=" " alt="" coords="272,567,487,608"/>
+<area shape="rect" id="node13" href="$classextension_1_1SamM8qExtension.html#abd1b7a24f87efe0353c00f6caf9c7945" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,763,220,804"/>
+</map>

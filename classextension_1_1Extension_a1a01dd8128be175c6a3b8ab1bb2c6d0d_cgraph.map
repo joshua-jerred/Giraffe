@@ -1,0 +1,6 @@
+<map id="extension::Extension::~Extension" name="extension::Extension::~Extension">
+<area shape="rect" id="node1" title="This will attempt to stop the extension if it is running, but with a configured timeout." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37" title="Sends a stop signal to the extension." alt="" coords="212,5,371,47"/>
+<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="419,5,577,47"/>
+<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="625,13,805,39"/>
+</map>

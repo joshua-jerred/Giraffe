@@ -1,0 +1,4 @@
+<map id="modules::DataModule::processGpsFramePacket" name="modules::DataModule::processGpsFramePacket">
+<area shape="rect" id="node1" title="Process all packets from the GPSFrame stream." alt="" coords="5,5,193,47"/>
+<area shape="rect" id="node2" href="$namespacedata.html#ad86e1d5fdd64e533c7b5833ece53c37e" title="Checks if a GPS frame contains valid location data." alt="" coords="241,13,409,39"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="data::Frame::clear" name="data::Frame::clear">
+<area shape="rect" id="node1" title="Clears all contents of the frame." alt="" coords="241,13,381,39"/>
+<area shape="rect" id="node2" href="$classdata_1_1ErrorFrame.html#afb73f4438636c4dd17490e028d123049" title="Clear all errors from the error frame." alt="" coords="5,5,193,47"/>
+</map>

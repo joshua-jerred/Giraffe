@@ -1,0 +1,4 @@
+<map id="ubx::UBXMessage::calculateChecksum" name="ubx::UBXMessage::calculateChecksum">
+<area shape="rect" id="node1" title="Calculates the checksum for the message." alt="" coords="288,5,495,47"/>
+<area shape="rect" id="node2" href="$structubx_1_1UBXMessage.html#a9e9ddba4098d266825ef10c1a61394ff" title="Construct a new UBXMessage, if the payload is not null, the checksum is calculated and stored in ck_a..." alt="" coords="5,13,240,39"/>
+</map>

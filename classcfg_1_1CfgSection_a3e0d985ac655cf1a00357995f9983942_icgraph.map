@@ -1,0 +1,7 @@
+<map id="cfg::CfgSection::error" name="cfg::CfgSection::error">
+<area shape="rect" id="node1" title="Logs a debug message." alt="" coords="296,81,455,108"/>
+<area shape="rect" id="node2" href="$classcfg_1_1Extensions.html#a07c0cc24278ea2af29fe5ed6f2cd3598" title="Add an extension to the configuration." alt="" coords="18,5,235,32"/>
+<area shape="rect" id="node3" href="$classcfg_1_1Extensions.html#a17af41b344cbd45b280864b9f7e99942" title="Remove an extension from the configuration by name." alt="" coords="5,56,248,83"/>
+<area shape="rect" id="node4" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="22,107,231,133"/>
+<area shape="rect" id="node5" href="$classcfg_1_1Extensions.html#a28c4e7fad5dbfc8f72d1628ff59ac2ec" title="Enable or disable an extension by name." alt="" coords="9,157,244,184"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="data::LogStream::debug" name="data::LogStream::debug">
+<area shape="rect" id="node1" title=" " alt="" coords="260,5,437,32"/>
+<area shape="rect" id="node2" href="$structdata_1_1SharedData.html#a314804de3d094be829eb7f60b187c355" title="Used to log debug messages when the program is not in release mode." alt="" coords="5,5,212,32"/>
+</map>

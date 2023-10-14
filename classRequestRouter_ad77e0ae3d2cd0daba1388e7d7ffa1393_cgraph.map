@@ -1,0 +1,11 @@
+<map id="RequestRouter::handleMessage" name="RequestRouter::handleMessage">
+<area shape="rect" id="node1" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,111,233,138"/>
+<area shape="rect" id="node2" href="$classRequestRouter.html#ac2e5e15f3607c998351f3b2981b1f540" title="This function responds to data requests." alt="" coords="289,5,490,47"/>
+<area shape="rect" id="node5" href="$classRequestRouter.html#aa4ad8544dc8431ede7414c834a8a9257" title="This function responds to a ping request." alt="" coords="290,71,489,112"/>
+<area shape="rect" id="node8" href="$classRequestRouter.html#ae84c028fe967e32b38178284373244a0" title="This function responds to a setting request." alt="" coords="281,136,497,177"/>
+<area shape="rect" id="node9" href="$classRequestRouter.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="295,201,483,243"/>
+<area shape="rect" id="node3" href="$namespacedata.html#ad7272e7b88e216047b649704df787d95" title=" " alt="" coords="603,13,702,39"/>
+<area shape="rect" id="node4" href="$classdata_1_1Frame.html#a21145c86e25d76061706ea66044139e0" title=" " alt="" coords="818,13,965,39"/>
+<area shape="rect" id="node6" href="$classRequestRouter.html#a4d13e34f9d56d94f7a410248eed83a8b" title=" " alt="" coords="545,143,760,170"/>
+<area shape="rect" id="node7" href="$classsock_1_1TcpSocketServer.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="808,136,975,177"/>
+</map>

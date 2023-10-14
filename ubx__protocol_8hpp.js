@@ -1,0 +1,67 @@
+var ubx__protocol_8hpp =
+[
+    [ "NavData", "namespaceubx.html#structubx_1_1NavData", [
+      [ "valid", "namespaceubx.html#a525c0e27848c54195202e276aae918d3", null ],
+      [ "year", "namespaceubx.html#aa3716ea24fc1c764baee09dfc5b2eba1", null ],
+      [ "month", "namespaceubx.html#a47165786590e9cdb2d0851aa9f79aacf", null ],
+      [ "day", "namespaceubx.html#ac0114530136aeef1f2333502afd508bc", null ],
+      [ "hour", "namespaceubx.html#abdc370e49cd16dea087b39e75dceb560", null ],
+      [ "minute", "namespaceubx.html#a90250e9e8c65559ef3baa377b4f8b3ea", null ],
+      [ "second", "namespaceubx.html#ae9f79ab7a4f46d3bc19f5e4c01525f35", null ],
+      [ "fix_type", "namespaceubx.html#ab269480056e955c6a0b6224954ca094d", null ],
+      [ "num_satellites", "namespaceubx.html#aa59bb7b3979903b2836782492714b440", null ],
+      [ "latitude", "namespaceubx.html#abff8cf727c9dc8c588c0672fccc72cbb", null ],
+      [ "longitude", "namespaceubx.html#a8bfbe7509934ae6f13c402f47cf21aac", null ],
+      [ "horz_accuracy", "namespaceubx.html#a2026f1ef39b8e09e1618a4c340f3edf6", null ],
+      [ "altitude", "namespaceubx.html#a9bf0019d10e8ab772db4463a19fcb958", null ],
+      [ "vert_accuracy", "namespaceubx.html#a4bc17c728c75130ef96593446ba39997", null ],
+      [ "ground_speed", "namespaceubx.html#a53d866c0e14d86d6574d892861fc4788", null ],
+      [ "speed_accuracy", "namespaceubx.html#a41bd4b6845c8b567e9f1f2930587dfe3", null ],
+      [ "heading_of_motion", "namespaceubx.html#adea4b3138c786d15fd92542765c9902c", null ],
+      [ "heading_accuracy", "namespaceubx.html#a6a5401a1742fbc8c7cc822872d58283c", null ]
+    ] ],
+    [ "UBXMessage", "structubx_1_1UBXMessage.html", "structubx_1_1UBXMessage" ],
+    [ "UBXMessage", "ubx__protocol_8hpp.html#a326ecd141c5e2c7e1ff9ec60519b8a43", null ],
+    [ "ACK", "ubx__protocol_8hpp.html#a6b284471c7fcbbece38600a40f0d0bb4", [
+      [ "ACK", "ubx__protocol_8hpp.html#a6b284471c7fcbbece38600a40f0d0bb4a0fc437bc317835cad5faafc12a83fad5", null ],
+      [ "NACK", "ubx__protocol_8hpp.html#a6b284471c7fcbbece38600a40f0d0bb4aa68c6c77586d4c740ec1b75b65b37946", null ],
+      [ "NONE", "ubx__protocol_8hpp.html#a6b284471c7fcbbece38600a40f0d0bb4ab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "WRITE_ERROR", "ubx__protocol_8hpp.html#a6b284471c7fcbbece38600a40f0d0bb4a6ffd8aa558c1ab84ddc0a01e4f14ed0d", null ],
+      [ "READ_ERROR", "ubx__protocol_8hpp.html#a6b284471c7fcbbece38600a40f0d0bb4a54481c80b10e75ecba9c621f1eee91fe", null ]
+    ] ],
+    [ "DYNAMIC_MODEL", "ubx__protocol_8hpp.html#adeeda5a4fc125d1ad07f95b20a621e39", [
+      [ "PORTABLE", "ubx__protocol_8hpp.html#adeeda5a4fc125d1ad07f95b20a621e39a265b3c9234cdcf1d21a1cdc817c24d6b", null ],
+      [ "STATIONARY", "ubx__protocol_8hpp.html#adeeda5a4fc125d1ad07f95b20a621e39a4120eb7591bd0789af75a8973d5f9146", null ],
+      [ "PEDESTRIAN", "ubx__protocol_8hpp.html#adeeda5a4fc125d1ad07f95b20a621e39afb97c381a019025eba60f0fbd236197c", null ],
+      [ "AUTOMOTIVE", "ubx__protocol_8hpp.html#adeeda5a4fc125d1ad07f95b20a621e39ad5b209a2367d0fa577875ade4dbf26a8", null ],
+      [ "SEA", "ubx__protocol_8hpp.html#adeeda5a4fc125d1ad07f95b20a621e39a9abd3d9b983e99aa1fd94837498b0bea", null ],
+      [ "AIRBORNE_1G", "ubx__protocol_8hpp.html#adeeda5a4fc125d1ad07f95b20a621e39a8b8e6bc7cc013f12e6976ba186a0dc1e", null ],
+      [ "AIRBORNE_2G", "ubx__protocol_8hpp.html#adeeda5a4fc125d1ad07f95b20a621e39a2ed54b19daae17a6201b512cfcd58ab5", null ],
+      [ "AIRBORNE_4G", "ubx__protocol_8hpp.html#adeeda5a4fc125d1ad07f95b20a621e39ab91a23bbd633e16917c4f5a3e2c815c2", null ],
+      [ "ERROR", "ubx__protocol_8hpp.html#adeeda5a4fc125d1ad07f95b20a621e39abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "FixType", "ubx__protocol_8hpp.html#aba153c45e93e3996e6340d000dfddbf8", [
+      [ "NO_FIX", "ubx__protocol_8hpp.html#aba153c45e93e3996e6340d000dfddbf8aa80630704b93114ed9e817a3f53f59c7", null ],
+      [ "DEAD_RECK", "ubx__protocol_8hpp.html#aba153c45e93e3996e6340d000dfddbf8a59702a99c94cc9d928e9b1a89023a972", null ],
+      [ "FIX_2D", "ubx__protocol_8hpp.html#aba153c45e93e3996e6340d000dfddbf8a8b433e3f63d83e78dfbfe6da3ff61b3e", null ],
+      [ "FIX_3D", "ubx__protocol_8hpp.html#aba153c45e93e3996e6340d000dfddbf8a5eddc8631075de75c679f84846de5d51", null ],
+      [ "COMBINED", "ubx__protocol_8hpp.html#aba153c45e93e3996e6340d000dfddbf8a448285d39c3f159c017938c7c367d0d2", null ],
+      [ "TIME_ONLY", "ubx__protocol_8hpp.html#aba153c45e93e3996e6340d000dfddbf8ad4277ea6f261aab6f786ba008436f7bd", null ],
+      [ "ERROR", "ubx__protocol_8hpp.html#aba153c45e93e3996e6340d000dfddbf8abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "getStreamSize", "ubx__protocol_8hpp.html#a138e86b90eb81df7287b0687e2e647fd", null ],
+    [ "flushStream", "ubx__protocol_8hpp.html#a38953bf12f38edbcb63bc5a878529d4c", null ],
+    [ "writeUBX", "ubx__protocol_8hpp.html#af47199a721b4a51e96c09fb29e481547", null ],
+    [ "readNextUBX", "ubx__protocol_8hpp.html#a269ab03f7fe578994b76b9be220b4fbe", null ],
+    [ "readSpecificMessage", "ubx__protocol_8hpp.html#a3d316505ccc4d2c34426c15c887a369e", null ],
+    [ "checkForAck", "ubx__protocol_8hpp.html#a496e6e180876a9a83b2d1751620f6dd5", null ],
+    [ "sendResetCommand", "ubx__protocol_8hpp.html#a906fc03b89d3045be5d60355cf25ac3e", null ],
+    [ "setProtocolDDC", "ubx__protocol_8hpp.html#a6c27feec78affa320dc73abe6c52b8db", null ],
+    [ "setMessageRate", "ubx__protocol_8hpp.html#a0a9dbb84c0d3dfd9234df8e6f7e5ad72", null ],
+    [ "setMeasurementRate", "ubx__protocol_8hpp.html#a56ec4bce3dc8bf99a601036cda46a9b0", null ],
+    [ "setDynamicModel", "ubx__protocol_8hpp.html#a1fb85f5c220b3095792f3e9495c432b9", null ],
+    [ "pollMessage", "ubx__protocol_8hpp.html#a5a8edb14df1ca1f59ff23d5c4b8b1f6e", null ],
+    [ "parsePVT", "ubx__protocol_8hpp.html#aac1881b13eb8b71cece1b9d432cc5bae", null ],
+    [ "operator<<", "ubx__protocol_8hpp.html#a93d5c119d880bcbc11b0aecd4dfb6889", null ],
+    [ "operator<<", "ubx__protocol_8hpp.html#a6bb269ccd255a310d77f993a7499d276", null ]
+];

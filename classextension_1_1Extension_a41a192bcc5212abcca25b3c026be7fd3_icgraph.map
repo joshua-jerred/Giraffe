@@ -1,0 +1,4 @@
+<map id="extension::Extension::isFaulted" name="extension::Extension::isFaulted">
+<area shape="rect" id="node1" title="Returns true if the extension is in a faulted state." alt="" coords="268,5,427,47"/>
+<area shape="rect" id="node2" href="$classextension_1_1AdcExtensionBase.html#a99b486f023b9a798b200ba993c904e6d" title=" " alt="" coords="5,5,220,47"/>
+</map>

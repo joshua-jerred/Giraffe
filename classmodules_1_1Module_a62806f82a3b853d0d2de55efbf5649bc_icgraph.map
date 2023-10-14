@@ -1,0 +1,4 @@
+<map id="modules::Module::error" name="modules::Module::error">
+<area shape="rect" id="node1" title="Used internally in the module. This function adds an error to the log stream. It is used to log error..." alt="" coords="252,13,425,39"/>
+<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628" title="This function is called when the module is started." alt="" coords="5,5,204,47"/>
+</map>

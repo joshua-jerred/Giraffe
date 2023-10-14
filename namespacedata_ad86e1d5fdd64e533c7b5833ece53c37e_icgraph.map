@@ -1,0 +1,5 @@
+<map id="data::isGpsFrameValid" name="data::isGpsFrameValid">
+<area shape="rect" id="node1" title="Checks if a GPS frame contains valid location data." alt="" coords="455,13,623,39"/>
+<area shape="rect" id="node2" href="$classmodules_1_1DataModule.html#a6f93b11dc646d073ae052572c5279357" title="Process all packets from the GPSFrame stream." alt="" coords="219,5,407,47"/>
+<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html#ac24fdcd1442cbc107fcc427e14ddd328" title="Processes all of the data streams and updates the data block that contains the stream stats." alt="" coords="5,5,171,47"/>
+</map>

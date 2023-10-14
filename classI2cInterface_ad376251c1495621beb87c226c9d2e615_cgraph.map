@@ -1,0 +1,4 @@
+<map id="I2cInterface::readByte" name="I2cInterface::readByte">
+<area shape="rect" id="node1" title="Read a single byte from the device without specifying a register." alt="" coords="5,5,172,32"/>
+<area shape="rect" id="node2" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="220,5,407,32"/>
+</map>

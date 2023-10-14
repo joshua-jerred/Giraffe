@@ -1,0 +1,4 @@
+<map id="modules::DataModule::processLogPacket" name="modules::DataModule::processLogPacket">
+<area shape="rect" id="node1" title="Process all packets from the log stream." alt="" coords="219,5,384,47"/>
+<area shape="rect" id="node2" href="$classmodules_1_1DataModule.html#ac24fdcd1442cbc107fcc427e14ddd328" title="Processes all of the data streams and updates the data block that contains the stream stats." alt="" coords="5,5,171,47"/>
+</map>

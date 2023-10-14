@@ -1,0 +1,9 @@
+<map id="data_middleware::DataFormatter::generateTimestamp" name="data_middleware::DataFormatter::generateTimestamp">
+<area shape="rect" id="node1" title="Generates a timestamp based off of the current configuration." alt="" coords="579,104,817,145"/>
+<area shape="rect" id="node2" href="$classdata__middleware_1_1DataFormatter.html#ab13febf7f3cea4ee73b82ea4ecdfff82" title=" " alt="" coords="292,5,531,47"/>
+<area shape="rect" id="node3" href="$classdata__middleware_1_1DataFormatter.html#ac4d5697e7837e1a0e8a5df1cac9ac286" title=" " alt="" coords="292,71,531,112"/>
+<area shape="rect" id="node4" href="$classdata__middleware_1_1DataFormatter.html#aa1d67f3593467a202659b221472cab9f" title=" " alt="" coords="292,136,531,177"/>
+<area shape="rect" id="node5" href="$classdata__middleware_1_1DataFormatter.html#ab5eefe7500b957f07f67a91e4429ab4e" title="Used to set up the frame json structure." alt="" coords="292,201,531,243"/>
+<area shape="rect" id="node6" href="$classdata__middleware_1_1DataFormatter.html#ac6bcac38554667fda6dbd2a223e665d2" title=" " alt="" coords="5,168,244,209"/>
+<area shape="rect" id="node7" href="$classdata__middleware_1_1DataFormatter.html#adfed0c82d7965d24db3ef4533d5511d0" title=" " alt="" coords="5,233,244,275"/>
+</map>

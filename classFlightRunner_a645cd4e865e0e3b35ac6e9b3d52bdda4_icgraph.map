@@ -1,0 +1,6 @@
+<map id="FlightRunner::shutdown" name="FlightRunner::shutdown">
+<area shape="rect" id="node1" title="Called from main via a keyboard interrupt, this function sends a shutdown signal to the flight runner..." alt="" coords="268,31,444,57"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#aac54c41eba9e07dbcdf25984bdf0ebc6" title=" " alt="" coords="109,5,219,32"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a1ff4bd1f5a632a4106604e5c243c0f24" title=" " alt="" coords="108,56,220,83"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="This is the main function that starts the flight runner. It will return a call to flight...." alt="" coords="5,56,60,83"/>
+</map>

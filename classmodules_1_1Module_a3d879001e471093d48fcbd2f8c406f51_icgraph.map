@@ -1,0 +1,4 @@
+<map id="modules::Module::runner" name="modules::Module::runner">
+<area shape="rect" id="node1" title="This is the main function for each module." alt="" coords="225,5,409,32"/>
+<area shape="rect" id="node2" href="$classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd" title="Starts a thread to run the module." alt="" coords="5,5,177,32"/>
+</map>

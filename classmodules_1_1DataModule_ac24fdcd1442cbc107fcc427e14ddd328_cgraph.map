@@ -1,0 +1,10 @@
+<map id="modules::DataModule::processAllStreams" name="modules::DataModule::processAllStreams">
+<area shape="rect" id="node1" title="Processes all of the data streams and updates the data block that contains the stream stats." alt="" coords="5,104,171,145"/>
+<area shape="rect" id="node2" href="$group__DataStreamParsing.html#ga5e45003930a173f5d1b4d11b50b5b7da" title=" " alt="" coords="230,5,395,47"/>
+<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html#a6f93b11dc646d073ae052572c5279357" title="Process all packets from the GPSFrame stream." alt="" coords="219,71,407,112"/>
+<area shape="rect" id="node5" href="$classmodules_1_1DataModule.html#aedab2efb666e4e6ce3f4b9dbf661edbc" title="Process all packets from the IMUFrame stream." alt="" coords="219,136,407,177"/>
+<area shape="rect" id="node7" href="$classmodules_1_1DataModule.html#a22e5c03008cb6d2015dd0097869f2fa3" title="Process all packets from the log stream." alt="" coords="230,201,395,243"/>
+<area shape="rect" id="node4" href="$namespacedata.html#ad86e1d5fdd64e533c7b5833ece53c37e" title="Checks if a GPS frame contains valid location data." alt="" coords="455,78,623,105"/>
+<area shape="rect" id="node6" href="$namespacedata.html#a1843909ee9dc73d01c721427f3836781" title="Checks if an IMU frame contains valid data." alt="" coords="455,143,623,170"/>
+<area shape="rect" id="node8" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="485,209,593,235"/>
+</map>

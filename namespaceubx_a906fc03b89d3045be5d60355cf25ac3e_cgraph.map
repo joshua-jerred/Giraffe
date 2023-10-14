@@ -1,0 +1,6 @@
+<map id="ubx::sendResetCommand" name="ubx::sendResetCommand">
+<area shape="rect" id="node1" title="Send a UBX&#45;CFG&#45;RST command to the receiver (Hardware Reset)" alt="" coords="5,5,195,32"/>
+<area shape="rect" id="node2" href="$namespaceubx.html#a9c61bbe6a93b89e72b9102bfd1b5fa0e" title=" " alt="" coords="243,5,357,32"/>
+<area shape="rect" id="node3" href="$classI2cInterface.html#ad2c0dca6c1c239a1c4aba651035b6bff" title="Write a chunk of data to the device at the specified register." alt="" coords="405,5,587,32"/>
+<area shape="rect" id="node4" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="635,5,821,32"/>
+</map>

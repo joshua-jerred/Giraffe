@@ -1,0 +1,52 @@
+<map id="modules::ConsoleModule" name="modules::ConsoleModule">
+<area shape="rect" id="node1" title="The console module is a module that provides a console interface for the flight system." alt="" coords="3533,2717,3719,2927"/>
+<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="4171,1939,4337,2295"/>
+<area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title=" " alt="" coords="3292,1725,3427,1803"/>
+<area shape="rect" id="node43" href="$classconsole__pages_1_1Pages.html" title=" " alt="" coords="3279,1968,3471,2265"/>
+<area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="544,1321,657,1399"/>
+<area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="490,979,711,1115"/>
+<area shape="rect" id="node6" href="$classdata_1_1Stream.html" title=" " alt="" coords="507,432,708,627"/>
+<area shape="rect" id="node7" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="736,1009,908,1086"/>
+<area shape="rect" id="node8" href="$classdata_1_1Stream.html" title=" " alt="" coords="732,432,976,627"/>
+<area shape="rect" id="node9" href="$classdata_1_1DataStream.html" title=" " alt="" coords="77,1001,215,1093"/>
+<area shape="rect" id="node10" href="$classdata_1_1Stream.html" title=" " alt="" coords="5,432,215,627"/>
+<area shape="rect" id="node11" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="287,1009,459,1086"/>
+<area shape="rect" id="node12" href="$classdata_1_1Stream.html" title=" " alt="" coords="239,432,483,627"/>
+<area shape="rect" id="node13" href="$namespacedata.html#structdata_1_1SharedBlocks" title=" " alt="" coords="2095,1321,2242,1399"/>
+<area shape="rect" id="node14" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2915,965,3153,1130"/>
+<area shape="rect" id="node15" href="$classdata_1_1blocks_1_1Block.html" title="Simple Struct Container with a mutex. The struct must have a valid default constructor." alt="" coords="2139,469,2321,590"/>
+<area shape="rect" id="node18" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="932,957,1168,1137"/>
+<area shape="rect" id="node19" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1192,965,1417,1130"/>
+<area shape="rect" id="node20" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1442,965,1669,1130"/>
+<area shape="rect" id="node21" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1693,965,1887,1130"/>
+<area shape="rect" id="node22" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1911,965,2125,1130"/>
+<area shape="rect" id="node23" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2149,965,2375,1130"/>
+<area shape="rect" id="node24" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2400,957,2615,1137"/>
+<area shape="rect" id="node25" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2639,965,2890,1130"/>
+<area shape="rect" id="node16" title=" " alt="" coords="3394,5,3458,83"/>
+<area shape="rect" id="node26" href="$classLogContainer.html" title=" " alt="" coords="3130,182,3274,303"/>
+<area shape="rect" id="node29" href="$classdata_1_1ErrorFrame.html" title="The error frame." alt="" coords="3631,913,3840,1181"/>
+<area shape="rect" id="node31" href="$classdata_1_1Frame.html" title="A generic frame (map) for storing data." alt="" coords="3410,145,3597,340"/>
+<area shape="rect" id="node17" title=" " alt="" coords="3298,204,3386,281"/>
+<area shape="rect" id="node34" href="$structdata_1_1Misc.html" title=" " alt="" coords="3267,1205,3422,1297"/>
+<area shape="rect" id="node27" title=" " alt="" coords="3123,5,3281,83"/>
+<area shape="rect" id="node28" href="$namespacedata.html#structdata_1_1Frames" title=" " alt="" coords="3631,1321,3738,1399"/>
+<area shape="rect" id="node30" href="$classdata_1_1Frame.html" title=" " alt="" coords="3635,417,3835,641"/>
+<area shape="rect" id="node33" href="$classdata_1_1Frame.html" title=" " alt="" coords="3309,665,3493,889"/>
+<area shape="rect" id="node32" title=" " alt="" coords="3911,491,3949,568"/>
+<area shape="rect" id="node36" href="$structmodules_1_1MetaData.html" title="Module metadata." alt="" coords="4664,1725,4815,1803"/>
+<area shape="rect" id="node47" href="$classncurs_1_1Environment.html" title=" " alt="" coords="3539,2357,3713,2655"/>
+<area shape="rect" id="node48" href="$classncurs_1_1internal_1_1Window.html" title=" " alt="" coords="3672,1652,3847,1876"/>
+<area shape="rect" id="node35" title=" " alt="" coords="3871,1725,3994,1803"/>
+<area shape="rect" id="node37" title=" " alt="" coords="4595,1321,4702,1399"/>
+<area shape="rect" id="node38" title=" " alt="" coords="3935,1321,3994,1399"/>
+<area shape="rect" id="node39" title=" " alt="" coords="4069,1725,4194,1803"/>
+<area shape="rect" id="node40" title=" " alt="" coords="4218,1725,4397,1803"/>
+<area shape="rect" id="node41" title=" " alt="" coords="4421,1725,4551,1803"/>
+<area shape="rect" id="node42" title=" " alt="" coords="4575,1725,4639,1803"/>
+<area shape="rect" id="node44" title=" " alt="" coords="3057,1718,3267,1810"/>
+<area shape="rect" id="node45" title=" " alt="" coords="2777,1725,2873,1803"/>
+<area shape="rect" id="node46" title=" " alt="" coords="2897,1725,3033,1803"/>
+<area shape="rect" id="node49" title=" " alt="" coords="3762,1321,3855,1399"/>
+<area shape="rect" id="node50" title=" " alt="" coords="3525,2078,3583,2155"/>
+</map>

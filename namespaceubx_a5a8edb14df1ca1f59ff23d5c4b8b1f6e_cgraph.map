@@ -1,0 +1,12 @@
+<map id="ubx::pollMessage" name="ubx::pollMessage">
+<area shape="rect" id="node1" title="Poll a message and read it from the GPS." alt="" coords="5,117,141,144"/>
+<area shape="rect" id="node2" href="$namespaceubx.html#a38953bf12f38edbcb63bc5a878529d4c" title=" " alt="" coords="250,41,382,68"/>
+<area shape="rect" id="node3" href="$namespaceubx.html#a138e86b90eb81df7287b0687e2e647fd" title=" " alt="" coords="533,41,683,68"/>
+<area shape="rect" id="node6" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="491,92,725,119"/>
+<area shape="rect" id="node7" href="$structubx_1_1UBXMessage.html#a8df918b403f338508a235d7378238d3b" title=" " alt="" coords="189,143,443,169"/>
+<area shape="rect" id="node8" href="$ubx__protocol_8cpp.html#aff3446e9fa0ac3c89fcf1a3e75ccbb2c" title=" " alt="" coords="291,193,341,220"/>
+<area shape="rect" id="node9" href="$namespaceubx.html#a9c61bbe6a93b89e72b9102bfd1b5fa0e" title=" " alt="" coords="259,244,373,271"/>
+<area shape="rect" id="node4" href="$classI2cInterface.html#ad067c20fef20b8338d0e4ec12dc94ec6" title="Read a single byte from the device at the specified register." alt="" coords="773,41,997,68"/>
+<area shape="rect" id="node5" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="1045,92,1232,119"/>
+<area shape="rect" id="node10" href="$classI2cInterface.html#ad2c0dca6c1c239a1c4aba651035b6bff" title="Write a chunk of data to the device at the specified register." alt="" coords="795,168,976,195"/>
+</map>

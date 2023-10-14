@@ -1,0 +1,10 @@
+<map id="extension::Ds18b20Extension::loop" name="extension::Ds18b20Extension::loop">
+<area shape="rect" id="node1" title=" " alt="" coords="5,93,220,135"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="296,5,455,47"/>
+<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="591,89,749,131"/>
+<area shape="rect" id="node6" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="296,123,455,164"/>
+<area shape="rect" id="node7" href="$classextension_1_1Ds18b20Extension.html#a63ae9398964e5b98b485bcd998469cb4" title=" " alt="" coords="268,188,483,229"/>
+<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="857,42,1037,69"/>
+<area shape="rect" id="node4" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="616,38,724,65"/>
+<area shape="rect" id="node8" href="$classOneWireInterface.html#abb95686077a0900b6d164fbf0c62d2d4" title=" " alt="" coords="531,195,809,222"/>
+</map>

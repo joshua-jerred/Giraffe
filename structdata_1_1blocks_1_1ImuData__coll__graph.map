@@ -1,0 +1,7 @@
+<map id="data::blocks::ImuData" name="data::blocks::ImuData">
+<area shape="rect" id="node1" title=" " alt="" coords="5,373,171,451"/>
+<area shape="rect" id="node2" title=" " alt="" coords="63,5,113,83"/>
+<area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1ImuFrame" title="A frame of IMU data, straight from an IMU extension." alt="" coords="220,219,345,296"/>
+<area shape="rect" id="node4" title=" " alt="" coords="229,5,296,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="384,5,472,83"/>
+</map>

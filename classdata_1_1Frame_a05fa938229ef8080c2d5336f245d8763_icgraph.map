@@ -1,0 +1,4 @@
+<map id="data::Frame::in" name="data::Frame::in">
+<area shape="rect" id="node1" title="Returns true if an item is in the frame, false if it is not." alt="" coords="244,5,364,32"/>
+<area shape="rect" id="node2" href="$classdata_1_1ErrorFrame.html#a22f1f4d05d659df20e4cba62fda5846b" title="Returns true if the error is active in the frame." alt="" coords="5,5,196,32"/>
+</map>

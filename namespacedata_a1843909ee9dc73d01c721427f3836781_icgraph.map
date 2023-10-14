@@ -1,0 +1,5 @@
+<map id="data::isImuFrameValid" name="data::isImuFrameValid">
+<area shape="rect" id="node1" title="Checks if an IMU frame contains valid data." alt="" coords="455,13,623,39"/>
+<area shape="rect" id="node2" href="$classmodules_1_1DataModule.html#aedab2efb666e4e6ce3f4b9dbf661edbc" title="Process all packets from the IMUFrame stream." alt="" coords="219,5,407,47"/>
+<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html#ac24fdcd1442cbc107fcc427e14ddd328" title="Processes all of the data streams and updates the data block that contains the stream stats." alt="" coords="5,5,171,47"/>
+</map>

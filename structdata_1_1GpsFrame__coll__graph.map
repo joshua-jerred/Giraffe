@@ -1,0 +1,8 @@
+<map id="data::GpsFrame" name="data::GpsFrame">
+<area shape="rect" id="node1" title="A frame of GPS data straight from a GPS extension." alt="" coords="287,292,412,369"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,72,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="173,5,240,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="324,5,375,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="412,5,479,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="503,5,591,83"/>
+</map>

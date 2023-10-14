@@ -1,0 +1,4 @@
+<map id="modules::DataModule::processImuFramePacket" name="modules::DataModule::processImuFramePacket">
+<area shape="rect" id="node1" title="Process all packets from the IMUFrame stream." alt="" coords="5,5,193,47"/>
+<area shape="rect" id="node2" href="$namespacedata.html#a1843909ee9dc73d01c721427f3836781" title="Checks if an IMU frame contains valid data." alt="" coords="241,13,409,39"/>
+</map>

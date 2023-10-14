@@ -1,0 +1,11 @@
+<map id="extension::Extension::start" name="extension::Extension::start">
+<area shape="rect" id="node1" title="Starts the extension." alt="" coords="5,90,164,131"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="212,27,371,69"/>
+<area shape="rect" id="node4" href="$classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027" title=" " alt="" coords="212,122,371,163"/>
+<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="419,5,599,32"/>
+<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef" title=" " alt="" coords="429,57,588,98"/>
+<area shape="rect" id="node6" href="$classextension_1_1Extension.html#a8c2ff02720daaaf27849c087b064d4c3" title=" " alt="" coords="429,122,588,163"/>
+<area shape="rect" id="node7" href="$classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d" title=" " alt="" coords="429,187,588,229"/>
+<area shape="rect" id="node9" href="$classextension_1_1Extension.html#a75c23dd1442c50aa49a1ecd87ada6912" title=" " alt="" coords="429,253,588,294"/>
+<area shape="rect" id="node8" href="$classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b" title="Returns true if the extension has been requested to stop." alt="" coords="647,187,805,229"/>
+</map>
