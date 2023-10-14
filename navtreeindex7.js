@@ -1,5 +1,9 @@
 var NAVTREEINDEX7 =
 {
+"structdata_1_1blocks_1_1ModulesStatuses.html#a19dfc5d9deb49328da788bd2f954fa4a":[5,0,2,0,7,0],
+"structdata_1_1blocks_1_1ModulesStatuses.html#a487972c465228145d22437dc7d00d258":[5,0,2,0,7,2],
+"structdata_1_1blocks_1_1ModulesStatuses.html#a70a7f605bb5a96cbe44d59890133d3bc":[5,0,2,0,7,4],
+"structdata_1_1blocks_1_1ModulesStatuses.html#aa19391bf71e085a5e84192fcae12c822":[5,0,2,0,7,5],
 "structdata_1_1blocks_1_1ServerModuleStats.html":[5,0,2,0,8],
 "structdata_1_1blocks_1_1ServerModuleStats.html#a4a70c94353c2ed3e95869c3587905c92":[5,0,2,0,8,1],
 "structdata_1_1blocks_1_1ServerModuleStats.html#a5876596b916670a89cb5ad11e572da72":[5,0,2,0,8,2],
@@ -17,8 +21,8 @@ var NAVTREEINDEX7 =
 "structdata_1_1blocks_1_1StreamsStats.html#aac583014b7a4480da8c18acba13cdd74":[6,0,3,10,0],
 "structdata_1_1blocks_1_1StreamsStats.html#ab7a35fd86669ed273872de75514ff0e2":[5,0,2,0,9,5],
 "structdata_1_1blocks_1_1StreamsStats.html#ab9841563c02f6ce257853c33559fad81":[5,0,2,0,9,4],
-"structdata_1_1blocks_1_1StreamsStats.html#ac2099be781c242dfd75085cf820124a6":[5,0,2,0,9,0,2],
 "structdata_1_1blocks_1_1StreamsStats.html#ac2099be781c242dfd75085cf820124a6":[6,0,3,10,2],
+"structdata_1_1blocks_1_1StreamsStats.html#ac2099be781c242dfd75085cf820124a6":[5,0,2,0,9,0,2],
 "structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats":[5,0,2,0,9,0],
 "structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats":[6,0,3,10],
 "structdata_1_1blocks_1_1SystemInfo.html":[5,0,2,0,10],

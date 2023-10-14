@@ -25,7 +25,13 @@
 var NAVTREE =
 [
   [ "Giraffe", "index.html", [
-    [ "Giraffe Flight System", "index.html", null ],
+    [ "Giraffe Flight System", "index.html", [
+      [ "Introduction", "index.html#autotoc_md4", null ],
+      [ "C4 Model", "index.html#autotoc_md5", [
+        [ "System Context", "index.html#autotoc_md6", null ],
+        [ "Container Diagram", "index.html#autotoc_md7", null ]
+      ] ]
+    ] ],
     [ "Todo List", "todo.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Modules", "modules.html", "modules" ],
@@ -70,8 +76,8 @@ var NAVTREEINDEX =
 "classmodules_1_1ConsoleModule.html",
 "classncurs_1_1Environment.html#ab4bcbb15604a9a77a6b2f0abb9394fda",
 "group__DataLog.html#gaf55091da9f21a38d5d7c9c0cc1904d3f",
-"namespacemembers_func.html",
-"structdata_1_1blocks_1_1ServerModuleStats.html"
+"namespaceextension.html#afe03cabd4f0d75c98d98a5806f9e24c2",
+"structdata_1_1blocks_1_1ModulesStatuses.html#a19dfc5d9deb49328da788bd2f954fa4a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

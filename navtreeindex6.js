@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"namespaceextension.html#afe03cabd4f0d75c98d98a5806f9e24c2":[4,0,5,29],
+"namespaceextension.html#structextension_1_1AdcConfig":[6,0,1,0],
+"namespacemembers.html":[4,1,0],
+"namespacemembers_enum.html":[4,1,4],
 "namespacemembers_func.html":[4,1,1],
 "namespacemembers_type.html":[4,1,3],
 "namespacemembers_vars.html":[4,1,2],
@@ -129,8 +133,8 @@ var NAVTREEINDEX6 =
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca24f3e5996ecc173cab972f2bd004fd5a":[6,0,55,0,2],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca2ba22e58ca17bb728d522bba36cf8350":[6,0,55,0,7],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca2ba22e58ca17bb728d522bba36cf8350":[6,0,55,0,4],
-"samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca84fcef12cce95eb15cffe4338ecf5d29":[6,0,55,0,6],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca84fcef12cce95eb15cffe4338ecf5d29":[6,0,55,0,1],
+"samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca84fcef12cce95eb15cffe4338ecf5d29":[6,0,55,0,6],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca9beed4c399bcd8838fc481753cf30ad6":[6,0,55,0,5],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca9beed4c399bcd8838fc481753cf30ad6":[6,0,55,0,0],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afcac30be2996b85d3905826648d620c8259":[6,0,55,0,3],
@@ -245,9 +249,5 @@ var NAVTREEINDEX6 =
 "structdata_1_1blocks_1_1ExtensionModuleStats.html#adf08cfda46dc8e767c935639daf4f439":[5,0,2,0,4,3],
 "structdata_1_1blocks_1_1ModulesStatuses.html":[5,0,2,0,7],
 "structdata_1_1blocks_1_1ModulesStatuses.html#a05d1440bcb82d35d56f7a31d391d89ed":[5,0,2,0,7,1],
-"structdata_1_1blocks_1_1ModulesStatuses.html#a060d8511ce2cf6e126fc485d29d21249":[5,0,2,0,7,3],
-"structdata_1_1blocks_1_1ModulesStatuses.html#a19dfc5d9deb49328da788bd2f954fa4a":[5,0,2,0,7,0],
-"structdata_1_1blocks_1_1ModulesStatuses.html#a487972c465228145d22437dc7d00d258":[5,0,2,0,7,2],
-"structdata_1_1blocks_1_1ModulesStatuses.html#a70a7f605bb5a96cbe44d59890133d3bc":[5,0,2,0,7,4],
-"structdata_1_1blocks_1_1ModulesStatuses.html#aa19391bf71e085a5e84192fcae12c822":[5,0,2,0,7,5]
+"structdata_1_1blocks_1_1ModulesStatuses.html#a060d8511ce2cf6e126fc485d29d21249":[5,0,2,0,7,3]
 };
