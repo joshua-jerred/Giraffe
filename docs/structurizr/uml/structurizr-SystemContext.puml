@@ -32,7 +32,7 @@ skinparam person<<GiraffeUser>> {
   shadowing false
 }
 
-rectangle "Giraffe" <<group1>> {
+rectangle "Giraffe System" <<group1>> {
   skinparam RectangleBorderColor<<group1>> #cccccc
   skinparam RectangleFontColor<<group1>> #cccccc
   skinparam RectangleBorderStyle<<group1>> dashed

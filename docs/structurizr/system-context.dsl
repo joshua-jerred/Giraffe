@@ -3,7 +3,7 @@ workspace {
     model {
         user = person "Giraffe User" "A user of the hardware and software suite, controlling the flight." "User"
 
-        group "Giraffe" {
+        group "Giraffe System" {
             aprsNetwork = softwaresystem "APRS Network" "" "Existing System"
             giraffeSystem = softwaresystem "Giraffe" "Hardware and software suite for hosting and controlling high altitude balloon flights."
         }

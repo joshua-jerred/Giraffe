@@ -2,7 +2,7 @@
 
 # Run from repo root
 
-# set -e
+set -e
 
 docker-compose run --rm structurizr_cli
 
