@@ -18,16 +18,6 @@
 
 namespace extension {
 
-/**
- * @brief Returns the value of a key in the config string.
- * @details The config strings are formatted as follows:
- * 'key1=value1,key2=value2,key3=value3'
- *
- *  if a key is not found, or there is no value, an empty string is returned.
- *
- * @param key - the key to get the value of
- * @return std::string - the value of the key
- */
 inline std::string getKeyValue(const std::string &config_string,
                                const std::string &key) {
   // find the key

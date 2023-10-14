@@ -85,15 +85,6 @@ UBXMessage::UBXMessage(uint8_t class_ID, uint8_t msg_ID, uint16_t length,
   }
 }
 
-/**
- * @brief Calculates the checksum for the message
- * @details The checksum is calculated with the Message Class, Message ID,
- * Length bytes, and Payload. The checksum is stored in ck_a and ck_b.
- *
- * @return true Checksum calculated successfully and stored in ck_a and ck_b
- * @return false Checksum could not be calculated (payload is nullptr)
- * @see 32.4 UBX Checksum of 'u-blox 8 / u-blox M8 Receiver description'
- */
 bool UBXMessage::calculateChecksum() {
   std::vector<uint8_t> buffer(length + 4, 0);
   buffer[0] = mClass;
@@ -411,8 +402,8 @@ bool sendResetCommand(I2cInterface &i2c) {
  * UBX-CFG-PRT (0x06 0x00) Configure I/O Port (Specifically I2C)
  * Length: 20 bytes
  *
- * <portID U1><reserved1 U1><txReady X2><mode X4><reserved2 U1[4]>
- * <inProtoMask X2><outProtoMask X2><flags X2><reserved3 U1[2]>
+ * [portID U1][reserved1 U1][txReady X2][mode X4][reserved2 U1[4]]
+ * [inProtoMask X2][outProtoMask X2][flags X2]<reserved3 U1[2]]
  *
  * Does not configure TXReady
  *

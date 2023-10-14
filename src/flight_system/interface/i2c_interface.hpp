@@ -168,8 +168,8 @@ public:
    * @details - The 'data' vector will be cleared and resized to 'num_bytes'.
    *
    * @param data (out) - The data read from the device.
-   * @param length - The number of bytes to read.
    * @param register_address - The register address to read from.
+   * @param num_bytes - The number of bytes to read.
    * @return Result - 'SUCCESS' if successful, otherwise an error code.
    */
   Result readChunkFromReg(std::vector<uint8_t> &data, uint8_t register_address,

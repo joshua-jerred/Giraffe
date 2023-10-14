@@ -86,8 +86,18 @@ typedef struct UBXMessage {
    * @param length
    * @param payload
    */
-  UBXMessage(std::uint8_t class_ID, std::uint8_t msg_ID, std::uint16_t length,
+  UBXMessage(uint8_t class_ID, uint8_t msg_ID, uint16_t length,
              std::vector<uint8_t> payload);
+
+  /**
+   * @brief Calculates the checksum for the message
+   * @details The checksum is calculated with the Message Class, Message ID,
+   * Length bytes, and Payload. The checksum is stored in ck_a and ck_b.
+   *
+   * @return true Checksum calculated successfully and stored in ck_a and ck_b
+   * @return false Checksum could not be calculated (payload is nullptr)
+   * @see 32.4 UBX Checksum of 'u-blox 8 / u-blox M8 Receiver description'
+   */
   bool calculateChecksum();
   bool verifyChecksum();
   std::uint8_t sync1 = 0;
