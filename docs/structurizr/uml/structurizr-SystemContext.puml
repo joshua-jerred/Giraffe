@@ -1,0 +1,49 @@
+@startuml
+set separator none
+title Giraffe - System Context
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<APRSNetwork>> {
+  BackgroundColor #999999
+  FontColor #ffffff
+  BorderColor #6b6b6b
+  shadowing false
+}
+skinparam rectangle<<Giraffe>> {
+  BackgroundColor #1168bd
+  FontColor #ffffff
+  BorderColor #0b4884
+  shadowing false
+}
+skinparam person<<GiraffeUser>> {
+  BackgroundColor #08427b
+  FontColor #ffffff
+  BorderColor #052e56
+  shadowing false
+}
+
+rectangle "Giraffe System" <<group1>> {
+  skinparam RectangleBorderColor<<group1>> #cccccc
+  skinparam RectangleFontColor<<group1>> #cccccc
+  skinparam RectangleBorderStyle<<group1>> dashed
+
+  rectangle "==APRS Network\n<size:10>[Software System]</size>" <<APRSNetwork>> as APRSNetwork
+  rectangle "==Giraffe\n<size:10>[Software System]</size>\n\nHardware and software suite for hosting and controlling high altitude balloon flights." <<Giraffe>> as Giraffe
+}
+
+person "==Giraffe User\n<size:10>[Person]</size>\n\nA user of the hardware and software suite, controlling the flight." <<GiraffeUser>> as GiraffeUser
+
+GiraffeUser .[#707070,thickness=2].> Giraffe : "<color:#707070>TODO"
+GiraffeUser .[#707070,thickness=2].> APRSNetwork : "<color:#707070>Views position reports using aprs.fi"
+Giraffe .[#707070,thickness=2].> APRSNetwork : "<color:#707070>Broadcasts APRS position reports"
+@enduml

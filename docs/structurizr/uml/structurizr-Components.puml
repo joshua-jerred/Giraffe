@@ -1,0 +1,112 @@
+@startuml
+set separator none
+title Giraffe - Giraffe Flight Software - Components
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<Giraffe.GiraffeFlightSoftware.Configuration>> {
+  BackgroundColor #85bbf0
+  FontColor #000000
+  BorderColor #5d82a8
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeFlightSoftware.DataBlocks>> {
+  BackgroundColor #85bbf0
+  FontColor #000000
+  BorderColor #5d82a8
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeFlightSoftware.DataFrames>> {
+  BackgroundColor #85bbf0
+  FontColor #000000
+  BorderColor #5d82a8
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeFlightSoftware.DataModuleRunnerThread>> {
+  BackgroundColor #85bbf0
+  FontColor #000000
+  BorderColor #5d82a8
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeFlightSoftware.DataStreams>> {
+  BackgroundColor #85bbf0
+  FontColor #000000
+  BorderColor #5d82a8
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeFlightSoftware.ExtensionModuleRunnerThread>> {
+  BackgroundColor #85bbf0
+  FontColor #000000
+  BorderColor #5d82a8
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeFlightSoftware.FlightRunner>> {
+  BackgroundColor #85bbf0
+  FontColor #000000
+  BorderColor #5d82a8
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeFlightSoftware.ServerModuleRunnerThread>> {
+  BackgroundColor #85bbf0
+  FontColor #000000
+  BorderColor #5d82a8
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeFlightSoftware.TCPSocket>> {
+  BackgroundColor #85bbf0
+  FontColor #000000
+  BorderColor #5d82a8
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeFlightSoftware>> {
+  BorderColor #2e6295
+  FontColor #2e6295
+  shadowing false
+}
+
+rectangle "Giraffe Flight Software\n<size:10>[Container]</size>" <<Giraffe.GiraffeFlightSoftware>> {
+  rectangle "Data Module" <<group1>> {
+    skinparam RectangleBorderColor<<group1>> #cccccc
+    skinparam RectangleFontColor<<group1>> #cccccc
+    skinparam RectangleBorderStyle<<group1>> dashed
+
+    rectangle "==Data Module - Runner Thread\n<size:10>[Component]</size>" <<Giraffe.GiraffeFlightSoftware.DataModuleRunnerThread>> as Giraffe.GiraffeFlightSoftware.DataModuleRunnerThread
+    rectangle "==Data Streams\n<size:10>[Component]</size>" <<Giraffe.GiraffeFlightSoftware.DataStreams>> as Giraffe.GiraffeFlightSoftware.DataStreams
+    rectangle "==Data Frames\n<size:10>[Component]</size>" <<Giraffe.GiraffeFlightSoftware.DataFrames>> as Giraffe.GiraffeFlightSoftware.DataFrames
+    rectangle "==Data Blocks\n<size:10>[Component]</size>" <<Giraffe.GiraffeFlightSoftware.DataBlocks>> as Giraffe.GiraffeFlightSoftware.DataBlocks
+  }
+
+  rectangle "Extension Module" <<group2>> {
+    skinparam RectangleBorderColor<<group2>> #cccccc
+    skinparam RectangleFontColor<<group2>> #cccccc
+    skinparam RectangleBorderStyle<<group2>> dashed
+
+    rectangle "==Extension Module - Runner Thread\n<size:10>[Component]</size>" <<Giraffe.GiraffeFlightSoftware.ExtensionModuleRunnerThread>> as Giraffe.GiraffeFlightSoftware.ExtensionModuleRunnerThread
+  }
+
+  rectangle "Server Module" <<group3>> {
+    skinparam RectangleBorderColor<<group3>> #cccccc
+    skinparam RectangleFontColor<<group3>> #cccccc
+    skinparam RectangleBorderStyle<<group3>> dashed
+
+    rectangle "==Server Module - Runner Thread\n<size:10>[Component]</size>" <<Giraffe.GiraffeFlightSoftware.ServerModuleRunnerThread>> as Giraffe.GiraffeFlightSoftware.ServerModuleRunnerThread
+    rectangle "==TCP Socket\n<size:10>[Component]</size>" <<Giraffe.GiraffeFlightSoftware.TCPSocket>> as Giraffe.GiraffeFlightSoftware.TCPSocket
+  }
+
+  rectangle "==Flight Runner\n<size:10>[Component]</size>" <<Giraffe.GiraffeFlightSoftware.FlightRunner>> as Giraffe.GiraffeFlightSoftware.FlightRunner
+  rectangle "==Configuration\n<size:10>[Component]</size>" <<Giraffe.GiraffeFlightSoftware.Configuration>> as Giraffe.GiraffeFlightSoftware.Configuration
+}
+
+Giraffe.GiraffeFlightSoftware.FlightRunner .[#707070,thickness=2].> Giraffe.GiraffeFlightSoftware.Configuration : "<color:#707070>Loads the configuration file at startup."
+Giraffe.GiraffeFlightSoftware.FlightRunner .[#707070,thickness=2].> Giraffe.GiraffeFlightSoftware.DataModuleRunnerThread : "<color:#707070>Starts the data module."
+Giraffe.GiraffeFlightSoftware.FlightRunner .[#707070,thickness=2].> Giraffe.GiraffeFlightSoftware.ServerModuleRunnerThread : "<color:#707070>Starts the server module."
+@enduml

@@ -1,0 +1,123 @@
+@startuml
+set separator none
+title Giraffe - Containers
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<APRSNetwork>> {
+  BackgroundColor #999999
+  FontColor #ffffff
+  BorderColor #6b6b6b
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeDataLinkGFS>> {
+  BackgroundColor #438dd5
+  FontColor #ffffff
+  BorderColor #2e6295
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeDataLinkGGS>> {
+  BackgroundColor #438dd5
+  FontColor #ffffff
+  BorderColor #2e6295
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeFlightSoftware>> {
+  BackgroundColor #438dd5
+  FontColor #ffffff
+  BorderColor #2e6295
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeFlightWatchdog>> {
+  BackgroundColor #438dd5
+  FontColor #ffffff
+  BorderColor #2e6295
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeGroundStation>> {
+  BackgroundColor #438dd5
+  FontColor #ffffff
+  BorderColor #2e6295
+  shadowing false
+}
+skinparam person<<GiraffeUser>> {
+  BackgroundColor #08427b
+  FontColor #ffffff
+  BorderColor #052e56
+  shadowing false
+}
+skinparam rectangle<<Giraffe.GiraffeWebClient>> {
+  BackgroundColor #438dd5
+  FontColor #ffffff
+  BorderColor #2e6295
+  shadowing false
+}
+skinparam database<<Giraffe.InfluxDBFlight>> {
+  BackgroundColor #438dd5
+  FontColor #ffffff
+  BorderColor #2e6295
+  shadowing false
+}
+skinparam database<<Giraffe.InfluxDBGround>> {
+  BackgroundColor #438dd5
+  FontColor #ffffff
+  BorderColor #2e6295
+  shadowing false
+}
+skinparam rectangle<<Giraffe>> {
+  BorderColor #0b4884
+  FontColor #0b4884
+  shadowing false
+}
+
+person "==Giraffe User\n<size:10>[Person]</size>\n\nA user of the hardware and software suite, controlling the flight." <<GiraffeUser>> as GiraffeUser
+rectangle "==APRS Network\n<size:10>[Software System]</size>" <<APRSNetwork>> as APRSNetwork
+
+rectangle "Giraffe\n<size:10>[Software System]</size>" <<Giraffe>> {
+  rectangle "Giraffe Flight System" <<group1>> {
+    skinparam RectangleBorderColor<<group1>> #cccccc
+    skinparam RectangleFontColor<<group1>> #cccccc
+    skinparam RectangleBorderStyle<<group1>> dashed
+
+    rectangle "==Giraffe Flight Software\n<size:10>[Container]</size>" <<Giraffe.GiraffeFlightSoftware>> as Giraffe.GiraffeFlightSoftware
+    rectangle "==Giraffe Data Link (GFS)\n<size:10>[Container]</size>" <<Giraffe.GiraffeDataLinkGFS>> as Giraffe.GiraffeDataLinkGFS
+    rectangle "==Giraffe Flight Watchdog\n<size:10>[Container]</size>" <<Giraffe.GiraffeFlightWatchdog>> as Giraffe.GiraffeFlightWatchdog
+    database "==InfluxDB - Flight\n<size:10>[Container]</size>" <<Giraffe.InfluxDBFlight>> as Giraffe.InfluxDBFlight
+  }
+
+  rectangle "Giraffe Ground Station" <<group2>> {
+    skinparam RectangleBorderColor<<group2>> #cccccc
+    skinparam RectangleFontColor<<group2>> #cccccc
+    skinparam RectangleBorderStyle<<group2>> dashed
+
+    database "==InfluxDB - Ground\n<size:10>[Container]</size>" <<Giraffe.InfluxDBGround>> as Giraffe.InfluxDBGround
+    rectangle "==Giraffe Ground Station\n<size:10>[Container]</size>\n\nGround Station for Giraffe" <<Giraffe.GiraffeGroundStation>> as Giraffe.GiraffeGroundStation
+    rectangle "==Giraffe Web Client\n<size:10>[Container: JS/React]</size>\n\nReact Based Web Client" <<Giraffe.GiraffeWebClient>> as Giraffe.GiraffeWebClient
+    rectangle "==Giraffe Data Link (GGS)\n<size:10>[Container]</size>" <<Giraffe.GiraffeDataLinkGGS>> as Giraffe.GiraffeDataLinkGGS
+  }
+
+}
+
+GiraffeUser .[#707070,thickness=2].> Giraffe.GiraffeWebClient : "<color:#707070>TODO"
+Giraffe.GiraffeWebClient .[#707070,thickness=2].> Giraffe.GiraffeGroundStation : "<color:#707070>TODO"
+Giraffe.GiraffeGroundStation .[#707070,thickness=2].> Giraffe.GiraffeDataLinkGGS : "<color:#707070>TODO"
+Giraffe.GiraffeGroundStation .[#707070,thickness=2].> Giraffe.InfluxDBGround : "<color:#707070>TODO"
+Giraffe.GiraffeDataLinkGGS .[#707070,thickness=2].> Giraffe.InfluxDBGround : "<color:#707070>TODO"
+Giraffe.GiraffeDataLinkGFS .[#707070,thickness=2].> Giraffe.GiraffeDataLinkGGS : "<color:#707070>TODO"
+Giraffe.GiraffeDataLinkGGS .[#707070,thickness=2].> Giraffe.GiraffeDataLinkGFS : "<color:#707070>TODO"
+Giraffe.GiraffeGroundStation .[#707070,thickness=2].> Giraffe.GiraffeFlightSoftware : "<color:#707070>TCP Socket"
+Giraffe.GiraffeDataLinkGFS .[#707070,thickness=2].> APRSNetwork : "<color:#707070>TODO"
+Giraffe.GiraffeFlightSoftware .[#707070,thickness=2].> Giraffe.GiraffeDataLinkGFS : "<color:#707070>TODO"
+Giraffe.GiraffeFlightWatchdog .[#707070,thickness=2].> Giraffe.GiraffeFlightSoftware : "<color:#707070>TODO"
+Giraffe.GiraffeFlightSoftware .[#707070,thickness=2].> Giraffe.InfluxDBFlight : "<color:#707070>TODO"
+GiraffeUser .[#707070,thickness=2].> APRSNetwork : "<color:#707070>Views position reports using aprs.fi"
+@enduml
