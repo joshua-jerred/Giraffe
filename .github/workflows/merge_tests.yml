@@ -89,19 +89,18 @@ jobs:
       - run: npm test
         working-directory: ./src/web_client
 
-  doxygen_build:
+  doxygen:
     name: Doxygen Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Install Doxygen
-        run: sudo apt-get install doxygen graphviz -y
-      - name: Create Build Directory
-        run: mkdir build && mkdir build/dox
+        run: sudo apt-get install doxygen graphviz -y && mkdir build && mkdir build/dox
       - name: Build Doxygen
         run: doxygen project/doxygen/Doxyfile
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
       # - name: Deploy to GitHub Pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./docs
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/dox/html
