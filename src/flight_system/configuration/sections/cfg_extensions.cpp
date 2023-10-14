@@ -20,8 +20,6 @@
 
 namespace cfg {
 
-// ExtensionMetadata (struct) ------------------
-
 Json ExtensionMetadata::getJson() const {
   return Json::object({
       {"name", name},

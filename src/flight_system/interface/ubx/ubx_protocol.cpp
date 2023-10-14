@@ -1,17 +1,17 @@
 /**
- * @file ubx.cpp
- * @author Joshua Jerred (https://joshuajer.red/)
- * @brief Initial implementation of the UBX protocol, in progress.
- * @details This is a work in progress, it is currently a bit of a mess
- * as I test different methods of implementing this protocol.
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
  *
- * The main issue right now is poor reliability of the electrical connection
- * as a logic analyzer shows different behavior compared to what the Pi sees.
- * Need a real scope for this one, not my hantek...
+ * @file   ubx_protocol.cpp
+ * @brief  The UBX Protocol implementation
  *
- * @version 0.3
- * @date 2023-01-06
- * @copyright Copyright (c) 2023
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-10-13
+ * @copyright  2023 (license to be defined)
  */
 
 #include <BoosterSeat/timer.hpp>

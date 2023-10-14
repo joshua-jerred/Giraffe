@@ -1,13 +1,17 @@
 /**
- * @file ubx.h
- * @author Joshua Jerred (https://joshuajer.red/)
- * @brief Public interface for the u-blox protocol
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
  *
- * @version 0.3
- * @date 2023-01-06
- * @copyright Copyright (c) 2023
+ * @file   ubx_protocol.hpp
+ * @brief  UBX Protocol implementation header
  *
- * @todo remove the macros, they're not needed
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-10-13
+ * @copyright  2023 (license to be defined)
  */
 
 #ifndef UBX_HPP_
