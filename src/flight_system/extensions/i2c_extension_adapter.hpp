@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   i2c_extension_base.hpp
+ * @file   i2c_extension_adapter.hpp
  * @brief  Adapter for I2C Extensions
  * @warning This is currently not implemented!
  *

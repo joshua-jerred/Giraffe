@@ -92,7 +92,7 @@ struct SharedData {
   /**
    * @brief Used to log debug messages when the program is not in release mode.
    *
-   * @param id - Node identification
+   * @param node_identification - Node identification
    * @param info - Debug message
    */
   void debugLog(const node::Identification node_identification,

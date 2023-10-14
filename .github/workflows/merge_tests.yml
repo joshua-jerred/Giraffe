@@ -88,3 +88,20 @@ jobs:
         working-directory: ./src/web_client
       - run: npm test
         working-directory: ./src/web_client
+
+  doxygen_build:
+    name: Doxygen Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Doxygen
+        run: sudo apt-get install doxygen
+      - name: Create Build Directory
+        run: mkdir build && mkdir build/dox
+      - name: Build Doxygen
+        run: doxygen project/doxygen/Doxyfile
+      # - name: Deploy to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./docs

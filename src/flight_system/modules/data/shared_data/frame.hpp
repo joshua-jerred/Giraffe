@@ -39,7 +39,7 @@ public:
   /**
    * @brief Get an item from the frame.
    *
-   * @param id - The identifier of the item to get.
+   * @param key - The identifier of the item to get.
    * @param data - The data to be returned.
    * @return true - If the item was found.
    * @return false - If the item was not found.
@@ -72,7 +72,7 @@ public:
   /**
    * @brief Removes an item from the frame.
    *
-   * @param id - The identifier of the item to remove.
+   * @param key - The identifier of the item to remove.
    * @return true - If the item was removed.
    * @return false - If the item was not removed.
    */
