@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"structdata_1_1blocks_1_1ModulesStatuses.html#a060d8511ce2cf6e126fc485d29d21249":[5,0,2,0,7,3],
 "structdata_1_1blocks_1_1ModulesStatuses.html#a19dfc5d9deb49328da788bd2f954fa4a":[5,0,2,0,7,0],
 "structdata_1_1blocks_1_1ModulesStatuses.html#a487972c465228145d22437dc7d00d258":[5,0,2,0,7,2],
 "structdata_1_1blocks_1_1ModulesStatuses.html#a70a7f605bb5a96cbe44d59890133d3bc":[5,0,2,0,7,4],
@@ -13,8 +14,8 @@ var NAVTREEINDEX7 =
 "structdata_1_1blocks_1_1ServerModuleStats.html#afa1c4e8020434d284f8a0469f9a01ba1":[5,0,2,0,8,0],
 "structdata_1_1blocks_1_1StreamsStats.html":[5,0,2,0,9],
 "structdata_1_1blocks_1_1StreamsStats.html#a021ca54ba1a1098d305f84115d42f3d1":[5,0,2,0,9,2],
-"structdata_1_1blocks_1_1StreamsStats.html#a3296b16ba6e6354c536cb81d199678c8":[5,0,2,0,9,0,1],
 "structdata_1_1blocks_1_1StreamsStats.html#a3296b16ba6e6354c536cb81d199678c8":[6,0,3,10,1],
+"structdata_1_1blocks_1_1StreamsStats.html#a3296b16ba6e6354c536cb81d199678c8":[5,0,2,0,9,0,1],
 "structdata_1_1blocks_1_1StreamsStats.html#a4c67f6872bb85963500a69f3530b5c8a":[5,0,2,0,9,3],
 "structdata_1_1blocks_1_1StreamsStats.html#a656da1e7267dd957f0dc224019860272":[5,0,2,0,9,1],
 "structdata_1_1blocks_1_1StreamsStats.html#aac583014b7a4480da8c18acba13cdd74":[5,0,2,0,9,0,0],
@@ -23,8 +24,8 @@ var NAVTREEINDEX7 =
 "structdata_1_1blocks_1_1StreamsStats.html#ab9841563c02f6ce257853c33559fad81":[5,0,2,0,9,4],
 "structdata_1_1blocks_1_1StreamsStats.html#ac2099be781c242dfd75085cf820124a6":[6,0,3,10,2],
 "structdata_1_1blocks_1_1StreamsStats.html#ac2099be781c242dfd75085cf820124a6":[5,0,2,0,9,0,2],
-"structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats":[5,0,2,0,9,0],
 "structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats":[6,0,3,10],
+"structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats":[5,0,2,0,9,0],
 "structdata_1_1blocks_1_1SystemInfo.html":[5,0,2,0,10],
 "structdata_1_1blocks_1_1SystemInfo.html#a1c943ede29d1efebfef8a3ffde88c0e4":[5,0,2,0,10,10],
 "structdata_1_1blocks_1_1SystemInfo.html#a25a0a036997138defc4715e6015aff31":[5,0,2,0,10,5],
