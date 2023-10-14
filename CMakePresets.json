@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "gcc_docker_pi_zero",
+      "displayName": "Docker Pi Zero",
+      "description": "",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_TOOLCHAIN_FILE": "/toolchain/toolchain.cmake"
+      }
+    },
+    {
+      "name": "gcc_pi_x86",
+      "displayName": "GCC Pi x86",
+      "description": "",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/toolchains/pi_x86_toolchain.cmake"
+      }
+    },
+    {
+      "name": "host",
+      "displayName": "GCC Host",
+      "description": "",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    }
+  ]
+}

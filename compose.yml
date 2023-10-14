@@ -5,3 +5,9 @@ services:
       - '8080:8080'
     volumes:
       - "./docs/structurizr:/usr/local/structurizr:Z"
+
+  build_giraffe:
+    image: pi_zero_gcc:latest
+    volumes:
+      - .:/project
+    command: "bash ./project/docker_build.sh giraffe_flight_system"
