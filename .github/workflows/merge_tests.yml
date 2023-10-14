@@ -96,10 +96,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install Doxygen
         run: sudo apt-get install doxygen graphviz -y && mkdir build && mkdir build/dox
-      - name: Generate Structurizr PlantUML
-        run: docker-compose run --run structurizr_cli
-      - name: Generate UML SVGs
-        run: java -jar project/plantuml.jar -o "../../uml" -x "./docs/structurizr/uml/*-key.puml" "./docs/structurizr/uml/*.puml" -svg
+      - name: Generate Structurizr PlantUML SVGs
+        run: bash project/generate_uml.sh
       - name: Build Doxygen
         run: doxygen project/doxygen/Doxyfile
       - name: Deploy to GitHub Pages
