@@ -1,10 +1,19 @@
 services:
-  structurizr:
+  structurizr_live:
     image: structurizr/lite
     ports:
       - '8080:8080'
     volumes:
       - "./docs/structurizr:/usr/local/structurizr:Z"
+      - "./docs/structurizr/uml:/usr/local/structurizr/uml:Z"
+
+  structurizr_cli:
+    image: structurizr/cli
+    ports:
+      - '8080:8080'
+    volumes:
+      - "./docs/structurizr:/usr/local/structurizr:Z"
+    command: ["export", "-workspace", "/usr/local/structurizr/workspace.dsl", "-format", "plantuml/structurizr", "-output", "/usr/local/structurizr/uml"]
 
   build_giraffe:
     image: pi_zero_gcc:latest

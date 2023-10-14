@@ -90,12 +90,16 @@ jobs:
         working-directory: ./src/web_client
 
   doxygen:
-    name: Doxygen Build
+    name: Doxygen/Structurizr
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Install Doxygen
         run: sudo apt-get install doxygen graphviz -y && mkdir build && mkdir build/dox
+      - name: Generate Structurizr PlantUML
+        run: docker-compose run --run structurizr_cli
+      - name: Generate UML SVGs
+        run: java -jar project/plantuml.jar -o "../../uml" -x "./docs/structurizr/uml/*-key.puml" "./docs/structurizr/uml/*.puml" -svg
       - name: Build Doxygen
         run: doxygen project/doxygen/Doxyfile
       - name: Deploy to GitHub Pages
