@@ -1,6 +1,7 @@
 {
   // CMake
   "cmake.sourceDirectory": "${workspaceFolder}",
+  "cmake.useCMakePresets": "always",
 
   // Formating (C++, Clang-Format)
   "clang-format.style": "file",
