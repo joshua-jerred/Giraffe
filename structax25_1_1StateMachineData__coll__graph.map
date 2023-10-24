@@ -1,0 +1,5 @@
+<map id="ax25::StateMachineData" name="ax25::StateMachineData">
+<area shape="rect" id="node1" title="Data that is shared between the state machines." alt="" coords="5,461,188,539"/>
+<area shape="rect" id="node2" href="$namespaceax25.html#structax25_1_1Timers" title="Timers for the state machines. See 6.7 of the AX.25 2.2 specification." alt="" coords="43,292,150,399"/>
+<area shape="rect" id="node3" title=" " alt="" coords="67,5,127,83"/>
+</map>

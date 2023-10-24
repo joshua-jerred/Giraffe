@@ -3,6 +3,13 @@ var files_dup =
     [ "adc_configuration.cpp", "adc__configuration_8cpp.html", "adc__configuration_8cpp" ],
     [ "adc_configuration.hpp", "adc__configuration_8hpp.html", "adc__configuration_8hpp" ],
     [ "adc_extension_base.hpp", "adc__extension__base_8hpp.html", "adc__extension__base_8hpp" ],
+    [ "ax25_frames.hpp", "ax25__frames_8hpp.html", "ax25__frames_8hpp" ],
+    [ "ax25_state_machine.hpp", "ax25__state__machine_8hpp.html", [
+      [ "Ax25StateMachine", "classgdl_1_1Ax25StateMachine.html", "classgdl_1_1Ax25StateMachine" ]
+    ] ],
+    [ "base_ax25_state_machine.hpp", "base__ax25__state__machine_8hpp.html", [
+      [ "BaseAX25StateMachine", "classax25_1_1BaseAX25StateMachine.html", "classax25_1_1BaseAX25StateMachine" ]
+    ] ],
     [ "blocks.hpp", "blocks_8hpp.html", "blocks_8hpp" ],
     [ "bme280.cpp", "bme280_8cpp.html", "bme280_8cpp" ],
     [ "bme280.hpp", "bme280_8hpp.html", [
@@ -36,6 +43,16 @@ var files_dup =
     [ "cfg_section.hpp", "cfg__section_8hpp.html", [
       [ "CfgSection", "classcfg_1_1CfgSection.html", "classcfg_1_1CfgSection" ]
     ] ],
+    [ "command.hpp", "command_8hpp.html", [
+      [ "Command", "namespacecmd.html#structcmd_1_1Command", [
+        [ "destination", "namespacecmd.html#a718ef116db40a0e3254cc5852229c5be", null ],
+        [ "command_id", "namespacecmd.html#ac807c769aa248d965dcee19e3e025624", null ],
+        [ "int_arg", "namespacecmd.html#a9811b76a7deb68a3135d6ed3748a4e81", null ],
+        [ "str_arg", "namespacecmd.html#a4df5a705227810da5bcd8f8d0326878b", null ]
+      ] ],
+      [ "CommandQueue", "classcmd_1_1CommandQueue.html", "classcmd_1_1CommandQueue" ]
+    ] ],
+    [ "command_ids.hpp", "command__ids_8hpp.html", null ],
     [ "configuration.cpp", "configuration_8cpp.html", null ],
     [ "configuration.hpp", "configuration_8hpp.html", null ],
     [ "configuration_enums.hpp", "configuration__enums_8hpp.html", null ],
@@ -54,6 +71,8 @@ var files_dup =
     [ "data_formatting.hpp", "data__formatting_8hpp.html", "data__formatting_8hpp" ],
     [ "data_ids.hpp", "data__ids_8hpp.html", null ],
     [ "data_ids_string_map.cpp", "data__ids__string__map_8cpp.html", null ],
+    [ "data_link.cpp", "data__link_8cpp.html", null ],
+    [ "data_link.hpp", "data__link_8hpp.html", "data__link_8hpp" ],
     [ "data_log.cpp", "data__log_8cpp.html", "data__log_8cpp" ],
     [ "data_log.hpp", "data__log_8hpp.html", [
       [ "DataLog", "classdata__middleware_1_1DataLog.html", "classdata__middleware_1_1DataLog" ]
@@ -62,10 +81,13 @@ var files_dup =
     [ "data_module.hpp", "data__module_8hpp.html", [
       [ "DataModule", "classmodules_1_1DataModule.html", "classmodules_1_1DataModule" ]
     ] ],
+    [ "diagnostic_id_strings.cpp", "diagnostic__id__strings_8cpp.html", null ],
     [ "ds18b20.cpp", "ds18b20_8cpp.html", "ds18b20_8cpp" ],
     [ "ds18b20.hpp", "ds18b20_8hpp.html", [
       [ "Ds18b20Extension", "classextension_1_1Ds18b20Extension.html", "classextension_1_1Ds18b20Extension" ]
     ] ],
+    [ "duplex_physical_layer.cpp", "duplex__physical__layer_8cpp.html", null ],
+    [ "duplex_physical_layer.hpp", "duplex__physical__layer_8hpp.html", "duplex__physical__layer_8hpp" ],
     [ "error_frame.cpp", "error__frame_8cpp.html", null ],
     [ "error_frame.hpp", "error__frame_8hpp.html", [
       [ "ErrorFrame", "classdata_1_1ErrorFrame.html", "classdata_1_1ErrorFrame" ],
@@ -83,12 +105,49 @@ var files_dup =
     ] ],
     [ "extension_module.cpp", "extension__module_8cpp.html", "extension__module_8cpp" ],
     [ "extension_module.hpp", "extension__module_8hpp.html", "extension__module_8hpp" ],
+    [ "fft_test.cpp", "fft__test_8cpp.html", "fft__test_8cpp" ],
     [ "flight_runner.cpp", "flight__runner_8cpp.html", "flight__runner_8cpp" ],
     [ "flight_runner.hpp", "flight__runner_8hpp.html", [
       [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ]
     ] ],
     [ "frame.hpp", "frame_8hpp.html", [
       [ "Frame", "classdata_1_1Frame.html", "classdata_1_1Frame" ]
+    ] ],
+    [ "gdl_configuration.hpp", "gdl__configuration_8hpp.html", [
+      [ "GdlConfig", "namespacegdl.html#structgdl_1_1GdlConfig", [
+        [ "broadcast_queue_size", "namespacegdl.html#ace3ab1abf31047058605861ec29e2dd6", null ],
+        [ "exchange_queue_size", "namespacegdl.html#aa253de775888980db5e49168352373bc", null ],
+        [ "received_queue_size", "namespacegdl.html#ac4878f8d932e0c1a78364f035c8784ab", null ],
+        [ "max_retries", "namespacegdl.html#aadfcdb5e99d6c6df79e09a61a56f4c40", null ],
+        [ "retry_interval", "namespacegdl.html#a85b7c7b5f6f93d6c5af8fa085566ea4b", null ],
+        [ "connection_status_interval", "namespacegdl.html#a5c8dccf2a6bc3a7c426af61ef0a998de", null ],
+        [ "max_message_size", "namespacegdl.html#a2d2a9df61aae726ca4688dabcdfcd21c", null ],
+        [ "default_timeout", "namespacegdl.html#aa837b28e5c29cd598fb94f2c315ba8cd", null ]
+      ] ]
+    ] ],
+    [ "gdl_message.hpp", "gdl__message_8hpp.html", [
+      [ "Message", "structgdl_1_1Message.html", "structgdl_1_1Message" ]
+    ] ],
+    [ "gdl_message_queue.hpp", "gdl__message__queue_8hpp.html", [
+      [ "MessageQueue", "classgdl_1_1MessageQueue.html", "classgdl_1_1MessageQueue" ]
+    ] ],
+    [ "gdl_session_layer.hpp", "gdl__session__layer_8hpp.html", [
+      [ "SessionLayer", "namespacegdl.html#classgdl_1_1SessionLayer", null ]
+    ] ],
+    [ "gdl_terminal.cpp", "gdl__terminal_8cpp.html", "gdl__terminal_8cpp" ],
+    [ "giraffe_assert.hpp", "giraffe__assert_8hpp.html", "giraffe__assert_8hpp" ],
+    [ "giraffe_data_link.cpp", "giraffe__data__link_8cpp.html", null ],
+    [ "giraffe_data_link.hpp", "giraffe__data__link_8hpp.html", [
+      [ "GiraffeDataLink", "classgdl_1_1GiraffeDataLink.html", "classgdl_1_1GiraffeDataLink" ],
+      [ "MessageQueues", "structgdl_1_1GiraffeDataLink_1_1MessageQueues.html", "structgdl_1_1GiraffeDataLink_1_1MessageQueues" ]
+    ] ],
+    [ "giraffe_debug.hpp", "giraffe__debug_8hpp.html", "giraffe__debug_8hpp" ],
+    [ "giraffe_debug_assert.cpp", "giraffe__debug__assert_8cpp.html", "giraffe__debug__assert_8cpp" ],
+    [ "giraffe_diagnostic_ids.hpp", "giraffe__diagnostic__ids_8hpp.html", null ],
+    [ "giraffe_diagnostics.hpp", "giraffe__diagnostics_8hpp.html", null ],
+    [ "giraffe_exception.cpp", "giraffe__exception_8cpp.html", "giraffe__exception_8cpp" ],
+    [ "giraffe_exception.hpp", "giraffe__exception_8hpp.html", [
+      [ "GiraffeException", "classGiraffeException.html", "classGiraffeException" ]
     ] ],
     [ "i2c_extension_adapter.hpp", "i2c__extension__adapter_8hpp.html", "i2c__extension__adapter_8hpp" ],
     [ "i2c_interface.cpp", "i2c__interface_8cpp.html", null ],
@@ -99,17 +158,24 @@ var files_dup =
     [ "influxdb.hpp", "influxdb_8hpp.html", [
       [ "InfluxDb", "classdata__middleware_1_1InfluxDb.html", "classdata__middleware_1_1InfluxDb" ]
     ] ],
+    [ "json.hpp", "json_8hpp.html", "json_8hpp" ],
+    [ "link_multiplexer.cpp", "link__multiplexer_8cpp.html", null ],
+    [ "link_multiplexer.hpp", "link__multiplexer_8hpp.html", "link__multiplexer_8hpp" ],
     [ "log_container.hpp", "log__container_8hpp.html", "log__container_8hpp" ],
     [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
+    [ "management_data_link.cpp", "management__data__link_8cpp.html", null ],
+    [ "management_data_link.hpp", "management__data__link_8hpp.html", "management__data__link_8hpp" ],
     [ "mcp3021.cpp", "mcp3021_8cpp.html", "mcp3021_8cpp" ],
     [ "mcp3021.hpp", "mcp3021_8hpp.html", [
       [ "Mcp3021Extension", "classextension_1_1Mcp3021Extension.html", "classextension_1_1Mcp3021Extension" ]
     ] ],
+    [ "message_queue.cpp", "message__queue_8cpp.html", null ],
     [ "module.cpp", "module_8cpp.html", "module_8cpp" ],
     [ "module.hpp", "module_8hpp.html", [
       [ "MetaData", "structmodules_1_1MetaData.html", "structmodules_1_1MetaData" ],
       [ "Module", "classmodules_1_1Module.html", "classmodules_1_1Module" ]
     ] ],
+    [ "node.hpp", "node_8hpp.html", "node_8hpp" ],
     [ "one_wire_interface.cpp", "one__wire__interface_8cpp.html", "one__wire__interface_8cpp" ],
     [ "one_wire_interface.hpp", "one__wire__interface_8hpp.html", [
       [ "OneWireInterface", "classOneWireInterface.html", "classOneWireInterface" ]
@@ -117,6 +183,10 @@ var files_dup =
     [ "positional.cpp", "positional_8cpp.html", null ],
     [ "positional.hpp", "positional_8hpp.html", "positional_8hpp" ],
     [ "preconfigured_extensions.hpp", "preconfigured__extensions_8hpp.html", "preconfigured__extensions_8hpp" ],
+    [ "protocol.cpp", "protocol_8cpp.html", "protocol_8cpp" ],
+    [ "protocol.hpp", "protocol_8hpp.html", "protocol_8hpp" ],
+    [ "reassembler.cpp", "reassembler_8cpp.html", null ],
+    [ "reassembler.hpp", "reassembler_8hpp.html", "reassembler_8hpp" ],
     [ "request_handler.cpp", "request__handler_8cpp.html", null ],
     [ "request_handler.hpp", "request__handler_8hpp.html", [
       [ "RequestRouter", "classRequestRouter.html", "classRequestRouter" ]
@@ -125,11 +195,15 @@ var files_dup =
     [ "samm8q.hpp", "samm8q_8hpp.html", [
       [ "SamM8qExtension", "classextension_1_1SamM8qExtension.html", "classextension_1_1SamM8qExtension" ]
     ] ],
+    [ "segmenter.cpp", "segmenter_8cpp.html", null ],
+    [ "segmenter.hpp", "segmenter_8hpp.html", "segmenter_8hpp" ],
     [ "server_module.cpp", "server__module_8cpp.html", "server__module_8cpp" ],
     [ "server_module.hpp", "server__module_8hpp.html", [
       [ "ServerModule", "classmodules_1_1ServerModule.html", "classmodules_1_1ServerModule" ]
     ] ],
     [ "shared_data.hpp", "shared__data_8hpp.html", "shared__data_8hpp" ],
+    [ "simplex_physical_layer.cpp", "simplex__physical__layer_8cpp.html", null ],
+    [ "simplex_physical_layer.hpp", "simplex__physical__layer_8hpp.html", "simplex__physical__layer_8hpp" ],
     [ "simulated_extensions.hpp", "simulated__extensions_8hpp.html", [
       [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],
       [ "SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", "classextension_1_1SimHumiditySensor" ],
@@ -139,6 +213,7 @@ var files_dup =
     ] ],
     [ "socket.cpp", "socket_8cpp.html", null ],
     [ "socket.hpp", "socket_8hpp.html", "socket_8hpp" ],
+    [ "state_machine_data.hpp", "state__machine__data_8hpp.html", "state__machine__data_8hpp" ],
     [ "streams.hpp", "streams_8hpp.html", [
       [ "BaseStreamPacket", "structdata_1_1BaseStreamPacket.html", "structdata_1_1BaseStreamPacket" ],
       [ "DataPacket", "structdata_1_1DataPacket.html", "structdata_1_1DataPacket" ],

@@ -1,5 +1,8 @@
 <map id="RequestRouter::handlePingRequest" name="RequestRouter::handlePingRequest">
-<area shape="rect" id="node1" title="This function responds to a ping request." alt="" coords="5,5,204,47"/>
-<area shape="rect" id="node2" href="$classRequestRouter.html#a4d13e34f9d56d94f7a410248eed83a8b" title=" " alt="" coords="252,13,467,39"/>
-<area shape="rect" id="node3" href="$classsock_1_1TcpSocketServer.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="515,5,681,47"/>
+<area shape="rect" id="node1" title="This function responds to a ping request." alt="" coords="5,35,204,76"/>
+<area shape="rect" id="node2" href="$namespaceprotocol.html#a50f3dfb09a6b5add5339c1877f408bae" title="Create a Response Message." alt="" coords="266,5,453,47"/>
+<area shape="rect" id="node3" href="$classRequestRouter.html#a4d13e34f9d56d94f7a410248eed83a8b" title=" " alt="" coords="252,71,467,98"/>
+<area shape="rect" id="node4" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="523,31,673,72"/>
+<area shape="rect" id="node6" href="$classsock_1_1TcpSocketServer.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="515,96,681,137"/>
+<area shape="rect" id="node5" href="$structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" title="Get the message as a JSON object." alt="" coords="729,31,879,72"/>
 </map>

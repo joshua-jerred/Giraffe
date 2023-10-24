@@ -1,0 +1,6 @@
+<map id="protocol.hpp" name="protocol.hpp">
+<area shape="rect" id="node1" title="Declares the protocol namespace and its associated types." alt="" coords="73,5,175,32"/>
+<area shape="rect" id="node2" href="$json_8hpp.html" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="40,80,117,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="141,80,200,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,155,152,181"/>
+</map>

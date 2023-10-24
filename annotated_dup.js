@@ -1,9 +1,25 @@
 var annotated_dup =
 [
+    [ "ax25", "namespaceax25.html", [
+      [ "BaseAX25StateMachine", "classax25_1_1BaseAX25StateMachine.html", "classax25_1_1BaseAX25StateMachine" ],
+      [ "DataLinkStateMachine", "classax25_1_1DataLinkStateMachine.html", "classax25_1_1DataLinkStateMachine" ],
+      [ "DuplexPhysicalLayerStateMachine", "classax25_1_1DuplexPhysicalLayerStateMachine.html", "classax25_1_1DuplexPhysicalLayerStateMachine" ],
+      [ "LinkMultiplexerStateMachine", "classax25_1_1LinkMultiplexerStateMachine.html", "classax25_1_1LinkMultiplexerStateMachine" ],
+      [ "ManagementDataLinkStateMachine", "classax25_1_1ManagementDataLinkStateMachine.html", "classax25_1_1ManagementDataLinkStateMachine" ],
+      [ "ReassemblerStateMachine", "classax25_1_1ReassemblerStateMachine.html", "classax25_1_1ReassemblerStateMachine" ],
+      [ "SegmenterStateMachine", "classax25_1_1SegmenterStateMachine.html", "classax25_1_1SegmenterStateMachine" ],
+      [ "SimplexPhysicalLayerStateMachine", "classax25_1_1SimplexPhysicalLayerStateMachine.html", "classax25_1_1SimplexPhysicalLayerStateMachine" ],
+      [ "StateMachineData", "namespaceax25.html#structax25_1_1StateMachineData", "namespaceax25_structax25_1_1StateMachineData_dup" ],
+      [ "Timers", "namespaceax25.html#structax25_1_1Timers", "namespaceax25_structax25_1_1Timers_dup" ]
+    ] ],
     [ "cfg", "namespacecfg.html", [
       [ "CfgSection", "classcfg_1_1CfgSection.html", "classcfg_1_1CfgSection" ],
       [ "ExtensionMetadata", "structcfg_1_1ExtensionMetadata.html", "structcfg_1_1ExtensionMetadata" ],
       [ "Extensions", "classcfg_1_1Extensions.html", "classcfg_1_1Extensions" ]
+    ] ],
+    [ "cmd", "namespacecmd.html", [
+      [ "Command", "namespacecmd.html#structcmd_1_1Command", "namespacecmd_structcmd_1_1Command_dup" ],
+      [ "CommandQueue", "classcmd_1_1CommandQueue.html", "classcmd_1_1CommandQueue" ]
     ] ],
     [ "console_pages", "namespaceconsole__pages.html", [
       [ "Pages", "classconsole__pages_1_1Pages.html", "classconsole__pages_1_1Pages" ]
@@ -64,6 +80,14 @@ var annotated_dup =
       [ "SimPressureSensor", "classextension_1_1SimPressureSensor.html", "classextension_1_1SimPressureSensor" ],
       [ "SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", "classextension_1_1SimTemperatureSensor" ]
     ] ],
+    [ "gdl", "namespacegdl.html", [
+      [ "Ax25StateMachine", "classgdl_1_1Ax25StateMachine.html", "classgdl_1_1Ax25StateMachine" ],
+      [ "GdlConfig", "namespacegdl.html#structgdl_1_1GdlConfig", "namespacegdl_structgdl_1_1GdlConfig_dup" ],
+      [ "GiraffeDataLink", "classgdl_1_1GiraffeDataLink.html", "classgdl_1_1GiraffeDataLink" ],
+      [ "Message", "structgdl_1_1Message.html", "structgdl_1_1Message" ],
+      [ "MessageQueue", "classgdl_1_1MessageQueue.html", "classgdl_1_1MessageQueue" ],
+      [ "SessionLayer", "namespacegdl.html#classgdl_1_1SessionLayer", null ]
+    ] ],
     [ "modules", "namespacemodules.html", [
       [ "ConsoleModule", "classmodules_1_1ConsoleModule.html", "classmodules_1_1ConsoleModule" ],
       [ "DataModule", "classmodules_1_1DataModule.html", "classmodules_1_1DataModule" ],
@@ -79,6 +103,9 @@ var annotated_dup =
       ] ],
       [ "Environment", "classncurs_1_1Environment.html", "classncurs_1_1Environment" ]
     ] ],
+    [ "protocol", "namespaceprotocol.html", [
+      [ "Message", "structprotocol_1_1Message.html", "structprotocol_1_1Message" ]
+    ] ],
     [ "sock", "namespacesock.html", [
       [ "TcpSocketServer", "classsock_1_1TcpSocketServer.html", "classsock_1_1TcpSocketServer" ]
     ] ],
@@ -87,6 +114,7 @@ var annotated_dup =
       [ "UBXMessage", "structubx_1_1UBXMessage.html", "structubx_1_1UBXMessage" ]
     ] ],
     [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ],
+    [ "GiraffeException", "classGiraffeException.html", "classGiraffeException" ],
     [ "I2cInterface", "classI2cInterface.html", "classI2cInterface" ],
     [ "LogContainer", "classLogContainer.html", "classLogContainer" ],
     [ "OneWireInterface", "classOneWireInterface.html", "classOneWireInterface" ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['filesizetype_1828',['FileSizeType',['../structdata_1_1blocks_1_1DataLogStats.html#a765e83f6592fe7bcd390bfc4c426a4b4',1,'data::blocks::DataLogStats']]]
+  ['address_5ft_2480',['address_t',['../namespaceax25.html#ab411c5cfad6c201cac18e8fd150c5c84',1,'ax25']]]
 ];

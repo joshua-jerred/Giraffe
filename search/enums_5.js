@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['level_1841',['Level',['../structdata_1_1LogPacket.html#acf1eb5602d42a50429a2d4b4752279f4',1,'data::LogPacket']]]
+  ['gpsfix_2505',['GpsFix',['../namespacedata.html#ab828a916e0a524f5d9d29e881a1e829b',1,'data']]]
 ];

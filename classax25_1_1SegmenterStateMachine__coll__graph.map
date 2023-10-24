@@ -1,0 +1,8 @@
+<map id="ax25::SegmenterStateMachine" name="ax25::SegmenterStateMachine">
+<area shape="rect" id="node1" title=" " alt="" coords="135,785,391,951"/>
+<area shape="rect" id="node2" href="$classax25_1_1BaseAX25StateMachine.html" title=" " alt="" coords="5,601,223,723"/>
+<area shape="rect" id="node3" href="$namespaceax25.html#structax25_1_1StateMachineData" title="Data that is shared between the state machines." alt="" coords="23,461,205,539"/>
+<area shape="rect" id="node4" href="$namespaceax25.html#structax25_1_1Timers" title="Timers for the state machines. See 6.7 of the AX.25 2.2 specification." alt="" coords="61,292,167,399"/>
+<area shape="rect" id="node5" title=" " alt="" coords="84,5,144,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="247,623,381,701"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="giraffe_exception.cpp" name="giraffe_exception.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="123,5,285,32"/>
+<area shape="rect" id="node2" href="$giraffe__diagnostics_8hpp.html" title="Giraffe&#39;s diagnostic system." alt="" coords="117,80,291,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,237,64,263"/>
+<area shape="rect" id="node4" title=" " alt="" coords="473,155,597,181"/>
+<area shape="rect" id="node5" href="$giraffe__assert_8hpp.html" title="For absolute failures in the code." alt="" coords="309,155,448,181"/>
+<area shape="rect" id="node8" href="$giraffe__diagnostic__ids_8hpp.html" title=" " alt="" coords="88,229,227,271"/>
+<area shape="rect" id="node9" href="$giraffe__exception_8hpp.html" title="Common exception for Giraffe." alt="" coords="123,155,285,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="251,237,338,263"/>
+<area shape="rect" id="node7" title=" " alt="" coords="363,237,429,263"/>
+</map>

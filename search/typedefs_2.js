@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['menu_1830',['Menu',['../namespaceconsole__pages.html#afe0c869a577d88847c6d30bec13569c1',1,'console_pages']]]
+  ['json_2483',['json',['../namespacedata__middleware.html#a97780203ae592bc5794d097834e8a89b',1,'data_middleware']]],
+  ['json_2484',['Json',['../json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f',1,'json.hpp']]]
 ];

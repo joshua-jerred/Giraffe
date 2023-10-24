@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['type_1849',['Type',['../structdata_1_1DataPacket.html#a7ac4c3266ecc030764f211293194c872',1,'data::DataPacket']]]
+  ['pageoption_2515',['PageOption',['../namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769',1,'console_pages']]],
+  ['primitive_2516',['Primitive',['../namespaceax25.html#ac1d32907870f177f35b1975f74a609fa',1,'ax25']]]
 ];

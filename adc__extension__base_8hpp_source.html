@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('adc__extension__base_8hpp_source.html'
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="adc__configuration_8hpp.html">adc_configuration.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="extension__base_8hpp.html">extension_base.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;giraffe_assert.hpp&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="giraffe__assert_8hpp.html">giraffe_assert.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceextension.html">extension</a> {</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
@@ -170,7 +170,7 @@ $(document).ready(function(){initNavTree('adc__extension__base_8hpp_source.html'
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <a class="code" href="classextension_1_1AdcExtensionBase.html#a8dfeb20998d7257afac6e381e5351d30">voltageReference</a>(adc_value);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      giraffe_assert(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <a class="code" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>(<span class="keyword">false</span>);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
@@ -235,6 +235,8 @@ $(document).ready(function(){initNavTree('adc__extension__base_8hpp_source.html'
 <div class="ttc" id="aclassextension_1_1Extension_html_aa7ec0098dfde16a54eb616c73ba3046e"><div class="ttname"><a href="classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e">extension::Extension::data</a></div><div class="ttdeci">void data(data::DataId identifier, T value, int precision=2)</div><div class="ttdef"><b>Definition:</b> extension_base.cpp:111</div></div>
 <div class="ttc" id="aconsole__module_8cpp_html_a13611b658ec8785a48d23f69a583c8a1"><div class="ttname"><a href="console__module_8cpp.html#a13611b658ec8785a48d23f69a583c8a1">metadata</a></div><div class="ttdeci">static modules::MetaData metadata(&quot;console_module&quot;, node::Identification::CONSOLE_MODULE, kConsoleUpdateRate)</div></div>
 <div class="ttc" id="aextension__base_8hpp_html"><div class="ttname"><a href="extension__base_8hpp.html">extension_base.hpp</a></div><div class="ttdoc">The new implementation of the extension system.</div></div>
+<div class="ttc" id="agiraffe__assert_8hpp_html"><div class="ttname"><a href="giraffe__assert_8hpp.html">giraffe_assert.hpp</a></div><div class="ttdoc">For absolute failures in the code.</div></div>
+<div class="ttc" id="agiraffe__assert_8hpp_html_afefe70a19fe7eb211420135a66070d71"><div class="ttname"><a href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a></div><div class="ttdeci">#define giraffe_assert(__e)</div><div class="ttdef"><b>Definition:</b> giraffe_assert.hpp:28</div></div>
 <div class="ttc" id="anamespaceextension_html"><div class="ttname"><a href="namespaceextension.html">extension</a></div><div class="ttdef"><b>Definition:</b> adc_configuration.cpp:19</div></div>
 <div class="ttc" id="anamespaceextension_html_a19fd7f317bb71b8fc148030eebc23354"><div class="ttname"><a href="namespaceextension.html#a19fd7f317bb71b8fc148030eebc23354">extension::AdcConfig::voltage_reference</a></div><div class="ttdeci">uint32_t voltage_reference</div><div class="ttdoc">The voltage reference of the ADC in millivolts.</div><div class="ttdef"><b>Definition:</b> adc_configuration.hpp:54</div></div>
 <div class="ttc" id="anamespaceextension_html_a23ef4c78e9d729620c72e7268e1fd7ef"><div class="ttname"><a href="namespaceextension.html#a23ef4c78e9d729620c72e7268e1fd7ef">extension::AdcConfig::resolution</a></div><div class="ttdeci">uint32_t resolution</div><div class="ttdoc">The resolution of the ADC in bits.</div><div class="ttdef"><b>Definition:</b> adc_configuration.hpp:48</div></div>

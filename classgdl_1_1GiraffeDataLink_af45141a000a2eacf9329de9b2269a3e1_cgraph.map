@@ -1,0 +1,4 @@
+<map id="gdl::GiraffeDataLink::sendExchangeMessage" name="gdl::GiraffeDataLink::sendExchangeMessage">
+<area shape="rect" id="node1" title="Add a message to the exchange queue." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node2" href="$classgdl_1_1MessageQueue.html#a4f3c58a304c9d863886a93d176caa4e9" title="Push a message onto the queue." alt="" coords="236,13,425,39"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="message_queue.cpp" name="message_queue.cpp">
+<area shape="rect" id="node1" title="Contains definition of the MessageQueue class." alt="" coords="116,5,271,32"/>
+<area shape="rect" id="node2" href="$gdl__message__queue_8hpp.html" title="A queue for messages." alt="" coords="102,80,285,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,155,69,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="94,155,157,181"/>
+<area shape="rect" id="node5" href="$gdl__configuration_8hpp.html" title="Contains the configuration struct for GDL." alt="" coords="181,155,344,181"/>
+<area shape="rect" id="node7" href="$gdl__message_8hpp.html" title="The message struct for GDL." alt="" coords="368,155,504,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="273,229,340,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="407,229,465,256"/>
+</map>

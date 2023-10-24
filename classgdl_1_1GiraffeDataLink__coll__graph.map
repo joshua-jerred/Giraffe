@@ -1,0 +1,14 @@
+<map id="gdl::GiraffeDataLink" name="gdl::GiraffeDataLink">
+<area shape="rect" id="node1" title="The Giraffe Data Link core class/interface &#45; Layer 4 (Application)" alt="" coords="411,587,613,840"/>
+<area shape="rect" id="node2" href="$namespacegdl.html#classgdl_1_1SessionLayer" title=" " alt="" coords="57,439,193,517"/>
+<area shape="rect" id="node3" href="$structgdl_1_1GiraffeDataLink_1_1MessageQueues.html" title=" " alt="" coords="217,432,372,524"/>
+<area shape="rect" id="node4" href="$classgdl_1_1MessageQueue.html" title="A queue for messages." alt="" coords="181,204,339,340"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,5,184,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="208,5,272,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="351,5,417,83"/>
+<area shape="rect" id="node8" href="$namespacegdl.html#structgdl_1_1GdlConfig" title="Configuration data for Giraffe Data Link." alt="" coords="382,233,495,311"/>
+<area shape="rect" id="node9" title=" " alt="" coords="592,5,667,83"/>
+<area shape="rect" id="node10" title=" " alt="" coords="500,439,711,517"/>
+<area shape="rect" id="node11" title=" " alt="" coords="735,439,873,517"/>
+<area shape="rect" id="node12" title=" " alt="" coords="897,439,961,517"/>
+</map>

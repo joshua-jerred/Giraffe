@@ -1,0 +1,18 @@
+<map id="command.hpp" name="command.hpp">
+<area shape="rect" id="node1" title="The command/queue system for the flight system." alt="" coords="538,5,653,32"/>
+<area shape="rect" id="node2" href="$module_8hpp.html" title="The header file for the base module class." alt="" coords="546,80,645,107"/>
+<area shape="rect" id="node3" href="$console__module_8hpp.html" title=" " alt="" coords="785,155,941,181"/>
+<area shape="rect" id="node8" href="$data__module_8hpp.html" title="The data module header file." alt="" coords="81,155,216,181"/>
+<area shape="rect" id="node10" href="$extension__module_8hpp.html" title="This is the header file for the new extension module." alt="" coords="241,155,411,181"/>
+<area shape="rect" id="node12" href="$module_8cpp.html" title="Implementation of the module base class." alt="" coords="966,155,1065,181"/>
+<area shape="rect" id="node13" href="$server__module_8hpp.html" title="Header file for the server module." alt="" coords="435,155,582,181"/>
+<area shape="rect" id="node15" href="$system__module_8hpp.html" title=" " alt="" coords="606,155,761,181"/>
+<area shape="rect" id="node4" href="$flight__runner_8hpp.html" title=" " alt="" coords="358,229,489,256"/>
+<area shape="rect" id="node7" href="$console__module_8cpp.html" title=" " alt="" coords="862,229,1017,256"/>
+<area shape="rect" id="node5" href="$flight__runner_8cpp.html" title=" " alt="" coords="293,304,423,331"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="447,304,530,331"/>
+<area shape="rect" id="node9" href="$data__module_8cpp.html" title=" " alt="" coords="5,229,140,256"/>
+<area shape="rect" id="node11" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="164,229,333,256"/>
+<area shape="rect" id="node14" href="$server__module_8cpp.html" title="The server module class implementation." alt="" coords="513,229,659,256"/>
+<area shape="rect" id="node16" href="$system__module_8cpp.html" title=" " alt="" coords="684,229,837,256"/>
+</map>

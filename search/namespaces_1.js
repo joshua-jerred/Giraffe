@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['blocks_1065',['blocks',['../namespacedata_1_1blocks.html',1,'data']]],
-  ['data_1066',['data',['../namespacedata.html',1,'']]],
-  ['data_5fmiddleware_1067',['data_middleware',['../namespacedata__middleware.html',1,'']]]
+  ['cfg_1488',['cfg',['../namespacecfg.html',1,'']]],
+  ['cmd_1489',['cmd',['../namespacecmd.html',1,'']]],
+  ['console_5fpages_1490',['console_pages',['../namespaceconsole__pages.html',1,'']]]
 ];

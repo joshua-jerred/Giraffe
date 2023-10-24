@@ -1,0 +1,13 @@
+<map id="ax25_state_machine.hpp" name="ax25_state_machine.hpp">
+<area shape="rect" id="node1" title="Defines the AX.25 state machine." alt="" coords="676,5,861,32"/>
+<area shape="rect" id="node2" href="$data__link_8hpp.html" title="AX.25 Data Link Layer State Machine." alt="" coords="5,80,156,121"/>
+<area shape="rect" id="node4" href="$state__machine__data_8hpp.html" title="Types and data that is shared between the state machines." alt="" coords="976,244,1159,271"/>
+<area shape="rect" id="node6" href="$duplex__physical__layer_8hpp.html" title="=*=======================*=" alt="" coords="180,80,347,121"/>
+<area shape="rect" id="node7" href="$link__multiplexer_8hpp.html" title="State Machine for the Link Multiplexer." alt="" coords="371,80,518,121"/>
+<area shape="rect" id="node8" href="$management__data__link_8hpp.html" title="Management Data Link State Machine." alt="" coords="543,80,752,121"/>
+<area shape="rect" id="node9" href="$reassembler_8hpp.html" title="Reassembler State Machine." alt="" coords="776,87,1007,114"/>
+<area shape="rect" id="node10" href="$segmenter_8hpp.html" title="Segmenter State Machine." alt="" coords="1031,87,1250,114"/>
+<area shape="rect" id="node11" href="$simplex__physical__layer_8hpp.html" title="AX.25 Simplex Physical Layer State Machine." alt="" coords="1275,80,1449,121"/>
+<area shape="rect" id="node3" href="$base__ax25__state__machine_8hpp.html" title="Base AX.25 State Machine Class." alt="" coords="659,169,881,196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="984,319,1151,345"/>
+</map>

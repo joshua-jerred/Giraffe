@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['y_5f_1822',['y_',['../classncurs_1_1internal_1_1Window.html#a918f9230b9f82fd2acb14e7b51f66bbf',1,'ncurs::internal::Window']]],
-  ['y_5facceleration_1823',['y_acceleration',['../group__acceleration.html#gabce45bcef733286aeeadc16e6f585197',1,'data::ImuFrame']]],
-  ['y_5fangular_5fvelocity_1824',['y_angular_velocity',['../group__rotation.html#ga04dafc0f1b2be4734b3a6ab524ad2ea0',1,'data::ImuFrame']]],
-  ['year_1825',['year',['../namespaceubx.html#aa3716ea24fc1c764baee09dfc5b2eba1',1,'ubx::NavData']]]
+  ['x_5f_2471',['x_',['../classncurs_1_1internal_1_1Window.html#a7b675d35c02ffe0f404514b7c18f56df',1,'ncurs::internal::Window']]],
+  ['x_5facceleration_2472',['x_acceleration',['../group__acceleration.html#gabcd7ff9c92e5ae1c40f04da8220b8eb2',1,'data::ImuFrame']]],
+  ['x_5fangular_5fvelocity_2473',['x_angular_velocity',['../group__rotation.html#ga3d76d0918c49d2ab9d25cb7e023e0585',1,'data::ImuFrame']]]
 ];

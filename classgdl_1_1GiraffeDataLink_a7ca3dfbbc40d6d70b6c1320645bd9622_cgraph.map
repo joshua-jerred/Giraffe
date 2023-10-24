@@ -1,0 +1,4 @@
+<map id="gdl::GiraffeDataLink::sendBroadcastMessage" name="gdl::GiraffeDataLink::sendBroadcastMessage">
+<area shape="rect" id="node1" title="Add a message to the broadcast queue." alt="" coords="5,5,189,47"/>
+<area shape="rect" id="node2" href="$classgdl_1_1MessageQueue.html#a4f3c58a304c9d863886a93d176caa4e9" title="Push a message onto the queue." alt="" coords="237,13,427,39"/>
+</map>

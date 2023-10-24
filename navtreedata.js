@@ -63,6 +63,7 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -72,13 +73,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc__configuration_8cpp.html",
-"classdata_1_1LogStream.html#ad9917c842e32c3448708f64aed1060a2",
-"classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37",
-"classmodules_1_1ConsoleModule.html",
-"classncurs_1_1Environment.html#ab4bcbb15604a9a77a6b2f0abb9394fda",
-"group__DataLog.html#gaf55091da9f21a38d5d7c9c0cc1904d3f",
-"namespaceextension.html#afbe8a56683dc56a374c60cea3cb39c43",
-"structdata_1_1blocks_1_1ModulesStatuses.html#a060d8511ce2cf6e126fc485d29d21249"
+"classax25_1_1ManagementDataLinkStateMachine.html#a935120a59670bc6fcf8a641d217c9f2b",
+"classdata__middleware_1_1DataLog.html#a1b71d9dfd047f317c6be15188b3948b5",
+"classextension_1_1Mcp3021Extension.html#a997b9e139894c440e40f95daa94b84e4",
+"classgdl_1_1GiraffeDataLink.html#ab4f35c15441dad1e74f74c1741f4d8b6",
+"classncurs_1_1Environment.html#a5d232cfb0e7984208a2a7231b0ae4123",
+"functions_vars_m.html",
+"namespaceax25.html#a52509214cb546e38410a4b65a8994d48a4e978f6423e559e1d6bab094c929ab9e",
+"namespaceextension.html#a842aaad519772b36cb48adc23ee56afca24f3e5996ecc173cab972f2bd004fd5a",
+"protocol_8hpp.html#a9731025e73bc9be65076786a05ea9624",
+"structdata_1_1blocks_1_1SystemInfo.html#a25a0a036997138defc4715e6015aff31"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -139,12 +139,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7987518f374d57d63842c8a611c05b01"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structcfg_1_1ExtensionMetadata.html">ExtensionMetadata</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcfg_1_1Extensions.html#a7987518f374d57d63842c8a611c05b01">getExtensions</a> () const</td></tr>
 <tr class="memdesc:a7987518f374d57d63842c8a611c05b01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a copy of the extension metadata configuration vector.  <a href="classcfg_1_1Extensions.html#a7987518f374d57d63842c8a611c05b01">More...</a><br /></td></tr>
 <tr class="separator:a7987518f374d57d63842c8a611c05b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9e6240937358d113fc35461d0f3ae40"><td class="memItemLeft" align="right" valign="top">Json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcfg_1_1Extensions.html#af9e6240937358d113fc35461d0f3ae40">getJson</a> () const</td></tr>
+<tr class="memitem:af9e6240937358d113fc35461d0f3ae40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcfg_1_1Extensions.html#af9e6240937358d113fc35461d0f3ae40">getJson</a> () const</td></tr>
 <tr class="separator:af9e6240937358d113fc35461d0f3ae40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17af41b344cbd45b280864b9f7e99942"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcfg_1_1Extensions.html#a17af41b344cbd45b280864b9f7e99942">removeExtension</a> (const std::string &amp;name)</td></tr>
 <tr class="memdesc:a17af41b344cbd45b280864b9f7e99942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove an extension from the configuration by name.  <a href="classcfg_1_1Extensions.html#a17af41b344cbd45b280864b9f7e99942">More...</a><br /></td></tr>
 <tr class="separator:a17af41b344cbd45b280864b9f7e99942"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab673cffeff4bb60bf1a11d83a39736b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b">setFromJson</a> (const Json &amp;json_data)</td></tr>
+<tr class="memitem:aab673cffeff4bb60bf1a11d83a39736b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b">setFromJson</a> (const <a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> &amp;json_data)</td></tr>
 <tr class="separator:aab673cffeff4bb60bf1a11d83a39736b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28c4e7fad5dbfc8f72d1628ff59ac2ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcfg_1_1Extensions.html#a28c4e7fad5dbfc8f72d1628ff59ac2ec">toggleExtension</a> (const std::string &amp;name, bool enabled)</td></tr>
 <tr class="memdesc:a28c4e7fad5dbfc8f72d1628ff59ac2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable an extension by name.  <a href="classcfg_1_1Extensions.html#a28c4e7fad5dbfc8f72d1628ff59ac2ec">More...</a><br /></td></tr>
@@ -213,7 +213,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void cfg::Extensions::setFromJson </td>
           <td>(</td>
-          <td class="paramtype">const Json &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> &amp;&#160;</td>
           <td class="paramname"><em>json_data</em></td><td>)</td>
           <td></td>
         </tr>
@@ -237,7 +237,7 @@ Here is the call graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Json cfg::Extensions::getJson </td>
+          <td class="memname"><a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> cfg::Extensions::getJson </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -479,7 +479,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error()</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, and <a class="el" href="classcfg_1_1CfgSection.html#ae779154cc844fdcaf9c3ad095560dcec">cfg::CfgSection::streams_</a>.</p>
+<p class="reference">References <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8ad08e68ea80bc3bf47a03757579c11900">node::CONFIGURATION</a>, <a class="el" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error()</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, and <a class="el" href="classcfg_1_1CfgSection.html#ae779154cc844fdcaf9c3ad095560dcec">cfg::CfgSection::streams_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classcfg_1_1Extensions.html#a07c0cc24278ea2af29fe5ed6f2cd3598">addExtension()</a>, <a class="el" href="classcfg_1_1Extensions.html#a17af41b344cbd45b280864b9f7e99942">removeExtension()</a>, <a class="el" href="classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b">setFromJson()</a>, and <a class="el" href="classcfg_1_1Extensions.html#a28c4e7fad5dbfc8f72d1628ff59ac2ec">toggleExtension()</a>.</p>
 <div class="dynheader">

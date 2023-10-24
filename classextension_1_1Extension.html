@@ -138,7 +138,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a692f72cc72848d0a162010a955085f07"><td class="memItemLeft" align="right" valign="top">DiagnosticId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a692f72cc72848d0a162010a955085f07">getFaultCode</a> () const</td></tr>
 <tr class="memdesc:a692f72cc72848d0a162010a955085f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Fault Code when the status is ERROR.  <a href="classextension_1_1Extension.html#a692f72cc72848d0a162010a955085f07">More...</a><br /></td></tr>
 <tr class="separator:a692f72cc72848d0a162010a955085f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa99bc040af229aa386f991b1d9ee47a"><td class="memItemLeft" align="right" valign="top">node::Status&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#aaa99bc040af229aa386f991b1d9ee47a">getStatus</a> () const</td></tr>
+<tr class="memitem:aaa99bc040af229aa386f991b1d9ee47a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419">node::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#aaa99bc040af229aa386f991b1d9ee47a">getStatus</a> () const</td></tr>
 <tr class="memdesc:aaa99bc040af229aa386f991b1d9ee47a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Status of the extension.  <a href="classextension_1_1Extension.html#aaa99bc040af229aa386f991b1d9ee47a">More...</a><br /></td></tr>
 <tr class="separator:aaa99bc040af229aa386f991b1d9ee47a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41a192bcc5212abcca25b3c026be7fd3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a41a192bcc5212abcca25b3c026be7fd3">isFaulted</a> () const</td></tr>
@@ -215,7 +215,7 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a067006ad3c8c07006590ccdfca70d037"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae130f81dd3fc3565fd4e617bc6d7f4b1"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#ae130f81dd3fc3565fd4e617bc6d7f4b1">runner_thread_</a> = std::thread()</td></tr>
 <tr class="separator:ae130f81dd3fc3565fd4e617bc6d7f4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78794696deb7370a7f71ca6e7bc28998"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; node::Status &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a> = node::Status::STOPPED</td></tr>
+<tr class="memitem:a78794696deb7370a7f71ca6e7bc28998"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419">node::Status</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a> = <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a09d4d696b4e935115b9313e3c412509a">node::Status::STOPPED</a></td></tr>
 <tr class="separator:a78794696deb7370a7f71ca6e7bc28998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c3006e96ae19d965001031a8acef878"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878">stop_flag_</a> = true</td></tr>
 <tr class="separator:a7c3006e96ae19d965001031a8acef878"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -360,7 +360,7 @@ Here is the call graph for this function:</div>
 
 <p>Starts the extension. </p>
 
-<p class="reference">References <a class="el" href="classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06">error()</a>, <a class="el" href="classextension_1_1Extension.html#a3e5d32890e069c49b3641d0e01322364">fault_code_</a>, <a class="el" href="classextension_1_1Extension.html#a40300776e358833cbfd50c198a320cdf">fault_flag_</a>, <a class="el" href="classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027">runner()</a>, <a class="el" href="classextension_1_1Extension.html#ae130f81dd3fc3565fd4e617bc6d7f4b1">runner_thread_</a>, <a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a>, and <a class="el" href="classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878">stop_flag_</a>.</p>
+<p class="reference">References <a class="el" href="classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06">error()</a>, <a class="el" href="classextension_1_1Extension.html#a3e5d32890e069c49b3641d0e01322364">fault_code_</a>, <a class="el" href="classextension_1_1Extension.html#a40300776e358833cbfd50c198a320cdf">fault_flag_</a>, <a class="el" href="namespacenode.html#a81309cf0b2b2e9b5812e5d829c314da3">node::K_ACTIVE_STATUSES</a>, <a class="el" href="classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027">runner()</a>, <a class="el" href="classextension_1_1Extension.html#ae130f81dd3fc3565fd4e617bc6d7f4b1">runner_thread_</a>, <a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a>, and <a class="el" href="classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878">stop_flag_</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -389,7 +389,7 @@ Here is the call graph for this function:</div>
 <p>The timeout for stopping an extension.</p>
 <p>The interval of how often to check if the extension has stopped.</p>
 
-<p class="reference">References <a class="el" href="classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06">error()</a>, <a class="el" href="classextension_1_1Extension.html#ae130f81dd3fc3565fd4e617bc6d7f4b1">runner_thread_</a>, <a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a>, and <a class="el" href="classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878">stop_flag_</a>.</p>
+<p class="reference">References <a class="el" href="classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06">error()</a>, <a class="el" href="namespacenode.html#a69f87e95ceae3b62b947fb4e4106dd12">node::K_INACTIVE_STATUSES</a>, <a class="el" href="classextension_1_1Extension.html#ae130f81dd3fc3565fd4e617bc6d7f4b1">runner_thread_</a>, <a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a>, and <a class="el" href="classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878">stop_flag_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classextension_1_1Extension.html#a1a01dd8128be175c6a3b8ab1bb2c6d0d">~Extension()</a>, and <a class="el" href="classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68">reset()</a>.</p>
 <div class="dynheader">
@@ -424,7 +424,7 @@ Here is the caller graph for this function:</div>
 
 <p>Only to be called when an extension is in the Error state. This joins the thread and fixes the status. </p>
 
-<p class="reference">References <a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a>, and <a class="el" href="classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37">stop()</a>.</p>
+<p class="reference">References <a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a>, <a class="el" href="classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37">stop()</a>, and <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a09d4d696b4e935115b9313e3c412509a">node::STOPPED</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -444,7 +444,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">node::Status extension::Extension::getStatus </td>
+          <td class="memname"><a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419">node::Status</a> extension::Extension::getStatus </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -458,7 +458,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Get the Status of the extension. </p>
-<dl class="section return"><dt>Returns</dt><dd>node::Status The status of the extension. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419" title="Node status, used for modules and extensions.">node::Status</a> The status of the extension. </dd></dl>
 
 <p class="reference">References <a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a>.</p>
 
@@ -732,7 +732,7 @@ template void Extension::data&lt;std::string&gt;(data::DataId, std::string, int)
 
 /**
  * </pre> 
-<p class="reference">References <a class="el" href="classdata_1_1GpsFrameStream.html#a550c2fb1c9e2e077bde5fda6b6f9fdef">data::GpsFrameStream::addFrame()</a>, <a class="el" href="namespacedata.html#a9fd50d5a6cccb64b636b381c5fb0f3eb">data::Streams::gps</a>, <a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">interfaces_</a>, <a class="el" href="classextension_1_1Extension.html#a295de97827360717494a398c45d161f2">metadata_</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, and <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources::streams</a>.</p>
+<p class="reference">References <a class="el" href="classdata_1_1GpsFrameStream.html#a550c2fb1c9e2e077bde5fda6b6f9fdef">data::GpsFrameStream::addFrame()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a1d1cd00b7cd275ef0629c38d0eb70b4d">node::EXTENSION</a>, <a class="el" href="namespacedata.html#a9fd50d5a6cccb64b636b381c5fb0f3eb">data::Streams::gps</a>, <a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">interfaces_</a>, <a class="el" href="classextension_1_1Extension.html#a295de97827360717494a398c45d161f2">metadata_</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, and <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources::streams</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -766,7 +766,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classdata_1_1ImuFrameStream.html#a380b1612bebbf116df69a3108f65a590">data::ImuFrameStream::addFrame()</a>, <a class="el" href="namespacedata.html#a142d6b2c62c6c60a90575a626a599576">data::Streams::imu</a>, <a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">interfaces_</a>, <a class="el" href="classextension_1_1Extension.html#a295de97827360717494a398c45d161f2">metadata_</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, and <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources::streams</a>.</p>
+<p class="reference">References <a class="el" href="classdata_1_1ImuFrameStream.html#a380b1612bebbf116df69a3108f65a590">data::ImuFrameStream::addFrame()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a1d1cd00b7cd275ef0629c38d0eb70b4d">node::EXTENSION</a>, <a class="el" href="namespacedata.html#a142d6b2c62c6c60a90575a626a599576">data::Streams::imu</a>, <a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">interfaces_</a>, <a class="el" href="classextension_1_1Extension.html#a295de97827360717494a398c45d161f2">metadata_</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, and <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources::streams</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1150,7 +1150,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classextension_1_1Extension.html#a40300776e358833cbfd50c198a320cdf">fault_flag_</a>, <a class="el" href="classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef">loop()</a>, <a class="el" href="classextension_1_1Extension.html#a8c2ff02720daaaf27849c087b064d4c3">shutdown()</a>, <a class="el" href="classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d">sleep()</a>, <a class="el" href="classextension_1_1Extension.html#a75c23dd1442c50aa49a1ecd87ada6912">startup()</a>, <a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a>, and <a class="el" href="classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878">stop_flag_</a>.</p>
+<p class="reference">References <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419abb1ca97ec761fc37101737ba0aa2e7c5">node::ERROR</a>, <a class="el" href="classextension_1_1Extension.html#a40300776e358833cbfd50c198a320cdf">fault_flag_</a>, <a class="el" href="classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef">loop()</a>, <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a43491564ebcfd38568918efbd6e840fd">node::RUNNING</a>, <a class="el" href="classextension_1_1Extension.html#a8c2ff02720daaaf27849c087b064d4c3">shutdown()</a>, <a class="el" href="classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d">sleep()</a>, <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a034312d8adc8099c1c6f53aaff745e26">node::STARTING</a>, <a class="el" href="classextension_1_1Extension.html#a75c23dd1442c50aa49a1ecd87ada6912">startup()</a>, <a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a>, <a class="el" href="classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878">stop_flag_</a>, <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a09d4d696b4e935115b9313e3c412509a">node::STOPPED</a>, and <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419af6cdb3c6710b50ec65ee07f740847e10">node::STOPPING</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c">start()</a>.</p>
 <div class="dynheader">
@@ -1257,7 +1257,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::atomic&lt;node::Status&gt; extension::Extension::status_ = node::Status::STOPPED</td>
+          <td class="memname">std::atomic&lt;<a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419">node::Status</a>&gt; extension::Extension::status_ = <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a09d4d696b4e935115b9313e3c412509a">node::Status::STOPPED</a></td>
         </tr>
       </table>
   </td>
