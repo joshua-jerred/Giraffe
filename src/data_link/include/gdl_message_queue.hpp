@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   message_queue.hpp
+ * @file   gdl_message_queue.hpp
  * @brief  A queue for messages.
  *
  * =*=======================*=

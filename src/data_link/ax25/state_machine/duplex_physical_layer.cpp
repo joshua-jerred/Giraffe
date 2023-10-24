@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   duplex_phsyical_layer.cpp
+ * @file   duplex_physical_layer.cpp
  * @brief  Duplex Physical Layer State Machine
  *
  * =*=======================*=

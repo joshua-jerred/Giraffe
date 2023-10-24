@@ -15,6 +15,8 @@ PROJECT_LOGO           = "docs/assets/logo.svg"
 # Input
 
 INPUT  = src/flight_system
+INPUT += src/common
+INPUT += src/data_link
 INPUT += docs/introduction.md
 IMAGE_PATH             = ./docs/assets
 RECURSIVE              = YES
@@ -25,7 +27,7 @@ FILE_PATTERNS          = *.cpp \
                          *.dox \
 
 USE_MDFILE_AS_MAINPAGE = docs/introduction.md
-
+# CITE_BIB_FILES = docs/references.bib
 
 # ---------------------------------------------------------------------------- #
 # Output

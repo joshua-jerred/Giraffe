@@ -101,7 +101,7 @@ uint8_t IFrameControlFieldModulo8(uint8_t receive_sequence_number,
  * and shifted over. (0-7 inclusive)
  * @param poll_final_bit P/F - true if the poll/final bit should be set, false
  * otherwise.
- * @param sup_3 S - Enum value for the supervisory bits.
+ * @param supervisory_bits S - Enum value for the supervisory bits.
  *
  * @return uint8_t - The control field byte for the S frame.
  */
@@ -162,8 +162,7 @@ uint16_t IFrameControlFieldModulo128(uint8_t receive_sequence_number,
  * and shifted over. (0-127 inclusive)
  * @param poll_final_bit P/F - true if the poll/final bit should be set, false
  * otherwise.
- * @param sup_3 S - Supervisory function bit 3, set if true.
- * @param sup_2 S - Supervisory function bit 2, set if true.
+ * @param supervisory_bits S - Enum value for the supervisory bits.
  *
  * @return uint16_t - The control field bytes for the S frame.
  */

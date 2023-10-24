@@ -3,14 +3,6 @@ const request = require("supertest");
 const app = require("../index");
 const loadMetaData = require("../metadata/metaLoader");
 
-test("GET /api/status", async (t) => {
-  const response = await request(app).get("/api/status");
-  t.is(response.status, 200);
-  t.true(response.body.hasOwnProperty("gfs"));
-  t.true(response.body.hasOwnProperty("influx_db"));
-  t.true(response.body.hasOwnProperty("telemetry"));
-});
-
 async function getSettings(t, resource, setting_category, include = "all") {
   const path = "/api/" + resource + "/settings";
   const response = await request(app)
@@ -41,8 +33,17 @@ async function setSettings(t, resource, setting_category, values) {
   return response.body;
 }
 
-test("GET /api/ggs/settings - all", async (t) => {
+test("GET /api/status", async (t) => {
+  const response = await request(app).get("/api/status");
+  t.is(response.status, 200);
+  t.true(response.body.hasOwnProperty("gfs"));
+  t.true(response.body.hasOwnProperty("influx_db"));
+  t.true(response.body.hasOwnProperty("telemetry"));
+});
+
+test("GET /api/ggs/settings", async (t) => {
   settings = loadMetaData("ggs", "settings");
+
   for (key in settings) {
     let resource = settings[key];
 

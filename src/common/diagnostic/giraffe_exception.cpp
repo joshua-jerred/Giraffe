@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   giraffe_diagnostics.cpp
+ * @file   giraffe_exception.cpp
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)

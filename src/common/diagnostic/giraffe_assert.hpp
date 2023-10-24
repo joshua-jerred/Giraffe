@@ -8,7 +8,7 @@
  * @file   giraffe_assert.hpp
  * @brief  For absolute failures in the code.
  *
- * @cite Styger
+ * cite Styger
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)

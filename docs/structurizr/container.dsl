@@ -23,7 +23,6 @@ workspace extends ./system-context.dsl {
         giraffeWebClient      -> giraffeGroundStation "TODO"
         giraffeGroundStation  -> giraffeDataLinkGround "TODO"
         giraffeGroundStation  -> influxGround "TODO"
-        giraffeDataLinkGround -> influxGround "TODO"
 
         giraffeDataLinkAir    -> giraffeDataLinkGround "TODO"
         giraffeDataLinkGround -> giraffeDataLinkAir "TODO"
@@ -33,7 +32,6 @@ workspace extends ./system-context.dsl {
         giraffeFlightSoftware -> giraffeDataLinkAir "TODO"
         giraffeFlightWatchdog -> giraffeFlightSoftware "TODO"
         giraffeFlightSoftware -> influxAir "TODO"
-        
     }
 
     views {

@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   data_link_state_machine.hpp
+ * @file   data_link.hpp
  * @brief  AX.25 Data Link Layer State Machine
  * @details See C4.2 of the AX.25 Specification.
  *
