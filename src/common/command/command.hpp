@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   commands.hpp
+ * @file   command.hpp
  * @brief  The command/queue system for the flight system.
  *
  * =*=======================*=

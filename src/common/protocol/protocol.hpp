@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   protocol.h
+ * @file   protocol.hpp
  * @brief  Declares the protocol namespace and its associated types.
  * @details This is the C++ implementation of the Giraffe Protocol.
  * @see protocol.md

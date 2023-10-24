@@ -100,6 +100,8 @@ auto RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
     res_body = config_.extensions.getJson();
   } else if (req == "extension_module") {
     res_body = config_.extension_module.getJson();
+  } else if (req == "hardware_interface") {
+    res_body = config_.hardware_interface.getJson();
   } else {
     sendErrorPacket(client, "setting section not found");
     return;
