@@ -27,7 +27,7 @@ FILE_PATTERNS          = *.cpp \
                          *.dox \
 
 USE_MDFILE_AS_MAINPAGE = docs/introduction.md
-
+CITE_BIB_FILES = docs/references.bib
 
 # ---------------------------------------------------------------------------- #
 # Output

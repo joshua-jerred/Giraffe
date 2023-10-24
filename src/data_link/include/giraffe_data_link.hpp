@@ -42,6 +42,7 @@ public:
   /**
    * @brief Create a new Giraffe Data Link instance
    * @param config - The configuration for the GDL instance
+   * @param session_layer - The session layer for the GDL instance
    */
   GiraffeDataLink(GdlConfig config, SessionLayer &session_layer);
 

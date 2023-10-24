@@ -103,6 +103,7 @@ bool parseMessage(const std::string &json_string, Message &message);
 /**
  * @brief Create a Request Message.
  *
+ * @param message (out) - The message structure to populate.
  * @param src - The source of the message.
  * @param dst - The destination of the message.
  * @param rsc - The resource to request.
@@ -115,6 +116,7 @@ void createRequestMessage(Message &message, protocol::Endpoint src,
 /**
  * @brief Create a Set Message.
  *
+ * @param message (out) - The message structure to populate.
  * @param src - The source of the message.
  * @param dst - The destination of the message.
  * @param rsc - The resource to set.
@@ -128,6 +130,7 @@ void createSetMessage(Message &message, protocol::Endpoint src,
 /**
  * @brief Create a Response Message.
  *
+ * @param message (out) - The message structure to populate.
  * @param src - The source of the message.
  * @param dst - The destination of the message.
  * @param id - The id of the message to respond to.
