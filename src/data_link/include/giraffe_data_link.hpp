@@ -24,7 +24,7 @@
 #include "gdl_configuration.hpp"
 #include "gdl_message.hpp"
 #include "gdl_message_queue.hpp"
-#include "gdl_session_layer.hpp"
+#include "gdl_transport_layer.hpp"
 
 namespace gdl {
 /**
@@ -33,18 +33,20 @@ namespace gdl {
 class GiraffeDataLink {
 public:
   /**
-   * @brief The status of the GDL instance.
+   * @brief The status of the GDL thread.
    */
   enum class Status { ERROR, STOPPED, STARTING, RUNNING, STOPPING };
 
+  /**
+   * @brief Status of the remote connection.
+   */
   enum class ConnectionStatus { DISCONNECTED, CONNECTED };
 
   /**
    * @brief Create a new Giraffe Data Link instance
    * @param config - The configuration for the GDL instance
-   * @param session_layer - The session layer for the GDL instance
    */
-  GiraffeDataLink(GdlConfig config, SessionLayer &session_layer);
+  GiraffeDataLink(GdlConfig config);
 
   /**
    * @brief Deconstruct the GDL instance, this will stop the GDL instance if it
@@ -134,11 +136,6 @@ private:
    * @brief The queues for the GDL instance.
    */
   MessageQueues queues_;
-
-  /**
-   * @brief The session layer for the GDL instance.
-   */
-  SessionLayer &session_layer_;
 
   /**
    * @brief The thread that runs GDL.
