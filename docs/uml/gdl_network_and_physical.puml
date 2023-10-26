@@ -1,0 +1,18 @@
+@startuml
+
+Network -> Physical: Handshake
+Network <- Physical: ACK
+
+Network -> Physical: configuration
+Network <- Physical: ACK
+
+Network -> Physical: readyToTransmit
+Network <- Physical: ACK
+
+Network -> Physical: transmitPacket
+Network <- Physical: ACK
+
+Network -> Physical: didTransmit
+Network <- Physical: ACK
+
+@enduml

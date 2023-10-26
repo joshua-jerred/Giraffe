@@ -10,3 +10,6 @@
 ![C4 Container Diagram](uml/structurizr-Containers.svg)
 
 ### Flight System
+
+### Data Link
+See the class [gdl::GiraffeDataLink](@ref gdl::GiraffeDataLink) for more information.

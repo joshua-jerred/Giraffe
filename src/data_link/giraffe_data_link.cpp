@@ -22,11 +22,10 @@
 
 namespace gdl {
 
-GiraffeDataLink::GiraffeDataLink(GdlConfig config, SessionLayer &session_layer)
+GiraffeDataLink::GiraffeDataLink(GdlConfig config)
     : config_(config),
       queues_(config.exchange_queue_size, config.broadcast_queue_size,
-              config.received_queue_size),
-      session_layer_(session_layer) {
+              config.received_queue_size) {
 }
 
 GiraffeDataLink::~GiraffeDataLink() {

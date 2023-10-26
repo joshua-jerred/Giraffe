@@ -1,0 +1,25 @@
+@startuml
+
+enum State {
+  ERROR
+  STOPPED
+  STARTING
+  IDLE
+  TRANSMITTING
+  RECEIVING
+  BUSY
+}
+
+class PhysicalLayer {
+  +void enable()
+  +void disable()
+
+  +State getState()
+
+  +bool transmitBytes(std::vector<uint8_t> bytes)
+
+  +bool receiveBytes(std::vector<uint8_t> &bytes)
+  +uint16_t getNumBytesInReceiveBuffer()
+}
+
+@enduml
