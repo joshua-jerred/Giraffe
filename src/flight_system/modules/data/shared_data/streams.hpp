@@ -188,6 +188,7 @@ public:
     pkt.source = source;
     pkt.identifier = data_id;
     pkt.value = std::move(value);
+    pkt.type = DataPacket::Type::GENERIC;
     pkt.resetTime();
 
     addPacket(pkt);

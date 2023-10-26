@@ -394,6 +394,11 @@ std::string cfg::DataModuleInfluxdb::getContents() const {
   return contents_;
 }
 
+int cfg::DataModuleInfluxdb::getDataDumpInterval() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return data_dump_interval_;
+}
+
 void cfg::DataModuleInfluxdb::setInfluxEnabled(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   influx_enabled_ = val;
@@ -439,6 +444,11 @@ void cfg::DataModuleInfluxdb::setContents(std::string val) {
   contents_ = val;
 }
 
+void cfg::DataModuleInfluxdb::setDataDumpInterval(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  data_dump_interval_ = val;
+}
+
 void cfg::DataModuleInfluxdb::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   validation::setValidValue<bool>(
@@ -468,7 +478,7 @@ void cfg::DataModuleInfluxdb::setFromJson(const Json &json_data) {
         "url",
         url_,
         0,
-        50,
+        100,
         ""
   );
   validation::setValidValue<std::string>(
@@ -478,7 +488,7 @@ void cfg::DataModuleInfluxdb::setFromJson(const Json &json_data) {
         "token",
         token_,
         0,
-        50,
+        100,
         ""
   );
   validation::setValidValue<std::string>(
@@ -529,6 +539,16 @@ void cfg::DataModuleInfluxdb::setFromJson(const Json &json_data) {
         50,
         ""
   );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "data_module_influxdb",
+        "data_dump_interval",
+        data_dump_interval_,
+        100,
+        60000,
+        ""
+  );
 }
 
 Json cfg::DataModuleInfluxdb::getJson() const {
@@ -542,7 +562,8 @@ Json cfg::DataModuleInfluxdb::getJson() const {
     {"data_bucket", data_bucket_},
     {"error_bucket", error_bucket_},
     {"retention_policy", cfg::gEnum::K_INFLUXDB_RETENTION_POLICY_TO_STRING_MAP.at(retention_policy_)},
-    {"contents", contents_}
+    {"contents", contents_},
+    {"data_dump_interval", data_dump_interval_}
   });
 }
 bool cfg::DataModuleLog::getLogToFile() const {

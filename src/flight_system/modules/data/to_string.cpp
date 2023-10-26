@@ -106,4 +106,11 @@ std::string to_string(const data::GpsFramePacket &packet) noexcept {
   return output;
 }
 
+std::string to_string(const DiagnosticId diagnostic_id) noexcept {
+  if (!K_DIAGNOSTIC_ID_STRING_MAP.contains(diagnostic_id)) {
+    return "";
+  }
+  return K_DIAGNOSTIC_ID_STRING_MAP.at(diagnostic_id);
+}
+
 } // namespace util

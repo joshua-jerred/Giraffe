@@ -26,6 +26,7 @@
  */
 namespace util {
 std::string to_string(const node::Identification id) noexcept;
+std::string to_string(const DiagnosticId diagnostic_id) noexcept;
 
 std::string to_string(const data::DataId id) noexcept;
 std::string to_string(const data::DataPacket &packet) noexcept;

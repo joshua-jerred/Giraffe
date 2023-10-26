@@ -121,6 +121,7 @@ public:
   std::string getErrorBucket() const;
   cfg::gEnum::InfluxdbRetentionPolicy getRetentionPolicy() const;
   std::string getContents() const;
+  int getDataDumpInterval() const;
 
   void setInfluxEnabled(bool);
   void setLogErrors(bool);
@@ -131,6 +132,7 @@ public:
   void setErrorBucket(std::string);
   void setRetentionPolicy(cfg::gEnum::InfluxdbRetentionPolicy);
   void setContents(std::string);
+  void setDataDumpInterval(int);
 
   void setFromJson(const Json&);
   Json getJson() const;
@@ -138,13 +140,14 @@ public:
 private:
   bool influx_enabled_ = false;
   bool log_errors_ = false;
-  std::string url_ = "localhost";
+  std::string url_ = "http://localhost:8086/";
   std::string token_ = "none";
   std::string organization_ = "giraffe";
   std::string data_bucket_ = "gfs_data";
   std::string error_bucket_ = "gfs_errors";
   cfg::gEnum::InfluxdbRetentionPolicy retention_policy_ = cfg::gEnum::InfluxdbRetentionPolicy::INF;
   std::string contents_ = "not implemented";
+  int data_dump_interval_ = 1000;
 };
 
 class DataModuleLog : public cfg::CfgSection {

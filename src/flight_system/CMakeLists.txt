@@ -82,6 +82,7 @@ target_include_directories(gfs_data_module INTERFACE
 )
 target_link_libraries(gfs_data_module INTERFACE
 	bzip2-cpp-lib
+	${CURL_LIBRARIES}
 )
 
 # -------- GFS Executable ---------
