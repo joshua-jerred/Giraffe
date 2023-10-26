@@ -27,8 +27,9 @@ var searchData=
   ['bus_5f_79',['bus_',['../classI2cInterface.html#a09ae6d567efc5fdb2880fe472e936715',1,'I2cInterface']]],
   ['bus_5flock_5f_80',['bus_lock_',['../classI2cInterface.html#aa54a9cd4a36177460f8322e6ec17bc2d',1,'I2cInterface']]],
   ['bus_5fopen_5ferror_81',['BUS_OPEN_ERROR',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a0d5d4ff33032f733f227c7d8497372e7',1,'I2cInterface']]],
-  ['bytes_5fper_5fsecond_5fdown_82',['bytes_per_second_down',['../structdata_1_1blocks_1_1ServerModuleStats.html#ac11c0f355f5338103340648974ec388f',1,'data::blocks::ServerModuleStats']]],
-  ['bytes_5fper_5fsecond_5fdown_5f_83',['bytes_per_second_down_',['../classRequestRouter.html#a36cba0117849606d3ebd1001170ca5be',1,'RequestRouter']]],
-  ['bytes_5fper_5fsecond_5fup_84',['bytes_per_second_up',['../structdata_1_1blocks_1_1ServerModuleStats.html#aac6710c91c7a70035ff33b6c4826369a',1,'data::blocks::ServerModuleStats']]],
-  ['bytes_5fper_5fsecond_5fup_5f_85',['bytes_per_second_up_',['../classRequestRouter.html#aa994466c1a91d6a6f4ec9eba357aec2d',1,'RequestRouter']]]
+  ['busy_82',['BUSY',['../classgdl_1_1PhysicalLayer.html#ac61ee25083042d16613414a9ee230292a802706a9238e2928077f97736854bad4',1,'gdl::PhysicalLayer']]],
+  ['bytes_5fper_5fsecond_5fdown_83',['bytes_per_second_down',['../structdata_1_1blocks_1_1ServerModuleStats.html#ac11c0f355f5338103340648974ec388f',1,'data::blocks::ServerModuleStats']]],
+  ['bytes_5fper_5fsecond_5fdown_5f_84',['bytes_per_second_down_',['../classRequestRouter.html#a36cba0117849606d3ebd1001170ca5be',1,'RequestRouter']]],
+  ['bytes_5fper_5fsecond_5fup_85',['bytes_per_second_up',['../structdata_1_1blocks_1_1ServerModuleStats.html#aac6710c91c7a70035ff33b6c4826369a',1,'data::blocks::ServerModuleStats']]],
+  ['bytes_5fper_5fsecond_5fup_5f_86',['bytes_per_second_up_',['../classRequestRouter.html#aa994466c1a91d6a6f4ec9eba357aec2d',1,'RequestRouter']]]
 ];

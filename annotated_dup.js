@@ -86,7 +86,10 @@ var annotated_dup =
       [ "GiraffeDataLink", "classgdl_1_1GiraffeDataLink.html", "classgdl_1_1GiraffeDataLink" ],
       [ "Message", "structgdl_1_1Message.html", "structgdl_1_1Message" ],
       [ "MessageQueue", "classgdl_1_1MessageQueue.html", "classgdl_1_1MessageQueue" ],
-      [ "SessionLayer", "namespacegdl.html#classgdl_1_1SessionLayer", null ]
+      [ "NetworkLayer", "classgdl_1_1NetworkLayer.html", "classgdl_1_1NetworkLayer" ],
+      [ "PhysicalLayer", "classgdl_1_1PhysicalLayer.html", "classgdl_1_1PhysicalLayer" ],
+      [ "SimulatedLoopbackPhysicalLayer", "classgdl_1_1SimulatedLoopbackPhysicalLayer.html", "classgdl_1_1SimulatedLoopbackPhysicalLayer" ],
+      [ "TransportLayer", "classgdl_1_1TransportLayer.html", "classgdl_1_1TransportLayer" ]
     ] ],
     [ "modules", "namespacemodules.html", [
       [ "ConsoleModule", "classmodules_1_1ConsoleModule.html", "classmodules_1_1ConsoleModule" ],

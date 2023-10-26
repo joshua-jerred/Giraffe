@@ -12,7 +12,7 @@ var classgdl_1_1GiraffeDataLink =
       [ "DISCONNECTED", "classgdl_1_1GiraffeDataLink.html#ab36c4e12fe2b8dfed805314ec8324c74a99c8ce56e7ab246445d3b134724428f3", null ],
       [ "CONNECTED", "classgdl_1_1GiraffeDataLink.html#ab36c4e12fe2b8dfed805314ec8324c74aa5afd6edd5336d91316964e493936858", null ]
     ] ],
-    [ "GiraffeDataLink", "classgdl_1_1GiraffeDataLink.html#a7b428c142200872b363bc6a83f0b819e", null ],
+    [ "GiraffeDataLink", "classgdl_1_1GiraffeDataLink.html#a32c2fba457e6068857d04a43f85e7932", null ],
     [ "~GiraffeDataLink", "classgdl_1_1GiraffeDataLink.html#aba5bb9584bfc74071f60571c378de1f0", null ],
     [ "start", "classgdl_1_1GiraffeDataLink.html#a20218eadd5c073513f558077239fba2e", null ],
     [ "stop", "classgdl_1_1GiraffeDataLink.html#aa573e13ce26a11216e52d385be84e7a5", null ],
@@ -27,7 +27,6 @@ var classgdl_1_1GiraffeDataLink =
     [ "gdlThread", "classgdl_1_1GiraffeDataLink.html#a9a57e98fe17bc1ccfc6592d1f2eca165", null ],
     [ "config_", "classgdl_1_1GiraffeDataLink.html#a9730a39af2acf89a8d162b6496181974", null ],
     [ "queues_", "classgdl_1_1GiraffeDataLink.html#a0b7d57fddeb090205d64016ca09f8df1", null ],
-    [ "session_layer_", "classgdl_1_1GiraffeDataLink.html#a36a7f013efdc3806727dd7b73023d5b3", null ],
     [ "gdl_thread_", "classgdl_1_1GiraffeDataLink.html#a3c175bf6a8a5d0a6d6ee4648378eef7f", null ],
     [ "status_", "classgdl_1_1GiraffeDataLink.html#addcbd25925455a334c8bc766718884de", null ],
     [ "connection_status_", "classgdl_1_1GiraffeDataLink.html#ab4f35c15441dad1e74f74c1741f4d8b6", null ]

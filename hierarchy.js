@@ -89,7 +89,11 @@ var hierarchy =
     [ "gdl::GiraffeDataLink::MessageQueues", "structgdl_1_1GiraffeDataLink_1_1MessageQueues.html", null ],
     [ "gdl::Message", "structgdl_1_1Message.html", null ],
     [ "gdl::MessageQueue", "classgdl_1_1MessageQueue.html", null ],
-    [ "gdl::SessionLayer", "namespacegdl.html#classgdl_1_1SessionLayer", null ],
+    [ "gdl::NetworkLayer", "classgdl_1_1NetworkLayer.html", null ],
+    [ "gdl::PhysicalLayer", "classgdl_1_1PhysicalLayer.html", [
+      [ "gdl::SimulatedLoopbackPhysicalLayer", "classgdl_1_1SimulatedLoopbackPhysicalLayer.html", null ]
+    ] ],
+    [ "gdl::TransportLayer", "classgdl_1_1TransportLayer.html", null ],
     [ "I2cInterface", "classI2cInterface.html", null ],
     [ "LogContainer", "classLogContainer.html", null ],
     [ "modules::ExtensionModule::ExtContainer", "structmodules_1_1ExtensionModule_1_1ExtContainer.html", null ],

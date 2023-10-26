@@ -30,7 +30,14 @@ var NAVTREE =
       [ "C4 Model", "index.html#autotoc_md5", [
         [ "System Context", "index.html#autotoc_md6", null ],
         [ "Container Diagram", "index.html#autotoc_md7", null ],
-        [ "Flight System", "index.html#autotoc_md8", null ]
+        [ "Flight System", "index.html#autotoc_md8", null ],
+        [ "Data Link", "index.html#autotoc_md9", null ]
+      ] ]
+    ] ],
+    [ "Giraffe Data Link (GDL)", "md_docs_data_link.html", [
+      [ "Introduction", "md_docs_data_link.html#autotoc_md11", null ],
+      [ "Interface Class", "md_docs_data_link.html#autotoc_md12", [
+        [ "Class Members", "md_docs_data_link.html#autotoc_md13", null ]
       ] ]
     ] ],
     [ "Todo List", "todo.html", null ],
@@ -76,13 +83,14 @@ var NAVTREEINDEX =
 "classax25_1_1ManagementDataLinkStateMachine.html#a935120a59670bc6fcf8a641d217c9f2b",
 "classdata__middleware_1_1DataLog.html#a1b71d9dfd047f317c6be15188b3948b5",
 "classextension_1_1Mcp3021Extension.html#a997b9e139894c440e40f95daa94b84e4",
-"classgdl_1_1GiraffeDataLink.html#ab4f35c15441dad1e74f74c1741f4d8b6",
-"classncurs_1_1Environment.html#a5d232cfb0e7984208a2a7231b0ae4123",
-"functions_vars_m.html",
-"namespaceax25.html#a52509214cb546e38410a4b65a8994d48a4e978f6423e559e1d6bab094c929ab9e",
-"namespaceextension.html#a842aaad519772b36cb48adc23ee56afca24f3e5996ecc173cab972f2bd004fd5a",
-"protocol_8hpp.html#a9731025e73bc9be65076786a05ea9624",
-"structdata_1_1blocks_1_1SystemInfo.html#a25a0a036997138defc4715e6015aff31"
+"classgdl_1_1GiraffeDataLink.html#aba5bb9584bfc74071f60571c378de1f0",
+"classmodules_1_1SystemModule.html#a1d4719216289ba2a4707ce27d74475a0",
+"functions_func_f.html",
+"main_8cpp.html#acef807038d1ae4064b262a0260367bef",
+"namespacedata.html#ad86e1d5fdd64e533c7b5833ece53c37e",
+"node_8hpp.html#a5360cad6ada29a0aae6013099cab6419abb1ca97ec761fc37101737ba0aa2e7c5",
+"structdata_1_1blocks_1_1ConfigurationStats.html#a3ebef85bafc4182a2d5dc56eca9fb310",
+"ubx__protocol_8hpp.html#a496e6e180876a9a83b2d1751620f6dd5"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

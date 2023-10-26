@@ -131,10 +131,19 @@ var files_dup =
     [ "gdl_message_queue.hpp", "gdl__message__queue_8hpp.html", [
       [ "MessageQueue", "classgdl_1_1MessageQueue.html", "classgdl_1_1MessageQueue" ]
     ] ],
-    [ "gdl_session_layer.hpp", "gdl__session__layer_8hpp.html", [
-      [ "SessionLayer", "namespacegdl.html#classgdl_1_1SessionLayer", null ]
+    [ "gdl_network_and_physical.puml", "gdl__network__and__physical_8puml.html", null ],
+    [ "gdl_network_layer.hpp", "gdl__network__layer_8hpp.html", [
+      [ "NetworkLayer", "classgdl_1_1NetworkLayer.html", "classgdl_1_1NetworkLayer" ]
     ] ],
+    [ "gdl_physical_layer.hpp", "gdl__physical__layer_8hpp.html", [
+      [ "PhysicalLayer", "classgdl_1_1PhysicalLayer.html", "classgdl_1_1PhysicalLayer" ],
+      [ "SimulatedLoopbackPhysicalLayer", "classgdl_1_1SimulatedLoopbackPhysicalLayer.html", "classgdl_1_1SimulatedLoopbackPhysicalLayer" ]
+    ] ],
+    [ "gdl_physical_layer.puml", "gdl__physical__layer_8puml.html", null ],
     [ "gdl_terminal.cpp", "gdl__terminal_8cpp.html", "gdl__terminal_8cpp" ],
+    [ "gdl_transport_layer.hpp", "gdl__transport__layer_8hpp.html", [
+      [ "TransportLayer", "classgdl_1_1TransportLayer.html", "classgdl_1_1TransportLayer" ]
+    ] ],
     [ "giraffe_assert.hpp", "giraffe__assert_8hpp.html", "giraffe__assert_8hpp" ],
     [ "giraffe_data_link.cpp", "giraffe__data__link_8cpp.html", null ],
     [ "giraffe_data_link.hpp", "giraffe__data__link_8hpp.html", [
