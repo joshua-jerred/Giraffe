@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"classgdl_1_1GiraffeDataLink.html":[6,0,7,2],
 "classgdl_1_1GiraffeDataLink.html#a0b7d57fddeb090205d64016ca09f8df1":[6,0,7,2,17],
 "classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3":[6,0,7,2,1],
 "classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3a034312d8adc8099c1c6f53aaff745e26":[6,0,7,2,1,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "classmodules_1_1ServerModule.html#a235a190f2c5aec3285aedf5cafe36727":[6,0,8,5,4],
 "classmodules_1_1ServerModule.html#a2d64fd89764378e46ffc96cce45953db":[6,0,8,5,12],
 "classmodules_1_1ServerModule.html#a3b249804c7e412855b1429ccd639cc38":[6,0,8,5,10],
-"classmodules_1_1ServerModule.html#a3d879001e471093d48fcbd2f8c406f51":[6,0,8,5,17],
-"classmodules_1_1ServerModule.html#a46523705742629151454c68a16e9f875":[6,0,8,5,16]
+"classmodules_1_1ServerModule.html#a3d879001e471093d48fcbd2f8c406f51":[6,0,8,5,17]
 };

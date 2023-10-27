@@ -243,7 +243,8 @@ var files_dup =
     [ "system_module.hpp", "system__module_8hpp.html", [
       [ "SystemModule", "classmodules_1_1SystemModule.html", "classmodules_1_1SystemModule" ]
     ] ],
-    [ "telemetry_module.hpp", "telemetry__module_8hpp.html", null ],
+    [ "telemetry_module.cpp", "telemetry__module_8cpp.html", null ],
+    [ "telemetry_module.hpp", "telemetry__module_8hpp.html", "telemetry__module_8hpp" ],
     [ "to_json.cpp", "to__json_8cpp.html", null ],
     [ "to_json.hpp", "to__json_8hpp.html", "to__json_8hpp" ],
     [ "to_string.cpp", "to__string_8cpp.html", "to__string_8cpp" ],

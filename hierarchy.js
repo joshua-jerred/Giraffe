@@ -105,7 +105,8 @@ var hierarchy =
       [ "modules::DataModule", "classmodules_1_1DataModule.html", null ],
       [ "modules::ExtensionModule", "classmodules_1_1ExtensionModule.html", null ],
       [ "modules::ServerModule", "classmodules_1_1ServerModule.html", null ],
-      [ "modules::SystemModule", "classmodules_1_1SystemModule.html", null ]
+      [ "modules::SystemModule", "classmodules_1_1SystemModule.html", null ],
+      [ "modules::TelemetryModule", "classmodules_1_1TelemetryModule.html", null ]
     ] ],
     [ "ncurs::Environment", "classncurs_1_1Environment.html", null ],
     [ "ncurs::internal::Window", "classncurs_1_1internal_1_1Window.html", null ],

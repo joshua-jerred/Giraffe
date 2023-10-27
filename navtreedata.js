@@ -80,17 +80,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc__configuration_8cpp.html",
-"classax25_1_1ManagementDataLinkStateMachine.html",
-"classdata__middleware_1_1DataFormatter.html#a4b78f6001b0c139d00e81dd9fd80b6b2",
-"classextension_1_1Mcp3021Extension.html#a0b4a922296eee439c978eeab5022a869",
-"classgdl_1_1GiraffeDataLink.html#a0b7d57fddeb090205d64016ca09f8df1",
-"classmodules_1_1ServerModule.html#a62806f82a3b853d0d2de55efbf5649bc",
-"extension__module_8hpp_source.html",
-"index.html#autotoc_md6",
-"namespacedata.html#a38cbd9acc1f37e88b889dcab9fb0cbdb",
-"namespaceubx.html#aebd0fba183197d54bcbcec6e8a7f92f6",
-"structdata_1_1ImuFramePacket.html#a140b2f54f93715d9229e1847bc1219b2",
-"ubx__ids_8hpp.html#af33c60c81898eadbd176b4c836180379"
+"classax25_1_1LinkMultiplexerStateMachine.html#af9b3d194b54d4a4dde1a434c565446c2",
+"classdata__middleware_1_1DataFormatter.html#a41c77f1544a080de9be6129ea878fa65",
+"classextension_1_1Mcp3021Extension.html#a067006ad3c8c07006590ccdfca70d037",
+"classgdl_1_1GiraffeDataLink.html",
+"classmodules_1_1ServerModule.html#a46523705742629151454c68a16e9f875",
+"ds18b20_8hpp_source.html",
+"group__SAMM8QState.html#ggafb3c90d8789d69060f4e5be306365db1ad5cc6a0064b5c25ba37826aa3fda910c",
+"namespaceconsole__pages.html#a9e3765a47f4f380beee05c5f458ed55f",
+"namespaceubx.html#aac1881b13eb8b71cece1b9d432cc5bae",
+"structcfg_1_1ExtensionMetadata.html#a25eef35ae61801373e433443c9a5aa6e",
+"ubx__ids_8hpp.html#a5c0083b421066232f9ca9ec5a5be5d33"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

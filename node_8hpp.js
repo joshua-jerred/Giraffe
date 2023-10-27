@@ -9,6 +9,7 @@ var node_8hpp =
       [ "SERVER_MODULE", "node_8hpp.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a3df8ece3baaa3dbaab4d2294add9be3d", null ],
       [ "SYSTEM_MODULE", "node_8hpp.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a04e4c0da662c0b6d1c22348aabe5e95d", null ],
       [ "EXTENSION_MODULE", "node_8hpp.html#ab16b2ecd4ea33131eb41b77a8c3e28a8adf40e6afff32895bb61e4287462eade3", null ],
+      [ "TELEMETRY_MODULE", "node_8hpp.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7cc2660d640b0a597c45ba01f386bf62", null ],
       [ "EXTENSION", "node_8hpp.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a1d1cd00b7cd275ef0629c38d0eb70b4d", null ]
     ] ],
     [ "Status", "node_8hpp.html#a5360cad6ada29a0aae6013099cab6419", [

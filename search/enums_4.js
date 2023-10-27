@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['fixtype_2605',['FixType',['../namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8',1,'ubx']]],
-  ['focus_2606',['Focus',['../classncurs_1_1Environment.html#a9cc14d29a31da252c56695e32e998298',1,'ncurs::Environment']]]
+  ['fixtype_2616',['FixType',['../namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8',1,'ubx']]],
+  ['focus_2617',['Focus',['../classncurs_1_1Environment.html#a9cc14d29a31da252c56695e32e998298',1,'ncurs::Environment']]]
 ];

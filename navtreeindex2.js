@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"classdata__middleware_1_1DataFormatter.html#a41c77f1544a080de9be6129ea878fa65":[6,0,5,0,0],
 "classdata__middleware_1_1DataFormatter.html#a4b78f6001b0c139d00e81dd9fd80b6b2":[6,0,5,0,11],
 "classdata__middleware_1_1DataFormatter.html#aa1d67f3593467a202659b221472cab9f":[6,0,5,0,6],
 "classdata__middleware_1_1DataFormatter.html#aa2f7372dc9cf7465da15f820e383e30f":[6,0,5,0,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "classextension_1_1I2cExtensionAdapter.html#ad267404fc2d8d1dff29b563ffd6e56bc":[6,0,6,6,2],
 "classextension_1_1Mcp3021Extension.html":[6,0,6,7],
 "classextension_1_1Mcp3021Extension.html#a00ef6cd65250307287af24071c862a42":[6,0,6,7,26],
-"classextension_1_1Mcp3021Extension.html#a041069086cf7b981e4999150e7b7469d":[6,0,6,7,27],
-"classextension_1_1Mcp3021Extension.html#a067006ad3c8c07006590ccdfca70d037":[6,0,6,7,39]
+"classextension_1_1Mcp3021Extension.html#a041069086cf7b981e4999150e7b7469d":[6,0,6,7,27]
 };

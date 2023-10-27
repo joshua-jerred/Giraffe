@@ -99,7 +99,8 @@ var annotated_dup =
       [ "MetaData", "structmodules_1_1MetaData.html", "structmodules_1_1MetaData" ],
       [ "Module", "classmodules_1_1Module.html", "classmodules_1_1Module" ],
       [ "ServerModule", "classmodules_1_1ServerModule.html", "classmodules_1_1ServerModule" ],
-      [ "SystemModule", "classmodules_1_1SystemModule.html", "classmodules_1_1SystemModule" ]
+      [ "SystemModule", "classmodules_1_1SystemModule.html", "classmodules_1_1SystemModule" ],
+      [ "TelemetryModule", "classmodules_1_1TelemetryModule.html", "classmodules_1_1TelemetryModule" ]
     ] ],
     [ "ncurs", "namespacencurs.html", [
       [ "internal", "namespacencurs_1_1internal.html", [
