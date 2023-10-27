@@ -180,9 +180,9 @@
             "type": "string",
             "name": "InfluxDB URL",
             "description": "The URL (generally localhost) for the influx DB server.",
-            "default": "localhost",
+            "default": "http://localhost:8086/",
             "min": 0,
-            "max": 50,
+            "max": 100,
             "pattern": ""
         },
         "token": {
@@ -191,7 +191,7 @@
             "description": "The API token for the InfluxDB user. This is stored in plain text!",
             "default": "none",
             "min": 0,
-            "max": 50,
+            "max": 100,
             "pattern": ""
         },
         "organization": {
@@ -244,6 +244,15 @@
             "max": 50,
             "min": 0,
             "pattern": ""
+        },
+        "data_dump_interval": {
+            "type": "int",
+            "name": "Data Dump Interval (ms)",
+            "description": "The interval at which the data will be dumped to the influx database.",
+            "default": 1000,
+            "max": 60000,
+            "min": 100,
+            "step": 1
         }
     },
     "data_module_log": {

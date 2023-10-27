@@ -46,6 +46,10 @@ void modules::DataModule::loop() {
                                cfg::gEnum::ErrorLogStrategy::ERROR_FRAME) {
     data_log_.logErrorFrame();
   }
+
+  if (influxdb_enabled_) {
+    influxdb_.writeFrames(); // timer taken care of inside of influxdb_
+  }
 }
 
 void modules::DataModule::shutdown() {
@@ -118,7 +122,6 @@ void modules::DataModule::processAllStreams() {
 // ------------------ Data Stream Parsing ------------------
 
 void modules::DataModule::processDataPacket(const data::DataPacket &packet) {
-
   // Log data packet to file (if enabled)
   if (data_file_enabled_ &&
       data_file_logging_strategy_ == cfg::gEnum::LogStrategy::ALL) {

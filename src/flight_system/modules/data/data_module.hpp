@@ -200,6 +200,8 @@ private:
    */
   bool influxdb_enabled_ = false;
 
+  int influxdb_write_rate_ms_ = 1000;
+
   /**
    * @brief User to determine if shared 'log_container' needs to be updated so
    * the console module can print the log.

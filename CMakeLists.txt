@@ -70,10 +70,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 
 
 # ----- Third Party Libs -----
-# nlhomann_json
 find_package(nlohmann_json 3.9.0 REQUIRED)
-# ncurses
 find_package(Curses REQUIRED)
+find_package(CURL REQUIRED) 
+
 
 # gtest
 find_library(GTEST_LIB NAMES gtest)
