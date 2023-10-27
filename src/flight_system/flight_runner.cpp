@@ -49,6 +49,15 @@ FlightRunner::~FlightRunner() {
     _disabled("console");
   }
 
+  if (p_telemetry_module_ != nullptr) {
+    _stop("telemetry");
+    p_telemetry_module_->stop();
+    delete p_telemetry_module_;
+    _done();
+  } else {
+    _disabled("telemetry");
+  }
+
   _stop("extension");
   std::cout << std::endl;
   p_extension_module_->stop();
@@ -100,12 +109,21 @@ auto FlightRunner::start() -> int {
   }
 
   /*
-    Start the server and system modules.
+    Start the server, system, and telemetry modules.
   */
   p_server_module_ = new modules::ServerModule(shared_data_, *p_config_);
   p_server_module_->start();
   p_system_module_ = new modules::SystemModule(shared_data_, *p_config_);
   p_system_module_->start();
+
+  if (p_config_->telemetry.getTelemetryEnabled()) {
+    p_telemetry_module_ =
+        new modules::TelemetryModule(shared_data_, *p_config_);
+    p_telemetry_module_->start();
+  } else {
+    shared_data_.streams.data.reportStatus(
+        node::Identification::TELEMETRY_MODULE, node::Status::DISABLED);
+  }
 
   // ~~~ Initialize BCM/GPIO Interface ~~~ //
   // if (config_data_.bcm_interface_used) {
@@ -123,13 +141,6 @@ auto FlightRunner::start() -> int {
   */
   p_extension_module_ = new modules::ExtensionModule(shared_data_, *p_config_);
   p_extension_module_->start();
-
-  // // ~~~ Start the Telemetry Module ~~~ //
-  // if (config_data_.telemetry.telemetry_enabled) {
-  //   p_telemetry_module_ =
-  //       new modules::TelemetryModule(config_data_, data_stream_);
-  //   p_telemetry_module_->start();
-  // }
 
   // ~~~ Setup Done, Start the Flight Loop ~~~ //
   // if (config_data_.general.starting_proc ==

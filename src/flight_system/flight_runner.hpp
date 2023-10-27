@@ -8,6 +8,7 @@
 #include "server_module.hpp"
 #include "shared_data.hpp"
 #include "system_module.hpp"
+#include "telemetry_module.hpp"
 
 class FlightRunner {
 public:
@@ -34,6 +35,7 @@ private:
   modules::ServerModule *p_server_module_ = nullptr;
   modules::SystemModule *p_system_module_ = nullptr;
   modules::ExtensionModule *p_extension_module_ = nullptr;
+  modules::TelemetryModule *p_telemetry_module_ = nullptr;
 
   //  void healthCheck();
 

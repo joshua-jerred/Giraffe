@@ -73,6 +73,7 @@ struct ModulesStatuses { // Set by the data module
   node::Status server = node::Status::UNKNOWN;
   node::Status system = node::Status::UNKNOWN;
   node::Status extension = node::Status::UNKNOWN;
+  node::Status telemetry = node::Status::UNKNOWN;
 
   Json toJson() const {
     Json json_data;
@@ -81,6 +82,7 @@ struct ModulesStatuses { // Set by the data module
     json_data["server"] = node::K_STATUS_TO_STRING_MAP.at(server);
     json_data["system"] = node::K_STATUS_TO_STRING_MAP.at(system);
     json_data["extension"] = node::K_STATUS_TO_STRING_MAP.at(extension);
+    json_data["telemetry"] = node::K_STATUS_TO_STRING_MAP.at(telemetry);
     return json_data;
   }
 };

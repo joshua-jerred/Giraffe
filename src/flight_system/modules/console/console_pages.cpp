@@ -109,8 +109,8 @@ void console_pages::Pages::gfsStatus() {
   content_[7] = "System:  " + node::K_STATUS_TO_STRING_MAP.at(mod_stats.system);
   content_[8] =
       "Extension: " + node::K_STATUS_TO_STRING_MAP.at(mod_stats.extension);
-
-  content_[9] = "";
+  content_[9] =
+      "Telemetry: " + node::K_STATUS_TO_STRING_MAP.at(mod_stats.telemetry);
 
   auto &ef = shared_data_.frames.error_frame;
   content_[10] =

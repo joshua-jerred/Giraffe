@@ -6,7 +6,9 @@
 #include "module.hpp"
 
 namespace modules {
-
+/**
+ * @todo this header needs some work
+ */
 class SystemModule : public Module {
 public:
   SystemModule(data::SharedData &, cfg::Configuration &);
