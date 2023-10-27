@@ -189,6 +189,9 @@ void modules::DataModule::parseStatusDataPacket(
   case node::Identification::EXTENSION_MODULE:
     statuses.extension = packet.node_status;
     break;
+  case node::Identification::TELEMETRY_MODULE:
+    statuses.telemetry = packet.node_status;
+    break;
   default:
     error(DiagnosticId::DATA_MODULE_statusDataPacketUnknownSource,
           (int)packet.source);
