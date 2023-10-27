@@ -36,6 +36,7 @@ enum class Identification {
   SERVER_MODULE,
   SYSTEM_MODULE,
   EXTENSION_MODULE,
+  TELEMETRY_MODULE,
   EXTENSION
 };
 
@@ -53,6 +54,7 @@ static const std::map<Identification, std::string>
         {Identification::SERVER_MODULE, "server_module"},
         {Identification::SYSTEM_MODULE, "system_module"},
         {Identification::EXTENSION_MODULE, "extension_module"},
+        {Identification::TELEMETRY_MODULE, "telemetry_module"},
         {Identification::EXTENSION, "extension"}};
 
 /**

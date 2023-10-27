@@ -85,6 +85,15 @@ target_link_libraries(gfs_data_module INTERFACE
 	${CURL_LIBRARIES}
 )
 
+# # # Telemetry Module
+add_library(gfs_telemetry_module INTERFACE)
+target_sources(gfs_telemetry_module INTERFACE
+	${GFS_SRC}/modules/telemetry/telemetry_module.cpp
+)
+target_include_directories(gfs_telemetry_module INTERFACE
+	${GFS_SRC}/modules/telemetry
+)
+
 # -------- GFS Executable ---------
 add_executable( # see sources.cmake for source files
 	${EXE_NAME}
@@ -112,6 +121,7 @@ target_link_libraries(giraffe_flight_system PRIVATE
 	giraffe_common
 	gfs_interface
 	gfs_data_module
+	gfs_telemetry_module
 
 	# external
 	BoosterSeat
