@@ -62,6 +62,9 @@ var files_dup =
     ] ],
     [ "console_pages.cpp", "console__pages_8cpp.html", "console__pages_8cpp" ],
     [ "console_pages.hpp", "console__pages_8hpp.html", "console__pages_8hpp" ],
+    [ "curl_utility.hpp", "curl__utility_8hpp.html", [
+      [ "CurlRequest", "classCurlRequest.html", "classCurlRequest" ]
+    ] ],
     [ "curses_utilities.cpp", "curses__utilities_8cpp.html", null ],
     [ "curses_utilities.hpp", "curses__utilities_8hpp.html", [
       [ "Environment", "classncurs_1_1Environment.html", "classncurs_1_1Environment" ],
@@ -163,9 +166,10 @@ var files_dup =
     [ "i2c_interface.hpp", "i2c__interface_8hpp.html", [
       [ "I2cInterface", "classI2cInterface.html", "classI2cInterface" ]
     ] ],
-    [ "influxdb.cpp", "influxdb_8cpp.html", null ],
+    [ "influxdb.cpp", "influxdb_8cpp.html", "influxdb_8cpp" ],
     [ "influxdb.hpp", "influxdb_8hpp.html", [
-      [ "InfluxDb", "classdata__middleware_1_1InfluxDb.html", "classdata__middleware_1_1InfluxDb" ]
+      [ "InfluxDb", "classdata__middleware_1_1InfluxDb.html", "classdata__middleware_1_1InfluxDb" ],
+      [ "InfluxLine", "structdata__middleware_1_1InfluxLine.html", "structdata__middleware_1_1InfluxLine" ]
     ] ],
     [ "json.hpp", "json_8hpp.html", "json_8hpp" ],
     [ "link_multiplexer.cpp", "link__multiplexer_8cpp.html", null ],
@@ -241,6 +245,7 @@ var files_dup =
     ] ],
     [ "telemetry_module.hpp", "telemetry__module_8hpp.html", null ],
     [ "to_json.cpp", "to__json_8cpp.html", null ],
+    [ "to_json.hpp", "to__json_8hpp.html", "to__json_8hpp" ],
     [ "to_string.cpp", "to__string_8cpp.html", "to__string_8cpp" ],
     [ "to_string.hpp", "to__string_8hpp.html", "to__string_8hpp" ],
     [ "ubx_ids.hpp", "ubx__ids_8hpp.html", "ubx__ids_8hpp" ],

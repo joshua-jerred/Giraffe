@@ -1,35 +1,41 @@
 <map id="util::to_string" name="util::to_string">
-<area shape="rect" id="node1" title=" " alt="" coords="825,841,933,867"/>
-<area shape="rect" id="node2" href="$classconsole__pages_1_1Pages.html#a4b0ae50da4241115a3acfca9f0c4e306" title=" " alt="" coords="576,435,740,476"/>
-<area shape="rect" id="node4" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="579,369,737,411"/>
-<area shape="rect" id="node19" href="$classmodules_1_1Module.html#ae3745aa2ab9ed49ad46f198c6280852e" title="Used internally in the module. This function adds a data to the data stream." alt="" coords="573,501,743,527"/>
-<area shape="rect" id="node20" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="579,552,737,593"/>
-<area shape="rect" id="node21" href="$classmodules_1_1Module.html#a2d64fd89764378e46ffc96cce45953db" title="Same as the other error function, but takes an int instead of a string." alt="" coords="571,618,745,645"/>
-<area shape="rect" id="node22" href="$classdata_1_1LogStream.html#a90b8dc67f563d4a8bf25d2aa9d9d0387" title=" " alt="" coords="549,669,767,711"/>
-<area shape="rect" id="node23" href="$classconsole__pages_1_1Pages.html#a815a74fc95295c02b4638fa47b03e18d" title=" " alt="" coords="576,735,740,776"/>
-<area shape="rect" id="node24" href="$classconsole__pages_1_1Pages.html#aa3dd00ba1c736892c991d7d4f461bfe0" title=" " alt="" coords="576,800,740,841"/>
-<area shape="rect" id="node25" href="$classconsole__pages_1_1Pages.html#a27c3adbf55be9c5165077caed2c01b57" title=" " alt="" coords="576,865,740,907"/>
-<area shape="rect" id="node26" href="$classconsole__pages_1_1Pages.html#a141ef59324d5cd73c9f39488ab0fa363" title=" " alt="" coords="576,931,740,972"/>
-<area shape="rect" id="node27" href="$classdata__middleware_1_1DataFormatter.html#aa1d67f3593467a202659b221472cab9f" title=" " alt="" coords="539,996,777,1037"/>
-<area shape="rect" id="node28" href="$classmodules_1_1DataModule.html#a22e5c03008cb6d2015dd0097869f2fa3" title="Process all packets from the log stream." alt="" coords="575,1127,741,1168"/>
-<area shape="rect" id="node30" href="$classconsole__pages_1_1Pages.html#a67d35ee34832ada202ae3efbba51ac7b" title=" " alt="" coords="576,1061,740,1103"/>
-<area shape="rect" id="node31" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="553,1193,763,1219"/>
-<area shape="rect" id="node32" href="$classmodules_1_1ServerModule.html#a76c8c341c2e0e2034fa8af0c9d92f75b" title="Startup the server module." alt="" coords="570,1244,746,1285"/>
-<area shape="rect" id="node33" href="$namespaceutil.html#a7e499751b8586812fa2eec60bdc2dfe6" title=" " alt="" coords="604,1310,712,1337"/>
-<area shape="rect" id="node3" href="$classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14" title=" " alt="" coords="297,847,461,888"/>
-<area shape="rect" id="node5" href="$classextension_1_1AdcExtensionBase.html#ab11b609d90a14f558df951d28bc42d85" title=" " alt="" coords="5,663,220,704"/>
+<area shape="rect" id="node1" title=" " alt="" coords="825,991,933,1018"/>
+<area shape="rect" id="node2" href="$classconsole__pages_1_1Pages.html#a4b0ae50da4241115a3acfca9f0c4e306" title=" " alt="" coords="576,867,740,908"/>
+<area shape="rect" id="node4" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="579,371,737,412"/>
+<area shape="rect" id="node19" href="$classmodules_1_1Module.html#ae3745aa2ab9ed49ad46f198c6280852e" title="Used internally in the module. This function adds a data to the data stream." alt="" coords="573,502,743,529"/>
+<area shape="rect" id="node20" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="579,553,737,595"/>
+<area shape="rect" id="node21" href="$classmodules_1_1Module.html#a2d64fd89764378e46ffc96cce45953db" title="Same as the other error function, but takes an int instead of a string." alt="" coords="571,619,745,646"/>
+<area shape="rect" id="node22" href="$classdata_1_1LogStream.html#a90b8dc67f563d4a8bf25d2aa9d9d0387" title=" " alt="" coords="549,671,767,712"/>
+<area shape="rect" id="node23" href="$classconsole__pages_1_1Pages.html#a815a74fc95295c02b4638fa47b03e18d" title=" " alt="" coords="576,984,740,1025"/>
+<area shape="rect" id="node24" href="$classconsole__pages_1_1Pages.html#aa3dd00ba1c736892c991d7d4f461bfe0" title=" " alt="" coords="576,1049,740,1091"/>
+<area shape="rect" id="node25" href="$structdata__middleware_1_1InfluxLine.html#ab668667e88a106ae046e81d6fe779fa7" title=" " alt="" coords="555,1311,761,1352"/>
+<area shape="rect" id="node27" href="$influxdb_8cpp.html#a72945fb4d8ea1727ad479c78048bd0e0" title=" " alt="" coords="605,933,711,959"/>
+<area shape="rect" id="node28" href="$classconsole__pages_1_1Pages.html#a27c3adbf55be9c5165077caed2c01b57" title=" " alt="" coords="576,436,740,477"/>
+<area shape="rect" id="node29" href="$classconsole__pages_1_1Pages.html#a141ef59324d5cd73c9f39488ab0fa363" title=" " alt="" coords="576,736,740,777"/>
+<area shape="rect" id="node30" href="$classdata__middleware_1_1InfluxDb.html#a1c9b38266a11676e158a34d652bcaf69" title=" " alt="" coords="559,1115,757,1156"/>
+<area shape="rect" id="node31" href="$classdata__middleware_1_1InfluxDb.html#adc204b9bf0e4eff914bfd68e51383c9e" title=" " alt="" coords="559,1180,757,1221"/>
+<area shape="rect" id="node32" href="$classdata__middleware_1_1DataFormatter.html#aa1d67f3593467a202659b221472cab9f" title=" " alt="" coords="539,1245,777,1287"/>
+<area shape="rect" id="node33" href="$classmodules_1_1DataModule.html#a22e5c03008cb6d2015dd0097869f2fa3" title="Process all packets from the log stream." alt="" coords="575,1544,741,1585"/>
+<area shape="rect" id="node35" href="$classconsole__pages_1_1Pages.html#a67d35ee34832ada202ae3efbba51ac7b" title=" " alt="" coords="576,801,740,843"/>
+<area shape="rect" id="node36" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="553,1427,763,1454"/>
+<area shape="rect" id="node37" href="$classmodules_1_1ServerModule.html#a76c8c341c2e0e2034fa8af0c9d92f75b" title="Startup the server module." alt="" coords="570,1479,746,1520"/>
+<area shape="rect" id="node38" href="$namespaceutil.html#a7864f641801f7a53e32c35e54b9cc7f1" title=" " alt="" coords="609,1377,707,1403"/>
+<area shape="rect" id="node39" href="$namespaceutil.html#a7e499751b8586812fa2eec60bdc2dfe6" title=" " alt="" coords="604,1610,712,1637"/>
+<area shape="rect" id="node3" href="$classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14" title=" " alt="" coords="297,848,461,889"/>
+<area shape="rect" id="node5" href="$classextension_1_1AdcExtensionBase.html#ab11b609d90a14f558df951d28bc42d85" title=" " alt="" coords="5,472,220,513"/>
 <area shape="rect" id="node6" href="$classextension_1_1Bme280Extension.html#a4ed64313c81c6453ae5d29c63a1bb52b" title=" " alt="" coords="7,100,219,141"/>
-<area shape="rect" id="node7" href="$classextension_1_1Ds18b20Extension.html#ad4dfdbd9d9cd1b114437c1c31d36088a" title=" " alt="" coords="272,239,487,280"/>
-<area shape="rect" id="node8" href="$classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d" title=" " alt="" coords="279,304,480,345"/>
-<area shape="rect" id="node9" href="$classextension_1_1SimPressureSensor.html#aaf5a09dba391f216ca5ee5a7890a1e85" title=" " alt="" coords="270,369,489,411"/>
-<area shape="rect" id="node10" href="$classextension_1_1SimHumiditySensor.html#a59e5059ebb6e2e81ca3a6ef30a632456" title=" " alt="" coords="268,435,491,476"/>
-<area shape="rect" id="node11" href="$classextension_1_1SimGpsSensor.html#a80265d0b8468fc4e90a46409a6178ab2" title=" " alt="" coords="285,500,473,541"/>
-<area shape="rect" id="node12" href="$classextension_1_1SimImuSensor.html#a1acef31a7be54226957d58d2f9d174d1" title=" " alt="" coords="285,565,473,607"/>
-<area shape="rect" id="node13" href="$classextension_1_1AdcExtensionBase.html#acc1cba94f6676036181990cb2e0296d3" title=" " alt="" coords="272,631,487,672"/>
+<area shape="rect" id="node7" href="$classextension_1_1Ds18b20Extension.html#ad4dfdbd9d9cd1b114437c1c31d36088a" title=" " alt="" coords="272,305,487,347"/>
+<area shape="rect" id="node8" href="$classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d" title=" " alt="" coords="279,371,480,412"/>
+<area shape="rect" id="node9" href="$classextension_1_1SimPressureSensor.html#aaf5a09dba391f216ca5ee5a7890a1e85" title=" " alt="" coords="270,436,489,477"/>
+<area shape="rect" id="node10" href="$classextension_1_1SimHumiditySensor.html#a59e5059ebb6e2e81ca3a6ef30a632456" title=" " alt="" coords="268,501,491,543"/>
+<area shape="rect" id="node11" href="$classextension_1_1SimGpsSensor.html#a80265d0b8468fc4e90a46409a6178ab2" title=" " alt="" coords="285,567,473,608"/>
+<area shape="rect" id="node12" href="$classextension_1_1SimImuSensor.html#a1acef31a7be54226957d58d2f9d174d1" title=" " alt="" coords="285,632,473,673"/>
+<area shape="rect" id="node13" href="$classextension_1_1AdcExtensionBase.html#acc1cba94f6676036181990cb2e0296d3" title=" " alt="" coords="272,697,487,739"/>
 <area shape="rect" id="node14" href="$classextension_1_1Bme280Extension.html#a11e779a4c15360a0fa490174647c6b94" title="Reads the raw environmental data from the BME280." alt="" coords="273,71,485,112"/>
 <area shape="rect" id="node15" href="$group__SAMM8QState.html#gaa031a3e0ad98da916ebca6836c9c1a30" title=" " alt="" coords="272,5,487,47"/>
-<area shape="rect" id="node17" href="$classextension_1_1AdcExtensionBase.html#ad0be2808763e50886aeecd7de1e344a0" title=" " alt="" coords="272,696,487,737"/>
-<area shape="rect" id="node18" href="$classextension_1_1AdcExtensionBase.html#a8dfeb20998d7257afac6e381e5351d30" title=" " alt="" coords="272,761,487,803"/>
+<area shape="rect" id="node17" href="$classextension_1_1AdcExtensionBase.html#ad0be2808763e50886aeecd7de1e344a0" title=" " alt="" coords="272,763,487,804"/>
+<area shape="rect" id="node18" href="$classextension_1_1AdcExtensionBase.html#a8dfeb20998d7257afac6e381e5351d30" title=" " alt="" coords="272,188,487,229"/>
 <area shape="rect" id="node16" href="$classextension_1_1SamM8qExtension.html#abd1b7a24f87efe0353c00f6caf9c7945" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,5,220,47"/>
-<area shape="rect" id="node29" href="$classmodules_1_1DataModule.html#ac24fdcd1442cbc107fcc427e14ddd328" title="Processes all of the data streams and updates the data block that contains the stream stats." alt="" coords="297,1127,462,1168"/>
+<area shape="rect" id="node26" href="$classdata__middleware_1_1InfluxDb.html#a1e38c0c28d3f93307d307198b9506ff0" title=" " alt="" coords="281,1340,478,1381"/>
+<area shape="rect" id="node34" href="$classmodules_1_1DataModule.html#ac24fdcd1442cbc107fcc427e14ddd328" title="Processes all of the data streams and updates the data block that contains the stream stats." alt="" coords="297,1544,462,1585"/>
 </map>

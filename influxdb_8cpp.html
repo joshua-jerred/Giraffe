@@ -100,18 +100,102 @@ $(document).ready(function(){initNavTree('influxdb_8cpp.html',''); initResizable
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">influxdb.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="influxdb_8hpp_source.html">influxdb.hpp</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="curl__utility_8hpp_source.html">curl_utility.hpp</a>&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &quot;<a class="el" href="blocks_8hpp_source.html">blocks.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="to__json_8hpp_source.html">to_json.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="to__string_8hpp_source.html">to_string.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for influxdb.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="influxdb_8cpp__incl.svg" width="1951" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="influxdb_8cpp__incl.svg" width="1715" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-</div></div><!-- contents -->
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a72945fb4d8ea1727ad479c78048bd0e0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="influxdb_8cpp.html#a72945fb4d8ea1727ad479c78048bd0e0">getUnixTime</a> (std::time_t time)</td></tr>
+<tr class="separator:a72945fb4d8ea1727ad479c78048bd0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac41b8578c641f672b4d068264e386345"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="influxdb_8cpp.html#ac41b8578c641f672b4d068264e386345">qte</a> (const std::string input_str)</td></tr>
+<tr class="separator:ac41b8578c641f672b4d068264e386345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ac41b8578c641f672b4d068264e386345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac41b8578c641f672b4d068264e386345">&#9670;&nbsp;</a></span>qte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string qte </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>input_str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classdata__middleware_1_1InfluxDb.html#adc204b9bf0e4eff914bfd68e51383c9e">data_middleware::InfluxDb::logLogPacket()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="influxdb_8cpp_ac41b8578c641f672b4d068264e386345_icgraph.svg" width="299" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a72945fb4d8ea1727ad479c78048bd0e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72945fb4d8ea1727ad479c78048bd0e0">&#9670;&nbsp;</a></span>getUnixTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string getUnixTime </td>
+          <td>(</td>
+          <td class="paramtype">std::time_t&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e">util::to_string()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="influxdb_8cpp_a72945fb4d8ea1727ad479c78048bd0e0_cgraph.svg" width="274" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

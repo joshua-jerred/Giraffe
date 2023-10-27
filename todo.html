@@ -106,15 +106,17 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><dl class="reflist">
 <dt>Class <a class="el" href="structdata_1_1blocks_1_1ConfigurationStats.html">data::blocks::ConfigurationStats</a>  </dt>
-<dd><a class="anchor" id="_todo000015"></a>implement this  </dd>
-<dt>Class <a class="el" href="structdata_1_1blocks_1_1ServerModuleStats.html">data::blocks::ServerModuleStats</a>  </dt>
 <dd><a class="anchor" id="_todo000016"></a>implement this  </dd>
+<dt>Class <a class="el" href="structdata_1_1blocks_1_1ServerModuleStats.html">data::blocks::ServerModuleStats</a>  </dt>
+<dd><a class="anchor" id="_todo000017"></a>implement this  </dd>
 <dt>Member <a class="el" href="group__DataLog.html#ga9297ebb501f851f63ff5b7fa0cad8260">data_middleware::DataLog::archiveFile</a>  (const std::string &amp;file_path, const std::string &amp;archive_dir_path, const DiagnosticId error_id)</dt>
 <dd><a class="anchor" id="_todo000009"></a>Archive Methods  </dd>
 <dt>Member <a class="el" href="classdata__middleware_1_1DataLog.html#a8f193aba997cc5d18cb1fe201f1d3e5d">data_middleware::DataLog::logDataFrame</a>  (cfg::gEnum::LogStrategy strategy)</dt>
 <dd><a class="anchor" id="_todo000007"></a>Implement this. Requires configuration list loading.  </dd>
 <dt>Member <a class="el" href="classdata__middleware_1_1DataLog.html#a352c3f548b3d7a4683293ff600265651">data_middleware::DataLog::updateFileSystem</a>  ()</dt>
 <dd><a class="anchor" id="_todo000008"></a>Error Log  </dd>
+<dt>Member <a class="el" href="classdata__middleware_1_1InfluxDb.html#a1c9b38266a11676e158a34d652bcaf69">data_middleware::InfluxDb::logDataPacket</a>  (const <a class="el" href="structdata_1_1DataPacket.html">data::DataPacket</a> &amp;packet)</dt>
+<dd><a class="anchor" id="_todo000015"></a>Implement status packet logging to InfluxDB  </dd>
 <dt>Member <a class="el" href="classextension_1_1SamM8qExtension.html#abd1b7a24f87efe0353c00f6caf9c7945">extension::SamM8qExtension::loop</a>  () override</dt>
 <dd><a class="anchor" id="_todo000002"></a>Check the primary watchdog timer  </dd>
 <dt>Member <a class="el" href="group__SAMM8QState.html#ga1578e22215eaa305be52aa4c7245bff5">extension::SamM8qExtension::stateConfigure</a>  ()</dt>
@@ -126,29 +128,29 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <dt>Member <a class="el" href="group__DataStreamParsing.html#ga1cb9324d2f90e051dc52a881677bcad5">modules::DataModule::parseGeneralDataPacket</a>  (const <a class="el" href="structdata_1_1DataPacket.html">data::DataPacket</a> &amp;packet)</dt>
 <dd><a class="anchor" id="_todo000014"></a>This function is not implemented yet.  </dd>
 <dt>Member <a class="el" href="classmodules_1_1DataModule.html#a7f226651aa33ff181e5baaf9dbab93a7">modules::DataModule::processCommand</a>  (const <a class="el" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000011"></a>Test this, this could end poorly </p>
-<p class="enddd"><a class="anchor" id="_todo000013"></a>This function is not implemented yet.  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000013"></a>This function is not implemented yet. </p>
+<p class="enddd"><a class="anchor" id="_todo000011"></a>Test this, this could end poorly  </p>
 </dd>
 <dt>Member <a class="el" href="classmodules_1_1DataModule.html#a22e5c03008cb6d2015dd0097869f2fa3">modules::DataModule::processLogPacket</a>  (const <a class="el" href="structdata_1_1LogPacket.html">data::LogPacket</a> &amp;packet)</dt>
 <dd><a class="anchor" id="_todo000012"></a>debug/log packets should be processed here  </dd>
 <dt>Member <a class="el" href="classmodules_1_1DataModule.html#a56fd24622f28cdb501a25032974d988d">modules::DataModule::startup</a>  () override</dt>
 <dd><a class="anchor" id="_todo000010"></a>why the call to <a class="el" href="classmodules_1_1Module.html#a46523705742629151454c68a16e9f875" title="Sleeps the module for the sleep interval.">sleep()</a>?  </dd>
 <dt>Member <a class="el" href="classmodules_1_1ExtensionModule.html#aace021eb27c1a3988997b4e8732fcd4c">modules::ExtensionModule::errorStartState</a>  (<a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html" title="The container that holds the information about an extension and the extension itself.">ExtContainer</a> &amp;)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000020"></a>handle the fault code </p>
-<p class="enddd"><a class="anchor" id="_todo000021"></a>add delay  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000021"></a>handle the fault code </p>
+<p class="enddd"><a class="anchor" id="_todo000022"></a>add delay  </p>
 </dd>
 <dt>Member <a class="el" href="classmodules_1_1ExtensionModule.html#a9f07f42333ead841747ce7905537abae">modules::ExtensionModule::runState</a>  (<a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html" title="The container that holds the information about an extension and the extension itself.">ExtContainer</a> &amp;)</dt>
-<dd><a class="anchor" id="_todo000018"></a>watchdog timer?  </dd>
+<dd><a class="anchor" id="_todo000019"></a>watchdog timer?  </dd>
 <dt>Member <a class="el" href="classmodules_1_1ExtensionModule.html#ad48e5caa2b5904d56bd46cb1e218a13f">modules::ExtensionModule::stopState</a>  (<a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html" title="The container that holds the information about an extension and the extension itself.">ExtContainer</a> &amp;)</dt>
-<dd><a class="anchor" id="_todo000019"></a>handle the fault code?  </dd>
+<dd><a class="anchor" id="_todo000020"></a>handle the fault code?  </dd>
 <dt>Member <a class="el" href="classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0">modules::ExtensionModule::updateLocalConfig</a>  () override</dt>
-<dd><a class="anchor" id="_todo000017"></a>Implement the loading/updating of extensions  </dd>
+<dd><a class="anchor" id="_todo000018"></a>Implement the loading/updating of extensions  </dd>
 <dt>Member <a class="el" href="classmodules_1_1Module.html#a3b249804c7e412855b1429ccd639cc38">modules::Module::setStatus</a>  (const <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419" title="Node status, used for modules and extensions.">node::Status</a> status)</dt>
-<dd><a class="anchor" id="_todo000022"></a>Sets the status of the module and reports it to the data stream.  </dd>
+<dd><a class="anchor" id="_todo000023"></a>Sets the status of the module and reports it to the data stream.  </dd>
 <dt>Member <a class="el" href="classncurs_1_1Environment.html#a4230a9e52cd224a8636848a6d1bdf65f">ncurs::Environment::displayScrollBar</a>  ()</dt>
 <dd><a class="anchor" id="_todo000006"></a>Scroll bar. </dd>
 <dt>Member <a class="el" href="classsock_1_1TcpSocketServer.html#a5b0ead45f7553620fe24a6507608a985">sock::TcpSocketServer::TcpSocketServer</a>  ()</dt>
-<dd><a class="anchor" id="_todo000023"></a>remove this  </dd>
+<dd><a class="anchor" id="_todo000024"></a>remove this  </dd>
 <dt>Member <a class="el" href="ubx__ids_8hpp.html#a9863f96e55b0bd012a94613a086515c7">UBX_ACK_ACK</a>  </dt>
 <dd><a class="anchor" id="_todo000004"></a>These macros should be changed to something else </dd>
 </dl>

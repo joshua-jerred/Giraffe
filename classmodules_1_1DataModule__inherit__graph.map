@@ -1,4 +1,4 @@
 <map id="modules::DataModule" name="modules::DataModule">
-<area shape="rect" id="node1" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="5,497,276,912"/>
+<area shape="rect" id="node1" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="5,497,276,927"/>
 <area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="57,5,224,449"/>
 </map>

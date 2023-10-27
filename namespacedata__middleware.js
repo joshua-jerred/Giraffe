@@ -3,6 +3,7 @@ var namespacedata__middleware =
     [ "DataFormatter", "classdata__middleware_1_1DataFormatter.html", "classdata__middleware_1_1DataFormatter" ],
     [ "DataLog", "classdata__middleware_1_1DataLog.html", "classdata__middleware_1_1DataLog" ],
     [ "InfluxDb", "classdata__middleware_1_1InfluxDb.html", "classdata__middleware_1_1InfluxDb" ],
+    [ "InfluxLine", "structdata__middleware_1_1InfluxLine.html", "structdata__middleware_1_1InfluxLine" ],
     [ "json", "namespacedata__middleware.html#a97780203ae592bc5794d097834e8a89b", null ],
     [ "DataFrameComponent", "namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198f", [
       [ "MODULES_STATUSES", "namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198faa4f5243ca7799246f861d1d823d2a3cb", null ],

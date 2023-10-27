@@ -27,6 +27,7 @@ var hierarchy =
     [ "cmd::Command", "namespacecmd.html#structcmd_1_1Command", null ],
     [ "cmd::CommandQueue", "classcmd_1_1CommandQueue.html", null ],
     [ "console_pages::Pages", "classconsole__pages_1_1Pages.html", null ],
+    [ "CurlRequest", "classCurlRequest.html", null ],
     [ "data::BaseStreamPacket", "structdata_1_1BaseStreamPacket.html", [
       [ "data::DataPacket", "structdata_1_1DataPacket.html", null ],
       [ "data::GpsFramePacket", "structdata_1_1GpsFramePacket.html", null ],
@@ -58,6 +59,7 @@ var hierarchy =
     [ "data_middleware::DataFormatter", "classdata__middleware_1_1DataFormatter.html", null ],
     [ "data_middleware::DataLog", "classdata__middleware_1_1DataLog.html", null ],
     [ "data_middleware::InfluxDb", "classdata__middleware_1_1InfluxDb.html", null ],
+    [ "data_middleware::InfluxLine", "structdata__middleware_1_1InfluxLine.html", null ],
     [ "extension::AdcConfig", "namespaceextension.html#structextension_1_1AdcConfig", null ],
     [ "extension::Bme280Extension::CompensationData", "classextension_1_1Bme280Extension.html#structextension_1_1Bme280Extension_1_1CompensationData", null ],
     [ "extension::Extension", "classextension_1_1Extension.html", [

@@ -62,7 +62,8 @@ var annotated_dup =
     [ "data_middleware", "namespacedata__middleware.html", [
       [ "DataFormatter", "classdata__middleware_1_1DataFormatter.html", "classdata__middleware_1_1DataFormatter" ],
       [ "DataLog", "classdata__middleware_1_1DataLog.html", "classdata__middleware_1_1DataLog" ],
-      [ "InfluxDb", "classdata__middleware_1_1InfluxDb.html", "classdata__middleware_1_1InfluxDb" ]
+      [ "InfluxDb", "classdata__middleware_1_1InfluxDb.html", "classdata__middleware_1_1InfluxDb" ],
+      [ "InfluxLine", "structdata__middleware_1_1InfluxLine.html", "structdata__middleware_1_1InfluxLine" ]
     ] ],
     [ "extension", "namespaceextension.html", [
       [ "AdcConfig", "namespaceextension.html#structextension_1_1AdcConfig", "namespaceextension_structextension_1_1AdcConfig_dup" ],
@@ -116,6 +117,7 @@ var annotated_dup =
       [ "NavData", "namespaceubx.html#structubx_1_1NavData", "namespaceubx_structubx_1_1NavData_dup" ],
       [ "UBXMessage", "structubx_1_1UBXMessage.html", "structubx_1_1UBXMessage" ]
     ] ],
+    [ "CurlRequest", "classCurlRequest.html", "classCurlRequest" ],
     [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ],
     [ "GiraffeException", "classGiraffeException.html", "classGiraffeException" ],
     [ "I2cInterface", "classI2cInterface.html", "classI2cInterface" ],

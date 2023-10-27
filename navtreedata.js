@@ -80,17 +80,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc__configuration_8cpp.html",
-"classax25_1_1ManagementDataLinkStateMachine.html#a935120a59670bc6fcf8a641d217c9f2b",
-"classdata__middleware_1_1DataLog.html#a1b71d9dfd047f317c6be15188b3948b5",
-"classextension_1_1Mcp3021Extension.html#a997b9e139894c440e40f95daa94b84e4",
-"classgdl_1_1GiraffeDataLink.html#aba5bb9584bfc74071f60571c378de1f0",
-"classmodules_1_1SystemModule.html#a1d4719216289ba2a4707ce27d74475a0",
-"functions_func_f.html",
-"main_8cpp.html#acef807038d1ae4064b262a0260367bef",
-"namespacedata.html#ad86e1d5fdd64e533c7b5833ece53c37e",
-"node_8hpp.html#a5360cad6ada29a0aae6013099cab6419abb1ca97ec761fc37101737ba0aa2e7c5",
-"structdata_1_1blocks_1_1ConfigurationStats.html#a3ebef85bafc4182a2d5dc56eca9fb310",
-"ubx__protocol_8hpp.html#a496e6e180876a9a83b2d1751620f6dd5"
+"classax25_1_1ManagementDataLinkStateMachine.html",
+"classdata__middleware_1_1DataFormatter.html#a4b78f6001b0c139d00e81dd9fd80b6b2",
+"classextension_1_1Mcp3021Extension.html#a0b4a922296eee439c978eeab5022a869",
+"classgdl_1_1GiraffeDataLink.html#a0b7d57fddeb090205d64016ca09f8df1",
+"classmodules_1_1ServerModule.html#a62806f82a3b853d0d2de55efbf5649bc",
+"extension__module_8hpp_source.html",
+"index.html#autotoc_md6",
+"namespacedata.html#a38cbd9acc1f37e88b889dcab9fb0cbdb",
+"namespaceubx.html#aebd0fba183197d54bcbcec6e8a7f92f6",
+"structdata_1_1ImuFramePacket.html#a140b2f54f93715d9229e1847bc1219b2",
+"ubx__ids_8hpp.html#af33c60c81898eadbd176b4c836180379"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

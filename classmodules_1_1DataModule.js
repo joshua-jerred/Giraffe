@@ -33,6 +33,7 @@ var classmodules_1_1DataModule =
     [ "data_file_enabled_", "classmodules_1_1DataModule.html#a24d5f801c683a76b17c001d730ebfe87", null ],
     [ "log_file_enabled_", "classmodules_1_1DataModule.html#a71c65a477b59d53cfd53326e6e3a3c9d", null ],
     [ "influxdb_enabled_", "classmodules_1_1DataModule.html#aecb4c79041f20e016154b0554b0dae8c", null ],
+    [ "influxdb_write_rate_ms_", "classmodules_1_1DataModule.html#a7a282e2ff40ddb2f5a62707bf50c54cf", null ],
     [ "console_module_enabled_", "classmodules_1_1DataModule.html#a1873b80dd514ad3f6422b0bac8b3f713", null ],
     [ "data_file_logging_strategy_", "classmodules_1_1DataModule.html#a75a4dc2df94bf4abc9908fb8708c8357", null ],
     [ "error_file_logging_strategy_", "classmodules_1_1DataModule.html#a60707990c08d4f84efb531fecb0efa9d", null ],

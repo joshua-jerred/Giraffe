@@ -1,11 +1,16 @@
 var searchData=
 [
-  ['validate_2051',['validate',['../namespacevalidation.html#a847eab1f84a6efee914f2829a2f27def',1,'validation::validate(const std::string &amp;input, unsigned int min, unsigned int max, const std::string &amp;pattern=&quot;&quot;)'],['../namespacevalidation.html#af853ba540f2e9fffe97cedeed469ab48',1,'validation::validate(const int input, const int min, const int max)'],['../namespacevalidation.html#a8905ce5f022b394af53a959b34430ea2',1,'validation::validate(const float input, const float min, const float max)']]],
-  ['validatedirexists_2052',['validateDirExists',['../group__DataLog.html#gae63795801448b292379589ae850f6461',1,'data_middleware::DataLog']]],
-  ['validatefileexists_2053',['validateFileExists',['../group__DataLog.html#gaf284e8e6e7d3ff4422ce9956c6bea39c',1,'data_middleware::DataLog']]],
-  ['validatefilesystem_2054',['validateFileSystem',['../classdata__middleware_1_1DataLog.html#a1b71d9dfd047f317c6be15188b3948b5',1,'data_middleware::DataLog']]],
-  ['validateserialnumber_2055',['validateSerialNumber',['../namespaceextension.html#a9d808790534fe424f5ecb8bedb284af6',1,'extension']]],
-  ['verifychecksum_2056',['verifyChecksum',['../structubx_1_1UBXMessage.html#a8df918b403f338508a235d7378238d3b',1,'ubx::UBXMessage']]],
-  ['voltagedivider_2057',['voltageDivider',['../classextension_1_1AdcExtensionBase.html#ad0be2808763e50886aeecd7de1e344a0',1,'extension::AdcExtensionBase']]],
-  ['voltagereference_2058',['voltageReference',['../classextension_1_1AdcExtensionBase.html#a8dfeb20998d7257afac6e381e5351d30',1,'extension::AdcExtensionBase']]]
+  ['ubxmessage_2081',['UBXMessage',['../structubx_1_1UBXMessage.html#a285491fba532d5e85666d343c8cb846a',1,'ubx::UBXMessage::UBXMessage()'],['../structubx_1_1UBXMessage.html#a9e9ddba4098d266825ef10c1a61394ff',1,'ubx::UBXMessage::UBXMessage(uint8_t class_ID, uint8_t msg_ID, uint16_t length, std::vector&lt; uint8_t &gt; payload)']]],
+  ['uframecontrolfieldmodulo8_2082',['UFrameControlFieldModulo8',['../namespaceax25_1_1ctrl.html#ab1a28c9f0a138b6b2b8e9af6fb2e2c9c',1,'ax25::ctrl']]],
+  ['unknownstate_2083',['unknownState',['../classmodules_1_1ExtensionModule.html#ac2ce6fd94514eecf52156a9fac800965',1,'modules::ExtensionModule']]],
+  ['update_2084',['update',['../classncurs_1_1Environment.html#a1afc7e0d24aa967ebbfae72128fc6b16',1,'ncurs::Environment']]],
+  ['updatecpuandmemoryinfo_2085',['updateCpuAndMemoryInfo',['../classmodules_1_1SystemModule.html#afb2bfb7acacd96ff6a6df62b4ab28bc0',1,'modules::SystemModule']]],
+  ['updatecputemp_2086',['updateCpuTemp',['../classmodules_1_1SystemModule.html#a7f46e816e5aeacf5b3e0aa3293bb7553',1,'modules::SystemModule']]],
+  ['updatedirsize_2087',['updateDirSize',['../group__DataLog.html#ga27d5e8fcbabb5a3641fde27faa5a49c8',1,'data_middleware::DataLog']]],
+  ['updatediskinfo_2088',['updateDiskInfo',['../classmodules_1_1SystemModule.html#ab020939892a6e07140382c7e2e1f7192',1,'modules::SystemModule']]],
+  ['updatefilelist_2089',['updateFileList',['../group__DataLog.html#ga6a5f0dea06593ade076cda45f0a53931',1,'data_middleware::DataLog']]],
+  ['updatefilesize_2090',['updateFileSize',['../group__DataLog.html#gaf55091da9f21a38d5d7c9c0cc1904d3f',1,'data_middleware::DataLog']]],
+  ['updatefilesystem_2091',['updateFileSystem',['../classdata__middleware_1_1DataLog.html#a352c3f548b3d7a4683293ff600265651',1,'data_middleware::DataLog']]],
+  ['updatelocalconfig_2092',['updateLocalConfig',['../classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0',1,'modules::ExtensionModule::updateLocalConfig()'],['../classmodules_1_1Module.html#a72791485ce9256e7d8a1c64be4b10a3e',1,'modules::Module::updateLocalConfig()']]],
+  ['updatenetworkinfo_2093',['updateNetworkInfo',['../classmodules_1_1SystemModule.html#a5d69379f849690c483914a561bfc7216',1,'modules::SystemModule']]]
 ];
