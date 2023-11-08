@@ -26,3 +26,8 @@ The following pip packages are required:
 - `pip install pre-commit` - see https://pre-commit.com/hooks.html
 - `pip install cmake-lint`
 - `pip install cmake-format`
+
+## Pre-Commit
+- Install on your local machine with `pip install pre-commit`
+- Run `pre-commit install` in the root of the repo
+- Run `pre-commit run --all-files` to run all checks

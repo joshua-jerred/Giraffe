@@ -1,27 +1,21 @@
 # Commands
 # ========
 
-This describes the commands that can be sent to GFS via the server,
-telemetry, or console.
-
-Currently only the server is implemented, but others are soon to follow.
+This describes the commands that can be sent to GFS via the server, telemetry, or console.
 
 All commands are sent as a string of characters/numbers with a known format.
 
-For safety reasons, argument requirements must be met exactly.
-This means if a command expects no arguments, there should be nothing
-after the command ID and the final `/`.
+For safety reasons, argument requirements must be met exactly. This means if a command expects no arguments, there should be nothing after the command ID and the final `/`.
 
 ## Command Format
 
 Commands are separated into 4 sections with a `/` used as a separator.
+
 [Command Flag]/[Category]/[Command ID]/[Command Argument]
 
-The first 3 sections are 3 characters long, with the argument section being
-between 0 and 20 characters long.
+The first 3 sections are 3 characters long, with the argument section being between 0 and 20 characters long.
 
-If there are no arguments for a command, the `/` after the command ID is
-still required.
+If there are no arguments for a command, the `/` after the command ID is still required.
 
 Command Regex:
 `` ^cmd\/[a-z]{3}\/[a-z]{3}\/[a-z0-9-]{0,20}$ ``
@@ -29,8 +23,8 @@ Command Regex:
 ### Command Flag
 Simple just the characters `cmd` to indicate that this is a command.
 
-### Category
-The category of the command.
+### Destination
+The 'destination' of the command. The target of the command.
 Categories are:
     - flr - Flight Runner
     - tlm - Telemetry
@@ -43,7 +37,9 @@ Also 3 characters long, this is the command ID. The command ID is unique
 to the category.
 
 ### Command Argument
-See the specific command
+See the specific command for information about arguments.
+
+With hex arguments, letters must be lowercase.
 
 # Command List
 ## Configuration
@@ -57,6 +53,7 @@ See the specific command
    - ``cmd/cfg/tel/sstvmode=[r8|r16|r32]`` - Set the SSTV mode
 ## Data Module
  - ``cmd/dat/cae/`` - Clear all errors from the error frame, they will remain in the log
+ - ``cmd/dat/cse/[xxxx]`` - Clear a specific error given the error code. (16-bit hex, leading 0s required)
  - ``cmd/dat/ufl/`` - Update the file list
  - ``cmd/dat/rlf/`` - Rotate the log file
  - ``cmd/dat/ddf/[file name without extension]`` - Delete the data log file with the given name

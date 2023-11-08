@@ -12,7 +12,7 @@ add_executable(unit_test_common
   ${common_test_sources}
   ${common_sources}
 )
-target_link_libraries(unit_test_common 
+target_link_libraries(unit_test_common
   # internal
   giraffe_common
   unit_test
@@ -24,7 +24,7 @@ target_link_libraries(unit_test_common
 )
 target_include_directories(unit_test_common PRIVATE ${common_include_dirs})
 set_target_properties(
-	unit_test_common PROPERTIES 
+	unit_test_common PROPERTIES
 	RUNTIME_OUTPUT_DIRECTORY ${COMMON_TEST_BIN}
 )
 add_test(
@@ -51,7 +51,7 @@ target_link_libraries(unit_test_gdl
 )
 target_include_directories(unit_test_gdl PRIVATE ${GDL_SRC})
 set_target_properties(
-	unit_test_gdl PROPERTIES 
+	unit_test_gdl PROPERTIES
 	RUNTIME_OUTPUT_DIRECTORY ${GDL_TEST_BIN}
 )
 add_test(
@@ -69,13 +69,20 @@ add_executable(unit_test_gfs
 )
 target_include_directories(unit_test_gfs PRIVATE ${gfs_include_dirs})
 target_link_libraries(unit_test_gfs
-  # internal  
+  # internal
   giraffe_common
-  gfs_module_base
-  gfs_interface
-  gfs_extensions
-  gfs_configuration
-  gfs_data_module
+	gfs_interface
+	gfs_shared_data
+	gfs_configuration
+	gfs_extensions
+	gfs_control
+
+	module_base
+	data_module
+	console_module
+	extension_module
+	server_module
+	system_module
 
   # external
   unit_test
@@ -85,7 +92,7 @@ target_link_libraries(unit_test_gfs
   nlohmann_json::nlohmann_json
 )
 set_target_properties(
-	unit_test_gfs PROPERTIES 
+	unit_test_gfs PROPERTIES
 	RUNTIME_OUTPUT_DIRECTORY ${GFS_TEST_BIN}
 )
 add_test(
@@ -101,7 +108,7 @@ add_executable(unit_test_gfs_host
   "${GFS_TEST_SRC}/host_tests/extension_test_framework.cpp"
   ${gfs_host_test_sources}
 )
-target_link_libraries(unit_test_gfs_host 
+target_link_libraries(unit_test_gfs_host
   giraffe_common
   giraffe_debug_assert
 
@@ -110,7 +117,7 @@ target_link_libraries(unit_test_gfs_host
   gfs_extensions
   gfs_configuration
   gfs_data_module
-  
+
   BoosterSeat
   unit_test
 
@@ -118,7 +125,7 @@ target_link_libraries(unit_test_gfs_host
   nlohmann_json::nlohmann_json
 )
 set_target_properties(
-	unit_test_gfs_host PROPERTIES 
+	unit_test_gfs_host PROPERTIES
 	RUNTIME_OUTPUT_DIRECTORY ${GFS_TEST_BIN}
 )
 

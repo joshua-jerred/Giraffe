@@ -82,7 +82,7 @@ find_package(Threads REQUIRED)  				   # pthreads
 find_library(GTEST_LIB NAMES gtest)        # gtest
 find_package(Curses REQUIRED)              # ncurses
 find_package(nlohmann_json 3.9.0 REQUIRED) # nlhomann_json
-find_package(CURL REQUIRED) 
+find_package(CURL REQUIRED)  						   # curl
 # ----------------------------
 
 # ---- Giraffe Components ----

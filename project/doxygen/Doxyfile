@@ -20,6 +20,7 @@ INPUT += src/data_link
 INPUT += docs/introduction.md
 INPUT += docs/data_link.md
 INPUT += docs/uml
+INPUT += docs/groups.dox
 IMAGE_PATH             = ./docs/assets
 RECURSIVE              = YES
 INPUT_ENCODING         = UTF-8
@@ -117,7 +118,7 @@ SHOW_FILES             = YES
 
 SHOW_NAMESPACES        = YES
 
-LAYOUT_FILE            = 
+LAYOUT_FILE            =
 
 #---------------------------------------------------------------------------
 # Configuration options related to warning and progress messages

@@ -28,7 +28,7 @@
     },
     "clear_error":{
       "name":"Clear a Specific Error",
-      "details":"Clears a specific error from the error frame given an error code (uint16_t).",
+      "details":"Clears a specific error/diagnostic code from the error frame given an error code (uint16_t) in hex.",
       "value":"0x1002"
     }
   }
