@@ -192,15 +192,17 @@ void RequestRouter::handleCommandRequest(sock::TcpSocketServer &client,
     return;
   }
 
-  std::string cmd = msg.rsc.substr(msg.rsc.find('/') + 1);
-
-  if (cmd::K_STRING_TO_COMMAND_MAP.find(cmd) ==
-      cmd::K_STRING_TO_COMMAND_MAP.end()) {
-    sendErrorPacket(client, "command not found");
+  cmd::Command command{};
+  if (!cmd::parseCommandString(msg.rsc, command)) {
+    sendErrorPacket(client, "malformed command string");
+    shared_data_.streams.log.error(
+        node::Identification::SERVER_MODULE,
+        DiagnosticId::SERVER_MODULE_invalidCommandString, msg.rsc);
     return;
   }
 
-  cmd::CommandId cmd_id = cmd::K_STRING_TO_COMMAND_MAP.at(cmd);
+  shared_data_.streams.command.addCommand(node::Identification::SERVER_MODULE,
+                                          command);
 }
 
 void RequestRouter::sendMessage(protocol::Message &response_json,

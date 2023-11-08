@@ -1,4 +1,4 @@
-// jsonc!!! (comments are allowed) The generator for this one used a non-builtin 
+// jsonc!!! (comments are allowed) The generator for this one used a non-builtin
 // library for parsing.
 {
   "FILE_META": {
@@ -390,6 +390,13 @@
       "value": "0x4003"
     }
   },
+  "server_module": {
+    "invalid_command_string":{
+      "name": "Invalid Command String",
+      "details": "Command string sent to the server module via a set request could not be parsed.",
+      "value": "0x4100"
+    }
+  },
   "extension_module":{
     "failed_to_create":{
       "name": "Failed to Create Extension",
@@ -464,7 +471,24 @@
       "value": "0x500D"
     }
   },
-  "ext_fault":{ 
+  "flight_runner": {
+    "failed_to_route_command": {
+      "name": "Failed to route command",
+      "details": "The command could not be added to the respective module's command queue. This could be because the module is not running.",
+      "value": "0x6000"
+    },
+    "command_destination_not_found": {
+      "name": "Command destination not found",
+      "details": "The command destination was not found.",
+      "value": "0x6001"
+    },
+    "invalid_command":{
+      "name": "Invalid Command",
+      "details": "The command sent to the flight runner is not valid.",
+      "value": "0x6002"
+    }
+  },
+  "ext_fault":{
     // These are only reported by extensions when they must stop
     // Other errors should have already been reported.
     "none":{

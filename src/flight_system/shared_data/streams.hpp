@@ -26,6 +26,7 @@
 #include <BoosterSeat/clock.hpp>
 #include <BoosterSeat/exception.hpp>
 
+#include "command.hpp"
 #include "data_ids.hpp"
 #include "giraffe_diagnostic_ids.hpp"
 #include "node.hpp"
@@ -231,6 +232,28 @@ public:
                 data::ImuFrame frame) {
     ImuFramePacket pkt{source, std::move(secondary_id),
                        BoosterSeat::clck::now(), frame};
+    addPacket(pkt);
+  }
+};
+
+/**
+ * @brief The packet for the command stream.
+ * @see CommandStream
+ */
+struct CommandPacket : public BaseStreamPacket {
+  cmd::Command command{};
+};
+
+/**
+ * @brief The stream of new commands.
+ * @details Commands are added by the server, console, and telemetry module.
+ * This stream is parsed by the flight runner, not the data module like with the
+ * other streams.
+ */
+class CommandStream : public Stream<CommandPacket> {
+public:
+  void addCommand(node::Identification source, cmd::Command command) {
+    CommandPacket pkt{source, "", BoosterSeat::clck::now(), command};
     addPacket(pkt);
   }
 };

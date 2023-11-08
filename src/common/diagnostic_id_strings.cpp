@@ -1,6 +1,6 @@
 /**
  *
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -11,8 +11,8 @@
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- * 
- * 
+ *
+ *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       2023-06-30
@@ -99,6 +99,7 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::SYSTEM_MODULE_systemInfoReadFail,"SYSTEM_MODULE_systemInfoReadFail"},
   {DiagnosticId::SYSTEM_MODULE_cpuTempReadFail,"SYSTEM_MODULE_cpuTempReadFail"},
   {DiagnosticId::SYSTEM_MODULE_diskInfoReadFail,"SYSTEM_MODULE_diskInfoReadFail"},
+  {DiagnosticId::SERVER_MODULE_invalidCommandString,"SERVER_MODULE_invalidCommandString"},
   {DiagnosticId::EXTENSION_MODULE_failedToCreate,"EXTENSION_MODULE_failedToCreate"},
   {DiagnosticId::EXTENSION_startCall,"EXTENSION_startCall"},
   {DiagnosticId::EXTENSION_stopTimeout,"EXTENSION_stopTimeout"},
@@ -113,6 +114,9 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::EXTENSION_samm8qConfigureSetDynamicModel,"EXTENSION_samm8qConfigureSetDynamicModel"},
   {DiagnosticId::EXTENSION_samm8qReadTimeout,"EXTENSION_samm8qReadTimeout"},
   {DiagnosticId::EXTENSION_adcConfigFail,"EXTENSION_adcConfigFail"},
+  {DiagnosticId::FLIGHT_RUNNER_failedToRouteCommand,"FLIGHT_RUNNER_failedToRouteCommand"},
+  {DiagnosticId::FLIGHT_RUNNER_commandDestinationNotFound,"FLIGHT_RUNNER_commandDestinationNotFound"},
+  {DiagnosticId::FLIGHT_RUNNER_invalidCommand,"FLIGHT_RUNNER_invalidCommand"},
   {DiagnosticId::EXT_FAULT_none,"EXT_FAULT_none"},
   {DiagnosticId::EXT_FAULT_fatalConfig,"EXT_FAULT_fatalConfig"},
   {DiagnosticId::EXT_FAULT_bme280StartupI2CConnect,"EXT_FAULT_bme280StartupI2CConnect"},
@@ -145,7 +149,7 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
 
 /**
  * @endverbatim
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&

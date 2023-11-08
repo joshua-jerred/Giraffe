@@ -33,6 +33,12 @@ struct Streams {
   LogStream log{};
   GpsFrameStream gps{};
   ImuFrameStream imu{};
+
+  /**
+   * @brief The command stream. Parsed by the flight runner, not the data
+   * module.
+   */
+  CommandStream command{};
 };
 
 struct SharedBlocks {

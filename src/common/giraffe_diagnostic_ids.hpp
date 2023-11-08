@@ -1,6 +1,6 @@
 /**
  *
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -11,8 +11,8 @@
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- * 
- * 
+ *
+ *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       2023-06-30
@@ -104,6 +104,7 @@ enum class DiagnosticId : uint16_t {
   SYSTEM_MODULE_systemInfoReadFail=0x4001, // Failed to read system info
   SYSTEM_MODULE_cpuTempReadFail=0x4002, // Failed to read CPU temperature
   SYSTEM_MODULE_diskInfoReadFail=0x4003, // Failed to read disk info
+  SERVER_MODULE_invalidCommandString=0x4100, // Invalid Command String
   EXTENSION_MODULE_failedToCreate=0x4004, // Failed to Create Extension
   EXTENSION_startCall=0x5001, // Can not start if already running, starting, or sleeping.
   EXTENSION_stopTimeout=0x5002, // Failed to stop in time
@@ -118,6 +119,9 @@ enum class DiagnosticId : uint16_t {
   EXTENSION_samm8qConfigureSetDynamicModel=0x500B, // SAMM8Q Configure Set Dynamic Model
   EXTENSION_samm8qReadTimeout=0x500C, // SAMM8Q Read Timeout
   EXTENSION_adcConfigFail=0x500D, // ADC Config Failure
+  FLIGHT_RUNNER_failedToRouteCommand=0x6000, // Failed to route command
+  FLIGHT_RUNNER_commandDestinationNotFound=0x6001, // Command destination not found
+  FLIGHT_RUNNER_invalidCommand=0x6002, // Invalid Command
   EXT_FAULT_none=0x7000, // No fault
   EXT_FAULT_fatalConfig=0x7001, // Fatal Configuration Error
   EXT_FAULT_bme280StartupI2CConnect=0x7002, // BME280 Startup I2C Connect Fault
@@ -154,7 +158,7 @@ extern const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRIN
 
 /**
  * @endverbatim
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&

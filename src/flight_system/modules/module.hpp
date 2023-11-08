@@ -82,6 +82,10 @@ public:
    */
   node::Status getStatus() const;
 
+  bool addCommand(const cmd::Command &command) {
+    return command_queue_.addCommand(command);
+  }
+
 protected:
   /**
    * @brief This function is called when the module is started.
