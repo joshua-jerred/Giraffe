@@ -119,13 +119,13 @@ $(document).ready(function(){initNavTree('classmodules_1_1DataModule.html',''); 
 <div class="dynheader">
 Inheritance diagram for modules::DataModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1DataModule__inherit__graph.svg" width="282" height="932"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1DataModule__inherit__graph.svg" width="282" height="947"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for modules::DataModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1DataModule__coll__graph.svg" width="5063" height="2252"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1DataModule__coll__graph.svg" width="4332" height="2267"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -136,6 +136,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9e8324e2c3dbbb9c2ffadf83ece48108"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0090ef827d3ae2bbd3ecdb27311ec4f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#ae0090ef827d3ae2bbd3ecdb27311ec4f">~DataModule</a> () override=default</td></tr>
 <tr class="separator:ae0090ef827d3ae2bbd3ecdb27311ec4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2b6b4c160ce0df7420e18dd7993c67a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a">addCommand</a> (const <a class="el" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;command)</td></tr>
+<tr class="memdesc:ae2b6b4c160ce0df7420e18dd7993c67a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public wrapper for adding a command to the command queue.  <a href="classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a">More...</a><br /></td></tr>
+<tr class="separator:ae2b6b4c160ce0df7420e18dd7993c67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaa221e42cc396d5d38ec1a625b1d713"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419">node::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#afaa221e42cc396d5d38ec1a625b1d713">getStatus</a> () const</td></tr>
 <tr class="memdesc:afaa221e42cc396d5d38ec1a625b1d713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the status of the module.  <a href="classmodules_1_1Module.html#afaa221e42cc396d5d38ec1a625b1d713">More...</a><br /></td></tr>
 <tr class="separator:afaa221e42cc396d5d38ec1a625b1d713"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -360,7 +363,7 @@ Private Attributes</h2></td></tr>
 
 <p>Startup override for the data module. </p>
 <p>Currently doesn't do anything unique. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>why the call to <a class="el" href="classmodules_1_1Module.html#a46523705742629151454c68a16e9f875" title="Sleeps the module for the sleep interval.">sleep()</a>? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>why the call to <a class="el" href="classmodules_1_1Module.html#a46523705742629151454c68a16e9f875" title="Sleeps the module for the sleep interval.">sleep()</a>? </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classmodules_1_1Module.html#ab45b44d72220b8fc55575bd477c87303">modules::Module</a>.</p>
 
@@ -451,12 +454,12 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Used to process and commands sent to the data module. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>This function is not implemented yet. </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>Test this, this could end poorly </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>This function is not implemented yet. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>Test this, this could end poorly </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classmodules_1_1Module.html#afc54834fc6a5d2cb5b55b18c3b46f8a8">modules::Module</a>.</p>
 
-<p class="reference">References <a class="el" href="namespacecmd.html#ac807c769aa248d965dcee19e3e025624">cmd::Command::command_id</a>, and <a class="el" href="namespacecmd.html#a9811b76a7deb68a3135d6ed3748a4e81">cmd::Command::int_arg</a>.</p>
+<p class="reference">References <a class="el" href="namespacecmd.html#ac807c769aa248d965dcee19e3e025624">cmd::Command::command_id</a>, and <a class="el" href="namespacecmd.html#a2be6d20a6dc7268a22333cdadc884480">cmd::Command::int_arg</a>.</p>
 
 </div>
 </div>
@@ -589,7 +592,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Process all packets from the log stream. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>debug/log packets should be processed here </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>debug/log packets should be processed here </dd></dl>
 
 <p class="reference">References <a class="el" href="structdata_1_1LogPacket.html#acf1eb5602d42a50429a2d4b4752279f4abb1ca97ec761fc37101737ba0aa2e7c5">data::LogPacket::ERROR</a>, <a class="el" href="structdata_1_1LogPacket.html#ab3abc310a2d936050d720a55ce18aa14">data::LogPacket::level</a>, and <a class="el" href="namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e">util::to_string()</a>.</p>
 
@@ -800,6 +803,51 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="ae2b6b4c160ce0df7420e18dd7993c67a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2b6b4c160ce0df7420e18dd7993c67a">&#9670;&nbsp;</a></span>addCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool modules::Module::addCommand </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Public wrapper for adding a command to the command queue. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcmd_1_1CommandQueue.html" title="Used within modules to queue commands to be processed.">cmd::CommandQueue</a> </dd></dl>
+
+<p class="reference">References <a class="el" href="classcmd_1_1CommandQueue.html#ad9f72f60fecc1ecf0e810ddcab40e43a">cmd::CommandQueue::addCommand()</a>, and <a class="el" href="classmodules_1_1Module.html#a7d855a6e0bc3c2a826fa396d4c5486d3">modules::Module::command_queue_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">FlightRunner::routeCommand()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_ae2b6b4c160ce0df7420e18dd7993c67a_cgraph.svg" width="467" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_ae2b6b4c160ce0df7420e18dd7993c67a_icgraph.svg" width="507" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a72791485ce9256e7d8a1c64be4b10a3e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a72791485ce9256e7d8a1c64be4b10a3e">&#9670;&nbsp;</a></span>updateLocalConfig()</h2>
 
@@ -852,7 +900,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">Todo:</a></b></dt><dd>Sets the status of the module and reports it to the data stream. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>Sets the status of the module and reports it to the data stream. </dd></dl>
 
 </div>
 </div>
@@ -1550,7 +1598,9 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>The command queue for the module. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcmd_1_1CommandQueue.html">cmd::CommandQueue</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcmd_1_1CommandQueue.html" title="Used within modules to queue commands to be processed.">cmd::CommandQueue</a> </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a">modules::Module::addCommand()</a>.</p>
 
 </div>
 </div>

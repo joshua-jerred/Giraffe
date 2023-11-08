@@ -1,0 +1,4 @@
+<map id="RequestRouter::handleCommandRequest" name="RequestRouter::handleCommandRequest">
+<area shape="rect" id="node1" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="281,5,519,47"/>
+<area shape="rect" id="node2" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,13,233,39"/>
+</map>

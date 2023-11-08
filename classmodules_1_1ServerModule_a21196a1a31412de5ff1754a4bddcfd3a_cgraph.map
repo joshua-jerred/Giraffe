@@ -1,5 +1,0 @@
-<map id="modules::ServerModule::loop" name="modules::ServerModule::loop">
-<area shape="rect" id="node1" title="Loop module function for the server module." alt="" coords="5,39,181,80"/>
-<area shape="rect" id="node2" href="$classsock_1_1TcpSocketServer.html#ada37dff8b6cad8a7108f02c11544ceb8" title=" " alt="" coords="229,5,396,47"/>
-<area shape="rect" id="node3" href="$classsock_1_1TcpSocketServer.html#a6fc4ac999c586de6a35105dcbf431c51" title=" " alt="" coords="229,71,396,112"/>
-</map>

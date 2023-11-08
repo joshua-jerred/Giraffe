@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="The socket class header.">
 <polygon fill="#bfbfbf" stroke="black" points="154,-224.5 154,-243.5 223,-243.5 223,-224.5 154,-224.5"/>
 <text text-anchor="middle" x="188.5" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">socket.hpp</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="request__handler_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="request__handler_8hpp.html" target="_top" xlink:title="The request handler class header.">
 <polygon fill="none" stroke="black" points="44.5,-168.5 44.5,-187.5 160.5,-187.5 160.5,-168.5 44.5,-168.5"/>
 <text text-anchor="middle" x="102.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">request_handler.hpp</text>
 </a>
@@ -65,7 +65,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="request__handler_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="request__handler_8cpp.html" target="_top" xlink:title="The request handler class implementation.">
 <polygon fill="none" stroke="black" points="0,-112.5 0,-131.5 115,-131.5 115,-112.5 0,-112.5"/>
 <text text-anchor="middle" x="57.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">request_handler.cpp</text>
 </a>
@@ -116,7 +116,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="flight__runner_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="flight__runner_8cpp.html" target="_top" xlink:title="The implementation of the flight runner, where everything comes together.">
 <polygon fill="none" stroke="black" points="29.5,-0.5 29.5,-19.5 127.5,-19.5 127.5,-0.5 29.5,-0.5"/>
 <text text-anchor="middle" x="78.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">flight_runner.cpp</text>
 </a>

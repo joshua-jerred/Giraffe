@@ -1,6 +1,0 @@
-<map id="RequestRouter::sendMessage" name="RequestRouter::sendMessage">
-<area shape="rect" id="node1" title=" " alt="" coords="5,46,220,73"/>
-<area shape="rect" id="node2" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="277,5,426,47"/>
-<area shape="rect" id="node4" href="$classsock_1_1TcpSocketServer.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="268,71,435,112"/>
-<area shape="rect" id="node3" href="$structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" title="Get the message as a JSON object." alt="" coords="483,5,632,47"/>
-</map>

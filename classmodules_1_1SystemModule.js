@@ -13,6 +13,7 @@ var classmodules_1_1SystemModule =
     [ "start", "classmodules_1_1SystemModule.html#afa712a59eff6e99405e70ae61f7510cd", null ],
     [ "stop", "classmodules_1_1SystemModule.html#aefe65d4f674e804a1891b250ed2887a4", null ],
     [ "getStatus", "classmodules_1_1SystemModule.html#afaa221e42cc396d5d38ec1a625b1d713", null ],
+    [ "addCommand", "classmodules_1_1SystemModule.html#ae2b6b4c160ce0df7420e18dd7993c67a", null ],
     [ "updateLocalConfig", "classmodules_1_1SystemModule.html#a72791485ce9256e7d8a1c64be4b10a3e", null ],
     [ "setStatus", "classmodules_1_1SystemModule.html#a3b249804c7e412855b1429ccd639cc38", null ],
     [ "error", "classmodules_1_1SystemModule.html#a62806f82a3b853d0d2de55efbf5649bc", null ],

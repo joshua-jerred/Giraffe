@@ -1,7 +1,0 @@
-<map id="sock::TcpSocketServer::send" name="sock::TcpSocketServer::send">
-<area shape="rect" id="node1" title=" " alt="" coords="791,39,957,80"/>
-<area shape="rect" id="node2" href="$classRequestRouter.html#a4d13e34f9d56d94f7a410248eed83a8b" title=" " alt="" coords="528,46,743,73"/>
-<area shape="rect" id="node3" href="$classRequestRouter.html#aa4ad8544dc8431ede7414c834a8a9257" title="This function responds to a ping request." alt="" coords="281,5,480,47"/>
-<area shape="rect" id="node5" href="$classRequestRouter.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="287,71,475,112"/>
-<area shape="rect" id="node4" href="$classRequestRouter.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,46,233,73"/>
-</map>

@@ -1,7 +1,8 @@
 <map id="data::BaseStreamPacket" name="data::BaseStreamPacket">
-<area shape="rect" id="node1" title=" " alt="" coords="249,5,429,112"/>
-<area shape="rect" id="node2" href="$structdata_1_1DataPacket.html" title=" " alt="" coords="5,160,137,281"/>
-<area shape="rect" id="node3" href="$structdata_1_1GpsFramePacket.html" title=" " alt="" coords="161,182,328,259"/>
-<area shape="rect" id="node4" href="$structdata_1_1ImuFramePacket.html" title=" " alt="" coords="352,182,519,259"/>
-<area shape="rect" id="node5" href="$structdata_1_1LogPacket.html" title=" " alt="" coords="543,167,667,274"/>
+<area shape="rect" id="node1" title=" " alt="" coords="347,5,527,112"/>
+<area shape="rect" id="node2" href="$structdata_1_1CommandPacket.html" title="The packet for the command stream." alt="" coords="5,182,173,259"/>
+<area shape="rect" id="node3" href="$structdata_1_1DataPacket.html" title=" " alt="" coords="198,160,330,281"/>
+<area shape="rect" id="node4" href="$structdata_1_1GpsFramePacket.html" title=" " alt="" coords="354,182,521,259"/>
+<area shape="rect" id="node5" href="$structdata_1_1ImuFramePacket.html" title=" " alt="" coords="545,182,711,259"/>
+<area shape="rect" id="node6" href="$structdata_1_1LogPacket.html" title=" " alt="" coords="735,167,859,274"/>
 </map>

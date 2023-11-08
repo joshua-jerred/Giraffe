@@ -1,8 +1,9 @@
 <map id="protocol::createResponseMessage" name="protocol::createResponseMessage">
-<area shape="rect" id="node1" title="Create a Response Message." alt="" coords="545,104,732,145"/>
-<area shape="rect" id="node2" href="$classRequestRouter.html#ac2e5e15f3607c998351f3b2981b1f540" title="This function responds to data requests." alt="" coords="289,5,490,47"/>
-<area shape="rect" id="node4" href="$classRequestRouter.html#aa4ad8544dc8431ede7414c834a8a9257" title="This function responds to a ping request." alt="" coords="290,71,489,112"/>
-<area shape="rect" id="node5" href="$classRequestRouter.html#ae84c028fe967e32b38178284373244a0" title="This function responds to a setting request." alt="" coords="281,136,497,177"/>
-<area shape="rect" id="node6" href="$classRequestRouter.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="295,201,483,243"/>
-<area shape="rect" id="node3" href="$classRequestRouter.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,111,233,138"/>
+<area shape="rect" id="node1" title="Create a Response Message." alt="" coords="831,100,1017,141"/>
+<area shape="rect" id="node2" href="$group__ServerModule.html#ac2e5e15f3607c998351f3b2981b1f540" title="This function responds to data requests." alt="" coords="299,5,501,47"/>
+<area shape="rect" id="node4" href="$group__ServerModule.html#aa4ad8544dc8431ede7414c834a8a9257" title="This function responds to a ping request." alt="" coords="301,71,499,112"/>
+<area shape="rect" id="node5" href="$group__ServerModule.html#ae84c028fe967e32b38178284373244a0" title="This function responds to a setting request." alt="" coords="567,129,783,171"/>
+<area shape="rect" id="node6" href="$group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="581,195,769,236"/>
+<area shape="rect" id="node3" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,137,233,163"/>
+<area shape="rect" id="node7" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="281,239,519,280"/>
 </map>

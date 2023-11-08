@@ -29,6 +29,7 @@ var hierarchy =
     [ "console_pages::Pages", "classconsole__pages_1_1Pages.html", null ],
     [ "CurlRequest", "classCurlRequest.html", null ],
     [ "data::BaseStreamPacket", "structdata_1_1BaseStreamPacket.html", [
+      [ "data::CommandPacket", "structdata_1_1CommandPacket.html", null ],
       [ "data::DataPacket", "structdata_1_1DataPacket.html", null ],
       [ "data::GpsFramePacket", "structdata_1_1GpsFramePacket.html", null ],
       [ "data::ImuFramePacket", "structdata_1_1ImuFramePacket.html", null ],
@@ -104,7 +105,7 @@ var hierarchy =
       [ "modules::ConsoleModule", "classmodules_1_1ConsoleModule.html", null ],
       [ "modules::DataModule", "classmodules_1_1DataModule.html", null ],
       [ "modules::ExtensionModule", "classmodules_1_1ExtensionModule.html", null ],
-      [ "modules::ServerModule", "classmodules_1_1ServerModule.html", null ],
+      [ "modules::ServerModule", "group__ServerModule.html#classmodules_1_1ServerModule", null ],
       [ "modules::SystemModule", "classmodules_1_1SystemModule.html", null ],
       [ "modules::TelemetryModule", "classmodules_1_1TelemetryModule.html", null ]
     ] ],
@@ -112,10 +113,13 @@ var hierarchy =
     [ "ncurs::internal::Window", "classncurs_1_1internal_1_1Window.html", null ],
     [ "OneWireInterface", "classOneWireInterface.html", null ],
     [ "protocol::Message", "structprotocol_1_1Message.html", null ],
-    [ "RequestRouter", "classRequestRouter.html", null ],
-    [ "sock::TcpSocketServer", "classsock_1_1TcpSocketServer.html", null ],
+    [ "RequestRouter", "group__ServerModule.html#classRequestRouter", null ],
+    [ "sock::TcpSocketServer", "group__ServerModule.html#classsock_1_1TcpSocketServer", null ],
     [ "std::exception", null, [
       [ "GiraffeException", "classGiraffeException.html", null ]
+    ] ],
+    [ "data::Stream< CommandPacket >", "classdata_1_1Stream.html", [
+      [ "data::CommandStream", "classdata_1_1CommandStream.html", null ]
     ] ],
     [ "data::Stream< DataPacket >", "classdata_1_1Stream.html", [
       [ "data::DataStream", "classdata_1_1DataStream.html", null ]

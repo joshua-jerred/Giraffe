@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classgdl_1_1TransportLayer.html" title=" " alt="" coords="5,5,152,32"/>
+<area shape="rect" id="node1" href="$classgdl_1_1PhysicalLayer.html" title=" " alt="" coords="5,13,145,39"/>
+<area shape="rect" id="node2" href="$classgdl_1_1SimulatedLoopbackPhysicalLayer.html" title="A simple simulated physical layer for testing." alt="" coords="193,5,425,47"/>
 </map>

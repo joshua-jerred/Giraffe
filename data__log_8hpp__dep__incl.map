@@ -4,6 +4,6 @@
 <area shape="rect" id="node3" href="$data__module_8hpp.html" title="The data module header file." alt="" coords="147,80,282,107"/>
 <area shape="rect" id="node4" href="$flight__runner_8hpp.html" title=" " alt="" coords="71,155,201,181"/>
 <area shape="rect" id="node7" href="$data__module_8cpp.html" title=" " alt="" coords="226,155,361,181"/>
-<area shape="rect" id="node5" href="$flight__runner_8cpp.html" title=" " alt="" coords="5,229,136,256"/>
+<area shape="rect" id="node5" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="5,229,136,256"/>
 <area shape="rect" id="node6" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="160,229,243,256"/>
 </map>

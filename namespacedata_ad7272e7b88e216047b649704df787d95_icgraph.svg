@@ -36,7 +36,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="classRequestRouter.html#ac2e5e15f3607c998351f3b2981b1f540" target="_top" xlink:title="This function responds to data requests.">
+<g id="a_node5"><a xlink:href="group__ServerModule.html#ac2e5e15f3607c998351f3b2981b1f540" target="_top" xlink:title="This function responds to data requests.">
 <polygon fill="none" stroke="black" points="229,-0.5 229,-30.5 380,-30.5 380,-0.5 229,-0.5"/>
 <text text-anchor="start" x="237" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">RequestRouter::handleData</text>
 <text text-anchor="middle" x="304.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Request</text>
@@ -84,7 +84,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="classRequestRouter.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" target="_top" xlink:title="This function is responsible for parsing a request and routing it to the right place.">
+<g id="a_node6"><a xlink:href="group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" target="_top" xlink:title="This function is responsible for parsing a request and routing it to the right place.">
 <polygon fill="none" stroke="black" points="4,-6 4,-25 175,-25 175,-6 4,-6"/>
 <text text-anchor="middle" x="89.5" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">RequestRouter::handleMessage</text>
 </a>

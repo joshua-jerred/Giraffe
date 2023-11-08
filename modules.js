@@ -5,5 +5,7 @@ var modules =
     [ ".Filesystem", "group__DataLog.html", "group__DataLog" ],
     [ "Data Stream Parsing", "group__DataStreamParsing.html", "group__DataStreamParsing" ],
     [ "Acceleration", "group__acceleration.html", "group__acceleration" ],
-    [ "Rotation", "group__rotation.html", "group__rotation" ]
+    [ "Rotation", "group__rotation.html", "group__rotation" ],
+    [ "Server Module", "group__ServerModule.html", "group__ServerModule" ],
+    [ "Control", "group__control.html", null ]
 ];

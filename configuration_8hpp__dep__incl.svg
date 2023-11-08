@@ -110,7 +110,7 @@
 <!-- Node29 -->
 <g id="node29" class="node">
 <title>Node29</title>
-<g id="a_node29"><a xlink:href="request__handler_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_node29"><a xlink:href="request__handler_8hpp.html" target="_top" xlink:title="The request handler class header.">
 <polygon fill="none" stroke="black" points="1060.5,-168.5 1060.5,-187.5 1176.5,-187.5 1176.5,-168.5 1060.5,-168.5"/>
 <text text-anchor="middle" x="1118.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">request_handler.hpp</text>
 </a>
@@ -125,7 +125,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="flight__runner_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="flight__runner_8cpp.html" target="_top" xlink:title="The implementation of the flight runner, where everything comes together.">
 <polygon fill="none" stroke="black" points="601.5,-0.5 601.5,-19.5 699.5,-19.5 699.5,-0.5 601.5,-0.5"/>
 <text text-anchor="middle" x="650.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">flight_runner.cpp</text>
 </a>
@@ -512,7 +512,7 @@
 <!-- Node30 -->
 <g id="node30" class="node">
 <title>Node30</title>
-<g id="a_node30"><a xlink:href="request__handler_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node30"><a xlink:href="request__handler_8cpp.html" target="_top" xlink:title="The request handler class implementation.">
 <polygon fill="none" stroke="black" points="1189,-112.5 1189,-131.5 1304,-131.5 1304,-112.5 1189,-112.5"/>
 <text text-anchor="middle" x="1246.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">request_handler.cpp</text>
 </a>

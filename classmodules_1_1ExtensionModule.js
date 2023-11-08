@@ -34,6 +34,7 @@ var classmodules_1_1ExtensionModule =
     [ "start", "classmodules_1_1ExtensionModule.html#afa712a59eff6e99405e70ae61f7510cd", null ],
     [ "stop", "classmodules_1_1ExtensionModule.html#aefe65d4f674e804a1891b250ed2887a4", null ],
     [ "getStatus", "classmodules_1_1ExtensionModule.html#afaa221e42cc396d5d38ec1a625b1d713", null ],
+    [ "addCommand", "classmodules_1_1ExtensionModule.html#ae2b6b4c160ce0df7420e18dd7993c67a", null ],
     [ "setStatus", "classmodules_1_1ExtensionModule.html#a3b249804c7e412855b1429ccd639cc38", null ],
     [ "error", "classmodules_1_1ExtensionModule.html#a62806f82a3b853d0d2de55efbf5649bc", null ],
     [ "error", "classmodules_1_1ExtensionModule.html#a2d64fd89764378e46ffc96cce45953db", null ],

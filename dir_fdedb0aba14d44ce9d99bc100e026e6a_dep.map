@@ -1,8 +1,5 @@
 <map id="common" name="common">
-<area shape="rect" id="node2" href="dir_94ed1c5d77eb6aaf58cc46ab6957451d.html" title="command" alt="" coords="137,63,223,111"/>
-<area shape="rect" id="node3" href="dir_89003bad66267d207cf9853376005f86.html" title="diagnostic" alt="" coords="38,159,127,207"/>
-<area shape="rect" id="node4" href="dir_59584031e26d6ae6675c77c95760685d.html" title="protocol" alt="" coords="37,63,112,111"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000021_000015.html" title="1" alt="" coords="83,132,92,147"/>
-<area shape="rect" id="clust2" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html" alt="" coords="27,52,337,217"/>
-<area shape="rect" id="clust1" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" title="src" alt="" coords="16,16,348,228"/>
+<area shape="rect" id="node2" href="dir_59584031e26d6ae6675c77c95760685d.html" title="protocol" alt="" coords="37,63,112,111"/>
+<area shape="rect" id="clust2" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html" alt="" coords="27,52,227,121"/>
+<area shape="rect" id="clust1" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" title="src" alt="" coords="16,16,237,132"/>
 </map>

@@ -1,0 +1,4 @@
+<map id="modules::Module::addCommand" name="modules::Module::addCommand">
+<area shape="rect" id="node1" title="Public wrapper for adding a command to the command queue." alt="" coords="268,5,501,32"/>
+<area shape="rect" id="node2" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Send a command to the proper module." alt="" coords="5,5,220,32"/>
+</map>

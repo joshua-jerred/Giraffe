@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="A command object. Used for passing commands to their destinations.">
 <polygon fill="#bfbfbf" stroke="black" points="117,-0.5 117,-57.5 211,-57.5 211,-0.5 117,-0.5"/>
 <text text-anchor="middle" x="164" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">cmd::Command</text>
 <polyline fill="none" stroke="black" points="117,-38.5 211,-38.5 "/>
@@ -45,11 +45,11 @@
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="105,-105.5 105,-162.5 155,-162.5 155,-105.5 105,-105.5"/>
-<text text-anchor="middle" x="130" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">int32_t</text>
-<polyline fill="none" stroke="#bfbfbf" points="105,-143.5 155,-143.5 "/>
+<polygon fill="none" stroke="#bfbfbf" points="102,-105.5 102,-162.5 158,-162.5 158,-105.5 102,-105.5"/>
+<text text-anchor="middle" x="130" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">uint32_t</text>
+<polyline fill="none" stroke="#bfbfbf" points="102,-143.5 158,-143.5 "/>
 <text text-anchor="middle" x="130" y="-131.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="#bfbfbf" points="105,-124.5 155,-124.5 "/>
+<polyline fill="none" stroke="#bfbfbf" points="102,-124.5 158,-124.5 "/>
 <text text-anchor="middle" x="130" y="-112.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 </a>
 </g>

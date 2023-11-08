@@ -1,18 +1,18 @@
 <map id="error_frame.hpp" name="error_frame.hpp">
-<area shape="rect" id="node1" title="The error frame." alt="" coords="1599,5,1726,32"/>
-<area shape="rect" id="node2" href="$error__frame_8cpp.html" title="The implementation of the error frame." alt="" coords="1523,80,1650,107"/>
-<area shape="rect" id="node3" href="$shared__data_8hpp.html" title="Contains the SharedData struct, used across all modules and extensions." alt="" coords="1675,80,1805,107"/>
-<area shape="rect" id="node4" href="$cfg__section_8hpp.html" title="This file contains the base class for all configuration sections." alt="" coords="855,155,979,181"/>
+<area shape="rect" id="node1" title="The error frame." alt="" coords="1655,5,1782,32"/>
+<area shape="rect" id="node2" href="$error__frame_8cpp.html" title="The implementation of the error frame." alt="" coords="1579,80,1706,107"/>
+<area shape="rect" id="node3" href="$shared__data_8hpp.html" title="Contains the SharedData struct, used across all modules and extensions." alt="" coords="1731,80,1861,107"/>
+<area shape="rect" id="node4" href="$cfg__section_8hpp.html" title="This file contains the base class for all configuration sections." alt="" coords="839,155,963,181"/>
 <area shape="rect" id="node7" href="$extension__base_8hpp.html" title="The new implementation of the extension system." alt="" coords="777,304,929,331"/>
-<area shape="rect" id="node22" href="$flight__runner_8hpp.html" title=" " alt="" coords="1917,453,2048,480"/>
-<area shape="rect" id="node26" href="$console__pages_8hpp.html" title=" " alt="" coords="1261,229,1408,256"/>
-<area shape="rect" id="node32" href="$data__formatting_8hpp.html" title="This file contains the DataFormatter class, which is used to format data for the data and log files." alt="" coords="1504,155,1659,181"/>
-<area shape="rect" id="node34" href="$data__log_8hpp.html" title="The data log is responsible for writing data to files and managing the file system." alt="" coords="1611,229,1717,256"/>
-<area shape="rect" id="node38" href="$influxdb_8hpp.html" title=" " alt="" coords="1734,155,1837,181"/>
-<area shape="rect" id="node40" href="$to__json_8cpp.html" title=" " alt="" coords="1956,155,2052,181"/>
-<area shape="rect" id="node41" href="$module_8hpp.html" title="The header file for the base module class." alt="" coords="2028,304,2127,331"/>
-<area shape="rect" id="node49" href="$request__handler_8hpp.html" title=" " alt="" coords="2460,304,2615,331"/>
-<area shape="rect" id="node5" href="$cfg__extensions_8hpp.html" title="The header file for the extensions section of the configuration." alt="" coords="675,229,823,256"/>
+<area shape="rect" id="node22" href="$flight__runner_8hpp.html" title=" " alt="" coords="1891,453,2021,480"/>
+<area shape="rect" id="node26" href="$console__pages_8hpp.html" title=" " alt="" coords="1305,229,1452,256"/>
+<area shape="rect" id="node32" href="$data__formatting_8hpp.html" title="This file contains the DataFormatter class, which is used to format data for the data and log files." alt="" coords="1560,155,1715,181"/>
+<area shape="rect" id="node34" href="$data__log_8hpp.html" title="The data log is responsible for writing data to files and managing the file system." alt="" coords="1655,229,1761,256"/>
+<area shape="rect" id="node38" href="$influxdb_8hpp.html" title=" " alt="" coords="1790,155,1893,181"/>
+<area shape="rect" id="node40" href="$module_8hpp.html" title="The header file for the base module class." alt="" coords="1995,304,2093,331"/>
+<area shape="rect" id="node48" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="2460,304,2615,331"/>
+<area shape="rect" id="node50" href="$to__json_8cpp.html" title=" " alt="" coords="2113,155,2209,181"/>
+<area shape="rect" id="node5" href="$cfg__extensions_8hpp.html" title="The header file for the extensions section of the configuration." alt="" coords="674,229,822,256"/>
 <area shape="rect" id="node6" href="$cfg__extensions_8cpp.html" title="Implements the extensions section of the configuration." alt="" coords="364,304,511,331"/>
 <area shape="rect" id="node25" href="$preconfigured__extensions_8hpp.html" title="This file contains preconfigured extension metadata." alt="" coords="535,304,753,331"/>
 <area shape="rect" id="node8" href="$adc__extension__base_8hpp.html" title="Generic ADC Extension Wrapper." alt="" coords="531,379,714,405"/>
@@ -29,24 +29,24 @@
 <area shape="rect" id="node14" href="$ds18b20_8cpp.html" title="DS18B20 extension." alt="" coords="865,453,969,480"/>
 <area shape="rect" id="node18" href="$samm8q_8cpp.html" title="The SAM&#45;M8Q GPS extension (I2C)." alt="" coords="5,453,112,480"/>
 <area shape="rect" id="node20" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="1195,453,1365,480"/>
-<area shape="rect" id="node23" href="$flight__runner_8cpp.html" title=" " alt="" coords="1983,528,2113,555"/>
-<area shape="rect" id="node24" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="1876,528,1959,555"/>
+<area shape="rect" id="node23" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="1956,528,2087,555"/>
+<area shape="rect" id="node24" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="1849,528,1932,555"/>
 <area shape="rect" id="node27" href="$console__module_8hpp.html" title=" " alt="" coords="1578,379,1734,405"/>
-<area shape="rect" id="node29" href="$console__pages_8cpp.html" title=" " alt="" coords="1414,304,1559,331"/>
-<area shape="rect" id="node30" href="$curses__utilities_8hpp.html" title=" " alt="" coords="1190,304,1338,331"/>
-<area shape="rect" id="node28" href="$console__module_8cpp.html" title=" " alt="" coords="1579,453,1733,480"/>
+<area shape="rect" id="node29" href="$console__pages_8cpp.html" title=" " alt="" coords="1435,304,1581,331"/>
+<area shape="rect" id="node30" href="$curses__utilities_8hpp.html" title=" " alt="" coords="1211,304,1359,331"/>
+<area shape="rect" id="node28" href="$console__module_8cpp.html" title=" " alt="" coords="1552,453,1707,480"/>
 <area shape="rect" id="node31" href="$curses__utilities_8cpp.html" title=" " alt="" coords="1212,379,1359,405"/>
-<area shape="rect" id="node33" href="$data__formatting_8cpp.html" title="Implementation of the DataFormatter class." alt="" coords="1432,229,1587,256"/>
-<area shape="rect" id="node35" href="$data__log_8cpp.html" title="The implementation of the data log class." alt="" coords="1583,304,1689,331"/>
+<area shape="rect" id="node33" href="$data__formatting_8cpp.html" title="Implementation of the DataFormatter class." alt="" coords="1476,229,1631,256"/>
+<area shape="rect" id="node35" href="$data__log_8cpp.html" title="The implementation of the data log class." alt="" coords="1605,304,1710,331"/>
 <area shape="rect" id="node36" href="$data__module_8hpp.html" title="The data module header file." alt="" coords="1758,379,1893,405"/>
-<area shape="rect" id="node37" href="$data__module_8cpp.html" title=" " alt="" coords="1758,453,1893,480"/>
-<area shape="rect" id="node39" href="$influxdb_8cpp.html" title=" " alt="" coords="1792,229,1893,256"/>
-<area shape="rect" id="node42" href="$module_8cpp.html" title="Implementation of the module base class." alt="" coords="2163,379,2261,405"/>
-<area shape="rect" id="node43" href="$server__module_8hpp.html" title="Header file for the server module." alt="" coords="2464,379,2611,405"/>
-<area shape="rect" id="node45" href="$system__module_8hpp.html" title=" " alt="" coords="2285,379,2440,405"/>
-<area shape="rect" id="node47" href="$telemetry__module_8hpp.html" title="The telemetry module." alt="" coords="1968,379,2139,405"/>
-<area shape="rect" id="node44" href="$server__module_8cpp.html" title="The server module class implementation." alt="" coords="2464,453,2611,480"/>
-<area shape="rect" id="node46" href="$system__module_8cpp.html" title=" " alt="" coords="2286,453,2439,480"/>
-<area shape="rect" id="node48" href="$telemetry__module_8cpp.html" title="The telemetry module." alt="" coords="2073,453,2242,480"/>
-<area shape="rect" id="node50" href="$request__handler_8cpp.html" title=" " alt="" coords="2635,379,2789,405"/>
+<area shape="rect" id="node37" href="$data__module_8cpp.html" title=" " alt="" coords="1731,453,1866,480"/>
+<area shape="rect" id="node39" href="$influxdb_8cpp.html" title=" " alt="" coords="1836,229,1937,256"/>
+<area shape="rect" id="node41" href="$module_8cpp.html" title="Implementation of the module base class." alt="" coords="2163,379,2261,405"/>
+<area shape="rect" id="node42" href="$server__module_8hpp.html" title="Header file for the server module." alt="" coords="2464,379,2611,405"/>
+<area shape="rect" id="node44" href="$system__module_8hpp.html" title=" " alt="" coords="2285,379,2440,405"/>
+<area shape="rect" id="node46" href="$telemetry__module_8hpp.html" title="The telemetry module." alt="" coords="1968,379,2139,405"/>
+<area shape="rect" id="node43" href="$server__module_8cpp.html" title="The server module class implementation." alt="" coords="2464,453,2611,480"/>
+<area shape="rect" id="node45" href="$system__module_8cpp.html" title=" " alt="" coords="2286,453,2439,480"/>
+<area shape="rect" id="node47" href="$telemetry__module_8cpp.html" title="The telemetry module." alt="" coords="2046,453,2215,480"/>
+<area shape="rect" id="node49" href="$request__handler_8cpp.html" title="The request handler class implementation." alt="" coords="2635,379,2789,405"/>
 </map>

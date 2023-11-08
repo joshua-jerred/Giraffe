@@ -7,6 +7,7 @@ var classmodules_1_1Module =
     [ "start", "classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd", null ],
     [ "stop", "classmodules_1_1Module.html#aefe65d4f674e804a1891b250ed2887a4", null ],
     [ "getStatus", "classmodules_1_1Module.html#afaa221e42cc396d5d38ec1a625b1d713", null ],
+    [ "addCommand", "classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a", null ],
     [ "startup", "classmodules_1_1Module.html#ab45b44d72220b8fc55575bd477c87303", null ],
     [ "loop", "classmodules_1_1Module.html#a891a50cbafecd2d026274a75acc5af41", null ],
     [ "shutdown", "classmodules_1_1Module.html#a8c2f4a3636a06600ecf4afca5350b240", null ],

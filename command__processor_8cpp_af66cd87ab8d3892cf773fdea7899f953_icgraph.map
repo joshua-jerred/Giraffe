@@ -1,0 +1,7 @@
+<map id="hexStringToUInt32" name="hexStringToUInt32">
+<area shape="rect" id="node1" title="Returns the value of a hex string as a uint32_t." alt="" coords="1065,13,1207,39"/>
+<area shape="rect" id="node2" href="$command__processor_8cpp.html#a9106bfe97edd99b106962339800e17bf" title=" " alt="" coords="813,13,1017,39"/>
+<area shape="rect" id="node3" href="$namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74" title="Parses a command string into a command object." alt="" coords="567,13,765,39"/>
+<area shape="rect" id="node4" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="281,5,519,47"/>
+<area shape="rect" id="node5" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,13,233,39"/>
+</map>

@@ -120,6 +120,12 @@ Namespaces</h2></td></tr>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdata_1_1BaseStreamPacket.html">BaseStreamPacket</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdata_1_1CommandPacket.html">CommandPacket</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The packet for the command stream.  <a href="structdata_1_1CommandPacket.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_1_1CommandStream.html">CommandStream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The stream of new commands.  <a href="classdata_1_1CommandStream.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdata_1_1DataPacket.html">DataPacket</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_1_1DataStream.html">DataStream</a></td></tr>
@@ -558,7 +564,7 @@ camera</td>
 <div class="textblock"></div><div class="dynheader">
 Collaboration diagram for data::Streams:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structdata_1_1Streams__coll__graph.svg" width="982" height="884"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structdata_1_1Streams__coll__graph.svg" width="1252" height="884"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="fieldtable">
@@ -587,6 +593,12 @@ gps</td>
 imu</td>
 <td class="fielddoc">
 </td></tr>
+<tr><td class="fieldtype">
+<a id="a947a2cf7b6cb10b8210115e5fba3a9ca"></a><a class="el" href="classdata_1_1CommandStream.html">CommandStream</a></td>
+<td class="fieldname">
+command</td>
+<td class="fielddoc">
+The command stream. Parsed by the flight runner, not the data module. </td></tr>
 </table>
 
 </div>
@@ -718,7 +730,7 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="classdata_1_1Frame.html#a21145c86e25d76061706ea66044139e0">data::Frame&lt; ID, DATA &gt;::getAll()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classdata__middleware_1_1DataFormatter.html#af6431a6a618bbc711a05acc51a64668d">data_middleware::DataFormatter::addComponent()</a>, and <a class="el" href="classRequestRouter.html#ac2e5e15f3607c998351f3b2981b1f540">RequestRouter::handleDataRequest()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classdata__middleware_1_1DataFormatter.html#af6431a6a618bbc711a05acc51a64668d">data_middleware::DataFormatter::addComponent()</a>, and <a class="el" href="group__ServerModule.html#ac2e5e15f3607c998351f3b2981b1f540">RequestRouter::handleDataRequest()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

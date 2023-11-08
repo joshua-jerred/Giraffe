@@ -108,29 +108,37 @@ $(document).ready(function(){initNavTree('command__ids_8hpp_source.html',''); in
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#ifndef COMMAND_IDS_HPP_</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define COMMAND_IDS_HPP_</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacecmd.html">cmd</a> {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// NOLINTBEGIN(readability-identifier-naming)</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">enum class</span> CommandId : uint16_t {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  GENERAL_unknown=0x0000, <span class="comment">// Unknown</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  NODE_reloadConfiguration=0x0001, <span class="comment">// Reload Configuration</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  DATA_MODULE_clearAllErrors=0x1001, <span class="comment">// Clear All Errors</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  DATA_MODULE_clearError=0x1002  <span class="comment">// Clear a Specific Error</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">// NOLINTEND(readability-identifier-naming)</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <span class="comment">// namespace cmd</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// COMMAND_IDS_HPP_</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="ttc" id="anamespacecmd_html"><div class="ttname"><a href="namespacecmd.html">cmd</a></div><div class="ttdef"><b>Definition:</b> command.hpp:26</div></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacecmd.html">cmd</a> {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// NOLINTBEGIN(readability-identifier-naming)</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">enum class</span> CommandId : uint16_t {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  GENERAL_unknown=0x0000, <span class="comment">// Unknown</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  NODE_reloadConfiguration=0x0001, <span class="comment">// Reload Configuration</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  FLIGHT_RUNNER_shutdownSystem=0x1000, <span class="comment">// Shutdown System</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  FLIGHT_RUNNER_startModule=0x1001, <span class="comment">// Start Module</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  FLIGHT_RUNNER_stopModule=0x1002, <span class="comment">// Stop Module</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  FLIGHT_RUNNER_restartModule=0x1003, <span class="comment">// Restart Module</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  DATA_MODULE_clearAllErrors=0x2000, <span class="comment">// Clear All Errors</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  DATA_MODULE_clearSpecificError=0x2001  <span class="comment">// Clear a Specific Error</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// NOLINTEND(readability-identifier-naming)</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> std::unordered_map&lt;std::string, CommandId&gt; K_STRING_TO_COMMAND_MAP;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} <span class="comment">// namespace cmd</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// COMMAND_IDS_HPP_</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="ttc" id="anamespacecmd_html"><div class="ttname"><a href="namespacecmd.html">cmd</a></div><div class="ttdef"><b>Definition:</b> command.hpp:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html">common</a></li><li class="navelem"><a class="el" href="dir_94ed1c5d77eb6aaf58cc46ab6957451d.html">command</a></li><li class="navelem"><a class="el" href="command__ids_8hpp.html">command_ids.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html">common</a></li><li class="navelem"><a class="el" href="command__ids_8hpp.html">command_ids.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

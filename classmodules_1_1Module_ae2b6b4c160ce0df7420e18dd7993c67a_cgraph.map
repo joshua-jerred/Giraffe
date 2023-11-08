@@ -1,0 +1,4 @@
+<map id="modules::Module::addCommand" name="modules::Module::addCommand">
+<area shape="rect" id="node1" title="Public wrapper for adding a command to the command queue." alt="" coords="5,13,239,39"/>
+<area shape="rect" id="node2" href="$classcmd_1_1CommandQueue.html#ad9f72f60fecc1ecf0e810ddcab40e43a" title="Adds a command to the queue." alt="" coords="287,5,461,47"/>
+</map>

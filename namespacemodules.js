@@ -5,7 +5,7 @@ var namespacemodules =
     [ "ExtensionModule", "classmodules_1_1ExtensionModule.html", "classmodules_1_1ExtensionModule" ],
     [ "MetaData", "structmodules_1_1MetaData.html", "structmodules_1_1MetaData" ],
     [ "Module", "classmodules_1_1Module.html", "classmodules_1_1Module" ],
-    [ "ServerModule", "classmodules_1_1ServerModule.html", "classmodules_1_1ServerModule" ],
+    [ "ServerModule", "group__ServerModule.html#classmodules_1_1ServerModule", "group__ServerModule_classmodules_1_1ServerModule" ],
     [ "SystemModule", "classmodules_1_1SystemModule.html", "classmodules_1_1SystemModule" ],
     [ "TelemetryModule", "classmodules_1_1TelemetryModule.html", "classmodules_1_1TelemetryModule" ],
     [ "metadata", "namespacemodules.html#a2e83e659995422a36f7c912970b57e68", null ],

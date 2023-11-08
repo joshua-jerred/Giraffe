@@ -4,7 +4,7 @@ var searchData=
   ['base_5fax25_5fstate_5fmachine_2ehpp_57',['base_ax25_state_machine.hpp',['../base__ax25__state__machine_8hpp.html',1,'']]],
   ['baseax25statemachine_58',['BaseAX25StateMachine',['../classax25_1_1BaseAX25StateMachine.html',1,'ax25::BaseAX25StateMachine'],['../classax25_1_1BaseAX25StateMachine.html#aeeeb90b6328e7d0a911394bf0804ea82',1,'ax25::BaseAX25StateMachine::BaseAX25StateMachine()']]],
   ['basestreampacket_59',['BaseStreamPacket',['../structdata_1_1BaseStreamPacket.html',1,'data']]],
-  ['bind_60',['bind',['../classsock_1_1TcpSocketServer.html#a1837852a28a16b70332eca99ecc4dec6',1,'sock::TcpSocketServer']]],
+  ['bind_60',['bind',['../group__ServerModule.html#a1837852a28a16b70332eca99ecc4dec6',1,'sock::TcpSocketServer']]],
   ['block_61',['Block',['../classdata_1_1blocks_1_1Block.html',1,'data::blocks']]],
   ['block_3c_20data_3a_3ablocks_3a_3acameraimages_20_3e_62',['Block&lt; data::blocks::CameraImages &gt;',['../classdata_1_1blocks_1_1Block.html',1,'data::blocks']]],
   ['block_3c_20data_3a_3ablocks_3a_3adatalogstats_20_3e_63',['Block&lt; data::blocks::DataLogStats &gt;',['../classdata_1_1blocks_1_1Block.html',1,'data::blocks']]],
@@ -21,8 +21,8 @@ var searchData=
   ['bme280_2ehpp_74',['bme280.hpp',['../bme280_8hpp.html',1,'']]],
   ['bme280extension_75',['Bme280Extension',['../classextension_1_1Bme280Extension.html#a611cddec7a650f5fb530e1824f8ac72e',1,'extension::Bme280Extension::Bme280Extension()'],['../classextension_1_1Bme280Extension.html',1,'extension::Bme280Extension']]],
   ['body_5f_76',['body_',['../classCurlRequest.html#a33e61c7a95410f852fc3e2607ec7913c',1,'CurlRequest']]],
-  ['broadcast_77',['BROADCAST',['../structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10da81d741a35dc8a42c885b7cc031afd17f',1,'gdl::Message']]],
-  ['broadcast_78',['broadcast',['../structgdl_1_1GiraffeDataLink_1_1MessageQueues.html#ab657d1204aa9616d530549051f265ea2',1,'gdl::GiraffeDataLink::MessageQueues']]],
+  ['broadcast_77',['broadcast',['../structgdl_1_1GiraffeDataLink_1_1MessageQueues.html#ab657d1204aa9616d530549051f265ea2',1,'gdl::GiraffeDataLink::MessageQueues']]],
+  ['broadcast_78',['BROADCAST',['../structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10da81d741a35dc8a42c885b7cc031afd17f',1,'gdl::Message']]],
   ['broadcast_5fqueue_5fsize_79',['broadcast_queue_size',['../namespacegdl.html#ace3ab1abf31047058605861ec29e2dd6',1,'gdl::GdlConfig']]],
   ['bug_20list_80',['Bug List',['../bug.html',1,'']]],
   ['bus_5f_81',['bus_',['../classI2cInterface.html#a09ae6d567efc5fdb2880fe472e936715',1,'I2cInterface']]],
@@ -30,7 +30,7 @@ var searchData=
   ['bus_5fopen_5ferror_83',['BUS_OPEN_ERROR',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a0d5d4ff33032f733f227c7d8497372e7',1,'I2cInterface']]],
   ['busy_84',['BUSY',['../classgdl_1_1PhysicalLayer.html#ac61ee25083042d16613414a9ee230292a802706a9238e2928077f97736854bad4',1,'gdl::PhysicalLayer']]],
   ['bytes_5fper_5fsecond_5fdown_85',['bytes_per_second_down',['../structdata_1_1blocks_1_1ServerModuleStats.html#ac11c0f355f5338103340648974ec388f',1,'data::blocks::ServerModuleStats']]],
-  ['bytes_5fper_5fsecond_5fdown_5f_86',['bytes_per_second_down_',['../classRequestRouter.html#a36cba0117849606d3ebd1001170ca5be',1,'RequestRouter']]],
+  ['bytes_5fper_5fsecond_5fdown_5f_86',['bytes_per_second_down_',['../group__ServerModule.html#a36cba0117849606d3ebd1001170ca5be',1,'RequestRouter']]],
   ['bytes_5fper_5fsecond_5fup_87',['bytes_per_second_up',['../structdata_1_1blocks_1_1ServerModuleStats.html#aac6710c91c7a70035ff33b6c4826369a',1,'data::blocks::ServerModuleStats']]],
-  ['bytes_5fper_5fsecond_5fup_5f_88',['bytes_per_second_up_',['../classRequestRouter.html#aa994466c1a91d6a6f4ec9eba357aec2d',1,'RequestRouter']]]
+  ['bytes_5fper_5fsecond_5fup_5f_88',['bytes_per_second_up_',['../group__ServerModule.html#aa994466c1a91d6a6f4ec9eba357aec2d',1,'RequestRouter']]]
 ];

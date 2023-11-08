@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sam_2dm8q_20state_20machine_2923',['SAM-M8Q State Machine',['../group__SAMM8QState.html',1,'']]]
+  ['rotation_2975',['Rotation',['../group__rotation.html',1,'']]]
 ];

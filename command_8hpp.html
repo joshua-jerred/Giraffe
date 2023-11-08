@@ -102,7 +102,9 @@ $(document).ready(function(){initNavTree('command_8hpp.html',''); initResizable(
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">command.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -123,7 +125,7 @@ Include dependency graph for command.hpp:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="command_8hpp__dep__incl.svg" width="1264" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="command_8hpp__dep__incl.svg" width="2692" height="710"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -132,21 +134,31 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:structcmd_1_1Command"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a></td></tr>
+<tr class="memdesc:structcmd_1_1Command"><td class="mdescLeft">&#160;</td><td class="mdescRight">A command object. Used for passing commands to their destinations.  <a href="namespacecmd.html#structcmd_1_1Command">More...</a><br /></td></tr>
 <tr class="separator:structcmd_1_1Command"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcmd_1_1CommandQueue.html">cmd::CommandQueue</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used within modules to queue commands to be processed.  <a href="classcmd_1_1CommandQueue.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacecmd"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecmd.html">cmd</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a72f52f6e6e21f8264af9efef6b5afb74"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74">cmd::parseCommandString</a> (const std::string &amp;command_string, Command &amp;command)</td></tr>
+<tr class="memdesc:a72f52f6e6e21f8264af9efef6b5afb74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a command string into a command object.  <a href="namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74">More...</a><br /></td></tr>
+<tr class="separator:a72f52f6e6e21f8264af9efef6b5afb74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a130d3b768c85736ed0255c2a2b4e85f4"><td class="memItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecmd.html#a130d3b768c85736ed0255c2a2b4e85f4">cmd::K_MAX_COMMAND_QUEUE_SIZE</a> = 10</td></tr>
+<tr class="separator:a130d3b768c85736ed0255c2a2b4e85f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The command/queue system for the flight system. </p>
-<p>=*========GIRAFFE========*= A Unified Flight Command and Control System <a href="https://github.com/joshua-jerred/Giraffe">https://github.com/joshua-jerred/Giraffe</a> <a href="https://giraffe.joshuajer.red/">https://giraffe.joshuajer.red/</a> =*=======================*=</p>
-<p>=*=======================*= </p><dl class="section author"><dt>Author</dt><dd>Joshua Jerred (<a href="https://joshuajer.red">https://joshuajer.red</a>) </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2023-06-13 </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>2023 (license to be defined) </dd></dl>
+<p>=*========GIRAFFE========*= A Unified Flight Command and Control System <a href="https://github.com/joshua-jerred/Giraffe">https://github.com/joshua-jerred/Giraffe</a> <a href="https://giraffe.joshuajer.red/">https://giraffe.joshuajer.red/</a> =*=======================*= </p>
 </div><hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="structcmd_1_1Command" id="structcmd_1_1Command"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structcmd_1_1Command">&#9670;&nbsp;</a></span>cmd::Command</h2>
@@ -159,7 +171,8 @@ Namespaces</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div class="dynheader">
+<div class="textblock"><p>A command object. Used for passing commands to their destinations. </p>
+</div><div class="dynheader">
 Collaboration diagram for cmd::Command:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structcmd_1_1Command__coll__graph.svg" width="432" height="228"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
@@ -180,7 +193,7 @@ command_id</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a9811b76a7deb68a3135d6ed3748a4e81"></a>int32_t</td>
+<a id="a2be6d20a6dc7268a22333cdadc884480"></a>uint32_t</td>
 <td class="fieldname">
 int_arg</td>
 <td class="fielddoc">
@@ -200,7 +213,7 @@ str_arg</td>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html">common</a></li><li class="navelem"><a class="el" href="dir_94ed1c5d77eb6aaf58cc46ab6957451d.html">command</a></li><li class="navelem"><a class="el" href="command_8hpp.html">command.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c01da38aeecccba744ca70166f7b2585.html">flight_system</a></li><li class="navelem"><a class="el" href="dir_eaebe00a4f960441a55d24526c4929bc.html">control</a></li><li class="navelem"><a class="el" href="command_8hpp.html">command.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

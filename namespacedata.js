@@ -2,6 +2,8 @@ var namespacedata =
 [
     [ "blocks", "namespacedata_1_1blocks.html", "namespacedata_1_1blocks" ],
     [ "BaseStreamPacket", "structdata_1_1BaseStreamPacket.html", "structdata_1_1BaseStreamPacket" ],
+    [ "CommandPacket", "structdata_1_1CommandPacket.html", "structdata_1_1CommandPacket" ],
+    [ "CommandStream", "classdata_1_1CommandStream.html", "classdata_1_1CommandStream" ],
     [ "DataPacket", "structdata_1_1DataPacket.html", "structdata_1_1DataPacket" ],
     [ "DataStream", "classdata_1_1DataStream.html", "classdata_1_1DataStream" ],
     [ "ErrorFrame", "classdata_1_1ErrorFrame.html", "classdata_1_1ErrorFrame" ],

@@ -7,6 +7,8 @@ var classFlightRunner =
     [ "start", "classFlightRunner.html#a7deed0a1bc77d1f1046a8713cc85dd78", null ],
     [ "shutdown", "classFlightRunner.html#a645cd4e865e0e3b35ac6e9b3d52bdda4", null ],
     [ "flightLoop", "classFlightRunner.html#ae552858a0d61ca59e9cad16ea9ab82fc", null ],
+    [ "routeCommand", "classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3", null ],
+    [ "processCommand", "classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96", null ],
     [ "shutdown_signal_", "classFlightRunner.html#ad67bc48e7138e28e4d9514077849cc7d", null ],
     [ "shared_data_", "classFlightRunner.html#a129764a14015b25437bc7460e70f9820", null ],
     [ "p_config_", "classFlightRunner.html#a6285dac2f407b76b3989fd805561b3ef", null ],

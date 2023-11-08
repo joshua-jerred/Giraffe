@@ -1,0 +1,4 @@
+<map id="RequestRouter::handleSettingRequest" name="RequestRouter::handleSettingRequest">
+<area shape="rect" id="node1" title="This function responds to a setting request." alt="" coords="281,5,497,47"/>
+<area shape="rect" id="node2" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,13,233,39"/>
+</map>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Used within modules to queue commands to be processed.">
 <polygon fill="#bfbfbf" stroke="black" points="91.5,-0.5 91.5,-79.5 216.5,-79.5 216.5,-0.5 91.5,-0.5"/>
 <text text-anchor="middle" x="154" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">cmd::CommandQueue</text>
 <polyline fill="none" stroke="black" points="91.5,-60.5 216.5,-60.5 "/>

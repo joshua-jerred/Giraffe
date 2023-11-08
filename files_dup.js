@@ -43,16 +43,10 @@ var files_dup =
     [ "cfg_section.hpp", "cfg__section_8hpp.html", [
       [ "CfgSection", "classcfg_1_1CfgSection.html", "classcfg_1_1CfgSection" ]
     ] ],
-    [ "command.hpp", "command_8hpp.html", [
-      [ "Command", "namespacecmd.html#structcmd_1_1Command", [
-        [ "destination", "namespacecmd.html#a718ef116db40a0e3254cc5852229c5be", null ],
-        [ "command_id", "namespacecmd.html#ac807c769aa248d965dcee19e3e025624", null ],
-        [ "int_arg", "namespacecmd.html#a9811b76a7deb68a3135d6ed3748a4e81", null ],
-        [ "str_arg", "namespacecmd.html#a4df5a705227810da5bcd8f8d0326878b", null ]
-      ] ],
-      [ "CommandQueue", "classcmd_1_1CommandQueue.html", "classcmd_1_1CommandQueue" ]
-    ] ],
+    [ "command.hpp", "command_8hpp.html", "command_8hpp" ],
     [ "command_ids.hpp", "command__ids_8hpp.html", null ],
+    [ "command_ids_strings.cpp", "command__ids__strings_8cpp.html", null ],
+    [ "command_processor.cpp", "command__processor_8cpp.html", "command__processor_8cpp" ],
     [ "configuration.cpp", "configuration_8cpp.html", null ],
     [ "configuration.hpp", "configuration_8hpp.html", null ],
     [ "configuration_enums.hpp", "configuration__enums_8hpp.html", null ],
@@ -201,9 +195,7 @@ var files_dup =
     [ "reassembler.cpp", "reassembler_8cpp.html", null ],
     [ "reassembler.hpp", "reassembler_8hpp.html", "reassembler_8hpp" ],
     [ "request_handler.cpp", "request__handler_8cpp.html", null ],
-    [ "request_handler.hpp", "request__handler_8hpp.html", [
-      [ "RequestRouter", "classRequestRouter.html", "classRequestRouter" ]
-    ] ],
+    [ "request_handler.hpp", "request__handler_8hpp.html", null ],
     [ "samm8q.cpp", "samm8q_8cpp.html", "samm8q_8cpp" ],
     [ "samm8q.hpp", "samm8q_8hpp.html", [
       [ "SamM8qExtension", "classextension_1_1SamM8qExtension.html", "classextension_1_1SamM8qExtension" ]
@@ -211,9 +203,7 @@ var files_dup =
     [ "segmenter.cpp", "segmenter_8cpp.html", null ],
     [ "segmenter.hpp", "segmenter_8hpp.html", "segmenter_8hpp" ],
     [ "server_module.cpp", "server__module_8cpp.html", "server__module_8cpp" ],
-    [ "server_module.hpp", "server__module_8hpp.html", [
-      [ "ServerModule", "classmodules_1_1ServerModule.html", "classmodules_1_1ServerModule" ]
-    ] ],
+    [ "server_module.hpp", "server__module_8hpp.html", null ],
     [ "shared_data.hpp", "shared__data_8hpp.html", "shared__data_8hpp" ],
     [ "simplex_physical_layer.cpp", "simplex__physical__layer_8cpp.html", null ],
     [ "simplex_physical_layer.hpp", "simplex__physical__layer_8hpp.html", "simplex__physical__layer_8hpp" ],
@@ -229,6 +219,8 @@ var files_dup =
     [ "state_machine_data.hpp", "state__machine__data_8hpp.html", "state__machine__data_8hpp" ],
     [ "streams.hpp", "streams_8hpp.html", [
       [ "BaseStreamPacket", "structdata_1_1BaseStreamPacket.html", "structdata_1_1BaseStreamPacket" ],
+      [ "CommandPacket", "structdata_1_1CommandPacket.html", "structdata_1_1CommandPacket" ],
+      [ "CommandStream", "classdata_1_1CommandStream.html", "classdata_1_1CommandStream" ],
       [ "DataPacket", "structdata_1_1DataPacket.html", "structdata_1_1DataPacket" ],
       [ "DataStream", "classdata_1_1DataStream.html", "classdata_1_1DataStream" ],
       [ "GpsFramePacket", "structdata_1_1GpsFramePacket.html", "structdata_1_1GpsFramePacket" ],

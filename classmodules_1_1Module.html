@@ -116,13 +116,13 @@ $(document).ready(function(){initNavTree('classmodules_1_1Module.html',''); init
 <div class="dynheader">
 Inheritance diagram for modules::Module:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module__inherit__graph.svg" width="1384" height="932"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module__inherit__graph.svg" width="1384" height="947"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for modules::Module:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module__coll__graph.svg" width="4256" height="1978"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module__coll__graph.svg" width="4474" height="1992"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -134,6 +134,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a69dcb2b5a362821674865146f695aec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac34d546af6972806baa347374b6c3b1b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#ac34d546af6972806baa347374b6c3b1b">~Module</a> ()=default</td></tr>
 <tr class="separator:ac34d546af6972806baa347374b6c3b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2b6b4c160ce0df7420e18dd7993c67a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a">addCommand</a> (const <a class="el" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;command)</td></tr>
+<tr class="memdesc:ae2b6b4c160ce0df7420e18dd7993c67a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public wrapper for adding a command to the command queue.  <a href="classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a">More...</a><br /></td></tr>
+<tr class="separator:ae2b6b4c160ce0df7420e18dd7993c67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaa221e42cc396d5d38ec1a625b1d713"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419">node::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#afaa221e42cc396d5d38ec1a625b1d713">getStatus</a> () const</td></tr>
 <tr class="memdesc:afaa221e42cc396d5d38ec1a625b1d713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the status of the module.  <a href="classmodules_1_1Module.html#afaa221e42cc396d5d38ec1a625b1d713">More...</a><br /></td></tr>
 <tr class="separator:afaa221e42cc396d5d38ec1a625b1d713"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -406,6 +409,51 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="ae2b6b4c160ce0df7420e18dd7993c67a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2b6b4c160ce0df7420e18dd7993c67a">&#9670;&nbsp;</a></span>addCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool modules::Module::addCommand </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Public wrapper for adding a command to the command queue. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcmd_1_1CommandQueue.html" title="Used within modules to queue commands to be processed.">cmd::CommandQueue</a> </dd></dl>
+
+<p class="reference">References <a class="el" href="classcmd_1_1CommandQueue.html#ad9f72f60fecc1ecf0e810ddcab40e43a">cmd::CommandQueue::addCommand()</a>, and <a class="el" href="classmodules_1_1Module.html#a7d855a6e0bc3c2a826fa396d4c5486d3">command_queue_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">FlightRunner::routeCommand()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_ae2b6b4c160ce0df7420e18dd7993c67a_cgraph.svg" width="467" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_ae2b6b4c160ce0df7420e18dd7993c67a_icgraph.svg" width="507" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="ab45b44d72220b8fc55575bd477c87303"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab45b44d72220b8fc55575bd477c87303">&#9670;&nbsp;</a></span>startup()</h2>
 
@@ -432,7 +480,7 @@ Here is the caller graph for this function:</div>
 <p>This function is called when the module is started. </p>
 <p>This is overridden by the module implementation. Called only once at startup. </p>
 
-<p>Reimplemented in <a class="el" href="classmodules_1_1TelemetryModule.html#afb1a52e1e90b33ad72a84f8646a9633b">modules::TelemetryModule</a>, <a class="el" href="classmodules_1_1SystemModule.html#a1d4719216289ba2a4707ce27d74475a0">modules::SystemModule</a>, <a class="el" href="classmodules_1_1ServerModule.html#a76c8c341c2e0e2034fa8af0c9d92f75b">modules::ServerModule</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">modules::ExtensionModule</a>, <a class="el" href="classmodules_1_1DataModule.html#a56fd24622f28cdb501a25032974d988d">modules::DataModule</a>, and <a class="el" href="classmodules_1_1ConsoleModule.html#aeb11aff5bb3a308c69893d01f6e6f76c">modules::ConsoleModule</a>.</p>
+<p>Reimplemented in <a class="el" href="classmodules_1_1TelemetryModule.html#afb1a52e1e90b33ad72a84f8646a9633b">modules::TelemetryModule</a>, <a class="el" href="classmodules_1_1SystemModule.html#a1d4719216289ba2a4707ce27d74475a0">modules::SystemModule</a>, <a class="el" href="group__ServerModule.html#a76c8c341c2e0e2034fa8af0c9d92f75b">modules::ServerModule</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">modules::ExtensionModule</a>, <a class="el" href="classmodules_1_1DataModule.html#a56fd24622f28cdb501a25032974d988d">modules::DataModule</a>, and <a class="el" href="classmodules_1_1ConsoleModule.html#aeb11aff5bb3a308c69893d01f6e6f76c">modules::ConsoleModule</a>.</p>
 
 </div>
 </div>
@@ -461,7 +509,7 @@ Here is the caller graph for this function:</div>
 
 <p>Continually called at a rate set by the sleep interval. </p>
 
-<p>Reimplemented in <a class="el" href="classmodules_1_1TelemetryModule.html#a3ec4e04f946522deeefa2284522d23e6">modules::TelemetryModule</a>, <a class="el" href="classmodules_1_1SystemModule.html#af77d6af32dd27196a5423a63b055e657">modules::SystemModule</a>, <a class="el" href="classmodules_1_1ServerModule.html#a21196a1a31412de5ff1754a4bddcfd3a">modules::ServerModule</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c">modules::ExtensionModule</a>, <a class="el" href="classmodules_1_1DataModule.html#ad1d38dc8d6a9a4c7b920fe5ce29ee75e">modules::DataModule</a>, and <a class="el" href="classmodules_1_1ConsoleModule.html#aa573cc1aa946629ce58c345946f738e9">modules::ConsoleModule</a>.</p>
+<p>Reimplemented in <a class="el" href="classmodules_1_1TelemetryModule.html#a3ec4e04f946522deeefa2284522d23e6">modules::TelemetryModule</a>, <a class="el" href="classmodules_1_1SystemModule.html#af77d6af32dd27196a5423a63b055e657">modules::SystemModule</a>, <a class="el" href="group__ServerModule.html#a21196a1a31412de5ff1754a4bddcfd3a">modules::ServerModule</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c">modules::ExtensionModule</a>, <a class="el" href="classmodules_1_1DataModule.html#ad1d38dc8d6a9a4c7b920fe5ce29ee75e">modules::DataModule</a>, and <a class="el" href="classmodules_1_1ConsoleModule.html#aa573cc1aa946629ce58c345946f738e9">modules::ConsoleModule</a>.</p>
 
 </div>
 </div>
@@ -490,7 +538,7 @@ Here is the caller graph for this function:</div>
 
 <p>Called only once at shutdown. </p>
 
-<p>Reimplemented in <a class="el" href="classmodules_1_1TelemetryModule.html#a003fc90b10dd9366ae540e80f8959755">modules::TelemetryModule</a>, <a class="el" href="classmodules_1_1SystemModule.html#a476a9f6b9eed6d324dac7c0926ff4224">modules::SystemModule</a>, <a class="el" href="classmodules_1_1ServerModule.html#a235a190f2c5aec3285aedf5cafe36727">modules::ServerModule</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a538bf1f3d30c269f50e11cab633aebf7">modules::ExtensionModule</a>, <a class="el" href="classmodules_1_1DataModule.html#ad46e8e7202d89b6ec10929d33a67628c">modules::DataModule</a>, and <a class="el" href="classmodules_1_1ConsoleModule.html#a202ca48567005cfeeeabd64069695811">modules::ConsoleModule</a>.</p>
+<p>Reimplemented in <a class="el" href="classmodules_1_1TelemetryModule.html#a003fc90b10dd9366ae540e80f8959755">modules::TelemetryModule</a>, <a class="el" href="classmodules_1_1SystemModule.html#a476a9f6b9eed6d324dac7c0926ff4224">modules::SystemModule</a>, <a class="el" href="group__ServerModule.html#a235a190f2c5aec3285aedf5cafe36727">modules::ServerModule</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a538bf1f3d30c269f50e11cab633aebf7">modules::ExtensionModule</a>, <a class="el" href="classmodules_1_1DataModule.html#ad46e8e7202d89b6ec10929d33a67628c">modules::DataModule</a>, and <a class="el" href="classmodules_1_1ConsoleModule.html#a202ca48567005cfeeeabd64069695811">modules::ConsoleModule</a>.</p>
 
 </div>
 </div>
@@ -526,7 +574,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed">modules::TelemetryModule</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45">modules::ExtensionModule</a>, <a class="el" href="classmodules_1_1SystemModule.html#a5e3de86d10ed6c168b97c713c4a42787">modules::SystemModule</a>, <a class="el" href="classmodules_1_1ServerModule.html#ae811b4903f76e53aeb794c435a485113">modules::ServerModule</a>, <a class="el" href="classmodules_1_1DataModule.html#a7f226651aa33ff181e5baaf9dbab93a7">modules::DataModule</a>, and <a class="el" href="classmodules_1_1ConsoleModule.html#aed821c70a01b614796f0833fca33dfd5">modules::ConsoleModule</a>.</p>
+<p>Reimplemented in <a class="el" href="classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed">modules::TelemetryModule</a>, <a class="el" href="group__ServerModule.html#ae6e51fbed3b345bb8436e689ca995e4e">modules::ServerModule</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45">modules::ExtensionModule</a>, <a class="el" href="classmodules_1_1SystemModule.html#a5e3de86d10ed6c168b97c713c4a42787">modules::SystemModule</a>, <a class="el" href="classmodules_1_1DataModule.html#a7f226651aa33ff181e5baaf9dbab93a7">modules::DataModule</a>, and <a class="el" href="classmodules_1_1ConsoleModule.html#aed821c70a01b614796f0833fca33dfd5">modules::ConsoleModule</a>.</p>
 
 <p class="reference">References <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>.</p>
 
@@ -584,7 +632,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">Todo:</a></b></dt><dd>Sets the status of the module and reports it to the data stream. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>Sets the status of the module and reports it to the data stream. </dd></dl>
 
 </div>
 </div>
@@ -1059,7 +1107,9 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>The command queue for the module. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcmd_1_1CommandQueue.html">cmd::CommandQueue</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcmd_1_1CommandQueue.html" title="Used within modules to queue commands to be processed.">cmd::CommandQueue</a> </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a">addCommand()</a>.</p>
 
 </div>
 </div>

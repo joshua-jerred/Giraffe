@@ -1,0 +1,4 @@
+<map id="data::CommandPacket" name="data::CommandPacket">
+<area shape="rect" id="node1" title="The packet for the command stream." alt="" coords="11,160,179,237"/>
+<area shape="rect" id="node2" href="$structdata_1_1BaseStreamPacket.html" title=" " alt="" coords="5,5,185,112"/>
+</map>

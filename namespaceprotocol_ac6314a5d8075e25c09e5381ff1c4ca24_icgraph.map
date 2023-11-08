@@ -1,4 +1,4 @@
 <map id="protocol::parseMessage" name="protocol::parseMessage">
 <area shape="rect" id="node1" title="Parse a JSON string into a Message." alt="" coords="281,5,459,32"/>
-<area shape="rect" id="node2" href="$classRequestRouter.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,5,233,32"/>
+<area shape="rect" id="node2" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,5,233,32"/>
 </map>

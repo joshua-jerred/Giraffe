@@ -39,6 +39,8 @@ var annotated_dup =
         [ "SystemInfo", "structdata_1_1blocks_1_1SystemInfo.html", "structdata_1_1blocks_1_1SystemInfo" ]
       ] ],
       [ "BaseStreamPacket", "structdata_1_1BaseStreamPacket.html", "structdata_1_1BaseStreamPacket" ],
+      [ "CommandPacket", "structdata_1_1CommandPacket.html", "structdata_1_1CommandPacket" ],
+      [ "CommandStream", "classdata_1_1CommandStream.html", "classdata_1_1CommandStream" ],
       [ "DataPacket", "structdata_1_1DataPacket.html", "structdata_1_1DataPacket" ],
       [ "DataStream", "classdata_1_1DataStream.html", "classdata_1_1DataStream" ],
       [ "ErrorFrame", "classdata_1_1ErrorFrame.html", "classdata_1_1ErrorFrame" ],
@@ -98,7 +100,7 @@ var annotated_dup =
       [ "ExtensionModule", "classmodules_1_1ExtensionModule.html", "classmodules_1_1ExtensionModule" ],
       [ "MetaData", "structmodules_1_1MetaData.html", "structmodules_1_1MetaData" ],
       [ "Module", "classmodules_1_1Module.html", "classmodules_1_1Module" ],
-      [ "ServerModule", "classmodules_1_1ServerModule.html", "classmodules_1_1ServerModule" ],
+      [ "ServerModule", "group__ServerModule.html#classmodules_1_1ServerModule", "group__ServerModule_classmodules_1_1ServerModule" ],
       [ "SystemModule", "classmodules_1_1SystemModule.html", "classmodules_1_1SystemModule" ],
       [ "TelemetryModule", "classmodules_1_1TelemetryModule.html", "classmodules_1_1TelemetryModule" ]
     ] ],
@@ -112,7 +114,7 @@ var annotated_dup =
       [ "Message", "structprotocol_1_1Message.html", "structprotocol_1_1Message" ]
     ] ],
     [ "sock", "namespacesock.html", [
-      [ "TcpSocketServer", "classsock_1_1TcpSocketServer.html", "classsock_1_1TcpSocketServer" ]
+      [ "TcpSocketServer", "group__ServerModule.html#classsock_1_1TcpSocketServer", "group__ServerModule_classsock_1_1TcpSocketServer" ]
     ] ],
     [ "ubx", "namespaceubx.html", [
       [ "NavData", "namespaceubx.html#structubx_1_1NavData", "namespaceubx_structubx_1_1NavData_dup" ],
@@ -124,5 +126,5 @@ var annotated_dup =
     [ "I2cInterface", "classI2cInterface.html", "classI2cInterface" ],
     [ "LogContainer", "classLogContainer.html", "classLogContainer" ],
     [ "OneWireInterface", "classOneWireInterface.html", "classOneWireInterface" ],
-    [ "RequestRouter", "classRequestRouter.html", "classRequestRouter" ]
+    [ "RequestRouter", "group__ServerModule.html#classRequestRouter", "group__ServerModule_classRequestRouter" ]
 ];
