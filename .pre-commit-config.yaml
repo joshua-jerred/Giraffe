@@ -3,10 +3,64 @@ repos:
   rev: v2.3.0
   hooks:
     - id: check-yaml
-    - id: end-of-file-fixer
+    # - id: end-of-file-fixer
     - id: trailing-whitespace
-- repo: https://github.com/pre-commit/mirrors-clang-format
-  rev: v14.0.6
+    - id: check-added-large-files
+      args: ['--maxkb=100']
+    - id: check-executables-have-shebangs
+
+- repo: https://github.com/cheshirekow/cmake-format-precommit
+  rev: v0.6.10
+  hooks:
+  - id: cmake-format
+  - id: cmake-lint
+
+- repo: https://github.com/pocc/pre-commit-hooks
+  rev: master
+  hooks:
+    - id: include-what-you-use
+      types: [c++, c]
+      files: \.(cpp|hpp)$
+    # - id: clang-format
+    #   args: [--style=Google]
+    # - id: clang-tidy
+    # - id: oclint
+    # - id: uncrustify
+    # - id: cppcheck
+    # - id: cpplint
+
+- repo: https://github.com/codespell-project/codespell
+  rev: v2.2.4
+  hooks:
+  - id: codespell
+    args: ['--ignore-words-list=project/words.txt']
+
+- repo: https://github.com/crate-ci/typos
+  rev: v1.16.22
+  hooks:
+    - id: typos
+
+- repo: local
   hooks:
   - id: clang-format
-    files: \.(cpp|hpp)$
+    name: clang-format
+    description: Format C/C++ code using clang-format.
+    language: system
+    entry: clang-format -i
+    args: ["-style=file"]
+    types: [c++, c]
+    # files: \.(cpp|hpp)$
+  - id: cppcheck
+    name: cppcheck
+    description: Check correctness of C code using cppcheck.
+    language: system
+    files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
+    entry: cppcheck --error-exitcode=1
+    args: ["--enable=warning"]
+  - id: markdownlint
+    name: markdownlint
+    description: Check markdown files using markdownlint.
+    language: system
+    types: [markdown]
+    entry: markdownlint
+    args: ["--fix"]
