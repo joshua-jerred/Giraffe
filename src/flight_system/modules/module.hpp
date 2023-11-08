@@ -82,6 +82,10 @@ public:
    */
   node::Status getStatus() const;
 
+  /**
+   * @brief Public wrapper for adding a command to the command queue.
+   * @see cmd::CommandQueue
+   */
   bool addCommand(const cmd::Command &command) {
     return command_queue_.addCommand(command);
   }

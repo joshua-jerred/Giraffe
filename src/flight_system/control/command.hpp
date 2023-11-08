@@ -27,6 +27,8 @@
 
 namespace cmd {
 
+size_t constexpr K_MAX_COMMAND_QUEUE_SIZE = 10;
+
 /**
  * @brief A command object. Used for passing commands to their destinations.
  */
@@ -52,7 +54,14 @@ public:
    * @return true if the command was added successfully (space in the queue).
    * False otherwise.
    */
-  bool addCommand(Command command);
+  bool addCommand(Command command) {
+    std::lock_guard<std::mutex> guard(lock_);
+    if (queue_.size() >= K_MAX_COMMAND_QUEUE_SIZE) {
+      return false;
+    }
+    queue_.push(command);
+    return true;
+  }
 
   /**
    * @brief Gets the next command in the queue.
@@ -60,7 +69,15 @@ public:
    * @return true if a command was retrieved. If the queue is empty, this will
    * return false.
    */
-  bool getCommand(Command &command);
+  bool getCommand(Command &command) {
+    std::lock_guard<std::mutex> guard(lock_);
+    if (queue_.empty()) {
+      return false;
+    }
+    command = queue_.front();
+    queue_.pop();
+    return true;
+  }
 
 private:
   /**
