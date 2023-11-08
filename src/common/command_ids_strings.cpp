@@ -23,23 +23,18 @@
  */
 
 
-#ifndef COMMAND_IDS_HPP_
-#define COMMAND_IDS_HPP_
-
-#include <cstdint>
+#include "command_ids.hpp"
 
 namespace cmd {
-// NOLINTBEGIN(readability-identifier-naming)
-enum class CommandId : uint16_t {
-  GENERAL_unknown=0x0000, // Unknown
-  NODE_reloadConfiguration=0x0001, // Reload Configuration
-  DATA_MODULE_clearAllErrors=0x1001, // Clear All Errors
-  DATA_MODULE_clearError=0x1002  // Clear a Specific Error
-};
-// NOLINTEND(readability-identifier-naming)
-} // namespace cmd
 
-#endif // COMMAND_IDS_HPP_
+const std::unordered_map<std::string, CommandId> K_STRING_TO_COMMAND_MAP {
+  {"GENERAL_unknown",CommandId::GENERAL_unknown},
+  {"NODE_reloadConfiguration",CommandId::NODE_reloadConfiguration},
+  {"DATA_MODULE_clearAllErrors",CommandId::DATA_MODULE_clearAllErrors},
+  {"DATA_MODULE_clearError",CommandId::DATA_MODULE_clearError}
+};
+
+} // namespace cmd
 
 
 /**

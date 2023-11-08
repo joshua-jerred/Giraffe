@@ -10,18 +10,20 @@ IN_FILE = os.getenv('ID_GEN_IN_FILE_PATH')
 if (IN_FILE == None):
     print("Error: ID_GEN_IN_FILE_PATH environment variable not set. Set from vscode tasks.json")
     sys.exit(1)
-else:
-    print("IN_FILE: " + IN_FILE)
+#else:
+#    print("IN_FILE: " + IN_FILE)
 
 OUT_FILE = os.getenv('ID_GEN_OUT_FILE_PATH')
 if (OUT_FILE == None):
     print("Error: ID_GEN_OUT_FILE_PATH environment variable not set. Set from vscode tasks.json")
     sys.exit(1)
 else:
-    print("OUT_FILE: " + OUT_FILE)
+    print("Generating: ", OUT_FILE)
 
 STRING_MAP_OUT = os.getenv('STRING_MAP_OUT_FILE_PATH')
-print("STRING_MAP_OUT: ", STRING_MAP_OUT)
+REVERSE_MAP = os.getenv('REVERSE_MAP') == "true"
+#print("REVERSE_MAP: ", REVERSE_MAP)
+print("Generating: ", STRING_MAP_OUT)
 
 PRINT_OUTPUT = True if os.getenv('PRINT_OUTPUT') == "true" else False
 
@@ -68,7 +70,9 @@ class IdGenerator:
             self.valued_enum = True
         
         self.enum = cpp.components.Enum(self.enum_name, True, self.enum_type)
-        if self.generate_string_map:
+        if self.generate_string_map and REVERSE_MAP:
+            self.string_map = cpp.components.UnorderedMap(self.string_map_name, "std::string", self.enum_name, "const ")
+        elif self.generate_string_map:
             self.string_map = cpp.components.UnorderedMap(self.string_map_name, self.enum_name, "std::string", "const ")
         
     def __parse(self):
@@ -107,9 +111,11 @@ class IdGenerator:
             if PRINT_OUTPUT:
                 print(f'{enum_name}')
 
-        if self.generate_string_map:
+        if self.generate_string_map and REVERSE_MAP:
+            self.string_map.addPair(f'"{enum_name}"', f'{self.enum_name}::{enum_name}')
+        elif self.generate_string_map:
             self.string_map.addPair(f'{self.enum_name}::{enum_name}', f'"{enum_name}"')
-        
+
         self.enum.addValue(enum_name, comment, value)
 
     def __write(self):
@@ -153,5 +159,5 @@ class IdGenerator:
 
 if __name__ == "__main__":
     IdGenerator(IN_FILE, OUT_FILE)
-    
-print("Done.\n")
+
+# print("Done.\n")

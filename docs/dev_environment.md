@@ -21,3 +21,8 @@ The following pip packages are required:
   - For running C++ generator scripts
   - https://pypi.org/project/json5/
   - Install with `pip3 install json5`
+
+## Static Analysis/Pre-Commit
+- `pip install pre-commit` - see https://pre-commit.com/hooks.html
+- `pip install cmake-lint`
+- `pip install cmake-format`

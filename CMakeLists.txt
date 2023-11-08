@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.2)
 
 # ----------------- *** START CONFIGUREABLE ITEMS *** --------------------------
 option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF) # ON or OFF
@@ -6,9 +6,20 @@ option(EXTENSION_DEBUG_PRINT "Enable Debug Printing for Extensions" OFF) # ON or
 # ----------------- ***  END CONFIGUREABLE ITEMS  *** --------------------------
 
 
-# ---- Source Files -----
-include(${CMAKE_SOURCE_DIR}/sources.cmake)
-# -----------------------
+# --- DIRECTORIES --- # - need to get rid of these
+set(COMMON_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/common)
+set(COMMON_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/common)
+
+set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_system)
+set(GFS_BIN ${CMAKE_BINARY_DIR}/bin/flight_system)
+set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/flight_system)
+set(GFS_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/flight_system)
+
+set(GDL_SRC ${CMAKE_SOURCE_DIR}/src/data_link)
+set(GDL_BIN ${CMAKE_BINARY_DIR}/bin/data_link)
+set(GDL_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/data_link)
+set(GDL_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/data_link)
+# ------------------- #
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS OFF)
 
@@ -40,20 +51,16 @@ ${GIRAFFE_VERSION_NUMBER}")
 
 
 # ---- Project ----
-project(
-	Giraffe 
+project(Giraffe 
 	VERSION ${GIRAFFE_VERSION_NUMBER}
 	DESCRIPTION "A Unified High Altitude Flight Observation System. \
 		With homogeneous software and hardware, both on the ground and in the air."
-	HOMEPAGE_URL "https://giraffe.joshuajer.red/"
-)
+	HOMEPAGE_URL "https://giraffe.joshuajer.red/")
 # -----------------
 
 
 # ---- g++ Configuration ----
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_BUILD_TYPE Debug)
-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 -fno-omit-frame-pointer \
 -Wpedantic \
@@ -70,29 +77,22 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 
 
 # ----- Third Party Libs -----
-find_package(nlohmann_json 3.9.0 REQUIRED)
-find_package(Curses REQUIRED)
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)  				   # pthreads
+find_library(GTEST_LIB NAMES gtest)        # gtest
+find_package(Curses REQUIRED)              # ncurses
+find_package(nlohmann_json 3.9.0 REQUIRED) # nlhomann_json
 find_package(CURL REQUIRED) 
-
-
-# gtest
-find_library(GTEST_LIB NAMES gtest)
 # ----------------------------
 
 # ---- Giraffe Components ----
-# Common
-add_subdirectory(${COMMON_SRC})
-
-# Flight System
-add_subdirectory(${GFS_SRC})
-
-# Data Link
-add_subdirectory(${GDL_SRC})
-
-# External Libraries
-add_subdirectory(${LIB_SRC}/MWAV)
-add_subdirectory(${LIB_SRC}/Boost_erSeat)
-add_subdirectory(${LIB_SRC}/bzip2-cpp)
+add_subdirectory(project)                  # Auto-generated files
+add_subdirectory(src/common)               # Common
+add_subdirectory(src/flight_system)        # Flight System
+add_subdirectory(src/data_link)            # Data Link
+add_subdirectory(lib/MWAV)                 # MWAV
+add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
+add_subdirectory(lib/bzip2-cpp)            # bzip2-cpp
 
 # Unit Tests
 enable_testing()

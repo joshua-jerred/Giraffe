@@ -3,7 +3,8 @@
   "FILE_META": {
     "namespace": "cmd",
     "enum_name": "CommandId",
-    "enum_type": "uint16_t"
+    "enum_type": "uint16_t",
+    "generate_string_map": "K_STRING_TO_COMMAND_MAP"
   },
   "general":{
     "unknown":{

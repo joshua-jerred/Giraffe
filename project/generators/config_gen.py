@@ -293,10 +293,13 @@ class ConfigGen:
 
     def generate(self):
         i = 0 # temporary
-        
+        # print("Config Sections: ", end="")
         for key in self.meta:
             self.sec_name = key
-            print(self.sec_name)
+            # print(self.sec_name, end=" ")
+            # if i % 5 == 0:
+                # print()
+            i += 1
             self.sec_contents = self.meta[key]
 
             if "IGNORE" in self.sec_contents: # ignore this section
@@ -315,10 +318,10 @@ class ConfigGen:
                 self.parseStructSection(True)
             else:
                 self.error("Invalid Section Type")
-            
-            self.StructureHeader()
-            self.EnumHeader()
-            self.StructureCpp()
+
+        self.StructureHeader()
+        self.EnumHeader()
+        self.StructureCpp()
 
     def parseStructSection(self, is_list):
         section = Section(self.sec_id, is_list)
@@ -428,6 +431,8 @@ class ConfigGen:
 
         file += f'}} // namespace {CFG_NAMESPACE}\n'
         file += utils.headerFileFooter(STRUCTURE_FILE_NAME)
+        path = self.out_dir + "/" + STRUCTURE_FILE_NAME + ".hpp"
+        print("Generating: ", path)
         f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".hpp", "w")
         f.write(file)
 
@@ -446,9 +451,10 @@ class ConfigGen:
         file += utils.exitNameSpace(CFG_NAMESPACE + "::" + CFG_ENUM_NAMESPACE)
         # file += utils.exitNameSpace(CFG_NAMESPACE)
         file += utils.headerFileFooter(ENUM_FILE_NAME)
-        f = open(self.out_dir + "/" + ENUM_FILE_NAME + ".hpp", "w")
+        path = self.out_dir + "/" + ENUM_FILE_NAME + ".hpp"
+        print("Generating: ", path)
+        f = open(path, "w")
         f.write(file)
-        
 
     def StructureCpp(self):
         STRUCTURE_FILE_INCLUDES = ["<filesystem>", f'"{STRUCTURE_FILE_NAME}.hpp"', '"validation.hpp"']
@@ -471,26 +477,27 @@ class ConfigGen:
 
         file += utils.cppFileFooter(STRUCTURE_FILE_NAME)
 
-        f = open(self.out_dir + "/" + STRUCTURE_FILE_NAME + ".cpp", "w")
+        path = self.out_dir + "/" + STRUCTURE_FILE_NAME + ".cpp"
+        print("Generating: ", path)
+        f = open(path, "w")
         f.write(file)
 
 if __name__ == "__main__":
-    print("\nGenerating Configuration Code")
+    # print("\nGenerating Configuration Code")
     
     IN_FILE = os.getenv('CONFIG_GEN_IN_FILE_PATH')
     if (IN_FILE == None):
         print("Error: CONFIG_GEN_IN_FILE_PATH environment variable not set. Set from vscode tasks.json")
         sys.exit(1)
-    else:
-        print("IN_FILE: " + IN_FILE)
+    # else:
+        # print("IN_FILE: " + IN_FILE)
 
     OUT_DIR = os.getenv('CONFIG_GEN_OUT_FILE_PATH')
     if (OUT_DIR == None):
         print("Error: CONFIG_GEN_OUT_FILE_PATH environment variable not set. Set from vscode tasks.json")
         sys.exit(1)
-    else:
-        print("OUT_FILE: " + OUT_DIR)
-    
+    # else:
+
     meta_path = IN_FILE
     config_dir = OUT_DIR
     meta = json.load(open(meta_path))
@@ -498,4 +505,4 @@ if __name__ == "__main__":
     cfg_gen = ConfigGen(meta, config_dir)
     cfg_gen.generate()
     
-    print("Done.\n")
+    # print("Done.\n")
