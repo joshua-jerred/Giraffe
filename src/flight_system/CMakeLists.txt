@@ -3,17 +3,18 @@
 file(MAKE_DIRECTORY ${GFS_BIN})
 
 if(SSTV_ENABLED)
-    message(STATUS "SSTV Enabled In Giraffe Flight System")
-    add_compile_definitions(SSTV_ENABLED=1)
+  message(STATUS "SSTV Enabled In Giraffe Flight System")
+  add_compile_definitions(SSTV_ENABLED=1)
 else()
-    message(STATUS "SSTV Disabled In Giraffe Flight System")
-    add_compile_definitions(SSTV_ENABLED=0)
+  message(STATUS "SSTV Disabled In Giraffe Flight System")
+  add_compile_definitions(SSTV_ENABLED=0)
 endif()
 
 set(EXE_NAME giraffe_flight_system)
 
 add_library(module_base INTERFACE)
-target_sources(module_base INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/modules/module.cpp)
+target_sources(module_base
+               INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/modules/module.cpp)
 target_include_directories(module_base INTERFACE ${GFS_SRC}/modules)
 
 # The following directories contain interface libraries.
@@ -30,38 +31,33 @@ add_subdirectory(./modules/system)
 add_subdirectory(./modules/telemetry)
 
 # -------- GFS Executable ---------
-add_executable(${EXE_NAME}
-	${GFS_SRC}/main.cpp
-	${GFS_SRC}/flight_runner.cpp)
+add_executable(${EXE_NAME} ${GFS_SRC}/main.cpp ${GFS_SRC}/flight_runner.cpp)
 target_include_directories(${EXE_NAME} PRIVATE ${GFS_SRC})
-set_target_properties(${EXE_NAME} PROPERTIES
-	RUNTIME_OUTPUT_DIRECTORY ${GFS_BIN}
-	OUTPUT_NAME gfs
-	EXPORT_COMPILE_COMMANDS ON
-)
-target_link_libraries(${EXE_NAME}
-	# -------- First Party Libraries ---------
-	# internal
-	giraffe_common
-	gfs_interface
-	gfs_shared_data
-	gfs_configuration
-	gfs_extensions
-	gfs_control
-
-	module_base
-	data_module
-	console_module
-	extension_module
-	server_module
-	system_module
-
-	# external
-	BoosterSeat
-
-	# -------- Third Party Libraries ---------
-	i2c
-	Threads::Threads
-	nlohmann_json::nlohmann_json
-	${CURSES_LIBRARIES}
-)
+set_target_properties(
+  ${EXE_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GFS_BIN} OUTPUT_NAME gfs
+                         EXPORT_COMPILE_COMMANDS ON)
+target_link_libraries(
+  ${EXE_NAME}
+  # -------- First Party Libraries ---------
+  # internal
+  giraffe_common
+  gfs_interface
+  gfs_shared_data
+  gfs_configuration
+  gfs_extensions
+  gfs_control
+  module_base
+  data_module
+  console_module
+  extension_module
+  server_module
+  system_module
+  telemetry_module
+  # external
+  BoosterSeat
+  # -------- Third Party Libraries ---------
+  i2c
+  Threads::Threads
+  nlohmann_json::nlohmann_json
+  ${CURSES_LIBRARIES}
+  ${CURL_LIBRARIES})

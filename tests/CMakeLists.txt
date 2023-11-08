@@ -62,6 +62,7 @@ target_link_libraries(
   gtest_main
   BoosterSeat
   ${CURSES_LIBRARIES}
+  ${CURL_LIBRARIES}
   nlohmann_json::nlohmann_json)
 set_target_properties(unit_test_gfs PROPERTIES RUNTIME_OUTPUT_DIRECTORY
                                                ${GFS_TEST_BIN})
@@ -86,43 +87,24 @@ target_link_libraries(
   BoosterSeat
   unit_test
   gtest_main
+  ${CURL_LIBRARIES}
   nlohmann_json::nlohmann_json)
-set_target_properties(unit_test_gfs_host PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GFS_TEST_BIN})
+set_target_properties(unit_test_gfs_host PROPERTIES RUNTIME_OUTPUT_DIRECTORY
+                                                    ${GFS_TEST_BIN})
 
-add_executable(curl_test
-  ./flight_system/curl_test.cpp
-)
-include_directories(curl_test
-  ${CURL_INCLUDE_DIRS}
-)
-target_link_libraries(curl_test
+add_executable(curl_test ./flight_system/curl_test.cpp)
+include_directories(curl_test ${CURL_INCLUDE_DIRS})
+target_link_libraries(
+  curl_test
   ${CURL_LIBRARIES}
-  gfs_module_base
   giraffe_debug_assert
   giraffe_common
-  gfs_data_module
   gfs_configuration
+  gfs_shared_data
+  gfs_control
+  module_base
+  data_module
   BoosterSeat
-  nlohmann_json::nlohmann_json
-)
-set_target_properties(
-	unit_test_gfs_host PROPERTIES
-	RUNTIME_OUTPUT_DIRECTORY ${GFS_TEST_BIN}
-)
-
-add_executable(curl_test
-  ./flight_system/curl_test.cpp
-)
-include_directories(curl_test
-  ${CURL_INCLUDE_DIRS}
-)
-target_link_libraries(curl_test
-  ${CURL_LIBRARIES}
-  gfs_module_base
-  giraffe_debug_assert
-  giraffe_common
-  gfs_data_module
-  gfs_configuration
-  BoosterSeat
-  nlohmann_json::nlohmann_json
-)
+  nlohmann_json::nlohmann_json)
+set_target_properties(unit_test_gfs_host PROPERTIES RUNTIME_OUTPUT_DIRECTORY
+                                                    ${GFS_TEST_BIN})
