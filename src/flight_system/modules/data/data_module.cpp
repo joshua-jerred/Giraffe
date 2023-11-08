@@ -74,7 +74,7 @@ void modules::DataModule::processCommand(const cmd::Command &command) {
   case cmd::CommandId::DATA_MODULE_clearAllErrors:
     shared_data_.frames.error_frame.clearAllErrors();
     break;
-  case cmd::CommandId::DATA_MODULE_clearError:
+  case cmd::CommandId::DATA_MODULE_clearSpecificError:
     /** @todo Test this, this could end poorly **/
     shared_data_.frames.error_frame.clearError(
         static_cast<DiagnosticId>(command.int_arg));

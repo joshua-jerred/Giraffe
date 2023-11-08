@@ -15,12 +15,12 @@ repos:
   - id: cmake-format
   - id: cmake-lint
 
-- repo: https://github.com/pocc/pre-commit-hooks
-  rev: master
-  hooks:
-    - id: include-what-you-use
-      types: [c++, c]
-      files: \.(cpp|hpp)$
+# - repo: https://github.com/pocc/pre-commit-hooks
+  # rev: master
+  # hooks:
+    # - id: include-what-you-use
+      # types: [c++, c]
+      # files: \.(cpp|hpp)$
     # - id: clang-format
     #   args: [--style=Google]
     # - id: clang-tidy
