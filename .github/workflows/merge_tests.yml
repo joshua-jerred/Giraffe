@@ -13,7 +13,7 @@ jobs:
         with:
           submodules: recursive
       - name: Clean-up
-        run: rm -r build
+        run: if [ -d build ]; then rm -rf build; fi
 
   cmake_configure:
     name: CMake Configure
