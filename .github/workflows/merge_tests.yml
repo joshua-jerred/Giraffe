@@ -106,3 +106,15 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/dox/html
+
+  cmake-lint:
+    name: cmake-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout/@v3
+        with:
+          submodules: recursive
+      - name: Install cmake-lint
+        run: pip install cmakelint
+      - name: Run cmake-lint
+        run: cmakelint --config=./project/cmakelintrc
