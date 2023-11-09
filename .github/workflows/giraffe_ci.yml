@@ -50,16 +50,22 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm install
+        name: npm install / common
         working-directory: ./src/common/protocol
       - run: npm test
+        name: npm test / common
         working-directory: ./src/common/protocol
       - run: npm install
+        name: npm install / ground_station
         working-directory: ./src/ground_station
       - run: npm test
+        name: npm test / ground_station
         working-directory: ./src/ground_station
       - run: npm install
+        name: npm install / web_client
         working-directory: ./src/web_client
       - run: npm test
+        name: npm test / web_client
         working-directory: ./src/web_client
 
   doxygen:
