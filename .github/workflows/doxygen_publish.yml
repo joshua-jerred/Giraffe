@@ -1,4 +1,4 @@
-name: Giraffe CI
+name: Doxygen Publish
 
 on:
    push:
