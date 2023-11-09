@@ -13,7 +13,13 @@ jobs:
         with:
           submodules: recursive
       - name: Install Dependencies
-        run: sudo apt-get install build-essential cmake libgtest-dev libcurl4-gnutls-dev
+        run: sudo apt-get install
+          build-essential
+          cmake
+          libgtest-dev
+          libcurl4-gnutls-dev
+          nlohmann-json3-dev
+          -y
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build / Giraffe Flight System
