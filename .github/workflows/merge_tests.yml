@@ -21,7 +21,7 @@ jobs:
     needs: ["setup"]
     steps:
       - name: Configure
-        run: mkdir build && cd build && cmake ..
+        run: mkdir build -p && cd build && cmake ..
 
   build_executables:
     name: Build / Executables
