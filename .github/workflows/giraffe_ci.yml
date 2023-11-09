@@ -6,61 +6,31 @@ on:
 
 jobs:
   setup:
-    name: Setup Environment
-    runs-on: self-hosted
+    name: C++ CI
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout/@v3
         with:
           submodules: recursive
-      - name: Clean-up
-        run: if [ -d build ]; then rm -rf build; fi
-
-  cmake_configure:
-    name: CMake Configure
-    runs-on: self-hosted
-    needs: ["setup"]
-    steps:
-      - name: Configure
+      - name: Install Dependencies
+        run: sudo apt-get install build-essential cmake libgtest-dev libcurl4-gnutls-dev
+      - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
-
-  build_executables:
-    name: Build / Executables
-    runs-on: self-hosted
-    needs: ["cmake_configure"]
-    steps:
-      - name: Build Giraffe Flight System
+      - name: Build / Giraffe Flight System
         run: cd build && make giraffe_flight_system
-      - name: Build Giraffe Data Link
+      - name: Build / Giraffe Data Link
         run: cd build && make giraffe_data_link
-
-  common_tests_cpp:
-    name: Unit Tests / Common C++
-    needs: ["cmake_configure"]
-    runs-on: self-hosted
-    steps:
-      - name: Build Test
+      - name: Build / Unit Test Common
         run: cd build && make unit_test_common
-      - name: Run Test
+      - name: Unit Test / Common
         run: cd build/bin/tests/common && ./unit_test_common
-
-  gfs_tests:
-    name: Unit Tests / Giraffe Flight System
-    needs: ["cmake_configure"]
-    runs-on: self-hosted
-    steps:
-      - name: Build Test
+      - name: Build / Unit Test Flight System
         run: cd build && make unit_test_gfs
-      - name: Run Test
+      - name: Unit Test / Flight System
         run: cd build/bin/tests/flight_system && ./unit_test_gfs
-
-  data_link_tests:
-    name: Unit Tests / Data Link
-    needs: ["cmake_configure"]
-    runs-on: self-hosted
-    steps:
-      - name: Build Test
+      - name: Build / Unit Test Data Link
         run: cd build && make unit_test_gdl
-      - name: Run Test
+      - name: Unit Test / Data Link
         run: cd build/bin/tests/data_link && ./unit_test_gdl
 
   common_tests_js:
