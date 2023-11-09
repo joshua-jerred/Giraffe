@@ -1,4 +1,4 @@
-name: Giraffe Unit Tests
+name: Giraffe CI
 
 on:
    pull_request:
@@ -6,18 +6,36 @@ on:
 
 jobs:
   setup:
-    name: Pull w/Submodules & CMake Configure
+    name: Setup Environment
     runs-on: self-hosted
     steps:
       - uses: actions/checkout/@v3
         with:
           submodules: recursive
+      - name: Clean-up
+        run: rm -r build
+
+  cmake_configure:
+    name: CMake Configure
+    runs-on: self-hosted
+    needs: ["setup"]
+    steps:
       - name: Configure
-        run: mkdir build && cd build && cmake ..
+        run: cd build && cmake ..
+
+  build_executables:
+    name: Build / Executables
+    runs-on: self-hosted
+    needs: ["cmake_configure"]
+    steps:
+      - name: Build Giraffe Flight System
+        run: cd build && make giraffe_flight_system
+      - name: Build Giraffe Data Link
+        run: cd build && make giraffe_data_link
 
   common_tests_cpp:
     name: Unit Tests / Common C++
-    needs: ["setup"]
+    needs: ["cmake_configure"]
     runs-on: self-hosted
     steps:
       - name: Build Test
@@ -27,7 +45,7 @@ jobs:
 
   gfs_tests:
     name: Unit Tests / Giraffe Flight System
-    needs: ["setup"]
+    needs: ["cmake_configure"]
     runs-on: self-hosted
     steps:
       - name: Build Test
@@ -37,7 +55,7 @@ jobs:
 
   data_link_tests:
     name: Unit Tests / Data Link
-    needs: ["setup"]
+    needs: ["cmake_configure"]
     runs-on: self-hosted
     steps:
       - name: Build Test

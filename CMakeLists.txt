@@ -95,6 +95,5 @@ add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
 add_subdirectory(lib/bzip2-cpp)            # bzip2-cpp
 
 # Unit Tests
-enable_testing()
 add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
 # ----------------------------
