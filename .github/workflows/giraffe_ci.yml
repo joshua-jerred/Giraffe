@@ -12,7 +12,7 @@ jobs:
       image: joshuajerred/giraffe:latest
       options: --user root
     steps:
-      - uses: actions/checkout/@v3
+      - uses: actions/checkout/@v1
         with:
           submodules: recursive
       - name: Install Dependencies
