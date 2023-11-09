@@ -18,9 +18,9 @@ jobs:
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build Giraffe Flight System
-        run: cd build && make giraffe_flight_system
+        run: cd build && make giraffe_flight_system -j 4
       - name: Build Giraffe Data Link
-        run: cd build && make giraffe_data_link
+        run: cd build && make giraffe_data_link -j 4
 
   common_tests_cpp:
     name: Unit Tests / Common C++
@@ -35,7 +35,7 @@ jobs:
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build Test
-        run: cd build && make unit_test_common
+        run: cd build && make unit_test_common -j 4
       - name: Run Test
         run: cd build/bin/tests/common && ./unit_test_common
 
@@ -52,7 +52,7 @@ jobs:
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build Test
-        run: cd build && make unit_test_gfs
+        run: cd build && make unit_test_gfs -j 4
       - name: Run Test
         run: cd build/bin/tests/flight_system && ./unit_test_gfs
 
@@ -69,7 +69,7 @@ jobs:
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build Test
-        run: cd build && make unit_test_gdl
+        run: cd build && make unit_test_gdl -j 4
       - name: Run Test
         run: cd build/bin/tests/data_link && ./unit_test_gdl
 
@@ -90,7 +90,6 @@ jobs:
   ggs_tests:
     name: Unit Tests / Giraffe Ground Station
     runs-on: ubuntu-latest
-    needs: ["common_tests_js"]
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js
@@ -105,7 +104,6 @@ jobs:
   gwc_tests:
     name: Unit Tests / Giraffe Web Client
     runs-on: ubuntu-latest
-    needs: ["common_tests_js"]
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js
@@ -135,8 +133,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/dox/html
 
-  cmake-lint:
-    name: cmake-lint
+  static_analysis:
+    name: Static Analysis
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout/@v3
