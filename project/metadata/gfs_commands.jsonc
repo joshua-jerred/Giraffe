@@ -1,0 +1,57 @@
+// Metadata for all GFS commands
+{
+  "FILE_META": {
+    "namespace": "cmd",
+    "enum_name": "CommandId",
+    "enum_type": "uint16_t",
+    "generate_string_map": "K_STRING_TO_COMMAND_MAP"
+  },
+  "general": {
+    "unknown": {
+      "name": "Unknown",
+      "details": "Placeholder, used as a default/fallback value. This commands will be responded to with and error.",
+      "value": "0x0000"
+    }
+  },
+  "node": {
+    "reload_configuration": {
+      "name": "Reload Configuration",
+      "details": "Tells a node to reload it's relevant configuration items (e.g. after a config change).",
+      "value": "0x0001"
+    }
+  },
+  "flight_runner": {
+    "shutdown_system": {
+      "name": "Shutdown System",
+      "details": "Tells the flight runner to shutdown.",
+      "value": "0x1000"
+    },
+    "start_module": {
+      "name": "Start Module",
+      "details": "Tells the flight runner to start a module given a 3 letter module identifier.",
+      "value": "0x1001"
+    },
+    "stop_module": {
+      "name": "Stop Module",
+      "details": "Tells the flight runner to stop a module given a 3 letter module identifier.",
+      "value": "0x1002"
+    },
+    "restart_module": {
+      "name": "Restart Module",
+      "details": "Tells the flight runner to restart a module given a 3 letter module identifier.",
+      "value": "0x1003"
+    }
+  },
+  "data_module": {
+    "clear_all_errors": {
+      "name": "Clear All Errors",
+      "details": "Clears all errors from the error frame",
+      "value": "0x2000"
+    },
+    "clear_specific_error": {
+      "name": "Clear a Specific Error",
+      "details": "Clears a specific error/diagnostic code from the error frame given an error code (uint16_t) in hex.",
+      "value": "0x2001"
+    }
+  }
+}

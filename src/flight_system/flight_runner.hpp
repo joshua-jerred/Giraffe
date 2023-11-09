@@ -25,6 +25,18 @@ public:
 private:
   auto flightLoop() -> int;
 
+  /**
+   * @brief Send a command to the proper module.
+   * @param command The command to route.
+   */
+  void routeCommand(cmd::Command &command);
+
+  /**
+   * @brief Process commands that are sent to the flight runner.
+   * @param command The command to process.
+   */
+  void processCommand(const cmd::Command &command);
+
   bool shutdown_signal_ = false;
   data::SharedData shared_data_ = data::SharedData();
 

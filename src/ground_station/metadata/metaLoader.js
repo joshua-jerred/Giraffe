@@ -1,6 +1,6 @@
 const ggs_meta_data = require("./ggs_meta.json");
-const gfs_data_meta = require("../../common/metadata/gfs_resources.json");
-const gfs_configuration_meta = require("../../common/metadata/gfs_configuration.json");
+const gfs_data_meta = require("../../../project/metadata/gfs_resources.json");
+const gfs_configuration_meta = require("../../../project/metadata/gfs_configuration.json");
 
 for (let category in gfs_configuration_meta) {
   for (let data_item in gfs_configuration_meta[category]) {

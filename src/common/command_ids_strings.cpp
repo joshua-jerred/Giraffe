@@ -1,6 +1,6 @@
 /**
  *
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -11,8 +11,8 @@
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- * 
- * 
+ *
+ *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       2023-06-30
@@ -23,28 +23,27 @@
  */
 
 
-#ifndef COMMAND_IDS_HPP_
-#define COMMAND_IDS_HPP_
-
-#include <cstdint>
+#include "command_ids.hpp"
 
 namespace cmd {
-// NOLINTBEGIN(readability-identifier-naming)
-enum class CommandId : uint16_t {
-  GENERAL_unknown=0x0000, // Unknown
-  NODE_reloadConfiguration=0x0001, // Reload Configuration
-  DATA_MODULE_clearAllErrors=0x1001, // Clear All Errors
-  DATA_MODULE_clearError=0x1002  // Clear a Specific Error
-};
-// NOLINTEND(readability-identifier-naming)
-} // namespace cmd
 
-#endif // COMMAND_IDS_HPP_
+const std::unordered_map<std::string, CommandId> K_STRING_TO_COMMAND_MAP {
+  {"GENERAL_unknown",CommandId::GENERAL_unknown},
+  {"NODE_reloadConfiguration",CommandId::NODE_reloadConfiguration},
+  {"FLIGHT_RUNNER_shutdownSystem",CommandId::FLIGHT_RUNNER_shutdownSystem},
+  {"FLIGHT_RUNNER_startModule",CommandId::FLIGHT_RUNNER_startModule},
+  {"FLIGHT_RUNNER_stopModule",CommandId::FLIGHT_RUNNER_stopModule},
+  {"FLIGHT_RUNNER_restartModule",CommandId::FLIGHT_RUNNER_restartModule},
+  {"DATA_MODULE_clearAllErrors",CommandId::DATA_MODULE_clearAllErrors},
+  {"DATA_MODULE_clearSpecificError",CommandId::DATA_MODULE_clearSpecificError}
+};
+
+} // namespace cmd
 
 
 /**
  * @endverbatim
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&

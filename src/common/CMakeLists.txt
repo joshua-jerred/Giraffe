@@ -1,16 +1,18 @@
 add_library(giraffe_common INTERFACE)
 target_sources(giraffe_common INTERFACE
-  diagnostic/giraffe_exception.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/giraffe_exception.cpp
   # diagnostic/giraffe_debug_assert.cpp
-  diagnostic/diagnostic_id_strings.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/data_ids_string_map.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/diagnostic_id_strings.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/command_ids_strings.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/protocol/protocol.cpp
 )
 target_include_directories(giraffe_common INTERFACE
   ./
-  ./diagnostic
-  ./command
+  ./protocol
 )
 
 add_library(giraffe_debug_assert INTERFACE)
 target_sources(giraffe_debug_assert INTERFACE
-  diagnostic/giraffe_debug_assert.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/giraffe_debug_assert.cpp
 )

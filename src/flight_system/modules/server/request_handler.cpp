@@ -1,5 +1,22 @@
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   request_handler.cpp
+ * @brief  The request handler class implementation.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-11-02
+ * @copyright  2023 (license to be defined)
+ */
+
 #include <BoosterSeat/string_utils.hpp>
 
+#include "command_ids.hpp"
 #include "request_handler.hpp"
 
 RequestRouter::RequestRouter(data::SharedData &shared_data,
@@ -39,6 +56,16 @@ void RequestRouter::handleMessage(sock::TcpSocketServer &client,
       handleDataRequest(client, msg);
       return;
     }
+  } else if (msg.typ == protocol::MessageType::SET) {
+    if (BoosterSeat::containsPrefix(msg.rsc, "cmd/")) {
+      handleCommandRequest(client, msg);
+      return;
+    }
+    sendErrorPacket(client, "message type not implemented");
+    return;
+  } else {
+    sendErrorPacket(client, "message type not implemented");
+    return;
   }
 
   sendErrorPacket(client, "message type or category not implemented");
@@ -150,6 +177,32 @@ auto RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
                                   res_body);
 
   sendMessage(response_message, client);
+}
+
+void RequestRouter::handleCommandRequest(sock::TcpSocketServer &client,
+                                         protocol::Message &msg) {
+  static constexpr int kPrefixLength = 4; // "cmd/"
+  static constexpr int kMaxCommandLength = 35 + kPrefixLength;
+
+  if (msg.rsc.length() <= kPrefixLength) {
+    sendErrorPacket(client, "no command provided");
+    return;
+  } else if (msg.rsc.length() > kMaxCommandLength) {
+    sendErrorPacket(client, "command string too long");
+    return;
+  }
+
+  cmd::Command command{};
+  if (!cmd::parseCommandString(msg.rsc, command)) {
+    sendErrorPacket(client, "malformed command string");
+    shared_data_.streams.log.error(
+        node::Identification::SERVER_MODULE,
+        DiagnosticId::SERVER_MODULE_invalidCommandString, msg.rsc);
+    return;
+  }
+
+  shared_data_.streams.command.addCommand(node::Identification::SERVER_MODULE,
+                                          command);
 }
 
 void RequestRouter::sendMessage(protocol::Message &response_json,

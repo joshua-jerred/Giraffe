@@ -40,7 +40,7 @@ enum class Endpoint {
 enum class MessageType {
   UNKNOWN, // Error Type
   REQ,     // Request
-  SET,     // Set
+  SET,     // Set (Also used as a command)
   RSP      // Response
 };
 
@@ -78,9 +78,19 @@ struct Message {
    */
   Json getBodyJson();
 
-  // Required Fields
+  /**
+   * @brief The source of the message.
+   */
   protocol::Endpoint src = protocol::Endpoint::UNKNOWN;
+
+  /**
+   * @brief The destination of the message.
+   */
   protocol::Endpoint dst = protocol::Endpoint::UNKNOWN;
+
+  /**
+   * @brief The type of the message.
+   */
   protocol::MessageType typ = protocol::MessageType::UNKNOWN;
   MessageId id = "";
 

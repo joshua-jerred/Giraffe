@@ -1,3 +1,20 @@
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   flight_runner.cpp
+ * @brief  The implementation of the flight runner, where everything comes
+ * together.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-11-08
+ * @copyright  2023 (license to be defined)
+ */
+
 #include "flight_runner.hpp"
 
 /**
@@ -182,6 +199,14 @@ auto FlightRunner::flightLoop() -> int {
   while (!shutdown_signal_) { // The endless loop where everything happens
     std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
+    if (shared_data_.streams.command.getNumPackets() > 0) {
+      data::CommandPacket command_packet{};
+      bool new_command = shared_data_.streams.command.getPacket(command_packet);
+      if (new_command) {
+        routeCommand(command_packet.command);
+      }
+    }
+
     // if (data_stream_.getNextCommand(command)) {  // Check for commands
     //   switch (command.category) {
     //     case GFSCommand::CommandCategory::FLR:
@@ -260,6 +285,52 @@ auto FlightRunner::flightLoop() -> int {
   return 0;
 }
 
+void FlightRunner::routeCommand(cmd::Command &command) {
+  bool command_added = false;
+  switch (command.destination) {
+  case node::Identification::FLIGHT_RUNNER:
+    processCommand(command);
+    command_added = true;
+    break;
+  case node::Identification::DATA_MODULE:
+    command_added = p_data_module_->addCommand(command);
+    break;
+  case node::Identification::CONSOLE_MODULE:
+    if (p_console_module_ != nullptr) {
+      command_added = p_console_module_->addCommand(command);
+    }
+    break;
+  case node::Identification::SERVER_MODULE:
+    if (p_server_module_ != nullptr) {
+      command_added = p_server_module_->addCommand(command);
+    }
+    break;
+  default:
+    shared_data_.streams.log.error(
+        node::Identification::FLIGHT_RUNNER,
+        DiagnosticId::FLIGHT_RUNNER_commandDestinationNotFound,
+        node::K_IDENTIFICATION_TO_STRING_MAP.at(command.destination));
+    return;
+  }
+
+  if (command_added == false) {
+    shared_data_.streams.log.error(
+        node::Identification::FLIGHT_RUNNER,
+        DiagnosticId::FLIGHT_RUNNER_failedToRouteCommand);
+  }
+}
+
+void FlightRunner::processCommand(const cmd::Command &command) {
+  switch (command.command_id) {
+  case cmd::CommandId::FLIGHT_RUNNER_shutdownSystem:
+    shutdown_signal_ = true; // This will cause the flight loop to exit
+    break;
+  default:
+    shared_data_.streams.log.error(node::Identification::FLIGHT_RUNNER,
+                                   DiagnosticId::FLIGHT_RUNNER_invalidCommand);
+  }
+}
+
 /**
  * @brief This function will switch the flight proc to a different proc type
  * if the values of extensions are within certain ranges.
@@ -295,57 +366,5 @@ auto FlightRunner::flightLoop() -> int {
 //       current_procedure.intervals = procs.failsafe.intervals;
 //       data_stream_.updateFlightProcedure(current_procedure);
 //       break;
-//   }
-// }
-
-// void FlightRunner::deconstruct() {
-//   std::cout << "Stopping Console Module ... ";
-//   if (p_console_module_ != nullptr) {
-//     p_console_module_->stop();
-//     delete p_console_module_;
-//     std::cout << "Stopped" << std::endl;
-//   } else {
-//     std::cout << "Not Running" << std::endl;
-//   }
-//   std::cout << "Stopping Server Module ... ";
-//   if (p_server_module_ != nullptr) {
-//     p_server_module_->stop();
-//     delete p_server_module_;
-//     std::cout << "Stopped" << std::endl;
-//   }
-//   std::cout << "Stopping Telemetry Module ... ";
-//   if (p_telemetry_module_ != nullptr) {
-//     p_telemetry_module_->stop();
-//     delete p_telemetry_module_;
-//     std::cout << "Stopped" << std::endl;
-//   } else {
-//     std::cout << "Not Running" << std::endl;
-//   }
-//   std::cout << "Stopping Extension Module ... ";
-//   if (p_extension_module_ != nullptr) {
-//     p_extension_module_->stop();
-//     delete p_extension_module_;
-//     std::cout << "Stopped" << std::endl;
-//   } else {
-//     std::cout << "Not Running" << std::endl;
-//   }
-//   std::cout << "Stopping Data Module ... ";
-//   if (p_data_module_ != nullptr) {
-//     p_data_module_->stop();
-//     delete p_data_module_;
-//     std::cout << "Stopped" << std::endl;
-//   } else {
-//     std::cout << "Not Running" << std::endl;
-//   }
-//   std::cout << "Closing BCM Interface ... ";
-//   if (config_data_.bcm_interface_used) {
-//     try {
-//       interface::Gpio::Close();
-//       std::cout << "Closed" << std::endl;
-//     } catch (interface::Gpio::GpioException& e) {
-//       std::cout << "Error: " << e.what() << std::endl;
-//     }
-//   } else {
-//     std::cout << "Not Used" << std::endl;
 //   }
 // }

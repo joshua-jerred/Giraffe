@@ -1,3 +1,19 @@
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   request_handler.hpp
+ * @brief  The request handler class header.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-11-02
+ * @copyright  2023 (license to be defined)
+ */
+
 #ifndef REQUEST_HANDLER_HPP_
 #define REQUEST_HANDLER_HPP_
 
@@ -6,6 +22,10 @@
 #include "shared_data.hpp"
 #include "socket.hpp"
 
+/**
+ * @brief Used to handle client requests from the server module.
+ * @ingroup ServerModule
+ */
 class RequestRouter {
 public:
   /**
@@ -36,15 +56,26 @@ public:
    */
   void handleMessage(sock::TcpSocketServer &client, std::string &request);
 
+  /**
+   * @brief Used to update the rolling average of bytes per second.
+   */
   void oneSecondTick() {
     bytes_per_second_down_.intervalCall();
     bytes_per_second_up_.intervalCall();
   }
 
+  /**
+   * @brief Get the average bytes per second down.
+   * @return double - The average bytes per second down.
+   */
   double getBytesPerSecondDown() const {
     return bytes_per_second_down_.getAverage();
   }
 
+  /**
+   * @brief Get the average bytes per second up.
+   * @return double - The average bytes per second up.
+   */
   double getBytesPerSecondUp() const {
     return bytes_per_second_up_.getAverage();
   }
@@ -85,6 +116,21 @@ private:
    */
   void handleDataRequest(sock::TcpSocketServer &client, protocol::Message &msg);
 
+  /**
+   * @brief This function parses a command request, sends it to the command
+   * queue and sends a simple response back. It does not wait for the command to
+   * be executed.
+   * @param client - The client socket.
+   * @param msg - The message to parse.
+   */
+  void handleCommandRequest(sock::TcpSocketServer &client,
+                            protocol::Message &msg);
+
+  /**
+   * @brief Send a message to the client.
+   * @param response - The message to send.
+   * @param client - The client socket.
+   */
   void sendMessage(protocol::Message &response, sock::TcpSocketServer &client);
 
   data::SharedData &shared_data_;
