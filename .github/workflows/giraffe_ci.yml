@@ -5,8 +5,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build_executables:
-    name: Build C++ Executables
+  build_gfs:
+    name: Build / Giraffe Flight System
     runs-on: ubuntu-latest
     container:
       image: joshuajerred/giraffe:latest
@@ -19,6 +19,19 @@ jobs:
         run: mkdir build -p && cd build && cmake ..
       - name: Build Giraffe Flight System
         run: cd build && make giraffe_flight_system -j 4
+
+  build_gdl:
+    name: Build / Giraffe Data Link
+    runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/giraffe:latest
+      options: --user root
+    steps:
+      - uses: actions/checkout/@v1
+        with:
+          submodules: recursive
+      - name: CMake Configure
+        run: mkdir build -p && cd build && cmake ..
       - name: Build Giraffe Data Link
         run: cd build && make giraffe_data_link -j 4
 
