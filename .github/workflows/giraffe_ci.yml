@@ -8,6 +8,7 @@ jobs:
   cpp_ci:
     name: Giraffe C++ CI
     runs-on: ubuntu-latest
+    container: joshuajerred/giraffe:latest
     steps:
       - uses: actions/checkout/@v3
         with:
@@ -81,19 +82,18 @@ jobs:
         run: doxygen project/doxygen/Doxyfile
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-      # - name: Deploy to GitHub Pages
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/dox/html
 
   cmake-lint:
-    name: cmake-lint
+    name: static analysis
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout/@v3
         with:
           submodules: recursive
-      - name: Install cmake-lint
+      - name: Install dependencies
         run: pip install cmakelint
-      - name: Run cmake-lint
+      - name: cmake-lint
         run: cmakelint --config=./project/cmakelintrc
