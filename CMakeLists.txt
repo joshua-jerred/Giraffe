@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.2)
 
-# ----------------- *** START CONFIGUREABLE ITEMS *** --------------------------
-option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF) # ON or OFF
-option(EXTENSION_DEBUG_PRINT "Enable Debug Printing for Extensions" OFF) # ON or OFF
-# ----------------- ***  END CONFIGUREABLE ITEMS  *** --------------------------
+# ----------------- *** START CONFIGURABLE ITEMS *** --------------------------
+option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF)
+option(EXTENSION_DEBUG_PRINT "Enable Debug Printing for Extensions" OFF)
+# ----------------- ***  END CONFIGURABLE ITEMS  *** --------------------------
 
 
 # --- DIRECTORIES --- # - need to get rid of these
@@ -25,25 +25,25 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS OFF)
 
 # Debug Printing
 if(EXTENSION_DEBUG_PRINT)
-	add_compile_definitions(EXTENSION_DEBUG_PRINT=1)
-	message(WARNING "EXTENSION DEBUG PRINTING ENABLED")
+  add_compile_definitions(EXTENSION_DEBUG_PRINT=1)
+  message(WARNING "EXTENSION DEBUG PRINTING ENABLED")
 else()
-	add_compile_definitions(EXTENSION_DEBUG_PRINT=0)
+  add_compile_definitions(EXTENSION_DEBUG_PRINT=0)
 endif()
 
-# ---- Version File Parseing ----
+# ---- Version File Parsing ----
 file(READ ${CMAKE_SOURCE_DIR}/src/version ver_file)
 string(
-	REGEX MATCH 
-	"VERSION_NUMBER<([0-9\.]+)>[\n\r]+STAGE<([A-Za-z ]+)>" 
-	GIRAFFE_VERSION_STAGE 
-	${ver_file}
+  REGEX MATCH
+  "VERSION_NUMBER<([0-9\.]+)>[\n\r]+STAGE<([A-Za-z ]+)>"
+  GIRAFFE_VERSION_STAGE
+  ${ver_file}
 )
 set(GIRAFFE_VERSION_NUMBER ${CMAKE_MATCH_1})
 set(GIRAFFE_VERSION_STAGE ${CMAKE_MATCH_2})
 add_compile_definitions(
-	GIRAFFE_VERSION_NUMBER="${GIRAFFE_VERSION_NUMBER}"
-	GIRAFFE_VERSION_STAGE="${GIRAFFE_VERSION_STAGE}"
+  GIRAFFE_VERSION_NUMBER="${GIRAFFE_VERSION_NUMBER}"
+  GIRAFFE_VERSION_STAGE="${GIRAFFE_VERSION_STAGE}"
 )
 message(STATUS "Giraffe Software Version: ${GIRAFFE_VERSION_STAGE} \
 ${GIRAFFE_VERSION_NUMBER}")
@@ -51,11 +51,11 @@ ${GIRAFFE_VERSION_NUMBER}")
 
 
 # ---- Project ----
-project(Giraffe 
-	VERSION ${GIRAFFE_VERSION_NUMBER}
-	DESCRIPTION "A Unified High Altitude Flight Observation System. \
-		With homogeneous software and hardware, both on the ground and in the air."
-	HOMEPAGE_URL "https://giraffe.joshuajer.red/")
+project(Giraffe
+  VERSION ${GIRAFFE_VERSION_NUMBER}
+  DESCRIPTION "A Unified High Altitude Flight Observation System. \
+    With homogeneous software and hardware, both on the ground and in the air."
+  HOMEPAGE_URL "https://giraffe.joshuajer.red/")
 # -----------------
 
 
@@ -78,11 +78,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 
 # ----- Third Party Libs -----
 set(THREADS_PREFER_PTHREAD_FLAG ON)
-find_package(Threads REQUIRED)  				   # pthreads
+find_package(Threads REQUIRED)             # pthreads
 find_library(GTEST_LIB NAMES gtest)        # gtest
 find_package(Curses REQUIRED)              # ncurses
 find_package(nlohmann_json 3.9.0 REQUIRED) # nlhomann_json
-find_package(CURL REQUIRED)  						   # curl
+find_package(CURL REQUIRED)                # curl
 # ----------------------------
 
 # ---- Giraffe Components ----

@@ -13,7 +13,9 @@ repos:
   rev: v0.6.10
   hooks:
   - id: cmake-format
+    args: ['-c', './project/.cmakeformat']
   - id: cmake-lint
+    # args: ['--config=./project/.cmakelintrc']
 
 # - repo: https://github.com/pocc/pre-commit-hooks
   # rev: master
