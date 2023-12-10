@@ -69,6 +69,12 @@ struct GdlConfig {
    * @brief The default timeout for a message in seconds.
    */
   uint16_t default_timeout = 30;
+
+  /**
+   * @brief If new messages should be printed to the console as they come in
+   * instead of hiding them in the queue.
+   */
+  bool print_new_messages = false;
 };
 
 } // namespace gdl

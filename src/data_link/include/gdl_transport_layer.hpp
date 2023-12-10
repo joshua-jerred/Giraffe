@@ -60,10 +60,15 @@ public:
     if (state_ == State::IDLE) {
       Message message{};
       if (network_layer_.rxMessage(message)) {
-        std::cout << "Got a new message: " << message.data
-                  << " id: " << message.id << std::endl;
+        // std::cout << "Got a new message: " << message.data
+        // << " id: " << message.id << std::endl;
         if (message.isValid() && !message.isAck()) {
           sendAck(message.id);
+          if (message.id == last_acked_id_) {
+            // std::cout << "Got a duplicate message." << std::endl;
+            return;
+          }
+          last_acked_id_ = message.id;
           received_messages.push(message);
         } else if (message.isAck()) {
           // std::cout << "Got an ACK, seemingly out of place." << std::endl;
@@ -104,7 +109,7 @@ private:
   }
 
   void sendAck(std::string id) {
-    std::cout << "Sending ACK for id: " << id << std::endl;
+    // std::cout << "Sending ACK for id: " << id << std::endl;
     Message message{};
     message.data = "ACK";
     message.id = id;
@@ -125,7 +130,7 @@ private:
     Message message{};
     if (network_layer_.rxMessage(message)) {
       if (message.data == "ACK") {
-        std::cout << "Got an ACK!" << std::endl;
+        // std::cout << "Got an ACK!" << std::endl;
         return true;
       }
     }
@@ -141,6 +146,8 @@ private:
   Message current_message_{};
 
   State state_ = State::IDLE;
+
+  std::string last_acked_id_{};
 };
 }; // namespace gdl
 

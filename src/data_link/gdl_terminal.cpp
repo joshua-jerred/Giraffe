@@ -22,20 +22,21 @@ int main() {
   }
 
   gdl::GdlConfig config;
+  config.print_new_messages = true;
   config.user_id = message;
 
   gdl::PhysicalLayer physical_layer;
   gdl::AprsNetworkLayer network_layer{physical_layer, base_packet};
   gdl::TransportLayer transport_layer{network_layer, config};
-
   gdl::GiraffeDataLink gdl{config, transport_layer};
+
   gdl.start();
 
   while (true) {
     // std::cout << "Enter a message to send: " << std::endl;
     // usleep(1000);
 
-    std::cin >> message;
+    std::getline(std::cin, message);
 
     if (message == "stats") {
       gdl.getGdlStatus().print();

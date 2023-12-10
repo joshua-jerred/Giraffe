@@ -94,6 +94,13 @@ void GiraffeDataLink::gdlThread() {
     gdl_status_.received_queue_size = queues_.received.size();
     transport_layer_.updateStatus(gdl_status_);
     gdl_status_lock_.unlock();
+
+    if (config_.print_new_messages) {
+      Message msg;
+      while (queues_.received.pop(msg)) {
+        std::cout << "Received: " << msg.data << std::endl;
+      }
+    }
   }
 }
 
