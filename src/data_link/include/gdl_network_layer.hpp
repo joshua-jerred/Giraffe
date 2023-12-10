@@ -32,19 +32,15 @@ public:
     physical_layer_.enable();
   }
 
-  bool txMessage(Message &message) {
-    std::vector<uint8_t> bytes(message.data.begin(), message.data.end());
-    return physical_layer_.transmitBytes(bytes);
+  virtual ~NetworkLayer() {
   }
 
-  bool rxMessage(Message &message) {
-    std::vector<uint8_t> bytes = physical_layer_.receiveBytes();
-    std::string data = "";
-    for (auto byte : bytes) {
-      data += byte;
-    }
-    message.data = data;
-    return true;
+  virtual bool txMessage(Message &message) = 0;
+
+  virtual bool rxMessage(Message &message) = 0;
+
+  void update() {
+    physical_layer_.update();
   }
 
 protected:

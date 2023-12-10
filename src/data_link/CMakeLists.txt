@@ -7,6 +7,7 @@ target_include_directories(giraffe_data_link PRIVATE "./")
 target_link_libraries(giraffe_data_link 
   giraffe_common
   BoosterSeat
+  SignalEasel
 )
 
 add_executable(gdl_terminal

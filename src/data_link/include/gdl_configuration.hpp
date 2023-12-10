@@ -47,9 +47,9 @@ struct GdlConfig {
   uint8_t max_retries = 3;
 
   /**
-   * @brief The interval between retries in seconds.
+   * @brief The interval between retries in milliseconds.
    */
-  uint16_t retry_interval = 5;
+  uint16_t retry_interval_ms = 1000;
 
   /**
    * @brief The interval between connection status messages in seconds.

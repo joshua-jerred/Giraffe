@@ -34,18 +34,27 @@ public:
     BUSY
   };
 
+  PhysicalLayer() = default;
+
   virtual ~PhysicalLayer() = default;
 
-  virtual void enable() = 0;
-  virtual void disable() = 0;
+  virtual void enable() {
+    state_ = State::IDLE;
+  }
+  virtual void disable() {
+    state_ = State::DISABLED;
+  }
+
+  virtual void update() {
+  }
 
   PhysicalLayer::State getState() const {
     return state_;
   }
 
-  virtual bool transmitBytes(std::vector<uint8_t> &bytes) = 0;
-  virtual std::vector<uint8_t> &receiveBytes() = 0;
-  virtual uint16_t getBytesAvailable() = 0;
+  // virtual bool transmitBytes(std::vector<uint8_t> &bytes) = 0;
+  // virtual std::vector<uint8_t> &receiveBytes() = 0;
+  // virtual uint16_t getBytesAvailable() = 0;
 
 protected:
   State state_ = State::DISABLED;
@@ -54,33 +63,33 @@ protected:
 /**
  * @brief A simple simulated physical layer for testing.
  */
-class SimulatedLoopbackPhysicalLayer : public PhysicalLayer {
-public:
-  void enable() override {
-    state_ = PhysicalLayer::State::IDLE;
-  }
-  void disable() override {
-    state_ = PhysicalLayer::State::DISABLED;
-  }
-  bool transmitBytes(std::vector<uint8_t> &bytes) override {
-    if (state_ == PhysicalLayer::State::IDLE) {
-      state_ = PhysicalLayer::State::TRANSMITTING;
-      received_bytes_ = bytes;
-      state_ = PhysicalLayer::State::IDLE;
-      return true;
-    }
-    return false;
-  }
-  std::vector<uint8_t> &receiveBytes() override {
-    return received_bytes_;
-  }
-  uint16_t getBytesAvailable() override {
-    return received_bytes_.size();
-  }
+// class SimulatedLoopbackPhysicalLayer : public PhysicalLayer {
+// public:
+// void enable() override {
+// state_ = PhysicalLayer::State::IDLE;
+// }
+// void disable() override {
+// state_ = PhysicalLayer::State::DISABLED;
+// }
+// bool transmitBytes(std::vector<uint8_t> &bytes) override {
+// if (state_ == PhysicalLayer::State::IDLE) {
+// state_ = PhysicalLayer::State::TRANSMITTING;
+// received_bytes_ = bytes;
+// state_ = PhysicalLayer::State::IDLE;
+// return true;
+// }
+// return false;
+// }
+// std::vector<uint8_t> &receiveBytes() override {
+// return received_bytes_;
+// }
+// uint16_t getBytesAvailable() override {
+// return received_bytes_.size();
+// }
 
-private:
-  std::vector<uint8_t> received_bytes_{};
-};
+// private:
+// std::vector<uint8_t> received_bytes_{};
+// };
 
 } // namespace gdl
 

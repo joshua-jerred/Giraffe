@@ -37,6 +37,8 @@ struct Message {
   uint16_t id{0};
   Type type{Type::UNDEFINED};
   std::string data{""};
+
+  uint32_t retries = 0;
 };
 
 } // namespace gdl
