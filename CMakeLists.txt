@@ -90,7 +90,7 @@ add_subdirectory(project)                  # Auto-generated files
 add_subdirectory(src/common)               # Common
 add_subdirectory(src/flight_system)        # Flight System
 add_subdirectory(src/data_link)            # Data Link
-add_subdirectory(lib/MWAV)                 # MWAV
+add_subdirectory(lib/SignalEasel)          # SignalEasel
 add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
 add_subdirectory(lib/bzip2-cpp)            # bzip2-cpp
 
