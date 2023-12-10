@@ -18,6 +18,7 @@ enum class PageOption {
   EXTENSION_DATA,
   SYSTEM,
   LOCATION,
+  TELEMETRY
 };
 
 inline constexpr int K_MAX_NUM_PAGE_LINES = 25;
@@ -54,6 +55,7 @@ private:
   void system();
   void location();
   void extensionData();
+  void telemetry();
 
   void setNumLinesOnPage(const int num_lines);
 
@@ -72,6 +74,7 @@ private:
       {"Extension Data", PageOption::EXTENSION_DATA},
       {"System", PageOption::SYSTEM},
       {"Location", PageOption::LOCATION},
+      {"Telemetry", PageOption::TELEMETRY},
   };
 };
 

@@ -51,6 +51,7 @@ struct SharedBlocks {
   blocks::Block<blocks::LocationData> location_data{};
   blocks::Block<blocks::ImuData> imu_data{};
   blocks::Block<blocks::CameraImages> camera{};
+  blocks::Block<blocks::TelemetryModuleStats> telemetry_module_stats{};
 };
 
 struct Frames {

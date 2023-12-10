@@ -47,6 +47,8 @@ console_pages::Pages::getCurrentPage() {
   case PageOption::LOCATION:
     location();
     break;
+  case PageOption::TELEMETRY:
+    telemetry();
   default:
     break;
   }
@@ -325,6 +327,23 @@ void console_pages::Pages::location() {
       BoosterSeat::string::f2s(cur.horz_accuracy, 1) + " m, " +
       BoosterSeat::string::f2s(cur.vert_accuracy, 1) + " m, " +
       BoosterSeat::string::f2s(cur.horizontal_speed, 1) + " m/s"
+  };
+  // clang-format on
+}
+
+void console_pages::Pages::telemetry() {
+  constexpr int kNumLines = 6;
+  setNumLinesOnPage(kNumLines);
+  auto info = shared_data_.blocks.telemetry_module_stats.get();
+  // clang-format off
+  content_ = {
+    "Telemetry Enabled: " + b2str(config_.telemetry.getTelemetryEnabled()) +
+    "  | Call Sign: " + config_.telemetry.getCallSign() + "  | Data Link Enabled: " +
+    b2str(config_.telemetry.getDataLinkEnabled()),
+    "Queue Sizes (Ex, Br, Rx): " + std::to_string(info.exchange_queue_size) + ", " +
+      std::to_string(info.broadcast_queue_size) + ", " +
+      std::to_string(info.received_queue_size),
+      "Network Layer Latency: " + std::to_string(info.network_layer_latency_ms) + " ms",
   };
   // clang-format on
 }

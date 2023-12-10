@@ -26,6 +26,8 @@ struct GdlStatus {
   size_t exchange_queue_size = 0;
   size_t broadcast_queue_size = 0;
   size_t received_queue_size = 0;
+  double volume = 0.0;
+  double signal_to_noise_ratio = 0.0;
 
   /**
    * @brief Audio processing latency in milliseconds

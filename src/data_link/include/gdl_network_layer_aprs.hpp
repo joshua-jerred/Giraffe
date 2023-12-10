@@ -34,6 +34,11 @@ public:
   virtual ~AprsNetworkLayer() {
   }
 
+  void setBasePacket(signal_easel::aprs::Packet base_packet) {
+    base_packet_ = base_packet;
+    modulator_.setBasePacket(base_packet_);
+  }
+
   bool txMessage(Message &message) override {
     // std::cout << "APRS: " << message.data << std::endl;
     signal_easel::aprs::MessagePacket packet{};
@@ -75,6 +80,8 @@ public:
 
   void updateStatus(GdlStatus &status) override {
     status.network_layer_latency_ms = receiver_.getLatency();
+    status.volume = receiver_.getVolume();
+    status.signal_to_noise_ratio = receiver_.getSNR();
   }
 
 private:

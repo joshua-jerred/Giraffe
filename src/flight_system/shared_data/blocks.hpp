@@ -318,6 +318,22 @@ struct CameraImages {
   int num_images = 0;
 };
 
+struct TelemetryModuleStats {
+  int exchange_queue_size = 0;
+  int broadcast_queue_size = 0;
+  int received_queue_size = 0;
+  int network_layer_latency_ms = 0;
+
+  Json toJson() {
+    Json json_data;
+    json_data["exchange_queue_size"] = exchange_queue_size;
+    json_data["broadcast_queue_size"] = broadcast_queue_size;
+    json_data["network_layer_latency_ms"] = network_layer_latency_ms;
+    json_data["received_queue_size"] = received_queue_size;
+    return json_data;
+  }
+};
+
 } // namespace blocks
 
 } // namespace data
