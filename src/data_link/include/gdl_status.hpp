@@ -18,6 +18,7 @@
 #define GDL_STATUS_HPP_
 
 #include <cstdint>
+#include <iostream>
 
 namespace gdl {
 
@@ -25,6 +26,21 @@ struct GdlStatus {
   size_t exchange_queue_size = 0;
   size_t broadcast_queue_size = 0;
   size_t received_queue_size = 0;
+
+  /**
+   * @brief Audio processing latency in milliseconds
+   */
+  uint64_t network_layer_latency_ms = 0;
+
+  void print() {
+    std::cout << "GDL Status: " << std::endl;
+    std::cout << "  Exchange Queue Size: " << exchange_queue_size << std::endl;
+    std::cout << "  Broadcast Queue Size: " << broadcast_queue_size
+              << std::endl;
+    std::cout << "  Received Queue Size: " << received_queue_size << std::endl;
+    std::cout << "  Network Layer Latency: " << network_layer_latency_ms << "ms"
+              << std::endl;
+  }
 };
 
 } // namespace gdl

@@ -17,6 +17,7 @@
 #ifndef GDL_TRANSPORT_LAYER_HPP_
 #define GDL_TRANSPORT_LAYER_HPP_
 
+#include <BoosterSeat/sleep.hpp>
 #include <BoosterSeat/timer.hpp>
 
 #include "gdl_network_layer.hpp"
@@ -53,10 +54,21 @@ public:
     return network_layer_.rxMessage(message);
   }
 
-  void update() {
+  void update(MessageQueue &received_messages) {
     network_layer_.update();
 
     if (state_ == State::IDLE) {
+      Message message{};
+      if (network_layer_.rxMessage(message)) {
+        std::cout << "Got a new message: " << message.data
+                  << " id: " << message.id << std::endl;
+        if (message.isValid() && !message.isAck()) {
+          sendAck(message.id);
+          received_messages.push(message);
+        } else if (message.isAck()) {
+          // std::cout << "Got an ACK, seemingly out of place." << std::endl;
+        }
+      }
       return;
     } else if (state_ == State::SENDING) {
       if (!sendPacket()) {
@@ -73,9 +85,14 @@ public:
           state_ = State::SENDING;
         } else {
           state_ = State::IDLE;
+          std::cout << "Message failed to send." << std::endl;
         }
       }
     }
+  }
+
+  void updateStatus(gdl::GdlStatus &status) {
+    network_layer_.updateStatus(status);
   }
 
 private:
@@ -84,6 +101,16 @@ private:
       return false;
     }
     return true;
+  }
+
+  void sendAck(std::string id) {
+    std::cout << "Sending ACK for id: " << id << std::endl;
+    Message message{};
+    message.data = "ACK";
+    message.id = id;
+    message.type = Message::Type::EXCHANGE;
+    // BoosterSeat::threadSleep(5);
+    network_layer_.txMessage(message);
   }
 
   void startTimer() {
@@ -95,6 +122,13 @@ private:
   }
 
   bool receivedAck() {
+    Message message{};
+    if (network_layer_.rxMessage(message)) {
+      if (message.data == "ACK") {
+        std::cout << "Got an ACK!" << std::endl;
+        return true;
+      }
+    }
     return false;
   }
 

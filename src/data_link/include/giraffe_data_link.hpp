@@ -96,12 +96,17 @@ public:
   int getBroadcastQueueSize() const;
   int getReceiveQueueSize() const;
 
+  GdlStatus getGdlStatus() {
+    std::lock_guard<std::mutex> lock(gdl_status_lock_);
+    return gdl_status_;
+  }
+
 private:
   // PhysicalLayer physical_layer_;
   // NetworkLayer network_layer_;
   TransportLayer transport_layer_;
 
-  uint16_t getNextMessageId();
+  std::string getNextMessageId();
 
   struct MessageQueues {
     MessageQueues(int exchange_queue_size, int broadcast_queue_size,
@@ -113,8 +118,6 @@ private:
     MessageQueue exchange;
     MessageQueue broadcast;
     MessageQueue received;
-
-    uint16_t message_id_ = 0;
   };
 
   /**
@@ -150,6 +153,7 @@ private:
 
   std::mutex gdl_status_lock_{};
   GdlStatus gdl_status_{};
+  uint16_t message_id_ = 0;
 };
 
 } // namespace gdl

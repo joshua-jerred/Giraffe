@@ -14,8 +14,6 @@
  * @copyright  2023 (license to be defined)
  */
 
-#include <BoosterSeat/sleep.hpp>
-
 #include "giraffe_diagnostics.hpp"
 
 #include "giraffe_data_link.hpp"
@@ -74,11 +72,11 @@ int GiraffeDataLink::getReceiveQueueSize() const {
 }
 
 void GiraffeDataLink::gdlThread() {
-  constexpr int kSleepIntervalMs = 50;
+  constexpr int kSleepIntervalMs = 2;
 
   status_ = Status::RUNNING;
   while (status_ == Status::RUNNING) {
-    BoosterSeat::threadSleep(kSleepIntervalMs);
+    // BoosterSeat::threadSleep(kSleepIntervalMs);
     if (queues_.exchange.size() > 0 && transport_layer_.isReady()) {
       Message msg;
       bool res = queues_.exchange.pop(msg);
@@ -87,13 +85,14 @@ void GiraffeDataLink::gdlThread() {
       }
     }
 
-    transport_layer_.update();
+    transport_layer_.update(queues_.received);
 
     // update the status struct
     gdl_status_lock_.lock();
     gdl_status_.exchange_queue_size = queues_.exchange.size();
     gdl_status_.broadcast_queue_size = queues_.broadcast.size();
     gdl_status_.received_queue_size = queues_.received.size();
+    transport_layer_.updateStatus(gdl_status_);
     gdl_status_lock_.unlock();
   }
 }
@@ -106,6 +105,7 @@ bool GiraffeDataLink::exchangeMessage(std::string message) {
   msg.data = message;
   msg.type = Message::Type::EXCHANGE;
   msg.id = getNextMessageId();
+  message_id_ += 1;
   return queues_.exchange.push(msg);
 }
 
@@ -116,12 +116,13 @@ bool GiraffeDataLink::broadcastMessage(std::string message) {
   Message msg;
   msg.data = message;
   msg.type = Message::Type::BROADCAST;
-  msg.id = 0;
+  msg.id = "";
   return queues_.broadcast.push(msg);
 }
 
-uint16_t GiraffeDataLink::getNextMessageId() {
-  return queues_.message_id_++;
+std::string GiraffeDataLink::getNextMessageId() {
+  std::string id = std::to_string((int)message_id_);
+  return id;
 }
 
 } // namespace gdl

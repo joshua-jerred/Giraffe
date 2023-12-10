@@ -5,12 +5,24 @@
 
 int main() {
   std::cout << "Giraffe Data Link" << std::endl;
+  std::string message;
 
   signal_easel::aprs::Packet base_packet{};
-  base_packet.source_address = "SRCADR";
-  base_packet.destination_address = "DSTADR";
+
+  std::cout << "Client number 1 or 2? ";
+  std::cin >> message;
+  if (message == "1") {
+    base_packet.source_address = "GDL1";
+    base_packet.destination_address = "GDL2";
+  } else if (message == "2") {
+    base_packet.source_address = "GDL2";
+    base_packet.destination_address = "GDL1";
+  } else {
+    return 1;
+  }
 
   gdl::GdlConfig config;
+  config.user_id = message;
 
   gdl::PhysicalLayer physical_layer;
   gdl::AprsNetworkLayer network_layer{physical_layer, base_packet};
@@ -20,10 +32,16 @@ int main() {
   gdl.start();
 
   while (true) {
-    std::cout << "Enter a message to send: " << std::endl;
-    usleep(1000);
-    std::string message;
+    // std::cout << "Enter a message to send: " << std::endl;
+    // usleep(1000);
+
     std::cin >> message;
+
+    if (message == "stats") {
+      gdl.getGdlStatus().print();
+      continue;
+    }
+
     gdl.exchangeMessage(message);
   }
 

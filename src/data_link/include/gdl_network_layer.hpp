@@ -22,6 +22,7 @@
 
 #include "gdl_message.hpp"
 #include "gdl_physical_layer.hpp"
+#include "gdl_status.hpp"
 
 namespace gdl {
 
@@ -39,7 +40,12 @@ public:
 
   virtual bool rxMessage(Message &message) = 0;
 
+  virtual void updateNetworkLayer() = 0;
+
+  virtual void updateStatus(GdlStatus &status) = 0;
+
   void update() {
+    updateNetworkLayer();
     physical_layer_.update();
   }
 

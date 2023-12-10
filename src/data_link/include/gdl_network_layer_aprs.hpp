@@ -34,12 +34,12 @@ public:
   virtual ~AprsNetworkLayer() {
   }
 
-  virtual bool txMessage(Message &message) {
-    std::cout << "APRS: " << message.data << std::endl;
+  bool txMessage(Message &message) override {
+    // std::cout << "APRS: " << message.data << std::endl;
     signal_easel::aprs::MessagePacket packet{};
-    packet.addressee = "APRS";
+    packet.addressee = base_packet_.destination_address;
     packet.message = message.data;
-    packet.message_id = "1";
+    packet.message_id = message.id;
 
     modulator_.encodeMessagePacket(packet);
     modulator_.writeToPulseAudio();
@@ -49,9 +49,32 @@ public:
     return true;
   }
 
-  virtual bool rxMessage(Message &message) {
-    (void)message;
-    return true;
+  bool rxMessage(Message &message) override {
+    signal_easel::aprs::MessagePacket message_packet{};
+    signal_easel::ax25::Frame frame{};
+    if (receiver_.getAprsMessage(message_packet, frame)) {
+      if (frame.getSourceAddress().getAddressString() ==
+          base_packet_.source_address) { // message is from us, ignore it.
+        return false;
+      }
+
+      message.data = message_packet.message;
+      message.id = message_packet.message_id;
+      return true;
+    }
+    return false;
+  }
+
+  void updateNetworkLayer() override {
+    receiver_.process();
+    // Message message{};
+    // if (rxMessage(message)) {
+
+    // }
+  }
+
+  void updateStatus(GdlStatus &status) override {
+    status.network_layer_latency_ms = receiver_.getLatency();
   }
 
 private:

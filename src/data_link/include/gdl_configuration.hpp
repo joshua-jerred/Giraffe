@@ -18,6 +18,7 @@
 #define GDL_CONFIGURATION_HPP_
 
 #include <cstdint>
+#include <string>
 
 namespace gdl {
 
@@ -25,6 +26,8 @@ namespace gdl {
  * @brief Configuration data for Giraffe Data Link
  */
 struct GdlConfig {
+  std::string user_id = "GDL";
+
   /**
    * @brief The size of the broadcast queue.
    */
@@ -49,7 +52,7 @@ struct GdlConfig {
   /**
    * @brief The interval between retries in milliseconds.
    */
-  uint16_t retry_interval_ms = 1000;
+  uint16_t retry_interval_ms = 500;
 
   /**
    * @brief The interval between connection status messages in seconds.
