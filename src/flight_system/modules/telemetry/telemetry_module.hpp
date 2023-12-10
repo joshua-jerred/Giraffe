@@ -37,9 +37,7 @@ private:
   void startup() override;
   void loop() override;
   void shutdown() override;
-  void processCommand(const cmd::Command &command) {
-    (void)command;
-  }
+  void processCommand(const cmd::Command &command);
 
   signal_easel::aprs::Packet base_packet_{
       .source_address = "N0CALL",
@@ -53,6 +51,10 @@ private:
   gdl::AprsNetworkLayer network_layer_{physical_layer_, base_packet_};
   gdl::TransportLayer transport_layer_{network_layer_, gdl_config_};
   gdl::GiraffeDataLink gdl_{gdl_config_, transport_layer_};
+
+  int total_packets_sent_ = 0;
+  int total_packets_received_ = 0;
+  std::string last_received_message_ = "";
 };
 
 } // namespace modules

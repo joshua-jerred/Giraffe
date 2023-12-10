@@ -33,6 +33,7 @@ std::string DataFormatter::fullFrame() {
   addComponent(DataFrameComponent::SERVER_STATS, frame);
   addComponent(DataFrameComponent::SYSTEM_INFO, frame);
   addComponent(DataFrameComponent::ENVIRONMENTAL_DATA, frame);
+  addComponent(DataFrameComponent::TELEMETRY_DATA, frame);
   return frame.dump();
 }
 
@@ -80,6 +81,10 @@ void DataFormatter::addComponent(DataFrameComponent component, Json &frame) {
         data::toJson(shared_data_.frames.env_pres);
     frame["environmental"]["humidity"] =
         data::toJson(shared_data_.frames.env_hum);
+    break;
+  case DataFrameComponent::TELEMETRY_DATA:
+    frame["data"]["telemetry"] =
+        shared_data_.blocks.telemetry_module_stats.get().toJson();
     break;
   }
 }

@@ -35,7 +35,10 @@ const std::unordered_map<std::string, CommandId> K_STRING_TO_COMMAND_MAP {
   {"FLIGHT_RUNNER_stopModule",CommandId::FLIGHT_RUNNER_stopModule},
   {"FLIGHT_RUNNER_restartModule",CommandId::FLIGHT_RUNNER_restartModule},
   {"DATA_MODULE_clearAllErrors",CommandId::DATA_MODULE_clearAllErrors},
-  {"DATA_MODULE_clearSpecificError",CommandId::DATA_MODULE_clearSpecificError}
+  {"DATA_MODULE_clearSpecificError",CommandId::DATA_MODULE_clearSpecificError},
+  {"TELEMETRY_MODULE_sendNumActiveErrors",CommandId::TELEMETRY_MODULE_sendNumActiveErrors},
+  {"TELEMETRY_MODULE_sendRssi",CommandId::TELEMETRY_MODULE_sendRssi},
+  {"TELEMETRY_MODULE_sendSnr",CommandId::TELEMETRY_MODULE_sendSnr}
 };
 
 } // namespace cmd

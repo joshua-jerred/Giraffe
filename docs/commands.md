@@ -97,3 +97,5 @@ With hex arguments, letters must be lowercase.
 
 - ``cmd/tlm/rtx/[num]`` - Retransmit the transmission with a given number, as
   long as it is in the log.
+- ``cmd/tlm/rsi/`` - Respond with the RSSI of the last received packet
+- ``cmd/tlm/snr/`` - Respond with the SNR of the last received packet

@@ -332,7 +332,7 @@ void console_pages::Pages::location() {
 }
 
 void console_pages::Pages::telemetry() {
-  constexpr int kNumLines = 6;
+  constexpr int kNumLines = 10;
   setNumLinesOnPage(kNumLines);
   auto info = shared_data_.blocks.telemetry_module_stats.get();
   // clang-format off
@@ -344,6 +344,9 @@ void console_pages::Pages::telemetry() {
       std::to_string(info.broadcast_queue_size) + ", " +
       std::to_string(info.received_queue_size),
       "Network Layer Latency: " + std::to_string(info.network_layer_latency_ms) + " ms",
+      "Volume: " + f2s(info.volume) + "  |  Signal to Noise Ratio: " + f2s(info.signal_to_noise_ratio),
+      "Total Packets Received: " + std::to_string(info.total_packets_received) + "  |  Total Packets Sent: " + std::to_string(info.total_packets_sent),
+      "Last Received Message: " + info.last_received_message
   };
   // clang-format on
 }

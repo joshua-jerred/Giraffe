@@ -305,6 +305,11 @@ void FlightRunner::routeCommand(cmd::Command &command) {
       command_added = p_server_module_->addCommand(command);
     }
     break;
+  case node::Identification::TELEMETRY_MODULE:
+    if (p_telemetry_module_ != nullptr) {
+      command_added = p_telemetry_module_->addCommand(command);
+    }
+    break;
   default:
     shared_data_.streams.log.error(
         node::Identification::FLIGHT_RUNNER,
@@ -324,6 +329,16 @@ void FlightRunner::processCommand(const cmd::Command &command) {
   switch (command.command_id) {
   case cmd::CommandId::FLIGHT_RUNNER_shutdownSystem:
     shutdown_signal_ = true; // This will cause the flight loop to exit
+    break;
+  case cmd::CommandId::FLIGHT_RUNNER_startModule:
+    toggleModule(command.str_arg, true);
+    break;
+  case cmd::CommandId::FLIGHT_RUNNER_stopModule:
+    toggleModule(command.str_arg, false);
+    break;
+  case cmd::CommandId::FLIGHT_RUNNER_restartModule:
+    toggleModule(command.str_arg, false);
+    toggleModule(command.str_arg, true);
     break;
   default:
     shared_data_.streams.log.error(node::Identification::FLIGHT_RUNNER,
@@ -368,3 +383,21 @@ void FlightRunner::processCommand(const cmd::Command &command) {
 //       break;
 //   }
 // }
+
+void FlightRunner::toggleModule(const std::string &module_id, bool on_or_off) {
+  if (module_id == "csl") {
+    if (on_or_off) {
+      if (p_console_module_ == nullptr) {
+        p_console_module_ =
+            new modules::ConsoleModule(shared_data_, *p_config_);
+        p_console_module_->start();
+      }
+    } else {
+      if (p_console_module_ != nullptr) {
+        p_console_module_->stop();
+        delete p_console_module_;
+        p_console_module_ = nullptr;
+      }
+    }
+  }
+}

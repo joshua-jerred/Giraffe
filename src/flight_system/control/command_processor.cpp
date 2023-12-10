@@ -29,7 +29,8 @@ static const std::unordered_map<std::string, node::Identification>
                          {"srv", node::Identification::SERVER_MODULE},
                          {"sys", node::Identification::SYSTEM_MODULE},
                          {"etm", node::Identification::EXTENSION_MODULE},
-                         {"ext", node::Identification::EXTENSION}};
+                         {"ext", node::Identification::EXTENSION},
+                         {"tlm", node::Identification::TELEMETRY_MODULE}};
 
 static const std::array<std::string, 6> K_MODULE_IDENTIFIERS = {
     "dat", "csl", "srv", "sys", "etm", "tlm"};
@@ -174,6 +175,34 @@ bool parseExtensionCommand(const std::string &command_id_str,
   return false;
 }
 
+bool parseTelemetryModuleCommand(const std::string &command_id_str,
+                                 const std::string &arg,
+                                 cmd::Command &command) {
+  static const std::unordered_map<std::string, cmd::CommandId>
+      K_COMMAND_ID_MAP = {
+          {"nae", cmd::CommandId::TELEMETRY_MODULE_sendNumActiveErrors},
+          {"rsi", cmd::CommandId::TELEMETRY_MODULE_sendRssi},
+          {"snr", cmd::CommandId::TELEMETRY_MODULE_sendSnr}};
+  if (!K_COMMAND_ID_MAP.contains(command_id_str)) {
+    return false;
+  }
+  command.command_id = K_COMMAND_ID_MAP.at(command_id_str);
+
+  switch (command.command_id) {
+  case cmd::CommandId::TELEMETRY_MODULE_sendNumActiveErrors:
+  case cmd::CommandId::TELEMETRY_MODULE_sendRssi:
+  case cmd::CommandId::TELEMETRY_MODULE_sendSnr:
+    if (arg.length() != 0) {
+      return false;
+    }
+    return true;
+  default:
+    return false;
+  };
+
+  return false;
+}
+
 bool cmd::parseCommandString(const std::string &command_string,
                              Command &command) {
   const std::regex command_regex("^cmd/[a-z]{3}/[a-z]{3}/[a-z0-9-]{0,20}$");
@@ -211,6 +240,8 @@ bool cmd::parseCommandString(const std::string &command_string,
     return parseExtensionModuleCommand(command_id_string, arg, command);
   case node::Identification::EXTENSION:
     return parseExtensionCommand(command_id_string, arg, command);
+  case node::Identification::TELEMETRY_MODULE:
+    return parseTelemetryModuleCommand(command_id_string, arg, command);
   default:
     return false;
   }

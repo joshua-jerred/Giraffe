@@ -36,7 +36,7 @@ int main() {
     // std::cout << "Enter a message to send: " << std::endl;
     // usleep(1000);
 
-    std::getline(std::cin, message);
+    std::cin >> message;
 
     if (message == "stats") {
       gdl.getGdlStatus().print();

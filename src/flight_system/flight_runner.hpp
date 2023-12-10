@@ -37,6 +37,8 @@ private:
    */
   void processCommand(const cmd::Command &command);
 
+  void toggleModule(const std::string &module_id, bool on_or_off);
+
   bool shutdown_signal_ = false;
   data::SharedData shared_data_ = data::SharedData();
 

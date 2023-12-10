@@ -147,7 +147,8 @@ enum class DiagnosticId : uint16_t {
   GDL_invalidStartCall=0xA000, // Invalid Start Call
   GDL_invalidStopCall=0xA001, // Invalid Stop Call
   GDL_invalidBroadcastCall=0xA002, // Invalid Broadcast Call
-  GDL_invalidExchangeCall=0xA003  // Invalid Exchange Call
+  GDL_invalidExchangeCall=0xA003, // Invalid Exchange Call
+  TELEMETRY_invalidCommand=0xB000  // Invalid Command
 };
 // NOLINTEND(readability-identifier-naming)
 
