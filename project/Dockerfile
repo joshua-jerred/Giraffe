@@ -15,4 +15,5 @@ RUN apt-get update && apt-get install -y \
    libcurl4-gnutls-dev \
    nlohmann-json3-dev \
    libi2c-dev \
-   libncurses-dev
+   libncurses-dev \
+   libpulse-dev
