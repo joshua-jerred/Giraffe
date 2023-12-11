@@ -173,6 +173,17 @@ private:
   void processImuFramePacket(const data::ImuFramePacket &packet);
 
   /**
+   * @brief Use existing data to calculate the data that can be calculated.
+   * @todo This function is not implemented yet.
+   */
+  void calculateCalculatedData();
+  /**
+   * @brief Buffer for the calculated data. Used by the calculateCalculatedData
+   * method.
+   */
+  data::blocks::CalculatedData calculated_data_{};
+
+  /**
    * @brief The data log object, used to log data and errors to files.
    */
   data_middleware::DataLog data_log_;

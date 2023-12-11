@@ -31,7 +31,8 @@ enum class DataFrameComponent {
   SERVER_STATS,
   SYSTEM_INFO,
   ENVIRONMENTAL_DATA,
-  TELEMETRY_DATA
+  TELEMETRY_DATA,
+  CALCULATED_DATA
 };
 
 class DataFormatter {

@@ -30,9 +30,9 @@ void modules::DataModule::loop() {
         configuration_.data_module_log.getErrorLogStrategy();
   }
 
-  influxdb_enabled_ = configuration_.data_module_influxdb.getInfluxEnabled();
-
   processAllStreams();
+
+  calculateCalculatedData();
 
   if (data_file_enabled_ &&
       (data_file_logging_strategy_ == cfg::gEnum::LogStrategy::INTERVAL ||
@@ -47,6 +47,7 @@ void modules::DataModule::loop() {
     data_log_.logErrorFrame();
   }
 
+  influxdb_enabled_ = configuration_.data_module_influxdb.getInfluxEnabled();
   if (influxdb_enabled_) {
     influxdb_.writeFrames(); // timer taken care of inside of influxdb_
   }
@@ -147,6 +148,7 @@ void modules::DataModule::processDataPacket(const data::DataPacket &packet) {
 void modules::DataModule::parseGeneralDataPacket(
     const data::DataPacket &packet) {
   (void)packet;
+  /// @todo Implement general data packet parsing
   // Process packet here
 }
 
@@ -280,4 +282,31 @@ void modules::DataModule::processImuFramePacket(
   }
 
   shared_data_.blocks.imu_data.set(data_block);
+}
+
+/**
+ * @brief Calculates the altitude in meters from the pressure in hPa.
+ * @param pressure The pressure in hPa.
+ * @return double The altitude in meters.
+ */
+inline double calculatePressureAltitude(double pressure) {
+  return (1 - std::pow(pressure / 1013.25, 0.190284)) * 145366.45 * 0.3048;
+}
+
+void modules::DataModule::calculateCalculatedData() {
+  auto pres_data = shared_data_.frames.env_pres.getAll();
+  if (pres_data.size() == 0) {
+    calculated_data_.pressure_altitude_valid = false;
+  } else {
+    std::string pres_string = pres_data.begin()->second.value;
+    try {
+      double pres = std::stod(pres_string);
+      calculated_data_.pressure_altitude_m = calculatePressureAltitude(pres);
+      calculated_data_.pressure_altitude_valid = true;
+    } catch (std::invalid_argument &e) {
+      calculated_data_.pressure_altitude_valid = false;
+    }
+  }
+
+  shared_data_.blocks.calculated_data.set(calculated_data_);
 }

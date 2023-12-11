@@ -20,6 +20,20 @@
 
 #include <iostream>
 
+inline constexpr bool LOAD_SIMULATED_EXTENSIONS = true;
+static const std::vector<cfg::ExtensionMetadata> SIMULATED_EXTENSIONS = {
+    cfg::ExtensionMetadata{
+        "sim_temp", true, cfg::gEnum::ExtensionType::SIM_TEMP, 1000, false, ""},
+    cfg::ExtensionMetadata{
+        "sim_pres", true, cfg::gEnum::ExtensionType::SIM_PRES, 1000, false, ""},
+    cfg::ExtensionMetadata{"sim_hum", true, cfg::gEnum::ExtensionType::SIM_HUM,
+                           1000, false, ""},
+    cfg::ExtensionMetadata{"sim_gps", true, cfg::gEnum::ExtensionType::SIM_GPS,
+                           1000, false, ""},
+    cfg::ExtensionMetadata{"sim_imu", true, cfg::gEnum::ExtensionType::SIM_IMU,
+                           1000, false, ""},
+};
+
 namespace modules {
 
 static MetaData metadata("extension_module",
@@ -35,6 +49,21 @@ ExtensionModule::ExtensionModule(data::SharedData &shared_data,
 void ExtensionModule::startup() {
   updateLocalConfig(); // Load in the config for the extension.
 
+  // Load in the simulated extensions.
+  if (LOAD_SIMULATED_EXTENSIONS) {
+    for (auto &ext_meta : SIMULATED_EXTENSIONS) {
+      // Create the extension.
+      auto extension = createExtension(ext_meta);
+      if (!extension.has_value()) {
+        error(DiagnosticId::EXTENSION_MODULE_failedToCreate, ext_meta.name);
+        continue;
+      }
+      info("Loaded simulated extension: " + ext_meta.name);
+      // Add the extension to the list of extensions.
+      extensions_.push_back(extension.value());
+    }
+  }
+
   // Load in the extensions.
   for (auto &ext_meta : configuration_.extensions.getExtensions()) {
     // Create the extension.
@@ -43,7 +72,7 @@ void ExtensionModule::startup() {
       error(DiagnosticId::EXTENSION_MODULE_failedToCreate, ext_meta.name);
       continue;
     }
-
+    info("Loaded extension: " + ext_meta.name);
     // Add the extension to the list of extensions.
     extensions_.push_back(extension.value());
   }
