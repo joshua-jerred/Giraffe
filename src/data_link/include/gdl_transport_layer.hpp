@@ -20,6 +20,8 @@
 #include <BoosterSeat/sleep.hpp>
 #include <BoosterSeat/timer.hpp>
 
+#include "gdl_configuration.hpp"
+#include "gdl_message_queue.hpp"
 #include "gdl_network_layer.hpp"
 
 namespace gdl {
