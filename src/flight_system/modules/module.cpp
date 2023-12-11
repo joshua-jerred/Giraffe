@@ -93,6 +93,11 @@ void modules::Module::runner() {
     }
     sleep();
     setStatus(node::Status::RUNNING);
+
+    cmd::Command command;
+    if (command_queue_.getCommand(command)) {
+      processCommand(command);
+    }
   }
   setStatus(node::Status::STOPPING);
   shutdown();

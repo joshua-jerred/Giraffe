@@ -19,6 +19,8 @@
 
 #include "module.hpp"
 
+#include <gdl_network_layer_aprs.hpp>
+#include <giraffe_data_link.hpp>
 namespace modules {
 
 static modules::MetaData metadata("telemetry_module",
@@ -35,9 +37,24 @@ private:
   void startup() override;
   void loop() override;
   void shutdown() override;
-  void processCommand(const cmd::Command &command) {
-    (void)command;
-  }
+  void processCommand(const cmd::Command &command);
+
+  signal_easel::aprs::Packet base_packet_{
+      .source_address = "N0CALL",
+      .source_ssid = 0,
+      .destination_address = "APZMWV",
+      .destination_ssid = 0,
+      .symbol_table = signal_easel::aprs::Packet::SymbolTable::PRIMARY,
+      .symbol = '/'};
+  gdl::GdlConfig gdl_config_{};
+  gdl::PhysicalLayer physical_layer_{};
+  gdl::AprsNetworkLayer network_layer_{physical_layer_, base_packet_};
+  gdl::TransportLayer transport_layer_{network_layer_, gdl_config_};
+  gdl::GiraffeDataLink gdl_{gdl_config_, transport_layer_};
+
+  int total_packets_sent_ = 0;
+  int total_packets_received_ = 0;
+  std::string last_received_message_ = "";
 };
 
 } // namespace modules

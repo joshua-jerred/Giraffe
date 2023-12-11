@@ -18,6 +18,7 @@
 #define GDL_CONFIGURATION_HPP_
 
 #include <cstdint>
+#include <string>
 
 namespace gdl {
 
@@ -25,6 +26,8 @@ namespace gdl {
  * @brief Configuration data for Giraffe Data Link
  */
 struct GdlConfig {
+  std::string user_id = "GDL";
+
   /**
    * @brief The size of the broadcast queue.
    */
@@ -47,9 +50,9 @@ struct GdlConfig {
   uint8_t max_retries = 3;
 
   /**
-   * @brief The interval between retries in seconds.
+   * @brief The interval between retries in milliseconds.
    */
-  uint16_t retry_interval = 5;
+  uint16_t retry_interval_ms = 500;
 
   /**
    * @brief The interval between connection status messages in seconds.
@@ -66,6 +69,12 @@ struct GdlConfig {
    * @brief The default timeout for a message in seconds.
    */
   uint16_t default_timeout = 30;
+
+  /**
+   * @brief If new messages should be printed to the console as they come in
+   * instead of hiding them in the queue.
+   */
+  bool print_new_messages = false;
 };
 
 } // namespace gdl

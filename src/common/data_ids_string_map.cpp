@@ -37,7 +37,8 @@ const std::unordered_map<DataId, std::string> K_DATA_ID_TO_STRING_MAP {
   {DataId::CAMERA_newImagePath,"CAMERA_newImagePath"},
   {DataId::ADC_rawCount,"ADC_rawCount"},
   {DataId::ADC_percentage,"ADC_percentage"},
-  {DataId::ADC_voltage,"ADC_voltage"}
+  {DataId::ADC_voltage,"ADC_voltage"},
+  {DataId::TELEMETRY_dataLinkPacketReceived,"TELEMETRY_dataLinkPacketReceived"}
 };
 
 } // namespace data

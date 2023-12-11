@@ -67,5 +67,12 @@
             "details": "ADC voltage",
             "value": "0xA003"
         }
+    },
+    "telemetry":{
+        "data_link_packet_received": {
+            "name": "Data Link Packet Received",
+            "details": "Data link packet received",
+            "value": "0x8001"
+        }
     }
 }

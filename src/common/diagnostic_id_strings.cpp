@@ -1,6 +1,6 @@
 /**
  *
- *
+ * 
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -11,8 +11,8 @@
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- *
- *
+ * 
+ * 
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       2023-06-30
@@ -142,14 +142,15 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::GDL_invalidStartCall,"GDL_invalidStartCall"},
   {DiagnosticId::GDL_invalidStopCall,"GDL_invalidStopCall"},
   {DiagnosticId::GDL_invalidBroadcastCall,"GDL_invalidBroadcastCall"},
-  {DiagnosticId::GDL_invalidExchangeCall,"GDL_invalidExchangeCall"}
+  {DiagnosticId::GDL_invalidExchangeCall,"GDL_invalidExchangeCall"},
+  {DiagnosticId::TELEMETRY_invalidCommand,"TELEMETRY_invalidCommand"}
 };
 
 
 
 /**
  * @endverbatim
- *
+ * 
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&

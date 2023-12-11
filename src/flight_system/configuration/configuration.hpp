@@ -243,9 +243,11 @@ public:
 
   bool getTelemetryEnabled() const;
   std::string getCallSign() const;
+  bool getDataLinkEnabled() const;
 
   void setTelemetryEnabled(bool);
   void setCallSign(std::string);
+  void setDataLinkEnabled(bool);
 
   void setFromJson(const Json&);
   Json getJson() const;
@@ -253,6 +255,7 @@ public:
 private:
   bool telemetry_enabled_ = false;
   std::string call_sign_ = "N0CALL";
+  bool data_link_enabled_ = false;
 };
 
 class TelemetryAprs : public cfg::CfgSection {

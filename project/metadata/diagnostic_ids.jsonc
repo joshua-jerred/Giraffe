@@ -623,5 +623,12 @@
       "details": "Call to GDL::exchange() when not in the running state.",
       "value": "0xA003"
     }
+  },
+  "telemetry":{
+    "invalid_command":{
+      "name": "Invalid Command",
+      "details": "The command sent to the telemetry module is not valid.",
+      "value": "0xB000"
+    }
   }
 }

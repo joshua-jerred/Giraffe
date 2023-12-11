@@ -30,7 +30,8 @@ enum class DataFrameComponent {
   STREAM_STATS,
   SERVER_STATS,
   SYSTEM_INFO,
-  ENVIRONMENTAL_DATA
+  ENVIRONMENTAL_DATA,
+  TELEMETRY_DATA
 };
 
 class DataFormatter {

@@ -130,9 +130,9 @@
             "step": 1
         },
         "warn_on_trim": {
-            "type":"bool",
+            "type": "bool",
             "name": "Warn on Archive Trim",
-            "description":"When archive files are deleted (max archive size exceeded), an error will be logged if this is enabled.",
+            "description": "When archive files are deleted (max archive size exceeded), an error will be logged if this is enabled.",
             "default": true,
             "true": "enabled",
             "false": "disabled"
@@ -404,6 +404,15 @@
             "max": 6,
             "min": 3,
             "pattern": "[a-zA-Z0-9]{1,3}[0-9][a-zA-Z0-9]{0,3}[a-zA-Z]"
+        },
+        "data_link_enabled": {
+            "true": "enabled",
+            "false": "disabled",
+            "type": "bool",
+            "default": false,
+            "required": true,
+            "name": "Data Link Enabled",
+            "description": "Enable/Disable the data link."
         }
     },
     "telemetry_aprs": {

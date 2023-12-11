@@ -879,6 +879,11 @@ std::string cfg::Telemetry::getCallSign() const {
   return call_sign_;
 }
 
+bool cfg::Telemetry::getDataLinkEnabled() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return data_link_enabled_;
+}
+
 void cfg::Telemetry::setTelemetryEnabled(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   telemetry_enabled_ = val;
@@ -887,6 +892,11 @@ void cfg::Telemetry::setTelemetryEnabled(bool val) {
 void cfg::Telemetry::setCallSign(std::string val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   call_sign_ = val;
+}
+
+void cfg::Telemetry::setDataLinkEnabled(bool val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  data_link_enabled_ = val;
 }
 
 void cfg::Telemetry::setFromJson(const Json &json_data) {
@@ -911,13 +921,24 @@ void cfg::Telemetry::setFromJson(const Json &json_data) {
         6,
         "[a-zA-Z0-9]{1,3}[0-9][a-zA-Z0-9]{0,3}[a-zA-Z]"
   );
+  validation::setValidValue<bool>(
+        streams_.log,
+        json_data,
+        "telemetry",
+        "data_link_enabled",
+        data_link_enabled_,
+        0,
+        0,
+        ""
+  );
 }
 
 Json cfg::Telemetry::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return Json({
     {"telemetry_enabled", telemetry_enabled_},
-    {"call_sign", call_sign_}
+    {"call_sign", call_sign_},
+    {"data_link_enabled", data_link_enabled_}
   });
 }
 bool cfg::TelemetryAprs::getTelemetryPackets() const {

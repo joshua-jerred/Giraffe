@@ -24,6 +24,7 @@
 #include "gdl_configuration.hpp"
 #include "gdl_message.hpp"
 #include "gdl_message_queue.hpp"
+#include "gdl_status.hpp"
 #include "gdl_transport_layer.hpp"
 
 namespace gdl {
@@ -46,7 +47,7 @@ public:
    * @brief Create a new Giraffe Data Link instance
    * @param config - The configuration for the GDL instance
    */
-  GiraffeDataLink(GdlConfig config);
+  GiraffeDataLink(GdlConfig config, TransportLayer transport_layer);
 
   /**
    * @brief Deconstruct the GDL instance, this will stop the GDL instance if it
@@ -78,23 +79,9 @@ public:
    */
   ConnectionStatus getConnectionStatus() const;
 
-  /**
-   * @brief Add a message to the exchange queue.
-   * @details Requires a connection.
-   * @param message - The message to add to the queue.
-   * @return true - If the message was added to the queue.
-   * @return false - If the message was not added to the queue.
-   */
-  bool sendExchangeMessage(Message message);
+  bool exchangeMessage(std::string message);
 
-  /**
-   * @brief Add a message to the broadcast queue.
-   * @details Does not require a connection.
-   * @param message - The message to add to the queue.
-   * @return true - If the message was added to the queue.
-   * @return false - If the message was not added to the queue.
-   */
-  bool sendBroadcastMessage(Message message);
+  bool broadcastMessage(std::string message);
 
   /**
    * @brief Get a message from the receive queue.
@@ -109,7 +96,18 @@ public:
   int getBroadcastQueueSize() const;
   int getReceiveQueueSize() const;
 
+  GdlStatus getGdlStatus() {
+    std::lock_guard<std::mutex> lock(gdl_status_lock_);
+    return gdl_status_;
+  }
+
 private:
+  // PhysicalLayer physical_layer_;
+  // NetworkLayer network_layer_;
+  TransportLayer transport_layer_;
+
+  std::string getNextMessageId();
+
   struct MessageQueues {
     MessageQueues(int exchange_queue_size, int broadcast_queue_size,
                   int receive_queue_size)
@@ -152,6 +150,10 @@ private:
    */
   std::atomic<ConnectionStatus> connection_status_{
       ConnectionStatus::DISCONNECTED};
+
+  std::mutex gdl_status_lock_{};
+  GdlStatus gdl_status_{};
+  uint16_t message_id_ = 0;
 };
 
 } // namespace gdl
