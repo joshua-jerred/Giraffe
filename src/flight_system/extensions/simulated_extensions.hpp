@@ -95,18 +95,19 @@ public:
   SimGpsSensor(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
       : Extension(resources, metadata) {
     gps_frame.gps_utc_time = BoosterSeat::clck::now();
+    gps_frame.is_valid = true;
     gps_frame.fix = data::GpsFix::FIX_3D;
     gps_frame.num_satellites = 10;
     gps_frame.latitude = 40.0;
     gps_frame.longitude = -80.0;
     gps_frame.horz_accuracy = 5.0;
     gps_frame.altitude = 1000.0;
-    gps_frame.vert_accuracy = 5.0;
-    gps_frame.vertical_speed = 0.0;
-    gps_frame.horizontal_speed = 0.0;
-    gps_frame.speed_accuracy = 0.0;
-    gps_frame.heading_of_motion = 0.0;
-    gps_frame.heading_accuracy = 0.0;
+    gps_frame.vert_accuracy = 1.0;
+    gps_frame.vertical_speed = 1.0;
+    gps_frame.horizontal_speed = 1.0;
+    gps_frame.speed_accuracy = 1.0;
+    gps_frame.heading_of_motion = 1.0;
+    gps_frame.heading_accuracy = 1.0;
   }
 
   void loop() override {

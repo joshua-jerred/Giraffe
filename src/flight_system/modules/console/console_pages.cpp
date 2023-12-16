@@ -312,6 +312,7 @@ void console_pages::Pages::location() {
   auto data = shared_data_.blocks.location_data.get();
   // auto last_valid = data.last_valid_gps_frame;
   auto cur = data.last_gps_frame;
+  auto last_valid = data.last_valid_gps_frame;
   // clang-format off
   content_ = {
     " -- Most Recent GPS Frame -- ",
@@ -326,7 +327,21 @@ void console_pages::Pages::location() {
     "Accuracy - Hor, Vert, H/S: " + 
       BoosterSeat::string::f2s(cur.horz_accuracy, 1) + " m, " +
       BoosterSeat::string::f2s(cur.vert_accuracy, 1) + " m, " +
-      BoosterSeat::string::f2s(cur.horizontal_speed, 1) + " m/s"
+      BoosterSeat::string::f2s(cur.horizontal_speed, 1) + " m/s",
+    "",
+    " -- Last Valid GPS Frame -- ",
+    "Fix, Num Sats, UTC:   " + data::K_GPS_FIX_TO_STRING_MAP.at(last_valid.fix) + ", " +
+      std::to_string(last_valid.num_satellites) + ", utc time",
+    "Lat, Lon, H/S:   " + BoosterSeat::string::f2s(last_valid.latitude, 6) + ", "
+      + BoosterSeat::string::f2s(last_valid.longitude, 6) + ", " +
+      BoosterSeat::string::f2s(last_valid.horizontal_speed, 1) + " m/s",
+    "ALT, V/S, HDG:   " + BoosterSeat::string::f2s(last_valid.altitude, 1)
+      + " m" + ", " + BoosterSeat::string::f2s(last_valid.heading_of_motion, 1) +
+      " deg",
+    "Accuracy - Hor, Vert, H/S: " +
+      BoosterSeat::string::f2s(last_valid.horz_accuracy, 1) + " m, " +
+      BoosterSeat::string::f2s(last_valid.vert_accuracy, 1) + " m, " +
+      BoosterSeat::string::f2s(last_valid.horizontal_speed, 1) + " m/s"
   };
   // clang-format on
 }

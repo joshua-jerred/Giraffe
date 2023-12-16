@@ -262,6 +262,7 @@ void modules::DataModule::processGpsFramePacket(
 
   location_data.last_gps_frame = packet.frame;
   location_data.current_gps_fix = packet.frame.fix;
+
   if (isGpsFrameValid(packet.frame)) {
     location_data.last_valid_gps_frame = packet.frame;
     location_data.last_valid_gps_fix = packet.frame.fix;
@@ -288,6 +289,8 @@ void modules::DataModule::processImuFramePacket(
  * @brief Calculates the altitude in meters from the pressure in hPa.
  * @param pressure The pressure in hPa.
  * @return double The altitude in meters.
+ *
+ * @todo Detect initial launch (movement from the launch point).
  */
 inline double calculatePressureAltitude(double pressure) {
   return (1 - std::pow(pressure / 1013.25, 0.190284)) * 145366.45 * 0.3048;
@@ -296,6 +299,7 @@ inline double calculatePressureAltitude(double pressure) {
 void modules::DataModule::calculateCalculatedData() {
   // Calculate pressure altitude
   auto pres_data = shared_data_.frames.env_pres.getAll();
+
   if (pres_data.size() == 0) {
     calculated_data_.pressure_altitude_valid = false;
   } else {
@@ -307,6 +311,63 @@ void modules::DataModule::calculateCalculatedData() {
     } catch (std::invalid_argument &e) {
       calculated_data_.pressure_altitude_valid = false;
     }
+  }
+
+  // Calculate distance traveled and the distance from the launch point
+  /// @brief The distance that must be traveled for the distance traveled to be
+  /// updated.
+  constexpr double MOVEMENT_THRESHOLD_KM = 0.25;
+
+  auto gps_data = shared_data_.blocks.location_data.get();
+
+  if (!launch_gps_point_set_) { // No launch point set yet
+
+    if (gps_data.last_valid_gps_frame.fix == data::GpsFix::FIX_2D ||
+        gps_data.last_valid_gps_frame.fix == data::GpsFix::FIX_3D) {
+      try {
+        launch_gps_point_ =
+            bst::geo::Point(gps_data.last_valid_gps_frame.latitude,
+                            gps_data.last_valid_gps_frame.longitude);
+        last_gps_point_ = launch_gps_point_;
+        launch_gps_point_set_ = true;
+        info("Launch point set to: " +
+             std::to_string(launch_gps_point_.latitude()) + ", " +
+             std::to_string(launch_gps_point_.longitude()));
+        /// @todo Report the launch position as a data point
+      } catch (const BoosterSeat::BoosterSeatException &e) {
+        /// @todo Report this error
+      }
+    }
+
+  } else if (gps_data.last_valid_gps_frame.fix == data::GpsFix::FIX_2D ||
+             gps_data.last_valid_gps_frame.fix == data::GpsFix::FIX_3D) {
+    try {
+      bst::geo::Point current_point(gps_data.last_valid_gps_frame.latitude,
+                                    gps_data.last_valid_gps_frame.longitude);
+      double new_distance = bst::geo::distance(last_gps_point_, current_point);
+      if (new_distance >= MOVEMENT_THRESHOLD_KM) {
+        distance_traveled_ += new_distance;
+        last_gps_point_ = current_point;
+
+        calculated_data_.distance_traveled_m = distance_traveled_ * 1000;
+        calculated_data_.distance_traveled_valid = true;
+      }
+
+      // distance from launch point
+      calculated_data_.distance_from_launch_m =
+          bst::geo::distance(launch_gps_point_, current_point) *
+          1000; // convert to meters
+      calculated_data_.distance_from_launch_valid = true;
+    } catch (const BoosterSeat::BoosterSeatException &e) {
+      /// @todo Report this error
+    }
+  } else {
+    /// @todo put this on a timer instead. Otherwise it will be reported as
+    /// invalid if there is a single invalid gps frame. Reset the timer if
+    /// there is a valid frame.
+
+    calculated_data_.distance_traveled_valid = false;
+    calculated_data_.distance_from_launch_valid = false;
   }
 
   shared_data_.blocks.calculated_data.set(calculated_data_);

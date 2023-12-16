@@ -17,8 +17,11 @@
 #ifndef DATA_MODULE_HPP_
 #define DATA_MODULE_HPP_
 
-#include <BoosterSeat/timer.hpp>
 #include <functional>
+
+#include <BoosterSeat/geo.hpp>
+#include <BoosterSeat/rolling_average.hpp>
+#include <BoosterSeat/timer.hpp>
 
 #include "data_log.hpp"
 #include "influxdb.hpp"
@@ -233,6 +236,34 @@ private:
    */
   cfg::gEnum::ErrorLogStrategy error_file_logging_strategy_ =
       cfg::gEnum::ErrorLogStrategy::ALL;
+
+  /**
+   * @brief This timer is used to determine when to update the gps path for the
+   * purpose of calculating distance traveled.
+   * @see calculateCalculatedData
+   */
+  bst::Timer gps_distance_update_timer_{};
+
+  /**
+   * @brief The last gps point. Used to calculate distance traveled.
+   * @see calculateCalculatedData
+   */
+  bst::geo::Point last_gps_point_{};
+
+  /**
+   * @brief The initial gps point. This is the "launch point"
+   */
+  bst::geo::Point launch_gps_point_{};
+
+  /**
+   * @brief True if the initial gps point has been set.
+   */
+  bool launch_gps_point_set_ = false;
+
+  /**
+   * @brief The distance traveled in km.
+   */
+  double distance_traveled_ = 0.0;
 };
 
 } // namespace modules
