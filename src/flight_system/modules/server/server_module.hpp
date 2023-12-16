@@ -86,12 +86,12 @@ private:
    * @brief Timer for the rolling average.
    * Used to call 'server_socket_.oneSecondTick()' every second.
    */
-  BoosterSeat::Timer rolling_average_timer_ = {1000};
+  bst::Timer rolling_average_timer_ = {1000};
 
   /**
    * @brief Used to update the 'connected' status of the server.
    */
-  BoosterSeat::Timer connected_timeout_ = {2000};
+  bst::Timer connected_timeout_ = {2000};
 };
 
 } // namespace modules

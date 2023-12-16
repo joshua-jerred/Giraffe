@@ -143,7 +143,7 @@ private:
 
   GdlConfig config_;
 
-  BoosterSeat::Timer timer_;
+  bst::Timer timer_;
 
   Message current_message_{};
 

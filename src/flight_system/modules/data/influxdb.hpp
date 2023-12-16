@@ -60,7 +60,7 @@ public:
 private:
   bool testConnection();
 
-  BoosterSeat::Timer frame_timer_{};
+  bst::Timer frame_timer_{};
 
   std::string url_{};
   std::string org_{};

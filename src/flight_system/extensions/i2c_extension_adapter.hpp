@@ -77,7 +77,7 @@ protected:
   I2cInterface i2c_;
 
 private:
-  BoosterSeat::Timer handshake_timer_;
+  bst::Timer handshake_timer_;
   uint32_t retry_delay_ms_;
 };
 

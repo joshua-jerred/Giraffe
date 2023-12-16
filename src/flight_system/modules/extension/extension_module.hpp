@@ -90,8 +90,8 @@ private:
      * @brief The timer used to determine if the extension has started up
      * in the allotted time.
      */
-    BoosterSeat::Timer startup_shutdown_timer;
-    BoosterSeat::Timer restart_timer;
+    bst::Timer startup_shutdown_timer;
+    bst::Timer restart_timer;
   };
 
   void startup() override;
@@ -121,7 +121,7 @@ private:
 
   std::vector<cfg::ExtensionMetadata> extension_metadata_{};
 
-  BoosterSeat::Timer status_polling_timer_{};
+  bst::Timer status_polling_timer_{};
 
   data::blocks::ExtensionModuleStats stats_{};
 

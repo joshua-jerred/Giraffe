@@ -184,7 +184,7 @@ bool readNextUBX(I2cInterface &i2c, UBXMessage &message) {
   bool found_sync = false;
   I2cInterface::Result result;
 
-  BoosterSeat::Timer timer(kTimeoutMs);
+  bst::Timer timer(kTimeoutMs);
   while (!timer.isDone()) {
     stream_size = getStreamSize(i2c);
     if (stream_size <= 8) {
@@ -539,7 +539,7 @@ ACK setDynamicModel(I2cInterface &i2c, const DYNAMIC_MODEL model) {
 bool pollMessage(I2cInterface &i2c, UBXMessage &message,
                  const uint8_t msg_class, const uint8_t msg_id,
                  const int expected_size, const unsigned int timeout_ms) {
-  BoosterSeat::Timer timer(timeout_ms);
+  bst::Timer timer(timeout_ms);
 
   while (!timer.isDone()) {
     // Check if the stream is empty, if not, flush it.

@@ -61,7 +61,7 @@ void Extension::stop() {
   }
 
   stop_flag_ = true; // signal the stop
-  BoosterSeat::Timer timer(kExtensionStopTimeoutMs);
+  bst::Timer timer(kExtensionStopTimeoutMs);
 
   while (!timer.isDone()) {
     BoosterSeat::threadSleep(kExtensionStopCheckIntervalMs);
@@ -176,7 +176,7 @@ void Extension::sleep() {
       std::clamp(sleep_ms / 10, kMinimumSleepTimeMs, kMaximumCheckInterval);
 
   // Sleep for the specified amount of time
-  BoosterSeat::Timer timer(sleep_ms);
+  bst::Timer timer(sleep_ms);
   while (!timer.isDone()) {
     BoosterSeat::threadSleep(check_interval);
     if (stopRequested()) {

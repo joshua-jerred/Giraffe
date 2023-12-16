@@ -42,7 +42,7 @@ void Bme280Extension::startup() {
   constexpr uint32_t kStartupTimeout = 5000;   // ms
   constexpr uint32_t kStartupRetryDelay = 100; // ms
 
-  BoosterSeat::Timer startup_timer(kStartupTimeout);
+  bst::Timer startup_timer(kStartupTimeout);
   startup_timer.reset();
 
   StartupState state = StartupState::I2C_CONNECT;

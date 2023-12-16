@@ -17,6 +17,7 @@
 #ifndef DATA_MODULE_HPP_
 #define DATA_MODULE_HPP_
 
+#include <BoosterSeat/timer.hpp>
 #include <functional>
 
 #include "data_log.hpp"

@@ -294,6 +294,7 @@ inline double calculatePressureAltitude(double pressure) {
 }
 
 void modules::DataModule::calculateCalculatedData() {
+  // Calculate pressure altitude
   auto pres_data = shared_data_.frames.env_pres.getAll();
   if (pres_data.size() == 0) {
     calculated_data_.pressure_altitude_valid = false;
