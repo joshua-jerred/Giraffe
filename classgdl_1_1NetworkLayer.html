@@ -105,15 +105,21 @@ $(document).ready(function(){initNavTree('classgdl_1_1NetworkLayer.html',''); in
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classgdl_1_1NetworkLayer-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gdl::NetworkLayer Class Reference</div>  </div>
+<div class="title">gdl::NetworkLayer Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="gdl__network__layer_8hpp_source.html">gdl_network_layer.hpp</a>&gt;</code></p>
 <div class="dynheader">
+Inheritance diagram for gdl::NetworkLayer:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer__inherit__graph.svg" width="194" height="419"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
 Collaboration diagram for gdl::NetworkLayer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer__coll__graph.svg" width="211" height="486"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer__coll__graph.svg" width="220" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -121,10 +127,18 @@ Collaboration diagram for gdl::NetworkLayer:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a73b3cdb5bfd05c8026488b98431b8676"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgdl_1_1NetworkLayer.html#a73b3cdb5bfd05c8026488b98431b8676">NetworkLayer</a> (<a class="el" href="classgdl_1_1PhysicalLayer.html">PhysicalLayer</a> &amp;physical_layer)</td></tr>
 <tr class="separator:a73b3cdb5bfd05c8026488b98431b8676"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7c925cd7c66e5f572a67c5676e18ff5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgdl_1_1NetworkLayer.html#ab7c925cd7c66e5f572a67c5676e18ff5">rxMessage</a> (<a class="el" href="structgdl_1_1Message.html">Message</a> &amp;message)</td></tr>
-<tr class="separator:ab7c925cd7c66e5f572a67c5676e18ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b1ab33b5a7cb5c26ae5eeb73240e53a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgdl_1_1NetworkLayer.html#a7b1ab33b5a7cb5c26ae5eeb73240e53a">txMessage</a> (<a class="el" href="structgdl_1_1Message.html">Message</a> &amp;message)</td></tr>
-<tr class="separator:a7b1ab33b5a7cb5c26ae5eeb73240e53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18804e30a49392094756f76097662e89"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgdl_1_1NetworkLayer.html#a18804e30a49392094756f76097662e89">~NetworkLayer</a> ()</td></tr>
+<tr class="separator:a18804e30a49392094756f76097662e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad9d9e08d5801e111b8988ec17a22ca9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgdl_1_1NetworkLayer.html#aad9d9e08d5801e111b8988ec17a22ca9">rxMessage</a> (<a class="el" href="structgdl_1_1Message.html">Message</a> &amp;message)=0</td></tr>
+<tr class="separator:aad9d9e08d5801e111b8988ec17a22ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4d7d9d0745b9380acb553b13b03e8ac"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgdl_1_1NetworkLayer.html#ad4d7d9d0745b9380acb553b13b03e8ac">txMessage</a> (<a class="el" href="structgdl_1_1Message.html">Message</a> &amp;message)=0</td></tr>
+<tr class="separator:ad4d7d9d0745b9380acb553b13b03e8ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad37a9e79ca3fd66b6e91f041aa9eb1b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgdl_1_1NetworkLayer.html#ad37a9e79ca3fd66b6e91f041aa9eb1b0">update</a> ()</td></tr>
+<tr class="separator:ad37a9e79ca3fd66b6e91f041aa9eb1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a764c9c9539ca759b060b0f4e745129f6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgdl_1_1NetworkLayer.html#a764c9c9539ca759b060b0f4e745129f6">updateNetworkLayer</a> ()=0</td></tr>
+<tr class="separator:a764c9c9539ca759b060b0f4e745129f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac02320a2653420c93d3e9b3579516e0a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgdl_1_1NetworkLayer.html#ac02320a2653420c93d3e9b3579516e0a">updateStatus</a> (<a class="el" href="structgdl_1_1GdlStatus.html">GdlStatus</a> &amp;status)=0</td></tr>
+<tr class="separator:ac02320a2653420c93d3e9b3579516e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -156,7 +170,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgdl_1_1PhysicalLayer.html#a2b96ca7291510ca3cbe91dcafdbbfd18">gdl::PhysicalLayer::enable()</a>, and <a class="el" href="classgdl_1_1NetworkLayer.html#a2a49624af3a50f5a55e4b15bdc96b731">physical_layer_</a>.</p>
+<p class="reference">References <a class="el" href="classgdl_1_1PhysicalLayer.html#a5fa787a17935bebe2ab5d9635aa8295e">gdl::PhysicalLayer::enable()</a>, and <a class="el" href="classgdl_1_1NetworkLayer.html#a2a49624af3a50f5a55e4b15bdc96b731">physical_layer_</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -166,9 +180,34 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a18804e30a49392094756f76097662e89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18804e30a49392094756f76097662e89">&#9670;&nbsp;</a></span>~NetworkLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual gdl::NetworkLayer::~NetworkLayer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7b1ab33b5a7cb5c26ae5eeb73240e53a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b1ab33b5a7cb5c26ae5eeb73240e53a">&#9670;&nbsp;</a></span>txMessage()</h2>
+<a id="ad4d7d9d0745b9380acb553b13b03e8ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4d7d9d0745b9380acb553b13b03e8ac">&#9670;&nbsp;</a></span>txMessage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,10 +216,152 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool gdl::NetworkLayer::txMessage </td>
+          <td class="memname">virtual bool gdl::NetworkLayer::txMessage </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structgdl_1_1Message.html">Message</a> &amp;&#160;</td>
           <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ad9a652a653199419ae48d83807e6b798">gdl::AprsNetworkLayer</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1TransportLayer.html#afd0aa505511450d162ffce9c9467f9e0">gdl::TransportLayer::sendAck()</a>, and <a class="el" href="classgdl_1_1TransportLayer.html#aa2038d9a19d6a770e2484a08e7b5dd7c">gdl::TransportLayer::sendPacket()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer_ad4d7d9d0745b9380acb553b13b03e8ac_icgraph.svg" width="1196" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aad9d9e08d5801e111b8988ec17a22ca9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad9d9e08d5801e111b8988ec17a22ca9">&#9670;&nbsp;</a></span>rxMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool gdl::NetworkLayer::rxMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgdl_1_1Message.html">Message</a> &amp;&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ac663956e8f0ada79182740bb24980a8a">gdl::AprsNetworkLayer</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1TransportLayer.html#a602b18ce93bc49f561c85f6a1624ee96">gdl::TransportLayer::receive()</a>, <a class="el" href="classgdl_1_1TransportLayer.html#a696c4cfe3b69f9240a33a8da28da9156">gdl::TransportLayer::receivedAck()</a>, and <a class="el" href="classgdl_1_1TransportLayer.html#ae6e3efbdb5afade7ec6d841832d3a8aa">gdl::TransportLayer::update()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer_aad9d9e08d5801e111b8988ec17a22ca9_icgraph.svg" width="1196" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a764c9c9539ca759b060b0f4e745129f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a764c9c9539ca759b060b0f4e745129f6">&#9670;&nbsp;</a></span>updateNetworkLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void gdl::NetworkLayer::updateNetworkLayer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classgdl_1_1AprsNetworkLayer.html#af21ccdbf2b7dd7e95dfb604557030dac">gdl::AprsNetworkLayer</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1NetworkLayer.html#ad37a9e79ca3fd66b6e91f041aa9eb1b0">update()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer_a764c9c9539ca759b060b0f4e745129f6_icgraph.svg" width="1208" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ac02320a2653420c93d3e9b3579516e0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac02320a2653420c93d3e9b3579516e0a">&#9670;&nbsp;</a></span>updateStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void gdl::NetworkLayer::updateStatus </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgdl_1_1GdlStatus.html">GdlStatus</a> &amp;&#160;</td>
+          <td class="paramname"><em>status</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classgdl_1_1AprsNetworkLayer.html#a9dfa0319f138527f1ab26b08e72787a6">gdl::AprsNetworkLayer</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1TransportLayer.html#a002b4090248d33291db83abb8a079ebc">gdl::TransportLayer::updateStatus()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer_ac02320a2653420c93d3e9b3579516e0a_icgraph.svg" width="1002" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ad37a9e79ca3fd66b6e91f041aa9eb1b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad37a9e79ca3fd66b6e91f041aa9eb1b0">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gdl::NetworkLayer::update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -191,61 +372,19 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structgdl_1_1Message.html#a8a9fcc3df466fde4a67c94e965585590">gdl::Message::data</a>, <a class="el" href="classgdl_1_1NetworkLayer.html#a2a49624af3a50f5a55e4b15bdc96b731">physical_layer_</a>, and <a class="el" href="classgdl_1_1PhysicalLayer.html#a7a79617994e40c3f25a0e6884e7ecf37">gdl::PhysicalLayer::transmitBytes()</a>.</p>
+<p class="reference">References <a class="el" href="classgdl_1_1NetworkLayer.html#a2a49624af3a50f5a55e4b15bdc96b731">physical_layer_</a>, <a class="el" href="classgdl_1_1PhysicalLayer.html#aa15ac4c9d1debc6b1e9a177d1aade561">gdl::PhysicalLayer::update()</a>, and <a class="el" href="classgdl_1_1NetworkLayer.html#a764c9c9539ca759b060b0f4e745129f6">updateNetworkLayer()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgdl_1_1TransportLayer.html#a8429f799c1d3c8cd170e013d25edee50">gdl::TransportLayer::send()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1TransportLayer.html#ae6e3efbdb5afade7ec6d841832d3a8aa">gdl::TransportLayer::update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer_a7b1ab33b5a7cb5c26ae5eeb73240e53a_cgraph.svg" width="348" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer_ad37a9e79ca3fd66b6e91f041aa9eb1b0_cgraph.svg" width="367" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer_a7b1ab33b5a7cb5c26ae5eeb73240e53a_icgraph.svg" width="355" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="ab7c925cd7c66e5f572a67c5676e18ff5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7c925cd7c66e5f572a67c5676e18ff5">&#9670;&nbsp;</a></span>rxMessage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool gdl::NetworkLayer::rxMessage </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structgdl_1_1Message.html">Message</a> &amp;&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="structgdl_1_1Message.html#a8a9fcc3df466fde4a67c94e965585590">gdl::Message::data</a>, <a class="el" href="classgdl_1_1NetworkLayer.html#a2a49624af3a50f5a55e4b15bdc96b731">physical_layer_</a>, and <a class="el" href="classgdl_1_1PhysicalLayer.html#a75c5cfd890215e0aed79a7742046039a">gdl::PhysicalLayer::receiveBytes()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="classgdl_1_1TransportLayer.html#a602b18ce93bc49f561c85f6a1624ee96">gdl::TransportLayer::receive()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer_ab7c925cd7c66e5f572a67c5676e18ff5_cgraph.svg" width="348" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer_ab7c925cd7c66e5f572a67c5676e18ff5_icgraph.svg" width="355" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgdl_1_1NetworkLayer_ad37a9e79ca3fd66b6e91f041aa9eb1b0_icgraph.svg" width="1002" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -272,7 +411,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgdl_1_1NetworkLayer.html#a73b3cdb5bfd05c8026488b98431b8676">NetworkLayer()</a>, <a class="el" href="classgdl_1_1NetworkLayer.html#ab7c925cd7c66e5f572a67c5676e18ff5">rxMessage()</a>, and <a class="el" href="classgdl_1_1NetworkLayer.html#a7b1ab33b5a7cb5c26ae5eeb73240e53a">txMessage()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1NetworkLayer.html#a73b3cdb5bfd05c8026488b98431b8676">NetworkLayer()</a>, and <a class="el" href="classgdl_1_1NetworkLayer.html#ad37a9e79ca3fd66b6e91f041aa9eb1b0">update()</a>.</p>
 
 </div>
 </div>

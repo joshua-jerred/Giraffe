@@ -132,10 +132,10 @@ $(document).ready(function(){initNavTree('configuration__enums_8hpp_source.html'
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">enum class</span> ProcedureType {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  TESTING,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  PRE_LAUNCH,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  ASCENT,</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  DESCENT,</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  RECOVERY,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="namespacegiraffe.html#a464112de04b36af2ff144b7013236affaa9c1a88bb2291339811ab30ebf54acc5">PRE_LAUNCH</a>,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <a class="code" href="namespacegiraffe.html#a464112de04b36af2ff144b7013236affa7047b93ddb56905562863fb339808bb4">ASCENT</a>,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <a class="code" href="namespacegiraffe.html#a464112de04b36af2ff144b7013236affa038e3d035cd91784babc5492310b8e96">DESCENT</a>,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <a class="code" href="namespacegiraffe.html#a464112de04b36af2ff144b7013236affa9c90eb3f9201a7df861d94e494aa9b0b">RECOVERY</a>,</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  FAILSAFE,</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  OTHER</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
@@ -325,7 +325,7 @@ $(document).ready(function(){initNavTree('configuration__enums_8hpp_source.html'
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;};</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="keyword">enum class</span> ExtensionType {</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <a class="code" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>,</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <a class="code" href="namespacegiraffe.html#a464112de04b36af2ff144b7013236affa696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>,</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  SIM_TEMP,</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  SIM_PRES,</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  SIM_HUM,</div>
@@ -381,7 +381,11 @@ $(document).ready(function(){initNavTree('configuration__enums_8hpp_source.html'
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
 <div class="ttc" id="anamespaceconsole__pages_html_ad6363c61e7b2423fe3e8baae0749e769afa177138f94a7ea01f549b1aa7893d03"><div class="ttname"><a href="namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769afa177138f94a7ea01f549b1aa7893d03">console_pages::PageOption::SYSTEM</a></div><div class="ttdeci">@ SYSTEM</div></div>
-<div class="ttc" id="anamespacenode_html_ab16b2ecd4ea33131eb41b77a8c3e28a8a696b031073e74bf2cb98e5ef201d4aa3"><div class="ttname"><a href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a696b031073e74bf2cb98e5ef201d4aa3">node::Identification::UNKNOWN</a></div><div class="ttdeci">@ UNKNOWN</div></div>
+<div class="ttc" id="anamespacegiraffe_html_a464112de04b36af2ff144b7013236affa038e3d035cd91784babc5492310b8e96"><div class="ttname"><a href="namespacegiraffe.html#a464112de04b36af2ff144b7013236affa038e3d035cd91784babc5492310b8e96">giraffe::FlightMode::DESCENT</a></div><div class="ttdeci">@ DESCENT</div><div class="ttdoc">The system is in descent mode. This is the state during the entire descent phase.</div></div>
+<div class="ttc" id="anamespacegiraffe_html_a464112de04b36af2ff144b7013236affa696b031073e74bf2cb98e5ef201d4aa3"><div class="ttname"><a href="namespacegiraffe.html#a464112de04b36af2ff144b7013236affa696b031073e74bf2cb98e5ef201d4aa3">giraffe::FlightMode::UNKNOWN</a></div><div class="ttdeci">@ UNKNOWN</div><div class="ttdoc">The flight mode at startup. If data can not be loaded, the system will enter the pre-launch mode.</div></div>
+<div class="ttc" id="anamespacegiraffe_html_a464112de04b36af2ff144b7013236affa7047b93ddb56905562863fb339808bb4"><div class="ttname"><a href="namespacegiraffe.html#a464112de04b36af2ff144b7013236affa7047b93ddb56905562863fb339808bb4">giraffe::FlightMode::ASCENT</a></div><div class="ttdeci">@ ASCENT</div><div class="ttdoc">The system is in ascent mode. This is the state during the entire ascent phase.</div></div>
+<div class="ttc" id="anamespacegiraffe_html_a464112de04b36af2ff144b7013236affa9c90eb3f9201a7df861d94e494aa9b0b"><div class="ttname"><a href="namespacegiraffe.html#a464112de04b36af2ff144b7013236affa9c90eb3f9201a7df861d94e494aa9b0b">giraffe::FlightMode::RECOVERY</a></div><div class="ttdeci">@ RECOVERY</div><div class="ttdoc">The system is in recovery mode. The flight is over and the system is in recovery mode.</div></div>
+<div class="ttc" id="anamespacegiraffe_html_a464112de04b36af2ff144b7013236affaa9c1a88bb2291339811ab30ebf54acc5"><div class="ttname"><a href="namespacegiraffe.html#a464112de04b36af2ff144b7013236affaa9c1a88bb2291339811ab30ebf54acc5">giraffe::FlightMode::PRE_LAUNCH</a></div><div class="ttdeci">@ PRE_LAUNCH</div><div class="ttdoc">The system is in pre-launch mode. This is the initial state.</div></div>
 <div class="ttc" id="anamespaceubx_html_adeeda5a4fc125d1ad07f95b20a621e39abb1ca97ec761fc37101737ba0aa2e7c5"><div class="ttname"><a href="namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39abb1ca97ec761fc37101737ba0aa2e7c5">ubx::DYNAMIC_MODEL::ERROR</a></div><div class="ttdeci">@ ERROR</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

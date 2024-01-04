@@ -1,5 +1,0 @@
-<map id="segmenter.hpp" name="segmenter.hpp">
-<area shape="rect" id="node1" title="Segmenter State Machine." alt="" coords="127,5,245,32"/>
-<area shape="rect" id="node2" href="$ax25__state__machine_8hpp.html" title="Defines the AX.25 state machine." alt="" coords="5,80,191,107"/>
-<area shape="rect" id="node3" href="$segmenter_8cpp.html" title="Segmenter State Machine." alt="" coords="215,80,333,107"/>
-</map>

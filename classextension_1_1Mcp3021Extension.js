@@ -32,7 +32,7 @@ var classextension_1_1Mcp3021Extension =
     [ "connectToI2cBus", "classextension_1_1Mcp3021Extension.html#abc3de151f12e02167df5e32ce24638d3", null ],
     [ "adc_resolution_", "classextension_1_1Mcp3021Extension.html#a36576baccb0b4f3b950b560f5372feb2", null ],
     [ "adc_config_", "classextension_1_1Mcp3021Extension.html#abff2d52b2373cc677ae7639c0ad1f0e9", null ],
-    [ "adc_watchdog_", "classextension_1_1Mcp3021Extension.html#aeb3336e8f72ecd8aa1952dfd1d25544a", null ],
+    [ "adc_watchdog_", "classextension_1_1Mcp3021Extension.html#a2e004bbe2f99c024f777e72be9f16877", null ],
     [ "metadata_", "classextension_1_1Mcp3021Extension.html#a295de97827360717494a398c45d161f2", null ],
     [ "fault_flag_", "classextension_1_1Mcp3021Extension.html#a40300776e358833cbfd50c198a320cdf", null ],
     [ "fault_code_", "classextension_1_1Mcp3021Extension.html#a3e5d32890e069c49b3641d0e01322364", null ],
@@ -41,6 +41,6 @@ var classextension_1_1Mcp3021Extension =
     [ "runner_thread_", "classextension_1_1Mcp3021Extension.html#ae130f81dd3fc3565fd4e617bc6d7f4b1", null ],
     [ "interfaces_", "classextension_1_1Mcp3021Extension.html#a067006ad3c8c07006590ccdfca70d037", null ],
     [ "i2c_", "classextension_1_1Mcp3021Extension.html#a3d082123780156b3c797239456cef917", null ],
-    [ "handshake_timer_", "classextension_1_1Mcp3021Extension.html#a8bc6505f3ab2bd0a9d13715e1af1d7a5", null ],
+    [ "handshake_timer_", "classextension_1_1Mcp3021Extension.html#aa4174b8f670364e497ed4cea6a32d09e", null ],
     [ "retry_delay_ms_", "classextension_1_1Mcp3021Extension.html#a997b9e139894c440e40f95daa94b84e4", null ]
 ];

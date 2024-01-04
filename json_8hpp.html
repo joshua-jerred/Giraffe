@@ -101,7 +101,8 @@ $(document).ready(function(){initNavTree('json_8hpp.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">json.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -110,16 +111,17 @@ $(document).ready(function(){initNavTree('json_8hpp.html',''); initResizable(); 
 <p>Simple wrapper around nlohmann/json.hpp to provide a common interface.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;nlohmann/json.hpp&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for json.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="json_8hpp__incl.svg" width="158" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="json_8hpp__incl.svg" width="240" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="json_8hpp__dep__incl.svg" width="2711" height="635"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="json_8hpp__dep__incl.svg" width="2507" height="635"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -129,6 +131,12 @@ This graph shows which files directly or indirectly include this file:</div>
 Typedefs</h2></td></tr>
 <tr class="memitem:a4a99353783822e2ef7bba2e6fa9b974f"><td class="memItemLeft" align="right" valign="top">typedef nlohmann::ordered_json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a></td></tr>
 <tr class="separator:a4a99353783822e2ef7bba2e6fa9b974f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a4f6f8b5f68b1e6554933793155ff04ec"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a4f6f8b5f68b1e6554933793155ff04ec"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="json_8hpp.html#a4f6f8b5f68b1e6554933793155ff04ec">getJsonValue</a> (const <a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> &amp;json, std::string key, T default_value)</td></tr>
+<tr class="separator:a4f6f8b5f68b1e6554933793155ff04ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Simple wrapper around nlohmann/json.hpp to provide a common interface. </p>
@@ -147,6 +155,51 @@ Typedefs</h2></td></tr>
           <td class="memname">typedef nlohmann::ordered_json <a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a4f6f8b5f68b1e6554933793155ff04ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f6f8b5f68b1e6554933793155ff04ec">&#9670;&nbsp;</a></span>getJsonValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T getJsonValue </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>default_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

@@ -6,7 +6,7 @@ var classdata__middleware_1_1InfluxDb =
     [ "logLogPacket", "classdata__middleware_1_1InfluxDb.html#adc204b9bf0e4eff914bfd68e51383c9e", null ],
     [ "writeFrames", "classdata__middleware_1_1InfluxDb.html#a1e38c0c28d3f93307d307198b9506ff0", null ],
     [ "testConnection", "classdata__middleware_1_1InfluxDb.html#a326a73eb02e9baca7b47d9b1881c2791", null ],
-    [ "frame_timer_", "classdata__middleware_1_1InfluxDb.html#ac20a66e4224303f88af45d1a6cff85cf", null ],
+    [ "frame_timer_", "classdata__middleware_1_1InfluxDb.html#a123572a502148fecab807233e2007c55", null ],
     [ "url_", "classdata__middleware_1_1InfluxDb.html#a0fb04ecf3287abcb9abefc25d262dafa", null ],
     [ "org_", "classdata__middleware_1_1InfluxDb.html#a291c4bd699d81dc040a31e415ae9487c", null ],
     [ "data_bucket_", "classdata__middleware_1_1InfluxDb.html#a684b540332fe54186d2649b0e001adac", null ],

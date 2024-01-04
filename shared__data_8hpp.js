@@ -16,7 +16,9 @@ var shared__data_8hpp =
       [ "extension_module_stats", "namespacedata.html#afc079d0e60bc3f2fce9f722e0352746d", null ],
       [ "location_data", "namespacedata.html#a2215c3b1e8cb58300b6900340affe176", null ],
       [ "imu_data", "namespacedata.html#af4035dfcbef791cd5a61c2bf31d844fc", null ],
-      [ "camera", "namespacedata.html#a642b5db13a2c91a149068eeedc949c80", null ]
+      [ "camera", "namespacedata.html#a642b5db13a2c91a149068eeedc949c80", null ],
+      [ "telemetry_module_stats", "namespacedata.html#ad7af8bcae7adc32595349982c18df759", null ],
+      [ "calculated_data", "namespacedata.html#a33d3cd52c1f9199e9d46deb52e1e492f", null ]
     ] ],
     [ "SharedData", "structdata_1_1SharedData.html", "structdata_1_1SharedData" ],
     [ "Streams", "namespacedata.html#structdata_1_1Streams", [

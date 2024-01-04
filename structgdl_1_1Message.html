@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('structgdl_1_1Message.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structgdl_1_1Message-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -116,7 +117,7 @@ $(document).ready(function(){initNavTree('structgdl_1_1Message.html',''); initRe
 <div class="dynheader">
 Collaboration diagram for gdl::Message:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structgdl_1_1Message__coll__graph.svg" width="246" height="228"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structgdl_1_1Message__coll__graph.svg" width="246" height="258"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -133,12 +134,21 @@ Public Types</h2></td></tr>
  }</td></tr>
 <tr class="separator:a789056fc0dde7e2be09585de1ae4a10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa06331ab84c973bcf2ac86a02e8c62ba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html#aa06331ab84c973bcf2ac86a02e8c62ba">isAck</a> ()</td></tr>
+<tr class="separator:aa06331ab84c973bcf2ac86a02e8c62ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a893b23e1e5caf8908589947b01faf7af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html#a893b23e1e5caf8908589947b01faf7af">isValid</a> ()</td></tr>
+<tr class="separator:a893b23e1e5caf8908589947b01faf7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a8a9fcc3df466fde4a67c94e965585590"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html#a8a9fcc3df466fde4a67c94e965585590">data</a> {&quot;&quot;}</td></tr>
 <tr class="separator:a8a9fcc3df466fde4a67c94e965585590"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac58ffc71359205b3f1a1d5284ec0b3e3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html#ac58ffc71359205b3f1a1d5284ec0b3e3">id</a> {0}</td></tr>
-<tr class="separator:ac58ffc71359205b3f1a1d5284ec0b3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e052444aaae1563e57bfc6007964254"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html#a4e052444aaae1563e57bfc6007964254">id</a> {}</td></tr>
+<tr class="separator:a4e052444aaae1563e57bfc6007964254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab15135dbbe3d3c45f6876deee89ce936"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html#ab15135dbbe3d3c45f6876deee89ce936">retries</a> = 0</td></tr>
+<tr class="separator:ab15135dbbe3d3c45f6876deee89ce936"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af410152f4b7b7e81f6fd2016fadcff2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10d">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html#af410152f4b7b7e81f6fd2016fadcff2f">type</a> {<a class="el" href="structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10da0db45d2a4141101bdfe48e3314cfbca3">Type::UNDEFINED</a>}</td></tr>
 <tr class="separator:af410152f4b7b7e81f6fd2016fadcff2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -174,18 +184,71 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a893b23e1e5caf8908589947b01faf7af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a893b23e1e5caf8908589947b01faf7af">&#9670;&nbsp;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gdl::Message::isValid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa06331ab84c973bcf2ac86a02e8c62ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa06331ab84c973bcf2ac86a02e8c62ba">&#9670;&nbsp;</a></span>isAck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gdl::Message::isAck </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac58ffc71359205b3f1a1d5284ec0b3e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac58ffc71359205b3f1a1d5284ec0b3e3">&#9670;&nbsp;</a></span>id</h2>
+<a id="a4e052444aaae1563e57bfc6007964254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e052444aaae1563e57bfc6007964254">&#9670;&nbsp;</a></span>id</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t gdl::Message::id {0}</td>
+          <td class="memname">std::string gdl::Message::id {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#a2200a18922a94f9f0c3e73aaa8f84afb">gdl::GiraffeDataLink::broadcastMessage()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a91eb11738b4cc02e3d3810727253f3cb">gdl::GiraffeDataLink::exchangeMessage()</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#a3ec4e04f946522deeefa2284522d23e6">modules::TelemetryModule::loop()</a>, <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ac663956e8f0ada79182740bb24980a8a">gdl::AprsNetworkLayer::rxMessage()</a>, and <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ad9a652a653199419ae48d83807e6b798">gdl::AprsNetworkLayer::txMessage()</a>.</p>
 
 </div>
 </div>
@@ -201,6 +264,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#a2200a18922a94f9f0c3e73aaa8f84afb">gdl::GiraffeDataLink::broadcastMessage()</a>, and <a class="el" href="classgdl_1_1GiraffeDataLink.html#a91eb11738b4cc02e3d3810727253f3cb">gdl::GiraffeDataLink::exchangeMessage()</a>.</p>
+
 </div>
 </div>
 <a id="a8a9fcc3df466fde4a67c94e965585590"></a>
@@ -215,7 +280,23 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgdl_1_1NetworkLayer.html#ab7c925cd7c66e5f572a67c5676e18ff5">gdl::NetworkLayer::rxMessage()</a>, and <a class="el" href="classgdl_1_1NetworkLayer.html#a7b1ab33b5a7cb5c26ae5eeb73240e53a">gdl::NetworkLayer::txMessage()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#a2200a18922a94f9f0c3e73aaa8f84afb">gdl::GiraffeDataLink::broadcastMessage()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a91eb11738b4cc02e3d3810727253f3cb">gdl::GiraffeDataLink::exchangeMessage()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a9a57e98fe17bc1ccfc6592d1f2eca165">gdl::GiraffeDataLink::gdlThread()</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#a3ec4e04f946522deeefa2284522d23e6">modules::TelemetryModule::loop()</a>, <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ac663956e8f0ada79182740bb24980a8a">gdl::AprsNetworkLayer::rxMessage()</a>, <a class="el" href="classgdl_1_1TransportLayer.html#afd0aa505511450d162ffce9c9467f9e0">gdl::TransportLayer::sendAck()</a>, and <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ad9a652a653199419ae48d83807e6b798">gdl::AprsNetworkLayer::txMessage()</a>.</p>
+
+</div>
+</div>
+<a id="ab15135dbbe3d3c45f6876deee89ce936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab15135dbbe3d3c45f6876deee89ce936">&#9670;&nbsp;</a></span>retries</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t gdl::Message::retries = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1TransportLayer.html#ae6e3efbdb5afade7ec6d841832d3a8aa">gdl::TransportLayer::update()</a>.</p>
 
 </div>
 </div>

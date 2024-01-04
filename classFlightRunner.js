@@ -7,8 +7,10 @@ var classFlightRunner =
     [ "start", "classFlightRunner.html#a7deed0a1bc77d1f1046a8713cc85dd78", null ],
     [ "shutdown", "classFlightRunner.html#a645cd4e865e0e3b35ac6e9b3d52bdda4", null ],
     [ "flightLoop", "classFlightRunner.html#ae552858a0d61ca59e9cad16ea9ab82fc", null ],
-    [ "routeCommand", "classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3", null ],
     [ "processCommand", "classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96", null ],
+    [ "routeCommand", "classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3", null ],
+    [ "toggleModule", "classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c", null ],
+    [ "flight_runner_data_", "classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27", null ],
     [ "shutdown_signal_", "classFlightRunner.html#ad67bc48e7138e28e4d9514077849cc7d", null ],
     [ "shared_data_", "classFlightRunner.html#a129764a14015b25437bc7460e70f9820", null ],
     [ "p_config_", "classFlightRunner.html#a6285dac2f407b76b3989fd805561b3ef", null ],
@@ -17,5 +19,6 @@ var classFlightRunner =
     [ "p_server_module_", "classFlightRunner.html#a70d968c507be59e86cb0861a2f058734", null ],
     [ "p_system_module_", "classFlightRunner.html#a679e2f24e7547d2884a360f1a0eb88cc", null ],
     [ "p_extension_module_", "classFlightRunner.html#a01fea479a57c31424e89a0f397ff0b8b", null ],
-    [ "p_telemetry_module_", "classFlightRunner.html#a3481f326d4fa66f11536dc0dca522926", null ]
+    [ "p_telemetry_module_", "classFlightRunner.html#a3481f326d4fa66f11536dc0dca522926", null ],
+    [ "current_flight_mode_", "classFlightRunner.html#a18e1e0142d60ad30761264d28126f272", null ]
 ];

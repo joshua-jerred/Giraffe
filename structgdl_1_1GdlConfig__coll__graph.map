@@ -1,5 +1,7 @@
 <map id="gdl::GdlConfig" name="gdl::GdlConfig">
-<area shape="rect" id="node1" title="Configuration data for Giraffe Data Link." alt="" coords="71,204,185,281"/>
+<area shape="rect" id="node1" title="Configuration data for Giraffe Data Link." alt="" coords="249,204,362,281"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,5,80,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="180,5,247,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="188,5,239,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="364,5,431,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="559,5,617,83"/>
 </map>

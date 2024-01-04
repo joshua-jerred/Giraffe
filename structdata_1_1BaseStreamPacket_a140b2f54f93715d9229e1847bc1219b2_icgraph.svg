@@ -190,7 +190,7 @@
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
-<g id="a_node14"><a xlink:href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" target="_top" xlink:title="Send a command to the proper module.">
+<g id="a_node14"><a xlink:href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" target="_top" xlink:title="Sends a command to the proper module.">
 <polygon fill="none" stroke="black" points="10.5,-44.5 10.5,-63.5 171.5,-63.5 171.5,-44.5 10.5,-44.5"/>
 <text text-anchor="middle" x="91" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">FlightRunner::routeCommand</text>
 </a>

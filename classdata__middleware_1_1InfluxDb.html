@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('classdata__middleware_1_1InfluxDb.html
 <div class="dynheader">
 Collaboration diagram for data_middleware::InfluxDb:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classdata__middleware_1_1InfluxDb__coll__graph.svg" width="4196" height="1831"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classdata__middleware_1_1InfluxDb__coll__graph.svg" width="4680" height="1831"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -144,8 +144,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:af1dd65c48757e2978a0ea0c35bd02125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a684b540332fe54186d2649b0e001adac"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata__middleware_1_1InfluxDb.html#a684b540332fe54186d2649b0e001adac">data_bucket_</a> {}</td></tr>
 <tr class="separator:a684b540332fe54186d2649b0e001adac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac20a66e4224303f88af45d1a6cff85cf"><td class="memItemLeft" align="right" valign="top">BoosterSeat::Timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata__middleware_1_1InfluxDb.html#ac20a66e4224303f88af45d1a6cff85cf">frame_timer_</a> {}</td></tr>
-<tr class="separator:ac20a66e4224303f88af45d1a6cff85cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a123572a502148fecab807233e2007c55"><td class="memItemLeft" align="right" valign="top">bst::Timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata__middleware_1_1InfluxDb.html#a123572a502148fecab807233e2007c55">frame_timer_</a> {}</td></tr>
+<tr class="separator:a123572a502148fecab807233e2007c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5354a3a5531a8faafc69fe4f838d0fdf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structdata__middleware_1_1InfluxLine.html">InfluxLine</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata__middleware_1_1InfluxDb.html#a5354a3a5531a8faafc69fe4f838d0fdf">influx_lines_</a> {}</td></tr>
 <tr class="separator:a5354a3a5531a8faafc69fe4f838d0fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a291c4bd699d81dc040a31e415ae9487c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata__middleware_1_1InfluxDb.html#a291c4bd699d81dc040a31e415ae9487c">org_</a> {}</td></tr>
@@ -235,7 +235,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>Implement status packet logging to InfluxDB </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">Todo:</a></b></dt><dd>Implement status packet logging to InfluxDB </dd></dl>
 
 <p class="reference">References <a class="el" href="structdata__middleware_1_1InfluxLine.html#a4cba826a1007ef941228a4b2783aed66">data_middleware::InfluxLine::fields</a>, <a class="el" href="structdata_1_1DataPacket.html#a42b72d06d9e66591a45e095599dc5472">data::DataPacket::identifier</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#a5354a3a5531a8faafc69fe4f838d0fdf">influx_lines_</a>, <a class="el" href="structdata__middleware_1_1InfluxLine.html#a77d756f4e0802c29fd156a04c42186a9">data_middleware::InfluxLine::measurement</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#aae10163d71ab4a900ef1df6b7d94b786">data::BaseStreamPacket::secondary_identifier</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#a25dd4f4b9f9ef45a841ca6dbda2b90aa">data::BaseStreamPacket::source</a>, <a class="el" href="structdata_1_1DataPacket.html#a7ac4c3266ecc030764f211293194c872a5f241c8c8f985b3c51e05d39cf030f4c">data::DataPacket::STATUS</a>, <a class="el" href="structdata__middleware_1_1InfluxLine.html#ac232f6172c398c29add6712c2de1911e">data_middleware::InfluxLine::tags</a>, <a class="el" href="namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e">util::to_string()</a>, <a class="el" href="structdata_1_1DataPacket.html#a3c79d9e44599e5a8670a25e9bd86874c">data::DataPacket::type</a>, and <a class="el" href="structdata_1_1DataPacket.html#a64a03f75632425f8781d18dd18e939ec">data::DataPacket::value</a>.</p>
 <div class="dynheader">
@@ -288,7 +288,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classdata__middleware_1_1InfluxDb.html#a6fae30eadeb1bc37d7aa29c5934c0729">auth_token_</a>, <a class="el" href="structdata_1_1SharedData.html#ab98a7a65eac8ffd555f886a6a45e3142">data::SharedData::blocks</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#af1dd65c48757e2978a0ea0c35bd02125">config_</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#a684b540332fe54186d2649b0e001adac">data_bucket_</a>, <a class="el" href="structdata__middleware_1_1InfluxLine.html#a4cba826a1007ef941228a4b2783aed66">data_middleware::InfluxLine::fields</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#ac20a66e4224303f88af45d1a6cff85cf">frame_timer_</a>, <a class="el" href="structdata__middleware_1_1InfluxLine.html#ab668667e88a106ae046e81d6fe779fa7">data_middleware::InfluxLine::getString()</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#a5354a3a5531a8faafc69fe4f838d0fdf">influx_lines_</a>, <a class="el" href="namespacedata.html#a2215c3b1e8cb58300b6900340affe176">data::SharedBlocks::location_data</a>, <a class="el" href="structdata__middleware_1_1InfluxLine.html#a77d756f4e0802c29fd156a04c42186a9">data_middleware::InfluxLine::measurement</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#a291c4bd699d81dc040a31e415ae9487c">org_</a>, <a class="el" href="classCurlRequest.html#ab5af61dd47cad361d7a4c0d3c5dfedf4aa02439ec229d8be0e74b0c1602392310">CurlRequest::POST</a>, <a class="el" href="classCurlRequest.html#a1a0afe07af414492cfd5aeae3b39ce5d">CurlRequest::setMethod()</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#abb29791f20e5d39ed221851ea7068a0a">shared_data_</a>, <a class="el" href="namespacedata.html#a853289e3095b00d17f12bb70981f4c1c">data::SharedBlocks::stream_stats</a>, <a class="el" href="namespacedata.html#a4fcaedd022af49a62a6b6a1bb9b6c0c2">data::SharedBlocks::system_info</a>, <a class="el" href="namespaceutil.html#a7864f641801f7a53e32c35e54b9cc7f1">util::to_json()</a>, and <a class="el" href="classdata__middleware_1_1InfluxDb.html#a0fb04ecf3287abcb9abefc25d262dafa">url_</a>.</p>
+<p class="reference">References <a class="el" href="classdata__middleware_1_1InfluxDb.html#a6fae30eadeb1bc37d7aa29c5934c0729">auth_token_</a>, <a class="el" href="structdata_1_1SharedData.html#ab98a7a65eac8ffd555f886a6a45e3142">data::SharedData::blocks</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#af1dd65c48757e2978a0ea0c35bd02125">config_</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#a684b540332fe54186d2649b0e001adac">data_bucket_</a>, <a class="el" href="structdata__middleware_1_1InfluxLine.html#a4cba826a1007ef941228a4b2783aed66">data_middleware::InfluxLine::fields</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#a123572a502148fecab807233e2007c55">frame_timer_</a>, <a class="el" href="structdata__middleware_1_1InfluxLine.html#ab668667e88a106ae046e81d6fe779fa7">data_middleware::InfluxLine::getString()</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#a5354a3a5531a8faafc69fe4f838d0fdf">influx_lines_</a>, <a class="el" href="namespacedata.html#a2215c3b1e8cb58300b6900340affe176">data::SharedBlocks::location_data</a>, <a class="el" href="structdata__middleware_1_1InfluxLine.html#a77d756f4e0802c29fd156a04c42186a9">data_middleware::InfluxLine::measurement</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#a291c4bd699d81dc040a31e415ae9487c">org_</a>, <a class="el" href="classCurlRequest.html#ab5af61dd47cad361d7a4c0d3c5dfedf4aa02439ec229d8be0e74b0c1602392310">CurlRequest::POST</a>, <a class="el" href="classCurlRequest.html#a1a0afe07af414492cfd5aeae3b39ce5d">CurlRequest::setMethod()</a>, <a class="el" href="classdata__middleware_1_1InfluxDb.html#abb29791f20e5d39ed221851ea7068a0a">shared_data_</a>, <a class="el" href="namespacedata.html#a853289e3095b00d17f12bb70981f4c1c">data::SharedBlocks::stream_stats</a>, <a class="el" href="namespacedata.html#a4fcaedd022af49a62a6b6a1bb9b6c0c2">data::SharedBlocks::system_info</a>, <a class="el" href="namespaceutil.html#a7864f641801f7a53e32c35e54b9cc7f1">util::to_json()</a>, and <a class="el" href="classdata__middleware_1_1InfluxDb.html#a0fb04ecf3287abcb9abefc25d262dafa">url_</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -324,8 +324,8 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac20a66e4224303f88af45d1a6cff85cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac20a66e4224303f88af45d1a6cff85cf">&#9670;&nbsp;</a></span>frame_timer_</h2>
+<a id="a123572a502148fecab807233e2007c55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a123572a502148fecab807233e2007c55">&#9670;&nbsp;</a></span>frame_timer_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -334,7 +334,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BoosterSeat::Timer data_middleware::InfluxDb::frame_timer_ {}</td>
+          <td class="memname">bst::Timer data_middleware::InfluxDb::frame_timer_ {}</td>
         </tr>
       </table>
   </td>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resource_2653',['Resource',['../namespaceprotocol.html#a4f7d05800d5372ecf21d30125815d652',1,'protocol']]]
+  ['ubxmessage_2442',['UBXMessage',['../namespaceubx.html#a326ecd141c5e2c7e1ff9ec60519b8a43',1,'ubx']]]
 ];

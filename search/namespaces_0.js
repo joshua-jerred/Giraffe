@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['ax25_1580',['ax25',['../namespaceax25.html',1,'']]],
-  ['ctrl_1581',['ctrl',['../namespaceax25_1_1ctrl.html',1,'ax25']]]
+  ['cfg_1414',['cfg',['../namespacecfg.html',1,'']]],
+  ['cmd_1415',['cmd',['../namespacecmd.html',1,'']]],
+  ['console_5fpages_1416',['console_pages',['../namespaceconsole__pages.html',1,'']]]
 ];

@@ -1,0 +1,4 @@
+<map id="giraffe::FlightRunnerData::fullReset" name="giraffe::FlightRunnerData::fullReset">
+<area shape="rect" id="node1" title="Fully resets the flight runner data as if the system has never started before." alt="" coords="5,5,192,47"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1FlightRunnerData.html#a7a570e6547c880a3a36230cb01d35acb" title="Attempts to save the data to a file." alt="" coords="240,5,427,47"/>
+</map>

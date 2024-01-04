@@ -10,6 +10,8 @@ var namespacedata__middleware =
       [ "STREAM_STATS", "namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fabb2e17b169d465e87c15b32697345451", null ],
       [ "SERVER_STATS", "namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fa9137c92c128dd3190285cac74a446e61", null ],
       [ "SYSTEM_INFO", "namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fafde6d9248411caac0e765167c7fa1750", null ],
-      [ "ENVIRONMENTAL_DATA", "namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fa92254e453c7fe69ce540db82bd8415b1", null ]
+      [ "ENVIRONMENTAL_DATA", "namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fa92254e453c7fe69ce540db82bd8415b1", null ],
+      [ "TELEMETRY_DATA", "namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fa7605bf6d834a2e93d8cc619e14c7fbf3", null ],
+      [ "CALCULATED_DATA", "namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fadf42682f058264140aa29b511dd52451", null ]
     ] ]
 ];

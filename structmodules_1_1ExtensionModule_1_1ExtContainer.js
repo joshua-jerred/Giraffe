@@ -6,6 +6,6 @@ var structmodules_1_1ExtensionModule_1_1ExtContainer =
     [ "action", "structmodules_1_1ExtensionModule_1_1ExtContainer.html#a864d0f1187fb285a6d27da95ab67b313", null ],
     [ "startup_attempts", "structmodules_1_1ExtensionModule_1_1ExtContainer.html#aec4751a44f86aa2d266240d2cbe6e954", null ],
     [ "restart_attempts", "structmodules_1_1ExtensionModule_1_1ExtContainer.html#afedb3705c2142d066d60ac722ce915ff", null ],
-    [ "startup_shutdown_timer", "structmodules_1_1ExtensionModule_1_1ExtContainer.html#a8ee5015010f0f9dd9d312fd1d7da4a31", null ],
-    [ "restart_timer", "structmodules_1_1ExtensionModule_1_1ExtContainer.html#a66868c6ae349b1b9a00373a535d5a69b", null ]
+    [ "startup_shutdown_timer", "structmodules_1_1ExtensionModule_1_1ExtContainer.html#adead644ee88c2715ef1310d5134d1569", null ],
+    [ "restart_timer", "structmodules_1_1ExtensionModule_1_1ExtContainer.html#a6fa72fc26c9d9960224dd3d923e55304", null ]
 ];

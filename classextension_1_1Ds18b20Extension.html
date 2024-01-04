@@ -210,14 +210,14 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a40300776e358833cbfd50c198a320cdf"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a40300776e358833cbfd50c198a320cdf">fault_flag_</a> = false</td></tr>
 <tr class="memdesc:a40300776e358833cbfd50c198a320cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is raised with a call to <a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension.">raiseFault()</a>.  <a href="classextension_1_1Extension.html#a40300776e358833cbfd50c198a320cdf">More...</a><br /></td></tr>
 <tr class="separator:a40300776e358833cbfd50c198a320cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b8782c82b249f17df34c4767ef4969f"><td class="memItemLeft" align="right" valign="top">BoosterSeat::Timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Ds18b20Extension.html#a0b8782c82b249f17df34c4767ef4969f">init_timer_</a></td></tr>
-<tr class="separator:a0b8782c82b249f17df34c4767ef4969f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ce85f67d6a1e4420df51aab06d9b686"><td class="memItemLeft" align="right" valign="top">bst::Timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Ds18b20Extension.html#a9ce85f67d6a1e4420df51aab06d9b686">init_timer_</a></td></tr>
+<tr class="separator:a9ce85f67d6a1e4420df51aab06d9b686"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a067006ad3c8c07006590ccdfca70d037"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structextension_1_1ExtensionResources.html">ExtensionResources</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">interfaces_</a></td></tr>
 <tr class="separator:a067006ad3c8c07006590ccdfca70d037"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6880a02a50740f119a05862fd4729875"><td class="memItemLeft" align="right" valign="top">DiagnosticId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Ds18b20Extension.html#a6880a02a50740f119a05862fd4729875">read_timeout_fault_</a> = DiagnosticId::EXT_FAULT_ds18b20ReadTimeout</td></tr>
 <tr class="separator:a6880a02a50740f119a05862fd4729875"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c4ffcccd74cfb41ac3bc6b259976630"><td class="memItemLeft" align="right" valign="top">BoosterSeat::Timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Ds18b20Extension.html#a9c4ffcccd74cfb41ac3bc6b259976630">read_timer_</a></td></tr>
-<tr class="separator:a9c4ffcccd74cfb41ac3bc6b259976630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f8514ec919fc486cd8c134c71a370eb"><td class="memItemLeft" align="right" valign="top">bst::Timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Ds18b20Extension.html#a6f8514ec919fc486cd8c134c71a370eb">read_timer_</a></td></tr>
+<tr class="separator:a6f8514ec919fc486cd8c134c71a370eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae130f81dd3fc3565fd4e617bc6d7f4b1"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#ae130f81dd3fc3565fd4e617bc6d7f4b1">runner_thread_</a> = std::thread()</td></tr>
 <tr class="separator:ae130f81dd3fc3565fd4e617bc6d7f4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78794696deb7370a7f71ca6e7bc28998"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419">node::Status</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a> = <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a09d4d696b4e935115b9313e3c412509a">node::Status::STOPPED</a></td></tr>
@@ -282,7 +282,7 @@ Private Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classextension_1_1Extension.html#a75c23dd1442c50aa49a1ecd87ada6912">extension::Extension</a>.</p>
 
-<p class="reference">References <a class="el" href="giraffe__debug_8hpp.html#a8aa666ff8ed3322f393ac113490232a6">EXT_DEBUG</a>, <a class="el" href="classextension_1_1Extension.html#a00ef6cd65250307287af24071c862a42">extension::Extension::extSleep()</a>, <a class="el" href="classextension_1_1Ds18b20Extension.html#aa66b4669b727c68db267eb253019eb79">init()</a>, <a class="el" href="classextension_1_1Ds18b20Extension.html#a0b8782c82b249f17df34c4767ef4969f">init_timer_</a>, <a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba">extension::Extension::raiseFault()</a>, <a class="el" href="classextension_1_1Ds18b20Extension.html#a9c4ffcccd74cfb41ac3bc6b259976630">read_timer_</a>, and <a class="el" href="classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b">extension::Extension::stopRequested()</a>.</p>
+<p class="reference">References <a class="el" href="giraffe__debug_8hpp.html#a8aa666ff8ed3322f393ac113490232a6">EXT_DEBUG</a>, <a class="el" href="classextension_1_1Extension.html#a00ef6cd65250307287af24071c862a42">extension::Extension::extSleep()</a>, <a class="el" href="classextension_1_1Ds18b20Extension.html#aa66b4669b727c68db267eb253019eb79">init()</a>, <a class="el" href="classextension_1_1Ds18b20Extension.html#a9ce85f67d6a1e4420df51aab06d9b686">init_timer_</a>, <a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba">extension::Extension::raiseFault()</a>, <a class="el" href="classextension_1_1Ds18b20Extension.html#a6f8514ec919fc486cd8c134c71a370eb">read_timer_</a>, and <a class="el" href="classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b">extension::Extension::stopRequested()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -317,7 +317,7 @@ Here is the call graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef">extension::Extension</a>.</p>
 
-<p class="reference">References <a class="el" href="classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e">extension::Extension::data()</a>, <a class="el" href="classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06">extension::Extension::error()</a>, <a class="el" href="giraffe__debug_8hpp.html#a8aa666ff8ed3322f393ac113490232a6">EXT_DEBUG</a>, <a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba">extension::Extension::raiseFault()</a>, <a class="el" href="classextension_1_1Ds18b20Extension.html#a6880a02a50740f119a05862fd4729875">read_timeout_fault_</a>, <a class="el" href="classextension_1_1Ds18b20Extension.html#a9c4ffcccd74cfb41ac3bc6b259976630">read_timer_</a>, <a class="el" href="classextension_1_1Ds18b20Extension.html#a63ae9398964e5b98b485bcd998469cb4">readData()</a>, and <a class="el" href="classextension_1_1Ds18b20Extension.html#adf6917546835c0c02455e07016977283">temperature_</a>.</p>
+<p class="reference">References <a class="el" href="classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e">extension::Extension::data()</a>, <a class="el" href="classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06">extension::Extension::error()</a>, <a class="el" href="giraffe__debug_8hpp.html#a8aa666ff8ed3322f393ac113490232a6">EXT_DEBUG</a>, <a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba">extension::Extension::raiseFault()</a>, <a class="el" href="classextension_1_1Ds18b20Extension.html#a6880a02a50740f119a05862fd4729875">read_timeout_fault_</a>, <a class="el" href="classextension_1_1Ds18b20Extension.html#a6f8514ec919fc486cd8c134c71a370eb">read_timer_</a>, <a class="el" href="classextension_1_1Ds18b20Extension.html#a63ae9398964e5b98b485bcd998469cb4">readData()</a>, and <a class="el" href="classextension_1_1Ds18b20Extension.html#adf6917546835c0c02455e07016977283">temperature_</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1191,8 +1191,8 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a0b8782c82b249f17df34c4767ef4969f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b8782c82b249f17df34c4767ef4969f">&#9670;&nbsp;</a></span>init_timer_</h2>
+<a id="a9ce85f67d6a1e4420df51aab06d9b686"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ce85f67d6a1e4420df51aab06d9b686">&#9670;&nbsp;</a></span>init_timer_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1201,7 +1201,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BoosterSeat::Timer extension::Ds18b20Extension::init_timer_</td>
+          <td class="memname">bst::Timer extension::Ds18b20Extension::init_timer_</td>
         </tr>
       </table>
   </td>
@@ -1215,8 +1215,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a9c4ffcccd74cfb41ac3bc6b259976630"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c4ffcccd74cfb41ac3bc6b259976630">&#9670;&nbsp;</a></span>read_timer_</h2>
+<a id="a6f8514ec919fc486cd8c134c71a370eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f8514ec919fc486cd8c134c71a370eb">&#9670;&nbsp;</a></span>read_timer_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1225,7 +1225,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BoosterSeat::Timer extension::Ds18b20Extension::read_timer_</td>
+          <td class="memname">bst::Timer extension::Ds18b20Extension::read_timer_</td>
         </tr>
       </table>
   </td>

@@ -1,6 +1,5 @@
 var namespaces_dup =
 [
-    [ "ax25", "namespaceax25.html", "namespaceax25" ],
     [ "cfg", "namespacecfg.html", "namespacecfg" ],
     [ "cmd", "namespacecmd.html", "namespacecmd" ],
     [ "console_pages", "namespaceconsole__pages.html", "namespaceconsole__pages" ],
@@ -14,6 +13,7 @@ var namespaces_dup =
     ] ],
     [ "extension", "namespaceextension.html", "namespaceextension" ],
     [ "gdl", "namespacegdl.html", "namespacegdl" ],
+    [ "giraffe", "namespacegiraffe.html", "namespacegiraffe" ],
     [ "modules", "namespacemodules.html", "namespacemodules" ],
     [ "ncurs", "namespacencurs.html", "namespacencurs" ],
     [ "node", "namespacenode.html", [

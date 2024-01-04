@@ -110,11 +110,14 @@ $(document).ready(function(){initNavTree('classFlightRunner.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 
+<p>The <a class="el" href="classFlightRunner.html" title="The FlightRunner class is the main class for the flight system. It ties everything together.">FlightRunner</a> class is the main class for the flight system. It ties everything together.  
+ <a href="classFlightRunner.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="flight__runner_8hpp_source.html">flight_runner.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for FlightRunner:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner__coll__graph.svg" width="4708" height="2223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner__coll__graph.svg" width="5372" height="2039"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -129,9 +132,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3b8c83dbf038f66b9f74e65a36dfd7af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFlightRunner.html">FlightRunner</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a3b8c83dbf038f66b9f74e65a36dfd7af">operator=</a> (const <a class="el" href="classFlightRunner.html">FlightRunner</a> &amp;)=delete</td></tr>
 <tr class="separator:a3b8c83dbf038f66b9f74e65a36dfd7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a645cd4e865e0e3b35ac6e9b3d52bdda4"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a645cd4e865e0e3b35ac6e9b3d52bdda4">shutdown</a> () -&gt; void</td></tr>
-<tr class="memdesc:a645cd4e865e0e3b35ac6e9b3d52bdda4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called from main via a keyboard interrupt, this function sends a shutdown signal to the flight runner.  <a href="classFlightRunner.html#a645cd4e865e0e3b35ac6e9b3d52bdda4">More...</a><br /></td></tr>
+<tr class="memdesc:a645cd4e865e0e3b35ac6e9b3d52bdda4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuts down the flight runner.  <a href="classFlightRunner.html#a645cd4e865e0e3b35ac6e9b3d52bdda4">More...</a><br /></td></tr>
 <tr class="separator:a645cd4e865e0e3b35ac6e9b3d52bdda4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7deed0a1bc77d1f1046a8713cc85dd78"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a7deed0a1bc77d1f1046a8713cc85dd78">start</a> () -&gt; int</td></tr>
+<tr class="memdesc:a7deed0a1bc77d1f1046a8713cc85dd78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the flight runner.  <a href="classFlightRunner.html#a7deed0a1bc77d1f1046a8713cc85dd78">More...</a><br /></td></tr>
 <tr class="separator:a7deed0a1bc77d1f1046a8713cc85dd78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -142,11 +146,19 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:ad17d6bcd13dcb824062d97b36ec7fa96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process commands that are sent to the flight runner.  <a href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">More...</a><br /></td></tr>
 <tr class="separator:ad17d6bcd13dcb824062d97b36ec7fa96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6407ba5e7fca2d91a216ab35e58fd7b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">routeCommand</a> (<a class="el" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;command)</td></tr>
-<tr class="memdesc:a6407ba5e7fca2d91a216ab35e58fd7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a command to the proper module.  <a href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">More...</a><br /></td></tr>
+<tr class="memdesc:a6407ba5e7fca2d91a216ab35e58fd7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a command to the proper module.  <a href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">More...</a><br /></td></tr>
 <tr class="separator:a6407ba5e7fca2d91a216ab35e58fd7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa479b87f758cf8bac5fa323cc282c77c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c">toggleModule</a> (const std::string &amp;module_id, bool on_or_off)</td></tr>
+<tr class="separator:aa479b87f758cf8bac5fa323cc282c77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a18e1e0142d60ad30761264d28126f272"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacegiraffe.html#a464112de04b36af2ff144b7013236aff">FlightMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a18e1e0142d60ad30761264d28126f272">current_flight_mode_</a> = FlightMode::UNKNOWN</td></tr>
+<tr class="memdesc:a18e1e0142d60ad30761264d28126f272"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current flight mode. This will be used to determine what to do.  <a href="classFlightRunner.html#a18e1e0142d60ad30761264d28126f272">More...</a><br /></td></tr>
+<tr class="separator:a18e1e0142d60ad30761264d28126f272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad04b0936f84dfbd1a619f42b17aa0c27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1FlightRunnerData.html">FlightRunnerData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27">flight_runner_data_</a> = <a class="el" href="classgiraffe_1_1FlightRunnerData.html">FlightRunnerData</a>()</td></tr>
+<tr class="memdesc:ad04b0936f84dfbd1a619f42b17aa0c27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-volatile data for the flight runner.  <a href="classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27">More...</a><br /></td></tr>
+<tr class="separator:ad04b0936f84dfbd1a619f42b17aa0c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6285dac2f407b76b3989fd805561b3ef"><td class="memItemLeft" align="right" valign="top">cfg::Configuration *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a6285dac2f407b76b3989fd805561b3ef">p_config_</a> = nullptr</td></tr>
 <tr class="separator:a6285dac2f407b76b3989fd805561b3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90d995d0a88181208e5241b92b3fa9ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmodules_1_1ConsoleModule.html">modules::ConsoleModule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a90d995d0a88181208e5241b92b3fa9ca">p_console_module_</a> = nullptr</td></tr>
@@ -166,7 +178,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ad67bc48e7138e28e4d9514077849cc7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#ad67bc48e7138e28e4d9514077849cc7d">shutdown_signal_</a> = false</td></tr>
 <tr class="separator:ad67bc48e7138e28e4d9514077849cc7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="classFlightRunner.html" title="The FlightRunner class is the main class for the flight system. It ties everything together.">FlightRunner</a> class is the main class for the flight system. It ties everything together. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5fc9942605418ffb27dbc0ca1abae057"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5fc9942605418ffb27dbc0ca1abae057">&#9670;&nbsp;</a></span>FlightRunner() <span class="overload">[1/2]</span></h2>
 
@@ -285,6 +299,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Starts the flight runner. </p>
+<dl class="section return"><dt>Returns</dt><dd>int The exit code. </dd></dl>
+
 <p class="reference">References <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a8a4d813b0de0de20fb9eba73a71a1e9c">node::CONSOLE_MODULE</a>, <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a055c1a591abb0e8cd86dc969727bcc0b">node::DISABLED</a>, <a class="el" href="flight__runner_8cpp.html#a6ff60f8a9083efa5cc606d18feb689e9">K_CONFIG_FILE_PATH</a>, <a class="el" href="flight__runner_8cpp.html#a3104692d89e88b86cd43530693f60626">K_GIRAFFE_VERSION_NUMBER</a>, and <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7cc2660d640b0a597c45ba01f386bf62">node::TELEMETRY_MODULE</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
@@ -312,6 +329,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Shuts down the flight runner. </p>
 <p>Called from main via a keyboard interrupt, this function sends a shutdown signal to the flight runner. </p>
 
 <p class="reference">Referenced by <a class="el" href="main_8cpp.html#aac54c41eba9e07dbcdf25984bdf0ebc6">__assert_func()</a>, and <a class="el" href="main_8cpp.html#a1ff4bd1f5a632a4106604e5c243c0f24">signalHandler()</a>.</p>
@@ -351,48 +369,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a6407ba5e7fca2d91a216ab35e58fd7b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6407ba5e7fca2d91a216ab35e58fd7b3">&#9670;&nbsp;</a></span>routeCommand()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void FlightRunner::routeCommand </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;&#160;</td>
-          <td class="paramname"><em>command</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Send a command to the proper module. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">command</td><td>The command to route. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="reference">References <a class="el" href="classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a">modules::Module::addCommand()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a8a4d813b0de0de20fb9eba73a71a1e9c">node::CONSOLE_MODULE</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a2ca2a0957ac70175ade816c1fabb8588">node::DATA_MODULE</a>, <a class="el" href="namespacecmd.html#a718ef116db40a0e3254cc5852229c5be">cmd::Command::destination</a>, <a class="el" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="namespacenode.html#afb5c2033cc860e84fb4b44a9929d3f7e">node::K_IDENTIFICATION_TO_STRING_MAP</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classFlightRunner.html#a90d995d0a88181208e5241b92b3fa9ca">p_console_module_</a>, <a class="el" href="classFlightRunner.html#aba54085de36a674170138a098ffab821">p_data_module_</a>, <a class="el" href="classFlightRunner.html#a70d968c507be59e86cb0861a2f058734">p_server_module_</a>, <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">processCommand()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a3df8ece3baaa3dbaab4d2294add9be3d">node::SERVER_MODULE</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, and <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_a6407ba5e7fca2d91a216ab35e58fd7b3_cgraph.svg" width="1175" height="166"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
 <a id="ad17d6bcd13dcb824062d97b36ec7fa96"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad17d6bcd13dcb824062d97b36ec7fa96">&#9670;&nbsp;</a></span>processCommand()</h2>
 
@@ -425,13 +401,13 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="namespacecmd.html#ac807c769aa248d965dcee19e3e025624">cmd::Command::command_id</a>, <a class="el" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="classFlightRunner.html#ad67bc48e7138e28e4d9514077849cc7d">shutdown_signal_</a>, and <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>.</p>
+<p class="reference">References <a class="el" href="namespacecmd.html#ac807c769aa248d965dcee19e3e025624">cmd::Command::command_id</a>, <a class="el" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="classFlightRunner.html#ad67bc48e7138e28e4d9514077849cc7d">shutdown_signal_</a>, <a class="el" href="namespacecmd.html#a4df5a705227810da5bcd8f8d0326878b">cmd::Command::str_arg</a>, <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c">toggleModule()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">routeCommand()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_ad17d6bcd13dcb824062d97b36ec7fa96_cgraph.svg" width="903" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_ad17d6bcd13dcb824062d97b36ec7fa96_cgraph.svg" width="947" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -443,7 +419,125 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a6407ba5e7fca2d91a216ab35e58fd7b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6407ba5e7fca2d91a216ab35e58fd7b3">&#9670;&nbsp;</a></span>routeCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FlightRunner::routeCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a command to the proper module. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>The command to route. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">References <a class="el" href="classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a">modules::Module::addCommand()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a8a4d813b0de0de20fb9eba73a71a1e9c">node::CONSOLE_MODULE</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a2ca2a0957ac70175ade816c1fabb8588">node::DATA_MODULE</a>, <a class="el" href="namespacecmd.html#a718ef116db40a0e3254cc5852229c5be">cmd::Command::destination</a>, <a class="el" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="namespacenode.html#afb5c2033cc860e84fb4b44a9929d3f7e">node::K_IDENTIFICATION_TO_STRING_MAP</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classFlightRunner.html#a90d995d0a88181208e5241b92b3fa9ca">p_console_module_</a>, <a class="el" href="classFlightRunner.html#aba54085de36a674170138a098ffab821">p_data_module_</a>, <a class="el" href="classFlightRunner.html#a70d968c507be59e86cb0861a2f058734">p_server_module_</a>, <a class="el" href="classFlightRunner.html#a3481f326d4fa66f11536dc0dca522926">p_telemetry_module_</a>, <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">processCommand()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a3df8ece3baaa3dbaab4d2294add9be3d">node::SERVER_MODULE</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7cc2660d640b0a597c45ba01f386bf62">node::TELEMETRY_MODULE</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_a6407ba5e7fca2d91a216ab35e58fd7b3_cgraph.svg" width="1212" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aa479b87f758cf8bac5fa323cc282c77c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa479b87f758cf8bac5fa323cc282c77c">&#9670;&nbsp;</a></span>toggleModule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FlightRunner::toggleModule </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>module_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>on_or_off</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classFlightRunner.html#a6285dac2f407b76b3989fd805561b3ef">p_config_</a>, <a class="el" href="classFlightRunner.html#a90d995d0a88181208e5241b92b3fa9ca">p_console_module_</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd">modules::Module::start()</a>, and <a class="el" href="classmodules_1_1Module.html#aefe65d4f674e804a1891b250ed2887a4">modules::Module::stop()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">processCommand()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_aa479b87f758cf8bac5fa323cc282c77c_cgraph.svg" width="666" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_aa479b87f758cf8bac5fa323cc282c77c_icgraph.svg" width="755" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad04b0936f84dfbd1a619f42b17aa0c27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad04b0936f84dfbd1a619f42b17aa0c27">&#9670;&nbsp;</a></span>flight_runner_data_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgiraffe_1_1FlightRunnerData.html">FlightRunnerData</a> FlightRunner::flight_runner_data_ = <a class="el" href="classgiraffe_1_1FlightRunnerData.html">FlightRunnerData</a>()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-volatile data for the flight runner. </p>
+
+</div>
+</div>
 <a id="ad67bc48e7138e28e4d9514077849cc7d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad67bc48e7138e28e4d9514077849cc7d">&#9670;&nbsp;</a></span>shutdown_signal_</h2>
 
@@ -488,7 +582,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">processCommand()</a>, and <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">routeCommand()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">processCommand()</a>, <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">routeCommand()</a>, and <a class="el" href="classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c">toggleModule()</a>.</p>
 
 </div>
 </div>
@@ -512,7 +606,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6904cac87e21bb4d2957eab383a4f597">~FlightRunner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6904cac87e21bb4d2957eab383a4f597">~FlightRunner()</a>, and <a class="el" href="classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c">toggleModule()</a>.</p>
 
 </div>
 </div>
@@ -560,7 +654,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6904cac87e21bb4d2957eab383a4f597">~FlightRunner()</a>, and <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">routeCommand()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6904cac87e21bb4d2957eab383a4f597">~FlightRunner()</a>, <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">routeCommand()</a>, and <a class="el" href="classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c">toggleModule()</a>.</p>
 
 </div>
 </div>
@@ -656,7 +750,32 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6904cac87e21bb4d2957eab383a4f597">~FlightRunner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6904cac87e21bb4d2957eab383a4f597">~FlightRunner()</a>, and <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">routeCommand()</a>.</p>
+
+</div>
+</div>
+<a id="a18e1e0142d60ad30761264d28126f272"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18e1e0142d60ad30761264d28126f272">&#9670;&nbsp;</a></span>current_flight_mode_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacegiraffe.html#a464112de04b36af2ff144b7013236aff">FlightMode</a> FlightRunner::current_flight_mode_ = FlightMode::UNKNOWN</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The current flight mode. This will be used to determine what to do. </p>
+<p>This is loaded at startup from flight data. </p>
 
 </div>
 </div>

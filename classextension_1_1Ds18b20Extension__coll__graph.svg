@@ -679,10 +679,10 @@
 <text text-anchor="middle" x="1225.5" y="-732" font-family="Helvetica,sans-Serif" font-size="10.00"> +extra_args</text>
 <text text-anchor="middle" x="1225.5" y="-721" font-family="Helvetica,sans-Serif" font-size="10.00">+name</text>
 </g>
-<!-- Node31 -->
-<g id="node31" class="node">
-<title>Node31</title>
-<g id="a_node31"><a xlink:href="classOneWireInterface.html" target="_top" xlink:title=" ">
+<!-- Node32 -->
+<g id="node32" class="node">
+<title>Node32</title>
+<g id="a_node32"><a xlink:href="classOneWireInterface.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1211.5,-500.5 1211.5,-612.5 1347.5,-612.5 1347.5,-500.5 1211.5,-500.5"/>
 <text text-anchor="middle" x="1279.5" y="-600.5" font-family="Helvetica,sans-Serif" font-size="10.00">OneWireInterface</text>
 <polyline fill="none" stroke="black" points="1211.5,-593.5 1347.5,-593.5 "/>
@@ -697,9 +697,9 @@
 </a>
 </g>
 </g>
-<!-- Node28&#45;&gt;Node31 -->
-<g id="edge37" class="edge">
-<title>Node28&#45;&gt;Node31</title>
+<!-- Node28&#45;&gt;Node32 -->
+<g id="edge38" class="edge">
+<title>Node28&#45;&gt;Node32</title>
 <path fill="none" stroke="#404040" d="M1253.04,-758.44C1254.7,-752.41 1256.29,-746.02 1257.5,-740 1265.06,-702.24 1270.39,-659.52 1273.9,-624.92"/>
 <polygon fill="none" stroke="#404040" points="1273.94,-624.5 1270.54,-618.14 1275.11,-612.56 1278.51,-618.92 1273.94,-624.5"/>
 <text text-anchor="middle" x="1277.5" y="-726.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;path_</text>
@@ -744,17 +744,10 @@
 <polygon fill="none" stroke="#404040" points="1332.22,-99.3 1325.06,-98.4 1323.13,-91.46 1330.29,-92.35 1332.22,-99.3"/>
 <text text-anchor="middle" x="1396" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;temperature_</text>
 </g>
-<!-- Node31&#45;&gt;Node1 -->
-<g id="edge36" class="edge">
-<title>Node31&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M1211.32,-503.21C1209.7,-502.12 1208.1,-501.05 1206.5,-500 1192.86,-491.04 1182.74,-496.09 1174.5,-482 1102.25,-358.47 1134.82,-297.5 1174.5,-160 1179.27,-143.47 1187.4,-127.03 1196.42,-112.15"/>
-<polygon fill="none" stroke="#404040" points="1196.68,-111.74 1196.52,-104.53 1203.11,-101.61 1203.27,-108.82 1196.68,-111.74"/>
-<text text-anchor="middle" x="1197" y="-318.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;device_</text>
-</g>
-<!-- Node32 -->
-<g id="node32" class="node">
-<title>Node32</title>
-<g id="a_node32"><a xlink:title=" ">
+<!-- Node31 -->
+<g id="node31" class="node">
+<title>Node31</title>
+<g id="a_node31"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="1445,-292.5 1445,-349.5 1490,-349.5 1490,-292.5 1445,-292.5"/>
 <text text-anchor="middle" x="1467.5" y="-337.5" font-family="Helvetica,sans-Serif" font-size="10.00">Timer</text>
 <polyline fill="none" stroke="#bfbfbf" points="1445,-330.5 1490,-330.5 "/>
@@ -764,13 +757,20 @@
 </a>
 </g>
 </g>
-<!-- Node32&#45;&gt;Node1 -->
-<g id="edge38" class="edge">
-<title>Node32&#45;&gt;Node1</title>
+<!-- Node31&#45;&gt;Node1 -->
+<g id="edge36" class="edge">
+<title>Node31&#45;&gt;Node1</title>
 <path fill="none" stroke="#404040" d="M1471.44,-292.2C1475.8,-249.95 1477.5,-169.3 1436.5,-120 1411.38,-89.79 1371.99,-72.99 1335.25,-63.65"/>
 <polygon fill="none" stroke="#404040" points="1335.11,-63.62 1328.36,-66.14 1323.43,-60.87 1330.19,-58.35 1335.11,-63.62"/>
 <text text-anchor="middle" x="1480" y="-134" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;init_timer_</text>
 <text text-anchor="middle" x="1480" y="-123" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;read_timer_</text>
+</g>
+<!-- Node32&#45;&gt;Node1 -->
+<g id="edge37" class="edge">
+<title>Node32&#45;&gt;Node1</title>
+<path fill="none" stroke="#404040" d="M1211.32,-503.21C1209.7,-502.12 1208.1,-501.05 1206.5,-500 1192.86,-491.04 1182.74,-496.09 1174.5,-482 1102.25,-358.47 1134.82,-297.5 1174.5,-160 1179.27,-143.47 1187.4,-127.03 1196.42,-112.15"/>
+<polygon fill="none" stroke="#404040" points="1196.68,-111.74 1196.52,-104.53 1203.11,-101.61 1203.27,-108.82 1196.68,-111.74"/>
+<text text-anchor="middle" x="1197" y="-318.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;device_</text>
 </g>
 </g>
 </svg>

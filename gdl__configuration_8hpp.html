@@ -111,6 +111,7 @@ $(document).ready(function(){initNavTree('gdl__configuration_8hpp.html',''); ini
 <p>Contains the configuration struct for GDL.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for gdl_configuration.hpp:</div>
 <div class="dyncontent">
@@ -120,7 +121,7 @@ Include dependency graph for gdl_configuration.hpp:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__configuration_8hpp__dep__incl.svg" width="419" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__configuration_8hpp__dep__incl.svg" width="652" height="486"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -159,11 +160,17 @@ Namespaces</h2></td></tr>
 </div><div class="dynheader">
 Collaboration diagram for gdl::GdlConfig:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structgdl_1_1GdlConfig__coll__graph.svg" width="371" height="287"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structgdl_1_1GdlConfig__coll__graph.svg" width="654" height="287"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="ab02b54c5eca065090ce78e14c65ce54d"></a>string</td>
+<td class="fieldname">
+user_id</td>
+<td class="fielddoc">
+</td></tr>
 <tr><td class="fieldtype">
 <a id="ace3ab1abf31047058605861ec29e2dd6"></a>uint8_t</td>
 <td class="fieldname">
@@ -190,11 +197,11 @@ max_retries</td>
 The maximum number of retries for a message. <p>This will reset for each packet. </p>
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a85b7c7b5f6f93d6c5af8fa085566ea4b"></a>uint16_t</td>
+<a id="afb44f32bd93d30aebe3ba794726e6f45"></a>uint16_t</td>
 <td class="fieldname">
-retry_interval</td>
+retry_interval_ms</td>
 <td class="fielddoc">
-The interval between retries in seconds. </td></tr>
+The interval between retries in milliseconds. </td></tr>
 <tr><td class="fieldtype">
 <a id="a5c8dccf2a6bc3a7c426af61ef0a998de"></a>uint16_t</td>
 <td class="fieldname">
@@ -214,6 +221,12 @@ The maximum size (payload) of a message in bytes. </td></tr>
 default_timeout</td>
 <td class="fielddoc">
 The default timeout for a message in seconds. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8d4a7e52e4d53b22b0fb3ff5963d3e5e"></a>bool</td>
+<td class="fieldname">
+print_new_messages</td>
+<td class="fielddoc">
+If new messages should be printed to the console as they come in instead of hiding them in the queue. </td></tr>
 </table>
 
 </div>

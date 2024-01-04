@@ -1,11 +1,11 @@
 <map id="extension::I2cExtensionAdapter" name="extension::I2cExtensionAdapter">
-<area shape="rect" id="node1" title="Adapter for I2C Extensions." alt="" coords="77,476,305,597"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,241,80,318"/>
-<area shape="rect" id="node3" title=" " alt="" coords="161,241,221,318"/>
-<area shape="rect" id="node4" href="$classI2cInterface.html" title="A wrapper around I2C communication that restricts a single thread from accessing the bus at a time." alt="" coords="263,145,438,413"/>
-<area shape="rect" id="node5" title=" " alt="" coords="113,5,220,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="244,5,311,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="335,5,374,83"/>
-<area shape="rect" id="node8" title=" " alt="" coords="408,5,467,83"/>
-<area shape="rect" id="node9" title=" " alt="" coords="510,5,589,83"/>
+<area shape="rect" id="node1" title="Adapter for I2C Extensions." alt="" coords="81,476,309,597"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,241,65,318"/>
+<area shape="rect" id="node3" title=" " alt="" coords="158,241,233,318"/>
+<area shape="rect" id="node4" href="$classI2cInterface.html" title="A wrapper around I2C communication that restricts a single thread from accessing the bus at a time." alt="" coords="257,145,432,413"/>
+<area shape="rect" id="node5" title=" " alt="" coords="107,5,214,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="238,5,305,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="329,5,368,83"/>
+<area shape="rect" id="node8" title=" " alt="" coords="402,5,461,83"/>
+<area shape="rect" id="node9" title=" " alt="" coords="504,5,583,83"/>
 </map>

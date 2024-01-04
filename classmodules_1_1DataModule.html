@@ -119,13 +119,13 @@ $(document).ready(function(){initNavTree('classmodules_1_1DataModule.html',''); 
 <div class="dynheader">
 Inheritance diagram for modules::DataModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1DataModule__inherit__graph.svg" width="282" height="947"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1DataModule__inherit__graph.svg" width="282" height="1006"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for modules::DataModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1DataModule__coll__graph.svg" width="4332" height="2267"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1DataModule__coll__graph.svg" width="3800" height="1962"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -186,6 +186,9 @@ Protected Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:a13de2ec04ae048529fcfe91c95272b97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#a13de2ec04ae048529fcfe91c95272b97">calculateCalculatedData</a> ()</td></tr>
+<tr class="memdesc:a13de2ec04ae048529fcfe91c95272b97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use existing data to calculate the data that can be calculated.  <a href="classmodules_1_1DataModule.html#a13de2ec04ae048529fcfe91c95272b97">More...</a><br /></td></tr>
+<tr class="separator:a13de2ec04ae048529fcfe91c95272b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1d38dc8d6a9a4c7b920fe5ce29ee75e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#ad1d38dc8d6a9a4c7b920fe5ce29ee75e">loop</a> () override</td></tr>
 <tr class="memdesc:ad1d38dc8d6a9a4c7b920fe5ce29ee75e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loop override for the data module.  <a href="classmodules_1_1DataModule.html#ad1d38dc8d6a9a4c7b920fe5ce29ee75e">More...</a><br /></td></tr>
 <tr class="separator:ad1d38dc8d6a9a4c7b920fe5ce29ee75e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -233,6 +236,16 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a62feb9a9792698f1271d445515e60070"><td class="memItemLeft" align="right" valign="top">BoosterSeat::RollingAverage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#a62feb9a9792698f1271d445515e60070">average_horizontal_speed_</a> {20}</td></tr>
+<tr class="memdesc:a62feb9a9792698f1271d445515e60070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rolling average of the horizontal speed. Once every 15 seconds (20 in a 5 minute span)  <a href="classmodules_1_1DataModule.html#a62feb9a9792698f1271d445515e60070">More...</a><br /></td></tr>
+<tr class="separator:a62feb9a9792698f1271d445515e60070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1dbf6e6a4e63080e8899502710812ea"><td class="memItemLeft" align="right" valign="top">bst::Timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#ad1dbf6e6a4e63080e8899502710812ea">average_speed_timer_</a> {15 * 1000}</td></tr>
+<tr class="separator:ad1dbf6e6a4e63080e8899502710812ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9e020baf16f393b1b1c061012ca184d"><td class="memItemLeft" align="right" valign="top">BoosterSeat::RollingAverage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#ae9e020baf16f393b1b1c061012ca184d">average_vertical_speed_</a> {20}</td></tr>
+<tr class="separator:ae9e020baf16f393b1b1c061012ca184d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d29f2f626b492e5a42dd343b54e0134"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdata_1_1blocks_1_1CalculatedData.html">data::blocks::CalculatedData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#a3d29f2f626b492e5a42dd343b54e0134">calculated_data_</a> {}</td></tr>
+<tr class="memdesc:a3d29f2f626b492e5a42dd343b54e0134"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer for the calculated data. Used by the calculateCalculatedData method.  <a href="classmodules_1_1DataModule.html#a3d29f2f626b492e5a42dd343b54e0134">More...</a><br /></td></tr>
+<tr class="separator:a3d29f2f626b492e5a42dd343b54e0134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d855a6e0bc3c2a826fa396d4c5486d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmd_1_1CommandQueue.html">cmd::CommandQueue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#a7d855a6e0bc3c2a826fa396d4c5486d3">command_queue_</a></td></tr>
 <tr class="memdesc:a7d855a6e0bc3c2a826fa396d4c5486d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The command queue for the module.  <a href="classmodules_1_1Module.html#a7d855a6e0bc3c2a826fa396d4c5486d3">More...</a><br /></td></tr>
 <tr class="separator:a7d855a6e0bc3c2a826fa396d4c5486d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -248,9 +261,15 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a311530ea865f7e8c1550575336a71b30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata__middleware_1_1DataLog.html">data_middleware::DataLog</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#a311530ea865f7e8c1550575336a71b30">data_log_</a></td></tr>
 <tr class="memdesc:a311530ea865f7e8c1550575336a71b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">The data log object, used to log data and errors to files.  <a href="classmodules_1_1DataModule.html#a311530ea865f7e8c1550575336a71b30">More...</a><br /></td></tr>
 <tr class="separator:a311530ea865f7e8c1550575336a71b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f4ce15c5d367f15dbbb00783610f203"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#a0f4ce15c5d367f15dbbb00783610f203">distance_traveled_</a> = 0.0</td></tr>
+<tr class="memdesc:a0f4ce15c5d367f15dbbb00783610f203"><td class="mdescLeft">&#160;</td><td class="mdescRight">The distance traveled in km.  <a href="classmodules_1_1DataModule.html#a0f4ce15c5d367f15dbbb00783610f203">More...</a><br /></td></tr>
+<tr class="separator:a0f4ce15c5d367f15dbbb00783610f203"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60707990c08d4f84efb531fecb0efa9d"><td class="memItemLeft" align="right" valign="top">cfg::gEnum::ErrorLogStrategy&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#a60707990c08d4f84efb531fecb0efa9d">error_file_logging_strategy_</a></td></tr>
 <tr class="memdesc:a60707990c08d4f84efb531fecb0efa9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current error file logging strategy.  <a href="classmodules_1_1DataModule.html#a60707990c08d4f84efb531fecb0efa9d">More...</a><br /></td></tr>
 <tr class="separator:a60707990c08d4f84efb531fecb0efa9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8e2dbc3b342d855b5cf66e4d53395e0"><td class="memItemLeft" align="right" valign="top">bst::Timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#af8e2dbc3b342d855b5cf66e4d53395e0">gps_distance_update_timer_</a> {}</td></tr>
+<tr class="memdesc:af8e2dbc3b342d855b5cf66e4d53395e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This timer is used to determine when to update the gps path for the purpose of calculating distance traveled.  <a href="classmodules_1_1DataModule.html#af8e2dbc3b342d855b5cf66e4d53395e0">More...</a><br /></td></tr>
+<tr class="separator:af8e2dbc3b342d855b5cf66e4d53395e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a287e9105220545d3bdefc3ba0809d7dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata__middleware_1_1InfluxDb.html">data_middleware::InfluxDb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#a287e9105220545d3bdefc3ba0809d7dd">influxdb_</a></td></tr>
 <tr class="memdesc:a287e9105220545d3bdefc3ba0809d7dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to access the influxdb database.  <a href="classmodules_1_1DataModule.html#a287e9105220545d3bdefc3ba0809d7dd">More...</a><br /></td></tr>
 <tr class="separator:a287e9105220545d3bdefc3ba0809d7dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -259,6 +278,15 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aecb4c79041f20e016154b0554b0dae8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a282e2ff40ddb2f5a62707bf50c54cf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#a7a282e2ff40ddb2f5a62707bf50c54cf">influxdb_write_rate_ms_</a> = 1000</td></tr>
 <tr class="separator:a7a282e2ff40ddb2f5a62707bf50c54cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f70f9a1b0d7b99bebf996ee50a4071e"><td class="memItemLeft" align="right" valign="top">bst::geo::Point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#a7f70f9a1b0d7b99bebf996ee50a4071e">last_gps_point_</a> {}</td></tr>
+<tr class="memdesc:a7f70f9a1b0d7b99bebf996ee50a4071e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The last gps point. Used to calculate distance traveled.  <a href="classmodules_1_1DataModule.html#a7f70f9a1b0d7b99bebf996ee50a4071e">More...</a><br /></td></tr>
+<tr class="separator:a7f70f9a1b0d7b99bebf996ee50a4071e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac268ffb580ad0f5a3e229cad43c2325f"><td class="memItemLeft" align="right" valign="top">bst::geo::Point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#ac268ffb580ad0f5a3e229cad43c2325f">launch_gps_point_</a> {}</td></tr>
+<tr class="memdesc:ac268ffb580ad0f5a3e229cad43c2325f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The initial gps point. This is the "launch point".  <a href="classmodules_1_1DataModule.html#ac268ffb580ad0f5a3e229cad43c2325f">More...</a><br /></td></tr>
+<tr class="separator:ac268ffb580ad0f5a3e229cad43c2325f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d01c7995412a8816c0bc036b1f4add5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#a2d01c7995412a8816c0bc036b1f4add5">launch_gps_point_set_</a> = false</td></tr>
+<tr class="memdesc:a2d01c7995412a8816c0bc036b1f4add5"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the initial gps point has been set.  <a href="classmodules_1_1DataModule.html#a2d01c7995412a8816c0bc036b1f4add5">More...</a><br /></td></tr>
+<tr class="separator:a2d01c7995412a8816c0bc036b1f4add5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71c65a477b59d53cfd53326e6e3a3c9d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1DataModule.html#a71c65a477b59d53cfd53326e6e3a3c9d">log_file_enabled_</a> = false</td></tr>
 <tr class="memdesc:a71c65a477b59d53cfd53326e6e3a3c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if error file logging is enabled.  <a href="classmodules_1_1DataModule.html#a71c65a477b59d53cfd53326e6e3a3c9d">More...</a><br /></td></tr>
 <tr class="separator:a71c65a477b59d53cfd53326e6e3a3c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -454,7 +482,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Used to process and commands sent to the data module. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>This function is not implemented yet. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000020">Todo:</a></b></dt><dd>This function is not implemented yet. </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>Test this, this could end poorly </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classmodules_1_1Module.html#afc54834fc6a5d2cb5b55b18c3b46f8a8">modules::Module</a>.</p>
@@ -592,7 +620,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Process all packets from the log stream. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>debug/log packets should be processed here </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>debug/log packets should be processed here </dd></dl>
 
 <p class="reference">References <a class="el" href="structdata_1_1LogPacket.html#acf1eb5602d42a50429a2d4b4752279f4abb1ca97ec761fc37101737ba0aa2e7c5">data::LogPacket::ERROR</a>, <a class="el" href="structdata_1_1LogPacket.html#ab3abc310a2d936050d720a55ce18aa14">data::LogPacket::level</a>, and <a class="el" href="namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e">util::to_string()</a>.</p>
 
@@ -700,6 +728,47 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a13de2ec04ae048529fcfe91c95272b97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13de2ec04ae048529fcfe91c95272b97">&#9670;&nbsp;</a></span>calculateCalculatedData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void modules::DataModule::calculateCalculatedData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use existing data to calculate the data that can be calculated. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>This function is not implemented yet. </dd></dl>
+<p>The distance that must be traveled for the distance traveled to be updated.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>Report the launch position as a data point </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>Report this error </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>Report this error </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>put this on a timer instead. Otherwise it will be reported as invalid if there is a single invalid gps frame. Reset the timer if there is a valid frame. </dd></dl>
+
+<p class="reference">References <a class="el" href="data__module_8cpp.html#a0960d214b2437ae8ad3898e9c5b984ce">calculatePressureAltitude()</a>, <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba8b433e3f63d83e78dfbfe6da3ff61b3e">data::FIX_2D</a>, <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba5eddc8631075de75c679f84846de5d51">data::FIX_3D</a>, and <a class="el" href="namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e">util::to_string()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1DataModule_a13de2ec04ae048529fcfe91c95272b97_cgraph.svg" width="436" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="afa712a59eff6e99405e70ae61f7510cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa712a59eff6e99405e70ae61f7510cd">&#9670;&nbsp;</a></span>start()</h2>
 
@@ -727,10 +796,18 @@ Here is the caller graph for this function:</div>
 <p>This function will start a thread to run a module, but only if the module is not already running. If the module is already running, an error will be logged. It also resets the stop flag to false. </p>
 
 <p class="reference">References <a class="el" href="classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51">modules::Module::runner()</a>, <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a43491564ebcfd38568918efbd6e840fd">node::RUNNING</a>, and <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a7850588c11fe6db41b8b2dd6c455f8f3">node::SLEEPING</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c">FlightRunner::toggleModule()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_afa712a59eff6e99405e70ae61f7510cd_cgraph.svg" width="415" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_afa712a59eff6e99405e70ae61f7510cd_icgraph.svg" width="975" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -764,11 +841,11 @@ Here is the call graph for this function:</div>
 
 <p class="reference">References <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a09d4d696b4e935115b9313e3c412509a">node::STOPPED</a>, and <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419af6cdb3c6710b50ec65ee07f740847e10">node::STOPPING</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6904cac87e21bb4d2957eab383a4f597">FlightRunner::~FlightRunner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6904cac87e21bb4d2957eab383a4f597">FlightRunner::~FlightRunner()</a>, and <a class="el" href="classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c">FlightRunner::toggleModule()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_aefe65d4f674e804a1891b250ed2887a4_icgraph.svg" width="436" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_aefe65d4f674e804a1891b250ed2887a4_icgraph.svg" width="978" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -900,7 +977,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>Sets the status of the module and reports it to the data stream. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000029">Todo:</a></b></dt><dd>Sets the status of the module and reports it to the data stream. </dd></dl>
 
 </div>
 </div>
@@ -1036,6 +1113,14 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
+
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">modules::ExtensionModule::startup()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_abcfa8274b894b6a2a131254e76cd9fb3_icgraph.svg" width="424" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -1201,13 +1286,37 @@ false </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_a3d879001e471093d48fcbd2f8c406f51_icgraph.svg" width="415" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_a3d879001e471093d48fcbd2f8c406f51_icgraph.svg" width="1207" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3d29f2f626b492e5a42dd343b54e0134"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d29f2f626b492e5a42dd343b54e0134">&#9670;&nbsp;</a></span>calculated_data_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdata_1_1blocks_1_1CalculatedData.html">data::blocks::CalculatedData</a> modules::DataModule::calculated_data_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Buffer for the calculated data. Used by the calculateCalculatedData method. </p>
+
+</div>
+</div>
 <a id="a311530ea865f7e8c1550575336a71b30"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a311530ea865f7e8c1550575336a71b30">&#9670;&nbsp;</a></span>data_log_</h2>
 
@@ -1431,6 +1540,196 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="af8e2dbc3b342d855b5cf66e4d53395e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8e2dbc3b342d855b5cf66e4d53395e0">&#9670;&nbsp;</a></span>gps_distance_update_timer_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bst::Timer modules::DataModule::gps_distance_update_timer_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This timer is used to determine when to update the gps path for the purpose of calculating distance traveled. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classmodules_1_1DataModule.html#a13de2ec04ae048529fcfe91c95272b97" title="Use existing data to calculate the data that can be calculated.">calculateCalculatedData</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7f70f9a1b0d7b99bebf996ee50a4071e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f70f9a1b0d7b99bebf996ee50a4071e">&#9670;&nbsp;</a></span>last_gps_point_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bst::geo::Point modules::DataModule::last_gps_point_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The last gps point. Used to calculate distance traveled. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classmodules_1_1DataModule.html#a13de2ec04ae048529fcfe91c95272b97" title="Use existing data to calculate the data that can be calculated.">calculateCalculatedData</a> </dd></dl>
+
+</div>
+</div>
+<a id="ac268ffb580ad0f5a3e229cad43c2325f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac268ffb580ad0f5a3e229cad43c2325f">&#9670;&nbsp;</a></span>launch_gps_point_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bst::geo::Point modules::DataModule::launch_gps_point_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The initial gps point. This is the "launch point". </p>
+
+</div>
+</div>
+<a id="a2d01c7995412a8816c0bc036b1f4add5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d01c7995412a8816c0bc036b1f4add5">&#9670;&nbsp;</a></span>launch_gps_point_set_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool modules::DataModule::launch_gps_point_set_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>True if the initial gps point has been set. </p>
+
+</div>
+</div>
+<a id="a0f4ce15c5d367f15dbbb00783610f203"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f4ce15c5d367f15dbbb00783610f203">&#9670;&nbsp;</a></span>distance_traveled_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double modules::DataModule::distance_traveled_ = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The distance traveled in km. </p>
+
+</div>
+</div>
+<a id="a62feb9a9792698f1271d445515e60070"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62feb9a9792698f1271d445515e60070">&#9670;&nbsp;</a></span>average_horizontal_speed_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BoosterSeat::RollingAverage modules::DataModule::average_horizontal_speed_ {20}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rolling average of the horizontal speed. Once every 15 seconds (20 in a 5 minute span) </p>
+
+</div>
+</div>
+<a id="ae9e020baf16f393b1b1c061012ca184d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9e020baf16f393b1b1c061012ca184d">&#9670;&nbsp;</a></span>average_vertical_speed_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BoosterSeat::RollingAverage modules::DataModule::average_vertical_speed_ {20}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad1dbf6e6a4e63080e8899502710812ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1dbf6e6a4e63080e8899502710812ea">&#9670;&nbsp;</a></span>average_speed_timer_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bst::Timer modules::DataModule::average_speed_timer_ {15 * 1000}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a10392744a231ea7c1a39d3a7fddc655f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10392744a231ea7c1a39d3a7fddc655f">&#9670;&nbsp;</a></span>metadata_</h2>
 
@@ -1497,7 +1796,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">modules::ExtensionModule::startup()</a>, and <a class="el" href="classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0">modules::ExtensionModule::updateLocalConfig()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">modules::ExtensionModule::startup()</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#afb1a52e1e90b33ad72a84f8646a9633b">modules::TelemetryModule::startup()</a>, and <a class="el" href="classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0">modules::ExtensionModule::updateLocalConfig()</a>.</p>
 
 </div>
 </div>

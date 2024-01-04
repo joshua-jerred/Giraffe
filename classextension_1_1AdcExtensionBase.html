@@ -214,8 +214,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:abff2d52b2373cc677ae7639c0ad1f0e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36576baccb0b4f3b950b560f5372feb2"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1AdcExtensionBase.html#a36576baccb0b4f3b950b560f5372feb2">adc_resolution_</a> = AdcResolution</td></tr>
 <tr class="separator:a36576baccb0b4f3b950b560f5372feb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb3336e8f72ecd8aa1952dfd1d25544a"><td class="memItemLeft" align="right" valign="top">BoosterSeat::Timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1AdcExtensionBase.html#aeb3336e8f72ecd8aa1952dfd1d25544a">adc_watchdog_</a></td></tr>
-<tr class="separator:aeb3336e8f72ecd8aa1952dfd1d25544a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e004bbe2f99c024f777e72be9f16877"><td class="memItemLeft" align="right" valign="top">bst::Timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1AdcExtensionBase.html#a2e004bbe2f99c024f777e72be9f16877">adc_watchdog_</a></td></tr>
+<tr class="separator:a2e004bbe2f99c024f777e72be9f16877"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e5d32890e069c49b3641d0e01322364"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; DiagnosticId &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a3e5d32890e069c49b3641d0e01322364">fault_code_</a> = DiagnosticId::EXT_FAULT_none</td></tr>
 <tr class="memdesc:a3e5d32890e069c49b3641d0e01322364"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fault code associated with the fault.  <a href="classextension_1_1Extension.html#a3e5d32890e069c49b3641d0e01322364">More...</a><br /></td></tr>
 <tr class="separator:a3e5d32890e069c49b3641d0e01322364"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -408,7 +408,7 @@ template&lt;uint32_t AdcResolution&gt; </div>
 
 <p>Reimplemented from <a class="el" href="classextension_1_1Extension.html#a75c23dd1442c50aa49a1ecd87ada6912">extension::Extension</a>.</p>
 
-<p class="reference">References <a class="el" href="classextension_1_1AdcExtensionBase.html#aeb3336e8f72ecd8aa1952dfd1d25544a">extension::AdcExtensionBase&lt; AdcResolution &gt;::adc_watchdog_</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#ac23d04a7c7d246c26b05537b5a16eae8">extension::AdcExtensionBase&lt; AdcResolution &gt;::adcStartup()</a>, and <a class="el" href="classextension_1_1Extension.html#a41a192bcc5212abcca25b3c026be7fd3">extension::Extension::isFaulted()</a>.</p>
+<p class="reference">References <a class="el" href="classextension_1_1AdcExtensionBase.html#a2e004bbe2f99c024f777e72be9f16877">extension::AdcExtensionBase&lt; AdcResolution &gt;::adc_watchdog_</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#ac23d04a7c7d246c26b05537b5a16eae8">extension::AdcExtensionBase&lt; AdcResolution &gt;::adcStartup()</a>, and <a class="el" href="classextension_1_1Extension.html#a41a192bcc5212abcca25b3c026be7fd3">extension::Extension::isFaulted()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -445,7 +445,7 @@ template&lt;uint32_t AdcResolution&gt; </div>
 
 <p>Reimplemented from <a class="el" href="classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef">extension::Extension</a>.</p>
 
-<p class="reference">References <a class="el" href="classextension_1_1AdcExtensionBase.html#abff2d52b2373cc677ae7639c0ad1f0e9">extension::AdcExtensionBase&lt; AdcResolution &gt;::adc_config_</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#aeb3336e8f72ecd8aa1952dfd1d25544a">extension::AdcExtensionBase&lt; AdcResolution &gt;::adc_watchdog_</a>, <a class="el" href="classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e">extension::Extension::data()</a>, <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>, <a class="el" href="namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a21ee69ba26b6e644d4dddce593855d84">extension::PERCENTAGE</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#acc1cba94f6676036181990cb2e0296d3">extension::AdcExtensionBase&lt; AdcResolution &gt;::percentage()</a>, <a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba">extension::Extension::raiseFault()</a>, <a class="el" href="namespaceextension.html#aa5891a3aa6702efdece92bf561d17208aaa5db4381426a88461ad4ebe782d04fc">extension::RAW_COUNT</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#ab09cc2fcb8d7062ece1fc37a68e214ee">extension::AdcExtensionBase&lt; AdcResolution &gt;::readAdc()</a>, <a class="el" href="namespaceextension.html#a71d608b225ed825e1cb89bdc8adbc776">extension::AdcConfig::type</a>, <a class="el" href="namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a355d20dd055de8493132a6936cba6b8d">extension::VOLTAGE_DIVIDER</a>, <a class="el" href="namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a43c60cbd63d5040414069d99f10fe98f">extension::VOLTAGE_REFERENCE</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#ad0be2808763e50886aeecd7de1e344a0">extension::AdcExtensionBase&lt; AdcResolution &gt;::voltageDivider()</a>, and <a class="el" href="classextension_1_1AdcExtensionBase.html#a8dfeb20998d7257afac6e381e5351d30">extension::AdcExtensionBase&lt; AdcResolution &gt;::voltageReference()</a>.</p>
+<p class="reference">References <a class="el" href="classextension_1_1AdcExtensionBase.html#abff2d52b2373cc677ae7639c0ad1f0e9">extension::AdcExtensionBase&lt; AdcResolution &gt;::adc_config_</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#a2e004bbe2f99c024f777e72be9f16877">extension::AdcExtensionBase&lt; AdcResolution &gt;::adc_watchdog_</a>, <a class="el" href="classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e">extension::Extension::data()</a>, <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>, <a class="el" href="namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a21ee69ba26b6e644d4dddce593855d84">extension::PERCENTAGE</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#acc1cba94f6676036181990cb2e0296d3">extension::AdcExtensionBase&lt; AdcResolution &gt;::percentage()</a>, <a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba">extension::Extension::raiseFault()</a>, <a class="el" href="namespaceextension.html#aa5891a3aa6702efdece92bf561d17208aaa5db4381426a88461ad4ebe782d04fc">extension::RAW_COUNT</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#ab09cc2fcb8d7062ece1fc37a68e214ee">extension::AdcExtensionBase&lt; AdcResolution &gt;::readAdc()</a>, <a class="el" href="namespaceextension.html#a71d608b225ed825e1cb89bdc8adbc776">extension::AdcConfig::type</a>, <a class="el" href="namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a355d20dd055de8493132a6936cba6b8d">extension::VOLTAGE_DIVIDER</a>, <a class="el" href="namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a43c60cbd63d5040414069d99f10fe98f">extension::VOLTAGE_REFERENCE</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#ad0be2808763e50886aeecd7de1e344a0">extension::AdcExtensionBase&lt; AdcResolution &gt;::voltageDivider()</a>, and <a class="el" href="classextension_1_1AdcExtensionBase.html#a8dfeb20998d7257afac6e381e5351d30">extension::AdcExtensionBase&lt; AdcResolution &gt;::voltageReference()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1413,8 +1413,8 @@ template&lt;uint32_t AdcResolution&gt; </div>
 
 </div>
 </div>
-<a id="aeb3336e8f72ecd8aa1952dfd1d25544a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb3336e8f72ecd8aa1952dfd1d25544a">&#9670;&nbsp;</a></span>adc_watchdog_</h2>
+<a id="a2e004bbe2f99c024f777e72be9f16877"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e004bbe2f99c024f777e72be9f16877">&#9670;&nbsp;</a></span>adc_watchdog_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1425,7 +1425,7 @@ template&lt;uint32_t AdcResolution&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BoosterSeat::Timer <a class="el" href="classextension_1_1AdcExtensionBase.html">extension::AdcExtensionBase</a>&lt; AdcResolution &gt;::adc_watchdog_</td>
+          <td class="memname">bst::Timer <a class="el" href="classextension_1_1AdcExtensionBase.html">extension::AdcExtensionBase</a>&lt; AdcResolution &gt;::adc_watchdog_</td>
         </tr>
       </table>
   </td>

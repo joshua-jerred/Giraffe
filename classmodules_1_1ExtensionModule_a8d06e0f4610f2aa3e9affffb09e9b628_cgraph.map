@@ -1,6 +1,7 @@
 <map id="modules::ExtensionModule::startup" name="modules::ExtensionModule::startup">
-<area shape="rect" id="node1" title="This function is called when the module is started." alt="" coords="5,64,204,105"/>
+<area shape="rect" id="node1" title="This function is called when the module is started." alt="" coords="5,89,204,131"/>
 <area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#aac4d67e03d9fa7029bf15a3ac79ca9c5" title=" " alt="" coords="252,5,451,47"/>
 <area shape="rect" id="node3" href="$classmodules_1_1Module.html#a62806f82a3b853d0d2de55efbf5649bc" title="Used internally in the module. This function adds an error to the log stream. It is used to log error..." alt="" coords="265,71,438,98"/>
-<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0" title=" " alt="" coords="252,123,451,164"/>
+<area shape="rect" id="node4" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="268,122,435,149"/>
+<area shape="rect" id="node5" href="$classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0" title=" " alt="" coords="252,173,451,215"/>
 </map>

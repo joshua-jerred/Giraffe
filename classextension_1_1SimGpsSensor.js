@@ -22,6 +22,7 @@ var classextension_1_1SimGpsSensor =
     [ "extSleep", "classextension_1_1SimGpsSensor.html#a00ef6cd65250307287af24071c862a42", null ],
     [ "sleep", "classextension_1_1SimGpsSensor.html#a041069086cf7b981e4999150e7b7469d", null ],
     [ "runner", "classextension_1_1SimGpsSensor.html#a2aa3ac844b4d83d427e0f633f803a027", null ],
+    [ "gps_frame", "classextension_1_1SimGpsSensor.html#ac861f38c4d288c84b026e4398eff965c", null ],
     [ "increasing_", "classextension_1_1SimGpsSensor.html#a35e27b2f2cb54d3c245fde613d7fce00", null ],
     [ "metadata_", "classextension_1_1SimGpsSensor.html#a295de97827360717494a398c45d161f2", null ],
     [ "fault_flag_", "classextension_1_1SimGpsSensor.html#a40300776e358833cbfd50c198a320cdf", null ],

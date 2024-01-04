@@ -1,16 +1,6 @@
 var hierarchy =
 [
-    [ "ax25::BaseAX25StateMachine", "classax25_1_1BaseAX25StateMachine.html", [
-      [ "ax25::DataLinkStateMachine", "classax25_1_1DataLinkStateMachine.html", null ],
-      [ "ax25::DuplexPhysicalLayerStateMachine", "classax25_1_1DuplexPhysicalLayerStateMachine.html", null ],
-      [ "ax25::LinkMultiplexerStateMachine", "classax25_1_1LinkMultiplexerStateMachine.html", null ],
-      [ "ax25::ManagementDataLinkStateMachine", "classax25_1_1ManagementDataLinkStateMachine.html", null ],
-      [ "ax25::ReassemblerStateMachine", "classax25_1_1ReassemblerStateMachine.html", null ],
-      [ "ax25::SegmenterStateMachine", "classax25_1_1SegmenterStateMachine.html", null ],
-      [ "ax25::SimplexPhysicalLayerStateMachine", "classax25_1_1SimplexPhysicalLayerStateMachine.html", null ]
-    ] ],
-    [ "ax25::StateMachineData", "namespaceax25.html#structax25_1_1StateMachineData", null ],
-    [ "ax25::Timers", "namespaceax25.html#structax25_1_1Timers", null ],
+    [ "data::blocks::Block< data::blocks::CalculatedData >", "classdata_1_1blocks_1_1Block.html", null ],
     [ "data::blocks::Block< data::blocks::CameraImages >", "classdata_1_1blocks_1_1Block.html", null ],
     [ "data::blocks::Block< data::blocks::DataLogStats >", "classdata_1_1blocks_1_1Block.html", null ],
     [ "data::blocks::Block< data::blocks::ExtensionModuleStats >", "classdata_1_1blocks_1_1Block.html", null ],
@@ -20,6 +10,7 @@ var hierarchy =
     [ "data::blocks::Block< data::blocks::ServerModuleStats >", "classdata_1_1blocks_1_1Block.html", null ],
     [ "data::blocks::Block< data::blocks::StreamsStats >", "classdata_1_1blocks_1_1Block.html", null ],
     [ "data::blocks::Block< data::blocks::SystemInfo >", "classdata_1_1blocks_1_1Block.html", null ],
+    [ "data::blocks::Block< data::blocks::TelemetryModuleStats >", "classdata_1_1blocks_1_1Block.html", null ],
     [ "cfg::CfgSection", "classcfg_1_1CfgSection.html", [
       [ "cfg::Extensions", "classcfg_1_1Extensions.html", null ]
     ] ],
@@ -36,6 +27,7 @@ var hierarchy =
       [ "data::LogPacket", "structdata_1_1LogPacket.html", null ]
     ] ],
     [ "data::blocks::Block< T >", "classdata_1_1blocks_1_1Block.html", null ],
+    [ "data::blocks::CalculatedData", "structdata_1_1blocks_1_1CalculatedData.html", null ],
     [ "data::blocks::CameraImages", "namespacedata_1_1blocks.html#structdata_1_1blocks_1_1CameraImages", null ],
     [ "data::blocks::ConfigurationStats", "structdata_1_1blocks_1_1ConfigurationStats.html", null ],
     [ "data::blocks::DataLogStats", "structdata_1_1blocks_1_1DataLogStats.html", null ],
@@ -47,6 +39,7 @@ var hierarchy =
     [ "data::blocks::StreamsStats", "structdata_1_1blocks_1_1StreamsStats.html", null ],
     [ "data::blocks::StreamsStats::StreamStats", "structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats", null ],
     [ "data::blocks::SystemInfo", "structdata_1_1blocks_1_1SystemInfo.html", null ],
+    [ "data::blocks::TelemetryModuleStats", "structdata_1_1blocks_1_1TelemetryModuleStats.html", null ],
     [ "data::ErrorFrameItem", "namespacedata.html#structdata_1_1ErrorFrameItem", null ],
     [ "data::Frame< ID, DATA >", "classdata_1_1Frame.html", null ],
     [ "data::Frames", "namespacedata.html#structdata_1_1Frames", null ],
@@ -86,17 +79,18 @@ var hierarchy =
       [ "data::ErrorFrame", "classdata_1_1ErrorFrame.html", null ]
     ] ],
     [ "data::Frame< std::string, data::DataPacket >", "classdata_1_1Frame.html", null ],
-    [ "gdl::Ax25StateMachine", "classgdl_1_1Ax25StateMachine.html", null ],
     [ "gdl::GdlConfig", "namespacegdl.html#structgdl_1_1GdlConfig", null ],
+    [ "gdl::GdlStatus", "structgdl_1_1GdlStatus.html", null ],
     [ "gdl::GiraffeDataLink", "classgdl_1_1GiraffeDataLink.html", null ],
     [ "gdl::GiraffeDataLink::MessageQueues", "structgdl_1_1GiraffeDataLink_1_1MessageQueues.html", null ],
     [ "gdl::Message", "structgdl_1_1Message.html", null ],
     [ "gdl::MessageQueue", "classgdl_1_1MessageQueue.html", null ],
-    [ "gdl::NetworkLayer", "classgdl_1_1NetworkLayer.html", null ],
-    [ "gdl::PhysicalLayer", "classgdl_1_1PhysicalLayer.html", [
-      [ "gdl::SimulatedLoopbackPhysicalLayer", "classgdl_1_1SimulatedLoopbackPhysicalLayer.html", null ]
+    [ "gdl::NetworkLayer", "classgdl_1_1NetworkLayer.html", [
+      [ "gdl::AprsNetworkLayer", "classgdl_1_1AprsNetworkLayer.html", null ]
     ] ],
+    [ "gdl::PhysicalLayer", "classgdl_1_1PhysicalLayer.html", null ],
     [ "gdl::TransportLayer", "classgdl_1_1TransportLayer.html", null ],
+    [ "giraffe::FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", null ],
     [ "I2cInterface", "classI2cInterface.html", null ],
     [ "LogContainer", "classLogContainer.html", null ],
     [ "modules::ExtensionModule::ExtContainer", "structmodules_1_1ExtensionModule_1_1ExtContainer.html", null ],

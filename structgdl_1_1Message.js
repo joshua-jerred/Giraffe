@@ -7,7 +7,10 @@ var structgdl_1_1Message =
       [ "ACK", "structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10da0fc437bc317835cad5faafc12a83fad5", null ],
       [ "NACK", "structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10daa68c6c77586d4c740ec1b75b65b37946", null ]
     ] ],
-    [ "id", "structgdl_1_1Message.html#ac58ffc71359205b3f1a1d5284ec0b3e3", null ],
+    [ "isValid", "structgdl_1_1Message.html#a893b23e1e5caf8908589947b01faf7af", null ],
+    [ "isAck", "structgdl_1_1Message.html#aa06331ab84c973bcf2ac86a02e8c62ba", null ],
+    [ "id", "structgdl_1_1Message.html#a4e052444aaae1563e57bfc6007964254", null ],
     [ "type", "structgdl_1_1Message.html#af410152f4b7b7e81f6fd2016fadcff2f", null ],
-    [ "data", "structgdl_1_1Message.html#a8a9fcc3df466fde4a67c94e965585590", null ]
+    [ "data", "structgdl_1_1Message.html#a8a9fcc3df466fde4a67c94e965585590", null ],
+    [ "retries", "structgdl_1_1Message.html#ab15135dbbe3d3c45f6876deee89ce936", null ]
 ];

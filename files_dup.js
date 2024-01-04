@@ -3,13 +3,6 @@ var files_dup =
     [ "adc_configuration.cpp", "adc__configuration_8cpp.html", "adc__configuration_8cpp" ],
     [ "adc_configuration.hpp", "adc__configuration_8hpp.html", "adc__configuration_8hpp" ],
     [ "adc_extension_base.hpp", "adc__extension__base_8hpp.html", "adc__extension__base_8hpp" ],
-    [ "ax25_frames.hpp", "ax25__frames_8hpp.html", "ax25__frames_8hpp" ],
-    [ "ax25_state_machine.hpp", "ax25__state__machine_8hpp.html", [
-      [ "Ax25StateMachine", "classgdl_1_1Ax25StateMachine.html", "classgdl_1_1Ax25StateMachine" ]
-    ] ],
-    [ "base_ax25_state_machine.hpp", "base__ax25__state__machine_8hpp.html", [
-      [ "BaseAX25StateMachine", "classax25_1_1BaseAX25StateMachine.html", "classax25_1_1BaseAX25StateMachine" ]
-    ] ],
     [ "blocks.hpp", "blocks_8hpp.html", "blocks_8hpp" ],
     [ "bme280.cpp", "bme280_8cpp.html", "bme280_8cpp" ],
     [ "bme280.hpp", "bme280_8hpp.html", [
@@ -68,8 +61,6 @@ var files_dup =
     [ "data_formatting.hpp", "data__formatting_8hpp.html", "data__formatting_8hpp" ],
     [ "data_ids.hpp", "data__ids_8hpp.html", null ],
     [ "data_ids_string_map.cpp", "data__ids__string__map_8cpp.html", null ],
-    [ "data_link.cpp", "data__link_8cpp.html", null ],
-    [ "data_link.hpp", "data__link_8hpp.html", "data__link_8hpp" ],
     [ "data_log.cpp", "data__log_8cpp.html", "data__log_8cpp" ],
     [ "data_log.hpp", "data__log_8hpp.html", [
       [ "DataLog", "classdata__middleware_1_1DataLog.html", "classdata__middleware_1_1DataLog" ]
@@ -83,8 +74,6 @@ var files_dup =
     [ "ds18b20.hpp", "ds18b20_8hpp.html", [
       [ "Ds18b20Extension", "classextension_1_1Ds18b20Extension.html", "classextension_1_1Ds18b20Extension" ]
     ] ],
-    [ "duplex_physical_layer.cpp", "duplex__physical__layer_8cpp.html", null ],
-    [ "duplex_physical_layer.hpp", "duplex__physical__layer_8hpp.html", "duplex__physical__layer_8hpp" ],
     [ "error_frame.cpp", "error__frame_8cpp.html", null ],
     [ "error_frame.hpp", "error__frame_8hpp.html", [
       [ "ErrorFrame", "classdata_1_1ErrorFrame.html", "classdata_1_1ErrorFrame" ],
@@ -102,24 +91,30 @@ var files_dup =
     ] ],
     [ "extension_module.cpp", "extension__module_8cpp.html", "extension__module_8cpp" ],
     [ "extension_module.hpp", "extension__module_8hpp.html", "extension__module_8hpp" ],
-    [ "fft_test.cpp", "fft__test_8cpp.html", "fft__test_8cpp" ],
+    [ "flight_modes.hpp", "flight__modes_8hpp.html", "flight__modes_8hpp" ],
     [ "flight_runner.cpp", "flight__runner_8cpp.html", "flight__runner_8cpp" ],
     [ "flight_runner.hpp", "flight__runner_8hpp.html", [
       [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ]
+    ] ],
+    [ "flight_runner_data.cpp", "flight__runner__data_8cpp.html", "flight__runner__data_8cpp" ],
+    [ "flight_runner_data.hpp", "flight__runner__data_8hpp.html", [
+      [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ]
     ] ],
     [ "frame.hpp", "frame_8hpp.html", [
       [ "Frame", "classdata_1_1Frame.html", "classdata_1_1Frame" ]
     ] ],
     [ "gdl_configuration.hpp", "gdl__configuration_8hpp.html", [
       [ "GdlConfig", "namespacegdl.html#structgdl_1_1GdlConfig", [
+        [ "user_id", "namespacegdl.html#ab02b54c5eca065090ce78e14c65ce54d", null ],
         [ "broadcast_queue_size", "namespacegdl.html#ace3ab1abf31047058605861ec29e2dd6", null ],
         [ "exchange_queue_size", "namespacegdl.html#aa253de775888980db5e49168352373bc", null ],
         [ "received_queue_size", "namespacegdl.html#ac4878f8d932e0c1a78364f035c8784ab", null ],
         [ "max_retries", "namespacegdl.html#aadfcdb5e99d6c6df79e09a61a56f4c40", null ],
-        [ "retry_interval", "namespacegdl.html#a85b7c7b5f6f93d6c5af8fa085566ea4b", null ],
+        [ "retry_interval_ms", "namespacegdl.html#afb44f32bd93d30aebe3ba794726e6f45", null ],
         [ "connection_status_interval", "namespacegdl.html#a5c8dccf2a6bc3a7c426af61ef0a998de", null ],
         [ "max_message_size", "namespacegdl.html#a2d2a9df61aae726ca4688dabcdfcd21c", null ],
-        [ "default_timeout", "namespacegdl.html#aa837b28e5c29cd598fb94f2c315ba8cd", null ]
+        [ "default_timeout", "namespacegdl.html#aa837b28e5c29cd598fb94f2c315ba8cd", null ],
+        [ "print_new_messages", "namespacegdl.html#a8d4a7e52e4d53b22b0fb3ff5963d3e5e", null ]
       ] ]
     ] ],
     [ "gdl_message.hpp", "gdl__message_8hpp.html", [
@@ -132,11 +127,16 @@ var files_dup =
     [ "gdl_network_layer.hpp", "gdl__network__layer_8hpp.html", [
       [ "NetworkLayer", "classgdl_1_1NetworkLayer.html", "classgdl_1_1NetworkLayer" ]
     ] ],
+    [ "gdl_network_layer_aprs.hpp", "gdl__network__layer__aprs_8hpp.html", [
+      [ "AprsNetworkLayer", "classgdl_1_1AprsNetworkLayer.html", "classgdl_1_1AprsNetworkLayer" ]
+    ] ],
     [ "gdl_physical_layer.hpp", "gdl__physical__layer_8hpp.html", [
-      [ "PhysicalLayer", "classgdl_1_1PhysicalLayer.html", "classgdl_1_1PhysicalLayer" ],
-      [ "SimulatedLoopbackPhysicalLayer", "classgdl_1_1SimulatedLoopbackPhysicalLayer.html", "classgdl_1_1SimulatedLoopbackPhysicalLayer" ]
+      [ "PhysicalLayer", "classgdl_1_1PhysicalLayer.html", "classgdl_1_1PhysicalLayer" ]
     ] ],
     [ "gdl_physical_layer.puml", "gdl__physical__layer_8puml.html", null ],
+    [ "gdl_status.hpp", "gdl__status_8hpp.html", [
+      [ "GdlStatus", "structgdl_1_1GdlStatus.html", "structgdl_1_1GdlStatus" ]
+    ] ],
     [ "gdl_terminal.cpp", "gdl__terminal_8cpp.html", "gdl__terminal_8cpp" ],
     [ "gdl_transport_layer.hpp", "gdl__transport__layer_8hpp.html", [
       [ "TransportLayer", "classgdl_1_1TransportLayer.html", "classgdl_1_1TransportLayer" ]
@@ -166,12 +166,8 @@ var files_dup =
       [ "InfluxLine", "structdata__middleware_1_1InfluxLine.html", "structdata__middleware_1_1InfluxLine" ]
     ] ],
     [ "json.hpp", "json_8hpp.html", "json_8hpp" ],
-    [ "link_multiplexer.cpp", "link__multiplexer_8cpp.html", null ],
-    [ "link_multiplexer.hpp", "link__multiplexer_8hpp.html", "link__multiplexer_8hpp" ],
     [ "log_container.hpp", "log__container_8hpp.html", "log__container_8hpp" ],
     [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
-    [ "management_data_link.cpp", "management__data__link_8cpp.html", null ],
-    [ "management_data_link.hpp", "management__data__link_8hpp.html", "management__data__link_8hpp" ],
     [ "mcp3021.cpp", "mcp3021_8cpp.html", "mcp3021_8cpp" ],
     [ "mcp3021.hpp", "mcp3021_8hpp.html", [
       [ "Mcp3021Extension", "classextension_1_1Mcp3021Extension.html", "classextension_1_1Mcp3021Extension" ]
@@ -192,21 +188,15 @@ var files_dup =
     [ "preconfigured_extensions.hpp", "preconfigured__extensions_8hpp.html", "preconfigured__extensions_8hpp" ],
     [ "protocol.cpp", "protocol_8cpp.html", "protocol_8cpp" ],
     [ "protocol.hpp", "protocol_8hpp.html", "protocol_8hpp" ],
-    [ "reassembler.cpp", "reassembler_8cpp.html", null ],
-    [ "reassembler.hpp", "reassembler_8hpp.html", "reassembler_8hpp" ],
     [ "request_handler.cpp", "request__handler_8cpp.html", null ],
     [ "request_handler.hpp", "request__handler_8hpp.html", null ],
     [ "samm8q.cpp", "samm8q_8cpp.html", "samm8q_8cpp" ],
     [ "samm8q.hpp", "samm8q_8hpp.html", [
       [ "SamM8qExtension", "classextension_1_1SamM8qExtension.html", "classextension_1_1SamM8qExtension" ]
     ] ],
-    [ "segmenter.cpp", "segmenter_8cpp.html", null ],
-    [ "segmenter.hpp", "segmenter_8hpp.html", "segmenter_8hpp" ],
     [ "server_module.cpp", "server__module_8cpp.html", "server__module_8cpp" ],
     [ "server_module.hpp", "server__module_8hpp.html", null ],
     [ "shared_data.hpp", "shared__data_8hpp.html", "shared__data_8hpp" ],
-    [ "simplex_physical_layer.cpp", "simplex__physical__layer_8cpp.html", null ],
-    [ "simplex_physical_layer.hpp", "simplex__physical__layer_8hpp.html", "simplex__physical__layer_8hpp" ],
     [ "simulated_extensions.hpp", "simulated__extensions_8hpp.html", [
       [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],
       [ "SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", "classextension_1_1SimHumiditySensor" ],
@@ -216,7 +206,6 @@ var files_dup =
     ] ],
     [ "socket.cpp", "socket_8cpp.html", null ],
     [ "socket.hpp", "socket_8hpp.html", "socket_8hpp" ],
-    [ "state_machine_data.hpp", "state__machine__data_8hpp.html", "state__machine__data_8hpp" ],
     [ "streams.hpp", "streams_8hpp.html", [
       [ "BaseStreamPacket", "structdata_1_1BaseStreamPacket.html", "structdata_1_1BaseStreamPacket" ],
       [ "CommandPacket", "structdata_1_1CommandPacket.html", "structdata_1_1CommandPacket" ],

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['tcpsocketserver_1574',['TcpSocketServer',['../group__ServerModule.html#classsock_1_1TcpSocketServer',1,'sock']]],
-  ['telemetrymodule_1575',['TelemetryModule',['../classmodules_1_1TelemetryModule.html',1,'modules']]],
-  ['timers_1576',['Timers',['../namespaceax25.html#structax25_1_1Timers',1,'ax25']]],
-  ['transportlayer_1577',['TransportLayer',['../classgdl_1_1TransportLayer.html',1,'gdl']]]
+  ['tcpsocketserver_1408',['TcpSocketServer',['../group__ServerModule.html#classsock_1_1TcpSocketServer',1,'sock']]],
+  ['telemetrymodule_1409',['TelemetryModule',['../classmodules_1_1TelemetryModule.html',1,'modules']]],
+  ['telemetrymodulestats_1410',['TelemetryModuleStats',['../structdata_1_1blocks_1_1TelemetryModuleStats.html',1,'data::blocks']]],
+  ['transportlayer_1411',['TransportLayer',['../classgdl_1_1TransportLayer.html',1,'gdl']]]
 ];

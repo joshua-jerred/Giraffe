@@ -46,7 +46,7 @@ var classmodules_1_1ExtensionModule =
     [ "extension_resources_", "classmodules_1_1ExtensionModule.html#a1676a6429bf5554a42801ccd7fea0bb3", null ],
     [ "extensions_", "classmodules_1_1ExtensionModule.html#a69c9b2da0c6bef239597384fb968b94c", null ],
     [ "extension_metadata_", "classmodules_1_1ExtensionModule.html#a915ff45c409413ba871631932e509937", null ],
-    [ "status_polling_timer_", "classmodules_1_1ExtensionModule.html#a99a15f89024bbe00fe2127dfcf44cafe", null ],
+    [ "status_polling_timer_", "classmodules_1_1ExtensionModule.html#aefe7c8995837fe5b028f8e1742f14c3f", null ],
     [ "stats_", "classmodules_1_1ExtensionModule.html#a44ce4f37d31866fbe208c4d208f002d4", null ],
     [ "status_polling_interval_", "classmodules_1_1ExtensionModule.html#a2ed2f2082556e88a4921eb07d6deaf57", null ],
     [ "max_restart_attempts_", "classmodules_1_1ExtensionModule.html#a55879fa2a2c4145dab6cc38091fcd833", null ],

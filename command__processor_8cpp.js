@@ -9,6 +9,7 @@ var command__processor_8cpp =
     [ "parseSystemModuleCommand", "command__processor_8cpp.html#acfe1b39a13cbda474fb3a8a6811f23ec", null ],
     [ "parseExtensionModuleCommand", "command__processor_8cpp.html#ad0fa213670534c75ad5b96cd908d4c81", null ],
     [ "parseExtensionCommand", "command__processor_8cpp.html#a22b7c20a37b3536428bb6f3cfc906076", null ],
+    [ "parseTelemetryModuleCommand", "command__processor_8cpp.html#a4d154f34c544db0f583f17cb3bac8f55", null ],
     [ "K_DESTINATION_MAP", "command__processor_8cpp.html#a2bb44a738ee04f9993770640fcae6827", null ],
     [ "K_MODULE_IDENTIFIERS", "command__processor_8cpp.html#af6d9feb973e611c0a80a1f91cc0aa0a1", null ]
 ];

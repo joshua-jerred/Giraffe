@@ -1,6 +1,7 @@
 var blocks_8hpp =
 [
     [ "Block", "classdata_1_1blocks_1_1Block.html", "classdata_1_1blocks_1_1Block" ],
+    [ "CalculatedData", "structdata_1_1blocks_1_1CalculatedData.html", "structdata_1_1blocks_1_1CalculatedData" ],
     [ "CameraImages", "namespacedata_1_1blocks.html#structdata_1_1blocks_1_1CameraImages", [
       [ "have_camera_source", "namespacedata_1_1blocks.html#a3fd85b92d7e47b50c594360590ae82f8", null ],
       [ "last_valid_image_path", "namespacedata_1_1blocks.html#a0e8c01eaac0589d47c4d81283ed2182b", null ],
@@ -30,5 +31,6 @@ var blocks_8hpp =
       [ "processing_delay_ms", "structdata_1_1blocks_1_1StreamsStats.html#ac2099be781c242dfd75085cf820124a6", null ]
     ] ],
     [ "SystemInfo", "structdata_1_1blocks_1_1SystemInfo.html", "structdata_1_1blocks_1_1SystemInfo" ],
+    [ "TelemetryModuleStats", "structdata_1_1blocks_1_1TelemetryModuleStats.html", "structdata_1_1blocks_1_1TelemetryModuleStats" ],
     [ "rnd", "blocks_8hpp.html#a7ae5fef66d65212dc3a3902cc660cee9", null ]
 ];

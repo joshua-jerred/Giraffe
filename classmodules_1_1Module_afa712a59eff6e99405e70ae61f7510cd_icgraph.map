@@ -1,0 +1,6 @@
+<map id="modules::Module::start" name="modules::Module::start">
+<area shape="rect" id="node1" title="Starts a thread to run the module." alt="" coords="797,5,969,32"/>
+<area shape="rect" id="node2" href="$classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c" title=" " alt="" coords="547,5,749,32"/>
+<area shape="rect" id="node3" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,5,499,32"/>
+<area shape="rect" id="node4" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,5,220,32"/>
+</map>

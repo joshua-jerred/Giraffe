@@ -1,6 +1,9 @@
 <map id="gdl::MessageQueue::size" name="gdl::MessageQueue::size">
-<area shape="rect" id="node1" title="Get the size of the queue." alt="" coords="239,78,423,105"/>
-<area shape="rect" id="node2" href="$classgdl_1_1GiraffeDataLink.html#a233fecbbb45d0c7311370fb19557d988" title=" " alt="" coords="5,5,191,47"/>
-<area shape="rect" id="node3" href="$classgdl_1_1GiraffeDataLink.html#a24e980a2d7c8ca89771352c10dd3aaf9" title=" " alt="" coords="7,71,189,112"/>
-<area shape="rect" id="node4" href="$classgdl_1_1GiraffeDataLink.html#ad91d4b32f3eaa8aa9bb0e321cc231a58" title=" " alt="" coords="12,136,184,177"/>
+<area shape="rect" id="node1" title="Get the size of the queue." alt="" coords="685,111,869,138"/>
+<area shape="rect" id="node2" href="$classgdl_1_1GiraffeDataLink.html#a9a57e98fe17bc1ccfc6592d1f2eca165" title="The main thread function for GDL." alt="" coords="469,5,621,47"/>
+<area shape="rect" id="node5" href="$classgdl_1_1GiraffeDataLink.html#a233fecbbb45d0c7311370fb19557d988" title=" " alt="" coords="452,71,637,112"/>
+<area shape="rect" id="node6" href="$classgdl_1_1GiraffeDataLink.html#a24e980a2d7c8ca89771352c10dd3aaf9" title=" " alt="" coords="453,136,636,177"/>
+<area shape="rect" id="node7" href="$classgdl_1_1GiraffeDataLink.html#ad91d4b32f3eaa8aa9bb0e321cc231a58" title=" " alt="" coords="459,201,631,243"/>
+<area shape="rect" id="node3" href="$classgdl_1_1GiraffeDataLink.html#a20218eadd5c073513f558077239fba2e" title="Start the GDL instance." alt="" coords="252,5,404,47"/>
+<area shape="rect" id="node4" href="$classmodules_1_1TelemetryModule.html#afb1a52e1e90b33ad72a84f8646a9633b" title="This function is called when the module is started." alt="" coords="5,5,204,47"/>
 </map>

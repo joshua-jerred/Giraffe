@@ -15,6 +15,7 @@ var classconsole__pages_1_1Pages =
     [ "system", "classconsole__pages_1_1Pages.html#ad13852ed39c831288cee9dc9055459ea", null ],
     [ "location", "classconsole__pages_1_1Pages.html#a141ef59324d5cd73c9f39488ab0fa363", null ],
     [ "extensionData", "classconsole__pages_1_1Pages.html#a815a74fc95295c02b4638fa47b03e18d", null ],
+    [ "telemetry", "classconsole__pages_1_1Pages.html#a1e0b526a42fa362aa87bb4b9d37ae687", null ],
     [ "setNumLinesOnPage", "classconsole__pages_1_1Pages.html#aea5a590ece2ccc3b2a094b4d2780aadb", null ],
     [ "config_", "classconsole__pages_1_1Pages.html#ab79b75e4a32e34e8fcd1d663f42571b2", null ],
     [ "shared_data_", "classconsole__pages_1_1Pages.html#a9052e288b139e498b8dcb03a06319999", null ],

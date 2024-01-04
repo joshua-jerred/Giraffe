@@ -11,7 +11,8 @@ var namespaceconsole__pages =
       [ "EXTENSIONS", "namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769a161ad92de902d4ca8e8d835c07fed8c7", null ],
       [ "EXTENSION_DATA", "namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769a45a83411621b66acc094da1a7fe49cfb", null ],
       [ "SYSTEM", "namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769afa177138f94a7ea01f549b1aa7893d03", null ],
-      [ "LOCATION", "namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769a71233d73cc90bba8f4d5bbea0792e551", null ]
+      [ "LOCATION", "namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769a71233d73cc90bba8f4d5bbea0792e551", null ],
+      [ "TELEMETRY", "namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769abb3d2d909c73fe49800949a344775f8b", null ]
     ] ],
     [ "K_MAX_NUM_PAGE_LINES", "namespaceconsole__pages.html#a3012062e40e27d5a9774b68577e13800", null ],
     [ "K_DATA_WINDOW_WIDTH", "namespaceconsole__pages.html#a516e2639ca1a54454cacea261f3683b5", null ],

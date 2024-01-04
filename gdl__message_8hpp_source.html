@@ -122,16 +122,26 @@ $(document).ready(function(){initNavTree('gdl__message_8hpp_source.html',''); in
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10daa68c6c77586d4c740ec1b75b65b37946">NACK</a> = 0b00001111,</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  };</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structgdl_1_1Message.html#ac58ffc71359205b3f1a1d5284ec0b3e3">   37</a></span>&#160;  uint16_t <span class="keywordtype">id</span>{0};</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structgdl_1_1Message.html#a4e052444aaae1563e57bfc6007964254">   37</a></span>&#160;  std::string <span class="keywordtype">id</span>{}; <span class="comment">// string 0-5 characters</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structgdl_1_1Message.html#af410152f4b7b7e81f6fd2016fadcff2f">   38</a></span>&#160;  <a class="code" href="structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10d">Type</a> <a class="code" href="structgdl_1_1Message.html#af410152f4b7b7e81f6fd2016fadcff2f">type</a>{<a class="code" href="structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10da0db45d2a4141101bdfe48e3314cfbca3">Type::UNDEFINED</a>};</div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structgdl_1_1Message.html#a8a9fcc3df466fde4a67c94e965585590">   39</a></span>&#160;  std::string <a class="code" href="namespacedata.html">data</a>{<span class="stringliteral">&quot;&quot;</span>};</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;} <span class="comment">// namespace gdl</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GDL_MESSAGE_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structgdl_1_1Message.html#ab15135dbbe3d3c45f6876deee89ce936">   41</a></span>&#160;  uint32_t <a class="code" href="structgdl_1_1Message.html#ab15135dbbe3d3c45f6876deee89ce936">retries</a> = 0;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structgdl_1_1Message.html#a893b23e1e5caf8908589947b01faf7af">   43</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="structgdl_1_1Message.html#a893b23e1e5caf8908589947b01faf7af">isValid</a>() {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structgdl_1_1Message.html#aa06331ab84c973bcf2ac86a02e8c62ba">   47</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="structgdl_1_1Message.html#aa06331ab84c973bcf2ac86a02e8c62ba">isAck</a>() {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacedata.html">data</a> == <span class="stringliteral">&quot;ACK&quot;</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace gdl</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GDL_MESSAGE_HPP_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="anamespacedata_html"><div class="ttname"><a href="namespacedata.html">data</a></div><div class="ttdef"><b>Definition:</b> positional.hpp:26</div></div>
-<div class="ttc" id="anamespacegdl_html"><div class="ttname"><a href="namespacegdl.html">gdl</a></div><div class="ttdef"><b>Definition:</b> ax25_state_machine.hpp:29</div></div>
+<div class="ttc" id="anamespacegdl_html"><div class="ttname"><a href="namespacegdl.html">gdl</a></div><div class="ttdef"><b>Definition:</b> giraffe_data_link.cpp:21</div></div>
 <div class="ttc" id="astructgdl_1_1Message_html"><div class="ttname"><a href="structgdl_1_1Message.html">gdl::Message</a></div><div class="ttdoc">A generic message struct for GDL - Layer 4.</div><div class="ttdef"><b>Definition:</b> gdl_message.hpp:28</div></div>
 <div class="ttc" id="astructgdl_1_1Message_html_a789056fc0dde7e2be09585de1ae4a10d"><div class="ttname"><a href="structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10d">gdl::Message::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> gdl_message.hpp:29</div></div>
 <div class="ttc" id="astructgdl_1_1Message_html_a789056fc0dde7e2be09585de1ae4a10da0db45d2a4141101bdfe48e3314cfbca3"><div class="ttname"><a href="structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10da0db45d2a4141101bdfe48e3314cfbca3">gdl::Message::Type::UNDEFINED</a></div><div class="ttdeci">@ UNDEFINED</div></div>
@@ -139,6 +149,9 @@ $(document).ready(function(){initNavTree('gdl__message_8hpp_source.html',''); in
 <div class="ttc" id="astructgdl_1_1Message_html_a789056fc0dde7e2be09585de1ae4a10da81d741a35dc8a42c885b7cc031afd17f"><div class="ttname"><a href="structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10da81d741a35dc8a42c885b7cc031afd17f">gdl::Message::Type::BROADCAST</a></div><div class="ttdeci">@ BROADCAST</div></div>
 <div class="ttc" id="astructgdl_1_1Message_html_a789056fc0dde7e2be09585de1ae4a10daa19e33a03873dfa815e53ad6fcece8bf"><div class="ttname"><a href="structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10daa19e33a03873dfa815e53ad6fcece8bf">gdl::Message::Type::EXCHANGE</a></div><div class="ttdeci">@ EXCHANGE</div></div>
 <div class="ttc" id="astructgdl_1_1Message_html_a789056fc0dde7e2be09585de1ae4a10daa68c6c77586d4c740ec1b75b65b37946"><div class="ttname"><a href="structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10daa68c6c77586d4c740ec1b75b65b37946">gdl::Message::Type::NACK</a></div><div class="ttdeci">@ NACK</div></div>
+<div class="ttc" id="astructgdl_1_1Message_html_a893b23e1e5caf8908589947b01faf7af"><div class="ttname"><a href="structgdl_1_1Message.html#a893b23e1e5caf8908589947b01faf7af">gdl::Message::isValid</a></div><div class="ttdeci">bool isValid()</div><div class="ttdef"><b>Definition:</b> gdl_message.hpp:43</div></div>
+<div class="ttc" id="astructgdl_1_1Message_html_aa06331ab84c973bcf2ac86a02e8c62ba"><div class="ttname"><a href="structgdl_1_1Message.html#aa06331ab84c973bcf2ac86a02e8c62ba">gdl::Message::isAck</a></div><div class="ttdeci">bool isAck()</div><div class="ttdef"><b>Definition:</b> gdl_message.hpp:47</div></div>
+<div class="ttc" id="astructgdl_1_1Message_html_ab15135dbbe3d3c45f6876deee89ce936"><div class="ttname"><a href="structgdl_1_1Message.html#ab15135dbbe3d3c45f6876deee89ce936">gdl::Message::retries</a></div><div class="ttdeci">uint32_t retries</div><div class="ttdef"><b>Definition:</b> gdl_message.hpp:41</div></div>
 <div class="ttc" id="astructgdl_1_1Message_html_af410152f4b7b7e81f6fd2016fadcff2f"><div class="ttname"><a href="structgdl_1_1Message.html#af410152f4b7b7e81f6fd2016fadcff2f">gdl::Message::type</a></div><div class="ttdeci">Type type</div><div class="ttdef"><b>Definition:</b> gdl_message.hpp:38</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

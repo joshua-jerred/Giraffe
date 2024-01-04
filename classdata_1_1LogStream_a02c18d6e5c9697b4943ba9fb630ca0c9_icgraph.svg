@@ -111,7 +111,7 @@
 <!-- Node13 -->
 <g id="node13" class="node">
 <title>Node13</title>
-<g id="a_node13"><a xlink:href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" target="_top" xlink:title="Send a command to the proper module.">
+<g id="a_node13"><a xlink:href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" target="_top" xlink:title="Sends a command to the proper module.">
 <polygon fill="none" stroke="black" points="10.5,-82.5 10.5,-101.5 171.5,-101.5 171.5,-82.5 10.5,-82.5"/>
 <text text-anchor="middle" x="91" y="-89.5" font-family="Helvetica,sans-Serif" font-size="10.00">FlightRunner::routeCommand</text>
 </a>

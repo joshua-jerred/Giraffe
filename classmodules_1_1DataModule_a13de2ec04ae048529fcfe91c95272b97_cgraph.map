@@ -1,0 +1,5 @@
+<map id="modules::DataModule::calculateCalculatedData" name="modules::DataModule::calculateCalculatedData">
+<area shape="rect" id="node1" title="Use existing data to calculate the data that can be calculated." alt="" coords="5,23,195,65"/>
+<area shape="rect" id="node2" href="$data__module_8cpp.html#a0960d214b2437ae8ad3898e9c5b984ce" title="Calculates the altitude in meters from the pressure in hPa." alt="" coords="243,5,431,32"/>
+<area shape="rect" id="node3" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="283,56,391,83"/>
+</map>

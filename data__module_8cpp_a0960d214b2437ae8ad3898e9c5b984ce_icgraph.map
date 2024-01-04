@@ -1,0 +1,4 @@
+<map id="calculatePressureAltitude" name="calculatePressureAltitude">
+<area shape="rect" id="node1" title="Calculates the altitude in meters from the pressure in hPa." alt="" coords="243,13,431,39"/>
+<area shape="rect" id="node2" href="$classmodules_1_1DataModule.html#a13de2ec04ae048529fcfe91c95272b97" title="Use existing data to calculate the data that can be calculated." alt="" coords="5,5,195,47"/>
+</map>

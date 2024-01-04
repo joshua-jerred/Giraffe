@@ -36,7 +36,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" target="_top" xlink:title="Send a command to the proper module.">
+<g id="a_node3"><a xlink:href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" target="_top" xlink:title="Sends a command to the proper module.">
 <polygon fill="none" stroke="black" points="0,-6 0,-25 161,-25 161,-6 0,-6"/>
 <text text-anchor="middle" x="80.5" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">FlightRunner::routeCommand</text>
 </a>

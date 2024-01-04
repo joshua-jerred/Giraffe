@@ -1,5 +1,0 @@
-<map id="simplex_physical_layer.hpp" name="simplex_physical_layer.hpp">
-<area shape="rect" id="node1" title="AX.25 Simplex Physical Layer State Machine." alt="" coords="105,5,307,32"/>
-<area shape="rect" id="node2" href="$ax25__state__machine_8hpp.html" title="Defines the AX.25 state machine." alt="" coords="5,80,191,107"/>
-<area shape="rect" id="node3" href="$simplex__physical__layer_8cpp.html" title="AX.25 Simplex Physical Layer State Machine." alt="" coords="215,80,416,107"/>
-</map>

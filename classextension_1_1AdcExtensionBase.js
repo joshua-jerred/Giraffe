@@ -30,7 +30,7 @@ var classextension_1_1AdcExtensionBase =
     [ "runner", "classextension_1_1AdcExtensionBase.html#a2aa3ac844b4d83d427e0f633f803a027", null ],
     [ "adc_resolution_", "classextension_1_1AdcExtensionBase.html#a36576baccb0b4f3b950b560f5372feb2", null ],
     [ "adc_config_", "classextension_1_1AdcExtensionBase.html#abff2d52b2373cc677ae7639c0ad1f0e9", null ],
-    [ "adc_watchdog_", "classextension_1_1AdcExtensionBase.html#aeb3336e8f72ecd8aa1952dfd1d25544a", null ],
+    [ "adc_watchdog_", "classextension_1_1AdcExtensionBase.html#a2e004bbe2f99c024f777e72be9f16877", null ],
     [ "metadata_", "classextension_1_1AdcExtensionBase.html#a295de97827360717494a398c45d161f2", null ],
     [ "fault_flag_", "classextension_1_1AdcExtensionBase.html#a40300776e358833cbfd50c198a320cdf", null ],
     [ "fault_code_", "classextension_1_1AdcExtensionBase.html#a3e5d32890e069c49b3641d0e01322364", null ],

@@ -1,9 +1,9 @@
 <map id="modules::Module" name="modules::Module">
 <area shape="rect" id="node1" title=" " alt="" coords="634,5,801,464"/>
-<area shape="rect" id="node2" href="$classmodules_1_1ConsoleModule.html" title="The console module is a module that provides a console interface for the flight system." alt="" coords="5,615,192,839"/>
-<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="217,512,487,941"/>
-<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html" title=" " alt="" coords="511,534,710,919"/>
-<area shape="rect" id="node5" href="$group__ServerModule.html#classmodules_1_1ServerModule" title="The server module. Provides a network interface for interacting with the flight system." alt="" coords="735,622,916,831"/>
-<area shape="rect" id="node6" href="$classmodules_1_1SystemModule.html" title=" " alt="" coords="941,622,1155,831"/>
-<area shape="rect" id="node7" href="$classmodules_1_1TelemetryModule.html" title=" " alt="" coords="1179,651,1378,802"/>
+<area shape="rect" id="node2" href="$classmodules_1_1ConsoleModule.html" title="The console module is a module that provides a console interface for the flight system." alt="" coords="5,644,192,868"/>
+<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="217,512,487,1000"/>
+<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html" title=" " alt="" coords="511,563,710,949"/>
+<area shape="rect" id="node5" href="$group__ServerModule.html#classmodules_1_1ServerModule" title="The server module. Provides a network interface for interacting with the flight system." alt="" coords="735,651,916,861"/>
+<area shape="rect" id="node6" href="$classmodules_1_1SystemModule.html" title=" " alt="" coords="941,651,1155,861"/>
+<area shape="rect" id="node7" href="$classmodules_1_1TelemetryModule.html" title=" " alt="" coords="1179,622,1378,890"/>
 </map>
