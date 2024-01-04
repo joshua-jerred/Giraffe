@@ -104,6 +104,8 @@ auto FlightRunner::start() -> int {
   std::cout << "Giraffe Flight Software v" << K_GIRAFFE_VERSION_NUMBER
             << std::endl;
 
+  flight_runner_data_.incrementNumStartups();
+
   /*
     First, initialize the data streams to facilitate cross-thread communication.
     Then, load the configuration, if it exists, otherwise, create one.
