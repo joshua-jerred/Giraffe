@@ -20,9 +20,10 @@
 
 #include "flight_runner_data.hpp"
 
-inline constexpr char kDataFilePath[] = "flight_runner_data.json";
-
 namespace giraffe {
+
+inline constexpr char kDataFilePath[] = "flight_runner_data.json";
+inline constexpr uint32_t kNumStartupsDefault = 0;
 
 FlightRunnerData::FlightRunnerData() {
   loadData();
@@ -33,8 +34,6 @@ FlightRunnerData::~FlightRunnerData() {
 }
 
 void FlightRunnerData::fullReset() {
-  constexpr uint32_t kNumStartupsDefault = 0;
-
   num_startups_ = kNumStartupsDefault;
 
   saveData();
@@ -61,7 +60,8 @@ void FlightRunnerData::loadData() {
 
   // Load the data from the file. If the key is not found, the default value
   // will be used.
-  num_startups_ = getJsonValue<uint32_t>(data_json, "num_startups", 0);
+  num_startups_ =
+      getJsonValue<uint32_t>(data_json, "num_startups", kNumStartupsDefault);
 }
 
 void FlightRunnerData::saveData() {
