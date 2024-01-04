@@ -348,44 +348,6 @@ void FlightRunner::processCommand(const cmd::Command &command) {
   }
 }
 
-/**
- * @brief This function will switch the flight proc to a different proc type
- * if the values of extensions are within certain ranges.
- * @details This function is currently not implemented but it is responsible
- * for switching the flight procs if it's needed. This can be because flight
- * critical components are not working or to switch from standard to recovery.
- * @param None
- * @return void
- */
-// void FlightRunner::healthCheck() {
-// }
-
-// void FlightRunner::switchLoops(FlightProcedure::Type procType) {
-//   ConfigData::Procs procs = config_data_.flight_procs;
-//   FlightProcedure current_procedure;
-//   switch (procType) {
-//     case FlightProcedure::Type::TESTING:
-
-//       current_intervals_ = procs.testing.intervals;  // Set the intervals
-
-//       // Send the procedure to the data stream
-//       current_procedure.type = FlightProcedure::Type::TESTING;
-//       current_procedure.intervals = procs.testing.intervals;
-//       data_stream_.updateFlightProcedure(current_procedure);
-
-//       break;
-//     default:  // Default back to failsafe flight proc
-
-//       current_intervals_ = procs.failsafe.intervals;  // Set the intervals
-
-//       // Send the procedure to the data stream
-//       current_procedure.type = FlightProcedure::Type::FAILSAFE;
-//       current_procedure.intervals = procs.failsafe.intervals;
-//       data_stream_.updateFlightProcedure(current_procedure);
-//       break;
-//   }
-// }
-
 void FlightRunner::toggleModule(const std::string &module_id, bool on_or_off) {
   if (module_id == "csl") {
     if (on_or_off) {
