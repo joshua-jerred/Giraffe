@@ -264,6 +264,15 @@ private:
    * @brief The distance traveled in km.
    */
   double distance_traveled_ = 0.0;
+
+  /**
+   * @brief Rolling average of the horizontal speed. Once every 15 seconds (20
+   * in a 5 minute span)
+   */
+  BoosterSeat::RollingAverage average_horizontal_speed_{20};
+  BoosterSeat::RollingAverage average_vertical_speed_{20};
+
+  bst::Timer average_speed_timer_{15 * 1000};
 };
 
 } // namespace modules

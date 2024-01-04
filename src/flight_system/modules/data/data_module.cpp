@@ -361,6 +361,31 @@ void modules::DataModule::calculateCalculatedData() {
     } catch (const BoosterSeat::BoosterSeatException &e) {
       /// @todo Report this error
     }
+
+    // Maximum speeds
+    if (gps_data.last_valid_gps_frame.horizontal_speed >
+        calculated_data_.max_horizontal_speed_mps) {
+      calculated_data_.max_horizontal_speed_mps =
+          gps_data.last_valid_gps_frame.horizontal_speed;
+      calculated_data_.max_speed_valid = true;
+    }
+
+    if (gps_data.last_valid_gps_frame.vertical_speed >
+        calculated_data_.max_vertical_speed_mps) {
+      calculated_data_.max_vertical_speed_mps =
+          gps_data.last_valid_gps_frame.vertical_speed;
+      calculated_data_.max_speed_valid = true;
+    }
+
+    // Average speed
+    average_horizontal_speed_.count(
+        gps_data.last_valid_gps_frame.horizontal_speed);
+    average_vertical_speed_.count(gps_data.last_valid_gps_frame.vertical_speed);
+
+    calculated_data_.average_horiz_speed_mps_5min =
+        average_horizontal_speed_.getAverage();
+    calculated_data_.average_vert_speed_mps_5min =
+        average_vertical_speed_.getAverage();
   } else {
     /// @todo put this on a timer instead. Otherwise it will be reported as
     /// invalid if there is a single invalid gps frame. Reset the timer if
@@ -368,6 +393,11 @@ void modules::DataModule::calculateCalculatedData() {
 
     calculated_data_.distance_traveled_valid = false;
     calculated_data_.distance_from_launch_valid = false;
+    calculated_data_.average_speed_valid = false;
+
+    if (average_speed_timer_.isDone()) {
+      calculated_data_.average_speed_valid = false;
+    }
   }
 
   shared_data_.blocks.calculated_data.set(calculated_data_);
