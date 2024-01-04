@@ -36,8 +36,8 @@ private:
   bool init(DiagnosticId &fault);
   bool readData(DiagnosticId &fault);
 
-  BoosterSeat::Timer init_timer_;
-  BoosterSeat::Timer read_timer_;
+  bst::Timer init_timer_;
+  bst::Timer read_timer_;
 
   OneWireInterface device_{};
   double temperature_ = 0.0; // degrees C

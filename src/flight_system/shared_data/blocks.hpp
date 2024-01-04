@@ -345,6 +345,45 @@ struct TelemetryModuleStats {
   }
 };
 
+/**
+ * @brief Data that is calculated from other data.
+ */
+struct CalculatedData {
+  int32_t pressure_altitude_m = 0;
+  bool pressure_altitude_valid = false;
+
+  int32_t distance_traveled_m = 0;
+  bool distance_traveled_valid = false;
+
+  int32_t distance_from_launch_m = 0;
+  bool distance_from_launch_valid = false;
+
+  int32_t average_horiz_speed_mps_5min = 0;
+  int32_t average_vert_speed_mps_5min = 0;
+  bool average_speed_valid = false;
+
+  int32_t max_horizontal_speed_mps = 0;
+  int32_t max_vertical_speed_mps = 0;
+  bool max_speed_valid = false;
+
+  Json toJson() {
+    Json json_data;
+    json_data["pressure_altitude_m"] = pressure_altitude_m;
+    json_data["pressure_altitude_valid"] = pressure_altitude_valid;
+    json_data["distance_traveled_m"] = distance_traveled_m;
+    json_data["distance_traveled_valid"] = distance_traveled_valid;
+    json_data["distance_from_launch_m"] = distance_from_launch_m;
+    json_data["distance_from_launch_valid"] = distance_from_launch_valid;
+    json_data["average_speed_horiz_mps_5min"] = average_horiz_speed_mps_5min;
+    json_data["average_speed_vert_mps_5min"] = average_vert_speed_mps_5min;
+    json_data["average_speed_valid"] = average_speed_valid;
+    json_data["max_horiz_speed_mps"] = max_horizontal_speed_mps;
+    json_data["max_vert_speed_mps"] = max_vertical_speed_mps;
+    json_data["max_speed_valid"] = max_speed_valid;
+    return json_data;
+  }
+};
+
 } // namespace blocks
 
 } // namespace data

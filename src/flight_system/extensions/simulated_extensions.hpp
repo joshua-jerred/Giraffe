@@ -94,28 +94,33 @@ class SimGpsSensor : public Extension {
 public:
   SimGpsSensor(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
       : Extension(resources, metadata) {
+    gps_frame.gps_utc_time = BoosterSeat::clck::now();
+    gps_frame.is_valid = true;
+    gps_frame.fix = data::GpsFix::FIX_3D;
+    gps_frame.num_satellites = 10;
+    gps_frame.latitude = 40.0;
+    gps_frame.longitude = -80.0;
+    gps_frame.horz_accuracy = 5.0;
+    gps_frame.altitude = 1000.0;
+    gps_frame.vert_accuracy = 1.0;
+    gps_frame.vertical_speed = 1.0;
+    gps_frame.horizontal_speed = 1.0;
+    gps_frame.speed_accuracy = 1.0;
+    gps_frame.heading_of_motion = 1.0;
+    gps_frame.heading_accuracy = 1.0;
   }
 
   void loop() override {
-    data::GpsFrame frame;
-    frame.gps_utc_time = BoosterSeat::clck::now();
-    frame.fix = data::GpsFix::FIX_3D;
-    frame.num_satellites = 10;
-    frame.latitude = 40.0;
-    frame.longitude = -80.0;
-    frame.horz_accuracy = 5.0;
-    frame.altitude = 1000.0;
-    frame.vert_accuracy = 5.0;
-    frame.vertical_speed = 0.0;
-    frame.horizontal_speed = 0.0;
-    frame.speed_accuracy = 0.0;
-    frame.heading_of_motion = 0.0;
-    frame.heading_accuracy = 0.0;
-    data(frame);
+    gps_frame.gps_utc_time = BoosterSeat::clck::now();
+    gps_frame.latitude += increasing_ ? 0.0001 : -0.0001;
+    gps_frame.longitude += increasing_ ? 0.0001 : -0.0001;
+    gps_frame.altitude += increasing_ ? 0.1 : -0.1;
+    data(gps_frame);
   }
 
 private:
-  bool increasing_ = false;
+  data::GpsFrame gps_frame{};
+  bool increasing_ = true;
 };
 
 class SimImuSensor : public Extension {

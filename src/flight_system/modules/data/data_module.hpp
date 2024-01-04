@@ -19,6 +19,10 @@
 
 #include <functional>
 
+#include <BoosterSeat/geo.hpp>
+#include <BoosterSeat/rolling_average.hpp>
+#include <BoosterSeat/timer.hpp>
+
 #include "data_log.hpp"
 #include "influxdb.hpp"
 #include "module.hpp"
@@ -173,6 +177,17 @@ private:
   void processImuFramePacket(const data::ImuFramePacket &packet);
 
   /**
+   * @brief Use existing data to calculate the data that can be calculated.
+   * @todo This function is not implemented yet.
+   */
+  void calculateCalculatedData();
+  /**
+   * @brief Buffer for the calculated data. Used by the calculateCalculatedData
+   * method.
+   */
+  data::blocks::CalculatedData calculated_data_{};
+
+  /**
    * @brief The data log object, used to log data and errors to files.
    */
   data_middleware::DataLog data_log_;
@@ -221,6 +236,43 @@ private:
    */
   cfg::gEnum::ErrorLogStrategy error_file_logging_strategy_ =
       cfg::gEnum::ErrorLogStrategy::ALL;
+
+  /**
+   * @brief This timer is used to determine when to update the gps path for the
+   * purpose of calculating distance traveled.
+   * @see calculateCalculatedData
+   */
+  bst::Timer gps_distance_update_timer_{};
+
+  /**
+   * @brief The last gps point. Used to calculate distance traveled.
+   * @see calculateCalculatedData
+   */
+  bst::geo::Point last_gps_point_{};
+
+  /**
+   * @brief The initial gps point. This is the "launch point"
+   */
+  bst::geo::Point launch_gps_point_{};
+
+  /**
+   * @brief True if the initial gps point has been set.
+   */
+  bool launch_gps_point_set_ = false;
+
+  /**
+   * @brief The distance traveled in km.
+   */
+  double distance_traveled_ = 0.0;
+
+  /**
+   * @brief Rolling average of the horizontal speed. Once every 15 seconds (20
+   * in a 5 minute span)
+   */
+  BoosterSeat::RollingAverage average_horizontal_speed_{20};
+  BoosterSeat::RollingAverage average_vertical_speed_{20};
+
+  bst::Timer average_speed_timer_{15 * 1000};
 };
 
 } // namespace modules

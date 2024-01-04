@@ -1,4 +1,4 @@
-[![Giraffe Unit Tests](https://github.com/joshua-jerred/Giraffe/actions/workflows/unit_tests.yml/badge.svg?branch=main)](https://github.com/joshua-jerred/Giraffe/actions/workflows/unit_tests.yml)
+[![Giraffe Unit Tests](https://github.com/joshua-jerred/Giraffe/actions/workflows/giraffe_ci.yml/badge.svg)](https://github.com/joshua-jerred/Giraffe/actions/workflows/giraffe_ci.yml)
 
 # Giraffe <!-- omit from toc -->
 ### A Unified Flight Command and Control System <!-- omit from toc -->
