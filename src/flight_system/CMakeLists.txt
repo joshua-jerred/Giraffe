@@ -31,7 +31,11 @@ add_subdirectory(./modules/system)
 add_subdirectory(./modules/telemetry)
 
 # -------- GFS Executable ---------
-add_executable(${EXE_NAME} ${GFS_SRC}/main.cpp ${GFS_SRC}/flight_runner.cpp)
+add_executable(${EXE_NAME}
+  ${GFS_SRC}/main.cpp
+  ${GFS_SRC}/flight_runner.cpp
+  ${GFS_SRC}/flight_runner_data.cpp
+)
 target_include_directories(${EXE_NAME} PRIVATE ${GFS_SRC})
 set_target_properties(
   ${EXE_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GFS_BIN} OUTPUT_NAME gfs
