@@ -44,6 +44,10 @@ module.exports = class GfsConnection {
     return this.setting_sync.getData(category);
   }
 
+  getMsSinceLastUpdate(category) {
+    return this.data_sync.getMsSinceLastUpdate(category);
+  }
+
   doSettingsExist(category) {
     return this.setting_sync.doesDataExist(category);
   }

@@ -88,6 +88,10 @@ module.exports = class GfsDataSync {
     }
   }
 
+  getMsSinceLastUpdate(category) {
+    return Math.floor(new Date() - this.resources[category].meta.timestamp);
+  }
+
   /**
    * @brief Reads settings relevant to this class from the database and
    * stores them in the class.
@@ -123,6 +127,7 @@ module.exports = class GfsDataSync {
     for (let data_item in data_section) {
       try {
         this.resources[category].data[data_item] = data_section[data_item];
+        this.resources[category].meta.timestamp = new Date();
       } catch (e) {
         console.log(
           "Failed to set local resource for: " +
