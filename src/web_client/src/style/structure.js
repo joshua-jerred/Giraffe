@@ -22,7 +22,7 @@ const StyleStructure = {
   },
   cards: {
     padding: "15px",
-    margin_v: "10px",
+    margin_v: "0px",
     margin_h: "0px",
     border_style: `1px solid`,
     border_radius: "10px",

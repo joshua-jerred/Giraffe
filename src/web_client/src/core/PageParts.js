@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { useEffect } from "react";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 export const Page = styled.div`
   padding: 0 0px;
@@ -95,9 +97,11 @@ export const CardRow = styled.div`
   gap: 2%;
 `;
 
-export const CardMasonryLayout = styled.div`
-  columns: 4 400px;
-  column-gap: 1rem;
+const CardMasonryLayoutStyle = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  // grid-auto-rows: 100px;
 
   & > ${CardStyle} {
     width: 500px;
@@ -109,6 +113,16 @@ export const CardMasonryLayout = styled.div`
     font-size: 2rem;
   }
 `;
+
+export function CardMasonryLayout({ children }) {
+  return (
+    <ResponsiveMasonry
+      columnsCountBreakPoints={{ 400: 1, 800: 2, 1200: 3, 1600: 4 }}
+    >
+      <Masonry gutter="10px">{children}</Masonry>
+    </ResponsiveMasonry>
+  );
+}
 
 export const Card = ({ title, children }) => {
   return (
