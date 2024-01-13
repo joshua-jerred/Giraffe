@@ -73,22 +73,22 @@ function StatusBar() {
             : "UNKNOWN"
         }
       />
-      <StatusItem
+      {/* <StatusItem
         title="InfluxDB"
         status={
           ggsConnectionStatus && giraffeStatus.influxdb
             ? giraffeStatus.influxdb.toUpperCase()
             : "UNKNOWN"
         }
-      />
-      <StatusItem
+      /> */}
+      {/* <StatusItem
         title="aprs.fi"
         status={
           ggsConnectionStatus && giraffeStatus.aprsfi
             ? giraffeStatus.aprsfi.toUpperCase()
             : "UNKNOWN"
         }
-      />
+      /> */}
     </StatusCard>
   );
 }

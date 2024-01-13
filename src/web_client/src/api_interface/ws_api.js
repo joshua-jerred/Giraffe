@@ -32,7 +32,7 @@ export const GgsApiContextProvider = ({ children }) => {
         });
     }, CHECK_CONNECTION_INTERVAL);
     return () => clearInterval(interval);
-  }, []);
+  }, [ggsAddress]);
 
   return (
     <GGS_API.Provider

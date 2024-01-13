@@ -72,7 +72,7 @@ module.exports = class GfsDataSync {
   /**
    * @brief Called at a set interval at a higher level. This runs everything.
    */
-  update() {
+  async update() {
     this.#updateClassSettings();
 
     for (let category in this.resources) {
@@ -85,6 +85,9 @@ module.exports = class GfsDataSync {
       this.#updateResource(category);
       this.resources[category].meta.last_request = new Date();
       this.resources[category].meta.requests++;
+
+      // sleep for 50ms to prevent flooding the socket
+      await new Promise((resolve) => setTimeout(resolve, 25));
     }
   }
 
@@ -148,6 +151,9 @@ module.exports = class GfsDataSync {
     let con = new net.Socket();
     let that = this;
 
+    const TIMEOUT = 1000;
+    con.setTimeout(TIMEOUT);
+
     con.connect(this.port, this.address, function () {
       con.write(JSON.stringify(request));
     });
@@ -171,6 +177,9 @@ module.exports = class GfsDataSync {
 
     con.on("error", function (err) {
       that.connected = false;
+      console.log(
+        "Socket Error during the category: " + category + " - " + err
+      );
     });
   }
 };
