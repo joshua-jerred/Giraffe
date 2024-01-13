@@ -56,7 +56,14 @@ function StatusBar() {
         title="GGS"
         status={ggsConnectionStatus ? "CONNECTED" : "DISCONNECTED"}
       />
-      <StatusItem title="GFS" status={giraffeStatus.gfs.toUpperCase()} />
+      <StatusItem
+        title="GFS"
+        status={
+          ggsConnectionStatus && giraffeStatus.gfs
+            ? giraffeStatus.gfs.toUpperCase()
+            : "UNKNOWN"
+        }
+      />
       <StatusItem
         title="GDL"
         status={

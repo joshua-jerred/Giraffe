@@ -11,10 +11,11 @@ export const GgsApiContextProvider = ({ children }) => {
   const [ggsConnectionStatus, setGgsConnectionStatus] = useState(false);
 
   const [giraffeStatus, setGiraffeStatus] = useState({
-    current_clients: "unknown",
-    connection_status: "disconnected",
     telemetry: "unknown",
     gfs: "unknown",
+    gdl: "unknown",
+    aprsfi: "unknown",
+    influxdb: "unknown",
   });
 
   const CHECK_CONNECTION_INTERVAL = 2500;

@@ -37,7 +37,7 @@ test("GET /api/status", async (t) => {
   const response = await request(app).get("/api/status");
   t.is(response.status, 200);
   t.true(response.body.hasOwnProperty("gfs"));
-  t.true(response.body.hasOwnProperty("influx_db"));
+  t.true(response.body.hasOwnProperty("influxdb"));
   t.true(response.body.hasOwnProperty("telemetry"));
 });
 

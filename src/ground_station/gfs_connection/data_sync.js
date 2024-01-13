@@ -177,9 +177,10 @@ module.exports = class GfsDataSync {
 
     con.on("error", function (err) {
       that.connected = false;
-      console.log(
-        "Socket Error during the category: " + category + " - " + err
-      );
+      /// @todo Need to figure out why we are getting here so often. Most likely on the C++ side.
+      // console.log(
+      // "Socket Error during the category: " + category + " - " + err
+      // );
     });
   }
 };
