@@ -10,7 +10,7 @@ module.exports = class Telemetry {
   async update() {
     this.gdl_connected = true;
 
-    this.#requestData("oof");
+    this.#requestData("status");
   }
 
   #requestData(category) {
@@ -46,9 +46,9 @@ module.exports = class Telemetry {
     con.on("error", function (err) {
       that.connected = false;
       /// @todo Need to figure out why we are getting here so often. Most likely on the C++ side.
-      console.log(
-        "Socket Error during the category: " + category + " - " + err
-      );
+      // console.log(
+      // "Socket Error during the category: " + category + " - " + err
+      // );
     });
   }
 
