@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"classextension_1_1Ds18b20Extension.html#aaa99bc040af229aa386f991b1d9ee47a":[6,0,5,3,8],
 "classextension_1_1Ds18b20Extension.html#aaae6a7d91b77ac86a6e597bf0071889d":[6,0,5,3,16],
 "classextension_1_1Ds18b20Extension.html#ac3545ca3cc1fd6ab92671dbf18840f13":[6,0,5,3,13],
 "classextension_1_1Ds18b20Extension.html#ad3a895d8015ab2992b41c66b9f16648a":[6,0,5,3,17],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "classextension_1_1SimPressureSensor.html#a82da0dbf5bc86008ae2ca79247155c60":[6,0,5,12,23],
 "classextension_1_1SimPressureSensor.html#a858476ff8cf82d862b8d44f13e47913f":[6,0,5,12,18],
 "classextension_1_1SimPressureSensor.html#a8c2ff02720daaaf27849c087b064d4c3":[6,0,5,12,9],
-"classextension_1_1SimPressureSensor.html#a947a643d302b5c5f9cef1a54d5038c06":[6,0,5,12,13],
-"classextension_1_1SimPressureSensor.html#aa7ec0098dfde16a54eb616c73ba3046e":[6,0,5,12,10]
+"classextension_1_1SimPressureSensor.html#a947a643d302b5c5f9cef1a54d5038c06":[6,0,5,12,13]
 };

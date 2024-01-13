@@ -9,5 +9,6 @@ var structdata_1_1blocks_1_1StreamsStats =
     [ "data", "structdata_1_1blocks_1_1StreamsStats.html#a021ca54ba1a1098d305f84115d42f3d1", null ],
     [ "log", "structdata_1_1blocks_1_1StreamsStats.html#a4c67f6872bb85963500a69f3530b5c8a", null ],
     [ "gps", "structdata_1_1blocks_1_1StreamsStats.html#ab9841563c02f6ce257853c33559fad81", null ],
-    [ "imu", "structdata_1_1blocks_1_1StreamsStats.html#ab7a35fd86669ed273872de75514ff0e2", null ]
+    [ "imu", "structdata_1_1blocks_1_1StreamsStats.html#ab7a35fd86669ed273872de75514ff0e2", null ],
+    [ "command", "structdata_1_1blocks_1_1StreamsStats.html#a536cd36c20a8a1dfa7b875be7c19e078", null ]
 ];

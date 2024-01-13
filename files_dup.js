@@ -167,6 +167,9 @@ var files_dup =
     ] ],
     [ "json.hpp", "json_8hpp.html", "json_8hpp" ],
     [ "log_container.hpp", "log__container_8hpp.html", "log__container_8hpp" ],
+    [ "logger.hpp", "logger_8hpp.html", [
+      [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ]
+    ] ],
     [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
     [ "mcp3021.cpp", "mcp3021_8cpp.html", "mcp3021_8cpp" ],
     [ "mcp3021.hpp", "mcp3021_8hpp.html", [

@@ -29,6 +29,7 @@ var namespacedata =
       [ "FIX_2D", "namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba8b433e3f63d83e78dfbfe6da3ff61b3e", null ],
       [ "FIX_3D", "namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba5eddc8631075de75c679f84846de5d51", null ]
     ] ],
+    [ "to_json", "namespacedata.html#a5a8a89c1112857ba23a7fff451bd652d", null ],
     [ "isGpsFrameValid", "namespacedata.html#ad86e1d5fdd64e533c7b5833ece53c37e", null ],
     [ "isImuFrameValid", "namespacedata.html#a1843909ee9dc73d01c721427f3836781", null ],
     [ "toJson", "namespacedata.html#ad7272e7b88e216047b649704df787d95", null ],

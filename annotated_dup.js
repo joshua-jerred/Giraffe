@@ -85,7 +85,8 @@ var annotated_dup =
       [ "TransportLayer", "classgdl_1_1TransportLayer.html", "classgdl_1_1TransportLayer" ]
     ] ],
     [ "giraffe", "namespacegiraffe.html", [
-      [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ]
+      [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ],
+      [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ]
     ] ],
     [ "modules", "namespacemodules.html", [
       [ "ConsoleModule", "classmodules_1_1ConsoleModule.html", "classmodules_1_1ConsoleModule" ],

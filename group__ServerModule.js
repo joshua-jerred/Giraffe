@@ -16,6 +16,7 @@ var group__ServerModule =
       [ "error", "group__ServerModule.html#a62806f82a3b853d0d2de55efbf5649bc", null ],
       [ "error", "group__ServerModule.html#a2d64fd89764378e46ffc96cce45953db", null ],
       [ "info", "group__ServerModule.html#abcfa8274b894b6a2a131254e76cd9fb3", null ],
+      [ "debug", "group__ServerModule.html#a986882d205eeaf860d7050bdc47c3472", null ],
       [ "data", "group__ServerModule.html#ae3745aa2ab9ed49ad46f198c6280852e", null ],
       [ "stopRequested", "group__ServerModule.html#aff88a4f86029de23dc3970ecd28cd2ea", null ],
       [ "sleep", "group__ServerModule.html#a46523705742629151454c68a16e9f875", null ],
@@ -49,6 +50,7 @@ var group__ServerModule =
       [ "shared_data_", "group__ServerModule.html#a76117854725637f06b15168ecd648acf", null ],
       [ "config_", "group__ServerModule.html#a346068be2698922e9034f0ba605642d9", null ],
       [ "stats_", "group__ServerModule.html#a0b70ff55f1b1d420d929d618de88db1b", null ],
+      [ "logger_", "group__ServerModule.html#a5d206d0eb07b1991fcd156d305a305ba", null ],
       [ "bytes_per_second_down_", "group__ServerModule.html#a36cba0117849606d3ebd1001170ca5be", null ],
       [ "bytes_per_second_up_", "group__ServerModule.html#aa994466c1a91d6a6f4ec9eba357aec2d", null ]
     ] ],
@@ -64,6 +66,7 @@ var group__ServerModule =
       [ "send", "group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf", null ],
       [ "receive", "group__ServerModule.html#a6fc4ac999c586de6a35105dcbf431c51", null ],
       [ "isValid", "group__ServerModule.html#a67fd24b7ac134d195a0c0bb112834602", null ],
+      [ "getClientAddress", "group__ServerModule.html#ae9def188b439f30cb52f9e908dcb8be4", null ],
       [ "sock_", "group__ServerModule.html#aa95046d9e24c140816f1f6776e72bf4d", null ],
       [ "addr_", "group__ServerModule.html#a67c7f50ea6086d19f47542a5767979f4", null ]
     ] ]

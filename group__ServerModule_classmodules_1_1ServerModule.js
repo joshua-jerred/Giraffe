@@ -15,6 +15,7 @@ var group__ServerModule_classmodules_1_1ServerModule =
     [ "error", "group__ServerModule.html#a62806f82a3b853d0d2de55efbf5649bc", null ],
     [ "error", "group__ServerModule.html#a2d64fd89764378e46ffc96cce45953db", null ],
     [ "info", "group__ServerModule.html#abcfa8274b894b6a2a131254e76cd9fb3", null ],
+    [ "debug", "group__ServerModule.html#a986882d205eeaf860d7050bdc47c3472", null ],
     [ "data", "group__ServerModule.html#ae3745aa2ab9ed49ad46f198c6280852e", null ],
     [ "stopRequested", "group__ServerModule.html#aff88a4f86029de23dc3970ecd28cd2ea", null ],
     [ "sleep", "group__ServerModule.html#a46523705742629151454c68a16e9f875", null ],

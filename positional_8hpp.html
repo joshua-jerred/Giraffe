@@ -103,6 +103,7 @@ $(document).ready(function(){initNavTree('positional_8hpp.html',''); initResizab
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -116,17 +117,19 @@ $(document).ready(function(){initNavTree('positional_8hpp.html',''); initResizab
 <div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;nlohmann/json.hpp&gt;</code><br />
 <code>#include &lt;BoosterSeat/clock.hpp&gt;</code><br />
+<code>#include &lt;BoosterSeat/time.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for positional.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="positional_8hpp__incl.svg" width="427" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="positional_8hpp__incl.svg" width="784" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="positional_8hpp__dep__incl.svg" width="2388" height="710"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="positional_8hpp__dep__incl.svg" width="2672" height="710"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -146,6 +149,11 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacedata"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html">data</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="positional_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> = nlohmann::json</td></tr>
+<tr class="separator:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:ab828a916e0a524f5d9d29e881a1e829b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829b">data::GpsFix</a> : uint8_t { <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829babb1ca97ec761fc37101737ba0aa2e7c5">data::ERROR</a> = 0
@@ -163,6 +171,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a1843909ee9dc73d01c721427f3836781"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html#a1843909ee9dc73d01c721427f3836781">data::isImuFrameValid</a> (const <a class="el" href="namespacedata.html#structdata_1_1ImuFrame">data::ImuFrame</a> &amp;frame)</td></tr>
 <tr class="memdesc:a1843909ee9dc73d01c721427f3836781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if an IMU frame contains valid data.  <a href="namespacedata.html#a1843909ee9dc73d01c721427f3836781">More...</a><br /></td></tr>
 <tr class="separator:a1843909ee9dc73d01c721427f3836781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a8a89c1112857ba23a7fff451bd652d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html#a5a8a89c1112857ba23a7fff451bd652d">data::to_json</a> (<a class="el" href="positional_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, const <a class="el" href="namespacedata.html#structdata_1_1GpsFrame">data::GpsFrame</a> &amp;frame)</td></tr>
+<tr class="separator:a5a8a89c1112857ba23a7fff451bd652d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -353,6 +363,21 @@ z_angular_velocity</td>
 <td class="fielddoc">
 </td></tr>
 </table>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ab701e3ac61a85b337ec5c1abaad6742d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab701e3ac61a85b337ec5c1abaad6742d">&#9670;&nbsp;</a></span>json</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="positional_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> =  nlohmann::json</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

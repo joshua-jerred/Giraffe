@@ -80,16 +80,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc__configuration_8cpp.html",
-"classdata_1_1GpsFrameStream.html#a77e9fd66e7f24e9ca37c6dbca9c4b8b6",
-"classextension_1_1Ds18b20Extension.html#aaae6a7d91b77ac86a6e597bf0071889d",
-"classextension_1_1SimPressureSensor.html#aaa99bc040af229aa386f991b1d9ee47a",
-"classmodules_1_1DataModule.html#aff88a4f86029de23dc3970ecd28cd2ea",
-"console__pages_8cpp.html#afce5d98f062712aa25c0ea64f0e5ea78",
-"group__DataLog.html#ga9297ebb501f851f63ff5b7fa0cad8260",
-"namespacedata.html#a7ae5fef66d65212dc3a3902cc660cee9",
-"namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39a4120eb7591bd0789af75a8973d5f9146",
-"structdata_1_1blocks_1_1ExtensionModuleStats.html#a945e83c39a9360dc8c271519e21267df",
-"ubx__protocol_8cpp.html#a9c61bbe6a93b89e72b9102bfd1b5fa0e"
+"classdata_1_1GpsFrameStream.html#a550c2fb1c9e2e077bde5fda6b6f9fdef",
+"classextension_1_1Ds18b20Extension.html#aaa99bc040af229aa386f991b1d9ee47a",
+"classextension_1_1SimPressureSensor.html#aa7ec0098dfde16a54eb616c73ba3046e",
+"classmodules_1_1DataModule.html#ad46e8e7202d89b6ec10929d33a67628c",
+"configuration_8cpp.html",
+"group__DataLog.html#ga27d5e8fcbabb5a3641fde27faa5a49c8",
+"namespacedata.html#a1843909ee9dc73d01c721427f3836781",
+"namespaceubx.html#aa59bb7b3979903b2836782492714b440",
+"structdata_1_1blocks_1_1ConfigurationStats.html",
+"ubx__ids_8hpp.html#af3cebe1dd2c68dac710c0c4936698ddb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

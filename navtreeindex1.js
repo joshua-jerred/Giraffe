@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"classdata_1_1GpsFrameStream.html#a550c2fb1c9e2e077bde5fda6b6f9fdef":[6,0,3,12,0],
 "classdata_1_1GpsFrameStream.html#a77e9fd66e7f24e9ca37c6dbca9c4b8b6":[6,0,3,12,8],
 "classdata_1_1GpsFrameStream.html#a7a1a66d961dcdb8d4b120423ac94149a":[6,0,3,12,9],
 "classdata_1_1GpsFrameStream.html#aaa0e5928bd6da55201c31dedcd408e19":[6,0,3,12,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "classextension_1_1Ds18b20Extension.html#a9ce85f67d6a1e4420df51aab06d9b686":[6,0,5,3,24],
 "classextension_1_1Ds18b20Extension.html#aa60def82e0471281439b1b162bc0555e":[6,0,5,3,0],
 "classextension_1_1Ds18b20Extension.html#aa66b4669b727c68db267eb253019eb79":[6,0,5,3,3],
-"classextension_1_1Ds18b20Extension.html#aa7ec0098dfde16a54eb616c73ba3046e":[6,0,5,3,12],
-"classextension_1_1Ds18b20Extension.html#aaa99bc040af229aa386f991b1d9ee47a":[6,0,5,3,8]
+"classextension_1_1Ds18b20Extension.html#aa7ec0098dfde16a54eb616c73ba3046e":[6,0,5,3,12]
 };

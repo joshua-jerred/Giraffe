@@ -91,6 +91,7 @@ var hierarchy =
     [ "gdl::PhysicalLayer", "classgdl_1_1PhysicalLayer.html", null ],
     [ "gdl::TransportLayer", "classgdl_1_1TransportLayer.html", null ],
     [ "giraffe::FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", null ],
+    [ "giraffe::Logger", "classgiraffe_1_1Logger.html", null ],
     [ "I2cInterface", "classI2cInterface.html", null ],
     [ "LogContainer", "classLogContainer.html", null ],
     [ "modules::ExtensionModule::ExtContainer", "structmodules_1_1ExtensionModule_1_1ExtContainer.html", null ],

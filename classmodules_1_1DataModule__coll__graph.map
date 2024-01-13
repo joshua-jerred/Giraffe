@@ -1,8 +1,8 @@
 <map id="modules::DataModule" name="modules::DataModule">
-<area shape="rect" id="node1" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="2835,1644,3105,1956"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="1172,1167,1339,1537"/>
+<area shape="rect" id="node1" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="2835,1659,3105,1971"/>
+<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="1172,1167,1339,1552"/>
 <area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title=" " alt="" coords="1452,439,1587,517"/>
-<area shape="rect" id="node35" href="$classdata__middleware_1_1DataLog.html" title="Used to write data and log information to files. Used by the data module." alt="" coords="2037,1196,2234,1508"/>
+<area shape="rect" id="node35" href="$classdata__middleware_1_1DataLog.html" title="Used to write data and log information to files. Used by the data module." alt="" coords="2037,1203,2234,1515"/>
 <area shape="rect" id="node40" href="$classdata__middleware_1_1DataFormatter.html" title=" " alt="" coords="1785,763,2024,987"/>
 <area shape="rect" id="node49" href="$classdata__middleware_1_1InfluxDb.html" title=" " alt="" coords="2267,799,2465,950"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="2832,270,2945,347"/>
@@ -42,11 +42,11 @@
 <area shape="rect" id="node39" title=" " alt="" coords="3358,439,3409,517"/>
 <area shape="rect" id="node46" href="$structdata_1_1blocks_1_1CalculatedData.html" title="Data that is calculated from other data." alt="" coords="3496,836,3705,913"/>
 <area shape="rect" id="node41" title=" " alt="" coords="2153,836,2243,913"/>
-<area shape="rect" id="node42" title=" " alt="" coords="2893,1313,2993,1391"/>
+<area shape="rect" id="node42" title=" " alt="" coords="2893,1321,2993,1398"/>
 <area shape="rect" id="node43" title=" " alt="" coords="2975,439,3035,517"/>
-<area shape="rect" id="node44" title=" " alt="" coords="3079,1313,3133,1391"/>
-<area shape="rect" id="node45" title=" " alt="" coords="3175,1313,3306,1391"/>
+<area shape="rect" id="node44" title=" " alt="" coords="3079,1321,3133,1398"/>
+<area shape="rect" id="node45" title=" " alt="" coords="3175,1321,3306,1398"/>
 <area shape="rect" id="node47" title=" " alt="" coords="3579,439,3646,517"/>
-<area shape="rect" id="node48" title=" " alt="" coords="3421,1313,3541,1391"/>
+<area shape="rect" id="node48" title=" " alt="" coords="3421,1321,3541,1398"/>
 <area shape="rect" id="node50" title=" " alt="" coords="2493,432,2684,524"/>
 </map>

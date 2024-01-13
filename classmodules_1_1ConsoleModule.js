@@ -19,6 +19,7 @@ var classmodules_1_1ConsoleModule =
     [ "error", "classmodules_1_1ConsoleModule.html#a62806f82a3b853d0d2de55efbf5649bc", null ],
     [ "error", "classmodules_1_1ConsoleModule.html#a2d64fd89764378e46ffc96cce45953db", null ],
     [ "info", "classmodules_1_1ConsoleModule.html#abcfa8274b894b6a2a131254e76cd9fb3", null ],
+    [ "debug", "classmodules_1_1ConsoleModule.html#a986882d205eeaf860d7050bdc47c3472", null ],
     [ "data", "classmodules_1_1ConsoleModule.html#ae3745aa2ab9ed49ad46f198c6280852e", null ],
     [ "stopRequested", "classmodules_1_1ConsoleModule.html#aff88a4f86029de23dc3970ecd28cd2ea", null ],
     [ "sleep", "classmodules_1_1ConsoleModule.html#a46523705742629151454c68a16e9f875", null ],

@@ -32,5 +32,6 @@ var blocks_8hpp =
     ] ],
     [ "SystemInfo", "structdata_1_1blocks_1_1SystemInfo.html", "structdata_1_1blocks_1_1SystemInfo" ],
     [ "TelemetryModuleStats", "structdata_1_1blocks_1_1TelemetryModuleStats.html", "structdata_1_1blocks_1_1TelemetryModuleStats" ],
+    [ "to_json", "blocks_8hpp.html#a1083debc43acffd60c7ace1b385ed2ca", null ],
     [ "rnd", "blocks_8hpp.html#a7ae5fef66d65212dc3a3902cc660cee9", null ]
 ];

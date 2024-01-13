@@ -15,6 +15,7 @@ var group__ServerModule_classRequestRouter =
     [ "shared_data_", "group__ServerModule.html#a76117854725637f06b15168ecd648acf", null ],
     [ "config_", "group__ServerModule.html#a346068be2698922e9034f0ba605642d9", null ],
     [ "stats_", "group__ServerModule.html#a0b70ff55f1b1d420d929d618de88db1b", null ],
+    [ "logger_", "group__ServerModule.html#a5d206d0eb07b1991fcd156d305a305ba", null ],
     [ "bytes_per_second_down_", "group__ServerModule.html#a36cba0117849606d3ebd1001170ca5be", null ],
     [ "bytes_per_second_up_", "group__ServerModule.html#aa994466c1a91d6a6f4ec9eba357aec2d", null ]
 ];

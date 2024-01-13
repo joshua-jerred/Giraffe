@@ -1,6 +1,6 @@
 <map id="modules::ExtensionModule" name="modules::ExtensionModule">
-<area shape="rect" id="node1" title=" " alt="" coords="4969,1531,5168,1784"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="4557,1097,4724,1468"/>
+<area shape="rect" id="node1" title=" " alt="" coords="4969,1545,5168,1799"/>
+<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="4557,1097,4724,1483"/>
 <area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title=" " alt="" coords="1595,957,1729,1035"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="853,700,967,777"/>
 <area shape="rect" id="node48" href="$structextension_1_1ExtensionResources.html" title="This contains objects that are shared between all extensions." alt="" coords="1044,957,1269,1035"/>
@@ -45,8 +45,8 @@
 <area shape="rect" id="node41" title=" " alt="" coords="1391,957,1570,1035"/>
 <area shape="rect" id="node43" title=" " alt="" coords="4487,64,4682,141"/>
 <area shape="rect" id="node44" title=" " alt="" coords="4439,957,4503,1035"/>
-<area shape="rect" id="node45" title=" " alt="" coords="4808,1237,5015,1329"/>
-<area shape="rect" id="node46" title=" " alt="" coords="5039,1244,5099,1321"/>
+<area shape="rect" id="node45" title=" " alt="" coords="4808,1244,5015,1336"/>
+<area shape="rect" id="node46" title=" " alt="" coords="5039,1251,5099,1329"/>
 <area shape="rect" id="node49" title=" " alt="" coords="762,700,829,777"/>
-<area shape="rect" id="node50" title=" " alt="" coords="5449,1244,5696,1321"/>
+<area shape="rect" id="node50" title=" " alt="" coords="5449,1251,5696,1329"/>
 </map>

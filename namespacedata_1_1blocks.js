@@ -12,5 +12,6 @@ var namespacedata_1_1blocks =
     [ "ServerModuleStats", "structdata_1_1blocks_1_1ServerModuleStats.html", "structdata_1_1blocks_1_1ServerModuleStats" ],
     [ "StreamsStats", "structdata_1_1blocks_1_1StreamsStats.html", "structdata_1_1blocks_1_1StreamsStats" ],
     [ "SystemInfo", "structdata_1_1blocks_1_1SystemInfo.html", "structdata_1_1blocks_1_1SystemInfo" ],
-    [ "TelemetryModuleStats", "structdata_1_1blocks_1_1TelemetryModuleStats.html", "structdata_1_1blocks_1_1TelemetryModuleStats" ]
+    [ "TelemetryModuleStats", "structdata_1_1blocks_1_1TelemetryModuleStats.html", "structdata_1_1blocks_1_1TelemetryModuleStats" ],
+    [ "to_json", "namespacedata_1_1blocks.html#a1083debc43acffd60c7ace1b385ed2ca", null ]
 ];

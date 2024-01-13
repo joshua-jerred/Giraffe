@@ -1,14 +1,14 @@
 <map id="blocks.hpp" name="blocks.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="330,7,422,33"/>
-<area shape="rect" id="node2" title=" " alt="" coords="79,81,143,108"/>
-<area shape="rect" id="node3" title=" " alt="" coords="259,156,426,183"/>
-<area shape="rect" id="node4" title=" " alt="" coords="565,81,755,108"/>
-<area shape="rect" id="node5" title=" " alt="" coords="780,81,943,108"/>
-<area shape="rect" id="node6" href="$json_8hpp.html" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="167,81,244,108"/>
-<area shape="rect" id="node9" href="$node_8hpp.html" title="Contains structures that are used to identify components of the flight system." alt="" coords="457,81,540,108"/>
-<area shape="rect" id="node12" href="$positional_8hpp.html" title="Positional data for the flight system (gps/imu data)" alt="" coords="319,81,433,108"/>
-<area shape="rect" id="node7" title=" " alt="" coords="5,156,152,183"/>
-<area shape="rect" id="node8" title=" " alt="" coords="176,156,235,183"/>
-<area shape="rect" id="node10" title=" " alt="" coords="525,156,592,183"/>
-<area shape="rect" id="node11" title=" " alt="" coords="451,156,501,183"/>
+<area shape="rect" id="node1" title=" " alt="" coords="396,7,488,33"/>
+<area shape="rect" id="node2" title=" " alt="" coords="214,81,278,108"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,156,172,183"/>
+<area shape="rect" id="node4" title=" " alt="" coords="751,81,941,108"/>
+<area shape="rect" id="node5" title=" " alt="" coords="197,156,359,183"/>
+<area shape="rect" id="node6" href="$json_8hpp.html" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="403,81,481,108"/>
+<area shape="rect" id="node9" href="$node_8hpp.html" title="Contains structures that are used to identify components of the flight system." alt="" coords="643,81,726,108"/>
+<area shape="rect" id="node12" href="$positional_8hpp.html" title="Positional data for the flight system (gps/imu data)" alt="" coords="505,81,619,108"/>
+<area shape="rect" id="node7" title=" " alt="" coords="383,156,530,183"/>
+<area shape="rect" id="node8" title=" " alt="" coords="554,156,613,183"/>
+<area shape="rect" id="node10" title=" " alt="" coords="637,156,703,183"/>
+<area shape="rect" id="node11" title=" " alt="" coords="727,156,778,183"/>
 </map>

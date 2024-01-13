@@ -11,6 +11,7 @@ var group__ServerModule_classsock_1_1TcpSocketServer =
     [ "send", "group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf", null ],
     [ "receive", "group__ServerModule.html#a6fc4ac999c586de6a35105dcbf431c51", null ],
     [ "isValid", "group__ServerModule.html#a67fd24b7ac134d195a0c0bb112834602", null ],
+    [ "getClientAddress", "group__ServerModule.html#ae9def188b439f30cb52f9e908dcb8be4", null ],
     [ "sock_", "group__ServerModule.html#aa95046d9e24c140816f1f6776e72bf4d", null ],
     [ "addr_", "group__ServerModule.html#a67c7f50ea6086d19f47542a5767979f4", null ]
 ];

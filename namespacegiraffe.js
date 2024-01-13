@@ -1,6 +1,7 @@
 var namespacegiraffe =
 [
     [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ],
+    [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ],
     [ "FlightMode", "namespacegiraffe.html#a464112de04b36af2ff144b7013236aff", [
       [ "UNKNOWN", "namespacegiraffe.html#a464112de04b36af2ff144b7013236affa696b031073e74bf2cb98e5ef201d4aa3", null ],
       [ "PRE_LAUNCH", "namespacegiraffe.html#a464112de04b36af2ff144b7013236affaa9c1a88bb2291339811ab30ebf54acc5", null ],

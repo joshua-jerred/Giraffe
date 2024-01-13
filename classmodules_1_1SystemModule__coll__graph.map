@@ -1,6 +1,6 @@
 <map id="modules::SystemModule" name="modules::SystemModule">
-<area shape="rect" id="node1" title=" " alt="" coords="525,2104,739,2313"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="450,1671,617,2041"/>
+<area shape="rect" id="node1" title=" " alt="" coords="525,2119,739,2328"/>
+<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="450,1671,617,2056"/>
 <area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title=" " alt="" coords="2282,1384,2417,1461"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="4001,1244,4114,1321"/>
 <area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="4312,979,4533,1115"/>
@@ -47,6 +47,6 @@
 <area shape="rect" id="node45" title=" " alt="" coords="381,1384,560,1461"/>
 <area shape="rect" id="node47" title=" " alt="" coords="107,491,301,568"/>
 <area shape="rect" id="node48" title=" " alt="" coords="635,1384,699,1461"/>
-<area shape="rect" id="node49" href="$structdata_1_1blocks_1_1SystemInfo.html" title="Struct containing system information related to the system module." alt="" coords="1507,1795,1690,1917"/>
+<area shape="rect" id="node49" href="$structdata_1_1blocks_1_1SystemInfo.html" title="Struct containing system information related to the system module." alt="" coords="1507,1803,1690,1924"/>
 <area shape="rect" id="node50" title=" " alt="" coords="2441,1384,2492,1461"/>
 </map>
