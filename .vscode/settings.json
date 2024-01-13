@@ -53,6 +53,7 @@
     "nlohmann",
     "puml",
     "Reassembler",
+    "rssi",
     "SAMM",
     "Sats",
     "smbus",

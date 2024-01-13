@@ -32,19 +32,25 @@ class GlobalState {
   }
 
   getStreamData(stream) {
-    const gfs_data_streams = [
-      "system_info",
-      "data_log_stats",
-      "modules_statuses",
-      "stream_stats",
-      "server_module_stats",
-    ];
+    // const gfs_data_streams = [
+    //   "system_info",
+    //   "data_log_stats",
+    //   "modules_statuses",
+    //   "stream_stats",
+    //   "server_module_stats",
+    //   "extension_module_stats",
+    //   "environmental",
+    //   "location_data",
+    //   "calculated_data",
+    // ];
 
     if (stream === "status") {
       return this.getStatus();
-    } else if (gfs_data_streams.includes(stream)) {
-      return this.gfs_connection.getData(stream);
     }
+    // } else if (gfs_data_streams.includes(stream)) {
+    return this.gfs_connection.getData(stream);
+    // }
+    // return { error: "stream not found" };
   }
 
   get status() {

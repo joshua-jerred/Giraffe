@@ -166,6 +166,10 @@ auto RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
     res_body["temperature"] = toJson(shared_data_.frames.env_temp);
     res_body["pressure"] = toJson(shared_data_.frames.env_pres);
     res_body["humidity"] = toJson(shared_data_.frames.env_hum);
+  } else if (requested_data == "location_data") {
+    res_body = nlohmann::json(shared_data_.blocks.location_data.get());
+  } else if (requested_data == "calculated_data") {
+    res_body = shared_data_.blocks.calculated_data.get().toJson();
   } else {
     sendErrorPacket(client, "data section not found");
     return;

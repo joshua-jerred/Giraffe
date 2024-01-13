@@ -1,6 +1,6 @@
 const errorResponse = require("./generic_response");
 
-const valid_resources = ["status", "static", "ggs", "gfs"];
+const valid_resources = ["status", "static", "ggs", "gfs", "debug"];
 
 const valid_ggs_categories = ["settings", "data"];
 const valid_gfs_categories = ["settings", "data"];
@@ -9,7 +9,7 @@ var verifyPathSchema = function (req, res, next) {
   let path_parts = req.path.split("/");
 
   // All API endpoints must start with /api
-  if (path_parts.length < 3 || path_parts[1] != "api") {
+  if (path_parts.length < 2 || path_parts[1] != "api") {
     errorResponse(res, 404, "Invalid API endpoint.");
     return;
     // Verify that the resource is valid
@@ -19,9 +19,6 @@ var verifyPathSchema = function (req, res, next) {
     // If it's 'static' or 'status', no need to check further
   } else if (path_parts[2] == "static" || path_parts[2] == "status") {
     next();
-    return;
-  } else if (path_parts.length < 4) {
-    errorResponse(res, 404, "Invalid API endpoint.");
     return;
   }
 
