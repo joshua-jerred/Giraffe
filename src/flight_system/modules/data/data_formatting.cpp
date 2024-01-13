@@ -22,7 +22,6 @@
 #include "data_formatting.hpp"
 #include "to_string.hpp"
 
-namespace bst = BoosterSeat::time;
 using namespace data_middleware;
 
 std::string DataFormatter::fullFrame() {
@@ -214,8 +213,8 @@ std::string DataFormatter::generateTimestamp(
   }
 
   if (detail == cfg::gEnum::TimestampDetail::DATE_HHMMSS) {
-    return bst::dateAndTimeString(tz, '-', '_', ':', time_point);
+    return BoosterSeat::time::dateAndTimeString(tz, '-', '_', ':', time_point);
   } else {
-    return bst::timeString(tz, ':', time_point);
+    return BoosterSeat::time::timeString(tz, ':', time_point);
   }
 }

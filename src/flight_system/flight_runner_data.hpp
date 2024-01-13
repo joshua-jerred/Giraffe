@@ -19,14 +19,43 @@
 
 #include <cstdint>
 
+#include <BoosterSeat/time.hpp>
+
 namespace giraffe {
 
 class FlightRunnerData {
 public:
   /**
-   * @brief Attempts to load the data from a file.
+   * @brief The reason the system was shutdown. Stored in the data file.
+   */
+  enum class ShutdownReason {
+    /**
+     * @brief The system stopped accidentally, not on purpose. Most likely a
+     * software crash.
+     *
+     */
+    CRASH_OR_UNKNOWN,
+
+    /**
+     * @brief User requested a shutdown by pressing CTRL+C.
+     */
+    CTRL_C,
+
+    /**
+     * @brief User requested a shutdown via the telemetry sdn command.
+     */
+    TELEMETRY_SDN_COMMAND
+  };
+
+  /**
+   * @brief The default constructor will attempt to load the data from the saved
+   * file.
    */
   FlightRunnerData();
+
+  /**
+   * @brief Destructor will attempt to save to the data file.
+   */
   ~FlightRunnerData();
 
   /**
@@ -38,16 +67,17 @@ public:
   void incrementNumStartups();
   uint32_t getNumStartups() const;
 
-private:
-  /**
-   * @brief Attempts to load the data from a file.
-   */
-  void loadData();
+  void setShutdownReason(ShutdownReason shutdown_reason);
 
+  bool getSecondsSinceStartup(int64_t &num_seconds);
+  bool getSecondsSincePreviousStartup(int64_t &num_seconds);
+  bool getSecondsSincePreviousShutdown(int64_t &num_seconds);
+
+private:
   /**
    * @brief Attempts to save the data to a file.
    */
-  void saveData();
+  void saveData(bool shutdown_save = false);
 
   /**
    * @brief Set to true when the data has been loaded from a file.
@@ -58,6 +88,27 @@ private:
    * @brief Set to true when the data has been saved to a file.
    */
   bool save_status_ = false;
+
+  /**
+   * @brief The time the system was started. Immediately set once after startup.
+   * Not updated after a full reset.
+   */
+  bst::Time startup_time_ = {};
+
+  /**
+   * @brief The previous time the system was started. Updated at startup.
+   */
+  bst::Time previous_startup_time_ = {};
+  bool previous_startup_time_valid_ = false;
+
+  /**
+   * @brief Used to store the time the system was previously shut down. Updated
+   * at shutdown.
+   */
+  bst::Time previous_shutdown_time_ = {};
+  bool previous_shutdown_time_valid_ = false;
+
+  ShutdownReason shutdown_reason_ = ShutdownReason::CRASH_OR_UNKNOWN;
 
   /**
    * @brief The number of times the system has been started.

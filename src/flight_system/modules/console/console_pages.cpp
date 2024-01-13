@@ -5,7 +5,6 @@
 #include <functional>
 
 inline auto rnd = BoosterSeat::doubleToPrecisionTwo;
-namespace bst = BoosterSeat::time;
 
 inline std::string b2str(bool val) {
   return val ? "true" : "false";
@@ -93,8 +92,10 @@ void console_pages::Pages::gfsStatus() {
       shared_data_.blocks.modules_statuses.get();
   data::blocks::SystemInfo sys_info = shared_data_.blocks.system_info.get();
 
-  content_[0] = LandR(bst::timeString(bst::TimeZone::UTC) + " UTC ",
-                      bst::timeString(bst::TimeZone::LOCAL) + " Local");
+  content_[0] = LandR(
+      BoosterSeat::time::timeString(BoosterSeat::time::TimeZone::UTC) + " UTC ",
+      BoosterSeat::time::timeString(BoosterSeat::time::TimeZone::LOCAL) +
+          " Local");
   content_[1] =
       LandR("Uptime: " + shared_data_.misc.getUptimeString(),
             "Ld Avg: " + BoosterSeat::string::f2s(sys_info.cpu_load_avg_1, 1) +

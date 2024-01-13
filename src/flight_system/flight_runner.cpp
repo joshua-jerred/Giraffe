@@ -177,10 +177,12 @@ auto FlightRunner::start() -> int {
 }
 
 /**
- * @brief Called from main via a keyboard interrupt, this function sends a
+ * @brief Called only from main via a keyboard interrupt, this function sends a
  * shutdown signal to the flight runner.
  */
 auto FlightRunner::shutdown() -> void {
+  flight_runner_data_.setShutdownReason(
+      FlightRunnerData::ShutdownReason::CTRL_C);
   shutdown_signal_ = true;
   return;
 }
@@ -188,15 +190,6 @@ auto FlightRunner::shutdown() -> void {
 auto FlightRunner::flightLoop() -> int {
 
   std::cout << "Starting Flight Procedure" << std::endl;
-  // Timer tsl_data_log;  // Refer to timer.h
-  // Timer tsl_server;
-  // Timer tsl_data_packet;  // tsl = time since last
-  // Timer tsl_photo;
-  // Timer tsl_APRS;
-  // Timer tsl_SSTV_image;
-  // Timer tsl_health_check;
-
-  // GFSCommand command;
   static int count = 0;
   while (!shutdown_signal_) { // The endless loop where everything happens
     std::this_thread::sleep_for(std::chrono::milliseconds(50));
@@ -208,77 +201,6 @@ auto FlightRunner::flightLoop() -> int {
         routeCommand(command_packet.command);
       }
     }
-
-    // if (data_stream_.getNextCommand(command)) {  // Check for commands
-    //   switch (command.category) {
-    //     case GFSCommand::CommandCategory::FLR:
-    //       /** @todo implement flight runner commands*/
-    //       break;
-    //     case GFSCommand::CommandCategory::TLM:  // Telemetry Module
-    //       if (p_telemetry_module_ != nullptr) {
-    //         p_telemetry_module_->addCommand(command);
-    //       } else {
-    //         // call to error
-    //       }
-    //       break;
-    //     case GFSCommand::CommandCategory::MDL:
-    //       /** @todo implement module commands */
-    //       break;
-    //     case GFSCommand::CommandCategory::EXT:
-    //       if (p_extension_module_ != nullptr) {
-    //         p_extension_module_->addCommand(command);
-    //       } else {
-    //         // call to error
-    //       }
-    //       break;
-    //     case GFSCommand::CommandCategory::DAT:
-    //       if (p_data_module_ != nullptr) {
-    //         p_data_module_->addCommand(command);
-    //       } else {
-    //         // call to error
-    //       }
-    //       break;
-    //     default:
-    //       std::cout << "unknown command category" << std::endl;
-    //       break;
-    //   }
-    // }
-
-    // if (tsl_data_log.elapsed() > current_intervals_.data_log) {
-    //   p_data_module_->log();
-    //   tsl_data_log.reset();
-    // }
-
-    // if (config_data_.telemetry.telemetry_enabled) {
-    //   if (config_data_.telemetry.data_packets_enabled &&
-    //       tsl_data_packet.elapsed() > current_intervals_.data_packet) {
-    //     p_telemetry_module_->sendDataPacket();
-    //     tsl_data_packet.reset();
-    //   }
-    //   if (config_data_.telemetry.aprs_enabled &&
-    //       tsl_APRS.elapsed() > current_intervals_.aprs) {
-    //     p_telemetry_module_->sendAPRS();
-    //     tsl_APRS.reset();
-    //   }
-    //   if (config_data_.telemetry.sstv_enabled &&
-    //       tsl_SSTV_image.elapsed() > current_intervals_.sstv) {
-    //     p_telemetry_module_->sendSSTVImage();
-    //     tsl_SSTV_image.reset();
-    //   }
-    // }
-
-    // if (config_data_.debug.web_server_enabled &&
-    //     tsl_server.elapsed() > MODULE_SERVER_CHECK_COMMANDS_INTERVAL) {
-    //   if (p_server_module_->checkShutdown()) {
-    //     shutdown();
-    //   }
-    // }
-    // if (tslPhoto.elapsed() > current_intervals_.picture) {
-    //     p_data_module_->capturePhoto();
-    // }
-    // if (tslHealthCheck.elapsed() > current_intervals_.healthCheck) {
-    //     healthCheck();
-    // }
   }
   std::cout << std::endl
             << "Shutdown signal received." << std::endl
