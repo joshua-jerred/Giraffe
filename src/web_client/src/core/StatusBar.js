@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { useContext } from 'react';
-import { GGS_WS } from '../api_interface/ws_api';
+import styled from "styled-components";
+import { useContext } from "react";
+import { GGS_API } from "../api_interface/ws_api";
 
 const StatusCard = styled.div`
   display: inline-grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
 
   font-size: ${(props) => props.theme.fonts.status_bar.size};
   font-family: ${(props) => props.theme.fonts.status_bar.family};
@@ -24,17 +24,71 @@ const StatusCard = styled.div`
   z-index: 1;
 `;
 
-const StatusItem = styled.div``;
+const BarItemStyle = styled.div``;
+const BarItemStatusStyle = styled.span`
+  color: ${(props) => {
+    if (props.status === "CONNECTED") {
+      return props.theme.success;
+    } else if (props.status === "DISCONNECTED") {
+      return props.theme.error;
+    } else {
+      return props.theme.warning;
+    }
+  }};
+`;
+function StatusItem(props) {
+  return (
+    <BarItemStyle>
+      {props.title}:{" "}
+      <BarItemStatusStyle status={props.status}>
+        {props.status}
+      </BarItemStatusStyle>
+    </BarItemStyle>
+  );
+}
 
 function StatusBar() {
-  const { statusMessage, ggsConnectionStatus } = useContext(GGS_WS);
+  const { giraffeStatus, ggsConnectionStatus } = useContext(GGS_API);
 
   return (
     <StatusCard>
-      <StatusItem>GGS Connection: {ggsConnectionStatus}</StatusItem>
-      <StatusItem>Telemetry: {statusMessage !== undefined ? statusMessage.telemetry : "unknown"}</StatusItem>
-      <StatusItem>GFS: {statusMessage !== undefined ? statusMessage.gfs : "unknown"}</StatusItem>
-      <StatusItem>GFS: {statusMessage !== undefined ? statusMessage.gfs : "unknown"}</StatusItem>
+      <StatusItem
+        title="GGS"
+        status={ggsConnectionStatus ? "CONNECTED" : "DISCONNECTED"}
+      />
+      <StatusItem title="GFS" status={giraffeStatus.gfs.toUpperCase()} />
+      <StatusItem
+        title="GDL"
+        status={
+          ggsConnectionStatus && giraffeStatus.gdl
+            ? giraffeStatus.gdl.toUpperCase()
+            : "UNKNOWN"
+        }
+      />
+      <StatusItem
+        title="Telemetry"
+        status={
+          ggsConnectionStatus && giraffeStatus.telemetry
+            ? giraffeStatus.telemetry.toUpperCase()
+            : "UNKNOWN"
+        }
+      />
+      <StatusItem
+        title="InfluxDB"
+        status={
+          ggsConnectionStatus && giraffeStatus.influxdb
+            ? giraffeStatus.influxdb.toUpperCase()
+            : "UNKNOWN"
+        }
+      />
+      <StatusItem
+        title="aprs.fi"
+        status={
+          ggsConnectionStatus && giraffeStatus.aprsfi
+            ? giraffeStatus.aprsfi.toUpperCase()
+            : "UNKNOWN"
+        }
+      />
     </StatusCard>
   );
 }

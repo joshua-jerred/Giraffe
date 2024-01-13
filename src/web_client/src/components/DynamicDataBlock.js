@@ -5,7 +5,7 @@ import Tooltip from "./Tooltip";
 
 import {} from "giraffe-protocol";
 
-import { GGS_WS } from "../api_interface/ws_api";
+import { GGS_API } from "../api_interface/ws_api";
 import { GwsGlobal } from "../GlobalContext";
 
 const DataBoxContainer = styled.form`
@@ -79,19 +79,24 @@ function Item({ id, item_data }) {
   );
 }
 
-export function DataStreamBlock({ resource, category }) {
+export function DataStreamBlock({
+  resource,
+  category,
+  update_interval = 3000,
+}) {
   const { ggsAddress } = React.useContext(GwsGlobal);
-  const { ggsConnectionStatus, sendStreamRequest, lastJsonMessage } =
-    React.useContext(GGS_WS);
+  const { ggsConnectionStatus } = React.useContext(GGS_API);
 
   const [items, setItems] = React.useState({});
   const [error, setError] = React.useState(null);
 
+  const [msSinceLastUpdate, setMsSinceLastUpdate] = React.useState(0);
+
   const encoded_category = encodeURIComponent(category);
-  const path = `http://${ggsAddress}/api/${resource}/data?category=${encoded_category}&include=metadata`;
+  const path = `http://${ggsAddress}/api/${resource}/data?category=${encoded_category}`;
   React.useEffect(() => {
     console.log("Loading metadata from: " + path);
-    fetch(path)
+    fetch(path + "&include=metadata")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to load metadata.");
@@ -111,7 +116,7 @@ export function DataStreamBlock({ resource, category }) {
           new_items[key].meta = value;
         }
         setItems(new_items);
-        sendStreamRequest(category);
+        // sendStreamRequest(category);
       })
       .catch((error) => {
         console.error(error);
@@ -120,24 +125,43 @@ export function DataStreamBlock({ resource, category }) {
   }, [path, ggsConnectionStatus]);
 
   React.useEffect(() => {
-    const stream = lastJsonMessage;
-    if (stream === undefined || stream === null) {
-      return;
-    } else if (stream.bdy.cde === "ok" && stream.bdy.stream === category) {
-      let new_items = stream.bdy.data;
-      let old_items = items;
-      for (const [key, value] of Object.entries(new_items)) {
-        if (old_items[key] === undefined) {
-          old_items[key] = { value: value };
-        } else {
-          old_items[key].value = value;
-        }
-      }
-      setItems(old_items);
-    }
-  }, [lastJsonMessage, items, category]);
+    const interval = setInterval(() => {
+      fetch(path)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to load data.");
+          } else {
+            return response.json();
+          }
+        })
+        .then((data) => {
+          console.log(data);
+          setMsSinceLastUpdate(data.metadata.MS_SINCE_LAST_UPDATE.value);
+          let new_items = data.data;
+        })
+        .catch((error) => {
+          console.error(error);
+          setError("Failed to load actual data. (Check console for details.)");
+        });
+      // if (stream === undefined || stream === null) {
+      // return;
+      // } else if (stream.bdy.cde === "ok" && stream.bdy.stream === category) {
+      // let new_items = stream.bdy.data;
+      // let old_items = items;
+      // for (const [key, value] of Object.entries(new_items)) {
+      // if (old_items[key] === undefined) {
+      // old_items[key] = { value: value };
+      // } else {
+      // old_items[key].value = value;
+      // }
+      // }
+      // setItems(old_items);
+      // }
+    }, update_interval);
+    return () => clearInterval(interval);
+  }, []);
 
-  if (ggsConnectionStatus !== "connected") {
+  if (ggsConnectionStatus !== true) {
     return <div>Not connected to GGS.</div>;
   }
 

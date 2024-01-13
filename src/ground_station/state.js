@@ -11,13 +11,12 @@ class GlobalState {
 
     this.ggs_status = {
       // disconnected, connected
-      influx_db: "disconnected",
+      influxdb: "disconnected",
       gfs: "disconnected",
+      gdl: "disconnected",
       telemetry: "disconnected",
-      num_ws_clients: 0,
-      current_clients: [],
+      aprsfi: "disconnected",
       total_http_requests: 0,
-      total_ws_messages: 0,
     };
 
     setInterval(this.cycle.bind(this), kGlobalStateUpdateInterval);
