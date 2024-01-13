@@ -115,6 +115,9 @@ void modules::DataModule::processAllStreams() {
           shared_data_.streams.imu),
       stats.imu, imu_frame_packet_parser);
 
+  stats.command.current_packets = shared_data_.streams.command.getNumPackets();
+  stats.command.total_packets = shared_data_.streams.command.getTotalPackets();
+
   // Each process function call updates this struct, so update the shared data
   // here
   shared_data_.blocks.stream_stats.set(stats);

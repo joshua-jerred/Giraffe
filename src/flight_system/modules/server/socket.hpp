@@ -49,6 +49,8 @@ public:
 
   bool isValid() const;
 
+  std::string getClientAddress() const;
+
 private:
   int sock_ = -1;
   sockaddr_in addr_ = {};

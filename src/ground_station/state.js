@@ -53,6 +53,10 @@ class GlobalState {
     // return { error: "stream not found" };
   }
 
+  getSettings(category) {
+    return this.gfs_connection.getSettings(category);
+  }
+
   get status() {
     return this.ggs_status;
   }

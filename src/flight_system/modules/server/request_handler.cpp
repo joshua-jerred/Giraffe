@@ -22,7 +22,9 @@
 RequestRouter::RequestRouter(data::SharedData &shared_data,
                              cfg::Configuration &config,
                              data::blocks::ServerModuleStats &stats)
-    : shared_data_(shared_data), config_(config), stats_(stats) {
+    : shared_data_(shared_data), config_(config), stats_(stats),
+      logger_(shared_data_.streams.log, node::Identification::SERVER_MODULE,
+              "RequestRouter") {
 }
 
 void RequestRouter::handleMessage(sock::TcpSocketServer &client,
@@ -33,6 +35,7 @@ void RequestRouter::handleMessage(sock::TcpSocketServer &client,
   // Attempt to parse as a json string
   if (!protocol::parseMessage(request, msg)) {
     sendErrorPacket(client, "malformed json");
+    logger_.debug("malformed json, received: " + request);
     return;
   }
 
