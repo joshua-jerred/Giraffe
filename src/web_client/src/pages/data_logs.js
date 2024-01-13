@@ -4,7 +4,7 @@ import {
   Card,
   CardMasonryLayout,
 } from "../core/PageParts";
-import { DataStreamBlock } from "../components/DataBlock";
+import { DataBlock } from "../components/DataBlock";
 
 function DataLogsPage() {
   return (
@@ -13,11 +13,7 @@ function DataLogsPage() {
       <PageContent>
         <CardMasonryLayout>
           <Card title="card1">
-            <DataStreamBlock
-              resource="ggs"
-              category="status"
-              stream_name="status"
-            />
+            <DataBlock resource="ggs" category="status" stream_name="status" />
           </Card>
           <Card title="card2"> </Card>
         </CardMasonryLayout>

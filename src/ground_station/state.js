@@ -13,11 +13,12 @@ class GlobalState {
 
     this.ggs_status = {
       // disconnected, connected
-      influxdb: "disconnected",
-      gfs: "disconnected",
-      gdl: "disconnected",
-      telemetry: "disconnected",
-      aprsfi: "disconnected",
+      influxdb: "unknown",
+      gfs: "unknown",
+      gdl: "unknown",
+      telemetry_uplink: "unknown",
+      telemetry_downlink: "unknown",
+      aprsfi: "unknown",
       total_http_requests: 0,
     };
 
@@ -54,6 +55,18 @@ class GlobalState {
 
     this.ggs_status.gfs = this.gfs_connection.status;
     this.ggs_status.gdl = this.gdl_connection.status;
+
+    // update the telemetry status with GDL data
+    if (this.ggs_status.gdl === "connected") {
+      try {
+        let gdl_status = this.gdl_connection.getData("status");
+        this.ggs_status.telemetry_uplink = gdl_status.telemetry_uplink;
+        this.ggs_status.telemetry_downlink = gdl_status.telemetry_downlink;
+      } catch (error) {
+        this.ggs_status.telemetry_uplink = "unknown";
+        this.ggs_status.telemetry_downlink = "unknown";
+      }
+    }
   }
 }
 

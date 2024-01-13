@@ -2,10 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+
 import "font-awesome/css/font-awesome.min.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faSatelliteDish,
+  faSatellite,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { GwsGlobalContextProvider } from "./GlobalContext";
 import { GgsApiContextProvider } from "./api_interface/ws_api";
+
+library.add(faSatelliteDish, faSatellite);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

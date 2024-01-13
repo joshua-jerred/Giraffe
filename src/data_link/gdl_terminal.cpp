@@ -1,4 +1,19 @@
-#include <iostream>
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   gdl_terminal.cpp
+ * @brief  Giraffe Data Link Terminal
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2024-01-13
+ * @copyright  2024 (license to be defined)
+ */
+
 #include <unordered_map>
 
 #include "protocol.hpp"
@@ -22,6 +37,12 @@ static const std::unordered_map<gdl::GiraffeDataLink::Status, std::string>
                    {gdl::GiraffeDataLink::Status::RUNNING, "RUNNING"},
                    {gdl::GiraffeDataLink::Status::STOPPING, "STOPPING"}};
 
+/**
+ * @brief The Giraffe Data Link Terminal
+ * @details This contains a simple terminal for interacting with the GDL (or at
+ * least it did). However, not it is primarily interfaced with the GGS via a TCP
+ * socket.
+ */
 class GdlTerminal {
 public:
   GdlTerminal() {
@@ -52,8 +73,6 @@ public:
   }
 
   void routeRequest(const std::string &rsc) {
-    std::cout << "Received request for resource: " << rsc << std::endl;
-
     protocol::Message msg;
     json res_data;
 
@@ -61,8 +80,10 @@ public:
       auto stats = gdl_.getGdlStatus();
       res_data = {
           {"gdl_status", GDL_STATUS_MAP.at(gdl_.getStatus())},
-          {"remote_connection_status",
-           GDL_CONNECTION_STATE_MAP.at(gdl_.getConnectionStatus())},
+          {"telemetry_uplink",
+           GDL_CONNECTION_STATE_MAP.at(gdl_.getUplinkStatus())},
+          {"telemetry_downlink",
+           GDL_CONNECTION_STATE_MAP.at(gdl_.getDownlinkStatus())},
           {"exchange_queue_size", stats.exchange_queue_size},
           {"broadcast_queue_size", stats.broadcast_queue_size},
           {"received_queue_size", stats.received_queue_size},

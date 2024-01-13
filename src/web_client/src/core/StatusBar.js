@@ -1,10 +1,17 @@
 import styled from "styled-components";
 import { useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { GGS_API } from "../api_interface/ws_api";
+import Tooltip from "../components/Tooltip.js";
 
 const StatusCard = styled.div`
-  display: inline-grid;
-  grid-template-columns: auto auto auto auto;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 15px;
+
+  user-select: none;
 
   font-size: ${(props) => props.theme.fonts.status_bar.size};
   font-family: ${(props) => props.theme.fonts.status_bar.family};
@@ -14,17 +21,19 @@ const StatusCard = styled.div`
   background: ${(props) => props.theme.status_background};
   color: ${(props) => props.theme.on_surface};
   position: sticky;
-  width: 98%;
+  width: 95%;
   top: 0;
   padding: ${(props) => props.theme.status_bar.padding};
-  height: ${(props) => props.theme.status_bar.height};
+  min-height: 50px;
   border-bottom-left-radius: ${(props) => props.theme.status_bar.border_radius};
   border-bottom-right-radius: ${(props) =>
     props.theme.status_bar.border_radius};
   z-index: 1;
 `;
 
-const BarItemStyle = styled.div``;
+const BarItemStyle = styled.div`
+  white-space: nowrap;
+`;
 const BarItemStatusStyle = styled.span`
   color: ${(props) => {
     if (props.status === "CONNECTED") {
@@ -57,14 +66,6 @@ function StatusBar() {
         status={ggsConnectionStatus ? "CONNECTED" : "DISCONNECTED"}
       />
       <StatusItem
-        title="GFS"
-        status={
-          ggsConnectionStatus && giraffeStatus.gfs
-            ? giraffeStatus.gfs.toUpperCase()
-            : "UNKNOWN"
-        }
-      />
-      <StatusItem
         title="GDL"
         status={
           ggsConnectionStatus && giraffeStatus.gdl
@@ -73,13 +74,35 @@ function StatusBar() {
         }
       />
       <StatusItem
-        title="Telemetry"
+        title="GFS"
         status={
-          ggsConnectionStatus && giraffeStatus.telemetry
-            ? giraffeStatus.telemetry.toUpperCase()
+          ggsConnectionStatus && giraffeStatus.gfs
+            ? giraffeStatus.gfs.toUpperCase()
             : "UNKNOWN"
         }
       />
+      <Tooltip text="telemetry up-link status" vertical_position={"-440%"}>
+        <StatusItem
+          title={<FontAwesomeIcon icon="fa-solid fa-satellite-dish" />}
+          status={
+            ggsConnectionStatus && giraffeStatus.telemetry_uplink
+              ? giraffeStatus.telemetry_uplink.toUpperCase()
+              : "UNKNOWN"
+          }
+        />
+      </Tooltip>
+
+      <Tooltip text="telemetry down-link status" vertical_position={"-440%"}>
+        <StatusItem
+          title={<FontAwesomeIcon icon="fa-solid fa-satellite" />}
+          status={
+            ggsConnectionStatus && giraffeStatus.telemetry_downlink
+              ? giraffeStatus.telemetry_downlink.toUpperCase()
+              : "UNKNOWN"
+          }
+        />
+      </Tooltip>
+
       {/* <StatusItem
         title="InfluxDB"
         status={

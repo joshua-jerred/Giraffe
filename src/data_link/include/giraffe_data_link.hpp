@@ -77,7 +77,13 @@ public:
    * @brief Get the connection status of the GDL instance.
    * @return GiraffeDataLink::ConnectionStatus - The connection status
    */
-  ConnectionStatus getConnectionStatus() const;
+  ConnectionStatus getUplinkStatus() const {
+    return uplink_status_;
+  }
+
+  ConnectionStatus getDownlinkStatus() const {
+    return downlink_status_;
+  }
 
   bool exchangeMessage(std::string message);
 
@@ -148,7 +154,8 @@ private:
   /**
    * @brief The status of the connection.
    */
-  std::atomic<ConnectionStatus> connection_status_{
+  std::atomic<ConnectionStatus> uplink_status_{ConnectionStatus::DISCONNECTED};
+  std::atomic<ConnectionStatus> downlink_status_{
       ConnectionStatus::DISCONNECTED};
 
   std::mutex gdl_status_lock_{};

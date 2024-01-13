@@ -11,7 +11,8 @@ export const GgsApiContextProvider = ({ children }) => {
   const [ggsConnectionStatus, setGgsConnectionStatus] = useState(false);
 
   const [giraffeStatus, setGiraffeStatus] = useState({
-    telemetry: "unknown",
+    telemetry_uplink: "unknown",
+    telemetry_downlink: "unknown",
     gfs: "unknown",
     gdl: "unknown",
     aprsfi: "unknown",

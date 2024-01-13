@@ -103,11 +103,7 @@ function Item({ id, item_data }) {
   );
 }
 
-export function DataStreamBlock({
-  resource,
-  category,
-  update_interval = 3000,
-}) {
+export function DataBlock({ resource, category, update_interval = 3000 }) {
   const { ggsAddress } = React.useContext(GwsGlobal);
   const { ggsConnectionStatus } = React.useContext(GGS_API);
 

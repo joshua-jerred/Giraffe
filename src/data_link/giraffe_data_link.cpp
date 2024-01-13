@@ -53,10 +53,6 @@ GiraffeDataLink::Status GiraffeDataLink::getStatus() const {
   return status_;
 }
 
-GiraffeDataLink::ConnectionStatus GiraffeDataLink::getConnectionStatus() const {
-  return connection_status_;
-}
-
 bool GiraffeDataLink::getReceivedMessage(Message &message) {
   return queues_.received.pop(message);
 }

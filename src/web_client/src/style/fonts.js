@@ -243,24 +243,24 @@ export const StyleFonts = {
   page_title: {
     family: `Roboto Slab`,
     weight: `500`,
-    size: `2.0rem`,
+    size: `1.75rem`,
     style: `normal`,
   },
   card_title: {
     family: `Roboto Mono`,
     weight: `400`,
-    size: `1.5rem`,
+    size: `1.4rem`,
     style: `normal`,
   },
   card_section_title: {
     family: `Roboto Mono`,
     weight: `400`,
-    size: `1.4rem`,
+    size: `1.25rem`,
     style: `normal`,
   },
   card_body: {
     family: `Roboto Mono`,
-    weight: `400`,
+    weight: `300`,
     size: `1rem`,
     style: `normal`,
   },
@@ -270,20 +270,20 @@ export const StyleFonts = {
     // That 3 letter label
     family: `Roboto Mono`,
     weight: `400`,
-    size: `15px`,
+    size: `1.1rem`,
     style: `normal`,
   },
   nav_bar_link_title: {
     family: `Roboto Mono`,
     weight: `300`,
-    size: `17px`,
+    size: `1.0rem`,
     style: `normal`,
   },
   nav_bar_content: {},
   status_bar: {
     family: `Roboto Mono`,
     weight: `700`,
-    size: `15px`,
+    size: `1rem`,
     style: `normal`,
   },
   button: {

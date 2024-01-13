@@ -163,4 +163,8 @@ module.exports = class GdlConnection {
       // );
     });
   }
+
+  get status() {
+    return this.connected ? "connected" : "disconnected";
+  }
 };

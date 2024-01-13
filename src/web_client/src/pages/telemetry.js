@@ -3,7 +3,8 @@ import {
   PageContent,
   Card,
   CardMasonryLayout,
-} from '../core/PageParts';
+} from "../core/PageParts";
+import { DataBlock } from "../components/DataBlock";
 
 function TelemetryPage() {
   return (
@@ -11,7 +12,9 @@ function TelemetryPage() {
       <PageTitle>Giraffe Ground Station - Telemetry</PageTitle>
       <PageContent>
         <CardMasonryLayout>
-          <Card title="card1"> </Card>
+          <Card title="Data Link Stats">
+            <DataBlock resource="gdl" category="status" />
+          </Card>
           <Card title="card2"> </Card>
         </CardMasonryLayout>
       </PageContent>
