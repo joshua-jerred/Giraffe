@@ -26,7 +26,6 @@
 namespace mw = data_middleware;
 namespace bs = BoosterSeat;
 namespace bsfs = BoosterSeat::filesystem;
-namespace bst = BoosterSeat::time;
 
 // For Logging
 inline constexpr node::Identification kNodeId =
@@ -39,7 +38,8 @@ inline const std::string kLogDirPath = "./log";
 inline const std::string kLogArchiveDirPath = kLogDirPath + "/archive";
 
 // File Names
-inline constexpr bst::TimeZone kDataTimeZone = bst::TimeZone::UTC;
+inline constexpr BoosterSeat::time::TimeZone kDataTimeZone =
+    BoosterSeat::time::TimeZone::UTC;
 inline const std::string kDataFilePrefix = "data_";
 inline const std::string kLogFilePrefix = "log_";
 inline const std::string kFileExtension = ".json";
@@ -402,7 +402,8 @@ void mw::DataLog::createLogArchiveDir() {
 inline std::string generateFilePath(const std::string path,
                                     const std::string &file_prefix) {
   return path + "/" + file_prefix +
-         bst::dateAndTimeString(kDataTimeZone, '-', '_', ':') + kFileExtension;
+         BoosterSeat::time::dateAndTimeString(kDataTimeZone, '-', '_', ':') +
+         kFileExtension;
 }
 
 void mw::DataLog::createNewDataFile() {

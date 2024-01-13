@@ -25,26 +25,17 @@ namespace giraffe {
 inline constexpr char kDataFilePath[] = "flight_runner_data.json";
 inline constexpr uint32_t kNumStartupsDefault = 0;
 
+NLOHMANN_JSON_SERIALIZE_ENUM(
+    FlightRunnerData::ShutdownReason,
+    {
+        {FlightRunnerData::ShutdownReason::CRASH_OR_UNKNOWN,
+         "crash_or_unknown"},
+        {FlightRunnerData::ShutdownReason::CTRL_C, "ctrl_c"},
+        {FlightRunnerData::ShutdownReason::TELEMETRY_SDN_COMMAND,
+         "telemetry_sdn_command"},
+    })
+
 FlightRunnerData::FlightRunnerData() {
-  loadData();
-}
-
-FlightRunnerData::~FlightRunnerData() {
-  saveData();
-}
-
-void FlightRunnerData::fullReset() {
-  num_startups_ = kNumStartupsDefault;
-
-  saveData();
-}
-
-void FlightRunnerData::incrementNumStartups() {
-  num_startups_++;
-  saveData();
-}
-
-void FlightRunnerData::loadData() {
   std::ifstream data_file;
   Json data_json;
 
@@ -62,16 +53,85 @@ void FlightRunnerData::loadData() {
   // will be used.
   num_startups_ =
       getJsonValue<uint32_t>(data_json, "num_startups", kNumStartupsDefault);
+
+  startup_time_.setToNow(); // Set the startup time.
+
+  // Attempt to load the old startup and shutdown timestamps. If they do not
+  // already exist, set to the current time.
+  std::string startup_time_str = getJsonValue<std::string>(
+      data_json, "startup_time", startup_time_.toString());
+  if (previous_startup_time_.fromString(startup_time_str)) {
+    previous_startup_time_valid_ = true;
+  }
+  std::string shutdown_time_str = getJsonValue<std::string>(
+      data_json, "shutdown_time", previous_shutdown_time_.toString());
+  if (previous_shutdown_time_.fromString(startup_time_str)) {
+    previous_shutdown_time_valid_ = true;
+  }
+
+  // Save the data to the file.
+  saveData();
 }
 
-void FlightRunnerData::saveData() {
+FlightRunnerData::~FlightRunnerData() {
+  saveData(true); // signal that this is a shutdown save. (pass true)
+}
+
+void FlightRunnerData::fullReset() {
+  num_startups_ = kNumStartupsDefault;
+
+  saveData();
+}
+
+void FlightRunnerData::incrementNumStartups() {
+  num_startups_++;
+  saveData();
+}
+
+uint32_t FlightRunnerData::getNumStartups() const {
+  return num_startups_;
+}
+
+void FlightRunnerData::setShutdownReason(ShutdownReason shutdown_reason) {
+  shutdown_reason_ = shutdown_reason;
+  saveData();
+}
+
+bool FlightRunnerData::getSecondsSinceStartup(int64_t &num_seconds) {
+  num_seconds = startup_time_.secondsFromNow();
+  return true;
+}
+
+bool FlightRunnerData::getSecondsSincePreviousStartup(int64_t &num_seconds) {
+  if (!previous_startup_time_valid_) {
+    return false;
+  }
+  num_seconds = previous_startup_time_.secondsFromNow();
+  return true;
+}
+
+bool FlightRunnerData::getSecondsSincePreviousShutdown(int64_t &num_seconds) {
+  if (!previous_shutdown_time_valid_) {
+    return false;
+  }
+  num_seconds = previous_shutdown_time_.secondsFromNow();
+  return true;
+}
+
+void FlightRunnerData::saveData(bool shutdown_save) {
   Json data_json;
+  data_json["startup_time"] = startup_time_.toString();
+  if (shutdown_save) {
+    previous_shutdown_time_.setToNow();
+  }
+  data_json["shutdown_time"] = previous_shutdown_time_.toString();
+  data_json["shutdown_reason"] = Json(shutdown_reason_);
   data_json["num_startups"] = num_startups_;
 
   try {
     std::ofstream data_file;
     data_file.open(kDataFilePath);
-    data_file << data_json.dump();
+    data_file << data_json.dump(1); // indent with 1 space
     data_file.close();
     save_status_ = true;
   } catch (std::exception &e) {

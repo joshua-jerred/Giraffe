@@ -86,7 +86,14 @@ struct Misc {
     return BoosterSeat::time::elapsedAsciiClock(start_time);
   }
 
+  /// @todo remove this
+  /// @warning DEPRECATED
   const BoosterSeat::clck::TimePoint start_time = BoosterSeat::clck::now();
+
+  /**
+   * @brief The time the flight computer started up.
+   */
+  const bst::Time startup_time = bst::Time(true);
 };
 
 struct SharedData {
