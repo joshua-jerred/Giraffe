@@ -143,3 +143,7 @@ bool sock::TcpSocketServer::close() {
     return false;
   }
 }
+
+std::string sock::TcpSocketServer::getClientAddress() const {
+  return inet_ntoa(addr_.sin_addr);
+}

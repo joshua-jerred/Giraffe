@@ -5,7 +5,7 @@ import Tooltip from "./Tooltip";
 
 import {} from "giraffe-protocol";
 
-import { GGS_WS } from "../api_interface/ws_api";
+import { GGS_API } from "../api_interface/ws_api";
 import { GwsGlobal } from "../GlobalContext";
 
 const DataBoxContainer = styled.form`
@@ -79,7 +79,7 @@ function Item({ id, item_data }) {
 
 export function DataBox({ resource, category }) {
   const { ggsAddress } = React.useContext(GwsGlobal);
-  const { ggsConnectionStatus } = React.useContext(GGS_WS);
+  const { ggsConnectionStatus } = React.useContext(GGS_API);
 
   const [items, setItems] = React.useState({});
   const [error, setError] = React.useState(null);

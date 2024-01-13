@@ -122,6 +122,7 @@ struct StreamsStats { // Set by the data module
   StreamStats log = StreamStats();
   StreamStats gps = StreamStats();
   StreamStats imu = StreamStats();
+  StreamStats command = StreamStats();
 
   Json toJson() {
     Json json_data;
@@ -289,6 +290,8 @@ struct LocationData {
    */
   data::GpsFrame last_gps_frame{};
 };
+
+void to_json(json &j, const LocationData &frame);
 
 struct ImuData {
   /**

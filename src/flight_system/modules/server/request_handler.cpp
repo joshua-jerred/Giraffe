@@ -22,7 +22,9 @@
 RequestRouter::RequestRouter(data::SharedData &shared_data,
                              cfg::Configuration &config,
                              data::blocks::ServerModuleStats &stats)
-    : shared_data_(shared_data), config_(config), stats_(stats) {
+    : shared_data_(shared_data), config_(config), stats_(stats),
+      logger_(shared_data_.streams.log, node::Identification::SERVER_MODULE,
+              "RequestRouter") {
 }
 
 void RequestRouter::handleMessage(sock::TcpSocketServer &client,
@@ -33,6 +35,7 @@ void RequestRouter::handleMessage(sock::TcpSocketServer &client,
   // Attempt to parse as a json string
   if (!protocol::parseMessage(request, msg)) {
     sendErrorPacket(client, "malformed json");
+    logger_.debug("malformed json, received: " + request);
     return;
   }
 
@@ -166,6 +169,10 @@ auto RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
     res_body["temperature"] = toJson(shared_data_.frames.env_temp);
     res_body["pressure"] = toJson(shared_data_.frames.env_pres);
     res_body["humidity"] = toJson(shared_data_.frames.env_hum);
+  } else if (requested_data == "location_data") {
+    res_body = nlohmann::json(shared_data_.blocks.location_data.get());
+  } else if (requested_data == "calculated_data") {
+    res_body = shared_data_.blocks.calculated_data.get().toJson();
   } else {
     sendErrorPacket(client, "data section not found");
     return;

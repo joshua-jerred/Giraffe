@@ -21,7 +21,11 @@
 #include <map>
 #include <string>
 
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
+
 #include <BoosterSeat/clock.hpp>
+#include <BoosterSeat/time.hpp>
 
 namespace data {
 
@@ -80,6 +84,8 @@ struct GpsFrame {
   /// @brief The heading of motion accuracy in degrees.
   double heading_accuracy = 0.0;
 };
+
+void to_json(json &j, const data::GpsFrame &frame);
 
 /**
  * @brief A frame of IMU data, straight from an IMU extension.

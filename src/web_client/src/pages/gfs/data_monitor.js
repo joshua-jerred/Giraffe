@@ -10,7 +10,7 @@ import {
 import {
   DataStreamBlock,
   NestedDataStreamBlock,
-} from "../../components/DynamicDataBlock";
+} from "../../components/DataBlock";
 
 function GfsDataMonitorPage() {
   return (
@@ -18,6 +18,9 @@ function GfsDataMonitorPage() {
       <PageTitle>Giraffe Flight System Data Monitor</PageTitle>
       <PageContent>
         <CardMasonryLayout>
+          <Card title="Calculated Data">
+            <DataStreamBlock resource="gfs" category="calculated_data" />
+          </Card>
           <Card title="Module Statuses">
             <DataStreamBlock resource="gfs" category="modules_statuses" />
           </Card>
@@ -33,22 +36,27 @@ function GfsDataMonitorPage() {
           <Card title="Data Stream">
             <DataStreamBlock resource="gfs" category="stream_stats" />
           </Card>
-          <Card title="Position Data">
-            <CardSectionTitle>GPS</CardSectionTitle>
-            {/* <DataStreamBlock
-              resource="gfs"
-              category="position_gps"
-              stream_name="position_gps"
-            /> */}
-            <CardBreak />
-            <CardSectionTitle>IMU</CardSectionTitle>
-            {/* <DataStreamBlock
+          <Card title="Location">
+            <DataStreamBlock resource="gfs" category="location_data" />
+          </Card>
+          <Card title="Stream Stats">
+            <DataStreamBlock resource="gfs" category="stream_stats" />
+          </Card>
+          <Card title="Environmental">
+            <DataStreamBlock resource="gfs" category="environmental" />
+          </Card>
+          <Card title="Extension Module">
+            <DataStreamBlock resource="gfs" category="extension_module_stats" />
+          </Card>
+          {/* <CardBreak /> */}
+          {/* <CardSectionTitle>IMU</CardSectionTitle> */}
+          {/* <DataStreamBlock
               resource="gfs"
               category="position_imu"
               stream_name="position_imu"
             /> */}
-          </Card>
-          <Card title="Telemetry Data"></Card>
+          {/* </Card> */}
+          {/* <Card title="Telemetry Data"></Card>
 
           <Card title="Extensions">
             <DataStreamBlock resource="gfs" category="extension_module_stats" />
@@ -56,7 +64,7 @@ function GfsDataMonitorPage() {
 
           <Card title="Environmental">
             <DataStreamBlock resource="gfs" category="environmental" />
-          </Card>
+          </Card> */}
         </CardMasonryLayout>
       </PageContent>
     </>

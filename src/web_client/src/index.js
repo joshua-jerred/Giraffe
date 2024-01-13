@@ -1,20 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'font-awesome/css/font-awesome.min.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "font-awesome/css/font-awesome.min.css";
 
-import { GwsGlobalContextProvider } from './GlobalContext';
-import { GgsWsContextProvider } from './api_interface/ws_api';
+import { GwsGlobalContextProvider } from "./GlobalContext";
+import { GgsApiContextProvider } from "./api_interface/ws_api";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-  <GwsGlobalContextProvider>
-    <GgsWsContextProvider>
-      <App />
-    </GgsWsContextProvider>
-  </GwsGlobalContextProvider>
+    <GwsGlobalContextProvider>
+      <GgsApiContextProvider>
+        <App />
+      </GgsApiContextProvider>
+    </GwsGlobalContextProvider>
   </React.StrictMode>
 );
 

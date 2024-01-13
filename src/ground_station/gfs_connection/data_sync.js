@@ -72,7 +72,7 @@ module.exports = class GfsDataSync {
   /**
    * @brief Called at a set interval at a higher level. This runs everything.
    */
-  update() {
+  async update() {
     this.#updateClassSettings();
 
     for (let category in this.resources) {
@@ -85,7 +85,14 @@ module.exports = class GfsDataSync {
       this.#updateResource(category);
       this.resources[category].meta.last_request = new Date();
       this.resources[category].meta.requests++;
+
+      // sleep for 50ms to prevent flooding the socket
+      await new Promise((resolve) => setTimeout(resolve, 25));
     }
+  }
+
+  getMsSinceLastUpdate(category) {
+    return Math.floor(new Date() - this.resources[category].meta.timestamp);
   }
 
   /**
@@ -123,6 +130,7 @@ module.exports = class GfsDataSync {
     for (let data_item in data_section) {
       try {
         this.resources[category].data[data_item] = data_section[data_item];
+        this.resources[category].meta.timestamp = new Date();
       } catch (e) {
         console.log(
           "Failed to set local resource for: " +
@@ -142,6 +150,9 @@ module.exports = class GfsDataSync {
     let request = new RequestMessage("ggs", "gfs", "data/" + category);
     let con = new net.Socket();
     let that = this;
+
+    const TIMEOUT = 1000;
+    con.setTimeout(TIMEOUT);
 
     con.connect(this.port, this.address, function () {
       con.write(JSON.stringify(request));
@@ -166,6 +177,10 @@ module.exports = class GfsDataSync {
 
     con.on("error", function (err) {
       that.connected = false;
+      /// @todo Need to figure out why we are getting here so often. Most likely on the C++ side.
+      // console.log(
+      // "Socket Error during the category: " + category + " - " + err
+      // );
     });
   }
 };

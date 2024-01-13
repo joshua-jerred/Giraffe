@@ -18,6 +18,7 @@
 #define REQUEST_HANDLER_HPP_
 
 #include "configuration.hpp"
+#include "logger.hpp"
 #include "protocol.hpp"
 #include "shared_data.hpp"
 #include "socket.hpp"
@@ -136,6 +137,7 @@ private:
   data::SharedData &shared_data_;
   cfg::Configuration &config_;
   data::blocks::ServerModuleStats &stats_;
+  giraffe::Logger logger_;
 
   BoosterSeat::RollingAverage bytes_per_second_down_ = {60};
   BoosterSeat::RollingAverage bytes_per_second_up_ = {60};

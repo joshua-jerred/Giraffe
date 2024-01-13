@@ -41,6 +41,8 @@ export const darkTheme2 = {
   secondary: `#0f8b8d`,
   on_secondary: `#e3e2e6`,
 
+  success: `#00b894`,
+  warning: `#ffeaa7`,
   error: `#f55d3e`,
   error_hover: `#DC5337`,
   on_error: `#e3e2e6`,

@@ -11,13 +11,12 @@ class GlobalState {
 
     this.ggs_status = {
       // disconnected, connected
-      influx_db: "disconnected",
+      influxdb: "disconnected",
       gfs: "disconnected",
+      gdl: "disconnected",
       telemetry: "disconnected",
-      num_ws_clients: 0,
-      current_clients: [],
+      aprsfi: "disconnected",
       total_http_requests: 0,
-      total_ws_messages: 0,
     };
 
     setInterval(this.cycle.bind(this), kGlobalStateUpdateInterval);
@@ -32,19 +31,29 @@ class GlobalState {
   }
 
   getStreamData(stream) {
-    const gfs_data_streams = [
-      "system_info",
-      "data_log_stats",
-      "modules_statuses",
-      "stream_stats",
-      "server_module_stats",
-    ];
+    // const gfs_data_streams = [
+    //   "system_info",
+    //   "data_log_stats",
+    //   "modules_statuses",
+    //   "stream_stats",
+    //   "server_module_stats",
+    //   "extension_module_stats",
+    //   "environmental",
+    //   "location_data",
+    //   "calculated_data",
+    // ];
 
     if (stream === "status") {
       return this.getStatus();
-    } else if (gfs_data_streams.includes(stream)) {
-      return this.gfs_connection.getData(stream);
     }
+    // } else if (gfs_data_streams.includes(stream)) {
+    return this.gfs_connection.getData(stream);
+    // }
+    // return { error: "stream not found" };
+  }
+
+  getSettings(category) {
+    return this.gfs_connection.getSettings(category);
   }
 
   get status() {

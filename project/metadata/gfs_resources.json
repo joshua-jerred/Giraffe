@@ -57,7 +57,7 @@
       "description": ""
     }
   },
-  "data_log_stats":{
+  "data_log_stats": {
     "data_dir": {
       "name": "Data Directory Valid",
       "description": ""
@@ -70,45 +70,45 @@
       "name": "Data File Valid",
       "description": ""
     },
-    "data_file_size":{
+    "data_file_size": {
       "name": "Data File Size (MB)",
       "description": ""
     },
-    "data_dir_size":{
+    "data_dir_size": {
       "name": "Data Directory Size (MB)",
       "description": ""
     },
-    "data_file_path":{
+    "data_file_path": {
       "name": "Data File Path",
       "description": ""
     },
-    "log_dir":{
+    "log_dir": {
       "name": "Log Directory Valid",
       "description": ""
     },
-    "log_archive_dir":{
+    "log_archive_dir": {
       "name": "Log Archive Directory Valid",
       "description": ""
     },
-    "log_archive_dir_size":{
+    "log_archive_dir_size": {
       "name": "Log Archive Directory Size (MB)",
       "description": ""
     },
-    "log_file":{
+    "log_file": {
       "name": "Log File Valid",
       "description": ""
     },
-    "log_file_size":{
+    "log_file_size": {
       "name": "Log File Size (MB)",
       "description": ""
     },
-    "log_file_path":{
+    "log_file_path": {
       "name": "Log File Path",
       "description": ""
     }
   },
-  "modules_statuses":{
-    "data":{
+  "modules_statuses": {
+    "data": {
       "name": "Data Module Status",
       "description": ""
     },
@@ -125,8 +125,8 @@
       "description": ""
     }
   },
-  "stream_stats":{
-    "data_current_packets":{
+  "stream_stats": {
+    "data_current_packets": {
       "name": "",
       "description": ""
     },
@@ -134,11 +134,11 @@
       "name": "",
       "description": ""
     },
-    "data_processing_delay_ms":{
+    "data_processing_delay_ms": {
       "name": "",
       "description": ""
     },
-    "log_current_packets":{
+    "log_current_packets": {
       "name": "",
       "description": ""
     },
@@ -146,17 +146,17 @@
       "name": "",
       "description": ""
     },
-    "log_processing_delay_ms":{
+    "log_processing_delay_ms": {
       "name": "",
       "description": ""
     }
   },
-  "server_module_stats":{
-    "num_messages_received":{
+  "server_module_stats": {
+    "num_messages_received": {
       "name": "Messages Received",
       "description": ""
     },
-    "num_invalid_received":{
+    "num_invalid_received": {
       "name": "Invalid Messages Received",
       "description": ""
     },
@@ -175,8 +175,8 @@
       "false": "Disconnected"
     }
   },
-  "extension_module_stats":{
-
-  },
-  "environmental":{}
+  "extension_module_stats": {},
+  "environmental": {},
+  "location_data": {},
+  "calculated_data": {}
 }

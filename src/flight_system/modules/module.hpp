@@ -158,6 +158,8 @@ protected:
    */
   void info(std::string info = "");
 
+  void debug(std::string info);
+
   /**
    * @brief Used internally in the module. This function adds a data to the
    * data stream.

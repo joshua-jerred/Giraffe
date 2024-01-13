@@ -5,21 +5,22 @@ import Tooltip from "./Tooltip";
 
 import {} from "giraffe-protocol";
 
-import { GGS_WS } from "../api_interface/ws_api";
+import { GGS_API } from "../api_interface/ws_api";
 import { GwsGlobal } from "../GlobalContext";
 
-const DataBoxContainer = styled.form`
-  list-style: none;
-  padding: 3px 3px;
-  margin: 0;
+const DataBoxContainer = styled.div`
+  // list-style: none;
+  // padding: 3px 3px;
+  // margin: 0;
 `;
 
-const ItemStyle = styled.li`
+const ItemStyle = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: ${(props) => props.theme.components.edit_box.margin_botton};
-  height: calc(${(props) => props.theme.components.input.height} * 1.5);
+  margin-bottom: 0px;
+  margin-top: 0px;
+  height: calc(${(props) => props.theme.components.input.height} * 0.85);
 `;
 
 const ItemName = styled.span`
@@ -32,6 +33,9 @@ const ItemName = styled.span`
 const ItemValue = styled.span`
   width: 50%;
   text-align: right;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 const DataTooltip = styled(Tooltip)`
@@ -44,6 +48,26 @@ const DataBoxStatus = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+const TimestampStyle = styled.div`
+  font-size: 0.8em;
+  color: ${(props) => {
+    if (props.time <= props.update_interval) {
+      return props.theme.on_surface;
+    } else if (props.time > props.update_interval * 4) {
+      return props.theme.error;
+    } else {
+      return props.theme.warning;
+    }
+  }};
+`;
+function Timestamp({ time, update_interval }) {
+  return (
+    <TimestampStyle time={time} update_interval={update_interval}>
+      Last updated: {time}ms ago
+    </TimestampStyle>
+  );
+}
 
 function Item({ id, item_data }) {
   if (id === undefined && item_data.name === undefined) {
@@ -79,19 +103,26 @@ function Item({ id, item_data }) {
   );
 }
 
-export function DataStreamBlock({ resource, category }) {
+export function DataStreamBlock({
+  resource,
+  category,
+  update_interval = 3000,
+}) {
   const { ggsAddress } = React.useContext(GwsGlobal);
-  const { ggsConnectionStatus, sendStreamRequest, lastJsonMessage } =
-    React.useContext(GGS_WS);
+  const { ggsConnectionStatus } = React.useContext(GGS_API);
 
   const [items, setItems] = React.useState({});
   const [error, setError] = React.useState(null);
 
+  const [msSinceLastUpdate, setMsSinceLastUpdate] = React.useState(0);
+
   const encoded_category = encodeURIComponent(category);
-  const path = `http://${ggsAddress}/api/${resource}/data?category=${encoded_category}&include=metadata`;
+  const path = `http://${ggsAddress}/api/${resource}/data?category=${encoded_category}`;
+
+  // First load the metadata
   React.useEffect(() => {
     console.log("Loading metadata from: " + path);
-    fetch(path)
+    fetch(path + "&include=metadata")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to load metadata.");
@@ -100,6 +131,8 @@ export function DataStreamBlock({ resource, category }) {
         }
       })
       .then((data) => {
+        delete data.metadata.MS_SINCE_LAST_UPDATE;
+
         let new_items = {};
         for (const [key, meta] of Object.entries(data.metadata)) {
           new_items[key] = meta;
@@ -111,7 +144,7 @@ export function DataStreamBlock({ resource, category }) {
           new_items[key].meta = value;
         }
         setItems(new_items);
-        sendStreamRequest(category);
+        // sendStreamRequest(category);
       })
       .catch((error) => {
         console.error(error);
@@ -119,27 +152,50 @@ export function DataStreamBlock({ resource, category }) {
       });
   }, [path, ggsConnectionStatus]);
 
+  // Then load the actual data
   React.useEffect(() => {
-    const stream = lastJsonMessage;
-    if (stream === undefined || stream === null) {
-      return;
-    } else if (stream.bdy.cde === "ok" && stream.bdy.stream === category) {
-      let new_items = stream.bdy.data;
-      let old_items = items;
-      for (const [key, value] of Object.entries(new_items)) {
-        if (old_items[key] === undefined) {
-          old_items[key] = { value: value };
-        } else {
-          old_items[key].value = value;
-        }
-      }
-      setItems(old_items);
-    }
-  }, [lastJsonMessage, items, category]);
+    const loadData = async () => {
+      fetch(path)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to load data.");
+          } else {
+            return response.json();
+          }
+        })
+        .then((data) => {
+          setMsSinceLastUpdate(data.metadata.MS_SINCE_LAST_UPDATE);
+          console.log("ms: ", msSinceLastUpdate);
+          let new_items = data.values;
+          let old_items = items;
+          for (const [key, value] of Object.entries(new_items)) {
+            if (old_items[key] === undefined) {
+              old_items[key] = { value: value };
+            } else {
+              old_items[key].value = value;
+            }
+          }
+          setItems(old_items);
+          if (error !== null) {
+            setError(null);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          setError("Failed to load actual data. (Check console for details.)");
+        });
+    };
 
-  if (ggsConnectionStatus !== "connected") {
-    return <div>Not connected to GGS.</div>;
-  }
+    loadData(); // run once immediately
+    const interval = setInterval(() => {
+      loadData();
+    }, update_interval);
+    return () => clearInterval(interval);
+  }, [path, ggsConnectionStatus]);
+
+  // if (ggsConnectionStatus !== true) {
+  // return <div>Not connected to GGS.</div>;
+  // }
 
   return (
     <>
@@ -154,6 +210,10 @@ export function DataStreamBlock({ resource, category }) {
               <Item id={key} key={key} item_data={value} />
             ))}
           </DataBoxContainer>
+          <Timestamp
+            time={msSinceLastUpdate}
+            update_interval={update_interval}
+          />
         </>
       )}
     </>

@@ -48,6 +48,10 @@ module.exports = function parseGetQuery(req, res, api, resource, global_state) {
     if (api === "gfs") {
       if (resource === "data") {
         values = global_state.gfs_connection.getData(category);
+        if (include_metadata) {
+          response_body["metadata"]["MS_SINCE_LAST_UPDATE"] =
+            global_state.gfs_connection.getMsSinceLastUpdate(category);
+        }
       } else if (resource === "settings") {
         values = global_state.gfs_connection.getSettings(category);
       }

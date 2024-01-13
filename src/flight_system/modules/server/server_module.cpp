@@ -17,7 +17,7 @@
 #include "server_module.hpp"
 
 static modules::MetaData metadata("server_module",
-                                  node::Identification::SERVER_MODULE, 50);
+                                  node::Identification::SERVER_MODULE, 20);
 
 modules::ServerModule::ServerModule(data::SharedData &shared_data,
                                     cfg::Configuration &config)
