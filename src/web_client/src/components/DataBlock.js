@@ -121,7 +121,7 @@ export function DataStreamBlock({
 
   // First load the metadata
   React.useEffect(() => {
-    console.log("Loading metadata from: " + path);
+    // console.log("Loading metadata from: " + path);
     fetch(path + "&include=metadata")
       .then((response) => {
         if (!response.ok) {
@@ -165,7 +165,7 @@ export function DataStreamBlock({
         })
         .then((data) => {
           setMsSinceLastUpdate(data.metadata.MS_SINCE_LAST_UPDATE);
-          console.log("ms: ", msSinceLastUpdate);
+          // console.log("ms: ", msSinceLastUpdate);
           let new_items = data.values;
           let old_items = items;
           for (const [key, value] of Object.entries(new_items)) {

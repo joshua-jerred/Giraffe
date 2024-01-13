@@ -4,7 +4,8 @@ import {
   Card,
   CardMasonryLayout,
 } from "../core/PageParts";
-import { DataBox } from "../components/StaticDataBlock";
+import { DataStreamBlock } from "../components/DataBlock";
+import { Map } from "../components/map";
 
 function CommandCenterPage() {
   return (
@@ -13,7 +14,10 @@ function CommandCenterPage() {
       <PageContent>
         <CardMasonryLayout>
           <Card title="Ground Station Status">
-          <DataBox resource="ggs" category="status" />
+            <DataStreamBlock resource="ggs" category="status" />
+          </Card>
+          <Card title="Tracking">
+            <Map />
           </Card>
         </CardMasonryLayout>
       </PageContent>

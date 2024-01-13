@@ -1,5 +1,6 @@
 const GgsDataBase = require("./db/ggs_db.js");
 const GfsConnection = require("./gfs_connection/gfs_connection.js");
+const GdlConnection = require("./gdl_connection/gdl_connection.js");
 
 // Update interval for the global state
 const kGlobalStateUpdateInterval = 1000;
@@ -8,6 +9,7 @@ class GlobalState {
   constructor() {
     this.ggs_db = new GgsDataBase();
     this.gfs_connection = new GfsConnection(this);
+    this.gdl_connection = new GdlConnection(this);
 
     this.ggs_status = {
       // disconnected, connected
@@ -31,25 +33,10 @@ class GlobalState {
   }
 
   getStreamData(stream) {
-    // const gfs_data_streams = [
-    //   "system_info",
-    //   "data_log_stats",
-    //   "modules_statuses",
-    //   "stream_stats",
-    //   "server_module_stats",
-    //   "extension_module_stats",
-    //   "environmental",
-    //   "location_data",
-    //   "calculated_data",
-    // ];
-
     if (stream === "status") {
       return this.getStatus();
     }
-    // } else if (gfs_data_streams.includes(stream)) {
     return this.gfs_connection.getData(stream);
-    // }
-    // return { error: "stream not found" };
   }
 
   getSettings(category) {
@@ -63,7 +50,10 @@ class GlobalState {
   // Called every kGlobalStateUpdateInterval milliseconds
   cycle() {
     this.gfs_connection.update();
+    this.gdl_connection.update();
+
     this.ggs_status.gfs = this.gfs_connection.status;
+    this.ggs_status.gdl = this.gdl_connection.status;
   }
 }
 
