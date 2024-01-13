@@ -25,7 +25,7 @@ add_executable(unit_test_gdl ${data_link_test_sources})
 target_link_libraries(
   unit_test_gdl
   # internal
-  giraffe_data_link
+  giraffe_data_link_core
   giraffe_common
   ax25_state_machine
   unit_test

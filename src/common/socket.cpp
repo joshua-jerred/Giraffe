@@ -1,3 +1,19 @@
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   socket.cpp
+ * @brief  Implements the socket class.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2024-01-13
+ * @copyright  2024 (license to be defined)
+ */
+
 #include "socket.hpp"
 
 #include <arpa/inet.h>

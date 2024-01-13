@@ -44,9 +44,9 @@ target_link_libraries(
   ${EXE_NAME}
   # -------- First Party Libraries ---------
   # internal
-  giraffe_data_link
+  giraffe_data_link_core
   giraffe_common
-  # gfs specific
+    # gfs specific
   gfs_interface
   gfs_shared_data
   gfs_configuration
