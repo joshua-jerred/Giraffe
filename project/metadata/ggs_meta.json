@@ -68,6 +68,30 @@
         "default": 1000
       }
     },
+    "gdl":{
+      "data_update_interval": {
+        "type": "int",
+        "name": "GDL Data Update Interval (ms)",
+        "description": "The interval at which the web server will request updates from the Flight Software.",
+        "min": 100,
+        "max": 10000,
+        "default": 1000
+      },
+      "socket_address": {
+        "type": "string",
+        "name": "GDL Socket Address",
+        "description": "The address for the Giraffe Data Logger socket. The web server will use this to communicate while on the ground.",
+        "default": "localhost"
+      },
+      "socket_port": {
+        "type": "int",
+        "name": "GDL Socket Port",
+        "description": "The port for the Giraffe Data Logger socket. The web server will use this to communicate while on the ground.",
+        "min": 0,
+        "max": 65535,
+        "default": 9557
+      }
+    },
     "influx_db": {
       "influx_enabled": {
         "type": "bool",

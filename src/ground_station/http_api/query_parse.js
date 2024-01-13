@@ -36,6 +36,7 @@ module.exports = function parseGetQuery(req, res, api, resource, global_state) {
 
   // Load the metadata
   if (include_metadata) {
+    // console.log(api, resource, category);
     metadata = loadMetaData(api, resource, category);
     if (metadata === null) {
       genericResponse(res, 404, "category metadata not found.");
@@ -61,6 +62,14 @@ module.exports = function parseGetQuery(req, res, api, resource, global_state) {
       } else {
         if (category === "status") {
           values = global_state.status;
+        }
+      }
+    } else if (api === "gdl") {
+      if (resource === "data") {
+        values = global_state.gdl_connection.getData(category);
+        if (include_metadata) {
+          response_body["metadata"]["MS_SINCE_LAST_UPDATE"] =
+            global_state.gdl_connection.getMsSinceLastUpdate(category);
         }
       }
     }

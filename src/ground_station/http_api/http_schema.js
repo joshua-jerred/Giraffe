@@ -1,9 +1,10 @@
 const errorResponse = require("./generic_response");
 
-const valid_resources = ["status", "static", "ggs", "gfs", "debug"];
+const valid_resources = ["status", "static", "ggs", "gfs", "gdl", "debug"];
 
 const valid_ggs_categories = ["settings", "data"];
 const valid_gfs_categories = ["settings", "data"];
+const valid_gdl_categories = ["settings", "data"];
 
 var verifyPathSchema = function (req, res, next) {
   let path_parts = req.path.split("/");
@@ -28,6 +29,8 @@ var verifyPathSchema = function (req, res, next) {
   if (resource == "ggs" && !valid_ggs_categories.includes(category)) {
     errorResponse(res, 404, "Invalid API category.");
   } else if (resource == "gfs" && !valid_gfs_categories.includes(category)) {
+    errorResponse(res, 404, "Invalid API category.");
+  } else if (resource == "gdl" && !valid_gdl_categories.includes(category)) {
     errorResponse(res, 404, "Invalid API category.");
   } else {
     next();

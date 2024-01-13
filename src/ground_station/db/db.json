@@ -23,6 +23,11 @@
       "influx_bucket": "giraffe_ground_station",
       "influx_interval_ms": 1000,
       "influx_retention_duration": "INF"
+    },
+    "gdl": {
+      "data_update_interval": 1000,
+      "socket_address": "localhost",
+      "socket_port": 9557
     }
   },
   "data": {
