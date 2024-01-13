@@ -97,16 +97,12 @@ void modules::TelemetryModule::sendAprsPositionPacket() {
     return;
   }
 
-  std::cout << "Sending APRS position packet" << std::endl;
-
   // Get the current position
   auto position = shared_data_.blocks.location_data.get();
   if (!position.have_gps_source) {
     /// @todo log an error
     return;
   }
-
-  std::cout << "Have GPS source" << std::endl;
 
   /// @todo Maybe use the last valid GPS frame instead, but first there needs to
   /// be a time stamp as to when this one was generated. I have a fear of DST
@@ -117,19 +113,13 @@ void modules::TelemetryModule::sendAprsPositionPacket() {
     return;
   }
 
-  std::cout << "GPS frame is valid" << std::endl;
-
   if (loc.fix == data::GpsFix::NO_FIX || loc.fix == data::GpsFix::ERROR) {
     /// @todo log an error
     return;
   }
 
-  std::cout << "GPS frame has a fix" << std::endl;
-
   if (loc.fix == data::GpsFix::FIX_2D) {
-    /// @todo log a warning
-  } else {
-    std::cout << "GPS frame has a 3D fix" << std::endl;
+    /// @todo log a warning but maybe still send the packet?
   }
 
   // Create the APRS packet
@@ -150,8 +140,6 @@ void modules::TelemetryModule::sendAprsPositionPacket() {
     /// @todo log an error
     return;
   }
-
-  std::cout << "APRS position packet sent" << std::endl;
 
   aprs_position_packet_timer_.reset();
 }

@@ -77,7 +77,7 @@ public:
       modulator_.writeToPulseAudio();
       modulator_.clearBuffer();
     } catch (signal_easel::Exception &e) {
-      std::cout << "ohno1" << std::endl;
+      /// @todo report back up
       return false;
     }
     return true;

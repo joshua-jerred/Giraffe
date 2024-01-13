@@ -80,15 +80,12 @@ void GiraffeDataLink::gdlThread() {
   while (status_ == Status::RUNNING) {
     // BoosterSeat::threadSleep(kSleepIntervalMs);
     if (queues_.exchange.size() > 0 && transport_layer_.isReady()) {
-      std::cout << "woop1" << std::endl;
       Message msg;
       bool res = queues_.exchange.pop(msg);
       if (res) {
         res = transport_layer_.send(msg);
       }
     } else if (queues_.broadcast.size() > 0 && transport_layer_.isReady()) {
-      std::cout << "woop2" << std::endl;
-
       Message msg;
       bool res = queues_.broadcast.pop(msg);
       if (res) {
@@ -96,8 +93,6 @@ void GiraffeDataLink::gdlThread() {
       }
     } else if (queues_.aprs_gps_tx_queue.size() > 0 &&
                transport_layer_.isReady()) {
-      std::cout << "woop3" << std::endl;
-
       signal_easel::aprs::PositionPacket packet =
           queues_.aprs_gps_tx_queue.front();
       queues_.aprs_gps_tx_queue.pop();

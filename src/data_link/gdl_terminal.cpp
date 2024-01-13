@@ -52,6 +52,7 @@ public:
   ~GdlTerminal() = default;
 
   int run() {
+    std::cout << "GDL Terminal" << std::endl;
     std::string received_string;
     protocol::Message received_msg;
 
@@ -87,6 +88,13 @@ public:
           {"exchange_queue_size", stats.exchange_queue_size},
           {"broadcast_queue_size", stats.broadcast_queue_size},
           {"received_queue_size", stats.received_queue_size},
+          {"aprs_tx_queue_size", gdl_.getAprsGpsTxQueueSize()},
+          {"aprs_rx_queue_size", gdl_.getAprsGpsRxQueueSize()},
+          // {"total_packets_received", stats.total_packets_received},
+          // {"total_packets_sent", stats.total_packets_sent},
+          // {"last_received_message", stats.last_received_message},
+          // {"last_sent_message", stats.last_sent_message},
+          // {"rssi", stats.rssi},
           {"volume", stats.volume},
           {"signal_to_noise_ratio", stats.signal_to_noise_ratio},
           {"network_layer_latency_ms", stats.network_layer_latency_ms},

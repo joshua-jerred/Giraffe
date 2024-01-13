@@ -58,14 +58,11 @@ public:
         dynamic_cast<gdl::AprsNetworkLayer *>(&network_layer_);
     if (gdl_aprs_nw_layer == nullptr) {
       /// @todo throw something
-      std::cout << "oop1" << std::endl;
       return false;
     }
     state_ = State::SENDING;
-    std::cout << "oop2" << std::endl;
 
     bool res = gdl_aprs_nw_layer->txAprsPositionPacket(packet);
-    std::cout << "oop3" << res << std::endl;
 
     state_ = State::IDLE;
     return res;
