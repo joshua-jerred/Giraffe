@@ -173,6 +173,8 @@ auto RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
     res_body = nlohmann::json(shared_data_.blocks.location_data.get());
   } else if (requested_data == "calculated_data") {
     res_body = shared_data_.blocks.calculated_data.get().toJson();
+  } else if (requested_data == "telemetry_module_stats") {
+    res_body = shared_data_.blocks.telemetry_module_stats.get().toJson();
   } else {
     sendErrorPacket(client, "data section not found");
     return;

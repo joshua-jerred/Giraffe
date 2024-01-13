@@ -12,6 +12,15 @@
       }
     },
     {
+      "label": "generate source files",
+      "type": "shell",
+      "command": "${workspaceFolder}/project/generate_source_files.sh",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
       "label": "Doxygen",
       "type": "shell",
       "command": "doxygen ${workspaceFolder}/project/doxygen/Doxyfile",

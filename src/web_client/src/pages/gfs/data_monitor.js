@@ -45,6 +45,9 @@ function GfsDataMonitorPage() {
           <Card title="Extension Module">
             <DataBlock resource="gfs" category="extension_module_stats" />
           </Card>
+          <Card title="Telemetry Module">
+            <DataBlock resource="gfs" category="telemetry_module_stats" />
+          </Card>
           {/* <CardBreak /> */}
           {/* <CardSectionTitle>IMU</CardSectionTitle> */}
           {/* <DataStreamBlock

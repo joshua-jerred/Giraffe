@@ -18,6 +18,7 @@
 #define GDL_NETWORK_LAYER_APRS_HPP_
 
 #include <SignalEasel/aprs.hpp>
+#include <SignalEasel/exception.hpp>
 
 #include "gdl_network_layer.hpp"
 
@@ -68,6 +69,18 @@ public:
       return true;
     }
     return false;
+  }
+
+  bool txAprsPositionPacket(signal_easel::aprs::PositionPacket &packet) {
+    try {
+      modulator_.encodePositionPacket(packet);
+      modulator_.writeToPulseAudio();
+      modulator_.clearBuffer();
+    } catch (signal_easel::Exception &e) {
+      std::cout << "ohno1" << std::endl;
+      return false;
+    }
+    return true;
   }
 
   void updateNetworkLayer() override {

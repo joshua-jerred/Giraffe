@@ -34,10 +34,12 @@ struct Message {
     NACK = 0b00001111,
   };
 
+  enum class UpperLayer { UNDEFINED, APRS_MESSAGE, APRS_GPS };
+
   std::string id{}; // string 0-5 characters
   Type type{Type::UNDEFINED};
+  UpperLayer upper_layer{UpperLayer::UNDEFINED};
   std::string data{""};
-
   uint32_t retries = 0;
 
   bool isValid() {

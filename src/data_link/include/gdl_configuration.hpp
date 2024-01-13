@@ -75,6 +75,12 @@ struct GdlConfig {
    * instead of hiding them in the queue.
    */
   bool print_new_messages = false;
+
+  /**
+   * @brief If the connection should be managed proactively. This will result in
+   * the ground station actively trying to contact the remote station.
+   */
+  bool proactive_connection_management = false;
 };
 
 } // namespace gdl

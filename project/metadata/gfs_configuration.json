@@ -433,6 +433,15 @@
             "true": "enabled",
             "false": "disabled"
         },
+        "position_packet_interval": {
+            "type": "int",
+            "name": "Position Packet Interval (s)",
+            "description": "How often position packets will be sent. This is required for APRS tracking.",
+            "default": 600,
+            "max": 3600,
+            "min": 10,
+            "step": 1
+        },
         "frequency": {
             "type": "string",
             "name": "APRS Frequency",

@@ -27,6 +27,8 @@
 #include "gdl_status.hpp"
 #include "gdl_transport_layer.hpp"
 
+#include "SignalEasel/aprs.hpp"
+
 namespace gdl {
 /**
  * @brief The Giraffe Data Link core class/interface - Layer 4 (Application)
@@ -89,6 +91,9 @@ public:
 
   bool broadcastMessage(std::string message);
 
+  bool
+  broadcastAprsLocation(signal_easel::aprs::PositionPacket positional_data);
+
   /**
    * @brief Get a message from the receive queue.
    *
@@ -101,6 +106,8 @@ public:
   int getExchangeQueueSize() const;
   int getBroadcastQueueSize() const;
   int getReceiveQueueSize() const;
+  int getAprsGpsTxQueueSize() const;
+  int getAprsGpsRxQueueSize() const;
 
   GdlStatus getGdlStatus() {
     std::lock_guard<std::mutex> lock(gdl_status_lock_);
@@ -124,6 +131,8 @@ private:
     MessageQueue exchange;
     MessageQueue broadcast;
     MessageQueue received;
+    std::queue<signal_easel::aprs::PositionPacket> aprs_gps_tx_queue{};
+    std::queue<signal_easel::aprs::PositionPacket> aprs_gps_rx_queue{};
   };
 
   /**

@@ -178,5 +178,6 @@
   "extension_module_stats": {},
   "environmental": {},
   "location_data": {},
-  "calculated_data": {}
+  "calculated_data": {},
+  "telemetry_module_stats": {}
 }

@@ -264,6 +264,7 @@ public:
 
   bool getTelemetryPackets() const;
   bool getPositionPackets() const;
+  int getPositionPacketInterval() const;
   std::string getFrequency() const;
   int getSsid() const;
   std::string getDestinationAddress() const;
@@ -274,6 +275,7 @@ public:
 
   void setTelemetryPackets(bool);
   void setPositionPackets(bool);
+  void setPositionPacketInterval(int);
   void setFrequency(std::string);
   void setSsid(int);
   void setDestinationAddress(std::string);
@@ -288,6 +290,7 @@ public:
 private:
   bool telemetry_packets_ = false;
   bool position_packets_ = false;
+  int position_packet_interval_ = 600;
   std::string frequency_ = "144.3900";
   int ssid_ = 0;
   std::string destination_address_ = "APRS";

@@ -23,6 +23,7 @@
 #include "gdl_configuration.hpp"
 #include "gdl_message_queue.hpp"
 #include "gdl_network_layer.hpp"
+#include "gdl_network_layer_aprs.hpp"
 
 namespace gdl {
 class TransportLayer {
@@ -50,6 +51,24 @@ public:
     current_message_ = message;
     state_ = State::SENDING;
     return true;
+  }
+
+  bool send(signal_easel::aprs::PositionPacket &packet) {
+    auto gdl_aprs_nw_layer =
+        dynamic_cast<gdl::AprsNetworkLayer *>(&network_layer_);
+    if (gdl_aprs_nw_layer == nullptr) {
+      /// @todo throw something
+      std::cout << "oop1" << std::endl;
+      return false;
+    }
+    state_ = State::SENDING;
+    std::cout << "oop2" << std::endl;
+
+    bool res = gdl_aprs_nw_layer->txAprsPositionPacket(packet);
+    std::cout << "oop3" << res << std::endl;
+
+    state_ = State::IDLE;
+    return res;
   }
 
   bool receive(Message &message) {

@@ -66,19 +66,43 @@ int GiraffeDataLink::getBroadcastQueueSize() const {
 int GiraffeDataLink::getReceiveQueueSize() const {
   return queues_.received.size();
 }
+int GiraffeDataLink::getAprsGpsTxQueueSize() const {
+  return queues_.aprs_gps_tx_queue.size();
+}
+int GiraffeDataLink::getAprsGpsRxQueueSize() const {
+  return queues_.aprs_gps_rx_queue.size();
+}
 
 void GiraffeDataLink::gdlThread() {
-  constexpr int kSleepIntervalMs = 2;
+  constexpr int kSleepIntervalMs = 5;
 
   status_ = Status::RUNNING;
   while (status_ == Status::RUNNING) {
     // BoosterSeat::threadSleep(kSleepIntervalMs);
     if (queues_.exchange.size() > 0 && transport_layer_.isReady()) {
+      std::cout << "woop1" << std::endl;
       Message msg;
       bool res = queues_.exchange.pop(msg);
       if (res) {
         res = transport_layer_.send(msg);
       }
+    } else if (queues_.broadcast.size() > 0 && transport_layer_.isReady()) {
+      std::cout << "woop2" << std::endl;
+
+      Message msg;
+      bool res = queues_.broadcast.pop(msg);
+      if (res) {
+        res = transport_layer_.send(msg);
+      }
+    } else if (queues_.aprs_gps_tx_queue.size() > 0 &&
+               transport_layer_.isReady()) {
+      std::cout << "woop3" << std::endl;
+
+      signal_easel::aprs::PositionPacket packet =
+          queues_.aprs_gps_tx_queue.front();
+      queues_.aprs_gps_tx_queue.pop();
+
+      transport_layer_.send(packet);
     }
 
     transport_layer_.update(queues_.received);
@@ -114,6 +138,7 @@ bool GiraffeDataLink::exchangeMessage(std::string message) {
 
 bool GiraffeDataLink::broadcastMessage(std::string message) {
   if (status_ != Status::RUNNING) {
+    /// @todo this seems like a bad idea.
     throw GiraffeException(DiagnosticId::GDL_invalidBroadcastCall);
   }
   Message msg;
@@ -121,6 +146,21 @@ bool GiraffeDataLink::broadcastMessage(std::string message) {
   msg.type = Message::Type::BROADCAST;
   msg.id = "";
   return queues_.broadcast.push(msg);
+}
+
+bool GiraffeDataLink::broadcastAprsLocation(
+    signal_easel::aprs::PositionPacket positional_data) {
+  if (status_ != Status::RUNNING) {
+    return false;
+  }
+
+  constexpr unsigned int MAX_APRS_TX_QUEUE_SIZE = 10;
+  if (queues_.broadcast.size() > MAX_APRS_TX_QUEUE_SIZE) {
+    return false;
+  }
+
+  queues_.aprs_gps_tx_queue.push(positional_data);
+  return true;
 }
 
 std::string GiraffeDataLink::getNextMessageId() {

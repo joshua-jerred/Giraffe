@@ -17,6 +17,8 @@
 #ifndef TELEMETRY_MODULE_HPP_
 #define TELEMETRY_MODULE_HPP_
 
+#include <BoosterSeat/timer.hpp>
+
 #include "module.hpp"
 
 #include <gdl_network_layer_aprs.hpp>
@@ -37,6 +39,23 @@ private:
   void startup() override;
   void loop() override;
   void shutdown() override;
+
+  /**
+   * @brief Called if there is a message in the receive queue. Pops one message
+   * and processes it.
+   */
+  void processTelemetryMessageQueue();
+
+  /**
+   * @brief This function will only send a packet if it is time to send one. If
+   * not, it will just return immediately.
+   */
+  void sendAprsPositionPacket();
+
+  /**
+   * @brief Process commands that are received from the flight runner.
+   * @param command - The command to process.
+   */
   void processCommand(const cmd::Command &command);
 
   signal_easel::aprs::Packet base_packet_{
@@ -55,6 +74,8 @@ private:
   int total_packets_sent_ = 0;
   int total_packets_received_ = 0;
   std::string last_received_message_ = "";
+
+  bst::Timer aprs_position_packet_timer_{};
 };
 
 } // namespace modules
