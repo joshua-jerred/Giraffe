@@ -9,6 +9,7 @@ var namespacegiraffe =
       [ "DESCENT", "namespacegiraffe.html#a464112de04b36af2ff144b7013236affa038e3d035cd91784babc5492310b8e96", null ],
       [ "RECOVERY", "namespacegiraffe.html#a464112de04b36af2ff144b7013236affa9c90eb3f9201a7df861d94e494aa9b0b", null ]
     ] ],
+    [ "NLOHMANN_JSON_SERIALIZE_ENUM", "namespacegiraffe.html#a69542761e752ab53aa53576e85b843d9", null ],
     [ "kDataFilePath", "namespacegiraffe.html#a6b32139309d34ad3fdd8ad069c141473", null ],
     [ "kNumStartupsDefault", "namespacegiraffe.html#accb157d3d9971f0f4f97a434a9aa21e8", null ]
 ];

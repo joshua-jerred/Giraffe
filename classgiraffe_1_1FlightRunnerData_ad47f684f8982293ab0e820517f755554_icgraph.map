@@ -1,6 +1,7 @@
 <map id="giraffe::FlightRunnerData::saveData" name="giraffe::FlightRunnerData::saveData">
-<area shape="rect" id="node1" title="Attempts to save the data to a file." alt="" coords="240,71,427,112"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1FlightRunnerData.html#a9923f63c5e3d466c8350967ab5383fa5" title=" " alt="" coords="5,5,192,47"/>
+<area shape="rect" id="node1" title="Attempts to save the data to a file." alt="" coords="240,104,427,145"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1FlightRunnerData.html#a9923f63c5e3d466c8350967ab5383fa5" title="Destructor will attempt to save to the data file." alt="" coords="5,5,192,47"/>
 <area shape="rect" id="node3" href="$classgiraffe_1_1FlightRunnerData.html#a26182ede59862d59daf4c21c7d031fd7" title="Fully resets the flight runner data as if the system has never started before." alt="" coords="5,71,192,112"/>
 <area shape="rect" id="node4" href="$classgiraffe_1_1FlightRunnerData.html#ab726cb134b7bfbd852fc531c4223be19" title=" " alt="" coords="5,136,192,177"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1FlightRunnerData.html#a33543117765bd095eaf77bf8f94e5b37" title=" " alt="" coords="5,201,192,243"/>
 </map>

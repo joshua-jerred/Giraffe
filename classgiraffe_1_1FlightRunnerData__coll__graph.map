@@ -1,5 +1,7 @@
 <map id="giraffe::FlightRunnerData" name="giraffe::FlightRunnerData">
-<area shape="rect" id="node1" title=" " alt="" coords="11,160,210,325"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,80,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="153,5,204,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="129,219,406,428"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,60,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="162,5,237,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="310,5,361,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="431,5,565,83"/>
 </map>

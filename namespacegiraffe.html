@@ -103,6 +103,7 @@ $(document).ready(function(){initNavTree('namespacegiraffe.html',''); initResiza
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">giraffe Namespace Reference</div>  </div>
@@ -128,6 +129,11 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a464112de04b36af2ff144b7013236aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enumeration of flight modes. Used by the flight runner to determine what to do.  <a href="namespacegiraffe.html#a464112de04b36af2ff144b7013236aff">More...</a><br /></td></tr>
 <tr class="separator:a464112de04b36af2ff144b7013236aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a69542761e752ab53aa53576e85b843d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegiraffe.html#a69542761e752ab53aa53576e85b843d9">NLOHMANN_JSON_SERIALIZE_ENUM</a> (<a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3">FlightRunnerData::ShutdownReason</a>, { {<a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3acba7405a45d9e82e6fa097cd6c0c1437">FlightRunnerData::ShutdownReason::CRASH_OR_UNKNOWN</a>, &quot;crash_or_unknown&quot;}, {FlightRunnerData::ShutdownReason::CTRL_C, &quot;ctrl_c&quot;}, {FlightRunnerData::ShutdownReason::TELEMETRY_SDN_COMMAND, &quot;telemetry_sdn_command&quot;}, }) FlightRunnerData</td></tr>
+<tr class="separator:a69542761e752ab53aa53576e85b843d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -175,6 +181,37 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a69542761e752ab53aa53576e85b843d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69542761e752ab53aa53576e85b843d9">&#9670;&nbsp;</a></span>NLOHMANN_JSON_SERIALIZE_ENUM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">giraffe::NLOHMANN_JSON_SERIALIZE_ENUM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3">FlightRunnerData::ShutdownReason</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{ {<a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3acba7405a45d9e82e6fa097cd6c0c1437">FlightRunnerData::ShutdownReason::CRASH_OR_UNKNOWN</a>, &quot;crash_or_unknown&quot;}, {FlightRunnerData::ShutdownReason::CTRL_C, &quot;ctrl_c&quot;}, {FlightRunnerData::ShutdownReason::TELEMETRY_SDN_COMMAND, &quot;telemetry_sdn_command&quot;}, }&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3acba7405a45d9e82e6fa097cd6c0c1437">giraffe::FlightRunnerData::CRASH_OR_UNKNOWN</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3abefbf80655ffb76c09fd319f8ce25900">giraffe::FlightRunnerData::CTRL_C</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3a030a8d151c3fc1f3f15e2653e13b5ac4">giraffe::FlightRunnerData::TELEMETRY_SDN_COMMAND</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a6b32139309d34ad3fdd8ad069c141473"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b32139309d34ad3fdd8ad069c141473">&#9670;&nbsp;</a></span>kDataFilePath</h2>
@@ -196,7 +233,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ae6c00590f9613a24c568c8288835593a">giraffe::FlightRunnerData::loadData()</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a7a570e6547c880a3a36230cb01d35acb">giraffe::FlightRunnerData::saveData()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">giraffe::FlightRunnerData::saveData()</a>.</p>
 
 </div>
 </div>
@@ -220,7 +257,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a26182ede59862d59daf4c21c7d031fd7">giraffe::FlightRunnerData::fullReset()</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ae6c00590f9613a24c568c8288835593a">giraffe::FlightRunnerData::loadData()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a26182ede59862d59daf4c21c7d031fd7">giraffe::FlightRunnerData::fullReset()</a>.</p>
 
 </div>
 </div>

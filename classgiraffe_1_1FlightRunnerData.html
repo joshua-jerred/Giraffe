@@ -101,6 +101,7 @@ $(document).ready(function(){initNavTree('classgiraffe_1_1FlightRunnerData.html'
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
@@ -114,33 +115,48 @@ $(document).ready(function(){initNavTree('classgiraffe_1_1FlightRunnerData.html'
 <div class="dynheader">
 Collaboration diagram for giraffe::FlightRunnerData:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1FlightRunnerData__coll__graph.svg" width="255" height="331"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1FlightRunnerData__coll__graph.svg" width="628" height="434"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:afd58bbf952b965cbacc36aed52a4f7f3"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3">ShutdownReason</a> { <a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3acba7405a45d9e82e6fa097cd6c0c1437">CRASH_OR_UNKNOWN</a>
+, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3abefbf80655ffb76c09fd319f8ce25900">CTRL_C</a>
+, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3a030a8d151c3fc1f3f15e2653e13b5ac4">TELEMETRY_SDN_COMMAND</a>
+ }</td></tr>
+<tr class="memdesc:afd58bbf952b965cbacc36aed52a4f7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reason the system was shutdown. Stored in the data file.  <a href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3">More...</a><br /></td></tr>
+<tr class="separator:afd58bbf952b965cbacc36aed52a4f7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad464ef25847474b3f6ab756d46e8b433"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad464ef25847474b3f6ab756d46e8b433">FlightRunnerData</a> ()</td></tr>
-<tr class="memdesc:ad464ef25847474b3f6ab756d46e8b433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to load the data from a file.  <a href="classgiraffe_1_1FlightRunnerData.html#ad464ef25847474b3f6ab756d46e8b433">More...</a><br /></td></tr>
+<tr class="memdesc:ad464ef25847474b3f6ab756d46e8b433"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default constructor will attempt to load the data from the saved file.  <a href="classgiraffe_1_1FlightRunnerData.html#ad464ef25847474b3f6ab756d46e8b433">More...</a><br /></td></tr>
 <tr class="separator:ad464ef25847474b3f6ab756d46e8b433"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9923f63c5e3d466c8350967ab5383fa5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a9923f63c5e3d466c8350967ab5383fa5">~FlightRunnerData</a> ()</td></tr>
+<tr class="memdesc:a9923f63c5e3d466c8350967ab5383fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor will attempt to save to the data file.  <a href="classgiraffe_1_1FlightRunnerData.html#a9923f63c5e3d466c8350967ab5383fa5">More...</a><br /></td></tr>
 <tr class="separator:a9923f63c5e3d466c8350967ab5383fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26182ede59862d59daf4c21c7d031fd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a26182ede59862d59daf4c21c7d031fd7">fullReset</a> ()</td></tr>
 <tr class="memdesc:a26182ede59862d59daf4c21c7d031fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fully resets the flight runner data as if the system has never started before.  <a href="classgiraffe_1_1FlightRunnerData.html#a26182ede59862d59daf4c21c7d031fd7">More...</a><br /></td></tr>
 <tr class="separator:a26182ede59862d59daf4c21c7d031fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cfd3dbcbbab29c68b4830018a222960"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a3cfd3dbcbbab29c68b4830018a222960">getNumStartups</a> () const</td></tr>
 <tr class="separator:a3cfd3dbcbbab29c68b4830018a222960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeceec22f8ab14e5b80eede638b85afbd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#aeceec22f8ab14e5b80eede638b85afbd">getSecondsSincePreviousShutdown</a> (int64_t &amp;num_seconds)</td></tr>
+<tr class="separator:aeceec22f8ab14e5b80eede638b85afbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62f5c9ba2cdca85f64ccdf484d0c909b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a62f5c9ba2cdca85f64ccdf484d0c909b">getSecondsSincePreviousStartup</a> (int64_t &amp;num_seconds)</td></tr>
+<tr class="separator:a62f5c9ba2cdca85f64ccdf484d0c909b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab96e60401cd873cd64c73bad36d860f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#aab96e60401cd873cd64c73bad36d860f">getSecondsSinceStartup</a> (int64_t &amp;num_seconds)</td></tr>
+<tr class="separator:aab96e60401cd873cd64c73bad36d860f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab726cb134b7bfbd852fc531c4223be19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#ab726cb134b7bfbd852fc531c4223be19">incrementNumStartups</a> ()</td></tr>
 <tr class="separator:ab726cb134b7bfbd852fc531c4223be19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33543117765bd095eaf77bf8f94e5b37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a33543117765bd095eaf77bf8f94e5b37">setShutdownReason</a> (<a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3">ShutdownReason</a> shutdown_reason)</td></tr>
+<tr class="separator:a33543117765bd095eaf77bf8f94e5b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ae6c00590f9613a24c568c8288835593a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#ae6c00590f9613a24c568c8288835593a">loadData</a> ()</td></tr>
-<tr class="memdesc:ae6c00590f9613a24c568c8288835593a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to load the data from a file.  <a href="classgiraffe_1_1FlightRunnerData.html#ae6c00590f9613a24c568c8288835593a">More...</a><br /></td></tr>
-<tr class="separator:ae6c00590f9613a24c568c8288835593a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a570e6547c880a3a36230cb01d35acb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a7a570e6547c880a3a36230cb01d35acb">saveData</a> ()</td></tr>
-<tr class="memdesc:a7a570e6547c880a3a36230cb01d35acb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to save the data to a file.  <a href="classgiraffe_1_1FlightRunnerData.html#a7a570e6547c880a3a36230cb01d35acb">More...</a><br /></td></tr>
-<tr class="separator:a7a570e6547c880a3a36230cb01d35acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad47f684f8982293ab0e820517f755554"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">saveData</a> (bool shutdown_save=false)</td></tr>
+<tr class="memdesc:ad47f684f8982293ab0e820517f755554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to save the data to a file.  <a href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">More...</a><br /></td></tr>
+<tr class="separator:ad47f684f8982293ab0e820517f755554"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -150,10 +166,58 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a678057f7b12d383a0174c3ccc78c7e4c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a678057f7b12d383a0174c3ccc78c7e4c">num_startups_</a> = 0</td></tr>
 <tr class="memdesc:a678057f7b12d383a0174c3ccc78c7e4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of times the system has been started.  <a href="classgiraffe_1_1FlightRunnerData.html#a678057f7b12d383a0174c3ccc78c7e4c">More...</a><br /></td></tr>
 <tr class="separator:a678057f7b12d383a0174c3ccc78c7e4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cdb4fd66a441b901f5e928a3d19d0a5"><td class="memItemLeft" align="right" valign="top">bst::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a2cdb4fd66a441b901f5e928a3d19d0a5">previous_shutdown_time_</a> = {}</td></tr>
+<tr class="memdesc:a2cdb4fd66a441b901f5e928a3d19d0a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to store the time the system was previously shut down. Updated at shutdown.  <a href="classgiraffe_1_1FlightRunnerData.html#a2cdb4fd66a441b901f5e928a3d19d0a5">More...</a><br /></td></tr>
+<tr class="separator:a2cdb4fd66a441b901f5e928a3d19d0a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49aa84d0ff7b48f68921b955adf4a5fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a49aa84d0ff7b48f68921b955adf4a5fa">previous_shutdown_time_valid_</a> = false</td></tr>
+<tr class="separator:a49aa84d0ff7b48f68921b955adf4a5fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc0f5f47e80044422c24a879629f786d"><td class="memItemLeft" align="right" valign="top">bst::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#acc0f5f47e80044422c24a879629f786d">previous_startup_time_</a> = {}</td></tr>
+<tr class="memdesc:acc0f5f47e80044422c24a879629f786d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The previous time the system was started. Updated at startup.  <a href="classgiraffe_1_1FlightRunnerData.html#acc0f5f47e80044422c24a879629f786d">More...</a><br /></td></tr>
+<tr class="separator:acc0f5f47e80044422c24a879629f786d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a082f971c6ce939a473aab1fdbfb57600"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a082f971c6ce939a473aab1fdbfb57600">previous_startup_time_valid_</a> = false</td></tr>
+<tr class="separator:a082f971c6ce939a473aab1fdbfb57600"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3638024701de9c5502080e7c4549a88e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a3638024701de9c5502080e7c4549a88e">save_status_</a> = false</td></tr>
 <tr class="memdesc:a3638024701de9c5502080e7c4549a88e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set to true when the data has been saved to a file.  <a href="classgiraffe_1_1FlightRunnerData.html#a3638024701de9c5502080e7c4549a88e">More...</a><br /></td></tr>
 <tr class="separator:a3638024701de9c5502080e7c4549a88e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81050b099f5b0e0ba4403b25d120bb0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3">ShutdownReason</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a81050b099f5b0e0ba4403b25d120bb0c">shutdown_reason_</a> = <a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3acba7405a45d9e82e6fa097cd6c0c1437">ShutdownReason::CRASH_OR_UNKNOWN</a></td></tr>
+<tr class="separator:a81050b099f5b0e0ba4403b25d120bb0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a388e58d80afe6e64f00ca2dcc8070781"><td class="memItemLeft" align="right" valign="top">bst::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a388e58d80afe6e64f00ca2dcc8070781">startup_time_</a> = {}</td></tr>
+<tr class="memdesc:a388e58d80afe6e64f00ca2dcc8070781"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time the system was started. Immediately set once after startup. Not updated after a full reset.  <a href="classgiraffe_1_1FlightRunnerData.html#a388e58d80afe6e64f00ca2dcc8070781">More...</a><br /></td></tr>
+<tr class="separator:a388e58d80afe6e64f00ca2dcc8070781"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="afd58bbf952b965cbacc36aed52a4f7f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd58bbf952b965cbacc36aed52a4f7f3">&#9670;&nbsp;</a></span>ShutdownReason</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3">giraffe::FlightRunnerData::ShutdownReason</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The reason the system was shutdown. Stored in the data file. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afd58bbf952b965cbacc36aed52a4f7f3acba7405a45d9e82e6fa097cd6c0c1437"></a>CRASH_OR_UNKNOWN&#160;</td><td class="fielddoc"><p>The system stopped accidentally, not on purpose. Most likely a software crash. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd58bbf952b965cbacc36aed52a4f7f3abefbf80655ffb76c09fd319f8ce25900"></a>CTRL_C&#160;</td><td class="fielddoc"><p>User requested a shutdown by pressing CTRL+C. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd58bbf952b965cbacc36aed52a4f7f3a030a8d151c3fc1f3f15e2653e13b5ac4"></a>TELEMETRY_SDN_COMMAND&#160;</td><td class="fielddoc"><p>User requested a shutdown via the telemetry sdn command. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad464ef25847474b3f6ab756d46e8b433"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad464ef25847474b3f6ab756d46e8b433">&#9670;&nbsp;</a></span>FlightRunnerData()</h2>
@@ -170,15 +234,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Attempts to load the data from a file. </p>
-
-<p class="reference">References <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ae6c00590f9613a24c568c8288835593a">loadData()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1FlightRunnerData_ad464ef25847474b3f6ab756d46e8b433_cgraph.svg" width="432" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
+<p>The default constructor will attempt to load the data from the saved file. </p>
 
 </div>
 </div>
@@ -197,7 +253,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a7a570e6547c880a3a36230cb01d35acb">saveData()</a>.</p>
+<p>Destructor will attempt to save to the data file. </p>
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">saveData()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -225,7 +283,7 @@ Here is the call graph for this function:</div>
 
 <p>Fully resets the flight runner data as if the system has never started before. </p>
 
-<p class="reference">References <a class="el" href="namespacegiraffe.html#accb157d3d9971f0f4f97a434a9aa21e8">giraffe::kNumStartupsDefault</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a678057f7b12d383a0174c3ccc78c7e4c">num_startups_</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a7a570e6547c880a3a36230cb01d35acb">saveData()</a>.</p>
+<p class="reference">References <a class="el" href="namespacegiraffe.html#accb157d3d9971f0f4f97a434a9aa21e8">giraffe::kNumStartupsDefault</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a678057f7b12d383a0174c3ccc78c7e4c">num_startups_</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">saveData()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -250,7 +308,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a678057f7b12d383a0174c3ccc78c7e4c">num_startups_</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a7a570e6547c880a3a36230cb01d35acb">saveData()</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a678057f7b12d383a0174c3ccc78c7e4c">num_startups_</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">saveData()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -275,47 +333,98 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p class="reference">References <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a678057f7b12d383a0174c3ccc78c7e4c">num_startups_</a>.</p>
+
 </div>
 </div>
-<a id="ae6c00590f9613a24c568c8288835593a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6c00590f9613a24c568c8288835593a">&#9670;&nbsp;</a></span>loadData()</h2>
+<a id="a33543117765bd095eaf77bf8f94e5b37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33543117765bd095eaf77bf8f94e5b37">&#9670;&nbsp;</a></span>setShutdownReason()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void giraffe::FlightRunnerData::loadData </td>
+          <td class="memname">void giraffe::FlightRunnerData::setShutdownReason </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3">ShutdownReason</a>&#160;</td>
+          <td class="paramname"><em>shutdown_reason</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Attempts to load the data from a file. </p>
-
-<p class="reference">References <a class="el" href="namespacegiraffe.html#a6b32139309d34ad3fdd8ad069c141473">giraffe::kDataFilePath</a>, <a class="el" href="namespacegiraffe.html#accb157d3d9971f0f4f97a434a9aa21e8">giraffe::kNumStartupsDefault</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a9050e20b99f2a0b3764db247c8c3fd16">load_status_</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a678057f7b12d383a0174c3ccc78c7e4c">num_startups_</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad464ef25847474b3f6ab756d46e8b433">FlightRunnerData()</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">saveData()</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a81050b099f5b0e0ba4403b25d120bb0c">shutdown_reason_</a>.</p>
 <div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1FlightRunnerData_ae6c00590f9613a24c568c8288835593a_icgraph.svg" width="432" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1FlightRunnerData_a33543117765bd095eaf77bf8f94e5b37_cgraph.svg" width="432" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a7a570e6547c880a3a36230cb01d35acb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a570e6547c880a3a36230cb01d35acb">&#9670;&nbsp;</a></span>saveData()</h2>
+<a id="aab96e60401cd873cd64c73bad36d860f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab96e60401cd873cd64c73bad36d860f">&#9670;&nbsp;</a></span>getSecondsSinceStartup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool giraffe::FlightRunnerData::getSecondsSinceStartup </td>
+          <td>(</td>
+          <td class="paramtype">int64_t &amp;&#160;</td>
+          <td class="paramname"><em>num_seconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a388e58d80afe6e64f00ca2dcc8070781">startup_time_</a>.</p>
+
+</div>
+</div>
+<a id="a62f5c9ba2cdca85f64ccdf484d0c909b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62f5c9ba2cdca85f64ccdf484d0c909b">&#9670;&nbsp;</a></span>getSecondsSincePreviousStartup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool giraffe::FlightRunnerData::getSecondsSincePreviousStartup </td>
+          <td>(</td>
+          <td class="paramtype">int64_t &amp;&#160;</td>
+          <td class="paramname"><em>num_seconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1FlightRunnerData.html#acc0f5f47e80044422c24a879629f786d">previous_startup_time_</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a082f971c6ce939a473aab1fdbfb57600">previous_startup_time_valid_</a>.</p>
+
+</div>
+</div>
+<a id="aeceec22f8ab14e5b80eede638b85afbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeceec22f8ab14e5b80eede638b85afbd">&#9670;&nbsp;</a></span>getSecondsSincePreviousShutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool giraffe::FlightRunnerData::getSecondsSincePreviousShutdown </td>
+          <td>(</td>
+          <td class="paramtype">int64_t &amp;&#160;</td>
+          <td class="paramname"><em>num_seconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a2cdb4fd66a441b901f5e928a3d19d0a5">previous_shutdown_time_</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a49aa84d0ff7b48f68921b955adf4a5fa">previous_shutdown_time_valid_</a>.</p>
+
+</div>
+</div>
+<a id="ad47f684f8982293ab0e820517f755554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad47f684f8982293ab0e820517f755554">&#9670;&nbsp;</a></span>saveData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -326,7 +435,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void giraffe::FlightRunnerData::saveData </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>shutdown_save</em> = <code>false</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -339,13 +449,13 @@ Here is the caller graph for this function:</div>
 
 <p>Attempts to save the data to a file. </p>
 
-<p class="reference">References <a class="el" href="namespacegiraffe.html#a6b32139309d34ad3fdd8ad069c141473">giraffe::kDataFilePath</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a678057f7b12d383a0174c3ccc78c7e4c">num_startups_</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a3638024701de9c5502080e7c4549a88e">save_status_</a>.</p>
+<p class="reference">References <a class="el" href="namespacegiraffe.html#a6b32139309d34ad3fdd8ad069c141473">giraffe::kDataFilePath</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a678057f7b12d383a0174c3ccc78c7e4c">num_startups_</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a2cdb4fd66a441b901f5e928a3d19d0a5">previous_shutdown_time_</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a3638024701de9c5502080e7c4549a88e">save_status_</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a81050b099f5b0e0ba4403b25d120bb0c">shutdown_reason_</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a388e58d80afe6e64f00ca2dcc8070781">startup_time_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a9923f63c5e3d466c8350967ab5383fa5">~FlightRunnerData()</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a26182ede59862d59daf4c21c7d031fd7">fullReset()</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ab726cb134b7bfbd852fc531c4223be19">incrementNumStartups()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a9923f63c5e3d466c8350967ab5383fa5">~FlightRunnerData()</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a26182ede59862d59daf4c21c7d031fd7">fullReset()</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ab726cb134b7bfbd852fc531c4223be19">incrementNumStartups()</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a33543117765bd095eaf77bf8f94e5b37">setShutdownReason()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1FlightRunnerData_a7a570e6547c880a3a36230cb01d35acb_icgraph.svg" width="432" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1FlightRunnerData_ad47f684f8982293ab0e820517f755554_icgraph.svg" width="432" height="248"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -374,8 +484,6 @@ Here is the caller graph for this function:</div>
 
 <p>Set to true when the data has been loaded from a file. </p>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ae6c00590f9613a24c568c8288835593a">loadData()</a>.</p>
-
 </div>
 </div>
 <a id="a3638024701de9c5502080e7c4549a88e"></a>
@@ -400,7 +508,157 @@ Here is the caller graph for this function:</div>
 
 <p>Set to true when the data has been saved to a file. </p>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a7a570e6547c880a3a36230cb01d35acb">saveData()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">saveData()</a>.</p>
+
+</div>
+</div>
+<a id="a388e58d80afe6e64f00ca2dcc8070781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a388e58d80afe6e64f00ca2dcc8070781">&#9670;&nbsp;</a></span>startup_time_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bst::Time giraffe::FlightRunnerData::startup_time_ = {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The time the system was started. Immediately set once after startup. Not updated after a full reset. </p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#aab96e60401cd873cd64c73bad36d860f">getSecondsSinceStartup()</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">saveData()</a>.</p>
+
+</div>
+</div>
+<a id="acc0f5f47e80044422c24a879629f786d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc0f5f47e80044422c24a879629f786d">&#9670;&nbsp;</a></span>previous_startup_time_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bst::Time giraffe::FlightRunnerData::previous_startup_time_ = {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The previous time the system was started. Updated at startup. </p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a62f5c9ba2cdca85f64ccdf484d0c909b">getSecondsSincePreviousStartup()</a>.</p>
+
+</div>
+</div>
+<a id="a082f971c6ce939a473aab1fdbfb57600"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a082f971c6ce939a473aab1fdbfb57600">&#9670;&nbsp;</a></span>previous_startup_time_valid_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool giraffe::FlightRunnerData::previous_startup_time_valid_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a62f5c9ba2cdca85f64ccdf484d0c909b">getSecondsSincePreviousStartup()</a>.</p>
+
+</div>
+</div>
+<a id="a2cdb4fd66a441b901f5e928a3d19d0a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cdb4fd66a441b901f5e928a3d19d0a5">&#9670;&nbsp;</a></span>previous_shutdown_time_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bst::Time giraffe::FlightRunnerData::previous_shutdown_time_ = {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to store the time the system was previously shut down. Updated at shutdown. </p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#aeceec22f8ab14e5b80eede638b85afbd">getSecondsSincePreviousShutdown()</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">saveData()</a>.</p>
+
+</div>
+</div>
+<a id="a49aa84d0ff7b48f68921b955adf4a5fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49aa84d0ff7b48f68921b955adf4a5fa">&#9670;&nbsp;</a></span>previous_shutdown_time_valid_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool giraffe::FlightRunnerData::previous_shutdown_time_valid_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#aeceec22f8ab14e5b80eede638b85afbd">getSecondsSincePreviousShutdown()</a>.</p>
+
+</div>
+</div>
+<a id="a81050b099f5b0e0ba4403b25d120bb0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81050b099f5b0e0ba4403b25d120bb0c">&#9670;&nbsp;</a></span>shutdown_reason_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3">ShutdownReason</a> giraffe::FlightRunnerData::shutdown_reason_ = <a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3acba7405a45d9e82e6fa097cd6c0c1437">ShutdownReason::CRASH_OR_UNKNOWN</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">saveData()</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a33543117765bd095eaf77bf8f94e5b37">setShutdownReason()</a>.</p>
 
 </div>
 </div>
@@ -426,7 +684,7 @@ Here is the caller graph for this function:</div>
 
 <p>The number of times the system has been started. </p>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a26182ede59862d59daf4c21c7d031fd7">fullReset()</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ab726cb134b7bfbd852fc531c4223be19">incrementNumStartups()</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ae6c00590f9613a24c568c8288835593a">loadData()</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a7a570e6547c880a3a36230cb01d35acb">saveData()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a26182ede59862d59daf4c21c7d031fd7">fullReset()</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a3cfd3dbcbbab29c68b4830018a222960">getNumStartups()</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ab726cb134b7bfbd852fc531c4223be19">incrementNumStartups()</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">saveData()</a>.</p>
 
 </div>
 </div>

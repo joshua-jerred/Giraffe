@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classgiraffe_1_1FlightRunnerData.html#a7a570e6547c880a3a36230cb01d35acb" target="_top" xlink:title="Attempts to save the data to a file.">
+<g id="a_node2"><a xlink:href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554" target="_top" xlink:title="Attempts to save the data to a file.">
 <polygon fill="none" stroke="black" points="176,-0.5 176,-30.5 316,-30.5 316,-0.5 176,-0.5"/>
 <text text-anchor="start" x="184" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::FlightRunnerData</text>
 <text text-anchor="middle" x="246" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::saveData</text>
