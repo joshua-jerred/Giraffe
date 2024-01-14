@@ -116,7 +116,7 @@ module.exports = class FlightDataHandler {
       this.location_data.values.heading = this.last_gfs_gps_data.heading;
       this.location_data.values.speed = this.last_gfs_gps_data.speed;
       this.location_data.values.last_update = this.last_gfs_gps_data.timestamp;
-    } else if (this.last_gfs_gps_data === null) {
+    } else {
       this.location_data.values.source = "APRS";
       this.location_data.values.valid = true;
       this.location_data.values.latitude = this.last_aprs_contact.latitude;
