@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { GGS_API } from "../api_interface/ws_api";
+import { GGS_API } from "../api_interface/ggs_api.js";
 import Tooltip from "../components/Tooltip.js";
 
 const StatusCard = styled.div`

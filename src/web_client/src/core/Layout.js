@@ -8,7 +8,7 @@ import StatusBar from "./StatusBar";
 
 import { useLocation } from "react-router-dom";
 
-import { GGS_API } from "../api_interface/ws_api";
+import { GGS_API } from "../api_interface/ggs_api";
 
 const Content = styled.div`
   margin-left: ${(props) =>

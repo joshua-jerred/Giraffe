@@ -5,7 +5,7 @@ import Tooltip from "./Tooltip";
 
 import {} from "giraffe-protocol";
 
-import { GGS_API } from "../api_interface/ws_api";
+import { GGS_API } from "../api_interface/ggs_api";
 import { GwsGlobal } from "../GlobalContext";
 
 const DataBoxContainer = styled.div`

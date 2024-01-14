@@ -1,6 +1,14 @@
 const errorResponse = require("./generic_response");
 
-const valid_resources = ["status", "static", "ggs", "gfs", "gdl", "debug"];
+const valid_resources = [
+  "status",
+  "static",
+  "ggs",
+  "gfs",
+  "gdl",
+  "debug",
+  "flight_data",
+];
 
 const valid_ggs_categories = ["settings", "data"];
 const valid_gfs_categories = ["settings", "data"];

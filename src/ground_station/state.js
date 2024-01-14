@@ -2,6 +2,7 @@ const GgsDataBase = require("./db/ggs_db.js");
 const GfsConnection = require("./gfs_connection/gfs_connection.js");
 const GdlConnection = require("./gdl_connection/gdl_connection.js");
 const GdlTelemetry = require("./gdl_connection/gdl_telemetry.js");
+const FlightDataHandler = require("./http_api/flight_data_handler.js");
 
 // Update interval for the global state
 const kGlobalStateUpdateInterval = 1000;
@@ -12,6 +13,7 @@ class GlobalState {
     this.gfs_connection = new GfsConnection(this);
     this.gdl_connection = new GdlConnection(this);
     this.gdl_telemetry = new GdlTelemetry(this);
+    this.flight_data_handler = new FlightDataHandler(this);
 
     this.ggs_status = {
       // disconnected, connected
@@ -54,6 +56,7 @@ class GlobalState {
   cycle() {
     this.gfs_connection.update();
     this.gdl_connection.update();
+    this.flight_data_handler.update();
 
     this.ggs_status.gfs = this.gfs_connection.status;
     this.ggs_status.gdl = this.gdl_connection.status;

@@ -10,7 +10,7 @@ import {
   StyOption,
 } from "./styled/StyledComponents";
 
-import { GGS_API } from "../api_interface/ws_api";
+import { GGS_API } from "../api_interface/ggs_api";
 import { GwsGlobal } from "../GlobalContext";
 
 const EditBoxContainer = styled.form`

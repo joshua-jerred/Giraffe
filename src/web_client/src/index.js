@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { GwsGlobalContextProvider } from "./GlobalContext";
-import { GgsApiContextProvider } from "./api_interface/ws_api";
+import { GgsApiContextProvider } from "./api_interface/ggs_api";
 
 library.add(faSatelliteDish, faSatellite);
 
