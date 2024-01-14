@@ -33,6 +33,8 @@ class GlobalState {
       telemetry_downlink: "unknown",
       aprsfi: "unknown",
       total_http_requests: 0,
+      general: this.flight_data_handler.general.values,
+      location: this.flight_data_handler.location_data.values,
     };
 
     setInterval(this.cycle.bind(this), kGlobalStateUpdateInterval);

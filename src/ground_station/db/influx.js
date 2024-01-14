@@ -2,6 +2,19 @@ const { InfluxDB } = require("@influxdata/influxdb-client");
 
 module.exports = class InfluxWriter {
   constructor(global_state) {
+    this.status = "unknown";
+
+    this.enabled = global_state.ggs_db.get(
+      "settings",
+      "influx_db",
+      "influx_enabled"
+    );
+
+    if (!this.enabled) {
+      this.status = "disabled";
+      return;
+    }
+
     this.token = global_state.ggs_db.get(
       "settings",
       "influx_db",
@@ -17,20 +30,39 @@ module.exports = class InfluxWriter {
     );
     this.org = global_state.ggs_db.get("settings", "influx_db", "influx_org");
 
-    this.client = new InfluxDB({ url: this.url, token: this.token });
-    this.writeClient = this.client.getWriteApi(this.org, this.bucket, "ns");
+    try {
+      this.client = new InfluxDB({ url: this.url, token: this.token });
+      this.writeClient = this.client.getWriteApi(this.org, this.bucket, "ns");
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   write(point, flush = false) {
-    this.writeClient.writePoint(point);
+    if (!this.enabled) {
+      return;
+    }
 
-    if (flush) {
-      this.writeClient.flush();
+    try {
+      this.writeClient.writePoint(point);
+      if (flush) {
+        this.writeClient.flush();
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
   flush() {
-    this.writeClient.flush();
+    if (!this.enabled) {
+      return;
+    }
+
+    try {
+      this.writeClient.flush();
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 

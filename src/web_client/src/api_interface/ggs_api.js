@@ -1,7 +1,5 @@
 import { useState, createContext, useContext, useEffect } from "react";
-import useWebSocket, { ReadyState } from "react-use-websocket";
 import { GwsGlobal } from "../GlobalContext";
-import { parse, StreamRequest } from "giraffe-protocol";
 
 export const GGS_API = createContext("");
 

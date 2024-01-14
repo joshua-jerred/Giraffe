@@ -46,14 +46,14 @@ export function Map() {
     <div style={{ display: "block" }}>
       <MapContainer
         style={{
-          height: "500px",
+          height: "400px",
           width: "100%",
         }}
         center={position}
         zoom={8}
       >
         <Recenter lat={position.lat} lng={position.lng} />
-        <Circle center={position} radius={1500} />
+        <Circle center={position} radius={2500} />
         <TileLayer
           attribution="Google Maps"
           url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}"
