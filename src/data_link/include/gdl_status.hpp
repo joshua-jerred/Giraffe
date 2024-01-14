@@ -20,6 +20,8 @@
 #include <cstdint>
 #include <iostream>
 
+#include <SignalEasel/aprs.hpp>
+
 namespace gdl {
 
 struct GdlStatus {
@@ -34,15 +36,19 @@ struct GdlStatus {
    */
   uint64_t network_layer_latency_ms = 0;
 
-  void print() {
-    std::cout << "GDL Status: " << std::endl;
-    std::cout << "  Exchange Queue Size: " << exchange_queue_size << std::endl;
-    std::cout << "  Broadcast Queue Size: " << broadcast_queue_size
-              << std::endl;
-    std::cout << "  Received Queue Size: " << received_queue_size << std::endl;
-    std::cout << "  Network Layer Latency: " << network_layer_latency_ms << "ms"
-              << std::endl;
-  }
+  signal_easel::aprs::Receiver::Stats aprs_receiver_stats{};
+
+  // void print() {
+  //   std::cout << "GDL Status: " << std::endl;
+  //   std::cout << "  Exchange Queue Size: " << exchange_queue_size <<
+  //   std::endl; std::cout << "  Broadcast Queue Size: " <<
+  //   broadcast_queue_size
+  //             << std::endl;
+  //   std::cout << "  Received Queue Size: " << received_queue_size <<
+  //   std::endl; std::cout << "  Network Layer Latency: " <<
+  //   network_layer_latency_ms << "ms"
+  //             << std::endl;
+  // }
 };
 
 } // namespace gdl

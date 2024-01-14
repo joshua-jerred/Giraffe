@@ -46,13 +46,15 @@ static const std::unordered_map<gdl::GiraffeDataLink::Status, std::string>
 class GdlTerminal {
 public:
   GdlTerminal() {
-    gdl_.start();
-    server_socket_.init(9557);
   }
   ~GdlTerminal() = default;
 
   int run() {
     std::cout << "GDL Terminal" << std::endl;
+
+    gdl_.start();
+    server_socket_.init(9557);
+
     std::string received_string;
     protocol::Message received_msg;
 
@@ -70,6 +72,9 @@ public:
         }
       }
     }
+
+    gdl_.stop();
+
     return 0;
   }
 
@@ -90,10 +95,22 @@ public:
           {"received_queue_size", stats.received_queue_size},
           {"aprs_tx_queue_size", gdl_.getAprsGpsTxQueueSize()},
           {"aprs_rx_queue_size", gdl_.getAprsGpsRxQueueSize()},
-          // {"total_packets_received", stats.total_packets_received},
-          // {"total_packets_sent", stats.total_packets_sent},
-          // {"last_received_message", stats.last_received_message},
-          // {"last_sent_message", stats.last_sent_message},
+          {"rx_total_message_packets",
+           stats.aprs_receiver_stats.total_message_packets},
+          {"rx_message_packets_failed",
+           stats.aprs_receiver_stats.num_message_packets_failed},
+          {"rx_total_position_packets",
+           stats.aprs_receiver_stats.total_position_packets},
+          {"rx_num_position_packets_failed",
+           stats.aprs_receiver_stats.num_position_packets_failed},
+          {"rx_total_other_packets",
+           stats.aprs_receiver_stats.total_other_packets},
+          {"rx_message_packets_in_queue",
+           stats.aprs_receiver_stats.current_message_packets_in_queue},
+          {"rx_position_packets_in_queue",
+           stats.aprs_receiver_stats.current_position_packets_in_queue},
+          {"rx_other_packets_in_queue",
+           stats.aprs_receiver_stats.current_other_packets_in_queue},
           // {"rssi", stats.rssi},
           {"volume", stats.volume},
           {"signal_to_noise_ratio", stats.signal_to_noise_ratio},
