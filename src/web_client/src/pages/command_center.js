@@ -20,7 +20,7 @@ function CommandCenterPage() {
             <Map />
           </Card>
           <Card title="Location">
-            {/* <DataBlock resource={"gdl"} category={"location"} /> */}
+            <DataBlock resource="flight_data" category="location" />
           </Card>
         </CardMasonryLayout>
       </PageContent>

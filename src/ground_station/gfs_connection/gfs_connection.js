@@ -45,7 +45,8 @@ module.exports = class GfsConnection {
   }
 
   getMsSinceLastUpdate(category) {
-    return this.data_sync.getMsSinceLastUpdate(category);
+    let val = this.data_sync.getMsSinceLastUpdate(category);
+    return val;
   }
 
   doSettingsExist(category) {

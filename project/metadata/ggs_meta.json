@@ -103,7 +103,7 @@
         "type": "string",
         "name": "Influx URL",
         "description": "The address for the InfluxDB (2.X) server with the port. This should include the protocol (http or https).",
-        "default": "localhost"
+        "default": "localhost:8086"
       },
       "influx_db_token": {
         "type": "string",

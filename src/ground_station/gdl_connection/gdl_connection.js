@@ -1,6 +1,7 @@
 const DataMeta = require("../../../project/metadata/gdl_resources.json");
 const { RequestMessage, parse } = require("giraffe-protocol");
 const net = require("net");
+const { Point } = require("@influxdata/influxdb-client");
 
 const TIMEOUT = 1000;
 
@@ -16,6 +17,7 @@ module.exports = class GdlConnection {
       this.resources[category] = {
         meta: {
           last_request: new Date(),
+          timestamp: new Date(),
           requests: 0,
         },
         data: {},
@@ -120,6 +122,24 @@ module.exports = class GdlConnection {
     for (let data_item in data_section) {
       try {
         this.resources[category].data[data_item] = data_section[data_item];
+
+        // collecting timestamp data
+        try {
+          if (this.global_state.influx_enabled) {
+            const point = new Point("ggs_resource_update_delay")
+              .tag("api", "gdl")
+              .tag("category", category)
+              .intField(
+                "ms_since_last_update",
+                this.getMsSinceLastUpdate(category)
+              );
+            this.global_state.influx_writer.write(point);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+        // end collecting timestamp data
+
         this.resources[category].meta.timestamp = new Date();
       } catch (e) {
         console.log(
@@ -158,7 +178,7 @@ module.exports = class GdlConnection {
           that.global_state.gdl_telemetry.addAprsPositionPacket(item);
         });
       } catch (e) {
-        console.log("Error parsing data for category:" + category);
+        console.log("Error parsing data: " + e);
       }
       con.destroy();
     });

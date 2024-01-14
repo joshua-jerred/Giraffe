@@ -19,6 +19,7 @@
     "express-ws": "^5.0.2",
     "giraffe-protocol": "file:../common/protocol",
     "query-string": "^8.1.0",
+    "sqlite3": "^5.1.7",
     "uuid": "^9.0.0",
     "uuidv4": "^6.2.13",
     "websocket": "^1.0.34",

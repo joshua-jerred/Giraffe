@@ -1,30 +1,56 @@
-//repl.repl.ignoreUndefined = true;
+const { InfluxDB } = require("@influxdata/influxdb-client");
 
-// const { InfluxDB, Point } = require("@influxdata/influxdb-client");
+module.exports = class InfluxWriter {
+  constructor(global_state) {
+    this.token = global_state.ggs_db.get(
+      "settings",
+      "influx_db",
+      "influx_db_token"
+    );
+    this.url =
+      "http://" +
+      global_state.ggs_db.get("settings", "influx_db", "influx_db_url");
+    this.bucket = global_state.ggs_db.get(
+      "settings",
+      "influx_db",
+      "influx_bucket"
+    );
+    this.org = global_state.ggs_db.get("settings", "influx_db", "influx_org");
 
-// const token = process.env.INFLUXDB_TOKEN;
-// const url = "http://192.168.0.3:12023";
+    this.client = new InfluxDB({ url: this.url, token: this.token });
+    this.writeClient = this.client.getWriteApi(this.org, this.bucket, "ns");
+  }
 
-// const client = new InfluxDB({ url, token });
+  write(point, flush = false) {
+    this.writeClient.writePoint(point);
 
-// let org = `giraffe`;
-// let bucket = `giraffe_ground_station`;
+    if (flush) {
+      this.writeClient.flush();
+    }
+  }
 
-// let writeClient = client.getWriteApi(org, bucket, "ns");
+  flush() {
+    this.writeClient.flush();
+  }
+};
 
-// for (let i = 0; i < 5; i++) {
-//   let point = new Point("measurement1")
-//     .tag("tagname1", "tagvalue1")
-//     .intField("field1", i);
+// let queryClient = client.getQueryApi(org);
+// let fluxQuery = `from(bucket: "ggs")
+//  |> range(start: -10m)
+//  |> filter(fn: (r) => r._measurement == "measurement1")`;
 
-//   void setTimeout(() => {
-//     writeClient.writePoint(point);
-//   }, i * 1000); // separate points by 1 second
-
-//   void setTimeout(() => {
-//     writeClient.flush();
-//   }, 5000);
-// }
+// queryClient.queryRows(fluxQuery, {
+//   next: (row, tableMeta) => {
+//     const tableObject = tableMeta.toObject(row);
+//     console.log(tableObject);
+//   },
+//   error: (error) => {
+//     console.error("\nError", error);
+//   },
+//   complete: () => {
+//     console.log("\nSuccess");
+//   },
+// });
 
 // Execute a Flux Query
 // let queryClient = client.getQueryApi(org);
@@ -45,21 +71,21 @@
 //   },
 // });
 
-queryClient = client.getQueryApi(org);
-fluxQuery = `from(bucket: "giraffe_ground_station")
- |> range(start: -10m)
- |> filter(fn: (r) => r._measurement == "measurement1")
- |> mean()`;
+// queryClient = client.getQueryApi(org);
+// fluxQuery = `from(bucket: "giraffe_ground_station")
+//  |> range(start: -10m)
+//  |> filter(fn: (r) => r._measurement == "measurement1")
+//  |> mean()`;
 
-queryClient.queryRows(fluxQuery, {
-  next: (row, tableMeta) => {
-    const tableObject = tableMeta.toObject(row);
-    console.log(tableObject);
-  },
-  error: (error) => {
-    console.error("\nError", error);
-  },
-  complete: () => {
-    console.log("\nSuccess");
-  },
-});
+// queryClient.queryRows(fluxQuery, {
+//   next: (row, tableMeta) => {
+//     const tableObject = tableMeta.toObject(row);
+//     console.log(tableObject);
+//   },
+//   error: (error) => {
+//     console.error("\nError", error);
+//   },
+//   complete: () => {
+//     console.log("\nSuccess");
+//   },
+// });
