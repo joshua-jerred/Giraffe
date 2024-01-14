@@ -1,16 +1,15 @@
-import styled from "styled-components";
+// import styled from "styled-components";
 import { useState, useEffect, useContext } from "react";
 import { GGS_API } from "../api_interface/ggs_api";
 import { GwsGlobal } from "../GlobalContext";
 
 import { MapContainer, TileLayer, useMap, Circle } from "react-leaflet";
-import { Marker } from "react-leaflet/Marker";
 
-const MapStyle = styled.div`
-  width: 100%;
-  height: 200px;
-  background-color: ${(props) => props.theme.colors.background};
-`;
+// const MapStyle = styled.div`
+//   width: 100%;
+//   height: 200px;
+//   background-color: ${(props) => props.theme.colors.background};
+// `;
 export function Map() {
   const { ggsAddress } = useContext(GwsGlobal);
   const { ggsConnectionStatus } = useContext(GGS_API);

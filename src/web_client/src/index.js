@@ -4,6 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "font-awesome/css/font-awesome.min.css";
+
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faSatelliteDish,

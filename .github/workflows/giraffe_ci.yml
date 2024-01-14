@@ -33,7 +33,7 @@ jobs:
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build Giraffe Data Link
-        run: cd build && make giraffe_data_link -j 4
+        run: cd build && make giraffe_data_link_core -j 4
 
   common_tests_cpp:
     name: Unit Tests / Common C++

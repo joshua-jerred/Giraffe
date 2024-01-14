@@ -38,7 +38,7 @@ test("GET /api/status", async (t) => {
   t.is(response.status, 200);
   t.true(response.body.hasOwnProperty("gfs"));
   t.true(response.body.hasOwnProperty("influxdb"));
-  t.true(response.body.hasOwnProperty("telemetry"));
+  t.true(response.body.hasOwnProperty("gdl"));
 });
 
 test("GET /api/ggs/settings", async (t) => {

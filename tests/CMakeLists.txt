@@ -27,7 +27,7 @@ target_link_libraries(
   # internal
   giraffe_data_link_core
   giraffe_common
-  ax25_state_machine
+  # ax25_state_machine
   unit_test
   # external
   BoosterSeat)

@@ -15,19 +15,19 @@
       "errors": 1000,
       "log_files": 1000
     },
-    "influx_db": {
-      "influx_enabled": true,
-      "influx_db_token": "none",
-      "influx_org": "giraffe",
-      "influx_bucket": "giraffe_ground_station",
-      "influx_interval_ms": 1000,
-      "influx_retention_duration": "INF",
-      "influx_db_url": "localhost:8086"
-    },
     "gdl": {
       "data_update_interval": 1000,
       "socket_address": "localhost",
       "socket_port": 9557
+    },
+    "influx_db": {
+      "influx_enabled": false,
+      "influx_db_url": "localhost:8086",
+      "influx_db_token": "none",
+      "influx_org": "giraffe",
+      "influx_bucket": "giraffe_ground_station",
+      "influx_interval_ms": 1000,
+      "influx_retention_duration": "INF"
     }
   },
   "data": {
