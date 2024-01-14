@@ -118,6 +118,14 @@ public:
       };
     } else if (rsc == "config") {
       res_data = {};
+    } else if (rsc == "aprs_location") {
+      res_data = json::array();
+      if (gdl_.getAprsGpsRxQueueSize() > 0) {
+        signal_easel::aprs::PositionPacket packet;
+        while (gdl_.getReceivedAprsGpsPacket(packet)) {
+          res_data.push_back(aprsPositionalPacketToJson(packet));
+        }
+      }
     } else {
       protocol::createResponseMessage(
           msg, protocol::Endpoint::GDL, protocol::Endpoint::GGS, "1",
@@ -133,6 +141,28 @@ public:
   }
 
 private:
+  json aprsPositionalPacketToJson(signal_easel::aprs::PositionPacket &packet) {
+    auto info = packet.frame.getInformation();
+    std::string raw(info.begin(), info.end());
+
+    json res = {{"src", packet.source_address},
+                {"src_ssid", packet.source_ssid},
+                {"dst", packet.destination_address},
+                {"dst_ssid", packet.destination_ssid},
+                {"latitude", packet.latitude},
+                {"longitude", packet.longitude},
+                {"altitude", packet.altitude},
+                {"course", packet.course},
+                {"speed", packet.speed},
+                {"symbol_table", packet.symbol_table},
+                {"symbol", packet.symbol},
+                {"comment", packet.comment},
+                {"gps_time", packet.time_code},
+                {"info", raw},
+                {"utc_timestamp", packet.decoded_timestamp.toString()}};
+    return res;
+  }
+
   bool stop_flag_{false};
 
   signal_easel::aprs::Packet base_aprs_packet_{};

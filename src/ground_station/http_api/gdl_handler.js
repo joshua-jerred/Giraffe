@@ -17,5 +17,9 @@ module.exports = function (global_state) {
     parseGetQuery(req, res, "gdl", "data", global_state);
   });
 
+  router.get("/telemetry", (req, res, next) => {
+    global_state.gdl_telemetry.handleRequest(req, res);
+  });
+
   return router;
 };

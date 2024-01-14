@@ -1,6 +1,7 @@
 const GgsDataBase = require("./db/ggs_db.js");
 const GfsConnection = require("./gfs_connection/gfs_connection.js");
 const GdlConnection = require("./gdl_connection/gdl_connection.js");
+const GdlTelemetry = require("./gdl_connection/gdl_telemetry.js");
 
 // Update interval for the global state
 const kGlobalStateUpdateInterval = 1000;
@@ -10,6 +11,7 @@ class GlobalState {
     this.ggs_db = new GgsDataBase();
     this.gfs_connection = new GfsConnection(this);
     this.gdl_connection = new GdlConnection(this);
+    this.gdl_telemetry = new GdlTelemetry(this);
 
     this.ggs_status = {
       // disconnected, connected

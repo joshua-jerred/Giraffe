@@ -17,6 +17,8 @@
 #ifndef GDL_MESSAGE_HPP_
 #define GDL_MESSAGE_HPP_
 
+#include <BoosterSeat/time.hpp>
+
 #include <cstdint>
 #include <string>
 
@@ -41,6 +43,12 @@ struct Message {
   UpperLayer upper_layer{UpperLayer::UNDEFINED};
   std::string data{""};
   uint32_t retries = 0;
+
+  /**
+   * @brief Set when the message is decoded. Used to keep track of the age of a
+   * message.
+   */
+  bst::Time time_decoded{};
 
   bool isValid() {
     return true;

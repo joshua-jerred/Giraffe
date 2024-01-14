@@ -81,6 +81,10 @@ struct GdlConfig {
    * the ground station actively trying to contact the remote station.
    */
   bool proactive_connection_management = false;
+
+  int32_t downlink_timeout_seconds = 30;
+
+  int32_t uplink_timeout_seconds = 30;
 };
 
 } // namespace gdl

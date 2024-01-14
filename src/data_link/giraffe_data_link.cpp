@@ -54,7 +54,31 @@ GiraffeDataLink::Status GiraffeDataLink::getStatus() const {
 }
 
 bool GiraffeDataLink::getReceivedMessage(Message &message) {
-  return queues_.received.pop(message);
+  bool res = queues_.received.pop(message);
+
+  constexpr int MAX_PACKET_AGE_SECONDS = 60;
+  if ((message.time_decoded.secondsFromNow() * -1) < MAX_PACKET_AGE_SECONDS) {
+    downlink_timeout_.reset();
+  }
+
+  return res;
+}
+
+bool GiraffeDataLink::getReceivedAprsGpsPacket(
+    signal_easel::aprs::PositionPacket &packet) {
+  if (queues_.aprs_gps_rx_queue.size() == 0) {
+    return false;
+  }
+  packet = queues_.aprs_gps_rx_queue.front();
+  queues_.aprs_gps_rx_queue.pop();
+
+  constexpr int MAX_PACKET_AGE_SECONDS = 60;
+  if ((packet.decoded_timestamp.secondsFromNow() * -1) <
+      MAX_PACKET_AGE_SECONDS) {
+    downlink_timeout_.reset();
+  }
+
+  return true;
 }
 
 int GiraffeDataLink::getExchangeQueueSize() const {
@@ -100,7 +124,14 @@ void GiraffeDataLink::gdlThread() {
       transport_layer_.send(packet);
     }
 
-    transport_layer_.update(queues_.received);
+    transport_layer_.update(queues_.received, queues_.aprs_gps_rx_queue);
+
+    // update uplink/downlink status based on timeouts
+    uplink_status_ = uplink_timeout_.isDone() ? ConnectionStatus::DISCONNECTED
+                                              : ConnectionStatus::CONNECTED;
+    downlink_status_ = downlink_timeout_.isDone()
+                           ? ConnectionStatus::DISCONNECTED
+                           : ConnectionStatus::CONNECTED;
 
     // update the status struct
     gdl_status_lock_.lock();

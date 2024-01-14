@@ -87,8 +87,8 @@ public:
     return true;
   }
 
-  bool rxAprsPositionPacket(signal_easel::aprs::PositionPacket &packet) {
-    signal_easel::ax25::Frame frame{};
+  bool rxAprsPositionPacket(signal_easel::aprs::PositionPacket &packet,
+                            signal_easel::ax25::Frame &frame) {
     if (receiver_.getAprsPosition(packet, frame)) {
       return true;
     }

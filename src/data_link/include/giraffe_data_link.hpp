@@ -21,13 +21,14 @@
 #include <functional>
 #include <thread>
 
+#include "BoosterSeat/timer.hpp"
+#include "SignalEasel/aprs.hpp"
+
 #include "gdl_configuration.hpp"
 #include "gdl_message.hpp"
 #include "gdl_message_queue.hpp"
 #include "gdl_status.hpp"
 #include "gdl_transport_layer.hpp"
-
-#include "SignalEasel/aprs.hpp"
 
 namespace gdl {
 /**
@@ -103,6 +104,8 @@ public:
    */
   bool getReceivedMessage(Message &message);
 
+  bool getReceivedAprsGpsPacket(signal_easel::aprs::PositionPacket &packet);
+
   int getExchangeQueueSize() const;
   int getBroadcastQueueSize() const;
   int getReceiveQueueSize() const;
@@ -170,6 +173,9 @@ private:
   std::mutex gdl_status_lock_{};
   GdlStatus gdl_status_{};
   uint16_t message_id_ = 0;
+
+  bst::Timer uplink_timeout_{config_.uplink_timeout_seconds * 1000};
+  bst::Timer downlink_timeout_{config_.downlink_timeout_seconds * 1000};
 };
 
 } // namespace gdl

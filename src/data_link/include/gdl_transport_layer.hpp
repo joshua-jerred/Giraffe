@@ -72,7 +72,9 @@ public:
     return network_layer_.rxMessage(message);
   }
 
-  void update(MessageQueue &received_messages) {
+  void
+  update(MessageQueue &received_messages,
+         std::queue<signal_easel::aprs::PositionPacket> &aprs_gps_rx_queue) {
     network_layer_.update();
 
     if (state_ == State::IDLE) {
@@ -92,7 +94,19 @@ public:
           // std::cout << "Got an ACK, seemingly out of place." << std::endl;
         }
       }
-      return;
+
+      auto gdl_aprs_nw_layer =
+          dynamic_cast<gdl::AprsNetworkLayer *>(&network_layer_);
+      if (gdl_aprs_nw_layer == nullptr) {
+        return;
+      }
+      signal_easel::aprs::PositionPacket packet{};
+      signal_easel::ax25::Frame frame{};
+      if (gdl_aprs_nw_layer->rxAprsPositionPacket(packet, frame)) {
+        packet.frame = frame; // mush them together. Lazy fix.
+        aprs_gps_rx_queue.push(packet);
+      }
+
     } else if (state_ == State::SENDING) {
       if (!sendPacket()) {
         return;

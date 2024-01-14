@@ -2,6 +2,8 @@ const DataMeta = require("../../../project/metadata/gdl_resources.json");
 const { RequestMessage, parse } = require("giraffe-protocol");
 const net = require("net");
 
+const TIMEOUT = 1000;
+
 module.exports = class GdlConnection {
   constructor(global_state) {
     this.global_state = global_state;
@@ -70,6 +72,14 @@ module.exports = class GdlConnection {
       this.resources[category].meta.last_request = new Date();
       this.resources[category].meta.requests++;
 
+      if (
+        this.connected &&
+        this.resources["status"] !== undefined &&
+        this.resources["status"].data["aprs_rx_queue_size"] > 0
+      ) {
+        this.#getAprsPositionalData();
+      }
+
       // sleep for 50ms to prevent flooding the socket
       // await new Promise((resolve) => setTimeout(resolve, 50));
     }
@@ -122,6 +132,42 @@ module.exports = class GdlConnection {
     }
   }
 
+  #getAprsPositionalData() {
+    let request = new RequestMessage("ggs", "gdl", "aprs_location");
+    let con = new net.Socket();
+    let that = this;
+    con.setTimeout(TIMEOUT);
+
+    con.connect(this.port, this.address, function () {
+      con.write(JSON.stringify(request));
+    });
+
+    con.on("data", function (data) {
+      that.connected = true;
+      try {
+        let msg = parse(data.toString());
+        if (msg.bdy.cde !== "ok") {
+          console.log("Error: " + msg.bdy.dat);
+          return;
+        }
+        if (msg.bdy.dat.length === 0) {
+          return;
+        }
+
+        msg.bdy.dat.forEach((item) => {
+          that.global_state.gdl_telemetry.addAprsPositionPacket(item);
+        });
+      } catch (e) {
+        console.log("Error parsing data for category:" + category);
+      }
+      con.destroy();
+    });
+
+    con.on("close", function () {});
+
+    con.on("error", function (err) {});
+  }
+
   /**
    * Goes through the categories and requests the data from GFS.
    * @param {string} category The category to request the data for.
@@ -130,8 +176,6 @@ module.exports = class GdlConnection {
     let request = new RequestMessage("ggs", "gdl", category);
     let con = new net.Socket();
     let that = this;
-
-    const TIMEOUT = 1000;
     con.setTimeout(TIMEOUT);
 
     con.connect(this.port, this.address, function () {
