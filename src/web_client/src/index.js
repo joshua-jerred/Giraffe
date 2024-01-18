@@ -1,20 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
-import "font-awesome/css/font-awesome.min.css";
-
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faSatelliteDish,
-  faSatellite,
-} from "@fortawesome/free-solid-svg-icons";
 
 import { GwsGlobalContextProvider } from "./GlobalContext";
 import { GgsApiContextProvider } from "./api_interface/ggs_api";
 
-library.add(faSatelliteDish, faSatellite);
+import "font-awesome/css/font-awesome.min.css"; // used for nav bar icons only
+
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

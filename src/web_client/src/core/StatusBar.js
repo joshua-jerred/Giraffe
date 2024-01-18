@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSatelliteDish,
+  faSatellite,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { GGS_API } from "../api_interface/ggs_api.js";
 import Tooltip from "../components/Tooltip.js";
@@ -83,7 +87,7 @@ function StatusBar() {
       />
       <Tooltip text="telemetry up-link status" vertical_position={"-440%"}>
         <StatusItem
-          title={<FontAwesomeIcon icon="fa-solid fa-satellite-dish" />}
+          title={<FontAwesomeIcon icon={faSatelliteDish} />}
           status={
             ggsConnectionStatus && giraffeStatus.telemetry_uplink
               ? giraffeStatus.telemetry_uplink.toUpperCase()
@@ -94,7 +98,7 @@ function StatusBar() {
 
       <Tooltip text="telemetry down-link status" vertical_position={"-440%"}>
         <StatusItem
-          title={<FontAwesomeIcon icon="fa-solid fa-satellite" />}
+          title={<FontAwesomeIcon icon={faSatellite} />}
           status={
             ggsConnectionStatus && giraffeStatus.telemetry_downlink
               ? giraffeStatus.telemetry_downlink.toUpperCase()

@@ -52,7 +52,10 @@ export function Map() {
         zoom={8}
       >
         <Recenter lat={position.lat} lng={position.lng} />
-        <Circle center={position} radius={2500} />
+        {position.lat !== 0 && position.lng !== 0 ? (
+          <Circle center={position} radius={1000} />
+        ) : null}
+        {/* <Circle center={position} radius={2500} /> */}
         <TileLayer
           attribution="Google Maps"
           url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}"
