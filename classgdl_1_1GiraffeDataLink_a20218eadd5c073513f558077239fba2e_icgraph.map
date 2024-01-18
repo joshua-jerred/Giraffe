@@ -1,4 +1,6 @@
 <map id="gdl::GiraffeDataLink::start" name="gdl::GiraffeDataLink::start">
-<area shape="rect" id="node1" title="Start the GDL instance." alt="" coords="252,5,404,47"/>
-<area shape="rect" id="node2" href="$classmodules_1_1TelemetryModule.html#afb1a52e1e90b33ad72a84f8646a9633b" title="This function is called when the module is started." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="node1" title="Start the GDL instance." alt="" coords="355,27,507,69"/>
+<area shape="rect" id="node2" href="$classGdlTerminal.html#a6c4ec1ac757e27bf891453c72d49ff06" title=" " alt="" coords="143,5,272,32"/>
+<area shape="rect" id="node4" href="$classmodules_1_1TelemetryModule.html#afb1a52e1e90b33ad72a84f8646a9633b" title="This function is called when the module is started." alt="" coords="108,57,307,98"/>
+<area shape="rect" id="node3" href="$gdl__terminal_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,32"/>
 </map>

@@ -112,16 +112,17 @@ $(document).ready(function(){initNavTree('gdl__status_8hpp.html',''); initResiza
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;SignalEasel/aprs.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for gdl_status.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__status_8hpp__incl.svg" width="182" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__status_8hpp__incl.svg" width="363" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__status_8hpp__dep__incl.svg" width="558" height="486"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__status_8hpp__dep__incl.svg" width="606" height="560"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -129,8 +130,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1GdlStatus.html">gdl::GdlStatus</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structgdl_1_1GdlStatus"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegdl.html#structgdl_1_1GdlStatus">gdl::GdlStatus</a></td></tr>
+<tr class="separator:structgdl_1_1GdlStatus"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -143,7 +144,73 @@ Namespaces</h2></td></tr>
 <p>=*=======================*= </p><dl class="section author"><dt>Author</dt><dd>Joshua Jerred (<a href="https://joshuajer.red">https://joshuajer.red</a>) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-12-10 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>2023 (license to be defined) </dd></dl>
-</div></div><!-- contents -->
+</div><hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="structgdl_1_1GdlStatus" id="structgdl_1_1GdlStatus"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structgdl_1_1GdlStatus">&#9670;&nbsp;</a></span>gdl::GdlStatus</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct gdl::GdlStatus</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div><div class="dynheader">
+Collaboration diagram for gdl::GdlStatus:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structgdl_1_1GdlStatus__coll__graph.svg" width="775" height="258"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a7ba9d6ec47be6e3cf5ebe8b622bcf852"></a>size_t</td>
+<td class="fieldname">
+exchange_queue_size</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a308bce26cc374e126ca838f641d1a509"></a>size_t</td>
+<td class="fieldname">
+broadcast_queue_size</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ad0c53956e257f04c39459a3d28dc992e"></a>size_t</td>
+<td class="fieldname">
+received_queue_size</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aef97af0710b5fefc10469b361a8e335f"></a>double</td>
+<td class="fieldname">
+volume</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a0d5b6bb73d8f82e60cc886b27b1b2bbf"></a>double</td>
+<td class="fieldname">
+signal_to_noise_ratio</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a14649205469591a6d3602f44c64d3c79"></a>uint64_t</td>
+<td class="fieldname">
+network_layer_latency_ms</td>
+<td class="fielddoc">
+Audio processing latency in milliseconds. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0e65625c41901f966c9d35e843505207"></a>Stats</td>
+<td class="fieldname">
+aprs_receiver_stats</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

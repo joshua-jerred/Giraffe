@@ -76,7 +76,7 @@ var annotated_dup =
     [ "gdl", "namespacegdl.html", [
       [ "AprsNetworkLayer", "classgdl_1_1AprsNetworkLayer.html", "classgdl_1_1AprsNetworkLayer" ],
       [ "GdlConfig", "namespacegdl.html#structgdl_1_1GdlConfig", "namespacegdl_structgdl_1_1GdlConfig_dup" ],
-      [ "GdlStatus", "structgdl_1_1GdlStatus.html", "structgdl_1_1GdlStatus" ],
+      [ "GdlStatus", "namespacegdl.html#structgdl_1_1GdlStatus", "namespacegdl_structgdl_1_1GdlStatus_dup" ],
       [ "GiraffeDataLink", "classgdl_1_1GiraffeDataLink.html", "classgdl_1_1GiraffeDataLink" ],
       [ "Message", "structgdl_1_1Message.html", "structgdl_1_1Message" ],
       [ "MessageQueue", "classgdl_1_1MessageQueue.html", "classgdl_1_1MessageQueue" ],
@@ -102,7 +102,9 @@ var annotated_dup =
       [ "internal", "namespacencurs_1_1internal.html", [
         [ "Window", "classncurs_1_1internal_1_1Window.html", "classncurs_1_1internal_1_1Window" ]
       ] ],
-      [ "Environment", "classncurs_1_1Environment.html", "classncurs_1_1Environment" ]
+      [ "Environment", "classncurs_1_1Environment.html", "classncurs_1_1Environment" ],
+      [ "Pages", "classncurs_1_1Pages.html", "classncurs_1_1Pages" ],
+      [ "Window", "classncurs_1_1Window.html", "classncurs_1_1Window" ]
     ] ],
     [ "protocol", "namespaceprotocol.html", [
       [ "Message", "structprotocol_1_1Message.html", "structprotocol_1_1Message" ]
@@ -116,6 +118,7 @@ var annotated_dup =
     ] ],
     [ "CurlRequest", "classCurlRequest.html", "classCurlRequest" ],
     [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ],
+    [ "GdlTerminal", "classGdlTerminal.html", "classGdlTerminal" ],
     [ "GiraffeException", "classGiraffeException.html", "classGiraffeException" ],
     [ "I2cInterface", "classI2cInterface.html", "classI2cInterface" ],
     [ "LogContainer", "classLogContainer.html", "classLogContainer" ],

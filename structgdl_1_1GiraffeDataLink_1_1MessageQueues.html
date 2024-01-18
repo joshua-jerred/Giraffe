@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('structgdl_1_1GiraffeDataLink_1_1Messag
 <div class="dynheader">
 Collaboration diagram for gdl::GiraffeDataLink::MessageQueues:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structgdl_1_1GiraffeDataLink_1_1MessageQueues__coll__graph.svg" width="391" height="471"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structgdl_1_1GiraffeDataLink_1_1MessageQueues__coll__graph.svg" width="435" height="471"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -122,6 +122,10 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a8518a5c50edfc26b989fb201d6d36fdd"><td class="memItemLeft" align="right" valign="top">std::queue&lt; signal_easel::aprs::PositionPacket &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1GiraffeDataLink_1_1MessageQueues.html#a8518a5c50edfc26b989fb201d6d36fdd">aprs_gps_rx_queue</a> {}</td></tr>
+<tr class="separator:a8518a5c50edfc26b989fb201d6d36fdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02e76620457f3de9c05173efad0b3206"><td class="memItemLeft" align="right" valign="top">std::queue&lt; signal_easel::aprs::PositionPacket &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1GiraffeDataLink_1_1MessageQueues.html#a02e76620457f3de9c05173efad0b3206">aprs_gps_tx_queue</a> {}</td></tr>
+<tr class="separator:a02e76620457f3de9c05173efad0b3206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab657d1204aa9616d530549051f265ea2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgdl_1_1MessageQueue.html">MessageQueue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1GiraffeDataLink_1_1MessageQueues.html#ab657d1204aa9616d530549051f265ea2">broadcast</a></td></tr>
 <tr class="separator:ab657d1204aa9616d530549051f265ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b6b490c30bd561053e0f1cf3d03413b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgdl_1_1MessageQueue.html">MessageQueue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1GiraffeDataLink_1_1MessageQueues.html#a1b6b490c30bd561053e0f1cf3d03413b">exchange</a></td></tr>
@@ -201,7 +205,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#a2200a18922a94f9f0c3e73aaa8f84afb">gdl::GiraffeDataLink::broadcastMessage()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a9a57e98fe17bc1ccfc6592d1f2eca165">gdl::GiraffeDataLink::gdlThread()</a>, and <a class="el" href="classgdl_1_1GiraffeDataLink.html#a233fecbbb45d0c7311370fb19557d988">gdl::GiraffeDataLink::getBroadcastQueueSize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#abbe3ae6d610ca83e570ea9da03943cf1">gdl::GiraffeDataLink::broadcastAprsLocation()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a2200a18922a94f9f0c3e73aaa8f84afb">gdl::GiraffeDataLink::broadcastMessage()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a9a57e98fe17bc1ccfc6592d1f2eca165">gdl::GiraffeDataLink::gdlThread()</a>, and <a class="el" href="classgdl_1_1GiraffeDataLink.html#a233fecbbb45d0c7311370fb19557d988">gdl::GiraffeDataLink::getBroadcastQueueSize()</a>.</p>
 
 </div>
 </div>
@@ -218,6 +222,38 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#a9a57e98fe17bc1ccfc6592d1f2eca165">gdl::GiraffeDataLink::gdlThread()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a2f908b526ba196873e216c3952fa982b">gdl::GiraffeDataLink::getReceivedMessage()</a>, and <a class="el" href="classgdl_1_1GiraffeDataLink.html#ad91d4b32f3eaa8aa9bb0e321cc231a58">gdl::GiraffeDataLink::getReceiveQueueSize()</a>.</p>
+
+</div>
+</div>
+<a id="a02e76620457f3de9c05173efad0b3206"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02e76620457f3de9c05173efad0b3206">&#9670;&nbsp;</a></span>aprs_gps_tx_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;signal_easel::aprs::PositionPacket&gt; gdl::GiraffeDataLink::MessageQueues::aprs_gps_tx_queue {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#abbe3ae6d610ca83e570ea9da03943cf1">gdl::GiraffeDataLink::broadcastAprsLocation()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a9a57e98fe17bc1ccfc6592d1f2eca165">gdl::GiraffeDataLink::gdlThread()</a>, and <a class="el" href="classgdl_1_1GiraffeDataLink.html#a433875526b7811a46b24a965f047a9bf">gdl::GiraffeDataLink::getAprsGpsTxQueueSize()</a>.</p>
+
+</div>
+</div>
+<a id="a8518a5c50edfc26b989fb201d6d36fdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8518a5c50edfc26b989fb201d6d36fdd">&#9670;&nbsp;</a></span>aprs_gps_rx_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;signal_easel::aprs::PositionPacket&gt; gdl::GiraffeDataLink::MessageQueues::aprs_gps_rx_queue {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#a9a57e98fe17bc1ccfc6592d1f2eca165">gdl::GiraffeDataLink::gdlThread()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a0161b8fb53f0bb1d4a2232f3f472ceb8">gdl::GiraffeDataLink::getAprsGpsRxQueueSize()</a>, and <a class="el" href="classgdl_1_1GiraffeDataLink.html#a85658dba05b5284328e7b8ecc63b7d93">gdl::GiraffeDataLink::getReceivedAprsGpsPacket()</a>.</p>
 
 </div>
 </div>

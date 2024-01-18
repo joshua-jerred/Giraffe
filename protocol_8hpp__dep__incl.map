@@ -1,7 +1,8 @@
 <map id="protocol.hpp" name="protocol.hpp">
-<area shape="rect" id="node1" title="Declares the protocol namespace and its associated types." alt="" coords="193,5,296,32"/>
+<area shape="rect" id="node1" title="Declares the protocol namespace and its associated types." alt="" coords="271,5,373,32"/>
 <area shape="rect" id="node2" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="91,80,246,107"/>
 <area shape="rect" id="node9" href="$protocol_8cpp.html" title="The C++ implementation of the Giraffe Protocol." alt="" coords="271,80,373,107"/>
+<area shape="rect" id="node10" href="$gdl__terminal_8cpp.html" title="Giraffe Data Link Terminal." alt="" coords="398,80,529,107"/>
 <area shape="rect" id="node3" href="$request__handler_8cpp.html" title="The request handler class implementation." alt="" coords="5,155,159,181"/>
 <area shape="rect" id="node4" href="$server__module_8hpp.html" title="Header file for the server module." alt="" coords="183,155,330,181"/>
 <area shape="rect" id="node5" href="$flight__runner_8hpp.html" title=" " alt="" coords="110,229,241,256"/>

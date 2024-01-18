@@ -1,12 +1,14 @@
 <map id="gdl_network_layer_aprs.hpp" name="gdl_network_layer_aprs.hpp">
-<area shape="rect" id="node1" title="The network layer with APRS messaging for the Giraffe Data Link." alt="" coords="77,5,283,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="8,80,165,107"/>
-<area shape="rect" id="node3" href="$gdl__network__layer_8hpp.html" title="The network layer for the Giraffe Data Link." alt="" coords="190,80,359,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="145,229,212,256"/>
-<area shape="rect" id="node5" title=" " alt="" coords="473,229,535,256"/>
-<area shape="rect" id="node6" href="$gdl__message_8hpp.html" title="The message struct for GDL." alt="" coords="5,155,141,181"/>
-<area shape="rect" id="node8" href="$gdl__physical__layer_8hpp.html" title="The generic physical layer for the Giraffe Data Link." alt="" coords="357,155,528,181"/>
-<area shape="rect" id="node9" href="$gdl__status_8hpp.html" title="GDL Status class/interface." alt="" coords="216,155,333,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="44,229,103,256"/>
-<area shape="rect" id="node10" title=" " alt="" coords="236,229,316,256"/>
+<area shape="rect" id="node1" title="The network layer with APRS messaging for the Giraffe Data Link." alt="" coords="235,5,440,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,229,163,256"/>
+<area shape="rect" id="node3" title=" " alt="" coords="446,80,639,107"/>
+<area shape="rect" id="node4" href="$gdl__network__layer_8hpp.html" title="The network layer for the Giraffe Data Link." alt="" coords="253,80,422,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="452,229,519,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="329,229,391,256"/>
+<area shape="rect" id="node7" href="$gdl__message_8hpp.html" title="The message struct for GDL." alt="" coords="559,155,695,181"/>
+<area shape="rect" id="node10" href="$gdl__physical__layer_8hpp.html" title="The generic physical layer for the Giraffe Data Link." alt="" coords="313,155,484,181"/>
+<area shape="rect" id="node11" href="$gdl__status_8hpp.html" title="GDL Status class/interface." alt="" coords="121,155,239,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="652,229,815,256"/>
+<area shape="rect" id="node9" title=" " alt="" coords="569,229,628,256"/>
+<area shape="rect" id="node12" title=" " alt="" coords="187,229,267,256"/>
 </map>

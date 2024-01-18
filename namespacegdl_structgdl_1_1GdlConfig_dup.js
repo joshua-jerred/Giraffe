@@ -9,5 +9,8 @@ var namespacegdl_structgdl_1_1GdlConfig_dup =
     [ "connection_status_interval", "namespacegdl.html#a5c8dccf2a6bc3a7c426af61ef0a998de", null ],
     [ "max_message_size", "namespacegdl.html#a2d2a9df61aae726ca4688dabcdfcd21c", null ],
     [ "default_timeout", "namespacegdl.html#aa837b28e5c29cd598fb94f2c315ba8cd", null ],
-    [ "print_new_messages", "namespacegdl.html#a8d4a7e52e4d53b22b0fb3ff5963d3e5e", null ]
+    [ "print_new_messages", "namespacegdl.html#a8d4a7e52e4d53b22b0fb3ff5963d3e5e", null ],
+    [ "proactive_connection_management", "namespacegdl.html#a8d1d5b64de8a2705f6206434b56dac6e", null ],
+    [ "downlink_timeout_seconds", "namespacegdl.html#ae6c474c4139738c2c09db4c2b6f0aed5", null ],
+    [ "uplink_timeout_seconds", "namespacegdl.html#a09acad5ea7cc295689b8cffc1d95863f", null ]
 ];

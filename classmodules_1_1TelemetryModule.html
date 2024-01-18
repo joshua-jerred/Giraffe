@@ -116,13 +116,13 @@ $(document).ready(function(){initNavTree('classmodules_1_1TelemetryModule.html',
 <div class="dynheader">
 Inheritance diagram for modules::TelemetryModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__inherit__graph.svg" width="210" height="800"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__inherit__graph.svg" width="267" height="859"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for modules::TelemetryModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__coll__graph.svg" width="4711" height="1639"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__coll__graph.svg" width="4276" height="1654"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -188,11 +188,17 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:a3ec4e04f946522deeefa2284522d23e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Continually called at a rate set by the sleep interval.  <a href="classmodules_1_1TelemetryModule.html#a3ec4e04f946522deeefa2284522d23e6">More...</a><br /></td></tr>
 <tr class="separator:a3ec4e04f946522deeefa2284522d23e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d9831ee3408ca94174c3b97793076ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed">processCommand</a> (const <a class="el" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;command)</td></tr>
-<tr class="memdesc:a4d9831ee3408ca94174c3b97793076ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a command is received.  <a href="classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed">More...</a><br /></td></tr>
+<tr class="memdesc:a4d9831ee3408ca94174c3b97793076ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process commands that are received from the flight runner.  <a href="classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed">More...</a><br /></td></tr>
 <tr class="separator:a4d9831ee3408ca94174c3b97793076ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cdd19ea5e6973673443b847ece36f54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54">processTelemetryMessageQueue</a> ()</td></tr>
+<tr class="memdesc:a3cdd19ea5e6973673443b847ece36f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called if there is a message in the receive queue. Pops one message and processes it.  <a href="classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54">More...</a><br /></td></tr>
+<tr class="separator:a3cdd19ea5e6973673443b847ece36f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d879001e471093d48fcbd2f8c406f51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51">runner</a> ()</td></tr>
 <tr class="memdesc:a3d879001e471093d48fcbd2f8c406f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main function for each module.  <a href="classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51">More...</a><br /></td></tr>
 <tr class="separator:a3d879001e471093d48fcbd2f8c406f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5edbc8763c92221b92f713771fc44135"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135">sendAprsPositionPacket</a> ()</td></tr>
+<tr class="memdesc:a5edbc8763c92221b92f713771fc44135"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function will only send a packet if it is time to send one. If not, it will just return immediately.  <a href="classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135">More...</a><br /></td></tr>
+<tr class="separator:a5edbc8763c92221b92f713771fc44135"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a003fc90b10dd9366ae540e80f8959755"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a003fc90b10dd9366ae540e80f8959755">shutdown</a> () override</td></tr>
 <tr class="memdesc:a003fc90b10dd9366ae540e80f8959755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called only once at shutdown.  <a href="classmodules_1_1TelemetryModule.html#a003fc90b10dd9366ae540e80f8959755">More...</a><br /></td></tr>
 <tr class="separator:a003fc90b10dd9366ae540e80f8959755"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,6 +208,8 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:abf0415e7facc977d6932038607e4f434"><td class="memItemLeft" align="right" valign="top">bst::Timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#abf0415e7facc977d6932038607e4f434">aprs_position_packet_timer_</a> {}</td></tr>
+<tr class="separator:abf0415e7facc977d6932038607e4f434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a121d044872a7975e61b095fd36aae1e6"><td class="memItemLeft" align="right" valign="top">signal_easel::aprs::Packet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a121d044872a7975e61b095fd36aae1e6">base_packet_</a></td></tr>
 <tr class="separator:a121d044872a7975e61b095fd36aae1e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d855a6e0bc3c2a826fa396d4c5486d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmd_1_1CommandQueue.html">cmd::CommandQueue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#a7d855a6e0bc3c2a826fa396d4c5486d3">command_queue_</a></td></tr>
@@ -321,12 +329,12 @@ Private Attributes</h2></td></tr>
 
 <p>This function is called when the module is started. </p>
 <p>This is overridden by the module implementation. Called only once at startup. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000032">Todo:</a></b></dt><dd>Symbol table option </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000031">Todo:</a></b></dt><dd>Symbol table option </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>this could be a problem</dd></dl>
 
 <p>Reimplemented from <a class="el" href="classmodules_1_1Module.html#ab45b44d72220b8fc55575bd477c87303">modules::Module</a>.</p>
 
-<p class="reference">References <a class="el" href="classmodules_1_1TelemetryModule.html#a121d044872a7975e61b095fd36aae1e6">base_packet_</a>, <a class="el" href="classmodules_1_1Module.html#a1285e5506c3a3219d1e120597cf16d75">modules::Module::configuration_</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#afca12cb14251368f23b66b6ba8ae7b1d">gdl_</a>, and <a class="el" href="classgdl_1_1GiraffeDataLink.html#a20218eadd5c073513f558077239fba2e">gdl::GiraffeDataLink::start()</a>.</p>
+<p class="reference">References <a class="el" href="classmodules_1_1TelemetryModule.html#abf0415e7facc977d6932038607e4f434">aprs_position_packet_timer_</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#a121d044872a7975e61b095fd36aae1e6">base_packet_</a>, <a class="el" href="classmodules_1_1Module.html#a1285e5506c3a3219d1e120597cf16d75">modules::Module::configuration_</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#afca12cb14251368f23b66b6ba8ae7b1d">gdl_</a>, and <a class="el" href="classgdl_1_1GiraffeDataLink.html#a20218eadd5c073513f558077239fba2e">gdl::GiraffeDataLink::start()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -360,17 +368,10 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Continually called at a rate set by the sleep interval. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000033">Todo:</a></b></dt><dd>log an error and respond to the telemetry packet </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classmodules_1_1Module.html#a891a50cbafecd2d026274a75acc5af41">modules::Module</a>.</p>
 
-<p class="reference">References <a class="el" href="structgdl_1_1Message.html#a8a9fcc3df466fde4a67c94e965585590">gdl::Message::data</a>, <a class="el" href="structdata_1_1blocks_1_1TelemetryModuleStats.html#a0e724bdfa8c78a39c860f8a2cbe01ae5">data::blocks::TelemetryModuleStats::exchange_queue_size</a>, <a class="el" href="structgdl_1_1Message.html#a4e052444aaae1563e57bfc6007964254">gdl::Message::id</a>, <a class="el" href="namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74">cmd::parseCommandString()</a>, and <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7cc2660d640b0a597c45ba01f386bf62">node::TELEMETRY_MODULE</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule_a3ec4e04f946522deeefa2284522d23e6_cgraph.svg" width="932" height="443"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
+<p class="reference">References <a class="el" href="structdata_1_1blocks_1_1TelemetryModuleStats.html#a0e724bdfa8c78a39c860f8a2cbe01ae5">data::blocks::TelemetryModuleStats::exchange_queue_size</a>.</p>
 
 </div>
 </div>
@@ -403,6 +404,79 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a3cdd19ea5e6973673443b847ece36f54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cdd19ea5e6973673443b847ece36f54">&#9670;&nbsp;</a></span>processTelemetryMessageQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void modules::TelemetryModule::processTelemetryMessageQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called if there is a message in the receive queue. Pops one message and processes it. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000032">Todo:</a></b></dt><dd>log an error and respond to the telemetry packet </dd></dl>
+
+<p class="reference">References <a class="el" href="structgdl_1_1Message.html#a8a9fcc3df466fde4a67c94e965585590">gdl::Message::data</a>, <a class="el" href="structgdl_1_1Message.html#a4e052444aaae1563e57bfc6007964254">gdl::Message::id</a>, <a class="el" href="namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74">cmd::parseCommandString()</a>, and <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7cc2660d640b0a597c45ba01f386bf62">node::TELEMETRY_MODULE</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule_a3cdd19ea5e6973673443b847ece36f54_cgraph.svg" width="979" height="443"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a5edbc8763c92221b92f713771fc44135"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5edbc8763c92221b92f713771fc44135">&#9670;&nbsp;</a></span>sendAprsPositionPacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void modules::TelemetryModule::sendAprsPositionPacket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function will only send a packet if it is time to send one. If not, it will just return immediately. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000033">Todo:</a></b></dt><dd>log an error </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000034">Todo:</a></b></dt><dd>Maybe use the last valid GPS frame instead, but first there needs to be a time stamp as to when this one was generated. I have a fear of DST and time zones causing issues here. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000035">Todo:</a></b></dt><dd>log an error </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000036">Todo:</a></b></dt><dd>log an error </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000037">Todo:</a></b></dt><dd>log a warning but maybe still send the packet? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000038">Todo:</a></b></dt><dd>Fix this time code! </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Time code in not implemented for APRS position packets.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000039">Todo:</a></b></dt><dd>log an error </dd></dl>
+
+<p class="reference">References <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829babb1ca97ec761fc37101737ba0aa2e7c5">data::ERROR</a>, <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba8b433e3f63d83e78dfbfe6da3ff61b3e">data::FIX_2D</a>, and <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829baa80630704b93114ed9e817a3f53f59c7">data::NO_FIX</a>.</p>
+
+</div>
+</div>
 <a id="a4d9831ee3408ca94174c3b97793076ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4d9831ee3408ca94174c3b97793076ed">&#9670;&nbsp;</a></span>processCommand()</h2>
 
@@ -427,10 +501,10 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Called when a command is received. </p>
+<p>Process commands that are received from the flight runner. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">command</td><td></td></tr>
+    <tr><td class="paramname">command</td><td>- The command to process. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1203,6 +1277,30 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf0415e7facc977d6932038607e4f434"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf0415e7facc977d6932038607e4f434">&#9670;&nbsp;</a></span>aprs_position_packet_timer_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bst::Timer modules::TelemetryModule::aprs_position_packet_timer_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1TelemetryModule.html#afb1a52e1e90b33ad72a84f8646a9633b">startup()</a>.</p>
 
 </div>
 </div>

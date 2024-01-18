@@ -1,4 +1,4 @@
 <map id="modules::TelemetryModule::processCommand" name="modules::TelemetryModule::processCommand">
-<area shape="rect" id="node1" title="Called when a command is received." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="node1" title="Process commands that are received from the flight runner." alt="" coords="5,5,204,47"/>
 <area shape="rect" id="node2" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="252,13,360,39"/>
 </map>

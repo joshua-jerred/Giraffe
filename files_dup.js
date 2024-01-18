@@ -114,7 +114,10 @@ var files_dup =
         [ "connection_status_interval", "namespacegdl.html#a5c8dccf2a6bc3a7c426af61ef0a998de", null ],
         [ "max_message_size", "namespacegdl.html#a2d2a9df61aae726ca4688dabcdfcd21c", null ],
         [ "default_timeout", "namespacegdl.html#aa837b28e5c29cd598fb94f2c315ba8cd", null ],
-        [ "print_new_messages", "namespacegdl.html#a8d4a7e52e4d53b22b0fb3ff5963d3e5e", null ]
+        [ "print_new_messages", "namespacegdl.html#a8d4a7e52e4d53b22b0fb3ff5963d3e5e", null ],
+        [ "proactive_connection_management", "namespacegdl.html#a8d1d5b64de8a2705f6206434b56dac6e", null ],
+        [ "downlink_timeout_seconds", "namespacegdl.html#ae6c474c4139738c2c09db4c2b6f0aed5", null ],
+        [ "uplink_timeout_seconds", "namespacegdl.html#a09acad5ea7cc295689b8cffc1d95863f", null ]
       ] ]
     ] ],
     [ "gdl_message.hpp", "gdl__message_8hpp.html", [
@@ -135,7 +138,15 @@ var files_dup =
     ] ],
     [ "gdl_physical_layer.puml", "gdl__physical__layer_8puml.html", null ],
     [ "gdl_status.hpp", "gdl__status_8hpp.html", [
-      [ "GdlStatus", "structgdl_1_1GdlStatus.html", "structgdl_1_1GdlStatus" ]
+      [ "GdlStatus", "namespacegdl.html#structgdl_1_1GdlStatus", [
+        [ "exchange_queue_size", "namespacegdl.html#a7ba9d6ec47be6e3cf5ebe8b622bcf852", null ],
+        [ "broadcast_queue_size", "namespacegdl.html#a308bce26cc374e126ca838f641d1a509", null ],
+        [ "received_queue_size", "namespacegdl.html#ad0c53956e257f04c39459a3d28dc992e", null ],
+        [ "volume", "namespacegdl.html#aef97af0710b5fefc10469b361a8e335f", null ],
+        [ "signal_to_noise_ratio", "namespacegdl.html#a0d5b6bb73d8f82e60cc886b27b1b2bbf", null ],
+        [ "network_layer_latency_ms", "namespacegdl.html#a14649205469591a6d3602f44c64d3c79", null ],
+        [ "aprs_receiver_stats", "namespacegdl.html#a0e65625c41901f966c9d35e843505207", null ]
+      ] ]
     ] ],
     [ "gdl_terminal.cpp", "gdl__terminal_8cpp.html", "gdl__terminal_8cpp" ],
     [ "gdl_transport_layer.hpp", "gdl__transport__layer_8hpp.html", [
@@ -181,6 +192,8 @@ var files_dup =
       [ "MetaData", "structmodules_1_1MetaData.html", "structmodules_1_1MetaData" ],
       [ "Module", "classmodules_1_1Module.html", "classmodules_1_1Module" ]
     ] ],
+    [ "ncurses_utilities.cpp", "ncurses__utilities_8cpp.html", null ],
+    [ "ncurses_utilities.hpp", "ncurses__utilities_8hpp.html", "ncurses__utilities_8hpp" ],
     [ "node.hpp", "node_8hpp.html", "node_8hpp" ],
     [ "one_wire_interface.cpp", "one__wire__interface_8cpp.html", "one__wire__interface_8cpp" ],
     [ "one_wire_interface.hpp", "one__wire__interface_8hpp.html", [

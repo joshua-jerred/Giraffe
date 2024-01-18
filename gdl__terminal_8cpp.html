@@ -101,26 +101,74 @@ $(document).ready(function(){initNavTree('gdl__terminal_8cpp.html',''); initResi
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">gdl_terminal.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+
+<p>Giraffe Data Link Terminal.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &quot;<a class="el" href="protocol_8hpp_source.html">protocol.hpp</a>&quot;</code><br />
 <code>#include &lt;<a class="el" href="gdl__network__layer__aprs_8hpp_source.html">gdl_network_layer_aprs.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="giraffe__data__link_8hpp_source.html">giraffe_data_link.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="socket_8hpp_source.html">socket.hpp</a>&gt;</code><br />
+<code>#include &quot;nlohmann/json.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for gdl_terminal.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__terminal_8cpp__incl.svg" width="1192" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__terminal_8cpp__incl.svg" width="1712" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGdlTerminal.html">GdlTerminal</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Giraffe Data Link Terminal.  <a href="classGdlTerminal.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gdl__terminal_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> = nlohmann::json</td></tr>
+<tr class="separator:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gdl__terminal_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a64221705c47e05680e5b60735b9a9e84"><td class="memItemLeft" align="right" valign="top">static const std::unordered_map&lt; <a class="el" href="classgdl_1_1GiraffeDataLink.html#ab36c4e12fe2b8dfed805314ec8324c74">gdl::GiraffeDataLink::ConnectionStatus</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gdl__terminal_8cpp.html#a64221705c47e05680e5b60735b9a9e84">GDL_CONNECTION_STATE_MAP</a></td></tr>
+<tr class="separator:a64221705c47e05680e5b60735b9a9e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a763193ced89d15d2ed3405d38c059ef6"><td class="memItemLeft" align="right" valign="top">static const std::unordered_map&lt; <a class="el" href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3">gdl::GiraffeDataLink::Status</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gdl__terminal_8cpp.html#a763193ced89d15d2ed3405d38c059ef6">GDL_STATUS_MAP</a></td></tr>
+<tr class="separator:a763193ced89d15d2ed3405d38c059ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Giraffe Data Link Terminal. </p>
+<p>=*========GIRAFFE========*= A Unified Flight Command and Control System <a href="https://github.com/joshua-jerred/Giraffe">https://github.com/joshua-jerred/Giraffe</a> <a href="https://giraffe.joshuajer.red/">https://giraffe.joshuajer.red/</a> =*=======================*=</p>
+<p>=*=======================*= </p><dl class="section author"><dt>Author</dt><dd>Joshua Jerred (<a href="https://joshuajer.red">https://joshuajer.red</a>) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2024-01-13 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>2024 (license to be defined) </dd></dl>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="ab701e3ac61a85b337ec5c1abaad6742d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab701e3ac61a85b337ec5c1abaad6742d">&#9670;&nbsp;</a></span>json</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="positional_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> =  nlohmann::json</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
@@ -137,7 +185,77 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespacegdl.html#a8d4a7e52e4d53b22b0fb3ff5963d3e5e">gdl::GdlConfig::print_new_messages</a>, and <a class="el" href="namespacegdl.html#ab02b54c5eca065090ce78e14c65ce54d">gdl::GdlConfig::user_id</a>.</p>
+<p class="reference">References <a class="el" href="classGdlTerminal.html#a6c4ec1ac757e27bf891453c72d49ff06">GdlTerminal::run()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__terminal_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.svg" width="1416" height="1120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a64221705c47e05680e5b60735b9a9e84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64221705c47e05680e5b60735b9a9e84">&#9670;&nbsp;</a></span>GDL_CONNECTION_STATE_MAP</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::unordered_map&lt;<a class="el" href="classgdl_1_1GiraffeDataLink.html#ab36c4e12fe2b8dfed805314ec8324c74">gdl::GiraffeDataLink::ConnectionStatus</a>, std::string&gt; GDL_CONNECTION_STATE_MAP</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">        {<a class="code" href="classgdl_1_1GiraffeDataLink.html#ab36c4e12fe2b8dfed805314ec8324c74aa5afd6edd5336d91316964e493936858">gdl::GiraffeDataLink::ConnectionStatus::CONNECTED</a>, <span class="stringliteral">&quot;CONNECTED&quot;</span>},</div>
+<div class="line">        {<a class="code" href="classgdl_1_1GiraffeDataLink.html#ab36c4e12fe2b8dfed805314ec8324c74a99c8ce56e7ab246445d3b134724428f3">gdl::GiraffeDataLink::ConnectionStatus::DISCONNECTED</a>, <span class="stringliteral">&quot;DISCONNECTED&quot;</span>}}</div>
+<div class="ttc" id="aclassgdl_1_1GiraffeDataLink_html_ab36c4e12fe2b8dfed805314ec8324c74a99c8ce56e7ab246445d3b134724428f3"><div class="ttname"><a href="classgdl_1_1GiraffeDataLink.html#ab36c4e12fe2b8dfed805314ec8324c74a99c8ce56e7ab246445d3b134724428f3">gdl::GiraffeDataLink::ConnectionStatus::DISCONNECTED</a></div><div class="ttdeci">@ DISCONNECTED</div></div>
+<div class="ttc" id="aclassgdl_1_1GiraffeDataLink_html_ab36c4e12fe2b8dfed805314ec8324c74aa5afd6edd5336d91316964e493936858"><div class="ttname"><a href="classgdl_1_1GiraffeDataLink.html#ab36c4e12fe2b8dfed805314ec8324c74aa5afd6edd5336d91316964e493936858">gdl::GiraffeDataLink::ConnectionStatus::CONNECTED</a></div><div class="ttdeci">@ CONNECTED</div></div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="classGdlTerminal.html#af2f56a16f8c7e4a95a81e9f691a311ec">GdlTerminal::routeRequest()</a>.</p>
+
+</div>
+</div>
+<a id="a763193ced89d15d2ed3405d38c059ef6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a763193ced89d15d2ed3405d38c059ef6">&#9670;&nbsp;</a></span>GDL_STATUS_MAP</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::unordered_map&lt;<a class="el" href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3">gdl::GiraffeDataLink::Status</a>, std::string&gt; GDL_STATUS_MAP</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{{<a class="code" href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3abb1ca97ec761fc37101737ba0aa2e7c5">gdl::GiraffeDataLink::Status::ERROR</a>, <span class="stringliteral">&quot;ERROR&quot;</span>},</div>
+<div class="line">                   {<a class="code" href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3a09d4d696b4e935115b9313e3c412509a">gdl::GiraffeDataLink::Status::STOPPED</a>, <span class="stringliteral">&quot;STOPPED&quot;</span>},</div>
+<div class="line">                   {<a class="code" href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3a034312d8adc8099c1c6f53aaff745e26">gdl::GiraffeDataLink::Status::STARTING</a>, <span class="stringliteral">&quot;STARTING&quot;</span>},</div>
+<div class="line">                   {<a class="code" href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3a43491564ebcfd38568918efbd6e840fd">gdl::GiraffeDataLink::Status::RUNNING</a>, <span class="stringliteral">&quot;RUNNING&quot;</span>},</div>
+<div class="line">                   {<a class="code" href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3af6cdb3c6710b50ec65ee07f740847e10">gdl::GiraffeDataLink::Status::STOPPING</a>, <span class="stringliteral">&quot;STOPPING&quot;</span>}}</div>
+<div class="ttc" id="aclassgdl_1_1GiraffeDataLink_html_a1387b949fad9f056a2df5f8a43249aa3a034312d8adc8099c1c6f53aaff745e26"><div class="ttname"><a href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3a034312d8adc8099c1c6f53aaff745e26">gdl::GiraffeDataLink::Status::STARTING</a></div><div class="ttdeci">@ STARTING</div></div>
+<div class="ttc" id="aclassgdl_1_1GiraffeDataLink_html_a1387b949fad9f056a2df5f8a43249aa3a09d4d696b4e935115b9313e3c412509a"><div class="ttname"><a href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3a09d4d696b4e935115b9313e3c412509a">gdl::GiraffeDataLink::Status::STOPPED</a></div><div class="ttdeci">@ STOPPED</div></div>
+<div class="ttc" id="aclassgdl_1_1GiraffeDataLink_html_a1387b949fad9f056a2df5f8a43249aa3a43491564ebcfd38568918efbd6e840fd"><div class="ttname"><a href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3a43491564ebcfd38568918efbd6e840fd">gdl::GiraffeDataLink::Status::RUNNING</a></div><div class="ttdeci">@ RUNNING</div></div>
+<div class="ttc" id="aclassgdl_1_1GiraffeDataLink_html_a1387b949fad9f056a2df5f8a43249aa3abb1ca97ec761fc37101737ba0aa2e7c5"><div class="ttname"><a href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3abb1ca97ec761fc37101737ba0aa2e7c5">gdl::GiraffeDataLink::Status::ERROR</a></div><div class="ttdeci">@ ERROR</div></div>
+<div class="ttc" id="aclassgdl_1_1GiraffeDataLink_html_a1387b949fad9f056a2df5f8a43249aa3af6cdb3c6710b50ec65ee07f740847e10"><div class="ttname"><a href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3af6cdb3c6710b50ec65ee07f740847e10">gdl::GiraffeDataLink::Status::STOPPING</a></div><div class="ttdeci">@ STOPPING</div></div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="classGdlTerminal.html#af2f56a16f8c7e4a95a81e9f691a311ec">GdlTerminal::routeRequest()</a>.</p>
 
 </div>
 </div>

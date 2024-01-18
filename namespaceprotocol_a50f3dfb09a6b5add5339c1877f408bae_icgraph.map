@@ -1,9 +1,12 @@
 <map id="protocol::createResponseMessage" name="protocol::createResponseMessage">
-<area shape="rect" id="node1" title="Create a Response Message." alt="" coords="831,100,1017,141"/>
+<area shape="rect" id="node1" title="Create a Response Message." alt="" coords="831,188,1017,229"/>
 <area shape="rect" id="node2" href="$group__ServerModule.html#ac2e5e15f3607c998351f3b2981b1f540" title="This function responds to data requests." alt="" coords="299,5,501,47"/>
-<area shape="rect" id="node4" href="$group__ServerModule.html#aa4ad8544dc8431ede7414c834a8a9257" title="This function responds to a ping request." alt="" coords="301,71,499,112"/>
-<area shape="rect" id="node5" href="$group__ServerModule.html#ae84c028fe967e32b38178284373244a0" title="This function responds to a setting request." alt="" coords="567,129,783,171"/>
-<area shape="rect" id="node6" href="$group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="581,195,769,236"/>
+<area shape="rect" id="node4" href="$group__ServerModule.html#aa4ad8544dc8431ede7414c834a8a9257" title="This function responds to a ping request." alt="" coords="301,188,499,229"/>
+<area shape="rect" id="node5" href="$group__ServerModule.html#ae84c028fe967e32b38178284373244a0" title="This function responds to a setting request." alt="" coords="567,247,783,288"/>
+<area shape="rect" id="node6" href="$classGdlTerminal.html#af2f56a16f8c7e4a95a81e9f691a311ec" title=" " alt="" coords="577,313,772,339"/>
+<area shape="rect" id="node9" href="$group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="581,129,769,171"/>
 <area shape="rect" id="node3" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,137,233,163"/>
-<area shape="rect" id="node7" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="281,239,519,280"/>
+<area shape="rect" id="node7" href="$classGdlTerminal.html#a6c4ec1ac757e27bf891453c72d49ff06" title=" " alt="" coords="335,313,465,339"/>
+<area shape="rect" id="node8" href="$gdl__terminal_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="92,313,147,339"/>
+<area shape="rect" id="node10" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="281,71,519,112"/>
 </map>

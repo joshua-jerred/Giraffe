@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('structgdl_1_1Message.html',''); initRe
 <div class="dynheader">
 Collaboration diagram for gdl::Message:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structgdl_1_1Message__coll__graph.svg" width="246" height="258"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structgdl_1_1Message__coll__graph.svg" width="510" height="258"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -133,6 +133,11 @@ Public Types</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a789056fc0dde7e2be09585de1ae4a10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad51a286dc8ba318398f6b215d38cd40a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html#ad51a286dc8ba318398f6b215d38cd40a">UpperLayer</a> { <a class="el" href="structgdl_1_1Message.html#ad51a286dc8ba318398f6b215d38cd40aa0db45d2a4141101bdfe48e3314cfbca3">UNDEFINED</a>
+, <a class="el" href="structgdl_1_1Message.html#ad51a286dc8ba318398f6b215d38cd40aa880f7aeaf072c7bbe6f0f1546d2978b8">APRS_MESSAGE</a>
+, <a class="el" href="structgdl_1_1Message.html#ad51a286dc8ba318398f6b215d38cd40aa30c55963c52ea89f160e1f94330d4618">APRS_GPS</a>
+ }</td></tr>
+<tr class="separator:ad51a286dc8ba318398f6b215d38cd40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -149,8 +154,13 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a4e052444aaae1563e57bfc6007964254"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab15135dbbe3d3c45f6876deee89ce936"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html#ab15135dbbe3d3c45f6876deee89ce936">retries</a> = 0</td></tr>
 <tr class="separator:ab15135dbbe3d3c45f6876deee89ce936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f914a89ede735d9f311baab0db2475"><td class="memItemLeft" align="right" valign="top">bst::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html#aa0f914a89ede735d9f311baab0db2475">time_decoded</a> {}</td></tr>
+<tr class="memdesc:aa0f914a89ede735d9f311baab0db2475"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set when the message is decoded. Used to keep track of the age of a message.  <a href="structgdl_1_1Message.html#aa0f914a89ede735d9f311baab0db2475">More...</a><br /></td></tr>
+<tr class="separator:aa0f914a89ede735d9f311baab0db2475"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af410152f4b7b7e81f6fd2016fadcff2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10d">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html#af410152f4b7b7e81f6fd2016fadcff2f">type</a> {<a class="el" href="structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10da0db45d2a4141101bdfe48e3314cfbca3">Type::UNDEFINED</a>}</td></tr>
 <tr class="separator:af410152f4b7b7e81f6fd2016fadcff2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9e06c4da244ff59474a4bf2d168feb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgdl_1_1Message.html#ad51a286dc8ba318398f6b215d38cd40a">UpperLayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html#ad9e06c4da244ff59474a4bf2d168feb5">upper_layer</a> {<a class="el" href="structgdl_1_1Message.html#ad51a286dc8ba318398f6b215d38cd40aa0db45d2a4141101bdfe48e3314cfbca3">UpperLayer::UNDEFINED</a>}</td></tr>
+<tr class="separator:ad9e06c4da244ff59474a4bf2d168feb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A generic message struct for GDL - Layer 4. </p>
@@ -180,6 +190,33 @@ Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="a789056fc0dde7e2be09585de1ae4a10daa19e33a03873dfa815e53ad6fcece8bf"></a>EXCHANGE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a789056fc0dde7e2be09585de1ae4a10da0fc437bc317835cad5faafc12a83fad5"></a>ACK&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a789056fc0dde7e2be09585de1ae4a10daa68c6c77586d4c740ec1b75b65b37946"></a>NACK&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ad51a286dc8ba318398f6b215d38cd40a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad51a286dc8ba318398f6b215d38cd40a">&#9670;&nbsp;</a></span>UpperLayer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structgdl_1_1Message.html#ad51a286dc8ba318398f6b215d38cd40a">gdl::Message::UpperLayer</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad51a286dc8ba318398f6b215d38cd40aa0db45d2a4141101bdfe48e3314cfbca3"></a>UNDEFINED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad51a286dc8ba318398f6b215d38cd40aa880f7aeaf072c7bbe6f0f1546d2978b8"></a>APRS_MESSAGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad51a286dc8ba318398f6b215d38cd40aa30c55963c52ea89f160e1f94330d4618"></a>APRS_GPS&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -248,7 +285,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#a2200a18922a94f9f0c3e73aaa8f84afb">gdl::GiraffeDataLink::broadcastMessage()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a91eb11738b4cc02e3d3810727253f3cb">gdl::GiraffeDataLink::exchangeMessage()</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#a3ec4e04f946522deeefa2284522d23e6">modules::TelemetryModule::loop()</a>, <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ac663956e8f0ada79182740bb24980a8a">gdl::AprsNetworkLayer::rxMessage()</a>, and <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ad9a652a653199419ae48d83807e6b798">gdl::AprsNetworkLayer::txMessage()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#a2200a18922a94f9f0c3e73aaa8f84afb">gdl::GiraffeDataLink::broadcastMessage()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a91eb11738b4cc02e3d3810727253f3cb">gdl::GiraffeDataLink::exchangeMessage()</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54">modules::TelemetryModule::processTelemetryMessageQueue()</a>, <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ac663956e8f0ada79182740bb24980a8a">gdl::AprsNetworkLayer::rxMessage()</a>, and <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ad9a652a653199419ae48d83807e6b798">gdl::AprsNetworkLayer::txMessage()</a>.</p>
 
 </div>
 </div>
@@ -268,6 +305,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad9e06c4da244ff59474a4bf2d168feb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9e06c4da244ff59474a4bf2d168feb5">&#9670;&nbsp;</a></span>upper_layer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgdl_1_1Message.html#ad51a286dc8ba318398f6b215d38cd40a">UpperLayer</a> gdl::Message::upper_layer {<a class="el" href="structgdl_1_1Message.html#ad51a286dc8ba318398f6b215d38cd40aa0db45d2a4141101bdfe48e3314cfbca3">UpperLayer::UNDEFINED</a>}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8a9fcc3df466fde4a67c94e965585590"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8a9fcc3df466fde4a67c94e965585590">&#9670;&nbsp;</a></span>data</h2>
 
@@ -280,7 +331,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#a2200a18922a94f9f0c3e73aaa8f84afb">gdl::GiraffeDataLink::broadcastMessage()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a91eb11738b4cc02e3d3810727253f3cb">gdl::GiraffeDataLink::exchangeMessage()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a9a57e98fe17bc1ccfc6592d1f2eca165">gdl::GiraffeDataLink::gdlThread()</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#a3ec4e04f946522deeefa2284522d23e6">modules::TelemetryModule::loop()</a>, <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ac663956e8f0ada79182740bb24980a8a">gdl::AprsNetworkLayer::rxMessage()</a>, <a class="el" href="classgdl_1_1TransportLayer.html#afd0aa505511450d162ffce9c9467f9e0">gdl::TransportLayer::sendAck()</a>, and <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ad9a652a653199419ae48d83807e6b798">gdl::AprsNetworkLayer::txMessage()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#a2200a18922a94f9f0c3e73aaa8f84afb">gdl::GiraffeDataLink::broadcastMessage()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a91eb11738b4cc02e3d3810727253f3cb">gdl::GiraffeDataLink::exchangeMessage()</a>, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a9a57e98fe17bc1ccfc6592d1f2eca165">gdl::GiraffeDataLink::gdlThread()</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54">modules::TelemetryModule::processTelemetryMessageQueue()</a>, <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ac663956e8f0ada79182740bb24980a8a">gdl::AprsNetworkLayer::rxMessage()</a>, <a class="el" href="classgdl_1_1TransportLayer.html#afd0aa505511450d162ffce9c9467f9e0">gdl::TransportLayer::sendAck()</a>, and <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ad9a652a653199419ae48d83807e6b798">gdl::AprsNetworkLayer::txMessage()</a>.</p>
 
 </div>
 </div>
@@ -296,7 +347,25 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgdl_1_1TransportLayer.html#ae6e3efbdb5afade7ec6d841832d3a8aa">gdl::TransportLayer::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1TransportLayer.html#ad25cbf683abe2cffc22dec9c6de34e81">gdl::TransportLayer::update()</a>.</p>
+
+</div>
+</div>
+<a id="aa0f914a89ede735d9f311baab0db2475"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0f914a89ede735d9f311baab0db2475">&#9670;&nbsp;</a></span>time_decoded</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bst::Time gdl::Message::time_decoded {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set when the message is decoded. Used to keep track of the age of a message. </p>
+
+<p class="reference">Referenced by <a class="el" href="classgdl_1_1GiraffeDataLink.html#a2f908b526ba196873e216c3952fa982b">gdl::GiraffeDataLink::getReceivedMessage()</a>.</p>
 
 </div>
 </div>

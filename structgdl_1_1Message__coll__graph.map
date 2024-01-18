@@ -1,6 +1,8 @@
 <map id="gdl::Message" name="gdl::Message">
-<area shape="rect" id="node1" title="A generic message struct for GDL &#45; Layer 4." alt="" coords="77,160,185,252"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,80,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="105,5,157,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="181,5,240,83"/>
+<area shape="rect" id="node1" title="A generic message struct for GDL &#45; Layer 4." alt="" coords="216,160,324,252"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,60,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="127,5,202,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="227,5,324,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="368,5,420,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="445,5,503,83"/>
 </map>

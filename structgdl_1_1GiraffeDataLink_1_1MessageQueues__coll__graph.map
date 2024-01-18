@@ -1,7 +1,8 @@
 <map id="gdl::GiraffeDataLink::MessageQueues" name="gdl::GiraffeDataLink::MessageQueues">
-<area shape="rect" id="node1" title=" " alt="" coords="163,373,317,465"/>
-<area shape="rect" id="node2" href="$classgdl_1_1MessageQueue.html" title="A queue for messages." alt="" coords="161,145,319,281"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,5,184,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="208,5,272,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="296,5,363,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="106,373,261,465"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,167,180,259"/>
+<area shape="rect" id="node3" href="$classgdl_1_1MessageQueue.html" title="A queue for messages." alt="" coords="204,145,363,281"/>
+<area shape="rect" id="node4" title=" " alt="" coords="49,5,227,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="251,5,315,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="339,5,406,83"/>
 </map>

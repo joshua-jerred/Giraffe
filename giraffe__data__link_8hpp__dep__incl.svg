@@ -35,7 +35,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="gdl__terminal_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="gdl__terminal_8cpp.html" target="_top" xlink:title="Giraffe Data Link Terminal.">
 <polygon fill="none" stroke="black" points="245,-112.5 245,-131.5 343,-131.5 343,-112.5 245,-112.5"/>
 <text text-anchor="middle" x="294" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">gdl_terminal.cpp</text>
 </a>

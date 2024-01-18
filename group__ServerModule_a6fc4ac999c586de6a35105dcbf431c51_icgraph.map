@@ -1,4 +1,6 @@
 <map id="sock::TcpSocketServer::receive" name="sock::TcpSocketServer::receive">
-<area shape="rect" id="node1" title=" " alt="" coords="229,5,396,47"/>
-<area shape="rect" id="node2" href="$group__ServerModule.html#a21196a1a31412de5ff1754a4bddcfd3a" title="Loop module function for the server module." alt="" coords="5,5,181,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="332,35,499,76"/>
+<area shape="rect" id="node2" href="$group__ServerModule.html#a21196a1a31412de5ff1754a4bddcfd3a" title="Loop module function for the server module." alt="" coords="108,5,284,47"/>
+<area shape="rect" id="node3" href="$classGdlTerminal.html#a6c4ec1ac757e27bf891453c72d49ff06" title=" " alt="" coords="131,71,261,98"/>
+<area shape="rect" id="node4" href="$gdl__terminal_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,71,60,98"/>
 </map>

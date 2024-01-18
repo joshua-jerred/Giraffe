@@ -80,16 +80,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc__configuration_8cpp.html",
-"classdata_1_1GpsFrameStream.html#a550c2fb1c9e2e077bde5fda6b6f9fdef",
-"classextension_1_1Ds18b20Extension.html#aaa99bc040af229aa386f991b1d9ee47a",
-"classextension_1_1SimPressureSensor.html#aa7ec0098dfde16a54eb616c73ba3046e",
-"classmodules_1_1DataModule.html#ad46e8e7202d89b6ec10929d33a67628c",
-"configuration_8cpp.html",
-"group__DataLog.html#ga27d5e8fcbabb5a3641fde27faa5a49c8",
-"namespacedata.html#a1843909ee9dc73d01c721427f3836781",
-"namespaceubx.html#aa59bb7b3979903b2836782492714b440",
-"structdata_1_1blocks_1_1ConfigurationStats.html",
-"ubx__ids_8hpp.html#af3cebe1dd2c68dac710c0c4936698ddb"
+"classdata_1_1Frame.html#a21145c86e25d76061706ea66044139e0",
+"classextension_1_1Ds18b20Extension.html#a65da188590e7f56c25fdc86370f5c10c",
+"classextension_1_1SimPressureSensor.html#a3e5d32890e069c49b3641d0e01322364",
+"classmodules_1_1DataModule.html#a3b249804c7e412855b1429ccd639cc38",
+"classncurs_1_1Environment.html#a9226d93b637e165155348fb394f77bb1",
+"functions_m.html",
+"group__ServerModule.html#classmodules_1_1ServerModule",
+"namespacegiraffe.html",
+"protocol_8hpp_source.html",
+"structmodules_1_1ExtensionModule_1_1ExtContainer.html#afedb3705c2142d066d60ac722ce915ff"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

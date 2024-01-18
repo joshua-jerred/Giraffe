@@ -2,7 +2,7 @@ var namespacegdl =
 [
     [ "AprsNetworkLayer", "classgdl_1_1AprsNetworkLayer.html", "classgdl_1_1AprsNetworkLayer" ],
     [ "GdlConfig", "namespacegdl.html#structgdl_1_1GdlConfig", "namespacegdl_structgdl_1_1GdlConfig_dup" ],
-    [ "GdlStatus", "structgdl_1_1GdlStatus.html", "structgdl_1_1GdlStatus" ],
+    [ "GdlStatus", "namespacegdl.html#structgdl_1_1GdlStatus", "namespacegdl_structgdl_1_1GdlStatus_dup" ],
     [ "GiraffeDataLink", "classgdl_1_1GiraffeDataLink.html", "classgdl_1_1GiraffeDataLink" ],
     [ "Message", "structgdl_1_1Message.html", "structgdl_1_1Message" ],
     [ "MessageQueue", "classgdl_1_1MessageQueue.html", "classgdl_1_1MessageQueue" ],

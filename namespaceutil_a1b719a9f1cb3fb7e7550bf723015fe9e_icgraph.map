@@ -17,7 +17,7 @@
 <area shape="rect" id="node33" href="$classdata__middleware_1_1InfluxDb.html#a1c9b38266a11676e158a34d652bcaf69" title=" " alt="" coords="559,1225,757,1267"/>
 <area shape="rect" id="node34" href="$classdata__middleware_1_1InfluxDb.html#adc204b9bf0e4eff914bfd68e51383c9e" title=" " alt="" coords="559,1291,757,1332"/>
 <area shape="rect" id="node35" href="$classdata__middleware_1_1DataFormatter.html#aa1d67f3593467a202659b221472cab9f" title=" " alt="" coords="539,1356,777,1397"/>
-<area shape="rect" id="node36" href="$classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed" title="Called when a command is received." alt="" coords="559,1421,757,1463"/>
+<area shape="rect" id="node36" href="$classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed" title="Process commands that are received from the flight runner." alt="" coords="559,1421,757,1463"/>
 <area shape="rect" id="node37" href="$classmodules_1_1DataModule.html#a22e5c03008cb6d2015dd0097869f2fa3" title="Process all packets from the log stream." alt="" coords="575,1785,741,1827"/>
 <area shape="rect" id="node39" href="$classconsole__pages_1_1Pages.html#a67d35ee34832ada202ae3efbba51ac7b" title=" " alt="" coords="576,912,740,953"/>
 <area shape="rect" id="node40" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="553,1603,763,1630"/>

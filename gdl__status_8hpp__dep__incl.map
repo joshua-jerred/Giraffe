@@ -1,14 +1,14 @@
 <map id="gdl_status.hpp" name="gdl_status.hpp">
-<area shape="rect" id="node1" title="GDL Status class/interface." alt="" coords="237,5,355,32"/>
-<area shape="rect" id="node2" href="$gdl__network__layer_8hpp.html" title="The network layer for the Giraffe Data Link." alt="" coords="149,80,318,107"/>
-<area shape="rect" id="node11" href="$giraffe__data__link_8hpp.html" title="The external interface for the Giraffe Data Link." alt="" coords="235,229,394,256"/>
-<area shape="rect" id="node3" href="$gdl__network__layer__aprs_8hpp.html" title="The network layer with APRS messaging for the Giraffe Data Link." alt="" coords="5,229,211,256"/>
-<area shape="rect" id="node10" href="$gdl__transport__layer_8hpp.html" title="The GDL TransportLayer class/interface." alt="" coords="146,155,321,181"/>
-<area shape="rect" id="node4" href="$telemetry__module_8hpp.html" title="The telemetry module." alt="" coords="197,304,368,331"/>
-<area shape="rect" id="node9" href="$gdl__terminal_8cpp.html" title=" " alt="" coords="43,304,173,331"/>
-<area shape="rect" id="node5" href="$flight__runner_8hpp.html" title=" " alt="" coords="129,379,260,405"/>
-<area shape="rect" id="node8" href="$telemetry__module_8cpp.html" title="The telemetry module." alt="" coords="285,379,454,405"/>
-<area shape="rect" id="node6" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="64,453,195,480"/>
-<area shape="rect" id="node7" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="219,453,301,480"/>
-<area shape="rect" id="node12" href="$giraffe__data__link_8cpp.html" title="The main class for Giraffe Data Link." alt="" coords="393,304,551,331"/>
+<area shape="rect" id="node1" title="GDL Status class/interface." alt="" coords="130,5,247,32"/>
+<area shape="rect" id="node2" href="$gdl__network__layer_8hpp.html" title="The network layer for the Giraffe Data Link." alt="" coords="165,80,335,107"/>
+<area shape="rect" id="node11" href="$giraffe__data__link_8hpp.html" title="The external interface for the Giraffe Data Link." alt="" coords="173,304,332,331"/>
+<area shape="rect" id="node3" href="$gdl__network__layer__aprs_8hpp.html" title="The network layer with APRS messaging for the Giraffe Data Link." alt="" coords="281,155,486,181"/>
+<area shape="rect" id="node10" href="$gdl__transport__layer_8hpp.html" title="The GDL TransportLayer class/interface." alt="" coords="165,229,340,256"/>
+<area shape="rect" id="node4" href="$telemetry__module_8hpp.html" title="The telemetry module." alt="" coords="343,379,514,405"/>
+<area shape="rect" id="node9" href="$gdl__terminal_8cpp.html" title="Giraffe Data Link Terminal." alt="" coords="189,379,319,405"/>
+<area shape="rect" id="node5" href="$flight__runner_8hpp.html" title=" " alt="" coords="275,453,406,480"/>
+<area shape="rect" id="node8" href="$telemetry__module_8cpp.html" title="The telemetry module." alt="" coords="431,453,600,480"/>
+<area shape="rect" id="node6" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="210,528,341,555"/>
+<area shape="rect" id="node7" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="365,528,447,555"/>
+<area shape="rect" id="node12" href="$giraffe__data__link_8cpp.html" title="The main class for Giraffe Data Link." alt="" coords="5,379,164,405"/>
 </map>

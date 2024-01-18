@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['nack_2572',['NACK',['../structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10daa68c6c77586d4c740ec1b75b65b37946',1,'gdl::Message::NACK()'],['../namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4aa68c6c77586d4c740ec1b75b65b37946',1,'ubx::NACK()']]],
-  ['no_5ffix_2573',['NO_FIX',['../namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8aa80630704b93114ed9e817a3f53f59c7',1,'ubx::NO_FIX()'],['../namespacedata.html#ab828a916e0a524f5d9d29e881a1e829baa80630704b93114ed9e817a3f53f59c7',1,'data::NO_FIX()']]],
-  ['none_2574',['NONE',['../namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4ab50339a10e1de285ac99d4c3990b8693',1,'ubx']]]
+  ['nack_2654',['NACK',['../structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10daa68c6c77586d4c740ec1b75b65b37946',1,'gdl::Message::NACK()'],['../namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4aa68c6c77586d4c740ec1b75b65b37946',1,'ubx::NACK()']]],
+  ['no_5ffix_2655',['NO_FIX',['../namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8aa80630704b93114ed9e817a3f53f59c7',1,'ubx::NO_FIX()'],['../namespacedata.html#ab828a916e0a524f5d9d29e881a1e829baa80630704b93114ed9e817a3f53f59c7',1,'data::NO_FIX()']]],
+  ['none_2656',['NONE',['../namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4ab50339a10e1de285ac99d4c3990b8693',1,'ubx']]]
 ];
