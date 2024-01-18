@@ -157,7 +157,9 @@ containing the following:
 - 2x 1-Wire Headers for DS18B20 Temperature Sensors
 - 1x I2C Header for general expansion
 
->![image](https://user-images.githubusercontent.com/19292194/211131524-67701138-8dad-438a-b97c-4af60ae09b90.png)
+>![image](https://github.com/joshua-jerred/Giraffe/assets/19292194/62c23bb5-ed60-413a-afd7-d0d6ed432b1c)
+>![image](https://github.com/joshua-jerred/Giraffe/assets/19292194/19185073-5e60-4e80-b6dc-274b23ee6fc3)
+
 >You'll notice a lot of open space on the top of the PCB, this is to isolate
 the SAM-M8Q and to provide it a large ground plane. Although the ground plane
 size is out of spec I have had no issues with acquiring and maintaining a GPS
