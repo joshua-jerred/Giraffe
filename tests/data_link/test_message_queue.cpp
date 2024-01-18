@@ -8,7 +8,8 @@ TEST(GdlMessageQueueTest, Push) {
   constexpr uint8_t max_queue_size = 10;
   gdl::MessageQueue queue{max_queue_size};
 
-  gdl::Message message{"1", gdl::Message::Type::UNDEFINED, "test"};
+  gdl::Message message{"1", gdl::Message::Type::UNDEFINED,
+                       gdl::Message::UpperLayer::UNDEFINED, "test"};
 
   EXPECT_EQ(queue.size(), 0);
   EXPECT_TRUE(queue.push(message));
@@ -19,7 +20,8 @@ TEST(GdlMessageQueueTest, PushFull) {
   constexpr uint8_t max_queue_size = 10;
   gdl::MessageQueue queue{max_queue_size};
 
-  gdl::Message message{"1", gdl::Message::Type::UNDEFINED, "test"};
+  gdl::Message message{"1", gdl::Message::Type::UNDEFINED,
+                       gdl::Message::UpperLayer::UNDEFINED, "test"};
 
   for (uint8_t i = 0; i < max_queue_size; ++i) {
     EXPECT_TRUE(queue.push(message));
@@ -32,7 +34,8 @@ TEST(GdlMessageQueueTest, Pop) {
   constexpr uint8_t max_queue_size = 10;
   gdl::MessageQueue queue{max_queue_size};
 
-  gdl::Message message{"1", gdl::Message::Type::UNDEFINED, "test"};
+  gdl::Message message{"1", gdl::Message::Type::UNDEFINED,
+                       gdl::Message::UpperLayer::UNDEFINED, "test"};
 
   for (uint8_t i = 0; i < max_queue_size; ++i) {
     EXPECT_TRUE(queue.push(message));

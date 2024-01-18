@@ -5,7 +5,6 @@ option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF)
 option(EXTENSION_DEBUG_PRINT "Enable Debug Printing for Extensions" OFF)
 # ----------------- ***  END CONFIGURABLE ITEMS  *** --------------------------
 
-
 # --- DIRECTORIES --- # - need to get rid of these
 set(COMMON_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/common)
 set(COMMON_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/common)
@@ -85,13 +84,16 @@ find_package(nlohmann_json 3.9.0 REQUIRED) # nlhomann_json
 find_package(CURL REQUIRED)                # curl
 # ----------------------------
 
+# add_definitions(-DDONT_ADD_SIGNAL_EASEL_BOOSTER_SEAT)
+# set(DONT_ADD_SIGNAL_EASEL_BOOSTER_SEAT 1)
+
 # ---- Giraffe Components ----
 add_subdirectory(project)                  # Auto-generated files
 add_subdirectory(src/common)               # Common
 add_subdirectory(src/flight_system)        # Flight System
 add_subdirectory(src/data_link)            # Data Link
 add_subdirectory(lib/SignalEasel)          # SignalEasel
-add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
+# add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
 add_subdirectory(lib/bzip2-cpp)            # bzip2-cpp
 
 # Unit Tests

@@ -4,7 +4,8 @@ import {
   Card,
   CardMasonryLayout,
 } from "../core/PageParts";
-import { DataBox } from "../components/StaticDataBlock";
+import { DataBlock } from "../components/DataBlock";
+import { Map } from "../components/map";
 
 function CommandCenterPage() {
   return (
@@ -12,8 +13,14 @@ function CommandCenterPage() {
       <PageTitle>Giraffe Ground Station - Command Center</PageTitle>
       <PageContent>
         <CardMasonryLayout>
-          <Card title="Ground Station Status">
-          <DataBox resource="ggs" category="status" />
+          <Card title="Flight Status">
+            <DataBlock resource="flight_data" category="general" />
+          </Card>
+          <Card title="Tracking">
+            <Map />
+          </Card>
+          <Card title="Location">
+            <DataBlock resource="flight_data" category="location" />
           </Card>
         </CardMasonryLayout>
       </PageContent>

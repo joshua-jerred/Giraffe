@@ -21,6 +21,9 @@
 #include <functional>
 #include <thread>
 
+#include "BoosterSeat/timer.hpp"
+#include "SignalEasel/aprs.hpp"
+
 #include "gdl_configuration.hpp"
 #include "gdl_message.hpp"
 #include "gdl_message_queue.hpp"
@@ -77,11 +80,20 @@ public:
    * @brief Get the connection status of the GDL instance.
    * @return GiraffeDataLink::ConnectionStatus - The connection status
    */
-  ConnectionStatus getConnectionStatus() const;
+  ConnectionStatus getUplinkStatus() const {
+    return uplink_status_;
+  }
+
+  ConnectionStatus getDownlinkStatus() const {
+    return downlink_status_;
+  }
 
   bool exchangeMessage(std::string message);
 
   bool broadcastMessage(std::string message);
+
+  bool
+  broadcastAprsLocation(signal_easel::aprs::PositionPacket positional_data);
 
   /**
    * @brief Get a message from the receive queue.
@@ -92,9 +104,13 @@ public:
    */
   bool getReceivedMessage(Message &message);
 
+  bool getReceivedAprsGpsPacket(signal_easel::aprs::PositionPacket &packet);
+
   int getExchangeQueueSize() const;
   int getBroadcastQueueSize() const;
   int getReceiveQueueSize() const;
+  int getAprsGpsTxQueueSize() const;
+  int getAprsGpsRxQueueSize() const;
 
   GdlStatus getGdlStatus() {
     std::lock_guard<std::mutex> lock(gdl_status_lock_);
@@ -118,6 +134,8 @@ private:
     MessageQueue exchange;
     MessageQueue broadcast;
     MessageQueue received;
+    std::queue<signal_easel::aprs::PositionPacket> aprs_gps_tx_queue{};
+    std::queue<signal_easel::aprs::PositionPacket> aprs_gps_rx_queue{};
   };
 
   /**
@@ -148,12 +166,16 @@ private:
   /**
    * @brief The status of the connection.
    */
-  std::atomic<ConnectionStatus> connection_status_{
+  std::atomic<ConnectionStatus> uplink_status_{ConnectionStatus::DISCONNECTED};
+  std::atomic<ConnectionStatus> downlink_status_{
       ConnectionStatus::DISCONNECTED};
 
   std::mutex gdl_status_lock_{};
   GdlStatus gdl_status_{};
   uint16_t message_id_ = 0;
+
+  bst::Timer uplink_timeout_{config_.uplink_timeout_seconds * 1000};
+  bst::Timer downlink_timeout_{config_.downlink_timeout_seconds * 1000};
 };
 
 } // namespace gdl

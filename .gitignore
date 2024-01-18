@@ -1,7 +1,9 @@
 # VS Code User and Workspace Settings
 .vscode/*
+.vscode/settings.json
 #.timetracker
 .VSCodeCounter
+.cache
 
 # CMake Build Files
 build

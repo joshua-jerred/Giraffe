@@ -30,6 +30,8 @@ module.exports = class GfsConnection {
 
     this.data_sync = new GfsDataSync(global_state);
     this.setting_sync = new GfsSettingSync(global_state);
+
+    this.recent_location_data = {};
   }
 
   getData(category) {
@@ -45,17 +47,32 @@ module.exports = class GfsConnection {
   }
 
   getMsSinceLastUpdate(category) {
-    return this.data_sync.getMsSinceLastUpdate(category);
+    let val = this.data_sync.getMsSinceLastUpdate(category);
+    return val;
   }
 
   doSettingsExist(category) {
     return this.setting_sync.doesDataExist(category);
   }
 
+  getRecentLocationData() {
+    return this.recent_location_data;
+  }
+
   update() {
     this.data_sync.update();
     this.setting_sync.update();
     this.connected = this.data_sync.getConnectionStatus();
+
+    if (this.doesDataExist("location_data")) {
+      this.recent_location_data = this.getData("location_data");
+      if (!this.recent_location_data.hasOwnProperty("last_valid_gps_frame")) {
+        this.recent_location_data = null;
+        return;
+      }
+      this.recent_location_data =
+        this.recent_location_data.last_valid_gps_frame;
+    }
   }
 
   get status() {

@@ -5,7 +5,7 @@ import Tooltip from "./Tooltip";
 
 import {} from "giraffe-protocol";
 
-import { GGS_API } from "../api_interface/ws_api";
+import { GGS_API } from "../api_interface/ggs_api";
 import { GwsGlobal } from "../GlobalContext";
 
 const DataBoxContainer = styled.div`
@@ -103,11 +103,7 @@ function Item({ id, item_data }) {
   );
 }
 
-export function DataStreamBlock({
-  resource,
-  category,
-  update_interval = 3000,
-}) {
+export function DataBlock({ resource, category, update_interval = 3000 }) {
   const { ggsAddress } = React.useContext(GwsGlobal);
   const { ggsConnectionStatus } = React.useContext(GGS_API);
 
@@ -121,7 +117,7 @@ export function DataStreamBlock({
 
   // First load the metadata
   React.useEffect(() => {
-    console.log("Loading metadata from: " + path);
+    // console.log("Loading metadata from: " + path);
     fetch(path + "&include=metadata")
       .then((response) => {
         if (!response.ok) {
@@ -165,7 +161,7 @@ export function DataStreamBlock({
         })
         .then((data) => {
           setMsSinceLastUpdate(data.metadata.MS_SINCE_LAST_UPDATE);
-          console.log("ms: ", msSinceLastUpdate);
+          // console.log("ms: ", msSinceLastUpdate);
           let new_items = data.values;
           let old_items = items;
           for (const [key, value] of Object.entries(new_items)) {

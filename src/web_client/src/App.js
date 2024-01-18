@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AppStyle } from "./style/theme";
 import Layout from "./core/Layout";
 
+import "./leaflet/leaflet.css";
+
 // Pages ----------
 // GGS
 import CommandCenter from "./pages/command_center";
@@ -10,14 +12,11 @@ import TelemetryPage from "./pages/telemetry";
 import TrackingPage from "./pages/tracking";
 import DataLogsPage from "./pages/data_logs";
 import ConfigureGgsPage from "./pages/configure_ggs";
-
 // GFS
 import GfsMonitorPage from "./pages/gfs/data_monitor";
 import ConfigureGfsPage from "./pages/gfs/configure_gfs";
-
 import ClientSetupPage from "./pages/client_setup";
 import DocsPage from "./pages/docs/docs";
-
 import NotFound from "./pages/404";
 
 function App() {

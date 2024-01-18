@@ -53,12 +53,32 @@ GiraffeDataLink::Status GiraffeDataLink::getStatus() const {
   return status_;
 }
 
-GiraffeDataLink::ConnectionStatus GiraffeDataLink::getConnectionStatus() const {
-  return connection_status_;
+bool GiraffeDataLink::getReceivedMessage(Message &message) {
+  bool res = queues_.received.pop(message);
+
+  constexpr int MAX_PACKET_AGE_SECONDS = 60;
+  if ((message.time_decoded.secondsFromNow() * -1) < MAX_PACKET_AGE_SECONDS) {
+    downlink_timeout_.reset();
+  }
+
+  return res;
 }
 
-bool GiraffeDataLink::getReceivedMessage(Message &message) {
-  return queues_.received.pop(message);
+bool GiraffeDataLink::getReceivedAprsGpsPacket(
+    signal_easel::aprs::PositionPacket &packet) {
+  if (queues_.aprs_gps_rx_queue.size() == 0) {
+    return false;
+  }
+  packet = queues_.aprs_gps_rx_queue.front();
+  queues_.aprs_gps_rx_queue.pop();
+
+  constexpr int MAX_PACKET_AGE_SECONDS = 60;
+  if ((packet.decoded_timestamp.secondsFromNow() * -1) <
+      MAX_PACKET_AGE_SECONDS) {
+    downlink_timeout_.reset();
+  }
+
+  return true;
 }
 
 int GiraffeDataLink::getExchangeQueueSize() const {
@@ -70,9 +90,15 @@ int GiraffeDataLink::getBroadcastQueueSize() const {
 int GiraffeDataLink::getReceiveQueueSize() const {
   return queues_.received.size();
 }
+int GiraffeDataLink::getAprsGpsTxQueueSize() const {
+  return queues_.aprs_gps_tx_queue.size();
+}
+int GiraffeDataLink::getAprsGpsRxQueueSize() const {
+  return queues_.aprs_gps_rx_queue.size();
+}
 
 void GiraffeDataLink::gdlThread() {
-  constexpr int kSleepIntervalMs = 2;
+  constexpr int kSleepIntervalMs = 5;
 
   status_ = Status::RUNNING;
   while (status_ == Status::RUNNING) {
@@ -83,9 +109,29 @@ void GiraffeDataLink::gdlThread() {
       if (res) {
         res = transport_layer_.send(msg);
       }
+    } else if (queues_.broadcast.size() > 0 && transport_layer_.isReady()) {
+      Message msg;
+      bool res = queues_.broadcast.pop(msg);
+      if (res) {
+        res = transport_layer_.send(msg);
+      }
+    } else if (queues_.aprs_gps_tx_queue.size() > 0 &&
+               transport_layer_.isReady()) {
+      signal_easel::aprs::PositionPacket packet =
+          queues_.aprs_gps_tx_queue.front();
+      queues_.aprs_gps_tx_queue.pop();
+
+      transport_layer_.send(packet);
     }
 
-    transport_layer_.update(queues_.received);
+    transport_layer_.update(queues_.received, queues_.aprs_gps_rx_queue);
+
+    // update uplink/downlink status based on timeouts
+    uplink_status_ = uplink_timeout_.isDone() ? ConnectionStatus::DISCONNECTED
+                                              : ConnectionStatus::CONNECTED;
+    downlink_status_ = downlink_timeout_.isDone()
+                           ? ConnectionStatus::DISCONNECTED
+                           : ConnectionStatus::CONNECTED;
 
     // update the status struct
     gdl_status_lock_.lock();
@@ -118,6 +164,7 @@ bool GiraffeDataLink::exchangeMessage(std::string message) {
 
 bool GiraffeDataLink::broadcastMessage(std::string message) {
   if (status_ != Status::RUNNING) {
+    /// @todo this seems like a bad idea.
     throw GiraffeException(DiagnosticId::GDL_invalidBroadcastCall);
   }
   Message msg;
@@ -125,6 +172,21 @@ bool GiraffeDataLink::broadcastMessage(std::string message) {
   msg.type = Message::Type::BROADCAST;
   msg.id = "";
   return queues_.broadcast.push(msg);
+}
+
+bool GiraffeDataLink::broadcastAprsLocation(
+    signal_easel::aprs::PositionPacket positional_data) {
+  if (status_ != Status::RUNNING) {
+    return false;
+  }
+
+  constexpr unsigned int MAX_APRS_TX_QUEUE_SIZE = 10;
+  if (queues_.broadcast.size() > MAX_APRS_TX_QUEUE_SIZE) {
+    return false;
+  }
+
+  queues_.aprs_gps_tx_queue.push(positional_data);
+  return true;
 }
 
 std::string GiraffeDataLink::getNextMessageId() {
