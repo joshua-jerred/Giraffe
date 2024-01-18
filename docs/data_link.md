@@ -1,9 +1,5 @@
 # Giraffe Data Link (GDL)
 
-## Introduction
-
-## Interface Class
-
 ### Class Members
 - `GDL()`: Constructor
 
@@ -13,11 +9,15 @@
 
 ```plantuml
 @startuml
-class GDL {
-    + GDL()
+class DataLink {
     + enable()
     + disable()
     + isEnabled()
+
+    + sendMessage()
+    + broadcastMessage()
+    + sendLocation()
+
 }
 @enduml
 ```

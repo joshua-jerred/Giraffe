@@ -1,6 +1,9 @@
 add_library(giraffe_data_link_core STATIC
   "./giraffe_data_link.cpp"
   "./message_queue.cpp"
+  "./network_layer.cpp"
+  "./physical_layer.cpp"
+  "./transport_layer.cpp"
 )
 target_include_directories(giraffe_data_link_core PUBLIC include)
 target_include_directories(giraffe_data_link_core PRIVATE "./")
