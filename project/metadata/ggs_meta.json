@@ -127,6 +127,20 @@
         "description": "The retention policy to use for the InfluxDB database.",
         "default": "INF"
       }
+    },
+    "aprs_fi":{
+      "enabled": {
+        "type": "bool",
+        "name": "APRS.fi Enabled",
+        "description": "Whether or not to enable APRS.fi tracking",
+        "default": false
+      },
+      "api_key": {
+        "type": "string",
+        "name": "APRS.fi API Key",
+        "description": "The API key for the APRS.fi API. https://aprs.fi/page/api",
+        "default": "none"
+      }
     }
   },
   "data": {
