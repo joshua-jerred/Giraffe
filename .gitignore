@@ -5,7 +5,8 @@
 .VSCodeCounter
 .cache
 .codechecker
-./version.ini
+version.ini
+src/common/version.js
 
 # CMake Build Files
 build

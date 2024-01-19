@@ -38,7 +38,7 @@ execute_process(
   TIMEOUT 3
 )
 if(NOT output EQUAL 0)
-  message(FATAL_ERROR "Failed to generate version files")
+  message(FATAL_ERROR "Failed to generate version files" ${version_output} ${output})
 endif() 
 file(READ ${CMAKE_SOURCE_DIR}/version.ini ver_file)
 string(

@@ -19,7 +19,7 @@ THIRD_PARTY_LIBRARIES = [
 
 # ./project/generate_version_files.py
 REPO_ROOT = os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + '/../')
-INPUT_VERSION_FILE = REPO_ROOT + '/project/version.ini'
+INPUT_VERSION_FILE = REPO_ROOT + '/project/version.input'
 OUTPUT_VERSION_FILE = REPO_ROOT + '/version.ini'
 OUTPUT_JS_FILE = REPO_ROOT + '/src/common/version.js'
 
@@ -78,6 +78,13 @@ def getCmakeProjectVersion(project_path:str):
 
 for lib in THIRD_PARTY_LIBRARIES:
     getCmakeProjectVersion(REPO_ROOT + lib)
+
+GTEST_CMAKE_FILE = REPO_ROOT + '/lib/third_party/googletest/CMakeLists.txt'
+with open(GTEST_CMAKE_FILE) as f:
+    for line in f:
+        if "GOOGLETEST_VERSION" in line:
+            line = line.split('GOOGLETEST_VERSION')[-1].split(')')[0].strip()
+            output_versions['third_party']['google_test'] = line
 
 # generate version.js
 output_buffer = """/**
