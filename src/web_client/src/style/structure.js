@@ -65,6 +65,7 @@ const StyleStructure = {
     tooltip: {
       max_width: "500px",
       min_width: "100px",
+      max_height: "100px",
       border_radius: "5px",
       padding: "0.5em 0.7em",
       transition_delay: "0.5s",

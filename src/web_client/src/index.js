@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 
 import { GwsGlobalContextProvider } from "./GlobalContext";
-import { GgsApiContextProvider } from "./api_interface/ggs_api";
+// import { GgsApiContextProvider } from "./api_interface/ggs_api";
 
 import "font-awesome/css/font-awesome.min.css"; // used for nav bar icons only
 import "./style/global.css";
@@ -14,9 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <GwsGlobalContextProvider>
-      <GgsApiContextProvider>
-        <App />
-      </GgsApiContextProvider>
+      {/* <GgsApiContextProvider> */}
+      <App />
+      {/* </GgsApiContextProvider> */}
     </GwsGlobalContextProvider>
   </React.StrictMode>
 );

@@ -1,47 +1,59 @@
-import { useState, createContext, useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { GwsGlobal } from "../GlobalContext";
 
-export const GGS_API = createContext("");
+export const useApiGetData = (
+  resource,
+  category,
+  include = "all",
+  update_interval = -1
+) => {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const { ggsAddress, isGgsConnected } = useContext(GwsGlobal);
 
-export const GgsApiContextProvider = ({ children }) => {
-  const { ggsAddress, clientName } = useContext(GwsGlobal);
+  const valid_include = ["all", "values", "metadata"];
+  if (!valid_include.includes(include)) {
+    throw new Error(`Invalid include: ${include}`);
+  }
 
-  const [ggsConnectionStatus, setGgsConnectionStatus] = useState(false);
+  const valid_resource = ["ggs", "gfs", "gdl", "flight_data"];
+  if (!valid_resource.includes(resource)) {
+    throw new Error(`Invalid resource: ${resource}`);
+  }
 
-  const [giraffeStatus, setGiraffeStatus] = useState({
-    telemetry_uplink: "unknown",
-    telemetry_downlink: "unknown",
-    gfs: "unknown",
-    gdl: "unknown",
-    aprsfi: "unknown",
-    influxdb: "unknown",
-  });
+  const encoded_category = encodeURIComponent(category);
+  const path = `${ggsAddress}/api/${resource}/data?category=${encoded_category}&include=${include}`;
 
-  const CHECK_CONNECTION_INTERVAL = 2500;
+  const fetchData = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(path);
+      if (!response.ok) {
+        throw new Error("Failed to load metadata.");
+      }
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      setError(error.message);
+    }
+    setIsLoading(false);
+  };
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      // console.log("Logs every second" + ggsAddress);
-      fetch(`http://${ggsAddress}/api/status`)
-        .then((response) => response.json())
-        .then((data) => {
-          setGiraffeStatus(data);
-          setGgsConnectionStatus(true);
-        })
-        .catch((error) => {
-          setGgsConnectionStatus(false);
-        });
-    }, CHECK_CONNECTION_INTERVAL);
-    return () => clearInterval(interval);
-  }, [ggsAddress]);
+    // if (isGgsConnected) {
+    fetchData();
+    // } else {
+    //   setError("Not connected to GGS");
+    // }
 
-  return (
-    <GGS_API.Provider
-      value={{
-        ggsConnectionStatus,
-        giraffeStatus,
-      }}
-    >
-      {children}
-    </GGS_API.Provider>
-  );
+    if (update_interval > 0) {
+      const interval = setInterval(() => {
+        fetchData();
+      }, update_interval);
+      return () => clearInterval(interval);
+    }
+  }, [isGgsConnected]);
+
+  return { data, isLoading, error };
 };

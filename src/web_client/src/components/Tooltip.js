@@ -5,8 +5,10 @@ const TooltipBox = styled.div`
   color: ${(props) => props.theme.tooltip_text};
   background-color: ${(props) => props.theme.tooltip_background};
 
-  max-width: ${(props) => props.theme.components.tooltip.max_width};
-  min-width: ${(props) => props.theme.components.tooltip.min_width};
+  min-width: 250px;
+  max-width: 600px;
+  overflow: hidden;
+  width: fit-content;
   border-radius: ${(props) => props.theme.components.tooltip.border_radius};
   padding: ${(props) => props.theme.components.tooltip.padding};
   transition: ${(props) => props.theme.transitions.default};
@@ -21,7 +23,6 @@ const TooltipBox = styled.div`
 
 const TooltipContainer = styled.span`
   position: relative;
-  width: 100%;
   &:hover ${TooltipBox} {
     transition-delay: ${(props) =>
       props.specified_delay || props.theme.components.tooltip.transition_delay};
@@ -38,8 +39,8 @@ const Tooltip = ({
 }) => {
   return (
     <TooltipContainer specified_delay={specified_delay}>
-      {children}
       <TooltipBox vertical_position={vertical_position}>{text}</TooltipBox>
+      {children}
     </TooltipContainer>
   );
 };

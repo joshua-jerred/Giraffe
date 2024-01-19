@@ -15,7 +15,7 @@ import ConfigureGgsPage from "./pages/configure_ggs";
 // GFS
 import GfsMonitorPage from "./pages/gfs/data_monitor";
 import ConfigureGfsPage from "./pages/gfs/configure_gfs";
-import ClientSetupPage from "./pages/client_setup";
+import SetupPage from "./pages/setup";
 import DocsPage from "./pages/docs/docs";
 import NotFound from "./pages/404";
 
@@ -42,7 +42,7 @@ function App() {
               <Route path="configure" element={<ConfigureGfsPage />} />
             </Route>
 
-            <Route path="client-setup" element={<ClientSetupPage />} />
+            <Route path="setup" element={<SetupPage />} />
             <Route path="docs" element={<DocsPage />} />
 
             <Route path="*" element={<NotFound />} />

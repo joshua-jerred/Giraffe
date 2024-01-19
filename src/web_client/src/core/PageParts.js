@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
@@ -7,6 +7,7 @@ import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 export const Page = styled.div`
   padding: 0 0px;
   color: ${(props) => props.theme.on_surface};
+  min-width: 450px;
   max-width: ${(props) => props.theme.pages.max_width};
   margin: 0 ${(props) => props.theme.pages.side_margin};
   margin: 0 auto;

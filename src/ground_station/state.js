@@ -24,6 +24,7 @@ class GlobalState {
     this.flight_data_handler = new FlightDataHandler(this);
 
     this.ggs_status = {
+      status: "ok",
       influxdb: "unknown",
       gfs: "unknown",
       gdl: "unknown",

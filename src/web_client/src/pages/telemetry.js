@@ -1,4 +1,4 @@
-import { GGS_API } from "../api_interface/ggs_api";
+// import { GGS_API } from "../api_interface/ggs_api";
 import { GwsGlobal } from "../GlobalContext";
 
 import { useState, useEffect, useContext } from "react";
@@ -35,8 +35,7 @@ const MessageLogIdStyle = styled.span`
 `;
 
 function MessageLog({ category }) {
-  const { ggsAddress } = useContext(GwsGlobal);
-  const { ggsConnectionStatus } = useContext(GGS_API);
+  const { ggsAddress, isGgsConnected } = useContext(GwsGlobal);
 
   const [messages, setMessages] = useState([]);
 
@@ -47,6 +46,9 @@ function MessageLog({ category }) {
 
   useEffect(() => {
     const loadData = async () => {
+      if (!isGgsConnected) {
+        return;
+      }
       fetch(path)
         .then((response) => {
           if (!response.ok) {
@@ -68,7 +70,7 @@ function MessageLog({ category }) {
       loadData();
     }, UPDATE_INTERVAL_MS);
     return () => clearInterval(interval);
-  }, [path, ggsConnectionStatus]);
+  }, [path, isGgsConnected]);
 
   return (
     <MessageLogListStyle>

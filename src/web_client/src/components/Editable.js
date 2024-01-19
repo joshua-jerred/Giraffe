@@ -179,7 +179,7 @@ function Item({ id, json, input, value, values, setValues }) {
 
 export function EditBox({ resource, category }) {
   const { ggsAddress } = React.useContext(GwsGlobal);
-  const { ggsConnectionStatus } = React.useContext(GGS_API);
+  // const { ggsConnectionStatus } = React.useContext(GGS_API);
 
   const [metadata, setMetadata] = React.useState(null);
   const [values, setValues] = React.useState({});
@@ -189,67 +189,68 @@ export function EditBox({ resource, category }) {
   const encoded_category = encodeURIComponent(category);
   const path = `http://${ggsAddress}/api/${resource}/settings?category=${encoded_category}&include=all`;
 
-  React.useEffect(() => {
-    console.log("Loading metadata from: " + path);
-    fetch(path)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to load metadata.");
-        } else {
-          return response.json();
-        }
-      })
-      .then((data) => {
-        if (data.values === undefined) {
-          throw new Error("Metadata missing values.");
-        }
-        if (data.metadata === undefined) {
-          throw new Error("Metadata missing meta.");
-        }
-        setMetadata(data.metadata);
-        const new_values = {};
-        for (const [key, value] of Object.entries(data.values)) {
-          new_values[key] = value;
-        }
-        setValues(new_values);
-      })
-      .catch((error) => {
-        console.error("Error attempting to load metadata:\n", error);
-        setError("Failed to load metadata. (Check console for details.)");
-      });
-    console.log("EditBox: useEffect");
-  }, [editMode, path]);
+  // React.useEffect(() => {
+  //   fetch(path)
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Failed to load metadata.");
+  //       } else {
+  //         return response.json();
+  //       }
+  //     })
+  //     .then((data) => {
+  //       if (data.values === undefined) {
+  //         throw new Error("Metadata missing values.");
+  //       }
+  //       if (data.metadata === undefined) {
+  //         throw new Error("Metadata missing meta.");
+  //       }
+  //       setMetadata(data.metadata);
+  //       console.log("set metadata");
+  //       const new_values = {};
+  //       for (const [key, value] of Object.entries(data.values)) {
+  //         new_values[key] = value;
+  //       }
+  //       setValues(new_values);
+  //       console.log("set values");
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error attempting to load metadata:\n", error);
+  //       setError("Failed to load metadata. (Check console for details.)");
+  //     });
+  //   console.log("EditBox: useEffect");
+  // }, [editMode, path]);
 
-  if (ggsConnectionStatus !== "connected") {
-    return <div>Not connected to GWS.</div>;
-  }
+  // if (ggsConnectionStatus !== true) {
+  //   return <div>Not connected to GWS.</div>;
+  // }
 
-  function Save() {
-    const data = values;
-    fetch(path, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to save metadata.");
-        } else {
-          setEditMode(false);
-        }
-      })
-      .catch((error) => {});
-  }
+  // function Save() {
+  //   const data = values;
+  //   fetch(path, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Failed to save metadata.");
+  //       } else {
+  //         setEditMode(false);
+  //       }
+  //     })
+  //     .catch((error) => {});
+  // }
 
-  function toggleEditMode() {
-    if (!editMode) {
-      setEditMode(true);
-    } else {
-      Save();
-    }
-  }
+  // function toggleEditMode() {
+  //   if (!editMode) {
+  //     setEditMode(true);
+  //   } else {
+  //     Save();
+  //   }
+  // }
 
   //console.log(metadata)
 
@@ -275,9 +276,9 @@ export function EditBox({ resource, category }) {
             ))}
           </EditBoxContainer>
           <EditButtonCont>
-            <StyButton onClick={toggleEditMode}>
-              {editMode ? "save" : "edit"}
-            </StyButton>
+            {/* <StyButton onClick={toggleEditMode}> */}
+            {/* {editMode ? "save" : "edit"} */}
+            {/* </StyButton> */}
           </EditButtonCont>
         </>
       )}
