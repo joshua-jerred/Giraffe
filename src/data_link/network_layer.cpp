@@ -96,12 +96,17 @@ bool NetworkLayer::rxPacket(Packet &packet) {
   signal_easel::ax25::Frame frame{};
 
   if (receiver_.getAprsExperimental(exp_packet, frame)) {
-    if (frame.getSourceAddress().getAddressString() ==
-        config_.getCallSign()) { // message is from us, ignore it.
-      std::cout << "ignoring packet from us" << std::endl;
+
+    std::string received_source_call_sign =
+        frame.getSourceAddress().getAddressString();
+    uint8_t received_source_ssid = frame.getSourceAddress().getSsid();
+
+    if (received_source_call_sign == config_.getCallSign() &&
+        received_source_ssid == config_.getSSID()) {
+      // message is from us, ignore it.
+      // std::cout << "ignoring packet from us" << std::endl;
       return false;
     }
-    std::cout << "APRS Message: " << exp_packet.getStringData() << std::endl;
 
     switch (exp_packet.packet_type_char) {
     case EXP_PREFIX_ACK:

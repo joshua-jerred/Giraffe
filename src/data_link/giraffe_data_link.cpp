@@ -63,6 +63,14 @@ bool DataLink::sendMessage(const Message &message) {
   return out_broadcast_queue_.push(message);
 }
 
+bool DataLink::receiveMessage(Message &message) {
+  if (!isRunning()) {
+    return false;
+  }
+
+  return in_queue_.pop(message);
+}
+
 void DataLink::gdlThread() {
   while (!gdl_thread_stop_flag_) {
     Message message_buffer;
@@ -100,6 +108,7 @@ void DataLink::gdlThread() {
       if (!in_queue_.push(message_buffer)) {
         /// @todo handle error (no space in queue)
         (void)message_buffer;
+        std::cout << "ERROR: No space in received queue\n";
       }
     }
 

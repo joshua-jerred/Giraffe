@@ -27,11 +27,14 @@ TransportLayer::~TransportLayer() {
 }
 
 bool TransportLayer::isReadyToSend() {
+  if (!new_tx_timer_.isDone()) {
+    return false;
+  }
   return state_ == State::IDLE;
 }
 
 bool TransportLayer::send(Message &message) {
-  if (state_ != State::IDLE) {
+  if (!isReadyToSend()) {
     return false;
   }
 
@@ -105,6 +108,14 @@ void TransportLayer::idleState() {
   // special case for the controller node
   if (config_.isController()) {
     controllerIdleState();
+    if (uplink_timer_.isDone()) {
+      connected_ = false;
+    }
+  } else {
+    // if this is a remote note, connection status is based on received packets
+    if (received_timer_.isDone()) {
+      connected_ = false;
+    }
   }
 
   // check for incoming packets
@@ -126,8 +137,11 @@ void TransportLayer::idleState() {
         // have not already received it. Push up to the DataLink
         /// @note this may be worth expanding to a queue in the future
         last_acked_message_id_ = message_id;
-        received_message_ = static_cast<Message>(packet_buffer);
+        received_message_.setExchangeMessage(packet_buffer.getData(),
+                                             packet_buffer.getIdentifier());
         message_received_ = true;
+      } else {
+        std::cout << "WARNING: received duplicate exchange message\n";
       }
       sendAck(message_id);
       break;
@@ -140,9 +154,12 @@ void TransportLayer::idleState() {
       break;
     case Packet::PacketType::PING:
       sendPingResponse();
+      std::cout << "got ping, sending response" << std::endl;
       /// @todo handle connection timeout reset
       break;
     case Packet::PacketType::PING_RESPONSE:
+      std::cout << "got ping response" << std::endl;
+      connected_ = true;
       uplink_timer_.reset(); // we got a ping response, reset the timer.
       exchange_ping_interval_timer_.reset(); // reset the ping interval timer
       /// @todo handle connection timeout reset
@@ -207,6 +224,9 @@ void TransportLayer::exchangeWaitingForAckState() {
         // we got an ack for the message we sent
         state_ = State::IDLE;
         std::cout << "INFO: received ack for message " << message_id << "\n";
+        uplink_timer_.reset(); // we got an ack, reset the timer.
+        new_tx_timer_.reset(); // delay before sending a new message
+        exchange_ping_interval_timer_.reset(); // no need to send a ping
         return;
       }
       std::cout << "WARNING: received ack for message " << message_id
@@ -233,6 +253,7 @@ void TransportLayer::broadcastState() {
     /// @todo handle error
     std::cout << "ERROR: failed to send broadcast message\n";
   }
+  new_tx_timer_.reset(); // delay before sending a new message
   state_ = State::IDLE;
 }
 

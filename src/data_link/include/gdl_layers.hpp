@@ -94,6 +94,8 @@ private:
 
   State state_ = State::IDLE;
 
+  bst::Timer new_tx_timer_{GDL_NEW_TX_DELAY_MS};
+
   /**
    * @brief Reset whenever a message is received.
    * @details Used by the controller node and the remote node.
@@ -126,7 +128,7 @@ private:
    * not match this, it will be pushed up. If the message id of the received
    * message matches this, it will not be pushed up but it will still be acked.
    */
-  uint32_t last_acked_message_id_ = 0;
+  uint32_t last_acked_message_id_ = 0xffffffff;
 
   uint32_t sent_exchange_message_id_ = 0;
 };
