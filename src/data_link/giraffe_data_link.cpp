@@ -120,12 +120,11 @@ void DataLink::gdlThread() {
 
     // update uplink/downlink status based on timeouts
     // update the status struct
-    // gdl_status_lock_.lock();
-    // gdl_status_.exchange_queue_size = queues_.exchange.size();
-    // gdl_status_.broadcast_queue_size = queues_.broadcast.size();
-    // gdl_status_.received_queue_size = queues_.received.size();
-    // transport_layer_.updateStatus(gdl_status_);
-    // gdl_status_lock_.unlock();
+    statistics_lock_.lock();
+    statistics_.exchange_queue_size = out_exchange_queue_.size();
+    statistics_.broadcast_queue_size = out_broadcast_queue_.size();
+    statistics_.received_queue_size = in_queue_.size();
+    statistics_lock_.unlock();
 
     BoosterSeat::threadSleep(GDL_THREAD_SLEEP_INTERVAL_MS);
   }

@@ -86,6 +86,8 @@ private:
   NetworkLayer &network_layer_;
 
   bool connected_ = false;
+  bool uplink_connected_ = false;
+  bool downlink_connected_ = false;
 
   Packet current_tx_packet_{};
 
@@ -149,6 +151,9 @@ public:
 
 private:
   bool txAprsPositionPacket(const Packet &packet);
+
+  uint32_t total_packets_sent_ = 0;
+  uint32_t total_packets_received_ = 0;
 
   Config &config_;
 

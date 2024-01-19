@@ -37,6 +37,7 @@ public:
     uint32_t altitude = 0;
     double speed = 0;
     int heading = 0;
+    std::string time_code{};
   };
 
   Message() = default;

@@ -99,7 +99,8 @@ void TransportLayer::update(Statistics &statistics) {
   }
 
   // update statistics
-  (void)statistics;
+  statistics.uplink_connected = uplink_connected_;
+  statistics.downlink_connected = downlink_connected_;
 }
 
 void TransportLayer::idleState() {
@@ -110,17 +111,19 @@ void TransportLayer::idleState() {
     controllerIdleState();
     if (uplink_timer_.isDone()) {
       connected_ = false;
+      uplink_connected_ = false;
     }
-  } else {
-    // if this is a remote note, connection status is based on received packets
-    if (received_timer_.isDone()) {
-      connected_ = false;
-    }
+  }
+
+  if (received_timer_.isDone()) {
+    connected_ = false;
+    downlink_connected_ = false;
   }
 
   // check for incoming packets
   if (network_layer_.rxPacket(packet_buffer)) {
     received_timer_.reset(); // reset the connection timeout timer
+    downlink_connected_ = true;
 
     if (message_received_) {
       /// @todo remove this. We should never get here. We can log this.
@@ -154,12 +157,11 @@ void TransportLayer::idleState() {
       break;
     case Packet::PacketType::PING:
       sendPingResponse();
-      std::cout << "got ping, sending response" << std::endl;
       /// @todo handle connection timeout reset
       break;
     case Packet::PacketType::PING_RESPONSE:
-      std::cout << "got ping response" << std::endl;
       connected_ = true;
+      uplink_connected_ = true;
       uplink_timer_.reset(); // we got a ping response, reset the timer.
       exchange_ping_interval_timer_.reset(); // reset the ping interval timer
       /// @todo handle connection timeout reset
@@ -224,6 +226,7 @@ void TransportLayer::exchangeWaitingForAckState() {
         // we got an ack for the message we sent
         state_ = State::IDLE;
         std::cout << "INFO: received ack for message " << message_id << "\n";
+        uplink_connected_ = true;
         uplink_timer_.reset(); // we got an ack, reset the timer.
         new_tx_timer_.reset(); // delay before sending a new message
         exchange_ping_interval_timer_.reset(); // no need to send a ping

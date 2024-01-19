@@ -38,7 +38,7 @@ NetworkLayer::~NetworkLayer() {
 }
 
 bool NetworkLayer::txPacket(Packet &packet) {
-
+  total_packets_sent_++;
   if (packet.getPacketType() == Packet::PacketType::LOCATION) {
     return txAprsPositionPacket(packet);
   }
@@ -96,6 +96,7 @@ bool NetworkLayer::rxPacket(Packet &packet) {
   signal_easel::ax25::Frame frame{};
 
   if (receiver_.getAprsExperimental(exp_packet, frame)) {
+    total_packets_received_++;
 
     std::string received_source_call_sign =
         frame.getSourceAddress().getAddressString();
@@ -145,8 +146,27 @@ bool NetworkLayer::rxPacket(Packet &packet) {
     }
 
     return true;
-  } else if (receiver_.getOtherAprsPacket(frame)) {
-    std::cout << "APRS Other Packet" << std::endl;
+  }
+
+  signal_easel::aprs::PositionPacket pos_packet{};
+  if (receiver_.getAprsPosition(pos_packet, frame)) {
+    total_packets_received_++;
+    packet.setPacketType(Packet::PacketType::LOCATION);
+
+    Packet::Location loc{.latitude = pos_packet.latitude,
+                         .longitude = pos_packet.longitude,
+                         .altitude = static_cast<uint32_t>(pos_packet.altitude),
+                         .speed = static_cast<double>(pos_packet.speed),
+                         .heading = pos_packet.course,
+                         .time_code = pos_packet.time_code};
+
+    packet.setLocation(loc);
+    return true;
+  }
+
+  signal_easel::aprs::MessagePacket message_packet{}; // throwaway
+  if (receiver_.getOtherAprsPacket(frame) ||
+      receiver_.getAprsMessage(message_packet, frame)) {
     return false;
   }
   return false;
@@ -181,6 +201,8 @@ void NetworkLayer::update(Statistics &stats) {
   receiver_.process();
   physical_layer_.update();
 
+  stats.total_packets_sent = total_packets_sent_;
+  stats.total_packets_received = total_packets_received_;
   stats.network_layer_latency_ms = receiver_.getLatency();
   stats.volume = receiver_.getVolume();
   stats.signal_to_noise_ratio = receiver_.getSNR();

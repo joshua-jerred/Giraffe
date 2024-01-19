@@ -87,9 +87,18 @@ private:
 };
 
 struct Statistics {
+  // DataLink layer
   size_t exchange_queue_size = 0;
   size_t broadcast_queue_size = 0;
   size_t received_queue_size = 0;
+
+  // Transport layer
+  bool uplink_connected = false;
+  bool downlink_connected = false;
+
+  // Network layer
+  uint32_t total_packets_sent = 0;
+  uint32_t total_packets_received = 0;
   double volume = 0.0;
   double signal_to_noise_ratio = 0.0;
 
