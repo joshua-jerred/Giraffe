@@ -18,8 +18,10 @@
 #define GDL_MESSAGE_HPP_
 
 #include <cstdint>
+#include <iomanip>
 #include <mutex>
 #include <queue>
+#include <sstream>
 #include <string>
 
 #include <gdl_constants.hpp>
@@ -70,13 +72,56 @@ public:
     return true;
   }
 
+  uint32_t getIdentifier() const {
+    return identifier_;
+  }
+
+  void setIdentifier(uint32_t identifier) {
+    identifier_ = identifier;
+  }
+
+  bool setIdentifierFromHex(const std::string &identifier) {
+    // convert the hex string to an integer
+    try {
+      identifier_ = std::stoul(identifier, nullptr, 16);
+    } catch (...) {
+      return false;
+    }
+    return true;
+  }
+
+  std::string getIdentifierString() const {
+    // return the identifier as a hex string
+    std::stringstream str_s;
+    str_s << std::setfill('0') << std::setw(8) << std::hex << identifier_;
+    return str_s.str();
+  }
+
+  Type getType() const {
+    return type_;
+  }
+
+  void setData(std::string data) {
+    data_ = std::move(data);
+  }
+
+  std::string getData() const {
+    return data_;
+  }
+
+  void setLocation(Location location) {
+    location_ = location;
+  }
+
+  Location getLocation() const {
+    return location_;
+  }
+
 private:
   uint32_t identifier_ = 0;
   Type type_{Type::BROADCAST};
   std::string data_{};
   Location location_{};
-
-  uint32_t retries_ = 0;
 };
 
 /**
@@ -97,6 +142,17 @@ public:
    * @return false - If the message was not pushed.
    */
   bool push(Message message);
+
+  /**
+   * @brief Peek at the next message on the queue.
+   * @details This will lock the queue. If there is no message on the queue,
+   * false will be returned.
+   *
+   * @param message - The message that was peeked.
+   * @return true - If a message was peeked.
+   * @return false - If a message was not peeked.
+   */
+  bool peek(Message &message);
 
   /**
    * @brief Pop a message from the queue.

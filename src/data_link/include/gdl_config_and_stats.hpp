@@ -26,7 +26,13 @@ namespace giraffe::gdl {
 /// @brief Data Link Configuration
 class Config {
 public:
-  Config() = default;
+  /**
+   * @brief Constructor for GDL Configuration
+   * @param is_controller - Is this GDL instance the controller or the remote?
+   */
+  Config(bool is_controller = true) : is_controller_(is_controller) {
+  }
+
   ~Config() = default;
 
   void setCallSign(const std::string &call_sign) {
@@ -65,7 +71,13 @@ public:
     return remote_ssid_;
   }
 
+  bool isController() const {
+    return is_controller_;
+  }
+
 private:
+  bool is_controller_ = true;
+
   std::mutex call_sign_lock_{};
 
   std::string call_sign_ = "NOCALL";
@@ -74,7 +86,7 @@ private:
   std::atomic<uint8_t> remote_ssid_ = 1;
 };
 
-struct Stats {
+struct Statistics {
   size_t exchange_queue_size = 0;
   size_t broadcast_queue_size = 0;
   size_t received_queue_size = 0;

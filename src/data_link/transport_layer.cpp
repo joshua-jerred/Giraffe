@@ -14,145 +14,256 @@
  * @copyright  2024 (license to be defined)
  */
 
-#include "giraffe_data_link.hpp"
+#include "gdl_constants.hpp"
+#include "gdl_layers.hpp"
+#include "gdl_message.hpp"
 
-namespace giraffe {
+namespace giraffe::gdl {
 
-GiraffeDataLink::TransportLayer::TransportLayer(NetworkLayer &network_layer,
-                                                GdlConfig config)
-    : network_layer_(network_layer), config_(config),
-      timer_(config_.retry_interval_ms) {
+TransportLayer::TransportLayer(Config &config, NetworkLayer &network_layer)
+    : config_(config), network_layer_(network_layer) {
 }
-GiraffeDataLink::TransportLayer::~TransportLayer() {
+TransportLayer::~TransportLayer() {
 }
 
-bool GiraffeDataLink::TransportLayer::isReady() {
+bool TransportLayer::isReadyToSend() {
   return state_ == State::IDLE;
 }
 
-bool GiraffeDataLink::TransportLayer::send(Message &message) {
+bool TransportLayer::send(Message &message) {
   if (state_ != State::IDLE) {
     return false;
   }
-  current_message_ = message;
-  state_ = State::SENDING;
-  return true;
-}
 
-bool GiraffeDataLink::TransportLayer::send(
-    signal_easel::aprs::PositionPacket &packet) {
-  auto gdl_aprs_nw_layer =
-      dynamic_cast<gdl::AprsNetworkLayer *>(&network_layer_);
-  if (gdl_aprs_nw_layer == nullptr) {
-    /// @todo throw something
-    return false;
+  // if it's an exchange message, we need to make sure we're connected.
+  if (message.getType() == Message::Type::EXCHANGE) {
+    if (!isConnected()) {
+      return false;
+    }
+    current_tx_packet_ = message;
+    current_tx_packet_.setPacketType(Packet::PacketType::EXCHANGE);
+    state_ = State::EXCHANGE_SEND;
+    return true;
   }
-  state_ = State::SENDING;
 
-  bool res = gdl_aprs_nw_layer->txAprsPositionPacket(packet);
-
-  state_ = State::IDLE;
-  return res;
-}
-
-bool GiraffeDataLink::TransportLayer::receive(Message &message) {
-  return network_layer_.rxMessage(message);
-}
-
-void GiraffeDataLink::TransportLayer::update(
-    MessageQueue &received_messages,
-    std::queue<signal_easel::aprs::PositionPacket> &aprs_gps_rx_queue) {
-  network_layer_.update();
-
-  if (state_ == State::IDLE) {
-    Message message{};
-    if (network_layer_.rxMessage(message)) {
-      // std::cout << "Got a new message: " << message.data
-      // << " id: " << message.id << std::endl;
-      if (message.isValid() && !message.isAck()) {
-        sendAck(message.id);
-        if (message.id == last_acked_id_) {
-          // std::cout << "Got a duplicate message." << std::endl;
-          return;
-        }
-        last_acked_id_ = message.id;
-        received_messages.push(message);
-      } else if (message.isAck()) {
-        // std::cout << "Got an ACK, seemingly out of place." << std::endl;
-      }
-    }
-
-    auto gdl_aprs_nw_layer =
-        dynamic_cast<gdl::AprsNetworkLayer *>(&network_layer_);
-    if (gdl_aprs_nw_layer == nullptr) {
-      return;
-    }
-    signal_easel::aprs::PositionPacket packet{};
-    signal_easel::ax25::Frame frame{};
-    if (gdl_aprs_nw_layer->rxAprsPositionPacket(packet, frame)) {
-      packet.frame = frame; // mush them together. Lazy fix.
-      aprs_gps_rx_queue.push(packet);
-    }
-
-  } else if (state_ == State::SENDING) {
-    if (!sendPacket()) {
-      return;
-    }
-    startTimer();
-    state_ = State::WAITING_FOR_ACK;
-  } else if (state_ == State::WAITING_FOR_ACK) {
-    if (receivedAck()) {
-      state_ = State::IDLE;
-    } else if (isTimerExpired()) {
-      if (current_message_.retries < config_.max_retries) {
-        current_message_.retries++;
-        state_ = State::SENDING;
-      } else {
-        state_ = State::IDLE;
-        std::cout << "Message failed to send." << std::endl;
-      }
-    }
+  // if it's a location message, we don't need to be connected
+  if (message.getType() == Message::Type::LOCATION) {
+    current_tx_packet_ = message;
+    current_tx_packet_.setPacketType(Packet::PacketType::LOCATION);
+    state_ = State::BROADCAST;
+    return true;
   }
-}
 
-void GiraffeDataLink::TransportLayer::updateStatus(gdl::GdlStatus &status) {
-  network_layer_.updateStatus(status);
-}
-
-bool GiraffeDataLink::TransportLayer::sendPacket() {
-  if (!network_layer_.txMessage(current_message_)) {
-    return false;
+  // if it's a broadcast message, we don't need to be connected
+  if (message.getType() == Message::Type::BROADCAST) {
+    current_tx_packet_ = message;
+    current_tx_packet_.setPacketType(Packet::PacketType::BROADCAST);
+    state_ = State::BROADCAST;
+    return true;
   }
-  return true;
-}
 
-void GiraffeDataLink::TransportLayer::sendAck(std::string id) {
-  // std::cout << "Sending ACK for id: " << id << std::endl;
-  Message message{};
-  message.data = "ACK";
-  message.id = id;
-  message.type = Message::Type::EXCHANGE;
-  // BoosterSeat::threadSleep(5);
-  network_layer_.txMessage(message);
-}
-
-void GiraffeDataLink::TransportLayer::startTimer() {
-  timer_.reset();
-}
-
-bool GiraffeDataLink::TransportLayer::isTimerExpired() {
-  return timer_.isDone();
-}
-
-bool GiraffeDataLink::TransportLayer::receivedAck() {
-  Message message{};
-  if (network_layer_.rxMessage(message)) {
-    if (message.data == "ACK") {
-      // std::cout << "Got an ACK!" << std::endl;
-      return true;
-    }
-  }
+  /// @todo handle other messages and report an error
   return false;
 }
 
-} // namespace giraffe
+bool TransportLayer::receive(Message &message) {
+  if (!message_received_) {
+    return false;
+  }
+
+  message = received_message_;
+  message_received_ = false; // reset
+  return true;
+}
+
+void TransportLayer::update(Statistics &statistics) {
+  network_layer_.update(statistics);
+
+  // state machine
+  switch (state_) {
+  case State::IDLE:
+    idleState();
+    break;
+  case State::EXCHANGE_SEND:
+    exchangeSendState();
+    break;
+  case State::EXCHANGE_WAITING_FOR_ACK:
+    exchangeWaitingForAckState();
+    break;
+  case State::BROADCAST:
+    broadcastState();
+    break;
+  }
+
+  // update statistics
+  (void)statistics;
+}
+
+void TransportLayer::idleState() {
+  Packet packet_buffer;
+
+  // special case for the controller node
+  if (config_.isController()) {
+    controllerIdleState();
+  }
+
+  // check for incoming packets
+  if (network_layer_.rxPacket(packet_buffer)) {
+    received_timer_.reset(); // reset the connection timeout timer
+
+    if (message_received_) {
+      /// @todo remove this. We should never get here. We can log this.
+      std::cout << "WARNING: dropping packet!\n";
+    }
+
+    auto typ = packet_buffer.getPacketType();
+    auto message_id = packet_buffer.getIdentifier();
+    switch (typ) {
+
+    case Packet::PacketType::EXCHANGE:
+      if (message_id != last_acked_message_id_) {
+        // if we haven't already acked this message, we probably
+        // have not already received it. Push up to the DataLink
+        /// @note this may be worth expanding to a queue in the future
+        last_acked_message_id_ = message_id;
+        received_message_ = static_cast<Message>(packet_buffer);
+        message_received_ = true;
+      }
+      sendAck(message_id);
+      break;
+
+    case Packet::PacketType::BROADCAST:
+    case Packet::PacketType::LOCATION:
+      // location or broadcast received, send it up
+      received_message_ = static_cast<Message>(packet_buffer);
+      message_received_ = true;
+      break;
+    case Packet::PacketType::PING:
+      sendPingResponse();
+      /// @todo handle connection timeout reset
+      break;
+    case Packet::PacketType::PING_RESPONSE:
+      uplink_timer_.reset(); // we got a ping response, reset the timer.
+      exchange_ping_interval_timer_.reset(); // reset the ping interval timer
+      /// @todo handle connection timeout reset
+      break;
+    default: // ack or unknown
+      /// @todo log this
+      break;
+    }
+  }
+}
+
+void TransportLayer::controllerIdleState() {
+  // if we haven't received an exchange response in a while, send a ping.
+  if (exchange_ping_interval_timer_.isDone()) {
+    sendPing();
+    exchange_ping_interval_timer_.reset();
+  }
+}
+
+void TransportLayer::exchangeSendState() {
+  // no need to receive in this state as we will immediately exit it
+  sent_exchange_message_id_ = current_tx_packet_.getIdentifier();
+
+  if (current_tx_packet_.getSendAttempts() >= GDL_RDT_MAX_RETRIES) {
+    /// @todo handle error
+    std::cout << "ERROR: max retries exceeded\n";
+    state_ = State::IDLE;
+    return;
+  }
+
+  if (!network_layer_.txPacket(current_tx_packet_)) {
+    /// @todo handle error
+    std::cout << "ERROR: failed to send exchange message\n";
+    state_ = State::IDLE;
+    return;
+  }
+
+  // start the ack timer
+  current_tx_packet_.incrementSendAttempts();
+  exchange_ack_timer_.reset();
+
+  state_ = State::EXCHANGE_WAITING_FOR_ACK;
+}
+
+void TransportLayer::exchangeWaitingForAckState() {
+  Packet packet_buffer;
+
+  // check for incoming packets
+  if (network_layer_.rxPacket(packet_buffer)) {
+    received_timer_.reset(); // reset the connection timeout timer
+
+    if (message_received_) {
+      /// @todo remove this. We should never get here. We can log this.
+      std::cout << "WARNING: dropping packet in wait for ack state!\n";
+    }
+
+    auto typ = packet_buffer.getPacketType();
+    auto message_id = packet_buffer.getIdentifier();
+    switch (typ) {
+    case Packet::PacketType::ACK:
+      if (message_id == sent_exchange_message_id_) {
+        // we got an ack for the message we sent
+        state_ = State::IDLE;
+        std::cout << "INFO: received ack for message " << message_id << "\n";
+        return;
+      }
+      std::cout << "WARNING: received ack for message " << message_id
+                << " but we sent " << sent_exchange_message_id_ << "\n";
+      break;
+
+    default:
+      std::cout
+          << "WARNING: received unexpected packet in wait for ack state!\n";
+      /// @todo log this
+      break;
+    }
+  }
+
+  if (exchange_ack_timer_.isDone()) {
+    state_ = State::EXCHANGE_SEND;
+    return;
+  }
+}
+
+void TransportLayer::broadcastState() {
+  // no need to receive in this state as we will immediately exit it
+  if (!network_layer_.txPacket(current_tx_packet_)) {
+    /// @todo handle error
+    std::cout << "ERROR: failed to send broadcast message\n";
+  }
+  state_ = State::IDLE;
+}
+
+void TransportLayer::sendAck(uint32_t message_id) {
+  Packet packet;
+  packet.setPacketType(Packet::PacketType::ACK);
+  packet.setIdentifier(message_id);
+  if (!network_layer_.txPacket(packet)) {
+    /// @todo handle error
+    std::cout << "ERROR: failed to send ack\n";
+  }
+}
+
+void TransportLayer::sendPing() {
+  Packet packet;
+  packet.setPacketType(Packet::PacketType::PING);
+  packet.setIdentifier(0);
+  if (!network_layer_.txPacket(packet)) {
+    /// @todo handle error
+    std::cout << "ERROR: failed to send ping\n";
+  }
+}
+
+void TransportLayer::sendPingResponse() {
+  Packet packet;
+  packet.setPacketType(Packet::PacketType::PING_RESPONSE);
+  packet.setIdentifier(0);
+  if (!network_layer_.txPacket(packet)) {
+    /// @todo handle error
+    std::cout << "ERROR: failed to send ping response\n";
+  }
+}
+
+} // namespace giraffe::gdl

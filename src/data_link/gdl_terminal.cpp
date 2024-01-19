@@ -22,16 +22,30 @@
 
 using namespace giraffe::gdl;
 
-int main() {
+int main(int argc, char **argv) {
   std::cout << "GDL Terminal\n";
+  bool is_controller = false;
+  if (argc > 1) {
+    is_controller = true;
+    std::cout << "Controller Mode\n";
+  }
 
-  Config config{};
+  Config config{is_controller};
+
+  if (is_controller) {
+    config.setCallSign("CONT");
+    config.setRemoteCallSign("REMO");
+  } else {
+    config.setCallSign("REMO");
+    config.setRemoteCallSign("CONT");
+  }
+
   DataLink gdl{config};
 
   gdl.enable();
 
   while (true) {
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
   }
 
   gdl.disable();

@@ -17,79 +17,140 @@
 #ifndef GDL_LAYERS_HPP_
 #define GDL_LAYERS_HPP_
 
+#include <SignalEasel/aprs.hpp>
+
+#include "BoosterSeat/timer.hpp"
+#include "gdl_config_and_stats.hpp"
+#include "gdl_message.hpp"
+#include "gdl_packet.hpp"
+
 namespace giraffe::gdl {
 
+class PhysicalLayer;
+class NetworkLayer;
+
+/**
+ * @brief The Transport Layer - Layer 3
+ * @details The transport layer is responsible for sending messages from the
+ * application layer (DataLink) to the network layer (NetworkLayer) and
+ * receiving messages from the network layer and passing them to the
+ * application layer.
+ * The transport layer will look at the messages that is must send and will
+ * route them to the correct portion of the network layer.
+ *
+ * Along with all of this, the transport layer is responsible for maintaining
+ * the connection between the local and remote nodes.
+ */
 class TransportLayer {
 public:
-  enum class State {
-    IDLE,
-    SENDING,
-    WAITING_FOR_ACK,
-  };
+  enum class State { IDLE, EXCHANGE_SEND, EXCHANGE_WAITING_FOR_ACK, BROADCAST };
 
   TransportLayer(Config &config, NetworkLayer &network_layer);
   ~TransportLayer();
 
-  bool isReady();
+  /**
+   * @brief Check if the transport layer is ready to send a message (true) or if
+   * it is busy with the previous message (false).
+   */
+  bool isReadyToSend();
 
+  /**
+   * @brief Send a message to the remote node.
+   * @details This will set the state of the transport layer to something other
+   * than IDLE. If the message type is 'exchange' then this will return false
+   * and the message will not be sent.
+   * @param message - The message to send.
+   */
   bool send(Message &message);
-
-  bool send(signal_easel::aprs::PositionPacket &packet);
 
   bool receive(Message &message);
 
-  void
-  update(MessageQueue &received_messages,
-         std::queue<signal_easel::aprs::PositionPacket> &aprs_gps_rx_queue);
+  bool isConnected() const {
+    return connected_;
+  }
 
-  void updateStats(Stats &stats);
+  void update(Statistics &statistics);
 
 private:
-  bool sendPacket();
+  void idleState();
+  void controllerIdleState();
+  void exchangeSendState();
+  void exchangeWaitingForAckState();
+  void broadcastState();
 
-  void sendAck(std::string id);
-
-  void startTimer();
-
-  bool isTimerExpired();
-
-  bool receivedAck();
+  void sendAck(uint32_t message_id);
+  void sendPing();
+  void sendPingResponse();
 
   Config &config_;
-
   NetworkLayer &network_layer_;
 
-  bst::Timer timer_;
+  bool connected_ = false;
 
-  Message current_message_{};
+  Packet current_tx_packet_{};
+
+  bool message_received_ = false;
+  Message received_message_{};
 
   State state_ = State::IDLE;
 
-  std::string last_acked_id_{};
+  /**
+   * @brief Reset whenever a message is received.
+   * @details Used by the controller node and the remote node.
+   */
+  bst::Timer received_timer_{GDL_EXCHANGE_CONNECTION_TIMEOUT_MS};
+
+  /**
+   * @brief Used by the remote node only to detect if we are getting responses
+   * to packets that we send.
+   */
+  bst::Timer uplink_timer_{GDL_EXCHANGE_CONNECTION_TIMEOUT_MS};
+
+  /**
+   * @brief The interval to send pings at if we don't receive any messages. Used
+   * by the controller node only.
+   * @see GDL_EXCHANGE_PING_INTERVAL_MS
+   */
+  bst::Timer exchange_ping_interval_timer_{GDL_EXCHANGE_PING_INTERVAL_MS};
+
+  /**
+   * @brief A timer used to retry sending an exchange message if we don't
+   * receive an ack.
+   */
+  bst::Timer exchange_ack_timer_{GDL_RDT_RETRY_INTERVAL_MS};
+
+  /**
+   * @brief The last message id that was acked by the local node.
+   * @details This is used to determine if the message should be pushed to the
+   * DataLink layer or not. If the message id of the next received message does
+   * not match this, it will be pushed up. If the message id of the received
+   * message matches this, it will not be pushed up but it will still be acked.
+   */
+  uint32_t last_acked_message_id_ = 0;
+
+  uint32_t sent_exchange_message_id_ = 0;
 };
 
+/**
+ * @brief
+ */
 class NetworkLayer {
 public:
   NetworkLayer(Config &config, PhysicalLayer &physical_layer);
+  ~NetworkLayer();
 
-  bool txMessage(Message &message);
+  bool txPacket(Packet &packet);
 
-  bool rxMessage(Message &message);
+  bool rxPacket(Packet &packet);
 
-  bool txAprsPositionPacket(signal_easel::aprs::PositionPacket &packet);
-
-  bool rxAprsPositionPacket(signal_easel::aprs::PositionPacket &packet,
-                            signal_easel::ax25::Frame &frame);
-
-  void updateStats(Stats &stats);
-
-  void update();
+  void update(Statistics &stats);
 
 private:
+  bool txAprsPositionPacket(const Packet &packet);
+
   Config &config_;
 
   PhysicalLayer &physical_layer_;
-  signal_easel::aprs::Packet base_packet_;
   signal_easel::aprs::Modulator modulator_{};
   signal_easel::aprs::Receiver receiver_{};
 };

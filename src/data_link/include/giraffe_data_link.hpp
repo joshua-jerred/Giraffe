@@ -61,22 +61,12 @@ public:
   void disable();
   DataLink::Status getStatus() const;
 
-  bool sendMessage(Message message);
-  // bool receiveMessage(std::string &message);
+  bool sendMessage(const Message &message);
+  bool receiveMessage(Message &message);
 
-  // bool broadcastMessage(std::string message);
-  // bool receiveBroadcast(std::string &message);
-  // bool broadcastLocation(double latitude, double longitude, uint32_t
-  // altitude,
-  //  double speed, int heading,
-  //  std::string time_stamp = "");
-  // bool receiveLocationBroadcast(double &latitude, double &longitude,
-  // uint32_t &altitude, double &speed, int &heading,
-  // std::string &time_stamp);
-
-  Stats getGdlStats() {
-    std::lock_guard<std::mutex> lock(gdl_status_lock_);
-    return gdl_stats_;
+  Statistics getStatistics() {
+    std::lock_guard<std::mutex> lock(statistics_lock_);
+    return statistics_;
   }
 
 private:
@@ -88,32 +78,22 @@ private:
    * @brief The main thread function for GDL.
    */
   void gdlThread();
-
-  /**
-   * @brief The configuration for the GDL instance.
-   */
   Config &config_;
 
-  MessageQueue exchange_queue_{};
-  MessageQueue broadcast_queue_{};
-  MessageQueue received_queue_{};
+  MessageQueue out_broadcast_queue_{};
+  MessageQueue out_exchange_queue_{};
+  MessageQueue in_queue_{};
 
-  /**
-   * @brief The thread that runs GDL.
-   */
   std::thread gdl_thread_{};
   std::atomic<bool> gdl_thread_stop_flag_{true};
-
-  /**
-   * @brief The status of the GDL instance.
-   */
   std::atomic<Status> status_{Status::DISABLED};
 
-  std::mutex gdl_status_lock_{};
-  Stats gdl_stats_{};
+  std::mutex statistics_lock_{};
+  Statistics statistics_{};
 
-  TransportLayer transport_layer_{
-      config_, NetworkLayer(config_, PhysicalLayer(config_))};
+  PhysicalLayer physical_layer_{config_};
+  NetworkLayer network_layer_{config_, physical_layer_};
+  TransportLayer transport_layer_{config_, network_layer_};
 };
 
 } // namespace giraffe::gdl

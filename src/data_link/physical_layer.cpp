@@ -14,25 +14,26 @@
  * @copyright  2024 (license to be defined)
  */
 
-#include "giraffe_data_link.hpp"
+#include "gdl_config_and_stats.hpp"
+#include "gdl_layers.hpp"
 
-namespace giraffe {
+namespace giraffe::gdl {
 
-GiraffeDataLink::PhysicalLayer::PhysicalLayer() {
+PhysicalLayer::PhysicalLayer(Config &config) : config_(config) {
 }
 
-GiraffeDataLink::PhysicalLayer::~PhysicalLayer() {
+PhysicalLayer::~PhysicalLayer() {
 }
 
-void GiraffeDataLink::PhysicalLayer::enable() {
+void PhysicalLayer::enable() {
   state_ = State::IDLE;
 }
 
-void GiraffeDataLink::PhysicalLayer::disable() {
+void PhysicalLayer::disable() {
   state_ = State::DISABLED;
 }
 
-void GiraffeDataLink::PhysicalLayer::update() {
+void PhysicalLayer::update() {
 }
 
-} // namespace giraffe
+} // namespace giraffe::gdl
