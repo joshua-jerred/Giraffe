@@ -4,6 +4,7 @@
 #.timetracker
 .VSCodeCounter
 .cache
+.codechecker
 
 # CMake Build Files
 build

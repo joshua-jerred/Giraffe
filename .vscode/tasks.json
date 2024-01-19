@@ -2,13 +2,16 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "run clang-tidy",
+      "label": "run codechecker",
       "type": "shell",
-      "command": "${workspaceFolder}/toolchain/clang_tidy.sh",
-      "detail": "Run clang-tidy on the project",
+      "command": "${workspaceFolder}/project/codechecker.sh",
+      "detail": "Run codechecker on the project",
       "presentation": {
         "reveal": "always",
-        "panel": "new"
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
       }
     },
     {
@@ -17,7 +20,10 @@
       "command": "${workspaceFolder}/project/generate_source_files.sh",
       "presentation": {
         "reveal": "always",
-        "panel": "new"
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
       }
     },
     {
