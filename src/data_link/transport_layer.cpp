@@ -102,6 +102,8 @@ void TransportLayer::update(Statistics &statistics) {
   statistics.uplink_connected = uplink_connected_;
   statistics.downlink_connected = downlink_connected_;
   statistics.total_messages_dropped = total_messages_dropped_;
+  statistics.last_message_received = last_message_received_;
+  statistics.position_packets_received = position_packets_received_;
 }
 
 void TransportLayer::idleState() {
@@ -144,17 +146,21 @@ void TransportLayer::idleState() {
         received_message_.setExchangeMessage(packet_buffer.getData(),
                                              packet_buffer.getIdentifier());
         message_received_ = true;
+        last_message_received_.setToNow();
       } else {
         std::cout << "WARNING: received duplicate exchange message\n";
       }
       sendAck(message_id);
       break;
 
-    case Packet::PacketType::BROADCAST:
     case Packet::PacketType::LOCATION:
+      position_packets_received_++;
+      // purposefully fall through to broadcast
+    case Packet::PacketType::BROADCAST:
       // location or broadcast received, send it up
       received_message_ = static_cast<Message>(packet_buffer);
       message_received_ = true;
+      last_message_received_.setToNow();
       break;
     case Packet::PacketType::PING:
       sendPingResponse();

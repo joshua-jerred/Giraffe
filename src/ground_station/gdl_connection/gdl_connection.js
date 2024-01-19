@@ -1,5 +1,5 @@
 const DataMeta = require("../../../project/metadata/gdl_resources.json");
-const { RequestMessage, parse } = require("giraffe-protocol");
+const { RequestMessage, SetMessage, parse } = require("giraffe-protocol");
 const net = require("net");
 const { Point } = require("@influxdata/influxdb-client");
 
@@ -12,6 +12,12 @@ module.exports = class GdlConnection {
     this.connected = false;
     this.#updateClassSettings();
     let meta = DataMeta["data"];
+
+    this.telemetry_data = {
+      position_packets: [],
+      received_messages: [],
+      sent_messages: [],
+    };
 
     for (let category in meta) {
       this.resources[category] = {
@@ -60,7 +66,7 @@ module.exports = class GdlConnection {
   /**
    * @brief Called at a set interval at a higher level. This runs everything.
    */
-  async update() {
+  update() {
     this.#updateClassSettings();
 
     for (let category in this.resources) {
@@ -73,22 +79,49 @@ module.exports = class GdlConnection {
       this.#updateResource(category);
       this.resources[category].meta.last_request = new Date();
       this.resources[category].meta.requests++;
-
-      if (
-        this.connected &&
-        this.resources["status"] !== undefined &&
-        this.resources["status"].data["aprs_rx_queue_size"] > 0
-      ) {
-        this.#getAprsPositionalData();
-      }
-
       // sleep for 50ms to prevent flooding the socket
       // await new Promise((resolve) => setTimeout(resolve, 50));
+    }
+
+    if (this.connected && this.resources["status"] !== undefined) {
+      this.#getTelemetryData("position_packets");
+      this.#getTelemetryData("received_messages");
+      this.#getTelemetryData("sent_messages");
     }
   }
 
   getMsSinceLastUpdate(category) {
     return Math.floor(new Date() - this.resources[category].meta.timestamp);
+  }
+
+  sendBroadcast(data) {
+    let body = {
+      data: data,
+    };
+    let request = new SetMessage("ggs", "gdl", "new_broadcast", body);
+    let con = new net.Socket();
+    con.setTimeout(TIMEOUT);
+
+    con.connect(this.port, this.address, function () {
+      con.write(JSON.stringify(request));
+    });
+
+    con.on("data", function (data) {
+      try {
+        let msg = parse(data.toString());
+        if (msg.bdy.cde !== "ok") {
+          console.log("Error: " + msg.bdy.dat);
+          return;
+        }
+      } catch (e) {
+        console.log("Error parsing data: " + e);
+      }
+      con.destroy();
+    });
+
+    con.on("close", function () {});
+
+    con.on("error", function (err) {});
   }
 
   /**
@@ -152,8 +185,8 @@ module.exports = class GdlConnection {
     }
   }
 
-  #getAprsPositionalData() {
-    let request = new RequestMessage("ggs", "gdl", "aprs_location");
+  #getTelemetryData(category) {
+    let request = new RequestMessage("ggs", "gdl", category);
     let con = new net.Socket();
     let that = this;
     con.setTimeout(TIMEOUT);
@@ -161,7 +194,6 @@ module.exports = class GdlConnection {
     con.connect(this.port, this.address, function () {
       con.write(JSON.stringify(request));
     });
-
     con.on("data", function (data) {
       that.connected = true;
       try {
@@ -173,18 +205,13 @@ module.exports = class GdlConnection {
         if (msg.bdy.dat.length === 0) {
           return;
         }
-
-        msg.bdy.dat.forEach((item) => {
-          that.global_state.gdl_telemetry.addAprsPositionPacket(item);
-        });
+        that.telemetry_data[category] = msg.bdy.dat;
       } catch (e) {
         console.log("Error parsing data: " + e);
       }
       con.destroy();
     });
-
     con.on("close", function () {});
-
     con.on("error", function (err) {});
   }
 

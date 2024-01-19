@@ -83,8 +83,8 @@ module.exports = class FlightDataHandler {
   }
 
   update() {
-    this.last_aprs_contact =
-      this.global_state.gdl_telemetry.getMostRecentAprsPositionPacket();
+    this.last_aprs_contact = "todo";
+    // this.global_state.gdl_telemetry.getMostRecentAprsPositionPacket();
     this.last_gfs_gps_data =
       this.global_state.gfs_connection.getRecentLocationData();
 

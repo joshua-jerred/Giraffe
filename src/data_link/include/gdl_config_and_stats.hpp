@@ -17,6 +17,8 @@
 #ifndef GDL_CONFIG_HPP_
 #define GDL_CONFIG_HPP_
 
+#include <BoosterSeat/time.hpp>
+
 #include <atomic>
 #include <cstdint>
 #include <mutex>
@@ -95,6 +97,8 @@ struct Statistics {
   // Transport layer
   bool uplink_connected = false;
   bool downlink_connected = false;
+  bst::Time last_message_received{};
+  uint32_t position_packets_received = 0;
 
   // Network layer
   uint32_t total_packets_sent = 0;

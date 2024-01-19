@@ -60,11 +60,21 @@ public:
           continue;
         }
         if (!protocol::parseMessage(received_string, received_msg)) {
+          std::cout << "Failed to parse message: " << received_string << "\n";
           continue;
         }
 
         if (received_msg.typ == protocol::MessageType::REQ) {
           routeRequest(received_msg.rsc);
+        } else if (received_msg.typ == protocol::MessageType::SET) {
+          routeSet(received_msg);
+        }
+      }
+
+      if (gdl_.messageAvailable()) {
+        gdl::Message msg;
+        if (gdl_.receiveMessage(msg)) {
+          db_.insertMessage(msg, false);
         }
       }
     }
@@ -79,9 +89,11 @@ public:
     json res_data;
 
     if (rsc == "status") {
-      auto stats = gdl_.getStatistics();
+      gdl::Statistics stats = gdl_.getStatistics();
       res_data = {
-          {"gdl_status", GDL_STATUS_MAP.at(gdl_.getStatus())},
+          {"gdl_status", gdl_.getStatus() == DataLink::Status::DISABLED
+                             ? "DISABLED"
+                             : "ENABLED"},
           {"telemetry_uplink",
            stats.uplink_connected ? "CONNECTED" : "DISCONNECTED"},
           {"telemetry_downlink",
@@ -89,16 +101,20 @@ public:
           {"exchange_queue_size", stats.exchange_queue_size},
           {"broadcast_queue_size", stats.broadcast_queue_size},
           {"received_queue_size", stats.received_queue_size},
+          {"total_messages_dropped", stats.total_messages_dropped},
           {"total_packets_received", stats.total_packets_received},
           {"total_packets_sent", stats.total_packets_sent},
-          // {"rssi", stats.rssi},
+          {"last_message_received", stats.total_packets_received > 0
+                                        ? stats.last_message_received.toString()
+                                        : "N/A"}, // {"rssi", stats.rssi},
+          {"position_packets_received", stats.position_packets_received},
           {"volume", stats.volume},
           {"signal_to_noise_ratio", stats.signal_to_noise_ratio},
           {"network_layer_latency_ms", stats.network_layer_latency_ms},
       };
     } else if (rsc == "config") {
       res_data = {};
-    } else if (rsc == "aprs_location") {
+    } else if (rsc == "position_packets") {
       res_data = json::array();
       auto packets = db_.getLatestPositionReports();
       for (auto &packet : packets) {
@@ -109,16 +125,10 @@ public:
                             {"heading", packet.getLocation().heading},
                             {"time_code", packet.getLocation().time_code}});
       }
-    } else if (rsc == "messages") {
-      res_data = json::array();
-      auto messages = db_.getLatestReceivedMessages();
-      for (auto &msg : messages) {
-        res_data.push_back(
-            {{"id", msg.getIdentifierString()},
-             {"type", msg.getType() == Message::Type::BROADCAST ? "BROADCAST"
-                                                                : "EXCHANGE"},
-             {"message", msg.getData()}});
-      }
+    } else if (rsc == "received_messages") {
+      res_data = db_.getLatestReceivedMessagesJson();
+    } else if (rsc == "sent_messages") {
+      res_data = db_.getLatestSentMessagesJson();
     } else if (rsc == "reset") {
       db_.reset();
       protocol::createResponseMessage(msg, protocol::Endpoint::GDL,
@@ -137,6 +147,38 @@ public:
     protocol::createResponseMessage(msg, protocol::Endpoint::GDL,
                                     protocol::Endpoint::GGS, "1",
                                     protocol::ResponseCode::GOOD, res_data);
+    client_socket_.send(msg.getJsonString());
+  }
+
+  void routeSet(const protocol::Message &set_msg) {
+    protocol::Message msg;
+
+    if (set_msg.rsc == "new_broadcast") {
+      if (!set_msg.dat.contains("data")) {
+        protocol::createResponseMessage(
+            msg, protocol::Endpoint::GDL, protocol::Endpoint::GGS, "1",
+            protocol::ResponseCode::ERROR, {{"err", "missing data"}});
+        client_socket_.send(msg.getJsonString());
+        return;
+      }
+
+      std::string broadcast_data = set_msg.dat["data"];
+      gdl::Message new_broadcast;
+      new_broadcast.setBroadcastMessage(broadcast_data, getNewBroadcastId());
+      gdl_.sendMessage(new_broadcast);
+      db_.insertMessage(new_broadcast, true);
+
+      protocol::createResponseMessage(msg, protocol::Endpoint::GDL,
+                                      protocol::Endpoint::GGS, "1",
+                                      protocol::ResponseCode::GOOD, {});
+    } else {
+      protocol::createResponseMessage(
+          msg, protocol::Endpoint::GDL, protocol::Endpoint::GGS, "1",
+          protocol::ResponseCode::ERROR, {{"err", "unknown resource"}});
+      client_socket_.send(msg.getJsonString());
+      return;
+    }
+
     client_socket_.send(msg.getJsonString());
   }
 
@@ -163,6 +205,11 @@ private:
     return res;
   }
 
+  uint32_t getNewBroadcastId() {
+    last_broadcast_id_++;
+    return last_broadcast_id_;
+  }
+
   bool stop_flag_{false};
   sock::TcpSocketServer server_socket_{};
   sock::TcpSocketServer client_socket_{};
@@ -171,6 +218,8 @@ private:
   DataLink gdl_{gdl_config_};
 
   GdlServerDatabase db_{};
+
+  uint32_t last_broadcast_id_{1};
 };
 
 } // namespace giraffe::gdl

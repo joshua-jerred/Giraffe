@@ -135,6 +135,10 @@ private:
   uint32_t sent_exchange_message_id_ = 0;
 
   uint32_t total_messages_dropped_ = 0;
+
+  bst::Time last_message_received_{};
+
+  uint32_t position_packets_received_ = 0;
 };
 
 /**
