@@ -7,12 +7,22 @@ import {
   CardSectionTitle,
 } from "../../core/PageParts";
 
-import { DataBlock, NestedDataStreamBlock } from "../../components/DataBlock";
+import { DataBlock } from "../../components/DataBlock";
 
 function GfsDataMonitorPage() {
   return (
     <>
-      <PageTitle>Giraffe Flight System Data Monitor</PageTitle>
+      <PageTitle title="GFS Data Monitor">
+        The GFS Data Monitor page is used to debug the Giraffe Flight Computer
+        while it's still on the ground. It displays various data points from
+        inside of the flight software. This data is sent to the ground station
+        (backend) via a TCP socket. This means that this page is only useful
+        prior to a flight.
+        <br />
+        <br />
+        Note: The server module must be enabled within the flight software for
+        the ground station to be able to connect.
+      </PageTitle>
       <PageContent>
         <CardMasonryLayout>
           <Card title="Calculated Data">

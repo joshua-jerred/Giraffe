@@ -3,12 +3,12 @@ import {
   PageContent,
   Card,
   CardMasonryLayout,
-} from '../core/PageParts';
+} from "../core/PageParts";
 
 function TrackingPage() {
   return (
     <>
-      <PageTitle>Giraffe Ground Station - Tracking</PageTitle>
+      <PageTitle title={"Tracking"}>@todo - add a description here</PageTitle>
       <PageContent>
         <CardMasonryLayout>
           <Card title="card1"> </Card>

@@ -24,15 +24,20 @@ const TooltipContainer = styled.span`
   width: 100%;
   &:hover ${TooltipBox} {
     transition-delay: ${(props) =>
-      props.theme.components.tooltip.transition_delay};
+      props.specified_delay || props.theme.components.tooltip.transition_delay};
     visibility: visible;
     opacity: 1;
   }
 `;
 
-const Tooltip = ({ text, children, vertical_position = "125%" }) => {
+const Tooltip = ({
+  text,
+  children,
+  vertical_position = "125%",
+  specified_delay = null,
+}) => {
   return (
-    <TooltipContainer>
+    <TooltipContainer specified_delay={specified_delay}>
       {children}
       <TooltipBox vertical_position={vertical_position}>{text}</TooltipBox>
     </TooltipContainer>

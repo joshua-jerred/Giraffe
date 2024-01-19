@@ -29,6 +29,9 @@ export function Map() {
       fetch(`http://${ggsAddress}/api/flight_data/data?category=location`)
         .then((response) => response.json())
         .then((data) => {
+          if (data.values.latitude === undefined) {
+            return;
+          }
           setPosition({
             lat: data.values.latitude,
             lng: data.values.longitude,

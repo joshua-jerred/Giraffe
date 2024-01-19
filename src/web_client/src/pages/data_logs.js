@@ -9,7 +9,7 @@ import { DataBlock } from "../components/DataBlock";
 function DataLogsPage() {
   return (
     <>
-      <PageTitle>Giraffe Ground Station - Data Logs</PageTitle>
+      <PageTitle title={"Data Logs"}>@todo - add a description here</PageTitle>
       <PageContent>
         <CardMasonryLayout>
           <Card title="card1">

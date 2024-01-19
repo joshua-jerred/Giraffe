@@ -9,7 +9,9 @@ import { EditBox } from "../components/Editable";
 function ConfigureGgsPage() {
   return (
     <>
-      <PageTitle>Giraffe Ground Station - Configuration</PageTitle>
+      <PageTitle title="Ground Station Configuration">
+        @todo - add a description here
+      </PageTitle>
       <PageContent>
         <CardMasonryLayout>
           <Card title="Ground Station Server Settings">

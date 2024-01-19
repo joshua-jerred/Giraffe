@@ -11,7 +11,9 @@ import { EditBox } from "../../components/Editable";
 function ConfigureGfsPage() {
   return (
     <>
-      <PageTitle>Giraffe Flight Software - Configure</PageTitle>
+      <PageTitle title="GFS Configuration">
+        @todo - add a description here
+      </PageTitle>
       <PageContent>
         <CardMasonryLayout>
           <Card title="General">

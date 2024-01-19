@@ -6,6 +6,7 @@ import { GwsGlobalContextProvider } from "./GlobalContext";
 import { GgsApiContextProvider } from "./api_interface/ggs_api";
 
 import "font-awesome/css/font-awesome.min.css"; // used for nav bar icons only
+import "./style/global.css";
 
 import App from "./App";
 

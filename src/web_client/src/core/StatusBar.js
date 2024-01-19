@@ -25,7 +25,7 @@ const StatusCard = styled.div`
   background: ${(props) => props.theme.status_background};
   color: ${(props) => props.theme.on_surface};
   position: sticky;
-  width: 95%;
+  width: 100% - padding: ${(props) => props.theme.status_bar.padding};
   top: 0;
   padding: ${(props) => props.theme.status_bar.padding};
   min-height: 50px;
