@@ -14,11 +14,14 @@ target_link_libraries(giraffe_data_link_core
 )
 
 add_executable(gdl_server
-  "./gdl_server.cpp"
+  "server/main.cpp"
 )
 target_link_libraries(gdl_server 
   giraffe_data_link_core
+  SQLiteCpp
+  sqlite3
 )
+target_include_directories(gdl_server PRIVATE "./server")
 
 add_executable(gdl_terminal
   "./gdl_terminal.cpp"

@@ -19,10 +19,11 @@
 
 using json = nlohmann::json;
 
+#include "protocol.hpp"
 #include <giraffe_data_link.hpp>
 #include <socket.hpp>
 
-#include "protocol.hpp"
+#include "gdl_server_database.hpp"
 
 namespace giraffe::gdl {
 
@@ -99,12 +100,32 @@ public:
       res_data = {};
     } else if (rsc == "aprs_location") {
       res_data = json::array();
-      if (gdl_.getAprsGpsRxQueueSize() > 0) {
-        signal_easel::aprs::PositionPacket packet;
-        while (gdl_.getReceivedAprsGpsPacket(packet)) {
-          res_data.push_back(aprsPositionalPacketToJson(packet));
-        }
+      auto packets = db_.getLatestPositionReports();
+      for (auto &packet : packets) {
+        res_data.push_back({{"latitude", packet.getLocation().latitude},
+                            {"longitude", packet.getLocation().longitude},
+                            {"altitude", packet.getLocation().altitude},
+                            {"speed", packet.getLocation().speed},
+                            {"heading", packet.getLocation().heading},
+                            {"time_code", packet.getLocation().time_code}});
       }
+    } else if (rsc == "messages") {
+      res_data = json::array();
+      auto messages = db_.getLatestReceivedMessages();
+      for (auto &msg : messages) {
+        res_data.push_back(
+            {{"id", msg.getIdentifierString()},
+             {"type", msg.getType() == Message::Type::BROADCAST ? "BROADCAST"
+                                                                : "EXCHANGE"},
+             {"message", msg.getData()}});
+      }
+    } else if (rsc == "reset") {
+      db_.reset();
+      protocol::createResponseMessage(msg, protocol::Endpoint::GDL,
+                                      protocol::Endpoint::GGS, "1",
+                                      protocol::ResponseCode::GOOD, {});
+      client_socket_.send(msg.getJsonString());
+      return;
     } else {
       protocol::createResponseMessage(
           msg, protocol::Endpoint::GDL, protocol::Endpoint::GGS, "1",
@@ -148,6 +169,8 @@ private:
 
   Config gdl_config_ = Config(true);
   DataLink gdl_{gdl_config_};
+
+  GdlServerDatabase db_{};
 };
 
 } // namespace giraffe::gdl

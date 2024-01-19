@@ -101,6 +101,7 @@ void TransportLayer::update(Statistics &statistics) {
   // update statistics
   statistics.uplink_connected = uplink_connected_;
   statistics.downlink_connected = downlink_connected_;
+  statistics.total_messages_dropped = total_messages_dropped_;
 }
 
 void TransportLayer::idleState() {
@@ -188,6 +189,7 @@ void TransportLayer::exchangeSendState() {
   if (current_tx_packet_.getSendAttempts() >= GDL_RDT_MAX_RETRIES) {
     /// @todo handle error
     std::cout << "ERROR: max retries exceeded\n";
+    total_messages_dropped_++;
     state_ = State::IDLE;
     return;
   }

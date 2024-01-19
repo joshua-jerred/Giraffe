@@ -65,7 +65,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 -Wpedantic \
 -Wall \
 -Wextra \
--Weffc++ \
 -Wdisabled-optimization \
 -Wfloat-equal \
 -Wno-unused-variable \
@@ -77,11 +76,12 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 
 # ----- Third Party Libs -----
 set(THREADS_PREFER_PTHREAD_FLAG ON)
-find_package(Threads REQUIRED)             # pthreads
-find_library(GTEST_LIB NAMES gtest)        # gtest
-find_package(Curses REQUIRED)              # ncurses
-find_package(nlohmann_json 3.9.0 REQUIRED) # nlhomann_json
-find_package(CURL REQUIRED)                # curl
+find_package(Threads REQUIRED)               # pthreads
+find_library(GTEST_LIB NAMES gtest)          # gtest
+find_package(Curses REQUIRED)                # ncurses
+find_package(nlohmann_json 3.9.0 REQUIRED)   # nlhomann_json
+find_package(CURL REQUIRED)                  # curl
+add_subdirectory(lib/third_party/sqlite_cpp) # sqlite_cpp
 # ----------------------------
 
 # add_definitions(-DDONT_ADD_SIGNAL_EASEL_BOOSTER_SEAT)

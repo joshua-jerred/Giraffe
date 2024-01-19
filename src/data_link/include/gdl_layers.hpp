@@ -133,6 +133,8 @@ private:
   uint32_t last_acked_message_id_ = 0xffffffff;
 
   uint32_t sent_exchange_message_id_ = 0;
+
+  uint32_t total_messages_dropped_ = 0;
 };
 
 /**

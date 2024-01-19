@@ -15,28 +15,25 @@
  */
 
 #include "telemetry_module.hpp"
+#include "gdl_message.hpp"
+
+using namespace giraffe;
 
 void modules::TelemetryModule::startup() {
-  base_packet_.source_address = configuration_.telemetry.getCallSign();
-  base_packet_.source_ssid = configuration_.telemetry_aprs.getSsid();
-  base_packet_.destination_address =
-      configuration_.telemetry_aprs.getDestinationAddress();
-  base_packet_.destination_ssid =
-      configuration_.telemetry_aprs.getDestinationSsid();
+  gdl_config_.setCallSign(configuration_.telemetry.getCallSign());
+  gdl_config_.setSSID(configuration_.telemetry_aprs.getSsid());
+  gdl_config_.setRemoteCallSign(
+      configuration_.telemetry_aprs.getDestinationAddress());
+  gdl_config_.setRemoteSSID(configuration_.telemetry_aprs.getDestinationSsid());
 
   aprs_position_packet_timer_.setTimeout(
       configuration_.telemetry_aprs.getPositionPacketInterval() * 1000);
 
-  /// @todo Symbol table option
-  // base_packet_.symbol_table = configuration_.telemetry_aprs.getSymbolTable();
-
-  /// @warning this could be a problem
-  base_packet_.symbol = configuration_.telemetry_aprs.getSymbol().at(0);
-  gdl_.start();
+  gdl_.enable();
 }
 
 void modules::TelemetryModule::loop() {
-  if (gdl_.getReceiveQueueSize() > 0) {
+  if (gdl_.messageAvailable()) {
     processTelemetryMessageQueue();
   } else if (configuration_.telemetry_aprs.getPositionPackets()) {
     // if APRS position packets are enabled, handle them.
@@ -46,45 +43,53 @@ void modules::TelemetryModule::loop() {
   }
 
   // update the telemetry module stats
-  auto gdl_data = gdl_.getGdlStatus();
+  auto gdl_data = gdl_.getStatistics();
 
   data::blocks::TelemetryModuleStats stats{};
   stats.exchange_queue_size = gdl_data.exchange_queue_size;
   stats.broadcast_queue_size = gdl_data.broadcast_queue_size;
   stats.received_queue_size = gdl_data.received_queue_size;
-  stats.aprs_tx_queue_size = gdl_.getAprsGpsTxQueueSize();
-  stats.aprs_rx_queue_size = gdl_.getAprsGpsRxQueueSize();
+  stats.downlink_connected = gdl_data.downlink_connected;
   stats.network_layer_latency_ms = gdl_data.network_layer_latency_ms;
   stats.volume = gdl_data.volume;
   // stats.rssi = gdl_data.rssi;
   stats.signal_to_noise_ratio = gdl_data.signal_to_noise_ratio;
-  stats.total_packets_received = total_packets_received_;
-  stats.total_packets_sent = total_packets_sent_;
+  stats.total_packets_received = gdl_data.total_packets_received;
+  stats.total_packets_sent = gdl_data.total_packets_sent;
+  stats.total_messages_dropped = gdl_data.total_messages_dropped;
+  stats.total_messages_sent = total_messages_sent_;
+  stats.total_messages_received = total_messages_received_;
   stats.last_received_message = last_received_message_;
 
   shared_data_.blocks.telemetry_module_stats.set(stats);
 }
 
 void modules::TelemetryModule::shutdown() {
-  gdl_.stop();
+  gdl_.disable();
 }
 
 void modules::TelemetryModule::processTelemetryMessageQueue() {
   // Read the packet
-  gdl::Message msg;
-  bool res = gdl_.getReceivedMessage(msg);
-  if (!res) {
+  giraffe::gdl::Message msg;
+  if (!gdl_.receiveMessage(msg)) {
     // @todo log error
     return;
   }
-  last_received_message_ = msg.data;
-  data(data::DataId::TELEMETRY_dataLinkPacketReceived,
-       msg.data + " [id: " + msg.id + "]");
 
-  total_packets_received_++;
+  if (msg.getType() == giraffe::gdl::Message::Type::LOCATION) {
+    // @todo log error
+    return;
+  }
+
+  last_received_message_ = msg.getData();
+
+  data(data::DataId::TELEMETRY_dataLinkPacketReceived,
+       msg.getData() + " [id: " + msg.getIdentifierString() + "]");
+
+  total_messages_received_++;
 
   cmd::Command command;
-  if (!cmd::parseCommandString(msg.data, command)) {
+  if (!cmd::parseCommandString(msg.getData(), command)) {
     /// @todo log an error and respond to the telemetry packet
     return;
   }
@@ -123,20 +128,25 @@ void modules::TelemetryModule::sendAprsPositionPacket() {
   }
 
   // Create the APRS packet
-  signal_easel::aprs::PositionPacket packet{};
+  gdl::Message::Location gdl_loc{};
   /**
    * @todo Fix this time code!
    * @warning Time code in not implemented for APRS position packets.
    */
-  packet.time_code = "000000";
-  packet.latitude = loc.latitude;
-  packet.longitude = loc.longitude;
-  packet.altitude = loc.altitude;
-  packet.speed = loc.horizontal_speed;
-  packet.course = loc.heading_of_motion;
+  gdl_loc.time_code = "000000";
+  gdl_loc.latitude = loc.latitude;
+  gdl_loc.longitude = loc.longitude;
+  gdl_loc.altitude = loc.altitude;
+  gdl_loc.speed = loc.horizontal_speed;
+  gdl_loc.heading = loc.heading_of_motion;
+
+  gdl::Message message{};
+  message.setLocation(gdl_loc);
+  message.setType(gdl::Message::Type::LOCATION);
+  message.setIdentifier(getNextMessageId());
 
   // Send the packet
-  if (!gdl_.broadcastAprsLocation(packet)) {
+  if (!gdl_.sendMessage(message)) {
     /// @todo log an error
     return;
   }
@@ -150,18 +160,21 @@ void modules::TelemetryModule::processCommand(const cmd::Command &command) {
   switch (command.command_id) {
   case cmd::CommandId::TELEMETRY_MODULE_sendNumActiveErrors:
     int_buffer = shared_data_.frames.error_frame.numActiveErrors();
-    gdl_.exchangeMessage("cmd/tlm/nae/ : " + std::to_string(int_buffer));
+    gdl_.sendText("cmd/tlm/nae/ : " + std::to_string(int_buffer),
+                  getNextMessageId());
     break;
   case cmd::CommandId::TELEMETRY_MODULE_sendRssi:
     std::cout << "TELEMETRY_MODULE_sendRssi" << std::endl;
     double_buffer = shared_data_.blocks.telemetry_module_stats.get().rssi;
-    gdl_.exchangeMessage("cmd/tlm/rsi/ : " + std::to_string(double_buffer));
+    gdl_.sendText("cmd/tlm/rsi/ : " + std::to_string(double_buffer),
+                  getNextMessageId());
     break;
   case cmd::CommandId::TELEMETRY_MODULE_sendSnr:
     std::cout << "TELEMETRY_MODULE_sendSnr" << std::endl;
     double_buffer =
         shared_data_.blocks.telemetry_module_stats.get().signal_to_noise_ratio;
-    gdl_.exchangeMessage("cmd/tlm/snr/ : " + std::to_string(double_buffer));
+    gdl_.sendText("cmd/tlm/snr/ : " + std::to_string(double_buffer),
+                  getNextMessageId());
     break;
   default:
     error(DiagnosticId::TELEMETRY_invalidCommand);

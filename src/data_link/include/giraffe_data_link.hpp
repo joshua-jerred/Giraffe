@@ -62,7 +62,12 @@ public:
   DataLink::Status getStatus() const;
 
   bool sendMessage(const Message &message);
+  bool sendText(const std::string &text, uint32_t message_id);
+
   bool receiveMessage(Message &message);
+  bool messageAvailable() const {
+    return in_queue_.size() > 0;
+  }
 
   Statistics getStatistics() {
     std::lock_guard<std::mutex> lock(statistics_lock_);

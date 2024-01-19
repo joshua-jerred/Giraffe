@@ -102,6 +102,10 @@ public:
     return type_;
   }
 
+  void setType(Type type) {
+    type_ = type;
+  }
+
   void setData(std::string data) {
     data_ = std::move(data);
   }

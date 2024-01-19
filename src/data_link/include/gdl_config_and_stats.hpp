@@ -99,6 +99,7 @@ struct Statistics {
   // Network layer
   uint32_t total_packets_sent = 0;
   uint32_t total_packets_received = 0;
+  uint32_t total_messages_dropped = 0;
   double volume = 0.0;
   double signal_to_noise_ratio = 0.0;
 
