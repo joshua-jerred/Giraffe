@@ -18,10 +18,10 @@ module.exports = {
   version: '0.5.8',
   stage: "development",
   build_date: "2024-01-19",
-  build_time: "15:49:06",
-  git_hash: "dc8771d4",
+  build_time: "16:10:29",
+  git_hash: "b6f9f596",
   git_branch: "176-aprs-experimental-packet-in-gdl",
-  git_commit_count: "694",
+  git_commit_count: "696",
   git_repo: "github.com/joshua-jerred/Giraffe",
 };
 

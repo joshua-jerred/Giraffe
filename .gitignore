@@ -5,6 +5,7 @@
 .VSCodeCounter
 .cache
 .codechecker
+./version.ini
 
 # CMake Build Files
 build

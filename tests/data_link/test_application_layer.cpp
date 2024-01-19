@@ -7,9 +7,9 @@
 #include <giraffe_data_link.hpp>
 #include <giraffe_diagnostics.hpp>
 
-using namespace gdl;
+// using namespace gdl;
 
-GdlConfig config;
+// GdlConfig config;
 
 TEST(ApplicationLayer, Start) {
 
