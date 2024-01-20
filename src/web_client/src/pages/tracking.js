@@ -5,6 +5,10 @@ import {
   CardMasonryLayout,
 } from "../core/PageParts";
 
+function AprsFi() {
+  return <p>aprs.fi data</p>;
+}
+
 function TrackingPage() {
   return (
     <>
@@ -12,7 +16,9 @@ function TrackingPage() {
       <PageContent>
         <CardMasonryLayout>
           <Card title="card1"> </Card>
-          <Card title="card2"> </Card>
+          <Card title="aprs.fi">
+            <AprsFi />
+          </Card>
         </CardMasonryLayout>
       </PageContent>
     </>

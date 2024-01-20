@@ -1,31 +1,83 @@
+const version_info = require("../../common/version");
 const superagent = require("superagent");
+const sqlite3 = require("sqlite3").verbose();
 
-module.exports = async function aprs_fi() {
-  // callback
-  superagent
-    .get("http://localhost:8080/")
-    .set("Accept", "application/json")
-    .set("User-Agent", "example-agent")
-    // .query({ action: "edit", city: "London" }) // query string
-    // .unset("User-Agent") // removes the User-Agent header
-    // .send({ name: "Manny", species: "cat" }) // sends a JSON post body
-    // .set("X-API-Key", "foobar")
-    // .set("accept", "json")
-    .end((err, res) => {
-      console.log(res.body);
-      // Calling the end function will send the request
-    });
+const USER_AGENT =
+  `Giraffe/${version_info.version}-${version_info.stage} ` +
+  `(Giraffe Ground Station, GGS; +${version_info.git_repo}; ` +
+  `${version_info.git_hash}) Node.js/${process.version}`;
 
-  // promise with then/catch
-  // superagent.post("/").then(console.log).catch(console.error);
+APRS_FI_URL = "https://api.aprs.fi/api/get";
+// APRS_FI_URL = "http://localhost:8080/api/get";
 
-  // promise with async/await
-  // (async () => {
-  //   try {
-  //     const res = await superagent.post("/api/pet");
-  //     console.log(res);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // })();
+module.exports = class AprsFi {
+  constructor() {
+    // must include the SSID
+    this.name = "KD9GDC-10";
+    this.apikey = "87299.Hf98Lly9Sm8qIuvP";
+    this.db = new sqlite3.Database("../db/ggs.sqlite3");
+
+    this.packets = [];
+  }
+
+  setApiKey(apikey) {
+    this.apikey = apikey;
+  }
+
+  setName(name) {
+    this.name = name;
+  }
+
+  get() {
+    this.name = this.name.toUpperCase();
+    return superagent
+      .get(APRS_FI_URL)
+      .query({
+        name: this.name,
+        what: "loc",
+        apikey: this.apikey,
+        format: "json",
+      }) // query string
+      .set("Accept", "application/json")
+      .set("User-Agent", USER_AGENT)
+      .end((err, res) => {
+        console.log("Response: ", res.body);
+        // console.log("Response: ", res);
+        // console.log("Error: ", err);
+        // err ? console.log(err) : console.log(res.body);
+        return res.body;
+      });
+  }
+
+  getSampleEmptyResponse() {
+    return {};
+  }
+
+  getSampleSimpleResponse() {
+    return {
+      command: "get",
+      result: "ok",
+      what: "loc",
+      found: 1,
+      entries: [
+        {
+          class: "a",
+          name: "K7DPO-9",
+          type: "l",
+          time: "1705710946",
+          lasttime: "1705710946",
+          lat: "36.80250",
+          lng: "-114.07550",
+          altitude: 487,
+          course: 179,
+          speed: 14.816,
+          symbol: "/j",
+          srccall: "K7DPO-9",
+          dstcall: "S6TXQU",
+          mice_msg: "101",
+          path: "WIDE1-1,qAR,UTAH",
+        },
+      ],
+    };
+  }
 };

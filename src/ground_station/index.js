@@ -1,17 +1,7 @@
-// const aprs_fi = require("./aprs_fi/aprs_fi");
-const fs = require("node:fs");
+const AprsFi = require("./aprs_fi/aprs_fi");
 
-const VERSION_FILE_PATH = "../version";
-const re = /\bVERSION_NUMBER<([0-9\.]+)>[ \n\r]+STAGE<([A-Za-z ]+)>/g;
-
-const match = re.exec(fs.readFileSync(VERSION_FILE_PATH, "utf8"));
-const version_number = match[1];
-const stage = match[2];
-
-console.log("version_number: ", version_number);
-console.log("stage: ", stage);
-
-// aprs_fi();
+let aprs = new AprsFi();
+aprs.get();
 
 // const PORT = 7892;
 
