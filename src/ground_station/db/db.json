@@ -6,8 +6,7 @@
     },
     "gfs_connection": {
       "gfs_socket_address": "localhost",
-      "gfs_socket_port": 7893,
-      "gfs_server_address": "localhost"
+      "gfs_socket_port": 7893
     },
     "gfs_state_intervals": {
       "config": 5000,
@@ -28,6 +27,12 @@
       "influx_bucket": "giraffe_ground_station",
       "influx_interval_ms": 1000,
       "influx_retention_duration": "INF"
+    },
+    "aprs_fi": {
+      "enabled": false,
+      "api_key": "none",
+      "name": "none-1",
+      "check_interval_s": 180
     }
   },
   "data": {

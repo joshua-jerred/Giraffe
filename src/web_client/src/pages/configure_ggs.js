@@ -14,10 +14,6 @@ function ConfigureGgsPage() {
       </PageTitle>
       <PageContent>
         <CardMasonryLayout>
-          <Card title="Ground Station Server Settings">
-            <EditBox resource="ggs" category="ggs_server" />
-          </Card>
-
           <Card title="Giraffe Flight Software Connection">
             <EditBox resource="ggs" category="gfs_connection" />
           </Card>
@@ -26,8 +22,16 @@ function ConfigureGgsPage() {
             <EditBox resource="ggs" category="gfs_state_intervals" />
           </Card>
 
+          <Card title="Giraffe Data Link">
+            <EditBox resource="ggs" category="gdl" />
+          </Card>
+
           <Card title="InfluxDB Setup">
             <EditBox resource="ggs" category="influx_db" />
+          </Card>
+
+          <Card title="Ground Station Server Settings">
+            <EditBox resource="ggs" category="aprs_fi" />
           </Card>
         </CardMasonryLayout>
       </PageContent>

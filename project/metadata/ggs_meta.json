@@ -140,6 +140,20 @@
         "name": "APRS.fi API Key",
         "description": "The API key for the APRS.fi API. https://aprs.fi/page/api",
         "default": "none"
+      },
+      "name":{
+        "type": "string",
+        "name": "APRS.fi Name",
+        "description": "The name of the station to track. This includes the SSID.",
+        "default": "none-1"
+      },
+      "check_interval_s": {
+        "type": "int",
+        "name": "APRS.fi Check Interval (s)",
+        "description": "The interval at which the web server will request updates from APRS.fi. Please be nice to their servers. https://aprs.fi/page/api",
+        "min": 60,
+        "max": 600,
+        "default": 180
       }
     }
   },

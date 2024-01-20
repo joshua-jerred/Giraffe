@@ -80,4 +80,30 @@ module.exports = class AprsFi {
       ],
     };
   }
+
+  getAnotherSample() {
+    return {
+      command: "get",
+      result: "ok",
+      what: "loc",
+      found: 1,
+      entries: [
+        {
+          class: "a",
+          name: "KD9GDC-10",
+          type: "l",
+          time: "1705713215",
+          lasttime: "1705713215",
+          lat: "37.10850",
+          lng: "-113.56933",
+          altitude: 812.292,
+          symbol: "/[",
+          srccall: "KD9GDC-10",
+          dstcall: "APDR16",
+          comment: "Testing APRS-IS via APRSDroid",
+          path: "TCPIP*,qAC,T2CZECH",
+        },
+      ],
+    };
+  }
 };

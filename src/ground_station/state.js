@@ -3,6 +3,7 @@ const GfsConnection = require("./gfs_connection/gfs_connection.js");
 const GdlConnection = require("./gdl_connection/gdl_connection.js");
 const FlightDataHandler = require("./http_api/flight_data_handler.js");
 
+const Database = require("./db/database.js");
 const InfluxWriter = require("./db/influx.js");
 const { Point } = require("@influxdata/influxdb-client");
 
@@ -18,6 +19,8 @@ class GlobalState {
       "influx_db",
       "influx_enabled"
     );
+
+    this.database = new Database();
 
     this.gfs_connection = new GfsConnection(this);
     this.gdl_connection = new GdlConnection(this);
