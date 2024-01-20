@@ -29,10 +29,17 @@
       "influx_retention_duration": "INF"
     },
     "aprs_fi": {
-      "enabled": false,
+      "enabled": true,
       "api_key": "none",
       "name": "none-1",
-      "check_interval_s": 180
+      "check_interval_s": 60
+    },
+    "ggs_settings": {
+      "gfs_config_interval": 5000,
+      "gfs_data_interval": 1000,
+      "gfs_errors_interval": 1000,
+      "gfs_log_files_interval": 1000,
+      "logging_level": "debug"
     }
   },
   "data": {

@@ -18,8 +18,8 @@ function ConfigureGgsPage() {
             <EditBox resource="ggs" category="gfs_connection" />
           </Card>
 
-          <Card title="Ground Station Update Intervals">
-            <EditBox resource="ggs" category="gfs_state_intervals" />
+          <Card title="Ground Station Settings">
+            <EditBox resource="ggs" category="ggs_settings" />
           </Card>
 
           <Card title="Giraffe Data Link">

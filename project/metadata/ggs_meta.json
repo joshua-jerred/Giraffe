@@ -16,8 +16,20 @@
         "default": 7893
       }
     },
-    "gfs_state_intervals":{
-      "config": {
+    "ggs_settings":{
+      "logging_level": {
+        "name": "Logging Level",
+        "description": "The logging level for the ground station. Error = less logs, Debug = more logs.",
+        "type": "enum",
+        "options": [
+          "error",
+          "warn",
+          "info",
+          "debug"
+        ],
+        "default": "info"
+      },
+      "gfs_config_interval": {
         "type": "int",
         "name": "GFS Config Interval (ms)",
         "description": "The interval at which the web server will pull the config from the Flight Software.",
@@ -25,7 +37,7 @@
         "max": 60000,
         "default": 5000
       },
-      "data": {
+      "gfs_data_interval": {
         "type": "int",
         "name": "GFS Data Interval (ms)",
         "description": "The interval at which the web server will pull data from the Flight Software.",
@@ -33,7 +45,7 @@
         "max": 60000,
         "default": 1000
       },
-      "errors": {
+      "gfs_errors_interval": {
         "type": "int",
         "name": "GFS Errors Interval (ms)",
         "description": "The interval at which the web server will pull errors from the Flight Software.",
@@ -41,7 +53,7 @@
         "max": 60000,
         "default": 1000
       },
-      "log_files": {
+      "gfs_log_files_interval": {
         "type": "int",
         "name": "GFS Log Files Interval (ms)",
         "description": "The interval at which the web server will pull log file information from the Flight Software.",

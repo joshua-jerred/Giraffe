@@ -7,6 +7,8 @@ const Database = require("./db/database.js");
 const InfluxWriter = require("./db/influx.js");
 const { Point } = require("@influxdata/influxdb-client");
 
+const AprsFi = require("./aprs_fi/aprs_fi.js");
+
 // Update interval for the global state
 const kGlobalStateUpdateInterval = 500;
 
@@ -26,6 +28,14 @@ class GlobalState {
     this.gdl_connection = new GdlConnection(this);
     this.flight_data_handler = new FlightDataHandler(this);
 
+    this.aprs_fi = new AprsFi(this);
+
+    this.logging_level = this.ggs_db.get(
+      "settings",
+      "ggs_settings",
+      "logging_level"
+    );
+
     this.ggs_status = {
       status: "ok",
       influxdb: "unknown",
@@ -40,6 +50,34 @@ class GlobalState {
     };
 
     setInterval(this.cycle.bind(this), kGlobalStateUpdateInterval);
+  }
+
+  // log an error message to the database
+  error(message) {
+    if (this.logging_level === "error") {
+      this.ggs_db.addLog("error", message);
+    }
+  }
+
+  // log a warning message to the database
+  warning(message) {
+    if (this.logging_level === "error" || this.logging_level === "warning") {
+      this.ggs_db.addLog("warning", message);
+    }
+  }
+
+  // log an info message to the database
+  info(message) {
+    if (this.logging_level !== "error" && this.logging_level !== "warning") {
+      this.ggs_db.addLog("info", message);
+    }
+  }
+
+  // log a debug message to the database
+  debug(message) {
+    if (this.logging_level === "debug") {
+      this.ggs_db.addLog("debug", message);
+    }
   }
 
   saveData() {
@@ -73,6 +111,7 @@ class GlobalState {
 
     this.ggs_status.gfs = this.gfs_connection.status;
     this.ggs_status.gdl = this.gdl_connection.status;
+    this.ggs_status.aprsfi = this.aprs_fi.updateAndGetStatus();
 
     // update the telemetry status with GDL data
     if (this.ggs_status.gdl === "connected") {

@@ -15,6 +15,18 @@ module.exports = class PostgresDatabase {
   createTables() {
     try {
       this.db.exec(
+        `CREATE TABLE IF NOT EXISTS ggs_log (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            level              TEXT      NOT NULL,
+            message            TEXT      NOT NULL,
+            timestamp          INTEGER   NOT NULL
+            );`
+      );
+    } catch (err) {
+      console.log(err);
+    }
+    try {
+      this.db.exec(
         `CREATE TABLE IF NOT EXISTS aprs_fi (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name               TEXT      NOT NULL,
@@ -65,6 +77,38 @@ module.exports = class PostgresDatabase {
   getRecentAprsFiData(callback) {
     const LIMIT = 20;
     const query = `SELECT * FROM aprs_fi ORDER BY time DESC LIMIT ${LIMIT};`;
+    this.db.all(query, [], (err, rows) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      callback(rows);
+    });
+  }
+
+  addLog(level, message) {
+    var unix_time = Math.round(+new Date() / 1000);
+    this.db.run(
+      `INSERT INTO ggs_log (
+            level,
+            message,
+            timestamp
+        ) VALUES (
+            $level,
+            $message,
+            $timestamp
+        );`,
+      {
+        $level: level,
+        $message: message,
+        $timestamp: unix_time,
+      }
+    );
+  }
+
+  getRecentLogData(callback) {
+    const LIMIT = 20;
+    const query = `SELECT * FROM ggs_log ORDER BY timestamp DESC LIMIT ${LIMIT};`;
     this.db.all(query, [], (err, rows) => {
       if (err) {
         console.log(err);
