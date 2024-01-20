@@ -1,19 +1,13 @@
-const AprsFi = require("./aprs_fi/aprs_fi");
+const PORT = 7892;
 
-let aprs = new AprsFi();
-aprs.get();
+const global_state = new (require("./state"))();
 
-// const PORT = 7892;
+// Setup the HTTP express server
+const server = require("./http_api/express_server")(global_state);
 
-// const global_state = new (require("./state"))();
+server.listen(PORT);
+module.exports = server;
 
-// Setup the HTTP and WS servers
-// const server = require("./http_api/express_server")(global_state);
-// const socket = require("./ws_api/ggs_ws")(server, global_state);
-//
-// server.listen(PORT);
-// module.exports = server;
-//
-// console.log(
-// `Ground Station Server listening on port ${PORT} - http://localhost:${PORT}`
-// );
+console.log(
+  `Ground Station Server listening on port ${PORT} - http://localhost:${PORT}`
+);

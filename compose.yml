@@ -24,3 +24,18 @@ services:
     image: influxdb:2.7.3
     ports:
       - '8086:8086'
+  
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: ggs
+      POSTGRES_USER: ggs
+      POSTGRES_DB: ggs
+    volumes:
+      - ggs_postgres:/var/lib/postgresql/data
+
+volumes:
+  ggs_postgres:
