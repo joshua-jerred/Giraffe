@@ -77,6 +77,14 @@ public:
     return is_controller_;
   }
 
+  void setProactiveKeepAlive(bool proactive_keep_alive) {
+    proactive_keep_alive_ = proactive_keep_alive;
+  }
+
+  bool getProactiveKeepAlive() const {
+    return proactive_keep_alive_;
+  }
+
 private:
   bool is_controller_ = true;
 
@@ -85,7 +93,9 @@ private:
   std::string call_sign_ = "NOCALL";
   std::atomic<uint8_t> ssid_ = 0;
   std::string remote_call_sign_ = "NOCALL";
-  std::atomic<uint8_t> remote_ssid_ = 1;
+  std::atomic<uint8_t> remote_ssid_ = 0;
+
+  std::atomic<bool> proactive_keep_alive_{false};
 };
 
 struct Statistics {

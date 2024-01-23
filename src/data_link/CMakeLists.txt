@@ -15,11 +15,15 @@ target_link_libraries(giraffe_data_link_core
 
 add_executable(gdl_server
   "server/main.cpp"
+  "server/gdl_server.cpp"
+  "server/gdl_server_request_handlers.cpp"
+  "server/gdl_server_set_handlers.cpp"
 )
 target_link_libraries(gdl_server 
   giraffe_data_link_core
   SQLiteCpp
   sqlite3
+  fmt::fmt
 )
 target_include_directories(gdl_server PRIVATE "./server")
 set_target_properties(gdl_server

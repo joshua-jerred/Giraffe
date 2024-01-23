@@ -91,6 +91,7 @@ find_package(CURL REQUIRED)                     # curl
 add_subdirectory(lib/third_party/sqlite_cpp)    # sqlite_cpp
 add_subdirectory(lib/third_party/nlohmann_json) # nlohmann_json
 add_subdirectory(lib/third_party/googletest)    # googletest
+add_subdirectory(lib/third_party/fmt)           # fmt
 # ----------------------------
 
 # add_definitions(-DDONT_ADD_SIGNAL_EASEL_BOOSTER_SEAT)

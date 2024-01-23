@@ -36,6 +36,9 @@ enum class DiagnosticId : uint16_t {
   GENERIC_info=0xF001, // info
   GENERIC_debug=0xF002, // debug
   GENERIC_notImplemented=0xF003, // Not Implemented
+  GENERIC_homeEnvVarNotSet=0xF004, // Home Environment Variable Not Set
+  GENERIC_homeEnvVarNotDir=0xF005, // Home Environment Variable Not Directory
+  GENERIC_failedToCreateGiraffeDir=0xF006, // Failed to Create Giraffe Directory
   CONFIG_sectionNotFound=0x000E, // Section not found
   CONFIG_settingNotFound=0x0001, // Setting not found
   CONFIG_invalidJsonType=0x0002, // Invalid JSON type

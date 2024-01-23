@@ -54,15 +54,13 @@ function AprsFi() {
   return (
     <div>
       <ul>
-        {isLoading === true
-          ? "loading"
-          : data &&
-            data.map((item) => (
-              <MessageLogItemStyle key={item.id}>
-                {new Date(item.lasttime * 1000).toISOString()} - {item.altitude}
-                m - {item.speed} km/h - {item.course} deg - {item.comment}
-              </MessageLogItemStyle>
-            ))}
+        {data &&
+          data.map((item) => (
+            <MessageLogItemStyle key={item.id}>
+              {new Date(item.lasttime * 1000).toISOString()} - {item.altitude}m
+              - {item.speed} km/h - {item.course} deg - {item.comment}
+            </MessageLogItemStyle>
+          ))}
       </ul>
     </div>
   );

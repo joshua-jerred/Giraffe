@@ -27,6 +27,10 @@ export const useApiGetData = (
 
   const fetchData = async () => {
     setIsLoading(true);
+    if (!isGgsConnected) {
+      setError("Not connected to GGS");
+      return;
+    }
     try {
       const response = await fetch(path);
       if (!response.ok) {
