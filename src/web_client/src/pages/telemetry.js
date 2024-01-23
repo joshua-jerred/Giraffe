@@ -34,6 +34,10 @@ const MessageLogIdStyle = styled.span`
   font-weight: bold;
 `;
 
+function AprsFi() {
+  return <p>aprs.fi data</p>;
+}
+
 function MessageLog({ category }) {
   const { ggsAddress, isGgsConnected } = useContext(GwsGlobal);
 
@@ -113,6 +117,9 @@ function TelemetryPage() {
           </Card>
           <Card title="Send Command">
             <SendCommand />
+          </Card>
+          <Card title="aprs.fi">
+            <AprsFi />
           </Card>
         </CardMasonryLayout>
       </PageContent>

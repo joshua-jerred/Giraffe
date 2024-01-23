@@ -10,7 +10,7 @@ const valid_resources = [
   "flight_data",
 ];
 
-const valid_ggs_categories = ["settings", "data"];
+const valid_ggs_categories = ["settings", "data", "aprs_fi"];
 const valid_gfs_categories = ["settings", "data"];
 const valid_gdl_categories = ["settings", "data", "telemetry", "broadcast"];
 

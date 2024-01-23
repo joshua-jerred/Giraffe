@@ -5,7 +5,6 @@ const valueCheck = require("../metadata/value_check");
 const genericResponse = require("./generic_response");
 const parseGetQuery = require("./query_parse");
 
-
 module.exports = function (global_state) {
   // GET /ggs/settings
   router.get("/settings", (req, res, next) => {
@@ -80,6 +79,13 @@ module.exports = function (global_state) {
 
   router.get("/data", (req, res, next) => {
     parseGetQuery(req, res, "ggs", "data", global_state);
+  });
+
+  router.get("/aprs_fi", (req, res) => {
+    global_state.database.getRecentAprsFiData((rows) => {
+      res.json(rows);
+      res.end();
+    });
   });
 
   return router;

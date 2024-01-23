@@ -30,8 +30,8 @@ module.exports = class PostgresDatabase {
         `CREATE TABLE IF NOT EXISTS aprs_fi (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name               TEXT      NOT NULL,
-            time               INTEGER   NOT NULL UNIQUE,
-            lasttime           INTEGER   NOT NULL,
+            time               INTEGER   NOT NULL,
+            lasttime           INTEGER   NOT NULL UNIQUE,
             lat                REAL      NOT NULL,
             lng                REAL      NOT NULL,
             altitude           REAL      NOT NULL,
@@ -56,9 +56,9 @@ module.exports = class PostgresDatabase {
     // check if this timestamp already exists
     // if so, return
     this.db.get(
-      `SELECT 1 as e FROM aprs_fi WHERE time = $time;`,
+      `SELECT 1 as e FROM aprs_fi WHERE lasttime = $lasttime;`,
       {
-        $time: data.time,
+        $lasttime: data.lasttime,
       },
       (err, rows) => {
         if (err) {
@@ -66,9 +66,10 @@ module.exports = class PostgresDatabase {
           return;
         }
         if (rows && rows.e == 1) {
+          console.log("already exists");
           return;
         }
-
+        console.log("inserting");
         this.#insertAprsFiData(data);
       }
     );
@@ -76,7 +77,7 @@ module.exports = class PostgresDatabase {
 
   getRecentAprsFiData(callback) {
     const LIMIT = 20;
-    const query = `SELECT * FROM aprs_fi ORDER BY time DESC LIMIT ${LIMIT};`;
+    const query = `SELECT * FROM aprs_fi ORDER BY lasttime DESC LIMIT ${LIMIT};`;
     this.db.all(query, [], (err, rows) => {
       if (err) {
         console.log(err);

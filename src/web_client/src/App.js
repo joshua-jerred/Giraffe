@@ -9,7 +9,6 @@ import "./leaflet/leaflet.css";
 // GGS
 import CommandCenter from "./pages/command_center";
 import TelemetryPage from "./pages/telemetry";
-import TrackingPage from "./pages/tracking";
 import DataLogsPage from "./pages/data_logs";
 import ConfigureGgsPage from "./pages/configure_ggs";
 // GFS
@@ -27,7 +26,6 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<CommandCenter />} />
             <Route path="telemetry" element={<TelemetryPage />} />
-            <Route path="tracking" element={<TrackingPage />} />
             <Route path="data-logs" element={<DataLogsPage />} />
             <Route path="configure" element={<ConfigureGgsPage />} />
 
