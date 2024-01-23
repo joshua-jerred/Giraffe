@@ -106,8 +106,8 @@ class GlobalState {
 
   // Called every kGlobalStateUpdateInterval milliseconds
   cycle() {
+    /// @todo these should NOT be updated here. They should try to update themselves
     this.gfs_connection.update();
-    this.gdl_connection.update();
     this.flight_data_handler.update();
 
     this.ggs_status.gfs = this.gfs_connection.status;

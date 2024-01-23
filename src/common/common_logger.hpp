@@ -89,6 +89,10 @@ public:
     return true;
   }
 
+  size_t getLogQueueSize() const {
+    return log_queue_.size();
+  }
+
 private:
   void log(const LoggerLevel level, const std::string &msg) {
 

@@ -165,6 +165,9 @@ Json protocol::Message::getBodyJson() {
   }
   if (typ == protocol::MessageType::SET || typ == protocol::MessageType::RSP) {
     body["dat"] = dat;
+    if (rsc != "") { // add rsc to body if it exists. (backwards compatibility)
+      body["rsc"] = rsc;
+    }
   }
   if (typ == protocol::MessageType::RSP) {
     body["cde"] = responseCodeToStringMap.at(cde);
@@ -198,11 +201,13 @@ void protocol::createResponseMessage(protocol::Message &message,
                                      protocol::Endpoint src,
                                      protocol::Endpoint dst,
                                      protocol::MessageId id,
-                                     protocol::ResponseCode cde, Json dat) {
+                                     protocol::ResponseCode cde, Json dat,
+                                     std::string rsc) {
   message.src = src;
   message.dst = dst;
   message.typ = protocol::MessageType::RSP;
   message.id = id;
   message.cde = cde;
   message.dat = dat;
+  message.rsc = std::move(rsc);
 }

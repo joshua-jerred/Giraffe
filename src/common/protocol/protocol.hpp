@@ -146,12 +146,15 @@ void createSetMessage(Message &message, protocol::Endpoint src,
  * @param id - The id of the message to respond to.
  * @param dat - The data to respond with.
  * @param rsp - The response code.
+ * @param rsc - (optional due to backwards compatibility) The resource that
+ * the response is for.
  * @return true - If the message is valid.
  * @return false - If the message is not valid.
  */
 void createResponseMessage(Message &message, protocol::Endpoint src,
                            protocol::Endpoint dst, MessageId id,
-                           protocol::ResponseCode rsp, Json dat);
+                           protocol::ResponseCode rsp, Json dat,
+                           std::string rsc = "");
 
 } // namespace protocol
 

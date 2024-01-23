@@ -78,14 +78,6 @@ int GdlServer::run() {
         }
       }
     }
-
-    /// @todo ---------------------------------------------------
-    if (gdl_.messageAvailable()) {
-      gdl::Message msg;
-      if (gdl_.receiveMessage(msg)) {
-        db_.insertMessage(msg, false);
-      }
-    }
   }
 
   if (gdl_.isEnabled()) {
@@ -268,11 +260,12 @@ bool GdlServer::setConfigFromJson(const json &config) {
   return valid;
 }
 
-void GdlServer::sendResponseData(const json &data) {
+void GdlServer::sendResponseData(const json &data,
+                                 const std::string &resource) {
   protocol::Message msg;
   protocol::createResponseMessage(msg, protocol::Endpoint::GDL,
                                   protocol::Endpoint::GGS, getNextResponseId(),
-                                  protocol::ResponseCode::GOOD, data);
+                                  protocol::ResponseCode::GOOD, data, resource);
   send_result_ = client_socket_.send(msg.getJsonString());
   response_sent_ = true;
 }
@@ -290,7 +283,7 @@ void GdlServer::sendResponseSuccess() {
   protocol::Message msg;
   protocol::createResponseMessage(
       msg, protocol::Endpoint::GDL, protocol::Endpoint::GGS,
-      getNextResponseId(), protocol::ResponseCode::GOOD, {"msg" : "success"});
+      getNextResponseId(), protocol::ResponseCode::GOOD, {"msg", "success"});
   send_result_ = client_socket_.send(msg.getJsonString());
   response_sent_ = true;
 }
@@ -302,6 +295,8 @@ void GdlServer::routeRequest(const std::string &rsc) {
     handleRequestConfig();
   } else if (rsc == "received_messages") {
     handleRequestReceivedMessages();
+  } else if (rsc == "sent_messages") {
+    handleRequestSentMessages();
   } else if (rsc == "log") {
     handleRequestLog();
   } else {
@@ -311,10 +306,20 @@ void GdlServer::routeRequest(const std::string &rsc) {
 
 void GdlServer::routeSet(const protocol::Message &received_msg) {
   const std::string &rsc = received_msg.rsc;
-  if (rsc == "new_broadcast") {
-    handleSetNewBroadcast(received_msg.dat);
-  } else if (rsc == "config") {
+  if (rsc == "config") {
     handleSetConfig(received_msg.dat);
+  } else if (rsc == "new_broadcast") {
+    handleSetNewBroadcast(received_msg.dat);
+  } else if (rsc == "new_exchange") {
+    handleSetNewExchange(received_msg.dat);
+  } else if (rsc == "disable_receiver") {
+    handleSetDisableReceiver();
+  } else if (rsc == "enable_receiver") {
+    handleSetEnableReceiver();
+  } else if (rsc == "reset_config") {
+    handleSetResetConfig();
+  } else if (rsc == "restart") {
+    handleSetRestart();
   } else {
     sendResponseError("unknown_resource");
   }

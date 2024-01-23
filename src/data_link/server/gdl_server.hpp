@@ -17,16 +17,15 @@
 #ifndef GDL_SERVER_HPP_
 #define GDL_SERVER_HPP_
 
-#include "nlohmann/json.hpp"
 #include <socket.hpp>
 #include <unordered_map>
 
+#include "nlohmann/json.hpp"
 using json = nlohmann::json;
 
 #include "common_logger.hpp"
 #include "protocol.hpp"
 
-#include "gdl_server_database.hpp"
 #include "giraffe_data_link.hpp"
 
 namespace giraffe::gdl {
@@ -81,7 +80,7 @@ private:
   bool setConfigFromJson(const json &config);
 
   // ---- RESPONSE SENDERS ----
-  void sendResponseData(const json &data);
+  void sendResponseData(const json &data, const std::string &resource);
   void sendResponseError(const std::string &error);
   void sendResponseSuccess();
 
@@ -90,38 +89,31 @@ private:
   void handleRequestConfig();
   void handleRequestStatus();
   void handleRequestReceivedMessages();
+  void handleRequestSentMessages();
   void handleRequestLog();
 
   // ---- SETS ----
   void routeSet(const protocol::Message &received_msg);
-  void handleSetNewBroadcast(const json &received_data);
-  void handleSetConfig(const json &received_data);
-
-  json aprsPositionalPacketToJson(signal_easel::aprs::PositionPacket &packet) {
-    auto info = packet.frame.getInformation();
-    std::string raw(info.begin(), info.end());
-
-    json res = {{"src", packet.source_address},
-                {"src_ssid", packet.source_ssid},
-                {"dst", packet.destination_address},
-                {"dst_ssid", packet.destination_ssid},
-                {"latitude", packet.latitude},
-                {"longitude", packet.longitude},
-                {"altitude", packet.altitude},
-                {"course", packet.course},
-                {"speed", packet.speed},
-                {"symbol_table", packet.symbol_table},
-                {"symbol", packet.symbol},
-                {"comment", packet.comment},
-                {"gps_time", packet.time_code},
-                {"info", raw},
-                {"utc_timestamp", packet.decoded_timestamp.toString()}};
-    return res;
-  }
+  void handleSetNewBroadcast(const json &request_data);
+  void handleSetNewExchange(const json &request_data);
+  void handleSetDisableReceiver();
+  void handleSetEnableReceiver();
+  void handleSetResetConfig();
+  void handleSetRestart();
+  void handleSetConfig(const json &request_data);
 
   uint32_t getNewBroadcastId() {
     last_broadcast_id_++;
     return last_broadcast_id_;
+  }
+
+  bool sendMessage(const gdl::Message &msg) {
+    if (sent_messages_.size() > MAX_SENT_MESSAGES) {
+      sent_messages_.pop();
+      log_.warn("Sent Messages Queue Full");
+    }
+    sent_messages_.push(msg);
+    return gdl_.sendMessage(msg);
   }
 
   bool stop_flag_{false};
@@ -144,8 +136,6 @@ private:
   Config gdl_config_ = Config(true);
   DataLink gdl_{gdl_config_};
 
-  GdlServerDatabase db_{};
-
   uint32_t last_broadcast_id_{1};
 
   uint32_t protocol_id_{1};
@@ -154,6 +144,9 @@ private:
   }
 
   CommonLogger<100> log_{LoggerLevel::INFO, true};
+
+  static const size_t MAX_SENT_MESSAGES{50};
+  std::queue<gdl::Message> sent_messages_{};
 };
 
 } // namespace giraffe::gdl

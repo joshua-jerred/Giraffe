@@ -24,6 +24,9 @@
 #include <sstream>
 #include <string>
 
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
+
 #include <gdl_constants.hpp>
 
 namespace giraffe::gdl {
@@ -120,6 +123,27 @@ public:
 
   Location getLocation() const {
     return location_;
+  }
+
+  json getJson() const {
+    json data = {{"identifier", getIdentifierString()},
+                 {"type", static_cast<uint8_t>(getType())}};
+    switch (getType()) {
+    case Type::BROADCAST:
+      [[fallthrough]];
+    case Type::EXCHANGE:
+      data["data"] = getData();
+      break;
+    case Type::LOCATION:
+      data["location"] = {{"latitude", getLocation().latitude},
+                          {"longitude", getLocation().longitude},
+                          {"altitude", getLocation().altitude},
+                          {"speed", getLocation().speed},
+                          {"heading", getLocation().heading},
+                          {"time_code", getLocation().time_code}};
+      break;
+    }
+    return data;
   }
 
 private:

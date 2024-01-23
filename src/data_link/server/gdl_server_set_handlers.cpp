@@ -27,7 +27,7 @@ void GdlServer::handleSetNewBroadcast(const json &request_data) {
   std::string broadcast_data = request_data["data"];
   gdl::Message new_broadcast;
   new_broadcast.setBroadcastMessage(broadcast_data, getNewBroadcastId());
-  if (gdl_.sendMessage(new_broadcast)) {
+  if (sendMessage(new_broadcast)) {
     sendResponseSuccess();
   } else {
     sendResponseError("failed to send broadcast (queue full)");
@@ -45,6 +45,40 @@ void GdlServer::handleSetConfig(const json &request_data) {
   }
 
   sendResponseSuccess();
+}
+
+void GdlServer::handleSetNewExchange(const json &request_data) {
+  if (!request_data.contains("data")) {
+    sendResponseError("missing data for new exchange");
+    log_.error("missing data for new exchange");
+    return;
+  }
+
+  std::string exchange_data = request_data["data"];
+  gdl::Message new_exchange;
+  new_exchange.setExchangeMessage(exchange_data, getNewBroadcastId());
+  if (sendMessage(new_exchange)) {
+    sendResponseSuccess();
+  } else {
+    log_.error("failed to send exchange (queue full?)");
+    sendResponseError("failed to send broadcast (queue full)");
+  }
+}
+
+void GdlServer::handleSetDisableReceiver() {
+  sendResponseError("Not Implemented");
+}
+
+void GdlServer::handleSetEnableReceiver() {
+  sendResponseError("Not Implemented");
+}
+
+void GdlServer::handleSetResetConfig() {
+  sendResponseError("Not Implemented");
+}
+
+void GdlServer::handleSetRestart() {
+  sendResponseError("Not Implemented");
 }
 
 } // namespace giraffe::gdl

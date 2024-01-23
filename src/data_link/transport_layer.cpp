@@ -155,7 +155,7 @@ void TransportLayer::idleState() {
 
     case Packet::PacketType::LOCATION:
       position_packets_received_++;
-      // purposefully fall through to broadcast
+      [[fallthrough]];
     case Packet::PacketType::BROADCAST:
       // location or broadcast received, send it up
       received_message_ = static_cast<Message>(packet_buffer);

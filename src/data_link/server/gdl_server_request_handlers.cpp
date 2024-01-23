@@ -21,48 +21,57 @@ namespace giraffe::gdl {
 void GdlServer::handleRequestStatus() {
   json res_data;
   gdl::Statistics stats = gdl_.getStatistics();
+  // svl_ = server layer
+  // apl_ = application layer
+  // tpl_ = transport layer
+  // nwl_ = network layer
+  // phl_ = physical layer
   res_data = {
-      {"gdl_status",
+      {"apl_status",
        gdl_.getStatus() == DataLink::Status::DISABLED ? "DISABLED" : "ENABLED"},
-      {"telemetry_uplink",
-       stats.uplink_connected ? "CONNECTED" : "DISCONNECTED"},
-      {"telemetry_downlink",
-       stats.downlink_connected ? "CONNECTED" : "DISCONNECTED"},
-      {"exchange_queue_size", stats.exchange_queue_size},
-      {"broadcast_queue_size", stats.broadcast_queue_size},
-      {"received_queue_size", stats.received_queue_size},
-      {"total_messages_dropped", stats.total_messages_dropped},
-      {"total_packets_received", stats.total_packets_received},
-      {"total_packets_sent", stats.total_packets_sent},
+      {"tpl_uplink", stats.uplink_connected ? "CONNECTED" : "DISCONNECTED"},
+      {"tpl_downlink", stats.downlink_connected ? "CONNECTED" : "DISCONNECTED"},
+      {"apl_exchange_queue_size", stats.exchange_queue_size},
+      {"apl_broadcast_queue_size", stats.broadcast_queue_size},
+      {"svl_received_queue_size", stats.received_queue_size}, // data from apl
+      {"nwl_messages_dropped", stats.total_messages_dropped},
+      {"nwl_total_packets_received", stats.total_packets_received},
+      {"nwl_total_packets_sent", stats.total_packets_sent},
       {"last_message_received", stats.total_packets_received > 0
                                     ? stats.last_message_received.toString()
                                     : "N/A"}, // {"rssi", stats.rssi},
-      {"position_packets_received", stats.position_packets_received},
-      {"volume", stats.volume},
-      {"signal_to_noise_ratio", stats.signal_to_noise_ratio},
-      {"network_layer_latency_ms", stats.network_layer_latency_ms},
-  };
-  sendResponseData(res_data);
+      {"tpl_position_packets_received", stats.position_packets_received},
+      {"nwl_volume", stats.volume},
+      {"nwl_signal_to_noise_ratio", stats.signal_to_noise_ratio},
+      {"nwl_latency_ms", stats.network_layer_latency_ms},
+      {"svl_log_queue_size", log_.getLogQueueSize()},
+      {"svl_send_messages_queue", sent_messages_.size()}};
+
+  sendResponseData(res_data, "status");
 }
 
 void GdlServer::handleRequestConfig() {
   json res_data = getConfigJson();
-  sendResponseData(res_data);
+  sendResponseData(res_data, "config");
 }
 
 void GdlServer::handleRequestReceivedMessages() {
-  json res_data = {};
-  // res_data = json::array();
-  // auto packets = db_.getLatestPositionReports();
-  // for (auto &packet : packets) {
-  //   res_data.push_back({{"latitude", packet.getLocation().latitude},
-  //                       {"longitude", packet.getLocation().longitude},
-  //                       {"altitude", packet.getLocation().altitude},
-  //                       {"speed", packet.getLocation().speed},
-  //                       {"heading", packet.getLocation().heading},
-  //                       {"time_code", packet.getLocation().time_code}});
-  // }
-  sendResponseData(res_data);
+  json res_data = json::array();
+
+  if (!gdl_.messageAvailable()) {
+    sendResponseData(res_data, "received_messages");
+  }
+
+  while (gdl_.messageAvailable()) {
+    gdl::Message msg;
+    if (gdl_.receiveMessage(msg)) {
+      res_data.push_back(msg.getJson());
+    }
+  }
+  sendResponseData(res_data, "received_messages");
+}
+
+void GdlServer::handleRequestSentMessages() {
 }
 
 void GdlServer::handleRequestLog() {
@@ -76,7 +85,7 @@ void GdlServer::handleRequestLog() {
          {"time", fmt::format("{:%Y-%m-%d %H:%M:%S}", entry.time)}});
   }
 
-  sendResponseData(res_data);
+  sendResponseData(res_data, "log");
 }
 
 } // namespace giraffe::gdl
