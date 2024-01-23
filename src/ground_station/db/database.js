@@ -108,7 +108,7 @@ module.exports = class PostgresDatabase {
   }
 
   getRecentLogData(callback) {
-    const LIMIT = 20;
+    const LIMIT = 50;
     const query = `SELECT * FROM ggs_log ORDER BY timestamp DESC LIMIT ${LIMIT};`;
     this.db.all(query, [], (err, rows) => {
       if (err) {

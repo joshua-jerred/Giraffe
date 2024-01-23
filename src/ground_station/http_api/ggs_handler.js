@@ -88,5 +88,12 @@ module.exports = function (global_state) {
     });
   });
 
+  router.get("/log", (req, res) => {
+    global_state.database.getRecentLogData((rows) => {
+      res.json(rows);
+      res.end();
+    });
+  });
+
   return router;
 };
