@@ -59,6 +59,9 @@ public:
 
   void enable();
   void disable();
+  bool isEnabled() const {
+    return !gdl_thread_stop_flag_;
+  }
   DataLink::Status getStatus() const;
 
   bool sendMessage(const Message &message);

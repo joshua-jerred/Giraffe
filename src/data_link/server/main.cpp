@@ -14,9 +14,20 @@
  * @copyright  2024 (license to be defined)
  */
 
+#include <csignal>
+
 #include "gdl_server.hpp"
 
+giraffe::gdl::GdlServer server{};
+
+auto signalHandler(int signal_number) -> void {
+  signal(SIGINT, signalHandler);
+  if (signal_number == SIGINT) {
+    server.stop();
+  }
+}
+
 int main() {
-  giraffe::gdl::GdlServer server{};
+  signal(SIGINT, signalHandler); // Register signal handler
   return server.run();
 }

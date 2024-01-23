@@ -49,10 +49,24 @@ public:
   ~GdlServer() = default;
 
   int run();
+  void stop() {
+    log_.info("Stop Signal Received (keyboard interrupt)");
+    stop_flag_ = true;
+    client_socket_.close();
+    server_socket_.close();
+  }
 
 private:
   int loadConfig();
-  void saveConfig();
+
+  /**
+   * @brief Attempts to save the current configuration to the config file.
+   * @details Only need to check the return value for reporting reasons.
+   * (request)
+   * @return true - The configuration was saved successfully.
+   * @return false - The configuration was not saved successfully. Error in log.
+   */
+  bool saveConfig();
 
   json getConfigJson();
 
@@ -76,6 +90,7 @@ private:
   void handleRequestConfig();
   void handleRequestStatus();
   void handleRequestReceivedMessages();
+  void handleRequestLog();
 
   // ---- SETS ----
   void routeSet(const protocol::Message &received_msg);
@@ -110,6 +125,8 @@ private:
   }
 
   bool stop_flag_{false};
+  int server_port_{9557};
+  bool data_link_enabled_{true};
   sock::TcpSocketServer server_socket_{};
   sock::TcpSocketServer client_socket_{};
 
@@ -136,7 +153,7 @@ private:
     return std::to_string(protocol_id_++);
   }
 
-  CommonLogger<100> log_{LoggerLevel::DEBUG, true};
+  CommonLogger<100> log_{LoggerLevel::INFO, true};
 };
 
 } // namespace giraffe::gdl

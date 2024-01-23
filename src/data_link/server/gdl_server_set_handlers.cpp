@@ -34,4 +34,17 @@ void GdlServer::handleSetNewBroadcast(const json &request_data) {
   }
 }
 
+void GdlServer::handleSetConfig(const json &request_data) {
+  if (!setConfigFromJson(request_data)) {
+    sendResponseError("invalid config, check logs");
+    return;
+  }
+  if (!saveConfig()) {
+    sendResponseError("failed to save config, check logs");
+    return;
+  }
+
+  sendResponseSuccess();
+}
+
 } // namespace giraffe::gdl

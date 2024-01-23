@@ -65,4 +65,18 @@ void GdlServer::handleRequestReceivedMessages() {
   sendResponseData(res_data);
 }
 
+void GdlServer::handleRequestLog() {
+  json res_data = json::array();
+
+  LoggerEntry entry;
+  while (log_.popEntry(entry)) {
+    res_data.push_back(
+        {{"level", entry.getLevelString()},
+         {"msg", entry.msg},
+         {"time", fmt::format("{:%Y-%m-%d %H:%M:%S}", entry.time)}});
+  }
+
+  sendResponseData(res_data);
+}
+
 } // namespace giraffe::gdl

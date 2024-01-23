@@ -36,17 +36,7 @@ struct LoggerEntry {
   std::chrono::system_clock::time_point time;
 
   std::string getLevelString() const {
-    switch (level) {
-    case LoggerLevel::DEBUG:
-      return "DEBUG";
-    case LoggerLevel::INFO:
-      return "INFO";
-    case LoggerLevel::WARN:
-      return "WARN";
-    case LoggerLevel::ERROR:
-      return "ERROR";
-    }
-    return "UNKNOWN";
+    return to_string(level);
   }
 };
 
@@ -90,8 +80,13 @@ public:
     return print_to_stdout_;
   }
 
-  const std::queue<LoggerEntry> &getLogQueue() const {
-    return log_queue_;
+  bool popEntry(LoggerEntry &entry) {
+    if (log_queue_.empty()) {
+      return false;
+    }
+    entry = log_queue_.front();
+    log_queue_.pop();
+    return true;
   }
 
 private:

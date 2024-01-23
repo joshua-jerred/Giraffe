@@ -30,17 +30,22 @@ int GdlServer::run() {
     return res;
   }
 
-  log_.debug("Starting GDL Server");
-
   std::string received_string;
   protocol::Message received_msg;
 
-  gdl_.enable();
-  if (!server_socket_.init(9557)) {
+  if (!server_socket_.init(server_port_)) {
     log_.error("Failed to initialize server socket");
     return 1;
   }
-  log_.info("GDL Server Started");
+
+  log_.info("GDL Server Started on port " + std::to_string(server_port_));
+
+  if (data_link_enabled_) {
+    gdl_.enable();
+    log_.info("Data Link Enabled");
+  } else {
+    log_.info("Data Link Disabled");
+  }
 
   while (!stop_flag_) {
     if (server_socket_.accept(client_socket_)) {
@@ -56,8 +61,10 @@ int GdlServer::run() {
         }
 
         if (received_msg.typ == protocol::MessageType::REQ) {
+          log_.debug("REQ: " + received_msg.rsc);
           routeRequest(received_msg.rsc);
         } else if (received_msg.typ == protocol::MessageType::SET) {
+          log_.debug("SET: " + received_msg.rsc);
           routeSet(received_msg);
         }
 
@@ -72,6 +79,7 @@ int GdlServer::run() {
       }
     }
 
+    /// @todo ---------------------------------------------------
     if (gdl_.messageAvailable()) {
       gdl::Message msg;
       if (gdl_.receiveMessage(msg)) {
@@ -80,7 +88,10 @@ int GdlServer::run() {
     }
   }
 
-  gdl_.disable();
+  if (gdl_.isEnabled()) {
+    gdl_.disable();
+    log_.info("Data Link Disabled");
+  }
 
   return 0;
 }
@@ -118,7 +129,7 @@ int GdlServer::loadConfig() {
   return 0;
 }
 
-void GdlServer::saveConfig() {
+bool GdlServer::saveConfig() {
   log_.debug("Saving GDL Server Config");
 
   json config = getConfigJson();
@@ -131,16 +142,18 @@ void GdlServer::saveConfig() {
     config_file.close();
   } catch (const std::exception &e) {
     log_.error("Failed to save config file: " + std::string(e.what()));
-    return;
+    return false;
   }
 
   log_.debug("GDL Server Config Saved");
+  return true;
 }
 
 json GdlServer::getConfigJson() {
   json config = {
-      {"logging_level", to_string(log_.getLevel())},
+      {"server_port", server_port_},
       {"proactive_keep_alive", gdl_config_.getProactiveKeepAlive()},
+      {"logging_level", to_string(log_.getLevel())},
       {"logging_print_to_stdout", log_.getPrintToStdout()},
       {"source_callsign", gdl_config_.getCallSign()},
       {"source_ssid", gdl_config_.getSSID()},
@@ -169,7 +182,7 @@ bool GdlServer::setConfigFromJson(const json &config) {
     log_.setPrintToStdout(config["logging_print_to_stdout"]);
   } else {
     valid = false;
-    log_.warn("Failed to load logging_print_to_stdout from config file. "
+    log_.warn("Failed to load logging_print_to_stdout from json. "
               "Defaulting to true.");
     log_.setPrintToStdout(true);
   }
@@ -186,13 +199,13 @@ bool GdlServer::setConfigFromJson(const json &config) {
       log_.setLevel(LoggerLevel::ERROR);
     } else {
       valid = false;
-      log_.warn("Invalid logging level specified. "
+      log_.warn("Invalid logging level specified in json. "
                 "Defaulting to INFO.");
       log_.setLevel(LoggerLevel::INFO);
     }
   } else {
     valid = false;
-    log_.warn("Failed to load logging_level from config file. "
+    log_.warn("Failed to load logging_level from json. "
               "Defaulting to INFO.");
     log_.setLevel(LoggerLevel::INFO);
   }
@@ -203,16 +216,14 @@ bool GdlServer::setConfigFromJson(const json &config) {
     gdl_config_.setCallSign(config["source_callsign"]);
   } else {
     valid = false;
-    log_.warn(
-        "Failed to load source_callsign from config file or is set to default");
+    log_.warn("Failed to load source_callsign from json or is set to default");
   }
 
   if (is_valid_number("source_ssid") && config["source_ssid"] != 0) {
     gdl_config_.setSSID(config["source_ssid"]);
   } else {
     valid = false;
-    log_.warn(
-        "Failed to load source_ssid from config file or is set to default");
+    log_.warn("Failed to load source_ssid from json or is set to default");
   }
 
   if (is_valid_string("remote_callsign") &&
@@ -220,26 +231,38 @@ bool GdlServer::setConfigFromJson(const json &config) {
     gdl_config_.setRemoteCallSign(config["remote_callsign"]);
   } else {
     valid = false;
-    log_.warn(
-        "Failed to load remote_callsign from config file or is set to default");
+    log_.warn("Failed to load remote_callsign from json or is set to default");
   }
 
-  if (is_valid_number("remote_ssid") && config["remote_ssid"].is_number() &&
-      config["remote_ssid"] != 0) {
+  if (is_valid_number("remote_ssid") && config["remote_ssid"] != 0) {
     gdl_config_.setRemoteSSID(config["remote_ssid"]);
   } else {
     valid = false;
-    log_.warn(
-        "Failed to load remote_ssid from config file or is set to default");
+    log_.warn("Failed to load remote_ssid from json or is set to default");
   }
 
   if (is_valid_bool("proactive_keep_alive")) {
     gdl_config_.setProactiveKeepAlive(config["proactive_keep_alive"]);
   } else {
     valid = false;
-    log_.warn("Failed to load proactive_keep_alive from config file. "
+    log_.warn("Failed to load proactive_keep_alive from json. "
               "Defaulting to false.");
     gdl_config_.setProactiveKeepAlive(false);
+  }
+
+  if (is_valid_number("server_port")) {
+    server_port_ = config["server_port"];
+    if (server_port_ < 1 || server_port_ > 65535) {
+      valid = false;
+      log_.warn("Invalid server_port specified. "
+                "Defaulting to 9557.");
+      server_port_ = 9557;
+    }
+  } else {
+    valid = false;
+    log_.warn("Failed to load server_port from json. "
+              "Defaulting to 9557.");
+    server_port_ = 9557;
   }
 
   return valid;
@@ -265,9 +288,9 @@ void GdlServer::sendResponseError(const std::string &error) {
 
 void GdlServer::sendResponseSuccess() {
   protocol::Message msg;
-  protocol::createResponseMessage(msg, protocol::Endpoint::GDL,
-                                  protocol::Endpoint::GGS, getNextResponseId(),
-                                  protocol::ResponseCode::GOOD, {});
+  protocol::createResponseMessage(
+      msg, protocol::Endpoint::GDL, protocol::Endpoint::GGS,
+      getNextResponseId(), protocol::ResponseCode::GOOD, {"msg" : "success"});
   send_result_ = client_socket_.send(msg.getJsonString());
   response_sent_ = true;
 }
@@ -279,14 +302,19 @@ void GdlServer::routeRequest(const std::string &rsc) {
     handleRequestConfig();
   } else if (rsc == "received_messages") {
     handleRequestReceivedMessages();
+  } else if (rsc == "log") {
+    handleRequestLog();
   } else {
     sendResponseError("unknown_resource");
   }
 }
 
 void GdlServer::routeSet(const protocol::Message &received_msg) {
-  if (received_msg.rsc == "new_broadcast") {
+  const std::string &rsc = received_msg.rsc;
+  if (rsc == "new_broadcast") {
     handleSetNewBroadcast(received_msg.dat);
+  } else if (rsc == "config") {
+    handleSetConfig(received_msg.dat);
   } else {
     sendResponseError("unknown_resource");
   }
