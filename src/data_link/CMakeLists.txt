@@ -22,10 +22,17 @@ target_link_libraries(gdl_server
   sqlite3
 )
 target_include_directories(gdl_server PRIVATE "./server")
+set_target_properties(gdl_server
+  PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GDL_BIN}
+)
+
 
 add_executable(gdl_terminal
   "./gdl_terminal.cpp"
 )
 target_link_libraries(gdl_terminal 
   giraffe_data_link_core
+)
+set_target_properties(gdl_terminal
+  PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GDL_BIN}
 )

@@ -103,8 +103,8 @@ module.exports = class GfsSettingSync {
   #updateClassSettings() {
     this.update_interval = this.global_state.ggs_db.get(
       "settings",
-      "gfs_state_intervals",
-      "data"
+      "ggs_settings",
+      "gfs_config_interval"
     );
 
     this.address = this.global_state.ggs_db.get(

@@ -1,9 +1,9 @@
 const sqlite3 = require("sqlite3").verbose();
-const db_file = "./db/ggs.sqlite3";
+const file_paths = require("../file_paths");
 
 module.exports = class PostgresDatabase {
   constructor() {
-    this.db = new sqlite3.Database(db_file, (error) => {
+    this.db = new sqlite3.Database(file_paths.GGS_SQLITE_DB, (error) => {
       if (error) {
         return console.error("Failed to create DB:", error.message);
       }

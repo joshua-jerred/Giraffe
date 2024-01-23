@@ -1,15 +1,14 @@
 const fs = require("fs");
-const path = require("path");
+const file_paths = require("../file_paths");
 
 const loadMetaData = require("../metadata/metaLoader");
-const file_name = "db.json";
 
 const db_tables = ["settings", "data"];
 
 class GgsDataBase {
   constructor() {
     this.db = {};
-    this.file_path = path.join(__dirname, "..", "db", file_name);
+    this.file_path = file_paths.GGS_CONFIG_JSON;
     this.load();
   }
 
@@ -62,9 +61,9 @@ class GgsDataBase {
 
   get(resource, category = null, key = null) {
     let loaded = null;
-    if (category === null) {
+    if (!category) {
       loaded = this.db[resource];
-    } else if (key === null) {
+    } else if (!key) {
       loaded = this.db[resource][category];
     } else {
       loaded = this.db[resource][category][key];

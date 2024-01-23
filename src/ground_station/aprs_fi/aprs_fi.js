@@ -16,25 +16,41 @@ module.exports = class AprsFi {
     this.enabled = false;
 
     this.time_of_last_get_attempt = new Date();
-    this.is_connected = true;
+    this.connection_status = "unknown";
+    this.failed = 0; // count to 2, then disable.
 
     this.#updateSettings();
   }
 
   updateAndGetStatus() {
+    this.#updateSettings();
     if (!this.enabled) {
       return "disabled";
     }
+
+    if (this.failed >= 2) {
+      this.global_state.error(
+        "aprs_fi failed to connect 2 times in a row. Disabling."
+      );
+      this.global_state.ggs_db.set("settings", "aprs_fi", "enabled", false);
+      this.failed = 0;
+      return "error";
+    }
+
     let seconds_elapsed = (new Date() - this.time_of_last_get_attempt) / 1000;
 
-    console.log(seconds_elapsed);
+    // console.log(seconds_elapsed);
     if (seconds_elapsed > this.check_interval_s) {
       console.log("requesting aprs.fi data");
       this.time_of_last_get_attempt = new Date();
       this.#sendApiRequest();
     }
 
-    return this.is_connected ? "connected" : "error";
+    return this.connection_status;
+  }
+
+  forceDisable() {
+    this.enabled = false;
   }
 
   #updateSettings() {
@@ -44,12 +60,17 @@ module.exports = class AprsFi {
       "enabled"
     );
     this.name = this.global_state.ggs_db.get("settings", "aprs_fi", "name");
-    this.apikey = this.global_state.ggs_db.get("settings", "aprs_fi", "apikey");
+    this.apikey = this.global_state.ggs_db.get(
+      "settings",
+      "aprs_fi",
+      "api_key"
+    );
     this.check_interval_s = this.global_state.ggs_db.get(
       "settings",
       "aprs_fi",
       "check_interval_s"
     );
+    // this.check_interval_s = 10;
     this.connection_timeout_s = this.check_interval_s * 2;
   }
 
@@ -69,13 +90,38 @@ module.exports = class AprsFi {
       .set("User-Agent", USER_AGENT)
       .end((err, res) => {
         if (err) {
-          console.log("aprs_fi Error: ", err);
-          this.is_connected = false;
+          this.global_state.error("aprs_fi Error: " + err);
+          this.connection_status = "error_1";
+          this.failed += 1;
           return;
         }
 
         this.is_connected = true;
-        console.log("aprs_fi Response: ", res.body);
+        if (!res.body.found || !res.body.entries) {
+          this.global_state.error(
+            "aprs_fi error_2: " + JSON.stringify(res.body)
+          );
+          this.connection_status = "error_2";
+          this.failed += 1;
+          return;
+        }
+
+        if (res.body.found <= 0) {
+          this.global_state.warning(
+            "No APRS data found for " + this.name + " on aprs.fi."
+          );
+          this.connection_status = "no_data_found";
+          this.failed += 1;
+          return;
+        }
+
+        this.most_recent_packet = res.body.entries[0];
+        this.connection_status = "connected";
+        this.global_state.debug(
+          "aprs_fi: " + JSON.stringify(this.most_recent_packet)
+        );
+        this.failed = 0;
+        this.global_state.database.addAprsFiData(this.most_recent_packet);
       });
   }
 };

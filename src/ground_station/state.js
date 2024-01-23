@@ -50,33 +50,34 @@ class GlobalState {
     };
 
     setInterval(this.cycle.bind(this), kGlobalStateUpdateInterval);
+    this.info("Started Ground Station");
   }
 
   // log an error message to the database
   error(message) {
     if (this.logging_level === "error") {
-      this.ggs_db.addLog("error", message);
+      this.database.addLog("error", message);
     }
   }
 
   // log a warning message to the database
   warning(message) {
     if (this.logging_level === "error" || this.logging_level === "warning") {
-      this.ggs_db.addLog("warning", message);
+      this.database.addLog("warning", message);
     }
   }
 
   // log an info message to the database
   info(message) {
     if (this.logging_level !== "error" && this.logging_level !== "warning") {
-      this.ggs_db.addLog("info", message);
+      this.database.addLog("info", message);
     }
   }
 
   // log a debug message to the database
   debug(message) {
     if (this.logging_level === "debug") {
-      this.ggs_db.addLog("debug", message);
+      this.database.addLog("debug", message);
     }
   }
 

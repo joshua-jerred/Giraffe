@@ -163,9 +163,9 @@
         "type": "int",
         "name": "APRS.fi Check Interval (s)",
         "description": "The interval at which the web server will request updates from APRS.fi. Please be nice to their servers. https://aprs.fi/page/api",
-        "min": 60,
-        "max": 600,
-        "default": 180
+        "min": 180,
+        "max": 3600,
+        "default": 1800
       }
     }
   },
