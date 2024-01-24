@@ -10,12 +10,12 @@ set(COMMON_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/common)
 set(COMMON_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/common)
 
 set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_system)
-set(GFS_BIN ${CMAKE_BINARY_DIR}/bin/flight_system)
+set(GFS_BIN ${CMAKE_BINARY_DIR}/bin)
 set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/flight_system)
 set(GFS_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/flight_system)
 
 set(GDL_SRC ${CMAKE_SOURCE_DIR}/src/data_link)
-set(GDL_BIN ${CMAKE_BINARY_DIR}/bin/data_link)
+set(GDL_BIN ${CMAKE_BINARY_DIR}/bin)
 set(GDL_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/data_link)
 set(GDL_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/data_link)
 # ------------------- #

@@ -11,9 +11,7 @@ RUN apt-get update && apt-get install -y \
    git \
    build-essential \
    cmake \
-   libgtest-dev \
    libcurl4-gnutls-dev \
-   nlohmann-json3-dev \
    libi2c-dev \
    libncurses-dev \
    libpulse-dev
