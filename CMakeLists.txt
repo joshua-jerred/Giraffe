@@ -111,7 +111,8 @@ add_subdirectory(src/data_link)            # Data Link
 add_subdirectory(lib/SignalEasel)          # SignalEasel
 add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
 add_subdirectory(lib/bzip2-cpp)            # bzip2-cpp
-
+# ---- Utilities ----
+add_subdirectory(project/eeprom)           # EEPROM Utility
 # ----------------------------
 
 # Unit Tests
