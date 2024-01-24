@@ -15,6 +15,7 @@
  */
 
 /**
+ * @cite https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf
  * @cite https://www.airspayce.com/mikem/bcm2835/index.html
  * @cite https://github.com/youngkin/gpio/blob/main/ledblink/bcmfuncs.c
  */
@@ -75,9 +76,11 @@ uint32_t readWithBarrier(volatile uint32_t *address) {
   return value;
 }
 
-volatile uint32_t *CalculateAddress(uint8_t offset, uint8_t pin) {
+volatile uint32_t *calculateAddress(uint8_t offset, uint8_t pin) {
   return (uint32_t *)(s_gpio_memory_map + offset / 4 + pin / 32);
 }
+
+#else
 
 #endif
 
@@ -110,50 +113,44 @@ Gpio::Pin::Pin(uint8_t pin_number, PinMode mode, bool default_state)
 
 void Gpio::initialize() {
   const std::lock_guard<std::mutex> lock(gpio_lock_);
-
-#ifdef RASPBERRY_PI
   if (s_gpio_memory_map != MAP_FAILED) { // Already initialized
     return;
   }
-  int mem_fd = open("/dev/mem", O_RDWR | O_SYNC);
+  int mem_fd = open("/dev/gpiomem", O_RDWR | O_SYNC);
   if (mem_fd < 0) {
     throw GiraffeException(DiagnosticId::INTERFACE_gpioFailedToInit);
   }
+
   s_gpio_memory_map = static_cast<uint32_t *>(mmap(NULL, GPIO_MEMORY_MAP_SIZE,
                                                    (PROT_READ | PROT_WRITE),
                                                    MAP_SHARED, mem_fd, 0));
+
   if (s_gpio_memory_map == MAP_FAILED) {
     throw GiraffeException(DiagnosticId::INTERFACE_gpioFailedToMapRegisters);
   }
   close(mem_fd);
-#endif // RASPBERRY_PI
 }
 
 void Gpio::deInitialize() {
   const std::lock_guard<std::mutex> lock(gpio_lock_);
-#ifdef RASPBERRY_PI
   if (s_gpio_memory_map == MAP_FAILED) {
     return;
   }
   munmap((void *)s_gpio_memory_map, GPIO_MEMORY_MAP_SIZE);
   s_gpio_memory_map = (uint32_t *)MAP_FAILED;
   reserved_pins_ = {}; // clear the reserved pins array
-#endif                 // RASPBERRY_PI
 }
 
 bool Gpio::isInitialized() {
   const std::lock_guard<std::mutex> lock(gpio_lock_);
-#ifdef RASPBERRY_PI
-  return isGpioInitialized();
-#else
-  return false;
-#endif
+  return verifyInitialized();
 }
 
 void Gpio::setupPin(Pin pin) {
   const std::lock_guard<std::mutex> lock(gpio_lock_);
-  if (!isGpioInitialized()) {
-    throw GiraffeException(DiagnosticId::INTERFACE_gpioNotInitialized);
+  if (!verifyInitialized()) {
+    throw GiraffeException(DiagnosticId::INTERFACE_gpioNotInitialized,
+                           std::to_string(pin.pin_number));
   }
   if (isPinReserved(pin)) {
     throw GiraffeException(DiagnosticId::INTERFACE_gpioPinAlreadyReserved,
@@ -172,26 +169,27 @@ void Gpio::setupPin(Pin pin) {
   uint8_t shift = (pin.pin_number % 10) * 3;
   uint32_t mask = kGpioSelectMask << shift;
 
-  uint8_t mode = pin.mode_ == PinMode::INPUT ? 0x00 : 0x01;
+  uint8_t mode = (pin.mode == PinMode::INPUT ? 0x00 : 0x01);
   uint32_t value = mode << shift;
 
-  volatile uint32_t current_value = ReadWithBarrier(pin_address);
+  volatile uint32_t current_value = readWithBarrier(pin_address);
   current_value = (current_value & ~mask) | (value & mask); // see bcm2835.c
-  WriteWithBarrier(pin_address, current_value);
-  ReservePin(pin);
-  SetOwner(pin);
+  writeWithBarrier(pin_address, current_value);
+  reservePin(pin);
+  setOwner(pin);
 }
 
 void Gpio::write(Pin pin, bool high) {
   const std::lock_guard<std::mutex> lock(gpio_lock_);
   if (!verifyInitialized()) {
-    throw GiraffeException(DiagnosticId::INTERFACE_gpioNotInitialized);
+    throw GiraffeException(DiagnosticId::INTERFACE_gpioNotInitialized,
+                           std::to_string(pin.pin_number));
   }
   if (!isOwner(pin)) {
     throw GiraffeException(DiagnosticId::INTERFACE_gpioNotOwner,
                            std::to_string(pin.pin_number));
   }
-  if (pin.mode_ != PinMode::OUTPUT) {
+  if (pin.mode != PinMode::OUTPUT) {
     throw GiraffeException(DiagnosticId::INTERFACE_gpioPinNotOutput,
                            std::to_string(pin.pin_number));
   }
@@ -199,55 +197,52 @@ void Gpio::write(Pin pin, bool high) {
   const uint32_t kPinOn = 0x1c;
   const uint32_t kPinOff = 0x28;
 
-  uint8_t state = on ? kPinOn : kPinOff;
-  WriteWithBarrier(CalculateAddress(state, pin.pin_number_),
-                   1 << pin.pin_number_);
+  uint8_t state = high ? kPinOn : kPinOff;
+  writeWithBarrier(calculateAddress(state, pin.pin_number),
+                   1 << pin.pin_number);
   gpio_lock_.unlock();
 }
 
-bool Gpio::Read(Pin pin) {
-  gpio_lock_.lock();
+bool Gpio::read(Pin pin) {
+  const std::lock_guard<std::mutex> lock(gpio_lock_);
   const uint32_t kReadPin = 0x34;
 
-  if (!VerifyInitialized()) {
-    gpio_lock_.unlock();
-    throw GpioException("GPIO not initialized, can not read pin: " +
-                        pin.ToString());
+  if (!verifyInitialized()) {
+    throw GiraffeException(DiagnosticId::INTERFACE_gpioNotInitialized,
+                           std::to_string(pin.pin_number));
   }
-  if (!IsPinReserved(pin) || !IsOwner(pin)) {
-    gpio_lock_.unlock();
-    throw GpioException("Pin" + pin.ToString() + " is not reserved");
+  if (!isPinReserved(pin) || !isOwner(pin)) {
+    throw GiraffeException(DiagnosticId::INTERFACE_gpioNotReserverOrNotOwner,
+                           std::to_string(pin.pin_number));
   }
-  if (pin.mode_ != PinMode::INPUT) {
-    gpio_lock_.unlock();
-    throw Gpio::GpioException("Pin" + std::to_string(pin.pin_number_) +
-                              " is not in input mode");
+  if (pin.mode != PinMode::INPUT) {
+    throw GiraffeException(DiagnosticId::INTERFACE_gpioCanNotReadOutputPin,
+                           std::to_string(pin.pin_number));
   }
 
-  uint32_t value = ReadWithBarrier(CalculateAddress(kReadPin, pin.pin_number_));
-  uint8_t shift = pin.pin_number_;
-  gpio_lock_.unlock();
+  uint32_t value = readWithBarrier(calculateAddress(kReadPin, pin.pin_number));
+  uint8_t shift = pin.pin_number;
   return (value & (1 << shift)) ? 1 : 0;
 }
 
 bool Gpio::isPinReserved(const Pin &pin) {
-  if (reserved_pins_.at(pin.pin_number_).mode_ == PinMode::UNINITIALIZED &&
-      reserved_pins_.at(pin.pin_number_).pin_number_ == 0) {
+  if (reserved_pins_.at(pin.pin_number).mode == PinMode::UNINITIALIZED &&
+      reserved_pins_.at(pin.pin_number).pin_number == 0) {
     return false;
   }
   return true;
 }
 
 void Gpio::reservePin(const Pin &pin) {
-  reserved_pins_.at(pin.pin_number_) = pin;
+  reserved_pins_.at(pin.pin_number) = pin;
 }
 
-void Gpio::isOwner(const Pin &pin) {
-  return pins_owned_ & (1 << pin.pin_number_);
+bool Gpio::isOwner(const Pin &pin) {
+  return pins_owned_ & (1 << pin.pin_number);
 }
 
 void Gpio::setOwner(const Pin &pin) {
-  pins_owned_ |= (1 << pin.pin_number_);
+  pins_owned_ |= (1 << pin.pin_number);
 }
 
-}; // namespace giraffe
+} // namespace giraffe

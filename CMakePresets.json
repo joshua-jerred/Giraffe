@@ -8,8 +8,11 @@
       "generator": "Unix Makefiles",
       "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_TOOLCHAIN_FILE": "/toolchain/toolchain.cmake"
+      },
+      "environment": {
+        "RASPBERRY_PI": "1"
       }
     },
     {
@@ -36,7 +39,7 @@
         "CMAKE_BUILD_TYPE": "Debug"
       },
       "environment": {
-        "RASPBERRY_PI": "0"
+        "RASPBERRY_PI": "1"
       }
     }
   ]

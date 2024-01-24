@@ -156,6 +156,12 @@ private:
    */
   void setOwner(const Pin &pin);
 
+  /// @todo ability to release a pin
+
+  /**
+   * @brief The lock used to ensure that only one instance can reserve a pin or
+   * user it at a time
+   */
   static std::mutex gpio_lock_;
 
   /**

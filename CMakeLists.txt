@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.2)
 # ----------------- *** START CONFIGURABLE ITEMS *** --------------------------
 option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF)
 option(EXTENSION_DEBUG_PRINT "Enable Debug Printing for Extensions" OFF)
+option(GFS_HOST_TEST "Enable GFS Host Test" OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS OFF)
 # ----------------- ***  END CONFIGURABLE ITEMS  *** --------------------------
 
 # --- DIRECTORIES --- # - need to get rid of these
@@ -20,9 +22,9 @@ set(GDL_SRC ${CMAKE_SOURCE_DIR}/src/data_link)
 set(GDL_BIN ${CMAKE_BINARY_DIR}/bin)
 set(GDL_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/data_link)
 set(GDL_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/data_link)
-# ------------------- #
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS OFF)
+set(TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests)
+# ------------------- #
 
 # Debug Printing
 if(EXTENSION_DEBUG_PRINT)
@@ -30,6 +32,14 @@ if(EXTENSION_DEBUG_PRINT)
   message(WARNING "EXTENSION DEBUG PRINTING ENABLED")
 else()
   add_compile_definitions(EXTENSION_DEBUG_PRINT=0)
+endif()
+
+# Raspberry Pi Build
+if($ENV{RASPBERRY_PI} EQUAL 1)
+  message(STATUS "Raspberry Pi Build: Enabled")
+  add_compile_definitions(RASPBERRY_PI=1)
+else()
+  message(STATUS "Raspberry Pi Build: Disabled")
 endif()
 
 # ---- Version Files ----
@@ -84,7 +94,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 -Wfloat-equal \
 -Wno-unused-variable \
 -Wswitch-enum \
--Wno-switch-enum"
+-Wno-switch-enum \
+-Wno-psabi"
 )
 # ----------------------------
 

@@ -657,6 +657,26 @@
       "name": "GPIO Pin Already Reserved",
       "details": "The GPIO pin is already reserved.",
       "value": "0x8006"
+    },
+    "gpio_not_owner":{
+      "name": "GPIO Not Owner",
+      "details": "The GPIO pin is not owned by the caller.",
+      "value": "0x8007"
+    },
+    "gpio_pin_not_output":{
+      "name": "GPIO Pin Not Output",
+      "details": "The GPIO pin is not an output pin. Can't write to it.",
+      "value": "0x8008"
+    },
+    "gpio_not_reserver_or_not_owner":{
+      "name": "GPIO Pin Not Reserved or Not Owner",
+      "details": "The GPIO pin is not reserved or the caller is not the owner.",
+      "value": "0x8009"
+    },
+    "gpio_can_not_read_output_pin": {
+      "name": "GPIO Can Not Read Output Pin",
+      "details": "The GPIO pin is an output pin and can not be read.",
+      "value": "0x800A"
     }
   },
   "gdl":{
