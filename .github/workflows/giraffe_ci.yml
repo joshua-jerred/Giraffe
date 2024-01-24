@@ -22,8 +22,8 @@ jobs:
       - name: Build Giraffe Flight System
         run: cd build && make giraffe_flight_system -j 4
 
-  build_gdl:
-    name: Build / Giraffe Data Link
+  build_gdl_server:
+    name: Build / Giraffe Data Link Server
     runs-on: ubuntu-latest
     container:
       image: joshuajerred/giraffe:latest
@@ -32,6 +32,8 @@ jobs:
       - uses: actions/checkout/@v1
         with:
           submodules: recursive
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build Giraffe Data Link
@@ -47,6 +49,8 @@ jobs:
       - uses: actions/checkout/@v1
         with:
           submodules: recursive
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build Test
@@ -64,6 +68,8 @@ jobs:
       - uses: actions/checkout/@v1
         with:
           submodules: recursive
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build Test
@@ -81,6 +87,8 @@ jobs:
       - uses: actions/checkout/@v1
         with:
           submodules: recursive
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build Test
