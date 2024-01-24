@@ -116,14 +116,14 @@ $(document).ready(function(){initNavTree('structextension_1_1ExtensionResources.
 <div class="dynheader">
 Collaboration diagram for extension::ExtensionResources:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structextension_1_1ExtensionResources__coll__graph.svg" width="1290" height="1038"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structextension_1_1ExtensionResources__coll__graph.svg" width="1290" height="1214"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a565364d7dc424fc954465aff8f4706f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structextension_1_1ExtensionResources.html#a565364d7dc424fc954465aff8f4706f2">ExtensionResources</a> (<a class="el" href="namespacedata.html#structdata_1_1Streams">data::Streams</a> &amp;<a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">streams</a>, cfg::gEnum::I2CBus <a class="el" href="structextension_1_1ExtensionResources.html#a09856032adf51bee056f28fc2143d636">i2c_bus</a>)</td></tr>
-<tr class="separator:a565364d7dc424fc954465aff8f4706f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fc816d4e03a14b039e26d1b3eb15679"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structextension_1_1ExtensionResources.html#a6fc816d4e03a14b039e26d1b3eb15679">ExtensionResources</a> (<a class="el" href="namespacedata.html#structdata_1_1Streams">data::Streams</a> &amp;<a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">streams</a>, cfg::gEnum::I2CBus <a class="el" href="structextension_1_1ExtensionResources.html#a09856032adf51bee056f28fc2143d636">i2c_bus</a>, <a class="el" href="classgiraffe_1_1StatusLed.html">giraffe::StatusLed</a> &amp;<a class="el" href="structextension_1_1ExtensionResources.html#ad16ccf74ea3fd5cdad0638ea00dddfb9">status_led</a>)</td></tr>
+<tr class="separator:a6fc816d4e03a14b039e26d1b3eb15679"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -133,6 +133,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ab3bd69fd6c03da3e91a14929db0e35c4"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structextension_1_1ExtensionResources.html#ab3bd69fd6c03da3e91a14929db0e35c4">i2c_bus_lock</a> {}</td></tr>
 <tr class="memdesc:ab3bd69fd6c03da3e91a14929db0e35c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mutex for the I2C bus.  <a href="structextension_1_1ExtensionResources.html#ab3bd69fd6c03da3e91a14929db0e35c4">More...</a><br /></td></tr>
 <tr class="separator:ab3bd69fd6c03da3e91a14929db0e35c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad16ccf74ea3fd5cdad0638ea00dddfb9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1StatusLed.html">giraffe::StatusLed</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structextension_1_1ExtensionResources.html#ad16ccf74ea3fd5cdad0638ea00dddfb9">status_led</a></td></tr>
+<tr class="memdesc:ad16ccf74ea3fd5cdad0638ea00dddfb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The status LED.  <a href="structextension_1_1ExtensionResources.html#ad16ccf74ea3fd5cdad0638ea00dddfb9">More...</a><br /></td></tr>
+<tr class="separator:ad16ccf74ea3fd5cdad0638ea00dddfb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93ac75a1920ce49da6720ff578b5ed8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedata.html#structdata_1_1Streams">data::Streams</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">streams</a></td></tr>
 <tr class="memdesc:a93ac75a1920ce49da6720ff578b5ed8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The global data/log streams.  <a href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">More...</a><br /></td></tr>
 <tr class="separator:a93ac75a1920ce49da6720ff578b5ed8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,8 +143,8 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This contains objects that are shared between all extensions. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a565364d7dc424fc954465aff8f4706f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a565364d7dc424fc954465aff8f4706f2">&#9670;&nbsp;</a></span>ExtensionResources()</h2>
+<a id="a6fc816d4e03a14b039e26d1b3eb15679"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fc816d4e03a14b039e26d1b3eb15679">&#9670;&nbsp;</a></span>ExtensionResources()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,7 +162,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">cfg::gEnum::I2CBus&#160;</td>
-          <td class="paramname"><em>i2c_bus</em>&#160;</td>
+          <td class="paramname"><em>i2c_bus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgiraffe_1_1StatusLed.html">giraffe::StatusLed</a> &amp;&#160;</td>
+          <td class="paramname"><em>status_led</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -225,6 +234,22 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The bus to use for I2C communication. </p>
+
+</div>
+</div>
+<a id="ad16ccf74ea3fd5cdad0638ea00dddfb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad16ccf74ea3fd5cdad0638ea00dddfb9">&#9670;&nbsp;</a></span>status_led</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgiraffe_1_1StatusLed.html">giraffe::StatusLed</a>&amp; extension::ExtensionResources::status_led</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The status LED. </p>
 
 </div>
 </div>

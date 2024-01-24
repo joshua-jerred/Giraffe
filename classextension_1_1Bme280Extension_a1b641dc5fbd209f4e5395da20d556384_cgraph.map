@@ -1,5 +1,0 @@
-<map id="extension::Bme280Extension::processEnvironmentalData" name="extension::Bme280Extension::processEnvironmentalData">
-<area shape="rect" id="node1" title="Processes the raw environmental data into known units using the compensation data." alt="" coords="5,5,217,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="265,5,424,47"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="472,13,652,39"/>
-</map>

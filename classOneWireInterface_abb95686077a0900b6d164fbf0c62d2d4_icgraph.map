@@ -1,5 +1,5 @@
 <map id="OneWireInterface::readTemperatureFile" name="OneWireInterface::readTemperatureFile">
-<area shape="rect" id="node1" title=" " alt="" coords="531,13,809,39"/>
-<area shape="rect" id="node2" href="$classextension_1_1Ds18b20Extension.html#a63ae9398964e5b98b485bcd998469cb4" title=" " alt="" coords="268,5,483,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Ds18b20Extension.html#ad4dfdbd9d9cd1b114437c1c31d36088a" title=" " alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="403,13,681,39"/>
+<area shape="rect" id="node2" href="$classextension_1_1Ds18b20.html#aca9083902555ed608642c27a9df6f772" title=" " alt="" coords="204,5,355,47"/>
+<area shape="rect" id="node3" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="5,5,156,47"/>
 </map>

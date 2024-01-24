@@ -1,14 +1,14 @@
 <map id="I2cInterface::writeChunk" name="I2cInterface::writeChunk">
-<area shape="rect" id="node1" title="Write a chunk of data to the device at the specified register." alt="" coords="936,139,1117,166"/>
-<area shape="rect" id="node2" href="$namespaceubx.html#a9c61bbe6a93b89e72b9102bfd1b5fa0e" title=" " alt="" coords="773,139,888,166"/>
-<area shape="rect" id="node3" href="$namespaceubx.html#a5a8edb14df1ca1f59ff23d5c4b8b1f6e" title="Poll a message and read it from the GPS." alt="" coords="560,13,696,39"/>
-<area shape="rect" id="node6" href="$namespaceubx.html#a906fc03b89d3045be5d60355cf25ac3e" title="Send a UBX&#45;CFG&#45;RST command to the receiver (Hardware Reset)" alt="" coords="533,63,723,90"/>
-<area shape="rect" id="node8" href="$namespaceubx.html#a1fb85f5c220b3095792f3e9495c432b9" title=" " alt="" coords="542,114,714,141"/>
-<area shape="rect" id="node10" href="$namespaceubx.html#a56ec4bce3dc8bf99a601036cda46a9b0" title=" " alt="" coords="531,165,725,191"/>
-<area shape="rect" id="node11" href="$namespaceubx.html#a0a9dbb84c0d3dfd9234df8e6f7e5ad72" title="CFG&#45;MSG (0x06 0x01) Configure Message Rate." alt="" coords="547,215,709,242"/>
-<area shape="rect" id="node12" href="$namespaceubx.html#a6c27feec78affa320dc73abe6c52b8db" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="550,266,706,293"/>
-<area shape="rect" id="node4" href="$group__SAMM8QState.html#gaa031a3e0ad98da916ebca6836c9c1a30" title=" " alt="" coords="268,5,483,47"/>
-<area shape="rect" id="node5" href="$classextension_1_1SamM8qExtension.html#abd1b7a24f87efe0353c00f6caf9c7945" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,71,220,112"/>
-<area shape="rect" id="node7" href="$group__SAMM8QState.html#ga3bb302bf898dc03f6a83bf9c87ef028c" title=" " alt="" coords="268,71,483,112"/>
-<area shape="rect" id="node9" href="$group__SAMM8QState.html#ga1578e22215eaa305be52aa4c7245bff5" title=" " alt="" coords="268,147,483,188"/>
+<area shape="rect" id="node1" title="Write a chunk of data to the device at the specified register." alt="" coords="852,139,1033,166"/>
+<area shape="rect" id="node2" href="$namespaceubx.html#a9c61bbe6a93b89e72b9102bfd1b5fa0e" title=" " alt="" coords="689,139,804,166"/>
+<area shape="rect" id="node3" href="$namespaceubx.html#a5a8edb14df1ca1f59ff23d5c4b8b1f6e" title="Poll a message and read it from the GPS." alt="" coords="476,13,612,39"/>
+<area shape="rect" id="node6" href="$namespaceubx.html#a906fc03b89d3045be5d60355cf25ac3e" title="Send a UBX&#45;CFG&#45;RST command to the receiver (Hardware Reset)" alt="" coords="449,63,639,90"/>
+<area shape="rect" id="node8" href="$namespaceubx.html#a1fb85f5c220b3095792f3e9495c432b9" title=" " alt="" coords="458,114,630,141"/>
+<area shape="rect" id="node10" href="$namespaceubx.html#a56ec4bce3dc8bf99a601036cda46a9b0" title=" " alt="" coords="447,165,641,191"/>
+<area shape="rect" id="node11" href="$namespaceubx.html#a0a9dbb84c0d3dfd9234df8e6f7e5ad72" title="CFG&#45;MSG (0x06 0x01) Configure Message Rate." alt="" coords="463,215,625,242"/>
+<area shape="rect" id="node12" href="$namespaceubx.html#a6c27feec78affa320dc73abe6c52b8db" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="466,266,622,293"/>
+<area shape="rect" id="node4" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,5,399,47"/>
+<area shape="rect" id="node5" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,78,192,105"/>
+<area shape="rect" id="node7" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="240,71,399,112"/>
+<area shape="rect" id="node9" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,147,399,188"/>
 </map>

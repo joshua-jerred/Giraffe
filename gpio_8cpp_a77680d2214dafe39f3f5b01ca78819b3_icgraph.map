@@ -1,0 +1,5 @@
+<map id="readWithBarrier" name="readWithBarrier">
+<area shape="rect" id="node1" title="Reads a value from a memory address with a memory barrier. ." alt="" coords="220,31,345,57"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="19,5,158,32"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="5,56,172,83"/>
+</map>

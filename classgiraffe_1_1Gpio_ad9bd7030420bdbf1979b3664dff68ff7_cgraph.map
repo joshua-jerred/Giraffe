@@ -1,0 +1,9 @@
+<map id="giraffe::Gpio::read" name="giraffe::Gpio::read">
+<area shape="rect" id="node1" title="Read the value of an input pin." alt="" coords="5,132,144,159"/>
+<area shape="rect" id="node2" href="$gpio_8cpp.html#a375242562acc7d849b58d1123614612e" title=" " alt="" coords="227,5,360,32"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1Gpio.html#a9a44f3d040cf48ed6d6229617e25117a" title="A function to check if the current instance owns a reserved pin." alt="" coords="212,56,375,83"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1Gpio.html#a657f0e77cb4361e50b4c1f386001f55e" title="A function to check if a pin has been reserved." alt="" coords="192,107,395,133"/>
+<area shape="rect" id="node5" href="$gpio_8cpp.html#a77680d2214dafe39f3f5b01ca78819b3" title="Reads a value from a memory address with a memory barrier. ." alt="" coords="231,157,356,184"/>
+<area shape="rect" id="node6" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="239,208,347,235"/>
+<area shape="rect" id="node7" href="$gpio_8cpp.html#a3a9d33e33fe014c025aef94a0f9c64a5" title="A function to check if the BCM GPIO registers have been mapped." alt="" coords="232,259,355,285"/>
+</map>

@@ -1,5 +1,0 @@
-<map id="extension::Bme280Extension::handshake" name="extension::Bme280Extension::handshake">
-<area shape="rect" id="node1" title="Reads the &#39;ID&#39; register on the BME280, which should return 0x60." alt="" coords="5,5,217,47"/>
-<area shape="rect" id="node2" href="$classI2cInterface.html#ad067c20fef20b8338d0e4ec12dc94ec6" title="Read a single byte from the device at the specified register." alt="" coords="265,13,489,39"/>
-<area shape="rect" id="node3" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="537,13,724,39"/>
-</map>

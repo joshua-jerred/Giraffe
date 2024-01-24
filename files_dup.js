@@ -6,26 +6,26 @@ var files_dup =
     [ "blocks.hpp", "blocks_8hpp.html", "blocks_8hpp" ],
     [ "bme280.cpp", "bme280_8cpp.html", "bme280_8cpp" ],
     [ "bme280.hpp", "bme280_8hpp.html", [
-      [ "Bme280Extension", "classextension_1_1Bme280Extension.html", "classextension_1_1Bme280Extension" ],
-      [ "CompensationData", "classextension_1_1Bme280Extension.html#structextension_1_1Bme280Extension_1_1CompensationData", [
-        [ "dig_T1", "classextension_1_1Bme280Extension.html#a3935c3f9c149b23fa8686064323213e6", null ],
-        [ "dig_T2", "classextension_1_1Bme280Extension.html#aa233a176e8ea9844c8de1f6ebde175ed", null ],
-        [ "dig_T3", "classextension_1_1Bme280Extension.html#a57313b2aa8387e3715ba584fe4b1b268", null ],
-        [ "dig_P1", "classextension_1_1Bme280Extension.html#a28e4859ebe62d6fa147f04a4809240d2", null ],
-        [ "dig_P2", "classextension_1_1Bme280Extension.html#adcabfd76b63618b79779e2d33784acd4", null ],
-        [ "dig_P3", "classextension_1_1Bme280Extension.html#a1815294520d21a5808b59f185050ffbc", null ],
-        [ "dig_P4", "classextension_1_1Bme280Extension.html#a3f5bc5e2ba724f32f3ad7f31aacccdf1", null ],
-        [ "dig_P5", "classextension_1_1Bme280Extension.html#aaf0af43a1f68e10d501b76ccbe7a25e5", null ],
-        [ "dig_P6", "classextension_1_1Bme280Extension.html#a2f60c329a68c24fcdedfded2324adbb2", null ],
-        [ "dig_P7", "classextension_1_1Bme280Extension.html#aa0f8ef3e0d9715c9b9fa05f4ec6cc479", null ],
-        [ "dig_P8", "classextension_1_1Bme280Extension.html#a0bcd103c4d3077ed1bac58293faeef06", null ],
-        [ "dig_P9", "classextension_1_1Bme280Extension.html#a3fabbb0d4ddf05c5bd839d940b7a6a01", null ],
-        [ "dig_H1", "classextension_1_1Bme280Extension.html#a5698dfd40e5689559d8231992c3b77e8", null ],
-        [ "dig_H2", "classextension_1_1Bme280Extension.html#a46a2d7abcb4408ad217e157010179300", null ],
-        [ "dig_H3", "classextension_1_1Bme280Extension.html#a35621cbcf5e98a1073f3de75f5f8a3e0", null ],
-        [ "dig_H4", "classextension_1_1Bme280Extension.html#a6b971254b372c3d8ee0315f67d00b17e", null ],
-        [ "dig_H5", "classextension_1_1Bme280Extension.html#a57ae62ea2890d4e0b4656be6a23b0b0f", null ],
-        [ "dig_H6", "classextension_1_1Bme280Extension.html#a811fb30f02698923f1e25d9744b40c1f", null ]
+      [ "Bme280", "classextension_1_1Bme280.html", "classextension_1_1Bme280" ],
+      [ "CompensationData", "classextension_1_1Bme280.html#structextension_1_1Bme280_1_1CompensationData", [
+        [ "dig_T1", "classextension_1_1Bme280.html#aeff015228d8c9553d51cba032f1ebf8b", null ],
+        [ "dig_T2", "classextension_1_1Bme280.html#abc1085758e03e11350a2df534b28dcb8", null ],
+        [ "dig_T3", "classextension_1_1Bme280.html#ab699a1cfd8cd3e089d2cdd7e47eaeb10", null ],
+        [ "dig_P1", "classextension_1_1Bme280.html#a42a500507bb35ad2a0589bd944286345", null ],
+        [ "dig_P2", "classextension_1_1Bme280.html#ac3814d97ae1204dee71ef52df9e9ed77", null ],
+        [ "dig_P3", "classextension_1_1Bme280.html#a6485efadc56f60a9d091b6b14f431924", null ],
+        [ "dig_P4", "classextension_1_1Bme280.html#add758a38318f288c7798f88e0f6f84f8", null ],
+        [ "dig_P5", "classextension_1_1Bme280.html#a587c5517d064d6bea2fcdc7e4914cc53", null ],
+        [ "dig_P6", "classextension_1_1Bme280.html#a4983450051d994171360da3c6f942db5", null ],
+        [ "dig_P7", "classextension_1_1Bme280.html#a5c56362a689189ba800a14cae85f3509", null ],
+        [ "dig_P8", "classextension_1_1Bme280.html#ab2e5be621b47d94d72f41297df875e98", null ],
+        [ "dig_P9", "classextension_1_1Bme280.html#abceb6ba77f17af1093a7d35224d0db61", null ],
+        [ "dig_H1", "classextension_1_1Bme280.html#aaa3eaf5723f0c88b4f433595c9beba93", null ],
+        [ "dig_H2", "classextension_1_1Bme280.html#adc8a948e83dc8db62bf78bb531cd053d", null ],
+        [ "dig_H3", "classextension_1_1Bme280.html#a4ba64cba9caada0bcfe2a203bc7c9e32", null ],
+        [ "dig_H4", "classextension_1_1Bme280.html#a1a195825e51f7bddfa126ea291138b87", null ],
+        [ "dig_H5", "classextension_1_1Bme280.html#abaa02a27c6a49add84ecd31de03e7c00", null ],
+        [ "dig_H6", "classextension_1_1Bme280.html#a0cc218ea4ab875c18996391be6442a17", null ]
       ] ]
     ] ],
     [ "cfg_extensions.cpp", "cfg__extensions_8cpp.html", null ],
@@ -74,7 +74,7 @@ var files_dup =
     [ "diagnostic_id_strings.cpp", "diagnostic__id__strings_8cpp.html", null ],
     [ "ds18b20.cpp", "ds18b20_8cpp.html", "ds18b20_8cpp" ],
     [ "ds18b20.hpp", "ds18b20_8hpp.html", [
-      [ "Ds18b20Extension", "classextension_1_1Ds18b20Extension.html", "classextension_1_1Ds18b20Extension" ]
+      [ "Ds18b20", "classextension_1_1Ds18b20.html", "classextension_1_1Ds18b20" ]
     ] ],
     [ "error_frame.cpp", "error__frame_8cpp.html", null ],
     [ "error_frame.hpp", "error__frame_8hpp.html", [
@@ -156,6 +156,11 @@ var files_dup =
     ] ],
     [ "giraffe_file_paths.cpp", "giraffe__file__paths_8cpp.html", "giraffe__file__paths_8cpp" ],
     [ "giraffe_file_paths.hpp", "giraffe__file__paths_8hpp.html", "giraffe__file__paths_8hpp" ],
+    [ "gpio.cpp", "gpio_8cpp.html", "gpio_8cpp" ],
+    [ "gpio.hpp", "gpio_8hpp.html", [
+      [ "Gpio", "classgiraffe_1_1Gpio.html", "classgiraffe_1_1Gpio" ],
+      [ "Pin", "structgiraffe_1_1Gpio_1_1Pin.html", "structgiraffe_1_1Gpio_1_1Pin" ]
+    ] ],
     [ "i2c_extension_adapter.hpp", "i2c__extension__adapter_8hpp.html", "i2c__extension__adapter_8hpp" ],
     [ "i2c_interface.cpp", "i2c__interface_8cpp.html", null ],
     [ "i2c_interface.hpp", "i2c__interface_8hpp.html", [
@@ -199,9 +204,13 @@ var files_dup =
     [ "protocol.hpp", "protocol_8hpp.html", "protocol_8hpp" ],
     [ "request_handler.cpp", "request__handler_8cpp.html", null ],
     [ "request_handler.hpp", "request__handler_8hpp.html", null ],
+    [ "rgb_status_led.cpp", "rgb__status__led_8cpp.html", null ],
+    [ "rgb_status_led.hpp", "rgb__status__led_8hpp.html", [
+      [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ]
+    ] ],
     [ "samm8q.cpp", "samm8q_8cpp.html", "samm8q_8cpp" ],
     [ "samm8q.hpp", "samm8q_8hpp.html", [
-      [ "SamM8qExtension", "classextension_1_1SamM8qExtension.html", "classextension_1_1SamM8qExtension" ]
+      [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ]
     ] ],
     [ "server_module.cpp", "server__module_8cpp.html", "server__module_8cpp" ],
     [ "server_module.hpp", "server__module_8hpp.html", null ],
@@ -215,6 +224,9 @@ var files_dup =
     ] ],
     [ "socket.cpp", "socket_8cpp.html", null ],
     [ "socket.hpp", "socket_8hpp.html", "socket_8hpp" ],
+    [ "status_led.hpp", "status__led_8hpp.html", [
+      [ "StatusLed", "classgiraffe_1_1StatusLed.html", "classgiraffe_1_1StatusLed" ]
+    ] ],
     [ "streams.hpp", "streams_8hpp.html", [
       [ "BaseStreamPacket", "structdata_1_1BaseStreamPacket.html", "structdata_1_1BaseStreamPacket" ],
       [ "CommandPacket", "structdata_1_1CommandPacket.html", "structdata_1_1CommandPacket" ],

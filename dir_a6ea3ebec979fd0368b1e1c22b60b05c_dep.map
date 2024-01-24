@@ -1,13 +1,16 @@
 <map id="shared_data" name="shared_data">
-<area shape="rect" id="node1" href="dir_e05090c0c1eb694f05995893ce62415e.html" title="modules" alt="" coords="54,148,133,196"/>
-<area shape="rect" id="node2" href="dir_eaebe00a4f960441a55d24526c4929bc.html" title="control" alt="" coords="27,244,99,292"/>
-<area shape="rect" id="edge5-headlabel" href="dir_000008_000006.html" title="1" alt="" coords="79,222,89,237"/>
-<area shape="rect" id="node4" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html" title="common" alt="" coords="97,340,175,388"/>
-<area shape="rect" id="edge6-headlabel" href="dir_000008_000007.html" title="8" alt="" coords="131,313,141,328"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000006_000007.html" title="2" alt="" coords="109,313,118,328"/>
-<area shape="rect" id="node3" href="dir_a6ea3ebec979fd0368b1e1c22b60b05c.html" title="shared_data" alt="" coords="30,52,133,100"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000003_000008.html" title="2" alt="" coords="92,121,101,136"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000003_000006.html" title="1" alt="" coords="50,216,59,231"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000003_000007.html" title="8" alt="" coords="150,317,160,331"/>
-<area shape="rect" id="clust1" href="dir_c01da38aeecccba744ca70166f7b2585.html" title="flight_system" alt="" coords="16,16,144,303"/>
+<area shape="rect" id="node1" href="dir_96764f5e43c8d8232b8207054ca09b5f.html" title="interface" alt="" coords="157,148,237,196"/>
+<area shape="rect" id="node5" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html" title="common" alt="" coords="133,340,211,388"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000017_000007.html" title="2" alt="" coords="181,316,191,330"/>
+<area shape="rect" id="node2" href="dir_e05090c0c1eb694f05995893ce62415e.html" title="modules" alt="" coords="54,148,133,196"/>
+<area shape="rect" id="node3" href="dir_eaebe00a4f960441a55d24526c4929bc.html" title="control" alt="" coords="37,244,109,292"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000008_000006.html" title="1" alt="" coords="86,221,95,235"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000008_000007.html" title="8" alt="" coords="159,312,168,327"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000006_000007.html" title="2" alt="" coords="136,314,145,329"/>
+<area shape="rect" id="node4" href="dir_a6ea3ebec979fd0368b1e1c22b60b05c.html" title="shared_data" alt="" coords="87,52,190,100"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000003_000017.html" title="1" alt="" coords="176,121,185,135"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000003_000008.html" title="2" alt="" coords="115,128,125,143"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000003_000006.html" title="1" alt="" coords="52,217,61,231"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000003_000007.html" title="8" alt="" coords="206,324,215,338"/>
+<area shape="rect" id="clust1" href="dir_c01da38aeecccba744ca70166f7b2585.html" title="flight_system" alt="" coords="16,16,248,303"/>
 </map>

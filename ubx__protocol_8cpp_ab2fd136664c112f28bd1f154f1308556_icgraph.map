@@ -1,6 +1,6 @@
 <map id="parseU2" name="parseU2">
-<area shape="rect" id="node1" title=" " alt="" coords="693,13,769,39"/>
-<area shape="rect" id="node2" href="$namespaceubx.html#aac1881b13eb8b71cece1b9d432cc5bae" title=" " alt="" coords="531,13,645,39"/>
-<area shape="rect" id="node3" href="$group__SAMM8QState.html#gaa031a3e0ad98da916ebca6836c9c1a30" title=" " alt="" coords="268,5,483,47"/>
-<area shape="rect" id="node4" href="$classextension_1_1SamM8qExtension.html#abd1b7a24f87efe0353c00f6caf9c7945" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="609,13,685,39"/>
+<area shape="rect" id="node2" href="$namespaceubx.html#aac1881b13eb8b71cece1b9d432cc5bae" title=" " alt="" coords="447,13,561,39"/>
+<area shape="rect" id="node3" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,5,399,47"/>
+<area shape="rect" id="node4" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,13,192,39"/>
 </map>

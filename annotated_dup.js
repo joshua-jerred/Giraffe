@@ -60,13 +60,14 @@ var annotated_dup =
     [ "extension", "namespaceextension.html", [
       [ "AdcConfig", "namespaceextension.html#structextension_1_1AdcConfig", "namespaceextension_structextension_1_1AdcConfig_dup" ],
       [ "AdcExtensionBase", "classextension_1_1AdcExtensionBase.html", "classextension_1_1AdcExtensionBase" ],
-      [ "Bme280Extension", "classextension_1_1Bme280Extension.html", "classextension_1_1Bme280Extension" ],
-      [ "Ds18b20Extension", "classextension_1_1Ds18b20Extension.html", "classextension_1_1Ds18b20Extension" ],
+      [ "Bme280", "classextension_1_1Bme280.html", "classextension_1_1Bme280" ],
+      [ "Ds18b20", "classextension_1_1Ds18b20.html", "classextension_1_1Ds18b20" ],
       [ "Extension", "classextension_1_1Extension.html", "classextension_1_1Extension" ],
       [ "ExtensionResources", "structextension_1_1ExtensionResources.html", "structextension_1_1ExtensionResources" ],
       [ "I2cExtensionAdapter", "classextension_1_1I2cExtensionAdapter.html", "classextension_1_1I2cExtensionAdapter" ],
       [ "Mcp3021Extension", "classextension_1_1Mcp3021Extension.html", "classextension_1_1Mcp3021Extension" ],
-      [ "SamM8qExtension", "classextension_1_1SamM8qExtension.html", "classextension_1_1SamM8qExtension" ],
+      [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ],
+      [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ],
       [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],
       [ "SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", "classextension_1_1SimHumiditySensor" ],
       [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],
@@ -88,8 +89,10 @@ var annotated_dup =
       ] ],
       [ "CommonLogger", "classgiraffe_1_1CommonLogger.html", "classgiraffe_1_1CommonLogger" ],
       [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ],
+      [ "Gpio", "classgiraffe_1_1Gpio.html", "classgiraffe_1_1Gpio" ],
       [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ],
-      [ "LoggerEntry", "structgiraffe_1_1LoggerEntry.html", "structgiraffe_1_1LoggerEntry" ]
+      [ "LoggerEntry", "structgiraffe_1_1LoggerEntry.html", "structgiraffe_1_1LoggerEntry" ],
+      [ "StatusLed", "classgiraffe_1_1StatusLed.html", "classgiraffe_1_1StatusLed" ]
     ] ],
     [ "modules", "namespacemodules.html", [
       [ "ConsoleModule", "classmodules_1_1ConsoleModule.html", "classmodules_1_1ConsoleModule" ],

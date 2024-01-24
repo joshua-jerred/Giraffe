@@ -230,19 +230,30 @@ $(document).ready(function(){initNavTree('giraffe__diagnostic__ids_8hpp_source.h
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  EXT_FAULT_i2cUnknownFault=0x7011, <span class="comment">// I2C Unknown Fault</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  EXT_FAULT_i2cHandshakeTimeoutFault=0x7012, <span class="comment">// I2C Handshake Timeout Fault</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  EXT_FAULT_adcWatchdogTimeout=0x7013, <span class="comment">// ADC Watchdog Timeout Fault</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  GDL_invalidStartCall=0xA000, <span class="comment">// Invalid Start Call</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  GDL_invalidStopCall=0xA001, <span class="comment">// Invalid Stop Call</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  GDL_invalidBroadcastCall=0xA002, <span class="comment">// Invalid Broadcast Call</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  GDL_invalidExchangeCall=0xA003, <span class="comment">// Invalid Exchange Call</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  TELEMETRY_invalidCommand=0xB000  <span class="comment">// Invalid Command</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;};</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment">// NOLINTEND(readability-identifier-naming)</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> std::unordered_map&lt;DiagnosticId, std::string&gt; K_DIAGNOSTIC_ID_STRING_MAP;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// GIRAFFE_DIAGNOSTIC_IDS_HPP_</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  INTERFACE_invalidGpioPin=0x8000, <span class="comment">// Invalid GPIO Pin</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  INTERFACE_invalidGpioPinMode=0x8001, <span class="comment">// Invalid GPIO Pin Mode</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  INTERFACE_initialStateInputPin=0x8002, <span class="comment">// Initial State Input Pin</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  INTERFACE_gpioFailedToInit=0x8003, <span class="comment">// GPIO Init Failed</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  INTERFACE_gpioFailedToMapRegisters=0x8004, <span class="comment">// GPIO Map Registers Failed</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  INTERFACE_gpioNotInitialized=0x8005, <span class="comment">// GPIO Not Initialized</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  INTERFACE_gpioPinAlreadyReserved=0x8006, <span class="comment">// GPIO Pin Already Reserved</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  INTERFACE_gpioNotOwner=0x8007, <span class="comment">// GPIO Not Owner</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  INTERFACE_gpioPinNotOutput=0x8008, <span class="comment">// GPIO Pin Not Output</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  INTERFACE_gpioNotReserverOrNotOwner=0x8009, <span class="comment">// GPIO Pin Not Reserved or Not Owner</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  INTERFACE_gpioCanNotReadOutputPin=0x800A, <span class="comment">// GPIO Can Not Read Output Pin</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  GDL_invalidStartCall=0xA000, <span class="comment">// Invalid Start Call</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  GDL_invalidStopCall=0xA001, <span class="comment">// Invalid Stop Call</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  GDL_invalidBroadcastCall=0xA002, <span class="comment">// Invalid Broadcast Call</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  GDL_invalidExchangeCall=0xA003, <span class="comment">// Invalid Exchange Call</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  TELEMETRY_invalidCommand=0xB000  <span class="comment">// Invalid Command</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;};</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">// NOLINTEND(readability-identifier-naming)</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> std::unordered_map&lt;DiagnosticId, std::string&gt; K_DIAGNOSTIC_ID_STRING_MAP;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// GIRAFFE_DIAGNOSTIC_IDS_HPP_</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

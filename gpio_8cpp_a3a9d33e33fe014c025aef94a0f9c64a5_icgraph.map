@@ -1,0 +1,7 @@
+<map id="verifyInitialized" name="verifyInitialized">
+<area shape="rect" id="node1" title="A function to check if the BCM GPIO registers have been mapped." alt="" coords="239,81,361,108"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1Gpio.html#ab7556c99494356b7afbdb7260f9649c7" title="Check if the GPIO registers are mapped." alt="" coords="5,5,191,32"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="29,56,167,83"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="15,107,181,133"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="27,157,169,184"/>
+</map>

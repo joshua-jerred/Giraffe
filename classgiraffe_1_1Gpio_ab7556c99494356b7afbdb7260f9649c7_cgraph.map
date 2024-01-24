@@ -1,0 +1,4 @@
+<map id="giraffe::Gpio::isInitialized" name="giraffe::Gpio::isInitialized">
+<area shape="rect" id="node1" title="Check if the GPIO registers are mapped." alt="" coords="5,5,191,32"/>
+<area shape="rect" id="node2" href="$gpio_8cpp.html#a3a9d33e33fe014c025aef94a0f9c64a5" title="A function to check if the BCM GPIO registers have been mapped." alt="" coords="239,5,361,32"/>
+</map>

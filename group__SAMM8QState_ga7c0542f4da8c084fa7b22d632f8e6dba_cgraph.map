@@ -1,0 +1,13 @@
+<map id="extension::SamM8q::stateReset" name="extension::SamM8q::stateReset">
+<area shape="rect" id="node1" title=" " alt="" coords="5,100,164,141"/>
+<area shape="rect" id="node2" href="$classextension_1_1SamM8q.html#ae0235a4ac72134a1756b97a77888b989" title=" " alt="" coords="227,5,386,47"/>
+<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="227,71,386,112"/>
+<area shape="rect" id="node8" href="$namespaceubx.html#a906fc03b89d3045be5d60355cf25ac3e" title="Send a UBX&#45;CFG&#45;RST command to the receiver (Hardware Reset)" alt="" coords="212,137,401,163"/>
+<area shape="rect" id="node11" href="$group__SAMM8QState.html#ga5f1d24365206316560eb6979a46032dd" title=" " alt="" coords="227,188,386,229"/>
+<area shape="rect" id="node3" href="$classI2cInterface.html#ad067c20fef20b8338d0e4ec12dc94ec6" title="Read a single byte from the device at the specified register." alt="" coords="656,23,880,50"/>
+<area shape="rect" id="node4" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="928,82,1115,109"/>
+<area shape="rect" id="node6" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="449,71,608,112"/>
+<area shape="rect" id="node7" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="678,78,858,105"/>
+<area shape="rect" id="node9" href="$namespaceubx.html#a9c61bbe6a93b89e72b9102bfd1b5fa0e" title=" " alt="" coords="471,137,586,163"/>
+<area shape="rect" id="node10" href="$classI2cInterface.html#ad2c0dca6c1c239a1c4aba651035b6bff" title="Write a chunk of data to the device at the specified register." alt="" coords="677,133,859,159"/>
+</map>

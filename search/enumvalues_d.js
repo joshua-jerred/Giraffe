@@ -1,19 +1,11 @@
 var searchData=
 [
-  ['raw_5fcount_2894',['RAW_COUNT',['../namespaceextension.html#aa5891a3aa6702efdece92bf561d17208aaa5db4381426a88461ad4ebe782d04fc',1,'extension']]],
-  ['read_2895',['READ',['../group__SAMM8QState.html#gga416d5c4d588df643315ebc46f3eff359a3466fab4975481651940ed328aa990e4',1,'extension::SamM8qExtension']]],
-  ['read_5fcompensation_5fdata_2896',['READ_COMPENSATION_DATA',['../namespaceextension.html#a842aaad519772b36cb48adc23ee56afcac30be2996b85d3905826648d620c8259',1,'extension::READ_COMPENSATION_DATA()'],['../namespaceextension.html#a842aaad519772b36cb48adc23ee56afcac30be2996b85d3905826648d620c8259',1,'extension::READ_COMPENSATION_DATA()']]],
-  ['read_5ferror_2897',['READ_ERROR',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a54481c80b10e75ecba9c621f1eee91fe',1,'I2cInterface::READ_ERROR()'],['../namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4a54481c80b10e75ecba9c621f1eee91fe',1,'ubx::READ_ERROR()']]],
-  ['read_5ferror_5fnum_5fbytes_2898',['READ_ERROR_NUM_BYTES',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a69f1b43db081373334e9eec47fa0baf3',1,'I2cInterface']]],
-  ['read_5ferror_5fwrite_5freg_2899',['READ_ERROR_WRITE_REG',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518ac4d55475d8174b51bee3a2246644551a',1,'I2cInterface']]],
-  ['read_5fpacket_2900',['READ_PACKET',['../group__SAMM8QState.html#gga761853c53cc0066e6cab6bb84941d635ae339c79229397654b3cea088bf0338ae',1,'extension::SamM8qExtension']]],
-  ['receiving_2901',['RECEIVING',['../classgiraffe_1_1gdl_1_1PhysicalLayer.html#ae6ee079a07a5a4918268273005532732a0c96084902e8f21bf3bf678fdce4f2a0',1,'giraffe::gdl::PhysicalLayer']]],
-  ['recovery_2902',['RECOVERY',['../namespacegiraffe.html#a464112de04b36af2ff144b7013236affa9c90eb3f9201a7df861d94e494aa9b0b',1,'giraffe']]],
-  ['req_2903',['REQ',['../namespaceprotocol.html#a9731025e73bc9be65076786a05ea9624ace4e1a7286ff585e08bf30898cf6b3eb',1,'protocol']]],
-  ['reset_2904',['RESET',['../group__SAMM8QState.html#gga416d5c4d588df643315ebc46f3eff359ab5859d8721cfdc0312b2838b9c985bc1',1,'extension::SamM8qExtension']]],
-  ['restart_2905',['RESTART',['../classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a1104c54a9ec6549e4ef9562b687596fb',1,'modules::ExtensionModule']]],
-  ['right_2906',['RIGHT',['../classncurs_1_1Environment.html#a3b5c0bb29f8c9b6f7eff9c7b854019f5a21507b40c80068eda19865706fdc2403',1,'ncurs::Environment::RIGHT()'],['../classncurs_1_1Environment.html#a3b5c0bb29f8c9b6f7eff9c7b854019f5a21507b40c80068eda19865706fdc2403',1,'ncurs::Environment::RIGHT()'],['../classncurs_1_1Environment.html#a3b5c0bb29f8c9b6f7eff9c7b854019f5a21507b40c80068eda19865706fdc2403',1,'ncurs::Environment::RIGHT()'],['../classncurs_1_1Environment.html#a3b5c0bb29f8c9b6f7eff9c7b854019f5a21507b40c80068eda19865706fdc2403',1,'ncurs::Environment::RIGHT()']]],
-  ['rsp_2907',['RSP',['../namespaceprotocol.html#a9731025e73bc9be65076786a05ea9624a39b097df341e30b1ba206babdba89ea1',1,'protocol']]],
-  ['run_2908',['RUN',['../classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a855520d2a5b0b1a64b939e7e30889e2a',1,'modules::ExtensionModule']]],
-  ['running_2909',['RUNNING',['../namespacenode.html#a5360cad6ada29a0aae6013099cab6419a43491564ebcfd38568918efbd6e840fd',1,'node']]]
+  ['pedestrian_2987',['PEDESTRIAN',['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39afb97c381a019025eba60f0fbd236197c',1,'ubx']]],
+  ['percentage_2988',['PERCENTAGE',['../namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a21ee69ba26b6e644d4dddce593855d84',1,'extension']]],
+  ['ping_2989',['PING',['../classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824bae07ff41a486c27c095a15898dcca34d1',1,'giraffe::gdl::Packet']]],
+  ['ping_5fresponse_2990',['PING_RESPONSE',['../classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824baf5fcb64a6d012a6285298f45015c65bf',1,'giraffe::gdl::Packet']]],
+  ['portable_2991',['PORTABLE',['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39a265b3c9234cdcf1d21a1cdc817c24d6b',1,'ubx']]],
+  ['post_2992',['POST',['../classCurlRequest.html#ab5af61dd47cad361d7a4c0d3c5dfedf4aa02439ec229d8be0e74b0c1602392310',1,'CurlRequest']]],
+  ['pre_5flaunch_2993',['PRE_LAUNCH',['../namespacegiraffe.html#a464112de04b36af2ff144b7013236affaa9c1a88bb2291339811ab30ebf54acc5',1,'giraffe']]],
+  ['put_2994',['PUT',['../classCurlRequest.html#ab5af61dd47cad361d7a4c0d3c5dfedf4a3e75383a5992a6d15fb81e872e46e256',1,'CurlRequest']]]
 ];

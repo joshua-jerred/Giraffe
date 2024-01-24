@@ -1,0 +1,4 @@
+<map id="giraffe::Gpio::reservePin" name="giraffe::Gpio::reservePin">
+<area shape="rect" id="node1" title="A function to reserve a pin for use." alt="" coords="220,5,399,32"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="5,5,172,32"/>
+</map>

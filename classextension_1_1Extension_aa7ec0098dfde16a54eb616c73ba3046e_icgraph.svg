@@ -37,25 +37,24 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classextension_1_1Bme280Extension.html#a4ed64313c81c6453ae5d29c63a1bb52b" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="1,-546.5 1,-576.5 160,-576.5 160,-546.5 1,-546.5"/>
-<text text-anchor="start" x="9" y="-564.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Bme280Extension</text>
-<text text-anchor="middle" x="80.5" y="-553.5" font-family="Helvetica,sans-Serif" font-size="10.00">::loop</text>
+<g id="a_node3"><a xlink:href="classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="11.5,-552 11.5,-571 149.5,-571 149.5,-552 11.5,-552"/>
+<text text-anchor="middle" x="80.5" y="-559" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Bme280::loop</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M455.65,-324.8C448.94,-371.67 427.55,-471.64 364,-520.5 332.91,-544.4 232.31,-554.42 160.01,-558.59"/>
+<path fill="none" stroke="midnightblue" d="M455.65,-324.8C448.94,-371.67 427.55,-471.64 364,-520.5 331.39,-545.57 222.29,-555.37 149.61,-559.16"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="459.16,-324.98 457,-314.61 452.22,-324.06 459.16,-324.98"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classextension_1_1Ds18b20Extension.html#ad4dfdbd9d9cd1b114437c1c31d36088a" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="200,-480.5 200,-510.5 361,-510.5 361,-480.5 200,-480.5"/>
-<text text-anchor="start" x="208" y="-498.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Ds18b20Extension</text>
+<g id="a_node4"><a xlink:href="classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="224,-480.5 224,-510.5 337,-510.5 337,-480.5 224,-480.5"/>
+<text text-anchor="start" x="232" y="-498.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Ds18b20</text>
 <text text-anchor="middle" x="280.5" y="-487.5" font-family="Helvetica,sans-Serif" font-size="10.00">::loop</text>
 </a>
 </g>
@@ -63,7 +62,7 @@
 <!-- Node1&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M451.57,-324.36C439.84,-361.87 412.48,-432.64 364,-471.5 359.69,-474.95 354.91,-477.91 349.87,-480.44"/>
+<path fill="none" stroke="midnightblue" d="M451.57,-324.36C439.84,-361.87 412.48,-432.64 364,-471.5 356.2,-477.75 346.84,-482.37 337.25,-485.79"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="454.94,-325.31 454.47,-314.72 448.24,-323.29 454.94,-325.31"/>
 </g>
 <!-- Node5 -->
@@ -165,10 +164,10 @@
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="classextension_1_1Bme280Extension.html#a11e779a4c15360a0fa490174647c6b94" target="_top" xlink:title="Reads the raw environmental data from the BME280.">
-<polygon fill="none" stroke="black" points="201,-568.5 201,-598.5 360,-598.5 360,-568.5 201,-568.5"/>
-<text text-anchor="start" x="209" y="-586.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Bme280Extension</text>
-<text text-anchor="middle" x="280.5" y="-575.5" font-family="Helvetica,sans-Serif" font-size="10.00">::readEnvironmentalData</text>
+<g id="a_node11"><a xlink:href="classextension_1_1Bme280.html#a216c4ae77daca7a479a9eba281e8dbd4" target="_top" xlink:title="Reads the raw environmental data from the BME280.">
+<polygon fill="none" stroke="black" points="214,-568.5 214,-598.5 347,-598.5 347,-568.5 214,-568.5"/>
+<text text-anchor="start" x="222" y="-586.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Bme280::</text>
+<text text-anchor="middle" x="280.5" y="-575.5" font-family="Helvetica,sans-Serif" font-size="10.00">readEnvironmentalData</text>
 </a>
 </g>
 </g>
@@ -181,17 +180,17 @@
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="group__SAMM8QState.html#gaa031a3e0ad98da916ebca6836c9c1a30" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="200,-0.5 200,-30.5 361,-30.5 361,-0.5 200,-0.5"/>
-<text text-anchor="start" x="208" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::SamM8qExtension</text>
-<text text-anchor="middle" x="280.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::stateRead</text>
+<g id="a_node12"><a xlink:href="group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="221,-0.5 221,-30.5 340,-30.5 340,-0.5 221,-0.5"/>
+<text text-anchor="start" x="229" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::SamM8q::</text>
+<text text-anchor="middle" x="280.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">stateRead</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node12 -->
 <g id="edge13" class="edge">
 <title>Node1&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M456.72,-274.36C451.7,-222.7 432.89,-104.02 364,-39.5 360.3,-36.03 356.12,-33.06 351.67,-30.52"/>
+<path fill="none" stroke="midnightblue" d="M456.72,-274.36C451.7,-222.7 432.89,-104.02 364,-39.5 357.25,-33.18 348.93,-28.51 340.2,-25.07"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="453.24,-274.67 457.6,-284.33 460.21,-274.06 453.24,-274.67"/>
 </g>
 <!-- Node14 -->
@@ -207,8 +206,8 @@
 <!-- Node1&#45;&gt;Node14 -->
 <g id="edge15" class="edge">
 <title>Node1&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M454.34,-274.54C445.67,-230.4 421.47,-138.54 364,-88.5 360.06,-85.07 355.66,-82.13 350.99,-79.61"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="450.91,-275.24 456.18,-284.43 457.8,-273.96 450.91,-275.24"/>
+<path fill="none" stroke="midnightblue" d="M454.19,-274.4C445.31,-230.44 420.87,-139.49 364,-89.5 359.62,-85.65 354.65,-82.39 349.39,-79.63"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="450.76,-275.1 456.07,-284.26 457.63,-273.78 450.76,-275.1"/>
 </g>
 <!-- Node15 -->
 <g id="node15" class="node">
@@ -235,30 +234,29 @@
 <!-- Node11&#45;&gt;Node3 -->
 <g id="edge12" class="edge">
 <title>Node11&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M190.84,-573.65C180.65,-572.52 170.31,-571.37 160.27,-570.25"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="190.64,-577.15 200.96,-574.77 191.41,-570.19 190.64,-577.15"/>
+<path fill="none" stroke="midnightblue" d="M203.55,-575.06C185.82,-573.09 167.05,-571.01 149.69,-569.08"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="203.52,-578.58 213.84,-576.2 204.29,-571.62 203.52,-578.58"/>
 </g>
 <!-- Node13 -->
 <g id="node13" class="node">
 <title>Node13</title>
-<g id="a_node13"><a xlink:href="classextension_1_1SamM8qExtension.html#abd1b7a24f87efe0353c00f6caf9c7945" target="_top" xlink:title="Contains a simple state machine that will configure, reset, and read data from the sensor....">
-<polygon fill="none" stroke="black" points="0,-0.5 0,-30.5 161,-30.5 161,-0.5 0,-0.5"/>
-<text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::SamM8qExtension</text>
-<text text-anchor="middle" x="80.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::loop</text>
+<g id="a_node13"><a xlink:href="classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" target="_top" xlink:title="Contains a simple state machine that will configure, reset, and read data from the sensor....">
+<polygon fill="none" stroke="black" points="10.5,-6 10.5,-25 150.5,-25 150.5,-6 10.5,-6"/>
+<text text-anchor="middle" x="80.5" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">extension::SamM8q::loop</text>
 </a>
 </g>
 </g>
 <!-- Node12&#45;&gt;Node13 -->
 <g id="edge14" class="edge">
 <title>Node12&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M189.55,-15.5C180.03,-15.5 170.4,-15.5 161.02,-15.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="189.82,-19 199.82,-15.5 189.82,-12 189.82,-19"/>
+<path fill="none" stroke="midnightblue" d="M210.63,-15.5C191.26,-15.5 170.18,-15.5 150.78,-15.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="210.9,-19 220.9,-15.5 210.9,-12 210.9,-19"/>
 </g>
 <!-- Node14&#45;&gt;Node2 -->
 <g id="edge16" class="edge">
 <title>Node14&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M214.29,-82.69C208.42,-84.56 202.58,-86.51 197,-88.5 168.68,-98.59 137.33,-112.04 114.45,-122.29"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="215.67,-85.93 224.18,-79.61 213.59,-79.24 215.67,-85.93"/>
+<path fill="none" stroke="midnightblue" d="M216.98,-82.73C210.2,-84.91 203.44,-87.19 197,-89.5 169.2,-99.46 138.34,-112.39 115.52,-122.31"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="218.4,-85.95 226.87,-79.59 216.28,-79.28 218.4,-85.95"/>
 </g>
 <!-- Node15&#45;&gt;Node2 -->
 <g id="edge18" class="edge">

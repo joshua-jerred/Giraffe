@@ -1,0 +1,19 @@
+<map id="extension::SamM8q::stateConfigure" name="extension::SamM8q::stateConfigure">
+<area shape="rect" id="node1" title=" " alt="" coords="5,184,164,225"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="230,75,389,116"/>
+<area shape="rect" id="node4" href="$namespaceubx.html#a1fb85f5c220b3095792f3e9495c432b9" title=" " alt="" coords="223,191,395,218"/>
+<area shape="rect" id="node14" href="$namespaceubx.html#a56ec4bce3dc8bf99a601036cda46a9b0" title=" " alt="" coords="212,141,407,167"/>
+<area shape="rect" id="node15" href="$namespaceubx.html#a6c27feec78affa320dc73abe6c52b8db" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="231,242,387,269"/>
+<area shape="rect" id="node17" href="$group__SAMM8QState.html#ga5f1d24365206316560eb6979a46032dd" title=" " alt="" coords="230,293,389,335"/>
+<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="455,82,635,109"/>
+<area shape="rect" id="node5" href="$namespaceubx.html#a496e6e180876a9a83b2d1751620f6dd5" title=" " alt="" coords="477,141,613,167"/>
+<area shape="rect" id="node12" href="$namespaceubx.html#a9c61bbe6a93b89e72b9102bfd1b5fa0e" title=" " alt="" coords="487,191,602,218"/>
+<area shape="rect" id="node6" href="$namespaceubx.html#a138e86b90eb81df7287b0687e2e647fd" title=" " alt="" coords="925,141,1075,167"/>
+<area shape="rect" id="node9" href="$namespaceubx.html#a269ab03f7fe578994b76b9be220b4fbe" title=" " alt="" coords="683,90,825,117"/>
+<area shape="rect" id="node7" href="$classI2cInterface.html#ad067c20fef20b8338d0e4ec12dc94ec6" title="Read a single byte from the device at the specified register." alt="" coords="1180,103,1404,130"/>
+<area shape="rect" id="node8" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="1457,103,1644,130"/>
+<area shape="rect" id="node10" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="1175,21,1409,47"/>
+<area shape="rect" id="node11" href="$structubx_1_1UBXMessage.html#a8df918b403f338508a235d7378238d3b" title=" " alt="" coords="873,39,1127,66"/>
+<area shape="rect" id="node13" href="$classI2cInterface.html#ad2c0dca6c1c239a1c4aba651035b6bff" title="Write a chunk of data to the device at the specified register." alt="" coords="1201,166,1383,193"/>
+<area shape="rect" id="node16" href="$classI2cInterface.html#ac75338c8037820454944348a91613d2c" title="Get the address of the device on the bus." alt="" coords="455,242,635,269"/>
+</map>

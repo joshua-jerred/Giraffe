@@ -10,8 +10,10 @@ var namespacegiraffe =
     [ "gdl", "namespacegiraffe_1_1gdl.html", "namespacegiraffe_1_1gdl" ],
     [ "CommonLogger", "classgiraffe_1_1CommonLogger.html", "classgiraffe_1_1CommonLogger" ],
     [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ],
+    [ "Gpio", "classgiraffe_1_1Gpio.html", "classgiraffe_1_1Gpio" ],
     [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ],
     [ "LoggerEntry", "structgiraffe_1_1LoggerEntry.html", "structgiraffe_1_1LoggerEntry" ],
+    [ "StatusLed", "classgiraffe_1_1StatusLed.html", "classgiraffe_1_1StatusLed" ],
     [ "LoggerLevel", "namespacegiraffe.html#a7de051682a10e68f9259ee84278381ed", [
       [ "DEBUG", "namespacegiraffe.html#a7de051682a10e68f9259ee84278381edadc30ec20708ef7b0f641ef78b7880a15", null ],
       [ "INFO", "namespacegiraffe.html#a7de051682a10e68f9259ee84278381eda551b723eafd6a31d444fcb2f5920fbd3", null ],
@@ -29,5 +31,6 @@ var namespacegiraffe =
     [ "NLOHMANN_JSON_SERIALIZE_ENUM", "namespacegiraffe.html#a69542761e752ab53aa53576e85b843d9", null ],
     [ "to_string", "namespacegiraffe.html#a6c8d7898d64c0982d482f960a46bb8c5", null ],
     [ "kDataFilePath", "namespacegiraffe.html#a6b32139309d34ad3fdd8ad069c141473", null ],
-    [ "kNumStartupsDefault", "namespacegiraffe.html#accb157d3d9971f0f4f97a434a9aa21e8", null ]
+    [ "kNumStartupsDefault", "namespacegiraffe.html#accb157d3d9971f0f4f97a434a9aa21e8", null ],
+    [ "MAX_PIN_NUMBER", "namespacegiraffe.html#a469e6e35959060a692d18f6417224cc6", null ]
 ];

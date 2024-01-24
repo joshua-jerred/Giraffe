@@ -1,0 +1,16 @@
+<map id="extension::Bme280::startup" name="extension::Bme280::startup">
+<area shape="rect" id="node1" title=" " alt="" coords="5,188,161,229"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bme280.html#ae21f49a8227aa053e17193df5d5b07a9" title="Configures the BME280. (Weather Monitoring config, Section 3.5.1)" alt="" coords="219,188,375,229"/>
+<area shape="rect" id="node5" href="$classI2cInterface.html#a98edf9a116cb2f865adb2a19f59728e3" title="Connect to the bus. If it&#39;s already connected, disconnect and reconnect." alt="" coords="218,71,377,98"/>
+<area shape="rect" id="node6" href="$classextension_1_1Extension.html#a00ef6cd65250307287af24071c862a42" title="Sleep internally for a given number of milliseconds." alt="" coords="218,123,377,164"/>
+<area shape="rect" id="node7" href="$classextension_1_1Bme280.html#aa77332f6dd634420c9d54f695a5261ce" title="Reads the &#39;ID&#39; register on the BME280, which should return 0x60." alt="" coords="219,253,375,295"/>
+<area shape="rect" id="node9" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="218,319,377,360"/>
+<area shape="rect" id="node12" href="$classextension_1_1Bme280.html#a179888bdfc9c2f52c515ea2488dfe941" title="Reads and stores the compensation data from the BME280." alt="" coords="209,5,385,47"/>
+<area shape="rect" id="node14" href="$classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b" title="Returns true if the extension has been requested to stop." alt="" coords="218,384,377,425"/>
+<area shape="rect" id="node3" href="$classI2cInterface.html#aee981ceb5e70afe9ba9fe3427783ef89" title="Write a single byte to the device at the specified register." alt="" coords="446,195,655,222"/>
+<area shape="rect" id="node4" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="716,195,903,222"/>
+<area shape="rect" id="node8" href="$classI2cInterface.html#ad067c20fef20b8338d0e4ec12dc94ec6" title="Read a single byte from the device at the specified register." alt="" coords="439,254,663,281"/>
+<area shape="rect" id="node10" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="471,319,630,360"/>
+<area shape="rect" id="node11" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="719,326,899,353"/>
+<area shape="rect" id="node13" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="433,79,668,106"/>
+</map>

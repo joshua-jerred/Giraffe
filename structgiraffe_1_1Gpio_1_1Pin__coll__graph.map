@@ -1,0 +1,6 @@
+<map id="giraffe::Gpio::Pin" name="giraffe::Gpio::Pin">
+<area shape="rect" id="node1" title="A pin struct that contains the pin number, mode, and default." alt="" coords="69,145,199,237"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,84,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="109,5,159,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="233,5,299,83"/>
+</map>

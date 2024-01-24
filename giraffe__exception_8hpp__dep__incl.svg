@@ -12,241 +12,277 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Common exception for Giraffe.">
-<polygon fill="#bfbfbf" stroke="black" points="448.5,-280.5 448.5,-299.5 570.5,-299.5 570.5,-280.5 448.5,-280.5"/>
-<text text-anchor="middle" x="509.5" y="-287.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_exception.hpp</text>
+<polygon fill="#bfbfbf" stroke="black" points="376.5,-280.5 376.5,-299.5 498.5,-299.5 498.5,-280.5 376.5,-280.5"/>
+<text text-anchor="middle" x="437.5" y="-287.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_exception.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="giraffe__diagnostics_8hpp.html" target="_top" xlink:title="Giraffe&#39;s diagnostic system.">
-<polygon fill="none" stroke="black" points="300.5,-224.5 300.5,-243.5 430.5,-243.5 430.5,-224.5 300.5,-224.5"/>
-<text text-anchor="middle" x="365.5" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_diagnostics.hpp</text>
+<g id="a_node2"><a xlink:href="gpio_8cpp.html" target="_top" xlink:title="GPIO interface source file.">
+<polygon fill="none" stroke="black" points="224.5,-224.5 224.5,-243.5 282.5,-243.5 282.5,-224.5 224.5,-224.5"/>
+<text text-anchor="middle" x="253.5" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">gpio.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M477.25,-276.91C450.18,-266.75 412.18,-252.51 388.21,-243.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="476.09,-280.21 486.68,-280.44 478.55,-273.66 476.09,-280.21"/>
+<path fill="none" stroke="midnightblue" d="M398.55,-277.57C363.84,-267.38 313.82,-252.7 282.52,-243.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="397.76,-280.99 408.34,-280.44 399.73,-274.27 397.76,-280.99"/>
 </g>
-<!-- Node15 -->
-<g id="node15" class="node">
-<title>Node15</title>
-<g id="a_node15"><a xlink:href="giraffe__file__paths_8cpp.html" target="_top" xlink:title="Common file paths for the C++ portion of Giraffe.">
+<!-- Node3 -->
+<g id="node3" class="node">
+<title>Node3</title>
+<g id="a_node3"><a xlink:href="giraffe__diagnostics_8hpp.html" target="_top" xlink:title="Giraffe&#39;s diagnostic system.">
+<polygon fill="none" stroke="black" points="300.5,-224.5 300.5,-243.5 430.5,-243.5 430.5,-224.5 300.5,-224.5"/>
+<text text-anchor="middle" x="365.5" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_diagnostics.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node3 -->
+<g id="edge2" class="edge">
+<title>Node1&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M417.63,-274.1C404.68,-264.38 388.2,-252.03 377.28,-243.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="415.83,-277.12 425.93,-280.32 420.03,-271.52 415.83,-277.12"/>
+</g>
+<!-- Node17 -->
+<g id="node17" class="node">
+<title>Node17</title>
+<g id="a_node17"><a xlink:href="giraffe__file__paths_8cpp.html" target="_top" xlink:title="Common file paths for the C++ portion of Giraffe.">
 <polygon fill="none" stroke="black" points="449,-224.5 449,-243.5 570,-243.5 570,-224.5 449,-224.5"/>
 <text text-anchor="middle" x="509.5" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_file_paths.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node15 -->
-<g id="edge15" class="edge">
-<title>Node1&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M509.5,-269.8C509.5,-260.91 509.5,-250.78 509.5,-243.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="506,-270.08 509.5,-280.08 513,-270.08 506,-270.08"/>
+<!-- Node1&#45;&gt;Node17 -->
+<g id="edge18" class="edge">
+<title>Node1&#45;&gt;Node17</title>
+<path fill="none" stroke="midnightblue" d="M457.37,-274.1C470.32,-264.38 486.8,-252.03 497.72,-243.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="454.97,-271.52 449.07,-280.32 459.17,-277.12 454.97,-271.52"/>
 </g>
-<!-- Node16 -->
-<g id="node16" class="node">
-<title>Node16</title>
-<g id="a_node16"><a xlink:href="protocol_8cpp.html" target="_top" xlink:title="The C++ implementation of the Giraffe Protocol.">
+<!-- Node18 -->
+<g id="node18" class="node">
+<title>Node18</title>
+<g id="a_node18"><a xlink:href="protocol_8cpp.html" target="_top" xlink:title="The C++ implementation of the Giraffe Protocol.">
 <polygon fill="none" stroke="black" points="588,-224.5 588,-243.5 665,-243.5 665,-224.5 588,-224.5"/>
 <text text-anchor="middle" x="626.5" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node16 -->
-<g id="edge16" class="edge">
-<title>Node1&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M537.16,-276.23C559.05,-266.13 589,-252.31 608.05,-243.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="535.65,-273.08 528.04,-280.44 538.59,-279.43 535.65,-273.08"/>
-</g>
-<!-- Node3 -->
-<g id="node3" class="node">
-<title>Node3</title>
-<g id="a_node3"><a xlink:href="i2c__interface_8hpp.html" target="_top" xlink:title="A wrapper around I2C communication.">
-<polygon fill="none" stroke="black" points="250,-168.5 250,-187.5 351,-187.5 351,-168.5 250,-168.5"/>
-<text text-anchor="middle" x="300.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">i2c_interface.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node2&#45;&gt;Node3 -->
-<g id="edge2" class="edge">
-<title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M347.23,-217.82C335.58,-208.15 320.9,-195.95 311.13,-187.83"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="345.13,-220.63 355.06,-224.32 349.6,-215.24 345.13,-220.63"/>
-</g>
-<!-- Node14 -->
-<g id="node14" class="node">
-<title>Node14</title>
-<g id="a_node14"><a xlink:href="giraffe__exception_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="369.5,-168.5 369.5,-187.5 491.5,-187.5 491.5,-168.5 369.5,-168.5"/>
-<text text-anchor="middle" x="430.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_exception.cpp</text>
-</a>
-</g>
-</g>
-<!-- Node2&#45;&gt;Node14 -->
-<g id="edge14" class="edge">
-<title>Node2&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M383.77,-217.82C395.42,-208.15 410.1,-195.95 419.87,-187.83"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="381.4,-215.24 375.94,-224.32 385.87,-220.63 381.4,-215.24"/>
+<!-- Node1&#45;&gt;Node18 -->
+<g id="edge19" class="edge">
+<title>Node1&#45;&gt;Node18</title>
+<path fill="none" stroke="midnightblue" d="M477.51,-277.57C513.17,-267.38 564.54,-252.7 596.69,-243.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="476.1,-274.33 467.45,-280.44 478.02,-281.06 476.1,-274.33"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="bme280_8hpp.html" target="_top" xlink:title="The BME280 sensor extension.">
-<polygon fill="none" stroke="black" points="0,-112.5 0,-131.5 77,-131.5 77,-112.5 0,-112.5"/>
-<text text-anchor="middle" x="38.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">bme280.hpp</text>
+<g id="a_node4"><a xlink:href="i2c__interface_8hpp.html" target="_top" xlink:title="A wrapper around I2C communication.">
+<polygon fill="none" stroke="black" points="250,-168.5 250,-187.5 351,-187.5 351,-168.5 250,-168.5"/>
+<text text-anchor="middle" x="300.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">i2c_interface.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M248.94,-166.37C198.49,-155.97 122.78,-140.37 77.26,-130.99"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="248.48,-169.85 258.99,-168.44 249.9,-163 248.48,-169.85"/>
+<path fill="none" stroke="midnightblue" d="M347.23,-217.82C335.58,-208.15 320.9,-195.95 311.13,-187.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="345.13,-220.63 355.06,-224.32 349.6,-215.24 345.13,-220.63"/>
 </g>
-<!-- Node6 -->
-<g id="node6" class="node">
-<title>Node6</title>
-<g id="a_node6"><a xlink:href="i2c__extension__adapter_8hpp.html" target="_top" xlink:title="Adapter for I2C Extensions.">
-<polygon fill="none" stroke="black" points="95,-112.5 95,-131.5 242,-131.5 242,-112.5 95,-112.5"/>
-<text text-anchor="middle" x="168.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">i2c_extension_adapter.hpp</text>
+<!-- Node16 -->
+<g id="node16" class="node">
+<title>Node16</title>
+<g id="a_node16"><a xlink:href="giraffe__exception_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="369.5,-168.5 369.5,-187.5 491.5,-187.5 491.5,-168.5 369.5,-168.5"/>
+<text text-anchor="middle" x="430.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_exception.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node6 -->
-<g id="edge5" class="edge">
-<title>Node3&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M270.28,-164.64C245.51,-154.5 211.1,-140.43 189.32,-131.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="269,-167.9 279.58,-168.44 271.65,-161.42 269,-167.9"/>
-</g>
-<!-- Node9 -->
-<g id="node9" class="node">
-<title>Node9</title>
-<g id="a_node9"><a xlink:href="samm8q_8hpp.html" target="_top" xlink:title="SAM&#45;M8Q GPS extension (I2C).">
-<polygon fill="none" stroke="black" points="260.5,-112.5 260.5,-131.5 340.5,-131.5 340.5,-112.5 260.5,-112.5"/>
-<text text-anchor="middle" x="300.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">samm8q.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node3&#45;&gt;Node9 -->
-<g id="edge8" class="edge">
-<title>Node3&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M300.5,-157.8C300.5,-148.91 300.5,-138.78 300.5,-131.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="297,-158.08 300.5,-168.08 304,-158.08 297,-158.08"/>
-</g>
-<!-- Node11 -->
-<g id="node11" class="node">
-<title>Node11</title>
-<g id="a_node11"><a xlink:href="i2c__interface_8cpp.html" target="_top" xlink:title="A wrapper around I2C communication.">
-<polygon fill="none" stroke="black" points="358.5,-112.5 358.5,-131.5 458.5,-131.5 458.5,-112.5 358.5,-112.5"/>
-<text text-anchor="middle" x="408.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">i2c_interface.cpp</text>
-</a>
-</g>
-</g>
-<!-- Node3&#45;&gt;Node11 -->
-<g id="edge10" class="edge">
-<title>Node3&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M327.05,-163.73C347.05,-153.73 373.89,-140.31 391.19,-131.65"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="325.23,-160.72 317.85,-168.32 328.36,-166.98 325.23,-160.72"/>
-</g>
-<!-- Node12 -->
-<g id="node12" class="node">
-<title>Node12</title>
-<g id="a_node12"><a xlink:href="ubx__protocol_8hpp.html" target="_top" xlink:title="UBX Protocol implementation header.">
-<polygon fill="none" stroke="black" points="477,-112.5 477,-131.5 578,-131.5 578,-112.5 477,-112.5"/>
-<text text-anchor="middle" x="527.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">ubx_protocol.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node3&#45;&gt;Node12 -->
-<g id="edge11" class="edge">
-<title>Node3&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M346.37,-166.09C389.25,-155.89 452.42,-140.86 491.7,-131.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="345.39,-162.72 336.47,-168.44 347.01,-169.53 345.39,-162.72"/>
+<!-- Node3&#45;&gt;Node16 -->
+<g id="edge17" class="edge">
+<title>Node3&#45;&gt;Node16</title>
+<path fill="none" stroke="midnightblue" d="M383.77,-217.82C395.42,-208.15 410.1,-195.95 419.87,-187.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="381.4,-215.24 375.94,-224.32 385.87,-220.63 381.4,-215.24"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="bme280_8cpp.html" target="_top" xlink:title="BME280 sensor extension.">
-<polygon fill="none" stroke="black" points="0,-56.5 0,-75.5 77,-75.5 77,-56.5 0,-56.5"/>
-<text text-anchor="middle" x="38.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">bme280.cpp</text>
+<g id="a_node5"><a xlink:href="bme280_8hpp.html" target="_top" xlink:title="The BME280 sensor extension.">
+<polygon fill="none" stroke="black" points="165,-112.5 165,-131.5 242,-131.5 242,-112.5 165,-112.5"/>
+<text text-anchor="middle" x="203.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">bme280.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node4&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M38.5,-101.8C38.5,-92.91 38.5,-82.78 38.5,-75.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="35,-102.08 38.5,-112.08 42,-102.08 35,-102.08"/>
-</g>
-<!-- Node7 -->
-<g id="node7" class="node">
-<title>Node7</title>
-<g id="a_node7"><a xlink:href="mcp3021_8hpp.html" target="_top" xlink:title="MCP3021 I2C ADC Driver.">
-<polygon fill="none" stroke="black" points="127,-56.5 127,-75.5 210,-75.5 210,-56.5 127,-56.5"/>
-<text text-anchor="middle" x="168.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">mcp3021.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node6&#45;&gt;Node7 -->
-<g id="edge6" class="edge">
-<title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M168.5,-101.8C168.5,-92.91 168.5,-82.78 168.5,-75.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="165,-102.08 168.5,-112.08 172,-102.08 165,-102.08"/>
+<path fill="none" stroke="midnightblue" d="M276.16,-163.45C258.26,-153.48 234.45,-140.23 219.05,-131.65"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="274.48,-166.52 284.92,-168.32 277.88,-160.4 274.48,-166.52"/>
 </g>
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="mcp3021_8cpp.html" target="_top" xlink:title="MCP3021 I2C ADC Driver.">
-<polygon fill="none" stroke="black" points="127.5,-0.5 127.5,-19.5 209.5,-19.5 209.5,-0.5 127.5,-0.5"/>
-<text text-anchor="middle" x="168.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">mcp3021.cpp</text>
+<g id="a_node8"><a xlink:href="i2c__extension__adapter_8hpp.html" target="_top" xlink:title="Adapter for I2C Extensions.">
+<polygon fill="none" stroke="black" points="0,-112.5 0,-131.5 147,-131.5 147,-112.5 0,-112.5"/>
+<text text-anchor="middle" x="73.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">i2c_extension_adapter.hpp</text>
 </a>
 </g>
 </g>
-<!-- Node7&#45;&gt;Node8 -->
+<!-- Node4&#45;&gt;Node8 -->
 <g id="edge7" class="edge">
-<title>Node7&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M168.5,-45.8C168.5,-36.91 168.5,-26.78 168.5,-19.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="165,-46.08 168.5,-56.08 172,-46.08 165,-46.08"/>
+<title>Node4&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M254.63,-166.09C211.75,-155.89 148.58,-140.86 109.3,-131.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="253.99,-169.53 264.53,-168.44 255.61,-162.72 253.99,-169.53"/>
+</g>
+<!-- Node11 -->
+<g id="node11" class="node">
+<title>Node11</title>
+<g id="a_node11"><a xlink:href="samm8q_8hpp.html" target="_top" xlink:title="SAM&#45;M8Q GPS extension (I2C).">
+<polygon fill="none" stroke="black" points="260.5,-112.5 260.5,-131.5 340.5,-131.5 340.5,-112.5 260.5,-112.5"/>
+<text text-anchor="middle" x="300.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">samm8q.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node4&#45;&gt;Node11 -->
+<g id="edge10" class="edge">
+<title>Node4&#45;&gt;Node11</title>
+<path fill="none" stroke="midnightblue" d="M300.5,-157.8C300.5,-148.91 300.5,-138.78 300.5,-131.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="297,-158.08 300.5,-168.08 304,-158.08 297,-158.08"/>
+</g>
+<!-- Node13 -->
+<g id="node13" class="node">
+<title>Node13</title>
+<g id="a_node13"><a xlink:href="i2c__interface_8cpp.html" target="_top" xlink:title="A wrapper around I2C communication.">
+<polygon fill="none" stroke="black" points="358.5,-112.5 358.5,-131.5 458.5,-131.5 458.5,-112.5 358.5,-112.5"/>
+<text text-anchor="middle" x="408.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">i2c_interface.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node4&#45;&gt;Node13 -->
+<g id="edge13" class="edge">
+<title>Node4&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M327.05,-163.73C347.05,-153.73 373.89,-140.31 391.19,-131.65"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="325.23,-160.72 317.85,-168.32 328.36,-166.98 325.23,-160.72"/>
+</g>
+<!-- Node14 -->
+<g id="node14" class="node">
+<title>Node14</title>
+<g id="a_node14"><a xlink:href="ubx__protocol_8hpp.html" target="_top" xlink:title="UBX Protocol implementation header.">
+<polygon fill="none" stroke="black" points="477,-112.5 477,-131.5 578,-131.5 578,-112.5 477,-112.5"/>
+<text text-anchor="middle" x="527.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">ubx_protocol.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node4&#45;&gt;Node14 -->
+<g id="edge14" class="edge">
+<title>Node4&#45;&gt;Node14</title>
+<path fill="none" stroke="midnightblue" d="M346.37,-166.09C389.25,-155.89 452.42,-140.86 491.7,-131.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="345.39,-162.72 336.47,-168.44 347.01,-169.53 345.39,-162.72"/>
+</g>
+<!-- Node6 -->
+<g id="node6" class="node">
+<title>Node6</title>
+<g id="a_node6"><a xlink:href="bme280_8cpp.html" target="_top" xlink:title="BME280 sensor extension.">
+<polygon fill="none" stroke="black" points="140,-56.5 140,-75.5 217,-75.5 217,-56.5 140,-56.5"/>
+<text text-anchor="middle" x="178.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">bme280.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node6 -->
+<g id="edge5" class="edge">
+<title>Node5&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M195.16,-102.98C190.92,-93.82 185.95,-83.09 182.55,-75.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="191.99,-104.48 199.37,-112.08 198.35,-101.54 191.99,-104.48"/>
+</g>
+<!-- Node7 -->
+<g id="node7" class="node">
+<title>Node7</title>
+<g id="a_node7"><a xlink:href="extension__module_8cpp.html" target="_top" xlink:title="The implementation of the new extension module.">
+<polygon fill="none" stroke="black" points="235,-56.5 235,-75.5 362,-75.5 362,-56.5 235,-56.5"/>
+<text text-anchor="middle" x="298.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension_module.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node7 -->
+<g id="edge6" class="edge">
+<title>Node5&#45;&gt;Node7</title>
+<path fill="none" stroke="midnightblue" d="M227.82,-107.18C245.3,-97.24 268.33,-84.15 283.27,-75.65"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="225.73,-104.34 218.76,-112.32 229.19,-110.43 225.73,-104.34"/>
+</g>
+<!-- Node9 -->
+<g id="node9" class="node">
+<title>Node9</title>
+<g id="a_node9"><a xlink:href="mcp3021_8hpp.html" target="_top" xlink:title="MCP3021 I2C ADC Driver.">
+<polygon fill="none" stroke="black" points="32,-56.5 32,-75.5 115,-75.5 115,-56.5 32,-56.5"/>
+<text text-anchor="middle" x="73.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">mcp3021.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node8&#45;&gt;Node9 -->
+<g id="edge8" class="edge">
+<title>Node8&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M73.5,-101.8C73.5,-92.91 73.5,-82.78 73.5,-75.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="70,-102.08 73.5,-112.08 77,-102.08 70,-102.08"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="samm8q_8cpp.html" target="_top" xlink:title="The SAM&#45;M8Q GPS extension (I2C).">
-<polygon fill="none" stroke="black" points="319.5,-56.5 319.5,-75.5 399.5,-75.5 399.5,-56.5 319.5,-56.5"/>
-<text text-anchor="middle" x="359.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">samm8q.cpp</text>
+<g id="a_node10"><a xlink:href="mcp3021_8cpp.html" target="_top" xlink:title="MCP3021 I2C ADC Driver.">
+<polygon fill="none" stroke="black" points="32.5,-0.5 32.5,-19.5 114.5,-19.5 114.5,-0.5 32.5,-0.5"/>
+<text text-anchor="middle" x="73.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">mcp3021.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node9&#45;&gt;Node10 -->
 <g id="edge9" class="edge">
 <title>Node9&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M317.39,-105.54C327.91,-95.91 341.07,-83.87 349.85,-75.83"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="314.99,-102.99 309.98,-112.32 319.72,-108.15 314.99,-102.99"/>
+<path fill="none" stroke="midnightblue" d="M73.5,-45.8C73.5,-36.91 73.5,-26.78 73.5,-19.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="70,-46.08 73.5,-56.08 77,-46.08 70,-46.08"/>
 </g>
-<!-- Node12&#45;&gt;Node10 -->
+<!-- Node11&#45;&gt;Node7 -->
 <g id="edge12" class="edge">
-<title>Node12&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M491.11,-109.3C459.46,-99.13 414.33,-84.62 386,-75.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="490.29,-112.72 500.88,-112.44 492.43,-106.05 490.29,-112.72"/>
+<title>Node11&#45;&gt;Node7</title>
+<path fill="none" stroke="midnightblue" d="M299.79,-101.8C299.46,-92.91 299.08,-82.78 298.82,-75.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="296.3,-102.22 300.17,-112.08 303.3,-101.96 296.3,-102.22"/>
 </g>
-<!-- Node13 -->
-<g id="node13" class="node">
-<title>Node13</title>
-<g id="a_node13"><a xlink:href="ubx__protocol_8cpp.html" target="_top" xlink:title="The UBX Protocol implementation.">
-<polygon fill="none" stroke="black" points="477.5,-56.5 477.5,-75.5 577.5,-75.5 577.5,-56.5 477.5,-56.5"/>
-<text text-anchor="middle" x="527.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">ubx_protocol.cpp</text>
+<!-- Node12 -->
+<g id="node12" class="node">
+<title>Node12</title>
+<g id="a_node12"><a xlink:href="samm8q_8cpp.html" target="_top" xlink:title="The SAM&#45;M8Q GPS extension (I2C).">
+<polygon fill="none" stroke="black" points="380.5,-56.5 380.5,-75.5 460.5,-75.5 460.5,-56.5 380.5,-56.5"/>
+<text text-anchor="middle" x="420.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">samm8q.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node12&#45;&gt;Node13 -->
-<g id="edge13" class="edge">
-<title>Node12&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M527.5,-101.8C527.5,-92.91 527.5,-82.78 527.5,-75.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="524,-102.08 527.5,-112.08 531,-102.08 524,-102.08"/>
+<!-- Node11&#45;&gt;Node12 -->
+<g id="edge11" class="edge">
+<title>Node11&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M328.87,-108.23C351.32,-98.13 382.04,-84.31 401.57,-75.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="327.2,-105.15 319.51,-112.44 330.07,-111.53 327.2,-105.15"/>
+</g>
+<!-- Node14&#45;&gt;Node12 -->
+<g id="edge15" class="edge">
+<title>Node14&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M501.2,-107.73C481.39,-97.73 454.79,-84.31 437.65,-75.65"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="499.8,-110.94 510.31,-112.32 502.96,-104.69 499.8,-110.94"/>
+</g>
+<!-- Node15 -->
+<g id="node15" class="node">
+<title>Node15</title>
+<g id="a_node15"><a xlink:href="ubx__protocol_8cpp.html" target="_top" xlink:title="The UBX Protocol implementation.">
+<polygon fill="none" stroke="black" points="478.5,-56.5 478.5,-75.5 578.5,-75.5 578.5,-56.5 478.5,-56.5"/>
+<text text-anchor="middle" x="528.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">ubx_protocol.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node14&#45;&gt;Node15 -->
+<g id="edge16" class="edge">
+<title>Node14&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M527.86,-101.8C528.02,-92.91 528.21,-82.78 528.34,-75.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="524.35,-102.02 527.67,-112.08 531.35,-102.15 524.35,-102.02"/>
 </g>
 </g>
 </svg>

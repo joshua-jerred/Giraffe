@@ -1,0 +1,5 @@
+<map id="extension::Bme280::readCompensationData" name="extension::Bme280::readCompensationData">
+<area shape="rect" id="node1" title="Reads and stores the compensation data from the BME280." alt="" coords="5,5,181,47"/>
+<area shape="rect" id="node2" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="229,13,464,39"/>
+<area shape="rect" id="node3" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="512,13,699,39"/>
+</map>

@@ -1,4 +1,0 @@
-<map id="extension::Bme280Extension::configureSensor" name="extension::Bme280Extension::configureSensor">
-<area shape="rect" id="node1" title="Configures the BME280. (Weather Monitoring config, Section 3.5.1)" alt="" coords="265,5,477,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bme280Extension.html#a8ddf780160059241fa4069d2426145c6" title=" " alt="" coords="5,5,217,47"/>
-</map>

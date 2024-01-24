@@ -36,26 +36,26 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classextension_1_1Bme280Extension.html#a8ddf780160059241fa4069d2426145c6" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="205,-49.5 205,-79.5 364,-79.5 364,-49.5 205,-49.5"/>
-<text text-anchor="start" x="213" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Bme280Extension</text>
-<text text-anchor="middle" x="284.5" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">::startup</text>
+<g id="a_node4"><a xlink:href="classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="226,-49.5 226,-79.5 343,-79.5 343,-49.5 226,-49.5"/>
+<text text-anchor="start" x="234" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Bme280::</text>
+<text text-anchor="middle" x="284.5" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">startup</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M395.7,-64.5C385.35,-64.5 374.62,-64.5 364.09,-64.5"/>
+<path fill="none" stroke="midnightblue" d="M395.78,-64.5C378.36,-64.5 359.82,-64.5 343.02,-64.5"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="395.89,-68 405.89,-64.5 395.89,-61 395.89,-68"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="classextension_1_1SamM8qExtension.html#a38b81447c461ed78fbbf433779c2040e" target="_top" xlink:title="Startup the extension.">
-<polygon fill="none" stroke="black" points="204,-0.5 204,-30.5 365,-30.5 365,-0.5 204,-0.5"/>
-<text text-anchor="start" x="212" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::SamM8qExtension</text>
-<text text-anchor="middle" x="284.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::startup</text>
+<g id="a_node5"><a xlink:href="classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" target="_top" xlink:title="Startup the extension.">
+<polygon fill="none" stroke="black" points="225,-0.5 225,-30.5 344,-30.5 344,-0.5 225,-0.5"/>
+<text text-anchor="start" x="233" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::SamM8q::</text>
+<text text-anchor="middle" x="284.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">startup</text>
 </a>
 </g>
 </g>

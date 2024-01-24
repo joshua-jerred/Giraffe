@@ -1,0 +1,5 @@
+<map id="extension::Bme280::configureSensor" name="extension::Bme280::configureSensor">
+<area shape="rect" id="node1" title="Configures the BME280. (Weather Monitoring config, Section 3.5.1)" alt="" coords="5,5,161,47"/>
+<area shape="rect" id="node2" href="$classI2cInterface.html#aee981ceb5e70afe9ba9fe3427783ef89" title="Write a single byte to the device at the specified register." alt="" coords="209,13,419,39"/>
+<area shape="rect" id="node3" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="467,13,653,39"/>
+</map>

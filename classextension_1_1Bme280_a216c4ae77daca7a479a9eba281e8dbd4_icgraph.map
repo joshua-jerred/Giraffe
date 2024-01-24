@@ -1,0 +1,4 @@
+<map id="extension::Bme280::readEnvironmentalData" name="extension::Bme280::readEnvironmentalData">
+<area shape="rect" id="node1" title="Reads the raw environmental data from the BME280." alt="" coords="237,5,415,47"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="5,13,189,39"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="extension::SamM8q::startup" name="extension::SamM8q::startup">
+<area shape="rect" id="node1" title="Startup the extension." alt="" coords="5,122,164,163"/>
+<area shape="rect" id="node2" href="$classI2cInterface.html#a98edf9a116cb2f865adb2a19f59728e3" title="Connect to the bus. If it&#39;s already connected, disconnect and reconnect." alt="" coords="212,5,371,32"/>
+<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a00ef6cd65250307287af24071c862a42" title="Sleep internally for a given number of milliseconds." alt="" coords="212,57,371,98"/>
+<area shape="rect" id="node4" href="$classextension_1_1SamM8q.html#ae0235a4ac72134a1756b97a77888b989" title=" " alt="" coords="212,122,371,163"/>
+<area shape="rect" id="node7" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="212,187,371,229"/>
+<area shape="rect" id="node10" href="$classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b" title="Returns true if the extension has been requested to stop." alt="" coords="212,253,371,294"/>
+<area shape="rect" id="node5" href="$classI2cInterface.html#ad067c20fef20b8338d0e4ec12dc94ec6" title="Read a single byte from the device at the specified register." alt="" coords="419,129,643,156"/>
+<area shape="rect" id="node6" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="691,129,877,156"/>
+<area shape="rect" id="node8" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="451,187,610,229"/>
+<area shape="rect" id="node9" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="694,195,874,221"/>
+</map>

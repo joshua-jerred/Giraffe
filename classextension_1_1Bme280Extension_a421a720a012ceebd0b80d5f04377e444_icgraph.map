@@ -1,5 +1,0 @@
-<map id="extension::Bme280Extension::readCompensationData" name="extension::Bme280Extension::readCompensationData">
-<area shape="rect" id="node1" title="Reads and stores the compensation data from the BME280." alt="" coords="265,39,477,80"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bme280Extension.html#a4ed64313c81c6453ae5d29c63a1bb52b" title=" " alt="" coords="5,5,217,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Bme280Extension.html#a8ddf780160059241fa4069d2426145c6" title=" " alt="" coords="5,71,217,112"/>
-</map>
