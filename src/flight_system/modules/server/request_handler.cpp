@@ -30,7 +30,7 @@ RequestRouter::RequestRouter(data::SharedData &shared_data,
 void RequestRouter::handleMessage(sock::TcpSocketServer &client,
                                   std::string &request) {
   stats_.num_messages_received++;
-  bytes_per_second_down_.count(static_cast<double>(request.size()));
+  bps_down_in_a_second_ += static_cast<double>(request.size());
   protocol::Message msg;
   // Attempt to parse as a json string
   if (!protocol::parseMessage(request, msg)) {
@@ -218,5 +218,5 @@ void RequestRouter::sendMessage(protocol::Message &response_json,
                                 sock::TcpSocketServer &client) {
   std::string response = response_json.getJsonString();
   client.send(response);
-  bytes_per_second_up_.count(static_cast<double>(response.size()));
+  bps_down_in_a_second_ += static_cast<double>(response.size());
 }

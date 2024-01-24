@@ -59,10 +59,14 @@ public:
 
   /**
    * @brief Used to update the rolling average of bytes per second.
+   * @todo remove
    */
   void oneSecondTick() {
-    bytes_per_second_down_.intervalCall();
-    bytes_per_second_up_.intervalCall();
+    bytes_per_second_down_.addValue(bps_down_in_a_second_);
+    bytes_per_second_up_.addValue(bps_up_in_a_second_);
+
+    bps_down_in_a_second_ = 0;
+    bps_up_in_a_second_ = 0;
   }
 
   /**
@@ -139,8 +143,10 @@ private:
   data::blocks::ServerModuleStats &stats_;
   giraffe::Logger logger_;
 
-  BoosterSeat::RollingAverage bytes_per_second_down_ = {60};
-  BoosterSeat::RollingAverage bytes_per_second_up_ = {60};
+  double bps_down_in_a_second_ = 0;
+  double bps_up_in_a_second_ = 0;
+  bst::RollingAverage bytes_per_second_down_ = {60};
+  bst::RollingAverage bytes_per_second_up_ = {60};
 };
 
 #endif
