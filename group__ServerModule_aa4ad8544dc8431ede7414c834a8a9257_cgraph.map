@@ -1,6 +1,6 @@
 <map id="RequestRouter::handlePingRequest" name="RequestRouter::handlePingRequest">
 <area shape="rect" id="node1" title="This function responds to a ping request." alt="" coords="5,35,204,76"/>
-<area shape="rect" id="node2" href="$namespaceprotocol.html#a50f3dfb09a6b5add5339c1877f408bae" title="Create a Response Message." alt="" coords="266,5,453,47"/>
+<area shape="rect" id="node2" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="266,5,453,47"/>
 <area shape="rect" id="node3" href="$group__ServerModule.html#a4d13e34f9d56d94f7a410248eed83a8b" title="Send a message to the client." alt="" coords="252,71,467,98"/>
 <area shape="rect" id="node4" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="523,31,673,72"/>
 <area shape="rect" id="node6" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="515,96,681,137"/>

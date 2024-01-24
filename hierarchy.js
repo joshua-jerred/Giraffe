@@ -17,6 +17,7 @@ var hierarchy =
     [ "cfg::ExtensionMetadata", "structcfg_1_1ExtensionMetadata.html", null ],
     [ "cmd::Command", "namespacecmd.html#structcmd_1_1Command", null ],
     [ "cmd::CommandQueue", "classcmd_1_1CommandQueue.html", null ],
+    [ "giraffe::CommonLogger< 100 >", "classgiraffe_1_1CommonLogger.html", null ],
     [ "console_pages::Pages", "classconsole__pages_1_1Pages.html", null ],
     [ "CurlRequest", "classCurlRequest.html", null ],
     [ "data::BaseStreamPacket", "structdata_1_1BaseStreamPacket.html", [
@@ -79,20 +80,22 @@ var hierarchy =
       [ "data::ErrorFrame", "classdata_1_1ErrorFrame.html", null ]
     ] ],
     [ "data::Frame< std::string, data::DataPacket >", "classdata_1_1Frame.html", null ],
-    [ "gdl::GdlConfig", "namespacegdl.html#structgdl_1_1GdlConfig", null ],
-    [ "gdl::GdlStatus", "namespacegdl.html#structgdl_1_1GdlStatus", null ],
-    [ "gdl::GiraffeDataLink", "classgdl_1_1GiraffeDataLink.html", null ],
-    [ "gdl::GiraffeDataLink::MessageQueues", "structgdl_1_1GiraffeDataLink_1_1MessageQueues.html", null ],
-    [ "gdl::Message", "structgdl_1_1Message.html", null ],
-    [ "gdl::MessageQueue", "classgdl_1_1MessageQueue.html", null ],
-    [ "gdl::NetworkLayer", "classgdl_1_1NetworkLayer.html", [
-      [ "gdl::AprsNetworkLayer", "classgdl_1_1AprsNetworkLayer.html", null ]
-    ] ],
-    [ "gdl::PhysicalLayer", "classgdl_1_1PhysicalLayer.html", null ],
-    [ "gdl::TransportLayer", "classgdl_1_1TransportLayer.html", null ],
-    [ "GdlTerminal", "classGdlTerminal.html", null ],
+    [ "giraffe::CommonLogger< LOG_SIZE >", "classgiraffe_1_1CommonLogger.html", null ],
     [ "giraffe::FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", null ],
+    [ "giraffe::gdl::Config", "classgiraffe_1_1gdl_1_1Config.html", null ],
+    [ "giraffe::gdl::DataLink", "classgiraffe_1_1gdl_1_1DataLink.html", null ],
+    [ "giraffe::gdl::GdlServer", "classgiraffe_1_1gdl_1_1GdlServer.html", null ],
+    [ "giraffe::gdl::Message", "classgiraffe_1_1gdl_1_1Message.html", [
+      [ "giraffe::gdl::Packet", "classgiraffe_1_1gdl_1_1Packet.html", null ]
+    ] ],
+    [ "giraffe::gdl::Message::Location", "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location", null ],
+    [ "giraffe::gdl::MessageQueue", "classgiraffe_1_1gdl_1_1MessageQueue.html", null ],
+    [ "giraffe::gdl::NetworkLayer", "classgiraffe_1_1gdl_1_1NetworkLayer.html", null ],
+    [ "giraffe::gdl::PhysicalLayer", "classgiraffe_1_1gdl_1_1PhysicalLayer.html", null ],
+    [ "giraffe::gdl::Statistics", "namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics", null ],
+    [ "giraffe::gdl::TransportLayer", "classgiraffe_1_1gdl_1_1TransportLayer.html", null ],
     [ "giraffe::Logger", "classgiraffe_1_1Logger.html", null ],
+    [ "giraffe::LoggerEntry", "structgiraffe_1_1LoggerEntry.html", null ],
     [ "I2cInterface", "classI2cInterface.html", null ],
     [ "LogContainer", "classLogContainer.html", null ],
     [ "modules::ExtensionModule::ExtContainer", "structmodules_1_1ExtensionModule_1_1ExtContainer.html", null ],

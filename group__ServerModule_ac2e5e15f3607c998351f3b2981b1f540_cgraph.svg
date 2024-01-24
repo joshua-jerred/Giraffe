@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="namespaceprotocol.html#a50f3dfb09a6b5add5339c1877f408bae" target="_top" xlink:title="Create a Response Message.">
+<g id="a_node2"><a xlink:href="namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" target="_top" xlink:title="Create a Response Message.">
 <polygon fill="none" stroke="black" points="187,-39 187,-69 327,-69 327,-39 187,-39"/>
 <text text-anchor="start" x="195" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">protocol::createResponse</text>
 <text text-anchor="middle" x="257" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">Message</text>

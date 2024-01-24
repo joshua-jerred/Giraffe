@@ -1,11 +1,23 @@
 var searchData=
 [
-  ['handlecommandrequest_1780',['handleCommandRequest',['../group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69',1,'RequestRouter']]],
-  ['handledatarequest_1781',['handleDataRequest',['../group__ServerModule.html#ac2e5e15f3607c998351f3b2981b1f540',1,'RequestRouter']]],
-  ['handlemessage_1782',['handleMessage',['../group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393',1,'RequestRouter']]],
-  ['handlepingrequest_1783',['handlePingRequest',['../group__ServerModule.html#aa4ad8544dc8431ede7414c834a8a9257',1,'RequestRouter']]],
-  ['handlesettingrequest_1784',['handleSettingRequest',['../group__ServerModule.html#ae84c028fe967e32b38178284373244a0',1,'RequestRouter']]],
-  ['handshake_1785',['handshake',['../classextension_1_1Bme280Extension.html#a50644c3bfee18b64f60cee4efb23c7f8',1,'extension::Bme280Extension::handshake()'],['../classextension_1_1SamM8qExtension.html#a86a45b996487cf04bbb7597abc2c6b86',1,'extension::SamM8qExtension::handshake()']]],
-  ['hexstring_1786',['hexString',['../giraffe__exception_8cpp.html#aab3f730ccaa6f10c1230710912c7a226',1,'giraffe_exception.cpp']]],
-  ['hexstringtouint32_1787',['hexStringToUInt32',['../command__processor_8cpp.html#af66cd87ab8d3892cf773fdea7899f953',1,'command_processor.cpp']]]
+  ['handlecommandrequest_1918',['handleCommandRequest',['../group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69',1,'RequestRouter']]],
+  ['handledatarequest_1919',['handleDataRequest',['../group__ServerModule.html#ac2e5e15f3607c998351f3b2981b1f540',1,'RequestRouter']]],
+  ['handlemessage_1920',['handleMessage',['../group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393',1,'RequestRouter']]],
+  ['handlepingrequest_1921',['handlePingRequest',['../group__ServerModule.html#aa4ad8544dc8431ede7414c834a8a9257',1,'RequestRouter']]],
+  ['handlerequestconfig_1922',['handleRequestConfig',['../classgiraffe_1_1gdl_1_1GdlServer.html#a18f226e3bc271111f787cfb99a00eb59',1,'giraffe::gdl::GdlServer']]],
+  ['handlerequestlog_1923',['handleRequestLog',['../classgiraffe_1_1gdl_1_1GdlServer.html#a21c93c33b3bcbed5552b761e75a4042c',1,'giraffe::gdl::GdlServer']]],
+  ['handlerequestreceivedmessages_1924',['handleRequestReceivedMessages',['../classgiraffe_1_1gdl_1_1GdlServer.html#ab6878a1f3f5cc89ec02b45f749526db7',1,'giraffe::gdl::GdlServer']]],
+  ['handlerequestsentmessages_1925',['handleRequestSentMessages',['../classgiraffe_1_1gdl_1_1GdlServer.html#aff9e02d8e689385ccf8ad741e6951076',1,'giraffe::gdl::GdlServer']]],
+  ['handlerequeststatus_1926',['handleRequestStatus',['../classgiraffe_1_1gdl_1_1GdlServer.html#a78670e65013497b31f7069d03263884e',1,'giraffe::gdl::GdlServer']]],
+  ['handlesetconfig_1927',['handleSetConfig',['../classgiraffe_1_1gdl_1_1GdlServer.html#a4d192ae2860673d135f68e680765a2ef',1,'giraffe::gdl::GdlServer']]],
+  ['handlesetdisablereceiver_1928',['handleSetDisableReceiver',['../classgiraffe_1_1gdl_1_1GdlServer.html#ab03a68c11494c21b1f203284faa2f252',1,'giraffe::gdl::GdlServer']]],
+  ['handlesetenablereceiver_1929',['handleSetEnableReceiver',['../classgiraffe_1_1gdl_1_1GdlServer.html#a4d7e04cf26f648f6fe04c311339e6362',1,'giraffe::gdl::GdlServer']]],
+  ['handlesetnewbroadcast_1930',['handleSetNewBroadcast',['../classgiraffe_1_1gdl_1_1GdlServer.html#a53b271c9f0602706839489ac0994b763',1,'giraffe::gdl::GdlServer']]],
+  ['handlesetnewexchange_1931',['handleSetNewExchange',['../classgiraffe_1_1gdl_1_1GdlServer.html#a565558716f0334d5a8785457da0155fc',1,'giraffe::gdl::GdlServer']]],
+  ['handlesetresetconfig_1932',['handleSetResetConfig',['../classgiraffe_1_1gdl_1_1GdlServer.html#a372fa6baf8587e6eb678bd92249d09e4',1,'giraffe::gdl::GdlServer']]],
+  ['handlesetrestart_1933',['handleSetRestart',['../classgiraffe_1_1gdl_1_1GdlServer.html#aba2606a2bb65f49db1e9d572b65511c1',1,'giraffe::gdl::GdlServer']]],
+  ['handlesettingrequest_1934',['handleSettingRequest',['../group__ServerModule.html#ae84c028fe967e32b38178284373244a0',1,'RequestRouter']]],
+  ['handshake_1935',['handshake',['../classextension_1_1Bme280Extension.html#a50644c3bfee18b64f60cee4efb23c7f8',1,'extension::Bme280Extension::handshake()'],['../classextension_1_1SamM8qExtension.html#a86a45b996487cf04bbb7597abc2c6b86',1,'extension::SamM8qExtension::handshake()']]],
+  ['hexstring_1936',['hexString',['../giraffe__exception_8cpp.html#aab3f730ccaa6f10c1230710912c7a226',1,'giraffe_exception.cpp']]],
+  ['hexstringtouint32_1937',['hexStringToUInt32',['../command__processor_8cpp.html#af66cd87ab8d3892cf773fdea7899f953',1,'command_processor.cpp']]]
 ];

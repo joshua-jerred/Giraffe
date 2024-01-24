@@ -17,7 +17,7 @@
 <area shape="rect" id="node16" href="$command__processor_8cpp.html#acfe1b39a13cbda474fb3a8a6811f23ec" title=" " alt="" coords="545,546,768,573"/>
 <area shape="rect" id="node17" href="$command__processor_8cpp.html#a4d154f34c544db0f583f17cb3bac8f55" title=" " alt="" coords="537,597,776,623"/>
 <area shape="rect" id="node11" href="$command__processor_8cpp.html#af66cd87ab8d3892cf773fdea7899f953" title="Returns the value of a hex string as a uint32_t." alt="" coords="869,293,1010,319"/>
-<area shape="rect" id="node19" href="$namespaceprotocol.html#a50f3dfb09a6b5add5339c1877f408bae" title="Create a Response Message." alt="" coords="563,648,750,689"/>
+<area shape="rect" id="node19" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="563,648,750,689"/>
 <area shape="rect" id="node20" href="$group__ServerModule.html#a4d13e34f9d56d94f7a410248eed83a8b" title="Send a message to the client." alt="" coords="549,714,764,741"/>
 <area shape="rect" id="node21" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="865,673,1014,715"/>
 <area shape="rect" id="node23" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="856,739,1023,780"/>

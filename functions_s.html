@@ -112,6 +112,9 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>save_status_
 : <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a3638024701de9c5502080e7c4549a88e">giraffe::FlightRunnerData</a>
 </li>
+<li>saveConfig()
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a27ff3bf1c99f70b8475390d9d05e7f5c">giraffe::gdl::GdlServer</a>
+</li>
 <li>saveData()
 : <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554">giraffe::FlightRunnerData</a>
 </li>
@@ -137,11 +140,17 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 : <a class="el" href="classgiraffe_1_1Logger.html#a0de29e990a3591a815ec748d3109ee72">giraffe::Logger</a>
 </li>
 <li>send()
-: <a class="el" href="classgdl_1_1TransportLayer.html#a8429f799c1d3c8cd170e013d25edee50">gdl::TransportLayer</a>
+: <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a3796375c0a18740636691d4c3f8f2ee8">giraffe::gdl::TransportLayer</a>
 , <a class="el" href="group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf">sock::TcpSocketServer</a>
 </li>
+<li>send_attempts_
+: <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a22a7d40702082a758081dc9f0d487048">giraffe::gdl::Packet</a>
+</li>
+<li>send_result_
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#abe6ba700c9082227dfb5356a2fa0643d">giraffe::gdl::GdlServer</a>
+</li>
 <li>sendAck()
-: <a class="el" href="classgdl_1_1TransportLayer.html#afd0aa505511450d162ffce9c9467f9e0">gdl::TransportLayer</a>
+: <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a14bea5bfc1ce848c4edf6ab2476ddc01">giraffe::gdl::TransportLayer</a>
 </li>
 <li>sendAprsPositionPacket()
 : <a class="el" href="classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135">modules::TelemetryModule</a>
@@ -150,10 +159,33 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 : <a class="el" href="group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5">RequestRouter</a>
 </li>
 <li>sendMessage()
-: <a class="el" href="group__ServerModule.html#a4d13e34f9d56d94f7a410248eed83a8b">RequestRouter</a>
+: <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a">giraffe::gdl::DataLink</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#aca89933b2ccac49e9e29482cff7b8d4f">giraffe::gdl::GdlServer</a>
+, <a class="el" href="group__ServerModule.html#a4d13e34f9d56d94f7a410248eed83a8b">RequestRouter</a>
 </li>
-<li>sendPacket()
-: <a class="el" href="classgdl_1_1TransportLayer.html#aa2038d9a19d6a770e2484a08e7b5dd7c">gdl::TransportLayer</a>
+<li>sendPing()
+: <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ad16a08e8eb9d3452bf5e9ba7d0836365">giraffe::gdl::TransportLayer</a>
+</li>
+<li>sendPingResponse()
+: <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#acb5bd2ffdb91c8823c000cecd3e472f9">giraffe::gdl::TransportLayer</a>
+</li>
+<li>sendResponseData()
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a7cc778f8170363add8e6812bb04c019e">giraffe::gdl::GdlServer</a>
+</li>
+<li>sendResponseError()
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a6e3b9922addcc9e0104c7dc0b7cf3c62">giraffe::gdl::GdlServer</a>
+</li>
+<li>sendResponseSuccess()
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a548f7a1170b29a673ec85eaba09b0cb3">giraffe::gdl::GdlServer</a>
+</li>
+<li>sendText()
+: <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a089374ddeb5601b859264baa5986304f">giraffe::gdl::DataLink</a>
+</li>
+<li>sent_exchange_message_id_
+: <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a528e45e7299380ee75fedbb3ebb969a7">giraffe::gdl::TransportLayer</a>
+</li>
+<li>sent_messages_
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#ab109eb62dd94e08c2a692d26c9b83be7">giraffe::gdl::GdlServer</a>
 </li>
 <li>server()
 : <a class="el" href="classconsole__pages_1_1Pages.html#a67d35ee34832ada202ae3efbba51ac7b">console_pages::Pages</a>
@@ -162,8 +194,11 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>server_module_stats
 : <a class="el" href="namespacedata.html#a0626a035cd30160b0584a05c0019e526">data::SharedBlocks</a>
 </li>
+<li>server_port_
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a1f4897a6c0bb101c68ac16f832f56a91">giraffe::gdl::GdlServer</a>
+</li>
 <li>server_socket_
-: <a class="el" href="classGdlTerminal.html#ac393acefefb52bc778147768f008cb82">GdlTerminal</a>
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a88e15aa2bb8d0e9271bfebf64224cfcb">giraffe::gdl::GdlServer</a>
 , <a class="el" href="group__ServerModule.html#a8251cf922672d743be4928862838053f">modules::ServerModule</a>
 </li>
 <li>ServerModule()
@@ -172,14 +207,26 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>set()
 : <a class="el" href="classdata_1_1blocks_1_1Block.html#a7a59114b6271048c6cfc2c1ddfb5c4b5">data::blocks::Block&lt; T &gt;</a>
 </li>
-<li>setBasePacket()
-: <a class="el" href="classgdl_1_1AprsNetworkLayer.html#a611c1e783171b63db7281789e19aea1e">gdl::AprsNetworkLayer</a>
-</li>
 <li>setBody()
 : <a class="el" href="classCurlRequest.html#ab6b01b05290165010574fbc321a7c73e">CurlRequest</a>
 </li>
+<li>setBroadcastMessage()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb">giraffe::gdl::Message</a>
+</li>
+<li>setCallSign()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#ab24467d926cb3bdcea43319fcc05c3f4">giraffe::gdl::Config</a>
+</li>
+<li>setConfigFromJson()
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a8b439d61223361eda2365f3bf94fb9a6">giraffe::gdl::GdlServer</a>
+</li>
+<li>setData()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6ac84c04db330a1ae6cdb3631b27768f">giraffe::gdl::Message</a>
+</li>
 <li>setDeviceId()
 : <a class="el" href="classOneWireInterface.html#ac2359dc488e64622d6e07173e07316b1">OneWireInterface</a>
+</li>
+<li>setExchangeMessage()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c">giraffe::gdl::Message</a>
 </li>
 <li>setFromJson()
 : <a class="el" href="structcfg_1_1ExtensionMetadata.html#a25eef35ae61801373e433443c9a5aa6e">cfg::ExtensionMetadata</a>
@@ -188,15 +235,45 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>setHeaders()
 : <a class="el" href="classCurlRequest.html#a43f4cef52186f706fc173f348e86e7df">CurlRequest</a>
 </li>
+<li>setIdentifier()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab8132240bc763dd84dd9556e87c42bbc">giraffe::gdl::Message</a>
+</li>
+<li>setIdentifierFromHex()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a785216d96e3d838ee9f6772eb34395d1">giraffe::gdl::Message</a>
+</li>
+<li>setLevel()
+: <a class="el" href="classgiraffe_1_1CommonLogger.html#a7edf0967161b8ed7fb74d8fad85b399c">giraffe::CommonLogger&lt; LOG_SIZE &gt;</a>
+</li>
+<li>setLocation()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab1c03e26af37f4e27ca6cf24d6674f55">giraffe::gdl::Message</a>
+</li>
+<li>setLocationMessage()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad38b31e7aaf83328773626fe1a6e81ee">giraffe::gdl::Message</a>
+</li>
 <li>setMethod()
 : <a class="el" href="classCurlRequest.html#a1a0afe07af414492cfd5aeae3b39ce5d">CurlRequest</a>
 </li>
 <li>setNumLinesOnPage()
 : <a class="el" href="classconsole__pages_1_1Pages.html#aea5a590ece2ccc3b2a094b4d2780aadb">console_pages::Pages</a>
 </li>
+<li>setPacketType()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a230dd4dc8894d107f481540d31c42fce">giraffe::gdl::Packet</a>
+</li>
 <li>setPosition()
 : <a class="el" href="classncurs_1_1internal_1_1Window.html#a452ee346730d3575a3eccbd4e4a7218f">ncurs::internal::Window</a>
 , <a class="el" href="classncurs_1_1Window.html#ad6430c2148c4b19e7330746da1cf08e0">ncurs::Window</a>
+</li>
+<li>setPrintToStdout()
+: <a class="el" href="classgiraffe_1_1CommonLogger.html#a00d13a9691133b030b12ea3fc02a6a2d">giraffe::CommonLogger&lt; LOG_SIZE &gt;</a>
+</li>
+<li>setProactiveKeepAlive()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#a06c36fb2045f5092051809e942a4aa63">giraffe::gdl::Config</a>
+</li>
+<li>setRemoteCallSign()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#a4b863dc5b7093712bd9febc68e218267">giraffe::gdl::Config</a>
+</li>
+<li>setRemoteSSID()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#addd841387e422f20cf932f6ff03a51c7">giraffe::gdl::Config</a>
 </li>
 <li>setShutdownReason()
 : <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a33543117765bd095eaf77bf8f94e5b37">giraffe::FlightRunnerData</a>
@@ -205,8 +282,14 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 : <a class="el" href="classncurs_1_1internal_1_1Window.html#a8b298b5347f981a86c56c6983b8dfd27">ncurs::internal::Window</a>
 , <a class="el" href="classncurs_1_1Window.html#a5f558ef2888100e26c7754a1616aac72">ncurs::Window</a>
 </li>
+<li>setSSID()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#acb892777b90da2a63beb0ead9d84b325">giraffe::gdl::Config</a>
+</li>
 <li>setStatus()
 : <a class="el" href="classmodules_1_1Module.html#a3b249804c7e412855b1429ccd639cc38">modules::Module</a>
+</li>
+<li>setType()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aab091c37c33d86511d344dde2c6a0715">giraffe::gdl::Message</a>
 </li>
 <li>setupFrameStructure()
 : <a class="el" href="classdata__middleware_1_1DataFormatter.html#ab5eefe7500b957f07f67a91e4429ab4e">data_middleware::DataFormatter</a>
@@ -244,7 +327,7 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 </li>
 <li>signal_to_noise_ratio
 : <a class="el" href="structdata_1_1blocks_1_1TelemetryModuleStats.html#a11208cb78d660ac025d391c159ca8ddf">data::blocks::TelemetryModuleStats</a>
-, <a class="el" href="namespacegdl.html#a0d5b6bb73d8f82e60cc886b27b1b2bbf">gdl::GdlStatus</a>
+, <a class="el" href="namespacegiraffe_1_1gdl.html#abfa6cac65e04607f8ea217352f0b3b31">giraffe::gdl::Statistics</a>
 </li>
 <li>SimGpsSensor()
 : <a class="el" href="classextension_1_1SimGpsSensor.html#a10d04b9e83ea18cc7189ff085f335eff">extension::SimGpsSensor</a>
@@ -263,7 +346,7 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 </li>
 <li>size()
 : <a class="el" href="classdata_1_1Frame.html#a766a4a84a9a45c065225d1cc92ce7708">data::Frame&lt; ID, DATA &gt;</a>
-, <a class="el" href="classgdl_1_1MessageQueue.html#a6e7054b635182286119193738d58fd30">gdl::MessageQueue</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#a097ff946fe37b6afb73a1c3291646089">giraffe::gdl::MessageQueue</a>
 </li>
 <li>sleep()
 : <a class="el" href="classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d">extension::Extension</a>
@@ -281,6 +364,9 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>source_
 : <a class="el" href="classgiraffe_1_1Logger.html#a03c04b6936d83005f461c88e5c1625e7">giraffe::Logger</a>
 </li>
+<li>speed
+: <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aaea40e8b6af5ad50dde6429b6759594b">giraffe::gdl::Message::Location</a>
+</li>
 <li>speed_accuracy
 : <a class="el" href="namespacedata.html#ac274b79e3a3bb3b472deacef64b09bf0">data::GpsFrame</a>
 , <a class="el" href="namespaceubx.html#a41bd4b6845c8b567e9f1f2930587dfe3">ubx::NavData</a>
@@ -288,10 +374,12 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>src
 : <a class="el" href="structprotocol_1_1Message.html#a57135c069142e0e41adcf97cdf336f27">protocol::Message</a>
 </li>
+<li>ssid_
+: <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#ae53831747625519a18b742245d1c5147">giraffe::gdl::Config</a>
+</li>
 <li>start()
 : <a class="el" href="classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c">extension::Extension</a>
 , <a class="el" href="classFlightRunner.html#a7deed0a1bc77d1f1046a8713cc85dd78">FlightRunner</a>
-, <a class="el" href="classgdl_1_1GiraffeDataLink.html#a20218eadd5c073513f558077239fba2e">gdl::GiraffeDataLink</a>
 , <a class="el" href="classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd">modules::Module</a>
 , <a class="el" href="classncurs_1_1Environment.html#a2e32a5e2d495c832e5d0fafcf6df2b9e">ncurs::Environment</a>
 </li>
@@ -300,9 +388,6 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 </li>
 <li>startState()
 : <a class="el" href="classmodules_1_1ExtensionModule.html#ae126777b418880b244276e99af6aef97">modules::ExtensionModule</a>
-</li>
-<li>startTimer()
-: <a class="el" href="classgdl_1_1TransportLayer.html#a394319252348ece9ba3834cf96867494">gdl::TransportLayer</a>
 </li>
 <li>startup()
 : <a class="el" href="classextension_1_1AdcExtensionBase.html#a99b486f023b9a798b200ba993c904e6d">extension::AdcExtensionBase&lt; AdcResolution &gt;</a>
@@ -335,13 +420,13 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 </li>
 <li>State
 : <a class="el" href="group__SAMM8QState.html#ga416d5c4d588df643315ebc46f3eff359">extension::SamM8qExtension</a>
-, <a class="el" href="classgdl_1_1PhysicalLayer.html#ac61ee25083042d16613414a9ee230292">gdl::PhysicalLayer</a>
-, <a class="el" href="classgdl_1_1TransportLayer.html#a9dc63d3d04d4b2c7b5515fafb5421507">gdl::TransportLayer</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html#ae6ee079a07a5a4918268273005532732">giraffe::gdl::PhysicalLayer</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a6fe99966c74405692119f72071113be3">giraffe::gdl::TransportLayer</a>
 </li>
 <li>state_
 : <a class="el" href="group__SAMM8QState.html#ga69ca33828e3e28bc56cc311211ecbe81">extension::SamM8qExtension</a>
-, <a class="el" href="classgdl_1_1PhysicalLayer.html#aa53727fd445bea493c3cf76b22263aed">gdl::PhysicalLayer</a>
-, <a class="el" href="classgdl_1_1TransportLayer.html#a0a9e3497492242737be1e1d5660fa119">gdl::TransportLayer</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html#a3a412c664b63c3fd63a1ef19a9a79f15">giraffe::gdl::PhysicalLayer</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#af79214334e5bf252df13d1eaf7ae18a4">giraffe::gdl::TransportLayer</a>
 </li>
 <li>stateConfigure()
 : <a class="el" href="group__SAMM8QState.html#ga1578e22215eaa305be52aa4c7245bff5">extension::SamM8qExtension</a>
@@ -355,20 +440,26 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>stateReset()
 : <a class="el" href="group__SAMM8QState.html#ga3bb302bf898dc03f6a83bf9c87ef028c">extension::SamM8qExtension</a>
 </li>
+<li>statistics_
+: <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ae356b54ea2c24285b5681e6e2be3e820">giraffe::gdl::DataLink</a>
+</li>
+<li>statistics_lock_
+: <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2bc3e7362ce4cd0af1829643698e276d">giraffe::gdl::DataLink</a>
+</li>
 <li>stats_
 : <a class="el" href="classmodules_1_1ExtensionModule.html#a44ce4f37d31866fbe208c4d208f002d4">modules::ExtensionModule</a>
 , <a class="el" href="group__ServerModule.html#a9a777cedbc5aabffb2e0bf779697b9e9">modules::ServerModule</a>
 , <a class="el" href="group__ServerModule.html#a0b70ff55f1b1d420d929d618de88db1b">RequestRouter</a>
 </li>
 <li>Status
-: <a class="el" href="classgdl_1_1GiraffeDataLink.html#a1387b949fad9f056a2df5f8a43249aa3">gdl::GiraffeDataLink</a>
+: <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76">giraffe::gdl::DataLink</a>
 </li>
 <li>status()
 : <a class="el" href="classmodules_1_1ConsoleModule.html#a5344c206ac569dbcdf052d6590dfb21f">modules::ConsoleModule</a>
 </li>
 <li>status_
 : <a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">extension::Extension</a>
-, <a class="el" href="classgdl_1_1GiraffeDataLink.html#addcbd25925455a334c8bc766718884de">gdl::GiraffeDataLink</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2c1586a69f494f41669bbd55ff2ef2fd">giraffe::gdl::DataLink</a>
 , <a class="el" href="classmodules_1_1Module.html#ad0a69e8fe1c4765506a587528f99cc77">modules::Module</a>
 </li>
 <li>status_polling_interval_
@@ -379,12 +470,12 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 </li>
 <li>stop()
 : <a class="el" href="classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37">extension::Extension</a>
-, <a class="el" href="classgdl_1_1GiraffeDataLink.html#aa573e13ce26a11216e52d385be84e7a5">gdl::GiraffeDataLink</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a2cada467c38dda186720e836f704ff4d">giraffe::gdl::GdlServer</a>
 , <a class="el" href="classmodules_1_1Module.html#aefe65d4f674e804a1891b250ed2887a4">modules::Module</a>
 </li>
 <li>stop_flag_
 : <a class="el" href="classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878">extension::Extension</a>
-, <a class="el" href="classGdlTerminal.html#ac6bfdb4a0a5d71595e26e5062d8b39d4">GdlTerminal</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a29a3d8c0c537eca1d7467569e5ebdd90">giraffe::gdl::GdlServer</a>
 , <a class="el" href="classmodules_1_1Module.html#a85147c0e1d4ed4b87af2c2a5d36da67d">modules::Module</a>
 </li>
 <li>stopRequested()

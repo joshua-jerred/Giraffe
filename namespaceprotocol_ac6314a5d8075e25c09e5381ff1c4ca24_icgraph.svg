@@ -35,22 +35,22 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classGdlTerminal.html#a6c4ec1ac757e27bf891453c72d49ff06" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="114,-0.5 114,-19.5 211,-19.5 211,-0.5 114,-0.5"/>
-<text text-anchor="middle" x="162.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">GdlTerminal::run</text>
+<g id="a_node3"><a xlink:href="classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="90,-0.5 90,-19.5 235,-19.5 235,-0.5 90,-0.5"/>
+<text text-anchor="middle" x="162.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::GdlServer::run</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M273.97,-21.28C252.78,-19.12 230.33,-16.83 211.25,-14.88"/>
+<path fill="none" stroke="midnightblue" d="M273.79,-21.27C261.02,-19.96 247.79,-18.61 235.12,-17.32"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="273.62,-24.77 283.92,-22.3 274.33,-17.8 273.62,-24.77"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="gdl__terminal_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 41,-19.5 41,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="20.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
 </a>
@@ -59,8 +59,8 @@
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M103.61,-10C81.3,-10 57.3,-10 41.05,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="103.71,-13.5 113.71,-10 103.71,-6.5 103.71,-13.5"/>
+<path fill="none" stroke="midnightblue" d="M79.84,-10C65.48,-10 51.79,-10 41.28,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="79.86,-13.5 89.86,-10 79.86,-6.5 79.86,-13.5"/>
 </g>
 </g>
 </svg>

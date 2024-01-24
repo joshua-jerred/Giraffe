@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['messagetype_2575',['MessageType',['../namespaceprotocol.html#a9731025e73bc9be65076786a05ea9624',1,'protocol']]],
-  ['method_2576',['Method',['../classCurlRequest.html#ab5af61dd47cad361d7a4c0d3c5dfedf4',1,'CurlRequest']]]
+  ['navkey_2796',['NavKey',['../classncurs_1_1Environment.html#a3b5c0bb29f8c9b6f7eff9c7b854019f5',1,'ncurs::Environment::NavKey()'],['../classncurs_1_1Environment.html#a3b5c0bb29f8c9b6f7eff9c7b854019f5',1,'ncurs::Environment::NavKey()']]]
 ];

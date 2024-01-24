@@ -185,18 +185,18 @@
 <path fill="none" stroke="midnightblue" d="M320.1,-398.96C322.14,-397.72 324.11,-396.4 326,-395 389.95,-347.6 428.13,-253.78 439.16,-223.59"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="318,-396.12 310.84,-403.94 321.31,-402.29 318,-396.12"/>
 </g>
-<!-- Node68 -->
+<!-- Node69 -->
 <g id="node13" class="node">
-<title>Node68</title>
+<title>Node69</title>
 <g id="a_node13"><a xlink:href="classextension_1_1I2cExtensionAdapter.html" target="_top" xlink:title="Adapter for I2C Extensions.">
 <polygon fill="none" stroke="black" points="155,-0.5 155,-19.5 326,-19.5 326,-0.5 155,-0.5"/>
 <text text-anchor="middle" x="240.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::I2cExtensionAdapter</text>
 </a>
 </g>
 </g>
-<!-- Node68&#45;&gt;Node2 -->
+<!-- Node69&#45;&gt;Node2 -->
 <g id="edge12" class="edge">
-<title>Node68&#45;&gt;Node2</title>
+<title>Node69&#45;&gt;Node2</title>
 <path fill="none" stroke="midnightblue" d="M317.46,-23.82C320.44,-25.37 323.3,-27.09 326,-29 392.34,-75.86 429.18,-173.65 439.48,-204.48"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="318.81,-20.59 308.25,-19.66 315.92,-26.96 318.81,-20.59"/>
 </g>

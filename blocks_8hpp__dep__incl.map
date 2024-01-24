@@ -31,7 +31,7 @@
 <area shape="rect" id="node18" href="$samm8q_8cpp.html" title="The SAM&#45;M8Q GPS extension (I2C)." alt="" coords="135,454,242,481"/>
 <area shape="rect" id="node20" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="1371,454,1540,481"/>
 <area shape="rect" id="node23" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="1694,529,1825,555"/>
-<area shape="rect" id="node24" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="1849,529,1931,555"/>
+<area shape="rect" id="node24" href="$flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="1849,529,1931,555"/>
 <area shape="rect" id="node27" href="$console__module_8hpp.html" title=" " alt="" coords="2428,379,2584,406"/>
 <area shape="rect" id="node29" href="$console__pages_8cpp.html" title=" " alt="" coords="2565,305,2711,331"/>
 <area shape="rect" id="node30" href="$curses__utilities_8hpp.html" title=" " alt="" coords="2787,305,2935,331"/>

@@ -1,0 +1,12 @@
+<map id="giraffe::gdl::TransportLayer::exchangeWaitingForAckState" name="giraffe::gdl::TransportLayer::exchangeWaitingForAckState">
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,225,145"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#a7e379f44344ef7d3f57f30cc8b85d71f" title=" " alt="" coords="289,39,448,80"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Packet.html#a30b91d18f37e7cc83455c0ecd9198e1c" title=" " alt="" coords="297,104,440,145"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875" title=" " alt="" coords="273,169,464,211"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc" title=" " alt="" coords="525,5,666,47"/>
+<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639" title=" " alt="" coords="525,71,666,112"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1Message.html#a6ac84c04db330a1ae6cdb3631b27768f" title=" " alt="" coords="516,136,675,177"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1Message.html#a785216d96e3d838ee9f6772eb34395d1" title=" " alt="" coords="512,201,679,243"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1Message.html#ab1c03e26af37f4e27ca6cf24d6674f55" title=" " alt="" coords="516,267,675,308"/>
+<area shape="rect" id="node10" href="$classgiraffe_1_1gdl_1_1Packet.html#a230dd4dc8894d107f481540d31c42fce" title=" " alt="" coords="524,332,667,373"/>
+</map>

@@ -73,20 +73,23 @@ var annotated_dup =
       [ "SimPressureSensor", "classextension_1_1SimPressureSensor.html", "classextension_1_1SimPressureSensor" ],
       [ "SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", "classextension_1_1SimTemperatureSensor" ]
     ] ],
-    [ "gdl", "namespacegdl.html", [
-      [ "AprsNetworkLayer", "classgdl_1_1AprsNetworkLayer.html", "classgdl_1_1AprsNetworkLayer" ],
-      [ "GdlConfig", "namespacegdl.html#structgdl_1_1GdlConfig", "namespacegdl_structgdl_1_1GdlConfig_dup" ],
-      [ "GdlStatus", "namespacegdl.html#structgdl_1_1GdlStatus", "namespacegdl_structgdl_1_1GdlStatus_dup" ],
-      [ "GiraffeDataLink", "classgdl_1_1GiraffeDataLink.html", "classgdl_1_1GiraffeDataLink" ],
-      [ "Message", "structgdl_1_1Message.html", "structgdl_1_1Message" ],
-      [ "MessageQueue", "classgdl_1_1MessageQueue.html", "classgdl_1_1MessageQueue" ],
-      [ "NetworkLayer", "classgdl_1_1NetworkLayer.html", "classgdl_1_1NetworkLayer" ],
-      [ "PhysicalLayer", "classgdl_1_1PhysicalLayer.html", "classgdl_1_1PhysicalLayer" ],
-      [ "TransportLayer", "classgdl_1_1TransportLayer.html", "classgdl_1_1TransportLayer" ]
-    ] ],
     [ "giraffe", "namespacegiraffe.html", [
+      [ "gdl", "namespacegiraffe_1_1gdl.html", [
+        [ "Config", "classgiraffe_1_1gdl_1_1Config.html", "classgiraffe_1_1gdl_1_1Config" ],
+        [ "DataLink", "classgiraffe_1_1gdl_1_1DataLink.html", "classgiraffe_1_1gdl_1_1DataLink" ],
+        [ "GdlServer", "classgiraffe_1_1gdl_1_1GdlServer.html", "classgiraffe_1_1gdl_1_1GdlServer" ],
+        [ "Message", "classgiraffe_1_1gdl_1_1Message.html", "classgiraffe_1_1gdl_1_1Message" ],
+        [ "MessageQueue", "classgiraffe_1_1gdl_1_1MessageQueue.html", "classgiraffe_1_1gdl_1_1MessageQueue" ],
+        [ "NetworkLayer", "classgiraffe_1_1gdl_1_1NetworkLayer.html", "classgiraffe_1_1gdl_1_1NetworkLayer" ],
+        [ "Packet", "classgiraffe_1_1gdl_1_1Packet.html", "classgiraffe_1_1gdl_1_1Packet" ],
+        [ "PhysicalLayer", "classgiraffe_1_1gdl_1_1PhysicalLayer.html", "classgiraffe_1_1gdl_1_1PhysicalLayer" ],
+        [ "Statistics", "namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics", "namespacegiraffe_1_1gdl_structgiraffe_1_1gdl_1_1Statistics_dup" ],
+        [ "TransportLayer", "classgiraffe_1_1gdl_1_1TransportLayer.html", "classgiraffe_1_1gdl_1_1TransportLayer" ]
+      ] ],
+      [ "CommonLogger", "classgiraffe_1_1CommonLogger.html", "classgiraffe_1_1CommonLogger" ],
       [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ],
-      [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ]
+      [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ],
+      [ "LoggerEntry", "structgiraffe_1_1LoggerEntry.html", "structgiraffe_1_1LoggerEntry" ]
     ] ],
     [ "modules", "namespacemodules.html", [
       [ "ConsoleModule", "classmodules_1_1ConsoleModule.html", "classmodules_1_1ConsoleModule" ],
@@ -118,7 +121,6 @@ var annotated_dup =
     ] ],
     [ "CurlRequest", "classCurlRequest.html", "classCurlRequest" ],
     [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ],
-    [ "GdlTerminal", "classGdlTerminal.html", "classGdlTerminal" ],
     [ "GiraffeException", "classGiraffeException.html", "classGiraffeException" ],
     [ "I2cInterface", "classI2cInterface.html", "classI2cInterface" ],
     [ "LogContainer", "classLogContainer.html", "classLogContainer" ],

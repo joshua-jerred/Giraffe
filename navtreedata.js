@@ -35,9 +35,11 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Giraffe Data Link (GDL)", "md_docs_data_link.html", [
-      [ "Introduction", "md_docs_data_link.html#autotoc_md11", null ],
-      [ "Interface Class", "md_docs_data_link.html#autotoc_md12", [
-        [ "Class Members", "md_docs_data_link.html#autotoc_md13", null ]
+      [ "Data Link Server", "md_docs_data_link.html#autotoc_md11", [
+        [ "Configuration", "md_docs_data_link.html#autotoc_md12", null ],
+        [ "Logging", "md_docs_data_link.html#autotoc_md13", [
+          [ "API", "md_docs_data_link.html#autotoc_md14", null ]
+        ] ]
       ] ]
     ] ],
     [ "Todo List", "todo.html", null ],
@@ -80,16 +82,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc__configuration_8cpp.html",
-"classdata_1_1Frame.html#a21145c86e25d76061706ea66044139e0",
-"classextension_1_1Ds18b20Extension.html#a65da188590e7f56c25fdc86370f5c10c",
-"classextension_1_1SimPressureSensor.html#a3e5d32890e069c49b3641d0e01322364",
-"classmodules_1_1DataModule.html#a3b249804c7e412855b1429ccd639cc38",
-"classncurs_1_1Environment.html#a9226d93b637e165155348fb394f77bb1",
-"functions_m.html",
-"group__ServerModule.html#classmodules_1_1ServerModule",
-"namespacegiraffe.html",
-"protocol_8hpp_source.html",
-"structmodules_1_1ExtensionModule_1_1ExtContainer.html#afedb3705c2142d066d60ac722ce915ff"
+"classdata_1_1GpsFrameStream.html#a550c2fb1c9e2e077bde5fda6b6f9fdef",
+"classextension_1_1Ds18b20Extension.html#aaa99bc040af229aa386f991b1d9ee47a",
+"classextension_1_1SimPressureSensor.html#aa7ec0098dfde16a54eb616c73ba3046e",
+"classgiraffe_1_1gdl_1_1Packet.html#a2caa405581e45381c50ed8d19b35bce7",
+"classmodules_1_1Module.html#a8c2f4a3636a06600ecf4afca5350b240",
+"console__module_8hpp_source.html",
+"giraffe__file__paths_8cpp.html",
+"namespaceconsole__pages.html#a3012062e40e27d5a9774b68577e13800",
+"namespaceprotocol.html#a4f7d05800d5372ecf21d30125815d652",
+"structdata_1_1BaseStreamPacket.html#ac147290b47c5fdde82fefc69f94274ec",
+"ubx__ids_8hpp.html#a0406c3853a3dc83dfb9d875791580b8d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -111,25 +111,27 @@ $(document).ready(function(){initNavTree('giraffe__data__link_8hpp.html',''); in
 <p>The external interface for the Giraffe Data Link.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;atomic&gt;</code><br />
-<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
-<code>#include &quot;BoosterSeat/timer.hpp&quot;</code><br />
-<code>#include &quot;SignalEasel/aprs.hpp&quot;</code><br />
-<code>#include &quot;<a class="el" href="gdl__configuration_8hpp_source.html">gdl_configuration.hpp</a>&quot;</code><br />
+<code>#include &lt;BoosterSeat/sleep.hpp&gt;</code><br />
+<code>#include &lt;BoosterSeat/timer.hpp&gt;</code><br />
+<code>#include &lt;SignalEasel/aprs.hpp&gt;</code><br />
+<code>#include &quot;<a class="el" href="gdl__config__and__stats_8hpp_source.html">gdl_config_and_stats.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gdl__layers_8hpp_source.html">gdl_layers.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="gdl__message_8hpp_source.html">gdl_message.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="gdl__message__queue_8hpp_source.html">gdl_message_queue.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="gdl__status_8hpp_source.html">gdl_status.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="gdl__transport__layer_8hpp_source.html">gdl_transport_layer.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for giraffe_data_link.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="giraffe__data__link_8hpp__incl.svg" width="1426" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="giraffe__data__link_8hpp__incl.svg" width="1388" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="giraffe__data__link_8hpp__dep__incl.svg" width="652" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="giraffe__data__link_8hpp__dep__incl.svg" width="1099" height="276"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -137,15 +139,15 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgdl_1_1GiraffeDataLink.html">gdl::GiraffeDataLink</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Giraffe Data Link core class/interface - Layer 4 (Application)  <a href="classgdl_1_1GiraffeDataLink.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1GiraffeDataLink_1_1MessageQueues.html">gdl::GiraffeDataLink::MessageQueues</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html">giraffe::gdl::DataLink</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Giraffe Data Link core class/interface - Layer 4 (Application)  <a href="classgiraffe_1_1gdl_1_1DataLink.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:namespacegdl"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegdl.html">gdl</a></td></tr>
+<tr class="memitem:namespacegiraffe"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegiraffe.html">giraffe</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacegiraffe_1_1gdl"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegiraffe_1_1gdl.html">giraffe::gdl</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

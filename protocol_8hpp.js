@@ -24,5 +24,5 @@ var protocol_8hpp =
     [ "parseMessage", "protocol_8hpp.html#ac6314a5d8075e25c09e5381ff1c4ca24", null ],
     [ "createRequestMessage", "protocol_8hpp.html#acc3dd8b92d216ee1c29ab0c725bec1cf", null ],
     [ "createSetMessage", "protocol_8hpp.html#a9672733e872ce4875fbc4e0fa4d51cd3", null ],
-    [ "createResponseMessage", "protocol_8hpp.html#a50f3dfb09a6b5add5339c1877f408bae", null ]
+    [ "createResponseMessage", "protocol_8hpp.html#a5e7a52c2cde741e59ab374836e56bd64", null ]
 ];

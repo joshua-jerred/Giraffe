@@ -1,0 +1,21 @@
+<map id="giraffe::gdl::GdlServer::handleSetNewBroadcast" name="giraffe::gdl::GdlServer::handleSetNewBroadcast">
+<area shape="rect" id="node1" title=" " alt="" coords="5,235,195,276"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1GdlServer.html#adcb009472d786f0a4f0c94cdd9192ad2" title=" " alt="" coords="249,71,413,112"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1CommonLogger.html#a74487cf5682cfcef361413c6552be9f1" title=" " alt="" coords="243,201,418,243"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aca89933b2ccac49e9e29482cff7b8d4f" title=" " alt="" coords="249,136,413,177"/>
+<area shape="rect" id="node11" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a6e3b9922addcc9e0104c7dc0b7cf3c62" title=" " alt="" coords="249,267,413,308"/>
+<area shape="rect" id="node18" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a548f7a1170b29a673ec85eaba09b0cb3" title=" " alt="" coords="243,332,419,373"/>
+<area shape="rect" id="node19" href="$classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb" title=" " alt="" coords="244,397,417,439"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1CommonLogger.html#a0430441609c79cc5174b9b10d26d5fe8" title=" " alt="" coords="701,202,904,229"/>
+<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a" title=" " alt="" coords="481,71,639,112"/>
+<area shape="rect" id="node10" href="$classgiraffe_1_1CommonLogger.html#a008aac905e59c9aaa273c06578acc590" title=" " alt="" coords="473,136,647,177"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="723,136,882,177"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="723,5,882,47"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="703,71,903,112"/>
+<area shape="rect" id="node12" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="467,449,653,491"/>
+<area shape="rect" id="node13" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="485,319,635,360"/>
+<area shape="rect" id="node15" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="478,253,642,295"/>
+<area shape="rect" id="node17" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="477,384,643,425"/>
+<area shape="rect" id="node14" href="$structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" title="Get the message as a JSON object." alt="" coords="728,319,877,360"/>
+<area shape="rect" id="node16" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="749,261,857,287"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="giraffe::file_paths::createGiraffeDirIfNotExists" name="giraffe::file_paths::createGiraffeDirIfNotExists">
+<area shape="rect" id="node1" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="5,5,211,47"/>
+<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="259,5,441,47"/>
+</map>

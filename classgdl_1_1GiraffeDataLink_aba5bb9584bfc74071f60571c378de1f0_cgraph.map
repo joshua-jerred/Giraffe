@@ -1,4 +1,0 @@
-<map id="gdl::GiraffeDataLink::~GiraffeDataLink" name="gdl::GiraffeDataLink::~GiraffeDataLink">
-<area shape="rect" id="node1" title="Deconstruct the GDL instance, this will stop the GDL instance if it is running." alt="" coords="5,5,157,47"/>
-<area shape="rect" id="node2" href="$classgdl_1_1GiraffeDataLink.html#aa573e13ce26a11216e52d385be84e7a5" title="Stop the GDL instance." alt="" coords="205,5,357,47"/>
-</map>

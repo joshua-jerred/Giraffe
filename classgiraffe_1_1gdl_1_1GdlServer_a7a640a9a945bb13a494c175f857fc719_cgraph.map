@@ -1,0 +1,51 @@
+<map id="giraffe::gdl::GdlServer::routeSet" name="giraffe::gdl::GdlServer::routeSet">
+<area shape="rect" id="node1" title=" " alt="" coords="5,1323,169,1364"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a4d192ae2860673d135f68e680765a2ef" title=" " alt="" coords="236,1060,400,1101"/>
+<area shape="rect" id="node19" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a6e3b9922addcc9e0104c7dc0b7cf3c62" title=" " alt="" coords="473,1420,637,1461"/>
+<area shape="rect" id="node36" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ab03a68c11494c21b1f203284faa2f252" title=" " alt="" coords="217,1289,419,1331"/>
+<area shape="rect" id="node37" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a4d7e04cf26f648f6fe04c311339e6362" title=" " alt="" coords="220,1355,416,1396"/>
+<area shape="rect" id="node38" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a53b271c9f0602706839489ac0994b763" title=" " alt="" coords="223,1159,413,1200"/>
+<area shape="rect" id="node46" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a565558716f0334d5a8785457da0155fc" title=" " alt="" coords="225,1224,411,1265"/>
+<area shape="rect" id="node48" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a372fa6baf8587e6eb678bd92249d09e4" title=" " alt="" coords="231,1420,405,1461"/>
+<area shape="rect" id="node49" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aba2606a2bb65f49db1e9d572b65511c1" title=" " alt="" coords="236,1485,400,1527"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1CommonLogger.html#a74487cf5682cfcef361413c6552be9f1" title=" " alt="" coords="467,1028,642,1069"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a27ff3bf1c99f70b8475390d9d05e7f5c" title="Attempts to save the current configuration to the config file." alt="" coords="473,485,637,527"/>
+<area shape="rect" id="node26" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a548f7a1170b29a673ec85eaba09b0cb3" title=" " alt="" coords="467,1224,643,1265"/>
+<area shape="rect" id="node27" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a8b439d61223361eda2365f3bf94fb9a6" title="Set the configuration from a JSON object. Will use default values for any missing fields." alt="" coords="473,877,637,919"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1CommonLogger.html#a0430441609c79cc5174b9b10d26d5fe8" title=" " alt="" coords="945,779,1148,806"/>
+<area shape="rect" id="node6" href="$classgiraffe_1_1CommonLogger.html#a452095d327c721f1ac8afc35f9744b8c" title=" " alt="" coords="707,485,881,527"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1CommonLogger.html#a0d6317e157230c5dd6e9d658b8263ca2" title=" " alt="" coords="707,551,881,592"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a591424c144ee17a258f248ce1b953b5b" title=" " alt="" coords="712,260,876,301"/>
+<area shape="rect" id="node17" href="$namespacegiraffe_1_1file__paths.html#a55797c39fca8c9ee503e4c9dab0e6007" title="Returns the path to the Giraffe config file." alt="" coords="691,420,897,461"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc" title=" " alt="" coords="976,319,1117,360"/>
+<area shape="rect" id="node10" href="$classgiraffe_1_1CommonLogger.html#a5895d20e66f05bb5e56c8d505fb4185b" title=" " alt="" coords="959,384,1134,425"/>
+<area shape="rect" id="node11" href="$classgiraffe_1_1CommonLogger.html#a2d55b55548ce25c3a138c795cb8d9bc6" title=" " alt="" coords="959,449,1134,491"/>
+<area shape="rect" id="node12" href="$classgiraffe_1_1gdl_1_1Config.html#a0a58a6ed60187dc17cc79c4d103d4cc7" title=" " alt="" coords="958,5,1135,47"/>
+<area shape="rect" id="node13" href="$classgiraffe_1_1gdl_1_1Config.html#a1fd00187a8f0cf9632db5d0d068e4ce3" title=" " alt="" coords="969,71,1124,112"/>
+<area shape="rect" id="node14" href="$classgiraffe_1_1gdl_1_1Config.html#ab4b666bf725f3ab5756dc5b5135640ae" title=" " alt="" coords="976,136,1117,177"/>
+<area shape="rect" id="node15" href="$classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639" title=" " alt="" coords="976,201,1117,243"/>
+<area shape="rect" id="node16" href="$namespacegiraffe.html#a6c8d7898d64c0982d482f960a46bb8c5" title=" " alt="" coords="982,267,1111,294"/>
+<area shape="rect" id="node18" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="955,515,1138,556"/>
+<area shape="rect" id="node20" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="701,1387,887,1428"/>
+<area shape="rect" id="node21" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="719,1321,869,1363"/>
+<area shape="rect" id="node23" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="712,1452,876,1493"/>
+<area shape="rect" id="node25" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="711,1256,877,1297"/>
+<area shape="rect" id="node22" href="$structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" title="Get the message as a JSON object." alt="" coords="972,1321,1121,1363"/>
+<area shape="rect" id="node24" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="993,1459,1101,1486"/>
+<area shape="rect" id="node28" href="$classgiraffe_1_1gdl_1_1Config.html#ab24467d926cb3bdcea43319fcc05c3f4" title=" " alt="" coords="723,812,865,853"/>
+<area shape="rect" id="node29" href="$classgiraffe_1_1CommonLogger.html#a7edf0967161b8ed7fb74d8fad85b399c" title=" " alt="" coords="707,877,881,919"/>
+<area shape="rect" id="node30" href="$classgiraffe_1_1CommonLogger.html#a00d13a9691133b030b12ea3fc02a6a2d" title=" " alt="" coords="707,943,881,984"/>
+<area shape="rect" id="node31" href="$classgiraffe_1_1gdl_1_1Config.html#a06c36fb2045f5092051809e942a4aa63" title=" " alt="" coords="706,1008,882,1049"/>
+<area shape="rect" id="node32" href="$classgiraffe_1_1gdl_1_1Config.html#a4b863dc5b7093712bd9febc68e218267" title=" " alt="" coords="717,616,871,657"/>
+<area shape="rect" id="node33" href="$classgiraffe_1_1gdl_1_1Config.html#addd841387e422f20cf932f6ff03a51c7" title=" " alt="" coords="723,681,865,723"/>
+<area shape="rect" id="node34" href="$classgiraffe_1_1gdl_1_1Config.html#acb892777b90da2a63beb0ead9d84b325" title=" " alt="" coords="723,747,865,788"/>
+<area shape="rect" id="node35" href="$classgiraffe_1_1CommonLogger.html#a008aac905e59c9aaa273c06578acc590" title=" " alt="" coords="707,1073,881,1115"/>
+<area shape="rect" id="node39" href="$classgiraffe_1_1gdl_1_1GdlServer.html#adcb009472d786f0a4f0c94cdd9192ad2" title=" " alt="" coords="473,1289,637,1331"/>
+<area shape="rect" id="node40" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aca89933b2ccac49e9e29482cff7b8d4f" title=" " alt="" coords="473,1159,637,1200"/>
+<area shape="rect" id="node45" href="$classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb" title=" " alt="" coords="468,1093,641,1135"/>
+<area shape="rect" id="node41" href="$classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a" title=" " alt="" coords="715,1191,873,1232"/>
+<area shape="rect" id="node42" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="967,1125,1126,1167"/>
+<area shape="rect" id="node43" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="967,1191,1126,1232"/>
+<area shape="rect" id="node44" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="947,1256,1147,1297"/>
+<area shape="rect" id="node47" href="$classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c" title=" " alt="" coords="469,1355,640,1396"/>
+</map>

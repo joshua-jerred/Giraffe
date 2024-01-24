@@ -515,7 +515,7 @@
 <!-- Node25 -->
 <g id="node24" class="node">
 <title>Node25</title>
-<g id="a_node24"><a xlink:href="main_8cpp.html" target="_top" xlink:title="Defines the entry point/main function of the Flight Computer software.">
+<g id="a_node24"><a xlink:href="flight__system_2main_8cpp.html" target="_top" xlink:title="Defines the entry point/main function of the Flight Computer software.">
 <polygon fill="none" stroke="black" points="1527.5,-0.5 1527.5,-19.5 1589.5,-19.5 1589.5,-0.5 1527.5,-0.5"/>
 <text text-anchor="middle" x="1558.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">main.cpp</text>
 </a>

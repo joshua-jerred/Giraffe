@@ -1,0 +1,13 @@
+<map id="giraffe::gdl::GdlServer::handleRequestStatus" name="giraffe::gdl::GdlServer::handleRequestStatus">
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,173,145"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1CommonLogger.html#a2287eb7b192040d971736027e6fbbf46" title=" " alt="" coords="221,5,396,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#a98f228a5e7abb95ad4e66ae4b53dd71a" title=" " alt="" coords="229,71,388,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1DataLink.html#ab40f43468826f91454986d3ba317fd8f" title=" " alt="" coords="229,136,388,177"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7cc778f8170363add8e6812bb04c019e" title=" " alt="" coords="227,201,391,243"/>
+<area shape="rect" id="node6" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="444,103,631,144"/>
+<area shape="rect" id="node7" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="463,168,612,209"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="455,233,619,275"/>
+<area shape="rect" id="node11" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="454,299,621,340"/>
+<area shape="rect" id="node8" href="$structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" title="Get the message as a JSON object." alt="" coords="679,168,828,209"/>
+<area shape="rect" id="node10" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="699,241,807,267"/>
+</map>

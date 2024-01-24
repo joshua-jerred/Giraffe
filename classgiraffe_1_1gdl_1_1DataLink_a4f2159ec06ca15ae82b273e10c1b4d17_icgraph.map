@@ -1,0 +1,6 @@
+<map id="giraffe::gdl::DataLink::disable" name="giraffe::gdl::DataLink::disable">
+<area shape="rect" id="node1" title=" " alt="" coords="349,35,508,76"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a30449dc194e1fe82bddf366b15582345" title="Deconstruct the GDL instance, this will stop the GDL instance if it is running." alt="" coords="125,5,284,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,71,301,98"/>
+<area shape="rect" id="node4" href="$data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,71,60,98"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="modules::TelemetryModule::sendAprsPositionPacket" name="modules::TelemetryModule::sendAprsPositionPacket">
+<area shape="rect" id="node1" title="This function will only send a packet if it is time to send one. If not, it will just return immediat..." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#ab1c03e26af37f4e27ca6cf24d6674f55" title=" " alt="" coords="252,5,411,47"/>
+</map>

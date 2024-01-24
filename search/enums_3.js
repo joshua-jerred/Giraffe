@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['endpoint_2567',['Endpoint',['../namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09e',1,'protocol']]],
-  ['extaction_2568',['ExtAction',['../classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0',1,'modules::ExtensionModule']]]
+  ['fixtype_2787',['FixType',['../namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8',1,'ubx']]],
+  ['flightmode_2788',['FlightMode',['../namespacegiraffe.html#a464112de04b36af2ff144b7013236aff',1,'giraffe']]],
+  ['focus_2789',['Focus',['../classncurs_1_1Environment.html#a9cc14d29a31da252c56695e32e998298',1,'ncurs::Environment::Focus()'],['../classncurs_1_1Environment.html#a9cc14d29a31da252c56695e32e998298',1,'ncurs::Environment::Focus()']]]
 ];

@@ -1,6 +1,6 @@
 <map id="protocol::parseMessage" name="protocol::parseMessage">
 <area shape="rect" id="node1" title="Parse a JSON string into a Message." alt="" coords="384,31,561,57"/>
 <area shape="rect" id="node2" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="108,5,336,32"/>
-<area shape="rect" id="node3" href="$classGdlTerminal.html#a6c4ec1ac757e27bf891453c72d49ff06" title=" " alt="" coords="157,56,287,83"/>
-<area shape="rect" id="node4" href="$gdl__terminal_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,56,60,83"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="125,56,319,83"/>
+<area shape="rect" id="node4" href="$data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,56,60,83"/>
 </map>

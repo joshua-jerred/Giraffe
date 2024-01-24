@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['broadcast_2598',['BROADCAST',['../structgdl_1_1Message.html#a789056fc0dde7e2be09585de1ae4a10da81d741a35dc8a42c885b7cc031afd17f',1,'gdl::Message']]],
-  ['bus_5fopen_5ferror_2599',['BUS_OPEN_ERROR',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a0d5d4ff33032f733f227c7d8497372e7',1,'I2cInterface']]],
-  ['busy_2600',['BUSY',['../classgdl_1_1PhysicalLayer.html#ac61ee25083042d16613414a9ee230292a802706a9238e2928077f97736854bad4',1,'gdl::PhysicalLayer']]]
+  ['broadcast_2815',['BROADCAST',['../classgiraffe_1_1gdl_1_1TransportLayer.html#a6fe99966c74405692119f72071113be3a81d741a35dc8a42c885b7cc031afd17f',1,'giraffe::gdl::TransportLayer::BROADCAST()'],['../classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f',1,'giraffe::gdl::Message::BROADCAST()'],['../classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba81d741a35dc8a42c885b7cc031afd17f',1,'giraffe::gdl::Packet::BROADCAST()']]],
+  ['bus_5fopen_5ferror_2816',['BUS_OPEN_ERROR',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a0d5d4ff33032f733f227c7d8497372e7',1,'I2cInterface']]],
+  ['busy_2817',['BUSY',['../classgiraffe_1_1gdl_1_1PhysicalLayer.html#ae6ee079a07a5a4918268273005532732a802706a9238e2928077f97736854bad4',1,'giraffe::gdl::PhysicalLayer']]]
 ];

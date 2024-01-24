@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['readstate_2579',['ReadState',['../group__SAMM8QState.html#ga761853c53cc0066e6cab6bb84941d635',1,'extension::SamM8qExtension']]],
-  ['resetstate_2580',['ResetState',['../group__SAMM8QState.html#gafb3c90d8789d69060f4e5be306365db1',1,'extension::SamM8qExtension']]],
-  ['responsecode_2581',['ResponseCode',['../namespaceprotocol.html#a14a4518c9c5eba60611b473d659c069d',1,'protocol']]],
-  ['result_2582',['Result',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518',1,'I2cInterface']]]
+  ['shutdownreason_2803',['ShutdownReason',['../classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3',1,'giraffe::FlightRunnerData']]],
+  ['startupstate_2804',['StartupState',['../namespaceextension.html#a842aaad519772b36cb48adc23ee56afc',1,'extension::StartupState()'],['../namespaceextension.html#a842aaad519772b36cb48adc23ee56afc',1,'extension::StartupState()']]],
+  ['state_2805',['State',['../group__SAMM8QState.html#ga416d5c4d588df643315ebc46f3eff359',1,'extension::SamM8qExtension::State()'],['../classgiraffe_1_1gdl_1_1TransportLayer.html#a6fe99966c74405692119f72071113be3',1,'giraffe::gdl::TransportLayer::State()'],['../classgiraffe_1_1gdl_1_1PhysicalLayer.html#ae6ee079a07a5a4918268273005532732',1,'giraffe::gdl::PhysicalLayer::State()']]],
+  ['status_2806',['Status',['../classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76',1,'giraffe::gdl::DataLink::Status()'],['../namespacenode.html#a5360cad6ada29a0aae6013099cab6419',1,'node::Status()']]]
 ];

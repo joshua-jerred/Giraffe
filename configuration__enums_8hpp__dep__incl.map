@@ -21,7 +21,7 @@
 <area shape="rect" id="node17" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="1339,304,1508,331"/>
 <area shape="rect" id="node19" href="$flight__runner_8hpp.html" title=" " alt="" coords="1549,304,1679,331"/>
 <area shape="rect" id="node20" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="1614,379,1745,405"/>
-<area shape="rect" id="node21" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="1507,379,1590,405"/>
+<area shape="rect" id="node21" href="$flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="1507,379,1590,405"/>
 <area shape="rect" id="node24" href="$i2c__interface_8cpp.html" title="A wrapper around I2C communication." alt="" coords="165,229,298,256"/>
 <area shape="rect" id="node25" href="$ubx__protocol_8hpp.html" title="UBX Protocol implementation header." alt="" coords="5,229,140,256"/>
 <area shape="rect" id="node26" href="$ubx__protocol_8cpp.html" title="The UBX Protocol implementation." alt="" coords="6,304,139,331"/>

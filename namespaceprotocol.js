@@ -24,5 +24,5 @@ var namespaceprotocol =
     [ "parseMessage", "namespaceprotocol.html#ac6314a5d8075e25c09e5381ff1c4ca24", null ],
     [ "createRequestMessage", "namespaceprotocol.html#acc3dd8b92d216ee1c29ab0c725bec1cf", null ],
     [ "createSetMessage", "namespaceprotocol.html#a9672733e872ce4875fbc4e0fa4d51cd3", null ],
-    [ "createResponseMessage", "namespaceprotocol.html#a50f3dfb09a6b5add5339c1877f408bae", null ]
+    [ "createResponseMessage", "namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64", null ]
 ];

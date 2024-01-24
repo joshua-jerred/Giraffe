@@ -40,6 +40,8 @@ var files_dup =
     [ "command_ids.hpp", "command__ids_8hpp.html", null ],
     [ "command_ids_strings.cpp", "command__ids__strings_8cpp.html", null ],
     [ "command_processor.cpp", "command__processor_8cpp.html", "command__processor_8cpp" ],
+    [ "common_logger.cpp", "common__logger_8cpp.html", "common__logger_8cpp" ],
+    [ "common_logger.hpp", "common__logger_8hpp.html", "common__logger_8hpp" ],
     [ "configuration.cpp", "configuration_8cpp.html", null ],
     [ "configuration.hpp", "configuration_8hpp.html", null ],
     [ "configuration_enums.hpp", "configuration__enums_8hpp.html", null ],
@@ -103,60 +105,46 @@ var files_dup =
     [ "frame.hpp", "frame_8hpp.html", [
       [ "Frame", "classdata_1_1Frame.html", "classdata_1_1Frame" ]
     ] ],
-    [ "gdl_configuration.hpp", "gdl__configuration_8hpp.html", [
-      [ "GdlConfig", "namespacegdl.html#structgdl_1_1GdlConfig", [
-        [ "user_id", "namespacegdl.html#ab02b54c5eca065090ce78e14c65ce54d", null ],
-        [ "broadcast_queue_size", "namespacegdl.html#ace3ab1abf31047058605861ec29e2dd6", null ],
-        [ "exchange_queue_size", "namespacegdl.html#aa253de775888980db5e49168352373bc", null ],
-        [ "received_queue_size", "namespacegdl.html#ac4878f8d932e0c1a78364f035c8784ab", null ],
-        [ "max_retries", "namespacegdl.html#aadfcdb5e99d6c6df79e09a61a56f4c40", null ],
-        [ "retry_interval_ms", "namespacegdl.html#afb44f32bd93d30aebe3ba794726e6f45", null ],
-        [ "connection_status_interval", "namespacegdl.html#a5c8dccf2a6bc3a7c426af61ef0a998de", null ],
-        [ "max_message_size", "namespacegdl.html#a2d2a9df61aae726ca4688dabcdfcd21c", null ],
-        [ "default_timeout", "namespacegdl.html#aa837b28e5c29cd598fb94f2c315ba8cd", null ],
-        [ "print_new_messages", "namespacegdl.html#a8d4a7e52e4d53b22b0fb3ff5963d3e5e", null ],
-        [ "proactive_connection_management", "namespacegdl.html#a8d1d5b64de8a2705f6206434b56dac6e", null ],
-        [ "downlink_timeout_seconds", "namespacegdl.html#ae6c474c4139738c2c09db4c2b6f0aed5", null ],
-        [ "uplink_timeout_seconds", "namespacegdl.html#a09acad5ea7cc295689b8cffc1d95863f", null ]
+    [ "gdl_config_and_stats.hpp", "gdl__config__and__stats_8hpp.html", [
+      [ "Config", "classgiraffe_1_1gdl_1_1Config.html", "classgiraffe_1_1gdl_1_1Config" ],
+      [ "Statistics", "namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics", [
+        [ "exchange_queue_size", "namespacegiraffe_1_1gdl.html#a542efc954a0847253eea05c5e38de5f6", null ],
+        [ "broadcast_queue_size", "namespacegiraffe_1_1gdl.html#a62b559025cf0de978941f4357772c5dc", null ],
+        [ "received_queue_size", "namespacegiraffe_1_1gdl.html#a633cb0ab63123cc8be6bd628d8ea2dfe", null ],
+        [ "uplink_connected", "namespacegiraffe_1_1gdl.html#a05ed1a5b17223c27f76551a71033d473", null ],
+        [ "downlink_connected", "namespacegiraffe_1_1gdl.html#a552a4840eca1ab1daeefe137c1ddc87b", null ],
+        [ "last_message_received", "namespacegiraffe_1_1gdl.html#aef8d3c46dc0927c9cf3f023b4590f331", null ],
+        [ "position_packets_received", "namespacegiraffe_1_1gdl.html#a36771ec9192eb31ca92b0e08ccd62426", null ],
+        [ "total_packets_sent", "namespacegiraffe_1_1gdl.html#ad2bc0aabe7e0fc59a0e47268bb21db33", null ],
+        [ "total_packets_received", "namespacegiraffe_1_1gdl.html#a9df80d5b09ba8c2e6bf7886ae573c080", null ],
+        [ "total_messages_dropped", "namespacegiraffe_1_1gdl.html#af986151f3d631d96d73314cd1ba93ede", null ],
+        [ "volume", "namespacegiraffe_1_1gdl.html#aae88f5899f328704ca5c5816768e6264", null ],
+        [ "signal_to_noise_ratio", "namespacegiraffe_1_1gdl.html#abfa6cac65e04607f8ea217352f0b3b31", null ],
+        [ "network_layer_latency_ms", "namespacegiraffe_1_1gdl.html#ab0cdea56a06fba9fdaa5bd46e715a003", null ]
       ] ]
     ] ],
-    [ "gdl_message.hpp", "gdl__message_8hpp.html", [
-      [ "Message", "structgdl_1_1Message.html", "structgdl_1_1Message" ]
+    [ "gdl_constants.hpp", "gdl__constants_8hpp.html", "gdl__constants_8hpp" ],
+    [ "gdl_layers.hpp", "gdl__layers_8hpp.html", [
+      [ "NetworkLayer", "classgiraffe_1_1gdl_1_1NetworkLayer.html", "classgiraffe_1_1gdl_1_1NetworkLayer" ],
+      [ "PhysicalLayer", "classgiraffe_1_1gdl_1_1PhysicalLayer.html", "classgiraffe_1_1gdl_1_1PhysicalLayer" ],
+      [ "TransportLayer", "classgiraffe_1_1gdl_1_1TransportLayer.html", "classgiraffe_1_1gdl_1_1TransportLayer" ]
     ] ],
-    [ "gdl_message_queue.hpp", "gdl__message__queue_8hpp.html", [
-      [ "MessageQueue", "classgdl_1_1MessageQueue.html", "classgdl_1_1MessageQueue" ]
-    ] ],
+    [ "gdl_message.hpp", "gdl__message_8hpp.html", "gdl__message_8hpp" ],
     [ "gdl_network_and_physical.puml", "gdl__network__and__physical_8puml.html", null ],
-    [ "gdl_network_layer.hpp", "gdl__network__layer_8hpp.html", [
-      [ "NetworkLayer", "classgdl_1_1NetworkLayer.html", "classgdl_1_1NetworkLayer" ]
-    ] ],
-    [ "gdl_network_layer_aprs.hpp", "gdl__network__layer__aprs_8hpp.html", [
-      [ "AprsNetworkLayer", "classgdl_1_1AprsNetworkLayer.html", "classgdl_1_1AprsNetworkLayer" ]
-    ] ],
-    [ "gdl_physical_layer.hpp", "gdl__physical__layer_8hpp.html", [
-      [ "PhysicalLayer", "classgdl_1_1PhysicalLayer.html", "classgdl_1_1PhysicalLayer" ]
+    [ "gdl_packet.hpp", "gdl__packet_8hpp.html", [
+      [ "Packet", "classgiraffe_1_1gdl_1_1Packet.html", "classgiraffe_1_1gdl_1_1Packet" ]
     ] ],
     [ "gdl_physical_layer.puml", "gdl__physical__layer_8puml.html", null ],
-    [ "gdl_status.hpp", "gdl__status_8hpp.html", [
-      [ "GdlStatus", "namespacegdl.html#structgdl_1_1GdlStatus", [
-        [ "exchange_queue_size", "namespacegdl.html#a7ba9d6ec47be6e3cf5ebe8b622bcf852", null ],
-        [ "broadcast_queue_size", "namespacegdl.html#a308bce26cc374e126ca838f641d1a509", null ],
-        [ "received_queue_size", "namespacegdl.html#ad0c53956e257f04c39459a3d28dc992e", null ],
-        [ "volume", "namespacegdl.html#aef97af0710b5fefc10469b361a8e335f", null ],
-        [ "signal_to_noise_ratio", "namespacegdl.html#a0d5b6bb73d8f82e60cc886b27b1b2bbf", null ],
-        [ "network_layer_latency_ms", "namespacegdl.html#a14649205469591a6d3602f44c64d3c79", null ],
-        [ "aprs_receiver_stats", "namespacegdl.html#a0e65625c41901f966c9d35e843505207", null ]
-      ] ]
-    ] ],
+    [ "gdl_server.cpp", "gdl__server_8cpp.html", null ],
+    [ "gdl_server.hpp", "gdl__server_8hpp.html", "gdl__server_8hpp" ],
+    [ "gdl_server_config.hpp", "gdl__server__config_8hpp.html", null ],
+    [ "gdl_server_request_handlers.cpp", "gdl__server__request__handlers_8cpp.html", null ],
+    [ "gdl_server_set_handlers.cpp", "gdl__server__set__handlers_8cpp.html", null ],
     [ "gdl_terminal.cpp", "gdl__terminal_8cpp.html", "gdl__terminal_8cpp" ],
-    [ "gdl_transport_layer.hpp", "gdl__transport__layer_8hpp.html", [
-      [ "TransportLayer", "classgdl_1_1TransportLayer.html", "classgdl_1_1TransportLayer" ]
-    ] ],
     [ "giraffe_assert.hpp", "giraffe__assert_8hpp.html", "giraffe__assert_8hpp" ],
     [ "giraffe_data_link.cpp", "giraffe__data__link_8cpp.html", null ],
     [ "giraffe_data_link.hpp", "giraffe__data__link_8hpp.html", [
-      [ "GiraffeDataLink", "classgdl_1_1GiraffeDataLink.html", "classgdl_1_1GiraffeDataLink" ],
-      [ "MessageQueues", "structgdl_1_1GiraffeDataLink_1_1MessageQueues.html", "structgdl_1_1GiraffeDataLink_1_1MessageQueues" ]
+      [ "DataLink", "classgiraffe_1_1gdl_1_1DataLink.html", "classgiraffe_1_1gdl_1_1DataLink" ]
     ] ],
     [ "giraffe_debug.hpp", "giraffe__debug_8hpp.html", "giraffe__debug_8hpp" ],
     [ "giraffe_debug_assert.cpp", "giraffe__debug__assert_8cpp.html", "giraffe__debug__assert_8cpp" ],
@@ -166,6 +154,8 @@ var files_dup =
     [ "giraffe_exception.hpp", "giraffe__exception_8hpp.html", [
       [ "GiraffeException", "classGiraffeException.html", "classGiraffeException" ]
     ] ],
+    [ "giraffe_file_paths.cpp", "giraffe__file__paths_8cpp.html", "giraffe__file__paths_8cpp" ],
+    [ "giraffe_file_paths.hpp", "giraffe__file__paths_8hpp.html", "giraffe__file__paths_8hpp" ],
     [ "i2c_extension_adapter.hpp", "i2c__extension__adapter_8hpp.html", "i2c__extension__adapter_8hpp" ],
     [ "i2c_interface.cpp", "i2c__interface_8cpp.html", null ],
     [ "i2c_interface.hpp", "i2c__interface_8hpp.html", [
@@ -181,7 +171,8 @@ var files_dup =
     [ "logger.hpp", "logger_8hpp.html", [
       [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ]
     ] ],
-    [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
+    [ "flight_system/main.cpp", "flight__system_2main_8cpp.html", "flight__system_2main_8cpp" ],
+    [ "data_link/server/main.cpp", "data__link_2server_2main_8cpp.html", "data__link_2server_2main_8cpp" ],
     [ "mcp3021.cpp", "mcp3021_8cpp.html", "mcp3021_8cpp" ],
     [ "mcp3021.hpp", "mcp3021_8hpp.html", [
       [ "Mcp3021Extension", "classextension_1_1Mcp3021Extension.html", "classextension_1_1Mcp3021Extension" ]
@@ -194,11 +185,13 @@ var files_dup =
     ] ],
     [ "ncurses_utilities.cpp", "ncurses__utilities_8cpp.html", null ],
     [ "ncurses_utilities.hpp", "ncurses__utilities_8hpp.html", "ncurses__utilities_8hpp" ],
+    [ "network_layer.cpp", "network__layer_8cpp.html", "network__layer_8cpp" ],
     [ "node.hpp", "node_8hpp.html", "node_8hpp" ],
     [ "one_wire_interface.cpp", "one__wire__interface_8cpp.html", "one__wire__interface_8cpp" ],
     [ "one_wire_interface.hpp", "one__wire__interface_8hpp.html", [
       [ "OneWireInterface", "classOneWireInterface.html", "classOneWireInterface" ]
     ] ],
+    [ "physical_layer.cpp", "physical__layer_8cpp.html", null ],
     [ "positional.cpp", "positional_8cpp.html", null ],
     [ "positional.hpp", "positional_8hpp.html", "positional_8hpp" ],
     [ "preconfigured_extensions.hpp", "preconfigured__extensions_8hpp.html", "preconfigured__extensions_8hpp" ],
@@ -246,6 +239,7 @@ var files_dup =
     [ "to_json.hpp", "to__json_8hpp.html", "to__json_8hpp" ],
     [ "to_string.cpp", "to__string_8cpp.html", "to__string_8cpp" ],
     [ "to_string.hpp", "to__string_8hpp.html", "to__string_8hpp" ],
+    [ "transport_layer.cpp", "transport__layer_8cpp.html", null ],
     [ "ubx_ids.hpp", "ubx__ids_8hpp.html", "ubx__ids_8hpp" ],
     [ "ubx_protocol.cpp", "ubx__protocol_8cpp.html", "ubx__protocol_8cpp" ],
     [ "ubx_protocol.hpp", "ubx__protocol_8hpp.html", "ubx__protocol_8hpp" ],

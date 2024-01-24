@@ -163,22 +163,30 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 : <a class="el" href="classOneWireInterface.html#aed913d88368507d74f7f2dd740dcb2ea">OneWireInterface</a>
 </li>
 <li>receive()
-: <a class="el" href="classgdl_1_1TransportLayer.html#a602b18ce93bc49f561c85f6a1624ee96">gdl::TransportLayer</a>
+: <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a8fd32baa2bbdf231ba8cc7d4f6c6af64">giraffe::gdl::TransportLayer</a>
 , <a class="el" href="group__ServerModule.html#a6fc4ac999c586de6a35105dcbf431c51">sock::TcpSocketServer</a>
 </li>
-<li>received
-: <a class="el" href="structgdl_1_1GiraffeDataLink_1_1MessageQueues.html#ae64551234a79728d995cff7ab8c6fc99">gdl::GiraffeDataLink::MessageQueues</a>
+<li>received_message_
+: <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a381c9cc12c5234e24c92ce25a17dff87">giraffe::gdl::TransportLayer</a>
 </li>
 <li>received_queue_size
-: <a class="el" href="structdata_1_1blocks_1_1TelemetryModuleStats.html#a27e9328ae8f9d023d654b39634f8c970">data::blocks::TelemetryModuleStats</a>
-, <a class="el" href="namespacegdl.html#ac4878f8d932e0c1a78364f035c8784ab">gdl::GdlConfig</a>
-, <a class="el" href="namespacegdl.html#ad0c53956e257f04c39459a3d28dc992e">gdl::GdlStatus</a>
+: <a class="el" href="structdata_1_1blocks_1_1TelemetryModuleStats.html#ad1c72ea01fe58215fd8fc2df67655150">data::blocks::TelemetryModuleStats</a>
+, <a class="el" href="namespacegiraffe_1_1gdl.html#a633cb0ab63123cc8be6bd628d8ea2dfe">giraffe::gdl::Statistics</a>
 </li>
-<li>receivedAck()
-: <a class="el" href="classgdl_1_1TransportLayer.html#a696c4cfe3b69f9240a33a8da28da9156">gdl::TransportLayer</a>
+<li>received_timer_
+: <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a0a6ad0da90b807f8f9e2522992a4f1f6">giraffe::gdl::TransportLayer</a>
+</li>
+<li>receiveMessage()
+: <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6004a6e0c3b468032a0c71b8e2a2c5f3">giraffe::gdl::DataLink</a>
 </li>
 <li>receiver_
-: <a class="el" href="classgdl_1_1AprsNetworkLayer.html#a0d22eeaff4df6d34fea89d459c667e40">gdl::AprsNetworkLayer</a>
+: <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#aeca93c2b677829cb55959dc91704b98f">giraffe::gdl::NetworkLayer</a>
+</li>
+<li>remote_call_sign_
+: <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#ac4e0976ca35023db1cfa7516652c427a">giraffe::gdl::Config</a>
+</li>
+<li>remote_ssid_
+: <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#ae1ebd728ffe57b1cabd741cf0299c2de">giraffe::gdl::Config</a>
 </li>
 <li>remove()
 : <a class="el" href="classdata_1_1Frame.html#abdaffe5fb32e167e5b758b874b4c7c19">data::Frame&lt; ID, DATA &gt;</a>
@@ -228,6 +236,9 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 <li>resolution
 : <a class="el" href="namespaceextension.html#a23ef4c78e9d729620c72e7268e1fd7ef">extension::AdcConfig</a>
 </li>
+<li>response_sent_
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a52894bf7eece4ddc38a75566b6917b32">giraffe::gdl::GdlServer</a>
+</li>
 <li>restart_attempts
 : <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#afedb3705c2142d066d60ac722ce915ff">modules::ExtensionModule::ExtContainer</a>
 </li>
@@ -243,14 +254,8 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 <li>Result
 : <a class="el" href="classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518">I2cInterface</a>
 </li>
-<li>retries
-: <a class="el" href="structgdl_1_1Message.html#ab15135dbbe3d3c45f6876deee89ce936">gdl::Message</a>
-</li>
 <li>retry_delay_ms_
 : <a class="el" href="classextension_1_1I2cExtensionAdapter.html#a997b9e139894c440e40f95daa94b84e4">extension::I2cExtensionAdapter</a>
-</li>
-<li>retry_interval_ms
-: <a class="el" href="namespacegdl.html#afb44f32bd93d30aebe3ba794726e6f45">gdl::GdlConfig</a>
 </li>
 <li>rh_
 : <a class="el" href="classextension_1_1SimHumiditySensor.html#ab4e6f9b2b1bd2ed146c51e5c79d8aebd">extension::SimHumiditySensor</a>
@@ -265,7 +270,10 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 : <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">FlightRunner</a>
 </li>
 <li>routeRequest()
-: <a class="el" href="classGdlTerminal.html#af2f56a16f8c7e4a95a81e9f691a311ec">GdlTerminal</a>
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a26729c50039ce0fcc47376ca3d5b0720">giraffe::gdl::GdlServer</a>
+</li>
+<li>routeSet()
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a7a640a9a945bb13a494c175f857fc719">giraffe::gdl::GdlServer</a>
 </li>
 <li>rsc
 : <a class="el" href="structprotocol_1_1Message.html#a5d0456b9d7dee42147a675e88e8c577e">protocol::Message</a>
@@ -274,7 +282,7 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 : <a class="el" href="structdata_1_1blocks_1_1TelemetryModuleStats.html#ae6a572e56002abca6e81f204bab90526">data::blocks::TelemetryModuleStats</a>
 </li>
 <li>run()
-: <a class="el" href="classGdlTerminal.html#a6c4ec1ac757e27bf891453c72d49ff06">GdlTerminal</a>
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217">giraffe::gdl::GdlServer</a>
 </li>
 <li>runner()
 : <a class="el" href="classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027">extension::Extension</a>
@@ -287,12 +295,8 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 <li>runState()
 : <a class="el" href="classmodules_1_1ExtensionModule.html#a9f07f42333ead841747ce7905537abae">modules::ExtensionModule</a>
 </li>
-<li>rxAprsPositionPacket()
-: <a class="el" href="classgdl_1_1AprsNetworkLayer.html#a9888d523ed4084ffea70574770a7bf67">gdl::AprsNetworkLayer</a>
-</li>
-<li>rxMessage()
-: <a class="el" href="classgdl_1_1AprsNetworkLayer.html#ac663956e8f0ada79182740bb24980a8a">gdl::AprsNetworkLayer</a>
-, <a class="el" href="classgdl_1_1NetworkLayer.html#aad9d9e08d5801e111b8988ec17a22ca9">gdl::NetworkLayer</a>
+<li>rxPacket()
+: <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875">giraffe::gdl::NetworkLayer</a>
 </li>
 </ul>
 </div><!-- contents -->

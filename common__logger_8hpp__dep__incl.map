@@ -1,0 +1,9 @@
+<map id="common_logger.hpp" name="common_logger.hpp">
+<area shape="rect" id="node1" title="A common logger for Giraffe." alt="" coords="162,5,317,32"/>
+<area shape="rect" id="node2" href="$common__logger_8cpp.html" title="A common logger for Giraffe." alt="" coords="83,80,236,107"/>
+<area shape="rect" id="node3" href="$gdl__server_8hpp.html" title="Data Link Server for Giraffe." alt="" coords="261,80,378,107"/>
+<area shape="rect" id="node4" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="5,162,121,189"/>
+<area shape="rect" id="node5" href="$gdl__server__request__handlers_8cpp.html" title="Handlers for REQ requests (see gdl_server.hpp)" alt="" coords="146,155,293,196"/>
+<area shape="rect" id="node6" href="$gdl__server__set__handlers_8cpp.html" title="Handlers for SET requests (see gdl_server.hpp)" alt="" coords="317,162,524,189"/>
+<area shape="rect" id="node7" href="$data__link_2server_2main_8cpp.html" title="Giraffe Data Link Server Main File." alt="" coords="549,162,631,189"/>
+</map>

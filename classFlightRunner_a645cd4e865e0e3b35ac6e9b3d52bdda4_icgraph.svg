@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="main_8cpp.html#aac54c41eba9e07dbcdf25984bdf0ebc6" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="flight__system_2main_8cpp.html#aac54c41eba9e07dbcdf25984bdf0ebc6" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="77.5,-38.5 77.5,-57.5 160.5,-57.5 160.5,-38.5 77.5,-38.5"/>
 <text text-anchor="middle" x="119" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">__assert_func</text>
 </a>
@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="main_8cpp.html#a1ff4bd1f5a632a4106604e5c243c0f24" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="flight__system_2main_8cpp.html#a1ff4bd1f5a632a4106604e5c243c0f24" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="77,-0.5 77,-19.5 161,-19.5 161,-0.5 77,-0.5"/>
 <text text-anchor="middle" x="119" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">signalHandler</text>
 </a>
@@ -50,7 +50,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" target="_top" xlink:title="This is the main function that starts the flight runner. It will return a call to flight....">
+<g id="a_node4"><a xlink:href="flight__system_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" target="_top" xlink:title="This is the main function that starts the flight runner. It will return a call to flight....">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 41,-19.5 41,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="20.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
 </a>

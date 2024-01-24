@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['dataframecomponent_2565',['DataFrameComponent',['../namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198f',1,'data_middleware']]],
-  ['dynamic_5fmodel_2566',['DYNAMIC_MODEL',['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39',1,'ubx']]]
+  ['endpoint_2785',['Endpoint',['../namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09e',1,'protocol']]],
+  ['extaction_2786',['ExtAction',['../classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0',1,'modules::ExtensionModule']]]
 ];

@@ -103,8 +103,11 @@ $(document).ready(function(){initNavTree('functions_vars_l.html',''); initResiza
 &#160;
 
 <h3><a id="index_l"></a>- l -</h3><ul>
-<li>last_acked_id_
-: <a class="el" href="classgdl_1_1TransportLayer.html#a63cda8ab6584cb3c4ede2738375feb43">gdl::TransportLayer</a>
+<li>last_acked_message_id_
+: <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a36b195ba5b590178a0a4274bd9a17822">giraffe::gdl::TransportLayer</a>
+</li>
+<li>last_broadcast_id_
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#afc13ec1ac56e799fcf1c6210cc81751c">giraffe::gdl::GdlServer</a>
 </li>
 <li>last_error_reported_
 : <a class="el" href="classdata_1_1ErrorFrame.html#a52f07f16a624469f506adaf3e0fad816">data::ErrorFrame</a>
@@ -114,6 +117,12 @@ $(document).ready(function(){initNavTree('functions_vars_l.html',''); initResiza
 </li>
 <li>last_gps_point_
 : <a class="el" href="classmodules_1_1DataModule.html#a7f70f9a1b0d7b99bebf996ee50a4071e">modules::DataModule</a>
+</li>
+<li>last_message_received
+: <a class="el" href="namespacegiraffe_1_1gdl.html#aef8d3c46dc0927c9cf3f023b4590f331">giraffe::gdl::Statistics</a>
+</li>
+<li>last_message_received_
+: <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a226de21f05d25c7a431d9e6ec2e2893c">giraffe::gdl::TransportLayer</a>
 </li>
 <li>last_received_message
 : <a class="el" href="structdata_1_1blocks_1_1TelemetryModuleStats.html#acf68093a405ec5f154401b9a5acd5764">data::blocks::TelemetryModuleStats</a>
@@ -141,6 +150,7 @@ $(document).ready(function(){initNavTree('functions_vars_l.html',''); initResiza
 </li>
 <li>latitude
 : <a class="el" href="namespacedata.html#aae7359620b94aa415140b3c45bdffc33">data::GpsFrame</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad39dfdc6ffa7963fbdec3ad07d842633">giraffe::gdl::Message::Location</a>
 , <a class="el" href="namespaceubx.html#abff8cf727c9dc8c588c0672fccc72cbb">ubx::NavData</a>
 </li>
 <li>launch_gps_point_
@@ -154,12 +164,19 @@ $(document).ready(function(){initNavTree('functions_vars_l.html',''); initResiza
 </li>
 <li>level
 : <a class="el" href="structdata_1_1LogPacket.html#ab3abc310a2d936050d720a55ce18aa14">data::LogPacket</a>
+, <a class="el" href="structgiraffe_1_1LoggerEntry.html#ac18b9e3669dc95c4406860e667651d71">giraffe::LoggerEntry</a>
+</li>
+<li>level_to_log_
+: <a class="el" href="classgiraffe_1_1CommonLogger.html#a18d25608e21d2c176e54ae693f48602a">giraffe::CommonLogger&lt; LOG_SIZE &gt;</a>
 </li>
 <li>load_errors
 : <a class="el" href="structdata_1_1blocks_1_1ConfigurationStats.html#a3ebef85bafc4182a2d5dc56eca9fb310">data::blocks::ConfigurationStats</a>
 </li>
 <li>load_status_
 : <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a9050e20b99f2a0b3764db247c8c3fd16">giraffe::FlightRunnerData</a>
+</li>
+<li>location_
+: <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aec32a79bf0b7a040cdd15863d35b07b9">giraffe::gdl::Message</a>
 </li>
 <li>location_data
 : <a class="el" href="namespacedata.html#a2215c3b1e8cb58300b6900340affe176">data::SharedBlocks</a>
@@ -170,6 +187,9 @@ $(document).ready(function(){initNavTree('functions_vars_l.html',''); initResiza
 <li>log
 : <a class="el" href="structdata_1_1blocks_1_1StreamsStats.html#a4c67f6872bb85963500a69f3530b5c8a">data::blocks::StreamsStats</a>
 , <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams</a>
+</li>
+<li>log_
+: <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#aeb8eadfa783c124c943cb61e8cbe9275">giraffe::gdl::GdlServer</a>
 </li>
 <li>log_archive_dir
 : <a class="el" href="structdata_1_1blocks_1_1DataLogStats.html#a43f0573ab91b23b414c99f6f2efb148a">data::blocks::DataLogStats</a>
@@ -201,6 +221,9 @@ $(document).ready(function(){initNavTree('functions_vars_l.html',''); initResiza
 <li>log_mutex_
 : <a class="el" href="classLogContainer.html#a9aa1417e74122446157157ec3ab3928c">LogContainer</a>
 </li>
+<li>log_queue_
+: <a class="el" href="classgiraffe_1_1CommonLogger.html#a73e773a6b226cc34ebc1d9cce1feb0a0">giraffe::CommonLogger&lt; LOG_SIZE &gt;</a>
+</li>
 <li>log_stream_
 : <a class="el" href="classgiraffe_1_1Logger.html#a781b09f286894a05da55ae6da78bbfa0">giraffe::Logger</a>
 </li>
@@ -209,6 +232,7 @@ $(document).ready(function(){initNavTree('functions_vars_l.html',''); initResiza
 </li>
 <li>longitude
 : <a class="el" href="namespacedata.html#a484f32d805c04c0ef36cd551c839ed31">data::GpsFrame</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa403f37d6f3f5b1ce4efdeec59b12f28">giraffe::gdl::Message::Location</a>
 , <a class="el" href="namespaceubx.html#a8bfbe7509934ae6f13c402f47cf21aac">ubx::NavData</a>
 </li>
 </ul>

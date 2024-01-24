@@ -102,27 +102,33 @@ $(document).ready(function(){initNavTree('gdl__message_8hpp.html',''); initResiz
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">gdl_message.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The message struct for GDL.  
+<p>Message and Message Queue for Giraffe Data Link.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;BoosterSeat/time.hpp&gt;</code><br />
-<code>#include &lt;cstdint&gt;</code><br />
+<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &quot;nlohmann/json.hpp&quot;</code><br />
+<code>#include &lt;<a class="el" href="gdl__constants_8hpp_source.html">gdl_constants.hpp</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for gdl_message.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__message_8hpp__incl.svg" width="347" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__message_8hpp__incl.svg" width="803" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__message_8hpp__dep__incl.svg" width="599" height="560"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__message_8hpp__dep__incl.svg" width="1127" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -130,22 +136,108 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgdl_1_1Message.html">gdl::Message</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic message struct for GDL - Layer 4.  <a href="structgdl_1_1Message.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html">giraffe::gdl::Message</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structgiraffe_1_1gdl_1_1Message_1_1Location"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location">giraffe::gdl::Message::Location</a></td></tr>
+<tr class="separator:structgiraffe_1_1gdl_1_1Message_1_1Location"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html">giraffe::gdl::MessageQueue</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A queue for messages.  <a href="classgiraffe_1_1gdl_1_1MessageQueue.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:namespacegdl"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegdl.html">gdl</a></td></tr>
+<tr class="memitem:namespacegiraffe"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegiraffe.html">giraffe</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacegiraffe_1_1gdl"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegiraffe_1_1gdl.html">giraffe::gdl</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gdl__message_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> = nlohmann::json</td></tr>
+<tr class="separator:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The message struct for GDL. </p>
+<div class="textblock"><p>Message and Message Queue for Giraffe Data Link. </p>
 <p>=*========GIRAFFE========*= A Unified Flight Command and Control System <a href="https://github.com/joshua-jerred/Giraffe">https://github.com/joshua-jerred/Giraffe</a> <a href="https://giraffe.joshuajer.red/">https://giraffe.joshuajer.red/</a> =*=======================*=</p>
 <p>=*=======================*= </p><dl class="section author"><dt>Author</dt><dd>Joshua Jerred (<a href="https://joshuajer.red">https://joshuajer.red</a>) </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2023-06-24 </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>2023 (license to be defined) </dd></dl>
-</div></div><!-- contents -->
+<dl class="section date"><dt>Date</dt><dd>2024-01-18 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>2024 (license to be defined) </dd></dl>
+</div><hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="structgiraffe_1_1gdl_1_1Message_1_1Location" id="structgiraffe_1_1gdl_1_1Message_1_1Location"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structgiraffe_1_1gdl_1_1Message_1_1Location">&#9670;&nbsp;</a></span>giraffe::gdl::Message::Location</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct giraffe::gdl::Message::Location</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div><div class="dynheader">
+Collaboration diagram for giraffe::gdl::Message::Location:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structgiraffe_1_1gdl_1_1Message_1_1Location__coll__graph.svg" width="407" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="ad39dfdc6ffa7963fbdec3ad07d842633"></a>double</td>
+<td class="fieldname">
+latitude</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aa403f37d6f3f5b1ce4efdeec59b12f28"></a>double</td>
+<td class="fieldname">
+longitude</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="acc783df8bb74aebffe77ccd8b5bce981"></a>uint32_t</td>
+<td class="fieldname">
+altitude</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aaea40e8b6af5ad50dde6429b6759594b"></a>double</td>
+<td class="fieldname">
+speed</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ae6435719d6180f51728c292796095521"></a>int</td>
+<td class="fieldname">
+heading</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a5a7bfc1371f24abaaccd6baedb7c3952"></a>string</td>
+<td class="fieldname">
+time_code</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ab701e3ac61a85b337ec5c1abaad6742d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab701e3ac61a85b337ec5c1abaad6742d">&#9670;&nbsp;</a></span>json</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="positional_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> =  nlohmann::json</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

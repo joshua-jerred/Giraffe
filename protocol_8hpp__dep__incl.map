@@ -1,12 +1,16 @@
 <map id="protocol.hpp" name="protocol.hpp">
-<area shape="rect" id="node1" title="Declares the protocol namespace and its associated types." alt="" coords="271,5,373,32"/>
-<area shape="rect" id="node2" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="91,80,246,107"/>
-<area shape="rect" id="node9" href="$protocol_8cpp.html" title="The C++ implementation of the Giraffe Protocol." alt="" coords="271,80,373,107"/>
-<area shape="rect" id="node10" href="$gdl__terminal_8cpp.html" title="Giraffe Data Link Terminal." alt="" coords="398,80,529,107"/>
-<area shape="rect" id="node3" href="$request__handler_8cpp.html" title="The request handler class implementation." alt="" coords="5,155,159,181"/>
-<area shape="rect" id="node4" href="$server__module_8hpp.html" title="Header file for the server module." alt="" coords="183,155,330,181"/>
-<area shape="rect" id="node5" href="$flight__runner_8hpp.html" title=" " alt="" coords="110,229,241,256"/>
-<area shape="rect" id="node8" href="$server__module_8cpp.html" title="The server module class implementation." alt="" coords="265,229,411,256"/>
-<area shape="rect" id="node6" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="45,304,175,331"/>
-<area shape="rect" id="node7" href="$main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="199,304,282,331"/>
+<area shape="rect" id="node1" title="Declares the protocol namespace and its associated types." alt="" coords="371,5,473,32"/>
+<area shape="rect" id="node2" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="179,80,334,107"/>
+<area shape="rect" id="node9" href="$protocol_8cpp.html" title="The C++ implementation of the Giraffe Protocol." alt="" coords="371,80,473,107"/>
+<area shape="rect" id="node10" href="$gdl__server_8hpp.html" title="Data Link Server for Giraffe." alt="" coords="510,80,627,107"/>
+<area shape="rect" id="node3" href="$request__handler_8cpp.html" title="The request handler class implementation." alt="" coords="5,162,159,189"/>
+<area shape="rect" id="node4" href="$server__module_8hpp.html" title="Header file for the server module." alt="" coords="183,162,330,189"/>
+<area shape="rect" id="node5" href="$flight__runner_8hpp.html" title=" " alt="" coords="110,244,241,271"/>
+<area shape="rect" id="node8" href="$server__module_8cpp.html" title="The server module class implementation." alt="" coords="265,244,411,271"/>
+<area shape="rect" id="node6" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="45,319,175,345"/>
+<area shape="rect" id="node7" href="$flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="199,319,282,345"/>
+<area shape="rect" id="node11" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="355,162,471,189"/>
+<area shape="rect" id="node12" href="$gdl__server__request__handlers_8cpp.html" title="Handlers for REQ requests (see gdl_server.hpp)" alt="" coords="495,155,642,196"/>
+<area shape="rect" id="node13" href="$gdl__server__set__handlers_8cpp.html" title="Handlers for SET requests (see gdl_server.hpp)" alt="" coords="667,162,873,189"/>
+<area shape="rect" id="node14" href="$data__link_2server_2main_8cpp.html" title="Giraffe Data Link Server Main File." alt="" coords="898,162,981,189"/>
 </map>

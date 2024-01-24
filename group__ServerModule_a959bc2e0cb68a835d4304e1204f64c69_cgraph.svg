@@ -298,7 +298,7 @@
 <!-- Node19 -->
 <g id="node19" class="node">
 <title>Node19</title>
-<g id="a_node19"><a xlink:href="namespaceprotocol.html#a50f3dfb09a6b5add5339c1877f408bae" target="_top" xlink:title="Create a Response Message.">
+<g id="a_node19"><a xlink:href="namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" target="_top" xlink:title="Create a Response Message.">
 <polygon fill="none" stroke="black" points="418.5,-68.5 418.5,-98.5 558.5,-98.5 558.5,-68.5 418.5,-68.5"/>
 <text text-anchor="start" x="426.5" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol::createResponse</text>
 <text text-anchor="middle" x="488.5" y="-75.5" font-family="Helvetica,sans-Serif" font-size="10.00">Message</text>

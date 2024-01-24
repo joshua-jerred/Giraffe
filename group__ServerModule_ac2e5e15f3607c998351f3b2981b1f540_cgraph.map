@@ -1,6 +1,6 @@
 <map id="RequestRouter::handleDataRequest" name="RequestRouter::handleDataRequest">
 <area shape="rect" id="node1" title="This function responds to data requests." alt="" coords="5,35,207,76"/>
-<area shape="rect" id="node2" href="$namespaceprotocol.html#a50f3dfb09a6b5add5339c1877f408bae" title="Create a Response Message." alt="" coords="255,5,441,47"/>
+<area shape="rect" id="node2" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="255,5,441,47"/>
 <area shape="rect" id="node3" href="$namespacedata.html#ad7272e7b88e216047b649704df787d95" title=" " alt="" coords="299,71,397,98"/>
 <area shape="rect" id="node4" href="$classdata_1_1Frame.html#a21145c86e25d76061706ea66044139e0" title=" " alt="" coords="489,71,636,98"/>
 </map>

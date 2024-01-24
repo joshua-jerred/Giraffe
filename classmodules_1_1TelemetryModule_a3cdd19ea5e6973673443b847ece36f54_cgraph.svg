@@ -12,174 +12,222 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Called if there is a message in the receive queue. Pops one message and processes it.">
-<polygon fill="#bfbfbf" stroke="black" points="0,-147 0,-177 184,-177 184,-147 0,-147"/>
-<text text-anchor="start" x="8" y="-165" font-family="Helvetica,sans-Serif" font-size="10.00">modules::TelemetryModule</text>
-<text text-anchor="middle" x="92" y="-154" font-family="Helvetica,sans-Serif" font-size="10.00">::processTelemetryMessageQueue</text>
+<polygon fill="#bfbfbf" stroke="black" points="0,-215 0,-245 184,-245 184,-215 0,-215"/>
+<text text-anchor="start" x="8" y="-233" font-family="Helvetica,sans-Serif" font-size="10.00">modules::TelemetryModule</text>
+<text text-anchor="middle" x="92" y="-222" font-family="Helvetica,sans-Serif" font-size="10.00">::processTelemetryMessageQueue</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74" target="_top" xlink:title="Parses a command string into a command object.">
-<polygon fill="none" stroke="black" points="220,-152.5 220,-171.5 369,-171.5 369,-152.5 220,-152.5"/>
-<text text-anchor="middle" x="294.5" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">cmd::parseCommandString</text>
+<g id="a_node2"><a xlink:href="classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="235,-289 235,-319 354,-319 354,-289 235,-289"/>
+<text text-anchor="start" x="243" y="-307" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::Message</text>
+<text text-anchor="middle" x="294.5" y="-296" font-family="Helvetica,sans-Serif" font-size="10.00">::getData</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M184.16,-162C192.69,-162 201.31,-162 209.77,-162"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="209.99,-165.5 219.99,-162 209.99,-158.5 209.99,-165.5"/>
+<path fill="none" stroke="midnightblue" d="M129.46,-245.02C154.73,-255.27 189.23,-268.93 220,-280 225.21,-281.87 230.65,-283.77 236.11,-285.63"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="235.32,-289.05 245.91,-288.92 237.55,-282.42 235.32,-289.05"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="command__processor_8cpp.html#a2d173b5fffc1c8b756aaf2a701db8dd0" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="415,-304.5 415,-323.5 574,-323.5 574,-304.5 415,-304.5"/>
-<text text-anchor="middle" x="494.5" y="-311.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseConfigurationCommand</text>
+<g id="a_node3"><a xlink:href="classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="235,-240 235,-270 354,-270 354,-240 235,-240"/>
+<text text-anchor="start" x="243" y="-258" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::Message</text>
+<text text-anchor="middle" x="294.5" y="-247" font-family="Helvetica,sans-Serif" font-size="10.00">::getIdentifierString</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node3 -->
+<!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
-<title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M300.38,-171.57C313.54,-196.37 352.37,-262.97 405,-295 408.45,-297.1 412.1,-298.97 415.87,-300.63"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="414.88,-304 425.47,-304.36 417.42,-297.48 414.88,-304"/>
+<title>Node1&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M184.16,-241.37C197.79,-243.07 211.65,-244.79 224.71,-246.42"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="224.64,-249.94 235,-247.71 225.51,-243 224.64,-249.94"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="command__processor_8cpp.html#ad1d8be34ae493715509b48acb62f4533" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="410,-266.5 410,-285.5 579,-285.5 579,-266.5 410,-266.5"/>
-<text text-anchor="middle" x="494.5" y="-273.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseConsoleModuleCommand</text>
+<g id="a_node4"><a xlink:href="classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="235,-191 235,-221 354,-221 354,-191 235,-191"/>
+<text text-anchor="start" x="243" y="-209" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::Message</text>
+<text text-anchor="middle" x="294.5" y="-198" font-family="Helvetica,sans-Serif" font-size="10.00">::getType</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node4 -->
+<!-- Node1&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
-<title>Node2&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M303.45,-171.58C320.13,-190.98 360.87,-234.97 405,-257 409.83,-259.41 414.96,-261.52 420.23,-263.36"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="419.21,-266.71 429.8,-266.39 421.32,-260.04 419.21,-266.71"/>
+<title>Node1&#45;&gt;Node4</title>
+<path fill="none" stroke="midnightblue" d="M184.16,-219.09C197.79,-217.46 211.65,-215.8 224.71,-214.23"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="225.49,-217.67 235,-213 224.65,-210.72 225.49,-217.67"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="command__processor_8cpp.html#a9106bfe97edd99b106962339800e17bf" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="418,-228.5 418,-247.5 571,-247.5 571,-228.5 418,-228.5"/>
-<text text-anchor="middle" x="494.5" y="-235.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseDataModuleCommand</text>
+<g id="a_node5"><a xlink:href="namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74" target="_top" xlink:title="Parses a command string into a command object.">
+<polygon fill="none" stroke="black" points="220,-152.5 220,-171.5 369,-171.5 369,-152.5 220,-152.5"/>
+<text text-anchor="middle" x="294.5" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">cmd::parseCommandString</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node5 -->
+<!-- Node1&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
-<title>Node2&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M310.85,-171.69C331.5,-184.32 369.71,-206.29 405,-219 412.38,-221.66 420.25,-224 428.13,-226.05"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="427.55,-229.51 438.09,-228.5 429.21,-222.72 427.55,-229.51"/>
-</g>
-<!-- Node7 -->
-<g id="node7" class="node">
-<title>Node7</title>
-<g id="a_node7"><a xlink:href="command__processor_8cpp.html#a22b7c20a37b3536428bb6f3cfc906076" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="423.5,-190.5 423.5,-209.5 565.5,-209.5 565.5,-190.5 423.5,-190.5"/>
-<text text-anchor="middle" x="494.5" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseExtensionCommand</text>
-</a>
-</g>
-</g>
-<!-- Node2&#45;&gt;Node7 -->
-<g id="edge6" class="edge">
-<title>Node2&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M345.21,-171.54C372.04,-176.69 405.36,-183.08 433.61,-188.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="433.29,-192.01 443.77,-190.46 434.61,-185.13 433.29,-192.01"/>
-</g>
-<!-- Node8 -->
-<g id="node8" class="node">
-<title>Node8</title>
-<g id="a_node8"><a xlink:href="command__processor_8cpp.html#ad0fa213670534c75ad5b96cd908d4c81" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="405.5,-152.5 405.5,-171.5 583.5,-171.5 583.5,-152.5 405.5,-152.5"/>
-<text text-anchor="middle" x="494.5" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseExtensionModuleCommand</text>
-</a>
-</g>
-</g>
-<!-- Node2&#45;&gt;Node8 -->
-<g id="edge7" class="edge">
-<title>Node2&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M369.23,-162C377.68,-162 386.4,-162 395.12,-162"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="395.33,-165.5 405.33,-162 395.33,-158.5 395.33,-165.5"/>
-</g>
-<!-- Node9 -->
-<g id="node9" class="node">
-<title>Node9</title>
-<g id="a_node9"><a xlink:href="command__processor_8cpp.html#a7652d53c747bc618ecacff1b43b94a72" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="416.5,-114.5 416.5,-133.5 572.5,-133.5 572.5,-114.5 416.5,-114.5"/>
-<text text-anchor="middle" x="494.5" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseFlightRunnerCommand</text>
-</a>
-</g>
-</g>
-<!-- Node2&#45;&gt;Node9 -->
-<g id="edge8" class="edge">
-<title>Node2&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M345.21,-152.46C372.04,-147.31 405.36,-140.92 433.61,-135.49"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="434.61,-138.87 443.77,-133.54 433.29,-131.99 434.61,-138.87"/>
-</g>
-<!-- Node10 -->
-<g id="node10" class="node">
-<title>Node10</title>
-<g id="a_node10"><a xlink:href="command__processor_8cpp.html#aa395b626abbd00953e3753ff9d64917e" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="414,-76.5 414,-95.5 575,-95.5 575,-76.5 414,-76.5"/>
-<text text-anchor="middle" x="494.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseServerModuleCommand</text>
-</a>
-</g>
-</g>
-<!-- Node2&#45;&gt;Node10 -->
-<g id="edge9" class="edge">
-<title>Node2&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M310.85,-152.31C331.5,-139.68 369.71,-117.71 405,-105 412.38,-102.34 420.25,-100 428.13,-97.95"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="429.21,-101.28 438.09,-95.5 427.55,-94.49 429.21,-101.28"/>
-</g>
-<!-- Node11 -->
-<g id="node11" class="node">
-<title>Node11</title>
-<g id="a_node11"><a xlink:href="command__processor_8cpp.html#acfe1b39a13cbda474fb3a8a6811f23ec" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="411,-38.5 411,-57.5 578,-57.5 578,-38.5 411,-38.5"/>
-<text text-anchor="middle" x="494.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseSystemModuleCommand</text>
-</a>
-</g>
-</g>
-<!-- Node2&#45;&gt;Node11 -->
-<g id="edge10" class="edge">
-<title>Node2&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M303.45,-152.42C320.13,-133.02 360.87,-89.03 405,-67 409.83,-64.59 414.96,-62.48 420.23,-60.64"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="421.32,-63.96 429.8,-57.61 419.21,-57.29 421.32,-63.96"/>
-</g>
-<!-- Node12 -->
-<g id="node12" class="node">
-<title>Node12</title>
-<g id="a_node12"><a xlink:href="command__processor_8cpp.html#a4d154f34c544db0f583f17cb3bac8f55" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="405,-0.5 405,-19.5 584,-19.5 584,-0.5 405,-0.5"/>
-<text text-anchor="middle" x="494.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseTelemetryModuleCommand</text>
-</a>
-</g>
-</g>
-<!-- Node2&#45;&gt;Node12 -->
-<g id="edge11" class="edge">
-<title>Node2&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M300.38,-152.43C313.54,-127.63 352.37,-61.03 405,-29 408.45,-26.9 412.1,-25.03 415.87,-23.37"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="417.42,-26.52 425.47,-19.64 414.88,-20 417.42,-26.52"/>
+<title>Node1&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M129.9,-214.98C155.07,-205.01 189.28,-191.96 220,-182 228.23,-179.33 237.05,-176.72 245.62,-174.31"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="246.81,-177.62 255.53,-171.59 244.96,-170.87 246.81,-177.62"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="command__processor_8cpp.html#af66cd87ab8d3892cf773fdea7899f953" target="_top" xlink:title="Returns the value of a hex string as a uint32_t.">
-<polygon fill="none" stroke="black" points="620,-228.5 620,-247.5 726,-247.5 726,-228.5 620,-228.5"/>
-<text text-anchor="middle" x="673" y="-235.5" font-family="Helvetica,sans-Serif" font-size="10.00">hexStringToUInt32</text>
+<g id="a_node6"><a xlink:href="command__processor_8cpp.html#a2d173b5fffc1c8b756aaf2a701db8dd0" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="415,-304.5 415,-323.5 574,-323.5 574,-304.5 415,-304.5"/>
+<text text-anchor="middle" x="494.5" y="-311.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseConfigurationCommand</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node6 -->
 <g id="edge5" class="edge">
 <title>Node5&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M353.5,-171.63C359.19,-174.3 364.51,-177.7 369,-182 407.06,-218.47 365.97,-259.58 405,-295 406.7,-296.54 408.5,-297.97 410.37,-299.3"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="408.65,-302.35 419.04,-304.44 412.23,-296.33 408.65,-302.35"/>
+</g>
+<!-- Node7 -->
+<g id="node7" class="node">
+<title>Node7</title>
+<g id="a_node7"><a xlink:href="command__processor_8cpp.html#ad1d8be34ae493715509b48acb62f4533" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="410,-266.5 410,-285.5 579,-285.5 579,-266.5 410,-266.5"/>
+<text text-anchor="middle" x="494.5" y="-273.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseConsoleModuleCommand</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node7 -->
+<g id="edge6" class="edge">
+<title>Node5&#45;&gt;Node7</title>
+<path fill="none" stroke="midnightblue" d="M351.44,-171.63C357.78,-174.29 363.82,-177.68 369,-182 397.41,-205.66 375.96,-234.12 405,-257 407.11,-258.66 409.32,-260.18 411.63,-261.58"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="410.42,-264.89 420.91,-266.37 413.63,-258.67 410.42,-264.89"/>
+</g>
+<!-- Node8 -->
+<g id="node8" class="node">
+<title>Node8</title>
+<g id="a_node8"><a xlink:href="command__processor_8cpp.html#a9106bfe97edd99b106962339800e17bf" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="418,-228.5 418,-247.5 571,-247.5 571,-228.5 418,-228.5"/>
+<text text-anchor="middle" x="494.5" y="-235.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseDataModuleCommand</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node8 -->
+<g id="edge7" class="edge">
+<title>Node5&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M344.82,-171.5C353.21,-174.2 361.59,-177.64 369,-182 388.77,-193.65 384.92,-207.89 405,-219 409.16,-221.3 413.58,-223.33 418.13,-225.11"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="417.03,-228.43 427.63,-228.42 419.34,-221.82 417.03,-228.43"/>
+</g>
+<!-- Node10 -->
+<g id="node10" class="node">
+<title>Node10</title>
+<g id="a_node10"><a xlink:href="command__processor_8cpp.html#a22b7c20a37b3536428bb6f3cfc906076" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="423.5,-190.5 423.5,-209.5 565.5,-209.5 565.5,-190.5 423.5,-190.5"/>
+<text text-anchor="middle" x="494.5" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseExtensionCommand</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node10 -->
+<g id="edge9" class="edge">
+<title>Node5&#45;&gt;Node10</title>
+<path fill="none" stroke="midnightblue" d="M345.21,-171.54C372.04,-176.69 405.36,-183.08 433.61,-188.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="433.29,-192.01 443.77,-190.46 434.61,-185.13 433.29,-192.01"/>
+</g>
+<!-- Node11 -->
+<g id="node11" class="node">
+<title>Node11</title>
+<g id="a_node11"><a xlink:href="command__processor_8cpp.html#ad0fa213670534c75ad5b96cd908d4c81" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="405.5,-152.5 405.5,-171.5 583.5,-171.5 583.5,-152.5 405.5,-152.5"/>
+<text text-anchor="middle" x="494.5" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseExtensionModuleCommand</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node11 -->
+<g id="edge10" class="edge">
+<title>Node5&#45;&gt;Node11</title>
+<path fill="none" stroke="midnightblue" d="M369.23,-162C377.68,-162 386.4,-162 395.12,-162"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="395.33,-165.5 405.33,-162 395.33,-158.5 395.33,-165.5"/>
+</g>
+<!-- Node12 -->
+<g id="node12" class="node">
+<title>Node12</title>
+<g id="a_node12"><a xlink:href="command__processor_8cpp.html#a7652d53c747bc618ecacff1b43b94a72" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="416.5,-114.5 416.5,-133.5 572.5,-133.5 572.5,-114.5 416.5,-114.5"/>
+<text text-anchor="middle" x="494.5" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseFlightRunnerCommand</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node12 -->
+<g id="edge11" class="edge">
+<title>Node5&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M345.21,-152.46C372.04,-147.31 405.36,-140.92 433.61,-135.49"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="434.61,-138.87 443.77,-133.54 433.29,-131.99 434.61,-138.87"/>
+</g>
+<!-- Node13 -->
+<g id="node13" class="node">
+<title>Node13</title>
+<g id="a_node13"><a xlink:href="command__processor_8cpp.html#aa395b626abbd00953e3753ff9d64917e" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="414,-76.5 414,-95.5 575,-95.5 575,-76.5 414,-76.5"/>
+<text text-anchor="middle" x="494.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseServerModuleCommand</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node13 -->
+<g id="edge12" class="edge">
+<title>Node5&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M310.85,-152.31C331.5,-139.68 369.71,-117.71 405,-105 412.38,-102.34 420.25,-100 428.13,-97.95"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="429.21,-101.28 438.09,-95.5 427.55,-94.49 429.21,-101.28"/>
+</g>
+<!-- Node14 -->
+<g id="node14" class="node">
+<title>Node14</title>
+<g id="a_node14"><a xlink:href="command__processor_8cpp.html#acfe1b39a13cbda474fb3a8a6811f23ec" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="411,-38.5 411,-57.5 578,-57.5 578,-38.5 411,-38.5"/>
+<text text-anchor="middle" x="494.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseSystemModuleCommand</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node14 -->
+<g id="edge13" class="edge">
+<title>Node5&#45;&gt;Node14</title>
+<path fill="none" stroke="midnightblue" d="M303.45,-152.42C320.13,-133.02 360.87,-89.03 405,-67 409.83,-64.59 414.96,-62.48 420.23,-60.64"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="421.32,-63.96 429.8,-57.61 419.21,-57.29 421.32,-63.96"/>
+</g>
+<!-- Node15 -->
+<g id="node15" class="node">
+<title>Node15</title>
+<g id="a_node15"><a xlink:href="command__processor_8cpp.html#a4d154f34c544db0f583f17cb3bac8f55" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="405,-0.5 405,-19.5 584,-19.5 584,-0.5 405,-0.5"/>
+<text text-anchor="middle" x="494.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseTelemetryModuleCommand</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node15 -->
+<g id="edge14" class="edge">
+<title>Node5&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M300.38,-152.43C313.54,-127.63 352.37,-61.03 405,-29 408.45,-26.9 412.1,-25.03 415.87,-23.37"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="417.42,-26.52 425.47,-19.64 414.88,-20 417.42,-26.52"/>
+</g>
+<!-- Node9 -->
+<g id="node9" class="node">
+<title>Node9</title>
+<g id="a_node9"><a xlink:href="command__processor_8cpp.html#af66cd87ab8d3892cf773fdea7899f953" target="_top" xlink:title="Returns the value of a hex string as a uint32_t.">
+<polygon fill="none" stroke="black" points="620,-228.5 620,-247.5 726,-247.5 726,-228.5 620,-228.5"/>
+<text text-anchor="middle" x="673" y="-235.5" font-family="Helvetica,sans-Serif" font-size="10.00">hexStringToUInt32</text>
+</a>
+</g>
+</g>
+<!-- Node8&#45;&gt;Node9 -->
+<g id="edge8" class="edge">
+<title>Node8&#45;&gt;Node9</title>
 <path fill="none" stroke="midnightblue" d="M571.12,-238C583.99,-238 597.22,-238 609.69,-238"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="609.96,-241.5 619.96,-238 609.96,-234.5 609.96,-241.5"/>
 </g>

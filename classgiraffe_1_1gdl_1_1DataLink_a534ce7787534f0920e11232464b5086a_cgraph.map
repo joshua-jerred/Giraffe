@@ -1,0 +1,6 @@
+<map id="giraffe::gdl::DataLink::sendMessage" name="giraffe::gdl::DataLink::sendMessage">
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,164,112"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="233,5,391,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="233,71,391,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="212,136,412,177"/>
+</map>

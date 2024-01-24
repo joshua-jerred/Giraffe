@@ -1,8 +1,7 @@
 <map id="giraffe_diagnostics.hpp" name="giraffe_diagnostics.hpp">
-<area shape="rect" id="node1" title="Giraffe&#39;s diagnostic system." alt="" coords="493,5,666,32"/>
+<area shape="rect" id="node1" title="Giraffe&#39;s diagnostic system." alt="" coords="406,5,579,32"/>
 <area shape="rect" id="node2" href="$i2c__interface_8hpp.html" title="A wrapper around I2C communication." alt="" coords="339,80,473,107"/>
 <area shape="rect" id="node13" href="$giraffe__exception_8cpp.html" title=" " alt="" coords="498,80,661,107"/>
-<area shape="rect" id="node14" href="$giraffe__data__link_8cpp.html" title="The main class for Giraffe Data Link." alt="" coords="685,80,844,107"/>
 <area shape="rect" id="node3" href="$bme280_8hpp.html" title="The BME280 sensor extension." alt="" coords="5,155,108,181"/>
 <area shape="rect" id="node5" href="$i2c__extension__adapter_8hpp.html" title="Adapter for I2C Extensions." alt="" coords="132,155,328,181"/>
 <area shape="rect" id="node8" href="$samm8q_8hpp.html" title="SAM&#45;M8Q GPS extension (I2C)." alt="" coords="353,155,459,181"/>

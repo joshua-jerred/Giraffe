@@ -1,6 +1,9 @@
 <map id="data::blocks::TelemetryModuleStats" name="data::blocks::TelemetryModuleStats">
-<area shape="rect" id="node1" title=" " alt="" coords="71,263,294,355"/>
+<area shape="rect" id="node1" title=" " alt="" coords="387,204,610,296"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,5,72,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="163,5,202,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="345,5,404,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="145,5,220,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="374,5,434,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="557,5,632,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="775,5,833,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="979,5,1029,83"/>
 </map>

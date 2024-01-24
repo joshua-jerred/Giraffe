@@ -1,0 +1,9 @@
+<map id="giraffe::gdl::GdlServer::sendMessage" name="giraffe::gdl::GdlServer::sendMessage">
+<area shape="rect" id="node1" title=" " alt="" coords="5,133,169,175"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a" title=" " alt="" coords="225,85,384,127"/>
+<area shape="rect" id="node6" href="$classgiraffe_1_1CommonLogger.html#a008aac905e59c9aaa273c06578acc590" title=" " alt="" coords="217,165,392,207"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="462,5,621,47"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="462,71,621,112"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="441,136,641,177"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1CommonLogger.html#a0430441609c79cc5174b9b10d26d5fe8" title=" " alt="" coords="440,202,643,229"/>
+</map>

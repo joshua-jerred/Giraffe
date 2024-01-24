@@ -1,0 +1,7 @@
+<map id="giraffe::gdl::TransportLayer::send" name="giraffe::gdl::TransportLayer::send">
+<area shape="rect" id="node1" title="Send a message to the remote node." alt="" coords="5,104,201,145"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="268,5,427,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a796c86f2cd82e0dba810fd51da7d7374" title=" " alt="" coords="249,71,445,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a7a77c02664ac9a237db2bb6da4b3106a" title="Check if the transport layer is ready to send a message (true) or if it is busy with the previous mes..." alt="" coords="249,136,445,177"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1Packet.html#a230dd4dc8894d107f481540d31c42fce" title=" " alt="" coords="276,201,419,243"/>
+</map>
