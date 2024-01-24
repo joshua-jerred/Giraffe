@@ -43,10 +43,6 @@ function AprsFi() {
     UPDATE_INTERVAL_MS
   );
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
   if (error) {
     return <p>Error: {error}</p>;
   }
@@ -153,9 +149,9 @@ function MessageLog({ category }) {
         >
           <MessageLogItemStyle>
             <MessageLogIdStyle>
-              {message.msg_id}:{message.type === "BROADCAST" ? "B" : "E"}
+              {message.identifier}:{message.type === "BROADCAST" ? "B" : "E"}
             </MessageLogIdStyle>
-            <span>{message.message}</span>
+            <span>{message.data}</span>
           </MessageLogItemStyle>
         </Tooltip>
       ))}
@@ -164,7 +160,23 @@ function MessageLog({ category }) {
 }
 
 function SendCommand() {
-  const [command, setCommand] = useState("");
+  const [command, setCommand] = useState("cmd/tlm/nae/"); /// @todo remove placeholder
+  const { ggsAddress, isGgsConnected } = useContext(GwsGlobal);
+
+  function broadcastCommand() {
+    if (!isGgsConnected) {
+      console.error("Not connected to GGS");
+      return;
+    }
+    console.log("broadcasting command: " + command);
+    fetch(`${ggsAddress}/api/gdl/broadcast`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data: command }),
+    });
+  }
 
   return (
     <>
@@ -173,7 +185,10 @@ function SendCommand() {
         value={command}
         onChange={(e) => setCommand(e.target.value)}
       />
-      <StyButton>send</StyButton>
+      <br />
+      <StyButton onClick={broadcastCommand}>broadcast</StyButton>
+      <br />
+      <StyButton>exchange</StyButton>
     </>
   );
 }
@@ -193,7 +208,7 @@ function TelemetryPage() {
           <Card title="Received">
             <MessageLog category="received_messages" />
           </Card>
-          <Card title="Send Command">
+          <Card title="Send Commands">
             <SendCommand />
           </Card>
           <Card title="aprs.fi">

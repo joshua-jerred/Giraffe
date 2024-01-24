@@ -33,7 +33,19 @@ module.exports = function (global_state) {
     }
 
     let category = req.query["category"];
-    let data = global_state.gdl_connection.telemetry_data[category];
+    let data = [];
+    if (category === "received_messages") {
+      global_state.database.getReceivedMessages((data) => {
+        res.json(data);
+      });
+      return;
+    } else if (category === "sent_messages") {
+      global_state.database.getSentMessages((data) => {
+        res.json(data);
+      });
+      return;
+    }
+    /// @todo implement other categories
     res.json(data);
   });
 

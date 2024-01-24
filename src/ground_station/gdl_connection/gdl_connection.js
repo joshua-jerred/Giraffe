@@ -157,7 +157,7 @@ module.exports = class GdlConnection {
       }
 
       // get sent messages if there are any
-      if (this.status_data.svl_sent_queue_size > 0) {
+      if (this.status_data.svl_sent_messages_queue > 0) {
         return "sent_messages";
       }
 
@@ -188,6 +188,18 @@ module.exports = class GdlConnection {
           );
         } else {
           console.log("location packet received, not implemented yet");
+        }
+      }
+    } else if (received_resource === "sent_messages") {
+      for (let obj of received_data) {
+        if (obj.type !== "LOCATION") {
+          this.global_state.database.addSentMessage(
+            obj.type,
+            obj.data,
+            obj.identifier
+          );
+        } else {
+          console.log("location packet sent, not implemented yet");
         }
       }
     } else {

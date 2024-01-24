@@ -40,6 +40,15 @@ module.exports = class PostgresDatabase {
             );`
       );
       this.db.exec(
+        `CREATE TABLE IF NOT EXISTS gdl_sent_messages (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            type               TEXT      NOT NULL,
+            data               TEXT      NOT NULL,
+            identifier         TEXT      NOT NULL,
+            timestamp          INTEGER   NOT NULL
+            );`
+      );
+      this.db.exec(
         `CREATE TABLE IF NOT EXISTS aprs_fi (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name               TEXT      NOT NULL,
@@ -172,6 +181,53 @@ module.exports = class PostgresDatabase {
         $timestamp: unix_time,
       }
     );
+  }
+
+  getReceivedMessages(callback) {
+    const LIMIT = 50;
+    const query = `SELECT * FROM gdl_received_messages ORDER BY timestamp DESC LIMIT ${LIMIT};`;
+    this.db.all(query, [], (err, rows) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      callback(rows);
+    });
+  }
+
+  addSentMessage(type, data, identifier) {
+    const unix_time = Math.round(+new Date() / 1000);
+    this.db.run(
+      `INSERT INTO gdl_sent_messages (
+            type,
+            data,
+            identifier,
+            timestamp
+        ) VALUES (
+            $type,
+            $data,
+            $identifier,
+            $timestamp
+        );`,
+      {
+        $type: type,
+        $data: data,
+        $identifier: identifier,
+        $timestamp: unix_time,
+      }
+    );
+  }
+
+  getSentMessages(callback) {
+    const LIMIT = 50;
+    const query = `SELECT * FROM gdl_sent_messages ORDER BY timestamp DESC LIMIT ${LIMIT};`;
+    this.db.all(query, [], (err, rows) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      callback(rows);
+    });
   }
 
   #insertAprsFiData(data) {

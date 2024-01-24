@@ -45,7 +45,7 @@ void GdlServer::handleRequestStatus() {
       {"nwl_signal_to_noise_ratio", stats.signal_to_noise_ratio},
       {"nwl_latency_ms", stats.network_layer_latency_ms},
       {"svl_log_queue_size", log_.getLogQueueSize()},
-      {"svl_send_messages_queue", sent_messages_.size()}};
+      {"svl_sent_messages_queue", sent_messages_.size()}};
 
   sendResponseData(res_data, "status");
 }
