@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['readstate_2810',['ReadState',['../group__SAMM8QState.html#ga761853c53cc0066e6cab6bb84941d635',1,'extension::SamM8qExtension']]],
-  ['resetstate_2811',['ResetState',['../group__SAMM8QState.html#gafb3c90d8789d69060f4e5be306365db1',1,'extension::SamM8qExtension']]],
-  ['responsecode_2812',['ResponseCode',['../namespaceprotocol.html#a14a4518c9c5eba60611b473d659c069d',1,'protocol']]],
-  ['result_2813',['Result',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518',1,'I2cInterface']]]
+  ['readstate_2809',['ReadState',['../group__SAMM8QState.html#ga761853c53cc0066e6cab6bb84941d635',1,'extension::SamM8qExtension']]],
+  ['resetstate_2810',['ResetState',['../group__SAMM8QState.html#gafb3c90d8789d69060f4e5be306365db1',1,'extension::SamM8qExtension']]],
+  ['responsecode_2811',['ResponseCode',['../namespaceprotocol.html#a14a4518c9c5eba60611b473d659c069d',1,'protocol']]],
+  ['result_2812',['Result',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518',1,'I2cInterface']]]
 ];
