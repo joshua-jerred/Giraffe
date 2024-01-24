@@ -34,6 +34,11 @@ target_link_libraries(
 target_include_directories(unit_test_gdl PRIVATE ${GDL_SRC})
 set_target_properties(unit_test_gdl PROPERTIES RUNTIME_OUTPUT_DIRECTORY
                                                ${GDL_TEST_BIN})
+target_include_directories(
+  unit_test_gdl
+  PRIVATE
+  ${THIRD_PARTY_SRC}/nlohmann_json/single_include
+)
 
 # --- Flight Software ---
 file(GLOB gfs_test_sources "${GFS_TEST_SRC}/test_*.cpp")
@@ -114,9 +119,8 @@ set_target_properties(
 )
 
 # ---------------- ctest ----------------
-include(CTest)
-enable_testing()
-add_test(NAME common_tests COMMAND unit_test_common)
+# include(CTest)
+add_test(NAME common_tests COMMAND $<TARGET_FILE:unit_test_common>)
 add_test(NAME flight_system_tests COMMAND unit_test_gfs)
 add_test(NAME data_link_tests COMMAND unit_test_gdl)
 

@@ -70,4 +70,5 @@ target_link_libraries(
 target_include_directories(
   ${EXE_NAME}
   PRIVATE
-  ${THIRD_PARTY_SRC}/nlohmann_json/single_include)
+  ${THIRD_PARTY_SRC}/nlohmann_json/single_include
+)

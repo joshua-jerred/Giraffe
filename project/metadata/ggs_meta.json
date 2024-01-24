@@ -66,7 +66,7 @@
       "data_update_interval": {
         "type": "int",
         "name": "GDL Data Update Interval (ms)",
-        "description": "",
+        "description": "The rate at which to poll the Giraffe Data Link Server",
         "min": 100,
         "max": 10000,
         "default": 1000

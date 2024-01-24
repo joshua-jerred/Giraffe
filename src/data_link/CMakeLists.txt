@@ -34,6 +34,11 @@ target_include_directories(gdl_server PRIVATE "./server")
 set_target_properties(gdl_server
   PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GDL_BIN}
 )
+target_include_directories(
+  gdl_server
+  PRIVATE
+  ${THIRD_PARTY_SRC}/nlohmann_json/single_include
+)
 
 add_executable(gdl_terminal
   "./gdl_terminal.cpp"
@@ -43,4 +48,9 @@ target_link_libraries(gdl_terminal
 )
 set_target_properties(gdl_terminal
   PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GDL_BIN}
+)
+target_include_directories(
+  gdl_terminal
+  PRIVATE
+  ${THIRD_PARTY_SRC}/nlohmann_json/single_include
 )

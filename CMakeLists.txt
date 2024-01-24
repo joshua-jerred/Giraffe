@@ -112,6 +112,8 @@ add_subdirectory(lib/SignalEasel)          # SignalEasel
 add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
 add_subdirectory(lib/bzip2-cpp)            # bzip2-cpp
 
-# Unit Tests
-add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
 # ----------------------------
+
+# Unit Tests
+enable_testing()
+add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
