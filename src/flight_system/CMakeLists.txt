@@ -72,3 +72,8 @@ target_include_directories(
   PRIVATE
   ${THIRD_PARTY_SRC}/nlohmann_json/single_include
 )
+
+if(DEFINED ENV{RASPBERRY_PI} AND $ENV{RASPBERRY_PI} EQUAL 1)
+  message(STATUS "Raspberry Pi Build: Enabled")
+  target_compile_definitions(${EXE_NAME} PRIVATE RASPBERRY_PI=1)
+endif()
