@@ -75,7 +75,7 @@ jobs:
       - name: Build Test
         run: cd build && make unit_test_common -j 4
       - name: Run Test
-        run: cd build/bin/tests/common && ./unit_test_common
+        run: cd build/bin/tests && ./unit_test_common
 
   gfs_tests:
     name: Unit Tests / Giraffe Flight System
@@ -94,7 +94,7 @@ jobs:
       - name: Build Test
         run: cd build && make unit_test_gfs -j 4
       - name: Run Test
-        run: cd build/bin/tests/flight_system && ./unit_test_gfs
+        run: cd build/bin/tests && ./unit_test_gfs
 
   data_link_tests:
     name: Unit Tests / Data Link
@@ -113,7 +113,7 @@ jobs:
       - name: Build Test
         run: cd build && make unit_test_gdl -j 4
       - name: Run Test
-        run: cd build/bin/tests/data_link && ./unit_test_gdl
+        run: cd build/bin/tests && ./unit_test_gdl
 
   common_tests_js:
     name: Unit Tests / Common JS
