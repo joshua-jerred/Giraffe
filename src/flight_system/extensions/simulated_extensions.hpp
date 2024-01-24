@@ -103,8 +103,8 @@ public:
     gps_frame.horz_accuracy = 5.0;
     gps_frame.altitude = 1000.0;
     gps_frame.vert_accuracy = 1.0;
-    gps_frame.vertical_speed = 1.0;
-    gps_frame.horizontal_speed = 1.0;
+    gps_frame.vertical_speed = 5.0;
+    gps_frame.horizontal_speed = 5.0;
     gps_frame.speed_accuracy = 1.0;
     gps_frame.heading_of_motion = 1.0;
     gps_frame.heading_accuracy = 1.0;
