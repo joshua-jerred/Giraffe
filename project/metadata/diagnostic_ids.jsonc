@@ -152,6 +152,11 @@
       "name": "Unrecognized Command",
       "details": "The command is not recognized by the data module.",
       "value": "0x2004"
+    },
+    "no_gps_source":{
+      "name": "No GPS Source",
+      "details": "No source for GPS data has been set.",
+      "value": "0x2005"
     }
   },
   "data_log": {
