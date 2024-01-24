@@ -18,6 +18,9 @@ module.exports = class GdlConnection {
     this.status_data = {};
     this.status_last_updated = new Date();
 
+    this.config_data = {};
+    this.config_up_to_date = false;
+
     this.telemetry_data = {
       position_packets: [],
       received_messages: [],
@@ -63,7 +66,6 @@ module.exports = class GdlConnection {
     this.#updateClassSettings();
 
     if (!this.socket || !this.connected) {
-      console.log("new socket");
       let self = this;
       this.socket = new net.Socket();
       this.socket.setTimeout(TIMEOUT);
@@ -75,26 +77,21 @@ module.exports = class GdlConnection {
       });
       this.socket.on("data", function (data) {
         self.connected = true;
-        console.log("GDL Connection Data");
+        // console.log("GDL Connection Data");
 
         let message = parse(data.toString());
         if (!message.bdy.rsc || !message.bdy.dat) {
           throw new Error("Invalid response received: " + message);
         }
 
-        self.#handleSocketResponse(message);
-
-        if (message.bdy.rsc === "status") {
-          console.log("got status data");
-          self.status_data = message.bdy.data;
-        }
+        let next_request_rsc = self.#handleSocketResponse(message);
 
         if (self.socket_interval) {
           clearInterval(self.socket_interval);
         }
         self.socket_interval = setInterval(() => {
           // send new requests here!
-          let new_request = new RequestMessage("ggs", "gdl", "status");
+          let new_request = new RequestMessage("ggs", "gdl", next_request_rsc);
           self.socket.write(JSON.stringify(new_request));
         }, self.update_interval);
       });
@@ -104,7 +101,7 @@ module.exports = class GdlConnection {
         self.socket_interval = null;
       });
       this.socket.on("error", function (err) {
-        console.log("GDL Connection Error: " + err);
+        // console.log("GDL Connection Error: " + err);
         self.connected = false;
         clearInterval(self.socket_interval);
         self.socket_interval = null;
@@ -126,8 +123,44 @@ module.exports = class GdlConnection {
     if (received_resource === "status") {
       this.status_data = received_data;
       this.status_last_updated = new Date();
-    }
 
+      // console.log(this.status_data);
+
+      // update the local config first
+      if (!this.config_up_to_date) {
+        return "config";
+      }
+
+      // get received messages if there are any
+      if (this.status_data.svl_received_queue_size > 0) {
+        return "received_messages";
+      }
+
+      // get sent messages if there are any
+      if (this.status_data.svl_sent_queue_size > 0) {
+        return "sent_messages";
+      }
+
+      // lastly, update the logs
+      if (this.status_data.svl_log_queue_size > 0) {
+        return "log";
+      }
+    } else if (received_resource === "config") {
+      this.config_data = received_data;
+      this.config_up_to_date = true;
+    } else if (received_resource === "log") {
+      for (let obj of received_data) {
+        let timestamp = new Date(obj.time + "Z");
+        let unix_time = Math.floor(timestamp.getTime() / 1000);
+        this.global_state.database.addGdlServerLogItem({
+          level: obj.level.toLowerCase(),
+          message: obj.msg,
+          timestamp: unix_time,
+        });
+      }
+    } else {
+      console.log("Received unknown resource: " + received_resource);
+    }
     return "status";
   }
 

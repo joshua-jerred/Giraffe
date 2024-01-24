@@ -27,6 +27,18 @@ module.exports = class PostgresDatabase {
     }
     try {
       this.db.exec(
+        `CREATE TABLE IF NOT EXISTS gdl_server_log (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            level              TEXT      NOT NULL,
+            message            TEXT      NOT NULL,
+            timestamp          INTEGER   NOT NULL
+            );`
+      );
+    } catch (err) {
+      console.log(err);
+    }
+    try {
+      this.db.exec(
         `CREATE TABLE IF NOT EXISTS aprs_fi (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name               TEXT      NOT NULL,
@@ -117,6 +129,25 @@ module.exports = class PostgresDatabase {
       }
       callback(rows);
     });
+  }
+
+  addGdlServerLogItem(item) {
+    this.db.run(
+      `INSERT INTO gdl_server_log (
+            level,
+            message,
+            timestamp
+        ) VALUES (
+            $level,
+            $message,
+            $timestamp
+        );`,
+      {
+        $level: item.level,
+        $message: item.message,
+        $timestamp: item.timestamp,
+      }
+    );
   }
 
   #insertAprsFiData(data) {
