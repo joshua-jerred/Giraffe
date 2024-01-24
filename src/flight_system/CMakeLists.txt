@@ -64,6 +64,7 @@ target_link_libraries(
   # -------- Third Party Libraries ---------
   i2c
   Threads::Threads
-  nlohmann_json::nlohmann_json
   ${CURSES_LIBRARIES}
-  ${CURL_LIBRARIES})
+  ${CURL_LIBRARIES}
+)
+target_include_directories(${EXE_NAME} PRIVATE ${3RD_PARTY_SRC}/nlohmann_json/single_include)

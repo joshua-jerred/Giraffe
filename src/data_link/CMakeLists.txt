@@ -12,6 +12,8 @@ target_link_libraries(giraffe_data_link_core
   BoosterSeat
   SignalEasel
 )
+target_include_directories(giraffe_data_link_core PRIVATE ${3RD_PARTY_SRC}/nlohmann_json/single_include)
+
 
 add_executable(gdl_server
   "server/main.cpp"

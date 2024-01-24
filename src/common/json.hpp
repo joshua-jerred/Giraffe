@@ -18,7 +18,7 @@
 #ifndef JSON_HPP_
 #define JSON_HPP_
 
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 #include <string>
 
 typedef nlohmann::ordered_json Json;
