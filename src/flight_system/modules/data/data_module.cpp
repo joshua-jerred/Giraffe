@@ -10,6 +10,21 @@ modules::DataModule::DataModule(data::SharedData &shared_data,
                                 cfg::Configuration &config)
     : modules::Module(metadata, shared_data, config),
       data_log_(shared_data, config), influxdb_(shared_data, config) {
+
+  // check for GPS data source
+  auto ext_cfg = configuration_.extensions.getExtensions();
+  bool have_gps_source = false;
+  for (auto &ext_meta : ext_cfg) {
+    if (ext_meta.type == cfg::gEnum::ExtensionType::SIM_GPS ||
+        ext_meta.type == cfg::gEnum::ExtensionType::SAM_M8Q) {
+      have_gps_source = true;
+      break;
+    }
+  }
+
+  if (!have_gps_source) {
+    error(DiagnosticId::DATA_MODULE_noGpsSource);
+  }
 }
 
 void modules::DataModule::startup() {
