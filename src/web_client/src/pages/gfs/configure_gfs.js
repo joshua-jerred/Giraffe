@@ -2,8 +2,6 @@ import {
   PageTitle,
   PageContent,
   Card,
-  CardBreak,
-  CardSectionTitle,
   CardMasonryLayout,
 } from "../../core/PageParts";
 import { GfsEditBox } from "../../components/Editable";
@@ -43,17 +41,19 @@ function ConfigureGfsPage() {
             <GfsEditBox resource="gfs" category="system_module" />
           </Card>
 
-          <Card title="Telemetry">
-            <CardSectionTitle>General</CardSectionTitle>
+          <Card title="Telemetry - General">
             <GfsEditBox resource="gfs" category="telemetry" />
-            <CardBreak />
-            <CardSectionTitle>APRS</CardSectionTitle>
+          </Card>
+
+          <Card title="Telemetry - APRS">
             <GfsEditBox resource="gfs" category="telemetry_aprs" />
-            <CardBreak />
-            <CardSectionTitle>SSTV</CardSectionTitle>
+          </Card>
+
+          <Card title="Telemetry - SSTV">
             <GfsEditBox resource="gfs" category="telemetry_sstv" />
-            <CardBreak />
-            <CardSectionTitle>Data Packets</CardSectionTitle>
+          </Card>
+
+          <Card title="Telemetry - Data Packets">
             <GfsEditBox resource="gfs" category="telemetry_data_packets" />
           </Card>
 

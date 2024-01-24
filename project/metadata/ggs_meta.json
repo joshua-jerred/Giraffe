@@ -3,13 +3,13 @@
     "gfs_connection": {
       "gfs_socket_address": {
         "type": "string",
-        "name": "GFS Server",
+        "name": "GFS Socket Address",
         "description": "The address for the Giraffe Flight Software socket. The web server will use this to communicate while on the ground.",
         "default": "localhost"
       },
       "gfs_socket_port": {
         "type": "int",
-        "name": "GFS Port",
+        "name": "GFS Socket Port",
         "description": "The port for the Giraffe Flight Software socket. The web server will use this to communicate while on the ground.",
         "min": 0,
         "max": 65535,

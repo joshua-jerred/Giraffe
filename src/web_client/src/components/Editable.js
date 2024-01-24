@@ -225,6 +225,7 @@ export function EditBox({ resource, category }) {
 
   function Save() {
     const data = values;
+    console.log("Save", data);
     fetch(path, {
       method: "PUT",
       headers: {
@@ -399,7 +400,7 @@ export function GfsEditBox({ category }) {
                 key={key}
                 json={value}
                 input={editMode}
-                value={values[key]}
+                // value={values[key]}
                 id={key}
                 values={values}
                 setValues={setValues}
