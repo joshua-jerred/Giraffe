@@ -187,7 +187,15 @@ module.exports = class GdlConnection {
             obj.identifier
           );
         } else {
-          console.log("location packet received, not implemented yet");
+          let loc = obj.location;
+          this.global_state.database.addReceivedLocation(
+            loc.latitude,
+            loc.longitude,
+            loc.altitude,
+            loc.speed,
+            loc.heading,
+            loc.time_code
+          );
         }
       }
     } else if (received_resource === "sent_messages") {
