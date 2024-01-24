@@ -188,6 +188,17 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
     extension =
         std::make_shared<extension::Ds18b20>(extension_resources_, meta);
     break;
+  case cfg::gEnum::ExtensionType::MCP3021:
+    extension =
+        std::make_shared<extension::Mcp3021>(extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::MAX11615:
+    extension =
+        std::make_shared<extension::Max11615>(extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::BMI088:
+    extension = std::make_shared<extension::Bmi088>(extension_resources_, meta);
+    break;
   default:
     giraffe_assert(false); // Shouldn't get here
     return option;
