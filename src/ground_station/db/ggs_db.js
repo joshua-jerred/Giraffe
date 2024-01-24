@@ -13,6 +13,7 @@ class GgsDataBase {
   }
 
   load() {
+    file_paths.prepareFileSystem();
     if (fs.existsSync(this.file_path) === false) {
       fs.writeFileSync(this.file_path, "{}");
     }
