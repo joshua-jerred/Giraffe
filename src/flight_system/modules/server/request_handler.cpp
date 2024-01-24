@@ -162,6 +162,32 @@ void RequestRouter::handleSettingSet(sock::TcpSocketServer &client,
   Json res_body = {{"success", true}};
   if (req == "general") {
     config_.general.setFromJson(new_cfg_data);
+  } else if (req == "data_module_data") {
+    config_.data_module_data.setFromJson(new_cfg_data);
+  } else if (req == "data_module_influxdb") {
+    config_.data_module_influxdb.setFromJson(new_cfg_data);
+  } else if (req == "data_module_log") {
+    config_.data_module_log.setFromJson(new_cfg_data);
+  } else if (req == "console_module") {
+    config_.console_module.setFromJson(new_cfg_data);
+  } else if (req == "server_module") {
+    config_.server_module.setFromJson(new_cfg_data);
+  } else if (req == "system_module") {
+    config_.system_module.setFromJson(new_cfg_data);
+  } else if (req == "telemetry") {
+    config_.telemetry.setFromJson(new_cfg_data);
+  } else if (req == "telemetry_aprs") {
+    config_.telemetry_aprs.setFromJson(new_cfg_data);
+  } else if (req == "telemetry_sstv") {
+    config_.telemetry_sstv.setFromJson(new_cfg_data);
+  } else if (req == "telemetry_data_packets") {
+    config_.telemetry_data_packets.setFromJson(new_cfg_data);
+  } else if (req == "extensions") {
+    config_.extensions.setFromJson(new_cfg_data);
+  } else if (req == "extension_module") {
+    config_.extension_module.setFromJson(new_cfg_data);
+  } else if (req == "hardware_interface") {
+    config_.hardware_interface.setFromJson(new_cfg_data);
   } else {
     sendErrorPacket(client, "setting section not found");
     return;
