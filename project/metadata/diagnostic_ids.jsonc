@@ -622,6 +622,63 @@
       "value": "0x7013"
     }
   },
+  "interface":{
+    "invalid_gpio_pin":{
+      "name": "Invalid GPIO Pin",
+      "details": "The GPIO pin is not valid.",
+      "value": "0x8000"
+    },
+    "invalid_gpio_pin_mode":{
+      "name": "Invalid GPIO Pin Mode",
+      "details": "The GPIO pin mode is not valid.",
+      "value": "0x8001"
+    },
+    "initial_state_input_pin":{
+      "name": "Initial State Input Pin",
+      "details": "The GPIO pin is an input pin and can not be set to an initial state.",
+      "value": "0x8002"
+    },
+    "gpio_failed_to_init":{
+      "name": "GPIO Init Failed",
+      "details": "Failed to open /dev/gpiomem",
+      "value": "0x8003"
+    },
+    "gpio_failed_to_map_registers":{
+      "name": "GPIO Map Registers Failed",
+      "details": "Failed to map registers",
+      "value": "0x8004"
+    },
+    "gpio_not_initialized":{
+      "name": "GPIO Not Initialized",
+      "details": "A pin can not be reserved as the GPIO module has not been initialized.",
+      "value": "0x8005"
+    },
+    "gpio_pin_already_reserved":{
+      "name": "GPIO Pin Already Reserved",
+      "details": "The GPIO pin is already reserved.",
+      "value": "0x8006"
+    },
+    "gpio_not_owner":{
+      "name": "GPIO Not Owner",
+      "details": "The GPIO pin is not owned by the caller.",
+      "value": "0x8007"
+    },
+    "gpio_pin_not_output":{
+      "name": "GPIO Pin Not Output",
+      "details": "The GPIO pin is not an output pin. Can't write to it.",
+      "value": "0x8008"
+    },
+    "gpio_not_reserver_or_not_owner":{
+      "name": "GPIO Pin Not Reserved or Not Owner",
+      "details": "The GPIO pin is not reserved or the caller is not the owner.",
+      "value": "0x8009"
+    },
+    "gpio_can_not_read_output_pin": {
+      "name": "GPIO Can Not Read Output Pin",
+      "details": "The GPIO pin is an output pin and can not be read.",
+      "value": "0x800A"
+    }
+  },
   "gdl":{
     "invalid_start_call":{
       "name": "Invalid Start Call",

@@ -24,10 +24,9 @@
 #include "positional.hpp"
 
 namespace extension {
-class SamM8qExtension : public Extension {
+class SamM8q : public Extension {
 public:
-  SamM8qExtension(ExtensionResources &resources,
-                  cfg::ExtensionMetadata metadata);
+  SamM8q(ExtensionResources &resources, cfg::ExtensionMetadata metadata);
 
   /**
    * @brief Startup the extension.

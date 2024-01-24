@@ -39,6 +39,25 @@ jobs:
       - name: Build Giraffe Data Link
         run: cd build && make giraffe_data_link_core -j 4
 
+  build_utilities:
+    name: Build / Utilities
+    runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/giraffe:latest
+      options: --user root
+    steps:
+      - uses: actions/checkout/@v1
+        with:
+          submodules: recursive
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
+      - name: CMake Configure
+        run: mkdir build -p && cd build && cmake ..
+      - name: Build eepmake
+        run: cd build && make eepmake -j 4
+      - name: Build eepdump
+        run: cd build && make eepdump -j 4
+
   common_tests_cpp:
     name: Unit Tests / Common C++
     runs-on: ubuntu-latest
@@ -56,7 +75,7 @@ jobs:
       - name: Build Test
         run: cd build && make unit_test_common -j 4
       - name: Run Test
-        run: cd build/bin/tests/common && ./unit_test_common
+        run: cd build/bin/tests && ./unit_test_common
 
   gfs_tests:
     name: Unit Tests / Giraffe Flight System
@@ -75,7 +94,7 @@ jobs:
       - name: Build Test
         run: cd build && make unit_test_gfs -j 4
       - name: Run Test
-        run: cd build/bin/tests/flight_system && ./unit_test_gfs
+        run: cd build/bin/tests && ./unit_test_gfs
 
   data_link_tests:
     name: Unit Tests / Data Link
@@ -94,7 +113,7 @@ jobs:
       - name: Build Test
         run: cd build && make unit_test_gdl -j 4
       - name: Run Test
-        run: cd build/bin/tests/data_link && ./unit_test_gdl
+        run: cd build/bin/tests && ./unit_test_gdl
 
   common_tests_js:
     name: Unit Tests / Common JS

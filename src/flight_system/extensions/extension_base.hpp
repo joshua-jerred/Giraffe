@@ -23,6 +23,7 @@
 #include "giraffe_debug.hpp"
 #include "sections/cfg_extensions.hpp"
 #include "shared_data.hpp"
+#include "status_led.hpp"
 
 namespace extension {
 
@@ -30,8 +31,9 @@ namespace extension {
  * @brief This contains objects that are shared between all extensions.
  */
 struct ExtensionResources {
-  ExtensionResources(data::Streams &streams, cfg::gEnum::I2CBus i2c_bus)
-      : streams(streams), i2c_bus(i2c_bus) {
+  ExtensionResources(data::Streams &streams, cfg::gEnum::I2CBus i2c_bus,
+                     giraffe::StatusLed &status_led)
+      : streams(streams), i2c_bus(i2c_bus), status_led(status_led) {
   }
 
   /**
@@ -51,6 +53,11 @@ struct ExtensionResources {
    * @brief The bus to use for I2C communication.
    */
   cfg::gEnum::I2CBus i2c_bus;
+
+  /**
+   * @brief The status LED.
+   */
+  giraffe::StatusLed &status_led;
 };
 
 /**

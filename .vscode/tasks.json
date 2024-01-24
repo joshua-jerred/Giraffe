@@ -55,6 +55,32 @@
           "args": ["-l", "-c"]
         }
       }
-    }
+    },
+    {
+      "label": "docker_build_gfs",
+      "type": "shell",
+      "command": "docker compose run --rm build_gfs",
+      "detail": "Build GFS with the cross compiler",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "host_unit_test",
+      "type": "shell",
+      "command": "bash ./project/run_unit_test.sh",
+      "detail": "Run the host based unit tests on the host",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
   ]
 }

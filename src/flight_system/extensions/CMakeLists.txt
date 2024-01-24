@@ -7,6 +7,7 @@ target_sources(gfs_extensions INTERFACE
 	${CMAKE_CURRENT_SOURCE_DIR}/ds18b20.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/samm8q.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/mcp3021.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/rgb_status_led.cpp
 )
 target_include_directories(gfs_extensions INTERFACE 
   ${CMAKE_CURRENT_SOURCE_DIR}

@@ -25,5 +25,10 @@ void __assert_func(const char *__file, int __line, const char *__expr) {
   std::abort();
 }
 #else
-static_assert(false);
+/// @todo Implement a better way to handle asserts in release mode.
+void __assert_func(const char *__file, int __line, const char *__expr) {
+  std::cout << "ASSERT: " << __file << ":" << __line << ": Assertion `"
+            << __expr << "' failed." << std::endl;
+}
+// static_assert(false);
 #endif /* NDEBUG */

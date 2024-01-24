@@ -253,7 +253,8 @@ enum class ExtensionType {
   BMP180,
   BME280,
   SAM_M8Q,
-  DS18B20
+  DS18B20,
+  RGB_LED
 };
 std::unordered_map<std::string, cfg::gEnum::ExtensionType> const K_STRING_TO_EXTENSION_TYPE_MAP = {
   {"unknown", cfg::gEnum::ExtensionType::UNKNOWN},
@@ -266,7 +267,8 @@ std::unordered_map<std::string, cfg::gEnum::ExtensionType> const K_STRING_TO_EXT
   {"bmp180", cfg::gEnum::ExtensionType::BMP180},
   {"bme280", cfg::gEnum::ExtensionType::BME280},
   {"sam_m8q", cfg::gEnum::ExtensionType::SAM_M8Q},
-  {"ds18b20", cfg::gEnum::ExtensionType::DS18B20}
+  {"ds18b20", cfg::gEnum::ExtensionType::DS18B20},
+  {"rgb_led", cfg::gEnum::ExtensionType::RGB_LED}
 };
 std::map<cfg::gEnum::ExtensionType, std::string> const K_EXTENSION_TYPE_TO_STRING_MAP = {
   {cfg::gEnum::ExtensionType::UNKNOWN, "unknown"},
@@ -279,7 +281,8 @@ std::map<cfg::gEnum::ExtensionType, std::string> const K_EXTENSION_TYPE_TO_STRIN
   {cfg::gEnum::ExtensionType::BMP180, "bmp180"},
   {cfg::gEnum::ExtensionType::BME280, "bme280"},
   {cfg::gEnum::ExtensionType::SAM_M8Q, "sam_m8q"},
-  {cfg::gEnum::ExtensionType::DS18B20, "ds18b20"}
+  {cfg::gEnum::ExtensionType::DS18B20, "ds18b20"},
+  {cfg::gEnum::ExtensionType::RGB_LED, "rgb_led"}
 };
 
 enum class I2CBus {

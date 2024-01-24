@@ -16,9 +16,14 @@
 
 #include "extension_module.hpp"
 #include "giraffe_assert.hpp"
-#include "simulated_extensions.hpp"
 
-#include <iostream>
+// ---- EXTENSIONS ----
+#include "bme280.hpp"
+#include "ds18b20.hpp"
+#include "rgb_status_led.hpp"
+#include "samm8q.hpp"
+#include "simulated_extensions.hpp"
+// --------------------
 
 inline constexpr bool LOAD_SIMULATED_EXTENSIONS = true;
 static const std::vector<cfg::ExtensionMetadata> SIMULATED_EXTENSIONS = {
@@ -43,7 +48,8 @@ ExtensionModule::ExtensionModule(data::SharedData &shared_data,
                                  cfg::Configuration &config)
     : modules::Module(metadata, shared_data, config),
       extension_resources_(shared_data.streams,
-                           config.hardware_interface.getI2CBus()) {
+                           config.hardware_interface.getI2CBus(),
+                           shared_data.status_led) {
 }
 
 void ExtensionModule::startup() {
@@ -167,6 +173,20 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
   case cfg::gEnum::ExtensionType::SIM_IMU:
     extension =
         std::make_shared<extension::SimImuSensor>(extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::RGB_LED:
+    extension =
+        std::make_shared<extension::RgbStatusLed>(extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::BME280:
+    extension = std::make_shared<extension::Bme280>(extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::SAM_M8Q:
+    extension = std::make_shared<extension::SamM8q>(extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::DS18B20:
+    extension =
+        std::make_shared<extension::Ds18b20>(extension_resources_, meta);
     break;
   default:
     giraffe_assert(false); // Shouldn't get here

@@ -148,6 +148,17 @@ enum class DiagnosticId : uint16_t {
   EXT_FAULT_i2cUnknownFault=0x7011, // I2C Unknown Fault
   EXT_FAULT_i2cHandshakeTimeoutFault=0x7012, // I2C Handshake Timeout Fault
   EXT_FAULT_adcWatchdogTimeout=0x7013, // ADC Watchdog Timeout Fault
+  INTERFACE_invalidGpioPin=0x8000, // Invalid GPIO Pin
+  INTERFACE_invalidGpioPinMode=0x8001, // Invalid GPIO Pin Mode
+  INTERFACE_initialStateInputPin=0x8002, // Initial State Input Pin
+  INTERFACE_gpioFailedToInit=0x8003, // GPIO Init Failed
+  INTERFACE_gpioFailedToMapRegisters=0x8004, // GPIO Map Registers Failed
+  INTERFACE_gpioNotInitialized=0x8005, // GPIO Not Initialized
+  INTERFACE_gpioPinAlreadyReserved=0x8006, // GPIO Pin Already Reserved
+  INTERFACE_gpioNotOwner=0x8007, // GPIO Not Owner
+  INTERFACE_gpioPinNotOutput=0x8008, // GPIO Pin Not Output
+  INTERFACE_gpioNotReserverOrNotOwner=0x8009, // GPIO Pin Not Reserved or Not Owner
+  INTERFACE_gpioCanNotReadOutputPin=0x800A, // GPIO Can Not Read Output Pin
   GDL_invalidStartCall=0xA000, // Invalid Start Call
   GDL_invalidStopCall=0xA001, // Invalid Stop Call
   GDL_invalidBroadcastCall=0xA002, // Invalid Broadcast Call
