@@ -69,6 +69,11 @@
       "name": "Send SNR",
       "details": "Sends the SNR value from the telemetry module.",
       "value": "0x3002"
+    },
+    "send_aprs_location": {
+      "name": "Send APRS Location",
+      "details": "Sends the APRS location from the telemetry module.",
+      "value": "0x3003"
     }
   }
 }

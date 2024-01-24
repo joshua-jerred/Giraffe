@@ -5,8 +5,7 @@ import Tooltip from "./Tooltip";
 
 import {} from "giraffe-protocol";
 
-import { GGS_API } from "../api_interface/ggs_api";
-import { GwsGlobal } from "../GlobalContext";
+import { useApiGetData } from "../api_interface/ggs_api";
 
 const DataBoxContainer = styled.div`
   // list-style: none;
@@ -43,10 +42,12 @@ const DataTooltip = styled(Tooltip)`
 `;
 
 const DataBoxStatus = styled.div`
-  display: flex;
+  display: block;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
   align-items: center;
+  text-align: center;
 `;
 
 const TimestampStyle = styled.div`
@@ -64,7 +65,7 @@ const TimestampStyle = styled.div`
 function Timestamp({ time, update_interval }) {
   return (
     <TimestampStyle time={time} update_interval={update_interval}>
-      Last updated: {time}ms ago
+      Last updated: {time}s ago
     </TimestampStyle>
   );
 }
@@ -104,94 +105,77 @@ function Item({ id, item_data }) {
 }
 
 export function DataBlock({ resource, category, update_interval = 3000 }) {
-  const { ggsAddress } = React.useContext(GwsGlobal);
-  const { ggsConnectionStatus } = React.useContext(GGS_API);
+  const { data, isDataLoading, error } = useApiGetData(
+    resource,
+    category,
+    "all",
+    update_interval
+  );
 
   const [items, setItems] = React.useState({});
-  const [error, setError] = React.useState(null);
 
-  const [msSinceLastUpdate, setMsSinceLastUpdate] = React.useState(0);
-
-  const encoded_category = encodeURIComponent(category);
-  const path = `http://${ggsAddress}/api/${resource}/data?category=${encoded_category}`;
-
-  // First load the metadata
-  React.useEffect(() => {
-    // console.log("Loading metadata from: " + path);
-    fetch(path + "&include=metadata")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to load metadata.");
-        } else {
-          return response.json();
-        }
-      })
-      .then((data) => {
-        delete data.metadata.MS_SINCE_LAST_UPDATE;
-
-        let new_items = {};
-        for (const [key, meta] of Object.entries(data.metadata)) {
-          new_items[key] = meta;
-        }
-        for (const [key, value] of Object.entries(data.metadata)) {
-          if (new_items[key] === undefined) {
-            new_items[key] = { value: value.default };
-          }
-          new_items[key].meta = value;
-        }
-        setItems(new_items);
-        // sendStreamRequest(category);
-      })
-      .catch((error) => {
-        console.error(error);
-        setError("Failed to load metadata. (Check console for details.)");
-      });
-  }, [path, ggsConnectionStatus]);
-
-  // Then load the actual data
-  React.useEffect(() => {
-    const loadData = async () => {
-      fetch(path)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to load data.");
-          } else {
-            return response.json();
-          }
-        })
-        .then((data) => {
-          setMsSinceLastUpdate(data.metadata.MS_SINCE_LAST_UPDATE);
-          // console.log("ms: ", msSinceLastUpdate);
-          let new_items = data.values;
-          let old_items = items;
-          for (const [key, value] of Object.entries(new_items)) {
-            if (old_items[key] === undefined) {
-              old_items[key] = { value: value };
-            } else {
-              old_items[key].value = value;
-            }
-          }
-          setItems(old_items);
-          if (error !== null) {
-            setError(null);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-          setError("Failed to load actual data. (Check console for details.)");
-        });
-    };
-
-    loadData(); // run once immediately
-    const interval = setInterval(() => {
-      loadData();
-    }, update_interval);
-    return () => clearInterval(interval);
-  }, [path, ggsConnectionStatus]);
-
-  // if (ggsConnectionStatus !== true) {
-  // return <div>Not connected to GGS.</div>;
+  // items structure:
+  // {
+  //  "data_item": {
+  //    "name": "Nice Looking Name",
+  //    "value": 123,
+  //    "description": "A description of the data item"
+  //    }
   // }
+
+  const [secondsSinceLastUpdate, setSecondsSinceLastUpdate] = React.useState(0);
+
+  React.useEffect(() => {
+    if (isDataLoading || data === null || data === null) {
+      return;
+    }
+    let new_items = {};
+    if (category === "environmental") {
+      console.log("env", data);
+    }
+
+    // iterate over the metadata and add the values
+    for (const [data_item, meta] of Object.entries(data.metadata)) {
+      // update the timestamp
+      if (data_item === "MS_SINCE_LAST_UPDATE") {
+        let sec = 0;
+        if (typeof meta === "number") {
+          sec = meta / 1000;
+          sec = sec.toFixed(1);
+        }
+        setSecondsSinceLastUpdate(sec);
+        continue;
+      }
+
+      new_items[data_item] = meta;
+
+      // add the value if it exists
+      if (data.values[data_item] !== undefined) {
+        new_items[data_item]["value"] = data.values[data_item];
+      } else {
+        new_items[data_item]["value"] = "no-data";
+      }
+
+      // if the name is empty, use the data_item key
+      if (new_items[data_item].name === "") {
+        new_items[data_item].name = data_item;
+      }
+    }
+
+    // iterate over the values and add any that don't have metadata
+    for (const [data_item, value] of Object.entries(data.values)) {
+      if (new_items[data_item] === undefined) {
+        new_items[data_item] = {
+          name: data_item,
+          value: value,
+          description: "",
+        };
+      }
+    }
+
+    // set the new items
+    setItems(new_items);
+  }, [data, isDataLoading, error, category]);
 
   return (
     <>
@@ -207,7 +191,7 @@ export function DataBlock({ resource, category, update_interval = 3000 }) {
             ))}
           </DataBoxContainer>
           <Timestamp
-            time={msSinceLastUpdate}
+            time={secondsSinceLastUpdate}
             update_interval={update_interval}
           />
         </>

@@ -10,9 +10,15 @@ const valid_resources = [
   "flight_data",
 ];
 
-const valid_ggs_categories = ["settings", "data"];
+const valid_ggs_categories = ["settings", "data", "aprs_fi", "log"];
 const valid_gfs_categories = ["settings", "data"];
-const valid_gdl_categories = ["settings", "data", "telemetry"];
+const valid_gdl_categories = [
+  "settings",
+  "status",
+  "telemetry",
+  "broadcast",
+  "config",
+];
 
 var verifyPathSchema = function (req, res, next) {
   let path_parts = req.path.split("/");

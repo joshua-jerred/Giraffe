@@ -99,3 +99,4 @@ With hex arguments, letters must be lowercase.
   long as it is in the log.
 - ``cmd/tlm/rsi/`` - Respond with the RSSI of the last received packet
 - ``cmd/tlm/snr/`` - Respond with the SNR of the last received packet
+- ``cmd/tlm/apl/`` - Send an APRS packet with the current position

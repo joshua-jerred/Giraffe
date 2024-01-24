@@ -10,7 +10,9 @@ import { Map } from "../components/map";
 function CommandCenterPage() {
   return (
     <>
-      <PageTitle>Giraffe Ground Station - Command Center</PageTitle>
+      <PageTitle title="Command Center">
+        @todo - add a description here
+      </PageTitle>
       <PageContent>
         <CardMasonryLayout>
           <Card title="Flight Status">

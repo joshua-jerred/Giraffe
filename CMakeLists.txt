@@ -9,13 +9,15 @@ option(EXTENSION_DEBUG_PRINT "Enable Debug Printing for Extensions" OFF)
 set(COMMON_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/common)
 set(COMMON_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/common)
 
+set(THIRD_PARTY_SRC ${CMAKE_SOURCE_DIR}/lib/third_party)
+
 set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_system)
-set(GFS_BIN ${CMAKE_BINARY_DIR}/bin/flight_system)
+set(GFS_BIN ${CMAKE_BINARY_DIR}/bin)
 set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/flight_system)
 set(GFS_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/flight_system)
 
 set(GDL_SRC ${CMAKE_SOURCE_DIR}/src/data_link)
-set(GDL_BIN ${CMAKE_BINARY_DIR}/bin/data_link)
+set(GDL_BIN ${CMAKE_BINARY_DIR}/bin)
 set(GDL_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/data_link)
 set(GDL_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/data_link)
 # ------------------- #
@@ -30,11 +32,24 @@ else()
   add_compile_definitions(EXTENSION_DEBUG_PRINT=0)
 endif()
 
-# ---- Version File Parsing ----
-file(READ ${CMAKE_SOURCE_DIR}/src/version ver_file)
+# ---- Version Files ----
+execute_process(
+  COMMAND ${CMAKE_SOURCE_DIR}/project/generate_version_files.py
+  RESULT_VARIABLE output
+  OUTPUT_VARIABLE version_output
+  TIMEOUT 3
+)
+if(NOT output EQUAL 0)
+  message(
+    FATAL_ERROR
+    "Failed to generate version files"
+    ${version_output}
+    ${output})
+endif()
+file(READ ${CMAKE_SOURCE_DIR}/version.ini ver_file)
 string(
   REGEX MATCH
-  "VERSION_NUMBER<([0-9\.]+)>[\n\r]+STAGE<([A-Za-z ]+)>"
+  "version = ([0-9\.]+)[ \n\r]+stage = ([a-zA-Z]+)"
   GIRAFFE_VERSION_STAGE
   ${ver_file}
 )
@@ -44,8 +59,8 @@ add_compile_definitions(
   GIRAFFE_VERSION_NUMBER="${GIRAFFE_VERSION_NUMBER}"
   GIRAFFE_VERSION_STAGE="${GIRAFFE_VERSION_STAGE}"
 )
-message(STATUS "Giraffe Software Version: ${GIRAFFE_VERSION_STAGE} \
-${GIRAFFE_VERSION_NUMBER}")
+message(STATUS "Giraffe Software Version: ${GIRAFFE_VERSION_NUMBER} \
+${GIRAFFE_VERSION_STAGE}")
 # -------------------------------
 
 
@@ -65,7 +80,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 -Wpedantic \
 -Wall \
 -Wextra \
--Weffc++ \
 -Wdisabled-optimization \
 -Wfloat-equal \
 -Wno-unused-variable \
@@ -77,11 +91,13 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 
 # ----- Third Party Libs -----
 set(THREADS_PREFER_PTHREAD_FLAG ON)
-find_package(Threads REQUIRED)             # pthreads
-find_library(GTEST_LIB NAMES gtest)        # gtest
-find_package(Curses REQUIRED)              # ncurses
-find_package(nlohmann_json 3.9.0 REQUIRED) # nlhomann_json
-find_package(CURL REQUIRED)                # curl
+find_package(Threads REQUIRED)                  # pthreads
+find_package(Curses REQUIRED)                   # ncurses
+find_package(CURL REQUIRED)                     # curl
+add_subdirectory(lib/third_party/sqlite_cpp)    # sqlite_cpp
+add_subdirectory(lib/third_party/nlohmann_json) # nlohmann_json
+add_subdirectory(lib/third_party/googletest)    # googletest
+add_subdirectory(lib/third_party/fmt)           # fmt
 # ----------------------------
 
 # add_definitions(-DDONT_ADD_SIGNAL_EASEL_BOOSTER_SEAT)
@@ -93,9 +109,11 @@ add_subdirectory(src/common)               # Common
 add_subdirectory(src/flight_system)        # Flight System
 add_subdirectory(src/data_link)            # Data Link
 add_subdirectory(lib/SignalEasel)          # SignalEasel
-# add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
+add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
 add_subdirectory(lib/bzip2-cpp)            # bzip2-cpp
 
-# Unit Tests
-add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
 # ----------------------------
+
+# Unit Tests
+enable_testing()
+add_subdirectory(${CMAKE_SOURCE_DIR}/tests)

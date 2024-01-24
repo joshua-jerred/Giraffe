@@ -2,12 +2,12 @@ set(TEST_SRC ${CMAKE_SOURCE_DIR}/tests)
 
 enable_testing()
 
-FetchContent_Declare(
-  googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG release-1.12.1
-)
-FetchContent_MakeAvailable(googletest)
+# FetchContent_Declare(
+  # googletest
+  # GIT_REPOSITORY https://github.com/google/googletest.git
+  # GIT_TAG release-1.12.1
+# )
+# FetchContent_MakeAvailable(googletest)
 
 # gtest based test function ----------------------------------------------------
 function(add_gtest_test test_name)

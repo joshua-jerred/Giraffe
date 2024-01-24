@@ -178,8 +178,8 @@ function Item({ id, json, input, value, values, setValues }) {
 }
 
 export function EditBox({ resource, category }) {
-  const { ggsAddress } = React.useContext(GwsGlobal);
-  const { ggsConnectionStatus } = React.useContext(GGS_API);
+  const { ggsAddress, isGgsConnected } = React.useContext(GwsGlobal);
+  // const { ggsConnectionStatus } = React.useContext(GGS_API);
 
   const [metadata, setMetadata] = React.useState(null);
   const [values, setValues] = React.useState({});
@@ -187,10 +187,9 @@ export function EditBox({ resource, category }) {
   const [editMode, setEditMode] = React.useState(false);
 
   const encoded_category = encodeURIComponent(category);
-  const path = `http://${ggsAddress}/api/${resource}/settings?category=${encoded_category}&include=all`;
+  const path = `${ggsAddress}/api/${resource}/settings?category=${encoded_category}&include=all`;
 
   React.useEffect(() => {
-    console.log("Loading metadata from: " + path);
     fetch(path)
       .then((response) => {
         if (!response.ok) {
@@ -218,9 +217,9 @@ export function EditBox({ resource, category }) {
         setError("Failed to load metadata. (Check console for details.)");
       });
     console.log("EditBox: useEffect");
-  }, [editMode, path]);
+  }, [editMode, ggsAddress, isGgsConnected]);
 
-  if (ggsConnectionStatus !== "connected") {
+  if (!isGgsConnected) {
     return <div>Not connected to GWS.</div>;
   }
 

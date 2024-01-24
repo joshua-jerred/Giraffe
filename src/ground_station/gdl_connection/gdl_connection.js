@@ -1,5 +1,5 @@
 const DataMeta = require("../../../project/metadata/gdl_resources.json");
-const { RequestMessage, parse } = require("giraffe-protocol");
+const { RequestMessage, SetMessage, parse } = require("giraffe-protocol");
 const net = require("net");
 const { Point } = require("@influxdata/influxdb-client");
 
@@ -8,44 +8,42 @@ const TIMEOUT = 1000;
 module.exports = class GdlConnection {
   constructor(global_state) {
     this.global_state = global_state;
-    this.resources = {};
     this.connected = false;
-    this.#updateClassSettings();
-    let meta = DataMeta["data"];
+    this.socket = null;
+    this.socket_interval = null; // setInterval() object
 
-    for (let category in meta) {
-      this.resources[category] = {
-        meta: {
-          last_request: new Date(),
-          timestamp: new Date(),
-          requests: 0,
-        },
-        data: {},
-      };
-      for (let data_item in meta[category]) {
-        this.resources[category].data[data_item] = "no data";
-      }
-    }
+    this.update_interval = 1000;
+    this.#updateClassSettings();
+
+    this.status_data = {};
+    this.status_last_updated = new Date();
+
+    this.new_broadcast_message = null;
+
+    this.config_data = {};
+    this.config_up_to_date = false;
+    this.new_config = null;
+
+    this.telemetry_data = {
+      position_packets: [],
+      received_messages: [],
+      sent_messages: [],
+    };
+
+    setInterval(this.#cycle.bind(this), this.update_interval);
   }
 
   getConnectionStatus() {
     return this.connected;
   }
 
-  /**
-   * @brief This function returns the data for a given category.
-   * @param {string} category The category to get the data for.
-   * @returns {object} The data for the given category, or null if the
-   * category does not exist.
-   */
-  getData(category) {
-    if (!this.resources[category]) {
-      return null;
-    }
-    let data_and_meta = this.resources[category].data;
-    // data_and_meta.meta.MS_SINCE_LAST_UPDATE =
-    // this.getMsSinceLastUpdate(category);
-    return data_and_meta;
+  getStatus() {
+    return {
+      data: this.status_data,
+      meta: {
+        MS_SINCE_LAST_UPDATE: new Date() - this.status_last_updated,
+      },
+    };
   }
 
   /**
@@ -60,35 +58,196 @@ module.exports = class GdlConnection {
   /**
    * @brief Called at a set interval at a higher level. This runs everything.
    */
-  async update() {
+  #cycle() {
     this.#updateClassSettings();
 
-    for (let category in this.resources) {
-      if (
-        this.resources[category].meta.last_request >
-        new Date() - this.update_interval
-      ) {
-        continue;
-      }
-      this.#updateResource(category);
-      this.resources[category].meta.last_request = new Date();
-      this.resources[category].meta.requests++;
+    if (!this.socket || !this.connected) {
+      let self = this;
+      this.socket = new net.Socket();
+      this.socket.setTimeout(TIMEOUT);
+      this.socket.connect(this.port, this.address, function () {
+        self.connected = true;
+        // send the first request
+        let request = new RequestMessage("ggs", "gdl", "status");
+        self.socket.write(JSON.stringify(request));
+      });
+      this.socket.on("data", function (data) {
+        self.connected = true;
+        // console.log("GDL Connection Data");
 
-      if (
-        this.connected &&
-        this.resources["status"] !== undefined &&
-        this.resources["status"].data["aprs_rx_queue_size"] > 0
-      ) {
-        this.#getAprsPositionalData();
-      }
+        let next_request_rsc = "status";
+        try {
+          let message = parse(data.toString());
+          next_request_rsc = self.#handleSocketResponse(message);
+        } catch {}
 
-      // sleep for 50ms to prevent flooding the socket
-      // await new Promise((resolve) => setTimeout(resolve, 50));
+        if (self.socket_interval) {
+          clearInterval(self.socket_interval);
+        }
+        self.socket_interval = setInterval(() => {
+          // send new requests here!
+          let new_request = null;
+          if (self.new_broadcast_message) {
+            // if a broadcast is pending
+            let body = {
+              data: self.new_broadcast_message,
+            };
+            new_request = new SetMessage("ggs", "gdl", "new_broadcast", body);
+            self.new_broadcast_message = null;
+          } else if (self.new_config) {
+            // if a config change is pending
+            new_request = new SetMessage(
+              "ggs",
+              "gdl",
+              "config",
+              self.new_config
+            );
+            self.new_config = null;
+          } else {
+            new_request = new RequestMessage("ggs", "gdl", next_request_rsc);
+          }
+          self.socket.write(JSON.stringify(new_request));
+        }, self.update_interval);
+      });
+      this.socket.on("close", function () {
+        self.connected = false;
+        clearInterval(self.socket_interval);
+        self.socket_interval = null;
+        self.new_broadcast_message = null;
+      });
+      this.socket.on("error", function (err) {
+        // console.log("GDL Connection Error: " + err);
+        self.connected = false;
+        clearInterval(self.socket_interval);
+        self.socket_interval = null;
+        self.new_broadcast_message = null;
+      });
     }
+
+    return;
   }
 
-  getMsSinceLastUpdate(category) {
-    return Math.floor(new Date() - this.resources[category].meta.timestamp);
+  /**
+   * Receives the data, handles it, and returns what should be requested next.
+   * @param {*} data
+   * @returns {string} The resource to request next.
+   */
+  #handleSocketResponse(data) {
+    let received_data = data.bdy.dat;
+    if (!data.bdy.rsc) {
+      return "status";
+    }
+
+    let received_resource = data.bdy.rsc;
+
+    if (received_resource === "status") {
+      this.status_data = received_data;
+      this.status_last_updated = new Date();
+
+      // console.log(this.status_data);
+
+      // update the local config first
+      if (!this.config_up_to_date) {
+        return "config";
+      }
+
+      // get received messages if there are any
+      if (this.status_data.svl_received_queue_size > 0) {
+        return "received_messages";
+      }
+
+      // get sent messages if there are any
+      if (this.status_data.svl_sent_messages_queue > 0) {
+        return "sent_messages";
+      }
+
+      // lastly, update the logs
+      if (this.status_data.svl_log_queue_size > 0) {
+        return "log";
+      }
+    } else if (received_resource === "config") {
+      this.config_data = received_data;
+      this.config_up_to_date = true;
+    } else if (received_resource === "log") {
+      for (let obj of received_data) {
+        let timestamp = new Date(obj.time + "Z");
+        let unix_time = Math.floor(timestamp.getTime() / 1000);
+        this.global_state.database.addGdlServerLogItem({
+          level: obj.level.toLowerCase(),
+          message: obj.msg,
+          timestamp: unix_time,
+        });
+      }
+    } else if (received_resource === "received_messages") {
+      for (let obj of received_data) {
+        if (obj.type !== "LOCATION") {
+          this.global_state.database.addReceivedMessage(
+            obj.type,
+            obj.data,
+            obj.identifier
+          );
+        } else {
+          console.log("location packet received, not implemented yet");
+        }
+      }
+    } else if (received_resource === "sent_messages") {
+      for (let obj of received_data) {
+        if (obj.type !== "LOCATION") {
+          this.global_state.database.addSentMessage(
+            obj.type,
+            obj.data,
+            obj.identifier
+          );
+        } else {
+          console.log("location packet sent, not implemented yet");
+        }
+      }
+    } else {
+      console.log("Received unknown resource: " + received_resource);
+    }
+    return "status";
+  }
+
+  sendBroadcast(data) {
+    if (!this.connected) {
+      return false;
+    }
+    if (this.new_broadcast_message) {
+      return false;
+    }
+    this.new_broadcast_message = data;
+    return true;
+  }
+
+  setConfig(new_config) {
+    if (!this.connected) {
+      return "not_connected";
+    }
+
+    if (this.new_config) {
+      return "config change already pending";
+    }
+
+    const required_keys = [
+      "logging_level",
+      "logging_print_to_stdout",
+      "proactive_keep_alive",
+      "remote_callsign",
+      "remote_ssid",
+      "server_port",
+      "source_callsign",
+      "source_ssid",
+    ];
+
+    for (let key of required_keys) {
+      if (new_config[key] === undefined) {
+        return "Missing required key: " + key;
+      }
+    }
+
+    this.new_config = new_config;
+
+    return "success";
   }
 
   /**
@@ -109,123 +268,6 @@ module.exports = class GdlConnection {
     );
 
     this.port = this.global_state.ggs_db.get("settings", "gdl", "socket_port");
-  }
-
-  /**
-   * @brief Used internally to set the local data of a given category.
-   * Called by #updateResource.
-   * @param {string} category The category to set the data for.
-   * @param {Message} message The giraffe protocol message to get the data from.
-   */
-  #setLocalResource(category, message) {
-    let data_section = message.bdy.dat;
-    for (let data_item in data_section) {
-      try {
-        this.resources[category].data[data_item] = data_section[data_item];
-
-        // collecting timestamp data
-        try {
-          if (this.global_state.influx_enabled) {
-            const point = new Point("ggs_resource_update_delay")
-              .tag("api", "gdl")
-              .tag("category", category)
-              .intField(
-                "ms_since_last_update",
-                this.getMsSinceLastUpdate(category)
-              );
-            this.global_state.influx_writer.write(point);
-          }
-        } catch (error) {
-          console.log(error);
-        }
-        // end collecting timestamp data
-
-        this.resources[category].meta.timestamp = new Date();
-      } catch (e) {
-        console.log(
-          "Failed to set local resource for: " +
-            data_item +
-            " in " +
-            data_section
-        );
-      }
-    }
-  }
-
-  #getAprsPositionalData() {
-    let request = new RequestMessage("ggs", "gdl", "aprs_location");
-    let con = new net.Socket();
-    let that = this;
-    con.setTimeout(TIMEOUT);
-
-    con.connect(this.port, this.address, function () {
-      con.write(JSON.stringify(request));
-    });
-
-    con.on("data", function (data) {
-      that.connected = true;
-      try {
-        let msg = parse(data.toString());
-        if (msg.bdy.cde !== "ok") {
-          console.log("Error: " + msg.bdy.dat);
-          return;
-        }
-        if (msg.bdy.dat.length === 0) {
-          return;
-        }
-
-        msg.bdy.dat.forEach((item) => {
-          that.global_state.gdl_telemetry.addAprsPositionPacket(item);
-        });
-      } catch (e) {
-        console.log("Error parsing data: " + e);
-      }
-      con.destroy();
-    });
-
-    con.on("close", function () {});
-
-    con.on("error", function (err) {});
-  }
-
-  /**
-   * Goes through the categories and requests the data from GFS.
-   * @param {string} category The category to request the data for.
-   */
-  #updateResource(category) {
-    let request = new RequestMessage("ggs", "gdl", category);
-    let con = new net.Socket();
-    let that = this;
-    con.setTimeout(TIMEOUT);
-
-    con.connect(this.port, this.address, function () {
-      con.write(JSON.stringify(request));
-    });
-
-    con.on("data", function (data) {
-      that.connected = true;
-      try {
-        let msg = parse(data.toString());
-        if (msg.bdy.cde !== "ok") {
-          console.log("Error: " + msg.bdy.dat);
-          return;
-        }
-        that.#setLocalResource(category, msg);
-      } catch (e) {
-        console.log("Error parsing data for category:" + category);
-      }
-      con.destroy();
-    });
-
-    con.on("close", function () {});
-
-    con.on("error", function (err) {
-      that.connected = false;
-      /// @todo Need to figure out why we are getting here so often. Most likely on the C++ side.
-      // console.log(
-      // "Socket Error during the category: " + category + " - " + err
-      // );
-    });
   }
 
   get status() {

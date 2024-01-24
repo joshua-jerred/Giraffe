@@ -6,7 +6,7 @@
     "enum_type": "uint16_t",
     "generate_string_map": "K_DIAGNOSTIC_ID_STRING_MAP"
   },
-  "generic": {
+  "generic": { // also 'common'
     "unknown": {
       "name": "Unknown",
       "details": "The error is unknown.",
@@ -26,6 +26,21 @@
       "name":"Not Implemented",
       "details":"This feature is not implemented.",
       "value":"0xF003"
+    },
+    "home_env_var_not_set":{
+      "name":"Home Environment Variable Not Set",
+      "details":"The HOME environment variable is not set.",
+      "value":"0xF004"
+    },
+    "home_env_var_not_dir":{
+      "name":"Home Environment Variable Not Directory",
+      "details":"The HOME environment variable is not a directory.",
+      "value":"0xF005"
+    },
+    "failed_to_create_giraffe_dir":{
+      "name":"Failed to Create Giraffe Directory",
+      "details":"The giraffe directory could not be created.",
+      "value":"0xF006"
     }
   },
   "config": {

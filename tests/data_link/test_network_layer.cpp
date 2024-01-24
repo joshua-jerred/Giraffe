@@ -2,9 +2,9 @@
 
 #include <BoosterSeat/sleep.hpp>
 
-#include <gdl_network_layer.hpp>
+// #include <gdl_network_layer.hpp>
 
-using namespace gdl;
+// using namespace gdl;
 
 TEST(NetworkLayer, networkLayerTransmit) {
   // SimulatedLoopbackPhysicalLayer physical_layer{};

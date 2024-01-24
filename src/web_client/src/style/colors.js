@@ -29,6 +29,7 @@ export const darkTheme2 = {
   surface_hover_hard: `#444749`, // Farthest from surface
 
   status_background: `#1a1c1e`,
+  alert_bar_background: `#f55d3e`,
 
   on_surface: `#e3e2e6`,
 

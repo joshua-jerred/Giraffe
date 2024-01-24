@@ -246,6 +246,12 @@ export const StyleFonts = {
     size: `1.75rem`,
     style: `normal`,
   },
+  page_title_block_content: {
+    family: `Roboto`,
+    weight: `400`,
+    size: `1rem`,
+    style: `normal`,
+  },
   card_title: {
     family: `Roboto Mono`,
     weight: `400`,

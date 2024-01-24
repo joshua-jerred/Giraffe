@@ -17,8 +17,8 @@ const StyleStructure = {
   },
   pages: {
     side_margin: "25px",
-    max_width: "1200px",
-    title_margin_top: "10px",
+    max_width: "1400px",
+    title_margin: "15px",
   },
   cards: {
     padding: "15px",
@@ -65,6 +65,7 @@ const StyleStructure = {
     tooltip: {
       max_width: "500px",
       min_width: "100px",
+      max_height: "100px",
       border_radius: "5px",
       padding: "0.5em 0.7em",
       transition_delay: "0.5s",

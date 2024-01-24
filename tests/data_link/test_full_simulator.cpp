@@ -2,15 +2,15 @@
 
 #include <BoosterSeat/sleep.hpp>
 
-#include <gdl_network_layer.hpp>
-#include <gdl_physical_layer.hpp>
-#include <gdl_transport_layer.hpp>
+// #include <gdl_network_layer.hpp>
+// #include <gdl_physical_layer.hpp>
+// #include <gdl_transport_layer.hpp>
 
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
 
-using namespace gdl;
+// using namespace gdl;
 
 constexpr size_t kMaxMessageSize = 200;
 constexpr size_t kMessagesPerTest = 50;
@@ -63,16 +63,17 @@ constexpr size_t kMessageTimeoutMs = 50;
 //   EXPECT_TRUE(message.data == original_message);
 // }
 
-// TEST(NetworkSimulator, noPhysicalLayerErrors) {
-//   std::cout << std::endl << "Starting GDL Simulator" << std::endl;
-//   BoosterSeat::threadSleep(500);
-//   std::srand(std::time(nullptr));
+TEST(NetworkSimulator, noPhysicalLayerErrors) {
+  GTEST_SKIP();
+  //   std::cout << std::endl << "Starting GDL Simulator" << std::endl;
+  //   BoosterSeat::threadSleep(500);
+  //   std::srand(std::time(nullptr));
 
-//   UnreliablePhysicalLayer physical_layer{};
-//   NetworkLayer network_layer{physical_layer};
-//   TransportLayer transport_layer{network_layer};
+  //   UnreliablePhysicalLayer physical_layer{};
+  //   NetworkLayer network_layer{physical_layer};
+  //   TransportLayer transport_layer{network_layer};
 
-//   for (size_t i = 0; i < kMessagesPerTest; i++) {
-//     sendAndReceive(transport_layer);
-//   }
-// }
+  //   for (size_t i = 0; i < kMessagesPerTest; i++) {
+  //     sendAndReceive(transport_layer);
+  //   }
+}

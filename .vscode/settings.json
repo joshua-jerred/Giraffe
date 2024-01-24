@@ -51,6 +51,7 @@
     "fstream",
     "HHMMSS",
     "nlohmann",
+    "NOCALL",
     "puml",
     "Reassembler",
     "rssi",

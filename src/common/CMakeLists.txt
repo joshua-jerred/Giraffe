@@ -7,10 +7,15 @@ target_sources(giraffe_common INTERFACE
   ${CMAKE_CURRENT_SOURCE_DIR}/command_ids_strings.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/protocol/protocol.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/socket.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/giraffe_file_paths.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/common_logger.cpp
 )
 target_include_directories(giraffe_common INTERFACE
   ./
   ./protocol
+)
+target_link_libraries(giraffe_common INTERFACE
+  fmt::fmt
 )
 
 add_library(giraffe_debug_assert INTERFACE)

@@ -6,33 +6,22 @@ import NavBar from "./Nav";
 import { Page } from "./PageParts";
 import StatusBar from "./StatusBar";
 
-import { useLocation } from "react-router-dom";
-
-import { GGS_API } from "../api_interface/ggs_api";
-
 const Content = styled.div`
   margin-left: ${(props) =>
     props.navExpanded
       ? (props) => props.theme.nav.width.expanded
       : (props) => props.theme.nav.width.collapsed};
   background: ${(props) => props.theme.surface_container};
+  padding: 0px ${(props) => props.theme.pages.side_margin};
 `;
 
 function Layout() {
-  const { removeAllStreams } = React.useContext(GGS_API);
-
   let direction = localStorage.getItem("nav_expanded") === "true";
   const [navExpanded, setNavExpanded] = React.useState(direction);
 
   React.useEffect(() => {
     localStorage.setItem("nav_expanded", navExpanded);
   }, [navExpanded]);
-
-  // Remove all streams when navigating away from a page (this is a bad solution)
-  // const location = useLocation();
-  // React.useEffect(() => {
-  //   removeAllStreams();
-  // }, [location]);
 
   return (
     <>
