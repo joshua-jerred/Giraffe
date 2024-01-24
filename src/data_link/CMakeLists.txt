@@ -12,8 +12,11 @@ target_link_libraries(giraffe_data_link_core
   BoosterSeat
   SignalEasel
 )
-target_include_directories(giraffe_data_link_core PRIVATE ${3RD_PARTY_SRC}/nlohmann_json/single_include)
-
+target_include_directories(
+  giraffe_data_link_core
+  PRIVATE
+  ${THIRD_PARTY_SRC}/nlohmann_json/single_include
+)
 
 add_executable(gdl_server
   "server/main.cpp"
@@ -21,7 +24,7 @@ add_executable(gdl_server
   "server/gdl_server_request_handlers.cpp"
   "server/gdl_server_set_handlers.cpp"
 )
-target_link_libraries(gdl_server 
+target_link_libraries(gdl_server
   giraffe_data_link_core
   SQLiteCpp
   sqlite3
@@ -32,11 +35,10 @@ set_target_properties(gdl_server
   PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GDL_BIN}
 )
 
-
 add_executable(gdl_terminal
   "./gdl_terminal.cpp"
 )
-target_link_libraries(gdl_terminal 
+target_link_libraries(gdl_terminal
   giraffe_data_link_core
 )
 set_target_properties(gdl_terminal

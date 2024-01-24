@@ -67,4 +67,7 @@ target_link_libraries(
   ${CURSES_LIBRARIES}
   ${CURL_LIBRARIES}
 )
-target_include_directories(${EXE_NAME} PRIVATE ${3RD_PARTY_SRC}/nlohmann_json/single_include)
+target_include_directories(
+  ${EXE_NAME}
+  PRIVATE
+  ${THIRD_PARTY_SRC}/nlohmann_json/single_include)

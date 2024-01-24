@@ -9,7 +9,7 @@ option(EXTENSION_DEBUG_PRINT "Enable Debug Printing for Extensions" OFF)
 set(COMMON_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/common)
 set(COMMON_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/common)
 
-set(3RD_PARTY_SRC ${CMAKE_SOURCE_DIR}/lib/third_party)
+set(THIRD_PARTY_SRC ${CMAKE_SOURCE_DIR}/lib/third_party)
 
 set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_system)
 set(GFS_BIN ${CMAKE_BINARY_DIR}/bin)
@@ -40,8 +40,12 @@ execute_process(
   TIMEOUT 3
 )
 if(NOT output EQUAL 0)
-  message(FATAL_ERROR "Failed to generate version files" ${version_output} ${output})
-endif() 
+  message(
+    FATAL_ERROR
+    "Failed to generate version files"
+    ${version_output}
+    ${output})
+endif()
 file(READ ${CMAKE_SOURCE_DIR}/version.ini ver_file)
 string(
   REGEX MATCH
