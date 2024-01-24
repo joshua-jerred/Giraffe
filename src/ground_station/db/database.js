@@ -49,6 +49,17 @@ module.exports = class PostgresDatabase {
             );`
       );
       this.db.exec(
+        `CREATE TABLE IF NOT EXISTS gdl_received_loc_messages (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            latitude               REAL      NOT NULL,
+            longitude              REAL      NOT NULL,
+            altitude               REAL      NOT NULL,
+            speed                  REAL      NOT NULL,
+            heading                REAL      NOT NULL,
+            time_code              TEXT      NOT NULL
+            );`
+      );
+      this.db.exec(
         `CREATE TABLE IF NOT EXISTS aprs_fi (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name               TEXT      NOT NULL,
@@ -228,6 +239,41 @@ module.exports = class PostgresDatabase {
       }
       callback(rows);
     });
+  }
+
+  addReceivedLocation(
+    latitude,
+    longitude,
+    altitude,
+    speed,
+    heading,
+    time_code
+  ) {
+    this.db.run(
+      `INSERT INTO gdl_received_loc_messages (
+            latitude,
+            longitude,
+            altitude,
+            speed,
+            heading,
+            time_code
+        ) VALUES (
+            $latitude,
+            $longitude,
+            $altitude,
+            $speed,
+            $heading,
+            $time_code
+        );`,
+      {
+        $latitude: latitude,
+        $longitude: longitude,
+        $altitude: altitude,
+        $speed: speed,
+        $heading: heading,
+        $time_code: time_code,
+      }
+    );
   }
 
   #insertAprsFiData(data) {

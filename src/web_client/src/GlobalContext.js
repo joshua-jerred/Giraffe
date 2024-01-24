@@ -48,6 +48,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
   const [alerter] = React.useState(new Alerter());
 
   const [isGgsConnected, setIsGgsConnected] = React.useState(false);
+  const [isGfsTcpConnected, setIsGfsTcpConnected] = React.useState(false);
 
   // ------ GGS Connection ------
   React.useEffect(() => {
@@ -82,7 +83,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
 
       // check the address and test the connection
       try {
-        const url = new URL(ggsAddress);
+        new URL(ggsAddress);
       } catch (_) {
         alerter.addAlert(
           "ggs_address_invalid.",
@@ -104,6 +105,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
           }
           setIsGgsConnected(true);
           setServiceStatuses(data);
+          setIsGfsTcpConnected(data.gfs === "connected");
         })
         .catch((error) => {
           alerter.addAlert(
@@ -113,6 +115,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
             "/setup"
           );
           setIsGgsConnected(false);
+          setIsGfsTcpConnected(false);
           setServiceStatuses(serviceStatusesDefault);
         });
     };
@@ -137,6 +140,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
         alerter,
         serviceStatuses,
         isGgsConnected,
+        isGfsTcpConnected,
       }}
     >
       {children}

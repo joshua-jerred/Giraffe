@@ -63,6 +63,9 @@ void RequestRouter::handleMessage(sock::TcpSocketServer &client,
     if (BoosterSeat::containsPrefix(msg.rsc, "cmd/")) {
       handleCommandRequest(client, msg);
       return;
+    } else if (BoosterSeat::containsPrefix(msg.rsc, "setting/")) {
+      handleSettingSet(client, msg);
+      return;
     }
     sendErrorPacket(client, "message type not implemented");
     return;
@@ -81,7 +84,7 @@ void RequestRouter::sendErrorPacket(sock::TcpSocketServer &client,
 
   protocol::Message response_message;
   protocol::createResponseMessage(response_message, protocol::Endpoint::GFS,
-                                  protocol::Endpoint::UNKNOWN, "",
+                                  protocol::Endpoint::GGS, "",
                                   protocol::ResponseCode::ERROR, body);
 
   sendMessage(response_message, client);
@@ -96,8 +99,8 @@ void RequestRouter::handlePingRequest(sock::TcpSocketServer &client,
   sendMessage(response_message, client);
 }
 
-auto RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
-                                         protocol::Message &msg) -> void {
+void RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
+                                         protocol::Message &msg) {
   Json res_body;
 
   std::string req = msg.rsc.substr(msg.rsc.find('/') + 1);
@@ -145,8 +148,60 @@ auto RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
   sendMessage(response_message, client);
 }
 
-auto RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
-                                      protocol::Message &msg) -> void {
+void RequestRouter::handleSettingSet(sock::TcpSocketServer &client,
+                                     protocol::Message &msg) {
+
+  if (!msg.getBodyJson().contains("dat")) {
+    sendErrorPacket(client, "no data provided");
+    return;
+  }
+
+  std::string req = msg.rsc.substr(msg.rsc.find('/') + 1);
+  Json new_cfg_data = msg.getBodyJson()["dat"];
+
+  Json res_body = {{"success", true}};
+  if (req == "general") {
+    config_.general.setFromJson(new_cfg_data);
+  } else if (req == "data_module_data") {
+    config_.data_module_data.setFromJson(new_cfg_data);
+  } else if (req == "data_module_influxdb") {
+    config_.data_module_influxdb.setFromJson(new_cfg_data);
+  } else if (req == "data_module_log") {
+    config_.data_module_log.setFromJson(new_cfg_data);
+  } else if (req == "console_module") {
+    config_.console_module.setFromJson(new_cfg_data);
+  } else if (req == "server_module") {
+    config_.server_module.setFromJson(new_cfg_data);
+  } else if (req == "system_module") {
+    config_.system_module.setFromJson(new_cfg_data);
+  } else if (req == "telemetry") {
+    config_.telemetry.setFromJson(new_cfg_data);
+  } else if (req == "telemetry_aprs") {
+    config_.telemetry_aprs.setFromJson(new_cfg_data);
+  } else if (req == "telemetry_sstv") {
+    config_.telemetry_sstv.setFromJson(new_cfg_data);
+  } else if (req == "telemetry_data_packets") {
+    config_.telemetry_data_packets.setFromJson(new_cfg_data);
+  } else if (req == "extensions") {
+    config_.extensions.setFromJson(new_cfg_data);
+  } else if (req == "extension_module") {
+    config_.extension_module.setFromJson(new_cfg_data);
+  } else if (req == "hardware_interface") {
+    config_.hardware_interface.setFromJson(new_cfg_data);
+  } else {
+    sendErrorPacket(client, "setting section not found");
+    return;
+  }
+
+  protocol::Message response_message;
+  protocol::createResponseMessage(response_message, protocol::Endpoint::GFS,
+                                  msg.src, msg.id, protocol::ResponseCode::GOOD,
+                                  res_body);
+  sendMessage(response_message, client);
+}
+
+void RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
+                                      protocol::Message &msg) {
 
   // format of msg.rec is data/<section>, so split on '/'
   std::string requested_data = msg.rsc.substr(msg.rsc.find('/') + 1);

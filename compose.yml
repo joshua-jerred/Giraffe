@@ -20,6 +20,7 @@ services:
     volumes:
       - .:/project
     command: "bash ./project/docker_build.sh giraffe_flight_system"
+
   influx:
     image: influxdb:2.7.3
     ports:
