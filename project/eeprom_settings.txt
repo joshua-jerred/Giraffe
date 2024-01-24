@@ -13,8 +13,8 @@ gpio_slew 0
 gpio_hysteresis 0
 back_power 1
 
-#setgpio  2     INPUT     DEFAULT
-#setgpio  3     INPUT     DEFAULT
+setgpio 2        ALT1     NONE
+setgpio 3        ALT1     NONE
 #setgpio  4     INPUT     DEFAULT
 #setgpio  5     INPUT     DEFAULT
 #setgpio  6     INPUT     DEFAULT
@@ -48,7 +48,7 @@ setgpio  27    OUTPUT     DOWN
 # bank1_gpio_slew 0
 # bank1_gpio_hysteresis 0
 
-#setgpio  28    INPUT     DEFAULT
+setgpio  28    INPUT     DEFAULT
 #setgpio  29    INPUT     DEFAULT
 #setgpio  30    INPUT     DEFAULT
 #setgpio  31    INPUT     DEFAULT
