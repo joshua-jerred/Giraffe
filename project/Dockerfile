@@ -14,4 +14,5 @@ RUN apt-get update && apt-get install -y \
    libcurl4-gnutls-dev \
    libi2c-dev \
    libncurses-dev \
-   libpulse-dev
+   libpulse-dev \
+   nodejs
