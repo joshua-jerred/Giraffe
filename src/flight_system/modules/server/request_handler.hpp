@@ -106,12 +106,19 @@ private:
    * @brief This function responds to a setting request.
    * @details It will respond with the configuration portion requested
    * if it exists. Otherwise it will respond with an error.
-   *
-   * @param client
-   * @param msg
+   * @param client - The client socket.
+   * @param msg - The received message.
    */
   void handleSettingRequest(sock::TcpSocketServer &client,
                             protocol::Message &msg);
+
+  /**
+   * @brief This function handles a setting SET request. It will attempt to set
+   * the configuration with the value provided.
+   * @param client - The client socket.
+   * @param msg - The received message.
+   */
+  void handleSettingSet(sock::TcpSocketServer &client, protocol::Message &msg);
 
   /**
    * @brief This function responds to data requests.

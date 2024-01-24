@@ -31,7 +31,7 @@ function ConfigureGfsPage() {
             <EditBox resource="gfs" category="console_module" />
           </Card>
 
-          <Card title="Data Loging">
+          <Card title="Data Logging">
             <EditBox resource="gfs" category="data_module_log" />
           </Card>
 
