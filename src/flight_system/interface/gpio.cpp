@@ -27,7 +27,6 @@
 #include "giraffe_exception.hpp"
 #include "gpio.hpp"
 
-#ifdef RASPBERRY_PI
 /**
  * @brief The Gpio memory map is used store the mapping to the BCM registers.
  * @details Initialized in Gpio::Initialize().
@@ -79,10 +78,6 @@ uint32_t readWithBarrier(volatile uint32_t *address) {
 volatile uint32_t *calculateAddress(uint8_t offset, uint8_t pin) {
   return (uint32_t *)(s_gpio_memory_map + offset / 4 + pin / 32);
 }
-
-#else
-
-#endif
 
 namespace giraffe {
 

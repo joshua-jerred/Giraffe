@@ -35,12 +35,12 @@ else()
 endif()
 
 # Raspberry Pi Build
-if($ENV{RASPBERRY_PI} EQUAL 1)
-  message(STATUS "Raspberry Pi Build: Enabled")
-  add_compile_definitions(RASPBERRY_PI=1)
-else()
-  message(STATUS "Raspberry Pi Build: Disabled")
-endif()
+# if($ENV{RASPBERRY_PI} EQUAL 1)
+#   message(STATUS "Raspberry Pi Build: Enabled")
+#   add_compile_definitions(RASPBERRY_PI=1)
+# else()
+#   message(STATUS "Raspberry Pi Build: Disabled")
+# endif()
 
 # ---- Version Files ----
 execute_process(
