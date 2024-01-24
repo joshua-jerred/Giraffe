@@ -43,9 +43,9 @@ var searchData=
   ['auth_5ftoken_5f_46',['auth_token_',['../classdata__middleware_1_1InfluxDb.html#a6fae30eadeb1bc37d7aa29c5934c0729',1,'data_middleware::InfluxDb']]],
   ['automotive_47',['AUTOMOTIVE',['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39ad5b209a2367d0fa577875ade4dbf26a8',1,'ubx']]],
   ['average_5fhoriz_5fspeed_5fmps_5f5min_48',['average_horiz_speed_mps_5min',['../structdata_1_1blocks_1_1CalculatedData.html#af9bd2f056fba9b51a6c1767fac466547',1,'data::blocks::CalculatedData']]],
-  ['average_5fhorizontal_5fspeed_5f_49',['average_horizontal_speed_',['../classmodules_1_1DataModule.html#a62feb9a9792698f1271d445515e60070',1,'modules::DataModule']]],
+  ['average_5fhorizontal_5fspeed_5f_49',['average_horizontal_speed_',['../classmodules_1_1DataModule.html#a858df8f339102be0679278a587aaf3e1',1,'modules::DataModule']]],
   ['average_5fspeed_5ftimer_5f_50',['average_speed_timer_',['../classmodules_1_1DataModule.html#ad1dbf6e6a4e63080e8899502710812ea',1,'modules::DataModule']]],
   ['average_5fspeed_5fvalid_51',['average_speed_valid',['../structdata_1_1blocks_1_1CalculatedData.html#a40334a319835f8ea2a708da5eba51243',1,'data::blocks::CalculatedData']]],
   ['average_5fvert_5fspeed_5fmps_5f5min_52',['average_vert_speed_mps_5min',['../structdata_1_1blocks_1_1CalculatedData.html#a9a0986c823845af6c5acbf3cb18aa4d6',1,'data::blocks::CalculatedData']]],
-  ['average_5fvertical_5fspeed_5f_53',['average_vertical_speed_',['../classmodules_1_1DataModule.html#ae9e020baf16f393b1b1c061012ca184d',1,'modules::DataModule']]]
+  ['average_5fvertical_5fspeed_5f_53',['average_vertical_speed_',['../classmodules_1_1DataModule.html#a536e2c7091fea8efe309efbefb0eabe5',1,'modules::DataModule']]]
 ];

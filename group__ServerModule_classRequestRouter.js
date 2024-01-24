@@ -16,6 +16,8 @@ var group__ServerModule_classRequestRouter =
     [ "config_", "group__ServerModule.html#a346068be2698922e9034f0ba605642d9", null ],
     [ "stats_", "group__ServerModule.html#a0b70ff55f1b1d420d929d618de88db1b", null ],
     [ "logger_", "group__ServerModule.html#a5d206d0eb07b1991fcd156d305a305ba", null ],
-    [ "bytes_per_second_down_", "group__ServerModule.html#a36cba0117849606d3ebd1001170ca5be", null ],
-    [ "bytes_per_second_up_", "group__ServerModule.html#aa994466c1a91d6a6f4ec9eba357aec2d", null ]
+    [ "bps_down_in_a_second_", "group__ServerModule.html#a01613c8c110e73b35d011ed8952787d9", null ],
+    [ "bps_up_in_a_second_", "group__ServerModule.html#ad8308bd40837da7b57f8cac858cb3e28", null ],
+    [ "bytes_per_second_down_", "group__ServerModule.html#ad2949a7c09ed30841f6098e96bf308eb", null ],
+    [ "bytes_per_second_up_", "group__ServerModule.html#ab60330e62a18d4619081e7c8253f9171", null ]
 ];
