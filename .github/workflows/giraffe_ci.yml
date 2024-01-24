@@ -119,7 +119,9 @@ jobs:
       image: joshuajerred/giraffe:latest
       options: --user root
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout/@v1
+        with:
+          submodules: recursive
       - name: Take Ownership of Source
         run: git config --global --add safe.directory '*'
       - name: CMake Configure
