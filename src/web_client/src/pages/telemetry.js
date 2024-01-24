@@ -66,6 +66,37 @@ function AprsFi() {
   );
 }
 
+function DataLinkStatus() {
+  const UPDATE_INTERVAL_MS = 1000;
+  const { data, isLoading, error } = UseGenericGetApi(
+    "/api/gdl/status",
+    UPDATE_INTERVAL_MS
+  );
+
+  // if (isLoading) {
+  //   return <p>Loading...</p>;
+  // }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  return (
+    <div>
+      <ul>
+        {/* {data && data.data && JSON.stringify(data.data)} */}
+        {data &&
+          data.data &&
+          Object.entries(data.data).map(([key, value]) => (
+            <MessageLogItemStyle key={key}>
+              {key} : {value}
+            </MessageLogItemStyle>
+          ))}
+      </ul>
+    </div>
+  );
+}
+
 function MessageLog({ category }) {
   const { ggsAddress, isGgsConnected } = useContext(GwsGlobal);
 
@@ -154,7 +185,7 @@ function TelemetryPage() {
       <PageContent>
         <CardMasonryLayout>
           <Card title="Data Link Stats">
-            <DataBlock resource="gdl" category="status" />
+            <DataLinkStatus />
           </Card>
           <Card title="Sent">
             <MessageLog category="sent_messages" />

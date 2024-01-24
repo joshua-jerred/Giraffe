@@ -65,7 +65,7 @@ module.exports = function parseGetQuery(req, res, api, resource, global_state) {
         }
       }
     } else if (api === "gdl") {
-      if (resource === "data") {
+      if (resource === "status") {
         values = global_state.gdl_connection.getData(category);
         if (include_metadata) {
           response_body["metadata"]["MS_SINCE_LAST_UPDATE"] =

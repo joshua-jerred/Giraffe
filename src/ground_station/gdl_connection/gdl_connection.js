@@ -18,8 +18,11 @@ module.exports = class GdlConnection {
     this.status_data = {};
     this.status_last_updated = new Date();
 
+    this.new_broadcast_message = null;
+
     this.config_data = {};
     this.config_up_to_date = false;
+    this.new_config = null;
 
     this.telemetry_data = {
       position_packets: [],
@@ -34,20 +37,13 @@ module.exports = class GdlConnection {
     return this.connected;
   }
 
-  /**
-   * @brief This function returns the data for a given category.
-   * @param {string} category The category to get the data for.
-   * @returns {object} The data for the given category, or null if the
-   * category does not exist.
-   */
-  getData(category) {
-    if (!this.resources[category]) {
-      return null;
-    }
-    let data_and_meta = this.resources[category].data;
-    // data_and_meta.meta.MS_SINCE_LAST_UPDATE =
-    // this.getMsSinceLastUpdate(category);
-    return data_and_meta;
+  getStatus() {
+    return {
+      data: this.status_data,
+      meta: {
+        MS_SINCE_LAST_UPDATE: new Date() - this.status_last_updated,
+      },
+    };
   }
 
   /**
@@ -79,19 +75,37 @@ module.exports = class GdlConnection {
         self.connected = true;
         // console.log("GDL Connection Data");
 
-        let message = parse(data.toString());
-        if (!message.bdy.rsc || !message.bdy.dat) {
-          throw new Error("Invalid response received: " + message);
-        }
-
-        let next_request_rsc = self.#handleSocketResponse(message);
+        let next_request_rsc = "status";
+        try {
+          let message = parse(data.toString());
+          next_request_rsc = self.#handleSocketResponse(message);
+        } catch {}
 
         if (self.socket_interval) {
           clearInterval(self.socket_interval);
         }
         self.socket_interval = setInterval(() => {
           // send new requests here!
-          let new_request = new RequestMessage("ggs", "gdl", next_request_rsc);
+          let new_request = null;
+          if (self.new_broadcast_message) {
+            // if a broadcast is pending
+            let body = {
+              data: self.new_broadcast_message,
+            };
+            new_request = new SetMessage("ggs", "gdl", "new_broadcast", body);
+            self.new_broadcast_message = null;
+          } else if (self.new_config) {
+            // if a config change is pending
+            new_request = new SetMessage(
+              "ggs",
+              "gdl",
+              "config",
+              self.new_config
+            );
+            self.new_config = null;
+          } else {
+            new_request = new RequestMessage("ggs", "gdl", next_request_rsc);
+          }
           self.socket.write(JSON.stringify(new_request));
         }, self.update_interval);
       });
@@ -99,12 +113,14 @@ module.exports = class GdlConnection {
         self.connected = false;
         clearInterval(self.socket_interval);
         self.socket_interval = null;
+        self.new_broadcast_message = null;
       });
       this.socket.on("error", function (err) {
         // console.log("GDL Connection Error: " + err);
         self.connected = false;
         clearInterval(self.socket_interval);
         self.socket_interval = null;
+        self.new_broadcast_message = null;
       });
     }
 
@@ -117,8 +133,12 @@ module.exports = class GdlConnection {
    * @returns {string} The resource to request next.
    */
   #handleSocketResponse(data) {
-    let received_resource = data.bdy.rsc;
     let received_data = data.bdy.dat;
+    if (!data.bdy.rsc) {
+      return "status";
+    }
+
+    let received_resource = data.bdy.rsc;
 
     if (received_resource === "status") {
       this.status_data = received_data;
@@ -158,21 +178,64 @@ module.exports = class GdlConnection {
           timestamp: unix_time,
         });
       }
+    } else if (received_resource === "received_messages") {
+      for (let obj of received_data) {
+        if (obj.type !== "LOCATION") {
+          this.global_state.database.addReceivedMessage(
+            obj.type,
+            obj.data,
+            obj.identifier
+          );
+        } else {
+          console.log("location packet received, not implemented yet");
+        }
+      }
     } else {
       console.log("Received unknown resource: " + received_resource);
     }
     return "status";
   }
 
-  getMsSinceLastUpdate(category) {
-    return Math.floor(new Date() - this.resources[category].meta.timestamp);
+  sendBroadcast(data) {
+    if (!this.connected) {
+      return false;
+    }
+    if (this.new_broadcast_message) {
+      return false;
+    }
+    this.new_broadcast_message = data;
+    return true;
   }
 
-  sendBroadcast(data) {
-    let body = {
-      data: data,
-    };
-    let request = new SetMessage("ggs", "gdl", "new_broadcast", body);
+  setConfig(new_config) {
+    if (!this.connected) {
+      return "not_connected";
+    }
+
+    if (this.new_config) {
+      return "config change already pending";
+    }
+
+    const required_keys = [
+      "logging_level",
+      "logging_print_to_stdout",
+      "proactive_keep_alive",
+      "remote_callsign",
+      "remote_ssid",
+      "server_port",
+      "source_callsign",
+      "source_ssid",
+    ];
+
+    for (let key of required_keys) {
+      if (new_config[key] === undefined) {
+        return "Missing required key: " + key;
+      }
+    }
+
+    this.new_config = new_config;
+
+    return "success";
   }
 
   /**

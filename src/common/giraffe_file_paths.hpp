@@ -47,6 +47,12 @@ bool createGiraffeDirIfNotExists();
  */
 std::string getGdlServerConfigFilePath();
 
+/**
+ * @brief Returns the path to the Flight Software config file.
+ * @return std::string - $HOME/.giraffe/gfs_config.json
+ */
+std::string getGfsConfigFilePath();
+
 } // namespace file_paths
 
 } // namespace giraffe

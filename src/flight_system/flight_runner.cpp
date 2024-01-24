@@ -15,6 +15,8 @@
  * @copyright  2023 (license to be defined)
  */
 
+#include "giraffe_file_paths.hpp"
+
 #include "flight_runner.hpp"
 
 /**
@@ -26,11 +28,6 @@ const std::string K_GIRAFFE_VERSION_NUMBER = GIRAFFE_VERSION_NUMBER;
  * @brief The release stage of Giraffe, set by CMake.
  */
 const std::string K_GIRAFFE_VERSION_STAGE = GIRAFFE_VERSION_STAGE;
-
-/**
- * @brief The path to the configuration file.
- */
-static const std::string K_CONFIG_FILE_PATH = "./config.json";
 
 /**
  * @brief These are helper functions to print out startup and shutdown messages
@@ -112,7 +109,7 @@ auto FlightRunner::start() -> int {
     After that, startup the data module to start processing the data streams.
   */
   p_config_ = new cfg::Configuration(shared_data_.streams);
-  p_config_->load(K_CONFIG_FILE_PATH);
+  p_config_->load(giraffe::file_paths::getGfsConfigFilePath());
   p_data_module_ = new modules::DataModule(shared_data_, *p_config_);
   p_data_module_->start();
 
@@ -205,7 +202,7 @@ auto FlightRunner::flightLoop() -> int {
   std::cout << std::endl
             << "Shutdown signal received." << std::endl
             << std::endl;
-  p_config_->save(K_CONFIG_FILE_PATH);
+  p_config_->save(giraffe::file_paths::getGfsConfigFilePath());
   return 0;
 }
 

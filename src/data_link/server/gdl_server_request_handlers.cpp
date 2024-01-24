@@ -72,6 +72,18 @@ void GdlServer::handleRequestReceivedMessages() {
 }
 
 void GdlServer::handleRequestSentMessages() {
+  json res_data = json::array();
+
+  if (sent_messages_.empty()) {
+    sendResponseData(res_data, "sent_messages");
+  }
+
+  while (!sent_messages_.empty()) {
+    gdl::Message msg = sent_messages_.front();
+    sent_messages_.pop();
+    res_data.push_back(msg.getJson());
+  }
+  sendResponseData(res_data, "sent_messages");
 }
 
 void GdlServer::handleRequestLog() {

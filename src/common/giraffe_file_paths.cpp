@@ -72,4 +72,8 @@ std::string getGdlServerConfigFilePath() {
   return getGiraffeDirectoryPath() + "/gdl_server.json";
 }
 
+std::string getGfsConfigFilePath() {
+  return getGiraffeDirectoryPath() + "/gfs_config.json";
+}
+
 } // namespace giraffe::file_paths

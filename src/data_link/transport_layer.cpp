@@ -112,7 +112,7 @@ void TransportLayer::idleState() {
   // special case for the controller node
   if (config_.isController()) {
     controllerIdleState();
-    if (uplink_timer_.isDone()) {
+    if (uplink_timer_.isDone() && config_.getProactiveKeepAlive()) {
       connected_ = false;
       uplink_connected_ = false;
     }
@@ -164,6 +164,8 @@ void TransportLayer::idleState() {
       break;
     case Packet::PacketType::PING:
       sendPingResponse();
+      connected_ = true;
+      received_timer_.reset(); // we got a ping, reset the timer.
       /// @todo handle connection timeout reset
       break;
     case Packet::PacketType::PING_RESPONSE:
@@ -182,7 +184,8 @@ void TransportLayer::idleState() {
 
 void TransportLayer::controllerIdleState() {
   // if we haven't received an exchange response in a while, send a ping.
-  if (exchange_ping_interval_timer_.isDone()) {
+  if (exchange_ping_interval_timer_.isDone() &&
+      config_.getProactiveKeepAlive()) {
     sendPing();
     exchange_ping_interval_timer_.reset();
   }

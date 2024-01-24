@@ -70,7 +70,7 @@ bool DataLink::sendText(const std::string &text, uint32_t message_id) {
 
   Message message;
   message.setExchangeMessage(text, message_id);
-  return out_broadcast_queue_.push(message);
+  return out_exchange_queue_.push(message);
 }
 
 bool DataLink::receiveMessage(Message &message) {

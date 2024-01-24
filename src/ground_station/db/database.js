@@ -22,10 +22,6 @@ module.exports = class PostgresDatabase {
             timestamp          INTEGER   NOT NULL
             );`
       );
-    } catch (err) {
-      console.log(err);
-    }
-    try {
       this.db.exec(
         `CREATE TABLE IF NOT EXISTS gdl_server_log (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -34,10 +30,15 @@ module.exports = class PostgresDatabase {
             timestamp          INTEGER   NOT NULL
             );`
       );
-    } catch (err) {
-      console.log(err);
-    }
-    try {
+      this.db.exec(
+        `CREATE TABLE IF NOT EXISTS gdl_received_messages (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            type               TEXT      NOT NULL,
+            data               TEXT      NOT NULL,
+            identifier         TEXT      NOT NULL,
+            timestamp          INTEGER   NOT NULL
+            );`
+      );
       this.db.exec(
         `CREATE TABLE IF NOT EXISTS aprs_fi (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -146,6 +147,29 @@ module.exports = class PostgresDatabase {
         $level: item.level,
         $message: item.message,
         $timestamp: item.timestamp,
+      }
+    );
+  }
+
+  addReceivedMessage(type, data, identifier) {
+    let unix_time = Math.round(+new Date() / 1000);
+    this.db.run(
+      `INSERT INTO gdl_received_messages (
+            type,
+            data,
+            identifier,
+            timestamp
+        ) VALUES (
+            $type,
+            $data,
+            $identifier,
+            $timestamp
+        );`,
+      {
+        $type: type,
+        $data: data,
+        $identifier: identifier,
+        $timestamp: unix_time,
       }
     );
   }

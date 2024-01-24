@@ -13,8 +13,8 @@ module.exports = function (global_state) {
   // });
 
   // /api/gdl/data
-  router.get("/data", (req, res, next) => {
-    parseGetQuery(req, res, "gdl", "data", global_state);
+  router.get("/status", (req, res, next) => {
+    res.json(global_state.gdl_connection.getStatus());
   });
 
   router.get("/telemetry", (req, res, next) => {
@@ -39,20 +39,20 @@ module.exports = function (global_state) {
 
   router.post("/broadcast", (req, res, next) => {
     // parse the query
-    if (req.query["data"] === undefined) {
+    if (req.body["data"] === undefined) {
       res
         .status(400)
-        .json({ message: "Invalid query: must contain 'data':string" });
+        .json({ message: "Invalid body: must contain 'data':string" });
       return;
     }
 
-    let data = req.query["data"];
+    let data = req.body["data"];
     if (typeof data !== "string") {
-      res.status(400).json({ message: "Invalid query: 'data' must be string" });
+      res.status(400).json({ message: "Invalid body: 'data' must be string" });
       return;
     }
 
-    // arbitrary limit
+    // arbitrary limits
     if (data.length < 5 || data.length > 150) {
       res.status(400).json({ message: "Data too short or too long" });
       return;
@@ -65,8 +65,32 @@ module.exports = function (global_state) {
       return;
     }
 
-    global_state.gdl_connection.sendBroadcast(data);
+    let success = global_state.gdl_connection.sendBroadcast(data);
+    if (!success) {
+      res.status(400).json({
+        message:
+          "Failed to broadcast. Probably due to another broadcast request pending.",
+      });
+      return;
+    }
     res.json({ message: "sent" });
+  });
+
+  router.post("/config", (req, res, next) => {
+    if (typeof req.body !== "object") {
+      res.status(400).json({ message: "Invalid body: must be object" });
+      return;
+    }
+
+    let result = global_state.gdl_connection.setConfig(req.body);
+    if (result !== "success") {
+      res.status(400).json({
+        message: "Failed to set config. " + result,
+      });
+      return;
+    }
+
+    res.json({ message: "success" });
   });
 
   return router;

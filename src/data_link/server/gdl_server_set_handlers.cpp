@@ -28,6 +28,7 @@ void GdlServer::handleSetNewBroadcast(const json &request_data) {
   gdl::Message new_broadcast;
   new_broadcast.setBroadcastMessage(broadcast_data, getNewBroadcastId());
   if (sendMessage(new_broadcast)) {
+    log_.info("Added new broadcast: " + broadcast_data);
     sendResponseSuccess();
   } else {
     sendResponseError("failed to send broadcast (queue full)");
@@ -44,6 +45,7 @@ void GdlServer::handleSetConfig(const json &request_data) {
     return;
   }
 
+  log_.info("Config updated via SET request");
   sendResponseSuccess();
 }
 

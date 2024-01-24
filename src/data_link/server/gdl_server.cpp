@@ -283,7 +283,7 @@ void GdlServer::sendResponseSuccess() {
   protocol::Message msg;
   protocol::createResponseMessage(
       msg, protocol::Endpoint::GDL, protocol::Endpoint::GGS,
-      getNextResponseId(), protocol::ResponseCode::GOOD, {"msg", "success"});
+      getNextResponseId(), protocol::ResponseCode::GOOD, {{"msg", "success"}});
   send_result_ = client_socket_.send(msg.getJsonString());
   response_sent_ = true;
 }

@@ -126,15 +126,17 @@ public:
   }
 
   json getJson() const {
-    json data = {{"identifier", getIdentifierString()},
-                 {"type", static_cast<uint8_t>(getType())}};
+    json data = {{"identifier", getIdentifierString()}};
     switch (getType()) {
     case Type::BROADCAST:
+      data["type"] = "BROADCAST";
       [[fallthrough]];
     case Type::EXCHANGE:
       data["data"] = getData();
+      data["type"] = "EXCHANGE";
       break;
     case Type::LOCATION:
+      data["type"] = "LOCATION";
       data["location"] = {{"latitude", getLocation().latitude},
                           {"longitude", getLocation().longitude},
                           {"altitude", getLocation().altitude},

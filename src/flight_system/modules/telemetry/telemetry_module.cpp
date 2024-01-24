@@ -26,6 +26,10 @@ void modules::TelemetryModule::startup() {
       configuration_.telemetry_aprs.getDestinationAddress());
   gdl_config_.setRemoteSSID(configuration_.telemetry_aprs.getDestinationSsid());
 
+  gdl_config_.setRemoteCallSign(
+      configuration_.telemetry_aprs.getDestinationAddress());
+  gdl_config_.setRemoteSSID(configuration_.telemetry_aprs.getDestinationSsid());
+
   aprs_position_packet_timer_.setTimeout(
       configuration_.telemetry_aprs.getPositionPacketInterval() * 1000);
 
@@ -34,6 +38,7 @@ void modules::TelemetryModule::startup() {
 
 void modules::TelemetryModule::loop() {
   if (gdl_.messageAvailable()) {
+    std::cout << "Message available" << std::endl;
     processTelemetryMessageQueue();
   } else if (configuration_.telemetry_aprs.getPositionPackets()) {
     // if APRS position packets are enabled, handle them.
@@ -73,11 +78,13 @@ void modules::TelemetryModule::processTelemetryMessageQueue() {
   giraffe::gdl::Message msg;
   if (!gdl_.receiveMessage(msg)) {
     // @todo log error
+    std::cout << "message should be available" << std::endl;
     return;
   }
 
   if (msg.getType() == giraffe::gdl::Message::Type::LOCATION) {
     // @todo log error
+    std::cout << "message should not be a location packet" << std::endl;
     return;
   }
 

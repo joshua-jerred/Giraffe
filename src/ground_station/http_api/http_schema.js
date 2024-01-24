@@ -12,7 +12,13 @@ const valid_resources = [
 
 const valid_ggs_categories = ["settings", "data", "aprs_fi", "log"];
 const valid_gfs_categories = ["settings", "data"];
-const valid_gdl_categories = ["settings", "data", "telemetry", "broadcast"];
+const valid_gdl_categories = [
+  "settings",
+  "status",
+  "telemetry",
+  "broadcast",
+  "config",
+];
 
 var verifyPathSchema = function (req, res, next) {
   let path_parts = req.path.split("/");
