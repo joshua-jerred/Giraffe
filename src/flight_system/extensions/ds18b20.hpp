@@ -24,10 +24,9 @@
 
 namespace extension {
 
-class Ds18b20Extension : public Extension {
+class Ds18b20 : public Extension {
 public:
-  Ds18b20Extension(ExtensionResources &resources,
-                   cfg::ExtensionMetadata metadata);
+  Ds18b20(ExtensionResources &resources, cfg::ExtensionMetadata metadata);
 
   void startup() override;
   void loop() override;

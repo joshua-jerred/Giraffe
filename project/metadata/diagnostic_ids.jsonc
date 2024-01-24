@@ -622,6 +622,23 @@
       "value": "0x7013"
     }
   },
+  "interface":{
+    "invalid_gpio_pin":{
+      "name": "Invalid GPIO Pin",
+      "details": "The GPIO pin is not valid.",
+      "value": "0x8000"
+    },
+    "invalid_gpio_pin_mode":{
+      "name": "Invalid GPIO Pin Mode",
+      "details": "The GPIO pin mode is not valid.",
+      "value": "0x8001"
+    },
+    "initial_state_input_pin":{
+      "name": "Initial State Input Pin",
+      "details": "The GPIO pin is an input pin and can not be set to an initial state.",
+      "value": "0x8002"
+    }
+  },
   "gdl":{
     "invalid_start_call":{
       "name": "Invalid Start Call",

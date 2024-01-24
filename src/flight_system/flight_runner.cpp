@@ -191,6 +191,8 @@ auto FlightRunner::flightLoop() -> int {
   while (!shutdown_signal_) { // The endless loop where everything happens
     std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
+    shared_data_.status_led.blinkGreen();
+
     if (shared_data_.streams.command.getNumPackets() > 0) {
       data::CommandPacket command_packet{};
       bool new_command = shared_data_.streams.command.getPacket(command_packet);

@@ -24,10 +24,9 @@
 
 namespace extension {
 
-class Bme280Extension : public Extension {
+class Bme280 : public Extension {
 public:
-  Bme280Extension(ExtensionResources &resources,
-                  cfg::ExtensionMetadata metadata);
+  Bme280(ExtensionResources &resources, cfg::ExtensionMetadata metadata);
 
   void startup() override;
   void loop() override;

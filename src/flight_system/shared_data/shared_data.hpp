@@ -25,6 +25,7 @@
 #include "error_frame.hpp"
 #include "frame.hpp"
 #include "log_container.hpp"
+#include "status_led.hpp"
 #include "streams.hpp"
 
 namespace data {
@@ -102,6 +103,7 @@ struct SharedData {
   SharedBlocks blocks{};
   Misc misc = Misc();
   LogContainer log_container{};
+  giraffe::StatusLed status_led{};
 
 #ifndef DNDEBUG // Defined by CMake
   /**

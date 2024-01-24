@@ -26,8 +26,7 @@ inline constexpr uint32_t K_READ_TIMEOUT = 5000;
 
 namespace extension {
 
-SamM8qExtension::SamM8qExtension(ExtensionResources &resources,
-                                 cfg::ExtensionMetadata metadata)
+SamM8q::SamM8q(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
     : Extension(resources, metadata),
       i2c_(resources.i2c_bus, kSamM8qI2cAddress, resources.i2c_bus_lock),
       primary_watchdog_timer_((K_READ_TIMEOUT + metadata.update_interval) * 4),
@@ -39,7 +38,7 @@ SamM8qExtension::SamM8qExtension(ExtensionResources &resources,
 // ---------------- Extension Base Class Overrides ----------------
 
 enum class StartupState { I2C_CONNECT, HANDSHAKE, DONE };
-void SamM8qExtension::startup() {
+void SamM8q::startup() {
   constexpr uint32_t kStartupTimeout = 5000;   // ms
   constexpr uint32_t kStartupRetryDelay = 400; // ms
 
@@ -93,7 +92,7 @@ void SamM8qExtension::startup() {
   }
 }
 
-void SamM8qExtension::loop() {
+void SamM8q::loop() {
   /**
    * @todo Check the primary watchdog timer
    */
@@ -111,7 +110,7 @@ void SamM8qExtension::loop() {
   }
 }
 
-void SamM8qExtension::shutdown() {
+void SamM8q::shutdown() {
   /**
    * @brief Reset?
    */
@@ -120,7 +119,7 @@ void SamM8qExtension::shutdown() {
 // ////////////////                       ////////////////
 // ---------------- SAM-M8Q State Machine ----------------
 
-void SamM8qExtension::transitionState(State new_state) {
+void SamM8q::transitionState(State new_state) {
   state_ = new_state;
   switch (new_state) {
   case State::CONFIGURE:
@@ -138,7 +137,7 @@ void SamM8qExtension::transitionState(State new_state) {
   }
 }
 
-void SamM8qExtension::stateConfigure() {
+void SamM8q::stateConfigure() {
   /**
    * @brief Allow each command to be sent up to 3 times before giving up.
    */
@@ -203,7 +202,7 @@ void SamM8qExtension::stateConfigure() {
   /** @todo Read the configuration data and verify */
 }
 
-void SamM8qExtension::stateReset() {
+void SamM8q::stateReset() {
   constexpr uint32_t kMaxResetAttempts = 3;
 
   switch (reset_state_) {
@@ -241,7 +240,7 @@ void SamM8qExtension::stateReset() {
   }
 }
 
-void SamM8qExtension::stateRead() {
+void SamM8q::stateRead() {
   if (read_watchdog_timer_.isDone()) {
     error(DiagnosticId::EXTENSION_samm8qReadTimeout);
     EXT_DEBUG("SAM-M8Q read timeout - resetting");
@@ -311,7 +310,7 @@ void SamM8qExtension::stateRead() {
 // ////////////////                          ////////////////
 // ---------------- SAM-M8Q Helper Functions ----------------
 
-bool SamM8qExtension::handshake() {
+bool SamM8q::handshake() {
   constexpr uint8_t kStreamSizeLsbRegister = 0xFE;
   uint8_t byte_buffer;
   auto result = i2c_.readByteFromReg(byte_buffer, kStreamSizeLsbRegister);

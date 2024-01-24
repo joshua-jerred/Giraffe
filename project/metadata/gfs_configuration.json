@@ -637,7 +637,8 @@
                 "bmp180",
                 "bme280",
                 "sam_m8q",
-                "ds18b20"
+                "ds18b20",
+                "rgb_led"
             ]
         },
         "update_interval": {
