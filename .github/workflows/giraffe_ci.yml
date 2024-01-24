@@ -113,12 +113,12 @@ jobs:
   ggs_tests:
     name: Unit Tests / Giraffe Ground Station
     runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/giraffe:latest
+      options: --user root
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
+      - run: mkdir build -p && cd build && cmake ..
       - run: npm install
         working-directory: ./src/ground_station
       - run: npm test
