@@ -118,7 +118,10 @@ jobs:
       options: --user root
     steps:
       - uses: actions/checkout@v3
-      - run: mkdir build -p && cd build && cmake ..
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
+      - name: CMake Configure
+        run: mkdir build -p && cd build && cmake ..
       - run: npm install
         working-directory: ./src/ground_station
       - run: npm test
