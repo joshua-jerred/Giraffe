@@ -637,6 +637,26 @@
       "name": "Initial State Input Pin",
       "details": "The GPIO pin is an input pin and can not be set to an initial state.",
       "value": "0x8002"
+    },
+    "gpio_failed_to_init":{
+      "name": "GPIO Init Failed",
+      "details": "Failed to open /dev/gpiomem",
+      "value": "0x8003"
+    },
+    "gpio_failed_to_map_registers":{
+      "name": "GPIO Map Registers Failed",
+      "details": "Failed to map registers",
+      "value": "0x8004"
+    },
+    "gpio_not_initialized":{
+      "name": "GPIO Not Initialized",
+      "details": "A pin can not be reserved as the GPIO module has not been initialized.",
+      "value": "0x8005"
+    },
+    "gpio_pin_already_reserved":{
+      "name": "GPIO Pin Already Reserved",
+      "details": "The GPIO pin is already reserved.",
+      "value": "0x8006"
     }
   },
   "gdl":{

@@ -151,6 +151,10 @@ enum class DiagnosticId : uint16_t {
   INTERFACE_invalidGpioPin=0x8000, // Invalid GPIO Pin
   INTERFACE_invalidGpioPinMode=0x8001, // Invalid GPIO Pin Mode
   INTERFACE_initialStateInputPin=0x8002, // Initial State Input Pin
+  INTERFACE_gpioFailedToInit=0x8003, // GPIO Init Failed
+  INTERFACE_gpioFailedToMapRegisters=0x8004, // GPIO Map Registers Failed
+  INTERFACE_gpioNotInitialized=0x8005, // GPIO Not Initialized
+  INTERFACE_gpioPinAlreadyReserved=0x8006, // GPIO Pin Already Reserved
   GDL_invalidStartCall=0xA000, // Invalid Start Call
   GDL_invalidStopCall=0xA001, // Invalid Stop Call
   GDL_invalidBroadcastCall=0xA002, // Invalid Broadcast Call
