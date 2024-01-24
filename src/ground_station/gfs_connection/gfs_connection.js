@@ -79,13 +79,17 @@ module.exports = class GfsConnection {
 
     let cat_with_prefix = "setting/" + category;
     let request = new SetMessage("ggs", "gfs", cat_with_prefix, data);
-    this.#sendRequest(request, (response) => {
-      if (!response.bdy.cde || response.bdy.cde !== "ok") {
-        res.status(500).json(response.getJson());
-        return;
-      }
-      res.status(200).json(response.getJson());
-    });
+    try {
+      this.#sendRequest(request, (response) => {
+        if (!response.bdy.cde || response.bdy.cde !== "ok") {
+          res.status(500).json(response.getJson());
+          return;
+        }
+        res.status(200).json(response.getJson());
+      });
+    } catch (err) {
+      res.status(500).json({ message: "Error sending request to GFS" });
+    }
   }
 
   update() {

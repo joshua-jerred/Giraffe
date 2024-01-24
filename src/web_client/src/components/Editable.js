@@ -283,3 +283,136 @@ export function EditBox({ resource, category }) {
     </>
   );
 }
+
+export function GfsEditBox({ category }) {
+  const { ggsAddress, isGgsConnected, isGfsTcpConnected } =
+    React.useContext(GwsGlobal);
+  const [metadata, setMetadata] = React.useState(null);
+  const [values, setValues] = React.useState({});
+  const [error, setError] = React.useState(null);
+  const [editMode, setEditMode] = React.useState(false);
+  const [saving, setSaving] = React.useState(false);
+
+  const SAVE_DELAY_MS = 5000;
+
+  const encoded_category = encodeURIComponent(category);
+  const path = `${ggsAddress}/api/gfs/settings?category=${encoded_category}&include=all`;
+
+  function loadConfigData() {
+    fetch(path)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load metadata.");
+        } else {
+          return response.json();
+        }
+      })
+      .then((data) => {
+        if (data.values === undefined) {
+          throw new Error("Metadata missing values.");
+        }
+        if (data.metadata === undefined) {
+          throw new Error("Metadata missing meta.");
+        }
+        setMetadata(data.metadata);
+        const new_values = {};
+        for (const [key, value] of Object.entries(data.values)) {
+          new_values[key] = value;
+        }
+        setValues(new_values);
+      })
+      .catch((error) => {
+        console.error("Error attempting to load metadata:\n", error);
+        setError("Failed to load metadata. (Check console for details.)");
+      });
+  }
+
+  React.useEffect(() => {
+    loadConfigData();
+    console.log("EditBox: useEffect");
+  }, [editMode, ggsAddress, isGgsConnected, path]);
+
+  if (!isGgsConnected) {
+    return <div>Not connected to GGS.</div>;
+  }
+  if (!isGfsTcpConnected) {
+    return <div>Not connected to GFS via TCP socket.</div>;
+  }
+  if (error) {
+    return <div>{error}</div>;
+  }
+  if (saving) {
+    return <div>Saving...</div>;
+  }
+
+  function Save() {
+    const data = values;
+    setSaving(true);
+    fetch(path, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to save metadata.");
+        } else {
+          setEditMode(false);
+        }
+        console.log("Save complete", response);
+
+        setTimeout(() => {
+          console.log("Save complete");
+          setSaving(false);
+          setEditMode(false);
+          setValues({});
+          setError(null);
+          loadConfigData();
+        }, SAVE_DELAY_MS);
+      })
+      .catch((error) => {
+        setError("Failed to save.");
+      });
+  }
+
+  function toggleEditMode() {
+    if (!editMode) {
+      setEditMode(true);
+    } else {
+      Save();
+    }
+  }
+
+  return (
+    <>
+      {error != null ? (
+        <EditBoxStatus>{error}</EditBoxStatus>
+      ) : metadata == null ? (
+        <EditBoxStatus>Loading Data...</EditBoxStatus>
+      ) : (
+        <>
+          <EditBoxContainer>
+            {Object.entries(metadata).map(([key, value]) => (
+              <Item
+                key={key}
+                json={value}
+                input={editMode}
+                value={values[key]}
+                id={key}
+                values={values}
+                setValues={setValues}
+              />
+            ))}
+          </EditBoxContainer>
+          <EditButtonCont>
+            <StyButton onClick={toggleEditMode}>
+              {editMode ? "save" : "edit"}
+            </StyButton>
+          </EditButtonCont>
+        </>
+      )}
+    </>
+  );
+}
