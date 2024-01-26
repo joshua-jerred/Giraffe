@@ -26,6 +26,11 @@ services:
     volumes:
       - .:/project
     command: "bash ./project/docker_build.sh unit_test_gfs_host"
+  build_spi_test:
+    image: joshuajerred/gcc_10_3_arm_debian_11:latest
+    volumes:
+      - .:/project
+    command: "bash ./project/docker_build.sh spitest"
 
   influx:
     image: influxdb:2.7.3
