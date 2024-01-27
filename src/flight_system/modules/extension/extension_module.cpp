@@ -19,7 +19,9 @@
 
 // ---- EXTENSIONS ----
 #include "bme280.hpp"
+#include "bmi088.hpp"
 #include "ds18b20.hpp"
+#include "mcp3021.hpp"
 #include "rgb_status_led.hpp"
 #include "samm8q.hpp"
 #include "simulated_extensions.hpp"
@@ -192,10 +194,10 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
     extension =
         std::make_shared<extension::Mcp3021>(extension_resources_, meta);
     break;
-  case cfg::gEnum::ExtensionType::MAX11615:
-    extension =
-        std::make_shared<extension::Max11615>(extension_resources_, meta);
-    break;
+    // case cfg::gEnum::ExtensionType::MAX11615:
+    // extension =
+    // std::make_shared<extension::Max11615>(extension_resources_, meta);
+    // break;
   case cfg::gEnum::ExtensionType::BMI088:
     extension = std::make_shared<extension::Bmi088>(extension_resources_, meta);
     break;
