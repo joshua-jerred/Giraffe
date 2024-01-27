@@ -19,7 +19,7 @@
 #include "i2c_interface.hpp"
 
 // #define BME280
-#define BMP180
+#define BME280
 
 #ifdef BME280
 inline constexpr uint8_t kAddress = 0x76;
@@ -29,6 +29,8 @@ inline constexpr uint8_t kIdValue = 0x60;
 inline constexpr uint8_t kAddress = 0x77;
 inline constexpr uint8_t kIdRegister = 0xD0;
 inline constexpr uint8_t kIdValue = 0x55;
+#else
+#error "No sensor defined"
 #endif
 
 TEST(I2cInterfaceTest, idRegisterRead) {

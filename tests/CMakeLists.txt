@@ -119,10 +119,6 @@ set_target_properties(
 	RUNTIME_OUTPUT_DIRECTORY ${GFS_TEST_BIN}
 )
 
-add_executable(spitest
-  ./misc/spitest.cpp
-)
-
 # ---------------- ctest ----------------
 # include(CTest)
 add_test(NAME common_tests COMMAND $<TARGET_FILE:unit_test_common>)
