@@ -124,4 +124,20 @@ std::string to_string(data::DataPacket::Type type) noexcept {
   }
 }
 
+std::string to_string(const data::ImuFrame &frame) noexcept {
+  return "rot (x, y, z): (" + std::to_string(frame.x_angular_velocity) + ", " +
+         std::to_string(frame.y_angular_velocity) + ", " +
+         std::to_string(frame.z_angular_velocity) + ") accel (x, y, z): (" +
+         std::to_string(frame.x_acceleration) + ", " +
+         std::to_string(frame.y_acceleration) + ", " +
+         std::to_string(frame.z_acceleration) + ")";
+}
+
+std::string to_string(const data::ImuFramePacket &packet) noexcept {
+  std::string output = "ImuFramePacket - ";
+  output += packet.secondary_identifier + " | ";
+  output += to_string(packet.frame);
+  return output;
+}
+
 } // namespace util

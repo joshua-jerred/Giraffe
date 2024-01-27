@@ -148,6 +148,14 @@ enum class DiagnosticId : uint16_t {
   EXT_FAULT_i2cUnknownFault=0x7011, // I2C Unknown Fault
   EXT_FAULT_i2cHandshakeTimeoutFault=0x7012, // I2C Handshake Timeout Fault
   EXT_FAULT_adcWatchdogTimeout=0x7013, // ADC Watchdog Timeout Fault
+  EXT_FAULT_bmi088AddressError=0x7014, // Provided BMI088 address is invalid
+  EXT_FAULT_bmi088AccelHandshakeError=0x7015, // BMI088 Accel Handshake Error
+  EXT_FAULT_bmi088GyroHandshakeError=0x7016, // BMI088 Gyro Handshake Error
+  EXT_FAULT_bmi088AccelOpenError=0x7017, // BMI088 Accel Open Error
+  EXT_FAULT_bmi088GyroOpenError=0x7018, // BMI088 Gyro Open Error
+  EXT_FAULT_bmi088AccelConfigError=0x7019, // BMI088 Accel Config Error
+  EXT_FAULT_bmi088GyroConfigError=0x701A, // BMI088 Gyro Config Error
+  EXT_FAULT_bmi088ReadTimeout=0x701B, // BMI088 Read Timeout
   INTERFACE_invalidGpioPin=0x8000, // Invalid GPIO Pin
   INTERFACE_invalidGpioPinMode=0x8001, // Invalid GPIO Pin Mode
   INTERFACE_initialStateInputPin=0x8002, // Initial State Input Pin

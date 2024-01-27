@@ -620,6 +620,46 @@
       "name":"ADC Watchdog Timeout Fault",
       "details":"The ADC did not successfully read a value before the watchdog timer expired.",
       "value": "0x7013"
+    },
+    "bmi088_address_error":{
+      "name":"Provided BMI088 address is invalid",
+      "details":"Extra args should be provided with the format: \"<accel_address>,<gyro_address>\"",
+      "value": "0x7014"
+    },
+    "bmi088_accel_handshake_error":{
+      "name":"BMI088 Accel Handshake Error",
+      "details":"The BMI088 Accelerometer failed to handshake.",
+      "value": "0x7015"
+    },
+    "bmi088_gyro_handshake_error":{
+      "name":"BMI088 Gyro Handshake Error",
+      "details":"The BMI088 Gyroscope failed to handshake.",
+      "value": "0x7016"
+    },
+    "bmi088_accel_open_error":{
+      "name":"BMI088 Accel Open Error",
+      "details":"The BMI088 Accelerometer SPI path failed to open.",
+      "value": "0x7017"
+    },
+    "bmi088_gyro_open_error":{
+      "name":"BMI088 Gyro Open Error",
+      "details":"The BMI088 Gyroscope SPI path failed to open.",
+      "value": "0x7018"
+    },
+    "bmi088_accel_config_error":{
+      "name":"BMI088 Accel Config Error",
+      "details":"The BMI088 Accelerometer failed to configure.",
+      "value": "0x7019"
+    },
+    "bmi088_gyro_config_error":{
+      "name":"BMI088 Gyro Config Error",
+      "details":"The BMI088 Gyroscope failed to configure.",
+      "value": "0x701A"
+    },
+    "bmi088_read_timeout":{
+      "name":"BMI088 Read Timeout",
+      "details":"The BMI088 failed to read data in time.",
+      "value": "0x701B"
     }
   },
   "interface":{

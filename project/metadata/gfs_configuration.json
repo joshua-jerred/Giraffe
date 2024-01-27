@@ -638,7 +638,10 @@
                 "bme280",
                 "sam_m8q",
                 "ds18b20",
-                "rgb_led"
+                "rgb_led",
+                "mcp3021",
+                "max11615",
+                "bmi088"
             ]
         },
         "update_interval": {
