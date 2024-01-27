@@ -27,6 +27,7 @@ public:
   int getTotalDataPackets();
   int getTotalLogPackets();
   int getTotalGpsPackets();
+  int getTotalImuPackets();
   void sleep(int ms);
   void runExtensionFor(extension::Extension &ext, int ms);
 

@@ -38,6 +38,9 @@ std::string to_string(const data::LogPacket &packet) noexcept;
 std::string to_string(const data::GpsFix fix_type) noexcept;
 std::string to_string(const data::GpsFrame &frame) noexcept;
 std::string to_string(const data::GpsFramePacket &packet) noexcept;
+
+std::string to_string(const data::ImuFrame &frame) noexcept;
+std::string to_string(const data::ImuFramePacket &packet) noexcept;
 } // namespace util
 
 #endif /* TO_STRING_HPP_ */

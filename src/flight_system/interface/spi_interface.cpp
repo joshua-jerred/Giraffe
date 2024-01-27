@@ -27,9 +27,9 @@
 
 namespace giraffe {
 
-bool SpiInterface::openDevice() {
+bool SpiInterface::openDevice(std::string device_path) {
   giraffe_assert(spi_fd_ == -1);
-  if ((spi_fd_ = open(device_path_.c_str(), O_RDWR)) >= 0) {
+  if ((spi_fd_ = open(device_path.c_str(), O_RDWR)) >= 0) {
     return true;
   }
 

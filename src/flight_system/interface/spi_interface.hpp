@@ -32,10 +32,8 @@ public:
 
   /**
    * @brief Constructor for the SPI interface class.
-   * @param device_path - The path to the SPI device. Example: "/dev/spidev0.1"
    */
-  SpiInterface(std::string device_path, Config config)
-      : device_path_(device_path), config_(config) {
+  SpiInterface(Config config) : config_(config) {
   }
 
   /**
@@ -50,10 +48,11 @@ public:
    * @brief Attempts to open the SPI device. Returns true if successful, false
    * otherwise.
    * @note This function will call giraffe_assert if the device is already open.
+   * @param device_path - The path to the SPI device. Example: "/dev/spidev0.1"
    * @return true If the device was opened successfully.
    * @return false If the device was not opened successfully.
    */
-  bool openDevice();
+  bool openDevice(std::string device_path);
 
   /**
    * @brief Closes the SPI device. No action is taken if the device is already
@@ -83,12 +82,12 @@ public:
   bool transfer(uint8_t *tx_buffer, uint8_t *rx_buffer, size_t transfer_size);
 
 private:
-  const std::string device_path_;
+  // const std::string device_path_{};
   int spi_fd_ = -1;
 
   Config config_{};
 };
 
-}; // namespace giraffe
+} // namespace giraffe
 
 #endif /* SPI_INTERFACE_HPP_ */
