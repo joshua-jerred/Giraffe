@@ -13,6 +13,7 @@ var namespacegiraffe =
     [ "Gpio", "classgiraffe_1_1Gpio.html", "classgiraffe_1_1Gpio" ],
     [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ],
     [ "LoggerEntry", "structgiraffe_1_1LoggerEntry.html", "structgiraffe_1_1LoggerEntry" ],
+    [ "SpiInterface", "classgiraffe_1_1SpiInterface.html", "classgiraffe_1_1SpiInterface" ],
     [ "StatusLed", "classgiraffe_1_1StatusLed.html", "classgiraffe_1_1StatusLed" ],
     [ "LoggerLevel", "namespacegiraffe.html#a7de051682a10e68f9259ee84278381ed", [
       [ "DEBUG", "namespacegiraffe.html#a7de051682a10e68f9259ee84278381edadc30ec20708ef7b0f641ef78b7880a15", null ],

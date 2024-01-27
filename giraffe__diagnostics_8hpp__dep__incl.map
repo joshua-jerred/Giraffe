@@ -7,10 +7,10 @@
 <area shape="rect" id="node9" href="$samm8q_8hpp.html" title="SAM&#45;M8Q GPS extension (I2C)." alt="" coords="353,155,459,181"/>
 <area shape="rect" id="node11" href="$i2c__interface_8cpp.html" title="A wrapper around I2C communication." alt="" coords="483,155,617,181"/>
 <area shape="rect" id="node12" href="$ubx__protocol_8hpp.html" title="UBX Protocol implementation header." alt="" coords="641,155,776,181"/>
-<area shape="rect" id="node4" href="$bme280_8cpp.html" title="BME280 sensor extension." alt="" coords="192,229,295,256"/>
-<area shape="rect" id="node5" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="319,229,488,256"/>
-<area shape="rect" id="node7" href="$mcp3021_8hpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="48,229,159,256"/>
-<area shape="rect" id="node8" href="$mcp3021_8cpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="49,304,158,331"/>
-<area shape="rect" id="node10" href="$samm8q_8cpp.html" title="The SAM&#45;M8Q GPS extension (I2C)." alt="" coords="513,229,619,256"/>
-<area shape="rect" id="node13" href="$ubx__protocol_8cpp.html" title="The UBX Protocol implementation." alt="" coords="643,229,777,256"/>
+<area shape="rect" id="node4" href="$bme280_8cpp.html" title="BME280 sensor extension." alt="" coords="195,229,297,256"/>
+<area shape="rect" id="node5" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="251,304,420,331"/>
+<area shape="rect" id="node7" href="$mcp3021_8hpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="52,229,163,256"/>
+<area shape="rect" id="node8" href="$mcp3021_8cpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="53,304,162,331"/>
+<area shape="rect" id="node10" href="$samm8q_8cpp.html" title="The SAM&#45;M8Q GPS extension (I2C)." alt="" coords="470,229,577,256"/>
+<area shape="rect" id="node13" href="$ubx__protocol_8cpp.html" title="The UBX Protocol implementation." alt="" coords="642,229,775,256"/>
 </map>

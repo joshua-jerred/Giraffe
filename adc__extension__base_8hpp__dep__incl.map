@@ -1,5 +1,6 @@
 <map id="adc_extension_base.hpp" name="adc_extension_base.hpp">
-<area shape="rect" id="node1" title="Generic ADC Extension Wrapper." alt="" coords="5,5,188,32"/>
-<area shape="rect" id="node2" href="$mcp3021_8hpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="41,80,152,107"/>
-<area shape="rect" id="node3" href="$mcp3021_8cpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="42,155,151,181"/>
+<area shape="rect" id="node1" title="Generic ADC Extension Wrapper." alt="" coords="50,5,233,32"/>
+<area shape="rect" id="node2" href="$mcp3021_8hpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="86,80,197,107"/>
+<area shape="rect" id="node3" href="$mcp3021_8cpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="5,155,115,181"/>
+<area shape="rect" id="node4" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="139,155,309,181"/>
 </map>

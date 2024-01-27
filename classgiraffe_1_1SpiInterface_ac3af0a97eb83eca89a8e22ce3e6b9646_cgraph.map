@@ -1,0 +1,4 @@
+<map id="giraffe::SpiInterface::~SpiInterface" name="giraffe::SpiInterface::~SpiInterface">
+<area shape="rect" id="node1" title="Destructor for the SPI interface class. Closes the file descriptors if they are open." alt="" coords="5,5,156,47"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1SpiInterface.html#aaa3817a9e14349b2aa45be6c026e06c0" title="Closes the SPI device. No action is taken if the device is already closed." alt="" coords="204,5,355,47"/>
+</map>

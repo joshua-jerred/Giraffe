@@ -1,0 +1,4 @@
+<map id="giraffe::SpiInterface::openDevice" name="giraffe::SpiInterface::openDevice">
+<area shape="rect" id="node1" title="Attempts to open the SPI device. Returns true if successful, false otherwise." alt="" coords="205,5,356,47"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#ae97880621fee99f214cc73916b8a159c" title=" " alt="" coords="5,5,157,47"/>
+</map>

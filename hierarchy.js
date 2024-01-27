@@ -59,10 +59,11 @@ var hierarchy =
     [ "extension::Bme280::CompensationData", "classextension_1_1Bme280.html#structextension_1_1Bme280_1_1CompensationData", null ],
     [ "extension::Extension", "classextension_1_1Extension.html", [
       [ "extension::AdcExtensionBase< 10 >", "classextension_1_1AdcExtensionBase.html", [
-        [ "extension::Mcp3021Extension", "classextension_1_1Mcp3021Extension.html", null ]
+        [ "extension::Mcp3021", "classextension_1_1Mcp3021.html", null ]
       ] ],
       [ "extension::AdcExtensionBase< AdcResolution >", "classextension_1_1AdcExtensionBase.html", null ],
       [ "extension::Bme280", "classextension_1_1Bme280.html", null ],
+      [ "extension::Bmi088", "classextension_1_1Bmi088.html", null ],
       [ "extension::Ds18b20", "classextension_1_1Ds18b20.html", null ],
       [ "extension::RgbStatusLed", "classextension_1_1RgbStatusLed.html", null ],
       [ "extension::SamM8q", "classextension_1_1SamM8q.html", null ],
@@ -74,7 +75,7 @@ var hierarchy =
     ] ],
     [ "extension::ExtensionResources", "structextension_1_1ExtensionResources.html", null ],
     [ "extension::I2cExtensionAdapter", "classextension_1_1I2cExtensionAdapter.html", [
-      [ "extension::Mcp3021Extension", "classextension_1_1Mcp3021Extension.html", null ]
+      [ "extension::Mcp3021", "classextension_1_1Mcp3021.html", null ]
     ] ],
     [ "FlightRunner", "classFlightRunner.html", null ],
     [ "data::Frame< DiagnosticId, ErrorFrameItem >", "classdata_1_1Frame.html", [
@@ -99,6 +100,8 @@ var hierarchy =
     [ "giraffe::Gpio::Pin", "structgiraffe_1_1Gpio_1_1Pin.html", null ],
     [ "giraffe::Logger", "classgiraffe_1_1Logger.html", null ],
     [ "giraffe::LoggerEntry", "structgiraffe_1_1LoggerEntry.html", null ],
+    [ "giraffe::SpiInterface", "classgiraffe_1_1SpiInterface.html", null ],
+    [ "giraffe::SpiInterface::Config", "classgiraffe_1_1SpiInterface.html#structgiraffe_1_1SpiInterface_1_1Config", null ],
     [ "giraffe::StatusLed", "classgiraffe_1_1StatusLed.html", null ],
     [ "I2cInterface", "classI2cInterface.html", null ],
     [ "LogContainer", "classLogContainer.html", null ],

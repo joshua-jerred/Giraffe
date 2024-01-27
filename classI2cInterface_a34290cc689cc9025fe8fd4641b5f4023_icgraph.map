@@ -1,5 +1,5 @@
 <map id="I2cInterface::readChunk" name="I2cInterface::readChunk">
-<area shape="rect" id="node1" title="Read a chunk of data from the device without specifying a register." alt="" coords="536,13,713,39"/>
-<area shape="rect" id="node2" href="$classextension_1_1Mcp3021Extension.html#ac9c2aea0e4825ed461f33c44f1a9daaa" title=" " alt="" coords="271,5,488,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Mcp3021Extension.html#a3f62998024963ea7cfd14ef93a4b35ab" title=" " alt="" coords="5,5,223,47"/>
+<area shape="rect" id="node1" title="Read a chunk of data from the device without specifying a register." alt="" coords="408,13,585,39"/>
+<area shape="rect" id="node2" href="$classextension_1_1Mcp3021.html#ae642f64fd15fd1c80b2fe845fc97be8e" title=" " alt="" coords="207,5,360,47"/>
+<area shape="rect" id="node3" href="$classextension_1_1Mcp3021.html#a34a36fefe55e92ad7b915f8758f66b9f" title=" " alt="" coords="5,5,159,47"/>
 </map>

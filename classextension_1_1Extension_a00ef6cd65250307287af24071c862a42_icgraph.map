@@ -1,8 +1,11 @@
 <map id="extension::Extension::extSleep" name="extension::Extension::extSleep">
-<area shape="rect" id="node1" title="Sleep internally for a given number of milliseconds." alt="" coords="447,104,605,145"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="241,5,397,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="244,71,395,112"/>
-<area shape="rect" id="node4" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="240,136,399,177"/>
-<area shape="rect" id="node5" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,201,399,243"/>
-<area shape="rect" id="node6" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,209,192,235"/>
+<area shape="rect" id="node1" title="Sleep internally for a given number of milliseconds." alt="" coords="476,169,635,211"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#ac5aab7f11c050aa15c30ac83456d129c" title=" " alt="" coords="240,5,428,47"/>
+<area shape="rect" id="node4" href="$classextension_1_1Bmi088.html#ad8637664c91292301c0b513ce610b415" title=" " alt="" coords="258,71,410,112"/>
+<area shape="rect" id="node5" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="256,136,412,177"/>
+<area shape="rect" id="node6" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="259,201,409,243"/>
+<area shape="rect" id="node7" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="255,267,413,308"/>
+<area shape="rect" id="node8" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="255,332,413,373"/>
+<area shape="rect" id="node3" href="$classextension_1_1Bmi088.html#ae97880621fee99f214cc73916b8a159c" title=" " alt="" coords="23,39,175,80"/>
+<area shape="rect" id="node9" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,339,192,366"/>
 </map>

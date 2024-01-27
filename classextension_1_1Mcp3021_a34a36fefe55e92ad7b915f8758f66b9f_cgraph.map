@@ -1,0 +1,6 @@
+<map id="extension::Mcp3021::i2cHandshake" name="extension::Mcp3021::i2cHandshake">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node2" href="$classextension_1_1Mcp3021.html#ae642f64fd15fd1c80b2fe845fc97be8e" title=" " alt="" coords="207,5,360,47"/>
+<area shape="rect" id="node3" href="$classI2cInterface.html#a34290cc689cc9025fe8fd4641b5f4023" title="Read a chunk of data from the device without specifying a register." alt="" coords="408,13,585,39"/>
+<area shape="rect" id="node4" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="633,13,820,39"/>
+</map>

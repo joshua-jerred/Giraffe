@@ -82,17 +82,18 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc__configuration_8cpp.html",
-"classdata_1_1GpsFrameStream.html#a550c2fb1c9e2e077bde5fda6b6f9fdef",
-"classextension_1_1Ds18b20.html#ac3545ca3cc1fd6ab92671dbf18840f13",
-"classextension_1_1SimImuSensor.html#aaae6a7d91b77ac86a6e597bf0071889d",
-"classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7",
-"classmodules_1_1ExtensionModule.html#a3d879001e471093d48fcbd2f8c406f51",
-"classncurs_1_1Window.html#ad6430c2148c4b19e7330746da1cf08e0",
-"functions_vars_x.html",
-"group__ServerModule.html#afaa221e42cc396d5d38ec1a625b1d713",
-"namespacegiraffe_1_1gdl.html",
-"protocol_8cpp.html#a6ad61e6dd9ffc97b09f03a91e123c6e0",
-"structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b"
+"classdata_1_1ErrorFrame.html#ac21496f4227964c42f765484a431da73",
+"classextension_1_1Bmi088.html#a16271264962987a7057b50977816a917",
+"classextension_1_1SimGpsSensor.html#a8c2ff02720daaaf27849c087b064d4c3",
+"classgiraffe_1_1gdl_1_1Config.html#acb892777b90da2a63beb0ead9d84b325",
+"classmodules_1_1ConsoleModule.html#a72791485ce9256e7d8a1c64be4b10a3e",
+"classncurs_1_1Environment.html#a3b5c0bb29f8c9b6f7eff9c7b854019f5a21507b40c80068eda19865706fdc2403",
+"flight__runner_8hpp.html",
+"group__SAMM8QState.html#gad05faff1c26ce2393471be15990fb260",
+"namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198f",
+"namespaceubx.html#af6ed75c23a51f207014f4f642ac1b74a",
+"structdata_1_1blocks_1_1DataLogStats.html#a3f4aea5b65a40f6e8f347dde2ff02b6e",
+"ubx__protocol_8cpp.html#a3d316505ccc4d2c34426c15c887a369e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

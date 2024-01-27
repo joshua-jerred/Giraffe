@@ -1,4 +1,4 @@
 <map id="extension::I2cExtensionAdapter::connectToI2cBus" name="extension::I2cExtensionAdapter::connectToI2cBus">
-<area shape="rect" id="node1" title=" " alt="" coords="271,5,499,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1Mcp3021Extension.html#a0b4a922296eee439c978eeab5022a869" title=" " alt="" coords="5,5,223,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="207,5,435,47"/>
+<area shape="rect" id="node2" href="$classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba" title=" " alt="" coords="5,5,159,47"/>
 </map>

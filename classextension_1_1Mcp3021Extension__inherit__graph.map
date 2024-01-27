@@ -1,7 +1,0 @@
-<map id="extension::Mcp3021Extension" name="extension::Mcp3021Extension">
-<area shape="rect" id="node1" title=" " alt="" coords="127,1191,344,1312"/>
-<area shape="rect" id="node2" href="$classextension_1_1AdcExtensionBase.html" title=" " alt="" coords="5,888,220,1141"/>
-<area shape="rect" id="node3" href="$classextension_1_1Extension.html" title=" " alt="" coords="28,5,187,523"/>
-<area shape="rect" id="node4" href="$classextension_1_1AdcExtensionBase.html" title=" " alt="" coords="129,572,344,825"/>
-<area shape="rect" id="node5" href="$classextension_1_1I2cExtensionAdapter.html" title="Adapter for I2C Extensions." alt="" coords="244,939,472,1090"/>
-</map>

@@ -1,0 +1,11 @@
+<map id="giraffe::SpiInterface::transfer" name="giraffe::SpiInterface::transfer">
+<area shape="rect" id="node1" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="469,169,620,211"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#ac5aab7f11c050aa15c30ac83456d129c" title=" " alt="" coords="233,5,421,47"/>
+<area shape="rect" id="node4" href="$classextension_1_1Bmi088.html#aa7366510a751d12c29c8aac76416e55e" title=" " alt="" coords="239,71,416,112"/>
+<area shape="rect" id="node5" href="$classextension_1_1Bmi088.html#afc48e47fd7c8d7606f51b12383e81e8a" title=" " alt="" coords="251,136,403,177"/>
+<area shape="rect" id="node6" href="$classextension_1_1Bmi088.html#ad8637664c91292301c0b513ce610b415" title=" " alt="" coords="251,201,403,243"/>
+<area shape="rect" id="node7" href="$classextension_1_1Bmi088.html#a6503ba43d87876d0c279f463155d620a" title=" " alt="" coords="251,267,403,308"/>
+<area shape="rect" id="node9" href="$classextension_1_1Bmi088.html#a645e2975ba0891c1bd5ea6106b76f7e2" title=" " alt="" coords="251,332,403,373"/>
+<area shape="rect" id="node3" href="$classextension_1_1Bmi088.html#ae97880621fee99f214cc73916b8a159c" title=" " alt="" coords="19,104,171,145"/>
+<area shape="rect" id="node8" href="$classextension_1_1Bmi088.html#a785010dddb7e8d5335d8e44bbbc92905" title=" " alt="" coords="5,306,185,333"/>
+</map>

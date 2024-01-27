@@ -57,7 +57,9 @@ var namespaces_dup =
       [ "to_string", "namespaceutil.html#a5f7c1de985b8075315de0263242873b9", null ],
       [ "to_string", "namespaceutil.html#a6e81c1dcbb9ce46fb65cd9deb565d497", null ],
       [ "to_string", "namespaceutil.html#a43d8cb6a2861ad198708d4592a6a28db", null ],
-      [ "to_string", "namespaceutil.html#a7bc28a806fa921f0f4ccb56ecc5d3113", null ]
+      [ "to_string", "namespaceutil.html#a7bc28a806fa921f0f4ccb56ecc5d3113", null ],
+      [ "to_string", "namespaceutil.html#a29569c5aa00104261af2e24870b6aa68", null ],
+      [ "to_string", "namespaceutil.html#a2f3011c8ae58dffdfa02daeb179a4d2e", null ]
     ] ],
     [ "validation", "namespacevalidation.html", [
       [ "validate", "namespacevalidation.html#a847eab1f84a6efee914f2829a2f27def", null ],

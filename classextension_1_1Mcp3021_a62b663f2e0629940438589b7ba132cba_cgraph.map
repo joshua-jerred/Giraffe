@@ -1,0 +1,9 @@
+<map id="extension::Mcp3021::adcStartup" name="extension::Mcp3021::adcStartup">
+<area shape="rect" id="node1" title=" " alt="" coords="5,102,159,143"/>
+<area shape="rect" id="node2" href="$classextension_1_1I2cExtensionAdapter.html#abc3de151f12e02167df5e32ce24638d3" title=" " alt="" coords="207,43,435,85"/>
+<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="517,135,676,177"/>
+<area shape="rect" id="node7" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="241,161,400,202"/>
+<area shape="rect" id="node3" href="$classI2cInterface.html#a98edf9a116cb2f865adb2a19f59728e3" title="Connect to the bus. If it&#39;s already connected, disconnect and reconnect." alt="" coords="517,5,676,32"/>
+<area shape="rect" id="node4" href="$classextension_1_1I2cExtensionAdapter.html#ad267404fc2d8d1dff29b563ffd6e56bc" title=" " alt="" coords="483,57,711,98"/>
+<area shape="rect" id="node6" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="759,143,939,169"/>
+</map>

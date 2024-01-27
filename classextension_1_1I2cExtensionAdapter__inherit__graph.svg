@@ -29,16 +29,16 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classextension_1_1Mcp3021Extension.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="4,-0.5 4,-90.5 167,-90.5 167,-0.5 4,-0.5"/>
-<text text-anchor="middle" x="85.5" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Mcp3021Extension</text>
-<polyline fill="none" stroke="black" points="4,-71.5 167,-71.5 "/>
+<g id="a_node2"><a xlink:href="classextension_1_1Mcp3021.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="28,-0.5 28,-90.5 143,-90.5 143,-0.5 28,-0.5"/>
+<text text-anchor="middle" x="85.5" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Mcp3021</text>
+<polyline fill="none" stroke="black" points="28,-71.5 143,-71.5 "/>
 <text text-anchor="middle" x="85.5" y="-59.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="4,-52.5 167,-52.5 "/>
-<text text-anchor="start" x="12" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Mcp3021Extension()</text>
-<text text-anchor="start" x="12" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; adcStartup()</text>
-<text text-anchor="start" x="12" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; i2cHandshake()</text>
-<text text-anchor="start" x="12" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; readAdc()</text>
+<polyline fill="none" stroke="black" points="28,-52.5 143,-52.5 "/>
+<text text-anchor="start" x="36" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Mcp3021()</text>
+<text text-anchor="start" x="36" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; adcStartup()</text>
+<text text-anchor="start" x="36" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; i2cHandshake()</text>
+<text text-anchor="start" x="36" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; readAdc()</text>
 </a>
 </g>
 </g>

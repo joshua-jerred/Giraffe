@@ -28,6 +28,10 @@ var files_dup =
         [ "dig_H6", "classextension_1_1Bme280.html#a0cc218ea4ab875c18996391be6442a17", null ]
       ] ]
     ] ],
+    [ "bmi088.cpp", "bmi088_8cpp.html", "bmi088_8cpp" ],
+    [ "bmi088.hpp", "bmi088_8hpp.html", [
+      [ "Bmi088", "classextension_1_1Bmi088.html", "classextension_1_1Bmi088" ]
+    ] ],
     [ "cfg_extensions.cpp", "cfg__extensions_8cpp.html", null ],
     [ "cfg_extensions.hpp", "cfg__extensions_8hpp.html", [
       [ "ExtensionMetadata", "structcfg_1_1ExtensionMetadata.html", "structcfg_1_1ExtensionMetadata" ],
@@ -180,7 +184,7 @@ var files_dup =
     [ "data_link/server/main.cpp", "data__link_2server_2main_8cpp.html", "data__link_2server_2main_8cpp" ],
     [ "mcp3021.cpp", "mcp3021_8cpp.html", "mcp3021_8cpp" ],
     [ "mcp3021.hpp", "mcp3021_8hpp.html", [
-      [ "Mcp3021Extension", "classextension_1_1Mcp3021Extension.html", "classextension_1_1Mcp3021Extension" ]
+      [ "Mcp3021", "classextension_1_1Mcp3021.html", "classextension_1_1Mcp3021" ]
     ] ],
     [ "message_queue.cpp", "message__queue_8cpp.html", null ],
     [ "module.cpp", "module_8cpp.html", "module_8cpp" ],
@@ -224,6 +228,15 @@ var files_dup =
     ] ],
     [ "socket.cpp", "socket_8cpp.html", null ],
     [ "socket.hpp", "socket_8hpp.html", "socket_8hpp" ],
+    [ "spi_interface.cpp", "spi__interface_8cpp.html", null ],
+    [ "spi_interface.hpp", "spi__interface_8hpp.html", [
+      [ "SpiInterface", "classgiraffe_1_1SpiInterface.html", "classgiraffe_1_1SpiInterface" ],
+      [ "Config", "classgiraffe_1_1SpiInterface.html#structgiraffe_1_1SpiInterface_1_1Config", [
+        [ "bits_per_word", "classgiraffe_1_1SpiInterface.html#ac4f17e2a64bbdeaac98793909f2f01a3", null ],
+        [ "speed_hz", "classgiraffe_1_1SpiInterface.html#a3075093eb4c178436aa28945f626971c", null ],
+        [ "delay_usecs", "classgiraffe_1_1SpiInterface.html#a9a706a827cbc59ec99f7a4e7320e7d6c", null ]
+      ] ]
+    ] ],
     [ "status_led.hpp", "status__led_8hpp.html", [
       [ "StatusLed", "classgiraffe_1_1StatusLed.html", "classgiraffe_1_1StatusLed" ]
     ] ],
