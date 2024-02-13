@@ -58,7 +58,7 @@ protected:
           error = DiagnosticId::EXT_FAULT_i2cHandshakeTimeoutFault;
           return false;
         }
-        BoosterSeat::threadSleep(retry_delay_ms_);
+        bst::sleep(retry_delay_ms_);
       }
       return true;
     }

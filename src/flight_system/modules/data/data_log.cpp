@@ -24,8 +24,7 @@
 #include "data_log.hpp"
 
 namespace mw = data_middleware;
-namespace bs = BoosterSeat;
-namespace bsfs = BoosterSeat::filesystem;
+namespace bsfs = bst::filesystem;
 
 // For Logging
 inline constexpr node::Identification kNodeId =
@@ -38,8 +37,7 @@ inline const std::string kLogDirPath = "./log";
 inline const std::string kLogArchiveDirPath = kLogDirPath + "/archive";
 
 // File Names
-inline constexpr BoosterSeat::time::TimeZone kDataTimeZone =
-    BoosterSeat::time::TimeZone::UTC;
+inline constexpr bst::time::TimeZone kDataTimeZone = bst::time::TimeZone::UTC;
 inline const std::string kDataFilePrefix = "data_";
 inline const std::string kLogFilePrefix = "log_";
 inline const std::string kFileExtension = ".json";
@@ -95,7 +93,7 @@ void mw::DataLog::logDataPacket(const data::DataPacket &packet) {
 void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
   int log_interval_ms = config_.data_module_data.getLogIntervalMs();
   int time_since_last_log_ms =
-      data_frame_stopwatch_.elapsed(BoosterSeat::Resolution::MILLISECONDS);
+      data_frame_stopwatch_.elapsed(bst::Resolution::MILLISECONDS);
 
   if (time_since_last_log_ms > log_interval_ms) {
     // first, reset the stopwatch before logging
@@ -132,7 +130,7 @@ void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
 void mw::DataLog::logErrorFrame() {
   int log_interval_ms = config_.data_module_log.getErrorFrameLogInterval();
   int time_since_last_log_ms =
-      error_frame_stopwatch_.elapsed(BoosterSeat::Resolution::MILLISECONDS);
+      error_frame_stopwatch_.elapsed(bst::Resolution::MILLISECONDS);
 
   if (time_since_last_log_ms > log_interval_ms) {
     // first, reset the stopwatch before logging
@@ -180,7 +178,7 @@ void mw::DataLog::appendToLogFile(const std::string &content) {
 
 void mw::DataLog::updateFileSystem() {
   long ms_since_last_validation = static_cast<int>(
-      validation_stopwatch_.elapsed(BoosterSeat::Resolution::MILLISECONDS));
+      validation_stopwatch_.elapsed(bst::Resolution::MILLISECONDS));
 
   if (ms_since_last_validation >
       config_.data_module_data.getFileSystemCheckInterval()) {
@@ -293,7 +291,7 @@ void mw::DataLog::createDirectory(const std::string &path,
       validity_flag = true; // Directory already exists.
       shared_data_.debugLog(kNodeId, "Dir: " + path + " already exists.");
     }
-  } catch (const bs::BoosterSeatException &e) {
+  } catch (const bst::BoosterSeatException &e) {
     validity_flag = false;
     shared_data_.streams.log.errorBoosterSeatException(kNodeId,
                                                        booster_seat_log_id, e);
@@ -311,7 +309,7 @@ void mw::DataLog::createFile(const std::string &new_file_path,
     bsfs::createFile(new_file_path);
     validity_flag = true;
     shared_data_.debugLog(kNodeId, "File: " + new_file_path + " created.");
-  } catch (const bs::BoosterSeatException &e) {
+  } catch (const bst::BoosterSeatException &e) {
     validity_flag = false;
     shared_data_.streams.log.errorBoosterSeatException(kNodeId,
                                                        booster_seat_log_id, e);
@@ -402,7 +400,7 @@ void mw::DataLog::createLogArchiveDir() {
 inline std::string generateFilePath(const std::string path,
                                     const std::string &file_prefix) {
   return path + "/" + file_prefix +
-         BoosterSeat::time::dateAndTimeString(kDataTimeZone, '-', '_', ':') +
+         bst::time::dateAndTimeString(kDataTimeZone, '-', '_', ':') +
          kFileExtension;
 }
 
@@ -441,7 +439,7 @@ void mw::DataLog::validateDirExists(const std::string &path,
       validity_flag = false;
       shared_data_.streams.log.error(kNodeId, does_not_exist_log_id);
     }
-  } catch (const bs::BoosterSeatException &e) {
+  } catch (const bst::BoosterSeatException &e) {
     validity_flag = false;
     shared_data_.streams.log.errorBoosterSeatException(kNodeId,
                                                        booster_seat_log_id, e);
@@ -463,7 +461,7 @@ void mw::DataLog::validateFileExists(const std::string &path,
       validity_flag = false;
       shared_data_.streams.log.error(kNodeId, does_not_exist_log_id);
     }
-  } catch (const bs::BoosterSeatException &e) {
+  } catch (const bst::BoosterSeatException &e) {
     validity_flag = false;
     shared_data_.streams.log.errorBoosterSeatException(kNodeId,
                                                        booster_seat_log_id, e);
@@ -477,7 +475,7 @@ void mw::DataLog::appendToFile(const std::string &path, const std::string &data,
                                const DiagnosticId error_id) {
   try {
     bsfs::appendToFile(path, data);
-  } catch (const bs::BoosterSeatException &e) {
+  } catch (const bst::BoosterSeatException &e) {
     shared_data_.streams.log.errorBoosterSeatException(kNodeId, error_id, e);
   } catch (const std::exception &e) {
     shared_data_.streams.log.errorStdException(kNodeId, error_id, e);
@@ -489,7 +487,7 @@ void mw::DataLog::updateFileSize(
     data::blocks::DataLogStats::FileSizeType &file_size) {
   try {
     file_size = bsfs::getFileSize(file_path, kDataSizeUnit);
-  } catch (const bs::BoosterSeatException &e) {
+  } catch (const bst::BoosterSeatException &e) {
     shared_data_.streams.log.errorBoosterSeatException(kNodeId, error_id, e);
   } catch (const std::exception &e) {
     shared_data_.streams.log.errorStdException(kNodeId, error_id, e);
@@ -501,7 +499,7 @@ void mw::DataLog::updateDirSize(
     data::blocks::DataLogStats::FileSizeType &dir_size) {
   try {
     dir_size = bsfs::getDirectorySize(dir_path, kDataSizeUnit);
-  } catch (const bs::BoosterSeatException &e) {
+  } catch (const bst::BoosterSeatException &e) {
     shared_data_.streams.log.errorBoosterSeatException(kNodeId, error_id, e);
   } catch (const std::exception &e) {
     shared_data_.streams.log.errorStdException(kNodeId, error_id, e);
@@ -532,7 +530,7 @@ bool mw::DataLog::archiveFile(const std::string &file_path,
       }
       bsfs::deleteFile(file_path);
     }
-  } catch (const bs::BoosterSeatException &e) {
+  } catch (const bst::BoosterSeatException &e) {
     shared_data_.streams.log.errorBoosterSeatException(kNodeId, error_id, e);
     return false;
   } catch (const std::exception &e) {

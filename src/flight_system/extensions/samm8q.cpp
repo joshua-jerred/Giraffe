@@ -284,7 +284,7 @@ void SamM8q::stateRead() {
 
   gps_frame.is_valid = nav_data.valid;
 
-  gps_frame.gps_utc_time = BoosterSeat::time::dateAndTimeToTimePoint(
+  gps_frame.gps_utc_time = bst::time::dateAndTimeToTimePoint(
       nav_data.year, nav_data.month, nav_data.day, nav_data.hour + 1,
       nav_data.minute, nav_data.second);
 

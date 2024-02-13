@@ -38,7 +38,7 @@ std::string getGiraffeDirectoryPath() {
                            "home is empty");
   }
 
-  if (!BoosterSeat::filesystem::doesDirectoryExist(home)) {
+  if (!bst::filesystem::doesDirectoryExist(home)) {
     throw GiraffeException(DiagnosticId::GENERIC_homeEnvVarNotDir);
   }
 
@@ -48,19 +48,19 @@ std::string getGiraffeDirectoryPath() {
 bool createGiraffeDirIfNotExists() {
   std::string giraffe_dir_path = getGiraffeDirectoryPath();
 
-  if (BoosterSeat::filesystem::doesDirectoryExist(giraffe_dir_path)) {
+  if (bst::filesystem::doesDirectoryExist(giraffe_dir_path)) {
     return false;
   }
 
   try {
-    BoosterSeat::filesystem::createDirectory(giraffe_dir_path);
+    bst::filesystem::createDirectory(giraffe_dir_path);
   } catch (const std::exception &e) {
     throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGiraffeDir,
                            "Failed to create giraffe directory: " +
                                std::string(e.what()));
   }
 
-  if (!BoosterSeat::filesystem::doesDirectoryExist(giraffe_dir_path)) {
+  if (!bst::filesystem::doesDirectoryExist(giraffe_dir_path)) {
     throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGiraffeDir,
                            "Failed to create giraffe directory");
   }

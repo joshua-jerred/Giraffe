@@ -50,20 +50,20 @@ void RequestRouter::handleMessage(sock::TcpSocketServer &client,
       return;
     }
 
-    if (BoosterSeat::containsPrefix(msg.rsc, "setting/")) {
+    if (bst::containsPrefix(msg.rsc, "setting/")) {
       handleSettingRequest(client, msg);
       return;
     }
 
-    if (BoosterSeat::containsPrefix(msg.rsc, "data/")) {
+    if (bst::containsPrefix(msg.rsc, "data/")) {
       handleDataRequest(client, msg);
       return;
     }
   } else if (msg.typ == protocol::MessageType::SET) {
-    if (BoosterSeat::containsPrefix(msg.rsc, "cmd/")) {
+    if (bst::containsPrefix(msg.rsc, "cmd/")) {
       handleCommandRequest(client, msg);
       return;
-    } else if (BoosterSeat::containsPrefix(msg.rsc, "setting/")) {
+    } else if (bst::containsPrefix(msg.rsc, "setting/")) {
       handleSettingSet(client, msg);
       return;
     }

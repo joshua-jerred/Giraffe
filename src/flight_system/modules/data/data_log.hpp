@@ -100,7 +100,7 @@ private:
   /**
    * @defgroup DataLog.Filesystem
    * @brief Used to generate the file structure and manage the log files.
-   * @details These methods all use BoosterSeat::filesystem to create the
+   * @details These methods all use bst::filesystem to create the
    * necessary directories and files for the data log. Any errors or exceptions
    * should be caught and logged explicitly with unique error codes for each.
    *
@@ -121,7 +121,7 @@ private:
    *
    * @param path - The path to the directory.
    * @param booster_seat_log_id - The log id for
-   * BoosterSeat::BoosterSeatException.
+   * bst::BoosterSeatException.
    * @param std_except_log_id - The log id for std::exception.
    * @param validity_flag - The flag of fs_status_ to set if the directory is
    * valid.
@@ -139,7 +139,7 @@ private:
    *
    * @param new_file_path - The path to the directory.
    * @param booster_seat_log_id - The log id for
-   * BoosterSeat::BoosterSeatException.
+   * bst::BoosterSeatException.
    * @param std_except_log_id - The log id for std::exception.
    * @param validity_flag - The flag of fs_status_ to set if the directory is
    * valid.
@@ -186,7 +186,7 @@ private:
    * @param does_not_exist_log_id - The error id to report if the directory does
    * not exist.
    * @param booster_seat_log_id - The error id to report if
-   * BoosterSeat::BoosterSeatException is thrown.
+   * bst::BoosterSeatException is thrown.
    * @param std_except_log_id - The error id to report if std::exception is
    * thrown.
    * @param validity_flag (out) - The 'valid' flag to set if the directory is
@@ -204,7 +204,7 @@ private:
    * @param does_not_exist_log_id - The error id to report if the file does not
    * exist.
    * @param booster_seat_log_id - The error id to report if
-   * BoosterSeat::BoosterSeatException is thrown.
+   * bst::BoosterSeatException is thrown.
    * @param std_except_log_id - The error id to report if std::exception is
    * thrown.
    * @param validity_flag (out) - The 'valid' flag to set if the file is valid.
@@ -316,19 +316,19 @@ private:
    * @brief Used within 'updateFileSystem'. Keeps track of the last time the
    * file system was checked.
    */
-  BoosterSeat::Stopwatch validation_stopwatch_ = BoosterSeat::Stopwatch();
+  bst::Stopwatch validation_stopwatch_ = bst::Stopwatch();
 
   /**
    * @brief Used to time how often the full data frame is logged if the
    * appropriate log strategy is selected.
    */
-  BoosterSeat::Stopwatch data_frame_stopwatch_ = BoosterSeat::Stopwatch();
+  bst::Stopwatch data_frame_stopwatch_ = bst::Stopwatch();
 
   /**
    * @brief Used to time how often the error data frame is logged if the
    * appropriate error log strategy is selected.
    */
-  BoosterSeat::Stopwatch error_frame_stopwatch_ = BoosterSeat::Stopwatch();
+  bst::Stopwatch error_frame_stopwatch_ = bst::Stopwatch();
 
   /**
    * @brief Used to format the data before it is written to the files. (turns

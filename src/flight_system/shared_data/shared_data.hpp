@@ -80,16 +80,16 @@ struct Frames {
 
 struct Misc {
   double getUptimeHours() const {
-    return BoosterSeat::clck::secondsElapsed(start_time) / 3600.0;
+    return bst::clck::secondsElapsed(start_time) / 3600.0;
   }
 
   std::string getUptimeString() const {
-    return BoosterSeat::time::elapsedAsciiClock(start_time);
+    return bst::time::elapsedAsciiClock(start_time);
   }
 
   /// @todo remove this
   /// @warning DEPRECATED
-  const BoosterSeat::clck::TimePoint start_time = BoosterSeat::clck::now();
+  const bst::clck::TimePoint start_time = bst::clck::now();
 
   /**
    * @brief The time the flight computer started up.

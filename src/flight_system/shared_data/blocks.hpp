@@ -13,7 +13,7 @@
 #include "positional.hpp"
 
 namespace data {
-inline auto rnd = BoosterSeat::doubleToPrecisionTwo;
+inline auto rnd = bst::doubleToPrecisionTwo;
 
 namespace blocks {
 /**
@@ -25,7 +25,7 @@ public:
   void set(T data) {
     std::lock_guard<std::mutex> lock(mutex_);
     data_ = data;
-    last_updated_ = BoosterSeat::clck::now();
+    last_updated_ = bst::clck::now();
   }
 
   T get() {
@@ -35,18 +35,18 @@ public:
 
   int getAgeMs() {
     std::lock_guard<std::mutex> lock(mutex_);
-    return BoosterSeat::clck::millisecondsElapsed(last_updated_);
+    return bst::clck::millisecondsElapsed(last_updated_);
   }
 
   int getAgeSec() {
     std::lock_guard<std::mutex> lock(mutex_);
-    return BoosterSeat::clck::secondsElapsed(last_updated_);
+    return bst::clck::secondsElapsed(last_updated_);
   }
 
 private:
   std::mutex mutex_ = std::mutex();
   T data_ = T(); // Must have default constructor
-  BoosterSeat::clck::TimePoint last_updated_ = BoosterSeat::clck::now();
+  bst::clck::TimePoint last_updated_ = bst::clck::now();
 };
 
 /**

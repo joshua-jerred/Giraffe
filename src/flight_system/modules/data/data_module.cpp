@@ -352,7 +352,7 @@ void modules::DataModule::calculateCalculatedData() {
              std::to_string(launch_gps_point_.latitude()) + ", " +
              std::to_string(launch_gps_point_.longitude()));
         /// @todo Report the launch position as a data point
-      } catch (const BoosterSeat::BoosterSeatException &e) {
+      } catch (const bst::BoosterSeatException &e) {
         /// @todo Report this error
       }
     }
@@ -376,7 +376,7 @@ void modules::DataModule::calculateCalculatedData() {
           bst::geo::distance(launch_gps_point_, current_point) *
           1000; // convert to meters
       calculated_data_.distance_from_launch_valid = true;
-    } catch (const BoosterSeat::BoosterSeatException &e) {
+    } catch (const bst::BoosterSeatException &e) {
       /// @todo Report this error
     }
 

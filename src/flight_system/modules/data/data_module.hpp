@@ -100,7 +100,7 @@ private:
       }
       // Calculate the delay between now and when the oldest packet was created
       if (first) {
-        delay_ms = BoosterSeat::clck::millisecondsElapsed(packet.created_time);
+        delay_ms = bst::clck::millisecondsElapsed(packet.created_time);
         first = false;
       }
 

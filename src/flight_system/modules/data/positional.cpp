@@ -23,7 +23,7 @@ bool data::isGpsFrameValid(const data::GpsFrame &frame) {
 
   // Validate the time
   constexpr int kMaxTimeDiffHours = 24;
-  BoosterSeat::clck::TimePoint now = BoosterSeat::clck::now();
+  bst::clck::TimePoint now = bst::clck::now();
   if (std::chrono::duration_cast<std::chrono::hours>(now - frame.gps_utc_time)
           .count() > kMaxTimeDiffHours) {
     return false;
@@ -95,7 +95,7 @@ bool data::isImuFrameValid(const data::ImuFrame &frame) {
     return false;
   }
   // Validate the time
-  BoosterSeat::clck::TimePoint now = BoosterSeat::clck::now();
+  bst::clck::TimePoint now = bst::clck::now();
   if (std::chrono::duration_cast<std::chrono::seconds>(now - frame.time)
           .count() > kMaxTimeDiffSeconds) {
     return false;
