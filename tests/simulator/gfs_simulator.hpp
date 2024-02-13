@@ -17,6 +17,7 @@
 #ifndef GFS_SIMULATOR_HPP_
 #define GFS_SIMULATOR_HPP_
 
+#include <fmt/core.h>
 #include <iostream>
 
 #include <BoosterSeat/random.hpp>
@@ -78,31 +79,36 @@ private:
   }
 
   void printData() {
+    std::string state_str;
     switch (state_) {
     case SimState::PRE_LAUNCH:
-      std::cout << "PRE_LAUNCH";
+      state_str = "LNCH";
       break;
     case SimState::ASCENT:
-      std::cout << "ASCENT";
+      state_str = "ASNT";
       break;
     case SimState::POP:
-      std::cout << "POP";
+      state_str = "PEAK";
       break;
     case SimState::DESCENT:
-      std::cout << "DESCENT";
+      state_str = "DCNT";
       break;
     case SimState::LANDING:
-      std::cout << "LANDING";
+      state_str = "LDNG";
       break;
     case SimState::LANDED:
-      std::cout << "LANDED";
+      state_str = "LDED";
       break;
     }
-    std::cout << ", Time: " << elapsed_seconds_;
-    std::cout << ", Alt: " << physics_.getAltitude() << "m";
-    std::cout << ", VSpeed: " << physics_.getVerticalSpeed() << "m/s";
-    std::cout << ", VAccel: " << physics_.getVerticalAcceleration() << "m/s^2";
-    std::cout << std::endl;
+
+    fmt::print(
+        "{} {:<5.0f} alt:{:<6.0f} v/s:{:<5.1f} "
+        "[{:5.1f}c {:6.1f}mb {:4.1f}% {:4.1f}m/s @{:3.0f}]\n",
+        state_str, elapsed_seconds_, physics_.getAltitude(),
+        physics_.getVerticalSpeed(), environment_.getTemperatureCelsius(),
+        environment_.getPressureMillibars(),
+        environment_.getRelativeHumidityPercent(),
+        environment_.getWindSpeedMPS(), environment_.getWindDirectionDegrees());
   }
 
   SimState state_{SimState::PRE_LAUNCH};

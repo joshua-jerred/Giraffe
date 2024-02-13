@@ -4,4 +4,5 @@ add_executable(gfs_simulator
 )
 target_link_libraries(gfs_simulator
   BoosterSeat
+  fmt::fmt
 )

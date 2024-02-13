@@ -51,6 +51,10 @@ public:
     vertical_acceleration_ = vertical_acceleration;
   }
 
+  void setHorizontalSpeed(double horizontal_speed) {
+    horizontal_speed_ = horizontal_speed;
+  }
+
   void verticalAccelerationVariation(double variance) {
     vertical_acceleration_ += bst::randomDouble(-variance, variance);
   }
@@ -71,6 +75,9 @@ private:
   double vertical_speed_{K_START_VERTICAL_SPEED_MPS};
   double vertical_acceleration_{K_START_VERTICAL_ACCELERATION_MPS2};
 
+  double horizontal_speed_{K_START_HORIZONTAL_SPEED_MPS};
+  double direction_of_travel_{0.0};
+
   double latitude_{K_START_LATITUDE};
   double longitude_{K_START_LONGITUDE};
 
@@ -79,6 +86,7 @@ private:
 
   void statePreLaunch() {
     setVerticalAcceleration(0.0);
+    setHorizontalSpeed(0.0);
     if (launch_signal_) {
       state_ = SimState::ASCENT;
     }

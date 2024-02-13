@@ -32,6 +32,7 @@ inline constexpr bool K_PRINT_SIM_DATA = true;
 inline constexpr double K_START_ALTITUDE_METERS = 0.0;
 inline constexpr double K_START_VERTICAL_SPEED_MPS = 0.0;
 inline constexpr double K_START_VERTICAL_ACCELERATION_MPS2 = 0.0;
+inline constexpr double K_START_HORIZONTAL_SPEED_MPS = 0.0;
 inline constexpr double K_START_LATITUDE = 39.725796;
 inline constexpr double K_START_LONGITUDE = -83.561191;
 // Pre-launch Parameters
