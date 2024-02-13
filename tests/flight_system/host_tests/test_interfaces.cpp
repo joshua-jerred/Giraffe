@@ -23,6 +23,11 @@
 
 using namespace giraffe;
 
+// #define I2C_TEST
+// #define SPI_TEST
+// #define GPIO_TEST
+
+// choose the sensor for the i2c test
 // #define BME280
 #define BME280
 
@@ -38,6 +43,7 @@ inline constexpr uint8_t kIdValue = 0x55;
 #error "No sensor defined"
 #endif
 
+#ifdef I2C_TEST
 TEST(InterfaceTest, i2cInterfaceTest) {
   std::mutex bus_lock{};
   I2cInterface i2c{cfg::gEnum::I2CBus::I2C_1, kAddress, bus_lock};
@@ -50,7 +56,9 @@ TEST(InterfaceTest, i2cInterfaceTest) {
   EXPECT_EQ(result, I2cInterface::Result::SUCCESS);
   EXPECT_EQ(id_value, kIdValue);
 }
+#endif
 
+#ifdef SPI_TEST
 /**
  * @brief Read the ID register of the gyro on the BMI088 IMU.
  */
@@ -72,23 +80,37 @@ TEST(InterfaceTest, spiInterfaceTest) {
   EXPECT_EQ(spi.transfer(tx_buffer, rx_buffer, 2), true);
   EXPECT_EQ(rx_buffer[1], 0x0F);
 }
+#endif
 
+#ifdef GPIO_TEST
 TEST(InterfaceTest, gpioInterfaceTest) {
 #warning "GPIO test is not complete"
 
   Gpio::initialize();
   Gpio gpio{};
 
-  Gpio::Pin pin26{26, Gpio::PinMode::OUTPUT};
-  gpio.setupPin(pin26);
+  Gpio::Pin pin17{17, Gpio::PinMode::OUTPUT};
+  Gpio::Pin pin27{27, Gpio::PinMode::OUTPUT};
+  Gpio::Pin pin22{22, Gpio::PinMode::OUTPUT};
+  gpio.setupPin(pin17);
+  gpio.setupPin(pin27);
+  gpio.setupPin(pin22);
 
-  gpio.write(pin26, true);
+  gpio.write(pin17, true);
+  gpio.write(pin27, true);
+  gpio.write(pin22, true);
   bst::sleep(1000);
-  gpio.write(pin26, false);
+  gpio.write(pin17, false);
+  gpio.write(pin27, false);
+  gpio.write(pin22, false);
   bst::sleep(1000);
-  gpio.write(pin26, true);
+  gpio.write(pin17, true);
+  gpio.write(pin27, true);
+  gpio.write(pin22, true);
   bst::sleep(1000);
-  gpio.write(pin26, false);
+  gpio.write(pin17, false);
+  gpio.write(pin27, false);
+  gpio.write(pin22, false);
 
   // Gpio::Pin pin13{13, Gpio::PinMode::OUTPUT};
   // Gpio::Pin pin12{12, Gpio::PinMode::INPUT};
@@ -105,3 +127,4 @@ TEST(InterfaceTest, gpioInterfaceTest) {
   // gpio.write(pin13, false);
   // EXPECT_EQ(gpio.read(pin12), false);
 }
+#endif

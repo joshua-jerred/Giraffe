@@ -156,6 +156,9 @@ enum class DiagnosticId : uint16_t {
   EXT_FAULT_bmi088AccelConfigError=0x7019, // BMI088 Accel Config Error
   EXT_FAULT_bmi088GyroConfigError=0x701A, // BMI088 Gyro Config Error
   EXT_FAULT_bmi088ReadTimeout=0x701B, // BMI088 Read Timeout
+  EXT_FAULT_rgbStatusLedExtraArgs=0x701C, // RGB Status LED Extra Args
+  EXT_FAULT_rgbStatusLedFailedToSetupPins=0x701D, // RGB Status LED Failed to Setup Pins
+  EXT_FAULT_rgbStatusLedShutdownFailed=0x701E, // RGB Status LED Shutdown Failed
   INTERFACE_invalidGpioPin=0x8000, // Invalid GPIO Pin
   INTERFACE_invalidGpioPinMode=0x8001, // Invalid GPIO Pin Mode
   INTERFACE_initialStateInputPin=0x8002, // Initial State Input Pin

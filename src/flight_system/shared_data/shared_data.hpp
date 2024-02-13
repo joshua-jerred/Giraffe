@@ -103,7 +103,7 @@ struct SharedData {
   SharedBlocks blocks{};
   Misc misc = Misc();
   LogContainer log_container{};
-  giraffe::StatusLed status_led{};
+  giraffe::StatusLedState status_led{};
 
 #ifndef DNDEBUG // Defined by CMake
   /**

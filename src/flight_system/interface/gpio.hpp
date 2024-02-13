@@ -118,6 +118,14 @@ public:
    */
   bool read(Pin pin);
 
+  /**
+   * @brief Release a pin for use by another instance.
+   *
+   * @param pin - The pin to release.
+   * @exception GpioException
+   */
+  void releasePin(Pin pin);
+
 private:
   /**
    * @brief A function to check if a pin has been reserved.

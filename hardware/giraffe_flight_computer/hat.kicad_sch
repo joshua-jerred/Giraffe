@@ -3375,7 +3375,7 @@
     (uuid b8256102-c5f6-4f20-a986-901ed1dbca9f)
   )
   (text_box "ADC CH2\n5V_BUS\n4.5-5.5V"
-    (at 222.25 25.4 0) (size 15.24 22.86)
+    (at 222.25 25.4 0) (size 16.51 22.86)
     (stroke (width 0) (type default) (color 0 0 0 1))
     (fill (type none))
     (effects (font (size 1 1) (color 0 0 0 1)) (justify right top))
@@ -3598,10 +3598,10 @@
   (symbol (lib_id "Device:R_Small") (at 63.5 193.04 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0248e478-a507-474f-b935-4a62a48bef48)
-    (property "Reference" "R?" (at 61.595 191.135 90)
+    (property "Reference" "R8" (at 60.96 190.5 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "?Ω" (at 65.405 191.135 90)
+    (property "Value" "360Ω" (at 66.04 190.5 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 63.5 193.04 0)
@@ -3614,9 +3614,6 @@
     (pin "2" (uuid 356da04a-9ffa-4bb0-aad7-e7b927591358))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R8") (unit 1)
         )
@@ -3627,10 +3624,10 @@
   (symbol (lib_id "Device:R_Small") (at 63.5 187.96 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 037bde18-bb4a-4501-ae07-04d04abcc2bf)
-    (property "Reference" "R?" (at 61.595 186.055 90)
+    (property "Reference" "R7" (at 60.96 185.42 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "?Ω" (at 65.405 186.055 90)
+    (property "Value" "360Ω" (at 66.04 185.42 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 63.5 187.96 0)
@@ -3643,9 +3640,6 @@
     (pin "2" (uuid d18395d3-6a5d-4230-9913-af14e80a380c))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R7") (unit 1)
         )
@@ -3656,7 +3650,7 @@
   (symbol (lib_id "Device:C_Small") (at 264.16 27.94 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 03e2463a-1052-47a6-b346-6ceaa1a1ce9a)
-    (property "Reference" "C?" (at 266.7 26.67 0)
+    (property "Reference" "C20" (at 266.7 26.67 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "0.1µF" (at 266.7 29.21 0)
@@ -3672,9 +3666,6 @@
     (pin "2" (uuid a9cfdd3a-ef67-44fe-b3d4-3506313f6df9))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C20") (unit 1)
         )
@@ -3690,7 +3681,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 264.16 33.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0604b62a-4631-4d7d-a9a7-fffd739ffaab)
-    (property "Reference" "#PWRHGND?" (at 264.16 39.37 0)
+    (property "Reference" "#PWRHGND014" (at 264.16 39.37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 264.16 36.83 0)
@@ -3705,9 +3696,6 @@
     (pin "1" (uuid 47d4d2a0-9ad9-4599-b5c3-48416a368e82))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWRHGND?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWRHGND014") (unit 1)
         )
@@ -3718,7 +3706,7 @@
   (symbol (lib_id "Device:R_Small") (at 152.4 48.26 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 070a4342-7c59-46b1-bed8-7f06857a0187)
-    (property "Reference" "R?" (at 153.67 46.99 0)
+    (property "Reference" "R17" (at 153.67 46.99 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "3k" (at 153.67 49.53 0)
@@ -3734,9 +3722,6 @@
     (pin "2" (uuid ce04c580-3ff1-4316-8b8e-89893a7470f3))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R17") (unit 1)
         )
@@ -3773,7 +3758,7 @@
   (symbol (lib_id "Device:R_Small") (at 66.04 38.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0833b5ff-ecec-4ec0-b6a6-a847b0556514)
-    (property "Reference" "R?" (at 67.31 36.83 0)
+    (property "Reference" "R10" (at 67.31 36.83 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "?" (at 67.31 39.37 0)
@@ -3789,9 +3774,6 @@
     (pin "2" (uuid dcf771b7-5a51-40e3-bec7-078c2dccaf49))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R10") (unit 1)
         )
@@ -3828,7 +3810,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x04") (at 68.58 109.22 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0ec3fc7a-28a5-461f-b458-5a10d06ac32c)
-    (property "Reference" "J?" (at 71.12 104.14 0)
+    (property "Reference" "J7" (at 71.12 104.14 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "~" (at 71.12 106.68 0)
@@ -3846,9 +3828,6 @@
     (pin "4" (uuid e1514971-b01f-42a1-8d4c-7d65a9db6966))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "J?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "J7") (unit 1)
         )
@@ -3859,7 +3838,7 @@
   (symbol (lib_id "Device:C_Small") (at 180.34 149.86 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1192897e-b368-41a4-85a7-cb2618bbe237)
-    (property "Reference" "C?" (at 184.15 148.59 0)
+    (property "Reference" "C13" (at 184.15 148.59 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "0.1µF" (at 185.42 151.13 0)
@@ -3875,9 +3854,6 @@
     (pin "2" (uuid fc62c6c3-ec90-45dc-985e-c86d6696cb86))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C13") (unit 1)
         )
@@ -3893,7 +3869,7 @@
   (symbol (lib_id "Device:R_Small") (at 261.62 144.78 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1214e5f0-74e0-4ce3-a050-b5cd5bab3f13)
-    (property "Reference" "R?" (at 259.715 142.875 90)
+    (property "Reference" "R27" (at 259.715 142.875 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "?Ω" (at 263.525 142.875 90)
@@ -3909,9 +3885,6 @@
     (pin "2" (uuid c123f675-ed9e-47ab-9d54-62c60f835e35))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R27") (unit 1)
         )
@@ -3922,7 +3895,7 @@
   (symbol (lib_id "Device:R_Small") (at 50.8 91.44 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 12d5379f-c479-4aec-a825-8b6c7e095bbb)
-    (property "Reference" "R?" (at 52.07 90.805 0)
+    (property "Reference" "R4" (at 52.07 90.805 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "3.9kΩ" (at 52.07 92.71 0)
@@ -3938,9 +3911,6 @@
     (pin "2" (uuid 06516033-2d35-473e-8144-18a22cf98c1d))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R4") (unit 1)
         )
@@ -3982,7 +3952,7 @@
   (symbol (lib_id "Device:C_Small") (at 170.18 190.5 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 14b18ba0-0b94-4640-bcf1-1629fc43d1df)
-    (property "Reference" "C?" (at 167.64 189.23 0)
+    (property "Reference" "C4" (at 167.64 189.23 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "0.1µF" (at 167.64 191.77 0)
@@ -3998,9 +3968,6 @@
     (pin "2" (uuid 988d82d9-94cd-4fb5-8493-4b7ff4bac719))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C4") (unit 1)
         )
@@ -4016,7 +3983,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 109.22 109.22 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 169da698-f5ef-4c89-b807-dfb7b59d4b75)
-    (property "Reference" "#PWR?" (at 109.22 115.57 0)
+    (property "Reference" "#PWR028" (at 109.22 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 109.22 113.03 0)
@@ -4031,9 +3998,6 @@
     (pin "1" (uuid 1064ec5d-f567-4f0f-8b35-04d17862792a))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR028") (unit 1)
         )
@@ -4052,7 +4016,7 @@
   (symbol (lib_id "Device:C_Small") (at 78.74 157.48 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 17c1efa1-fbcb-4268-956a-d5a24b1bd246)
-    (property "Reference" "C?" (at 80.645 155.575 0)
+    (property "Reference" "C3" (at 80.645 155.575 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "0.1µF" (at 81.915 159.385 0)
@@ -4068,9 +4032,6 @@
     (pin "2" (uuid 14ad00e1-6979-4a47-b253-79f7e2206fe1))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C3") (unit 1)
         )
@@ -4086,7 +4047,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 99.06 48.26 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1a97a15a-2d3b-4e4b-9872-62e7b306fac0)
-    (property "Reference" "#PWR?" (at 99.06 54.61 0)
+    (property "Reference" "#PWR023" (at 99.06 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 99.06 52.07 0)
@@ -4101,9 +4062,6 @@
     (pin "1" (uuid 01291ab4-a013-440d-9da5-7e7d92cfd8f8))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR023") (unit 1)
         )
@@ -4122,7 +4080,7 @@
   (symbol (lib_id "Device:R_Small") (at 226.06 38.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1ff3a04f-d0f6-4851-8a01-15b8b949a60c)
-    (property "Reference" "R?" (at 227.33 36.83 0)
+    (property "Reference" "R23" (at 227.33 36.83 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "?" (at 227.33 39.37 0)
@@ -4138,9 +4096,6 @@
     (pin "2" (uuid ecdde2d3-f7d9-4d08-a7db-68d52b8c6287))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R23") (unit 1)
         )
@@ -4151,7 +4106,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 200.66 154.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2288f680-d1da-4ad2-acd2-e23990bf66bb)
-    (property "Reference" "#PWR?" (at 200.66 161.29 0)
+    (property "Reference" "#PWR044" (at 200.66 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 200.66 158.75 0)
@@ -4166,9 +4121,6 @@
     (pin "1" (uuid 4ed8bc5c-9e3e-47d1-b963-2f1300df6846))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR044") (unit 1)
         )
@@ -4187,7 +4139,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 281.94 109.22 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 267c595f-c3af-444f-827a-0af2959348b1)
-    (property "Reference" "#PWR?" (at 281.94 115.57 0)
+    (property "Reference" "#PWR055" (at 281.94 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 281.94 113.03 0)
@@ -4202,9 +4154,6 @@
     (pin "1" (uuid bba2cf8e-a05d-42e3-b72c-c53aaa9b12e5))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR055") (unit 1)
         )
@@ -4223,7 +4172,7 @@
   (symbol (lib_id "Device:R_Small") (at 60.96 91.44 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 26d763f5-7098-46f5-af79-0b9aebe5dd79)
-    (property "Reference" "R?" (at 62.23 90.805 0)
+    (property "Reference" "R5" (at 62.23 90.805 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "3.9kΩ" (at 62.23 92.71 0)
@@ -4239,9 +4188,6 @@
     (pin "2" (uuid e966010d-46e0-4d3e-8008-e041360d4195))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R5") (unit 1)
         )
@@ -4257,7 +4203,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 60.96 86.36 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 27b6c034-41cc-4961-8adb-158fdfbeafdc)
-    (property "Reference" "#PWR?" (at 60.96 90.17 0)
+    (property "Reference" "#PWR011" (at 60.96 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 60.96 82.55 0)
@@ -4272,9 +4218,6 @@
     (pin "1" (uuid 55448c48-3d62-412b-9bff-1049e7e873fb))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR011") (unit 1)
         )
@@ -4285,7 +4228,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 106.68 48.26 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 28745568-ae31-4f94-8008-01d29017de8e)
-    (property "Reference" "#PWR?" (at 106.68 54.61 0)
+    (property "Reference" "#PWR027" (at 106.68 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 106.68 52.07 0)
@@ -4300,9 +4243,6 @@
     (pin "1" (uuid 3f424051-91eb-4c9f-bbb2-62d2a33cf61a))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR027") (unit 1)
         )
@@ -4321,7 +4261,7 @@
   (symbol (lib_id "Device:R_Small") (at 134.62 81.28 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2c7fe0d3-fe9d-4d54-9e7a-5c1edffe62ca)
-    (property "Reference" "R?" (at 135.89 80.01 0)
+    (property "Reference" "R12" (at 135.89 80.01 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "?" (at 135.89 82.55 0)
@@ -4337,9 +4277,6 @@
     (pin "2" (uuid fe5e5bc0-6bcf-46b8-81c3-7b06391a68ce))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R12") (unit 1)
         )
@@ -4350,7 +4287,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 20.32 119.38 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2cf7129d-0e0e-46cd-96c9-7b04183a73b7)
-    (property "Reference" "#PWR?" (at 20.32 125.73 0)
+    (property "Reference" "#PWR04" (at 20.32 125.73 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 20.32 123.19 0)
@@ -4365,9 +4302,6 @@
     (pin "1" (uuid b40d5230-9fa4-4840-b76b-4e5ccf80ab36))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR04") (unit 1)
         )
@@ -4386,7 +4320,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 101.6 149.86 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 31d47ab1-4326-46e7-9ef6-55b475788b9b)
-    (property "Reference" "#PWR?" (at 101.6 156.21 0)
+    (property "Reference" "#PWR025" (at 101.6 156.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 101.6 153.67 0)
@@ -4401,9 +4335,6 @@
     (pin "1" (uuid e21f4451-c8a1-468b-b516-110a565ff721))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR025") (unit 1)
         )
@@ -4422,7 +4353,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 127 101.6 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 31e0b891-b777-4be3-adfa-2e63f10350dd)
-    (property "Reference" "#PWR?" (at 127 105.41 0)
+    (property "Reference" "#PWR031" (at 127 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 127 97.79 0)
@@ -4437,9 +4368,6 @@
     (pin "1" (uuid 34354446-119a-4171-8e84-61d847c76b5a))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR031") (unit 1)
         )
@@ -4482,7 +4410,7 @@
   (symbol (lib_id "giraffe_symbols:H_5V") (at 281.94 93.98 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 36a44068-32b3-4adb-8da8-d57b1f4710d9)
-    (property "Reference" "#PWR?" (at 281.94 97.79 0)
+    (property "Reference" "#PWR054" (at 281.94 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_5V" (at 281.94 88.9 0)
@@ -4497,9 +4425,6 @@
     (pin "1" (uuid 43d1fbd9-7eff-49db-8918-f3d590a98f3d))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR054") (unit 1)
         )
@@ -4554,7 +4479,7 @@
   (symbol (lib_id "giraffe_symbols:H_5V") (at 17.78 182.88 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 39e50b7a-9398-4bd2-9401-cf7b975b4b60)
-    (property "Reference" "#PWR?" (at 17.78 186.69 0)
+    (property "Reference" "#PWR02" (at 17.78 186.69 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_5V" (at 17.78 179.07 0)
@@ -4569,9 +4494,6 @@
     (pin "1" (uuid 834aece1-ea61-45bd-a295-fb95c0356431))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR02") (unit 1)
         )
@@ -4582,7 +4504,7 @@
   (symbol (lib_id "Device:R_Small") (at 154.94 142.24 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3a2a9639-91ef-48d6-95c6-0ab53bf5cb2b)
-    (property "Reference" "R?" (at 153.035 140.335 90)
+    (property "Reference" "R18" (at 153.035 140.335 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "0Ω" (at 156.845 140.335 90)
@@ -4598,9 +4520,6 @@
     (pin "2" (uuid 8cd8da30-e4ac-4d6a-b846-9bc6381ea454))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R18") (unit 1)
         )
@@ -4611,7 +4530,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 96.52 193.04 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3ad102e8-d8b7-4f84-bf81-383eb2c7952a)
-    (property "Reference" "#PWRHGND?" (at 96.52 199.39 0)
+    (property "Reference" "#PWRHGND05" (at 96.52 199.39 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 96.52 196.85 0)
@@ -4626,9 +4545,6 @@
     (pin "1" (uuid 3844afc3-dc84-4e90-9a71-7db890fe2096))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWRHGND?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWRHGND05") (unit 1)
         )
@@ -4639,7 +4555,7 @@
   (symbol (lib_name "TPS61033_1") (lib_id "giraffe_symbols:TPS61033") (at 121.92 38.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3f71766c-c205-4f83-8290-224a2643dbcf)
-    (property "Reference" "U?" (at 111.76 26.67 0)
+    (property "Reference" "U4" (at 111.76 26.67 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TPS61033" (at 111.76 49.53 0)
@@ -4661,9 +4577,6 @@
     (pin "8" (uuid 26fa417b-f7e5-4537-9fb2-223890c67603))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "U?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "U4") (unit 1)
         )
@@ -4701,7 +4614,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 226.06 43.18 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 42a97c9d-ee30-4339-8273-c558360a6be9)
-    (property "Reference" "#PWRHGND?" (at 226.06 49.53 0)
+    (property "Reference" "#PWRHGND011" (at 226.06 49.53 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 226.06 46.99 0)
@@ -4716,9 +4629,6 @@
     (pin "1" (uuid 700970c2-95e2-407e-958e-2d4404fc1e20))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWRHGND?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWRHGND011") (unit 1)
         )
@@ -4729,7 +4639,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 93.98 180.34 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 42bb67b4-43a0-4391-99ed-eedfc93f9b96)
-    (property "Reference" "#PWR?" (at 93.98 184.15 0)
+    (property "Reference" "#PWR021" (at 93.98 184.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 93.98 176.53 0)
@@ -4744,9 +4654,6 @@
     (pin "1" (uuid 83fa3406-9ffe-499c-849d-41d8759a2462))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR021") (unit 1)
         )
@@ -4757,7 +4664,7 @@
   (symbol (lib_id "Device:R_Small") (at 35.56 55.88 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 440bbbd4-cbf0-453e-808d-f708f997d086)
-    (property "Reference" "R?" (at 36.83 54.61 0)
+    (property "Reference" "R2" (at 36.83 54.61 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "?" (at 36.83 57.15 0)
@@ -4773,9 +4680,6 @@
     (pin "2" (uuid 3e1c6e7c-5a1a-4951-b4a1-97bec123ffa8))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R2") (unit 1)
         )
@@ -4786,7 +4690,7 @@
   (symbol (lib_id "Device:R_Small") (at 248.92 132.08 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 44b5860e-94c4-4831-bcba-bbae7f3ed92b)
-    (property "Reference" "R?" (at 250.19 131.445 0)
+    (property "Reference" "R26" (at 250.19 131.445 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "?Ω" (at 250.19 133.35 0)
@@ -4802,9 +4706,6 @@
     (pin "2" (uuid 5dfd4e18-7313-4d0f-94d4-c55d7f62797f))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R26") (unit 1)
         )
@@ -4820,7 +4721,7 @@
   (symbol (lib_id "Device:Q_NPN_BCE") (at 251.46 144.78 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 47e41dee-439b-4713-9511-72dd4a0d46a3)
-    (property "Reference" "Q?" (at 254 140.97 0)
+    (property "Reference" "Q3" (at 254 140.97 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "NPN" (at 255.27 148.59 0)
@@ -4837,9 +4738,6 @@
     (pin "3" (uuid 4b0784ba-90c2-49fd-b861-2f8c0a9d61bc))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "Q?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "Q3") (unit 1)
         )
@@ -4850,7 +4748,7 @@
   (symbol (lib_id "Device:R_Small") (at 147.32 144.78 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 48b48c3b-7163-4df6-9dee-0c70e89f4646)
-    (property "Reference" "R?" (at 150.495 143.51 0)
+    (property "Reference" "R14" (at 150.495 143.51 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "0Ω" (at 150.495 145.415 0)
@@ -4866,9 +4764,6 @@
     (pin "2" (uuid 4a4e696f-727d-40bc-befd-6fd1782b968c))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R14") (unit 1)
         )
@@ -4884,7 +4779,7 @@
   (symbol (lib_id "Device:C_Small") (at 20.32 101.6 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 48d4cc1f-8e1d-4b18-8090-1686bb4cc4a6)
-    (property "Reference" "C?" (at 24.13 100.33 0)
+    (property "Reference" "C1" (at 24.13 100.33 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "0.1µF" (at 25.4 102.87 0)
@@ -4900,9 +4795,6 @@
     (pin "2" (uuid 57bba3d4-4b20-4798-b9af-9bf4f426f01f))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C1") (unit 1)
         )
@@ -4918,7 +4810,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 241.3 111.76 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4e177dc4-be86-42ed-91fa-04ce6cdd5a35)
-    (property "Reference" "#PWR?" (at 241.3 118.11 0)
+    (property "Reference" "#PWR049" (at 241.3 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 241.3 115.57 0)
@@ -4933,9 +4825,6 @@
     (pin "1" (uuid 162d5d6e-2c9d-4fe9-8a3b-a8776a812347))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR049") (unit 1)
         )
@@ -4954,7 +4843,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 175.26 132.08 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4ff24864-ed31-4d74-86aa-f7919280f22f)
-    (property "Reference" "#PWR?" (at 175.26 135.89 0)
+    (property "Reference" "#PWR040" (at 175.26 135.89 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 175.26 128.27 0)
@@ -4969,9 +4858,6 @@
     (pin "1" (uuid e15e6262-72dc-432f-87d5-a381bf586abb))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR040") (unit 1)
         )
@@ -4982,7 +4868,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 160.02 139.7 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 51e6766f-97f8-40f0-b935-3dbd5c283bfa)
-    (property "Reference" "#PWR?" (at 160.02 143.51 0)
+    (property "Reference" "#PWR037" (at 160.02 143.51 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 160.02 135.89 0)
@@ -4997,9 +4883,6 @@
     (pin "1" (uuid 346925f7-a1c6-4694-9535-73875b4cc78e))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR037") (unit 1)
         )
@@ -5010,7 +4893,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 50.8 119.38 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 570932e6-c7bc-4d4c-a01e-7fa2d0345503)
-    (property "Reference" "#PWR?" (at 50.8 125.73 0)
+    (property "Reference" "#PWR09" (at 50.8 125.73 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 50.8 123.19 0)
@@ -5025,9 +4908,6 @@
     (pin "1" (uuid 59368fe0-1905-40e1-a9c7-0e40ed23c990))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR09") (unit 1)
         )
@@ -5046,7 +4926,7 @@
   (symbol (lib_id "Device:R_Small") (at 132.08 172.72 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 57f17f81-36b2-4dbf-bd10-079700bb680e)
-    (property "Reference" "R?" (at 133.35 172.085 0)
+    (property "Reference" "R11" (at 133.35 172.085 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "4.7kΩ" (at 133.35 173.99 0)
@@ -5062,9 +4942,6 @@
     (pin "2" (uuid d23621b1-e2b2-474e-a4d0-7ba4ae304117))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R11") (unit 1)
         )
@@ -5105,7 +4982,7 @@
   (symbol (lib_id "giraffe_symbols:H_5V") (at 271.78 20.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 64327aa5-9224-407b-a894-b07557567ea1)
-    (property "Reference" "#PWR?" (at 271.78 24.13 0)
+    (property "Reference" "#PWR053" (at 271.78 24.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_5V" (at 271.78 16.51 0)
@@ -5120,9 +4997,6 @@
     (pin "1" (uuid b6b8007e-ba53-4269-9a49-57cdcb2517c7))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR053") (unit 1)
         )
@@ -5133,7 +5007,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 254 33.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 650ccbae-8ab3-4600-b199-f1dcc240e661)
-    (property "Reference" "#PWRHGND?" (at 254 39.37 0)
+    (property "Reference" "#PWRHGND013" (at 254 39.37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 254 36.83 0)
@@ -5148,9 +5022,6 @@
     (pin "1" (uuid 0b544e52-76e3-4f33-9534-6d987cab6d97))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWRHGND?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWRHGND013") (unit 1)
         )
@@ -5161,7 +5032,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 190.5 154.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 66647950-f7b6-4ecf-8cb1-ce0694f81b67)
-    (property "Reference" "#PWR?" (at 190.5 161.29 0)
+    (property "Reference" "#PWR043" (at 190.5 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 190.5 158.75 0)
@@ -5176,9 +5047,6 @@
     (pin "1" (uuid 9cc1d240-2f42-4fe2-8c7f-90865639c6a9))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR043") (unit 1)
         )
@@ -5197,7 +5065,7 @@
   (symbol (lib_id "Device:R_Small") (at 134.62 91.44 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 67dc7bb1-edc3-4145-850b-cae3e528ed3e)
-    (property "Reference" "R?" (at 135.89 90.17 0)
+    (property "Reference" "R13" (at 135.89 90.17 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "?" (at 135.89 92.71 0)
@@ -5213,9 +5081,6 @@
     (pin "2" (uuid 9249042b-462f-4a77-aa63-c61c2140eaa2))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R13") (unit 1)
         )
@@ -5226,7 +5091,7 @@
   (symbol (lib_name "Molex_4-pin_ribbon_connector_2") (lib_id "giraffe_symbols:Molex_4-pin_ribbon_connector") (at 160.02 180.34 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 687d2639-b8a0-45dd-bc3b-19ae95a50a6d)
-    (property "Reference" "I2C?" (at 163.195 177.8 90)
+    (property "Reference" "1W2" (at 163.195 177.8 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1W2" (at 161.29 173.99 90)
@@ -5246,9 +5111,6 @@
     (pin "MP2" (uuid a9112195-0754-4e4a-8685-cc5d50747953))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "I2C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "1W2") (unit 1)
         )
@@ -5264,7 +5126,7 @@
   (symbol (lib_id "Device:C_Small") (at 200.66 149.86 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6990bd9b-3fab-4259-a0c2-21439f85b186)
-    (property "Reference" "C?" (at 204.47 148.59 0)
+    (property "Reference" "C15" (at 204.47 148.59 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "0.1µF" (at 205.74 151.13 0)
@@ -5280,9 +5142,6 @@
     (pin "2" (uuid 7cbdea9b-d02f-4256-853d-78209cd8096a))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C15") (unit 1)
         )
@@ -5298,7 +5157,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 104.14 190.5 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 699cfc17-05cf-46a1-9a3e-78f480c3b853)
-    (property "Reference" "#PWR?" (at 104.14 196.85 0)
+    (property "Reference" "#PWR026" (at 104.14 196.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 104.14 194.31 0)
@@ -5313,9 +5172,6 @@
     (pin "1" (uuid 55a5cbbb-e97f-43d9-8ce4-fe8612aeee21))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR026") (unit 1)
         )
@@ -5334,7 +5190,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 157.48 187.96 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 69bb59a6-6e97-4657-beec-6f56837cd20c)
-    (property "Reference" "#PWR?" (at 157.48 194.31 0)
+    (property "Reference" "#PWR036" (at 157.48 194.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 157.48 191.77 0)
@@ -5349,9 +5205,6 @@
     (pin "1" (uuid e8e07518-69de-4037-ae47-2646dbd8527a))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR036") (unit 1)
         )
@@ -5370,7 +5223,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 180.34 154.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6aa64029-387c-442e-9050-ff9d2b7f3d4e)
-    (property "Reference" "#PWR?" (at 180.34 161.29 0)
+    (property "Reference" "#PWR042" (at 180.34 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 180.34 158.75 0)
@@ -5385,9 +5238,6 @@
     (pin "1" (uuid 8e4bdfbd-e9ee-400d-9714-7ea76e27ef61))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR042") (unit 1)
         )
@@ -5406,7 +5256,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 149.86 190.5 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6b481a4c-2b97-49e7-94c3-58566fd7f743)
-    (property "Reference" "#PWR?" (at 149.86 196.85 0)
+    (property "Reference" "#PWR07" (at 149.86 196.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 149.86 194.31 0)
@@ -5421,9 +5271,6 @@
     (pin "1" (uuid 6df69e5b-d632-40fb-b7ca-ee1250dd0dc7))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR07") (unit 1)
         )
@@ -5463,9 +5310,6 @@
         )
       )
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C22") (unit 1)
         )
@@ -5502,7 +5346,7 @@
   (symbol (lib_id "giraffe_symbols:CAT24C32WI-GT3") (at 35.56 106.68 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 797d3507-97af-4bf9-9213-5888a8b38c55)
-    (property "Reference" "U?" (at 29.21 92.71 0)
+    (property "Reference" "U1" (at 29.21 92.71 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "CAT24C32" (at 38.1 92.71 0)
@@ -5524,9 +5368,6 @@
     (pin "8" (uuid 7135725d-f317-4791-8cc3-4b884958fa3f))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "U?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "U1") (unit 1)
         )
@@ -5540,13 +5381,13 @@
   )
 
   (symbol (lib_id "Device:LED_RGBK") (at 73.66 187.96 0) (mirror y) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (in_bom yes) (on_board yes) (dnp no)
     (uuid 7ab28070-3545-4c90-bfd6-168b734c86f8)
     (property "Reference" "LED2" (at 73.66 177.8 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "STATUS" (at 73.66 177.8 0)
-      (effects (font (size 1.27 1.27)))
+    (property "Value" "B36S3RGB-F6C0001HOU1930" (at 73.66 203.2 0)
+      (effects (font (size 1.27 1.27)) hide)
     )
     (property "Footprint" "giraffe_flight_computer_footprints:B36S3RGB LED" (at 73.66 189.23 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -5595,7 +5436,7 @@
   (symbol (lib_id "Device:C_Small") (at 96.52 187.96 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7d5f7950-f59e-4be0-b797-05e67e1f2144)
-    (property "Reference" "C?" (at 93.98 186.69 0)
+    (property "Reference" "C7" (at 93.98 186.69 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "0.1µF" (at 93.98 189.23 0)
@@ -5611,9 +5452,6 @@
     (pin "2" (uuid 266b71bf-135a-4ce1-ac7a-d951ce00e4ff))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C7") (unit 1)
         )
@@ -5629,7 +5467,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 223.52 86.36 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 8335368f-5455-4ca2-8bfc-e3ea6f18c0e7)
-    (property "Reference" "#PWR?" (at 223.52 92.71 0)
+    (property "Reference" "#PWR046" (at 223.52 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 223.52 90.17 0)
@@ -5644,9 +5482,6 @@
     (pin "1" (uuid d4e30ae0-bbcf-48f3-b5e1-b70fb76a469e))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR046") (unit 1)
         )
@@ -5665,7 +5500,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 109.22 149.86 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 8552002a-9e5e-4fff-bc8c-dcc8a70b85bd)
-    (property "Reference" "#PWR?" (at 109.22 156.21 0)
+    (property "Reference" "#PWR029" (at 109.22 156.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 109.22 153.67 0)
@@ -5680,9 +5515,6 @@
     (pin "1" (uuid 9d6f6b32-ce89-458d-9785-83ee5ab52484))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR029") (unit 1)
         )
@@ -5701,7 +5533,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 248.92 127 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 8669c997-2103-4480-b8bc-848b71e3846a)
-    (property "Reference" "#PWR?" (at 248.92 130.81 0)
+    (property "Reference" "#PWR050" (at 248.92 130.81 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 248.92 123.19 0)
@@ -5716,9 +5548,6 @@
     (pin "1" (uuid 9bcd6848-5f1d-47d9-857c-40f6846723d8))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR050") (unit 1)
         )
@@ -5729,7 +5558,7 @@
   (symbol (lib_name "Molex_4-pin_ribbon_connector_1") (lib_id "giraffe_symbols:Molex_4-pin_ribbon_connector") (at 139.7 180.34 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 86d889f3-8a70-4f8d-a3d7-7867f5b9354a)
-    (property "Reference" "I2C?" (at 142.875 177.8 90)
+    (property "Reference" "1W1" (at 142.875 177.8 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1W1" (at 140.97 173.99 90)
@@ -5749,9 +5578,6 @@
     (pin "MP2" (uuid d1cac7ab-46e8-45a9-8ee8-e1e6abc5745a))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "I2C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "1W1") (unit 1)
         )
@@ -5767,7 +5593,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 243.84 33.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 888142cf-4a79-4f97-af48-afc555564b09)
-    (property "Reference" "#PWRHGND?" (at 243.84 39.37 0)
+    (property "Reference" "#PWRHGND012" (at 243.84 39.37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 243.84 36.83 0)
@@ -5782,9 +5608,6 @@
     (pin "1" (uuid 00a23d28-55a5-4942-b306-b5c1a4b598c9))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWRHGND?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWRHGND012") (unit 1)
         )
@@ -5795,10 +5618,10 @@
   (symbol (lib_id "Device:R_Small") (at 22.86 185.42 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 8bf83768-325f-42fb-bfb8-589ea096f63a)
-    (property "Reference" "R?" (at 20.955 181.61 90)
+    (property "Reference" "R1" (at 20.955 181.61 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "?Ω" (at 20.955 183.515 90)
+    (property "Value" "56Ω" (at 20.955 183.515 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 22.86 185.42 0)
@@ -5811,9 +5634,6 @@
     (pin "2" (uuid d0917580-87b4-4de6-8025-81f22ec41e4b))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R1") (unit 1)
         )
@@ -5824,7 +5644,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 223.52 106.68 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 8f1965ab-0f61-45b8-81f3-54ac33cdd976)
-    (property "Reference" "#PWR?" (at 223.52 113.03 0)
+    (property "Reference" "#PWR047" (at 223.52 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 223.52 110.49 0)
@@ -5839,9 +5659,6 @@
     (pin "1" (uuid 0516b285-07fe-4608-81e4-9e219258aff2))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR047") (unit 1)
         )
@@ -5860,7 +5677,7 @@
   (symbol (lib_id "Device:R_Small") (at 66.04 27.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 96f50be2-c9fb-4f42-9cdf-731e04d0b9cb)
-    (property "Reference" "R?" (at 67.31 26.67 0)
+    (property "Reference" "R9" (at 67.31 26.67 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "?" (at 67.31 29.21 0)
@@ -5876,9 +5693,6 @@
     (pin "2" (uuid 80479fb8-2cbd-45f0-98e7-5912a3c59175))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R9") (unit 1)
         )
@@ -5889,7 +5703,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 91.44 129.54 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9c73d033-f691-4dc9-bcbc-60a7712d2041)
-    (property "Reference" "#PWR?" (at 91.44 133.35 0)
+    (property "Reference" "#PWR019" (at 91.44 133.35 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 91.44 125.73 0)
@@ -5904,9 +5718,6 @@
     (pin "1" (uuid 0ecd694c-8fe5-4a8d-a40e-f5e5c8842d9e))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR019") (unit 1)
         )
@@ -5917,7 +5728,7 @@
   (symbol (lib_id "giraffe_symbols:R_Potentiometer") (at 160.02 40.64 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9e50fd19-d7b6-4b7b-a34b-6f5534d36e18)
-    (property "Reference" "R?" (at 162.56 45.72 90)
+    (property "Reference" "R16" (at 162.56 45.72 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1k" (at 162.56 43.18 90)
@@ -5934,9 +5745,6 @@
     (pin "3" (uuid 7c3e44f8-96c3-48b9-900e-7d7e4b15bc0f))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R16") (unit 1)
         )
@@ -5947,7 +5755,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 116.84 109.22 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a1331694-c142-488a-98b2-e3a65cefaa7d)
-    (property "Reference" "#PWR?" (at 116.84 115.57 0)
+    (property "Reference" "#PWR030" (at 116.84 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 116.84 113.03 0)
@@ -5962,9 +5770,6 @@
     (pin "1" (uuid f12950e0-b580-4052-981a-8453a8799b3b))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR030") (unit 1)
         )
@@ -5983,7 +5788,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 60.96 114.3 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a1df48ee-118a-42b7-afae-947c7404b6e2)
-    (property "Reference" "#PWR?" (at 60.96 120.65 0)
+    (property "Reference" "#PWR012" (at 60.96 120.65 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 60.96 118.11 0)
@@ -5998,9 +5803,6 @@
     (pin "1" (uuid 55026d2a-a4ce-4872-8ad7-b6663d91bded))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR012") (unit 1)
         )
@@ -6019,7 +5821,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 55.88 106.68 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a527991f-4007-4575-a4c6-5c9a3a138d55)
-    (property "Reference" "#PWR?" (at 55.88 110.49 0)
+    (property "Reference" "#PWR010" (at 55.88 110.49 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 55.88 102.87 0)
@@ -6034,9 +5836,6 @@
     (pin "1" (uuid ce9c5a9a-32c9-44e4-a41e-9b042b3be686))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR010") (unit 1)
         )
@@ -6047,7 +5846,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 254 81.28 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid abc4859b-4735-4176-9d9b-42d978521704)
-    (property "Reference" "#PWR?" (at 254 85.09 0)
+    (property "Reference" "#PWR052" (at 254 85.09 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 254 77.47 0)
@@ -6062,9 +5861,6 @@
     (pin "1" (uuid 1ba3d658-b8af-4196-979b-bb77ad0bb526))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR052") (unit 1)
         )
@@ -6075,7 +5871,7 @@
   (symbol (lib_id "Device:R_Small") (at 152.4 27.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid aeebb35d-bd20-4b3f-a88c-dccd6a0e2882)
-    (property "Reference" "R?" (at 153.67 26.67 0)
+    (property "Reference" "R15" (at 153.67 26.67 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "21.5k" (at 153.67 29.21 0)
@@ -6091,9 +5887,6 @@
     (pin "2" (uuid 0472118a-c966-43a8-8f27-4ae71678943f))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R15") (unit 1)
         )
@@ -6125,9 +5918,6 @@
         )
       )
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C17") (unit 1)
         )
@@ -6138,7 +5928,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 71.12 162.56 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b32bcc63-b770-46bc-9744-cad1d229fab6)
-    (property "Reference" "#PWR?" (at 71.12 168.91 0)
+    (property "Reference" "#PWR014" (at 71.12 168.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 71.12 166.37 0)
@@ -6153,9 +5943,6 @@
     (pin "1" (uuid 4ceca4dc-7c41-47d1-b2e0-ce157f269e40))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR014") (unit 1)
         )
@@ -6174,7 +5961,7 @@
   (symbol (lib_name "BME280_1") (lib_id "giraffe_symbols:BME280") (at 127 139.7 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b34091a6-e8ad-4655-8c82-5730033be08d)
-    (property "Reference" "U?" (at 118.11 125.73 0)
+    (property "Reference" "U5" (at 118.11 125.73 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "BME280" (at 120.65 153.67 0)
@@ -6196,9 +5983,6 @@
     (pin "8" (uuid b6cc5d90-4a56-4209-bdc2-b19fe4f39c95))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "U?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "U5") (unit 1)
         )
@@ -6260,9 +6044,6 @@
         )
       )
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C21") (unit 1)
         )
@@ -6273,7 +6054,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 50.8 86.36 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b4618f0d-a643-4534-a31c-7f5a69aa73ae)
-    (property "Reference" "#PWR?" (at 50.8 90.17 0)
+    (property "Reference" "#PWR08" (at 50.8 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 50.8 82.55 0)
@@ -6288,9 +6069,6 @@
     (pin "1" (uuid b71bbc12-dd4a-4a75-8ed2-069b9f40528c))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR08") (unit 1)
         )
@@ -6301,7 +6079,7 @@
   (symbol (lib_id "giraffe_symbols:H_5V") (at 25.4 58.42 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b4d83129-8010-4cde-8d0c-02acb0341eb8)
-    (property "Reference" "#PWR?" (at 25.4 62.23 0)
+    (property "Reference" "#PWR06" (at 25.4 62.23 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_5V" (at 25.4 54.61 0)
@@ -6316,9 +6094,6 @@
     (pin "1" (uuid 142e1d15-e23b-46ff-bc6b-5576cb473167))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR06") (unit 1)
         )
@@ -6329,7 +6104,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 66.04 165.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b58f251a-cc54-46e5-8723-eae5c9717c3b)
-    (property "Reference" "#PWR?" (at 66.04 171.45 0)
+    (property "Reference" "#PWR013" (at 66.04 171.45 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 66.04 168.91 0)
@@ -6344,9 +6119,6 @@
     (pin "1" (uuid bcb413ec-9c87-4a53-811f-25347a32c0e7))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR013") (unit 1)
         )
@@ -6365,7 +6137,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x04") (at 261.62 55.88 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b62cde1f-cf53-40ff-b0d5-8ef88691699d)
-    (property "Reference" "I2C?" (at 259.08 59.055 90)
+    (property "Reference" "PCM1" (at 259.08 59.055 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "PCM" (at 255.27 57.15 90)
@@ -6383,9 +6155,6 @@
     (pin "4" (uuid 87f0a402-9851-4bd7-8622-2fee51cda12f))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "I2C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "PCM1") (unit 1)
         )
@@ -6401,7 +6170,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 152.4 53.34 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b6330278-be23-40cb-ae3c-decbf1d4ef87)
-    (property "Reference" "#PWRHGND?" (at 152.4 59.69 0)
+    (property "Reference" "#PWRHGND07" (at 152.4 59.69 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 152.4 57.15 0)
@@ -6416,9 +6185,6 @@
     (pin "1" (uuid fdbdcb5a-b1f1-4cda-949c-2e47893a1902))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWRHGND?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWRHGND07") (unit 1)
         )
@@ -6429,7 +6195,7 @@
   (symbol (lib_id "Device:R_Small") (at 243.84 78.74 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b63856ee-2f21-4add-b976-2def73fcc451)
-    (property "Reference" "R?" (at 240.03 79.375 0)
+    (property "Reference" "R24" (at 240.03 79.375 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "*" (at 241.3 77.47 0)
@@ -6445,9 +6211,6 @@
     (pin "2" (uuid 31327757-d114-46bd-b97b-af12640367ed))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R24") (unit 1)
         )
@@ -6463,7 +6226,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 93.98 149.86 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b70ad131-33d5-41e6-8fc9-d75e620efadd)
-    (property "Reference" "#PWR?" (at 93.98 156.21 0)
+    (property "Reference" "#PWR020" (at 93.98 156.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 93.98 153.67 0)
@@ -6478,9 +6241,6 @@
     (pin "1" (uuid 352b3942-3557-4649-a7f2-0b154e410d49))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR020") (unit 1)
         )
@@ -6499,7 +6259,7 @@
   (symbol (lib_id "giraffe_symbols:BMI088") (at 45.72 147.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b85dd085-eb81-4f21-bb7d-f4f2f043d7fe)
-    (property "Reference" "U?" (at 34.29 128.27 0)
+    (property "Reference" "U2" (at 34.29 128.27 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "BMI088" (at 54.61 128.27 0)
@@ -6529,9 +6289,6 @@
     (pin "9" (uuid b90418fd-3ee7-4a7d-b921-a4fdfb94a17a))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "U?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "U2") (unit 1)
         )
@@ -6547,7 +6304,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 149.86 185.42 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b9d6aada-74c1-43b7-9f02-60e26d05a673)
-    (property "Reference" "#PWR?" (at 149.86 189.23 0)
+    (property "Reference" "#PWR035" (at 149.86 189.23 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 149.86 181.61 0)
@@ -6562,9 +6319,6 @@
     (pin "1" (uuid 1dfd7f1b-c640-4460-9474-25ae98d67bee))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR035") (unit 1)
         )
@@ -6601,7 +6355,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 99.06 129.54 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid bbb5c49a-a344-4765-a5d8-4da819bfe155)
-    (property "Reference" "#PWR?" (at 99.06 133.35 0)
+    (property "Reference" "#PWR024" (at 99.06 133.35 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 99.06 125.73 0)
@@ -6616,9 +6370,6 @@
     (pin "1" (uuid 15784732-bf23-4386-b3b8-20667d88f9e0))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR024") (unit 1)
         )
@@ -6629,7 +6380,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 137.16 187.96 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid bbbaa03d-d7ec-49c3-af7a-041a91639504)
-    (property "Reference" "#PWR?" (at 137.16 194.31 0)
+    (property "Reference" "#PWR033" (at 137.16 194.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 137.16 191.77 0)
@@ -6644,9 +6395,6 @@
     (pin "1" (uuid 08702d00-5153-493e-a257-cafbd6495a0f))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR033") (unit 1)
         )
@@ -6665,7 +6413,7 @@
   (symbol (lib_id "Device:C_Small") (at 93.98 142.24 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid bbc850e7-0ef4-4a4f-84cc-770cfe4bc8c4)
-    (property "Reference" "C?" (at 93.98 139.7 0)
+    (property "Reference" "C5" (at 93.98 139.7 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "0.1µF" (at 93.98 144.78 0)
@@ -6681,9 +6429,6 @@
     (pin "2" (uuid 93b82561-4878-4b0a-a7b5-a9b806d25a3e))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C5") (unit 1)
         )
@@ -6699,7 +6444,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 208.28 73.66 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid bc4ccaea-7b1a-4459-9ab9-240d91c47811)
-    (property "Reference" "#PWR?" (at 208.28 77.47 0)
+    (property "Reference" "#PWR045" (at 208.28 77.47 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 208.28 69.85 0)
@@ -6714,9 +6459,6 @@
     (pin "1" (uuid de5ab972-2f41-4ef3-a75a-140ce24b7df3))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR045") (unit 1)
         )
@@ -6727,7 +6469,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 78.74 162.56 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid bdbc6da3-f3e0-4c60-8583-296df23106c2)
-    (property "Reference" "#PWR?" (at 78.74 168.91 0)
+    (property "Reference" "#PWR016" (at 78.74 168.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 78.74 166.37 0)
@@ -6742,9 +6484,6 @@
     (pin "1" (uuid 52c741d5-5396-402f-8650-7e17ce93f9ef))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR016") (unit 1)
         )
@@ -6763,10 +6502,10 @@
   (symbol (lib_id "Device:R_Small") (at 63.5 182.88 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c0e515f5-c492-490f-89f4-fdc176c3c68c)
-    (property "Reference" "R?" (at 61.595 180.975 90)
+    (property "Reference" "R6" (at 60.96 180.34 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "?Ω" (at 65.405 180.975 90)
+    (property "Value" "270Ω" (at 66.04 180.34 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 63.5 182.88 0)
@@ -6779,9 +6518,6 @@
     (pin "2" (uuid 4ecdd894-9354-4388-a9e0-8fe55cc0291f))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R6") (unit 1)
         )
@@ -6792,7 +6528,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 170.18 193.04 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c231b202-f96b-4402-a302-881bfdb00a30)
-    (property "Reference" "#PWR?" (at 170.18 199.39 0)
+    (property "Reference" "#PWR041" (at 170.18 199.39 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 170.18 196.85 0)
@@ -6807,9 +6543,6 @@
     (pin "1" (uuid ce89fb20-d926-4c77-b82a-e40110d2d70e))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR041") (unit 1)
         )
@@ -6828,7 +6561,7 @@
   (symbol (lib_id "Device:R_Small") (at 226.06 27.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c3967405-b2e0-4cf6-8a7b-b5b7c81a5367)
-    (property "Reference" "R?" (at 227.33 26.67 0)
+    (property "Reference" "R22" (at 227.33 26.67 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "?" (at 227.33 29.21 0)
@@ -6844,9 +6577,6 @@
     (pin "2" (uuid d44a0cb4-e110-4d01-b4bd-fe49034cb9d2))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R22") (unit 1)
         )
@@ -6882,7 +6612,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 20.32 106.68 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ceba10c6-bd4c-444d-a0ca-a6a98c5afb22)
-    (property "Reference" "#PWR?" (at 20.32 113.03 0)
+    (property "Reference" "#PWR03" (at 20.32 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 20.32 110.49 0)
@@ -6897,9 +6627,6 @@
     (pin "1" (uuid a59e1fc3-e064-4498-84b0-6bc78bd5e3a3))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR03") (unit 1)
         )
@@ -6918,7 +6645,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 172.72 185.42 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid cec5584f-059c-40b9-9405-41299c814694)
-    (property "Reference" "#PWR?" (at 172.72 189.23 0)
+    (property "Reference" "#PWR039" (at 172.72 189.23 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 172.72 181.61 0)
@@ -6933,9 +6660,6 @@
     (pin "1" (uuid f5083ef6-da0c-4be8-be1b-f8204a7961b0))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR039") (unit 1)
         )
@@ -6946,7 +6670,7 @@
   (symbol (lib_id "Device:C_Small") (at 101.6 142.24 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid cee63422-dfda-43c1-9dbd-be977cf64820)
-    (property "Reference" "C?" (at 101.6 139.7 0)
+    (property "Reference" "C8" (at 101.6 139.7 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "0.1µF" (at 101.6 144.78 0)
@@ -6962,9 +6686,6 @@
     (pin "2" (uuid 518f82c1-77b8-4468-8bac-7275a2ff4656))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C8") (unit 1)
         )
@@ -6980,7 +6701,7 @@
   (symbol (lib_id "giraffe_symbols:AD1582") (at 254 101.6 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid cff7b3c5-55a8-4997-88d1-b6fb10739f39)
-    (property "Reference" "U?" (at 254 88.9 0)
+    (property "Reference" "U9" (at 254 88.9 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "AD1582B" (at 254 91.44 0)
@@ -6997,9 +6718,6 @@
     (pin "3" (uuid 91863291-173e-4da8-8056-b59d8f8787bc))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "U?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "U9") (unit 1)
         )
@@ -7010,7 +6728,7 @@
   (symbol (lib_id "Device:R_Small") (at 248.92 78.74 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d2681cb0-cf4e-412b-b7c3-a16333ed979b)
-    (property "Reference" "R?" (at 247.65 79.375 0)
+    (property "Reference" "R25" (at 247.65 79.375 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "*" (at 247.65 77.47 0)
@@ -7026,9 +6744,6 @@
     (pin "2" (uuid afb2960a-dde7-4bee-be31-87159c9d429d))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R25") (unit 1)
         )
@@ -7044,7 +6759,7 @@
   (symbol (lib_id "Device:C_Small") (at 121.92 104.14 90) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d2e8750c-ce3f-429d-81af-756070f31b3a)
-    (property "Reference" "C?" (at 116.84 101.6 90)
+    (property "Reference" "C9" (at 116.84 101.6 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "0.1µF" (at 115.57 105.41 90)
@@ -7060,9 +6775,6 @@
     (pin "2" (uuid 59e7137d-e303-44fb-a440-d64c7270df79))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C9") (unit 1)
         )
@@ -7078,7 +6790,7 @@
   (symbol (lib_id "Device:C_Small") (at 71.12 157.48 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d5fdb36e-5753-4ba5-b9e9-bdad8904f798)
-    (property "Reference" "C?" (at 73.025 155.575 0)
+    (property "Reference" "C2" (at 73.025 155.575 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "0.1µF" (at 74.295 159.385 0)
@@ -7094,9 +6806,6 @@
     (pin "2" (uuid a7c42f95-6d4c-467a-8c8f-80753489caeb))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C2") (unit 1)
         )
@@ -7112,7 +6821,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 81.28 147.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d9be0de8-9093-441e-b5ba-4b3f20b2b1c0)
-    (property "Reference" "#PWR?" (at 81.28 151.13 0)
+    (property "Reference" "#PWR017" (at 81.28 151.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 81.28 143.51 0)
@@ -7127,9 +6836,6 @@
     (pin "1" (uuid 1b18c34d-5b33-43e2-a7b9-33e7c3a46eb4))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR017") (unit 1)
         )
@@ -7166,9 +6872,6 @@
         )
       )
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C16") (unit 1)
         )
@@ -7179,7 +6882,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 35.56 190.5 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e06be5fd-613d-4378-a729-d664c7809c30)
-    (property "Reference" "#PWRHGND?" (at 35.56 196.85 0)
+    (property "Reference" "#PWRHGND02" (at 35.56 196.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 35.56 194.31 0)
@@ -7194,9 +6897,6 @@
     (pin "1" (uuid 25563fc6-7048-4326-be06-2dd21006cc94))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWRHGND?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWRHGND02") (unit 1)
         )
@@ -7207,7 +6907,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 25.4 165.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e1e0f197-bdb1-4350-9909-14010af6a8e3)
-    (property "Reference" "#PWR?" (at 25.4 171.45 0)
+    (property "Reference" "#PWR05" (at 25.4 171.45 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 25.4 168.91 0)
@@ -7222,9 +6922,6 @@
     (pin "1" (uuid 962a81da-4af6-49f4-9c99-e9ad5640352e))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR05") (unit 1)
         )
@@ -7243,7 +6940,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 144.78 149.86 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e43de2f9-dc2f-46a0-84ec-f6952a906ba4)
-    (property "Reference" "#PWR?" (at 144.78 156.21 0)
+    (property "Reference" "#PWR034" (at 144.78 156.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 144.78 153.67 0)
@@ -7258,9 +6955,6 @@
     (pin "1" (uuid 0cce2ebd-8d48-4f89-9a3c-531f7f45389a))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR034") (unit 1)
         )
@@ -7279,7 +6973,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 81.28 190.5 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e50f1239-2102-496e-9095-201bcf144f6d)
-    (property "Reference" "#PWRHGND?" (at 81.28 196.85 0)
+    (property "Reference" "#PWRHGND04" (at 81.28 196.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 81.28 194.31 0)
@@ -7294,9 +6988,6 @@
     (pin "1" (uuid b8f6df88-23e4-4259-a339-d879369ae577))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWRHGND?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWRHGND04") (unit 1)
         )
@@ -7307,7 +6998,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 73.66 147.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e51e340a-92a5-46c4-a240-4835f2d50223)
-    (property "Reference" "#PWR?" (at 73.66 151.13 0)
+    (property "Reference" "#PWR015" (at 73.66 151.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 73.66 143.51 0)
@@ -7322,9 +7013,6 @@
     (pin "1" (uuid b9cf7ba2-0b54-41cf-91d7-c791edc94ad2))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR015") (unit 1)
         )
@@ -7340,7 +7028,7 @@
   (symbol (lib_id "Device:C_Small") (at 149.86 187.96 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e8ffb746-9153-4bc1-aef6-bb4c55cf9e14)
-    (property "Reference" "C?" (at 151.13 186.69 0)
+    (property "Reference" "C10" (at 151.13 186.69 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "0.1µF" (at 151.13 189.23 0)
@@ -7356,9 +7044,6 @@
     (pin "2" (uuid 9099cda6-578d-4fe1-ac45-76c316c46864))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C10") (unit 1)
         )
@@ -7374,7 +7059,7 @@
   (symbol (lib_id "Device:R_Small") (at 35.56 66.04 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ea33909a-6367-436c-b549-449f9402d478)
-    (property "Reference" "R?" (at 36.83 64.77 0)
+    (property "Reference" "R3" (at 36.83 64.77 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "?" (at 36.83 67.31 0)
@@ -7390,9 +7075,6 @@
     (pin "2" (uuid f9ba8a9f-7ad6-4cd8-a9ca-7510e5f72231))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "R?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "R3") (unit 1)
         )
@@ -7403,7 +7085,7 @@
   (symbol (lib_id "Device:C_Small") (at 190.5 149.86 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ec882b65-8944-4813-b466-c8f1fa796747)
-    (property "Reference" "C?" (at 194.31 148.59 0)
+    (property "Reference" "C14" (at 194.31 148.59 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "0.1µF" (at 195.58 151.13 0)
@@ -7419,9 +7101,6 @@
     (pin "2" (uuid 09bfc71d-4428-4296-8204-2f947741feca))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "C14") (unit 1)
         )
@@ -7437,7 +7116,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 17.78 93.98 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ece222e2-4fd4-48cb-b2a4-673283a188e8)
-    (property "Reference" "#PWR?" (at 17.78 97.79 0)
+    (property "Reference" "#PWR01" (at 17.78 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 17.78 90.17 0)
@@ -7452,9 +7131,6 @@
     (pin "1" (uuid a55c61c7-2d14-4d30-84cf-4c5395b48ca3))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR01") (unit 1)
         )
@@ -7465,7 +7141,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 66.04 43.18 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f1194f38-ad62-43fa-aea2-365be6d3e3e3)
-    (property "Reference" "#PWRHGND?" (at 66.04 49.53 0)
+    (property "Reference" "#PWRHGND03" (at 66.04 49.53 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 66.04 46.99 0)
@@ -7480,9 +7156,6 @@
     (pin "1" (uuid 548eace4-96f2-46d5-aac8-a4254f8f7a03))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWRHGND?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWRHGND03") (unit 1)
         )
@@ -7493,7 +7166,7 @@
   (symbol (lib_id "giraffe_symbols:Molex_4-pin_ribbon_connector") (at 127 114.3 90) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f138cc06-d23e-4f82-b5a7-a1a636f0847a)
-    (property "Reference" "I2C?" (at 130.175 116.84 90)
+    (property "Reference" "I2C1" (at 130.175 116.84 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "I²C" (at 128.27 120.65 90)
@@ -7513,9 +7186,6 @@
     (pin "MP2" (uuid 0326675f-038e-41d6-8be4-f7f0f7a4d238))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "I2C?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "I2C1") (unit 1)
         )
@@ -7531,7 +7201,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 190.5 33.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f3a25730-1540-4387-b287-b9ca2e0a3032)
-    (property "Reference" "#PWRHGND?" (at 190.5 39.37 0)
+    (property "Reference" "#PWRHGND08" (at 190.5 39.37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 190.5 36.83 0)
@@ -7546,9 +7216,6 @@
     (pin "1" (uuid 92647293-93de-4686-a264-54b2136407b2))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWRHGND?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWRHGND08") (unit 1)
         )
@@ -7559,7 +7226,7 @@
   (symbol (lib_id "giraffe_symbols:H_3V3") (at 132.08 167.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f57d7b20-ecf1-4d25-bd0b-68555f462a32)
-    (property "Reference" "#PWR?" (at 132.08 171.45 0)
+    (property "Reference" "#PWR032" (at 132.08 171.45 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_3V3" (at 132.08 163.83 0)
@@ -7574,9 +7241,6 @@
     (pin "1" (uuid 6c5498f4-2a5a-4131-9935-b6b6c6debf90))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR032") (unit 1)
         )
@@ -7590,7 +7254,7 @@
     (property "Reference" "LED1" (at 30.48 180.34 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "PWR" (at 30.5435 179.07 0)
+    (property "Value" "SML-D12M8WT86" (at 30.5435 179.07 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Footprint" "LED_SMD:LED_0603_1608Metric" (at 30.48 177.8 0)
@@ -7613,7 +7277,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 134.62 96.52 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f6cda7e8-233a-4457-8b84-7abd82413099)
-    (property "Reference" "#PWRHGND?" (at 134.62 102.87 0)
+    (property "Reference" "#PWRHGND06" (at 134.62 102.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 134.62 100.33 0)
@@ -7628,9 +7292,6 @@
     (pin "1" (uuid edf0c58f-2a98-4728-9e98-3cb1806bc204))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWRHGND?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWRHGND06") (unit 1)
         )
@@ -7641,7 +7302,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 96.52 33.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid fb899108-e28f-44d0-a0d4-8651e6c7b0fa)
-    (property "Reference" "#PWR?" (at 96.52 39.37 0)
+    (property "Reference" "#PWR022" (at 96.52 39.37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 96.52 36.83 0)
@@ -7656,9 +7317,6 @@
     (pin "1" (uuid e8161325-a9fa-4ab5-bc46-b4ec3f3071ea))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR022") (unit 1)
         )
@@ -7677,7 +7335,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 223.52 157.48 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid fc222006-9b2b-4a0f-8501-3d03b6f0c7b3)
-    (property "Reference" "#PWR?" (at 223.52 163.83 0)
+    (property "Reference" "#PWR048" (at 223.52 163.83 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 223.52 161.29 0)
@@ -7692,9 +7350,6 @@
     (pin "1" (uuid 5e4a6243-17c9-4bd3-8a38-0cfb4905c11a))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR048") (unit 1)
         )
@@ -7713,7 +7368,7 @@
   (symbol (lib_id "giraffe_symbols:MAX1161x") (at 208.28 99.06 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid fc9413a0-acbf-4715-8b77-12f1db76802a)
-    (property "Reference" "U?" (at 197.485 82.55 0)
+    (property "Reference" "U7" (at 197.485 82.55 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MAX11615" (at 203.2 107.95 0)
@@ -7743,9 +7398,6 @@
     (pin "9" (uuid b2d886eb-a90f-474c-8dae-a91223339faa))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "U?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "U7") (unit 1)
         )
@@ -7756,7 +7408,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 35.56 71.12 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid fcaaeac9-372a-4521-bd55-d28243ee10f6)
-    (property "Reference" "#PWRHGND?" (at 35.56 77.47 0)
+    (property "Reference" "#PWRHGND09" (at 35.56 77.47 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 35.56 74.93 0)
@@ -7771,9 +7423,6 @@
     (pin "1" (uuid 17ccddfd-b52a-438f-b958-d94eb0cd9fd3))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWRHGND?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWRHGND09") (unit 1)
         )
@@ -7784,7 +7433,7 @@
   (symbol (lib_id "giraffe_symbols:H_GND") (at 248.92 152.4 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ff858636-8478-4c66-bf3d-b160baa5ef98)
-    (property "Reference" "#PWR?" (at 248.92 158.75 0)
+    (property "Reference" "#PWR051" (at 248.92 158.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "H_GND" (at 248.92 156.21 0)
@@ -7799,9 +7448,6 @@
     (pin "1" (uuid 460a2d29-5b86-4627-af55-7419c0cf11b2))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-          (reference "#PWR?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f"
           (reference "#PWR051") (unit 1)
         )

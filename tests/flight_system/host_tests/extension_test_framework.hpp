@@ -32,7 +32,7 @@ public:
   void runExtensionFor(extension::Extension &ext, int ms);
 
   data::Streams streams{};
-  giraffe::StatusLed status_led{};
+  giraffe::StatusLedState status_led{};
   extension::ExtensionResources resources{streams, cfg::gEnum::I2CBus::I2C_1,
                                           status_led};
   cfg::ExtensionMetadata meta{};

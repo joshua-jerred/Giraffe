@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "configurePresets": [
     {
       "name": "gcc_docker_pi_zero",
@@ -12,7 +12,8 @@
         "CMAKE_TOOLCHAIN_FILE": "/toolchain/toolchain.cmake"
       },
       "environment": {
-        "RASPBERRY_PI": "1"
+        "RASPBERRY_PI": "1",
+        "SIMULATED_EXTENSIONS": "0"
       }
     },
     {
@@ -26,7 +27,8 @@
         "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/project/toolchain/pi_toolchain.cmake"
       },
       "environment": {
-        "RASPBERRY_PI": "1"
+        "RASPBERRY_PI": "1",
+        "SIMULATED_EXTENSIONS": "0"
       }
     },
     {
@@ -39,7 +41,8 @@
         "CMAKE_BUILD_TYPE": "Debug"
       },
       "environment": {
-        "RASPBERRY_PI": "1"
+        "RASPBERRY_PI": "1",
+        "SIMULATED_EXTENSIONS": "1"
       }
     }
   ]

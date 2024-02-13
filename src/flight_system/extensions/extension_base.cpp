@@ -86,6 +86,7 @@ void Extension::error(DiagnosticId log_id, const std::string &extra_info) {
   packet.id = log_id;
   packet.secondary_identifier = metadata_.name;
   packet.info = extra_info;
+  packet.level = data::LogPacket::Level::ERROR;
   interfaces_.streams.log.addPacket(packet);
 }
 
@@ -95,6 +96,7 @@ void Extension::error(DiagnosticId log_id, int info) {
   packet.id = log_id;
   packet.secondary_identifier = metadata_.name;
   packet.info = std::to_string(info);
+  packet.level = data::LogPacket::Level::ERROR;
   interfaces_.streams.log.addPacket(packet);
 }
 
@@ -104,6 +106,17 @@ void Extension::info(std::string info) {
   packet.id = DiagnosticId::GENERIC_info;
   packet.secondary_identifier = metadata_.name;
   packet.info = info;
+  packet.level = data::LogPacket::Level::INFO;
+  interfaces_.streams.log.addPacket(packet);
+}
+
+void Extension::debug(std::string info) {
+  data::LogPacket packet;
+  packet.source = kExtensionId;
+  packet.id = DiagnosticId::GENERIC_debug;
+  packet.secondary_identifier = metadata_.name;
+  packet.info = info;
+  packet.level = data::LogPacket::Level::DEBUG;
   interfaces_.streams.log.addPacket(packet);
 }
 
