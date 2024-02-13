@@ -21,12 +21,12 @@
 
 namespace giraffe {
 
-class StatusLed {
+class StatusLedState {
 public:
   enum class State { OFF, ON, BLINK };
 
-  StatusLed() = default;
-  ~StatusLed() = default;
+  StatusLedState() = default;
+  ~StatusLedState() = default;
 
   void setRed(State state) {
     r_state_ = state;

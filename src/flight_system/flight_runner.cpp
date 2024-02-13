@@ -186,7 +186,7 @@ auto FlightRunner::shutdown() -> void {
 
 auto FlightRunner::flightLoop() -> int {
   std::cout << "Starting Flight Procedure" << std::endl;
-  shared_data_.status_led.setGreen(StatusLed::State::BLINK);
+  shared_data_.status_led.setGreen(StatusLedState::State::BLINK);
   // static int count = 0;
   while (!shutdown_signal_) { // The endless loop where everything happens
     std::this_thread::sleep_for(std::chrono::milliseconds(50));

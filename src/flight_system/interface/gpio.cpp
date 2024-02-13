@@ -220,6 +220,21 @@ bool Gpio::read(Pin pin) {
   return (value & (1 << shift)) ? 1 : 0;
 }
 
+void Gpio::releasePin(Pin pin) {
+  const std::lock_guard<std::mutex> lock(gpio_lock_);
+  if (!verifyInitialized()) {
+    throw GiraffeException(DiagnosticId::INTERFACE_gpioNotInitialized,
+                           std::to_string(pin.pin_number));
+  }
+  if (!isOwner(pin)) {
+    throw GiraffeException(DiagnosticId::INTERFACE_gpioNotOwner,
+                           std::to_string(pin.pin_number));
+  }
+
+  reserved_pins_.at(pin.pin_number) = Pin{};
+  pins_owned_ &= ~(1 << pin.pin_number);
+}
+
 bool Gpio::isPinReserved(const Pin &pin) {
   if (reserved_pins_.at(pin.pin_number).mode == PinMode::UNINITIALIZED &&
       reserved_pins_.at(pin.pin_number).pin_number == 0) {

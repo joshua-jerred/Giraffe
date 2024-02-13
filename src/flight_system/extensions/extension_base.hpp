@@ -32,7 +32,7 @@ namespace extension {
  */
 struct ExtensionResources {
   ExtensionResources(data::Streams &streams, cfg::gEnum::I2CBus i2c_bus,
-                     giraffe::StatusLed &status_led)
+                     giraffe::StatusLedState &status_led)
       : streams(streams), i2c_bus(i2c_bus), status_led(status_led) {
   }
 
@@ -57,7 +57,7 @@ struct ExtensionResources {
   /**
    * @brief The status LED.
    */
-  giraffe::StatusLed &status_led;
+  giraffe::StatusLedState &status_led;
 };
 
 /**
@@ -145,6 +145,7 @@ protected:
   void error(DiagnosticId, const std::string &info = "");
   void error(DiagnosticId log_id, int info);
   void info(std::string info);
+  void debug(std::string message);
 
   /**
    * @brief Returns true if the extension has been requested to stop.
@@ -163,13 +164,6 @@ protected:
    * This will stop an extension.
    */
   void raiseFault(DiagnosticId ext_fault_code, std::string info = "");
-
-  /**
-   * @brief For when debugging is enabled, simple debug messages can be sent to
-   * the log.
-   * @param message
-   */
-  void debug(std::string message);
 
   /**
    * @brief Sleep internally for a given number of milliseconds.

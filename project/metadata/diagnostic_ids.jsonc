@@ -665,6 +665,16 @@
       "name":"RGB Status LED Extra Args",
       "details":"The RGB status LED extension was provided invalid extra args. (GPIO Config)",
       "value": "0x701C"
+    },
+    "rgb_status_led_failed_to_setup_pins": {
+      "name":"RGB Status LED Failed to Setup Pins",
+      "details":"The RGB status LED extension failed to setup the GPIO pins.",
+      "value": "0x701D"
+    },
+    "rgb_status_led_shutdown_failed": {
+      "name":"RGB Status LED Shutdown Failed",
+      "details":"The RGB status LED extension failed to shutdown.",
+      "value": "0x701E"
     }
   },
   "interface":{

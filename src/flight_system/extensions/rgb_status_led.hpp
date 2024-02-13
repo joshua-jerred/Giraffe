@@ -37,14 +37,19 @@ public:
 
   void startup() override;
   void loop() override;
+  void shutdown() override;
 
 private:
-  giraffe::StatusLed &status_led_;
+  giraffe::StatusLedState &status_led_;
 
   giraffe::Gpio gpio_{};
   giraffe::Gpio::Pin red_pin_{};
   giraffe::Gpio::Pin green_pin_{};
   giraffe::Gpio::Pin blue_pin_{};
+
+  bool current_red_state_{false};
+  bool current_green_state_{false};
+  bool current_blue_state_{false};
 };
 
 } // namespace extension

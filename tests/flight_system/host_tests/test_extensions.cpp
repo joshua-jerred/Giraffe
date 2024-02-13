@@ -21,13 +21,15 @@
 #include "bmi088.hpp"
 #include "ds18b20.hpp"
 #include "mcp3021.hpp"
+#include "rgb_status_led.hpp"
 #include "samm8q.hpp"
 
 #define BME280_TEST_ENABLED 0
 #define DS18B20_TEST_ENABLED 0
-#define SAMM8Q_TEST_ENABLED 1
+#define SAMM8Q_TEST_ENABLED 0
 #define MCP3021_TEST_ENABLED 0
-#define BMI088_TEST_ENABLED 1
+#define BMI088_TEST_ENABLED 0
+#define RGB_STATUS_LED_TEST_ENABLED 0
 
 #if BME280_TEST_ENABLED
 TEST(ExtensionsTest, BME280Test) {
@@ -105,6 +107,28 @@ TEST(ExtensionsTest, BMI088Test) {
 
   EXPECT_GT(tf.getTotalImuPackets(), 0);
   EXPECT_EQ(tf.getTotalLogPackets(), 0);
+
+  tf.printStreams();
+}
+#endif
+
+#if RGB_STATUS_LED_TEST_ENABLED
+#include "gpio.hpp"
+
+TEST(ExtensionsTest, RgbStatusLedTest) {
+  giraffe::Gpio::initialize();
+
+  ExtensionTestFramework tf{};
+  tf.status_led.setRed(giraffe::StatusLedState::State::BLINK);
+  tf.status_led.setGreen(giraffe::StatusLedState::State::ON);
+  tf.status_led.setBlue(giraffe::StatusLedState::State::BLINK);
+  tf.meta.update_interval = 500;
+  tf.meta.extra_args = "17,27,22";
+  extension::RgbStatusLed rgb_status_led{tf.resources, tf.meta};
+
+  tf.runExtensionFor(rgb_status_led, 2000);
+
+  EXPECT_GT(tf.getTotalLogPackets(), 0);
 
   tf.printStreams();
 }
