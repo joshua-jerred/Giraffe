@@ -17,7 +17,7 @@
 #include "gfs_simulator.hpp"
 
 int main() {
-  GfsSimulator simulator{};
+  gfs_sim::GfsSimulator simulator{};
   simulator.run();
   return 0;
 }
