@@ -27,7 +27,7 @@
 #include "simulated_extensions.hpp"
 // --------------------
 
-static const std::vector<cfg::ExtensionMetadata> SIMULATED_EXTENSIONS = {
+static const std::vector<cfg::ExtensionMetadata> K_SIMULATED_EXTENSIONS_VEC = {
     cfg::ExtensionMetadata{
         "sim_temp", true, cfg::gEnum::ExtensionType::SIM_TEMP, 1000, false, ""},
     cfg::ExtensionMetadata{
@@ -58,7 +58,7 @@ void ExtensionModule::startup() {
 
 // Load in the simulated extensions.
 #ifdef SIMULATED_EXTENSIONS
-  for (auto &ext_meta : SIMULATED_EXTENSIONS) {
+  for (auto &ext_meta : K_SIMULATED_EXTENSIONS_VEC) {
     // Create the extension.
     auto extension = createExtension(ext_meta);
     if (!extension.has_value()) {
