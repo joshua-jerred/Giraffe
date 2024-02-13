@@ -1,7 +1,7 @@
 var positional_8hpp =
 [
     [ "GpsFrame", "namespacedata.html#structdata_1_1GpsFrame", [
-      [ "gps_utc_time", "namespacedata.html#a584df30c35de2736738780e26c64a3be", null ],
+      [ "gps_utc_time", "namespacedata.html#a11eaa6d1cca697bf9bd8cf4610bbcb96", null ],
       [ "is_valid", "namespacedata.html#a4ac09819900af3b2e4db4e4e2ee9b392", null ],
       [ "fix", "namespacedata.html#af8b0e9dc555360fcd053c61b6e9d9051", null ],
       [ "num_satellites", "namespacedata.html#a674045abf48157f5eaa79d91108c67cc", null ],
@@ -17,7 +17,7 @@ var positional_8hpp =
       [ "heading_accuracy", "namespacedata.html#a0c1ba8d3e1e8dc976981ddc92cee16b7", null ]
     ] ],
     [ "ImuFrame", "namespacedata.html#structdata_1_1ImuFrame", [
-      [ "time", "namespacedata.html#ae8999b37de07bd4713951554c10fb800", null ],
+      [ "time", "namespacedata.html#ac367ed89aa7b9d13a2394c83e4338212", null ],
       [ "is_valid", "namespacedata.html#a22f68315ba8ce45834e9912c22f52fdd", null ],
       [ "x_acceleration", "group__acceleration.html#gabcd7ff9c92e5ae1c40f04da8220b8eb2", null ],
       [ "y_acceleration", "group__acceleration.html#gabce45bcef733286aeeadc16e6f585197", null ],

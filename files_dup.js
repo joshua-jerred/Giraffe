@@ -84,8 +84,8 @@ var files_dup =
     [ "error_frame.hpp", "error__frame_8hpp.html", [
       [ "ErrorFrame", "classdata_1_1ErrorFrame.html", "classdata_1_1ErrorFrame" ],
       [ "ErrorFrameItem", "namespacedata.html#structdata_1_1ErrorFrameItem", [
-        [ "last_reported", "namespacedata.html#a6d48ddca0397682ed9bcdb42b874ed28", null ],
-        [ "first_reported", "namespacedata.html#a34222b055f663d5ed4b3b0453f5e1545", null ],
+        [ "last_reported", "namespacedata.html#a0fea62d6f006b462451d8ef11bc32eb1", null ],
+        [ "first_reported", "namespacedata.html#aadc4ba8c437c3ae5ebfc81aa5a05a35e", null ],
         [ "occurrences", "namespacedata.html#a5209cf72b2136f3ce999d800b99d7562", null ],
         [ "packet", "namespacedata.html#a8f661866d2b56cce72ece21f355eb4f5", null ]
       ] ]
@@ -97,6 +97,8 @@ var files_dup =
     ] ],
     [ "extension_module.cpp", "extension__module_8cpp.html", "extension__module_8cpp" ],
     [ "extension_module.hpp", "extension__module_8hpp.html", "extension__module_8hpp" ],
+    [ "flight_computer_info.cpp", "flight__computer__info_8cpp.html", "flight__computer__info_8cpp" ],
+    [ "flight_computer_info.hpp", "flight__computer__info_8hpp.html", "flight__computer__info_8hpp" ],
     [ "flight_modes.hpp", "flight__modes_8hpp.html", "flight__modes_8hpp" ],
     [ "flight_runner.cpp", "flight__runner_8cpp.html", "flight__runner_8cpp" ],
     [ "flight_runner.hpp", "flight__runner_8hpp.html", [
@@ -201,6 +203,10 @@ var files_dup =
       [ "OneWireInterface", "classOneWireInterface.html", "classOneWireInterface" ]
     ] ],
     [ "physical_layer.cpp", "physical__layer_8cpp.html", null ],
+    [ "pi_camera.cpp", "pi__camera_8cpp.html", null ],
+    [ "pi_camera.hpp", "pi__camera_8hpp.html", [
+      [ "PiCamera", "classextension_1_1PiCamera.html", "classextension_1_1PiCamera" ]
+    ] ],
     [ "positional.cpp", "positional_8cpp.html", null ],
     [ "positional.hpp", "positional_8hpp.html", "positional_8hpp" ],
     [ "preconfigured_extensions.hpp", "preconfigured__extensions_8hpp.html", "preconfigured__extensions_8hpp" ],

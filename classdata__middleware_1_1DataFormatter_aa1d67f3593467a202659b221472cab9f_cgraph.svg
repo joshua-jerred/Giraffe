@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classdata__middleware_1_1DataFormatter.html#aadee4d4f7a2926dabe3779160ed1bbf7" target="_top" xlink:title="Generates a timestamp based off of the current configuration.">
+<g id="a_node2"><a xlink:href="classdata__middleware_1_1DataFormatter.html#af2d795c2cc5fcff3ba2e17b2c5b2d3fb" target="_top" xlink:title="Generates a timestamp based off of the current configuration.">
 <polygon fill="none" stroke="black" points="215,-39 215,-69 394,-69 394,-39 215,-39"/>
 <text text-anchor="start" x="223" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">data_middleware::DataFormatter</text>
 <text text-anchor="middle" x="304.5" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">::generateTimestamp</text>

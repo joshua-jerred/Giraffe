@@ -1,6 +1,6 @@
 <map id="extension::Ds18b20" name="extension::Ds18b20">
-<area shape="rect" id="node1" title=" " alt="" coords="886,1899,1037,2035"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="513,1392,671,1821"/>
+<area shape="rect" id="node1" title=" " alt="" coords="886,1913,1037,2049"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="513,1392,671,1836"/>
 <area shape="rect" id="node3" href="$structextension_1_1ExtensionResources.html" title="This contains objects that are shared between all extensions." alt="" coords="1614,1109,1839,1186"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="1163,895,1277,973"/>
 <area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="1612,616,1833,752"/>
@@ -30,7 +30,7 @@
 <area shape="rect" id="node29" title=" " alt="" coords="605,895,656,973"/>
 <area shape="rect" id="node30" title=" " alt="" coords="1328,895,1387,973"/>
 <area shape="rect" id="node34" href="$classOneWireInterface.html" title=" " alt="" coords="1243,1217,1424,1368"/>
-<area shape="rect" id="node31" title=" " alt="" coords="738,1568,841,1645"/>
-<area shape="rect" id="node32" title=" " alt="" coords="928,1568,995,1645"/>
-<area shape="rect" id="node33" title=" " alt="" coords="1059,1568,1119,1645"/>
+<area shape="rect" id="node31" title=" " alt="" coords="738,1575,841,1653"/>
+<area shape="rect" id="node32" title=" " alt="" coords="928,1575,995,1653"/>
+<area shape="rect" id="node33" title=" " alt="" coords="1059,1575,1119,1653"/>
 </map>

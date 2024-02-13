@@ -9,6 +9,7 @@ var namespaceextension =
     [ "ExtensionResources", "structextension_1_1ExtensionResources.html", "structextension_1_1ExtensionResources" ],
     [ "I2cExtensionAdapter", "classextension_1_1I2cExtensionAdapter.html", "classextension_1_1I2cExtensionAdapter" ],
     [ "Mcp3021", "classextension_1_1Mcp3021.html", "classextension_1_1Mcp3021" ],
+    [ "PiCamera", "classextension_1_1PiCamera.html", "classextension_1_1PiCamera" ],
     [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ],
     [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ],
     [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],

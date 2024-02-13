@@ -141,8 +141,8 @@ Variables</h2></td></tr>
 <tr class="separator:a628f8710c5c26ba10d24a24aacda9296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace564bafa5d3658fca42b3162514dc01"><td class="memItemLeft" align="right" valign="top">constexpr bsfs::units::Size&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data__log_8cpp.html#ace564bafa5d3658fca42b3162514dc01">kDataSizeUnit</a> = bsfs::units::Size::MEGABYTES</td></tr>
 <tr class="separator:ace564bafa5d3658fca42b3162514dc01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af250cc37edea90bcb0b45d33fb0db4ce"><td class="memItemLeft" align="right" valign="top">constexpr BoosterSeat::time::TimeZone&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data__log_8cpp.html#af250cc37edea90bcb0b45d33fb0db4ce">kDataTimeZone</a></td></tr>
-<tr class="separator:af250cc37edea90bcb0b45d33fb0db4ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3acbb4130e0398dfea26514bb8c5db65"><td class="memItemLeft" align="right" valign="top">constexpr bst::time::TimeZone&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data__log_8cpp.html#a3acbb4130e0398dfea26514bb8c5db65">kDataTimeZone</a> = bst::time::TimeZone::UTC</td></tr>
+<tr class="separator:a3acbb4130e0398dfea26514bb8c5db65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad778bd52f037604e5d19d281ce0d19d8"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data__log_8cpp.html#ad778bd52f037604e5d19d281ce0d19d8">kFileExtension</a> = &quot;.json&quot;</td></tr>
 <tr class="separator:ad778bd52f037604e5d19d281ce0d19d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa25673acaf7de48867a8fbfb620fd045"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data__log_8cpp.html#aa25673acaf7de48867a8fbfb620fd045">kLogArchiveDirPath</a> = <a class="el" href="data__log_8cpp.html#a0ee82c5944f81672d76b93301e07777f">kLogDirPath</a> + &quot;/archive&quot;</td></tr>
@@ -207,7 +207,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string - The generated file path. </dd></dl>
 
-<p class="reference">References <a class="el" href="data__log_8cpp.html#af250cc37edea90bcb0b45d33fb0db4ce">kDataTimeZone</a>, and <a class="el" href="data__log_8cpp.html#ad778bd52f037604e5d19d281ce0d19d8">kFileExtension</a>.</p>
+<p class="reference">References <a class="el" href="data__log_8cpp.html#a3acbb4130e0398dfea26514bb8c5db65">kDataTimeZone</a>, and <a class="el" href="data__log_8cpp.html#ad778bd52f037604e5d19d281ce0d19d8">kFileExtension</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="group__DataLog.html#ga0468e4744ee8be21635a6a73c4892c5c">data_middleware::DataLog::createNewDataFile()</a>, and <a class="el" href="group__DataLog.html#ga22627e1c35839cae33e39af75670a602">data_middleware::DataLog::createNewLogFile()</a>.</p>
 <div class="dynheader">
@@ -379,8 +379,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="af250cc37edea90bcb0b45d33fb0db4ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af250cc37edea90bcb0b45d33fb0db4ce">&#9670;&nbsp;</a></span>kDataTimeZone</h2>
+<a id="a3acbb4130e0398dfea26514bb8c5db65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3acbb4130e0398dfea26514bb8c5db65">&#9670;&nbsp;</a></span>kDataTimeZone</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -389,7 +389,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr BoosterSeat::time::TimeZone kDataTimeZone</td>
+          <td class="memname">constexpr bst::time::TimeZone kDataTimeZone = bst::time::TimeZone::UTC</td>
         </tr>
       </table>
   </td>
@@ -398,9 +398,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">    BoosterSeat::time::TimeZone::UTC</div>
-</div><!-- fragment -->
+
 <p class="reference">Referenced by <a class="el" href="data__log_8cpp.html#ab904b162018e2d4127cabd758fb064b1">generateFilePath()</a>.</p>
 
 </div>

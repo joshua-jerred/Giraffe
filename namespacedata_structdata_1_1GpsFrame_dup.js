@@ -1,6 +1,6 @@
 var namespacedata_structdata_1_1GpsFrame_dup =
 [
-    [ "gps_utc_time", "namespacedata.html#a584df30c35de2736738780e26c64a3be", null ],
+    [ "gps_utc_time", "namespacedata.html#a11eaa6d1cca697bf9bd8cf4610bbcb96", null ],
     [ "is_valid", "namespacedata.html#a4ac09819900af3b2e4db4e4e2ee9b392", null ],
     [ "fix", "namespacedata.html#af8b0e9dc555360fcd053c61b6e9d9051", null ],
     [ "num_satellites", "namespacedata.html#a674045abf48157f5eaa79d91108c67cc", null ],

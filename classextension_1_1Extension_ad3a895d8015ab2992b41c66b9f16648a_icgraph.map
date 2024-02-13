@@ -1,6 +1,7 @@
 <map id="extension::Extension::info" name="extension::Extension::info">
-<area shape="rect" id="node1" title=" " alt="" coords="443,39,601,80"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a858476ff8cf82d862b8d44f13e47913f" title=" " alt="" coords="236,5,395,47"/>
-<area shape="rect" id="node4" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="236,71,395,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="443,71,601,112"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a858476ff8cf82d862b8d44f13e47913f" title=" " alt="" coords="236,37,395,79"/>
+<area shape="rect" id="node5" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="236,103,395,144"/>
 <area shape="rect" id="node3" href="$classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node4" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="18,71,175,112"/>
 </map>

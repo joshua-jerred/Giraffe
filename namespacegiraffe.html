@@ -122,6 +122,8 @@ Namespaces</h2></td></tr>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1CommonLogger.html">CommonLogger</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgiraffe_1_1FCInfo.html">FCInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html">FlightRunnerData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1Gpio.html">Gpio</a></td></tr>
@@ -159,6 +161,8 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a913acd4504a335abcea9a3920a3f65cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgiraffe_1_1FCInfo.html">FCInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegiraffe.html#a913acd4504a335abcea9a3920a3f65cc">getFlightComputerInfo</a> ()</td></tr>
+<tr class="separator:a913acd4504a335abcea9a3920a3f65cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69542761e752ab53aa53576e85b843d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegiraffe.html#a69542761e752ab53aa53576e85b843d9">NLOHMANN_JSON_SERIALIZE_ENUM</a> (<a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3">FlightRunnerData::ShutdownReason</a>, { {<a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3acba7405a45d9e82e6fa097cd6c0c1437">FlightRunnerData::ShutdownReason::CRASH_OR_UNKNOWN</a>, &quot;crash_or_unknown&quot;}, {FlightRunnerData::ShutdownReason::CTRL_C, &quot;ctrl_c&quot;}, {FlightRunnerData::ShutdownReason::TELEMETRY_SDN_COMMAND, &quot;telemetry_sdn_command&quot;}, }) FlightRunnerData</td></tr>
 <tr class="separator:a69542761e752ab53aa53576e85b843d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c8d7898d64c0982d482f960a46bb8c5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegiraffe.html#a6c8d7898d64c0982d482f960a46bb8c5">to_string</a> (const <a class="el" href="namespacegiraffe.html#a7de051682a10e68f9259ee84278381ed">LoggerLevel</a> level)</td></tr>
@@ -268,6 +272,34 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3acba7405a45d9e82e6fa097cd6c0c1437">giraffe::FlightRunnerData::CRASH_OR_UNKNOWN</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3abefbf80655ffb76c09fd319f8ce25900">giraffe::FlightRunnerData::CTRL_C</a>, and <a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3a030a8d151c3fc1f3f15e2653e13b5ac4">giraffe::FlightRunnerData::TELEMETRY_SDN_COMMAND</a>.</p>
+
+</div>
+</div>
+<a id="a913acd4504a335abcea9a3920a3f65cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a913acd4504a335abcea9a3920a3f65cc">&#9670;&nbsp;</a></span>getFlightComputerInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgiraffe_1_1FCInfo.html">FCInfo</a> giraffe::getFlightComputerInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000052">Todo:</a></b></dt><dd>Add support for PI 3, 4, etc. </dd></dl>
+
+<p class="reference">References <a class="el" href="structgiraffe_1_1FCInfo.html#a08f38f513d36709ad82bf77d1fa57be0">giraffe::FCInfo::architecture</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7dda47f45e65244c17ec9fa8771a5c6d60e1">giraffe::FCInfo::ARM</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#ac684457713d039ae9fccf943f9c8cf82a03570470bad94692ce93e32700d2e1cb">giraffe::FCInfo::OTHER</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#ac684457713d039ae9fccf943f9c8cf82a827a6f93854210479660277d65bb6b69">giraffe::FCInfo::PI_ZERO</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#ac684457713d039ae9fccf943f9c8cf82a6887a15916fe6e27020feb673bc6488e">giraffe::FCInfo::PI_ZERO_2</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#a87d761164b84a5f25abfe77e67933a58">giraffe::FCInfo::type</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7dda696b031073e74bf2cb98e5ef201d4aa3">giraffe::FCInfo::UNKNOWN</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7ddafd1a4608b5b463bc7a41d86a1662d3b7">giraffe::FCInfo::X86</a>, and <a class="el" href="structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7dda840030b2e70cfe0155e29ee926dbd8ae">giraffe::FCInfo::X86_64</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1PiCamera.html#abe7dc219785211e3a0d86a50d481cd41">extension::PiCamera::startup()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacegiraffe_a913acd4504a335abcea9a3920a3f65cc_icgraph.svg" width="435" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>

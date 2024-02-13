@@ -1,6 +1,6 @@
 var namespacedata_structdata_1_1ImuFrame_dup =
 [
-    [ "time", "namespacedata.html#ae8999b37de07bd4713951554c10fb800", null ],
+    [ "time", "namespacedata.html#ac367ed89aa7b9d13a2394c83e4338212", null ],
     [ "is_valid", "namespacedata.html#a22f68315ba8ce45834e9912c22f52fdd", null ],
     [ "x_acceleration", "group__acceleration.html#gabcd7ff9c92e5ae1c40f04da8220b8eb2", null ],
     [ "y_acceleration", "group__acceleration.html#gabce45bcef733286aeeadc16e6f585197", null ],

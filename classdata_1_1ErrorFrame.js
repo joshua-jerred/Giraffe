@@ -11,8 +11,8 @@ var classdata_1_1ErrorFrame =
     [ "getActiveErrorIds", "classdata_1_1ErrorFrame.html#af7cef5625595076776ec52cc8bfce8f4", null ],
     [ "isActive", "classdata_1_1ErrorFrame.html#a22f1f4d05d659df20e4cba62fda5846b", null ],
     [ "numOccurrences", "classdata_1_1ErrorFrame.html#abb0b233ba9e4e6139069c75ab8442b29", null ],
-    [ "timeOfLastErrorReported", "classdata_1_1ErrorFrame.html#a0bf3d30de3480634e0290879387d4830", null ],
-    [ "lastOccurrence", "classdata_1_1ErrorFrame.html#ac58fe0c63fa90296f57519c521de4096", null ],
+    [ "timeOfLastErrorReported", "classdata_1_1ErrorFrame.html#abb1981574781fc7be625e38aae319477", null ],
+    [ "lastOccurrence", "classdata_1_1ErrorFrame.html#a8f4f6a45137aabb0166d566c936948e6", null ],
     [ "getFullFrame", "classdata_1_1ErrorFrame.html#a5ebed6b0ec2bf9aa44c74f98e9fb6412", null ],
     [ "insert", "classdata_1_1ErrorFrame.html#ae846d0c2d52a509b215edf195036afe6", null ],
     [ "in", "classdata_1_1ErrorFrame.html#a05fa938229ef8080c2d5336f245d8763", null ],
@@ -23,7 +23,7 @@ var classdata_1_1ErrorFrame =
     [ "getAll", "classdata_1_1ErrorFrame.html#a21145c86e25d76061706ea66044139e0", null ],
     [ "error_frame_mutex_", "classdata_1_1ErrorFrame.html#abc63d012f4a4afae3c60eb009d84841a", null ],
     [ "total_errors_", "classdata_1_1ErrorFrame.html#af69ecc1ab540b405aee3f0ab5725251a", null ],
-    [ "last_error_reported_", "classdata_1_1ErrorFrame.html#a52f07f16a624469f506adaf3e0fad816", null ],
+    [ "last_error_reported_", "classdata_1_1ErrorFrame.html#af551f9267f6159362548d383bd8def3c", null ],
     [ "frame_", "classdata_1_1ErrorFrame.html#ac21496f4227964c42f765484a431da73", null ],
     [ "frame_lock_", "classdata_1_1ErrorFrame.html#aa736e1d9adab111b783bfc3e7de762d4", null ]
 ];

@@ -169,7 +169,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Used to generate the file structure and manage the log files. </p>
-<p>These methods all use BoosterSeat::filesystem to create the necessary directories and files for the data log. Any errors or exceptions should be caught and logged explicitly with unique error codes for each.</p>
+<p>These methods all use bst::filesystem to create the necessary directories and files for the data log. Any errors or exceptions should be caught and logged explicitly with unique error codes for each.</p>
 <p>DataDir: ./data DataArchiveDir: ./data/archive DataFile: ./data/data_YYYY-MM-DD_HHMMSS.json</p>
 <p>LogDir: ./log LogArchiveDir: ./log/archive LogFile: ./log/log_YYYY-MM-DD_HHMMSS.json </p>
 <h2 class="groupheader">Function Documentation</h2>
@@ -223,7 +223,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>- The path to the directory. </td></tr>
-    <tr><td class="paramname">booster_seat_log_id</td><td>- The log id for BoosterSeat::BoosterSeatException. </td></tr>
+    <tr><td class="paramname">booster_seat_log_id</td><td>- The log id for bst::BoosterSeatException. </td></tr>
     <tr><td class="paramname">std_except_log_id</td><td>- The log id for std::exception. </td></tr>
     <tr><td class="paramname">validity_flag</td><td>- The flag of fs_status_ to set if the directory is valid.</td></tr>
   </table>
@@ -285,7 +285,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">new_file_path</td><td>- The path to the directory. </td></tr>
-    <tr><td class="paramname">booster_seat_log_id</td><td>- The log id for BoosterSeat::BoosterSeatException. </td></tr>
+    <tr><td class="paramname">booster_seat_log_id</td><td>- The log id for bst::BoosterSeatException. </td></tr>
     <tr><td class="paramname">std_except_log_id</td><td>- The log id for std::exception. </td></tr>
     <tr><td class="paramname">validity_flag</td><td>- The flag of fs_status_ to set if the directory is valid.</td></tr>
   </table>
@@ -588,7 +588,7 @@ Here is the caller graph for this function:</div>
   <table class="params">
     <tr><td class="paramname">path</td><td>- The path to the directory. </td></tr>
     <tr><td class="paramname">does_not_exist_log_id</td><td>- The error id to report if the directory does not exist. </td></tr>
-    <tr><td class="paramname">booster_seat_log_id</td><td>- The error id to report if BoosterSeat::BoosterSeatException is thrown. </td></tr>
+    <tr><td class="paramname">booster_seat_log_id</td><td>- The error id to report if bst::BoosterSeatException is thrown. </td></tr>
     <tr><td class="paramname">std_except_log_id</td><td>- The error id to report if std::exception is thrown. </td></tr>
     <tr><td class="paramname">validity_flag</td><td>(out) - The 'valid' flag to set if the directory is valid. </td></tr>
   </table>
@@ -656,7 +656,7 @@ Here is the caller graph for this function:</div>
   <table class="params">
     <tr><td class="paramname">path</td><td>- The path to the file. </td></tr>
     <tr><td class="paramname">does_not_exist_log_id</td><td>- The error id to report if the file does not exist. </td></tr>
-    <tr><td class="paramname">booster_seat_log_id</td><td>- The error id to report if BoosterSeat::BoosterSeatException is thrown. </td></tr>
+    <tr><td class="paramname">booster_seat_log_id</td><td>- The error id to report if bst::BoosterSeatException is thrown. </td></tr>
     <tr><td class="paramname">std_except_log_id</td><td>- The error id to report if std::exception is thrown. </td></tr>
     <tr><td class="paramname">validity_flag</td><td>(out) - The 'valid' flag to set if the file is valid. </td></tr>
   </table>
@@ -879,7 +879,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the file was archived successfully, false otherwise.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>Archive Methods </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>Archive Methods </dd></dl>
 
 <p class="reference">References <a class="el" href="data__log_8cpp.html#ab2b98bc8208d9a80a32be15487a1897a">kNodeId</a>.</p>
 

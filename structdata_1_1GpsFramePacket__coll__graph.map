@@ -1,12 +1,12 @@
 <map id="data::GpsFramePacket" name="data::GpsFramePacket">
-<area shape="rect" id="node1" title=" " alt="" coords="303,432,470,509"/>
-<area shape="rect" id="node2" href="$structdata_1_1BaseStreamPacket.html" title=" " alt="" coords="165,292,345,369"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,5,112,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="136,5,195,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="365,5,453,83"/>
-<area shape="rect" id="node6" href="$namespacedata.html#structdata_1_1GpsFrame" title="A frame of GPS data straight from a GPS extension." alt="" coords="631,292,756,369"/>
-<area shape="rect" id="node7" title=" " alt="" coords="576,5,643,83"/>
-<area shape="rect" id="node8" title=" " alt="" coords="744,5,811,83"/>
-<area shape="rect" id="node9" title=" " alt="" coords="895,5,945,83"/>
-<area shape="rect" id="node10" title=" " alt="" coords="983,5,1049,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="391,432,558,509"/>
+<area shape="rect" id="node2" href="$structdata_1_1BaseStreamPacket.html" title=" " alt="" coords="617,292,797,369"/>
+<area shape="rect" id="node3" title=" " alt="" coords="531,5,619,83"/>
+<area shape="rect" id="node6" href="$namespacedata.html#structdata_1_1GpsFrame" title="A frame of GPS data straight from a GPS extension." alt="" coords="247,292,372,369"/>
+<area shape="rect" id="node4" title=" " alt="" coords="899,5,1005,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="744,5,803,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="328,5,395,83"/>
+<area shape="rect" id="node8" title=" " alt="" coords="5,5,72,83"/>
+<area shape="rect" id="node9" title=" " alt="" coords="156,5,207,83"/>
+<area shape="rect" id="node10" title=" " alt="" coords="237,5,304,83"/>
 </map>

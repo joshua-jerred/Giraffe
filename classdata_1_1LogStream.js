@@ -3,7 +3,7 @@ var classdata_1_1LogStream =
     [ "error", "classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1", null ],
     [ "info", "classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9", null ],
     [ "debug", "classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425", null ],
-    [ "errorBoosterSeatException", "classdata_1_1LogStream.html#a90b8dc67f563d4a8bf25d2aa9d9d0387", null ],
+    [ "errorBoosterSeatException", "classdata_1_1LogStream.html#a2e520b1959831d7eb0a0d4c586292e94", null ],
     [ "errorStdException", "classdata_1_1LogStream.html#a00a75a6b066e56f7e2420ae4ca73a2aa", null ],
     [ "addPacket", "classdata_1_1LogStream.html#a1ff9a93190dbecdc2ffa27deaaa4266a", null ],
     [ "getPacket", "classdata_1_1LogStream.html#a0314b3695dc80b18b19be92965777234", null ],

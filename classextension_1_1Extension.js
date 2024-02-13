@@ -14,6 +14,7 @@ var classextension_1_1Extension =
     [ "loop", "classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef", null ],
     [ "shutdown", "classextension_1_1Extension.html#a8c2ff02720daaaf27849c087b064d4c3", null ],
     [ "data", "classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e", null ],
+    [ "date", "classextension_1_1Extension.html#a456bf757c94d2415c0b64950108c78b7", null ],
     [ "data", "classextension_1_1Extension.html#ac3545ca3cc1fd6ab92671dbf18840f13", null ],
     [ "data", "classextension_1_1Extension.html#a7a4649f64e0c45c2406b3877a97ec5ba", null ],
     [ "error", "classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06", null ],

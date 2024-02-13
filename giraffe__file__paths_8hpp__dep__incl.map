@@ -1,6 +1,7 @@
 <map id="giraffe_file_paths.hpp" name="giraffe_file_paths.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="160,5,323,32"/>
-<area shape="rect" id="node2" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="5,80,136,107"/>
-<area shape="rect" id="node3" href="$giraffe__file__paths_8cpp.html" title="Common file paths for the C++ portion of Giraffe." alt="" coords="161,80,322,107"/>
-<area shape="rect" id="node4" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="346,80,462,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="216,5,379,32"/>
+<area shape="rect" id="node2" href="$pi__camera_8cpp.html" title="Raspberry Pi Camera Extension." alt="" coords="5,80,123,107"/>
+<area shape="rect" id="node3" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="147,80,277,107"/>
+<area shape="rect" id="node4" href="$giraffe__file__paths_8cpp.html" title="Common file paths for the C++ portion of Giraffe." alt="" coords="302,80,463,107"/>
+<area shape="rect" id="node5" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="487,80,603,107"/>
 </map>

@@ -19,6 +19,7 @@ var classextension_1_1AdcExtensionBase =
     [ "data", "classextension_1_1AdcExtensionBase.html#aa7ec0098dfde16a54eb616c73ba3046e", null ],
     [ "data", "classextension_1_1AdcExtensionBase.html#ac3545ca3cc1fd6ab92671dbf18840f13", null ],
     [ "data", "classextension_1_1AdcExtensionBase.html#a7a4649f64e0c45c2406b3877a97ec5ba", null ],
+    [ "date", "classextension_1_1AdcExtensionBase.html#a456bf757c94d2415c0b64950108c78b7", null ],
     [ "error", "classextension_1_1AdcExtensionBase.html#a947a643d302b5c5f9cef1a54d5038c06", null ],
     [ "error", "classextension_1_1AdcExtensionBase.html#aaae6a7d91b77ac86a6e597bf0071889d", null ],
     [ "info", "classextension_1_1AdcExtensionBase.html#ad3a895d8015ab2992b41c66b9f16648a", null ],

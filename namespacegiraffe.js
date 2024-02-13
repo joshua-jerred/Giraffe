@@ -5,10 +5,12 @@ var namespacegiraffe =
       [ "createGiraffeDirIfNotExists", "namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa", null ],
       [ "getGdlServerConfigFilePath", "namespacegiraffe_1_1file__paths.html#a55797c39fca8c9ee503e4c9dab0e6007", null ],
       [ "getGfsConfigFilePath", "namespacegiraffe_1_1file__paths.html#af135930ce8485d772c69735520b7fad1", null ],
+      [ "getGfsImageDirPath", "namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc", null ],
       [ "GIRAFFE_DIRECTORY", "namespacegiraffe_1_1file__paths.html#aad4ebaf90e4cc96fa0529d0d65fcd109", null ]
     ] ],
     [ "gdl", "namespacegiraffe_1_1gdl.html", "namespacegiraffe_1_1gdl" ],
     [ "CommonLogger", "classgiraffe_1_1CommonLogger.html", "classgiraffe_1_1CommonLogger" ],
+    [ "FCInfo", "structgiraffe_1_1FCInfo.html", "structgiraffe_1_1FCInfo" ],
     [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ],
     [ "Gpio", "classgiraffe_1_1Gpio.html", "classgiraffe_1_1Gpio" ],
     [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ],
@@ -30,6 +32,7 @@ var namespacegiraffe =
       [ "RECOVERY", "namespacegiraffe.html#a464112de04b36af2ff144b7013236affa9c90eb3f9201a7df861d94e494aa9b0b", null ]
     ] ],
     [ "NLOHMANN_JSON_SERIALIZE_ENUM", "namespacegiraffe.html#a69542761e752ab53aa53576e85b843d9", null ],
+    [ "getFlightComputerInfo", "namespacegiraffe.html#a913acd4504a335abcea9a3920a3f65cc", null ],
     [ "to_string", "namespacegiraffe.html#a6c8d7898d64c0982d482f960a46bb8c5", null ],
     [ "kDataFilePath", "namespacegiraffe.html#a6b32139309d34ad3fdd8ad069c141473", null ],
     [ "kNumStartupsDefault", "namespacegiraffe.html#accb157d3d9971f0f4f97a434a9aa21e8", null ],

@@ -9,7 +9,7 @@ var classdata__middleware_1_1DataFormatter =
     [ "logPacketToJsonString", "classdata__middleware_1_1DataFormatter.html#aa1d67f3593467a202659b221472cab9f", null ],
     [ "setupFrameStructure", "classdata__middleware_1_1DataFormatter.html#ab5eefe7500b957f07f67a91e4429ab4e", null ],
     [ "addComponent", "classdata__middleware_1_1DataFormatter.html#af6431a6a618bbc711a05acc51a64668d", null ],
-    [ "generateTimestamp", "classdata__middleware_1_1DataFormatter.html#aadee4d4f7a2926dabe3779160ed1bbf7", null ],
+    [ "generateTimestamp", "classdata__middleware_1_1DataFormatter.html#af2d795c2cc5fcff3ba2e17b2c5b2d3fb", null ],
     [ "fullFrameLogPacketToJson", "classdata__middleware_1_1DataFormatter.html#afcf16955b25633e242bf163e8e1bb606", null ],
     [ "config_", "classdata__middleware_1_1DataFormatter.html#a4b78f6001b0c139d00e81dd9fd80b6b2", null ],
     [ "shared_data_", "classdata__middleware_1_1DataFormatter.html#aaba04a0728023139163344b66be45218", null ]

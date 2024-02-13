@@ -67,6 +67,7 @@ var annotated_dup =
       [ "ExtensionResources", "structextension_1_1ExtensionResources.html", "structextension_1_1ExtensionResources" ],
       [ "I2cExtensionAdapter", "classextension_1_1I2cExtensionAdapter.html", "classextension_1_1I2cExtensionAdapter" ],
       [ "Mcp3021", "classextension_1_1Mcp3021.html", "classextension_1_1Mcp3021" ],
+      [ "PiCamera", "classextension_1_1PiCamera.html", "classextension_1_1PiCamera" ],
       [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ],
       [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ],
       [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],
@@ -89,6 +90,7 @@ var annotated_dup =
         [ "TransportLayer", "classgiraffe_1_1gdl_1_1TransportLayer.html", "classgiraffe_1_1gdl_1_1TransportLayer" ]
       ] ],
       [ "CommonLogger", "classgiraffe_1_1CommonLogger.html", "classgiraffe_1_1CommonLogger" ],
+      [ "FCInfo", "structgiraffe_1_1FCInfo.html", "structgiraffe_1_1FCInfo" ],
       [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ],
       [ "Gpio", "classgiraffe_1_1Gpio.html", "classgiraffe_1_1Gpio" ],
       [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ],

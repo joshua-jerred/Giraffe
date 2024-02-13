@@ -1,9 +1,9 @@
 <map id="data::LogPacket" name="data::LogPacket">
-<area shape="rect" id="node1" title=" " alt="" coords="477,285,601,363"/>
-<area shape="rect" id="node2" href="$structdata_1_1BaseStreamPacket.html" title=" " alt="" coords="157,145,337,223"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,5,112,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="367,5,425,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="136,5,224,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="546,145,649,223"/>
-<area shape="rect" id="node7" title=" " alt="" coords="673,145,730,223"/>
+<area shape="rect" id="node1" title=" " alt="" coords="435,285,559,363"/>
+<area shape="rect" id="node2" href="$structdata_1_1BaseStreamPacket.html" title=" " alt="" coords="137,145,317,223"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,93,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="128,5,235,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="333,5,392,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="505,145,607,223"/>
+<area shape="rect" id="node7" title=" " alt="" coords="631,145,689,223"/>
 </map>

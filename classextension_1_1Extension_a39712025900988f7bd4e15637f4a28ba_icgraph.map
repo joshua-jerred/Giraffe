@@ -1,5 +1,5 @@
 <map id="extension::Extension::raiseFault" name="extension::Extension::raiseFault">
-<area shape="rect" id="node1" title="Used internally to raise a fault. This will stop an extension." alt="" coords="503,403,661,444"/>
+<area shape="rect" id="node1" title="Used internally to raise a fault. This will stop an extension." alt="" coords="503,468,661,509"/>
 <area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#ada1c67d22e507c2d2775971a947eb315" title=" " alt="" coords="271,5,423,47"/>
 <area shape="rect" id="node3" href="$classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df" title=" " alt="" coords="256,71,439,112"/>
 <area shape="rect" id="node4" href="$classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba" title=" " alt="" coords="271,136,424,177"/>
@@ -7,12 +7,14 @@
 <area shape="rect" id="node6" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="255,267,439,294"/>
 <area shape="rect" id="node7" href="$classextension_1_1Bmi088.html#a785010dddb7e8d5335d8e44bbbc92905" title=" " alt="" coords="257,318,437,345"/>
 <area shape="rect" id="node8" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="272,369,423,411"/>
-<area shape="rect" id="node9" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="256,435,439,476"/>
-<area shape="rect" id="node10" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="269,500,425,541"/>
-<area shape="rect" id="node11" href="$classextension_1_1Bmi088.html#ae97880621fee99f214cc73916b8a159c" title=" " alt="" coords="271,565,423,607"/>
-<area shape="rect" id="node12" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="272,631,423,672"/>
-<area shape="rect" id="node13" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="256,696,439,737"/>
-<area shape="rect" id="node14" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="268,761,427,803"/>
-<area shape="rect" id="node15" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="268,827,427,868"/>
-<area shape="rect" id="node16" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,834,192,861"/>
+<area shape="rect" id="node9" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="269,435,426,476"/>
+<area shape="rect" id="node10" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="256,500,439,541"/>
+<area shape="rect" id="node11" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="269,565,425,607"/>
+<area shape="rect" id="node12" href="$classextension_1_1Bmi088.html#ae97880621fee99f214cc73916b8a159c" title=" " alt="" coords="271,631,423,672"/>
+<area shape="rect" id="node13" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="272,696,423,737"/>
+<area shape="rect" id="node14" href="$classextension_1_1PiCamera.html#abe7dc219785211e3a0d86a50d481cd41" title=" " alt="" coords="269,761,426,803"/>
+<area shape="rect" id="node15" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="256,827,439,868"/>
+<area shape="rect" id="node16" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="268,892,427,933"/>
+<area shape="rect" id="node17" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="268,957,427,999"/>
+<area shape="rect" id="node18" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,965,192,991"/>
 </map>

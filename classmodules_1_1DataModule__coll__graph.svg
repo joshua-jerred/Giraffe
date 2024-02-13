@@ -133,10 +133,10 @@
 <polygon fill="none" stroke="#404040" points="317.98,-586.98 312.53,-582.26 314.8,-575.41 320.24,-580.14 317.98,-586.98"/>
 <text text-anchor="middle" x="393.98" y="-819.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;shared_data_</text>
 </g>
-<!-- Node61 -->
-<g id="node40" class="node">
-<title>Node61</title>
-<g id="a_node40"><a xlink:href="classdata__middleware_1_1DataFormatter.html" target="_top" xlink:title=" ">
+<!-- Node62 -->
+<g id="node41" class="node">
+<title>Node62</title>
+<g id="a_node41"><a xlink:href="classdata__middleware_1_1DataFormatter.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="156.98,-738.5 156.98,-905.5 335.98,-905.5 335.98,-738.5 156.98,-738.5"/>
 <text text-anchor="middle" x="246.48" y="-893.5" font-family="Helvetica,sans-Serif" font-size="10.00">data_middleware::DataFormatter</text>
 <polyline fill="none" stroke="black" points="156.98,-886.5 335.98,-886.5 "/>
@@ -156,9 +156,9 @@
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node61 -->
-<g id="edge45" class="edge">
-<title>Node3&#45;&gt;Node61</title>
+<!-- Node3&#45;&gt;Node62 -->
+<g id="edge46" class="edge">
+<title>Node3&#45;&gt;Node62</title>
 <path fill="none" stroke="#404040" d="M360.68,-1110.02C334.31,-1102.96 303.83,-1090.14 285.48,-1067 252.54,-1025.48 242.31,-967.22 240.54,-918.04"/>
 <polygon fill="none" stroke="#404040" points="240.53,-917.74 236.4,-911.83 240.26,-905.74 244.4,-911.65 240.53,-917.74"/>
 <text text-anchor="middle" x="321.98" y="-993" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;shared_data_</text>
@@ -720,15 +720,15 @@
 <text text-anchor="middle" x="521.98" y="-819.5" font-family="Helvetica,sans-Serif" font-size="10.00"> #configuration_</text>
 </g>
 <!-- Node47&#45;&gt;Node56 -->
-<g id="edge43" class="edge">
+<g id="edge44" class="edge">
 <title>Node47&#45;&gt;Node56</title>
 <path fill="none" stroke="#404040" d="M183.34,-1090.71C133.3,-1054.89 52.47,-987.43 19.48,-906 -8.56,-836.8 -3.6,-809.01 19.48,-738 49.5,-645.58 130.51,-567.24 193.83,-517.42"/>
 <polygon fill="none" stroke="#404040" points="193.95,-517.33 196.24,-510.49 203.43,-509.97 201.14,-516.81 193.95,-517.33"/>
 <text text-anchor="middle" x="40.48" y="-819.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;config_</text>
 </g>
-<!-- Node47&#45;&gt;Node61 -->
-<g id="edge46" class="edge">
-<title>Node47&#45;&gt;Node61</title>
+<!-- Node47&#45;&gt;Node62 -->
+<g id="edge47" class="edge">
+<title>Node47&#45;&gt;Node62</title>
 <path fill="none" stroke="#404040" d="M205.8,-1090.82C201.56,-1083.42 197.69,-1075.19 195.48,-1067 178.91,-1005.64 180.75,-985.83 195.48,-924 196.02,-921.71 196.63,-919.41 197.29,-917.11"/>
 <polygon fill="none" stroke="#404040" points="197.31,-917.03 195.36,-910.09 201.01,-905.62 202.97,-912.56 197.31,-917.03"/>
 <text text-anchor="middle" x="216.48" y="-993" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;config_</text>
@@ -1085,17 +1085,10 @@
 <text text-anchor="start" x="1930.48" y="-965.5" font-family="Helvetica,sans-Serif" font-size="10.00">+pressure_altitude</text>
 <text text-anchor="middle" x="1988.48" y="-954.5" font-family="Helvetica,sans-Serif" font-size="10.00">_valid</text>
 </g>
-<!-- Node61&#45;&gt;Node56 -->
-<g id="edge44" class="edge">
-<title>Node61&#45;&gt;Node56</title>
-<path fill="none" stroke="#404040" d="M253.59,-738.06C257.41,-693.48 262.21,-637.54 266.5,-587.51"/>
-<polygon fill="none" stroke="#404040" points="266.52,-587.22 263.05,-580.9 267.55,-575.26 271.02,-581.58 266.52,-587.22"/>
-<text text-anchor="middle" x="292.98" y="-668" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;formatter_</text>
-</g>
-<!-- Node62 -->
-<g id="node41" class="node">
-<title>Node62</title>
-<g id="a_node41"><a xlink:title=" ">
+<!-- Node61 -->
+<g id="node40" class="node">
+<title>Node61</title>
+<g id="a_node40"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="70.48,-793.5 70.48,-850.5 138.48,-850.5 138.48,-793.5 70.48,-793.5"/>
 <text text-anchor="middle" x="104.48" y="-838.5" font-family="Helvetica,sans-Serif" font-size="10.00">Stopwatch</text>
 <polyline fill="none" stroke="#bfbfbf" points="70.48,-831.5 138.48,-831.5 "/>
@@ -1105,9 +1098,9 @@
 </a>
 </g>
 </g>
-<!-- Node62&#45;&gt;Node56 -->
-<g id="edge47" class="edge">
-<title>Node62&#45;&gt;Node56</title>
+<!-- Node61&#45;&gt;Node56 -->
+<g id="edge43" class="edge">
+<title>Node61&#45;&gt;Node56</title>
 <path fill="none" stroke="#404040" d="M103.57,-793.39C103.32,-753.45 106.87,-678.08 133.48,-621 148.31,-589.17 171.51,-559.05 194.99,-533.64"/>
 <polygon fill="none" stroke="#404040" points="195.05,-533.58 196.26,-526.47 203.29,-524.85 202.08,-531.96 195.05,-533.58"/>
 <text text-anchor="start" x="133.48" y="-690" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;data_frame_stopwatch</text>
@@ -1115,6 +1108,13 @@
 <text text-anchor="start" x="133.48" y="-668" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;error_frame_stopwatch</text>
 <text text-anchor="middle" x="192.98" y="-657" font-family="Helvetica,sans-Serif" font-size="10.00">_</text>
 <text text-anchor="middle" x="192.98" y="-646" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;validation_stopwatch_</text>
+</g>
+<!-- Node62&#45;&gt;Node56 -->
+<g id="edge45" class="edge">
+<title>Node62&#45;&gt;Node56</title>
+<path fill="none" stroke="#404040" d="M253.59,-738.06C257.41,-693.48 262.21,-637.54 266.5,-587.51"/>
+<polygon fill="none" stroke="#404040" points="266.52,-587.22 263.05,-580.9 267.55,-575.26 271.02,-581.58 266.52,-587.22"/>
+<text text-anchor="middle" x="292.98" y="-668" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;formatter_</text>
 </g>
 <!-- Node63 -->
 <g id="node42" class="node">

@@ -31,8 +31,8 @@ var classdata__middleware_1_1DataLog =
     [ "shared_data_", "classdata__middleware_1_1DataLog.html#ad4cc80e9e78a2e61a08bbb7b8626c44d", null ],
     [ "config_", "classdata__middleware_1_1DataLog.html#a813b0a292e651fd58b749435749d4fe6", null ],
     [ "fs_status_", "classdata__middleware_1_1DataLog.html#af979e0886a394ba7dc2760c026fc89f6", null ],
-    [ "validation_stopwatch_", "classdata__middleware_1_1DataLog.html#add9d0b050a9542d324e4afbac72b14af", null ],
-    [ "data_frame_stopwatch_", "classdata__middleware_1_1DataLog.html#a8129e3e32e2a6a8c159aed9795f5f2cf", null ],
-    [ "error_frame_stopwatch_", "classdata__middleware_1_1DataLog.html#a4db70f1d555126bee153ad00108a8974", null ],
+    [ "validation_stopwatch_", "classdata__middleware_1_1DataLog.html#afae289e1165a2d147be3bbc4b38bd858", null ],
+    [ "data_frame_stopwatch_", "classdata__middleware_1_1DataLog.html#a2a62ff9949fbd00b270c4be03d47b170", null ],
+    [ "error_frame_stopwatch_", "classdata__middleware_1_1DataLog.html#a919c74bcfb772c9d4b4e1ec22b95c67e", null ],
     [ "formatter_", "classdata__middleware_1_1DataLog.html#a61b7497aa02bd68feed0265f9777b632", null ]
 ];
