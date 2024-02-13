@@ -59,6 +59,7 @@ target_link_libraries(
   extension_module
   server_module
   system_module
+  gfs_utilities
   # external
   unit_test
   gtest_main
@@ -68,6 +69,7 @@ target_link_libraries(
   nlohmann_json::nlohmann_json)
 set_target_properties(unit_test_gfs PROPERTIES RUNTIME_OUTPUT_DIRECTORY
                                                ${TEST_BIN})
+
 
 # --- Flight Software : Host Tests ---
 file(GLOB gfs_host_test_sources "${GFS_TEST_SRC}/host_tests/test_*.cpp")
@@ -83,6 +85,7 @@ target_link_libraries(
   gfs_configuration
   gfs_shared_data
   gfs_control
+  gfs_utilities
   module_base
   data_module
   BoosterSeat
@@ -120,10 +123,13 @@ set_target_properties(
 )
 
 # ---------------- ctest ----------------
-# include(CTest)
-add_test(NAME common_tests COMMAND $<TARGET_FILE:unit_test_common>)
-add_test(NAME flight_system_tests COMMAND unit_test_gfs)
-add_test(NAME data_link_tests COMMAND unit_test_gdl)
+include(GoogleTest)
+gtest_discover_tests(unit_test_gfs)
+gtest_discover_tests(unit_test_gdl)
+gtest_discover_tests(unit_test_common)
+# add_test(NAME common_tests COMMAND $<TARGET_FILE:unit_test_common>)
+# add_test(NAME flight_system_tests COMMAND unit_test_gfs)
+# add_test(NAME data_link_tests COMMAND unit_test_gdl)
 
 # add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND}
                   # DEPENDS ExeName)

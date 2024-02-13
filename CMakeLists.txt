@@ -127,5 +127,6 @@ add_subdirectory(project/eeprom)           # EEPROM Utility
 # ----------------------------
 
 # Unit Tests
+include(CTest)
 enable_testing()
 add_subdirectory(${CMAKE_SOURCE_DIR}/tests)

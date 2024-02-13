@@ -23,6 +23,7 @@ add_subdirectory(./extensions)
 add_subdirectory(./configuration)
 add_subdirectory(./interface)
 add_subdirectory(./control)
+add_subdirectory(./utilities)
 add_subdirectory(./modules/extension)
 add_subdirectory(./modules/console)
 add_subdirectory(./modules/data)
@@ -52,6 +53,7 @@ target_link_libraries(
   gfs_configuration
   gfs_extensions
   gfs_control
+  gfs_utilities
   module_base
   data_module
   console_module

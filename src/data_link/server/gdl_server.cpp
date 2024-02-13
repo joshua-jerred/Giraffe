@@ -15,7 +15,7 @@
  */
 
 #include "BoosterSeat/filesystem.hpp"
-namespace bsfs = BoosterSeat::filesystem;
+namespace bsfs = bst::filesystem;
 
 #include "gdl_server.hpp"
 
