@@ -185,13 +185,11 @@ auto FlightRunner::shutdown() -> void {
 }
 
 auto FlightRunner::flightLoop() -> int {
-
   std::cout << "Starting Flight Procedure" << std::endl;
-  static int count = 0;
+  shared_data_.status_led.setGreen(StatusLed::State::BLINK);
+  // static int count = 0;
   while (!shutdown_signal_) { // The endless loop where everything happens
     std::this_thread::sleep_for(std::chrono::milliseconds(50));
-
-    shared_data_.status_led.blinkGreen();
 
     if (shared_data_.streams.command.getNumPackets() > 0) {
       data::CommandPacket command_packet{};

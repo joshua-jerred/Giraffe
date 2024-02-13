@@ -72,3 +72,10 @@ target_include_directories(
   PRIVATE
   ${THIRD_PARTY_SRC}/nlohmann_json/single_include
 )
+
+if(DEFINED ENV{SIMULATED_EXTENSIONS})
+  if ($ENV{SIMULATED_EXTENSIONS} EQUAL "1")
+    message(STATUS "=== Simulated Extensions Enabled")
+    target_compile_definitions(${EXE_NAME} PRIVATE SIMULATED_EXTENSIONS=1)
+  endif()
+endif()

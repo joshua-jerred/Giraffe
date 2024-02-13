@@ -23,43 +23,37 @@ namespace giraffe {
 
 class StatusLed {
 public:
+  enum class State { OFF, ON, BLINK };
+
   StatusLed() = default;
   ~StatusLed() = default;
 
-  void setRed(bool state) {
-    red_ = state;
+  void setRed(State state) {
+    r_state_ = state;
   }
-  void setGreen(bool state) {
-    green_ = state;
+  void setGreen(State state) {
+    g_state_ = state;
   }
-  void setBlue(bool state) {
-    blue_ = state;
-  }
-
-  void blinkRed() {
-    red_ = !red_;
-  }
-  void blinkGreen() {
-    green_ = !green_;
-  }
-  void blinkBlue() {
-    blue_ = !blue_;
+  void setBlue(State state) {
+    b_state_ = state;
   }
 
-  bool getRed() {
-    return red_;
+  State getRedState() const {
+    return r_state_;
   }
-  bool getGreen() {
-    return green_;
+
+  State getGreenState() const {
+    return g_state_;
   }
-  bool getBlue() {
-    return blue_;
+
+  State getBlueState() const {
+    return b_state_;
   }
 
 private:
-  std::atomic<bool> red_ = false;
-  std::atomic<bool> green_ = false;
-  std::atomic<bool> blue_ = false;
+  std::atomic<State> r_state_ = State::OFF;
+  std::atomic<State> g_state_ = State::OFF;
+  std::atomic<State> b_state_ = State::OFF;
 };
 
 } // namespace giraffe

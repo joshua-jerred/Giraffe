@@ -151,6 +151,7 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::EXT_FAULT_bmi088AccelConfigError,"EXT_FAULT_bmi088AccelConfigError"},
   {DiagnosticId::EXT_FAULT_bmi088GyroConfigError,"EXT_FAULT_bmi088GyroConfigError"},
   {DiagnosticId::EXT_FAULT_bmi088ReadTimeout,"EXT_FAULT_bmi088ReadTimeout"},
+  {DiagnosticId::EXT_FAULT_rgbStatusLedExtraArgs,"EXT_FAULT_rgbStatusLedExtraArgs"},
   {DiagnosticId::INTERFACE_invalidGpioPin,"INTERFACE_invalidGpioPin"},
   {DiagnosticId::INTERFACE_invalidGpioPinMode,"INTERFACE_invalidGpioPinMode"},
   {DiagnosticId::INTERFACE_initialStateInputPin,"INTERFACE_initialStateInputPin"},

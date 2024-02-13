@@ -660,6 +660,11 @@
       "name":"BMI088 Read Timeout",
       "details":"The BMI088 failed to read data in time.",
       "value": "0x701B"
+    },
+    "rgb_status_led_extra_args":{
+      "name":"RGB Status LED Extra Args",
+      "details":"The RGB status LED extension was provided invalid extra args. (GPIO Config)",
+      "value": "0x701C"
     }
   },
   "interface":{

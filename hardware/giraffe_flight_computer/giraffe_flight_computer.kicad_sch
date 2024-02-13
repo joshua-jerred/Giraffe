@@ -1420,7 +1420,7 @@
   (symbol (lib_id "power:PWR_FLAG") (at 198.12 35.56 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 626ba48a-2fa0-4283-befa-1bc01046ffe5)
-    (property "Reference" "#FLG?" (at 198.12 33.655 0)
+    (property "Reference" "#FLG05" (at 198.12 33.655 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG" (at 198.12 31.75 0)
@@ -1435,9 +1435,6 @@
     (pin "1" (uuid 1e06f02c-712d-4dcf-bf25-740a1a438618))
     (instances
       (project "giraffe_flight_computer"
-        (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/ba60804d-01a4-423f-89a4-e92a0bf73814"
-          (reference "#FLG?") (unit 1)
-        )
         (path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
           (reference "#FLG05") (unit 1)
         )
