@@ -17,18 +17,22 @@
 #ifndef GFS_SIM_PHYSICS_HPP_
 #define GFS_SIM_PHYSICS_HPP_
 
+#include "sim_environmental.hpp"
 #include "sim_parameters.hpp"
 
 namespace gfs_sim {
 class BalloonPhysics {
 public:
-  BalloonPhysics(SimState &state) : state_(state) {
+  BalloonPhysics(SimState &state, SimEnvironmental &env)
+      : state_(state), env_(env) {
   }
 
   void update(double delta_time_s) {
     altitude_ += vertical_speed_ * delta_time_s;
     vertical_speed_ += vertical_acceleration_ * delta_time_s;
     stateMachine();
+
+    env_.setAltitudeMeters(altitude_);
   }
 
   double getAltitude() const {
@@ -67,7 +71,11 @@ private:
   double vertical_speed_{K_START_VERTICAL_SPEED_MPS};
   double vertical_acceleration_{K_START_VERTICAL_ACCELERATION_MPS2};
 
+  double latitude_{K_START_LATITUDE};
+  double longitude_{K_START_LONGITUDE};
+
   SimState &state_;
+  SimEnvironmental &env_;
 
   void statePreLaunch() {
     setVerticalAcceleration(0.0);

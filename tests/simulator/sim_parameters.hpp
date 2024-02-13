@@ -29,12 +29,14 @@ inline constexpr bool K_PRINT_SIM_DATA = true;
 
 // -- BalloonPhysics Parameters --
 // Start Parameters
-inline constexpr double K_START_ALTITUDE_METERS = 490.0;
-inline constexpr double K_START_VERTICAL_SPEED_MPS = 6.0;
-inline constexpr double K_START_VERTICAL_ACCELERATION_MPS2 = 0.00001;
+inline constexpr double K_START_ALTITUDE_METERS = 0.0;
+inline constexpr double K_START_VERTICAL_SPEED_MPS = 0.0;
+inline constexpr double K_START_VERTICAL_ACCELERATION_MPS2 = 0.0;
+inline constexpr double K_START_LATITUDE = 39.725796;
+inline constexpr double K_START_LONGITUDE = -83.561191;
 // Pre-launch Parameters
 inline constexpr double K_PRELAUNCH_LAUNCH_DELAY_S =
-    0.0; // set to 0 if the start parameters are non-zero
+    1.0; // set to 0 if the start parameters are non-zero
 // Ascent Parameters
 inline constexpr double K_ASCENT_ACCELERATION_MPS2 = 0.3;
 inline constexpr double K_ASCENT_ACCELERATION_VARIANCE = 0.1;

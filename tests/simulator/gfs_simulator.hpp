@@ -25,6 +25,7 @@
 #include <BoosterSeat/stopwatch.hpp>
 #include <BoosterSeat/timer.hpp>
 
+#include "sim_environmental.hpp"
 #include "sim_parameters.hpp"
 #include "sim_physics.hpp"
 
@@ -110,7 +111,8 @@ private:
   bst::Stopwatch flight_stopwatch_{};
   double elapsed_seconds_{0.0};
 
-  BalloonPhysics physics_{state_};
+  SimEnvironmental environment_{};
+  BalloonPhysics physics_{state_, environment_};
 
   void stateMachine() {
     switch (state_) {
