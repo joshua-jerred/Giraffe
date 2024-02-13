@@ -238,7 +238,7 @@ var files_dup =
       ] ]
     ] ],
     [ "status_led.hpp", "status__led_8hpp.html", [
-      [ "StatusLed", "classgiraffe_1_1StatusLed.html", "classgiraffe_1_1StatusLed" ]
+      [ "StatusLedState", "classgiraffe_1_1StatusLedState.html", "classgiraffe_1_1StatusLedState" ]
     ] ],
     [ "streams.hpp", "streams_8hpp.html", [
       [ "BaseStreamPacket", "structdata_1_1BaseStreamPacket.html", "structdata_1_1BaseStreamPacket" ],

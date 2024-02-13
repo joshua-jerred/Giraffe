@@ -12,6 +12,7 @@ var classgiraffe_1_1Gpio =
     [ "setupPin", "classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c", null ],
     [ "write", "classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef", null ],
     [ "read", "classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7", null ],
+    [ "releasePin", "classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4", null ],
     [ "isPinReserved", "classgiraffe_1_1Gpio.html#a657f0e77cb4361e50b4c1f386001f55e", null ],
     [ "reservePin", "classgiraffe_1_1Gpio.html#a07c3bfd057cfecada59810151124355d", null ],
     [ "isOwner", "classgiraffe_1_1Gpio.html#a9a44f3d040cf48ed6d6229617e25117a", null ],

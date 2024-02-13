@@ -1,31 +1,38 @@
 <map id="extension::RgbStatusLed" name="extension::RgbStatusLed">
-<area shape="rect" id="node1" title=" " alt="" coords="1049,1779,1231,1885"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="1061,1300,1219,1729"/>
-<area shape="rect" id="node3" href="$structextension_1_1ExtensionResources.html" title="This contains objects that are shared between all extensions." alt="" coords="482,1160,707,1237"/>
-<area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="538,932,651,1009"/>
-<area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="988,631,1209,767"/>
-<area shape="rect" id="node6" href="$classdata_1_1Stream.html" title=" " alt="" coords="1202,373,1403,568"/>
-<area shape="rect" id="node7" href="$classdata_1_1Stream.html" title=" " alt="" coords="711,160,859,311"/>
-<area shape="rect" id="node13" href="$classdata_1_1Stream.html" title=" " alt="" coords="162,373,406,568"/>
-<area shape="rect" id="node15" href="$classdata_1_1Stream.html" title=" " alt="" coords="430,373,639,568"/>
-<area shape="rect" id="node17" href="$classdata_1_1Stream.html" title=" " alt="" coords="663,373,907,568"/>
-<area shape="rect" id="node19" href="$classdata_1_1Stream.html" title=" " alt="" coords="932,373,1177,568"/>
-<area shape="rect" id="node8" title=" " alt="" coords="195,5,259,83"/>
-<area shape="rect" id="node9" title=" " alt="" coords="1054,5,1093,83"/>
-<area shape="rect" id="node26" href="$structcfg_1_1ExtensionMetadata.html" title="The metadata for an extension." alt="" coords="1345,189,1521,281"/>
-<area shape="rect" id="node10" title=" " alt="" coords="605,5,705,83"/>
-<area shape="rect" id="node11" title=" " alt="" coords="735,5,849,83"/>
-<area shape="rect" id="node12" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="209,660,381,737"/>
-<area shape="rect" id="node14" href="$classdata_1_1DataStream.html" title=" " alt="" coords="433,653,570,745"/>
-<area shape="rect" id="node16" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="594,660,766,737"/>
-<area shape="rect" id="node18" href="$classdata_1_1CommandStream.html" title="The stream of new commands." alt="" coords="791,660,964,737"/>
-<area shape="rect" id="node20" title=" " alt="" coords="5,932,72,1009"/>
-<area shape="rect" id="node21" href="$classgiraffe_1_1StatusLed.html" title=" " alt="" coords="735,859,871,1083"/>
-<area shape="rect" id="node22" title=" " alt="" coords="1233,660,1359,737"/>
-<area shape="rect" id="node23" title=" " alt="" coords="949,1160,1128,1237"/>
-<area shape="rect" id="node24" title=" " alt="" coords="1152,1160,1331,1237"/>
-<area shape="rect" id="node25" title=" " alt="" coords="1355,1160,1419,1237"/>
-<area shape="rect" id="node27" title=" " alt="" coords="1267,5,1383,83"/>
-<area shape="rect" id="node28" title=" " alt="" coords="1408,5,1459,83"/>
-<area shape="rect" id="node29" title=" " alt="" coords="1499,5,1557,83"/>
+<area shape="rect" id="node1" title="A simple extension to control an RGB status LED." alt="" coords="1533,1881,1716,2017"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="1069,1403,1228,1832"/>
+<area shape="rect" id="node3" href="$structextension_1_1ExtensionResources.html" title="This contains objects that are shared between all extensions." alt="" coords="607,1197,832,1274"/>
+<area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="548,983,661,1061"/>
+<area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="34,704,255,840"/>
+<area shape="rect" id="node6" href="$classdata_1_1Stream.html" title=" " alt="" coords="5,447,207,641"/>
+<area shape="rect" id="node7" href="$classdata_1_1Stream.html" title=" " alt="" coords="797,197,945,347"/>
+<area shape="rect" id="node13" href="$classdata_1_1Stream.html" title=" " alt="" coords="231,447,475,641"/>
+<area shape="rect" id="node15" href="$classdata_1_1Stream.html" title=" " alt="" coords="767,447,976,641"/>
+<area shape="rect" id="node17" href="$classdata_1_1Stream.html" title=" " alt="" coords="499,447,743,641"/>
+<area shape="rect" id="node19" href="$classdata_1_1Stream.html" title=" " alt="" coords="1001,447,1246,641"/>
+<area shape="rect" id="node8" title=" " alt="" coords="1399,13,1463,90"/>
+<area shape="rect" id="node34" href="$classgiraffe_1_1Gpio.html" title="This class is used to interface extensions with the BCM Gpio pins." alt="" coords="1882,160,2015,384"/>
+<area shape="rect" id="node9" title=" " alt="" coords="1152,13,1191,90"/>
+<area shape="rect" id="node27" href="$structcfg_1_1ExtensionMetadata.html" title="The metadata for an extension." alt="" coords="1411,1189,1587,1281"/>
+<area shape="rect" id="node10" title=" " alt="" coords="712,13,812,90"/>
+<area shape="rect" id="node11" title=" " alt="" coords="842,13,957,90"/>
+<area shape="rect" id="node12" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="287,733,459,811"/>
+<area shape="rect" id="node14" href="$classdata_1_1DataStream.html" title=" " alt="" coords="715,726,852,818"/>
+<area shape="rect" id="node16" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="519,733,691,811"/>
+<area shape="rect" id="node18" href="$classdata_1_1CommandStream.html" title="The stream of new commands." alt="" coords="877,733,1050,811"/>
+<area shape="rect" id="node20" href="$classgiraffe_1_1StatusLedState.html" title=" " alt="" coords="777,932,947,1112"/>
+<area shape="rect" id="node21" title=" " alt="" coords="1074,733,1205,811"/>
+<area shape="rect" id="node22" title=" " alt="" coords="686,983,753,1061"/>
+<area shape="rect" id="node23" title=" " alt="" coords="857,1197,1035,1274"/>
+<area shape="rect" id="node24" title=" " alt="" coords="1059,1197,1238,1274"/>
+<area shape="rect" id="node25" title=" " alt="" coords="1262,1197,1387,1274"/>
+<area shape="rect" id="node26" title=" " alt="" coords="519,1197,583,1274"/>
+<area shape="rect" id="node28" title=" " alt="" coords="1257,983,1373,1061"/>
+<area shape="rect" id="node29" title=" " alt="" coords="1599,983,1650,1061"/>
+<area shape="rect" id="node31" href="$structgiraffe_1_1Gpio_1_1Pin.html" title="A pin struct that contains the pin number, mode, and default." alt="" coords="1729,1189,1859,1281"/>
+<area shape="rect" id="node30" title=" " alt="" coords="1398,983,1457,1061"/>
+<area shape="rect" id="node32" title=" " alt="" coords="1877,983,1956,1061"/>
+<area shape="rect" id="node33" title=" " alt="" coords="1767,983,1834,1061"/>
+<area shape="rect" id="node35" title=" " alt="" coords="1857,13,1931,90"/>
+<area shape="rect" id="node36" title=" " alt="" coords="1956,5,2107,97"/>
 </map>

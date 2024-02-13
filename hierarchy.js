@@ -102,7 +102,7 @@ var hierarchy =
     [ "giraffe::LoggerEntry", "structgiraffe_1_1LoggerEntry.html", null ],
     [ "giraffe::SpiInterface", "classgiraffe_1_1SpiInterface.html", null ],
     [ "giraffe::SpiInterface::Config", "classgiraffe_1_1SpiInterface.html#structgiraffe_1_1SpiInterface_1_1Config", null ],
-    [ "giraffe::StatusLed", "classgiraffe_1_1StatusLed.html", null ],
+    [ "giraffe::StatusLedState", "classgiraffe_1_1StatusLedState.html", null ],
     [ "I2cInterface", "classI2cInterface.html", null ],
     [ "LogContainer", "classLogContainer.html", null ],
     [ "modules::ExtensionModule::ExtContainer", "structmodules_1_1ExtensionModule_1_1ExtContainer.html", null ],

@@ -1,5 +1,7 @@
 <map id="calculateAddress" name="calculateAddress">
-<area shape="rect" id="node1" title=" " alt="" coords="196,31,329,57"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="7,5,146,32"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="5,56,148,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="427,31,560,57"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="238,5,377,32"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="236,56,379,83"/>
+<area shape="rect" id="node4" href="$classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea" title=" " alt="" coords="5,15,188,57"/>
+<area shape="rect" id="node5" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="5,81,188,122"/>
 </map>

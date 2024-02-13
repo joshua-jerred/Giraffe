@@ -6,5 +6,5 @@ var structdata_1_1SharedData =
     [ "blocks", "structdata_1_1SharedData.html#ab98a7a65eac8ffd555f886a6a45e3142", null ],
     [ "misc", "structdata_1_1SharedData.html#ad09f2eef7f3c8ae3af47348e633c7071", null ],
     [ "log_container", "structdata_1_1SharedData.html#adc6c096d157e951bcaea1aa84916216a", null ],
-    [ "status_led", "structdata_1_1SharedData.html#a4876231ac1b29221b92fc4faf2cf7105", null ]
+    [ "status_led", "structdata_1_1SharedData.html#a7c6f482dc4d558d8463ea2ffcd906fed", null ]
 ];

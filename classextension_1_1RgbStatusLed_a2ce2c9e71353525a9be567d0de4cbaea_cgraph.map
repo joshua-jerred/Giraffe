@@ -1,0 +1,12 @@
+<map id="extension::RgbStatusLed::loop" name="extension::RgbStatusLed::loop">
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,188,145"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1StatusLedState.html#ac76f0f628fe073f82fb779a70ca13eee" title=" " alt="" coords="236,5,407,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1StatusLedState.html#a4c489cbb64c1f430eff28011e0ce09cc" title=" " alt="" coords="236,71,407,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1StatusLedState.html#ae24b5a622e0fd77e74fbac27f7058bf5" title=" " alt="" coords="236,136,407,177"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="250,202,393,229"/>
+<area shape="rect" id="node6" href="$gpio_8cpp.html#a375242562acc7d849b58d1123614612e" title=" " alt="" coords="469,101,603,127"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1Gpio.html#a9a44f3d040cf48ed6d6229617e25117a" title="A function to check if the current instance owns a reserved pin." alt="" coords="455,151,617,178"/>
+<area shape="rect" id="node8" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="482,202,590,229"/>
+<area shape="rect" id="node9" href="$gpio_8cpp.html#a3a9d33e33fe014c025aef94a0f9c64a5" title="A function to check if the BCM GPIO registers have been mapped." alt="" coords="475,253,597,279"/>
+<area shape="rect" id="node10" href="$gpio_8cpp.html#a91abd472ae174c22c1fbaf5cc0f67497" title="Writes a value to a memory address with a memory barrier. ." alt="" coords="471,303,601,330"/>
+</map>

@@ -97,7 +97,7 @@
 <!-- Node7 -->
 <g id="node8" class="node">
 <title>Node7</title>
-<g id="a_node8"><a xlink:href="classextension_1_1RgbStatusLed.html" target="_top" xlink:title=" ">
+<g id="a_node8"><a xlink:href="classextension_1_1RgbStatusLed.html" target="_top" xlink:title="A simple extension to control an RGB status LED.">
 <polygon fill="none" stroke="black" points="172,-278.5 172,-297.5 309,-297.5 309,-278.5 172,-278.5"/>
 <text text-anchor="middle" x="240.5" y="-285.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::RgbStatusLed</text>
 </a>

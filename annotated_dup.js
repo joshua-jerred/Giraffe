@@ -94,7 +94,7 @@ var annotated_dup =
       [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ],
       [ "LoggerEntry", "structgiraffe_1_1LoggerEntry.html", "structgiraffe_1_1LoggerEntry" ],
       [ "SpiInterface", "classgiraffe_1_1SpiInterface.html", "classgiraffe_1_1SpiInterface" ],
-      [ "StatusLed", "classgiraffe_1_1StatusLed.html", "classgiraffe_1_1StatusLed" ]
+      [ "StatusLedState", "classgiraffe_1_1StatusLedState.html", "classgiraffe_1_1StatusLedState" ]
     ] ],
     [ "modules", "namespacemodules.html", [
       [ "ConsoleModule", "classmodules_1_1ConsoleModule.html", "classmodules_1_1ConsoleModule" ],

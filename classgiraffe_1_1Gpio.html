@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('classgiraffe_1_1Gpio.html',''); initRe
 <div class="dynheader">
 Collaboration diagram for giraffe::Gpio:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio__coll__graph.svg" width="380" height="375"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio__coll__graph.svg" width="380" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -145,6 +145,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad9bd7030420bdbf1979b3664dff68ff7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7">read</a> (<a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html">Pin</a> pin)</td></tr>
 <tr class="memdesc:ad9bd7030420bdbf1979b3664dff68ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the value of an input pin.  <a href="classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7">More...</a><br /></td></tr>
 <tr class="separator:ad9bd7030420bdbf1979b3664dff68ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60b4d177dfc4536f9cd469ded46f6ec4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4">releasePin</a> (<a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html">Pin</a> pin)</td></tr>
+<tr class="memdesc:a60b4d177dfc4536f9cd469ded46f6ec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Release a pin for use by another instance.  <a href="classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4">More...</a><br /></td></tr>
+<tr class="separator:a60b4d177dfc4536f9cd469ded46f6ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e84f1224ccd58fa33cb303211ed935c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c">setupPin</a> (<a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html">Pin</a> pin)</td></tr>
 <tr class="memdesc:a5e84f1224ccd58fa33cb303211ed935c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to setup a pin for input or output.  <a href="classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c">More...</a><br /></td></tr>
 <tr class="separator:a5e84f1224ccd58fa33cb303211ed935c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,7 +199,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class is used to interface extensions with the BCM <a class="el" href="classgiraffe_1_1Gpio.html" title="This class is used to interface extensions with the BCM Gpio pins.">Gpio</a> pins. </p>
-<p>Currently this only supports the Raspberry Pi. It has not been thoroughly tested. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Unit Tests </dd></dl>
+<p>Currently this only supports the Raspberry Pi. It has not been thoroughly tested. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Unit Tests </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>If Gpio::Close() is called, instances of <a class="el" href="classgiraffe_1_1Gpio.html" title="This class is used to interface extensions with the BCM Gpio pins.">Gpio</a> may have weird behavior. </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a7fc4b418ee03c60203b38898a1c4a0b2"></a>
@@ -288,7 +291,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Static function to close the BCM registers and reset the reserved pins. </p>
-<p>This deallocates the memory map and resets the reserved pins array. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Set pins to their 'initial_state_' before closing. </dd></dl>
+<p>This deallocates the memory map and resets the reserved pins array. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>Set pins to their 'initial_state_' before closing. </dd></dl>
 
 <p class="reference">References <a class="el" href="classgiraffe_1_1Gpio.html#a812b19fc1dae93cdfaee1afa876c5996">gpio_lock_</a>, <a class="el" href="gpio_8cpp.html#a92b3a8587ce26e4a682657be60bb4f70">GPIO_MEMORY_MAP_SIZE</a>, <a class="el" href="classgiraffe_1_1Gpio.html#ad08a698336e35b5231129917f3cc1188">reserved_pins_</a>, and <a class="el" href="gpio_8cpp.html#afa9f605689fcf3565d793f785726674a">s_gpio_memory_map</a>.</p>
 
@@ -363,10 +366,18 @@ Here is the call graph for this function:</div>
 </dl>
 
 <p class="reference">References <a class="el" href="classgiraffe_1_1Gpio.html#a812b19fc1dae93cdfaee1afa876c5996">gpio_lock_</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a7fc4b418ee03c60203b38898a1c4a0b2aa84cc046d48610b05c21fd3670d0c829">INPUT</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a657f0e77cb4361e50b4c1f386001f55e">isPinReserved()</a>, <a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html#a8a92d487823e4a55bc7098ff4379e7e0">giraffe::Gpio::Pin::mode</a>, <a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html#a351980de646febca23da755e3f0d40f9">giraffe::Gpio::Pin::pin_number</a>, <a class="el" href="gpio_8cpp.html#a77680d2214dafe39f3f5b01ca78819b3">readWithBarrier()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a07c3bfd057cfecada59810151124355d">reservePin()</a>, <a class="el" href="gpio_8cpp.html#afa9f605689fcf3565d793f785726674a">s_gpio_memory_map</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a59c0b84fb8bec0486d0a7cf2cbf2aa75">setOwner()</a>, <a class="el" href="namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e">util::to_string()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a7fc4b418ee03c60203b38898a1c4a0b2add652546039b18970b8dcf2cff824268">UNINITIALIZED</a>, <a class="el" href="gpio_8cpp.html#a3a9d33e33fe014c025aef94a0f9c64a5">verifyInitialized()</a>, and <a class="el" href="gpio_8cpp.html#a91abd472ae174c22c1fbaf5cc0f67497">writeWithBarrier()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6">extension::RgbStatusLed::startup()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a5e84f1224ccd58fa33cb303211ed935c_cgraph.svg" width="428" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a5e84f1224ccd58fa33cb303211ed935c_icgraph.svg" width="408" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -413,15 +424,23 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd><p class="startdd">Verify that the pin is owned by the current instance. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd><p class="startdd">Verify that the pin is owned by the current instance. </p>
 <p class="enddd">Can a user change the mode of a pin after it has been reserved to write to it? </p>
 </dd></dl>
 
 <p class="reference">References <a class="el" href="gpio_8cpp.html#a375242562acc7d849b58d1123614612e">calculateAddress()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a812b19fc1dae93cdfaee1afa876c5996">gpio_lock_</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a9a44f3d040cf48ed6d6229617e25117a">isOwner()</a>, <a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html#a8a92d487823e4a55bc7098ff4379e7e0">giraffe::Gpio::Pin::mode</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a7fc4b418ee03c60203b38898a1c4a0b2a50a87f0d71f7221582dad4bf507a0f34">OUTPUT</a>, <a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html#a351980de646febca23da755e3f0d40f9">giraffe::Gpio::Pin::pin_number</a>, <a class="el" href="namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e">util::to_string()</a>, <a class="el" href="gpio_8cpp.html#a3a9d33e33fe014c025aef94a0f9c64a5">verifyInitialized()</a>, and <a class="el" href="gpio_8cpp.html#a91abd472ae174c22c1fbaf5cc0f67497">writeWithBarrier()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea">extension::RgbStatusLed::loop()</a>, and <a class="el" href="classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0">extension::RgbStatusLed::shutdown()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a9e87bc845dcd7e6f819591291baa73ef_cgraph.svg" width="364" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a9e87bc845dcd7e6f819591291baa73ef_icgraph.svg" width="384" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -471,6 +490,54 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a60b4d177dfc4536f9cd469ded46f6ec4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60b4d177dfc4536f9cd469ded46f6ec4">&#9670;&nbsp;</a></span>releasePin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void giraffe::Gpio::releasePin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html">Pin</a>&#160;</td>
+          <td class="paramname"><em>pin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Release a pin for use by another instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>- The pin to release. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">GpioException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1Gpio.html#a812b19fc1dae93cdfaee1afa876c5996">gpio_lock_</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a9a44f3d040cf48ed6d6229617e25117a">isOwner()</a>, <a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html#a351980de646febca23da755e3f0d40f9">giraffe::Gpio::Pin::pin_number</a>, <a class="el" href="classgiraffe_1_1Gpio.html#ab75f351da77fc75f82925e56c1208f59">pins_owned_</a>, <a class="el" href="classgiraffe_1_1Gpio.html#ad08a698336e35b5231129917f3cc1188">reserved_pins_</a>, <a class="el" href="namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e">util::to_string()</a>, and <a class="el" href="gpio_8cpp.html#a3a9d33e33fe014c025aef94a0f9c64a5">verifyInitialized()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0">extension::RgbStatusLed::shutdown()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a60b4d177dfc4536f9cd469ded46f6ec4_cgraph.svg" width="400" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a60b4d177dfc4536f9cd469ded46f6ec4_icgraph.svg" width="420" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a657f0e77cb4361e50b4c1f386001f55e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a657f0e77cb4361e50b4c1f386001f55e">&#9670;&nbsp;</a></span>isPinReserved()</h2>
 
@@ -506,7 +573,7 @@ false The pin has not been initialized. </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a657f0e77cb4361e50b4c1f386001f55e_icgraph.svg" width="428" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a657f0e77cb4361e50b4c1f386001f55e_icgraph.svg" width="659" height="96"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -550,7 +617,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a07c3bfd057cfecada59810151124355d_icgraph.svg" width="404" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a07c3bfd057cfecada59810151124355d_icgraph.svg" width="635" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -593,11 +660,11 @@ false This instance does not own the pin. </dd></dl>
 
 <p class="reference">References <a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html#a351980de646febca23da755e3f0d40f9">giraffe::Gpio::Pin::pin_number</a>, and <a class="el" href="classgiraffe_1_1Gpio.html#ab75f351da77fc75f82925e56c1208f59">pins_owned_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7">read()</a>, and <a class="el" href="classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef">write()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7">read()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4">releasePin()</a>, and <a class="el" href="classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef">write()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a9a44f3d040cf48ed6d6229617e25117a_icgraph.svg" width="364" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a9a44f3d040cf48ed6d6229617e25117a_icgraph.svg" width="631" height="162"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -642,7 +709,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a59c0b84fb8bec0486d0a7cf2cbf2aa75_icgraph.svg" width="398" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1Gpio_a59c0b84fb8bec0486d0a7cf2cbf2aa75_icgraph.svg" width="628" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -671,9 +738,9 @@ Here is the caller graph for this function:</div>
 
 <p>The lock used to ensure that only one instance can reserve a pin or user it at a time. </p>
 <p>This mutex is used to ensure that only one instance of <a class="el" href="classgiraffe_1_1Gpio.html" title="This class is used to interface extensions with the BCM Gpio pins.">Gpio</a> can access the BCM registers at a time along with static members.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>ability to release a pin </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>ability to release a pin </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1Gpio.html#aaf37ff0fc5a64798a8565669f9aac4e2">deInitialize()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a54884bbf5e55975e2872f3c3cd648375">initialize()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#ab7556c99494356b7afbdb7260f9649c7">isInitialized()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7">read()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c">setupPin()</a>, and <a class="el" href="classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef">write()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1Gpio.html#aaf37ff0fc5a64798a8565669f9aac4e2">deInitialize()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a54884bbf5e55975e2872f3c3cd648375">initialize()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#ab7556c99494356b7afbdb7260f9649c7">isInitialized()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7">read()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4">releasePin()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c">setupPin()</a>, and <a class="el" href="classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef">write()</a>.</p>
 
 </div>
 </div>
@@ -704,7 +771,7 @@ Here is the caller graph for this function:</div>
 <dd>
 <a class="el" href="classgiraffe_1_1Gpio.html#aaf37ff0fc5a64798a8565669f9aac4e2" title="Static function to close the BCM registers and reset the reserved pins.">Gpio::deInitialize()</a> </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1Gpio.html#aaf37ff0fc5a64798a8565669f9aac4e2">deInitialize()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a657f0e77cb4361e50b4c1f386001f55e">isPinReserved()</a>, and <a class="el" href="classgiraffe_1_1Gpio.html#a07c3bfd057cfecada59810151124355d">reservePin()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1Gpio.html#aaf37ff0fc5a64798a8565669f9aac4e2">deInitialize()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a657f0e77cb4361e50b4c1f386001f55e">isPinReserved()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4">releasePin()</a>, and <a class="el" href="classgiraffe_1_1Gpio.html#a07c3bfd057cfecada59810151124355d">reservePin()</a>.</p>
 
 </div>
 </div>
@@ -733,7 +800,7 @@ Here is the caller graph for this function:</div>
 <dd>
 <a class="el" href="classgiraffe_1_1Gpio.html#a9a44f3d040cf48ed6d6229617e25117a" title="A function to check if the current instance owns a reserved pin.">Gpio::isOwner()</a> </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1Gpio.html#a9a44f3d040cf48ed6d6229617e25117a">isOwner()</a>, and <a class="el" href="classgiraffe_1_1Gpio.html#a59c0b84fb8bec0486d0a7cf2cbf2aa75">setOwner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1Gpio.html#a9a44f3d040cf48ed6d6229617e25117a">isOwner()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4">releasePin()</a>, and <a class="el" href="classgiraffe_1_1Gpio.html#a59c0b84fb8bec0486d0a7cf2cbf2aa75">setOwner()</a>.</p>
 
 </div>
 </div>

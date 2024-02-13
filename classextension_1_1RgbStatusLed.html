@@ -112,17 +112,20 @@ $(document).ready(function(){initNavTree('classextension_1_1RgbStatusLed.html','
 </div><!--header-->
 <div class="contents">
 
+<p>A simple extension to control an RGB status LED.  
+ <a href="classextension_1_1RgbStatusLed.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="rgb__status__led_8hpp_source.html">rgb_status_led.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for extension::RgbStatusLed:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1RgbStatusLed__inherit__graph.svg" width="194" height="683"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1RgbStatusLed__inherit__graph.svg" width="194" height="815"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for extension::RgbStatusLed:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1RgbStatusLed__coll__graph.svg" width="1600" height="1891"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1RgbStatusLed__coll__graph.svg" width="2120" height="2023"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -130,6 +133,8 @@ Collaboration diagram for extension::RgbStatusLed:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6bd44653c1e3b8f607e72015b92b39df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df">RgbStatusLed</a> (<a class="el" href="structextension_1_1ExtensionResources.html">ExtensionResources</a> &amp;resources, <a class="el" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a> <a class="el" href="system__module_8cpp.html#ae067104c0e31b1c978276103fafaec1c">metadata</a>)</td></tr>
 <tr class="separator:a6bd44653c1e3b8f607e72015b92b39df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d616ee9eab645f968873a3e272b852b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1RgbStatusLed.html#a4d616ee9eab645f968873a3e272b852b">~RgbStatusLed</a> ()=default</td></tr>
+<tr class="separator:a4d616ee9eab645f968873a3e272b852b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a692f72cc72848d0a162010a955085f07"><td class="memItemLeft" align="right" valign="top">DiagnosticId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a692f72cc72848d0a162010a955085f07">getFaultCode</a> () const</td></tr>
 <tr class="memdesc:a692f72cc72848d0a162010a955085f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Fault Code when the status is ERROR.  <a href="classextension_1_1Extension.html#a692f72cc72848d0a162010a955085f07">More...</a><br /></td></tr>
 <tr class="separator:a692f72cc72848d0a162010a955085f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,6 +149,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a639edd8b0e44e06bb5e2111412becb68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68">reset</a> ()</td></tr>
 <tr class="memdesc:a639edd8b0e44e06bb5e2111412becb68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only to be called when an extension is in the Error state. This joins the thread and fixes the status.  <a href="classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68">More...</a><br /></td></tr>
 <tr class="separator:a639edd8b0e44e06bb5e2111412becb68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66ec9a2dcb73c5d2320398b069179aa0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0">shutdown</a> () override</td></tr>
+<tr class="separator:a66ec9a2dcb73c5d2320398b069179aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65da188590e7f56c25fdc86370f5c10c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c">start</a> ()</td></tr>
 <tr class="memdesc:a65da188590e7f56c25fdc86370f5c10c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the extension.  <a href="classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c">More...</a><br /></td></tr>
 <tr class="separator:a65da188590e7f56c25fdc86370f5c10c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,7 +171,6 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a7a4649f64e0c45c2406b3877a97ec5ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a7a4649f64e0c45c2406b3877a97ec5ba">data</a> (<a class="el" href="namespacedata.html#structdata_1_1ImuFrame">data::ImuFrame</a> frame)</td></tr>
 <tr class="separator:a7a4649f64e0c45c2406b3877a97ec5ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a858476ff8cf82d862b8d44f13e47913f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a858476ff8cf82d862b8d44f13e47913f">debug</a> (std::string message)</td></tr>
-<tr class="memdesc:a858476ff8cf82d862b8d44f13e47913f"><td class="mdescLeft">&#160;</td><td class="mdescRight">For when debugging is enabled, simple debug messages can be sent to the log.  <a href="classextension_1_1Extension.html#a858476ff8cf82d862b8d44f13e47913f">More...</a><br /></td></tr>
 <tr class="separator:a858476ff8cf82d862b8d44f13e47913f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaae6a7d91b77ac86a6e597bf0071889d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d">error</a> (DiagnosticId log_id, int <a class="el" href="classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a">info</a>)</td></tr>
 <tr class="separator:aaae6a7d91b77ac86a6e597bf0071889d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,8 +184,6 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a39712025900988f7bd4e15637f4a28ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba">raiseFault</a> (DiagnosticId ext_fault_code, std::string <a class="el" href="classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a">info</a>=&quot;&quot;)</td></tr>
 <tr class="memdesc:a39712025900988f7bd4e15637f4a28ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used internally to raise a fault. This will stop an extension.  <a href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba">More...</a><br /></td></tr>
 <tr class="separator:a39712025900988f7bd4e15637f4a28ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c2ff02720daaaf27849c087b064d4c3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a8c2ff02720daaaf27849c087b064d4c3">shutdown</a> ()</td></tr>
-<tr class="separator:a8c2ff02720daaaf27849c087b064d4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d4f564b9ee0aefea0837e87541ee05b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b">stopRequested</a> () const</td></tr>
 <tr class="memdesc:a6d4f564b9ee0aefea0837e87541ee05b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the extension has been requested to stop.  <a href="classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b">More...</a><br /></td></tr>
 <tr class="separator:a6d4f564b9ee0aefea0837e87541ee05b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,22 +202,41 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a847c5262ef1c65823cadec0b994a5495"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html">giraffe::Gpio::Pin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1RgbStatusLed.html#a847c5262ef1c65823cadec0b994a5495">blue_pin_</a> {}</td></tr>
+<tr class="separator:a847c5262ef1c65823cadec0b994a5495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad080a31dec3fdde52f843db3eba1fae2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1RgbStatusLed.html#ad080a31dec3fdde52f843db3eba1fae2">current_blue_state_</a> {false}</td></tr>
+<tr class="separator:ad080a31dec3fdde52f843db3eba1fae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af906f616f9b43585bb46eef8e7c2481f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1RgbStatusLed.html#af906f616f9b43585bb46eef8e7c2481f">current_green_state_</a> {false}</td></tr>
+<tr class="separator:af906f616f9b43585bb46eef8e7c2481f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab91608ecb3d2cec92fce378b70b57c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1RgbStatusLed.html#aab91608ecb3d2cec92fce378b70b57c1">current_red_state_</a> {false}</td></tr>
+<tr class="separator:aab91608ecb3d2cec92fce378b70b57c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e5d32890e069c49b3641d0e01322364"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; DiagnosticId &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a3e5d32890e069c49b3641d0e01322364">fault_code_</a> = DiagnosticId::EXT_FAULT_none</td></tr>
 <tr class="memdesc:a3e5d32890e069c49b3641d0e01322364"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fault code associated with the fault.  <a href="classextension_1_1Extension.html#a3e5d32890e069c49b3641d0e01322364">More...</a><br /></td></tr>
 <tr class="separator:a3e5d32890e069c49b3641d0e01322364"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40300776e358833cbfd50c198a320cdf"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a40300776e358833cbfd50c198a320cdf">fault_flag_</a> = false</td></tr>
 <tr class="memdesc:a40300776e358833cbfd50c198a320cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is raised with a call to <a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension.">raiseFault()</a>.  <a href="classextension_1_1Extension.html#a40300776e358833cbfd50c198a320cdf">More...</a><br /></td></tr>
 <tr class="separator:a40300776e358833cbfd50c198a320cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd5c515de01d25dd383e917e578ee56d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1Gpio.html">giraffe::Gpio</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1RgbStatusLed.html#afd5c515de01d25dd383e917e578ee56d">gpio_</a> {}</td></tr>
+<tr class="separator:afd5c515de01d25dd383e917e578ee56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a048b93c1060fef8103acabffbc6fba0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html">giraffe::Gpio::Pin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1RgbStatusLed.html#a048b93c1060fef8103acabffbc6fba0e">green_pin_</a> {}</td></tr>
+<tr class="separator:a048b93c1060fef8103acabffbc6fba0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a067006ad3c8c07006590ccdfca70d037"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structextension_1_1ExtensionResources.html">ExtensionResources</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">interfaces_</a></td></tr>
 <tr class="separator:a067006ad3c8c07006590ccdfca70d037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae590bd3f2556b177ed0ede9919420c6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html">giraffe::Gpio::Pin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1RgbStatusLed.html#ae590bd3f2556b177ed0ede9919420c6a">red_pin_</a> {}</td></tr>
+<tr class="separator:ae590bd3f2556b177ed0ede9919420c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae130f81dd3fc3565fd4e617bc6d7f4b1"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#ae130f81dd3fc3565fd4e617bc6d7f4b1">runner_thread_</a> = std::thread()</td></tr>
 <tr class="separator:ae130f81dd3fc3565fd4e617bc6d7f4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78794696deb7370a7f71ca6e7bc28998"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419">node::Status</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998">status_</a> = <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a09d4d696b4e935115b9313e3c412509a">node::Status::STOPPED</a></td></tr>
 <tr class="separator:a78794696deb7370a7f71ca6e7bc28998"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44f619fda88df68f6a5b6a6af52614e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1StatusLedState.html">giraffe::StatusLedState</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1RgbStatusLed.html#a44f619fda88df68f6a5b6a6af52614e7">status_led_</a></td></tr>
+<tr class="separator:a44f619fda88df68f6a5b6a6af52614e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c3006e96ae19d965001031a8acef878"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878">stop_flag_</a> = true</td></tr>
 <tr class="separator:a7c3006e96ae19d965001031a8acef878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A simple extension to control an RGB status LED. </p>
+<p>This extension controls an RGB status LED via GPIO pins. The pin numbers should be passed in via the extra_args field of the extension config. These are passed in as a comma separated list of integers. For example: "extra_args": "1,2,3" </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6bd44653c1e3b8f607e72015b92b39df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6bd44653c1e3b8f607e72015b92b39df">&#9670;&nbsp;</a></span>RgbStatusLed()</h2>
 
@@ -238,6 +261,41 @@ Private Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Add extension fault </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Add extension fault </dd></dl>
+
+<p class="reference">References <a class="el" href="classextension_1_1RgbStatusLed.html#a847c5262ef1c65823cadec0b994a5495">blue_pin_</a>, <a class="el" href="classextension_1_1Extension.html#a858476ff8cf82d862b8d44f13e47913f">extension::Extension::debug()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a048b93c1060fef8103acabffbc6fba0e">green_pin_</a>, <a class="el" href="console__module_8cpp.html#a13611b658ec8785a48d23f69a583c8a1">metadata</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a7fc4b418ee03c60203b38898a1c4a0b2a50a87f0d71f7221582dad4bf507a0f34">giraffe::Gpio::OUTPUT</a>, <a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba">extension::Extension::raiseFault()</a>, and <a class="el" href="classextension_1_1RgbStatusLed.html#ae590bd3f2556b177ed0ede9919420c6a">red_pin_</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1RgbStatusLed_a6bd44653c1e3b8f607e72015b92b39df_cgraph.svg" width="835" height="136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a4d616ee9eab645f968873a3e272b852b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d616ee9eab645f968873a3e272b852b">&#9670;&nbsp;</a></span>~RgbStatusLed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">extension::RgbStatusLed::~RgbStatusLed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -268,6 +326,14 @@ Private Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classextension_1_1Extension.html#a75c23dd1442c50aa49a1ecd87ada6912">extension::Extension</a>.</p>
 
+<p class="reference">References <a class="el" href="classextension_1_1RgbStatusLed.html#a847c5262ef1c65823cadec0b994a5495">blue_pin_</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#afd5c515de01d25dd383e917e578ee56d">gpio_</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a048b93c1060fef8103acabffbc6fba0e">green_pin_</a>, <a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba">extension::Extension::raiseFault()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#ae590bd3f2556b177ed0ede9919420c6a">red_pin_</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c">giraffe::Gpio::setupPin()</a>, and <a class="el" href="classGiraffeException.html#adb9f94e62b910e11e36478cbb69e1d27">GiraffeException::what()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1RgbStatusLed_a1e87d52291490190be9331a3f00be2f6_cgraph.svg" width="891" height="459"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
 </div>
 </div>
 <a id="a2ce2c9e71353525a9be567d0de4cbaea"></a>
@@ -294,6 +360,49 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reimplemented from <a class="el" href="classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef">extension::Extension</a>.</p>
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1StatusLedState.html#ac466bf4967bba3606a8c3718df6f342dad810ed8e97088a3c987f179dfb88cefc">giraffe::StatusLedState::BLINK</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a847c5262ef1c65823cadec0b994a5495">blue_pin_</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#ad080a31dec3fdde52f843db3eba1fae2">current_blue_state_</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#af906f616f9b43585bb46eef8e7c2481f">current_green_state_</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#aab91608ecb3d2cec92fce378b70b57c1">current_red_state_</a>, <a class="el" href="classgiraffe_1_1StatusLedState.html#ac76f0f628fe073f82fb779a70ca13eee">giraffe::StatusLedState::getBlueState()</a>, <a class="el" href="classgiraffe_1_1StatusLedState.html#a4c489cbb64c1f430eff28011e0ce09cc">giraffe::StatusLedState::getGreenState()</a>, <a class="el" href="classgiraffe_1_1StatusLedState.html#ae24b5a622e0fd77e74fbac27f7058bf5">giraffe::StatusLedState::getRedState()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#afd5c515de01d25dd383e917e578ee56d">gpio_</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a048b93c1060fef8103acabffbc6fba0e">green_pin_</a>, <a class="el" href="classgiraffe_1_1StatusLedState.html#ac466bf4967bba3606a8c3718df6f342da90651ebea9a35ec4e018c8157492e17c">giraffe::StatusLedState::ON</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#ae590bd3f2556b177ed0ede9919420c6a">red_pin_</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a44f619fda88df68f6a5b6a6af52614e7">status_led_</a>, and <a class="el" href="classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef">giraffe::Gpio::write()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1RgbStatusLed_a2ce2c9e71353525a9be567d0de4cbaea_cgraph.svg" width="623" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a66ec9a2dcb73c5d2320398b069179aa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66ec9a2dcb73c5d2320398b069179aa0">&#9670;&nbsp;</a></span>shutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void extension::RgbStatusLed::shutdown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classextension_1_1Extension.html#a8c2ff02720daaaf27849c087b064d4c3">extension::Extension</a>.</p>
+
+<p class="reference">References <a class="el" href="classextension_1_1RgbStatusLed.html#a847c5262ef1c65823cadec0b994a5495">blue_pin_</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#afd5c515de01d25dd383e917e578ee56d">gpio_</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a048b93c1060fef8103acabffbc6fba0e">green_pin_</a>, <a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba">extension::Extension::raiseFault()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#ae590bd3f2556b177ed0ede9919420c6a">red_pin_</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4">giraffe::Gpio::releasePin()</a>, <a class="el" href="classGiraffeException.html#adb9f94e62b910e11e36478cbb69e1d27">GiraffeException::what()</a>, and <a class="el" href="classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef">giraffe::Gpio::write()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1RgbStatusLed_a66ec9a2dcb73c5d2320398b069179aa0_cgraph.svg" width="859" height="358"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -510,41 +619,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a8c2ff02720daaaf27849c087b064d4c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c2ff02720daaaf27849c087b064d4c3">&#9670;&nbsp;</a></span>shutdown()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void extension::Extension::shutdown </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="classextension_1_1SamM8q.html#a8052809b6f952464c59f32acdeadecf7">extension::SamM8q</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#a4b1d8a31085c36fb856b3b1ff96928cf">extension::AdcExtensionBase&lt; AdcResolution &gt;</a>, and <a class="el" href="classextension_1_1AdcExtensionBase.html#a4b1d8a31085c36fb856b3b1ff96928cf">extension::AdcExtensionBase&lt; 10 &gt;</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027">extension::Extension::runner()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1Extension_a8c2ff02720daaaf27849c087b064d4c3_icgraph.svg" width="583" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
 <a id="aa7ec0098dfde16a54eb616c73ba3046e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa7ec0098dfde16a54eb616c73ba3046e">&#9670;&nbsp;</a></span>data() <span class="overload">[1/3]</span></h2>
 
@@ -718,7 +792,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a">data::Stream&lt; T &gt;::addPacket()</a>, <a class="el" href="structdata_1_1LogPacket.html#a3c62d54239ebff3369219d9309c91b98">data::LogPacket::id</a>, <a class="el" href="structdata_1_1LogPacket.html#a21678d60385da98f06d7d7986eefb2c3">data::LogPacket::info</a>, <a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">extension::Extension::interfaces_</a>, <a class="el" href="extension__base_8cpp.html#ad5822a49939cc3082a8bf3edca636e0c">kExtensionId</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classextension_1_1Extension.html#a295de97827360717494a398c45d161f2">extension::Extension::metadata_</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#aae10163d71ab4a900ef1df6b7d94b786">data::BaseStreamPacket::secondary_identifier</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#a25dd4f4b9f9ef45a841ca6dbda2b90aa">data::BaseStreamPacket::source</a>, and <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources::streams</a>.</p>
+<p class="reference">References <a class="el" href="classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a">data::Stream&lt; T &gt;::addPacket()</a>, <a class="el" href="structdata_1_1LogPacket.html#acf1eb5602d42a50429a2d4b4752279f4abb1ca97ec761fc37101737ba0aa2e7c5">data::LogPacket::ERROR</a>, <a class="el" href="structdata_1_1LogPacket.html#a3c62d54239ebff3369219d9309c91b98">data::LogPacket::id</a>, <a class="el" href="structdata_1_1LogPacket.html#a21678d60385da98f06d7d7986eefb2c3">data::LogPacket::info</a>, <a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">extension::Extension::interfaces_</a>, <a class="el" href="extension__base_8cpp.html#ad5822a49939cc3082a8bf3edca636e0c">kExtensionId</a>, <a class="el" href="structdata_1_1LogPacket.html#ab3abc310a2d936050d720a55ce18aa14">data::LogPacket::level</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classextension_1_1Extension.html#a295de97827360717494a398c45d161f2">extension::Extension::metadata_</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#aae10163d71ab4a900ef1df6b7d94b786">data::BaseStreamPacket::secondary_identifier</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#a25dd4f4b9f9ef45a841ca6dbda2b90aa">data::BaseStreamPacket::source</a>, and <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources::streams</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classextension_1_1AdcExtensionBase.html#af07213580bd12e06b6858ccababe9913">extension::AdcExtensionBase&lt; AdcResolution &gt;::AdcExtensionBase()</a>, <a class="el" href="classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba">extension::Mcp3021::adcStartup()</a>, <a class="el" href="classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4">extension::Bme280::loop()</a>, <a class="el" href="classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c">extension::Ds18b20::loop()</a>, <a class="el" href="classextension_1_1Bme280.html#a183a1bc26e4ca371d9310c196feccfd1">extension::Bme280::processEnvironmentalData()</a>, <a class="el" href="classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba">extension::Extension::raiseFault()</a>, <a class="el" href="classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c">extension::Extension::start()</a>, <a class="el" href="group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15">extension::SamM8q::stateConfigure()</a>, <a class="el" href="group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d">extension::SamM8q::stateRead()</a>, and <a class="el" href="classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37">extension::Extension::stop()</a>.</p>
 <div class="dynheader">
@@ -730,7 +804,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1Extension_a947a643d302b5c5f9cef1a54d5038c06_icgraph.svg" width="930" height="915"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1Extension_a947a643d302b5c5f9cef1a54d5038c06_icgraph.svg" width="930" height="1108"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -770,7 +844,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a">data::Stream&lt; T &gt;::addPacket()</a>, <a class="el" href="structdata_1_1LogPacket.html#a3c62d54239ebff3369219d9309c91b98">data::LogPacket::id</a>, <a class="el" href="classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a">extension::Extension::info()</a>, <a class="el" href="structdata_1_1LogPacket.html#a21678d60385da98f06d7d7986eefb2c3">data::LogPacket::info</a>, <a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">extension::Extension::interfaces_</a>, <a class="el" href="extension__base_8cpp.html#ad5822a49939cc3082a8bf3edca636e0c">kExtensionId</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classextension_1_1Extension.html#a295de97827360717494a398c45d161f2">extension::Extension::metadata_</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#aae10163d71ab4a900ef1df6b7d94b786">data::BaseStreamPacket::secondary_identifier</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#a25dd4f4b9f9ef45a841ca6dbda2b90aa">data::BaseStreamPacket::source</a>, <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources::streams</a>, and <a class="el" href="namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e">util::to_string()</a>.</p>
+<p class="reference">References <a class="el" href="classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a">data::Stream&lt; T &gt;::addPacket()</a>, <a class="el" href="structdata_1_1LogPacket.html#acf1eb5602d42a50429a2d4b4752279f4abb1ca97ec761fc37101737ba0aa2e7c5">data::LogPacket::ERROR</a>, <a class="el" href="structdata_1_1LogPacket.html#a3c62d54239ebff3369219d9309c91b98">data::LogPacket::id</a>, <a class="el" href="classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a">extension::Extension::info()</a>, <a class="el" href="structdata_1_1LogPacket.html#a21678d60385da98f06d7d7986eefb2c3">data::LogPacket::info</a>, <a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">extension::Extension::interfaces_</a>, <a class="el" href="extension__base_8cpp.html#ad5822a49939cc3082a8bf3edca636e0c">kExtensionId</a>, <a class="el" href="structdata_1_1LogPacket.html#ab3abc310a2d936050d720a55ce18aa14">data::LogPacket::level</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classextension_1_1Extension.html#a295de97827360717494a398c45d161f2">extension::Extension::metadata_</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#aae10163d71ab4a900ef1df6b7d94b786">data::BaseStreamPacket::secondary_identifier</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#a25dd4f4b9f9ef45a841ca6dbda2b90aa">data::BaseStreamPacket::source</a>, <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources::streams</a>, and <a class="el" href="namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e">util::to_string()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -804,9 +878,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a">data::Stream&lt; T &gt;::addPacket()</a>, <a class="el" href="structdata_1_1LogPacket.html#a3c62d54239ebff3369219d9309c91b98">data::LogPacket::id</a>, <a class="el" href="structdata_1_1LogPacket.html#a21678d60385da98f06d7d7986eefb2c3">data::LogPacket::info</a>, <a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">extension::Extension::interfaces_</a>, <a class="el" href="extension__base_8cpp.html#ad5822a49939cc3082a8bf3edca636e0c">kExtensionId</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classextension_1_1Extension.html#a295de97827360717494a398c45d161f2">extension::Extension::metadata_</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#aae10163d71ab4a900ef1df6b7d94b786">data::BaseStreamPacket::secondary_identifier</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#a25dd4f4b9f9ef45a841ca6dbda2b90aa">data::BaseStreamPacket::source</a>, and <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources::streams</a>.</p>
+<p class="reference">References <a class="el" href="classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a">data::Stream&lt; T &gt;::addPacket()</a>, <a class="el" href="structdata_1_1LogPacket.html#a3c62d54239ebff3369219d9309c91b98">data::LogPacket::id</a>, <a class="el" href="structdata_1_1LogPacket.html#acf1eb5602d42a50429a2d4b4752279f4a551b723eafd6a31d444fcb2f5920fbd3">data::LogPacket::INFO</a>, <a class="el" href="structdata_1_1LogPacket.html#a21678d60385da98f06d7d7986eefb2c3">data::LogPacket::info</a>, <a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">extension::Extension::interfaces_</a>, <a class="el" href="extension__base_8cpp.html#ad5822a49939cc3082a8bf3edca636e0c">kExtensionId</a>, <a class="el" href="structdata_1_1LogPacket.html#ab3abc310a2d936050d720a55ce18aa14">data::LogPacket::level</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classextension_1_1Extension.html#a295de97827360717494a398c45d161f2">extension::Extension::metadata_</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#aae10163d71ab4a900ef1df6b7d94b786">data::BaseStreamPacket::secondary_identifier</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#a25dd4f4b9f9ef45a841ca6dbda2b90aa">data::BaseStreamPacket::source</a>, and <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources::streams</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d">extension::Extension::error()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classextension_1_1Extension.html#a858476ff8cf82d862b8d44f13e47913f">extension::Extension::debug()</a>, and <a class="el" href="classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d">extension::Extension::error()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -816,7 +890,49 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1Extension_ad3a895d8015ab2992b41c66b9f16648a_icgraph.svg" width="376" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1Extension_ad3a895d8015ab2992b41c66b9f16648a_icgraph.svg" width="607" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a858476ff8cf82d862b8d44f13e47913f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a858476ff8cf82d862b8d44f13e47913f">&#9670;&nbsp;</a></span>debug()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void extension::Extension::debug </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a">data::Stream&lt; T &gt;::addPacket()</a>, <a class="el" href="structdata_1_1LogPacket.html#acf1eb5602d42a50429a2d4b4752279f4adc30ec20708ef7b0f641ef78b7880a15">data::LogPacket::DEBUG</a>, <a class="el" href="structdata_1_1LogPacket.html#a3c62d54239ebff3369219d9309c91b98">data::LogPacket::id</a>, <a class="el" href="classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a">extension::Extension::info()</a>, <a class="el" href="structdata_1_1LogPacket.html#a21678d60385da98f06d7d7986eefb2c3">data::LogPacket::info</a>, <a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">extension::Extension::interfaces_</a>, <a class="el" href="extension__base_8cpp.html#ad5822a49939cc3082a8bf3edca636e0c">kExtensionId</a>, <a class="el" href="structdata_1_1LogPacket.html#ab3abc310a2d936050d720a55ce18aa14">data::LogPacket::level</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classextension_1_1Extension.html#a295de97827360717494a398c45d161f2">extension::Extension::metadata_</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#aae10163d71ab4a900ef1df6b7d94b786">data::BaseStreamPacket::secondary_identifier</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#a25dd4f4b9f9ef45a841ca6dbda2b90aa">data::BaseStreamPacket::source</a>, and <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources::streams</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df">RgbStatusLed()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1Extension_a858476ff8cf82d862b8d44f13e47913f_cgraph.svg" width="604" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1Extension_a858476ff8cf82d862b8d44f13e47913f_icgraph.svg" width="400" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -901,7 +1017,7 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06">extension::Extension::error()</a>, <a class="el" href="classextension_1_1Extension.html#a3e5d32890e069c49b3641d0e01322364">extension::Extension::fault_code_</a>, <a class="el" href="classextension_1_1Extension.html#a40300776e358833cbfd50c198a320cdf">extension::Extension::fault_flag_</a>, and <a class="el" href="classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878">extension::Extension::stop_flag_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#ada1c67d22e507c2d2775971a947eb315">extension::Bmi088::Bmi088()</a>, <a class="el" href="classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba">extension::Mcp3021::adcStartup()</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#ab11b609d90a14f558df951d28bc42d85">extension::AdcExtensionBase&lt; AdcResolution &gt;::loop()</a>, <a class="el" href="classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4">extension::Bme280::loop()</a>, <a class="el" href="classextension_1_1Bmi088.html#a785010dddb7e8d5335d8e44bbbc92905">extension::Bmi088::loop()</a>, <a class="el" href="classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c">extension::Ds18b20::loop()</a>, <a class="el" href="classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455">extension::Bme280::startup()</a>, <a class="el" href="classextension_1_1Bmi088.html#ae97880621fee99f214cc73916b8a159c">extension::Bmi088::startup()</a>, <a class="el" href="classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21">extension::Ds18b20::startup()</a>, <a class="el" href="classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74">extension::SamM8q::startup()</a>, and <a class="el" href="group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba">extension::SamM8q::stateReset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#ada1c67d22e507c2d2775971a947eb315">extension::Bmi088::Bmi088()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df">RgbStatusLed()</a>, <a class="el" href="classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba">extension::Mcp3021::adcStartup()</a>, <a class="el" href="classextension_1_1AdcExtensionBase.html#ab11b609d90a14f558df951d28bc42d85">extension::AdcExtensionBase&lt; AdcResolution &gt;::loop()</a>, <a class="el" href="classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4">extension::Bme280::loop()</a>, <a class="el" href="classextension_1_1Bmi088.html#a785010dddb7e8d5335d8e44bbbc92905">extension::Bmi088::loop()</a>, <a class="el" href="classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c">extension::Ds18b20::loop()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0">shutdown()</a>, <a class="el" href="classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455">extension::Bme280::startup()</a>, <a class="el" href="classextension_1_1Bmi088.html#ae97880621fee99f214cc73916b8a159c">extension::Bmi088::startup()</a>, <a class="el" href="classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21">extension::Ds18b20::startup()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6">startup()</a>, <a class="el" href="classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74">extension::SamM8q::startup()</a>, and <a class="el" href="group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba">extension::SamM8q::stateReset()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -911,43 +1027,9 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1Extension_a39712025900988f7bd4e15637f4a28ba_icgraph.svg" width="667" height="678"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1Extension_a39712025900988f7bd4e15637f4a28ba_icgraph.svg" width="667" height="874"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-
-</div>
-</div>
-<a id="a858476ff8cf82d862b8d44f13e47913f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a858476ff8cf82d862b8d44f13e47913f">&#9670;&nbsp;</a></span>debug()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void extension::Extension::debug </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>For when debugging is enabled, simple debug messages can be sent to the log. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -1077,6 +1159,198 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a44f619fda88df68f6a5b6a6af52614e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44f619fda88df68f6a5b6a6af52614e7">&#9670;&nbsp;</a></span>status_led_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgiraffe_1_1StatusLedState.html">giraffe::StatusLedState</a>&amp; extension::RgbStatusLed::status_led_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea">loop()</a>.</p>
+
+</div>
+</div>
+<a id="afd5c515de01d25dd383e917e578ee56d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd5c515de01d25dd383e917e578ee56d">&#9670;&nbsp;</a></span>gpio_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgiraffe_1_1Gpio.html">giraffe::Gpio</a> extension::RgbStatusLed::gpio_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea">loop()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0">shutdown()</a>, and <a class="el" href="classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6">startup()</a>.</p>
+
+</div>
+</div>
+<a id="ae590bd3f2556b177ed0ede9919420c6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae590bd3f2556b177ed0ede9919420c6a">&#9670;&nbsp;</a></span>red_pin_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html">giraffe::Gpio::Pin</a> extension::RgbStatusLed::red_pin_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df">RgbStatusLed()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea">loop()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0">shutdown()</a>, and <a class="el" href="classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6">startup()</a>.</p>
+
+</div>
+</div>
+<a id="a048b93c1060fef8103acabffbc6fba0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a048b93c1060fef8103acabffbc6fba0e">&#9670;&nbsp;</a></span>green_pin_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html">giraffe::Gpio::Pin</a> extension::RgbStatusLed::green_pin_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df">RgbStatusLed()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea">loop()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0">shutdown()</a>, and <a class="el" href="classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6">startup()</a>.</p>
+
+</div>
+</div>
+<a id="a847c5262ef1c65823cadec0b994a5495"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a847c5262ef1c65823cadec0b994a5495">&#9670;&nbsp;</a></span>blue_pin_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html">giraffe::Gpio::Pin</a> extension::RgbStatusLed::blue_pin_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df">RgbStatusLed()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea">loop()</a>, <a class="el" href="classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0">shutdown()</a>, and <a class="el" href="classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6">startup()</a>.</p>
+
+</div>
+</div>
+<a id="aab91608ecb3d2cec92fce378b70b57c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab91608ecb3d2cec92fce378b70b57c1">&#9670;&nbsp;</a></span>current_red_state_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool extension::RgbStatusLed::current_red_state_ {false}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea">loop()</a>.</p>
+
+</div>
+</div>
+<a id="af906f616f9b43585bb46eef8e7c2481f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af906f616f9b43585bb46eef8e7c2481f">&#9670;&nbsp;</a></span>current_green_state_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool extension::RgbStatusLed::current_green_state_ {false}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea">loop()</a>.</p>
+
+</div>
+</div>
+<a id="ad080a31dec3fdde52f843db3eba1fae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad080a31dec3fdde52f843db3eba1fae2">&#9670;&nbsp;</a></span>current_blue_state_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool extension::RgbStatusLed::current_blue_state_ {false}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea">loop()</a>.</p>
+
+</div>
+</div>
 <a id="a295de97827360717494a398c45d161f2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a295de97827360717494a398c45d161f2">&#9670;&nbsp;</a></span>metadata_</h2>
 
@@ -1097,7 +1371,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#ada1c67d22e507c2d2775971a947eb315">extension::Bmi088::Bmi088()</a>, <a class="el" href="classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e">extension::Extension::data()</a>, <a class="el" href="classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06">extension::Extension::error()</a>, <a class="el" href="classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a">extension::Extension::info()</a>, <a class="el" href="classextension_1_1Ds18b20.html#a1106e4fc9a110d11eeb65b7e85ba3d42">extension::Ds18b20::init()</a>, and <a class="el" href="classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d">extension::Extension::sleep()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#ada1c67d22e507c2d2775971a947eb315">extension::Bmi088::Bmi088()</a>, <a class="el" href="classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e">extension::Extension::data()</a>, <a class="el" href="classextension_1_1Extension.html#a858476ff8cf82d862b8d44f13e47913f">extension::Extension::debug()</a>, <a class="el" href="classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06">extension::Extension::error()</a>, <a class="el" href="classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a">extension::Extension::info()</a>, <a class="el" href="classextension_1_1Ds18b20.html#a1106e4fc9a110d11eeb65b7e85ba3d42">extension::Ds18b20::init()</a>, and <a class="el" href="classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d">extension::Extension::sleep()</a>.</p>
 
 </div>
 </div>
@@ -1247,7 +1521,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e">extension::Extension::data()</a>, <a class="el" href="classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06">extension::Extension::error()</a>, and <a class="el" href="classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a">extension::Extension::info()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e">extension::Extension::data()</a>, <a class="el" href="classextension_1_1Extension.html#a858476ff8cf82d862b8d44f13e47913f">extension::Extension::debug()</a>, <a class="el" href="classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06">extension::Extension::error()</a>, and <a class="el" href="classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a">extension::Extension::info()</a>.</p>
 
 </div>
 </div>

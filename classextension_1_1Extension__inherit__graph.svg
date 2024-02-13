@@ -212,22 +212,31 @@
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="classextension_1_1RgbStatusLed.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="767,-448 767,-527 904,-527 904,-448 767,-448"/>
-<text text-anchor="middle" x="835.5" y="-515" font-family="Helvetica,sans-Serif" font-size="10.00">extension::RgbStatusLed</text>
-<polyline fill="none" stroke="black" points="767,-508 904,-508 "/>
-<text text-anchor="middle" x="835.5" y="-496" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="767,-489 904,-489 "/>
-<text text-anchor="start" x="775" y="-477" font-family="Helvetica,sans-Serif" font-size="10.00">+ RgbStatusLed()</text>
-<text text-anchor="start" x="775" y="-466" font-family="Helvetica,sans-Serif" font-size="10.00">+ loop()</text>
-<text text-anchor="start" x="775" y="-455" font-family="Helvetica,sans-Serif" font-size="10.00">+ startup()</text>
+<g id="a_node8"><a xlink:href="classextension_1_1RgbStatusLed.html" target="_top" xlink:title="A simple extension to control an RGB status LED.">
+<polygon fill="none" stroke="black" points="767,-398.5 767,-576.5 904,-576.5 904,-398.5 767,-398.5"/>
+<text text-anchor="middle" x="835.5" y="-564.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::RgbStatusLed</text>
+<polyline fill="none" stroke="black" points="767,-557.5 904,-557.5 "/>
+<text text-anchor="start" x="775" y="-545.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; blue_pin_</text>
+<text text-anchor="start" x="775" y="-534.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; current_blue_state_</text>
+<text text-anchor="start" x="775" y="-523.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; current_green_state_</text>
+<text text-anchor="start" x="775" y="-512.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; current_red_state_</text>
+<text text-anchor="start" x="775" y="-501.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; gpio_</text>
+<text text-anchor="start" x="775" y="-490.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; green_pin_</text>
+<text text-anchor="start" x="775" y="-479.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; red_pin_</text>
+<text text-anchor="start" x="775" y="-468.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; status_led_</text>
+<polyline fill="none" stroke="black" points="767,-461.5 904,-461.5 "/>
+<text text-anchor="start" x="775" y="-449.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ RgbStatusLed()</text>
+<text text-anchor="start" x="775" y="-438.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~RgbStatusLed()</text>
+<text text-anchor="start" x="775" y="-427.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ loop()</text>
+<text text-anchor="start" x="775" y="-416.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ shutdown()</text>
+<text text-anchor="start" x="775" y="-405.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ startup()</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node8 -->
 <g id="edge8" class="edge">
 <title>Node1&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M869.81,-637.4C860.1,-595.24 850.87,-555.19 844.43,-527.27"/>
+<path fill="none" stroke="midnightblue" d="M869.84,-637.5C864.95,-616.28 860.18,-595.59 855.83,-576.71"/>
 <polygon fill="none" stroke="midnightblue" points="866.43,-638.32 872.09,-647.28 873.25,-636.75 866.43,-638.32"/>
 </g>
 <!-- Node9 -->

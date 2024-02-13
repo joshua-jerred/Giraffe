@@ -1,5 +1,8 @@
 <map id="writeWithBarrier" name="writeWithBarrier">
-<area shape="rect" id="node1" title="Writes a value to a memory address with a memory barrier. ." alt="" coords="220,31,349,57"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="5,5,172,32"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="17,56,160,83"/>
+<area shape="rect" id="node1" title="Writes a value to a memory address with a memory barrier. ." alt="" coords="451,53,580,79"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="236,21,403,47"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="248,78,391,105"/>
+<area shape="rect" id="node3" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node5" href="$classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea" title=" " alt="" coords="5,71,188,112"/>
+<area shape="rect" id="node6" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="5,136,188,177"/>
 </map>

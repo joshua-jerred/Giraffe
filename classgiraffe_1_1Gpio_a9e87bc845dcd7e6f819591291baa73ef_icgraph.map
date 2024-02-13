@@ -1,0 +1,5 @@
+<map id="giraffe::Gpio::write" name="giraffe::Gpio::write">
+<area shape="rect" id="node1" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="236,46,379,73"/>
+<area shape="rect" id="node2" href="$classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node3" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="5,71,188,112"/>
+</map>

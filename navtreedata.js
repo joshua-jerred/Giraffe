@@ -84,16 +84,16 @@ var NAVTREEINDEX =
 "adc__configuration_8cpp.html",
 "classdata_1_1ErrorFrame.html#ac21496f4227964c42f765484a431da73",
 "classextension_1_1Bmi088.html#a16271264962987a7057b50977816a917",
-"classextension_1_1SimGpsSensor.html#a8c2ff02720daaaf27849c087b064d4c3",
-"classgiraffe_1_1gdl_1_1Config.html#acb892777b90da2a63beb0ead9d84b325",
-"classmodules_1_1ConsoleModule.html#a72791485ce9256e7d8a1c64be4b10a3e",
-"classncurs_1_1Environment.html#a3b5c0bb29f8c9b6f7eff9c7b854019f5a21507b40c80068eda19865706fdc2403",
-"flight__runner_8hpp.html",
-"group__SAMM8QState.html#gad05faff1c26ce2393471be15990fb260",
-"namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198f",
-"namespaceubx.html#af6ed75c23a51f207014f4f642ac1b74a",
-"structdata_1_1blocks_1_1DataLogStats.html#a3f4aea5b65a40f6e8f347dde2ff02b6e",
-"ubx__protocol_8cpp.html#a3d316505ccc4d2c34426c15c887a369e"
+"classextension_1_1SimGpsSensor.html#a65da188590e7f56c25fdc86370f5c10c",
+"classgiraffe_1_1gdl_1_1Config.html#a1ddccf6c9971e186d501c9b33395ee12",
+"classmodules_1_1ConsoleModule.html#a1285e5506c3a3219d1e120597cf16d75",
+"classncurs_1_1Environment.html#a21b6f94ef16b999d9b613f21ddeb211b",
+"flight__modes_8hpp.html#a464112de04b36af2ff144b7013236affa038e3d035cd91784babc5492310b8e96",
+"group__SAMM8QState.html#ga5f1d24365206316560eb6979a46032dd",
+"namespacedata_1_1blocks.html#a61a23bae3c351562400d2505ffb6f732",
+"namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39a4120eb7591bd0789af75a8973d5f9146",
+"structdata_1_1blocks_1_1CalculatedData.html#af9bd2f056fba9b51a6c1767fac466547",
+"ubx__ids_8hpp.html#affbb510ad770230b075426bfb3941ce4"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
