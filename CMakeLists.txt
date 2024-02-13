@@ -130,3 +130,4 @@ add_subdirectory(project/eeprom)           # EEPROM Utility
 include(CTest)
 enable_testing()
 add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
+add_subdirectory(${CMAKE_SOURCE_DIR}/tests/simulator)
