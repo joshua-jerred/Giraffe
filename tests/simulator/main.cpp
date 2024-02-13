@@ -18,6 +18,6 @@
 
 int main() {
   GfsSimulator simulator{};
-  simulator.start();
+  simulator.run();
   return 0;
 }
