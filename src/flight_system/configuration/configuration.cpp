@@ -33,6 +33,11 @@ std::string cfg::General::getProjectName() const {
   return project_name_;
 }
 
+int cfg::General::getFlightIdentifierNumber() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return flight_identifier_number_;
+}
+
 cfg::gEnum::MainBoard cfg::General::getMainBoard() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return main_board_;
@@ -51,6 +56,11 @@ int cfg::General::getModuleStatusUpdateRate() const {
 void cfg::General::setProjectName(std::string val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   project_name_ = val;
+}
+
+void cfg::General::setFlightIdentifierNumber(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  flight_identifier_number_ = val;
 }
 
 void cfg::General::setMainBoard(cfg::gEnum::MainBoard val) {
@@ -79,6 +89,16 @@ void cfg::General::setFromJson(const Json &json_data) {
         1,
         20,
         "^(?!\\s)[a-zA-Z0-9_ -]{0,19}[^\\s]$"
+  );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "general",
+        "flight_identifier_number",
+        flight_identifier_number_,
+        0,
+        1000,
+        ""
   );
   validation::setValidEnum<cfg::gEnum::MainBoard>(
         streams_.log,
@@ -112,6 +132,7 @@ Json cfg::General::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return Json({
     {"project_name", project_name_},
+    {"flight_identifier_number", flight_identifier_number_},
     {"main_board", cfg::gEnum::K_MAIN_BOARD_TO_STRING_MAP.at(main_board_)},
     {"starting_procedure", cfg::gEnum::K_PROCEDURE_TYPE_TO_STRING_MAP.at(starting_procedure_)},
     {"module_status_update_rate", module_status_update_rate_}

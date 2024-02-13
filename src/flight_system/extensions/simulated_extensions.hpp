@@ -94,7 +94,7 @@ class SimGpsSensor : public Extension {
 public:
   SimGpsSensor(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
       : Extension(resources, metadata) {
-    gps_frame.gps_utc_time = BoosterSeat::clck::now();
+    gps_frame.gps_utc_time = bst::clck::now();
     gps_frame.is_valid = true;
     gps_frame.fix = data::GpsFix::FIX_3D;
     gps_frame.num_satellites = 10;
@@ -111,7 +111,7 @@ public:
   }
 
   void loop() override {
-    gps_frame.gps_utc_time = BoosterSeat::clck::now();
+    gps_frame.gps_utc_time = bst::clck::now();
     gps_frame.latitude += increasing_ ? 0.0001 : -0.0001;
     gps_frame.longitude += increasing_ ? 0.0001 : -0.0001;
     gps_frame.altitude += increasing_ ? 0.1 : -0.1;

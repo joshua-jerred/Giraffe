@@ -182,7 +182,7 @@ void protocol::createRequestMessage(protocol::Message &message,
   message.src = src;
   message.dst = dst;
   message.typ = protocol::MessageType::REQ;
-  message.id = BoosterSeat::randomHexString(8);
+  message.id = bst::randomHexString(8);
   message.rsc = rsc;
 }
 
@@ -192,7 +192,7 @@ void protocol::createSetMessage(protocol::Message &message,
   message.src = src;
   message.dst = dst;
   message.typ = protocol::MessageType::SET;
-  message.id = BoosterSeat::randomHexString(8);
+  message.id = bst::randomHexString(8);
   message.rsc = rsc;
   message.dat = dat;
 }

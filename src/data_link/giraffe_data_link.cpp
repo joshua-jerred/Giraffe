@@ -136,7 +136,7 @@ void DataLink::gdlThread() {
     statistics_.received_queue_size = in_queue_.size();
     statistics_lock_.unlock();
 
-    BoosterSeat::threadSleep(GDL_THREAD_SLEEP_INTERVAL_MS);
+    bst::sleep(GDL_THREAD_SLEEP_INTERVAL_MS);
   }
 }
 

@@ -29,8 +29,8 @@ namespace data {
  * @brief A struct to store information about an error in the error frame.
  */
 struct ErrorFrameItem {
-  BoosterSeat::clck::TimePoint last_reported{};
-  BoosterSeat::clck::TimePoint first_reported{};
+  bst::clck::TimePoint last_reported{};
+  bst::clck::TimePoint first_reported{};
   int occurrences = 0;
 
   data::LogPacket packet{};
@@ -118,9 +118,9 @@ public:
    * @brief Returns a time point representing when the last time was that an
    * error was added to the frame.
    *
-   * @return BoosterSeat::clck::TimePoint - The time the last error was added.
+   * @return bst::clck::TimePoint - The time the last error was added.
    */
-  BoosterSeat::clck::TimePoint timeOfLastErrorReported() const;
+  bst::clck::TimePoint timeOfLastErrorReported() const;
 
   /**
    * @brief Returns a time point of when the last time that a specified error
@@ -131,8 +131,7 @@ public:
    * @return true - The error was found in the frame.
    * @return false - The error was not found in the frame.
    */
-  bool lastOccurrence(DiagnosticId id,
-                      BoosterSeat::clck::TimePoint &time) const;
+  bool lastOccurrence(DiagnosticId id, bst::clck::TimePoint &time) const;
 
   /**
    * @brief Get the full error frame.
@@ -154,7 +153,7 @@ private:
   /**
    * @brief The time of the last error reported.
    */
-  BoosterSeat::clck::TimePoint last_error_reported_{};
+  bst::clck::TimePoint last_error_reported_{};
 };
 
 } // namespace data

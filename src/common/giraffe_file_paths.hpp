@@ -53,6 +53,12 @@ std::string getGdlServerConfigFilePath();
  */
 std::string getGfsConfigFilePath();
 
+/**
+ * @brief Returns the path to the gfs image directory.
+ * @return std::string - $HOME/.giraffe/gfs_images
+ */
+std::string getGfsImageDirPath();
+
 } // namespace file_paths
 
 } // namespace giraffe

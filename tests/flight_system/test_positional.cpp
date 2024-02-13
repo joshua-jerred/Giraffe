@@ -34,20 +34,20 @@ TEST(isGpsFrameValidTest, emptyFrameInvalid) {
  */
 TEST(isGpsFrameValidTest, validFrame) {
   data::GpsFrame frame{
-      BoosterSeat::clck::now(), // time now
-      true,                     // is_valid
-      data::GpsFix::FIX_3D,     // fix
-      10,                       // num_satellites
-      0.0,                      // latitude
-      0.0,                      // longitude
-      0.0,                      // horz_accuracy
-      0.0,                      // altitude
-      0.0,                      // vert_accuracy
-      0.0,                      // vertical_speed,
-      0.0,                      // horizontal_speed
-      0.0,                      // speed_accuracy
-      0.0,                      // heading_of_motion
-      0.0                       // heading_accuracy
+      bst::clck::now(),     // time now
+      true,                 // is_valid
+      data::GpsFix::FIX_3D, // fix
+      10,                   // num_satellites
+      0.0,                  // latitude
+      0.0,                  // longitude
+      0.0,                  // horz_accuracy
+      0.0,                  // altitude
+      0.0,                  // vert_accuracy
+      0.0,                  // vertical_speed,
+      0.0,                  // horizontal_speed
+      0.0,                  // speed_accuracy
+      0.0,                  // heading_of_motion
+      0.0                   // heading_accuracy
   };
   EXPECT_TRUE(data::isGpsFrameValid(frame));
 }
@@ -57,10 +57,10 @@ TEST(isGpsFrameValidTest, validFrame) {
  * but it should not be too far off (1 day limit for now?)
  */
 TEST(isGpsFrameValidTest, invalidTime) {
-  BoosterSeat::clck::TimePoint time_too_old = BoosterSeat::clck::now();
+  bst::clck::TimePoint time_too_old = bst::clck::now();
   time_too_old -= std::chrono::days(2);
 
-  BoosterSeat::clck::TimePoint time_too_new{};
+  bst::clck::TimePoint time_too_new{};
   time_too_new += std::chrono::days(2);
 
   data::GpsFrame frame_1{
@@ -108,20 +108,20 @@ TEST(isGpsFrameValidTest, invalidTime) {
  */
 TEST(isGpsFrameValidTest, fixValidity) {
   data::GpsFrame frame{
-      BoosterSeat::clck::now(), // time now
-      true,                     // is_valid
-      data::GpsFix::ERROR,      // fix
-      10,                       // num_satellites
-      0.0,                      // latitude
-      0.0,                      // longitude
-      0.0,                      // horz_accuracy
-      0.0,                      // altitude
-      0.0,                      // vert_accuracy
-      0.0,                      // vertical_speed,
-      0.0,                      // horizontal_speed
-      0.0,                      // speed_accuracy
-      0.0,                      // heading_of_motion
-      0.0                       // heading_accuracy
+      bst::clck::now(),    // time now
+      true,                // is_valid
+      data::GpsFix::ERROR, // fix
+      10,                  // num_satellites
+      0.0,                 // latitude
+      0.0,                 // longitude
+      0.0,                 // horz_accuracy
+      0.0,                 // altitude
+      0.0,                 // vert_accuracy
+      0.0,                 // vertical_speed,
+      0.0,                 // horizontal_speed
+      0.0,                 // speed_accuracy
+      0.0,                 // heading_of_motion
+      0.0                  // heading_accuracy
   };
 
   frame.fix = data::GpsFix::ERROR;
@@ -142,20 +142,20 @@ TEST(isGpsFrameValidTest, fixValidity) {
  */
 TEST(isGpsFrameValidTest, numSatsValidity) {
   data::GpsFrame frame{
-      BoosterSeat::clck::now(), // time now
-      true,                     // is_valid
-      data::GpsFix::ERROR,      // fix
-      0,                        // num_satellites
-      0.0,                      // latitude
-      0.0,                      // longitude
-      0.0,                      // horz_accuracy
-      0.0,                      // altitude
-      0.0,                      // vert_accuracy
-      0.0,                      // vertical_speed,
-      0.0,                      // horizontal_speed
-      0.0,                      // speed_accuracy
-      0.0,                      // heading_of_motion
-      0.0                       // heading_accuracy
+      bst::clck::now(),    // time now
+      true,                // is_valid
+      data::GpsFix::ERROR, // fix
+      0,                   // num_satellites
+      0.0,                 // latitude
+      0.0,                 // longitude
+      0.0,                 // horz_accuracy
+      0.0,                 // altitude
+      0.0,                 // vert_accuracy
+      0.0,                 // vertical_speed,
+      0.0,                 // horizontal_speed
+      0.0,                 // speed_accuracy
+      0.0,                 // heading_of_motion
+      0.0                  // heading_accuracy
   };
 
   // 2D fix requires at least 3 satellites
@@ -178,20 +178,20 @@ TEST(isGpsFrameValidTest, numSatsValidity) {
  */
 TEST(isGpsFrameValidTest, latitudeValidity) {
   data::GpsFrame frame{
-      BoosterSeat::clck::now(), // time now
-      true,                     // is_valid
-      data::GpsFix::FIX_3D,     // fix
-      10,                       // num_satellites
-      0.0,                      // latitude
-      0.0,                      // longitude
-      0.0,                      // horz_accuracy
-      0.0,                      // altitude
-      0.0,                      // vert_accuracy
-      0.0,                      // vertical_speed,
-      0.0,                      // horizontal_speed
-      0.0,                      // speed_accuracy
-      0.0,                      // heading_of_motion
-      0.0                       // heading_accuracy
+      bst::clck::now(),     // time now
+      true,                 // is_valid
+      data::GpsFix::FIX_3D, // fix
+      10,                   // num_satellites
+      0.0,                  // latitude
+      0.0,                  // longitude
+      0.0,                  // horz_accuracy
+      0.0,                  // altitude
+      0.0,                  // vert_accuracy
+      0.0,                  // vertical_speed,
+      0.0,                  // horizontal_speed
+      0.0,                  // speed_accuracy
+      0.0,                  // heading_of_motion
+      0.0                   // heading_accuracy
   };
 
   frame.latitude = -90.1;
@@ -209,20 +209,20 @@ TEST(isGpsFrameValidTest, latitudeValidity) {
  */
 TEST(isGpsFrameValidTest, longitudeValidity) {
   data::GpsFrame frame{
-      BoosterSeat::clck::now(), // time now
-      true,                     // is_valid
-      data::GpsFix::FIX_3D,     // fix
-      10,                       // num_satellites
-      0.0,                      // latitude
-      0.0,                      // longitude
-      0.0,                      // horz_accuracy
-      0.0,                      // altitude
-      0.0,                      // vert_accuracy
-      0.0,                      // vertical_speed,
-      0.0,                      // horizontal_speed
-      0.0,                      // speed_accuracy
-      0.0,                      // heading_of_motion
-      0.0                       // heading_accuracy
+      bst::clck::now(),     // time now
+      true,                 // is_valid
+      data::GpsFix::FIX_3D, // fix
+      10,                   // num_satellites
+      0.0,                  // latitude
+      0.0,                  // longitude
+      0.0,                  // horz_accuracy
+      0.0,                  // altitude
+      0.0,                  // vert_accuracy
+      0.0,                  // vertical_speed,
+      0.0,                  // horizontal_speed
+      0.0,                  // speed_accuracy
+      0.0,                  // heading_of_motion
+      0.0                   // heading_accuracy
   };
 
   frame.longitude = -180.1;
@@ -241,20 +241,20 @@ TEST(isGpsFrameValidTest, longitudeValidity) {
  */
 TEST(isGpsFrameValidTest, horzAccuracyValidity) {
   data::GpsFrame frame{
-      BoosterSeat::clck::now(), // time now
-      true,                     // is_valid
-      data::GpsFix::FIX_3D,     // fix
-      10,                       // num_satellites
-      0.0,                      // latitude
-      0.0,                      // longitude
-      0.0,                      // horz_accuracy
-      0.0,                      // altitude
-      0.0,                      // vert_accuracy
-      0.0,                      // vertical_speed,
-      0.0,                      // horizontal_speed
-      0.0,                      // speed_accuracy
-      0.0,                      // heading_of_motion
-      0.0                       // heading_accuracy
+      bst::clck::now(),     // time now
+      true,                 // is_valid
+      data::GpsFix::FIX_3D, // fix
+      10,                   // num_satellites
+      0.0,                  // latitude
+      0.0,                  // longitude
+      0.0,                  // horz_accuracy
+      0.0,                  // altitude
+      0.0,                  // vert_accuracy
+      0.0,                  // vertical_speed,
+      0.0,                  // horizontal_speed
+      0.0,                  // speed_accuracy
+      0.0,                  // heading_of_motion
+      0.0                   // heading_accuracy
   };
 
   frame.horz_accuracy = -0.1;
@@ -273,7 +273,7 @@ TEST(isGpsFrameValidTest, horzAccuracyValidity) {
  */
 TEST(isGpsFrameValidTest, altitudeValidity) {
   data::GpsFrame frame{
-      BoosterSeat::clck::now(), // time now
+      bst::clck::now(), // time now
       true,
       data::GpsFix::FIX_3D, // fix
       10,                   // num_satellites
@@ -304,20 +304,20 @@ TEST(isGpsFrameValidTest, altitudeValidity) {
  */
 TEST(isGpsFrameValidTest, headingOfMotionValidity) {
   data::GpsFrame frame{
-      BoosterSeat::clck::now(), // time now
-      true,                     // is_valid
-      data::GpsFix::FIX_3D,     // fix
-      10,                       // num_satellites
-      0.0,                      // latitude
-      0.0,                      // longitude
-      0.0,                      // horz_accuracy
-      0.0,                      // altitude
-      0.0,                      // vert_accuracy
-      0.0,                      // vertical_speed,
-      0.0,                      // horizontal_speed
-      0.0,                      // speed_accuracy
-      0.0,                      // heading_of_motion
-      0.0                       // heading_accuracy
+      bst::clck::now(),     // time now
+      true,                 // is_valid
+      data::GpsFix::FIX_3D, // fix
+      10,                   // num_satellites
+      0.0,                  // latitude
+      0.0,                  // longitude
+      0.0,                  // horz_accuracy
+      0.0,                  // altitude
+      0.0,                  // vert_accuracy
+      0.0,                  // vertical_speed,
+      0.0,                  // horizontal_speed
+      0.0,                  // speed_accuracy
+      0.0,                  // heading_of_motion
+      0.0                   // heading_accuracy
   };
 
   frame.heading_of_motion = -0.1;
@@ -359,9 +359,9 @@ TEST(isImuFrameValid, timeValidity) {
   data::ImuFrame frame{};
   frame.is_valid = true;
 
-  BoosterSeat::clck::TimePoint time_too_old = BoosterSeat::clck::now();
+  bst::clck::TimePoint time_too_old = bst::clck::now();
   time_too_old -= std::chrono::seconds(11);
-  BoosterSeat::clck::TimePoint time_too_new{};
+  bst::clck::TimePoint time_too_new{};
   time_too_new += std::chrono::seconds(2);
 
   EXPECT_TRUE(data::isImuFrameValid(frame));

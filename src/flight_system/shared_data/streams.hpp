@@ -37,10 +37,10 @@ namespace data {
 struct BaseStreamPacket {
   node::Identification source = node::Identification::UNKNOWN;
   std::string secondary_identifier{};
-  BoosterSeat::clck::TimePoint created_time = BoosterSeat::clck::now();
+  bst::clck::TimePoint created_time = bst::clck::now();
 
   void resetTime() {
-    created_time = BoosterSeat::clck::now();
+    created_time = bst::clck::now();
   }
 };
 
@@ -141,9 +141,9 @@ public:
     addPacket(pkt);
   }
 
-  void errorBoosterSeatException(
-      const node::Identification source, const DiagnosticId error_id,
-      const BoosterSeat::BoosterSeatException &exception) {
+  void errorBoosterSeatException(const node::Identification source,
+                                 const DiagnosticId error_id,
+                                 const bst::BoosterSeatException &exception) {
     LogPacket pkt;
     pkt.source = source;
     pkt.level = LogPacket::Level::ERROR;
@@ -216,8 +216,8 @@ class GpsFrameStream : public Stream<GpsFramePacket> {
 public:
   void addFrame(node::Identification source, std::string secondary_id,
                 data::GpsFrame frame) {
-    GpsFramePacket pkt{source, std::move(secondary_id),
-                       BoosterSeat::clck::now(), frame};
+    GpsFramePacket pkt{source, std::move(secondary_id), bst::clck::now(),
+                       frame};
     addPacket(pkt);
   }
 };
@@ -230,8 +230,8 @@ class ImuFrameStream : public Stream<ImuFramePacket> {
 public:
   void addFrame(node::Identification source, std::string secondary_id,
                 data::ImuFrame frame) {
-    ImuFramePacket pkt{source, std::move(secondary_id),
-                       BoosterSeat::clck::now(), frame};
+    ImuFramePacket pkt{source, std::move(secondary_id), bst::clck::now(),
+                       frame};
     addPacket(pkt);
   }
 };
@@ -253,7 +253,7 @@ struct CommandPacket : public BaseStreamPacket {
 class CommandStream : public Stream<CommandPacket> {
 public:
   void addCommand(node::Identification source, cmd::Command command) {
-    CommandPacket pkt{source, "", BoosterSeat::clck::now(), command};
+    CommandPacket pkt{source, "", bst::clck::now(), command};
     addPacket(pkt);
   }
 };

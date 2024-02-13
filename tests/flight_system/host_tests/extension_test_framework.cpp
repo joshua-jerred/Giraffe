@@ -68,7 +68,7 @@ int ExtensionTestFramework::getTotalImuPackets() {
 }
 
 void ExtensionTestFramework::sleep(int ms) {
-  BoosterSeat::threadSleep(ms);
+  bst::sleep(ms);
 }
 
 void ExtensionTestFramework::runExtensionFor(extension::Extension &ext,

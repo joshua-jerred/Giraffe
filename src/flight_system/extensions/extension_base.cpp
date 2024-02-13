@@ -64,7 +64,7 @@ void Extension::stop() {
   bst::Timer timer(kExtensionStopTimeoutMs);
 
   while (!timer.isDone()) {
-    BoosterSeat::threadSleep(kExtensionStopCheckIntervalMs);
+    bst::sleep(kExtensionStopCheckIntervalMs);
     if (static_cast<uint16_t>(status_.load()) & node::K_INACTIVE_STATUSES) {
       if (runner_thread_.joinable()) {
         runner_thread_.join();
@@ -170,7 +170,7 @@ void Extension::extSleep(uint32_t ms) {
   if (ms > kMaxSleepTimeMs) {
     ms = kMaxSleepTimeMs;
   }
-  BoosterSeat::threadSleep(ms);
+  bst::sleep(ms);
 }
 
 void Extension::sleep() {
@@ -191,7 +191,7 @@ void Extension::sleep() {
   // Sleep for the specified amount of time
   bst::Timer timer(sleep_ms);
   while (!timer.isDone()) {
-    BoosterSeat::threadSleep(check_interval);
+    bst::sleep(check_interval);
     if (stopRequested()) {
       return;
     }

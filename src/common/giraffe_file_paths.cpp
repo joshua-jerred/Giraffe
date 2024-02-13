@@ -38,7 +38,7 @@ std::string getGiraffeDirectoryPath() {
                            "home is empty");
   }
 
-  if (!BoosterSeat::filesystem::doesDirectoryExist(home)) {
+  if (!bst::filesystem::doesDirectoryExist(home)) {
     throw GiraffeException(DiagnosticId::GENERIC_homeEnvVarNotDir);
   }
 
@@ -48,19 +48,19 @@ std::string getGiraffeDirectoryPath() {
 bool createGiraffeDirIfNotExists() {
   std::string giraffe_dir_path = getGiraffeDirectoryPath();
 
-  if (BoosterSeat::filesystem::doesDirectoryExist(giraffe_dir_path)) {
+  if (bst::filesystem::doesDirectoryExist(giraffe_dir_path)) {
     return false;
   }
 
   try {
-    BoosterSeat::filesystem::createDirectory(giraffe_dir_path);
+    bst::filesystem::createDirectory(giraffe_dir_path);
   } catch (const std::exception &e) {
     throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGiraffeDir,
                            "Failed to create giraffe directory: " +
                                std::string(e.what()));
   }
 
-  if (!BoosterSeat::filesystem::doesDirectoryExist(giraffe_dir_path)) {
+  if (!bst::filesystem::doesDirectoryExist(giraffe_dir_path)) {
     throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGiraffeDir,
                            "Failed to create giraffe directory");
   }
@@ -74,6 +74,28 @@ std::string getGdlServerConfigFilePath() {
 
 std::string getGfsConfigFilePath() {
   return getGiraffeDirectoryPath() + "/gfs_config.json";
+}
+
+std::string getGfsImageDirPath() {
+  std::string dir_path = getGiraffeDirectoryPath() + "/gfs_images";
+
+  // -- create the directory if it does not exist
+  if (!bst::filesystem::doesDirectoryExist(dir_path)) {
+    try {
+      bst::filesystem::createDirectory(dir_path);
+    } catch (const std::exception &e) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsImageDir,
+                             "Failed to create gfs image directory: " +
+                                 std::string(e.what()));
+    }
+
+    if (!bst::filesystem::doesDirectoryExist(dir_path)) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsImageDir,
+                             "Failed to create gfs image directory");
+    }
+  }
+
+  return dir_path;
 }
 
 } // namespace giraffe::file_paths

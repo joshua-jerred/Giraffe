@@ -24,7 +24,7 @@ void ErrorFrame::addError(const data::LogPacket &packet) {
 
   std::lock_guard<std::mutex> lock(error_frame_mutex_);
   total_errors_++;
-  last_error_reported_ = BoosterSeat::clck::now();
+  last_error_reported_ = bst::clck::now();
 
   ErrorFrameItem current_in_frame{};
 
@@ -96,13 +96,13 @@ int ErrorFrame::numOccurrences(DiagnosticId id) const {
   return item.occurrences;
 }
 
-BoosterSeat::clck::TimePoint ErrorFrame::timeOfLastErrorReported() const {
+bst::clck::TimePoint ErrorFrame::timeOfLastErrorReported() const {
   std::lock_guard<std::mutex> lock(error_frame_mutex_);
   return last_error_reported_;
 }
 
 bool ErrorFrame::lastOccurrence(DiagnosticId id,
-                                BoosterSeat::clck::TimePoint &time) const {
+                                bst::clck::TimePoint &time) const {
   std::lock_guard<std::mutex> lock(error_frame_mutex_);
   ErrorFrameItem item{};
   if (!Frame::get(id, item)) {

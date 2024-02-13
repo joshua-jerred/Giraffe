@@ -44,11 +44,13 @@ public:
   General(data::Streams &streams): cfg::CfgSection(streams){}
 
   std::string getProjectName() const;
+  int getFlightIdentifierNumber() const;
   cfg::gEnum::MainBoard getMainBoard() const;
   cfg::gEnum::ProcedureType getStartingProcedure() const;
   int getModuleStatusUpdateRate() const;
 
   void setProjectName(std::string);
+  void setFlightIdentifierNumber(int);
   void setMainBoard(cfg::gEnum::MainBoard);
   void setStartingProcedure(cfg::gEnum::ProcedureType);
   void setModuleStatusUpdateRate(int);
@@ -58,6 +60,7 @@ public:
 
 private:
   std::string project_name_ = "Giraffe Flight 1";
+  int flight_identifier_number_ = 0;
   cfg::gEnum::MainBoard main_board_ = cfg::gEnum::MainBoard::OTHER;
   cfg::gEnum::ProcedureType starting_procedure_ = cfg::gEnum::ProcedureType::OTHER;
   int module_status_update_rate_ = 1000;

@@ -67,8 +67,8 @@ private:
    * to now)
    * @return std::string - The generated timestamp
    */
-  std::string generateTimestamp(const BoosterSeat::clck::TimePoint time_point =
-                                    BoosterSeat::clck::now()) const;
+  std::string generateTimestamp(
+      const bst::clck::TimePoint time_point = bst::clck::now()) const;
 
   json fullFrameLogPacketToJson(const data::ErrorFrameItem &item) const;
 

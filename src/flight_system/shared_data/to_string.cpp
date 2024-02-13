@@ -51,7 +51,7 @@ std::string to_string(const data::LogPacket &packet) noexcept {
   if (!packet.secondary_identifier.empty()) {
     output += " " + packet.secondary_identifier + " ";
   }
-  output += BoosterSeat::string::intToHex(static_cast<uint16_t>(packet.id));
+  output += bst::string::intToHex(static_cast<uint16_t>(packet.id));
   output += " " + packet.info;
   return output;
 }
@@ -81,21 +81,19 @@ std::string to_string(const data::GpsFix fix_type) noexcept {
 
 std::string to_string(const data::GpsFrame &frame) noexcept {
   std::string output = "";
-  output +=
-      "UTC: " +
-      BoosterSeat::time::dateAndTimeString(BoosterSeat::time::TimeZone::UTC,
-                                           '-', ' ', ':', frame.gps_utc_time) +
-      " ";
-  output +=
-      "Local: " +
-      BoosterSeat::time::dateAndTimeString(BoosterSeat::time::TimeZone::LOCAL,
-                                           '-', ' ', ':', frame.gps_utc_time) +
-      " ";
+  output += "UTC: " +
+            bst::time::dateAndTimeString(bst::time::TimeZone::UTC, '-', ' ',
+                                         ':', frame.gps_utc_time) +
+            " ";
+  output += "Local: " +
+            bst::time::dateAndTimeString(bst::time::TimeZone::LOCAL, '-', ' ',
+                                         ':', frame.gps_utc_time) +
+            " ";
   output += to_string(frame.fix) + " ";
-  output += "lat: " + BoosterSeat::string::f2s(frame.latitude, 6) + " ";
-  output += "lon: " + BoosterSeat::string::f2s(frame.longitude, 6) + " ";
-  output += "alt: " + BoosterSeat::string::f2s(frame.altitude, 1) + " ";
-  output += "hs:" + BoosterSeat::string::f2s(frame.horizontal_speed, 1) + " ";
+  output += "lat: " + bst::string::f2s(frame.latitude, 6) + " ";
+  output += "lon: " + bst::string::f2s(frame.longitude, 6) + " ";
+  output += "alt: " + bst::string::f2s(frame.altitude, 1) + " ";
+  output += "hs:" + bst::string::f2s(frame.horizontal_speed, 1) + " ";
   return output;
 }
 

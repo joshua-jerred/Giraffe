@@ -21,6 +21,7 @@
 #include "bmi088.hpp"
 #include "ds18b20.hpp"
 #include "mcp3021.hpp"
+#include "pi_camera.hpp"
 #include "rgb_status_led.hpp"
 #include "samm8q.hpp"
 
@@ -30,6 +31,7 @@
 #define MCP3021_TEST_ENABLED 0
 #define BMI088_TEST_ENABLED 0
 #define RGB_STATUS_LED_TEST_ENABLED 0
+#define PI_CAMERA_TEST_ENABLED 1
 
 #if BME280_TEST_ENABLED
 TEST(ExtensionsTest, BME280Test) {
@@ -129,6 +131,22 @@ TEST(ExtensionsTest, RgbStatusLedTest) {
   tf.runExtensionFor(rgb_status_led, 2000);
 
   EXPECT_GT(tf.getTotalLogPackets(), 0);
+
+  tf.printStreams();
+}
+#endif
+
+#if PI_CAMERA_TEST_ENABLED
+TEST(ExtensionTest, PiCameraTest) {
+  ExtensionTestFramework tf{};
+  tf.meta.update_interval = 2000;
+
+  extension::PiCamera pi_camera{tf.resources, tf.meta};
+
+  tf.runExtensionFor(pi_camera, 3000);
+
+  EXPECT_GT(tf.getTotalDataPackets(), 0);
+  EXPECT_EQ(tf.getTotalLogPackets(), 0);
 
   tf.printStreams();
 }

@@ -27,7 +27,7 @@ DiagnosticId id3 = DiagnosticId::CONFIG_configFileDoesNotExist;
 TEST(ErrorFrameTest, initialState) {
   data::ErrorFrame f{};
   data::ErrorFrameItem item{};
-  BoosterSeat::clck::TimePoint time{};
+  bst::clck::TimePoint time{};
   EXPECT_EQ(f.numActiveErrors(), 0);
   EXPECT_EQ(f.numTotalErrors(), 0);
   EXPECT_EQ(f.numOccurrences(id1), 0);
@@ -40,7 +40,7 @@ TEST(ErrorFrameTest, initialState) {
 TEST(ErrorFrameTest, addSingleError) {
   data::ErrorFrame f{};
   data::ErrorFrameItem item{};
-  BoosterSeat::clck::TimePoint time{};
+  bst::clck::TimePoint time{};
 
   data::LogPacket packet{};
   packet.id = id1;
@@ -87,7 +87,7 @@ TEST(ErrorFrameTest, addSingleError) {
 TEST(ErrorFrameTest, addMultipleErrors) {
   data::ErrorFrame f{};
   data::ErrorFrameItem item{};
-  BoosterSeat::clck::TimePoint time{};
+  bst::clck::TimePoint time{};
 
   data::LogPacket packet{};
   packet.id = id1;
@@ -115,7 +115,7 @@ TEST(ErrorFrameTest, addMultipleErrors) {
 TEST(ErrorFrameTest, clearSingleError) {
   data::ErrorFrame f{};
   data::ErrorFrameItem item{};
-  BoosterSeat::clck::TimePoint time{};
+  bst::clck::TimePoint time{};
 
   data::LogPacket packet{};
   packet.id = id1;
@@ -139,7 +139,7 @@ TEST(ErrorFrameTest, clearSingleError) {
 TEST(ErrorFrameTest, clearAllErrors) {
   data::ErrorFrame f{};
   data::ErrorFrameItem item{};
-  BoosterSeat::clck::TimePoint time{};
+  bst::clck::TimePoint time{};
 
   data::LogPacket packet{};
   packet.id = id1;
@@ -165,7 +165,7 @@ TEST(ErrorFrameTest, getError) {
   data::LogPacket packet{};
   packet.id = id1;
   packet.level = data::LogPacket::Level::ERROR;
-  packet.created_time = BoosterSeat::clck::TimePoint{};
+  packet.created_time = bst::clck::TimePoint{};
   packet.info = "info";
   packet.source = node::Identification::EXTENSION_MODULE;
   packet.secondary_identifier = "secondary_identifier";
@@ -197,14 +197,14 @@ TEST(ErrorFrameTest, timeOfLastErrorReported) {
   data::LogPacket packet{};
   packet.id = id1;
   packet.level = data::LogPacket::Level::ERROR;
-  packet.created_time = BoosterSeat::clck::TimePoint{};
+  packet.created_time = bst::clck::TimePoint{};
   packet.info = "info";
   packet.source = node::Identification::EXTENSION_MODULE;
   packet.secondary_identifier = "secondary_identifier";
 
   f.addError(packet);
   auto time1 = f.timeOfLastErrorReported();
-  BoosterSeat::threadSleep(1);
+  bst::sleep(1);
   f.addError(packet);
   auto time2 = f.timeOfLastErrorReported();
   EXPECT_TRUE(time1 < time2);
