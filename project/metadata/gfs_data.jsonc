@@ -45,9 +45,9 @@
         }
     },
     "camera":{
-        "new_image_path": {
-            "name": "New Image Path",
-            "details": "Path to a new image",
+        "new_image": {
+            "name": "New Image",
+            "details": "Contains the path to the new image",
             "value": "0xC001"
         }
     },

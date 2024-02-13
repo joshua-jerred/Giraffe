@@ -124,6 +124,7 @@ enum class DiagnosticId : uint16_t {
   EXTENSION_samm8qConfigureSetDynamicModel=0x500B, // SAMM8Q Configure Set Dynamic Model
   EXTENSION_samm8qReadTimeout=0x500C, // SAMM8Q Read Timeout
   EXTENSION_adcConfigFail=0x500D, // ADC Config Failure
+  EXTENSION_piCameraCaptureFail=0x500E, // Pi Camera Capture Failure
   FLIGHT_RUNNER_failedToRouteCommand=0x6000, // Failed to route command
   FLIGHT_RUNNER_commandDestinationNotFound=0x6001, // Command destination not found
   FLIGHT_RUNNER_invalidCommand=0x6002, // Invalid Command
@@ -162,6 +163,9 @@ enum class DiagnosticId : uint16_t {
   EXT_FAULT_rgbStatusLedShutdownFailed=0x701E, // RGB Status LED Shutdown Failed
   EXT_FAULT_piCameraNotOnPi=0x701F, // Pi Camera Not on Pi
   EXT_FAULT_piCameraNotDetected=0x7020, // Pi Camera Not Detected
+  EXT_FAULT_piCameraDetectFailed=0x7021, // Pi Camera Detect Failed
+  EXT_FAULT_piCameraInvalidImageDir=0x7022, // Pi Camera Invalid Image Directory
+  EXT_FAULT_piCameraCaptureFailed=0x7023, // Pi Camera Capture Failed (multiple)
   INTERFACE_invalidGpioPin=0x8000, // Invalid GPIO Pin
   INTERFACE_invalidGpioPinMode=0x8001, // Invalid GPIO Pin Mode
   INTERFACE_initialStateInputPin=0x8002, // Initial State Input Pin

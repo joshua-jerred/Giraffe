@@ -94,6 +94,8 @@ std::string getGfsImageDirPath() {
                              "Failed to create gfs image directory");
     }
   }
+
+  return dir_path;
 }
 
 } // namespace giraffe::file_paths

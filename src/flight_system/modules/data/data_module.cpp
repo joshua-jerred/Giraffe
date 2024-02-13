@@ -181,7 +181,7 @@ void modules::DataModule::parseExtensionDataPacket(
     shared_data_.frames.env_pres.insert(ext_id, packet);
   } else if (type == data::DataId::ENVIRONMENTAL_humidity) {
     shared_data_.frames.env_hum.insert(ext_id, packet);
-  } else if (type == data::DataId::CAMERA_newImagePath) {
+  } else if (type == data::DataId::CAMERA_newImage) {
     parseCameraNewImageDataPacket(packet);
   } else {
     giraffe_assert(false);

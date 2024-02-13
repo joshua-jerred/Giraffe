@@ -494,6 +494,11 @@
       "name":"ADC Config Failure",
       "details":"The ADC configuration string is invalid, defaulting to raw ADC count output",
       "value": "0x500D"
+    },
+    "pi_camera_capture_fail": {
+      "name":"Pi Camera Capture Failure",
+      "details":"The Pi Camera extension failed to capture an image.",
+      "value": "0x500E"
     }
   },
   "flight_runner": {
@@ -690,6 +695,21 @@
       "name":"Pi Camera Not Detected",
       "details":"The Pi Camera extension failed to detect the camera.",
       "value": "0x7020"
+    },
+    "pi_camera_detect_failed": {
+      "name":"Pi Camera Detect Failed",
+      "details":"The Pi Camera extension ran into an error, possibly related to the rpicam-apps install.",
+      "value": "0x7021"
+    },
+    "pi_camera_invalid_image_dir": {
+      "name":"Pi Camera Invalid Image Directory",
+      "details":"The Pi Camera extension was provided an invalid image directory.",
+      "value": "0x7022"
+    },
+    "pi_camera_capture_failed": {
+      "name":"Pi Camera Capture Failed (multiple)",
+      "details":"The Pi Camera extension has failed multiple times to capture an image.",
+      "value": "0x7023"
     }
   },
   "interface":{

@@ -37,6 +37,15 @@ public:
   void startup() override;
   void loop() override;
   void shutdown() override;
+
+private:
+  std::string getImageName();
+
+  /// @brief The directory to save images to.
+  std::string image_dir_{};
+
+  /// @brief The number of failed captures.
+  uint32_t capture_failures_{0};
 };
 
 } // namespace extension
