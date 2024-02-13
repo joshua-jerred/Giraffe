@@ -25,6 +25,10 @@ struct FCInfo {
 
   Architecture architecture = Architecture::UNKNOWN;
   Type type = Type::UNKNOWN;
+
+  bool isRaspberryPi() const {
+    return type == Type::PI_ZERO || type == Type::PI_ZERO_2;
+  }
 };
 
 FCInfo getFlightComputerInfo();

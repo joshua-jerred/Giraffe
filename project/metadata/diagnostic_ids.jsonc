@@ -41,6 +41,11 @@
       "name":"Failed to Create Giraffe Directory",
       "details":"The giraffe directory could not be created.",
       "value":"0xF006"
+    },
+    "failed_to_create_gfs_image_dir": {
+      "name":"Failed to Create GFS Image Directory",
+      "details":"The GFS image directory could not be created.",
+      "value":"0xF007"
     }
   },
   "config": {
@@ -675,6 +680,16 @@
       "name":"RGB Status LED Shutdown Failed",
       "details":"The RGB status LED extension failed to shutdown.",
       "value": "0x701E"
+    },
+    "pi_camera_not_on_pi": {
+      "name":"Pi Camera Not on Pi",
+      "details":"The Pi Camera extension is not running on a Raspberry Pi.",
+      "value": "0x701F"
+    },
+    "pi_camera_not_detected": {
+      "name":"Pi Camera Not Detected",
+      "details":"The Pi Camera extension failed to detect the camera.",
+      "value": "0x7020"
     }
   },
   "interface":{

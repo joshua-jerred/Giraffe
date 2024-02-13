@@ -32,11 +32,13 @@ namespace extension {
  */
 class PiCamera : public Extension {
 public:
-  PiCamera(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
-      : Extension(resources, metadata) {
-  }
+  PiCamera(ExtensionResources &resources, cfg::ExtensionMetadata metadata);
 
-  void loop() override{};
-}
+  void startup() override;
+  void loop() override;
+  void shutdown() override;
+};
+
+} // namespace extension
 
 #endif /* PI_CAMERA_HPP_ */

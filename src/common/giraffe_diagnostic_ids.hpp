@@ -39,6 +39,7 @@ enum class DiagnosticId : uint16_t {
   GENERIC_homeEnvVarNotSet=0xF004, // Home Environment Variable Not Set
   GENERIC_homeEnvVarNotDir=0xF005, // Home Environment Variable Not Directory
   GENERIC_failedToCreateGiraffeDir=0xF006, // Failed to Create Giraffe Directory
+  GENERIC_failedToCreateGfsImageDir=0xF007, // Failed to Create GFS Image Directory
   CONFIG_sectionNotFound=0x000E, // Section not found
   CONFIG_settingNotFound=0x0001, // Setting not found
   CONFIG_invalidJsonType=0x0002, // Invalid JSON type
@@ -159,6 +160,8 @@ enum class DiagnosticId : uint16_t {
   EXT_FAULT_rgbStatusLedExtraArgs=0x701C, // RGB Status LED Extra Args
   EXT_FAULT_rgbStatusLedFailedToSetupPins=0x701D, // RGB Status LED Failed to Setup Pins
   EXT_FAULT_rgbStatusLedShutdownFailed=0x701E, // RGB Status LED Shutdown Failed
+  EXT_FAULT_piCameraNotOnPi=0x701F, // Pi Camera Not on Pi
+  EXT_FAULT_piCameraNotDetected=0x7020, // Pi Camera Not Detected
   INTERFACE_invalidGpioPin=0x8000, // Invalid GPIO Pin
   INTERFACE_invalidGpioPinMode=0x8001, // Invalid GPIO Pin Mode
   INTERFACE_initialStateInputPin=0x8002, // Initial State Input Pin

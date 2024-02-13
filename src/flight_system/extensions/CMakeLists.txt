@@ -9,6 +9,7 @@ target_sources(gfs_extensions INTERFACE
 	${CMAKE_CURRENT_SOURCE_DIR}/mcp3021.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/rgb_status_led.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/bmi088.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/pi_camera.cpp
 )
 target_include_directories(gfs_extensions INTERFACE 
   ${CMAKE_CURRENT_SOURCE_DIR}
