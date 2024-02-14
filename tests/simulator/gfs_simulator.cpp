@@ -47,7 +47,7 @@ void GfsSimulator::run() {
       stateMachine();
       state_machine_timer_.reset();
     }
-    if (print_timer_.isDone()) {
+    if (print_timer_.isDone() && K_PRINT_SIM_DATA) {
       printData();
       print_timer_.reset();
     }

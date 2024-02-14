@@ -15,11 +15,21 @@
 #include "flight_runner.hpp"
 #include "giraffe_assert.hpp"
 
+#if RUN_IN_SIMULATOR == 1
+#include "gfs_simulator.hpp"
+gfs_sim::GfsSimulator g_GFS_SIMULATOR{};
+#endif
+
 FlightRunner flight;
 
 auto signalHandler(int signal_number) -> void {
   signal(SIGINT, signalHandler);
   if (signal_number == SIGINT) {
+
+#if RUN_IN_SIMULATOR == 1
+    g_GFS_SIMULATOR.stop();
+#endif
+
     flight.shutdown();
   }
 }
@@ -35,6 +45,11 @@ auto signalHandler(int signal_number) -> void {
  */
 int main() {
   signal(SIGINT, signalHandler); // Register signal handler
+
+#if RUN_IN_SIMULATOR == 1
+  g_GFS_SIMULATOR.start();
+#endif
+
   return flight.start();
 }
 

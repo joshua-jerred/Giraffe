@@ -25,8 +25,8 @@
 namespace gfs_sim {
 class BalloonPhysics {
 public:
-  BalloonPhysics(SimState &state, SimEnvironmental &env)
-      : state_(state), env_(env) {
+  BalloonPhysics(SimState &state, SimEnvironmental &env, SimData &data)
+      : state_(state), env_(env), data_(data) {
   }
 
   void update(double delta_time_s);
@@ -109,6 +109,7 @@ private:
 
   SimState &state_;
   SimEnvironmental &env_;
+  SimData &data_;
 };
 
 } // namespace gfs_sim

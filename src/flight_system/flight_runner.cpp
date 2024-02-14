@@ -101,6 +101,10 @@ auto FlightRunner::start() -> int {
   std::cout << "Giraffe Flight Software v" << K_GIRAFFE_VERSION_NUMBER
             << std::endl;
 
+#if RUN_IN_SIMULATOR == 1
+  std::cout << "!! -- Running in simulator mode -- !!" << std::endl;
+#endif
+
   flight_runner_data_.incrementNumStartups();
 
   /*

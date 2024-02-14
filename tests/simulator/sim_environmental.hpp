@@ -17,6 +17,8 @@
 #ifndef GFS_SIM_ENVIRONMENTAL_HPP_
 #define GFS_SIM_ENVIRONMENTAL_HPP_
 
+#include "sim_parameters.hpp"
+
 namespace gfs_sim {
 
 struct EnvData {
@@ -30,7 +32,8 @@ struct EnvData {
 
 class SimEnvironmental {
 public:
-  SimEnvironmental() = default;
+  SimEnvironmental(SimData &data) : data_(data) {
+  }
 
   void setAltitudeMeters(double altitude_meters);
 
@@ -43,6 +46,7 @@ public:
 private:
   double altitude_meters_ = 0.0;
   EnvData env_data_{};
+  SimData &data_;
 };
 
 } // namespace gfs_sim

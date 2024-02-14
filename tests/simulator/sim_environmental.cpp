@@ -305,6 +305,11 @@ void SimEnvironmental::setAltitudeMeters(double altitude_meters) {
       data1.relative_humidity_percent +
       fraction *
           (data2.relative_humidity_percent - data1.relative_humidity_percent);
+
+  // Set the sim data
+  data_.temperature_c = env_data_.temperature_celsius;
+  data_.pressure_mbar = env_data_.pressure_millibars;
+  data_.humidity_percent = env_data_.relative_humidity_percent;
 }
 
 double SimEnvironmental::getWindSpeedMPS() const {

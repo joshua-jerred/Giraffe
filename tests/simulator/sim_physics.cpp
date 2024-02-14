@@ -33,6 +33,14 @@ void BalloonPhysics::update(double delta_time_s) {
 
   stateMachine();
   env_.setAltitudeMeters(altitude_);
+
+  data_.altitude_m = altitude_;
+  data_.vert_velocity_mps = vertical_speed_;
+  data_.vert_accel_mps2 = vertical_acceleration_;
+  data_.horz_velocity_mps = horizontal_speed_;
+  data_.heading_deg = direction_of_travel_;
+  data_.latitude_deg = latitude_;
+  data_.longitude_deg = longitude_;
 }
 
 void BalloonPhysics::updateHorizontal(double delta_time_s) {

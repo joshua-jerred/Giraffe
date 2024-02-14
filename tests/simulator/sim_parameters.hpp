@@ -17,9 +17,25 @@
 #ifndef GFS_SIM_PARAMETERS_HPP_
 #define GFS_SIM_PARAMETERS_HPP_
 
+#include <atomic>
+
 namespace gfs_sim {
 
 enum class SimState { PRE_LAUNCH, ASCENT, POP, DESCENT, LANDING, LANDED };
+
+struct SimData {
+  std::atomic<double> temperature_c{0.0};
+  std::atomic<double> pressure_mbar{0.0};
+  std::atomic<double> humidity_percent{0.0};
+
+  std::atomic<double> altitude_m{0.0};
+  std::atomic<double> vert_velocity_mps{0.0};
+  std::atomic<double> vert_accel_mps2{0.0};
+  std::atomic<double> horz_velocity_mps{0.0};
+  std::atomic<double> heading_deg{0.0};
+  std::atomic<double> latitude_deg{0.0};
+  std::atomic<double> longitude_deg{0.0};
+};
 
 inline constexpr uint32_t K_UPDATE_INTERVAL_MS = 100;
 inline constexpr uint32_t K_SLEEP_INTERVAL_MS = K_UPDATE_INTERVAL_MS / 4;

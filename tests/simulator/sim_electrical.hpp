@@ -23,7 +23,8 @@ namespace gfs_sim {
 
 class SimElectrical {
 public:
-  SimElectrical() = default;
+  SimElectrical(SimData &data) : data_(data) {
+  }
   ~SimElectrical() = default;
 
   void update(double delta_time_s) {
@@ -31,6 +32,7 @@ public:
   }
 
 private:
+  SimData &data_;
 };
 
 } // namespace gfs_sim
