@@ -14,9 +14,11 @@
  * @copyright  2024 (license to be defined)
  */
 
-#include "sim_physics.hpp"
+#include <iostream>
 
 #include <BoosterSeat/geo.hpp>
+
+#include "sim_physics.hpp"
 
 namespace gfs_sim {
 
@@ -38,7 +40,7 @@ void BalloonPhysics::updateHorizontal(double delta_time_s) {
   total_distance_ += horz_dist_moved;
   distance_since_last_coordinate_ += horz_dist_moved;
 
-  constexpr double K_COORDINATE_INTERVAL_METERS = 100.0;
+  constexpr double K_COORDINATE_INTERVAL_METERS = 50.0;
   if (distance_since_last_coordinate_ > K_COORDINATE_INTERVAL_METERS) {
     updateCoordinates(distance_since_last_coordinate_, getDirectionOfTravel());
     distance_since_last_coordinate_ = 0.0;
@@ -52,6 +54,11 @@ void BalloonPhysics::updateHorizontal(double delta_time_s) {
 }
 
 void BalloonPhysics::updateCoordinates(double distance_m, double heading) {
+  bst::geo::Point current_position(latitude_, longitude_);
+  auto new_position =
+      current_position.shootVector(heading, distance_m / 1000.0);
+  latitude_ = new_position.latitude();
+  longitude_ = new_position.longitude();
 }
 
 void BalloonPhysics::statePreLaunch() {
