@@ -35,6 +35,15 @@ struct SimData {
   std::atomic<double> heading_deg{0.0};
   std::atomic<double> latitude_deg{0.0};
   std::atomic<double> longitude_deg{0.0};
+
+  std::atomic<double> adc_ch_0{0.0};
+  std::atomic<double> adc_ch_1{0.0};
+  std::atomic<double> adc_ch_2{0.0};
+  std::atomic<double> adc_ch_3{0.0};
+  std::atomic<double> adc_ch_4{0.0};
+  std::atomic<double> adc_ch_5{0.0};
+  std::atomic<double> adc_ch_6{0.0};
+  std::atomic<double> adc_ch_7{0.0};
 };
 
 inline constexpr uint32_t K_UPDATE_INTERVAL_MS = 100;
@@ -76,7 +85,11 @@ inline constexpr double K_LANDING_ALTITUDE_METERS = 0.0;
 // -- Electrical Parameters --
 inline constexpr double K_BATTERY_VOLTAGE_FULL = 4.2;
 inline constexpr double K_BATTERY_VOLTAGE_EMPTY = 2.5;
-inline constexpr double K_BATTERY_CAPACITY_MAH = 5000;
+inline constexpr double K_BATTERY_INITIAL_SOC = 100.0;   // Percent
+inline constexpr double K_BATTERY_DISCHARGE_RATE = 0.02; // Percent per second
+inline constexpr double K_5V_BUS_VOLTAGE = 5.0;
+inline constexpr double K_3V3_BUS_VOLTAGE = 3.3;
+inline constexpr double K_4V_BUS_VOLTAGE = 4.0;
 
 } // namespace gfs_sim
 

@@ -28,10 +28,34 @@ public:
   ~SimElectrical() = default;
 
   void update(double delta_time_s) {
-    (void)delta_time_s;
+    // Update the battery soc
+    battery_soc_ -= delta_time_s * K_BATTERY_DISCHARGE_RATE;
+    adc_ch0_ =
+        (K_BATTERY_VOLTAGE_FULL - K_BATTERY_VOLTAGE_EMPTY) * battery_soc_ +
+        K_BATTERY_VOLTAGE_EMPTY;
+
+    // Update the ADC channels
+    data_.adc_ch_0 = adc_ch0_;
+    data_.adc_ch_1 = adc_ch1_;
+    data_.adc_ch_2 = adc_ch2_;
+    data_.adc_ch_3 = adc_ch3_;
+    data_.adc_ch_4 = adc_ch4_;
+    data_.adc_ch_5 = adc_ch5_;
+    data_.adc_ch_6 = adc_ch6_;
+    data_.adc_ch_7 = adc_ch7_;
   }
 
 private:
+  double battery_soc_{K_BATTERY_INITIAL_SOC};
+  double adc_ch0_ = {K_BATTERY_VOLTAGE_FULL};
+  double adc_ch1_ = {0.0}; // current sense
+  double adc_ch2_ = {K_5V_BUS_VOLTAGE};
+  double adc_ch3_ = {K_3V3_BUS_VOLTAGE};
+  double adc_ch4_ = {K_4V_BUS_VOLTAGE};
+  double adc_ch5_ = {0.0};
+  double adc_ch6_ = {0.0};
+  double adc_ch7_ = {0.0};
+
   SimData &data_;
 };
 
