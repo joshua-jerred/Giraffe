@@ -43,7 +43,46 @@ module.exports = class FlightDataHandler {
         speed: 0,
         last_update: 0,
       },
-      metadata: {},
+      metadata: {
+        source: {
+          name: "Location Source",
+          description: "The source of the current location data.",
+        },
+        valid: {
+          name: "Location Validity",
+          description: "Whether the current location data is valid.",
+        },
+        latitude: {
+          name: "Latitude",
+          units: "degrees",
+          description: "The latitude of the aircraft.",
+        },
+        longitude: {
+          name: "Longitude",
+          units: "degrees",
+          description: "The longitude of the aircraft.",
+        },
+        altitude: {
+          name: "Altitude",
+          units: "meters",
+          description: "The altitude of the aircraft.",
+        },
+        heading: {
+          name: "Heading",
+          units: "degrees",
+          description: "The heading of the aircraft.",
+        },
+        speed: {
+          name: "Speed",
+          units: "m/s",
+          description: "The speed of the aircraft.",
+        },
+        last_update: {
+          name: "Last Update",
+          units: "ms",
+          description: "The time since the last update of the location data.",
+        },
+      },
       timestamp: new Date(),
     };
 
@@ -83,7 +122,7 @@ module.exports = class FlightDataHandler {
   }
 
   update() {
-    this.last_aprs_contact = "todo";
+    // this.last_aprs_contact = "todo";
     // this.global_state.gdl_telemetry.getMostRecentAprsPositionPacket();
     this.last_gfs_gps_data =
       this.global_state.gfs_connection.getRecentLocationData();
@@ -109,13 +148,18 @@ module.exports = class FlightDataHandler {
       return;
     } else if (this.last_aprs_contact === null) {
       this.location_data.values.source = "GFS";
+      this.location_data.values.fix = this.last_gfs_gps_data.fix;
       this.location_data.values.valid = true;
       this.location_data.values.latitude = this.last_gfs_gps_data.latitude;
       this.location_data.values.longitude = this.last_gfs_gps_data.longitude;
       this.location_data.values.altitude = this.last_gfs_gps_data.altitude;
-      this.location_data.values.heading = this.last_gfs_gps_data.heading;
-      this.location_data.values.speed = this.last_gfs_gps_data.speed;
-      this.location_data.values.last_update = this.last_gfs_gps_data.timestamp;
+      this.location_data.values.heading =
+        this.last_gfs_gps_data.heading_of_motion;
+      this.location_data.values.speed = this.last_gfs_gps_data.horizontal_speed;
+      this.location_data.values.last_update =
+        this.last_gfs_gps_data.gps_utc_time;
+      this.location_data.values.vertical_speed =
+        this.last_gfs_gps_data.vertical_speed;
     } else {
       this.location_data.values.source = "APRS";
       this.location_data.values.valid = true;
