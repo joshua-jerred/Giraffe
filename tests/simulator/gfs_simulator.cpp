@@ -39,7 +39,7 @@ bool GfsSimulator::isRunning() const {
 
 void GfsSimulator::run() {
   flight_stopwatch_.start();
-  while (true) {
+  while (!stop_flag_) {
     bst::sleep(K_SLEEP_INTERVAL_MS);
     elapsed_seconds_ = flight_stopwatch_.elapsed(bst::Resolution::SECONDS);
     if (state_machine_timer_.isDone()) {

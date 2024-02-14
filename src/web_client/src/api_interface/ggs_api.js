@@ -7,10 +7,10 @@ export const useApiGetData = (
   include = "all",
   update_interval = -1
 ) => {
+  const { ggsAddress, isGgsConnected } = useContext(GwsGlobal);
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { ggsAddress, isGgsConnected } = useContext(GwsGlobal);
 
   const valid_include = ["all", "values", "metadata"];
   if (!valid_include.includes(include)) {
@@ -25,31 +25,31 @@ export const useApiGetData = (
   const encoded_category = encodeURIComponent(category);
   const path = `${ggsAddress}/api/${resource}/data?category=${encoded_category}&include=${include}`;
 
-  const fetchData = async () => {
-    setIsLoading(true);
-    if (!isGgsConnected) {
-      setError("Not connected to GGS");
-      return;
-    }
-    try {
-      const response = await fetch(path);
-      if (!response.ok) {
-        throw new Error("Failed to load metadata.");
-      }
-      const data = await response.json();
-      setData(data);
-    } catch (error) {
-      setError(error.message);
-    }
-    setIsLoading(false);
-  };
-
   useEffect(() => {
-    // if (isGgsConnected) {
-    fetchData();
-    // } else {
-    //   setError("Not connected to GGS");
-    // }
+    const fetchData = async () => {
+      setIsLoading(true);
+      if (!isGgsConnected) {
+        setError("Not connected to GGS");
+        return;
+      }
+      try {
+        const response = await fetch(path);
+        if (!response.ok) {
+          throw new Error("Failed to load metadata.");
+        }
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        setError(error.message);
+      }
+      setIsLoading(false);
+    };
+
+    if (isGgsConnected) {
+      fetchData();
+    } else {
+      setError("Not connected to GGS");
+    }
 
     if (update_interval > 0) {
       const interval = setInterval(() => {
@@ -57,7 +57,7 @@ export const useApiGetData = (
       }, update_interval);
       return () => clearInterval(interval);
     }
-  }, [isGgsConnected]);
+  }, [isGgsConnected, path, update_interval]);
 
   return { data, isLoading, error };
 };
