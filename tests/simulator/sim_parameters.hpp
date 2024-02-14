@@ -56,6 +56,12 @@ inline constexpr double K_DESCENT_DECELERATION_VARIANCE = 0.2;
 inline constexpr double K_DESCENT_TRANSITION_ALTITUDE_METERS = 10;
 // Landing Parameters
 inline constexpr double K_LANDING_ALTITUDE_METERS = 0.0;
+
+// -- Electrical Parameters --
+inline constexpr double K_BATTERY_VOLTAGE_FULL = 4.2;
+inline constexpr double K_BATTERY_VOLTAGE_EMPTY = 2.5;
+inline constexpr double K_BATTERY_CAPACITY_MAH = 5000;
+
 } // namespace gfs_sim
 
 #endif /* GFS_SIM_PARAMETERS_HPP_ */
