@@ -18,6 +18,10 @@
 
 int main() {
   gfs_sim::GfsSimulator simulator{};
-  simulator.run();
+  simulator.start();
+
+  while (simulator.isRunning()) {
+  }
+
   return 0;
 }

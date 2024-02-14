@@ -21,13 +21,13 @@
 
 namespace gfs_sim {
 
-class GfsSimElectrical {
+class SimElectrical {
 public:
-  GfsSimElectrical() = default;
-  ~GfsSimElectrical() = default;
+  SimElectrical() = default;
+  ~SimElectrical() = default;
 
   void update(double delta_time_s) {
-    // Update electrical system
+    (void)delta_time_s;
   }
 
 private:

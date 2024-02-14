@@ -20,6 +20,40 @@
 
 namespace gfs_sim {
 
+void GfsSimulator::start() {
+  stop_flag_ = false;
+  sim_thread_ = std::thread(&GfsSimulator::run, this);
+}
+
+void GfsSimulator::stop() {
+  stop_flag_ = true;
+
+  if (sim_thread_.joinable()) {
+    sim_thread_.join();
+  }
+}
+
+bool GfsSimulator::isRunning() const {
+  return !stop_flag_ || sim_thread_.joinable();
+}
+
+void GfsSimulator::run() {
+  flight_stopwatch_.start();
+  while (true) {
+    bst::sleep(K_SLEEP_INTERVAL_MS);
+    elapsed_seconds_ = flight_stopwatch_.elapsed(bst::Resolution::SECONDS);
+    if (state_machine_timer_.isDone()) {
+      physics_.update(K_DELTA_TIME_S);
+      stateMachine();
+      state_machine_timer_.reset();
+    }
+    if (print_timer_.isDone()) {
+      printData();
+      print_timer_.reset();
+    }
+  }
+}
+
 void GfsSimulator::statePreLaunch() {
   if (elapsed_seconds_ > K_PRELAUNCH_LAUNCH_DELAY_S) {
     physics_.launch();
