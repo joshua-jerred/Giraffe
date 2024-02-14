@@ -12,27 +12,16 @@ export const useApiGetData = (
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const valid_include = ["all", "values", "metadata"];
-  if (!valid_include.includes(include)) {
-    throw new Error(`Invalid include: ${include}`);
-  }
-
-  const valid_resource = ["ggs", "gfs", "gdl", "flight_data"];
-  if (!valid_resource.includes(resource)) {
-    throw new Error(`Invalid resource: ${resource}`);
-  }
-
-  const encoded_category = encodeURIComponent(category);
-  const path = `${ggsAddress}/api/${resource}/data?category=${encoded_category}&include=${include}`;
-
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      if (!isGgsConnected) {
-        setError("Not connected to GGS");
-        return;
-      }
+      // if (!isGgsConnected) {
+      // setError("Not connected to GGS");
+      // return;
+      // }
       try {
+        const encoded_category = encodeURIComponent(category);
+        const path = `${ggsAddress}/api/${resource}/data?category=${encoded_category}&include=${include}`;
         const response = await fetch(path);
         if (!response.ok) {
           throw new Error("Failed to load metadata.");
@@ -45,11 +34,11 @@ export const useApiGetData = (
       setIsLoading(false);
     };
 
-    if (isGgsConnected) {
-      fetchData();
-    } else {
-      setError("Not connected to GGS");
-    }
+    // if (isGgsConnected) {
+    fetchData();
+    // } else {
+    // setError("Not connected to GGS");
+    // }
 
     if (update_interval > 0) {
       const interval = setInterval(() => {
@@ -57,7 +46,14 @@ export const useApiGetData = (
       }, update_interval);
       return () => clearInterval(interval);
     }
-  }, [isGgsConnected, path, update_interval]);
+  }, [
+    isGgsConnected,
+    update_interval,
+    category,
+    resource,
+    ggsAddress,
+    include,
+  ]);
 
   return { data, isLoading, error };
 };
