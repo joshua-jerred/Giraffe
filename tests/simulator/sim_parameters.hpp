@@ -43,7 +43,7 @@ inline constexpr double K_ASCENT_ACCELERATION_MPS2 = 0.3;
 inline constexpr double K_ASCENT_ACCELERATION_VARIANCE = 0.1;
 inline constexpr double K_ASCENT_RATE_METERS_PER_SECOND_MAX = 8.0;
 inline constexpr double K_ASCENT_RATE_METERS_PER_SECOND_MIN = 2.5;
-inline constexpr double K_POP_ALTITUDE_METERS = 500; // 30000.0;
+inline constexpr double K_POP_ALTITUDE_METERS = 5000; // 30000.0;
 // Pop Parameters
 inline constexpr double K_POP_DESCENT_RATE_METERS_PER_SECOND_TARGET = -30.0;
 inline constexpr double K_POP_ACCELERATION_MPS2 = -7.0;

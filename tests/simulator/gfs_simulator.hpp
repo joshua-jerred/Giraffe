@@ -102,10 +102,13 @@ private:
     }
 
     fmt::print(
-        "{} {:<5.0f} alt:{:<6.0f} v/s:{:<5.1f} "
+        "{} {:<5.0f} alt:{:<6.0f} vs:{:<5.1f} hs:{:<5.1f} hd:{:<3.0f} "
+        " dst:{:<6.2f} "
         "[{:5.1f}c {:6.1f}mb {:4.1f}% {:4.1f}m/s @{:3.0f}]\n",
         state_str, elapsed_seconds_, physics_.getAltitude(),
-        physics_.getVerticalSpeed(), environment_.getTemperatureCelsius(),
+        physics_.getVerticalSpeed(), physics_.getHorizontalSpeed(),
+        physics_.getDirectionOfTravel(), (physics_.getTotalDistance() / 1000.0),
+        environment_.getTemperatureCelsius(),
         environment_.getPressureMillibars(),
         environment_.getRelativeHumidityPercent(),
         environment_.getWindSpeedMPS(), environment_.getWindDirectionDegrees());

@@ -17,6 +17,8 @@
 #ifndef GFS_SIM_PHYSICS_HPP_
 #define GFS_SIM_PHYSICS_HPP_
 
+#include <BoosterSeat/random.hpp>
+
 #include "sim_environmental.hpp"
 #include "sim_parameters.hpp"
 
@@ -27,12 +29,10 @@ public:
       : state_(state), env_(env) {
   }
 
-  void update(double delta_time_s) {
-    altitude_ += vertical_speed_ * delta_time_s;
-    vertical_speed_ += vertical_acceleration_ * delta_time_s;
-    stateMachine();
+  void update(double delta_time_s);
 
-    env_.setAltitudeMeters(altitude_);
+  void launch() {
+    launch_signal_ = true;
   }
 
   double getAltitude() const {
@@ -47,6 +47,19 @@ public:
     return vertical_acceleration_;
   }
 
+  double getHorizontalSpeed() const {
+    return horizontal_speed_;
+  }
+
+  double getDirectionOfTravel() const {
+    return direction_of_travel_;
+  }
+
+  double getTotalDistance() const {
+    return total_distance_;
+  }
+
+private:
   void setVerticalAcceleration(double vertical_acceleration) {
     vertical_acceleration_ = vertical_acceleration;
   }
@@ -55,126 +68,49 @@ public:
     horizontal_speed_ = horizontal_speed;
   }
 
+  void setDirectionOfTravel(double direction_of_travel) {
+    direction_of_travel_ = direction_of_travel;
+  }
+
   void verticalAccelerationVariation(double variance) {
     vertical_acceleration_ += bst::randomDouble(-variance, variance);
   }
 
-  void stopVertical() {
+  void updateHorizontal(double delta_time_s);
+
+  void updateCoordinates(double distance_m, double heading);
+
+  void stopTravel() {
     vertical_speed_ = 0.0;
     vertical_acceleration_ = 0.0;
+    horizontal_speed_ = 0.0;
   }
 
-  void launch() {
-    launch_signal_ = true;
-  }
+  void statePreLaunch();
+  void stateAscent();
+  void statePop();
+  void stateDescent();
+  void stateLanding();
+  void stateLanded();
+  void stateMachine();
 
-private:
   bool launch_signal_{false};
 
   double altitude_{K_START_ALTITUDE_METERS};
   double vertical_speed_{K_START_VERTICAL_SPEED_MPS};
   double vertical_acceleration_{K_START_VERTICAL_ACCELERATION_MPS2};
 
-  double horizontal_speed_{K_START_HORIZONTAL_SPEED_MPS};
   double direction_of_travel_{0.0};
-
+  double horizontal_speed_{K_START_HORIZONTAL_SPEED_MPS};
+  double total_distance_{0.0};
+  double distance_since_last_coordinate_{0.0};
   double latitude_{K_START_LATITUDE};
   double longitude_{K_START_LONGITUDE};
 
   SimState &state_;
   SimEnvironmental &env_;
-
-  void statePreLaunch() {
-    setVerticalAcceleration(0.0);
-    setHorizontalSpeed(0.0);
-    if (launch_signal_) {
-      state_ = SimState::ASCENT;
-    }
-  }
-
-  void stateAscent() {
-    // speed up to the minimum ascent rate
-    if (getVerticalSpeed() < K_ASCENT_RATE_METERS_PER_SECOND_MIN) {
-      setVerticalAcceleration(K_ASCENT_ACCELERATION_MPS2);
-    } else if (getVerticalSpeed() > K_ASCENT_RATE_METERS_PER_SECOND_MAX) {
-      setVerticalAcceleration(-K_ASCENT_ACCELERATION_MPS2);
-    } else {
-      verticalAccelerationVariation(K_ASCENT_ACCELERATION_VARIANCE);
-    }
-
-    if (getAltitude() > K_POP_ALTITUDE_METERS) {
-      state_ = SimState::POP;
-      std::cout << " -- POP -- " << std::endl;
-      setVerticalAcceleration(K_POP_ACCELERATION_MPS2);
-    }
-  }
-
-  void statePop() {
-    if (getVerticalSpeed() > K_POP_DESCENT_RATE_METERS_PER_SECOND_TARGET) {
-      verticalAccelerationVariation(K_POP_ACCELERATION_VARIANCE);
-    } else {
-      state_ = SimState::DESCENT;
-    }
-  }
-
-  void stateDescent() {
-    double descent_speed_ratio = getAltitude() / K_POP_ALTITUDE_METERS;
-    descent_speed_ratio += 0.1;
-    double target_descent_speed = K_DESCENT_RATE_METERS_PER_SECOND_MIN +
-                                  (K_DESCENT_RATE_METERS_PER_SECOND_MAX -
-                                   K_DESCENT_RATE_METERS_PER_SECOND_MIN) *
-                                      descent_speed_ratio * -1.0;
-    if (target_descent_speed > K_DESCENT_RATE_METERS_PER_SECOND_MIN * -1.0) {
-      target_descent_speed = -K_DESCENT_RATE_METERS_PER_SECOND_MIN;
-    }
-    // going too fast
-    if (getVerticalSpeed() < target_descent_speed) {
-      setVerticalAcceleration(K_DESCENT_DECELERATION_MPS2);
-      // physics_.verticalAccelerationVariation(K_DESCENT_DECELERATION_VARIANCE);
-    } else { // going too slow
-      setVerticalAcceleration(-0.1);
-      // physics_.verticalVariation(K_DESCENT_DECELERATION_VARIANCE);
-    }
-
-    if (getAltitude() <
-        K_LANDING_ALTITUDE_METERS + K_DESCENT_TRANSITION_ALTITUDE_METERS) {
-      state_ = SimState::LANDING;
-    }
-  }
-
-  void stateLanding() {
-    if (getAltitude() < K_LANDING_ALTITUDE_METERS + 0.3) {
-      stopVertical();
-      state_ = SimState::LANDED;
-    }
-  }
-
-  void stateLanded() {
-  }
-
-  void stateMachine() {
-    switch (state_) {
-    case SimState::PRE_LAUNCH:
-      statePreLaunch();
-      break;
-    case SimState::ASCENT:
-      stateAscent();
-      break;
-    case SimState::POP:
-      statePop();
-      break;
-    case SimState::DESCENT:
-      stateDescent();
-      break;
-    case SimState::LANDING:
-      stateLanding();
-      break;
-    case SimState::LANDED:
-      stateLanded();
-      break;
-    }
-  }
 };
+
 } // namespace gfs_sim
 
 #endif /* GFS_SIM_PHYSICS_HPP_ */
