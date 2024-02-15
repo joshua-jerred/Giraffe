@@ -499,6 +499,11 @@
       "name":"Pi Camera Capture Failure",
       "details":"The Pi Camera extension failed to capture an image.",
       "value": "0x500E"
+    },
+    "samm8q_invalid_time": {
+      "name":"SAMM8Q Invalid Time",
+      "details":"The SAM-M8Q extension failed upon trying to convert the time into a C++ time object.",
+      "value": "0x500F"
     }
   },
   "flight_runner": {

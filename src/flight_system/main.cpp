@@ -56,7 +56,8 @@ int main() {
 #ifndef DNDEBUG // If debug mode is enabled.
 void __assert_func(const char *file_name, int line_number,
                    const char *expression) {
-  flight.shutdown();
+  // flight.shutdown(); /// @todo Figure out why this was done. This causes wild
+  // problems.
   printf("ASSERT: %s:%d: Assertion `%s' failed.\n", file_name, line_number,
          expression);
 }
