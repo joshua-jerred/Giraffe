@@ -118,11 +118,10 @@ $(document).ready(function(){initNavTree('extension__module_8cpp.html',''); init
 <code>#include &quot;<a class="el" href="mcp3021_8hpp_source.html">mcp3021.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="rgb__status__led_8hpp_source.html">rgb_status_led.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="samm8q_8hpp_source.html">samm8q.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="simulated__extensions_8hpp_source.html">simulated_extensions.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for extension_module.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="extension__module_8cpp__incl.svg" width="1812" height="710"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="extension__module_8cpp__incl.svg" width="2018" height="859"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -133,8 +132,6 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ac6122054c571d7d5fd6eaa27ba2fe80b"><td class="memItemLeft" align="right" valign="top">static const std::vector&lt; <a class="el" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="extension__module_8cpp.html#ac6122054c571d7d5fd6eaa27ba2fe80b">K_SIMULATED_EXTENSIONS_VEC</a></td></tr>
-<tr class="separator:ac6122054c571d7d5fd6eaa27ba2fe80b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e83e659995422a36f7c912970b57e68"><td class="memItemLeft" align="right" valign="top">static MetaData&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemodules.html#a2e83e659995422a36f7c912970b57e68">modules::metadata</a> (&quot;extension_module&quot;, node::Identification::EXTENSION_MODULE, 100)</td></tr>
 <tr class="separator:a2e83e659995422a36f7c912970b57e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -144,45 +141,7 @@ Variables</h2></td></tr>
 <p>=*=======================*= </p><dl class="section author"><dt>Author</dt><dd>Joshua Jerred (<a href="https://joshuajer.red">https://joshuajer.red</a>) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-06-12 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>2023 (license to be defined) </dd></dl>
-</div><h2 class="groupheader">Variable Documentation</h2>
-<a id="ac6122054c571d7d5fd6eaa27ba2fe80b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6122054c571d7d5fd6eaa27ba2fe80b">&#9670;&nbsp;</a></span>K_SIMULATED_EXTENSIONS_VEC</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt;<a class="el" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>&gt; K_SIMULATED_EXTENSIONS_VEC</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{</div>
-<div class="line">        <span class="stringliteral">&quot;sim_temp&quot;</span>, <span class="keyword">true</span>, cfg::gEnum::ExtensionType::SIM_TEMP, 1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
-<div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{</div>
-<div class="line">        <span class="stringliteral">&quot;sim_pres&quot;</span>, <span class="keyword">true</span>, cfg::gEnum::ExtensionType::SIM_PRES, 1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
-<div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{<span class="stringliteral">&quot;sim_hum&quot;</span>, <span class="keyword">true</span>, cfg::gEnum::ExtensionType::SIM_HUM,</div>
-<div class="line">                           1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
-<div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{<span class="stringliteral">&quot;sim_gps&quot;</span>, <span class="keyword">true</span>, cfg::gEnum::ExtensionType::SIM_GPS,</div>
-<div class="line">                           1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
-<div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{<span class="stringliteral">&quot;sim_imu&quot;</span>, <span class="keyword">true</span>, cfg::gEnum::ExtensionType::SIM_IMU,</div>
-<div class="line">                           1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
-<div class="line">}</div>
-<div class="ttc" id="astructcfg_1_1ExtensionMetadata_html"><div class="ttname"><a href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a></div><div class="ttdoc">The metadata for an extension.</div><div class="ttdef"><b>Definition:</b> cfg_extensions.hpp:27</div></div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">modules::ExtensionModule::startup()</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

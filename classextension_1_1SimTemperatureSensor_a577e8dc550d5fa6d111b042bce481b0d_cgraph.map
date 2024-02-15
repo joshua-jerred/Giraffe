@@ -1,6 +1,0 @@
-<map id="extension::SimTemperatureSensor::loop" name="extension::SimTemperatureSensor::loop">
-<area shape="rect" id="node1" title=" " alt="" coords="5,23,207,65"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="255,23,413,65"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="461,5,641,32"/>
-<area shape="rect" id="node4" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="497,56,605,83"/>
-</map>

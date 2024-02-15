@@ -12,11 +12,6 @@ var namespaceextension =
     [ "PiCamera", "classextension_1_1PiCamera.html", "classextension_1_1PiCamera" ],
     [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ],
     [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ],
-    [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],
-    [ "SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", "classextension_1_1SimHumiditySensor" ],
-    [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],
-    [ "SimPressureSensor", "classextension_1_1SimPressureSensor.html", "classextension_1_1SimPressureSensor" ],
-    [ "SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", "classextension_1_1SimTemperatureSensor" ],
     [ "AdcType", "namespaceextension.html#aa5891a3aa6702efdece92bf561d17208", [
       [ "RAW_COUNT", "namespaceextension.html#aa5891a3aa6702efdece92bf561d17208aaa5db4381426a88461ad4ebe782d04fc", null ],
       [ "PERCENTAGE", "namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a21ee69ba26b6e644d4dddce593855d84", null ],

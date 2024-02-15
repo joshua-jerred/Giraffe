@@ -1,52 +1,52 @@
 <map id="util::to_string" name="util::to_string">
-<area shape="rect" id="node1" title=" " alt="" coords="825,1242,933,1269"/>
-<area shape="rect" id="node2" href="$structgiraffe_1_1Gpio_1_1Pin.html#a99a0fe69fe4560169ec0e27318720d60" title="Create a new pin struct." alt="" coords="579,289,737,315"/>
-<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html#a13de2ec04ae048529fcfe91c95272b97" title="Use existing data to calculate the data that can be calculated." alt="" coords="563,340,753,381"/>
-<area shape="rect" id="node4" href="$classconsole__pages_1_1Pages.html#a4b0ae50da4241115a3acfca9f0c4e306" title=" " alt="" coords="576,1136,740,1177"/>
-<area shape="rect" id="node6" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="579,457,737,499"/>
-<area shape="rect" id="node11" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="301,5,458,47"/>
-<area shape="rect" id="node22" href="$classmodules_1_1Module.html#ae3745aa2ab9ed49ad46f198c6280852e" title="Used internally in the module. This function adds a data to the data stream." alt="" coords="573,589,743,615"/>
-<area shape="rect" id="node23" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="579,640,737,681"/>
-<area shape="rect" id="node24" href="$classmodules_1_1Module.html#a2d64fd89764378e46ffc96cce45953db" title="Same as the other error function, but takes an int instead of a string." alt="" coords="571,706,745,733"/>
-<area shape="rect" id="node25" href="$classdata_1_1LogStream.html#a2e520b1959831d7eb0a0d4c586292e94" title=" " alt="" coords="549,757,767,799"/>
-<area shape="rect" id="node26" href="$classconsole__pages_1_1Pages.html#a815a74fc95295c02b4638fa47b03e18d" title=" " alt="" coords="576,1747,740,1788"/>
-<area shape="rect" id="node27" href="$classconsole__pages_1_1Pages.html#aa3dd00ba1c736892c991d7d4f461bfe0" title=" " alt="" coords="576,1980,740,2021"/>
-<area shape="rect" id="node28" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="576,523,740,564"/>
-<area shape="rect" id="node31" href="$structdata__middleware_1_1InfluxLine.html#ab668667e88a106ae046e81d6fe779fa7" title=" " alt="" coords="555,1019,761,1060"/>
-<area shape="rect" id="node32" href="$influxdb_8cpp.html#a72945fb4d8ea1727ad479c78048bd0e0" title=" " alt="" coords="605,1085,711,1111"/>
-<area shape="rect" id="node33" href="$classconsole__pages_1_1Pages.html#a27c3adbf55be9c5165077caed2c01b57" title=" " alt="" coords="576,823,740,864"/>
-<area shape="rect" id="node34" href="$classconsole__pages_1_1Pages.html#a141ef59324d5cd73c9f39488ab0fa363" title=" " alt="" coords="576,888,740,929"/>
-<area shape="rect" id="node35" href="$classdata__middleware_1_1InfluxDb.html#a1c9b38266a11676e158a34d652bcaf69" title=" " alt="" coords="559,1267,757,1308"/>
-<area shape="rect" id="node36" href="$classdata__middleware_1_1InfluxDb.html#adc204b9bf0e4eff914bfd68e51383c9e" title=" " alt="" coords="559,1332,757,1373"/>
-<area shape="rect" id="node37" href="$classdata__middleware_1_1DataFormatter.html#aa1d67f3593467a202659b221472cab9f" title=" " alt="" coords="539,1397,777,1439"/>
-<area shape="rect" id="node38" href="$classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed" title="Process commands that are received from the flight runner." alt="" coords="559,1463,757,1504"/>
-<area shape="rect" id="node39" href="$classmodules_1_1DataModule.html#a22e5c03008cb6d2015dd0097869f2fa3" title="Process all packets from the log stream." alt="" coords="575,1528,741,1569"/>
-<area shape="rect" id="node40" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="589,1594,727,1621"/>
-<area shape="rect" id="node41" href="$classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4" title="Release a pin for use by another instance." alt="" coords="569,1645,747,1671"/>
-<area shape="rect" id="node42" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="561,1695,755,1722"/>
-<area shape="rect" id="node43" href="$classconsole__pages_1_1Pages.html#a67d35ee34832ada202ae3efbba51ac7b" title=" " alt="" coords="576,953,740,995"/>
-<area shape="rect" id="node44" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="553,1813,763,1839"/>
-<area shape="rect" id="node45" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="575,1863,741,1890"/>
-<area shape="rect" id="node46" href="$group__ServerModule.html#a76c8c341c2e0e2034fa8af0c9d92f75b" title="Startup the server module." alt="" coords="570,1915,746,1956"/>
-<area shape="rect" id="node47" href="$classconsole__pages_1_1Pages.html#a1e0b526a42fa362aa87bb4b9d37ae687" title=" " alt="" coords="576,1201,740,1243"/>
-<area shape="rect" id="node48" href="$namespaceutil.html#a7864f641801f7a53e32c35e54b9cc7f1" title=" " alt="" coords="609,2046,707,2073"/>
-<area shape="rect" id="node49" href="$namespaceutil.html#a7e499751b8586812fa2eec60bdc2dfe6" title=" " alt="" coords="604,2097,712,2123"/>
-<area shape="rect" id="node50" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="587,2147,729,2174"/>
-<area shape="rect" id="node5" href="$classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14" title=" " alt="" coords="297,1136,461,1177"/>
-<area shape="rect" id="node7" href="$classextension_1_1AdcExtensionBase.html#ab11b609d90a14f558df951d28bc42d85" title=" " alt="" coords="5,224,220,265"/>
-<area shape="rect" id="node8" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="21,635,205,662"/>
-<area shape="rect" id="node9" href="$classextension_1_1Bmi088.html#a785010dddb7e8d5335d8e44bbbc92905" title=" " alt="" coords="289,435,469,462"/>
-<area shape="rect" id="node10" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="304,487,455,528"/>
-<area shape="rect" id="node12" href="$classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d" title=" " alt="" coords="279,552,480,593"/>
-<area shape="rect" id="node13" href="$classextension_1_1SimPressureSensor.html#aaf5a09dba391f216ca5ee5a7890a1e85" title=" " alt="" coords="270,617,489,659"/>
-<area shape="rect" id="node14" href="$classextension_1_1SimHumiditySensor.html#a59e5059ebb6e2e81ca3a6ef30a632456" title=" " alt="" coords="268,683,491,724"/>
-<area shape="rect" id="node15" href="$classextension_1_1SimGpsSensor.html#a80265d0b8468fc4e90a46409a6178ab2" title=" " alt="" coords="285,748,473,789"/>
-<area shape="rect" id="node16" href="$classextension_1_1SimImuSensor.html#a1acef31a7be54226957d58d2f9d174d1" title=" " alt="" coords="285,813,473,855"/>
-<area shape="rect" id="node17" href="$classextension_1_1AdcExtensionBase.html#acc1cba94f6676036181990cb2e0296d3" title=" " alt="" coords="272,253,487,295"/>
-<area shape="rect" id="node18" href="$classextension_1_1Bme280.html#a216c4ae77daca7a479a9eba281e8dbd4" title="Reads the raw environmental data from the BME280." alt="" coords="291,879,468,920"/>
-<area shape="rect" id="node19" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="300,136,459,177"/>
-<area shape="rect" id="node20" href="$classextension_1_1AdcExtensionBase.html#ad0be2808763e50886aeecd7de1e344a0" title=" " alt="" coords="272,319,487,360"/>
-<area shape="rect" id="node21" href="$classextension_1_1AdcExtensionBase.html#a8dfeb20998d7257afac6e381e5351d30" title=" " alt="" coords="272,71,487,112"/>
-<area shape="rect" id="node29" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7cc778f8170363add8e6812bb04c019e" title=" " alt="" coords="297,944,461,985"/>
-<area shape="rect" id="node30" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a6e3b9922addcc9e0104c7dc0b7cf3c62" title=" " alt="" coords="297,1009,461,1051"/>
+<area shape="rect" id="node1" title=" " alt="" coords="817,1119,925,1146"/>
+<area shape="rect" id="node2" href="$structgiraffe_1_1Gpio_1_1Pin.html#a99a0fe69fe4560169ec0e27318720d60" title="Create a new pin struct." alt="" coords="571,166,729,193"/>
+<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html#a13de2ec04ae048529fcfe91c95272b97" title="Use existing data to calculate the data that can be calculated." alt="" coords="555,217,745,259"/>
+<area shape="rect" id="node4" href="$classconsole__pages_1_1Pages.html#a4b0ae50da4241115a3acfca9f0c4e306" title=" " alt="" coords="568,896,732,937"/>
+<area shape="rect" id="node6" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="571,335,729,376"/>
+<area shape="rect" id="node11" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="297,5,454,47"/>
+<area shape="rect" id="node17" href="$classmodules_1_1Module.html#ae3745aa2ab9ed49ad46f198c6280852e" title="Used internally in the module. This function adds a data to the data stream." alt="" coords="565,466,735,493"/>
+<area shape="rect" id="node18" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="571,517,729,559"/>
+<area shape="rect" id="node19" href="$classmodules_1_1Module.html#a2d64fd89764378e46ffc96cce45953db" title="Same as the other error function, but takes an int instead of a string." alt="" coords="563,583,737,610"/>
+<area shape="rect" id="node20" href="$classdata_1_1LogStream.html#a2e520b1959831d7eb0a0d4c586292e94" title=" " alt="" coords="541,635,759,676"/>
+<area shape="rect" id="node21" href="$classconsole__pages_1_1Pages.html#a815a74fc95295c02b4638fa47b03e18d" title=" " alt="" coords="568,1079,732,1120"/>
+<area shape="rect" id="node22" href="$classconsole__pages_1_1Pages.html#aa3dd00ba1c736892c991d7d4f461bfe0" title=" " alt="" coords="568,1405,732,1447"/>
+<area shape="rect" id="node23" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="568,400,732,441"/>
+<area shape="rect" id="node27" href="$structdata__middleware_1_1InfluxLine.html#ab668667e88a106ae046e81d6fe779fa7" title=" " alt="" coords="547,1640,753,1681"/>
+<area shape="rect" id="node29" href="$influxdb_8cpp.html#a72945fb4d8ea1727ad479c78048bd0e0" title=" " alt="" coords="597,962,703,989"/>
+<area shape="rect" id="node30" href="$classconsole__pages_1_1Pages.html#a27c3adbf55be9c5165077caed2c01b57" title=" " alt="" coords="568,700,732,741"/>
+<area shape="rect" id="node31" href="$classconsole__pages_1_1Pages.html#a141ef59324d5cd73c9f39488ab0fa363" title=" " alt="" coords="568,765,732,807"/>
+<area shape="rect" id="node32" href="$classdata__middleware_1_1InfluxDb.html#a1c9b38266a11676e158a34d652bcaf69" title=" " alt="" coords="551,1144,749,1185"/>
+<area shape="rect" id="node33" href="$classdata__middleware_1_1InfluxDb.html#adc204b9bf0e4eff914bfd68e51383c9e" title=" " alt="" coords="551,1209,749,1251"/>
+<area shape="rect" id="node34" href="$classdata__middleware_1_1DataFormatter.html#aa1d67f3593467a202659b221472cab9f" title=" " alt="" coords="531,1275,769,1316"/>
+<area shape="rect" id="node35" href="$classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed" title="Process commands that are received from the flight runner." alt="" coords="551,1340,749,1381"/>
+<area shape="rect" id="node36" href="$classmodules_1_1DataModule.html#a22e5c03008cb6d2015dd0097869f2fa3" title="Process all packets from the log stream." alt="" coords="567,1523,733,1564"/>
+<area shape="rect" id="node38" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="581,1471,719,1498"/>
+<area shape="rect" id="node39" href="$classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4" title="Release a pin for use by another instance." alt="" coords="561,1925,739,1951"/>
+<area shape="rect" id="node41" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="553,1874,747,1901"/>
+<area shape="rect" id="node43" href="$classconsole__pages_1_1Pages.html#a67d35ee34832ada202ae3efbba51ac7b" title=" " alt="" coords="568,831,732,872"/>
+<area shape="rect" id="node44" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="545,1706,755,1733"/>
+<area shape="rect" id="node45" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="567,1757,733,1783"/>
+<area shape="rect" id="node46" href="$group__ServerModule.html#a76c8c341c2e0e2034fa8af0c9d92f75b" title="Startup the server module." alt="" coords="562,1808,738,1849"/>
+<area shape="rect" id="node47" href="$classconsole__pages_1_1Pages.html#a1e0b526a42fa362aa87bb4b9d37ae687" title=" " alt="" coords="568,1013,732,1055"/>
+<area shape="rect" id="node48" href="$namespaceutil.html#a7864f641801f7a53e32c35e54b9cc7f1" title=" " alt="" coords="601,1589,699,1615"/>
+<area shape="rect" id="node49" href="$namespaceutil.html#a7e499751b8586812fa2eec60bdc2dfe6" title=" " alt="" coords="596,1975,704,2002"/>
+<area shape="rect" id="node50" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="579,2026,721,2053"/>
+<area shape="rect" id="node5" href="$classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14" title=" " alt="" coords="293,896,457,937"/>
+<area shape="rect" id="node7" href="$classextension_1_1AdcExtensionBase.html#ab11b609d90a14f558df951d28bc42d85" title=" " alt="" coords="5,425,220,467"/>
+<area shape="rect" id="node8" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="21,101,205,127"/>
+<area shape="rect" id="node9" href="$classextension_1_1Bmi088.html#a785010dddb7e8d5335d8e44bbbc92905" title=" " alt="" coords="285,189,465,215"/>
+<area shape="rect" id="node10" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="300,240,451,281"/>
+<area shape="rect" id="node12" href="$classextension_1_1AdcExtensionBase.html#acc1cba94f6676036181990cb2e0296d3" title=" " alt="" coords="268,553,483,595"/>
+<area shape="rect" id="node13" href="$classextension_1_1Bme280.html#a216c4ae77daca7a479a9eba281e8dbd4" title="Reads the raw environmental data from the BME280." alt="" coords="287,123,464,164"/>
+<area shape="rect" id="node14" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="296,423,455,464"/>
+<area shape="rect" id="node15" href="$classextension_1_1AdcExtensionBase.html#ad0be2808763e50886aeecd7de1e344a0" title=" " alt="" coords="268,305,483,347"/>
+<area shape="rect" id="node16" href="$classextension_1_1AdcExtensionBase.html#a8dfeb20998d7257afac6e381e5351d30" title=" " alt="" coords="268,488,483,529"/>
+<area shape="rect" id="node24" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7cc778f8170363add8e6812bb04c019e" title=" " alt="" coords="293,619,457,660"/>
+<area shape="rect" id="node25" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a6e3b9922addcc9e0104c7dc0b7cf3c62" title=" " alt="" coords="293,684,457,725"/>
+<area shape="rect" id="node26" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a548f7a1170b29a673ec85eaba09b0cb3" title=" " alt="" coords="287,749,463,791"/>
+<area shape="rect" id="node28" href="$classdata__middleware_1_1InfluxDb.html#a1e38c0c28d3f93307d307198b9506ff0" title=" " alt="" coords="277,1615,474,1656"/>
+<area shape="rect" id="node37" href="$classmodules_1_1DataModule.html#ac24fdcd1442cbc107fcc427e14ddd328" title="Processes all of the data streams and updates the data block that contains the stream stats." alt="" coords="293,1523,458,1564"/>
+<area shape="rect" id="node40" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="284,1972,467,2013"/>
+<area shape="rect" id="node42" href="$data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="348,1874,403,1901"/>
 </map>

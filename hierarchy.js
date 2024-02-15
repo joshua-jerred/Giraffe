@@ -67,12 +67,7 @@ var hierarchy =
       [ "extension::Ds18b20", "classextension_1_1Ds18b20.html", null ],
       [ "extension::PiCamera", "classextension_1_1PiCamera.html", null ],
       [ "extension::RgbStatusLed", "classextension_1_1RgbStatusLed.html", null ],
-      [ "extension::SamM8q", "classextension_1_1SamM8q.html", null ],
-      [ "extension::SimGpsSensor", "classextension_1_1SimGpsSensor.html", null ],
-      [ "extension::SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", null ],
-      [ "extension::SimImuSensor", "classextension_1_1SimImuSensor.html", null ],
-      [ "extension::SimPressureSensor", "classextension_1_1SimPressureSensor.html", null ],
-      [ "extension::SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", null ]
+      [ "extension::SamM8q", "classextension_1_1SamM8q.html", null ]
     ] ],
     [ "extension::ExtensionResources", "structextension_1_1ExtensionResources.html", null ],
     [ "extension::I2cExtensionAdapter", "classextension_1_1I2cExtensionAdapter.html", [

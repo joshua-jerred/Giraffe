@@ -225,13 +225,6 @@ var files_dup =
     [ "server_module.cpp", "server__module_8cpp.html", "server__module_8cpp" ],
     [ "server_module.hpp", "server__module_8hpp.html", null ],
     [ "shared_data.hpp", "shared__data_8hpp.html", "shared__data_8hpp" ],
-    [ "simulated_extensions.hpp", "simulated__extensions_8hpp.html", [
-      [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],
-      [ "SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", "classextension_1_1SimHumiditySensor" ],
-      [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],
-      [ "SimPressureSensor", "classextension_1_1SimPressureSensor.html", "classextension_1_1SimPressureSensor" ],
-      [ "SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", "classextension_1_1SimTemperatureSensor" ]
-    ] ],
     [ "socket.cpp", "socket_8cpp.html", null ],
     [ "socket.hpp", "socket_8hpp.html", "socket_8hpp" ],
     [ "spi_interface.cpp", "spi__interface_8cpp.html", null ],

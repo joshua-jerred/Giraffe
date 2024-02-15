@@ -69,12 +69,7 @@ var annotated_dup =
       [ "Mcp3021", "classextension_1_1Mcp3021.html", "classextension_1_1Mcp3021" ],
       [ "PiCamera", "classextension_1_1PiCamera.html", "classextension_1_1PiCamera" ],
       [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ],
-      [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ],
-      [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],
-      [ "SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", "classextension_1_1SimHumiditySensor" ],
-      [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],
-      [ "SimPressureSensor", "classextension_1_1SimPressureSensor.html", "classextension_1_1SimPressureSensor" ],
-      [ "SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", "classextension_1_1SimTemperatureSensor" ]
+      [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ]
     ] ],
     [ "giraffe", "namespacegiraffe.html", [
       [ "gdl", "namespacegiraffe_1_1gdl.html", [
