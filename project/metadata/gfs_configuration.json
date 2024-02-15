@@ -643,6 +643,7 @@
                 "sim_gps",
                 "sim_bat",
                 "sim_imu",
+                "sim_adc",
                 "bmp180",
                 "bme280",
                 "sam_m8q",

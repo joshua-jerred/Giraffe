@@ -113,6 +113,7 @@ export function DataBlock({ resource, category, update_interval = 3000 }) {
   );
 
   const [items, setItems] = React.useState({});
+  const [secondsSinceLastUpdate, setSecondsSinceLastUpdate] = React.useState(0);
 
   // items structure:
   // {
@@ -122,8 +123,6 @@ export function DataBlock({ resource, category, update_interval = 3000 }) {
   //    "description": "A description of the data item"
   //    }
   // }
-
-  const [secondsSinceLastUpdate, setSecondsSinceLastUpdate] = React.useState(0);
 
   React.useEffect(() => {
     if (isDataLoading || data === null || data === null) {

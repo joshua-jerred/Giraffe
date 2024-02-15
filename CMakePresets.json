@@ -42,7 +42,7 @@
       },
       "environment": {
         "RASPBERRY_PI": "1",
-        "SIMULATED_EXTENSIONS": "1"
+        "RUN_IN_SIMULATOR": "1"
       }
     }
   ]

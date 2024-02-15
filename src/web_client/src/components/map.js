@@ -1,6 +1,6 @@
 // import styled from "styled-components";
 import { useState, useEffect, useContext } from "react";
-import { GGS_API } from "../api_interface/ggs_api";
+// import { GGS_API } from "../api_interface/ggs_api";
 import { GwsGlobal } from "../GlobalContext";
 
 import { MapContainer, TileLayer, useMap, Circle } from "react-leaflet";
@@ -24,25 +24,25 @@ export function Map() {
     return null;
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     fetch(`http://${ggsAddress}/api/flight_data/data?category=location`)
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         if (data.values.latitude === undefined) {
-  //           return;
-  //         }
-  //         setPosition({
-  //           lat: data.values.latitude,
-  //           lng: data.values.longitude,
-  //         });
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   }, 1000);
-  //   return () => clearInterval(interval);
-  // }, [ggsAddress, ggsConnectionStatus]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch(`${ggsAddress}/api/flight_data/data?category=location`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.values.latitude === undefined) {
+            return;
+          }
+          setPosition({
+            lat: data.values.latitude,
+            lng: data.values.longitude,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [ggsAddress]);
 
   return (
     <div style={{ display: "block" }}>

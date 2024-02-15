@@ -75,9 +75,12 @@ target_include_directories(
   ${THIRD_PARTY_SRC}/nlohmann_json/single_include
 )
 
-if(DEFINED ENV{SIMULATED_EXTENSIONS})
-  if ($ENV{SIMULATED_EXTENSIONS} EQUAL "1")
-    message(STATUS "=== Simulated Extensions Enabled")
-    target_compile_definitions(${EXE_NAME} PRIVATE SIMULATED_EXTENSIONS=1)
+if(DEFINED ENV{RUN_IN_SIMULATOR})
+  if ($ENV{RUN_IN_SIMULATOR} EQUAL "1")
+    message(STATUS "=========================")
+    message(STATUS "=== Simulator Enabled ===")
+    message(STATUS "=========================")
+    target_compile_definitions(${EXE_NAME} PRIVATE RUN_IN_SIMULATOR=1)
+    target_link_libraries(${EXE_NAME} gfs_simulator)
   endif()
 endif()

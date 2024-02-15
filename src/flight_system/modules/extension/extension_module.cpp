@@ -24,21 +24,11 @@
 #include "mcp3021.hpp"
 #include "rgb_status_led.hpp"
 #include "samm8q.hpp"
-#include "simulated_extensions.hpp"
 // --------------------
 
-static const std::vector<cfg::ExtensionMetadata> K_SIMULATED_EXTENSIONS_VEC = {
-    cfg::ExtensionMetadata{
-        "sim_temp", true, cfg::gEnum::ExtensionType::SIM_TEMP, 1000, false, ""},
-    cfg::ExtensionMetadata{
-        "sim_pres", true, cfg::gEnum::ExtensionType::SIM_PRES, 1000, false, ""},
-    cfg::ExtensionMetadata{"sim_hum", true, cfg::gEnum::ExtensionType::SIM_HUM,
-                           1000, false, ""},
-    cfg::ExtensionMetadata{"sim_gps", true, cfg::gEnum::ExtensionType::SIM_GPS,
-                           1000, false, ""},
-    cfg::ExtensionMetadata{"sim_imu", true, cfg::gEnum::ExtensionType::SIM_IMU,
-                           1000, false, ""},
-};
+#if RUN_IN_SIMULATOR == 1
+#include "simulated_extensions.hpp"
+#endif
 
 namespace modules {
 
@@ -57,8 +47,8 @@ void ExtensionModule::startup() {
   updateLocalConfig(); // Load in the config for the extension.
 
 // Load in the simulated extensions.
-#ifdef SIMULATED_EXTENSIONS
-  for (auto &ext_meta : K_SIMULATED_EXTENSIONS_VEC) {
+#ifdef RUN_IN_SIMULATOR
+  for (auto &ext_meta : extension::K_SIMULATED_EXTENSIONS_VEC) {
     // Create the extension.
     auto extension = createExtension(ext_meta);
     if (!extension.has_value()) {
@@ -155,6 +145,7 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
   switch (meta.type) {
   case cfg::gEnum::ExtensionType::UNKNOWN: // generally means config error
     return option;
+#if RUN_IN_SIMULATOR == 1
   case cfg::gEnum::ExtensionType::SIM_TEMP:
     extension = std::make_shared<extension::SimTemperatureSensor>(
         extension_resources_, meta);
@@ -175,6 +166,11 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
     extension =
         std::make_shared<extension::SimImuSensor>(extension_resources_, meta);
     break;
+  case cfg::gEnum::ExtensionType::SIM_ADC:
+    extension =
+        std::make_shared<extension::SimAdcSensor>(extension_resources_, meta);
+    break;
+#endif
   case cfg::gEnum::ExtensionType::RGB_LED:
     extension =
         std::make_shared<extension::RgbStatusLed>(extension_resources_, meta);

@@ -18,30 +18,37 @@
 #ifndef SIMULATED_EXTENSIONS_HPP_
 #define SIMULATED_EXTENSIONS_HPP_
 
+#include "gfs_simulator.hpp"
+
 #include "extension_base.hpp"
 
 namespace extension {
+
+static const std::vector<cfg::ExtensionMetadata> K_SIMULATED_EXTENSIONS_VEC = {
+    cfg::ExtensionMetadata{
+        "sim_temp", true, cfg::gEnum::ExtensionType::SIM_TEMP, 1000, false, ""},
+    cfg::ExtensionMetadata{
+        "sim_pres", true, cfg::gEnum::ExtensionType::SIM_PRES, 1000, false, ""},
+    cfg::ExtensionMetadata{"sim_hum", true, cfg::gEnum::ExtensionType::SIM_HUM,
+                           1000, false, ""},
+    cfg::ExtensionMetadata{"sim_gps", true, cfg::gEnum::ExtensionType::SIM_GPS,
+                           1000, false, ""},
+    cfg::ExtensionMetadata{"sim_imu", true, cfg::gEnum::ExtensionType::SIM_IMU,
+                           1000, false, ""},
+    cfg::ExtensionMetadata{"sim_adc", true, cfg::gEnum::ExtensionType::SIM_ADC,
+                           1000, false, ""},
+};
+
 class SimTemperatureSensor : public Extension {
 public:
   SimTemperatureSensor(ExtensionResources &resources,
                        cfg::ExtensionMetadata metadata)
       : Extension(resources, metadata) {
   }
-
   void loop() override {
-    data(data::DataId::ENVIRONMENTAL_temperature, temperature_);
-    temperature_ += increasing_ ? 0.1 : -0.1;
-
-    if (temperature_ > 30) {
-      increasing_ = false;
-    } else if (temperature_ < -30) {
-      increasing_ = true;
-    }
+    double temp = g_GFS_SIMULATOR.getTemperatureC();
+    data(data::DataId::ENVIRONMENTAL_temperature, temp);
   }
-
-private:
-  double temperature_ = 20.0;
-  bool increasing_ = false;
 };
 
 class SimPressureSensor : public Extension {
@@ -50,21 +57,10 @@ public:
                     cfg::ExtensionMetadata metadata)
       : Extension(resources, metadata) {
   }
-
   void loop() override {
-    data(data::DataId::ENVIRONMENTAL_pressure, pressure_);
-    pressure_ += increasing_ ? 0.5 : -0.5;
-
-    if (pressure_ > 1000) {
-      increasing_ = false;
-    } else if (pressure_ < 100) {
-      increasing_ = true;
-    }
+    double pressure = g_GFS_SIMULATOR.getPressureMbar();
+    data(data::DataId::ENVIRONMENTAL_pressure, pressure);
   }
-
-private:
-  double pressure_ = 1000.0;
-  bool increasing_ = false;
 };
 
 class SimHumiditySensor : public Extension {
@@ -75,52 +71,36 @@ public:
   }
 
   void loop() override {
-    data(data::DataId::ENVIRONMENTAL_humidity, rh_);
-    rh_ += increasing_ ? 0.1 : -0.1;
-
-    if (rh_ > 99) {
-      increasing_ = false;
-    } else if (rh_ < 2) {
-      increasing_ = true;
-    }
+    double rh = g_GFS_SIMULATOR.getHumidityPercent();
+    data(data::DataId::ENVIRONMENTAL_humidity, rh);
   }
-
-private:
-  double rh_ = 100.0;
-  bool increasing_ = false;
 };
 
 class SimGpsSensor : public Extension {
 public:
   SimGpsSensor(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
       : Extension(resources, metadata) {
+  }
+
+  void loop() override {
+    data::GpsFrame gps_frame{};
+
     gps_frame.gps_utc_time = bst::clck::now();
     gps_frame.is_valid = true;
     gps_frame.fix = data::GpsFix::FIX_3D;
     gps_frame.num_satellites = 10;
-    gps_frame.latitude = 40.0;
-    gps_frame.longitude = -80.0;
+    gps_frame.latitude = g_GFS_SIMULATOR.getLatitudeDeg();
+    gps_frame.longitude = g_GFS_SIMULATOR.getLongitudeDeg();
     gps_frame.horz_accuracy = 5.0;
-    gps_frame.altitude = 1000.0;
+    gps_frame.altitude = g_GFS_SIMULATOR.getAltitudeM();
     gps_frame.vert_accuracy = 1.0;
-    gps_frame.vertical_speed = 5.0;
-    gps_frame.horizontal_speed = 5.0;
+    gps_frame.vertical_speed = g_GFS_SIMULATOR.getVertVelocityMps();
+    gps_frame.horizontal_speed = g_GFS_SIMULATOR.getHorzVelocityMps();
     gps_frame.speed_accuracy = 1.0;
-    gps_frame.heading_of_motion = 1.0;
+    gps_frame.heading_of_motion = g_GFS_SIMULATOR.getHeadingDeg();
     gps_frame.heading_accuracy = 1.0;
-  }
-
-  void loop() override {
-    gps_frame.gps_utc_time = bst::clck::now();
-    gps_frame.latitude += increasing_ ? 0.0001 : -0.0001;
-    gps_frame.longitude += increasing_ ? 0.0001 : -0.0001;
-    gps_frame.altitude += increasing_ ? 0.1 : -0.1;
     data(gps_frame);
   }
-
-private:
-  data::GpsFrame gps_frame{};
-  bool increasing_ = true;
 };
 
 class SimImuSensor : public Extension {
@@ -143,6 +123,19 @@ public:
 private:
   bool increasing_ = false;
 };
+
+class SimAdcSensor : public Extension {
+public:
+  SimAdcSensor(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
+      : Extension(resources, metadata) {
+  }
+
+  void loop() override {
+  }
+
+private:
+};
+
 } // namespace extension
 
 #endif /* SIMULATED_EXTENSIONS_HPP_ */
