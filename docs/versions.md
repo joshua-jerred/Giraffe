@@ -18,6 +18,7 @@
   - Implemented the Giraffe Data Link a RTP like system.
   - Added 2 way communication between the GFC and GGS
 - Massive change was made to the MWAV library along with it's name being changed to `SignalEasel`.
+- Created a simulator to test GFS without the hardware.
 - A large list of changes made to `BoosterSeat` for the Giraffe project.
 - A large list of other changes that were not documented well at the time. It's best to look at the commit/merge history for more information.
 
