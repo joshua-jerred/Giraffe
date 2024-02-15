@@ -20,7 +20,6 @@
 #include <atomic>
 #include <thread>
 
-#include "giraffe_debug.hpp"
 #include "sections/cfg_extensions.hpp"
 #include "shared_data.hpp"
 #include "status_led.hpp"
@@ -146,7 +145,7 @@ protected:
   void error(DiagnosticId, const std::string &info = "");
   void error(DiagnosticId log_id, int info);
   void info(std::string info);
-  void debug(std::string message);
+  void debug(const std::string &message);
 
   /**
    * @brief Returns true if the extension has been requested to stop.

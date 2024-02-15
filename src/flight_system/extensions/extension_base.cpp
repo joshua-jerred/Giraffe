@@ -110,7 +110,7 @@ void Extension::info(std::string info) {
   interfaces_.streams.log.addPacket(packet);
 }
 
-void Extension::debug(std::string info) {
+void Extension::debug(const std::string &info) {
   data::LogPacket packet;
   packet.source = kExtensionId;
   packet.id = DiagnosticId::GENERIC_debug;

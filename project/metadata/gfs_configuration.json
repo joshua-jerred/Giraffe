@@ -311,7 +311,8 @@
             "options": [
                 "info",
                 "warn",
-                "error"
+                "error",
+                "debug"
             ]
         },
         "error_log_strategy": {

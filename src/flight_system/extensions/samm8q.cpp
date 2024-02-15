@@ -53,24 +53,24 @@ void SamM8q::startup() {
     case StartupState::I2C_CONNECT:
       connect_result = i2c_.connect();
       if (connect_result == I2cInterface::Result::SUCCESS) {
-        EXT_DEBUG("SAM-M8Q I2C connect success");
+        debug("SAM-M8Q I2C connect success");
         start_state = StartupState::HANDSHAKE;
         break;
       }
-      EXT_DEBUG("SAM-M8Q I2C connect failed");
+      debug("SAM-M8Q I2C connect failed");
       extSleep(kStartupRetryDelay);
       break;
     case StartupState::HANDSHAKE:
       if (handshake()) {
         start_state = StartupState::DONE;
-        EXT_DEBUG("SAM-M8Q handshake success");
+        debug("SAM-M8Q handshake success");
         break;
       }
-      EXT_DEBUG("SAM-M8Q handshake failed");
+      debug("SAM-M8Q handshake failed");
       extSleep(kStartupRetryDelay);
       break;
     case StartupState::DONE: // Return, startup is complete
-      EXT_DEBUG("SAM-M8Q startup complete");
+      debug("SAM-M8Q startup complete");
       return;
     }
 
@@ -123,14 +123,14 @@ void SamM8q::transitionState(State new_state) {
   state_ = new_state;
   switch (new_state) {
   case State::CONFIGURE:
-    EXT_DEBUG("SAM-M8Q state transition: CONFIGURE");
+    debug("SAM-M8Q state transition: CONFIGURE");
     break;
   case State::RESET:
-    EXT_DEBUG("SAM-M8Q state transition: RESET");
+    debug("SAM-M8Q state transition: RESET");
     reset_state_ = ResetState::SEND_RESET;
     break;
   case State::READ:
-    EXT_DEBUG("SAM-M8Q state transition: READ");
+    debug("SAM-M8Q state transition: READ");
     read_state_ = ReadState::WAIT;
     read_watchdog_timer_.reset();
     break;
@@ -150,10 +150,10 @@ void SamM8q::stateConfigure() {
   while (attempts < kCommandAttempts) {
     ack = ubx::setProtocolDDC(i2c_, false);
     if (ack == ubx::ACK::ACK) {
-      EXT_DEBUG("SAM-M8Q set protocol DDC success");
+      debug("SAM-M8Q set protocol DDC success");
       break;
     }
-    EXT_DEBUG("SAM-M8Q set protocol DDC failed");
+    debug("SAM-M8Q set protocol DDC failed");
     attempts++;
   }
   if (attempts == kCommandAttempts) {
@@ -167,10 +167,10 @@ void SamM8q::stateConfigure() {
   while (attempts < kCommandAttempts) {
     ack = ubx::setMeasurementRate(i2c_, 100);
     if (ack == ubx::ACK::ACK) {
-      EXT_DEBUG("SAM-M8Q set measurement rate success");
+      debug("SAM-M8Q set measurement rate success");
       break;
     }
-    EXT_DEBUG("SAM-M8Q set measurement rate failed");
+    debug("SAM-M8Q set measurement rate failed");
     attempts++;
   }
   if (attempts == kCommandAttempts) {
@@ -185,10 +185,10 @@ void SamM8q::stateConfigure() {
   while (attempts < kCommandAttempts) {
     ack = ubx::setDynamicModel(i2c_, ubx::DYNAMIC_MODEL::AIRBORNE_1G);
     if (ack == ubx::ACK::ACK) {
-      EXT_DEBUG("SAM-M8Q set dynamic model success");
+      debug("SAM-M8Q set dynamic model success");
       break;
     }
-    EXT_DEBUG("SAM-M8Q set dynamic model failed");
+    debug("SAM-M8Q set dynamic model failed");
     attempts++;
   }
   if (ack != ubx::ACK::ACK) {
@@ -197,7 +197,7 @@ void SamM8q::stateConfigure() {
     return;
   }
 
-  EXT_DEBUG("SAM-M8Q configuration complete");
+  debug("SAM-M8Q configuration complete");
   transitionState(State::READ);
   /** @todo Read the configuration data and verify */
 }
@@ -212,7 +212,7 @@ void SamM8q::stateReset() {
       raiseFault(DiagnosticId::EXT_FAULT_samm8qResetFailure);
       return;
     }
-    EXT_DEBUG("SAM-M8Q sending reset command");
+    debug("SAM-M8Q sending reset command");
     ubx::sendResetCommand(i2c_);
     reset_wait_timer_.reset();
     reset_state_ = ResetState::WAIT;
@@ -231,10 +231,10 @@ void SamM8q::stateReset() {
     if (handshake()) {
       reset_attempts_ = 0;
       transitionState(State::CONFIGURE);
-      EXT_DEBUG("SAM-M8Q reset complete");
+      debug("SAM-M8Q reset complete");
     } else {
       reset_state_ = ResetState::SEND_RESET;
-      EXT_DEBUG("SAM-M8Q reset failed");
+      debug("SAM-M8Q reset failed");
     }
     break;
   }
@@ -243,7 +243,7 @@ void SamM8q::stateReset() {
 void SamM8q::stateRead() {
   if (read_watchdog_timer_.isDone()) {
     error(DiagnosticId::EXTENSION_samm8qReadTimeout);
-    EXT_DEBUG("SAM-M8Q read timeout - resetting");
+    debug("SAM-M8Q read timeout - resetting");
     transitionState(State::RESET);
     return;
   }
@@ -310,7 +310,7 @@ void SamM8q::stateRead() {
 
   data(gps_frame);
 
-  EXT_DEBUG("SAM-M8Q read complete");
+  debug("SAM-M8Q read complete");
 }
 
 // ////////////////                          ////////////////

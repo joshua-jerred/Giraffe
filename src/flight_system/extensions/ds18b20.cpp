@@ -46,7 +46,7 @@ void Ds18b20::startup() {
   while (!init_timer_.isDone() && !stopRequested()) {
     if (init(last_fault)) {
       read_timer_.reset(); // reset the read timer for loop()
-      EXT_DEBUG("DS18B20 init success");
+      debug("DS18B20 init success");
       return; // success
     }
 
@@ -57,7 +57,7 @@ void Ds18b20::startup() {
     return;
   }
 
-  EXT_DEBUG("DS18B20 init failed");
+  debug("DS18B20 init failed");
   raiseFault(last_fault); // raise a fault to stop
 }
 
@@ -68,17 +68,17 @@ void Ds18b20::loop() {
   }
 
   if (!readData(read_timeout_fault_)) {
-    EXT_DEBUG("DS18B20 read data error");
+    debug("DS18B20 read data error");
     return;
   }
-  EXT_DEBUG("DS18B20 read success - " << temperature_);
+  // debug("DS18B20 read success - " << std::to_string(temperature_));
 
   constexpr int kMaxAccurateTemperature = 125; // degrees C
   constexpr int kMinAccurateTemperature = -55; // degrees C
 
   if (temperature_ > kMaxAccurateTemperature ||
       temperature_ < kMinAccurateTemperature) {
-    EXT_DEBUG("DS18B20 read out of range");
+    // debug("DS18B20 read out of range");
     error(DiagnosticId::EXTENSION_ds18b20TemperatureRange);
     return;
   }
@@ -100,19 +100,19 @@ bool Ds18b20::init(DiagnosticId &fault) {
   std::string id = metadata_.extra_args;
   if (!validateSerialNumber(id)) {
     fault = DiagnosticId::EXT_FAULT_ds18b20IdInvalid;
-    EXT_DEBUG("Invalid DS18B20 device id: " << id);
+    debug("Invalid DS18B20 device id: " + id);
     return false;
   }
-  EXT_DEBUG("DS18B20 device id: " << id);
+  debug("DS18B20 device id: " + id);
 
   // setup the one wire interface
   device_.setDeviceId(metadata_.extra_args);
   if (!device_.deviceExists()) {
     fault = DiagnosticId::EXT_FAULT_ds18b20DeviceNotFound;
-    EXT_DEBUG("DS18B20 device not found: " << id);
+    debug("DS18B20 device not found: " + id);
     return false;
   }
-  EXT_DEBUG("DS18B20 device found: " << id);
+  debug("DS18B20 device found: " + id);
 
   return true;
 }

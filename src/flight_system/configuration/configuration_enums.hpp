@@ -33,9 +33,9 @@
 namespace cfg::gEnum {
 
 enum class MainBoard {
-  OTHER,
-  PI_ZERO_W2,
-  PI_4
+  OTHER = 0,
+  PI_ZERO_W2 = 1,
+  PI_4 = 2
 };
 std::unordered_map<std::string, cfg::gEnum::MainBoard> const K_STRING_TO_MAIN_BOARD_MAP = {
   {"other", cfg::gEnum::MainBoard::OTHER},
@@ -49,13 +49,13 @@ std::map<cfg::gEnum::MainBoard, std::string> const K_MAIN_BOARD_TO_STRING_MAP = 
 };
 
 enum class ProcedureType {
-  TESTING,
-  PRE_LAUNCH,
-  ASCENT,
-  DESCENT,
-  RECOVERY,
-  FAILSAFE,
-  OTHER
+  TESTING = 0,
+  PRE_LAUNCH = 1,
+  ASCENT = 2,
+  DESCENT = 3,
+  RECOVERY = 4,
+  FAILSAFE = 5,
+  OTHER = 6
 };
 std::unordered_map<std::string, cfg::gEnum::ProcedureType> const K_STRING_TO_PROCEDURE_TYPE_MAP = {
   {"testing", cfg::gEnum::ProcedureType::TESTING},
@@ -77,10 +77,10 @@ std::map<cfg::gEnum::ProcedureType, std::string> const K_PROCEDURE_TYPE_TO_STRIN
 };
 
 enum class LogStrategy {
-  INTERVAL,
-  ALL,
-  SELECTION_INTERVAL,
-  SELECTION_ALL
+  INTERVAL = 0,
+  ALL = 1,
+  SELECTION_INTERVAL = 2,
+  SELECTION_ALL = 3
 };
 std::unordered_map<std::string, cfg::gEnum::LogStrategy> const K_STRING_TO_LOG_STRATEGY_MAP = {
   {"interval", cfg::gEnum::LogStrategy::INTERVAL},
@@ -96,8 +96,8 @@ std::map<cfg::gEnum::LogStrategy, std::string> const K_LOG_STRATEGY_TO_STRING_MA
 };
 
 enum class TimestampDetail {
-  HHMMSS,
-  DATE_HHMMSS
+  HHMMSS = 0,
+  DATE_HHMMSS = 1
 };
 std::unordered_map<std::string, cfg::gEnum::TimestampDetail> const K_STRING_TO_TIMESTAMP_DETAIL_MAP = {
   {"hhmmss", cfg::gEnum::TimestampDetail::HHMMSS},
@@ -109,8 +109,8 @@ std::map<cfg::gEnum::TimestampDetail, std::string> const K_TIMESTAMP_DETAIL_TO_S
 };
 
 enum class TimestampTimezone {
-  SYSTEM,
-  UTC
+  SYSTEM = 0,
+  UTC = 1
 };
 std::unordered_map<std::string, cfg::gEnum::TimestampTimezone> const K_STRING_TO_TIMESTAMP_TIMEZONE_MAP = {
   {"system", cfg::gEnum::TimestampTimezone::SYSTEM},
@@ -122,8 +122,8 @@ std::map<cfg::gEnum::TimestampTimezone, std::string> const K_TIMESTAMP_TIMEZONE_
 };
 
 enum class ArchiveMethod {
-  PLAIN_TEXT,
-  BZIP2
+  PLAIN_TEXT = 0,
+  BZIP2 = 1
 };
 std::unordered_map<std::string, cfg::gEnum::ArchiveMethod> const K_STRING_TO_ARCHIVE_METHOD_MAP = {
   {"plain_text", cfg::gEnum::ArchiveMethod::PLAIN_TEXT},
@@ -135,12 +135,12 @@ std::map<cfg::gEnum::ArchiveMethod, std::string> const K_ARCHIVE_METHOD_TO_STRIN
 };
 
 enum class InfluxdbRetentionPolicy {
-  HOUR,
-  DAY,
-  WEEK,
-  MONTH,
-  YEAR,
-  INF
+  HOUR = 0,
+  DAY = 1,
+  WEEK = 2,
+  MONTH = 3,
+  YEAR = 4,
+  INF = 5
 };
 std::unordered_map<std::string, cfg::gEnum::InfluxdbRetentionPolicy> const K_STRING_TO_INFLUXDB_RETENTION_POLICY_MAP = {
   {"hour", cfg::gEnum::InfluxdbRetentionPolicy::HOUR},
@@ -160,24 +160,27 @@ std::map<cfg::gEnum::InfluxdbRetentionPolicy, std::string> const K_INFLUXDB_RETE
 };
 
 enum class LogLevel {
-  INFO,
-  WARN,
-  ERROR
+  INFO = 0,
+  WARN = 1,
+  ERROR = 2,
+  DEBUG = 3
 };
 std::unordered_map<std::string, cfg::gEnum::LogLevel> const K_STRING_TO_LOG_LEVEL_MAP = {
   {"info", cfg::gEnum::LogLevel::INFO},
   {"warn", cfg::gEnum::LogLevel::WARN},
-  {"error", cfg::gEnum::LogLevel::ERROR}
+  {"error", cfg::gEnum::LogLevel::ERROR},
+  {"debug", cfg::gEnum::LogLevel::DEBUG}
 };
 std::map<cfg::gEnum::LogLevel, std::string> const K_LOG_LEVEL_TO_STRING_MAP = {
   {cfg::gEnum::LogLevel::INFO, "info"},
   {cfg::gEnum::LogLevel::WARN, "warn"},
-  {cfg::gEnum::LogLevel::ERROR, "error"}
+  {cfg::gEnum::LogLevel::ERROR, "error"},
+  {cfg::gEnum::LogLevel::DEBUG, "debug"}
 };
 
 enum class ErrorLogStrategy {
-  ALL,
-  ERROR_FRAME
+  ALL = 0,
+  ERROR_FRAME = 1
 };
 std::unordered_map<std::string, cfg::gEnum::ErrorLogStrategy> const K_STRING_TO_ERROR_LOG_STRATEGY_MAP = {
   {"all", cfg::gEnum::ErrorLogStrategy::ALL},
@@ -189,8 +192,8 @@ std::map<cfg::gEnum::ErrorLogStrategy, std::string> const K_ERROR_LOG_STRATEGY_T
 };
 
 enum class AprsSymbolTable {
-  PRIMARY,
-  ALTERNATE
+  PRIMARY = 0,
+  ALTERNATE = 1
 };
 std::unordered_map<std::string, cfg::gEnum::AprsSymbolTable> const K_STRING_TO_APRS_SYMBOL_TABLE_MAP = {
   {"primary", cfg::gEnum::AprsSymbolTable::PRIMARY},
@@ -202,7 +205,7 @@ std::map<cfg::gEnum::AprsSymbolTable, std::string> const K_APRS_SYMBOL_TABLE_TO_
 };
 
 enum class SstvMode {
-  ROBOT36
+  ROBOT36 = 0
 };
 std::unordered_map<std::string, cfg::gEnum::SstvMode> const K_STRING_TO_SSTV_MODE_MAP = {
   {"robot36", cfg::gEnum::SstvMode::ROBOT36}
@@ -212,14 +215,14 @@ std::map<cfg::gEnum::SstvMode, std::string> const K_SSTV_MODE_TO_STRING_MAP = {
 };
 
 enum class DataPacketsMode {
-  BPSK125,
-  BPSK250,
-  BPSK500,
-  BPSK1000,
-  QPSK125,
-  QPSK250,
-  QPSK500,
-  AFSK_AX25
+  BPSK125 = 0,
+  BPSK250 = 1,
+  BPSK500 = 2,
+  BPSK1000 = 3,
+  QPSK125 = 4,
+  QPSK250 = 5,
+  QPSK500 = 6,
+  AFSK_AX25 = 7
 };
 std::unordered_map<std::string, cfg::gEnum::DataPacketsMode> const K_STRING_TO_DATA_PACKETS_MODE_MAP = {
   {"bpsk125", cfg::gEnum::DataPacketsMode::BPSK125},
@@ -243,22 +246,22 @@ std::map<cfg::gEnum::DataPacketsMode, std::string> const K_DATA_PACKETS_MODE_TO_
 };
 
 enum class ExtensionType {
-  UNKNOWN,
-  SIM_TEMP,
-  SIM_PRES,
-  SIM_HUM,
-  SIM_GPS,
-  SIM_BAT,
-  SIM_IMU,
-  SIM_ADC,
-  BMP180,
-  BME280,
-  SAM_M8Q,
-  DS18B20,
-  RGB_LED,
-  MCP3021,
-  MAX11615,
-  BMI088
+  UNKNOWN = 0,
+  SIM_TEMP = 1,
+  SIM_PRES = 2,
+  SIM_HUM = 3,
+  SIM_GPS = 4,
+  SIM_BAT = 5,
+  SIM_IMU = 6,
+  SIM_ADC = 7,
+  BMP180 = 8,
+  BME280 = 9,
+  SAM_M8Q = 10,
+  DS18B20 = 11,
+  RGB_LED = 12,
+  MCP3021 = 13,
+  MAX11615 = 14,
+  BMI088 = 15
 };
 std::unordered_map<std::string, cfg::gEnum::ExtensionType> const K_STRING_TO_EXTENSION_TYPE_MAP = {
   {"unknown", cfg::gEnum::ExtensionType::UNKNOWN},
@@ -298,7 +301,7 @@ std::map<cfg::gEnum::ExtensionType, std::string> const K_EXTENSION_TYPE_TO_STRIN
 };
 
 enum class I2CBus {
-  I2C_1
+  I2C_1 = 0
 };
 std::unordered_map<std::string, cfg::gEnum::I2CBus> const K_STRING_TO_I2C_BUS_MAP = {
   {"i2c_1", cfg::gEnum::I2CBus::I2C_1}

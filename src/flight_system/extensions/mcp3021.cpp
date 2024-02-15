@@ -31,10 +31,10 @@ void Mcp3021::adcStartup() {
   DiagnosticId error;
   if (!connectToI2cBus(error)) {
     raiseFault(error);
-    EXT_DEBUG("Failed to connect to I2C bus");
+    debug("Failed to connect to I2C bus");
     return;
   }
-  EXT_DEBUG("adcStartup() complete");
+  debug("adcStartup() complete");
 }
 
 bool Mcp3021::i2cHandshake() {
@@ -51,21 +51,21 @@ bool Mcp3021::readAdc(uint32_t &value) {
   auto result = i2c_.readChunk(read_buffer, kMcp3021ReadSize);
 
   if (result != I2cInterface::Result::SUCCESS) {
-    EXT_DEBUG("Failed to read from I2C bus");
+    debug("Failed to read from I2C bus");
     return false;
   }
 
   // According to the data sheet, the first 4 bits of the upper data byte should
   // be 0
   if ((read_buffer.at(0) & 0b11110000) != 0b00000000) {
-    EXT_DEBUG("Invalid data received from I2C bus");
+    debug("Invalid data received from I2C bus");
     return false;
   }
 
   value = read_buffer.at(0) << 6;
   value |= read_buffer.at(1) >> 2;
 
-  EXT_DEBUG("Read value: " << value);
+  // debug("Read value: " << value);
 
   return true;
 }
