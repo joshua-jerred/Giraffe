@@ -19,6 +19,7 @@
 
 #include "configuration_enums.hpp"
 #include "extension_base.hpp"
+#include "status_led.hpp"
 
 class ExtensionTestFramework {
 public:
@@ -26,11 +27,14 @@ public:
   int getTotalDataPackets();
   int getTotalLogPackets();
   int getTotalGpsPackets();
+  int getTotalImuPackets();
   void sleep(int ms);
   void runExtensionFor(extension::Extension &ext, int ms);
 
   data::Streams streams{};
-  extension::ExtensionResources resources{streams, cfg::gEnum::I2CBus::I2C_1};
+  giraffe::StatusLedState status_led{};
+  extension::ExtensionResources resources{streams, cfg::gEnum::I2CBus::I2C_1,
+                                          status_led};
   cfg::ExtensionMetadata meta{};
 };
 

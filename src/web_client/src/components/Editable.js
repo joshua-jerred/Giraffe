@@ -1,11 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import Tooltip from './Tooltip';
-import { StyButton, StyInput, Switch, StySelect, StyOption } from './styled/StyledComponents';
+import Tooltip from "./Tooltip";
+import {
+  StyButton,
+  StyInput,
+  Switch,
+  StySelect,
+  StyOption,
+} from "./styled/StyledComponents";
 
-import { GGS_WS } from '../api_interface/ws_api';
-import { GwsGlobal } from '../GlobalContext';
+import { GGS_API } from "../api_interface/ggs_api";
+import { GwsGlobal } from "../GlobalContext";
 
 const EditBoxContainer = styled.form`
   list-style: none;
@@ -50,26 +56,22 @@ const EditBoxStatus = styled.div`
 `;
 
 function Item({ id, json, input, value, values, setValues }) {
-  const types = ['string', 'int', 'float', 'bool', 'enum'];
+  const types = ["string", "int", "float", "bool", "enum"];
 
   const onChange = (event) => {
     let new_value = event.target.value;
-    if (json.type === 'bool') {
+    if (json.type === "bool") {
       new_value = event.target.checked;
-    } else if (json.type === 'int') {
+    } else if (json.type === "int") {
       new_value = parseInt(new_value);
-    } else if (json.type === 'float') {
+    } else if (json.type === "float") {
       new_value = parseFloat(new_value);
     }
     setValues({ ...values, [id]: new_value });
   };
 
   // Check if the item is valid
-  if (
-    id === undefined ||
-    json.type === undefined ||
-    json.name === undefined
-  ) {
+  if (id === undefined || json.type === undefined || json.name === undefined) {
     return (
       <ItemStyle>
         <span>Invalid item</span>
@@ -87,7 +89,7 @@ function Item({ id, json, input, value, values, setValues }) {
   }
 
   // Check if the item is an enum and has options
-  if (json.type === 'enum' && json.options === undefined) {
+  if (json.type === "enum" && json.options === undefined) {
     return (
       <ItemStyle>
         <span>Enum type missing options: {id}</span>
@@ -96,7 +98,7 @@ function Item({ id, json, input, value, values, setValues }) {
   }
 
   // wut is this
-  if (input && json.type === 'enum') {
+  if (input && json.type === "enum") {
   }
 
   if (value === undefined) {
@@ -106,9 +108,9 @@ function Item({ id, json, input, value, values, setValues }) {
   }
 
   let display_value = value;
-  if (json.type === 'bool') {
+  if (json.type === "bool") {
     if (json.true === undefined) {
-      display_value = value ? 'true' : 'false';
+      display_value = value ? "true" : "false";
     } else {
       display_value = value ? json.true : json.false;
     }
@@ -116,7 +118,7 @@ function Item({ id, json, input, value, values, setValues }) {
 
   // If input is true, then we are in edit mode and need to display the input
   let input_field = null;
-  if (json.type === 'string') {
+  if (json.type === "string") {
     input_field = (
       <StyInput
         type="text"
@@ -125,7 +127,7 @@ function Item({ id, json, input, value, values, setValues }) {
         onChange={onChange}
       />
     );
-  } else if (json.type === 'int') {
+  } else if (json.type === "int") {
     input_field = (
       <StyInput
         type="number"
@@ -136,7 +138,7 @@ function Item({ id, json, input, value, values, setValues }) {
         onChange={onChange}
       />
     );
-  } else if (json.type === 'float') {
+  } else if (json.type === "float") {
     input_field = (
       <input
         type="number"
@@ -147,11 +149,11 @@ function Item({ id, json, input, value, values, setValues }) {
         onChange={onChange}
       />
     );
-  } else if (json.type === 'bool') {
+  } else if (json.type === "bool") {
     input_field = (
       <Switch type="checkbox" defaultChecked={value} onChange={onChange} />
     );
-  } else if (json.type === 'enum') {
+  } else if (json.type === "enum") {
     input_field = (
       <StySelect defaultValue={value} onChange={onChange}>
         {json.options.map((option, i) => {
@@ -176,8 +178,8 @@ function Item({ id, json, input, value, values, setValues }) {
 }
 
 export function EditBox({ resource, category }) {
-  const { ggsAddress } = React.useContext(GwsGlobal);
-  const { ggsConnectionStatus } = React.useContext(GGS_WS);
+  const { ggsAddress, isGgsConnected } = React.useContext(GwsGlobal);
+  // const { ggsConnectionStatus } = React.useContext(GGS_API);
 
   const [metadata, setMetadata] = React.useState(null);
   const [values, setValues] = React.useState({});
@@ -185,24 +187,23 @@ export function EditBox({ resource, category }) {
   const [editMode, setEditMode] = React.useState(false);
 
   const encoded_category = encodeURIComponent(category);
-  const path = `http://${ggsAddress}/api/${resource}/settings?category=${encoded_category}&include=all`;
+  const path = `${ggsAddress}/api/${resource}/settings?category=${encoded_category}&include=all`;
 
   React.useEffect(() => {
-    console.log('Loading metadata from: ' + path);
     fetch(path)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Failed to load metadata.');
+          throw new Error("Failed to load metadata.");
         } else {
           return response.json();
         }
       })
       .then((data) => {
         if (data.values === undefined) {
-          throw new Error('Metadata missing values.');
+          throw new Error("Metadata missing values.");
         }
         if (data.metadata === undefined) {
-          throw new Error('Metadata missing meta.');
+          throw new Error("Metadata missing meta.");
         }
         setMetadata(data.metadata);
         const new_values = {};
@@ -212,28 +213,29 @@ export function EditBox({ resource, category }) {
         setValues(new_values);
       })
       .catch((error) => {
-        console.error('Error attempting to load metadata:\n', error);
-        setError('Failed to load metadata. (Check console for details.)');
+        console.error("Error attempting to load metadata:\n", error);
+        setError("Failed to load metadata. (Check console for details.)");
       });
-    console.log('EditBox: useEffect');
-  }, [editMode, path]);
+    console.log("EditBox: useEffect");
+  }, [editMode, ggsAddress, isGgsConnected]);
 
-  if (ggsConnectionStatus !== 'connected') {
+  if (!isGgsConnected) {
     return <div>Not connected to GWS.</div>;
   }
 
   function Save() {
     const data = values;
+    console.log("Save", data);
     fetch(path, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Failed to save metadata.');
+          throw new Error("Failed to save metadata.");
         } else {
           setEditMode(false);
         }
@@ -274,7 +276,140 @@ export function EditBox({ resource, category }) {
           </EditBoxContainer>
           <EditButtonCont>
             <StyButton onClick={toggleEditMode}>
-              {editMode ? 'save' : 'edit'}
+              {editMode ? "save" : "edit"}
+            </StyButton>
+          </EditButtonCont>
+        </>
+      )}
+    </>
+  );
+}
+
+export function GfsEditBox({ category }) {
+  const { ggsAddress, isGgsConnected, isGfsTcpConnected } =
+    React.useContext(GwsGlobal);
+  const [metadata, setMetadata] = React.useState(null);
+  const [values, setValues] = React.useState({});
+  const [error, setError] = React.useState(null);
+  const [editMode, setEditMode] = React.useState(false);
+  const [saving, setSaving] = React.useState(false);
+
+  const SAVE_DELAY_MS = 5000;
+
+  const encoded_category = encodeURIComponent(category);
+  const path = `${ggsAddress}/api/gfs/settings?category=${encoded_category}&include=all`;
+
+  function loadConfigData() {
+    fetch(path)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load metadata.");
+        } else {
+          return response.json();
+        }
+      })
+      .then((data) => {
+        if (data.values === undefined) {
+          throw new Error("Metadata missing values.");
+        }
+        if (data.metadata === undefined) {
+          throw new Error("Metadata missing meta.");
+        }
+        setMetadata(data.metadata);
+        const new_values = {};
+        for (const [key, value] of Object.entries(data.values)) {
+          new_values[key] = value;
+        }
+        setValues(new_values);
+      })
+      .catch((error) => {
+        console.error("Error attempting to load metadata:\n", error);
+        setError("Failed to load metadata. (Check console for details.)");
+      });
+  }
+
+  React.useEffect(() => {
+    loadConfigData();
+    console.log("EditBox: useEffect");
+  }, [editMode, ggsAddress, isGgsConnected, path]);
+
+  if (!isGgsConnected) {
+    return <div>Not connected to GGS.</div>;
+  }
+  if (!isGfsTcpConnected) {
+    return <div>Not connected to GFS via TCP socket.</div>;
+  }
+  if (error) {
+    return <div>{error}</div>;
+  }
+  if (saving) {
+    return <div>Saving...</div>;
+  }
+
+  function Save() {
+    const data = values;
+    setSaving(true);
+    fetch(path, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to save metadata.");
+        } else {
+          setEditMode(false);
+        }
+        console.log("Save complete", response);
+
+        setTimeout(() => {
+          console.log("Save complete");
+          setSaving(false);
+          setEditMode(false);
+          setValues({});
+          setError(null);
+          loadConfigData();
+        }, SAVE_DELAY_MS);
+      })
+      .catch((error) => {
+        setError("Failed to save.");
+      });
+  }
+
+  function toggleEditMode() {
+    if (!editMode) {
+      setEditMode(true);
+    } else {
+      Save();
+    }
+  }
+
+  return (
+    <>
+      {error != null ? (
+        <EditBoxStatus>{error}</EditBoxStatus>
+      ) : metadata == null ? (
+        <EditBoxStatus>Loading Data...</EditBoxStatus>
+      ) : (
+        <>
+          <EditBoxContainer>
+            {Object.entries(metadata).map(([key, value]) => (
+              <Item
+                key={key}
+                json={value}
+                input={editMode}
+                value={values[key]}
+                id={key}
+                values={values}
+                setValues={setValues}
+              />
+            ))}
+          </EditBoxContainer>
+          <EditButtonCont>
+            <StyButton onClick={toggleEditMode}>
+              {editMode ? "save" : "edit"}
             </StyButton>
           </EditButtonCont>
         </>

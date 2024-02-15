@@ -4,8 +4,7 @@
 #include <BoosterSeat/time.hpp>
 #include <functional>
 
-inline auto rnd = BoosterSeat::doubleToPrecisionTwo;
-namespace bst = BoosterSeat::time;
+inline auto rnd = bst::doubleToPrecisionTwo;
 
 inline std::string b2str(bool val) {
   return val ? "true" : "false";
@@ -14,7 +13,7 @@ inline std::string title_and_data(std::string title, std::string data) {
   return title + ": " + data;
 }
 std::string f2s(double val) {
-  return BoosterSeat::string::f2s(val, 2);
+  return bst::string::f2s(val, 2);
 }
 
 const std::array<std::string, console_pages::K_MAX_NUM_PAGE_LINES> &
@@ -47,6 +46,8 @@ console_pages::Pages::getCurrentPage() {
   case PageOption::LOCATION:
     location();
     break;
+  case PageOption::TELEMETRY:
+    telemetry();
   default:
     break;
   }
@@ -76,10 +77,9 @@ void console_pages::Pages::navigateMenu(const console_pages::PageOption key) {
 std::string LandR(const std::string &l, const std::string &r) {
   constexpr int kWidth = console_pages::K_DATA_WINDOW_WIDTH / 2 - 1;
   std::string ret = "";
-  ret += BoosterSeat::layout::fixedWidthString(
-      l, BoosterSeat::layout::Alignment::LEFT, kWidth);
-  ret += BoosterSeat::layout::fixedWidthString(
-      r, BoosterSeat::layout::Alignment::RIGHT, kWidth);
+  ret += bst::layout::fixedWidthString(l, bst::layout::Alignment::LEFT, kWidth);
+  ret +=
+      bst::layout::fixedWidthString(r, bst::layout::Alignment::RIGHT, kWidth);
   return ret;
 }
 
@@ -91,13 +91,14 @@ void console_pages::Pages::gfsStatus() {
       shared_data_.blocks.modules_statuses.get();
   data::blocks::SystemInfo sys_info = shared_data_.blocks.system_info.get();
 
-  content_[0] = LandR(bst::timeString(bst::TimeZone::UTC) + " UTC ",
-                      bst::timeString(bst::TimeZone::LOCAL) + " Local");
+  content_[0] =
+      LandR(bst::time::timeString(bst::time::TimeZone::UTC) + " UTC ",
+            bst::time::timeString(bst::time::TimeZone::LOCAL) + " Local");
   content_[1] =
       LandR("Uptime: " + shared_data_.misc.getUptimeString(),
-            "Ld Avg: " + BoosterSeat::string::f2s(sys_info.cpu_load_avg_1, 1) +
-                " " + BoosterSeat::string::f2s(sys_info.cpu_load_avg_5, 1) +
-                " " + BoosterSeat::string::f2s(sys_info.cpu_load_avg_15, 1));
+            "Ld Avg: " + bst::string::f2s(sys_info.cpu_load_avg_1, 1) + " " +
+                bst::string::f2s(sys_info.cpu_load_avg_5, 1) + " " +
+                bst::string::f2s(sys_info.cpu_load_avg_15, 1));
 
   content_[2] = "";
 
@@ -109,8 +110,8 @@ void console_pages::Pages::gfsStatus() {
   content_[7] = "System:  " + node::K_STATUS_TO_STRING_MAP.at(mod_stats.system);
   content_[8] =
       "Extension: " + node::K_STATUS_TO_STRING_MAP.at(mod_stats.extension);
-
-  content_[9] = "";
+  content_[9] =
+      "Telemetry: " + node::K_STATUS_TO_STRING_MAP.at(mod_stats.telemetry);
 
   auto &ef = shared_data_.frames.error_frame;
   content_[10] =
@@ -121,8 +122,7 @@ void console_pages::Pages::gfsStatus() {
   auto error_ids = ef.getActiveErrorIds();
   std::string line_buffer = "";
   for (auto &id : error_ids) {
-    line_buffer +=
-        BoosterSeat::string::intToHex(static_cast<uint16_t>(id)) + "  ";
+    line_buffer += bst::string::intToHex(static_cast<uint16_t>(id)) + "  ";
     if (line_buffer.size() > K_DATA_WINDOW_WIDTH - 2) {
       content_[i++] = line_buffer;
       line_buffer = "";
@@ -287,9 +287,9 @@ void console_pages::Pages::system() {
   auto sys = shared_data_.blocks.system_info.get();
   // clang-format off
   content_ = {
-    "CPU Load Avg: " + BoosterSeat::string::f2s(sys.cpu_load_avg_1, 1) +
-      " " + BoosterSeat::string::f2s(sys.cpu_load_avg_5, 1) +
-      " " + BoosterSeat::string::f2s(sys.cpu_load_avg_15, 1),
+    "CPU Load Avg: " + bst::string::f2s(sys.cpu_load_avg_1, 1) +
+      " " + bst::string::f2s(sys.cpu_load_avg_5, 1) +
+      " " + bst::string::f2s(sys.cpu_load_avg_15, 1),
     "CPU Temp (c): " + f2s(sys.cpu_temp_c),
     "",
     "-- Free GB | Total GB | (usage percent) --",
@@ -310,21 +310,56 @@ void console_pages::Pages::location() {
   auto data = shared_data_.blocks.location_data.get();
   // auto last_valid = data.last_valid_gps_frame;
   auto cur = data.last_gps_frame;
+  auto last_valid = data.last_valid_gps_frame;
   // clang-format off
   content_ = {
     " -- Most Recent GPS Frame -- ",
     "Fix, Num Sats, UTC:   " + data::K_GPS_FIX_TO_STRING_MAP.at(cur.fix) + ", " +
       std::to_string(cur.num_satellites) + ", utc time",
-    "Lat, Lon, H/S:   " + BoosterSeat::string::f2s(cur.latitude, 6) + ", " 
-      + BoosterSeat::string::f2s(cur.longitude, 6) + ", " +
-      BoosterSeat::string::f2s(cur.horizontal_speed, 1) + " m/s",
-    "ALT, V/S, HDG:   " + BoosterSeat::string::f2s(cur.altitude, 1) 
-      + " m" + ", " + BoosterSeat::string::f2s(cur.heading_of_motion, 1) + 
+    "Lat, Lon, H/S:   " + bst::string::f2s(cur.latitude, 6) + ", " 
+      + bst::string::f2s(cur.longitude, 6) + ", " +
+      bst::string::f2s(cur.horizontal_speed, 1) + " m/s",
+    "ALT, V/S, HDG:   " + bst::string::f2s(cur.altitude, 1) 
+      + " m" + ", " + bst::string::f2s(cur.heading_of_motion, 1) + 
       " deg",
     "Accuracy - Hor, Vert, H/S: " + 
-      BoosterSeat::string::f2s(cur.horz_accuracy, 1) + " m, " +
-      BoosterSeat::string::f2s(cur.vert_accuracy, 1) + " m, " +
-      BoosterSeat::string::f2s(cur.horizontal_speed, 1) + " m/s"
+      bst::string::f2s(cur.horz_accuracy, 1) + " m, " +
+      bst::string::f2s(cur.vert_accuracy, 1) + " m, " +
+      bst::string::f2s(cur.horizontal_speed, 1) + " m/s",
+    "",
+    " -- Last Valid GPS Frame -- ",
+    "Fix, Num Sats, UTC:   " + data::K_GPS_FIX_TO_STRING_MAP.at(last_valid.fix) + ", " +
+      std::to_string(last_valid.num_satellites) + ", utc time",
+    "Lat, Lon, H/S:   " + bst::string::f2s(last_valid.latitude, 6) + ", "
+      + bst::string::f2s(last_valid.longitude, 6) + ", " +
+      bst::string::f2s(last_valid.horizontal_speed, 1) + " m/s",
+    "ALT, V/S, HDG:   " + bst::string::f2s(last_valid.altitude, 1)
+      + " m" + ", " + bst::string::f2s(last_valid.heading_of_motion, 1) +
+      " deg",
+    "Accuracy - Hor, Vert, H/S: " +
+      bst::string::f2s(last_valid.horz_accuracy, 1) + " m, " +
+      bst::string::f2s(last_valid.vert_accuracy, 1) + " m, " +
+      bst::string::f2s(last_valid.horizontal_speed, 1) + " m/s"
+  };
+  // clang-format on
+}
+
+void console_pages::Pages::telemetry() {
+  constexpr int kNumLines = 10;
+  setNumLinesOnPage(kNumLines);
+  auto info = shared_data_.blocks.telemetry_module_stats.get();
+  // clang-format off
+  content_ = {
+    "Telemetry Enabled: " + b2str(config_.telemetry.getTelemetryEnabled()) +
+    "  | Call Sign: " + config_.telemetry.getCallSign() + "  | Data Link Enabled: " +
+    b2str(config_.telemetry.getDataLinkEnabled()),
+    "Queue Sizes (Ex, Br, Rx): " + std::to_string(info.exchange_queue_size) + ", " +
+      std::to_string(info.broadcast_queue_size) + ", " +
+      std::to_string(info.received_queue_size),
+      "Network Layer Latency: " + std::to_string(info.network_layer_latency_ms) + " ms",
+      "Volume: " + f2s(info.volume) + "  |  Signal to Noise Ratio: " + f2s(info.signal_to_noise_ratio),
+      "Total Packets Received: " + std::to_string(info.total_packets_received) + "  |  Total Packets Sent: " + std::to_string(info.total_packets_sent),
+      "Last Received Message: " + info.last_received_message
   };
   // clang-format on
 }

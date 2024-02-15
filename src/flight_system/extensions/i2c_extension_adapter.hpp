@@ -58,7 +58,7 @@ protected:
           error = DiagnosticId::EXT_FAULT_i2cHandshakeTimeoutFault;
           return false;
         }
-        BoosterSeat::threadSleep(retry_delay_ms_);
+        bst::sleep(retry_delay_ms_);
       }
       return true;
     }
@@ -77,7 +77,7 @@ protected:
   I2cInterface i2c_;
 
 private:
-  BoosterSeat::Timer handshake_timer_;
+  bst::Timer handshake_timer_;
   uint32_t retry_delay_ms_;
 };
 

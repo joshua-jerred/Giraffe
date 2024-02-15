@@ -1,5 +1,6 @@
-#include "console_module.hpp"
 #include <functional>
+
+#include "console_module.hpp"
 
 /**
  * @details The update interval is manually set to 50ms in this module.

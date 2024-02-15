@@ -24,10 +24,9 @@
 #include "positional.hpp"
 
 namespace extension {
-class SamM8qExtension : public Extension {
+class SamM8q : public Extension {
 public:
-  SamM8qExtension(ExtensionResources &resources,
-                  cfg::ExtensionMetadata metadata);
+  SamM8q(ExtensionResources &resources, cfg::ExtensionMetadata metadata);
 
   /**
    * @brief Startup the extension.
@@ -87,18 +86,18 @@ private:
   /**
    * @brief This timer should have the largest value of all timers.
    */
-  BoosterSeat::Timer primary_watchdog_timer_;
+  bst::Timer primary_watchdog_timer_;
 
   /**
    * @brief
    */
-  BoosterSeat::Timer read_watchdog_timer_;
+  bst::Timer read_watchdog_timer_;
 
   /**
    * @brief The timer used to give the sensor time to reset after the reset
    * command is sent.
    */
-  BoosterSeat::Timer reset_wait_timer_;
+  bst::Timer reset_wait_timer_;
 
   /**
    * @brief Use to keep track of how many times we have attempted to configure

@@ -1,0 +1,68 @@
+product_uuid 00000000-0000-0000-0000-000000000000
+product_id 0x0a50
+product_ver 0x0001
+vendor "Giraffe"
+product "Giraffe Flight Computer"
+
+custom_data
+deadbeef c00 1c0d e
+end
+
+gpio_drive 0
+gpio_slew 0
+gpio_hysteresis 0
+back_power 1
+
+setgpio 2        ALT1     NONE
+setgpio 3        ALT1     NONE
+#setgpio  4     INPUT     DEFAULT
+#setgpio  5     INPUT     DEFAULT
+#setgpio  6     INPUT     DEFAULT
+#setgpio  7     INPUT     DEFAULT
+#setgpio  8     INPUT     DEFAULT
+#setgpio  9     INPUT     DEFAULT
+#setgpio  10    INPUT     DEFAULT
+#setgpio  11    INPUT     DEFAULT
+#setgpio  12    INPUT     DEFAULT
+#setgpio  13    INPUT     DEFAULT
+#setgpio  14    INPUT     DEFAULT
+#setgpio  15    INPUT     DEFAULT
+#setgpio  16    INPUT     DEFAULT
+setgpio  17    OUTPUT     DOWN
+#setgpio  18    INPUT     DEFAULT
+#setgpio  19    INPUT     DEFAULT
+#setgpio  20    INPUT     DEFAULT
+#setgpio  21    INPUT     DEFAULT
+setgpio  22    OUTPUT     DOWN
+#setgpio  23    INPUT     DEFAULT
+#setgpio  24    INPUT     DEFAULT
+#setgpio  25    INPUT     DEFAULT
+#setgpio  26    INPUT     DEFAULT
+setgpio  27    OUTPUT     DOWN
+
+########################################################################
+# Settings for bank 1 (only valid for CM1/3/3+/4S). Setting one or more of
+# these GPIOs requires setting of drive, slew and hysteresis for bank 1.
+
+# bank1_gpio_drive 0
+# bank1_gpio_slew 0
+# bank1_gpio_hysteresis 0
+
+setgpio  28    INPUT     DEFAULT
+#setgpio  29    INPUT     DEFAULT
+#setgpio  30    INPUT     DEFAULT
+#setgpio  31    INPUT     DEFAULT
+#setgpio  32    INPUT     DEFAULT
+#setgpio  33    INPUT     DEFAULT
+#setgpio  34    INPUT     DEFAULT
+#setgpio  35    INPUT     DEFAULT
+#setgpio  36    INPUT     DEFAULT
+#setgpio  37    INPUT     DEFAULT
+#setgpio  38    INPUT     DEFAULT
+#setgpio  39    INPUT     DEFAULT
+#setgpio  40    INPUT     DEFAULT
+#setgpio  41    INPUT     DEFAULT
+#setgpio  42    INPUT     DEFAULT
+#setgpio  43    INPUT     DEFAULT
+#setgpio  44    INPUT     DEFAULT
+#setgpio  45    INPUT     DEFAULT

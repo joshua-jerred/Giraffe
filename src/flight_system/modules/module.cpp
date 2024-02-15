@@ -62,6 +62,10 @@ void modules::Module::info(std::string info) {
   shared_data_.streams.log.info(metadata_.id_, info);
 }
 
+void modules::Module::debug(std::string info) {
+  shared_data_.streams.log.debug(metadata_.id_, info);
+}
+
 template <typename T>
 void modules::Module::data(data::DataId identifier, T value, int precision) {
   if constexpr (std::is_same<T, std::string>::value) {
@@ -93,6 +97,11 @@ void modules::Module::runner() {
     }
     sleep();
     setStatus(node::Status::RUNNING);
+
+    cmd::Command command;
+    if (command_queue_.getCommand(command)) {
+      processCommand(command);
+    }
   }
   setStatus(node::Status::STOPPING);
   shutdown();

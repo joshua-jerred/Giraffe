@@ -22,8 +22,7 @@ inline constexpr uint8_t kBme280I2cAddress = 0x76;
 inline constexpr int kCompensationDataReadRate = 5000; // ms
 inline constexpr int K_READ_TIMEOUT = 5000;            // ms
 
-Bme280Extension::Bme280Extension(ExtensionResources &resources,
-                                 cfg::ExtensionMetadata metadata)
+Bme280::Bme280(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
     : Extension(resources, metadata),
       i2c_(resources.i2c_bus, kBme280I2cAddress, resources.i2c_bus_lock),
       compensation_timer_(kCompensationDataReadRate),
@@ -38,11 +37,11 @@ enum class StartupState {
   DONE
 };
 
-void Bme280Extension::startup() {
+void Bme280::startup() {
   constexpr uint32_t kStartupTimeout = 5000;   // ms
   constexpr uint32_t kStartupRetryDelay = 100; // ms
 
-  BoosterSeat::Timer startup_timer(kStartupTimeout);
+  bst::Timer startup_timer(kStartupTimeout);
   startup_timer.reset();
 
   StartupState state = StartupState::I2C_CONNECT;
@@ -108,7 +107,7 @@ void Bme280Extension::startup() {
   }
 }
 
-void Bme280Extension::loop() {
+void Bme280::loop() {
   if (read_timer_.isDone()) {
     raiseFault(DiagnosticId::EXT_FAULT_bme280ReadTimeout);
     return;
@@ -153,7 +152,7 @@ void Bme280Extension::loop() {
   data(data::DataId::ENVIRONMENTAL_humidity, humidity_);
 }
 
-bool Bme280Extension::handshake() {
+bool Bme280::handshake() {
   constexpr uint8_t K_ID_REGISTER = 0xD0;
   constexpr uint8_t K_EXPECTED_ID = 0x60;
 
@@ -170,7 +169,7 @@ bool Bme280Extension::handshake() {
   return true;
 }
 
-bool Bme280Extension::configureSensor() {
+bool Bme280::configureSensor() {
   constexpr uint8_t kRegCtrlHum =
       0xF2; // Humidity oversampling (Written to before Ctrl_Meas)
   constexpr uint8_t kRegCtrlMeas = 0xF4; // Temp and pressure oversampling
@@ -200,7 +199,7 @@ bool Bme280Extension::configureSensor() {
   return true;
 }
 
-bool Bme280Extension::readCompensationData() {
+bool Bme280::readCompensationData() {
   constexpr uint8_t K_CALIBRATION_DATA_HEAD_SEC1 =
       0x88; // Head of calibration data
   constexpr uint8_t K_CALIBRATION_DATA_LENGTH_SEC1 =
@@ -251,7 +250,7 @@ bool Bme280Extension::readCompensationData() {
   return true;
 }
 
-bool Bme280Extension::readEnvironmentalData() {
+bool Bme280::readEnvironmentalData() {
   constexpr uint8_t K_DATA_REGISTER_HEAD = 0xF7;
   constexpr size_t K_DATA_LENGTH = 8;
 
@@ -269,7 +268,7 @@ bool Bme280Extension::readEnvironmentalData() {
   return true;
 }
 
-bool Bme280Extension::processEnvironmentalData() {
+bool Bme280::processEnvironmentalData() {
   // Temperature (See section 4.2.3 of the datasheet)
   int32_t tvar1;
   int32_t tvar2;
@@ -331,7 +330,7 @@ bool Bme280Extension::processEnvironmentalData() {
   return true;
 }
 
-void Bme280Extension::resetSensor() {
+void Bme280::resetSensor() {
   const uint8_t K_REGISTER_RESET = 0xE0;
   const uint8_t K_RESET_COMMAND = 0xB6;
   i2c_.writeByteToReg(K_RESET_COMMAND, K_REGISTER_RESET);

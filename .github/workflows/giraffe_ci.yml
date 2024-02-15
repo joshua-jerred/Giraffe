@@ -1,0 +1,177 @@
+name: Giraffe CI
+
+on:
+   pull_request:
+    branches: [ main ]
+
+jobs:
+  build_gfs:
+    name: Build / Giraffe Flight System
+    runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/giraffe:latest
+      options: --user root
+    steps:
+      - uses: actions/checkout/@v1
+        with:
+          submodules: recursive
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
+      - name: CMake Configure
+        run: mkdir build -p && cd build && cmake ..
+      - name: Build Giraffe Flight System
+        run: cd build && make giraffe_flight_system -j 4
+
+  build_gdl_server:
+    name: Build / Giraffe Data Link Server
+    runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/giraffe:latest
+      options: --user root
+    steps:
+      - uses: actions/checkout/@v1
+        with:
+          submodules: recursive
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
+      - name: CMake Configure
+        run: mkdir build -p && cd build && cmake ..
+      - name: Build Giraffe Data Link
+        run: cd build && make giraffe_data_link_core -j 4
+
+  build_utilities:
+    name: Build / Utilities
+    runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/giraffe:latest
+      options: --user root
+    steps:
+      - uses: actions/checkout/@v1
+        with:
+          submodules: recursive
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
+      - name: CMake Configure
+        run: mkdir build -p && cd build && cmake ..
+      - name: Build eepmake
+        run: cd build && make eepmake -j 4
+      - name: Build eepdump
+        run: cd build && make eepdump -j 4
+
+  common_tests_cpp:
+    name: Unit Tests / Common C++
+    runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/giraffe:latest
+      options: --user root
+    steps:
+      - uses: actions/checkout/@v1
+        with:
+          submodules: recursive
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
+      - name: CMake Configure
+        run: mkdir build -p && cd build && cmake ..
+      - name: Build Test
+        run: cd build && make unit_test_common -j 4
+      - name: Run Test
+        run: cd build/bin/tests && ./unit_test_common
+
+  gfs_tests:
+    name: Unit Tests / Giraffe Flight System
+    runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/giraffe:latest
+      options: --user root
+    steps:
+      - uses: actions/checkout/@v1
+        with:
+          submodules: recursive
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
+      - name: CMake Configure
+        run: mkdir build -p && cd build && cmake ..
+      - name: Build Test
+        run: cd build && make unit_test_gfs -j 4
+      - name: Run Test
+        run: cd build/bin/tests && ./unit_test_gfs
+
+  data_link_tests:
+    name: Unit Tests / Data Link
+    runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/giraffe:latest
+      options: --user root
+    steps:
+      - uses: actions/checkout/@v1
+        with:
+          submodules: recursive
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
+      - name: CMake Configure
+        run: mkdir build -p && cd build && cmake ..
+      - name: Build Test
+        run: cd build && make unit_test_gdl -j 4
+      - name: Run Test
+        run: cd build/bin/tests && ./unit_test_gdl
+
+  common_tests_js:
+    name: Unit Tests / Common JS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: recursive
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - run: npm install
+        working-directory: ./src/common/protocol
+      - run: npm test
+        working-directory: ./src/common/protocol
+
+  ggs_tests:
+    name: Unit Tests / Giraffe Ground Station
+    runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/giraffe:latest
+      options: --user root
+    steps:
+      - uses: actions/checkout/@v1
+        with:
+          submodules: recursive
+      - name: Take Ownership of Source
+        run: git config --global --add safe.directory '*'
+      - name: CMake Configure
+        run: mkdir build -p && cd build && cmake ..
+      - run: npm install
+        working-directory: ./src/ground_station
+      - run: npm test
+        working-directory: ./src/ground_station
+
+  gwc_tests:
+    name: Unit Tests / Giraffe Web Client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - run: npm install
+        working-directory: ./src/web_client
+      - run: npm test
+        working-directory: ./src/web_client
+
+  static_analysis:
+    name: Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout/@v3
+        with:
+          submodules: recursive
+      - name: Install cmake-lint
+        run: pip install cmakelint
+      - name: Run cmake-lint
+        run: cmakelint --config=./project/cmakelintrc

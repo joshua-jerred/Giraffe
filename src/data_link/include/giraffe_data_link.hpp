@@ -18,145 +18,92 @@
 #define GIRAFFE_DATA_LINK_HPP_
 
 #include <atomic>
-#include <functional>
+#include <cstdint>
+#include <mutex>
+#include <queue>
+#include <string>
 #include <thread>
 
-#include "gdl_configuration.hpp"
-#include "gdl_message.hpp"
-#include "gdl_message_queue.hpp"
-#include "gdl_session_layer.hpp"
+#include <BoosterSeat/sleep.hpp>
+#include <BoosterSeat/timer.hpp>
+#include <SignalEasel/aprs.hpp>
 
-namespace gdl {
+#include "gdl_config_and_stats.hpp"
+#include "gdl_layers.hpp"
+#include "gdl_message.hpp"
+
+namespace giraffe::gdl {
+
 /**
  * @brief The Giraffe Data Link core class/interface - Layer 4 (Application)
  */
-class GiraffeDataLink {
+class DataLink {
 public:
   /**
-   * @brief The status of the GDL instance.
+   * @brief Status of the remote connection.
    */
-  enum class Status { ERROR, STOPPED, STARTING, RUNNING, STOPPING };
-
-  enum class ConnectionStatus { DISCONNECTED, CONNECTED };
+  enum class Status { DISABLED, DISCONNECTED, CONNECTED };
 
   /**
-   * @brief Create a new Giraffe Data Link instance
-   * @param config - The configuration for the GDL instance
-   * @param session_layer - The session layer for the GDL instance
+   * @brief Constructor for the Giraffe Data Link.
+   * @param config - The configuration for the GDL instance. Can be modified
+   * externally. (thread safe)
    */
-  GiraffeDataLink(GdlConfig config, SessionLayer &session_layer);
+  DataLink(Config &config);
 
   /**
    * @brief Deconstruct the GDL instance, this will stop the GDL instance if it
    * is running.
    */
-  ~GiraffeDataLink();
+  ~DataLink();
 
-  /**
-   * @brief Start the GDL instance.
-   * @details If it's already running, this will do nothing.
-   */
-  void start();
+  void enable();
+  void disable();
+  bool isEnabled() const {
+    return !gdl_thread_stop_flag_;
+  }
+  DataLink::Status getStatus() const;
 
-  /**
-   * @brief Stop the GDL instance.
-   * @details If it's already stopped, this will do nothing.
-   */
-  void stop();
+  bool sendMessage(const Message &message);
+  bool sendText(const std::string &text, uint32_t message_id);
 
-  /**
-   * @brief Get the status of the GDL instance.
-   * @return GiraffeDataLink::Status - The status of the GDL instance.
-   */
-  GiraffeDataLink::Status getStatus() const;
+  bool receiveMessage(Message &message);
+  bool messageAvailable() const {
+    return in_queue_.size() > 0;
+  }
 
-  /**
-   * @brief Get the connection status of the GDL instance.
-   * @return GiraffeDataLink::ConnectionStatus - The connection status
-   */
-  ConnectionStatus getConnectionStatus() const;
-
-  /**
-   * @brief Add a message to the exchange queue.
-   * @details Requires a connection.
-   * @param message - The message to add to the queue.
-   * @return true - If the message was added to the queue.
-   * @return false - If the message was not added to the queue.
-   */
-  bool sendExchangeMessage(Message message);
-
-  /**
-   * @brief Add a message to the broadcast queue.
-   * @details Does not require a connection.
-   * @param message - The message to add to the queue.
-   * @return true - If the message was added to the queue.
-   * @return false - If the message was not added to the queue.
-   */
-  bool sendBroadcastMessage(Message message);
-
-  /**
-   * @brief Get a message from the receive queue.
-   *
-   * @param message (out) - The message to get from the queue.
-   * @return true - If a message was available.
-   * @return false - If a message was not available.
-   */
-  bool getReceivedMessage(Message &message);
-
-  int getExchangeQueueSize() const;
-  int getBroadcastQueueSize() const;
-  int getReceiveQueueSize() const;
+  Statistics getStatistics() {
+    std::lock_guard<std::mutex> lock(statistics_lock_);
+    return statistics_;
+  }
 
 private:
-  struct MessageQueues {
-    MessageQueues(int exchange_queue_size, int broadcast_queue_size,
-                  int receive_queue_size)
-        : exchange(exchange_queue_size), broadcast(broadcast_queue_size),
-          received(receive_queue_size) {
-    }
-
-    MessageQueue exchange;
-    MessageQueue broadcast;
-    MessageQueue received;
-  };
+  bool isRunning() {
+    return status_ != Status::DISABLED;
+  }
 
   /**
    * @brief The main thread function for GDL.
    */
   void gdlThread();
+  Config &config_;
 
-  /**
-   * @brief The configuration for the GDL instance.
-   */
-  const GdlConfig config_;
+  MessageQueue out_broadcast_queue_{};
+  MessageQueue out_exchange_queue_{};
+  MessageQueue in_queue_{};
 
-  /**
-   * @brief The queues for the GDL instance.
-   */
-  MessageQueues queues_;
-
-  /**
-   * @brief The session layer for the GDL instance.
-   */
-  SessionLayer &session_layer_;
-
-  /**
-   * @brief The thread that runs GDL.
-   */
   std::thread gdl_thread_{};
+  std::atomic<bool> gdl_thread_stop_flag_{true};
+  std::atomic<Status> status_{Status::DISABLED};
 
-  /**
-   * @brief The status of the GDL instance.
-   */
-  std::atomic<Status> status_{Status::STOPPED};
+  std::mutex statistics_lock_{};
+  Statistics statistics_{};
 
-  /**
-   * @brief The status of the connection.
-   */
-  std::atomic<ConnectionStatus> connection_status_{
-      ConnectionStatus::DISCONNECTED};
+  PhysicalLayer physical_layer_{config_};
+  NetworkLayer network_layer_{config_, physical_layer_};
+  TransportLayer transport_layer_{config_, network_layer_};
 };
 
-} // namespace gdl
+} // namespace giraffe::gdl
 
 #endif /* GIRAFFE_DATA_LINK_HPP_ */

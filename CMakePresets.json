@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "configurePresets": [
     {
       "name": "gcc_docker_pi_zero",
@@ -8,8 +8,12 @@
       "generator": "Unix Makefiles",
       "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_TOOLCHAIN_FILE": "/toolchain/toolchain.cmake"
+      },
+      "environment": {
+        "RASPBERRY_PI": "1",
+        "SIMULATED_EXTENSIONS": "0"
       }
     },
     {
@@ -20,7 +24,11 @@
       "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/toolchains/pi_x86_toolchain.cmake"
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/project/toolchain/pi_toolchain.cmake"
+      },
+      "environment": {
+        "RASPBERRY_PI": "1",
+        "SIMULATED_EXTENSIONS": "0"
       }
     },
     {
@@ -31,6 +39,10 @@
       "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
+      },
+      "environment": {
+        "RASPBERRY_PI": "1",
+        "RUN_IN_SIMULATOR": "1"
       }
     }
   ]

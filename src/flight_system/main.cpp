@@ -15,11 +15,21 @@
 #include "flight_runner.hpp"
 #include "giraffe_assert.hpp"
 
+#if RUN_IN_SIMULATOR == 1
+#include "gfs_simulator.hpp"
+gfs_sim::GfsSimulator g_GFS_SIMULATOR{};
+#endif
+
 FlightRunner flight;
 
 auto signalHandler(int signal_number) -> void {
   signal(SIGINT, signalHandler);
   if (signal_number == SIGINT) {
+
+#if RUN_IN_SIMULATOR == 1
+    g_GFS_SIMULATOR.stop();
+#endif
+
     flight.shutdown();
   }
 }
@@ -35,13 +45,19 @@ auto signalHandler(int signal_number) -> void {
  */
 int main() {
   signal(SIGINT, signalHandler); // Register signal handler
+
+#if RUN_IN_SIMULATOR == 1
+  g_GFS_SIMULATOR.start();
+#endif
+
   return flight.start();
 }
 
 #ifndef DNDEBUG // If debug mode is enabled.
 void __assert_func(const char *file_name, int line_number,
                    const char *expression) {
-  flight.shutdown();
+  // flight.shutdown(); /// @todo Figure out why this was done. This causes wild
+  // problems.
   printf("ASSERT: %s:%d: Assertion `%s' failed.\n", file_name, line_number,
          expression);
 }

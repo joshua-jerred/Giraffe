@@ -22,11 +22,9 @@
 
 namespace extension {
 
-class Mcp3021Extension : public AdcExtensionBase<10>,
-                         public I2cExtensionAdapter {
+class Mcp3021 : public AdcExtensionBase<10>, public I2cExtensionAdapter {
 public:
-  Mcp3021Extension(ExtensionResources &resources,
-                   cfg::ExtensionMetadata metadata);
+  Mcp3021(ExtensionResources &resources, cfg::ExtensionMetadata metadata);
 
 private:
   void adcStartup() override;

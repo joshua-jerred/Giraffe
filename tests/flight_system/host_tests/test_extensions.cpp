@@ -18,23 +18,29 @@
 #include "unit_test.hpp"
 
 #include "bme280.hpp"
+#include "bmi088.hpp"
 #include "ds18b20.hpp"
 #include "mcp3021.hpp"
+#include "pi_camera.hpp"
+#include "rgb_status_led.hpp"
 #include "samm8q.hpp"
 
 #define BME280_TEST_ENABLED 0
 #define DS18B20_TEST_ENABLED 0
 #define SAMM8Q_TEST_ENABLED 0
-#define MCP3021_TEST_ENABLED 1
+#define MCP3021_TEST_ENABLED 0
+#define BMI088_TEST_ENABLED 0
+#define RGB_STATUS_LED_TEST_ENABLED 0
+#define PI_CAMERA_TEST_ENABLED 1
 
 #if BME280_TEST_ENABLED
 TEST(ExtensionsTest, BME280Test) {
   ExtensionTestFramework tf{};
-  tf.meta.update_interval = 1000;
+  tf.meta.update_interval = 500;
 
-  extension::Bme280Extension bme280{tf.resources, tf.meta};
+  extension::Bme280 bme280{tf.resources, tf.meta};
 
-  tf.runExtensionFor(bme280, 2000);
+  tf.runExtensionFor(bme280, 1000);
 
   EXPECT_GT(tf.getTotalDataPackets(), 0);
   EXPECT_EQ(tf.getTotalLogPackets(), 0);
@@ -63,11 +69,11 @@ TEST(ExtensionsTest, DS18B20Test) {
 #if SAMM8Q_TEST_ENABLED
 TEST(ExtensionsTest, SAMM8QTest) {
   ExtensionTestFramework tf{};
-  tf.meta.update_interval = 1000;
+  tf.meta.update_interval = 500;
 
-  extension::SamM8qExtension sam_m8q{tf.resources, tf.meta};
+  extension::SamM8q sam_m8q{tf.resources, tf.meta};
 
-  tf.runExtensionFor(sam_m8q, 10000);
+  tf.runExtensionFor(sam_m8q, 5000);
 
   EXPECT_GT(tf.getTotalGpsPackets(), 0);
   EXPECT_EQ(tf.getTotalLogPackets(), 0);
@@ -84,6 +90,60 @@ TEST(ExtensionsTest, MCP3021Test) {
   extension::Mcp3021Extension mcp3021{tf.resources, tf.meta};
 
   tf.runExtensionFor(mcp3021, 2000);
+
+  EXPECT_GT(tf.getTotalDataPackets(), 0);
+  EXPECT_EQ(tf.getTotalLogPackets(), 0);
+
+  tf.printStreams();
+}
+#endif
+
+#if BMI088_TEST_ENABLED
+TEST(ExtensionsTest, BMI088Test) {
+  ExtensionTestFramework tf{};
+  tf.meta.update_interval = 500;
+  tf.meta.extra_args = "/dev/spidev0.0,/dev/spidev0.1";
+  extension::Bmi088 bmi088{tf.resources, tf.meta};
+
+  tf.runExtensionFor(bmi088, 2000);
+
+  EXPECT_GT(tf.getTotalImuPackets(), 0);
+  EXPECT_EQ(tf.getTotalLogPackets(), 0);
+
+  tf.printStreams();
+}
+#endif
+
+#if RGB_STATUS_LED_TEST_ENABLED
+#include "gpio.hpp"
+
+TEST(ExtensionsTest, RgbStatusLedTest) {
+  giraffe::Gpio::initialize();
+
+  ExtensionTestFramework tf{};
+  tf.status_led.setRed(giraffe::StatusLedState::State::BLINK);
+  tf.status_led.setGreen(giraffe::StatusLedState::State::ON);
+  tf.status_led.setBlue(giraffe::StatusLedState::State::BLINK);
+  tf.meta.update_interval = 500;
+  tf.meta.extra_args = "17,27,22";
+  extension::RgbStatusLed rgb_status_led{tf.resources, tf.meta};
+
+  tf.runExtensionFor(rgb_status_led, 2000);
+
+  EXPECT_GT(tf.getTotalLogPackets(), 0);
+
+  tf.printStreams();
+}
+#endif
+
+#if PI_CAMERA_TEST_ENABLED
+TEST(ExtensionTest, PiCameraTest) {
+  ExtensionTestFramework tf{};
+  tf.meta.update_interval = 2000;
+
+  extension::PiCamera pi_camera{tf.resources, tf.meta};
+
+  tf.runExtensionFor(pi_camera, 3000);
 
   EXPECT_GT(tf.getTotalDataPackets(), 0);
   EXPECT_EQ(tf.getTotalLogPackets(), 0);

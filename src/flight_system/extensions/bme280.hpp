@@ -24,10 +24,9 @@
 
 namespace extension {
 
-class Bme280Extension : public Extension {
+class Bme280 : public Extension {
 public:
-  Bme280Extension(ExtensionResources &resources,
-                  cfg::ExtensionMetadata metadata);
+  Bme280(ExtensionResources &resources, cfg::ExtensionMetadata metadata);
 
   void startup() override;
   void loop() override;
@@ -143,12 +142,12 @@ private:
    * @brief A timer that is used to read the sensor's compensation data at a
    * configured interval.
    */
-  BoosterSeat::Timer compensation_timer_;
+  bst::Timer compensation_timer_;
 
   /**
    * @brief A timer used with loop() to verify that the sensor is functioning.
    */
-  BoosterSeat::Timer read_timer_;
+  bst::Timer read_timer_;
 
   uint32_t raw_temperature_ = 0;
   uint32_t raw_pressure_ = 0;

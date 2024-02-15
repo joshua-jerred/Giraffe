@@ -6,8 +6,8 @@ test("Load value from DB", (t) => {
 
   db.resetDb();
 
-  const value = db.get("settings", "ggs_server", "stream_rate");
-  t.is(value, 500);
+  const value = db.get("settings", "ggs_settings", "logging_level");
+  t.is(value, "info");
 });
 
 test("set_value", async (t) => {

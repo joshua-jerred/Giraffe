@@ -33,6 +33,11 @@ std::string cfg::General::getProjectName() const {
   return project_name_;
 }
 
+int cfg::General::getFlightIdentifierNumber() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return flight_identifier_number_;
+}
+
 cfg::gEnum::MainBoard cfg::General::getMainBoard() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return main_board_;
@@ -51,6 +56,11 @@ int cfg::General::getModuleStatusUpdateRate() const {
 void cfg::General::setProjectName(std::string val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   project_name_ = val;
+}
+
+void cfg::General::setFlightIdentifierNumber(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  flight_identifier_number_ = val;
 }
 
 void cfg::General::setMainBoard(cfg::gEnum::MainBoard val) {
@@ -79,6 +89,16 @@ void cfg::General::setFromJson(const Json &json_data) {
         1,
         20,
         "^(?!\\s)[a-zA-Z0-9_ -]{0,19}[^\\s]$"
+  );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "general",
+        "flight_identifier_number",
+        flight_identifier_number_,
+        0,
+        1000,
+        ""
   );
   validation::setValidEnum<cfg::gEnum::MainBoard>(
         streams_.log,
@@ -112,6 +132,7 @@ Json cfg::General::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return Json({
     {"project_name", project_name_},
+    {"flight_identifier_number", flight_identifier_number_},
     {"main_board", cfg::gEnum::K_MAIN_BOARD_TO_STRING_MAP.at(main_board_)},
     {"starting_procedure", cfg::gEnum::K_PROCEDURE_TYPE_TO_STRING_MAP.at(starting_procedure_)},
     {"module_status_update_rate", module_status_update_rate_}
@@ -394,6 +415,11 @@ std::string cfg::DataModuleInfluxdb::getContents() const {
   return contents_;
 }
 
+int cfg::DataModuleInfluxdb::getDataDumpInterval() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return data_dump_interval_;
+}
+
 void cfg::DataModuleInfluxdb::setInfluxEnabled(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   influx_enabled_ = val;
@@ -439,6 +465,11 @@ void cfg::DataModuleInfluxdb::setContents(std::string val) {
   contents_ = val;
 }
 
+void cfg::DataModuleInfluxdb::setDataDumpInterval(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  data_dump_interval_ = val;
+}
+
 void cfg::DataModuleInfluxdb::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   validation::setValidValue<bool>(
@@ -468,7 +499,7 @@ void cfg::DataModuleInfluxdb::setFromJson(const Json &json_data) {
         "url",
         url_,
         0,
-        50,
+        100,
         ""
   );
   validation::setValidValue<std::string>(
@@ -478,7 +509,7 @@ void cfg::DataModuleInfluxdb::setFromJson(const Json &json_data) {
         "token",
         token_,
         0,
-        50,
+        100,
         ""
   );
   validation::setValidValue<std::string>(
@@ -529,6 +560,16 @@ void cfg::DataModuleInfluxdb::setFromJson(const Json &json_data) {
         50,
         ""
   );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "data_module_influxdb",
+        "data_dump_interval",
+        data_dump_interval_,
+        100,
+        60000,
+        ""
+  );
 }
 
 Json cfg::DataModuleInfluxdb::getJson() const {
@@ -542,7 +583,8 @@ Json cfg::DataModuleInfluxdb::getJson() const {
     {"data_bucket", data_bucket_},
     {"error_bucket", error_bucket_},
     {"retention_policy", cfg::gEnum::K_INFLUXDB_RETENTION_POLICY_TO_STRING_MAP.at(retention_policy_)},
-    {"contents", contents_}
+    {"contents", contents_},
+    {"data_dump_interval", data_dump_interval_}
   });
 }
 bool cfg::DataModuleLog::getLogToFile() const {
@@ -858,6 +900,11 @@ std::string cfg::Telemetry::getCallSign() const {
   return call_sign_;
 }
 
+bool cfg::Telemetry::getDataLinkEnabled() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return data_link_enabled_;
+}
+
 void cfg::Telemetry::setTelemetryEnabled(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   telemetry_enabled_ = val;
@@ -866,6 +913,11 @@ void cfg::Telemetry::setTelemetryEnabled(bool val) {
 void cfg::Telemetry::setCallSign(std::string val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   call_sign_ = val;
+}
+
+void cfg::Telemetry::setDataLinkEnabled(bool val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  data_link_enabled_ = val;
 }
 
 void cfg::Telemetry::setFromJson(const Json &json_data) {
@@ -890,13 +942,24 @@ void cfg::Telemetry::setFromJson(const Json &json_data) {
         6,
         "[a-zA-Z0-9]{1,3}[0-9][a-zA-Z0-9]{0,3}[a-zA-Z]"
   );
+  validation::setValidValue<bool>(
+        streams_.log,
+        json_data,
+        "telemetry",
+        "data_link_enabled",
+        data_link_enabled_,
+        0,
+        0,
+        ""
+  );
 }
 
 Json cfg::Telemetry::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return Json({
     {"telemetry_enabled", telemetry_enabled_},
-    {"call_sign", call_sign_}
+    {"call_sign", call_sign_},
+    {"data_link_enabled", data_link_enabled_}
   });
 }
 bool cfg::TelemetryAprs::getTelemetryPackets() const {
@@ -907,6 +970,11 @@ bool cfg::TelemetryAprs::getTelemetryPackets() const {
 bool cfg::TelemetryAprs::getPositionPackets() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return position_packets_;
+}
+
+int cfg::TelemetryAprs::getPositionPacketInterval() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return position_packet_interval_;
 }
 
 std::string cfg::TelemetryAprs::getFrequency() const {
@@ -952,6 +1020,11 @@ void cfg::TelemetryAprs::setTelemetryPackets(bool val) {
 void cfg::TelemetryAprs::setPositionPackets(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   position_packets_ = val;
+}
+
+void cfg::TelemetryAprs::setPositionPacketInterval(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  position_packet_interval_ = val;
 }
 
 void cfg::TelemetryAprs::setFrequency(std::string val) {
@@ -1009,6 +1082,16 @@ void cfg::TelemetryAprs::setFromJson(const Json &json_data) {
         position_packets_,
         0,
         0,
+        ""
+  );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "telemetry_aprs",
+        "position_packet_interval",
+        position_packet_interval_,
+        10,
+        3600,
         ""
   );
   validation::setValidValue<std::string>(
@@ -1086,6 +1169,7 @@ Json cfg::TelemetryAprs::getJson() const {
   return Json({
     {"telemetry_packets", telemetry_packets_},
     {"position_packets", position_packets_},
+    {"position_packet_interval", position_packet_interval_},
     {"frequency", frequency_},
     {"ssid", ssid_},
     {"destination_address", destination_address_},

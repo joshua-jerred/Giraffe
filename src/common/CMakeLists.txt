@@ -1,16 +1,36 @@
 add_library(giraffe_common INTERFACE)
 target_sources(giraffe_common INTERFACE
-  diagnostic/giraffe_exception.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/giraffe_exception.cpp
   # diagnostic/giraffe_debug_assert.cpp
-  diagnostic/diagnostic_id_strings.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/data_ids_string_map.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/diagnostic_id_strings.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/command_ids_strings.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/protocol/protocol.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/socket.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/giraffe_file_paths.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/common_logger.cpp
 )
 target_include_directories(giraffe_common INTERFACE
   ./
-  ./diagnostic
-  ./command
+  ./protocol
+)
+target_link_libraries(giraffe_common INTERFACE
+  fmt::fmt
 )
 
 add_library(giraffe_debug_assert INTERFACE)
 target_sources(giraffe_debug_assert INTERFACE
-  diagnostic/giraffe_debug_assert.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/giraffe_debug_assert.cpp
+)
+
+add_library(curses_utilities INTERFACE)
+target_sources(curses_utilities INTERFACE
+  ${CMAKE_CURRENT_SOURCE_DIR}/curses/ncurses_utilities.cpp
+)
+target_include_directories(curses_utilities INTERFACE
+  ./curses
+)
+target_link_libraries(curses_utilities INTERFACE
+  ${CURSES_LIBRARIES}
+  BoosterSeat
 )

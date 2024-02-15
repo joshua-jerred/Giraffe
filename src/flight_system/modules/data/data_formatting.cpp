@@ -22,7 +22,6 @@
 #include "data_formatting.hpp"
 #include "to_string.hpp"
 
-namespace bst = BoosterSeat::time;
 using namespace data_middleware;
 
 std::string DataFormatter::fullFrame() {
@@ -33,6 +32,8 @@ std::string DataFormatter::fullFrame() {
   addComponent(DataFrameComponent::SERVER_STATS, frame);
   addComponent(DataFrameComponent::SYSTEM_INFO, frame);
   addComponent(DataFrameComponent::ENVIRONMENTAL_DATA, frame);
+  addComponent(DataFrameComponent::TELEMETRY_DATA, frame);
+  addComponent(DataFrameComponent::CALCULATED_DATA, frame);
   return frame.dump();
 }
 
@@ -81,6 +82,13 @@ void DataFormatter::addComponent(DataFrameComponent component, Json &frame) {
     frame["environmental"]["humidity"] =
         data::toJson(shared_data_.frames.env_hum);
     break;
+  case DataFrameComponent::TELEMETRY_DATA:
+    frame["data"]["telemetry"] =
+        shared_data_.blocks.telemetry_module_stats.get().toJson();
+    break;
+  case DataFrameComponent::CALCULATED_DATA:
+    frame["data"]["calculated"] =
+        shared_data_.blocks.calculated_data.get().toJson();
   }
 }
 
@@ -98,14 +106,14 @@ DataFormatter::dataPacketToJsonString(const data::DataPacket &packet) const {
     source = node::K_IDENTIFICATION_TO_STRING_MAP.at(packet.source);
   }
 
-  id = BoosterSeat::string::intToHex(static_cast<uint16_t>(packet.identifier),
-                                     4, false, true);
+  id = bst::string::intToHex(static_cast<uint16_t>(packet.identifier), 4, false,
+                             true);
 
   value = packet.value;
   auto time = packet.created_time;
   timestamp = generateTimestamp(time);
-  timestamp = BoosterSeat::time::timeString(BoosterSeat::time::TimeZone::LOCAL,
-                                            ':', packet.created_time);
+  timestamp = bst::time::timeString(bst::time::TimeZone::LOCAL, ':',
+                                    packet.created_time);
 
   // Format into json
   Json data_packet = {
@@ -116,12 +124,12 @@ DataFormatter::dataPacketToJsonString(const data::DataPacket &packet) const {
 Json DataFormatter::fullFrameLogPacketToJson(
     const data::ErrorFrameItem &item) const {
 
-  std::string id = BoosterSeat::string::intToHex(
-      static_cast<uint16_t>(item.packet.id), 4, false);
-  std::string first = BoosterSeat::time::timeString(
-      BoosterSeat::time::TimeZone::LOCAL, ':', item.first_reported);
-  std::string last = BoosterSeat::time::timeString(
-      BoosterSeat::time::TimeZone::LOCAL, ':', item.last_reported);
+  std::string id =
+      bst::string::intToHex(static_cast<uint16_t>(item.packet.id), 4, false);
+  std::string first = bst::time::timeString(bst::time::TimeZone::LOCAL, ':',
+                                            item.first_reported);
+  std::string last = bst::time::timeString(bst::time::TimeZone::LOCAL, ':',
+                                           item.last_reported);
   int count = item.occurrences;
 
   // clang-format off
@@ -166,16 +174,15 @@ DataFormatter::logPacketToJsonString(const data::LogPacket &packet) const {
     source = node::K_IDENTIFICATION_TO_STRING_MAP.at(packet.source);
   }
 
-  id = BoosterSeat::string::intToHex(static_cast<uint16_t>(packet.id), 4, false,
-                                     true);
+  id = bst::string::intToHex(static_cast<uint16_t>(packet.id), 4, false, true);
 
   level = util::to_string(packet.level);
 
   info = packet.info;
   auto time = packet.created_time;
   timestamp = generateTimestamp(time);
-  timestamp = BoosterSeat::time::timeString(BoosterSeat::time::TimeZone::LOCAL,
-                                            ':', packet.created_time);
+  timestamp = bst::time::timeString(bst::time::TimeZone::LOCAL, ':',
+                                    packet.created_time);
 
   // Format into json
   // clang-format off
@@ -190,23 +197,23 @@ DataFormatter::logPacketToJsonString(const data::LogPacket &packet) const {
   return data_packet.dump();
 }
 
-std::string DataFormatter::generateTimestamp(
-    const BoosterSeat::clck::TimePoint time_point) const {
+std::string
+DataFormatter::generateTimestamp(const bst::clck::TimePoint time_point) const {
   cfg::gEnum::TimestampDetail detail =
       config_.data_module_data.getTimestampDetail();
   cfg::gEnum::TimestampTimezone timezone =
       config_.data_module_data.getTimestampTimezone();
 
-  BoosterSeat::time::TimeZone tz;
+  bst::time::TimeZone tz;
   if (timezone == cfg::gEnum::TimestampTimezone::UTC) {
-    tz = BoosterSeat::time::TimeZone::UTC;
+    tz = bst::time::TimeZone::UTC;
   } else {
-    tz = BoosterSeat::time::TimeZone::LOCAL;
+    tz = bst::time::TimeZone::LOCAL;
   }
 
   if (detail == cfg::gEnum::TimestampDetail::DATE_HHMMSS) {
-    return bst::dateAndTimeString(tz, '-', '_', ':', time_point);
+    return bst::time::dateAndTimeString(tz, '-', '_', ':', time_point);
   } else {
-    return bst::timeString(tz, ':', time_point);
+    return bst::time::timeString(tz, ':', time_point);
   }
 }

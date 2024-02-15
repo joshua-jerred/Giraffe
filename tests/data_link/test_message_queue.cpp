@@ -1,14 +1,15 @@
 #include "gtest/gtest.h"
 
-#include "gdl_configuration.hpp"
+#include "gdl_constants.hpp"
 #include "gdl_message.hpp"
-#include "gdl_message_queue.hpp"
+
+using namespace giraffe;
 
 TEST(GdlMessageQueueTest, Push) {
-  constexpr uint8_t max_queue_size = 10;
-  gdl::MessageQueue queue{max_queue_size};
+  gdl::MessageQueue queue{};
 
-  gdl::Message message{1, gdl::Message::Type::UNDEFINED, "test"};
+  gdl::Message message;
+  message.setBroadcastMessage("test", 1);
 
   EXPECT_EQ(queue.size(), 0);
   EXPECT_TRUE(queue.push(message));
@@ -16,12 +17,13 @@ TEST(GdlMessageQueueTest, Push) {
 }
 
 TEST(GdlMessageQueueTest, PushFull) {
-  constexpr uint8_t max_queue_size = 10;
-  gdl::MessageQueue queue{max_queue_size};
+  // GTEST_SKIP();
+  gdl::MessageQueue queue{};
 
-  gdl::Message message{1, gdl::Message::Type::UNDEFINED, "test"};
+  gdl::Message message;
+  message.setBroadcastMessage("test", 1);
 
-  for (uint8_t i = 0; i < max_queue_size; ++i) {
+  for (uint8_t i = 0; i < gdl::GDL_MESSAGE_QUEUES_SIZE; ++i) {
     EXPECT_TRUE(queue.push(message));
   }
 
@@ -29,22 +31,22 @@ TEST(GdlMessageQueueTest, PushFull) {
 }
 
 TEST(GdlMessageQueueTest, Pop) {
-  constexpr uint8_t max_queue_size = 10;
-  gdl::MessageQueue queue{max_queue_size};
+  gdl::MessageQueue queue{};
 
-  gdl::Message message{1, gdl::Message::Type::UNDEFINED, "test"};
+  gdl::Message message;
+  message.setBroadcastMessage("test", 1);
 
-  for (uint8_t i = 0; i < max_queue_size; ++i) {
+  for (uint8_t i = 0; i < gdl::GDL_MESSAGE_QUEUES_SIZE; ++i) {
     EXPECT_TRUE(queue.push(message));
   }
 
-  EXPECT_EQ(queue.size(), max_queue_size);
+  EXPECT_EQ(queue.size(), gdl::GDL_MESSAGE_QUEUES_SIZE);
 
-  for (uint8_t i = 0; i < max_queue_size; ++i) {
+  for (uint8_t i = 0; i < gdl::GDL_MESSAGE_QUEUES_SIZE; ++i) {
     gdl::Message popped_message;
     EXPECT_TRUE(queue.pop(popped_message));
-    EXPECT_EQ(popped_message.data, message.data);
-    EXPECT_EQ(popped_message.id, message.id);
+    EXPECT_EQ(popped_message.getData(), message.getData());
+    EXPECT_EQ(popped_message.getIdentifier(), message.getIdentifier());
   }
 
   EXPECT_EQ(queue.size(), 0);
@@ -52,7 +54,7 @@ TEST(GdlMessageQueueTest, Pop) {
 
 TEST(GdlMessageQueueTest, PopEmpty) {
   constexpr uint8_t max_queue_size = 10;
-  gdl::MessageQueue queue{max_queue_size};
+  gdl::MessageQueue queue{};
 
   gdl::Message popped_message;
   EXPECT_FALSE(queue.pop(popped_message));

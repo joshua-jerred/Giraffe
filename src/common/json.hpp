@@ -18,8 +18,18 @@
 #ifndef JSON_HPP_
 #define JSON_HPP_
 
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
+#include <string>
 
 typedef nlohmann::ordered_json Json;
+
+template <typename T>
+inline T getJsonValue(const Json &json, std::string key, T default_value) {
+  try {
+    return json.at(key).get<T>();
+  } catch (std::exception &e) {
+    return default_value;
+  }
+}
 
 #endif /* JSON_HPP_ */

@@ -40,7 +40,7 @@ enum class Endpoint {
 enum class MessageType {
   UNKNOWN, // Error Type
   REQ,     // Request
-  SET,     // Set
+  SET,     // Set (Also used as a command)
   RSP      // Response
 };
 
@@ -78,9 +78,19 @@ struct Message {
    */
   Json getBodyJson();
 
-  // Required Fields
+  /**
+   * @brief The source of the message.
+   */
   protocol::Endpoint src = protocol::Endpoint::UNKNOWN;
+
+  /**
+   * @brief The destination of the message.
+   */
   protocol::Endpoint dst = protocol::Endpoint::UNKNOWN;
+
+  /**
+   * @brief The type of the message.
+   */
   protocol::MessageType typ = protocol::MessageType::UNKNOWN;
   MessageId id = "";
 
@@ -136,12 +146,15 @@ void createSetMessage(Message &message, protocol::Endpoint src,
  * @param id - The id of the message to respond to.
  * @param dat - The data to respond with.
  * @param rsp - The response code.
+ * @param rsc - (optional due to backwards compatibility) The resource that
+ * the response is for.
  * @return true - If the message is valid.
  * @return false - If the message is not valid.
  */
 void createResponseMessage(Message &message, protocol::Endpoint src,
                            protocol::Endpoint dst, MessageId id,
-                           protocol::ResponseCode rsp, Json dat);
+                           protocol::ResponseCode rsp, Json dat,
+                           std::string rsc = "");
 
 } // namespace protocol
 

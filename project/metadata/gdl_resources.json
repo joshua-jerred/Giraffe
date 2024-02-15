@@ -1,0 +1,13 @@
+{
+  "settings": {
+
+  },
+  "data":{
+    "status":{
+      "gdl_status": {
+        "name": "GDL Status",
+        "description": "Whether the GDL is currently running or not"
+      }
+    }
+  }
+}

@@ -119,7 +119,7 @@ private:
   const uint32_t adc_resolution_ = AdcResolution;
 
   AdcConfig adc_config_{};
-  BoosterSeat::Timer adc_watchdog_;
+  bst::Timer adc_watchdog_;
 };
 
 } // namespace extension

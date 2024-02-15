@@ -23,6 +23,7 @@
 #include "giraffe_debug.hpp"
 #include "sections/cfg_extensions.hpp"
 #include "shared_data.hpp"
+#include "status_led.hpp"
 
 namespace extension {
 
@@ -30,8 +31,9 @@ namespace extension {
  * @brief This contains objects that are shared between all extensions.
  */
 struct ExtensionResources {
-  ExtensionResources(data::Streams &streams, cfg::gEnum::I2CBus i2c_bus)
-      : streams(streams), i2c_bus(i2c_bus) {
+  ExtensionResources(data::Streams &streams, cfg::gEnum::I2CBus i2c_bus,
+                     giraffe::StatusLedState &status_led)
+      : streams(streams), i2c_bus(i2c_bus), status_led(status_led) {
   }
 
   /**
@@ -51,6 +53,11 @@ struct ExtensionResources {
    * @brief The bus to use for I2C communication.
    */
   cfg::gEnum::I2CBus i2c_bus;
+
+  /**
+   * @brief The status LED.
+   */
+  giraffe::StatusLedState &status_led;
 };
 
 /**
@@ -133,11 +140,13 @@ protected:
 
   template <typename T>
   void data(data::DataId identifier, T value, int precision = 2);
+  void date(data::DataId identifier, std::string string_data);
   void data(data::GpsFrame frame);
   void data(data::ImuFrame frame);
   void error(DiagnosticId, const std::string &info = "");
   void error(DiagnosticId log_id, int info);
   void info(std::string info);
+  void debug(std::string message);
 
   /**
    * @brief Returns true if the extension has been requested to stop.
@@ -156,13 +165,6 @@ protected:
    * This will stop an extension.
    */
   void raiseFault(DiagnosticId ext_fault_code, std::string info = "");
-
-  /**
-   * @brief For when debugging is enabled, simple debug messages can be sent to
-   * the log.
-   * @param message
-   */
-  void debug(std::string message);
 
   /**
    * @brief Sleep internally for a given number of milliseconds.

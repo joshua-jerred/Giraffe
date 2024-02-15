@@ -44,11 +44,13 @@ public:
   General(data::Streams &streams): cfg::CfgSection(streams){}
 
   std::string getProjectName() const;
+  int getFlightIdentifierNumber() const;
   cfg::gEnum::MainBoard getMainBoard() const;
   cfg::gEnum::ProcedureType getStartingProcedure() const;
   int getModuleStatusUpdateRate() const;
 
   void setProjectName(std::string);
+  void setFlightIdentifierNumber(int);
   void setMainBoard(cfg::gEnum::MainBoard);
   void setStartingProcedure(cfg::gEnum::ProcedureType);
   void setModuleStatusUpdateRate(int);
@@ -58,6 +60,7 @@ public:
 
 private:
   std::string project_name_ = "Giraffe Flight 1";
+  int flight_identifier_number_ = 0;
   cfg::gEnum::MainBoard main_board_ = cfg::gEnum::MainBoard::OTHER;
   cfg::gEnum::ProcedureType starting_procedure_ = cfg::gEnum::ProcedureType::OTHER;
   int module_status_update_rate_ = 1000;
@@ -121,6 +124,7 @@ public:
   std::string getErrorBucket() const;
   cfg::gEnum::InfluxdbRetentionPolicy getRetentionPolicy() const;
   std::string getContents() const;
+  int getDataDumpInterval() const;
 
   void setInfluxEnabled(bool);
   void setLogErrors(bool);
@@ -131,6 +135,7 @@ public:
   void setErrorBucket(std::string);
   void setRetentionPolicy(cfg::gEnum::InfluxdbRetentionPolicy);
   void setContents(std::string);
+  void setDataDumpInterval(int);
 
   void setFromJson(const Json&);
   Json getJson() const;
@@ -138,13 +143,14 @@ public:
 private:
   bool influx_enabled_ = false;
   bool log_errors_ = false;
-  std::string url_ = "localhost";
+  std::string url_ = "http://localhost:8086/";
   std::string token_ = "none";
   std::string organization_ = "giraffe";
   std::string data_bucket_ = "gfs_data";
   std::string error_bucket_ = "gfs_errors";
   cfg::gEnum::InfluxdbRetentionPolicy retention_policy_ = cfg::gEnum::InfluxdbRetentionPolicy::INF;
   std::string contents_ = "not implemented";
+  int data_dump_interval_ = 1000;
 };
 
 class DataModuleLog : public cfg::CfgSection {
@@ -240,9 +246,11 @@ public:
 
   bool getTelemetryEnabled() const;
   std::string getCallSign() const;
+  bool getDataLinkEnabled() const;
 
   void setTelemetryEnabled(bool);
   void setCallSign(std::string);
+  void setDataLinkEnabled(bool);
 
   void setFromJson(const Json&);
   Json getJson() const;
@@ -250,6 +258,7 @@ public:
 private:
   bool telemetry_enabled_ = false;
   std::string call_sign_ = "N0CALL";
+  bool data_link_enabled_ = false;
 };
 
 class TelemetryAprs : public cfg::CfgSection {
@@ -258,6 +267,7 @@ public:
 
   bool getTelemetryPackets() const;
   bool getPositionPackets() const;
+  int getPositionPacketInterval() const;
   std::string getFrequency() const;
   int getSsid() const;
   std::string getDestinationAddress() const;
@@ -268,6 +278,7 @@ public:
 
   void setTelemetryPackets(bool);
   void setPositionPackets(bool);
+  void setPositionPacketInterval(int);
   void setFrequency(std::string);
   void setSsid(int);
   void setDestinationAddress(std::string);
@@ -282,6 +293,7 @@ public:
 private:
   bool telemetry_packets_ = false;
   bool position_packets_ = false;
+  int position_packet_interval_ = 600;
   std::string frequency_ = "144.3900";
   int ssid_ = 0;
   std::string destination_address_ = "APRS";

@@ -1,33 +1,56 @@
-add_library(giraffe_data_link STATIC
+add_library(giraffe_data_link_core STATIC
   "./giraffe_data_link.cpp"
   "./message_queue.cpp"
+  "./network_layer.cpp"
+  "./physical_layer.cpp"
+  "./transport_layer.cpp"
 )
-target_include_directories(giraffe_data_link PUBLIC include)
-target_include_directories(giraffe_data_link PRIVATE "./")
-target_link_libraries(giraffe_data_link 
+target_include_directories(giraffe_data_link_core PUBLIC include)
+target_include_directories(giraffe_data_link_core PRIVATE "./")
+target_link_libraries(giraffe_data_link_core
   giraffe_common
   BoosterSeat
+  SignalEasel
+)
+target_include_directories(
+  giraffe_data_link_core
+  PRIVATE
+  ${THIRD_PARTY_SRC}/nlohmann_json/single_include
+)
+
+add_executable(gdl_server
+  "server/main.cpp"
+  "server/gdl_server.cpp"
+  "server/gdl_server_request_handlers.cpp"
+  "server/gdl_server_set_handlers.cpp"
+)
+target_link_libraries(gdl_server
+  giraffe_data_link_core
+  SQLiteCpp
+  sqlite3
+  fmt::fmt
+)
+target_include_directories(gdl_server PRIVATE "./server")
+set_target_properties(gdl_server
+  PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GDL_BIN}
+)
+target_include_directories(
+  gdl_server
+  PRIVATE
+  ${THIRD_PARTY_SRC}/nlohmann_json/single_include
 )
 
 add_executable(gdl_terminal
   "./gdl_terminal.cpp"
 )
-target_link_libraries(gdl_terminal giraffe_data_link)
-
-add_library(ax25_state_machine INTERFACE
-"./ax25/state_machine/management_data_link.cpp"
-"./ax25/state_machine/segmenter.cpp"
-"./ax25/state_machine/reassembler.cpp"
-"./ax25/state_machine/data_link.cpp"
-"./ax25/state_machine/link_multiplexer.cpp"
-"./ax25/state_machine/duplex_physical_layer.cpp"
-"./ax25/state_machine/simplex_physical_layer.cpp"
+target_link_libraries(gdl_terminal
+  giraffe_data_link_core
 )
-target_include_directories(ax25_state_machine INTERFACE 
-  "./ax25/state_machine/"
-  "./ax25/"
+set_target_properties(gdl_terminal
+  PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GDL_BIN}
 )
-target_link_libraries(ax25_state_machine INTERFACE
-  giraffe_common
-  BoosterSeat
+target_include_directories(
+  gdl_terminal
+  PRIVATE
+  ${THIRD_PARTY_SRC}/nlohmann_json/single_include
 )

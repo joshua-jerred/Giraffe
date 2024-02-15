@@ -43,6 +43,12 @@ void ExtensionTestFramework::printStreams() {
   while (streams.gps.getPacket(g_packet)) {
     std::cout << "  |" << util::to_string(g_packet) << std::endl;
   }
+
+  std::cout << "IMU Packets:" << std::endl;
+  data::ImuFramePacket i_packet;
+  while (streams.imu.getPacket(i_packet)) {
+    std::cout << "  |" << util::to_string(i_packet) << std::endl;
+  }
 }
 
 int ExtensionTestFramework::getTotalDataPackets() {
@@ -57,8 +63,12 @@ int ExtensionTestFramework::getTotalGpsPackets() {
   return streams.gps.getTotalPackets();
 }
 
+int ExtensionTestFramework::getTotalImuPackets() {
+  return streams.imu.getTotalPackets();
+}
+
 void ExtensionTestFramework::sleep(int ms) {
-  BoosterSeat::threadSleep(ms);
+  bst::sleep(ms);
 }
 
 void ExtensionTestFramework::runExtensionFor(extension::Extension &ext,

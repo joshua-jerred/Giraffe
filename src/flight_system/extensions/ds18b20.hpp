@@ -24,10 +24,9 @@
 
 namespace extension {
 
-class Ds18b20Extension : public Extension {
+class Ds18b20 : public Extension {
 public:
-  Ds18b20Extension(ExtensionResources &resources,
-                   cfg::ExtensionMetadata metadata);
+  Ds18b20(ExtensionResources &resources, cfg::ExtensionMetadata metadata);
 
   void startup() override;
   void loop() override;
@@ -36,8 +35,8 @@ private:
   bool init(DiagnosticId &fault);
   bool readData(DiagnosticId &fault);
 
-  BoosterSeat::Timer init_timer_;
-  BoosterSeat::Timer read_timer_;
+  bst::Timer init_timer_;
+  bst::Timer read_timer_;
 
   OneWireInterface device_{};
   double temperature_ = 0.0; // degrees C

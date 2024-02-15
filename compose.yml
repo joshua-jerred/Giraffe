@@ -15,8 +15,24 @@ services:
       - "./docs/structurizr:/usr/local/structurizr:Z"
     command: ["export", "-workspace", "/usr/local/structurizr/workspace.dsl", "-format", "plantuml/structurizr", "-output", "/usr/local/structurizr/uml"]
 
-  build_giraffe:
-    image: pi_zero_gcc:latest
+  # docker compose run --rm build_giraffe
+  build_gfs:
+    image: joshuajerred/gcc_10_3_arm_debian_11:latest
     volumes:
       - .:/project
     command: "bash ./project/docker_build.sh giraffe_flight_system"
+  build_host_unit_test:
+    image: joshuajerred/gcc_10_3_arm_debian_11:latest
+    volumes:
+      - .:/project
+    command: "bash ./project/docker_build.sh unit_test_gfs_host"
+  build_spi_test:
+    image: joshuajerred/gcc_10_3_arm_debian_11:latest
+    volumes:
+      - .:/project
+    command: "bash ./project/docker_build.sh spitest"
+
+  influx:
+    image: influxdb:2.7.3
+    ports:
+      - '8086:8086'
