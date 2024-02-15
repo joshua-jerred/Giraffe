@@ -1,7 +1,9 @@
 <map id="extension::Extension::info" name="extension::Extension::info">
-<area shape="rect" id="node1" title=" " alt="" coords="443,71,601,112"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a858476ff8cf82d862b8d44f13e47913f" title=" " alt="" coords="236,37,395,79"/>
-<area shape="rect" id="node5" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="236,103,395,144"/>
-<area shape="rect" id="node3" href="$classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df" title=" " alt="" coords="5,5,188,47"/>
-<area shape="rect" id="node4" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="18,71,175,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="677,104,836,145"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a858476ff8cf82d862b8d44f13e47913f" title=" " alt="" coords="471,71,629,112"/>
+<area shape="rect" id="node7" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="471,136,629,177"/>
+<area shape="rect" id="node3" href="$classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df" title=" " alt="" coords="240,5,423,47"/>
+<area shape="rect" id="node4" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="253,71,410,112"/>
+<area shape="rect" id="node5" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="252,136,411,177"/>
+<area shape="rect" id="node6" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,143,192,170"/>
 </map>
