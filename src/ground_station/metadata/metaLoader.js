@@ -1,6 +1,7 @@
-const ggs_meta_data = require("./ggs_meta.json");
-const gfs_data_meta = require("../../common/metadata/gfs_resources.json");
-const gfs_configuration_meta = require("../../common/metadata/gfs_configuration.json");
+const ggs_meta_data = require("../../../project/metadata/ggs_meta.json");
+const gfs_data_meta = require("../../../project/metadata/gfs_resources.json");
+const gdl_meta_data = require("../../../project/metadata/gdl_resources.json");
+const gfs_configuration_meta = require("../../../project/metadata/gfs_configuration.json");
 
 for (let category in gfs_configuration_meta) {
   for (let data_item in gfs_configuration_meta[category]) {
@@ -17,6 +18,8 @@ function loadMetaData(api, resource = null, category = null) {
     meta_data["data"] = gfs_data_meta;
   } else if (api === "ggs") {
     meta_data = ggs_meta_data;
+  } else if (api === "gdl") {
+    meta_data = gdl_meta_data;
   } else {
     throw new Error("invalid api");
   }

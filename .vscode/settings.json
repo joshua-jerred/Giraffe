@@ -1,6 +1,7 @@
 {
   // CMake
   "cmake.sourceDirectory": "${workspaceFolder}",
+  "cmake.useCMakePresets": "always",
 
   // Formating (C++, Clang-Format)
   "clang-format.style": "file",
@@ -50,11 +51,14 @@
     "fstream",
     "HHMMSS",
     "nlohmann",
+    "NOCALL",
     "puml",
     "Reassembler",
+    "rssi",
     "SAMM",
     "Sats",
     "smbus",
+    "spidev",
     "stdexcept",
     "stoi",
     "Struct",

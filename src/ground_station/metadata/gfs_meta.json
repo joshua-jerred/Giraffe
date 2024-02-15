@@ -109,6 +109,15 @@
                 "required": false,
                 "name": "Call Sign",
                 "description": "A FCC (or equivalent) registered call sign. This is required for telemetry."
+            },
+            "data_link_enabled": {
+                "true": "enabled",
+                "false": "disabled",
+                "type": "bool",
+                "default": false,
+                "required": true,
+                "name": "Data Link Enabled",
+                "description": "Enable/Disable the data link."
             }
         },
         "telemetry_aprs": {
@@ -293,12 +302,8 @@
                 "description": "This is a comment that will be sent with each data packet. This is not required but may be added. There is a maximum length of 200 characters."
             }
         },
-        "radios": {
-
-        },
-        "flight_procedures": {
-
-        },
+        "radios": {},
+        "flight_procedures": {},
         "extensions": [
             {
                 "accessor": "id",
@@ -307,13 +312,13 @@
                 "description": ""
             },
             {
-                "accessor":"name",
+                "accessor": "name",
                 "name": "Name",
                 "type": "string",
                 "description": ""
             },
             {
-                "accessor":"type", 
+                "accessor": "type",
                 "name": "Type",
                 "type": "enum",
                 "options": [
@@ -326,7 +331,7 @@
                 "description": ""
             },
             {
-                "accessor":"category",
+                "accessor": "category",
                 "name": "Category",
                 "type": "enum",
                 "options": [
@@ -336,7 +341,7 @@
                 "description": ""
             },
             {
-                "accessor":"interface",
+                "accessor": "interface",
                 "name": "Interface",
                 "type": "enum",
                 "options": [
@@ -346,15 +351,15 @@
                     "gpio"
                 ],
                 "description": ""
-            }, 
+            },
             {
-                "accessor":"update_interval",
+                "accessor": "update_interval",
                 "name": "Interval",
                 "type": "int",
                 "description": ""
             },
             {
-                "accessor":"flight_critical",
+                "accessor": "flight_critical",
                 "type": "bool",
                 "name": "Flight Critical",
                 "description": ""

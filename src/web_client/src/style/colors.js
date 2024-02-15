@@ -29,6 +29,7 @@ export const darkTheme2 = {
   surface_hover_hard: `#444749`, // Farthest from surface
 
   status_background: `#1a1c1e`,
+  alert_bar_background: `#f55d3e`,
 
   on_surface: `#e3e2e6`,
 
@@ -41,6 +42,8 @@ export const darkTheme2 = {
   secondary: `#0f8b8d`,
   on_secondary: `#e3e2e6`,
 
+  success: `#00b894`,
+  warning: `#ffeaa7`,
   error: `#f55d3e`,
   error_hover: `#DC5337`,
   on_error: `#e3e2e6`,

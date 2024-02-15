@@ -1,6 +1,6 @@
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import React from 'react';
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import React from "react";
 
 const NavIconStyled = styled.i`
   font-size: 2em;
@@ -36,7 +36,7 @@ const GenericNavLine = styled.li`
 const GenericNavLineContent = styled.div`
   display: table-cell;
   vertical-align: middle;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 `;
 
 /* -------- Nav Item Components -------- */
@@ -113,8 +113,8 @@ const NavItem = ({ title, icon, path, label, children }) => {
   let display_icon = icon ? true : false;
   let isParent = children ? true : false;
   return (
-    <NavItemStyled className={isParent ? 'parent' : null}>
-      <NavItemLinkStyled to={path} className={isParent ? 'parent' : null}>
+    <NavItemStyled className={isParent ? "parent" : null}>
+      <NavItemLinkStyled to={path} className={isParent ? "parent" : null}>
         {display_icon ? (
           <NavIconStyled className={`fa ${icon}`}></NavIconStyled>
         ) : (
@@ -165,7 +165,7 @@ const NavBarStyled = styled.nav`
       : (props) => props.theme.nav.width.collapsed};
   left: 0;
   padding-top: ${(props) => props.theme.nav.width.collapsed};
-  overflow: ${(props) => (props.isExpanded ? 'visible' : 'hidden')};
+  overflow: ${(props) => (props.isExpanded ? "visible" : "hidden")};
   -webkit-transition: ${(props) => props.theme.transitions.nav_bar};
   transition: ${(props) => props.theme.transitions.nav_bar};
   -webkit-transform: translateZ(0) scale(1, 1);
@@ -190,17 +190,16 @@ function NavBar({ navExpanded, setNavExpanded }) {
     <>
       <NavBarStyled isExpanded={navExpanded}>
         <NavPin onClick={() => setNavExpanded(!navExpanded)}>
-          <i className={`fa fa-chevron-${navExpanded ? 'left' : 'right'}`}></i>
+          <i className={`fa fa-chevron-${navExpanded ? "left" : "right"}`}></i>
         </NavPin>
 
         <NavItem title="Command Center" icon="fa-terminal" path="/" />
 
-        <NavItem title="Telemetry" label="TLM" path={'/telemetry'} />
-        <NavItem title="Tracking" label="TRK" path={'/tracking'} />
-        <NavItem title="Data Logs" label="DAT" path={'/data-logs'} />
+        <NavItem title="Telemetry" label="TLM" path={"/telemetry"} />
+        <NavItem title="Data Logs" label="DAT" path={"/data-logs"} />
         <NavItem title="Configure GGS" label="CFG" path="/configure" />
 
-        <NavItem title="GFS" icon="fa-rocket" path={'/gfs'}>
+        <NavItem title="GFS" icon="fa-rocket" path={"/gfs"}>
           <NavItem title="Data Monitor" label="DAT" path="/gfs/data-monitor" />
           <NavItem title="Configure" label="CFG" path="/gfs/configure" />
         </NavItem>
@@ -213,9 +212,9 @@ function NavBar({ navExpanded, setNavExpanded }) {
             border-top="true"
           />
           <NavItem
-            title="Client Setup"
+            title="Setup"
             icon="fa-gear"
-            path="/client-setup"
+            path="/setup"
             border-top="true"
           />
           <GenericNavLine>

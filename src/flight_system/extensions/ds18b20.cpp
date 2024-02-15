@@ -32,13 +32,12 @@ inline constexpr int kInitTimeout = 2000;
  */
 inline constexpr int K_READ_TIMEOUT = 5000;
 
-Ds18b20Extension::Ds18b20Extension(ExtensionResources &resources,
-                                   cfg::ExtensionMetadata metadata)
+Ds18b20::Ds18b20(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
     : Extension(resources, metadata), init_timer_(kInitTimeout),
       read_timer_(K_READ_TIMEOUT + metadata_.update_interval) {
 }
 
-void Ds18b20Extension::startup() {
+void Ds18b20::startup() {
   constexpr int kInitRetryDelay = 500; // ms
 
   DiagnosticId last_fault = DiagnosticId::EXT_FAULT_ds18b20InitTimeout;
@@ -62,7 +61,7 @@ void Ds18b20Extension::startup() {
   raiseFault(last_fault); // raise a fault to stop
 }
 
-void Ds18b20Extension::loop() {
+void Ds18b20::loop() {
   if (read_timer_.isDone()) {
     raiseFault(read_timeout_fault_, "timeout");
     return;
@@ -96,7 +95,7 @@ inline bool validateSerialNumber(const std::string &serial_number) {
   return std::regex_match(serial_number, serial_regex);
 }
 
-bool Ds18b20Extension::init(DiagnosticId &fault) {
+bool Ds18b20::init(DiagnosticId &fault) {
   // verify the device id from the configuration
   std::string id = metadata_.extra_args;
   if (!validateSerialNumber(id)) {
@@ -118,7 +117,7 @@ bool Ds18b20Extension::init(DiagnosticId &fault) {
   return true;
 }
 
-bool Ds18b20Extension::readData(DiagnosticId &fault) {
+bool Ds18b20::readData(DiagnosticId &fault) {
   std::string raw_temp_string;
   if (!device_.readTemperatureFile(raw_temp_string)) {
     fault = DiagnosticId::EXT_FAULT_ds18b20ReadRaw;

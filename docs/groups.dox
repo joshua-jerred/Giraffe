@@ -1,0 +1,3 @@
+/// @defgroup control Control
+/// @brief Members of this group are used to control Giraffe.
+/// @details Includes commands, module control, and various other tools.

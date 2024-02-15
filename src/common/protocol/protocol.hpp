@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   protocol.h
+ * @file   protocol.hpp
  * @brief  Declares the protocol namespace and its associated types.
  * @details This is the C++ implementation of the Giraffe Protocol.
  * @see protocol.md
@@ -40,7 +40,7 @@ enum class Endpoint {
 enum class MessageType {
   UNKNOWN, // Error Type
   REQ,     // Request
-  SET,     // Set
+  SET,     // Set (Also used as a command)
   RSP      // Response
 };
 
@@ -78,9 +78,19 @@ struct Message {
    */
   Json getBodyJson();
 
-  // Required Fields
+  /**
+   * @brief The source of the message.
+   */
   protocol::Endpoint src = protocol::Endpoint::UNKNOWN;
+
+  /**
+   * @brief The destination of the message.
+   */
   protocol::Endpoint dst = protocol::Endpoint::UNKNOWN;
+
+  /**
+   * @brief The type of the message.
+   */
   protocol::MessageType typ = protocol::MessageType::UNKNOWN;
   MessageId id = "";
 
@@ -103,6 +113,7 @@ bool parseMessage(const std::string &json_string, Message &message);
 /**
  * @brief Create a Request Message.
  *
+ * @param message (out) - The message structure to populate.
  * @param src - The source of the message.
  * @param dst - The destination of the message.
  * @param rsc - The resource to request.
@@ -115,6 +126,7 @@ void createRequestMessage(Message &message, protocol::Endpoint src,
 /**
  * @brief Create a Set Message.
  *
+ * @param message (out) - The message structure to populate.
  * @param src - The source of the message.
  * @param dst - The destination of the message.
  * @param rsc - The resource to set.
@@ -128,17 +140,21 @@ void createSetMessage(Message &message, protocol::Endpoint src,
 /**
  * @brief Create a Response Message.
  *
+ * @param message (out) - The message structure to populate.
  * @param src - The source of the message.
  * @param dst - The destination of the message.
  * @param id - The id of the message to respond to.
  * @param dat - The data to respond with.
  * @param rsp - The response code.
+ * @param rsc - (optional due to backwards compatibility) The resource that
+ * the response is for.
  * @return true - If the message is valid.
  * @return false - If the message is not valid.
  */
 void createResponseMessage(Message &message, protocol::Endpoint src,
                            protocol::Endpoint dst, MessageId id,
-                           protocol::ResponseCode rsp, Json dat);
+                           protocol::ResponseCode rsp, Json dat,
+                           std::string rsc = "");
 
 } // namespace protocol
 

@@ -1,17 +1,17 @@
 /**
- * @file ubx.cpp
- * @author Joshua Jerred (https://joshuajer.red/)
- * @brief Initial implementation of the UBX protocol, in progress.
- * @details This is a work in progress, it is currently a bit of a mess
- * as I test different methods of implementing this protocol.
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
  *
- * The main issue right now is poor reliability of the electrical connection
- * as a logic analyzer shows different behavior compared to what the Pi sees.
- * Need a real scope for this one, not my hantek...
+ * @file   ubx_protocol.cpp
+ * @brief  The UBX Protocol implementation
  *
- * @version 0.3
- * @date 2023-01-06
- * @copyright Copyright (c) 2023
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2023-10-13
+ * @copyright  2023 (license to be defined)
  */
 
 #include <BoosterSeat/timer.hpp>
@@ -85,15 +85,6 @@ UBXMessage::UBXMessage(uint8_t class_ID, uint8_t msg_ID, uint16_t length,
   }
 }
 
-/**
- * @brief Calculates the checksum for the message
- * @details The checksum is calculated with the Message Class, Message ID,
- * Length bytes, and Payload. The checksum is stored in ck_a and ck_b.
- *
- * @return true Checksum calculated successfully and stored in ck_a and ck_b
- * @return false Checksum could not be calculated (payload is nullptr)
- * @see 32.4 UBX Checksum of 'u-blox 8 / u-blox M8 Receiver description'
- */
 bool UBXMessage::calculateChecksum() {
   std::vector<uint8_t> buffer(length + 4, 0);
   buffer[0] = mClass;
@@ -193,7 +184,7 @@ bool readNextUBX(I2cInterface &i2c, UBXMessage &message) {
   bool found_sync = false;
   I2cInterface::Result result;
 
-  BoosterSeat::Timer timer(kTimeoutMs);
+  bst::Timer timer(kTimeoutMs);
   while (!timer.isDone()) {
     stream_size = getStreamSize(i2c);
     if (stream_size <= 8) {
@@ -411,8 +402,8 @@ bool sendResetCommand(I2cInterface &i2c) {
  * UBX-CFG-PRT (0x06 0x00) Configure I/O Port (Specifically I2C)
  * Length: 20 bytes
  *
- * <portID U1><reserved1 U1><txReady X2><mode X4><reserved2 U1[4]>
- * <inProtoMask X2><outProtoMask X2><flags X2><reserved3 U1[2]>
+ * [portID U1][reserved1 U1][txReady X2][mode X4][reserved2 U1[4]]
+ * [inProtoMask X2][outProtoMask X2][flags X2]<reserved3 U1[2]]
  *
  * Does not configure TXReady
  *
@@ -548,7 +539,7 @@ ACK setDynamicModel(I2cInterface &i2c, const DYNAMIC_MODEL model) {
 bool pollMessage(I2cInterface &i2c, UBXMessage &message,
                  const uint8_t msg_class, const uint8_t msg_id,
                  const int expected_size, const unsigned int timeout_ms) {
-  BoosterSeat::Timer timer(timeout_ms);
+  bst::Timer timer(timeout_ms);
 
   while (!timer.isDone()) {
     // Check if the stream is empty, if not, flush it.

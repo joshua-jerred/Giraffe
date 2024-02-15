@@ -1,89 +1,86 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"label": "run clang-tidy",
-			"type": "shell",
-		"command": "${workspaceFolder}/toolchain/clang_tidy.sh",
-			"detail": "Run clang-tidy on the project",
-			"presentation": {
-				"reveal": "always",
-				"panel": "new"
-			},
-		},
-		{
-			"label": "generate data ids",
-			"type": "shell",
-			"command": "python3 ${workspaceFolder}/src/common/generators/ids_gen.py",
-			"detail": "Generate data IDs for the flight system",
-			"presentation": {
-				"reveal": "always",
-				"panel": "dedicated"
-			},
-			"options": {
-				"env": {
-					"ID_GEN_IN_FILE_PATH": "${workspaceFolder}/src/common/metadata/gfs_data.jsonc",
-					"ID_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/flight_system/modules/data/data_ids.hpp",
-					"STRING_MAP_OUT_FILE_PATH": "${workspaceFolder}/src/flight_system/modules/data/data_ids_string_map.cpp",
-					"PRINT_OUTPUT": "false"
-				}
-			},
-			"problemMatcher": []
-		},
-		{
-			"label": "generate diagnostic ids",
-			"type": "shell",
-			"command": "python3 ${workspaceFolder}/src/common/generators/ids_gen.py",
-			"detail": "Generate log IDs for the flight system",
-			"presentation": {
-				"reveal": "always",
-				"panel": "dedicated"
-			},
-			"options": {
-				"env": {
-					"ID_GEN_IN_FILE_PATH": "${workspaceFolder}/src/common/metadata/diagnostic_ids.jsonc",
-					"ID_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/common/diagnostic/giraffe_diagnostic_ids.hpp",
-					"STRING_MAP_OUT_FILE_PATH": "${workspaceFolder}/src/common/diagnostic/diagnostic_id_strings.cpp",
-					"PRINT_OUTPUT": "false"
-				}
-			},
-			"problemMatcher": []
-		},
-		{
-			"label": "generate command ids",
-			"type": "shell",
-			"command": "python3 ${workspaceFolder}/src/common/generators/ids_gen.py",
-			"detail": "Generate command IDs for the flight system",
-			"presentation": {
-				"reveal": "always",
-				"panel": "dedicated"
-			},
-			"options": {
-				"env": {
-					"ID_GEN_IN_FILE_PATH": "${workspaceFolder}/src/common/metadata/gfs_commands.jsonc",
-					"ID_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/common/command/command_ids.hpp",
-					"PRINT_OUTPUT": "false"
-				}
-			},
-			"problemMatcher": []
-		},
-		{
-			"label": "generate GFS configuration",
-			"type": "shell",
-			"command": "python3 ${workspaceFolder}/src/common/generators/config_gen.py",
-			"detail": "Generate log IDs for the flight system",
-			"presentation": {
-				"reveal": "always",
-				"panel": "dedicated"
-			},
-			"options": {
-				"env": {
-					"CONFIG_GEN_IN_FILE_PATH": "${workspaceFolder}/src/common/metadata/gfs_configuration.json",
-					"CONFIG_GEN_OUT_FILE_PATH": "${workspaceFolder}/src/flight_system/configuration/",
-					"PRINT_OUTPUT": "false"
-				}
-			},
-			"problemMatcher": []
-		}
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "run codechecker",
+      "type": "shell",
+      "command": "${workspaceFolder}/project/codechecker.sh",
+      "detail": "Run codechecker on the project",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "generate source files",
+      "type": "shell",
+      "command": "${workspaceFolder}/project/generate_source_files.sh",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "Doxygen",
+      "type": "shell",
+      "command": "doxygen ${workspaceFolder}/project/doxygen/Doxyfile",
+      "detail": "Generate Doxygen documentation for the project",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "Pre-commit",
+      "type": "shell",
+      "command": "pre-commit run",
+      "detail": "Run pre-commit on the project",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "/bin/zsh",
+          "args": ["-l", "-c"]
+        }
+      }
+    },
+    {
+      "label": "docker_build_gfs",
+      "type": "shell",
+      "command": "docker compose run --rm build_gfs",
+      "detail": "Build GFS with the cross compiler",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "host_unit_test",
+      "type": "shell",
+      "command": "bash ./project/run_unit_test.sh",
+      "detail": "Run the host based unit tests on the host",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+  ]
 }

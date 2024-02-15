@@ -22,13 +22,12 @@
 inline constexpr uint8_t kMcp3021Address = 0x4D;
 
 namespace extension {
-Mcp3021Extension::Mcp3021Extension(ExtensionResources &resources,
-                                   cfg::ExtensionMetadata metadata)
+Mcp3021::Mcp3021(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
     : AdcExtensionBase(resources, metadata),
       I2cExtensionAdapter(resources, metadata, kMcp3021Address) {
 }
 
-void Mcp3021Extension::adcStartup() {
+void Mcp3021::adcStartup() {
   DiagnosticId error;
   if (!connectToI2cBus(error)) {
     raiseFault(error);
@@ -38,7 +37,7 @@ void Mcp3021Extension::adcStartup() {
   EXT_DEBUG("adcStartup() complete");
 }
 
-bool Mcp3021Extension::i2cHandshake() {
+bool Mcp3021::i2cHandshake() {
   uint32_t value;
   if (!readAdc(value)) {
     return false;
@@ -46,7 +45,7 @@ bool Mcp3021Extension::i2cHandshake() {
   return true;
 }
 
-bool Mcp3021Extension::readAdc(uint32_t &value) {
+bool Mcp3021::readAdc(uint32_t &value) {
   constexpr uint32_t kMcp3021ReadSize = 2;
   std::vector<uint8_t> read_buffer(kMcp3021ReadSize);
   auto result = i2c_.readChunk(read_buffer, kMcp3021ReadSize);

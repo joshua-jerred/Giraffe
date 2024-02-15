@@ -3,126 +3,84 @@
 file(MAKE_DIRECTORY ${GFS_BIN})
 
 if(SSTV_ENABLED)
-    message(STATUS "SSTV Enabled In Giraffe Flight System")
-    add_compile_definitions(SSTV_ENABLED=1)
+  message(STATUS "SSTV Enabled In Giraffe Flight System")
+  add_compile_definitions(SSTV_ENABLED=1)
 else()
-    message(STATUS "SSTV Disabled In Giraffe Flight System")
-    add_compile_definitions(SSTV_ENABLED=0)
+  message(STATUS "SSTV Disabled In Giraffe Flight System")
+  add_compile_definitions(SSTV_ENABLED=0)
 endif()
 
 set(EXE_NAME giraffe_flight_system)
 
-# -------- Interface Libs ---------
+add_library(module_base INTERFACE)
+target_sources(module_base
+               INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/modules/module.cpp)
+target_include_directories(module_base INTERFACE ${GFS_SRC}/modules)
 
-# # # Flight System Configuration
-add_library(gfs_configuration INTERFACE)
-target_sources(gfs_configuration INTERFACE
-	${GFS_SRC}/configuration/configuration.cpp
-	${GFS_SRC}/configuration/sections/cfg_extensions.cpp
-)
-target_include_directories(gfs_configuration INTERFACE
-  ./configuration
-	./configuration/sections
-)
-
-# # # Hardware Interface
-add_library(gfs_interface INTERFACE)
-target_sources(gfs_interface INTERFACE
-	${GFS_SRC}/interface/i2c_interface.cpp
-	${GFS_SRC}/interface/one_wire_interface.cpp
-	${GFS_SRC}/interface/ubx/ubx_protocol.cpp
-)
-target_include_directories(gfs_interface INTERFACE
-  ./interface
-	./interface/ubx
-)
-target_link_libraries(gfs_interface INTERFACE
-	i2c
-)
-
-# # # Extensions
-add_library(gfs_extensions INTERFACE)
-target_sources(gfs_extensions INTERFACE
-	${GFS_SRC}/extensions/extension_base.cpp
-	${GFS_SRC}/extensions/adc_configuration.cpp
-	${GFS_SRC}/extensions/bme280.cpp
-	${GFS_SRC}/extensions/ds18b20.cpp
-	${GFS_SRC}/extensions/samm8q.cpp
-	${GFS_SRC}/extensions/mcp3021.cpp
-)
-target_include_directories(gfs_extensions INTERFACE
-	${GFS_SRC}/extensions
-)
-
-# # # Module Base
-add_library(gfs_module_base INTERFACE)
-target_sources(gfs_module_base INTERFACE
-	${GFS_SRC}/modules/module.cpp
-)
-target_include_directories(gfs_module_base INTERFACE
-  ${GFS_SRC}/modules
-)
-
-# # # Data Module
-add_library(gfs_data_module INTERFACE)
-target_sources(gfs_data_module INTERFACE
-	${GFS_SRC}/modules/data/data_module.cpp
-	${GFS_SRC}/modules/data/data_log.cpp
-	${GFS_SRC}/modules/data/influxdb.cpp
-	${GFS_SRC}/modules/data/data_formatting.cpp
-	${GFS_SRC}/modules/data/positional.cpp
-	${GFS_SRC}/modules/data/to_string.cpp
-	${GFS_SRC}/modules/data/data_ids_string_map.cpp
-	${GFS_SRC}/modules/data/shared_data/to_json.cpp
-	${GFS_SRC}/modules/data/shared_data/error_frame.cpp
-)
-target_include_directories(gfs_data_module INTERFACE
-  ${GFS_SRC}/modules/data
-	${GFS_SRC}/modules/data/shared_data
-)
-target_link_libraries(gfs_data_module INTERFACE
-	bzip2-cpp-lib
-)
+# The following directories contain interface libraries.
+add_subdirectory(./shared_data)
+add_subdirectory(./extensions)
+add_subdirectory(./configuration)
+add_subdirectory(./interface)
+add_subdirectory(./control)
+add_subdirectory(./utilities)
+add_subdirectory(./modules/extension)
+add_subdirectory(./modules/console)
+add_subdirectory(./modules/data)
+add_subdirectory(./modules/server)
+add_subdirectory(./modules/system)
+add_subdirectory(./modules/telemetry)
 
 # -------- GFS Executable ---------
-add_executable( # see sources.cmake for source files
-	${EXE_NAME}
-		${GFS_SRC}/main.cpp
-		${GFS_SRC}/flight_runner.cpp
-	${gfs_sources}
+add_executable(${EXE_NAME}
+  ${GFS_SRC}/main.cpp
+  ${GFS_SRC}/flight_runner.cpp
+  ${GFS_SRC}/flight_runner_data.cpp
 )
-
-target_include_directories(
-	${EXE_NAME} PRIVATE
-	${gfs_include_dirs}
-)
-
-# -------- Properties ---------
+target_include_directories(${EXE_NAME} PRIVATE ${GFS_SRC})
 set_target_properties(
-	${EXE_NAME} PROPERTIES 
-	RUNTIME_OUTPUT_DIRECTORY ${GFS_BIN}
-	OUTPUT_NAME gfs
-	EXPORT_COMPILE_COMMANDS ON
-)
-
-# -------- First Party Libraries ---------
-target_link_libraries(giraffe_flight_system PRIVATE
-	# internal
-	giraffe_common
-	gfs_interface
-	gfs_data_module
-
-	# external
-	BoosterSeat
-)
-
-# -------- Third Party Libraries ---------
-set(THREADS_PREFER_PTHREAD_FLAG ON)
-find_package(Threads REQUIRED)
+  ${EXE_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GFS_BIN} OUTPUT_NAME gfs
+                         EXPORT_COMPILE_COMMANDS ON)
 target_link_libraries(
-	giraffe_flight_system PRIVATE 
-	i2c
-	Threads::Threads
-	nlohmann_json::nlohmann_json
-	${CURSES_LIBRARIES}
+  ${EXE_NAME}
+  # -------- First Party Libraries ---------
+  # internal
+  giraffe_data_link_core
+  giraffe_common
+    # gfs specific
+  gfs_interface
+  gfs_shared_data
+  gfs_configuration
+  gfs_extensions
+  gfs_control
+  gfs_utilities
+  module_base
+  data_module
+  console_module
+  extension_module
+  server_module
+  system_module
+  telemetry_module
+  # external
+  BoosterSeat
+  # -------- Third Party Libraries ---------
+  i2c
+  Threads::Threads
+  ${CURSES_LIBRARIES}
+  ${CURL_LIBRARIES}
 )
+target_include_directories(
+  ${EXE_NAME}
+  PRIVATE
+  ${THIRD_PARTY_SRC}/nlohmann_json/single_include
+)
+
+if(DEFINED ENV{RUN_IN_SIMULATOR})
+  if ($ENV{RUN_IN_SIMULATOR} EQUAL "1")
+    message(STATUS "=========================")
+    message(STATUS "=== Simulator Enabled ===")
+    message(STATUS "=========================")
+    target_compile_definitions(${EXE_NAME} PRIVATE RUN_IN_SIMULATOR=1)
+    target_link_libraries(${EXE_NAME} gfs_simulator)
+  endif()
+endif()

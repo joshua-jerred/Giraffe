@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "giraffe_flight_computer_footprints")(type "KiCad")(uri "${KIPRJMOD}/giraffe_flight_computer_footprints")(options "")(descr ""))
+)

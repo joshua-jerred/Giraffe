@@ -1,20 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'font-awesome/css/font-awesome.min.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
 
-import { GwsGlobalContextProvider } from './GlobalContext';
-import { GgsWsContextProvider } from './api_interface/ws_api';
+import "font-awesome/css/font-awesome.min.css"; // used for nav bar icons only
+import "./style/global.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import App from "./App";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-  <GwsGlobalContextProvider>
-    <GgsWsContextProvider>
-      <App />
-    </GgsWsContextProvider>
-  </GwsGlobalContextProvider>
+    {/* <GgsApiContextProvider> */}
+    <App />
+    {/* </GgsApiContextProvider> */}
   </React.StrictMode>
 );
 

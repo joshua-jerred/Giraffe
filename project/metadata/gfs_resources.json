@@ -1,0 +1,183 @@
+{
+  "system_info": {
+    "uptime_hours": {
+      "name": "System Uptime (Hours)",
+      "description": "How long the system has been running, not GFS."
+    },
+    "cpu_load_avg_1": {
+      "name": "CPU Load Average (1 min)",
+      "description": ""
+    },
+    "cpu_load_avg_5": {
+      "name": "CPU Load Average (5 min)",
+      "description": ""
+    },
+    "cpu_load_avg_15": {
+      "name": "CPU Load Average (15 min)",
+      "description": ""
+    },
+    "cpu_temp_c": {
+      "name": "CPU Temperature (C)",
+      "description": ""
+    },
+    "mem_total_gb": {
+      "name": "Ram Total (GB)",
+      "description": ""
+    },
+    "mem_free_gb": {
+      "name": "Ram Free (GB)",
+      "description": ""
+    },
+    "mem_used_percent": {
+      "name": "Ram Used (%)",
+      "description": ""
+    },
+    "swap_total_gb": {
+      "name": "Swap Total (GB)",
+      "description": ""
+    },
+    "swap_free_gb": {
+      "name": "Swap Free (GB)",
+      "description": ""
+    },
+    "swap_used_percent": {
+      "name": "Swap Used (%)",
+      "description": ""
+    },
+    "disk_total_gb": {
+      "name": "Disk Total (GB)",
+      "description": ""
+    },
+    "disk_free_gb": {
+      "name": "Disk Free (GB)",
+      "description": ""
+    },
+    "disk_used_percent": {
+      "name": "Disk Used (%)",
+      "description": ""
+    }
+  },
+  "data_log_stats": {
+    "data_dir": {
+      "name": "Data Directory Valid",
+      "description": ""
+    },
+    "data_archive_dir": {
+      "name": "Data Archive Directory Valid",
+      "description": ""
+    },
+    "data_file": {
+      "name": "Data File Valid",
+      "description": ""
+    },
+    "data_file_size": {
+      "name": "Data File Size (MB)",
+      "description": ""
+    },
+    "data_dir_size": {
+      "name": "Data Directory Size (MB)",
+      "description": ""
+    },
+    "data_file_path": {
+      "name": "Data File Path",
+      "description": ""
+    },
+    "log_dir": {
+      "name": "Log Directory Valid",
+      "description": ""
+    },
+    "log_archive_dir": {
+      "name": "Log Archive Directory Valid",
+      "description": ""
+    },
+    "log_archive_dir_size": {
+      "name": "Log Archive Directory Size (MB)",
+      "description": ""
+    },
+    "log_file": {
+      "name": "Log File Valid",
+      "description": ""
+    },
+    "log_file_size": {
+      "name": "Log File Size (MB)",
+      "description": ""
+    },
+    "log_file_path": {
+      "name": "Log File Path",
+      "description": ""
+    }
+  },
+  "modules_statuses": {
+    "data": {
+      "name": "Data Module Status",
+      "description": ""
+    },
+    "console": {
+      "name": "Console Module Status",
+      "description": ""
+    },
+    "server": {
+      "name": "Server Module Status",
+      "description": ""
+    },
+    "system": {
+      "name": "System Module Status",
+      "description": ""
+    }
+  },
+  "stream_stats": {
+    "data_current_packets": {
+      "name": "",
+      "description": ""
+    },
+    "data_total_packets": {
+      "name": "",
+      "description": ""
+    },
+    "data_processing_delay_ms": {
+      "name": "",
+      "description": ""
+    },
+    "log_current_packets": {
+      "name": "",
+      "description": ""
+    },
+    "log_total_packets": {
+      "name": "",
+      "description": ""
+    },
+    "log_processing_delay_ms": {
+      "name": "",
+      "description": ""
+    }
+  },
+  "server_module_stats": {
+    "num_messages_received": {
+      "name": "Messages Received",
+      "description": ""
+    },
+    "num_invalid_received": {
+      "name": "Invalid Messages Received",
+      "description": ""
+    },
+    "bytes_per_second_up": {
+      "name": "Bps Up",
+      "description": ""
+    },
+    "bytes_per_second_down": {
+      "name": "Bps Down",
+      "description": ""
+    },
+    "connection_status": {
+      "name": "Connection Status",
+      "description": "",
+      "true": "Connected",
+      "false": "Disconnected"
+    }
+  },
+  "extension_module_stats": {},
+  "environmental": {},
+  "location_data": {},
+  "calculated_data": {},
+  "telemetry_module_stats": {}
+}

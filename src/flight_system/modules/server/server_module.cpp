@@ -17,7 +17,7 @@
 #include "server_module.hpp"
 
 static modules::MetaData metadata("server_module",
-                                  node::Identification::SERVER_MODULE, 50);
+                                  node::Identification::SERVER_MODULE, 20);
 
 modules::ServerModule::ServerModule(data::SharedData &shared_data,
                                     cfg::Configuration &config)
@@ -25,11 +25,6 @@ modules::ServerModule::ServerModule(data::SharedData &shared_data,
       request_router_(shared_data_, config, stats_) {
 }
 
-/**
- * @brief Startup the server module.
- * @details Reads the socket port from the configuration and initializes the
- * socket with it. Override of Module::startup()
- */
 void modules::ServerModule::startup() {
   int port_number = configuration_.server_module.getTcpSocketPort();
   if (server_socket_.init(port_number)) {
@@ -39,11 +34,6 @@ void modules::ServerModule::startup() {
   connected_timeout_.reset();
 }
 
-/**
- * @brief Loop module function for the server module.
- * @details Connects to clients and handles the requests. Override of
- * Module::loop()
- */
 void modules::ServerModule::loop() {
   sock::TcpSocketServer client; // Create client socket
   /*
@@ -84,11 +74,8 @@ void modules::ServerModule::loop() {
   }
 }
 
-/**
- * @brief Shutdown the server module.
- * @details Closes the socket. Override of Module::shutdown()
- */
 void modules::ServerModule::shutdown() {
+  server_socket_.close();
 }
 
 void modules::ServerModule::processCommand(const cmd::Command &command) {

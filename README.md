@@ -1,10 +1,8 @@
-[![Giraffe Unit Tests](https://github.com/joshua-jerred/Giraffe/actions/workflows/unit_tests.yml/badge.svg?branch=main)](https://github.com/joshua-jerred/Giraffe/actions/workflows/unit_tests.yml)
+[![Giraffe Unit Tests](https://github.com/joshua-jerred/Giraffe/actions/workflows/giraffe_ci.yml/badge.svg)](https://github.com/joshua-jerred/Giraffe/actions/workflows/giraffe_ci.yml)
 
 # Giraffe <!-- omit from toc -->
 ### A Unified Flight Command and Control System <!-- omit from toc -->
-### [Iteration 0.5](https://giraffe.joshuajer.red/md_docs_Doxygen_pages_versions.html) 
-
-<img src="https://user-images.githubusercontent.com/19292194/193437157-0a421f68-fa85-43bb-b372-1807a19c470d.png" height="100">
+### [Iteration 0.5](https://giraffe.joshuajer.red/md_docs_Doxygen_pages_versions.html)
 
 ***
 ## Learn More About it
@@ -159,7 +157,9 @@ containing the following:
 - 2x 1-Wire Headers for DS18B20 Temperature Sensors
 - 1x I2C Header for general expansion
 
->![image](https://user-images.githubusercontent.com/19292194/211131524-67701138-8dad-438a-b97c-4af60ae09b90.png)
+>![image](https://github.com/joshua-jerred/Giraffe/assets/19292194/62c23bb5-ed60-413a-afd7-d0d6ed432b1c)
+>![image](https://github.com/joshua-jerred/Giraffe/assets/19292194/19185073-5e60-4e80-b6dc-274b23ee6fc3)
+
 >You'll notice a lot of open space on the top of the PCB, this is to isolate
 the SAM-M8Q and to provide it a large ground plane. Although the ground plane
 size is out of spec I have had no issues with acquiring and maintaining a GPS

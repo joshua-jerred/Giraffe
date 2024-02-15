@@ -3,7 +3,7 @@ import { useEffect, useContext, useState } from "react";
 import { StyTable } from "./styled/StyledTable";
 import { useTable } from "react-table";
 
-import { GGS_WS } from "../api_interface/ws_api";
+import { GGS_API } from "../api_interface/ws_api";
 import { GwsGlobal } from "../GlobalContext";
 import {
   StyButton,
@@ -78,7 +78,7 @@ function Table({ columns, data, editmode }) {
 
 export default function EditableTable({ resource, category }) {
   const { ggsAddress } = useContext(GwsGlobal);
-  const { ggsConnectionStatus } = useContext(GGS_WS);
+  const { ggsConnectionStatus } = useContext(GGS_API);
   const [metadata, setMetadata] = useState(null);
   const [values, setValues] = useState(null);
   const [error, setError] = useState(null);
@@ -136,7 +136,10 @@ export default function EditableTable({ resource, category }) {
     return (
       <>
         <Table columns={metadata} data={values} editmode={editMode} />
-        <StyButton onClick={toggleEditMode} style={{display: "flex", justifyContent: "center"}}>
+        <StyButton
+          onClick={toggleEditMode}
+          style={{ display: "flex", justifyContent: "center" }}
+        >
           {editMode ? "save" : "edit"}
         </StyButton>
       </>

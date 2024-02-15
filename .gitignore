@@ -1,7 +1,12 @@
 # VS Code User and Workspace Settings
 .vscode/*
+.vscode/settings.json
 #.timetracker
 .VSCodeCounter
+.cache
+.codechecker
+version.ini
+src/common/version.js
 
 # CMake Build Files
 build
@@ -30,7 +35,9 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 .vscode/settings.json
+*.sqlite3
 
 # LaTeX --
 docs/latex/out
 
+docs/structurizr/.structurizr

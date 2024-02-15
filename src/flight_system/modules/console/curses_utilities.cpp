@@ -66,12 +66,11 @@ void ncurs::Environment::update() {
 
   data_window_.winReset();
 
-  static BoosterSeat::clck::TimePoint update_clock =
-      BoosterSeat::clck::Clock::now();
-  int mils_elapsed = BoosterSeat::clck::millisecondsElapsed(update_clock);
+  static bst::clck::TimePoint update_clock = bst::clck::Clock::now();
+  int mils_elapsed = bst::clck::millisecondsElapsed(update_clock);
   if (mils_elapsed > endpoint_update_rate_ms_) {
     displayData();
-    update_clock = BoosterSeat::clck::Clock::now();
+    update_clock = bst::clck::Clock::now();
   }
 }
 

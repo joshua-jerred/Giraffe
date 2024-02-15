@@ -9,23 +9,29 @@ import { EditBox } from "../components/Editable";
 function ConfigureGgsPage() {
   return (
     <>
-      <PageTitle>Giraffe Ground Station - Configuration</PageTitle>
+      <PageTitle title="Ground Station Configuration">
+        @todo - add a description here
+      </PageTitle>
       <PageContent>
         <CardMasonryLayout>
-          <Card title="Ground Station Server Settings">
-            <EditBox resource="ggs" category="ggs_server" />
-          </Card>
-
           <Card title="Giraffe Flight Software Connection">
             <EditBox resource="ggs" category="gfs_connection" />
           </Card>
 
-          <Card title="Ground Station Update Intervals">
-            <EditBox resource="ggs" category="gfs_state_intervals" />
+          <Card title="Ground Station Settings">
+            <EditBox resource="ggs" category="ggs_settings" />
+          </Card>
+
+          <Card title="Giraffe Data Link">
+            <EditBox resource="ggs" category="gdl" />
           </Card>
 
           <Card title="InfluxDB Setup">
             <EditBox resource="ggs" category="influx_db" />
+          </Card>
+
+          <Card title="Ground Station Server Settings">
+            <EditBox resource="ggs" category="aprs_fi" />
           </Card>
         </CardMasonryLayout>
       </PageContent>

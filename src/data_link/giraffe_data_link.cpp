@@ -14,86 +14,130 @@
  * @copyright  2023 (license to be defined)
  */
 
-#include <BoosterSeat/sleep.hpp>
-
-#include "giraffe_diagnostics.hpp"
-
 #include "giraffe_data_link.hpp"
+#include "gdl_message.hpp"
 
-namespace gdl {
+namespace giraffe::gdl {
 
-GiraffeDataLink::GiraffeDataLink(GdlConfig config, SessionLayer &session_layer)
-    : config_(config),
-      queues_(config.exchange_queue_size, config.broadcast_queue_size,
-              config.received_queue_size),
-      session_layer_(session_layer) {
+DataLink::DataLink(Config &config) : config_(config) {
 }
 
-GiraffeDataLink::~GiraffeDataLink() {
-  if (status_ == Status::RUNNING) {
-    stop();
+DataLink::~DataLink() {
+  if (status_ != Status::DISABLED) {
+    disable();
   }
 }
 
-void GiraffeDataLink::start() {
-  if (status_ != Status::STOPPED) {
-    throw GiraffeException(DiagnosticId::GDL_invalidStartCall);
+void DataLink::enable() {
+  if (status_ != Status::DISABLED) {
+    return;
   }
-  status_ = Status::STARTING;
-  gdl_thread_ = std::thread(&GiraffeDataLink::gdlThread, this);
+  status_ = Status::DISCONNECTED;
+  gdl_thread_stop_flag_ = false;
+  gdl_thread_ = std::thread(&DataLink::gdlThread, this);
 }
 
-void GiraffeDataLink::stop() {
-  if (status_ != Status::RUNNING) {
-    throw GiraffeException(DiagnosticId::GDL_invalidStopCall);
+void DataLink::disable() {
+  if (status_ == Status::DISABLED) {
+    return;
   }
-  status_ = Status::STOPPING;
+
+  gdl_thread_stop_flag_ = true;
   gdl_thread_.join();
+  status_ = Status::DISABLED;
 }
 
-GiraffeDataLink::Status GiraffeDataLink::getStatus() const {
+DataLink::Status DataLink::getStatus() const {
   return status_;
 }
 
-GiraffeDataLink::ConnectionStatus GiraffeDataLink::getConnectionStatus() const {
-  return connection_status_;
+bool DataLink::sendMessage(const Message &message) {
+  if (!isRunning()) {
+    return false;
+  }
+
+  if (message.getType() == Message::Type::EXCHANGE) {
+    return out_exchange_queue_.push(message);
+  }
+
+  return out_broadcast_queue_.push(message);
 }
 
-bool GiraffeDataLink::getReceivedMessage(Message &message) {
-  return queues_.received.pop(message);
+bool DataLink::sendText(const std::string &text, uint32_t message_id) {
+  if (!isRunning()) {
+    return false;
+  }
+
+  Message message;
+  message.setExchangeMessage(text, message_id);
+  return out_exchange_queue_.push(message);
 }
 
-int GiraffeDataLink::getExchangeQueueSize() const {
-  return queues_.exchange.size();
-}
-int GiraffeDataLink::getBroadcastQueueSize() const {
-  return queues_.broadcast.size();
-}
-int GiraffeDataLink::getReceiveQueueSize() const {
-  return queues_.received.size();
+bool DataLink::receiveMessage(Message &message) {
+  if (!isRunning()) {
+    return false;
+  }
+
+  return in_queue_.pop(message);
 }
 
-void GiraffeDataLink::gdlThread() {
-  constexpr int kSleepIntervalMs = 50;
+void DataLink::gdlThread() {
+  while (!gdl_thread_stop_flag_) {
+    Message message_buffer;
 
-  status_ = Status::RUNNING;
-  while (status_ == Status::RUNNING) {
-    BoosterSeat::threadSleep(kSleepIntervalMs);
+    // update lower layers
+    statistics_lock_.lock();
+    transport_layer_.update(statistics_);
+    statistics_lock_.unlock();
+
+    // send broadcast messages first if there are any, otherwise send exchange
+    if (out_broadcast_queue_.size() > 0 && transport_layer_.isReadyToSend()) {
+
+      if (out_broadcast_queue_.peek(message_buffer) &&
+          transport_layer_.send(message_buffer)) {
+        out_broadcast_queue_.pop(message_buffer);
+      } else {
+        /// @todo handle error (should never happen)
+        (void)message_buffer;
+      }
+
+    } else if (out_exchange_queue_.size() > 0 &&
+               transport_layer_.isReadyToSend()) {
+
+      if (out_exchange_queue_.peek(message_buffer) &&
+          transport_layer_.send(message_buffer)) {
+        out_exchange_queue_.pop(message_buffer);
+      } else {
+        /// @todo handle error (should never happen)
+        (void)message_buffer;
+      }
+    }
+
+    // receive a message if there is one available
+    if (transport_layer_.receive(message_buffer)) {
+      if (!in_queue_.push(message_buffer)) {
+        /// @todo handle error (no space in queue)
+        (void)message_buffer;
+        std::cout << "ERROR: No space in received queue\n";
+      }
+    }
+
+    if (transport_layer_.isConnected()) {
+      status_ = Status::CONNECTED;
+    } else {
+      status_ = Status::DISCONNECTED;
+    }
+
+    // update uplink/downlink status based on timeouts
+    // update the status struct
+    statistics_lock_.lock();
+    statistics_.exchange_queue_size = out_exchange_queue_.size();
+    statistics_.broadcast_queue_size = out_broadcast_queue_.size();
+    statistics_.received_queue_size = in_queue_.size();
+    statistics_lock_.unlock();
+
+    bst::sleep(GDL_THREAD_SLEEP_INTERVAL_MS);
   }
 }
 
-bool GiraffeDataLink::sendExchangeMessage(Message message) {
-  if (status_ != Status::RUNNING) {
-    throw GiraffeException(DiagnosticId::GDL_invalidExchangeCall);
-  }
-  return queues_.exchange.push(message);
-}
-
-bool GiraffeDataLink::sendBroadcastMessage(Message message) {
-  if (status_ != Status::RUNNING) {
-    throw GiraffeException(DiagnosticId::GDL_invalidBroadcastCall);
-  }
-  return queues_.broadcast.push(message);
-}
-
-} // namespace gdl
+} // namespace giraffe::gdl

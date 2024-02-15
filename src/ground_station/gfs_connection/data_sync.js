@@ -14,9 +14,10 @@
  * @copyright  2023 (license to be defined)
  */
 
-const DataMeta = require("../../common/metadata/gfs_resources.json");
+const DataMeta = require("../../../project/metadata/gfs_resources.json");
 const { RequestMessage, parse } = require("giraffe-protocol");
 const net = require("net");
+const { Point } = require("@influxdata/influxdb-client");
 
 /**
  * @brief This class handles syncing data (not settings) between
@@ -33,6 +34,7 @@ module.exports = class GfsDataSync {
       this.resources[category] = {
         meta: {
           last_request: new Date(),
+          timestamp: new Date(),
           requests: 0,
         },
         data: {},
@@ -41,6 +43,8 @@ module.exports = class GfsDataSync {
         this.resources[category].data[data_item] = "no data";
       }
     }
+
+    this.last_good_request_time = new Date();
   }
 
   getConnectionStatus() {
@@ -72,8 +76,13 @@ module.exports = class GfsDataSync {
   /**
    * @brief Called at a set interval at a higher level. This runs everything.
    */
-  update() {
-    this.#updateClassSettings();
+  async update() {
+    // this.#updateClassSettings();
+
+    const timeout = 5000;
+    this.connected = this.last_good_request_time > new Date() - timeout;
+    //  = false;
+    // }
 
     for (let category in this.resources) {
       if (
@@ -85,7 +94,14 @@ module.exports = class GfsDataSync {
       this.#updateResource(category);
       this.resources[category].meta.last_request = new Date();
       this.resources[category].meta.requests++;
+
+      // sleep for 50ms to prevent flooding the socket
+      await new Promise((resolve) => setTimeout(resolve, 100));
     }
+  }
+
+  getMsSinceLastUpdate(category) {
+    return Math.floor(new Date() - this.resources[category].meta.timestamp);
   }
 
   /**
@@ -95,8 +111,8 @@ module.exports = class GfsDataSync {
   #updateClassSettings() {
     this.update_interval = this.global_state.ggs_db.get(
       "settings",
-      "gfs_state_intervals",
-      "data"
+      "ggs_settings",
+      "gfs_data_interval"
     );
 
     this.address = this.global_state.ggs_db.get(
@@ -123,6 +139,25 @@ module.exports = class GfsDataSync {
     for (let data_item in data_section) {
       try {
         this.resources[category].data[data_item] = data_section[data_item];
+
+        // collecting timestamp data
+        try {
+          if (this.global_state.influx_enabled) {
+            const point = new Point("ggs_resource_update_delay")
+              .tag("api", "gfs")
+              .tag("category", category)
+              .intField(
+                "ms_since_last_update",
+                this.getMsSinceLastUpdate(category)
+              );
+            this.global_state.influx_writer.write(point);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+        // end collecting timestamp data
+
+        this.resources[category].meta.timestamp = new Date();
       } catch (e) {
         console.log(
           "Failed to set local resource for: " +
@@ -143,12 +178,16 @@ module.exports = class GfsDataSync {
     let con = new net.Socket();
     let that = this;
 
+    const TIMEOUT = 1000;
+    con.setTimeout(TIMEOUT);
+
     con.connect(this.port, this.address, function () {
       con.write(JSON.stringify(request));
     });
 
     con.on("data", function (data) {
       that.connected = true;
+      that.last_good_request_time = new Date();
       try {
         let msg = parse(data.toString());
         if (msg.bdy.cde !== "ok") {
@@ -165,7 +204,11 @@ module.exports = class GfsDataSync {
     con.on("close", function () {});
 
     con.on("error", function (err) {
-      that.connected = false;
+      // that.connected = false;
+      /// @todo Need to figure out why we are getting here so often. Most likely on the C++ side.
+      // console.log(
+      // "Socket Error during the category: " + category + " - " + err
+      // );
     });
   }
 };

@@ -1,0 +1,49 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "gcc_docker_pi_zero",
+      "displayName": "Docker Pi Zero",
+      "description": "",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_TOOLCHAIN_FILE": "/toolchain/toolchain.cmake"
+      },
+      "environment": {
+        "RASPBERRY_PI": "1",
+        "SIMULATED_EXTENSIONS": "0"
+      }
+    },
+    {
+      "name": "gcc_pi_x86",
+      "displayName": "GCC Pi x86",
+      "description": "",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/project/toolchain/pi_toolchain.cmake"
+      },
+      "environment": {
+        "RASPBERRY_PI": "1",
+        "SIMULATED_EXTENSIONS": "0"
+      }
+    },
+    {
+      "name": "host",
+      "displayName": "GCC Host",
+      "description": "",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      },
+      "environment": {
+        "RASPBERRY_PI": "1",
+        "RUN_IN_SIMULATOR": "1"
+      }
+    }
+  ]
+}

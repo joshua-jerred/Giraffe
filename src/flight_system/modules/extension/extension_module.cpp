@@ -16,9 +16,19 @@
 
 #include "extension_module.hpp"
 #include "giraffe_assert.hpp"
-#include "simulated_extensions.hpp"
 
-#include <iostream>
+// ---- EXTENSIONS ----
+#include "bme280.hpp"
+#include "bmi088.hpp"
+#include "ds18b20.hpp"
+#include "mcp3021.hpp"
+#include "rgb_status_led.hpp"
+#include "samm8q.hpp"
+// --------------------
+
+#if RUN_IN_SIMULATOR == 1
+#include "simulated_extensions.hpp"
+#endif
 
 namespace modules {
 
@@ -29,13 +39,29 @@ ExtensionModule::ExtensionModule(data::SharedData &shared_data,
                                  cfg::Configuration &config)
     : modules::Module(metadata, shared_data, config),
       extension_resources_(shared_data.streams,
-                           config.hardware_interface.getI2CBus()) {
+                           config.hardware_interface.getI2CBus(),
+                           shared_data.status_led) {
 }
 
 void ExtensionModule::startup() {
   updateLocalConfig(); // Load in the config for the extension.
 
-  // Load in the extensions.
+// Load in the simulated extensions.
+#ifdef RUN_IN_SIMULATOR
+  for (auto &ext_meta : extension::K_SIMULATED_EXTENSIONS_VEC) {
+    // Create the extension.
+    auto extension = createExtension(ext_meta);
+    if (!extension.has_value()) {
+      error(DiagnosticId::EXTENSION_MODULE_failedToCreate, ext_meta.name);
+      continue;
+    }
+    info("Loaded simulated extension: " + ext_meta.name);
+    // Add the extension to the list of extensions.
+    extensions_.push_back(extension.value());
+  }
+#endif
+
+  // Load in the extensions
   for (auto &ext_meta : configuration_.extensions.getExtensions()) {
     // Create the extension.
     auto extension = createExtension(ext_meta);
@@ -43,7 +69,7 @@ void ExtensionModule::startup() {
       error(DiagnosticId::EXTENSION_MODULE_failedToCreate, ext_meta.name);
       continue;
     }
-
+    info("Loaded extension: " + ext_meta.name);
     // Add the extension to the list of extensions.
     extensions_.push_back(extension.value());
   }
@@ -119,6 +145,7 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
   switch (meta.type) {
   case cfg::gEnum::ExtensionType::UNKNOWN: // generally means config error
     return option;
+#if RUN_IN_SIMULATOR == 1
   case cfg::gEnum::ExtensionType::SIM_TEMP:
     extension = std::make_shared<extension::SimTemperatureSensor>(
         extension_resources_, meta);
@@ -138,6 +165,36 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
   case cfg::gEnum::ExtensionType::SIM_IMU:
     extension =
         std::make_shared<extension::SimImuSensor>(extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::SIM_ADC:
+    extension =
+        std::make_shared<extension::SimAdcSensor>(extension_resources_, meta);
+    break;
+#endif
+  case cfg::gEnum::ExtensionType::RGB_LED:
+    extension =
+        std::make_shared<extension::RgbStatusLed>(extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::BME280:
+    extension = std::make_shared<extension::Bme280>(extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::SAM_M8Q:
+    extension = std::make_shared<extension::SamM8q>(extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::DS18B20:
+    extension =
+        std::make_shared<extension::Ds18b20>(extension_resources_, meta);
+    break;
+  case cfg::gEnum::ExtensionType::MCP3021:
+    extension =
+        std::make_shared<extension::Mcp3021>(extension_resources_, meta);
+    break;
+    // case cfg::gEnum::ExtensionType::MAX11615:
+    // extension =
+    // std::make_shared<extension::Max11615>(extension_resources_, meta);
+    // break;
+  case cfg::gEnum::ExtensionType::BMI088:
+    extension = std::make_shared<extension::Bmi088>(extension_resources_, meta);
     break;
   default:
     giraffe_assert(false); // Shouldn't get here

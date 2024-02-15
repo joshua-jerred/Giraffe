@@ -61,10 +61,10 @@ void Extension::stop() {
   }
 
   stop_flag_ = true; // signal the stop
-  BoosterSeat::Timer timer(kExtensionStopTimeoutMs);
+  bst::Timer timer(kExtensionStopTimeoutMs);
 
   while (!timer.isDone()) {
-    BoosterSeat::threadSleep(kExtensionStopCheckIntervalMs);
+    bst::sleep(kExtensionStopCheckIntervalMs);
     if (static_cast<uint16_t>(status_.load()) & node::K_INACTIVE_STATUSES) {
       if (runner_thread_.joinable()) {
         runner_thread_.join();
@@ -86,6 +86,7 @@ void Extension::error(DiagnosticId log_id, const std::string &extra_info) {
   packet.id = log_id;
   packet.secondary_identifier = metadata_.name;
   packet.info = extra_info;
+  packet.level = data::LogPacket::Level::ERROR;
   interfaces_.streams.log.addPacket(packet);
 }
 
@@ -95,6 +96,7 @@ void Extension::error(DiagnosticId log_id, int info) {
   packet.id = log_id;
   packet.secondary_identifier = metadata_.name;
   packet.info = std::to_string(info);
+  packet.level = data::LogPacket::Level::ERROR;
   interfaces_.streams.log.addPacket(packet);
 }
 
@@ -104,6 +106,17 @@ void Extension::info(std::string info) {
   packet.id = DiagnosticId::GENERIC_info;
   packet.secondary_identifier = metadata_.name;
   packet.info = info;
+  packet.level = data::LogPacket::Level::INFO;
+  interfaces_.streams.log.addPacket(packet);
+}
+
+void Extension::debug(std::string info) {
+  data::LogPacket packet;
+  packet.source = kExtensionId;
+  packet.id = DiagnosticId::GENERIC_debug;
+  packet.secondary_identifier = metadata_.name;
+  packet.info = info;
+  packet.level = data::LogPacket::Level::DEBUG;
   interfaces_.streams.log.addPacket(packet);
 }
 
@@ -157,7 +170,7 @@ void Extension::extSleep(uint32_t ms) {
   if (ms > kMaxSleepTimeMs) {
     ms = kMaxSleepTimeMs;
   }
-  BoosterSeat::threadSleep(ms);
+  bst::sleep(ms);
 }
 
 void Extension::sleep() {
@@ -176,9 +189,9 @@ void Extension::sleep() {
       std::clamp(sleep_ms / 10, kMinimumSleepTimeMs, kMaximumCheckInterval);
 
   // Sleep for the specified amount of time
-  BoosterSeat::Timer timer(sleep_ms);
+  bst::Timer timer(sleep_ms);
   while (!timer.isDone()) {
-    BoosterSeat::threadSleep(check_interval);
+    bst::sleep(check_interval);
     if (stopRequested()) {
       return;
     }

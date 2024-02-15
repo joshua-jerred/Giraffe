@@ -148,6 +148,7 @@ TEST_F(ConfigurationTest, loads_modified_config_file) {
 TEST_F(ConfigurationTest, set_from_json_valid_values) {
   nlohmann::json json_data =
       nlohmann::json::object({{"project_name", "test_name"},
+                              {"flight_identifier_number", 3},
                               {"main_board", "pi_zero_w2"},
                               {"starting_procedure", "ascent"},
                               {"module_status_update_rate", 1000}});
@@ -157,6 +158,7 @@ TEST_F(ConfigurationTest, set_from_json_valid_values) {
   ASSERT_EQ(0, shared_data->streams.log.getNumPackets());
 
   EXPECT_EQ("test_name", conf->general.getProjectName());
+  EXPECT_EQ(3, conf->general.getFlightIdentifierNumber());
   EXPECT_EQ(cfg::gEnum::MainBoard::PI_ZERO_W2, conf->general.getMainBoard());
   EXPECT_EQ(cfg::gEnum::ProcedureType::ASCENT,
             conf->general.getStartingProcedure());
@@ -165,14 +167,16 @@ TEST_F(ConfigurationTest, set_from_json_valid_values) {
 TEST_F(ConfigurationTest, set_from_json_invalid_values) {
   nlohmann::json json_data =
       nlohmann::json::object({{"project_name", ""},
+                              {"flight_identifier_number", 1001},
                               {"main_board", "abc"},
                               {"starting_procedure", "abc"}});
 
   conf->general.setFromJson(json_data);
 
-  ASSERT_EQ(4, shared_data->streams.log.getNumPackets());
+  ASSERT_EQ(5, shared_data->streams.log.getNumPackets());
 
   EXPECT_NE("test_name", conf->general.getProjectName());
+  EXPECT_NE(3, conf->general.getFlightIdentifierNumber());
   EXPECT_NE(cfg::gEnum::MainBoard::PI_ZERO_W2, conf->general.getMainBoard());
   EXPECT_NE(cfg::gEnum::ProcedureType::ASCENT,
             conf->general.getStartingProcedure());
