@@ -4,22 +4,22 @@ import {
   Card,
   CardRow,
   CardMasonryLayout,
-} from '../../core/PageParts';
+} from "../../core/PageParts";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { Markdown } from '../../components/markdown';
+import { Markdown } from "../../components/markdown";
 
-import Acronyms from '../../assets/docs/acronyms.md';
-import Commands from '../../assets/docs/commands.md';
-import Errors from '../../assets/docs/errors.md';
-import Versions from '../../assets/docs/versions.md';
+import Acronyms from "../../assets/docs/acronyms.md";
+// import Commands from '../../assets/docs/commands.md';
+// import Errors from '../../assets/docs/errors.md';
+// import Versions from '../../assets/docs/versions.md';
 
 function DocsPage() {
-  const [acronyms, setAcronyms] = useState('');
-  const [commands, setCommands] = useState('');
-  const [errors, setErrors] = useState('');
-  const [versions, setVersions] = useState('');
+  const [acronyms, setAcronyms] = useState("");
+  const [commands, setCommands] = useState("");
+  const [errors, setErrors] = useState("");
+  const [versions, setVersions] = useState("");
 
   useEffect(() => {
     fetch(Acronyms)
@@ -28,23 +28,23 @@ function DocsPage() {
         setAcronyms(data);
       });
 
-    fetch(Commands)
-      .then((response) => response.text())
-      .then((data) => {
-        setCommands(data);
-      });
+    // fetch(Commands)
+    //   .then((response) => response.text())
+    //   .then((data) => {
+    //     setCommands(data);
+    //   });
 
-    fetch(Errors)
-      .then((response) => response.text())
-      .then((data) => {
-        setErrors(data);
-      });
+    // fetch(Errors)
+    //   .then((response) => response.text())
+    //   .then((data) => {
+    //     setErrors(data);
+    //   });
 
-    fetch(Versions)
-      .then((response) => response.text())
-      .then((data) => {
-        setVersions(data);
-      });
+    // fetch(Versions)
+    //   .then((response) => response.text())
+    //   .then((data) => {
+    //     setVersions(data);
+    //   });
   }, []);
 
   return (
