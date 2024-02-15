@@ -1,0 +1,23 @@
+@startuml
+
+state Unknown
+state Launch
+state Ascent
+state Descent
+state Recovery
+
+[*] --> Unknown
+Unknown --> Launch : No info in flight_runner_data related to phase or was in launch
+Unknown --> Ascent : flight_runner_data indicates Ascent
+Unknown --> Descent : flight_runner_data indicates Descent
+Unknown --> Recovery : flight_runner_data indicates Recovery
+
+Launch --> Ascent : Ascent detected from GPS data
+Launch --> Descent : Descent/Pop detected from GPS data
+
+Ascent --> Descent : Descent/Pop detected from GPS data
+Descent --> Ascent : Ascent detected from GPS data
+
+Descent --> Recovery : Landing/No movement detected from GPS data
+
+@enduml

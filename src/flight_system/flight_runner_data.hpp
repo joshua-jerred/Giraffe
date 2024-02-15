@@ -17,9 +17,10 @@
 #ifndef FLIGHT_RUNNER_DATA_HPP_
 #define FLIGHT_RUNNER_DATA_HPP_
 
+#include <BoosterSeat/time.hpp>
 #include <cstdint>
 
-#include <BoosterSeat/time.hpp>
+#include "flight_phase.hpp"
 
 namespace giraffe {
 
@@ -73,6 +74,9 @@ public:
   bool getSecondsSincePreviousStartup(int64_t &num_seconds);
   bool getSecondsSincePreviousShutdown(int64_t &num_seconds);
 
+  void setFlightPhase(FlightPhase flight_phase);
+  FlightPhase getFlightPhase() const;
+
 private:
   /**
    * @brief Attempts to save the data to a file.
@@ -92,6 +96,7 @@ private:
   /**
    * @brief The time the system was started. Immediately set once after startup.
    * Not updated after a full reset.
+   * @todo this is a duplicate of the time in shared_date_.misc
    */
   bst::Time startup_time_ = {};
 
@@ -114,6 +119,12 @@ private:
    * @brief The number of times the system has been started.
    */
   uint32_t num_startups_ = 0;
+
+  /**
+   * @details This is only set in detectFlightPhase.
+   * @see detectFlightPhase
+   */
+  FlightPhase flight_phase_ = FlightPhase::UNKNOWN;
 };
 
 } // namespace giraffe

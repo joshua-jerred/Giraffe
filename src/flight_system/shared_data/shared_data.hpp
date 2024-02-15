@@ -23,10 +23,13 @@
 
 #include "blocks.hpp"
 #include "error_frame.hpp"
+#include "flight_phase.hpp"
 #include "frame.hpp"
 #include "log_container.hpp"
 #include "status_led.hpp"
 #include "streams.hpp"
+
+class FlightRunner;
 
 namespace data {
 struct Streams {
@@ -78,25 +81,45 @@ struct Frames {
   Frame<std::string, DataPacket> env_hum{};
 };
 
-struct Misc {
-  double getUptimeHours() const {
-    return bst::clck::secondsElapsed(start_time) / 3600.0;
+class Misc {
+public:
+  int getUptimeSeconds() const {
+    return bst::clck::secondsElapsed(start_time_);
   }
-
-  std::string getUptimeString() const {
-    return bst::time::elapsedAsciiClock(start_time);
-  }
-
-  /// @todo remove this
-  /// @warning DEPRECATED
-  const bst::clck::TimePoint start_time = bst::clck::now();
 
   /**
-   * @brief The time the flight computer started up.
+   * @brief Get the uptime represented as a string in the format "HH:MM:SS".
+   * @return std::string The uptime string.
    */
-  const bst::Time startup_time = bst::Time(true);
+  std::string getUptimeString() const {
+    return bst::time::elapsedAsciiClock(start_time_);
+  }
+
+  /**
+   * @brief Get the current flight phase.
+   * @return FlightPhase The current flight phase.
+   */
+  FlightPhase getFlightPhase() const {
+    return flight_phase;
+  }
+
+  /**
+   * @brief This is here so that the flight runner alone can set the flight
+   * phase.
+   */
+  friend FlightRunner;
+
+private:
+  /// @brief A time point representing the start time of the flight runner.
+  const bst::clck::TimePoint start_time_ = bst::clck::now();
+
+  /// @brief The current flight phase.
+  std::atomic<FlightPhase> flight_phase = FlightPhase::UNKNOWN;
 };
 
+/**
+ * @brief Data that is shared across all modules and extensions.
+ */
 struct SharedData {
   Streams streams = Streams();
   Frames frames = Frames();

@@ -15,6 +15,8 @@
  * @copyright  2023 (license to be defined)
  */
 
+#include <BoosterSeat/sleep.hpp>
+
 #include "giraffe_file_paths.hpp"
 
 #include "flight_runner.hpp"
@@ -162,18 +164,6 @@ auto FlightRunner::start() -> int {
   p_extension_module_ = new modules::ExtensionModule(shared_data_, *p_config_);
   p_extension_module_->start();
 
-  // ~~~ Setup Done, Start the Flight Loop ~~~ //
-  // if (config_data_.general.starting_proc ==
-  //     FlightProcedure::Type::TESTING) {  // If user specified in config to
-  //     use
-  //                                        // the testing proc, it's selected
-  //                                        // here.
-  //   switchLoops(FlightProcedure::Type::TESTING);
-  //   std::cout << "Starting in Testing Loop" << std::endl;
-  // } else {
-  //   healthCheck();  // Perform a health check to determine the flight proc
-  //   type
-  // }
   return flightLoop(); // This will only return on shutdown
 }
 
@@ -189,12 +179,16 @@ auto FlightRunner::shutdown() -> void {
 }
 
 auto FlightRunner::flightLoop() -> int {
+  constexpr uint32_t K_FLIGHT_LOOP_INTERVAL_MS = 250;
   std::cout << "Starting Flight Procedure" << std::endl;
-  shared_data_.status_led.setGreen(StatusLedState::State::BLINK);
-  // static int count = 0;
-  while (!shutdown_signal_) { // The endless loop where everything happens
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+  // shared_data_.status_led.setGreen(StatusLedState::State::BLINK);
 
+  // The endless loop where everything happens
+  while (!shutdown_signal_) {
+    // Run the flight logic
+    flightLogic();
+
+    // Check for new commands
     if (shared_data_.streams.command.getNumPackets() > 0) {
       data::CommandPacket command_packet{};
       bool new_command = shared_data_.streams.command.getPacket(command_packet);
@@ -202,6 +196,8 @@ auto FlightRunner::flightLoop() -> int {
         routeCommand(command_packet.command);
       }
     }
+
+    bst::sleep(K_FLIGHT_LOOP_INTERVAL_MS);
   }
   std::cout << std::endl
             << "Shutdown signal received." << std::endl
