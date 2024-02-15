@@ -71,13 +71,13 @@ set_target_properties(unit_test_gfs PROPERTIES RUNTIME_OUTPUT_DIRECTORY
                                                ${TEST_BIN})
 
 
-# --- Flight Software : Host Tests ---
-file(GLOB gfs_host_test_sources "${GFS_TEST_SRC}/host_tests/test_*.cpp")
+# --- Flight Software : On Pi Tests ---
+file(GLOB gfs_on_pi_test_sources "${GFS_TEST_SRC}/host_tests/test_*.cpp")
 add_executable(
-  unit_test_gfs_host "${GFS_TEST_SRC}/host_tests/extension_test_framework.cpp"
-                     ${gfs_host_test_sources})
+  unit_test_on_pi_host "${GFS_TEST_SRC}/host_tests/extension_test_framework.cpp"
+                     ${gfs_on_pi_test_sources})
 target_link_libraries(
-  unit_test_gfs_host
+  unit_test_on_pi_host
   giraffe_common
   giraffe_debug_assert
   gfs_interface
@@ -93,9 +93,9 @@ target_link_libraries(
   gtest_main
   ${CURL_LIBRARIES}
   nlohmann_json::nlohmann_json)
-set_target_properties(unit_test_gfs_host
+set_target_properties(unit_test_on_pi_host
   PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN})
-target_compile_options(unit_test_gfs_host PRIVATE -Os)
+target_compile_options(unit_test_on_pi_host PRIVATE -Os)
 
 add_executable(curl_test
   ./flight_system/curl_test.cpp

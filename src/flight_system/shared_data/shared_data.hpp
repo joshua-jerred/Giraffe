@@ -104,29 +104,6 @@ struct SharedData {
   Misc misc = Misc();
   LogContainer log_container{};
   giraffe::StatusLedState status_led{};
-
-#ifndef DNDEBUG // Defined by CMake
-  /**
-   * @brief Used to log debug messages when the program is not in release mode.
-   *
-   * @param node_identification - Node identification
-   * @param info - Debug message
-   */
-  void debugLog(const node::Identification node_identification,
-                const std::string &info) {
-    streams.log.debug(node_identification, info);
-  }
-#else
-  /**
-   * @brief This function does nothing when the program is in release mode.
-   * @param id
-   * @param info
-   */
-  void debugLog(const node::Identification id, const std::string &info) {
-    (void)id;
-    (void)info;
-  }
-#endif
 };
 
 Json toJson(data::Frame<std::string, data::DataPacket> &frame);

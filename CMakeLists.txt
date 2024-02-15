@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.2)
 
 # ----------------- *** START CONFIGURABLE ITEMS *** --------------------------
 option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF)
-option(EXTENSION_DEBUG_PRINT "Enable Debug Printing for Extensions" OFF)
 option(GFS_HOST_TEST "Enable GFS Host Test" OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS OFF)
 # ----------------- ***  END CONFIGURABLE ITEMS  *** --------------------------
@@ -25,14 +24,6 @@ set(GDL_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/data_link)
 
 set(TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests)
 # ------------------- #
-
-# Debug Printing
-if(EXTENSION_DEBUG_PRINT)
-  add_compile_definitions(EXTENSION_DEBUG_PRINT=1)
-  message(WARNING "EXTENSION DEBUG PRINTING ENABLED")
-else()
-  add_compile_definitions(EXTENSION_DEBUG_PRINT=0)
-endif()
 
 # Raspberry Pi Build
 # if($ENV{RASPBERRY_PI} EQUAL 1)

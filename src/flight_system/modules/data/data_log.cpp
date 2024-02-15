@@ -146,8 +146,8 @@ void mw::DataLog::logErrorFrame() {
 }
 
 void mw::DataLog::logLogPacket(const data::LogPacket &packet) {
-  auto log_level = config_.data_module_log.getLogLevel();
-  auto packet_level = packet.level;
+  const auto log_level = config_.data_module_log.getLogLevel();
+  const auto packet_level = packet.level;
 
   if (static_cast<int>(packet_level) >= static_cast<int>(log_level)) {
     appendToLogFile(formatter_.logPacketToJsonString(packet));
@@ -286,10 +286,11 @@ void mw::DataLog::createDirectory(const std::string &path,
     if (!bsfs::doesDirectoryExist(path)) {
       bsfs::createDirectory(path);
       validity_flag = true;
-      shared_data_.debugLog(kNodeId, "Dir: " + path + " created.");
+      shared_data_.streams.log.debug(kNodeId, "Dir: " + path + " created.");
     } else {
       validity_flag = true; // Directory already exists.
-      shared_data_.debugLog(kNodeId, "Dir: " + path + " already exists.");
+      shared_data_.streams.log.debug(kNodeId,
+                                     "Dir: " + path + " already exists.");
     }
   } catch (const bst::BoosterSeatException &e) {
     validity_flag = false;
@@ -308,7 +309,8 @@ void mw::DataLog::createFile(const std::string &new_file_path,
   try {
     bsfs::createFile(new_file_path);
     validity_flag = true;
-    shared_data_.debugLog(kNodeId, "File: " + new_file_path + " created.");
+    shared_data_.streams.log.debug(kNodeId,
+                                   "File: " + new_file_path + " created.");
   } catch (const bst::BoosterSeatException &e) {
     validity_flag = false;
     shared_data_.streams.log.errorBoosterSeatException(kNodeId,

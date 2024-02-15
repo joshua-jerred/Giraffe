@@ -64,12 +64,14 @@ class Enum:
         return f"enum class {self.name} {{\n{self.getOptions()}\n}};"
     
     def getOptions(self):
+        enum_val = 0
         options = ""
         first = True
         for option in self.options:
             if not first:
                 options += ",\n"
-            options += f"{INDENT}{option}"
+            options += f"{INDENT}{option} = {enum_val}"
+            enum_val += 1
             first = False
         return options
     
