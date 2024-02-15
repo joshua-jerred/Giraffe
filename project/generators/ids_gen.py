@@ -30,21 +30,21 @@ PRINT_OUTPUT = True if os.getenv('PRINT_OUTPUT') == "true" else False
 class IdGenerator:
     def __init__(self, in_file, out_file) -> None:
         self.enum = None
-        
+
         self.generate_string_map = False
         self.string_map_name = ""
-        
+
         self.in_path = in_file
         self.out_path = out_file
         self.data = None
-        
+
         self.namespaced = False
         self.namespace = ""
         self.enum_name = ""
-        
+
         self.valued_enum = False # assume enum is not valued
         self.enum_type = None # type (ex. int, uint8_t, etc.)
-        
+
         self.__loadData()
         self.__parse()
         self.__write()
@@ -52,29 +52,29 @@ class IdGenerator:
     def __loadData(self):
         f = open(self.in_path, "r")
         self.data = json.load(f)
-        
+
         try:
             self.namespace = self.data["FILE_META"]["namespace"]
             self.namespaced = True
         except KeyError:
             self.namespaced = False
-            
+
         if "generate_string_map" in self.data["FILE_META"]:
             self.generate_string_map = True
             self.string_map_name = self.data["FILE_META"]["generate_string_map"]
-            
+
         self.enum_name = self.data["FILE_META"]["enum_name"]
-        
+
         if "enum_type" in self.data["FILE_META"]:
             self.enum_type = self.data["FILE_META"]["enum_type"]
             self.valued_enum = True
-        
+
         self.enum = cpp.components.Enum(self.enum_name, True, self.enum_type)
         if self.generate_string_map and REVERSE_MAP:
             self.string_map = cpp.components.UnorderedMap(self.string_map_name, "std::string", self.enum_name, "const ")
         elif self.generate_string_map:
             self.string_map = cpp.components.UnorderedMap(self.string_map_name, self.enum_name, "std::string", "const ")
-        
+
     def __parse(self):
         for category_key in self.data:
             if category_key == "FILE_META":
@@ -88,7 +88,7 @@ class IdGenerator:
     def __addEnum(self, category, item_name, json_data):
         enum_name = ""
         enum_name += category.upper() + "_"
-        
+
         item_name_parts = item_name.split("_")
         first = True
         for part in item_name_parts:
@@ -130,15 +130,15 @@ class IdGenerator:
         file.addLine("// NOLINTBEGIN(readability-identifier-naming)")
         file.addComponent(self.enum)
         file.addLine("// NOLINTEND(readability-identifier-naming)")
-        
+
         if self.generate_string_map:
             file.addLine("")
             file.addLine("extern " + self.string_map.getDeclaration())
-        
-        if PRINT_OUTPUT: 
+
+        if PRINT_OUTPUT:
             print(file)
         file.save(OUT_FILE)
-        
+
         if (self.generate_string_map):
             self.__write_string_map()
 

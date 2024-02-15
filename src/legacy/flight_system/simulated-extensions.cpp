@@ -5,7 +5,7 @@
  * @date 2023-01-29
  * @copyright Copyright (c) 2023
  * @version 0.1
- * 
+ *
  * @todo Documentation
  * @todo Unit Tests
  */
@@ -62,7 +62,7 @@ TEMP_SENSOR_SIM::~TEMP_SENSOR_SIM() {
 int TEMP_SENSOR_SIM::runner() {
     setStatus(ExtensionStatus::RUNNING);
     while (!stop_flag_) {
-        
+
 
 		std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
@@ -84,7 +84,7 @@ RADIO_SIM::~RADIO_SIM() {
 int RADIO_SIM::runner() {
     setStatus(ExtensionStatus::RUNNING);
     while (!stop_flag_) {
-        
+
 
 		std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
@@ -105,7 +105,7 @@ int GPS_SIM::runner() {
     setStatus(ExtensionStatus::RUNNING);
     while (!stop_flag_) {
         GPSFrame gps_frame;
-        
+
 		std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())
         );
@@ -124,7 +124,7 @@ BATT_SENSOR_SIM::~BATT_SENSOR_SIM() {
 int BATT_SENSOR_SIM::runner() {
     setStatus(ExtensionStatus::RUNNING);
     while (!stop_flag_) {
-        
+
 
 		std::this_thread::sleep_for(
             std::chrono::milliseconds(getUpdateInterval())

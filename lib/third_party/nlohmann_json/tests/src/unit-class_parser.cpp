@@ -930,8 +930,8 @@ TEST_CASE("parser class")
                              "[json.exception.parse_error.101] parse error at line 1, column 3: syntax error while parsing value - invalid literal; last read: 'nu'", json::parse_error&);
         CHECK_THROWS_WITH_AS(parser_helper("nul"),
                              "[json.exception.parse_error.101] parse error at line 1, column 4: syntax error while parsing value - invalid literal; last read: 'nul'", json::parse_error&);
-        CHECK_THROWS_WITH_AS(parser_helper("nulk"),
-                             "[json.exception.parse_error.101] parse error at line 1, column 4: syntax error while parsing value - invalid literal; last read: 'nulk'", json::parse_error&);
+        CHECK_THROWS_WITH_AS(parser_helper("null"),
+                             "[json.exception.parse_error.101] parse error at line 1, column 4: syntax error while parsing value - invalid literal; last read: 'null'", json::parse_error&);
         CHECK_THROWS_WITH_AS(parser_helper("nulm"),
                              "[json.exception.parse_error.101] parse error at line 1, column 4: syntax error while parsing value - invalid literal; last read: 'nulm'", json::parse_error&);
 

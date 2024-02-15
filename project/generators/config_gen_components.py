@@ -3,13 +3,13 @@
 IND = "  " # indent
 
 # more spaghetification
-base_class = "" 
+base_class = ""
 
 
 """class CfgSection {
  public:
   CfgSection(data::Streams &streams): streams_(streams){}
-  
+
  protected:
   mutable std::mutex cfg_lock_ = std::mutex();
   data::Streams &streams_;
@@ -18,31 +18,31 @@ base_class = ""
 
 def getConfigurationClass(initializers, private_members):
     init_part = ""
-    
+
     for initializer in initializers:
         init_part += f'{IND*2}{initializer}(streams),'
-        
+
     members = ""
     for p in private_members:
         members += f'{IND}{p}\n'
-        
+
     return """class Configuration {{
  public:
   Configuration(data::Streams &streams):
 {0}
     streams_(streams){{}}
-    
+
     void getAllJson(Json &all_data) const;
-    
+
     void save(std::string file_path = "");
     void load(std::string file_path = "");
 
-{1} 
+{1}
  private:
   void error(DiagnosticId error_code, std::string info = "") {{
       streams_.log.error(node::Identification::CONFIGURATION, error_code, info);
   }}
- 
+
   data::Streams &streams_;
   std::mutex file_lock_ = std::mutex();
 }};\n
@@ -58,7 +58,7 @@ def getConfigurationSaveAndLoad(members):
         else:
             first = False
         json_initializers += f'{IND*2}{{"{member}", {member}.getJson()}}\n'
-    
+
     json_loaders = ""
     for member in members:
         json_loaders += f'{IND}if (sectionExists(parsed, "{member}")) {{\n'
@@ -71,17 +71,17 @@ void cfg::Configuration::getAllJson(Json &all_data) const {{
   all_data = {{
 {0}  }};
 }}
-  
+
 void cfg::Configuration::save(std::string file_path) {{
   const std::lock_guard<std::mutex> lock(file_lock_);
-  
+
   std::ofstream out(file_path);
-  
+
   if (out.fail()) {{
     error(DiagnosticId::CONFIG_failedToSaveToPath, file_path);
     return;
   }}
-  
+
   Json config_json;
   getAllJson(config_json);
 
@@ -99,23 +99,23 @@ void cfg::Configuration::load(std::string file_path) {{
 
   if (!std::filesystem::exists(file_path)) {{
     error(DiagnosticId::CONFIG_configFileDoesNotExist, file_path);
-    return; 
+    return;
   }}
 
   std::ifstream in(file_path);
-  
+
   if (in.fail()) {{
     error(DiagnosticId::CONFIG_failedToOpenConfig, file_path);
     return;
   }}
-  
+
   Json parsed;
   try {{
     parsed = Json::parse(in);
   }} catch (Json::parse_error &e) {{
     return;
   }}
-  
+
 {1}}}
 
 """.format(json_initializers, json_loaders)

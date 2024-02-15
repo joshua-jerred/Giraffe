@@ -963,7 +963,7 @@ struct MoveHelper {
   MOCK_METHOD1(Call, void(MoveOnly));
 };
 
-// Disable this test in VS 2015 (version 14), where it fails when SEH is enabled
+// Disable this test in VS 2015 (version 14), where it fails when SHE is enabled
 #if defined(_MSC_VER) && (_MSC_VER < 1910)
 TEST(ComparisonBaseTest, DISABLED_WorksWithMoveOnly) {
 #else
@@ -1107,7 +1107,7 @@ TEST(RefTest, CanDescribeSelf) {
   EXPECT_EQ(ss.str(), Describe(m));
 }
 
-// Test that Ref(non_const_varialbe) can be used as a matcher for a
+// Test that Ref(non_const_variable) can be used as a matcher for a
 // const reference.
 TEST(RefTest, CanBeUsedAsMatcherForConstReference) {
   int a = 0;

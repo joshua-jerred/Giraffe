@@ -792,7 +792,7 @@
         (fill (type none))
       )
       (pin no_connect line (at 0 0 0) (length 7.62)
-        (name "INH" (effects (font (size 1.4986 1.4986))))
+        (name "IN" (effects (font (size 1.4986 1.4986))))
         (number "1" (effects (font (size 1.4986 1.4986))))
       )
       (pin power_in line (at 0 -2.54 0) (length 7.62)

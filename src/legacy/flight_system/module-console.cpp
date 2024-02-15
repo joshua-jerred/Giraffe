@@ -2,11 +2,11 @@
  * @file module-console.cpp
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file contains the Console Module class.
- * 
+ *
  * @version 0.0.9
  * @date 2022-10-10
  * @copyright Copyright (c) 2022
- * 
+ *
  * @todo Needs updates to match new structure
  */
 
@@ -103,7 +103,7 @@ void ConsoleModule::clearScreen() {
  * @todo Add telemetry data
  */
 void ConsoleModule::printData() {
-    std::cout << "GFS  -  Giraffe Flight Software  -  V" + 
+    std::cout << "GFS  -  Giraffe Flight Software  -  V" +
     configurables::kGiraffeVersion << std::endl;
     std::time_t t = std::time(0);   // get time now
     std::tm* now = std::localtime(&t);
@@ -112,9 +112,9 @@ void ConsoleModule::printData() {
         << (now->tm_year + 1900) << '-' << (now->tm_mon + 1) << '-'
         <<  now->tm_mday << std::endl;
 
-    std::cout << 
+    std::cout <<
     "=========================================================================="
-    "==========" 
+    "=========="
     << std::endl << std::endl;
 
     std::cout << "General - " << std::endl;
@@ -147,7 +147,7 @@ void ConsoleModule::printData() {
         std::cout << "Unknown";
         break;
     }
-    
+
     std::cout << std::endl << std::endl;
 
     FlightProcedure current_flt_proc = data_stream_.getCurrentFlightProcedure();
@@ -196,7 +196,7 @@ void ConsoleModule::printData() {
         std::cout << "  Symbol: " << config_data_.telemetry.aprs_symbol;
         std::cout << "  Memo: " << config_data_.telemetry.aprs_comment;
         std::cout << std::endl;
-        
+
         std::cout << "SSTV Enabled: " << config_data_.telemetry.sstv_enabled;
         std::cout << "  Frequency: " << config_data_.telemetry.sstv_freq;
     } else {
@@ -265,17 +265,17 @@ void ConsoleModule::printData() {
     }
     std::cout << std::endl;
 
-    std::cout << data_stream_.getTotalDataPackets() << " " 
+    std::cout << data_stream_.getTotalDataPackets() << " "
     << data_stream_.getTotalErrorPackets() << std::endl;
-    std::cout << data_stream_.getNumDataPackets() << " " 
+    std::cout << data_stream_.getNumDataPackets() << " "
     << data_stream_.getNumErrorPackets() << std::endl;
 
     DataFrame snapshot = data_stream_.getDataFrameCopy();
     std::cout << "Data - " << snapshot.size() << std::endl;
     const int width = 2;
     int i = 1;
-    for (auto& [key, packet] : snapshot) {  
-        std::cout << std::left << std::setw(20) << key << " = " << std::left << 
+    for (auto& [key, packet] : snapshot) {
+        std::cout << std::left << std::setw(20) << key << " = " << std::left <<
         std::setw(12) << packet.value << "  |";
         if (i == width) {
             std::cout << std::endl;
@@ -289,7 +289,7 @@ void ConsoleModule::printData() {
     ErrorFrame error_snapshot = data_stream_.getErrorFrameCopy();
     std::cout << "Errors - " << error_snapshot.size() << std::endl;
     i = 1;
-    for (auto& [key, packet] : error_snapshot) {  
+    for (auto& [key, packet] : error_snapshot) {
         std::cout << packet.source << " - " << packet.error_code << " - ";
         std::cout << packet.info << std::endl;
     }

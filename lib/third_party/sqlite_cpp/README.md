@@ -100,7 +100,7 @@ The "CMakeLists.txt" file defining the static library is provided in the root di
 so you simply have to add_subdirectory(SQLiteCpp) to you main CMakeLists.txt
 and link to the "SQLiteCpp" wrapper library.
 
-Example for Linux: 
+Example for Linux:
 ```cmake
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/thirdparty/SQLiteCpp)
 
@@ -111,7 +111,7 @@ target_link_libraries(main
   pthread
   dl
   )
-``` 
+```
 Thus this SQLiteCpp repository can be directly used as a Git submodule.
 See the [SQLiteCpp_Example](https://github.com/SRombauts/SQLiteCpp_Example) side repository for a standalone "from scratch" example.
 
@@ -145,7 +145,7 @@ The SQLiteCpp port in vcpkg is kept up to date by Microsoft team members and com
 
 #### Using SQLiteCpp on a system-wide installation
 
-If you installed this package to your system, a `SQLiteCppConfig.cmake` file will be generated & installed to your system.  
+If you installed this package to your system, a `SQLiteCppConfig.cmake` file will be generated & installed to your system.
 This file lets you link against the SQLiteCpp library for use in your Cmake project.
 
 Here's an example of using this in your CMakeLists.txt
@@ -206,7 +206,7 @@ Arch Linux:
 sudo pacman -Syu clang ninja
 # install python and pip (required for meson)
 sudo pacman -Syu python python-pip
-# install meson 
+# install meson
 pip install meson
 ```
 
@@ -225,7 +225,7 @@ for example you can build the library using the default options with:
 
 ```sh
 # setup the build directory
-meson setup builddir 
+meson setup builddir
 # build sqlitecpp
 meson compile -C builddir
 ```
@@ -313,23 +313,23 @@ Execute the following command under Unix like OS (Linux, MacOS or WSL2/Ubuntu un
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose build/SQLiteCpp_example1
 ```
 
-or uncoment the line at the end of [build.sh](build.sh)
+or uncomment the line at the end of [build.sh](build.sh)
 
 ## Examples
-### The first sample demonstrates how to query a database and get results: 
+### The first sample demonstrates how to query a database and get results:
 
 ```C++
 try
 {
     // Open a database file
     SQLite::Database    db("example.db3");
-    
+
     // Compile a SQL query, containing one parameter (index 1)
     SQLite::Statement   query(db, "SELECT * FROM test WHERE size > ?");
-    
+
     // Bind the integer value 6 to the first parameter of the SQL query
     query.bind(1, 6);
-    
+
     // Loop to execute the query step by step, to get rows of result
     while (query.executeStep())
     {
@@ -337,7 +337,7 @@ try
         int         id      = query.getColumn(0);
         const char* value   = query.getColumn(1);
         int         size    = query.getColumn(2);
-        
+
         std::cout << "row: " << id << ", " << value << ", " << size << std::endl;
     }
 }
@@ -376,8 +376,8 @@ catch (std::exception& e)
 ### The third sample shows how to manage a prepared statement with a transaction:
 
 ```C++
-try 
-{ 
+try
+{
     SQLite::Database    db("test.db3", SQLite::OPEN_READWRITE|SQLite::OPEN_CREATE);
 
     db.exec("DROP TABLE IF EXISTS test");
@@ -455,8 +455,8 @@ See bellow a short comparison of other wrappers done at the time of writing:
  - [sqdbcpp](http://code.google.com/p/sqdbcpp/): RAII design, simple, no dependencies, UTF-8/UTF-16, new BSD license
  - [sqlite3cc](http://ed.am/dev/sqlite3cc): uses boost, modern design, LPGPL
  - [sqlite3pp](https://github.com/iwongu/sqlite3pp): modern design inspired by boost, MIT License
- - [SQLite++](http://sqlitepp.berlios.de/): uses boost build system, Boost License 1.0 
- - [CppSQLite](http://www.codeproject.com/Articles/6343/CppSQLite-C-Wrapper-for-SQLite/): famous Code Project but old design, BSD License 
- - [easySQLite](http://code.google.com/p/easysqlite/): manages table as structured objects, complex 
+ - [SQLite++](http://sqlitepp.berlios.de/): uses boost build system, Boost License 1.0
+ - [CppSQLite](http://www.codeproject.com/Articles/6343/CppSQLite-C-Wrapper-for-SQLite/): famous Code Project but old design, BSD License
+ - [easySQLite](http://code.google.com/p/easysqlite/): manages table as structured objects, complex
  - [sqlite_modern_cpp](https://github.com/keramer/sqlite_modern_cpp): modern C++11, all in one file, MIT license
  - [sqlite_orm](https://github.com/fnc12/sqlite_orm): modern C++14, header only all in one file, no raw string queries, BSD-3 license

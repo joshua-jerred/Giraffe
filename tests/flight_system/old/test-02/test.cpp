@@ -2,7 +2,7 @@
  * @file test.cpp
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Configuration module tests
- * 
+ *
  * @version 0.0.9
  * @date 2022-09-29
  * @copyright Copyright (c) 2022
@@ -62,7 +62,7 @@ TEST_F(Configuration_Module_1, GeneralSection) {
 
 TEST_F(Configuration_Module_1, ExtensionsSection) {
     ConfigData::Extensions extensions = config_module_->getAll().extensions;
-    
+
     EXPECT_EQ(4, extensions.extensions_list.size())
         << "Incorrect number of extensions";
 
@@ -127,10 +127,10 @@ TEST_F(Configuration_Module_1, Debugging) {
     ConfigData::Debugging debugging = config_module_->getAll().debug;
 
     EXPECT_EQ(1, debugging.console_enabled) << "Console debugging is incorrect";
-    EXPECT_EQ(1002, debugging.console_update_interval) 
+    EXPECT_EQ(1002, debugging.console_update_interval)
         << "Console update interval is incorrect";
 
-    EXPECT_EQ(1, debugging.web_server_enabled) 
+    EXPECT_EQ(1, debugging.web_server_enabled)
         << "Web server debugging is incorrect";
     EXPECT_EQ(1005, debugging.web_server_update_interval)
         << "Web server update interval is incorrect";
@@ -154,7 +154,7 @@ TEST_F(Configuration_Module_1, TelemetrySection) {
         << "APRS symbol is incorrect";
     EXPECT_EQ("Test Memo", telemetry.aprs_memo)
         << "APRS memo is incorrect";
-    
+
     EXPECT_EQ(1, telemetry.sstv_enabled)
         << "SSTV enabled is incorrect";
     EXPECT_EQ("100.000", telemetry.sstv_freq)

@@ -790,7 +790,7 @@
           (number "24" (effects (font (size 1.27 1.27))))
         )
         (pin no_connect line (at -2.54 17.78 90) (length 2.54) hide
-          (name "DOUT" (effects (font (size 1.27 1.27))))
+          (name "DOUBT" (effects (font (size 1.27 1.27))))
           (number "25" (effects (font (size 1.27 1.27))))
         )
         (pin power_in line (at -10.16 -17.78 90) (length 2.54)
@@ -5099,7 +5099,7 @@
     (property "Value" "GND" (at 43.18 30.353 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "TestPoint:TestPoint_Keystone_5015_Micro-Minature" (at 40.64 30.48 0)
+    (property "Footprint" "TestPoint:TestPoint_Keystone_5015_Micro-Miniature" (at 40.64 30.48 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 40.64 30.48 0)

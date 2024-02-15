@@ -1670,7 +1670,7 @@
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 4827b8d1-ce8e-4082-bb51-07261250ee6f)
     )
-    (pin "PCM.DOUT" input (at 50.8 96.52 0)
+    (pin "PCM.DOUBT" input (at 50.8 96.52 0)
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 3a652374-dcd4-440d-94c1-95f95a064c6a)
     )

@@ -12,7 +12,7 @@ simple.
 }
 ```
 ## src/dst
-The source/destination is a string that identifies the source/destination of 
+The source/destination is a string that identifies the source/destination of
 the message.
 
 Valid src/dst values:
@@ -30,12 +30,12 @@ Valid types are:
 - `rsp` - A response to a `req` or `set`
 
 ## id
-A unique string that identifies this message. This is used to match 
+A unique string that identifies this message. This is used to match
 requests/responses. Randomly generated 8 symbol (32 bit) hexadecimal value,
 in lowercase ascii characters.
 
 ## bdy
-The message body, unique to each 
+The message body, unique to each
 ### `req`
 ```jsonc
 {
@@ -75,7 +75,7 @@ The message body, unique to each
 # Response Codes
 - `er` error
   - Response dat section will be `{"error":""}` with a message
-- `ok` 
+- `ok`
   - good request, expected values should be in the message
 - `un`
   - unknown
@@ -91,7 +91,7 @@ Streams are unique to the GWC/GGS connection. They use req/rsp messages.
 A client on GWC can request a stream, the GGS will then send the data associated
 with that stream on a set interval.
 
-Stream requests come from the client. 
+Stream requests come from the client.
 A client has a few action options:
 - `add`
   - Add a stream by name

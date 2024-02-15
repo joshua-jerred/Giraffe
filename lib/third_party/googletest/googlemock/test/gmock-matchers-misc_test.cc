@@ -929,7 +929,7 @@ TEST(ArgsTest, AcceptsTenTemplateArgs) {
                   PrintsAs("(0, 8, 7, 6, 5, 4, 3, 2, 1, 0)"))));
 }
 
-TEST(ArgsTest, DescirbesSelfCorrectly) {
+TEST(ArgsTest, DescribesSelfCorrectly) {
   const Matcher<std::tuple<int, bool, char>> m = Args<2, 0>(Lt());
   EXPECT_EQ(
       "are a tuple whose fields (#2, #0) are a pair where "
@@ -937,7 +937,7 @@ TEST(ArgsTest, DescirbesSelfCorrectly) {
       Describe(m));
 }
 
-TEST(ArgsTest, DescirbesNestedArgsCorrectly) {
+TEST(ArgsTest, DescribesNestedArgsCorrectly) {
   const Matcher<const std::tuple<int, bool, char, int>&> m =
       Args<0, 2, 3>(Args<2, 0>(Lt()));
   EXPECT_EQ(
@@ -1205,7 +1205,7 @@ TEST(MatcherPnMacroTest, WorksWhenExplicitlyInstantiatedWithReferences) {
 }
 
 TEST(MatcherPnMacroTest,
-     GeneratesCorretDescriptionWhenExplicitlyInstantiatedWithReferences) {
+     GeneratesCorrectDescriptionWhenExplicitlyInstantiatedWithReferences) {
   UncopyableFoo foo1('1'), foo2('2');
   const Matcher<const UncopyableFoo&> m =
       ReferencesAnyOf<const UncopyableFoo&, const UncopyableFoo&>(foo1, foo2);

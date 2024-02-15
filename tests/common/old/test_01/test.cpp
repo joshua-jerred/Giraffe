@@ -250,7 +250,7 @@ TEST_F(GfsMetaData, data_packets_section) {
 }
 
 /**
- * @todo 
+ * @todo
  */
 TEST_F(GfsMetaData, radios_section) {
   // std::array<std::string, 0> sections = {};
@@ -263,7 +263,7 @@ TEST_F(GfsMetaData, radios_section) {
 }
 
 /**
- * @todo 
+ * @todo
  */
 TEST_F(GfsMetaData, flight_procedures) {
   // std::array<std::string, 0> sections = {};
@@ -276,7 +276,7 @@ TEST_F(GfsMetaData, flight_procedures) {
 }
 
 /**
- * @todo 
+ * @todo
  */
 TEST_F(GfsMetaData, extensions_section) {
   // std::array<std::string, 0> sections = {};

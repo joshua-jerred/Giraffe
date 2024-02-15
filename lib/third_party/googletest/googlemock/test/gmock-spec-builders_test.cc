@@ -906,7 +906,7 @@ TEST(ExpectCallTest, TakesDefaultActionWhenWillListIsExhausted) {
                         " - returning default value."));
 }
 
-TEST(FunctionMockerMessageTest, ReportsExpectCallLocationForExhausedActions) {
+TEST(FunctionMockerMessageTest, ReportsExpectCallLocationForExhaustedActions) {
   MockB b;
   std::string expect_call_location = FormatFileLocation(__FILE__, __LINE__ + 1);
   EXPECT_CALL(b, DoB()).Times(AnyNumber()).WillOnce(Return(1));
@@ -1386,7 +1386,7 @@ TEST(SequenceTest, Retirement) {
 
 // Tests Expectation.
 
-TEST(ExpectationTest, ConstrutorsWork) {
+TEST(ExpectationTest, ConstructorsWork) {
   MockA a;
   Expectation e1;  // Default ctor.
 

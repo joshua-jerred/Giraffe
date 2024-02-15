@@ -172,7 +172,7 @@ bool Statement::executeStep()
         }
         else
         {
-            throw SQLite::Exception("Statement needs to be reseted", ret);
+            throw SQLite::Exception("Statement needs to be reset", ret);
         }
     }
 
@@ -195,7 +195,7 @@ int Statement::exec()
         }
         else
         {
-            throw SQLite::Exception("Statement needs to be reseted", ret);
+            throw SQLite::Exception("Statement needs to be reset", ret);
         }
     }
 
@@ -207,7 +207,7 @@ int Statement::tryExecuteStep() noexcept
 {
     if (mbDone)
     {
-        return SQLITE_MISUSE; // Statement needs to be reseted !
+        return SQLITE_MISUSE; // Statement needs to be reset !
     }
 
     const int ret = sqlite3_step(mpPreparedStatement.get());

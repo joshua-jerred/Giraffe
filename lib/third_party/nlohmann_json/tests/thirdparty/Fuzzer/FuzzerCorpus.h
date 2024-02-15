@@ -31,7 +31,7 @@ struct InputInfo {
   size_t Tmp = 0; // Used by ValidateFeatureSet.
   // Stats.
   size_t NumExecutedMutations = 0;
-  size_t NumSuccessfullMutations = 0;
+  size_t NumSuccessfulMutations = 0;
   bool MayDeleteFile = false;
 };
 
@@ -100,7 +100,7 @@ class InputCorpus {
       const auto &II = *Inputs[i];
       Printf("  [%zd %s]\tsz: %zd\truns: %zd\tsucc: %zd\n", i,
              Sha1ToString(II.Sha1).c_str(), II.U.size(),
-             II.NumExecutedMutations, II.NumSuccessfullMutations);
+             II.NumExecutedMutations, II.NumSuccessfulMutations);
     }
   }
 

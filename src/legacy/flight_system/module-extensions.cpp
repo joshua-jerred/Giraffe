@@ -3,11 +3,11 @@
  * @file module-extensions.cpp
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Defines the ExtensionsModule class.
- * 
+ *
  * @version 0.0.9
  * @date 2022-10-11
  * @copyright Copyright (c) 2022
- * 
+ *
  * @todo Documentation
  * @todo Unit Tests
  */
@@ -21,8 +21,8 @@ using namespace modules;
  * @brief Construct a new ExtensionsModule object.
  * @details Uses the config_data to create each extension and add it to the
  * extension vector. This does not start the extensions.
- * @param config_data 
- * @param stream 
+ * @param config_data
+ * @param stream
  */
 ExtensionsModule::ExtensionsModule(const ConfigData config_data, DataStream &stream):
     Module(stream, configurables::prefix::kExtensionModule, "Extensions"),

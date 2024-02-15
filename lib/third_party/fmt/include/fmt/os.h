@@ -255,7 +255,7 @@ class FMT_API file {
   // Possible values for the oflag argument to the constructor.
   enum {
     RDONLY = FMT_POSIX(O_RDONLY),  // Open for reading only.
-    WRONLY = FMT_POSIX(O_WRONLY),  // Open for writing only.
+    WRONGLY = FMT_POSIX(O_WRONLY),  // Open for writing only.
     RDWR = FMT_POSIX(O_RDWR),      // Open for reading and writing.
     CREATE = FMT_POSIX(O_CREAT),   // Create if the file doesn't exist.
     APPEND = FMT_POSIX(O_APPEND),  // Open in append mode.
@@ -345,7 +345,7 @@ struct buffer_size {
 };
 
 struct ostream_params {
-  int oflag = file::WRONLY | file::CREATE | file::TRUNC;
+  int oflag = file::WRONGLY | file::CREATE | file::TRUNC;
   size_t buffer_size = BUFSIZ > 32768 ? BUFSIZ : 32768;
 
   ostream_params() {}
@@ -434,7 +434,7 @@ class FMT_API ostream {
 
   * ``<integer>``: Flags passed to `open
     <https://pubs.opengroup.org/onlinepubs/007904875/functions/open.html>`_
-    (``file::WRONLY | file::CREATE | file::TRUNC`` by default)
+    (``file::WRONGLY | file::CREATE | file::TRUNC`` by default)
   * ``buffer_size=<integer>``: Output buffer size
 
   **Example**::

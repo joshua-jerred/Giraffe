@@ -33,7 +33,7 @@ if (${CMAKE_VERSION} VERSION_LESS 3.15)
   target_compile_features(fmt-in-cuda-test PRIVATE cxx_std_14)
   if (MSVC)
     # This part is for (non-CUDA) C++ code. MSVC can define incorrect
-    # `__cplusplus` macro. Fix for the issue is to use additional compiler flag. 
+    # `__cplusplus` macro. Fix for the issue is to use additional compiler flag.
     #
     # See Also:
     # https://devblogs.microsoft.com/cppblog/msvc-now-correctly-reports-__cplusplus/

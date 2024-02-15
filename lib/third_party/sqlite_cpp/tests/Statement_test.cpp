@@ -84,7 +84,7 @@ TEST(Statement, invalid)
     EXPECT_THROW(query.isColumnNull(0), SQLite::Exception);
     EXPECT_THROW(query.getColumn(0), SQLite::Exception);
 
-    EXPECT_THROW(query.exec(), SQLite::Exception); // exec() shall throw as it needs to be reseted
+    EXPECT_THROW(query.exec(), SQLite::Exception); // exec() shall throw as it needs to be reset
 
     // Add a first row
     EXPECT_EQ(1, db.exec("INSERT INTO test VALUES (NULL, \"first\")"));

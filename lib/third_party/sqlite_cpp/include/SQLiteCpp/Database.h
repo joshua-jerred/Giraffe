@@ -15,7 +15,7 @@
 
 // c++17: MinGW GCC version > 8
 // c++17: Visual Studio 2017 version 15.7
-// c++17: macOS unless targetting compatibility with macOS < 10.15
+// c++17: macOS unless targeting compatibility with macOS < 10.15
 #ifndef SQLITECPP_HAVE_STD_EXPERIMENTAL_FILESYSTEM
 #if __cplusplus >= 201703L
     #if defined(__MINGW32__) || defined(__MINGW64__)
@@ -23,10 +23,10 @@
             #define SQLITECPP_HAVE_STD_FILESYSTEM
         #endif
     #elif defined(__MAC_OS_X_VERSION_MIN_REQUIRED) && __MAC_OS_X_VERSION_MIN_REQUIRED < 101500
-        // macOS clang won't let us touch std::filesystem if we're targetting earlier than 10.15
+        // macOS clang won't let us touch std::filesystem if we're targeting earlier than 10.15
     #elif defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && defined(__IPHONE_13_0) && \
 __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_13_0
-        // build for iOS clang won't let us touch std::filesystem if we're targetting earlier than iOS 13
+        // build for iOS clang won't let us touch std::filesystem if we're targeting earlier than iOS 13
     #else
         #define SQLITECPP_HAVE_STD_FILESYSTEM
     #endif
@@ -138,7 +138,7 @@ struct Header {
     unsigned long largestBTreePageNumber;
     unsigned long databaseTextEncoding;
     unsigned long userVersion;
-    unsigned long incrementalVaccumMode;
+    unsigned long incrementalVacuumMode;
     unsigned long applicationId;
     unsigned long versionValidFor;
     unsigned long sqliteVersion;

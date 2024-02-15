@@ -471,7 +471,7 @@ TEST(Database, createFunction)
     EXPECT_THROW(db.exec("SELECT firstchar(value) FROM test WHERE id=1"), SQLite::Exception);
 
     db.createFunction("firstchar", 1, true, nullptr, &firstchar, nullptr, nullptr, nullptr);
-    
+
     EXPECT_EQ(1, db.exec("SELECT firstchar(value) FROM test WHERE id=1"));
 }
 
@@ -557,7 +557,7 @@ TEST(Database, getHeaderInfo)
         EXPECT_EQ(h.defaultPageCacheSizeBytes, 0);
         EXPECT_EQ(h.largestBTreePageNumber, 0);
         EXPECT_EQ(h.databaseTextEncoding, 1);
-        EXPECT_EQ(h.incrementalVaccumMode, 0);
+        EXPECT_EQ(h.incrementalVacuumMode, 0);
         EXPECT_EQ(h.versionValidFor, 3);
         EXPECT_EQ(h.sqliteVersion, SQLITE_VERSION_NUMBER);
     }

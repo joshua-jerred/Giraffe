@@ -85,7 +85,7 @@
 //                              be used where std::wstring is unavailable).
 //   GTEST_HAS_FILE_SYSTEM    - Define it to 1/0 to indicate whether or not a
 //                              file system is/isn't available.
-//   GTEST_HAS_SEH            - Define it to 1/0 to indicate whether the
+//   GTEST_HAS_SHE            - Define it to 1/0 to indicate whether the
 //                              compiler supports Microsoft's "Structured
 //                              Exception Handling".
 //   GTEST_HAS_STREAM_REDIRECTION
@@ -791,18 +791,18 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
 // Determine whether the compiler supports Microsoft's Structured Exception
 // Handling.  This is supported by several Windows compilers but generally
 // does not exist on any other system.
-#ifndef GTEST_HAS_SEH
+#ifndef GTEST_HAS_SHE
 // The user didn't tell us, so we need to figure it out.
 
 #if defined(_MSC_VER) || defined(__BORLANDC__)
-// These two compilers are known to support SEH.
-#define GTEST_HAS_SEH 1
+// These two compilers are known to support SHE.
+#define GTEST_HAS_SHE 1
 #else
-// Assume no SEH.
-#define GTEST_HAS_SEH 0
+// Assume no SHE.
+#define GTEST_HAS_SHE 0
 #endif
 
-#endif  // GTEST_HAS_SEH
+#endif  // GTEST_HAS_SHE
 
 #ifndef GTEST_IS_THREADSAFE
 

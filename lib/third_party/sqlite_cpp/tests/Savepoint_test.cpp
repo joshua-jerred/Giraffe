@@ -23,7 +23,7 @@ TEST(Savepoint, commitRollback)
     // Create a new database
     SQLite::Database db(":memory:", SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
     EXPECT_EQ(SQLite::OK, db.getErrorCode());
-    
+
     {
         // Begin savepoint
         SQLite::Savepoint savepoint(db, "sp1");

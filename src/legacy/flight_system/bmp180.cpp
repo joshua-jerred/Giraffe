@@ -2,12 +2,12 @@
  * @file bmp180.cpp
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file contains the implementation of the BMP180 extension.
- * 
+ *
  * @cite https://cdn-shop.adafruit.com/datasheets/BST-BMP180-DS000-09.pdf
  * @date 2022-11-01
  * @copyright Copyright (c) 2022
  * @version 0.1.0
- * 
+ *
  * @todo Desperately need to remove the macros from this file.
  * @todo Documentation
  * @todo Unit Tests
@@ -23,16 +23,16 @@
 #include "extensions.h"
 
 // Configurable
-#define SAMPLING_ACCURACY 1 // Refer to BMP180 data sheet "oversampling_setting", if this is changed BMP180_READPRESSURECMD must also 
+#define SAMPLING_ACCURACY 1 // Refer to BMP180 data sheet "oversampling_setting", if this is changed BMP180_READPRESSURECMD must also
 #define BMP180_DEBUG 0 // If set to 1, the extension will push debug data to the data stream (not recommended for flight)
 
 // BMP180 Registers Read Only
 #define REG_CAL_AC1 0xAA // Calibration Data starting register (0xAA-0xBF)
-#define REG_CAL_AC2 0xAC 
-#define REG_CAL_AC3 0xAE 
-#define REG_CAL_AC4 0xB0 
-#define REG_CAL_AC5 0xB2 
-#define REG_CAL_AC6 0xB4 
+#define REG_CAL_AC2 0xAC
+#define REG_CAL_AC3 0xAE
+#define REG_CAL_AC4 0xB0
+#define REG_CAL_AC5 0xB2
+#define REG_CAL_AC6 0xB4
 #define REG_CAL_B1 0xB6
 #define REG_CAL_B2 0xB8
 #define REG_CAL_MB 0xBA
@@ -51,11 +51,11 @@
 #define BMP180_ADDRESS 0x77
 
 extension::BMP180::BMP180(DataStream *p_data_stream, ExtensionMetadata extension_metadata) :
-    Extension(p_data_stream, extension_metadata), 
+    Extension(p_data_stream, extension_metadata),
 	bus_number_(extension_metadata.extra_args.I2C_bus),
 	device_address_(BMP180_ADDRESS),
 	i2c_bus_(interface::I2C(bus_number_, device_address_, p_data_stream->getI2CBusLock()))
-	//raw_calibration_data_(0) 
+	//raw_calibration_data_(0)
 	{
 
 }
@@ -129,7 +129,7 @@ int extension::BMP180::runner() {
 		} else {
 			error("RP");
 		}
-		
+
 		if (BMP180_DEBUG) {
 			for (std::pair<std::string, int> e: raw_data_) {
 				sendData(e.first, e.second);
@@ -170,7 +170,7 @@ int extension::BMP180::readCalibrationData() {
 		raw_data_.insert_or_assign("AC5", AC5_);
 		raw_data_.insert_or_assign("AC6", AC6_);
 	}
-	
+
 	if (AC1_ == -1 || AC2_ == -1 || AC3_ == -1 || AC4_ == 0 || AC5_ == 0 // any i2c errors
 		|| AC6_ == 0 || B1_ == -1 || B2_ == -1 || MB_ == -1 || MC_ == -1
 		|| MD_ == -1) {
@@ -198,7 +198,7 @@ int extension::BMP180::readRawTemperature() {
 	if (MSB == -1 || LSB == -1) {
 		return -1;
 	}
-	
+
 	UT_ = (MSB << 8) + LSB;
 	raw_temperature_data_ = UT_;
 
@@ -209,7 +209,7 @@ int extension::BMP180::readRawPressure() {
     volatile int MSB;
 	volatile int LSB;
 	volatile int XLSB;
-	
+
 	int result = i2c_bus_.writeByteToReg(REG_CTRL, CMD_READPRES+(SAMPLING_ACCURACY<<6)); // write 0x34+(oss<<6) into reg 0xF4
 	if (result != 0) {
 		return -1;
@@ -251,7 +251,7 @@ int extension::BMP180::readRawPressure() {
 	if (MSB == -1 || LSB == -1 || XLSB == -1) {
 		return -1;
 	}
-	
+
 	UP_ = ((MSB<<16) + (LSB<<8) + XLSB) >> (8-SAMPLING_ACCURACY); // read reg 0xF6 (MSB), 0xF7 (LSB), 0xF8 (XLSB)
 	return 0;
 }
@@ -354,7 +354,7 @@ unsigned short extension::BMP180::readShortUnsigned(int register_address) { // p
 }
 
 short extension::BMP180::readShort(int register_address) { // Used readShortUnsigned() and casts to short
-	int value; 
+	int value;
 	value = readShortUnsigned(register_address);
 
 	if (value == 0) {

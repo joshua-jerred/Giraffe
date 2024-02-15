@@ -21,6 +21,6 @@ ctest --output-on-failure
 @goto onSuccess
 
 :onError
-@echo An error occured!
+@echo An error occurred!
 :onSuccess
 @cd ..

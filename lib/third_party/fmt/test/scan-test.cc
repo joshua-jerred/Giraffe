@@ -178,7 +178,7 @@ TEST(scan_test, lock) {
   };
   std::thread consumer1(fun);
   std::thread consumer2(fun);
-  
+
   producer.join();
   consumer1.join();
   consumer2.join();

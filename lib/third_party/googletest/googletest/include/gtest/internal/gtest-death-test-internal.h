@@ -193,7 +193,7 @@ inline Matcher<const ::std::string&> MakeDeathTestMatcher(
 }
 
 // Traps C++ exceptions escaping statement and reports them as test
-// failures. Note that trapping SEH exceptions is not implemented here.
+// failures. Note that trapping SHE exceptions is not implemented here.
 #if GTEST_HAS_EXCEPTIONS
 #define GTEST_EXECUTE_DEATH_TEST_STATEMENT_(statement, death_test)           \
   try {                                                                      \

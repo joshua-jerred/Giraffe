@@ -50,7 +50,7 @@ static void test_column_basis(bool utf16)
     EXPECT_EQ(1, db.getChanges());
     EXPECT_EQ(1, db.getTotalChanges());
 
-    EXPECT_THROW(insert.exec(), SQLite::Exception); // exec() shall throw as it needs to be reseted
+    EXPECT_THROW(insert.exec(), SQLite::Exception); // exec() shall throw as it needs to be reset
 
     // Compile a SQL query
     SQLite::Statement   query(db, "SELECT * FROM test");
@@ -272,7 +272,7 @@ TEST(Column, shared_ptr)
 
     std::unique_ptr<SQLite::Statement> query{ new SQLite::Statement(db, query_str) };
     query->executeStep();
-    
+
     auto column0 = query->getColumn(0);
     auto column1 = query->getColumn(1);
     query.reset();
@@ -285,7 +285,7 @@ TEST(Column, shared_ptr)
     column0 = query->getColumn(0);
     EXPECT_EQ(true, column0.isInteger());
     query->executeStep(); // query is done
-    
+
     // Undefined behavior
     // auto x = column0.getInt();
 

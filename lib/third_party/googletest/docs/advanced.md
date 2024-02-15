@@ -2394,7 +2394,7 @@ command line flag.
 #### Disabling Catching Test-Thrown Exceptions
 
 GoogleTest can be used either with or without exceptions enabled. If a test
-throws a C++ exception or (on Windows) a structured exception (SEH), by default
+throws a C++ exception or (on Windows) a structured exception (SHE), by default
 GoogleTest catches it, reports it as a test failure, and continues with the next
 test method. This maximizes the coverage of a test run. Also, on Windows an
 uncaught exception will cause a pop-up window, so catching the exceptions allows

@@ -4326,7 +4326,7 @@
   		return this;
   	},
 
-  	_move: function (center, zoom, data, supressEvent) {
+  	_move: function (center, zoom, data, suppressEvent) {
   		if (zoom === undefined) {
   			zoom = this._zoom;
   		}
@@ -4336,7 +4336,7 @@
   		this._lastCenter = center;
   		this._pixelOrigin = this._getNewPixelOrigin(center);
 
-  		if (!supressEvent) {
+  		if (!suppressEvent) {
   			// @event zoom: Event
   			// Fired repeatedly during any change in zoom level,
   			// including zoom and fly animations.

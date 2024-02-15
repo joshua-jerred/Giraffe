@@ -1,5 +1,5 @@
 module.exports = function (meta_data, key, value) {
-  
+
   const valid_types = ["string", "number", "boolean"];
 
   if (

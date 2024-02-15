@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${props => props.theme.fonts.default.family};
     padding: 0;
     margin: 0;
-  } 
+  }
 `
 
 const providedTheme = {

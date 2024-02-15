@@ -5,7 +5,7 @@
  * @date 2023-02-25
  * @copyright Copyright (c) 2023
  * @version 0.4
- * 
+ *
  * @todo In desperate need of a better implementation.
  */
 
@@ -42,7 +42,7 @@ std::string exec(std::string command) {
 int extension::RaspPiCamera::runner() {
   setStatus(ExtensionStatus::RUNNING);
   while (!stop_flag_) {
-    
+
     std::string image_path = CaptureImage();
     if (image_path != "") {
       sendData("NEW_IMAGE", image_path);
@@ -63,12 +63,12 @@ std::string extension::RaspPiCamera::CaptureImage() {
   timeinfo = localtime(&rawtime);
   strftime(buffer,sizeof(buffer),"%d-%m-%Y--%H-%M-%S",timeinfo);
   std::string time_str(buffer);
-  
+
   std::string image_name = time_str + ".png";
   std::string image_path = "images/" + image_name;
-  std::string command = 
+  std::string command =
       "libcamera-still -e png -o " + image_path + " --immediate";
-  
+
   std::string response = exec(command);
 
   return image_name;

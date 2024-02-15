@@ -4,7 +4,7 @@
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
 // SPDX-FileCopyrightText: 2013-2023 Niels Lohmann <https://nlohmann.me>
-// SPDX-FileCopyrightText: 2018 Vitaliy Manushkin <agri@akamo.info>
+// SPDX-FileCopyrightText: 2018 Vitality Manushkin <agri@akamo.info>
 // SPDX-License-Identifier: MIT
 
 #include "doctest_compatibility.h"

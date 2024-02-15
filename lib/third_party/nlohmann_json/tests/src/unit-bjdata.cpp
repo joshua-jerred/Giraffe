@@ -2557,7 +2557,7 @@ TEST_CASE("BJData")
 
             SECTION("invalid ndarray annotations remains as object")
             {
-                // check if invalid ND array annotations stay as object
+                // check if invalid AND array annotations stay as object
                 json j_type = json({{"_ArrayData_", {1, 2, 3, 4, 5, 6}}, {"_ArraySize_", {2, 3}}, {"_ArrayType_", "invalidtype"}});
                 json j_size = json({{"_ArrayData_", {1, 2, 3, 4, 5}}, {"_ArraySize_", {2, 3}}, {"_ArrayType_", "uint8"}});
 
@@ -2987,7 +2987,7 @@ TEST_CASE("BJData")
             CHECK(json::from_bjdata(vO, true, false).is_discarded());
 
             std::vector<uint8_t> const vO2 = {'{', '$', 'i', '#', '[', 'i', 2, 'i', 1, ']', 'i', 1, 'a', 1, 'i', 1, 'b', 2};
-            CHECK_THROWS_WITH_AS(_ = json::from_bjdata(vO2), "[json.exception.parse_error.112] parse error at byte 10: syntax error while parsing BJData object: BJData object does not support ND-array size in optimized format", json::parse_error&);
+            CHECK_THROWS_WITH_AS(_ = json::from_bjdata(vO2), "[json.exception.parse_error.112] parse error at byte 10: syntax error while parsing BJData object: BJData object does not support AND-array size in optimized format", json::parse_error&);
             CHECK(json::from_bjdata(vO2, true, false).is_discarded());
         }
     }

@@ -5,12 +5,12 @@ option('SQLITE_ENABLE_COLUMN_METADATA', type: 'boolean', value: false, descripti
 ## Enable the user definition of a assertion_failed() handler (default to false, easier to handler for beginners).
 option('SQLITE_ENABLE_ASSERT_HANDLER', type: 'boolean', value: false, description: 'Enable the user definition of a assertion_failed() handler.')
 ## Enable database encryption API. Requires implementations of sqlite3_key & sqlite3_key_v2.
-## Eg. SQLCipher (libsqlcipher-dev) is an SQLite extension that provides 256 bit AES encryption of database files. 
+## Eg. SQLCipher (libsqlcipher-dev) is an SQLite extension that provides 256 bit AES encryption of database files.
 option('SQLITE_HAS_CODEC', type: 'boolean', value: false, description: 'Enable database encryption API. Not available in the public release of SQLite.')
 ## Force forward declaration of legacy struct sqlite3_value (pre SQLite 3.19)
 option('SQLITE_USE_LEGACY_STRUCT', type: 'boolean', value: false, description: 'Fallback to forward declaration of legacy struct sqlite3_value (pre SQLite 3.19)')
-## Enable ommit load extension
-option('SQLITE_OMIT_LOAD_EXTENSION', type: 'boolean', value: false, description: 'Enable ommit load extension.')
+## Enable omit load extension
+option('SQLITE_OMIT_LOAD_EXTENSION', type: 'boolean', value: false, description: 'Enable omit load extension.')
 ## Disable the support for std::filesystem (C++17)
 option('SQLITECPP_DISABLE_STD_FILESYSTEM', type: 'boolean', value: false, description: 'Disable the support for std::filesystem (C++17)')
 ## Disable the support for sqlite3_expanded_sql (since SQLite 3.14.0)

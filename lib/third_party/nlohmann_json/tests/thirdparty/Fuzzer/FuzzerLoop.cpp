@@ -216,7 +216,7 @@ void Fuzzer::StaticDeathCallback() {
   F->DeathCallback();
 }
 
-static void WarnOnUnsuccessfullMerge(bool DoWarn) {
+static void WarnOnUnsuccessfulMerge(bool DoWarn) {
   if (!DoWarn) return;
   Printf(
    "***\n"
@@ -232,7 +232,7 @@ static void WarnOnUnsuccessfullMerge(bool DoWarn) {
 }
 
 void Fuzzer::DumpCurrentUnit(const char *Prefix) {
-  WarnOnUnsuccessfullMerge(InMergeMode);
+  WarnOnUnsuccessfulMerge(InMergeMode);
   if (!CurrentUnitData) return;  // Happens when running individual inputs.
   MD.PrintMutationSequence();
   Printf("; base unit: %s\n", Sha1ToString(BaseSha1).c_str());
@@ -584,7 +584,7 @@ void Fuzzer::PrintStatusForNewUnit(const Unit &U) {
 }
 
 void Fuzzer::ReportNewCoverage(InputInfo *II, const Unit &U) {
-  II->NumSuccessfullMutations++;
+  II->NumSuccessfulMutations++;
   MD.RecordSuccessfulMutationSequence();
   PrintStatusForNewUnit(U);
   WriteToOutputCorpus(U);

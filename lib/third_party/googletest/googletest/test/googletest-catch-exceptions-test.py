@@ -69,9 +69,9 @@ TEST_LIST = gtest_test_utils.Subprocess(
     [EXE_PATH, LIST_TESTS_FLAG], env=environ
 ).output
 
-SUPPORTS_SEH_EXCEPTIONS = 'ThrowsSehException' in TEST_LIST
+SUPPORTS_SHE_EXCEPTIONS = 'ThrowsSheException' in TEST_LIST
 
-if SUPPORTS_SEH_EXCEPTIONS:
+if SUPPORTS_SHE_EXCEPTIONS:
   BINARY_OUTPUT = gtest_test_utils.Subprocess([EXE_PATH], env=environ).output
 
 EX_BINARY_OUTPUT = gtest_test_utils.Subprocess(
@@ -80,55 +80,55 @@ EX_BINARY_OUTPUT = gtest_test_utils.Subprocess(
 
 
 # The tests.
-if SUPPORTS_SEH_EXCEPTIONS:
+if SUPPORTS_SHE_EXCEPTIONS:
 
-  class CatchSehExceptionsTest(gtest_test_utils.TestCase):
+  class CatchSheExceptionsTest(gtest_test_utils.TestCase):
     """Tests exception-catching behavior."""
 
-    def TestSehExceptions(self, test_output):
+    def TestSheExceptions(self, test_output):
       self.assertIn(
           (
-              'SEH exception with code 0x2a thrown '
+              'SHE exception with code 0x2a thrown '
               "in the test fixture's constructor"
           ),
           test_output,
       )
       self.assertIn(
           (
-              'SEH exception with code 0x2a thrown '
+              'SHE exception with code 0x2a thrown '
               "in the test fixture's destructor"
           ),
           test_output,
       )
       self.assertIn(
-          'SEH exception with code 0x2a thrown in SetUpTestSuite()', test_output
+          'SHE exception with code 0x2a thrown in SetUpTestSuite()', test_output
       )
       self.assertIn(
-          'SEH exception with code 0x2a thrown in TearDownTestSuite()',
+          'SHE exception with code 0x2a thrown in TearDownTestSuite()',
           test_output,
       )
       self.assertIn(
-          'SEH exception with code 0x2a thrown in SetUp()', test_output
+          'SHE exception with code 0x2a thrown in SetUp()', test_output
       )
       self.assertIn(
-          'SEH exception with code 0x2a thrown in TearDown()', test_output
+          'SHE exception with code 0x2a thrown in TearDown()', test_output
       )
       self.assertIn(
-          'SEH exception with code 0x2a thrown in the test body', test_output
+          'SHE exception with code 0x2a thrown in the test body', test_output
       )
 
-    def testCatchesSehExceptionsWithCxxExceptionsEnabled(self):
-      self.TestSehExceptions(EX_BINARY_OUTPUT)
+    def testCatchesSheExceptionsWithCxxExceptionsEnabled(self):
+      self.TestSheExceptions(EX_BINARY_OUTPUT)
 
-    def testCatchesSehExceptionsWithCxxExceptionsDisabled(self):
-      self.TestSehExceptions(BINARY_OUTPUT)
+    def testCatchesSheExceptionsWithCxxExceptionsDisabled(self):
+      self.TestSheExceptions(BINARY_OUTPUT)
 
 
 class CatchCxxExceptionsTest(gtest_test_utils.TestCase):
   """Tests C++ exception-catching behavior.
 
   Tests in this test case verify that:
-  * C++ exceptions are caught and logged as C++ (not SEH) exceptions
+  * C++ exceptions are caught and logged as C++ (not SHE) exceptions
   * Exception thrown affect the remainder of the test work flow in the
     expected manner.
   """
@@ -295,12 +295,12 @@ class CatchCxxExceptionsTest(gtest_test_utils.TestCase):
     )
 
   def testUnhandledCxxExceptionsAbortTheProgram(self):
-    # Filters out SEH exception tests on Windows. Unhandled SEH exceptions
+    # Filters out SHE exception tests on Windows. Unhandled SHE exceptions
     # cause tests to show pop-up windows there.
-    filter_out_seh_tests_flag = FILTER_FLAG + '=-*Seh*'
+    filter_out_she_tests_flag = FILTER_FLAG + '=-*She*'
     # By default, Google Test doesn't catch the exceptions.
     uncaught_exceptions_ex_binary_output = gtest_test_utils.Subprocess(
-        [EX_EXE_PATH, NO_CATCH_EXCEPTIONS_FLAG, filter_out_seh_tests_flag],
+        [EX_EXE_PATH, NO_CATCH_EXCEPTIONS_FLAG, filter_out_she_tests_flag],
         env=environ,
     ).output
 

@@ -1874,7 +1874,7 @@
     (property "Value" "GND REF" (at 73.66 87.63 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "TestPoint:TestPoint_Keystone_5019_Minature" (at 63.5 81.28 0)
+    (property "Footprint" "TestPoint:TestPoint_Keystone_5019_Miniature" (at 63.5 81.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 63.5 81.28 0)

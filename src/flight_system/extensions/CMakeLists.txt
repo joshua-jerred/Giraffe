@@ -11,6 +11,6 @@ target_sources(gfs_extensions INTERFACE
 	${CMAKE_CURRENT_SOURCE_DIR}/bmi088.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/pi_camera.cpp
 )
-target_include_directories(gfs_extensions INTERFACE 
+target_include_directories(gfs_extensions INTERFACE
   ${CMAKE_CURRENT_SOURCE_DIR}
 )

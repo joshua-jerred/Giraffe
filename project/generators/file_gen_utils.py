@@ -4,7 +4,7 @@ def headerFileHeader(file_name: str, includes: list = []): # file_name ex: struc
     includes_content = ""
     for item in includes:
         includes_content += f"#include {item}\n"
-    
+
     output = AUTO_GEN_HEADER
     output += """
 
@@ -38,10 +38,10 @@ def cppFileFooter(file_name: str): # file_name ex: structure - turns into struct
 
 def enterNameSpace(name):
     return f"namespace {name} {{\n"
-  
+
 def exitNameSpace(name):
     return f'}} // namespace {name}\n\n'
-  
+
 def struct(name: str, contents: list, indent = 2):
     struct = f"struct {name} {{\n"
     for item in contents:

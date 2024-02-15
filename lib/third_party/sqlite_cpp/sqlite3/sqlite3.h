@@ -9984,7 +9984,7 @@ SQLITE_API int sqlite3_vtab_in_next(sqlite3_value *pVal, sqlite3_value **ppOut);
 ** right-hand operand is not known, then *V is set to a NULL pointer.
 ** ^The sqlite3_vtab_rhs_value(P,J,V) interface returns SQLITE_OK if
 ** and only if *V is set to a value.  ^The sqlite3_vtab_rhs_value(P,J,V)
-** inteface returns SQLITE_NOTFOUND if the right-hand side of the J-th
+** interface returns SQLITE_NOTFOUND if the right-hand side of the J-th
 ** constraint is not available.  ^The sqlite3_vtab_rhs_value() interface
 ** can return an result code other than SQLITE_OK or SQLITE_NOTFOUND if
 ** something goes wrong.

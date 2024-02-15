@@ -19,7 +19,7 @@ The {fmt} library API consists of the following parts:
 * :ref:`fmt/ostream.h <ostream-api>`: ``std::ostream`` support
 * :ref:`fmt/args.h <args-api>`: dynamic argument lists
 * :ref:`fmt/printf.h <printf-api>`: ``printf`` formatting
-* :ref:`fmt/xchar.h <xchar-api>`: optional ``wchar_t`` support 
+* :ref:`fmt/xchar.h <xchar-api>`: optional ``wchar_t`` support
 
 All functions and types provided by the library reside in namespace ``fmt`` and
 macros have prefix ``FMT_``.
@@ -393,7 +393,7 @@ The {fmt} library supports custom dynamic memory allocators.
 A custom allocator class can be specified as a template argument to
 :class:`fmt::basic_memory_buffer`::
 
-    using custom_memory_buffer = 
+    using custom_memory_buffer =
       fmt::basic_memory_buffer<char, fmt::inline_buffer_size, custom_allocator>;
 
 It is also possible to write a formatting function that uses a custom
@@ -536,7 +536,7 @@ Formatting Variants
 
 A ``std::variant`` is only formattable if every variant alternative is formattable, and requires the
 ``__cpp_lib_variant`` `library feature <https://en.cppreference.com/w/cpp/feature_test>`_.
-  
+
 **Example**::
 
   #include <fmt/std.h>

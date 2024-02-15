@@ -47,7 +47,7 @@ TEST_F(DataModuleTests, DataStreamTests) {
         << "Data stream is not empty";
     EXPECT_EQ(0, data_stream_->getNumErrorPackets())
         << "Error stream is not empty";
-    
+
     data_stream_->addData("source", "name", "value", 0);
 
     EXPECT_EQ(1, data_stream_->getNumDataPackets())

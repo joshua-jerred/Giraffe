@@ -91,7 +91,7 @@ TEST(os_test, report_windows_error) {
 TEST(file_test, open_windows_file) {
   using fmt::file;
   file out = file::open_windows_file(L"test-file",
-                                     file::WRONLY | file::CREATE | file::TRUNC);
+                                     file::WRONGLY | file::CREATE | file::TRUNC);
   out.write("x", 1);
   file in = file::open_windows_file(L"test-file", file::RDONLY);
   EXPECT_READ(in, "x");
@@ -419,7 +419,7 @@ TEST(file_test, read) {
 }
 
 TEST(file_test, read_error) {
-  file f("test-file", file::WRONLY);
+  file f("test-file", file::WRONGLY);
   char buf;
   // We intentionally read from a file opened in the write-only mode to
   // cause error.

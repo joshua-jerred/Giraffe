@@ -19,7 +19,7 @@ Macros: ALL_CAPS (but don't use them)
 enum class: PascalCase
 enum values: ALL_CAPS
 
-Only use enum class. The values are scoped so they don't need to be prefixed 
+Only use enum class. The values are scoped so they don't need to be prefixed
 with the enum name.
 
 doxygen header for all .cpp and .h files:

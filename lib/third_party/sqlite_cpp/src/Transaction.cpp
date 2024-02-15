@@ -49,7 +49,7 @@ Transaction::Transaction(Database &aDatabase) :
 // Safely rollback the transaction if it has not been committed.
 Transaction::~Transaction()
 {
-    if (false == mbCommited)
+    if (false == mbCommitted)
     {
         try
         {
@@ -65,10 +65,10 @@ Transaction::~Transaction()
 // Commit the transaction.
 void Transaction::commit()
 {
-    if (false == mbCommited)
+    if (false == mbCommitted)
     {
         mDatabase.exec("COMMIT TRANSACTION");
-        mbCommited = true;
+        mbCommitted = true;
     }
     else
     {
@@ -79,7 +79,7 @@ void Transaction::commit()
 // Rollback the transaction
 void Transaction::rollback()
 {
-    if (false == mbCommited)
+    if (false == mbCommitted)
     {
         mDatabase.exec("ROLLBACK TRANSACTION");
     }

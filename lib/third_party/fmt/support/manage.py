@@ -171,7 +171,7 @@ def update_site(env):
                         'fmt::format_to(OutputIt, const S&, Args&&...) -> ' +
                         'typename std::enable_if<enable, OutputIt>::type')
                 b.data = b.data.replace('aa long', 'a long')
-                b.data = b.data.replace('serveral', 'several')
+                b.data = b.data.replace('several', 'several')
                 if version.startswith('6.2.'):
                     b.data = b.data.replace(
                         'vformat(const S&, basic_format_args<' +

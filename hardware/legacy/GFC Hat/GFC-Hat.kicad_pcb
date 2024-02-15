@@ -3931,7 +3931,7 @@
     )
   )
 
-  (footprint "TestPoint:TestPoint_Keystone_5019_Minature" (layer "B.Cu")
+  (footprint "TestPoint:TestPoint_Keystone_5019_Miniature" (layer "B.Cu")
     (tstamp 881113e3-cdaf-4675-a9aa-d7008b7b3da2)
     (at 22.54 42.606)
     (descr "SMT Test Point- Micro Miniature 5019, http://www.keyelco.com/product-pdf.cfm?p=1357")

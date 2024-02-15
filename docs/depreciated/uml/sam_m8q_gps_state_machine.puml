@@ -42,7 +42,7 @@ end note
 
 state send_config : - increment configure_attempts
 state send_config : - ubx::setProtocolDDC
-state send_config : - ubx::setMeasurmentRate
+state send_config : - ubx::setMeasurementRate
 state send_config : - ubx::setDynamicModel
 
 [*] --> send_config

@@ -35,7 +35,7 @@
 
 #ifdef GTEST_HAS_DEATH_TEST
 
-#if GTEST_HAS_SEH
+#if GTEST_HAS_SHE
 #include <windows.h>  // For RaiseException().
 #endif
 
@@ -71,11 +71,11 @@ TEST(CxxExceptionDeathTest, PrintsMessageForStdExceptions) {
 }
 #endif  // GTEST_HAS_EXCEPTIONS
 
-#if GTEST_HAS_SEH
-// Tests that enabling interception of SEH exceptions with the
-// catch_exceptions flag does not interfere with SEH exceptions being
+#if GTEST_HAS_SHE
+// Tests that enabling interception of SHE exceptions with the
+// catch_exceptions flag does not interfere with SHE exceptions being
 // treated as death by death tests.
-TEST(SehExceptionDeasTest, CatchExceptionsDoesNotInterfere) {
+TEST(SheExceptionDeasTest, CatchExceptionsDoesNotInterfere) {
   EXPECT_DEATH(RaiseException(42, 0x0, 0, NULL), "")
       << "with catch_exceptions "
       << (GTEST_FLAG_GET(catch_exceptions) ? "enabled" : "disabled");

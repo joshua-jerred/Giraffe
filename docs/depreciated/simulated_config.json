@@ -71,7 +71,7 @@
         "call-sign": "FccCallSign",
 
         "data-packet-mode":"aprs",
-        
+
         "aprs-enabled": true,
         "aprs-frequency": "144.390",
         "aprs-ssid": 11,
@@ -90,7 +90,7 @@
         "psk-frequency": "100.000",
         "psk-mode": "bpsk500"
     },
-    
+
     "data-log-data-and-packet-contents": [
         {
             "source": "sys",

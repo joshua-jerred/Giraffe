@@ -17,7 +17,7 @@ function(add_gtest_test test_name)
 endfunction()
 
 # test-01 - Data Stream --------------------------------------------------------
-add_executable(test-01 
+add_executable(test-01
 	${TEST_SRC}/test-01/test.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
 )
@@ -25,7 +25,7 @@ set_target_properties(test-01 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN}/te
 target_link_libraries(test-01 gtest_main)
 
 # test-02 - Configuration ------------------------------------------------------
-add_executable(test-02 
+add_executable(test-02
 	${TEST_SRC}/test-02/test.cpp
 	${GFS_SRC}/modules/module-configuration.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
@@ -36,7 +36,7 @@ target_link_libraries(test-02 nlohmann_json::nlohmann_json)
 file(COPY "test-02/input-1.json" DESTINATION ${TEST_BIN}/test-02)
 
 # test-03 - Data Module --------------------------------------------------------
-add_executable(test-03 
+add_executable(test-03
 	${TEST_SRC}/test-03/test.cpp
 	${GFS_SRC}/modules/module-data.cpp
 	${GFS_SRC}/utilities/data-stream.cpp
@@ -60,7 +60,7 @@ add_executable(test-04
 
 	${GFS_SRC}/interface/i2c.cpp
 	${GFS_SRC}/interface/one-wire.cpp
-	
+
 	${GFS_SRC}/utilities/data-stream.cpp
 	${GFS_SRC}/utilities/ubx.cpp
 )

@@ -181,7 +181,7 @@
 //   GTEST_HAS_STD_WSTRING    - Define it to 1/0 to indicate that
 //                              std::wstring does/doesn't work (Google Test can
 //                              be used where std::wstring is unavailable).
-//   GTEST_HAS_SEH            - Define it to 1/0 to indicate whether the
+//   GTEST_HAS_SHE            - Define it to 1/0 to indicate whether the
 //                              compiler supports Microsoft's "Structured
 //                              Exception Handling".
 //   GTEST_HAS_STREAM_REDIRECTION
@@ -985,18 +985,18 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
 // Determine whether the compiler supports Microsoft's Structured Exception
 // Handling.  This is supported by several Windows compilers but generally
 // does not exist on any other system.
-#ifndef GTEST_HAS_SEH
+#ifndef GTEST_HAS_SHE
 // The user didn't tell us, so we need to figure it out.
 
 # if defined(_MSC_VER) || defined(__BORLANDC__)
-// These two compilers are known to support SEH.
-#  define GTEST_HAS_SEH 1
+// These two compilers are known to support SHE.
+#  define GTEST_HAS_SHE 1
 # else
-// Assume no SEH.
-#  define GTEST_HAS_SEH 0
+// Assume no SHE.
+#  define GTEST_HAS_SHE 0
 # endif
 
-#endif  // GTEST_HAS_SEH
+#endif  // GTEST_HAS_SHE
 
 #ifndef GTEST_IS_THREADSAFE
 
@@ -1244,7 +1244,7 @@ inline void FlushInfoLog() { fflush(nullptr); }
 //
 // GTEST_CHECK_ is an all-mode assert. It aborts the program if the condition
 // is not satisfied.
-//  Synopsys:
+//  Synopsis:
 //    GTEST_CHECK_(boolean_condition);
 //     or
 //    GTEST_CHECK_(boolean_condition) << "Additional message";
@@ -1299,7 +1299,7 @@ struct ConstRef<T&> { typedef T& type; };
 // const Foo*).  When you use ImplicitCast_, the compiler checks that
 // the cast is safe.  Such explicit ImplicitCast_s are necessary in
 // surprisingly many situations where C++ demands an exact type match
-// instead of an argument type convertable to a target type.
+// instead of an argument type convertible to a target type.
 //
 // The syntax for using ImplicitCast_ is the same as for static_cast:
 //
@@ -7181,7 +7181,7 @@ inline Matcher<const ::std::string&> MakeDeathTestMatcher(
 }
 
 // Traps C++ exceptions escaping statement and reports them as test
-// failures. Note that trapping SEH exceptions is not implemented here.
+// failures. Note that trapping SHE exceptions is not implemented here.
 # if GTEST_HAS_EXCEPTIONS
 #  define GTEST_EXECUTE_DEATH_TEST_STATEMENT_(statement, death_test) \
   try { \

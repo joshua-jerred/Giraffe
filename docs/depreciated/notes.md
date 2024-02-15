@@ -2,7 +2,7 @@
 - ``i2cdetect -y 1`` (detects i2c devices)
 - A $10 logic analyzer and the Saleae Logic software
 - https://github.com/sparkfun/SparkFun_u-blox_UBX_HLA
-   This tool by sparkfun is *amazing* when debugging the GPS with the Saleae 
+   This tool by sparkfun is *amazing* when debugging the GPS with the Saleae
    Logic software. It doesn't seem to get much love, but I think it's the
    greatest time saver for debugging u-blox GPS modules.
 
@@ -51,7 +51,7 @@ packages:
 
 -doxygen
 -texlive-latex-base
--texlive-latex-recommended 
+-texlive-latex-recommended
 -texlive-fonts-recommended
 -texlive-latex-extra
 
@@ -68,7 +68,7 @@ doxygen ./docs/Doxygen/Doxyfile
 
 For Doxygen Verification (no output):
 doxygen ./docs/Doxygen/Doxyfile_no_output
- 
+
 
 # Old Readme
 
@@ -77,14 +77,14 @@ doxygen ./docs/Doxygen/Doxyfile_no_output
 
 Here is a very brief and incomplete overview of the system.
 
-### Software  
+### Software
 #### HAACS (High Altitude Autonomous Control System)
 *HAACS* is the actual software that will run on the board. This is a much
-more advanced version of 'AOS'. Written entirly in C++ it is being made to be
+more advanced version of 'AOS'. Written entirely in C++ it is being made to be
 easier to set up and much faster. There are a few basic concept to this system.
 
 
-All sensors and other data collection tools are refered to as *"Extensions"*.
+All sensors and other data collection tools are referred to as *"Extensions"*.
 - This would include external sensors like the DS18B20 temperature probe,
 and internal utilities that get system information like cpu temperature,
 available memory, etc.
@@ -100,23 +100,23 @@ important modules include:
 All of the modules where lots of waiting takes place have multithreading
 implemented so they can work while the rest of the system continues on.
 This is used in the Telemetry module where a transmission queue allows
-the computer to continue on while transmissions are in progress. 
+the computer to continue on while transmissions are in progress.
 This also is implemented in the Extensions module where each *Extension*
 runs in it's own thread. This is helpful as many sensors require some
 time for communication. This is where the data module comes in. The
 data module contains an object called a "datastream" which utilizes a mutex
 to keep the stream safe even when being accessed by multiple threads.
 
-Pulling all of this together is the "FlightRunner" which has a function 
+Pulling all of this together is the "FlightRunner" which has a function
 'start()' that starts up and runs the system. It will use all of the modules
 to set up the environment before executing the user defined 'Flight Loop'.
-The Flight Loop will continue on indefinetly until shutdown.
+The Flight Loop will continue on indefinitely until shutdown.
 
 The flight runner will use the configuration data to determine what extensions
 are enabled, what type of telemetry to use, how often to send data packets, and
 a whole lot more.
 
-Here is the current list of features that will be included in the basic version. 
+Here is the current list of features that will be included in the basic version.
 * Denotes at least partially implemented.
 - APRS Tracking
 - SSTV Images
@@ -129,7 +129,7 @@ Here is the current list of features that will be included in the basic version.
 - A whole lot more that will eventually be documented.
 
 ### Hardware
-#### BOB (Balloon Ovservation Board)
+#### BOB (Balloon Observation Board)
 *BOB* is a open source flight computer based on the Raspberry Pi.
 #### AOS (Atmospheric Observation System)
 ![alt text](https://user-images.githubusercontent.com/19292194/174874402-ad9695dc-447e-425d-afe4-dd6350de5644.jpg)

@@ -21,13 +21,13 @@ module.exports = (global_state) => {
   app.use(httpSchema.verifyPathSchema);
 
   // API Handlers
-  app.use("/api", apiRoutes(global_state)); 
+  app.use("/api", apiRoutes(global_state));
   app.use("/static", express.static(path.join(__dirname, "..public")));
 
   // 404 Handler
   app.use((req, res, next) => {
     res.status(404).send("Not Found");
   });
-  
+
   return server;
 };

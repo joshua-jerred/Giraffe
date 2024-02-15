@@ -226,7 +226,7 @@ endif (SQLITE_ENABLE_ASSERT_HANDLER)
 option(SQLITE_HAS_CODEC "Enable database encryption API. Not available in the public release of SQLite." OFF)
 if (SQLITE_HAS_CODEC)
     # Enable database encryption API. Requires implementations of sqlite3_key & sqlite3_key_v2.
-    # Eg. SQLCipher (libsqlcipher-dev) is an SQLite extension that provides 256 bit AES encryption of database files. 
+    # Eg. SQLCipher (libsqlcipher-dev) is an SQLite extension that provides 256 bit AES encryption of database files.
     target_compile_definitions(SQLiteCpp PUBLIC SQLITE_HAS_CODEC)
 endif (SQLITE_HAS_CODEC)
 
@@ -437,7 +437,7 @@ if (SQLITECPP_BUILD_EXAMPLES)
 
     # add the basic example executable
     add_executable(SQLiteCpp_example1 ${SQLITECPP_EXAMPLES})
-    
+
     target_link_libraries(SQLiteCpp_example1 SQLiteCpp)
     if (MSYS OR MINGW)
         target_link_libraries(SQLiteCpp_example1 ssp)

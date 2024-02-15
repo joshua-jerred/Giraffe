@@ -3,14 +3,14 @@
   "cmake.sourceDirectory": "${workspaceFolder}",
   "cmake.useCMakePresets": "always",
 
-  // Formating (C++, Clang-Format)
+  // Formatting (C++, Clang-Format)
   "clang-format.style": "file",
   "[cpp]": {
     "editor.defaultFormatter": "xaver.clang-format",
     "editor.formatOnSave": true
   },
 
-  // Formating (javascript, prettier)
+  // Formatting (javascript, prettier)
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true

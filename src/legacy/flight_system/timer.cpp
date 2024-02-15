@@ -2,11 +2,11 @@
  * @file timer.cpp
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief The implementation of the timer class.
- * 
+ *
  * @version 0.0.9
  * @date 2022-10-11
  * @copyright Copyright (c) 2022
- * 
+ *
  * @todo Ready to implement the rest of this!
  */
 
@@ -40,6 +40,6 @@ void Timer::reset() {
  * last reset.
  * @return int The number of seconds since the timer has started.
  */
-int Timer::elapsed() const { 
+int Timer::elapsed() const {
     return std::chrono::duration_cast<_second> (_clock::now() - _begin).count();
 }

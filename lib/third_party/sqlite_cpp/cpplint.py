@@ -1400,7 +1400,7 @@ def CheckForFilename(filename, lines, error):
       filename_found = match_file.group(1)
       if filename_found.endswith(basename):
         break
-      else: 
+      else:
         error(filename, linenum, 'readability/filename', 5,
               'Doxygen header "@file %s" does not match "%s" real file name.' % (filename_found, basename) )
         break
@@ -4061,7 +4061,7 @@ def CheckLanguage(filename, clean_lines, linenum, file_extension,
           'http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml#Namespaces'
           ' for more information.')
 
-  # SRombauts: Detects post increment/decrement: sugests preincrement/predecrement instead
+  # SRombauts: Detects post increment/decrement: suggests preincrement/predecrement instead
   match = Search(r'(\w+)(\+\+|--)', line)
   if match:
     error(filename, linenum, 'runtime/preincrement', 4,
@@ -4138,7 +4138,7 @@ def CheckForNonConstReference(filename, clean_lines, linenum,
   #   inside declarators: reference parameter
   # We will exclude the first two cases by checking that we are not inside a
   # function body, including one that was just introduced by a trailing '{'.
-  # TODO(unknwon): Doesn't account for preprocessor directives.
+  # TODO(unknown): Doesn't account for preprocessor directives.
   # TODO(unknown): Doesn't account for 'catch(Exception& e)' [rare].
   check_params = False
   if not nesting_state.stack:
@@ -4286,7 +4286,7 @@ _HEADERS_CONTAINING_TEMPLATES = (
                       'greater_equal', 'less_equal',
                       'logical_and', 'logical_or', 'logical_not',
                       'unary_negate', 'not1', 'binary_negate', 'not2',
-                      'bind1st', 'bind2nd',
+                      'bind1st', 'bind2and',
                       'pointer_to_unary_function',
                       'pointer_to_binary_function',
                       'ptr_fun',
@@ -4399,7 +4399,7 @@ def UpdateIncludeState(filename, include_state, io=codecs):
     io: The io factory to use to read the file. Provided for testability.
 
   Returns:
-    True if a header was succesfully added. False otherwise.
+    True if a header was successfully added. False otherwise.
   """
   headerfile = None
   try:
@@ -4471,7 +4471,7 @@ def CheckForIncludeWhatYouUse(filename, clean_lines, include_state, error,
   # Let's copy the include_state so it is only messed up within this function.
   include_state = include_state.copy()
 
-  # Did we find the header for this file (if any) and succesfully load it?
+  # Did we find the header for this file (if any) and successfully load it?
   header_found = False
 
   # Use the absolute path so that matching works properly.

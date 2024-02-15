@@ -293,11 +293,11 @@ void console_pages::Pages::system() {
     "CPU Temp (c): " + f2s(sys.cpu_temp_c),
     "",
     "-- Free GB | Total GB | (usage percent) --",
-    "RAM: " + f2s(sys.mem_free_gb) + " | " + 
+    "RAM: " + f2s(sys.mem_free_gb) + " | " +
       f2s(sys.mem_total_gb) + " | (" + f2s(sys.mem_used_percent) + "%)",
-    "SWAP: " + f2s(sys.swap_free_gb) + " | " + 
+    "SWAP: " + f2s(sys.swap_free_gb) + " | " +
       f2s(sys.swap_total_gb) + " | (" + f2s(sys.swap_used_percent) + "%)",
-    "DISK: " + f2s(sys.disk_free_gb) + " | " + 
+    "DISK: " + f2s(sys.disk_free_gb) + " | " +
       f2s(sys.disk_total_gb) + " | (" + f2s(sys.disk_used_percent) + "%)"
   };
   // clang-format on
@@ -316,13 +316,13 @@ void console_pages::Pages::location() {
     " -- Most Recent GPS Frame -- ",
     "Fix, Num Sats, UTC:   " + data::K_GPS_FIX_TO_STRING_MAP.at(cur.fix) + ", " +
       std::to_string(cur.num_satellites) + ", utc time",
-    "Lat, Lon, H/S:   " + bst::string::f2s(cur.latitude, 6) + ", " 
+    "Lat, Lon, H/S:   " + bst::string::f2s(cur.latitude, 6) + ", "
       + bst::string::f2s(cur.longitude, 6) + ", " +
       bst::string::f2s(cur.horizontal_speed, 1) + " m/s",
-    "ALT, V/S, HDG:   " + bst::string::f2s(cur.altitude, 1) 
-      + " m" + ", " + bst::string::f2s(cur.heading_of_motion, 1) + 
+    "ALT, V/S, HDG:   " + bst::string::f2s(cur.altitude, 1)
+      + " m" + ", " + bst::string::f2s(cur.heading_of_motion, 1) +
       " deg",
-    "Accuracy - Hor, Vert, H/S: " + 
+    "Accuracy - Hor, Vert, H/S: " +
       bst::string::f2s(cur.horz_accuracy, 1) + " m, " +
       bst::string::f2s(cur.vert_accuracy, 1) + " m, " +
       bst::string::f2s(cur.horizontal_speed, 1) + " m/s",

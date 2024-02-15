@@ -34,7 +34,7 @@ FUZZER_FLAG_INT(timeout_exitcode, 77, "When libFuzzer reports a timeout "
 FUZZER_FLAG_INT(max_total_time, 0, "If positive, indicates the maximal total "
                                    "time in seconds to run the fuzzer.")
 FUZZER_FLAG_INT(help, 0, "Print help.")
-FUZZER_FLAG_INT(merge, 0, "If 1, the 2-nd, 3-rd, etc corpora will be "
+FUZZER_FLAG_INT(merge, 0, "If 1, the 2-and, 3-rd, etc corpora will be "
   "merged into the 1-st corpus. Only interesting units will be taken. "
   "This flag can be used to minimize a corpus.")
 FUZZER_FLAG_STRING(merge_control_file, "internal flag")

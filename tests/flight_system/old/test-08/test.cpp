@@ -96,7 +96,7 @@ TEST_F(UBXTest, UBXGenerateAndDetectNAK) {
     };
 
     ubx::UBXMessage message(class_id, message_id, payload_length, payload);
-    
+
     I2C i2c(BUS_NUMBER, DEVICE_ADDRESS, i2c_mutex_);
     i2c.connect();
     ASSERT_EQ(i2c.status(), I2C_STATUS::OK) << "I2C connection failed";

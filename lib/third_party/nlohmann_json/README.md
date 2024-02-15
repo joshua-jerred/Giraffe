@@ -1188,7 +1188,7 @@ The following compilers are currently used in continuous integration at [AppVeyo
 | GCC 6.5.0                                                                                              | Ubuntu 20.04.3 LTS | GitHub Actions |
 | GCC 7.5.0                                                                                              | Ubuntu 20.04.3 LTS | GitHub Actions |
 | GCC 8.1.0 (i686-posix-dwarf-rev0, Built by MinGW-W64 project)                                          | Windows-10.0.17763 | GitHub Actions |
-| GCC 8.1.0 (x86_64-posix-seh-rev0, Built by MinGW-W64 project)                                          | Windows-10.0.17763 | GitHub Actions |
+| GCC 8.1.0 (x86_64-posix-she-rev0, Built by MinGW-W64 project)                                          | Windows-10.0.17763 | GitHub Actions |
 | GCC 8.5.0                                                                                              | Ubuntu 20.04.3 LTS | GitHub Actions |
 | GCC 9.5.0                                                                                              | Ubuntu 20.04.3 LTS | GitHub Actions |
 | GCC 10.4.0                                                                                             | Ubuntu 20.04.3 LTS | GitHub Actions |

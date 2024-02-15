@@ -104,7 +104,7 @@ SHOW_FILES             = YES
 
 SHOW_NAMESPACES        = NO
 
-LAYOUT_FILE            = 
+LAYOUT_FILE            =
 
 #---------------------------------------------------------------------------
 # Configuration options related to warning and progress messages

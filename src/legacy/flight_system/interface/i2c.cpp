@@ -1,13 +1,13 @@
 /**
  * @file i2c.cpp
  * @author Joshua Jerred (https://joshuajer.red/)
- * @brief The wrapper for simplifying I2C communication, error handling, and 
+ * @brief The wrapper for simplifying I2C communication, error handling, and
  * making sure that only one thread is in a transaction at a time.
- * 
+ *
  * @version 0.3
  * @date 2023-01-06
  * @copyright Copyright (c) 2023
- * 
+ *
  * @todo Documentation
  * @todo Unit Tests
  */
@@ -26,7 +26,7 @@ extern "C" {
 #include "interface.h"
 
 interface::I2C::I2C(int bus_number, int address, std::mutex &bus_lock):
-    status_(I2C_STATUS::NOT_CONNECTED), 
+    status_(I2C_STATUS::NOT_CONNECTED),
     bus_number_(bus_number),
     address_(address),
     i2c_fd_(-1),
@@ -54,7 +54,7 @@ int interface::I2C::connect() {
         status_ = I2C_STATUS::CONFIG_ERROR_ADDRESS;
         return -1;
     }
-    
+
     // Open the bus and check for errors
     // Possibly add a more specific check for error types
     i2c_fd_ = open(file_name_, O_RDWR);

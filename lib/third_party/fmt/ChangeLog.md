@@ -480,7 +480,7 @@
     https://github.com/fmtlib/fmt/pull/3399,
     https://github.com/fmtlib/fmt/pull/3400).
     Thanks @laitingsheng, @Orvid and @DanielaE.
-    
+
 -   Switched to the [modules CMake library](https://github.com/vitaut/modules)
     which allows building {fmt} as a C++20 module with clang:
 
@@ -2030,7 +2030,7 @@
     ```
 
     writes \"Ford\" to the file \"guide\". To preserve the old file
-    content if any pass `fmt::file::WRONLY | fmt::file::CREATE` flags to
+    content if any pass `fmt::file::WRONGLY | fmt::file::CREATE` flags to
     `fmt::output_file`.
 
 -   Fixed moving of `fmt::ostream` that holds buffered data
@@ -2046,7 +2046,7 @@
     returned by `fmt::system_category()`
     (https://github.com/fmtlib/fmt/issues/2274,
     https://github.com/fmtlib/fmt/pull/2275). The latter is
-    similar to `std::sytem_category` but correctly handles UTF-8.
+    similar to `std::system_category` but correctly handles UTF-8.
     Thanks @phprus.
 
 -   Replaced `fmt::error_code` with `std::error_code` and made it
@@ -4196,7 +4196,7 @@
       template <typename FormatContext>
       auto format(Answer, FormatContext& ctx) {
         return spec == 's' ?
-          format_to(ctx.begin(), "{}", "fourty-two") :
+          format_to(ctx.begin(), "{}", "forty-two") :
           format_to(ctx.begin(), "{}", 42);
       }
 
@@ -5037,7 +5037,7 @@
 -   Added an option to disable use of IOStreams when `FMT_USE_IOSTREAMS`
     is defined as 0 before including `format.h`
     (https://github.com/fmtlib/fmt/issues/205,
-    https://github.com/fmtlib/fmt/pull/208). Thanks @JodiTheTigger.
+    https://github.com/fmtlib/fmt/pull/208). Thanks @JodiTheTrigger.
 
 -   Improved detection of `isnan`, `isinf` and `signbit`.
 
@@ -5100,7 +5100,7 @@
 -   Documentation build script is now compatible with Python 3 and newer
     pip versions. (https://github.com/fmtlib/fmt/pull/189,
     https://github.com/fmtlib/fmt/issues/209).
-    Thanks @JodiTheTigger and @xentec.
+    Thanks @JodiTheTrigger and @xentec.
 -   Documentation fixes and improvements
     (https://github.com/fmtlib/fmt/issues/36,
     https://github.com/fmtlib/fmt/issues/75,
@@ -5109,7 +5109,7 @@
     https://github.com/fmtlib/fmt/pull/161,
     https://github.com/fmtlib/fmt/issues/162,
     https://github.com/fmtlib/fmt/issues/165,
-    https://github.com/fmtlib/fmt/issues/210). 
+    https://github.com/fmtlib/fmt/issues/210).
     Thanks @syohex.
 -   Fixed out-of-tree documentation build
     (https://github.com/fmtlib/fmt/issues/177). Thanks @jackyf.

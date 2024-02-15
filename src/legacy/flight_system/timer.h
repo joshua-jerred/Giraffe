@@ -2,7 +2,7 @@
  * @file timer.h
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief The declaration of the timer class.
- * 
+ *
  * @version 0.0.9
  * @date 2022-10-11
  * @copyright Copyright (c) 2022

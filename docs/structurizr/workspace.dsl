@@ -12,9 +12,9 @@ workspace extends ./container.dsl {
         component giraffeFlightSoftware "FlightSoftware" {
             include *
             animation {
-    
+
             }
-    
+
             description "The component diagram for the flight software."
         }
 

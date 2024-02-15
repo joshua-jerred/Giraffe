@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
-		<cconfiguration id="cdt.managedbuild.config.gnu.exe.debug.1034724773">
+		<configuration id="cdt.managedbuild.config.gnu.exe.debug.1034724773">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.exe.debug.1034724773" moduleId="org.eclipse.cdt.core.settings" name="Debug">
 				<externalSettings/>
 				<extensions>
@@ -55,8 +55,8 @@
 					<path value=""/>
 				</doc-comment-owner>
 			</storageModule>
-		</cconfiguration>
-		<cconfiguration id="cdt.managedbuild.config.gnu.exe.release.326780594">
+		</configuration>
+		<configuration id="cdt.managedbuild.config.gnu.exe.release.326780594">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.exe.release.326780594" moduleId="org.eclipse.cdt.core.settings" name="Release">
 				<externalSettings/>
 				<extensions>
@@ -106,7 +106,7 @@
 					<path value=""/>
 				</doc-comment-owner>
 			</storageModule>
-		</cconfiguration>
+		</configuration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="SQLiteC++.cdt.managedbuild.target.gnu.exe.2007535171" name="Executable" projectType="cdt.managedbuild.target.gnu.exe"/>

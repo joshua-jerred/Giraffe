@@ -2,7 +2,7 @@
 
 # A simple utility for managing the Giraffe Flight Computer during development
 
-# Options: 
+# Options:
 # full-sync (Syncs, builds, installs, and restarts the services)
 # Service options:
 # sync-services, start-services, stop-services     -- BOTH SERVICES
@@ -32,7 +32,7 @@ else
     exit 1
 fi
 
-syncronize_src() {
+synchronize_src() {
     echo "Syncing"
     rsync -v -r src/ balloon:Giraffe/src
     rsync -v -r lib/ balloon:Giraffe/lib
@@ -77,7 +77,7 @@ sync_web_server() {
 }
 
 run_host_tests() {
-    echo "Transfering Test Executable"
+    echo "Transferring Test Executable"
     rsync -v -r --rsync-path="sudo rsync" build/bin/tests/flight_system/unit_test_gfs_host $SSH_HOST:/home/pi/gfs_tests/unit_test_gfs_host
 }
 
@@ -111,7 +111,7 @@ elif [ "$REQUEST" == "status-gfs" ]; then
     echo "GFS service status"
     ssh $SSH_HOST "systemctl status $GFS_SERVICE"
 elif [ "$REQUEST" == "sync" ]; then
-    syncronize_src
+    synchronize_src
 elif [ "$REQUEST" == "build" ]; then
     build
 elif [ "$REQUEST" == "install" ]; then
@@ -125,7 +125,7 @@ elif [ "$REQUEST" == "set-permissions" ]; then
 elif [ "$REQUEST" == "full-sync" ]; then
     echo "Full sync"
     stop_services
-    #syncronize_src
+    #synchronize_src
     #build
     install
     set_permissions

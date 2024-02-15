@@ -255,7 +255,7 @@ T Statement::getColumns()
     return getColumns<T>(std::make_integer_sequence<int, N>{});
 }
 
-// Helper function called by getColums<typename T, int N>
+// Helper function called by getColumns<typename T, int N>
 template<typename T, const int... Is>
 T Statement::getColumns(const std::integer_sequence<int, Is...>)
 {

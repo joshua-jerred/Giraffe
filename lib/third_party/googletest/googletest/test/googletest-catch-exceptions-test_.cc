@@ -28,7 +28,7 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //
-// Tests for Google Test itself. Tests in this file throw C++ or SEH
+// Tests for Google Test itself. Tests in this file throw C++ or SHE
 // exceptions, and the output is verified by
 // googletest-catch-exceptions-test.py.
 
@@ -37,7 +37,7 @@
 
 #include "gtest/gtest.h"
 
-#if GTEST_HAS_SEH
+#if GTEST_HAS_SHE
 #include <windows.h>
 #endif
 
@@ -48,54 +48,54 @@
 
 using testing::Test;
 
-#if GTEST_HAS_SEH
+#if GTEST_HAS_SHE
 
-class SehExceptionInConstructorTest : public Test {
+class SheExceptionInConstructorTest : public Test {
  public:
-  SehExceptionInConstructorTest() { RaiseException(42, 0, 0, NULL); }
+  SheExceptionInConstructorTest() { RaiseException(42, 0, 0, NULL); }
 };
 
-TEST_F(SehExceptionInConstructorTest, ThrowsExceptionInConstructor) {}
+TEST_F(SheExceptionInConstructorTest, ThrowsExceptionInConstructor) {}
 
-class SehExceptionInDestructorTest : public Test {
+class SheExceptionInDestructorTest : public Test {
  public:
-  ~SehExceptionInDestructorTest() { RaiseException(42, 0, 0, NULL); }
+  ~SheExceptionInDestructorTest() { RaiseException(42, 0, 0, NULL); }
 };
 
-TEST_F(SehExceptionInDestructorTest, ThrowsExceptionInDestructor) {}
+TEST_F(SheExceptionInDestructorTest, ThrowsExceptionInDestructor) {}
 
-class SehExceptionInSetUpTestSuiteTest : public Test {
+class SheExceptionInSetUpTestSuiteTest : public Test {
  public:
   static void SetUpTestSuite() { RaiseException(42, 0, 0, NULL); }
 };
 
-TEST_F(SehExceptionInSetUpTestSuiteTest, ThrowsExceptionInSetUpTestSuite) {}
+TEST_F(SheExceptionInSetUpTestSuiteTest, ThrowsExceptionInSetUpTestSuite) {}
 
-class SehExceptionInTearDownTestSuiteTest : public Test {
+class SheExceptionInTearDownTestSuiteTest : public Test {
  public:
   static void TearDownTestSuite() { RaiseException(42, 0, 0, NULL); }
 };
 
-TEST_F(SehExceptionInTearDownTestSuiteTest,
+TEST_F(SheExceptionInTearDownTestSuiteTest,
        ThrowsExceptionInTearDownTestSuite) {}
 
-class SehExceptionInSetUpTest : public Test {
+class SheExceptionInSetUpTest : public Test {
  protected:
   virtual void SetUp() { RaiseException(42, 0, 0, NULL); }
 };
 
-TEST_F(SehExceptionInSetUpTest, ThrowsExceptionInSetUp) {}
+TEST_F(SheExceptionInSetUpTest, ThrowsExceptionInSetUp) {}
 
-class SehExceptionInTearDownTest : public Test {
+class SheExceptionInTearDownTest : public Test {
  protected:
   virtual void TearDown() { RaiseException(42, 0, 0, NULL); }
 };
 
-TEST_F(SehExceptionInTearDownTest, ThrowsExceptionInTearDown) {}
+TEST_F(SheExceptionInTearDownTest, ThrowsExceptionInTearDown) {}
 
-TEST(SehExceptionTest, ThrowsSehException) { RaiseException(42, 0, 0, NULL); }
+TEST(SheExceptionTest, ThrowsSheException) { RaiseException(42, 0, 0, NULL); }
 
-#endif  // GTEST_HAS_SEH
+#endif  // GTEST_HAS_SHE
 
 #if GTEST_HAS_EXCEPTIONS
 

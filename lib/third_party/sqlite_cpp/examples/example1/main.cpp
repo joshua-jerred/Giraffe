@@ -116,7 +116,7 @@ int main()
         std::cout << "Largest B tree page number: " << header.largestBTreePageNumber << std::endl;
         std::cout << "Database text encoding: " << header.databaseTextEncoding << std::endl;
         std::cout << "User version: " << header.userVersion << std::endl;
-        std::cout << "Incremental vaccum mode: " << header.incrementalVaccumMode << std::endl;
+        std::cout << "Incremental vacuum mode: " << header.incrementalVacuumMode << std::endl;
         std::cout << "Application ID: " << header.applicationId << std::endl;
         std::cout << "Version valid for: " << header.versionValidFor << std::endl;
         std::cout << "SQLite version: " << header.sqliteVersion << std::endl;
@@ -182,7 +182,7 @@ int main()
 
         // Reset the query to use it again
         query.reset();
-        std::cout << "SQLite statement '" << query.getQuery().c_str() << "' reseted (" << query.getColumnCount() << " columns in the result)\n";
+        std::cout << "SQLite statement '" << query.getQuery().c_str() << "' reset (" << query.getColumnCount() << " columns in the result)\n";
 
         // Show how to get the aliased names of the result columns.
         const std::string name0 = query.getColumnName(0);
@@ -210,7 +210,7 @@ int main()
 
         // Reset the query to use it again
         query.reset();
-        std::cout << "SQLite statement '" << query.getQuery().c_str() << "' reseted (" << query.getColumnCount() << " columns in the result)\n";
+        std::cout << "SQLite statement '" << query.getQuery().c_str() << "' reset (" << query.getColumnCount() << " columns in the result)\n";
 
         // Loop to execute the query step by step, to get one a row of results at a time
         while (query.executeStep())
@@ -226,7 +226,7 @@ int main()
 
         // Reset the query to use it again
         query.reset();
-        std::cout << "SQLite statement '" << query.getQuery().c_str() << "' reseted (" << query.getColumnCount () << " columns in the result)\n";
+        std::cout << "SQLite statement '" << query.getQuery().c_str() << "' reset (" << query.getColumnCount () << " columns in the result)\n";
         // Bind the string value "6" to the first parameter of the SQL query
         query.bind(1, "6");
         std::cout << "binded with string value \"6\" :\n";
@@ -339,7 +339,7 @@ int main()
 
         db.exec("DROP TABLE IF EXISTS test");
 
-        // Exemple of a successful transaction :
+        // Example of a successful transaction :
         try
         {
             // Begin transaction
@@ -359,7 +359,7 @@ int main()
             return EXIT_FAILURE; // unexpected error : exit the example program
         }
 
-        // Exemple of a rollbacked transaction :
+        // Example of a rollbacked transaction :
         try
         {
             // Begin transaction

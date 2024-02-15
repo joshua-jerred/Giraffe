@@ -38,6 +38,6 @@ jobs:
         cd examples/example2
         mkdir build
         cd build
-        cmake -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_BUILD_TYPE=${{matrix.config.build_type}} .. 
+        cmake -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_BUILD_TYPE=${{matrix.config.build_type}} ..
     - name: build
       run: cmake --build examples/example2/build --config ${{matrix.config.build_type}}

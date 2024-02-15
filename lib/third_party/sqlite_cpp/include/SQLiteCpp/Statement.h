@@ -593,7 +593,7 @@ public:
      *  SQLite stores data types dynamically for each value and not per column.
      *
      * @param[in] aIndex    Index of the column in the range [0, getColumnCount()).
-     * 
+     *
      *  Throw an exception if the type can't be determined because:
      *  - the specified index is out of the [0, getColumnCount()) range
      *  - the statement is not a SELECT query
@@ -684,14 +684,14 @@ private:
 
     /**
      * @brief Prepare statement object.
-     * 
+     *
      * @return Shared pointer to prepared statement object
      */
     TStatementPtr prepareStatement();
 
     /**
      * @brief Return a prepared statement object.
-     * 
+     *
      * Throw an exception if the statement object was not prepared.
      * @return raw pointer to Prepared Statement Object
      */

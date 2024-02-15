@@ -21,7 +21,7 @@ to be implemented for a flight ready version of this software.
   - [ ] Enable/Disable Debug Modules
   - [ ] Change config file (safely)
   - [ ] Restart GPS and Radio
-  
+
 - [ ] Health Check - change flight loop
   - [ ] A health check is performed to determine the change in flight mode
   - [ ] Includes the following data:
@@ -30,7 +30,7 @@ to be implemented for a flight ready version of this software.
     - [ ] system status (disk space, memory, etc.)
   - [ ] Ability to restart modules if needed
   - [ ] Ability to see the status of the last shutdown/startup attempt
-     - [ ] If an extension caused the flight computer to crash on startup and 
+     - [ ] If an extension caused the flight computer to crash on startup and
           it's not flight critical then don't restart it.
 
 #### Extension Module

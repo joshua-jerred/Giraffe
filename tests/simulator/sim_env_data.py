@@ -2,8 +2,8 @@ import os
 import sys
 
 # -----------------------------------------------------------------------------
-#    PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV
-    # hPa     m      C      C      %    g/kg    deg   knot     K      K      K 
+#    PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THAT   THTE   THTV
+    # hPa     m      C      C      %    g/kg    deg   knot     K      K      K
 # -----------------------------------------------------------------------------
 
 PATH = os.path.dirname(os.path.realpath(__file__))

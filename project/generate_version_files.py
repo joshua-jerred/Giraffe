@@ -78,7 +78,7 @@ def getCmakeProjectVersion(project_path:str):
 
 for lib in THIRD_PARTY_LIBRARIES:
     getCmakeProjectVersion(REPO_ROOT + lib)
-    
+
 output_versions['languages'] = {}
 output_versions['languages']['nodejs'] = subprocess.check_output(['node', '--version']).decode('ascii').strip()
 

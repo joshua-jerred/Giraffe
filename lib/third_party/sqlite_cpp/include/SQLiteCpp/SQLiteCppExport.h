@@ -23,8 +23,8 @@
         #define SQLITECPP_API __declspec(dllexport)
     #else
         #define SQLITECPP_API __declspec(dllimport)
-    #endif    
-#else    
+    #endif
+#else
     #if __GNUC__ >= 4
         #define SQLITECPP_API __attribute__ ((visibility ("default")))
     #else

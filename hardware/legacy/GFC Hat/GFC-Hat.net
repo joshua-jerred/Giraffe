@@ -1383,7 +1383,7 @@
         (field (name "Value") "LD29150PTR")
         (field (name "Footprint") "PPAK_50PTR_STM"))
       (pins
-        (pin (num "1") (name "INH") (type "no_connect"))
+        (pin (num "1") (name "IN") (type "no_connect"))
         (pin (num "2") (name "INPUT") (type "power_in"))
         (pin (num "3") (name "GND") (type "power_in"))
         (pin (num "4") (name "OUTPUT") (type "power_out"))
@@ -1844,4 +1844,4 @@
     (net (code "75") (name "unconnected-(U4-Pad19)")
       (node (ref "U4") (pin "19") (pinfunction "EXTINT") (pintype "input+no_connect")))
     (net (code "76") (name "unconnected-(VR2-Pad1)")
-      (node (ref "VR2") (pin "1") (pinfunction "INH") (pintype "no_connect")))))
+      (node (ref "VR2") (pin "1") (pinfunction "IN") (pintype "no_connect")))))

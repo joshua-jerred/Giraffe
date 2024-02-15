@@ -23,15 +23,15 @@
   - A string containing a description of the setting
   - 20 to 300 Characters
 - `type`
-    - `bool` 
+    - `bool`
       - true/false
       - Required Additional Fields:
         - `true`: The relevant word for when it's set to true. Ex: "enabled"
         - `false`: Same as above, but for false
-    - `string` 
+    - `string`
       - Required Additional Fields
         - `min`/`max` (Number of characters)
-          and/or 
+          and/or
         - `pattern` (Regex Pattern to Match)
     - `int`
       - Required Additional Fields

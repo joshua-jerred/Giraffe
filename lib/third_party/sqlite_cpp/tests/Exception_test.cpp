@@ -25,7 +25,7 @@ TEST(Exception, copy)
 }
 
 // see http://eel.is/c++draft/exception#2 or http://www.cplusplus.com/reference/exception/exception/operator=/
-// an assignment operator is expected to be avaiable
+// an assignment operator is expected to be available
 TEST(Exception, assignment)
 {
     const char message[] = "some error";

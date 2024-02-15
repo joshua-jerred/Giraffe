@@ -47,7 +47,7 @@
             "i2c-bus": 1,
             "i2c-address": "0x25"
         }
-        
+
     ],
     "debugging": {
         "console-enabled": true,
@@ -58,7 +58,7 @@
     "telemetry": {
         "telemetry-enabled": true,
         "callsign": "TESTCALL",
-        
+
         "aprs-enabled": true,
         "aprs-frequency": "144.390",
         "aprs-ssid": 11,
@@ -75,7 +75,7 @@
         "psk-frequency": "109.000",
         "psk-mode": "bpsk125"
     },
-    
+
     "data-log-data-and-packet-contents": [
         {
             "source": "sys",

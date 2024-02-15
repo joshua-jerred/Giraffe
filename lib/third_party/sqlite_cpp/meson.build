@@ -37,7 +37,7 @@ sqlite3_dep = dependency(
                 fallback: ['sqlite3', 'sqlite3_dep']
 )
 
-sqlitecpp_incl = [ 
+sqlitecpp_incl = [
     include_directories('include')
 ]
 sqlitecpp_srcs = files(
@@ -95,7 +95,7 @@ sqlitecpp_sample2_srcs = files(
     'examples/example2/src/main.cpp',
 )
 
-## using MSVC headers requires c++14, if not will show an error on xstddef as: 
+## using MSVC headers requires c++14, if not will show an error on xstddef as:
 ## 'auto' return without trailing return type; deduced return types are a C++14 extension
 if host_machine.system() == 'windows'
     ## check if the std version is less than c++14
@@ -130,7 +130,7 @@ endif
 if get_option('SQLITE_USE_LEGACY_STRUCT')
     sqlitecpp_args += [
         '-DSQLITE_USE_LEGACY_STRUCT',
-    ] 
+    ]
 endif
 
 ## C++17 disable the support for std::filesystem (by default off)
@@ -164,7 +164,7 @@ if get_option('SQLITECPP_USE_STACK_PROTECTION')
     endif
 endif
 
-## enable ommit load extension
+## enable omit load extension
 if get_option('SQLITE_OMIT_LOAD_EXTENSION')
     sqlitecpp_args += ['-DSQLITE_OMIT_LOAD_EXTENSION']
 ## check if running on OSX
@@ -179,7 +179,7 @@ elif host_machine.system() == 'darwin' and sqlite3_dep.found()
                     sqlite3_enable_load_extension(0, 0);
                     return 0;
                 }
-            ''', 
+            ''',
             name: 'sqlite3_load_extension',
             dependencies: [sqlite3_dep])
         if not sqlite3_load_extension_support

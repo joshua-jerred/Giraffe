@@ -5,7 +5,7 @@ packages:
 
 -doxygen
 -texlive-latex-base
--texlive-latex-recommended 
+-texlive-latex-recommended
 -texlive-fonts-recommended
 -texlive-latex-extra
 

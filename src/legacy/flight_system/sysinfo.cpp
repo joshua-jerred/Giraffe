@@ -2,11 +2,11 @@
  * @file sysinfo.cpp
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief An extension that provides system information.
- * 
+ *
  * @version 0.3
  * @date 2023-01-06
  * @copyright Copyright (c) 2023
- * 
+ *
  * @todo Documentation
  * @todo Unit Tests
  */
@@ -40,7 +40,7 @@ namespace ex_internal {
 
     bool getCpuAndMemInfo(cpu_mem_info &info) {
         struct sysinfo sysinf; // from sys/sysinfo.h
-        
+
         if (sysinfo(&sysinf) != 0) {
             return false;
         }
@@ -51,7 +51,7 @@ namespace ex_internal {
         info.cpu_load_avg_15 = sysinf.loads[2] / 65536.0;
 
         info.ram_total_gb = sysinf.totalram / 1024.0 / 1024.0 / 1024.0;
-        info.ram_used_percent = 
+        info.ram_used_percent =
             (sysinf.totalram - sysinf.freeram) / (float)sysinf.totalram * 100.0;
         info.ram_free_gb = sysinf.freeram / 1024.0 / 1024.0 / 1024.0;
 
@@ -78,14 +78,14 @@ namespace ex_internal {
             return false;
         }
 
-        info.total_gb = 
-            (unsigned long long) (disk_stat.f_blocks) 
-            * (unsigned long long) (disk_stat.f_bsize) 
+        info.total_gb =
+            (unsigned long long) (disk_stat.f_blocks)
+            * (unsigned long long) (disk_stat.f_bsize)
             / 1024.0 / 1024.0 / 1024.0;
 
-        info.free_space_gb = 
-            (unsigned long long) (disk_stat.f_bavail) 
-            * (unsigned long long) (disk_stat.f_bsize) 
+        info.free_space_gb =
+            (unsigned long long) (disk_stat.f_bavail)
+            * (unsigned long long) (disk_stat.f_bsize)
             / 1024.0 / 1024.0 / 1024.0;
 
         info.used_percent =
@@ -103,8 +103,8 @@ namespace ex_internal {
 }
 
 extension::SYSINFO::SYSINFO(
-        DataStream *p_data_stream, 
-        ExtensionMetadata extension_metadata) : 
+        DataStream *p_data_stream,
+        ExtensionMetadata extension_metadata) :
         Extension(p_data_stream, extension_metadata) {
 }
 

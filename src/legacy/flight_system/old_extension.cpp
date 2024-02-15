@@ -3,11 +3,11 @@
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief This file contains the implementation of the Extension class, which is
  * the base class for all extensions.
- * 
+ *
  * @version 0.0.9
  * @date 2022-10-09
  * @copyright Copyright (c) 2022
- * 
+ *
  * @todo Documentation
  * @todo Unit Tests
  */
@@ -26,15 +26,15 @@
 
 /**
  * @brief Constructor for the Extension base class.
- * @details This constructor sets all needed members and configures the 
+ * @details This constructor sets all needed members and configures the
  * extension but it does not start it.
  * The status of the extension is initially set to STOPPED but may be set to
  * 'ERROR' if the extension configuration fails.
  * @param p_data_stream - Pointer to a DataSteam object.
- * @param extension_metadata - ExtensionMetadata struct with the extension 
+ * @param extension_metadata - ExtensionMetadata struct with the extension
  * config info
  */
-extension::Extension::Extension(DataStream *p_data_stream, 
+extension::Extension::Extension(DataStream *p_data_stream,
                      ExtensionMetadata extension_metadata):
     p_data_stream_(p_data_stream),
     status_(ExtensionStatus::STOPPED) {
@@ -60,10 +60,10 @@ extension::Extension::~Extension() {
 }
 
 /**
- * @brief Starts the extension thread if it is stopped, changes status. 
- * @details This function attempts to start the extension thread with 
+ * @brief Starts the extension thread if it is stopped, changes status.
+ * @details This function attempts to start the extension thread with
  * spawnRunner().
- * This will change the status to 'STARTING'. The thread is responsible 
+ * This will change the status to 'STARTING'. The thread is responsible
  * for the later change to 'RUNNING' or 'ERROR'.
  * @param None
  * @return void
@@ -171,7 +171,7 @@ int extension::Extension::getCritical() {
  * generates data for the data stream. It should only continue the loop at a
  * rate that is equal to 'update_interval_'. The runner must also check to see
  * if the status is 'stopping', if it is it must shutdown and return 0.
- * If this function is not overridden, it will add an error to the data stream 
+ * If this function is not overridden, it will add an error to the data stream
  * and return -1.
  * @return int -1, an error value. 0 is for a clean stop.
  */
@@ -186,7 +186,7 @@ int extension::Extension::runner() {
  * @details Sets the status, no error checking is done. The status member
  * is protected as a std::atomic<> so it is thread safe. This is called within
  * the base class and parent class.
- * @param status 
+ * @param status
  */
 void extension::Extension::setStatus(ExtensionStatus status) {
     status_ = status;
@@ -202,7 +202,7 @@ void extension::Extension::setStatus(ExtensionStatus status) {
  * @bug This function does not take into account the time it may take an
  * extension to collect it's data. Also send data could possibly be put
  * into a template.
- * @param std::string unit - The unit of the data. Example "TF" for temperature 
+ * @param std::string unit - The unit of the data. Example "TF" for temperature
  * in fahrenheit. This is defined in the configuration.
  * @param std::string value
  * @param int value
@@ -249,7 +249,7 @@ void extension::Extension::setID(int num) {
     } else {
         id_ = 0;
         setStatus(ExtensionStatus::ERROR);
-        p_data_stream_->addError(name_, "EXT_ID", 
+        p_data_stream_->addError(name_, "EXT_ID",
                                  "ID: " + std::to_string(num), 0);
         return;
     }
@@ -257,7 +257,7 @@ void extension::Extension::setID(int num) {
 
 /**
  * @brief Sets the name of the extension, reports errors to the data stream.
- * @details Uses the extension max length and min length macros to validate the 
+ * @details Uses the extension max length and min length macros to validate the
  * name. If the name is invalid, the status is set to ERROR, name is set to
  * "NAME_ERROR" and the error is reported to the data stream. This error should
  * be caught by the configuration module before it gets here.
@@ -266,12 +266,12 @@ void extension::Extension::setID(int num) {
  * @return void
  */
 void extension::Extension::setName(std::string name) {
-    if ((name.size() <= EXTENSION_NAME_MAX_LENGTH) 
+    if ((name.size() <= EXTENSION_NAME_MAX_LENGTH)
         && (name.size() >= EXTENSION_NAME_MIN_LENGTH)) {
         name_ = name;
         return;
     } else {
-        p_data_stream_->addError(name, "EXT_NAME", 
+        p_data_stream_->addError(name, "EXT_NAME",
                                  "Specified name out of range.", 0);
         name_ = "NAME_ERROR";
         setStatus(ExtensionStatus::ERROR);
@@ -293,7 +293,7 @@ void extension::Extension::setType(std::string type){
 
 /**
  * @brief Sets the category of the extension, does not do any error checking.
- * @param category 
+ * @param category
  * @return void
  */
 void extension::Extension::setCategory(ExtensionMetadata::Category category) {
@@ -306,7 +306,7 @@ void extension::Extension::setCategory(ExtensionMetadata::Category category) {
  * communication.
  * @param interface
  * @return void
- * 
+ *
  * @todo Add extra args handling here if for interface. Ex: i2c bus and address.
  */
 void extension::Extension::setInterface(ExtensionMetadata::Interface interface){
@@ -341,7 +341,7 @@ void extension::Extension::setUpdateInterval(int interval_ms){
 void extension::Extension::setCritical(int critical){
     if (critical != 0 && critical != 1) {
         critical_ = 0;
-        p_data_stream_->addError(name_, "EXT_CRITICAL", 
+        p_data_stream_->addError(name_, "EXT_CRITICAL",
                                  "Critical flag out of range.", 0);
         return;
     }
@@ -361,27 +361,27 @@ void extension::Extension::spawnRunner() {
 //template <typename T>
 //void Extension::error(std::string error_code, T info) {
 //	p_data_stream_->addError(
-//        EXTENSION_PREFIX + std::to_string(getID()), 
-//        error_code, 
-//		std::to_string(info), 
+//        EXTENSION_PREFIX + std::to_string(getID()),
+//        error_code,
+//		std::to_string(info),
 //        update_interval_
 //        );
 //}
 
 void extension::Extension::error(std::string error_code, std::string info) {
 	p_data_stream_->addError(
-        configurables::prefix::kExtension + std::to_string(getID()), 
-        error_code, 
-        info, 
+        configurables::prefix::kExtension + std::to_string(getID()),
+        error_code,
+        info,
         data_expiration_time_
         );
 }
 
 void extension::Extension::error(std::string error_code) {
 	p_data_stream_->addError(
-        configurables::prefix::kExtension + std::to_string(getID()), 
-        error_code, 
-        "", 
+        configurables::prefix::kExtension + std::to_string(getID()),
+        error_code,
+        "",
         data_expiration_time_
         );
 }

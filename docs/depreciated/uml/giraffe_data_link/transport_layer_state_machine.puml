@@ -26,7 +26,7 @@ state SendMessage {
 
   WaitAckX --> WaitAckX
   note on link
-    <b>received_packet()</b> 
+    <b>received_packet()</b>
     <b>&& (bad_crc || ackY)</b>
     do nothing
   end note
@@ -63,7 +63,7 @@ state SendMessage {
 
   WaitAckY --> WaitAckY
   note on link
-    <b>received_packet()</b> 
+    <b>received_packet()</b>
     <b>&& (bad_crc || ackX)</b>
     do nothing
   end note

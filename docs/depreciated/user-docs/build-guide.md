@@ -5,7 +5,7 @@
 - ``cmake``
 - ``build-essential``
 - ``libi2c-dev``
-  
+
 All can be installed via apt install
 
 #### Automatically downloaded and built via cmake:
@@ -16,7 +16,7 @@ All can be installed via apt install
 ### Main Branch
 ``` bash
 git clone https://github.com/joshua-jerred/Giraffe.git
-cd Giraffe 
+cd Giraffe
 git submodule update --init --recursive
 mkdir build && cd build
 cmake ..

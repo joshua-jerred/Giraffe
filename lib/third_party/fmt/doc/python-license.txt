@@ -1,8 +1,8 @@
 A. HISTORY OF THE SOFTWARE
 ==========================
 
-Python was created in the early 1990s by Guido van Rossum at Stichting
-Mathematisch Centrum (CWI, see http://www.cwi.nl) in the Netherlands
+Python was created in the early 1990s by Guido van Rossum at Stitching
+Mathematics Centrum (CWI, see http://www.cwi.nl) in the Netherlands
 as a successor of a language called ABC.  Guido remains Python's
 principal author, although it includes many contributions from others.
 
@@ -269,21 +269,21 @@ bound by the terms and conditions of this License Agreement.
 CWI LICENSE AGREEMENT FOR PYTHON 0.9.0 THROUGH 1.2
 --------------------------------------------------
 
-Copyright (c) 1991 - 1995, Stichting Mathematisch Centrum Amsterdam,
+Copyright (c) 1991 - 1995, Stitching Mathematics Centrum Amsterdam,
 The Netherlands.  All rights reserved.
 
 Permission to use, copy, modify, and distribute this software and its
 documentation for any purpose and without fee is hereby granted,
 provided that the above copyright notice appear in all copies and that
 both that copyright notice and this permission notice appear in
-supporting documentation, and that the name of Stichting Mathematisch
+supporting documentation, and that the name of Stitching Mathematics
 Centrum or CWI not be used in advertising or publicity pertaining to
 distribution of the software without specific, written prior
 permission.
 
-STICHTING MATHEMATISCH CENTRUM DISCLAIMS ALL WARRANTIES WITH REGARD TO
+STITCHING MATHEMATICS CENTRUM DISCLAIMS ALL WARRANTIES WITH REGARD TO
 THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS, IN NO EVENT SHALL STICHTING MATHEMATISCH CENTRUM BE LIABLE
+FITNESS, IN NO EVENT SHALL STITCHING MATHEMATICS CENTRUM BE LIABLE
 FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT

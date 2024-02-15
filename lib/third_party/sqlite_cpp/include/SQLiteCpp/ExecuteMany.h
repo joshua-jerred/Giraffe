@@ -56,7 +56,7 @@ void execute_many(Database& aDatabase, const char* apQuery, Arg&& aArg, Types&&.
 }
 
 /**
- * \brief Convenience function to reset a statement and call bind_exec to 
+ * \brief Convenience function to reset a statement and call bind_exec to
  * bind new values to the statement and execute it
  *
  * This feature requires a c++14 capable compiler.

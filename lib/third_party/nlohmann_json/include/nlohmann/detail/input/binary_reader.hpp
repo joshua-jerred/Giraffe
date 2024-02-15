@@ -195,7 +195,7 @@ class binary_reader
         while (true)
         {
             get();
-            if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format_t::bson, "cstring")))
+            if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format_t::bson, "cstring")))
             {
                 return false;
             }
@@ -354,7 +354,7 @@ class binary_reader
 
         while (auto element_type = get())
         {
-            if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format_t::bson, "element list")))
+            if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format_t::bson, "element list")))
             {
                 return false;
             }
@@ -423,7 +423,7 @@ class binary_reader
         {
             // EOF
             case char_traits<char_type>::eof():
-                return unexpect_eof(input_format_t::cbor, "value");
+                return unexpected_eof(input_format_t::cbor, "value");
 
             // Integer 0x00..0x17 (0..23)
             case 0x00:
@@ -830,12 +830,12 @@ class binary_reader
             case 0xF9: // Half-Precision Float (two-byte IEEE 754)
             {
                 const auto byte1_raw = get();
-                if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format_t::cbor, "number")))
+                if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format_t::cbor, "number")))
                 {
                     return false;
                 }
                 const auto byte2_raw = get();
-                if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format_t::cbor, "number")))
+                if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format_t::cbor, "number")))
                 {
                     return false;
                 }
@@ -909,7 +909,7 @@ class binary_reader
     */
     bool get_cbor_string(string_t& result)
     {
-        if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format_t::cbor, "string")))
+        if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format_t::cbor, "string")))
         {
             return false;
         }
@@ -1005,7 +1005,7 @@ class binary_reader
     */
     bool get_cbor_binary(binary_t& result)
     {
-        if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format_t::cbor, "binary")))
+        if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format_t::cbor, "binary")))
         {
             return false;
         }
@@ -1198,7 +1198,7 @@ class binary_reader
         {
             // EOF
             case char_traits<char_type>::eof():
-                return unexpect_eof(input_format_t::msgpack, "value");
+                return unexpected_eof(input_format_t::msgpack, "value");
 
             // positive fixint
             case 0x00:
@@ -1575,7 +1575,7 @@ class binary_reader
     */
     bool get_msgpack_string(string_t& result)
     {
-        if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format_t::msgpack, "string")))
+        if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format_t::msgpack, "string")))
         {
             return false;
         }
@@ -1852,7 +1852,7 @@ class binary_reader
             get();  // TODO(niels): may we ignore N here?
         }
 
-        if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format, "value")))
+        if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format, "value")))
         {
             return false;
         }
@@ -1937,8 +1937,8 @@ class binary_reader
     }
 
     /*!
-    @param[out] dim  an integer vector storing the ND array dimensions
-    @return whether reading ND array size vector is successful
+    @param[out] dim  an integer vector storing the AND array dimensions
+    @return whether reading AND array size vector is successful
     */
     bool get_ubjson_ndarray_size(std::vector<size_t>& dim)
     {
@@ -2224,7 +2224,7 @@ class binary_reader
     for a more compact representation.
 
     @param[out] result  pair of the size and the type
-    @param[in] inside_ndarray  whether the parser is parsing an ND array dimensional vector
+    @param[in] inside_ndarray  whether the parser is parsing an AND array dimensional vector
 
     @return whether pair creation completed
     */
@@ -2247,7 +2247,7 @@ class binary_reader
                                         exception_message(input_format, concat("marker 0x", last_token, " is not a permitted optimized array type"), "type"), nullptr));
             }
 
-            if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format, "type")))
+            if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format, "type")))
             {
                 return false;
             }
@@ -2255,7 +2255,7 @@ class binary_reader
             get_ignore_noop();
             if (JSON_HEDLEY_UNLIKELY(current != '#'))
             {
-                if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format, "value")))
+                if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format, "value")))
                 {
                     return false;
                 }
@@ -2300,7 +2300,7 @@ class binary_reader
         switch (prefix)
         {
             case char_traits<char_type>::eof():  // EOF
-                return unexpect_eof(input_format, "value");
+                return unexpected_eof(input_format, "value");
 
             case 'T':  // true
                 return sax->boolean(true);
@@ -2377,12 +2377,12 @@ class binary_reader
                     break;
                 }
                 const auto byte1_raw = get();
-                if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format, "number")))
+                if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format, "number")))
                 {
                     return false;
                 }
                 const auto byte2_raw = get();
-                if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format, "number")))
+                if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format, "number")))
                 {
                     return false;
                 }
@@ -2442,7 +2442,7 @@ class binary_reader
             case 'C':  // char
             {
                 get();
-                if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format, "char")))
+                if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format, "char")))
                 {
                     return false;
                 }
@@ -2594,12 +2594,12 @@ class binary_reader
             return false;
         }
 
-        // do not accept ND-array size in objects in BJData
+        // do not accept AND-array size in objects in BJData
         if (input_format == input_format_t::bjdata && size_and_type.first != npos && (size_and_type.second & (1 << 8)) != 0)
         {
             auto last_token = get_token_string();
             return sax->parse_error(chars_read, last_token, parse_error::create(112, chars_read,
-                                    exception_message(input_format, "BJData object does not support ND-array size in optimized format", "object"), nullptr));
+                                    exception_message(input_format, "BJData object does not support AND-array size in optimized format", "object"), nullptr));
         }
 
         string_t key;
@@ -2685,7 +2685,7 @@ class binary_reader
         for (std::size_t i = 0; i < size; ++i)
         {
             get();
-            if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(input_format, "number")))
+            if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(input_format, "number")))
             {
                 return false;
             }
@@ -2791,7 +2791,7 @@ class binary_reader
         for (std::size_t i = 0; i < sizeof(NumberType); ++i)
         {
             get();
-            if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(format, "number")))
+            if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(format, "number")))
             {
                 return false;
             }
@@ -2823,7 +2823,7 @@ class binary_reader
     @return whether string creation completed
 
     @note We can not reserve @a len bytes for the result, because @a len
-          may be too large. Usually, @ref unexpect_eof() detects the end of
+          may be too large. Usually, @ref unexpected_eof() detects the end of
           the input before we run out of string memory.
     */
     template<typename NumberType>
@@ -2835,7 +2835,7 @@ class binary_reader
         for (NumberType i = 0; i < len; i++)
         {
             get();
-            if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(format, "string")))
+            if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(format, "string")))
             {
                 success = false;
                 break;
@@ -2856,7 +2856,7 @@ class binary_reader
     @return whether byte array creation completed
 
     @note We can not reserve @a len bytes for the result, because @a len
-          may be too large. Usually, @ref unexpect_eof() detects the end of
+          may be too large. Usually, @ref unexpected_eof() detects the end of
           the input before we run out of memory.
     */
     template<typename NumberType>
@@ -2868,7 +2868,7 @@ class binary_reader
         for (NumberType i = 0; i < len; i++)
         {
             get();
-            if (JSON_HEDLEY_UNLIKELY(!unexpect_eof(format, "binary")))
+            if (JSON_HEDLEY_UNLIKELY(!unexpected_eof(format, "binary")))
             {
                 success = false;
                 break;
@@ -2884,7 +2884,7 @@ class binary_reader
     @return whether the last read character is not EOF
     */
     JSON_HEDLEY_NON_NULL(3)
-    bool unexpect_eof(const input_format_t format, const char* context) const
+    bool unexpected_eof(const input_format_t format, const char* context) const
     {
         if (JSON_HEDLEY_UNLIKELY(current == char_traits<char_type>::eof()))
         {

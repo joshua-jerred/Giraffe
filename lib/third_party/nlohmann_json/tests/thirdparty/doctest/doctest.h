@@ -27,7 +27,7 @@
 // - the Approx() helper class for floating point comparison
 // - colors in the console
 // - breaking into a debugger
-// - signal / SEH handling
+// - signal / SHE handling
 // - timer
 // - XmlWriter class - thanks to Phil Nash for allowing the direct reuse (AKA copy/paste)
 //
@@ -181,7 +181,7 @@
     DOCTEST_MSVC_SUPPRESS_WARNING_PUSH                                                             \
     /* these 4 also disabled globally via cmake: */                                                \
     DOCTEST_MSVC_SUPPRESS_WARNING(4514) /* unreferenced inline function has been removed */        \
-    DOCTEST_MSVC_SUPPRESS_WARNING(4571) /* SEH related */                                          \
+    DOCTEST_MSVC_SUPPRESS_WARNING(4571) /* SHE related */                                          \
     DOCTEST_MSVC_SUPPRESS_WARNING(4710) /* function not inlined */                                 \
     DOCTEST_MSVC_SUPPRESS_WARNING(4711) /* function selected for inline expansion*/                \
     /* common ones */                                                                              \
@@ -269,14 +269,14 @@ DOCTEST_MSVC_SUPPRESS_WARNING(4623) // default constructor was implicitly define
 
 // Universal Windows Platform support
 #if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_APP)
-#define DOCTEST_CONFIG_NO_WINDOWS_SEH
+#define DOCTEST_CONFIG_NO_WINDOWS_SHE
 #endif // WINAPI_FAMILY
-#if DOCTEST_MSVC && !defined(DOCTEST_CONFIG_WINDOWS_SEH)
-#define DOCTEST_CONFIG_WINDOWS_SEH
+#if DOCTEST_MSVC && !defined(DOCTEST_CONFIG_WINDOWS_SHE)
+#define DOCTEST_CONFIG_WINDOWS_SHE
 #endif // MSVC
-#if defined(DOCTEST_CONFIG_NO_WINDOWS_SEH) && defined(DOCTEST_CONFIG_WINDOWS_SEH)
-#undef DOCTEST_CONFIG_WINDOWS_SEH
-#endif // DOCTEST_CONFIG_NO_WINDOWS_SEH
+#if defined(DOCTEST_CONFIG_NO_WINDOWS_SHE) && defined(DOCTEST_CONFIG_WINDOWS_SHE)
+#undef DOCTEST_CONFIG_WINDOWS_SHE
+#endif // DOCTEST_CONFIG_NO_WINDOWS_SHE
 
 #if !defined(_WIN32) && !defined(__QNX__) && !defined(DOCTEST_CONFIG_POSIX_SIGNALS) &&             \
         !defined(__EMSCRIPTEN__) && !defined(__wasi__)
@@ -1384,7 +1384,7 @@ DOCTEST_CLANG_SUPPRESS_WARNING_WITH_PUSH("-Wunused-comparison")
     // more checks could be added - like in Catch:
     // https://github.com/catchorg/Catch2/pull/1480/files
     // https://github.com/catchorg/Catch2/pull/1481/files
-#define DOCTEST_FORBIT_EXPRESSION(rt, op)                                                          \
+#define DOCTEST_FORBID_EXPRESSION(rt, op)                                                          \
     template <typename R>                                                                          \
     rt& operator op(const R&) {                                                                    \
         static_assert(deferred_false<R>::value,                                                    \
@@ -1401,28 +1401,28 @@ DOCTEST_CLANG_SUPPRESS_WARNING_WITH_PUSH("-Wunused-comparison")
         Result(bool passed, const String& decomposition = String());
 
         // forbidding some expressions based on this table: https://en.cppreference.com/w/cpp/language/operator_precedence
-        DOCTEST_FORBIT_EXPRESSION(Result, &)
-        DOCTEST_FORBIT_EXPRESSION(Result, ^)
-        DOCTEST_FORBIT_EXPRESSION(Result, |)
-        DOCTEST_FORBIT_EXPRESSION(Result, &&)
-        DOCTEST_FORBIT_EXPRESSION(Result, ||)
-        DOCTEST_FORBIT_EXPRESSION(Result, ==)
-        DOCTEST_FORBIT_EXPRESSION(Result, !=)
-        DOCTEST_FORBIT_EXPRESSION(Result, <)
-        DOCTEST_FORBIT_EXPRESSION(Result, >)
-        DOCTEST_FORBIT_EXPRESSION(Result, <=)
-        DOCTEST_FORBIT_EXPRESSION(Result, >=)
-        DOCTEST_FORBIT_EXPRESSION(Result, =)
-        DOCTEST_FORBIT_EXPRESSION(Result, +=)
-        DOCTEST_FORBIT_EXPRESSION(Result, -=)
-        DOCTEST_FORBIT_EXPRESSION(Result, *=)
-        DOCTEST_FORBIT_EXPRESSION(Result, /=)
-        DOCTEST_FORBIT_EXPRESSION(Result, %=)
-        DOCTEST_FORBIT_EXPRESSION(Result, <<=)
-        DOCTEST_FORBIT_EXPRESSION(Result, >>=)
-        DOCTEST_FORBIT_EXPRESSION(Result, &=)
-        DOCTEST_FORBIT_EXPRESSION(Result, ^=)
-        DOCTEST_FORBIT_EXPRESSION(Result, |=)
+        DOCTEST_FORBID_EXPRESSION(Result, &)
+        DOCTEST_FORBID_EXPRESSION(Result, ^)
+        DOCTEST_FORBID_EXPRESSION(Result, |)
+        DOCTEST_FORBID_EXPRESSION(Result, &&)
+        DOCTEST_FORBID_EXPRESSION(Result, ||)
+        DOCTEST_FORBID_EXPRESSION(Result, ==)
+        DOCTEST_FORBID_EXPRESSION(Result, !=)
+        DOCTEST_FORBID_EXPRESSION(Result, <)
+        DOCTEST_FORBID_EXPRESSION(Result, >)
+        DOCTEST_FORBID_EXPRESSION(Result, <=)
+        DOCTEST_FORBID_EXPRESSION(Result, >=)
+        DOCTEST_FORBID_EXPRESSION(Result, =)
+        DOCTEST_FORBID_EXPRESSION(Result, +=)
+        DOCTEST_FORBID_EXPRESSION(Result, -=)
+        DOCTEST_FORBID_EXPRESSION(Result, *=)
+        DOCTEST_FORBID_EXPRESSION(Result, /=)
+        DOCTEST_FORBID_EXPRESSION(Result, %=)
+        DOCTEST_FORBID_EXPRESSION(Result, <<=)
+        DOCTEST_FORBID_EXPRESSION(Result, >>=)
+        DOCTEST_FORBID_EXPRESSION(Result, &=)
+        DOCTEST_FORBID_EXPRESSION(Result, ^=)
+        DOCTEST_FORBID_EXPRESSION(Result, |=)
     };
 
 #ifndef DOCTEST_CONFIG_NO_COMPARISON_WARNING_SUPPRESSION
@@ -1533,26 +1533,26 @@ DOCTEST_MSVC_SUPPRESS_WARNING_POP
         // clang-format on
 
         // forbidding some expressions based on this table: https://en.cppreference.com/w/cpp/language/operator_precedence
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, &)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, ^)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, |)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, &&)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, ||)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, =)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, +=)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, -=)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, *=)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, /=)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, %=)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, <<=)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, >>=)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, &=)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, ^=)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, |=)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, &)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, ^)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, |)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, &&)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, ||)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, =)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, +=)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, -=)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, *=)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, /=)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, %=)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, <<=)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, >>=)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, &=)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, ^=)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, |=)
         // these 2 are unfortunate because they should be allowed - they have higher precedence over the comparisons, but the
         // ExpressionDecomposer class uses the left shift operator to capture the left operand of the binary expression...
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, <<)
-        DOCTEST_FORBIT_EXPRESSION(Expression_lhs, >>)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, <<)
+        DOCTEST_FORBID_EXPRESSION(Expression_lhs, >>)
     };
 
 #ifndef DOCTEST_CONFIG_NO_COMPARISON_WARNING_SUPPRESSION
@@ -4616,14 +4616,14 @@ namespace detail {
 namespace {
     using namespace detail;
 
-#if !defined(DOCTEST_CONFIG_POSIX_SIGNALS) && !defined(DOCTEST_CONFIG_WINDOWS_SEH)
+#if !defined(DOCTEST_CONFIG_POSIX_SIGNALS) && !defined(DOCTEST_CONFIG_WINDOWS_SHE)
     struct FatalConditionHandler
     {
         static void reset() {}
         static void allocateAltStackMem() {}
         static void freeAltStackMem() {}
     };
-#else // DOCTEST_CONFIG_POSIX_SIGNALS || DOCTEST_CONFIG_WINDOWS_SEH
+#else // DOCTEST_CONFIG_POSIX_SIGNALS || DOCTEST_CONFIG_WINDOWS_SHE
 
     void reportFatal(const std::string&);
 
@@ -4665,7 +4665,7 @@ namespace {
                         }
                     }
                     if(reported == false)
-                        reportFatal("Unhandled SEH exception caught");
+                        reportFatal("Unhandled SHE exception caught");
                     if(isDebuggerActive() && !g_cs->no_breaks)
                         DOCTEST_BREAK_INTO_DEBUGGER();
                 }
@@ -4688,7 +4688,7 @@ namespace {
             SetThreadStackGuarantee(&guaranteeSize);
 
             // On Windows uncaught exceptions from another thread, exceptions from
-            // destructors, or calls to std::terminate are not a SEH exception
+            // destructors, or calls to std::terminate are not a SHE exception
 
             // The terminal handler gets called when:
             // - std::terminate is called FROM THE TEST RUNNER THREAD
@@ -4855,7 +4855,7 @@ namespace {
     char*            FatalConditionHandler::altStackMem = nullptr;
 
 #endif // DOCTEST_PLATFORM_WINDOWS
-#endif // DOCTEST_CONFIG_POSIX_SIGNALS || DOCTEST_CONFIG_WINDOWS_SEH
+#endif // DOCTEST_CONFIG_POSIX_SIGNALS || DOCTEST_CONFIG_WINDOWS_SHE
 
 } // namespace
 
@@ -4879,7 +4879,7 @@ namespace {
             g_cs->numAssertsFailedCurrentTest_atomic++;
     }
 
-#if defined(DOCTEST_CONFIG_POSIX_SIGNALS) || defined(DOCTEST_CONFIG_WINDOWS_SEH)
+#if defined(DOCTEST_CONFIG_POSIX_SIGNALS) || defined(DOCTEST_CONFIG_WINDOWS_SHE)
     void reportFatal(const std::string& message) {
         g_cs->failure_flags |= TestCaseFailureReason::Crash;
 
@@ -4896,7 +4896,7 @@ namespace {
 
         DOCTEST_ITERATE_THROUGH_REPORTERS(test_run_end, *g_cs);
     }
-#endif // DOCTEST_CONFIG_POSIX_SIGNALS || DOCTEST_CONFIG_WINDOWS_SEH
+#endif // DOCTEST_CONFIG_POSIX_SIGNALS || DOCTEST_CONFIG_WINDOWS_SHE
 } // namespace
 
 AssertData::AssertData(assertType::Enum at, const char* file, int line, const char* expr,

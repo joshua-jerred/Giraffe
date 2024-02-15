@@ -334,7 +334,7 @@ size_t MutationDispatcher::Mutate_ChangeASCIIInteger(uint8_t *Data, size_t Size,
   while (E < Size && isdigit(Data[E])) E++;
   assert(B < E);
   // now we have digits in [B, E).
-  // strtol and friends don't accept non-zero-teminated data, parse it manually.
+  // strtol and friends don't accept non-zero-terminated data, parse it manually.
   uint64_t Val = Data[B] - '0';
   for (size_t i = B + 1; i < E; i++)
     Val = Val * 10 + Data[i] - '0';
@@ -373,9 +373,9 @@ size_t ChangeBinaryInteger(uint8_t *Data, size_t Size, Random &Rand) {
     T Add = Rand(21);
     Add -= 10;
     if (Rand.RandBool())
-      Val = Bswap(T(Bswap(Val) + Add)); // Add assuming different endiannes.
+      Val = Bswap(T(Bswap(Val) + Add)); // Add assuming different endianness.
     else
-      Val = Val + Add;               // Add assuming current endiannes.
+      Val = Val + Add;               // Add assuming current endianness.
     if (Add == 0 || Rand.RandBool()) // Maybe negate.
       Val = -Val;
   }

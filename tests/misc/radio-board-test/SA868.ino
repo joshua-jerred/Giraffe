@@ -3,7 +3,7 @@
  * @author Joshua Jerred (https://joshuajer.red)
  * @brief Testing code for the SA868 VHF radio module using the Pi Pico. This
  * will not be used in the final project, just testing the hardware!
- * 
+ *
  * @date 2023-02-03
  * @copyright Copyright (c) 2023
  */
@@ -28,11 +28,11 @@ const float MIN_FREQ = 134.0000; // per datasheet
 struct SA868 {
   bool powered = false; // true = on, false = off
   String tx_power = "1"; // 0 = high, 1 = low
-  
-  /* 
+
+  /*
     Range for the VHF Module: （134.0000M～174.0000M).
     Default is inside the experimental portion of the 2m band.
-    This will currently block and transmission outside of the 
+    This will currently block and transmission outside of the
     experimental part of the band.
 
     The current_freq will be set to both tx and rx freqs
@@ -47,7 +47,7 @@ struct SA868 {
   // Filters (0 = on, 1 = off)
   String pre_emphasis = "1";
   String de_emphasis = "1";
-  String low_pass = "1"; 
+  String low_pass = "1";
 };
 
 SA868 radio;
@@ -72,14 +72,14 @@ void loop() {
   } else {
     digitalWrite(RX_LED, LOW);
   }
-  
+
   if (Serial.available()) {
     String in_str = Serial.readString();
 
     if (in_str == "tx-on") {
       digitalWrite(TX_LED, HIGH);
       digitalWrite(PTT_PIN, HIGH);
-      return;      
+      return;
     } else if (in_str == "tx-off") {
       digitalWrite(TX_LED, LOW);
       digitalWrite(PTT_PIN, LOW);
@@ -109,7 +109,7 @@ void loop() {
 
         if (in_str.length() < 17 || in_str.charAt(12) != '.') {
           Serial.println("Invalid format : [set-freq xxx.xxxx]");
-          return;          
+          return;
         }
         String new_freq = in_str.substring(9, 17);
         float new_freq_float = new_freq.toFloat();
@@ -119,10 +119,10 @@ void loop() {
           Serial.println(" freq out of range");
           return;
         }
-        
+
         radio.current_freq = new_freq; // does not check for 12.5k/25k steps
         if (setGroup() == Ack::ACK) {
-          Serial.println("ACK");        
+          Serial.println("ACK");
         }
       } else if (in_str.startsWith("set-volume")) {
 
@@ -198,15 +198,15 @@ void loop() {
     }
   }
 
-    //Serial2.write(Serial.read());   
-  //if (Serial2.available()) {     
-  //  Serial.write(Serial2.read());   
+    //Serial2.write(Serial.read());
+  //if (Serial2.available()) {
+  //  Serial.write(Serial2.read());
   //}
 }
 
 Ack powerOn() {
   digitalWrite(PWR_PIN, HIGH);
-  radio.powered = true;  
+  radio.powered = true;
   return handshake();
 }
 
@@ -227,14 +227,14 @@ Ack handshake() {
 }
 
 Ack setGroup() { // Not yet implemented
-  String command = "AT+DMOSETGROUP=" 
-    + radio.tx_power + "," 
+  String command = "AT+DMOSETGROUP="
+    + radio.tx_power + ","
     + radio.current_freq + ","
     + radio.current_freq + ","
     + radio.tx_cxcss + ","
     + radio.squelch + ","
     + radio.rx_cxcss + "\r\n";
-  
+
   Serial2.write(command.c_str());
   String response = readRadio();
 
@@ -265,7 +265,7 @@ Ack setFilter() {
 Ack setVolume() {
   String command = "AT+DMOSETVOLUME="
     + radio.volume + "\r\n";
-  
+
   Serial2.write(command.c_str());
   String response = readRadio();
 
@@ -280,7 +280,7 @@ Ack setVolume() {
 String rssi() {
   String command = "AT+RSSI?\r\n";
   Serial2.write(command.c_str());
-  String response = readRadio();  
+  String response = readRadio();
   return response.substring(5, 8);
 }
 

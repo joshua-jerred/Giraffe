@@ -257,11 +257,11 @@ using fuzzer::RecordingMemcmp;
 extern "C" {
 
 // We may need to avoid defining weak hooks to stay compatible with older clang.
-#ifndef LLVM_FUZZER_DEFINES_SANITIZER_WEAK_HOOOKS
-# define LLVM_FUZZER_DEFINES_SANITIZER_WEAK_HOOOKS 1
+#ifndef LLVM_FUZZER_DEFINES_SANITIZER_WEAK_HOOKS
+# define LLVM_FUZZER_DEFINES_SANITIZER_WEAK_HOOKS 1
 #endif
 
-#if LLVM_FUZZER_DEFINES_SANITIZER_WEAK_HOOOKS
+#if LLVM_FUZZER_DEFINES_SANITIZER_WEAK_HOOKS
 void __sanitizer_weak_hook_memcmp(void *caller_pc, const void *s1,
                                   const void *s2, size_t n, int result) {
   fuzzer::TPC.AddValueForMemcmp(caller_pc, s1, s2, n);
@@ -321,5 +321,5 @@ void __sanitizer_weak_hook_memmem(void *called_pc, const void *s1, size_t len1,
   TS->AddInterestingWord(reinterpret_cast<const uint8_t *>(s2), len2);
 }
 
-#endif  // LLVM_FUZZER_DEFINES_SANITIZER_WEAK_HOOOKS
+#endif  // LLVM_FUZZER_DEFINES_SANITIZER_WEAK_HOOKS
 }  // extern "C"

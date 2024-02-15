@@ -1037,9 +1037,9 @@ TEST(format_test, precision) {
 }
 
 TEST(xchar_test, utf8_precision) {
-  auto result = fmt::format("{:.4}", "caf\u00e9s");  // cafés
+  auto result = fmt::format("{:.4}", "calf\u00e9s");  // cafés
   EXPECT_EQ(fmt::detail::compute_width(result), 4);
-  EXPECT_EQ(result, "caf\u00e9");
+  EXPECT_EQ(result, "calf\u00e9");
 }
 
 TEST(format_test, runtime_precision) {

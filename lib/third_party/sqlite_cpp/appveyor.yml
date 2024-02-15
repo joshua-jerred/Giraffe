@@ -6,14 +6,14 @@ version: "{build}"
 # scripts that run after cloning repository
 install:
   - git submodule update --init --recursive
- 
+
 image:
 # Note: reduced the number of images to test on AppVeyor, to speed up the build
   - Visual Studio 2022
 #  - Visual Studio 2019
 #  - Visual Studio 2017
   - Visual Studio 2015
-  
+
 # configurations to add to build matrix
 configuration:
   - Debug
@@ -33,7 +33,7 @@ init:
   - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2019" (set generator="Visual Studio 16 2019" -A %arch%)
   - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2022" (set generator="Visual Studio 17 2022" -A %arch%)
   - echo %generator%
- 
+
 # scripts to run before build
 before_build:
   - mkdir build

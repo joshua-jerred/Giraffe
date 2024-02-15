@@ -90,7 +90,7 @@ This release fixes several small bugs in the library. All changes are backward-c
 
 - The [`items()`](https://nlohmann.github.io/json/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html#afe3e137ace692efa08590d8df40f58dd) function can now be used with a custom string type. #1765
 - Made [`json_pointer::back`](https://nlohmann.github.io/json/classnlohmann_1_1json__pointer_a213bc67c32a30c68ac6bf06f5195d482.html#a213bc67c32a30c68ac6bf06f5195d482) `const`. #1764 #1769
-- Meson is part of the release archive. #1672 #1694 
+- Meson is part of the release archive. #1672 #1694
 - Improved documentation on the Meson and Spack package manager. #1694 #1720
 
 ### :hammer: Further Changes
@@ -295,7 +295,7 @@ This release introduces the support for **structured bindings** and reading from
   for (auto& [key, val] : j.items()) {
       std::cout << key << ':' << val << '\n';
   }
-  ```  
+  ```
   #1388 #1391
 
 - Added support for **reading from `FILE*`** to support situations in which streams are nit available or would require too much RAM. #1370 #1392
@@ -711,7 +711,7 @@ With all this breaking and deprecation out of the way, let's talk about features
 - The [`insert`](http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a1b0a4e60d56f1fe80501ed941e122892.html#a1b0a4e60d56f1fe80501ed941e122892) function now also supports an iterator range to add elements to an object.
 - The binary exchange formats **CBOR and MessagePack can now be parsed from input streams and written to output streams** (#477).
 - Input streams are now only read until the end of a JSON value instead of the end of the input (#367).
-- The serialization function [`dump`](http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5adea76fedba9898d404fef8598aa663.html#a5adea76fedba9898d404fef8598aa663) now has two optional parameters `ensure_ascii` to **escape all non-ASCII characters** with `\uxxxx` and an `indent_char` parameter to choose whether to **indent with spaces or tabs** (#654). 
+- The serialization function [`dump`](http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5adea76fedba9898d404fef8598aa663.html#a5adea76fedba9898d404fef8598aa663) now has two optional parameters `ensure_ascii` to **escape all non-ASCII characters** with `\uxxxx` and an `indent_char` parameter to choose whether to **indent with spaces or tabs** (#654).
 - Added **built-in type support** for C arrays (#502), `std::pair` and `std::tuple` (#563, #614), `enum` and `enum class` (#545), `std::vector<bool>` (#494). Fixed support for `std::valarray` (#702), `std::array` (#553), and `std::map<std::string, std::string>` (#600, #607).
 
 ### :hammer: Further changes
@@ -853,7 +853,7 @@ This release **fixes a locale-related bug in the parser**. To do so, the whole n
 - :lock: Starting during the preparation of this release (since 8 February 2017), commits and released files are **cryptographically signed** with [this GPG key](https://keybase.io/nlohmann/pgp_keys.asc?fingerprint=797167ae41c0a6d9232e48457f3cea63ae251b69). Previous releases have also been signed.
 - :sparkles: The parser for MessagePack and CBOR now supports an optional start index parameter to define a byte offset for the parser.
 - :rotating_light: Some more warnings have been fixed. With Clang, the code compiles **without warnings** with `-Weverything` (well, it needs `-Wno-documentation-unknown-command` and `-Wno-deprecated-declarations`, but you get the point).
-- :hammer: The code can be compiled easier with many Android NDKs by avoiding macros like `UINT8_MAX` which previously required defining a preprocessor macro for compilation.
+- :hammer: The code can be compiled easier with many Android ANDKs by avoiding macros like `UINT8_MAX` which previously required defining a preprocessor macro for compilation.
 - :zap: The unit tests now compile two times faster.
 - :heavy_plus_sign: [Cotire](https://github.com/sakra/cotire) is used to speed up the build.
 - :pencil2: Fixed a lot of typos in the documentation.
@@ -908,7 +908,7 @@ This release introduces a means to convert from/to user-defined types. The relea
 This release fixes several security-relevant bugs in the MessagePack and CBOR parsers. The fixes are backwards compatible.
 
 ### Changes
-- :bug: Fixed a lot of **bugs in the CBOR and MesssagePack parsers**. These bugs occurred if invalid input was parsed and then could lead in buffer overflows. These bugs were found with Google's [OSS-Fuzz](https://github.com/google/oss-fuzz), see #405, #407, #408, #409, #411, and #412 for more information.
+- :bug: Fixed a lot of **bugs in the CBOR and MessagePack parsers**. These bugs occurred if invalid input was parsed and then could lead in buffer overflows. These bugs were found with Google's [OSS-Fuzz](https://github.com/google/oss-fuzz), see #405, #407, #408, #409, #411, and #412 for more information.
 - :construction_worker: We now also use the **[Doozer](https://doozer.io) continuous integration platform**.
 - :construction_worker: The complete test suite is now also run with **Clang's address sanitizer and undefined-behavior sanitizer**.
 - :white_check_mark: Overworked **fuzz testing**; CBOR and MessagePack implementations are now fuzz-tested. Furthermore, all fuzz tests now include a round trip which ensures created output can again be properly parsed and yields the same JSON value.
@@ -1185,7 +1185,7 @@ As `noexcept` and `constexpr` specifier have been added to several functions, th
 This release fixes several small bugs and adds functionality in a backwards-compatible manner. Compared to the [last version (1.0.0)](https://github.com/nlohmann/json/releases/tag/v1.0.0), the following changes have been made:
 
 ### Changes
-- _Fixed_: **Floating-point numbers** are now serialized and deserialized properly such that rountripping works in more cases. [#185, #186, #190, #191, #194]
+- _Fixed_: **Floating-point numbers** are now serialized and deserialized properly such that roundtripping works in more cases. [#185, #186, #190, #191, #194]
 - _Added_: The code now contains **assertions** to detect undefined behavior during development. As the standard function `assert` is used, the assertions can be switched off by defining the preprocessor symbol `NDEBUG` during compilation. [#168]
 - _Added_: It is now possible to get a **reference** to the stored values via the newly added function `get_ref()`. [#128, #184]
 - _Fixed_: Access to object values via keys (**`operator[]`**) now works with all kind of string representations. [#171, #189]

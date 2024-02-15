@@ -13,7 +13,7 @@
 
 class BME280Test : public ::testing::Test {
 protected:
-    virtual void SetUp() { 
+    virtual void SetUp() {
         p_data_stream_ = new DataStream();
 
         extension_metadata_.id = 1;
@@ -21,12 +21,12 @@ protected:
         extension_metadata_.extension_type = "BME280";
         extension_metadata_.category = ExtensionMetadata::Category::EXTERNAL_SENSOR;
         extension_metadata_.interface = ExtensionMetadata::Interface::I2C;
-        extension_metadata_.update_interval = 1100; // time in miliseconds
+        extension_metadata_.update_interval = 1100; // time in milliseconds
         extension_metadata_.critical = 0;
         extension_metadata_.extra_args.I2C_bus = 1; // Change this if needed
         extension_metadata_.extra_args.I2C_device_address = 0x76;
      }
-    virtual void TearDown() { 
+    virtual void TearDown() {
         delete p_data_stream_;
     }
     DataStream *p_data_stream_ = nullptr;
@@ -45,7 +45,7 @@ TEST_F(BME280Test, BME280Test1) {
     for (int i = 0; i < num_data_packets; i++) {
         packet = p_data_stream_->getNextDataPacket();
         EXPECT_EQ(packet.source, extension_metadata_.extension_type);
-        
+
         if (packet.unit == "TEMP_C") {
             EXPECT_GT(std::stod(packet.value), 10.0) << "Temperature is too low";
             EXPECT_LT(std::stod(packet.value), 40.0) << "Temperature is too high"; // High value due to the sensor being right above the linear regulator

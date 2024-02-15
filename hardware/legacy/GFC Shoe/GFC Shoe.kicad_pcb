@@ -418,7 +418,7 @@
     (pad "24" smd rect (at 3.6 -1.625) (size 1.75 0.45) (layers "F.Cu" "F.Paste" "F.Mask")
       (net 70 "unconnected-(U1-Pad24)") (pinfunction "DIN") (pintype "input+no_connect") (tstamp 2c36da4f-60ad-46ba-98e9-f7fe15b36e91))
     (pad "25" smd rect (at 3.6 -2.275) (size 1.75 0.45) (layers "F.Cu" "F.Paste" "F.Mask")
-      (net 71 "unconnected-(U1-Pad25)") (pinfunction "DOUT") (pintype "output+no_connect") (tstamp 6534d19a-8025-40fc-a92b-f912a008c3ff))
+      (net 71 "unconnected-(U1-Pad25)") (pinfunction "DOUBT") (pintype "output+no_connect") (tstamp 6534d19a-8025-40fc-a92b-f912a008c3ff))
     (pad "26" smd rect (at 3.6 -2.925) (size 1.75 0.45) (layers "F.Cu" "F.Paste" "F.Mask")
       (net 2 "GND") (pinfunction "DGND") (pintype "power_in") (tstamp 3d781f10-761a-4edf-938e-751cd7090e3d))
     (pad "27" smd rect (at 3.6 -3.575) (size 1.75 0.45) (layers "F.Cu" "F.Paste" "F.Mask")

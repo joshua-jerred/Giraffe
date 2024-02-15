@@ -393,7 +393,7 @@ Header Database::getHeaderInfo(const std::string& aFilename)
         (buf[62] << 8)  |
         (buf[63] << 0);
 
-    h.incrementalVaccumMode =
+    h.incrementalVacuumMode =
         (buf[64] << 24) |
         (buf[65] << 16) |
         (buf[66] << 8)  |

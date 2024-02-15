@@ -11,7 +11,7 @@ with respect to the server load.
 
 The polling interval can be configured on the web interface. The minimum value
 is every 3 minutes. The default value is 10 minutes. During a single run,
-if there are 2 tries that fail (including not finding data), it will be 
+if there are 2 tries that fail (including not finding data), it will be
 automatically disabled.
 
 The data is stored in the `aprs_fi` table in the database.

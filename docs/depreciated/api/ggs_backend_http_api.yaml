@@ -49,7 +49,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Resource'
       - $ref: '#/components/parameters/Category'
-      
+
     get:
       description: Get the current settings and metadata related to the settings
       parameters:
@@ -180,7 +180,7 @@ components:
         enum: [gfs_connection, influx_db]
       description: >
           - `gfs_connection` - ggs - The connection settings for the flight computer
-          
+
           - `influx_db` - ggs - The connection settings for the influx database
 
           - `ggs_telemetry` - ggs - The telemetry settings for the ground station
@@ -194,12 +194,12 @@ components:
         enum: [critical, position, status, errors, logs]
       description: >
           - `critical` - gfs - Critical data from the flight computer
-          
+
           - `position` - gfs - Position data (GPS, IMU) from the flight computer
 
           - `status_system` - gfs
 
-          - `status_general` - gfs 
+          - `status_general` - gfs
 
           - `status_modules` - gfs
 

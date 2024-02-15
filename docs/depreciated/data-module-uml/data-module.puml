@@ -32,7 +32,7 @@ node DataModuleThread {
         + v_speed
     }
 
-     
+
 }
 
 @enduml

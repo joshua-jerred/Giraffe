@@ -84,7 +84,7 @@ void bind(SQLite::Statement& query, const std::tuple<Types...> &tuple)
  * to parameter packs
  *
  * This feature requires a c++14 capable compiler.
- * 
+ *
  * @param query     statement
  * @param tuple     tuple with values to bind
  */

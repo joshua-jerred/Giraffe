@@ -46,7 +46,7 @@ Check out the [Giraffe GitHub Project](https://github.com/users/joshua-jerred/pr
 ***
 
 # About
-Giraffe is a "flight command and control system" first developed for high 
+Giraffe is a "flight command and control system" first developed for high
 altitude balloon flights.
 
 The purpose of this project is mainly to have a 'learning lab' where I can experiment with all of the things that I'm interested in. This includes C++, Linux Embedded Development, Circuit Design, RF/Amateur Radio, Node.js, CI, interfacing hardware with the web, meta-programming, and more.
@@ -61,7 +61,7 @@ The system includes the following key components:
   - The hardware and software used on both GFS and GGS to connect them together
     via long distance radio links.
 - **GWC** Giraffe Web Client
-  - A web client to easily configure, control, and monitor all Giraffe 
+  - A web client to easily configure, control, and monitor all Giraffe
     components in one place.
 
 ## Current High Level Functionality
@@ -79,15 +79,15 @@ The system includes the following key components:
 The flight software is written in C++, the web interface and ground stations are written in Node.js, and some Python is sprinkled in.
 
 There are common components, including a large collection of configuration
-and data point metadata files that are used to generate code for both the 
+and data point metadata files that are used to generate code for both the
 flight system and the ground station. For example, to add a configuration
 option for the flight computer, you just need to add the information to the
 metadata file, run the generator, rebuild, and redeploy. It will then be inside
-of the flight software, configurable via the web interface, and safely 
+of the flight software, configurable via the web interface, and safely
 implemented to restrained values to prevent misconfiguration.
 This works for integers, floats, strings, and enums.
 
-Being a 'learning lab' project, nearly everything is built from the ground up 
+Being a 'learning lab' project, nearly everything is built from the ground up
 including my own implementations of:
 - Linux I2C and Serial wrappers
 - BCM Interface for direct GPIO control on the Raspberry Pi
@@ -117,26 +117,26 @@ Where I used existing 3rd party libraries:
 - Google Test for unit testing
 
 Everything is designed to be modular and extensible so that it can be used for
-all types of HAB flights or even some other future implementations where command 
-and control is needed. The software is made to work  on any ARM based single 
-board computer that runs Linux, like the Raspberry Pi but it is targeted towards 
-the Pi Zero 2 and Pi 4. 
+all types of HAB flights or even some other future implementations where command
+and control is needed. The software is made to work  on any ARM based single
+board computer that runs Linux, like the Raspberry Pi but it is targeted towards
+the Pi Zero 2 and Pi 4.
 
-The framework utilizes open communication protocols/modulation modes like APRS, 
-AFSK, PSK31, and SSTV to allow for easy integration into existing software. Two 
-way communication, which is currently in development, allows you to send 
-commands to the flight computer from the ground station. There is a lot more 
-included that isn't mentioned here, so please see the 
+The framework utilizes open communication protocols/modulation modes like APRS,
+AFSK, PSK31, and SSTV to allow for easy integration into existing software. Two
+way communication, which is currently in development, allows you to send
+commands to the flight computer from the ground station. There is a lot more
+included that isn't mentioned here, so please see the
 [rest of the documentation](http://giraffe.joshuajer.red/).
 
-Too see my more older, simplified, python implementation of this 
+Too see my more older, simplified, python implementation of this
 project check out the [the AOS repo.](https://github.com/joshua-jerred/AOS)
 ***
 
 # Hardware
 I'm currently working on hardware prototypes.
 
-The flight computer is (will be) made up of two boards; it is targeted towards the 
+The flight computer is (will be) made up of two boards; it is targeted towards the
 Raspberry Pi Zero 2 and maintains the same footprint. The Raspberry Pi will
 be sandwiched between the two boards, with the top board being the "hat" and
 the bottom board being the "shoe".
@@ -146,7 +146,7 @@ The hat contains the majority of the circuitry. It is a four layer PCB
 containing the following:
 - Power Management
   - Connects to the battery (21700 Cells) via a terminal block
-  - Includes a 5v linear regulator and support circuitry, this powers the Pi and 
+  - Includes a 5v linear regulator and support circuitry, this powers the Pi and
       the other PCB
   - Voltage Divider for battery voltage measurement
 - Sensors
@@ -185,7 +185,7 @@ the following:
 - Integrated PCM2902 Audio Codes
   - USB interface with the Pi
   - 2x input channels, 2x output channels, only one of each is currently used.
-- An attempt to impedance match the RF traces from the SA868 to the 
+- An attempt to impedance match the RF traces from the SA868 to the
     SMA connector and provide shielding.
 
 The radio will be on the very bottom of the hardware stack, hopefully isolating
@@ -209,13 +209,13 @@ ordering this one.
 > <img src="https://user-images.githubusercontent.com/19292194/227387219-c36bae74-d6ca-4d5a-b566-fc4badf1009e.png" height="250">
 > <img src="" height="250">
 > </p>
-> Left: SA868 Testing PCB with a dummy load antenna. 
-> 
+> Left: SA868 Testing PCB with a dummy load antenna.
+>
 > Right: PCM2902 Testing PCB with USB interface.
 
 
 > <img src="https://user-images.githubusercontent.com/19292194/227387618-c7b300dc-241b-426e-ac53-549f9683c18d.png" height="250">
-> 
+>
 >Unfortunately, I don't have the equipment to test it properly, but the SA868
 >PCB includes a low pass filter to take care of the messy RF output that these
 >modules are known to have.

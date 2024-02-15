@@ -2,9 +2,9 @@
  * @file utility-one-wire.cpp
  * @author Joshua Jerred (https://joshuajer.red/)
  * @brief Implementation for the one wire utility class.
- * 
+ *
  * @cite http://blog.foool.net/wp-content/uploads/linuxdocs/w1.pdf
- * 
+ *
  * @date 2022-11-02
  * @copyright Copyright (c) 2023
  * @version 0.1.0

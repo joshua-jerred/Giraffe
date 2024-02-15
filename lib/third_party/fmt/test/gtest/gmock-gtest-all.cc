@@ -791,9 +791,9 @@ class GTEST_API_ UnitTestOptions {
   // Function for supporting the gtest_catch_exception flag.
 
   // Returns EXCEPTION_EXECUTE_HANDLER if Google Test should handle the
-  // given SEH exception, or EXCEPTION_CONTINUE_SEARCH otherwise.
+  // given SHE exception, or EXCEPTION_CONTINUE_SEARCH otherwise.
   // This function is useful as an __except condition.
-  static int GTestShouldProcessSEH(DWORD exception_code);
+  static int GTestShouldProcessSHE(DWORD exception_code);
 #endif  // GTEST_OS_WINDOWS
 
   // Returns true if "name" matches the ':' separated list of glob-style
@@ -1668,7 +1668,7 @@ const char kStackTraceMarker[] = "\nStack trace:\n";
 // is specified on the command line.
 bool g_help_flag = false;
 
-// Utilty function to Open File for Writing
+// Utility function to Open File for Writing
 static FILE* OpenFileForWriting(const std::string& output_file) {
   FILE* fileout = nullptr;
   FilePath output_file_path(output_file);
@@ -2245,18 +2245,18 @@ bool UnitTestOptions::FilterMatchesTest(const std::string& test_suite_name,
           !MatchesFilter(full_name, negative.c_str()));
 }
 
-#if GTEST_HAS_SEH
+#if GTEST_HAS_SHE
 // Returns EXCEPTION_EXECUTE_HANDLER if Google Test should handle the
-// given SEH exception, or EXCEPTION_CONTINUE_SEARCH otherwise.
+// given SHE exception, or EXCEPTION_CONTINUE_SEARCH otherwise.
 // This function is useful as an __except condition.
-int UnitTestOptions::GTestShouldProcessSEH(DWORD exception_code) {
-  // Google Test should handle a SEH exception if:
+int UnitTestOptions::GTestShouldProcessSHE(DWORD exception_code) {
+  // Google Test should handle a SHE exception if:
   //   1. the user wants it to, AND
   //   2. this is not a breakpoint exception, AND
-  //   3. this is not a C++ exception (VC++ implements them via SEH,
+  //   3. this is not a C++ exception (VC++ implements them via SHE,
   //      apparently).
   //
-  // SEH exception code for C++ exceptions.
+  // SHE exception code for C++ exceptions.
   // (see http://support.microsoft.com/kb/185294 for more information).
   const DWORD kCxxExceptionCode = 0xe06d7363;
 
@@ -2271,7 +2271,7 @@ int UnitTestOptions::GTestShouldProcessSEH(DWORD exception_code) {
 
   return should_handle ? EXCEPTION_EXECUTE_HANDLER : EXCEPTION_CONTINUE_SEARCH;
 }
-#endif  // GTEST_HAS_SEH
+#endif  // GTEST_HAS_SHE
 
 }  // namespace internal
 
@@ -4023,22 +4023,22 @@ bool Test::HasSameFixtureClass() {
   return true;
 }
 
-#if GTEST_HAS_SEH
+#if GTEST_HAS_SHE
 
 // Adds an "exception thrown" fatal failure to the current test.  This
 // function returns its result via an output parameter pointer because VC++
 // prohibits creation of objects with destructors on stack in functions
 // using __try (see error C2712).
-static std::string* FormatSehExceptionMessage(DWORD exception_code,
+static std::string* FormatSheExceptionMessage(DWORD exception_code,
                                               const char* location) {
   Message message;
-  message << "SEH exception with code 0x" << std::setbase(16) <<
+  message << "SHE exception with code 0x" << std::setbase(16) <<
     exception_code << std::setbase(10) << " thrown in " << location << ".";
 
   return new std::string(message.GetString());
 }
 
-#endif  // GTEST_HAS_SEH
+#endif  // GTEST_HAS_SHE
 
 namespace internal {
 
@@ -4070,23 +4070,23 @@ GoogleTestFailureException::GoogleTestFailureException(
 // We put these helper functions in the internal namespace as IBM's xlC
 // compiler rejects the code if they were declared static.
 
-// Runs the given method and handles SEH exceptions it throws, when
-// SEH is supported; returns the 0-value for type Result in case of an
-// SEH exception.  (Microsoft compilers cannot handle SEH and C++
+// Runs the given method and handles SHE exceptions it throws, when
+// SHE is supported; returns the 0-value for type Result in case of an
+// SHE exception.  (Microsoft compilers cannot handle SHE and C++
 // exceptions in the same function.  Therefore, we provide a separate
-// wrapper function for handling SEH exceptions.)
+// wrapper function for handling SHE exceptions.)
 template <class T, typename Result>
-Result HandleSehExceptionsInMethodIfSupported(
+Result HandleSheExceptionsInMethodIfSupported(
     T* object, Result (T::*method)(), const char* location) {
-#if GTEST_HAS_SEH
+#if GTEST_HAS_SHE
   __try {
     return (object->*method)();
-  } __except (internal::UnitTestOptions::GTestShouldProcessSEH(  // NOLINT
+  } __except (internal::UnitTestOptions::GTestShouldProcessSHE(  // NOLINT
       GetExceptionCode())) {
     // We create the exception message on the heap because VC++ prohibits
     // creation of objects with destructors on stack in functions using __try
     // (see error C2712).
-    std::string* exception_message = FormatSehExceptionMessage(
+    std::string* exception_message = FormatSheExceptionMessage(
         GetExceptionCode(), location);
     internal::ReportFailureInUnknownLocation(TestPartResult::kFatalFailure,
                                              *exception_message);
@@ -4096,12 +4096,12 @@ Result HandleSehExceptionsInMethodIfSupported(
 #else
   (void)location;
   return (object->*method)();
-#endif  // GTEST_HAS_SEH
+#endif  // GTEST_HAS_SHE
 }
 
-// Runs the given method and catches and reports C++ and/or SEH-style
+// Runs the given method and catches and reports C++ and/or SHE-style
 // exceptions, if they are supported; returns the 0-value for type
-// Result in case of an SEH exception.
+// Result in case of an SHE exception.
 template <class T, typename Result>
 Result HandleExceptionsInMethodIfSupported(
     T* object, Result (T::*method)(), const char* location) {
@@ -4131,7 +4131,7 @@ Result HandleExceptionsInMethodIfSupported(
   if (internal::GetUnitTestImpl()->catch_exceptions()) {
 #if GTEST_HAS_EXCEPTIONS
     try {
-      return HandleSehExceptionsInMethodIfSupported(object, method, location);
+      return HandleSheExceptionsInMethodIfSupported(object, method, location);
     } catch (const AssertionException&) {  // NOLINT
       // This failure was reported already.
     } catch (const internal::GoogleTestFailureException&) {  // NOLINT
@@ -4150,7 +4150,7 @@ Result HandleExceptionsInMethodIfSupported(
     }
     return static_cast<Result>(0);
 #else
-    return HandleSehExceptionsInMethodIfSupported(object, method, location);
+    return HandleSheExceptionsInMethodIfSupported(object, method, location);
 #endif  // GTEST_HAS_EXCEPTIONS
   } else {
     return (object->*method)();

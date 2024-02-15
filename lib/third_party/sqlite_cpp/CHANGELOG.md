@@ -11,7 +11,7 @@ Version 0.1.0 - 2012 Apr 4
 - Added a version number like in sqlite3.h, starting with 0.1.0
 
 Version 0.2.0 - 2012 Apr 11
-- Added getLastInsertId() and setBusyTimout()
+- Added getLastInsertId() and setBusyTimeout()
 - Added bind() by name methods
 
 Version 0.3.0 - 2012 Apr 16
@@ -216,7 +216,7 @@ Version 3.2.0 - 2022 Septembre 18
 - #366 Add vcpkg installation instructions from FrankXie05/vcpkg-instructions
 - #360 Small improvements and code cleaning from Kacperos155/small_improvements
 
-Versions 3.2.1 - 2022 Decembre 12
+Versions 3.2.1 - 2022 December 12
 - #383 Update SQLite from 3.39.3 to 3.40.0 (2022-11-16) from SRombauts/update-sqlite-340
 - #370 Don't link anymore with Visual Studio's static runtime by default from SRombauts/dont-enforce-static-linking
 - #371 from SRombauts/appveyor-vs-2022

@@ -2,7 +2,7 @@
 
 The [BJData format](https://neurojson.org) was derived from and improved upon
 [Universal Binary JSON(UBJSON)](https://ubjson.org) specification (Draft 12). Specifically, it introduces an optimized
-array container for efficient storage of N-dimensional packed arrays (**ND-arrays**); it also adds 4 new type markers -
+array container for efficient storage of N-dimensional packed arrays (**AND-arrays**); it also adds 4 new type markers -
 `[u] - uint16`, `[m] - uint32`, `[M] - uint64` and `[h] - float16` - to unambiguously map common binary numeric types;
 furthermore, it uses little-endian (LE) to store all numerics instead of big-endian (BE) as in UBJSON to avoid
 unnecessary conversions on commonly available platforms.
@@ -94,14 +94,14 @@ The library uses the following mapping from JSON values types to BJData types ac
     Note that `use_size = true` alone may result in larger representations - the benefit of this parameter is that the
     receiving side is immediately informed of the number of elements in the container.
 
-!!! info "ND-array optimized format"
+!!! info "AND-array optimized format"
 
-    BJData extends UBJSON's optimized array **size** marker to support ND-arrays of uniform numerical data types
+    BJData extends UBJSON's optimized array **size** marker to support AND-arrays of uniform numerical data types
     (referred to as *packed arrays*). For example, the 2-D `uint8` integer array `[[1,2],[3,4],[5,6]]`, stored as nested
     optimized array in UBJSON `[ [$U#i2 1 2 [$U#i2 3 4 [$U#i2 5 6 ]`, can be further compressed in BJData to
     `[$U#[$i#i2 2 3 1 2 3 4 5 6` or `[$U#[i2 i3] 1 2 3 4 5 6`.
 
-    To maintain type and size information, ND-arrays are converted to JSON objects following the **annotated array
+    To maintain type and size information, AND-arrays are converted to JSON objects following the **annotated array
     format** (defined in the [JData specification (Draft 3)][JDataAAFmt]), when parsed using
     [`from_bjdata`](../../api/basic_json/from_bjdata.md). For example, the above 2-D `uint8` array can be parsed and
     accessed as
@@ -115,12 +115,12 @@ The library uses the following mapping from JSON values types to BJData types ac
     ```
 
     Likewise, when a JSON object in the above form is serialzed using
-    [`to_bjdata`](../../api/basic_json/to_bjdata.md), it is automatically converted into a compact BJData ND-array. The
+    [`to_bjdata`](../../api/basic_json/to_bjdata.md), it is automatically converted into a compact BJData AND-array. The
     only exception is, that when the 1-dimensional vector stored in `"_ArraySize_"` contains a single integer or two
     integers with one being 1, a regular 1-D optimized array is generated.
 
     The current version of this library does not yet support automatic detection of and conversion from a nested JSON
-    array input to a BJData ND-array.
+    array input to a BJData AND-array.
 
     [JDataAAFmt]: https://github.com/NeuroJSON/jdata/blob/master/JData_specification.md#annotated-storage-of-n-d-arrays)
 
@@ -174,7 +174,7 @@ The library maps BJData types to JSON value types as follows:
 | string      | string                                  | `S`    |
 | char        | string                                  | `C`    |
 | array       | array (optimized values are supported)  | `[`    |
-| ND-array    | object (in JData annotated array format)|`[$.#[.`|
+| AND-array    | object (in JData annotated array format)|`[$.#[.`|
 | object      | object (optimized values are supported) | `{`    |
 
 !!! success "Complete mapping"

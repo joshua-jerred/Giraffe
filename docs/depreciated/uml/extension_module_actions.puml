@@ -40,7 +40,7 @@ start --> error_disable : reached max restarts
 
 run --> stop : on shutdown
 run --> stop : command requested
-run --> disable : command 
+run --> disable : command
 run --> error_restart : restart on extension error
 run --> restart : command requested (config change)
 
