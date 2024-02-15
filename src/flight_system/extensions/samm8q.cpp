@@ -285,13 +285,11 @@ void SamM8q::stateRead() {
   gps_frame.is_valid = nav_data.valid;
 
   try {
+    /// @todo document the +1 hour, why is this done?
     gps_frame.gps_utc_time = bst::time::dateAndTimeToTimePoint(
         nav_data.year, nav_data.month, nav_data.day, nav_data.hour + 1,
         nav_data.minute, nav_data.second);
   } catch (bst::BoosterSeatException &e) {
-    std::cout << "in ext" << nav_data.year << " " << nav_data.month << " "
-              << nav_data.day << " " << nav_data.hour << " " << nav_data.minute
-              << " " << nav_data.second << std::endl;
     error(DiagnosticId::EXTENSION_samm8qInvalidTime);
     gps_frame.is_valid = false;
   }
