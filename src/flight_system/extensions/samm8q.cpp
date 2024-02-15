@@ -260,7 +260,7 @@ void SamM8q::stateRead() {
     extSleep(kBadDataSleepTime);
     ubx::flushStream(i2c_);
     extSleep(kBadDataSleepTime);
-    EXT_DEBUG("SAM-M8Q bad data");
+    debug("SAM-M8Q bad data");
     return;
   }
 
@@ -284,9 +284,17 @@ void SamM8q::stateRead() {
 
   gps_frame.is_valid = nav_data.valid;
 
-  gps_frame.gps_utc_time = bst::time::dateAndTimeToTimePoint(
-      nav_data.year, nav_data.month, nav_data.day, nav_data.hour + 1,
-      nav_data.minute, nav_data.second);
+  try {
+    gps_frame.gps_utc_time = bst::time::dateAndTimeToTimePoint(
+        nav_data.year, nav_data.month, nav_data.day, nav_data.hour + 1,
+        nav_data.minute, nav_data.second);
+  } catch (bst::BoosterSeatException &e) {
+    std::cout << "in ext" << nav_data.year << " " << nav_data.month << " "
+              << nav_data.day << " " << nav_data.hour << " " << nav_data.minute
+              << " " << nav_data.second << std::endl;
+    error(DiagnosticId::EXTENSION_samm8qInvalidTime);
+    gps_frame.is_valid = false;
+  }
 
   gps_frame.num_satellites = nav_data.num_satellites;
   gps_frame.latitude = nav_data.latitude;

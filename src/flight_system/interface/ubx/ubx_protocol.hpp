@@ -48,7 +48,7 @@ enum class FixType {
 };
 
 struct NavData {
-  bool valid = false;
+  bool valid = true; /// @todo currently, this really doesn't do anything
   int year = 0;
   int month = 0;
   int day = 0;
