@@ -1,5 +1,26 @@
 # GFS Version Change Log
 
+## 0.7
+2024-02-15
+
+- Extension Updates
+  - SAM-M8Q
+  - MCP3021
+  - DS18B20
+  - Pi Camera re-implantation
+- Data Module
+  - Completed Calculated Data work
+- Web Client / GGS Backend
+  - Removed Web Sockets, now only using the HTTP API
+  - Major changes that are not worth documenting as it's a major work in progress
+  - Added Giraffe Data Link support
+- Giraffe Data Link
+  - Implemented the Giraffe Data Link a RTP like system.
+  - Added 2 way communication between the GFC and GGS
+- Massive change was made to the MWAV library along with it's name being changed to `SignalEasel`.
+- A large list of changes made to `BoosterSeat` for the Giraffe project.
+- A large list of other changes that were not documented well at the time. It's best to look at the commit/merge history for more information.
+
 ***
 
 ## 0.6
@@ -14,6 +35,7 @@ Retroactive Version Documentation - 2024-02-15
   - Worked on calculated data
 - I2C Interface Updates
 - Started work on the data link
+- InfluxDB support in GFS and in GGS/GWC
 - Various other minor (undocumented) changes
 
 ***
