@@ -1,7 +1,8 @@
 <map id="modules::Module::stop" name="modules::Module::stop">
-<area shape="rect" id="node1" title="Stops the module by setting the stop flag to true and joining the runner thread." alt="" coords="801,31,972,57"/>
+<area shape="rect" id="node1" title="Stops the module by setting the stop flag to true and joining the runner thread." alt="" coords="801,64,972,91"/>
 <area shape="rect" id="node2" href="$classFlightRunner.html#a6904cac87e21bb4d2957eab383a4f597" title=" " alt="" coords="547,5,753,32"/>
-<area shape="rect" id="node3" href="$classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c" title=" " alt="" coords="549,56,751,83"/>
-<area shape="rect" id="node4" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,56,499,83"/>
-<area shape="rect" id="node5" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,56,220,83"/>
+<area shape="rect" id="node3" href="$classDataModuleTests.html#a7d02b1a250db1859bc9ca5614c1f3c54" title=" " alt="" coords="547,57,753,98"/>
+<area shape="rect" id="node4" href="$classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c" title=" " alt="" coords="549,123,751,149"/>
+<area shape="rect" id="node5" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,123,499,149"/>
+<area shape="rect" id="node6" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,123,220,149"/>
 </map>

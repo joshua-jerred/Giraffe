@@ -1,7 +1,7 @@
 <map id="modules::DataModule" name="modules::DataModule">
 <area shape="rect" id="node1" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="2217,1747,2488,2059"/>
 <area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="1781,1255,1948,1640"/>
-<area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title=" " alt="" coords="487,527,621,605"/>
+<area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1SharedData" title=" " alt="" coords="487,527,621,605"/>
 <area shape="rect" id="node35" href="$classdata__middleware_1_1DataLog.html" title="Used to write data and log information to files. Used by the data module." alt="" coords="277,1291,474,1603"/>
 <area shape="rect" id="node41" href="$classdata__middleware_1_1DataFormatter.html" title=" " alt="" coords="215,851,453,1075"/>
 <area shape="rect" id="node49" href="$classdata__middleware_1_1InfluxDb.html" title=" " alt="" coords="930,887,1127,1038"/>

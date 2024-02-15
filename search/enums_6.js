@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['level_3578',['Level',['../structdata_1_1LogPacket.html#acf1eb5602d42a50429a2d4b4752279f4',1,'data::LogPacket']]],
-  ['loggerlevel_3579',['LoggerLevel',['../namespacegiraffe.html#a7de051682a10e68f9259ee84278381ed',1,'giraffe']]]
+  ['level_3496',['Level',['../structdata_1_1LogPacket.html#acf1eb5602d42a50429a2d4b4752279f4',1,'data::LogPacket']]],
+  ['loggerlevel_3497',['LoggerLevel',['../namespacegiraffe.html#a7de051682a10e68f9259ee84278381ed',1,'giraffe']]]
 ];

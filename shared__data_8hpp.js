@@ -20,7 +20,14 @@ var shared__data_8hpp =
       [ "telemetry_module_stats", "namespacedata.html#ad7af8bcae7adc32595349982c18df759", null ],
       [ "calculated_data", "namespacedata.html#a33d3cd52c1f9199e9d46deb52e1e492f", null ]
     ] ],
-    [ "SharedData", "structdata_1_1SharedData.html", "structdata_1_1SharedData" ],
+    [ "SharedData", "namespacedata.html#structdata_1_1SharedData", [
+      [ "streams", "namespacedata.html#ae2e3372c67775b05b48b5cb171bcc3f8", null ],
+      [ "frames", "namespacedata.html#ab8fa86bee33ee8b199746b851aa61f42", null ],
+      [ "blocks", "namespacedata.html#ab98a7a65eac8ffd555f886a6a45e3142", null ],
+      [ "misc", "namespacedata.html#ad09f2eef7f3c8ae3af47348e633c7071", null ],
+      [ "log_container", "namespacedata.html#adc6c096d157e951bcaea1aa84916216a", null ],
+      [ "status_led", "namespacedata.html#a7c6f482dc4d558d8463ea2ffcd906fed", null ]
+    ] ],
     [ "Streams", "namespacedata.html#structdata_1_1Streams", [
       [ "data", "namespacedata.html#a22ad003376a2efe4c21e35b9a9ac9901", null ],
       [ "log", "namespacedata.html#a4766bad914aa6422667738b7452a1916", null ],

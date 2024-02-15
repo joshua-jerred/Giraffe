@@ -1,9 +1,8 @@
 <map id="flight_system" name="flight_system">
-<area shape="rect" id="node4" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" title="src" alt="" coords="204,159,276,207"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000013_000000.html" title="22" alt="" coords="264,141,281,156"/>
-<area shape="rect" id="node2" href="dir_62f7748430acc38923a359510732ad34.html" title="host_tests" alt="" coords="134,63,223,111"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000016_000000.html" title="14" alt="" coords="213,131,231,146"/>
-<area shape="rect" id="node3" href="dir_bb7fb74cb7bbe08951d6d8372c49c868.html" title="old" alt="" coords="37,63,109,111"/>
-<area shape="rect" id="clust2" href="dir_8d47769757c5da7f7f28492c53445906.html" alt="" coords="27,52,369,121"/>
-<area shape="rect" id="clust1" href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html" title="tests" alt="" coords="16,16,380,132"/>
+<area shape="rect" id="node3" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" title="src" alt="" coords="108,159,180,207"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000013_000000.html" title="23" alt="" coords="168,141,185,156"/>
+<area shape="rect" id="node2" href="dir_62f7748430acc38923a359510732ad34.html" title="host_tests" alt="" coords="38,63,127,111"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000016_000000.html" title="14" alt="" coords="117,131,135,146"/>
+<area shape="rect" id="clust2" href="dir_8d47769757c5da7f7f28492c53445906.html" alt="" coords="27,52,273,121"/>
+<area shape="rect" id="clust1" href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html" title="tests" alt="" coords="16,16,284,132"/>
 </map>

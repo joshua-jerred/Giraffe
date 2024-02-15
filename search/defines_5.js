@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mcp3021_5ftest_5fenabled_3749',['MCP3021_TEST_ENABLED',['../test__extensions_8cpp.html#a080856379fa3aac4938e23ecc5dfcd3d',1,'test_extensions.cpp']]]
+  ['rgb_5fstatus_5fled_5ftest_5fenabled_3662',['RGB_STATUS_LED_TEST_ENABLED',['../test__extensions_8cpp.html#a06c71068f4e7ceb440d9ddc92a6c3e36',1,'test_extensions.cpp']]]
 ];

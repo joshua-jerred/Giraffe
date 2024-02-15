@@ -7,7 +7,7 @@
 <area shape="rect" id="node34" href="$group__ServerModule.html#classmodules_1_1ServerModule" title="The server module. Provides a network interface for interacting with the flight system." alt="" coords="3161,1875,3337,2026"/>
 <area shape="rect" id="node40" href="$classmodules_1_1DataModule.html" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="3884,1795,4155,2107"/>
 <area shape="rect" id="node47" href="$classmodules_1_1ConsoleModule.html" title="The console module is a module that provides a console interface for the flight system." alt="" coords="1349,1846,1535,2055"/>
-<area shape="rect" id="node4" href="$structdata_1_1SharedData.html" title=" " alt="" coords="3089,447,3224,524"/>
+<area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1SharedData" title=" " alt="" coords="3089,447,3224,524"/>
 <area shape="rect" id="node35" href="$group__ServerModule.html#classRequestRouter" title="Used to handle client requests from the server module." alt="" coords="3433,1376,3643,1629"/>
 <area shape="rect" id="node41" href="$classdata__middleware_1_1DataLog.html" title="Used to write data and log information to files. Used by the data module." alt="" coords="3657,689,3854,1001"/>
 <area shape="rect" id="node46" href="$classdata__middleware_1_1InfluxDb.html" title=" " alt="" coords="2830,1427,3027,1578"/>

@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title="Used to handle client requests from the server module." alt="" coords="4133,1715,4344,1968"/>
 <area shape="rect" id="node2" title=" " alt="" coords="4244,1325,4311,1402"/>
 <area shape="rect" id="node46" href="$structdata_1_1blocks_1_1ServerModuleStats.html" title=" " alt="" coords="4411,1531,4610,1623"/>
-<area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title=" " alt="" coords="2959,1538,3094,1615"/>
+<area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1SharedData" title=" " alt="" coords="2959,1538,3094,1615"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="3338,1325,3451,1402"/>
 <area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="3816,979,4037,1115"/>
 <area shape="rect" id="node48" href="$classgiraffe_1_1Logger.html" title=" " alt="" coords="4675,1303,4791,1424"/>

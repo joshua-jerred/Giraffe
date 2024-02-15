@@ -1,6 +1,6 @@
 <map id="modules::Module" name="modules::Module">
 <area shape="rect" id="node1" title=" " alt="" coords="4761,1656,4927,2041"/>
-<area shape="rect" id="node2" href="$structdata_1_1SharedData.html" title=" " alt="" coords="3043,1516,3178,1593"/>
+<area shape="rect" id="node2" href="$namespacedata.html#structdata_1_1SharedData" title=" " alt="" coords="3043,1516,3178,1593"/>
 <area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="3687,1325,3801,1402"/>
 <area shape="rect" id="node4" href="$classdata_1_1LogStream.html" title=" " alt="" coords="3311,979,3532,1115"/>
 <area shape="rect" id="node5" href="$classdata_1_1Stream.html" title=" " alt="" coords="3307,432,3509,627"/>

@@ -24,7 +24,7 @@ var classextension_1_1Mcp3021 =
     [ "error", "classextension_1_1Mcp3021.html#a947a643d302b5c5f9cef1a54d5038c06", null ],
     [ "error", "classextension_1_1Mcp3021.html#aaae6a7d91b77ac86a6e597bf0071889d", null ],
     [ "info", "classextension_1_1Mcp3021.html#ad3a895d8015ab2992b41c66b9f16648a", null ],
-    [ "debug", "classextension_1_1Mcp3021.html#a858476ff8cf82d862b8d44f13e47913f", null ],
+    [ "debug", "classextension_1_1Mcp3021.html#a19983e8b5715a6e3db8d1aee4c7df5f6", null ],
     [ "stopRequested", "classextension_1_1Mcp3021.html#a6d4f564b9ee0aefea0837e87541ee05b", null ],
     [ "raiseFault", "classextension_1_1Mcp3021.html#a39712025900988f7bd4e15637f4a28ba", null ],
     [ "extSleep", "classextension_1_1Mcp3021.html#a00ef6cd65250307287af24071c862a42", null ],

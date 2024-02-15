@@ -1,7 +1,7 @@
 <map id="modules::SystemModule" name="modules::SystemModule">
 <area shape="rect" id="node1" title=" " alt="" coords="4662,1755,4877,1964"/>
 <area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="4587,1307,4754,1692"/>
-<area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title=" " alt="" coords="1371,1020,1506,1097"/>
+<area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1SharedData" title=" " alt="" coords="1371,1020,1506,1097"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="677,829,790,906"/>
 <area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="305,527,527,663"/>
 <area shape="rect" id="node6" href="$classdata_1_1Stream.html" title=" " alt="" coords="275,182,477,377"/>

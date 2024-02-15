@@ -45,13 +45,13 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structdata_1_1SharedData.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="namespacedata.html#structdata_1_1SharedData" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1684.5,-127.5 1684.5,-184.5 1785.5,-184.5 1785.5,-127.5 1684.5,-127.5"/>
 <text text-anchor="middle" x="1735" y="-172.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::SharedData</text>
 <polyline fill="none" stroke="black" points="1684.5,-165.5 1785.5,-165.5 "/>
 <text text-anchor="middle" x="1735" y="-153.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 <polyline fill="none" stroke="black" points="1684.5,-146.5 1785.5,-146.5 "/>
-<text text-anchor="start" x="1692.5" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ debugLog()</text>
+<text text-anchor="middle" x="1735" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 </a>
 </g>
 </g>

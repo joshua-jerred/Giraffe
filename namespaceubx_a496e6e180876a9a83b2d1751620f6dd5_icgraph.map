@@ -1,13 +1,9 @@
 <map id="ubx::checkForAck" name="ubx::checkForAck">
-<area shape="rect" id="node1" title=" " alt="" coords="689,140,825,167"/>
-<area shape="rect" id="node2" href="$namespaceubx.html#a1fb85f5c220b3095792f3e9495c432b9" title=" " alt="" coords="458,140,630,167"/>
-<area shape="rect" id="node7" href="$namespaceubx.html#a56ec4bce3dc8bf99a601036cda46a9b0" title=" " alt="" coords="447,89,641,116"/>
-<area shape="rect" id="node8" href="$namespaceubx.html#a0a9dbb84c0d3dfd9234df8e6f7e5ad72" title="CFG&#45;MSG (0x06 0x01) Configure Message Rate." alt="" coords="463,191,625,217"/>
-<area shape="rect" id="node9" href="$namespaceubx.html#a6c27feec78affa320dc73abe6c52b8db" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="466,39,622,65"/>
-<area shape="rect" id="node11" href="$flight__system_2old_2test-08_2test_8cpp.html#a4e8a4edd443c12c14217581c8619d488" title=" " alt="" coords="509,241,579,268"/>
-<area shape="rect" id="node3" href="$flight__system_2old_2test-09_2test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="292,56,347,83"/>
-<area shape="rect" id="node4" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,107,399,149"/>
-<area shape="rect" id="node6" href="$flight__system_2old_2test-08_2test_8cpp.html#adb274d5146732e33ed776a212ea274e8" title=" " alt="" coords="285,173,354,200"/>
-<area shape="rect" id="node5" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,115,192,141"/>
-<area shape="rect" id="node10" href="$flight__system_2old_2test-08_2test_8cpp.html#ab2d4e5465cc281b3f8d9ef213b1b0893" title=" " alt="" coords="285,5,354,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="689,81,825,108"/>
+<area shape="rect" id="node2" href="$namespaceubx.html#a1fb85f5c220b3095792f3e9495c432b9" title=" " alt="" coords="458,5,630,32"/>
+<area shape="rect" id="node5" href="$namespaceubx.html#a56ec4bce3dc8bf99a601036cda46a9b0" title=" " alt="" coords="447,56,641,83"/>
+<area shape="rect" id="node6" href="$namespaceubx.html#a0a9dbb84c0d3dfd9234df8e6f7e5ad72" title="CFG&#45;MSG (0x06 0x01) Configure Message Rate." alt="" coords="463,107,625,133"/>
+<area shape="rect" id="node7" href="$namespaceubx.html#a6c27feec78affa320dc73abe6c52b8db" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="466,157,622,184"/>
+<area shape="rect" id="node3" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,49,399,90"/>
+<area shape="rect" id="node4" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,56,192,83"/>
 </map>

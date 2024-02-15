@@ -1,7 +1,7 @@
 <map id="modules::ServerModule" name="modules::ServerModule">
 <area shape="rect" id="node1" title="The server module. Provides a network interface for interacting with the flight system." alt="" coords="3410,1487,3586,1637"/>
 <area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="4692,995,4859,1380"/>
-<area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title=" " alt="" coords="3891,818,4025,895"/>
+<area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1SharedData" title=" " alt="" coords="3891,818,4025,895"/>
 <area shape="rect" id="node43" href="$group__ServerModule.html#classRequestRouter" title="Used to handle client requests from the server module." alt="" coords="3393,1061,3603,1314"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="3901,605,4015,682"/>
 <area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="4321,211,4542,347"/>

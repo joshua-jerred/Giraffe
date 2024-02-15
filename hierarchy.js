@@ -49,7 +49,7 @@ var hierarchy =
     [ "data::ImuFrame", "namespacedata.html#structdata_1_1ImuFrame", null ],
     [ "data::Misc", "structdata_1_1Misc.html", null ],
     [ "data::SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", null ],
-    [ "data::SharedData", "structdata_1_1SharedData.html", null ],
+    [ "data::SharedData", "namespacedata.html#structdata_1_1SharedData", null ],
     [ "data::Stream< T >", "classdata_1_1Stream.html", null ],
     [ "data::Streams", "namespacedata.html#structdata_1_1Streams", null ],
     [ "data_middleware::DataFormatter", "classdata__middleware_1_1DataFormatter.html", null ],
@@ -153,22 +153,9 @@ var hierarchy =
       [ "data::LogStream", "classdata_1_1LogStream.html", null ]
     ] ],
     [ "testing::Test", null, [
-      [ "BME280Test", "classBME280Test.html", null ],
-      [ "BMP180Test", "classBMP180Test.html", null ],
       [ "ConfigurationTest", "classConfigurationTest.html", null ],
-      [ "Configuration_Module_1", "classConfiguration__Module__1.html", null ],
-      [ "DS18B20Test", "classDS18B20Test.html", null ],
       [ "DataModuleTests", "classDataModuleTests.html", null ],
-      [ "DataStream_Utility", "classDataStream__Utility.html", null ],
-      [ "ExtensionsModuleTests", "classExtensionsModuleTests.html", null ],
-      [ "GfsMetaData", "classGfsMetaData.html", null ],
-      [ "GfsProtocol", "classGfsProtocol.html", null ],
-      [ "I2CUtilityTest", "classI2CUtilityTest.html", null ],
-      [ "ProtocolTest", "classProtocolTest.html", null ],
-      [ "SYSINFOTest", "classSYSINFOTest.html", null ],
-      [ "SerialInterface", "classSerialInterface.html", null ],
-      [ "UBXTest", "classUBXTest.html", null ],
-      [ "mcp3021Test", "classmcp3021Test.html", null ]
+      [ "ProtocolTest", "classProtocolTest.html", null ]
     ] ],
     [ "ubx::NavData", "namespaceubx.html#structubx_1_1NavData", null ],
     [ "ubx::UBXMessage", "structubx_1_1UBXMessage.html", null ]

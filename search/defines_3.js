@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ext_5fdebug_3745',['EXT_DEBUG',['../giraffe__debug_8hpp.html#a8aa666ff8ed3322f393ac113490232a6',1,'giraffe_debug.hpp']]]
+  ['mcp3021_5ftest_5fenabled_3660',['MCP3021_TEST_ENABLED',['../test__extensions_8cpp.html#a080856379fa3aac4938e23ecc5dfcd3d',1,'test_extensions.cpp']]]
 ];

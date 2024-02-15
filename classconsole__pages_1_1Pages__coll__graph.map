@@ -1,7 +1,7 @@
 <map id="console_pages::Pages" name="console_pages::Pages">
 <area shape="rect" id="node1" title=" " alt="" coords="4799,1685,4991,1997"/>
 <area shape="rect" id="node2" title=" " alt="" coords="3097,1531,3308,1623"/>
-<area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title=" " alt="" coords="3333,1538,3467,1615"/>
+<area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1SharedData" title=" " alt="" coords="3333,1538,3467,1615"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="4001,1339,4114,1417"/>
 <area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="3831,994,4052,1130"/>
 <area shape="rect" id="node6" href="$classdata_1_1Stream.html" title=" " alt="" coords="3837,447,4038,641"/>

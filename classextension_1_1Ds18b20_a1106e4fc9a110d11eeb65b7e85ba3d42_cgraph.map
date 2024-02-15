@@ -1,6 +1,9 @@
 <map id="extension::Ds18b20::init" name="extension::Ds18b20::init">
-<area shape="rect" id="node1" title=" " alt="" coords="5,64,156,105"/>
-<area shape="rect" id="node2" href="$classOneWireInterface.html#a91e22e95253f29ef31c534d4540409c7" title=" " alt="" coords="221,5,408,47"/>
-<area shape="rect" id="node3" href="$classOneWireInterface.html#ac2359dc488e64622d6e07173e07316b1" title=" " alt="" coords="204,71,425,98"/>
-<area shape="rect" id="node4" href="$namespaceextension.html#a9d808790534fe424f5ecb8bedb284af6" title=" " alt="" coords="223,123,407,164"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,100,156,141"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="235,5,394,47"/>
+<area shape="rect" id="node5" href="$classOneWireInterface.html#a91e22e95253f29ef31c534d4540409c7" title=" " alt="" coords="221,71,408,112"/>
+<area shape="rect" id="node6" href="$classOneWireInterface.html#ac2359dc488e64622d6e07173e07316b1" title=" " alt="" coords="204,137,425,163"/>
+<area shape="rect" id="node7" href="$namespaceextension.html#a9d808790534fe424f5ecb8bedb284af6" title=" " alt="" coords="223,188,407,229"/>
+<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="680,13,860,39"/>
+<area shape="rect" id="node4" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="473,35,632,76"/>
 </map>

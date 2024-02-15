@@ -1,7 +1,7 @@
 <map id="modules::ExtensionModule" name="modules::ExtensionModule">
 <area shape="rect" id="node1" title=" " alt="" coords="4983,1648,5181,1901"/>
 <area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="3056,1200,3223,1585"/>
-<area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title=" " alt="" coords="3121,1060,3256,1137"/>
+<area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1SharedData" title=" " alt="" coords="3121,1060,3256,1137"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="708,751,821,829"/>
 <area shape="rect" id="node48" href="$structextension_1_1ExtensionResources.html" title="This contains objects that are shared between all extensions." alt="" coords="940,1060,1165,1137"/>
 <area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="435,358,657,494"/>

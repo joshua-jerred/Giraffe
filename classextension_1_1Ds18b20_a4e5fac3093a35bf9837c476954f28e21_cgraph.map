@@ -1,12 +1,14 @@
 <map id="extension::Ds18b20::startup" name="extension::Ds18b20::startup">
-<area shape="rect" id="node1" title=" " alt="" coords="5,127,156,168"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a00ef6cd65250307287af24071c862a42" title="Sleep internally for a given number of milliseconds." alt="" coords="204,28,363,69"/>
-<area shape="rect" id="node3" href="$classextension_1_1Ds18b20.html#a1106e4fc9a110d11eeb65b7e85ba3d42" title=" " alt="" coords="208,93,359,135"/>
-<area shape="rect" id="node7" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="204,159,363,200"/>
-<area shape="rect" id="node10" href="$classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b" title="Returns true if the extension has been requested to stop." alt="" coords="204,224,363,265"/>
-<area shape="rect" id="node4" href="$classOneWireInterface.html#a91e22e95253f29ef31c534d4540409c7" title=" " alt="" coords="428,5,615,47"/>
-<area shape="rect" id="node5" href="$classOneWireInterface.html#ac2359dc488e64622d6e07173e07316b1" title=" " alt="" coords="411,71,632,98"/>
-<area shape="rect" id="node6" href="$namespaceextension.html#a9d808790534fe424f5ecb8bedb284af6" title=" " alt="" coords="429,123,613,164"/>
-<area shape="rect" id="node8" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="442,188,601,229"/>
-<area shape="rect" id="node9" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="680,195,860,222"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,129,156,171"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="442,5,601,47"/>
+<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a00ef6cd65250307287af24071c862a42" title="Sleep internally for a given number of milliseconds." alt="" coords="204,64,363,105"/>
+<area shape="rect" id="node6" href="$classextension_1_1Ds18b20.html#a1106e4fc9a110d11eeb65b7e85ba3d42" title=" " alt="" coords="208,129,359,171"/>
+<area shape="rect" id="node10" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="204,195,363,236"/>
+<area shape="rect" id="node12" href="$classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b" title="Returns true if the extension has been requested to stop." alt="" coords="204,260,363,301"/>
+<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="887,71,1067,98"/>
+<area shape="rect" id="node4" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="680,64,839,105"/>
+<area shape="rect" id="node7" href="$classOneWireInterface.html#a91e22e95253f29ef31c534d4540409c7" title=" " alt="" coords="428,71,615,112"/>
+<area shape="rect" id="node8" href="$classOneWireInterface.html#ac2359dc488e64622d6e07173e07316b1" title=" " alt="" coords="411,137,632,163"/>
+<area shape="rect" id="node9" href="$namespaceextension.html#a9d808790534fe424f5ecb8bedb284af6" title=" " alt="" coords="429,188,613,229"/>
+<area shape="rect" id="node11" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="680,188,839,229"/>
 </map>

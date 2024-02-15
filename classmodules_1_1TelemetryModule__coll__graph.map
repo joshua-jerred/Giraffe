@@ -1,7 +1,7 @@
 <map id="modules::TelemetryModule" name="modules::TelemetryModule">
 <area shape="rect" id="node1" title=" " alt="" coords="2555,2140,2811,2335"/>
 <area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="498,1361,665,1747"/>
-<area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title=" " alt="" coords="1342,1082,1477,1159"/>
+<area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1SharedData" title=" " alt="" coords="1342,1082,1477,1159"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="1353,700,1466,777"/>
 <area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="1351,233,1572,369"/>
 <area shape="rect" id="node6" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="1597,263,1769,340"/>

@@ -1,7 +1,0 @@
-<map id="data::SharedData::debugLog" name="data::SharedData::debugLog">
-<area shape="rect" id="node1" title="Used to log debug messages when the program is not in release mode." alt="" coords="5,54,212,81"/>
-<area shape="rect" id="node2" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="260,54,437,81"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="696,5,883,47"/>
-<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="485,54,648,81"/>
-<area shape="rect" id="node5" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="699,80,879,121"/>
-</map>
