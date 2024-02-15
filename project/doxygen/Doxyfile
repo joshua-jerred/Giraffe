@@ -5,8 +5,8 @@ DOXYFILE_ENCODING      = UTF-8
 # Project
 
 PROJECT_NAME           = "Giraffe"
-PROJECT_NUMBER         = 0.5
-PROJECT_BRIEF          = "It's giraffe"
+PROJECT_NUMBER         = 0.7.0
+PROJECT_BRIEF          = "A Unified High Altitude Flight Observation and Control System. With homogeneous software and hardware, both on the ground and in the air."
 PROJECT_LOGO           = "docs/assets/logo.svg"
 # TODO: Logo
 
@@ -21,6 +21,7 @@ INPUT += docs/introduction.md
 INPUT += docs/data_link.md
 INPUT += docs/uml
 INPUT += docs/groups.dox
+INPUT += tests
 IMAGE_PATH             = ./docs/assets
 RECURSIVE              = YES
 INPUT_ENCODING         = UTF-8

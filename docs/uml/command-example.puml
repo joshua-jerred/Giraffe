@@ -17,7 +17,7 @@ and modulated.
 
 gfs -> ggs : \
 <font color=red>Modulated Packet\n\
-<font color=red>Sent Via Radio
+<font color=red>Sent Via Radio (exchange message via GDL)
 
 gfs -> gfs : \
 Command is \n\
@@ -33,7 +33,7 @@ code is generated\n\
 into a packet
 
 gfs -> ggs : \
-<font color=red>Modulated Packet\n\
+<font color=red>Modulated Packet (exchange message via GDL)\n\
 <font color=red>Sent Via Radio
 
 ggs -> u : \

@@ -1,5 +1,61 @@
 # GFS Version Change Log
 
+## 0.7
+2024-02-15
+
+- Extension Updates
+  - SAM-M8Q
+  - MCP3021
+  - DS18B20
+  - Pi Camera re-implantation
+- Data Module
+  - Completed Calculated Data work
+- Web Client / GGS Backend
+  - Removed Web Sockets, now only using the HTTP API
+  - Major changes that are not worth documenting as it's a major work in progress
+  - Added Giraffe Data Link support
+- Giraffe Data Link
+  - Implemented the Giraffe Data Link a RTP like system.
+  - Added 2 way communication between the GFC and GGS
+- Massive change was made to the MWAV library along with it's name being changed to `SignalEasel`.
+- Created a simulator to test GFS without the hardware.
+- A large list of changes made to `BoosterSeat` for the Giraffe project.
+- A large list of other changes that were not documented well at the time. It's best to look at the commit/merge history for more information.
+
+***
+
+## 0.6
+2023-08-31
+Retroactive Version Documentation - 2024-02-15
+
+- Data Module
+  - File logging time format
+  - Archive file rotation/trimming
+  - b2zip compression of data/log files
+  - GPS data processing
+  - Worked on calculated data
+- I2C Interface Updates
+- Started work on the data link
+- InfluxDB support in GFS and in GGS/GWC
+- Various other minor (undocumented) changes
+
+***
+
+## 0.5
+2023-06-29
+Retroactive Version Documentation - 2024-02-15
+
+- Fixed system module ram reporting
+- Finished the initial implementation of the configuration module
+- Major changes to GFS error reporting (large enum with json meta file)
+- Module status reporting
+- Data module data file logging
+- Data module error file logging
+- Data module file rotation
+- Various other minor changes
+
+***
+
 ## 0.4
 2023-03-23
 The 0.4 iteration produced the first "fully functional" version of the flight
@@ -38,7 +94,7 @@ prototype board was also nearly fully functional but had issues with it's
 power switching circuit and the squelch detection circuit. The sound card
 is fully functional but may require better filtering.
 
-
+***
 
 ## 0.3
 2023-01-06
@@ -65,6 +121,8 @@ is fully functional but may require better filtering.
  - Lots of work on documentation.
  - Finalized the future extension list.
 
+***
+
 ## 0.2.0
 2022-12-16
  - Overall spent a lot of time working on fixing small bugs to provide a clear path for future updates
@@ -84,6 +142,8 @@ is fully functional but may require better filtering.
    - Decided on base hardware
  - Implemented 'extra-args' for extensions
 
+***
+
 ## 0.1.0
 2022-10-31
  - Error Frame
@@ -91,6 +151,8 @@ is fully functional but may require better filtering.
  - Python web server
  - Basic telemetry module
  - Data Socket
+
+***
 
 ## 0.0.9
 2022-10-10

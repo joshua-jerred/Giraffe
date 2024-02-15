@@ -1,6 +1,6 @@
 # This is the input file for the versioning script.
 [project]
-version = 0.5.8
+version = 0.7.0
 stage = development
 
 [dependencies] # these are what are currently used, not necessarily what is required
