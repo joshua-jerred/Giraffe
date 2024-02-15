@@ -1,5 +1,6 @@
 <map id="ds18b20.hpp" name="ds18b20.hpp">
-<area shape="rect" id="node1" title="DS18B20 extension header file." alt="" coords="85,5,190,32"/>
+<area shape="rect" id="node1" title="DS18B20 extension header file." alt="" coords="166,5,271,32"/>
 <area shape="rect" id="node2" href="$ds18b20_8cpp.html" title="DS18B20 extension." alt="" coords="5,80,109,107"/>
 <area shape="rect" id="node3" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="134,80,303,107"/>
+<area shape="rect" id="node4" href="$test__extensions_8cpp.html" title=" " alt="" coords="328,80,480,107"/>
 </map>

@@ -1,4 +1,8 @@
 <map id="data::Stream::getTotalPackets" name="data::Stream::getTotalPackets">
-<area shape="rect" id="node1" title=" " alt="" coords="219,13,433,39"/>
-<area shape="rect" id="node2" href="$classmodules_1_1DataModule.html#a37e62fa014daa40f23bbe66aa2435077" title="Used to process shared streams." alt="" coords="5,5,171,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="239,143,453,170"/>
+<area shape="rect" id="node2" href="$classExtensionTestFramework.html#ac3bca427576cb98fc987d83adcd484dc" title=" " alt="" coords="5,5,191,47"/>
+<area shape="rect" id="node3" href="$classExtensionTestFramework.html#a4625596c44b7aa5dd235f738b007ef69" title=" " alt="" coords="5,71,191,112"/>
+<area shape="rect" id="node4" href="$classExtensionTestFramework.html#a6635a5ee0d6d3b262295c2e7546fb206" title=" " alt="" coords="5,136,191,177"/>
+<area shape="rect" id="node5" href="$classExtensionTestFramework.html#abac4603ba77ee6143b15f0e5f50cf20a" title=" " alt="" coords="5,201,191,243"/>
+<area shape="rect" id="node6" href="$classmodules_1_1DataModule.html#a37e62fa014daa40f23bbe66aa2435077" title="Used to process shared streams." alt="" coords="15,267,181,308"/>
 </map>

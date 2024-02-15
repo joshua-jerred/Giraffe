@@ -42,6 +42,9 @@ var NAVTREE =
         ] ]
       ] ]
     ] ],
+    [ "Unit Tests", "md_tests_flight_system_old_test_list.html", [
+      [ "Test List", "md_tests_flight_system_old_test_list.html#autotoc_md16", null ]
+    ] ],
     [ "Todo List", "todo.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Modules", "modules.html", "modules" ],
@@ -69,7 +72,7 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
@@ -82,17 +85,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc__configuration_8cpp.html",
-"classdata_1_1ErrorFrame.html#ac21496f4227964c42f765484a431da73",
-"classextension_1_1Bmi088.html#a067006ad3c8c07006590ccdfca70d037",
-"classextension_1_1SamM8q.html#a40300776e358833cbfd50c198a320cdf",
-"classgiraffe_1_1gdl_1_1Message.html#acc783df8bb74aebffe77ccd8b5bce981",
-"classmodules_1_1ExtensionModule.html#ab3f0073bdc17fa42885010c4cee50514",
-"classncurs_1_1internal_1_1Window.html#aaf7c23fb15218ba1a12dc957918fd729",
-"gdl__constants_8hpp.html#ad25ab616a38b8be37fdb5b088f93c9b2",
-"group__rotation.html#ga3d76d0918c49d2ab9d25cb7e023e0585",
-"namespacegiraffe_1_1gdl.html#a9df80d5b09ba8c2e6bf7886ae573c080",
-"protocol_8hpp.html#a14a4518c9c5eba60611b473d659c069da696b031073e74bf2cb98e5ef201d4aa3",
-"structgiraffe_1_1FCInfo.html#ac684457713d039ae9fccf943f9c8cf82a6887a15916fe6e27020feb673bc6488e"
+"classOneWireInterface.html#a552c2ab72e1caf0d9b287c6ffc338620",
+"classextension_1_1AdcExtensionBase.html#a639edd8b0e44e06bb5e2111412becb68",
+"classextension_1_1Mcp3021.html#a4b1d8a31085c36fb856b3b1ff96928cf",
+"classextension_1_1SimImuSensor.html#a692f72cc72848d0a162010a955085f07",
+"classgiraffe_1_1SpiInterface.html#a3075093eb4c178436aa28945f626971c",
+"classgiraffe_1_1gdl_1_1TransportLayer.html#a6261bac3c4a33276136fa514168200ca",
+"classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54",
+"data__formatting_8hpp.html#a63a3cd96e24ab4ac12de225b6285198fa9137c92c128dd3190285cac74a446e61",
+"gdl__server__config_8hpp.html",
+"group__acceleration.html#gabcd7ff9c92e5ae1c40f04da8220b8eb2",
+"namespacegfs__sim.html#a6c94d6fdf1a5981a2d7d900ceee4ae74",
+"namespacevalidation.html#a8905ce5f022b394af53a959b34430ea2",
+"structdata_1_1GpsFramePacket.html#a25dd4f4b9f9ef45a841ca6dbda2b90aa",
+"test__error__frame_8cpp.html#a2c121290f11c49f818560d9eba387418"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

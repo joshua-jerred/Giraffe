@@ -44,9 +44,9 @@
   <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.5</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
-   <div id="projectbrief">It&#39;s giraffe</div>
+   <div id="projectbrief">A Unified High Altitude Flight Observation and Control System. With homogeneous software and hardware, both on the ground and in the air.</div>
   </td>
  </tr>
  </tbody>
@@ -156,11 +156,23 @@ $(document).ready(function(){initNavTree('functions_l.html',''); initResizable()
 , <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad39dfdc6ffa7963fbdec3ad07d842633">giraffe::gdl::Message::Location</a>
 , <a class="el" href="namespaceubx.html#abff8cf727c9dc8c588c0672fccc72cbb">ubx::NavData</a>
 </li>
+<li>latitude_
+: <a class="el" href="classgfs__sim_1_1BalloonPhysics.html#a14e258a9ff5d51188c0365e2608dfd11">gfs_sim::BalloonPhysics</a>
+</li>
+<li>latitude_deg
+: <a class="el" href="namespacegfs__sim.html#a8895f23e8311fd793b321c9a84e71a36">gfs_sim::SimData</a>
+</li>
+<li>launch()
+: <a class="el" href="classgfs__sim_1_1BalloonPhysics.html#a95e8d143a8967815c8408c2d8890781c">gfs_sim::BalloonPhysics</a>
+</li>
 <li>launch_gps_point_
 : <a class="el" href="classmodules_1_1DataModule.html#ac268ffb580ad0f5a3e229cad43c2325f">modules::DataModule</a>
 </li>
 <li>launch_gps_point_set_
 : <a class="el" href="classmodules_1_1DataModule.html#a2d01c7995412a8816c0bc036b1f4add5">modules::DataModule</a>
+</li>
+<li>launch_signal_
+: <a class="el" href="classgfs__sim_1_1BalloonPhysics.html#a34443d2ca42be7998e67271a26c0f3a6">gfs_sim::BalloonPhysics</a>
 </li>
 <li>length
 : <a class="el" href="structubx_1_1UBXMessage.html#a139c63c7bdad4e9468260bbd5c847c3c">ubx::UBXMessage</a>
@@ -277,15 +289,27 @@ $(document).ready(function(){initNavTree('functions_l.html',''); initResizable()
 , <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa403f37d6f3f5b1ce4efdeec59b12f28">giraffe::gdl::Message::Location</a>
 , <a class="el" href="namespaceubx.html#a8bfbe7509934ae6f13c402f47cf21aac">ubx::NavData</a>
 </li>
+<li>longitude_
+: <a class="el" href="classgfs__sim_1_1BalloonPhysics.html#a27ddcb9aa2721cee7a235c13663db8f9">gfs_sim::BalloonPhysics</a>
+</li>
+<li>longitude_deg
+: <a class="el" href="namespacegfs__sim.html#a14ff45a0f582aed7e23a0694652e031d">gfs_sim::SimData</a>
+</li>
 <li>loop()
 : <a class="el" href="classextension_1_1AdcExtensionBase.html#ab11b609d90a14f558df951d28bc42d85">extension::AdcExtensionBase&lt; AdcResolution &gt;</a>
 , <a class="el" href="classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4">extension::Bme280</a>
-, <a class="el" href="classextension_1_1Bmi088.html#a785010dddb7e8d5335d8e44bbbc92905">extension::Bmi088</a>
+, <a class="el" href="classextension_1_1Bmi088.html#a3ed479b8eaf5733d72416f4fe7ee078e">extension::Bmi088</a>
 , <a class="el" href="classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c">extension::Ds18b20</a>
 , <a class="el" href="classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef">extension::Extension</a>
 , <a class="el" href="classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7">extension::PiCamera</a>
 , <a class="el" href="classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea">extension::RgbStatusLed</a>
 , <a class="el" href="classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878">extension::SamM8q</a>
+, <a class="el" href="classextension_1_1SimAdcSensor.html#af57a2ce70d1102f841fc3e595c5e68fb">extension::SimAdcSensor</a>
+, <a class="el" href="classextension_1_1SimGpsSensor.html#a80265d0b8468fc4e90a46409a6178ab2">extension::SimGpsSensor</a>
+, <a class="el" href="classextension_1_1SimHumiditySensor.html#a59e5059ebb6e2e81ca3a6ef30a632456">extension::SimHumiditySensor</a>
+, <a class="el" href="classextension_1_1SimImuSensor.html#a1acef31a7be54226957d58d2f9d174d1">extension::SimImuSensor</a>
+, <a class="el" href="classextension_1_1SimPressureSensor.html#aaf5a09dba391f216ca5ee5a7890a1e85">extension::SimPressureSensor</a>
+, <a class="el" href="classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d">extension::SimTemperatureSensor</a>
 , <a class="el" href="classmodules_1_1ConsoleModule.html#aa573cc1aa946629ce58c345946f738e9">modules::ConsoleModule</a>
 , <a class="el" href="classmodules_1_1DataModule.html#ad1d38dc8d6a9a4c7b920fe5ce29ee75e">modules::DataModule</a>
 , <a class="el" href="classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c">modules::ExtensionModule</a>

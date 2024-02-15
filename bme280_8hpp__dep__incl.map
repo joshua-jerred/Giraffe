@@ -1,5 +1,6 @@
 <map id="bme280.hpp" name="bme280.hpp">
-<area shape="rect" id="node1" title="The BME280 sensor extension." alt="" coords="85,5,188,32"/>
+<area shape="rect" id="node1" title="The BME280 sensor extension." alt="" coords="165,5,268,32"/>
 <area shape="rect" id="node2" href="$bme280_8cpp.html" title="BME280 sensor extension." alt="" coords="5,80,108,107"/>
 <area shape="rect" id="node3" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="132,80,301,107"/>
+<area shape="rect" id="node4" href="$test__extensions_8cpp.html" title=" " alt="" coords="326,80,478,107"/>
 </map>

@@ -12,8 +12,8 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Declares the protocol namespace and its associated types.">
-<polygon fill="#bfbfbf" stroke="black" points="274,-235.5 274,-254.5 351,-254.5 351,-235.5 274,-235.5"/>
-<text text-anchor="middle" x="312.5" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol.hpp</text>
+<polygon fill="#bfbfbf" stroke="black" points="333,-235.5 333,-254.5 410,-254.5 410,-235.5 333,-235.5"/>
+<text text-anchor="middle" x="371.5" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol.hpp</text>
 </a>
 </g>
 </g>
@@ -29,23 +29,23 @@
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M283.49,-231.37C260.27,-221.26 228.34,-207.35 208.06,-198.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="282.29,-234.66 292.85,-235.44 285.08,-228.24 282.29,-234.66"/>
+<path fill="none" stroke="midnightblue" d="M332.76,-232.57C298.24,-222.38 248.49,-207.7 217.36,-198.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="331.92,-235.97 342.5,-235.44 333.9,-229.26 331.92,-235.97"/>
 </g>
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
 <g id="a_node9"><a xlink:href="protocol_8cpp.html" target="_top" xlink:title="The C++ implementation of the Giraffe Protocol.">
-<polygon fill="none" stroke="black" points="274,-179.5 274,-198.5 351,-198.5 351,-179.5 274,-179.5"/>
-<text text-anchor="middle" x="312.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol.cpp</text>
+<polygon fill="none" stroke="black" points="283,-179.5 283,-198.5 360,-198.5 360,-179.5 283,-179.5"/>
+<text text-anchor="middle" x="321.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node9 -->
 <g id="edge8" class="edge">
 <title>Node1&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M312.5,-224.8C312.5,-215.91 312.5,-205.78 312.5,-198.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="309,-225.08 312.5,-235.08 316,-225.08 309,-225.08"/>
+<path fill="none" stroke="midnightblue" d="M356.42,-227.72C347.61,-218.2 336.83,-206.56 329.6,-198.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="353.88,-230.12 363.24,-235.08 359.02,-225.37 353.88,-230.12"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
@@ -59,8 +59,23 @@
 <!-- Node1&#45;&gt;Node10 -->
 <g id="edge9" class="edge">
 <title>Node1&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M339.26,-230.86C359.66,-220.85 387.17,-207.35 404.87,-198.65"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="337.61,-227.78 330.17,-235.32 340.69,-234.06 337.61,-227.78"/>
+<path fill="none" stroke="midnightblue" d="M386.88,-227.72C395.87,-218.2 406.86,-206.56 414.24,-198.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="384.24,-225.41 379.92,-235.08 389.33,-230.22 384.24,-225.41"/>
+</g>
+<!-- Node15 -->
+<g id="node15" class="node">
+<title>Node15</title>
+<g id="a_node15"><a xlink:href="test__protocol_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="485,-179.5 485,-198.5 586,-198.5 586,-179.5 485,-179.5"/>
+<text text-anchor="middle" x="535.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">test_protocol.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node15 -->
+<g id="edge14" class="edge">
+<title>Node1&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M407.02,-232.3C437.92,-222.13 481.97,-207.62 509.64,-198.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="405.89,-228.99 397.49,-235.44 408.08,-235.64 405.89,-228.99"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
@@ -140,7 +155,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="flight__system_2main_8cpp.html" target="_top" xlink:title="Defines the entry point/main function of the Flight Computer software.">
+<g id="a_node7"><a xlink:href="src_2flight__system_2main_8cpp.html" target="_top" xlink:title="Defines the entry point/main function of the Flight Computer software.">
 <polygon fill="none" stroke="black" points="145.5,-0.5 145.5,-19.5 207.5,-19.5 207.5,-0.5 145.5,-0.5"/>
 <text text-anchor="middle" x="176.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">main.cpp</text>
 </a>
@@ -201,7 +216,7 @@
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
-<g id="a_node14"><a xlink:href="data__link_2server_2main_8cpp.html" target="_top" xlink:title="Giraffe Data Link Server Main File.">
+<g id="a_node14"><a xlink:href="src_2data__link_2server_2main_8cpp.html" target="_top" xlink:title="Giraffe Data Link Server Main File.">
 <polygon fill="none" stroke="black" points="669.5,-118 669.5,-137 731.5,-137 731.5,-118 669.5,-118"/>
 <text text-anchor="middle" x="700.5" y="-125" font-family="Helvetica,sans-Serif" font-size="10.00">main.cpp</text>
 </a>
@@ -210,8 +225,8 @@
 <!-- Node10&#45;&gt;Node14 -->
 <g id="edge13" class="edge">
 <title>Node10&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M476.84,-180.28C525.45,-172.77 598.4,-160.01 660.5,-143 666.48,-141.36 672.85,-139.24 678.7,-137.12"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="476.21,-176.83 466.85,-181.8 477.26,-183.75 476.21,-176.83"/>
+<path fill="none" stroke="midnightblue" d="M476.68,-178.8C535.84,-168.57 626.66,-152.27 660.5,-143 666.48,-141.36 672.85,-139.24 678.7,-137.12"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="476.01,-175.36 466.75,-180.51 477.2,-182.26 476.01,-175.36"/>
 </g>
 </g>
 </svg>

@@ -1,16 +1,16 @@
 <map id="extension::Extension::raiseFault" name="extension::Extension::raiseFault">
 <area shape="rect" id="node1" title="Used internally to raise a fault. This will stop an extension." alt="" coords="503,468,661,509"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#ada1c67d22e507c2d2775971a947eb315" title=" " alt="" coords="271,5,423,47"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#a21f2e4aca209eb184f28f1897a2d2249" title=" " alt="" coords="271,5,423,47"/>
 <area shape="rect" id="node3" href="$classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df" title=" " alt="" coords="256,71,439,112"/>
 <area shape="rect" id="node4" href="$classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba" title=" " alt="" coords="271,136,424,177"/>
 <area shape="rect" id="node5" href="$classextension_1_1AdcExtensionBase.html#ab11b609d90a14f558df951d28bc42d85" title=" " alt="" coords="240,201,455,243"/>
 <area shape="rect" id="node6" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="255,267,439,294"/>
-<area shape="rect" id="node7" href="$classextension_1_1Bmi088.html#a785010dddb7e8d5335d8e44bbbc92905" title=" " alt="" coords="257,318,437,345"/>
+<area shape="rect" id="node7" href="$classextension_1_1Bmi088.html#a3ed479b8eaf5733d72416f4fe7ee078e" title=" " alt="" coords="257,318,437,345"/>
 <area shape="rect" id="node8" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="272,369,423,411"/>
 <area shape="rect" id="node9" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="269,435,426,476"/>
 <area shape="rect" id="node10" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="256,500,439,541"/>
 <area shape="rect" id="node11" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="269,565,425,607"/>
-<area shape="rect" id="node12" href="$classextension_1_1Bmi088.html#ae97880621fee99f214cc73916b8a159c" title=" " alt="" coords="271,631,423,672"/>
+<area shape="rect" id="node12" href="$classextension_1_1Bmi088.html#a4f2bf0ae1de79d266c47349f63305b4b" title=" " alt="" coords="271,631,423,672"/>
 <area shape="rect" id="node13" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="272,696,423,737"/>
 <area shape="rect" id="node14" href="$classextension_1_1PiCamera.html#abe7dc219785211e3a0d86a50d481cd41" title=" " alt="" coords="269,761,426,803"/>
 <area shape="rect" id="node15" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="256,827,439,868"/>

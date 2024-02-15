@@ -1,5 +1,6 @@
 <map id="flight_computer_info.hpp" name="flight_computer_info.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="59,5,243,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="147,5,331,32"/>
 <area shape="rect" id="node2" href="$pi__camera_8cpp.html" title="Raspberry Pi Camera Extension." alt="" coords="5,80,123,107"/>
 <area shape="rect" id="node3" href="$flight__computer__info_8cpp.html" title="Simple utility to get flight computer information." alt="" coords="147,80,330,107"/>
+<area shape="rect" id="node4" href="$test__get__fc__info_8cpp.html" title=" " alt="" coords="354,80,507,107"/>
 </map>

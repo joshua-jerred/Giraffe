@@ -1,5 +1,5 @@
 <map id="giraffe::SpiInterface::closeDevice" name="giraffe::SpiInterface::closeDevice">
 <area shape="rect" id="node1" title="Closes the SPI device. No action is taken if the device is already closed." alt="" coords="205,39,356,80"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#a8a751454548aa3048075f1492519c7e1" title=" " alt="" coords="5,5,157,47"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#afa76028944da4d404f1073dd03ea77fd" title=" " alt="" coords="5,5,157,47"/>
 <area shape="rect" id="node3" href="$classgiraffe_1_1SpiInterface.html#ac3af0a97eb83eca89a8e22ce3e6b9646" title="Destructor for the SPI interface class. Closes the file descriptors if they are open." alt="" coords="6,71,157,112"/>
 </map>

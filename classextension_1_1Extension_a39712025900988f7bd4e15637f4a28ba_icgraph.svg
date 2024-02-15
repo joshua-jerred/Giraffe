@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classextension_1_1Bmi088.html#ada1c67d22e507c2d2775971a947eb315" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classextension_1_1Bmi088.html#a21f2e4aca209eb184f28f1897a2d2249" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="199.5,-714.5 199.5,-744.5 313.5,-744.5 313.5,-714.5 199.5,-714.5"/>
 <text text-anchor="start" x="207.5" y="-732.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Bmi088::</text>
 <text text-anchor="middle" x="256.5" y="-721.5" font-family="Helvetica,sans-Serif" font-size="10.00">Bmi088</text>
@@ -100,7 +100,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="classextension_1_1Bmi088.html#a785010dddb7e8d5335d8e44bbbc92905" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="classextension_1_1Bmi088.html#a3ed479b8eaf5733d72416f4fe7ee078e" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="189,-491 189,-510 324,-510 324,-491 189,-491"/>
 <text text-anchor="middle" x="256.5" y="-498" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Bmi088::loop</text>
 </a>
@@ -179,7 +179,7 @@
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="classextension_1_1Bmi088.html#ae97880621fee99f214cc73916b8a159c" target="_top" xlink:title=" ">
+<g id="a_node12"><a xlink:href="classextension_1_1Bmi088.html#a4f2bf0ae1de79d266c47349f63305b4b" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="199.5,-245.5 199.5,-275.5 313.5,-275.5 313.5,-245.5 199.5,-245.5"/>
 <text text-anchor="start" x="207.5" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Bmi088::</text>
 <text text-anchor="middle" x="256.5" y="-252.5" font-family="Helvetica,sans-Serif" font-size="10.00">startup</text>

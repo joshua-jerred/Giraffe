@@ -3,9 +3,9 @@
 <area shape="rect" id="node2" title=" " alt="" coords="5,241,65,318"/>
 <area shape="rect" id="node3" title=" " alt="" coords="158,241,233,318"/>
 <area shape="rect" id="node4" href="$classI2cInterface.html" title="A wrapper around I2C communication that restricts a single thread from accessing the bus at a time." alt="" coords="257,145,432,413"/>
-<area shape="rect" id="node5" title=" " alt="" coords="107,5,214,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="238,5,305,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="329,5,368,83"/>
-<area shape="rect" id="node8" title=" " alt="" coords="402,5,461,83"/>
-<area shape="rect" id="node9" title=" " alt="" coords="504,5,583,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="147,5,214,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="239,5,277,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="315,5,374,83"/>
+<area shape="rect" id="node8" title=" " alt="" coords="417,5,496,83"/>
+<area shape="rect" id="node9" title=" " alt="" coords="527,5,594,83"/>
 </map>

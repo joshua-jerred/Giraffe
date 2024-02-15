@@ -12,6 +12,12 @@ var namespaceextension =
     [ "PiCamera", "classextension_1_1PiCamera.html", "classextension_1_1PiCamera" ],
     [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ],
     [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ],
+    [ "SimAdcSensor", "classextension_1_1SimAdcSensor.html", "classextension_1_1SimAdcSensor" ],
+    [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],
+    [ "SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", "classextension_1_1SimHumiditySensor" ],
+    [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],
+    [ "SimPressureSensor", "classextension_1_1SimPressureSensor.html", "classextension_1_1SimPressureSensor" ],
+    [ "SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", "classextension_1_1SimTemperatureSensor" ],
     [ "AdcType", "namespaceextension.html#aa5891a3aa6702efdece92bf561d17208", [
       [ "RAW_COUNT", "namespaceextension.html#aa5891a3aa6702efdece92bf561d17208aaa5db4381426a88461ad4ebe782d04fc", null ],
       [ "PERCENTAGE", "namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a21ee69ba26b6e644d4dddce593855d84", null ],
@@ -50,5 +56,6 @@ var namespaceextension =
     [ "K_READ_TIMEOUT", "namespaceextension.html#a99f704514927f802083317793cd0c3e2", null ],
     [ "kInitTimeout", "namespaceextension.html#a74141ab1a02daac457ba9aefbd71b5e7", null ],
     [ "kDefaultI2cHandshakeTimeoutMs", "namespaceextension.html#ad88e0ddbdc46a7debf0dc4e848af1e5f", null ],
-    [ "kDefaultI2cHandshakeRetryDelayMs", "namespaceextension.html#afe03cabd4f0d75c98d98a5806f9e24c2", null ]
+    [ "kDefaultI2cHandshakeRetryDelayMs", "namespaceextension.html#afe03cabd4f0d75c98d98a5806f9e24c2", null ],
+    [ "K_SIMULATED_EXTENSIONS_VEC", "namespaceextension.html#acea3c2f1a9f2b59a10ae1f1ca30a1edf", null ]
 ];

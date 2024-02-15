@@ -1,0 +1,7 @@
+<map id="sim_electrical.hpp" name="sim_electrical.hpp">
+<area shape="rect" id="node1" title="GFS Simulator Electrical Implementation." alt="" coords="138,5,279,32"/>
+<area shape="rect" id="node2" href="$gfs__simulator_8hpp.html" title=" " alt="" coords="139,80,278,107"/>
+<area shape="rect" id="node3" href="$gfs__simulator_8cpp.html" title="The simulator for the flight system." alt="" coords="5,155,143,181"/>
+<area shape="rect" id="node4" href="$tests_2simulator_2main_8cpp.html" title="GFS Simulator main entry point." alt="" coords="167,155,250,181"/>
+<area shape="rect" id="node5" href="$simulated__extensions_8hpp.html" title="This contains the simulated extensions for testing the flight system." alt="" coords="275,155,468,181"/>
+</map>

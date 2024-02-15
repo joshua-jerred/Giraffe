@@ -44,9 +44,9 @@
   <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.5</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
-   <div id="projectbrief">It&#39;s giraffe</div>
+   <div id="projectbrief">A Unified High Altitude Flight Observation and Control System. With homogeneous software and hardware, both on the ground and in the air.</div>
   </td>
  </tr>
  </tbody>
@@ -149,6 +149,12 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 : <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a88e15aa2bb8d0e9271bfebf64224cfcb">giraffe::gdl::GdlServer</a>
 , <a class="el" href="group__ServerModule.html#a8251cf922672d743be4928862838053f">modules::ServerModule</a>
 </li>
+<li>setting
+: <a class="el" href="classGfsMetaData.html#a77c245d1811b2d43324c6bec993e7809">GfsMetaData</a>
+</li>
+<li>shared_data
+: <a class="el" href="classConfigurationTest.html#a096cebb4f0a9c6d2e9e812750ee93fb4">ConfigurationTest</a>
+</li>
 <li>shared_data_
 : <a class="el" href="classconsole__pages_1_1Pages.html#a9052e288b139e498b8dcb03a06319999">console_pages::Pages</a>
 , <a class="el" href="classdata__middleware_1_1DataFormatter.html#aaba04a0728023139163344b66be45218">data_middleware::DataFormatter</a>
@@ -167,6 +173,12 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 <li>signal_to_noise_ratio
 : <a class="el" href="structdata_1_1blocks_1_1TelemetryModuleStats.html#a11208cb78d660ac025d391c159ca8ddf">data::blocks::TelemetryModuleStats</a>
 , <a class="el" href="namespacegiraffe_1_1gdl.html#abfa6cac65e04607f8ea217352f0b3b31">giraffe::gdl::Statistics</a>
+</li>
+<li>sim_data_
+: <a class="el" href="classgfs__sim_1_1GfsSimulator.html#af2d383a02243b0bd2b20602d957343a0">gfs_sim::GfsSimulator</a>
+</li>
+<li>sim_thread_
+: <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a59a64432cd8a284da2d64a6fef7489f8">gfs_sim::GfsSimulator</a>
 </li>
 <li>sleep_interval_
 : <a class="el" href="structmodules_1_1MetaData.html#a6ecec963acbc9aa663ea2c3ae702f03e">modules::MetaData</a>
@@ -193,11 +205,20 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 <li>spi_accel_
 : <a class="el" href="classextension_1_1Bmi088.html#a06bf495cf2652bbe49f9f32a4814901f">extension::Bmi088</a>
 </li>
+<li>spi_accel_fd_
+: <a class="el" href="classBmi088.html#a0aa9a5f0ba4e2419821212d0552b997c">Bmi088</a>
+</li>
 <li>spi_fd_
 : <a class="el" href="classgiraffe_1_1SpiInterface.html#a3bf078f8cfe884fe1f55d0fc148ae007">giraffe::SpiInterface</a>
 </li>
 <li>spi_gyro_
 : <a class="el" href="classextension_1_1Bmi088.html#a66e853bbd4ec1095720b6e4325414eb4">extension::Bmi088</a>
+</li>
+<li>spi_gyro_fd_
+: <a class="el" href="classBmi088.html#aeeb2a7ca2abd82bbd960db64f55fe686">Bmi088</a>
+</li>
+<li>spi_ioc_transfer_
+: <a class="el" href="classBmi088.html#a4e217d3e70a5a962d304d580a2b64cce">Bmi088</a>
 </li>
 <li>src
 : <a class="el" href="structprotocol_1_1Message.html#a57135c069142e0e41adcf97cdf336f27">protocol::Message</a>
@@ -225,8 +246,13 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 </li>
 <li>state_
 : <a class="el" href="group__SAMM8QState.html#ga9cf3ffdb7e748d1caa131f85898e7156">extension::SamM8q</a>
+, <a class="el" href="classgfs__sim_1_1BalloonPhysics.html#ac87466a555a3e92d2b37a7efbce700cb">gfs_sim::BalloonPhysics</a>
+, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a8d0d13f1eee650aa0cd80e49ff1205b5">gfs_sim::GfsSimulator</a>
 , <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html#a3a412c664b63c3fd63a1ef19a9a79f15">giraffe::gdl::PhysicalLayer</a>
 , <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#af79214334e5bf252df13d1eaf7ae18a4">giraffe::gdl::TransportLayer</a>
+</li>
+<li>state_machine_timer_
+: <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a83637a4391003c160b234d22ea76cc37">gfs_sim::GfsSimulator</a>
 </li>
 <li>statistics_
 : <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ae356b54ea2c24285b5681e6e2be3e820">giraffe::gdl::DataLink</a>
@@ -247,6 +273,7 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 <li>status_led
 : <a class="el" href="structdata_1_1SharedData.html#a7c6f482dc4d558d8463ea2ffcd906fed">data::SharedData</a>
 , <a class="el" href="structextension_1_1ExtensionResources.html#af0d81b121021c6f6e062e5f3c3f867ce">extension::ExtensionResources</a>
+, <a class="el" href="classExtensionTestFramework.html#a97f3da84ba5a8a0c8436e39b4d860a0b">ExtensionTestFramework</a>
 </li>
 <li>status_led_
 : <a class="el" href="classextension_1_1RgbStatusLed.html#a44f619fda88df68f6a5b6a6af52614e7">extension::RgbStatusLed</a>
@@ -259,6 +286,7 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 </li>
 <li>stop_flag_
 : <a class="el" href="classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878">extension::Extension</a>
+, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a4819c4647bf6b050f534a671a0810c4b">gfs_sim::GfsSimulator</a>
 , <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a29a3d8c0c537eca1d7467569e5ebdd90">giraffe::gdl::GdlServer</a>
 , <a class="el" href="classmodules_1_1Module.html#a85147c0e1d4ed4b87af2c2a5d36da67d">modules::Module</a>
 </li>
@@ -274,6 +302,7 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 <li>streams
 : <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData</a>
 , <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources</a>
+, <a class="el" href="classExtensionTestFramework.html#aadd3ef96756f7c093d0293c68914d859">ExtensionTestFramework</a>
 </li>
 <li>streams_
 : <a class="el" href="classcfg_1_1CfgSection.html#ae779154cc844fdcaf9c3ad095560dcec">cfg::CfgSection</a>

@@ -40,6 +40,7 @@ var files_dup =
     [ "cfg_section.hpp", "cfg__section_8hpp.html", [
       [ "CfgSection", "classcfg_1_1CfgSection.html", "classcfg_1_1CfgSection" ]
     ] ],
+    [ "command-example.puml", "command-example_8puml.html", null ],
     [ "command.hpp", "command_8hpp.html", "command_8hpp" ],
     [ "command_ids.hpp", "command__ids_8hpp.html", null ],
     [ "command_ids_strings.cpp", "command__ids__strings_8cpp.html", null ],
@@ -55,6 +56,7 @@ var files_dup =
     ] ],
     [ "console_pages.cpp", "console__pages_8cpp.html", "console__pages_8cpp" ],
     [ "console_pages.hpp", "console__pages_8hpp.html", "console__pages_8hpp" ],
+    [ "curl_test.cpp", "curl__test_8cpp.html", "curl__test_8cpp" ],
     [ "curl_utility.hpp", "curl__utility_8hpp.html", [
       [ "CurlRequest", "classCurlRequest.html", "classCurlRequest" ]
     ] ],
@@ -97,6 +99,11 @@ var files_dup =
     ] ],
     [ "extension_module.cpp", "extension__module_8cpp.html", "extension__module_8cpp" ],
     [ "extension_module.hpp", "extension__module_8hpp.html", "extension__module_8hpp" ],
+    [ "extension_module_actions.puml", "extension__module__actions_8puml.html", null ],
+    [ "extension_test_framework.cpp", "extension__test__framework_8cpp.html", null ],
+    [ "extension_test_framework.hpp", "extension__test__framework_8hpp.html", [
+      [ "ExtensionTestFramework", "classExtensionTestFramework.html", "classExtensionTestFramework" ]
+    ] ],
     [ "flight_computer_info.cpp", "flight__computer__info_8cpp.html", "flight__computer__info_8cpp" ],
     [ "flight_computer_info.hpp", "flight__computer__info_8hpp.html", "flight__computer__info_8hpp" ],
     [ "flight_modes.hpp", "flight__modes_8hpp.html", "flight__modes_8hpp" ],
@@ -147,6 +154,10 @@ var files_dup =
     [ "gdl_server_request_handlers.cpp", "gdl__server__request__handlers_8cpp.html", null ],
     [ "gdl_server_set_handlers.cpp", "gdl__server__set__handlers_8cpp.html", null ],
     [ "gdl_terminal.cpp", "gdl__terminal_8cpp.html", "gdl__terminal_8cpp" ],
+    [ "gfs_simulator.cpp", "gfs__simulator_8cpp.html", null ],
+    [ "gfs_simulator.hpp", "gfs__simulator_8hpp.html", [
+      [ "GfsSimulator", "classgfs__sim_1_1GfsSimulator.html", "classgfs__sim_1_1GfsSimulator" ]
+    ] ],
     [ "giraffe_assert.hpp", "giraffe__assert_8hpp.html", "giraffe__assert_8hpp" ],
     [ "giraffe_data_link.cpp", "giraffe__data__link_8cpp.html", null ],
     [ "giraffe_data_link.hpp", "giraffe__data__link_8hpp.html", [
@@ -182,8 +193,9 @@ var files_dup =
     [ "logger.hpp", "logger_8hpp.html", [
       [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ]
     ] ],
-    [ "flight_system/main.cpp", "flight__system_2main_8cpp.html", "flight__system_2main_8cpp" ],
-    [ "data_link/server/main.cpp", "data__link_2server_2main_8cpp.html", "data__link_2server_2main_8cpp" ],
+    [ "src/flight_system/main.cpp", "src_2flight__system_2main_8cpp.html", "src_2flight__system_2main_8cpp" ],
+    [ "src/data_link/server/main.cpp", "src_2data__link_2server_2main_8cpp.html", "src_2data__link_2server_2main_8cpp" ],
+    [ "tests/simulator/main.cpp", "tests_2simulator_2main_8cpp.html", "tests_2simulator_2main_8cpp" ],
     [ "mcp3021.cpp", "mcp3021_8cpp.html", "mcp3021_8cpp" ],
     [ "mcp3021.hpp", "mcp3021_8hpp.html", [
       [ "Mcp3021", "classextension_1_1Mcp3021.html", "classextension_1_1Mcp3021" ]
@@ -218,6 +230,7 @@ var files_dup =
     [ "rgb_status_led.hpp", "rgb__status__led_8hpp.html", [
       [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ]
     ] ],
+    [ "sam_m8q_gps_state_machine.puml", "sam__m8q__gps__state__machine_8puml.html", null ],
     [ "samm8q.cpp", "samm8q_8cpp.html", "samm8q_8cpp" ],
     [ "samm8q.hpp", "samm8q_8hpp.html", [
       [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ]
@@ -225,6 +238,27 @@ var files_dup =
     [ "server_module.cpp", "server__module_8cpp.html", "server__module_8cpp" ],
     [ "server_module.hpp", "server__module_8hpp.html", null ],
     [ "shared_data.hpp", "shared__data_8hpp.html", "shared__data_8hpp" ],
+    [ "sim_electrical.hpp", "sim__electrical_8hpp.html", [
+      [ "SimElectrical", "classgfs__sim_1_1SimElectrical.html", "classgfs__sim_1_1SimElectrical" ]
+    ] ],
+    [ "sim_environmental.cpp", "sim__environmental_8cpp.html", "sim__environmental_8cpp" ],
+    [ "sim_environmental.hpp", "sim__environmental_8hpp.html", [
+      [ "EnvData", "namespacegfs__sim.html#structgfs__sim_1_1EnvData", [
+        [ "altitude_meters", "namespacegfs__sim.html#ad36c5f43c307d890a64358f999099b77", null ],
+        [ "temperature_celsius", "namespacegfs__sim.html#aa5420265d9d993350e2b7152df734685", null ],
+        [ "pressure_millibars", "namespacegfs__sim.html#a4669312804fdc1aa8a664a97e496dce3", null ],
+        [ "wind_direction_degrees", "namespacegfs__sim.html#a791151b3db14d5b5eb81cd1c81b61979", null ],
+        [ "wind_speed_mps", "namespacegfs__sim.html#ae47bf09794635e2e267709b1777b7888", null ],
+        [ "relative_humidity_percent", "namespacegfs__sim.html#ac597aff38e422fffad0e9a39f2595cd9", null ]
+      ] ],
+      [ "SimEnvironmental", "classgfs__sim_1_1SimEnvironmental.html", "classgfs__sim_1_1SimEnvironmental" ]
+    ] ],
+    [ "sim_parameters.hpp", "sim__parameters_8hpp.html", "sim__parameters_8hpp" ],
+    [ "sim_physics.cpp", "sim__physics_8cpp.html", null ],
+    [ "sim_physics.hpp", "sim__physics_8hpp.html", [
+      [ "BalloonPhysics", "classgfs__sim_1_1BalloonPhysics.html", "classgfs__sim_1_1BalloonPhysics" ]
+    ] ],
+    [ "simulated_extensions.hpp", "simulated__extensions_8hpp.html", "simulated__extensions_8hpp" ],
     [ "socket.cpp", "socket_8cpp.html", null ],
     [ "socket.hpp", "socket_8hpp.html", "socket_8hpp" ],
     [ "spi_interface.cpp", "spi__interface_8cpp.html", null ],
@@ -236,6 +270,7 @@ var files_dup =
         [ "delay_usecs", "classgiraffe_1_1SpiInterface.html#a9a706a827cbc59ec99f7a4e7320e7d6c", null ]
       ] ]
     ] ],
+    [ "spitest.cpp", "spitest_8cpp.html", "spitest_8cpp" ],
     [ "status_led.hpp", "status__led_8hpp.html", [
       [ "StatusLedState", "classgiraffe_1_1StatusLedState.html", "classgiraffe_1_1StatusLedState" ]
     ] ],
@@ -259,6 +294,37 @@ var files_dup =
     ] ],
     [ "telemetry_module.cpp", "telemetry__module_8cpp.html", null ],
     [ "telemetry_module.hpp", "telemetry__module_8hpp.html", "telemetry__module_8hpp" ],
+    [ "common/old/test_01/test.cpp", "common_2old_2test__01_2test_8cpp.html", "common_2old_2test__01_2test_8cpp" ],
+    [ "common/old/test_02/test.cpp", "common_2old_2test__02_2test_8cpp.html", "common_2old_2test__02_2test_8cpp" ],
+    [ "flight_system/old/test-01/test.cpp", "flight__system_2old_2test-01_2test_8cpp.html", "flight__system_2old_2test-01_2test_8cpp" ],
+    [ "flight_system/old/test-02/test.cpp", "flight__system_2old_2test-02_2test_8cpp.html", "flight__system_2old_2test-02_2test_8cpp" ],
+    [ "flight_system/old/test-03/test.cpp", "flight__system_2old_2test-03_2test_8cpp.html", "flight__system_2old_2test-03_2test_8cpp" ],
+    [ "flight_system/old/test-04/test.cpp", "flight__system_2old_2test-04_2test_8cpp.html", "flight__system_2old_2test-04_2test_8cpp" ],
+    [ "flight_system/old/test-05/test.cpp", "flight__system_2old_2test-05_2test_8cpp.html", "flight__system_2old_2test-05_2test_8cpp" ],
+    [ "flight_system/old/test-06/test.cpp", "flight__system_2old_2test-06_2test_8cpp.html", "flight__system_2old_2test-06_2test_8cpp" ],
+    [ "flight_system/old/test-07/test.cpp", "flight__system_2old_2test-07_2test_8cpp.html", "flight__system_2old_2test-07_2test_8cpp" ],
+    [ "flight_system/old/test-08/test.cpp", "flight__system_2old_2test-08_2test_8cpp.html", "flight__system_2old_2test-08_2test_8cpp" ],
+    [ "flight_system/old/test-09/test.cpp", "flight__system_2old_2test-09_2test_8cpp.html", "flight__system_2old_2test-09_2test_8cpp" ],
+    [ "flight_system/old/test-10/test.cpp", "flight__system_2old_2test-10_2test_8cpp.html", "flight__system_2old_2test-10_2test_8cpp" ],
+    [ "flight_system/old/test-11/test.cpp", "flight__system_2old_2test-11_2test_8cpp.html", "flight__system_2old_2test-11_2test_8cpp" ],
+    [ "flight_system/old/test-12/test.cpp", "flight__system_2old_2test-12_2test_8cpp.html", "flight__system_2old_2test-12_2test_8cpp" ],
+    [ "flight_system/old/test-13/test.cpp", "flight__system_2old_2test-13_2test_8cpp.html", "flight__system_2old_2test-13_2test_8cpp" ],
+    [ "flight_system/old/test-14/test.cpp", "flight__system_2old_2test-14_2test_8cpp.html", "flight__system_2old_2test-14_2test_8cpp" ],
+    [ "flight_system/old/test-15/test.cpp", "flight__system_2old_2test-15_2test_8cpp.html", "flight__system_2old_2test-15_2test_8cpp" ],
+    [ "test_adc_config.cpp", "test__adc__config_8cpp.html", "test__adc__config_8cpp" ],
+    [ "test_application_layer.cpp", "test__application__layer_8cpp.html", "test__application__layer_8cpp" ],
+    [ "test_command_processor.cpp", "test__command__processor_8cpp.html", "test__command__processor_8cpp" ],
+    [ "test_configuration.cpp", "test__configuration_8cpp.html", "test__configuration_8cpp" ],
+    [ "test_diagnostics.cpp", "test__diagnostics_8cpp.html", "test__diagnostics_8cpp" ],
+    [ "test_error_frame.cpp", "test__error__frame_8cpp.html", "test__error__frame_8cpp" ],
+    [ "test_extensions.cpp", "test__extensions_8cpp.html", "test__extensions_8cpp" ],
+    [ "test_full_simulator.cpp", "test__full__simulator_8cpp.html", "test__full__simulator_8cpp" ],
+    [ "test_get_fc_info.cpp", "test__get__fc__info_8cpp.html", "test__get__fc__info_8cpp" ],
+    [ "test_interfaces.cpp", "test__interfaces_8cpp.html", "test__interfaces_8cpp" ],
+    [ "test_message_queue.cpp", "test__message__queue_8cpp.html", "test__message__queue_8cpp" ],
+    [ "test_network_layer.cpp", "test__network__layer_8cpp.html", "test__network__layer_8cpp" ],
+    [ "test_positional.cpp", "test__positional_8cpp.html", "test__positional_8cpp" ],
+    [ "test_protocol.cpp", "test__protocol_8cpp.html", "test__protocol_8cpp" ],
     [ "to_json.cpp", "to__json_8cpp.html", null ],
     [ "to_json.hpp", "to__json_8hpp.html", "to__json_8hpp" ],
     [ "to_string.cpp", "to__string_8cpp.html", "to__string_8cpp" ],
@@ -267,5 +333,6 @@ var files_dup =
     [ "ubx_ids.hpp", "ubx__ids_8hpp.html", "ubx__ids_8hpp" ],
     [ "ubx_protocol.cpp", "ubx__protocol_8cpp.html", "ubx__protocol_8cpp" ],
     [ "ubx_protocol.hpp", "ubx__protocol_8hpp.html", "ubx__protocol_8hpp" ],
+    [ "unit_test.hpp", "unit__test_8hpp.html", null ],
     [ "validation.hpp", "validation_8hpp.html", "validation_8hpp" ]
 ];

@@ -69,7 +69,21 @@ var annotated_dup =
       [ "Mcp3021", "classextension_1_1Mcp3021.html", "classextension_1_1Mcp3021" ],
       [ "PiCamera", "classextension_1_1PiCamera.html", "classextension_1_1PiCamera" ],
       [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ],
-      [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ]
+      [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ],
+      [ "SimAdcSensor", "classextension_1_1SimAdcSensor.html", "classextension_1_1SimAdcSensor" ],
+      [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],
+      [ "SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", "classextension_1_1SimHumiditySensor" ],
+      [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],
+      [ "SimPressureSensor", "classextension_1_1SimPressureSensor.html", "classextension_1_1SimPressureSensor" ],
+      [ "SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", "classextension_1_1SimTemperatureSensor" ]
+    ] ],
+    [ "gfs_sim", "namespacegfs__sim.html", [
+      [ "BalloonPhysics", "classgfs__sim_1_1BalloonPhysics.html", "classgfs__sim_1_1BalloonPhysics" ],
+      [ "EnvData", "namespacegfs__sim.html#structgfs__sim_1_1EnvData", "namespacegfs__sim_structgfs__sim_1_1EnvData_dup" ],
+      [ "GfsSimulator", "classgfs__sim_1_1GfsSimulator.html", "classgfs__sim_1_1GfsSimulator" ],
+      [ "SimData", "namespacegfs__sim.html#structgfs__sim_1_1SimData", "namespacegfs__sim_structgfs__sim_1_1SimData_dup" ],
+      [ "SimElectrical", "classgfs__sim_1_1SimElectrical.html", "classgfs__sim_1_1SimElectrical" ],
+      [ "SimEnvironmental", "classgfs__sim_1_1SimEnvironmental.html", "classgfs__sim_1_1SimEnvironmental" ]
     ] ],
     [ "giraffe", "namespacegiraffe.html", [
       [ "gdl", "namespacegiraffe_1_1gdl.html", [
@@ -121,11 +135,29 @@ var annotated_dup =
       [ "NavData", "namespaceubx.html#structubx_1_1NavData", "namespaceubx_structubx_1_1NavData_dup" ],
       [ "UBXMessage", "structubx_1_1UBXMessage.html", "structubx_1_1UBXMessage" ]
     ] ],
+    [ "BME280Test", "classBME280Test.html", "classBME280Test" ],
+    [ "Bmi088", "classBmi088.html", "classBmi088" ],
+    [ "BMP180Test", "classBMP180Test.html", "classBMP180Test" ],
+    [ "Configuration_Module_1", "classConfiguration__Module__1.html", "classConfiguration__Module__1" ],
+    [ "ConfigurationTest", "classConfigurationTest.html", "classConfigurationTest" ],
     [ "CurlRequest", "classCurlRequest.html", "classCurlRequest" ],
+    [ "DataModuleTests", "classDataModuleTests.html", "classDataModuleTests" ],
+    [ "DataStream_Utility", "classDataStream__Utility.html", "classDataStream__Utility" ],
+    [ "DS18B20Test", "classDS18B20Test.html", "classDS18B20Test" ],
+    [ "ExtensionsModuleTests", "classExtensionsModuleTests.html", "classExtensionsModuleTests" ],
+    [ "ExtensionTestFramework", "classExtensionTestFramework.html", "classExtensionTestFramework" ],
     [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ],
+    [ "GfsMetaData", "classGfsMetaData.html", "classGfsMetaData" ],
+    [ "GfsProtocol", "classGfsProtocol.html", "classGfsProtocol" ],
     [ "GiraffeException", "classGiraffeException.html", "classGiraffeException" ],
     [ "I2cInterface", "classI2cInterface.html", "classI2cInterface" ],
+    [ "I2CUtilityTest", "classI2CUtilityTest.html", "classI2CUtilityTest" ],
     [ "LogContainer", "classLogContainer.html", "classLogContainer" ],
+    [ "mcp3021Test", "classmcp3021Test.html", "classmcp3021Test" ],
     [ "OneWireInterface", "classOneWireInterface.html", "classOneWireInterface" ],
-    [ "RequestRouter", "group__ServerModule.html#classRequestRouter", "group__ServerModule_classRequestRouter" ]
+    [ "ProtocolTest", "classProtocolTest.html", "classProtocolTest" ],
+    [ "RequestRouter", "group__ServerModule.html#classRequestRouter", "group__ServerModule_classRequestRouter" ],
+    [ "SerialInterface", "classSerialInterface.html", "classSerialInterface" ],
+    [ "SYSINFOTest", "classSYSINFOTest.html", "classSYSINFOTest" ],
+    [ "UBXTest", "classUBXTest.html", "classUBXTest" ]
 ];

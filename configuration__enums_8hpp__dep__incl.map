@@ -1,33 +1,38 @@
 <map id="configuration_enums.hpp" name="configuration_enums.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="719,5,906,32"/>
-<area shape="rect" id="node2" href="$cfg__extensions_8hpp.html" title="The header file for the extensions section of the configuration." alt="" coords="683,80,831,107"/>
-<area shape="rect" id="node28" href="$i2c__interface_8hpp.html" title="A wrapper around I2C communication." alt="" coords="1392,155,1527,181"/>
-<area shape="rect" id="node3" href="$cfg__extensions_8cpp.html" title="Implements the extensions section of the configuration." alt="" coords="597,155,743,181"/>
-<area shape="rect" id="node4" href="$extension__base_8hpp.html" title="The new implementation of the extension system." alt="" coords="767,155,919,181"/>
-<area shape="rect" id="node27" href="$preconfigured__extensions_8hpp.html" title="This file contains preconfigured extension metadata." alt="" coords="355,155,572,181"/>
-<area shape="rect" id="node5" href="$adc__extension__base_8hpp.html" title="Generic ADC Extension Wrapper." alt="" coords="1067,229,1249,256"/>
-<area shape="rect" id="node9" href="$bme280_8hpp.html" title="The BME280 sensor extension." alt="" coords="940,229,1043,256"/>
-<area shape="rect" id="node11" href="$bmi088_8hpp.html" title="Extension for the Bosch BMI088 IMU." alt="" coords="323,229,422,256"/>
-<area shape="rect" id="node13" href="$ds18b20_8hpp.html" title="DS18B20 extension header file." alt="" coords="641,229,747,256"/>
-<area shape="rect" id="node15" href="$extension__base_8cpp.html" title="The new implementation of the extension system." alt="" coords="5,229,156,256"/>
-<area shape="rect" id="node16" href="$i2c__extension__adapter_8hpp.html" title="Adapter for I2C Extensions." alt="" coords="1273,229,1469,256"/>
-<area shape="rect" id="node17" href="$pi__camera_8hpp.html" title="Raspberry Pi Camera Extension." alt="" coords="180,229,299,256"/>
-<area shape="rect" id="node19" href="$rgb__status__led_8hpp.html" title=" " alt="" coords="771,229,916,256"/>
-<area shape="rect" id="node21" href="$samm8q_8hpp.html" title="SAM&#45;M8Q GPS extension (I2C)." alt="" coords="1494,229,1601,256"/>
-<area shape="rect" id="node23" href="$extension__module_8hpp.html" title="This is the header file for the new extension module." alt="" coords="446,229,617,256"/>
-<area shape="rect" id="node6" href="$mcp3021_8hpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="1167,304,1277,331"/>
-<area shape="rect" id="node7" href="$mcp3021_8cpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="1167,379,1277,405"/>
-<area shape="rect" id="node8" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="867,379,1036,405"/>
-<area shape="rect" id="node10" href="$bme280_8cpp.html" title="BME280 sensor extension." alt="" coords="1040,304,1143,331"/>
-<area shape="rect" id="node12" href="$bmi088_8cpp.html" title="Implementation of the BMI088 extension." alt="" coords="213,304,311,331"/>
-<area shape="rect" id="node14" href="$ds18b20_8cpp.html" title="DS18B20 extension." alt="" coords="642,304,746,331"/>
-<area shape="rect" id="node18" href="$pi__camera_8cpp.html" title="Raspberry Pi Camera Extension." alt="" coords="71,304,189,331"/>
-<area shape="rect" id="node20" href="$rgb__status__led_8cpp.html" title="RGB Status LED extension source file." alt="" coords="770,304,914,331"/>
-<area shape="rect" id="node22" href="$samm8q_8cpp.html" title="The SAM&#45;M8Q GPS extension (I2C)." alt="" coords="1494,304,1601,331"/>
-<area shape="rect" id="node24" href="$flight__runner_8hpp.html" title=" " alt="" coords="335,304,466,331"/>
-<area shape="rect" id="node25" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="270,379,401,405"/>
-<area shape="rect" id="node26" href="$flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="425,379,507,405"/>
-<area shape="rect" id="node29" href="$i2c__interface_8cpp.html" title="A wrapper around I2C communication." alt="" coords="1785,229,1918,256"/>
-<area shape="rect" id="node30" href="$ubx__protocol_8hpp.html" title="UBX Protocol implementation header." alt="" coords="1625,229,1760,256"/>
-<area shape="rect" id="node31" href="$ubx__protocol_8cpp.html" title="The UBX Protocol implementation." alt="" coords="1626,304,1759,331"/>
+<area shape="rect" id="node1" title=" " alt="" coords="993,5,1180,32"/>
+<area shape="rect" id="node2" href="$cfg__extensions_8hpp.html" title="The header file for the extensions section of the configuration." alt="" coords="731,80,879,107"/>
+<area shape="rect" id="node28" href="$extension__test__framework_8hpp.html" title="Basic helpers for unit testing extensions on the host." alt="" coords="975,229,1199,256"/>
+<area shape="rect" id="node32" href="$i2c__interface_8hpp.html" title="A wrapper around I2C communication." alt="" coords="1763,155,1898,181"/>
+<area shape="rect" id="node3" href="$cfg__extensions_8cpp.html" title="Implements the extensions section of the configuration." alt="" coords="645,155,792,181"/>
+<area shape="rect" id="node4" href="$extension__base_8hpp.html" title="The new implementation of the extension system." alt="" coords="816,155,968,181"/>
+<area shape="rect" id="node31" href="$preconfigured__extensions_8hpp.html" title="This file contains preconfigured extension metadata." alt="" coords="403,155,621,181"/>
+<area shape="rect" id="node5" href="$adc__extension__base_8hpp.html" title="Generic ADC Extension Wrapper." alt="" coords="1350,229,1533,256"/>
+<area shape="rect" id="node10" href="$bme280_8hpp.html" title="The BME280 sensor extension." alt="" coords="1223,229,1326,256"/>
+<area shape="rect" id="node12" href="$bmi088_8hpp.html" title="Extension for the Bosch BMI088 IMU." alt="" coords="651,304,749,331"/>
+<area shape="rect" id="node14" href="$ds18b20_8hpp.html" title="DS18B20 extension header file." alt="" coords="342,304,447,331"/>
+<area shape="rect" id="node16" href="$extension__base_8cpp.html" title="The new implementation of the extension system." alt="" coords="338,229,489,256"/>
+<area shape="rect" id="node17" href="$i2c__extension__adapter_8hpp.html" title="Adapter for I2C Extensions." alt="" coords="1557,229,1753,256"/>
+<area shape="rect" id="node18" href="$pi__camera_8hpp.html" title="Raspberry Pi Camera Extension." alt="" coords="833,229,951,256"/>
+<area shape="rect" id="node20" href="$rgb__status__led_8hpp.html" title=" " alt="" coords="481,304,626,331"/>
+<area shape="rect" id="node22" href="$samm8q_8hpp.html" title="SAM&#45;M8Q GPS extension (I2C)." alt="" coords="1777,229,1884,256"/>
+<area shape="rect" id="node24" href="$extension__module_8hpp.html" title="This is the header file for the new extension module." alt="" coords="92,229,263,256"/>
+<area shape="rect" id="node30" href="$simulated__extensions_8hpp.html" title="This contains the simulated extensions for testing the flight system." alt="" coords="513,229,706,256"/>
+<area shape="rect" id="node6" href="$mcp3021_8hpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="1490,304,1601,331"/>
+<area shape="rect" id="node7" href="$mcp3021_8cpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="1491,379,1600,405"/>
+<area shape="rect" id="node8" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="601,379,770,405"/>
+<area shape="rect" id="node9" href="$test__extensions_8cpp.html" title=" " alt="" coords="917,379,1069,405"/>
+<area shape="rect" id="node11" href="$bme280_8cpp.html" title="BME280 sensor extension." alt="" coords="1363,304,1466,331"/>
+<area shape="rect" id="node13" href="$bmi088_8cpp.html" title="Implementation of the BMI088 extension." alt="" coords="795,379,893,405"/>
+<area shape="rect" id="node15" href="$ds18b20_8cpp.html" title="DS18B20 extension." alt="" coords="304,379,408,405"/>
+<area shape="rect" id="node19" href="$pi__camera_8cpp.html" title="Raspberry Pi Camera Extension." alt="" coords="773,304,891,331"/>
+<area shape="rect" id="node21" href="$rgb__status__led_8cpp.html" title="RGB Status LED extension source file." alt="" coords="432,379,576,405"/>
+<area shape="rect" id="node23" href="$samm8q_8cpp.html" title="The SAM&#45;M8Q GPS extension (I2C)." alt="" coords="1777,304,1884,331"/>
+<area shape="rect" id="node25" href="$flight__runner_8hpp.html" title=" " alt="" coords="112,304,243,331"/>
+<area shape="rect" id="node26" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="5,379,136,405"/>
+<area shape="rect" id="node27" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="160,379,243,405"/>
+<area shape="rect" id="node29" href="$extension__test__framework_8cpp.html" title="Test framework for testing extensions on the host." alt="" coords="1015,304,1238,331"/>
+<area shape="rect" id="node33" href="$i2c__interface_8cpp.html" title="A wrapper around I2C communication." alt="" coords="2239,229,2372,256"/>
+<area shape="rect" id="node34" href="$ubx__protocol_8hpp.html" title="UBX Protocol implementation header." alt="" coords="1909,229,2043,256"/>
+<area shape="rect" id="node36" href="$test__interfaces_8cpp.html" title=" " alt="" coords="2068,229,2215,256"/>
+<area shape="rect" id="node35" href="$ubx__protocol_8cpp.html" title="The UBX Protocol implementation." alt="" coords="1909,304,2043,331"/>
 </map>

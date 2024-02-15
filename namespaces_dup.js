@@ -12,6 +12,7 @@ var namespaces_dup =
       [ "getSamM8qMetadata", "namespaceext.html#aa6c816231d5ea0556fa85e376a4bdeda", null ]
     ] ],
     [ "extension", "namespaceextension.html", "namespaceextension" ],
+    [ "gfs_sim", "namespacegfs__sim.html", "namespacegfs__sim" ],
     [ "giraffe", "namespacegiraffe.html", "namespacegiraffe" ],
     [ "modules", "namespacemodules.html", "namespacemodules" ],
     [ "ncurs", "namespacencurs.html", "namespacencurs" ],

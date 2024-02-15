@@ -1,4 +1,5 @@
 <map id="data::Stream::getNumPackets" name="data::Stream::getNumPackets">
-<area shape="rect" id="node1" title=" " alt="" coords="219,13,433,39"/>
-<area shape="rect" id="node2" href="$classmodules_1_1DataModule.html#a37e62fa014daa40f23bbe66aa2435077" title="Used to process shared streams." alt="" coords="5,5,171,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="219,46,433,73"/>
+<area shape="rect" id="node2" href="$classConfigurationTest.html#ab2b4b33a1b2b1f63069a9515449aa92f" title=" " alt="" coords="17,5,159,47"/>
+<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html#a37e62fa014daa40f23bbe66aa2435077" title="Used to process shared streams." alt="" coords="5,71,171,112"/>
 </map>

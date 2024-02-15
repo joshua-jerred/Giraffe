@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classextension_1_1Bmi088.html#ae97880621fee99f214cc73916b8a159c" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classextension_1_1Bmi088.html#a4f2bf0ae1de79d266c47349f63305b4b" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-30.5 114,-30.5 114,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Bmi088::</text>
 <text text-anchor="middle" x="57" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">startup</text>

@@ -1,0 +1,13 @@
+<map id="extension::Bmi088::startup" name="extension::Bmi088::startup">
+<area shape="rect" id="node1" title=" " alt="" coords="5,169,157,211"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#a9e2bd3cef685ac8501514acafad8c28f" title=" " alt="" coords="205,5,393,47"/>
+<area shape="rect" id="node5" href="$classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649" title=" " alt="" coords="211,136,388,177"/>
+<area shape="rect" id="node6" href="$classextension_1_1Bmi088.html#ae0822f94de46f127633943bdb8aaaa45" title=" " alt="" coords="223,201,375,243"/>
+<area shape="rect" id="node7" href="$classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2" title=" " alt="" coords="223,71,375,112"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1SpiInterface.html#a3c75790021466aedc3fdf056a31f790c" title="Attempts to open the SPI device. Returns true if successful, false otherwise." alt="" coords="224,267,375,308"/>
+<area shape="rect" id="node9" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="220,332,379,373"/>
+<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a00ef6cd65250307287af24071c862a42" title="Sleep internally for a given number of milliseconds." alt="" coords="441,23,600,64"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1SpiInterface.html#a146b865b9d5d9a41c82283565b91ff80" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="445,104,596,145"/>
+<area shape="rect" id="node10" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="441,332,600,373"/>
+<area shape="rect" id="node11" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="648,339,828,366"/>
+</map>

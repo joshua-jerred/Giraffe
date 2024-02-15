@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['window_1716',['Window',['../classncurs_1_1internal_1_1Window.html',1,'ncurs::internal::Window'],['../classncurs_1_1Window.html',1,'ncurs::Window']]]
+  ['window_2027',['Window',['../classncurs_1_1internal_1_1Window.html',1,'ncurs::internal::Window'],['../classncurs_1_1Window.html',1,'ncurs::Window']]]
 ];

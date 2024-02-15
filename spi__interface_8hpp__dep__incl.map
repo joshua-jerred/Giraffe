@@ -1,7 +1,9 @@
 <map id="spi_interface.hpp" name="spi_interface.hpp">
-<area shape="rect" id="node1" title="Contains the SPI interface class for the Giraffe flight system." alt="" coords="135,5,270,32"/>
-<area shape="rect" id="node2" href="$bmi088_8hpp.html" title="Extension for the Bosch BMI088 IMU." alt="" coords="84,80,183,107"/>
-<area shape="rect" id="node5" href="$spi__interface_8cpp.html" title="Implementation of the SPI interface class for the Giraffe flight system." alt="" coords="207,80,340,107"/>
+<area shape="rect" id="node1" title="Contains the SPI interface class for the Giraffe flight system." alt="" coords="286,5,421,32"/>
+<area shape="rect" id="node2" href="$bmi088_8hpp.html" title="Extension for the Bosch BMI088 IMU." alt="" coords="164,80,263,107"/>
+<area shape="rect" id="node6" href="$spi__interface_8cpp.html" title="Implementation of the SPI interface class for the Giraffe flight system." alt="" coords="287,80,420,107"/>
+<area shape="rect" id="node7" href="$test__interfaces_8cpp.html" title=" " alt="" coords="444,80,591,107"/>
 <area shape="rect" id="node3" href="$bmi088_8cpp.html" title="Implementation of the BMI088 extension." alt="" coords="5,155,104,181"/>
 <area shape="rect" id="node4" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="129,155,298,181"/>
+<area shape="rect" id="node5" href="$test__extensions_8cpp.html" title=" " alt="" coords="323,155,475,181"/>
 </map>

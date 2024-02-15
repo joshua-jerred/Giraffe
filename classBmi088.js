@@ -1,0 +1,25 @@
+var classBmi088 =
+[
+    [ "Bmi088", "classBmi088.html#afa6d0aed5cc5261b1aed27cf4320a9a4", null ],
+    [ "~Bmi088", "classBmi088.html#afa76028944da4d404f1073dd03ea77fd", null ],
+    [ "openDevice", "classBmi088.html#aec6daf19c834fb37386a47062dca5c88", null ],
+    [ "closeDevice", "classBmi088.html#a5afe6d47a407be8e9b929ba05600831c", null ],
+    [ "handshakeGyro", "classBmi088.html#aca2911c821f22b7bc02e78fe8323bde2", null ],
+    [ "handshakeAccel", "classBmi088.html#a1fb0001363ca4bb3c4759b577ae76b73", null ],
+    [ "readGyroData", "classBmi088.html#a1755ea339eb317a6af46e2578a00c1d5", null ],
+    [ "readAccelData", "classBmi088.html#a33e6089d835e44f98bac792d815817c6", null ],
+    [ "prepareSpiTransfer", "classBmi088.html#a628f535b9131b0d575bfaa39fa4d9127", null ],
+    [ "gyro_address_", "classBmi088.html#ae2f92a7260791f25fda0305fc6d62e2f", null ],
+    [ "spi_gyro_fd_", "classBmi088.html#aeeb2a7ca2abd82bbd960db64f55fe686", null ],
+    [ "accel_address_", "classBmi088.html#a918891008b9e598cafdbf8014adea97f", null ],
+    [ "spi_accel_fd_", "classBmi088.html#a0aa9a5f0ba4e2419821212d0552b997c", null ],
+    [ "spi_ioc_transfer_", "classBmi088.html#a4e217d3e70a5a962d304d580a2b64cce", null ],
+    [ "rx_buffer_", "classBmi088.html#a0fb2f38e702941297024b0b6702a8e2b", null ],
+    [ "tx_buffer_", "classBmi088.html#a9a33aef63ce1ba224555f9df23a494a7", null ],
+    [ "gyro_x_", "classBmi088.html#a3e0928e3f19f77946b5e2ba24a1b7148", null ],
+    [ "gyro_y_", "classBmi088.html#ac72b9d406623c8c3ed55250cd38a634d", null ],
+    [ "gyro_z_", "classBmi088.html#a784688304172c4ace4cf47b8a4388a83", null ],
+    [ "accel_x_", "classBmi088.html#ac267b6ae772e78c6f67ae90d43f7d9de", null ],
+    [ "accel_y_", "classBmi088.html#a9901fedd6683bb39f555889b0e3bf4d8", null ],
+    [ "accel_z_", "classBmi088.html#acb34dff57083cefa09aa5a47ea1708dd", null ]
+];

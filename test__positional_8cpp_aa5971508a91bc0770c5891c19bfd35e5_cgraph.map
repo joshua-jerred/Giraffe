@@ -1,0 +1,4 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node1" title="A non&#45;2d or non&#45;3d fix should be invalid. A 2d fix is currently considered valid." alt="" coords="5,5,60,32"/>
+<area shape="rect" id="node2" href="$namespacedata.html#ad86e1d5fdd64e533c7b5833ece53c37e" title="Checks if a GPS frame contains valid location data." alt="" coords="108,5,276,32"/>
+</map>

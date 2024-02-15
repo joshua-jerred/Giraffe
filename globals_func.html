@@ -44,9 +44,9 @@
   <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.5</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
-   <div id="projectbrief">It&#39;s giraffe</div>
+   <div id="projectbrief">A Unified High Altitude Flight Observation and Control System. With homogeneous software and hardware, both on the ground and in the air.</div>
   </td>
  </tr>
  </tbody>
@@ -104,9 +104,10 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 <h3><a id="index__5F"></a>- _ -</h3><ul>
 <li>__assert_func()
-: <a class="el" href="flight__system_2main_8cpp.html#aac54c41eba9e07dbcdf25984bdf0ebc6">flight_system/main.cpp</a>
+: <a class="el" href="src_2flight__system_2main_8cpp.html#aac54c41eba9e07dbcdf25984bdf0ebc6">src/flight_system/main.cpp</a>
 , <a class="el" href="giraffe__assert_8hpp.html#aac54c41eba9e07dbcdf25984bdf0ebc6">giraffe_assert.hpp</a>
 , <a class="el" href="giraffe__debug__assert_8cpp.html#a19de2b5984910465b7f8d2d71a92e746">giraffe_debug_assert.cpp</a>
+, <a class="el" href="test__configuration_8cpp.html#a19de2b5984910465b7f8d2d71a92e746">test_configuration.cpp</a>
 </li>
 <li>_disabled()
 : <a class="el" href="group__FlightRunnerConsoleHelpers.html#ga5ea7ae6d1439428d78d32bf6f33c1fb1">flight_runner.cpp</a>
@@ -182,12 +183,25 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>main()
-: <a class="el" href="flight__system_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">flight_system/main.cpp</a>
+: <a class="el" href="src_2flight__system_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">src/flight_system/main.cpp</a>
 , <a class="el" href="gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">gdl_terminal.cpp</a>
-, <a class="el" href="data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">data_link/server/main.cpp</a>
+, <a class="el" href="src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">src/data_link/server/main.cpp</a>
+, <a class="el" href="curl__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">curl_test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-09_2test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">flight_system/old/test-09/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-13_2test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">flight_system/old/test-13/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-15_2test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">flight_system/old/test-15/test.cpp</a>
+, <a class="el" href="spitest_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">spitest.cpp</a>
+, <a class="el" href="tests_2simulator_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">tests/simulator/main.cpp</a>
 </li>
 <li>modules::Module::data&lt; std::string &gt;()
 : <a class="el" href="module_8cpp.html#a741a5b9fbe0d0c058314492d19260466">module.cpp</a>
+</li>
+</ul>
+
+
+<h3><a id="index_o"></a>- o -</h3><ul>
+<li>operator&lt;&lt;()
+: <a class="el" href="flight__system_2old_2test-08_2test_8cpp.html#ad9458b88e85d322c6fba9ea0a74614af">flight_system/old/test-08/test.cpp</a>
 </li>
 </ul>
 
@@ -251,13 +265,52 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>signalHandler()
-: <a class="el" href="flight__system_2main_8cpp.html#a1ff4bd1f5a632a4106604e5c243c0f24">flight_system/main.cpp</a>
-, <a class="el" href="data__link_2server_2main_8cpp.html#a1ff4bd1f5a632a4106604e5c243c0f24">data_link/server/main.cpp</a>
+: <a class="el" href="src_2flight__system_2main_8cpp.html#a1ff4bd1f5a632a4106604e5c243c0f24">src/flight_system/main.cpp</a>
+, <a class="el" href="src_2data__link_2server_2main_8cpp.html#a1ff4bd1f5a632a4106604e5c243c0f24">src/data_link/server/main.cpp</a>
 </li>
 </ul>
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
+<li>TEST()
+: <a class="el" href="test__positional_8cpp.html#a94d671961c177174ccfd6d970a02427a">test_positional.cpp</a>
+, <a class="el" href="test__error__frame_8cpp.html#a433960252b719b3e9ed729198cde6a4d">test_error_frame.cpp</a>
+, <a class="el" href="test__get__fc__info_8cpp.html#af7855ab8c770965fdeb7dd1f062e9001">test_get_fc_info.cpp</a>
+, <a class="el" href="test__positional_8cpp.html#a2a6215130340220fc70f6ee6d0c12e8d">test_positional.cpp</a>
+, <a class="el" href="test__application__layer_8cpp.html#a50d523d79f3cdf56479d9fb723242051">test_application_layer.cpp</a>
+, <a class="el" href="test__positional_8cpp.html#a1c6a53b06d4a28b802627e190deb943a">test_positional.cpp</a>
+, <a class="el" href="test__diagnostics_8cpp.html#ac11d97bf8abd2570b344169a8f2a9155">test_diagnostics.cpp</a>
+, <a class="el" href="test__error__frame_8cpp.html#afd84fc04313ff1daeee626fc2bcc894a">test_error_frame.cpp</a>
+, <a class="el" href="test__full__simulator_8cpp.html#a56fff90d04cebb7a6899c5bcaf8746e6">test_full_simulator.cpp</a>
+, <a class="el" href="test__message__queue_8cpp.html#a7251b25999e45fbaa5b87476d3a39bcc">test_message_queue.cpp</a>
+, <a class="el" href="test__network__layer_8cpp.html#af81a2aba7950c168ec124d7fffbadce5">test_network_layer.cpp</a>
+, <a class="el" href="test__extensions_8cpp.html#a3a3489c740c6f0f8c03ceb87a39da04e">test_extensions.cpp</a>
+, <a class="el" href="test__adc__config_8cpp.html#aa817ee7bd7ee57be9bc5ca4497d81b51">test_adc_config.cpp</a>
+, <a class="el" href="test__command__processor_8cpp.html#a321fde21744f5adc0361d17f0464c1d7">test_command_processor.cpp</a>
+, <a class="el" href="test__adc__config_8cpp.html#a836b18f58d411111180ad11dc0b0d26a">test_adc_config.cpp</a>
+</li>
+<li>TEST_F()
+: <a class="el" href="flight__system_2old_2test-08_2test_8cpp.html#aebc6d89060f3e5b19db32a68f19dbdd3">flight_system/old/test-08/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-07_2test_8cpp.html#ac8fd0a2e8482a7971a1fd074ea0590cb">flight_system/old/test-07/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-06_2test_8cpp.html#a27d19bbe617a9c5283bb316eca8db978">flight_system/old/test-06/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-05_2test_8cpp.html#a77beee950c244172366269ccb834d000">flight_system/old/test-05/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-08_2test_8cpp.html#adb274d5146732e33ed776a212ea274e8">flight_system/old/test-08/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-10_2test_8cpp.html#abc93ef08ad672985212c7526eab25718">flight_system/old/test-10/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-11_2test_8cpp.html#a64c5158a12e007b03a243f622cb66160">flight_system/old/test-11/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-12_2test_8cpp.html#aeeffca3fe3eb23d21ad27fed2bb1fa23">flight_system/old/test-12/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-14_2test_8cpp.html#aff5e1e563822e4a5700dca10ecf8e183">flight_system/old/test-14/test.cpp</a>
+, <a class="el" href="test__configuration_8cpp.html#a79144e6b03cd864fcb0ee29d9ec3048b">test_configuration.cpp</a>
+, <a class="el" href="common_2old_2test__01_2test_8cpp.html#abb50c6f1181f351cee975d2f898de42c">common/old/test_01/test.cpp</a>
+, <a class="el" href="test__configuration_8cpp.html#adc9afad7d57f446b287e742ef2a04ef8">test_configuration.cpp</a>
+, <a class="el" href="flight__system_2old_2test-04_2test_8cpp.html#ab72a6193638e011e520aece4619943a6">flight_system/old/test-04/test.cpp</a>
+, <a class="el" href="common_2old_2test__01_2test_8cpp.html#a6faada45ae10bcd290fcc43178ac6412">common/old/test_01/test.cpp</a>
+, <a class="el" href="common_2old_2test__02_2test_8cpp.html#aeb04c50e9dcb06d3575f013c78373353">common/old/test_02/test.cpp</a>
+, <a class="el" href="test__protocol_8cpp.html#afa27f07d6a230d4c6343666201d6288b">test_protocol.cpp</a>
+, <a class="el" href="flight__system_2old_2test-01_2test_8cpp.html#ac53dd201a9820033114f9e6de4a19fbe">flight_system/old/test-01/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-02_2test_8cpp.html#a412bb65b85f9a8f89d3c70720f5fccb4">flight_system/old/test-02/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-03_2test_8cpp.html#af3e1db4506de9964fb066c20693b8904">flight_system/old/test-03/test.cpp</a>
+, <a class="el" href="flight__system_2old_2test-05_2test_8cpp.html#a091ba89fb0e018c2ee9f49c3bc88939f">flight_system/old/test-05/test.cpp</a>
+</li>
 <li>title_and_data()
 : <a class="el" href="console__pages_8cpp.html#ab949f74ccba4e5f4a7d22d9e601be27c">console_pages.cpp</a>
 </li>

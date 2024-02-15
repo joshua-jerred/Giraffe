@@ -1,8 +1,9 @@
 <map id="extension::getKeyValue" name="extension::getKeyValue">
 <area shape="rect" id="node1" title=" " alt="" coords="828,58,1003,85"/>
 <area shape="rect" id="node2" href="$namespaceextension.html#aea2ae2212bc3fa9298548a9262b08d53" title="Parse an ADC config string into an AdcConfig struct." alt="" coords="268,58,463,85"/>
-<area shape="rect" id="node4" href="$namespaceextension.html#a1c70792cc81ee38bdd6565121b80d73f" title=" " alt="" coords="544,33,747,60"/>
-<area shape="rect" id="node5" href="$namespaceextension.html#a1d505eb064779b189f0e0aea26f233f8" title=" " alt="" coords="520,84,771,110"/>
-<area shape="rect" id="node6" href="$namespaceextension.html#a9b3e7eed87dd75bdeae23c40767b5412" title=" " alt="" coords="511,134,780,161"/>
-<area shape="rect" id="node3" href="$classextension_1_1AdcExtensionBase.html#af07213580bd12e06b6858ccababe9913" title=" " alt="" coords="5,51,220,92"/>
+<area shape="rect" id="node5" href="$namespaceextension.html#a1c70792cc81ee38bdd6565121b80d73f" title=" " alt="" coords="544,33,747,60"/>
+<area shape="rect" id="node6" href="$namespaceextension.html#a1d505eb064779b189f0e0aea26f233f8" title=" " alt="" coords="520,84,771,110"/>
+<area shape="rect" id="node7" href="$namespaceextension.html#a9b3e7eed87dd75bdeae23c40767b5412" title=" " alt="" coords="511,134,780,161"/>
+<area shape="rect" id="node3" href="$classextension_1_1AdcExtensionBase.html#af07213580bd12e06b6858ccababe9913" title=" " alt="" coords="5,22,220,63"/>
+<area shape="rect" id="node4" href="$test__adc__config_8cpp.html#aa817ee7bd7ee57be9bc5ca4497d81b51" title=" " alt="" coords="85,88,140,114"/>
 </map>

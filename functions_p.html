@@ -44,9 +44,9 @@
   <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.5</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
-   <div id="projectbrief">It&#39;s giraffe</div>
+   <div id="projectbrief">A Unified High Altitude Flight Observation and Control System. With homogeneous software and hardware, both on the ground and in the air.</div>
   </td>
  </tr>
  </tbody>
@@ -112,6 +112,15 @@ $(document).ready(function(){initNavTree('functions_p.html',''); initResizable()
 <li>p_data_module_
 : <a class="el" href="classFlightRunner.html#aba54085de36a674170138a098ffab821">FlightRunner</a>
 </li>
+<li>p_data_stream_
+: <a class="el" href="classBME280Test.html#aa7576055fd360a6089d201b3db70be5e">BME280Test</a>
+, <a class="el" href="classBMP180Test.html#a0439f13aa4a73a8378341877acc39703">BMP180Test</a>
+, <a class="el" href="classConfiguration__Module__1.html#a8ee598e9fbb615b0fae84868f3f63291">Configuration_Module_1</a>
+, <a class="el" href="classDataStream__Utility.html#a65cb0077aae284e0c636f69080b3583c">DataStream_Utility</a>
+, <a class="el" href="classDS18B20Test.html#ac399f59303d10f441e35f41ae8535111">DS18B20Test</a>
+, <a class="el" href="classmcp3021Test.html#a31f56abc23d0b2c81029427f194c1b2b">mcp3021Test</a>
+, <a class="el" href="classSYSINFOTest.html#ad23698fac67a07a9a63abd8be7b105b0">SYSINFOTest</a>
+</li>
 <li>p_extension_module_
 : <a class="el" href="classFlightRunner.html#a01fea479a57c31424e89a0f397ff0b8b">FlightRunner</a>
 </li>
@@ -149,7 +158,7 @@ $(document).ready(function(){initNavTree('functions_p.html',''); initResizable()
 </li>
 <li>pages_
 : <a class="el" href="classmodules_1_1ConsoleModule.html#aba546f3297c14801be31971ca0f298ab">modules::ConsoleModule</a>
-, <a class="el" href="classncurs_1_1Environment.html#afc4340321f6d00cbc488d7da45eb313d">ncurs::Environment</a>
+, <a class="el" href="classncurs_1_1Environment.html#a71aac3b586743810bebef791d4f12a63">ncurs::Environment</a>
 </li>
 <li>parseCameraNewImageDataPacket()
 : <a class="el" href="group__DataStreamParsing.html#ga3e2335554562970a83d3aecbfab3c4c9">modules::DataModule</a>
@@ -188,11 +197,14 @@ $(document).ready(function(){initNavTree('functions_p.html',''); initResizable()
 <li>PhysicalLayer()
 : <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html#a743133ec3c90f2748eb0bf029d6c7af3">giraffe::gdl::PhysicalLayer</a>
 </li>
+<li>physics_
+: <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a7e882f34329a8d2eda1191bf67062b89">gfs_sim::GfsSimulator</a>
+</li>
 <li>PiCamera()
 : <a class="el" href="classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87">extension::PiCamera</a>
 </li>
 <li>Pin()
-: <a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html#ae4412c1e0e3b436d2a4aced8a735e5b0">giraffe::Gpio::Pin</a>
+: <a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html#a99a0fe69fe4560169ec0e27318720d60">giraffe::Gpio::Pin</a>
 </li>
 <li>pin_number
 : <a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html#a351980de646febca23da755e3f0d40f9">giraffe::Gpio::Pin</a>
@@ -215,6 +227,9 @@ $(document).ready(function(){initNavTree('functions_p.html',''); initResizable()
 <li>position_packets_received_
 : <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ad93d1fec8b9f1b6a0ea383250e9f5b30">giraffe::gdl::TransportLayer</a>
 </li>
+<li>prepareSpiTransfer()
+: <a class="el" href="classBmi088.html#a628f535b9131b0d575bfaa39fa4d9127">Bmi088</a>
+</li>
 <li>pressure_
 : <a class="el" href="classextension_1_1Bme280.html#acccdd360111189cf4b401e1456b13afb">extension::Bme280</a>
 </li>
@@ -223,6 +238,12 @@ $(document).ready(function(){initNavTree('functions_p.html',''); initResizable()
 </li>
 <li>pressure_altitude_valid
 : <a class="el" href="structdata_1_1blocks_1_1CalculatedData.html#ab94fadab177d995691ec1bc0cea23fb7">data::blocks::CalculatedData</a>
+</li>
+<li>pressure_mbar
+: <a class="el" href="namespacegfs__sim.html#a5e45fb2b4b7eaef2153e5d841a0bdd4f">gfs_sim::SimData</a>
+</li>
+<li>pressure_millibars
+: <a class="el" href="namespacegfs__sim.html#a4669312804fdc1aa8a664a97e496dce3">gfs_sim::EnvData</a>
 </li>
 <li>previous_shutdown_time_
 : <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a2cdb4fd66a441b901f5e928a3d19d0a5">giraffe::FlightRunnerData</a>
@@ -239,8 +260,20 @@ $(document).ready(function(){initNavTree('functions_p.html',''); initResizable()
 <li>primary_watchdog_timer_
 : <a class="el" href="classextension_1_1SamM8q.html#a8854c90e5b5cc8723e1ba5c5d9d35bd2">extension::SamM8q</a>
 </li>
+<li>print_timer_
+: <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a6891dfcd060e087d15ded732a3950e3b">gfs_sim::GfsSimulator</a>
+</li>
 <li>print_to_stdout_
 : <a class="el" href="classgiraffe_1_1CommonLogger.html#a094ca9cddd7d0fa4396c1cd3cd59b830">giraffe::CommonLogger&lt; LOG_SIZE &gt;</a>
+</li>
+<li>printData()
+: <a class="el" href="classgfs__sim_1_1GfsSimulator.html#aca8946f8987e20a268ca79708ad9006f">gfs_sim::GfsSimulator</a>
+</li>
+<li>printStreamErrors()
+: <a class="el" href="classConfigurationTest.html#ab2b4b33a1b2b1f63069a9515449aa92f">ConfigurationTest</a>
+</li>
+<li>printStreams()
+: <a class="el" href="classExtensionTestFramework.html#ac7e990a9c39cd8f420be41a3a85526ad">ExtensionTestFramework</a>
 </li>
 <li>proactive_keep_alive_
 : <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#a1ddccf6c9971e186d501c9b33395ee12">giraffe::gdl::Config</a>

@@ -9,9 +9,9 @@ var indexSectionsWithContent =
   6: "fjmoru",
   7: "adefgilmnprst",
   8: "abcdefghilmnoprstuvwx",
-  9: "egu",
+  9: "bcdegmnprstuv",
   10: ".acdfrs",
-  11: "bgt"
+  11: "bgtu"
 };
 
 var indexSectionNames =

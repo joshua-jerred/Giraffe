@@ -44,9 +44,9 @@
   <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Giraffe
-   &#160;<span id="projectnumber">0.5</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
-   <div id="projectbrief">It&#39;s giraffe</div>
+   <div id="projectbrief">A Unified High Altitude Flight Observation and Control System. With homogeneous software and hardware, both on the ground and in the air.</div>
   </td>
  </tr>
  </tbody>
@@ -142,6 +142,18 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1SamM8q.html">SamM8q</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1SimAdcSensor.html">SimAdcSensor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1SimGpsSensor.html">SimGpsSensor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1SimHumiditySensor.html">SimHumiditySensor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1SimImuSensor.html">SimImuSensor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1SimPressureSensor.html">SimPressureSensor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1SimTemperatureSensor.html">SimTemperatureSensor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -200,6 +212,8 @@ Variables</h2></td></tr>
 <tr class="memitem:a99f704514927f802083317793cd0c3e2"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a99f704514927f802083317793cd0c3e2">K_READ_TIMEOUT</a> = 5000</td></tr>
 <tr class="memdesc:a99f704514927f802083317793cd0c3e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The read timeout in milliseconds. The update interval is added to this.  <a href="namespaceextension.html#a99f704514927f802083317793cd0c3e2">More...</a><br /></td></tr>
 <tr class="separator:a99f704514927f802083317793cd0c3e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acea3c2f1a9f2b59a10ae1f1ca30a1edf"><td class="memItemLeft" align="right" valign="top">static const std::vector&lt; <a class="el" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#acea3c2f1a9f2b59a10ae1f1ca30a1edf">K_SIMULATED_EXTENSIONS_VEC</a></td></tr>
+<tr class="separator:acea3c2f1a9f2b59a10ae1f1ca30a1edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7eb03bcbaeedd19fc0bcdf9082451b15"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a7eb03bcbaeedd19fc0bcdf9082451b15">kBme280I2cAddress</a> = 0x76</td></tr>
 <tr class="separator:a7eb03bcbaeedd19fc0bcdf9082451b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a404ffdbcada5efefb7a6248b105a43cd"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a404ffdbcada5efefb7a6248b105a43cd">kCompensationDataReadRate</a> = 5000</td></tr>
@@ -475,7 +489,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceextension_a1c70792cc81ee38bdd6565121b80d73f_icgraph.svg" width="719" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceextension_a1c70792cc81ee38bdd6565121b80d73f_icgraph.svg" width="719" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -527,7 +541,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceextension_a1d505eb064779b189f0e0aea26f233f8_icgraph.svg" width="767" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceextension_a1d505eb064779b189f0e0aea26f233f8_icgraph.svg" width="767" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -579,7 +593,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceextension_a9b3e7eed87dd75bdeae23c40767b5412_icgraph.svg" width="786" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceextension_a9b3e7eed87dd75bdeae23c40767b5412_icgraph.svg" width="786" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -626,7 +640,7 @@ false - If the string was invalid. </dd></dl>
 
 <p class="reference">References <a class="el" href="namespaceextension.html#a03e33fdaf5af44bd62474a0518c4836f">getKeyValue()</a>, <a class="el" href="namespaceextension.html#a1c70792cc81ee38bdd6565121b80d73f">parsePercentAdc()</a>, <a class="el" href="namespaceextension.html#a1d505eb064779b189f0e0aea26f233f8">parseVoltageDividerAdc()</a>, <a class="el" href="namespaceextension.html#a9b3e7eed87dd75bdeae23c40767b5412">parseVoltageReferenceAdc()</a>, <a class="el" href="namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a21ee69ba26b6e644d4dddce593855d84">PERCENTAGE</a>, <a class="el" href="namespaceextension.html#aa5891a3aa6702efdece92bf561d17208aaa5db4381426a88461ad4ebe782d04fc">RAW_COUNT</a>, <a class="el" href="namespaceextension.html#a23ef4c78e9d729620c72e7268e1fd7ef">extension::AdcConfig::resolution</a>, <a class="el" href="namespaceextension.html#a71d608b225ed825e1cb89bdc8adbc776">extension::AdcConfig::type</a>, <a class="el" href="namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a355d20dd055de8493132a6936cba6b8d">VOLTAGE_DIVIDER</a>, and <a class="el" href="namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a43c60cbd63d5040414069d99f10fe98f">VOLTAGE_REFERENCE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classextension_1_1AdcExtensionBase.html#af07213580bd12e06b6858ccababe9913">extension::AdcExtensionBase&lt; AdcResolution &gt;::AdcExtensionBase()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classextension_1_1AdcExtensionBase.html#af07213580bd12e06b6858ccababe9913">extension::AdcExtensionBase&lt; AdcResolution &gt;::AdcExtensionBase()</a>, and <a class="el" href="test__adc__config_8cpp.html#aa817ee7bd7ee57be9bc5ca4497d81b51">TEST()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -636,7 +650,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceextension_aea2ae2212bc3fa9298548a9262b08d53_icgraph.svg" width="468" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceextension_aea2ae2212bc3fa9298548a9262b08d53_icgraph.svg" width="468" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -835,6 +849,45 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="acea3c2f1a9f2b59a10ae1f1ca30a1edf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acea3c2f1a9f2b59a10ae1f1ca30a1edf">&#9670;&nbsp;</a></span>K_SIMULATED_EXTENSIONS_VEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>&gt; extension::K_SIMULATED_EXTENSIONS_VEC</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{</div>
+<div class="line">        <span class="stringliteral">&quot;sim_temp&quot;</span>, <span class="keyword">true</span>, cfg::gEnum::ExtensionType::SIM_TEMP, 1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
+<div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{</div>
+<div class="line">        <span class="stringliteral">&quot;sim_pres&quot;</span>, <span class="keyword">true</span>, cfg::gEnum::ExtensionType::SIM_PRES, 1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
+<div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{<span class="stringliteral">&quot;sim_hum&quot;</span>, <span class="keyword">true</span>, cfg::gEnum::ExtensionType::SIM_HUM,</div>
+<div class="line">                           1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
+<div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{<span class="stringliteral">&quot;sim_gps&quot;</span>, <span class="keyword">true</span>, cfg::gEnum::ExtensionType::SIM_GPS,</div>
+<div class="line">                           1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
+<div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{<span class="stringliteral">&quot;sim_imu&quot;</span>, <span class="keyword">true</span>, cfg::gEnum::ExtensionType::SIM_IMU,</div>
+<div class="line">                           1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
+<div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{<span class="stringliteral">&quot;sim_adc&quot;</span>, <span class="keyword">true</span>, cfg::gEnum::ExtensionType::SIM_ADC,</div>
+<div class="line">                           1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
+<div class="line">}</div>
+<div class="ttc" id="astructcfg_1_1ExtensionMetadata_html"><div class="ttname"><a href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a></div><div class="ttdoc">The metadata for an extension.</div><div class="ttdef"><b>Definition:</b> cfg_extensions.hpp:27</div></div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">modules::ExtensionModule::startup()</a>.</p>
 
 </div>
 </div>

@@ -1,5 +1,6 @@
 <map id="extension::parseVoltageReferenceAdc" name="extension::parseVoltageReferenceAdc">
-<area shape="rect" id="node1" title=" " alt="" coords="511,13,780,39"/>
-<area shape="rect" id="node2" href="$namespaceextension.html#aea2ae2212bc3fa9298548a9262b08d53" title="Parse an ADC config string into an AdcConfig struct." alt="" coords="268,13,463,39"/>
+<area shape="rect" id="node1" title=" " alt="" coords="511,42,780,69"/>
+<area shape="rect" id="node2" href="$namespaceextension.html#aea2ae2212bc3fa9298548a9262b08d53" title="Parse an ADC config string into an AdcConfig struct." alt="" coords="268,42,463,69"/>
 <area shape="rect" id="node3" href="$classextension_1_1AdcExtensionBase.html#af07213580bd12e06b6858ccababe9913" title=" " alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node4" href="$test__adc__config_8cpp.html#aa817ee7bd7ee57be9bc5ca4497d81b51" title=" " alt="" coords="85,71,140,98"/>
 </map>

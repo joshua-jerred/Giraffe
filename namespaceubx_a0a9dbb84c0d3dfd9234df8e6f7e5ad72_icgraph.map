@@ -1,0 +1,4 @@
+<map id="ubx::setMessageRate" name="ubx::setMessageRate">
+<area shape="rect" id="node1" title="CFG&#45;MSG (0x06 0x01) Configure Message Rate." alt="" coords="123,5,285,32"/>
+<area shape="rect" id="node2" href="$flight__system_2old_2test-08_2test_8cpp.html#adb274d5146732e33ed776a212ea274e8" title=" " alt="" coords="5,5,75,32"/>
+</map>

@@ -1,7 +1,8 @@
 <map id="parseTelemetryModuleCommand" name="parseTelemetryModuleCommand">
-<area shape="rect" id="node1" title=" " alt="" coords="821,46,1060,73"/>
-<area shape="rect" id="node2" href="$namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74" title="Parses a command string into a command object." alt="" coords="575,46,773,73"/>
+<area shape="rect" id="node1" title=" " alt="" coords="821,78,1060,105"/>
+<area shape="rect" id="node2" href="$namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74" title="Parses a command string into a command object." alt="" coords="575,78,773,105"/>
 <area shape="rect" id="node3" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="285,5,523,47"/>
 <area shape="rect" id="node5" href="$classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54" title="Called if there is a message in the receive queue. Pops one message and processes it." alt="" coords="281,71,527,112"/>
+<area shape="rect" id="node6" href="$test__command__processor_8cpp.html#a321fde21744f5adc0361d17f0464c1d7" title=" " alt="" coords="377,137,431,163"/>
 <area shape="rect" id="node4" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,13,233,39"/>
 </map>
