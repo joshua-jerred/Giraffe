@@ -13,48 +13,67 @@
       "value": "0x0000"
     }
   },
-  "node": {
-    "reload_configuration": {
-      "name": "Reload Configuration",
-      "details": "Tells a node to reload it's relevant configuration items (e.g. after a config change).",
-      "value": "0x0001"
-    }
-  },
   "flight_runner": {
+    "SECTION_METADATA": {
+      "prefix": "flr"
+    },
     "shutdown_system": {
       "name": "Shutdown System",
       "details": "Tells the flight runner to shutdown.",
-      "value": "0x1000"
+      "value": "0x1000",
+      "cmd_key": "sdn"
     },
     "start_module": {
       "name": "Start Module",
       "details": "Tells the flight runner to start a module given a 3 letter module identifier.",
-      "value": "0x1001"
+      "value": "0x1001",
+      "cmd_key": "mst",
+      "options": [
+        // {
+        //   "name": "Flight Runner",
+        //   "value": "flr"
+        // },
+        {
+          "name": "Data Module",
+          "value": "dat"
+        },
+        {
+          "name": "Telemetry Module",
+          "value": "tel"
+        }
+      ]
     },
     "stop_module": {
       "name": "Stop Module",
       "details": "Tells the flight runner to stop a module given a 3 letter module identifier.",
-      "value": "0x1002"
+      "value": "0x1002",
+      "cmd_key": "msp"
     },
     "restart_module": {
       "name": "Restart Module",
       "details": "Tells the flight runner to restart a module given a 3 letter module identifier.",
-      "value": "0x1003"
+      "value": "0x1003",
+      "cmd_key": "mrt"
     }
   },
   "data_module": {
+    "SECTION_METADATA": {
+      "prefix": "dat"
+    },
     "clear_all_errors": {
       "name": "Clear All Errors",
       "details": "Clears all errors from the error frame",
-      "value": "0x2000"
+      "value": "0x2000",
+      "cmd_key": "cae"
     },
     "clear_specific_error": {
       "name": "Clear a Specific Error",
       "details": "Clears a specific error/diagnostic code from the error frame given an error code (uint16_t) in hex.",
-      "value": "0x2001"
+      "value": "0x2001",
+      "cmd_key": "cse"
     }
   },
-  "telemetry_module":{
+  "telemetry_module": {
     "send_num_active_errors": {
       "name": "Send Number of Active Errors",
       "details": "Sends the number of active errors in the error frame.",

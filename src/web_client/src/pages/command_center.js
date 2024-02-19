@@ -37,42 +37,67 @@ const TemporaryCommandsMetadata =
       },
     },
     flight_runner: {
+      SECTION_METADATA: {
+        prefix: "flr",
+      },
       shutdown_system: {
         name: "Shutdown System",
         details: "Tells the flight runner to shutdown.",
         value: "0x1000",
+        cmd_key: "sdn",
       },
       start_module: {
         name: "Start Module",
         details:
           "Tells the flight runner to start a module given a 3 letter module identifier.",
         value: "0x1001",
-        options: [{ name: "Telemetry", value: "tlm" }],
+        cmd_key: "mst",
+        options: [
+          // {
+          //   "name": "Flight Runner",
+          //   "value": "flr"
+          // },
+          {
+            name: "Data Module",
+            value: "dat",
+          },
+          {
+            name: "Telemetry Module",
+            value: "tel",
+          },
+        ],
       },
       stop_module: {
         name: "Stop Module",
         details:
           "Tells the flight runner to stop a module given a 3 letter module identifier.",
         value: "0x1002",
+        cmd_key: "msp",
       },
       restart_module: {
         name: "Restart Module",
         details:
           "Tells the flight runner to restart a module given a 3 letter module identifier.",
         value: "0x1003",
+        cmd_key: "mrt",
       },
     },
     data_module: {
+      SECTION_METADATA: {
+        prefix: "dat",
+      },
       clear_all_errors: {
         name: "Clear All Errors",
         details: "Clears all errors from the error frame",
         value: "0x2000",
+        cmd_key: "cae",
       },
       clear_specific_error: {
         name: "Clear a Specific Error",
         details:
           "Clears a specific error/diagnostic code from the error frame given an error code (uint16_t) in hex.",
         value: "0x2001",
+        cmd_key: "cse",
       },
     },
   };
@@ -95,7 +120,7 @@ const CommandSectionStyled = styled.ul`
   }
 `;
 
-function SingleCommand({ name, metadata, sendMethod }) {
+function SingleCommand({ name, metadata, sendMethod, prefix }) {
   const { ggsAddress } = useContext(GwsGlobal);
   const [selectedOption, setSelectedOption] = useState(
     metadata.options ? metadata.options[0].value : ""
@@ -110,16 +135,17 @@ function SingleCommand({ name, metadata, sendMethod }) {
       }, 1000);
     };
 
-    setCommandSentStatus("sending");
+    let command_string =
+      "cmd/" + prefix + "/" + metadata.cmd_key + "/" + selectedOption;
 
+    setCommandSentStatus("sending: " + command_string);
     fetch(ggsAddress + "/api/command", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        command: metadata.value,
-        options: selectedOption,
+        command: command_string,
         send_method: sendMethod,
       }),
     })
@@ -162,12 +188,16 @@ function CommandList() {
   for (let section in CommandsMetadata) {
     if (section === "FILE_META" || section === "general") continue;
     let Commands = [];
+    let prefix = CommandsMetadata[section].SECTION_METADATA.prefix;
     for (let command in CommandsMetadata[section]) {
+      if (command === "SECTION_METADATA") continue;
       Commands.push(
         <SingleCommand
           name={command}
           metadata={CommandsMetadata[section][command]}
           sendMethod={sendMethod}
+          prefix={prefix}
+          key={CommandsMetadata[section][command].value}
         />
       );
     }
