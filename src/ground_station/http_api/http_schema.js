@@ -8,6 +8,7 @@ const valid_resources = [
   "gdl",
   "debug",
   "flight_data",
+  "command",
 ];
 
 const valid_ggs_categories = ["settings", "data", "aprs_fi", "log"];

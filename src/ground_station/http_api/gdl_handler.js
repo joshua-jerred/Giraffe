@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const parseGetQuery = require("./query_parse");
+// const parseGetQuery = require("./query_parse");
 
 module.exports = function (global_state) {
   // /api/gdl/settings

@@ -55,14 +55,12 @@ class GlobalState {
 
   // log an error message to the database
   error(message) {
-    if (this.logging_level === "error") {
-      this.database.addLog("error", message);
-    }
+    this.database.addLog("error", message);
   }
 
   // log a warning message to the database
   warning(message) {
-    if (this.logging_level === "error" || this.logging_level === "warning") {
+    if (this.logging_level !== "error") {
       this.database.addLog("warning", message);
     }
   }

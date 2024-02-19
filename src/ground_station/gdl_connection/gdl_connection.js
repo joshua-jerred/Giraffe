@@ -19,6 +19,7 @@ module.exports = class GdlConnection {
     this.status_last_updated = new Date();
 
     this.new_broadcast_message = null;
+    this.new_exchange_message = null;
 
     this.config_data = {};
     this.config_up_to_date = false;
@@ -87,7 +88,14 @@ module.exports = class GdlConnection {
         self.socket_interval = setInterval(() => {
           // send new requests here!
           let new_request = null;
-          if (self.new_broadcast_message) {
+          if (self.new_exchange_message) {
+            // if a exchange is pending
+            let body = {
+              data: self.new_exchange_message,
+            };
+            new_request = new SetMessage("ggs", "gdl", "new_exchange", body);
+            self.new_exchange_message = null;
+          } else if (self.new_broadcast_message) {
             // if a broadcast is pending
             let body = {
               data: self.new_broadcast_message,
@@ -224,6 +232,17 @@ module.exports = class GdlConnection {
       return false;
     }
     this.new_broadcast_message = data;
+    return true;
+  }
+
+  sendExchange(data) {
+    if (!this.connected) {
+      return false;
+    }
+    if (this.new_exchange_message) {
+      return false;
+    }
+    this.new_exchange_message = data;
     return true;
   }
 

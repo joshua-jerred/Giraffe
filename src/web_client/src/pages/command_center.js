@@ -145,7 +145,7 @@ function SingleCommand({ name, metadata, sendMethod, prefix }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        command: command_string,
+        command_string: command_string,
         send_method: sendMethod,
       }),
     })
@@ -180,7 +180,7 @@ function SingleCommand({ name, metadata, sendMethod, prefix }) {
 }
 
 function CommandList() {
-  const [sendMethod, setSendMethod] = useState("HTTP");
+  const [sendMethod, setSendMethod] = useState("tcp_socket");
 
   let CommandsMetadata = TemporaryCommandsMetadata;
 
@@ -216,7 +216,7 @@ function CommandList() {
     <div>
       <h2>Send Method</h2>
       <StySelect onChange={(e) => setSendMethod(e.target.value)}>
-        <StyOption value="http">HTTP</StyOption>
+        <StyOption value="tcp_socket">TCP Socket</StyOption>
         <StyOption value="gdl_broadcast">GDL Broadcast</StyOption>
         <StyOption value="gdl_exchange">GDL Exchange</StyOption>
       </StySelect>
