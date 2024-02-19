@@ -15,6 +15,7 @@
  */
 
 #include "to_string.hpp"
+#include "flight_phase.hpp"
 #include "node.hpp"
 #include <BoosterSeat/string_formatting.hpp>
 #include <BoosterSeat/time.hpp>
@@ -136,6 +137,23 @@ std::string to_string(const data::ImuFramePacket &packet) noexcept {
   output += packet.secondary_identifier + " | ";
   output += to_string(packet.frame);
   return output;
+}
+
+std::string to_string(FlightPhase phase) {
+  switch (phase) {
+  case FlightPhase::UNKNOWN:
+    return "Unknown";
+  case FlightPhase::LAUNCH:
+    return "Launch";
+  case FlightPhase::ASCENT:
+    return "Ascent";
+  case FlightPhase::DESCENT:
+    return "Descent";
+  case FlightPhase::RECOVERY:
+    return "Recovery";
+  default:
+    return "Unknown";
+  }
 }
 
 } // namespace util

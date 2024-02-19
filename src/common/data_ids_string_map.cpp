@@ -38,7 +38,8 @@ const std::unordered_map<DataId, std::string> K_DATA_ID_TO_STRING_MAP {
   {DataId::ADC_rawCount,"ADC_rawCount"},
   {DataId::ADC_percentage,"ADC_percentage"},
   {DataId::ADC_voltage,"ADC_voltage"},
-  {DataId::TELEMETRY_dataLinkPacketReceived,"TELEMETRY_dataLinkPacketReceived"}
+  {DataId::TELEMETRY_dataLinkPacketReceived,"TELEMETRY_dataLinkPacketReceived"},
+  {DataId::FLIGHT_RUNNER_flightPhaseChange,"FLIGHT_RUNNER_flightPhaseChange"}
 };
 
 } // namespace data

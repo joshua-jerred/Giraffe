@@ -43,7 +43,8 @@ enum class DataId : uint16_t {
   ADC_rawCount=0xA001, // ADC Raw Count
   ADC_percentage=0xA002, // ADC Percentage
   ADC_voltage=0xA003, // ADC Voltage
-  TELEMETRY_dataLinkPacketReceived=0x8001  // Data Link Packet Received
+  TELEMETRY_dataLinkPacketReceived=0x8001, // Data Link Packet Received
+  FLIGHT_RUNNER_flightPhaseChange=0x9001  // Flight Phase Change
 };
 // NOLINTEND(readability-identifier-naming)
 

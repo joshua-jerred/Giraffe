@@ -35,6 +35,15 @@ NLOHMANN_JSON_SERIALIZE_ENUM(
          "telemetry_sdn_command"},
     })
 
+NLOHMANN_JSON_SERIALIZE_ENUM(FlightPhase,
+                             {
+                                 {FlightPhase::UNKNOWN, "unknown"},
+                                 {FlightPhase::LAUNCH, "prelaunch"},
+                                 {FlightPhase::ASCENT, "ascent"},
+                                 {FlightPhase::DESCENT, "descent"},
+                                 {FlightPhase::RECOVERY, "landing"},
+                             })
+
 FlightRunnerData::FlightRunnerData() {
   std::ifstream data_file;
   Json data_json;
@@ -69,6 +78,20 @@ FlightRunnerData::FlightRunnerData() {
     previous_shutdown_time_valid_ = true;
   }
 
+  // Load the shutdown reason.
+  try {
+    shutdown_reason_ = data_json.at("shutdown_reason").get<ShutdownReason>();
+  } catch (std::exception &e) {
+    shutdown_reason_ = ShutdownReason::CRASH_OR_UNKNOWN;
+  }
+
+  // Load the flight phase.
+  try {
+    flight_phase_ = data_json.at("flight_phase").get<FlightPhase>();
+  } catch (std::exception &e) {
+    flight_phase_ = FlightPhase::UNKNOWN;
+  }
+
   // Save the data to the file.
   saveData();
 }
@@ -95,6 +118,15 @@ uint32_t FlightRunnerData::getNumStartups() const {
 void FlightRunnerData::setShutdownReason(ShutdownReason shutdown_reason) {
   shutdown_reason_ = shutdown_reason;
   saveData();
+}
+
+void FlightRunnerData::setFlightPhase(FlightPhase flight_phase) {
+  flight_phase_ = flight_phase;
+  saveData();
+}
+
+FlightPhase FlightRunnerData::getFlightPhase() const {
+  return flight_phase_;
 }
 
 bool FlightRunnerData::getSecondsSinceStartup(int64_t &num_seconds) {
@@ -127,6 +159,7 @@ void FlightRunnerData::saveData(bool shutdown_save) {
   data_json["shutdown_time"] = previous_shutdown_time_.toString();
   data_json["shutdown_reason"] = Json(shutdown_reason_);
   data_json["num_startups"] = num_startups_;
+  data_json["flight_phase"] = Json(flight_phase_);
 
   try {
     std::ofstream data_file;

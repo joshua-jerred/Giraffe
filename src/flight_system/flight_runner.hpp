@@ -1,8 +1,23 @@
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   flight_runner.hpp
+ * @brief  The main class for the flight system.
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2024-02-15
+ * @copyright  2024 (license to be defined)
+ */
+
 #ifndef FLIGHT_RUNNER_HPP_
 #define FLIGHT_RUNNER_HPP_
 
 #include "configuration.hpp"
-#include "flight_modes.hpp"
 #include "flight_runner_data.hpp"
 
 #include "console_module.hpp"
@@ -57,6 +72,19 @@ private:
   void toggleModule(const std::string &module_id, bool on_or_off);
 
   /**
+   * @brief The main flight logic function. Called in the flight loop.
+   */
+  void flightLogic();
+
+  /**
+   * @brief Detects the current flight phase and sets it in the shared data.
+   * @ref flight_phase.hpp
+   */
+  void detectFlightPhase();
+
+  void setFlightPhase(FlightPhase phase);
+
+  /**
    * @brief Non-volatile data for the flight runner.
    */
   FlightRunnerData flight_runner_data_ = FlightRunnerData();
@@ -73,12 +101,6 @@ private:
   modules::SystemModule *p_system_module_ = nullptr;
   modules::ExtensionModule *p_extension_module_ = nullptr;
   modules::TelemetryModule *p_telemetry_module_ = nullptr;
-
-  /**
-   * @brief The current flight mode. This will be used to determine what to do.
-   * @details This is loaded at startup from flight data.
-   */
-  FlightMode current_flight_mode_ = FlightMode::UNKNOWN;
 };
 
 #endif

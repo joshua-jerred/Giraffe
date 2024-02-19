@@ -23,8 +23,8 @@
 
 using namespace giraffe;
 
-// #define I2C_TEST
-// #define SPI_TEST
+#define I2C_TEST
+#define SPI_TEST
 // #define GPIO_TEST
 
 // choose the sensor for the i2c test
@@ -89,9 +89,9 @@ TEST(InterfaceTest, gpioInterfaceTest) {
   Gpio::initialize();
   Gpio gpio{};
 
-  Gpio::Pin pin17{17, Gpio::PinMode::OUTPUT};
-  Gpio::Pin pin27{27, Gpio::PinMode::OUTPUT};
-  Gpio::Pin pin22{22, Gpio::PinMode::OUTPUT};
+  // Gpio::Pin pin17{17, Gpio::PinMode::OUTPUT};
+  // Gpio::Pin pin27{27, Gpio::PinMode::OUTPUT};
+  // Gpio::Pin pin22{22, Gpio::PinMode::OUTPUT};
   gpio.setupPin(pin17);
   gpio.setupPin(pin27);
   gpio.setupPin(pin22);
