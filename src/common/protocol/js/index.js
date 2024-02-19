@@ -8,4 +8,5 @@ module.exports = {
   PingRequest: require("./variants/ping").PingRequest,
   ErrorMessage: require("./variants/error"),
   PathMessage: require("./variants/path").PathMessage,
+  CommandMetadata: require("../../../../project/metadata/gfs_commands.json"),
 };

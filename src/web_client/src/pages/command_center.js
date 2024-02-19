@@ -20,88 +20,8 @@ import { Map } from "../components/map";
 
 import { GwsGlobal } from "../GlobalContext";
 
-const TemporaryCommandsMetadata =
-  // Metadata for all GFS commands
-  {
-    FILE_META: {
-      namespace: "cmd",
-      enum_name: "CommandId",
-      enum_type: "uint16_t",
-      generate_string_map: "K_STRING_TO_COMMAND_MAP",
-    },
-    general: {
-      unknown: {
-        name: "Unknown",
-        details:
-          "Placeholder, used as a default/fallback value. This commands will be responded to with and error.",
-        value: "0x0000",
-      },
-    },
-    flight_runner: {
-      SECTION_METADATA: {
-        prefix: "flr",
-      },
-      shutdown_system: {
-        name: "Shutdown System",
-        details: "Tells the flight runner to shutdown.",
-        value: "0x1000",
-        cmd_key: "sdn",
-      },
-      start_module: {
-        name: "Start Module",
-        details:
-          "Tells the flight runner to start a module given a 3 letter module identifier.",
-        value: "0x1001",
-        cmd_key: "mst",
-        options: [
-          // {
-          //   "name": "Flight Runner",
-          //   "value": "flr"
-          // },
-          {
-            name: "Data Module",
-            value: "dat",
-          },
-          {
-            name: "Telemetry Module",
-            value: "tel",
-          },
-        ],
-      },
-      stop_module: {
-        name: "Stop Module",
-        details:
-          "Tells the flight runner to stop a module given a 3 letter module identifier.",
-        value: "0x1002",
-        cmd_key: "msp",
-      },
-      restart_module: {
-        name: "Restart Module",
-        details:
-          "Tells the flight runner to restart a module given a 3 letter module identifier.",
-        value: "0x1003",
-        cmd_key: "mrt",
-      },
-    },
-    data_module: {
-      SECTION_METADATA: {
-        prefix: "dat",
-      },
-      clear_all_errors: {
-        name: "Clear All Errors",
-        details: "Clears all errors from the error frame",
-        value: "0x2000",
-        cmd_key: "cae",
-      },
-      clear_specific_error: {
-        name: "Clear a Specific Error",
-        details:
-          "Clears a specific error/diagnostic code from the error frame given an error code (uint16_t) in hex.",
-        value: "0x2001",
-        cmd_key: "cse",
-      },
-    },
-  };
+import CommandsMetadataFile from "giraffe-protocol";
+const CommandsMetadata = CommandsMetadataFile.CommandMetadata;
 
 const CommandSectionStyled = styled.ul`
   list-style-type: none;
@@ -239,8 +159,6 @@ function CommandList() {
     status: "unknown",
     color: NotConnectedColor,
   });
-
-  let CommandsMetadata = TemporaryCommandsMetadata;
 
   let Sections = [];
   for (let section in CommandsMetadata) {

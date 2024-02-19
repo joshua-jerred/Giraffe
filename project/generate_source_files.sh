@@ -27,7 +27,7 @@ id_gen \
 
 export REVERSE_MAP="true"
 id_gen \
-  ./project/metadata/gfs_commands.jsonc \
+  ./project/metadata/gfs_commands.json \
   ./src/common/command_ids.hpp \
   ./src/common/command_ids_strings.cpp
 export REVERSE_MAP="false"
