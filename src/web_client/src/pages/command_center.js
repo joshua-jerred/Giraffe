@@ -6,6 +6,7 @@ import {
   Card,
   CardMasonryLayout,
   CardBreak,
+  CardSectionTitle,
 } from "../core/PageParts";
 import {
   StyButton,
@@ -110,14 +111,37 @@ const CommandSectionStyled = styled.ul`
   li {
     display: flex;
     flex-direction: row;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     width: 100%;
     padding: 0.5em 0;
 
     > * {
-      margin: 0;
-      flex: 1;
+      flex: auto;
+      white-space: nowrap;
+      // margin: 0px;
+      // padding: 0em;
+      // height: 100%;
+      align-self: center;
+    }
+
+    > ${StySelect} {
+      flex: 10%;
+      margin-right: 1em;
+    }
+
+    > ${StyButton} {
+      flex: 100%;
+      max-width: 100px;
     }
   }
+`;
+
+const CommandItemTitle = styled.span`
+  font-weight: bold;
+  width: 50%;
+  text-align: left;
+  min-width: fit-content;
 `;
 
 function SingleCommand({ name, metadata, sendMethod, prefix }) {
@@ -162,13 +186,21 @@ function SingleCommand({ name, metadata, sendMethod, prefix }) {
 
   return (
     <li key={name}>
-      <Tooltip text={metadata.details}>{metadata.name}</Tooltip>
-      {metadata.options && (
+      <Tooltip text={metadata.details}>
+        <CommandItemTitle>{metadata.name}</CommandItemTitle>
+      </Tooltip>
+      {metadata.options ? (
         <StySelect onChange={(e) => setSelectedOption(e.target.value)}>
           {metadata.options.map((option) => {
-            return <StyOption value={option.value}>{option.name}</StyOption>;
+            return (
+              <StyOption value={option.value} key={option.value}>
+                {option.name}
+              </StyOption>
+            );
           })}
         </StySelect>
+      ) : (
+        <div></div>
       )}
       {commandSentStatus === "not_sent" ? (
         <StyButton onClick={handleSendCommand}>Send</StyButton>
@@ -179,8 +211,34 @@ function SingleCommand({ name, metadata, sendMethod, prefix }) {
   );
 }
 
+const SendMethodStyle = styled.div`
+  display: flex;
+  > * {
+    margin: 0;
+    flex: 1;
+    align-self: center;
+  }
+  > span {
+    text-align: right;
+    flex: 2;
+  }
+`;
+
 function CommandList() {
-  const [sendMethod, setSendMethod] = useState("tcp_socket");
+  const { isGfsTcpConnected, isGdlConnected, isUplinkConnected } =
+    useContext(GwsGlobal);
+
+  const ReadyColor = "#00ff00";
+  const NoUplinkColor = "#ffcc00";
+  const NotConnectedColor = "#ff0000";
+
+  const [sendMethod, setSendMethod] = useState(
+    localStorage.getItem("command_send_method") || "tcp_socket"
+  );
+  const [sendMethodStatus, setSendMethodStatus] = useState({
+    status: "unknown",
+    color: NotConnectedColor,
+  });
 
   let CommandsMetadata = TemporaryCommandsMetadata;
 
@@ -197,30 +255,80 @@ function CommandList() {
           metadata={CommandsMetadata[section][command]}
           sendMethod={sendMethod}
           prefix={prefix}
-          key={CommandsMetadata[section][command].value}
+          key={CommandsMetadata[section][command].value + command}
         />
       );
     }
     Sections.push(
-      <>
-        <CommandSectionStyled key={section}>
-          <h2>{section}</h2>
+      <div key={section}>
+        <CardBreak />
+        <CommandSectionStyled>
+          <CardSectionTitle>{section}</CardSectionTitle>
           {Commands}
         </CommandSectionStyled>
-        <CardBreak />
-      </>
+      </div>
     );
   }
 
+  React.useEffect(() => {
+    const ValidSendMethods = ["tcp_socket", "gdl_broadcast", "gdl_exchange"];
+
+    if (!ValidSendMethods.includes(sendMethod)) {
+      setSendMethod("tcp_socket");
+    }
+
+    window.localStorage.setItem("command_send_method", sendMethod);
+  }, [sendMethod]);
+
+  React.useEffect(() => {
+    if (sendMethod === "tcp_socket") {
+      if (isGfsTcpConnected) {
+        setSendMethodStatus({ status: "ready", color: ReadyColor });
+      } else {
+        setSendMethodStatus({
+          status: "not connected",
+          color: NotConnectedColor,
+        });
+      }
+    } else if (sendMethod === "gdl_broadcast") {
+      if (isGdlConnected) {
+        setSendMethodStatus({ status: "ready", color: ReadyColor });
+      } else {
+        setSendMethodStatus({ status: "GDL down", color: NotConnectedColor });
+      }
+    } else if (sendMethod === "gdl_exchange") {
+      if (isGdlConnected) {
+        if (isUplinkConnected) {
+          setSendMethodStatus({ status: "ready", color: ReadyColor });
+        } else {
+          setSendMethodStatus({
+            status: "ready, no uplink",
+            color: NoUplinkColor,
+          });
+        }
+      } else {
+        setSendMethodStatus({ status: "GDL down", color: NotConnectedColor });
+      }
+    } else {
+      console.error("Unknown send method", sendMethod);
+    }
+    console.log("Setting send method status");
+    // setSendMethodStatus("checking..." + isGfsTcpConnected + isGdlConnected);
+  }, [sendMethod, isGfsTcpConnected, isGdlConnected, isUplinkConnected]);
+
   return (
     <div>
-      <h2>Send Method</h2>
-      <StySelect onChange={(e) => setSendMethod(e.target.value)}>
-        <StyOption value="tcp_socket">TCP Socket</StyOption>
-        <StyOption value="gdl_broadcast">GDL Broadcast</StyOption>
-        <StyOption value="gdl_exchange">GDL Exchange</StyOption>
-      </StySelect>
-      <CardBreak />
+      <CardSectionTitle>Send Method</CardSectionTitle>
+      <SendMethodStyle>
+        <StySelect onChange={(e) => setSendMethod(e.target.value)}>
+          <StyOption value="tcp_socket">TCP Socket</StyOption>
+          <StyOption value="gdl_broadcast">GDL Broadcast</StyOption>
+          <StyOption value="gdl_exchange">GDL Exchange</StyOption>
+        </StySelect>
+        <span style={{ color: sendMethodStatus.color }}>
+          {sendMethodStatus.status}
+        </span>
+      </SendMethodStyle>
       {Sections}
     </div>
   );

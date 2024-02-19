@@ -49,6 +49,9 @@ export const GwsGlobalContextProvider = ({ children }) => {
 
   const [isGgsConnected, setIsGgsConnected] = React.useState(false);
   const [isGfsTcpConnected, setIsGfsTcpConnected] = React.useState(false);
+  const [isGdlConnected, setIsGdlConnected] = React.useState(false);
+  const [isDownlinkConnected, setIsDownlinkConnected] = React.useState(false);
+  const [isUplinkConnected, setIsUplinkConnected] = React.useState(false);
 
   // ------ GGS Connection ------
   React.useEffect(() => {
@@ -106,6 +109,9 @@ export const GwsGlobalContextProvider = ({ children }) => {
           setIsGgsConnected(true);
           setServiceStatuses(data);
           setIsGfsTcpConnected(data.gfs === "connected");
+          setIsGdlConnected(data.gdl === "connected");
+          setIsUplinkConnected(data.telemetry_uplink === "connected");
+          setIsDownlinkConnected(data.telemetry_downlink === "connected");
         })
         .catch((error) => {
           alerter.addAlert(
@@ -116,6 +122,9 @@ export const GwsGlobalContextProvider = ({ children }) => {
           );
           setIsGgsConnected(false);
           setIsGfsTcpConnected(false);
+          setIsGdlConnected(false);
+          setIsUplinkConnected(false);
+          setIsDownlinkConnected(false);
           setServiceStatuses(serviceStatusesDefault);
         });
     };
@@ -141,6 +150,9 @@ export const GwsGlobalContextProvider = ({ children }) => {
         serviceStatuses,
         isGgsConnected,
         isGfsTcpConnected,
+        isGdlConnected,
+        isDownlinkConnected,
+        isUplinkConnected,
       }}
     >
       {children}
