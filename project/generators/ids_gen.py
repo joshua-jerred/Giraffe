@@ -80,7 +80,7 @@ class IdGenerator:
             if category_key == "FILE_META":
                 continue
             for item in self.data[category_key]:
-                if item in ["SECTION_STRING", "SECTION_MASK"]:
+                if item in ["SECTION_STRING", "SECTION_MASK", "SECTION_METADATA"]:
                     continue
                 self.__addEnum(category_key, item, self.data[category_key][item])
 

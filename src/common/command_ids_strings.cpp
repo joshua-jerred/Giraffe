@@ -29,7 +29,6 @@ namespace cmd {
 
 const std::unordered_map<std::string, CommandId> K_STRING_TO_COMMAND_MAP {
   {"GENERAL_unknown",CommandId::GENERAL_unknown},
-  {"NODE_reloadConfiguration",CommandId::NODE_reloadConfiguration},
   {"FLIGHT_RUNNER_shutdownSystem",CommandId::FLIGHT_RUNNER_shutdownSystem},
   {"FLIGHT_RUNNER_startModule",CommandId::FLIGHT_RUNNER_startModule},
   {"FLIGHT_RUNNER_stopModule",CommandId::FLIGHT_RUNNER_stopModule},

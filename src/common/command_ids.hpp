@@ -34,7 +34,6 @@ namespace cmd {
 // NOLINTBEGIN(readability-identifier-naming)
 enum class CommandId : uint16_t {
   GENERAL_unknown=0x0000, // Unknown
-  NODE_reloadConfiguration=0x0001, // Reload Configuration
   FLIGHT_RUNNER_shutdownSystem=0x1000, // Shutdown System
   FLIGHT_RUNNER_startModule=0x1001, // Start Module
   FLIGHT_RUNNER_stopModule=0x1002, // Stop Module
