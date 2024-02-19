@@ -1,19 +1,21 @@
 <map id="data::LogStream::info" name="data::LogStream::info">
-<area shape="rect" id="node1" title=" " alt="" coords="807,56,969,83"/>
-<area shape="rect" id="node2" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="581,5,759,32"/>
-<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="586,199,754,225"/>
-<area shape="rect" id="node17" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="595,56,745,83"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="333,5,497,32"/>
-<area shape="rect" id="node4" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="13,13,241,40"/>
-<area shape="rect" id="node6" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="335,173,494,200"/>
-<area shape="rect" id="node11" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="337,56,492,83"/>
-<area shape="rect" id="node12" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="296,107,533,149"/>
-<area shape="rect" id="node13" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="299,224,530,251"/>
-<area shape="rect" id="node14" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="19,275,234,301"/>
-<area shape="rect" id="node15" href="$namespacevalidation.html#a5638f0062469ca458e1850ea9c8de396" title=" " alt="" coords="323,325,507,352"/>
-<area shape="rect" id="node16" href="$namespacevalidation.html#a4028a1e71c060c780241b72af38e27e8" title=" " alt="" coords="323,376,506,403"/>
-<area shape="rect" id="node7" href="$classcfg_1_1Extensions.html#a07c0cc24278ea2af29fe5ed6f2cd3598" title="Add an extension to the configuration." alt="" coords="18,72,235,99"/>
-<area shape="rect" id="node8" href="$classcfg_1_1Extensions.html#a17af41b344cbd45b280864b9f7e99942" title="Remove an extension from the configuration by name." alt="" coords="5,123,248,149"/>
-<area shape="rect" id="node9" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="22,173,231,200"/>
-<area shape="rect" id="node10" href="$classcfg_1_1Extensions.html#a28c4e7fad5dbfc8f72d1628ff59ac2ec" title="Enable or disable an extension by name." alt="" coords="9,224,244,251"/>
+<area shape="rect" id="node1" title=" " alt="" coords="820,93,983,120"/>
+<area shape="rect" id="node2" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="588,5,765,32"/>
+<area shape="rect" id="node5" href="$classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05" title="Detects the current flight phase and sets it in the shared data. flight_phase.hpp." alt="" coords="581,57,772,98"/>
+<area shape="rect" id="node7" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="593,255,761,281"/>
+<area shape="rect" id="node19" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="602,123,751,149"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="333,7,497,33"/>
+<area shape="rect" id="node4" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="13,44,241,71"/>
+<area shape="rect" id="node6" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="325,61,505,88"/>
+<area shape="rect" id="node8" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="335,229,494,256"/>
+<area shape="rect" id="node13" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="337,112,492,139"/>
+<area shape="rect" id="node14" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="296,163,533,205"/>
+<area shape="rect" id="node15" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="299,280,530,307"/>
+<area shape="rect" id="node16" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="19,331,234,357"/>
+<area shape="rect" id="node17" href="$namespacevalidation.html#a5638f0062469ca458e1850ea9c8de396" title=" " alt="" coords="323,381,507,408"/>
+<area shape="rect" id="node18" href="$namespacevalidation.html#a4028a1e71c060c780241b72af38e27e8" title=" " alt="" coords="323,432,506,459"/>
+<area shape="rect" id="node9" href="$classcfg_1_1Extensions.html#a07c0cc24278ea2af29fe5ed6f2cd3598" title="Add an extension to the configuration." alt="" coords="18,128,235,155"/>
+<area shape="rect" id="node10" href="$classcfg_1_1Extensions.html#a17af41b344cbd45b280864b9f7e99942" title="Remove an extension from the configuration by name." alt="" coords="5,179,248,205"/>
+<area shape="rect" id="node11" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="22,229,231,256"/>
+<area shape="rect" id="node12" href="$classcfg_1_1Extensions.html#a28c4e7fad5dbfc8f72d1628ff59ac2ec" title="Enable or disable an extension by name." alt="" coords="9,280,244,307"/>
 </map>

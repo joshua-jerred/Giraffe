@@ -6,5 +6,5 @@
 <area shape="rect" id="node7" href="$classmodules_1_1DataModule.html#a22e5c03008cb6d2015dd0097869f2fa3" title="Process all packets from the log stream." alt="" coords="230,201,395,243"/>
 <area shape="rect" id="node4" href="$namespacedata.html#ad86e1d5fdd64e533c7b5833ece53c37e" title="Checks if a GPS frame contains valid location data." alt="" coords="455,78,623,105"/>
 <area shape="rect" id="node6" href="$namespacedata.html#a1843909ee9dc73d01c721427f3836781" title="Checks if an IMU frame contains valid data." alt="" coords="455,143,623,170"/>
-<area shape="rect" id="node8" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="485,209,593,235"/>
+<area shape="rect" id="node8" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="485,209,593,235"/>
 </map>

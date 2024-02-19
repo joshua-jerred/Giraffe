@@ -47,7 +47,7 @@ var hierarchy =
     [ "data::Frames", "namespacedata.html#structdata_1_1Frames", null ],
     [ "data::GpsFrame", "namespacedata.html#structdata_1_1GpsFrame", null ],
     [ "data::ImuFrame", "namespacedata.html#structdata_1_1ImuFrame", null ],
-    [ "data::Misc", "structdata_1_1Misc.html", null ],
+    [ "data::Misc", "classdata_1_1Misc.html", null ],
     [ "data::SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", null ],
     [ "data::SharedData", "namespacedata.html#structdata_1_1SharedData", null ],
     [ "data::Stream< T >", "classdata_1_1Stream.html", null ],

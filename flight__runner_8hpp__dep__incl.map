@@ -1,5 +1,6 @@
 <map id="flight_runner.hpp" name="flight_runner.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="71,5,201,32"/>
-<area shape="rect" id="node2" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="5,80,136,107"/>
-<area shape="rect" id="node3" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="160,80,243,107"/>
+<area shape="rect" id="node1" title="The main class for the flight system." alt="" coords="149,5,280,32"/>
+<area shape="rect" id="node2" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="5,80,125,107"/>
+<area shape="rect" id="node3" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="149,80,280,107"/>
+<area shape="rect" id="node4" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="304,80,387,107"/>
 </map>

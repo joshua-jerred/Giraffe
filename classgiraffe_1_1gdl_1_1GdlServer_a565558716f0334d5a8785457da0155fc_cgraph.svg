@@ -298,7 +298,7 @@
 <!-- Node16 -->
 <g id="node16" class="node">
 <title>Node16</title>
-<g id="a_node16"><a xlink:href="namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" target="_top" xlink:title=" ">
+<g id="a_node16"><a xlink:href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" target="_top" xlink:title="Converts a flight phase to a string.">
 <polygon fill="none" stroke="black" points="555.5,-153 555.5,-172 636.5,-172 636.5,-153 555.5,-153"/>
 <text text-anchor="middle" x="596" y="-160" font-family="Helvetica,sans-Serif" font-size="10.00">util::to_string</text>
 </a>

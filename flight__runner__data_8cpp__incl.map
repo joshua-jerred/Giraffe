@@ -2,9 +2,10 @@
 <area shape="rect" id="node1" title="Implementation of non&#45;volatile data for the flight runner." alt="" coords="106,5,273,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="53,80,126,107"/>
 <area shape="rect" id="node3" href="$json_8hpp.html" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="151,80,228,107"/>
-<area shape="rect" id="node6" href="$flight__runner__data_8hpp.html" title="Non&#45;volatile data for the flight runner." alt="" coords="252,80,420,107"/>
+<area shape="rect" id="node6" href="$flight__runner__data_8hpp.html" title="Non&#45;volatile data for the flight runner." alt="" coords="307,80,475,107"/>
 <area shape="rect" id="node4" title=" " alt="" coords="5,155,152,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="176,155,235,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="288,155,355,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="379,155,541,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="349,229,408,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="227,155,389,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="413,155,480,181"/>
+<area shape="rect" id="node9" href="$flight__phase_8hpp.html" title="Contains the flight phase enum and related functions." alt="" coords="505,155,634,181"/>
 </map>

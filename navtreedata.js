@@ -73,6 +73,7 @@ var NAVTREE =
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -82,20 +83,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc__configuration_8cpp.html",
-"classconsole__pages_1_1Pages.html#aa3dd00ba1c736892c991d7d4f461bfe0",
-"classextension_1_1Bme280.html#a6485efadc56f60a9d091b6b14f431924",
-"classextension_1_1PiCamera.html#ae148a765446780132679adc6e647ad37",
-"classextension_1_1SimTemperatureSensor.html#a65da188590e7f56c25fdc86370f5c10c",
-"classgiraffe_1_1gdl_1_1DataLink.html#a6e34393ea25031b617859331d6b6eaa1",
-"classmodules_1_1DataModule.html",
-"classncurs_1_1Environment.html#a5d232cfb0e7984208a2a7231b0ae4123",
-"functions_d.html",
-"group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d",
-"namespacedata_1_1blocks.html#a5e27ef575c9d567190213cd1101953fd",
-"namespaceprotocol.html#a9731025e73bc9be65076786a05ea9624ace4e1a7286ff585e08bf30898cf6b3eb",
-"sim__parameters_8hpp.html#a5a00ff19ef10c718bda79703a45751de",
-"structgiraffe_1_1FCInfo.html#ac684457713d039ae9fccf943f9c8cf82a6887a15916fe6e27020feb673bc6488e",
-"ubx__protocol_8cpp.html#a1f7730994972156a9b51d419aa018636"
+"classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14",
+"classextension_1_1Bme280.html#a4ba64cba9caada0bcfe2a203bc7c9e32",
+"classextension_1_1PiCamera.html#aa7ec0098dfde16a54eb616c73ba3046e",
+"classextension_1_1SimTemperatureSensor.html#a295de97827360717494a398c45d161f2",
+"classgiraffe_1_1gdl_1_1DataLink.html#a089374ddeb5601b859264baa5986304f",
+"classmodules_1_1ConsoleModule.html#abd0f47229a309441c86a68aac6ec2d45",
+"classncurs_1_1Environment.html#a3b5c0bb29f8c9b6f7eff9c7b854019f5ac4e0e4e3118472beeb2ae75827450f1f",
+"flight__runner_8hpp_source.html",
+"group__SAMM8QState.html#ga01790fa3c82c7c13ddc87b6be8fa868c",
+"namespacedata.html#afc079d0e60bc3f2fce9f722e0352746d",
+"namespaceprotocol.html#a4f7d05800d5372ecf21d30125815d652",
+"sim__parameters_8hpp.html#a253c8fce2bbae5f66087645022e3ce17",
+"structgiraffe_1_1FCInfo.html#a87d761164b84a5f25abfe77e67933a58",
+"ubx__ids_8hpp.html#af3cebe1dd2c68dac710c0c4936698ddb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

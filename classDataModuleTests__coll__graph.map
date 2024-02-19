@@ -3,7 +3,7 @@
 <area shape="rect" id="node2" title=" " alt="" coords="947,1864,1048,1941"/>
 <area shape="rect" id="node3" href="$classmodules_1_1DataModule.html" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="3106,1747,3377,2059"/>
 <area shape="rect" id="node4" href="$classmodules_1_1Module.html" title=" " alt="" coords="1606,1255,1773,1640"/>
-<area shape="rect" id="node5" href="$namespacedata.html#structdata_1_1SharedData" title=" " alt="" coords="2018,527,2153,605"/>
+<area shape="rect" id="node5" href="$namespacedata.html#structdata_1_1SharedData" title="Data that is shared across all modules and extensions." alt="" coords="2018,527,2153,605"/>
 <area shape="rect" id="node35" href="$classdata__middleware_1_1DataLog.html" title="Used to write data and log information to files. Used by the data module." alt="" coords="2488,1291,2685,1603"/>
 <area shape="rect" id="node40" href="$classdata__middleware_1_1DataFormatter.html" title=" " alt="" coords="2207,851,2446,1075"/>
 <area shape="rect" id="node48" href="$classdata__middleware_1_1InfluxDb.html" title=" " alt="" coords="2865,887,3063,1038"/>
@@ -27,7 +27,7 @@
 <area shape="rect" id="node23" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1613,13,1840,178"/>
 <area shape="rect" id="node24" href="$classLogContainer.html" title=" " alt="" coords="2059,307,2203,428"/>
 <area shape="rect" id="node25" href="$namespacedata.html#structdata_1_1Frames" title=" " alt="" coords="2227,329,2333,406"/>
-<area shape="rect" id="node26" href="$structdata_1_1Misc.html" title=" " alt="" coords="2357,321,2512,413"/>
+<area shape="rect" id="node26" href="$classdata_1_1Misc.html" title=" " alt="" coords="2357,314,2528,421"/>
 <area shape="rect" id="node27" title=" " alt="" coords="2352,527,2475,605"/>
 <area shape="rect" id="node28" href="$structmodules_1_1MetaData.html" title="Module metadata." alt="" coords="2575,924,2726,1001"/>
 <area shape="rect" id="node29" title=" " alt="" coords="3242,527,3281,605"/>

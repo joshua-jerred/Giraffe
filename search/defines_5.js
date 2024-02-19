@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rgb_5fstatus_5fled_5ftest_5fenabled_3662',['RGB_STATUS_LED_TEST_ENABLED',['../test__extensions_8cpp.html#a06c71068f4e7ceb440d9ddc92a6c3e36',1,'test_extensions.cpp']]]
+  ['pi_5fcamera_5ftest_5fenabled_3673',['PI_CAMERA_TEST_ENABLED',['../test__extensions_8cpp.html#ac8f0acc77fa99f5668cfd109af22c16a',1,'test_extensions.cpp']]]
 ];

@@ -1,10 +1,11 @@
 <map id="influxdb.hpp" name="influxdb.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="313,5,415,32"/>
-<area shape="rect" id="node2" href="$data__module_8hpp.html" title="The data module header file." alt="" coords="226,80,361,107"/>
-<area shape="rect" id="node8" href="$influxdb_8cpp.html" title=" " alt="" coords="385,80,487,107"/>
-<area shape="rect" id="node3" href="$flight__runner_8hpp.html" title=" " alt="" coords="71,155,201,181"/>
-<area shape="rect" id="node6" href="$data__module_8cpp.html" title=" " alt="" coords="226,155,361,181"/>
-<area shape="rect" id="node7" href="$test__data__module_8cpp.html" title="Data module unit tests." alt="" coords="385,155,551,181"/>
-<area shape="rect" id="node4" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="5,229,136,256"/>
-<area shape="rect" id="node5" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="160,229,243,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="391,5,494,32"/>
+<area shape="rect" id="node2" href="$data__module_8hpp.html" title="The data module header file." alt="" coords="305,80,439,107"/>
+<area shape="rect" id="node9" href="$influxdb_8cpp.html" title=" " alt="" coords="464,80,565,107"/>
+<area shape="rect" id="node3" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="149,155,280,181"/>
+<area shape="rect" id="node7" href="$data__module_8cpp.html" title=" " alt="" coords="305,155,439,181"/>
+<area shape="rect" id="node8" href="$test__data__module_8cpp.html" title="Data module unit tests." alt="" coords="463,155,630,181"/>
+<area shape="rect" id="node4" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="5,229,125,256"/>
+<area shape="rect" id="node5" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="149,229,280,256"/>
+<area shape="rect" id="node6" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="304,229,387,256"/>
 </map>

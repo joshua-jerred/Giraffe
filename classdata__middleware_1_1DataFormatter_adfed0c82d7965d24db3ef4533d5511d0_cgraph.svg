@@ -99,7 +99,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="structdata_1_1Misc.html#aa7c73cc14a88b3a222334a9e75e894a2" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="classdata_1_1Misc.html#aa7c73cc14a88b3a222334a9e75e894a2" target="_top" xlink:title="Get the uptime represented as a string in the format &quot;HH:MM:SS&quot;.">
 <polygon fill="none" stroke="black" points="443,-0.5 443,-19.5 596,-19.5 596,-0.5 443,-0.5"/>
 <text text-anchor="middle" x="519.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::Misc::getUptimeString</text>
 </a>

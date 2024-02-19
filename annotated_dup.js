@@ -45,7 +45,7 @@ var annotated_dup =
       [ "ImuFrameStream", "classdata_1_1ImuFrameStream.html", "classdata_1_1ImuFrameStream" ],
       [ "LogPacket", "structdata_1_1LogPacket.html", "structdata_1_1LogPacket" ],
       [ "LogStream", "classdata_1_1LogStream.html", "classdata_1_1LogStream" ],
-      [ "Misc", "structdata_1_1Misc.html", "structdata_1_1Misc" ],
+      [ "Misc", "classdata_1_1Misc.html", "classdata_1_1Misc" ],
       [ "SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", "namespacedata_structdata_1_1SharedBlocks_dup" ],
       [ "SharedData", "namespacedata.html#structdata_1_1SharedData", "namespacedata_structdata_1_1SharedData_dup" ],
       [ "Stream", "classdata_1_1Stream.html", "classdata_1_1Stream" ],

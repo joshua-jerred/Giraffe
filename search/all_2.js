@@ -67,7 +67,7 @@ var searchData=
   ['archivefile_70',['archiveFile',['../group__DataLog.html#ga9297ebb501f851f63ff5b7fa0cad8260',1,'data_middleware::DataLog']]],
   ['archiveotherfilesindir_71',['archiveOtherFilesInDir',['../group__DataLog.html#ga461cde633e33a1f96cd05e9c8b281854',1,'data_middleware::DataLog']]],
   ['arm_72',['ARM',['../structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7dda47f45e65244c17ec9fa8771a5c6d60e1',1,'giraffe::FCInfo']]],
-  ['ascent_73',['ASCENT',['../namespacegiraffe.html#a464112de04b36af2ff144b7013236affa7047b93ddb56905562863fb339808bb4',1,'giraffe::ASCENT()'],['../namespacegfs__sim.html#a9a1ecaafdd3df4142d8be5590eb177e1a7047b93ddb56905562863fb339808bb4',1,'gfs_sim::ASCENT()']]],
+  ['ascent_73',['ASCENT',['../flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a7047b93ddb56905562863fb339808bb4',1,'ASCENT():&#160;flight_phase.hpp'],['../namespacegfs__sim.html#a9a1ecaafdd3df4142d8be5590eb177e1a7047b93ddb56905562863fb339808bb4',1,'gfs_sim::ASCENT()']]],
   ['auth_5ftoken_5f_74',['auth_token_',['../classdata__middleware_1_1InfluxDb.html#a6fae30eadeb1bc37d7aa29c5934c0729',1,'data_middleware::InfluxDb']]],
   ['automotive_75',['AUTOMOTIVE',['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39ad5b209a2367d0fa577875ade4dbf26a8',1,'ubx']]],
   ['average_5fhoriz_5fspeed_5fmps_5f5min_76',['average_horiz_speed_mps_5min',['../structdata_1_1blocks_1_1CalculatedData.html#af9bd2f056fba9b51a6c1767fac466547',1,'data::blocks::CalculatedData']]],

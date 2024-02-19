@@ -106,7 +106,8 @@ var files_dup =
     ] ],
     [ "flight_computer_info.cpp", "flight__computer__info_8cpp.html", "flight__computer__info_8cpp" ],
     [ "flight_computer_info.hpp", "flight__computer__info_8hpp.html", "flight__computer__info_8hpp" ],
-    [ "flight_modes.hpp", "flight__modes_8hpp.html", "flight__modes_8hpp" ],
+    [ "flight_logic.cpp", "flight__logic_8cpp.html", null ],
+    [ "flight_phase.hpp", "flight__phase_8hpp.html", "flight__phase_8hpp" ],
     [ "flight_runner.cpp", "flight__runner_8cpp.html", "flight__runner_8cpp" ],
     [ "flight_runner.hpp", "flight__runner_8hpp.html", [
       [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ]

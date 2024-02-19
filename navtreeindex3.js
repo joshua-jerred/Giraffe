@@ -1,5 +1,14 @@
 var NAVTREEINDEX3 =
 {
+"classextension_1_1PiCamera.html#aa7ec0098dfde16a54eb616c73ba3046e":[6,0,5,9,11],
+"classextension_1_1PiCamera.html#aaa99bc040af229aa386f991b1d9ee47a":[6,0,5,9,8],
+"classextension_1_1PiCamera.html#aaae6a7d91b77ac86a6e597bf0071889d":[6,0,5,9,16],
+"classextension_1_1PiCamera.html#abe7dc219785211e3a0d86a50d481cd41":[6,0,5,9,1],
+"classextension_1_1PiCamera.html#ac3545ca3cc1fd6ab92671dbf18840f13":[6,0,5,9,12],
+"classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87":[6,0,5,9,0],
+"classextension_1_1PiCamera.html#ad3a895d8015ab2992b41c66b9f16648a":[6,0,5,9,17],
+"classextension_1_1PiCamera.html#ad9e41c1237d9af1dc87b22063aaf5e8d":[6,0,5,9,25],
+"classextension_1_1PiCamera.html#ae130f81dd3fc3565fd4e617bc6d7f4b1":[6,0,5,9,31],
 "classextension_1_1PiCamera.html#ae148a765446780132679adc6e647ad37":[6,0,5,9,6],
 "classextension_1_1RgbStatusLed.html":[6,0,5,10],
 "classextension_1_1RgbStatusLed.html#a00ef6cd65250307287af24071c862a42":[6,0,5,10,21],
@@ -240,14 +249,5 @@ var NAVTREEINDEX3 =
 "classextension_1_1SimTemperatureSensor.html#a00ef6cd65250307287af24071c862a42":[6,0,5,17,20],
 "classextension_1_1SimTemperatureSensor.html#a041069086cf7b981e4999150e7b7469d":[6,0,5,17,21],
 "classextension_1_1SimTemperatureSensor.html#a067006ad3c8c07006590ccdfca70d037":[6,0,5,17,29],
-"classextension_1_1SimTemperatureSensor.html#a19983e8b5715a6e3db8d1aee4c7df5f6":[6,0,5,17,17],
-"classextension_1_1SimTemperatureSensor.html#a295de97827360717494a398c45d161f2":[6,0,5,17,23],
-"classextension_1_1SimTemperatureSensor.html#a2aa3ac844b4d83d427e0f633f803a027":[6,0,5,17,22],
-"classextension_1_1SimTemperatureSensor.html#a39712025900988f7bd4e15637f4a28ba":[6,0,5,17,19],
-"classextension_1_1SimTemperatureSensor.html#a3e5d32890e069c49b3641d0e01322364":[6,0,5,17,25],
-"classextension_1_1SimTemperatureSensor.html#a40300776e358833cbfd50c198a320cdf":[6,0,5,17,24],
-"classextension_1_1SimTemperatureSensor.html#a41a192bcc5212abcca25b3c026be7fd3":[6,0,5,17,7],
-"classextension_1_1SimTemperatureSensor.html#a456bf757c94d2415c0b64950108c78b7":[6,0,5,17,13],
-"classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d":[6,0,5,17,1],
-"classextension_1_1SimTemperatureSensor.html#a639edd8b0e44e06bb5e2111412becb68":[6,0,5,17,4]
+"classextension_1_1SimTemperatureSensor.html#a19983e8b5715a6e3db8d1aee4c7df5f6":[6,0,5,17,17]
 };

@@ -7,7 +7,7 @@
 <area shape="rect" id="node3" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="465,5,623,47"/>
 <area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="673,13,853,39"/>
 <area shape="rect" id="node6" href="$classgiraffe_1_1Gpio.html#a9a44f3d040cf48ed6d6229617e25117a" title="A function to check if the current instance owns a reserved pin." alt="" coords="463,71,625,98"/>
-<area shape="rect" id="node7" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="490,122,598,149"/>
+<area shape="rect" id="node7" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="490,122,598,149"/>
 <area shape="rect" id="node8" href="$gpio_8cpp.html#a3a9d33e33fe014c025aef94a0f9c64a5" title="A function to check if the BCM GPIO registers have been mapped." alt="" coords="483,173,605,199"/>
 <area shape="rect" id="node10" href="$giraffe__exception_8cpp.html#aab3f730ccaa6f10c1230710912c7a226" title=" " alt="" coords="502,325,586,351"/>
 <area shape="rect" id="node12" href="$gpio_8cpp.html#a375242562acc7d849b58d1123614612e" title=" " alt="" coords="477,274,611,301"/>

@@ -23,15 +23,7 @@ var namespacegiraffe =
       [ "WARN", "namespacegiraffe.html#a7de051682a10e68f9259ee84278381eda32bd8a1db2275458673903bdb84cb277", null ],
       [ "ERROR", "namespacegiraffe.html#a7de051682a10e68f9259ee84278381edabb1ca97ec761fc37101737ba0aa2e7c5", null ]
     ] ],
-    [ "FlightMode", "namespacegiraffe.html#a464112de04b36af2ff144b7013236aff", [
-      [ "UNKNOWN", "namespacegiraffe.html#a464112de04b36af2ff144b7013236affa696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "PRE_LAUNCH", "namespacegiraffe.html#a464112de04b36af2ff144b7013236affaa9c1a88bb2291339811ab30ebf54acc5", null ],
-      [ "LAUNCH", "namespacegiraffe.html#a464112de04b36af2ff144b7013236affa49c08d83927c163a001f9a8908c2fa03", null ],
-      [ "ASCENT", "namespacegiraffe.html#a464112de04b36af2ff144b7013236affa7047b93ddb56905562863fb339808bb4", null ],
-      [ "DESCENT", "namespacegiraffe.html#a464112de04b36af2ff144b7013236affa038e3d035cd91784babc5492310b8e96", null ],
-      [ "RECOVERY", "namespacegiraffe.html#a464112de04b36af2ff144b7013236affa9c90eb3f9201a7df861d94e494aa9b0b", null ]
-    ] ],
-    [ "NLOHMANN_JSON_SERIALIZE_ENUM", "namespacegiraffe.html#a69542761e752ab53aa53576e85b843d9", null ],
+    [ "NLOHMANN_JSON_SERIALIZE_ENUM", "namespacegiraffe.html#aa5a7162d7cb40de16288349e41fd6ba0", null ],
     [ "getFlightComputerInfo", "namespacegiraffe.html#a913acd4504a335abcea9a3920a3f65cc", null ],
     [ "to_string", "namespacegiraffe.html#a6c8d7898d64c0982d482f960a46bb8c5", null ],
     [ "kDataFilePath", "namespacegiraffe.html#a6b32139309d34ad3fdd8ad069c141473", null ],

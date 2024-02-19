@@ -1,7 +1,7 @@
 <map id="extension::PiCamera::loop" name="extension::PiCamera::loop">
 <area shape="rect" id="node1" title=" " alt="" coords="5,152,163,193"/>
 <area shape="rect" id="node2" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="211,5,369,47"/>
-<area shape="rect" id="node4" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="443,63,551,90"/>
+<area shape="rect" id="node4" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="443,63,551,90"/>
 <area shape="rect" id="node5" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="211,123,369,164"/>
 <area shape="rect" id="node7" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="417,231,576,272"/>
 <area shape="rect" id="node8" href="$classextension_1_1PiCamera.html#a936dca45976435496524fc67ca6f8bea" title=" " alt="" coords="211,240,369,281"/>

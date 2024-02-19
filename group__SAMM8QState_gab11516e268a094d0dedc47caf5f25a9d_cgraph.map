@@ -9,7 +9,7 @@
 <area shape="rect" id="node18" href="$namespaceubx.html#a5a8edb14df1ca1f59ff23d5c4b8b1f6e" title="Poll a message and read it from the GPS." alt="" coords="223,341,359,367"/>
 <area shape="rect" id="node23" href="$group__SAMM8QState.html#ga5f1d24365206316560eb6979a46032dd" title=" " alt="" coords="212,5,371,47"/>
 <area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="1025,101,1205,127"/>
-<area shape="rect" id="node4" href="$namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e" title=" " alt="" coords="491,79,599,106"/>
+<area shape="rect" id="node4" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="491,79,599,106"/>
 <area shape="rect" id="node6" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="758,64,917,105"/>
 <area shape="rect" id="node10" href="$namespaceubx.html#a138e86b90eb81df7287b0687e2e647fd" title=" " alt="" coords="763,349,912,375"/>
 <area shape="rect" id="node13" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="720,298,955,325"/>

@@ -6,7 +6,7 @@ var shared__data_8hpp =
       [ "env_pres", "namespacedata.html#ab1784744ea86e7ba99508f87c3dbbb5c", null ],
       [ "env_hum", "namespacedata.html#a4464dc398562ecb51fe70a93e84df7eb", null ]
     ] ],
-    [ "Misc", "structdata_1_1Misc.html", "structdata_1_1Misc" ],
+    [ "Misc", "classdata_1_1Misc.html", "classdata_1_1Misc" ],
     [ "SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", [
       [ "stream_stats", "namespacedata.html#a853289e3095b00d17f12bb70981f4c1c", null ],
       [ "modules_statuses", "namespacedata.html#a31837aaffcb34d87038ff402197ac992", null ],

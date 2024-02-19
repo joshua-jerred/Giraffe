@@ -49,6 +49,7 @@ var namespaces_dup =
     [ "ubx", "namespaceubx.html", "namespaceubx" ],
     [ "util", "namespaceutil.html", [
       [ "to_json", "namespaceutil.html#a7864f641801f7a53e32c35e54b9cc7f1", null ],
+      [ "to_string", "namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6", null ],
       [ "to_string", "namespaceutil.html#a1b719a9f1cb3fb7e7550bf723015fe9e", null ],
       [ "to_string", "namespaceutil.html#ac3f69e5da6ec46c7dd52be6fb9e82aae", null ],
       [ "to_string", "namespaceutil.html#a7e499751b8586812fa2eec60bdc2dfe6", null ],

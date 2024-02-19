@@ -1,5 +1,14 @@
 var NAVTREEINDEX2 =
 {
+"classextension_1_1Bme280.html#a4ba64cba9caada0bcfe2a203bc7c9e32":[6,0,5,2,0,14],
+"classextension_1_1Bme280.html#a4c7fead9b8730fb82850749a1433b66a":[6,0,5,2,38],
+"classextension_1_1Bme280.html#a52c4ec009232714200a4040032937889":[6,0,5,2,34],
+"classextension_1_1Bme280.html#a587c5517d064d6bea2fcdc7e4914cc53":[7,0,5,1,7],
+"classextension_1_1Bme280.html#a587c5517d064d6bea2fcdc7e4914cc53":[6,0,5,2,0,7],
+"classextension_1_1Bme280.html#a5c56362a689189ba800a14cae85f3509":[7,0,5,1,9],
+"classextension_1_1Bme280.html#a5c56362a689189ba800a14cae85f3509":[6,0,5,2,0,9],
+"classextension_1_1Bme280.html#a639edd8b0e44e06bb5e2111412becb68":[6,0,5,2,12],
+"classextension_1_1Bme280.html#a6485efadc56f60a9d091b6b14f431924":[7,0,5,1,5],
 "classextension_1_1Bme280.html#a6485efadc56f60a9d091b6b14f431924":[6,0,5,2,0,5],
 "classextension_1_1Bme280.html#a65da188590e7f56c25fdc86370f5c10c":[6,0,5,2,10],
 "classextension_1_1Bme280.html#a692f72cc72848d0a162010a955085f07":[6,0,5,2,14],
@@ -240,14 +249,5 @@ var NAVTREEINDEX2 =
 "classextension_1_1PiCamera.html#a7c3006e96ae19d965001031a8acef878":[6,0,5,9,30],
 "classextension_1_1PiCamera.html#a800c1b028aa04d6a1b5727da3ff68701":[6,0,5,9,24],
 "classextension_1_1PiCamera.html#a936dca45976435496524fc67ca6f8bea":[6,0,5,9,4],
-"classextension_1_1PiCamera.html#a947a643d302b5c5f9cef1a54d5038c06":[6,0,5,9,15],
-"classextension_1_1PiCamera.html#aa7ec0098dfde16a54eb616c73ba3046e":[6,0,5,9,11],
-"classextension_1_1PiCamera.html#aaa99bc040af229aa386f991b1d9ee47a":[6,0,5,9,8],
-"classextension_1_1PiCamera.html#aaae6a7d91b77ac86a6e597bf0071889d":[6,0,5,9,16],
-"classextension_1_1PiCamera.html#abe7dc219785211e3a0d86a50d481cd41":[6,0,5,9,1],
-"classextension_1_1PiCamera.html#ac3545ca3cc1fd6ab92671dbf18840f13":[6,0,5,9,12],
-"classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87":[6,0,5,9,0],
-"classextension_1_1PiCamera.html#ad3a895d8015ab2992b41c66b9f16648a":[6,0,5,9,17],
-"classextension_1_1PiCamera.html#ad9e41c1237d9af1dc87b22063aaf5e8d":[6,0,5,9,25],
-"classextension_1_1PiCamera.html#ae130f81dd3fc3565fd4e617bc6d7f4b1":[6,0,5,9,31]
+"classextension_1_1PiCamera.html#a947a643d302b5c5f9cef1a54d5038c06":[6,0,5,9,15]
 };
