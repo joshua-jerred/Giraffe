@@ -64,5 +64,10 @@
     "stoi",
     "Struct",
     "telem"
-  ]
+  ],
+  "files.associations": {
+    "version": "plaintext",
+    "typeindex": "cpp",
+    "typeinfo": "cpp"
+  }
 }

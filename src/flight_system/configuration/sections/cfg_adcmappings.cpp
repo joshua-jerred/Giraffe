@@ -34,8 +34,9 @@ Json AdcConfig::getJson() const {
                        {"percentage_clamp", percentage_clamp}});
 }
 
-void AdcConfig::fromJson(const Json &json, data::LogStream &log) {
-  const std::string section_name = "adc_mappings";
+void AdcConfig::fromJson(const Json &json, data::LogStream &log,
+                         const std::string &index) {
+  const std::string section_name = "adc_mappings." + index;
 
   validation::setValidValue<std::string>(log, json, section_name, "label",
                                          label, 3, 10, "");
@@ -67,53 +68,81 @@ void AdcConfig::fromJson(const Json &json, data::LogStream &log) {
 void AdcMappings::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
 
-  // Ensure that the extensions are an array.
-  if (!json.is_array()) {
-    error(DiagnosticId::CONFIG_extensionsNotArray);
+  // Ensure that the adc mappings are in an array.
+  if (!json_data.is_array()) {
+    error(DiagnosticId::CONFIG_adcMappingsNotArray);
     return;
   }
 
-  // Iterate over the extensions.
+  // Iterate over the ADC Mappings.
   int num_attempted = 0;
-  for (const Json &ext_meta_j : j) {
-    if (!ext_meta_j.is_object()) {
-      error(DiagnosticId::CONFIG_extensionNotObject,
+  for (const Json &adc_mapping_json : json_data) {
+    if (!adc_mapping_json.is_object()) {
+      error(DiagnosticId::CONFIG_adcMappingNotObject,
             std::to_string(num_attempted++));
       continue;
     }
 
-    // Create the extension metadata.
-    ExtensionMetadata ext_meta;
+    // Create the ADC Mapping configuration.
+    AdcConfig adc_config;
     std::string index = std::to_string(num_attempted);
-    ext_meta.setFromJson(ext_meta_j, streams_.log, index);
+    adc_config.fromJson(adc_mapping_json, streams_.log, index);
 
     // Check if the extension name is already in use.
-    if (doesNameExist(ext_meta.name)) {
-      error(DiagnosticId::CONFIG_extensionNameAlreadyExists,
-            "on load " + ext_meta.name);
+    if (doesLabelExist(adc_config.label)) {
+      error(DiagnosticId::CONFIG_adcMappingLabelAlreadyExists,
+            "on load " + adc_config.label);
       continue;
     }
 
     // Add the extension metadata to the list.
-    extensions_.push_back(ext_meta);
+    adc_configs_.push_back(adc_config);
     num_attempted++;
   }
 }
 
 Json AdcMappings::getJson() const {
-  return Json::object({{"adc_mappings", Json::array({})}});
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  Json j = Json::array();
+  for (const AdcConfig &adc_config : adc_configs_) {
+    j.push_back(adc_config.getJson());
+  }
+  return j;
 }
 
 void AdcMappings::addAdcConfig(const AdcConfig &adc_config) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  if (doesLabelExist(adc_config.label)) {
+    error(DiagnosticId::CONFIG_adcMappingLabelAlreadyExists,
+          "on add " + adc_config.label);
+    return;
+  }
+  adc_configs_.push_back(adc_config);
 }
 
 void AdcMappings::removeAdcConfig(const std::string &label) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  for (auto it = adc_configs_.begin(); it != adc_configs_.end(); it++) {
+    if (it->label == label) {
+      adc_configs_.erase(it);
+      return;
+    }
+  }
+  error(DiagnosticId::CONFIG_adcMappingLabelAlreadyExists,
+        "on remove " + label);
 }
 
 std::vector<AdcConfig> AdcMappings::getAdcConfigs() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return adc_configs_;
 }
 
 bool AdcMappings::doesLabelExist(const std::string &label) const {
+  for (const AdcConfig &adc_config : adc_configs_) {
+    if (adc_config.label == label) {
+      return true;
+    }
+  }
   return false;
 }
 

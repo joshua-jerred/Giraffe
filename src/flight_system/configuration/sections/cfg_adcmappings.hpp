@@ -58,7 +58,8 @@ struct AdcConfig {
 
   Json getJson() const;
 
-  void fromJson(const Json &json, data::LogStream &log_stream);
+  void fromJson(const Json &json, data::LogStream &log_stream,
+                const std::string &index);
 };
 
 class AdcMappings : public CfgSection {
