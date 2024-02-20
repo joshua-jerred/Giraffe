@@ -12,7 +12,7 @@ import { CardBreak } from "../core/PageParts";
 import { GwsGlobal } from "../GlobalContext";
 
 import { ConfigMetadata } from "giraffe-protocol";
-const ExtensionConfigMetadata = ConfigMetadata.extensions;
+const ExtensionConfigMetadata = ConfigMetadata.adc_mappings;
 
 const validateExtensionMetadata = (config) => {
   if (config.name.length < ExtensionConfigMetadata.name.min) {
@@ -535,4 +535,13 @@ function ExtensionsConfiguration() {
   );
 }
 
-export default ExtensionsConfiguration;
+function AdcMappingsConfig() {
+  return (
+    <div>
+      <h1>ADC Mappings Configuration</h1>
+      <p>ADC Mappings configuration goes here</p>
+    </div>
+  );
+}
+
+export default AdcMappingsConfig;

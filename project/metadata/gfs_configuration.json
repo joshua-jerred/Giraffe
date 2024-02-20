@@ -618,8 +618,8 @@
             "default": "none",
             "name": "Extension Name",
             "description": "The name of the extension, used for identifying the extension. This must be unique.",
-            "max": 3,
-            "min": 10,
+            "max": 10,
+            "min": 3,
             "pattern": ""
         },
         "enabled": {

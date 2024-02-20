@@ -9,14 +9,7 @@ import {
 import { GfsEditBox } from "../../components/Editable";
 
 import ExtensionsConfiguration from "../../components/extension_configuration";
-
-function AdcMappingsConfig() {
-  return (
-    <div>
-      <h2>ADC Mappings</h2>
-    </div>
-  );
-}
+import AdcMappingsConfig from "../../components/adc_mapping_configuration";
 
 function ConfigureGfsPage() {
   return (
