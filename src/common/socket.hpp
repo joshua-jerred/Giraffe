@@ -45,6 +45,7 @@ public:
   bool close();
 
   bool send(const std::string &data) const;
+  bool sendRawData(const uint8_t *data, size_t size);
   bool receive(std::string &data) const;
 
   bool isValid() const;

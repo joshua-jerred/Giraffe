@@ -167,6 +167,15 @@ module.exports = class GfsDataSync {
         );
       }
     }
+
+    if (category === "file_system_data") {
+      let fs_data = this.resources[category].data;
+      if (fs_data.hasOwnProperty("gfs_image_files")) {
+        this.global_state.gfs_connection.gfs_images.updateRemoteImageList(
+          fs_data.gfs_image_files
+        );
+      }
+    }
   }
 
   /**

@@ -50,7 +50,7 @@ inline constexpr uint32_t K_UPDATE_INTERVAL_MS = 100;
 inline constexpr uint32_t K_SLEEP_INTERVAL_MS = K_UPDATE_INTERVAL_MS / 4;
 inline constexpr double K_DELTA_TIME_S = K_UPDATE_INTERVAL_MS / 1000.0;
 inline constexpr uint32_t K_PRINT_INTERVAL_MS = 1000;
-inline constexpr bool K_PRINT_SIM_DATA = true;
+inline constexpr bool K_PRINT_SIM_DATA = false;
 
 // -- BalloonPhysics Parameters --
 // Start Parameters

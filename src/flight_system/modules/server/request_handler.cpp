@@ -17,6 +17,7 @@
 #include <BoosterSeat/string_utils.hpp>
 
 #include "command_ids.hpp"
+#include "giraffe_file_paths.hpp"
 #include "request_handler.hpp"
 
 RequestRouter::RequestRouter(data::SharedData &shared_data,
@@ -57,6 +58,11 @@ void RequestRouter::handleMessage(sock::TcpSocketServer &client,
 
     if (bst::containsPrefix(msg.rsc, "data/")) {
       handleDataRequest(client, msg);
+      return;
+    }
+
+    if (bst::containsPrefix(msg.rsc, "img/")) {
+      handleImageRequest(client, msg.rsc);
       return;
     }
   } else if (msg.typ == protocol::MessageType::SET) {
@@ -230,6 +236,8 @@ void RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
     res_body = shared_data_.blocks.calculated_data.get().toJson();
   } else if (requested_data == "telemetry_module_stats") {
     res_body = shared_data_.blocks.telemetry_module_stats.get().toJson();
+  } else if (requested_data == "file_system_data") {
+    res_body = shared_data_.blocks.file_system_data.get().toJson();
   } else {
     sendErrorPacket(client, "data section not found");
     return;
@@ -274,4 +282,58 @@ void RequestRouter::sendMessage(protocol::Message &response_json,
   std::string response = response_json.getJsonString();
   client.send(response);
   bps_down_in_a_second_ += static_cast<double>(response.size());
+}
+
+void RequestRouter::handleImageRequest(sock::TcpSocketServer &client,
+                                       const std::string &msg_rsc) {
+  constexpr size_t K_MAX_IMAGE_SIZE = 1024 * 1024 * 5; // 5MB
+
+  std::string image_path{};
+  std::ifstream image_file;
+  try {
+    image_path =
+        giraffe::file_paths::getGfsImageDirPath() + "/" + msg_rsc.substr(4);
+    std::filesystem::path path(image_path);
+    if (!std::filesystem::exists(path)) {
+      client.send("image not found");
+      return;
+    }
+    size_t image_size = std::filesystem::file_size(path);
+    if (image_size > K_MAX_IMAGE_SIZE) {
+      client.send("image too large");
+      return;
+    }
+
+    image_file.open(image_path, std::ios::binary);
+  } catch (const std::exception &e) {
+    client.send("invalid image request/path");
+    return;
+  }
+
+  if (!image_file.is_open()) {
+    client.send("open failure");
+    return;
+  }
+
+  std::vector<uint8_t> image_data((std::istreambuf_iterator<char>(image_file)),
+                                  std::istreambuf_iterator<char>());
+  image_file.close();
+
+  uint32_t image_size = image_data.size();
+  client.sendRawData(reinterpret_cast<uint8_t *>(&image_size),
+                     sizeof(image_size));
+
+  // send the image in chunks
+  constexpr size_t K_BUFFER_SIZE = 512;
+  size_t bytes_sent = 0;
+  while (bytes_sent < image_data.size()) {
+    size_t bytes_to_send =
+        std::min(K_BUFFER_SIZE, image_data.size() - bytes_sent);
+    client.sendRawData(image_data.data() + bytes_sent, bytes_to_send);
+    bytes_sent += bytes_to_send;
+  }
+
+  // send terminate signal (image size again)
+  client.sendRawData(reinterpret_cast<uint8_t *>(&image_size),
+                     sizeof(image_size));
 }

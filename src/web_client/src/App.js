@@ -8,6 +8,9 @@ import "./leaflet/leaflet.css";
 import { GwsGlobalContextProvider } from "./GlobalContext";
 
 // Pages ----------
+import NotFound from "./pages/404";
+import DocsPage from "./pages/docs/docs";
+import SetupPage from "./pages/setup";
 // GGS
 import CommandCenter from "./pages/command_center";
 import TelemetryPage from "./pages/telemetry";
@@ -15,9 +18,7 @@ import DataLogsPage from "./pages/data_logs";
 // GFS
 import GfsMonitorPage from "./pages/gfs/data_monitor";
 import ConfigureGfsPage from "./pages/gfs/configure_gfs";
-import SetupPage from "./pages/setup";
-import DocsPage from "./pages/docs/docs";
-import NotFound from "./pages/404";
+import ImageryPage from "./pages/gfs/imagery";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
               <Route path="gfs">
                 <Route path="data-monitor" element={<GfsMonitorPage />} />
                 <Route path="configure" element={<ConfigureGfsPage />} />
+                <Route path="imagery" element={<ImageryPage />} />
               </Route>
 
               <Route path="setup" element={<SetupPage />} />

@@ -77,6 +77,7 @@ std::string getGfsConfigFilePath() {
 }
 
 std::string getGfsImageDirPath() {
+  createGiraffeDirIfNotExists();
   std::string dir_path = getGiraffeDirectoryPath() + "/gfs_images";
 
   // -- create the directory if it does not exist

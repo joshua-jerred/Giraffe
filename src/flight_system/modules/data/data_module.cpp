@@ -9,7 +9,8 @@ static modules::MetaData metadata("data_module",
 modules::DataModule::DataModule(data::SharedData &shared_data,
                                 cfg::Configuration &config)
     : modules::Module(metadata, shared_data, config),
-      data_log_(shared_data, config), influxdb_(shared_data, config) {
+      data_log_(shared_data, config), influxdb_(shared_data, config),
+      file_system_(shared_data, config) {
 
   // check for GPS data source
   auto ext_cfg = configuration_.extensions.getExtensions();
@@ -48,6 +49,8 @@ void modules::DataModule::loop() {
   processAllStreams();
 
   calculateCalculatedData();
+
+  file_system_.update();
 
   if (data_file_enabled_ &&
       (data_file_logging_strategy_ == cfg::gEnum::LogStrategy::INTERVAL ||

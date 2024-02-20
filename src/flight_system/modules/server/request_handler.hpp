@@ -139,6 +139,15 @@ private:
                             protocol::Message &msg);
 
   /**
+   * @brief Response to an image request. Sends the image data to the client.
+   *
+   * @param client - The client socket.
+   * @param msg_rsc - The message resource. (Contains img/<image_name>)
+   */
+  void handleImageRequest(sock::TcpSocketServer &client,
+                          const std::string &msg_rsc);
+
+  /**
    * @brief Send a message to the client.
    * @param response - The message to send.
    * @param client - The client socket.
