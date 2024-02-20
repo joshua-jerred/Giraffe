@@ -2,7 +2,7 @@ add_library(gfs_extensions INTERFACE)
 target_sources(gfs_extensions INTERFACE
   ${CMAKE_CURRENT_SOURCE_DIR}/extension_base.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/extension_base.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/adc_configuration.cpp
+	# ${CMAKE_CURRENT_SOURCE_DIR}/adc_configuration.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/bme280.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ds18b20.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/samm8q.cpp
