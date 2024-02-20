@@ -96,7 +96,7 @@ function SingleCommand({ name, metadata, sendMethod, prefix }) {
       .then((response) => response.json())
       .then((response) => {
         console.log("Command sent", response);
-        displayLastStatus(response.message);
+        displayLastStatus("command sent"); //response.message);
       })
       .catch((error) => {
         displayLastStatus("error");
@@ -238,7 +238,10 @@ function CommandList() {
     <div>
       <CardSectionTitle>Send Method</CardSectionTitle>
       <SendMethodStyle>
-        <StySelect onChange={(e) => setSendMethod(e.target.value)}>
+        <StySelect
+          onChange={(e) => setSendMethod(e.target.value)}
+          value={sendMethod}
+        >
           <StyOption value="tcp_socket">TCP Socket</StyOption>
           <StyOption value="gdl_broadcast">GDL Broadcast</StyOption>
           <StyOption value="gdl_exchange">GDL Exchange</StyOption>

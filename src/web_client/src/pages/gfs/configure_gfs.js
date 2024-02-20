@@ -3,8 +3,20 @@ import {
   PageContent,
   Card,
   CardMasonryLayout,
+  CardBreak,
+  CardSectionTitle,
 } from "../../core/PageParts";
 import { GfsEditBox } from "../../components/Editable";
+
+import ExtensionsConfiguration from "../../components/extension_configuration";
+
+function AdcMappingsConfig() {
+  return (
+    <div>
+      <h2>ADC Mappings</h2>
+    </div>
+  );
+}
 
 function ConfigureGfsPage() {
   return (
@@ -18,19 +30,15 @@ function ConfigureGfsPage() {
             <GfsEditBox resource="gfs" category="general" />
           </Card>
           <Card title="Data Module - General/Data File Log">
+            <CardSectionTitle>General/Data File Log</CardSectionTitle>
             <GfsEditBox resource="gfs" category="data_module_data" />
-          </Card>
-
-          <Card title="Data Module - Logging">
+            <CardBreak />
+            <CardSectionTitle>Logging</CardSectionTitle>
             <GfsEditBox resource="gfs" category="data_module_log" />
           </Card>
 
           <Card title="Console Module">
             <GfsEditBox resource="gfs" category="console_module" />
-          </Card>
-
-          <Card title="Data Logging">
-            <GfsEditBox resource="gfs" category="data_module_log" />
           </Card>
 
           <Card title="Server Module">
@@ -41,24 +49,26 @@ function ConfigureGfsPage() {
             <GfsEditBox resource="gfs" category="system_module" />
           </Card>
 
-          <Card title="Telemetry - General">
+          <Card title="Telemetry">
+            <CardSectionTitle>General</CardSectionTitle>
             <GfsEditBox resource="gfs" category="telemetry" />
-          </Card>
-
-          <Card title="Telemetry - APRS">
+            <CardBreak />
+            <CardSectionTitle>APRS</CardSectionTitle>
             <GfsEditBox resource="gfs" category="telemetry_aprs" />
-          </Card>
-
-          <Card title="Telemetry - SSTV">
+            <CardBreak />
+            <CardSectionTitle>SSTV</CardSectionTitle>
             <GfsEditBox resource="gfs" category="telemetry_sstv" />
-          </Card>
-
-          <Card title="Telemetry - Data Packets">
+            <CardBreak />
+            <CardSectionTitle>Data Packets</CardSectionTitle>
             <GfsEditBox resource="gfs" category="telemetry_data_packets" />
           </Card>
 
           <Card title="Extensions">
-            {/* <EditBox resource="gfs" category="system_module" /> */}
+            <ExtensionsConfiguration />
+          </Card>
+
+          <Card title="ADC Mappings">
+            <AdcMappingsConfig />
           </Card>
         </CardMasonryLayout>
       </PageContent>

@@ -141,6 +141,8 @@ void RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
     res_body = config_.extension_module.getJson();
   } else if (req == "hardware_interface") {
     res_body = config_.hardware_interface.getJson();
+  } else if (req == "adc_mappings") {
+    res_body = config_.adc_mappings.getJson();
   } else {
     sendErrorPacket(client, "setting section not found");
     return;

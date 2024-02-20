@@ -128,6 +128,13 @@ module.exports = class GfsSettingSync {
    */
   #setLocalResource(category, message) {
     let data_section = message.bdy.dat;
+
+    const SPECIAL_CASES = ["extensions", "adc_mappings"];
+    if (SPECIAL_CASES.includes(category)) {
+      this.resources[category].data = data_section;
+      return;
+    }
+
     for (let data_item in data_section) {
       try {
         this.resources[category].data[data_item] = data_section[data_item];
