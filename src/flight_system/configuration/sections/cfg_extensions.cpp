@@ -98,26 +98,41 @@ Json Extensions::getJson() const {
   return j;
 }
 
-void Extensions::addExtension(const ExtensionMetadata &metadata) {
+bool Extensions::addExtension(const ExtensionMetadata &metadata) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   if (doesNameExist(metadata.name)) {
     error(DiagnosticId::CONFIG_extensionNameAlreadyExists,
           "on add " + metadata.name);
-    return;
+    return false;
   }
 
   extensions_.push_back(metadata);
+  return true;
 }
 
-void Extensions::removeExtension(const std::string &name) {
+bool Extensions::removeExtension(const std::string &name) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   for (auto it = extensions_.begin(); it != extensions_.end(); it++) {
     if (it->name == name) {
       extensions_.erase(it);
-      return;
+      return true;
     }
   }
   error(DiagnosticId::CONFIG_extensionNameDoesNotExist, "on remove " + name);
+  return false;
+}
+
+bool Extensions::updateExtension(const std::string &name,
+                                 const ExtensionMetadata &metadata) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  for (auto it = extensions_.begin(); it != extensions_.end(); it++) {
+    if (it->name == name) {
+      *it = metadata;
+      return true;
+    }
+  }
+  error(DiagnosticId::CONFIG_extensionNameDoesNotExist, "on update " + name);
+  return false;
 }
 
 void Extensions::toggleExtension(const std::string &name, bool enabled) {

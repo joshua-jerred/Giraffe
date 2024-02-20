@@ -89,12 +89,10 @@ public:
 
   /**
    * @brief Add an extension to the configuration.
-   *
    * @warning This does not check for validity!
-   *
    * @param metadata The metadata for the extension to add.
    */
-  void addExtension(const ExtensionMetadata &metadata);
+  bool addExtension(const ExtensionMetadata &metadata);
 
   /**
    * @brief Remove an extension from the configuration by name.
@@ -104,7 +102,18 @@ public:
    *
    * @param name The name of the extension to remove.
    */
-  void removeExtension(const std::string &name);
+  bool removeExtension(const std::string &name);
+
+  /**
+   * @brief Update an extension given its name and new metadata.
+   * @param name - The name of the extension to update
+   * @param metadata - The new metadata for the extension (can have a different
+   * name)
+   * @return true - If the extension existed and was updated
+   * @return false - If the extension did not exist or could not be updated
+   */
+  bool updateExtension(const std::string &name,
+                       const ExtensionMetadata &metadata);
 
   /**
    * @brief Enable or disable an extension by name.
