@@ -183,6 +183,29 @@ struct DataLogStats {
     json_data["log_file_size"] = rnd(log_file_size);
     json_data["log_archive_dir_size"] = rnd(log_archive_dir_size);
     json_data["log_file_path"] = log_file_path;
+    json_data["archived_data_files_list"] = archived_data_files_list;
+    json_data["archived_log_files_list"] = archived_log_files_list;
+    return json_data;
+  }
+};
+
+struct FileSystemData {
+  bool giraffe_directory_valid = false;
+  std::string giraffe_directory_path = "";
+
+  bool gfs_image_dir_valid = false;
+  std::string gfs_image_dir_path = "";
+  uint32_t gfs_image_dir_file_count = 0;
+  std::vector<std::string> gfs_image_files = {};
+
+  Json toJson() {
+    Json json_data;
+    json_data["giraffe_directory_valid"] = giraffe_directory_valid;
+    json_data["giraffe_directory_path"] = giraffe_directory_path;
+    json_data["gfs_image_dir_valid"] = gfs_image_dir_valid;
+    json_data["gfs_image_dir_path"] = gfs_image_dir_path;
+    json_data["gfs_image_dir_file_count"] = gfs_image_dir_file_count;
+    json_data["gfs_image_files"] = gfs_image_files;
     return json_data;
   }
 };

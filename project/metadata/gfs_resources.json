@@ -179,5 +179,6 @@
   "environmental": {},
   "location_data": {},
   "calculated_data": {},
-  "telemetry_module_stats": {}
+  "telemetry_module_stats": {},
+  "file_system_data": {}
 }

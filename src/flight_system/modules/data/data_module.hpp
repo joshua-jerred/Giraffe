@@ -24,6 +24,7 @@
 #include <BoosterSeat/timer.hpp>
 
 #include "data_log.hpp"
+#include "file_system_manager.hpp"
 #include "influxdb.hpp"
 #include "module.hpp"
 
@@ -196,6 +197,11 @@ private:
    * @brief Used to access the influxdb database.
    */
   data_middleware::InfluxDb influxdb_;
+
+  /**
+   * @brief Used to manage the file system/data files
+   */
+  data_middleware::FileSystemManager file_system_;
 
   /**
    * @brief True if data file logging is enabled.
