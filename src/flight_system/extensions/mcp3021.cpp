@@ -39,13 +39,13 @@ void Mcp3021::adcStartup() {
 
 bool Mcp3021::i2cHandshake() {
   uint32_t value;
-  if (!readAdc(value)) {
+  if (!readAdc()) {
     return false;
   }
   return true;
 }
 
-bool Mcp3021::readAdc(uint32_t &value) {
+bool Mcp3021::readAdc() {
   constexpr uint32_t kMcp3021ReadSize = 2;
   std::vector<uint8_t> read_buffer(kMcp3021ReadSize);
   auto result = i2c_.readChunk(read_buffer, kMcp3021ReadSize);
@@ -62,10 +62,11 @@ bool Mcp3021::readAdc(uint32_t &value) {
     return false;
   }
 
+  uint32_t value = 0;
   value = read_buffer.at(0) << 6;
   value |= read_buffer.at(1) >> 2;
 
-  // debug("Read value: " << value);
+  reportAdcData(value, 0);
 
   return true;
 }
