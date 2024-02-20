@@ -105,6 +105,8 @@ void Extensions::addExtension(const ExtensionMetadata &metadata) {
           "on add " + metadata.name);
     return;
   }
+
+  extensions_.push_back(metadata);
 }
 
 void Extensions::removeExtension(const std::string &name) {

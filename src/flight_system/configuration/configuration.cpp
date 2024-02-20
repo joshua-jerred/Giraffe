@@ -1440,7 +1440,7 @@ void cfg::ExtensionModule::setFromJson(const Json &json_data) {
         "extension_module",
         "status_polling_rate",
         status_polling_rate_,
-        500,
+        100,
         60000,
         ""
   );

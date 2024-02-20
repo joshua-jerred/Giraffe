@@ -43,7 +43,8 @@ enum class CommandId : uint16_t {
   TELEMETRY_MODULE_sendNumActiveErrors=0x3000, // Send Number of Active Errors
   TELEMETRY_MODULE_sendRssi=0x3001, // Send RSSI
   TELEMETRY_MODULE_sendSnr=0x3002, // Send SNR
-  TELEMETRY_MODULE_sendAprsLocation=0x3003  // Send APRS Location
+  TELEMETRY_MODULE_sendAprsLocation=0x3003, // Send APRS Location
+  EXTENSION_MODULE_addPreConfiguredExtension=0x4000  // Add Pre-Configured Extension
 };
 // NOLINTEND(readability-identifier-naming)
 

@@ -374,7 +374,7 @@ public:
   Json getJson() const;
 
 private:
-  int status_polling_rate_ = 1000;
+  int status_polling_rate_ = 500;
   int max_restart_attempts_ = 5;
   int restart_delay_minimum_ = 1000;
   int start_timeout_ = 10000;

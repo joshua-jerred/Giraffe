@@ -106,6 +106,8 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::SYSTEM_MODULE_diskInfoReadFail,"SYSTEM_MODULE_diskInfoReadFail"},
   {DiagnosticId::SERVER_MODULE_invalidCommandString,"SERVER_MODULE_invalidCommandString"},
   {DiagnosticId::EXTENSION_MODULE_failedToCreate,"EXTENSION_MODULE_failedToCreate"},
+  {DiagnosticId::EXTENSION_MODULE_invalidCommand,"EXTENSION_MODULE_invalidCommand"},
+  {DiagnosticId::EXTENSION_MODULE_invalidPreconfiguredExtensionType,"EXTENSION_MODULE_invalidPreconfiguredExtensionType"},
   {DiagnosticId::EXTENSION_startCall,"EXTENSION_startCall"},
   {DiagnosticId::EXTENSION_stopTimeout,"EXTENSION_stopTimeout"},
   {DiagnosticId::EXTENSION_bme280TemperatureRange,"EXTENSION_bme280TemperatureRange"},
