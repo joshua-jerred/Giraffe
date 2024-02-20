@@ -161,9 +161,24 @@ bool parseSystemModuleCommand(const std::string &command_id_str,
 bool parseExtensionModuleCommand(const std::string &command_id_str,
                                  const std::string &arg,
                                  cmd::Command &command) {
-  (void)command_id_str;
-  (void)arg;
-  (void)command;
+
+  static const std::unordered_map<std::string, cmd::CommandId>
+      K_COMMAND_ID_MAP = {
+          {"apc", cmd::CommandId::EXTENSION_MODULE_addPreConfiguredExtension}};
+  if (!K_COMMAND_ID_MAP.contains(command_id_str)) {
+    return false;
+  }
+  command.command_id = K_COMMAND_ID_MAP.at(command_id_str);
+
+  switch (command.command_id) {
+  case cmd::CommandId::FLIGHT_RUNNER_shutdownSystem:
+    if (arg.length() < 3) {
+      return false;
+    }
+    return true;
+  default:
+    return false;
+  }
   return false;
 }
 
@@ -182,7 +197,8 @@ bool parseTelemetryModuleCommand(const std::string &command_id_str,
       K_COMMAND_ID_MAP = {
           {"nae", cmd::CommandId::TELEMETRY_MODULE_sendNumActiveErrors},
           {"rsi", cmd::CommandId::TELEMETRY_MODULE_sendRssi},
-          {"snr", cmd::CommandId::TELEMETRY_MODULE_sendSnr}};
+          {"snr", cmd::CommandId::TELEMETRY_MODULE_sendSnr},
+          {"apl", cmd::CommandId::TELEMETRY_MODULE_sendAprsLocation}};
   if (!K_COMMAND_ID_MAP.contains(command_id_str)) {
     return false;
   }
@@ -192,6 +208,7 @@ bool parseTelemetryModuleCommand(const std::string &command_id_str,
   case cmd::CommandId::TELEMETRY_MODULE_sendNumActiveErrors:
   case cmd::CommandId::TELEMETRY_MODULE_sendRssi:
   case cmd::CommandId::TELEMETRY_MODULE_sendSnr:
+  case cmd::CommandId::TELEMETRY_MODULE_sendAprsLocation:
     if (arg.length() != 0) {
       return false;
     }

@@ -686,11 +686,11 @@
         "SECTION_TYPE": "struct",
         "status_polling_rate": {
             "type": "int",
-            "default": 1000,
+            "default": 500,
             "name": "Status Polling Rate (ms)",
             "description": "The rate at which the status of the extension will be polled. This is used to determine if the extension is still alive.",
             "max": 60000,
-            "min": 500
+            "min": 100
         },
         "max_restart_attempts": {
             "type": "int",

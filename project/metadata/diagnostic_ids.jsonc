@@ -427,6 +427,16 @@
       "name": "Failed to Create Extension",
       "details": "The extension could not be created.",
       "value": "0x4004"
+    },
+    "invalid_command":{
+      "name": "Invalid Command",
+      "details": "The command sent to the extension module is not valid.",
+      "value": "0x4005"
+    },
+    "invalid_preconfigured_extension_type":{
+      "name": "Invalid Preconfigured Extension Type",
+      "details": "The preconfigured extension type is not valid.",
+      "value": "0x4006"
     }
   },
   "extension":{

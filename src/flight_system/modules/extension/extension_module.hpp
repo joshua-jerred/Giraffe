@@ -99,11 +99,14 @@ private:
   void shutdown() override;
   void processCommand(const cmd::Command &) override;
   void updateLocalConfig() override;
+
+  void addExtension(const cfg::ExtensionMetadata &extension_metadata);
   std::optional<ExtContainer> createExtension(const cfg::ExtensionMetadata &);
+
+  void addPreConfiguredExtension(const std::string &ext_option);
 
   // State Machine Functions for each action
   void stateMachine(ExtContainer &);
-
   // not so thread safe...
   void unknownState(ExtContainer &);
   void disableState(ExtContainer &);
@@ -111,7 +114,6 @@ private:
   void runState(ExtContainer &);
   void stopState(ExtContainer &);
   void restartState(ExtContainer &);
-
   void errorStartState(ExtContainer &);
   void errorRestartState(ExtContainer &);
   void errorDisableState(ExtContainer &);

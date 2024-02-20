@@ -63,16 +63,20 @@ void ExtensionModule::startup() {
 
   // Load in the extensions
   for (auto &ext_meta : configuration_.extensions.getExtensions()) {
-    // Create the extension.
-    auto extension = createExtension(ext_meta);
-    if (!extension.has_value()) {
-      error(DiagnosticId::EXTENSION_MODULE_failedToCreate, ext_meta.name);
-      continue;
-    }
-    info("Loaded extension: " + ext_meta.name);
-    // Add the extension to the list of extensions.
-    extensions_.push_back(extension.value());
+    addExtension(ext_meta);
   }
+}
+
+void ExtensionModule::addExtension(const cfg::ExtensionMetadata &ext_meta) {
+  // Create the extension.
+  auto extension = createExtension(ext_meta);
+  if (!extension.has_value()) {
+    error(DiagnosticId::EXTENSION_MODULE_failedToCreate, ext_meta.name);
+    return;
+  }
+  info("Loaded extension: " + ext_meta.name);
+  // Add the extension to the list of extensions.
+  extensions_.push_back(extension.value());
 }
 
 void ExtensionModule::loop() {
@@ -117,12 +121,19 @@ void ExtensionModule::shutdown() {
 }
 
 void ExtensionModule::processCommand(const cmd::Command &command) {
-  (void)command;
+  switch (command.command_id) {
+  case cmd::CommandId::EXTENSION_MODULE_addPreConfiguredExtension:
+    addPreConfiguredExtension(command.str_arg);
+    break;
+  default:
+    error(DiagnosticId::EXTENSION_MODULE_invalidCommand);
+    break;
+  }
 }
 
 void ExtensionModule::updateLocalConfig() {
   // Load in the config for the extensions.
-  // extension_metadata_ = configuration_.extensions
+  extension_metadata_ = configuration_.extensions.getExtensions();
   auto &mdl_cfg = configuration_.extension_module;
   status_polling_interval_ = mdl_cfg.getStatusPollingRate();
   max_restart_attempts_ = mdl_cfg.getMaxRestartAttempts();

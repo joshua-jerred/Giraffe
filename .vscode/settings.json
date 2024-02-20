@@ -52,6 +52,7 @@
     "HHMMSS",
     "nlohmann",
     "NOCALL",
+    "preconfigured",
     "puml",
     "Reassembler",
     "rssi",

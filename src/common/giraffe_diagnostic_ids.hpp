@@ -111,6 +111,8 @@ enum class DiagnosticId : uint16_t {
   SYSTEM_MODULE_diskInfoReadFail=0x4003, // Failed to read disk info
   SERVER_MODULE_invalidCommandString=0x4100, // Invalid Command String
   EXTENSION_MODULE_failedToCreate=0x4004, // Failed to Create Extension
+  EXTENSION_MODULE_invalidCommand=0x4005, // Invalid Command
+  EXTENSION_MODULE_invalidPreconfiguredExtensionType=0x4006, // Invalid Preconfigured Extension Type
   EXTENSION_startCall=0x5001, // Can not start if already running, starting, or sleeping.
   EXTENSION_stopTimeout=0x5002, // Failed to stop in time
   EXTENSION_bme280TemperatureRange=0x5003, // BME280 Temperature Range Warning
