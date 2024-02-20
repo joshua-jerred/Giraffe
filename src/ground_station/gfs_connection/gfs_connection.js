@@ -3,12 +3,14 @@ const gfsResources = require("../../../project/metadata/gfs_resources.json");
 const { DataRequest, parse, SetMessage } = require("giraffe-protocol");
 const GfsDataSync = require("./data_sync.js");
 const GfsSettingSync = require("./setting_sync.js");
+const GfsImages = require("./gfs_images.js");
 
 module.exports = class GfsConnection {
   constructor(global_state) {
     this.settings_resources = gfsResources.settings;
     this.data_resources = gfsResources.data;
     this.global_state = global_state;
+    this.gfs_images = new GfsImages(global_state);
 
     this.address = this.global_state.ggs_db.get(
       "settings",

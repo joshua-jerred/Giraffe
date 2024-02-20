@@ -86,6 +86,7 @@ private:
 
     constexpr uint32_t K_MAX_FILES_TO_RECORD = 50;
     uint32_t recorded_file_count = 0;
+    gfs_image_dir_file_count_ = 0;
 
     fs_data_.gfs_image_files.clear();
 
