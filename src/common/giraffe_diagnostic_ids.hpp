@@ -54,6 +54,9 @@ enum class DiagnosticId : uint16_t {
   CONFIG_extensionNotObject=0x000B, // Extension is not an object
   CONFIG_extensionNameAlreadyExists=0x000C, // Extension Name Already Exists
   CONFIG_extensionNameDoesNotExist=0x000D, // Extension Name Does Not Exist
+  CONFIG_adcMappingsNotArray=0x000F, // ADC Mappings Not Array
+  CONFIG_adcMappingNotObject=0x0010, // ADC Mapping Not Object
+  CONFIG_adcMappingLabelAlreadyExists=0x0011, // ADC Mapping Label Already Exists
   MODULE_startFailure=0x1000, // Failed to start module
   MODULE_moduleAlreadyStarted=0x1001, // Module already started
   DATA_MODULE_statusDataPacketUnknownSource=0x2000, // Unknown data packet source

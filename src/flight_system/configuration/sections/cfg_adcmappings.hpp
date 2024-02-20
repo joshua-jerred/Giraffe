@@ -25,11 +25,17 @@ namespace cfg {
 /// @brief Configuration for an ADC.
 /// @see adc_config.md
 struct AdcConfig {
-  /// @brief ADC Types, a way to specify how to interpret the ADC values.
-  enum AdcType { RAW_COUNT, PERCENTAGE, VOLTAGE_DIVIDER, VOLTAGE_REFERENCE };
+  /// @brief The label for the ADC channel. Must be unique.
+  std::string label{};
 
   /// @brief How to interpret the ADC values.
-  AdcType type = AdcType::RAW_COUNT;
+  gEnum::AdcType type = gEnum::AdcType::RAW_COUNT;
+
+  /// @brief Name of the extension that is producing the data.
+  std::string extension_name{};
+
+  /// @brief The channel number from the extension that is producing the data.
+  uint8_t channel_number = 0;
 
   /// @brief The resolution of the ADC in bits.
   uint32_t resolution = 12;
@@ -38,18 +44,40 @@ struct AdcConfig {
   ///@brief The voltage reference of the ADC in millivolts.
   uint32_t voltage_reference = 3300;
   /// @brief The resistance of the first resistor in the voltage div in ohms.
-  uint32_t resistor_1 = 1000;
+  uint32_t resistor_1_value = 1000;
   /// @brief The resistance of the second resistor in the voltage div in ohms.
-  uint32_t resistor_2 = 1000;
+  uint32_t resistor_2_value = 1000;
 
   // Percentage
   /// @brief The maximum value to use when calculating the percentage.
-  uint32_t max = 4095;
+  uint32_t percentage_max = 4095;
   /// @brief The minimum value to use when calculating the percentage.
-  uint32_t min = 0;
+  uint32_t percentage_min = 0;
   /// @brief Whether or not to clamp the percentage to 0-100.
-  bool clamp = false;
-}
+  bool percentage_clamp = false;
+
+  Json getJson() const;
+
+  void fromJson(const Json &json, data::LogStream &log_stream);
+};
+
+class AdcMappings : public CfgSection {
+public:
+  AdcMappings(data::Streams &streams) : cfg::CfgSection(streams) {
+  }
+
+  void setFromJson(const Json &json_data);
+  Json getJson() const;
+
+  void addAdcConfig(const AdcConfig &adc_config);
+  void removeAdcConfig(const std::string &label);
+  std::vector<AdcConfig> getAdcConfigs() const;
+
+private:
+  bool doesLabelExist(const std::string &label) const;
+
+  std::vector<AdcConfig> adc_configs_{};
+};
 
 } // namespace cfg
 

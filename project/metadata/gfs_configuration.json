@@ -688,7 +688,7 @@
             "type": "string",
             "default": "none",
             "name": "ADC Channel Label",
-            "description": "The label for the ADC channel.",
+            "description": "The label for the ADC channel. Must be unique.",
             "max": 3,
             "min": 10,
             "pattern": ""
@@ -728,7 +728,7 @@
             "name": "Channel Resolution",
             "description": "Resolution of the ADC channel.",
             "max": 32,
-            "min": 0
+            "min": 3
         },
         "resistor_1_value": {
             "type": "int",
@@ -759,7 +759,7 @@
             "default": 4095,
             "name": "Percentage Maximum",
             "description": "The ADC count that represents 100%.",
-            "max": 1000000,
+            "max": 65536,
             "min": 0
         },
         "percentage_min": {
@@ -767,7 +767,7 @@
             "default": 0,
             "name": "Percentage Minimum",
             "description": "The ADC count that represents 0%.",
-            "max": 1000000,
+            "max": 65536,
             "min": 0
         },
         "percentage_clamp": {
