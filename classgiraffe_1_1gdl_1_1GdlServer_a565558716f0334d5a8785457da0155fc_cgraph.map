@@ -1,21 +1,22 @@
 <map id="giraffe::gdl::GdlServer::handleSetNewExchange" name="giraffe::gdl::GdlServer::handleSetNewExchange">
-<area shape="rect" id="node1" title=" " alt="" coords="5,293,192,335"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1CommonLogger.html#a0d6317e157230c5dd6e9d658b8263ca2" title=" " alt="" coords="241,195,415,236"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#adcb009472d786f0a4f0c94cdd9192ad2" title=" " alt="" coords="246,260,410,301"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aca89933b2ccac49e9e29482cff7b8d4f" title=" " alt="" coords="246,129,410,171"/>
-<area shape="rect" id="node11" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a6e3b9922addcc9e0104c7dc0b7cf3c62" title=" " alt="" coords="246,325,410,367"/>
-<area shape="rect" id="node18" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a548f7a1170b29a673ec85eaba09b0cb3" title=" " alt="" coords="240,391,416,432"/>
-<area shape="rect" id="node19" href="$classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c" title=" " alt="" coords="243,456,413,497"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1CommonLogger.html#a0430441609c79cc5174b9b10d26d5fe8" title=" " alt="" coords="699,202,901,229"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a" title=" " alt="" coords="478,71,637,112"/>
-<area shape="rect" id="node10" href="$classgiraffe_1_1CommonLogger.html#a008aac905e59c9aaa273c06578acc590" title=" " alt="" coords="470,136,645,177"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="721,136,879,177"/>
-<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="721,5,879,47"/>
-<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="700,71,900,112"/>
-<area shape="rect" id="node12" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="464,456,651,497"/>
-<area shape="rect" id="node13" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="483,325,632,367"/>
-<area shape="rect" id="node15" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="475,260,639,301"/>
-<area shape="rect" id="node17" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="474,391,641,432"/>
-<area shape="rect" id="node14" href="$structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" title="Get the message as a JSON object." alt="" coords="725,325,875,367"/>
-<area shape="rect" id="node16" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="746,267,854,294"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,241,192,283"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1CommonLogger.html#a0d6317e157230c5dd6e9d658b8263ca2" title=" " alt="" coords="470,55,645,96"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#adcb009472d786f0a4f0c94cdd9192ad2" title=" " alt="" coords="246,241,410,283"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1CommonLogger.html#a74487cf5682cfcef361413c6552be9f1" title=" " alt="" coords="241,5,415,47"/>
+<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aca89933b2ccac49e9e29482cff7b8d4f" title=" " alt="" coords="246,176,410,217"/>
+<area shape="rect" id="node12" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a6e3b9922addcc9e0104c7dc0b7cf3c62" title=" " alt="" coords="246,372,410,413"/>
+<area shape="rect" id="node19" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a548f7a1170b29a673ec85eaba09b0cb3" title=" " alt="" coords="240,307,416,348"/>
+<area shape="rect" id="node20" href="$classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c" title=" " alt="" coords="243,437,413,479"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1CommonLogger.html#a0430441609c79cc5174b9b10d26d5fe8" title=" " alt="" coords="699,62,901,89"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a" title=" " alt="" coords="478,185,637,227"/>
+<area shape="rect" id="node11" href="$classgiraffe_1_1CommonLogger.html#a008aac905e59c9aaa273c06578acc590" title=" " alt="" coords="470,120,645,161"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="721,117,879,159"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="721,183,879,224"/>
+<area shape="rect" id="node10" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="700,248,900,289"/>
+<area shape="rect" id="node13" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="464,381,651,423"/>
+<area shape="rect" id="node14" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="483,251,632,292"/>
+<area shape="rect" id="node16" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="475,447,639,488"/>
+<area shape="rect" id="node18" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="474,316,641,357"/>
+<area shape="rect" id="node15" href="$structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" title="Get the message as a JSON object." alt="" coords="725,313,875,355"/>
+<area shape="rect" id="node17" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="746,454,854,481"/>
 </map>
