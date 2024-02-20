@@ -92,6 +92,11 @@ module.exports = class GfsConnection {
     }
   }
 
+  sendCommand(command_string, callback) {
+    let request = new SetMessage("ggs", "gfs", command_string, {});
+    this.#sendRequest(request, callback);
+  }
+
   update() {
     this.data_sync.update();
     this.setting_sync.update();

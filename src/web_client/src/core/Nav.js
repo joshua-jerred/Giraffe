@@ -197,7 +197,6 @@ function NavBar({ navExpanded, setNavExpanded }) {
 
         <NavItem title="Telemetry" label="TLM" path={"/telemetry"} />
         <NavItem title="Data Logs" label="DAT" path={"/data-logs"} />
-        <NavItem title="Configure GGS" label="CFG" path="/configure" />
 
         <NavItem title="GFS" icon="fa-rocket" path={"/gfs"}>
           <NavItem title="Data Monitor" label="DAT" path="/gfs/data-monitor" />

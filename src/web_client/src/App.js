@@ -12,7 +12,6 @@ import { GwsGlobalContextProvider } from "./GlobalContext";
 import CommandCenter from "./pages/command_center";
 import TelemetryPage from "./pages/telemetry";
 import DataLogsPage from "./pages/data_logs";
-import ConfigureGgsPage from "./pages/configure_ggs";
 // GFS
 import GfsMonitorPage from "./pages/gfs/data_monitor";
 import ConfigureGfsPage from "./pages/gfs/configure_gfs";
@@ -30,7 +29,6 @@ function App() {
               <Route index element={<CommandCenter />} />
               <Route path="telemetry" element={<TelemetryPage />} />
               <Route path="data-logs" element={<DataLogsPage />} />
-              <Route path="configure" element={<ConfigureGgsPage />} />
 
               <Route
                 exact

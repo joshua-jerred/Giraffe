@@ -111,7 +111,7 @@ export const PageContentStyle = styled.div`
   width: 100%;
   color: ${(props) => props.theme.on_surface};
   font-family: ${(props) => props.theme.fonts.primary};
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 `;
 
 export function PageContent({ children, image }) {

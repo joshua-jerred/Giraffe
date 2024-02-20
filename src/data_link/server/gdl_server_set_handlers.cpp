@@ -60,6 +60,8 @@ void GdlServer::handleSetNewExchange(const json &request_data) {
   gdl::Message new_exchange;
   new_exchange.setExchangeMessage(exchange_data, getNewBroadcastId());
   if (sendMessage(new_exchange)) {
+    log_.info("Added new exchange: " + exchange_data);
+
     sendResponseSuccess();
   } else {
     log_.error("failed to send exchange (queue full?)");

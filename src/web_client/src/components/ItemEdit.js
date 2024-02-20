@@ -1,9 +1,9 @@
-import { StySaveButton, StyButton, StyInput } from './styled/StyledComponents';
-import { useState, useEffect, useContext } from 'react';
-import styled from 'styled-components';
+import { StySaveButton, StyButton, StyInput } from "./styled/StyledComponents";
+import { useState, useEffect, useContext } from "react";
+import styled from "styled-components";
 
-import { GwsGlobal } from '../GlobalContext';
-import Tooltip from './Tooltip';
+import { GwsGlobal } from "../GlobalContext";
+import Tooltip from "./Tooltip";
 
 const ItemEditContainer = styled.div`
   margin: 0.2em 0;
@@ -40,17 +40,17 @@ const ItemEditForm = styled.div`
 
 export function LocalItemEdit({ title, state, setState, tooltip, onTest }) {
   const [value, setValue] = useState(state);
-  const [saved, setSaved] = useState('yes');
+  const [saved, setSaved] = useState("yes");
 
   useEffect(() => {
-    setSaved(value === state ? 'yes' : 'no');
+    setSaved(value === state ? "yes" : "no");
   }, [value, state]);
 
   return (
     <ItemEditContainer>
       <ItemEditTitle>{title}</ItemEditTitle>
       <ItemEditForm>
-        <Tooltip text={tooltip} style={{ width: '98%' }}>
+        <Tooltip text={tooltip} style={{ width: "98%" }}>
           <ItemEditInput
             value={value}
             onChange={(e) => {
@@ -69,21 +69,21 @@ export function LocalItemEdit({ title, state, setState, tooltip, onTest }) {
 
 // [GET/PUT] /{resource}/{item} -> {value: string}
 export function RemoteItemEdit({ title, tooltip, resource, item }) {
-  const [localValue, setLocalValue] = useState('unknown');
-  const [remoteValue, setRemoteValue] = useState('unknown');
-  const [saved, setSaved] = useState('yes');
+  const [localValue, setLocalValue] = useState("unknown");
+  const [remoteValue, setRemoteValue] = useState("unknown");
+  const [saved, setSaved] = useState("yes");
   const { GwsAddress, GwsConnectionStatus } = useContext(GwsGlobal);
 
   useEffect(() => {
-    setSaved(localValue === remoteValue ? 'yes' : 'no');
+    setSaved(localValue === remoteValue ? "yes" : "no");
   }, [localValue, remoteValue]);
 
-  if (GwsConnectionStatus !== 'connected') {
+  if (GwsConnectionStatus !== "connected") {
     return <div>Not connected to GWS</div>;
   }
 
   function saveValue() {
-    console.log('saveValue' + localValue);
+    console.log("saveValue" + localValue);
   }
 
   function loadValue() {
@@ -104,7 +104,7 @@ export function RemoteItemEdit({ title, tooltip, resource, item }) {
     <ItemEditContainer>
       <ItemEditTitle>{title}</ItemEditTitle>
       <ItemEditForm>
-        <Tooltip text={tooltip} style={{ width: '98%' }}>
+        <Tooltip text={tooltip} style={{ width: "98%" }}>
           <ItemEditInput
             value={localValue}
             onChange={(e) => {

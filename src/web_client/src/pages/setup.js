@@ -6,10 +6,11 @@ import {
   CardContentCentered,
 } from "../core/PageParts";
 import gws_setup from "../assets/gws_setup.jpg";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { GwsGlobal } from "../GlobalContext";
 import { LocalItemEdit } from "../components/ItemEdit";
 import { SwitchWithLabel } from "../components/styled/StyledComponents";
+import { EditBox } from "../components/Editable";
 
 function SetupPage() {
   // For GWS Client Configuration
@@ -64,7 +65,7 @@ function SetupPage() {
 
   return (
     <>
-      <PageTitle title="Ground Station & Client Setup">
+      <PageTitle title="Client Setup">
         This is where you can configure your web client to connect to the Ground
         Station server. Once connected, you can configure the Ground Station.
       </PageTitle>
@@ -97,6 +98,33 @@ function SetupPage() {
             label="Dark Theme"
           />
         </Card>
+      </PageContent>
+
+      <PageTitle title="Ground Station Configuration">
+        @todo - add a description here
+      </PageTitle>
+      <PageContent>
+        <CardMasonryLayout>
+          <Card title="Giraffe Flight Software Connection">
+            <EditBox resource="ggs" category="gfs_connection" />
+          </Card>
+
+          <Card title="Ground Station Settings">
+            <EditBox resource="ggs" category="ggs_settings" />
+          </Card>
+
+          <Card title="Giraffe Data Link">
+            <EditBox resource="ggs" category="gdl" />
+          </Card>
+
+          <Card title="InfluxDB Setup">
+            <EditBox resource="ggs" category="influx_db" />
+          </Card>
+
+          <Card title="Ground Station Server Settings">
+            <EditBox resource="ggs" category="aprs_fi" />
+          </Card>
+        </CardMasonryLayout>
       </PageContent>
     </>
   );

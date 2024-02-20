@@ -34,7 +34,7 @@ const StatusCard = styled.div`
   border-bottom-left-radius: ${(props) => props.theme.status_bar.border_radius};
   border-bottom-right-radius: ${(props) =>
     props.theme.status_bar.border_radius};
-  z-index: 1;
+  z-index: 1001;
 `;
 
 const BarItemStyle = styled.div`
