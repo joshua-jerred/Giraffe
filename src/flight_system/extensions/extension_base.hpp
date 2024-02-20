@@ -139,9 +139,11 @@ protected:
 
   template <typename T>
   void data(data::DataId identifier, T value, int precision = 2);
-  void date(data::DataId identifier, std::string string_data);
+  // void data(data::DataId identifier, std::string string_data);
   void data(data::GpsFrame frame);
   void data(data::ImuFrame frame);
+  void dataWithSecondaryIdentifier(data::DataId identifier, uint32_t value,
+                                   const std::string &secondary_identifier);
   void error(DiagnosticId, const std::string &info = "");
   void error(DiagnosticId log_id, int info);
   void info(std::string info);

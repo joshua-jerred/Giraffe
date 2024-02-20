@@ -22,14 +22,14 @@
 
 namespace extension {
 
-class Mcp3021 : public AdcExtensionBase<10>, public I2cExtensionAdapter {
+class Mcp3021 : public AdcExtensionBase, public I2cExtensionAdapter {
 public:
   Mcp3021(ExtensionResources &resources, cfg::ExtensionMetadata metadata);
 
 private:
   void adcStartup() override;
   bool i2cHandshake() override;
-  bool readAdc(uint32_t &value) override;
+  bool readAdc() override;
 };
 
 } // namespace extension
