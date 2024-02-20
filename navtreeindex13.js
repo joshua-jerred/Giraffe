@@ -1,13 +1,5 @@
 var NAVTREEINDEX13 =
 {
-"structdata_1_1blocks_1_1SystemInfo.html#aecdaf8ccd77e6c51982190a6fb904459":[6,0,3,0,12,11],
-"structdata_1_1blocks_1_1SystemInfo.html#af5c137058e8916387ac163227439d1f2":[6,0,3,0,12,2],
-"structdata_1_1blocks_1_1TelemetryModuleStats.html":[6,0,3,0,13],
-"structdata_1_1blocks_1_1TelemetryModuleStats.html#a03208eb20ba3e5856f862b08a23e9d90":[6,0,3,0,13,10],
-"structdata_1_1blocks_1_1TelemetryModuleStats.html#a11208cb78d660ac025d391c159ca8ddf":[6,0,3,0,13,7],
-"structdata_1_1blocks_1_1TelemetryModuleStats.html#a4742dfa61a0055656448a5e1605545a3":[6,0,3,0,13,0],
-"structdata_1_1blocks_1_1TelemetryModuleStats.html#a500cf9a183be26ae681477ff4c66d584":[6,0,3,0,13,4],
-"structdata_1_1blocks_1_1TelemetryModuleStats.html#a7ff225980e91de1f97b47f1f7ec1f37c":[6,0,3,0,13,1],
 "structdata_1_1blocks_1_1TelemetryModuleStats.html#a845190e5125c7323243187e961bf4484":[6,0,3,0,13,2],
 "structdata_1_1blocks_1_1TelemetryModuleStats.html#aa5902613dd0ffa65cd8c0a1f3fcaceb7":[6,0,3,0,13,11],
 "structdata_1_1blocks_1_1TelemetryModuleStats.html#aa8fdea467fadd6eec1f282f77dd31ae6":[6,0,3,0,13,13],
@@ -249,5 +241,13 @@ var NAVTREEINDEX13 =
 "ubx__ids_8hpp.html#a53de759cde49be882cab83d5eb55b9cf":[7,0,164,51],
 "ubx__ids_8hpp.html#a53e47c1157386d4eaf06efc007520e81":[7,0,164,18],
 "ubx__ids_8hpp.html#a5c0083b421066232f9ca9ec5a5be5d33":[7,0,164,46],
-"ubx__ids_8hpp.html#a708b6ea6923c64a09c24502cdcac3a9b":[7,0,164,1]
+"ubx__ids_8hpp.html#a708b6ea6923c64a09c24502cdcac3a9b":[7,0,164,1],
+"ubx__ids_8hpp.html#a7158c6203454f33f6caf8b3ef98baa4d":[7,0,164,47],
+"ubx__ids_8hpp.html#a721617eb3ca24b3e11df832d0fe3b784":[7,0,164,17],
+"ubx__ids_8hpp.html#a75a0e5a8fdd7b36113eb691e33ee243f":[7,0,164,44],
+"ubx__ids_8hpp.html#a7789a324cd53102db03b4ea04841cfa1":[7,0,164,40],
+"ubx__ids_8hpp.html#a7d3083c532977836fbc45e57bf124b9c":[7,0,164,31],
+"ubx__ids_8hpp.html#a7eb41888f7e76504f479983726b4e8ee":[7,0,164,8],
+"ubx__ids_8hpp.html#a81f1534614e911ce3ec8e80620f9619d":[7,0,164,27],
+"ubx__ids_8hpp.html#a8dd973f7f0cd5e67999aa7f55b8d8d3c":[7,0,164,16]
 };

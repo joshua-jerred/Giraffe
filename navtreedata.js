@@ -84,19 +84,19 @@ var NAVTREEINDEX =
 [
 "adc__configuration_8cpp.html",
 "classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14",
-"classextension_1_1Bme280.html#a216c4ae77daca7a479a9eba281e8dbd4",
-"classextension_1_1PiCamera.html#a2aa3ac844b4d83d427e0f633f803a027",
-"classextension_1_1SimPressureSensor.html#a7a4649f64e0c45c2406b3877a97ec5ba",
-"classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639",
-"classmodules_1_1ConsoleModule.html#a2cea40ef66d87691ee367def93c5417c",
-"classncurs_1_1Environment.html#a285ec26eda7021fb4677d85459470768",
-"file__system__manager_8hpp_source.html",
-"group__DataStreamParsing.html",
-"namespacedata.html#a972f92980076b73771577364619443ff",
-"namespacenode.html#a5360cad6ada29a0aae6013099cab6419a43491564ebcfd38568918efbd6e840fd",
-"samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afcac30be2996b85d3905826648d620c8259",
-"structdata_1_1blocks_1_1SystemInfo.html#aecdaf8ccd77e6c51982190a6fb904459",
-"ubx__ids_8hpp.html#a7158c6203454f33f6caf8b3ef98baa4d"
+"classextension_1_1Bme280.html#a39712025900988f7bd4e15637f4a28ba",
+"classextension_1_1PiCamera.html#a692f72cc72848d0a162010a955085f07",
+"classextension_1_1SimPressureSensor.html#ac3545ca3cc1fd6ab92671dbf18840f13",
+"classgiraffe_1_1gdl_1_1Config.html#ac56e9e34f5e9514b8099de547ec776e1",
+"classmodules_1_1ConsoleModule.html#a6b89315bfd0b71642a8f67f604a37fd2",
+"classncurs_1_1Environment.html#a3b5c0bb29f8c9b6f7eff9c7b854019f5a21507b40c80068eda19865706fdc2403",
+"flight__phase_8hpp.html",
+"group__DataStreamParsing.html#ga5e45003930a173f5d1b4d11b50b5b7da",
+"namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba8b433e3f63d83e78dfbfe6da3ff61b3e",
+"namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a04e4c0da662c0b6d1c22348aabe5e95d",
+"server__module_8hpp_source.html",
+"structdata_1_1blocks_1_1TelemetryModuleStats.html#a845190e5125c7323243187e961bf4484",
+"ubx__ids_8hpp.html#a8e2869adefd2fc347b722d291a8ef942"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,6 +1,6 @@
 <map id="extension::SimImuSensor" name="extension::SimImuSensor">
 <area shape="rect" id="node1" title=" " alt="" coords="719,1764,907,1856"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="513,1271,671,1715"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="476,1271,708,1715"/>
 <area shape="rect" id="node3" href="$structextension_1_1ExtensionResources.html" title="This contains objects that are shared between all extensions." alt="" coords="1047,1109,1273,1186"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="707,895,821,973"/>
 <area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="1072,616,1293,752"/>

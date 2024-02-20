@@ -1,6 +1,5 @@
-<map id="extension::AdcExtensionBase&lt; AdcResolution &gt;" name="extension::AdcExtensionBase&lt; AdcResolution &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,587,220,840"/>
-<area shape="rect" id="node3" href="$classextension_1_1AdcExtensionBase.html" title=" " alt="" coords="5,903,220,1156"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="33,5,192,537"/>
-<area shape="rect" id="node4" href="$classextension_1_1Mcp3021.html" title=" " alt="" coords="36,1205,189,1327"/>
+<map id="extension::AdcExtensionBase" name="extension::AdcExtensionBase">
+<area shape="rect" id="node1" title=" " alt="" coords="14,585,229,765"/>
+<area shape="rect" id="node3" href="$classextension_1_1Mcp3021.html" title=" " alt="" coords="45,813,198,935"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,5,237,537"/>
 </map>

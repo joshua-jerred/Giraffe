@@ -1,13 +1,5 @@
 var NAVTREEINDEX12 =
 {
-"samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afcac30be2996b85d3905826648d620c8259":[7,0,121,0,3],
-"samm8q_8cpp.html#aa5fdc3c5fa9d12da0a7fde9bfdacb93b":[7,0,121,3],
-"samm8q_8cpp.html#ac4d25fa4fd862b78f4787d82d7f4cde4":[7,0,121,1],
-"samm8q_8hpp.html":[7,0,122],
-"samm8q_8hpp_source.html":[7,0,122],
-"server__module_8cpp.html":[7,0,123],
-"server__module_8cpp.html#a380b02b6c17bfe2d0e5b74ba12a5640e":[7,0,123,0],
-"server__module_8hpp.html":[7,0,124],
 "server__module_8hpp_source.html":[7,0,124],
 "shared__data_8hpp.html":[7,0,125],
 "shared__data_8hpp.html#ad7272e7b88e216047b649704df787d95":[7,0,125,5],
@@ -234,8 +226,8 @@ var NAVTREEINDEX12 =
 "structdata_1_1blocks_1_1StreamsStats.html#ab9841563c02f6ce257853c33559fad81":[6,0,3,0,11,4],
 "structdata_1_1blocks_1_1StreamsStats.html#ac2099be781c242dfd75085cf820124a6":[6,0,3,0,11,0,2],
 "structdata_1_1blocks_1_1StreamsStats.html#ac2099be781c242dfd75085cf820124a6":[7,0,3,12,2],
-"structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats":[6,0,3,0,11,0],
 "structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats":[7,0,3,12],
+"structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats":[6,0,3,0,11,0],
 "structdata_1_1blocks_1_1SystemInfo.html":[6,0,3,0,12],
 "structdata_1_1blocks_1_1SystemInfo.html#a1c943ede29d1efebfef8a3ffde88c0e4":[6,0,3,0,12,10],
 "structdata_1_1blocks_1_1SystemInfo.html#a25a0a036997138defc4715e6015aff31":[6,0,3,0,12,5],
@@ -249,5 +241,13 @@ var NAVTREEINDEX12 =
 "structdata_1_1blocks_1_1SystemInfo.html#aa38238b381cda1e8823c5cf673117296":[6,0,3,0,12,3],
 "structdata_1_1blocks_1_1SystemInfo.html#aab80f29e36c69ec31509a9f310b83aa1":[6,0,3,0,12,13],
 "structdata_1_1blocks_1_1SystemInfo.html#ab2866e6cad19e99203a1d5a31c58cf2c":[6,0,3,0,12,9],
-"structdata_1_1blocks_1_1SystemInfo.html#ab65acea5896d249db0b3a9210dabb537":[6,0,3,0,12,0]
+"structdata_1_1blocks_1_1SystemInfo.html#ab65acea5896d249db0b3a9210dabb537":[6,0,3,0,12,0],
+"structdata_1_1blocks_1_1SystemInfo.html#aecdaf8ccd77e6c51982190a6fb904459":[6,0,3,0,12,11],
+"structdata_1_1blocks_1_1SystemInfo.html#af5c137058e8916387ac163227439d1f2":[6,0,3,0,12,2],
+"structdata_1_1blocks_1_1TelemetryModuleStats.html":[6,0,3,0,13],
+"structdata_1_1blocks_1_1TelemetryModuleStats.html#a03208eb20ba3e5856f862b08a23e9d90":[6,0,3,0,13,10],
+"structdata_1_1blocks_1_1TelemetryModuleStats.html#a11208cb78d660ac025d391c159ca8ddf":[6,0,3,0,13,7],
+"structdata_1_1blocks_1_1TelemetryModuleStats.html#a4742dfa61a0055656448a5e1605545a3":[6,0,3,0,13,0],
+"structdata_1_1blocks_1_1TelemetryModuleStats.html#a500cf9a183be26ae681477ff4c66d584":[6,0,3,0,13,4],
+"structdata_1_1blocks_1_1TelemetryModuleStats.html#a7ff225980e91de1f97b47f1f7ec1f37c":[6,0,3,0,13,1]
 };

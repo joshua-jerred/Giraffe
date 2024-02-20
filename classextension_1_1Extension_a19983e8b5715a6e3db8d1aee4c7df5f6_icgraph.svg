@@ -117,7 +117,7 @@
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="classextension_1_1Mcp3021.html#ae642f64fd15fd1c80b2fe845fc97be8e" target="_top" xlink:title=" ">
+<g id="a_node8"><a xlink:href="classextension_1_1Mcp3021.html#a51dc6f0aef0765bceaf401578288cd67" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="342,-212.5 342,-242.5 457,-242.5 457,-212.5 342,-212.5"/>
 <text text-anchor="start" x="350" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::Mcp3021</text>
 <text text-anchor="middle" x="399.5" y="-219.5" font-family="Helvetica,sans-Serif" font-size="10.00">::readAdc</text>

@@ -1,4 +1,4 @@
 <map id="extension::PiCamera" name="extension::PiCamera">
-<area shape="rect" id="node1" title="The PiCamera class is a simple extension that wraps around the libcamera&#45;apps executables." alt="" coords="6,585,163,736"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,5,164,537"/>
+<area shape="rect" id="node1" title="The PiCamera class is a simple extension that wraps around the libcamera&#45;apps executables." alt="" coords="43,585,200,736"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,5,237,537"/>
 </map>

@@ -1,0 +1,11 @@
+<map id="extension::Mcp3021::readAdc" name="extension::Mcp3021::readAdc">
+<area shape="rect" id="node1" title=" " alt="" coords="5,85,159,126"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="235,26,393,68"/>
+<area shape="rect" id="node5" href="$classI2cInterface.html#a34290cc689cc9025fe8fd4641b5f4023" title="Read a chunk of data from the device without specifying a register." alt="" coords="225,92,403,119"/>
+<area shape="rect" id="node7" href="$classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42" title=" " alt="" coords="207,144,421,185"/>
+<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="732,34,912,60"/>
+<area shape="rect" id="node4" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="497,26,656,68"/>
+<area shape="rect" id="node6" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="483,92,670,119"/>
+<area shape="rect" id="node8" href="$classextension_1_1Extension.html#ab94ad848063e5b1677ca365e709bd03c" title=" " alt="" coords="469,144,684,185"/>
+<area shape="rect" id="node9" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="768,180,876,207"/>
+</map>

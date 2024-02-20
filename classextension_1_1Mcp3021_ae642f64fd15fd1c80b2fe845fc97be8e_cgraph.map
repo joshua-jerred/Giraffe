@@ -1,8 +1,0 @@
-<map id="extension::Mcp3021::readAdc" name="extension::Mcp3021::readAdc">
-<area shape="rect" id="node1" title=" " alt="" coords="5,57,159,98"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="216,27,375,69"/>
-<area shape="rect" id="node5" href="$classI2cInterface.html#a34290cc689cc9025fe8fd4641b5f4023" title="Read a chunk of data from the device without specifying a register." alt="" coords="207,93,384,120"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="667,5,847,32"/>
-<area shape="rect" id="node4" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="446,27,605,69"/>
-<area shape="rect" id="node6" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="432,93,619,120"/>
-</map>

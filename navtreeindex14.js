@@ -1,13 +1,5 @@
 var NAVTREEINDEX14 =
 {
-"ubx__ids_8hpp.html#a7158c6203454f33f6caf8b3ef98baa4d":[7,0,164,47],
-"ubx__ids_8hpp.html#a721617eb3ca24b3e11df832d0fe3b784":[7,0,164,17],
-"ubx__ids_8hpp.html#a75a0e5a8fdd7b36113eb691e33ee243f":[7,0,164,44],
-"ubx__ids_8hpp.html#a7789a324cd53102db03b4ea04841cfa1":[7,0,164,40],
-"ubx__ids_8hpp.html#a7d3083c532977836fbc45e57bf124b9c":[7,0,164,31],
-"ubx__ids_8hpp.html#a7eb41888f7e76504f479983726b4e8ee":[7,0,164,8],
-"ubx__ids_8hpp.html#a81f1534614e911ce3ec8e80620f9619d":[7,0,164,27],
-"ubx__ids_8hpp.html#a8dd973f7f0cd5e67999aa7f55b8d8d3c":[7,0,164,16],
 "ubx__ids_8hpp.html#a8e2869adefd2fc347b722d291a8ef942":[7,0,164,37],
 "ubx__ids_8hpp.html#a8e8c9ef45b1027d1c39640ddb9c5110a":[7,0,164,12],
 "ubx__ids_8hpp.html#a90de2f370e5c5358f01c7e7bd6233a2e":[7,0,164,43],

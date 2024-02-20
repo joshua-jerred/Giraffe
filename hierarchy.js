@@ -62,10 +62,9 @@ var hierarchy =
     [ "extension::AdcConfig", "namespaceextension.html#structextension_1_1AdcConfig", null ],
     [ "extension::Bme280::CompensationData", "classextension_1_1Bme280.html#structextension_1_1Bme280_1_1CompensationData", null ],
     [ "extension::Extension", "classextension_1_1Extension.html", [
-      [ "extension::AdcExtensionBase< 10 >", "classextension_1_1AdcExtensionBase.html", [
+      [ "extension::AdcExtensionBase", "classextension_1_1AdcExtensionBase.html", [
         [ "extension::Mcp3021", "classextension_1_1Mcp3021.html", null ]
       ] ],
-      [ "extension::AdcExtensionBase< AdcResolution >", "classextension_1_1AdcExtensionBase.html", null ],
       [ "extension::Bme280", "classextension_1_1Bme280.html", null ],
       [ "extension::Bmi088", "classextension_1_1Bmi088.html", null ],
       [ "extension::Ds18b20", "classextension_1_1Ds18b20.html", null ],
