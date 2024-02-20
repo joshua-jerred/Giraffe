@@ -19,7 +19,7 @@
 
 #include <BoosterSeat/timer.hpp>
 
-#include "adc_configuration.hpp"
+// #include "adc_configuration.hpp"
 #include "extension_base.hpp"
 #include "giraffe_assert.hpp"
 

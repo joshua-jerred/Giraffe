@@ -167,6 +167,8 @@ enum class DiagnosticId : uint16_t {
   EXT_FAULT_piCameraDetectFailed=0x7021, // Pi Camera Detect Failed
   EXT_FAULT_piCameraInvalidImageDir=0x7022, // Pi Camera Invalid Image Directory
   EXT_FAULT_piCameraCaptureFailed=0x7023, // Pi Camera Capture Failed (multiple)
+  EXT_FAULT_imuWatchdogTimeout=0x7024, // IMU Watchdog Timeout
+  EXT_FAULT_imuInvalidReportInterval=0x7025, // IMU Invalid Report Interval
   INTERFACE_invalidGpioPin=0x8000, // Invalid GPIO Pin
   INTERFACE_invalidGpioPinMode=0x8001, // Invalid GPIO Pin Mode
   INTERFACE_initialStateInputPin=0x8002, // Initial State Input Pin
