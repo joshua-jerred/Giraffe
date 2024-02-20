@@ -142,6 +142,7 @@ var annotated_dup =
     [ "ConfigurationTest", "classConfigurationTest.html", "classConfigurationTest" ],
     [ "CurlRequest", "classCurlRequest.html", "classCurlRequest" ],
     [ "DataModuleTests", "classDataModuleTests.html", "classDataModuleTests" ],
+    [ "ExtensionModuleTests", "classExtensionModuleTests.html", "classExtensionModuleTests" ],
     [ "ExtensionTestFramework", "classExtensionTestFramework.html", "classExtensionTestFramework" ],
     [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ],
     [ "GiraffeException", "classGiraffeException.html", "classGiraffeException" ],

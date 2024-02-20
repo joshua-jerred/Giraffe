@@ -1,6 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,107,83"/>
-<area shape="rect" id="node2" href="$classConfigurationTest.html" title=" " alt="" coords="155,5,289,32"/>
-<area shape="rect" id="node3" href="$classDataModuleTests.html" title=" " alt="" coords="155,56,289,83"/>
-<area shape="rect" id="node4" href="$classProtocolTest.html" title=" " alt="" coords="171,107,273,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,107,108"/>
+<area shape="rect" id="node2" href="$classConfigurationTest.html" title=" " alt="" coords="171,5,305,32"/>
+<area shape="rect" id="node3" href="$classDataModuleTests.html" title=" " alt="" coords="171,56,305,83"/>
+<area shape="rect" id="node4" href="$classExtensionModuleTests.html" title=" " alt="" coords="155,107,321,133"/>
+<area shape="rect" id="node5" href="$classProtocolTest.html" title=" " alt="" coords="187,157,289,184"/>
 </map>

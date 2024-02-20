@@ -3,7 +3,7 @@
 <area shape="rect" id="node2" href="$classmodules_1_1TelemetryModule.html" title=" " alt="" coords="2176,1669,2432,1864"/>
 <area shape="rect" id="node3" href="$classmodules_1_1Module.html" title=" " alt="" coords="1780,1126,1947,1511"/>
 <area shape="rect" id="node22" href="$classmodules_1_1SystemModule.html" title=" " alt="" coords="1710,1662,1924,1871"/>
-<area shape="rect" id="node24" href="$classmodules_1_1ExtensionModule.html" title=" " alt="" coords="590,1640,788,1893"/>
+<area shape="rect" id="node24" href="$classmodules_1_1ExtensionModule.html" title=" " alt="" coords="579,1640,799,1893"/>
 <area shape="rect" id="node33" href="$group__ServerModule.html#classmodules_1_1ServerModule" title="The server module. Provides a network interface for interacting with the flight system." alt="" coords="3377,1691,3553,1842"/>
 <area shape="rect" id="node39" href="$classmodules_1_1DataModule.html" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="4314,1611,4584,1923"/>
 <area shape="rect" id="node47" href="$classmodules_1_1ConsoleModule.html" title="The console module is a module that provides a console interface for the flight system." alt="" coords="1964,1662,2150,1871"/>

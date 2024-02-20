@@ -1,5 +1,6 @@
 <map id="extension::Extension::stop" name="extension::Extension::stop">
-<area shape="rect" id="node1" title="Sends a stop signal to the extension." alt="" coords="212,39,371,80"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a1a01dd8128be175c6a3b8ab1bb2c6d0d" title="This will attempt to stop the extension if it is running, but with a configured timeout." alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68" title="Only to be called when an extension is in the Error state. This joins the thread and fixes the status..." alt="" coords="5,71,164,112"/>
+<area shape="rect" id="node1" title="Sends a stop signal to the extension." alt="" coords="239,71,397,112"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a1a01dd8128be175c6a3b8ab1bb2c6d0d" title="This will attempt to stop the extension if it is running, but with a configured timeout." alt="" coords="19,5,177,47"/>
+<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68" title="Only to be called when an extension is in the Error state. This joins the thread and fixes the status..." alt="" coords="19,71,177,112"/>
+<area shape="rect" id="node4" href="$classExtensionTestFramework.html#aec515812c05baceb06aa344c5edaf971" title=" " alt="" coords="5,136,191,177"/>
 </map>

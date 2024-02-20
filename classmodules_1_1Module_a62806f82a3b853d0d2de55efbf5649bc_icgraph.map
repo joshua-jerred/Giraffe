@@ -1,5 +1,8 @@
 <map id="modules::Module::error" name="modules::Module::error">
-<area shape="rect" id="node1" title="Used internally in the module. This function adds an error to the log stream. It is used to log error..." alt="" coords="252,46,425,73"/>
-<area shape="rect" id="node2" href="$classmodules_1_1DataModule.html#a9e8324e2c3dbbb9c2ffadf83ece48108" title="Constructor for the data module." alt="" coords="22,5,187,47"/>
-<area shape="rect" id="node3" href="$classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628" title="This function is called when the module is started." alt="" coords="5,71,204,112"/>
+<area shape="rect" id="node1" title="Used internally in the module. This function adds an error to the log stream. It is used to log error..." alt="" coords="756,130,929,157"/>
+<area shape="rect" id="node2" href="$classmodules_1_1DataModule.html#a9e8324e2c3dbbb9c2ffadf83ece48108" title="Constructor for the data module." alt="" coords="526,5,691,47"/>
+<area shape="rect" id="node3" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="509,123,708,164"/>
+<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8" title=" " alt="" coords="252,108,461,149"/>
+<area shape="rect" id="node5" href="$classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45" title="Called when a command is received." alt="" coords="5,171,204,212"/>
+<area shape="rect" id="node6" href="$classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628" title="This function is called when the module is started." alt="" coords="257,173,456,215"/>
 </map>

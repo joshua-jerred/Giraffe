@@ -1,5 +1,6 @@
 <map id="extension::Extension::startup" name="extension::Extension::startup">
-<area shape="rect" id="node1" title=" " alt="" coords="419,5,577,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027" title=" " alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c" title="Starts the extension." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="652,5,811,47"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027" title=" " alt="" coords="445,5,604,47"/>
+<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c" title="Starts the extension." alt="" coords="239,5,397,47"/>
+<area shape="rect" id="node4" href="$classExtensionTestFramework.html#aec515812c05baceb06aa344c5edaf971" title=" " alt="" coords="5,5,191,47"/>
 </map>

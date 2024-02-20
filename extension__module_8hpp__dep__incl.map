@@ -1,7 +1,9 @@
 <map id="extension_module.hpp" name="extension_module.hpp">
-<area shape="rect" id="node1" title="This is the header file for the new extension module." alt="" coords="216,5,387,32"/>
+<area shape="rect" id="node1" title="This is the header file for the new extension module." alt="" coords="412,5,583,32"/>
 <area shape="rect" id="node2" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="149,80,280,107"/>
 <area shape="rect" id="node6" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="305,80,474,107"/>
+<area shape="rect" id="node7" href="$preconfigured__extensions_8cpp.html" title="Shortcuts for quickly adding extensions to the configuration. Part of the extension module." alt="" coords="499,80,715,107"/>
+<area shape="rect" id="node8" href="$test__extension__module_8cpp.html" title="Extension module unit tests." alt="" coords="739,80,941,107"/>
 <area shape="rect" id="node3" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="5,155,125,181"/>
 <area shape="rect" id="node4" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="149,155,280,181"/>
 <area shape="rect" id="node5" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="304,155,387,181"/>

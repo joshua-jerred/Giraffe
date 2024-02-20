@@ -1,5 +1,12 @@
 var NAVTREEINDEX4 =
 {
+"classextension_1_1SimGpsSensor.html#ae148a765446780132679adc6e647ad37":[6,0,5,14,3],
+"classextension_1_1SimHumiditySensor.html":[6,0,5,15],
+"classextension_1_1SimHumiditySensor.html#a00ef6cd65250307287af24071c862a42":[6,0,5,15,20],
+"classextension_1_1SimHumiditySensor.html#a041069086cf7b981e4999150e7b7469d":[6,0,5,15,21],
+"classextension_1_1SimHumiditySensor.html#a067006ad3c8c07006590ccdfca70d037":[6,0,5,15,29],
+"classextension_1_1SimHumiditySensor.html#a19983e8b5715a6e3db8d1aee4c7df5f6":[6,0,5,15,17],
+"classextension_1_1SimHumiditySensor.html#a295de97827360717494a398c45d161f2":[6,0,5,15,23],
 "classextension_1_1SimHumiditySensor.html#a2aa3ac844b4d83d427e0f633f803a027":[6,0,5,15,22],
 "classextension_1_1SimHumiditySensor.html#a39712025900988f7bd4e15637f4a28ba":[6,0,5,15,19],
 "classextension_1_1SimHumiditySensor.html#a3c1c5cfae0ffba76f756b6f7ae9c54db":[6,0,5,15,0],
@@ -242,12 +249,5 @@ var NAVTREEINDEX4 =
 "classgiraffe_1_1FlightRunnerData.html#a3638024701de9c5502080e7c4549a88e":[6,0,7,3,14],
 "classgiraffe_1_1FlightRunnerData.html#a388e58d80afe6e64f00ca2dcc8070781":[6,0,7,3,15],
 "classgiraffe_1_1FlightRunnerData.html#a3cfd3dbcbbab29c68b4830018a222960":[6,0,7,3,5],
-"classgiraffe_1_1FlightRunnerData.html#a49aa84d0ff7b48f68921b955adf4a5fa":[6,0,7,3,19],
-"classgiraffe_1_1FlightRunnerData.html#a62f5c9ba2cdca85f64ccdf484d0c909b":[6,0,7,3,8],
-"classgiraffe_1_1FlightRunnerData.html#a678057f7b12d383a0174c3ccc78c7e4c":[6,0,7,3,21],
-"classgiraffe_1_1FlightRunnerData.html#a69bf34cd36a29d03596196ae7a821b52":[6,0,7,3,22],
-"classgiraffe_1_1FlightRunnerData.html#a6adac9db38e843c2805cad0d212956ef":[6,0,7,3,11],
-"classgiraffe_1_1FlightRunnerData.html#a81050b099f5b0e0ba4403b25d120bb0c":[6,0,7,3,20],
-"classgiraffe_1_1FlightRunnerData.html#a9050e20b99f2a0b3764db247c8c3fd16":[6,0,7,3,13],
-"classgiraffe_1_1FlightRunnerData.html#a9923f63c5e3d466c8350967ab5383fa5":[6,0,7,3,2]
+"classgiraffe_1_1FlightRunnerData.html#a49aa84d0ff7b48f68921b955adf4a5fa":[6,0,7,3,19]
 };

@@ -5,12 +5,6 @@ var namespaces_dup =
     [ "console_pages", "namespaceconsole__pages.html", "namespaceconsole__pages" ],
     [ "data", "namespacedata.html", "namespacedata" ],
     [ "data_middleware", "namespacedata__middleware.html", "namespacedata__middleware" ],
-    [ "ext", "namespaceext.html", [
-      [ "getBmp180Metadata", "namespaceext.html#aa0ed8199bee68657e7615bfb4c944f7f", null ],
-      [ "getBme280Metadata", "namespaceext.html#a337a5317ec93ac2c3b641c051147f54d", null ],
-      [ "getDs18b20Metadata", "namespaceext.html#a7a3ca74ee02bad3929a81d866e57e4c3", null ],
-      [ "getSamM8qMetadata", "namespaceext.html#aa6c816231d5ea0556fa85e376a4bdeda", null ]
-    ] ],
     [ "extension", "namespaceextension.html", "namespaceextension" ],
     [ "gfs_sim", "namespacegfs__sim.html", "namespacegfs__sim" ],
     [ "giraffe", "namespacegiraffe.html", "namespacegiraffe" ],

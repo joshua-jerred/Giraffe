@@ -1,9 +1,10 @@
 <map id="extension::Extension::stopRequested" name="extension::Extension::stopRequested">
-<area shape="rect" id="node1" title="Returns true if the extension has been requested to stop." alt="" coords="625,104,784,145"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d" title=" " alt="" coords="419,5,577,47"/>
-<area shape="rect" id="node5" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="420,71,576,112"/>
-<area shape="rect" id="node6" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="423,136,573,177"/>
-<area shape="rect" id="node7" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="419,201,577,243"/>
-<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027" title=" " alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node4" href="$classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c" title="Starts the extension." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node1" title="Returns true if the extension has been requested to stop." alt="" coords="859,104,1017,145"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d" title=" " alt="" coords="652,5,811,47"/>
+<area shape="rect" id="node6" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="653,71,809,112"/>
+<area shape="rect" id="node7" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="656,136,807,177"/>
+<area shape="rect" id="node8" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="652,201,811,243"/>
+<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027" title=" " alt="" coords="445,5,604,47"/>
+<area shape="rect" id="node4" href="$classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c" title="Starts the extension." alt="" coords="239,5,397,47"/>
+<area shape="rect" id="node5" href="$classExtensionTestFramework.html#aec515812c05baceb06aa344c5edaf971" title=" " alt="" coords="5,5,191,47"/>
 </map>

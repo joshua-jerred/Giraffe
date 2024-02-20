@@ -133,31 +133,31 @@
 <g id="node24" class="node">
 <title>Node87</title>
 <g id="a_node24"><a xlink:href="classmodules_1_1ExtensionModule.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="438.3,-259.5 438.3,-448.5 587.3,-448.5 587.3,-259.5 438.3,-259.5"/>
+<polygon fill="none" stroke="black" points="430.3,-259.5 430.3,-448.5 595.3,-448.5 595.3,-259.5 430.3,-259.5"/>
 <text text-anchor="middle" x="512.8" y="-436.5" font-family="Helvetica,sans-Serif" font-size="10.00">modules::ExtensionModule</text>
-<polyline fill="none" stroke="black" points="438.3,-429.5 587.3,-429.5 "/>
+<polyline fill="none" stroke="black" points="430.3,-429.5 595.3,-429.5 "/>
 <text text-anchor="middle" x="512.8" y="-417.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="438.3,-410.5 587.3,-410.5 "/>
-<text text-anchor="start" x="446.3" y="-398.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ExtensionModule()</text>
-<text text-anchor="start" x="446.3" y="-387.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~ExtensionModule()</text>
-<text text-anchor="start" x="446.3" y="-376.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createExtension()</text>
-<text text-anchor="start" x="446.3" y="-365.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; disableState()</text>
-<text text-anchor="start" x="446.3" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; errorDisableState()</text>
-<text text-anchor="start" x="446.3" y="-343.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; errorRestartState()</text>
-<text text-anchor="start" x="446.3" y="-332.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; errorStartState()</text>
-<text text-anchor="start" x="446.3" y="-321.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; loop()</text>
-<text text-anchor="start" x="446.3" y="-310.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processCommand()</text>
-<text text-anchor="start" x="446.3" y="-299.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; restartState()</text>
-<text text-anchor="start" x="446.3" y="-288.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; runState()</text>
-<text text-anchor="start" x="446.3" y="-277.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; shutdown()</text>
-<text text-anchor="start" x="446.3" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 6 more...</text>
+<polyline fill="none" stroke="black" points="430.3,-410.5 595.3,-410.5 "/>
+<text text-anchor="start" x="438.3" y="-398.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ExtensionModule()</text>
+<text text-anchor="start" x="438.3" y="-387.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~ExtensionModule()</text>
+<text text-anchor="start" x="438.3" y="-376.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; addExtension()</text>
+<text text-anchor="start" x="438.3" y="-365.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; addPreConfiguredExtension()</text>
+<text text-anchor="start" x="438.3" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createExtension()</text>
+<text text-anchor="start" x="438.3" y="-343.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; disableState()</text>
+<text text-anchor="start" x="438.3" y="-332.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; errorDisableState()</text>
+<text text-anchor="start" x="438.3" y="-321.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; errorRestartState()</text>
+<text text-anchor="start" x="438.3" y="-310.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; errorStartState()</text>
+<text text-anchor="start" x="438.3" y="-299.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; loop()</text>
+<text text-anchor="start" x="438.3" y="-288.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processCommand()</text>
+<text text-anchor="start" x="438.3" y="-277.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; restartState()</text>
+<text text-anchor="start" x="438.3" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
 </a>
 </g>
 </g>
 <!-- Node3&#45;&gt;Node87 -->
 <g id="edge31" class="edge">
 <title>Node3&#45;&gt;Node87</title>
-<path fill="none" stroke="midnightblue" d="M1324.34,-592.86C1302.87,-568.91 1277.5,-545.42 1249.8,-529 1032.78,-400.41 727.05,-366.83 587.51,-358.08"/>
+<path fill="none" stroke="midnightblue" d="M1324.34,-592.86C1302.87,-568.91 1277.5,-545.42 1249.8,-529 1036.74,-402.75 738.18,-368.09 595.31,-358.58"/>
 <polygon fill="none" stroke="midnightblue" points="1321.94,-595.43 1331.17,-600.64 1327.2,-590.82 1321.94,-595.43"/>
 </g>
 <!-- Node96 -->
@@ -696,8 +696,8 @@
 <!-- Node10&#45;&gt;Node87 -->
 <g id="edge36" class="edge">
 <title>Node10&#45;&gt;Node87</title>
-<path fill="none" stroke="#404040" d="M702.16,-1441.94C699.36,-1439.19 696.22,-1436.73 692.8,-1435 645.08,-1410.85 495.17,-1449.63 452.8,-1417 319.37,-1314.28 356.74,-1225.05 328.8,-1059 315.47,-979.82 312.7,-573.31 331.8,-529 351.91,-482.33 391.24,-442.09 428.12,-412.09"/>
-<polygon fill="none" stroke="#404040" points="428.53,-411.76 430.74,-404.89 437.93,-404.29 435.72,-411.16 428.53,-411.76"/>
+<path fill="none" stroke="#404040" d="M702.16,-1441.94C699.36,-1439.19 696.22,-1436.73 692.8,-1435 645.08,-1410.85 495.17,-1449.63 452.8,-1417 319.37,-1314.28 356.74,-1225.05 328.8,-1059 315.47,-979.82 312.7,-573.31 331.8,-529 350.48,-485.64 385.76,-447.82 420.24,-418.62"/>
+<polygon fill="none" stroke="#404040" points="420.68,-418.26 422.76,-411.35 429.93,-410.62 427.86,-417.52 420.68,-418.26"/>
 <text text-anchor="start" x="328.8" y="-1005.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;max_restart_attempts</text>
 <text text-anchor="middle" x="386.8" y="-994.5" font-family="Helvetica,sans-Serif" font-size="10.00">_</text>
 <text text-anchor="start" x="328.8" y="-983.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;max_startup_attempts</text>
@@ -1047,8 +1047,8 @@
 <!-- Node59&#45;&gt;Node87 -->
 <g id="edge33" class="edge">
 <title>Node59&#45;&gt;Node87</title>
-<path fill="none" stroke="#404040" d="M2860.03,-1456.54C2839.11,-1449.63 2808.32,-1436.9 2787.8,-1417 2756.11,-1386.28 2776.56,-1356.19 2741.8,-1329 2715.14,-1308.14 2690.52,-1336.08 2667.8,-1311 2597.28,-1233.17 2710.89,-1149.39 2634.8,-1077 2602.63,-1046.4 2476.8,-1076.05 2435.8,-1059 2302.96,-1003.77 2289.61,-952.64 2187.8,-851 2055.42,-718.85 2082.69,-615.41 1916.8,-529 1914.79,-527.96 1271.04,-471.27 1268.8,-471 1025.27,-441.45 739.52,-394.14 599.31,-370.09"/>
-<polygon fill="none" stroke="#404040" points="599.25,-370.08 592.66,-373.01 587.43,-368.05 594.02,-365.12 599.25,-370.08"/>
+<path fill="none" stroke="#404040" d="M2860.03,-1456.54C2839.11,-1449.63 2808.32,-1436.9 2787.8,-1417 2756.11,-1386.28 2776.56,-1356.19 2741.8,-1329 2715.14,-1308.14 2690.52,-1336.08 2667.8,-1311 2597.28,-1233.17 2710.89,-1149.39 2634.8,-1077 2602.63,-1046.4 2476.8,-1076.05 2435.8,-1059 2302.96,-1003.77 2289.61,-952.64 2187.8,-851 2055.42,-718.85 2082.69,-615.41 1916.8,-529 1914.79,-527.96 1271.04,-471.27 1268.8,-471 1029.92,-442.01 750.4,-395.94 607.49,-371.49"/>
+<polygon fill="none" stroke="#404040" points="607.17,-371.44 600.58,-374.37 595.34,-369.41 601.93,-366.48 607.17,-371.44"/>
 <text text-anchor="middle" x="2491.8" y="-961.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;status_polling_timer_</text>
 </g>
 <!-- Node59&#45;&gt;Node96 -->
@@ -1296,7 +1296,7 @@
 <!-- Node87&#45;&gt;Node1 -->
 <g id="edge30" class="edge">
 <title>Node87&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M587.45,-338.97C737.39,-311.15 1085.98,-248.19 1380.8,-208 1750.79,-157.56 2196.24,-116.94 2367.21,-102.08"/>
+<path fill="none" stroke="#404040" d="M595.43,-337.5C749.45,-308.97 1091.09,-247.5 1380.8,-208 1750.79,-157.56 2196.24,-116.94 2367.21,-102.08"/>
 <polygon fill="none" stroke="#404040" points="2367.33,-102.07 2372.96,-97.57 2379.28,-101.04 2373.65,-105.54 2367.33,-102.07"/>
 <text text-anchor="middle" x="1437.8" y="-211" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;p_extension_module_</text>
 </g>
@@ -1324,15 +1324,15 @@
 <!-- Node89&#45;&gt;Node87 -->
 <g id="edge34" class="edge">
 <title>Node89&#45;&gt;Node87</title>
-<path fill="none" stroke="#404040" d="M217.89,-929.91C210.46,-854.84 200.12,-667.4 261.8,-529 292.63,-459.81 367.21,-413.66 427.12,-386.38"/>
-<polygon fill="none" stroke="#404040" points="427.15,-386.36 431.01,-380.27 438.12,-381.5 434.25,-387.59 427.15,-386.36"/>
+<path fill="none" stroke="#404040" d="M217.89,-929.91C210.46,-854.84 200.12,-667.4 261.8,-529 291.24,-462.91 360.61,-417.84 418.98,-390.16"/>
+<polygon fill="none" stroke="#404040" points="419.22,-390.05 422.99,-383.9 430.11,-385.02 426.34,-391.17 419.22,-390.05"/>
 <text text-anchor="middle" x="280.3" y="-687.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;stats_</text>
 </g>
 <!-- Node90&#45;&gt;Node87 -->
 <g id="edge37" class="edge">
 <title>Node90&#45;&gt;Node87</title>
-<path fill="none" stroke="#404040" d="M515.07,-1463.66C406.6,-1462.87 226.37,-1455.54 173.8,-1417 33.67,-1314.29 52.44,-1229.04 16.8,-1059 -34.61,-813.79 38.31,-712.58 208.8,-529 269.43,-463.71 360.24,-416.16 426.83,-387.43"/>
-<polygon fill="none" stroke="#404040" points="427.08,-387.32 431.04,-381.29 438.13,-382.63 434.17,-388.65 427.08,-387.32"/>
+<path fill="none" stroke="#404040" d="M515.07,-1463.66C406.6,-1462.87 226.37,-1455.54 173.8,-1417 33.67,-1314.29 52.44,-1229.04 16.8,-1059 -34.61,-813.79 38.31,-712.58 208.8,-529 267.08,-466.24 353.26,-419.86 418.99,-390.85"/>
+<polygon fill="none" stroke="#404040" points="419.18,-390.77 423.08,-384.71 430.18,-385.98 426.27,-392.04 419.18,-390.77"/>
 <text text-anchor="middle" x="73.3" y="-961.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;extension_resources_</text>
 </g>
 <!-- Node92 -->

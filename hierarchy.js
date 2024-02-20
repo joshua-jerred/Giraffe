@@ -159,6 +159,7 @@ var hierarchy =
     [ "testing::Test", null, [
       [ "ConfigurationTest", "classConfigurationTest.html", null ],
       [ "DataModuleTests", "classDataModuleTests.html", null ],
+      [ "ExtensionModuleTests", "classExtensionModuleTests.html", null ],
       [ "ProtocolTest", "classProtocolTest.html", null ]
     ] ],
     [ "ubx::NavData", "namespaceubx.html#structubx_1_1NavData", null ],

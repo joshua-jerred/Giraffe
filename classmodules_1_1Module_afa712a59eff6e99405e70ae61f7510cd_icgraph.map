@@ -1,7 +1,8 @@
 <map id="modules::Module::start" name="modules::Module::start">
-<area shape="rect" id="node1" title="Starts a thread to run the module." alt="" coords="801,42,973,69"/>
+<area shape="rect" id="node1" title="Starts a thread to run the module." alt="" coords="801,78,973,105"/>
 <area shape="rect" id="node2" href="$classDataModuleTests.html#a7d02b1a250db1859bc9ca5614c1f3c54" title=" " alt="" coords="547,5,753,47"/>
-<area shape="rect" id="node3" href="$classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c" title=" " alt="" coords="549,71,751,98"/>
-<area shape="rect" id="node4" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,71,499,98"/>
-<area shape="rect" id="node5" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,71,220,98"/>
+<area shape="rect" id="node3" href="$classExtensionModuleTests.html#a1f62e5a9bab1aa654364e078e1fd3a05" title=" " alt="" coords="562,71,738,112"/>
+<area shape="rect" id="node4" href="$classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c" title=" " alt="" coords="549,137,751,163"/>
+<area shape="rect" id="node5" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,137,499,163"/>
+<area shape="rect" id="node6" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,137,220,163"/>
 </map>

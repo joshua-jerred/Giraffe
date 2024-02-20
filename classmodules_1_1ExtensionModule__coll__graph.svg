@@ -12,24 +12,24 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="4082.72,-0.5 4082.72,-189.5 4231.72,-189.5 4231.72,-0.5 4082.72,-0.5"/>
+<polygon fill="#bfbfbf" stroke="black" points="4074.72,-0.5 4074.72,-189.5 4239.72,-189.5 4239.72,-0.5 4074.72,-0.5"/>
 <text text-anchor="middle" x="4157.22" y="-177.5" font-family="Helvetica,sans-Serif" font-size="10.00">modules::ExtensionModule</text>
-<polyline fill="none" stroke="black" points="4082.72,-170.5 4231.72,-170.5 "/>
+<polyline fill="none" stroke="black" points="4074.72,-170.5 4239.72,-170.5 "/>
 <text text-anchor="middle" x="4157.22" y="-158.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="4082.72,-151.5 4231.72,-151.5 "/>
-<text text-anchor="start" x="4090.72" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ExtensionModule()</text>
-<text text-anchor="start" x="4090.72" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~ExtensionModule()</text>
-<text text-anchor="start" x="4090.72" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createExtension()</text>
-<text text-anchor="start" x="4090.72" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; disableState()</text>
-<text text-anchor="start" x="4090.72" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; errorDisableState()</text>
-<text text-anchor="start" x="4090.72" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; errorRestartState()</text>
-<text text-anchor="start" x="4090.72" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; errorStartState()</text>
-<text text-anchor="start" x="4090.72" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; loop()</text>
-<text text-anchor="start" x="4090.72" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processCommand()</text>
-<text text-anchor="start" x="4090.72" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; restartState()</text>
-<text text-anchor="start" x="4090.72" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; runState()</text>
-<text text-anchor="start" x="4090.72" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; shutdown()</text>
-<text text-anchor="start" x="4090.72" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 6 more...</text>
+<polyline fill="none" stroke="black" points="4074.72,-151.5 4239.72,-151.5 "/>
+<text text-anchor="start" x="4082.72" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ExtensionModule()</text>
+<text text-anchor="start" x="4082.72" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~ExtensionModule()</text>
+<text text-anchor="start" x="4082.72" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; addExtension()</text>
+<text text-anchor="start" x="4082.72" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; addPreConfiguredExtension()</text>
+<text text-anchor="start" x="4082.72" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createExtension()</text>
+<text text-anchor="start" x="4082.72" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; disableState()</text>
+<text text-anchor="start" x="4082.72" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; errorDisableState()</text>
+<text text-anchor="start" x="4082.72" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; errorRestartState()</text>
+<text text-anchor="start" x="4082.72" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; errorStartState()</text>
+<text text-anchor="start" x="4082.72" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; loop()</text>
+<text text-anchor="start" x="4082.72" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processCommand()</text>
+<text text-anchor="start" x="4082.72" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; restartState()</text>
+<text text-anchor="start" x="4082.72" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
 </a>
 </g>
 </g>
@@ -70,7 +70,7 @@
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge1" class="edge">
 <title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M3661.12,-344.49C3769.31,-290.3 3972.96,-188.29 4082.69,-133.33"/>
+<path fill="none" stroke="midnightblue" d="M3660.9,-344.6C3766.45,-291.73 3963.19,-193.19 4074.65,-137.36"/>
 <polygon fill="none" stroke="midnightblue" points="3659.28,-341.5 3651.91,-349.1 3662.41,-347.75 3659.28,-341.5"/>
 </g>
 <!-- Node3 -->
@@ -841,8 +841,8 @@
 <!-- Node9&#45;&gt;Node1 -->
 <g id="edge53" class="edge">
 <title>Node9&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M4132.95,-1284.56C4136.31,-1281.24 4140.11,-1278.16 4144.22,-1276 4192.73,-1250.47 4228,-1297.28 4266.22,-1258 4313.2,-1209.72 4284.22,-1174.87 4284.22,-1107.5 4284.22,-1107.5 4284.22,-1107.5 4284.22,-380.5 4284.22,-303.58 4302.67,-277.74 4270.22,-208 4262.84,-192.13 4252.19,-177.25 4240.34,-163.85"/>
-<polygon fill="none" stroke="#404040" points="4240.12,-163.61 4233.11,-161.93 4231.96,-154.81 4238.98,-156.49 4240.12,-163.61"/>
+<path fill="none" stroke="#404040" d="M4132.95,-1284.56C4136.31,-1281.24 4140.11,-1278.16 4144.22,-1276 4192.73,-1250.47 4228,-1297.28 4266.22,-1258 4313.2,-1209.72 4284.22,-1174.87 4284.22,-1107.5 4284.22,-1107.5 4284.22,-1107.5 4284.22,-380.5 4284.22,-303.58 4302.67,-277.74 4270.22,-208 4264.46,-195.6 4256.69,-183.81 4247.93,-172.86"/>
+<polygon fill="none" stroke="#404040" points="4247.73,-172.62 4240.8,-170.62 4239.98,-163.45 4246.91,-165.46 4247.73,-172.62"/>
 <text text-anchor="start" x="4284.22" y="-740" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;max_restart_attempts</text>
 <text text-anchor="middle" x="4342.22" y="-729" font-family="Helvetica,sans-Serif" font-size="10.00">_</text>
 <text text-anchor="start" x="4284.22" y="-718" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;max_startup_attempts</text>
@@ -1187,15 +1187,15 @@
 <!-- Node60&#45;&gt;Node1 -->
 <g id="edge51" class="edge">
 <title>Node60&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M4402.66,-919.39C4407.36,-871.1 4415.22,-778.5 4415.22,-699.5 4415.22,-699.5 4415.22,-699.5 4415.22,-380.5 4415.22,-275.42 4317.46,-191.91 4242.29,-143.22"/>
-<polygon fill="none" stroke="#404040" points="4241.98,-143.02 4234.77,-143.18 4231.85,-136.58 4239.06,-136.43 4241.98,-143.02"/>
+<path fill="none" stroke="#404040" d="M4402.66,-919.39C4407.36,-871.1 4415.22,-778.5 4415.22,-699.5 4415.22,-699.5 4415.22,-699.5 4415.22,-380.5 4415.22,-279.09 4324.15,-197.75 4250.23,-148.44"/>
+<polygon fill="none" stroke="#404040" points="4249.96,-148.26 4242.75,-148.33 4239.92,-141.69 4247.13,-141.63 4249.96,-148.26"/>
 <text text-anchor="middle" x="4433.72" y="-599.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;stats_</text>
 </g>
 <!-- Node61&#45;&gt;Node1 -->
 <g id="edge54" class="edge">
 <title>Node61&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M642.76,-589.14C1130.23,-520.74 3577.58,-177.33 4070.6,-108.15"/>
-<polygon fill="none" stroke="#404040" points="4070.68,-108.14 4076.07,-103.35 4082.57,-106.48 4077.18,-111.27 4070.68,-108.14"/>
+<path fill="none" stroke="#404040" d="M642.76,-589.14C1127.59,-521.11 3551.13,-181.05 4062.42,-109.3"/>
+<polygon fill="none" stroke="#404040" points="4062.61,-109.28 4068,-104.48 4074.5,-107.61 4069.11,-112.4 4062.61,-109.28"/>
 <text text-anchor="middle" x="3172.72" y="-379" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;extension_resources_</text>
 </g>
 <!-- Node62 -->
@@ -1234,8 +1234,8 @@
 <!-- Node63&#45;&gt;Node1 -->
 <g id="edge59" class="edge">
 <title>Node63&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M4524.71,-352.88C4509.14,-315.35 4476.6,-248.33 4429.22,-208 4375.65,-162.4 4300.97,-133.44 4243.41,-116.42"/>
-<polygon fill="none" stroke="#404040" points="4243.31,-116.39 4236.43,-118.58 4231.77,-113.07 4238.65,-110.89 4243.31,-116.39"/>
+<path fill="none" stroke="#404040" d="M4524.71,-352.88C4509.14,-315.35 4476.6,-248.33 4429.22,-208 4378.21,-164.58 4308.07,-136.25 4251.79,-118.95"/>
+<polygon fill="none" stroke="#404040" points="4251.5,-118.86 4244.6,-120.97 4240,-115.42 4246.89,-113.31 4251.5,-118.86"/>
 <text text-anchor="middle" x="4493.72" y="-211" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;extension_metadata_</text>
 </g>
 </g>

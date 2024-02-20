@@ -1,5 +1,12 @@
 var NAVTREEINDEX3 =
 {
+"classextension_1_1ImuExtensionBase.html#a367cbd9377d6e8042b5b0e9fde61d620":[6,0,5,8,29],
+"classextension_1_1ImuExtensionBase.html#a39712025900988f7bd4e15637f4a28ba":[6,0,5,8,24],
+"classextension_1_1ImuExtensionBase.html#a3c63621feecc74f169d0253d9fbb9c08":[6,0,5,8,5],
+"classextension_1_1ImuExtensionBase.html#a3e5d32890e069c49b3641d0e01322364":[6,0,5,8,39],
+"classextension_1_1ImuExtensionBase.html#a40300776e358833cbfd50c198a320cdf":[6,0,5,8,38],
+"classextension_1_1ImuExtensionBase.html#a41a192bcc5212abcca25b3c026be7fd3":[6,0,5,8,14],
+"classextension_1_1ImuExtensionBase.html#a444c60589d56199a674ea7cceb9c7fdd":[6,0,5,8,28],
 "classextension_1_1ImuExtensionBase.html#a5893e29e0c19cf25d4479d868f26825c":[6,0,5,8,2],
 "classextension_1_1ImuExtensionBase.html#a5e65e63f1bd7bfd6b47f4a0ecb2f3a4e":[6,0,5,8,0],
 "classextension_1_1ImuExtensionBase.html#a639edd8b0e44e06bb5e2111412becb68":[6,0,5,8,11],
@@ -242,12 +249,5 @@ var NAVTREEINDEX3 =
 "classextension_1_1SimGpsSensor.html#ab94ad848063e5b1677ca365e709bd03c":[6,0,5,14,13],
 "classextension_1_1SimGpsSensor.html#ac3545ca3cc1fd6ab92671dbf18840f13":[6,0,5,14,11],
 "classextension_1_1SimGpsSensor.html#ad3a895d8015ab2992b41c66b9f16648a":[6,0,5,14,16],
-"classextension_1_1SimGpsSensor.html#ae130f81dd3fc3565fd4e617bc6d7f4b1":[6,0,5,14,28],
-"classextension_1_1SimGpsSensor.html#ae148a765446780132679adc6e647ad37":[6,0,5,14,3],
-"classextension_1_1SimHumiditySensor.html":[6,0,5,15],
-"classextension_1_1SimHumiditySensor.html#a00ef6cd65250307287af24071c862a42":[6,0,5,15,20],
-"classextension_1_1SimHumiditySensor.html#a041069086cf7b981e4999150e7b7469d":[6,0,5,15,21],
-"classextension_1_1SimHumiditySensor.html#a067006ad3c8c07006590ccdfca70d037":[6,0,5,15,29],
-"classextension_1_1SimHumiditySensor.html#a19983e8b5715a6e3db8d1aee4c7df5f6":[6,0,5,15,17],
-"classextension_1_1SimHumiditySensor.html#a295de97827360717494a398c45d161f2":[6,0,5,15,23]
+"classextension_1_1SimGpsSensor.html#ae130f81dd3fc3565fd4e617bc6d7f4b1":[6,0,5,14,28]
 };

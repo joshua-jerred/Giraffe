@@ -1,47 +1,48 @@
 <map id="data::Stream::addPacket" name="data::Stream::addPacket">
-<area shape="rect" id="node1" title=" " alt="" coords="1243,1410,1423,1437"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="1008,1104,1167,1145"/>
-<area shape="rect" id="node15" href="$classextension_1_1Extension.html#ab94ad848063e5b1677ca365e709bd03c" title=" " alt="" coords="980,1529,1195,1571"/>
-<area shape="rect" id="node19" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="741,1432,900,1473"/>
-<area shape="rect" id="node28" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="1008,448,1167,489"/>
-<area shape="rect" id="node44" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="1008,1461,1167,1503"/>
-<area shape="rect" id="node3" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="462,187,646,214"/>
-<area shape="rect" id="node4" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="479,1163,629,1204"/>
-<area shape="rect" id="node5" href="$classextension_1_1ImuExtensionBase.html#a20dfe1a1df8a3887deb7a64bc38b42e4" title=" " alt="" coords="447,799,661,840"/>
-<area shape="rect" id="node6" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="475,1228,633,1269"/>
-<area shape="rect" id="node7" href="$classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d" title=" " alt="" coords="720,1133,921,1175"/>
-<area shape="rect" id="node8" href="$classextension_1_1SimPressureSensor.html#aaf5a09dba391f216ca5ee5a7890a1e85" title=" " alt="" coords="711,1016,930,1057"/>
-<area shape="rect" id="node9" href="$classextension_1_1SimHumiditySensor.html#a59e5059ebb6e2e81ca3a6ef30a632456" title=" " alt="" coords="709,951,932,992"/>
-<area shape="rect" id="node10" href="$classextension_1_1SimGpsSensor.html#a80265d0b8468fc4e90a46409a6178ab2" title=" " alt="" coords="727,1199,915,1240"/>
-<area shape="rect" id="node11" href="$classextension_1_1SimImuSensor.html#a1acef31a7be54226957d58d2f9d174d1" title=" " alt="" coords="727,1367,915,1408"/>
-<area shape="rect" id="node12" href="$classextension_1_1Bme280.html#a216c4ae77daca7a479a9eba281e8dbd4" title="Reads the raw environmental data from the BME280." alt="" coords="732,565,909,607"/>
-<area shape="rect" id="node13" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,1248,399,1289"/>
-<area shape="rect" id="node14" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,1321,192,1347"/>
-<area shape="rect" id="node16" href="$classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42" title=" " alt="" coords="713,1596,928,1637"/>
-<area shape="rect" id="node17" href="$classextension_1_1Mcp3021.html#a51dc6f0aef0765bceaf401578288cd67" title=" " alt="" coords="477,1631,631,1672"/>
-<area shape="rect" id="node18" href="$classextension_1_1Mcp3021.html#a34a36fefe55e92ad7b915f8758f66b9f" title=" " alt="" coords="243,1631,396,1672"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1243,1514,1423,1541"/>
+<area shape="rect" id="node2" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="1008,1200,1167,1241"/>
+<area shape="rect" id="node15" href="$classextension_1_1Extension.html#ab94ad848063e5b1677ca365e709bd03c" title=" " alt="" coords="980,1633,1195,1675"/>
+<area shape="rect" id="node19" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="741,1536,900,1577"/>
+<area shape="rect" id="node28" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="1008,547,1167,588"/>
+<area shape="rect" id="node45" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="1008,1565,1167,1607"/>
+<area shape="rect" id="node3" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="462,253,646,279"/>
+<area shape="rect" id="node4" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="479,1191,629,1232"/>
+<area shape="rect" id="node5" href="$classextension_1_1ImuExtensionBase.html#a20dfe1a1df8a3887deb7a64bc38b42e4" title=" " alt="" coords="447,864,661,905"/>
+<area shape="rect" id="node6" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="475,1125,633,1167"/>
+<area shape="rect" id="node7" href="$classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d" title=" " alt="" coords="720,1288,921,1329"/>
+<area shape="rect" id="node8" href="$classextension_1_1SimPressureSensor.html#aaf5a09dba391f216ca5ee5a7890a1e85" title=" " alt="" coords="711,1171,930,1212"/>
+<area shape="rect" id="node9" href="$classextension_1_1SimHumiditySensor.html#a59e5059ebb6e2e81ca3a6ef30a632456" title=" " alt="" coords="709,1105,932,1147"/>
+<area shape="rect" id="node10" href="$classextension_1_1SimGpsSensor.html#a80265d0b8468fc4e90a46409a6178ab2" title=" " alt="" coords="727,1405,915,1447"/>
+<area shape="rect" id="node11" href="$classextension_1_1SimImuSensor.html#a1acef31a7be54226957d58d2f9d174d1" title=" " alt="" coords="727,1471,915,1512"/>
+<area shape="rect" id="node12" href="$classextension_1_1Bme280.html#a216c4ae77daca7a479a9eba281e8dbd4" title="Reads the raw environmental data from the BME280." alt="" coords="732,664,909,705"/>
+<area shape="rect" id="node13" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,1377,399,1419"/>
+<area shape="rect" id="node14" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,1319,192,1346"/>
+<area shape="rect" id="node16" href="$classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42" title=" " alt="" coords="713,1675,928,1716"/>
+<area shape="rect" id="node17" href="$classextension_1_1Mcp3021.html#a51dc6f0aef0765bceaf401578288cd67" title=" " alt="" coords="477,1695,631,1736"/>
+<area shape="rect" id="node18" href="$classextension_1_1Mcp3021.html#a34a36fefe55e92ad7b915f8758f66b9f" title=" " alt="" coords="243,1695,396,1736"/>
 <area shape="rect" id="node20" href="$classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df" title=" " alt="" coords="463,929,645,971"/>
-<area shape="rect" id="node21" href="$classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba" title=" " alt="" coords="477,864,631,905"/>
-<area shape="rect" id="node22" href="$classextension_1_1Ds18b20.html#a1106e4fc9a110d11eeb65b7e85ba3d42" title=" " alt="" coords="479,1513,629,1555"/>
-<area shape="rect" id="node23" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="244,1513,395,1555"/>
-<area shape="rect" id="node24" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="475,995,633,1036"/>
-<area shape="rect" id="node25" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,1379,399,1420"/>
-<area shape="rect" id="node26" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="240,1313,399,1355"/>
-<area shape="rect" id="node27" href="$group__SAMM8QState.html#ga5f1d24365206316560eb6979a46032dd" title=" " alt="" coords="475,1345,633,1387"/>
-<area shape="rect" id="node29" href="$classextension_1_1ImuExtensionBase.html#a5e65e63f1bd7bfd6b47f4a0ecb2f3a4e" title=" " alt="" coords="713,383,928,424"/>
-<area shape="rect" id="node30" href="$classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87" title=" " alt="" coords="742,448,899,489"/>
-<area shape="rect" id="node31" href="$classextension_1_1Bme280.html#a183a1bc26e4ca371d9310c196feccfd1" title="Processes the raw environmental data into known units using the compensation data." alt="" coords="721,317,920,359"/>
-<area shape="rect" id="node32" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="741,631,900,672"/>
-<area shape="rect" id="node40" href="$classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c" title="Starts the extension." alt="" coords="741,200,900,241"/>
-<area shape="rect" id="node41" href="$classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37" title="Sends a stop signal to the extension." alt="" coords="741,71,900,112"/>
-<area shape="rect" id="node33" href="$classextension_1_1Bmi088.html#a21f2e4aca209eb184f28f1897a2d2249" title=" " alt="" coords="478,435,630,476"/>
-<area shape="rect" id="node34" href="$classextension_1_1Bmi088.html#ae48a834e3578a93acef45729a07495f1" title=" " alt="" coords="478,500,630,541"/>
-<area shape="rect" id="node35" href="$classextension_1_1AdcExtensionBase.html#a634b78f4a3a91ca4e3fa003565de24a6" title=" " alt="" coords="447,565,661,607"/>
-<area shape="rect" id="node36" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="463,631,645,672"/>
-<area shape="rect" id="node37" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="476,239,632,280"/>
-<area shape="rect" id="node38" href="$classextension_1_1PiCamera.html#abe7dc219785211e3a0d86a50d481cd41" title=" " alt="" coords="475,304,633,345"/>
-<area shape="rect" id="node39" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="463,369,645,411"/>
-<area shape="rect" id="node42" href="$classextension_1_1Extension.html#a1a01dd8128be175c6a3b8ab1bb2c6d0d" title="This will attempt to stop the extension if it is running, but with a configured timeout." alt="" coords="475,5,633,47"/>
-<area shape="rect" id="node43" href="$classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68" title="Only to be called when an extension is in the Error state. This joins the thread and fixes the status..." alt="" coords="475,71,633,112"/>
-<area shape="rect" id="node45" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="741,1497,900,1539"/>
+<area shape="rect" id="node21" href="$classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba" title=" " alt="" coords="477,995,631,1036"/>
+<area shape="rect" id="node22" href="$classextension_1_1Ds18b20.html#a1106e4fc9a110d11eeb65b7e85ba3d42" title=" " alt="" coords="479,1577,629,1619"/>
+<area shape="rect" id="node23" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="244,1577,395,1619"/>
+<area shape="rect" id="node24" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="475,1060,633,1101"/>
+<area shape="rect" id="node25" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,1247,399,1288"/>
+<area shape="rect" id="node26" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="240,1312,399,1353"/>
+<area shape="rect" id="node27" href="$group__SAMM8QState.html#ga5f1d24365206316560eb6979a46032dd" title=" " alt="" coords="475,1308,633,1349"/>
+<area shape="rect" id="node29" href="$classextension_1_1ImuExtensionBase.html#a5e65e63f1bd7bfd6b47f4a0ecb2f3a4e" title=" " alt="" coords="713,416,928,457"/>
+<area shape="rect" id="node30" href="$classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87" title=" " alt="" coords="742,481,899,523"/>
+<area shape="rect" id="node31" href="$classextension_1_1Bme280.html#a183a1bc26e4ca371d9310c196feccfd1" title="Processes the raw environmental data into known units using the compensation data." alt="" coords="721,547,920,588"/>
+<area shape="rect" id="node32" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="741,729,900,771"/>
+<area shape="rect" id="node40" href="$classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c" title="Starts the extension." alt="" coords="741,23,900,64"/>
+<area shape="rect" id="node42" href="$classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37" title="Sends a stop signal to the extension." alt="" coords="741,120,900,161"/>
+<area shape="rect" id="node33" href="$classextension_1_1Bmi088.html#a21f2e4aca209eb184f28f1897a2d2249" title=" " alt="" coords="478,681,630,723"/>
+<area shape="rect" id="node34" href="$classextension_1_1Bmi088.html#ae48a834e3578a93acef45729a07495f1" title=" " alt="" coords="478,747,630,788"/>
+<area shape="rect" id="node35" href="$classextension_1_1AdcExtensionBase.html#a634b78f4a3a91ca4e3fa003565de24a6" title=" " alt="" coords="447,355,661,396"/>
+<area shape="rect" id="node36" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="463,420,645,461"/>
+<area shape="rect" id="node37" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="476,485,632,527"/>
+<area shape="rect" id="node38" href="$classextension_1_1PiCamera.html#abe7dc219785211e3a0d86a50d481cd41" title=" " alt="" coords="475,551,633,592"/>
+<area shape="rect" id="node39" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="463,616,645,657"/>
+<area shape="rect" id="node41" href="$classExtensionTestFramework.html#aec515812c05baceb06aa344c5edaf971" title=" " alt="" coords="461,5,647,47"/>
+<area shape="rect" id="node43" href="$classextension_1_1Extension.html#a1a01dd8128be175c6a3b8ab1bb2c6d0d" title="This will attempt to stop the extension if it is running, but with a configured timeout." alt="" coords="475,136,633,177"/>
+<area shape="rect" id="node44" href="$classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68" title="Only to be called when an extension is in the Error state. This joins the thread and fixes the status..." alt="" coords="475,71,633,112"/>
+<area shape="rect" id="node46" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="741,1601,900,1643"/>
 </map>

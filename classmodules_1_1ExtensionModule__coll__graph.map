@@ -1,5 +1,5 @@
 <map id="modules::ExtensionModule" name="modules::ExtensionModule">
-<area shape="rect" id="node1" title=" " alt="" coords="5449,1531,5648,1784"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5438,1531,5658,1784"/>
 <area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="4708,1083,4874,1468"/>
 <area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1SharedData" title="Data that is shared across all modules and extensions." alt="" coords="4624,943,4758,1020"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="693,634,806,711"/>
