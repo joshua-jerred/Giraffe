@@ -715,6 +715,16 @@
       "name":"Pi Camera Capture Failed (multiple)",
       "details":"The Pi Camera extension has failed multiple times to capture an image.",
       "value": "0x7023"
+    },
+    "imu_watchdog_timeout": {
+      "name":"IMU Watchdog Timeout",
+      "details":"The IMU extension failed to read data in time.",
+      "value": "0x7024"
+    },
+    "imu_invalid_report_interval": {
+      "name":"IMU Invalid Report Interval",
+      "details":"The IMU extension was provided an invalid report interval in it's extra args.",
+      "value": "0x7025"
     }
   },
   "interface":{

@@ -162,6 +162,8 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::EXT_FAULT_piCameraDetectFailed,"EXT_FAULT_piCameraDetectFailed"},
   {DiagnosticId::EXT_FAULT_piCameraInvalidImageDir,"EXT_FAULT_piCameraInvalidImageDir"},
   {DiagnosticId::EXT_FAULT_piCameraCaptureFailed,"EXT_FAULT_piCameraCaptureFailed"},
+  {DiagnosticId::EXT_FAULT_imuWatchdogTimeout,"EXT_FAULT_imuWatchdogTimeout"},
+  {DiagnosticId::EXT_FAULT_imuInvalidReportInterval,"EXT_FAULT_imuInvalidReportInterval"},
   {DiagnosticId::INTERFACE_invalidGpioPin,"INTERFACE_invalidGpioPin"},
   {DiagnosticId::INTERFACE_invalidGpioPinMode,"INTERFACE_invalidGpioPinMode"},
   {DiagnosticId::INTERFACE_initialStateInputPin,"INTERFACE_initialStateInputPin"},

@@ -29,9 +29,9 @@
 #define DS18B20_TEST_ENABLED 0
 #define SAMM8Q_TEST_ENABLED 0
 #define MCP3021_TEST_ENABLED 0
-#define BMI088_TEST_ENABLED 0
+#define BMI088_TEST_ENABLED 1
 #define RGB_STATUS_LED_TEST_ENABLED 0
-#define PI_CAMERA_TEST_ENABLED 1
+#define PI_CAMERA_TEST_ENABLED 0
 
 #if BME280_TEST_ENABLED
 TEST(ExtensionsTest, BME280Test) {
@@ -101,7 +101,7 @@ TEST(ExtensionsTest, MCP3021Test) {
 #if BMI088_TEST_ENABLED
 TEST(ExtensionsTest, BMI088Test) {
   ExtensionTestFramework tf{};
-  tf.meta.update_interval = 500;
+  tf.meta.update_interval = 100;
   tf.meta.extra_args = "/dev/spidev0.0,/dev/spidev0.1";
   extension::Bmi088 bmi088{tf.resources, tf.meta};
 
