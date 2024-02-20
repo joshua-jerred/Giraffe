@@ -300,6 +300,22 @@ std::map<cfg::gEnum::ExtensionType, std::string> const K_EXTENSION_TYPE_TO_STRIN
   {cfg::gEnum::ExtensionType::BMI088, "bmi088"}
 };
 
+enum class AdcType {
+  RAW_COUNT = 0,
+  PERCENTAGE = 1,
+  VOLTAGE_DIVIDER = 2
+};
+std::unordered_map<std::string, cfg::gEnum::AdcType> const K_STRING_TO_ADC_TYPE_MAP = {
+  {"raw_count", cfg::gEnum::AdcType::RAW_COUNT},
+  {"percentage", cfg::gEnum::AdcType::PERCENTAGE},
+  {"voltage_divider", cfg::gEnum::AdcType::VOLTAGE_DIVIDER}
+};
+std::map<cfg::gEnum::AdcType, std::string> const K_ADC_TYPE_TO_STRING_MAP = {
+  {cfg::gEnum::AdcType::RAW_COUNT, "raw_count"},
+  {cfg::gEnum::AdcType::PERCENTAGE, "percentage"},
+  {cfg::gEnum::AdcType::VOLTAGE_DIVIDER, "voltage_divider"}
+};
+
 enum class I2CBus {
   I2C_1 = 0
 };

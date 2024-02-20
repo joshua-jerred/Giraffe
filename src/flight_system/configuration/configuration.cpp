@@ -1539,6 +1539,7 @@ void cfg::Configuration::getAllJson(Json &all_data) const {
 ,    {"telemetry_sstv", telemetry_sstv.getJson()}
 ,    {"telemetry_data_packets", telemetry_data_packets.getJson()}
 ,    {"extensions", extensions.getJson()}
+,    {"adc_mappings", adc_mappings.getJson()}
 ,    {"extension_module", extension_module.getJson()}
 ,    {"hardware_interface", hardware_interface.getJson()}
   };
@@ -1658,6 +1659,12 @@ void cfg::Configuration::load(std::string file_path) {
     extensions.setFromJson(parsed["extensions"]);
   } else {
     error(DiagnosticId::CONFIG_failedToLoadSectionNotFound, "extensions");
+  }
+
+  if (sectionExists(parsed, "adc_mappings")) {
+    adc_mappings.setFromJson(parsed["adc_mappings"]);
+  } else {
+    error(DiagnosticId::CONFIG_failedToLoadSectionNotFound, "adc_mappings");
   }
 
   if (sectionExists(parsed, "extension_module")) {

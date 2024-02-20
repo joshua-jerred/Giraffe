@@ -10,7 +10,7 @@
             "max": 20,
             "pattern": "^(?!\\\\s)[a-zA-Z0-9_ -]{0,19}[^\\\\s]$"
         },
-        "flight_identifier_number":{
+        "flight_identifier_number": {
             "type": "int",
             "name": "Flight ID Number",
             "description": "The Flight ID Number is a unique identifier to allow for multiple flights with the same project name. This is also used internally to check if an unintentional restart happened during the same flight.",
@@ -680,6 +680,103 @@
             "max": 100,
             "min": 0,
             "pattern": ""
+        }
+    },
+    "adc_mappings": {
+        "SECTION_TYPE": "list",
+        "label": {
+            "type": "string",
+            "default": "none",
+            "name": "ADC Channel Label",
+            "description": "The label for the ADC channel.",
+            "max": 3,
+            "min": 10,
+            "pattern": ""
+        },
+        "type": {
+            "type": "enum",
+            "name": "Adc Type",
+            "default": "raw_count",
+            "description": "Adc Type for the channel.",
+            "enum_name": "adc_type",
+            "options": [
+                "raw_count",
+                "percentage",
+                "voltage_divider"
+            ]
+        },
+        "extension_name": {
+            "type": "string",
+            "default": "none",
+            "name": "Extension Name",
+            "description": "Name of the extension that is producing the data.",
+            "max": 3,
+            "min": 10,
+            "pattern": ""
+        },
+        "channel_number": {
+            "type": "int",
+            "default": 0,
+            "name": "Channel Number",
+            "description": "The channel number from the extension that is producing the data.",
+            "max": 12,
+            "min": 0
+        },
+        "resolution": {
+            "type": "int",
+            "default": 12,
+            "name": "Channel Resolution",
+            "description": "Resolution of the ADC channel.",
+            "max": 32,
+            "min": 0
+        },
+        "resistor_1_value": {
+            "type": "int",
+            "default": 1000,
+            "name": "Resistor 1 Value",
+            "description": "The resistance of the first resistor in the voltage divider in ohms.",
+            "max": 1000000,
+            "min": 0
+        },
+        "resistor_2_value": {
+            "type": "int",
+            "default": 1000,
+            "name": "Resistor 2 Value",
+            "description": "The resistance of the second resistor in the voltage divider in ohms.",
+            "max": 1000000,
+            "min": 0
+        },
+        "voltage_reference": {
+            "type": "int",
+            "default": 1000,
+            "name": "Voltage Reference",
+            "description": "Voltage reference for the voltage divider in millivolts.",
+            "max": 20000,
+            "min": 0
+        },
+        "percentage_max": {
+            "type": "int",
+            "default": 4095,
+            "name": "Percentage Maximum",
+            "description": "The ADC count that represents 100%.",
+            "max": 1000000,
+            "min": 0
+        },
+        "percentage_min": {
+            "type": "int",
+            "default": 0,
+            "name": "Percentage Minimum",
+            "description": "The ADC count that represents 0%.",
+            "max": 1000000,
+            "min": 0
+        },
+        "percentage_clamp": {
+            "type": "bool",
+            "default": false,
+            "name": "Clamp Percentage",
+            "description": "Whether or not to clamp the percentage to 0-100.",
+            "true": "enabled",
+            "false": "disabled"
         }
     },
     "extension_module": {
