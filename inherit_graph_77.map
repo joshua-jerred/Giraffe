@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html" title=" " alt="" coords="5,5,196,32"/>
+<area shape="rect" id="node1" href="$classgiraffe_1_1gdl_1_1Message.html" title=" " alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Packet.html" title="The packet class is used in the transport and network layers. It contains some extra information." alt="" coords="212,5,355,32"/>
 </map>

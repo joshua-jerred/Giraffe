@@ -104,6 +104,7 @@ var files_dup =
     [ "extension_test_framework.hpp", "extension__test__framework_8hpp.html", [
       [ "ExtensionTestFramework", "classExtensionTestFramework.html", "classExtensionTestFramework" ]
     ] ],
+    [ "file_system_manager.hpp", "file__system__manager_8hpp.html", "file__system__manager_8hpp" ],
     [ "flight_computer_info.cpp", "flight__computer__info_8cpp.html", "flight__computer__info_8cpp" ],
     [ "flight_computer_info.hpp", "flight__computer__info_8hpp.html", "flight__computer__info_8hpp" ],
     [ "flight_logic.cpp", "flight__logic_8cpp.html", null ],

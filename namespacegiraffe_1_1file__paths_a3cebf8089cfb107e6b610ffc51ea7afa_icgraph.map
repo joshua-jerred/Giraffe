@@ -1,6 +1,11 @@
 <map id="giraffe::file_paths::createGiraffeDirIfNotExists" name="giraffe::file_paths::createGiraffeDirIfNotExists">
-<area shape="rect" id="node1" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="561,5,767,47"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a38bb766c005f9060bf13aeb5c553dd05" title=" " alt="" coords="349,5,513,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,13,301,39"/>
-<area shape="rect" id="node4" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,39"/>
+<area shape="rect" id="node1" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="757,133,963,175"/>
+<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc" title="Returns the path to the gfs image directory." alt="" coords="547,85,708,127"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a38bb766c005f9060bf13aeb5c553dd05" title=" " alt="" coords="545,165,709,207"/>
+<area shape="rect" id="node3" href="$classdata__middleware_1_1FileSystemManager.html#a1f770961749860965494383544803c5b" title=" " alt="" coords="281,5,497,47"/>
+<area shape="rect" id="node4" href="$classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87" title=" " alt="" coords="311,71,468,112"/>
+<area shape="rect" id="node5" href="$group__ServerModule.html#a0fe0d216d79f6af4bdd4c4e5621ac9fd" title="Response to an image request. Sends the image data to the client." alt="" coords="284,136,495,177"/>
+<area shape="rect" id="node6" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,143,233,170"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="293,202,486,229"/>
+<area shape="rect" id="node9" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="92,202,147,229"/>
 </map>

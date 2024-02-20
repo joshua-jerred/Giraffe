@@ -96,7 +96,7 @@
 <text text-anchor="start" x="166.5" y="-235.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; distance_traveled_</text>
 <text text-anchor="start" x="166.5" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; error_file_logging</text>
 <text text-anchor="start" x="166.5" y="-213.5" font-family="Helvetica,sans-Serif" font-size="10.00">_strategy_</text>
-<text text-anchor="start" x="166.5" y="-202.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="166.5" y="-202.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 9 more...</text>
 <polyline fill="none" stroke="black" points="158.5,-195.5 361.5,-195.5 "/>
 <text text-anchor="start" x="166.5" y="-183.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ DataModule()</text>
 <text text-anchor="start" x="166.5" y="-172.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~DataModule()</text>

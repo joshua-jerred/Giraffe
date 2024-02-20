@@ -1,7 +1,15 @@
 <map id="giraffe_file_paths.hpp" name="giraffe_file_paths.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="216,5,379,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="308,5,471,32"/>
 <area shape="rect" id="node2" href="$pi__camera_8cpp.html" title="Raspberry Pi Camera Extension." alt="" coords="5,80,123,107"/>
-<area shape="rect" id="node3" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="147,80,277,107"/>
-<area shape="rect" id="node4" href="$giraffe__file__paths_8cpp.html" title="Common file paths for the C++ portion of Giraffe." alt="" coords="302,80,463,107"/>
-<area shape="rect" id="node5" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="487,80,603,107"/>
+<area shape="rect" id="node3" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="72,304,203,331"/>
+<area shape="rect" id="node4" href="$file__system__manager_8hpp.html" title=" " alt="" coords="197,80,387,107"/>
+<area shape="rect" id="node11" href="$request__handler_8cpp.html" title="The request handler class implementation." alt="" coords="411,80,565,107"/>
+<area shape="rect" id="node12" href="$giraffe__file__paths_8cpp.html" title="Common file paths for the C++ portion of Giraffe." alt="" coords="589,80,750,107"/>
+<area shape="rect" id="node13" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="774,80,890,107"/>
+<area shape="rect" id="node5" href="$data__module_8hpp.html" title="The data module header file." alt="" coords="294,155,429,181"/>
+<area shape="rect" id="node6" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="209,229,340,256"/>
+<area shape="rect" id="node9" href="$data__module_8cpp.html" title=" " alt="" coords="365,229,499,256"/>
+<area shape="rect" id="node10" href="$test__data__module_8cpp.html" title="Data module unit tests." alt="" coords="523,229,690,256"/>
+<area shape="rect" id="node7" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="227,304,347,331"/>
+<area shape="rect" id="node8" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="371,304,453,331"/>
 </map>

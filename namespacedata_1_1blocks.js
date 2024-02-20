@@ -6,6 +6,7 @@ var namespacedata_1_1blocks =
     [ "ConfigurationStats", "structdata_1_1blocks_1_1ConfigurationStats.html", "structdata_1_1blocks_1_1ConfigurationStats" ],
     [ "DataLogStats", "structdata_1_1blocks_1_1DataLogStats.html", "structdata_1_1blocks_1_1DataLogStats" ],
     [ "ExtensionModuleStats", "structdata_1_1blocks_1_1ExtensionModuleStats.html", "structdata_1_1blocks_1_1ExtensionModuleStats" ],
+    [ "FileSystemData", "structdata_1_1blocks_1_1FileSystemData.html", "structdata_1_1blocks_1_1FileSystemData" ],
     [ "ImuData", "namespacedata_1_1blocks.html#structdata_1_1blocks_1_1ImuData", "namespacedata_1_1blocks_structdata_1_1blocks_1_1ImuData_dup" ],
     [ "LocationData", "namespacedata_1_1blocks.html#structdata_1_1blocks_1_1LocationData", "namespacedata_1_1blocks_structdata_1_1blocks_1_1LocationData_dup" ],
     [ "ModulesStatuses", "structdata_1_1blocks_1_1ModulesStatuses.html", "structdata_1_1blocks_1_1ModulesStatuses" ],

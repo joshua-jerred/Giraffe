@@ -20,6 +20,7 @@ var annotated_dup =
         [ "ConfigurationStats", "structdata_1_1blocks_1_1ConfigurationStats.html", "structdata_1_1blocks_1_1ConfigurationStats" ],
         [ "DataLogStats", "structdata_1_1blocks_1_1DataLogStats.html", "structdata_1_1blocks_1_1DataLogStats" ],
         [ "ExtensionModuleStats", "structdata_1_1blocks_1_1ExtensionModuleStats.html", "structdata_1_1blocks_1_1ExtensionModuleStats" ],
+        [ "FileSystemData", "structdata_1_1blocks_1_1FileSystemData.html", "structdata_1_1blocks_1_1FileSystemData" ],
         [ "ImuData", "namespacedata_1_1blocks.html#structdata_1_1blocks_1_1ImuData", "namespacedata_1_1blocks_structdata_1_1blocks_1_1ImuData_dup" ],
         [ "LocationData", "namespacedata_1_1blocks.html#structdata_1_1blocks_1_1LocationData", "namespacedata_1_1blocks_structdata_1_1blocks_1_1LocationData_dup" ],
         [ "ModulesStatuses", "structdata_1_1blocks_1_1ModulesStatuses.html", "structdata_1_1blocks_1_1ModulesStatuses" ],
@@ -54,6 +55,7 @@ var annotated_dup =
     [ "data_middleware", "namespacedata__middleware.html", [
       [ "DataFormatter", "classdata__middleware_1_1DataFormatter.html", "classdata__middleware_1_1DataFormatter" ],
       [ "DataLog", "classdata__middleware_1_1DataLog.html", "classdata__middleware_1_1DataLog" ],
+      [ "FileSystemManager", "classdata__middleware_1_1FileSystemManager.html", "classdata__middleware_1_1FileSystemManager" ],
       [ "InfluxDb", "classdata__middleware_1_1InfluxDb.html", "classdata__middleware_1_1InfluxDb" ],
       [ "InfluxLine", "structdata__middleware_1_1InfluxLine.html", "structdata__middleware_1_1InfluxLine" ]
     ] ],

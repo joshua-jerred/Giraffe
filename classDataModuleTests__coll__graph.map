@@ -1,52 +1,52 @@
 <map id="DataModuleTests" name="DataModuleTests">
-<area shape="rect" id="node1" title=" " alt="" coords="1544,2121,1704,2228"/>
-<area shape="rect" id="node2" title=" " alt="" coords="947,1864,1048,1941"/>
-<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="3106,1747,3377,2059"/>
-<area shape="rect" id="node4" href="$classmodules_1_1Module.html" title=" " alt="" coords="1606,1255,1773,1640"/>
-<area shape="rect" id="node5" href="$namespacedata.html#structdata_1_1SharedData" title="Data that is shared across all modules and extensions." alt="" coords="2018,527,2153,605"/>
-<area shape="rect" id="node35" href="$classdata__middleware_1_1DataLog.html" title="Used to write data and log information to files. Used by the data module." alt="" coords="2488,1291,2685,1603"/>
-<area shape="rect" id="node40" href="$classdata__middleware_1_1DataFormatter.html" title=" " alt="" coords="2207,851,2446,1075"/>
-<area shape="rect" id="node48" href="$classdata__middleware_1_1InfluxDb.html" title=" " alt="" coords="2865,887,3063,1038"/>
-<area shape="rect" id="node6" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="549,329,662,406"/>
-<area shape="rect" id="node7" href="$classdata_1_1LogStream.html" title=" " alt="" coords="5,27,227,163"/>
-<area shape="rect" id="node8" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="251,57,423,134"/>
-<area shape="rect" id="node9" href="$classdata_1_1DataStream.html" title=" " alt="" coords="447,49,585,141"/>
-<area shape="rect" id="node10" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="609,57,781,134"/>
-<area shape="rect" id="node11" href="$classdata_1_1CommandStream.html" title="The stream of new commands." alt="" coords="805,57,979,134"/>
-<area shape="rect" id="node12" href="$classgiraffe_1_1StatusLedState.html" title=" " alt="" coords="1339,277,1509,457"/>
-<area shape="rect" id="node13" title=" " alt="" coords="1003,57,1133,134"/>
-<area shape="rect" id="node14" href="$namespacedata.html#structdata_1_1SharedBlocks" title=" " alt="" coords="1888,329,2035,406"/>
-<area shape="rect" id="node15" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1865,5,2058,185"/>
-<area shape="rect" id="node16" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2083,5,2320,185"/>
-<area shape="rect" id="node17" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2345,13,2583,178"/>
-<area shape="rect" id="node18" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2607,5,2843,185"/>
-<area shape="rect" id="node19" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2867,13,3093,178"/>
-<area shape="rect" id="node20" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="3117,13,3344,178"/>
-<area shape="rect" id="node21" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1157,13,1352,178"/>
-<area shape="rect" id="node22" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1376,13,1589,178"/>
-<area shape="rect" id="node23" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1613,13,1840,178"/>
-<area shape="rect" id="node24" href="$classLogContainer.html" title=" " alt="" coords="2059,307,2203,428"/>
-<area shape="rect" id="node25" href="$namespacedata.html#structdata_1_1Frames" title=" " alt="" coords="2227,329,2333,406"/>
-<area shape="rect" id="node26" href="$classdata_1_1Misc.html" title=" " alt="" coords="2357,314,2528,421"/>
-<area shape="rect" id="node27" title=" " alt="" coords="2352,527,2475,605"/>
-<area shape="rect" id="node28" href="$structmodules_1_1MetaData.html" title="Module metadata." alt="" coords="2575,924,2726,1001"/>
-<area shape="rect" id="node29" title=" " alt="" coords="3242,527,3281,605"/>
-<area shape="rect" id="node30" title=" " alt="" coords="2905,527,2964,605"/>
-<area shape="rect" id="node36" href="$structdata_1_1blocks_1_1DataLogStats.html" title="Struct containing statistics about the data file log." alt="" coords="3278,924,3474,1001"/>
-<area shape="rect" id="node31" title=" " alt="" coords="1361,924,1487,1001"/>
-<area shape="rect" id="node32" title=" " alt="" coords="1511,924,1689,1001"/>
-<area shape="rect" id="node33" href="$classcmd_1_1CommandQueue.html" title="Used within modules to queue commands to be processed." alt="" coords="1714,909,1881,1016"/>
-<area shape="rect" id="node34" title=" " alt="" coords="1123,924,1187,1001"/>
-<area shape="rect" id="node37" title=" " alt="" coords="3496,527,3563,605"/>
-<area shape="rect" id="node38" title=" " alt="" coords="3845,527,3896,605"/>
-<area shape="rect" id="node46" href="$structdata_1_1blocks_1_1CalculatedData.html" title="Data that is calculated from other data." alt="" coords="3961,924,4170,1001"/>
-<area shape="rect" id="node39" title=" " alt="" coords="2751,924,2841,1001"/>
-<area shape="rect" id="node41" title=" " alt="" coords="3058,1409,3158,1486"/>
-<area shape="rect" id="node42" title=" " alt="" coords="3951,527,4011,605"/>
-<area shape="rect" id="node43" title=" " alt="" coords="3257,1409,3377,1486"/>
-<area shape="rect" id="node44" title=" " alt="" coords="3402,1409,3457,1486"/>
-<area shape="rect" id="node45" title=" " alt="" coords="3520,1409,3651,1486"/>
-<area shape="rect" id="node47" title=" " alt="" coords="4067,527,4133,605"/>
-<area shape="rect" id="node49" title=" " alt="" coords="2989,520,3179,612"/>
-<area shape="rect" id="node50" title=" " alt="" coords="3401,1864,3521,1941"/>
+<area shape="rect" id="node1" title=" " alt="" coords="705,2107,865,2213"/>
+<area shape="rect" id="node2" title=" " alt="" coords="179,1849,281,1927"/>
+<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="2004,1732,2275,2044"/>
+<area shape="rect" id="node4" href="$classmodules_1_1Module.html" title=" " alt="" coords="3311,1240,3477,1625"/>
+<area shape="rect" id="node5" href="$namespacedata.html#structdata_1_1SharedData" title="Data that is shared across all modules and extensions." alt="" coords="627,520,761,597"/>
+<area shape="rect" id="node31" href="$classdata__middleware_1_1DataLog.html" title="Used to write data and log information to files. Used by the data module." alt="" coords="1045,1277,1242,1589"/>
+<area shape="rect" id="node36" href="$classdata__middleware_1_1DataFormatter.html" title=" " alt="" coords="907,836,1145,1060"/>
+<area shape="rect" id="node39" href="$classdata__middleware_1_1FileSystemManager.html" title=" " alt="" coords="2345,1350,2560,1515"/>
+<area shape="rect" id="node48" href="$classdata__middleware_1_1InfluxDb.html" title=" " alt="" coords="1325,1357,1522,1508"/>
+<area shape="rect" id="node6" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="1575,329,1688,406"/>
+<area shape="rect" id="node7" href="$classdata_1_1LogStream.html" title=" " alt="" coords="2010,27,2231,163"/>
+<area shape="rect" id="node42" href="$classgiraffe_1_1Logger.html" title=" " alt="" coords="2415,887,2531,1009"/>
+<area shape="rect" id="node8" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="1456,57,1628,134"/>
+<area shape="rect" id="node9" href="$classdata_1_1DataStream.html" title=" " alt="" coords="1652,49,1789,141"/>
+<area shape="rect" id="node10" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="1813,57,1985,134"/>
+<area shape="rect" id="node11" href="$classdata_1_1CommandStream.html" title="The stream of new commands." alt="" coords="1258,57,1431,134"/>
+<area shape="rect" id="node12" href="$classgiraffe_1_1StatusLedState.html" title=" " alt="" coords="1871,277,2042,457"/>
+<area shape="rect" id="node13" title=" " alt="" coords="2255,57,2386,134"/>
+<area shape="rect" id="node14" href="$namespacedata.html#structdata_1_1SharedBlocks" title=" " alt="" coords="781,329,927,406"/>
+<area shape="rect" id="node15" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="255,5,448,185"/>
+<area shape="rect" id="node16" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="473,5,710,185"/>
+<area shape="rect" id="node17" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="735,13,973,178"/>
+<area shape="rect" id="node18" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="997,5,1233,185"/>
+<area shape="rect" id="node19" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="5,13,231,178"/>
+<area shape="rect" id="node20" href="$classLogContainer.html" title=" " alt="" coords="287,307,431,428"/>
+<area shape="rect" id="node21" href="$namespacedata.html#structdata_1_1Frames" title=" " alt="" coords="455,329,562,406"/>
+<area shape="rect" id="node22" href="$classdata_1_1Misc.html" title=" " alt="" coords="586,314,757,421"/>
+<area shape="rect" id="node23" title=" " alt="" coords="1237,520,1359,597"/>
+<area shape="rect" id="node24" href="$structmodules_1_1MetaData.html" title="Module metadata." alt="" coords="3883,909,4033,987"/>
+<area shape="rect" id="node25" title=" " alt="" coords="4339,520,4377,597"/>
+<area shape="rect" id="node26" title=" " alt="" coords="2187,520,2246,597"/>
+<area shape="rect" id="node32" href="$structdata_1_1blocks_1_1DataLogStats.html" title="Struct containing statistics about the data file log." alt="" coords="2555,909,2751,987"/>
+<area shape="rect" id="node41" href="$structdata_1_1blocks_1_1FileSystemData.html" title=" " alt="" coords="2825,909,3037,987"/>
+<area shape="rect" id="node27" title=" " alt="" coords="3530,909,3655,987"/>
+<area shape="rect" id="node28" title=" " alt="" coords="3679,909,3858,987"/>
+<area shape="rect" id="node29" href="$classcmd_1_1CommandQueue.html" title="Used within modules to queue commands to be processed." alt="" coords="3251,895,3417,1001"/>
+<area shape="rect" id="node30" title=" " alt="" coords="3442,909,3506,987"/>
+<area shape="rect" id="node33" title=" " alt="" coords="2735,520,2802,597"/>
+<area shape="rect" id="node34" title=" " alt="" coords="3479,520,3530,597"/>
+<area shape="rect" id="node46" href="$structdata_1_1blocks_1_1CalculatedData.html" title="Data that is calculated from other data." alt="" coords="4287,909,4496,987"/>
+<area shape="rect" id="node35" title=" " alt="" coords="501,909,591,987"/>
+<area shape="rect" id="node37" title=" " alt="" coords="1789,1394,1889,1471"/>
+<area shape="rect" id="node38" title=" " alt="" coords="1593,909,1653,987"/>
+<area shape="rect" id="node40" title=" " alt="" coords="3825,520,3899,597"/>
+<area shape="rect" id="node43" title=" " alt="" coords="1914,1394,2034,1471"/>
+<area shape="rect" id="node44" title=" " alt="" coords="2111,1394,2165,1471"/>
+<area shape="rect" id="node45" title=" " alt="" coords="2190,1394,2321,1471"/>
+<area shape="rect" id="node47" title=" " alt="" coords="4545,520,4611,597"/>
+<area shape="rect" id="node49" title=" " alt="" coords="1379,902,1569,994"/>
+<area shape="rect" id="node50" title=" " alt="" coords="2299,1849,2419,1927"/>
 </map>

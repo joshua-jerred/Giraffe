@@ -1,0 +1,5 @@
+<map id="sock::TcpSocketServer::sendRawData" name="sock::TcpSocketServer::sendRawData">
+<area shape="rect" id="node1" title=" " alt="" coords="540,5,707,47"/>
+<area shape="rect" id="node2" href="$group__ServerModule.html#a0fe0d216d79f6af4bdd4c4e5621ac9fd" title="Response to an image request. Sends the image data to the client." alt="" coords="281,5,492,47"/>
+<area shape="rect" id="node3" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,13,233,39"/>
+</map>

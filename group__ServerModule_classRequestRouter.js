@@ -12,6 +12,7 @@ var group__ServerModule_classRequestRouter =
     [ "handleSettingSet", "group__ServerModule.html#a1d58bc2e5fc57191959bc60a89b61ec5", null ],
     [ "handleDataRequest", "group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7", null ],
     [ "handleCommandRequest", "group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69", null ],
+    [ "handleImageRequest", "group__ServerModule.html#a0fe0d216d79f6af4bdd4c4e5621ac9fd", null ],
     [ "sendMessage", "group__ServerModule.html#a4d13e34f9d56d94f7a410248eed83a8b", null ],
     [ "shared_data_", "group__ServerModule.html#a76117854725637f06b15168ecd648acf", null ],
     [ "config_", "group__ServerModule.html#a346068be2698922e9034f0ba605642d9", null ],

@@ -757,31 +757,32 @@
 <g id="node36" class="node">
 <title>Node36</title>
 <g id="a_node36"><a xlink:href="group__ServerModule.html#classsock_1_1TcpSocketServer" target="_top" xlink:title="The TCP socket server class.">
-<polygon fill="none" stroke="black" points="2547,-1529.5 2547,-1707.5 2672,-1707.5 2672,-1529.5 2547,-1529.5"/>
-<text text-anchor="middle" x="2609.5" y="-1695.5" font-family="Helvetica,sans-Serif" font-size="10.00">sock::TcpSocketServer</text>
-<polyline fill="none" stroke="black" points="2547,-1688.5 2672,-1688.5 "/>
-<text text-anchor="middle" x="2609.5" y="-1676.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="2547,-1669.5 2672,-1669.5 "/>
-<text text-anchor="start" x="2555" y="-1657.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TcpSocketServer()</text>
-<text text-anchor="start" x="2555" y="-1646.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~TcpSocketServer()</text>
-<text text-anchor="start" x="2555" y="-1635.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ accept()</text>
-<text text-anchor="start" x="2555" y="-1624.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bind()</text>
-<text text-anchor="start" x="2555" y="-1613.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ close()</text>
-<text text-anchor="start" x="2555" y="-1602.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
-<text text-anchor="start" x="2555" y="-1591.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getClientAddress()</text>
-<text text-anchor="start" x="2555" y="-1580.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ init()</text>
-<text text-anchor="start" x="2555" y="-1569.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ isValid()</text>
-<text text-anchor="start" x="2555" y="-1558.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ listen()</text>
-<text text-anchor="start" x="2555" y="-1547.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ receive()</text>
-<text text-anchor="start" x="2555" y="-1536.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ send()</text>
+<polygon fill="none" stroke="black" points="2547,-1524 2547,-1713 2672,-1713 2672,-1524 2547,-1524"/>
+<text text-anchor="middle" x="2609.5" y="-1701" font-family="Helvetica,sans-Serif" font-size="10.00">sock::TcpSocketServer</text>
+<polyline fill="none" stroke="black" points="2547,-1694 2672,-1694 "/>
+<text text-anchor="middle" x="2609.5" y="-1682" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="2547,-1675 2672,-1675 "/>
+<text text-anchor="start" x="2555" y="-1663" font-family="Helvetica,sans-Serif" font-size="10.00">+ TcpSocketServer()</text>
+<text text-anchor="start" x="2555" y="-1652" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~TcpSocketServer()</text>
+<text text-anchor="start" x="2555" y="-1641" font-family="Helvetica,sans-Serif" font-size="10.00">+ accept()</text>
+<text text-anchor="start" x="2555" y="-1630" font-family="Helvetica,sans-Serif" font-size="10.00">+ bind()</text>
+<text text-anchor="start" x="2555" y="-1619" font-family="Helvetica,sans-Serif" font-size="10.00">+ close()</text>
+<text text-anchor="start" x="2555" y="-1608" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
+<text text-anchor="start" x="2555" y="-1597" font-family="Helvetica,sans-Serif" font-size="10.00">+ getClientAddress()</text>
+<text text-anchor="start" x="2555" y="-1586" font-family="Helvetica,sans-Serif" font-size="10.00">+ init()</text>
+<text text-anchor="start" x="2555" y="-1575" font-family="Helvetica,sans-Serif" font-size="10.00">+ isValid()</text>
+<text text-anchor="start" x="2555" y="-1564" font-family="Helvetica,sans-Serif" font-size="10.00">+ listen()</text>
+<text text-anchor="start" x="2555" y="-1553" font-family="Helvetica,sans-Serif" font-size="10.00">+ receive()</text>
+<text text-anchor="start" x="2555" y="-1542" font-family="Helvetica,sans-Serif" font-size="10.00">+ send()</text>
+<text text-anchor="start" x="2555" y="-1531" font-family="Helvetica,sans-Serif" font-size="10.00">+ sendRawData()</text>
 </a>
 </g>
 </g>
 <!-- Node20&#45;&gt;Node36 -->
 <g id="edge65" class="edge">
 <title>Node20&#45;&gt;Node36</title>
-<path fill="none" stroke="#404040" d="M2527.98,-1799.45C2537.41,-1778.62 2550.98,-1748.68 2564.35,-1719.17"/>
-<polygon fill="none" stroke="#404040" points="2564.5,-1718.83 2563.33,-1711.72 2569.45,-1707.9 2570.62,-1715.02 2564.5,-1718.83"/>
+<path fill="none" stroke="#404040" d="M2527.98,-1799.45C2536.89,-1779.79 2549.48,-1751.99 2562.11,-1724.11"/>
+<polygon fill="none" stroke="#404040" points="2562.18,-1723.96 2561.01,-1716.84 2567.13,-1713.03 2568.3,-1720.14 2562.18,-1723.96"/>
 <text text-anchor="middle" x="2571" y="-1756.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;sock_</text>
 </g>
 <!-- Node21 -->
@@ -1089,7 +1090,7 @@
 <!-- Node36&#45;&gt;Node1 -->
 <g id="edge63" class="edge">
 <title>Node36&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M2610.47,-1529.43C2610.98,-1475.83 2611.5,-1405.97 2611.5,-1344 2611.5,-1344 2611.5,-1344 2611.5,-353 2611.5,-287.3 2586.26,-263.08 2529.5,-230 2393.43,-150.7 1303.04,-118.02 949.05,-109.44"/>
+<path fill="none" stroke="#404040" d="M2610.52,-1523.83C2611.02,-1471.02 2611.5,-1403.83 2611.5,-1344 2611.5,-1344 2611.5,-1344 2611.5,-353 2611.5,-287.3 2586.26,-263.08 2529.5,-230 2393.43,-150.7 1303.04,-118.02 949.05,-109.44"/>
 <polygon fill="none" stroke="#404040" points="949.02,-109.44 942.92,-113.29 937.02,-109.15 943.12,-105.3 949.02,-109.44"/>
 <text text-anchor="middle" x="2650" y="-806" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;client_socket_</text>
 <text text-anchor="middle" x="2650" y="-795" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;server_socket_</text>
@@ -1110,8 +1111,8 @@
 <!-- Node37&#45;&gt;Node36 -->
 <g id="edge64" class="edge">
 <title>Node37&#45;&gt;Node36</title>
-<path fill="none" stroke="#404040" d="M2609.5,-1799.45C2609.5,-1778.81 2609.5,-1749.2 2609.5,-1719.95"/>
-<polygon fill="none" stroke="#404040" points="2609.5,-1719.9 2605.5,-1713.9 2609.5,-1707.9 2613.5,-1713.9 2609.5,-1719.9"/>
+<path fill="none" stroke="#404040" d="M2609.5,-1799.45C2609.5,-1780.05 2609.5,-1752.73 2609.5,-1725.22"/>
+<polygon fill="none" stroke="#404040" points="2609.5,-1725.03 2605.5,-1719.03 2609.5,-1713.03 2613.5,-1719.03 2609.5,-1725.03"/>
 <text text-anchor="middle" x="2626.5" y="-1756.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;addr_</text>
 </g>
 </g>
