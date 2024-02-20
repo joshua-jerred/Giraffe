@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled from "styled-components";
 import {
   StyInput,
@@ -8,6 +8,8 @@ import {
   StyButton,
 } from "./styled/StyledComponents";
 import { CardBreak } from "../core/PageParts";
+
+import { GwsGlobal } from "../GlobalContext";
 
 import { ConfigMetadata } from "giraffe-protocol";
 const ExtensionConfigMetadata = ConfigMetadata.extensions;
@@ -98,7 +100,13 @@ function ExtensionDisplay({
 }) {
   return (
     <div>
-      <h3>{name}</h3>
+      <div>
+        {`${name}[${extensionType}] ${
+          enabled ? "Enabled" : "Disabled"
+        } ${updateInterval}ms ${critical ? " - Critical" : ""} `}
+      </div>
+      <div>{extraArgs}</div>
+
       {/* <GfsEditBox resource="gfs" category="extensions" /> */}
     </div>
   );
@@ -219,7 +227,11 @@ function NewExtension() {
 }
 
 function ExistingExtension({ metadata }) {
+  const { ggsAddress, isGfsTcpConnected, isGgsConnected } =
+    useContext(GwsGlobal);
+
   const [editMode, setEditMode] = useState(false);
+  const [loading, setLoading] = useState(null);
 
   const [name, setName] = useState(metadata.name);
   const [enabled, setEnabled] = useState(metadata.enabled);
@@ -229,6 +241,16 @@ function ExistingExtension({ metadata }) {
   );
   const [critical, setCritical] = useState(metadata.critical);
   const [extraArgs, setExtraArgs] = useState(metadata.extra_args);
+
+  const editButtonClick = () => {
+    if (!editMode) {
+      setEditMode(true);
+      return;
+    }
+
+    setLoading("submitting...");
+    // fetch("");
+  };
 
   return (
     <>
@@ -257,9 +279,16 @@ function ExistingExtension({ metadata }) {
           setExtraArgs={setExtraArgs}
         />
       )}
-      <StyButton onClick={() => setEditMode(true)} className="ext_edit_button">
-        Edit
-      </StyButton>
+      {loading ? (
+        <div className="ext_edit_button">{loading}</div>
+      ) : (
+        <StyButton
+          onClick={() => editButtonClick()}
+          className="ext_edit_button"
+        >
+          {editMode ? "Submit" : "Edit"}
+        </StyButton>
+      )}
     </>
   );
 }

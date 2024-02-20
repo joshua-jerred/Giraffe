@@ -140,7 +140,7 @@ void RequestRouter::handleExtensionSettingUpdate(sock::TcpSocketServer &client,
       if (config_.extensions.addExtension(ext_meta)) {
         sendSuccessResponse(client);
       } else {
-        sendErrorPacket(client, "Failed to add, check logs.");
+        sendErrorPacket(client, "Failed to add, check logs");
       }
       return;
     } else if (action == "remove") {
@@ -148,7 +148,7 @@ void RequestRouter::handleExtensionSettingUpdate(sock::TcpSocketServer &client,
       if (config_.extensions.removeExtension(ext_name)) {
         sendSuccessResponse(client);
       } else {
-        sendErrorPacket(client, "Failed to remove, check logs.");
+        sendErrorPacket(client, "Failed to remove, check logs");
       }
       return;
     } else if (action == "update") {
@@ -159,19 +159,20 @@ void RequestRouter::handleExtensionSettingUpdate(sock::TcpSocketServer &client,
       if (config_.extensions.updateExtension(ext_name, ext_meta)) {
         sendSuccessResponse(client);
       } else {
-        sendErrorPacket(client, "Failed to update, check logs.");
+        sendErrorPacket(client, "Failed to update, check logs");
       }
+      return;
     }
 
-    sendErrorPacket(client, "Invalid action provided.");
+    sendErrorPacket(client, "Invalid action provided");
     return;
     // auto ext_data = dat.at("extension_data");
   } catch (std::exception &e) {
-    sendErrorPacket(client, "Failed to serialize message to JSON.");
+    sendErrorPacket(client, "Failed to parse extension request");
     return;
   }
 
-  sendErrorPacket(client, "Internal logic error.");
+  sendErrorPacket(client, "Internal logic error");
 }
 
 void RequestRouter::handleAdcMappingSettingUpdate(sock::TcpSocketServer &client,
