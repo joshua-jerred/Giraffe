@@ -7,5 +7,5 @@ var test__extensions_8cpp =
     [ "BMI088_TEST_ENABLED", "test__extensions_8cpp.html#a5c3df3f685032fd2c1cfe3e5eb4a1724", null ],
     [ "RGB_STATUS_LED_TEST_ENABLED", "test__extensions_8cpp.html#a06c71068f4e7ceb440d9ddc92a6c3e36", null ],
     [ "PI_CAMERA_TEST_ENABLED", "test__extensions_8cpp.html#ac8f0acc77fa99f5668cfd109af22c16a", null ],
-    [ "TEST", "test__extensions_8cpp.html#a3a3489c740c6f0f8c03ceb87a39da04e", null ]
+    [ "TEST", "test__extensions_8cpp.html#ad6457088e5afbef7cb2b47ccdb2246ab", null ]
 ];

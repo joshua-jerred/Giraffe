@@ -1,0 +1,18 @@
+<map id="extension::Bmi088::imuStartup" name="extension::Bmi088::imuStartup">
+<area shape="rect" id="node1" title=" " alt="" coords="5,413,157,455"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#a2d2331ad0ef489d33189c3173ef403e7" title=" " alt="" coords="434,319,586,360"/>
+<area shape="rect" id="node5" href="$classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649" title=" " alt="" coords="205,201,383,243"/>
+<area shape="rect" id="node11" href="$classextension_1_1Bmi088.html#ae0822f94de46f127633943bdb8aaaa45" title=" " alt="" coords="651,443,803,484"/>
+<area shape="rect" id="node12" href="$classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2" title=" " alt="" coords="434,384,586,425"/>
+<area shape="rect" id="node13" href="$classgiraffe_1_1SpiInterface.html#a3c75790021466aedc3fdf056a31f790c" title="Attempts to open the SPI device. Returns true if successful, false otherwise." alt="" coords="219,501,369,543"/>
+<area shape="rect" id="node14" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="215,567,373,608"/>
+<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a00ef6cd65250307287af24071c862a42" title="Sleep internally for a given number of milliseconds." alt="" coords="648,275,807,316"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1SpiInterface.html#a146b865b9d5d9a41c82283565b91ff80" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="865,359,1016,400"/>
+<area shape="rect" id="node6" href="$classextension_1_1Bmi088.html#a2e9712302803677db22ef9669f0d8936" title=" " alt="" coords="434,5,586,47"/>
+<area shape="rect" id="node8" href="$classextension_1_1Bmi088.html#a2cd3afb968d1a397a628c706f2167962" title=" " alt="" coords="434,71,586,112"/>
+<area shape="rect" id="node9" href="$classextension_1_1Bmi088.html#af6b50746d49b420137560514f0164a26" title=" " alt="" coords="434,136,586,177"/>
+<area shape="rect" id="node10" href="$classextension_1_1Bmi088.html#a4a243e58f87fda37f45f60e002aca8c4" title=" " alt="" coords="434,201,586,243"/>
+<area shape="rect" id="node7" href="$classextension_1_1Bmi088.html#aa843603e86c0b68c9cf212df6de8abbb" title=" " alt="" coords="651,136,803,177"/>
+<area shape="rect" id="node15" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="431,567,589,608"/>
+<area shape="rect" id="node16" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="637,574,817,601"/>
+</map>

@@ -1,11 +1,17 @@
 <map id="giraffe::SpiInterface::transfer" name="giraffe::SpiInterface::transfer">
-<area shape="rect" id="node1" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="469,169,620,211"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#a9e2bd3cef685ac8501514acafad8c28f" title=" " alt="" coords="233,5,421,47"/>
-<area shape="rect" id="node4" href="$classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649" title=" " alt="" coords="239,71,416,112"/>
-<area shape="rect" id="node5" href="$classextension_1_1Bmi088.html#ae0822f94de46f127633943bdb8aaaa45" title=" " alt="" coords="251,136,403,177"/>
-<area shape="rect" id="node6" href="$classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2" title=" " alt="" coords="251,201,403,243"/>
-<area shape="rect" id="node7" href="$classextension_1_1Bmi088.html#a33e6089d835e44f98bac792d815817c6" title=" " alt="" coords="251,267,403,308"/>
-<area shape="rect" id="node9" href="$classextension_1_1Bmi088.html#a1755ea339eb317a6af46e2578a00c1d5" title=" " alt="" coords="251,332,403,373"/>
-<area shape="rect" id="node3" href="$classextension_1_1Bmi088.html#a4f2bf0ae1de79d266c47349f63305b4b" title=" " alt="" coords="19,104,171,145"/>
-<area shape="rect" id="node8" href="$classextension_1_1Bmi088.html#a3ed479b8eaf5733d72416f4fe7ee078e" title=" " alt="" coords="5,306,185,333"/>
+<area shape="rect" id="node1" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="831,376,981,417"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#a2d2331ad0ef489d33189c3173ef403e7" title=" " alt="" coords="431,5,583,47"/>
+<area shape="rect" id="node5" href="$classextension_1_1Bmi088.html#aa843603e86c0b68c9cf212df6de8abbb" title=" " alt="" coords="631,201,783,243"/>
+<area shape="rect" id="node10" href="$classextension_1_1Bmi088.html#ae0822f94de46f127633943bdb8aaaa45" title=" " alt="" coords="218,245,370,287"/>
+<area shape="rect" id="node11" href="$classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2" title=" " alt="" coords="218,332,370,373"/>
+<area shape="rect" id="node12" href="$classextension_1_1Bmi088.html#a9da18eaefe2ba7c09241a21f0a0f5c0a" title=" " alt="" coords="631,435,783,476"/>
+<area shape="rect" id="node13" href="$classextension_1_1Bmi088.html#a33e6089d835e44f98bac792d815817c6" title=" " alt="" coords="631,500,783,541"/>
+<area shape="rect" id="node15" href="$classextension_1_1Bmi088.html#a1755ea339eb317a6af46e2578a00c1d5" title=" " alt="" coords="631,565,783,607"/>
+<area shape="rect" id="node3" href="$classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649" title=" " alt="" coords="205,169,383,211"/>
+<area shape="rect" id="node4" href="$classextension_1_1Bmi088.html#ae48a834e3578a93acef45729a07495f1" title=" " alt="" coords="5,213,157,255"/>
+<area shape="rect" id="node6" href="$classextension_1_1Bmi088.html#a2e9712302803677db22ef9669f0d8936" title=" " alt="" coords="431,71,583,112"/>
+<area shape="rect" id="node7" href="$classextension_1_1Bmi088.html#a2cd3afb968d1a397a628c706f2167962" title=" " alt="" coords="431,136,583,177"/>
+<area shape="rect" id="node8" href="$classextension_1_1Bmi088.html#af6b50746d49b420137560514f0164a26" title=" " alt="" coords="431,201,583,243"/>
+<area shape="rect" id="node9" href="$classextension_1_1Bmi088.html#a4a243e58f87fda37f45f60e002aca8c4" title=" " alt="" coords="431,267,583,308"/>
+<area shape="rect" id="node14" href="$classextension_1_1Bmi088.html#ac2a25bc2a2549e2b84e637840718d3e9" title=" " alt="" coords="431,532,583,573"/>
 </map>

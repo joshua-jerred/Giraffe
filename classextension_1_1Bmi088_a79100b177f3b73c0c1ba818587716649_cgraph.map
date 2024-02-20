@@ -1,4 +1,11 @@
 <map id="extension::Bmi088::configureAccelerometer" name="extension::Bmi088::configureAccelerometer">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,183,47"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1SpiInterface.html#a146b865b9d5d9a41c82283565b91ff80" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="231,5,381,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,137,183,178"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#a2d2331ad0ef489d33189c3173ef403e7" title=" " alt="" coords="231,38,383,79"/>
+<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a00ef6cd65250307287af24071c862a42" title="Sleep internally for a given number of milliseconds." alt="" coords="431,9,589,50"/>
+<area shape="rect" id="node5" href="$classextension_1_1Bmi088.html#a2e9712302803677db22ef9669f0d8936" title=" " alt="" coords="231,103,383,145"/>
+<area shape="rect" id="node7" href="$classextension_1_1Bmi088.html#a2cd3afb968d1a397a628c706f2167962" title=" " alt="" coords="231,169,383,210"/>
+<area shape="rect" id="node8" href="$classextension_1_1Bmi088.html#af6b50746d49b420137560514f0164a26" title=" " alt="" coords="231,234,383,275"/>
+<area shape="rect" id="node9" href="$classextension_1_1Bmi088.html#a4a243e58f87fda37f45f60e002aca8c4" title=" " alt="" coords="231,299,383,341"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1SpiInterface.html#a146b865b9d5d9a41c82283565b91ff80" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="637,133,788,174"/>
+<area shape="rect" id="node6" href="$classextension_1_1Bmi088.html#aa843603e86c0b68c9cf212df6de8abbb" title=" " alt="" coords="434,169,586,210"/>
 </map>

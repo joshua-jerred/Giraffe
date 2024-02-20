@@ -184,6 +184,7 @@ var files_dup =
     [ "i2c_interface.hpp", "i2c__interface_8hpp.html", [
       [ "I2cInterface", "classI2cInterface.html", "classI2cInterface" ]
     ] ],
+    [ "imu_extension_base.hpp", "imu__extension__base_8hpp.html", "imu__extension__base_8hpp" ],
     [ "influxdb.cpp", "influxdb_8cpp.html", "influxdb_8cpp" ],
     [ "influxdb.hpp", "influxdb_8hpp.html", [
       [ "InfluxDb", "classdata__middleware_1_1InfluxDb.html", "classdata__middleware_1_1InfluxDb" ],
@@ -295,7 +296,7 @@ var files_dup =
     ] ],
     [ "telemetry_module.cpp", "telemetry__module_8cpp.html", null ],
     [ "telemetry_module.hpp", "telemetry__module_8hpp.html", "telemetry__module_8hpp" ],
-    [ "test_adc_config.cpp", "test__adc__config_8cpp.html", "test__adc__config_8cpp" ],
+    [ "test_adc_config.cpp", "test__adc__config_8cpp.html", null ],
     [ "test_application_layer.cpp", "test__application__layer_8cpp.html", "test__application__layer_8cpp" ],
     [ "test_command_processor.cpp", "test__command__processor_8cpp.html", "test__command__processor_8cpp" ],
     [ "test_configuration.cpp", "test__configuration_8cpp.html", "test__configuration_8cpp" ],

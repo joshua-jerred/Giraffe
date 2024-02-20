@@ -1,0 +1,8 @@
+<map id="extension::Bmi088::readImu" name="extension::Bmi088::readImu">
+<area shape="rect" id="node1" title=" " alt="" coords="5,72,157,113"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#a33e6089d835e44f98bac792d815817c6" title=" " alt="" coords="205,39,357,80"/>
+<area shape="rect" id="node5" href="$classextension_1_1Bmi088.html#a1755ea339eb317a6af46e2578a00c1d5" title=" " alt="" coords="205,104,357,145"/>
+<area shape="rect" id="node3" href="$classextension_1_1ImuExtensionBase.html#a8a0733d624773459e310702e94c2feee" title=" " alt="" coords="405,5,620,47"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1SpiInterface.html#a146b865b9d5d9a41c82283565b91ff80" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="437,71,588,112"/>
+<area shape="rect" id="node6" href="$classextension_1_1ImuExtensionBase.html#a3c63621feecc74f169d0253d9fbb9c08" title=" " alt="" coords="405,136,620,177"/>
+</map>

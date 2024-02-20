@@ -1,0 +1,5 @@
+<map id="extension::Bmi088::accSetPower" name="extension::Bmi088::accSetPower">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,157,47"/>
+<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#aa843603e86c0b68c9cf212df6de8abbb" title=" " alt="" coords="205,5,357,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1SpiInterface.html#a146b865b9d5d9a41c82283565b91ff80" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="405,5,556,47"/>
+</map>

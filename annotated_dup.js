@@ -68,6 +68,7 @@ var annotated_dup =
       [ "Extension", "classextension_1_1Extension.html", "classextension_1_1Extension" ],
       [ "ExtensionResources", "structextension_1_1ExtensionResources.html", "structextension_1_1ExtensionResources" ],
       [ "I2cExtensionAdapter", "classextension_1_1I2cExtensionAdapter.html", "classextension_1_1I2cExtensionAdapter" ],
+      [ "ImuExtensionBase", "classextension_1_1ImuExtensionBase.html", "classextension_1_1ImuExtensionBase" ],
       [ "Mcp3021", "classextension_1_1Mcp3021.html", "classextension_1_1Mcp3021" ],
       [ "PiCamera", "classextension_1_1PiCamera.html", "classextension_1_1PiCamera" ],
       [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ],

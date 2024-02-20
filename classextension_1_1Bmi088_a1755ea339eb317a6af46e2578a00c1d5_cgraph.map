@@ -1,4 +1,5 @@
 <map id="extension::Bmi088::readGyroData" name="extension::Bmi088::readGyroData">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,157,47"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1SpiInterface.html#a146b865b9d5d9a41c82283565b91ff80" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="205,5,356,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,39,157,80"/>
+<area shape="rect" id="node2" href="$classextension_1_1ImuExtensionBase.html#a3c63621feecc74f169d0253d9fbb9c08" title=" " alt="" coords="205,5,420,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1SpiInterface.html#a146b865b9d5d9a41c82283565b91ff80" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="237,71,388,112"/>
 </map>

@@ -63,7 +63,8 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ]
+        [ "Enumerations", "functions_enum.html", null ],
+        [ "Enumerator", "functions_eval.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -83,20 +84,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc__configuration_8cpp.html",
-"classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14",
-"classextension_1_1Bme280.html#a39712025900988f7bd4e15637f4a28ba",
-"classextension_1_1PiCamera.html#a692f72cc72848d0a162010a955085f07",
-"classextension_1_1SimPressureSensor.html#ac3545ca3cc1fd6ab92671dbf18840f13",
-"classgiraffe_1_1gdl_1_1Config.html#ac56e9e34f5e9514b8099de547ec776e1",
-"classmodules_1_1ConsoleModule.html#a6b89315bfd0b71642a8f67f604a37fd2",
-"classncurs_1_1Environment.html#a3b5c0bb29f8c9b6f7eff9c7b854019f5a21507b40c80068eda19865706fdc2403",
-"flight__phase_8hpp.html",
-"group__DataStreamParsing.html#ga5e45003930a173f5d1b4d11b50b5b7da",
-"namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba8b433e3f63d83e78dfbfe6da3ff61b3e",
-"namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a04e4c0da662c0b6d1c22348aabe5e95d",
-"server__module_8hpp_source.html",
-"structdata_1_1blocks_1_1TelemetryModuleStats.html#a845190e5125c7323243187e961bf4484",
-"ubx__ids_8hpp.html#a8e2869adefd2fc347b722d291a8ef942"
+"classconsole__pages_1_1Pages.html#ad13852ed39c831288cee9dc9055459ea",
+"classextension_1_1Bme280.html#a41a192bcc5212abcca25b3c026be7fd3",
+"classextension_1_1ImuExtensionBase.html#a5893e29e0c19cf25d4479d868f26825c",
+"classextension_1_1SimHumiditySensor.html#a2aa3ac844b4d83d427e0f633f803a027",
+"classgiraffe_1_1FlightRunnerData.html#aab96e60401cd873cd64c73bad36d860f",
+"classgiraffe_1_1gdl_1_1Packet.html#a785216d96e3d838ee9f6772eb34395d1",
+"classmodules_1_1SystemModule.html#a10392744a231ea7c1a39d3a7fddc655f",
+"console__pages_8hpp.html#ad6363c61e7b2423fe3e8baae0749e769a3d27c95bfdbea691b250894d96852844",
+"giraffe__file__paths_8hpp.html#a65c87720fa2bacbdc5af2ce04c03ebff",
+"json_8hpp_source.html",
+"namespacegfs__sim.html#a9a1ecaafdd3df4142d8be5590eb177e1",
+"node_8hpp.html#a5360cad6ada29a0aae6013099cab6419a034312d8adc8099c1c6f53aaff745e26",
+"structdata_1_1LogPacket.html#ab3abc310a2d936050d720a55ce18aa14",
+"test__interfaces_8cpp.html#a5869b66306c20e78baf8b30a62cf5912"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

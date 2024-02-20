@@ -66,8 +66,10 @@ var hierarchy =
         [ "extension::Mcp3021", "classextension_1_1Mcp3021.html", null ]
       ] ],
       [ "extension::Bme280", "classextension_1_1Bme280.html", null ],
-      [ "extension::Bmi088", "classextension_1_1Bmi088.html", null ],
       [ "extension::Ds18b20", "classextension_1_1Ds18b20.html", null ],
+      [ "extension::ImuExtensionBase", "classextension_1_1ImuExtensionBase.html", [
+        [ "extension::Bmi088", "classextension_1_1Bmi088.html", null ]
+      ] ],
       [ "extension::PiCamera", "classextension_1_1PiCamera.html", null ],
       [ "extension::RgbStatusLed", "classextension_1_1RgbStatusLed.html", null ],
       [ "extension::SamM8q", "classextension_1_1SamM8q.html", null ],

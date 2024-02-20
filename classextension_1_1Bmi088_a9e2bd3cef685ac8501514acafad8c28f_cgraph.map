@@ -1,5 +1,0 @@
-<map id="extension::Bmi088::accelerometerHandshake" name="extension::Bmi088::accelerometerHandshake">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,193,80"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a00ef6cd65250307287af24071c862a42" title="Sleep internally for a given number of milliseconds." alt="" coords="241,5,400,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1SpiInterface.html#a146b865b9d5d9a41c82283565b91ff80" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="245,71,396,112"/>
-</map>

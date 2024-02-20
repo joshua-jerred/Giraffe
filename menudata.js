@@ -31,11 +31,13 @@ var menudata={children:[
 {text:"Namespace Members",url:"namespacemembers.html",children:[
 {text:"All",url:"namespacemembers.html",children:[
 {text:"a",url:"namespacemembers.html#index_a"},
+{text:"b",url:"namespacemembers.html#index_b"},
 {text:"c",url:"namespacemembers.html#index_c"},
 {text:"d",url:"namespacemembers.html#index_d"},
 {text:"e",url:"namespacemembers.html#index_e"},
 {text:"f",url:"namespacemembers.html#index_f"},
 {text:"g",url:"namespacemembers.html#index_g"},
+{text:"h",url:"namespacemembers.html#index_h"},
 {text:"i",url:"namespacemembers.html#index_i"},
 {text:"j",url:"namespacemembers.html#index_j"},
 {text:"k",url:"namespacemembers.html#index_k"},
@@ -64,9 +66,11 @@ var menudata={children:[
 {text:"v",url:"namespacemembers_func.html#index_v"},
 {text:"w",url:"namespacemembers_func.html#index_w"}]},
 {text:"Variables",url:"namespacemembers_vars.html",children:[
+{text:"b",url:"namespacemembers_vars.html#index_b"},
 {text:"e",url:"namespacemembers_vars.html#index_e"},
 {text:"f",url:"namespacemembers_vars.html#index_f"},
 {text:"g",url:"namespacemembers_vars.html#index_g"},
+{text:"h",url:"namespacemembers_vars.html#index_h"},
 {text:"k",url:"namespacemembers_vars.html#index_k"},
 {text:"m",url:"namespacemembers_vars.html#index_m"},
 {text:"r",url:"namespacemembers_vars.html#index_r"},
@@ -153,7 +157,8 @@ var menudata={children:[
 {text:"y",url:"functions_vars_y.html#index_y"},
 {text:"z",url:"functions_vars_z.html#index_z"}]},
 {text:"Typedefs",url:"functions_type.html"},
-{text:"Enumerations",url:"functions_enum.html"}]}]},
+{text:"Enumerations",url:"functions_enum.html"},
+{text:"Enumerator",url:"functions_eval.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[
@@ -200,7 +205,6 @@ var menudata={children:[
 {text:"e",url:"globals_vars.html#index_e"},
 {text:"f",url:"globals_vars.html#index_f"},
 {text:"g",url:"globals_vars.html#index_g"},
-{text:"h",url:"globals_vars.html#index_h"},
 {text:"i",url:"globals_vars.html#index_i"},
 {text:"k",url:"globals_vars.html#index_k"},
 {text:"m",url:"globals_vars.html#index_m"},

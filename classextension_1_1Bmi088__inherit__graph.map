@@ -1,4 +1,5 @@
 <map id="extension::Bmi088" name="extension::Bmi088">
-<area shape="rect" id="node1" title="The BMI088 extension." alt="" coords="18,585,225,868"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,5,237,537"/>
+<area shape="rect" id="node1" title="The BMI088 extension." alt="" coords="23,945,219,1316"/>
+<area shape="rect" id="node2" href="$classextension_1_1ImuExtensionBase.html" title=" " alt="" coords="14,585,229,897"/>
+<area shape="rect" id="node3" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,5,237,537"/>
 </map>

@@ -110,11 +110,12 @@ $(document).ready(function(){initNavTree('bmi088_8cpp.html',''); initResizable()
 
 <p>Implementation of the BMI088 extension.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="bmi088_8hpp_source.html">bmi088.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;BoosterSeat/science.hpp&gt;</code><br />
+<code>#include &quot;<a class="el" href="bmi088_8hpp_source.html">bmi088.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bmi088.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="bmi088_8cpp__incl.svg" width="2543" height="799"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="bmi088_8cpp__incl.svg" width="2998" height="888"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -125,48 +126,38 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a106026de4bcda5d5fb6b25f3e0442160"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a106026de4bcda5d5fb6b25f3e0442160">BMI088_ACC_PWR_CONF_ADDR</a> = 0x7C</td></tr>
-<tr class="separator:a106026de4bcda5d5fb6b25f3e0442160"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8c84bf889f4d566d7bca1d524421f78"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#ad8c84bf889f4d566d7bca1d524421f78">BMI088_ACC_PWR_CONF_VAL</a> = 0x00</td></tr>
-<tr class="separator:ad8c84bf889f4d566d7bca1d524421f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12073f83d7f169f1564b18a9b21df19c"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a12073f83d7f169f1564b18a9b21df19c">BMI088_ACC_PWR_CTRL_ADDR</a> = 0x7D</td></tr>
-<tr class="separator:a12073f83d7f169f1564b18a9b21df19c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96bbeb902ec4cdd512a5fe64206d82d8"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a96bbeb902ec4cdd512a5fe64206d82d8">BMI088_ACC_PWR_CTRL_VAL</a> = 0x04</td></tr>
-<tr class="separator:a96bbeb902ec4cdd512a5fe64206d82d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bb1586ccab31131872a5066ae1a2835"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a4bb1586ccab31131872a5066ae1a2835">BMI088_ACCEL_CHIP_ID_ADDR</a> = 0x00</td></tr>
-<tr class="separator:a4bb1586ccab31131872a5066ae1a2835"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a16b1426c143186384bce4f9d5376c4"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a2a16b1426c143186384bce4f9d5376c4">BMI088_ACCEL_EXP_CHIP_ID</a> = 0x1E</td></tr>
-<tr class="separator:a2a16b1426c143186384bce4f9d5376c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adacc16decb03d8d0ec85c05e742ddca9"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#adacc16decb03d8d0ec85c05e742ddca9">BMI088_GYRO_BW_ADDR</a> = 0x10</td></tr>
-<tr class="separator:adacc16decb03d8d0ec85c05e742ddca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5eb58a922c7a3494eb49657b20d2a2fa"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a5eb58a922c7a3494eb49657b20d2a2fa">BMI088_GYRO_BW_VAL</a> = 0x07</td></tr>
-<tr class="separator:a5eb58a922c7a3494eb49657b20d2a2fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4f28f715c96cf488ac7b7dd544c1a28"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#ac4f28f715c96cf488ac7b7dd544c1a28">BMI088_GYRO_CHIP_ID_ADDR</a> = 0x00</td></tr>
-<tr class="separator:ac4f28f715c96cf488ac7b7dd544c1a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a984e4d526d0f778a18424c5e399afc02"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a984e4d526d0f778a18424c5e399afc02">BMI088_GYRO_EXP_CHIP_ID</a> = 0x0F</td></tr>
-<tr class="separator:a984e4d526d0f778a18424c5e399afc02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66da1170fc883e509614ab4858f1e10b"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a66da1170fc883e509614ab4858f1e10b">BMI088_GYRO_RANGE</a> = 2000.0</td></tr>
-<tr class="separator:a66da1170fc883e509614ab4858f1e10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae71e6717c2689321b7ea201d71fb4214"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#ae71e6717c2689321b7ea201d71fb4214">BMI088_GYRO_RANGE_ADDR</a> = 0x0F</td></tr>
-<tr class="separator:ae71e6717c2689321b7ea201d71fb4214"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a453f970fcf265f65eac3c3a1275fa37b"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a453f970fcf265f65eac3c3a1275fa37b">BMI088_GYRO_RANGE_VAL</a> = 0x00</td></tr>
-<tr class="separator:a453f970fcf265f65eac3c3a1275fa37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d2bff3cfd427d22acb23c561c548a96"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a4d2bff3cfd427d22acb23c561c548a96">BMI088_READ_ACCEL_DATA_ADDR</a> = 0x12</td></tr>
-<tr class="separator:a4d2bff3cfd427d22acb23c561c548a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8745e1d7395a001b2619ef21c84c9959"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a8745e1d7395a001b2619ef21c84c9959">BMI088_READ_FLAG</a> = 0x80</td></tr>
-<tr class="separator:a8745e1d7395a001b2619ef21c84c9959"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b7f0b6b3fc9f28e616f860c8d21f1ad"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a9b7f0b6b3fc9f28e616f860c8d21f1ad">BMI088_READ_GYRO_DATA_ADDR</a> = 0x02</td></tr>
-<tr class="separator:a9b7f0b6b3fc9f28e616f860c8d21f1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35f69e75d19c871362b6410ab9daa4a5"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a35f69e75d19c871362b6410ab9daa4a5">BMI088_WRITE_FLAG</a> = 0x00</td></tr>
-<tr class="separator:a35f69e75d19c871362b6410ab9daa4a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab92124e84c4342122eeffcc877457cc4"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#ab92124e84c4342122eeffcc877457cc4">HANDSHAKE_ATTEMPTS</a> = 3</td></tr>
-<tr class="separator:ab92124e84c4342122eeffcc877457cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2507d879aaab7ff7e3edfff108378533"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a2507d879aaab7ff7e3edfff108378533">HANDSHAKE_RETRY_DELAY_MS</a> = 100</td></tr>
-<tr class="separator:a2507d879aaab7ff7e3edfff108378533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaff9770bae08dadd8b92b5f5400fbff9"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#aaff9770bae08dadd8b92b5f5400fbff9">extension::BMI088_GYRO_BW_ADDR</a> = 0x10</td></tr>
+<tr class="separator:aaff9770bae08dadd8b92b5f5400fbff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaef6b5257fcdd83e952304dbadcec20a"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#aaef6b5257fcdd83e952304dbadcec20a">extension::BMI088_GYRO_BW_VAL</a> = 0x07</td></tr>
+<tr class="separator:aaef6b5257fcdd83e952304dbadcec20a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74b3a59787b8ffe0c823d3150672e273"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a74b3a59787b8ffe0c823d3150672e273">extension::BMI088_GYRO_CHIP_ID_ADDR</a> = 0x00</td></tr>
+<tr class="separator:a74b3a59787b8ffe0c823d3150672e273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120a892156aac3567d0d72853a55bae6"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a120a892156aac3567d0d72853a55bae6">extension::BMI088_GYRO_EXP_CHIP_ID</a> = 0x0F</td></tr>
+<tr class="separator:a120a892156aac3567d0d72853a55bae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d0cb38c257a60a7cb49b21710e00ba8"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a0d0cb38c257a60a7cb49b21710e00ba8">extension::BMI088_GYRO_RANGE</a> = 2000.0</td></tr>
+<tr class="separator:a0d0cb38c257a60a7cb49b21710e00ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ec2e3456e4d1cf5581efb3a6c768323"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a3ec2e3456e4d1cf5581efb3a6c768323">extension::BMI088_GYRO_RANGE_ADDR</a> = 0x0F</td></tr>
+<tr class="separator:a3ec2e3456e4d1cf5581efb3a6c768323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03381e49e6a079285b44024a0a4869d2"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a03381e49e6a079285b44024a0a4869d2">extension::BMI088_GYRO_RANGE_VAL</a> = 0x00</td></tr>
+<tr class="separator:a03381e49e6a079285b44024a0a4869d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae08b359734ee842f25e034280cd49104"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#ae08b359734ee842f25e034280cd49104">extension::BMI088_READ_FLAG</a> = 0x80</td></tr>
+<tr class="separator:ae08b359734ee842f25e034280cd49104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1880dc4685f724d7feb66cc3a461f1c"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#aa1880dc4685f724d7feb66cc3a461f1c">extension::BMI088_READ_GYRO_DATA_ADDR</a> = 0x02</td></tr>
+<tr class="separator:aa1880dc4685f724d7feb66cc3a461f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aeecd16d9e960b13ee709bb3e78717e"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a1aeecd16d9e960b13ee709bb3e78717e">extension::BMI088_WRITE_FLAG</a> = 0x00</td></tr>
+<tr class="separator:a1aeecd16d9e960b13ee709bb3e78717e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7885411df16bc861751d7064e8ac2fe7"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a7885411df16bc861751d7064e8ac2fe7">extension::HANDSHAKE_ATTEMPTS</a> = 3</td></tr>
+<tr class="separator:a7885411df16bc861751d7064e8ac2fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a962e051b6a702da55b0d76f6ab6ef88e"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a962e051b6a702da55b0d76f6ab6ef88e">extension::HANDSHAKE_RETRY_DELAY_MS</a> = 100</td></tr>
+<tr class="separator:a962e051b6a702da55b0d76f6ab6ef88e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f56d4920a56287a29bcd10ff499e7f3"><td class="memItemLeft" align="right" valign="top">constexpr Bmi088::AccBwp&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a0f56d4920a56287a29bcd10ff499e7f3">extension::K_BMI088_ACC_BWP</a> = Bmi088::BWP_NORMAL</td></tr>
+<tr class="separator:a0f56d4920a56287a29bcd10ff499e7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a30568427b43743aa5da917b8d9808"><td class="memItemLeft" align="right" valign="top">constexpr Bmi088::AccOutputDataRate&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a96a30568427b43743aa5da917b8d9808">extension::K_BMI088_ACC_ODR</a> = Bmi088::ODR_100</td></tr>
+<tr class="separator:a96a30568427b43743aa5da917b8d9808"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09ea881c3ce56409cb538653206c6ab8"><td class="memItemLeft" align="right" valign="top">constexpr Bmi088::AccRange&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a09ea881c3ce56409cb538653206c6ab8">extension::K_BMI088_ACC_RANGE</a> = Bmi088::RANGE_3G</td></tr>
+<tr class="separator:a09ea881c3ce56409cb538653206c6ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74f73c2f35760b6ec74596659fdd2b65"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classgiraffe_1_1SpiInterface.html#structgiraffe_1_1SpiInterface_1_1Config">giraffe::SpiInterface::Config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a74f73c2f35760b6ec74596659fdd2b65">SPI_CONFIG</a></td></tr>
 <tr class="separator:a74f73c2f35760b6ec74596659fdd2b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ba39dd2e759bb75ccb5787bca51a590"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bmi088_8cpp.html#a3ba39dd2e759bb75ccb5787bca51a590">TIMEOUT_MS</a> = 500</td></tr>
-<tr class="separator:a3ba39dd2e759bb75ccb5787bca51a590"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of the BMI088 extension. </p>
@@ -175,484 +166,6 @@ Variables</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2024-01-26 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>2024 (license to be defined) </dd></dl>
 </div><h2 class="groupheader">Variable Documentation</h2>
-<a id="ab92124e84c4342122eeffcc877457cc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab92124e84c4342122eeffcc877457cc4">&#9670;&nbsp;</a></span>HANDSHAKE_ATTEMPTS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint32_t HANDSHAKE_ATTEMPTS = 3</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a9e2bd3cef685ac8501514acafad8c28f">extension::Bmi088::accelerometerHandshake()</a>, and <a class="el" href="classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2">extension::Bmi088::gyroHandshake()</a>.</p>
-
-</div>
-</div>
-<a id="a2507d879aaab7ff7e3edfff108378533"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2507d879aaab7ff7e3edfff108378533">&#9670;&nbsp;</a></span>HANDSHAKE_RETRY_DELAY_MS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint32_t HANDSHAKE_RETRY_DELAY_MS = 100</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a9e2bd3cef685ac8501514acafad8c28f">extension::Bmi088::accelerometerHandshake()</a>, and <a class="el" href="classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2">extension::Bmi088::gyroHandshake()</a>.</p>
-
-</div>
-</div>
-<a id="a3ba39dd2e759bb75ccb5787bca51a590"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ba39dd2e759bb75ccb5787bca51a590">&#9670;&nbsp;</a></span>TIMEOUT_MS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr int TIMEOUT_MS = 500</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8745e1d7395a001b2619ef21c84c9959"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8745e1d7395a001b2619ef21c84c9959">&#9670;&nbsp;</a></span>BMI088_READ_FLAG</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_READ_FLAG = 0x80</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a9e2bd3cef685ac8501514acafad8c28f">extension::Bmi088::accelerometerHandshake()</a>, <a class="el" href="classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2">extension::Bmi088::gyroHandshake()</a>, <a class="el" href="classextension_1_1Bmi088.html#a33e6089d835e44f98bac792d815817c6">extension::Bmi088::readAccelData()</a>, and <a class="el" href="classextension_1_1Bmi088.html#a1755ea339eb317a6af46e2578a00c1d5">extension::Bmi088::readGyroData()</a>.</p>
-
-</div>
-</div>
-<a id="a35f69e75d19c871362b6410ab9daa4a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35f69e75d19c871362b6410ab9daa4a5">&#9670;&nbsp;</a></span>BMI088_WRITE_FLAG</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_WRITE_FLAG = 0x00</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649">extension::Bmi088::configureAccelerometer()</a>, and <a class="el" href="classextension_1_1Bmi088.html#ae0822f94de46f127633943bdb8aaaa45">extension::Bmi088::configureGyro()</a>.</p>
-
-</div>
-</div>
-<a id="ac4f28f715c96cf488ac7b7dd544c1a28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4f28f715c96cf488ac7b7dd544c1a28">&#9670;&nbsp;</a></span>BMI088_GYRO_CHIP_ID_ADDR</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_GYRO_CHIP_ID_ADDR = 0x00</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2">extension::Bmi088::gyroHandshake()</a>.</p>
-
-</div>
-</div>
-<a id="a984e4d526d0f778a18424c5e399afc02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a984e4d526d0f778a18424c5e399afc02">&#9670;&nbsp;</a></span>BMI088_GYRO_EXP_CHIP_ID</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_GYRO_EXP_CHIP_ID = 0x0F</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2">extension::Bmi088::gyroHandshake()</a>.</p>
-
-</div>
-</div>
-<a id="ae71e6717c2689321b7ea201d71fb4214"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae71e6717c2689321b7ea201d71fb4214">&#9670;&nbsp;</a></span>BMI088_GYRO_RANGE_ADDR</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_GYRO_RANGE_ADDR = 0x0F</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#ae0822f94de46f127633943bdb8aaaa45">extension::Bmi088::configureGyro()</a>.</p>
-
-</div>
-</div>
-<a id="a453f970fcf265f65eac3c3a1275fa37b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a453f970fcf265f65eac3c3a1275fa37b">&#9670;&nbsp;</a></span>BMI088_GYRO_RANGE_VAL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_GYRO_RANGE_VAL = 0x00</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#ae0822f94de46f127633943bdb8aaaa45">extension::Bmi088::configureGyro()</a>.</p>
-
-</div>
-</div>
-<a id="a66da1170fc883e509614ab4858f1e10b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66da1170fc883e509614ab4858f1e10b">&#9670;&nbsp;</a></span>BMI088_GYRO_RANGE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double BMI088_GYRO_RANGE = 2000.0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a1755ea339eb317a6af46e2578a00c1d5">extension::Bmi088::readGyroData()</a>.</p>
-
-</div>
-</div>
-<a id="adacc16decb03d8d0ec85c05e742ddca9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adacc16decb03d8d0ec85c05e742ddca9">&#9670;&nbsp;</a></span>BMI088_GYRO_BW_ADDR</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_GYRO_BW_ADDR = 0x10</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#ae0822f94de46f127633943bdb8aaaa45">extension::Bmi088::configureGyro()</a>.</p>
-
-</div>
-</div>
-<a id="a5eb58a922c7a3494eb49657b20d2a2fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5eb58a922c7a3494eb49657b20d2a2fa">&#9670;&nbsp;</a></span>BMI088_GYRO_BW_VAL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_GYRO_BW_VAL = 0x07</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#ae0822f94de46f127633943bdb8aaaa45">extension::Bmi088::configureGyro()</a>.</p>
-
-</div>
-</div>
-<a id="a9b7f0b6b3fc9f28e616f860c8d21f1ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b7f0b6b3fc9f28e616f860c8d21f1ad">&#9670;&nbsp;</a></span>BMI088_READ_GYRO_DATA_ADDR</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_READ_GYRO_DATA_ADDR = 0x02</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a1755ea339eb317a6af46e2578a00c1d5">extension::Bmi088::readGyroData()</a>.</p>
-
-</div>
-</div>
-<a id="a4bb1586ccab31131872a5066ae1a2835"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bb1586ccab31131872a5066ae1a2835">&#9670;&nbsp;</a></span>BMI088_ACCEL_CHIP_ID_ADDR</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_ACCEL_CHIP_ID_ADDR = 0x00</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a9e2bd3cef685ac8501514acafad8c28f">extension::Bmi088::accelerometerHandshake()</a>.</p>
-
-</div>
-</div>
-<a id="a2a16b1426c143186384bce4f9d5376c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a16b1426c143186384bce4f9d5376c4">&#9670;&nbsp;</a></span>BMI088_ACCEL_EXP_CHIP_ID</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_ACCEL_EXP_CHIP_ID = 0x1E</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a9e2bd3cef685ac8501514acafad8c28f">extension::Bmi088::accelerometerHandshake()</a>.</p>
-
-</div>
-</div>
-<a id="a12073f83d7f169f1564b18a9b21df19c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12073f83d7f169f1564b18a9b21df19c">&#9670;&nbsp;</a></span>BMI088_ACC_PWR_CTRL_ADDR</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_ACC_PWR_CTRL_ADDR = 0x7D</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649">extension::Bmi088::configureAccelerometer()</a>.</p>
-
-</div>
-</div>
-<a id="a96bbeb902ec4cdd512a5fe64206d82d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96bbeb902ec4cdd512a5fe64206d82d8">&#9670;&nbsp;</a></span>BMI088_ACC_PWR_CTRL_VAL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_ACC_PWR_CTRL_VAL = 0x04</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649">extension::Bmi088::configureAccelerometer()</a>.</p>
-
-</div>
-</div>
-<a id="a106026de4bcda5d5fb6b25f3e0442160"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a106026de4bcda5d5fb6b25f3e0442160">&#9670;&nbsp;</a></span>BMI088_ACC_PWR_CONF_ADDR</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_ACC_PWR_CONF_ADDR = 0x7C</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649">extension::Bmi088::configureAccelerometer()</a>.</p>
-
-</div>
-</div>
-<a id="ad8c84bf889f4d566d7bca1d524421f78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8c84bf889f4d566d7bca1d524421f78">&#9670;&nbsp;</a></span>BMI088_ACC_PWR_CONF_VAL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_ACC_PWR_CONF_VAL = 0x00</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649">extension::Bmi088::configureAccelerometer()</a>.</p>
-
-</div>
-</div>
-<a id="a4d2bff3cfd427d22acb23c561c548a96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d2bff3cfd427d22acb23c561c548a96">&#9670;&nbsp;</a></span>BMI088_READ_ACCEL_DATA_ADDR</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint8_t BMI088_READ_ACCEL_DATA_ADDR = 0x12</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classextension_1_1Bmi088.html#a33e6089d835e44f98bac792d815817c6">extension::Bmi088::readAccelData()</a>.</p>
-
-</div>
-</div>
 <a id="a74f73c2f35760b6ec74596659fdd2b65"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a74f73c2f35760b6ec74596659fdd2b65">&#9670;&nbsp;</a></span>SPI_CONFIG</h2>
 
@@ -665,7 +178,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">    .bits_per_word = 8, .speed_hz = 10000, .delay_usecs = 3}</div>
+<div class="line">    .bits_per_word = 8, .speed_hz = 50000, .delay_usecs = 0}</div>
 </div><!-- fragment -->
 </div>
 </div>
