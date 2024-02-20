@@ -127,6 +127,15 @@ bool sock::TcpSocketServer::send(const std::string &data) const {
   }
 }
 
+bool sock::TcpSocketServer::sendRawData(const uint8_t *data, size_t size) {
+  int status = ::send(sock_, data, size, 0);
+  if (status == -1) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 bool sock::TcpSocketServer::receive(std::string &data) const {
   char buf[sock::K_MAX_RECEIVE + 1];
 
