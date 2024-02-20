@@ -19,7 +19,7 @@
 #include "bmi088.hpp"
 
 const giraffe::SpiInterface::Config SPI_CONFIG{
-    .bits_per_word = 8, .speed_hz = 10000, .delay_usecs = 1};
+    .bits_per_word = 8, .speed_hz = 50000, .delay_usecs = 0};
 
 namespace extension {
 
@@ -41,7 +41,7 @@ inline constexpr uint8_t BMI088_READ_GYRO_DATA_ADDR = 0x02;
 
 inline constexpr Bmi088::AccOutputDataRate K_BMI088_ACC_ODR = Bmi088::ODR_100;
 inline constexpr Bmi088::AccBwp K_BMI088_ACC_BWP = Bmi088::BWP_NORMAL;
-inline constexpr Bmi088::AccRange K_BMI088_ACC_RANGE = Bmi088::RANGE_12G;
+inline constexpr Bmi088::AccRange K_BMI088_ACC_RANGE = Bmi088::RANGE_3G;
 
 // inline constexpr
 
@@ -221,19 +221,8 @@ bool Bmi088::readAccelData() {
              bst::K_GRAVITY * 0.001;
   double z = static_cast<double>(z_raw) / K_INT16_DIVISOR * acc_range_value_ *
              bst::K_GRAVITY * 0.001;
-  // x /= 1000.0 * bst::K_GRAVITY;
-  // y /= 1000.0 * bst::K_GRAVITY;
-  // z /= 1000.0 * bst::K_GRAVITY;
 
-  std::cout << "acc_range_value_: " << acc_range_value_ << "\n";
-  std::cout << "x: " << x << " y: " << y << " z: " << z << std::endl;
-  std::cout << "x2: " << acc_range_value_ * x_raw / 32768000 * bst::K_GRAVITY
-            << " y2: " << acc_range_value_ * y_raw / 32768000 * bst::K_GRAVITY
-            << " z2: " << acc_range_value_ * z_raw / 32768000 * bst::K_GRAVITY
-            << std::endl;
-
-  reportAccelData(static_cast<double>(x_raw), static_cast<double>(y_raw),
-                  static_cast<double>(z_raw));
+  reportAccelData(x, y, z);
 
   return true;
 }
