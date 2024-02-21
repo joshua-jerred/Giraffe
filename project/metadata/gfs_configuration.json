@@ -689,8 +689,8 @@
             "default": "none",
             "name": "ADC Channel Label",
             "description": "The label for the ADC channel. Must be unique.",
-            "max": 3,
-            "min": 10,
+            "max": 10,
+            "min": 3,
             "pattern": ""
         },
         "type": {

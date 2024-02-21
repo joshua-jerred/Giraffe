@@ -70,8 +70,9 @@ public:
   void setFromJson(const Json &json_data);
   Json getJson() const;
 
-  void addAdcConfig(const AdcConfig &adc_config);
-  void removeAdcConfig(const std::string &label);
+  bool addAdcConfig(const AdcConfig &adc_config);
+  bool removeAdcConfig(const std::string &label);
+  bool updateAdcConfig(const std::string &label, const AdcConfig &adc_config);
   std::vector<AdcConfig> getAdcConfigs() const;
 
 private:

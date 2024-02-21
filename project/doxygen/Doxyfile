@@ -21,6 +21,7 @@ INPUT += docs/introduction.md
 INPUT += docs/data_link.md
 INPUT += docs/uml
 INPUT += docs/groups.dox
+INPUT += README.md
 INPUT += tests
 IMAGE_PATH             = ./docs/assets
 RECURSIVE              = YES
@@ -31,7 +32,7 @@ FILE_PATTERNS          = *.cpp \
                          *.dox \
                          *.puml \
 
-USE_MDFILE_AS_MAINPAGE = docs/introduction.md
+USE_MDFILE_AS_MAINPAGE = README.md
 # CITE_BIB_FILES = docs/references.bib
 
 # ---------------------------------------------------------------------------- #

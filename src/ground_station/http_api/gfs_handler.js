@@ -165,5 +165,100 @@ module.exports = function (global_state) {
       }
     );
   });
+
+  // -- ADC Value Mapping Handlers --
+
+  // POST /api/gfs/adc_mappings - create a new ADC value map
+  router.post("/adc_mappings", (req, res, next) => {
+    const resource = "setting/adc_mappings";
+    const data = {
+      map_data: req.body,
+      action: "add",
+    };
+    global_state.gfs_socket_requester.sendSetRequest(
+      resource,
+      data,
+      (success, response) => {
+        if (
+          success &&
+          response.hasOwnProperty("bdy") &&
+          response.bdy.hasOwnProperty("cde") &&
+          response.bdy.cde === "ok"
+        ) {
+          res.json({ message: "ADC Value Map added." });
+        } else {
+          res.status(500).json(response);
+        }
+      }
+    );
+  });
+
+  // PUT /api/gfs/adc_mappings - update an ADC value map
+  router.put("/adc_mappings", (req, res, next) => {
+    if (!req.query.hasOwnProperty("map_label")) {
+      genericResponse(res, 400, "map_label is required in query.");
+      return;
+    }
+
+    // the current label of the map, it may be updated in the body
+    let map_label = req.query.map_label;
+
+    const resource = "setting/adc_mappings";
+    const data = {
+      map_label: map_label,
+      map_data: req.body,
+      action: "update",
+    };
+    global_state.gfs_socket_requester.sendSetRequest(
+      resource,
+      data,
+      (success, response) => {
+        if (
+          success &&
+          response.hasOwnProperty("bdy") &&
+          response.bdy.hasOwnProperty("cde") &&
+          response.bdy.cde === "ok"
+        ) {
+          res.json({ message: "ADC value map updated." });
+        } else {
+          res.status(500).json(response);
+        }
+      }
+    );
+  });
+
+  // DELETE /api/gfs/adc_mappings - delete an ADC value map
+  router.delete("/adc_mappings", (req, res, next) => {
+    if (!req.query.hasOwnProperty("map_label")) {
+      genericResponse(res, 400, "map_label is required in query.");
+      return;
+    }
+
+    // the current label of the value map, it may be updated in the body
+    let map_label = req.query.map_label;
+
+    const resource = "setting/adc_mappings";
+    const data = {
+      map_label: map_label,
+      action: "remove",
+    };
+    global_state.gfs_socket_requester.sendSetRequest(
+      resource,
+      data,
+      (success, response) => {
+        if (
+          success &&
+          response.hasOwnProperty("bdy") &&
+          response.bdy.hasOwnProperty("cde") &&
+          response.bdy.cde === "ok"
+        ) {
+          res.json({ message: "ADC value map deleted." });
+        } else {
+          res.status(500).json(response);
+        }
+      }
+    );
+  });
+
   return router;
 };

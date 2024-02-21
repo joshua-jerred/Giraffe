@@ -12,35 +12,28 @@ import { CardBreak } from "../core/PageParts";
 import { GwsGlobal } from "../GlobalContext";
 
 import { ConfigMetadata } from "giraffe-protocol";
-const ExtensionConfigMetadata = ConfigMetadata.adc_mappings;
+const AdcMappingConfigMetadata = ConfigMetadata.adc_mappings;
 
-const validateExtensionMetadata = (config) => {
-  if (config.name.length < ExtensionConfigMetadata.name.min) {
-    console.log(config.name.length, ExtensionConfigMetadata.name.min);
-    return "Name too short";
+/**
+ * @todo Need to complete validation
+ * @param {*} config
+ * @returns
+ */
+const validateAdcMappingConfig = (config) => {
+  if (config.label.length < AdcMappingConfigMetadata.label.min) {
+    console.log(config.label.length, AdcMappingConfigMetadata.label.min);
+    return "Label too short";
   }
-  if (config.name.length > ExtensionConfigMetadata.name.max) {
-    return "Name too long";
-  }
-  if (config.update_interval < ExtensionConfigMetadata.update_interval.min) {
-    return "Update interval too short";
-  }
-  if (config.update_interval > ExtensionConfigMetadata.update_interval.max) {
-    return "Update interval too long";
-  }
-  if (!ExtensionConfigMetadata.type.options.includes(config.type)) {
+  if (!AdcMappingConfigMetadata.type.options.includes(config.type)) {
     return "Invalid type";
   }
   if (config.type === "unknown") {
     return "Must select a type";
   }
-  if (config.extra_args.length > ExtensionConfigMetadata.extra_args.max) {
-    return "Extra args too long";
-  }
   return null;
 };
 
-const ExtensionsConfigurationStyle = styled.div`
+const AdcValueMapConfigurationStyle = styled.div`
   width: 100%;
 
   .new_ext_button {
@@ -50,14 +43,14 @@ const ExtensionsConfigurationStyle = styled.div`
     width: 100px;
   }
 
-  .new_ext_submit_button {
+  .new_adc_map_submit_button {
     display: block;
     margin: 10px auto;
     margin-bottom: 15px;
     width: 200px;
   }
 
-  .ext_edit_button {
+  .adc_map_edit_button {
     display: block;
     margin: 10px auto;
     margin-bottom: 15px;
@@ -79,16 +72,11 @@ const ExtensionsConfigurationStyle = styled.div`
     font-weight: bold;
   }
 
-  .new_extension_input {
+  .new_adc_input {
     margin: 0 3%;
     width: calc(94% - 10px);
     padding: 0px 5px;
     height: 30px;
-  }
-
-  .new_extension_checkboxes {
-    display: flex;
-    justify-content: space-around;
   }
 
   .new_extension_checkbox_container {
@@ -97,142 +85,228 @@ const ExtensionsConfigurationStyle = styled.div`
     text-align: center;
   }
 
-  .ext_error_text_div {
+  .adc_map_error_text_div {
     text-align: center;
     color: red;
     font-weight: bold;
   }
 
-  .ext_buttons_container {
+  .adc_map_buttons_container {
     display: flex;
     justify-content: space-around;
   }
 `;
 
-function ExtensionDisplay({
-  name,
-  enabled,
-  extensionType,
-  updateInterval,
-  critical,
-  extraArgs,
+function AdcMapDisplay({
+  label,
+  mapType,
+  extensionName,
+  channelNumber,
+  resolution,
+  resistor1Value,
+  resistor2Value,
+  voltageReference,
+  percentageMax,
+  percentageMin,
+  percentageClamp,
 }) {
   return (
     <div>
       <div>
-        {`${name}[${extensionType}] ${
-          enabled ? "Enabled" : "Disabled"
-        } ${updateInterval}ms ${critical ? " - Critical" : ""} `}
+        {`${label} - ${mapType} [${extensionName}:${channelNumber}] - ${resolution}bit`}
       </div>
-      <div>{extraArgs}</div>
-
-      {/* <GfsEditBox resource="gfs" category="extensions" /> */}
+      {mapType === "percentage" &&
+        `${percentageMin}% - ${percentageMax}% - ${percentageClamp}%`}
+      {mapType === "voltage_divider" &&
+        `${resistor1Value} - ${resistor2Value} - ${voltageReference}mv`}
     </div>
   );
 }
 
-function ExtensionEdit({
-  name,
-  setName,
-  enabled,
-  setEnabled,
-  extensionType,
-  setExtensionType,
-  updateInterval,
-  setUpdateInterval,
-  critical,
-  setCritical,
-  extraArgs,
-  setExtraArgs,
+function AdcMapEdit({
+  label,
+  setLabel,
+  mapType,
+  setMapType,
+  extensionName,
+  setExtensionName,
+  channelNumber,
+  setChannelNumber,
+  resolution,
+  setResolution,
+  resistor1Value,
+  setResistor1Value,
+  resistor2Value,
+  setResistor2Value,
+  voltageReference,
+  setVoltageReference,
+  percentageMax,
+  setPercentageMax,
+  percentageMin,
+  setPercentageMin,
+  percentageClamp,
+  setPercentageClamp,
 }) {
   return (
     <div className="new_extension_div_container">
       <div className="new_extension_div">
+        <div className="new_extension_labels">Value Label</div>
+        <StyInput
+          type="text"
+          defaultValue={label}
+          onChange={(e) => setLabel(e.target.value)}
+          className="new_adc_input"
+        />
+
+        <div className="new_extension_labels">Value Map Type</div>
+        <StySelect
+          className="new_adc_input"
+          defaultValue={mapType}
+          onChange={(e) => setMapType(e.target.value)}
+        >
+          {AdcMappingConfigMetadata.type.options.map((option) => (
+            <StyOption key={option} value={option}>
+              {option}
+            </StyOption>
+          ))}
+        </StySelect>
+
         <div className="new_extension_labels">Extension Name</div>
         <StyInput
           type="text"
-          defaultValue={name}
-          onChange={(e) => setName(e.target.value)}
-          className="new_extension_input"
+          defaultValue={extensionName}
+          onChange={(e) => setExtensionName(e.target.value)}
+          className="new_adc_input"
         />
 
-        <div className="new_extension_checkboxes">
-          <div className="new_extension_checkbox_container">
-            <div className="new_extension_labels">Enabled</div>
-            <Switch checked={enabled} setChecked={setEnabled} />
-          </div>
-
-          <div className="new_extension_checkbox_container">
-            <div className="new_extension_labels">Critical</div>
-            <Switch checked={critical} setChecked={setCritical} />
-          </div>
-
-          <div className="new_extension_checkbox_container">
-            <div className="new_extension_labels">Extension Type</div>
-            <StySelect
-              className="new_extension_input"
-              defaultValue={extensionType}
-              onChange={(e) => setExtensionType(e.target.value)}
-            >
-              {ExtensionConfigMetadata.type.options.map((option) => (
-                <StyOption key={option} value={option}>
-                  {option}
-                </StyOption>
-              ))}
-            </StySelect>
-          </div>
-        </div>
-        <div className="new_extension_labels">Update Interval</div>
+        <div className="new_extension_labels">Channel Number</div>
         <StyInput
-          className="new_extension_input"
+          className="new_adc_input"
           type="number"
-          defaultValue={updateInterval}
-          onChange={(e) => setUpdateInterval(parseInt(e.target.value))}
+          defaultValue={channelNumber}
+          onChange={(e) => setChannelNumber(parseInt(e.target.value))}
         />
-        <div className="new_extension_labels">Extra Args</div>
+
+        <div className="new_extension_labels">Resolution</div>
         <StyInput
-          className="new_extension_input"
-          type="text"
-          defaultValue={extraArgs}
-          onChange={(e) => setExtraArgs(e.target.value)}
+          className="new_adc_input"
+          type="number"
+          defaultValue={resolution}
+          onChange={(e) => setResolution(parseInt(e.target.value))}
         />
+        {mapType === "voltage_divider" && (
+          <>
+            <div className="new_extension_labels">Resistor 1 Value</div>
+            <StyInput
+              className="new_adc_input"
+              type="number"
+              defaultValue={resistor1Value}
+              onChange={(e) => setResistor1Value(parseInt(e.target.value))}
+            />
+
+            <div className="new_extension_labels">Resistor 2 Value</div>
+            <StyInput
+              className="new_adc_input"
+              type="number"
+              defaultValue={resistor2Value}
+              onChange={(e) => setResistor2Value(parseInt(e.target.value))}
+            />
+
+            <div className="new_extension_labels">Voltage Reference</div>
+            <StyInput
+              className="new_adc_input"
+              type="number"
+              defaultValue={voltageReference}
+              onChange={(e) => setVoltageReference(parseInt(e.target.value))}
+            />
+          </>
+        )}
+
+        {mapType === "percentage" && (
+          <>
+            <div className="new_extension_labels">Percentage 100% Value</div>
+            <StyInput
+              className="new_adc_input"
+              type="number"
+              defaultValue={percentageMax}
+              onChange={(e) => setPercentageMax(parseInt(e.target.value))}
+            />
+
+            <div className="new_extension_labels">Percentage 0% Value</div>
+            <StyInput
+              className="new_adc_input"
+              type="number"
+              defaultValue={percentageMin}
+              onChange={(e) => setPercentageMin(parseInt(e.target.value))}
+            />
+
+            <div className="new_extension_checkbox_container">
+              <div className="new_extension_labels">Percentage Clamp</div>
+              <Switch
+                checked={percentageClamp}
+                setChecked={setPercentageClamp}
+              />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
 }
 
-function NewExtension({ addExtension }) {
+function NewAdcValueMap({ addAdcValueMap }) {
   const { ggsAddress, isGfsTcpConnected, isGgsConnected } =
     useContext(GwsGlobal);
 
-  const [name, setName] = useState(ExtensionConfigMetadata.name.default);
-  const [enabled, setEnabled] = useState(
-    ExtensionConfigMetadata.enabled.default
+  const [label, setLabel] = useState(AdcMappingConfigMetadata.label.default);
+  const [type, setType] = useState(AdcMappingConfigMetadata.type.default);
+  const [extensionName, setExtensionName] = useState(
+    AdcMappingConfigMetadata.extension_name.default
   );
-  const [type, setType] = useState(ExtensionConfigMetadata.type.default);
-  const [updateInterval, setUpdateInterval] = useState(
-    ExtensionConfigMetadata.update_interval.default
+  const [channelNumber, setChannelNumber] = useState(
+    AdcMappingConfigMetadata.channel_number.default
   );
-  const [critical, setCritical] = useState(
-    ExtensionConfigMetadata.critical.default
+  const [resolution, setResolution] = useState(
+    AdcMappingConfigMetadata.resolution.default
   );
-  const [extraArgs, setExtraArgs] = useState(
-    ExtensionConfigMetadata.extra_args.default
+  const [resistor1Value, setResistor1Value] = useState(
+    AdcMappingConfigMetadata.resistor_1_value.default
   );
+  const [resistor2Value, setResistor2Value] = useState(
+    AdcMappingConfigMetadata.resistor_2_value.default
+  );
+  const [voltageReference, setVoltageReference] = useState(
+    AdcMappingConfigMetadata.voltage_reference.default
+  );
+  const [percentageMax, setPercentageMax] = useState(
+    AdcMappingConfigMetadata.percentage_max.default
+  );
+  const [percentageMin, setPercentageMin] = useState(
+    AdcMappingConfigMetadata.percentage_min.default
+  );
+  const [percentageClamp, setPercentageClamp] = useState(
+    AdcMappingConfigMetadata.percentage_clamp.default
+  );
+
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
-  const submitExtension = () => {
+  const submitAdcMap = () => {
     let config = {
-      name: name,
-      enabled: enabled,
+      label: label,
       type: type,
-      update_interval: updateInterval,
-      critical: critical,
-      extra_args: extraArgs,
+      extension_name: extensionName,
+      channel_number: channelNumber,
+      resolution: resolution,
+      resistor_1_value: resistor1Value,
+      resistor_2_value: resistor2Value,
+      voltage_reference: voltageReference,
+      percentage_max: percentageMax,
+      percentage_min: percentageMin,
+      percentage_clamp: percentageClamp,
     };
     console.log(config);
-    let errorMessage = validateExtensionMetadata(config);
+    let errorMessage = validateAdcMappingConfig(config);
     if (errorMessage) {
       setError(errorMessage);
       return;
@@ -240,7 +314,7 @@ function NewExtension({ addExtension }) {
     setError(null);
     setLoading("submitting...");
 
-    fetch(`${ggsAddress}/api/gfs/extensions`, {
+    fetch(`${ggsAddress}/api/gfs/adc_mappings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -250,8 +324,8 @@ function NewExtension({ addExtension }) {
       .then((response) => {
         if (!response.ok) {
           setLoading(null);
-          setError("Failed to submit extension");
-          throw new Error("Failed to submit extension");
+          setError("Failed to submit adc value map");
+          throw new Error("Failed to submit adc value map");
         }
         return response.json();
       })
@@ -259,7 +333,7 @@ function NewExtension({ addExtension }) {
         console.log(data);
         setError(null);
         setLoading(null);
-        addExtension(config);
+        addAdcValueMap(config);
 
         // setTimeout(() => {
         // fetchExtensions();
@@ -273,39 +347,49 @@ function NewExtension({ addExtension }) {
 
   return (
     <>
-      <ExtensionEdit
-        name={name}
-        setName={setName}
-        enabled={enabled}
-        setEnabled={setEnabled}
-        extensionType={type}
-        setExtensionType={setType}
-        updateInterval={updateInterval}
-        setUpdateInterval={setUpdateInterval}
-        critical={critical}
-        setCritical={setCritical}
-        extraArgs={extraArgs}
-        setExtraArgs={setExtraArgs}
+      <AdcMapEdit
+        label={label}
+        setLabel={setLabel}
+        mapType={type}
+        setMapType={setType}
+        extensionName={extensionName}
+        setExtensionName={setExtensionName}
+        channelNumber={channelNumber}
+        setChannelNumber={setChannelNumber}
+        resolution={resolution}
+        setResolution={setResolution}
+        resistor1Value={resistor1Value}
+        setResistor1Value={setResistor1Value}
+        resistor2Value={resistor2Value}
+        setResistor2Value={setResistor2Value}
+        voltageReference={voltageReference}
+        setVoltageReference={setVoltageReference}
+        percentageMax={percentageMax}
+        setPercentageMax={setPercentageMax}
+        percentageMin={percentageMin}
+        setPercentageMin={setPercentageMin}
+        percentageClamp={percentageClamp}
+        setPercentageClamp={setPercentageClamp}
       />
-      {error && <div className="ext_error_text_div">{error}</div>}
+      {error && <div className="adc_map_error_text_div">{error}</div>}
       {!loading ? (
         <StyButton
-          onClick={() => submitExtension()}
-          className="new_ext_submit_button"
+          onClick={() => submitAdcMap()}
+          className="new_adc_map_submit_button"
         >
           Submit
         </StyButton>
       ) : (
-        <div className="new_ext_submit_button">{loading}</div>
+        <div className="new_adc_map_submit_button">{loading}</div>
       )}
     </>
   );
 }
 
-function ExistingExtension({
-  metadata,
-  fetchExtensions,
-  removeExistingExtension,
+function ExistingAdcValueMap({
+  values,
+  fetchAdcValueMaps,
+  removeExistingAdcValueMap,
 }) {
   const { ggsAddress, isGfsTcpConnected, isGgsConnected } =
     useContext(GwsGlobal);
@@ -314,14 +398,21 @@ function ExistingExtension({
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
-  const [name, setName] = useState(metadata.name);
-  const [enabled, setEnabled] = useState(metadata.enabled);
-  const [type, setType] = useState(metadata.type);
-  const [updateInterval, setUpdateInterval] = useState(
-    metadata.update_interval
+  const [label, setLabel] = useState(values.label);
+  const [type, setType] = useState(values.type);
+  const [extensionName, setExtensionName] = useState(values.extension_name);
+  const [channelNumber, setChannelNumber] = useState(values.channel_number);
+  const [resolution, setResolution] = useState(values.resolution);
+  const [resistor1Value, setResistor1Value] = useState(values.resistor_1_value);
+  const [resistor2Value, setResistor2Value] = useState(values.resistor_2_value);
+  const [voltageReference, setVoltageReference] = useState(
+    values.voltage_reference
   );
-  const [critical, setCritical] = useState(metadata.critical);
-  const [extraArgs, setExtraArgs] = useState(metadata.extra_args);
+  const [percentageMax, setPercentageMax] = useState(values.percentage_max);
+  const [percentageMin, setPercentageMin] = useState(values.percentage_min);
+  const [percentageClamp, setPercentageClamp] = useState(
+    values.percentage_clamp
+  );
 
   const editButtonClick = () => {
     if (!editMode) {
@@ -330,15 +421,20 @@ function ExistingExtension({
     }
 
     let config = {
-      name: name,
-      enabled: enabled,
+      label: label,
       type: type,
-      update_interval: updateInterval,
-      critical: critical,
-      extra_args: extraArgs,
+      extension_name: extensionName,
+      channel_number: channelNumber,
+      resolution: resolution,
+      resistor_1_value: resistor1Value,
+      resistor_2_value: resistor2Value,
+      voltage_reference: voltageReference,
+      percentage_max: percentageMax,
+      percentage_min: percentageMin,
+      percentage_clamp: percentageClamp,
     };
     console.log(config);
-    let errorMessage = validateExtensionMetadata(config);
+    let errorMessage = validateAdcMappingConfig(config);
     if (errorMessage) {
       setError(errorMessage);
       return;
@@ -347,7 +443,7 @@ function ExistingExtension({
     setLoading("submitting...");
 
     // use the old name in the query
-    fetch(`${ggsAddress}/api/gfs/extensions?extension_name=${metadata.name}`, {
+    fetch(`${ggsAddress}/api/gfs/adc_mappings?map_label=${values.label}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -357,8 +453,8 @@ function ExistingExtension({
       .then((response) => {
         if (!response.ok) {
           setLoading(null);
-          setError("Failed to submit extension");
-          throw new Error("Failed to submit extension");
+          setError("Failed to submit adc value map");
+          throw new Error("Failed to submit adc value map");
         }
         return response.json();
       })
@@ -369,7 +465,7 @@ function ExistingExtension({
         setEditMode(false);
 
         setTimeout(() => {
-          fetchExtensions();
+          fetchAdcValueMaps();
         }, 1000);
       })
       .catch((error) => {
@@ -380,14 +476,14 @@ function ExistingExtension({
 
   const deleteButtonClick = () => {
     setLoading("deleting...");
-    fetch(`${ggsAddress}/api/gfs/extensions?extension_name=${name}`, {
+    fetch(`${ggsAddress}/api/gfs/adc_mappings?map_label=${label}`, {
       method: "DELETE",
     })
       .then((response) => {
         if (!response.ok) {
           setLoading(null);
-          setError("Failed to delete extension");
-          throw new Error("Failed to delete extension");
+          setError("Failed to delete adc value map");
+          throw new Error("Failed to delete adc value map");
         }
         return response.json();
       })
@@ -396,12 +492,12 @@ function ExistingExtension({
         // setLoading(null);
         setTimeout(() => {
           // fetchExtensions();
-          removeExistingExtension(name);
+          removeExistingAdcValueMap(label);
         }, 3000);
       })
       .catch((error) => {
         console.error("Error:", error);
-        setError("Failed to delete extension");
+        setError("Failed to delete adc value map");
         setLoading(null);
       });
   };
@@ -418,44 +514,59 @@ function ExistingExtension({
   return (
     <>
       {!editMode ? (
-        <ExtensionDisplay
-          name={name}
-          enabled={enabled}
-          extensionType={type}
-          updateInterval={updateInterval}
-          critical={critical}
-          extraArgs={extraArgs}
+        <AdcMapDisplay
+          label={label}
+          mapType={type}
+          extensionName={extensionName}
+          channelNumber={channelNumber}
+          resolution={resolution}
+          resistor1Value={resistor1Value}
+          resistor2Value={resistor2Value}
+          voltageReference={voltageReference}
+          percentageMax={percentageMax}
+          percentageMin={percentageMin}
+          percentageClamp={percentageClamp}
         />
       ) : (
-        <ExtensionEdit
-          name={name}
-          setName={setName}
-          enabled={enabled}
-          setEnabled={setEnabled}
-          extensionType={type}
-          setExtensionType={setType}
-          updateInterval={updateInterval}
-          setUpdateInterval={setUpdateInterval}
-          critical={critical}
-          setCritical={setCritical}
-          extraArgs={extraArgs}
-          setExtraArgs={setExtraArgs}
+        <AdcMapEdit
+          label={label}
+          setLabel={setLabel}
+          mapType={type}
+          setMapType={setType}
+          extensionName={extensionName}
+          setExtensionName={setExtensionName}
+          channelNumber={channelNumber}
+          setChannelNumber={setChannelNumber}
+          resolution={resolution}
+          setResolution={setResolution}
+          resistor1Value={resistor1Value}
+          setResistor1Value={setResistor1Value}
+          resistor2Value={resistor2Value}
+          setResistor2Value={setResistor2Value}
+          voltageReference={voltageReference}
+          setVoltageReference={setVoltageReference}
+          percentageMax={percentageMax}
+          setPercentageMax={setPercentageMax}
+          percentageMin={percentageMin}
+          setPercentageMin={setPercentageMin}
+          percentageClamp={percentageClamp}
+          setPercentageClamp={setPercentageClamp}
         />
       )}
-      {error && <div className="ext_error_text_div">{error}</div>}
+      {error && <div className="adc_map_error_text_div">{error}</div>}
       {loading ? (
-        <div className="ext_edit_button">{loading}</div>
+        <div className="adc_map_edit_button">{loading}</div>
       ) : (
-        <div className="ext_buttons_container">
+        <div className="adc_map_buttons_container">
           <StyButton
             onClick={() => editButtonClick()}
-            className="ext_edit_button"
+            className="adc_map_edit_button"
           >
             {editMode ? "Submit" : "Edit"}
           </StyButton>
           <StyButton
             onClick={() => deleteButtonClick()}
-            className="ext_edit_button"
+            className="adc_map_edit_button"
           >
             {" "}
             Delete{" "}
@@ -466,45 +577,47 @@ function ExistingExtension({
   );
 }
 
-function ExtensionsConfiguration() {
+function AdcMappingsConfig() {
   const { ggsAddress, isGfsTcpConnected, isGgsConnected } =
     useContext(GwsGlobal);
 
   const [addNew, setAddNew] = useState(false);
-  const [existingExtensions, setExistingExtensions] = useState([]);
+  const [existingAdcMappings, setExistingAdcValueMaps] = useState([]);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
-  const fetchExtensions = () => {
-    fetch(`${ggsAddress}/api/gfs/settings?category=extensions`)
+  const fetchAdcValueMaps = () => {
+    fetch(`${ggsAddress}/api/gfs/settings?category=adc_mappings`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Failed to fetch extensions");
+          throw new Error("Failed to fetch adc value maps");
         }
         return response.json();
       })
       .then((data) => {
         console.log(data);
-        setExistingExtensions(data.values);
+        setExistingAdcValueMaps(data.values);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   };
 
-  const removeExistingExtension = (name) => {
-    let newExtensions = existingExtensions.filter((ext) => ext.name !== name);
-    setExistingExtensions(newExtensions);
+  const removeExistingAdcValueMap = (label) => {
+    let newAdcValueMaps = existingAdcMappings.filter(
+      (adc_value_map) => adc_value_map.label !== label
+    );
+    setExistingAdcValueMaps(newAdcValueMaps);
   };
 
-  const addExtension = (config) => {
-    let newExtensions = existingExtensions.slice();
-    newExtensions.push(config);
-    setExistingExtensions(newExtensions);
+  const addAdcValueMap = (config) => {
+    let newValueMaps = existingAdcMappings.slice();
+    newValueMaps.push(config);
+    setExistingAdcValueMaps(newValueMaps);
   };
 
   useEffect(() => {
-    fetchExtensions();
+    fetchAdcValueMaps();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -517,30 +630,21 @@ function ExtensionsConfiguration() {
   }
 
   return (
-    <ExtensionsConfigurationStyle>
-      {existingExtensions.map((extension) => (
-        <ExistingExtension
-          key={extension.name}
-          metadata={extension}
-          fetchExtensions={fetchExtensions}
-          removeExistingExtension={removeExistingExtension}
+    <AdcValueMapConfigurationStyle>
+      {existingAdcMappings.map((adc_value_map) => (
+        <ExistingAdcValueMap
+          key={adc_value_map.label}
+          values={adc_value_map}
+          fetchAdcValueMaps={fetchAdcValueMaps}
+          removeExistingAdcValueMap={removeExistingAdcValueMap}
         />
       ))}
       <CardBreak />
       <StyButton onClick={() => setAddNew(!addNew)} className="new_ext_button">
         {addNew ? "Close" : "New"}
       </StyButton>
-      {addNew && <NewExtension addExtension={addExtension} />}
-    </ExtensionsConfigurationStyle>
-  );
-}
-
-function AdcMappingsConfig() {
-  return (
-    <div>
-      <h1>ADC Mappings Configuration</h1>
-      <p>ADC Mappings configuration goes here</p>
-    </div>
+      {addNew && <NewAdcValueMap addAdcValueMap={addAdcValueMap} />}
+    </AdcValueMapConfigurationStyle>
   );
 }
 

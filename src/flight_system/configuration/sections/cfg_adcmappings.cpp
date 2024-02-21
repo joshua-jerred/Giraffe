@@ -40,10 +40,13 @@ void AdcConfig::fromJson(const Json &json, data::LogStream &log,
 
   validation::setValidValue<std::string>(log, json, section_name, "label",
                                          label, 3, 10, "");
+
   validation::setValidEnum<gEnum::AdcType>(
       log, json, section_name, "type", type, gEnum::K_STRING_TO_ADC_TYPE_MAP);
-  validation::setValidValue<std::string>(log, json, extension_name,
-                                         "extension_name", label, 3, 10, "");
+
+  validation::setValidValue<std::string>(
+      log, json, section_name, "extension_name", extension_name, 3, 10, "");
+
   validation::setValidValue<uint8_t>(log, json, section_name, "channel_number",
                                      channel_number, 0, 12, "");
   validation::setValidValue<uint32_t>(log, json, section_name, "resolution",
@@ -110,26 +113,42 @@ Json AdcMappings::getJson() const {
   return j;
 }
 
-void AdcMappings::addAdcConfig(const AdcConfig &adc_config) {
+bool AdcMappings::addAdcConfig(const AdcConfig &adc_config) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   if (doesLabelExist(adc_config.label)) {
     error(DiagnosticId::CONFIG_adcMappingLabelAlreadyExists,
           "on add " + adc_config.label);
-    return;
+    return false;
   }
   adc_configs_.push_back(adc_config);
+  return true;
 }
 
-void AdcMappings::removeAdcConfig(const std::string &label) {
+bool AdcMappings::removeAdcConfig(const std::string &label) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   for (auto it = adc_configs_.begin(); it != adc_configs_.end(); it++) {
     if (it->label == label) {
       adc_configs_.erase(it);
-      return;
+      return true;
     }
   }
   error(DiagnosticId::CONFIG_adcMappingLabelAlreadyExists,
         "on remove " + label);
+  return false;
+}
+
+bool AdcMappings::updateAdcConfig(const std::string &label,
+                                  const AdcConfig &adc_config) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  for (auto it = adc_configs_.begin(); it != adc_configs_.end(); it++) {
+    if (it->label == label) {
+      *it = adc_config;
+      return true;
+    }
+  }
+  error(DiagnosticId::CONFIG_adcMappingLabelAlreadyExists,
+        "on update " + label);
+  return false;
 }
 
 std::vector<AdcConfig> AdcMappings::getAdcConfigs() const {

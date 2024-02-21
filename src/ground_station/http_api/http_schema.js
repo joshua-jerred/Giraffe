@@ -12,7 +12,13 @@ const valid_resources = [
 ];
 
 const valid_ggs_categories = ["settings", "data", "aprs_fi", "log"];
-const valid_gfs_categories = ["settings", "data", "images", "extensions"];
+const valid_gfs_categories = [
+  "settings",
+  "data",
+  "images",
+  "extensions",
+  "adc_mappings",
+];
 const valid_gdl_categories = [
   "settings",
   "status",

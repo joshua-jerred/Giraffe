@@ -177,6 +177,50 @@ void RequestRouter::handleExtensionSettingUpdate(sock::TcpSocketServer &client,
 
 void RequestRouter::handleAdcMappingSettingUpdate(sock::TcpSocketServer &client,
                                                   protocol::Message &msg) {
-  std::cout << msg.getBodyJson().dump(4) << std::endl;
-  sendSuccessResponse(client);
+  std::string action;
+  try {
+    auto bdy = msg.getBodyJson();
+    auto dat = bdy.at("dat");
+    action = dat.at("action");
+
+    if (action == "add") {
+      auto map_data = dat.at("map_data");
+      cfg::AdcConfig adc_map;
+      adc_map.fromJson(map_data, shared_data_.streams.log, "0");
+      if (config_.adc_mappings.addAdcConfig(adc_map)) {
+        sendSuccessResponse(client);
+      } else {
+        sendErrorPacket(client, "Failed to add, check logs");
+      }
+      return;
+    } else if (action == "remove") {
+      auto map_label = dat.at("map_label");
+      if (config_.adc_mappings.removeAdcConfig(map_label)) {
+        sendSuccessResponse(client);
+      } else {
+        sendErrorPacket(client, "Failed to remove, check logs");
+      }
+      return;
+    } else if (action == "update") {
+      auto map_label = dat.at("map_label");
+      auto map_data = dat.at("map_data");
+      cfg::AdcConfig adc_map;
+      adc_map.fromJson(map_data, shared_data_.streams.log, "0");
+      if (config_.adc_mappings.updateAdcConfig(map_label, adc_map)) {
+        sendSuccessResponse(
+            client); // auto ext_data = dat.at("extension_data");
+      } else {
+        sendErrorPacket(client, "Failed to update, check logs");
+      }
+      return;
+    }
+
+    sendErrorPacket(client, "Invalid action provided");
+    return;
+  } catch (std::exception &e) {
+    sendErrorPacket(client, "Failed to parse adc config request");
+    return;
+  }
+
+  sendErrorPacket(client, "Internal logic error");
 }
