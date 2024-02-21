@@ -121,6 +121,22 @@ private:
   void handleSettingSet(sock::TcpSocketServer &client, protocol::Message &msg);
 
   /**
+   * @brief A special handler for updating extension settings.
+   * @param client - The client socket.
+   * @param msg - The received message.
+   */
+  void handleExtensionSettingUpdate(sock::TcpSocketServer &client,
+                                    protocol::Message &msg);
+
+  /**
+   * @brief A special handler for updating ADC mapping settings.
+   * @param client - The client socket.
+   * @param msg - The received message.
+   */
+  void handleAdcMappingSettingUpdate(sock::TcpSocketServer &client,
+                                     protocol::Message &msg);
+
+  /**
    * @brief This function responds to data requests.
    *
    * @param client
@@ -153,6 +169,12 @@ private:
    * @param client - The client socket.
    */
   void sendMessage(protocol::Message &response, sock::TcpSocketServer &client);
+
+  /**
+   * @brief Send a basic success response.
+   * @param client - The client socket.
+   */
+  void sendSuccessResponse(sock::TcpSocketServer &client);
 
   data::SharedData &shared_data_;
   cfg::Configuration &config_;

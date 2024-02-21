@@ -9,4 +9,5 @@ module.exports = {
   ErrorMessage: require("./variants/error"),
   PathMessage: require("./variants/path").PathMessage,
   CommandMetadata: require("../../../../project/metadata/gfs_commands.json"),
+  ConfigMetadata: require("../../../../project/metadata/gfs_configuration.json"),
 };

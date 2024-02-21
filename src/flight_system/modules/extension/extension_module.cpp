@@ -346,12 +346,12 @@ void ExtensionModule::errorStartState(ExtContainer &ext) {
 
 void ExtensionModule::errorRestartState(ExtContainer &ext) {
   (void)ext;
-  giraffe_assert(false); // not implemented yet
+  // giraffe_assert(false); // not implemented yet
 }
 
 void ExtensionModule::errorDisableState(ExtContainer &ext) {
   (void)ext;
-  giraffe_assert(false); // not implemented yet
+  // giraffe_assert(false); // not implemented yet
 }
 
 } // namespace modules

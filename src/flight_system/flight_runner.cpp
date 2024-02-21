@@ -231,6 +231,11 @@ void FlightRunner::routeCommand(cmd::Command &command) {
       command_added = p_telemetry_module_->addCommand(command);
     }
     break;
+  case node::Identification::EXTENSION_MODULE:
+    if (p_extension_module_ != nullptr) {
+      command_added = p_extension_module_->addCommand(command);
+    }
+    break;
   default:
     shared_data_.streams.log.error(
         node::Identification::FLIGHT_RUNNER,

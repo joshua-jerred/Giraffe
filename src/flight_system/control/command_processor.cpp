@@ -171,10 +171,11 @@ bool parseExtensionModuleCommand(const std::string &command_id_str,
   command.command_id = K_COMMAND_ID_MAP.at(command_id_str);
 
   switch (command.command_id) {
-  case cmd::CommandId::FLIGHT_RUNNER_shutdownSystem:
+  case cmd::CommandId::EXTENSION_MODULE_addPreConfiguredExtension:
     if (arg.length() < 3) {
       return false;
     }
+    command.str_arg = arg;
     return true;
   default:
     return false;
@@ -236,8 +237,9 @@ bool cmd::parseCommandString(const std::string &command_string,
   std::string command_id_string = command_string.substr(8, 3);
   std::string arg = "";
   if (command_string.length() >= 12) {
+    // std::cout << "ARG: " << arg << " FOR:  " << command_string << std::endl;
     arg = command_string.substr(12);
-    std::cout << "ARG: " << arg << "FOR:  " << command_string << std::endl;
+    // command.str_arg = arg;
   }
 
   switch (command.destination) {

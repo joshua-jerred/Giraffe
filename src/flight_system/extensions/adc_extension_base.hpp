@@ -54,7 +54,7 @@ protected:
   virtual void adcShutdown(){};
 
   void reportAdcData(uint32_t value, uint8_t channel) {
-    dataWithSecondaryIdentifier(data::DataId::ADC_rawCount, value,
+    dataWithSecondaryIdentifier(data::DataId::ADC_count, value,
                                 std::to_string(channel));
   }
 

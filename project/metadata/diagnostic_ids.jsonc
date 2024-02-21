@@ -118,6 +118,21 @@
       "name":"Extension Name Does Not Exist",
       "details":"This will happen when trying to remove/alter an extension that does not exist.",
       "value": "0x000D"
+    },
+    "adc_mappings_not_array":{
+      "name":"ADC Mappings Not Array",
+      "details":"The ADC mappings field in the config file must be an array, could not load any ADC mappings.",
+      "value": "0x000F"
+    },
+    "adc_mapping_not_object":{
+      "name":"ADC Mapping Not Object",
+      "details":"An item in the ADC mappings array is not an object. This is reported along with the index of the item.",
+      "value": "0x0010"
+    },
+    "adc_mapping_label_already_exists":{
+      "name":"ADC Mapping Label Already Exists",
+      "details":"This will happen during the loading or when adding an ADC mapping. ADC mapping labels must be unique.",
+      "value": "0x0011"
     }
   },
   "module": {
@@ -162,6 +177,11 @@
       "name": "No GPS Source",
       "details": "No source for GPS data has been set.",
       "value": "0x2005"
+    },
+    "adc_interpolation_unknown_source": {
+      "name": "ADC Interpolation Unknown Source",
+      "details": "There is a source of ADC data that is not configured in the ADC channel map config. It will be reported as a raw count.",
+      "value": "0x2006"
     }
   },
   "data_log": {

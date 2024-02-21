@@ -48,9 +48,6 @@ const StyleStructure = {
       padding_sides: "10px", // Left only on text inputs
       focus_outline: "1px solid",
     },
-    edit_box: {
-      margin_botton: "10px",
-    },
     markdown: {},
     switch: {
       width: "30px",

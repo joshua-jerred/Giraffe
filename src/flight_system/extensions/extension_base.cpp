@@ -170,9 +170,10 @@ void Extension::dataWithSecondaryIdentifier(
     const std::string &secondary_identifier) {
   data::DataPacket packet;
   packet.source = node::Identification::EXTENSION;
+  packet.type = data::DataPacket::Type::NUMERIC;
   packet.identifier = identifier;
   packet.secondary_identifier = metadata_.name + ":" + secondary_identifier;
-  packet.value = std::to_string(value);
+  packet.numeric_value = value;
   interfaces_.streams.data.addPacket(packet);
 }
 

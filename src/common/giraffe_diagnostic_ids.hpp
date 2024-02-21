@@ -54,6 +54,9 @@ enum class DiagnosticId : uint16_t {
   CONFIG_extensionNotObject=0x000B, // Extension is not an object
   CONFIG_extensionNameAlreadyExists=0x000C, // Extension Name Already Exists
   CONFIG_extensionNameDoesNotExist=0x000D, // Extension Name Does Not Exist
+  CONFIG_adcMappingsNotArray=0x000F, // ADC Mappings Not Array
+  CONFIG_adcMappingNotObject=0x0010, // ADC Mapping Not Object
+  CONFIG_adcMappingLabelAlreadyExists=0x0011, // ADC Mapping Label Already Exists
   MODULE_startFailure=0x1000, // Failed to start module
   MODULE_moduleAlreadyStarted=0x1001, // Module already started
   DATA_MODULE_statusDataPacketUnknownSource=0x2000, // Unknown data packet source
@@ -62,6 +65,7 @@ enum class DiagnosticId : uint16_t {
   DATA_MODULE_cameraNewImagePacketInvalidFields=0x2003, // Camera New Image Packet - Invalid Fields
   DATA_MODULE_unrecognizedCommand=0x2004, // Unrecognized Command
   DATA_MODULE_noGpsSource=0x2005, // No GPS Source
+  DATA_MODULE_adcInterpolationUnknownSource=0x2006, // ADC Interpolation Unknown Source
   DATA_LOG_invalidDataframeStrategy=0x3000, // Invalid data log strategy
   DATA_LOG_archiveOldDataFiles=0x3001, // Failed to archive old data files
   DATA_LOG_archiveOldLogFiles=0x3002, // Failed to archive old log files

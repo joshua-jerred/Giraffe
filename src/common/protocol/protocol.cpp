@@ -24,12 +24,12 @@
 /**
  * @brief Map from protocol::Type to std::string.
  */
-static const std::unordered_map<protocol::Endpoint, std::string>
-    endpointToStringMap = {{protocol::Endpoint::UNKNOWN, "unknown"},
-                           {protocol::Endpoint::GFS, "gfs"},
-                           {protocol::Endpoint::GGS, "ggs"},
-                           {protocol::Endpoint::GDL, "gdl"},
-                           {protocol::Endpoint::GWC, "gwc"}};
+const std::unordered_map<protocol::Endpoint, std::string> endpointToStringMap =
+    {{protocol::Endpoint::UNKNOWN, "unknown"},
+     {protocol::Endpoint::GFS, "gfs"},
+     {protocol::Endpoint::GGS, "ggs"},
+     {protocol::Endpoint::GDL, "gdl"},
+     {protocol::Endpoint::GWC, "gwc"}};
 
 static const std::unordered_map<std::string, protocol::Endpoint>
     stringToEndpointMap = {{"unknown", protocol::Endpoint::UNKNOWN},
@@ -150,11 +150,16 @@ std::string protocol::Message::getJsonString() {
 }
 
 Json protocol::Message::getJson() {
-  Json message = {{"src", endpointToStringMap.at(src)},
-                  {"dst", endpointToStringMap.at(dst)},
-                  {"typ", typeToStringMap.at(typ)},
-                  {"id", id},
-                  {"bdy", getBodyJson()}};
+  Json message{};
+  try {
+    message = {{"src", endpointToStringMap.at(src)},
+               {"dst", endpointToStringMap.at(dst)},
+               {"typ", typeToStringMap.at(typ)},
+               {"id", id},
+               {"bdy", getBodyJson()}};
+  } catch (std::exception &e) {
+    // throw std::runtime_error("Failed to serialize message to JSON.");
+  }
   return message;
 }
 

@@ -23,7 +23,7 @@ const ItemStyle = styled.li`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: ${(props) => props.theme.components.edit_box.margin_botton};
+  margin-bottom: 0px;
   height: calc(${(props) => props.theme.components.input.height} * 1.5);
 `;
 

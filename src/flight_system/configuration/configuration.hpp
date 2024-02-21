@@ -36,6 +36,7 @@
 #include "shared_data.hpp"
 #include "sections/cfg_section.hpp"
 #include "sections/cfg_extensions.hpp"
+#include "sections/cfg_adcmappings.hpp"
 
 
 namespace cfg {
@@ -412,6 +413,7 @@ class Configuration {
     telemetry_sstv(streams),    
     telemetry_data_packets(streams),    
     extensions(streams),    
+    adc_mappings(streams),    
     extension_module(streams),    
     hardware_interface(streams),
     streams_(streams){}
@@ -433,6 +435,7 @@ class Configuration {
   cfg::TelemetrySstv telemetry_sstv;
   cfg::TelemetryDataPackets telemetry_data_packets;
   cfg::Extensions extensions;
+  cfg::AdcMappings adc_mappings;
   cfg::ExtensionModule extension_module;
   cfg::HardwareInterface hardware_interface;
  

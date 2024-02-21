@@ -80,6 +80,12 @@ struct Frames {
    * @brief Humidity data from environmental extensions.
    */
   Frame<std::string, DataPacket> env_hum{};
+
+  /**
+   * @brief ADC data frame. std::string is the label of the ADC channel, and
+   * the double is the interpolated value.
+   */
+  Frame<std::string, double> adc{};
 };
 
 class Misc {

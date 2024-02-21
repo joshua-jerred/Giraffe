@@ -169,12 +169,13 @@ public:
 };
 
 struct DataPacket : public BaseStreamPacket {
-  enum class Type { GENERIC, STATUS };
+  enum class Type { GENERIC, STATUS, NUMERIC };
 
   // Generics
   data::DataPacket::Type type = data::DataPacket::Type::GENERIC;
   data::DataId identifier = data::DataId::GENERIC_unknown;
-  std::string value{}; // generic data
+  std::string value{};        // generic data
+  uint32_t numeric_value = 0; // Sometimes this is better than using a string
 
   // Extra (Uses so little space, not really a problem to include it
   // in all packets)

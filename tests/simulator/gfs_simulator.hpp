@@ -35,7 +35,9 @@ namespace gfs_sim {
 class GfsSimulator {
 public:
   GfsSimulator() = default;
-  ~GfsSimulator() = default;
+  ~GfsSimulator() {
+    stop();
+  }
 
   void start();
   void stop();
