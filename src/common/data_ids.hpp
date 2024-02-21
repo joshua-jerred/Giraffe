@@ -40,9 +40,7 @@ enum class DataId : uint16_t {
   ENVIRONMENTAL_humidity=0xE002, // Relative Humidity (%)
   ENVIRONMENTAL_pressure=0xE003, // Pressure (mbar)
   CAMERA_newImage=0xC001, // New Image
-  ADC_rawCount=0xA001, // ADC Raw Count
-  ADC_percentage=0xA002, // ADC Percentage
-  ADC_voltage=0xA003, // ADC Voltage
+  ADC_count=0xA001, // Raw ADC Count
   TELEMETRY_dataLinkPacketReceived=0x8001, // Data Link Packet Received
   FLIGHT_RUNNER_flightPhaseChange=0x9001  // Flight Phase Change
 };

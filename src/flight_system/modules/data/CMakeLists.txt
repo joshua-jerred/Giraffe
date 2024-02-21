@@ -5,6 +5,7 @@ target_sources(data_module INTERFACE
   ${CMAKE_CURRENT_SOURCE_DIR}/data_log.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/influxdb.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/positional.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/adc_interpolation.cpp
 )
 target_include_directories(data_module INTERFACE
   ${CMAKE_CURRENT_SOURCE_DIR}

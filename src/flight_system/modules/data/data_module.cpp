@@ -10,7 +10,8 @@ modules::DataModule::DataModule(data::SharedData &shared_data,
                                 cfg::Configuration &config)
     : modules::Module(metadata, shared_data, config),
       data_log_(shared_data, config), influxdb_(shared_data, config),
-      file_system_(shared_data, config) {
+      file_system_(shared_data, config),
+      adc_interpolation_(shared_data, config) {
 
   // check for GPS data source
   auto ext_cfg = configuration_.extensions.getExtensions();
@@ -178,16 +179,24 @@ void modules::DataModule::parseExtensionDataPacket(
   auto ext_id = packet.secondary_identifier;
   auto type = packet.identifier;
 
-  if (type == data::DataId::ENVIRONMENTAL_temperature) {
+  switch (type) {
+  case data::DataId::ENVIRONMENTAL_temperature:
     shared_data_.frames.env_temp.insert(ext_id, packet);
-  } else if (type == data::DataId::ENVIRONMENTAL_pressure) {
+    break;
+  case data::DataId::ENVIRONMENTAL_pressure:
     shared_data_.frames.env_pres.insert(ext_id, packet);
-  } else if (type == data::DataId::ENVIRONMENTAL_humidity) {
+    break;
+  case data::DataId::ENVIRONMENTAL_humidity:
     shared_data_.frames.env_hum.insert(ext_id, packet);
-  } else if (type == data::DataId::CAMERA_newImage) {
+    break;
+  case data::DataId::CAMERA_newImage:
     parseCameraNewImageDataPacket(packet);
-  } else {
-    giraffe_assert(false);
+    break;
+  case data::DataId::ADC_count:
+    adc_interpolation_.processDataPacket(packet);
+    break;
+  default:
+    giraffe_assert(false); /// @todo remove this prior to 1.0
   }
 }
 

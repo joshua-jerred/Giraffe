@@ -60,6 +60,7 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::DATA_MODULE_cameraNewImagePacketInvalidFields,"DATA_MODULE_cameraNewImagePacketInvalidFields"},
   {DiagnosticId::DATA_MODULE_unrecognizedCommand,"DATA_MODULE_unrecognizedCommand"},
   {DiagnosticId::DATA_MODULE_noGpsSource,"DATA_MODULE_noGpsSource"},
+  {DiagnosticId::DATA_MODULE_adcInterpolationUnknownSource,"DATA_MODULE_adcInterpolationUnknownSource"},
   {DiagnosticId::DATA_LOG_invalidDataframeStrategy,"DATA_LOG_invalidDataframeStrategy"},
   {DiagnosticId::DATA_LOG_archiveOldDataFiles,"DATA_LOG_archiveOldDataFiles"},
   {DiagnosticId::DATA_LOG_archiveOldLogFiles,"DATA_LOG_archiveOldLogFiles"},

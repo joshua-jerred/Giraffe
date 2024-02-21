@@ -23,6 +23,7 @@
 #include <BoosterSeat/rolling_average.hpp>
 #include <BoosterSeat/timer.hpp>
 
+#include "adc_interpolation.hpp"
 #include "data_log.hpp"
 #include "file_system_manager.hpp"
 #include "influxdb.hpp"
@@ -202,6 +203,11 @@ private:
    * @brief Used to manage the file system/data files
    */
   data_middleware::FileSystemManager file_system_;
+
+  /**
+   * @brief Used to process ADC data and send it to the data frame.
+   */
+  data_middleware::AdcInterpolation adc_interpolation_;
 
   /**
    * @brief True if data file logging is enabled.

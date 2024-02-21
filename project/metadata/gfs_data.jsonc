@@ -52,20 +52,10 @@
         }
     },
     "adc":{
-        "raw_count": {
-            "name": "ADC Raw Count",
-            "details": "Raw ADC count",
+        "count": {
+            "name": "Raw ADC Count",
+            "details": "The raw ADC count directly from the ADC",
             "value": "0xA001"
-        },
-        "percentage": {
-            "name": "ADC Percentage",
-            "details": "ADC percentage",
-            "value": "0xA002"
-        },
-        "voltage": {
-            "name": "ADC Voltage",
-            "details": "ADC voltage",
-            "value": "0xA003"
         }
     },
     "telemetry":{

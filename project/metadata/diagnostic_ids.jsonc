@@ -177,6 +177,11 @@
       "name": "No GPS Source",
       "details": "No source for GPS data has been set.",
       "value": "0x2005"
+    },
+    "adc_interpolation_unknown_source": {
+      "name": "ADC Interpolation Unknown Source",
+      "details": "There is a source of ADC data that is not configured in the ADC channel map config. It will be reported as a raw count.",
+      "value": "0x2006"
     }
   },
   "data_log": {
