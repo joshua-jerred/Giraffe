@@ -382,22 +382,38 @@ $(document).ready(function(){initNavTree('configuration__enums_8hpp_source.html'
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  {cfg::gEnum::ExtensionType::BMI088, <span class="stringliteral">&quot;bmi088&quot;</span>}</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;};</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="keyword">enum class</span> I2CBus {</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  I2C_1 = 0</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;};</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::I2CBus&gt; <span class="keyword">const</span> K_STRING_TO_I2C_BUS_MAP = {</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  {<span class="stringliteral">&quot;i2c_1&quot;</span>, cfg::gEnum::I2CBus::I2C_1}</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;};</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;std::map&lt;cfg::gEnum::I2CBus, std::string&gt; <span class="keyword">const</span> K_I2C_BUS_TO_STRING_MAP = {</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  {cfg::gEnum::I2CBus::I2C_1, <span class="stringliteral">&quot;i2c_1&quot;</span>}</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;};</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;} <span class="comment">// namespace cfg::gEnum</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CONFIGURATION_ENUMS_HPP_</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="keyword">enum class</span> AdcType {</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  RAW_COUNT = 0,</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  PERCENTAGE = 1,</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  VOLTAGE_DIVIDER = 2</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;};</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::AdcType&gt; <span class="keyword">const</span> K_STRING_TO_ADC_TYPE_MAP = {</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  {<span class="stringliteral">&quot;raw_count&quot;</span>, cfg::gEnum::AdcType::RAW_COUNT},</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  {<span class="stringliteral">&quot;percentage&quot;</span>, cfg::gEnum::AdcType::PERCENTAGE},</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  {<span class="stringliteral">&quot;voltage_divider&quot;</span>, cfg::gEnum::AdcType::VOLTAGE_DIVIDER}</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;};</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;std::map&lt;cfg::gEnum::AdcType, std::string&gt; <span class="keyword">const</span> K_ADC_TYPE_TO_STRING_MAP = {</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  {cfg::gEnum::AdcType::RAW_COUNT, <span class="stringliteral">&quot;raw_count&quot;</span>},</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  {cfg::gEnum::AdcType::PERCENTAGE, <span class="stringliteral">&quot;percentage&quot;</span>},</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  {cfg::gEnum::AdcType::VOLTAGE_DIVIDER, <span class="stringliteral">&quot;voltage_divider&quot;</span>}</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;};</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="keyword">enum class</span> I2CBus {</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  I2C_1 = 0</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;};</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::I2CBus&gt; <span class="keyword">const</span> K_STRING_TO_I2C_BUS_MAP = {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  {<span class="stringliteral">&quot;i2c_1&quot;</span>, cfg::gEnum::I2CBus::I2C_1}</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;};</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;std::map&lt;cfg::gEnum::I2CBus, std::string&gt; <span class="keyword">const</span> K_I2C_BUS_TO_STRING_MAP = {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  {cfg::gEnum::I2CBus::I2C_1, <span class="stringliteral">&quot;i2c_1&quot;</span>}</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;};</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;} <span class="comment">// namespace cfg::gEnum</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CONFIGURATION_ENUMS_HPP_</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
 <div class="ttc" id="aflight__phase_8hpp_html_a4c5a173279b14603ff3edf7817df0644a038e3d035cd91784babc5492310b8e96"><div class="ttname"><a href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a038e3d035cd91784babc5492310b8e96">FlightPhase::DESCENT</a></div><div class="ttdeci">@ DESCENT</div></div>
 <div class="ttc" id="aflight__phase_8hpp_html_a4c5a173279b14603ff3edf7817df0644a696b031073e74bf2cb98e5ef201d4aa3"><div class="ttname"><a href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a696b031073e74bf2cb98e5ef201d4aa3">FlightPhase::UNKNOWN</a></div><div class="ttdeci">@ UNKNOWN</div></div>
 <div class="ttc" id="aflight__phase_8hpp_html_a4c5a173279b14603ff3edf7817df0644a7047b93ddb56905562863fb339808bb4"><div class="ttname"><a href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a7047b93ddb56905562863fb339808bb4">FlightPhase::ASCENT</a></div><div class="ttdeci">@ ASCENT</div></div>

@@ -1,0 +1,4 @@
+<map id="data_middleware::AdcInterpolation::insertVoltageDividerValue" name="data_middleware::AdcInterpolation::insertVoltageDividerValue">
+<area shape="rect" id="node1" title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated voltage divider v..." alt="" coords="304,5,555,47"/>
+<area shape="rect" id="node2" href="$classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="5,5,256,47"/>
+</map>

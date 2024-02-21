@@ -1,6 +1,8 @@
 var annotated_dup =
 [
     [ "cfg", "namespacecfg.html", [
+      [ "AdcConfig", "structcfg_1_1AdcConfig.html", "structcfg_1_1AdcConfig" ],
+      [ "AdcMappings", "classcfg_1_1AdcMappings.html", "classcfg_1_1AdcMappings" ],
       [ "CfgSection", "classcfg_1_1CfgSection.html", "classcfg_1_1CfgSection" ],
       [ "ExtensionMetadata", "structcfg_1_1ExtensionMetadata.html", "structcfg_1_1ExtensionMetadata" ],
       [ "Extensions", "classcfg_1_1Extensions.html", "classcfg_1_1Extensions" ]
@@ -53,6 +55,7 @@ var annotated_dup =
       [ "Streams", "namespacedata.html#structdata_1_1Streams", "namespacedata_structdata_1_1Streams_dup" ]
     ] ],
     [ "data_middleware", "namespacedata__middleware.html", [
+      [ "AdcInterpolation", "classdata__middleware_1_1AdcInterpolation.html", "classdata__middleware_1_1AdcInterpolation" ],
       [ "DataFormatter", "classdata__middleware_1_1DataFormatter.html", "classdata__middleware_1_1DataFormatter" ],
       [ "DataLog", "classdata__middleware_1_1DataLog.html", "classdata__middleware_1_1DataLog" ],
       [ "FileSystemManager", "classdata__middleware_1_1FileSystemManager.html", "classdata__middleware_1_1FileSystemManager" ],
@@ -60,7 +63,6 @@ var annotated_dup =
       [ "InfluxLine", "structdata__middleware_1_1InfluxLine.html", "structdata__middleware_1_1InfluxLine" ]
     ] ],
     [ "extension", "namespaceextension.html", [
-      [ "AdcConfig", "namespaceextension.html#structextension_1_1AdcConfig", "namespaceextension_structextension_1_1AdcConfig_dup" ],
       [ "AdcExtensionBase", "classextension_1_1AdcExtensionBase.html", "classextension_1_1AdcExtensionBase" ],
       [ "Bme280", "classextension_1_1Bme280.html", "classextension_1_1Bme280" ],
       [ "Bmi088", "classextension_1_1Bmi088.html", "classextension_1_1Bmi088" ],

@@ -1,0 +1,4 @@
+<map id="data_middleware::AdcInterpolation::getAdcConfig" name="data_middleware::AdcInterpolation::getAdcConfig">
+<area shape="rect" id="node1" title="Returns the ADC channel configuration for the given key. If one does not exist, an error is logged an..." alt="" coords="304,5,555,47"/>
+<area shape="rect" id="node2" href="$classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="5,5,256,47"/>
+</map>

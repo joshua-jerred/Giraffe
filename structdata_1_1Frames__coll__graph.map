@@ -1,11 +1,12 @@
 <map id="data::Frames" name="data::Frames">
-<area shape="rect" id="node1" title=" " alt="" coords="72,1259,179,1336"/>
-<area shape="rect" id="node2" href="$classdata_1_1ErrorFrame.html" title="The error frame." alt="" coords="210,928,419,1196"/>
-<area shape="rect" id="node3" href="$classdata_1_1Frame.html" title=" " alt="" coords="131,432,331,656"/>
-<area shape="rect" id="node4" href="$classdata_1_1Frame.html" title="A generic frame (map) for storing data." alt="" coords="152,160,339,355"/>
-<area shape="rect" id="node9" href="$classdata_1_1Frame.html" title=" " alt="" coords="5,680,189,904"/>
-<area shape="rect" id="node5" title=" " alt="" coords="436,13,500,90"/>
-<area shape="rect" id="node6" title=" " alt="" coords="167,5,324,97"/>
-<area shape="rect" id="node7" title=" " alt="" coords="355,505,443,583"/>
-<area shape="rect" id="node8" title=" " alt="" coords="467,505,506,583"/>
+<area shape="rect" id="node1" title=" " alt="" coords="235,1259,341,1336"/>
+<area shape="rect" id="node2" href="$classdata_1_1Frame.html" title=" " alt="" coords="5,680,189,904"/>
+<area shape="rect" id="node3" href="$classdata_1_1Frame.html" title="A generic frame (map) for storing data." alt="" coords="312,160,499,355"/>
+<area shape="rect" id="node7" href="$classdata_1_1Frame.html" title=" " alt="" coords="415,432,615,656"/>
+<area shape="rect" id="node10" href="$classdata_1_1Frame.html" title=" " alt="" coords="196,680,380,904"/>
+<area shape="rect" id="node4" title=" " alt="" coords="547,13,611,90"/>
+<area shape="rect" id="node6" href="$classdata_1_1ErrorFrame.html" title="The error frame." alt="" coords="418,928,627,1196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="327,5,484,97"/>
+<area shape="rect" id="node8" title=" " alt="" coords="689,505,777,583"/>
+<area shape="rect" id="node9" title=" " alt="" coords="353,505,391,583"/>
 </map>

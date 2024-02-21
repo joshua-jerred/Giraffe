@@ -1,6 +1,5 @@
 var namespaceextension =
 [
-    [ "AdcConfig", "namespaceextension.html#structextension_1_1AdcConfig", "namespaceextension_structextension_1_1AdcConfig_dup" ],
     [ "AdcExtensionBase", "classextension_1_1AdcExtensionBase.html", "classextension_1_1AdcExtensionBase" ],
     [ "Bme280", "classextension_1_1Bme280.html", "classextension_1_1Bme280" ],
     [ "Bmi088", "classextension_1_1Bmi088.html", "classextension_1_1Bmi088" ],
@@ -19,12 +18,6 @@ var namespaceextension =
     [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],
     [ "SimPressureSensor", "classextension_1_1SimPressureSensor.html", "classextension_1_1SimPressureSensor" ],
     [ "SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", "classextension_1_1SimTemperatureSensor" ],
-    [ "AdcType", "namespaceextension.html#aa5891a3aa6702efdece92bf561d17208", [
-      [ "RAW_COUNT", "namespaceextension.html#aa5891a3aa6702efdece92bf561d17208aaa5db4381426a88461ad4ebe782d04fc", null ],
-      [ "PERCENTAGE", "namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a21ee69ba26b6e644d4dddce593855d84", null ],
-      [ "VOLTAGE_DIVIDER", "namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a355d20dd055de8493132a6936cba6b8d", null ],
-      [ "VOLTAGE_REFERENCE", "namespaceextension.html#aa5891a3aa6702efdece92bf561d17208a43c60cbd63d5040414069d99f10fe98f", null ]
-    ] ],
     [ "StartupState", "namespaceextension.html#a842aaad519772b36cb48adc23ee56afc", [
       [ "I2C_CONNECT", "namespaceextension.html#a842aaad519772b36cb48adc23ee56afca9beed4c399bcd8838fc481753cf30ad6", null ],
       [ "HANDSHAKE", "namespaceextension.html#a842aaad519772b36cb48adc23ee56afca84fcef12cce95eb15cffe4338ecf5d29", null ],
@@ -45,11 +38,6 @@ var namespaceextension =
       [ "HANDSHAKE", "namespaceextension.html#a842aaad519772b36cb48adc23ee56afca84fcef12cce95eb15cffe4338ecf5d29", null ],
       [ "DONE", "namespaceextension.html#a842aaad519772b36cb48adc23ee56afca2ba22e58ca17bb728d522bba36cf8350", null ]
     ] ],
-    [ "getKeyValue", "namespaceextension.html#a03e33fdaf5af44bd62474a0518c4836f", null ],
-    [ "parsePercentAdc", "namespaceextension.html#a1c70792cc81ee38bdd6565121b80d73f", null ],
-    [ "parseVoltageDividerAdc", "namespaceextension.html#a1d505eb064779b189f0e0aea26f233f8", null ],
-    [ "parseVoltageReferenceAdc", "namespaceextension.html#a9b3e7eed87dd75bdeae23c40767b5412", null ],
-    [ "parseAdcConfig", "namespaceextension.html#aea2ae2212bc3fa9298548a9262b08d53", null ],
     [ "validateSerialNumber", "namespaceextension.html#a9d808790534fe424f5ecb8bedb284af6", null ],
     [ "kWatchdogMultiplier", "namespaceextension.html#a6d79c98242444b61c48d44dc10875fc5", null ],
     [ "kBme280I2cAddress", "namespaceextension.html#a7eb03bcbaeedd19fc0bcdf9082451b15", null ],

@@ -1,8 +1,10 @@
 var files_dup =
 [
-    [ "adc_configuration.cpp", "adc__configuration_8cpp.html", "adc__configuration_8cpp" ],
-    [ "adc_configuration.hpp", "adc__configuration_8hpp.html", "adc__configuration_8hpp" ],
     [ "adc_extension_base.hpp", "adc__extension__base_8hpp.html", "adc__extension__base_8hpp" ],
+    [ "adc_interpolation.cpp", "adc__interpolation_8cpp.html", null ],
+    [ "adc_interpolation.hpp", "adc__interpolation_8hpp.html", [
+      [ "AdcInterpolation", "classdata__middleware_1_1AdcInterpolation.html", "classdata__middleware_1_1AdcInterpolation" ]
+    ] ],
     [ "blocks.hpp", "blocks_8hpp.html", "blocks_8hpp" ],
     [ "bme280.cpp", "bme280_8cpp.html", "bme280_8cpp" ],
     [ "bme280.hpp", "bme280_8hpp.html", [
@@ -31,6 +33,11 @@ var files_dup =
     [ "bmi088.cpp", "bmi088_8cpp.html", "bmi088_8cpp" ],
     [ "bmi088.hpp", "bmi088_8hpp.html", [
       [ "Bmi088", "classextension_1_1Bmi088.html", "classextension_1_1Bmi088" ]
+    ] ],
+    [ "cfg_adcmappings.cpp", "cfg__adcmappings_8cpp.html", null ],
+    [ "cfg_adcmappings.hpp", "cfg__adcmappings_8hpp.html", [
+      [ "AdcConfig", "structcfg_1_1AdcConfig.html", "structcfg_1_1AdcConfig" ],
+      [ "AdcMappings", "classcfg_1_1AdcMappings.html", "classcfg_1_1AdcMappings" ]
     ] ],
     [ "cfg_extensions.cpp", "cfg__extensions_8cpp.html", null ],
     [ "cfg_extensions.hpp", "cfg__extensions_8hpp.html", [
@@ -228,6 +235,9 @@ var files_dup =
     [ "protocol.hpp", "protocol_8hpp.html", "protocol_8hpp" ],
     [ "request_handler.cpp", "request__handler_8cpp.html", null ],
     [ "request_handler.hpp", "request__handler_8hpp.html", null ],
+    [ "request_handler_data.cpp", "request__handler__data_8cpp.html", null ],
+    [ "request_handler_image.cpp", "request__handler__image_8cpp.html", null ],
+    [ "request_handler_settings.cpp", "request__handler__settings_8cpp.html", null ],
     [ "rgb_status_led.cpp", "rgb__status__led_8cpp.html", null ],
     [ "rgb_status_led.hpp", "rgb__status__led_8hpp.html", [
       [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ]

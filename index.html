@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Giraffe: Giraffe Flight System</title>
+<title>Giraffe: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -101,25 +101,239 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Giraffe Flight System </div>  </div>
+<div class="title">Giraffe Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_docs_introduction"></a> </p>
-<h1><a class="anchor" id="autotoc_md4"></a>
-Introduction</h1>
-<h1><a class="anchor" id="autotoc_md5"></a>
-C4 Model</h1>
-<h2><a class="anchor" id="autotoc_md6"></a>
-System Context</h2>
-<p><img src="structurizr-SystemContext.svg" alt="" style="pointer-events: none;" class="inline" title="C4 System Diagram"/></p>
-<h2><a class="anchor" id="autotoc_md7"></a>
-Container Diagram</h2>
-<p><img src="structurizr-Containers.svg" alt="" style="pointer-events: none;" class="inline" title="C4 Container Diagram"/></p>
-<h2><a class="anchor" id="autotoc_md8"></a>
-Flight System</h2>
-<h2><a class="anchor" id="autotoc_md9"></a>
-Data Link</h2>
-<p>See the class gdl::GiraffeDataLink for more information. </p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> <a href="https://github.com/joshua-jerred/Giraffe/actions/workflows/giraffe_ci.yml"><img src="https://github.com/joshua-jerred/Giraffe/actions/workflows/giraffe_ci.yml/badge.svg" alt="Giraffe Unit Tests" style="pointer-events: none;" class="inline"/></a></p>
+<h1><a class="anchor" id="autotoc_md15"></a>
+Giraffe &lt;!-- omit from toc --&gt;</h1>
+<h3><a class="anchor" id="autotoc_md16"></a>
+A Unified Flight Command and Control System &lt;!-- omit from toc --&gt;</h3>
+<h3><a class="anchor" id="autotoc_md17"></a>
+&lt;a href="https://giraffe.joshuajer.red/md_docs_Doxygen_pages_versions.html"&gt;Iteration 0.7&lt;/a&gt;</h3>
+<hr  />
+ <h2><a class="anchor" id="autotoc_md18"></a>
+Learn More About it</h2>
+<p>Read about why I'm doing this: <a href="https://joshuajer.red/Giraffe-Introduction/">https://joshuajer.red/Giraffe-Introduction/</a></p>
+<p>Detailed software documentation (Doxygen): <a href="http://giraffe.joshuajer.red/">http://giraffe.joshuajer.red/</a></p>
+<p>Check out the <a href="https://github.com/users/joshua-jerred/projects/3">Giraffe GitHub Project</a> to see what I'm currently working on.</p>
+<hr  />
+<h2><a class="anchor" id="autotoc_md19"></a>
+Photos</h2>
+<p>&gt;<img src="https://github.com/joshua-jerred/Boost_erSeat/assets/19292194/ad96b114-5cb1-4863-8c5f-f746747301ee" alt="Giraffe Network Diagram" class="inline"/> </p><blockquote class="doxtable">
+<p>The Giraffe Network - A diagram of Giraffe's components and how they interact with each other. </p>
+</blockquote>
+<p>&gt;<img src="https://user-images.githubusercontent.com/19292194/227384300-c94dd48b-5649-4411-8b46-8a4faeb5d7dc.png" alt="" height="500" class="inline"/> </p><blockquote class="doxtable">
+<p>The flight computer prototype 2 PCB on top of a Pi 4. It's accompanied by the SA868 testing PCB with a dummy load antenna and it's supporting PCM2902 sound card testing PCB. Connected with debugging spaghetti. </p>
+</blockquote>
+<p>&gt;<img src="https://github.com/joshua-jerred/Giraffe/assets/19292194/916d2c24-f5f0-4ec3-a7f1-9a830c0bef41" alt="The Data Monitor Page from GWC" class="inline"/> &gt;<img src="https://github.com/joshua-jerred/Giraffe/assets/19292194/143f6b7d-5324-4dfa-b378-d6788fffb702" alt="The Configuration Page from GWC" class="inline"/> </p><blockquote class="doxtable">
+<p>This is the web client, used to configure the flight computer on the ground and to monitor/control it in the air. </p>
+</blockquote>
+<hr  />
+<h2><a class="anchor" id="autotoc_md20"></a>
+Table of Contents &lt;!-- omit from toc --&gt;</h2>
+<ul>
+<li><a href="#about">About</a><ul>
+<li><a href="#current-high-level-functionality">Current High Level Functionality</a></li>
+<li><a href="#planned-high-level-functionality-prior-to-the-first-flight">Planned High Level Functionality Prior to the First Flight</a></li>
+<li><a href="#development-details">Development Details</a></li>
+</ul>
+</li>
+<li><a href="#hardware">Hardware</a><ul>
+<li><a href="#hat">Hat</a></li>
+<li><a href="#shoe">Shoe</a></li>
+</ul>
+</li>
+<li><a href="#building-and-installing-the-flight-software">Building and Installing the Flight Software</a><ul>
+<li><a href="#installing-prerequisites">Installing Prerequisites</a></li>
+<li><a href="#building-the-flight-software">Building the Flight Software</a></li>
+</ul>
+</li>
+<li><a href="#flight-software-configurationweb-client">Flight Software Configuration/Web Client</a></li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md21"></a>
+About</h1>
+<p>Giraffe is a "flight command and control system" first developed for high altitude balloon flights.</p>
+<p>The purpose of this project is mainly to have a 'learning lab' where I can experiment with all of the things that I'm interested in. This includes C++, Linux Embedded Development, Circuit Design, RF/Amateur Radio, Node.js, CI, interfacing hardware with the web, meta-programming, and more.</p>
+<p>The system includes the following key components:</p><ul>
+<li><b>GFS</b> Giraffe Flight System<ul>
+<li>The hardware and software that actually flies</li>
+</ul>
+</li>
+<li><b>GGS</b> Giraffe Ground Station<ul>
+<li>Software that helps interface with the flight system both on the ground and in the air.</li>
+</ul>
+</li>
+<li><b>GDL</b> Giraffe Data Link<ul>
+<li>The hardware and software used on both GFS and GGS to connect them together via long distance radio links.</li>
+</ul>
+</li>
+<li><b>GWC</b> Giraffe Web Client<ul>
+<li>A web client to easily configure, control, and monitor all Giraffe components in one place.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md22"></a>
+Current High Level Functionality</h2>
+<ul>
+<li>Detailed configuration via the web interface of all system components.</li>
+<li>Telemetry support for APRS, SSTV, and Data Packets.</li>
+<li>Aggressive error handling for all software components. Everything is designed to be able to fail gracefully and recover when possible.</li>
+<li>Detailed and configurable logging of data and telemetry.</li>
+<li>Drivers/Firmware for the Raspberry Pi BCM interface along with many different sensors, radios, and other hardware.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md23"></a>
+Planned High Level Functionality Prior to the First Flight</h2>
+<ul>
+<li>Two way communication via GDL</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md24"></a>
+Development Details</h2>
+<p>The flight software is written in C++, the web interface and ground stations are written in Node.js, and some Python is sprinkled in.</p>
+<p>There are common components, including a large collection of configuration and data point metadata files that are used to generate code for both the flight system and the ground station. For example, to add a configuration option for the flight computer, you just need to add the information to the metadata file, run the generator, rebuild, and redeploy. It will then be inside of the flight software, configurable via the web interface, and safely implemented to restrained values to prevent misconfiguration. This works for integers, floats, strings, and enums.</p>
+<p>Being a 'learning lab' project, nearly everything is built from the ground up including my own implementations of:</p><ul>
+<li>Linux I2C and Serial wrappers</li>
+<li>BCM Interface for direct GPIO control on the Raspberry Pi</li>
+<li>Device Drivers<ul>
+<li>BMP180 (I2C Environmental Sensor)</li>
+<li>BME280 (I2C Environmental Sensor)</li>
+<li>SAM-M8Q (I2C GPS using the UBX protocol)</li>
+<li>SA868 (2w VHF Radio Module)</li>
+<li>MCP3021 (I2C ADC)</li>
+</ul>
+</li>
+<li>Modulation (Using my WAV file generation and Modulation library)<ul>
+<li>PSK - For data packets</li>
+<li>AFSK, AX.25, APRS (Position and Telemetry) - For tracking via aprs.fi</li>
+<li>SSTV (Robot36) - For image transmission</li>
+</ul>
+</li>
+<li>A web interface for flight computer debugging, configuration, and control</li>
+<li>Custom hardware for the flight computer</li>
+<li>Simple configuration file for the flight computer</li>
+</ul>
+<p>Libraries that I've written for this project:</p><ul>
+<li><a href="https://github.com/joshua-jerred/Boost_erSeat">Boost_erSeat, a library with a few useful functions that I use in many different projects</a></li>
+<li><a href="https://github.com/joshua-jerred/WavGen">WavGen, a .wav File Generator</a></li>
+<li><a href="https://github.com/joshua-jerred/MWAV">MWAV, a library for modulating AFSK, AX.25, APRS, PSK31, and SSTV signals using WavGen</a></li>
+<li><a href="https://github.com/joshua-jerred/SSTV-Image-Tools">SSTV Image Tools, a library for overlaying text and getting pixel data for SSTV images</a></li>
+</ul>
+<p>Where I used existing 3rd party libraries:</p><ul>
+<li>JSON parsing for the web server module and configuration reading (nlohmann/json)</li>
+<li>Image Manipulation for PNG/JPEG support in my SSTV Image Tools Library (Magick++)</li>
+<li>Google Test for unit testing</li>
+</ul>
+<p>Everything is designed to be modular and extensible so that it can be used for all types of HAB flights or even some other future implementations where command and control is needed. The software is made to work on any ARM based single board computer that runs Linux, like the Raspberry Pi but it is targeted towards the Pi Zero 2 and Pi 4.</p>
+<p>The framework utilizes open communication protocols/modulation modes like APRS, AFSK, PSK31, and SSTV to allow for easy integration into existing software. Two way communication, which is currently in development, allows you to send commands to the flight computer from the ground station. There is a lot more included that isn't mentioned here, so please see the <a href="http://giraffe.joshuajer.red/">rest of the documentation</a>.</p>
+<p>Too see my more older, simplified, python implementation of this project check out the <a href="https://github.com/joshua-jerred/AOS">the AOS repo.</a> </p><hr  />
+<h1><a class="anchor" id="autotoc_md25"></a>
+Hardware</h1>
+<p>I'm currently working on hardware prototypes.</p>
+<p>The flight computer is (will be) made up of two boards; it is targeted towards the Raspberry Pi Zero 2 and maintains the same footprint. The Raspberry Pi will be sandwiched between the two boards, with the top board being the "hat" and the bottom board being the "shoe".</p>
+<h2><a class="anchor" id="autotoc_md26"></a>
+Hat</h2>
+<p>The hat contains the majority of the circuitry. It is a four layer PCB containing the following:</p><ul>
+<li>Power Management<ul>
+<li>Connects to the battery (21700 Cells) via a terminal block</li>
+<li>Includes a 5v linear regulator and support circuitry, this powers the Pi and the other PCB</li>
+<li>Voltage Divider for battery voltage measurement</li>
+</ul>
+</li>
+<li>Sensors<ul>
+<li>BME280 (Temperature, Pressure, Humidity)</li>
+<li>MCP3021 (Battery Voltage)</li>
+<li>CAT24C32 (EEPROM, GPIO Configuration at boot)</li>
+<li>BMI088 (6 Axis IMU)</li>
+</ul>
+</li>
+<li>2x 1-Wire Headers for DS18B20 Temperature Sensors</li>
+<li>1x I2C Header for general expansion</li>
+</ul>
+<p>&gt;<img src="https://github.com/joshua-jerred/Giraffe/assets/19292194/62c23bb5-ed60-413a-afd7-d0d6ed432b1c" alt="image" class="inline"/> &gt;<img src="https://github.com/joshua-jerred/Giraffe/assets/19292194/19185073-5e60-4e80-b6dc-274b23ee6fc3" alt="image" class="inline"/></p>
+<p>&gt;You'll notice a lot of open space on the top of the PCB, this is to isolate the SAM-M8Q and to provide it a large ground plane. Although the ground plane size is out of spec I have had no issues with acquiring and maintaining a GPS lock.</p>
+<h3><a class="anchor" id="autotoc_md27"></a>
+Known Issues &lt;!-- omit in toc --&gt;</h3>
+<p>There are a few known issues with prototype 2:</p><ul>
+<li>Power Management! I'm currently working on replacing the linear regulator with a boost converter.</li>
+<li>The BME280 is too close to the power supply. This results in much higher temperature readings and inaccurate pressure/humidity readings as they're temperature compensated.</li>
+</ul>
+<p>Other than that, this prototype is working great!</p>
+<h2><a class="anchor" id="autotoc_md28"></a>
+Shoe</h2>
+<p>The shoe contains the telemetry circuitry. It is a four layer PCB containing the following:</p><ul>
+<li>SA868 (2w VHF Radio)<ul>
+<li>Isolation circuitry to prevent interference with the Pi</li>
+<li>Serial Logic Level Converter (3.3v to 5v)</li>
+</ul>
+</li>
+<li>Low Pass Filter and SMA Connector</li>
+<li>Integrated PCM2902 Audio Codes<ul>
+<li>USB interface with the Pi</li>
+<li>2x input channels, 2x output channels, only one of each is currently used.</li>
+</ul>
+</li>
+<li>An attempt to impedance match the RF traces from the SA868 to the SMA connector and provide shielding.</li>
+</ul>
+<p>The radio will be on the very bottom of the hardware stack, hopefully isolating it from the rest of the hardware.</p>
+<blockquote class="doxtable">
+<p>Front <img src="https://user-images.githubusercontent.com/19292194/227385507-7624dacc-4e9b-4813-955d-64561dc4f5c0.png" alt="image" class="inline"/> </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>Back <img src="https://user-images.githubusercontent.com/19292194/227385537-62eae56d-5022-431e-9540-50a5dbabed42.png" alt="image" class="inline"/> </p>
+</blockquote>
+<h3><a class="anchor" id="autotoc_md29"></a>
+Known Issues &lt;!-- omit in toc --&gt;</h3>
+<ul>
+<li>Power control circuitry is not functional. Although 5v power is fully cut off with the GPIO controlled optical relay, the SA868 still draw power from the serial logic level converter. This results is the SA868 being unreliable after restarts and frequency changes. More isolation needs to be added.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md30"></a>
+Shoe Testing PCBs &lt;!-- omit in toc --&gt;</h3>
+<p>I'm just waiting to finish debugging the SA868 and PCM2902 testing PCBs before ordering this one.</p>
+<blockquote class="doxtable">
+<p float="left"></p>
+<p><img src="https://user-images.githubusercontent.com/19292194/227387219-c36bae74-d6ca-4d5a-b566-fc4badf1009e.png" alt="" height="250" class="inline"/>  </p>
+<p>Left: SA868 Testing PCB with a dummy load antenna.</p>
+<p>Right: PCM2902 Testing PCB with USB interface. </p>
+</blockquote>
+<blockquote class="doxtable">
+<p><img src="https://user-images.githubusercontent.com/19292194/227387618-c7b300dc-241b-426e-ac53-549f9683c18d.png" alt="" height="250" class="inline"/></p>
+<p>&gt;Unfortunately, I don't have the equipment to test it properly, but the SA868 &gt;PCB includes a low pass filter to take care of the messy RF output that these &gt;modules are known to have. </p>
+</blockquote>
+<hr  />
+<h1><a class="anchor" id="autotoc_md31"></a>
+Building and Installing the Flight Software</h1>
+<h2><a class="anchor" id="autotoc_md32"></a>
+Installing Prerequisites</h2>
+<h2><a class="anchor" id="autotoc_md33"></a>
+Building the Flight Software</h2>
+<div class="fragment"><div class="line"># Clone the repo with it&#39;s submodules (MWAV, WAVGen, and SSTV Image Tools)</div>
+<div class="line">git clone --recurse-submodules https://github.com/joshua-jerred/Giraffe.git</div>
+<div class="line"> </div>
+<div class="line"># If using the --recurse-submodules flag didn&#39;t work for any reason, you can use:</div>
+<div class="line"># git submodule update --init --recursive --remote</div>
+<div class="line"># and then pull the latest change.</div>
+<div class="line"> </div>
+<div class="line"># Move into the repo and create a build directory</div>
+<div class="line">cd Giraffe &amp;&amp; mkdir build &amp;&amp; cd build</div>
+<div class="line"> </div>
+<div class="line"># Configure the build</div>
+<div class="line">cmake .. # You can add -DSSTV_ENABLED=OFF to disable SSTV (Requires Magick++)</div>
+<div class="line"> </div>
+<div class="line"># Build the flight system</div>
+<div class="line">make giraffe_flight_system</div>
+<div class="line"> </div>
+<div class="line"># Install is currently disabled until some details are finalized</div>
+<div class="line"># Install the flight system (Optional)</div>
+<div class="line"># sudo make install</div>
+</div><!-- fragment --><hr  />
+<h1><a class="anchor" id="autotoc_md34"></a>
+Flight Software Configuration/Web Client</h1>
+<p>Configuration is no longer done through the config file, but instead through the web interface! This is where the ground station and flight system are configured.</p>
+<p>Multiple clients can be connected to the web interface at once to allow for a team to monitor the flight together.</p>
+<p><img src="https://github.com/joshua-jerred/Giraffe/assets/19292194/143f6b7d-5324-4dfa-b378-d6788fffb702" alt="The Configuration Page from GWC" class="inline"/></p>
+<hr  />
+<p>Development is no longer done by release, but instead features will be added as they are completed. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

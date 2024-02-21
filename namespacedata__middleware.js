@@ -1,5 +1,6 @@
 var namespacedata__middleware =
 [
+    [ "AdcInterpolation", "classdata__middleware_1_1AdcInterpolation.html", "classdata__middleware_1_1AdcInterpolation" ],
     [ "DataFormatter", "classdata__middleware_1_1DataFormatter.html", "classdata__middleware_1_1DataFormatter" ],
     [ "DataLog", "classdata__middleware_1_1DataLog.html", "classdata__middleware_1_1DataLog" ],
     [ "FileSystemManager", "classdata__middleware_1_1FileSystemManager.html", "classdata__middleware_1_1FileSystemManager" ],

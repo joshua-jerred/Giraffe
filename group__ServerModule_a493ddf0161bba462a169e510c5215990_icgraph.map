@@ -1,0 +1,5 @@
+<map id="RequestRouter::handleAdcMappingSettingUpdate" name="RequestRouter::handleAdcMappingSettingUpdate">
+<area shape="rect" id="node1" title="A special handler for updating ADC mapping settings." alt="" coords="567,5,761,47"/>
+<area shape="rect" id="node2" href="$group__ServerModule.html#a1d58bc2e5fc57191959bc60a89b61ec5" title="This function handles a setting SET request. It will attempt to set the configuration with the value ..." alt="" coords="281,13,519,39"/>
+<area shape="rect" id="node3" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,13,233,39"/>
+</map>

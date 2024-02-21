@@ -12,8 +12,8 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="For absolute failures in the code.">
-<polygon fill="#bfbfbf" stroke="black" points="691,-280.5 691,-299.5 795,-299.5 795,-280.5 691,-280.5"/>
-<text text-anchor="middle" x="743" y="-287.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_assert.hpp</text>
+<polygon fill="#bfbfbf" stroke="black" points="749,-280.5 749,-299.5 853,-299.5 853,-280.5 749,-280.5"/>
+<text text-anchor="middle" x="801" y="-287.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_assert.hpp</text>
 </a>
 </g>
 </g>
@@ -29,8 +29,8 @@
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M805.35,-286.54C1031.2,-277.62 1805.51,-247.03 2041.31,-237.71"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="805.19,-283.04 795.33,-286.93 805.46,-290.04 805.19,-283.04"/>
+<path fill="none" stroke="midnightblue" d="M863.13,-286.44C1081.53,-277.43 1813.11,-247.25 2041.37,-237.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="862.97,-282.94 853.12,-286.85 863.26,-289.93 862.97,-282.94"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
@@ -42,10 +42,10 @@
 </g>
 </g>
 <!-- Node1&#45;&gt;Node5 -->
-<g id="edge13" class="edge">
+<g id="edge14" class="edge">
 <title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M680.61,-288.05C597.19,-285.5 445.27,-276.35 320,-244 248.07,-225.43 166,-253.29 166,-179 166,-179 166,-179 166,-121 166,-26.69 275.12,-72.36 368,-56 589.36,-17 1289.16,-11.77 1504.39,-11.09"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="680.59,-291.55 690.69,-288.33 680.79,-284.55 680.59,-291.55"/>
+<path fill="none" stroke="midnightblue" d="M738.59,-289.02C646.37,-287.72 468.86,-280.19 323,-244 249.7,-225.81 166,-254.52 166,-179 166,-179 166,-179 166,-121 166,-26.69 275.12,-72.36 368,-56 589.36,-17 1289.16,-11.77 1504.39,-11.09"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="738.83,-292.52 748.87,-289.14 738.91,-285.52 738.83,-292.52"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
@@ -59,8 +59,8 @@
 <!-- Node1&#45;&gt;Node7 -->
 <g id="edge6" class="edge">
 <title>Node1&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M680.72,-284.92C572.92,-277.7 344.57,-261.77 152,-244 147.53,-243.59 142.92,-243.14 138.27,-242.68"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="680.56,-288.41 690.77,-285.59 681.03,-281.43 680.56,-288.41"/>
+<path fill="none" stroke="midnightblue" d="M738.7,-285.49C623,-278.78 367.13,-263.12 152,-244 147.52,-243.6 142.92,-243.17 138.27,-242.71"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="738.6,-288.99 748.79,-286.07 739.01,-282 738.6,-288.99"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
@@ -74,8 +74,8 @@
 <!-- Node1&#45;&gt;Node10 -->
 <g id="edge11" class="edge">
 <title>Node1&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M717.19,-275.73C697.75,-265.73 671.65,-252.31 654.83,-243.65"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="715.64,-278.86 726.13,-280.32 718.84,-272.64 715.64,-278.86"/>
+<path fill="none" stroke="midnightblue" d="M765.3,-277.17C734.6,-267 691.08,-252.59 663.71,-243.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="764.58,-280.62 775.17,-280.44 766.78,-273.98 764.58,-280.62"/>
 </g>
 <!-- Node11 -->
 <g id="node11" class="node">
@@ -89,68 +89,83 @@
 <!-- Node1&#45;&gt;Node11 -->
 <g id="edge12" class="edge">
 <title>Node1&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M680.78,-283.75C562.35,-272.6 310.49,-242.97 245,-188 218.07,-165.39 201.27,-139.65 223,-112 241.79,-88.09 329.14,-75.3 376.79,-70"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="680.5,-287.24 690.78,-284.68 681.15,-280.27 680.5,-287.24"/>
+<path fill="none" stroke="midnightblue" d="M738.7,-285.21C609.85,-276.21 319.8,-249.49 245,-188 217.84,-165.67 201.27,-139.65 223,-112 241.79,-88.09 329.14,-75.3 376.79,-70"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="738.59,-288.71 748.81,-285.91 739.07,-281.73 738.59,-288.71"/>
 </g>
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="module_8hpp.html" target="_top" xlink:title="The header file for the base module class.">
+<g id="a_node12"><a xlink:href="adc__interpolation_8cpp.html" target="_top" xlink:title="ADC Interpolation Utility.">
+<polygon fill="none" stroke="black" points="798,-224.5 798,-243.5 920,-243.5 920,-224.5 798,-224.5"/>
+<text text-anchor="middle" x="859" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">adc_interpolation.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node12 -->
+<g id="edge13" class="edge">
+<title>Node1&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M817.91,-273.25C828.2,-263.67 840.97,-251.79 849.51,-243.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="815.25,-270.95 810.32,-280.32 820.02,-276.07 815.25,-270.95"/>
+</g>
+<!-- Node13 -->
+<g id="node13" class="node">
+<title>Node13</title>
+<g id="a_node13"><a xlink:href="module_8hpp.html" target="_top" xlink:title="The header file for the base module class.">
 <polygon fill="none" stroke="black" points="706,-224.5 706,-243.5 780,-243.5 780,-224.5 706,-224.5"/>
 <text text-anchor="middle" x="743" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">module.hpp</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node12 -->
-<g id="edge14" class="edge">
-<title>Node1&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M743,-269.8C743,-260.91 743,-250.78 743,-243.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="739.5,-270.08 743,-280.08 746.5,-270.08 739.5,-270.08"/>
-</g>
-<!-- Node31 -->
-<g id="node31" class="node">
-<title>Node31</title>
-<g id="a_node31"><a xlink:href="error__frame_8cpp.html" target="_top" xlink:title="The implementation of the error frame.">
-<polygon fill="none" stroke="black" points="1559.5,-224.5 1559.5,-243.5 1654.5,-243.5 1654.5,-224.5 1559.5,-224.5"/>
-<text text-anchor="middle" x="1607" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">error_frame.cpp</text>
-</a>
-</g>
-</g>
-<!-- Node1&#45;&gt;Node31 -->
-<g id="edge40" class="edge">
-<title>Node1&#45;&gt;Node31</title>
-<path fill="none" stroke="midnightblue" d="M805.27,-287.67C940.95,-284.29 1273.26,-273.49 1550,-244 1553.09,-243.67 1556.26,-243.29 1559.46,-242.87"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="804.99,-284.17 795.07,-287.92 805.16,-291.17 804.99,-284.17"/>
+<!-- Node1&#45;&gt;Node13 -->
+<g id="edge15" class="edge">
+<title>Node1&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M784.09,-273.25C773.8,-263.67 761.03,-251.79 752.49,-243.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="781.98,-276.07 791.68,-280.32 786.75,-270.95 781.98,-276.07"/>
 </g>
 <!-- Node32 -->
 <g id="node32" class="node">
 <title>Node32</title>
-<g id="a_node32"><a xlink:href="giraffe__debug__assert_8cpp.html" target="_top" xlink:title="A generic giraffe assert function for debugging.">
-<polygon fill="none" stroke="black" points="1672.5,-224.5 1672.5,-243.5 1811.5,-243.5 1811.5,-224.5 1672.5,-224.5"/>
-<text text-anchor="middle" x="1742" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_debug_assert.cpp</text>
+<g id="a_node32"><a xlink:href="error__frame_8cpp.html" target="_top" xlink:title="The implementation of the error frame.">
+<polygon fill="none" stroke="black" points="1559.5,-224.5 1559.5,-243.5 1654.5,-243.5 1654.5,-224.5 1559.5,-224.5"/>
+<text text-anchor="middle" x="1607" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">error_frame.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node32 -->
 <g id="edge41" class="edge">
 <title>Node1&#45;&gt;Node32</title>
-<path fill="none" stroke="midnightblue" d="M805.3,-287.38C954.03,-283.19 1341.47,-270.46 1664,-244 1666.72,-243.78 1669.49,-243.53 1672.28,-243.28"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="804.91,-283.89 795.01,-287.66 805.1,-290.88 804.91,-283.89"/>
+<path fill="none" stroke="midnightblue" d="M863.43,-287.29C992.14,-283.31 1296.24,-271.59 1550,-244 1553.09,-243.66 1556.26,-243.28 1559.46,-242.86"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="863.25,-283.79 853.36,-287.59 863.46,-290.79 863.25,-283.79"/>
 </g>
 <!-- Node33 -->
 <g id="node33" class="node">
 <title>Node33</title>
-<g id="a_node33"><a xlink:href="giraffe__diagnostics_8hpp.html" target="_top" xlink:title="Giraffe&#39;s diagnostic system.">
-<polygon fill="none" stroke="black" points="1411,-224.5 1411,-243.5 1541,-243.5 1541,-224.5 1411,-224.5"/>
-<text text-anchor="middle" x="1476" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_diagnostics.hpp</text>
+<g id="a_node33"><a xlink:href="giraffe__debug__assert_8cpp.html" target="_top" xlink:title="A generic giraffe assert function for debugging.">
+<polygon fill="none" stroke="black" points="1672.5,-224.5 1672.5,-243.5 1811.5,-243.5 1811.5,-224.5 1672.5,-224.5"/>
+<text text-anchor="middle" x="1742" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_debug_assert.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node33 -->
 <g id="edge42" class="edge">
 <title>Node1&#45;&gt;Node33</title>
-<path fill="none" stroke="midnightblue" d="M805.48,-284.4C943,-274.27 1270.73,-250.12 1410.75,-239.81"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="804.84,-280.93 795.13,-285.16 805.36,-287.92 804.84,-280.93"/>
+<path fill="none" stroke="midnightblue" d="M863.39,-287.09C1005.59,-282.44 1364.63,-269.05 1664,-244 1666.72,-243.77 1669.49,-243.53 1672.28,-243.26"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="863,-283.6 853.12,-287.42 863.23,-290.6 863,-283.6"/>
+</g>
+<!-- Node34 -->
+<g id="node34" class="node">
+<title>Node34</title>
+<g id="a_node34"><a xlink:href="giraffe__diagnostics_8hpp.html" target="_top" xlink:title="Giraffe&#39;s diagnostic system.">
+<polygon fill="none" stroke="black" points="1411,-224.5 1411,-243.5 1541,-243.5 1541,-224.5 1411,-224.5"/>
+<text text-anchor="middle" x="1476" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_diagnostics.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node34 -->
+<g id="edge43" class="edge">
+<title>Node1&#45;&gt;Node34</title>
+<path fill="none" stroke="midnightblue" d="M863.12,-284.03C990.65,-273.83 1280.89,-250.61 1410.9,-240.21"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="862.81,-280.54 853.12,-284.83 863.37,-287.52 862.81,-280.54"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
@@ -245,546 +260,546 @@
 <path fill="none" stroke="midnightblue" d="M101,-45.8C101,-36.91 101,-26.78 101,-19.75"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="97.5,-46.08 101,-56.08 104.5,-46.08 97.5,-46.08"/>
 </g>
-<!-- Node13 -->
-<g id="node13" class="node">
-<title>Node13</title>
-<g id="a_node13"><a xlink:href="console__module_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="754.5,-168.5 754.5,-187.5 871.5,-187.5 871.5,-168.5 754.5,-168.5"/>
-<text text-anchor="middle" x="813" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">console_module.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node12&#45;&gt;Node13 -->
-<g id="edge15" class="edge">
-<title>Node12&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M762.31,-218.1C774.91,-208.38 790.93,-196.03 801.55,-187.83"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="760.03,-215.44 754.25,-224.32 764.3,-220.99 760.03,-215.44"/>
-</g>
-<!-- Node18 -->
-<g id="node18" class="node">
-<title>Node18</title>
-<g id="a_node18"><a xlink:href="data__module_8hpp.html" target="_top" xlink:title="The data module header file.">
-<polygon fill="none" stroke="black" points="889.5,-168.5 889.5,-187.5 990.5,-187.5 990.5,-168.5 889.5,-168.5"/>
-<text text-anchor="middle" x="940" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">data_module.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node12&#45;&gt;Node18 -->
-<g id="edge21" class="edge">
-<title>Node12&#45;&gt;Node18</title>
-<path fill="none" stroke="midnightblue" d="M784.23,-221.7C821.41,-211.51 875.27,-196.74 908.93,-187.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="782.93,-218.42 774.22,-224.44 784.78,-225.18 782.93,-218.42"/>
-</g>
-<!-- Node21 -->
-<g id="node21" class="node">
-<title>Node21</title>
-<g id="a_node21"><a xlink:href="extension__module_8hpp.html" target="_top" xlink:title="This is the header file for the new extension module.">
-<polygon fill="none" stroke="black" points="1163,-168.5 1163,-187.5 1291,-187.5 1291,-168.5 1163,-168.5"/>
-<text text-anchor="middle" x="1227" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension_module.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node12&#45;&gt;Node21 -->
-<g id="edge25" class="edge">
-<title>Node12&#45;&gt;Node21</title>
-<path fill="none" stroke="midnightblue" d="M790.32,-227.72C877.6,-217.98 1064.03,-197.18 1162.69,-186.18"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="789.73,-224.27 780.18,-228.85 790.5,-231.22 789.73,-224.27"/>
-</g>
-<!-- Node24 -->
-<g id="node24" class="node">
-<title>Node24</title>
-<g id="a_node24"><a xlink:href="module_8cpp.html" target="_top" xlink:title="Implementation of the module base class.">
-<polygon fill="none" stroke="black" points="382,-168.5 382,-187.5 456,-187.5 456,-168.5 382,-168.5"/>
-<text text-anchor="middle" x="419" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">module.cpp</text>
-</a>
-</g>
-</g>
-<!-- Node12&#45;&gt;Node24 -->
-<g id="edge30" class="edge">
-<title>Node12&#45;&gt;Node24</title>
-<path fill="none" stroke="midnightblue" d="M695.96,-223.88C592.55,-205.96 564.67,-205.48 465,-188 462.11,-187.49 459.13,-186.95 456.13,-186.4"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="695.41,-227.33 705.87,-225.6 696.62,-220.44 695.41,-227.33"/>
-</g>
-<!-- Node25 -->
-<g id="node25" class="node">
-<title>Node25</title>
-<g id="a_node25"><a xlink:href="server__module_8hpp.html" target="_top" xlink:title="Header file for the server module.">
-<polygon fill="none" stroke="black" points="254,-168.5 254,-187.5 364,-187.5 364,-168.5 254,-168.5"/>
-<text text-anchor="middle" x="309" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">server_module.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node12&#45;&gt;Node25 -->
-<g id="edge31" class="edge">
-<title>Node12&#45;&gt;Node25</title>
-<path fill="none" stroke="midnightblue" d="M695.81,-223.93C552.07,-202.24 513.52,-205.68 373,-188 370.11,-187.64 367.14,-187.25 364.14,-186.86"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="695.48,-227.42 705.89,-225.47 696.53,-220.5 695.48,-227.42"/>
-</g>
-<!-- Node27 -->
-<g id="node27" class="node">
-<title>Node27</title>
-<g id="a_node27"><a xlink:href="system__module_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="474,-168.5 474,-187.5 590,-187.5 590,-168.5 474,-168.5"/>
-<text text-anchor="middle" x="532" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">system_module.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node12&#45;&gt;Node27 -->
-<g id="edge34" class="edge">
-<title>Node12&#45;&gt;Node27</title>
-<path fill="none" stroke="midnightblue" d="M699.86,-221.96C660.01,-211.76 601.64,-196.82 565.28,-187.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="699.01,-225.35 709.57,-224.44 700.75,-218.57 699.01,-225.35"/>
-</g>
-<!-- Node29 -->
-<g id="node29" class="node">
-<title>Node29</title>
-<g id="a_node29"><a xlink:href="telemetry__module_8hpp.html" target="_top" xlink:title="The telemetry module.">
-<polygon fill="none" stroke="black" points="608,-168.5 608,-187.5 736,-187.5 736,-168.5 608,-168.5"/>
-<text text-anchor="middle" x="672" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">telemetry_module.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node12&#45;&gt;Node29 -->
-<g id="edge37" class="edge">
-<title>Node12&#45;&gt;Node29</title>
-<path fill="none" stroke="midnightblue" d="M723.41,-218.1C710.63,-208.38 694.39,-196.03 683.61,-187.83"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="721.51,-221.06 731.59,-224.32 725.75,-215.48 721.51,-221.06"/>
-</g>
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
-<g id="a_node14"><a xlink:href="flight__runner_8hpp.html" target="_top" xlink:title="The main class for the flight system.">
-<polygon fill="none" stroke="black" points="639,-112.5 639,-131.5 737,-131.5 737,-112.5 639,-112.5"/>
-<text text-anchor="middle" x="688" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">flight_runner.hpp</text>
+<g id="a_node14"><a xlink:href="console__module_8hpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="754.5,-168.5 754.5,-187.5 871.5,-187.5 871.5,-168.5 754.5,-168.5"/>
+<text text-anchor="middle" x="813" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">console_module.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node13&#45;&gt;Node14 -->
 <g id="edge16" class="edge">
 <title>Node13&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M783.76,-164.37C760.35,-154.26 728.16,-140.35 707.71,-131.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="782.63,-167.69 793.19,-168.44 785.4,-161.26 782.63,-167.69"/>
+<path fill="none" stroke="midnightblue" d="M762.31,-218.1C774.91,-208.38 790.93,-196.03 801.55,-187.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="760.03,-215.44 754.25,-224.32 764.3,-220.99 760.03,-215.44"/>
 </g>
-<!-- Node17 -->
-<g id="node17" class="node">
-<title>Node17</title>
-<g id="a_node17"><a xlink:href="console__module_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="755,-112.5 755,-131.5 871,-131.5 871,-112.5 755,-112.5"/>
-<text text-anchor="middle" x="813" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">console_module.cpp</text>
+<!-- Node19 -->
+<g id="node19" class="node">
+<title>Node19</title>
+<g id="a_node19"><a xlink:href="data__module_8hpp.html" target="_top" xlink:title="The data module header file.">
+<polygon fill="none" stroke="black" points="889.5,-168.5 889.5,-187.5 990.5,-187.5 990.5,-168.5 889.5,-168.5"/>
+<text text-anchor="middle" x="940" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">data_module.hpp</text>
 </a>
 </g>
 </g>
-<!-- Node13&#45;&gt;Node17 -->
-<g id="edge20" class="edge">
-<title>Node13&#45;&gt;Node17</title>
-<path fill="none" stroke="midnightblue" d="M813,-157.8C813,-148.91 813,-138.78 813,-131.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="809.5,-158.08 813,-168.08 816.5,-158.08 809.5,-158.08"/>
+<!-- Node13&#45;&gt;Node19 -->
+<g id="edge22" class="edge">
+<title>Node13&#45;&gt;Node19</title>
+<path fill="none" stroke="midnightblue" d="M784.23,-221.7C821.41,-211.51 875.27,-196.74 908.93,-187.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="782.93,-218.42 774.22,-224.44 784.78,-225.18 782.93,-218.42"/>
 </g>
-<!-- Node14&#45;&gt;Node11 -->
-<g id="edge19" class="edge">
-<title>Node14&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M633.56,-110.5C575.67,-99.34 486.11,-82.06 439.15,-73.01"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="633.15,-113.99 643.63,-112.44 634.48,-107.11 633.15,-113.99"/>
+<!-- Node22 -->
+<g id="node22" class="node">
+<title>Node22</title>
+<g id="a_node22"><a xlink:href="extension__module_8hpp.html" target="_top" xlink:title="This is the header file for the new extension module.">
+<polygon fill="none" stroke="black" points="1163,-168.5 1163,-187.5 1291,-187.5 1291,-168.5 1163,-168.5"/>
+<text text-anchor="middle" x="1227" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension_module.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node13&#45;&gt;Node22 -->
+<g id="edge26" class="edge">
+<title>Node13&#45;&gt;Node22</title>
+<path fill="none" stroke="midnightblue" d="M790.06,-223.97C928.59,-203.66 1079.41,-190.35 1162.94,-183.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="789.49,-220.51 780.11,-225.44 790.51,-227.44 789.49,-220.51"/>
+</g>
+<!-- Node25 -->
+<g id="node25" class="node">
+<title>Node25</title>
+<g id="a_node25"><a xlink:href="module_8cpp.html" target="_top" xlink:title="Implementation of the module base class.">
+<polygon fill="none" stroke="black" points="382,-168.5 382,-187.5 456,-187.5 456,-168.5 382,-168.5"/>
+<text text-anchor="middle" x="419" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">module.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node13&#45;&gt;Node25 -->
+<g id="edge31" class="edge">
+<title>Node13&#45;&gt;Node25</title>
+<path fill="none" stroke="midnightblue" d="M695.96,-223.88C592.55,-205.96 564.67,-205.48 465,-188 462.11,-187.49 459.13,-186.95 456.13,-186.4"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="695.41,-227.33 705.87,-225.6 696.62,-220.44 695.41,-227.33"/>
+</g>
+<!-- Node26 -->
+<g id="node26" class="node">
+<title>Node26</title>
+<g id="a_node26"><a xlink:href="server__module_8hpp.html" target="_top" xlink:title="Header file for the server module.">
+<polygon fill="none" stroke="black" points="254,-168.5 254,-187.5 364,-187.5 364,-168.5 254,-168.5"/>
+<text text-anchor="middle" x="309" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">server_module.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node13&#45;&gt;Node26 -->
+<g id="edge32" class="edge">
+<title>Node13&#45;&gt;Node26</title>
+<path fill="none" stroke="midnightblue" d="M695.81,-223.93C552.07,-202.24 513.52,-205.68 373,-188 370.11,-187.64 367.14,-187.25 364.14,-186.86"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="695.48,-227.42 705.89,-225.47 696.53,-220.5 695.48,-227.42"/>
+</g>
+<!-- Node28 -->
+<g id="node28" class="node">
+<title>Node28</title>
+<g id="a_node28"><a xlink:href="system__module_8hpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="474,-168.5 474,-187.5 590,-187.5 590,-168.5 474,-168.5"/>
+<text text-anchor="middle" x="532" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">system_module.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node13&#45;&gt;Node28 -->
+<g id="edge35" class="edge">
+<title>Node13&#45;&gt;Node28</title>
+<path fill="none" stroke="midnightblue" d="M699.86,-221.96C660.01,-211.76 601.64,-196.82 565.28,-187.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="699.01,-225.35 709.57,-224.44 700.75,-218.57 699.01,-225.35"/>
+</g>
+<!-- Node30 -->
+<g id="node30" class="node">
+<title>Node30</title>
+<g id="a_node30"><a xlink:href="telemetry__module_8hpp.html" target="_top" xlink:title="The telemetry module.">
+<polygon fill="none" stroke="black" points="608,-168.5 608,-187.5 736,-187.5 736,-168.5 608,-168.5"/>
+<text text-anchor="middle" x="672" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">telemetry_module.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node13&#45;&gt;Node30 -->
+<g id="edge38" class="edge">
+<title>Node13&#45;&gt;Node30</title>
+<path fill="none" stroke="midnightblue" d="M723.41,-218.1C710.63,-208.38 694.39,-196.03 683.61,-187.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="721.51,-221.06 731.59,-224.32 725.75,-215.48 721.51,-221.06"/>
 </g>
 <!-- Node15 -->
 <g id="node15" class="node">
 <title>Node15</title>
-<g id="a_node15"><a xlink:href="flight__logic_8cpp.html" target="_top" xlink:title="The implementation of the flight logic within the flight runner.">
-<polygon fill="none" stroke="black" points="699,-56.5 699,-75.5 789,-75.5 789,-56.5 699,-56.5"/>
-<text text-anchor="middle" x="744" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">flight_logic.cpp</text>
+<g id="a_node15"><a xlink:href="flight__runner_8hpp.html" target="_top" xlink:title="The main class for the flight system.">
+<polygon fill="none" stroke="black" points="639,-112.5 639,-131.5 737,-131.5 737,-112.5 639,-112.5"/>
+<text text-anchor="middle" x="688" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">flight_runner.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node14&#45;&gt;Node15 -->
 <g id="edge17" class="edge">
 <title>Node14&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M704.33,-105.25C714.26,-95.67 726.59,-83.79 734.84,-75.83"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="701.77,-102.86 697,-112.32 706.63,-107.9 701.77,-102.86"/>
+<path fill="none" stroke="midnightblue" d="M783.76,-164.37C760.35,-154.26 728.16,-140.35 707.71,-131.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="782.63,-167.69 793.19,-168.44 785.4,-161.26 782.63,-167.69"/>
+</g>
+<!-- Node18 -->
+<g id="node18" class="node">
+<title>Node18</title>
+<g id="a_node18"><a xlink:href="console__module_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="755,-112.5 755,-131.5 871,-131.5 871,-112.5 755,-112.5"/>
+<text text-anchor="middle" x="813" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">console_module.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node14&#45;&gt;Node18 -->
+<g id="edge21" class="edge">
+<title>Node14&#45;&gt;Node18</title>
+<path fill="none" stroke="midnightblue" d="M813,-157.8C813,-148.91 813,-138.78 813,-131.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="809.5,-158.08 813,-168.08 816.5,-158.08 809.5,-158.08"/>
+</g>
+<!-- Node15&#45;&gt;Node11 -->
+<g id="edge20" class="edge">
+<title>Node15&#45;&gt;Node11</title>
+<path fill="none" stroke="midnightblue" d="M633.56,-110.5C575.67,-99.34 486.11,-82.06 439.15,-73.01"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="633.15,-113.99 643.63,-112.44 634.48,-107.11 633.15,-113.99"/>
 </g>
 <!-- Node16 -->
 <g id="node16" class="node">
 <title>Node16</title>
-<g id="a_node16"><a xlink:href="flight__runner_8cpp.html" target="_top" xlink:title="The implementation of the flight runner, where everything comes together.">
+<g id="a_node16"><a xlink:href="flight__logic_8cpp.html" target="_top" xlink:title="The implementation of the flight logic within the flight runner.">
+<polygon fill="none" stroke="black" points="699,-56.5 699,-75.5 789,-75.5 789,-56.5 699,-56.5"/>
+<text text-anchor="middle" x="744" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">flight_logic.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node15&#45;&gt;Node16 -->
+<g id="edge18" class="edge">
+<title>Node15&#45;&gt;Node16</title>
+<path fill="none" stroke="midnightblue" d="M704.33,-105.25C714.26,-95.67 726.59,-83.79 734.84,-75.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="701.77,-102.86 697,-112.32 706.63,-107.9 701.77,-102.86"/>
+</g>
+<!-- Node17 -->
+<g id="node17" class="node">
+<title>Node17</title>
+<g id="a_node17"><a xlink:href="flight__runner_8cpp.html" target="_top" xlink:title="The implementation of the flight runner, where everything comes together.">
 <polygon fill="none" stroke="black" points="583,-56.5 583,-75.5 681,-75.5 681,-56.5 583,-56.5"/>
 <text text-anchor="middle" x="632" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">flight_runner.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node14&#45;&gt;Node16 -->
-<g id="edge18" class="edge">
-<title>Node14&#45;&gt;Node16</title>
+<!-- Node15&#45;&gt;Node17 -->
+<g id="edge19" class="edge">
+<title>Node15&#45;&gt;Node17</title>
 <path fill="none" stroke="midnightblue" d="M671.67,-105.25C661.74,-95.67 649.41,-83.79 641.16,-75.83"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="669.37,-107.9 679,-112.32 674.23,-102.86 669.37,-107.9"/>
 </g>
-<!-- Node18&#45;&gt;Node14 -->
-<g id="edge22" class="edge">
-<title>Node18&#45;&gt;Node14</title>
+<!-- Node19&#45;&gt;Node15 -->
+<g id="edge23" class="edge">
+<title>Node19&#45;&gt;Node15</title>
 <path fill="none" stroke="midnightblue" d="M890.28,-166.35C842.66,-156.14 771.72,-140.94 727.74,-131.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="889.56,-169.77 900.07,-168.44 891.03,-162.93 889.56,-169.77"/>
 </g>
-<!-- Node19 -->
-<g id="node19" class="node">
-<title>Node19</title>
-<g id="a_node19"><a xlink:href="data__module_8cpp.html" target="_top" xlink:title=" ">
+<!-- Node20 -->
+<g id="node20" class="node">
+<title>Node20</title>
+<g id="a_node20"><a xlink:href="data__module_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="889.5,-112.5 889.5,-131.5 990.5,-131.5 990.5,-112.5 889.5,-112.5"/>
 <text text-anchor="middle" x="940" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">data_module.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node18&#45;&gt;Node19 -->
-<g id="edge23" class="edge">
-<title>Node18&#45;&gt;Node19</title>
+<!-- Node19&#45;&gt;Node20 -->
+<g id="edge24" class="edge">
+<title>Node19&#45;&gt;Node20</title>
 <path fill="none" stroke="midnightblue" d="M940,-157.8C940,-148.91 940,-138.78 940,-131.75"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="936.5,-158.08 940,-168.08 943.5,-158.08 936.5,-158.08"/>
 </g>
-<!-- Node20 -->
-<g id="node20" class="node">
-<title>Node20</title>
-<g id="a_node20"><a xlink:href="test__data__module_8cpp.html" target="_top" xlink:title="Data module unit tests.">
+<!-- Node21 -->
+<g id="node21" class="node">
+<title>Node21</title>
+<g id="a_node21"><a xlink:href="test__data__module_8cpp.html" target="_top" xlink:title="Data module unit tests.">
 <polygon fill="none" stroke="black" points="1008.5,-112.5 1008.5,-131.5 1133.5,-131.5 1133.5,-112.5 1008.5,-112.5"/>
 <text text-anchor="middle" x="1071" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">test_data_module.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node18&#45;&gt;Node20 -->
-<g id="edge24" class="edge">
-<title>Node18&#45;&gt;Node20</title>
+<!-- Node19&#45;&gt;Node21 -->
+<g id="edge25" class="edge">
+<title>Node19&#45;&gt;Node21</title>
 <path fill="none" stroke="midnightblue" d="M970.32,-164.5C994.88,-154.38 1028.82,-140.39 1050.34,-131.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="968.67,-161.4 960.76,-168.44 971.34,-167.87 968.67,-161.4"/>
 </g>
-<!-- Node21&#45;&gt;Node5 -->
-<g id="edge27" class="edge">
-<title>Node21&#45;&gt;Node5</title>
+<!-- Node22&#45;&gt;Node5 -->
+<g id="edge28" class="edge">
+<title>Node22&#45;&gt;Node5</title>
 <path fill="none" stroke="midnightblue" d="M1252.4,-163.56C1287.7,-144.88 1347.56,-113.21 1350,-112 1422.51,-76.07 1510.31,-36.6 1548.59,-19.58"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1250.37,-160.67 1243.16,-168.44 1253.64,-166.86 1250.37,-160.67"/>
 </g>
-<!-- Node21&#45;&gt;Node14 -->
-<g id="edge26" class="edge">
-<title>Node21&#45;&gt;Node14</title>
+<!-- Node22&#45;&gt;Node15 -->
+<g id="edge27" class="edge">
+<title>Node22&#45;&gt;Node15</title>
 <path fill="none" stroke="midnightblue" d="M1152.63,-171.45C1057.99,-164.06 889.55,-149.84 746,-132 743.07,-131.64 740.06,-131.24 737.02,-130.82"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1152.44,-174.95 1162.68,-172.23 1152.98,-167.97 1152.44,-174.95"/>
 </g>
-<!-- Node22 -->
-<g id="node22" class="node">
-<title>Node22</title>
-<g id="a_node22"><a xlink:href="preconfigured__extensions_8cpp.html" target="_top" xlink:title="Shortcuts for quickly adding extensions to the configuration. Part of the extension module.">
+<!-- Node23 -->
+<g id="node23" class="node">
+<title>Node23</title>
+<g id="a_node23"><a xlink:href="preconfigured__extensions_8cpp.html" target="_top" xlink:title="Shortcuts for quickly adding extensions to the configuration. Part of the extension module.">
 <polygon fill="none" stroke="black" points="1359,-112.5 1359,-131.5 1521,-131.5 1521,-112.5 1359,-112.5"/>
 <text text-anchor="middle" x="1440" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">preconfigured_extensions.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node22 -->
-<g id="edge28" class="edge">
-<title>Node21&#45;&gt;Node22</title>
+<!-- Node22&#45;&gt;Node23 -->
+<g id="edge29" class="edge">
+<title>Node22&#45;&gt;Node23</title>
 <path fill="none" stroke="midnightblue" d="M1270.55,-165.96C1310.78,-155.76 1369.7,-140.82 1406.41,-131.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1269.58,-162.59 1260.75,-168.44 1271.3,-169.38 1269.58,-162.59"/>
 </g>
-<!-- Node23 -->
-<g id="node23" class="node">
-<title>Node23</title>
-<g id="a_node23"><a xlink:href="test__extension__module_8cpp.html" target="_top" xlink:title="Extension module unit tests.">
+<!-- Node24 -->
+<g id="node24" class="node">
+<title>Node24</title>
+<g id="a_node24"><a xlink:href="test__extension__module_8cpp.html" target="_top" xlink:title="Extension module unit tests.">
 <polygon fill="none" stroke="black" points="1151.5,-112.5 1151.5,-131.5 1302.5,-131.5 1302.5,-112.5 1151.5,-112.5"/>
 <text text-anchor="middle" x="1227" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">test_extension_module.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node23 -->
-<g id="edge29" class="edge">
-<title>Node21&#45;&gt;Node23</title>
+<!-- Node22&#45;&gt;Node24 -->
+<g id="edge30" class="edge">
+<title>Node22&#45;&gt;Node24</title>
 <path fill="none" stroke="midnightblue" d="M1227,-157.8C1227,-148.91 1227,-138.78 1227,-131.75"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1223.5,-158.08 1227,-168.08 1230.5,-158.08 1223.5,-158.08"/>
 </g>
-<!-- Node25&#45;&gt;Node14 -->
-<g id="edge32" class="edge">
-<title>Node25&#45;&gt;Node14</title>
+<!-- Node26&#45;&gt;Node15 -->
+<g id="edge33" class="edge">
+<title>Node26&#45;&gt;Node15</title>
 <path fill="none" stroke="midnightblue" d="M374.21,-167.83C467.32,-154.74 627.43,-132.23 629,-132 632.18,-131.53 635.45,-131.05 638.75,-130.56"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="373.45,-164.41 364.03,-169.26 374.42,-171.34 373.45,-164.41"/>
 </g>
-<!-- Node26 -->
-<g id="node26" class="node">
-<title>Node26</title>
-<g id="a_node26"><a xlink:href="server__module_8cpp.html" target="_top" xlink:title="The server module class implementation.">
+<!-- Node27 -->
+<g id="node27" class="node">
+<title>Node27</title>
+<g id="a_node27"><a xlink:href="server__module_8cpp.html" target="_top" xlink:title="The server module class implementation.">
 <polygon fill="none" stroke="black" points="232,-112.5 232,-131.5 342,-131.5 342,-112.5 232,-112.5"/>
 <text text-anchor="middle" x="287" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">server_module.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node25&#45;&gt;Node26 -->
-<g id="edge33" class="edge">
-<title>Node25&#45;&gt;Node26</title>
+<!-- Node26&#45;&gt;Node27 -->
+<g id="edge34" class="edge">
+<title>Node26&#45;&gt;Node27</title>
 <path fill="none" stroke="midnightblue" d="M301.54,-158.69C297.83,-149.59 293.52,-139.01 290.57,-131.75"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="298.35,-160.14 305.37,-168.08 304.84,-157.5 298.35,-160.14"/>
 </g>
-<!-- Node27&#45;&gt;Node14 -->
-<g id="edge35" class="edge">
-<title>Node27&#45;&gt;Node14</title>
+<!-- Node28&#45;&gt;Node15 -->
+<g id="edge36" class="edge">
+<title>Node28&#45;&gt;Node15</title>
 <path fill="none" stroke="midnightblue" d="M566.17,-165.17C595.54,-155 637.2,-140.59 663.4,-131.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="565.02,-161.86 556.72,-168.44 567.31,-168.48 565.02,-161.86"/>
 </g>
-<!-- Node28 -->
-<g id="node28" class="node">
-<title>Node28</title>
-<g id="a_node28"><a xlink:href="system__module_8cpp.html" target="_top" xlink:title=" ">
+<!-- Node29 -->
+<g id="node29" class="node">
+<title>Node29</title>
+<g id="a_node29"><a xlink:href="system__module_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="360.5,-112.5 360.5,-131.5 475.5,-131.5 475.5,-112.5 360.5,-112.5"/>
 <text text-anchor="middle" x="418" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">system_module.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node27&#45;&gt;Node28 -->
-<g id="edge36" class="edge">
-<title>Node27&#45;&gt;Node28</title>
+<!-- Node28&#45;&gt;Node29 -->
+<g id="edge37" class="edge">
+<title>Node28&#45;&gt;Node29</title>
 <path fill="none" stroke="midnightblue" d="M504.76,-164.1C483.46,-154.01 454.46,-140.27 435.98,-131.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="503.4,-167.33 513.94,-168.44 506.4,-161 503.4,-167.33"/>
 </g>
-<!-- Node29&#45;&gt;Node14 -->
-<g id="edge38" class="edge">
-<title>Node29&#45;&gt;Node14</title>
+<!-- Node30&#45;&gt;Node15 -->
+<g id="edge39" class="edge">
+<title>Node30&#45;&gt;Node15</title>
 <path fill="none" stroke="midnightblue" d="M677.51,-158.4C680.19,-149.36 683.28,-138.94 685.41,-131.75"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="674.13,-157.5 674.64,-168.08 680.84,-159.49 674.13,-157.5"/>
 </g>
-<!-- Node30 -->
-<g id="node30" class="node">
-<title>Node30</title>
-<g id="a_node30"><a xlink:href="telemetry__module_8cpp.html" target="_top" xlink:title="The telemetry module.">
+<!-- Node31 -->
+<g id="node31" class="node">
+<title>Node31</title>
+<g id="a_node31"><a xlink:href="telemetry__module_8cpp.html" target="_top" xlink:title="The telemetry module.">
 <polygon fill="none" stroke="black" points="493.5,-112.5 493.5,-131.5 620.5,-131.5 620.5,-112.5 493.5,-112.5"/>
 <text text-anchor="middle" x="557" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">telemetry_module.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node29&#45;&gt;Node30 -->
-<g id="edge39" class="edge">
-<title>Node29&#45;&gt;Node30</title>
+<!-- Node30&#45;&gt;Node31 -->
+<g id="edge40" class="edge">
+<title>Node30&#45;&gt;Node31</title>
 <path fill="none" stroke="midnightblue" d="M644.52,-164.1C623.03,-154.01 593.78,-140.27 575.14,-131.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="643.24,-167.36 653.78,-168.44 646.21,-161.02 643.24,-167.36"/>
-</g>
-<!-- Node34 -->
-<g id="node34" class="node">
-<title>Node34</title>
-<g id="a_node34"><a xlink:href="i2c__interface_8hpp.html" target="_top" xlink:title="A wrapper around I2C communication.">
-<polygon fill="none" stroke="black" points="1667.5,-168.5 1667.5,-187.5 1768.5,-187.5 1768.5,-168.5 1667.5,-168.5"/>
-<text text-anchor="middle" x="1718" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">i2c_interface.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node33&#45;&gt;Node34 -->
-<g id="edge43" class="edge">
-<title>Node33&#45;&gt;Node34</title>
-<path fill="none" stroke="midnightblue" d="M1524.32,-222.22C1570.05,-212.01 1637.78,-196.9 1679.83,-187.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1523.34,-218.85 1514.35,-224.44 1524.87,-225.68 1523.34,-218.85"/>
-</g>
-<!-- Node44 -->
-<g id="node44" class="node">
-<title>Node44</title>
-<g id="a_node44"><a xlink:href="giraffe__exception_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="1415,-168.5 1415,-187.5 1537,-187.5 1537,-168.5 1415,-168.5"/>
-<text text-anchor="middle" x="1476" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_exception.cpp</text>
-</a>
-</g>
-</g>
-<!-- Node33&#45;&gt;Node44 -->
-<g id="edge59" class="edge">
-<title>Node33&#45;&gt;Node44</title>
-<path fill="none" stroke="midnightblue" d="M1476,-213.8C1476,-204.91 1476,-194.78 1476,-187.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1472.5,-214.08 1476,-224.08 1479.5,-214.08 1472.5,-214.08"/>
-</g>
-<!-- Node45 -->
-<g id="node45" class="node">
-<title>Node45</title>
-<g id="a_node45"><a xlink:href="test__diagnostics_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="1787,-168.5 1787,-187.5 1903,-187.5 1903,-168.5 1787,-168.5"/>
-<text text-anchor="middle" x="1845" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">test_diagnostics.cpp</text>
-</a>
-</g>
-</g>
-<!-- Node33&#45;&gt;Node45 -->
-<g id="edge60" class="edge">
-<title>Node33&#45;&gt;Node45</title>
-<path fill="none" stroke="midnightblue" d="M1544.47,-222.98C1614.18,-212.78 1721.06,-197.14 1786.8,-187.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1543.86,-219.53 1534.47,-224.44 1544.87,-226.46 1543.86,-219.53"/>
-</g>
-<!-- Node46 -->
-<g id="node46" class="node">
-<title>Node46</title>
-<g id="a_node46"><a xlink:href="test__application__layer_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="1921,-168.5 1921,-187.5 2065,-187.5 2065,-168.5 1921,-168.5"/>
-<text text-anchor="middle" x="1993" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">test_application_layer.cpp</text>
-</a>
-</g>
-</g>
-<!-- Node33&#45;&gt;Node46 -->
-<g id="edge61" class="edge">
-<title>Node33&#45;&gt;Node46</title>
-<path fill="none" stroke="midnightblue" d="M1550.69,-224.03C1550.8,-224.02 1550.9,-224.01 1551,-224 1711.28,-206.39 1751.65,-204.9 1912,-188 1914.81,-187.7 1917.68,-187.4 1920.58,-187.09"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1550.58,-220.52 1541.03,-225.12 1551.36,-227.48 1550.58,-220.52"/>
 </g>
 <!-- Node35 -->
 <g id="node35" class="node">
 <title>Node35</title>
-<g id="a_node35"><a xlink:href="bme280_8hpp.html" target="_top" xlink:title="The BME280 sensor extension.">
-<polygon fill="none" stroke="black" points="1972.5,-56.5 1972.5,-75.5 2049.5,-75.5 2049.5,-56.5 1972.5,-56.5"/>
-<text text-anchor="middle" x="2011" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">bme280.hpp</text>
+<g id="a_node35"><a xlink:href="i2c__interface_8hpp.html" target="_top" xlink:title="A wrapper around I2C communication.">
+<polygon fill="none" stroke="black" points="1667.5,-168.5 1667.5,-187.5 1768.5,-187.5 1768.5,-168.5 1667.5,-168.5"/>
+<text text-anchor="middle" x="1718" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">i2c_interface.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node34&#45;&gt;Node35 -->
 <g id="edge44" class="edge">
 <title>Node34&#45;&gt;Node35</title>
-<path fill="none" stroke="midnightblue" d="M1778.84,-167.5C1859.51,-154.84 1992,-133.82 1994,-132 2010.05,-117.4 2011.75,-89.7 2011.48,-75.65"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1778.13,-164.07 1768.79,-169.07 1779.21,-170.98 1778.13,-164.07"/>
+<path fill="none" stroke="midnightblue" d="M1524.32,-222.22C1570.05,-212.01 1637.78,-196.9 1679.83,-187.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1523.34,-218.85 1514.35,-224.44 1524.87,-225.68 1523.34,-218.85"/>
 </g>
-<!-- Node37 -->
-<g id="node37" class="node">
-<title>Node37</title>
-<g id="a_node37"><a xlink:href="i2c__extension__adapter_8hpp.html" target="_top" xlink:title="Adapter for I2C Extensions.">
-<polygon fill="none" stroke="black" points="2041.5,-112.5 2041.5,-131.5 2188.5,-131.5 2188.5,-112.5 2041.5,-112.5"/>
-<text text-anchor="middle" x="2115" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">i2c_extension_adapter.hpp</text>
+<!-- Node45 -->
+<g id="node45" class="node">
+<title>Node45</title>
+<g id="a_node45"><a xlink:href="giraffe__exception_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="1415,-168.5 1415,-187.5 1537,-187.5 1537,-168.5 1415,-168.5"/>
+<text text-anchor="middle" x="1476" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe_exception.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node34&#45;&gt;Node37 -->
-<g id="edge48" class="edge">
-<title>Node34&#45;&gt;Node37</title>
-<path fill="none" stroke="midnightblue" d="M1778.73,-167.92C1878.92,-153.76 1982.98,-140.06 2048.77,-131.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1778.14,-164.46 1768.73,-169.33 1779.12,-171.4 1778.14,-164.46"/>
+<!-- Node34&#45;&gt;Node45 -->
+<g id="edge60" class="edge">
+<title>Node34&#45;&gt;Node45</title>
+<path fill="none" stroke="midnightblue" d="M1476,-213.8C1476,-204.91 1476,-194.78 1476,-187.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1472.5,-214.08 1476,-224.08 1479.5,-214.08 1472.5,-214.08"/>
 </g>
-<!-- Node38 -->
-<g id="node38" class="node">
-<title>Node38</title>
-<g id="a_node38"><a xlink:href="samm8q_8hpp.html" target="_top" xlink:title="SAM&#45;M8Q GPS extension (I2C).">
-<polygon fill="none" stroke="black" points="1905,-112.5 1905,-131.5 1985,-131.5 1985,-112.5 1905,-112.5"/>
-<text text-anchor="middle" x="1945" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">samm8q.hpp</text>
+<!-- Node46 -->
+<g id="node46" class="node">
+<title>Node46</title>
+<g id="a_node46"><a xlink:href="test__diagnostics_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="1787,-168.5 1787,-187.5 1903,-187.5 1903,-168.5 1787,-168.5"/>
+<text text-anchor="middle" x="1845" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">test_diagnostics.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node34&#45;&gt;Node38 -->
-<g id="edge50" class="edge">
-<title>Node34&#45;&gt;Node38</title>
-<path fill="none" stroke="midnightblue" d="M1763.87,-166.09C1806.75,-155.89 1869.92,-140.86 1909.2,-131.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1762.89,-162.72 1753.97,-168.44 1764.51,-169.53 1762.89,-162.72"/>
+<!-- Node34&#45;&gt;Node46 -->
+<g id="edge61" class="edge">
+<title>Node34&#45;&gt;Node46</title>
+<path fill="none" stroke="midnightblue" d="M1544.47,-222.98C1614.18,-212.78 1721.06,-197.14 1786.8,-187.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1543.86,-219.53 1534.47,-224.44 1544.87,-226.46 1543.86,-219.53"/>
 </g>
-<!-- Node40 -->
-<g id="node40" class="node">
-<title>Node40</title>
-<g id="a_node40"><a xlink:href="i2c__interface_8cpp.html" target="_top" xlink:title="A wrapper around I2C communication.">
-<polygon fill="none" stroke="black" points="1787,-112.5 1787,-131.5 1887,-131.5 1887,-112.5 1787,-112.5"/>
-<text text-anchor="middle" x="1837" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">i2c_interface.cpp</text>
+<!-- Node47 -->
+<g id="node47" class="node">
+<title>Node47</title>
+<g id="a_node47"><a xlink:href="test__application__layer_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="1921,-168.5 1921,-187.5 2065,-187.5 2065,-168.5 1921,-168.5"/>
+<text text-anchor="middle" x="1993" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">test_application_layer.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node34&#45;&gt;Node40 -->
-<g id="edge54" class="edge">
-<title>Node34&#45;&gt;Node40</title>
-<path fill="none" stroke="midnightblue" d="M1746.14,-164.23C1768.4,-154.13 1798.86,-140.31 1818.23,-131.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1744.52,-161.12 1736.86,-168.44 1747.41,-167.5 1744.52,-161.12"/>
-</g>
-<!-- Node41 -->
-<g id="node41" class="node">
-<title>Node41</title>
-<g id="a_node41"><a xlink:href="ubx__protocol_8hpp.html" target="_top" xlink:title="UBX Protocol implementation header.">
-<polygon fill="none" stroke="black" points="1667.5,-112.5 1667.5,-131.5 1768.5,-131.5 1768.5,-112.5 1667.5,-112.5"/>
-<text text-anchor="middle" x="1718" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">ubx_protocol.hpp</text>
-</a>
-</g>
-</g>
-<!-- Node34&#45;&gt;Node41 -->
-<g id="edge55" class="edge">
-<title>Node34&#45;&gt;Node41</title>
-<path fill="none" stroke="midnightblue" d="M1718,-157.8C1718,-148.91 1718,-138.78 1718,-131.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1714.5,-158.08 1718,-168.08 1721.5,-158.08 1714.5,-158.08"/>
-</g>
-<!-- Node43 -->
-<g id="node43" class="node">
-<title>Node43</title>
-<g id="a_node43"><a xlink:href="test__interfaces_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="1539,-112.5 1539,-131.5 1649,-131.5 1649,-112.5 1539,-112.5"/>
-<text text-anchor="middle" x="1594" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">test_interfaces.cpp</text>
-</a>
-</g>
-</g>
-<!-- Node34&#45;&gt;Node43 -->
-<g id="edge58" class="edge">
-<title>Node34&#45;&gt;Node43</title>
-<path fill="none" stroke="midnightblue" d="M1688.99,-164.37C1665.77,-154.26 1633.84,-140.35 1613.56,-131.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1687.79,-167.66 1698.35,-168.44 1690.58,-161.24 1687.79,-167.66"/>
-</g>
-<!-- Node35&#45;&gt;Node5 -->
-<g id="edge46" class="edge">
-<title>Node35&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M1962.11,-59.04C1881.6,-49.23 1721.14,-29.67 1631.8,-18.78"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1962.11,-62.57 1972.46,-60.3 1962.96,-55.62 1962.11,-62.57"/>
-</g>
-<!-- Node35&#45;&gt;Node6 -->
-<g id="edge47" class="edge">
-<title>Node35&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M1988.02,-50.9C1971.89,-41 1950.82,-28.07 1937.1,-19.65"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1986.51,-54.08 1996.86,-56.32 1990.17,-48.11 1986.51,-54.08"/>
+<!-- Node34&#45;&gt;Node47 -->
+<g id="edge62" class="edge">
+<title>Node34&#45;&gt;Node47</title>
+<path fill="none" stroke="midnightblue" d="M1550.69,-224.03C1550.8,-224.02 1550.9,-224.01 1551,-224 1711.28,-206.39 1751.65,-204.9 1912,-188 1914.81,-187.7 1917.68,-187.4 1920.58,-187.09"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1550.58,-220.52 1541.03,-225.12 1551.36,-227.48 1550.58,-220.52"/>
 </g>
 <!-- Node36 -->
 <g id="node36" class="node">
 <title>Node36</title>
-<g id="a_node36"><a xlink:href="bme280_8cpp.html" target="_top" xlink:title="BME280 sensor extension.">
-<polygon fill="none" stroke="black" points="1998.5,-0.5 1998.5,-19.5 2075.5,-19.5 2075.5,-0.5 1998.5,-0.5"/>
-<text text-anchor="middle" x="2037" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">bme280.cpp</text>
+<g id="a_node36"><a xlink:href="bme280_8hpp.html" target="_top" xlink:title="The BME280 sensor extension.">
+<polygon fill="none" stroke="black" points="1972.5,-56.5 1972.5,-75.5 2049.5,-75.5 2049.5,-56.5 1972.5,-56.5"/>
+<text text-anchor="middle" x="2011" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">bme280.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node35&#45;&gt;Node36 -->
 <g id="edge45" class="edge">
 <title>Node35&#45;&gt;Node36</title>
-<path fill="none" stroke="midnightblue" d="M2019.67,-46.98C2024.09,-37.82 2029.25,-27.09 2032.79,-19.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="2016.48,-45.55 2015.29,-56.08 2022.79,-48.59 2016.48,-45.55"/>
+<path fill="none" stroke="midnightblue" d="M1778.84,-167.5C1859.51,-154.84 1992,-133.82 1994,-132 2010.05,-117.4 2011.75,-89.7 2011.48,-75.65"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1778.13,-164.07 1768.79,-169.07 1779.21,-170.98 1778.13,-164.07"/>
 </g>
-<!-- Node37&#45;&gt;Node3 -->
+<!-- Node38 -->
+<g id="node38" class="node">
+<title>Node38</title>
+<g id="a_node38"><a xlink:href="i2c__extension__adapter_8hpp.html" target="_top" xlink:title="Adapter for I2C Extensions.">
+<polygon fill="none" stroke="black" points="2041.5,-112.5 2041.5,-131.5 2188.5,-131.5 2188.5,-112.5 2041.5,-112.5"/>
+<text text-anchor="middle" x="2115" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">i2c_extension_adapter.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node35&#45;&gt;Node38 -->
 <g id="edge49" class="edge">
-<title>Node37&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M2115,-101.8C2115,-92.91 2115,-82.78 2115,-75.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="2111.5,-102.08 2115,-112.08 2118.5,-102.08 2111.5,-102.08"/>
-</g>
-<!-- Node38&#45;&gt;Node5 -->
-<g id="edge52" class="edge">
-<title>Node38&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M1933.31,-103.94C1921.87,-88.7 1902.98,-67.11 1881,-56 1838.56,-34.55 1710.21,-21.52 1631.67,-15.34"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1930.47,-105.99 1939.16,-112.06 1936.15,-101.9 1930.47,-105.99"/>
-</g>
-<!-- Node38&#45;&gt;Node6 -->
-<g id="edge53" class="edge">
-<title>Node38&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M1941.27,-102.35C1936.45,-78.25 1928.26,-37.31 1924.72,-19.59"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1937.88,-103.25 1943.27,-112.37 1944.74,-101.88 1937.88,-103.25"/>
+<title>Node35&#45;&gt;Node38</title>
+<path fill="none" stroke="midnightblue" d="M1778.73,-167.92C1878.92,-153.76 1982.98,-140.06 2048.77,-131.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1778.14,-164.46 1768.73,-169.33 1779.12,-171.4 1778.14,-164.46"/>
 </g>
 <!-- Node39 -->
 <g id="node39" class="node">
 <title>Node39</title>
-<g id="a_node39"><a xlink:href="samm8q_8cpp.html" target="_top" xlink:title="The SAM&#45;M8Q GPS extension (I2C).">
+<g id="a_node39"><a xlink:href="samm8q_8hpp.html" target="_top" xlink:title="SAM&#45;M8Q GPS extension (I2C).">
+<polygon fill="none" stroke="black" points="1905,-112.5 1905,-131.5 1985,-131.5 1985,-112.5 1905,-112.5"/>
+<text text-anchor="middle" x="1945" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">samm8q.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node35&#45;&gt;Node39 -->
+<g id="edge51" class="edge">
+<title>Node35&#45;&gt;Node39</title>
+<path fill="none" stroke="midnightblue" d="M1763.87,-166.09C1806.75,-155.89 1869.92,-140.86 1909.2,-131.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1762.89,-162.72 1753.97,-168.44 1764.51,-169.53 1762.89,-162.72"/>
+</g>
+<!-- Node41 -->
+<g id="node41" class="node">
+<title>Node41</title>
+<g id="a_node41"><a xlink:href="i2c__interface_8cpp.html" target="_top" xlink:title="A wrapper around I2C communication.">
+<polygon fill="none" stroke="black" points="1787,-112.5 1787,-131.5 1887,-131.5 1887,-112.5 1787,-112.5"/>
+<text text-anchor="middle" x="1837" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">i2c_interface.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node35&#45;&gt;Node41 -->
+<g id="edge55" class="edge">
+<title>Node35&#45;&gt;Node41</title>
+<path fill="none" stroke="midnightblue" d="M1746.14,-164.23C1768.4,-154.13 1798.86,-140.31 1818.23,-131.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1744.52,-161.12 1736.86,-168.44 1747.41,-167.5 1744.52,-161.12"/>
+</g>
+<!-- Node42 -->
+<g id="node42" class="node">
+<title>Node42</title>
+<g id="a_node42"><a xlink:href="ubx__protocol_8hpp.html" target="_top" xlink:title="UBX Protocol implementation header.">
+<polygon fill="none" stroke="black" points="1667.5,-112.5 1667.5,-131.5 1768.5,-131.5 1768.5,-112.5 1667.5,-112.5"/>
+<text text-anchor="middle" x="1718" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">ubx_protocol.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node35&#45;&gt;Node42 -->
+<g id="edge56" class="edge">
+<title>Node35&#45;&gt;Node42</title>
+<path fill="none" stroke="midnightblue" d="M1718,-157.8C1718,-148.91 1718,-138.78 1718,-131.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1714.5,-158.08 1718,-168.08 1721.5,-158.08 1714.5,-158.08"/>
+</g>
+<!-- Node44 -->
+<g id="node44" class="node">
+<title>Node44</title>
+<g id="a_node44"><a xlink:href="test__interfaces_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="1539,-112.5 1539,-131.5 1649,-131.5 1649,-112.5 1539,-112.5"/>
+<text text-anchor="middle" x="1594" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">test_interfaces.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node35&#45;&gt;Node44 -->
+<g id="edge59" class="edge">
+<title>Node35&#45;&gt;Node44</title>
+<path fill="none" stroke="midnightblue" d="M1688.99,-164.37C1665.77,-154.26 1633.84,-140.35 1613.56,-131.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1687.79,-167.66 1698.35,-168.44 1690.58,-161.24 1687.79,-167.66"/>
+</g>
+<!-- Node36&#45;&gt;Node5 -->
+<g id="edge47" class="edge">
+<title>Node36&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M1962.11,-59.04C1881.6,-49.23 1721.14,-29.67 1631.8,-18.78"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1962.11,-62.57 1972.46,-60.3 1962.96,-55.62 1962.11,-62.57"/>
+</g>
+<!-- Node36&#45;&gt;Node6 -->
+<g id="edge48" class="edge">
+<title>Node36&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M1988.02,-50.9C1971.89,-41 1950.82,-28.07 1937.1,-19.65"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1986.51,-54.08 1996.86,-56.32 1990.17,-48.11 1986.51,-54.08"/>
+</g>
+<!-- Node37 -->
+<g id="node37" class="node">
+<title>Node37</title>
+<g id="a_node37"><a xlink:href="bme280_8cpp.html" target="_top" xlink:title="BME280 sensor extension.">
+<polygon fill="none" stroke="black" points="1998.5,-0.5 1998.5,-19.5 2075.5,-19.5 2075.5,-0.5 1998.5,-0.5"/>
+<text text-anchor="middle" x="2037" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">bme280.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node36&#45;&gt;Node37 -->
+<g id="edge46" class="edge">
+<title>Node36&#45;&gt;Node37</title>
+<path fill="none" stroke="midnightblue" d="M2019.67,-46.98C2024.09,-37.82 2029.25,-27.09 2032.79,-19.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="2016.48,-45.55 2015.29,-56.08 2022.79,-48.59 2016.48,-45.55"/>
+</g>
+<!-- Node38&#45;&gt;Node3 -->
+<g id="edge50" class="edge">
+<title>Node38&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M2115,-101.8C2115,-92.91 2115,-82.78 2115,-75.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="2111.5,-102.08 2115,-112.08 2118.5,-102.08 2111.5,-102.08"/>
+</g>
+<!-- Node39&#45;&gt;Node5 -->
+<g id="edge53" class="edge">
+<title>Node39&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M1933.31,-103.94C1921.87,-88.7 1902.98,-67.11 1881,-56 1838.56,-34.55 1710.21,-21.52 1631.67,-15.34"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1930.47,-105.99 1939.16,-112.06 1936.15,-101.9 1930.47,-105.99"/>
+</g>
+<!-- Node39&#45;&gt;Node6 -->
+<g id="edge54" class="edge">
+<title>Node39&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M1941.27,-102.35C1936.45,-78.25 1928.26,-37.31 1924.72,-19.59"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1937.88,-103.25 1943.27,-112.37 1944.74,-101.88 1937.88,-103.25"/>
+</g>
+<!-- Node40 -->
+<g id="node40" class="node">
+<title>Node40</title>
+<g id="a_node40"><a xlink:href="samm8q_8cpp.html" target="_top" xlink:title="The SAM&#45;M8Q GPS extension (I2C).">
 <polygon fill="none" stroke="black" points="1792,-56.5 1792,-75.5 1872,-75.5 1872,-56.5 1792,-56.5"/>
 <text text-anchor="middle" x="1832" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">samm8q.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node38&#45;&gt;Node39 -->
-<g id="edge51" class="edge">
-<title>Node38&#45;&gt;Node39</title>
+<!-- Node39&#45;&gt;Node40 -->
+<g id="edge52" class="edge">
+<title>Node39&#45;&gt;Node40</title>
 <path fill="none" stroke="midnightblue" d="M1918,-108.1C1896.89,-98.01 1868.14,-84.27 1849.82,-75.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1916.56,-111.29 1927.09,-112.44 1919.58,-104.97 1916.56,-111.29"/>
 </g>
-<!-- Node41&#45;&gt;Node39 -->
-<g id="edge56" class="edge">
-<title>Node41&#45;&gt;Node39</title>
+<!-- Node42&#45;&gt;Node40 -->
+<g id="edge57" class="edge">
+<title>Node42&#45;&gt;Node40</title>
 <path fill="none" stroke="midnightblue" d="M1745.24,-108.1C1766.54,-98.01 1795.54,-84.27 1814.02,-75.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1743.6,-105 1736.06,-112.44 1746.6,-111.33 1743.6,-105"/>
 </g>
-<!-- Node42 -->
-<g id="node42" class="node">
-<title>Node42</title>
-<g id="a_node42"><a xlink:href="ubx__protocol_8cpp.html" target="_top" xlink:title="The UBX Protocol implementation.">
+<!-- Node43 -->
+<g id="node43" class="node">
+<title>Node43</title>
+<g id="a_node43"><a xlink:href="ubx__protocol_8cpp.html" target="_top" xlink:title="The UBX Protocol implementation.">
 <polygon fill="none" stroke="black" points="1668,-56.5 1668,-75.5 1768,-75.5 1768,-56.5 1668,-56.5"/>
 <text text-anchor="middle" x="1718" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">ubx_protocol.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node41&#45;&gt;Node42 -->
-<g id="edge57" class="edge">
-<title>Node41&#45;&gt;Node42</title>
+<!-- Node42&#45;&gt;Node43 -->
+<g id="edge58" class="edge">
+<title>Node42&#45;&gt;Node43</title>
 <path fill="none" stroke="midnightblue" d="M1718,-101.8C1718,-92.91 1718,-82.78 1718,-75.75"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1714.5,-102.08 1718,-112.08 1721.5,-102.08 1714.5,-102.08"/>
 </g>

@@ -1,4 +1,5 @@
 <map id="cfg::CfgSection" name="cfg::CfgSection">
-<area shape="rect" id="node1" title="This is the base class for all configuration sections." alt="" coords="26,5,146,112"/>
-<area shape="rect" id="node2" href="$classcfg_1_1Extensions.html" title="The extensions section of the configuration." alt="" coords="5,160,167,340"/>
+<area shape="rect" id="node1" title="This is the base class for all configuration sections." alt="" coords="120,5,240,112"/>
+<area shape="rect" id="node2" href="$classcfg_1_1AdcMappings.html" title=" " alt="" coords="5,167,168,347"/>
+<area shape="rect" id="node3" href="$classcfg_1_1Extensions.html" title="The extensions section of the configuration." alt="" coords="193,160,354,355"/>
 </map>

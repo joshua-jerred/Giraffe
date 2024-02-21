@@ -13,7 +13,9 @@ var hierarchy =
     [ "data::blocks::Block< data::blocks::SystemInfo >", "classdata_1_1blocks_1_1Block.html", null ],
     [ "data::blocks::Block< data::blocks::TelemetryModuleStats >", "classdata_1_1blocks_1_1Block.html", null ],
     [ "Bmi088", "classBmi088.html", null ],
+    [ "cfg::AdcConfig", "structcfg_1_1AdcConfig.html", null ],
     [ "cfg::CfgSection", "classcfg_1_1CfgSection.html", [
+      [ "cfg::AdcMappings", "classcfg_1_1AdcMappings.html", null ],
       [ "cfg::Extensions", "classcfg_1_1Extensions.html", null ]
     ] ],
     [ "cfg::ExtensionMetadata", "structcfg_1_1ExtensionMetadata.html", null ],
@@ -54,12 +56,12 @@ var hierarchy =
     [ "data::SharedData", "namespacedata.html#structdata_1_1SharedData", null ],
     [ "data::Stream< T >", "classdata_1_1Stream.html", null ],
     [ "data::Streams", "namespacedata.html#structdata_1_1Streams", null ],
+    [ "data_middleware::AdcInterpolation", "classdata__middleware_1_1AdcInterpolation.html", null ],
     [ "data_middleware::DataFormatter", "classdata__middleware_1_1DataFormatter.html", null ],
     [ "data_middleware::DataLog", "classdata__middleware_1_1DataLog.html", null ],
     [ "data_middleware::FileSystemManager", "classdata__middleware_1_1FileSystemManager.html", null ],
     [ "data_middleware::InfluxDb", "classdata__middleware_1_1InfluxDb.html", null ],
     [ "data_middleware::InfluxLine", "structdata__middleware_1_1InfluxLine.html", null ],
-    [ "extension::AdcConfig", "namespaceextension.html#structextension_1_1AdcConfig", null ],
     [ "extension::Bme280::CompensationData", "classextension_1_1Bme280.html#structextension_1_1Bme280_1_1CompensationData", null ],
     [ "extension::Extension", "classextension_1_1Extension.html", [
       [ "extension::AdcExtensionBase", "classextension_1_1AdcExtensionBase.html", [
@@ -90,6 +92,7 @@ var hierarchy =
       [ "data::ErrorFrame", "classdata_1_1ErrorFrame.html", null ]
     ] ],
     [ "data::Frame< std::string, data::DataPacket >", "classdata_1_1Frame.html", null ],
+    [ "data::Frame< std::string, double >", "classdata_1_1Frame.html", null ],
     [ "gfs_sim::BalloonPhysics", "classgfs__sim_1_1BalloonPhysics.html", null ],
     [ "gfs_sim::EnvData", "namespacegfs__sim.html#structgfs__sim_1_1EnvData", null ],
     [ "gfs_sim::GfsSimulator", "classgfs__sim_1_1GfsSimulator.html", null ],

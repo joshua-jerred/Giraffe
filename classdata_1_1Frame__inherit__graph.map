@@ -1,6 +1,7 @@
 <map id="data::Frame&lt; ID, DATA &gt;" name="data::Frame&lt; ID, DATA &gt;">
-<area shape="rect" id="node1" title="A generic frame (map) for storing data." alt="" coords="96,5,283,215"/>
+<area shape="rect" id="node1" title="A generic frame (map) for storing data." alt="" coords="220,5,407,215"/>
 <area shape="rect" id="node2" href="$classdata_1_1Frame.html" title=" " alt="" coords="5,292,189,516"/>
 <area shape="rect" id="node3" href="$classdata_1_1Frame.html" title=" " alt="" coords="213,292,413,516"/>
+<area shape="rect" id="node5" href="$classdata_1_1Frame.html" title=" " alt="" coords="437,292,621,516"/>
 <area shape="rect" id="node4" href="$classdata_1_1ErrorFrame.html" title="The error frame." alt="" coords="209,565,418,863"/>
 </map>

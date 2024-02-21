@@ -1,8 +1,10 @@
 <map id="RequestRouter::sendErrorPacket" name="RequestRouter::sendErrorPacket">
-<area shape="rect" id="node1" title="This function is the generic error response function." alt="" coords="567,123,755,164"/>
-<area shape="rect" id="node2" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="281,5,519,47"/>
-<area shape="rect" id="node3" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,130,233,157"/>
-<area shape="rect" id="node4" href="$group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7" title="This function responds to data requests." alt="" coords="299,123,501,164"/>
-<area shape="rect" id="node5" href="$group__ServerModule.html#a4209bc198222e3efa2a77501a0f7a71d" title="This function responds to a setting request." alt="" coords="292,188,508,229"/>
-<area shape="rect" id="node6" href="$group__ServerModule.html#a1d58bc2e5fc57191959bc60a89b61ec5" title="This function handles a setting SET request. It will attempt to set the configuration with the value ..." alt="" coords="281,254,519,281"/>
+<area shape="rect" id="node1" title="This function is the generic error response function." alt="" coords="849,181,1037,223"/>
+<area shape="rect" id="node2" href="$group__ServerModule.html#a493ddf0161bba462a169e510c5215990" title="A special handler for updating ADC mapping settings." alt="" coords="587,5,781,47"/>
+<area shape="rect" id="node3" href="$group__ServerModule.html#a1d58bc2e5fc57191959bc60a89b61ec5" title="This function handles a setting SET request. It will attempt to set the configuration with the value ..." alt="" coords="281,105,519,131"/>
+<area shape="rect" id="node4" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,243,233,270"/>
+<area shape="rect" id="node5" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="281,236,519,277"/>
+<area shape="rect" id="node6" href="$group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7" title="This function responds to data requests." alt="" coords="299,301,501,343"/>
+<area shape="rect" id="node7" href="$group__ServerModule.html#af41f65e7470ab4490dfa655ead0a7f88" title="A special handler for updating extension settings." alt="" coords="567,123,801,164"/>
+<area shape="rect" id="node8" href="$group__ServerModule.html#a4209bc198222e3efa2a77501a0f7a71d" title="This function responds to a setting request." alt="" coords="576,351,792,392"/>
 </map>

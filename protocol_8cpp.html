@@ -123,7 +123,7 @@ Include dependency graph for protocol.cpp:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a88d0f115a21d09e4e95917873f3f59f7"><td class="memItemLeft" align="right" valign="top">static const std::unordered_map&lt; <a class="el" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09e">protocol::Endpoint</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocol_8cpp.html#a88d0f115a21d09e4e95917873f3f59f7">endpointToStringMap</a></td></tr>
+<tr class="memitem:a88d0f115a21d09e4e95917873f3f59f7"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; <a class="el" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09e">protocol::Endpoint</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocol_8cpp.html#a88d0f115a21d09e4e95917873f3f59f7">endpointToStringMap</a></td></tr>
 <tr class="memdesc:a88d0f115a21d09e4e95917873f3f59f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map from protocol::Type to std::string.  <a href="protocol_8cpp.html#a88d0f115a21d09e4e95917873f3f59f7">More...</a><br /></td></tr>
 <tr class="separator:a88d0f115a21d09e4e95917873f3f59f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89b130a1e5c914655274d44d0f29ea14"><td class="memItemLeft" align="right" valign="top">static const std::unordered_map&lt; <a class="el" href="namespaceprotocol.html#a14a4518c9c5eba60611b473d659c069d">protocol::ResponseCode</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocol_8cpp.html#a89b130a1e5c914655274d44d0f29ea14">responseCodeToStringMap</a></td></tr>
@@ -149,25 +149,18 @@ Variables</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const std::unordered_map&lt;<a class="el" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09e">protocol::Endpoint</a>, std::string&gt; endpointToStringMap</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {{<a class="code" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea696b031073e74bf2cb98e5ef201d4aa3">protocol::Endpoint::UNKNOWN</a>, <span class="stringliteral">&quot;unknown&quot;</span>},</div>
-<div class="line">                           {<a class="code" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea1258e8821fa86c207278d6d0522ad2ee">protocol::Endpoint::GFS</a>, <span class="stringliteral">&quot;gfs&quot;</span>},</div>
-<div class="line">                           {<a class="code" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea568515ce5f650e36d52c783464e4de6c">protocol::Endpoint::GGS</a>, <span class="stringliteral">&quot;ggs&quot;</span>},</div>
-<div class="line">                           {<a class="code" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea204fdf37540af1db465e56aa6e9b8ead">protocol::Endpoint::GDL</a>, <span class="stringliteral">&quot;gdl&quot;</span>},</div>
-<div class="line">                           {<a class="code" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ead55456b273e35e4d6d5f221a330c93aa">protocol::Endpoint::GWC</a>, <span class="stringliteral">&quot;gwc&quot;</span>}}</div>
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    {{<a class="code" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea696b031073e74bf2cb98e5ef201d4aa3">protocol::Endpoint::UNKNOWN</a>, <span class="stringliteral">&quot;unknown&quot;</span>},</div>
+<div class="line">     {<a class="code" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea1258e8821fa86c207278d6d0522ad2ee">protocol::Endpoint::GFS</a>, <span class="stringliteral">&quot;gfs&quot;</span>},</div>
+<div class="line">     {<a class="code" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea568515ce5f650e36d52c783464e4de6c">protocol::Endpoint::GGS</a>, <span class="stringliteral">&quot;ggs&quot;</span>},</div>
+<div class="line">     {<a class="code" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea204fdf37540af1db465e56aa6e9b8ead">protocol::Endpoint::GDL</a>, <span class="stringliteral">&quot;gdl&quot;</span>},</div>
+<div class="line">     {<a class="code" href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ead55456b273e35e4d6d5f221a330c93aa">protocol::Endpoint::GWC</a>, <span class="stringliteral">&quot;gwc&quot;</span>}}</div>
 <div class="ttc" id="anamespaceprotocol_html_add796d366d28c1ed225e24b92b68c09ea1258e8821fa86c207278d6d0522ad2ee"><div class="ttname"><a href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea1258e8821fa86c207278d6d0522ad2ee">protocol::Endpoint::GFS</a></div><div class="ttdeci">@ GFS</div></div>
 <div class="ttc" id="anamespaceprotocol_html_add796d366d28c1ed225e24b92b68c09ea204fdf37540af1db465e56aa6e9b8ead"><div class="ttname"><a href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea204fdf37540af1db465e56aa6e9b8ead">protocol::Endpoint::GDL</a></div><div class="ttdeci">@ GDL</div></div>
 <div class="ttc" id="anamespaceprotocol_html_add796d366d28c1ed225e24b92b68c09ea568515ce5f650e36d52c783464e4de6c"><div class="ttname"><a href="namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea568515ce5f650e36d52c783464e4de6c">protocol::Endpoint::GGS</a></div><div class="ttdeci">@ GGS</div></div>

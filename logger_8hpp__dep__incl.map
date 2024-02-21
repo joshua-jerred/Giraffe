@@ -1,15 +1,20 @@
 <map id="logger.hpp" name="logger.hpp">
-<area shape="rect" id="node1" title="A simple logger class so difference classes have access to the same logger." alt="" coords="297,5,387,32"/>
-<area shape="rect" id="node2" href="$file__system__manager_8hpp.html" title=" " alt="" coords="150,80,339,107"/>
-<area shape="rect" id="node10" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="363,80,518,107"/>
-<area shape="rect" id="node3" href="$data__module_8hpp.html" title="The data module header file." alt="" coords="177,155,312,181"/>
-<area shape="rect" id="node4" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="358,229,489,256"/>
-<area shape="rect" id="node8" href="$data__module_8cpp.html" title=" " alt="" coords="5,229,140,256"/>
-<area shape="rect" id="node9" href="$test__data__module_8cpp.html" title="Data module unit tests." alt="" coords="164,229,331,256"/>
-<area shape="rect" id="node5" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="214,304,334,331"/>
-<area shape="rect" id="node6" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="358,304,489,331"/>
-<area shape="rect" id="node7" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="513,304,595,331"/>
-<area shape="rect" id="node11" href="$request__handler_8cpp.html" title="The request handler class implementation." alt="" coords="336,155,489,181"/>
-<area shape="rect" id="node12" href="$server__module_8hpp.html" title="Header file for the server module." alt="" coords="514,155,661,181"/>
-<area shape="rect" id="node13" href="$server__module_8cpp.html" title="The server module class implementation." alt="" coords="514,229,661,256"/>
+<area shape="rect" id="node1" title="A simple logger class so difference classes have access to the same logger." alt="" coords="363,5,453,32"/>
+<area shape="rect" id="node2" href="$adc__interpolation_8hpp.html" title="ADC Interpolation Utility." alt="" coords="127,80,289,107"/>
+<area shape="rect" id="node11" href="$file__system__manager_8hpp.html" title=" " alt="" coords="313,80,503,107"/>
+<area shape="rect" id="node12" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="597,80,752,107"/>
+<area shape="rect" id="node3" href="$adc__interpolation_8cpp.html" title="ADC Interpolation Utility." alt="" coords="5,155,168,181"/>
+<area shape="rect" id="node4" href="$data__module_8hpp.html" title="The data module header file." alt="" coords="193,155,327,181"/>
+<area shape="rect" id="node5" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="799,229,929,256"/>
+<area shape="rect" id="node9" href="$data__module_8cpp.html" title=" " alt="" coords="106,229,241,256"/>
+<area shape="rect" id="node10" href="$test__data__module_8cpp.html" title="Data module unit tests." alt="" coords="265,229,431,256"/>
+<area shape="rect" id="node6" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="655,304,775,331"/>
+<area shape="rect" id="node7" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="799,304,929,331"/>
+<area shape="rect" id="node8" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="953,304,1036,331"/>
+<area shape="rect" id="node13" href="$request__handler_8cpp.html" title="The request handler class implementation." alt="" coords="351,155,505,181"/>
+<area shape="rect" id="node14" href="$request__handler__data_8cpp.html" title="Request handler for data requests." alt="" coords="529,155,719,181"/>
+<area shape="rect" id="node15" href="$request__handler__image_8cpp.html" title="The image request handler implementation." alt="" coords="744,155,947,181"/>
+<area shape="rect" id="node16" href="$request__handler__settings_8cpp.html" title="The setting request handler implementation." alt="" coords="971,155,1184,181"/>
+<area shape="rect" id="node17" href="$server__module_8hpp.html" title="Header file for the server module." alt="" coords="1208,155,1355,181"/>
+<area shape="rect" id="node18" href="$server__module_8cpp.html" title="The server module class implementation." alt="" coords="1208,229,1355,256"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="giraffe::Logger::error" name="giraffe::Logger::error">
+<area shape="rect" id="node1" title=" " alt="" coords="603,13,757,39"/>
+<area shape="rect" id="node2" href="$classdata__middleware_1_1AdcInterpolation.html#afe9137948458156c46370b562db1fc82" title="Returns the ADC channel configuration for the given key. If one does not exist, an error is logged an..." alt="" coords="304,5,555,47"/>
+<area shape="rect" id="node3" href="$classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="5,5,256,47"/>
+</map>

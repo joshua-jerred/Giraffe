@@ -1,5 +1,5 @@
 <map id="cfg::Extensions" name="cfg::Extensions">
-<area shape="rect" id="node1" title="The extensions section of the configuration." alt="" coords="89,1109,250,1289"/>
+<area shape="rect" id="node1" title="The extensions section of the configuration." alt="" coords="89,1109,250,1304"/>
 <area shape="rect" id="node2" href="$classcfg_1_1CfgSection.html" title="This is the base class for all configuration sections." alt="" coords="5,955,125,1047"/>
 <area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="515,815,629,892"/>
 <area shape="rect" id="node4" href="$classdata_1_1LogStream.html" title=" " alt="" coords="117,616,339,752"/>

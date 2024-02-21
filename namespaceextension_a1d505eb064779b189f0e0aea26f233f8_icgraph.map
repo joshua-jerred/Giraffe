@@ -1,4 +1,0 @@
-<map id="extension::parseVoltageDividerAdc" name="extension::parseVoltageDividerAdc">
-<area shape="rect" id="node1" title=" " alt="" coords="248,5,499,32"/>
-<area shape="rect" id="node2" href="$namespaceextension.html#aea2ae2212bc3fa9298548a9262b08d53" title="Parse an ADC config string into an AdcConfig struct." alt="" coords="5,5,200,32"/>
-</map>

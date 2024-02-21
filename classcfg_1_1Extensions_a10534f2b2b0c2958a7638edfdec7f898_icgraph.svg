@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classcfg_1_1Extensions.html#a07c0cc24278ea2af29fe5ed6f2cd3598" target="_top" xlink:title="Add an extension to the configuration.">
+<g id="a_node2"><a xlink:href="classcfg_1_1Extensions.html#a3d483d303ba16bd2c41dbafb6d0db151" target="_top" xlink:title="Add an extension to the configuration.">
 <polygon fill="none" stroke="black" points="0,-38.5 0,-57.5 163,-57.5 163,-38.5 0,-38.5"/>
 <text text-anchor="middle" x="81.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">cfg::Extensions::addExtension</text>
 </a>

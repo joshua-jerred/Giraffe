@@ -1,7 +1,12 @@
 <map id="cfg::CfgSection::error" name="cfg::CfgSection::error">
-<area shape="rect" id="node1" title="Logs a debug message." alt="" coords="296,81,455,108"/>
-<area shape="rect" id="node2" href="$classcfg_1_1Extensions.html#a07c0cc24278ea2af29fe5ed6f2cd3598" title="Add an extension to the configuration." alt="" coords="18,5,235,32"/>
-<area shape="rect" id="node3" href="$classcfg_1_1Extensions.html#a17af41b344cbd45b280864b9f7e99942" title="Remove an extension from the configuration by name." alt="" coords="5,56,248,83"/>
-<area shape="rect" id="node4" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="22,107,231,133"/>
-<area shape="rect" id="node5" href="$classcfg_1_1Extensions.html#a28c4e7fad5dbfc8f72d1628ff59ac2ec" title="Enable or disable an extension by name." alt="" coords="9,157,244,184"/>
+<area shape="rect" id="node1" title="Logs a debug message." alt="" coords="296,239,455,266"/>
+<area shape="rect" id="node2" href="$classcfg_1_1AdcMappings.html#a50978d833ec6672505f87b17c140f483" title=" " alt="" coords="30,5,223,47"/>
+<area shape="rect" id="node3" href="$classcfg_1_1Extensions.html#a3d483d303ba16bd2c41dbafb6d0db151" title="Add an extension to the configuration." alt="" coords="18,71,235,98"/>
+<area shape="rect" id="node4" href="$classcfg_1_1AdcMappings.html#abf24990803afb5198cbffb1a42ceac68" title=" " alt="" coords="29,123,224,164"/>
+<area shape="rect" id="node5" href="$classcfg_1_1Extensions.html#abb7d7973769eda4b355e1e6bdd778f1e" title="Remove an extension from the configuration by name." alt="" coords="5,189,248,215"/>
+<area shape="rect" id="node6" href="$classcfg_1_1AdcMappings.html#a45d9c766a012ea127e8612d262e720ac" title=" " alt="" coords="14,239,239,266"/>
+<area shape="rect" id="node7" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="22,290,231,317"/>
+<area shape="rect" id="node8" href="$classcfg_1_1Extensions.html#a28c4e7fad5dbfc8f72d1628ff59ac2ec" title="Enable or disable an extension by name." alt="" coords="9,341,244,367"/>
+<area shape="rect" id="node9" href="$classcfg_1_1AdcMappings.html#a7704b7b0f66cfbad9f14b00613347e5b" title=" " alt="" coords="31,392,222,433"/>
+<area shape="rect" id="node10" href="$classcfg_1_1Extensions.html#a4af55964085d036357551e795bb435b5" title="Update an extension given its name and new metadata." alt="" coords="7,458,246,485"/>
 </map>
