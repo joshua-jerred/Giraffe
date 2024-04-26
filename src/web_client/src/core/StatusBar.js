@@ -146,10 +146,10 @@ function StatusBar() {
   return (
     <>
       <StatusCard>
-        <StatusItem
+        {/* <StatusItem
           title="GGS"
           status={isGgsConnected ? "CONNECTED" : "DISCONNECTED"}
-        />
+        /> */}
         <StatusItem
           title="GDL"
           status={

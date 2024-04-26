@@ -25,7 +25,8 @@ module.exports = class Alerter {
   }
 
   /**
-   * Removes an alert from the list of alerts.
+   * Removes an alert from the list of alerts. If the alert doesn't exist, it
+   * does nothing.
    * @param {string} alert_id - Unique identifier for the alert.
    */
   clearAlert(alert_id) {
@@ -85,9 +86,13 @@ module.exports = class Alerter {
   updateAlerts() {
     for (let alert_id in this.alerts) {
       if (this.alerts[alert_id].timeout !== 0) {
+        console.log(
+          "time since raised",
+          Date.now() - this.alerts[alert_id].timestamp
+        );
         if (
           Date.now() - this.alerts[alert_id].timestamp >
-          this.alerts[alert_id].timeout * 1000
+          this.alerts[alert_id].timeout
         ) {
           this.clearAlert(alert_id);
         }

@@ -79,7 +79,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
         alerter.addAlert(
           "client_name_not_set",
           "Client name not set.",
-          connectionInterval + 1000,
+          1000,
           "/setup"
         );
       }
@@ -91,7 +91,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
         alerter.addAlert(
           "ggs_address_invalid.",
           "Client configured GGS address is invalid.",
-          connectionInterval + 1000,
+          3000,
           "/setup"
         );
         setIsGgsConnected(false);
@@ -112,12 +112,24 @@ export const GwsGlobalContextProvider = ({ children }) => {
           setIsGdlConnected(data.gdl === "connected");
           setIsUplinkConnected(data.telemetry_uplink === "connected");
           setIsDownlinkConnected(data.telemetry_downlink === "connected");
+
+          if (data.gdl !== "connected") {
+            console.log("Adding GDL not connected alert");
+            alerter.addAlert(
+              "not_connected_to_gdl",
+              "The Ground Station Server is not connected to the Data Link.",
+              0,
+              "/setup"
+            );
+          } else {
+            alerter.clearAlert("not_connected_to_gdl");
+          }
         })
         .catch((error) => {
           alerter.addAlert(
             "not_connected_to_ggs",
             "Not connected to the Ground Station Server.",
-            3000,
+            0,
             "/setup"
           );
           setIsGgsConnected(false);
@@ -135,6 +147,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
       intervalUpdateCallback();
     }, connectionInterval);
     return () => clearInterval(interval);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ggsAddress]);
 
   return (
