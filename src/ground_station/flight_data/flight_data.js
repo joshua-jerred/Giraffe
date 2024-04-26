@@ -9,6 +9,7 @@ class MissionClock {
     );
 
     this.start_time = new Date(input_time);
+    this.start_time_locked = false; /// @TODO : Relies on the GFS being connected via TCP
 
     if (isNaN(this.start_time)) {
       this.resetClock();
@@ -33,6 +34,7 @@ class MissionClock {
   getJsonData() {
     return {
       start_time: this.getStartTime(),
+      start_time_locked: this.start_time_locked,
     };
   }
 }
