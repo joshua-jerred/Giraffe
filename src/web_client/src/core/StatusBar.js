@@ -150,14 +150,14 @@ function StatusBar() {
           title="GGS"
           status={isGgsConnected ? "CONNECTED" : "DISCONNECTED"}
         /> */}
-        <StatusItem
+        {/* <StatusItem
           title="GDL"
           status={
             isGgsConnected && serviceStatuses.gdl
               ? serviceStatuses.gdl.toUpperCase()
               : "UNKNOWN"
           }
-        />
+        /> */}
         <StatusItem
           title="GFS"
           status={

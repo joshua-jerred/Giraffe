@@ -1,6 +1,7 @@
 const GgsDataBase = require("./db/ggs_db.js");
 const GfsConnection = require("./gfs_connection/gfs_connection.js");
 const GdlConnection = require("./gdl_connection/gdl_connection.js");
+const FlightData = require("./flight_data/flight_data.js");
 const FlightDataHandler = require("./http_api/flight_data_handler.js");
 const GfsSocketRequester = require("./gfs_connection/gfs_socket_request.js");
 
@@ -24,6 +25,7 @@ class GlobalState {
     );
 
     this.database = new Database();
+    this.flight_data = new FlightData(this);
 
     this.gfs_connection = new GfsConnection(this);
     this.gdl_connection = new GdlConnection(this);
@@ -47,8 +49,8 @@ class GlobalState {
       telemetry_downlink: "unknown",
       aprsfi: "unknown",
       total_http_requests: 0,
-      general: this.flight_data_handler.general.values,
-      location: this.flight_data_handler.location_data.values,
+      // general: this.flight_data_handler.general.values,
+      // location: this.flight_data_handler.location_data.values,
     };
 
     setInterval(this.cycle.bind(this), kGlobalStateUpdateInterval);
@@ -108,7 +110,7 @@ class GlobalState {
   cycle() {
     /// @todo these should NOT be updated here. They should try to update themselves
     this.gfs_connection.update();
-    this.flight_data_handler.update();
+    // this.flight_data_handler.update();
 
     this.ggs_status.gfs = this.gfs_connection.status;
     this.ggs_status.gdl = this.gdl_connection.status;
@@ -117,9 +119,9 @@ class GlobalState {
     // update the telemetry status with GDL data
     if (this.ggs_status.gdl === "connected") {
       try {
-        let gdl_status = this.gdl_connection.getData("status");
-        this.ggs_status.telemetry_uplink = gdl_status.telemetry_uplink;
-        this.ggs_status.telemetry_downlink = gdl_status.telemetry_downlink;
+        let gdl_status = this.gdl_connection.getStatus();
+        this.ggs_status.telemetry_uplink = gdl_status.data.tpl_uplink;
+        this.ggs_status.telemetry_downlink = gdl_status.data.tpl_downlink;
       } catch (error) {
         this.ggs_status.telemetry_uplink = "unknown";
         this.ggs_status.telemetry_downlink = "unknown";

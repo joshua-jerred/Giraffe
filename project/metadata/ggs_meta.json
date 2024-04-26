@@ -206,6 +206,14 @@
         "description": "This is a made up data point.",
         "default": "unknown"
       }
+    },
+    "mission_clock": {
+      "start_time": {
+        "type": "string",
+        "name": "Mission Clock Start Time",
+        "description": "The time that the mission clock started.",
+        "default": "unknown"
+      }
     }
   }
 }
