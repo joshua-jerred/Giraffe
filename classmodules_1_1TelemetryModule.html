@@ -116,13 +116,13 @@ $(document).ready(function(){initNavTree('classmodules_1_1TelemetryModule.html',
 <div class="dynheader">
 Inheritance diagram for modules::TelemetryModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__inherit__graph.svg" width="267" height="830"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__inherit__graph.svg" width="267" height="844"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for modules::TelemetryModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__coll__graph.svg" width="5223" height="2512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__coll__graph.svg" width="5223" height="2527"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -152,6 +152,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="memdesc:ae3745aa2ab9ed49ad46f198c6280852e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used internally in the module. This function adds a data to the data stream.  <a href="classmodules_1_1Module.html#ae3745aa2ab9ed49ad46f198c6280852e">More...</a><br /></td></tr>
 <tr class="separator:ae3745aa2ab9ed49ad46f198c6280852e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a986882d205eeaf860d7050bdc47c3472"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#a986882d205eeaf860d7050bdc47c3472">debug</a> (std::string <a class="el" href="classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3">info</a>)</td></tr>
+<tr class="memdesc:a986882d205eeaf860d7050bdc47c3472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used internally for debug messages.  <a href="classmodules_1_1Module.html#a986882d205eeaf860d7050bdc47c3472">More...</a><br /></td></tr>
 <tr class="separator:a986882d205eeaf860d7050bdc47c3472"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d64fd89764378e46ffc96cce45953db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#a2d64fd89764378e46ffc96cce45953db">error</a> (DiagnosticId log_id, int <a class="el" href="classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3">info</a>)</td></tr>
 <tr class="memdesc:a2d64fd89764378e46ffc96cce45953db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as the other error function, but takes an int instead of a string.  <a href="classmodules_1_1Module.html#a2d64fd89764378e46ffc96cce45953db">More...</a><br /></td></tr>
@@ -201,6 +202,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a5edbc8763c92221b92f713771fc44135"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135">sendAprsPositionPacket</a> ()</td></tr>
 <tr class="memdesc:a5edbc8763c92221b92f713771fc44135"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function will only send a packet if it is time to send one. If not, it will just return immediately.  <a href="classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135">More...</a><br /></td></tr>
 <tr class="separator:a5edbc8763c92221b92f713771fc44135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a064ac6e55f7c0397e376c4231e7a884f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a064ac6e55f7c0397e376c4231e7a884f">sendSstvImage</a> ()</td></tr>
+<tr class="memdesc:a064ac6e55f7c0397e376c4231e7a884f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an SSTV image.  <a href="classmodules_1_1TelemetryModule.html#a064ac6e55f7c0397e376c4231e7a884f">More...</a><br /></td></tr>
+<tr class="separator:a064ac6e55f7c0397e376c4231e7a884f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a003fc90b10dd9366ae540e80f8959755"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a003fc90b10dd9366ae540e80f8959755">shutdown</a> () override</td></tr>
 <tr class="memdesc:a003fc90b10dd9366ae540e80f8959755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called only once at shutdown.  <a href="classmodules_1_1TelemetryModule.html#a003fc90b10dd9366ae540e80f8959755">More...</a><br /></td></tr>
 <tr class="separator:a003fc90b10dd9366ae540e80f8959755"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -466,6 +470,34 @@ Here is the call graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule_a5edbc8763c92221b92f713771fc44135_cgraph.svg" width="416" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
+
+</div>
+</div>
+<a id="a064ac6e55f7c0397e376c4231e7a884f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a064ac6e55f7c0397e376c4231e7a884f">&#9670;&nbsp;</a></span>sendSstvImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void modules::TelemetryModule::sendSstvImage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Send an SSTV image. </p>
+<p>Only functions if SSTV is configured. Requires a camera to be connected. </p>
 
 </div>
 </div>
@@ -918,6 +950,14 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Used internally for debug messages. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">info</td><td>The debug message. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

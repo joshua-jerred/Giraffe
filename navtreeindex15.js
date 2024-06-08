@@ -1,5 +1,6 @@
 var NAVTREEINDEX15 =
 {
+"ubx__protocol_8hpp.html#a6c27feec78affa320dc73abe6c52b8db":[12,0,173,13],
 "ubx__protocol_8hpp.html#a906fc03b89d3045be5d60355cf25ac3e":[12,0,173,12],
 "ubx__protocol_8hpp.html#a93d5c119d880bcbc11b0aecd4dfb6889":[12,0,173,19],
 "ubx__protocol_8hpp.html#aac1881b13eb8b71cece1b9d432cc5bae":[12,0,173,18],

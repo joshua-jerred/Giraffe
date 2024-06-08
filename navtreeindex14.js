@@ -1,5 +1,6 @@
 var NAVTREEINDEX14 =
 {
+"structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe":[11,0,10,0,0],
 "structubx_1_1UBXMessage.html":[11,0,12,1],
 "structubx_1_1UBXMessage.html#a0db78c43c622f8743cae075b3e8c4f27":[11,0,12,1,6],
 "structubx_1_1UBXMessage.html#a139c63c7bdad4e9468260bbd5c847c3c":[11,0,12,1,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX14 =
 "ubx__protocol_8hpp.html#a6b284471c7fcbbece38600a40f0d0bb4a6ffd8aa558c1ab84ddc0a01e4f14ed0d":[12,0,173,3,3],
 "ubx__protocol_8hpp.html#a6b284471c7fcbbece38600a40f0d0bb4aa68c6c77586d4c740ec1b75b65b37946":[12,0,173,3,1],
 "ubx__protocol_8hpp.html#a6b284471c7fcbbece38600a40f0d0bb4ab50339a10e1de285ac99d4c3990b8693":[12,0,173,3,2],
-"ubx__protocol_8hpp.html#a6bb269ccd255a310d77f993a7499d276":[12,0,173,20],
-"ubx__protocol_8hpp.html#a6c27feec78affa320dc73abe6c52b8db":[12,0,173,13]
+"ubx__protocol_8hpp.html#a6bb269ccd255a310d77f993a7499d276":[12,0,173,20]
 };

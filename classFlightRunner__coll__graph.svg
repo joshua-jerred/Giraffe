@@ -40,27 +40,28 @@
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="classmodules_1_1TelemetryModule.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="1219.5,-562.5 1219.5,-707.5 1411.5,-707.5 1411.5,-562.5 1219.5,-562.5"/>
-<text text-anchor="middle" x="1315.5" y="-695.5" font-family="Helvetica,sans-Serif" font-size="10.00">modules::TelemetryModule</text>
-<polyline fill="none" stroke="black" points="1219.5,-688.5 1411.5,-688.5 "/>
-<text text-anchor="middle" x="1315.5" y="-676.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="1219.5,-669.5 1411.5,-669.5 "/>
-<text text-anchor="start" x="1227.5" y="-657.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TelemetryModule()</text>
-<text text-anchor="start" x="1227.5" y="-646.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~TelemetryModule()</text>
-<text text-anchor="start" x="1227.5" y="-635.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; getNextMessageId()</text>
-<text text-anchor="start" x="1227.5" y="-624.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; loop()</text>
-<text text-anchor="start" x="1227.5" y="-613.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processCommand()</text>
-<text text-anchor="start" x="1227.5" y="-602.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processTelemetryMessageQueue()</text>
-<text text-anchor="start" x="1227.5" y="-591.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendAprsPositionPacket()</text>
-<text text-anchor="start" x="1227.5" y="-580.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; shutdown()</text>
-<text text-anchor="start" x="1227.5" y="-569.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; startup()</text>
+<polygon fill="none" stroke="black" points="1219.5,-557 1219.5,-713 1411.5,-713 1411.5,-557 1219.5,-557"/>
+<text text-anchor="middle" x="1315.5" y="-701" font-family="Helvetica,sans-Serif" font-size="10.00">modules::TelemetryModule</text>
+<polyline fill="none" stroke="black" points="1219.5,-694 1411.5,-694 "/>
+<text text-anchor="middle" x="1315.5" y="-682" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="1219.5,-675 1411.5,-675 "/>
+<text text-anchor="start" x="1227.5" y="-663" font-family="Helvetica,sans-Serif" font-size="10.00">+ TelemetryModule()</text>
+<text text-anchor="start" x="1227.5" y="-652" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~TelemetryModule()</text>
+<text text-anchor="start" x="1227.5" y="-641" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; getNextMessageId()</text>
+<text text-anchor="start" x="1227.5" y="-630" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; loop()</text>
+<text text-anchor="start" x="1227.5" y="-619" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processCommand()</text>
+<text text-anchor="start" x="1227.5" y="-608" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processTelemetryMessageQueue()</text>
+<text text-anchor="start" x="1227.5" y="-597" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendAprsPositionPacket()</text>
+<text text-anchor="start" x="1227.5" y="-586" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendSstvImage()</text>
+<text text-anchor="start" x="1227.5" y="-575" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; shutdown()</text>
+<text text-anchor="start" x="1227.5" y="-564" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; startup()</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge1" class="edge">
 <title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M1348.9,-562.31C1392.54,-477.36 1477.42,-338.72 1594.5,-270 1767.2,-168.64 2390.52,-127.33 2603.54,-115.97"/>
+<path fill="none" stroke="#404040" d="M1351.84,-556.63C1396.29,-471.3 1480,-337.21 1594.5,-270 1767.2,-168.64 2390.52,-127.33 2603.54,-115.97"/>
 <polygon fill="none" stroke="#404040" points="2603.8,-115.96 2609.58,-111.65 2615.78,-115.33 2610,-119.64 2603.8,-115.96"/>
 <text text-anchor="middle" x="1651.5" y="-346" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;p_telemetry_module_</text>
 </g>
@@ -101,7 +102,7 @@
 <!-- Node3&#45;&gt;Node2 -->
 <g id="edge2" class="edge">
 <title>Node3&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M1554.21,-865.96C1551.36,-861.87 1548.46,-857.87 1545.5,-854 1504.34,-800.11 1449.5,-747.58 1403.69,-707.6"/>
+<path fill="none" stroke="midnightblue" d="M1554.21,-865.96C1551.36,-861.87 1548.46,-857.87 1545.5,-854 1506.17,-802.52 1454.37,-752.28 1409.88,-713.02"/>
 <polygon fill="none" stroke="midnightblue" points="1551.48,-868.16 1559.98,-874.48 1557.27,-864.23 1551.48,-868.16"/>
 </g>
 <!-- Node86 -->
@@ -814,8 +815,8 @@
 <!-- Node10&#45;&gt;Node2 -->
 <g id="edge25" class="edge">
 <title>Node10&#45;&gt;Node2</title>
-<path fill="none" stroke="#404040" d="M838.88,-1779.64C823.17,-1763.94 798.57,-1736.9 784.5,-1709 761.79,-1663.95 780.03,-1643.63 756.5,-1599 688.06,-1469.18 590.27,-1488.32 538.5,-1351 508.71,-1271.99 481.02,-1222.86 538.5,-1161 575.66,-1121.01 743.74,-1180.41 783.5,-1143 877.89,-1054.18 741.5,-955.18 822.5,-854 854.49,-814.04 880.43,-824.65 930.5,-814 991.27,-801.07 1155.74,-827.14 1209.5,-796 1239.93,-778.37 1263.28,-748.09 1280.23,-718.57"/>
-<polygon fill="none" stroke="#404040" points="1280.39,-718.27 1279.78,-711.09 1286.18,-707.76 1286.79,-714.95 1280.39,-718.27"/>
+<path fill="none" stroke="#404040" d="M838.88,-1779.64C823.17,-1763.94 798.57,-1736.9 784.5,-1709 761.79,-1663.95 780.03,-1643.63 756.5,-1599 688.06,-1469.18 590.27,-1488.32 538.5,-1351 508.71,-1271.99 481.02,-1222.86 538.5,-1161 575.66,-1121.01 743.74,-1180.41 783.5,-1143 877.89,-1054.18 741.5,-955.18 822.5,-854 854.49,-814.04 880.43,-824.65 930.5,-814 991.27,-801.07 1155.74,-827.14 1209.5,-796 1238.13,-779.41 1260.5,-751.62 1277.16,-723.8"/>
+<polygon fill="none" stroke="#404040" points="1277.29,-723.57 1276.81,-716.38 1283.27,-713.17 1283.75,-720.36 1277.29,-723.57"/>
 <text text-anchor="start" x="538.5" y="-1264.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;total_messages_received</text>
 <text text-anchor="middle" x="604.5" y="-1253.5" font-family="Helvetica,sans-Serif" font-size="10.00">_</text>
 <text text-anchor="middle" x="604.5" y="-1242.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;total_messages_sent_</text>
@@ -1007,8 +1008,8 @@
 <!-- Node56&#45;&gt;Node2 -->
 <g id="edge26" class="edge">
 <title>Node56&#45;&gt;Node2</title>
-<path fill="none" stroke="#404040" d="M1775.58,-1765.78C1768.15,-1715 1751.79,-1611.14 1740.5,-1599 1720.08,-1577.05 1696.98,-1601.9 1675.5,-1581 1604.87,-1512.27 1687.31,-1430.75 1610.5,-1369 1571.92,-1337.99 1427.85,-1381.02 1388.5,-1351 1317.07,-1296.51 1390.47,-1216.08 1319.5,-1161 1287.04,-1135.81 1163.1,-1173.43 1135.5,-1143 1092.36,-1095.43 1107.39,-911.74 1135.5,-854 1153.79,-816.43 1181.15,-826.7 1209.5,-796 1231.15,-772.55 1251.44,-744.25 1268.36,-718.01"/>
-<polygon fill="none" stroke="#404040" points="1268.48,-717.82 1268.32,-710.61 1274.91,-707.69 1275.07,-714.9 1268.48,-717.82"/>
+<path fill="none" stroke="#404040" d="M1775.58,-1765.78C1768.15,-1715 1751.79,-1611.14 1740.5,-1599 1720.08,-1577.05 1696.98,-1601.9 1675.5,-1581 1604.87,-1512.27 1687.31,-1430.75 1610.5,-1369 1571.92,-1337.99 1427.85,-1381.02 1388.5,-1351 1317.07,-1296.51 1390.47,-1216.08 1319.5,-1161 1287.04,-1135.81 1163.1,-1173.43 1135.5,-1143 1092.36,-1095.43 1107.39,-911.74 1135.5,-854 1153.79,-816.43 1181.15,-826.7 1209.5,-796 1229.67,-774.16 1248.65,-748.11 1264.82,-723.44"/>
+<polygon fill="none" stroke="#404040" points="1264.84,-723.42 1264.73,-716.21 1271.35,-713.34 1271.45,-720.55 1264.84,-723.42"/>
 <text text-anchor="middle" x="1452" y="-1253.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;last_received_message_</text>
 </g>
 <!-- Node56&#45;&gt;Node54 -->
@@ -1103,8 +1104,8 @@
 <!-- Node61&#45;&gt;Node2 -->
 <g id="edge16" class="edge">
 <title>Node61&#45;&gt;Node2</title>
-<path fill="none" stroke="#404040" d="M1786.85,-1449.96C1762.03,-1425.27 1719.83,-1387.86 1675.5,-1369 1622.64,-1346.51 1588.26,-1391.49 1547.5,-1351 1486.94,-1290.84 1581.59,-1219.57 1519.5,-1161 1486.4,-1129.77 1346.23,-1176.56 1315.5,-1143 1287.71,-1112.65 1300.52,-856.01 1309.45,-719.95"/>
-<polygon fill="none" stroke="#404040" points="1309.48,-719.54 1305.88,-713.29 1310.27,-707.57 1313.86,-713.82 1309.48,-719.54"/>
+<path fill="none" stroke="#404040" d="M1786.85,-1449.96C1762.03,-1425.27 1719.83,-1387.86 1675.5,-1369 1622.64,-1346.51 1588.26,-1391.49 1547.5,-1351 1486.94,-1290.84 1581.59,-1219.57 1519.5,-1161 1486.4,-1129.77 1346.23,-1176.56 1315.5,-1143 1288.06,-1113.03 1300.21,-862.45 1309.11,-725.16"/>
+<polygon fill="none" stroke="#404040" points="1309.12,-725.02 1305.52,-718.77 1309.91,-713.04 1313.5,-719.29 1309.12,-725.02"/>
 <text text-anchor="start" x="1315.5" y="-1001.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;aprs_position_packet</text>
 <text text-anchor="middle" x="1370.5" y="-990.5" font-family="Helvetica,sans-Serif" font-size="10.00">_timer_</text>
 </g>
@@ -1152,15 +1153,15 @@
 <!-- Node62&#45;&gt;Node2 -->
 <g id="edge17" class="edge">
 <title>Node62&#45;&gt;Node2</title>
-<path fill="none" stroke="#404040" d="M901.93,-903.98C909.51,-870.52 924.04,-835.74 951.5,-814 996.56,-778.33 1159.84,-824.94 1209.5,-796 1239.88,-778.29 1263.23,-747.99 1280.18,-718.49"/>
-<polygon fill="none" stroke="#404040" points="1280.34,-718.19 1279.74,-711.01 1286.14,-707.68 1286.74,-714.87 1280.34,-718.19"/>
+<path fill="none" stroke="#404040" d="M901.93,-903.98C909.51,-870.52 924.04,-835.74 951.5,-814 996.56,-778.33 1159.84,-824.94 1209.5,-796 1238.09,-779.34 1260.45,-751.52 1277.11,-723.72"/>
+<polygon fill="none" stroke="#404040" points="1277.24,-723.49 1276.76,-716.3 1283.22,-713.09 1283.7,-720.28 1277.24,-723.49"/>
 <text text-anchor="middle" x="965.5" y="-822.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;gdl_</text>
 </g>
 <!-- Node70&#45;&gt;Node2 -->
 <g id="edge23" class="edge">
 <title>Node70&#45;&gt;Node2</title>
-<path fill="none" stroke="#404040" d="M1455.37,-1411.58C1434.45,-1395.99 1410.94,-1380.47 1387.5,-1369 1360.58,-1355.82 1342.34,-1373.47 1322.5,-1351 1265.99,-1287.02 1357.05,-1219.08 1294.5,-1161 1253.84,-1123.25 1083.29,-1183.62 1045.5,-1143 958.01,-1048.96 984.04,-966.79 1045.5,-854 1061.19,-825.2 1076.97,-825.98 1107.5,-814 1150.35,-797.19 1171,-821.23 1209.5,-796 1238.42,-777.05 1261.3,-747.18 1278.3,-718.35"/>
-<polygon fill="none" stroke="#404040" points="1278.37,-718.23 1277.86,-711.04 1284.3,-707.8 1284.81,-714.99 1278.37,-718.23"/>
+<path fill="none" stroke="#404040" d="M1455.37,-1411.58C1434.45,-1395.99 1410.94,-1380.47 1387.5,-1369 1360.58,-1355.82 1342.34,-1373.47 1322.5,-1351 1265.99,-1287.02 1357.05,-1219.08 1294.5,-1161 1253.84,-1123.25 1083.29,-1183.62 1045.5,-1143 958.01,-1048.96 984.04,-966.79 1045.5,-854 1061.19,-825.2 1076.97,-825.98 1107.5,-814 1150.35,-797.19 1171,-821.23 1209.5,-796 1236.68,-778.18 1258.54,-750.72 1275.18,-723.54"/>
+<polygon fill="none" stroke="#404040" points="1275.21,-723.49 1274.81,-716.29 1281.31,-713.16 1281.7,-720.36 1275.21,-723.49"/>
 <text text-anchor="middle" x="1076.5" y="-996" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;gdl_config_</text>
 </g>
 <!-- Node70&#45;&gt;Node62 -->

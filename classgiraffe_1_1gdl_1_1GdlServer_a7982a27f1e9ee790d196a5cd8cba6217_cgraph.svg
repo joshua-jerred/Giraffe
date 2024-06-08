@@ -413,9 +413,9 @@
 <path fill="none" stroke="midnightblue" d="M436.13,-1199.84C453.27,-1225.92 491.56,-1278.94 537,-1308.5 543.53,-1312.75 550.71,-1316.44 558.1,-1319.63"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="556.95,-1322.94 567.53,-1323.41 559.55,-1316.44 556.95,-1322.94"/>
 </g>
-<!-- Node17 -->
+<!-- Node18 -->
 <g id="node15" class="node">
-<title>Node17</title>
+<title>Node18</title>
 <g id="a_node15"><a xlink:href="classgiraffe_1_1gdl_1_1MessageQueue.html#a097ff946fe37b6afb73a1c3291646089" target="_top" xlink:title="Get the size of the queue.">
 <polygon fill="none" stroke="black" points="556.5,-1049.5 556.5,-1079.5 706.5,-1079.5 706.5,-1049.5 556.5,-1049.5"/>
 <text text-anchor="start" x="564.5" y="-1067.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::MessageQueue</text>
@@ -423,15 +423,15 @@
 </a>
 </g>
 </g>
-<!-- Node7&#45;&gt;Node17 -->
+<!-- Node7&#45;&gt;Node18 -->
 <g id="edge16" class="edge">
-<title>Node7&#45;&gt;Node17</title>
+<title>Node7&#45;&gt;Node18</title>
 <path fill="none" stroke="midnightblue" d="M439.54,-1169.41C458.75,-1148.15 496.72,-1109.64 537,-1088.5 540.57,-1086.63 544.3,-1084.89 548.12,-1083.29"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="549.7,-1086.43 557.77,-1079.57 547.18,-1079.9 549.7,-1086.43"/>
 </g>
-<!-- Node18 -->
+<!-- Node19 -->
 <g id="node16" class="node">
-<title>Node18</title>
+<title>Node19</title>
 <g id="a_node16"><a xlink:href="classgiraffe_1_1gdl_1_1TransportLayer.html#ab520e1f30f0fa8d1d17fc3d627386d2f" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="red" points="558,-1000.5 558,-1030.5 705,-1030.5 705,-1000.5 558,-1000.5"/>
 <text text-anchor="start" x="566" y="-1018.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::TransportLayer</text>
@@ -439,9 +439,9 @@
 </a>
 </g>
 </g>
-<!-- Node7&#45;&gt;Node18 -->
+<!-- Node7&#45;&gt;Node19 -->
 <g id="edge17" class="edge">
-<title>Node7&#45;&gt;Node18</title>
+<title>Node7&#45;&gt;Node19</title>
 <path fill="none" stroke="midnightblue" d="M433.8,-1169.07C448.75,-1139.2 485.82,-1073.43 537,-1039.5 540.71,-1037.04 544.67,-1034.83 548.77,-1032.84"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="550.17,-1036.05 557.94,-1028.85 547.38,-1029.63 550.17,-1036.05"/>
 </g>
