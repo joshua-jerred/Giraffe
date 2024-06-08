@@ -119,7 +119,7 @@ void modules::TelemetryModule::sendAprsPositionPacket() {
   /// @todo Maybe use the last valid GPS frame instead, but first there needs to
   /// be a time stamp as to when this one was generated. I have a fear of DST
   /// and time zones causing issues here.
-  auto loc = position.last_gps_frame;
+  auto loc = position.last_valid_gps_frame;
   if (!loc.is_valid) {
     /// @todo log an error
     return;
@@ -144,7 +144,7 @@ void modules::TelemetryModule::sendAprsPositionPacket() {
   gdl_loc.latitude = loc.latitude;
   gdl_loc.longitude = loc.longitude;
   gdl_loc.altitude = loc.altitude;
-  gdl_loc.speed = loc.horizontal_speed;
+  gdl_loc.speed = loc.horizontal_speed; // @todo Convert to mph
   gdl_loc.heading = loc.heading_of_motion;
 
   gdl::Message message{};
@@ -159,6 +159,10 @@ void modules::TelemetryModule::sendAprsPositionPacket() {
   }
 
   aprs_position_packet_timer_.reset();
+}
+
+void modules::TelemetryModule::sendSstvImage() {
+  info("Sending SSTV image not implemented.");
 }
 
 void modules::TelemetryModule::processCommand(const cmd::Command &command) {
@@ -182,6 +186,9 @@ void modules::TelemetryModule::processCommand(const cmd::Command &command) {
         shared_data_.blocks.telemetry_module_stats.get().signal_to_noise_ratio;
     gdl_.sendText("cmd/tlm/snr/ : " + std::to_string(double_buffer),
                   getNextMessageId());
+    break;
+  case cmd::CommandId::TELEMETRY_MODULE_sendSstvImage:
+    sendSstvImage();
     break;
   default:
     error(DiagnosticId::TELEMETRY_invalidCommand);

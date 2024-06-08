@@ -4,13 +4,20 @@ const router = express.Router();
 
 module.exports = function (global_state) {
   // /api/gdl/settings
-  // router.get("/settings", (req, res, next) => {
-  // parseGetQuery(req, res, "gfs", "settings", global_state);
-  // });
+  router.get("/settings", (req, res, next) => {
+    res.json(global_state.gdl_connection.getConfig());
+  });
 
-  // router.put("/settings", (req, res, next) => {
-  // res.json({ message: "Not yet implemented!" });
-  // });
+  router.put("/settings", (req, res, next) => {
+    let result = global_state.gdl_connection.setConfig(req.body);
+    if (result !== "success") {
+      res.status(400).json({
+        message: "Failed to set config. " + result,
+      });
+      return;
+    }
+    res.json({ message: "success" });
+  });
 
   // /api/gdl/data
   router.get("/status", (req, res, next) => {

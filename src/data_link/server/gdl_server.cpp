@@ -211,11 +211,11 @@ bool GdlServer::setConfigFromJson(const json &config) {
     log_.warn("Failed to load source_callsign from json or is set to default");
   }
 
-  if (is_valid_number("source_ssid") && config["source_ssid"] != 0) {
+  if (is_valid_number("source_ssid")) {
     gdl_config_.setSSID(config["source_ssid"]);
   } else {
     valid = false;
-    log_.warn("Failed to load source_ssid from json or is set to default");
+    log_.warn("Failed to load source_ssid from json");
   }
 
   if (is_valid_string("remote_callsign") &&
@@ -226,11 +226,11 @@ bool GdlServer::setConfigFromJson(const json &config) {
     log_.warn("Failed to load remote_callsign from json or is set to default");
   }
 
-  if (is_valid_number("remote_ssid") && config["remote_ssid"] != 0) {
+  if (is_valid_number("remote_ssid")) {
     gdl_config_.setRemoteSSID(config["remote_ssid"]);
   } else {
     valid = false;
-    log_.warn("Failed to load remote_ssid from json or is set to default");
+    log_.warn("Failed to load remote_ssid from json");
   }
 
   if (is_valid_bool("proactive_keep_alive")) {

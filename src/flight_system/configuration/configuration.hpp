@@ -297,7 +297,7 @@ private:
   int position_packet_interval_ = 600;
   std::string frequency_ = "144.3900";
   int ssid_ = 0;
-  std::string destination_address_ = "APRS";
+  std::string destination_address_ = "APZ441";
   int destination_ssid_ = 0;
   cfg::gEnum::AprsSymbolTable symbol_table_ = cfg::gEnum::AprsSymbolTable::PRIMARY;
   std::string symbol_ = "/";

@@ -474,7 +474,7 @@
             "type": "string",
             "name": "APRS Destination Address",
             "description": "This is the destination address that will be used in all packets. See the APRS specification for more information.",
-            "default": "APRS",
+            "default": "APZ441",
             "max": 6,
             "min": 3,
             "pattern": ""
