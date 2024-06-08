@@ -181,7 +181,7 @@ auto FlightRunner::shutdown() -> void {
 auto FlightRunner::flightLoop() -> int {
   constexpr uint32_t K_FLIGHT_LOOP_INTERVAL_MS = 250;
   std::cout << "Starting Flight Procedure" << std::endl;
-  // shared_data_.status_led.setGreen(StatusLedState::State::BLINK);
+  shared_data_.status_led.setGreen(StatusLedState::State::ON);
 
   // The endless loop where everything happens
   while (!shutdown_signal_) {

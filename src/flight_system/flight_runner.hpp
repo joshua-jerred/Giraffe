@@ -92,6 +92,11 @@ private:
    */
   void detectFlightPhase();
 
+  /**
+   * @brief This method defines the transitions of the flight phase state
+   * machine.
+   * @param phase The phase to transition to.
+   */
   void setFlightPhase(FlightPhase phase);
 
   /**
@@ -103,6 +108,7 @@ private:
   //// -- Flight Logic Methods -- ////
   void fl_preLaunchLogic();
   void fl_launchLogic();
+  void fl_reportDescent();
   //// -------------------------- ////
 
   /**

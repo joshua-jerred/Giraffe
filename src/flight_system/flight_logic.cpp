@@ -23,6 +23,15 @@ void FlightRunner::fl_preLaunchLogic() {
   // This is the pre-launch logic
 }
 
+void FlightRunner::fl_reportDescent() {
+  cmd::Command command{};
+  command.destination = node::Identification::TELEMETRY_MODULE;
+  command.command_id = cmd::CommandId::INTERNAL_reportDescent;
+
+  shared_data_.streams.command.addCommand(node::Identification::FLIGHT_RUNNER,
+                                          command);
+}
+
 //// ------------------------------------------------------------------ ////
 
 void FlightRunner::flightLogic() {
@@ -169,6 +178,30 @@ void FlightRunner::setFlightPhase(FlightPhase new_phase) {
     // If the launch position is not set, we cannot transition to launch.
     // Error message is already logged.
     return;
+  }
+
+  switch (new_phase) {
+  case FlightPhase::UNKNOWN:
+    break;
+  case FlightPhase::PRE_LAUNCH:
+    shared_data_.status_led.setGreen(StatusLedState::State::ON);
+    break;
+  case FlightPhase::LAUNCH:
+    shared_data_.status_led.setGreen(StatusLedState::State::BLINK);
+    break;
+  case FlightPhase::ASCENT:
+    shared_data_.status_led.setGreen(StatusLedState::State::OFF);
+    break;
+  case FlightPhase::DESCENT:
+    shared_data_.status_led.setGreen(StatusLedState::State::OFF);
+    fl_reportDescent();
+    break;
+  case FlightPhase::RECOVERY:
+    shared_data_.status_led.setGreen(StatusLedState::State::BLINK);
+    break;
+  default:
+    giraffe_assert(false);
+    break;
   }
 
   // Report to shared data
