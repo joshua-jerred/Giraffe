@@ -1,30 +1,29 @@
 const express = require("express");
-const router = express.Router();
-const parseGetQuery = require("./query_parse");
+const genericResponse = require("./generic_response");
 
 const responseMetadata = {
   general: {
+    flight_phase: {
+      name: "Flight Phase",
+      units: "string",
+      description: "The current flight phase of the computer.",
+    },
+    flight_software_uptime: {
+      name: "GFS Uptime",
+      units: "hh:mm:ss",
+      description: "The uptime of the flight software.",
+    },
     last_contact: {
       name: "Time of Last Contact",
       units: "ms",
       description: "The time since the last contact with the flight computer.",
     },
-    flight_time: {
-      name: "Flight Time",
-      units: "ms",
-      description: "The total time since the flight computer was launched.",
-    },
-    flight_mode: {
-      name: "Flight Mode",
-      units: "string",
-      description: "The current flight mode of the computer.",
+    last_contact_method: {
+      name: "Last Contact Method",
+      description: "The method of the last contact with the flight computer.",
     },
   },
   location: {
-    source: {
-      name: "Location Source",
-      description: "The source of the current location data.",
-    },
     valid: {
       name: "Location Validity",
       description: "Whether the current location data is valid.",
@@ -33,31 +32,50 @@ const responseMetadata = {
       name: "Latitude",
       units: "degrees",
       description: "The latitude of the aircraft.",
+      round: 6,
     },
     longitude: {
       name: "Longitude",
       units: "degrees",
       description: "The longitude of the aircraft.",
+      round: 6,
     },
     altitude: {
       name: "Altitude",
       units: "meters",
       description: "The altitude of the aircraft.",
+      round: 1,
     },
     heading: {
       name: "Heading",
       units: "degrees",
       description: "The heading of the aircraft.",
+      round: 1,
     },
-    speed: {
-      name: "Speed",
+    horizontal_speed: {
+      name: "H Speed",
       units: "m/s",
-      description: "The speed of the aircraft.",
+      description: "The GPS indicated horizontal speed of the flight computer.",
+      round: 1,
     },
-    last_update: {
-      name: "Last Update",
-      units: "ms",
+    vertical_speed: {
+      name: "V Speed",
+      units: "m/s",
+      description: "The GPS indicated vertical speed of the flight computer.",
+      round: 1,
+    },
+    gps_time: {
+      name: "GPS Time",
+      units: "hh:mm:ss",
       description: "The time since the last update of the location data.",
+    },
+    last_update_source: {
+      name: "Last Update Source",
+      description: "The source of the last update of the location data.",
+    },
+    have_gps: {
+      name: "Have GPS",
+      description: "Whether GFS has a GPS module.",
     },
   },
 };
@@ -103,6 +121,39 @@ module.exports = class FlightDataHandler {
       res.json(this.global_state.flight_data.mission_clock.getJsonData());
     } else {
       res.json(this.#getResponseBody(category));
+    }
+  }
+
+  handlePutRequest(req, res) {
+    try {
+      if (!req.query.hasOwnProperty("category")) {
+        genericResponse(res, 400, "category is required.");
+        return;
+      }
+
+      const validCategories = ["start_mission_clock", "stop_mission_clock"];
+      let category = req.query.category;
+      if (!validCategories.includes(category)) {
+        genericResponse(res, 400, "category not found.");
+        return;
+      }
+
+      if (category === "start_mission_clock") {
+        let resp_status =
+          this.global_state.flight_data.mission_clock.resetClock(
+            req.body.clock_skew
+          );
+        res.json({ status: resp_status });
+      } else if (category === "stop_mission_clock") {
+        let resp_status =
+          this.global_state.flight_data.mission_clock.stopClock();
+        res.json({ status: resp_status });
+      } else {
+        // res.json(this.#getResponseBody(category));
+      }
+    } catch (error) {
+      console.error(error);
+      genericResponse(res, 500, error);
     }
   }
 };

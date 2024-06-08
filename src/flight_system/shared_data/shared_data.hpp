@@ -88,7 +88,7 @@ struct Frames {
   Frame<std::string, double> adc{};
 };
 
-class Misc {
+class FlightData {
 public:
   int getUptimeSeconds() const {
     return bst::clck::secondsElapsed(start_time_);
@@ -103,6 +103,14 @@ public:
   }
 
   /**
+   * @brief Get the system time in UTC.
+   * @return std::string hh:mm:ss
+   */
+  std::string getSystemTimeUtc() const {
+    return bst::time::timeString(bst::time::TimeZone::UTC);
+  }
+
+  /**
    * @brief Get the current flight phase.
    * @return FlightPhase The current flight phase.
    */
@@ -112,9 +120,17 @@ public:
 
   /**
    * @brief This is here so that the flight runner alone can set the flight
-   * phase.
+   * phase and mission clock.
    */
   friend FlightRunner;
+
+  Json toJson() {
+    return Json({
+        {"uptime", getUptimeString()},
+        {"system_time_utc", getSystemTimeUtc() + " UTC"},
+        {"flight_phase", util::to_string(flight_phase)},
+    });
+  }
 
 private:
   /// @brief A time point representing the start time of the flight runner.
@@ -128,10 +144,10 @@ private:
  * @brief Data that is shared across all modules and extensions.
  */
 struct SharedData {
+  FlightData flight_data = FlightData();
   Streams streams = Streams();
   Frames frames = Frames();
   SharedBlocks blocks{};
-  Misc misc = Misc();
   LogContainer log_container{};
   giraffe::StatusLedState status_led{};
 };

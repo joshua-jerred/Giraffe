@@ -9,7 +9,8 @@ Json data::toJson(data::Frame<std::string, data::DataPacket> &frame) {
 }
 
 void data::to_json(json &j, const data::GpsFrame &frame) {
-  std::string time_str = bst::time::dateAndTimeString(frame.gps_utc_time);
+  std::string time_str = bst::time::dateAndTimeString(
+      bst::time::TimeZone::UTC, '-', ' ', ':', frame.gps_utc_time);
   j = json{{"gps_utc_time", time_str},
            {"is_valid", frame.is_valid},
            {"fix", data::K_GPS_FIX_TO_STRING_MAP.at(frame.fix)},

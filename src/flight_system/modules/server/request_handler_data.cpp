@@ -24,7 +24,9 @@ void RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
 
   Json res_body;
 
-  if (requested_data == "system_info") {
+  if (requested_data == "flight_data") {
+    res_body = shared_data_.flight_data.toJson();
+  } else if (requested_data == "system_info") {
     res_body = shared_data_.blocks.system_info.get().toJson();
   } else if (requested_data == "data_log_stats") {
     res_body = shared_data_.blocks.data_log_stats.get().toJson();

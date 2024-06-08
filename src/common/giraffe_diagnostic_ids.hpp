@@ -40,6 +40,8 @@ enum class DiagnosticId : uint16_t {
   GENERIC_homeEnvVarNotDir=0xF005, // Home Environment Variable Not Directory
   GENERIC_failedToCreateGiraffeDir=0xF006, // Failed to Create Giraffe Directory
   GENERIC_failedToCreateGfsImageDir=0xF007, // Failed to Create GFS Image Directory
+  GENERIC_failedToCreateGfsLogDir=0xF008, // Failed to Create GFS Log Directory
+  GENERIC_failedToCreateGfsDataDir=0xF009, // Failed to Create GFS Data Directory
   CONFIG_sectionNotFound=0x000E, // Section not found
   CONFIG_settingNotFound=0x0001, // Setting not found
   CONFIG_invalidJsonType=0x0002, // Invalid JSON type

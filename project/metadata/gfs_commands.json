@@ -49,6 +49,13 @@
       "details": "Tells the flight runner to restart a module given a 3 letter module identifier.",
       "value": "0x1003",
       "cmd_key": "mrt"
+    },
+    "enter_launch_phase": {
+      "name": "Enter Launch Phase",
+      "details": "Tells the flight runner to enter launch phase, only works in pre-launch.",
+      "value": "0x1004",
+      "cmd_key": "elp",
+      "exclude_from_ui": true
     }
   },
   "data_module": {

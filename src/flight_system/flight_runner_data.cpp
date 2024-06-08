@@ -16,13 +16,12 @@
 
 #include <fstream>
 
-#include "json.hpp"
-
 #include "flight_runner_data.hpp"
+#include "giraffe_file_paths.hpp"
+#include "json.hpp"
 
 namespace giraffe {
 
-inline constexpr char kDataFilePath[] = "flight_runner_data.json";
 inline constexpr uint32_t kNumStartupsDefault = 0;
 
 NLOHMANN_JSON_SERIALIZE_ENUM(
@@ -48,12 +47,15 @@ FlightRunnerData::FlightRunnerData() {
   std::ifstream data_file;
   Json data_json;
 
+  data_file_path_ = giraffe::file_paths::getGfsFlightRunnerDataFilePath();
+
   try {
-    data_file.open(kDataFilePath);
+    data_file.open(data_file_path_);
     data_json = Json::parse(data_file);
     data_file.close();
     load_status_ = true;
   } catch (std::exception &e) {
+    // file not found, a new one will be created below.
     load_status_ = false;
     return;
   }
@@ -163,7 +165,7 @@ void FlightRunnerData::saveData(bool shutdown_save) {
 
   try {
     std::ofstream data_file;
-    data_file.open(kDataFilePath);
+    data_file.open(data_file_path_);
     data_file << data_json.dump(1); // indent with 1 space
     data_file.close();
     save_status_ = true;

@@ -35,6 +35,8 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::GENERIC_homeEnvVarNotDir,"GENERIC_homeEnvVarNotDir"},
   {DiagnosticId::GENERIC_failedToCreateGiraffeDir,"GENERIC_failedToCreateGiraffeDir"},
   {DiagnosticId::GENERIC_failedToCreateGfsImageDir,"GENERIC_failedToCreateGfsImageDir"},
+  {DiagnosticId::GENERIC_failedToCreateGfsLogDir,"GENERIC_failedToCreateGfsLogDir"},
+  {DiagnosticId::GENERIC_failedToCreateGfsDataDir,"GENERIC_failedToCreateGfsDataDir"},
   {DiagnosticId::CONFIG_sectionNotFound,"CONFIG_sectionNotFound"},
   {DiagnosticId::CONFIG_settingNotFound,"CONFIG_settingNotFound"},
   {DiagnosticId::CONFIG_invalidJsonType,"CONFIG_invalidJsonType"},

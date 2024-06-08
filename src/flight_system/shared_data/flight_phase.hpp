@@ -24,10 +24,11 @@
  */
 enum class FlightPhase : int {
   UNKNOWN = 0,
-  LAUNCH = 1,
-  ASCENT = 2,
-  DESCENT = 3,
-  RECOVERY = 4
+  PRE_LAUNCH = 1,
+  LAUNCH = 2,
+  ASCENT = 3,
+  DESCENT = 4,
+  RECOVERY = 5
 };
 
 namespace util {

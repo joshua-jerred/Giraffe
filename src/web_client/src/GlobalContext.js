@@ -53,6 +53,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
   const [isDownlinkConnected, setIsDownlinkConnected] = React.useState(false);
   const [isUplinkConnected, setIsUplinkConnected] = React.useState(false);
 
+  const [flightData, setFlightData] = React.useState({});
+
   // ------ GGS Connection ------
   React.useEffect(() => {
     const intervalUpdateCallback = () => {
@@ -103,6 +105,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
       fetch(`${ggsAddress}/api/status`)
         .then((response) => response.json())
         .then((data) => {
+          // console.log("test connection");
           if (!isGgsConnected) {
             alerter.clearAlert("not_connected_to_ggs");
           }
@@ -139,6 +142,17 @@ export const GwsGlobalContextProvider = ({ children }) => {
           setIsDownlinkConnected(false);
           setServiceStatuses(serviceStatusesDefault);
         });
+
+      // get flight data if connected
+      fetch(`${ggsAddress}/api/flight_data/data?category=general`)
+        .then((response) => response.json())
+        .then((json_data) => {
+          // console.log("Flight data", json_data);
+          setFlightData(json_data.values);
+        })
+        .catch((error) => {
+          console.error("Error getting flight data", error);
+        });
     };
 
     intervalUpdateCallback(); // run once on mount
@@ -167,6 +181,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
         isGdlConnected,
         isDownlinkConnected,
         isUplinkConnected,
+        flightData,
       }}
     >
       {children}

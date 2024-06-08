@@ -143,6 +143,8 @@ std::string to_string(FlightPhase phase) {
   switch (phase) {
   case FlightPhase::UNKNOWN:
     return "Unknown";
+  case FlightPhase::PRE_LAUNCH:
+    return "Pre-Launch";
   case FlightPhase::LAUNCH:
     return "Launch";
   case FlightPhase::ASCENT:

@@ -46,8 +46,10 @@ const BarItemStatusStyle = styled.span`
       return props.theme.success;
     } else if (props.status === "DISCONNECTED") {
       return props.theme.error;
-    } else {
+    } else if (props.status === "UNKNOWN") {
       return props.theme.warning;
+    } else {
+      return props.theme.primary;
     }
   }};
 `;
@@ -141,7 +143,7 @@ function AlertBar() {
 }
 
 function StatusBar() {
-  const { serviceStatuses, isGgsConnected } = useContext(GwsGlobal);
+  const { serviceStatuses, isGgsConnected, flightData } = useContext(GwsGlobal);
 
   return (
     <>
@@ -158,14 +160,16 @@ function StatusBar() {
               : "UNKNOWN"
           }
         /> */}
-        <StatusItem
-          title="GFS"
-          status={
-            isGgsConnected && serviceStatuses.gfs
-              ? serviceStatuses.gfs.toUpperCase()
-              : "UNKNOWN"
-          }
-        />
+        <Tooltip text="GFS TCP Connection Status" vertical_position={"-440%"}>
+          <StatusItem
+            title="GFS"
+            status={
+              isGgsConnected && serviceStatuses.gfs
+                ? serviceStatuses.gfs.toUpperCase()
+                : "UNKNOWN"
+            }
+          />
+        </Tooltip>
         <Tooltip text="telemetry up-link status" vertical_position={"-440%"}>
           <StatusItem
             title={<FontAwesomeIcon icon={faSatelliteDish} />}
@@ -187,7 +191,16 @@ function StatusBar() {
             }
           />
         </Tooltip>
-
+        <Tooltip text="GFS TCP Connection Status" vertical_position={"-440%"}>
+          <StatusItem
+            title="PHASE"
+            status={
+              isGgsConnected && flightData.flight_phase
+                ? flightData.flight_phase.toUpperCase()
+                : "UNKNOWN"
+            }
+          />
+        </Tooltip>
         {/* <StatusItem
         title="InfluxDB"
         status={

@@ -95,7 +95,7 @@ void console_pages::Pages::gfsStatus() {
       LandR(bst::time::timeString(bst::time::TimeZone::UTC) + " UTC ",
             bst::time::timeString(bst::time::TimeZone::LOCAL) + " Local");
   content_[1] =
-      LandR("Uptime: " + shared_data_.misc.getUptimeString(),
+      LandR("Uptime: " + shared_data_.flight_data.getUptimeString(),
             "Ld Avg: " + bst::string::f2s(sys_info.cpu_load_avg_1, 1) + " " +
                 bst::string::f2s(sys_info.cpu_load_avg_5, 1) + " " +
                 bst::string::f2s(sys_info.cpu_load_avg_15, 1));
