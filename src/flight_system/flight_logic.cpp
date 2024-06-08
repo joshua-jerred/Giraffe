@@ -46,38 +46,40 @@ void FlightRunner::detectFlightPhase() {
   double gps_distance_from_ground_m = calculated.distance_from_ground_m;
   double gps_altitude_m = location.last_valid_gps_frame.altitude;
   double gps_horizontal_speed_mps_10s = calculated.average_horiz_speed_mps_1min;
-  double gps_vertical_speed_mps_10s = 0.0;
+  // double gps_vertical_speed_mps_10s = 0.0;
   double gps_vertical_speed_mps_60s = calculated.average_vert_speed_mps_1min;
 
   { // launch
-    launch += 40.0 * (gps_distance_from_launch_m < 10.0);
-    launch += 40.0 * (gps_distance_from_ground_m < 5.0);
+    launch += 65.0 * (gps_distance_from_launch_m < 10.0);
+    launch += 25.0 * (gps_distance_from_ground_m < 5.0 &&
+                      gps_distance_from_ground_m > 5.0);
     launch += 5.0 * (gps_horizontal_speed_mps_10s < 1.0);
-    launch += 10.0 * (gps_vertical_speed_mps_10s < 0.5);
+    // launch += 10.0 * (gps_vertical_speed_mps_10s < 0.5);
     launch += 5.0 * (gps_vertical_speed_mps_60s < 0.5);
   }
   { // ascent
     ascent += 20.0 * (gps_distance_from_launch_m > 10.0);
-    ascent += 10.0 * (gps_distance_from_ground_m > 5.0);
-    ascent += 5.0 * (gps_horizontal_speed_mps_10s > 0.5);
-    ascent += 10.0 * (gps_vertical_speed_mps_10s > 0.5);
-    ascent += 50.0 * (gps_vertical_speed_mps_60s > 0.5);
-  }
+    ascent += 15.0 * (gps_distance_from_ground_m > 5.0);
+    ascent += 10.0 * (gps_horizontal_speed_mps_10s > 0.5);
+    // ascent += 10.0 * (gps_vertical_speed_mps_10s > 0.5);
+    ascent += 55.0 * (gps_vertical_speed_mps_60s > 0.5);
+  } // ^35 above, 55 below
+    // 45 85
   { // descent
-    descent += 5.0 * (gps_distance_from_launch_m > 10.0);
-    descent += 15.0 * (gps_distance_from_ground_m > 1500.0);
-    descent += 10.0 * (gps_horizontal_speed_mps_10s > 0.5);
-    descent += 30.0 * (gps_vertical_speed_mps_10s < -1.0);
-    descent += 40.0 * (gps_vertical_speed_mps_60s < -1.0);
+    descent += 10.0 * (gps_distance_from_launch_m > 10.0);
+    descent += 10.0 * (gps_distance_from_ground_m > 1500.0);
+    descent += 15.0 * (gps_horizontal_speed_mps_10s > 0.5);
+    // descent += 30.0 * (gps_vertical_speed_mps_10s < -1.0);
+    descent += 65.0 * (gps_vertical_speed_mps_60s < -1.0);
   }
   { // recovery
     recovery += 10.0 * (gps_distance_from_launch_m > 10.0);
     recovery += 10.0 * (gps_distance_from_ground_m > 5.0);
-    recovery += 20.0 * (gps_horizontal_speed_mps_10s < 1.0);
-    recovery += 30.0 * (gps_vertical_speed_mps_10s > -0.5 &&
-                        gps_vertical_speed_mps_10s < 0.5);
-    recovery += 40.0 * (gps_vertical_speed_mps_60s < -0.5 &&
-                        gps_vertical_speed_mps_60s > 0.5);
+    recovery += 30.0 * (gps_horizontal_speed_mps_10s < 1.0);
+    // recovery += 30.0 * (gps_vertical_speed_mps_10s > -0.5 &&
+    // gps_vertical_speed_mps_10s < 0.5);
+    recovery += 50.0 * (gps_vertical_speed_mps_60s > -0.25 &&
+                        gps_vertical_speed_mps_60s < 0.25);
   }
   shared_data_.flight_data.setPhasePrediction(launch, ascent, descent,
                                               recovery);
@@ -142,6 +144,9 @@ void FlightRunner::detectFlightPhase() {
 
     // -- CURRENTLY IN DESCENT PHASE --
   case FlightPhase::DESCENT:
+    if (gps_valid && (recovery - descent > 50.0)) {
+      setFlightPhase(FlightPhase::RECOVERY);
+    }
     break;
 
     // -- CURRENTLY IN RECOVERY PHASE --
