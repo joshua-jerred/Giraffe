@@ -5,6 +5,7 @@ var namespacegiraffe =
       [ "createGiraffeDirIfNotExists", "namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa", null ],
       [ "getGdlServerConfigFilePath", "namespacegiraffe_1_1file__paths.html#a55797c39fca8c9ee503e4c9dab0e6007", null ],
       [ "getGfsConfigFilePath", "namespacegiraffe_1_1file__paths.html#af135930ce8485d772c69735520b7fad1", null ],
+      [ "getGfsFlightRunnerDataFilePath", "namespacegiraffe_1_1file__paths.html#aef6cfddd3fef84d131765805a8152fbc", null ],
       [ "getGfsImageDirPath", "namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc", null ],
       [ "GIRAFFE_DIRECTORY", "namespacegiraffe_1_1file__paths.html#aad4ebaf90e4cc96fa0529d0d65fcd109", null ]
     ] ],
@@ -26,7 +27,6 @@ var namespacegiraffe =
     [ "NLOHMANN_JSON_SERIALIZE_ENUM", "namespacegiraffe.html#aa5a7162d7cb40de16288349e41fd6ba0", null ],
     [ "getFlightComputerInfo", "namespacegiraffe.html#a913acd4504a335abcea9a3920a3f65cc", null ],
     [ "to_string", "namespacegiraffe.html#a6c8d7898d64c0982d482f960a46bb8c5", null ],
-    [ "kDataFilePath", "namespacegiraffe.html#a6b32139309d34ad3fdd8ad069c141473", null ],
     [ "kNumStartupsDefault", "namespacegiraffe.html#accb157d3d9971f0f4f97a434a9aa21e8", null ],
     [ "MAX_PIN_NUMBER", "namespacegiraffe.html#a469e6e35959060a692d18f6417224cc6", null ]
 ];

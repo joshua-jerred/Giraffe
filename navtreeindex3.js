@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"classextension_1_1Extension.html#aee46e7bdceacb1278a27fbf339c88fb3":[11,0,5,4,3],
+"classextension_1_1I2cExtensionAdapter.html":[11,0,5,6],
 "classextension_1_1I2cExtensionAdapter.html#a37372747b17d3dd3092fd815c1ee619e":[11,0,5,6,1],
 "classextension_1_1I2cExtensionAdapter.html#a3d082123780156b3c797239456cef917":[11,0,5,6,4],
 "classextension_1_1I2cExtensionAdapter.html#a997b9e139894c440e40f95daa94b84e4":[11,0,5,6,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "classextension_1_1SimGpsSensor.html#a2aa3ac844b4d83d427e0f633f803a027":[11,0,5,13,22],
 "classextension_1_1SimGpsSensor.html#a39712025900988f7bd4e15637f4a28ba":[11,0,5,13,19],
 "classextension_1_1SimGpsSensor.html#a3e5d32890e069c49b3641d0e01322364":[11,0,5,13,25],
-"classextension_1_1SimGpsSensor.html#a40300776e358833cbfd50c198a320cdf":[11,0,5,13,24],
-"classextension_1_1SimGpsSensor.html#a41a192bcc5212abcca25b3c026be7fd3":[11,0,5,13,7],
-"classextension_1_1SimGpsSensor.html#a639edd8b0e44e06bb5e2111412becb68":[11,0,5,13,4]
+"classextension_1_1SimGpsSensor.html#a40300776e358833cbfd50c198a320cdf":[11,0,5,13,24]
 };

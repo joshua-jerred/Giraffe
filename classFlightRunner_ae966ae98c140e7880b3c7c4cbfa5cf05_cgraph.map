@@ -1,12 +1,12 @@
 <map id="FlightRunner::detectFlightPhase" name="FlightRunner::detectFlightPhase">
-<area shape="rect" id="node1" title="Detects the current flight phase and sets it in the shared data. flight_phase.hpp." alt="" coords="5,115,196,156"/>
+<area shape="rect" id="node1" title="Detects the current flight phase and sets it in the shared data. flight_phase.hpp." alt="" coords="5,129,196,171"/>
 <area shape="rect" id="node2" href="$classgiraffe_1_1FlightRunnerData.html#a6adac9db38e843c2805cad0d212956ef" title=" " alt="" coords="255,5,442,47"/>
-<area shape="rect" id="node3" href="$classdata_1_1Misc.html#aab32b73fe0557f21b4de86093d5baff9" title="Get the current flight phase." alt="" coords="251,71,446,98"/>
-<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="520,63,683,90"/>
-<area shape="rect" id="node7" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title=" " alt="" coords="244,173,453,199"/>
-<area shape="rect" id="node10" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="547,231,655,258"/>
-<area shape="rect" id="node5" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="749,49,936,91"/>
-<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="753,115,933,156"/>
-<area shape="rect" id="node8" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="501,114,701,141"/>
-<area shape="rect" id="node9" href="$classgiraffe_1_1FlightRunnerData.html#ac2b08f44adf4ed3ab384cd8e5c947578" title=" " alt="" coords="508,165,695,207"/>
+<area shape="rect" id="node3" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="252,71,445,112"/>
+<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="520,107,683,134"/>
+<area shape="rect" id="node7" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title=" " alt="" coords="244,187,453,214"/>
+<area shape="rect" id="node10" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="547,275,655,302"/>
+<area shape="rect" id="node5" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="749,93,936,135"/>
+<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="753,159,933,200"/>
+<area shape="rect" id="node8" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="501,158,701,185"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1FlightRunnerData.html#ac2b08f44adf4ed3ab384cd8e5c947578" title=" " alt="" coords="508,209,695,251"/>
 </map>

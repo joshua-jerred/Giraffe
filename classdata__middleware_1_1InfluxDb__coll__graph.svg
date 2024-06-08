@@ -962,23 +962,25 @@
 <!-- Node47 -->
 <g id="node45" class="node">
 <title>Node47</title>
-<g id="a_node45"><a xlink:href="classdata_1_1Misc.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="3252.5,-962.5 3252.5,-1041.5 3380.5,-1041.5 3380.5,-962.5 3252.5,-962.5"/>
-<text text-anchor="middle" x="3316.5" y="-1029.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::Misc</text>
-<polyline fill="none" stroke="black" points="3252.5,-1022.5 3380.5,-1022.5 "/>
-<text text-anchor="middle" x="3316.5" y="-1010.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="3252.5,-1003.5 3380.5,-1003.5 "/>
-<text text-anchor="start" x="3260.5" y="-991.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getFlightPhase()</text>
-<text text-anchor="start" x="3260.5" y="-980.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getUptimeSeconds()</text>
-<text text-anchor="start" x="3260.5" y="-969.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getUptimeString()</text>
+<g id="a_node45"><a xlink:href="classdata_1_1FlightData.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="3252,-951.5 3252,-1052.5 3381,-1052.5 3381,-951.5 3252,-951.5"/>
+<text text-anchor="middle" x="3316.5" y="-1040.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::FlightData</text>
+<polyline fill="none" stroke="black" points="3252,-1033.5 3381,-1033.5 "/>
+<text text-anchor="middle" x="3316.5" y="-1021.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="3252,-1014.5 3381,-1014.5 "/>
+<text text-anchor="start" x="3260" y="-1002.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getFlightPhase()</text>
+<text text-anchor="start" x="3260" y="-991.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getSystemTimeUtc()</text>
+<text text-anchor="start" x="3260" y="-980.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getUptimeSeconds()</text>
+<text text-anchor="start" x="3260" y="-969.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getUptimeString()</text>
+<text text-anchor="start" x="3260" y="-958.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ toJson()</text>
 </a>
 </g>
 </g>
 <!-- Node25&#45;&gt;Node47 -->
 <g id="edge69" class="edge">
 <title>Node25&#45;&gt;Node47</title>
-<path fill="none" stroke="#404040" d="M2443.13,-1188.45C2475.19,-1162.17 2527.38,-1123.74 2579.5,-1104 2583.37,-1102.54 3053.08,-1038.73 3240.53,-1013.3"/>
-<polygon fill="none" stroke="#404040" points="3240.57,-1013.29 3245.97,-1008.52 3252.46,-1011.68 3247.05,-1016.45 3240.57,-1013.29"/>
+<path fill="none" stroke="#404040" d="M2443.13,-1188.45C2475.19,-1162.17 2527.38,-1123.74 2579.5,-1104 2583.36,-1102.54 3051.96,-1038.88 3239.85,-1013.39"/>
+<polygon fill="none" stroke="#404040" points="3239.93,-1013.38 3245.33,-1008.61 3251.82,-1011.77 3246.41,-1016.54 3239.93,-1013.38"/>
 <text text-anchor="middle" x="2611" y="-1112.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;start_time_</text>
 </g>
 <!-- Node26 -->
@@ -1270,9 +1272,9 @@
 <!-- Node47&#45;&gt;Node3 -->
 <g id="edge67" class="edge">
 <title>Node47&#45;&gt;Node3</title>
-<path fill="none" stroke="#404040" d="M3380.83,-997.82C3503.38,-990.26 3762.99,-966.6 3817.5,-900 3836.01,-877.39 3828.26,-535.89 3812.5,-513 3751.07,-423.81 3693.81,-413.6 2701.5,-309 2608.87,-299.24 1953.95,-287.98 1864.5,-262 1863.02,-261.57 1861.53,-261.1 1860.05,-260.59"/>
+<path fill="none" stroke="#404040" d="M3381.31,-997.79C3504.05,-990.2 3763.06,-966.52 3817.5,-900 3836.01,-877.39 3828.26,-535.89 3812.5,-513 3751.07,-423.81 3693.81,-413.6 2701.5,-309 2608.87,-299.24 1953.95,-287.98 1864.5,-262 1863.02,-261.57 1861.53,-261.1 1860.05,-260.59"/>
 <polygon fill="none" stroke="#404040" points="1859.88,-260.52 1852.82,-262 1848.75,-256.05 1855.8,-254.58 1859.88,-260.52"/>
-<text text-anchor="middle" x="3815" y="-476" font-family="Helvetica,sans-Serif" font-size="10.00"> +misc</text>
+<text text-anchor="middle" x="3829.5" y="-476" font-family="Helvetica,sans-Serif" font-size="10.00"> +flight_data</text>
 </g>
 <!-- Node48 -->
 <g id="node46" class="node">
@@ -1290,8 +1292,8 @@
 <!-- Node48&#45;&gt;Node47 -->
 <g id="edge68" class="edge">
 <title>Node48&#45;&gt;Node47</title>
-<path fill="none" stroke="#404040" d="M3266.23,-1188.09C3268.82,-1165.25 3273.4,-1132.23 3280.5,-1104 3284.74,-1087.15 3290.67,-1069.16 3296.5,-1053.1"/>
-<polygon fill="none" stroke="#404040" points="3296.53,-1053.04 3294.87,-1046.02 3300.7,-1041.79 3302.36,-1048.81 3296.53,-1053.04"/>
+<path fill="none" stroke="#404040" d="M3266.23,-1188.09C3268.82,-1165.25 3273.4,-1132.23 3280.5,-1104 3283.79,-1090.94 3288.09,-1077.19 3292.58,-1064.19"/>
+<polygon fill="none" stroke="#404040" points="3292.71,-1063.81 3290.94,-1056.82 3296.72,-1052.5 3298.48,-1059.5 3292.71,-1063.81"/>
 <text text-anchor="middle" x="3314" y="-1112.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;flight_phase</text>
 </g>
 <!-- Node49 -->
@@ -1310,8 +1312,8 @@
 <!-- Node49&#45;&gt;Node47 -->
 <g id="edge70" class="edge">
 <title>Node49&#45;&gt;Node47</title>
-<path fill="none" stroke="#404040" d="M3364.87,-1188.21C3360.88,-1165.43 3354.64,-1132.45 3347.5,-1104 3343.34,-1087.41 3338.09,-1069.51 3333.11,-1053.45"/>
-<polygon fill="none" stroke="#404040" points="3332.98,-1053.03 3327.36,-1048.51 3329.37,-1041.58 3334.99,-1046.11 3332.98,-1053.03"/>
+<path fill="none" stroke="#404040" d="M3364.87,-1188.21C3360.88,-1165.43 3354.64,-1132.45 3347.5,-1104 3344.25,-1091.06 3340.35,-1077.32 3336.42,-1064.28"/>
+<polygon fill="none" stroke="#404040" points="3336.34,-1064.02 3330.76,-1059.45 3332.83,-1052.54 3338.41,-1057.11 3336.34,-1064.02"/>
 <text text-anchor="middle" x="3389.5" y="-1112.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +FlightRunner</text>
 </g>
 <!-- Node50 -->

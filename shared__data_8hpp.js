@@ -1,5 +1,6 @@
 var shared__data_8hpp =
 [
+    [ "FlightData", "classdata_1_1FlightData.html", "classdata_1_1FlightData" ],
     [ "Frames", "namespacedata.html#structdata_1_1Frames", [
       [ "error_frame", "namespacedata.html#ac25e23e69a5bff14778632557c2652a9", null ],
       [ "env_temp", "namespacedata.html#a38cbd9acc1f37e88b889dcab9fb0cbdb", null ],
@@ -7,7 +8,6 @@ var shared__data_8hpp =
       [ "env_hum", "namespacedata.html#a4464dc398562ecb51fe70a93e84df7eb", null ],
       [ "adc", "namespacedata.html#a633111d236bbf269a603e13a4b52defe", null ]
     ] ],
-    [ "Misc", "classdata_1_1Misc.html", "classdata_1_1Misc" ],
     [ "SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", [
       [ "stream_stats", "namespacedata.html#a853289e3095b00d17f12bb70981f4c1c", null ],
       [ "modules_statuses", "namespacedata.html#a31837aaffcb34d87038ff402197ac992", null ],
@@ -23,10 +23,10 @@ var shared__data_8hpp =
       [ "file_system_data", "namespacedata.html#a972f92980076b73771577364619443ff", null ]
     ] ],
     [ "SharedData", "namespacedata.html#structdata_1_1SharedData", [
+      [ "flight_data", "namespacedata.html#aa9f24cdb8857cc76e2f2293797cab94b", null ],
       [ "streams", "namespacedata.html#ae2e3372c67775b05b48b5cb171bcc3f8", null ],
       [ "frames", "namespacedata.html#ab8fa86bee33ee8b199746b851aa61f42", null ],
       [ "blocks", "namespacedata.html#ab98a7a65eac8ffd555f886a6a45e3142", null ],
-      [ "misc", "namespacedata.html#ad09f2eef7f3c8ae3af47348e633c7071", null ],
       [ "log_container", "namespacedata.html#adc6c096d157e951bcaea1aa84916216a", null ],
       [ "status_led", "namespacedata.html#a7c6f482dc4d558d8463ea2ffcd906fed", null ]
     ] ],

@@ -745,24 +745,26 @@
 <!-- Node47 -->
 <g id="node29" class="node">
 <title>Node47</title>
-<g id="a_node29"><a xlink:href="classdata_1_1Misc.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="red" points="1334.5,-1053 1334.5,-1132 1462.5,-1132 1462.5,-1053 1334.5,-1053"/>
-<text text-anchor="middle" x="1398.5" y="-1120" font-family="Helvetica,sans-Serif" font-size="10.00">data::Misc</text>
-<polyline fill="none" stroke="red" points="1334.5,-1113 1462.5,-1113 "/>
-<text text-anchor="middle" x="1398.5" y="-1101" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="red" points="1334.5,-1094 1462.5,-1094 "/>
-<text text-anchor="start" x="1342.5" y="-1082" font-family="Helvetica,sans-Serif" font-size="10.00">+ getFlightPhase()</text>
-<text text-anchor="start" x="1342.5" y="-1071" font-family="Helvetica,sans-Serif" font-size="10.00">+ getUptimeSeconds()</text>
-<text text-anchor="start" x="1342.5" y="-1060" font-family="Helvetica,sans-Serif" font-size="10.00">+ getUptimeString()</text>
+<g id="a_node29"><a xlink:href="classdata_1_1FlightData.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="red" points="1335,-1042 1335,-1143 1464,-1143 1464,-1042 1335,-1042"/>
+<text text-anchor="middle" x="1399.5" y="-1131" font-family="Helvetica,sans-Serif" font-size="10.00">data::FlightData</text>
+<polyline fill="none" stroke="red" points="1335,-1124 1464,-1124 "/>
+<text text-anchor="middle" x="1399.5" y="-1112" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="red" points="1335,-1105 1464,-1105 "/>
+<text text-anchor="start" x="1343" y="-1093" font-family="Helvetica,sans-Serif" font-size="10.00">+ getFlightPhase()</text>
+<text text-anchor="start" x="1343" y="-1082" font-family="Helvetica,sans-Serif" font-size="10.00">+ getSystemTimeUtc()</text>
+<text text-anchor="start" x="1343" y="-1071" font-family="Helvetica,sans-Serif" font-size="10.00">+ getUptimeSeconds()</text>
+<text text-anchor="start" x="1343" y="-1060" font-family="Helvetica,sans-Serif" font-size="10.00">+ getUptimeString()</text>
+<text text-anchor="start" x="1343" y="-1049" font-family="Helvetica,sans-Serif" font-size="10.00">+ toJson()</text>
 </a>
 </g>
 </g>
 <!-- Node47&#45;&gt;Node3 -->
 <g id="edge28" class="edge">
 <title>Node47&#45;&gt;Node3</title>
-<path fill="none" stroke="#404040" d="M1361.25,-1052.77C1350.37,-1042.84 1338.02,-1032.78 1325.5,-1025 1230.59,-966 1185.04,-1011.71 1078.5,-978 1077.25,-977.6 1075.99,-977.18 1074.74,-976.73"/>
+<path fill="none" stroke="#404040" d="M1348.82,-1041.78C1341.32,-1035.69 1333.44,-1029.9 1325.5,-1025 1230.4,-966.33 1185.04,-1011.71 1078.5,-978 1077.25,-977.6 1075.99,-977.18 1074.74,-976.73"/>
 <polygon fill="none" stroke="#404040" points="1074.6,-976.67 1067.53,-978.09 1063.5,-972.11 1070.57,-970.69 1074.6,-976.67"/>
-<text text-anchor="middle" x="1305" y="-999" font-family="Helvetica,sans-Serif" font-size="10.00"> +misc</text>
+<text text-anchor="middle" x="1319.5" y="-999" font-family="Helvetica,sans-Serif" font-size="10.00"> +flight_data</text>
 </g>
 <!-- Node50 -->
 <g id="node30" class="node">

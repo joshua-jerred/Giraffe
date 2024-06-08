@@ -1,8 +1,4 @@
 <map id="gfs_sim::BalloonPhysics::launch" name="gfs_sim::BalloonPhysics::launch">
-<area shape="rect" id="node1" title=" " alt="" coords="995,5,1173,47"/>
-<area shape="rect" id="node2" href="$classgfs__sim_1_1GfsSimulator.html#afc02d0812770cccd5a8013757504c60f" title=" " alt="" coords="780,5,947,47"/>
-<area shape="rect" id="node3" href="$classgfs__sim_1_1GfsSimulator.html#ac29a56aba288ef2a5aa96885c8826ffb" title=" " alt="" coords="565,5,732,47"/>
-<area shape="rect" id="node4" href="$classgfs__sim_1_1GfsSimulator.html#ada138779165690488655ea0856e38d40" title=" " alt="" coords="323,13,517,39"/>
-<area shape="rect" id="node5" href="$classgfs__sim_1_1GfsSimulator.html#ad1380276142d2172f5516d481b2a365a" title=" " alt="" coords="108,5,275,47"/>
-<area shape="rect" id="node6" href="$tests_2simulator_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,39"/>
+<area shape="rect" id="node1" title=" " alt="" coords="220,5,399,47"/>
+<area shape="rect" id="node2" href="$classgfs__sim_1_1GfsSimulator.html#a2b78f13267c35017a77432a8e05cb2d6" title=" " alt="" coords="5,5,172,47"/>
 </map>

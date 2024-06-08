@@ -1,5 +1,5 @@
-<map id="data::Misc::getFlightPhase" name="data::Misc::getFlightPhase">
-<area shape="rect" id="node1" title="Get the current flight phase." alt="" coords="472,13,667,39"/>
+<map id="data::FlightData::getFlightPhase" name="data::FlightData::getFlightPhase">
+<area shape="rect" id="node1" title="Get the current flight phase." alt="" coords="472,5,665,47"/>
 <area shape="rect" id="node2" href="$classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05" title="Detects the current flight phase and sets it in the shared data. flight_phase.hpp." alt="" coords="233,5,424,47"/>
 <area shape="rect" id="node3" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="5,13,185,39"/>
 </map>

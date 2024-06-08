@@ -5,6 +5,7 @@ var classgfs__sim_1_1GfsSimulator =
     [ "start", "classgfs__sim_1_1GfsSimulator.html#ad1380276142d2172f5516d481b2a365a", null ],
     [ "stop", "classgfs__sim_1_1GfsSimulator.html#a5fa484ce6cae1740cb497e64448397b2", null ],
     [ "isRunning", "classgfs__sim_1_1GfsSimulator.html#a524d45d136cb6a15a118313de1001449", null ],
+    [ "launch", "classgfs__sim_1_1GfsSimulator.html#a2b78f13267c35017a77432a8e05cb2d6", null ],
     [ "getTemperatureC", "classgfs__sim_1_1GfsSimulator.html#afad6d51ade8571c577781fabbdf2b528", null ],
     [ "getPressureMbar", "classgfs__sim_1_1GfsSimulator.html#a809a5761c1df7f42efbf3dc4fdd51cf5", null ],
     [ "getHumidityPercent", "classgfs__sim_1_1GfsSimulator.html#aa8b718820867da177d7f55b1d859e0cc", null ],

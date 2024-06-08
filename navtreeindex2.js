@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"classextension_1_1AdcExtensionBase.html#ac3545ca3cc1fd6ab92671dbf18840f13":[11,0,5,0,15],
+"classextension_1_1AdcExtensionBase.html#ad3a895d8015ab2992b41c66b9f16648a":[11,0,5,0,20],
 "classextension_1_1AdcExtensionBase.html#ae130f81dd3fc3565fd4e617bc6d7f4b1":[11,0,5,0,33],
 "classextension_1_1AdcExtensionBase.html#ae148a765446780132679adc6e647ad37":[11,0,5,0,9],
 "classextension_1_1AdcExtensionBase.html#ae2c3222301069352e6558762aaa8195c":[11,0,5,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "classextension_1_1Extension.html#ad27cb37d63ebbb1ebfb8233606d13c35":[11,0,5,4,1],
 "classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a":[11,0,5,4,19],
 "classextension_1_1Extension.html#ae130f81dd3fc3565fd4e617bc6d7f4b1":[11,0,5,4,31],
-"classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37":[11,0,5,4,5],
-"classextension_1_1Extension.html#aee46e7bdceacb1278a27fbf339c88fb3":[11,0,5,4,3],
-"classextension_1_1I2cExtensionAdapter.html":[11,0,5,6]
+"classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37":[11,0,5,4,5]
 };

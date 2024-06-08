@@ -1,52 +1,52 @@
 <map id="util::to_string" name="util::to_string">
-<area shape="rect" id="node1" title="Converts a flight phase to a string." alt="" coords="807,1207,915,1234"/>
-<area shape="rect" id="node2" href="$classdata__middleware_1_1AdcInterpolation.html#ae1ad5fb461017a5d6a37bfb29f4675d2" title=" " alt="" coords="508,25,759,67"/>
-<area shape="rect" id="node3" href="$structgiraffe_1_1Gpio_1_1Pin.html#a99a0fe69fe4560169ec0e27318720d60" title="Create a new pin struct." alt="" coords="554,91,713,118"/>
-<area shape="rect" id="node4" href="$classmodules_1_1DataModule.html#a13de2ec04ae048529fcfe91c95272b97" title="Use existing data to calculate the data that can be calculated." alt="" coords="539,143,728,184"/>
-<area shape="rect" id="node5" href="$classconsole__pages_1_1Pages.html#a4b0ae50da4241115a3acfca9f0c4e306" title=" " alt="" coords="551,1004,715,1045"/>
-<area shape="rect" id="node7" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="554,260,713,301"/>
-<area shape="rect" id="node11" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="270,5,427,47"/>
-<area shape="rect" id="node18" href="$classmodules_1_1Module.html#ae3745aa2ab9ed49ad46f198c6280852e" title="Used internally in the module. This function adds a data to the data stream." alt="" coords="548,391,719,418"/>
-<area shape="rect" id="node19" href="$classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05" title="Detects the current flight phase and sets it in the shared data. flight_phase.hpp." alt="" coords="253,1940,444,1981"/>
-<area shape="rect" id="node20" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="554,508,713,549"/>
-<area shape="rect" id="node21" href="$classmodules_1_1Module.html#a2d64fd89764378e46ffc96cce45953db" title="Same as the other error function, but takes an int instead of a string." alt="" coords="547,574,720,601"/>
-<area shape="rect" id="node22" href="$classdata_1_1LogStream.html#a2e520b1959831d7eb0a0d4c586292e94" title=" " alt="" coords="524,625,743,667"/>
-<area shape="rect" id="node23" href="$classconsole__pages_1_1Pages.html#a815a74fc95295c02b4638fa47b03e18d" title=" " alt="" coords="551,1069,715,1111"/>
-<area shape="rect" id="node24" href="$classconsole__pages_1_1Pages.html#aa3dd00ba1c736892c991d7d4f461bfe0" title=" " alt="" coords="551,1747,715,1788"/>
-<area shape="rect" id="node25" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="551,821,715,863"/>
-<area shape="rect" id="node26" href="$structdata__middleware_1_1InfluxLine.html#ab668667e88a106ae046e81d6fe779fa7" title=" " alt="" coords="530,887,737,928"/>
-<area shape="rect" id="node27" href="$influxdb_8cpp.html#a72945fb4d8ea1727ad479c78048bd0e0" title=" " alt="" coords="580,953,687,979"/>
-<area shape="rect" id="node28" href="$classconsole__pages_1_1Pages.html#a27c3adbf55be9c5165077caed2c01b57" title=" " alt="" coords="551,325,715,367"/>
-<area shape="rect" id="node29" href="$classconsole__pages_1_1Pages.html#a141ef59324d5cd73c9f39488ab0fa363" title=" " alt="" coords="551,443,715,484"/>
-<area shape="rect" id="node30" href="$classdata__middleware_1_1InfluxDb.html#a1c9b38266a11676e158a34d652bcaf69" title=" " alt="" coords="535,1135,732,1176"/>
-<area shape="rect" id="node31" href="$classdata__middleware_1_1InfluxDb.html#adc204b9bf0e4eff914bfd68e51383c9e" title=" " alt="" coords="535,1200,732,1241"/>
-<area shape="rect" id="node32" href="$classdata__middleware_1_1DataFormatter.html#aa1d67f3593467a202659b221472cab9f" title=" " alt="" coords="514,1265,753,1307"/>
-<area shape="rect" id="node33" href="$classExtensionTestFramework.html#ac7e990a9c39cd8f420be41a3a85526ad" title=" " alt="" coords="541,1331,726,1372"/>
-<area shape="rect" id="node34" href="$classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed" title="Process commands that are received from the flight runner." alt="" coords="534,1396,733,1437"/>
-<area shape="rect" id="node35" href="$classmodules_1_1DataModule.html#a22e5c03008cb6d2015dd0097869f2fa3" title="Process all packets from the log stream." alt="" coords="551,1461,716,1503"/>
-<area shape="rect" id="node36" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="564,1527,703,1554"/>
-<area shape="rect" id="node37" href="$classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4" title="Release a pin for use by another instance." alt="" coords="544,1578,723,1605"/>
-<area shape="rect" id="node38" href="$classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42" title=" " alt="" coords="526,1629,741,1671"/>
-<area shape="rect" id="node39" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="537,1695,730,1722"/>
-<area shape="rect" id="node40" href="$classconsole__pages_1_1Pages.html#a67d35ee34832ada202ae3efbba51ac7b" title=" " alt="" coords="551,691,715,732"/>
-<area shape="rect" id="node41" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title=" " alt="" coords="529,1813,738,1839"/>
-<area shape="rect" id="node42" href="$classcfg_1_1AdcMappings.html#a45d9c766a012ea127e8612d262e720ac" title=" " alt="" coords="521,1863,746,1890"/>
-<area shape="rect" id="node43" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="529,1914,738,1941"/>
-<area shape="rect" id="node44" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="550,1965,717,1991"/>
-<area shape="rect" id="node45" href="$group__ServerModule.html#a76c8c341c2e0e2034fa8af0c9d92f75b" title="Startup the server module." alt="" coords="545,2016,721,2057"/>
-<area shape="rect" id="node46" href="$classconsole__pages_1_1Pages.html#a1e0b526a42fa362aa87bb4b9d37ae687" title=" " alt="" coords="551,756,715,797"/>
-<area shape="rect" id="node47" href="$test__extension__module_8cpp.html#a6e4d6d488a353c419e51ff7232e9c204" title=" " alt="" coords="599,2133,668,2159"/>
-<area shape="rect" id="node48" href="$namespaceutil.html#a7864f641801f7a53e32c35e54b9cc7f1" title=" " alt="" coords="584,2183,683,2210"/>
-<area shape="rect" id="node49" href="$namespaceutil.html#a7e499751b8586812fa2eec60bdc2dfe6" title=" " alt="" coords="579,2234,687,2261"/>
-<area shape="rect" id="node50" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="562,2285,705,2311"/>
-<area shape="rect" id="node6" href="$classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14" title=" " alt="" coords="267,756,431,797"/>
-<area shape="rect" id="node8" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="5,238,189,265"/>
-<area shape="rect" id="node9" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="273,319,424,360"/>
-<area shape="rect" id="node10" href="$classextension_1_1ImuExtensionBase.html#a20dfe1a1df8a3887deb7a64bc38b42e4" title=" " alt="" coords="241,384,456,425"/>
-<area shape="rect" id="node12" href="$classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d" title=" " alt="" coords="248,449,449,491"/>
-<area shape="rect" id="node13" href="$classextension_1_1SimPressureSensor.html#aaf5a09dba391f216ca5ee5a7890a1e85" title=" " alt="" coords="239,515,458,556"/>
-<area shape="rect" id="node14" href="$classextension_1_1SimHumiditySensor.html#a59e5059ebb6e2e81ca3a6ef30a632456" title=" " alt="" coords="237,580,460,621"/>
-<area shape="rect" id="node15" href="$classextension_1_1SimGpsSensor.html#a80265d0b8468fc4e90a46409a6178ab2" title=" " alt="" coords="255,71,443,112"/>
-<area shape="rect" id="node16" href="$classextension_1_1SimImuSensor.html#a1acef31a7be54226957d58d2f9d174d1" title=" " alt="" coords="255,136,443,177"/>
-<area shape="rect" id="node17" href="$classextension_1_1Bme280.html#a216c4ae77daca7a479a9eba281e8dbd4" title="Reads the raw environmental data from the BME280." alt="" coords="260,201,437,243"/>
+<area shape="rect" id="node1" title="Converts a flight phase to a string." alt="" coords="575,1221,683,1247"/>
+<area shape="rect" id="node2" href="$classdata__middleware_1_1AdcInterpolation.html#ae1ad5fb461017a5d6a37bfb29f4675d2" title=" " alt="" coords="276,5,527,47"/>
+<area shape="rect" id="node3" href="$structgiraffe_1_1Gpio_1_1Pin.html#a99a0fe69fe4560169ec0e27318720d60" title="Create a new pin struct." alt="" coords="322,71,481,98"/>
+<area shape="rect" id="node4" href="$classmodules_1_1DataModule.html#a13de2ec04ae048529fcfe91c95272b97" title="Use existing data to calculate the data that can be calculated." alt="" coords="307,123,496,164"/>
+<area shape="rect" id="node5" href="$classconsole__pages_1_1Pages.html#a4b0ae50da4241115a3acfca9f0c4e306" title=" " alt="" coords="319,1049,483,1091"/>
+<area shape="rect" id="node7" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="322,240,481,281"/>
+<area shape="rect" id="node11" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="38,15,195,56"/>
+<area shape="rect" id="node17" href="$classmodules_1_1Module.html#ae3745aa2ab9ed49ad46f198c6280852e" title="Used internally in the module. This function adds a data to the data stream." alt="" coords="316,371,487,398"/>
+<area shape="rect" id="node18" href="$classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05" title="Detects the current flight phase and sets it in the shared data. flight_phase.hpp." alt="" coords="21,1920,212,1961"/>
+<area shape="rect" id="node19" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="322,488,481,529"/>
+<area shape="rect" id="node20" href="$classmodules_1_1Module.html#a2d64fd89764378e46ffc96cce45953db" title="Same as the other error function, but takes an int instead of a string." alt="" coords="315,554,488,581"/>
+<area shape="rect" id="node21" href="$classdata_1_1LogStream.html#a2e520b1959831d7eb0a0d4c586292e94" title=" " alt="" coords="292,605,511,647"/>
+<area shape="rect" id="node22" href="$classconsole__pages_1_1Pages.html#a815a74fc95295c02b4638fa47b03e18d" title=" " alt="" coords="319,1727,483,1768"/>
+<area shape="rect" id="node23" href="$classconsole__pages_1_1Pages.html#aa3dd00ba1c736892c991d7d4f461bfe0" title=" " alt="" coords="319,305,483,347"/>
+<area shape="rect" id="node24" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="319,801,483,843"/>
+<area shape="rect" id="node25" href="$structdata__middleware_1_1InfluxLine.html#ab668667e88a106ae046e81d6fe779fa7" title=" " alt="" coords="298,867,505,908"/>
+<area shape="rect" id="node26" href="$influxdb_8cpp.html#a72945fb4d8ea1727ad479c78048bd0e0" title=" " alt="" coords="348,933,455,959"/>
+<area shape="rect" id="node27" href="$classconsole__pages_1_1Pages.html#a27c3adbf55be9c5165077caed2c01b57" title=" " alt="" coords="319,423,483,464"/>
+<area shape="rect" id="node28" href="$classconsole__pages_1_1Pages.html#a141ef59324d5cd73c9f39488ab0fa363" title=" " alt="" coords="319,671,483,712"/>
+<area shape="rect" id="node29" href="$classdata__middleware_1_1InfluxDb.html#a1c9b38266a11676e158a34d652bcaf69" title=" " alt="" coords="303,1115,500,1156"/>
+<area shape="rect" id="node30" href="$classdata__middleware_1_1InfluxDb.html#adc204b9bf0e4eff914bfd68e51383c9e" title=" " alt="" coords="303,1180,500,1221"/>
+<area shape="rect" id="node31" href="$classdata__middleware_1_1DataFormatter.html#aa1d67f3593467a202659b221472cab9f" title=" " alt="" coords="282,1245,521,1287"/>
+<area shape="rect" id="node32" href="$classExtensionTestFramework.html#ac7e990a9c39cd8f420be41a3a85526ad" title=" " alt="" coords="309,1311,494,1352"/>
+<area shape="rect" id="node33" href="$classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed" title="Process commands that are received from the flight runner." alt="" coords="302,1376,501,1417"/>
+<area shape="rect" id="node34" href="$classmodules_1_1DataModule.html#a22e5c03008cb6d2015dd0097869f2fa3" title="Process all packets from the log stream." alt="" coords="319,1441,484,1483"/>
+<area shape="rect" id="node35" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="332,1507,471,1534"/>
+<area shape="rect" id="node36" href="$classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4" title="Release a pin for use by another instance." alt="" coords="312,1558,491,1585"/>
+<area shape="rect" id="node37" href="$classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42" title=" " alt="" coords="294,1609,509,1651"/>
+<area shape="rect" id="node38" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="305,1675,498,1702"/>
+<area shape="rect" id="node39" href="$classconsole__pages_1_1Pages.html#a67d35ee34832ada202ae3efbba51ac7b" title=" " alt="" coords="319,736,483,777"/>
+<area shape="rect" id="node40" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title=" " alt="" coords="297,2062,506,2089"/>
+<area shape="rect" id="node41" href="$classcfg_1_1AdcMappings.html#a45d9c766a012ea127e8612d262e720ac" title=" " alt="" coords="289,1843,514,1870"/>
+<area shape="rect" id="node42" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="297,1894,506,1921"/>
+<area shape="rect" id="node43" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="318,1945,485,1971"/>
+<area shape="rect" id="node44" href="$group__ServerModule.html#a76c8c341c2e0e2034fa8af0c9d92f75b" title="Startup the server module." alt="" coords="313,1996,489,2037"/>
+<area shape="rect" id="node45" href="$classconsole__pages_1_1Pages.html#a1e0b526a42fa362aa87bb4b9d37ae687" title=" " alt="" coords="319,984,483,1025"/>
+<area shape="rect" id="node46" href="$test__extension__module_8cpp.html#a6e4d6d488a353c419e51ff7232e9c204" title=" " alt="" coords="367,2113,436,2139"/>
+<area shape="rect" id="node47" href="$namespaceutil.html#a7864f641801f7a53e32c35e54b9cc7f1" title=" " alt="" coords="352,2163,451,2190"/>
+<area shape="rect" id="node48" href="$namespaceutil.html#a7e499751b8586812fa2eec60bdc2dfe6" title=" " alt="" coords="347,2214,455,2241"/>
+<area shape="rect" id="node49" href="$classdata_1_1FlightData.html#ae457e1fda53739ef17fa89fb69965ecc" title=" " alt="" coords="314,2265,489,2291"/>
+<area shape="rect" id="node50" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="330,2315,473,2342"/>
+<area shape="rect" id="node6" href="$classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14" title=" " alt="" coords="35,736,199,777"/>
+<area shape="rect" id="node8" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="25,277,209,303"/>
+<area shape="rect" id="node9" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="41,328,192,369"/>
+<area shape="rect" id="node10" href="$classextension_1_1ImuExtensionBase.html#a20dfe1a1df8a3887deb7a64bc38b42e4" title=" " alt="" coords="9,393,224,435"/>
+<area shape="rect" id="node12" href="$classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d" title=" " alt="" coords="16,459,217,500"/>
+<area shape="rect" id="node13" href="$classextension_1_1SimPressureSensor.html#aaf5a09dba391f216ca5ee5a7890a1e85" title=" " alt="" coords="7,524,226,565"/>
+<area shape="rect" id="node14" href="$classextension_1_1SimHumiditySensor.html#a59e5059ebb6e2e81ca3a6ef30a632456" title=" " alt="" coords="5,80,228,121"/>
+<area shape="rect" id="node15" href="$classextension_1_1SimGpsSensor.html#a80265d0b8468fc4e90a46409a6178ab2" title=" " alt="" coords="23,145,211,187"/>
+<area shape="rect" id="node16" href="$classextension_1_1SimImuSensor.html#a1acef31a7be54226957d58d2f9d174d1" title=" " alt="" coords="23,211,211,252"/>
 </map>

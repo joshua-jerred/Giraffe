@@ -1,0 +1,6 @@
+<map id="data::FlightData::getSystemTimeUtc" name="data::FlightData::getSystemTimeUtc">
+<area shape="rect" id="node1" title="Get the system time in UTC." alt="" coords="753,5,959,47"/>
+<area shape="rect" id="node2" href="$classdata_1_1FlightData.html#ae457e1fda53739ef17fa89fb69965ecc" title=" " alt="" coords="531,13,705,39"/>
+<area shape="rect" id="node3" href="$group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7" title="This function responds to data requests." alt="" coords="281,5,483,47"/>
+<area shape="rect" id="node4" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,13,233,39"/>
+</map>
