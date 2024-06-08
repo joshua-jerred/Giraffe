@@ -171,6 +171,29 @@ void FlightRunner::setFlightPhase(FlightPhase new_phase) {
     return;
   }
 
+  switch (new_phase) {
+  case FlightPhase::UNKNOWN:
+    break;
+  case FlightPhase::PRE_LAUNCH:
+    shared_data_.status_led.setGreen(StatusLedState::State::ON);
+    break;
+  case FlightPhase::LAUNCH:
+    shared_data_.status_led.setGreen(StatusLedState::State::BLINK);
+    break;
+  case FlightPhase::ASCENT:
+    shared_data_.status_led.setGreen(StatusLedState::State::OFF);
+    break;
+  case FlightPhase::DESCENT:
+    shared_data_.status_led.setGreen(StatusLedState::State::OFF);
+    break;
+  case FlightPhase::RECOVERY:
+    shared_data_.status_led.setGreen(StatusLedState::State::BLINK);
+    break;
+  default:
+    giraffe_assert(false);
+    break;
+  }
+
   // Report to shared data
   shared_data_.flight_data.flight_phase = new_phase;
   // Save to file

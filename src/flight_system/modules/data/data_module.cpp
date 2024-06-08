@@ -137,6 +137,12 @@ void modules::DataModule::processAllStreams() {
   stats.command.current_packets = shared_data_.streams.command.getNumPackets();
   stats.command.total_packets = shared_data_.streams.command.getTotalPackets();
 
+  if (shared_data_.frames.error_frame.numActiveErrors() > 0) {
+    shared_data_.status_led.setRed(giraffe::StatusLedState::State::BLINK);
+  } else {
+    shared_data_.status_led.setRed(giraffe::StatusLedState::State::OFF);
+  }
+
   // Each process function call updates this struct, so update the shared data
   // here
   shared_data_.blocks.stream_stats.set(stats);

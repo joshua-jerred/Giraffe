@@ -45,6 +45,7 @@ ExtensionModule::ExtensionModule(data::SharedData &shared_data,
 
 void ExtensionModule::startup() {
   updateLocalConfig(); // Load in the config for the extension.
+  shared_data_.status_led.setBlue(giraffe::StatusLedState::State::BLINK);
 
 // Load in the simulated extensions.
 #ifdef RUN_IN_SIMULATOR
@@ -99,6 +100,10 @@ void ExtensionModule::loop() {
     } else {
       stats_.num_inactive++;
     }
+  }
+
+  if (stats_.num_inactive == 0) {
+    shared_data_.status_led.setBlue(giraffe::StatusLedState::State::OFF);
   }
 
   // Update the stats.
