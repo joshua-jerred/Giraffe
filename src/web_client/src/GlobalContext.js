@@ -53,6 +53,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
   const [isDownlinkConnected, setIsDownlinkConnected] = React.useState(false);
   const [isUplinkConnected, setIsUplinkConnected] = React.useState(false);
 
+  const [flightData, setFlightData] = React.useState({});
+
   // ------ GGS Connection ------
   React.useEffect(() => {
     const intervalUpdateCallback = () => {
@@ -79,7 +81,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
         alerter.addAlert(
           "client_name_not_set",
           "Client name not set.",
-          connectionInterval + 1000,
+          1000,
           "/setup"
         );
       }
@@ -91,7 +93,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
         alerter.addAlert(
           "ggs_address_invalid.",
           "Client configured GGS address is invalid.",
-          connectionInterval + 1000,
+          3000,
           "/setup"
         );
         setIsGgsConnected(false);
@@ -103,6 +105,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
       fetch(`${ggsAddress}/api/status`)
         .then((response) => response.json())
         .then((data) => {
+          // console.log("test connection");
           if (!isGgsConnected) {
             alerter.clearAlert("not_connected_to_ggs");
           }
@@ -112,12 +115,24 @@ export const GwsGlobalContextProvider = ({ children }) => {
           setIsGdlConnected(data.gdl === "connected");
           setIsUplinkConnected(data.telemetry_uplink === "connected");
           setIsDownlinkConnected(data.telemetry_downlink === "connected");
+
+          if (data.gdl !== "connected") {
+            console.log("Adding GDL not connected alert");
+            alerter.addAlert(
+              "not_connected_to_gdl",
+              "The Ground Station Server is not connected to the Data Link.",
+              0,
+              "/setup"
+            );
+          } else {
+            alerter.clearAlert("not_connected_to_gdl");
+          }
         })
         .catch((error) => {
           alerter.addAlert(
             "not_connected_to_ggs",
             "Not connected to the Ground Station Server.",
-            3000,
+            0,
             "/setup"
           );
           setIsGgsConnected(false);
@@ -127,6 +142,17 @@ export const GwsGlobalContextProvider = ({ children }) => {
           setIsDownlinkConnected(false);
           setServiceStatuses(serviceStatusesDefault);
         });
+
+      // get flight data if connected
+      fetch(`${ggsAddress}/api/flight_data/data?category=general`)
+        .then((response) => response.json())
+        .then((json_data) => {
+          // console.log("Flight data", json_data);
+          setFlightData(json_data.values);
+        })
+        .catch((error) => {
+          console.error("Error getting flight data", error);
+        });
     };
 
     intervalUpdateCallback(); // run once on mount
@@ -135,6 +161,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
       intervalUpdateCallback();
     }, connectionInterval);
     return () => clearInterval(interval);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ggsAddress]);
 
   return (
@@ -153,6 +181,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
         isGdlConnected,
         isDownlinkConnected,
         isUplinkConnected,
+        flightData,
       }}
     >
       {children}

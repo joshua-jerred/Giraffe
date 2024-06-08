@@ -46,6 +46,16 @@
       "name":"Failed to Create GFS Image Directory",
       "details":"The GFS image directory could not be created.",
       "value":"0xF007"
+    },
+    "failed_to_create_gfs_log_dir": {
+      "name":"Failed to Create GFS Log Directory",
+      "details":"The GFS log directory could not be created.",
+      "value":"0xF008"
+    },
+    "failed_to_create_gfs_data_dir": {
+      "name":"Failed to Create GFS Data Directory",
+      "details":"The GFS data directory could not be created.",
+      "value":"0xF009"
     }
   },
   "config": {

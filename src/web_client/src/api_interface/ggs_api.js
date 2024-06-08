@@ -11,6 +11,7 @@ export const useApiGetData = (
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [needUpdate, setNeedUpdate] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,6 +29,8 @@ export const useApiGetData = (
         }
         const data = await response.json();
         setData(data);
+        setNeedUpdate(false);
+        // console.log("updated");
       } catch (error) {
         setError(error.message);
       }
@@ -53,9 +56,10 @@ export const useApiGetData = (
     resource,
     ggsAddress,
     include,
+    needUpdate,
   ]);
 
-  return { data, isLoading, error };
+  return { data, isLoading, error, setNeedUpdate };
 };
 
 export const UseGenericGetApi = (api_endpoint, update_interval = -1) => {
@@ -78,7 +82,7 @@ export const UseGenericGetApi = (api_endpoint, update_interval = -1) => {
         setData(data);
         setError(null);
         setIsLoading(false);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         setError(error.message);
         setIsLoading(false);

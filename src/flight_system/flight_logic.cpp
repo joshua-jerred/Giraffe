@@ -26,7 +26,7 @@ void FlightRunner::detectFlightPhase() {
   bool ascending = false;
   bool descending = false;
 
-  switch (shared_data_.misc.getFlightPhase()) {
+  switch (shared_data_.flight_data.getFlightPhase()) {
 
     // -- CURRENTLY UNKNOWN --
   case FlightPhase::UNKNOWN:
@@ -36,6 +36,9 @@ void FlightRunner::detectFlightPhase() {
     case FlightPhase::UNKNOWN:
       // Previously unknown/never set.
       setFlightPhase(FlightPhase::LAUNCH);
+      break;
+    case FlightPhase::PRE_LAUNCH:
+      setFlightPhase(FlightPhase::PRE_LAUNCH);
       break;
     case FlightPhase::LAUNCH:
       setFlightPhase(FlightPhase::LAUNCH);
@@ -56,7 +59,11 @@ void FlightRunner::detectFlightPhase() {
     shared_data_.streams.log.info(
         node::Identification::FLIGHT_RUNNER,
         "startup flight phase set to: " +
-            util::to_string(shared_data_.misc.getFlightPhase()));
+            util::to_string(shared_data_.flight_data.getFlightPhase()));
+    break;
+
+    // -- CURRENTLY IN PRE-LAUNCH PHASE --
+  case FlightPhase::PRE_LAUNCH:
     break;
 
     // -- CURRENTLY IN LAUNCH PHASE --
@@ -81,10 +88,20 @@ void FlightRunner::detectFlightPhase() {
 }
 
 void FlightRunner::setFlightPhase(FlightPhase phase) {
-  shared_data_.misc.flight_phase = phase;
+  shared_data_.streams.log.info(node::Identification::FLIGHT_RUNNER,
+                                " setting flight phase to: " +
+                                    util::to_string(phase));
+
+  shared_data_.flight_data.flight_phase = phase;
   flight_runner_data_.setFlightPhase(phase);
 
   shared_data_.streams.data.addData(
       node::Identification::FLIGHT_RUNNER,
       data::DataId::FLIGHT_RUNNER_flightPhaseChange, util::to_string(phase));
+
+#if RUN_IN_SIMULATOR == 1
+  if (phase == FlightPhase::LAUNCH) {
+    p_simulator_->launch();
+  }
+#endif
 }

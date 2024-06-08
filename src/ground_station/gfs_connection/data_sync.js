@@ -135,6 +135,7 @@ module.exports = class GfsDataSync {
    * @param {Message} message The giraffe protocol message to get the data from.
    */
   #setLocalResource(category, message) {
+    // console.log(category);
     let data_section = message.bdy.dat;
     for (let data_item in data_section) {
       try {
@@ -175,6 +176,16 @@ module.exports = class GfsDataSync {
           fs_data.gfs_image_files
         );
       }
+    }
+
+    if (category === "location_data") {
+      let location_data = this.resources[category].data;
+      this.global_state.flight_data.updateLocationDataFromGfsTcp(location_data);
+    }
+
+    if (category === "flight_data") {
+      let flight_data = this.resources[category].data;
+      this.global_state.flight_data.updateFlightDataFromGfsTcp(flight_data);
     }
   }
 

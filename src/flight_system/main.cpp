@@ -18,9 +18,11 @@
 #if RUN_IN_SIMULATOR == 1
 #include "gfs_simulator.hpp"
 gfs_sim::GfsSimulator g_GFS_SIMULATOR{};
-#endif
 
-FlightRunner flight;
+FlightRunner flight{&g_GFS_SIMULATOR};
+#else
+FlightRunner flight{};
+#endif
 
 auto signalHandler(int signal_number) -> void {
   signal(SIGINT, signalHandler);

@@ -96,7 +96,7 @@ private:
   /**
    * @brief The time the system was started. Immediately set once after startup.
    * Not updated after a full reset.
-   * @todo this is a duplicate of the time in shared_date_.misc
+   * @todo this is a duplicate of the time in shared_date_.flight_data
    */
   bst::Time startup_time_ = {};
 
@@ -125,6 +125,11 @@ private:
    * @see detectFlightPhase
    */
   FlightPhase flight_phase_ = FlightPhase::UNKNOWN;
+
+  /**
+   * @brief The path to the data file. Set in the constructor.
+   */
+  std::string data_file_path_ = "";
 };
 
 } // namespace giraffe

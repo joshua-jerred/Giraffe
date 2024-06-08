@@ -52,7 +52,7 @@ DataFormatter::partialFrame(std::vector<DataFrameComponent> components) {
 void DataFormatter::setupFrameStructure(Json &frame,
                                         const std::string &body_field) {
   frame["timestamp"] = generateTimestamp();
-  frame["uptime"] = shared_data_.misc.getUptimeString();
+  frame["uptime"] = shared_data_.flight_data.getUptimeString();
   frame[body_field] = Json::object();
 }
 
@@ -147,7 +147,7 @@ Json DataFormatter::fullFrameLogPacketToJson(
 std::string DataFormatter::fullErrorFrame() {
   Json full_frame = {
       {"timestamp", generateTimestamp()},
-      {"uptime", shared_data_.misc.getUptimeString()},
+      {"uptime", shared_data_.flight_data.getUptimeString()},
       {"errors", Json::array()},
   };
 

@@ -76,6 +76,10 @@ std::string getGfsConfigFilePath() {
   return getGiraffeDirectoryPath() + "/gfs_config.json";
 }
 
+std::string getGfsFlightRunnerDataFilePath() {
+  return getGiraffeDirectoryPath() + "/flight_runner_data.json";
+}
+
 std::string getGfsImageDirPath() {
   createGiraffeDirIfNotExists();
   std::string dir_path = getGiraffeDirectoryPath() + "/gfs_images";
@@ -86,13 +90,12 @@ std::string getGfsImageDirPath() {
       bst::filesystem::createDirectory(dir_path);
     } catch (const std::exception &e) {
       throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsImageDir,
-                             "Failed to create gfs image directory: " +
-                                 std::string(e.what()));
+                             "0: " + std::string(e.what()));
     }
 
     if (!bst::filesystem::doesDirectoryExist(dir_path)) {
       throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsImageDir,
-                             "Failed to create gfs image directory");
+                             "1");
     }
   }
 

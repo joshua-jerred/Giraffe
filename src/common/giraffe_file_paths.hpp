@@ -59,6 +59,12 @@ std::string getGfsConfigFilePath();
  */
 std::string getGfsImageDirPath();
 
+/**
+ * @brief Get the Gfs Flight Runner Data File Path object
+ * @return std::string - $HOME/.giraffe/flight_runner_data.json
+ */
+std::string getGfsFlightRunnerDataFilePath();
+
 } // namespace file_paths
 
 } // namespace giraffe

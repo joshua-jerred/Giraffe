@@ -28,6 +28,10 @@
 #include "system_module.hpp"
 #include "telemetry_module.hpp"
 
+#if RUN_IN_SIMULATOR == 1
+#include "gfs_simulator.hpp"
+#endif
+
 using namespace giraffe;
 
 /**
@@ -36,7 +40,13 @@ using namespace giraffe;
  */
 class FlightRunner {
 public:
+#if RUN_IN_SIMULATOR == 1
+  FlightRunner(gfs_sim::GfsSimulator *p_simulator) {
+    p_simulator_ = p_simulator;
+  }
+#else
   FlightRunner() = default;
+#endif
 
   FlightRunner(const FlightRunner &) = delete;            // No copy constructor
   FlightRunner &operator=(const FlightRunner &) = delete; // No copy assignment
@@ -101,6 +111,10 @@ private:
   modules::SystemModule *p_system_module_ = nullptr;
   modules::ExtensionModule *p_extension_module_ = nullptr;
   modules::TelemetryModule *p_telemetry_module_ = nullptr;
+
+#if RUN_IN_SIMULATOR == 1
+  gfs_sim::GfsSimulator *p_simulator_ = nullptr;
+#endif
 };
 
 #endif

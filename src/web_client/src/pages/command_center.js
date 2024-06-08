@@ -16,13 +16,15 @@ import {
 import { DataBlock } from "../components/DataBlock";
 import Tooltip from "../components/Tooltip";
 
-import { Map } from "../components/map";
-
 import { GwsGlobal } from "../GlobalContext";
-
 import CommandsMetadataFile from "giraffe-protocol";
-const CommandsMetadata = CommandsMetadataFile.CommandMetadata;
 
+import { Map } from "../components/map";
+import { MissionClock } from "../components/mission_clock";
+
+import CoreControl from "../components/core_control";
+
+const CommandsMetadata = CommandsMetadataFile.CommandMetadata;
 const CommandSectionStyled = styled.ul`
   list-style-type: none;
   padding: 0;
@@ -166,7 +168,11 @@ function CommandList() {
     let Commands = [];
     let prefix = CommandsMetadata[section].SECTION_METADATA.prefix;
     for (let command in CommandsMetadata[section]) {
-      if (command === "SECTION_METADATA") continue;
+      if (
+        command === "SECTION_METADATA" ||
+        CommandsMetadata[section][command].exclude_from_ui
+      )
+        continue;
       Commands.push(
         <SingleCommand
           name={command}
@@ -230,7 +236,7 @@ function CommandList() {
     } else {
       console.error("Unknown send method", sendMethod);
     }
-    console.log("Setting send method status");
+    // console.log("Setting send method status");
     // setSendMethodStatus("checking..." + isGfsTcpConnected + isGdlConnected);
   }, [sendMethod, isGfsTcpConnected, isGdlConnected, isUplinkConnected]);
 
@@ -264,6 +270,10 @@ function CommandCenterPage() {
       <PageContent>
         <CardMasonryLayout>
           <Card title="Flight Status">
+            <MissionClock />
+            <CardBreak />
+            <CoreControl />
+            <CardBreak />
             <DataBlock resource="flight_data" category="general" />
           </Card>
           <Card title="Tracking">

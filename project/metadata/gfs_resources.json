@@ -1,4 +1,5 @@
 {
+  "flight_data":{},
   "system_info": {
     "uptime_hours": {
       "name": "System Uptime (Hours)",

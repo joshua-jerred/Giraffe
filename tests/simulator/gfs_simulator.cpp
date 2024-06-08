@@ -55,9 +55,9 @@ void GfsSimulator::run() {
 }
 
 void GfsSimulator::statePreLaunch() {
-  if (elapsed_seconds_ > K_PRELAUNCH_LAUNCH_DELAY_S) {
-    physics_.launch();
-  }
+  // if (elapsed_seconds_ > K_PRELAUNCH_LAUNCH_DELAY_S) {
+  //   physics_.launch();
+  // }
 }
 
 void GfsSimulator::stateAscent() {

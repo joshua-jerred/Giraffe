@@ -83,6 +83,10 @@ function Item({ id, item_data }) {
     item_data.name = id;
   }
 
+  if (item_data.round !== undefined && typeof item_data.value === "number") {
+    item_data.value = item_data.value.toFixed(item_data.round);
+  }
+
   let display_value = item_data.value;
   if (typeof item_data.value === "boolean") {
     if (item_data.true === undefined) {
@@ -93,6 +97,8 @@ function Item({ id, item_data }) {
   } else if (typeof item_data.value === "object") {
     display_value = JSON.stringify(item_data.value);
   }
+
+  // console.log(item_data);
 
   return (
     <ItemStyle>

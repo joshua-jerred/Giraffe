@@ -62,7 +62,7 @@ inline constexpr double K_START_LATITUDE = 39.725796;
 inline constexpr double K_START_LONGITUDE = -83.561191;
 // Pre-launch Parameters
 inline constexpr double K_PRELAUNCH_LAUNCH_DELAY_S =
-    1.0; // set to 0 if the start parameters are non-zero
+    5.0; // set to 0 if the start parameters are non-zero
 // Ascent Parameters
 inline constexpr double K_ASCENT_ACCELERATION_MPS2 = 0.3;
 inline constexpr double K_ASCENT_ACCELERATION_VARIANCE = 0.1;
