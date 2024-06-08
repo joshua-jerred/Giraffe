@@ -39,8 +39,9 @@ bool TransportLayer::send(Message &message) {
   }
 
   // if it's an exchange message, we need to make sure we're connected.
+  // but only in proactive keep alive mode
   if (message.getType() == Message::Type::EXCHANGE) {
-    if (!isConnected()) {
+    if (!isConnected() && config_.getProactiveKeepAlive()) {
       return false;
     }
     current_tx_packet_ = message;

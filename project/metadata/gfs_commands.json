@@ -109,6 +109,12 @@
       "details": "Sends the APRS location from the telemetry module.",
       "value": "0x3003",
       "cmd_key": "apl"
+    },
+    "send_sstv_image": {
+      "name": "Send SSTV Image",
+      "details": "Sends the SSTV image from the telemetry module. Only works if SSTV is enabled.",
+      "value": "0x3004",
+      "cmd_key": "stv"
     }
   },
   "extension_module": {

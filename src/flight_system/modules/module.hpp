@@ -158,6 +158,10 @@ protected:
    */
   void info(std::string info = "");
 
+  /**
+   * @brief Used internally for debug messages.
+   * @param info The debug message.
+   */
   void debug(std::string info);
 
   /**

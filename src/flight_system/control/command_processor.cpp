@@ -206,7 +206,8 @@ bool parseTelemetryModuleCommand(const std::string &command_id_str,
           {"nae", cmd::CommandId::TELEMETRY_MODULE_sendNumActiveErrors},
           {"rsi", cmd::CommandId::TELEMETRY_MODULE_sendRssi},
           {"snr", cmd::CommandId::TELEMETRY_MODULE_sendSnr},
-          {"apl", cmd::CommandId::TELEMETRY_MODULE_sendAprsLocation}};
+          {"apl", cmd::CommandId::TELEMETRY_MODULE_sendAprsLocation},
+          {"stv", cmd::CommandId::TELEMETRY_MODULE_sendSstvImage}};
   if (!K_COMMAND_ID_MAP.contains(command_id_str)) {
     return false;
   }
@@ -217,6 +218,7 @@ bool parseTelemetryModuleCommand(const std::string &command_id_str,
   case cmd::CommandId::TELEMETRY_MODULE_sendRssi:
   case cmd::CommandId::TELEMETRY_MODULE_sendSnr:
   case cmd::CommandId::TELEMETRY_MODULE_sendAprsLocation:
+  case cmd::CommandId::TELEMETRY_MODULE_sendSstvImage:
     if (arg.length() != 0) {
       return false;
     }

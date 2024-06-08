@@ -111,6 +111,7 @@ module.exports = class GdlConnection {
               self.new_config
             );
             self.new_config = null;
+            self.config_up_to_date = false;
           } else {
             new_request = new RequestMessage("ggs", "gdl", next_request_rsc);
           }
@@ -275,6 +276,50 @@ module.exports = class GdlConnection {
     this.new_config = new_config;
 
     return "success";
+  }
+
+  getConfig() {
+    return {
+      values: this.config_data,
+      metadata: {
+        logging_level: {
+          name: "Logging Level",
+          description: "The level of logging to use.",
+          type: "enum",
+          options: ["INFO", "WARN"],
+        },
+        logging_print_to_stdout: {
+          name: "Print to Stdout",
+          description: "Whether to print logs to stdout.",
+          type: "bool",
+        },
+        proactive_keep_alive: {
+          name: "Proactive Keep Alive",
+          description: "Whether to send keep alive messages proactively.",
+          type: "bool",
+        },
+        remote_callsign: {
+          name: "Remote Callsign",
+          description: "The callsign of the remote station.",
+          type: "string",
+        },
+        remote_ssid: {
+          name: "Remote SSID",
+          description: "The SSID of the remote station.",
+          type: "int",
+        },
+        source_callsign: {
+          name: "Source Callsign",
+          description: "The callsign of the source station.",
+          type: "string",
+        },
+        source_ssid: {
+          name: "Source SSID",
+          description: "The SSID of the source station.",
+          type: "int",
+        },
+      },
+    };
   }
 
   /**

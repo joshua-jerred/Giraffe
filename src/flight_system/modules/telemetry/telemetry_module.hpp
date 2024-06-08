@@ -53,6 +53,13 @@ private:
   void sendAprsPositionPacket();
 
   /**
+   * @brief Send an SSTV image.
+   * @details Only functions if SSTV is configured. Requires a camera to be
+   * connected.
+   */
+  void sendSstvImage();
+
+  /**
    * @brief Process commands that are received from the flight runner.
    * @param command - The command to process.
    */

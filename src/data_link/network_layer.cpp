@@ -186,6 +186,7 @@ bool NetworkLayer::txAprsPositionPacket(const Packet &packet) {
     pos_packet.altitude = loc.altitude;
     pos_packet.speed = loc.speed;
     pos_packet.course = loc.heading;
+    pos_packet.time_code = loc.time_code;
 
     modulator_.encode(pos_packet);
     modulator_.writeToPulseAudio();

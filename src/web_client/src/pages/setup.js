@@ -4,6 +4,7 @@ import {
   Card,
   CardMasonryLayout,
   CardContentCentered,
+  CardBreak,
 } from "../core/PageParts";
 import gws_setup from "../assets/gws_setup.jpg";
 import { useContext, useState } from "react";
@@ -115,6 +116,8 @@ function SetupPage() {
 
           <Card title="Giraffe Data Link">
             <EditBox resource="ggs" category="gdl" />
+            <CardBreak />
+            <EditBox resource="gdl" category="all" />
           </Card>
 
           <Card title="InfluxDB Setup">

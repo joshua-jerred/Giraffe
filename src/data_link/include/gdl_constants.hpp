@@ -39,7 +39,7 @@ inline constexpr static uint32_t GDL_EXCHANGE_CONNECTION_TIMEOUT_MS =
 
 /// @brief If we don't have an exchange message within this time, we will send a
 /// ping to check the connection.
-inline constexpr static uint32_t GDL_EXCHANGE_PING_INTERVAL_MS = 20 * 1000;
+inline constexpr static uint32_t GDL_EXCHANGE_PING_INTERVAL_MS = 60 * 1000;
 // GDL_EXCHANGE_CONNECTION_TIMEOUT_MS / 2;
 
 inline constexpr static uint32_t GDL_DOWNLINK_TIMEOUT_MS = 200 * 1000;
