@@ -41,7 +41,7 @@ var annotated_dup =
       [ "FlightData", "classdata_1_1FlightData.html", "classdata_1_1FlightData" ],
       [ "Frame", "classdata_1_1Frame.html", "classdata_1_1Frame" ],
       [ "Frames", "namespacedata.html#structdata_1_1Frames", "namespacedata_structdata_1_1Frames_dup" ],
-      [ "GpsFrame", "namespacedata.html#structdata_1_1GpsFrame", "namespacedata_structdata_1_1GpsFrame_dup" ],
+      [ "GpsFrame", "structdata_1_1GpsFrame.html", "structdata_1_1GpsFrame" ],
       [ "GpsFramePacket", "structdata_1_1GpsFramePacket.html", "structdata_1_1GpsFramePacket" ],
       [ "GpsFrameStream", "classdata_1_1GpsFrameStream.html", "classdata_1_1GpsFrameStream" ],
       [ "ImuFrame", "namespacedata.html#structdata_1_1ImuFrame", "namespacedata_structdata_1_1ImuFrame_dup" ],

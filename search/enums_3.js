@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['fixtype_3660',['FixType',['../namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8',1,'ubx']]],
-  ['flightphase_3661',['FlightPhase',['../flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644',1,'flight_phase.hpp']]],
-  ['focus_3662',['Focus',['../classncurs_1_1Environment.html#a9cc14d29a31da252c56695e32e998298',1,'ncurs::Environment::Focus()'],['../classncurs_1_1Environment.html#a9cc14d29a31da252c56695e32e998298',1,'ncurs::Environment::Focus()']]]
+  ['fixtype_3701',['FixType',['../namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8',1,'ubx']]],
+  ['flightphase_3702',['FlightPhase',['../flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644',1,'flight_phase.hpp']]],
+  ['focus_3703',['Focus',['../classncurs_1_1Environment.html#a9cc14d29a31da252c56695e32e998298',1,'ncurs::Environment::Focus()'],['../classncurs_1_1Environment.html#a9cc14d29a31da252c56695e32e998298',1,'ncurs::Environment::Focus()']]]
 ];

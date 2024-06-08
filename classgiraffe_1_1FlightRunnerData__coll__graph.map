@@ -1,9 +1,10 @@
 <map id="giraffe::FlightRunnerData" name="giraffe::FlightRunnerData">
-<area shape="rect" id="node1" title=" " alt="" coords="259,219,537,457"/>
+<area shape="rect" id="node1" title="Data that is persisted across system restarts. Used by the flight runner to track the state of the sy..." alt="" coords="397,248,674,531"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,5,60,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="162,5,237,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="286,5,385,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="433,5,491,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="577,5,627,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="697,5,832,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="166,5,233,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="362,5,437,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="486,5,585,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="633,5,691,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="777,5,827,83"/>
+<area shape="rect" id="node8" title=" " alt="" coords="916,5,1051,83"/>
 </map>

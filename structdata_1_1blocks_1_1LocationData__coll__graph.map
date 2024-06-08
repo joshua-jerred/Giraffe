@@ -1,6 +1,6 @@
 <map id="data::blocks::LocationData" name="data::blocks::LocationData">
 <area shape="rect" id="node1" title="Struct containing location data (gps)." alt="" coords="471,447,665,524"/>
-<area shape="rect" id="node2" href="$namespacedata.html#structdata_1_1GpsFrame" title="A frame of GPS data straight from a GPS extension." alt="" coords="305,292,431,369"/>
+<area shape="rect" id="node2" href="$structdata_1_1GpsFrame.html" title="A frame of GPS data straight from a GPS extension." alt="" coords="295,292,441,369"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,5,72,83"/>
 <area shape="rect" id="node4" title=" " alt="" coords="163,5,251,83"/>
 <area shape="rect" id="node5" title=" " alt="" coords="307,5,373,83"/>

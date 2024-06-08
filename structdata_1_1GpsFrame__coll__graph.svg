@@ -12,12 +12,12 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="A frame of GPS data straight from a GPS extension.">
-<polygon fill="#bfbfbf" stroke="black" points="204,-0.5 204,-57.5 298,-57.5 298,-0.5 204,-0.5"/>
+<polygon fill="#bfbfbf" stroke="black" points="196,-0.5 196,-57.5 306,-57.5 306,-0.5 196,-0.5"/>
 <text text-anchor="middle" x="251" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::GpsFrame</text>
-<polyline fill="none" stroke="black" points="204,-38.5 298,-38.5 "/>
+<polyline fill="none" stroke="black" points="196,-38.5 306,-38.5 "/>
 <text text-anchor="middle" x="251" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="204,-19.5 298,-19.5 "/>
-<text text-anchor="middle" x="251" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="196,-19.5 306,-19.5 "/>
+<text text-anchor="start" x="204" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAgeSeconds()</text>
 </a>
 </g>
 </g>
@@ -37,8 +37,8 @@
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge1" class="edge">
 <title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M18.29,-215.23C11.24,-178.62 5.32,-114.38 39,-76 58.81,-53.44 136.18,-41.13 191.72,-35.07"/>
-<polygon fill="none" stroke="#404040" points="191.98,-35.04 197.54,-30.44 203.92,-33.79 198.37,-38.39 191.98,-35.04"/>
+<path fill="none" stroke="#404040" d="M18.29,-215.23C11.24,-178.62 5.32,-114.38 39,-76 57.88,-54.49 129.08,-42.3 183.82,-35.96"/>
+<polygon fill="none" stroke="#404040" points="184,-35.94 189.52,-31.3 195.92,-34.61 190.4,-39.25 184,-35.94"/>
 <text text-anchor="middle" x="90.5" y="-189" font-family="Helvetica,sans-Serif" font-size="10.00"> +altitude</text>
 <text text-anchor="middle" x="90.5" y="-178" font-family="Helvetica,sans-Serif" font-size="10.00">+heading_accuracy</text>
 <text text-anchor="middle" x="90.5" y="-167" font-family="Helvetica,sans-Serif" font-size="10.00">+heading_of_motion</text>
@@ -67,8 +67,8 @@
 <!-- Node3&#45;&gt;Node1 -->
 <g id="edge2" class="edge">
 <title>Node3&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M146.95,-215.31C143.29,-179.93 142.09,-118.24 170,-76 175.96,-66.98 184.33,-59.53 193.44,-53.46"/>
-<polygon fill="none" stroke="#404040" points="193.66,-53.32 196.76,-46.81 203.96,-47.16 200.87,-53.68 193.66,-53.32"/>
+<path fill="none" stroke="#404040" d="M146.95,-215.31C143.29,-179.93 142.09,-118.24 170,-76 174.27,-69.54 179.78,-63.88 185.91,-58.96"/>
+<polygon fill="none" stroke="#404040" points="186.19,-58.76 188.77,-52.02 195.98,-51.81 193.4,-58.55 186.19,-58.76"/>
 <text text-anchor="middle" x="208.5" y="-134" font-family="Helvetica,sans-Serif" font-size="10.00"> +gps_utc_time</text>
 </g>
 <!-- Node4 -->
@@ -107,8 +107,8 @@
 <!-- Node5&#45;&gt;Node1 -->
 <g id="edge4" class="edge">
 <title>Node5&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M357.35,-215.38C355.89,-173.91 351.17,-98.04 336,-76 329.15,-66.05 319.43,-58.06 308.99,-51.71"/>
-<polygon fill="none" stroke="#404040" points="308.92,-51.67 301.74,-52.29 298.4,-45.9 305.59,-45.28 308.92,-51.67"/>
+<path fill="none" stroke="#404040" d="M357.35,-215.38C355.89,-173.91 351.17,-98.04 336,-76 330.84,-68.5 324.05,-62.12 316.56,-56.71"/>
+<polygon fill="none" stroke="#404040" points="316.46,-56.65 309.25,-56.77 306.37,-50.16 313.58,-50.04 316.46,-56.65"/>
 <text text-anchor="middle" x="380.5" y="-134" font-family="Helvetica,sans-Serif" font-size="10.00"> +is_valid</text>
 </g>
 <!-- Node6 -->
@@ -127,8 +127,8 @@
 <!-- Node6&#45;&gt;Node1 -->
 <g id="edge5" class="edge">
 <title>Node6&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M434.75,-215.41C439.34,-179 441.39,-114.98 408,-76 383.97,-47.95 343.85,-36.53 310.18,-32.08"/>
-<polygon fill="none" stroke="#404040" points="310.03,-32.06 303.63,-35.38 298.11,-30.74 304.51,-27.43 310.03,-32.06"/>
+<path fill="none" stroke="#404040" d="M434.75,-215.41C439.34,-179 441.39,-114.98 408,-76 385.88,-50.18 350.12,-38.45 318.31,-33.28"/>
+<polygon fill="none" stroke="#404040" points="318.23,-33.27 311.73,-36.39 306.35,-31.6 312.84,-28.47 318.23,-33.27"/>
 <text text-anchor="middle" x="449" y="-134" font-family="Helvetica,sans-Serif" font-size="10.00"> +fix</text>
 </g>
 </g>

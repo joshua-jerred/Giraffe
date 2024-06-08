@@ -111,11 +111,14 @@ $(document).ready(function(){initNavTree('classgiraffe_1_1FlightRunnerData.html'
 </div><!--header-->
 <div class="contents">
 
+<p>Data that is persisted across system restarts. Used by the flight runner to track the state of the system.  
+ <a href="classgiraffe_1_1FlightRunnerData.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="flight__runner__data_8hpp_source.html">flight_runner_data.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for giraffe::FlightRunnerData:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1FlightRunnerData__coll__graph.svg" width="900" height="463"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1FlightRunnerData__coll__graph.svg" width="1124" height="536"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -136,11 +139,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9923f63c5e3d466c8350967ab5383fa5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a9923f63c5e3d466c8350967ab5383fa5">~FlightRunnerData</a> ()</td></tr>
 <tr class="memdesc:a9923f63c5e3d466c8350967ab5383fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor will attempt to save to the data file.  <a href="classgiraffe_1_1FlightRunnerData.html#a9923f63c5e3d466c8350967ab5383fa5">More...</a><br /></td></tr>
 <tr class="separator:a9923f63c5e3d466c8350967ab5383fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad522ef22add361da8fd8dda6dda7930a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad522ef22add361da8fd8dda6dda7930a">clearLaunchPosition</a> ()</td></tr>
+<tr class="memdesc:ad522ef22add361da8fd8dda6dda7930a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the launch position/set it to invalid.  <a href="classgiraffe_1_1FlightRunnerData.html#ad522ef22add361da8fd8dda6dda7930a">More...</a><br /></td></tr>
+<tr class="separator:ad522ef22add361da8fd8dda6dda7930a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26182ede59862d59daf4c21c7d031fd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a26182ede59862d59daf4c21c7d031fd7">fullReset</a> ()</td></tr>
 <tr class="memdesc:a26182ede59862d59daf4c21c7d031fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fully resets the flight runner data as if the system has never started before.  <a href="classgiraffe_1_1FlightRunnerData.html#a26182ede59862d59daf4c21c7d031fd7">More...</a><br /></td></tr>
 <tr class="separator:a26182ede59862d59daf4c21c7d031fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6adac9db38e843c2805cad0d212956ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644">FlightPhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a6adac9db38e843c2805cad0d212956ef">getFlightPhase</a> () const</td></tr>
 <tr class="separator:a6adac9db38e843c2805cad0d212956ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ec1290071bebe83d4f1c1b603aae4ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a1ec1290071bebe83d4f1c1b603aae4ff">getLaunchPosition</a> (bool &amp;valid, double &amp;latitude, double &amp;longitude, double &amp;altitude)</td></tr>
+<tr class="memdesc:a1ec1290071bebe83d4f1c1b603aae4ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Launch Position object.  <a href="classgiraffe_1_1FlightRunnerData.html#a1ec1290071bebe83d4f1c1b603aae4ff">More...</a><br /></td></tr>
+<tr class="separator:a1ec1290071bebe83d4f1c1b603aae4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cfd3dbcbbab29c68b4830018a222960"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a3cfd3dbcbbab29c68b4830018a222960">getNumStartups</a> () const</td></tr>
 <tr class="separator:a3cfd3dbcbbab29c68b4830018a222960"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeceec22f8ab14e5b80eede638b85afbd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#aeceec22f8ab14e5b80eede638b85afbd">getSecondsSincePreviousShutdown</a> (int64_t &amp;num_seconds)</td></tr>
@@ -153,6 +162,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab726cb134b7bfbd852fc531c4223be19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2b08f44adf4ed3ab384cd8e5c947578"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#ac2b08f44adf4ed3ab384cd8e5c947578">setFlightPhase</a> (<a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644">FlightPhase</a> flight_phase)</td></tr>
 <tr class="separator:ac2b08f44adf4ed3ab384cd8e5c947578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec5ac065bece8131a74452bd55615b02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#aec5ac065bece8131a74452bd55615b02">setLaunchPosition</a> (bool valid, double latitude, double longitude, double altitude)</td></tr>
+<tr class="memdesc:aec5ac065bece8131a74452bd55615b02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the launch position. Called on the transition from pre-launch to launch.  <a href="classgiraffe_1_1FlightRunnerData.html#aec5ac065bece8131a74452bd55615b02">More...</a><br /></td></tr>
+<tr class="separator:aec5ac065bece8131a74452bd55615b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33543117765bd095eaf77bf8f94e5b37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a33543117765bd095eaf77bf8f94e5b37">setShutdownReason</a> (<a class="el" href="classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3">ShutdownReason</a> shutdown_reason)</td></tr>
 <tr class="separator:a33543117765bd095eaf77bf8f94e5b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -169,6 +181,15 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ab125ef3c8df7a286d3049b8a616a0b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69bf34cd36a29d03596196ae7a821b52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644">FlightPhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a69bf34cd36a29d03596196ae7a821b52">flight_phase_</a> = <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a696b031073e74bf2cb98e5ef201d4aa3">FlightPhase::UNKNOWN</a></td></tr>
 <tr class="separator:a69bf34cd36a29d03596196ae7a821b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9526c77f64cdc74fb815966dd591bdad"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a9526c77f64cdc74fb815966dd591bdad">launch_position_altitude_</a> = 0.0</td></tr>
+<tr class="separator:a9526c77f64cdc74fb815966dd591bdad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ef9e4dd568e519413fd0ca12a8f4cf4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a5ef9e4dd568e519413fd0ca12a8f4cf4">launch_position_latitude_</a> = 0.0</td></tr>
+<tr class="separator:a5ef9e4dd568e519413fd0ca12a8f4cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae35a409b12daaf30899fef93eb78a16e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#ae35a409b12daaf30899fef93eb78a16e">launch_position_longitude_</a> = 0.0</td></tr>
+<tr class="separator:ae35a409b12daaf30899fef93eb78a16e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5134866628c463c3647dcb79d3dab58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#ab5134866628c463c3647dcb79d3dab58">launch_position_valid_</a> = false</td></tr>
+<tr class="memdesc:ab5134866628c463c3647dcb79d3dab58"><td class="mdescLeft">&#160;</td><td class="mdescRight">The launch position. Set to invalid by default.  <a href="classgiraffe_1_1FlightRunnerData.html#ab5134866628c463c3647dcb79d3dab58">More...</a><br /></td></tr>
+<tr class="separator:ab5134866628c463c3647dcb79d3dab58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9050e20b99f2a0b3764db247c8c3fd16"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1FlightRunnerData.html#a9050e20b99f2a0b3764db247c8c3fd16">load_status_</a> = false</td></tr>
 <tr class="memdesc:a9050e20b99f2a0b3764db247c8c3fd16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set to true when the data has been loaded from a file.  <a href="classgiraffe_1_1FlightRunnerData.html#a9050e20b99f2a0b3764db247c8c3fd16">More...</a><br /></td></tr>
 <tr class="separator:a9050e20b99f2a0b3764db247c8c3fd16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,7 +215,9 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a388e58d80afe6e64f00ca2dcc8070781"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time the system was started. Immediately set once after startup. Not updated after a full reset.  <a href="classgiraffe_1_1FlightRunnerData.html#a388e58d80afe6e64f00ca2dcc8070781">More...</a><br /></td></tr>
 <tr class="separator:a388e58d80afe6e64f00ca2dcc8070781"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Data that is persisted across system restarts. Used by the flight runner to track the state of the system. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="afd58bbf952b965cbacc36aed52a4f7f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afd58bbf952b965cbacc36aed52a4f7f3">&#9670;&nbsp;</a></span>ShutdownReason</h2>
 
@@ -440,6 +463,143 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1FlightRunnerData_a6adac9db38e843c2805cad0d212956ef_icgraph.svg" width="664" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
+
+</div>
+</div>
+<a id="ad522ef22add361da8fd8dda6dda7930a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad522ef22add361da8fd8dda6dda7930a">&#9670;&nbsp;</a></span>clearLaunchPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void giraffe::FlightRunnerData::clearLaunchPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears the launch position/set it to invalid. </p>
+
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">FlightRunner::setLaunchPosition()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1FlightRunnerData_ad522ef22add361da8fd8dda6dda7930a_icgraph.svg" width="1275" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aec5ac065bece8131a74452bd55615b02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec5ac065bece8131a74452bd55615b02">&#9670;&nbsp;</a></span>setLaunchPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void giraffe::FlightRunnerData::setLaunchPosition </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>valid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>latitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>longitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>altitude</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the launch position. Called on the transition from pre-launch to launch. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valid</td><td>- True if the position is valid. </td></tr>
+    <tr><td class="paramname">latitude</td><td>- The latitude of the launch position. </td></tr>
+    <tr><td class="paramname">longitude</td><td>- The longitude of the launch position. </td></tr>
+    <tr><td class="paramname">altitude</td><td>- The altitude of the launch position. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">FlightRunner::setLaunchPosition()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1FlightRunnerData_aec5ac065bece8131a74452bd55615b02_icgraph.svg" width="1275" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a1ec1290071bebe83d4f1c1b603aae4ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ec1290071bebe83d4f1c1b603aae4ff">&#9670;&nbsp;</a></span>getLaunchPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void giraffe::FlightRunnerData::getLaunchPosition </td>
+          <td>(</td>
+          <td class="paramtype">bool &amp;&#160;</td>
+          <td class="paramname"><em>valid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>latitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>longitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>altitude</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the Launch Position object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">valid</td><td>- True if the position is valid. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">latitude</td><td>- The latitude of the launch position. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">longitude</td><td>- The longitude of the launch position. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">altitude</td><td>- The altitude of the launch position. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -703,6 +863,96 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <p>This is only set in detectFlightPhase. </p><dl class="section see"><dt>See also</dt><dd>detectFlightPhase </dd></dl>
+
+</div>
+</div>
+<a id="ab5134866628c463c3647dcb79d3dab58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5134866628c463c3647dcb79d3dab58">&#9670;&nbsp;</a></span>launch_position_valid_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool giraffe::FlightRunnerData::launch_position_valid_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The launch position. Set to invalid by default. </p>
+
+</div>
+</div>
+<a id="a5ef9e4dd568e519413fd0ca12a8f4cf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ef9e4dd568e519413fd0ca12a8f4cf4">&#9670;&nbsp;</a></span>launch_position_latitude_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double giraffe::FlightRunnerData::launch_position_latitude_ = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae35a409b12daaf30899fef93eb78a16e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae35a409b12daaf30899fef93eb78a16e">&#9670;&nbsp;</a></span>launch_position_longitude_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double giraffe::FlightRunnerData::launch_position_longitude_ = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9526c77f64cdc74fb815966dd591bdad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9526c77f64cdc74fb815966dd591bdad">&#9670;&nbsp;</a></span>launch_position_altitude_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double giraffe::FlightRunnerData::launch_position_altitude_ = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

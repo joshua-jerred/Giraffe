@@ -16,6 +16,9 @@ var classgiraffe_1_1FlightRunnerData =
     [ "getSecondsSincePreviousShutdown", "classgiraffe_1_1FlightRunnerData.html#aeceec22f8ab14e5b80eede638b85afbd", null ],
     [ "setFlightPhase", "classgiraffe_1_1FlightRunnerData.html#ac2b08f44adf4ed3ab384cd8e5c947578", null ],
     [ "getFlightPhase", "classgiraffe_1_1FlightRunnerData.html#a6adac9db38e843c2805cad0d212956ef", null ],
+    [ "clearLaunchPosition", "classgiraffe_1_1FlightRunnerData.html#ad522ef22add361da8fd8dda6dda7930a", null ],
+    [ "setLaunchPosition", "classgiraffe_1_1FlightRunnerData.html#aec5ac065bece8131a74452bd55615b02", null ],
+    [ "getLaunchPosition", "classgiraffe_1_1FlightRunnerData.html#a1ec1290071bebe83d4f1c1b603aae4ff", null ],
     [ "saveData", "classgiraffe_1_1FlightRunnerData.html#ad47f684f8982293ab0e820517f755554", null ],
     [ "load_status_", "classgiraffe_1_1FlightRunnerData.html#a9050e20b99f2a0b3764db247c8c3fd16", null ],
     [ "save_status_", "classgiraffe_1_1FlightRunnerData.html#a3638024701de9c5502080e7c4549a88e", null ],
@@ -27,5 +30,9 @@ var classgiraffe_1_1FlightRunnerData =
     [ "shutdown_reason_", "classgiraffe_1_1FlightRunnerData.html#a81050b099f5b0e0ba4403b25d120bb0c", null ],
     [ "num_startups_", "classgiraffe_1_1FlightRunnerData.html#a678057f7b12d383a0174c3ccc78c7e4c", null ],
     [ "flight_phase_", "classgiraffe_1_1FlightRunnerData.html#a69bf34cd36a29d03596196ae7a821b52", null ],
+    [ "launch_position_valid_", "classgiraffe_1_1FlightRunnerData.html#ab5134866628c463c3647dcb79d3dab58", null ],
+    [ "launch_position_latitude_", "classgiraffe_1_1FlightRunnerData.html#a5ef9e4dd568e519413fd0ca12a8f4cf4", null ],
+    [ "launch_position_longitude_", "classgiraffe_1_1FlightRunnerData.html#ae35a409b12daaf30899fef93eb78a16e", null ],
+    [ "launch_position_altitude_", "classgiraffe_1_1FlightRunnerData.html#a9526c77f64cdc74fb815966dd591bdad", null ],
     [ "data_file_path_", "classgiraffe_1_1FlightRunnerData.html#ab125ef3c8df7a286d3049b8a616a0b8d", null ]
 ];

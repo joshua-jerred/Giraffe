@@ -1,0 +1,11 @@
+<map id="FlightRunner::setLaunchPosition" name="FlightRunner::setLaunchPosition">
+<area shape="rect" id="node1" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="5,130,236,157"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1FlightRunnerData.html#ad522ef22add361da8fd8dda6dda7930a" title="Clears the launch position/set it to invalid." alt="" coords="291,5,478,47"/>
+<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="301,71,469,98"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1FlightRunnerData.html#aec5ac065bece8131a74452bd55615b02" title="Set the launch position. Called on the transition from pre&#45;launch to launch." alt="" coords="291,123,478,164"/>
+<area shape="rect" id="node8" href="$classdata_1_1FlightData.html#af8689e42e3dcf4e6813bb608ed36a441" title=" " alt="" coords="284,188,485,229"/>
+<area shape="rect" id="node9" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="331,254,439,281"/>
+<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="744,23,931,64"/>
+<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="533,71,696,98"/>
+<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="747,97,927,139"/>
+</map>

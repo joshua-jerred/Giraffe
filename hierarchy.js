@@ -50,7 +50,7 @@ var hierarchy =
     [ "data::FlightData", "classdata_1_1FlightData.html", null ],
     [ "data::Frame< ID, DATA >", "classdata_1_1Frame.html", null ],
     [ "data::Frames", "namespacedata.html#structdata_1_1Frames", null ],
-    [ "data::GpsFrame", "namespacedata.html#structdata_1_1GpsFrame", null ],
+    [ "data::GpsFrame", "structdata_1_1GpsFrame.html", null ],
     [ "data::ImuFrame", "namespacedata.html#structdata_1_1ImuFrame", null ],
     [ "data::SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", null ],
     [ "data::SharedData", "namespacedata.html#structdata_1_1SharedData", null ],

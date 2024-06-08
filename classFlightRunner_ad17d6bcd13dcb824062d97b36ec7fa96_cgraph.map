@@ -1,15 +1,20 @@
 <map id="FlightRunner::processCommand" name="FlightRunner::processCommand">
-<area shape="rect" id="node1" title="Process commands that are sent to the flight runner." alt="" coords="5,150,236,176"/>
-<area shape="rect" id="node2" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="305,44,473,71"/>
-<area shape="rect" id="node6" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title=" " alt="" coords="284,150,493,176"/>
-<area shape="rect" id="node10" href="$classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c" title=" " alt="" coords="287,288,490,315"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="789,88,976,129"/>
-<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="560,70,723,96"/>
-<area shape="rect" id="node5" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="793,22,973,64"/>
-<area shape="rect" id="node7" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="541,120,741,147"/>
-<area shape="rect" id="node8" href="$classgiraffe_1_1FlightRunnerData.html#ac2b08f44adf4ed3ab384cd8e5c947578" title=" " alt="" coords="548,172,735,213"/>
-<area shape="rect" id="node9" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="587,238,695,264"/>
-<area shape="rect" id="node11" href="$classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd" title="Starts a thread to run the module." alt="" coords="555,288,727,315"/>
-<area shape="rect" id="node13" href="$classmodules_1_1Module.html#aefe65d4f674e804a1891b250ed2887a4" title="Stops the module by setting the stop flag to true and joining the runner thread." alt="" coords="556,339,727,366"/>
-<area shape="rect" id="node12" href="$classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51" title="This is the main function for each module." alt="" coords="791,288,975,315"/>
+<area shape="rect" id="node1" title="Process commands that are sent to the flight runner." alt="" coords="5,195,236,221"/>
+<area shape="rect" id="node2" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="837,5,1005,32"/>
+<area shape="rect" id="node6" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title=" " alt="" coords="284,195,493,221"/>
+<area shape="rect" id="node15" href="$classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c" title=" " alt="" coords="287,355,490,381"/>
+<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="1317,17,1504,58"/>
+<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="1088,31,1251,57"/>
+<area shape="rect" id="node5" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="1321,82,1501,123"/>
+<area shape="rect" id="node7" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="1069,132,1269,159"/>
+<area shape="rect" id="node8" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="560,63,753,105"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1FlightRunnerData.html#ac2b08f44adf4ed3ab384cd8e5c947578" title=" " alt="" coords="563,129,750,170"/>
+<area shape="rect" id="node10" href="$classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="541,195,772,221"/>
+<area shape="rect" id="node14" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="867,253,975,280"/>
+<area shape="rect" id="node11" href="$classgiraffe_1_1FlightRunnerData.html#ad522ef22add361da8fd8dda6dda7930a" title="Clears the launch position/set it to invalid." alt="" coords="827,122,1014,163"/>
+<area shape="rect" id="node12" href="$classgiraffe_1_1FlightRunnerData.html#aec5ac065bece8131a74452bd55615b02" title="Set the launch position. Called on the transition from pre&#45;launch to launch." alt="" coords="827,187,1014,229"/>
+<area shape="rect" id="node13" href="$classdata_1_1FlightData.html#af8689e42e3dcf4e6813bb608ed36a441" title=" " alt="" coords="820,57,1021,98"/>
+<area shape="rect" id="node16" href="$classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd" title="Starts a thread to run the module." alt="" coords="571,355,743,381"/>
+<area shape="rect" id="node18" href="$classmodules_1_1Module.html#aefe65d4f674e804a1891b250ed2887a4" title="Stops the module by setting the stop flag to true and joining the runner thread." alt="" coords="571,405,742,432"/>
+<area shape="rect" id="node17" href="$classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51" title="This is the main function for each module." alt="" coords="829,355,1013,381"/>
 </map>

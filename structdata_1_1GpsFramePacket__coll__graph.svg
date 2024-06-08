@@ -63,21 +63,21 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="namespacedata.html#structdata_1_1GpsFrame" target="_top" xlink:title="A frame of GPS data straight from a GPS extension.">
-<polygon fill="none" stroke="black" points="181,-105.5 181,-162.5 275,-162.5 275,-105.5 181,-105.5"/>
+<g id="a_node6"><a xlink:href="structdata_1_1GpsFrame.html" target="_top" xlink:title="A frame of GPS data straight from a GPS extension.">
+<polygon fill="none" stroke="black" points="173,-105.5 173,-162.5 283,-162.5 283,-105.5 173,-105.5"/>
 <text text-anchor="middle" x="228" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::GpsFrame</text>
-<polyline fill="none" stroke="black" points="181,-143.5 275,-143.5 "/>
+<polyline fill="none" stroke="black" points="173,-143.5 283,-143.5 "/>
 <text text-anchor="middle" x="228" y="-131.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="181,-124.5 275,-124.5 "/>
-<text text-anchor="middle" x="228" y="-112.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="173,-124.5 283,-124.5 "/>
+<text text-anchor="start" x="181" y="-112.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAgeSeconds()</text>
 </a>
 </g>
 </g>
 <!-- Node3&#45;&gt;Node6 -->
 <g id="edge7" class="edge">
 <title>Node3&#45;&gt;Node6</title>
-<path fill="none" stroke="#404040" d="M393.81,-325.49C386.19,-318.79 378.9,-310.85 374,-302 347.62,-254.38 389.63,-223 355,-181 338.21,-160.63 311.62,-149.28 287.11,-142.96"/>
-<polygon fill="none" stroke="#404040" points="286.98,-142.93 280.24,-145.48 275.29,-140.24 282.03,-137.69 286.98,-142.93"/>
+<path fill="none" stroke="#404040" d="M393.81,-325.49C386.19,-318.79 378.9,-310.85 374,-302 347.62,-254.38 389.63,-223 355,-181 340.01,-162.83 317.24,-151.83 295.09,-145.18"/>
+<polygon fill="none" stroke="#404040" points="294.84,-145.12 288.01,-147.42 283.26,-142 290.09,-139.7 294.84,-145.12"/>
 <text text-anchor="middle" x="412.5" y="-239" font-family="Helvetica,sans-Serif" font-size="10.00"> +gps_utc_time</text>
 </g>
 <!-- Node4 -->
@@ -173,8 +173,8 @@
 <!-- Node8&#45;&gt;Node6 -->
 <g id="edge8" class="edge">
 <title>Node8&#45;&gt;Node6</title>
-<path fill="none" stroke="#404040" d="M17.42,-320.45C9.23,-284.08 1.33,-220.11 34,-181 51.12,-160.51 118.06,-148.01 168.56,-141.31"/>
-<polygon fill="none" stroke="#404040" points="168.77,-141.28 174.22,-136.56 180.68,-139.77 175.23,-144.49 168.77,-141.28"/>
+<path fill="none" stroke="#404040" d="M17.42,-320.45C9.23,-284.08 1.33,-220.11 34,-181 50.25,-161.55 111.38,-149.3 160.73,-142.38"/>
+<polygon fill="none" stroke="#404040" points="160.77,-142.37 166.19,-137.61 172.67,-140.77 167.25,-145.54 160.77,-142.37"/>
 <text text-anchor="middle" x="76" y="-239" font-family="Helvetica,sans-Serif" font-size="10.00"> +num_satellites</text>
 </g>
 <!-- Node9 -->
@@ -193,8 +193,8 @@
 <!-- Node9&#45;&gt;Node6 -->
 <g id="edge9" class="edge">
 <title>Node9&#45;&gt;Node6</title>
-<path fill="none" stroke="#404040" d="M125.98,-320.37C119.89,-285.06 114.82,-223.43 142,-181 148.85,-170.3 159.07,-161.93 170.1,-155.43"/>
-<polygon fill="none" stroke="#404040" points="170.23,-155.36 173.67,-149.02 180.84,-149.76 177.4,-156.09 170.23,-155.36"/>
+<path fill="none" stroke="#404040" d="M125.98,-320.37C119.89,-285.06 114.82,-223.43 142,-181 147.26,-172.79 154.5,-165.95 162.58,-160.27"/>
+<polygon fill="none" stroke="#404040" points="162.58,-160.27 165.54,-153.7 172.75,-153.91 169.78,-160.48 162.58,-160.27"/>
 <text text-anchor="middle" x="166.5" y="-239" font-family="Helvetica,sans-Serif" font-size="10.00"> +is_valid</text>
 </g>
 <!-- Node10 -->

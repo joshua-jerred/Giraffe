@@ -46,6 +46,7 @@ var classmodules_1_1DataModule =
     [ "gps_distance_update_timer_", "classmodules_1_1DataModule.html#af8e2dbc3b342d855b5cf66e4d53395e0", null ],
     [ "last_gps_point_", "classmodules_1_1DataModule.html#a7f70f9a1b0d7b99bebf996ee50a4071e", null ],
     [ "launch_gps_point_", "classmodules_1_1DataModule.html#ac268ffb580ad0f5a3e229cad43c2325f", null ],
+    [ "launch_gps_altitude_", "classmodules_1_1DataModule.html#a47b61818e05497dccf70c5b6b4d08205", null ],
     [ "launch_gps_point_set_", "classmodules_1_1DataModule.html#a2d01c7995412a8816c0bc036b1f4add5", null ],
     [ "distance_traveled_", "classmodules_1_1DataModule.html#a0f4ce15c5d367f15dbbb00783610f203", null ],
     [ "average_horizontal_speed_", "classmodules_1_1DataModule.html#a858df8f339102be0679278a587aaf3e1", null ],
