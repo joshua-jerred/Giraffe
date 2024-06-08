@@ -56,6 +56,13 @@
       "value": "0x1004",
       "cmd_key": "elp",
       "exclude_from_ui": true
+    },
+    "enter_pre_launch_phase": {
+      "name": "Enter Pre-Launch Phase",
+      "details": "Tells the flight runner to enter pre-launch phase, only works in launch.",
+      "value": "0x1005",
+      "cmd_key": "epl",
+      "exclude_from_ui": true
     }
   },
   "data_module": {

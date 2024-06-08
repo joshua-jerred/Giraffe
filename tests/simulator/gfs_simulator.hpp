@@ -43,6 +43,10 @@ public:
   void stop();
   bool isRunning() const;
 
+  void launch() {
+    physics_.launch();
+  }
+
   double getTemperatureC() const {
     return sim_data_.temperature_c;
   }

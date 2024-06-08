@@ -266,6 +266,12 @@ void FlightRunner::processCommand(const cmd::Command &command) {
     toggleModule(command.str_arg, false);
     toggleModule(command.str_arg, true);
     break;
+  case cmd::CommandId::FLIGHT_RUNNER_enterLaunchPhase:
+    setFlightPhase(FlightPhase::LAUNCH);
+    break;
+  case cmd::CommandId::FLIGHT_RUNNER_enterPreLaunchPhase:
+    setFlightPhase(FlightPhase::PRE_LAUNCH);
+    break;
   default:
     shared_data_.streams.log.error(node::Identification::FLIGHT_RUNNER,
                                    DiagnosticId::FLIGHT_RUNNER_invalidCommand);

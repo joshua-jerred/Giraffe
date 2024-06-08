@@ -57,25 +57,32 @@ bool hexStringToUInt32(const std::string &hex_string,
 bool parseFlightRunnerCommand(const std::string &command_id_str,
                               const std::string &arg, cmd::Command &command) {
   static const std::unordered_map<std::string, cmd::CommandId>
-      K_COMMAND_ID_MAP = {{"sdn", cmd::CommandId::FLIGHT_RUNNER_shutdownSystem},
-                          {"mst", cmd::CommandId::FLIGHT_RUNNER_startModule},
-                          {"msp", cmd::CommandId::FLIGHT_RUNNER_stopModule},
-                          {"mrt", cmd::CommandId::FLIGHT_RUNNER_restartModule}};
+      K_COMMAND_ID_MAP = {
+          {"sdn", cmd::CommandId::FLIGHT_RUNNER_shutdownSystem},
+          {"mst", cmd::CommandId::FLIGHT_RUNNER_startModule},
+          {"msp", cmd::CommandId::FLIGHT_RUNNER_stopModule},
+          {"mrt", cmd::CommandId::FLIGHT_RUNNER_restartModule},
+          {"elp", cmd::CommandId::FLIGHT_RUNNER_enterLaunchPhase},
+          {"epp", cmd::CommandId::FLIGHT_RUNNER_enterPreLaunchPhase}};
   if (!K_COMMAND_ID_MAP.contains(command_id_str)) {
     return false;
   }
   command.command_id = K_COMMAND_ID_MAP.at(command_id_str);
 
   switch (command.command_id) {
+  /// @todo Need to implement some kind of rolling authentication system for
+  /// some of these commands.
+
+  // ----- Commands that require no arguments -----
   case cmd::CommandId::FLIGHT_RUNNER_shutdownSystem:
-    /**
-     * @todo need to implement some kind of rolling authentication system for
-     * some of these commands.
-     */
+  case cmd::CommandId::FLIGHT_RUNNER_enterLaunchPhase:
+  case cmd::CommandId::FLIGHT_RUNNER_enterPreLaunchPhase:
     if (arg.length() != 0) {
       return false;
     }
     return true;
+
+  // ----- Commands that require a module identifier -----
   case cmd::CommandId::FLIGHT_RUNNER_startModule:
   case cmd::CommandId::FLIGHT_RUNNER_stopModule:
   case cmd::CommandId::FLIGHT_RUNNER_restartModule:

@@ -88,10 +88,20 @@ void FlightRunner::detectFlightPhase() {
 }
 
 void FlightRunner::setFlightPhase(FlightPhase phase) {
+  shared_data_.streams.log.info(node::Identification::FLIGHT_RUNNER,
+                                " setting flight phase to: " +
+                                    util::to_string(phase));
+
   shared_data_.flight_data.flight_phase = phase;
   flight_runner_data_.setFlightPhase(phase);
 
   shared_data_.streams.data.addData(
       node::Identification::FLIGHT_RUNNER,
       data::DataId::FLIGHT_RUNNER_flightPhaseChange, util::to_string(phase));
+
+#if RUN_IN_SIMULATOR == 1
+  if (phase == FlightPhase::LAUNCH) {
+    p_simulator_->launch();
+  }
+#endif
 }

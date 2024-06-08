@@ -7,25 +7,32 @@ module.exports = class MissionClock {
       "is_running"
     );
 
+    console.log(
+      "input_is_running: ",
+      input_is_running,
+      typeof input_is_running
+    );
+
     let input_time = global_state.ggs_db.get(
       "data",
       "mission_clock",
       "start_time"
     );
 
-    this.is_running = input_is_running === "true" ? true : false;
+    this.is_running =
+      typeof input_is_running === "boolean" ? input_is_running : false;
     this.start_time = new Date(input_time);
+
+    if (isNaN(this.start_time)) {
+      console.log("Invalid Mission Start Date - Resetting");
+      this.resetClock();
+    }
 
     this.gfs_utc_time = "n/d";
     this.gfs_time_skew = "n/d";
     this.gfs_gps_utc_time = "n/d";
     this.gfs_time_synced = false;
     this.gfs_time_last_updated = new Date();
-
-    if (isNaN(this.start_time)) {
-      console.log("Invalid Mission Start Date - Resetting");
-      this.resetClock();
-    }
   }
 
   getIsRunning() {

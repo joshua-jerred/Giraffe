@@ -44,6 +44,7 @@ function CoreControl() {
   const [gfsTimeSynced, setGfsTimeSynced] = useState(false);
 
   const [allowSetLaunchMode, setAllowSetLaunchMode] = useState(false);
+  const [allowSetPreLaunchMode, setAllowSetPreLaunchMode] = useState(false);
 
   useEffect(() => {
     if (flightData) {
@@ -57,10 +58,18 @@ function CoreControl() {
   }, [flightData]);
 
   useEffect(() => {
-    if (isGfsTcpConnected && flightPhase === "Pre-Launch" && gfsTimeSynced) {
-      setAllowSetLaunchMode(true);
-    } else {
-      setAllowSetLaunchMode(false);
+    if (isGfsTcpConnected) {
+      if (flightPhase === "Pre-Launch" && gfsTimeSynced) {
+        setAllowSetLaunchMode(true);
+      } else {
+        setAllowSetLaunchMode(false);
+      }
+
+      if (flightPhase === "Launch") {
+        setAllowSetPreLaunchMode(true);
+      } else {
+        setAllowSetPreLaunchMode(false);
+      }
     }
   }, [isGfsTcpConnected, flightPhase, gfsTimeSynced]);
 
@@ -78,6 +87,12 @@ function CoreControl() {
           enabled={allowSetLaunchMode}
           name="Activate Launch Mode"
           action="elp"
+        />
+        <ActionItem
+          visible={flightPhase === "Launch"}
+          enabled={allowSetPreLaunchMode}
+          name="Enter Pre-Launch Mode"
+          action="epp"
         />
       </CardContentCentered>
     </>

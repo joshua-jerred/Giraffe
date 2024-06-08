@@ -127,7 +127,7 @@ public:
   Json toJson() {
     return Json({
         {"uptime", getUptimeString()},
-        {"system_time_utc", getSystemTimeUtc() + " UTC"},
+        {"system_time_utc", getSystemTimeUtc()},
         {"flight_phase", util::to_string(flight_phase)},
     });
   }

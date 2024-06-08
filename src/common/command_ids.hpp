@@ -38,6 +38,8 @@ enum class CommandId : uint16_t {
   FLIGHT_RUNNER_startModule=0x1001, // Start Module
   FLIGHT_RUNNER_stopModule=0x1002, // Stop Module
   FLIGHT_RUNNER_restartModule=0x1003, // Restart Module
+  FLIGHT_RUNNER_enterLaunchPhase=0x1004, // Enter Launch Phase
+  FLIGHT_RUNNER_enterPreLaunchPhase=0x1005, // Enter Pre-Launch Phase
   DATA_MODULE_clearAllErrors=0x2000, // Clear All Errors
   DATA_MODULE_clearSpecificError=0x2001, // Clear a Specific Error
   TELEMETRY_MODULE_sendNumActiveErrors=0x3000, // Send Number of Active Errors
