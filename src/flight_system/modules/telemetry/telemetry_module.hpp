@@ -60,6 +60,12 @@ private:
   void sendSstvImage();
 
   /**
+   * @brief Called when the flight computer detects that it is descending. If
+   * the data link is connected, it will send a message to the ground station.
+   */
+  void reportDescent();
+
+  /**
    * @brief Process commands that are received from the flight runner.
    * @param command - The command to process.
    */

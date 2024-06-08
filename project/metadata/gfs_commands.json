@@ -12,6 +12,18 @@
       "value": "0x0000"
     }
   },
+  "internal":{
+    "SECTION_METADATA": {
+      "prefix": "itn"
+    },
+    "report_descent": {
+      "name": "Report Descent",
+      "details": "Used by the flight runner to trigger the telemetry module to report the transition to descent.",
+      "value": "0x0001",
+      "cmd_key": "rds",
+      "exclude_from_ui": true
+    }
+  },
   "flight_runner": {
     "SECTION_METADATA": {
       "prefix": "flr"

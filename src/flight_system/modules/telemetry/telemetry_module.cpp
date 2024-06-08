@@ -165,6 +165,12 @@ void modules::TelemetryModule::sendSstvImage() {
   info("Sending SSTV image not implemented.");
 }
 
+void modules::TelemetryModule::reportDescent() {
+  if (configuration_.telemetry.getDataLinkEnabled()) {
+    gdl_.sendText("Descent Detected", getNextMessageId());
+  }
+}
+
 void modules::TelemetryModule::processCommand(const cmd::Command &command) {
   int int_buffer = 0;
   double double_buffer = 0.0;
@@ -189,6 +195,9 @@ void modules::TelemetryModule::processCommand(const cmd::Command &command) {
     break;
   case cmd::CommandId::TELEMETRY_MODULE_sendSstvImage:
     sendSstvImage();
+    break;
+  case cmd::CommandId::INTERNAL_reportDescent:
+    reportDescent();
     break;
   default:
     error(DiagnosticId::TELEMETRY_invalidCommand);

@@ -108,6 +108,7 @@ private:
   //// -- Flight Logic Methods -- ////
   void fl_preLaunchLogic();
   void fl_launchLogic();
+  void fl_reportDescent();
   //// -------------------------- ////
 
   /**

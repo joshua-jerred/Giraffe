@@ -178,6 +178,11 @@ void modules::DataModule::parseGeneralDataPacket(
   (void)packet;
   /// @todo Implement general data packet parsing
   // Process packet here
+  // switch (packet.identifier) {
+  // default:
+  // debug("Unknown data packet type: " +
+  // std::to_string(static_cast<uint32_t>(packet.type)));
+  // }
 }
 
 void modules::DataModule::parseExtensionDataPacket(

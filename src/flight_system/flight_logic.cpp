@@ -23,6 +23,15 @@ void FlightRunner::fl_preLaunchLogic() {
   // This is the pre-launch logic
 }
 
+void FlightRunner::fl_reportDescent() {
+  cmd::Command command{};
+  command.destination = node::Identification::TELEMETRY_MODULE;
+  command.command_id = cmd::CommandId::INTERNAL_reportDescent;
+
+  shared_data_.streams.command.addCommand(node::Identification::FLIGHT_RUNNER,
+                                          command);
+}
+
 //// ------------------------------------------------------------------ ////
 
 void FlightRunner::flightLogic() {
@@ -185,6 +194,7 @@ void FlightRunner::setFlightPhase(FlightPhase new_phase) {
     break;
   case FlightPhase::DESCENT:
     shared_data_.status_led.setGreen(StatusLedState::State::OFF);
+    fl_reportDescent();
     break;
   case FlightPhase::RECOVERY:
     shared_data_.status_led.setGreen(StatusLedState::State::BLINK);
