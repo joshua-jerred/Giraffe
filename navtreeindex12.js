@@ -1,5 +1,7 @@
 var NAVTREEINDEX12 =
 {
+"namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39ad5b209a2367d0fa577875ade4dbf26a8":[10,0,13,4,3],
+"namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39afb97c381a019025eba60f0fbd236197c":[10,0,13,4,2],
 "namespaceubx.html#ae9f79ab7a4f46d3bc19f5e4c01525f35":[12,0,173,0,6],
 "namespaceubx.html#aebd0fba183197d54bcbcec6e8a7f92f6":[10,0,13,28],
 "namespaceubx.html#af47199a721b4a51e96c09fb29e481547":[10,0,13,21],
@@ -131,10 +133,10 @@ var NAVTREEINDEX12 =
 "samm8q_8cpp.html#a00fc3ab0f7de155cb71bfa5d6aa3f194":[12,0,127,2],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afc":[12,0,127,0],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca24f3e5996ecc173cab972f2bd004fd5a":[12,0,127,0,2],
-"samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca2ba22e58ca17bb728d522bba36cf8350":[12,0,127,0,4],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca2ba22e58ca17bb728d522bba36cf8350":[12,0,127,0,7],
-"samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca84fcef12cce95eb15cffe4338ecf5d29":[12,0,127,0,6],
+"samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca2ba22e58ca17bb728d522bba36cf8350":[12,0,127,0,4],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca84fcef12cce95eb15cffe4338ecf5d29":[12,0,127,0,1],
+"samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca84fcef12cce95eb15cffe4338ecf5d29":[12,0,127,0,6],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca9beed4c399bcd8838fc481753cf30ad6":[12,0,127,0,0],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afca9beed4c399bcd8838fc481753cf30ad6":[12,0,127,0,5],
 "samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afcac30be2996b85d3905826648d620c8259":[12,0,127,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "structcfg_1_1AdcConfig.html#a7c12bd2de7874a2bdd6cc5cdc548ed59":[11,0,0,0,2],
 "structcfg_1_1AdcConfig.html#a806cd3a409ad7a86b92edb779875dea7":[11,0,0,0,7],
 "structcfg_1_1AdcConfig.html#a93b3ad67847b979110e597b2d6fb2511":[11,0,0,0,9],
-"structcfg_1_1AdcConfig.html#ab040a389e92208c5b21deb32a2278ac9":[11,0,0,0,3],
-"structcfg_1_1AdcConfig.html#ab48f5af6be1315cc13c8b4806fb6a403":[11,0,0,0,0],
-"structcfg_1_1AdcConfig.html#ad71dd224083a3bdc0bf95357f8de1670":[11,0,0,0,11]
+"structcfg_1_1AdcConfig.html#ab040a389e92208c5b21deb32a2278ac9":[11,0,0,0,3]
 };

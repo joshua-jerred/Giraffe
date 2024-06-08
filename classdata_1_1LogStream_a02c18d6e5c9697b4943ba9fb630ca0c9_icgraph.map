@@ -26,5 +26,5 @@
 <area shape="rect" id="node17" href="$classcfg_1_1Extensions.html#a4af55964085d036357551e795bb435b5" title="Update an extension given its name and new metadata." alt="" coords="573,341,811,367"/>
 <area shape="rect" id="node19" href="$classdata__middleware_1_1AdcInterpolation.html#afe9137948458156c46370b562db1fc82" title="Returns the ADC channel configuration for the given key. If one does not exist, an error is logged an..." alt="" coords="567,5,817,47"/>
 <area shape="rect" id="node20" href="$classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="268,5,519,47"/>
-<area shape="rect" id="node25" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title=" " alt="" coords="587,727,797,754"/>
+<area shape="rect" id="node25" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title="This method defines the transitions of the flight phase state machine." alt="" coords="587,727,797,754"/>
 </map>

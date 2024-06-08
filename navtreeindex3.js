@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998":[11,0,5,4,29],
 "classextension_1_1Extension.html#a7a4649f64e0c45c2406b3877a97ec5ba":[11,0,5,4,15],
 "classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878":[11,0,5,4,30],
 "classextension_1_1Extension.html#a8c2ff02720daaaf27849c087b064d4c3":[11,0,5,4,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "classextension_1_1SimAdcSensor.html#aaa99bc040af229aa386f991b1d9ee47a":[11,0,5,12,5],
 "classextension_1_1SimAdcSensor.html#aaae6a7d91b77ac86a6e597bf0071889d":[11,0,5,12,15],
 "classextension_1_1SimAdcSensor.html#ab94ad848063e5b1677ca365e709bd03c":[11,0,5,12,13],
-"classextension_1_1SimAdcSensor.html#ac3545ca3cc1fd6ab92671dbf18840f13":[11,0,5,12,11],
-"classextension_1_1SimAdcSensor.html#ad3a895d8015ab2992b41c66b9f16648a":[11,0,5,12,16]
+"classextension_1_1SimAdcSensor.html#ac3545ca3cc1fd6ab92671dbf18840f13":[11,0,5,12,11]
 };

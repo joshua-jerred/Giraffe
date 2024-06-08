@@ -20,7 +20,7 @@
 <area shape="rect" id="node13" href="$classdata__middleware_1_1AdcInterpolation.html#afe9137948458156c46370b562db1fc82" title="Returns the ADC channel configuration for the given key. If one does not exist, an error is logged an..." alt="" coords="567,510,817,551"/>
 <area shape="rect" id="node14" href="$classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="268,510,519,551"/>
 <area shape="rect" id="node16" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="578,576,806,603"/>
-<area shape="rect" id="node20" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title=" " alt="" coords="587,736,797,763"/>
+<area shape="rect" id="node20" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title="This method defines the transitions of the flight phase state machine." alt="" coords="587,736,797,763"/>
 <area shape="rect" id="node21" href="$classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05" title="Detects the current flight phase and sets it in the shared data. flight_phase.hpp." alt="" coords="298,737,489,778"/>
 <area shape="rect" id="node22" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="23,744,203,771"/>
 </map>

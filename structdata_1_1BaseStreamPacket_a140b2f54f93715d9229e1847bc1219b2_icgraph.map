@@ -7,7 +7,7 @@
 <area shape="rect" id="node30" href="$classdata_1_1LogStream.html#a00a75a6b066e56f7e2420ae4ca73a2aa" title=" " alt="" coords="1413,697,1603,739"/>
 <area shape="rect" id="node31" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="1427,479,1589,506"/>
 <area shape="rect" id="node33" href="$classdata_1_1DataStream.html#a0eace161e7a83c07b6dd6f16041c8c56" title=" " alt="" coords="1416,763,1600,804"/>
-<area shape="rect" id="node3" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title=" " alt="" coords="587,122,797,149"/>
+<area shape="rect" id="node3" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title="This method defines the transitions of the flight phase state machine." alt="" coords="587,122,797,149"/>
 <area shape="rect" id="node4" href="$classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05" title="Detects the current flight phase and sets it in the shared data. flight_phase.hpp." alt="" coords="298,93,489,135"/>
 <area shape="rect" id="node6" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="278,677,509,703"/>
 <area shape="rect" id="node5" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="23,101,203,127"/>

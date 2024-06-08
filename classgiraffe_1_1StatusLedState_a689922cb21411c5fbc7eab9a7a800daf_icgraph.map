@@ -1,0 +1,5 @@
+<map id="giraffe::StatusLedState::setBlue" name="giraffe::StatusLedState::setBlue">
+<area shape="rect" id="node1" title=" " alt="" coords="252,39,423,80"/>
+<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c" title="Continually called at a rate set by the sleep interval." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="node3" href="$classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628" title="This function is called when the module is started." alt="" coords="5,71,204,112"/>
+</map>

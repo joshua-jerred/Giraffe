@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"classgiraffe_1_1gdl_1_1Message.html#aec32a79bf0b7a040cdd15863d35b07b9":[11,0,7,0,3,20],
 "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location":[12,0,64,1],
 "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location":[11,0,7,0,3,0],
 "classgiraffe_1_1gdl_1_1MessageQueue.html":[11,0,7,0,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "classmodules_1_1ExtensionModule.html#ab3f0073bdc17fa42885010c4cee50514":[11,0,8,2,43],
 "classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0":[11,0,8,2,1],
 "classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a1104c54a9ec6549e4ef9562b687596fb":[11,0,8,2,1,5],
-"classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a5e8be6f910195a9e4e39316f8e9b1ca8":[11,0,8,2,1,8],
-"classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a615a46af313786fc4e349f34118be111":[11,0,8,2,1,4]
+"classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a5e8be6f910195a9e4e39316f8e9b1ca8":[11,0,8,2,1,8]
 };

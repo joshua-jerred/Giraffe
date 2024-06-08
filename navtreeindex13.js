@@ -1,5 +1,7 @@
 var NAVTREEINDEX13 =
 {
+"structcfg_1_1AdcConfig.html#ab48f5af6be1315cc13c8b4806fb6a403":[11,0,0,0,0],
+"structcfg_1_1AdcConfig.html#ad71dd224083a3bdc0bf95357f8de1670":[11,0,0,0,11],
 "structcfg_1_1AdcConfig.html#aeb00978ee380917046a5e126cf4fcd92":[11,0,0,0,4],
 "structcfg_1_1AdcConfig.html#aec713b757d312627f740038310405bd9":[11,0,0,0,10],
 "structcfg_1_1ExtensionMetadata.html":[11,0,0,3],
@@ -149,12 +151,12 @@ var NAVTREEINDEX13 =
 "structdata_1_1blocks_1_1StreamsStats.html#a4c67f6872bb85963500a69f3530b5c8a":[11,0,3,0,11,3],
 "structdata_1_1blocks_1_1StreamsStats.html#a536cd36c20a8a1dfa7b875be7c19e078":[11,0,3,0,11,6],
 "structdata_1_1blocks_1_1StreamsStats.html#a656da1e7267dd957f0dc224019860272":[11,0,3,0,11,1],
-"structdata_1_1blocks_1_1StreamsStats.html#aac583014b7a4480da8c18acba13cdd74":[12,0,3,12,0],
 "structdata_1_1blocks_1_1StreamsStats.html#aac583014b7a4480da8c18acba13cdd74":[11,0,3,0,11,0,0],
+"structdata_1_1blocks_1_1StreamsStats.html#aac583014b7a4480da8c18acba13cdd74":[12,0,3,12,0],
 "structdata_1_1blocks_1_1StreamsStats.html#ab7a35fd86669ed273872de75514ff0e2":[11,0,3,0,11,5],
 "structdata_1_1blocks_1_1StreamsStats.html#ab9841563c02f6ce257853c33559fad81":[11,0,3,0,11,4],
-"structdata_1_1blocks_1_1StreamsStats.html#ac2099be781c242dfd75085cf820124a6":[11,0,3,0,11,0,2],
 "structdata_1_1blocks_1_1StreamsStats.html#ac2099be781c242dfd75085cf820124a6":[12,0,3,12,2],
+"structdata_1_1blocks_1_1StreamsStats.html#ac2099be781c242dfd75085cf820124a6":[11,0,3,0,11,0,2],
 "structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats":[11,0,3,0,11,0],
 "structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats":[12,0,3,12],
 "structdata_1_1blocks_1_1SystemInfo.html":[11,0,3,0,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX13 =
 "structprotocol_1_1Message.html#a1fb70b00c6c2b863ed7471d241ee0f45":[11,0,10,0,8],
 "structprotocol_1_1Message.html#a57135c069142e0e41adcf97cdf336f27":[11,0,10,0,3],
 "structprotocol_1_1Message.html#a5d0456b9d7dee42147a675e88e8c577e":[11,0,10,0,7],
-"structprotocol_1_1Message.html#a625facb51a64a11f499ebb9b559cd5d1":[11,0,10,0,9],
-"structprotocol_1_1Message.html#a90aa16f930512b7cc1e2e60fc5b17687":[11,0,10,0,5],
-"structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8":[11,0,10,0,1]
+"structprotocol_1_1Message.html#a625facb51a64a11f499ebb9b559cd5d1":[11,0,10,0,9]
 };

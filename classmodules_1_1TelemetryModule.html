@@ -116,13 +116,13 @@ $(document).ready(function(){initNavTree('classmodules_1_1TelemetryModule.html',
 <div class="dynheader">
 Inheritance diagram for modules::TelemetryModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__inherit__graph.svg" width="267" height="844"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__inherit__graph.svg" width="267" height="859"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for modules::TelemetryModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__coll__graph.svg" width="5223" height="2527"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__coll__graph.svg" width="5223" height="2542"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -196,6 +196,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a3cdd19ea5e6973673443b847ece36f54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54">processTelemetryMessageQueue</a> ()</td></tr>
 <tr class="memdesc:a3cdd19ea5e6973673443b847ece36f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called if there is a message in the receive queue. Pops one message and processes it.  <a href="classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54">More...</a><br /></td></tr>
 <tr class="separator:a3cdd19ea5e6973673443b847ece36f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98559bd76e6b9e93cdc6fa9e7a647110"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a98559bd76e6b9e93cdc6fa9e7a647110">reportDescent</a> ()</td></tr>
+<tr class="memdesc:a98559bd76e6b9e93cdc6fa9e7a647110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the flight computer detects that it is descending. If the data link is connected, it will send a message to the ground station.  <a href="classmodules_1_1TelemetryModule.html#a98559bd76e6b9e93cdc6fa9e7a647110">More...</a><br /></td></tr>
+<tr class="separator:a98559bd76e6b9e93cdc6fa9e7a647110"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d879001e471093d48fcbd2f8c406f51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51">runner</a> ()</td></tr>
 <tr class="memdesc:a3d879001e471093d48fcbd2f8c406f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main function for each module.  <a href="classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51">More...</a><br /></td></tr>
 <tr class="separator:a3d879001e471093d48fcbd2f8c406f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -498,6 +501,33 @@ Here is the call graph for this function:</div>
 
 <p>Send an SSTV image. </p>
 <p>Only functions if SSTV is configured. Requires a camera to be connected. </p>
+
+</div>
+</div>
+<a id="a98559bd76e6b9e93cdc6fa9e7a647110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98559bd76e6b9e93cdc6fa9e7a647110">&#9670;&nbsp;</a></span>reportDescent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void modules::TelemetryModule::reportDescent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when the flight computer detects that it is descending. If the data link is connected, it will send a message to the ground station. </p>
 
 </div>
 </div>
@@ -1328,7 +1358,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c">modules::ExtensionModule::loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c">modules::ExtensionModule::loop()</a>, and <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">modules::ExtensionModule::startup()</a>.</p>
 
 </div>
 </div>

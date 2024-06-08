@@ -1,7 +1,7 @@
 <map id="giraffe::FlightRunnerData::setLaunchPosition" name="giraffe::FlightRunnerData::setLaunchPosition">
 <area shape="rect" id="node1" title="Set the launch position. Called on the transition from pre&#45;launch to launch." alt="" coords="1083,35,1269,76"/>
 <area shape="rect" id="node2" href="$classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="804,42,1035,69"/>
-<area shape="rect" id="node3" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title=" " alt="" coords="547,42,756,69"/>
+<area shape="rect" id="node3" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title="This method defines the transitions of the flight phase state machine." alt="" coords="547,42,756,69"/>
 <area shape="rect" id="node4" href="$classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05" title="Detects the current flight phase and sets it in the shared data. flight_phase.hpp." alt="" coords="288,5,479,47"/>
 <area shape="rect" id="node6" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,71,499,98"/>
 <area shape="rect" id="node5" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="23,13,203,39"/>

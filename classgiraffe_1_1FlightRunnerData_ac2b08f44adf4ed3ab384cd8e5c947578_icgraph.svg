@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classFlightRunner.html#a9a583807049320acfbeebaf634430f88" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classFlightRunner.html#a9a583807049320acfbeebaf634430f88" target="_top" xlink:title="This method defines the transitions of the flight phase state machine.">
 <polygon fill="none" stroke="black" points="406,-22.5 406,-41.5 563,-41.5 563,-22.5 406,-22.5"/>
 <text text-anchor="middle" x="484.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">FlightRunner::setFlightPhase</text>
 </a>

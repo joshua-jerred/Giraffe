@@ -28,7 +28,7 @@
 <area shape="rect" id="node36" href="$classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42" title=" " alt="" coords="533,1680,747,1721"/>
 <area shape="rect" id="node37" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="543,1746,737,1773"/>
 <area shape="rect" id="node38" href="$classconsole__pages_1_1Pages.html#a67d35ee34832ada202ae3efbba51ac7b" title=" " alt="" coords="558,1055,722,1096"/>
-<area shape="rect" id="node39" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title=" " alt="" coords="251,2030,460,2057"/>
+<area shape="rect" id="node39" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title="This method defines the transitions of the flight phase state machine." alt="" coords="251,2030,460,2057"/>
 <area shape="rect" id="node40" href="$classcfg_1_1AdcMappings.html#a45d9c766a012ea127e8612d262e720ac" title=" " alt="" coords="527,1929,753,1955"/>
 <area shape="rect" id="node41" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="535,1979,745,2006"/>
 <area shape="rect" id="node42" href="$classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="525,2030,755,2057"/>

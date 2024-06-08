@@ -8,6 +8,7 @@ var classmodules_1_1TelemetryModule =
     [ "processTelemetryMessageQueue", "classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54", null ],
     [ "sendAprsPositionPacket", "classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135", null ],
     [ "sendSstvImage", "classmodules_1_1TelemetryModule.html#a064ac6e55f7c0397e376c4231e7a884f", null ],
+    [ "reportDescent", "classmodules_1_1TelemetryModule.html#a98559bd76e6b9e93cdc6fa9e7a647110", null ],
     [ "processCommand", "classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed", null ],
     [ "getNextMessageId", "classmodules_1_1TelemetryModule.html#ae3054c6b6dc5b5c3648af36b4c83052e", null ],
     [ "start", "classmodules_1_1TelemetryModule.html#afa712a59eff6e99405e70ae61f7510cd", null ],
