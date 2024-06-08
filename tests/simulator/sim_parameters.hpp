@@ -46,7 +46,7 @@ struct SimData {
   std::atomic<double> adc_ch_7{0.0};
 };
 
-inline constexpr uint32_t K_UPDATE_INTERVAL_MS = 100;
+inline constexpr uint32_t K_UPDATE_INTERVAL_MS = 500;
 inline constexpr uint32_t K_SLEEP_INTERVAL_MS = K_UPDATE_INTERVAL_MS / 4;
 inline constexpr double K_DELTA_TIME_S = K_UPDATE_INTERVAL_MS / 1000.0;
 inline constexpr uint32_t K_PRINT_INTERVAL_MS = 1000;
@@ -54,7 +54,7 @@ inline constexpr bool K_PRINT_SIM_DATA = false;
 
 // -- BalloonPhysics Parameters --
 // Start Parameters
-inline constexpr double K_START_ALTITUDE_METERS = 0.0;
+inline constexpr double K_START_ALTITUDE_METERS = 100.0;
 inline constexpr double K_START_VERTICAL_SPEED_MPS = 0.0;
 inline constexpr double K_START_VERTICAL_ACCELERATION_MPS2 = 0.0;
 inline constexpr double K_START_HORIZONTAL_SPEED_MPS = 0.0;
@@ -62,7 +62,7 @@ inline constexpr double K_START_LATITUDE = 39.725796;
 inline constexpr double K_START_LONGITUDE = -83.561191;
 // Pre-launch Parameters
 inline constexpr double K_PRELAUNCH_LAUNCH_DELAY_S =
-    5.0; // set to 0 if the start parameters are non-zero
+    50.0; // set to 0 if the start parameters are non-zero
 // Ascent Parameters
 inline constexpr double K_ASCENT_ACCELERATION_MPS2 = 0.3;
 inline constexpr double K_ASCENT_ACCELERATION_VARIANCE = 0.1;

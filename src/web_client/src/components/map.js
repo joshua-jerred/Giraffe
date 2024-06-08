@@ -14,6 +14,7 @@ export function Map() {
   const { ggsAddress } = useContext(GwsGlobal);
   // const { ggsConnectionStatus } = useContext(GGS_API);
 
+  const [launchPosition, setLaunchPosition] = useState(null);
   const [position, setPosition] = useState({ lat: 0, lng: 0 }); // set default position
 
   const Recenter = ({ lat, lng }) => {
@@ -36,6 +37,12 @@ export function Map() {
             lat: data.values.latitude,
             lng: data.values.longitude,
           });
+          if (data.values.launch_position !== undefined) {
+            setLaunchPosition({
+              lat: data.values.launch_position.latitude,
+              lng: data.values.launch_position.longitude,
+            });
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -57,6 +64,13 @@ export function Map() {
         <Recenter lat={position.lat} lng={position.lng} />
         {position.lat !== 0 && position.lng !== 0 ? (
           <Circle center={position} radius={1000} />
+        ) : null}
+        {launchPosition !== null ? (
+          <Circle
+            center={launchPosition}
+            radius={10}
+            pathOptions={{ color: "red" }}
+          />
         ) : null}
         {/* <Circle center={position} radius={2500} /> */}
         <TileLayer

@@ -23,6 +23,7 @@ const responseMetadata = {
       description: "The method of the last contact with the flight computer.",
     },
   },
+  phase_prediction: {},
   location: {
     valid: {
       name: "Location Validity",
@@ -108,7 +109,12 @@ module.exports = class FlightDataHandler {
       return;
     }
 
-    const validCategories = ["location", "general", "mission_clock"];
+    const validCategories = [
+      "location",
+      "general",
+      "mission_clock",
+      "phase_prediction",
+    ];
 
     let category = req.query.category;
 

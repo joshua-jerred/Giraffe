@@ -24,6 +24,10 @@
 
 namespace giraffe {
 
+/**
+ * @brief Data that is persisted across system restarts. Used by the flight
+ * runner to track the state of the system.
+ */
 class FlightRunnerData {
 public:
   /**
@@ -77,6 +81,33 @@ public:
   void setFlightPhase(FlightPhase flight_phase);
   FlightPhase getFlightPhase() const;
 
+  /**
+   * @brief Clears the launch position/set it to invalid.
+   */
+  void clearLaunchPosition();
+
+  /**
+   * @brief Set the launch position. Called on the transition from pre-launch to
+   * launch.
+   * @param valid - True if the position is valid.
+   * @param latitude - The latitude of the launch position.
+   * @param longitude - The longitude of the launch position.
+   * @param altitude - The altitude of the launch position.
+   */
+  void setLaunchPosition(bool valid, double latitude, double longitude,
+                         double altitude);
+
+  /**
+   * @brief Get the Launch Position object
+   *
+   * @param[out] valid - True if the position is valid.
+   * @param[out] latitude - The latitude of the launch position.
+   * @param[out] longitude - The longitude of the launch position.
+   * @param[out] altitude - The altitude of the launch position.
+   */
+  void getLaunchPosition(bool &valid, double &latitude, double &longitude,
+                         double &altitude);
+
 private:
   /**
    * @brief Attempts to save the data to a file.
@@ -125,6 +156,14 @@ private:
    * @see detectFlightPhase
    */
   FlightPhase flight_phase_ = FlightPhase::UNKNOWN;
+
+  /**
+   * @brief The launch position. Set to invalid by default.
+   */
+  bool launch_position_valid_ = false;
+  double launch_position_latitude_ = 0.0;
+  double launch_position_longitude_ = 0.0;
+  double launch_position_altitude_ = 0.0;
 
   /**
    * @brief The path to the data file. Set in the constructor.

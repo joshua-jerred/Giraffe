@@ -118,6 +118,32 @@ public:
     return flight_phase;
   }
 
+  void setLaunchPosition(double latitude, double longitude, double altitude) {
+    launch_position_latitude_ = latitude;
+    launch_position_longitude_ = longitude;
+    launch_altitude_ = altitude;
+    have_launch_position_ = true;
+  }
+
+  bool getLaunchPosition(double &latitude, double &longitude,
+                         double &altitude) {
+    if (have_launch_position_) {
+      latitude = launch_position_latitude_;
+      longitude = launch_position_longitude_;
+      altitude = launch_altitude_;
+      return true;
+    }
+    return false;
+  }
+
+  void setPhasePrediction(double launch, double ascent, double descent,
+                          double landing, double recovery) {
+    launch_prediction_ = launch;
+    ascent_prediction_ = ascent;
+    descent_prediction_ = descent;
+    recovery_prediction_ = recovery;
+  }
+
   /**
    * @brief This is here so that the flight runner alone can set the flight
    * phase and mission clock.
@@ -125,11 +151,23 @@ public:
   friend FlightRunner;
 
   Json toJson() {
-    return Json({
-        {"uptime", getUptimeString()},
-        {"system_time_utc", getSystemTimeUtc()},
-        {"flight_phase", util::to_string(flight_phase)},
-    });
+    return Json({{"uptime", getUptimeString()},
+                 {"system_time_utc", getSystemTimeUtc()},
+                 {"flight_phase", util::to_string(flight_phase)},
+                 {"launch_position",
+                  {
+                      {"valid", have_launch_position_.load()},
+                      {"latitude", launch_position_latitude_.load()},
+                      {"longitude", launch_position_longitude_.load()},
+                      {"altitude", launch_altitude_.load()},
+                  }},
+                 {"phase_predictions",
+                  {
+                      {"launch", launch_prediction_.load()},
+                      {"ascent", ascent_prediction_.load()},
+                      {"descent", descent_prediction_.load()},
+                      {"recovery", recovery_prediction_.load()},
+                  }}});
   }
 
 private:
@@ -138,6 +176,18 @@ private:
 
   /// @brief The current flight phase.
   std::atomic<FlightPhase> flight_phase = FlightPhase::UNKNOWN;
+
+  /// @brief True if the launch position has been set.
+  std::atomic<bool> have_launch_position_ = false;
+  /// @brief The launch position.
+  std::atomic<double> launch_altitude_ = 0.0;
+  std::atomic<double> launch_position_latitude_ = 0.0;
+  std::atomic<double> launch_position_longitude_ = 0.0;
+
+  std::atomic<double> launch_prediction_ = 0.0;
+  std::atomic<double> ascent_prediction_ = 0.0;
+  std::atomic<double> descent_prediction_ = 0.0;
+  std::atomic<double> recovery_prediction_ = 0.0;
 };
 
 /**

@@ -94,6 +94,22 @@ FlightRunnerData::FlightRunnerData() {
     flight_phase_ = FlightPhase::UNKNOWN;
   }
 
+  // Load the launch position.
+  try {
+    launch_position_valid_ = data_json.at("launch_position_valid").get<bool>();
+    launch_position_latitude_ =
+        data_json.at("launch_position_latitude").get<double>();
+    launch_position_longitude_ =
+        data_json.at("launch_position_longitude").get<double>();
+    launch_position_altitude_ =
+        data_json.at("launch_position_altitude").get<double>();
+  } catch (std::exception &e) {
+    launch_position_valid_ = false;
+    launch_position_latitude_ = 0.0;
+    launch_position_longitude_ = 0.0;
+    launch_position_altitude_ = 0.0;
+  }
+
   // Save the data to the file.
   saveData();
 }
@@ -152,6 +168,29 @@ bool FlightRunnerData::getSecondsSincePreviousShutdown(int64_t &num_seconds) {
   return true;
 }
 
+void FlightRunnerData::clearLaunchPosition() {
+  launch_position_valid_ = false;
+  launch_position_latitude_ = 0.0;
+  launch_position_longitude_ = 0.0;
+  launch_position_altitude_ = 0.0;
+  saveData();
+}
+void FlightRunnerData::setLaunchPosition(bool valid, double latitude,
+                                         double longitude, double altitude) {
+  launch_position_valid_ = valid;
+  launch_position_latitude_ = latitude;
+  launch_position_longitude_ = longitude;
+  launch_position_altitude_ = altitude;
+  saveData();
+}
+void FlightRunnerData::getLaunchPosition(bool &valid, double &latitude,
+                                         double &longitude, double &altitude) {
+  valid = launch_position_valid_;
+  latitude = launch_position_latitude_;
+  longitude = launch_position_longitude_;
+  altitude = launch_position_altitude_;
+}
+
 void FlightRunnerData::saveData(bool shutdown_save) {
   Json data_json;
   data_json["startup_time"] = startup_time_.toString();
@@ -162,6 +201,10 @@ void FlightRunnerData::saveData(bool shutdown_save) {
   data_json["shutdown_reason"] = Json(shutdown_reason_);
   data_json["num_startups"] = num_startups_;
   data_json["flight_phase"] = Json(flight_phase_);
+  data_json["launch_position_valid"] = launch_position_valid_;
+  data_json["launch_position_latitude"] = launch_position_latitude_;
+  data_json["launch_position_longitude"] = launch_position_longitude_;
+  data_json["launch_position_altitude"] = launch_position_altitude_;
 
   try {
     std::ofstream data_file;

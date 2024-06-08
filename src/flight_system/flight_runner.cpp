@@ -295,3 +295,36 @@ void FlightRunner::toggleModule(const std::string &module_id, bool on_or_off) {
     }
   }
 }
+
+bool FlightRunner::setLaunchPosition() {
+  constexpr int K_LAUNCH_POSITION_TIMEOUT_S = 20;
+  const auto last_valid =
+      shared_data_.blocks.location_data.get().last_valid_gps_frame;
+
+  if (!last_valid.is_valid) {
+    shared_data_.streams.log.error(
+        node::Identification::FLIGHT_RUNNER,
+        DiagnosticId::FLIGHT_RUNNER_launchPositionInvalid, "inv");
+    flight_runner_data_.clearLaunchPosition();
+    return false;
+  }
+
+  const int age_seconds = last_valid.getAgeSeconds();
+  if (age_seconds) {
+    shared_data_.streams.log.error(
+        node::Identification::FLIGHT_RUNNER,
+        DiagnosticId::FLIGHT_RUNNER_launchPositionInvalid,
+        "to:" + std::to_string(age_seconds));
+    flight_runner_data_.clearLaunchPosition();
+    return false;
+  }
+
+  const double lat = last_valid.latitude;
+  const double lon = last_valid.longitude;
+  const double alt = last_valid.altitude;
+
+  flight_runner_data_.setLaunchPosition(true, lat, lon, alt);
+  shared_data_.flight_data.setLaunchPosition(lat, lon, alt);
+
+  return true;
+}

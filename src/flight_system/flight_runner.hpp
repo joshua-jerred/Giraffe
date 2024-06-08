@@ -95,6 +95,17 @@ private:
   void setFlightPhase(FlightPhase phase);
 
   /**
+   * @brief Called when transitioning from pre-launch to launch phase. Sets
+   * the launch position in shared data and saves it to file.
+   */
+  bool setLaunchPosition();
+
+  //// -- Flight Logic Methods -- ////
+  void fl_preLaunchLogic();
+  void fl_launchLogic();
+  //// -------------------------- ////
+
+  /**
    * @brief Non-volatile data for the flight runner.
    */
   FlightRunnerData flight_runner_data_ = FlightRunnerData();

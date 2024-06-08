@@ -132,6 +132,7 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::FLIGHT_RUNNER_failedToRouteCommand,"FLIGHT_RUNNER_failedToRouteCommand"},
   {DiagnosticId::FLIGHT_RUNNER_commandDestinationNotFound,"FLIGHT_RUNNER_commandDestinationNotFound"},
   {DiagnosticId::FLIGHT_RUNNER_invalidCommand,"FLIGHT_RUNNER_invalidCommand"},
+  {DiagnosticId::FLIGHT_RUNNER_launchPositionInvalid,"FLIGHT_RUNNER_launchPositionInvalid"},
   {DiagnosticId::EXT_FAULT_none,"EXT_FAULT_none"},
   {DiagnosticId::EXT_FAULT_fatalConfig,"EXT_FAULT_fatalConfig"},
   {DiagnosticId::EXT_FAULT_bme280StartupI2CConnect,"EXT_FAULT_bme280StartupI2CConnect"},
