@@ -137,7 +137,7 @@ public:
   }
 
   void setPhasePrediction(double launch, double ascent, double descent,
-                          double landing, double recovery) {
+                          double recovery) {
     launch_prediction_ = launch;
     ascent_prediction_ = ascent;
     descent_prediction_ = descent;

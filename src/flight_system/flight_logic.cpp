@@ -39,7 +39,6 @@ void FlightRunner::detectFlightPhase() {
   double launch = 0.0;
   double ascent = 0.0;
   double descent = 0.0;
-  double landing = 0.0;
   double recovery = 0.0;
 
   // parameters
@@ -80,7 +79,7 @@ void FlightRunner::detectFlightPhase() {
     recovery += 40.0 * (gps_vertical_speed_mps_60s < -0.5 &&
                         gps_vertical_speed_mps_60s > 0.5);
   }
-  shared_data_.flight_data.setPhasePrediction(launch, ascent, descent, landing,
+  shared_data_.flight_data.setPhasePrediction(launch, ascent, descent,
                                               recovery);
 
   // bool gps_valid = false;
