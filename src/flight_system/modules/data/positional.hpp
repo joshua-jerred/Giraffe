@@ -83,6 +83,10 @@ struct GpsFrame {
 
   /// @brief The heading of motion accuracy in degrees.
   double heading_accuracy = 0.0;
+
+  int getAgeSeconds() const {
+    return bst::clck::secondsElapsed(gps_utc_time);
+  }
 };
 
 void to_json(json &j, const data::GpsFrame &frame);

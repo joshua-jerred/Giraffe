@@ -392,8 +392,12 @@ struct CalculatedData {
   int32_t distance_from_launch_m = 0;
   bool distance_from_launch_valid = false;
 
-  int32_t average_horiz_speed_mps_5min = 0;
-  int32_t average_vert_speed_mps_5min = 0;
+  /// @brief The distance in meters from the launch altitude
+  int32_t distance_from_ground_m = 0;
+  bool distance_from_ground_valid = false;
+
+  int32_t average_horiz_speed_mps_1min = 0;
+  int32_t average_vert_speed_mps_1min = 0;
   bool average_speed_valid = false;
 
   int32_t max_horizontal_speed_mps = 0;
@@ -408,8 +412,8 @@ struct CalculatedData {
     json_data["distance_traveled_valid"] = distance_traveled_valid;
     json_data["distance_from_launch_m"] = distance_from_launch_m;
     json_data["distance_from_launch_valid"] = distance_from_launch_valid;
-    json_data["average_speed_horiz_mps_5min"] = average_horiz_speed_mps_5min;
-    json_data["average_speed_vert_mps_5min"] = average_vert_speed_mps_5min;
+    json_data["average_speed_horiz_mps_1min"] = average_horiz_speed_mps_1min;
+    json_data["average_speed_vert_mps_1min"] = average_vert_speed_mps_1min;
     json_data["average_speed_valid"] = average_speed_valid;
     json_data["max_horiz_speed_mps"] = max_horizontal_speed_mps;
     json_data["max_vert_speed_mps"] = max_vertical_speed_mps;

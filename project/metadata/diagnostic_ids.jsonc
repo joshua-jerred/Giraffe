@@ -6,56 +6,57 @@
     "enum_type": "uint16_t",
     "generate_string_map": "K_DIAGNOSTIC_ID_STRING_MAP"
   },
-  "generic": { // also 'common'
+  "generic": {
+    // also 'common'
     "unknown": {
       "name": "Unknown",
       "details": "The error is unknown.",
       "value": "0xF000"
     },
     "info": {
-      "name":"info",
-      "details":"Not and error, just info.",
-      "value":"0xF001"
+      "name": "info",
+      "details": "Not and error, just info.",
+      "value": "0xF001"
     },
-    "debug":{
-      "name":"debug",
-      "details":"Not and error, just debug info.",
-      "value":"0xF002"
+    "debug": {
+      "name": "debug",
+      "details": "Not and error, just debug info.",
+      "value": "0xF002"
     },
-    "not_implemented":{
-      "name":"Not Implemented",
-      "details":"This feature is not implemented.",
-      "value":"0xF003"
+    "not_implemented": {
+      "name": "Not Implemented",
+      "details": "This feature is not implemented.",
+      "value": "0xF003"
     },
-    "home_env_var_not_set":{
-      "name":"Home Environment Variable Not Set",
-      "details":"The HOME environment variable is not set.",
-      "value":"0xF004"
+    "home_env_var_not_set": {
+      "name": "Home Environment Variable Not Set",
+      "details": "The HOME environment variable is not set.",
+      "value": "0xF004"
     },
-    "home_env_var_not_dir":{
-      "name":"Home Environment Variable Not Directory",
-      "details":"The HOME environment variable is not a directory.",
-      "value":"0xF005"
+    "home_env_var_not_dir": {
+      "name": "Home Environment Variable Not Directory",
+      "details": "The HOME environment variable is not a directory.",
+      "value": "0xF005"
     },
-    "failed_to_create_giraffe_dir":{
-      "name":"Failed to Create Giraffe Directory",
-      "details":"The giraffe directory could not be created.",
-      "value":"0xF006"
+    "failed_to_create_giraffe_dir": {
+      "name": "Failed to Create Giraffe Directory",
+      "details": "The giraffe directory could not be created.",
+      "value": "0xF006"
     },
     "failed_to_create_gfs_image_dir": {
-      "name":"Failed to Create GFS Image Directory",
-      "details":"The GFS image directory could not be created.",
-      "value":"0xF007"
+      "name": "Failed to Create GFS Image Directory",
+      "details": "The GFS image directory could not be created.",
+      "value": "0xF007"
     },
     "failed_to_create_gfs_log_dir": {
-      "name":"Failed to Create GFS Log Directory",
-      "details":"The GFS log directory could not be created.",
-      "value":"0xF008"
+      "name": "Failed to Create GFS Log Directory",
+      "details": "The GFS log directory could not be created.",
+      "value": "0xF008"
     },
     "failed_to_create_gfs_data_dir": {
-      "name":"Failed to Create GFS Data Directory",
-      "details":"The GFS data directory could not be created.",
-      "value":"0xF009"
+      "name": "Failed to Create GFS Data Directory",
+      "details": "The GFS data directory could not be created.",
+      "value": "0xF009"
     }
   },
   "config": {
@@ -109,39 +110,39 @@
       "details": "A section of the config file could not be loaded because it was not found.",
       "value": "0x0009"
     },
-    "extensions_not_array":{
+    "extensions_not_array": {
       "name": "Extensions in config file is not an array",
       "details": "The extensions field in the config file must be an array, could not load any extensions.",
       "value": "0x000A"
     },
-    "extension_not_object":{
-      "name":"Extension is not an object",
+    "extension_not_object": {
+      "name": "Extension is not an object",
       "details": "An item in the extensions array is not an object. This is reported along with the index of the item.",
       "value": "0x000B"
     },
-    "extension_name_already_exists":{
-      "name":"Extension Name Already Exists",
-      "details":"This will happen during the loading or when adding an extension. Extension names must be unique.",
+    "extension_name_already_exists": {
+      "name": "Extension Name Already Exists",
+      "details": "This will happen during the loading or when adding an extension. Extension names must be unique.",
       "value": "0x000C"
     },
-    "extension_name_does_not_exist":{
-      "name":"Extension Name Does Not Exist",
-      "details":"This will happen when trying to remove/alter an extension that does not exist.",
+    "extension_name_does_not_exist": {
+      "name": "Extension Name Does Not Exist",
+      "details": "This will happen when trying to remove/alter an extension that does not exist.",
       "value": "0x000D"
     },
-    "adc_mappings_not_array":{
-      "name":"ADC Mappings Not Array",
-      "details":"The ADC mappings field in the config file must be an array, could not load any ADC mappings.",
+    "adc_mappings_not_array": {
+      "name": "ADC Mappings Not Array",
+      "details": "The ADC mappings field in the config file must be an array, could not load any ADC mappings.",
       "value": "0x000F"
     },
-    "adc_mapping_not_object":{
-      "name":"ADC Mapping Not Object",
-      "details":"An item in the ADC mappings array is not an object. This is reported along with the index of the item.",
+    "adc_mapping_not_object": {
+      "name": "ADC Mapping Not Object",
+      "details": "An item in the ADC mappings array is not an object. This is reported along with the index of the item.",
       "value": "0x0010"
     },
-    "adc_mapping_label_already_exists":{
-      "name":"ADC Mapping Label Already Exists",
-      "details":"This will happen during the loading or when adding an ADC mapping. ADC mapping labels must be unique.",
+    "adc_mapping_label_already_exists": {
+      "name": "ADC Mapping Label Already Exists",
+      "details": "This will happen during the loading or when adding an ADC mapping. ADC mapping labels must be unique.",
       "value": "0x0011"
     }
   },
@@ -168,22 +169,22 @@
       "details": "The data packet type is not known to the data module",
       "value": "0x2001"
     },
-    "camera_new_image_packet_invalid_path":{
+    "camera_new_image_packet_invalid_path": {
       "name": "Camera New Image Packet - Invalid Path",
       "details": "The path to the image is invalid.",
       "value": "0x2002"
     },
-    "camera_new_image_packet_invalid_fields":{
+    "camera_new_image_packet_invalid_fields": {
       "name": "Camera New Image Packet - Invalid Fields",
       "details": "Error info contains the fields that are invalid. These packets must come from an extension.",
       "value": "0x2003"
     },
-    "unrecognized_command":{
+    "unrecognized_command": {
       "name": "Unrecognized Command",
       "details": "The command is not recognized by the data module.",
       "value": "0x2004"
     },
-    "no_gps_source":{
+    "no_gps_source": {
       "name": "No GPS Source",
       "details": "No source for GPS data has been set.",
       "value": "0x2005"
@@ -195,17 +196,17 @@
     }
   },
   "data_log": {
-    "invalid_dataframe_strategy":{
+    "invalid_dataframe_strategy": {
       "name": "Invalid data log strategy",
       "details": "It should not be possible for this to happen. The strategy will revert to 'interval' and the whole dataframe will be logged.",
       "value": "0x3000"
     },
-    "archive_old_data_files":{
+    "archive_old_data_files": {
       "name": "Failed to archive old data files",
       "details": "On startup, the data log module will attempt to archive old data files that are sitting in the data directory. This error is thrown if the archive fails.",
       "value": "0x3001"
     },
-    "archive_old_log_files":{
+    "archive_old_log_files": {
       "name": "Failed to archive old log files",
       "details": "On startup, the data log module will attempt to archive old log files that are sitting in the log directory. This error is thrown if the archive fails.",
       "value": "0x3002"
@@ -410,19 +411,19 @@
       "details": "The log file could not be rotated.",
       "value": "0x3028"
     },
-    "file_list_fail":{
+    "file_list_fail": {
       "name": "Failed to update archive file list",
       "details": "The archive file list could not be generated due to an exception.",
       "value": "0x3029"
     },
     // Archive Trim
-    "data_archive_trimmed":{
-      "name":"Data Archive Trimmed",
+    "data_archive_trimmed": {
+      "name": "Data Archive Trimmed",
       "details": "The data archive directory ran out of space and a file was deleted.",
       "value": "0x2004"
     },
-    "data_archive_trim_failed":{
-      "name":"Data Archive Trim Failed",
+    "data_archive_trim_failed": {
+      "name": "Data Archive Trim Failed",
       "details": "The data archive directory is out of space, but a file could not be deleted.",
       "value": "0x302A"
     }
@@ -446,52 +447,52 @@
     }
   },
   "server_module": {
-    "invalid_command_string":{
+    "invalid_command_string": {
       "name": "Invalid Command String",
       "details": "Command string sent to the server module via a set request could not be parsed.",
       "value": "0x4100"
     }
   },
-  "extension_module":{
-    "failed_to_create":{
+  "extension_module": {
+    "failed_to_create": {
       "name": "Failed to Create Extension",
       "details": "The extension could not be created.",
       "value": "0x4004"
     },
-    "invalid_command":{
+    "invalid_command": {
       "name": "Invalid Command",
       "details": "The command sent to the extension module is not valid.",
       "value": "0x4005"
     },
-    "invalid_preconfigured_extension_type":{
+    "invalid_preconfigured_extension_type": {
       "name": "Invalid Preconfigured Extension Type",
       "details": "The preconfigured extension type is not valid.",
       "value": "0x4006"
     }
   },
-  "extension":{
-    "start_call":{
+  "extension": {
+    "start_call": {
       "name": "Can not start if already running, starting, or sleeping.",
       "details": "This case should not happen, but it can happen on a call to start.",
       "value": "0x5001"
     },
-    "stop_timeout":{
-      "name":"Failed to stop in time",
+    "stop_timeout": {
+      "name": "Failed to stop in time",
       "details": "The extension failed to stop in the time allotted.",
       "value": "0x5002"
     },
-    "bme280_temperature_range":{
-      "name":"BME280 Temperature Range Warning",
+    "bme280_temperature_range": {
+      "name": "BME280 Temperature Range Warning",
       "details": "The temperature is outside of the BME280's accurate range.",
       "value": "0x5003"
     },
-    "bme280_pressure_range":{
-      "name":"BME280 Pressure Range Warning",
+    "bme280_pressure_range": {
+      "name": "BME280 Pressure Range Warning",
       "details": "The pressure is outside of the BME280's accurate range.",
       "value": "0x5004"
     },
-    "bme280_humidity_range":{
-      "name":"BME280 Humidity Range Warning",
+    "bme280_humidity_range": {
+      "name": "BME280 Humidity Range Warning",
       "details": "The humidity is outside of the BME280's accurate range.",
       "value": "0x5005"
     },
@@ -500,49 +501,49 @@
       "details": "Prevented a DIV0 while processing BME280 data.",
       "value": "0x5006"
     },
-    "ds18b20_temperature_range":{
-      "name":"DS18B20 Temperature Range Warning",
-      "details":"The temperature value read from the DS18B20 is outside of it's accurate range.",
+    "ds18b20_temperature_range": {
+      "name": "DS18B20 Temperature Range Warning",
+      "details": "The temperature value read from the DS18B20 is outside of it's accurate range.",
       "value": "0x5007"
     },
-    "samm8q_read_watchdog":{
-      "name":"SAMM8Q Read Watchdog",
-      "details":"The SAMM8Q read watchdog has expired.",
+    "samm8q_read_watchdog": {
+      "name": "SAMM8Q Read Watchdog",
+      "details": "The SAMM8Q read watchdog has expired.",
       "value": "0x5008"
     },
-    "samm8q_configure_set_protocol":{
-      "name":"SAMM8Q Configure Set Protocol",
-      "details":"The SAMM8Q failed to set the protocol.",
+    "samm8q_configure_set_protocol": {
+      "name": "SAMM8Q Configure Set Protocol",
+      "details": "The SAMM8Q failed to set the protocol.",
       "value": "0x5009"
     },
-    "samm8q_configure_set_measurement_rate":{
-      "name":"SAMM8Q Configure Set Measurement Rate",
-      "details":"The SAMM8Q failed to set the measurement rate.",
+    "samm8q_configure_set_measurement_rate": {
+      "name": "SAMM8Q Configure Set Measurement Rate",
+      "details": "The SAMM8Q failed to set the measurement rate.",
       "value": "0x500A"
     },
-    "samm8q_configure_set_dynamic_model":{
-      "name":"SAMM8Q Configure Set Dynamic Model",
-      "details":"The SAMM8Q failed to set the dynamic model.",
+    "samm8q_configure_set_dynamic_model": {
+      "name": "SAMM8Q Configure Set Dynamic Model",
+      "details": "The SAMM8Q failed to set the dynamic model.",
       "value": "0x500B"
     },
-    "samm8q_read_timeout":{
-      "name":"SAMM8Q Read Timeout",
-      "details":"The SAM-M8Q extension failed to read a frame in time.",
+    "samm8q_read_timeout": {
+      "name": "SAMM8Q Read Timeout",
+      "details": "The SAM-M8Q extension failed to read a frame in time.",
       "value": "0x500C"
     },
-    "adc_config_fail":{
-      "name":"ADC Config Failure",
-      "details":"The ADC configuration string is invalid, defaulting to raw ADC count output",
+    "adc_config_fail": {
+      "name": "ADC Config Failure",
+      "details": "The ADC configuration string is invalid, defaulting to raw ADC count output",
       "value": "0x500D"
     },
     "pi_camera_capture_fail": {
-      "name":"Pi Camera Capture Failure",
-      "details":"The Pi Camera extension failed to capture an image.",
+      "name": "Pi Camera Capture Failure",
+      "details": "The Pi Camera extension failed to capture an image.",
       "value": "0x500E"
     },
     "samm8q_invalid_time": {
-      "name":"SAMM8Q Invalid Time",
-      "details":"The SAM-M8Q extension failed upon trying to convert the time into a C++ time object.",
+      "name": "SAMM8Q Invalid Time",
+      "details": "The SAM-M8Q extension failed upon trying to convert the time into a C++ time object.",
       "value": "0x500F"
     }
   },
@@ -557,263 +558,268 @@
       "details": "The command destination was not found.",
       "value": "0x6001"
     },
-    "invalid_command":{
+    "invalid_command": {
       "name": "Invalid Command",
       "details": "The command sent to the flight runner is not valid.",
       "value": "0x6002"
+    },
+    "launch_position_invalid": {
+      "name": "Launch Position Invalid",
+      "details": "The last gps fix was not valid when transitioning from pre-launch to launch.",
+      "value": "0x6003"
     }
   },
-  "ext_fault":{
+  "ext_fault": {
     // These are only reported by extensions when they must stop
     // Other errors should have already been reported.
-    "none":{
+    "none": {
       "name": "No fault",
       "details": "Default, should not be thrown.",
       "value": "0x7000"
     },
-    "fatal_config":{
-      "name":"Fatal Configuration Error",
+    "fatal_config": {
+      "name": "Fatal Configuration Error",
       "details": "The extension has a fatal configuration error, it will not be restarted.",
       "value": "0x7001"
     },
-    "bme280_startup_i2c_connect":{
-      "name":"BME280 Startup I2C Connect Fault",
+    "bme280_startup_i2c_connect": {
+      "name": "BME280 Startup I2C Connect Fault",
       "details": "The extension failed to connect to the I2C bus on startup.",
       "value": "0x7002"
     },
-    "bme280_startup_handshake":{
-      "name":"BME280 Startup Handshake Fault",
+    "bme280_startup_handshake": {
+      "name": "BME280 Startup Handshake Fault",
       "details": "The BME280 failed to handshake on startup after a set number of retry attempt.",
       "value": "0x7003"
     },
-    "bme280_startup_configure":{
-      "name":"BME280 Startup Configure Fault",
+    "bme280_startup_configure": {
+      "name": "BME280 Startup Configure Fault",
       "details": "Failed to configure the BME280 on startup.",
       "value": "0x7003"
     },
-    "bme280_startup_read_compensation":{
-      "name":"BME280 Startup Read Compensation Fault",
+    "bme280_startup_read_compensation": {
+      "name": "BME280 Startup Read Compensation Fault",
       "details": "Failed to read compensation data from the BME280 on startup.",
       "value": "0x7003"
     },
-    "bme280_read_timeout":{
-      "name":"BME280 Read Timeout Fault",
-      "details":"While running, the BME280 failed to successfully read good data from the sensor before the timeout.",
+    "bme280_read_timeout": {
+      "name": "BME280 Read Timeout Fault",
+      "details": "While running, the BME280 failed to successfully read good data from the sensor before the timeout.",
       "value": "0x7004"
     },
-    "ds18b20_id_invalid":{
-      "name":"DS18B20 Invalid ID Fault",
-      "details":"The configured DS18B20 ID does not match the regex pattern.",
+    "ds18b20_id_invalid": {
+      "name": "DS18B20 Invalid ID Fault",
+      "details": "The configured DS18B20 ID does not match the regex pattern.",
       "value": "0x7005"
     },
-    "ds18b20_device_not_found":{
-      "name":"DS18B20 Device Not Found Fault",
-      "details":"The configured DS18B20 ID was not found on the bus.",
+    "ds18b20_device_not_found": {
+      "name": "DS18B20 Device Not Found Fault",
+      "details": "The configured DS18B20 ID was not found on the bus.",
       "value": "0x7006"
     },
-    "ds18b20_read_raw":{
-      "name":"DS18B20 Timeout - Read Raw",
-      "details":"The DS18B20 timed out, it's last failure was while trying to read raw data.",
+    "ds18b20_read_raw": {
+      "name": "DS18B20 Timeout - Read Raw",
+      "details": "The DS18B20 timed out, it's last failure was while trying to read raw data.",
       "value": "0x7007"
     },
-    "ds18b20_raw_temp_empty":{
-      "name":"DS18B20 Timeout - Raw Temp Empty",
-      "details":"The DS18B20 timed out, it's last failure was having an empty raw temperature value.",
+    "ds18b20_raw_temp_empty": {
+      "name": "DS18B20 Timeout - Raw Temp Empty",
+      "details": "The DS18B20 timed out, it's last failure was having an empty raw temperature value.",
       "value": "0x7008"
     },
-    "ds18b20_raw_temp_stoi":{
-      "name":"DS18B20 Timeout - STOI",
-      "details":"The DS18B20 timed out, it's last failure was on trying to convert the raw temperature string to a integer.",
+    "ds18b20_raw_temp_stoi": {
+      "name": "DS18B20 Timeout - STOI",
+      "details": "The DS18B20 timed out, it's last failure was on trying to convert the raw temperature string to a integer.",
       "value": "0x7009"
     },
-    "ds18b20_init_timeout":{
-      "name":"DS18B20 Timeout - Init",
-      "details":"The DS18B20 timed out on initialization but did not provide a more specific error. This should not happen.",
+    "ds18b20_init_timeout": {
+      "name": "DS18B20 Timeout - Init",
+      "details": "The DS18B20 timed out on initialization but did not provide a more specific error. This should not happen.",
       "value": "0x700A"
     },
-    "ds18b20_read_timeout":{
-      "name":"DS18B20 Timeout - Read",
-      "details":"The DS18B20 timed out on read but did not provide a more specific error. This should not happen.",
+    "ds18b20_read_timeout": {
+      "name": "DS18B20 Timeout - Read",
+      "details": "The DS18B20 timed out on read but did not provide a more specific error. This should not happen.",
       "value": "0x700B"
     },
-    "samm8q_i2c_connect":{
-      "name":"SAMM8Q I2C Connect Fault",
-      "details":"The SAMM8Q extension failed to connect to the I2C bus.",
+    "samm8q_i2c_connect": {
+      "name": "SAMM8Q I2C Connect Fault",
+      "details": "The SAMM8Q extension failed to connect to the I2C bus.",
       "value": "0x700C"
     },
-    "samm8q_startup_handshake":{
-      "name":"SAMM8Q Startup Handshake Fault",
-      "details":"The SAMM8Q extension failed to handshake in time.",
+    "samm8q_startup_handshake": {
+      "name": "SAMM8Q Startup Handshake Fault",
+      "details": "The SAMM8Q extension failed to handshake in time.",
       "value": "0x700D"
     },
-    "samm8q_reset_failure":{
-      "name":"SAMM8Q Reset Failure Fault",
-      "details":"The SAMM8Q extension failed to reset in time.",
+    "samm8q_reset_failure": {
+      "name": "SAMM8Q Reset Failure Fault",
+      "details": "The SAMM8Q extension failed to reset in time.",
       "value": "0x700E"
     },
-    "i2c_bus_connect_fault":{
-      "name":"I2C Bus Connect Fault",
-      "details":"The I2C bus failed to connect. Does it exist and is it enabled?",
+    "i2c_bus_connect_fault": {
+      "name": "I2C Bus Connect Fault",
+      "details": "The I2C bus failed to connect. Does it exist and is it enabled?",
       "value": "0x700F"
     },
-    "i2c_address_set_fault":{
-      "name":"I2C Address Set Fault",
-      "details":"The I2C address failed to set.",
+    "i2c_address_set_fault": {
+      "name": "I2C Address Set Fault",
+      "details": "The I2C address failed to set.",
       "value": "0x7010"
     },
     "i2c_unknown_fault": {
-      "name":"I2C Unknown Fault",
-      "details":"The I2C bus failed for an unknown reason.",
+      "name": "I2C Unknown Fault",
+      "details": "The I2C bus failed for an unknown reason.",
       "value": "0x7011"
     },
-    "i2c_handshake_timeout_fault":{
-      "name":"I2C Handshake Timeout Fault",
-      "details":"The I2C handshake timed out.",
+    "i2c_handshake_timeout_fault": {
+      "name": "I2C Handshake Timeout Fault",
+      "details": "The I2C handshake timed out.",
       "value": "0x7012"
     },
-    "adc_watchdog_timeout":{
-      "name":"ADC Watchdog Timeout Fault",
-      "details":"The ADC did not successfully read a value before the watchdog timer expired.",
+    "adc_watchdog_timeout": {
+      "name": "ADC Watchdog Timeout Fault",
+      "details": "The ADC did not successfully read a value before the watchdog timer expired.",
       "value": "0x7013"
     },
-    "bmi088_address_error":{
-      "name":"Provided BMI088 address is invalid",
-      "details":"Extra args should be provided with the format: \"<accel_address>,<gyro_address>\"",
+    "bmi088_address_error": {
+      "name": "Provided BMI088 address is invalid",
+      "details": "Extra args should be provided with the format: \"<accel_address>,<gyro_address>\"",
       "value": "0x7014"
     },
-    "bmi088_accel_handshake_error":{
-      "name":"BMI088 Accel Handshake Error",
-      "details":"The BMI088 Accelerometer failed to handshake.",
+    "bmi088_accel_handshake_error": {
+      "name": "BMI088 Accel Handshake Error",
+      "details": "The BMI088 Accelerometer failed to handshake.",
       "value": "0x7015"
     },
-    "bmi088_gyro_handshake_error":{
-      "name":"BMI088 Gyro Handshake Error",
-      "details":"The BMI088 Gyroscope failed to handshake.",
+    "bmi088_gyro_handshake_error": {
+      "name": "BMI088 Gyro Handshake Error",
+      "details": "The BMI088 Gyroscope failed to handshake.",
       "value": "0x7016"
     },
-    "bmi088_accel_open_error":{
-      "name":"BMI088 Accel Open Error",
-      "details":"The BMI088 Accelerometer SPI path failed to open.",
+    "bmi088_accel_open_error": {
+      "name": "BMI088 Accel Open Error",
+      "details": "The BMI088 Accelerometer SPI path failed to open.",
       "value": "0x7017"
     },
-    "bmi088_gyro_open_error":{
-      "name":"BMI088 Gyro Open Error",
-      "details":"The BMI088 Gyroscope SPI path failed to open.",
+    "bmi088_gyro_open_error": {
+      "name": "BMI088 Gyro Open Error",
+      "details": "The BMI088 Gyroscope SPI path failed to open.",
       "value": "0x7018"
     },
-    "bmi088_accel_config_error":{
-      "name":"BMI088 Accel Config Error",
-      "details":"The BMI088 Accelerometer failed to configure.",
+    "bmi088_accel_config_error": {
+      "name": "BMI088 Accel Config Error",
+      "details": "The BMI088 Accelerometer failed to configure.",
       "value": "0x7019"
     },
-    "bmi088_gyro_config_error":{
-      "name":"BMI088 Gyro Config Error",
-      "details":"The BMI088 Gyroscope failed to configure.",
+    "bmi088_gyro_config_error": {
+      "name": "BMI088 Gyro Config Error",
+      "details": "The BMI088 Gyroscope failed to configure.",
       "value": "0x701A"
     },
-    "bmi088_read_timeout":{
-      "name":"BMI088 Read Timeout",
-      "details":"The BMI088 failed to read data in time.",
+    "bmi088_read_timeout": {
+      "name": "BMI088 Read Timeout",
+      "details": "The BMI088 failed to read data in time.",
       "value": "0x701B"
     },
-    "rgb_status_led_extra_args":{
-      "name":"RGB Status LED Extra Args",
-      "details":"The RGB status LED extension was provided invalid extra args. (GPIO Config)",
+    "rgb_status_led_extra_args": {
+      "name": "RGB Status LED Extra Args",
+      "details": "The RGB status LED extension was provided invalid extra args. (GPIO Config)",
       "value": "0x701C"
     },
     "rgb_status_led_failed_to_setup_pins": {
-      "name":"RGB Status LED Failed to Setup Pins",
-      "details":"The RGB status LED extension failed to setup the GPIO pins.",
+      "name": "RGB Status LED Failed to Setup Pins",
+      "details": "The RGB status LED extension failed to setup the GPIO pins.",
       "value": "0x701D"
     },
     "rgb_status_led_shutdown_failed": {
-      "name":"RGB Status LED Shutdown Failed",
-      "details":"The RGB status LED extension failed to shutdown.",
+      "name": "RGB Status LED Shutdown Failed",
+      "details": "The RGB status LED extension failed to shutdown.",
       "value": "0x701E"
     },
     "pi_camera_not_on_pi": {
-      "name":"Pi Camera Not on Pi",
-      "details":"The Pi Camera extension is not running on a Raspberry Pi.",
+      "name": "Pi Camera Not on Pi",
+      "details": "The Pi Camera extension is not running on a Raspberry Pi.",
       "value": "0x701F"
     },
     "pi_camera_not_detected": {
-      "name":"Pi Camera Not Detected",
-      "details":"The Pi Camera extension failed to detect the camera.",
+      "name": "Pi Camera Not Detected",
+      "details": "The Pi Camera extension failed to detect the camera.",
       "value": "0x7020"
     },
     "pi_camera_detect_failed": {
-      "name":"Pi Camera Detect Failed",
-      "details":"The Pi Camera extension ran into an error, possibly related to the rpicam-apps install.",
+      "name": "Pi Camera Detect Failed",
+      "details": "The Pi Camera extension ran into an error, possibly related to the rpicam-apps install.",
       "value": "0x7021"
     },
     "pi_camera_invalid_image_dir": {
-      "name":"Pi Camera Invalid Image Directory",
-      "details":"The Pi Camera extension was provided an invalid image directory.",
+      "name": "Pi Camera Invalid Image Directory",
+      "details": "The Pi Camera extension was provided an invalid image directory.",
       "value": "0x7022"
     },
     "pi_camera_capture_failed": {
-      "name":"Pi Camera Capture Failed (multiple)",
-      "details":"The Pi Camera extension has failed multiple times to capture an image.",
+      "name": "Pi Camera Capture Failed (multiple)",
+      "details": "The Pi Camera extension has failed multiple times to capture an image.",
       "value": "0x7023"
     },
     "imu_watchdog_timeout": {
-      "name":"IMU Watchdog Timeout",
-      "details":"The IMU extension failed to read data in time.",
+      "name": "IMU Watchdog Timeout",
+      "details": "The IMU extension failed to read data in time.",
       "value": "0x7024"
     },
     "imu_invalid_report_interval": {
-      "name":"IMU Invalid Report Interval",
-      "details":"The IMU extension was provided an invalid report interval in it's extra args.",
+      "name": "IMU Invalid Report Interval",
+      "details": "The IMU extension was provided an invalid report interval in it's extra args.",
       "value": "0x7025"
     }
   },
-  "interface":{
-    "invalid_gpio_pin":{
+  "interface": {
+    "invalid_gpio_pin": {
       "name": "Invalid GPIO Pin",
       "details": "The GPIO pin is not valid.",
       "value": "0x8000"
     },
-    "invalid_gpio_pin_mode":{
+    "invalid_gpio_pin_mode": {
       "name": "Invalid GPIO Pin Mode",
       "details": "The GPIO pin mode is not valid.",
       "value": "0x8001"
     },
-    "initial_state_input_pin":{
+    "initial_state_input_pin": {
       "name": "Initial State Input Pin",
       "details": "The GPIO pin is an input pin and can not be set to an initial state.",
       "value": "0x8002"
     },
-    "gpio_failed_to_init":{
+    "gpio_failed_to_init": {
       "name": "GPIO Init Failed",
       "details": "Failed to open /dev/gpiomem",
       "value": "0x8003"
     },
-    "gpio_failed_to_map_registers":{
+    "gpio_failed_to_map_registers": {
       "name": "GPIO Map Registers Failed",
       "details": "Failed to map registers",
       "value": "0x8004"
     },
-    "gpio_not_initialized":{
+    "gpio_not_initialized": {
       "name": "GPIO Not Initialized",
       "details": "A pin can not be reserved as the GPIO module has not been initialized.",
       "value": "0x8005"
     },
-    "gpio_pin_already_reserved":{
+    "gpio_pin_already_reserved": {
       "name": "GPIO Pin Already Reserved",
       "details": "The GPIO pin is already reserved.",
       "value": "0x8006"
     },
-    "gpio_not_owner":{
+    "gpio_not_owner": {
       "name": "GPIO Not Owner",
       "details": "The GPIO pin is not owned by the caller.",
       "value": "0x8007"
     },
-    "gpio_pin_not_output":{
+    "gpio_pin_not_output": {
       "name": "GPIO Pin Not Output",
       "details": "The GPIO pin is not an output pin. Can't write to it.",
       "value": "0x8008"
     },
-    "gpio_not_reserver_or_not_owner":{
+    "gpio_not_reserver_or_not_owner": {
       "name": "GPIO Pin Not Reserved or Not Owner",
       "details": "The GPIO pin is not reserved or the caller is not the owner.",
       "value": "0x8009"
@@ -824,30 +830,30 @@
       "value": "0x800A"
     }
   },
-  "gdl":{
-    "invalid_start_call":{
+  "gdl": {
+    "invalid_start_call": {
       "name": "Invalid Start Call",
       "details": "Call to GDL::start() when not in the stopped state.",
       "value": "0xA000"
     },
-    "invalid_stop_call":{
+    "invalid_stop_call": {
       "name": "Invalid Stop Call",
       "details": "Call to GDL::stop() when not in the running state.",
       "value": "0xA001"
     },
-    "invalid_broadcast_call":{
+    "invalid_broadcast_call": {
       "name": "Invalid Broadcast Call",
       "details": "Call to GDL::broadcast() when not in the running state.",
       "value": "0xA002"
     },
-    "invalid_exchange_call":{
+    "invalid_exchange_call": {
       "name": "Invalid Exchange Call",
       "details": "Call to GDL::exchange() when not in the running state.",
       "value": "0xA003"
     }
   },
-  "telemetry":{
-    "invalid_command":{
+  "telemetry": {
+    "invalid_command": {
       "name": "Invalid Command",
       "details": "The command sent to the telemetry module is not valid.",
       "value": "0xB000"

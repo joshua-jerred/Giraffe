@@ -349,26 +349,20 @@ void modules::DataModule::calculateCalculatedData() {
   constexpr double MOVEMENT_THRESHOLD_KM = 0.25;
 
   auto gps_data = shared_data_.blocks.location_data.get();
-
   if (!launch_gps_point_set_) { // No launch point set yet
+    double lat = 0;
+    double lon = 0;
+    double alt = 0;
 
-    if (gps_data.last_valid_gps_frame.fix == data::GpsFix::FIX_2D ||
-        gps_data.last_valid_gps_frame.fix == data::GpsFix::FIX_3D) {
-      try {
-        launch_gps_point_ =
-            bst::geo::Point(gps_data.last_valid_gps_frame.latitude,
-                            gps_data.last_valid_gps_frame.longitude);
-        last_gps_point_ = launch_gps_point_;
-        launch_gps_point_set_ = true;
-        info("Launch point set to: " +
-             std::to_string(launch_gps_point_.latitude()) + ", " +
-             std::to_string(launch_gps_point_.longitude()));
-        /// @todo Report the launch position as a data point
-      } catch (const bst::BoosterSeatException &e) {
-        /// @todo Report this error
-      }
+    if (shared_data_.flight_data.getLaunchPosition(lat, lon, alt)) {
+      launch_gps_point_ = bst::geo::Point(lat, lon);
+      launch_gps_altitude_ = alt;
+      last_gps_point_ = launch_gps_point_;
+      launch_gps_point_set_ = true;
+    } else {
+      calculated_data_.distance_traveled_valid = false;
+      calculated_data_.distance_from_launch_valid = false;
     }
-
   } else if (gps_data.last_valid_gps_frame.fix == data::GpsFix::FIX_2D ||
              gps_data.last_valid_gps_frame.fix == data::GpsFix::FIX_3D) {
     try {
@@ -388,6 +382,10 @@ void modules::DataModule::calculateCalculatedData() {
           bst::geo::distance(launch_gps_point_, current_point) *
           1000; // convert to meters
       calculated_data_.distance_from_launch_valid = true;
+
+      // altitude difference from launch
+      calculated_data_.distance_from_ground_m =
+          gps_data.last_valid_gps_frame.altitude - launch_gps_altitude_;
     } catch (const bst::BoosterSeatException &e) {
       /// @todo Report this error
     }
@@ -418,9 +416,9 @@ void modules::DataModule::calculateCalculatedData() {
           gps_data.last_valid_gps_frame.vertical_speed);
     }
 
-    calculated_data_.average_horiz_speed_mps_5min =
+    calculated_data_.average_horiz_speed_mps_1min =
         average_horizontal_speed_.getAverage();
-    calculated_data_.average_vert_speed_mps_5min =
+    calculated_data_.average_vert_speed_mps_1min =
         average_vertical_speed_.getAverage();
 
   } else {

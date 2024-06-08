@@ -17,14 +17,76 @@
 #include "flight_runner.hpp"
 #include "to_string.hpp"
 
+//// ---------------------- FLIGHT LOGIC PLUGINS ---------------------- ////
+
+void FlightRunner::fl_preLaunchLogic() {
+  // This is the pre-launch logic
+}
+
+//// ------------------------------------------------------------------ ////
+
 void FlightRunner::flightLogic() {
   detectFlightPhase();
 }
 
 void FlightRunner::detectFlightPhase() {
-  bool gps_valid = false;
-  bool ascending = false;
-  bool descending = false;
+  const auto calculated = shared_data_.blocks.calculated_data.get();
+  const auto location = shared_data_.blocks.location_data.get();
+
+  const bool gps_valid = location.last_valid_gps_fix == data::GpsFix::FIX_3D;
+
+  // predicted probabilities of being in each phase
+  double launch = 0.0;
+  double ascent = 0.0;
+  double descent = 0.0;
+  double recovery = 0.0;
+
+  // parameters
+  double gps_distance_from_launch_m = calculated.distance_from_launch_m;
+  double gps_distance_from_ground_m = calculated.distance_from_ground_m;
+  double gps_altitude_m = location.last_valid_gps_frame.altitude;
+  double gps_horizontal_speed_mps_10s = calculated.average_horiz_speed_mps_1min;
+  // double gps_vertical_speed_mps_10s = 0.0;
+  double gps_vertical_speed_mps_60s = calculated.average_vert_speed_mps_1min;
+
+  { // launch
+    launch += 65.0 * (gps_distance_from_launch_m < 10.0);
+    launch += 25.0 * (gps_distance_from_ground_m < 5.0 &&
+                      gps_distance_from_ground_m > 5.0);
+    launch += 5.0 * (gps_horizontal_speed_mps_10s < 1.0);
+    // launch += 10.0 * (gps_vertical_speed_mps_10s < 0.5);
+    launch += 5.0 * (gps_vertical_speed_mps_60s < 0.5);
+  }
+  { // ascent
+    ascent += 20.0 * (gps_distance_from_launch_m > 10.0);
+    ascent += 15.0 * (gps_distance_from_ground_m > 5.0);
+    ascent += 10.0 * (gps_horizontal_speed_mps_10s > 0.5);
+    // ascent += 10.0 * (gps_vertical_speed_mps_10s > 0.5);
+    ascent += 55.0 * (gps_vertical_speed_mps_60s > 0.5);
+  } // ^35 above, 55 below
+    // 45 85
+  { // descent
+    descent += 10.0 * (gps_distance_from_launch_m > 10.0);
+    descent += 10.0 * (gps_distance_from_ground_m > 1500.0);
+    descent += 15.0 * (gps_horizontal_speed_mps_10s > 0.5);
+    // descent += 30.0 * (gps_vertical_speed_mps_10s < -1.0);
+    descent += 65.0 * (gps_vertical_speed_mps_60s < -1.0);
+  }
+  { // recovery
+    recovery += 10.0 * (gps_distance_from_launch_m > 10.0);
+    recovery += 10.0 * (gps_distance_from_ground_m > 5.0);
+    recovery += 30.0 * (gps_horizontal_speed_mps_10s < 1.0);
+    // recovery += 30.0 * (gps_vertical_speed_mps_10s > -0.5 &&
+    // gps_vertical_speed_mps_10s < 0.5);
+    recovery += 50.0 * (gps_vertical_speed_mps_60s > -0.25 &&
+                        gps_vertical_speed_mps_60s < 0.25);
+  }
+  shared_data_.flight_data.setPhasePrediction(launch, ascent, descent,
+                                              recovery);
+
+  // bool gps_valid = false;
+  // bool ascending = false;
+  // bool descending = false;
 
   switch (shared_data_.flight_data.getFlightPhase()) {
 
@@ -68,14 +130,23 @@ void FlightRunner::detectFlightPhase() {
 
     // -- CURRENTLY IN LAUNCH PHASE --
   case FlightPhase::LAUNCH:
+    if (gps_valid && (ascent - launch > 50.0)) {
+      setFlightPhase(FlightPhase::ASCENT);
+    }
     break;
 
     // -- CURRENTLY IN ASCENT PHASE --
   case FlightPhase::ASCENT:
+    if (gps_valid && (descent - ascent > 50.0)) {
+      setFlightPhase(FlightPhase::DESCENT);
+    }
     break;
 
     // -- CURRENTLY IN DESCENT PHASE --
   case FlightPhase::DESCENT:
+    if (gps_valid && (recovery - descent > 50.0)) {
+      setFlightPhase(FlightPhase::RECOVERY);
+    }
     break;
 
     // -- CURRENTLY IN RECOVERY PHASE --
@@ -87,20 +158,31 @@ void FlightRunner::detectFlightPhase() {
   }
 }
 
-void FlightRunner::setFlightPhase(FlightPhase phase) {
-  shared_data_.streams.log.info(node::Identification::FLIGHT_RUNNER,
-                                " setting flight phase to: " +
-                                    util::to_string(phase));
+void FlightRunner::setFlightPhase(FlightPhase new_phase) {
+  const auto old_phase = shared_data_.flight_data.getFlightPhase();
+  if (old_phase == new_phase) {
+    return;
+  }
 
-  shared_data_.flight_data.flight_phase = phase;
-  flight_runner_data_.setFlightPhase(phase);
+  if (old_phase == FlightPhase::PRE_LAUNCH &&
+      new_phase == FlightPhase::LAUNCH && !setLaunchPosition()) {
+    // If the launch position is not set, we cannot transition to launch.
+    // Error message is already logged.
+    return;
+  }
+
+  // Report to shared data
+  shared_data_.flight_data.flight_phase = new_phase;
+  // Save to file
+  flight_runner_data_.setFlightPhase(new_phase);
 
   shared_data_.streams.data.addData(
       node::Identification::FLIGHT_RUNNER,
-      data::DataId::FLIGHT_RUNNER_flightPhaseChange, util::to_string(phase));
+      data::DataId::FLIGHT_RUNNER_flightPhaseChange,
+      util::to_string(new_phase));
 
 #if RUN_IN_SIMULATOR == 1
-  if (phase == FlightPhase::LAUNCH) {
+  if (new_phase == FlightPhase::LAUNCH) {
     p_simulator_->launch();
   }
 #endif

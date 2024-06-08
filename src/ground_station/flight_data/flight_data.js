@@ -17,7 +17,21 @@ module.exports = class FlightData {
       gfs_time_synced: false,
     };
 
+    this.phase_prediction = {
+      launch: 0,
+      ascent: 0,
+      descent: 0,
+      recovery: 0,
+      last_updated: new Date(),
+    };
+
     this.location = {
+      launch_position: {
+        valid: false,
+        latitude: 0,
+        longitude: 0,
+        altitude: 0,
+      },
       have_gps: "n/d",
       valid: "n/d",
       latitude: 0,
@@ -38,6 +52,8 @@ module.exports = class FlightData {
       return this.general;
     } else if (category === "location") {
       return this.location;
+    } else if (category === "phase_prediction") {
+      return this.phase_prediction;
     } else {
       console.log("Error: Invalid category in FlightData.getData()");
     }
@@ -70,6 +86,14 @@ module.exports = class FlightData {
     this.general.gfs_time_synced = this.mission_clock.isGfsTimeSynced();
   }
 
+  #updatePhasePredictions(predictions) {
+    this.phase_prediction.launch = predictions.launch;
+    this.phase_prediction.ascent = predictions.ascent;
+    this.phase_prediction.descent = predictions.descent;
+    this.phase_prediction.recovery = predictions.recovery;
+    this.phase_prediction.last_updated = new Date();
+  }
+
   // called by gfs_connection
   updateFlightDataFromGfsTcp(data) {
     // console.log(data);
@@ -81,6 +105,8 @@ module.exports = class FlightData {
         data.system_time_utc,
         MAX_CLOCK_SKEW_TCP_SECONDS
       );
+      this.#updatePhasePredictions(data.phase_predictions);
+      this.location.launch_position = data.launch_position;
       this.#newContact("TCP");
     } catch (e) {
       console.log("Error updating flight data from GFS TCP: ", e);
