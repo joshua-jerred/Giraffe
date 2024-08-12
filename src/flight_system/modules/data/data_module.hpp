@@ -19,11 +19,10 @@
 
 #include <functional>
 
-#include <BoosterSeat/geo.hpp>
-#include <BoosterSeat/rolling_average.hpp>
 #include <BoosterSeat/timer.hpp>
 
 #include "adc_interpolation.hpp"
+#include "calculated_data.hpp"
 #include "data_log.hpp"
 #include "file_system_manager.hpp"
 #include "influxdb.hpp"
@@ -178,16 +177,8 @@ private:
    */
   void processImuFramePacket(const data::ImuFramePacket &packet);
 
-  /**
-   * @brief Use existing data to calculate the data that can be calculated.
-   * @todo This function is not implemented yet.
-   */
-  void calculateCalculatedData();
-  /**
-   * @brief Buffer for the calculated data. Used by the calculateCalculatedData
-   * method.
-   */
-  data::blocks::CalculatedData calculated_data_{};
+  /// @brief Used to calculate data from existing data.
+  data_middleware::CalculatedData calculated_data_{shared_data_};
 
   /**
    * @brief The data log object, used to log data and errors to files.
@@ -248,44 +239,6 @@ private:
    */
   cfg::gEnum::ErrorLogStrategy error_file_logging_strategy_ =
       cfg::gEnum::ErrorLogStrategy::ALL;
-
-  /**
-   * @brief This timer is used to determine when to update the gps path for the
-   * purpose of calculating distance traveled.
-   * @see calculateCalculatedData
-   */
-  bst::Timer gps_distance_update_timer_{};
-
-  /**
-   * @brief The last gps point. Used to calculate distance traveled.
-   * @see calculateCalculatedData
-   */
-  bst::geo::Point last_gps_point_{};
-
-  /**
-   * @brief The initial gps point. This is the "launch point"
-   */
-  bst::geo::Point launch_gps_point_{};
-
-  double launch_gps_altitude_ = 0.0;
-
-  /**
-   * @brief True if the initial gps point has been set.
-   */
-  bool launch_gps_point_set_ = false;
-
-  /**
-   * @brief The distance traveled in km.
-   */
-  double distance_traveled_ = 0.0;
-
-  /**
-   * @brief Rolling average of the horizontal speed. Once every 5 seconds,
-   * 12 samples are averaged.
-   */
-  bst::RollingAverage average_horizontal_speed_{12};
-  bst::RollingAverage average_vertical_speed_{12};
-  bst::Timer average_speed_timer_{5 * 1000};
 };
 
 } // namespace modules

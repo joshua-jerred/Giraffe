@@ -13,14 +13,15 @@ const responseMetadata = {
       units: "hh:mm:ss",
       description: "The uptime of the flight software.",
     },
-    last_contact: {
-      name: "Time of Last Contact",
+    last_contact_tcp: {
+      name: "Last TCP Contact",
       units: "ms",
       description: "The time since the last contact with the flight computer.",
     },
-    last_contact_method: {
-      name: "Last Contact Method",
-      description: "The method of the last contact with the flight computer.",
+    last_contact_telemetry: {
+      name: "Last Telemetry Contact",
+      units: "ms",
+      description: "The time since the last contact with the flight computer.",
     },
   },
   phase_prediction: {},

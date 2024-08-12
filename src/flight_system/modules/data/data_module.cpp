@@ -49,7 +49,7 @@ void modules::DataModule::loop() {
 
   processAllStreams();
 
-  calculateCalculatedData();
+  calculated_data_.updateCalculatedData();
 
   file_system_.update();
 
@@ -194,9 +194,18 @@ void modules::DataModule::parseExtensionDataPacket(
   case data::DataId::ENVIRONMENTAL_temperature:
     shared_data_.frames.env_temp.insert(ext_id, packet);
     break;
-  case data::DataId::ENVIRONMENTAL_pressure:
+  case data::DataId::ENVIRONMENTAL_pressure: {
+    // Pressure data is used to calculate altitude
+    try {
+      /// @todo This shouldn't be represented as a string.
+      /// @todo Handle how calculated data will handle multiple sources of
+      /// pressure data
+      calculated_data_.addPressureData(std::stod(packet.value));
+    } catch (std::invalid_argument &e) {
+      debug("Failed to convert pressure data to double");
+    }
     shared_data_.frames.env_pres.insert(ext_id, packet);
-    break;
+  } break;
   case data::DataId::ENVIRONMENTAL_humidity:
     shared_data_.frames.env_hum.insert(ext_id, packet);
     break;
@@ -307,6 +316,8 @@ void modules::DataModule::processGpsFramePacket(
   if (isGpsFrameValid(packet.frame)) {
     location_data.last_valid_gps_frame = packet.frame;
     location_data.last_valid_gps_fix = packet.frame.fix;
+    // Valid frame, update the calculated data
+    calculated_data_.addPositionalData(packet.frame);
   }
 
   shared_data_.blocks.location_data.set(location_data);
@@ -324,123 +335,4 @@ void modules::DataModule::processImuFramePacket(
   }
 
   shared_data_.blocks.imu_data.set(data_block);
-}
-
-/**
- * @brief Calculates the altitude in meters from the pressure in hPa.
- * @param pressure The pressure in hPa.
- * @return double The altitude in meters.
- *
- * @todo Detect initial launch (movement from the launch point).
- */
-inline double calculatePressureAltitude(double pressure) {
-  return (1 - std::pow(pressure / 1013.25, 0.190284)) * 145366.45 * 0.3048;
-}
-
-void modules::DataModule::calculateCalculatedData() {
-  // Calculate pressure altitude
-  auto pres_data = shared_data_.frames.env_pres.getAll();
-
-  if (pres_data.size() == 0) {
-    calculated_data_.pressure_altitude_valid = false;
-  } else {
-    std::string pres_string = pres_data.begin()->second.value;
-    try {
-      double pres = std::stod(pres_string);
-      calculated_data_.pressure_altitude_m = calculatePressureAltitude(pres);
-      calculated_data_.pressure_altitude_valid = true;
-    } catch (std::invalid_argument &e) {
-      calculated_data_.pressure_altitude_valid = false;
-    }
-  }
-
-  // Calculate distance traveled and the distance from the launch point
-  /// @brief The distance that must be traveled for the distance traveled to be
-  /// updated.
-  constexpr double MOVEMENT_THRESHOLD_KM = 0.25;
-
-  auto gps_data = shared_data_.blocks.location_data.get();
-  if (!launch_gps_point_set_) { // No launch point set yet
-    double lat = 0;
-    double lon = 0;
-    double alt = 0;
-
-    if (shared_data_.flight_data.getLaunchPosition(lat, lon, alt)) {
-      launch_gps_point_ = bst::geo::Point(lat, lon);
-      launch_gps_altitude_ = alt;
-      last_gps_point_ = launch_gps_point_;
-      launch_gps_point_set_ = true;
-    } else {
-      calculated_data_.distance_traveled_valid = false;
-      calculated_data_.distance_from_launch_valid = false;
-    }
-  } else if (gps_data.last_valid_gps_frame.fix == data::GpsFix::FIX_2D ||
-             gps_data.last_valid_gps_frame.fix == data::GpsFix::FIX_3D) {
-    try {
-      bst::geo::Point current_point(gps_data.last_valid_gps_frame.latitude,
-                                    gps_data.last_valid_gps_frame.longitude);
-      double new_distance = bst::geo::distance(last_gps_point_, current_point);
-      if (new_distance >= MOVEMENT_THRESHOLD_KM) {
-        distance_traveled_ += new_distance;
-        last_gps_point_ = current_point;
-
-        calculated_data_.distance_traveled_m = distance_traveled_ * 1000;
-        calculated_data_.distance_traveled_valid = true;
-      }
-
-      // distance from launch point
-      calculated_data_.distance_from_launch_m =
-          bst::geo::distance(launch_gps_point_, current_point) *
-          1000; // convert to meters
-      calculated_data_.distance_from_launch_valid = true;
-
-      // altitude difference from launch
-      calculated_data_.distance_from_ground_m =
-          gps_data.last_valid_gps_frame.altitude - launch_gps_altitude_;
-    } catch (const bst::BoosterSeatException &e) {
-      /// @todo Report this error
-    }
-
-    // Maximum speeds
-    if (gps_data.last_valid_gps_frame.horizontal_speed >
-        calculated_data_.max_horizontal_speed_mps) {
-      calculated_data_.max_horizontal_speed_mps =
-          gps_data.last_valid_gps_frame.horizontal_speed;
-      calculated_data_.max_speed_valid = true;
-    }
-
-    if (gps_data.last_valid_gps_frame.vertical_speed >
-        calculated_data_.max_vertical_speed_mps) {
-      calculated_data_.max_vertical_speed_mps =
-          gps_data.last_valid_gps_frame.vertical_speed;
-      calculated_data_.max_speed_valid = true;
-    }
-
-    // Average speed
-    if (average_speed_timer_.isDone()) {
-      calculated_data_.average_speed_valid = true;
-      average_speed_timer_.reset();
-
-      average_horizontal_speed_.addValue(
-          gps_data.last_valid_gps_frame.horizontal_speed);
-      average_vertical_speed_.addValue(
-          gps_data.last_valid_gps_frame.vertical_speed);
-    }
-
-    calculated_data_.average_horiz_speed_mps_1min =
-        average_horizontal_speed_.getAverage();
-    calculated_data_.average_vert_speed_mps_1min =
-        average_vertical_speed_.getAverage();
-
-  } else {
-    /// @todo put this on a timer instead. Otherwise it will be reported as
-    /// invalid if there is a single invalid gps frame. Reset the timer if
-    /// there is a valid frame.
-
-    calculated_data_.distance_traveled_valid = false;
-    calculated_data_.distance_from_launch_valid = false;
-    calculated_data_.average_speed_valid = false;
-  }
-
-  shared_data_.blocks.calculated_data.set(calculated_data_);
 }

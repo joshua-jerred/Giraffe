@@ -15,6 +15,7 @@
  */
 
 #include "positional.hpp"
+#include "giraffe_assert.hpp"
 
 bool data::isGpsFrameValid(const data::GpsFrame &frame) {
   if (!frame.is_valid) {
@@ -42,6 +43,9 @@ bool data::isGpsFrameValid(const data::GpsFrame &frame) {
     if (frame.num_satellites < kRequiredSatellitesFor3DFix) {
       return false;
     }
+  } else {
+    giraffe_assert(false); // Should never reach here
+    return false;
   }
 
   // Validate the latitude

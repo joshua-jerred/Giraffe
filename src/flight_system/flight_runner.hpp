@@ -120,6 +120,7 @@ private:
 
   data::SharedData shared_data_ = data::SharedData();
 
+  /// @todo Can this be put on the stack?
   cfg::Configuration *p_config_ = nullptr;
 
   modules::DataModule *p_data_module_ = nullptr;

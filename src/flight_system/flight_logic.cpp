@@ -58,6 +58,9 @@ void FlightRunner::detectFlightPhase() {
   // double gps_vertical_speed_mps_10s = 0.0;
   double gps_vertical_speed_mps_60s = calculated.average_vert_speed_mps_1min;
 
+  // shared atomic, get the current phase
+  FlightPhase current_phase = shared_data_.flight_data.flight_phase;
+
   { // launch
     launch += 65.0 * (gps_distance_from_launch_m < 10.0);
     launch += 25.0 * (gps_distance_from_ground_m < 5.0 &&
@@ -105,8 +108,8 @@ void FlightRunner::detectFlightPhase() {
     // previously in a flight phase.
     switch (flight_runner_data_.getFlightPhase()) {
     case FlightPhase::UNKNOWN:
-      // Previously unknown/never set.
-      setFlightPhase(FlightPhase::LAUNCH);
+      // Previously unknown/never set. Set to pre-launch.
+      setFlightPhase(FlightPhase::PRE_LAUNCH);
       break;
     case FlightPhase::PRE_LAUNCH:
       setFlightPhase(FlightPhase::PRE_LAUNCH);
@@ -173,6 +176,8 @@ void FlightRunner::setFlightPhase(FlightPhase new_phase) {
     return;
   }
 
+  // The transition from pre-launch to launch can only be triggered by the
+  // user. If the transition is made, the launch position must be set.
   if (old_phase == FlightPhase::PRE_LAUNCH &&
       new_phase == FlightPhase::LAUNCH && !setLaunchPosition()) {
     // If the launch position is not set, we cannot transition to launch.

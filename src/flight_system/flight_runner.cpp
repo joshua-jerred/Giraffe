@@ -109,8 +109,19 @@ auto FlightRunner::start() -> int {
 
   flight_runner_data_.incrementNumStartups();
 
+  // If the loaded launch position is valid, set it in the shared data.
+  {
+    bool valid;
+    double lat, lon, alt;
+    flight_runner_data_.getLaunchPosition(valid, lat, lon, alt);
+
+    if (valid) {
+      shared_data_.flight_data.setLaunchPosition(lat, lon, alt);
+    }
+  }
+
   /*
-    First, initialize the data streams to facilitate cross-thread communication.
+    Initialize the data streams to facilitate cross-thread communication.
     Then, load the configuration, if it exists, otherwise, create one.
     After that, startup the data module to start processing the data streams.
   */
@@ -310,7 +321,7 @@ bool FlightRunner::setLaunchPosition() {
   }
 
   const int age_seconds = last_valid.getAgeSeconds();
-  if (age_seconds) {
+  if (age_seconds > K_LAUNCH_POSITION_TIMEOUT_S) {
     shared_data_.streams.log.error(
         node::Identification::FLIGHT_RUNNER,
         DiagnosticId::FLIGHT_RUNNER_launchPositionInvalid,
