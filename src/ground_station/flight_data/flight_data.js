@@ -71,12 +71,6 @@ module.exports = class FlightData {
     this.general.last_updated = new Date();
   }
 
-  #newTelemetryContact() {
-    let now = new Date();
-    this.general.last_contact_tcp = `${now.getUTCHours()}:${now.getUTCMinutes()}:${now.getUTCSeconds()} UTC`;
-    this.general.last_updated = new Date();
-  }
-
   #updateFlightPhase(phase) {
     this.general.flight_phase = phase;
   }
@@ -86,7 +80,7 @@ module.exports = class FlightData {
   }
 
   #updateSoftwareSystemTimeUtc(time_string, max_skew_seconds) {
-    this.general.flight_software_system_time_utc = time_string;
+    this.general.flight_software_system_time_utc = time_string + " UTC";
     this.mission_clock.updateGfsUtcTime(time_string, max_skew_seconds);
     this.general.gfs_time_synced = this.mission_clock.isGfsTimeSynced();
   }
@@ -151,5 +145,9 @@ module.exports = class FlightData {
     // this.global_state.gdl_telemetry.getMostRecentAprsPositionPacket();
     // this.last_gfs_gps_data =
     // this.global_state.gfs_connection.getRecentLocationData();
+  }
+
+  updateTimeDataFromGdlTelemetry(time_string) {
+    this.general.last_contact_telemetry = time_string;
   }
 };

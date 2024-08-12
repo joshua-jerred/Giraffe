@@ -16,6 +16,7 @@ module.exports = class GdlConnection {
     this.#updateClassSettings();
 
     this.status_data = {};
+    this.previous_last_message_received = "";
     this.status_last_updated = new Date();
 
     this.new_broadcast_message = null;
@@ -152,6 +153,24 @@ module.exports = class GdlConnection {
     if (received_resource === "status") {
       this.status_data = received_data;
       this.status_last_updated = new Date();
+
+      if (
+        this.status_data.last_message_received !==
+          this.previous_last_message_received &&
+        this.status_data.last_message_received.length > 5 // arbitrary length, n/d
+      ) {
+        this.previous_last_message_received =
+          this.status_data.last_message_received;
+        try {
+          let date_time = new Date(this.status_data.last_message_received);
+          let formatted = `${date_time.getHours()}:${date_time.getMinutes()}:${date_time.getSeconds()} UTC`;
+          this.global_state.flight_data.updateTimeDataFromGdlTelemetry(
+            formatted
+          );
+        } catch (e) {
+          console.log("Error parsing last message received: ", e);
+        }
+      }
 
       // console.log(this.status_data);
 
