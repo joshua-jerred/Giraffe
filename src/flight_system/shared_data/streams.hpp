@@ -174,6 +174,8 @@ struct DataPacket : public BaseStreamPacket {
   // Generics
   data::DataPacket::Type type = data::DataPacket::Type::GENERIC;
   data::DataId identifier = data::DataId::GENERIC_unknown;
+
+  /// @todo Using a string was a stupid idea. This should be addressed.
   std::string value{};        // generic data
   uint32_t numeric_value = 0; // Sometimes this is better than using a string
 

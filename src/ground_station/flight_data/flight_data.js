@@ -11,8 +11,8 @@ module.exports = class FlightData {
       flight_phase: "n/d",
       flight_software_uptime: "n/d",
       flight_software_system_time_utc: "n/d",
-      last_contact: "n/d",
-      last_contact_method: "n/d",
+      last_contact_tcp: "n/d",
+      last_contact_telemetry: "n/d",
       last_updated: new Date(),
       gfs_time_synced: false,
     };
@@ -65,10 +65,9 @@ module.exports = class FlightData {
 
   // ################ GENERAL DATA ################
 
-  #newContact(method) {
+  #newTcpContact() {
     let now = new Date();
-    this.general.last_contact = `${now.getUTCHours()}:${now.getUTCMinutes()}:${now.getUTCSeconds()} UTC`;
-    this.general.last_contact_method = method;
+    this.general.last_contact_tcp = `${now.getUTCHours()}:${now.getUTCMinutes()}:${now.getUTCSeconds()} UTC`;
     this.general.last_updated = new Date();
   }
 
@@ -81,7 +80,7 @@ module.exports = class FlightData {
   }
 
   #updateSoftwareSystemTimeUtc(time_string, max_skew_seconds) {
-    this.general.flight_software_system_time_utc = time_string;
+    this.general.flight_software_system_time_utc = time_string + " UTC";
     this.mission_clock.updateGfsUtcTime(time_string, max_skew_seconds);
     this.general.gfs_time_synced = this.mission_clock.isGfsTimeSynced();
   }
@@ -107,7 +106,7 @@ module.exports = class FlightData {
       );
       this.#updatePhasePredictions(data.phase_predictions);
       this.location.launch_position = data.launch_position;
-      this.#newContact("TCP");
+      this.#newTcpContact();
     } catch (e) {
       console.log("Error updating flight data from GFS TCP: ", e);
     }
@@ -137,7 +136,7 @@ module.exports = class FlightData {
       this.location.last_update_source = "TCP";
       this.location.last_updated = new Date();
 
-      this.#newContact("TCP");
+      this.#newTcpContact();
       this.mission_clock.updateGfsGpsUtcTime(last_frame.gps_utc_time);
     } catch (e) {
       console.log("Error updating location data from GFS TCP: ", e);
@@ -146,5 +145,9 @@ module.exports = class FlightData {
     // this.global_state.gdl_telemetry.getMostRecentAprsPositionPacket();
     // this.last_gfs_gps_data =
     // this.global_state.gfs_connection.getRecentLocationData();
+  }
+
+  updateTimeDataFromGdlTelemetry(time_string) {
+    this.general.last_contact_telemetry = time_string;
   }
 };

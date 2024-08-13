@@ -183,8 +183,8 @@ private:
 
   double bps_down_in_a_second_ = 0;
   double bps_up_in_a_second_ = 0;
-  bst::RollingAverage bytes_per_second_down_ = {60};
-  bst::RollingAverage bytes_per_second_up_ = {60};
+  bst::RollingAverage<double> bytes_per_second_down_ = {60};
+  bst::RollingAverage<double> bytes_per_second_up_ = {60};
 };
 
 #endif

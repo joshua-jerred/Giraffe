@@ -133,13 +133,13 @@ private:
   uint32_t data_report_interval_;
   uint32_t data_report_counter_{0};
 
-  bst::RollingAverage accel_x_{10};
-  bst::RollingAverage accel_y_{10};
-  bst::RollingAverage accel_z_{10};
+  bst::RollingAverage<double> accel_x_{10};
+  bst::RollingAverage<double> accel_y_{10};
+  bst::RollingAverage<double> accel_z_{10};
 
-  bst::RollingAverage gyro_x_{10};
-  bst::RollingAverage gyro_y_{10};
-  bst::RollingAverage gyro_z_{10};
+  bst::RollingAverage<double> gyro_x_{10};
+  bst::RollingAverage<double> gyro_y_{10};
+  bst::RollingAverage<double> gyro_z_{10};
 };
 
 } // namespace extension
