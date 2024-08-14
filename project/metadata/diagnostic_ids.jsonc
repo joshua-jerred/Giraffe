@@ -857,6 +857,11 @@
       "name": "Invalid Command",
       "details": "The command sent to the telemetry module is not valid.",
       "value": "0xB000"
+    },
+    "mode_not_enabled": {
+      "name": "Mode Not Enabled",
+      "details": "The functionality requested is not enabled. (SSTV)",
+      "value": "0xB001"
     }
   }
 }

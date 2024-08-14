@@ -14,7 +14,8 @@ set(THIRD_PARTY_SRC ${CMAKE_SOURCE_DIR}/lib/third_party)
 
 set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_system)
 set(GFS_BIN ${CMAKE_BINARY_DIR}/bin)
-set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/flight_system)
+set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests)
+set(GFS_UNIT_TEST_SRC ${GFS_TEST_SRC}/flight_system)
 set(GFS_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/flight_system)
 
 set(GDL_SRC ${CMAKE_SOURCE_DIR}/src/data_link)
@@ -112,7 +113,7 @@ add_subdirectory(src/data_link)            # Data Link
 add_subdirectory(lib/SignalEasel)          # SignalEasel
 add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
 add_subdirectory(lib/bzip2-cpp)            # bzip2-cpp
-add_subdirectory(${CMAKE_SOURCE_DIR}/tests/simulator) # gfs_simulator
+add_subdirectory(${GFS_TEST_SRC}/simulator) # gfs_simulator
 add_subdirectory(src/flight_system)        # Flight System
 # ---- Utilities ----
 add_subdirectory(project/eeprom)           # EEPROM Utility
@@ -121,4 +122,4 @@ add_subdirectory(project/eeprom)           # EEPROM Utility
 # Unit Tests
 include(CTest)
 enable_testing()
-add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
+add_subdirectory(${GFS_TEST_SRC})

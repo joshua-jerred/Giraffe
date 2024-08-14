@@ -19,11 +19,14 @@
 #define SIMULATED_EXTENSIONS_HPP_
 
 #include "gfs_simulator.hpp"
+#include "giraffe_file_paths.hpp"
 
 #include "extension_base.hpp"
 
 namespace extension {
 
+/// @brief If RUN_IN_SIMULATOR is defined, the simulated extensions listed in
+/// this vector will be added to the extension module on startup.
 static const std::vector<cfg::ExtensionMetadata> K_SIMULATED_EXTENSIONS_VEC = {
     cfg::ExtensionMetadata{
         "sim_temp", true, cfg::gEnum::ExtensionType::SIM_TEMP, 1000, false, ""},
@@ -37,6 +40,9 @@ static const std::vector<cfg::ExtensionMetadata> K_SIMULATED_EXTENSIONS_VEC = {
                            1000, false, ""},
     cfg::ExtensionMetadata{"sim_adc", true, cfg::gEnum::ExtensionType::SIM_ADC,
                            1000, false, ""},
+    cfg::ExtensionMetadata{"sim_camera", true,
+                           cfg::gEnum::ExtensionType::SIM_CAMERA, 10000, false,
+                           ""},
 };
 
 class SimTemperatureSensor : public Extension {
@@ -134,6 +140,25 @@ public:
   }
 
 private:
+};
+
+class SimCamera : public Extension {
+public:
+  SimCamera(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
+      : Extension(resources, metadata) {
+    image_dir_ = giraffe::file_paths::getGfsImageDirPath();
+  }
+
+  void loop() override {
+    const std::string TEST_IMAGE_PATH = "simulated_camera_image.png";
+    // std::string new_image_name =
+    // giraffe::file_paths::generateFileNameWithTimestamp(".png");
+
+    data(data::DataId::CAMERA_newImage, TEST_IMAGE_PATH);
+  }
+
+private:
+  std::string image_dir_{};
 };
 
 } // namespace extension

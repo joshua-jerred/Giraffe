@@ -186,6 +186,10 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
     extension =
         std::make_shared<extension::SimAdcSensor>(extension_resources_, meta);
     break;
+  case cfg::gEnum::ExtensionType::SIM_CAMERA:
+    extension =
+        std::make_shared<extension::SimCamera>(extension_resources_, meta);
+    break;
 #endif
   case cfg::gEnum::ExtensionType::RGB_LED:
     extension =

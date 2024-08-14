@@ -41,7 +41,7 @@ target_include_directories(
 )
 
 # --- Flight Software ---
-file(GLOB gfs_test_sources "${GFS_TEST_SRC}/test_*.cpp")
+file(GLOB gfs_test_sources "${GFS_UNIT_TEST_SRC}/test_*.cpp")
 add_executable(unit_test_gfs ${gfs_test_sources} ${gfs_sources})
 target_include_directories(unit_test_gfs PRIVATE ${gfs_include_dirs})
 target_link_libraries(
@@ -72,9 +72,9 @@ set_target_properties(unit_test_gfs PROPERTIES RUNTIME_OUTPUT_DIRECTORY
 
 
 # --- Flight Software : On Pi Tests ---
-file(GLOB gfs_on_pi_test_sources "${GFS_TEST_SRC}/host_tests/test_*.cpp")
+file(GLOB gfs_on_pi_test_sources "${GFS_UNIT_TEST_SRC}/host_tests/test_*.cpp")
 add_executable(
-  unit_test_on_pi_host "${GFS_TEST_SRC}/host_tests/extension_test_framework.cpp"
+  unit_test_on_pi_host "${GFS_UNIT_TEST_SRC}/host_tests/extension_test_framework.cpp"
                      ${gfs_on_pi_test_sources})
 target_link_libraries(
   unit_test_on_pi_host

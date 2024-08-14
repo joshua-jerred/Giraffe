@@ -14,7 +14,8 @@
  * @copyright  2024 (license to be defined)
  */
 
-#include "BoosterSeat/filesystem.hpp"
+#include <BoosterSeat/filesystem.hpp>
+#include <BoosterSeat/time.hpp>
 
 #include "giraffe_exception.hpp"
 #include "giraffe_file_paths.hpp"
@@ -100,6 +101,17 @@ std::string getGfsImageDirPath() {
   }
 
   return dir_path;
+}
+
+std::string generateFileNameWithTimestamp(const std::string &extension) {
+  constexpr bst::time::TimeZone K_TIME_ZONE = bst::time::TimeZone::UTC;
+  constexpr char K_DATE_DELIMITER = '_';
+  constexpr char K_BETWEEN_DELIMITER = '_';
+  constexpr char K_TIME_DELIMITER = '\0';
+  std::string timestamp = bst::time::dateAndTimeString(
+      K_TIME_ZONE, K_DATE_DELIMITER, K_BETWEEN_DELIMITER, K_TIME_DELIMITER);
+
+  return timestamp + extension;
 }
 
 } // namespace giraffe::file_paths

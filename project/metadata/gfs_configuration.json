@@ -645,6 +645,7 @@
                 "sim_bat",
                 "sim_imu",
                 "sim_adc",
+                "sim_camera",
                 "bmp180",
                 "bme280",
                 "sam_m8q",
