@@ -225,6 +225,9 @@ private:
    * the console module can print the log.
    */
   bool console_module_enabled_ = false;
+  /// @brief If configured to true, and the console module is *disabled*, the
+  /// data module will print errors to the console.
+  bool print_errors_to_console_ = false;
 
   /**
    * @brief The current data file logging strategy.

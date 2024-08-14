@@ -162,13 +162,30 @@ void modules::TelemetryModule::sendAprsPositionPacket() {
 }
 
 void modules::TelemetryModule::sendSstvImage() {
-  info("Sending SSTV image not implemented.");
+  if (!configuration_.telemetry_sstv.getEnabled()) {
+    error(DiagnosticId::TELEMETRY_modeNotEnabled, "SSTV");
+    return;
+  }
+
+  auto camera_block = shared_data_.blocks.camera.get();
+  if (!camera_block.have_camera_source) {
+    error(DiagnosticId::TELEMETRY_sstvError, "cam_src");
+    return;
+  } else if (camera_block.num_images <= 0) {
+    error(DiagnosticId::TELEMETRY_sstvError, "num_img");
+    return;
+  }
+
+  // Get the image and verify that it exists
+  const std::string &image_path = camera_block.last_valid_image_path;
+  std::cout << "Image path: " << image_path << std::endl;
 }
 
 void modules::TelemetryModule::reportDescent() {
   if (configuration_.telemetry.getDataLinkEnabled()) {
     gdl_.sendText("Descent Detected", getNextMessageId());
   }
+  /// @todo report an error
 }
 
 void modules::TelemetryModule::processCommand(const cmd::Command &command) {

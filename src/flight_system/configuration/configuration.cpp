@@ -143,6 +143,11 @@ bool cfg::DataModuleData::getLogDataToFile() const {
   return log_data_to_file_;
 }
 
+bool cfg::DataModuleData::getPrintErrorsToConsole() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return print_errors_to_console_;
+}
+
 int cfg::DataModuleData::getFileSystemCheckInterval() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return file_system_check_interval_;
@@ -196,6 +201,11 @@ std::string cfg::DataModuleData::getDataLogFileContents() const {
 void cfg::DataModuleData::setLogDataToFile(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   log_data_to_file_ = val;
+}
+
+void cfg::DataModuleData::setPrintErrorsToConsole(bool val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  print_errors_to_console_ = val;
 }
 
 void cfg::DataModuleData::setFileSystemCheckInterval(int val) {
@@ -256,6 +266,16 @@ void cfg::DataModuleData::setFromJson(const Json &json_data) {
         "data_module_data",
         "log_data_to_file",
         log_data_to_file_,
+        0,
+        0,
+        ""
+  );
+  validation::setValidValue<bool>(
+        streams_.log,
+        json_data,
+        "data_module_data",
+        "print_errors_to_console",
+        print_errors_to_console_,
         0,
         0,
         ""
@@ -358,6 +378,7 @@ Json cfg::DataModuleData::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return Json({
     {"log_data_to_file", log_data_to_file_},
+    {"print_errors_to_console", print_errors_to_console_},
     {"file_system_check_interval", file_system_check_interval_},
     {"log_strategy", cfg::gEnum::K_LOG_STRATEGY_TO_STRING_MAP.at(log_strategy_)},
     {"timestamp_detail", cfg::gEnum::K_TIMESTAMP_DETAIL_TO_STRING_MAP.at(timestamp_detail_)},

@@ -14,7 +14,28 @@
  * @copyright  2024 (license to be defined)
  */
 
+#include <iostream>
+
+#include <BoosterSeat/string_formatting.hpp>
+#include <BoosterSeat/template_tools.hpp>
+
+#include "giraffe_assert.hpp"
 #include "request_handler.hpp"
+
+void getErrorFrameData(Json &json, data::ErrorFrame &error_frame) {
+  Json error_list = Json::array();
+
+  const auto active_error_ids = error_frame.getActiveErrorIds();
+  for (const auto &id : active_error_ids) {
+    uint16_t value = bst::template_tools::to_underlying(id);
+    std::string hex_string = bst::string::intToHex(value, 4, false, true);
+    error_list.push_back(hex_string);
+  }
+
+  json = Json({{"num_total_errors", error_frame.numTotalErrors()},
+               {"num_active_errors", active_error_ids.size()},
+               {"active_errors", error_list}});
+}
 
 void RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
                                       protocol::Message &msg) {
@@ -50,6 +71,8 @@ void RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
     res_body = shared_data_.blocks.telemetry_module_stats.get().toJson();
   } else if (requested_data == "file_system_data") {
     res_body = shared_data_.blocks.file_system_data.get().toJson();
+  } else if (requested_data == "error_frame") {
+    getErrorFrameData(res_body, shared_data_.frames.error_frame);
   } else {
     sendErrorPacket(client, "data section not found");
     return;

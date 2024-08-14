@@ -72,6 +72,7 @@ public:
   DataModuleData(data::Streams &streams): cfg::CfgSection(streams){}
 
   bool getLogDataToFile() const;
+  bool getPrintErrorsToConsole() const;
   int getFileSystemCheckInterval() const;
   cfg::gEnum::LogStrategy getLogStrategy() const;
   cfg::gEnum::TimestampDetail getTimestampDetail() const;
@@ -84,6 +85,7 @@ public:
   std::string getDataLogFileContents() const;
 
   void setLogDataToFile(bool);
+  void setPrintErrorsToConsole(bool);
   void setFileSystemCheckInterval(int);
   void setLogStrategy(cfg::gEnum::LogStrategy);
   void setTimestampDetail(cfg::gEnum::TimestampDetail);
@@ -100,6 +102,7 @@ public:
 
 private:
   bool log_data_to_file_ = true;
+  bool print_errors_to_console_ = false;
   int file_system_check_interval_ = 10000;
   cfg::gEnum::LogStrategy log_strategy_ = cfg::gEnum::LogStrategy::INTERVAL;
   cfg::gEnum::TimestampDetail timestamp_detail_ = cfg::gEnum::TimestampDetail::HHMMSS;

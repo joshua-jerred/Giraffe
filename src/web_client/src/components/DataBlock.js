@@ -17,9 +17,9 @@ const ItemStyle = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 0px;
   margin-top: 0px;
-  height: calc(${(props) => props.theme.components.input.height} * 0.85);
+  margin-bottom: 1px;
+  height: ${(props) => (props.multiline ? "100px" : `calc(${(props) => props.theme.components.input.height} * 0.85)`)};
 `;
 
 const ItemName = styled.span`
@@ -33,8 +33,8 @@ const ItemValue = styled.span`
   width: 50%;
   text-align: right;
   text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  overflow-y: ${(props) => props.multiline ? "scroll" : "hidden"};
+  overflow-wrap: anywhere;
 `;
 
 const DataTooltip = styled(Tooltip)`
@@ -88,6 +88,7 @@ function Item({ id, item_data }) {
   }
 
   let display_value = item_data.value;
+  let multiline = false;
   if (typeof item_data.value === "boolean") {
     if (item_data.true === undefined) {
       display_value = item_data.value ? "true" : "false";
@@ -96,16 +97,19 @@ function Item({ id, item_data }) {
     }
   } else if (typeof item_data.value === "object") {
     display_value = JSON.stringify(item_data.value);
+    if (display_value.length > 10) {
+      multiline = true;
+    }
   }
 
   // console.log(item_data);
 
   return (
-    <ItemStyle>
+    <ItemStyle multiline={multiline}>
       <ItemName>
         <DataTooltip text={item_data.description}>{item_data.name}</DataTooltip>
       </ItemName>
-      <ItemValue>{display_value}</ItemValue>
+      <ItemValue multiline={multiline}>{display_value}</ItemValue>
     </ItemStyle>
   );
 }

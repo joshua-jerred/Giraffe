@@ -31,6 +31,12 @@ modules::DataModule::DataModule(data::SharedData &shared_data,
 
 void modules::DataModule::startup() {
   console_module_enabled_ = configuration_.console_module.getEnabled();
+
+  // allow for error printing if the console module is not enabled
+  if (!console_module_enabled_) {
+    print_errors_to_console_ =
+        configuration_.data_module_data.getPrintErrorsToConsole();
+  }
   /** @todo why the call to sleep()? */
   sleep(); // wait to start
 }
@@ -296,6 +302,10 @@ void modules::DataModule::processLogPacket(const data::LogPacket &packet) {
   // Add to the error frame if it is an error
   if (packet.level == data::LogPacket::Level::ERROR) {
     shared_data_.frames.error_frame.addError(packet);
+
+    if (print_errors_to_console_) {
+      std::cout << util::to_string(packet) << std::endl;
+    }
   }
 
   /**

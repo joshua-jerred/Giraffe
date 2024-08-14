@@ -15,6 +15,7 @@ module.exports = class FlightData {
       last_contact_telemetry: "n/d",
       last_updated: new Date(),
       gfs_time_synced: false,
+      active_errors: "n/d"
     };
 
     this.phase_prediction = {
@@ -44,6 +45,12 @@ module.exports = class FlightData {
       last_updated: "n/d",
     };
 
+    this.error_frame = {
+      num_total_errors: 0,
+      num_active_errors: 0,
+      active_errors: [],
+    };
+
     setInterval(this.#cycle.bind(this), FLIGHT_DATA_UPDATE_INTERVAL);
   }
 
@@ -54,6 +61,8 @@ module.exports = class FlightData {
       return this.location;
     } else if (category === "phase_prediction") {
       return this.phase_prediction;
+    } else if (category === "error_frame") {
+      return this.error_frame;
     } else {
       console.log("Error: Invalid category in FlightData.getData()");
     }
@@ -149,5 +158,24 @@ module.exports = class FlightData {
 
   updateTimeDataFromGdlTelemetry(time_string) {
     this.general.last_contact_telemetry = time_string;
+  }
+
+  updateErrorFrameFromGfsTcp(data) {
+    const PROPERTIES = [
+      "num_total_errors",
+      "num_active_errors",
+      "active_errors",
+    ]
+    for (let prop of PROPERTIES) {
+      if (!data.hasOwnProperty(prop)) {
+        console.log("Error: Missing property in error frame: ", prop);
+        return;
+      }
+    }
+
+    this.error_frame.num_total_errors = data.num_total_errors;
+    this.error_frame.num_active_errors = data.num_active_errors;
+    this.error_frame.active_errors = data.active_errors;
+    this.general.active_errors = data.num_active_errors;
   }
 };

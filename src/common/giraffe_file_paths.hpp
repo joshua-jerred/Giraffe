@@ -65,6 +65,13 @@ std::string getGfsImageDirPath();
  */
 std::string getGfsFlightRunnerDataFilePath();
 
+/// @brief Generates a file name with the current time as a prefix.
+/// @param extension - The file extension to use
+/// @return <utc data time>.<extension>
+/// @warning This function will not generate unique file names if called
+/// multiple times within the same second.
+std::string generateFileNameWithTimestamp(const std::string &extension);
+
 } // namespace file_paths
 
 } // namespace giraffe

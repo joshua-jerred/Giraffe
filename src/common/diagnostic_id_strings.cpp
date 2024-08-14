@@ -188,7 +188,9 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::GDL_invalidStopCall,"GDL_invalidStopCall"},
   {DiagnosticId::GDL_invalidBroadcastCall,"GDL_invalidBroadcastCall"},
   {DiagnosticId::GDL_invalidExchangeCall,"GDL_invalidExchangeCall"},
-  {DiagnosticId::TELEMETRY_invalidCommand,"TELEMETRY_invalidCommand"}
+  {DiagnosticId::TELEMETRY_invalidCommand,"TELEMETRY_invalidCommand"},
+  {DiagnosticId::TELEMETRY_modeNotEnabled,"TELEMETRY_modeNotEnabled"},
+  {DiagnosticId::TELEMETRY_sstvError,"TELEMETRY_sstvError"}
 };
 
 

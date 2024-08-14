@@ -80,6 +80,7 @@ const responseMetadata = {
       description: "Whether GFS has a GPS module.",
     },
   },
+  error_frame: {}
 };
 
 module.exports = class FlightDataHandler {
@@ -115,6 +116,7 @@ module.exports = class FlightDataHandler {
       "general",
       "mission_clock",
       "phase_prediction",
+      "error_frame"
     ];
 
     let category = req.query.category;
