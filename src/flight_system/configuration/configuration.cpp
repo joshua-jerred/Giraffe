@@ -926,6 +926,11 @@ bool cfg::Telemetry::getDataLinkEnabled() const {
   return data_link_enabled_;
 }
 
+cfg::gEnum::RadioType cfg::Telemetry::getRadioType() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return radio_type_;
+}
+
 void cfg::Telemetry::setTelemetryEnabled(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   telemetry_enabled_ = val;
@@ -939,6 +944,11 @@ void cfg::Telemetry::setCallSign(std::string val) {
 void cfg::Telemetry::setDataLinkEnabled(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   data_link_enabled_ = val;
+}
+
+void cfg::Telemetry::setRadioType(cfg::gEnum::RadioType val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  radio_type_ = val;
 }
 
 void cfg::Telemetry::setFromJson(const Json &json_data) {
@@ -973,6 +983,14 @@ void cfg::Telemetry::setFromJson(const Json &json_data) {
         0,
         ""
   );
+  validation::setValidEnum<cfg::gEnum::RadioType>(
+        streams_.log,
+        json_data,
+        "telemetry",
+        "radio_type",
+        radio_type_,
+        cfg::gEnum::K_STRING_TO_RADIO_TYPE_MAP
+  );
 }
 
 Json cfg::Telemetry::getJson() const {
@@ -980,7 +998,8 @@ Json cfg::Telemetry::getJson() const {
   return Json({
     {"telemetry_enabled", telemetry_enabled_},
     {"call_sign", call_sign_},
-    {"data_link_enabled", data_link_enabled_}
+    {"data_link_enabled", data_link_enabled_},
+    {"radio_type", cfg::gEnum::K_RADIO_TYPE_TO_STRING_MAP.at(radio_type_)}
   });
 }
 bool cfg::TelemetryAprs::getTelemetryPackets() const {

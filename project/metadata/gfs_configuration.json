@@ -431,6 +431,17 @@
             "required": true,
             "name": "Data Link Enabled",
             "description": "Enable/Disable the data link."
+        },
+        "radio_type": {
+            "type": "enum",
+            "name": "Radio Type",
+            "description": "The type of radio that will be used for telemetry.",
+            "default": "software",
+            "enum_name": "radio_type",
+            "options": [
+                "software",
+                "sa868"
+            ]
         }
     },
     "telemetry_aprs": {

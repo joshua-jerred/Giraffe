@@ -27,6 +27,7 @@ using json = nlohmann::json;
 #include "protocol.hpp"
 
 #include "giraffe_data_link.hpp"
+#include "software_physical_layer.hpp"
 
 namespace giraffe::gdl {
 
@@ -134,7 +135,8 @@ private:
   bool response_sent_{false};
 
   Config gdl_config_ = Config(true);
-  DataLink gdl_{gdl_config_};
+  SoftwarePhysicalLayer physical_layer_{gdl_config_};
+  DataLink gdl_{gdl_config_, physical_layer_};
 
   uint32_t last_broadcast_id_{1};
 

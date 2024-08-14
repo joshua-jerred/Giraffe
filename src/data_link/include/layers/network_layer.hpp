@@ -15,6 +15,8 @@
 
 #pragma once
 
+#include <memory>
+
 #include <SignalEasel/aprs.hpp>
 
 #include "gdl_packet.hpp"
@@ -24,7 +26,8 @@ namespace giraffe::gdl {
 
 class NetworkLayer {
 public:
-  NetworkLayer(Config &config, PhysicalLayer &physical_layer);
+  NetworkLayer(Config &config,
+               const std::shared_ptr<PhysicalLayer> &physical_layer);
   ~NetworkLayer();
 
   bool txPacket(Packet &packet);
@@ -41,7 +44,7 @@ private:
 
   Config &config_;
 
-  PhysicalLayer &physical_layer_;
+  const std::shared_ptr<PhysicalLayer> &physical_layer_;
   signal_easel::aprs::Modulator modulator_{};
   signal_easel::aprs::Receiver receiver_{};
 };

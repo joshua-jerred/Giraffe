@@ -5,6 +5,9 @@
 libi2c-dev
 nlohmann-json3-dev
 libgtest-dev
+libncurses5-dev
+libncursesw5-dev
+libpulse-dev
 
 libgtest-dev needed to be manually installed on the docker cross compiler
 

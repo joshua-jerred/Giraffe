@@ -8,6 +8,7 @@ target_include_directories(giraffe_data_link_core PUBLIC include)
 target_include_directories(giraffe_data_link_core PRIVATE "./")
 target_link_libraries(giraffe_data_link_core
   giraffe_common
+  giraffe_debug_assert
   BoosterSeat
   SignalEasel
 )

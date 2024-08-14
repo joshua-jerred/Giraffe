@@ -14,13 +14,14 @@
  * @copyright  2023 (license to be defined)
  */
 
-#include "giraffe_data_link.hpp"
+#include "giraffe_assert.hpp"
+
 #include "gdl_message.hpp"
+#include "giraffe_data_link.hpp"
 
 namespace giraffe::gdl {
 
-DataLink::DataLink(Config &config, PhysicalLayer &physical_layer)
-    : config_(config), physical_layer_(physical_layer) {
+DataLink::DataLink(Config &config) : config_(config) {
 }
 
 DataLink::~DataLink() {
@@ -29,23 +30,29 @@ DataLink::~DataLink() {
   }
 }
 
-void DataLink::enable() {
-  if (status_ != Status::DISABLED) {
-    return;
+bool DataLink::enable() {
+  if (isRunning()) {
+    return true; // already running
   }
-  status_ = Status::DISCONNECTED;
+
+  if (p_physical_layer_ == nullptr) {
+    return false;
+  }
+
+  status_ = Status::STARTING;
   gdl_thread_stop_flag_ = false;
   gdl_thread_ = std::thread(&DataLink::gdlThread, this);
+  return isRunning();
 }
 
-void DataLink::disable() {
-  if (status_ == Status::DISABLED) {
-    return;
+bool DataLink::disable() {
+  if (status_ != Status::DISABLED) {
+    return true; // already disabled
   }
 
   gdl_thread_stop_flag_ = true;
   gdl_thread_.join();
-  status_ = Status::DISABLED;
+  return isRunning();
 }
 
 DataLink::Status DataLink::getStatus() const {
@@ -139,6 +146,8 @@ void DataLink::gdlThread() {
 
     bst::sleep(GDL_THREAD_SLEEP_INTERVAL_MS);
   }
+
+  status_ = Status::DISABLED;
 }
 
 } // namespace giraffe::gdl

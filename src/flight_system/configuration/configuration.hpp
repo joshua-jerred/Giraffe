@@ -251,10 +251,12 @@ public:
   bool getTelemetryEnabled() const;
   std::string getCallSign() const;
   bool getDataLinkEnabled() const;
+  cfg::gEnum::RadioType getRadioType() const;
 
   void setTelemetryEnabled(bool);
   void setCallSign(std::string);
   void setDataLinkEnabled(bool);
+  void setRadioType(cfg::gEnum::RadioType);
 
   void setFromJson(const Json&);
   Json getJson() const;
@@ -263,6 +265,7 @@ private:
   bool telemetry_enabled_ = false;
   std::string call_sign_ = "N0CALL";
   bool data_link_enabled_ = false;
+  cfg::gEnum::RadioType radio_type_ = cfg::gEnum::RadioType::SOFTWARE;
 };
 
 class TelemetryAprs : public cfg::CfgSection {

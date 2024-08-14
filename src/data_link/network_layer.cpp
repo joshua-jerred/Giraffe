@@ -30,9 +30,10 @@ inline constexpr char EXP_PREFIX_PING = 'p';
 inline constexpr char EXP_PREFIX_PING_RESPONSE = 'r';
 inline constexpr char EXP_PREFIX_EXCHANGE = 'e';
 
-NetworkLayer::NetworkLayer(Config &config, PhysicalLayer &physical_layer)
+NetworkLayer::NetworkLayer(Config &config,
+                           const std::shared_ptr<PhysicalLayer> &physical_layer)
     : config_(config), physical_layer_(physical_layer) {
-  physical_layer_.enable();
+  // physical_layer_.enable();
 }
 
 NetworkLayer::~NetworkLayer() {
@@ -201,7 +202,7 @@ bool NetworkLayer::txAprsPositionPacket(const Packet &packet) {
 
 void NetworkLayer::update(Statistics &stats) {
   receiver_.process();
-  physical_layer_.update();
+  // physical_layer_.update();
 
   stats.total_packets_sent = total_packets_sent_;
   stats.total_packets_received = total_packets_received_;

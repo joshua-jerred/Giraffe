@@ -21,6 +21,7 @@
 
 #include "gdl_message.hpp"
 #include "giraffe_data_link.hpp"
+#include "software_physical_layer.hpp"
 
 using namespace giraffe::gdl;
 
@@ -42,7 +43,8 @@ int main(int argc, char **argv) {
     config.setRemoteCallSign("CONT");
   }
 
-  DataLink gdl{config};
+  SoftwarePhysicalLayer physical_layer{config};
+  DataLink gdl{config, physical_layer};
 
   gdl.enable();
   if (is_controller) {

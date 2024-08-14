@@ -19,6 +19,7 @@
 
 #include <atomic>
 #include <cstdint>
+#include <memory>
 #include <mutex>
 #include <queue>
 #include <string>
@@ -45,7 +46,11 @@ public:
   /**
    * @brief Status of the remote connection.
    */
-  enum class Status { DISABLED, DISCONNECTED, CONNECTED };
+  enum class Connection { DISABLED, DISCONNECTED, CONNECTED };
+
+  enum class Status { ERROR, DISABLED, STARTING, RUNNING, STOPPING, STOPPED };
+
+  DataLink(Config &config);
 
   /**
    * @brief Constructor for the Giraffe Data Link.
@@ -60,8 +65,26 @@ public:
    */
   ~DataLink();
 
-  void enable();
-  void disable();
+  /// @brief Set the physical layer for the GDL instance. The data link must be
+  /// disabled before setting a new physical layer.
+  bool setPhysicalLayer(std::shared_ptr<PhysicalLayer> p_physical_layer) {
+    if (isRunning()) {
+      return false;
+    }
+    p_physical_layer_ = p_physical_layer;
+
+    return true;
+  }
+
+  /// @brief Enable the Data Link. Starts the background thread.
+  /// @return True if the Data Link was enabled or is already enabled, false if
+  /// the Data Link could not be enabled.
+  bool enable();
+
+  /// @brief Disable the Data Link. Stops the background thread.
+  /// @return True if the Data Link was disabled or is already disabled, false
+  /// if the Data Link could not be disabled.
+  bool disable();
   bool isEnabled() const {
     return !gdl_thread_stop_flag_;
   }
@@ -102,8 +125,8 @@ private:
   std::mutex statistics_lock_{};
   Statistics statistics_{};
 
-  PhysicalLayer &physical_layer_;
-  NetworkLayer network_layer_{config_, physical_layer_};
+  std::shared_ptr<PhysicalLayer> p_physical_layer_ = nullptr;
+  NetworkLayer network_layer_{config_, p_physical_layer_};
   TransportLayer transport_layer_{config_, network_layer_};
 };
 

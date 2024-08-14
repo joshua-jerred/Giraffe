@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   software_physical_layer.hpp
+ * @file   datalink_radio.hpp
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
@@ -17,22 +17,26 @@
 
 #include "layers/physical_layer.hpp"
 
-namespace giraffe::gdl {
+namespace radios {
 
-class SoftwarePhysicalLayer : public PhysicalLayer {
+class Sa868 : public giraffe::gdl::PhysicalLayer {
 public:
-  SoftwarePhysicalLayer(const Config &config) : PhysicalLayer(config) {
+  Sa868(giraffe::gdl::Config &config) : PhysicalLayer(config) {
   }
-  ~SoftwarePhysicalLayer() override = default;
+
+  ~Sa868() override = default;
 
   void enable() override {
+    std::cout << "Sa868 enabled\n";
   }
 
   void disable() override {
+    std::cout << "Sa868 disabled\n";
   }
 
   void update() override {
+    std::cout << "Sa868 update\n";
   }
 };
 
-} // namespace giraffe::gdl
+} // namespace radios
