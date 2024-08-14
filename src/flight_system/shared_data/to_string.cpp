@@ -52,7 +52,7 @@ std::string to_string(const data::LogPacket &packet) noexcept {
   if (!packet.secondary_identifier.empty()) {
     output += " " + packet.secondary_identifier + " ";
   }
-  output += bst::string::intToHex(static_cast<uint16_t>(packet.id));
+  output += K_DIAGNOSTIC_ID_STRING_MAP.at(packet.id);
   output += " " + packet.info;
   return output;
 }

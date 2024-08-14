@@ -862,6 +862,12 @@
       "name": "Mode Not Enabled",
       "details": "The functionality requested is not enabled. (SSTV)",
       "value": "0xB001"
+    },
+    "sstv_error": {
+      "name": "SSTV Error",
+      "details": "An error occurred while trying to send an SSTV image. See info.",
+      "value": "0xB002"
+    
     }
   }
 }

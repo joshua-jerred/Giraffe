@@ -67,6 +67,14 @@
             "true": "enabled",
             "false": "disabled"
         },
+        "print_errors_to_console": {
+            "type": "bool",
+            "name": "Print Errors To Console",
+            "description": "If enabled, errors will be printed to the console.",
+            "default": false,
+            "true": "enabled",
+            "false": "disabled"
+        },
         "file_system_check_interval": {
             "type": "int",
             "name": "File System Check Interval (ms)",

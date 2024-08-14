@@ -193,7 +193,9 @@ enum class DiagnosticId : uint16_t {
   GDL_invalidStopCall=0xA001, // Invalid Stop Call
   GDL_invalidBroadcastCall=0xA002, // Invalid Broadcast Call
   GDL_invalidExchangeCall=0xA003, // Invalid Exchange Call
-  TELEMETRY_invalidCommand=0xB000  // Invalid Command
+  TELEMETRY_invalidCommand=0xB000, // Invalid Command
+  TELEMETRY_modeNotEnabled=0xB001, // Mode Not Enabled
+  TELEMETRY_sstvError=0xB002  // SSTV Error
 };
 // NOLINTEND(readability-identifier-naming)
 

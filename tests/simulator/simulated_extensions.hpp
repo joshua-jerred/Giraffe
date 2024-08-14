@@ -150,11 +150,11 @@ public:
   }
 
   void loop() override {
-    const std::string TEST_IMAGE_PATH = "simulated_camera_image.png";
+    const std::string TEST_IMAGE_PATH = "/simulated_camera_image.png";
     // std::string new_image_name =
     // giraffe::file_paths::generateFileNameWithTimestamp(".png");
 
-    data(data::DataId::CAMERA_newImage, TEST_IMAGE_PATH);
+    data(data::DataId::CAMERA_newImage, image_dir_ + TEST_IMAGE_PATH);
   }
 
 private:
