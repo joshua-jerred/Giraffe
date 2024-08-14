@@ -178,8 +178,7 @@ void modules::TelemetryModule::sendSstvImage() {
 
   // Get the image and verify that it exists
   const std::string &image_path = camera_block.last_valid_image_path;
-  if (bst::f)
-    std::cout << "Image path: " << image_path << std::endl;
+  std::cout << "Image path: " << image_path << std::endl;
 }
 
 void modules::TelemetryModule::reportDescent() {
