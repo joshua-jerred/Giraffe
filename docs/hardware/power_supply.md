@@ -3,6 +3,8 @@
 The power supply for GFC is responsible for taking the input voltage from the
 battery and creating a stable 5V and 3.3V output for the whole system.
 
+***
+
 ## Requirements
 
 ### Power Output and Consumption
@@ -10,7 +12,7 @@ battery and creating a stable 5V and 3.3V output for the whole system.
 The raspberry pi zero 2 W requires 5V to operate and has a maximum tolerance of
 5%. The Raspberry Pi Zero 2 W idles at 280ma and under load can consume up to
 600ma. Due to the computational requirements of the flight software, a duty
-cycle of 95% should be assumed, so 570.
+cycle of 95% should be assumed.
 
 The radio module, SA868 can operate from 3.3V to 5.5V. The radio module requires
 1000ma to transmit at high power when at 5V, 900 at 4.2V. At low transmit power,
@@ -19,19 +21,41 @@ consumes 70ma. The radio module should be assumed to be in receive mode when not
 transmitting. Assuming a possible configuration of APRS location and
 telemetry packets transmitted (3s, 1 per minute), two way telemetry packets
 (3s, 1 per minute), Robot36 SSTV images (36s, every 10 minutes), a realistic
-upper bound duty cycle is 15% over an hour, so ~210ma.
+upper bound duty cycle is 15%.
 
-All other ICs on board consume a maximum of ~250ma.
+The Pi camera module requires 250ma to operate. This needs to be tested, but for
+now assume that it takes 3 seconds to power on, take a picture, and power off.
+If a picture is taken every 30 seconds, the duty cycle is 10%, so ~25ma.
 
-High Power TX Peak: 600 + 1000 + 250 = 1850ma
-Low Power TX Peak: 600 + 550 + 250 = 1400ma
-Duty Cycle Applied: 570 + 210 + 250 = 1030ma
+As things are still changing, there is no point in trying to calculate the power
+consumption of the other onboard ICs. After a quick run through, it should be
+less 200ma at peak. This needs to be tested.
 
-- REQ: The output voltage of the power supply is 5V.
-- REQ: The maximum tolerance of the output voltage is 5%, ideally 3% should be targeted.
-- REQ: The power supply must be able to provide 2.0A of current.
+The flight hardware does have connectors for external sensors. The DS18B20
+sensors are negligible. There is a single I2C connector available for expansion.
+100ma should be allocated for this. This also means that the Pi's 3.3V rail
+can not be used for the 3.3V components.
 
-## Battery Cells
+The following table summarizes the power consumption of the components.
+**Note**: The table below does not distinguish between 3.3V and 5V components.
+The 3.3V components are are a small fraction of the total power consumption.
+
+| Component                 | Base Current (ma) | Peak Current (ma) | Duty Cycle | Average Current (ma) |
+| ------------------------- | ----------------- | ----------------- | ---------- | -------------------- |
+| Raspberry Pi Zero 2 W     | 280               | 600               | 95%        | 584                  |
+| SA868 Radio Module (High) | 70                | 1000              | 15%        | 210                  |
+| Pi Camera Module          | 0                 | 250               | 5%         | 25                   |
+| Other Onboard ICs         | 50                | 200               | 5%         | 125                  |
+| External Sensors          | 0                 | 100               | 5%         | 5                    |
+| **Total**                 | **400**           | **2150**          |            | **949**              |
+
+- REQ: The battery voltage will be regulated to 5V with a buck or boost converter, dependant on pack configuration.
+- REQ: The 5V regulator must be able to supply at least 2.5A.
+- REQ: The 3.3V bus will be regulated from the 5V bus with an LDO.
+- REQ: The acceptable voltage tolerance of 3.3V and 5V bus is 5%.
+- REQ: The power supply will have current sensing.
+
+### Battery Cells
 
 The battery cells should be Lithium-Ion cells. Of the form factors available,
 cylindrical cells provide safety benefits over pouch cells. There should be
@@ -53,7 +77,6 @@ https://batteryuniversity.com/article/bu-302-series-and-parallel-battery-configu
 - REQ: The battery cells must have a capacity of at least 4000mAh.
 - REQ: The battery cells must be from a reputable manufacturer and distributor.
 
-
 ### Cell Configuration and Power Supply Architecture
 
 Depending on the battery cell configuration, the power supply architecture will
@@ -64,12 +87,28 @@ require a buck converter and two ADC channels, or a BMS, to monitor the battery.
 
 - REQ: The battery pack must weigh less than 350g
 
-
 ### Pack Design
 
 ### Battery Management
 
 - REQ: The battery SOC should be considered 100% at 4.2V and 0% at 3.0V
 
+***
 
-INR21700-50E - 17Wh @ 2A
+## Design
+
+### Battery
+
+Going with a 2SxP configuration, the power supply will consist of a buck
+converter.
+
+Tentatively, the cell choice is INR21700-50E, which has is 17Wh at a 2A draw.
+
+### Current Sensing
+
+High side current sensing will be used with the shunt resistor placed between
+the battery and the buck converter.
+
+Currently looking at the INA226 for current sensing.
+
+INA180A
