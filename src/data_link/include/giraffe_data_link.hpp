@@ -29,8 +29,11 @@
 #include <SignalEasel/aprs.hpp>
 
 #include "gdl_config_and_stats.hpp"
-#include "gdl_layers.hpp"
 #include "gdl_message.hpp"
+
+#include "layers/network_layer.hpp"
+#include "layers/physical_layer.hpp"
+#include "layers/transport_layer.hpp"
 
 namespace giraffe::gdl {
 
@@ -49,7 +52,7 @@ public:
    * @param config - The configuration for the GDL instance. Can be modified
    * externally. (thread safe)
    */
-  DataLink(Config &config);
+  DataLink(Config &config, PhysicalLayer &pyhsical_layer);
 
   /**
    * @brief Deconstruct the GDL instance, this will stop the GDL instance if it
@@ -99,7 +102,7 @@ private:
   std::mutex statistics_lock_{};
   Statistics statistics_{};
 
-  PhysicalLayer physical_layer_{config_};
+  PhysicalLayer &physical_layer_;
   NetworkLayer network_layer_{config_, physical_layer_};
   TransportLayer transport_layer_{config_, network_layer_};
 };

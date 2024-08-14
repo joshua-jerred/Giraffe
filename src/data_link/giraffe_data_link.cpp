@@ -19,7 +19,8 @@
 
 namespace giraffe::gdl {
 
-DataLink::DataLink(Config &config) : config_(config) {
+DataLink::DataLink(Config &config, PhysicalLayer &physical_layer)
+    : config_(config), physical_layer_(physical_layer) {
 }
 
 DataLink::~DataLink() {

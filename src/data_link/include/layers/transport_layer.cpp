@@ -15,9 +15,8 @@
  */
 
 #include "gdl_constants.hpp"
+#include "gdl_layers.hpp"
 #include "gdl_message.hpp"
-
-#include "layers/transport_layer.hpp"
 
 namespace giraffe::gdl {
 
