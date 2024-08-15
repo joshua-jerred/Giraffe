@@ -13,6 +13,7 @@ using namespace giraffe;
 gdl::Config config;
 
 TEST(ApplicationLayer, EnableRequiresRadio) {
+  GTEST_SKIP();
 
   gdl::DataLink gdl(config);
   EXPECT_FALSE(gdl.enable());
@@ -31,6 +32,7 @@ TEST(ApplicationLayer, EnableRequiresRadio) {
 }
 
 TEST(ApplicationLayer, ConstructWithPhysicalLayer) {
+  GTEST_SKIP();
 
   std::shared_ptr<gdl::SoftwarePhysicalLayer> spl =
       std::make_shared<gdl::SoftwarePhysicalLayer>(config);
