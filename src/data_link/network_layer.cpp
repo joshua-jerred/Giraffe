@@ -14,6 +14,10 @@
  * @copyright  2024 (license to be defined)
  */
 
+#ifdef SSTV_ENABLED
+#include "SignalEasel/sstv.hpp"
+#endif
+
 #include "SignalEasel/aprs.hpp"
 #include "SignalEasel/exception.hpp"
 
@@ -43,6 +47,9 @@ bool NetworkLayer::txPacket(Packet &packet) {
   total_packets_sent_++;
   if (packet.getPacketType() == Packet::PacketType::LOCATION) {
     return txAprsPositionPacket(packet);
+  }
+  if (packet.getPacketType() == Packet::PacketType::SSTV) {
+    return txSstvImage(packet);
   }
 
   signal_easel::aprs::Experimental exp_aprs_packet{};
@@ -174,6 +181,18 @@ bool NetworkLayer::rxPacket(Packet &packet) {
   return false;
 }
 
+void NetworkLayer::update(Statistics &stats) {
+  receiver_.process();
+  // physical_layer_.update();
+
+  stats.total_packets_sent = total_packets_sent_;
+  stats.total_packets_received = total_packets_received_;
+  stats.network_layer_latency_ms = receiver_.getLatency();
+  stats.volume = receiver_.getVolume();
+  stats.signal_to_noise_ratio = receiver_.getSNR();
+  // stats.aprs_receiver_stats = receiver_.getStats();
+}
+
 bool NetworkLayer::txAprsPositionPacket(const Packet &packet) {
   try {
     signal_easel::aprs::PositionPacket pos_packet{};
@@ -200,16 +219,29 @@ bool NetworkLayer::txAprsPositionPacket(const Packet &packet) {
   return true;
 }
 
-void NetworkLayer::update(Statistics &stats) {
-  receiver_.process();
-  // physical_layer_.update();
+bool NetworkLayer::txSstvImage(const Packet &packet) {
+#ifdef SSTV_ENABLED
 
-  stats.total_packets_sent = total_packets_sent_;
-  stats.total_packets_received = total_packets_received_;
-  stats.network_layer_latency_ms = receiver_.getLatency();
-  stats.volume = receiver_.getVolume();
-  stats.signal_to_noise_ratio = receiver_.getSNR();
-  // stats.aprs_receiver_stats = receiver_.getStats();
-}
+  try {
+    signal_easel::sstv::Settings settings{};
+    settings.overlay_call_sign = true;
+    settings.mode = signal_easel::sstv::Settings::SstvMode::ROBOT36_COLOR;
+    settings.call_sign = config_.getCallSign();
+
+    signal_easel::sstv::Modulator sstv_modulator =
+        signal_easel::sstv::Modulator(settings);
+    sstv_modulator.encodeImage(packet.getImage().path);
+    sstv_modulator.writeToPulseAudio();
+    sstv_modulator.clearBuffer();
+
+  } catch (signal_easel::Exception &e) {
+    /// @todo report back up
+    return false;
+  }
+  return true;
+#else
+  return false;
+#endif
+};
 
 } // namespace giraffe::gdl

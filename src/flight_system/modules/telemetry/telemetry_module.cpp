@@ -14,8 +14,10 @@
  * @copyright  2023 (license to be defined)
  */
 
-#include "telemetry_module.hpp"
+#include <BoosterSeat/filesystem.hpp>
+
 #include "gdl_message.hpp"
+#include "telemetry_module.hpp"
 
 using namespace giraffe;
 
@@ -33,7 +35,29 @@ void modules::TelemetryModule::startup() {
   aprs_position_packet_timer_.setTimeout(
       configuration_.telemetry_aprs.getPositionPacketInterval() * 1000);
 
-  gdl_.enable();
+  const auto radio_type = configuration_.telemetry.getRadioType();
+  switch (radio_type) {
+  case cfg::gEnum::RadioType::SOFTWARE:
+    physical_layer_ =
+        std::make_unique<giraffe::gdl::SoftwarePhysicalLayer>(gdl_config_);
+    break;
+  case cfg::gEnum::RadioType::SA868:
+    physical_layer_ = std::make_unique<radios::Sa868>(gdl_config_);
+    break;
+  default:
+    error(DiagnosticId::TELEMETRY_radioConfiguration, "0");
+    break;
+  }
+
+  if (!gdl_.setPhysicalLayer(physical_layer_)) {
+    error(DiagnosticId::TELEMETRY_dataLinkError, "stPhy");
+    return;
+  }
+
+  if (!gdl_.enable()) {
+    error(DiagnosticId::TELEMETRY_dataLinkError, "enbl");
+    return;
+  }
 }
 
 void modules::TelemetryModule::loop() {
@@ -154,7 +178,7 @@ void modules::TelemetryModule::sendAprsPositionPacket() {
 
   // Send the packet
   if (!gdl_.sendMessage(message)) {
-    /// @todo log an error
+    error(DiagnosticId::TELEMETRY_dataLinkSendError, "APRS");
     return;
   }
 
@@ -178,7 +202,25 @@ void modules::TelemetryModule::sendSstvImage() {
 
   // Get the image and verify that it exists
   const std::string &image_path = camera_block.last_valid_image_path;
-  std::cout << "Image path: " << image_path << std::endl;
+  try {
+    if (!bst::filesystem::doesFileExist(image_path)) {
+      error(DiagnosticId::TELEMETRY_sstvError, "img_pth");
+      return;
+    }
+  } catch (const std::exception &e) {
+    error(DiagnosticId::TELEMETRY_sstvError, "img_pth_expt");
+    return;
+  }
+
+  giraffe::gdl::Message::Image image{};
+  image.path = image_path;
+  giraffe::gdl::Message message{};
+  message.setImageMessage(image, getNextMessageId());
+
+  if (!gdl_.sendMessage(message)) {
+    error(DiagnosticId::TELEMETRY_dataLinkSendError, "SSTV");
+    return;
+  }
 }
 
 void modules::TelemetryModule::reportDescent() {

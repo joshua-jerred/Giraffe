@@ -21,13 +21,26 @@
 
 namespace giraffe::gdl {
 
-DataLink::DataLink(Config &config) : config_(config) {
+DataLink::DataLink(Config &config,
+                   std::shared_ptr<PhysicalLayer> p_physical_layer)
+    : config_(config), p_physical_layer_(p_physical_layer),
+      transport_layer_(config_, network_layer_) {
+  status_ = Status::DISABLED;
 }
 
 DataLink::~DataLink() {
   if (status_ != Status::DISABLED) {
     disable();
   }
+}
+
+bool DataLink::setPhysicalLayer(
+    std::shared_ptr<PhysicalLayer> p_physical_layer) {
+  if (isRunning()) {
+    return false;
+  }
+  p_physical_layer_ = p_physical_layer;
+  return true;
 }
 
 bool DataLink::enable() {
@@ -39,20 +52,21 @@ bool DataLink::enable() {
     return false;
   }
 
-  status_ = Status::STARTING;
+  setStatus(Status::STARTING);
   gdl_thread_stop_flag_ = false;
   gdl_thread_ = std::thread(&DataLink::gdlThread, this);
   return isRunning();
 }
 
 bool DataLink::disable() {
-  if (status_ != Status::DISABLED) {
+  if (!isEnabled()) {
     return true; // already disabled
   }
 
+  setStatus(Status::STOPPING);
   gdl_thread_stop_flag_ = true;
   gdl_thread_.join();
-  return isRunning();
+  return !isRunning();
 }
 
 DataLink::Status DataLink::getStatus() const {
@@ -64,6 +78,7 @@ bool DataLink::sendMessage(const Message &message) {
     return false;
   }
 
+  // Only text based messages require the logic of exchange messages
   if (message.getType() == Message::Type::EXCHANGE) {
     return out_exchange_queue_.push(message);
   }
@@ -90,8 +105,9 @@ bool DataLink::receiveMessage(Message &message) {
 }
 
 void DataLink::gdlThread() {
+  Message message_buffer;
   while (!gdl_thread_stop_flag_) {
-    Message message_buffer;
+    setStatus(Status::RUNNING);
 
     // update lower layers
     statistics_lock_.lock();
@@ -130,13 +146,12 @@ void DataLink::gdlThread() {
       }
     }
 
-    if (transport_layer_.isConnected()) {
-      status_ = Status::CONNECTED;
-    } else {
-      status_ = Status::DISCONNECTED;
-    }
+    // if (transport_layer_.isConnected()) {
+    //   status_ = Status::CONNECTED;
+    // } else {
+    //   status_ = Status::DISCONNECTED;
+    // }
 
-    // update uplink/downlink status based on timeouts
     // update the status struct
     statistics_lock_.lock();
     statistics_.exchange_queue_size = out_exchange_queue_.size();
@@ -147,7 +162,7 @@ void DataLink::gdlThread() {
     bst::sleep(GDL_THREAD_SLEEP_INTERVAL_MS);
   }
 
-  status_ = Status::DISABLED;
+  setStatus(Status::DISABLED);
 }
 
 } // namespace giraffe::gdl

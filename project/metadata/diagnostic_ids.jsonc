@@ -867,6 +867,21 @@
       "name": "SSTV Error",
       "details": "An error occurred while trying to send an SSTV image. See info.",
       "value": "0xB002"
+    },
+    "radio_configuration": {
+      "name": "Radio Configuration Error",
+      "details": "The radio configuration is invalid.",
+      "value": "0xB003"
+    },
+    "data_link_error": {
+      "name": "Data Link Error",
+      "details": "Error related to the data link.",
+      "value": "0xB004"
+    },
+    "data_link_send_error": {
+      "name": "Data Link Send Error",
+      "details": "Error related to sending data over the data link.",
+      "value": "0xB005"
     }
   }
 }

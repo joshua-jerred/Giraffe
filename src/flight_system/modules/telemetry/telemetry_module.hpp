@@ -92,14 +92,16 @@ private:
 
   /// @brief A software radio for the data link that can be used in place of a
   /// physical radio. It is mostly just stubbed out.
-  giraffe::gdl::SoftwarePhysicalLayer software_radio_{gdl_config_};
+  // giraffe::gdl::SoftwarePhysicalLayer software_radio_{gdl_config_};
 
   /// @brief An optional SA868 radio that can be used in place of the software
   /// radio. This will be populated if it's selected in the configuration.
-  std::optional<radios::Sa868> sa868_ = std::nullopt;
+  // std::optional<radios::Sa868> sa868_ = std::nullopt;
+
+  std::shared_ptr<giraffe::gdl::PhysicalLayer> physical_layer_ = nullptr;
 
   /// @brief The Data Link used for telemetry.
-  giraffe::gdl::DataLink gdl_{gdl_config_, software_radio_};
+  giraffe::gdl::DataLink gdl_{gdl_config_};
 };
 
 } // namespace modules

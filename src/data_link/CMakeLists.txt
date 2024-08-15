@@ -17,6 +17,13 @@ target_include_directories(
   PRIVATE
   ${THIRD_PARTY_SRC}/nlohmann_json/single_include
 )
+if(SSTV_ENABLED)
+  target_compile_definitions(giraffe_data_link_core PRIVATE SSTV_ENABLED)
+  add_definitions(-DMAGICKCORE_QUANTUM_DEPTH=8)
+  add_definitions(-DMAGICKCORE_HDRI_ENABLE=1)
+  find_package(ImageMagick COMPONENTS Magick++)
+  target_include_directories(giraffe_data_link_core SYSTEM PRIVATE ${ImageMagick_INCLUDE_DIRS})
+endif()
 
 add_executable(gdl_server
   "server/main.cpp"

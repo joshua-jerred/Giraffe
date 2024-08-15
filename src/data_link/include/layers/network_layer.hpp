@@ -39,6 +39,12 @@ public:
 private:
   bool txAprsPositionPacket(const Packet &packet);
 
+  /// @brief Broadcast an SSTV image.
+  /// @param packet - The packet containing the SSTV image.
+  /// @return \c true if the image was successfully broadcast, \c false
+  /// otherwise. Also false if SSTV is not enabled.
+  bool txSstvImage(const Packet &packet);
+
   uint32_t total_packets_sent_ = 0;
   uint32_t total_packets_received_ = 0;
 

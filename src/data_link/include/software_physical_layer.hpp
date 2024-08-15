@@ -35,4 +35,9 @@ public:
   }
 };
 
+inline std::shared_ptr<SoftwarePhysicalLayer>
+createSwPhysicalLayer(const Config &config) {
+  return std::make_shared<SoftwarePhysicalLayer>(config);
+}
+
 } // namespace giraffe::gdl

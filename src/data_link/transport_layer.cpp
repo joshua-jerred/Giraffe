@@ -59,6 +59,13 @@ bool TransportLayer::send(Message &message) {
     return true;
   }
 
+  if (message.getType() == Message::Type::IMAGE) {
+    current_tx_packet_ = message;
+    current_tx_packet_.setPacketType(Packet::PacketType::SSTV);
+    state_ = State::BROADCAST;
+    return true;
+  }
+
   // if it's a broadcast message, we don't need to be connected
   if (message.getType() == Message::Type::BROADCAST) {
     current_tx_packet_ = message;

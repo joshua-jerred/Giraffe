@@ -51,8 +51,8 @@ public:
   /**
    * @brief Send a message to the remote node.
    * @details This will set the state of the transport layer to something other
-   * than IDLE. If the message type is 'exchange' then this will return false
-   * and the message will not be sent.
+   * than IDLE. If the message type is 'EXCHANGE' and we are in proactive keep
+   * alive mode, we will only send the message if we are connected.
    * @param message - The message to send.
    */
   bool send(Message &message);

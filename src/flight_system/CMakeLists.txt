@@ -2,14 +2,6 @@
 
 file(MAKE_DIRECTORY ${GFS_BIN})
 
-if(SSTV_ENABLED)
-  message(STATUS "SSTV Enabled In Giraffe Flight System")
-  add_compile_definitions(SSTV_ENABLED=1)
-else()
-  message(STATUS "SSTV Disabled In Giraffe Flight System")
-  add_compile_definitions(SSTV_ENABLED=0)
-endif()
-
 set(EXE_NAME giraffe_flight_system)
 
 add_library(module_base INTERFACE)
@@ -75,6 +67,13 @@ target_include_directories(
   PRIVATE
   ${THIRD_PARTY_SRC}/nlohmann_json/single_include
 )
+
+if(SSTV_ENABLED)
+  message(STATUS "SSTV Enabled In Giraffe Flight System")
+  target_compile_definitions(${EXE_NAME} PRIVATE SSTV_ENABLED)
+else()
+  message(STATUS "SSTV Disabled In Giraffe Flight System")
+endif()
 
 if(DEFINED ENV{RUN_IN_SIMULATOR})
   if ($ENV{RUN_IN_SIMULATOR} EQUAL "1")

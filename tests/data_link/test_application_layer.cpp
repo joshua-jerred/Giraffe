@@ -24,9 +24,20 @@ TEST(ApplicationLayer, EnableRequiresRadio) {
   gdl.setPhysicalLayer(spl);
 
   EXPECT_TRUE(gdl.enable());
-  EXPECT_EQ(gdl.getStatus(), gdl::DataLink::Status::DISCONNECTED);
+  bst::sleep(10);
+  EXPECT_EQ(gdl.getStatus(), gdl::DataLink::Status::RUNNING);
   EXPECT_TRUE(gdl.isEnabled());
+  EXPECT_TRUE(gdl.disable());
+}
 
-  // BoosterSeat::threadSleep(100);
-  // EXPECT_EQ(gdl.getStatus(), GiraffeDataLink::Status::RUNNING);
+TEST(ApplicationLayer, ConstructWithPhysicalLayer) {
+
+  std::shared_ptr<gdl::SoftwarePhysicalLayer> spl =
+      std::make_shared<gdl::SoftwarePhysicalLayer>(config);
+
+  gdl::DataLink gdl(config, spl);
+  EXPECT_TRUE(gdl.enable());
+  bst::sleep(10);
+  EXPECT_EQ(gdl.getStatus(), gdl::DataLink::Status::RUNNING);
+  EXPECT_TRUE(gdl.isEnabled());
 }
