@@ -26,6 +26,7 @@
 using namespace giraffe::gdl;
 
 int main(int argc, char **argv) {
+  (void)argv;
   std::cout << "GDL Terminal\n";
   bool is_controller = false;
   if (argc > 1) {
@@ -43,7 +44,8 @@ int main(int argc, char **argv) {
     config.setRemoteCallSign("CONT");
   }
 
-  SoftwarePhysicalLayer physical_layer{config};
+  std::shared_ptr<SoftwarePhysicalLayer> physical_layer =
+      std::make_shared<SoftwarePhysicalLayer>(config);
   DataLink gdl{config, physical_layer};
 
   gdl.enable();

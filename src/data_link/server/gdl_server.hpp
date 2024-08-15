@@ -32,10 +32,11 @@ using json = nlohmann::json;
 namespace giraffe::gdl {
 
 static const std::unordered_map<DataLink::Status, std::string> GDL_STATUS_MAP{
+    {DataLink::Status::ERROR, "ERROR"},
     {DataLink::Status::DISABLED, "DISABLED"},
-    {DataLink::Status::DISCONNECTED, "DISCONNECTED"},
-    {DataLink::Status::CONNECTED, "CONNECTED"},
-};
+    {DataLink::Status::STARTING, "STARTING"},
+    {DataLink::Status::RUNNING, "RUNNING"},
+    {DataLink::Status::STOPPING, "STOPPING"}};
 
 /**
  * @brief The Giraffe Data Link Terminal
@@ -135,7 +136,8 @@ private:
   bool response_sent_{false};
 
   Config gdl_config_ = Config(true);
-  SoftwarePhysicalLayer physical_layer_{gdl_config_};
+  std::shared_ptr<SoftwarePhysicalLayer> physical_layer_ =
+      std::make_shared<SoftwarePhysicalLayer>(gdl_config_);
   DataLink gdl_{gdl_config_, physical_layer_};
 
   uint32_t last_broadcast_id_{1};

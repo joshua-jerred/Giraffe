@@ -240,6 +240,7 @@ bool NetworkLayer::txSstvImage(const Packet &packet) {
   }
   return true;
 #else
+  (void)packet;
   return false;
 #endif
 };
