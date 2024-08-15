@@ -14,8 +14,8 @@
  * @copyright  2024 (license to be defined)
  */
 
+#include "layers/physical_layer.hpp"
 #include "gdl_config_and_stats.hpp"
-#include "gdl_layers.hpp"
 
 namespace giraffe::gdl {
 

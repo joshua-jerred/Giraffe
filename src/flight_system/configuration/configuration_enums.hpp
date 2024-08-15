@@ -191,6 +191,19 @@ std::map<cfg::gEnum::ErrorLogStrategy, std::string> const K_ERROR_LOG_STRATEGY_T
   {cfg::gEnum::ErrorLogStrategy::ERROR_FRAME, "error_frame"}
 };
 
+enum class RadioType {
+  SOFTWARE = 0,
+  SA868 = 1
+};
+std::unordered_map<std::string, cfg::gEnum::RadioType> const K_STRING_TO_RADIO_TYPE_MAP = {
+  {"software", cfg::gEnum::RadioType::SOFTWARE},
+  {"sa868", cfg::gEnum::RadioType::SA868}
+};
+std::map<cfg::gEnum::RadioType, std::string> const K_RADIO_TYPE_TO_STRING_MAP = {
+  {cfg::gEnum::RadioType::SOFTWARE, "software"},
+  {cfg::gEnum::RadioType::SA868, "sa868"}
+};
+
 enum class AprsSymbolTable {
   PRIMARY = 0,
   ALTERNATE = 1

@@ -28,7 +28,6 @@
     "=*=======================*=",
     "",
     "@file{indent:8}{file}",
-    "@brief{indent:8}",
     "",
     "=*=======================*=",
     "@author{indent:12}{author} ({email})", // Gets replaced by user's settings

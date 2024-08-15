@@ -17,11 +17,15 @@
 #ifndef TELEMETRY_MODULE_HPP_
 #define TELEMETRY_MODULE_HPP_
 
+#include <optional>
+
 #include <BoosterSeat/timer.hpp>
 
-#include "module.hpp"
-
 #include <giraffe_data_link.hpp>
+#include <software_physical_layer.hpp>
+
+#include "module.hpp"
+#include "radios/sa868.hpp"
 
 namespace modules {
 
@@ -75,9 +79,6 @@ private:
     return message_id_++;
   }
 
-  giraffe::gdl::Config gdl_config_{false};
-  giraffe::gdl::DataLink gdl_{gdl_config_};
-
   int total_messages_sent_ = 0;
   int total_messages_received_ = 0;
   std::string last_received_message_ = "";
@@ -85,6 +86,22 @@ private:
   bst::Timer aprs_position_packet_timer_{};
 
   uint32_t message_id_ = 0;
+
+  /// @brief The configuration for the data link.
+  giraffe::gdl::Config gdl_config_{false};
+
+  /// @brief A software radio for the data link that can be used in place of a
+  /// physical radio. It is mostly just stubbed out.
+  // giraffe::gdl::SoftwarePhysicalLayer software_radio_{gdl_config_};
+
+  /// @brief An optional SA868 radio that can be used in place of the software
+  /// radio. This will be populated if it's selected in the configuration.
+  // std::optional<radios::Sa868> sa868_ = std::nullopt;
+
+  std::shared_ptr<giraffe::gdl::PhysicalLayer> physical_layer_ = nullptr;
+
+  /// @brief The Data Link used for telemetry.
+  giraffe::gdl::DataLink gdl_{gdl_config_};
 };
 
 } // namespace modules

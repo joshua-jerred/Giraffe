@@ -23,16 +23,20 @@
 #include <queue>
 #include <sstream>
 #include <string>
+#include <variant>
 
-#include "nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
 #include <gdl_constants.hpp>
 
 namespace giraffe::gdl {
+
+/// @brief A message that can be sent via GDL
 class Message {
 public:
-  enum class Type : uint8_t { BROADCAST, EXCHANGE, LOCATION };
+  /// @brief The type of message
+  enum class Type : uint8_t { BROADCAST, EXCHANGE, LOCATION, IMAGE };
 
   struct Location {
     double latitude = 0;
@@ -43,6 +47,10 @@ public:
     std::string time_code{};
   };
 
+  struct Image {
+    std::string path{};
+  };
+
   Message() = default;
 
   bool setBroadcastMessage(std::string broadcast_message, uint32_t identifier) {
@@ -51,7 +59,7 @@ public:
     }
 
     identifier_ = identifier;
-    data_ = std::move(broadcast_message);
+    contents_ = std::move(broadcast_message);
     type_ = Type::BROADCAST;
     return true;
   }
@@ -62,18 +70,22 @@ public:
     }
 
     identifier_ = identifier;
-    data_ = std::move(exchange_message);
+    contents_ = std::move(exchange_message);
     type_ = Type::EXCHANGE;
     return true;
   }
 
   bool setLocationMessage(Location location, uint32_t identifier) {
-    /// @todo validate values
     identifier_ = identifier;
-    data_ = "";
-    location_ = location;
+    contents_ = location;
     type_ = Type::LOCATION;
     return true;
+  }
+
+  void setImageMessage(Image image_info, uint32_t identifier) {
+    identifier_ = identifier;
+    contents_ = image_info;
+    type_ = Type::IMAGE;
   }
 
   uint32_t getIdentifier() const {
@@ -110,49 +122,72 @@ public:
   }
 
   void setData(std::string data) {
-    data_ = std::move(data);
+    contents_ = std::move(data);
   }
 
   std::string getData() const {
-    return data_;
+    return std::get<std::string>(contents_);
   }
 
   void setLocation(Location location) {
-    location_ = location;
+    contents_ = location;
   }
 
   Location getLocation() const {
-    return location_;
+    return std::get<Location>(contents_);
+  }
+
+  Image getImage() const {
+    return std::get<Image>(contents_);
   }
 
   json getJson() const {
     json data = {{"identifier", getIdentifierString()}};
     switch (getType()) {
-    case Type::BROADCAST:
+    case Type::BROADCAST: {
       data["type"] = "BROADCAST";
-      [[fallthrough]];
-    case Type::EXCHANGE:
       data["data"] = getData();
+    } break;
+    case Type::EXCHANGE: {
       data["type"] = "EXCHANGE";
-      break;
-    case Type::LOCATION:
+      data["data"] = getData();
+    } break;
+    case Type::LOCATION: {
       data["type"] = "LOCATION";
-      data["location"] = {{"latitude", getLocation().latitude},
+      data["contents"] = {{"latitude", getLocation().latitude},
                           {"longitude", getLocation().longitude},
                           {"altitude", getLocation().altitude},
                           {"speed", getLocation().speed},
                           {"heading", getLocation().heading},
                           {"time_code", getLocation().time_code}};
-      break;
+    } break;
+    case Type::IMAGE: {
+      data["type"] = "IMAGE";
+      data["contents"] = {{"path", getImage().path}};
+    } break;
     }
     return data;
+  }
+
+  bool verifyType() {
+    switch (getType()) {
+    case Type::BROADCAST:
+    case Type::EXCHANGE:
+      return std::holds_alternative<std::string>(contents_);
+    case Type::LOCATION:
+      return std::holds_alternative<Location>(contents_);
+    case Type::IMAGE:
+      return std::holds_alternative<Image>(contents_);
+    }
+    return false;
   }
 
 private:
   uint32_t identifier_ = 0;
   Type type_{Type::BROADCAST};
-  std::string data_{};
-  Location location_{};
+  // std::string data_{};
+  // Location location_{};
+  std::variant<std::string, Location, Image> contents_;
 };
 
 /**

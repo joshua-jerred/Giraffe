@@ -39,6 +39,7 @@ target_include_directories(
   PRIVATE
   ${THIRD_PARTY_SRC}/nlohmann_json/single_include
 )
+file(COPY ${GDL_TEST_SRC}/sstv_image.png DESTINATION ${TEST_BIN})
 
 # --- Flight Software ---
 file(GLOB gfs_test_sources "${GFS_UNIT_TEST_SRC}/test_*.cpp")

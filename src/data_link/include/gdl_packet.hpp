@@ -34,7 +34,8 @@ public:
     LOCATION,
     PING,
     PING_RESPONSE,
-    ACK
+    ACK,
+    SSTV
   };
 
   Packet() = default;

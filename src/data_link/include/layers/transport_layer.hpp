@@ -5,29 +5,23 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   gdl_layers.hpp
- * @brief  The network layers for Giraffe Data Link
+ * @file   transport_layer.hpp
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
- * @date       2024-01-18
+ * @date       2024-08-14
  * @copyright  2024 (license to be defined)
  */
 
-#ifndef GDL_LAYERS_HPP_
-#define GDL_LAYERS_HPP_
+#pragma once
 
-#include <SignalEasel/aprs.hpp>
+#include <BoosterSeat/timer.hpp>
 
-#include "BoosterSeat/timer.hpp"
 #include "gdl_config_and_stats.hpp"
 #include "gdl_message.hpp"
-#include "gdl_packet.hpp"
+#include "network_layer.hpp"
 
 namespace giraffe::gdl {
-
-class PhysicalLayer;
-class NetworkLayer;
 
 /**
  * @brief The Transport Layer - Layer 3
@@ -57,8 +51,8 @@ public:
   /**
    * @brief Send a message to the remote node.
    * @details This will set the state of the transport layer to something other
-   * than IDLE. If the message type is 'exchange' then this will return false
-   * and the message will not be sent.
+   * than IDLE. If the message type is 'EXCHANGE' and we are in proactive keep
+   * alive mode, we will only send the message if we are connected.
    * @param message - The message to send.
    */
   bool send(Message &message);
@@ -141,65 +135,4 @@ private:
   uint32_t position_packets_received_ = 0;
 };
 
-/**
- * @brief
- */
-class NetworkLayer {
-public:
-  NetworkLayer(Config &config, PhysicalLayer &physical_layer);
-  ~NetworkLayer();
-
-  bool txPacket(Packet &packet);
-
-  bool rxPacket(Packet &packet);
-
-  void update(Statistics &stats);
-
-private:
-  bool txAprsPositionPacket(const Packet &packet);
-
-  uint32_t total_packets_sent_ = 0;
-  uint32_t total_packets_received_ = 0;
-
-  Config &config_;
-
-  PhysicalLayer &physical_layer_;
-  signal_easel::aprs::Modulator modulator_{};
-  signal_easel::aprs::Receiver receiver_{};
-};
-
-class PhysicalLayer {
-public:
-  enum class State {
-    ERROR,
-    DISABLED,
-    STARTING,
-    IDLE,
-    TRANSMITTING,
-    RECEIVING,
-    BUSY
-  };
-
-  PhysicalLayer(Config &config);
-
-  ~PhysicalLayer();
-
-  void enable();
-
-  void disable();
-
-  void update();
-
-  PhysicalLayer::State getState() const {
-    return state_;
-  }
-
-protected:
-  Config &config_;
-
-  State state_ = State::DISABLED;
-};
-
 } // namespace giraffe::gdl
-
-#endif /* GDL_LAYERS_HPP_ */

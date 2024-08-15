@@ -15,8 +15,9 @@
  */
 
 #include "gdl_constants.hpp"
-#include "gdl_layers.hpp"
 #include "gdl_message.hpp"
+
+#include "layers/transport_layer.hpp"
 
 namespace giraffe::gdl {
 
@@ -54,6 +55,13 @@ bool TransportLayer::send(Message &message) {
   if (message.getType() == Message::Type::LOCATION) {
     current_tx_packet_ = message;
     current_tx_packet_.setPacketType(Packet::PacketType::LOCATION);
+    state_ = State::BROADCAST;
+    return true;
+  }
+
+  if (message.getType() == Message::Type::IMAGE) {
+    current_tx_packet_ = message;
+    current_tx_packet_.setPacketType(Packet::PacketType::SSTV);
     state_ = State::BROADCAST;
     return true;
   }

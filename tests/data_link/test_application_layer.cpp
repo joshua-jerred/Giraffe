@@ -6,23 +6,40 @@
 
 #include <giraffe_data_link.hpp>
 #include <giraffe_diagnostics.hpp>
+#include <software_physical_layer.hpp>
 
-// using namespace gdl;
+using namespace giraffe;
 
-// GdlConfig config;
+gdl::Config config;
 
-TEST(ApplicationLayer, Start) {
+TEST(ApplicationLayer, EnableRequiresRadio) {
+  GTEST_SKIP();
 
-  // GiraffeDataLink gdl(config);
-  // EXPECT_EQ(gdl.getStatus(), GiraffeDataLink::Status::STOPPED);
-  // gdl.start();
-  // EXPECT_EQ(gdl.getStatus(), GiraffeDataLink::Status::STARTING);
-  // try {
-  // gdl.start();
-  // FAIL();
-  // } catch (GiraffeException &e) {
-  // EXPECT_EQ(e.id(), DiagnosticId::GDL_invalidStartCall);
-  // }
-  // BoosterSeat::threadSleep(100);
-  // EXPECT_EQ(gdl.getStatus(), GiraffeDataLink::Status::RUNNING);
+  gdl::DataLink gdl(config);
+  EXPECT_FALSE(gdl.enable());
+  EXPECT_FALSE(gdl.isEnabled());
+  EXPECT_EQ(gdl.getStatus(), gdl::DataLink::Status::DISABLED);
+
+  std::shared_ptr<gdl::SoftwarePhysicalLayer> spl =
+      std::make_shared<gdl::SoftwarePhysicalLayer>(config);
+  gdl.setPhysicalLayer(spl);
+
+  EXPECT_TRUE(gdl.enable());
+  bst::sleep(10);
+  EXPECT_EQ(gdl.getStatus(), gdl::DataLink::Status::RUNNING);
+  EXPECT_TRUE(gdl.isEnabled());
+  EXPECT_TRUE(gdl.disable());
+}
+
+TEST(ApplicationLayer, ConstructWithPhysicalLayer) {
+  GTEST_SKIP();
+
+  std::shared_ptr<gdl::SoftwarePhysicalLayer> spl =
+      std::make_shared<gdl::SoftwarePhysicalLayer>(config);
+
+  gdl::DataLink gdl(config, spl);
+  EXPECT_TRUE(gdl.enable());
+  bst::sleep(10);
+  EXPECT_EQ(gdl.getStatus(), gdl::DataLink::Status::RUNNING);
+  EXPECT_TRUE(gdl.isEnabled());
 }

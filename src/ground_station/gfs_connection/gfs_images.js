@@ -56,7 +56,7 @@ module.exports = class GfsImages {
       received_data = Buffer.concat([received_data, data]);
     });
     con.on("close", () => {
-      console.log("Connection closed");
+      // console.log("Connection closed");
       try {
         if (this.#parseImageData(received_data, filename)) {
           callback(true, "Image saved locally");
