@@ -56,6 +56,7 @@ var annotated_dup =
     ] ],
     [ "data_middleware", "namespacedata__middleware.html", [
       [ "AdcInterpolation", "classdata__middleware_1_1AdcInterpolation.html", "classdata__middleware_1_1AdcInterpolation" ],
+      [ "CalculatedData", "classdata__middleware_1_1CalculatedData.html", "classdata__middleware_1_1CalculatedData" ],
       [ "DataFormatter", "classdata__middleware_1_1DataFormatter.html", "classdata__middleware_1_1DataFormatter" ],
       [ "DataLog", "classdata__middleware_1_1DataLog.html", "classdata__middleware_1_1DataLog" ],
       [ "FileSystemManager", "classdata__middleware_1_1FileSystemManager.html", "classdata__middleware_1_1FileSystemManager" ],
@@ -76,6 +77,7 @@ var annotated_dup =
       [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ],
       [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ],
       [ "SimAdcSensor", "classextension_1_1SimAdcSensor.html", "classextension_1_1SimAdcSensor" ],
+      [ "SimCamera", "classextension_1_1SimCamera.html", "classextension_1_1SimCamera" ],
       [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],
       [ "SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", "classextension_1_1SimHumiditySensor" ],
       [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],
@@ -100,6 +102,7 @@ var annotated_dup =
         [ "NetworkLayer", "classgiraffe_1_1gdl_1_1NetworkLayer.html", "classgiraffe_1_1gdl_1_1NetworkLayer" ],
         [ "Packet", "classgiraffe_1_1gdl_1_1Packet.html", "classgiraffe_1_1gdl_1_1Packet" ],
         [ "PhysicalLayer", "classgiraffe_1_1gdl_1_1PhysicalLayer.html", "classgiraffe_1_1gdl_1_1PhysicalLayer" ],
+        [ "SoftwarePhysicalLayer", "classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html", "classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer" ],
         [ "Statistics", "namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics", "namespacegiraffe_1_1gdl_structgiraffe_1_1gdl_1_1Statistics_dup" ],
         [ "TransportLayer", "classgiraffe_1_1gdl_1_1TransportLayer.html", "classgiraffe_1_1gdl_1_1TransportLayer" ]
       ] ],
@@ -132,6 +135,9 @@ var annotated_dup =
     ] ],
     [ "protocol", "namespaceprotocol.html", [
       [ "Message", "structprotocol_1_1Message.html", "structprotocol_1_1Message" ]
+    ] ],
+    [ "radios", "namespaceradios.html", [
+      [ "Sa868", "classradios_1_1Sa868.html", "classradios_1_1Sa868" ]
     ] ],
     [ "sock", "namespacesock.html", [
       [ "TcpSocketServer", "group__ServerModule.html#classsock_1_1TcpSocketServer", "group__ServerModule_classsock_1_1TcpSocketServer" ]

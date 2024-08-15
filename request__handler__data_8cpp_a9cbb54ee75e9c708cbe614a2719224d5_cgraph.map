@@ -1,0 +1,5 @@
+<map id="getErrorFrameData" name="getErrorFrameData">
+<area shape="rect" id="node1" title=" " alt="" coords="5,46,152,73"/>
+<area shape="rect" id="node2" href="$classdata_1_1ErrorFrame.html#af7cef5625595076776ec52cc8bfce8f4" title="Get all active error ids that are currently in the frame." alt="" coords="200,5,401,47"/>
+<area shape="rect" id="node3" href="$classdata_1_1ErrorFrame.html#a6b36738793794abad0605c98f4f464c6" title="The total number of errors that have been added to the frame. This is not the number of active errors..." alt="" coords="201,71,400,112"/>
+</map>

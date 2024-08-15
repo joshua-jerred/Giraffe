@@ -273,147 +273,163 @@ $(document).ready(function(){initNavTree('configuration__enums_8hpp_source.html'
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  {cfg::gEnum::ErrorLogStrategy::ERROR_FRAME, <span class="stringliteral">&quot;error_frame&quot;</span>}</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;};</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keyword">enum class</span> AprsSymbolTable {</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  PRIMARY = 0,</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  ALTERNATE = 1</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keyword">enum class</span> RadioType {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  SOFTWARE = 0,</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  SA868 = 1</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;};</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::AprsSymbolTable&gt; <span class="keyword">const</span> K_STRING_TO_APRS_SYMBOL_TABLE_MAP = {</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  {<span class="stringliteral">&quot;primary&quot;</span>, cfg::gEnum::AprsSymbolTable::PRIMARY},</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  {<span class="stringliteral">&quot;alternate&quot;</span>, cfg::gEnum::AprsSymbolTable::ALTERNATE}</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::RadioType&gt; <span class="keyword">const</span> K_STRING_TO_RADIO_TYPE_MAP = {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  {<span class="stringliteral">&quot;software&quot;</span>, cfg::gEnum::RadioType::SOFTWARE},</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  {<span class="stringliteral">&quot;sa868&quot;</span>, cfg::gEnum::RadioType::SA868}</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;};</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;std::map&lt;cfg::gEnum::AprsSymbolTable, std::string&gt; <span class="keyword">const</span> K_APRS_SYMBOL_TABLE_TO_STRING_MAP = {</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  {cfg::gEnum::AprsSymbolTable::PRIMARY, <span class="stringliteral">&quot;primary&quot;</span>},</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  {cfg::gEnum::AprsSymbolTable::ALTERNATE, <span class="stringliteral">&quot;alternate&quot;</span>}</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;std::map&lt;cfg::gEnum::RadioType, std::string&gt; <span class="keyword">const</span> K_RADIO_TYPE_TO_STRING_MAP = {</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  {cfg::gEnum::RadioType::SOFTWARE, <span class="stringliteral">&quot;software&quot;</span>},</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  {cfg::gEnum::RadioType::SA868, <span class="stringliteral">&quot;sa868&quot;</span>}</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;};</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keyword">enum class</span> SstvMode {</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  ROBOT36 = 0</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;};</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::SstvMode&gt; <span class="keyword">const</span> K_STRING_TO_SSTV_MODE_MAP = {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  {<span class="stringliteral">&quot;robot36&quot;</span>, cfg::gEnum::SstvMode::ROBOT36}</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;};</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;std::map&lt;cfg::gEnum::SstvMode, std::string&gt; <span class="keyword">const</span> K_SSTV_MODE_TO_STRING_MAP = {</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  {cfg::gEnum::SstvMode::ROBOT36, <span class="stringliteral">&quot;robot36&quot;</span>}</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;};</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="keyword">enum class</span> DataPacketsMode {</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  BPSK125 = 0,</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  BPSK250 = 1,</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  BPSK500 = 2,</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  BPSK1000 = 3,</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  QPSK125 = 4,</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  QPSK250 = 5,</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  QPSK500 = 6,</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  AFSK_AX25 = 7</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;};</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::DataPacketsMode&gt; <span class="keyword">const</span> K_STRING_TO_DATA_PACKETS_MODE_MAP = {</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  {<span class="stringliteral">&quot;bpsk125&quot;</span>, cfg::gEnum::DataPacketsMode::BPSK125},</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  {<span class="stringliteral">&quot;bpsk250&quot;</span>, cfg::gEnum::DataPacketsMode::BPSK250},</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  {<span class="stringliteral">&quot;bpsk500&quot;</span>, cfg::gEnum::DataPacketsMode::BPSK500},</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  {<span class="stringliteral">&quot;bpsk1000&quot;</span>, cfg::gEnum::DataPacketsMode::BPSK1000},</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  {<span class="stringliteral">&quot;qpsk125&quot;</span>, cfg::gEnum::DataPacketsMode::QPSK125},</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  {<span class="stringliteral">&quot;qpsk250&quot;</span>, cfg::gEnum::DataPacketsMode::QPSK250},</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  {<span class="stringliteral">&quot;qpsk500&quot;</span>, cfg::gEnum::DataPacketsMode::QPSK500},</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  {<span class="stringliteral">&quot;afsk_ax25&quot;</span>, cfg::gEnum::DataPacketsMode::AFSK_AX25}</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;};</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;std::map&lt;cfg::gEnum::DataPacketsMode, std::string&gt; <span class="keyword">const</span> K_DATA_PACKETS_MODE_TO_STRING_MAP = {</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  {cfg::gEnum::DataPacketsMode::BPSK125, <span class="stringliteral">&quot;bpsk125&quot;</span>},</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  {cfg::gEnum::DataPacketsMode::BPSK250, <span class="stringliteral">&quot;bpsk250&quot;</span>},</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  {cfg::gEnum::DataPacketsMode::BPSK500, <span class="stringliteral">&quot;bpsk500&quot;</span>},</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  {cfg::gEnum::DataPacketsMode::BPSK1000, <span class="stringliteral">&quot;bpsk1000&quot;</span>},</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  {cfg::gEnum::DataPacketsMode::QPSK125, <span class="stringliteral">&quot;qpsk125&quot;</span>},</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  {cfg::gEnum::DataPacketsMode::QPSK250, <span class="stringliteral">&quot;qpsk250&quot;</span>},</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  {cfg::gEnum::DataPacketsMode::QPSK500, <span class="stringliteral">&quot;qpsk500&quot;</span>},</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  {cfg::gEnum::DataPacketsMode::AFSK_AX25, <span class="stringliteral">&quot;afsk_ax25&quot;</span>}</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;};</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="keyword">enum class</span> ExtensionType {</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <a class="code" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a> = 0,</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  SIM_TEMP = 1,</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  SIM_PRES = 2,</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  SIM_HUM = 3,</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  SIM_GPS = 4,</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  SIM_BAT = 5,</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  SIM_IMU = 6,</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  SIM_ADC = 7,</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  BMP180 = 8,</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <a class="code" href="test__interfaces_8cpp.html#a6187065ec0705f3c92aa91a2be516fea">BME280</a> = 9,</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  SAM_M8Q = 10,</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  DS18B20 = 11,</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  RGB_LED = 12,</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  MCP3021 = 13,</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  MAX11615 = 14,</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  BMI088 = 15</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;};</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::ExtensionType&gt; <span class="keyword">const</span> K_STRING_TO_EXTENSION_TYPE_MAP = {</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  {<span class="stringliteral">&quot;unknown&quot;</span>, cfg::gEnum::ExtensionType::UNKNOWN},</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  {<span class="stringliteral">&quot;sim_temp&quot;</span>, cfg::gEnum::ExtensionType::SIM_TEMP},</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  {<span class="stringliteral">&quot;sim_pres&quot;</span>, cfg::gEnum::ExtensionType::SIM_PRES},</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  {<span class="stringliteral">&quot;sim_hum&quot;</span>, cfg::gEnum::ExtensionType::SIM_HUM},</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  {<span class="stringliteral">&quot;sim_gps&quot;</span>, cfg::gEnum::ExtensionType::SIM_GPS},</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  {<span class="stringliteral">&quot;sim_bat&quot;</span>, cfg::gEnum::ExtensionType::SIM_BAT},</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  {<span class="stringliteral">&quot;sim_imu&quot;</span>, cfg::gEnum::ExtensionType::SIM_IMU},</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  {<span class="stringliteral">&quot;sim_adc&quot;</span>, cfg::gEnum::ExtensionType::SIM_ADC},</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  {<span class="stringliteral">&quot;bmp180&quot;</span>, cfg::gEnum::ExtensionType::BMP180},</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  {<span class="stringliteral">&quot;bme280&quot;</span>, <a class="code" href="test__interfaces_8cpp.html#a6187065ec0705f3c92aa91a2be516fea">cfg::gEnum::ExtensionType::BME280</a>},</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  {<span class="stringliteral">&quot;sam_m8q&quot;</span>, cfg::gEnum::ExtensionType::SAM_M8Q},</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  {<span class="stringliteral">&quot;ds18b20&quot;</span>, cfg::gEnum::ExtensionType::DS18B20},</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  {<span class="stringliteral">&quot;rgb_led&quot;</span>, cfg::gEnum::ExtensionType::RGB_LED},</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  {<span class="stringliteral">&quot;mcp3021&quot;</span>, cfg::gEnum::ExtensionType::MCP3021},</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  {<span class="stringliteral">&quot;max11615&quot;</span>, cfg::gEnum::ExtensionType::MAX11615},</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  {<span class="stringliteral">&quot;bmi088&quot;</span>, cfg::gEnum::ExtensionType::BMI088}</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;};</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;std::map&lt;cfg::gEnum::ExtensionType, std::string&gt; <span class="keyword">const</span> K_EXTENSION_TYPE_TO_STRING_MAP = {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  {cfg::gEnum::ExtensionType::UNKNOWN, <span class="stringliteral">&quot;unknown&quot;</span>},</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  {cfg::gEnum::ExtensionType::SIM_TEMP, <span class="stringliteral">&quot;sim_temp&quot;</span>},</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  {cfg::gEnum::ExtensionType::SIM_PRES, <span class="stringliteral">&quot;sim_pres&quot;</span>},</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  {cfg::gEnum::ExtensionType::SIM_HUM, <span class="stringliteral">&quot;sim_hum&quot;</span>},</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  {cfg::gEnum::ExtensionType::SIM_GPS, <span class="stringliteral">&quot;sim_gps&quot;</span>},</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  {cfg::gEnum::ExtensionType::SIM_BAT, <span class="stringliteral">&quot;sim_bat&quot;</span>},</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  {cfg::gEnum::ExtensionType::SIM_IMU, <span class="stringliteral">&quot;sim_imu&quot;</span>},</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  {cfg::gEnum::ExtensionType::SIM_ADC, <span class="stringliteral">&quot;sim_adc&quot;</span>},</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  {cfg::gEnum::ExtensionType::BMP180, <span class="stringliteral">&quot;bmp180&quot;</span>},</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  {<a class="code" href="test__interfaces_8cpp.html#a6187065ec0705f3c92aa91a2be516fea">cfg::gEnum::ExtensionType::BME280</a>, <span class="stringliteral">&quot;bme280&quot;</span>},</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  {cfg::gEnum::ExtensionType::SAM_M8Q, <span class="stringliteral">&quot;sam_m8q&quot;</span>},</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  {cfg::gEnum::ExtensionType::DS18B20, <span class="stringliteral">&quot;ds18b20&quot;</span>},</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  {cfg::gEnum::ExtensionType::RGB_LED, <span class="stringliteral">&quot;rgb_led&quot;</span>},</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  {cfg::gEnum::ExtensionType::MCP3021, <span class="stringliteral">&quot;mcp3021&quot;</span>},</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  {cfg::gEnum::ExtensionType::MAX11615, <span class="stringliteral">&quot;max11615&quot;</span>},</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  {cfg::gEnum::ExtensionType::BMI088, <span class="stringliteral">&quot;bmi088&quot;</span>}</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;};</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="keyword">enum class</span> AdcType {</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  RAW_COUNT = 0,</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  PERCENTAGE = 1,</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  VOLTAGE_DIVIDER = 2</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;};</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::AdcType&gt; <span class="keyword">const</span> K_STRING_TO_ADC_TYPE_MAP = {</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  {<span class="stringliteral">&quot;raw_count&quot;</span>, cfg::gEnum::AdcType::RAW_COUNT},</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  {<span class="stringliteral">&quot;percentage&quot;</span>, cfg::gEnum::AdcType::PERCENTAGE},</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  {<span class="stringliteral">&quot;voltage_divider&quot;</span>, cfg::gEnum::AdcType::VOLTAGE_DIVIDER}</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;};</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;std::map&lt;cfg::gEnum::AdcType, std::string&gt; <span class="keyword">const</span> K_ADC_TYPE_TO_STRING_MAP = {</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  {cfg::gEnum::AdcType::RAW_COUNT, <span class="stringliteral">&quot;raw_count&quot;</span>},</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  {cfg::gEnum::AdcType::PERCENTAGE, <span class="stringliteral">&quot;percentage&quot;</span>},</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  {cfg::gEnum::AdcType::VOLTAGE_DIVIDER, <span class="stringliteral">&quot;voltage_divider&quot;</span>}</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keyword">enum class</span> AprsSymbolTable {</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  PRIMARY = 0,</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  ALTERNATE = 1</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;};</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::AprsSymbolTable&gt; <span class="keyword">const</span> K_STRING_TO_APRS_SYMBOL_TABLE_MAP = {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  {<span class="stringliteral">&quot;primary&quot;</span>, cfg::gEnum::AprsSymbolTable::PRIMARY},</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  {<span class="stringliteral">&quot;alternate&quot;</span>, cfg::gEnum::AprsSymbolTable::ALTERNATE}</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;};</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;std::map&lt;cfg::gEnum::AprsSymbolTable, std::string&gt; <span class="keyword">const</span> K_APRS_SYMBOL_TABLE_TO_STRING_MAP = {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  {cfg::gEnum::AprsSymbolTable::PRIMARY, <span class="stringliteral">&quot;primary&quot;</span>},</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  {cfg::gEnum::AprsSymbolTable::ALTERNATE, <span class="stringliteral">&quot;alternate&quot;</span>}</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;};</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="keyword">enum class</span> SstvMode {</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  ROBOT36 = 0</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;};</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::SstvMode&gt; <span class="keyword">const</span> K_STRING_TO_SSTV_MODE_MAP = {</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  {<span class="stringliteral">&quot;robot36&quot;</span>, cfg::gEnum::SstvMode::ROBOT36}</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;};</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;std::map&lt;cfg::gEnum::SstvMode, std::string&gt; <span class="keyword">const</span> K_SSTV_MODE_TO_STRING_MAP = {</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  {cfg::gEnum::SstvMode::ROBOT36, <span class="stringliteral">&quot;robot36&quot;</span>}</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;};</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="keyword">enum class</span> DataPacketsMode {</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  BPSK125 = 0,</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  BPSK250 = 1,</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  BPSK500 = 2,</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  BPSK1000 = 3,</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  QPSK125 = 4,</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  QPSK250 = 5,</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  QPSK500 = 6,</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  AFSK_AX25 = 7</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;};</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::DataPacketsMode&gt; <span class="keyword">const</span> K_STRING_TO_DATA_PACKETS_MODE_MAP = {</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  {<span class="stringliteral">&quot;bpsk125&quot;</span>, cfg::gEnum::DataPacketsMode::BPSK125},</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  {<span class="stringliteral">&quot;bpsk250&quot;</span>, cfg::gEnum::DataPacketsMode::BPSK250},</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  {<span class="stringliteral">&quot;bpsk500&quot;</span>, cfg::gEnum::DataPacketsMode::BPSK500},</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  {<span class="stringliteral">&quot;bpsk1000&quot;</span>, cfg::gEnum::DataPacketsMode::BPSK1000},</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  {<span class="stringliteral">&quot;qpsk125&quot;</span>, cfg::gEnum::DataPacketsMode::QPSK125},</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  {<span class="stringliteral">&quot;qpsk250&quot;</span>, cfg::gEnum::DataPacketsMode::QPSK250},</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  {<span class="stringliteral">&quot;qpsk500&quot;</span>, cfg::gEnum::DataPacketsMode::QPSK500},</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  {<span class="stringliteral">&quot;afsk_ax25&quot;</span>, cfg::gEnum::DataPacketsMode::AFSK_AX25}</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;};</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;std::map&lt;cfg::gEnum::DataPacketsMode, std::string&gt; <span class="keyword">const</span> K_DATA_PACKETS_MODE_TO_STRING_MAP = {</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  {cfg::gEnum::DataPacketsMode::BPSK125, <span class="stringliteral">&quot;bpsk125&quot;</span>},</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  {cfg::gEnum::DataPacketsMode::BPSK250, <span class="stringliteral">&quot;bpsk250&quot;</span>},</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  {cfg::gEnum::DataPacketsMode::BPSK500, <span class="stringliteral">&quot;bpsk500&quot;</span>},</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  {cfg::gEnum::DataPacketsMode::BPSK1000, <span class="stringliteral">&quot;bpsk1000&quot;</span>},</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  {cfg::gEnum::DataPacketsMode::QPSK125, <span class="stringliteral">&quot;qpsk125&quot;</span>},</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  {cfg::gEnum::DataPacketsMode::QPSK250, <span class="stringliteral">&quot;qpsk250&quot;</span>},</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  {cfg::gEnum::DataPacketsMode::QPSK500, <span class="stringliteral">&quot;qpsk500&quot;</span>},</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  {cfg::gEnum::DataPacketsMode::AFSK_AX25, <span class="stringliteral">&quot;afsk_ax25&quot;</span>}</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;};</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="keyword">enum class</span> ExtensionType {</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <a class="code" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a> = 0,</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  SIM_TEMP = 1,</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  SIM_PRES = 2,</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  SIM_HUM = 3,</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  SIM_GPS = 4,</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  SIM_BAT = 5,</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  SIM_IMU = 6,</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  SIM_ADC = 7,</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  SIM_CAMERA = 8,</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  BMP180 = 9,</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <a class="code" href="test__interfaces_8cpp.html#a6187065ec0705f3c92aa91a2be516fea">BME280</a> = 10,</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  SAM_M8Q = 11,</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  DS18B20 = 12,</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  RGB_LED = 13,</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  MCP3021 = 14,</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  MAX11615 = 15,</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  BMI088 = 16</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;};</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::ExtensionType&gt; <span class="keyword">const</span> K_STRING_TO_EXTENSION_TYPE_MAP = {</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  {<span class="stringliteral">&quot;unknown&quot;</span>, cfg::gEnum::ExtensionType::UNKNOWN},</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  {<span class="stringliteral">&quot;sim_temp&quot;</span>, cfg::gEnum::ExtensionType::SIM_TEMP},</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  {<span class="stringliteral">&quot;sim_pres&quot;</span>, cfg::gEnum::ExtensionType::SIM_PRES},</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  {<span class="stringliteral">&quot;sim_hum&quot;</span>, cfg::gEnum::ExtensionType::SIM_HUM},</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  {<span class="stringliteral">&quot;sim_gps&quot;</span>, cfg::gEnum::ExtensionType::SIM_GPS},</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  {<span class="stringliteral">&quot;sim_bat&quot;</span>, cfg::gEnum::ExtensionType::SIM_BAT},</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  {<span class="stringliteral">&quot;sim_imu&quot;</span>, cfg::gEnum::ExtensionType::SIM_IMU},</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  {<span class="stringliteral">&quot;sim_adc&quot;</span>, cfg::gEnum::ExtensionType::SIM_ADC},</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  {<span class="stringliteral">&quot;sim_camera&quot;</span>, cfg::gEnum::ExtensionType::SIM_CAMERA},</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  {<span class="stringliteral">&quot;bmp180&quot;</span>, cfg::gEnum::ExtensionType::BMP180},</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  {<span class="stringliteral">&quot;bme280&quot;</span>, <a class="code" href="test__interfaces_8cpp.html#a6187065ec0705f3c92aa91a2be516fea">cfg::gEnum::ExtensionType::BME280</a>},</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  {<span class="stringliteral">&quot;sam_m8q&quot;</span>, cfg::gEnum::ExtensionType::SAM_M8Q},</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  {<span class="stringliteral">&quot;ds18b20&quot;</span>, cfg::gEnum::ExtensionType::DS18B20},</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  {<span class="stringliteral">&quot;rgb_led&quot;</span>, cfg::gEnum::ExtensionType::RGB_LED},</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  {<span class="stringliteral">&quot;mcp3021&quot;</span>, cfg::gEnum::ExtensionType::MCP3021},</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  {<span class="stringliteral">&quot;max11615&quot;</span>, cfg::gEnum::ExtensionType::MAX11615},</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  {<span class="stringliteral">&quot;bmi088&quot;</span>, cfg::gEnum::ExtensionType::BMI088}</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;};</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;std::map&lt;cfg::gEnum::ExtensionType, std::string&gt; <span class="keyword">const</span> K_EXTENSION_TYPE_TO_STRING_MAP = {</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  {cfg::gEnum::ExtensionType::UNKNOWN, <span class="stringliteral">&quot;unknown&quot;</span>},</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  {cfg::gEnum::ExtensionType::SIM_TEMP, <span class="stringliteral">&quot;sim_temp&quot;</span>},</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  {cfg::gEnum::ExtensionType::SIM_PRES, <span class="stringliteral">&quot;sim_pres&quot;</span>},</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  {cfg::gEnum::ExtensionType::SIM_HUM, <span class="stringliteral">&quot;sim_hum&quot;</span>},</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  {cfg::gEnum::ExtensionType::SIM_GPS, <span class="stringliteral">&quot;sim_gps&quot;</span>},</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  {cfg::gEnum::ExtensionType::SIM_BAT, <span class="stringliteral">&quot;sim_bat&quot;</span>},</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  {cfg::gEnum::ExtensionType::SIM_IMU, <span class="stringliteral">&quot;sim_imu&quot;</span>},</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  {cfg::gEnum::ExtensionType::SIM_ADC, <span class="stringliteral">&quot;sim_adc&quot;</span>},</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  {cfg::gEnum::ExtensionType::SIM_CAMERA, <span class="stringliteral">&quot;sim_camera&quot;</span>},</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  {cfg::gEnum::ExtensionType::BMP180, <span class="stringliteral">&quot;bmp180&quot;</span>},</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  {<a class="code" href="test__interfaces_8cpp.html#a6187065ec0705f3c92aa91a2be516fea">cfg::gEnum::ExtensionType::BME280</a>, <span class="stringliteral">&quot;bme280&quot;</span>},</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  {cfg::gEnum::ExtensionType::SAM_M8Q, <span class="stringliteral">&quot;sam_m8q&quot;</span>},</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  {cfg::gEnum::ExtensionType::DS18B20, <span class="stringliteral">&quot;ds18b20&quot;</span>},</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  {cfg::gEnum::ExtensionType::RGB_LED, <span class="stringliteral">&quot;rgb_led&quot;</span>},</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  {cfg::gEnum::ExtensionType::MCP3021, <span class="stringliteral">&quot;mcp3021&quot;</span>},</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  {cfg::gEnum::ExtensionType::MAX11615, <span class="stringliteral">&quot;max11615&quot;</span>},</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  {cfg::gEnum::ExtensionType::BMI088, <span class="stringliteral">&quot;bmi088&quot;</span>}</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;};</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="keyword">enum class</span> I2CBus {</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  I2C_1 = 0</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;};</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::I2CBus&gt; <span class="keyword">const</span> K_STRING_TO_I2C_BUS_MAP = {</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  {<span class="stringliteral">&quot;i2c_1&quot;</span>, cfg::gEnum::I2CBus::I2C_1}</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;};</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;std::map&lt;cfg::gEnum::I2CBus, std::string&gt; <span class="keyword">const</span> K_I2C_BUS_TO_STRING_MAP = {</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  {cfg::gEnum::I2CBus::I2C_1, <span class="stringliteral">&quot;i2c_1&quot;</span>}</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;};</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;} <span class="comment">// namespace cfg::gEnum</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CONFIGURATION_ENUMS_HPP_</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="keyword">enum class</span> AdcType {</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  RAW_COUNT = 0,</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  PERCENTAGE = 1,</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  VOLTAGE_DIVIDER = 2</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;};</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::AdcType&gt; <span class="keyword">const</span> K_STRING_TO_ADC_TYPE_MAP = {</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  {<span class="stringliteral">&quot;raw_count&quot;</span>, cfg::gEnum::AdcType::RAW_COUNT},</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  {<span class="stringliteral">&quot;percentage&quot;</span>, cfg::gEnum::AdcType::PERCENTAGE},</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  {<span class="stringliteral">&quot;voltage_divider&quot;</span>, cfg::gEnum::AdcType::VOLTAGE_DIVIDER}</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;};</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;std::map&lt;cfg::gEnum::AdcType, std::string&gt; <span class="keyword">const</span> K_ADC_TYPE_TO_STRING_MAP = {</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  {cfg::gEnum::AdcType::RAW_COUNT, <span class="stringliteral">&quot;raw_count&quot;</span>},</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  {cfg::gEnum::AdcType::PERCENTAGE, <span class="stringliteral">&quot;percentage&quot;</span>},</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  {cfg::gEnum::AdcType::VOLTAGE_DIVIDER, <span class="stringliteral">&quot;voltage_divider&quot;</span>}</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;};</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="keyword">enum class</span> I2CBus {</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  I2C_1 = 0</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;};</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;std::unordered_map&lt;std::string, cfg::gEnum::I2CBus&gt; <span class="keyword">const</span> K_STRING_TO_I2C_BUS_MAP = {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  {<span class="stringliteral">&quot;i2c_1&quot;</span>, cfg::gEnum::I2CBus::I2C_1}</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;};</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;std::map&lt;cfg::gEnum::I2CBus, std::string&gt; <span class="keyword">const</span> K_I2C_BUS_TO_STRING_MAP = {</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  {cfg::gEnum::I2CBus::I2C_1, <span class="stringliteral">&quot;i2c_1&quot;</span>}</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;};</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;} <span class="comment">// namespace cfg::gEnum</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CONFIGURATION_ENUMS_HPP_</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
 <div class="ttc" id="aflight__phase_8hpp_html_a4c5a173279b14603ff3edf7817df0644a038e3d035cd91784babc5492310b8e96"><div class="ttname"><a href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a038e3d035cd91784babc5492310b8e96">FlightPhase::DESCENT</a></div><div class="ttdeci">@ DESCENT</div></div>
 <div class="ttc" id="aflight__phase_8hpp_html_a4c5a173279b14603ff3edf7817df0644a696b031073e74bf2cb98e5ef201d4aa3"><div class="ttname"><a href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a696b031073e74bf2cb98e5ef201d4aa3">FlightPhase::UNKNOWN</a></div><div class="ttdeci">@ UNKNOWN</div></div>
 <div class="ttc" id="aflight__phase_8hpp_html_a4c5a173279b14603ff3edf7817df0644a7047b93ddb56905562863fb339808bb4"><div class="ttname"><a href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a7047b93ddb56905562863fb339808bb4">FlightPhase::ASCENT</a></div><div class="ttdeci">@ ASCENT</div></div>

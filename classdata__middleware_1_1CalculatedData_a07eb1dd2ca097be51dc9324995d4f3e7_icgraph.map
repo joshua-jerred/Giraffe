@@ -1,0 +1,4 @@
+<map id="data_middleware::CalculatedData::calculateVelocityData" name="data_middleware::CalculatedData::calculateVelocityData">
+<area shape="rect" id="node1" title="Calculate average vertical and horizontal speeds. Called by updatePositionalData()" alt="" coords="265,5,477,47"/>
+<area shape="rect" id="node2" href="$classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe" title="Update the calculated data and store it in the shared data." alt="" coords="5,5,217,47"/>
+</map>

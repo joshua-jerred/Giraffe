@@ -1,0 +1,4 @@
+<map id="modules::TelemetryModule::sendSstvImage" name="modules::TelemetryModule::sendSstvImage">
+<area shape="rect" id="node1" title="Send an SSTV image." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#a4cabd8beca53ab3e2877b67487606ea2" title=" " alt="" coords="252,5,411,47"/>
+</map>

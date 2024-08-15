@@ -111,91 +111,152 @@ $(document).ready(function(){initNavTree('classgiraffe_1_1gdl_1_1DataLink.html',
 </div><!--header-->
 <div class="contents">
 
-<p>The Giraffe Data Link core class/interface - Layer 4 (Application)  
- <a href="classgiraffe_1_1gdl_1_1DataLink.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="giraffe__data__link_8hpp_source.html">giraffe_data_link.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for giraffe::gdl::DataLink:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink__coll__graph.svg" width="3211" height="1815"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink__coll__graph.svg" width="2784" height="1616"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ab56b0bd6ebaf2aa7c4317492d6330e76"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76">Status</a> { <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b">DISABLED</a>
-, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a99c8ce56e7ab246445d3b134724428f3">DISCONNECTED</a>
-, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76aa5afd6edd5336d91316964e493936858">CONNECTED</a>
+<tr class="memitem:a0438ec86403e77138d0e471655e041fe"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a0438ec86403e77138d0e471655e041fe">Connection</a> { <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a0438ec86403e77138d0e471655e041fea055c1a591abb0e8cd86dc969727bcc0b">DISABLED</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a0438ec86403e77138d0e471655e041fea99c8ce56e7ab246445d3b134724428f3">DISCONNECTED</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a0438ec86403e77138d0e471655e041feaa5afd6edd5336d91316964e493936858">CONNECTED</a>
  }</td></tr>
-<tr class="memdesc:ab56b0bd6ebaf2aa7c4317492d6330e76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status of the remote connection.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76">More...</a><br /></td></tr>
+<tr class="memdesc:a0438ec86403e77138d0e471655e041fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status of a connection.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a0438ec86403e77138d0e471655e041fe">More...</a><br /></td></tr>
+<tr class="separator:a0438ec86403e77138d0e471655e041fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab56b0bd6ebaf2aa7c4317492d6330e76"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76">Status</a> { <br />
+&#160;&#160;<a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b">DISABLED</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a034312d8adc8099c1c6f53aaff745e26">STARTING</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a43491564ebcfd38568918efbd6e840fd">RUNNING</a>
+, <br />
+&#160;&#160;<a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76af6cdb3c6710b50ec65ee07f740847e10">STOPPING</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:ab56b0bd6ebaf2aa7c4317492d6330e76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Link Status.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76">More...</a><br /></td></tr>
 <tr class="separator:ab56b0bd6ebaf2aa7c4317492d6330e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a09eee8200c532ab6c2a5f4afe4e7a6b1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a09eee8200c532ab6c2a5f4afe4e7a6b1">DataLink</a> (<a class="el" href="classgiraffe_1_1gdl_1_1Config.html">Config</a> &amp;config)</td></tr>
-<tr class="memdesc:a09eee8200c532ab6c2a5f4afe4e7a6b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the Giraffe Data Link.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a09eee8200c532ab6c2a5f4afe4e7a6b1">More...</a><br /></td></tr>
-<tr class="separator:a09eee8200c532ab6c2a5f4afe4e7a6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33b7715a1e9e5993f0dd2998882f4ad8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a33b7715a1e9e5993f0dd2998882f4ad8">DataLink</a> (<a class="el" href="classgiraffe_1_1gdl_1_1Config.html">Config</a> &amp;<a class="el" href="test__application__layer_8cpp.html#a6a7e26d87f9f1b3002518f758bb0d687">config</a>, std::shared_ptr&lt; <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a> &gt; p_physical_layer=nullptr)</td></tr>
+<tr class="memdesc:a33b7715a1e9e5993f0dd2998882f4ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the Giraffe Data Link.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a33b7715a1e9e5993f0dd2998882f4ad8">More...</a><br /></td></tr>
+<tr class="separator:a33b7715a1e9e5993f0dd2998882f4ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30449dc194e1fe82bddf366b15582345"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a30449dc194e1fe82bddf366b15582345">~DataLink</a> ()</td></tr>
-<tr class="memdesc:a30449dc194e1fe82bddf366b15582345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deconstruct the GDL instance, this will stop the GDL instance if it is running.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a30449dc194e1fe82bddf366b15582345">More...</a><br /></td></tr>
+<tr class="memdesc:a30449dc194e1fe82bddf366b15582345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the Giraffe Data Link. Stops the background thread if it is running.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a30449dc194e1fe82bddf366b15582345">More...</a><br /></td></tr>
 <tr class="separator:a30449dc194e1fe82bddf366b15582345"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f2159ec06ca15ae82b273e10c1b4d17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a4f2159ec06ca15ae82b273e10c1b4d17">disable</a> ()</td></tr>
-<tr class="separator:a4f2159ec06ca15ae82b273e10c1b4d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadf2f53eec8c20e6d7085a1de24b4946"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#aadf2f53eec8c20e6d7085a1de24b4946">enable</a> ()</td></tr>
-<tr class="separator:aadf2f53eec8c20e6d7085a1de24b4946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2abf8909cea23f020779dfdeea6cfc3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af2abf8909cea23f020779dfdeea6cfc3">disable</a> ()</td></tr>
+<tr class="memdesc:af2abf8909cea23f020779dfdeea6cfc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the Data Link. Stops the background thread.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#af2abf8909cea23f020779dfdeea6cfc3">More...</a><br /></td></tr>
+<tr class="separator:af2abf8909cea23f020779dfdeea6cfc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af813250da8347a200ddca5d532b7ef90"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90">enable</a> ()</td></tr>
+<tr class="memdesc:af813250da8347a200ddca5d532b7ef90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the Data Link. Starts the background thread.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90">More...</a><br /></td></tr>
+<tr class="separator:af813250da8347a200ddca5d532b7ef90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98f228a5e7abb95ad4e66ae4b53dd71a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics">Statistics</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a98f228a5e7abb95ad4e66ae4b53dd71a">getStatistics</a> ()</td></tr>
+<tr class="memdesc:a98f228a5e7abb95ad4e66ae4b53dd71a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get statistics about the Data Link.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a98f228a5e7abb95ad4e66ae4b53dd71a">More...</a><br /></td></tr>
 <tr class="separator:a98f228a5e7abb95ad4e66ae4b53dd71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab40f43468826f91454986d3ba317fd8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76">DataLink::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab40f43468826f91454986d3ba317fd8f">getStatus</a> () const</td></tr>
+<tr class="memdesc:ab40f43468826f91454986d3ba317fd8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the status of the Data Link.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#ab40f43468826f91454986d3ba317fd8f">More...</a><br /></td></tr>
 <tr class="separator:ab40f43468826f91454986d3ba317fd8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cd697b9f74bcd17d9a48e259eb7e345"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a8cd697b9f74bcd17d9a48e259eb7e345">isEnabled</a> () const</td></tr>
+<tr class="memdesc:a8cd697b9f74bcd17d9a48e259eb7e345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the Data Link is enabled.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a8cd697b9f74bcd17d9a48e259eb7e345">More...</a><br /></td></tr>
 <tr class="separator:a8cd697b9f74bcd17d9a48e259eb7e345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7223729cff67b00226de4a34e560a30"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ad7223729cff67b00226de4a34e560a30">messageAvailable</a> () const</td></tr>
+<tr class="memdesc:ad7223729cff67b00226de4a34e560a30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a messages have been received and are available.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#ad7223729cff67b00226de4a34e560a30">More...</a><br /></td></tr>
 <tr class="separator:ad7223729cff67b00226de4a34e560a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6004a6e0c3b468032a0c71b8e2a2c5f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6004a6e0c3b468032a0c71b8e2a2c5f3">receiveMessage</a> (<a class="el" href="classgiraffe_1_1gdl_1_1Message.html">Message</a> &amp;message)</td></tr>
+<tr class="memdesc:a6004a6e0c3b468032a0c71b8e2a2c5f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a message from the Data Link if one is available.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a6004a6e0c3b468032a0c71b8e2a2c5f3">More...</a><br /></td></tr>
 <tr class="separator:a6004a6e0c3b468032a0c71b8e2a2c5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a534ce7787534f0920e11232464b5086a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a">sendMessage</a> (const <a class="el" href="classgiraffe_1_1gdl_1_1Message.html">Message</a> &amp;message)</td></tr>
+<tr class="memdesc:a534ce7787534f0920e11232464b5086a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a message over the Data Link.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a">More...</a><br /></td></tr>
 <tr class="separator:a534ce7787534f0920e11232464b5086a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a089374ddeb5601b859264baa5986304f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a089374ddeb5601b859264baa5986304f">sendText</a> (const std::string &amp;text, uint32_t message_id)</td></tr>
+<tr class="memdesc:a089374ddeb5601b859264baa5986304f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a text message over the Data Link.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a089374ddeb5601b859264baa5986304f">More...</a><br /></td></tr>
 <tr class="separator:a089374ddeb5601b859264baa5986304f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeba1865b0a004bcffcb41b5fddd9fc4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#aeba1865b0a004bcffcb41b5fddd9fc4e">setPhysicalLayer</a> (std::shared_ptr&lt; <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a> &gt; p_physical_layer)</td></tr>
+<tr class="memdesc:aeba1865b0a004bcffcb41b5fddd9fc4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a physical layer to the Data Link.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#aeba1865b0a004bcffcb41b5fddd9fc4e">More...</a><br /></td></tr>
+<tr class="separator:aeba1865b0a004bcffcb41b5fddd9fc4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a2f6c5032357d005d854f969a93c360de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread</a> ()</td></tr>
-<tr class="memdesc:a2f6c5032357d005d854f969a93c360de"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main thread function for GDL.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">More...</a><br /></td></tr>
+<tr class="memdesc:a2f6c5032357d005d854f969a93c360de"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function that runs in the background thread.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">More...</a><br /></td></tr>
 <tr class="separator:a2f6c5032357d005d854f969a93c360de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a271f07d75f8c7a86244f2d276809e962"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962">isRunning</a> ()</td></tr>
 <tr class="separator:a271f07d75f8c7a86244f2d276809e962"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a533c0e638f752a5656734721c7437c2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a533c0e638f752a5656734721c7437c2f">setStatus</a> (<a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76">Status</a> status)</td></tr>
+<tr class="separator:a533c0e638f752a5656734721c7437c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ab25d4e219dc847355c943cc86f28d9bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1Config.html">Config</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab25d4e219dc847355c943cc86f28d9bb">config_</a></td></tr>
+<tr class="memdesc:ab25d4e219dc847355c943cc86f28d9bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread safe GDL configuration.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#ab25d4e219dc847355c943cc86f28d9bb">More...</a><br /></td></tr>
 <tr class="separator:ab25d4e219dc847355c943cc86f28d9bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e34393ea25031b617859331d6b6eaa1"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6e34393ea25031b617859331d6b6eaa1">gdl_thread_</a> {}</td></tr>
+<tr class="memdesc:a6e34393ea25031b617859331d6b6eaa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The background thread for the GDL.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a6e34393ea25031b617859331d6b6eaa1">More...</a><br /></td></tr>
 <tr class="separator:a6e34393ea25031b617859331d6b6eaa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad90e7a13eec0257cf473de16b2a4ff2c"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ad90e7a13eec0257cf473de16b2a4ff2c">gdl_thread_stop_flag_</a> {true}</td></tr>
+<tr class="memdesc:ad90e7a13eec0257cf473de16b2a4ff2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to stop the background thread.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#ad90e7a13eec0257cf473de16b2a4ff2c">More...</a><br /></td></tr>
 <tr class="separator:ad90e7a13eec0257cf473de16b2a4ff2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc212b8f21c7520ccedfb3cf48e6ad0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html">MessageQueue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#adc212b8f21c7520ccedfb3cf48e6ad0b">in_queue_</a> {}</td></tr>
+<tr class="memdesc:adc212b8f21c7520ccedfb3cf48e6ad0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Received messages queue.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#adc212b8f21c7520ccedfb3cf48e6ad0b">More...</a><br /></td></tr>
 <tr class="separator:adc212b8f21c7520ccedfb3cf48e6ad0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78a09171eb888c765620056215f7efcb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html">NetworkLayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a78a09171eb888c765620056215f7efcb">network_layer_</a> {<a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab25d4e219dc847355c943cc86f28d9bb">config_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a8e36ba9cfc630abc5ff5b31631e7891c">physical_layer_</a>}</td></tr>
+<tr class="memitem:a78a09171eb888c765620056215f7efcb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html">NetworkLayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a78a09171eb888c765620056215f7efcb">network_layer_</a> {<a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab25d4e219dc847355c943cc86f28d9bb">config_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a832143ca86fad2cec97bd5756b5c3cb7">p_physical_layer_</a>}</td></tr>
+<tr class="memdesc:a78a09171eb888c765620056215f7efcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The network layer for the GDL.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a78a09171eb888c765620056215f7efcb">More...</a><br /></td></tr>
 <tr class="separator:a78a09171eb888c765620056215f7efcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e344128ad352abe63ac9bf201d2c3a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html">MessageQueue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6e344128ad352abe63ac9bf201d2c3a6">out_broadcast_queue_</a> {}</td></tr>
+<tr class="memdesc:a6e344128ad352abe63ac9bf201d2c3a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outgoing broadcast message queue.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a6e344128ad352abe63ac9bf201d2c3a6">More...</a><br /></td></tr>
 <tr class="separator:a6e344128ad352abe63ac9bf201d2c3a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39ed9911bb05bf7914fd3bdb06bfc17c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html">MessageQueue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a39ed9911bb05bf7914fd3bdb06bfc17c">out_exchange_queue_</a> {}</td></tr>
+<tr class="memdesc:a39ed9911bb05bf7914fd3bdb06bfc17c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outgoing exchange message queue.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a39ed9911bb05bf7914fd3bdb06bfc17c">More...</a><br /></td></tr>
 <tr class="separator:a39ed9911bb05bf7914fd3bdb06bfc17c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e36ba9cfc630abc5ff5b31631e7891c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a8e36ba9cfc630abc5ff5b31631e7891c">physical_layer_</a> {<a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab25d4e219dc847355c943cc86f28d9bb">config_</a>}</td></tr>
-<tr class="separator:a8e36ba9cfc630abc5ff5b31631e7891c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a832143ca86fad2cec97bd5756b5c3cb7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a832143ca86fad2cec97bd5756b5c3cb7">p_physical_layer_</a></td></tr>
+<tr class="memdesc:a832143ca86fad2cec97bd5756b5c3cb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The physical layer for the GDL.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a832143ca86fad2cec97bd5756b5c3cb7">More...</a><br /></td></tr>
+<tr class="separator:a832143ca86fad2cec97bd5756b5c3cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae356b54ea2c24285b5681e6e2be3e820"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics">Statistics</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ae356b54ea2c24285b5681e6e2be3e820">statistics_</a> {}</td></tr>
+<tr class="memdesc:ae356b54ea2c24285b5681e6e2be3e820"><td class="mdescLeft">&#160;</td><td class="mdescRight">The statistics for the GDL.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#ae356b54ea2c24285b5681e6e2be3e820">More...</a><br /></td></tr>
 <tr class="separator:ae356b54ea2c24285b5681e6e2be3e820"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bc3e7362ce4cd0af1829643698e276d"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2bc3e7362ce4cd0af1829643698e276d">statistics_lock_</a> {}</td></tr>
+<tr class="memdesc:a2bc3e7362ce4cd0af1829643698e276d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock for the statistics.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a2bc3e7362ce4cd0af1829643698e276d">More...</a><br /></td></tr>
 <tr class="separator:a2bc3e7362ce4cd0af1829643698e276d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c1586a69f494f41669bbd55ff2ef2fd"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76">Status</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2c1586a69f494f41669bbd55ff2ef2fd">status_</a> {<a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b">Status::DISABLED</a>}</td></tr>
+<tr class="memdesc:a2c1586a69f494f41669bbd55ff2ef2fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The status of the GDL.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a2c1586a69f494f41669bbd55ff2ef2fd">More...</a><br /></td></tr>
 <tr class="separator:a2c1586a69f494f41669bbd55ff2ef2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a466bc7c4f1e566e051677f81171ba853"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html">TransportLayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a466bc7c4f1e566e051677f81171ba853">transport_layer_</a> {<a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab25d4e219dc847355c943cc86f28d9bb">config_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a78a09171eb888c765620056215f7efcb">network_layer_</a>}</td></tr>
+<tr class="memdesc:a466bc7c4f1e566e051677f81171ba853"><td class="mdescLeft">&#160;</td><td class="mdescRight">The transport layer for the GDL.  <a href="classgiraffe_1_1gdl_1_1DataLink.html#a466bc7c4f1e566e051677f81171ba853">More...</a><br /></td></tr>
 <tr class="separator:a466bc7c4f1e566e051677f81171ba853"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The Giraffe Data Link core class/interface - Layer 4 (Application) </p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a0438ec86403e77138d0e471655e041fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0438ec86403e77138d0e471655e041fe">&#9670;&nbsp;</a></span>Connection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a0438ec86403e77138d0e471655e041fe">giraffe::gdl::DataLink::Connection</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Status of a connection. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0438ec86403e77138d0e471655e041fea055c1a591abb0e8cd86dc969727bcc0b"></a>DISABLED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0438ec86403e77138d0e471655e041fea99c8ce56e7ab246445d3b134724428f3"></a>DISCONNECTED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0438ec86403e77138d0e471655e041feaa5afd6edd5336d91316964e493936858"></a>CONNECTED&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <a id="ab56b0bd6ebaf2aa7c4317492d6330e76"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab56b0bd6ebaf2aa7c4317492d6330e76">&#9670;&nbsp;</a></span>Status</h2>
 
@@ -216,18 +277,20 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Status of the remote connection. </p>
+<p>Data Link Status. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b"></a>DISABLED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab56b0bd6ebaf2aa7c4317492d6330e76a99c8ce56e7ab246445d3b134724428f3"></a>DISCONNECTED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab56b0bd6ebaf2aa7c4317492d6330e76aa5afd6edd5336d91316964e493936858"></a>CONNECTED&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab56b0bd6ebaf2aa7c4317492d6330e76abb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b"></a>DISABLED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab56b0bd6ebaf2aa7c4317492d6330e76a034312d8adc8099c1c6f53aaff745e26"></a>STARTING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab56b0bd6ebaf2aa7c4317492d6330e76a43491564ebcfd38568918efbd6e840fd"></a>RUNNING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab56b0bd6ebaf2aa7c4317492d6330e76af6cdb3c6710b50ec65ee07f740847e10"></a>STOPPING&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a09eee8200c532ab6c2a5f4afe4e7a6b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09eee8200c532ab6c2a5f4afe4e7a6b1">&#9670;&nbsp;</a></span>DataLink()</h2>
+<a id="a33b7715a1e9e5993f0dd2998882f4ad8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33b7715a1e9e5993f0dd2998882f4ad8">&#9670;&nbsp;</a></span>DataLink()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -236,8 +299,18 @@ Private Attributes</h2></td></tr>
           <td class="memname">giraffe::gdl::DataLink::DataLink </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classgiraffe_1_1gdl_1_1Config.html">Config</a> &amp;&#160;</td>
-          <td class="paramname"><em>config</em></td><td>)</td>
+          <td class="paramname"><em>config</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a> &gt;&#160;</td>
+          <td class="paramname"><em>p_physical_layer</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -245,10 +318,13 @@ Private Attributes</h2></td></tr>
 <p>Constructor for the Giraffe Data Link. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>- The configuration for the GDL instance. Can be modified externally. (thread safe) </td></tr>
+    <tr><td class="paramname">config</td><td>- The configuration for the GDL instance. </td></tr>
+    <tr><td class="paramname">p_physical_layer</td><td>- The (optional) physical layer for the GDL. If not set, the physical layer needs to be set before the GDL can be enabled. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b">DISABLED</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2c1586a69f494f41669bbd55ff2ef2fd">status_</a>.</p>
 
 </div>
 </div>
@@ -267,60 +343,70 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Deconstruct the GDL instance, this will stop the GDL instance if it is running. </p>
+<p>Destructor for the Giraffe Data Link. Stops the background thread if it is running. </p>
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a4f2159ec06ca15ae82b273e10c1b4d17">disable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b">DISABLED</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2c1586a69f494f41669bbd55ff2ef2fd">status_</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af2abf8909cea23f020779dfdeea6cfc3">disable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b">DISABLED</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2c1586a69f494f41669bbd55ff2ef2fd">status_</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_a30449dc194e1fe82bddf366b15582345_cgraph.svg" width="376" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_a30449dc194e1fe82bddf366b15582345_cgraph.svg" width="583" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aadf2f53eec8c20e6d7085a1de24b4946"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadf2f53eec8c20e6d7085a1de24b4946">&#9670;&nbsp;</a></span>enable()</h2>
+<a id="aeba1865b0a004bcffcb41b5fddd9fc4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeba1865b0a004bcffcb41b5fddd9fc4e">&#9670;&nbsp;</a></span>setPhysicalLayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void giraffe::gdl::DataLink::enable </td>
+          <td class="memname">bool giraffe::gdl::DataLink::setPhysicalLayer </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a> &gt;&#160;</td>
+          <td class="paramname"><em>p_physical_layer</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b">DISABLED</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a99c8ce56e7ab246445d3b134724428f3">DISCONNECTED</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6e34393ea25031b617859331d6b6eaa1">gdl_thread_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ad90e7a13eec0257cf473de16b2a4ff2c">gdl_thread_stop_flag_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2c1586a69f494f41669bbd55ff2ef2fd">status_</a>.</p>
+<p>Add a physical layer to the Data Link. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_physical_layer</td><td>- A shared pointer to the physical layer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the physical layer was set, false otherwise. Will return false if the Data Link already has a physical layer set. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217">giraffe::gdl::GdlServer::run()</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962">isRunning()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a832143ca86fad2cec97bd5756b5c3cb7">p_physical_layer_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320">TEST()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_aadf2f53eec8c20e6d7085a1de24b4946_cgraph.svg" width="2096" height="1159"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_aeba1865b0a004bcffcb41b5fddd9fc4e_cgraph.svg" width="376" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_aadf2f53eec8c20e6d7085a1de24b4946_icgraph.svg" width="514" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_aeba1865b0a004bcffcb41b5fddd9fc4e_icgraph.svg" width="272" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a4f2159ec06ca15ae82b273e10c1b4d17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f2159ec06ca15ae82b273e10c1b4d17">&#9670;&nbsp;</a></span>disable()</h2>
+<a id="af813250da8347a200ddca5d532b7ef90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af813250da8347a200ddca5d532b7ef90">&#9670;&nbsp;</a></span>enable()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void giraffe::gdl::DataLink::disable </td>
+          <td class="memname">bool giraffe::gdl::DataLink::enable </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -328,13 +414,58 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b">DISABLED</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6e34393ea25031b617859331d6b6eaa1">gdl_thread_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ad90e7a13eec0257cf473de16b2a4ff2c">gdl_thread_stop_flag_</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2c1586a69f494f41669bbd55ff2ef2fd">status_</a>.</p>
+<p>Enable the Data Link. Starts the background thread. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the Data Link was enabled or is already enabled, false if the Data Link could not be enabled. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a30449dc194e1fe82bddf366b15582345">~DataLink()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217">giraffe::gdl::GdlServer::run()</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6e34393ea25031b617859331d6b6eaa1">gdl_thread_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ad90e7a13eec0257cf473de16b2a4ff2c">gdl_thread_stop_flag_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962">isRunning()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a832143ca86fad2cec97bd5756b5c3cb7">p_physical_layer_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a533c0e638f752a5656734721c7437c2f">setStatus()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a034312d8adc8099c1c6f53aaff745e26">STARTING</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217">giraffe::gdl::GdlServer::run()</a>, and <a class="el" href="test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320">TEST()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_af813250da8347a200ddca5d532b7ef90_cgraph.svg" width="2096" height="1188"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_a4f2159ec06ca15ae82b273e10c1b4d17_icgraph.svg" width="514" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_af813250da8347a200ddca5d532b7ef90_icgraph.svg" width="514" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="af2abf8909cea23f020779dfdeea6cfc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2abf8909cea23f020779dfdeea6cfc3">&#9670;&nbsp;</a></span>disable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool giraffe::gdl::DataLink::disable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disable the Data Link. Stops the background thread. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the Data Link was disabled or is already disabled, false if the Data Link could not be disabled. </dd></dl>
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6e34393ea25031b617859331d6b6eaa1">gdl_thread_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ad90e7a13eec0257cf473de16b2a4ff2c">gdl_thread_stop_flag_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a8cd697b9f74bcd17d9a48e259eb7e345">isEnabled()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962">isRunning()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a533c0e638f752a5656734721c7437c2f">setStatus()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76af6cdb3c6710b50ec65ee07f740847e10">STOPPING</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a30449dc194e1fe82bddf366b15582345">~DataLink()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217">giraffe::gdl::GdlServer::run()</a>, and <a class="el" href="test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320">TEST()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_af2abf8909cea23f020779dfdeea6cfc3_cgraph.svg" width="376" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_af2abf8909cea23f020779dfdeea6cfc3_icgraph.svg" width="514" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -363,13 +494,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Check if the Data Link is enabled. </p>
+
 <p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ad90e7a13eec0257cf473de16b2a4ff2c">gdl_thread_stop_flag_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217">giraffe::gdl::GdlServer::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af2abf8909cea23f020779dfdeea6cfc3">disable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217">giraffe::gdl::GdlServer::run()</a>, and <a class="el" href="test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320">TEST()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_a8cd697b9f74bcd17d9a48e259eb7e345_icgraph.svg" width="514" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_a8cd697b9f74bcd17d9a48e259eb7e345_icgraph.svg" width="720" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -390,13 +523,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Get the status of the Data Link. </p>
+<dl class="section return"><dt>Returns</dt><dd>The status of the Data Link. </dd></dl>
+
 <p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2c1586a69f494f41669bbd55ff2ef2fd">status_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a78670e65013497b31f7069d03263884e">giraffe::gdl::GdlServer::handleRequestStatus()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a78670e65013497b31f7069d03263884e">giraffe::gdl::GdlServer::handleRequestStatus()</a>, and <a class="el" href="test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320">TEST()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_ab40f43468826f91454986d3ba317fd8f_icgraph.svg" width="942" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_ab40f43468826f91454986d3ba317fd8f_icgraph.svg" width="942" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -418,9 +554,18 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Send a message over the Data Link. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>- The message to send. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the message was added to the out queue, <code>false</code> otherwise. </dd></dl>
+
 <p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf">giraffe::gdl::Message::EXCHANGE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04">giraffe::gdl::Message::getType()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962">isRunning()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6e344128ad352abe63ac9bf201d2c3a6">out_broadcast_queue_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a39ed9911bb05bf7914fd3bdb06bfc17c">out_exchange_queue_</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c">giraffe::gdl::MessageQueue::push()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#aca89933b2ccac49e9e29482cff7b8d4f">giraffe::gdl::GdlServer::sendMessage()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#aca89933b2ccac49e9e29482cff7b8d4f">giraffe::gdl::GdlServer::sendMessage()</a>, and <a class="el" href="test__gdl__with__audio_8cpp.html#af3909c6936a57cb5c17074206688ee2c">TEST()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -430,7 +575,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_a534ce7787534f0920e11232464b5086a_icgraph.svg" width="1175" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_a534ce7787534f0920e11232464b5086a_icgraph.svg" width="1175" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -462,6 +607,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Send a text message over the Data Link. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>- The text to send. </td></tr>
+    <tr><td class="paramname">message_id</td><td>A unique identifier for the message. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the message was added to the out queue, <code>false</code> otherwise. </dd></dl>
+
 <p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962">isRunning()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a39ed9911bb05bf7914fd3bdb06bfc17c">out_exchange_queue_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c">giraffe::gdl::MessageQueue::push()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c">giraffe::gdl::Message::setExchangeMessage()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -487,6 +642,15 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Receive a message from the Data Link if one is available. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message[out]</td><td>- The received message. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if there was a message to receive and message was set, <code>false</code> otherwise. </dd></dl>
 
 <p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#adc212b8f21c7520ccedfb3cf48e6ad0b">in_queue_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962">isRunning()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#a83a1f12036970c4e7e4832e4d90d126a">giraffe::gdl::MessageQueue::pop()</a>.</p>
 
@@ -529,6 +693,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Check if a messages have been received and are available. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if messages are available, <code>false</code> otherwise. </dd></dl>
+
 <p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#adc212b8f21c7520ccedfb3cf48e6ad0b">in_queue_</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#a097ff946fe37b6afb73a1c3291646089">giraffe::gdl::MessageQueue::size()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#ab6878a1f3f5cc89ec02b45f749526db7">giraffe::gdl::GdlServer::handleRequestReceivedMessages()</a>.</p>
@@ -570,6 +737,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Get statistics about the Data Link. </p>
+<dl class="section return"><dt>Returns</dt><dd>GDL statistics. </dd></dl>
+
 <p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ae356b54ea2c24285b5681e6e2be3e820">statistics_</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2bc3e7362ce4cd0af1829643698e276d">statistics_lock_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a78670e65013497b31f7069d03263884e">giraffe::gdl::GdlServer::handleRequestStatus()</a>.</p>
@@ -605,13 +775,49 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b">DISABLED</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2c1586a69f494f41669bbd55ff2ef2fd">status_</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6e34393ea25031b617859331d6b6eaa1">gdl_thread_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6004a6e0c3b468032a0c71b8e2a2c5f3">receiveMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a">sendMessage()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a089374ddeb5601b859264baa5986304f">sendText()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af2abf8909cea23f020779dfdeea6cfc3">disable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90">enable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6004a6e0c3b468032a0c71b8e2a2c5f3">receiveMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a">sendMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a089374ddeb5601b859264baa5986304f">sendText()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#aeba1865b0a004bcffcb41b5fddd9fc4e">setPhysicalLayer()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_a271f07d75f8c7a86244f2d276809e962_icgraph.svg" width="1470" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_a271f07d75f8c7a86244f2d276809e962_icgraph.svg" width="1470" height="384"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a533c0e638f752a5656734721c7437c2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533c0e638f752a5656734721c7437c2f">&#9670;&nbsp;</a></span>setStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void giraffe::gdl::DataLink::setStatus </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76">Status</a>&#160;</td>
+          <td class="paramname"><em>status</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2c1586a69f494f41669bbd55ff2ef2fd">status_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af2abf8909cea23f020779dfdeea6cfc3">disable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90">enable()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_a533c0e638f752a5656734721c7437c2f_icgraph.svg" width="927" height="174"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -640,18 +846,18 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>The main thread function for GDL. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000059">Todo:</a></b></dt><dd>handle error (should never happen) </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000060">Todo:</a></b></dt><dd>handle error (should never happen) </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000061">Todo:</a></b></dt><dd>handle error (no space in queue) </dd></dl>
+<p>The function that runs in the background thread. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000061">Todo:</a></b></dt><dd>handle error (should never happen) </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000062">Todo:</a></b></dt><dd>handle error (should never happen) </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000063">Todo:</a></b></dt><dd>handle error (no space in queue) </dd></dl>
 
-<p class="reference">References <a class="el" href="namespacegiraffe_1_1gdl.html#a62b559025cf0de978941f4357772c5dc">giraffe::gdl::Statistics::broadcast_queue_size</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76aa5afd6edd5336d91316964e493936858">CONNECTED</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a99c8ce56e7ab246445d3b134724428f3">DISCONNECTED</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#a542efc954a0847253eea05c5e38de5f6">giraffe::gdl::Statistics::exchange_queue_size</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#ad25ab616a38b8be37fdb5b088f93c9b2">giraffe::gdl::GDL_THREAD_SLEEP_INTERVAL_MS</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ad90e7a13eec0257cf473de16b2a4ff2c">gdl_thread_stop_flag_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#adc212b8f21c7520ccedfb3cf48e6ad0b">in_queue_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a796c86f2cd82e0dba810fd51da7d7374">giraffe::gdl::TransportLayer::isConnected()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a7a77c02664ac9a237db2bb6da4b3106a">giraffe::gdl::TransportLayer::isReadyToSend()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6e344128ad352abe63ac9bf201d2c3a6">out_broadcast_queue_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a39ed9911bb05bf7914fd3bdb06bfc17c">out_exchange_queue_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#a57926ac1b20dfa23d1e9f58d96598794">giraffe::gdl::MessageQueue::peek()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#a83a1f12036970c4e7e4832e4d90d126a">giraffe::gdl::MessageQueue::pop()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c">giraffe::gdl::MessageQueue::push()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a8fd32baa2bbdf231ba8cc7d4f6c6af64">giraffe::gdl::TransportLayer::receive()</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#a633cb0ab63123cc8be6bd628d8ea2dfe">giraffe::gdl::Statistics::received_queue_size</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a3796375c0a18740636691d4c3f8f2ee8">giraffe::gdl::TransportLayer::send()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#a097ff946fe37b6afb73a1c3291646089">giraffe::gdl::MessageQueue::size()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ae356b54ea2c24285b5681e6e2be3e820">statistics_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2bc3e7362ce4cd0af1829643698e276d">statistics_lock_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2c1586a69f494f41669bbd55ff2ef2fd">status_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a466bc7c4f1e566e051677f81171ba853">transport_layer_</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ab520e1f30f0fa8d1d17fc3d627386d2f">giraffe::gdl::TransportLayer::update()</a>.</p>
+<p class="reference">References <a class="el" href="namespacegiraffe_1_1gdl.html#a62b559025cf0de978941f4357772c5dc">giraffe::gdl::Statistics::broadcast_queue_size</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b">DISABLED</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#a542efc954a0847253eea05c5e38de5f6">giraffe::gdl::Statistics::exchange_queue_size</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#ad25ab616a38b8be37fdb5b088f93c9b2">giraffe::gdl::GDL_THREAD_SLEEP_INTERVAL_MS</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ad90e7a13eec0257cf473de16b2a4ff2c">gdl_thread_stop_flag_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#adc212b8f21c7520ccedfb3cf48e6ad0b">in_queue_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a7a77c02664ac9a237db2bb6da4b3106a">giraffe::gdl::TransportLayer::isReadyToSend()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6e344128ad352abe63ac9bf201d2c3a6">out_broadcast_queue_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a39ed9911bb05bf7914fd3bdb06bfc17c">out_exchange_queue_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#a57926ac1b20dfa23d1e9f58d96598794">giraffe::gdl::MessageQueue::peek()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#a83a1f12036970c4e7e4832e4d90d126a">giraffe::gdl::MessageQueue::pop()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c">giraffe::gdl::MessageQueue::push()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a8fd32baa2bbdf231ba8cc7d4f6c6af64">giraffe::gdl::TransportLayer::receive()</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#a633cb0ab63123cc8be6bd628d8ea2dfe">giraffe::gdl::Statistics::received_queue_size</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a43491564ebcfd38568918efbd6e840fd">RUNNING</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a3796375c0a18740636691d4c3f8f2ee8">giraffe::gdl::TransportLayer::send()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a533c0e638f752a5656734721c7437c2f">setStatus()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1MessageQueue.html#a097ff946fe37b6afb73a1c3291646089">giraffe::gdl::MessageQueue::size()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ae356b54ea2c24285b5681e6e2be3e820">statistics_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2bc3e7362ce4cd0af1829643698e276d">statistics_lock_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a466bc7c4f1e566e051677f81171ba853">transport_layer_</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ab520e1f30f0fa8d1d17fc3d627386d2f">giraffe::gdl::TransportLayer::update()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#aadf2f53eec8c20e6d7085a1de24b4946">enable()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90">enable()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_a2f6c5032357d005d854f969a93c360de_cgraph.svg" width="1890" height="1159"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1DataLink_a2f6c5032357d005d854f969a93c360de_cgraph.svg" width="1890" height="1447"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -684,6 +890,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Thread safe GDL configuration. </p>
+
 </div>
 </div>
 <a id="a6e344128ad352abe63ac9bf201d2c3a6"></a>
@@ -705,6 +913,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Outgoing broadcast message queue. </p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a">sendMessage()</a>.</p>
 
@@ -730,6 +940,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Outgoing exchange message queue. </p>
+
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a">sendMessage()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a089374ddeb5601b859264baa5986304f">sendText()</a>.</p>
 
 </div>
@@ -753,6 +965,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Received messages queue. </p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ad7223729cff67b00226de4a34e560a30">messageAvailable()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a6004a6e0c3b468032a0c71b8e2a2c5f3">receiveMessage()</a>.</p>
 
@@ -778,7 +992,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a4f2159ec06ca15ae82b273e10c1b4d17">disable()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#aadf2f53eec8c20e6d7085a1de24b4946">enable()</a>.</p>
+<p>The background thread for the GDL. </p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af2abf8909cea23f020779dfdeea6cfc3">disable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90">enable()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962">isRunning()</a>.</p>
 
 </div>
 </div>
@@ -802,7 +1018,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a4f2159ec06ca15ae82b273e10c1b4d17">disable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#aadf2f53eec8c20e6d7085a1de24b4946">enable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a8cd697b9f74bcd17d9a48e259eb7e345">isEnabled()</a>.</p>
+<p>Flag to stop the background thread. </p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af2abf8909cea23f020779dfdeea6cfc3">disable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90">enable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a8cd697b9f74bcd17d9a48e259eb7e345">isEnabled()</a>.</p>
 
 </div>
 </div>
@@ -826,7 +1044,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a30449dc194e1fe82bddf366b15582345">~DataLink()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a4f2159ec06ca15ae82b273e10c1b4d17">disable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#aadf2f53eec8c20e6d7085a1de24b4946">enable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab40f43468826f91454986d3ba317fd8f">getStatus()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962">isRunning()</a>.</p>
+<p>The status of the GDL. </p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a33b7715a1e9e5993f0dd2998882f4ad8">DataLink()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a30449dc194e1fe82bddf366b15582345">~DataLink()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab40f43468826f91454986d3ba317fd8f">getStatus()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a533c0e638f752a5656734721c7437c2f">setStatus()</a>.</p>
 
 </div>
 </div>
@@ -849,6 +1069,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Lock for the statistics. </p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a98f228a5e7abb95ad4e66ae4b53dd71a">getStatistics()</a>.</p>
 
@@ -874,12 +1096,14 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>The statistics for the GDL. </p>
+
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a98f228a5e7abb95ad4e66ae4b53dd71a">getStatistics()</a>.</p>
 
 </div>
 </div>
-<a id="a8e36ba9cfc630abc5ff5b31631e7891c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e36ba9cfc630abc5ff5b31631e7891c">&#9670;&nbsp;</a></span>physical_layer_</h2>
+<a id="a832143ca86fad2cec97bd5756b5c3cb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a832143ca86fad2cec97bd5756b5c3cb7">&#9670;&nbsp;</a></span>p_physical_layer_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -888,7 +1112,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a> giraffe::gdl::DataLink::physical_layer_ {<a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab25d4e219dc847355c943cc86f28d9bb">config_</a>}</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a>&gt; giraffe::gdl::DataLink::p_physical_layer_</td>
         </tr>
       </table>
   </td>
@@ -897,6 +1121,11 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The physical layer for the GDL. </p>
+<p>This is a shared pointer. <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html" title="The physical layer of the Giraffe Data Link.">PhysicalLayer</a> is a base class that can be extended to create a custom physical layer. </p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90">enable()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#aeba1865b0a004bcffcb41b5fddd9fc4e">setPhysicalLayer()</a>.</p>
 
 </div>
 </div>
@@ -910,7 +1139,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html">NetworkLayer</a> giraffe::gdl::DataLink::network_layer_ {<a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab25d4e219dc847355c943cc86f28d9bb">config_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a8e36ba9cfc630abc5ff5b31631e7891c">physical_layer_</a>}</td>
+          <td class="memname"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html">NetworkLayer</a> giraffe::gdl::DataLink::network_layer_ {<a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab25d4e219dc847355c943cc86f28d9bb">config_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a832143ca86fad2cec97bd5756b5c3cb7">p_physical_layer_</a>}</td>
         </tr>
       </table>
   </td>
@@ -919,6 +1148,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The network layer for the GDL. </p>
 
 </div>
 </div>
@@ -941,6 +1172,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The transport layer for the GDL. </p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">gdlThread()</a>.</p>
 

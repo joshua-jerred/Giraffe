@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['gpsfix_3709',['GpsFix',['../namespacedata.html#ab828a916e0a524f5d9d29e881a1e829b',1,'data']]]
+  ['fixtype_3773',['FixType',['../namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8',1,'ubx']]],
+  ['flightphase_3774',['FlightPhase',['../flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644',1,'flight_phase.hpp']]],
+  ['focus_3775',['Focus',['../classncurs_1_1Environment.html#a9cc14d29a31da252c56695e32e998298',1,'ncurs::Environment::Focus()'],['../classncurs_1_1Environment.html#a9cc14d29a31da252c56695e32e998298',1,'ncurs::Environment::Focus()']]]
 ];

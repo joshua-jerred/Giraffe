@@ -1,4 +1,4 @@
 <map id="giraffe::gdl::DataLink::messageAvailable" name="giraffe::gdl::DataLink::messageAvailable">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node1" title="Check if a messages have been received and are available." alt="" coords="5,5,164,47"/>
 <area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#a097ff946fe37b6afb73a1c3291646089" title="Get the size of the queue." alt="" coords="212,5,412,47"/>
 </map>

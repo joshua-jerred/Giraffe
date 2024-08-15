@@ -102,7 +102,8 @@ $(document).ready(function(){initNavTree('test__application__layer_8cpp.html',''
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">test_application_layer.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -111,10 +112,11 @@ $(document).ready(function(){initNavTree('test__application__layer_8cpp.html',''
 <code>#include &lt;BoosterSeat/sleep.hpp&gt;</code><br />
 <code>#include &lt;<a class="el" href="giraffe__data__link_8hpp_source.html">giraffe_data_link.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="giraffe__diagnostics_8hpp_source.html">giraffe_diagnostics.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="software__physical__layer_8hpp_source.html">software_physical_layer.hpp</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for test_application_layer.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="test__application__layer_8cpp__incl.svg" width="1950" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="test__application__layer_8cpp__incl.svg" width="2030" height="575"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -125,8 +127,15 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a50d523d79f3cdf56479d9fb723242051"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__application__layer_8cpp.html#a50d523d79f3cdf56479d9fb723242051">TEST</a> (ApplicationLayer, Start)</td></tr>
-<tr class="separator:a50d523d79f3cdf56479d9fb723242051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ac1248e8fd45617911ed0b118ac867"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__application__layer_8cpp.html#aa2ac1248e8fd45617911ed0b118ac867">TEST</a> (ApplicationLayer, ConstructWithPhysicalLayer)</td></tr>
+<tr class="separator:aa2ac1248e8fd45617911ed0b118ac867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac24fe56893d3fd67b81bb4aacc7c8320"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320">TEST</a> (ApplicationLayer, EnableRequiresRadio)</td></tr>
+<tr class="separator:ac24fe56893d3fd67b81bb4aacc7c8320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a6a7e26d87f9f1b3002518f758bb0d687"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1Config.html">gdl::Config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__application__layer_8cpp.html#a6a7e26d87f9f1b3002518f758bb0d687">config</a></td></tr>
+<tr class="separator:a6a7e26d87f9f1b3002518f758bb0d687"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a4896f2c4b8be9b56a92dc6167a1a29e1"></a>
@@ -144,8 +153,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a50d523d79f3cdf56479d9fb723242051"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50d523d79f3cdf56479d9fb723242051">&#9670;&nbsp;</a></span>TEST()</h2>
+<a id="ac24fe56893d3fd67b81bb4aacc7c8320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac24fe56893d3fd67b81bb4aacc7c8320">&#9670;&nbsp;</a></span>TEST() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,7 +168,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Start&#160;</td>
+          <td class="paramtype">EnableRequiresRadio&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -169,6 +178,67 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="test__application__layer_8cpp.html#a6a7e26d87f9f1b3002518f758bb0d687">config</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af2abf8909cea23f020779dfdeea6cfc3">giraffe::gdl::DataLink::disable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a055c1a591abb0e8cd86dc969727bcc0b">giraffe::gdl::DataLink::DISABLED</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90">giraffe::gdl::DataLink::enable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab40f43468826f91454986d3ba317fd8f">giraffe::gdl::DataLink::getStatus()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a8cd697b9f74bcd17d9a48e259eb7e345">giraffe::gdl::DataLink::isEnabled()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a43491564ebcfd38568918efbd6e840fd">giraffe::gdl::DataLink::RUNNING</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#aeba1865b0a004bcffcb41b5fddd9fc4e">giraffe::gdl::DataLink::setPhysicalLayer()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="test__application__layer_8cpp_ac24fe56893d3fd67b81bb4aacc7c8320_cgraph.svg" width="2195" height="1002"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aa2ac1248e8fd45617911ed0b118ac867"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2ac1248e8fd45617911ed0b118ac867">&#9670;&nbsp;</a></span>TEST() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">ApplicationLayer&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ConstructWithPhysicalLayer&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="test__application__layer_8cpp.html#a6a7e26d87f9f1b3002518f758bb0d687">config</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90">giraffe::gdl::DataLink::enable()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab40f43468826f91454986d3ba317fd8f">giraffe::gdl::DataLink::getStatus()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a8cd697b9f74bcd17d9a48e259eb7e345">giraffe::gdl::DataLink::isEnabled()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a43491564ebcfd38568918efbd6e840fd">giraffe::gdl::DataLink::RUNNING</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="test__application__layer_8cpp_aa2ac1248e8fd45617911ed0b118ac867_cgraph.svg" width="2199" height="1260"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a6a7e26d87f9f1b3002518f758bb0d687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a7e26d87f9f1b3002518f758bb0d687">&#9670;&nbsp;</a></span>config</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgiraffe_1_1gdl_1_1Config.html">gdl::Config</a> config</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="namespacegiraffe_1_1gdl.html#a0167f2bafb5ddeaa96316589f50f13d4">giraffe::gdl::createSwPhysicalLayer()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a591424c144ee17a258f248ce1b953b5b">giraffe::gdl::GdlServer::getConfigJson()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a38bb766c005f9060bf13aeb5c553dd05">giraffe::gdl::GdlServer::loadConfig()</a>, <a class="el" href="gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a27ff3bf1c99f70b8475390d9d05e7f5c">giraffe::gdl::GdlServer::saveConfig()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a8b439d61223361eda2365f3bf94fb9a6">giraffe::gdl::GdlServer::setConfigFromJson()</a>, and <a class="el" href="test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320">TEST()</a>.</p>
 
 </div>
 </div>

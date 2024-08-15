@@ -13,6 +13,7 @@ var namespaceextension =
     [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ],
     [ "SamM8q", "classextension_1_1SamM8q.html", "classextension_1_1SamM8q" ],
     [ "SimAdcSensor", "classextension_1_1SimAdcSensor.html", "classextension_1_1SimAdcSensor" ],
+    [ "SimCamera", "classextension_1_1SimCamera.html", "classextension_1_1SimCamera" ],
     [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],
     [ "SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", "classextension_1_1SimHumiditySensor" ],
     [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],

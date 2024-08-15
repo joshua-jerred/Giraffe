@@ -1,9 +1,9 @@
 <map id="giraffe::gdl::TransportLayer::isReadyToSend" name="giraffe::gdl::TransportLayer::isReadyToSend">
 <area shape="rect" id="node1" title="Check if the transport layer is ready to send a message (true) or if it is busy with the previous mes..." alt="" coords="1007,23,1203,65"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" title="The main thread function for GDL." alt="" coords="556,23,715,65"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" title="The function that runs in the background thread." alt="" coords="556,23,715,65"/>
 <area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a3796375c0a18740636691d4c3f8f2ee8" title="Send a message to the remote node." alt="" coords="763,53,959,94"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#aadf2f53eec8c20e6d7085a1de24b4946" title=" " alt="" coords="349,23,508,65"/>
-<area shape="rect" id="node4" href="$gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="177,5,232,32"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,56,301,83"/>
-<area shape="rect" id="node6" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,56,60,83"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90" title="Enable the Data Link. Starts the background thread." alt="" coords="349,23,508,65"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,5,301,32"/>
+<area shape="rect" id="node6" href="$test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320" title=" " alt="" coords="177,56,232,83"/>
+<area shape="rect" id="node5" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,32"/>
 </map>

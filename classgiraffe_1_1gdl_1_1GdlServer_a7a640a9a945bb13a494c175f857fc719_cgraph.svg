@@ -790,7 +790,7 @@
 <!-- Node41 -->
 <g id="node41" class="node">
 <title>Node41</title>
-<g id="a_node41"><a xlink:href="classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a" target="_top" xlink:title=" ">
+<g id="a_node41"><a xlink:href="classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a" target="_top" xlink:title="Send a message over the Data Link.">
 <polygon fill="none" stroke="black" points="532,-260.5 532,-290.5 651,-290.5 651,-260.5 532,-260.5"/>
 <text text-anchor="start" x="540" y="-278.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::DataLink</text>
 <text text-anchor="middle" x="591.5" y="-267.5" font-family="Helvetica,sans-Serif" font-size="10.00">::sendMessage</text>

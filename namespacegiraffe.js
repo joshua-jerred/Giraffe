@@ -7,6 +7,7 @@ var namespacegiraffe =
       [ "getGfsConfigFilePath", "namespacegiraffe_1_1file__paths.html#af135930ce8485d772c69735520b7fad1", null ],
       [ "getGfsFlightRunnerDataFilePath", "namespacegiraffe_1_1file__paths.html#aef6cfddd3fef84d131765805a8152fbc", null ],
       [ "getGfsImageDirPath", "namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc", null ],
+      [ "generateFileNameWithTimestamp", "namespacegiraffe_1_1file__paths.html#af5c1d677a515ee726e43548eae52335e", null ],
       [ "GIRAFFE_DIRECTORY", "namespacegiraffe_1_1file__paths.html#aad4ebaf90e4cc96fa0529d0d65fcd109", null ]
     ] ],
     [ "gdl", "namespacegiraffe_1_1gdl.html", "namespacegiraffe_1_1gdl" ],

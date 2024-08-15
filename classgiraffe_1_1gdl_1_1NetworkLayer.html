@@ -110,18 +110,18 @@ $(document).ready(function(){initNavTree('classgiraffe_1_1gdl_1_1NetworkLayer.ht
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="gdl__layers_8hpp_source.html">gdl_layers.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="network__layer_8hpp_source.html">network_layer.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for giraffe::gdl::NetworkLayer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1NetworkLayer__coll__graph.svg" width="871" height="875"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1NetworkLayer__coll__graph.svg" width="746" height="676"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0e38fb460925ea6e7e0e7c7f4abee558"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a0e38fb460925ea6e7e0e7c7f4abee558">NetworkLayer</a> (<a class="el" href="classgiraffe_1_1gdl_1_1Config.html">Config</a> &amp;config, <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a> &amp;physical_layer)</td></tr>
-<tr class="separator:a0e38fb460925ea6e7e0e7c7f4abee558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab0513ec182fe3d40e873e0654082df7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#aab0513ec182fe3d40e873e0654082df7">NetworkLayer</a> (<a class="el" href="classgiraffe_1_1gdl_1_1Config.html">Config</a> &amp;<a class="el" href="test__application__layer_8cpp.html#a6a7e26d87f9f1b3002518f758bb0d687">config</a>, const std::shared_ptr&lt; <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a> &gt; &amp;physical_layer)</td></tr>
+<tr class="separator:aab0513ec182fe3d40e873e0654082df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8e4b92cefb3d177da7634bfcf2631bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#ae8e4b92cefb3d177da7634bfcf2631bd">~NetworkLayer</a> ()</td></tr>
 <tr class="separator:ae8e4b92cefb3d177da7634bfcf2631bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98054e5ca722079bfed5b3fa2165c875"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875">rxPacket</a> (<a class="el" href="classgiraffe_1_1gdl_1_1Packet.html">Packet</a> &amp;packet)</td></tr>
@@ -135,6 +135,9 @@ Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a36141d40a8b69472cc96aeada41be8aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa">txAprsPositionPacket</a> (const <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html">Packet</a> &amp;packet)</td></tr>
 <tr class="separator:a36141d40a8b69472cc96aeada41be8aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af14790c432f5d6c172e9aad02cd824d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#af14790c432f5d6c172e9aad02cd824d2">txSstvImage</a> (const <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html">Packet</a> &amp;packet)</td></tr>
+<tr class="memdesc:af14790c432f5d6c172e9aad02cd824d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcast an SSTV image.  <a href="classgiraffe_1_1gdl_1_1NetworkLayer.html#af14790c432f5d6c172e9aad02cd824d2">More...</a><br /></td></tr>
+<tr class="separator:af14790c432f5d6c172e9aad02cd824d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -142,8 +145,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a5b9fd54766a642d86984b2cc770da4ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b156cb8b0388c430c6a309569afc877"><td class="memItemLeft" align="right" valign="top">signal_easel::aprs::Modulator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a2b156cb8b0388c430c6a309569afc877">modulator_</a> {}</td></tr>
 <tr class="separator:a2b156cb8b0388c430c6a309569afc877"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcdacf34e1ffdf8b705e487c4dca4c19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#adcdacf34e1ffdf8b705e487c4dca4c19">physical_layer_</a></td></tr>
-<tr class="separator:adcdacf34e1ffdf8b705e487c4dca4c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af04983f6e3c18418bd7a52d92196e5a2"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#af04983f6e3c18418bd7a52d92196e5a2">physical_layer_</a></td></tr>
+<tr class="separator:af04983f6e3c18418bd7a52d92196e5a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeca93c2b677829cb55959dc91704b98f"><td class="memItemLeft" align="right" valign="top">signal_easel::aprs::Receiver&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#aeca93c2b677829cb55959dc91704b98f">receiver_</a> {}</td></tr>
 <tr class="separator:aeca93c2b677829cb55959dc91704b98f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8a2ca1e7396c15cf8a992e366d40192"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#aa8a2ca1e7396c15cf8a992e366d40192">total_packets_received_</a> = 0</td></tr>
@@ -152,8 +155,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a7ef068320ded379ff0635781abdb71f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0e38fb460925ea6e7e0e7c7f4abee558"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e38fb460925ea6e7e0e7c7f4abee558">&#9670;&nbsp;</a></span>NetworkLayer()</h2>
+<a id="aab0513ec182fe3d40e873e0654082df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab0513ec182fe3d40e873e0654082df7">&#9670;&nbsp;</a></span>NetworkLayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,7 +170,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a> &amp;&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>physical_layer</em>&#160;</td>
         </tr>
         <tr>
@@ -177,14 +180,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html#a1a05b9975d637fdf5388b1181498e9f9">giraffe::gdl::PhysicalLayer::enable()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#adcdacf34e1ffdf8b705e487c4dca4c19">physical_layer_</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1NetworkLayer_a0e38fb460925ea6e7e0e7c7f4abee558_cgraph.svg" width="440" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
@@ -222,13 +217,13 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba0fc437bc317835cad5faafc12a83fad5">giraffe::gdl::Packet::ACK</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba81d741a35dc8a42c885b7cc031afd17f">giraffe::gdl::Packet::BROADCAST</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a5b9fd54766a642d86984b2cc770da4ad">config_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824baa19e33a03873dfa815e53ad6fcece8bf">giraffe::gdl::Packet::EXCHANGE</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#a6bfcdb163f69139048d3977033b649ca">giraffe::gdl::EXP_PREFIX_ACK</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#ac85d55d1c157c1de8484b1d8e7410af2">giraffe::gdl::EXP_PREFIX_BROADCAST</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#abfe524072582cfb85e290a9671d9ac7a">giraffe::gdl::EXP_PREFIX_EXCHANGE</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#a7c608d31324efbbec9dfb558b7708eca">giraffe::gdl::EXP_PREFIX_PING</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#a1ed2e61dd823ba0f28eba92589ea3f8a">giraffe::gdl::EXP_PREFIX_PING_RESPONSE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc">giraffe::gdl::Config::getCallSign()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6">giraffe::gdl::Message::getData()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0">giraffe::gdl::Message::getIdentifierString()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a30b91d18f37e7cc83455c0ecd9198e1c">giraffe::gdl::Packet::getPacketType()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#a1fd00187a8f0cf9632db5d0d068e4ce3">giraffe::gdl::Config::getRemoteCallSign()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#ab4b666bf725f3ab5756dc5b5135640ae">giraffe::gdl::Config::getRemoteSSID()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639">giraffe::gdl::Config::getSSID()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba71233d73cc90bba8f4d5bbea0792e551">giraffe::gdl::Packet::LOCATION</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a2b156cb8b0388c430c6a309569afc877">modulator_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824bae07ff41a486c27c095a15898dcca34d1">giraffe::gdl::Packet::PING</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824baf5fcb64a6d012a6285298f45015c65bf">giraffe::gdl::Packet::PING_RESPONSE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a7ef068320ded379ff0635781abdb71f1">total_packets_sent_</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa">txAprsPositionPacket()</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba0fc437bc317835cad5faafc12a83fad5">giraffe::gdl::Packet::ACK</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba81d741a35dc8a42c885b7cc031afd17f">giraffe::gdl::Packet::BROADCAST</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a5b9fd54766a642d86984b2cc770da4ad">config_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824baa19e33a03873dfa815e53ad6fcece8bf">giraffe::gdl::Packet::EXCHANGE</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#a6bfcdb163f69139048d3977033b649ca">giraffe::gdl::EXP_PREFIX_ACK</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#ac85d55d1c157c1de8484b1d8e7410af2">giraffe::gdl::EXP_PREFIX_BROADCAST</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#abfe524072582cfb85e290a9671d9ac7a">giraffe::gdl::EXP_PREFIX_EXCHANGE</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#a7c608d31324efbbec9dfb558b7708eca">giraffe::gdl::EXP_PREFIX_PING</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#a1ed2e61dd823ba0f28eba92589ea3f8a">giraffe::gdl::EXP_PREFIX_PING_RESPONSE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc">giraffe::gdl::Config::getCallSign()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6">giraffe::gdl::Message::getData()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0">giraffe::gdl::Message::getIdentifierString()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a30b91d18f37e7cc83455c0ecd9198e1c">giraffe::gdl::Packet::getPacketType()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#a1fd00187a8f0cf9632db5d0d068e4ce3">giraffe::gdl::Config::getRemoteCallSign()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#ab4b666bf725f3ab5756dc5b5135640ae">giraffe::gdl::Config::getRemoteSSID()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639">giraffe::gdl::Config::getSSID()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba71233d73cc90bba8f4d5bbea0792e551">giraffe::gdl::Packet::LOCATION</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a2b156cb8b0388c430c6a309569afc877">modulator_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824bae07ff41a486c27c095a15898dcca34d1">giraffe::gdl::Packet::PING</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824baf5fcb64a6d012a6285298f45015c65bf">giraffe::gdl::Packet::PING_RESPONSE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba9eed40bd951e903d55dd6c8f01a50cc2">giraffe::gdl::Packet::SSTV</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a7ef068320ded379ff0635781abdb71f1">total_packets_sent_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa">txAprsPositionPacket()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#af14790c432f5d6c172e9aad02cd824d2">txSstvImage()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a92073a724987a293787cbd3382615bc1">giraffe::gdl::TransportLayer::broadcastState()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a709e614e408ba20b8057fd728ab93da5">giraffe::gdl::TransportLayer::exchangeSendState()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a14bea5bfc1ce848c4edf6ab2476ddc01">giraffe::gdl::TransportLayer::sendAck()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ad16a08e8eb9d3452bf5e9ba7d0836365">giraffe::gdl::TransportLayer::sendPing()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#acb5bd2ffdb91c8823c000cecd3e472f9">giraffe::gdl::TransportLayer::sendPingResponse()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1NetworkLayer_a0c426dad58678f33b713e4c8d00bf1eb_cgraph.svg" width="647" height="482"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1NetworkLayer_a0c426dad58678f33b713e4c8d00bf1eb_cgraph.svg" width="647" height="547"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -290,15 +285,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespacegiraffe_1_1gdl.html#ab0cdea56a06fba9fdaa5bd46e715a003">giraffe::gdl::Statistics::network_layer_latency_ms</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#adcdacf34e1ffdf8b705e487c4dca4c19">physical_layer_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#aeca93c2b677829cb55959dc91704b98f">receiver_</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#abfa6cac65e04607f8ea217352f0b3b31">giraffe::gdl::Statistics::signal_to_noise_ratio</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#a9df80d5b09ba8c2e6bf7886ae573c080">giraffe::gdl::Statistics::total_packets_received</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#aa8a2ca1e7396c15cf8a992e366d40192">total_packets_received_</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#ad2bc0aabe7e0fc59a0e47268bb21db33">giraffe::gdl::Statistics::total_packets_sent</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a7ef068320ded379ff0635781abdb71f1">total_packets_sent_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html#a47803ab9605ef66b473995fd7d2ad349">giraffe::gdl::PhysicalLayer::update()</a>, and <a class="el" href="namespacegiraffe_1_1gdl.html#aae88f5899f328704ca5c5816768e6264">giraffe::gdl::Statistics::volume</a>.</p>
+<p class="reference">References <a class="el" href="namespacegiraffe_1_1gdl.html#ab0cdea56a06fba9fdaa5bd46e715a003">giraffe::gdl::Statistics::network_layer_latency_ms</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#aeca93c2b677829cb55959dc91704b98f">receiver_</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#abfa6cac65e04607f8ea217352f0b3b31">giraffe::gdl::Statistics::signal_to_noise_ratio</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#a9df80d5b09ba8c2e6bf7886ae573c080">giraffe::gdl::Statistics::total_packets_received</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#aa8a2ca1e7396c15cf8a992e366d40192">total_packets_received_</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#ad2bc0aabe7e0fc59a0e47268bb21db33">giraffe::gdl::Statistics::total_packets_sent</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a7ef068320ded379ff0635781abdb71f1">total_packets_sent_</a>, and <a class="el" href="namespacegiraffe_1_1gdl.html#aae88f5899f328704ca5c5816768e6264">giraffe::gdl::Statistics::volume</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ab520e1f30f0fa8d1d17fc3d627386d2f">giraffe::gdl::TransportLayer::update()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1NetworkLayer_a0be39cc6f7db124c777fa99db1c61d11_cgraph.svg" width="440" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -331,7 +320,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000063">Todo:</a></b></dt><dd>report back up </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000064">Todo:</a></b></dt><dd>report back up </dd></dl>
 
 <p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a5b9fd54766a642d86984b2cc770da4ad">config_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc">giraffe::gdl::Config::getCallSign()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a058458ec43b44d02141e79f986a1a79d">giraffe::gdl::Message::getLocation()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#a1fd00187a8f0cf9632db5d0d068e4ce3">giraffe::gdl::Config::getRemoteCallSign()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#ab4b666bf725f3ab5756dc5b5135640ae">giraffe::gdl::Config::getRemoteSSID()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639">giraffe::gdl::Config::getSSID()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad39dfdc6ffa7963fbdec3ad07d842633">giraffe::gdl::Message::Location::latitude</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a2b156cb8b0388c430c6a309569afc877">modulator_</a>.</p>
 
@@ -346,6 +335,57 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1NetworkLayer_a36141d40a8b69472cc96aeada41be8aa_icgraph.svg" width="2174" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="af14790c432f5d6c172e9aad02cd824d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af14790c432f5d6c172e9aad02cd824d2">&#9670;&nbsp;</a></span>txSstvImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool giraffe::gdl::NetworkLayer::txSstvImage </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html">Packet</a> &amp;&#160;</td>
+          <td class="paramname"><em>packet</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Broadcast an SSTV image. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td>- The packet containing the SSTV image. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the image was successfully broadcast, <code>false</code> otherwise. Also false if SSTV is not enabled. </dd></dl>
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a5b9fd54766a642d86984b2cc770da4ad">config_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc">giraffe::gdl::Config::getCallSign()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab19b90512b2e9c4b3093d38a5539d920">giraffe::gdl::Message::getImage()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a31c65bf7fab96a9e19817870c61019fc">giraffe::gdl::Message::Image::path</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a0c426dad58678f33b713e4c8d00bf1eb">txPacket()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1NetworkLayer_af14790c432f5d6c172e9aad02cd824d2_cgraph.svg" width="408" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1NetworkLayer_af14790c432f5d6c172e9aad02cd824d2_icgraph.svg" width="2174" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -420,12 +460,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875">rxPacket()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa">txAprsPositionPacket()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a0c426dad58678f33b713e4c8d00bf1eb">txPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875">rxPacket()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa">txAprsPositionPacket()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a0c426dad58678f33b713e4c8d00bf1eb">txPacket()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#af14790c432f5d6c172e9aad02cd824d2">txSstvImage()</a>.</p>
 
 </div>
 </div>
-<a id="adcdacf34e1ffdf8b705e487c4dca4c19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcdacf34e1ffdf8b705e487c4dca4c19">&#9670;&nbsp;</a></span>physical_layer_</h2>
+<a id="af04983f6e3c18418bd7a52d92196e5a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af04983f6e3c18418bd7a52d92196e5a2">&#9670;&nbsp;</a></span>physical_layer_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,7 +474,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a>&amp; giraffe::gdl::NetworkLayer::physical_layer_</td>
+          <td class="memname">const std::shared_ptr&lt;<a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html">PhysicalLayer</a>&gt;&amp; giraffe::gdl::NetworkLayer::physical_layer_</td>
         </tr>
       </table>
   </td>
@@ -443,8 +483,6 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a0e38fb460925ea6e7e0e7c7f4abee558">NetworkLayer()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a0be39cc6f7db124c777fa99db1c61d11">update()</a>.</p>
 
 </div>
 </div>

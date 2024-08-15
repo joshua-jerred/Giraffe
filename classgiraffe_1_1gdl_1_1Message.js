@@ -1,5 +1,8 @@
 var classgiraffe_1_1gdl_1_1Message =
 [
+    [ "Image", "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Image", [
+      [ "path", "classgiraffe_1_1gdl_1_1Message.html#a31c65bf7fab96a9e19817870c61019fc", null ]
+    ] ],
     [ "Location", "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location", [
       [ "latitude", "classgiraffe_1_1gdl_1_1Message.html#ad39dfdc6ffa7963fbdec3ad07d842633", null ],
       [ "longitude", "classgiraffe_1_1gdl_1_1Message.html#aa403f37d6f3f5b1ce4efdeec59b12f28", null ],
@@ -11,12 +14,14 @@ var classgiraffe_1_1gdl_1_1Message =
     [ "Type", "classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4", [
       [ "BROADCAST", "classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f", null ],
       [ "EXCHANGE", "classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf", null ],
-      [ "LOCATION", "classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551", null ]
+      [ "LOCATION", "classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551", null ],
+      [ "IMAGE", "classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a23a12f67f614b5518c7f1c2465bf95e3", null ]
     ] ],
     [ "Message", "classgiraffe_1_1gdl_1_1Message.html#a589c1f02565697c135adc278698f94fc", null ],
     [ "setBroadcastMessage", "classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb", null ],
     [ "setExchangeMessage", "classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c", null ],
     [ "setLocationMessage", "classgiraffe_1_1gdl_1_1Message.html#ad38b31e7aaf83328773626fe1a6e81ee", null ],
+    [ "setImageMessage", "classgiraffe_1_1gdl_1_1Message.html#a4cabd8beca53ab3e2877b67487606ea2", null ],
     [ "getIdentifier", "classgiraffe_1_1gdl_1_1Message.html#a7e379f44344ef7d3f57f30cc8b85d71f", null ],
     [ "setIdentifier", "classgiraffe_1_1gdl_1_1Message.html#ab8132240bc763dd84dd9556e87c42bbc", null ],
     [ "setIdentifierFromHex", "classgiraffe_1_1gdl_1_1Message.html#a785216d96e3d838ee9f6772eb34395d1", null ],
@@ -27,9 +32,10 @@ var classgiraffe_1_1gdl_1_1Message =
     [ "getData", "classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6", null ],
     [ "setLocation", "classgiraffe_1_1gdl_1_1Message.html#ab1c03e26af37f4e27ca6cf24d6674f55", null ],
     [ "getLocation", "classgiraffe_1_1gdl_1_1Message.html#a058458ec43b44d02141e79f986a1a79d", null ],
+    [ "getImage", "classgiraffe_1_1gdl_1_1Message.html#ab19b90512b2e9c4b3093d38a5539d920", null ],
     [ "getJson", "classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7", null ],
+    [ "verifyType", "classgiraffe_1_1gdl_1_1Message.html#a03da00ff0a1f1cb09e1b65daa0b9747a", null ],
     [ "identifier_", "classgiraffe_1_1gdl_1_1Message.html#abcbad3d995b718c53f85e3e57b833e8b", null ],
     [ "type_", "classgiraffe_1_1gdl_1_1Message.html#a9dabb1f8ec8eeb4324d75228e219e078", null ],
-    [ "data_", "classgiraffe_1_1gdl_1_1Message.html#ace05d3ab629e0b99adacf131923477a2", null ],
-    [ "location_", "classgiraffe_1_1gdl_1_1Message.html#aec32a79bf0b7a040cdd15863d35b07b9", null ]
+    [ "contents_", "classgiraffe_1_1gdl_1_1Message.html#a6d87cad07bfa651be81316d7393f1fdf", null ]
 ];

@@ -1,6 +1,7 @@
 var simulated__extensions_8hpp =
 [
     [ "SimAdcSensor", "classextension_1_1SimAdcSensor.html", "classextension_1_1SimAdcSensor" ],
+    [ "SimCamera", "classextension_1_1SimCamera.html", "classextension_1_1SimCamera" ],
     [ "SimGpsSensor", "classextension_1_1SimGpsSensor.html", "classextension_1_1SimGpsSensor" ],
     [ "SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", "classextension_1_1SimHumiditySensor" ],
     [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],

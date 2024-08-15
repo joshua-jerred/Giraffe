@@ -37,7 +37,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classgiraffe_1_1gdl_1_1DataLink.html#a98f228a5e7abb95ad4e66ae4b53dd71a" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="classgiraffe_1_1gdl_1_1DataLink.html#a98f228a5e7abb95ad4e66ae4b53dd71a" target="_top" xlink:title="Get statistics about the Data Link.">
 <polygon fill="none" stroke="black" points="168,-171.5 168,-201.5 287,-201.5 287,-171.5 168,-171.5"/>
 <text text-anchor="start" x="176" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::DataLink</text>
 <text text-anchor="middle" x="227.5" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getStatistics</text>
@@ -53,7 +53,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classgiraffe_1_1gdl_1_1DataLink.html#ab40f43468826f91454986d3ba317fd8f" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="classgiraffe_1_1gdl_1_1DataLink.html#ab40f43468826f91454986d3ba317fd8f" target="_top" xlink:title="Get the status of the Data Link.">
 <polygon fill="none" stroke="black" points="168,-122.5 168,-152.5 287,-152.5 287,-122.5 168,-122.5"/>
 <text text-anchor="start" x="176" y="-140.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::DataLink</text>
 <text text-anchor="middle" x="227.5" y="-129.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getStatus</text>

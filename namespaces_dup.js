@@ -39,6 +39,7 @@ var namespaces_dup =
       [ "K_STATUS_TO_STRING_MAP", "namespacenode.html#a2f55c0e56a652076e0bcc3f2dc0ac26b", null ]
     ] ],
     [ "protocol", "namespaceprotocol.html", "namespaceprotocol" ],
+    [ "radios", "namespaceradios.html", "namespaceradios" ],
     [ "sock", "namespacesock.html", "namespacesock" ],
     [ "ubx", "namespaceubx.html", "namespaceubx" ],
     [ "util", "namespaceutil.html", [

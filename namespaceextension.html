@@ -143,6 +143,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1SimAdcSensor.html">SimAdcSensor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1SimCamera.html">SimCamera</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1SimGpsSensor.html">SimGpsSensor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1SimHumiditySensor.html">SimHumiditySensor</a></td></tr>
@@ -229,6 +231,7 @@ Variables</h2></td></tr>
 <tr class="memdesc:a99f704514927f802083317793cd0c3e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The read timeout in milliseconds. The update interval is added to this.  <a href="namespaceextension.html#a99f704514927f802083317793cd0c3e2">More...</a><br /></td></tr>
 <tr class="separator:a99f704514927f802083317793cd0c3e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acea3c2f1a9f2b59a10ae1f1ca30a1edf"><td class="memItemLeft" align="right" valign="top">static const std::vector&lt; <a class="el" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#acea3c2f1a9f2b59a10ae1f1ca30a1edf">K_SIMULATED_EXTENSIONS_VEC</a></td></tr>
+<tr class="memdesc:acea3c2f1a9f2b59a10ae1f1ca30a1edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">If RUN_IN_SIMULATOR is defined, the simulated extensions listed in this vector will be added to the extension module on startup.  <a href="namespaceextension.html#acea3c2f1a9f2b59a10ae1f1ca30a1edf">More...</a><br /></td></tr>
 <tr class="separator:acea3c2f1a9f2b59a10ae1f1ca30a1edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7eb03bcbaeedd19fc0bcdf9082451b15"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextension.html#a7eb03bcbaeedd19fc0bcdf9082451b15">kBme280I2cAddress</a> = 0x76</td></tr>
 <tr class="separator:a7eb03bcbaeedd19fc0bcdf9082451b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -947,9 +950,14 @@ Here is the caller graph for this function:</div>
 <div class="line">                           1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
 <div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{<span class="stringliteral">&quot;sim_adc&quot;</span>, <span class="keyword">true</span>, cfg::gEnum::ExtensionType::SIM_ADC,</div>
 <div class="line">                           1000, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>},</div>
+<div class="line">    <a class="code" href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a>{<span class="stringliteral">&quot;sim_camera&quot;</span>, <span class="keyword">true</span>,</div>
+<div class="line">                           cfg::gEnum::ExtensionType::SIM_CAMERA, 10000, <span class="keyword">false</span>,</div>
+<div class="line">                           <span class="stringliteral">&quot;&quot;</span>},</div>
 <div class="line">}</div>
 <div class="ttc" id="astructcfg_1_1ExtensionMetadata_html"><div class="ttname"><a href="structcfg_1_1ExtensionMetadata.html">cfg::ExtensionMetadata</a></div><div class="ttdoc">The metadata for an extension.</div><div class="ttdef"><b>Definition:</b> cfg_extensions.hpp:27</div></div>
 </div><!-- fragment -->
+<p>If RUN_IN_SIMULATOR is defined, the simulated extensions listed in this vector will be added to the extension module on startup. </p>
+
 <p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">modules::ExtensionModule::startup()</a>.</p>
 
 </div>

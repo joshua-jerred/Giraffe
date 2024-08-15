@@ -1,5 +1,7 @@
 <map id="data::LogStream::debug" name="data::LogStream::debug">
-<area shape="rect" id="node1" title=" " alt="" coords="493,5,671,32"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="281,5,445,32"/>
-<area shape="rect" id="node3" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,5,233,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="753,42,931,69"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="541,42,705,69"/>
+<area shape="rect" id="node3" href="$classdata__middleware_1_1CalculatedData.html#a21515bd355a6df0c8888d61862588ca1" title="Calculate the distance traveled and the distance from the launch. Called by updatePositionalData()" alt="" coords="273,5,485,47"/>
+<area shape="rect" id="node5" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="265,71,493,98"/>
+<area shape="rect" id="node4" href="$classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe" title="Update the calculated data and store it in the shared data." alt="" coords="5,5,217,47"/>
 </map>

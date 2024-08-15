@@ -1,11 +1,11 @@
 <map id="giraffe::gdl::MessageQueue::pop" name="giraffe::gdl::MessageQueue::pop">
-<area shape="rect" id="node1" title="Pop a message from the queue." alt="" coords="1068,83,1300,109"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" title="The main thread function for GDL." alt="" coords="861,42,1020,83"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1DataLink.html#a6004a6e0c3b468032a0c71b8e2a2c5f3" title=" " alt="" coords="861,107,1020,149"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#aadf2f53eec8c20e6d7085a1de24b4946" title=" " alt="" coords="608,42,767,83"/>
-<area shape="rect" id="node4" href="$gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="404,5,459,32"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,85,301,112"/>
-<area shape="rect" id="node6" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,85,60,112"/>
-<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ab6878a1f3f5cc89ec02b45f749526db7" title=" " alt="" coords="561,107,813,149"/>
-<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a26729c50039ce0fcc47376ca3d5b0720" title=" " alt="" coords="349,107,513,149"/>
+<area shape="rect" id="node1" title="Pop a message from the queue." alt="" coords="1068,48,1300,75"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" title="The function that runs in the background thread." alt="" coords="861,7,1020,49"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1DataLink.html#a6004a6e0c3b468032a0c71b8e2a2c5f3" title="Receive a message from the Data Link if one is available." alt="" coords="861,73,1020,114"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90" title="Enable the Data Link. Starts the background thread." alt="" coords="608,7,767,49"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,25,301,52"/>
+<area shape="rect" id="node6" href="$test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320" title=" " alt="" coords="404,21,459,48"/>
+<area shape="rect" id="node5" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,25,60,52"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ab6878a1f3f5cc89ec02b45f749526db7" title=" " alt="" coords="561,73,813,114"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a26729c50039ce0fcc47376ca3d5b0720" title=" " alt="" coords="349,73,513,114"/>
 </map>

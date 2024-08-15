@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['readstate_3719',['ReadState',['../group__SAMM8QState.html#gad05faff1c26ce2393471be15990fb260',1,'extension::SamM8q']]],
-  ['resetstate_3720',['ResetState',['../group__SAMM8QState.html#gab4b80b84b47aaa1ff2dbd2d1c16f5d19',1,'extension::SamM8q']]],
-  ['responsecode_3721',['ResponseCode',['../namespaceprotocol.html#a14a4518c9c5eba60611b473d659c069d',1,'protocol']]],
-  ['result_3722',['Result',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518',1,'I2cInterface']]]
+  ['packettype_3783',['PacketType',['../classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824b',1,'giraffe::gdl::Packet']]],
+  ['pageoption_3784',['PageOption',['../namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769',1,'console_pages']]],
+  ['pinmode_3785',['PinMode',['../classgiraffe_1_1Gpio.html#a7fc4b418ee03c60203b38898a1c4a0b2',1,'giraffe::Gpio']]]
 ];

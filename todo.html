@@ -105,26 +105,30 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt>Member <a class="el" href="data__module_8cpp.html#a0960d214b2437ae8ad3898e9c5b984ce">calculatePressureAltitude</a>  (double pressure)</dt>
-<dd><a class="anchor" id="_todo000028"></a>Detect initial launch (movement from the launch point).  </dd>
 <dt>Class <a class="el" href="structdata_1_1blocks_1_1ConfigurationStats.html">data::blocks::ConfigurationStats</a>  </dt>
-<dd><a class="anchor" id="_todo000054"></a>implement this  </dd>
-<dt>Class <a class="el" href="structdata_1_1blocks_1_1ServerModuleStats.html">data::blocks::ServerModuleStats</a>  </dt>
 <dd><a class="anchor" id="_todo000055"></a>implement this  </dd>
+<dt>Class <a class="el" href="structdata_1_1blocks_1_1ServerModuleStats.html">data::blocks::ServerModuleStats</a>  </dt>
+<dd><a class="anchor" id="_todo000056"></a>implement this  </dd>
+<dt>Member <a class="el" href="structdata_1_1DataPacket.html#a64a03f75632425f8781d18dd18e939ec">data::DataPacket::value</a>  </dt>
+<dd><a class="anchor" id="_todo000057"></a>Using a string was a stupid idea. This should be addressed.  </dd>
+<dt>Member <a class="el" href="classdata__middleware_1_1CalculatedData.html#a6cbdf7f9de97b34210a43f2d383ea20c">data_middleware::CalculatedData::addPressureData</a>  (double pressure_mbar)</dt>
+<dd><a class="anchor" id="_todo000021"></a>Move this pressure calculation function to BoosterSeat  </dd>
+<dt>Member <a class="el" href="classdata__middleware_1_1CalculatedData.html#a778f5fb8dfa5297375b7edc0d2740bd5">data_middleware::CalculatedData::average_horizontal_speed_</a>  </dt>
+<dd><a class="anchor" id="_todo000022"></a>This assumes that data is coming in at the correct rate. Implement a check for this. Possibly use bst::RollingAverage::removeOldest().  </dd>
 <dt>Member <a class="el" href="group__DataLog.html#ga9297ebb501f851f63ff5b7fa0cad8260">data_middleware::DataLog::archiveFile</a>  (const std::string &amp;file_path, const std::string &amp;archive_dir_path, const DiagnosticId error_id)</dt>
-<dd><a class="anchor" id="_todo000022"></a>Archive Methods  </dd>
+<dd><a class="anchor" id="_todo000025"></a>Archive Methods  </dd>
 <dt>Member <a class="el" href="classdata__middleware_1_1DataLog.html#a8f193aba997cc5d18cb1fe201f1d3e5d">data_middleware::DataLog::logDataFrame</a>  (cfg::gEnum::LogStrategy strategy)</dt>
-<dd><a class="anchor" id="_todo000020"></a>Implement this. Requires configuration list loading.  </dd>
+<dd><a class="anchor" id="_todo000023"></a>Implement this. Requires configuration list loading.  </dd>
 <dt>Member <a class="el" href="classdata__middleware_1_1DataLog.html#a352c3f548b3d7a4683293ff600265651">data_middleware::DataLog::updateFileSystem</a>  ()</dt>
-<dd><a class="anchor" id="_todo000021"></a>Error Log  </dd>
+<dd><a class="anchor" id="_todo000024"></a>Error Log  </dd>
 <dt>Member <a class="el" href="classdata__middleware_1_1FileSystemManager.html#a1f770961749860965494383544803c5b">data_middleware::FileSystemManager::FileSystemManager</a>  (<a class="el" href="namespacedata.html#structdata_1_1SharedData" title="Data that is shared across all modules and extensions.">data::SharedData</a> &amp;shared_data, cfg::Configuration &amp;config)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000035"></a>add error logging </p>
-<p class="enddd"><a class="anchor" id="_todo000034"></a>refactor this (get rid of management through giraffe_filepaths)  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000036"></a>add error logging </p>
+<p class="enddd"><a class="anchor" id="_todo000035"></a>refactor this (get rid of management through giraffe_filepaths)  </p>
 </dd>
 <dt>Member <a class="el" href="classdata__middleware_1_1FileSystemManager.html#a6862aaf99c91670133a3bfef5c84aa5c">data_middleware::FileSystemManager::updateGfsImageDirData</a>  ()</dt>
-<dd><a class="anchor" id="_todo000036"></a>The order is undefined, so eventually we should sort the files.  </dd>
+<dd><a class="anchor" id="_todo000037"></a>The order is undefined, so eventually we should sort the files.  </dd>
 <dt>Member <a class="el" href="classdata__middleware_1_1InfluxDb.html#a1c9b38266a11676e158a34d652bcaf69">data_middleware::InfluxDb::logDataPacket</a>  (const <a class="el" href="structdata_1_1DataPacket.html">data::DataPacket</a> &amp;packet)</dt>
-<dd><a class="anchor" id="_todo000037"></a>Implement status packet logging to InfluxDB  </dd>
+<dd><a class="anchor" id="_todo000038"></a>Implement status packet logging to InfluxDB  </dd>
 <dt>Class <a class="el" href="classextension_1_1Bmi088.html">extension::Bmi088</a>  </dt>
 <dd><a class="anchor" id="_todo000002"></a>Accelerometer data.  </dd>
 <dt>Class <a class="el" href="classextension_1_1PiCamera.html">extension::PiCamera</a>  </dt>
@@ -139,117 +143,116 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <dd><a class="anchor" id="_todo000008"></a>Read the configuration data and verify  </dd>
 <dt>Member <a class="el" href="group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d">extension::SamM8q::stateRead</a>  ()</dt>
 <dd><a class="anchor" id="_todo000009"></a>document the +1 hour, why is this done?  </dd>
+<dt>Member <a class="el" href="classFlightRunner.html#a6285dac2f407b76b3989fd805561b3ef">FlightRunner::p_config_</a>  </dt>
+<dd><a class="anchor" id="_todo000010"></a>Can this be put on the stack?  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a388e58d80afe6e64f00ca2dcc8070781">giraffe::FlightRunnerData::startup_time_</a>  </dt>
-<dd><a class="anchor" id="_todo000010"></a>this is a duplicate of the time in shared_date_.flight_data  </dd>
+<dd><a class="anchor" id="_todo000011"></a>this is a duplicate of the time in shared_date_.flight_data  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">giraffe::gdl::DataLink::gdlThread</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000059"></a>handle error (should never happen) </p>
-<p class="interdd"><a class="anchor" id="_todo000060"></a>handle error (should never happen) </p>
-<p class="enddd"><a class="anchor" id="_todo000061"></a>handle error (no space in queue)  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000061"></a>handle error (should never happen) </p>
+<p class="interdd"><a class="anchor" id="_todo000062"></a>handle error (should never happen) </p>
+<p class="enddd"><a class="anchor" id="_todo000063"></a>handle error (no space in queue)  </p>
 </dd>
-<dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad38b31e7aaf83328773626fe1a6e81ee">giraffe::gdl::Message::setLocationMessage</a>  (<a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location">Location</a> location, uint32_t identifier)</dt>
-<dd><a class="anchor" id="_todo000062"></a>validate values  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa">giraffe::gdl::NetworkLayer::txAprsPositionPacket</a>  (const <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html" title="The packet class is used in the transport and network layers. It contains some extra information.">Packet</a> &amp;packet)</dt>
-<dd><a class="anchor" id="_todo000063"></a>report back up  </dd>
+<dd><a class="anchor" id="_todo000064"></a>report back up  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a92073a724987a293787cbd3382615bc1">giraffe::gdl::TransportLayer::broadcastState</a>  ()</dt>
-<dd><a class="anchor" id="_todo000073"></a>handle error  </dd>
+<dd><a class="anchor" id="_todo000074"></a>handle error  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a709e614e408ba20b8057fd728ab93da5">giraffe::gdl::TransportLayer::exchangeSendState</a>  ()</dt>
 <dd><p class="startdd"><a class="anchor" id="_todo000070"></a>handle error </p>
-<p class="enddd"><a class="anchor" id="_todo000069"></a>handle error  </p>
+<p class="enddd"><a class="anchor" id="_todo000071"></a>handle error  </p>
 </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a6261bac3c4a33276136fa514168200ca">giraffe::gdl::TransportLayer::exchangeWaitingForAckState</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000072"></a>log this </p>
-<p class="enddd"><a class="anchor" id="_todo000071"></a>remove this. We should never get here. We can log this.  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000073"></a>log this </p>
+<p class="enddd"><a class="anchor" id="_todo000072"></a>remove this. We should never get here. We can log this.  </p>
 </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859">giraffe::gdl::TransportLayer::idleState</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000065"></a>remove this. We should never get here. We can log this. </p>
-<p class="interdd"><a class="anchor" id="_todo000066"></a>handle connection timeout reset </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000066"></a>remove this. We should never get here. We can log this. </p>
 <p class="interdd"><a class="anchor" id="_todo000067"></a>handle connection timeout reset </p>
-<p class="enddd"><a class="anchor" id="_todo000068"></a>log this  </p>
+<p class="interdd"><a class="anchor" id="_todo000068"></a>handle connection timeout reset </p>
+<p class="enddd"><a class="anchor" id="_todo000069"></a>log this  </p>
 </dd>
-<dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a3796375c0a18740636691d4c3f8f2ee8">giraffe::gdl::TransportLayer::send</a>  (<a class="el" href="classgiraffe_1_1gdl_1_1Message.html">Message</a> &amp;message)</dt>
-<dd><a class="anchor" id="_todo000064"></a>handle other messages and report an error  </dd>
+<dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a3796375c0a18740636691d4c3f8f2ee8">giraffe::gdl::TransportLayer::send</a>  (<a class="el" href="classgiraffe_1_1gdl_1_1Message.html" title="A message that can be sent via GDL.">Message</a> &amp;message)</dt>
+<dd><a class="anchor" id="_todo000065"></a>handle other messages and report an error  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a14bea5bfc1ce848c4edf6ab2476ddc01">giraffe::gdl::TransportLayer::sendAck</a>  (uint32_t message_id)</dt>
-<dd><a class="anchor" id="_todo000074"></a>handle error  </dd>
-<dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ad16a08e8eb9d3452bf5e9ba7d0836365">giraffe::gdl::TransportLayer::sendPing</a>  ()</dt>
 <dd><a class="anchor" id="_todo000075"></a>handle error  </dd>
-<dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#acb5bd2ffdb91c8823c000cecd3e472f9">giraffe::gdl::TransportLayer::sendPingResponse</a>  ()</dt>
+<dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ad16a08e8eb9d3452bf5e9ba7d0836365">giraffe::gdl::TransportLayer::sendPing</a>  ()</dt>
 <dd><a class="anchor" id="_todo000076"></a>handle error  </dd>
+<dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#acb5bd2ffdb91c8823c000cecd3e472f9">giraffe::gdl::TransportLayer::sendPingResponse</a>  ()</dt>
+<dd><a class="anchor" id="_todo000077"></a>handle error  </dd>
 <dt>Member <a class="el" href="namespacegiraffe.html#a913acd4504a335abcea9a3920a3f65cc">giraffe::getFlightComputerInfo</a>  ()</dt>
-<dd><a class="anchor" id="_todo000056"></a>Add support for PI 3, 4, etc.  </dd>
+<dd><a class="anchor" id="_todo000058"></a>Add support for PI 3, 4, etc.  </dd>
 <dt>Class <a class="el" href="classgiraffe_1_1Gpio.html">giraffe::Gpio</a>  </dt>
-<dd><a class="anchor" id="_todo000012"></a>Unit Tests  </dd>
+<dd><a class="anchor" id="_todo000013"></a>Unit Tests  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1Gpio.html#aaf37ff0fc5a64798a8565669f9aac4e2">giraffe::Gpio::deInitialize</a>  ()</dt>
-<dd><a class="anchor" id="_todo000013"></a>Set pins to their 'initial_state_' before closing.  </dd>
+<dd><a class="anchor" id="_todo000014"></a>Set pins to their 'initial_state_' before closing.  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1Gpio.html#a812b19fc1dae93cdfaee1afa876c5996">giraffe::Gpio::gpio_lock_</a>  </dt>
-<dd><a class="anchor" id="_todo000015"></a>ability to release a pin  </dd>
+<dd><a class="anchor" id="_todo000016"></a>ability to release a pin  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef">giraffe::Gpio::write</a>  (<a class="el" href="structgiraffe_1_1Gpio_1_1Pin.html" title="A pin struct that contains the pin number, mode, and default.">Pin</a> pin, bool high)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000014"></a>Verify that the pin is owned by the current instance. </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000015"></a>Verify that the pin is owned by the current instance. </p>
 <p class="enddd">Can a user change the mode of a pin after it has been reserved to write to it?  </p>
 </dd>
 <dt>Member <a class="el" href="gpio_8cpp.html#a92b3a8587ce26e4a682657be60bb4f70">GPIO_MEMORY_MAP_SIZE</a>  </dt>
-<dd><a class="anchor" id="_todo000011"></a>I need to find a source for this.  </dd>
+<dd><a class="anchor" id="_todo000012"></a>I need to find a source for this.  </dd>
 <dt>Member <a class="el" href="mcp3021_8cpp.html#ae0bea2f2b9b9992103948b4f8ca71c51">kMcp3021Address</a>  </dt>
 <dd><a class="anchor" id="_todo000003"></a>Remove this, make it configurable!  </dd>
 <dt>Member <a class="el" href="src_2flight__system_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>  ()</dt>
-<dd><a class="anchor" id="_todo000018"></a>update docs  </dd>
-<dt>Member <a class="el" href="classmodules_1_1DataModule.html#a13de2ec04ae048529fcfe91c95272b97">modules::DataModule::calculateCalculatedData</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000029"></a>Report this error </p>
-<p class="interdd"><a class="anchor" id="_todo000030"></a>put this on a timer instead. Otherwise it will be reported as invalid if there is a single invalid gps frame. Reset the timer if there is a valid frame. </p>
-<p class="enddd"><a class="anchor" id="_todo000033"></a>This function is not implemented yet.  </p>
-</dd>
+<dd><a class="anchor" id="_todo000019"></a>update docs  </dd>
 <dt>Member <a class="el" href="group__DataStreamParsing.html#ga20b16f5d42d2bda3011cfbac3598927c">modules::DataModule::parseExtensionDataPacket</a>  (const <a class="el" href="structdata_1_1DataPacket.html">data::DataPacket</a> &amp;packet)</dt>
-<dd><a class="anchor" id="_todo000026"></a>remove this prior to 1.0  </dd>
+<dd><p class="startdd"><a class="anchor" id="_todo000029"></a>This shouldn't be represented as a string. </p>
+<p class="interdd"><a class="anchor" id="_todo000030"></a>Handle how calculated data will handle multiple sources of pressure data </p>
+<p class="enddd"><a class="anchor" id="_todo000031"></a>remove this prior to 1.0  </p>
+</dd>
 <dt>Member <a class="el" href="group__DataStreamParsing.html#ga1cb9324d2f90e051dc52a881677bcad5">modules::DataModule::parseGeneralDataPacket</a>  (const <a class="el" href="structdata_1_1DataPacket.html">data::DataPacket</a> &amp;packet)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000032"></a>This function is not implemented yet. </p>
-<p class="enddd"><a class="anchor" id="_todo000025"></a>Implement general data packet parsing  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000028"></a>Implement general data packet parsing </p>
+<p class="enddd"><a class="anchor" id="_todo000034"></a>This function is not implemented yet.  </p>
 </dd>
 <dt>Member <a class="el" href="classmodules_1_1DataModule.html#a7f226651aa33ff181e5baaf9dbab93a7">modules::DataModule::processCommand</a>  (const <a class="el" href="namespacecmd.html#structcmd_1_1Command" title="A command object. Used for passing commands to their destinations.">cmd::Command</a> &amp;)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000031"></a>This function is not implemented yet. </p>
-<p class="enddd"><a class="anchor" id="_todo000024"></a>Test this, this could end poorly  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000027"></a>Test this, this could end poorly </p>
+<p class="enddd"><a class="anchor" id="_todo000033"></a>This function is not implemented yet.  </p>
 </dd>
 <dt>Member <a class="el" href="classmodules_1_1DataModule.html#a22e5c03008cb6d2015dd0097869f2fa3">modules::DataModule::processLogPacket</a>  (const <a class="el" href="structdata_1_1LogPacket.html">data::LogPacket</a> &amp;packet)</dt>
-<dd><a class="anchor" id="_todo000027"></a>debug/log packets should be processed here  </dd>
+<dd><a class="anchor" id="_todo000032"></a>debug/log packets should be processed here  </dd>
 <dt>Member <a class="el" href="classmodules_1_1DataModule.html#a56fd24622f28cdb501a25032974d988d">modules::DataModule::startup</a>  () override</dt>
-<dd><a class="anchor" id="_todo000023"></a>why the call to <a class="el" href="classmodules_1_1Module.html#a46523705742629151454c68a16e9f875" title="Sleeps the module for the sleep interval.">sleep()</a>?  </dd>
+<dd><a class="anchor" id="_todo000026"></a>why the call to <a class="el" href="classmodules_1_1Module.html#a46523705742629151454c68a16e9f875" title="Sleeps the module for the sleep interval.">sleep()</a>?  </dd>
 <dt>Member <a class="el" href="classmodules_1_1ExtensionModule.html#aace021eb27c1a3988997b4e8732fcd4c">modules::ExtensionModule::errorStartState</a>  (<a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html" title="The container that holds the information about an extension and the extension itself.">ExtContainer</a> &amp;)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000041"></a>handle the fault code </p>
-<p class="enddd"><a class="anchor" id="_todo000042"></a>add delay  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000043"></a>add delay </p>
+<p class="enddd"><a class="anchor" id="_todo000042"></a>handle the fault code  </p>
 </dd>
 <dt>Member <a class="el" href="classmodules_1_1ExtensionModule.html#a9f07f42333ead841747ce7905537abae">modules::ExtensionModule::runState</a>  (<a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html" title="The container that holds the information about an extension and the extension itself.">ExtContainer</a> &amp;)</dt>
-<dd><a class="anchor" id="_todo000039"></a>watchdog timer?  </dd>
+<dd><a class="anchor" id="_todo000040"></a>watchdog timer?  </dd>
 <dt>Member <a class="el" href="classmodules_1_1ExtensionModule.html#ad48e5caa2b5904d56bd46cb1e218a13f">modules::ExtensionModule::stopState</a>  (<a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html" title="The container that holds the information about an extension and the extension itself.">ExtContainer</a> &amp;)</dt>
-<dd><a class="anchor" id="_todo000040"></a>handle the fault code?  </dd>
+<dd><a class="anchor" id="_todo000041"></a>handle the fault code?  </dd>
 <dt>Member <a class="el" href="classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0">modules::ExtensionModule::updateLocalConfig</a>  () override</dt>
-<dd><a class="anchor" id="_todo000038"></a>Implement the loading/updating of extensions  </dd>
+<dd><a class="anchor" id="_todo000039"></a>Implement the loading/updating of extensions  </dd>
 <dt>Member <a class="el" href="classmodules_1_1Module.html#a3b249804c7e412855b1429ccd639cc38">modules::Module::setStatus</a>  (const <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419" title="Node status, used for modules and extensions.">node::Status</a> status)</dt>
-<dd><a class="anchor" id="_todo000043"></a>Sets the status of the module and reports it to the data stream.  </dd>
+<dd><a class="anchor" id="_todo000044"></a>Sets the status of the module and reports it to the data stream.  </dd>
 <dt>Class <a class="el" href="classmodules_1_1SystemModule.html">modules::SystemModule</a>  </dt>
-<dd><a class="anchor" id="_todo000045"></a>this header needs some work  </dd>
+<dd><a class="anchor" id="_todo000046"></a>this header needs some work  </dd>
 <dt>Member <a class="el" href="classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54">modules::TelemetryModule::processTelemetryMessageQueue</a>  ()</dt>
-<dd><a class="anchor" id="_todo000046"></a>log an error and respond to the telemetry packet  </dd>
+<dd><a class="anchor" id="_todo000047"></a>log an error and respond to the telemetry packet  </dd>
+<dt>Member <a class="el" href="classmodules_1_1TelemetryModule.html#a98559bd76e6b9e93cdc6fa9e7a647110">modules::TelemetryModule::reportDescent</a>  ()</dt>
+<dd><a class="anchor" id="_todo000054"></a>report an error  </dd>
 <dt>Member <a class="el" href="classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135">modules::TelemetryModule::sendAprsPositionPacket</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000047"></a>log an error </p>
-<p class="interdd"><a class="anchor" id="_todo000048"></a>Maybe use the last valid GPS frame instead, but first there needs to be a time stamp as to when this one was generated. I have a fear of DST and time zones causing issues here. </p>
-<p class="interdd"><a class="anchor" id="_todo000049"></a>log an error </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000053"></a>Fix this time code! </p>
+<p class="interdd"><a class="anchor" id="_todo000052"></a>log a warning but maybe still send the packet? </p>
+<p class="interdd"><a class="anchor" id="_todo000051"></a>log an error </p>
 <p class="interdd"><a class="anchor" id="_todo000050"></a>log an error </p>
-<p class="interdd"><a class="anchor" id="_todo000053"></a>log an error </p>
-<p class="interdd"><a class="anchor" id="_todo000052"></a>Fix this time code! </p>
-<p class="enddd"><a class="anchor" id="_todo000051"></a>log a warning but maybe still send the packet?  </p>
+<p class="interdd"><a class="anchor" id="_todo000049"></a>Maybe use the last valid GPS frame instead, but first there needs to be a time stamp as to when this one was generated. I have a fear of DST and time zones causing issues here. </p>
+<p class="enddd"><a class="anchor" id="_todo000048"></a>log an error  </p>
 </dd>
 <dt>Member <a class="el" href="classncurs_1_1Environment.html#a4230a9e52cd224a8636848a6d1bdf65f">ncurs::Environment::displayScrollBar</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000057"></a>Scroll bar. </p>
-<p class="enddd"><a class="anchor" id="_todo000019"></a>Scroll bar. </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000059"></a>Scroll bar. </p>
+<p class="enddd"><a class="anchor" id="_todo000020"></a>Scroll bar. </p>
 </dd>
 <dt>Member <a class="el" href="command__processor_8cpp.html#a7652d53c747bc618ecacff1b43b94a72">parseFlightRunnerCommand</a>  (const std::string &amp;command_id_str, const std::string &amp;arg, <a class="el" href="namespacecmd.html#structcmd_1_1Command" title="A command object. Used for passing commands to their destinations.">cmd::Command</a> &amp;command)</dt>
 <dd><a class="anchor" id="_todo000001"></a>Need to implement some kind of rolling authentication system for some of these commands.  </dd>
 <dt>Member <a class="el" href="group__ServerModule.html#aeac949dc031f18fc5e9ec433c56b906c">RequestRouter::oneSecondTick</a>  ()</dt>
-<dd><a class="anchor" id="_todo000044"></a>remove  </dd>
+<dd><a class="anchor" id="_todo000045"></a>remove  </dd>
 <dt>Member <a class="el" href="group__ServerModule.html#a5b0ead45f7553620fe24a6507608a985">sock::TcpSocketServer::TcpSocketServer</a>  ()</dt>
-<dd><a class="anchor" id="_todo000058"></a>remove this  </dd>
+<dd><a class="anchor" id="_todo000060"></a>remove this  </dd>
 <dt>Member <a class="el" href="namespaceubx.html#aa3716ea24fc1c764baee09dfc5b2eba1">ubx::NavData::year</a>  </dt>
-<dd><a class="anchor" id="_todo000017"></a>currently, this really doesn't do anything  </dd>
+<dd><a class="anchor" id="_todo000018"></a>currently, this really doesn't do anything  </dd>
 <dt>Member <a class="el" href="ubx__ids_8hpp.html#a9863f96e55b0bd012a94613a086515c7">UBX_ACK_ACK</a>  </dt>
-<dd><a class="anchor" id="_todo000016"></a>These macros should be changed to something else </dd>
+<dd><a class="anchor" id="_todo000017"></a>These macros should be changed to something else </dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

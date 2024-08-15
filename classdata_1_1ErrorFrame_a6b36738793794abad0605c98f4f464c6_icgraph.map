@@ -1,0 +1,6 @@
+<map id="data::ErrorFrame::numTotalErrors" name="data::ErrorFrame::numTotalErrors">
+<area shape="rect" id="node1" title="The total number of errors that have been added to the frame. This is not the number of active errors..." alt="" coords="725,5,924,47"/>
+<area shape="rect" id="node2" href="$request__handler__data_8cpp.html#a9cbb54ee75e9c708cbe614a2719224d5" title=" " alt="" coords="531,13,677,39"/>
+<area shape="rect" id="node3" href="$group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7" title="This function responds to data requests." alt="" coords="281,5,483,47"/>
+<area shape="rect" id="node4" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,13,233,39"/>
+</map>

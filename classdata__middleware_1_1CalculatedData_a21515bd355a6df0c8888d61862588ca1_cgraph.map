@@ -1,0 +1,9 @@
+<map id="data_middleware::CalculatedData::calculateDistanceData" name="data_middleware::CalculatedData::calculateDistanceData">
+<area shape="rect" id="node1" title="Calculate the distance traveled and the distance from the launch. Called by updatePositionalData()" alt="" coords="5,76,217,117"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="285,54,449,81"/>
+<area shape="rect" id="node7" href="$classdata_1_1FlightData.html#afba5571e61b47aad4c05f8be16916713" title=" " alt="" coords="265,105,468,147"/>
+<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="516,54,693,81"/>
+<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="952,5,1139,47"/>
+<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="741,54,904,81"/>
+<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="955,80,1135,121"/>
+</map>

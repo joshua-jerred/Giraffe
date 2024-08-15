@@ -36,6 +36,7 @@ var classgiraffe_1_1gdl_1_1GdlServer =
     [ "send_result_", "classgiraffe_1_1gdl_1_1GdlServer.html#abe6ba700c9082227dfb5356a2fa0643d", null ],
     [ "response_sent_", "classgiraffe_1_1gdl_1_1GdlServer.html#a52894bf7eece4ddc38a75566b6917b32", null ],
     [ "gdl_config_", "classgiraffe_1_1gdl_1_1GdlServer.html#afe60a3f8eebfe10e843dc42ecd9b8119", null ],
+    [ "physical_layer_", "classgiraffe_1_1gdl_1_1GdlServer.html#a0176e2f8a2819d4370dbce93a91fb4ec", null ],
     [ "gdl_", "classgiraffe_1_1gdl_1_1GdlServer.html#ac421abea5a57800f366d0ab1cf8b7463", null ],
     [ "last_broadcast_id_", "classgiraffe_1_1gdl_1_1GdlServer.html#afc13ec1ac56e799fcf1c6210cc81751c", null ],
     [ "protocol_id_", "classgiraffe_1_1gdl_1_1GdlServer.html#a843cf5a5d33f427e24acb1f9759b73c5", null ],

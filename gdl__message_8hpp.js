@@ -1,6 +1,9 @@
 var gdl__message_8hpp =
 [
     [ "Message", "classgiraffe_1_1gdl_1_1Message.html", "classgiraffe_1_1gdl_1_1Message" ],
+    [ "Image", "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Image", [
+      [ "path", "classgiraffe_1_1gdl_1_1Message.html#a31c65bf7fab96a9e19817870c61019fc", null ]
+    ] ],
     [ "Location", "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location", [
       [ "latitude", "classgiraffe_1_1gdl_1_1Message.html#ad39dfdc6ffa7963fbdec3ad07d842633", null ],
       [ "longitude", "classgiraffe_1_1gdl_1_1Message.html#aa403f37d6f3f5b1ce4efdeec59b12f28", null ],

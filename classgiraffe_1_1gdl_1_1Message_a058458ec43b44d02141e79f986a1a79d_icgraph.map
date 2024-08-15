@@ -1,22 +1,23 @@
 <map id="giraffe::gdl::Message::getLocation" name="giraffe::gdl::Message::getLocation">
-<area shape="rect" id="node1" title=" " alt="" coords="2277,104,2436,145"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7" title=" " alt="" coords="2055,71,2213,112"/>
-<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa" title=" " alt="" coords="2039,136,2229,177"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2277,125,2436,167"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7" title=" " alt="" coords="2055,67,2213,108"/>
+<area shape="rect" id="node8" href="$test__gdl__message_8cpp.html#a80f16a4debb19d366834ab273298cbe8" title=" " alt="" coords="2107,133,2161,159"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa" title=" " alt="" coords="2039,184,2229,225"/>
 <area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ab6878a1f3f5cc89ec02b45f749526db7" title=" " alt="" coords="1739,5,1991,47"/>
 <area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aff9e02d8e689385ccf8ad741e6951076" title=" " alt="" coords="1754,71,1975,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a26729c50039ce0fcc47376ca3d5b0720" title=" " alt="" coords="1511,5,1675,47"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,29,301,55"/>
-<area shape="rect" id="node6" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,29,60,55"/>
-<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a0c426dad58678f33b713e4c8d00bf1eb" title=" " alt="" coords="1769,153,1960,195"/>
-<area shape="rect" id="node10" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a92073a724987a293787cbd3382615bc1" title=" " alt="" coords="1251,61,1447,103"/>
-<area shape="rect" id="node15" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a709e614e408ba20b8057fd728ab93da5" title=" " alt="" coords="1007,120,1203,161"/>
-<area shape="rect" id="node16" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a14bea5bfc1ce848c4edf6ab2476ddc01" title=" " alt="" coords="1251,179,1447,220"/>
-<area shape="rect" id="node18" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ad16a08e8eb9d3452bf5e9ba7d0836365" title=" " alt="" coords="1495,232,1691,273"/>
-<area shape="rect" id="node20" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#acb5bd2ffdb91c8823c000cecd3e472f9" title=" " alt="" coords="1495,301,1691,343"/>
-<area shape="rect" id="node11" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab520e1f30f0fa8d1d17fc3d627386d2f" title=" " alt="" coords="763,113,959,155"/>
-<area shape="rect" id="node12" href="$classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" title="The main thread function for GDL." alt="" coords="556,105,715,147"/>
-<area shape="rect" id="node13" href="$classgiraffe_1_1gdl_1_1DataLink.html#aadf2f53eec8c20e6d7085a1de24b4946" title=" " alt="" coords="349,76,508,117"/>
-<area shape="rect" id="node14" href="$gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="177,83,232,110"/>
-<area shape="rect" id="node17" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859" title=" " alt="" coords="1007,215,1203,256"/>
-<area shape="rect" id="node19" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#af2a2d4c6be71a80328a7fab410c3a790" title=" " alt="" coords="1251,244,1447,285"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a26729c50039ce0fcc47376ca3d5b0720" title=" " alt="" coords="1511,8,1675,49"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,34,301,61"/>
+<area shape="rect" id="node6" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,34,60,61"/>
+<area shape="rect" id="node10" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a0c426dad58678f33b713e4c8d00bf1eb" title=" " alt="" coords="1769,184,1960,225"/>
+<area shape="rect" id="node11" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a92073a724987a293787cbd3382615bc1" title=" " alt="" coords="1251,67,1447,108"/>
+<area shape="rect" id="node16" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a709e614e408ba20b8057fd728ab93da5" title=" " alt="" coords="1007,125,1203,167"/>
+<area shape="rect" id="node17" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a14bea5bfc1ce848c4edf6ab2476ddc01" title=" " alt="" coords="1251,184,1447,225"/>
+<area shape="rect" id="node19" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ad16a08e8eb9d3452bf5e9ba7d0836365" title=" " alt="" coords="1495,243,1691,284"/>
+<area shape="rect" id="node21" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#acb5bd2ffdb91c8823c000cecd3e472f9" title=" " alt="" coords="1495,308,1691,349"/>
+<area shape="rect" id="node12" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab520e1f30f0fa8d1d17fc3d627386d2f" title=" " alt="" coords="763,119,959,160"/>
+<area shape="rect" id="node13" href="$classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" title="The function that runs in the background thread." alt="" coords="556,111,715,152"/>
+<area shape="rect" id="node14" href="$classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90" title="Enable the Data Link. Starts the background thread." alt="" coords="349,81,508,123"/>
+<area shape="rect" id="node15" href="$test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320" title=" " alt="" coords="177,89,232,115"/>
+<area shape="rect" id="node18" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859" title=" " alt="" coords="1007,220,1203,261"/>
+<area shape="rect" id="node20" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#af2a2d4c6be71a80328a7fab410c3a790" title=" " alt="" coords="1251,249,1447,291"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="giraffe::gdl::PhysicalLayer" name="giraffe::gdl::PhysicalLayer">
+<area shape="rect" id="node1" title="The physical layer of the Giraffe Data Link." alt="" coords="107,5,298,171"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html" title=" " alt="" coords="5,219,216,369"/>
+<area shape="rect" id="node3" href="$classradios_1_1Sa868.html" title=" " alt="" coords="241,226,351,362"/>
+</map>

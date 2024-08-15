@@ -1,0 +1,10 @@
+<map id="giraffe::gdl::DataLink::setStatus" name="giraffe::gdl::DataLink::setStatus">
+<area shape="rect" id="node1" title=" " alt="" coords="763,108,921,149"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#af2abf8909cea23f020779dfdeea6cfc3" title="Disable the Data Link. Stops the background thread." alt="" coords="349,49,508,91"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90" title="Enable the Data Link. Starts the background thread." alt="" coords="349,115,508,156"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" title="The function that runs in the background thread." alt="" coords="556,108,715,149"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#a30449dc194e1fe82bddf366b15582345" title="Destructor for the Giraffe Data Link. Stops the background thread if it is running." alt="" coords="125,5,284,47"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,122,301,149"/>
+<area shape="rect" id="node6" href="$test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320" title=" " alt="" coords="177,71,232,98"/>
+<area shape="rect" id="node5" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,122,60,149"/>
+</map>

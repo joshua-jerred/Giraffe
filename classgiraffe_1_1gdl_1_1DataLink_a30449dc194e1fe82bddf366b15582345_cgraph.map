@@ -1,4 +1,7 @@
 <map id="giraffe::gdl::DataLink::~DataLink" name="giraffe::gdl::DataLink::~DataLink">
-<area shape="rect" id="node1" title="Deconstruct the GDL instance, this will stop the GDL instance if it is running." alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a4f2159ec06ca15ae82b273e10c1b4d17" title=" " alt="" coords="212,5,371,47"/>
+<area shape="rect" id="node1" title="Destructor for the Giraffe Data Link. Stops the background thread if it is running." alt="" coords="5,71,164,112"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#af2abf8909cea23f020779dfdeea6cfc3" title="Disable the Data Link. Stops the background thread." alt="" coords="212,71,371,112"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#a8cd697b9f74bcd17d9a48e259eb7e345" title="Check if the Data Link is enabled." alt="" coords="419,5,577,47"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="419,71,577,112"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1DataLink.html#a533c0e638f752a5656734721c7437c2f" title=" " alt="" coords="419,136,577,177"/>
 </map>

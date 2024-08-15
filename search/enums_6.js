@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['level_3711',['Level',['../structdata_1_1LogPacket.html#acf1eb5602d42a50429a2d4b4752279f4',1,'data::LogPacket']]],
-  ['loggerlevel_3712',['LoggerLevel',['../namespacegiraffe.html#a7de051682a10e68f9259ee84278381ed',1,'giraffe']]]
+  ['identification_3777',['Identification',['../namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8',1,'node']]]
 ];

@@ -1,7 +1,8 @@
 <map id="giraffe::file_paths::getGfsImageDirPath" name="giraffe::file_paths::getGfsImageDirPath">
-<area shape="rect" id="node1" title="Returns the path to the gfs image directory." alt="" coords="545,71,707,112"/>
+<area shape="rect" id="node1" title="Returns the path to the gfs image directory." alt="" coords="545,104,707,145"/>
 <area shape="rect" id="node2" href="$classdata__middleware_1_1FileSystemManager.html#a1f770961749860965494383544803c5b" title=" " alt="" coords="281,5,497,47"/>
 <area shape="rect" id="node3" href="$classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87" title=" " alt="" coords="311,71,468,112"/>
-<area shape="rect" id="node4" href="$group__ServerModule.html#a0fe0d216d79f6af4bdd4c4e5621ac9fd" title="Response to an image request. Sends the image data to the client." alt="" coords="284,136,495,177"/>
-<area shape="rect" id="node5" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,143,233,170"/>
+<area shape="rect" id="node4" href="$classextension_1_1SimCamera.html#abb5201bd7c5cb54d7c93348b172decab" title=" " alt="" coords="304,136,475,177"/>
+<area shape="rect" id="node5" href="$group__ServerModule.html#a0fe0d216d79f6af4bdd4c4e5621ac9fd" title="Response to an image request. Sends the image data to the client." alt="" coords="284,201,495,243"/>
+<area shape="rect" id="node6" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,209,233,235"/>
 </map>

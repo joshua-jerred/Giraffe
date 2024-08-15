@@ -1,5 +1,5 @@
 <map id="giraffe::gdl::DataLink::receiveMessage" name="giraffe::gdl::DataLink::receiveMessage">
-<area shape="rect" id="node1" title=" " alt="" coords="5,35,164,76"/>
+<area shape="rect" id="node1" title="Receive a message from the Data Link if one is available." alt="" coords="5,35,164,76"/>
 <area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="249,5,407,47"/>
 <area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#a83a1f12036970c4e7e4832e4d90d126a" title="Pop a message from the queue." alt="" coords="212,71,444,98"/>
 </map>

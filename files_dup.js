@@ -34,6 +34,10 @@ var files_dup =
     [ "bmi088.hpp", "bmi088_8hpp.html", [
       [ "Bmi088", "classextension_1_1Bmi088.html", "classextension_1_1Bmi088" ]
     ] ],
+    [ "calculated_data.cpp", "calculated__data_8cpp.html", null ],
+    [ "calculated_data.hpp", "calculated__data_8hpp.html", [
+      [ "CalculatedData", "classdata__middleware_1_1CalculatedData.html", "classdata__middleware_1_1CalculatedData" ]
+    ] ],
     [ "cfg_adcmappings.cpp", "cfg__adcmappings_8cpp.html", null ],
     [ "cfg_adcmappings.hpp", "cfg__adcmappings_8hpp.html", [
       [ "AdcConfig", "structcfg_1_1AdcConfig.html", "structcfg_1_1AdcConfig" ],
@@ -146,11 +150,6 @@ var files_dup =
       ] ]
     ] ],
     [ "gdl_constants.hpp", "gdl__constants_8hpp.html", "gdl__constants_8hpp" ],
-    [ "gdl_layers.hpp", "gdl__layers_8hpp.html", [
-      [ "NetworkLayer", "classgiraffe_1_1gdl_1_1NetworkLayer.html", "classgiraffe_1_1gdl_1_1NetworkLayer" ],
-      [ "PhysicalLayer", "classgiraffe_1_1gdl_1_1PhysicalLayer.html", "classgiraffe_1_1gdl_1_1PhysicalLayer" ],
-      [ "TransportLayer", "classgiraffe_1_1gdl_1_1TransportLayer.html", "classgiraffe_1_1gdl_1_1TransportLayer" ]
-    ] ],
     [ "gdl_message.hpp", "gdl__message_8hpp.html", "gdl__message_8hpp" ],
     [ "gdl_network_and_physical.puml", "gdl__network__and__physical_8puml.html", null ],
     [ "gdl_packet.hpp", "gdl__packet_8hpp.html", [
@@ -218,12 +217,18 @@ var files_dup =
     [ "ncurses_utilities.cpp", "ncurses__utilities_8cpp.html", null ],
     [ "ncurses_utilities.hpp", "ncurses__utilities_8hpp.html", "ncurses__utilities_8hpp" ],
     [ "network_layer.cpp", "network__layer_8cpp.html", "network__layer_8cpp" ],
+    [ "network_layer.hpp", "network__layer_8hpp.html", [
+      [ "NetworkLayer", "classgiraffe_1_1gdl_1_1NetworkLayer.html", "classgiraffe_1_1gdl_1_1NetworkLayer" ]
+    ] ],
     [ "node.hpp", "node_8hpp.html", "node_8hpp" ],
     [ "one_wire_interface.cpp", "one__wire__interface_8cpp.html", "one__wire__interface_8cpp" ],
     [ "one_wire_interface.hpp", "one__wire__interface_8hpp.html", [
       [ "OneWireInterface", "classOneWireInterface.html", "classOneWireInterface" ]
     ] ],
     [ "physical_layer.cpp", "physical__layer_8cpp.html", null ],
+    [ "physical_layer.hpp", "physical__layer_8hpp.html", [
+      [ "PhysicalLayer", "classgiraffe_1_1gdl_1_1PhysicalLayer.html", "classgiraffe_1_1gdl_1_1PhysicalLayer" ]
+    ] ],
     [ "pi_camera.cpp", "pi__camera_8cpp.html", null ],
     [ "pi_camera.hpp", "pi__camera_8hpp.html", [
       [ "PiCamera", "classextension_1_1PiCamera.html", "classextension_1_1PiCamera" ]
@@ -235,12 +240,15 @@ var files_dup =
     [ "protocol.hpp", "protocol_8hpp.html", "protocol_8hpp" ],
     [ "request_handler.cpp", "request__handler_8cpp.html", null ],
     [ "request_handler.hpp", "request__handler_8hpp.html", null ],
-    [ "request_handler_data.cpp", "request__handler__data_8cpp.html", null ],
+    [ "request_handler_data.cpp", "request__handler__data_8cpp.html", "request__handler__data_8cpp" ],
     [ "request_handler_image.cpp", "request__handler__image_8cpp.html", null ],
     [ "request_handler_settings.cpp", "request__handler__settings_8cpp.html", null ],
     [ "rgb_status_led.cpp", "rgb__status__led_8cpp.html", null ],
     [ "rgb_status_led.hpp", "rgb__status__led_8hpp.html", [
       [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ]
+    ] ],
+    [ "sa868.hpp", "sa868_8hpp.html", [
+      [ "Sa868", "classradios_1_1Sa868.html", "classradios_1_1Sa868" ]
     ] ],
     [ "sam_m8q_gps_state_machine.puml", "sam__m8q__gps__state__machine_8puml.html", null ],
     [ "samm8q.cpp", "samm8q_8cpp.html", "samm8q_8cpp" ],
@@ -273,6 +281,7 @@ var files_dup =
     [ "simulated_extensions.hpp", "simulated__extensions_8hpp.html", "simulated__extensions_8hpp" ],
     [ "socket.cpp", "socket_8cpp.html", null ],
     [ "socket.hpp", "socket_8hpp.html", "socket_8hpp" ],
+    [ "software_physical_layer.hpp", "software__physical__layer_8hpp.html", "software__physical__layer_8hpp" ],
     [ "spi_interface.cpp", "spi__interface_8cpp.html", null ],
     [ "spi_interface.hpp", "spi__interface_8hpp.html", [
       [ "SpiInterface", "classgiraffe_1_1SpiInterface.html", "classgiraffe_1_1SpiInterface" ],
@@ -315,11 +324,11 @@ var files_dup =
     [ "test_error_frame.cpp", "test__error__frame_8cpp.html", "test__error__frame_8cpp" ],
     [ "test_extension_module.cpp", "test__extension__module_8cpp.html", "test__extension__module_8cpp" ],
     [ "test_extensions.cpp", "test__extensions_8cpp.html", "test__extensions_8cpp" ],
-    [ "test_full_simulator.cpp", "test__full__simulator_8cpp.html", "test__full__simulator_8cpp" ],
+    [ "test_gdl_message.cpp", "test__gdl__message_8cpp.html", "test__gdl__message_8cpp" ],
+    [ "test_gdl_with_audio.cpp", "test__gdl__with__audio_8cpp.html", "test__gdl__with__audio_8cpp" ],
     [ "test_get_fc_info.cpp", "test__get__fc__info_8cpp.html", "test__get__fc__info_8cpp" ],
     [ "test_interfaces.cpp", "test__interfaces_8cpp.html", "test__interfaces_8cpp" ],
     [ "test_message_queue.cpp", "test__message__queue_8cpp.html", "test__message__queue_8cpp" ],
-    [ "test_network_layer.cpp", "test__network__layer_8cpp.html", "test__network__layer_8cpp" ],
     [ "test_positional.cpp", "test__positional_8cpp.html", "test__positional_8cpp" ],
     [ "test_protocol.cpp", "test__protocol_8cpp.html", "test__protocol_8cpp" ],
     [ "to_json.cpp", "to__json_8cpp.html", null ],
@@ -327,6 +336,9 @@ var files_dup =
     [ "to_string.cpp", "to__string_8cpp.html", "to__string_8cpp" ],
     [ "to_string.hpp", "to__string_8hpp.html", "to__string_8hpp" ],
     [ "transport_layer.cpp", "transport__layer_8cpp.html", null ],
+    [ "transport_layer.hpp", "transport__layer_8hpp.html", [
+      [ "TransportLayer", "classgiraffe_1_1gdl_1_1TransportLayer.html", "classgiraffe_1_1gdl_1_1TransportLayer" ]
+    ] ],
     [ "ubx_ids.hpp", "ubx__ids_8hpp.html", "ubx__ids_8hpp" ],
     [ "ubx_protocol.cpp", "ubx__protocol_8cpp.html", "ubx__protocol_8cpp" ],
     [ "ubx_protocol.hpp", "ubx__protocol_8hpp.html", "ubx__protocol_8hpp" ],

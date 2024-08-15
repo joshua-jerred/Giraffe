@@ -58,8 +58,8 @@ var group__ServerModule =
       [ "logger_", "group__ServerModule.html#a5d206d0eb07b1991fcd156d305a305ba", null ],
       [ "bps_down_in_a_second_", "group__ServerModule.html#a01613c8c110e73b35d011ed8952787d9", null ],
       [ "bps_up_in_a_second_", "group__ServerModule.html#ad8308bd40837da7b57f8cac858cb3e28", null ],
-      [ "bytes_per_second_down_", "group__ServerModule.html#ad2949a7c09ed30841f6098e96bf308eb", null ],
-      [ "bytes_per_second_up_", "group__ServerModule.html#ab60330e62a18d4619081e7c8253f9171", null ]
+      [ "bytes_per_second_down_", "group__ServerModule.html#a0116cb1c86777db9d1581b00a0b247cf", null ],
+      [ "bytes_per_second_up_", "group__ServerModule.html#a33169e5794511db4b2a4187a7b78f191", null ]
     ] ],
     [ "TcpSocketServer", "group__ServerModule.html#classsock_1_1TcpSocketServer", [
       [ "TcpSocketServer", "group__ServerModule.html#a5b0ead45f7553620fe24a6507608a985", null ],

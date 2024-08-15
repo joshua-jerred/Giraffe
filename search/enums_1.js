@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['dataframecomponent_3702',['DataFrameComponent',['../namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198f',1,'data_middleware']]],
-  ['dynamic_5fmodel_3703',['DYNAMIC_MODEL',['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39',1,'ubx']]]
+  ['connection_3768',['Connection',['../classgiraffe_1_1gdl_1_1DataLink.html#a0438ec86403e77138d0e471655e041fe',1,'giraffe::gdl::DataLink']]]
 ];

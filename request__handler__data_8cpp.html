@@ -100,6 +100,8 @@ $(document).ready(function(){initNavTree('request__handler__data_8cpp.html','');
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">request_handler_data.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -107,20 +109,75 @@ $(document).ready(function(){initNavTree('request__handler__data_8cpp.html','');
 
 <p>Request handler for data requests.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="request__handler_8hpp_source.html">request_handler.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;BoosterSeat/string_formatting.hpp&gt;</code><br />
+<code>#include &lt;BoosterSeat/template_tools.hpp&gt;</code><br />
+<code>#include &quot;<a class="el" href="giraffe__assert_8hpp_source.html">giraffe_assert.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="request__handler_8hpp_source.html">request_handler.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for request_handler_data.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="request__handler__data_8cpp__incl.svg" width="2578" height="664"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="request__handler__data_8cpp__incl.svg" width="2379" height="679"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-</div><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a9cbb54ee75e9c708cbe614a2719224d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="request__handler__data_8cpp.html#a9cbb54ee75e9c708cbe614a2719224d5">getErrorFrameData</a> (<a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> &amp;<a class="el" href="positional_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a>, <a class="el" href="classdata_1_1ErrorFrame.html">data::ErrorFrame</a> &amp;error_frame)</td></tr>
+<tr class="separator:a9cbb54ee75e9c708cbe614a2719224d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Request handler for data requests. </p>
 <p>=*========GIRAFFE========*= A Unified Flight Command and Control System <a href="https://github.com/joshua-jerred/Giraffe">https://github.com/joshua-jerred/Giraffe</a> <a href="https://giraffe.joshuajer.red/">https://giraffe.joshuajer.red/</a> =*=======================*=</p>
 <p>=*=======================*= </p><dl class="section author"><dt>Author</dt><dd>Joshua Jerred (<a href="https://joshuajer.red">https://joshuajer.red</a>) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2024-02-20 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>2024 (license to be defined) </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a9cbb54ee75e9c708cbe614a2719224d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cbb54ee75e9c708cbe614a2719224d5">&#9670;&nbsp;</a></span>getErrorFrameData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getErrorFrameData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdata_1_1ErrorFrame.html">data::ErrorFrame</a> &amp;&#160;</td>
+          <td class="paramname"><em>error_frame</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classdata_1_1ErrorFrame.html#af7cef5625595076776ec52cc8bfce8f4">data::ErrorFrame::getActiveErrorIds()</a>, and <a class="el" href="classdata_1_1ErrorFrame.html#a6b36738793794abad0605c98f4f464c6">data::ErrorFrame::numTotalErrors()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7">RequestRouter::handleDataRequest()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="request__handler__data_8cpp_a9cbb54ee75e9c708cbe614a2719224d5_cgraph.svg" width="407" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="request__handler__data_8cpp_a9cbb54ee75e9c708cbe614a2719224d5_icgraph.svg" width="683" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

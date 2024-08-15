@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['type_3728',['Type',['../structdata_1_1DataPacket.html#a7ac4c3266ecc030764f211293194c872',1,'data::DataPacket::Type()'],['../structgiraffe_1_1FCInfo.html#ac684457713d039ae9fccf943f9c8cf82',1,'giraffe::FCInfo::Type()'],['../classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4',1,'giraffe::gdl::Message::Type()']]]
+  ['shutdownreason_3790',['ShutdownReason',['../classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3',1,'giraffe::FlightRunnerData']]],
+  ['simstate_3791',['SimState',['../namespacegfs__sim.html#a9a1ecaafdd3df4142d8be5590eb177e1',1,'gfs_sim']]],
+  ['startupstate_3792',['StartupState',['../namespaceextension.html#a842aaad519772b36cb48adc23ee56afc',1,'extension::StartupState()'],['../namespaceextension.html#a842aaad519772b36cb48adc23ee56afc',1,'extension::StartupState()']]],
+  ['state_3793',['State',['../group__SAMM8QState.html#ga01790fa3c82c7c13ddc87b6be8fa868c',1,'extension::SamM8q::State()'],['../classgiraffe_1_1StatusLedState.html#ac466bf4967bba3606a8c3718df6f342d',1,'giraffe::StatusLedState::State()'],['../classgiraffe_1_1gdl_1_1PhysicalLayer.html#ae6ee079a07a5a4918268273005532732',1,'giraffe::gdl::PhysicalLayer::State()'],['../classgiraffe_1_1gdl_1_1TransportLayer.html#a6fe99966c74405692119f72071113be3',1,'giraffe::gdl::TransportLayer::State()']]],
+  ['status_3794',['Status',['../classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76',1,'giraffe::gdl::DataLink::Status()'],['../namespacenode.html#a5360cad6ada29a0aae6013099cab6419',1,'node::Status()']]]
 ];

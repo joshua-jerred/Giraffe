@@ -12,28 +12,28 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Used to handle client requests from the server module.">
-<polygon fill="#bfbfbf" stroke="black" points="968,-0.5 968,-233.5 1162,-233.5 1162,-0.5 968,-0.5"/>
-<text text-anchor="middle" x="1065" y="-221.5" font-family="Helvetica,sans-Serif" font-size="10.00">RequestRouter</text>
-<polyline fill="none" stroke="black" points="968,-214.5 1162,-214.5 "/>
-<text text-anchor="middle" x="1065" y="-202.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="968,-195.5 1162,-195.5 "/>
-<text text-anchor="start" x="976" y="-183.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ RequestRouter()</text>
-<text text-anchor="start" x="976" y="-172.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~RequestRouter()</text>
-<text text-anchor="start" x="976" y="-161.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getBytesPerSecondDown()</text>
-<text text-anchor="start" x="976" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getBytesPerSecondUp()</text>
-<text text-anchor="start" x="976" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ handleMessage()</text>
-<text text-anchor="start" x="976" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ oneSecondTick()</text>
-<text text-anchor="start" x="976" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleAdcMappingSettingUpdate()</text>
-<text text-anchor="start" x="976" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleCommandRequest()</text>
-<text text-anchor="start" x="976" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleDataRequest()</text>
-<text text-anchor="start" x="976" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleExtensionSettingUpdate()</text>
-<text text-anchor="start" x="976" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleImageRequest()</text>
-<text text-anchor="start" x="976" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handlePingRequest()</text>
-<text text-anchor="start" x="976" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleSettingRequest()</text>
-<text text-anchor="start" x="976" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleSettingSet()</text>
-<text text-anchor="start" x="976" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendErrorPacket()</text>
-<text text-anchor="start" x="976" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendMessage()</text>
-<text text-anchor="start" x="976" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendSuccessResponse()</text>
+<polygon fill="#bfbfbf" stroke="black" points="971,-0.5 971,-233.5 1165,-233.5 1165,-0.5 971,-0.5"/>
+<text text-anchor="middle" x="1068" y="-221.5" font-family="Helvetica,sans-Serif" font-size="10.00">RequestRouter</text>
+<polyline fill="none" stroke="black" points="971,-214.5 1165,-214.5 "/>
+<text text-anchor="middle" x="1068" y="-202.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="971,-195.5 1165,-195.5 "/>
+<text text-anchor="start" x="979" y="-183.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ RequestRouter()</text>
+<text text-anchor="start" x="979" y="-172.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~RequestRouter()</text>
+<text text-anchor="start" x="979" y="-161.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getBytesPerSecondDown()</text>
+<text text-anchor="start" x="979" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getBytesPerSecondUp()</text>
+<text text-anchor="start" x="979" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ handleMessage()</text>
+<text text-anchor="start" x="979" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ oneSecondTick()</text>
+<text text-anchor="start" x="979" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleAdcMappingSettingUpdate()</text>
+<text text-anchor="start" x="979" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleCommandRequest()</text>
+<text text-anchor="start" x="979" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleDataRequest()</text>
+<text text-anchor="start" x="979" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleExtensionSettingUpdate()</text>
+<text text-anchor="start" x="979" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleImageRequest()</text>
+<text text-anchor="start" x="979" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handlePingRequest()</text>
+<text text-anchor="start" x="979" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleSettingRequest()</text>
+<text text-anchor="start" x="979" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; handleSettingSet()</text>
+<text text-anchor="start" x="979" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendErrorPacket()</text>
+<text text-anchor="start" x="979" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendMessage()</text>
+<text text-anchor="start" x="979" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendSuccessResponse()</text>
 </a>
 </g>
 </g>
@@ -53,8 +53,8 @@
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge1" class="edge">
 <title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M19.17,-468.78C12.12,-426.82 6.02,-347.37 49,-303 173.3,-174.69 719.77,-134.04 955.8,-122.32"/>
-<polygon fill="none" stroke="#404040" points="955.84,-122.32 961.64,-118.03 967.82,-121.74 962.03,-126.03 955.84,-122.32"/>
+<path fill="none" stroke="#404040" d="M19.17,-468.78C12.11,-426.81 6,-347.36 49,-303 173.77,-174.27 722.43,-133.84 958.92,-122.25"/>
+<polygon fill="none" stroke="#404040" points="958.98,-122.25 964.78,-117.97 970.96,-121.67 965.16,-125.96 958.98,-122.25"/>
 <text text-anchor="start" x="49" y="-346" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;bps_down_in_a_second</text>
 <text text-anchor="middle" x="109.5" y="-335" font-family="Helvetica,sans-Serif" font-size="10.00">_</text>
 <text text-anchor="middle" x="109.5" y="-324" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;bps_up_in_a_second_</text>
@@ -97,9 +97,9 @@
 <!-- Node3&#45;&gt;Node1 -->
 <g id="edge2" class="edge">
 <title>Node3&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M1330.5,-308.83C1290.78,-280.28 1227.05,-234.47 1171.98,-194.89"/>
-<polygon fill="none" stroke="#404040" points="1171.91,-194.84 1164.7,-194.59 1162.17,-187.84 1169.37,-188.09 1171.91,-194.84"/>
-<text text-anchor="middle" x="1331.5" y="-266" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;shared_data_</text>
+<path fill="none" stroke="#404040" d="M1330.88,-308.83C1291.86,-280.5 1229.43,-235.18 1175.2,-195.82"/>
+<polygon fill="none" stroke="#404040" points="1174.89,-195.59 1167.68,-195.3 1165.17,-188.54 1172.38,-188.83 1174.89,-195.59"/>
+<text text-anchor="middle" x="1333.5" y="-266" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;shared_data_</text>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
@@ -939,8 +939,8 @@
 <!-- Node25&#45;&gt;Node44 -->
 <g id="edge35" class="edge">
 <title>Node25&#45;&gt;Node44</title>
-<path fill="none" stroke="#404040" d="M1685.41,-1058.23C1677.81,-1044.54 1668.03,-1028 1658,-1014 1644.19,-994.73 1539.16,-863.69 1518,-853 1433.02,-810.05 1388.03,-874.05 1297.57,-834.87"/>
-<polygon fill="none" stroke="#404040" points="1297.47,-834.82 1290.34,-835.89 1286.61,-829.72 1293.74,-828.65 1297.47,-834.82"/>
+<path fill="none" stroke="#404040" d="M1685.41,-1058.23C1677.81,-1044.54 1668.03,-1028 1658,-1014 1644.19,-994.73 1539.16,-863.69 1518,-853 1432.63,-809.87 1387.34,-874.43 1297.45,-835.4"/>
+<polygon fill="none" stroke="#404040" points="1297.41,-835.39 1290.28,-836.44 1286.56,-830.27 1293.69,-829.21 1297.41,-835.39"/>
 <text text-anchor="middle" x="1695" y="-922" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;last_error_reported_</text>
 </g>
 <!-- Node47 -->
@@ -1133,50 +1133,50 @@
 <g id="node44" class="node">
 <title>Node52</title>
 <g id="a_node44"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="1438,-309 1438,-366 1528,-366 1528,-309 1438,-309"/>
-<text text-anchor="middle" x="1483" y="-354" font-family="Helvetica,sans-Serif" font-size="10.00">RollingAverage</text>
-<polyline fill="none" stroke="#bfbfbf" points="1438,-347 1528,-347 "/>
-<text text-anchor="middle" x="1483" y="-335" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="#bfbfbf" points="1438,-328 1528,-328 "/>
-<text text-anchor="middle" x="1483" y="-316" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="none" stroke="#bfbfbf" points="1438,-309 1438,-366 1530,-366 1530,-309 1438,-309"/>
+<text text-anchor="middle" x="1484" y="-354" font-family="Helvetica,sans-Serif" font-size="10.00">Configuration &amp;</text>
+<polyline fill="none" stroke="#bfbfbf" points="1438,-347 1530,-347 "/>
+<text text-anchor="middle" x="1484" y="-335" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="#bfbfbf" points="1438,-328 1530,-328 "/>
+<text text-anchor="middle" x="1484" y="-316" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 </a>
 </g>
 </g>
 <!-- Node52&#45;&gt;Node1 -->
 <g id="edge45" class="edge">
 <title>Node52&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M1450.94,-308.81C1429.52,-291.15 1400.19,-268.56 1372,-252 1308.99,-214.99 1233.88,-182.03 1173.72,-158.06"/>
-<polygon fill="none" stroke="#404040" points="1173.44,-157.95 1166.39,-159.46 1162.28,-153.54 1169.33,-152.02 1173.44,-157.95"/>
-<text text-anchor="start" x="1419" y="-277" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;bytes_per_second_down</text>
-<text text-anchor="middle" x="1482.5" y="-266" font-family="Helvetica,sans-Serif" font-size="10.00">_</text>
-<text text-anchor="middle" x="1482.5" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;bytes_per_second_up_</text>
+<path fill="none" stroke="#404040" d="M1452.26,-308.8C1431.05,-291.14 1401.99,-268.54 1374,-252 1311.27,-214.92 1236.4,-181.95 1176.42,-158"/>
+<polygon fill="none" stroke="#404040" points="1176.17,-157.9 1169.12,-159.41 1165.02,-153.48 1172.07,-151.97 1176.17,-157.9"/>
+<text text-anchor="middle" x="1442" y="-266" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;config_</text>
 </g>
 <!-- Node53 -->
 <g id="node45" class="node">
 <title>Node53</title>
 <g id="a_node45"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="1557,-309 1557,-366 1649,-366 1649,-309 1557,-309"/>
-<text text-anchor="middle" x="1603" y="-354" font-family="Helvetica,sans-Serif" font-size="10.00">Configuration &amp;</text>
-<polyline fill="none" stroke="#bfbfbf" points="1557,-347 1649,-347 "/>
-<text text-anchor="middle" x="1603" y="-335" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="#bfbfbf" points="1557,-328 1649,-328 "/>
-<text text-anchor="middle" x="1603" y="-316" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="none" stroke="#bfbfbf" points="1548,-309 1548,-366 1694,-366 1694,-309 1548,-309"/>
+<text text-anchor="middle" x="1621" y="-354" font-family="Helvetica,sans-Serif" font-size="10.00">RollingAverage&lt; double &gt;</text>
+<polyline fill="none" stroke="#bfbfbf" points="1548,-347 1694,-347 "/>
+<text text-anchor="middle" x="1621" y="-335" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="#bfbfbf" points="1548,-328 1694,-328 "/>
+<text text-anchor="middle" x="1621" y="-316" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 </a>
 </g>
 </g>
 <!-- Node53&#45;&gt;Node1 -->
 <g id="edge46" class="edge">
 <title>Node53&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M1592.01,-308.69C1583.27,-290.05 1569.31,-266.38 1550,-252 1439.02,-169.36 1279.7,-137.68 1174.35,-125.54"/>
-<polygon fill="none" stroke="#404040" points="1174.34,-125.54 1167.94,-128.86 1162.41,-124.23 1168.82,-120.91 1174.34,-125.54"/>
-<text text-anchor="middle" x="1599" y="-266" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;config_</text>
+<path fill="none" stroke="#404040" d="M1575.92,-308.98C1545.78,-291.28 1504.85,-268.58 1467,-252 1371.47,-210.15 1258.43,-173.31 1177.11,-148.9"/>
+<polygon fill="none" stroke="#404040" points="1176.84,-148.83 1169.95,-150.94 1165.34,-145.39 1172.24,-143.28 1176.84,-148.83"/>
+<text text-anchor="start" x="1531" y="-277" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;bytes_per_second_down</text>
+<text text-anchor="middle" x="1594.5" y="-266" font-family="Helvetica,sans-Serif" font-size="10.00">_</text>
+<text text-anchor="middle" x="1594.5" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;bytes_per_second_up_</text>
 </g>
 <!-- Node54&#45;&gt;Node1 -->
 <g id="edge47" class="edge">
 <title>Node54&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M328.84,-316.34C472.83,-277.54 788.91,-192.38 956.2,-147.31"/>
-<polygon fill="none" stroke="#404040" points="956.39,-147.26 961.15,-141.84 967.98,-144.14 963.23,-149.56 956.39,-147.26"/>
-<text text-anchor="middle" x="582.5" y="-266" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;stats_</text>
+<path fill="none" stroke="#404040" d="M328.76,-316.43C473.17,-277.67 791.02,-192.35 959.01,-147.26"/>
+<polygon fill="none" stroke="#404040" points="959.25,-147.19 964.01,-141.77 970.84,-144.08 966.08,-149.5 959.25,-147.19"/>
+<text text-anchor="middle" x="583.5" y="-266" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;stats_</text>
 </g>
 <!-- Node55 -->
 <g id="node47" class="node">
@@ -1201,9 +1201,9 @@
 <!-- Node56&#45;&gt;Node1 -->
 <g id="edge51" class="edge">
 <title>Node56&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M695.81,-456.35C757.96,-399.39 873.67,-293.34 959.05,-215.1"/>
-<polygon fill="none" stroke="#404040" points="959.15,-215.01 960.87,-208.01 968,-206.9 966.28,-213.9 959.15,-215.01"/>
-<text text-anchor="middle" x="880.5" y="-335" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;logger_</text>
+<path fill="none" stroke="#404040" d="M695.73,-456.71C758.39,-399.7 875.66,-293.01 961.89,-214.55"/>
+<polygon fill="none" stroke="#404040" points="962.05,-214.4 963.79,-207.4 970.92,-206.33 969.18,-213.32 962.05,-214.4"/>
+<text text-anchor="middle" x="881.5" y="-335" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;logger_</text>
 </g>
 <!-- Node57 -->
 <g id="node49" class="node">

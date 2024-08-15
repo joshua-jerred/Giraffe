@@ -57,6 +57,7 @@ var hierarchy =
     [ "data::Stream< T >", "classdata_1_1Stream.html", null ],
     [ "data::Streams", "namespacedata.html#structdata_1_1Streams", null ],
     [ "data_middleware::AdcInterpolation", "classdata__middleware_1_1AdcInterpolation.html", null ],
+    [ "data_middleware::CalculatedData", "classdata__middleware_1_1CalculatedData.html", null ],
     [ "data_middleware::DataFormatter", "classdata__middleware_1_1DataFormatter.html", null ],
     [ "data_middleware::DataLog", "classdata__middleware_1_1DataLog.html", null ],
     [ "data_middleware::FileSystemManager", "classdata__middleware_1_1FileSystemManager.html", null ],
@@ -76,6 +77,7 @@ var hierarchy =
       [ "extension::RgbStatusLed", "classextension_1_1RgbStatusLed.html", null ],
       [ "extension::SamM8q", "classextension_1_1SamM8q.html", null ],
       [ "extension::SimAdcSensor", "classextension_1_1SimAdcSensor.html", null ],
+      [ "extension::SimCamera", "classextension_1_1SimCamera.html", null ],
       [ "extension::SimGpsSensor", "classextension_1_1SimGpsSensor.html", null ],
       [ "extension::SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", null ],
       [ "extension::SimImuSensor", "classextension_1_1SimImuSensor.html", null ],
@@ -108,10 +110,14 @@ var hierarchy =
     [ "giraffe::gdl::Message", "classgiraffe_1_1gdl_1_1Message.html", [
       [ "giraffe::gdl::Packet", "classgiraffe_1_1gdl_1_1Packet.html", null ]
     ] ],
+    [ "giraffe::gdl::Message::Image", "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Image", null ],
     [ "giraffe::gdl::Message::Location", "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location", null ],
     [ "giraffe::gdl::MessageQueue", "classgiraffe_1_1gdl_1_1MessageQueue.html", null ],
     [ "giraffe::gdl::NetworkLayer", "classgiraffe_1_1gdl_1_1NetworkLayer.html", null ],
-    [ "giraffe::gdl::PhysicalLayer", "classgiraffe_1_1gdl_1_1PhysicalLayer.html", null ],
+    [ "giraffe::gdl::PhysicalLayer", "classgiraffe_1_1gdl_1_1PhysicalLayer.html", [
+      [ "giraffe::gdl::SoftwarePhysicalLayer", "classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html", null ],
+      [ "radios::Sa868", "classradios_1_1Sa868.html", null ]
+    ] ],
     [ "giraffe::gdl::Statistics", "namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics", null ],
     [ "giraffe::gdl::TransportLayer", "classgiraffe_1_1gdl_1_1TransportLayer.html", null ],
     [ "giraffe::Gpio", "classgiraffe_1_1Gpio.html", null ],

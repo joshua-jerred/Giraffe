@@ -1,0 +1,11 @@
+<map id="data_middleware::CalculatedData::addPositionalData" name="data_middleware::CalculatedData::addPositionalData">
+<area shape="rect" id="node1" title="Update the calculated data and store it in the shared data." alt="" coords="5,109,217,151"/>
+<area shape="rect" id="node2" href="$classdata__middleware_1_1CalculatedData.html#a21515bd355a6df0c8888d61862588ca1" title="Calculate the distance traveled and the distance from the launch. Called by updatePositionalData()" alt="" coords="265,76,477,117"/>
+<area shape="rect" id="node9" href="$classdata__middleware_1_1CalculatedData.html#a07eb1dd2ca097be51dc9324995d4f3e7" title="Calculate average vertical and horizontal speeds. Called by updatePositionalData()" alt="" coords="265,141,477,183"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="545,54,709,81"/>
+<area shape="rect" id="node8" href="$classdata_1_1FlightData.html#afba5571e61b47aad4c05f8be16916713" title=" " alt="" coords="525,105,728,147"/>
+<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="776,54,953,81"/>
+<area shape="rect" id="node5" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="1212,5,1399,47"/>
+<area shape="rect" id="node6" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="1001,54,1164,81"/>
+<area shape="rect" id="node7" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="1215,80,1395,121"/>
+</map>

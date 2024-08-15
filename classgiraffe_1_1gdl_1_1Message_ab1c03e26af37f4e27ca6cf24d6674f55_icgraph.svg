@@ -101,7 +101,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" target="_top" xlink:title="The main thread function for GDL.">
+<g id="a_node5"><a xlink:href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" target="_top" xlink:title="The function that runs in the background thread.">
 <polygon fill="none" stroke="black" points="413,-48.5 413,-78.5 532,-78.5 532,-48.5 413,-48.5"/>
 <text text-anchor="start" x="421" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::DataLink</text>
 <text text-anchor="middle" x="472.5" y="-55.5" font-family="Helvetica,sans-Serif" font-size="10.00">::gdlThread</text>
@@ -117,7 +117,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="classgiraffe_1_1gdl_1_1DataLink.html#aadf2f53eec8c20e6d7085a1de24b4946" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90" target="_top" xlink:title="Enable the Data Link. Starts the background thread.">
 <polygon fill="none" stroke="black" points="258,-48.5 258,-78.5 377,-78.5 377,-48.5 258,-48.5"/>
 <text text-anchor="start" x="266" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::DataLink</text>
 <text text-anchor="middle" x="317.5" y="-55.5" font-family="Helvetica,sans-Serif" font-size="10.00">::enable</text>
@@ -133,47 +133,47 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="129,-73 129,-92 170,-92 170,-73 129,-73"/>
-<text text-anchor="middle" x="149.5" y="-80" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
+<g id="a_node7"><a xlink:href="classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="77,-73 77,-92 222,-92 222,-73 77,-73"/>
+<text text-anchor="middle" x="149.5" y="-80" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::GdlServer::run</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
 <g id="edge6" class="edge">
 <title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M247.78,-71.37C219.76,-74.57 189.5,-78.04 170.3,-80.23"/>
+<path fill="none" stroke="midnightblue" d="M247.79,-71.36C239.33,-72.33 230.67,-73.32 222.17,-74.3"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="248.44,-74.81 257.97,-70.2 247.64,-67.86 248.44,-74.81"/>
-</g>
-<!-- Node8 -->
-<g id="node8" class="node">
-<title>Node8</title>
-<g id="a_node8"><a xlink:href="classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="77,-35 77,-54 222,-54 222,-35 77,-35"/>
-<text text-anchor="middle" x="149.5" y="-42" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::GdlServer::run</text>
-</a>
-</g>
-</g>
-<!-- Node6&#45;&gt;Node8 -->
-<g id="edge7" class="edge">
-<title>Node6&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M247.79,-55.64C239.33,-54.67 230.67,-53.68 222.17,-52.7"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="247.64,-59.14 257.97,-56.8 248.44,-52.19 247.64,-59.14"/>
 </g>
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="0,-35 0,-54 41,-54 41,-35 0,-35"/>
-<text text-anchor="middle" x="20.5" y="-42" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
+<g id="a_node9"><a xlink:href="test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="129,-35 129,-54 170,-54 170,-35 129,-35"/>
+<text text-anchor="middle" x="149.5" y="-42" font-family="Helvetica,sans-Serif" font-size="10.00">TEST</text>
 </a>
 </g>
 </g>
-<!-- Node8&#45;&gt;Node9 -->
+<!-- Node6&#45;&gt;Node9 -->
 <g id="edge8" class="edge">
-<title>Node8&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M66.79,-44.5C57.31,-44.5 48.43,-44.5 41.08,-44.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="66.83,-48 76.83,-44.5 66.83,-41 66.83,-48"/>
+<title>Node6&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M247.78,-55.63C219.76,-52.43 189.5,-48.96 170.3,-46.77"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="247.64,-59.14 257.97,-56.8 248.44,-52.19 247.64,-59.14"/>
+</g>
+<!-- Node8 -->
+<g id="node8" class="node">
+<title>Node8</title>
+<g id="a_node8"><a xlink:href="src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="0,-73 0,-92 41,-92 41,-73 0,-73"/>
+<text text-anchor="middle" x="20.5" y="-80" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
+</a>
+</g>
+</g>
+<!-- Node7&#45;&gt;Node8 -->
+<g id="edge7" class="edge">
+<title>Node7&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M66.79,-82.5C57.31,-82.5 48.43,-82.5 41.08,-82.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="66.83,-86 76.83,-82.5 66.83,-79 66.83,-86"/>
 </g>
 <!-- Node10&#45;&gt;Node4 -->
 <g id="edge10" class="edge">
