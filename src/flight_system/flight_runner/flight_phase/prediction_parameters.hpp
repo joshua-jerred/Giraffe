@@ -26,18 +26,18 @@
  * @brief A class that contains and updates the parameters used to detect the
  * flight phase.
  */
-class DetectionData {
+class PredictionParameters {
 public:
   /// @brief Default constructor.
-  DetectionData(data::SharedData &shared_data);
+  PredictionParameters(data::SharedData &shared_data);
   /// @brief Default destructor.
-  ~DetectionData() = default;
+  ~PredictionParameters() = default;
   /// @brief Delete the copy constructor.
-  DetectionData(const DetectionData &) = delete;
+  PredictionParameters(const PredictionParameters &) = delete;
   /// @brief Delete the copy assignment operator.
-  DetectionData &operator=(const DetectionData &) = delete;
+  PredictionParameters &operator=(const PredictionParameters &) = delete;
   /// @brief Delete the move constructor.
-  DetectionData(DetectionData &&) = delete;
+  PredictionParameters(PredictionParameters &&) = delete;
 
   /// @brief A structure that represents the parameters that are used for flight
   /// phase detection.
@@ -144,7 +144,8 @@ public:
   /// @brief Updates all of the parameters.
   void updateParameters() {
     {
-      bool valid = true;
+      // @todo Add the mission clock and uptime.
+      bool valid = false;
       int32_t mission_clock_seconds = 0.0;
       bool running = flight_data_.getMissionClockSeconds(mission_clock_seconds);
 
@@ -160,14 +161,12 @@ public:
     }
     {
       // GPS Data
-
-      bool valid = true;
       auto location = location_data_.get();
 
-      // There is no filtering on the GPS Fix.
+      bool valid = true;
+      valid &= location.have_gps_source;
       valid &= location.current_gps_fix == data::GpsFix::FIX_3D ||
                location.current_gps_fix == data::GpsFix::FIX_2D;
-      valid &= location.have_gps_source;
 
       auto frame = location.last_valid_gps_frame;
 

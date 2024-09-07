@@ -19,12 +19,12 @@
 #include <map>
 #include <vector>
 
-#include "detection_data.hpp"
+#include "prediction_parameters.hpp"
 
 /// @brief A structure to contain the rules for adding points to a phase with
 /// a given parameter id.
 struct Rule {
-  DetectionData::Parameter::Id id;
+  PredictionParameters::Parameter::Id id;
   double points;
   std::function<bool(double)> filter;
 };

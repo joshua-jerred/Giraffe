@@ -13,17 +13,17 @@
  * @copyright  2024 (license to be defined)
  */
 
-#include "detection_data.hpp"
+#include "prediction_parameters.hpp"
 
 #include "unit_test.hpp"
 
 class DetectionDataTest : public ::testing::Test {
 protected:
-  using Parameter = DetectionData::Parameter;
+  using Parameter = PredictionParameters::Parameter;
 
   struct TestContainer {
     data::SharedData shared_data{};
-    DetectionData detection_data{shared_data};
+    PredictionParameters detection_data{shared_data};
 
     data::FlightData &flight_data = shared_data.flight_data;
     data::blocks::Block<data::blocks::CalculatedData> &calculated_data =

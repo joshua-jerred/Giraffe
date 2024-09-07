@@ -13,12 +13,12 @@
  * @copyright  2024 (license to be defined)
  */
 
-#include "detection_data.hpp"
+#include "prediction_parameters.hpp"
 
-using Parameter = DetectionData::Parameter;
-using Id = DetectionData::Parameter::Id;
-using Validation = DetectionData::Parameter::Validation;
-using InvalidFilter = DetectionData::Parameter::InvalidateFilter;
+using Parameter = PredictionParameters::Parameter;
+using Id = PredictionParameters::Parameter::Id;
+using Validation = PredictionParameters::Parameter::Validation;
+using InvalidFilter = PredictionParameters::Parameter::InvalidateFilter;
 
 /// @brief The parameters used for flight phase detection.
 /// @todo All of these need to be configurable.
@@ -74,13 +74,14 @@ inline std::array<
 };
 // clang-format on
 
-DetectionData::Parameter::Parameter(Parameter::Id id, Validation validation,
-                                    InvalidateFilter filter, double minimum,
-                                    double maximum)
+PredictionParameters::Parameter::Parameter(Parameter::Id id,
+                                           Validation validation,
+                                           InvalidateFilter filter,
+                                           double minimum, double maximum)
     : id(id), validation(validation),
       invalidate_filter{filter}, min{minimum}, max{maximum} {};
 
-DetectionData::DetectionData(data::SharedData &shared_data)
+PredictionParameters::PredictionParameters(data::SharedData &shared_data)
     : parameters_{PARAMETER_DATA}, flight_data_(shared_data.flight_data),
       calculated_data_(shared_data.blocks.calculated_data),
       location_data_(shared_data.blocks.location_data),

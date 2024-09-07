@@ -13,7 +13,7 @@
  * @copyright  2024 (license to be defined)
  */
 
-#include "detection_model.hpp"
+#include "prediction_model.hpp"
 
 #include "unit_test.hpp"
 

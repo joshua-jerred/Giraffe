@@ -139,12 +139,14 @@ public:
   }
 
   void setPhasePrediction(FlightPhase predicted_phase, double launch,
-                          double ascent, double descent, double recovery) {
+                          double ascent, double descent, double recovery,
+                          double data_quality) {
     predicted_phase_ = predicted_phase;
     launch_prediction_ = launch;
     ascent_prediction_ = ascent;
     descent_prediction_ = descent;
     recovery_prediction_ = recovery;
+    prediction_quality_ = data_quality;
   }
 
   /// @brief Get the mission clock time in seconds. May be negative or positive.
@@ -206,6 +208,7 @@ private:
   std::atomic<double> ascent_prediction_ = 0.0;
   std::atomic<double> descent_prediction_ = 0.0;
   std::atomic<double> recovery_prediction_ = 0.0;
+  std::atomic<double> prediction_quality_ = 0.0;
 };
 
 /**

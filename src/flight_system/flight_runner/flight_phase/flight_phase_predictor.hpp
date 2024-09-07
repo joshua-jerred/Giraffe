@@ -15,15 +15,17 @@
 
 #pragma once
 
-#include "detection_data.hpp"
-#include "detection_model.hpp"
 #include "flight_phase.hpp"
+#include "prediction_model.hpp"
+#include "prediction_parameters.hpp"
 #include "shared_data.hpp"
 
-/// @brief Uses data provided by DetectionData to predict the current flight
-/// phase.
+/// @brief Uses data provided by PredictionParameters to predict the current
+/// flight phase.
 class FlightPhasePredictor {
 public:
+  static constexpr double MINIMUM_PROBABILITY_QUALITY = 50.0;
+
   /// @brief A stucture that contains the probabilities of being in each phase.
   /// The probabilities range from 0 to 255, where 0 is 0% and 255 is 100%.
   struct Probability {
@@ -31,15 +33,23 @@ public:
     double ascent = 0.0;
     double descent = 0.0;
     double recovery = 0.0;
+
+    // @brief A value from 0 to 100 that represents the quality
+    double data_quality = 0.0;
   };
 
-  using Parameter = DetectionData::Parameter;
+  using Parameter = PredictionParameters::Parameter;
 
   FlightPhasePredictor(data::SharedData &shared_data)
       : shared_data_(shared_data), detection_data_(shared_data) {
   }
-
   ~FlightPhasePredictor() = default;
+  /// @brief Delete the copy constructor.
+  FlightPhasePredictor(const FlightPhasePredictor &) = delete;
+  /// @brief Delete the copy assignment operator.
+  FlightPhasePredictor &operator=(const FlightPhasePredictor &) = delete;
+  /// @brief Delete the move constructor.
+  FlightPhasePredictor(FlightPhasePredictor &&) = delete;
 
   /// @brief Update the flight phase predictor.
   /// @return \c true if the flight phase has changed, \c false if it has stayed
@@ -54,9 +64,11 @@ public:
     // Process the probabilities and predict the flight phase.
     bool change = predictFlightPhase();
 
+    // Share the prediction with the rest of the system.
     shared_data_.flight_data.setPhasePrediction(
         current_phase_, phase_probability_.launch, phase_probability_.ascent,
-        phase_probability_.descent, phase_probability_.recovery);
+        phase_probability_.descent, phase_probability_.recovery,
+        phase_probability_.data_quality);
 
     return change;
   }
@@ -64,6 +76,10 @@ public:
   /// @brief Get the phase probabilities structure.
   Probability getPhaseProbability() const {
     return phase_probability_;
+  }
+
+  FlightPhase getPredictedPhase() const {
+    return current_phase_;
   }
 
 private:
@@ -89,7 +105,13 @@ private:
   /// @brief The last calculated probabilities of being in each phase.
   Probability phase_probability_{};
 
+  /// @brief The number of parameters that exist.
+  double num_total_parameters_{0};
+
+  /// @brief The number of valid parameters.
+  double num_invalid_parameters_{0};
+
   data::SharedData &shared_data_;
 
-  DetectionData detection_data_;
+  PredictionParameters detection_data_;
 };

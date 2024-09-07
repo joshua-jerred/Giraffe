@@ -16,10 +16,15 @@
 #include "flight_phase_predictor.hpp"
 
 double FlightPhasePredictor::getPointsFromRule(const Rule &parameter_rule) {
-  const Parameter &param = detection_data_.getParameter(parameter_rule.id);
+  const Parameter param = detection_data_.getParameter(parameter_rule.id);
+
+  num_total_parameters_++;
 
   // If the data is not valid, or the filter fails, return 0 points.
-  if (!param.is_valid || !parameter_rule.filter(param.value)) {
+  if (!param.is_valid) {
+    num_invalid_parameters_++;
+    return 0;
+  } else if (!parameter_rule.filter(param.value)) {
     return 0;
   }
 
@@ -37,6 +42,8 @@ FlightPhasePredictor::getPointsFromRuleSet(const PhaseRuleSet &phase_rule_set) {
 
 void FlightPhasePredictor::processAllRules() {
   Probability new_probability{};
+  num_total_parameters_ = 0;
+  num_invalid_parameters_ = 0;
 
   for (const auto &items : getPhaseRuleSetMap()) {
     const FlightPhase phase = items.first;
@@ -64,11 +71,25 @@ void FlightPhasePredictor::processAllRules() {
     }
   }
 
+  // Calculate the data quality.
+  new_probability.data_quality =
+      (1.0 - (num_invalid_parameters_ / num_total_parameters_)) * 100.0;
+
   phase_probability_ = new_probability;
 }
 
 bool FlightPhasePredictor::predictFlightPhase() {
   const auto &prob = phase_probability_;
+
+  if (prob.data_quality < MINIMUM_PROBABILITY_QUALITY) {
+    return false;
+  }
+
+  std::cout << "Launch: " << prob.launch << std::endl;
+  std::cout << "Ascent: " << prob.ascent << std::endl;
+  std::cout << "Descent: " << prob.descent << std::endl;
+  std::cout << "Recovery: " << prob.recovery << std::endl;
+  std::cout << "Quality: " << prob.data_quality << std::endl;
 
   FlightPhase new_phase = FlightPhase::UNKNOWN;
 
@@ -86,7 +107,7 @@ bool FlightPhasePredictor::predictFlightPhase() {
              prob.recovery > prob.descent) {
     new_phase = FlightPhase::RECOVERY;
   } else {
-    giraffe_assert(false);
+    new_phase = FlightPhase::UNKNOWN;
   }
 
   bool phase_changed = new_phase != current_phase_;
