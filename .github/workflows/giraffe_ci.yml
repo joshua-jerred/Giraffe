@@ -92,9 +92,9 @@ jobs:
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build Test
-        run: cd build && make unit_test_gfs -j 4
+        run: cd build && make giraffe_flight_system_test -j 4
       - name: Run Test
-        run: cd build/bin/tests && ./unit_test_gfs
+        run: cd build/bin/tests && ./giraffe_flight_system_test
 
   data_link_tests:
     name: Unit Tests / Data Link

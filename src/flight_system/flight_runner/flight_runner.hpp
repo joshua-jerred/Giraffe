@@ -19,6 +19,7 @@
 
 #include "configuration.hpp"
 #include "flight_runner_data.hpp"
+#include "phase_detection.hpp"
 
 #include "console_module.hpp"
 #include "data_module.hpp"
@@ -133,6 +134,8 @@ private:
 #if RUN_IN_SIMULATOR == 1
   gfs_sim::GfsSimulator *p_simulator_ = nullptr;
 #endif
+
+  FlightPhaseDetection flight_phase_detection_{shared_data_};
 };
 
 #endif

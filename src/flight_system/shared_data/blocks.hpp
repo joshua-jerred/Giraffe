@@ -396,9 +396,14 @@ struct CalculatedData {
   int32_t distance_from_ground_m = 0;
   bool distance_from_ground_valid = false;
 
-  int32_t average_horiz_speed_mps_1min = 0;
-  int32_t average_vert_speed_mps_1min = 0;
+  /// @brief The average horizontal speed in meters per second over the last
+  /// minute.
   bool average_speed_valid = false;
+  int32_t average_horiz_speed_mps_1min = 0;
+
+  /// @brief The average vertical speed in meters per second over the last
+  /// minute.
+  int32_t average_vert_speed_mps_1min = 0;
 
   int32_t max_horizontal_speed_mps = 0;
   int32_t max_vertical_speed_mps = 0;

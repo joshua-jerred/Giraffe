@@ -90,6 +90,8 @@ struct Frames {
 
 class FlightData {
 public:
+  /// @brief The number of seconds since the flight runner was started.
+  /// @return int The number of seconds. This value should always be positive.
   int getUptimeSeconds() const {
     return bst::clck::secondsElapsed(start_time_);
   }
@@ -142,6 +144,17 @@ public:
     ascent_prediction_ = ascent;
     descent_prediction_ = descent;
     recovery_prediction_ = recovery;
+  }
+
+  /// @brief Get the mission clock time in seconds. May be negative or positive.
+  /// A negative value is in the future.
+  /// @param[out] seconds - The mission clock time in seconds.
+  /// @return bool - True if the mission clock is running, false when it's
+  /// paused.
+  /// @todo Implement the mission clock from the JS side into the flight runner.
+  bool getMissionClockSeconds(int32_t &seconds) {
+    seconds = 0;
+    return true;
   }
 
   /**
