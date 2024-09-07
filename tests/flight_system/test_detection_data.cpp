@@ -22,12 +22,16 @@ protected:
   using Parameter = DetectionData::Parameter;
 
   struct TestContainer {
-    data::FlightData flight_data{};
-    data::blocks::Block<data::blocks::CalculatedData> calculated_data{};
-    data::blocks::Block<data::blocks::LocationData> location_data{};
-    data::blocks::Block<data::blocks::ImuData> imu_data{};
-    DetectionData detection_data{flight_data, calculated_data, location_data,
-                                 imu_data};
+    data::SharedData shared_data{};
+    DetectionData detection_data{shared_data};
+
+    data::FlightData &flight_data = shared_data.flight_data;
+    data::blocks::Block<data::blocks::CalculatedData> &calculated_data =
+        shared_data.blocks.calculated_data;
+    data::blocks::Block<data::blocks::LocationData> &location_data =
+        shared_data.blocks.location_data;
+    data::blocks::Block<data::blocks::ImuData> &imu_data =
+        shared_data.blocks.imu_data;
   };
 
   virtual void SetUp() {
@@ -128,8 +132,8 @@ TEST_F(DetectionDataTest, updateParameters_Good_Values) {
   EXPECT_EQ(detect.getParameter(Id::GPS_VERTICAL_SPEED).value,
             LOC_DATA.last_valid_gps_frame.vertical_speed);
 
-  EXPECT_TRUE(detect.getParameter(Id::GPS_VERTICAL_SPEED_MPS_1MIN).is_valid);
-  EXPECT_EQ(detect.getParameter(Id::GPS_VERTICAL_SPEED_MPS_1MIN).value,
+  EXPECT_TRUE(detect.getParameter(Id::GPS_VERTICAL_SPEED_1MIN).is_valid);
+  EXPECT_EQ(detect.getParameter(Id::GPS_VERTICAL_SPEED_1MIN).value,
             CALC_DATA.average_vert_speed_mps_1min);
 
   EXPECT_TRUE(detect.getParameter(Id::GPS_HORIZONTAL_SPEED).is_valid);

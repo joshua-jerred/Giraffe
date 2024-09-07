@@ -117,7 +117,7 @@ public:
    * @return FlightPhase The current flight phase.
    */
   FlightPhase getFlightPhase() const {
-    return flight_phase;
+    return flight_phase_;
   }
 
   void setLaunchPosition(double latitude, double longitude, double altitude) {
@@ -138,8 +138,9 @@ public:
     return false;
   }
 
-  void setPhasePrediction(double launch, double ascent, double descent,
-                          double recovery) {
+  void setPhasePrediction(FlightPhase predicted_phase, double launch,
+                          double ascent, double descent, double recovery) {
+    predicted_phase_ = predicted_phase;
     launch_prediction_ = launch;
     ascent_prediction_ = ascent;
     descent_prediction_ = descent;
@@ -166,7 +167,7 @@ public:
   Json toJson() {
     return Json({{"uptime", getUptimeString()},
                  {"system_time_utc", getSystemTimeUtc()},
-                 {"flight_phase", util::to_string(flight_phase)},
+                 {"flight_phase", util::to_string(flight_phase_)},
                  {"launch_position",
                   {
                       {"valid", have_launch_position_.load()},
@@ -188,7 +189,11 @@ private:
   const bst::clck::TimePoint start_time_ = bst::clck::now();
 
   /// @brief The current flight phase.
-  std::atomic<FlightPhase> flight_phase = FlightPhase::UNKNOWN;
+  std::atomic<FlightPhase> flight_phase_ = FlightPhase::UNKNOWN;
+
+  /// @brief The predicted flight phase. Used by the flight phase manager to
+  /// determine the current phase.
+  std::atomic<FlightPhase> predicted_phase_ = FlightPhase::UNKNOWN;
 
   /// @brief True if the launch position has been set.
   std::atomic<bool> have_launch_position_ = false;

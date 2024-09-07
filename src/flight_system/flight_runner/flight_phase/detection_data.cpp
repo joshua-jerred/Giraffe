@@ -45,7 +45,7 @@ inline std::array<
   Parameter{ Id::GPS_VERTICAL_SPEED
     /// @todo Add validation for vertical speed.
   },
-  Parameter{ Id::GPS_VERTICAL_SPEED_MPS_1MIN
+  Parameter{ Id::GPS_VERTICAL_SPEED_1MIN
     /// @todo Add validation for vertical speed.
   },
   Parameter{ Id::GPS_HORIZONTAL_SPEED
@@ -80,14 +80,11 @@ DetectionData::Parameter::Parameter(Parameter::Id id, Validation validation,
     : id(id), validation(validation),
       invalidate_filter{filter}, min{minimum}, max{maximum} {};
 
-DetectionData::DetectionData(
-    data::FlightData &flight_data,
-    data::blocks::Block<data::blocks::CalculatedData> &calculated_data,
-    data::blocks::Block<data::blocks::LocationData> &location_data,
-    data::blocks::Block<data::blocks::ImuData> &imu_data)
-    : parameters_{PARAMETER_DATA}, flight_data_(flight_data),
-      calculated_data_(calculated_data), location_data_(location_data),
-      imu_data_(imu_data) {
+DetectionData::DetectionData(data::SharedData &shared_data)
+    : parameters_{PARAMETER_DATA}, flight_data_(shared_data.flight_data),
+      calculated_data_(shared_data.blocks.calculated_data),
+      location_data_(shared_data.blocks.location_data),
+      imu_data_(shared_data.blocks.imu_data) {
 
   for (size_t i = 0; i < parameters_.size(); i++) {
     giraffe_assert(parameters_.at(i).id == static_cast<Id>(i));

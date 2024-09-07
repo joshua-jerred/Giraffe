@@ -18,8 +18,8 @@
 #define FLIGHT_RUNNER_HPP_
 
 #include "configuration.hpp"
+#include "flight_phase_predictor.hpp"
 #include "flight_runner_data.hpp"
-#include "phase_detection.hpp"
 
 #include "console_module.hpp"
 #include "data_module.hpp"
@@ -135,7 +135,7 @@ private:
   gfs_sim::GfsSimulator *p_simulator_ = nullptr;
 #endif
 
-  FlightPhaseDetection flight_phase_detection_{shared_data_};
+  FlightPhasePredictor flight_phase_detection_{shared_data_};
 };
 
 #endif

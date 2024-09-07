@@ -22,13 +22,14 @@
 /**
  * @brief Used to track the current phase of the flight.
  */
-enum class FlightPhase : int {
+enum class FlightPhase : uint8_t {
   UNKNOWN = 0,
   PRE_LAUNCH = 1,
   LAUNCH = 2,
   ASCENT = 3,
   DESCENT = 4,
-  RECOVERY = 5
+  RECOVERY = 5,
+  NUM_PHASES = 6
 };
 
 namespace util {

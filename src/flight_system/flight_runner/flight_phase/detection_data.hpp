@@ -29,11 +29,7 @@
 class DetectionData {
 public:
   /// @brief Default constructor.
-  DetectionData(
-      data::FlightData &flight_data,
-      data::blocks::Block<data::blocks::CalculatedData> &calculated_data,
-      data::blocks::Block<data::blocks::LocationData> &location_data,
-      data::blocks::Block<data::blocks::ImuData> &imu_data);
+  DetectionData(data::SharedData &shared_data);
   /// @brief Default destructor.
   ~DetectionData() = default;
   /// @brief Delete the copy constructor.
@@ -60,8 +56,9 @@ public:
       /// @brief The current vertical speed in meters per second.
       GPS_VERTICAL_SPEED,
       /// @brief A 1 minute average of the vertical speed in meters per second.
-      GPS_VERTICAL_SPEED_MPS_1MIN,
+      GPS_VERTICAL_SPEED_1MIN,
       /// @brief The current horizontal speed in meters per second.
+      /// @todo Filter this to 10 seconds.
       GPS_HORIZONTAL_SPEED,
       /// @brief A 1 minute average of the horizontal speed in meters per
       /// second.
@@ -184,7 +181,7 @@ public:
       // Calculated Data
       auto data = calculated_data_.get();
 
-      updateParameter(Parameter::Id::GPS_VERTICAL_SPEED_MPS_1MIN,
+      updateParameter(Parameter::Id::GPS_VERTICAL_SPEED_1MIN,
                       data.average_vert_speed_mps_1min,
                       data.average_speed_valid);
       updateParameter(Parameter::Id::GPS_HORIZONTAL_SPEED_1MIN,
