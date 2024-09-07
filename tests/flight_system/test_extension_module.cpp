@@ -25,7 +25,8 @@ protected:
     sd_ = new data::SharedData();
     cfg_ = new cfg::Configuration(sd_->streams);
 
-    cfg_->extension_module.setStatusPollingRate(100);
+    // Set to a low value to speed up the tests.
+    cfg_->extension_module.setStatusPollingRate(5);
 
     extension_module_ = new modules::ExtensionModule(*sd_, *cfg_);
   }
@@ -37,7 +38,7 @@ protected:
 
   void cycleExtensionModule() {
     extension_module_->start();
-    bst::sleep(2000);
+    bst::sleep(150);
     extension_module_->stop();
   }
 

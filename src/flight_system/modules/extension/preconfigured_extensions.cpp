@@ -25,7 +25,7 @@ void ExtensionModule::addPreConfiguredExtension(const std::string &ext_option) {
   cfg::ExtensionMetadata extension_metadata_;
   extension_metadata_.critical = false;
   extension_metadata_.enabled = true;
-  extension_metadata_.update_interval = 1000;
+  extension_metadata_.update_interval = 500;
 
   if (ext_option == "bme280") {
     extension_metadata_.name = "bme280";

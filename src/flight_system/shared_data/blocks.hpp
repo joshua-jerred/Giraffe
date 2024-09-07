@@ -386,6 +386,13 @@ struct CalculatedData {
   int32_t pressure_altitude_m = 0;
   bool pressure_altitude_valid = false;
 
+  /// @brief The vertical speed in meters per second from the pressure sensor.
+  int32_t pressure_vertical_speed = 0;
+  bool pressure_vertical_speed_valid = false;
+
+  int32_t pressure_vertical_speed_mps_1min = 0;
+  bool pressure_vertical_speed_1min_valid = false;
+
   int32_t distance_traveled_m = 0;
   bool distance_traveled_valid = false;
 

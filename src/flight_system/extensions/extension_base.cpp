@@ -190,7 +190,7 @@ void Extension::sleep() {
   constexpr int kMaximumSleepTimeMs = 600000;
 
   constexpr int kMinimumCheckInterval = 10;
-  constexpr int kMaximumCheckInterval = 500;
+  constexpr int kMaximumCheckInterval = 100;
 
   // How long to sleep for
   int sleep_ms = std::clamp(metadata_.update_interval, kMinimumSleepTimeMs,
