@@ -82,15 +82,107 @@ protected:
     return false;
   }
 
+  bool validateHasDataItem(data::DataId data_id) {
+    if (!test_->shared_data.hasDataItems()) {
+      return false;
+    }
+
+    std::stringstream ss;
+
+    data::DataPacket packet;
+    while (test_->shared_data.streams.data.getPacket(packet)) {
+      if (packet.identifier == data_id) {
+        return true;
+      }
+
+      ss << util::to_string(packet) << std::endl;
+    }
+
+    std::cout << ss.str();
+    return false;
+  }
+
+  bool validateNoData() {
+    if (!test_->shared_data.hasDataItems()) {
+      return true;
+    }
+
+    data::DataPacket packet;
+    while (test_->shared_data.streams.data.getPacket(packet)) {
+      std::cout << util::to_string(packet) << std::endl;
+    }
+    return false;
+  }
+
   void tick(size_t ticks = 1) {
     for (size_t i = 0; i < ticks; i++) {
       manager_->update();
     }
   }
 
-  void setLaunch() {
+  void setParamsInvalid() {
+    setLocationDataInvalid(test_->shared_data);
+    setCalculatedDataInvalid(test_->shared_data);
+  }
+
+  void setParamsLaunch() {
     setLocationDataLaunch(test_->shared_data);
+    setCalculatedDataLaunch(test_->shared_data);
+  }
+
+  void setParamsAscent() {
+    setLocationDataAscent(test_->shared_data);
     setCalculatedDataAscent(test_->shared_data);
+  }
+
+  void setParamsDescent() {
+    setLocationDataDescent(test_->shared_data);
+    setCalculatedDataDescent(test_->shared_data);
+  }
+
+  void setParamsRecovery() {
+    setLocationDataRecovery(test_->shared_data);
+    setCalculatedDataRecovery(test_->shared_data);
+  }
+
+  void bringToLaunch() {
+    test_->flight_phase_manager.setPreLaunch();
+    ASSERT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::PRE_LAUNCH);
+    test_->flight_phase_manager.requestLaunch();
+    ASSERT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::LAUNCH);
+    ASSERT_EQ(test_->flight_data.getFlightPhase(), FlightPhase::LAUNCH);
+
+    ASSERT_EQ(validateNoError(), true);
+
+    // Clear the streams
+    test_->shared_data.streams.data.reset();
+    test_->shared_data.streams.log.reset();
+  }
+
+  void bringToAscent() {
+    bringToLaunch();
+    setParamsAscent();
+    tick();
+    ASSERT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::ASCENT);
+    ASSERT_EQ(test_->flight_data.getFlightPhase(), FlightPhase::ASCENT);
+    ASSERT_EQ(validateNoError(), true);
+
+    // Clear the streams
+    test_->shared_data.streams.data.reset();
+    test_->shared_data.streams.log.reset();
+  }
+
+  void bringToDescent() {
+    bringToAscent();
+    setParamsDescent();
+    tick();
+    ASSERT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::DESCENT);
+    ASSERT_EQ(test_->flight_data.getFlightPhase(), FlightPhase::DESCENT);
+    ASSERT_EQ(validateNoError(), true);
+
+    // Clear the streams
+    test_->shared_data.streams.data.reset();
+    test_->shared_data.streams.log.reset();
   }
 
   TestContainer *test_ = nullptr;
@@ -111,12 +203,155 @@ TEST_F(FlightPhaseManagerTest, setPrelaunch) {
   test_->flight_phase_manager.setPreLaunch();
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::PRE_LAUNCH);
 
-  tick();
+  tick(5);
 
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::PRE_LAUNCH);
   EXPECT_EQ(test_->flight_data.getFlightPhase(), FlightPhase::PRE_LAUNCH);
 
+  EXPECT_EQ(test_->shared_data.streams.data.getNumPackets(), 1);
+  EXPECT_TRUE(
+      validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
+
   // FLIGHT_RUNNER_flightPhaseUnknown should not be logged as it's suppressed
   // when in pre-launch.
   EXPECT_TRUE(validateNoError());
+}
+
+TEST_F(FlightPhaseManagerTest, prelaunchToAscent) {
+  test_->flight_phase_manager.setPreLaunch();
+  EXPECT_TRUE(
+      validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
+  setParamsAscent();
+  tick();
+
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::ASCENT);
+  EXPECT_TRUE(
+      validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
+  EXPECT_TRUE(
+      validateHasError(DiagnosticId::FLIGHT_RUNNER_phaseChangeUnexpected));
+
+  tick(5);
+
+  EXPECT_TRUE(validateNoError());
+
+  // No transition, so now new data.
+  EXPECT_TRUE(validateNoData());
+
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::ASCENT);
+}
+
+TEST_F(FlightPhaseManagerTest, setLaunch) {
+  EXPECT_NE(manager_->getCurrentFlightPhase(), FlightPhase::PRE_LAUNCH);
+  EXPECT_FALSE(manager_->requestLaunch());
+
+  test_->flight_phase_manager.setPreLaunch();
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::PRE_LAUNCH);
+  EXPECT_EQ(test_->shared_data.streams.data.getNumPackets(), 1);
+
+  EXPECT_TRUE(manager_->requestLaunch());
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::LAUNCH);
+  EXPECT_EQ(test_->shared_data.streams.data.getNumPackets(), 2);
+
+  // FLIGHT_RUNNER_flightPhaseUnknown should not be logged as it's suppressed
+  // when in pre-launch.
+  EXPECT_TRUE(validateNoError());
+}
+
+TEST_F(FlightPhaseManagerTest, launchErrorOnUnknown) {
+  bringToLaunch();
+  tick();
+  EXPECT_TRUE(validateHasError(DiagnosticId::FLIGHT_RUNNER_flightPhaseUnknown));
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::LAUNCH);
+
+  // Verify that the error is not logged again.
+  tick();
+  EXPECT_TRUE(validateNoError());
+  EXPECT_EQ(test_->flight_data.getPredictedPhase(), FlightPhase::UNKNOWN);
+
+  // Clear the error
+  setParamsLaunch();
+  tick();
+  EXPECT_EQ(test_->flight_data.getPredictedPhase(), FlightPhase::LAUNCH);
+
+  // Verify that the error is logged again.
+  setParamsInvalid();
+  tick();
+  EXPECT_TRUE(validateHasError(DiagnosticId::FLIGHT_RUNNER_flightPhaseUnknown));
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::LAUNCH);
+}
+
+TEST_F(FlightPhaseManagerTest, launchToAscent) {
+  bringToLaunch();
+  setParamsAscent();
+  tick();
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::ASCENT);
+  EXPECT_TRUE(
+      validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
+  EXPECT_TRUE(validateNoError());
+
+  tick(5);
+
+  EXPECT_TRUE(validateNoError());
+
+  // No transition, so now new data.
+  EXPECT_TRUE(validateNoData());
+
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::ASCENT);
+}
+
+TEST_F(FlightPhaseManagerTest, ascentToDescent) {
+  bringToAscent();
+  setParamsDescent();
+  tick();
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::DESCENT);
+  EXPECT_TRUE(
+      validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
+  EXPECT_TRUE(validateNoError());
+
+  tick(5);
+
+  EXPECT_TRUE(validateNoError());
+
+  // No transition, so now new data.
+  EXPECT_TRUE(validateNoData());
+
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::DESCENT);
+}
+
+TEST_F(FlightPhaseManagerTest, ascentToRecovery) {
+  bringToAscent();
+  setParamsRecovery();
+  tick();
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::RECOVERY);
+  EXPECT_TRUE(
+      validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
+  EXPECT_TRUE(
+      validateHasError(DiagnosticId::FLIGHT_RUNNER_phaseChangeUnexpected));
+
+  tick(5);
+
+  EXPECT_TRUE(validateNoError());
+
+  // No transition, so now new data.
+  EXPECT_TRUE(validateNoData());
+
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::RECOVERY);
+}
+
+TEST_F(FlightPhaseManagerTest, descentToRecovery) {
+  bringToDescent();
+  setParamsRecovery();
+  tick();
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::RECOVERY);
+  EXPECT_TRUE(
+      validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
+
+  tick(5);
+
+  EXPECT_TRUE(validateNoError());
+
+  // No transition, so now new data.
+  EXPECT_TRUE(validateNoData());
+
+  EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::RECOVERY);
 }

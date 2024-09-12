@@ -61,6 +61,8 @@ public:
       return;
     }
 
+    phase_predictor_.update();
+
     FlightPhase predicted_phase = phase_predictor_.getPredictedPhase();
     phase_filter_.addValue(predicted_phase);
     flightPhaseUpdate(predicted_phase);
@@ -105,12 +107,21 @@ private:
 
     // Alert when the phase is unknown
     if (new_phase == FlightPhase::UNKNOWN) {
+      // Suppress the error if we are in pre-launch.
       if (current_phase == FlightPhase::PRE_LAUNCH) {
-        // Suppress the error if we are in pre-launch.
         return;
       }
+
+      // Suppress the error if we have already reported it.
+      if (unknown_phase_error_reported_) {
+        return;
+      }
+
       logger_.error(DiagnosticId::FLIGHT_RUNNER_flightPhaseUnknown);
+      unknown_phase_error_reported_ = true;
       return;
+    } else {
+      unknown_phase_error_reported_ = false;
     }
 
     // Staying in the same phase.
@@ -140,12 +151,12 @@ private:
       }
 
       // Entering the pre-launch phase is a manual process. However, safety wise
-      // we should be able to automatically exit to a valid phase.
-      if (new_phase != FlightPhase::ASCENT &&
-          new_phase != FlightPhase::DESCENT &&
-          new_phase != FlightPhase::RECOVERY) {
+      // we should be able to automatically exit to ascent.
+      if (new_phase != FlightPhase::ASCENT) {
         change_allowed = false;
       }
+
+      unexpected_change = true;
     } break;
     case FlightPhase::LAUNCH: {
       // We expect to go to ASCENT.
@@ -226,6 +237,8 @@ private:
         node::Identification::FLIGHT_RUNNER,
         data::DataId::FLIGHT_RUNNER_flightPhaseChange,
         util::to_string(new_phase));
+
+    phase_filter_.reset(new_phase);
   }
 
   /// @brief The current flight phase. Filtered and continually checked.
@@ -259,4 +272,6 @@ private:
 
   giraffe::Logger logger_{shared_data_, node::Identification::FLIGHT_RUNNER,
                           "phase_mgr"};
+
+  bool unknown_phase_error_reported_ = false;
 };

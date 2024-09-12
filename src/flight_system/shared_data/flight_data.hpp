@@ -60,6 +60,14 @@ public:
     return flight_phase_;
   }
 
+  /**
+   * @brief Get the predicted flight phase.
+   * @return FlightPhase The predicted flight phase.
+   */
+  FlightPhase getPredictedPhase() const {
+    return predicted_phase_;
+  }
+
   void setLaunchPosition(double latitude, double longitude, double altitude) {
     launch_position_latitude_ = latitude;
     launch_position_longitude_ = longitude;
@@ -76,17 +84,6 @@ public:
       return true;
     }
     return false;
-  }
-
-  void setPhasePrediction(FlightPhase predicted_phase, double launch,
-                          double ascent, double descent, double recovery,
-                          double data_quality) {
-    predicted_phase_ = predicted_phase;
-    launch_prediction_ = launch;
-    ascent_prediction_ = ascent;
-    descent_prediction_ = descent;
-    recovery_prediction_ = recovery;
-    prediction_quality_ = data_quality;
   }
 
   /// @brief Get the mission clock time in seconds. May be negative or positive.
@@ -131,6 +128,17 @@ public:
 private:
   void setFlightPhase(FlightPhase new_phase) {
     flight_phase_ = new_phase;
+  }
+
+  void setPhasePrediction(FlightPhase predicted_phase, double launch,
+                          double ascent, double descent, double recovery,
+                          double data_quality) {
+    predicted_phase_ = predicted_phase;
+    launch_prediction_ = launch;
+    ascent_prediction_ = ascent;
+    descent_prediction_ = descent;
+    recovery_prediction_ = recovery;
+    prediction_quality_ = data_quality;
   }
 
   /// @brief A time point representing the start time of the flight runner.
