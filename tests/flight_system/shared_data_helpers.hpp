@@ -19,7 +19,31 @@
 
 #include "shared_data.hpp"
 
-void setLocationDataValid(data::SharedData &shared) {
+class FakeSharedData : public data::SharedData {
+public:
+  FakeSharedData() : SharedData() {
+  }
+
+  bool hasLogItems() {
+    return streams.log.getNumPackets() > 0;
+  }
+
+  bool hasDataItems() {
+    return streams.data.getNumPackets() > 0;
+  }
+
+  bool hasDataItem(data::DataId id) {
+    data::DataPacket packet;
+    while (streams.data.getPacket(packet)) {
+      if (packet.identifier == id) {
+        return true;
+      }
+    }
+    return false;
+  }
+};
+
+inline void setLocationDataValid(data::SharedData &shared) {
   const data::blocks::LocationData LOC_DATA{
       .have_gps_source = true,
       .current_gps_fix = data::GpsFix::FIX_3D,
@@ -43,7 +67,7 @@ void setLocationDataValid(data::SharedData &shared) {
   shared.blocks.location_data.set(LOC_DATA);
 }
 
-void setLocationDataInvalid(data::SharedData &shared) {
+inline void setLocationDataInvalid(data::SharedData &shared) {
   const data::blocks::LocationData LOC_DATA{
       .have_gps_source = false,
       .current_gps_fix = data::GpsFix::NO_FIX,
@@ -67,7 +91,7 @@ void setLocationDataInvalid(data::SharedData &shared) {
   shared.blocks.location_data.set(LOC_DATA);
 }
 
-void setLocationDataLaunch(data::SharedData &shared) {
+inline void setLocationDataLaunch(data::SharedData &shared) {
   const data::blocks::LocationData LOC_DATA{
       .have_gps_source = true,
       .current_gps_fix = data::GpsFix::FIX_3D,
@@ -91,7 +115,7 @@ void setLocationDataLaunch(data::SharedData &shared) {
   shared.blocks.location_data.set(LOC_DATA);
 }
 
-void setLocationDataAscent(data::SharedData &shared) {
+inline void setLocationDataAscent(data::SharedData &shared) {
   const data::blocks::LocationData LOC_DATA{
       .have_gps_source = true,
       .current_gps_fix = data::GpsFix::FIX_3D,
@@ -115,7 +139,7 @@ void setLocationDataAscent(data::SharedData &shared) {
   shared.blocks.location_data.set(LOC_DATA);
 }
 
-void setLocationDataDescent(data::SharedData &shared) {
+inline void setLocationDataDescent(data::SharedData &shared) {
   const data::blocks::LocationData LOC_DATA{
       .have_gps_source = true,
       .current_gps_fix = data::GpsFix::FIX_3D,
@@ -139,7 +163,7 @@ void setLocationDataDescent(data::SharedData &shared) {
   shared.blocks.location_data.set(LOC_DATA);
 }
 
-void setLocationDataRecovery(data::SharedData &shared) {
+inline void setLocationDataRecovery(data::SharedData &shared) {
   const data::blocks::LocationData LOC_DATA{
       .have_gps_source = true,
       .current_gps_fix = data::GpsFix::FIX_3D,
@@ -163,7 +187,7 @@ void setLocationDataRecovery(data::SharedData &shared) {
   shared.blocks.location_data.set(LOC_DATA);
 }
 
-void setCalculatedDataValid(data::SharedData &shared) {
+inline void setCalculatedDataValid(data::SharedData &shared) {
   data::blocks::CalculatedData CALC_DATA{
       .pressure_altitude_m = 0,
       .pressure_altitude_valid = true,
@@ -188,7 +212,7 @@ void setCalculatedDataValid(data::SharedData &shared) {
   shared.blocks.calculated_data.set(CALC_DATA);
 }
 
-void setCalculatedDataInvalid(data::SharedData &shared) {
+inline void setCalculatedDataInvalid(data::SharedData &shared) {
   data::blocks::CalculatedData CALC_DATA{
       .pressure_altitude_m = 0,
       .pressure_altitude_valid = false,
@@ -213,7 +237,7 @@ void setCalculatedDataInvalid(data::SharedData &shared) {
   shared.blocks.calculated_data.set(CALC_DATA);
 }
 
-void setCalculatedDataLaunch(data::SharedData &shared) {
+inline void setCalculatedDataLaunch(data::SharedData &shared) {
   data::blocks::CalculatedData CALC_DATA{
       .pressure_altitude_m = 0,
       .pressure_altitude_valid = true,
@@ -238,7 +262,7 @@ void setCalculatedDataLaunch(data::SharedData &shared) {
   shared.blocks.calculated_data.set(CALC_DATA);
 }
 
-void setCalculatedDataAscent(data::SharedData &shared) {
+inline void setCalculatedDataAscent(data::SharedData &shared) {
   data::blocks::CalculatedData CALC_DATA{
       .pressure_altitude_m = 2000,
       .pressure_altitude_valid = true,
@@ -263,7 +287,7 @@ void setCalculatedDataAscent(data::SharedData &shared) {
   shared.blocks.calculated_data.set(CALC_DATA);
 }
 
-void setCalculatedDataDescent(data::SharedData &shared) {
+inline void setCalculatedDataDescent(data::SharedData &shared) {
   data::blocks::CalculatedData CALC_DATA{
       .pressure_altitude_m = 2000,
       .pressure_altitude_valid = true,
@@ -288,7 +312,7 @@ void setCalculatedDataDescent(data::SharedData &shared) {
   shared.blocks.calculated_data.set(CALC_DATA);
 }
 
-void setCalculatedDataRecovery(data::SharedData &shared) {
+inline void setCalculatedDataRecovery(data::SharedData &shared) {
   data::blocks::CalculatedData CALC_DATA{
       .pressure_altitude_m = 2000,
       .pressure_altitude_valid = true,

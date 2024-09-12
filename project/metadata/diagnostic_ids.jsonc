@@ -567,6 +567,21 @@
       "name": "Launch Position Invalid",
       "details": "The last gps fix was not valid when transitioning from pre-launch to launch.",
       "value": "0x6003"
+    },
+    "flight_phase_unknown": {
+      "name": "Flight Phase Unknown",
+      "details": "The flight phase manager no longer recognizes the current flight phase.",
+      "value": "0x6004"
+    },
+    "phase_change_invalid": {
+      "name": "Phase Change Invalid",
+      "details": "Requested phase change is invalid.",
+      "value": "0x6005"
+    },
+    "phase_change_unexpected": {
+      "name": "Phase Change Unexpected",
+      "details": "The phase change was not expected.",
+      "value": "0x6006"
     }
   },
   "ext_fault": {

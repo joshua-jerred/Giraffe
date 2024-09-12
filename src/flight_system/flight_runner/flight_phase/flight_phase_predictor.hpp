@@ -45,7 +45,7 @@ public:
   using Parameter = PredictionParameters::Parameter;
 
   FlightPhasePredictor(data::SharedData &shared_data)
-      : shared_data_(shared_data), detection_data_(shared_data) {
+      : detection_data_(shared_data) {
   }
   ~FlightPhasePredictor() = default;
   /// @brief Delete the copy constructor.
@@ -98,8 +98,6 @@ private:
 
   /// @brief The number of valid parameters.
   double num_invalid_parameters_{0};
-
-  data::SharedData &shared_data_;
 
   PredictionParameters detection_data_;
 };
