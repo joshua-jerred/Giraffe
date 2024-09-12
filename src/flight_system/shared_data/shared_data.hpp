@@ -157,7 +157,7 @@ public:
   /// @todo Implement the mission clock from the JS side into the flight runner.
   bool getMissionClockSeconds(int32_t &seconds) {
     seconds = 0;
-    return true;
+    return false;
   }
 
   /**

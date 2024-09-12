@@ -16,17 +16,28 @@
 #include "flight_phase_predictor.hpp"
 #include "prediction_parameters.hpp"
 
+#include "shared_data_helpers.hpp"
 #include "unit_test.hpp"
 
 class FlightPhasePredictorTest : public ::testing::Test {
 protected:
   using Parameter = PredictionParameters::Parameter;
 
+  /// @brief When testing, the probability of the other phases should be the
+  /// current phase probability minus this value.
+  /// This is a nice value to shoot for. The higher this value, the better.
+  static constexpr double OTHER_PHASES_PROBABILITY_THRESHOLD = 20.0;
+
+  /// @brief When all parameters are valid and indicate a specific phase, the
+  /// probability of that phase should be above this value.
+  static constexpr double DETECTED_PHASE_PROBABILITY_THRESHOLD = 50.0;
+
+  static constexpr double PROBABILITY_MAX = 100.0;
+
   struct TestContainer {
     data::SharedData shared_data{};
     FlightPhasePredictor flight_phase_predictor{shared_data};
-    PredictionParameters detection_data{shared_data};
-    data::FlightData &flight_data = shared_data.flight_data;
+
     data::blocks::Block<data::blocks::CalculatedData> &calculated_data =
         shared_data.blocks.calculated_data;
     data::blocks::Block<data::blocks::LocationData> &location_data =
@@ -42,7 +53,6 @@ protected:
   }
 
   virtual void TearDown() {
-    // predictor_ = nullptr;
     delete test_;
   }
 
@@ -75,7 +85,7 @@ TEST_F(FlightPhasePredictorTest, initialState) {
   EXPECT_EQ(predictor_->getPredictedPhase(), FlightPhase::UNKNOWN);
 }
 
-TEST_F(FlightPhasePredictorTest, enableGps) {
+TEST_F(FlightPhasePredictorTest, enableGpsAndCalculatedData) {
 
   tick();
 
@@ -95,7 +105,7 @@ TEST_F(FlightPhasePredictorTest, enableGps) {
   EXPECT_EQ(prob_.data_quality, 0.0);
   EXPECT_EQ(predictor_->getPredictedPhase(), FlightPhase::UNKNOWN);
 
-  // Throw in some good GPS data
+  // Throw in some good GPS and calculated data
   const data::blocks::LocationData LOC_DATA{
       .have_gps_source = true,
       .current_gps_fix = data::GpsFix::FIX_3D,
@@ -115,10 +125,6 @@ TEST_F(FlightPhasePredictorTest, enableGps) {
               .heading_accuracy = 11.0,
           },
   };
-  test_->location_data.set(LOC_DATA);
-
-  tick();
-
   const data::blocks::CalculatedData CALC_DATA{
       .pressure_altitude_m = 0,
       .pressure_altitude_valid = true,
@@ -139,9 +145,12 @@ TEST_F(FlightPhasePredictorTest, enableGps) {
       .max_vertical_speed_mps = 0,
       .max_speed_valid = true,
   };
+
+  test_->location_data.set(LOC_DATA);
   test_->calculated_data.set(CALC_DATA);
 
   tick();
+
   EXPECT_GT(prob_.data_quality, 50);
 
   EXPECT_GT(prob_.launch, 50);
@@ -150,4 +159,123 @@ TEST_F(FlightPhasePredictorTest, enableGps) {
   EXPECT_GT(prob_.launch, prob_.ascent);
 
   EXPECT_EQ(predictor_->getPredictedPhase(), FlightPhase::LAUNCH);
+}
+
+TEST_F(FlightPhasePredictorTest, setsToUnknownWhenDataQualityIsLow) {
+
+  tick();
+
+  EXPECT_EQ(prob_.launch, 0.0);
+  EXPECT_EQ(prob_.ascent, 0.0);
+  EXPECT_EQ(prob_.descent, 0.0);
+  EXPECT_EQ(prob_.recovery, 0.0);
+  EXPECT_EQ(prob_.data_quality, 0.0);
+  EXPECT_EQ(predictor_->getPredictedPhase(), FlightPhase::UNKNOWN);
+
+  tick();
+
+  EXPECT_EQ(prob_.launch, 0.0);
+  EXPECT_EQ(prob_.ascent, 0.0);
+  EXPECT_EQ(prob_.descent, 0.0);
+  EXPECT_EQ(prob_.recovery, 0.0);
+  EXPECT_EQ(prob_.data_quality, 0.0);
+  EXPECT_EQ(predictor_->getPredictedPhase(), FlightPhase::UNKNOWN);
+
+  // Throw in some good GPS and calculated data
+  setLocationDataValid(test_->shared_data);
+  setCalculatedDataValid(test_->shared_data);
+
+  tick();
+
+  EXPECT_GT(prob_.data_quality, 50);
+
+  EXPECT_GT(prob_.launch, 50);
+  EXPECT_GT(prob_.launch, prob_.descent);
+  EXPECT_GT(prob_.launch, prob_.recovery);
+  EXPECT_GT(prob_.launch, prob_.ascent);
+
+  EXPECT_EQ(predictor_->getPredictedPhase(), FlightPhase::LAUNCH);
+
+  // Throw in some bad GPS and calculated data
+  setLocationDataInvalid(test_->shared_data);
+  setCalculatedDataInvalid(test_->shared_data);
+
+  tick();
+
+  EXPECT_LT(prob_.data_quality, 50);
+  EXPECT_EQ(predictor_->getPredictedPhase(), FlightPhase::UNKNOWN);
+}
+
+TEST_F(FlightPhasePredictorTest, launchParameters) {
+  setLocationDataLaunch(test_->shared_data);
+  setCalculatedDataLaunch(test_->shared_data);
+
+  tick();
+
+  EXPECT_GT(prob_.launch, DETECTED_PHASE_PROBABILITY_THRESHOLD)
+      << "Launch probability is too low.";
+  EXPECT_LE(prob_.launch, PROBABILITY_MAX) << "Launch probability is too high.";
+
+  const double THRESHOLD = prob_.launch - OTHER_PHASES_PROBABILITY_THRESHOLD;
+  EXPECT_LT(prob_.ascent, THRESHOLD);
+  EXPECT_LT(prob_.descent, THRESHOLD);
+  EXPECT_LT(prob_.recovery, THRESHOLD);
+  EXPECT_GT(prob_.data_quality, 75);
+  EXPECT_EQ(predictor_->getPredictedPhase(), FlightPhase::LAUNCH);
+}
+
+TEST_F(FlightPhasePredictorTest, ascentParameters) {
+  setLocationDataAscent(test_->shared_data);
+  setCalculatedDataAscent(test_->shared_data);
+
+  tick();
+
+  EXPECT_GT(prob_.ascent, DETECTED_PHASE_PROBABILITY_THRESHOLD)
+      << "Launch probability is too low.";
+  EXPECT_LT(prob_.ascent, PROBABILITY_MAX) << "Launch probability is too high.";
+
+  const double THRESHOLD = prob_.ascent - OTHER_PHASES_PROBABILITY_THRESHOLD;
+  EXPECT_LT(prob_.launch, THRESHOLD);
+  EXPECT_LT(prob_.descent, THRESHOLD);
+  EXPECT_LT(prob_.recovery, THRESHOLD);
+  EXPECT_GT(prob_.data_quality, 75);
+  EXPECT_EQ(predictor_->getPredictedPhase(), FlightPhase::ASCENT);
+}
+
+TEST_F(FlightPhasePredictorTest, descentParameters) {
+  setLocationDataDescent(test_->shared_data);
+  setCalculatedDataDescent(test_->shared_data);
+
+  tick();
+
+  EXPECT_GT(prob_.descent, DETECTED_PHASE_PROBABILITY_THRESHOLD)
+      << "Launch probability is too low.";
+  EXPECT_LE(prob_.descent, PROBABILITY_MAX)
+      << "Launch probability is too high.";
+
+  const double THRESHOLD = prob_.descent - OTHER_PHASES_PROBABILITY_THRESHOLD;
+  EXPECT_LT(prob_.launch, THRESHOLD);
+  EXPECT_LT(prob_.ascent, THRESHOLD);
+  EXPECT_LT(prob_.recovery, THRESHOLD);
+  EXPECT_GT(prob_.data_quality, 75);
+  EXPECT_EQ(predictor_->getPredictedPhase(), FlightPhase::DESCENT);
+}
+
+TEST_F(FlightPhasePredictorTest, recoveryParameters) {
+  setLocationDataRecovery(test_->shared_data);
+  setCalculatedDataRecovery(test_->shared_data);
+
+  tick();
+
+  EXPECT_GT(prob_.recovery, DETECTED_PHASE_PROBABILITY_THRESHOLD)
+      << "Launch probability is too low.";
+  EXPECT_LE(prob_.recovery, PROBABILITY_MAX)
+      << "Launch probability is too high.";
+
+  const double THRESHOLD = prob_.recovery - OTHER_PHASES_PROBABILITY_THRESHOLD;
+  EXPECT_LT(prob_.launch, THRESHOLD);
+  EXPECT_LT(prob_.ascent, THRESHOLD);
+  EXPECT_LT(prob_.descent, THRESHOLD);
+  EXPECT_GT(prob_.data_quality, 75);
+  EXPECT_EQ(predictor_->getPredictedPhase(), FlightPhase::RECOVERY);
 }

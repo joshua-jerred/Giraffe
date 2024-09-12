@@ -45,10 +45,8 @@ public:
     /// @brief Parameter IDs for phase detection.
     enum class Id : uint8_t {
       /// @brief The mission clock in seconds, if the value can be negative or
-      /// positive. A negative value is in the future.
+      /// positive. A negative value is in the future. Only valid when running.
       MISSION_CLOCK = 0,
-      /// @brief True if the mission clock is running, false when it's paused.
-      MISSION_CLOCK_RUNNING,
       /// @brief The uptime of the flight system in seconds.
       UP_TIME,
       /// @brief The altitude in meters as reported by the GPS.
@@ -145,15 +143,10 @@ public:
   void updateParameters() {
     {
       // @todo Add the mission clock and uptime.
-      bool valid = false;
       int32_t mission_clock_seconds = 0.0;
       bool running = flight_data_.getMissionClockSeconds(mission_clock_seconds);
 
       updateParameter(Parameter::Id::MISSION_CLOCK, mission_clock_seconds,
-                      valid);
-
-      // Digital value
-      updateParameter(Parameter::Id::MISSION_CLOCK_RUNNING, 0, valid, true,
                       running);
 
       const double uptime_seconds = flight_data_.getUptimeSeconds();
@@ -169,6 +162,17 @@ public:
                location.current_gps_fix == data::GpsFix::FIX_2D;
 
       auto frame = location.last_valid_gps_frame;
+      if (!frame.is_valid) {
+        valid = false;
+      }
+
+      /// @todo The GPS data must be recent, the current fix should be updated
+      /// by the data module so this check should be redundant. Get rid of it
+      /// if it is.
+      // constexpr int GPS_DATA_AGE_THRESHOLD_S = 60;
+      // if (frame.getAgeSeconds() > GPS_DATA_AGE_THRESHOLD_S) {
+      // valid = false;
+      // }
 
       updateParameter(Parameter::Id::GPS_ALTITUDE, frame.altitude, valid);
       updateParameter(Parameter::Id::GPS_VERTICAL_SPEED, frame.vertical_speed,

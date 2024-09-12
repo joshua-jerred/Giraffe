@@ -15,6 +15,21 @@
 
 #include "flight_phase_predictor.hpp"
 
+/// @brief Update the flight phase predictor.
+/// @return \c true if the flight phase has changed, \c false if it has stayed
+/// the same.
+bool FlightPhasePredictor::update() {
+  // Update and validate the parameters.
+  detection_data_.updateParameters();
+
+  // Process all rules and calculate the probabilities.
+  processAllRules();
+
+  // Process the probabilities and predict the flight phase. Return true if
+  // the phase has changed.
+  return predictFlightPhase();
+}
+
 double FlightPhasePredictor::getPointsFromRule(const Rule &parameter_rule) {
   const Parameter param = detection_data_.getParameter(parameter_rule.id);
 
@@ -25,6 +40,7 @@ double FlightPhasePredictor::getPointsFromRule(const Rule &parameter_rule) {
     num_invalid_parameters_++;
     return 0;
   } else if (!parameter_rule.filter(param.value)) {
+    // num_invalid_parameters_++;
     return 0;
   }
 
@@ -79,19 +95,14 @@ void FlightPhasePredictor::processAllRules() {
 }
 
 bool FlightPhasePredictor::predictFlightPhase() {
-  const auto &prob = phase_probability_;
-
-  if (prob.data_quality < MINIMUM_PROBABILITY_QUALITY) {
+  if (phase_probability_.data_quality < MINIMUM_PROBABILITY_QUALITY) {
+    predicted_phase_ = FlightPhase::UNKNOWN;
     return false;
   }
 
-  std::cout << "Launch: " << prob.launch << std::endl;
-  std::cout << "Ascent: " << prob.ascent << std::endl;
-  std::cout << "Descent: " << prob.descent << std::endl;
-  std::cout << "Recovery: " << prob.recovery << std::endl;
-  std::cout << "Quality: " << prob.data_quality << std::endl;
-
   FlightPhase new_phase = FlightPhase::UNKNOWN;
+
+  auto &prob = phase_probability_;
 
   // Determine the new phase.
   if (prob.launch > prob.ascent && prob.launch > prob.descent &&
@@ -110,10 +121,10 @@ bool FlightPhasePredictor::predictFlightPhase() {
     new_phase = FlightPhase::UNKNOWN;
   }
 
-  bool phase_changed = new_phase != current_phase_;
+  bool phase_changed = new_phase != predicted_phase_;
 
   // Set the new phase.
-  current_phase_ = new_phase;
+  predicted_phase_ = new_phase;
 
   return phase_changed;
 }

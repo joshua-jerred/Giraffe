@@ -25,18 +25,16 @@ static const PhaseRuleSet EMPTY_RULES = {};
 
 static const PhaseRuleSet LAUNCH_RULES = {
     {Id::MISSION_CLOCK, 0, [](double val) { return val < 10; }},
-    {Id::MISSION_CLOCK_RUNNING, 0, [](double val) { return val < 5; }},
     {Id::DISTANCE_FROM_LAUNCH, 30, [](double val) { return val < 15; }},
     {Id::DISTANCE_FROM_GROUND, 20, [](double val) { return val < 10; }},
     {Id::GPS_HORIZONTAL_SPEED, 10, [](double val) { return val < 2.5; }},
     {Id::GPS_HORIZONTAL_SPEED_1MIN, 10, [](double val) { return val < 2.5; }},
     {Id::GPS_VERTICAL_SPEED, 10, [](double val) { return val < 1; }},
-    {Id::GPS_VERTICAL_SPEED_1MIN, 15, [](double val) { return val < 1; }},
+    {Id::GPS_VERTICAL_SPEED_1MIN, 20, [](double val) { return val < 1; }},
 };
 
 static const PhaseRuleSet ASCENT_RULES = {
     {Id::MISSION_CLOCK, 0, [](double val) { return val < 10; }},
-    {Id::MISSION_CLOCK_RUNNING, 0, [](double val) { return val < 5; }},
     {Id::DISTANCE_FROM_LAUNCH, 20, [](double val) { return val > 10; }},
     {Id::DISTANCE_FROM_GROUND, 15, [](double val) { return val > 5; }},
     {Id::GPS_HORIZONTAL_SPEED, 10, [](double val) { return val > 2.5; }},
@@ -47,7 +45,6 @@ static const PhaseRuleSet ASCENT_RULES = {
 
 static const PhaseRuleSet DESCENT_RULES = {
     {Id::MISSION_CLOCK, 0, [](double val) { return val < 10; }},
-    {Id::MISSION_CLOCK_RUNNING, 0, [](double val) { return val < 5; }},
     {Id::DISTANCE_FROM_LAUNCH, 10, [](double val) { return val > 10; }},
     {Id::DISTANCE_FROM_GROUND, 10, [](double val) { return val > 1500; }},
     {Id::GPS_HORIZONTAL_SPEED, 10, [](double val) { return val > 0.5; }},
@@ -58,13 +55,12 @@ static const PhaseRuleSet DESCENT_RULES = {
 
 static const PhaseRuleSet RECOVERY_RULES = {
     {Id::MISSION_CLOCK, 0, [](double val) { return val < 10; }},
-    {Id::MISSION_CLOCK_RUNNING, 0, [](double val) { return val < 5; }},
-    {Id::DISTANCE_FROM_LAUNCH, 15, [](double val) { return val > 50; }},
+    {Id::DISTANCE_FROM_LAUNCH, 25, [](double val) { return val > 50; }},
     {Id::DISTANCE_FROM_GROUND, 10, [](double val) { return val < 1000; }},
     {Id::GPS_HORIZONTAL_SPEED, 10, [](double val) { return val < 1; }},
     {Id::GPS_HORIZONTAL_SPEED_1MIN, 10, [](double val) { return val < 1; }},
     {Id::GPS_VERTICAL_SPEED, 10, [](double val) { return val < 1; }},
-    {Id::GPS_VERTICAL_SPEED_1MIN, 30, [](double val) { return val < 1; }},
+    {Id::GPS_VERTICAL_SPEED_1MIN, 35, [](double val) { return val < 1; }},
 };
 
 static const std::map<FlightPhase, PhaseRuleSet> RULES_MAP = {

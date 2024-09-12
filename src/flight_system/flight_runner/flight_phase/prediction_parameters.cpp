@@ -32,9 +32,6 @@ inline std::array<
     Validation::IN_RANGE, InvalidFilter::CLAMP_IN_RANGE,
     -31536000.0, 31536000.0
   },
-  Parameter{ Id::MISSION_CLOCK_RUNNING,
-    Validation::NONE
-  },
   Parameter{ Id::UP_TIME, 
     Validation::IN_RANGE, InvalidFilter::CLAMP_IN_RANGE, 
     1.0, 31536000.0

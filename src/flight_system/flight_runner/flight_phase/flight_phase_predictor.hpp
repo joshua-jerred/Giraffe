@@ -27,11 +27,15 @@ public:
   static constexpr double MINIMUM_PROBABILITY_QUALITY = 50.0;
 
   /// @brief A stucture that contains the probabilities of being in each phase.
-  /// The probabilities range from 0 to 255, where 0 is 0% and 255 is 100%.
+  /// The probabilities range from 0 to 100.
   struct Probability {
+    /// @brief The probability of being in the launch phase. 0 to 100.
     double launch = 0.0;
+    /// @brief The probability of being in the ascent phase. 0 to 100.
     double ascent = 0.0;
+    /// @brief The probability of being in the descent phase. 0 to 100.
     double descent = 0.0;
+    /// @brief The probability of being in the recovery phase. 0 to 100.
     double recovery = 0.0;
 
     // @brief A value from 0 to 100 that represents the quality
@@ -54,32 +58,16 @@ public:
   /// @brief Update the flight phase predictor.
   /// @return \c true if the flight phase has changed, \c false if it has stayed
   /// the same.
-  bool update() {
-    // Update and validate the parameters.
-    detection_data_.updateParameters();
-
-    // Process all rules and calculate the probabilities.
-    processAllRules();
-
-    // Process the probabilities and predict the flight phase.
-    bool change = predictFlightPhase();
-
-    // Share the prediction with the rest of the system.
-    shared_data_.flight_data.setPhasePrediction(
-        current_phase_, phase_probability_.launch, phase_probability_.ascent,
-        phase_probability_.descent, phase_probability_.recovery,
-        phase_probability_.data_quality);
-
-    return change;
-  }
+  bool update();
 
   /// @brief Get the phase probabilities structure.
   Probability getPhaseProbability() const {
     return phase_probability_;
   }
 
+  /// @brief Get the predicted flight phase.
   FlightPhase getPredictedPhase() const {
-    return current_phase_;
+    return predicted_phase_;
   }
 
 private:
@@ -100,7 +88,7 @@ private:
   bool predictFlightPhase();
 
   /// @brief The last detected flight phase.
-  FlightPhase current_phase_{FlightPhase::UNKNOWN};
+  FlightPhase predicted_phase_{FlightPhase::UNKNOWN};
 
   /// @brief The last calculated probabilities of being in each phase.
   Probability phase_probability_{};
