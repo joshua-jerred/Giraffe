@@ -92,7 +92,7 @@ struct GpsFrame {
 void to_json(json &j, const data::GpsFrame &frame);
 
 /**
- * @brief A frame of IMU data, straight from an IMU extension.
+ * @brief A frame of +IMU data, straight from an IMU extension.
  */
 struct ImuFrame {
   /**

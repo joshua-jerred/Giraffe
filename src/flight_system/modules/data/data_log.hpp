@@ -316,7 +316,7 @@ private:
    * @brief Used within 'updateFileSystem'. Keeps track of the last time the
    * file system was checked.
    */
-  bst::Stopwatch validation_stopwatch_ = bst::Stopwatch();
+  bst::Stopwatch validation_stopwatch_{};
 
   /**
    * @brief Used to time how often the full data frame is logged if the

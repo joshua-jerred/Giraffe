@@ -6,10 +6,10 @@
 #include <fstream>
 #include <nlohmann/json.hpp>
 
-void __assert_func(const char *__file, int __line, const char *__expr) {
-  printf("ASSERT: %s:%d: Assertion `%s' failed.\n", __file, __line, __expr);
-  throw std::exception();
-}
+// void __assert_func(const char *__file, int __line, const char *__expr) {
+// printf("ASSERT: %s:%d: Assertion `%s' failed.\n", __file, __line, __expr);
+// throw std::exception();
+// }
 
 class ConfigurationTest : public ::testing::Test {
 protected:

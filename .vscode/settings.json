@@ -64,5 +64,19 @@
     "stoi",
     "Struct",
     "telem"
-  ]
+  ],
+  "files.associations": {
+    "version": "plaintext",
+    "*.ipp": "cpp",
+    "*.tcc": "cpp",
+    "bitset": "cpp",
+    "socket": "cpp",
+    "fstream": "cpp",
+    "iosfwd": "cpp",
+    "iostream": "cpp",
+    "istream": "cpp",
+    "ostream": "cpp",
+    "sstream": "cpp",
+    "array": "cpp"
+  }
 }

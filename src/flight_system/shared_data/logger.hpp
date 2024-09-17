@@ -29,6 +29,12 @@ public:
         secondary_source_(secondary_source) {
   }
 
+  Logger(data::SharedData &shared_data, node::Identification source,
+         std::string secondary_source = "")
+      : log_stream_(shared_data.streams.log), source_(source),
+        secondary_source_(secondary_source) {
+  }
+
   void info(std::string message) {
     if (!secondary_source_.empty()) {
       message = secondary_source_ + ": " + message;

@@ -92,8 +92,7 @@ void mw::DataLog::logDataPacket(const data::DataPacket &packet) {
 
 void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
   int log_interval_ms = config_.data_module_data.getLogIntervalMs();
-  int time_since_last_log_ms =
-      data_frame_stopwatch_.elapsed(bst::Resolution::MILLISECONDS);
+  int time_since_last_log_ms = data_frame_stopwatch_.elapsedMillisecondsF();
 
   if (time_since_last_log_ms > log_interval_ms) {
     // first, reset the stopwatch before logging
@@ -129,8 +128,7 @@ void mw::DataLog::logDataFrame(cfg::gEnum::LogStrategy strategy) {
 
 void mw::DataLog::logErrorFrame() {
   int log_interval_ms = config_.data_module_log.getErrorFrameLogInterval();
-  int time_since_last_log_ms =
-      error_frame_stopwatch_.elapsed(bst::Resolution::MILLISECONDS);
+  int time_since_last_log_ms = error_frame_stopwatch_.elapsedMillisecondsF();
 
   if (time_since_last_log_ms > log_interval_ms) {
     // first, reset the stopwatch before logging
@@ -177,8 +175,8 @@ void mw::DataLog::appendToLogFile(const std::string &content) {
 }
 
 void mw::DataLog::updateFileSystem() {
-  long ms_since_last_validation = static_cast<int>(
-      validation_stopwatch_.elapsed(bst::Resolution::MILLISECONDS));
+  long ms_since_last_validation =
+      static_cast<int>(validation_stopwatch_.elapsedMillisecondsF());
 
   if (ms_since_last_validation >
       config_.data_module_data.getFileSystemCheckInterval()) {

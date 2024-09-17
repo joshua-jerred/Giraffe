@@ -56,6 +56,53 @@ private:
   std::atomic<State> b_state_ = State::OFF;
 };
 
+class StatusLedChannel {
+public:
+  enum class Channel { RED, GREEN, BLUE };
+
+  StatusLedChannel(StatusLedState &status_led_state, Channel channel)
+      : status_led_state_(status_led_state), channel_(channel) {
+  }
+
+  void blink() {
+    state_ = StatusLedState::State::BLINK;
+    set();
+  }
+
+  void on() {
+    state_ = StatusLedState::State::ON;
+    set();
+  }
+
+  void off() {
+    state_ = StatusLedState::State::OFF;
+    set();
+  }
+
+  StatusLedState::State getState() const {
+    return state_;
+  }
+
+private:
+  void set() {
+    switch (channel_) {
+    case Channel::RED:
+      status_led_state_.setRed(state_);
+      break;
+    case Channel::GREEN:
+      status_led_state_.setGreen(state_);
+      break;
+    case Channel::BLUE:
+      status_led_state_.setBlue(state_);
+      break;
+    }
+  }
+
+  StatusLedState &status_led_state_;
+  Channel channel_;
+  StatusLedState::State state_ = StatusLedState::State::OFF;
+};
+
 } // namespace giraffe
 
 #endif /* GIRAFFE_STATUS_LED_HPP_ */

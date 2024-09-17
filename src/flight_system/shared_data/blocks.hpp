@@ -386,6 +386,13 @@ struct CalculatedData {
   int32_t pressure_altitude_m = 0;
   bool pressure_altitude_valid = false;
 
+  /// @brief The vertical speed in meters per second from the pressure sensor.
+  int32_t pressure_vertical_speed = 0;
+  bool pressure_vertical_speed_valid = false;
+
+  int32_t pressure_vertical_speed_mps_1min = 0;
+  bool pressure_vertical_speed_1min_valid = false;
+
   int32_t distance_traveled_m = 0;
   bool distance_traveled_valid = false;
 
@@ -396,9 +403,14 @@ struct CalculatedData {
   int32_t distance_from_ground_m = 0;
   bool distance_from_ground_valid = false;
 
-  int32_t average_horiz_speed_mps_1min = 0;
-  int32_t average_vert_speed_mps_1min = 0;
+  /// @brief The average horizontal speed in meters per second over the last
+  /// minute.
   bool average_speed_valid = false;
+  int32_t average_horiz_speed_mps_1min = 0;
+
+  /// @brief The average vertical speed in meters per second over the last
+  /// minute.
+  int32_t average_vert_speed_mps_1min = 0;
 
   int32_t max_horizontal_speed_mps = 0;
   int32_t max_vertical_speed_mps = 0;

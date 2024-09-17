@@ -78,7 +78,7 @@ sync_web_server() {
 
 run_host_tests() {
     echo "Transfering Test Executable"
-    rsync -v -r --rsync-path="sudo rsync" build/bin/tests/flight_system/unit_test_gfs_host $SSH_HOST:/home/pi/gfs_tests/unit_test_gfs_host
+    rsync -v -r --rsync-path="sudo rsync" build/bin/tests/flight_system/giraffe_flight_system_test_host $SSH_HOST:/home/pi/gfs_tests/giraffe_flight_system_test_host
 }
 
 if [ "$REQUEST" == "start-web" ]; then
@@ -144,7 +144,7 @@ elif [ "$REQUEST" == "gpio-test" ]; then
     exit 0
 elif [ "$REQUEST" == "host-test" ]; then
     run_host_tests
-    ssh $SSH_HOST "cd /home/pi/gfs_tests && sudo ./unit_test_gfs_host"
+    ssh $SSH_HOST "cd /home/pi/gfs_tests && sudo ./giraffe_flight_system_test_host"
     exit 0
 else
     echo "Unknown command"

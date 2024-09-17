@@ -18,6 +18,7 @@
 #define FLIGHT_RUNNER_HPP_
 
 #include "configuration.hpp"
+#include "flight_phase_manager.hpp"
 #include "flight_runner_data.hpp"
 
 #include "console_module.hpp"
@@ -93,19 +94,13 @@ private:
   void detectFlightPhase();
 
   /**
-   * @brief This method defines the transitions of the flight phase state
-   * machine.
-   * @param phase The phase to transition to.
-   */
-  void setFlightPhase(FlightPhase phase);
-
-  /**
    * @brief Called when transitioning from pre-launch to launch phase. Sets
    * the launch position in shared data and saves it to file.
    */
   bool setLaunchPosition();
 
   //// -- Flight Logic Methods -- ////
+  void fl_phaseChanged(FlightPhase new_phase);
   void fl_preLaunchLogic();
   void fl_launchLogic();
   void fl_reportDescent();
@@ -133,6 +128,9 @@ private:
 #if RUN_IN_SIMULATOR == 1
   gfs_sim::GfsSimulator *p_simulator_ = nullptr;
 #endif
+
+  FlightPhaseManager flight_phase_manager_ = {
+      shared_data_, flight_runner_data_.getFlightPhase(), 100, 10};
 };
 
 #endif

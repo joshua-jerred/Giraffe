@@ -138,6 +138,10 @@ enum class DiagnosticId : uint16_t {
   FLIGHT_RUNNER_commandDestinationNotFound=0x6001, // Command destination not found
   FLIGHT_RUNNER_invalidCommand=0x6002, // Invalid Command
   FLIGHT_RUNNER_launchPositionInvalid=0x6003, // Launch Position Invalid
+  FLIGHT_RUNNER_flightPhaseUnknown=0x6004, // Flight Phase Unknown
+  FLIGHT_RUNNER_phaseChangeInvalid=0x6005, // Phase Change Invalid
+  FLIGHT_RUNNER_phaseChangeUnexpected=0x6006, // Phase Change Unexpected
+  FLIGHT_RUNNER_failedToSetLaunch=0x6007, // Failed to Set Launch
   EXT_FAULT_none=0x7000, // No fault
   EXT_FAULT_fatalConfig=0x7001, // Fatal Configuration Error
   EXT_FAULT_bme280StartupI2CConnect=0x7002, // BME280 Startup I2C Connect Fault

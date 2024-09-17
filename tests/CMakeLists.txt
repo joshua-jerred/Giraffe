@@ -43,12 +43,14 @@ file(COPY ${GDL_TEST_SRC}/sstv_image.png DESTINATION ${TEST_BIN})
 
 # --- Flight Software ---
 file(GLOB gfs_test_sources "${GFS_UNIT_TEST_SRC}/test_*.cpp")
-add_executable(unit_test_gfs ${gfs_test_sources} ${gfs_sources})
-target_include_directories(unit_test_gfs PRIVATE ${gfs_include_dirs})
+add_executable(giraffe_flight_system_test ${gfs_test_sources} ${gfs_sources})
+target_include_directories(giraffe_flight_system_test PRIVATE ${gfs_include_dirs})
 target_link_libraries(
-  unit_test_gfs
+  giraffe_flight_system_test
   # internal
   giraffe_common
+  giraffe_data_link_core
+  gfs_flight_runner
   gfs_interface
   gfs_shared_data
   gfs_configuration
@@ -60,6 +62,7 @@ target_link_libraries(
   extension_module
   server_module
   system_module
+  telemetry_module
   gfs_utilities
   # external
   unit_test
@@ -68,7 +71,7 @@ target_link_libraries(
   ${CURSES_LIBRARIES}
   ${CURL_LIBRARIES}
   nlohmann_json::nlohmann_json)
-set_target_properties(unit_test_gfs PROPERTIES RUNTIME_OUTPUT_DIRECTORY
+set_target_properties(giraffe_flight_system_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY
                                                ${TEST_BIN})
 
 
@@ -125,11 +128,11 @@ set_target_properties(
 
 # ---------------- ctest ----------------
 include(GoogleTest)
-gtest_discover_tests(unit_test_gfs)
+gtest_discover_tests(giraffe_flight_system_test)
 gtest_discover_tests(unit_test_gdl)
 gtest_discover_tests(unit_test_common)
 # add_test(NAME common_tests COMMAND $<TARGET_FILE:unit_test_common>)
-# add_test(NAME flight_system_tests COMMAND unit_test_gfs)
+# add_test(NAME flight_system_tests COMMAND giraffe_flight_system_test)
 # add_test(NAME data_link_tests COMMAND unit_test_gdl)
 
 # add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND}

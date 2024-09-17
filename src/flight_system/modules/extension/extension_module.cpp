@@ -33,7 +33,7 @@
 namespace modules {
 
 static MetaData metadata("extension_module",
-                         node::Identification::EXTENSION_MODULE, 100);
+                         node::Identification::EXTENSION_MODULE, 50);
 
 ExtensionModule::ExtensionModule(data::SharedData &shared_data,
                                  cfg::Configuration &config)

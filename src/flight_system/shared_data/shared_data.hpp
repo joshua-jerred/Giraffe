@@ -23,6 +23,7 @@
 
 #include "blocks.hpp"
 #include "error_frame.hpp"
+#include "flight_data.hpp"
 #include "flight_phase.hpp"
 #include "frame.hpp"
 #include "log_container.hpp"
@@ -88,113 +89,11 @@ struct Frames {
   Frame<std::string, double> adc{};
 };
 
-class FlightData {
-public:
-  int getUptimeSeconds() const {
-    return bst::clck::secondsElapsed(start_time_);
-  }
-
-  /**
-   * @brief Get the uptime represented as a string in the format "HH:MM:SS".
-   * @return std::string The uptime string.
-   */
-  std::string getUptimeString() const {
-    return bst::time::elapsedAsciiClock(start_time_);
-  }
-
-  /**
-   * @brief Get the system time in UTC.
-   * @return std::string hh:mm:ss
-   */
-  std::string getSystemTimeUtc() const {
-    return bst::time::timeString(bst::time::TimeZone::UTC);
-  }
-
-  /**
-   * @brief Get the current flight phase.
-   * @return FlightPhase The current flight phase.
-   */
-  FlightPhase getFlightPhase() const {
-    return flight_phase;
-  }
-
-  void setLaunchPosition(double latitude, double longitude, double altitude) {
-    launch_position_latitude_ = latitude;
-    launch_position_longitude_ = longitude;
-    launch_altitude_ = altitude;
-    have_launch_position_ = true;
-  }
-
-  bool getLaunchPosition(double &latitude, double &longitude,
-                         double &altitude) {
-    if (have_launch_position_) {
-      latitude = launch_position_latitude_;
-      longitude = launch_position_longitude_;
-      altitude = launch_altitude_;
-      return true;
-    }
-    return false;
-  }
-
-  void setPhasePrediction(double launch, double ascent, double descent,
-                          double recovery) {
-    launch_prediction_ = launch;
-    ascent_prediction_ = ascent;
-    descent_prediction_ = descent;
-    recovery_prediction_ = recovery;
-  }
-
-  /**
-   * @brief This is here so that the flight runner alone can set the flight
-   * phase and mission clock.
-   */
-  friend FlightRunner;
-
-  Json toJson() {
-    return Json({{"uptime", getUptimeString()},
-                 {"system_time_utc", getSystemTimeUtc()},
-                 {"flight_phase", util::to_string(flight_phase)},
-                 {"launch_position",
-                  {
-                      {"valid", have_launch_position_.load()},
-                      {"latitude", launch_position_latitude_.load()},
-                      {"longitude", launch_position_longitude_.load()},
-                      {"altitude", launch_altitude_.load()},
-                  }},
-                 {"phase_predictions",
-                  {
-                      {"launch", launch_prediction_.load()},
-                      {"ascent", ascent_prediction_.load()},
-                      {"descent", descent_prediction_.load()},
-                      {"recovery", recovery_prediction_.load()},
-                  }}});
-  }
-
-private:
-  /// @brief A time point representing the start time of the flight runner.
-  const bst::clck::TimePoint start_time_ = bst::clck::now();
-
-  /// @brief The current flight phase.
-  std::atomic<FlightPhase> flight_phase = FlightPhase::UNKNOWN;
-
-  /// @brief True if the launch position has been set.
-  std::atomic<bool> have_launch_position_ = false;
-  /// @brief The launch position.
-  std::atomic<double> launch_altitude_ = 0.0;
-  std::atomic<double> launch_position_latitude_ = 0.0;
-  std::atomic<double> launch_position_longitude_ = 0.0;
-
-  std::atomic<double> launch_prediction_ = 0.0;
-  std::atomic<double> ascent_prediction_ = 0.0;
-  std::atomic<double> descent_prediction_ = 0.0;
-  std::atomic<double> recovery_prediction_ = 0.0;
-};
-
 /**
  * @brief Data that is shared across all modules and extensions.
  */
 struct SharedData {
-  FlightData flight_data = FlightData();
+  data::FlightData flight_data = FlightData();
   Streams streams = Streams();
   Frames frames = Frames();
   SharedBlocks blocks{};

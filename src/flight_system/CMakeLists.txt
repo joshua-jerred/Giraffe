@@ -10,6 +10,7 @@ target_sources(module_base
 target_include_directories(module_base INTERFACE ${GFS_SRC}/modules)
 
 # The following directories contain interface libraries.
+add_subdirectory(./flight_runner)
 add_subdirectory(./shared_data)
 add_subdirectory(./extensions)
 add_subdirectory(./configuration)
@@ -26,9 +27,6 @@ add_subdirectory(./modules/telemetry)
 # -------- GFS Executable ---------
 add_executable(${EXE_NAME}
   ${GFS_SRC}/main.cpp
-  ${GFS_SRC}/flight_runner.cpp
-  ${GFS_SRC}/flight_runner_data.cpp
-  ${GFS_SRC}/flight_logic.cpp
 )
 target_include_directories(${EXE_NAME} PRIVATE ${GFS_SRC})
 set_target_properties(
@@ -41,6 +39,7 @@ target_link_libraries(
   giraffe_data_link_core
   giraffe_common
     # gfs specific
+  gfs_flight_runner
   gfs_interface
   gfs_shared_data
   gfs_configuration
