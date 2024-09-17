@@ -277,11 +277,32 @@ void FlightRunner::processCommand(const cmd::Command &command) {
     toggleModule(command.str_arg, false);
     toggleModule(command.str_arg, true);
     break;
-  case cmd::CommandId::FLIGHT_RUNNER_enterLaunchPhase:
-    setFlightPhase(FlightPhase::LAUNCH);
-    break;
+  case cmd::CommandId::FLIGHT_RUNNER_enterLaunchPhase: {
+    if (flight_phase_manager_.getCurrentFlightPhase() !=
+        FlightPhase::PRE_LAUNCH) {
+      shared_data_.streams.log.error(
+          node::Identification::FLIGHT_RUNNER,
+          DiagnosticId::FLIGHT_RUNNER_failedToSetLaunch, "not prelaunch");
+      return;
+    }
+
+    // Set the launch position and make sure it's valid.
+    if (!setLaunchPosition()) {
+      shared_data_.streams.log.error(
+          node::Identification::FLIGHT_RUNNER,
+          DiagnosticId::FLIGHT_RUNNER_failedToSetLaunch, "set lnch pos");
+      return;
+    }
+
+    // Request the launch phase
+    if (!flight_phase_manager_.requestLaunch()) {
+      shared_data_.streams.log.error(
+          node::Identification::FLIGHT_RUNNER,
+          DiagnosticId::FLIGHT_RUNNER_failedToSetLaunch, "req fail");
+    }
+  } break;
   case cmd::CommandId::FLIGHT_RUNNER_enterPreLaunchPhase:
-    setFlightPhase(FlightPhase::PRE_LAUNCH);
+    flight_phase_manager_.setPreLaunch();
     break;
   default:
     shared_data_.streams.log.error(node::Identification::FLIGHT_RUNNER,

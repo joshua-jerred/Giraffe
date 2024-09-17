@@ -162,7 +162,7 @@ protected:
   void bringToAscent() {
     bringToLaunch();
     setParamsAscent();
-    tick();
+    tick(FILTER_RATE);
     ASSERT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::ASCENT);
     ASSERT_EQ(test_->flight_data.getFlightPhase(), FlightPhase::ASCENT);
     ASSERT_EQ(validateNoError(), true);
@@ -175,7 +175,7 @@ protected:
   void bringToDescent() {
     bringToAscent();
     setParamsDescent();
-    tick();
+    tick(FILTER_RATE);
     ASSERT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::DESCENT);
     ASSERT_EQ(test_->flight_data.getFlightPhase(), FlightPhase::DESCENT);
     ASSERT_EQ(validateNoError(), true);
@@ -203,7 +203,7 @@ TEST_F(FlightPhaseManagerTest, setPrelaunch) {
   test_->flight_phase_manager.setPreLaunch();
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::PRE_LAUNCH);
 
-  tick(5);
+  tick(FILTER_RATE);
 
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::PRE_LAUNCH);
   EXPECT_EQ(test_->flight_data.getFlightPhase(), FlightPhase::PRE_LAUNCH);
@@ -222,7 +222,7 @@ TEST_F(FlightPhaseManagerTest, prelaunchToAscent) {
   EXPECT_TRUE(
       validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
   setParamsAscent();
-  tick();
+  tick(FILTER_RATE);
 
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::ASCENT);
   EXPECT_TRUE(
@@ -230,7 +230,7 @@ TEST_F(FlightPhaseManagerTest, prelaunchToAscent) {
   EXPECT_TRUE(
       validateHasError(DiagnosticId::FLIGHT_RUNNER_phaseChangeUnexpected));
 
-  tick(5);
+  tick(FILTER_RATE);
 
   EXPECT_TRUE(validateNoError());
 
@@ -259,23 +259,23 @@ TEST_F(FlightPhaseManagerTest, setLaunch) {
 
 TEST_F(FlightPhaseManagerTest, launchErrorOnUnknown) {
   bringToLaunch();
-  tick();
+  tick(FILTER_RATE);
   EXPECT_TRUE(validateHasError(DiagnosticId::FLIGHT_RUNNER_flightPhaseUnknown));
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::LAUNCH);
 
   // Verify that the error is not logged again.
-  tick();
+  tick(FILTER_RATE);
   EXPECT_TRUE(validateNoError());
   EXPECT_EQ(test_->flight_data.getPredictedPhase(), FlightPhase::UNKNOWN);
 
   // Clear the error
   setParamsLaunch();
-  tick();
+  tick(FILTER_RATE);
   EXPECT_EQ(test_->flight_data.getPredictedPhase(), FlightPhase::LAUNCH);
 
   // Verify that the error is logged again.
   setParamsInvalid();
-  tick();
+  tick(FILTER_RATE);
   EXPECT_TRUE(validateHasError(DiagnosticId::FLIGHT_RUNNER_flightPhaseUnknown));
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::LAUNCH);
 }
@@ -283,13 +283,13 @@ TEST_F(FlightPhaseManagerTest, launchErrorOnUnknown) {
 TEST_F(FlightPhaseManagerTest, launchToAscent) {
   bringToLaunch();
   setParamsAscent();
-  tick();
+  tick(FILTER_RATE);
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::ASCENT);
   EXPECT_TRUE(
       validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
   EXPECT_TRUE(validateNoError());
 
-  tick(5);
+  tick(FILTER_RATE);
 
   EXPECT_TRUE(validateNoError());
 
@@ -302,13 +302,13 @@ TEST_F(FlightPhaseManagerTest, launchToAscent) {
 TEST_F(FlightPhaseManagerTest, ascentToDescent) {
   bringToAscent();
   setParamsDescent();
-  tick();
+  tick(FILTER_RATE);
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::DESCENT);
   EXPECT_TRUE(
       validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
   EXPECT_TRUE(validateNoError());
 
-  tick(5);
+  tick(FILTER_RATE);
 
   EXPECT_TRUE(validateNoError());
 
@@ -321,14 +321,14 @@ TEST_F(FlightPhaseManagerTest, ascentToDescent) {
 TEST_F(FlightPhaseManagerTest, ascentToRecovery) {
   bringToAscent();
   setParamsRecovery();
-  tick();
+  tick(FILTER_RATE);
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::RECOVERY);
   EXPECT_TRUE(
       validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
   EXPECT_TRUE(
       validateHasError(DiagnosticId::FLIGHT_RUNNER_phaseChangeUnexpected));
 
-  tick(5);
+  tick(FILTER_RATE);
 
   EXPECT_TRUE(validateNoError());
 
@@ -341,16 +341,16 @@ TEST_F(FlightPhaseManagerTest, ascentToRecovery) {
 TEST_F(FlightPhaseManagerTest, descentToRecovery) {
   bringToDescent();
   setParamsRecovery();
-  tick();
+  tick(FILTER_RATE);
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::RECOVERY);
   EXPECT_TRUE(
       validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
 
-  tick(5);
+  tick(FILTER_RATE);
 
   EXPECT_TRUE(validateNoError());
 
-  // No transition, so now new data.
+  // No transition, so no new data.
   EXPECT_TRUE(validateNoData());
 
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::RECOVERY);

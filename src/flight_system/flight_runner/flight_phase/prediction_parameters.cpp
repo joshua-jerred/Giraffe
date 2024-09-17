@@ -24,18 +24,19 @@ using InvalidFilter = PredictionParameters::Parameter::InvalidateFilter;
 /// @todo All of these need to be configurable.
 /// @todo Think about if any filtering needs to be done on the data or if it's
 /// all already hit somewhere else.
-inline std::array<
-    // clang-format off
-  Parameter, static_cast<uint8_t>(Parameter::Id::NUM_PARAMETERS)>
-  PARAMETER_DATA = {
-  Parameter{ Id::MISSION_CLOCK,
+
+std::array<Parameter, static_cast<uint8_t>(Parameter::Id::NUM_PARAMETERS)>
+buildParametersArray() {
+  return {
+      // clang-format off
+  Parameter( Id::MISSION_CLOCK,
     Validation::IN_RANGE, InvalidFilter::CLAMP_IN_RANGE,
     -31536000.0, 31536000.0
-  },
-  Parameter{ Id::UP_TIME, 
+  ),
+  Parameter( Id::UP_TIME, 
     Validation::IN_RANGE, InvalidFilter::CLAMP_IN_RANGE, 
     1.0, 31536000.0
-  },
+  ),
   Parameter{ Id::GPS_ALTITUDE,
     Validation::IN_RANGE, InvalidFilter::DO_NOT_UPDATE, -450.0, 50000.0
   },
@@ -69,7 +70,8 @@ inline std::array<
     Validation::IN_RANGE, InvalidFilter::ALWAYS_UPDATE, 0.0, 3500000.0
   },
 };
-// clang-format on
+  // clang-format on
+}
 
 PredictionParameters::Parameter::Parameter(Parameter::Id id,
                                            Validation validation,
@@ -79,12 +81,15 @@ PredictionParameters::Parameter::Parameter(Parameter::Id id,
       invalidate_filter{filter}, min{minimum}, max{maximum} {};
 
 PredictionParameters::PredictionParameters(data::SharedData &shared_data)
-    : parameters_{PARAMETER_DATA}, flight_data_(shared_data.flight_data),
+    : parameters_{buildParametersArray()},
+      flight_data_(shared_data.flight_data),
       calculated_data_(shared_data.blocks.calculated_data),
       location_data_(shared_data.blocks.location_data),
       imu_data_(shared_data.blocks.imu_data) {
 
   for (size_t i = 0; i < parameters_.size(); i++) {
-    giraffe_assert(parameters_.at(i).id == static_cast<Id>(i));
+    if (parameters_.at(i).id != static_cast<Id>(i)) {
+      giraffe_assert(false);
+    }
   }
 }

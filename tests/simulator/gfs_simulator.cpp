@@ -41,7 +41,7 @@ void GfsSimulator::run() {
   flight_stopwatch_.start();
   while (!stop_flag_) {
     bst::sleep(K_SLEEP_INTERVAL_MS);
-    elapsed_seconds_ = flight_stopwatch_.elapsed(bst::Resolution::SECONDS);
+    elapsed_seconds_ = flight_stopwatch_.elapsedSecondsF();
     if (state_machine_timer_.isDone()) {
       physics_.update(K_DELTA_TIME_S);
       stateMachine();

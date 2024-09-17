@@ -98,7 +98,7 @@ public:
       CLAMP_IN_RANGE,
     };
 
-    Parameter() = default;
+    // Parameter() = default;
     Parameter(
         Parameter::Id id, Validation validation = Validation::NONE,
         InvalidateFilter invalidate_filter = InvalidateFilter::ALWAYS_UPDATE,
@@ -284,7 +284,7 @@ private:
 
   /// @brief An array that contains all of the parameters.
   std::array<Parameter, static_cast<uint8_t>(Parameter::Id::NUM_PARAMETERS)>
-      parameters_{};
+      parameters_;
 
   data::FlightData &flight_data_;
   data::blocks::Block<data::blocks::CalculatedData> &calculated_data_;

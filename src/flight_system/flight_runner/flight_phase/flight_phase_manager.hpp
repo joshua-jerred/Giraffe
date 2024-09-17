@@ -56,21 +56,24 @@ public:
   ~FlightPhaseManager() = default;
 
   /// @brief Update the flight phase manager.
-  void update() {
+  /// @return \c true if the phase changed, \c false otherwise.
+  bool update() {
     if (!phase_update_timer_.isDone()) {
-      return;
+      return false;
     }
+    phase_update_timer_.reset();
 
     phase_predictor_.update();
 
     FlightPhase predicted_phase = phase_predictor_.getPredictedPhase();
     phase_filter_.addValue(predicted_phase);
-    flightPhaseUpdate(predicted_phase);
 
     Probability probability = phase_predictor_.getPhaseProbability();
     shared_data_.flight_data.setPhasePrediction(
         predicted_phase, probability.launch, probability.ascent,
         probability.descent, probability.recovery, probability.data_quality);
+
+    return flightPhaseUpdate(phase_filter_.getCurrentValue());
   }
 
   /// @brief Get the current flight phase. This is the phase that the entire
@@ -99,7 +102,7 @@ public:
   }
 
 private:
-  void flightPhaseUpdate(FlightPhase new_phase) {
+  bool flightPhaseUpdate(FlightPhase new_phase) {
     FlightPhase current_phase = flight_phase_;
 
     bool change_allowed = true;
@@ -109,17 +112,17 @@ private:
     if (new_phase == FlightPhase::UNKNOWN) {
       // Suppress the error if we are in pre-launch.
       if (current_phase == FlightPhase::PRE_LAUNCH) {
-        return;
+        return false;
       }
 
       // Suppress the error if we have already reported it.
       if (unknown_phase_error_reported_) {
-        return;
+        return false;
       }
 
       logger_.error(DiagnosticId::FLIGHT_RUNNER_flightPhaseUnknown);
       unknown_phase_error_reported_ = true;
-      return;
+      return false;
     } else {
       unknown_phase_error_reported_ = false;
     }
@@ -127,7 +130,7 @@ private:
     // Staying in the same phase.
     if (new_phase == current_phase) {
       phase_valid_watchdog_.reset();
-      return;
+      return false;
     }
 
     static_assert(static_cast<uint8_t>(FlightPhase::NUM_PHASES) == 6,
@@ -147,7 +150,7 @@ private:
         // user. If we are set to pre-launch, the phase predictor will report
         // launch.
         phase_valid_watchdog_.reset();
-        return;
+        return false;
       }
 
       // Entering the pre-launch phase is a manual process. However, safety wise
@@ -213,7 +216,7 @@ private:
       logger_.error(DiagnosticId::FLIGHT_RUNNER_phaseChangeInvalid,
                     util::to_string(current_phase) + " -> " +
                         util::to_string(new_phase));
-      return;
+      return false;
     }
 
     if (unexpected_change) {
@@ -224,6 +227,8 @@ private:
 
     phase_valid_watchdog_.reset();
     setFlightPhase(new_phase);
+
+    return true;
   }
 
   void setFlightPhase(FlightPhase new_phase) {
