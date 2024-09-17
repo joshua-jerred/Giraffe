@@ -63,7 +63,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="namespacedata.html#structdata_1_1ImuFrame" target="_top" xlink:title="A frame of IMU data, straight from an IMU extension.">
+<g id="a_node6"><a xlink:href="namespacedata.html#structdata_1_1ImuFrame" target="_top" xlink:title="A frame of +IMU data, straight from an IMU extension.">
 <polygon fill="none" stroke="black" points="117,-105.5 117,-162.5 211,-162.5 211,-105.5 117,-105.5"/>
 <text text-anchor="middle" x="164" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::ImuFrame</text>
 <polyline fill="none" stroke="black" points="117,-143.5 211,-143.5 "/>

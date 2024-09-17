@@ -270,56 +270,56 @@
 <g id="node11" class="node">
 <title>Node11</title>
 <g id="a_node11"><a xlink:href="classdata_1_1blocks_1_1Block.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="1660.5,-6 1660.5,-129 1829.5,-129 1829.5,-6 1660.5,-6"/>
-<text text-anchor="start" x="1668.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">data::blocks::Block</text>
-<text text-anchor="middle" x="1745" y="-106" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; data::blocks::LocationData &gt;</text>
-<polyline fill="none" stroke="black" points="1660.5,-99 1829.5,-99 "/>
-<text text-anchor="start" x="1668.5" y="-87" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; data_</text>
-<text text-anchor="start" x="1668.5" y="-76" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; last_updated_</text>
-<text text-anchor="start" x="1668.5" y="-65" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; mutex_</text>
-<polyline fill="none" stroke="black" points="1660.5,-58 1829.5,-58 "/>
-<text text-anchor="start" x="1668.5" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">+ get()</text>
-<text text-anchor="start" x="1668.5" y="-35" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAgeMs()</text>
-<text text-anchor="start" x="1668.5" y="-24" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAgeSec()</text>
-<text text-anchor="start" x="1668.5" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">+ set()</text>
+<polygon fill="none" stroke="black" points="1660.5,-0.5 1660.5,-134.5 1837.5,-134.5 1837.5,-0.5 1660.5,-0.5"/>
+<text text-anchor="start" x="1668.5" y="-122.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::blocks::Block</text>
+<text text-anchor="start" x="1668.5" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; data::blocks::ExtensionModule</text>
+<text text-anchor="middle" x="1749" y="-100.5" font-family="Helvetica,sans-Serif" font-size="10.00">Stats &gt;</text>
+<polyline fill="none" stroke="black" points="1660.5,-93.5 1837.5,-93.5 "/>
+<text text-anchor="start" x="1668.5" y="-81.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; data_</text>
+<text text-anchor="start" x="1668.5" y="-70.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; last_updated_</text>
+<text text-anchor="start" x="1668.5" y="-59.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; mutex_</text>
+<polyline fill="none" stroke="black" points="1660.5,-52.5 1837.5,-52.5 "/>
+<text text-anchor="start" x="1668.5" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ get()</text>
+<text text-anchor="start" x="1668.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAgeMs()</text>
+<text text-anchor="start" x="1668.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAgeSec()</text>
+<text text-anchor="start" x="1668.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ set()</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node11 -->
 <g id="edge10" class="edge">
 <title>Node1&#45;&gt;Node11</title>
-<path fill="none" stroke="orange" d="M1135.96,-246.15C1278.21,-240.74 1570.92,-223.87 1659,-175 1678.64,-164.11 1695.5,-146.74 1708.95,-129.17"/>
-<polygon fill="orange" stroke="orange" points="1135.44,-242.67 1125.57,-246.54 1135.7,-249.67 1135.44,-242.67"/>
-<text text-anchor="start" x="1686" y="-167" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; data::blocks::Location</text>
-<text text-anchor="middle" x="1746.5" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">Data &gt;</text>
+<path fill="none" stroke="orange" d="M1136.13,-245.95C1278.31,-240.22 1570.43,-222.85 1659,-175 1677,-165.28 1692.92,-150.37 1706.17,-134.76"/>
+<polygon fill="orange" stroke="orange" points="1135.6,-242.47 1125.75,-246.36 1135.87,-249.47 1135.6,-242.47"/>
+<text text-anchor="start" x="1687" y="-167" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; data::blocks::Extension</text>
+<text text-anchor="middle" x="1751" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">ModuleStats &gt;</text>
 </g>
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
 <g id="a_node12"><a xlink:href="classdata_1_1blocks_1_1Block.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="1847.5,-0.5 1847.5,-134.5 2024.5,-134.5 2024.5,-0.5 1847.5,-0.5"/>
-<text text-anchor="start" x="1855.5" y="-122.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::blocks::Block</text>
-<text text-anchor="start" x="1855.5" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; data::blocks::ExtensionModule</text>
-<text text-anchor="middle" x="1936" y="-100.5" font-family="Helvetica,sans-Serif" font-size="10.00">Stats &gt;</text>
-<polyline fill="none" stroke="black" points="1847.5,-93.5 2024.5,-93.5 "/>
-<text text-anchor="start" x="1855.5" y="-81.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; data_</text>
-<text text-anchor="start" x="1855.5" y="-70.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; last_updated_</text>
-<text text-anchor="start" x="1855.5" y="-59.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; mutex_</text>
-<polyline fill="none" stroke="black" points="1847.5,-52.5 2024.5,-52.5 "/>
-<text text-anchor="start" x="1855.5" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ get()</text>
-<text text-anchor="start" x="1855.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAgeMs()</text>
-<text text-anchor="start" x="1855.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAgeSec()</text>
-<text text-anchor="start" x="1855.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ set()</text>
+<polygon fill="none" stroke="black" points="1855.5,-6 1855.5,-129 2024.5,-129 2024.5,-6 1855.5,-6"/>
+<text text-anchor="start" x="1863.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">data::blocks::Block</text>
+<text text-anchor="middle" x="1940" y="-106" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; data::blocks::LocationData &gt;</text>
+<polyline fill="none" stroke="black" points="1855.5,-99 2024.5,-99 "/>
+<text text-anchor="start" x="1863.5" y="-87" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; data_</text>
+<text text-anchor="start" x="1863.5" y="-76" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; last_updated_</text>
+<text text-anchor="start" x="1863.5" y="-65" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; mutex_</text>
+<polyline fill="none" stroke="black" points="1855.5,-58 2024.5,-58 "/>
+<text text-anchor="start" x="1863.5" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">+ get()</text>
+<text text-anchor="start" x="1863.5" y="-35" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAgeMs()</text>
+<text text-anchor="start" x="1863.5" y="-24" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAgeSec()</text>
+<text text-anchor="start" x="1863.5" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">+ set()</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node12 -->
 <g id="edge11" class="edge">
 <title>Node1&#45;&gt;Node12</title>
-<path fill="none" stroke="orange" d="M1135.67,-246.77C1303.43,-242.11 1690.8,-226.02 1811,-175 1833.44,-165.48 1854.83,-150.43 1873.38,-134.62"/>
-<polygon fill="orange" stroke="orange" points="1135.57,-243.27 1125.67,-247.04 1135.76,-250.26 1135.57,-243.27"/>
-<text text-anchor="start" x="1847" y="-167" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; data::blocks::Extension</text>
-<text text-anchor="middle" x="1911" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">ModuleStats &gt;</text>
+<path fill="none" stroke="orange" d="M1135.62,-247.01C1304.77,-242.82 1697.7,-227.57 1819,-175 1843.52,-164.37 1866.59,-146.85 1885.87,-129.06"/>
+<polygon fill="orange" stroke="orange" points="1135.46,-243.51 1125.54,-247.25 1135.62,-250.51 1135.46,-243.51"/>
+<text text-anchor="start" x="1854" y="-167" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; data::blocks::Location</text>
+<text text-anchor="middle" x="1914.5" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">Data &gt;</text>
 </g>
 <!-- Node13 -->
 <g id="node13" class="node">

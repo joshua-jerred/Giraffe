@@ -1,0 +1,24 @@
+var classFlightPhaseManager =
+[
+    [ "Probability", "classFlightPhaseManager.html#ac153ca5d0847d54d9d2537a0999619f0", null ],
+    [ "FlightPhaseManager", "classFlightPhaseManager.html#a5d16d39a6d55250c01f1d90102155f31", null ],
+    [ "~FlightPhaseManager", "classFlightPhaseManager.html#a84f30cbb3db0d12dc6cb09fce7630249", null ],
+    [ "update", "classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286", null ],
+    [ "getCurrentFlightPhase", "classFlightPhaseManager.html#af0192410de435610b083e723959fc6d7", null ],
+    [ "requestLaunch", "classFlightPhaseManager.html#aaeda08c0192943de07649ee8e85fd064", null ],
+    [ "setPreLaunch", "classFlightPhaseManager.html#a639bfe7ca534d0904f57e4851f766aa2", null ],
+    [ "flightPhaseUpdate", "classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d", null ],
+    [ "setFlightPhase", "classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f", null ],
+    [ "flight_phase_", "classFlightPhaseManager.html#a8787d36d341b65719e9e4ed39d8a05f1", null ],
+    [ "phase_predictor_", "classFlightPhaseManager.html#abb3b90c9dfffe0b6ef09fc4ea0eae68a", null ],
+    [ "UPDATE_RATE_", "classFlightPhaseManager.html#a69d77fc7682a5026ca141968b5cd09c6", null ],
+    [ "PHASE_FILTER_THRESHOLD_", "classFlightPhaseManager.html#aa24842e6a595066fb0243239ccaf151a", null ],
+    [ "phase_filter_", "classFlightPhaseManager.html#a08f0fd34f8be5a7509b821fc01f9a9fe", null ],
+    [ "prob_", "classFlightPhaseManager.html#a1bb765646473388df272cbab38450dbb", null ],
+    [ "phase_update_timer_", "classFlightPhaseManager.html#a16ee7953e421b6a8378b63cac2369949", null ],
+    [ "PHASE_VALID_TIMEOUT_MS", "classFlightPhaseManager.html#aa9d898e054f700a2d9917d930195ee72", null ],
+    [ "phase_valid_watchdog_", "classFlightPhaseManager.html#ae5085dd801445a4bfe3579248cd2b66a", null ],
+    [ "shared_data_", "classFlightPhaseManager.html#a3e8556d740cd25d2ef8bdb3da301da5b", null ],
+    [ "logger_", "classFlightPhaseManager.html#a7441c7324c9ec369fa1a8dc02b0e106e", null ],
+    [ "unknown_phase_error_reported_", "classFlightPhaseManager.html#a05e1252ab068f3d36e78c4b105bc24e2", null ]
+];

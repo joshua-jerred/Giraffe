@@ -1,22 +1,37 @@
 <map id="FlightRunner::flightLogic" name="FlightRunner::flightLogic">
-<area shape="rect" id="node1" title="The main flight logic function. Called in the flight loop." alt="" coords="5,147,185,174"/>
-<area shape="rect" id="node2" href="$classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05" title="Detects the current flight phase and sets it in the shared data. flight_phase.hpp." alt="" coords="233,140,424,181"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1FlightRunnerData.html#a6adac9db38e843c2805cad0d212956ef" title=" " alt="" coords="483,5,670,47"/>
-<area shape="rect" id="node4" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="748,173,941,215"/>
-<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="1276,214,1439,241"/>
-<area shape="rect" id="node8" href="$classFlightRunner.html#a9a583807049320acfbeebaf634430f88" title="This method defines the transitions of the flight phase state machine." alt="" coords="472,305,681,331"/>
-<area shape="rect" id="node19" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="1055,122,1163,149"/>
-<area shape="rect" id="node20" href="$classdata_1_1FlightData.html#a91bd9a19e444354fd8a26477ce88dbf8" title=" " alt="" coords="479,356,674,397"/>
-<area shape="rect" id="node6" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="1505,340,1692,381"/>
-<area shape="rect" id="node7" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="1509,257,1689,299"/>
-<area shape="rect" id="node9" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="1257,366,1457,393"/>
-<area shape="rect" id="node10" href="$classFlightRunner.html#acc2f1a518af2fac43a9320db2854521a" title=" " alt="" coords="735,531,955,558"/>
-<area shape="rect" id="node12" href="$classgiraffe_1_1FlightRunnerData.html#ac2b08f44adf4ed3ab384cd8e5c947578" title=" " alt="" coords="751,465,938,507"/>
-<area shape="rect" id="node13" href="$classgiraffe_1_1StatusLedState.html#a33c2fe6fdb8008af2710221ef5640c30" title=" " alt="" coords="759,239,930,280"/>
-<area shape="rect" id="node14" href="$classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="729,355,960,382"/>
-<area shape="rect" id="node11" href="$classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8" title=" " alt="" coords="1271,428,1444,469"/>
-<area shape="rect" id="node15" href="$classgiraffe_1_1FlightRunnerData.html#ad522ef22add361da8fd8dda6dda7930a" title="Clears the launch position/set it to invalid." alt="" coords="1015,173,1202,215"/>
-<area shape="rect" id="node16" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="1025,239,1193,266"/>
-<area shape="rect" id="node17" href="$classgiraffe_1_1FlightRunnerData.html#aec5ac065bece8131a74452bd55615b02" title="Set the launch position. Called on the transition from pre&#45;launch to launch." alt="" coords="1015,291,1202,332"/>
-<area shape="rect" id="node18" href="$classdata_1_1FlightData.html#af8689e42e3dcf4e6813bb608ed36a441" title=" " alt="" coords="1008,356,1209,397"/>
+<area shape="rect" id="node1" title="The main flight logic function. Called in the flight loop." alt="" coords="5,259,185,286"/>
+<area shape="rect" id="node2" href="$classFlightRunner.html#a5d3886d14a2848d50a92a7d5d770ba27" title=" " alt="" coords="233,91,457,118"/>
+<area shape="rect" id="node7" href="$classFlightPhaseManager.html#af0192410de435610b083e723959fc6d7" title="Get the current flight phase. This is the phase that the entire system will use." alt="" coords="258,317,433,359"/>
+<area shape="rect" id="node8" href="$classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286" title="Update the flight phase manager." alt="" coords="268,252,423,293"/>
+<area shape="rect" id="node3" href="$classFlightRunner.html#acc2f1a518af2fac43a9320db2854521a" title=" " alt="" coords="505,31,725,58"/>
+<area shape="rect" id="node6" href="$classgiraffe_1_1StatusLedState.html#a33c2fe6fdb8008af2710221ef5640c30" title=" " alt="" coords="530,84,701,125"/>
+<area shape="rect" id="node4" href="$classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8" title=" " alt="" coords="1251,5,1424,47"/>
+<area shape="rect" id="node5" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="1485,83,1716,124"/>
+<area shape="rect" id="node9" href="$classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d" title=" " alt="" coords="538,153,693,195"/>
+<area shape="rect" id="node19" href="$classFlightPhasePredictor.html#aa56a7eeb78fb0ce2407ea537236bdcd3" title="Get the phase probabilities structure." alt="" coords="535,219,695,260"/>
+<area shape="rect" id="node20" href="$classFlightPhasePredictor.html#a7f865ee9e6f156605ac2d92241ab2b0f" title="Get the predicted flight phase." alt="" coords="537,284,693,325"/>
+<area shape="rect" id="node21" href="$classdata_1_1FlightData.html#a3aaa12475187e63a50a331fe629a52b4" title=" " alt="" coords="518,349,713,391"/>
+<area shape="rect" id="node22" href="$classFlightPhasePredictor.html#a325f1d196644bc5ef1e635ef855f3d87" title="Update the flight phase predictor." alt="" coords="537,415,693,456"/>
+<area shape="rect" id="node10" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="777,122,931,149"/>
+<area shape="rect" id="node15" href="$classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f" title=" " alt="" coords="777,191,931,232"/>
+<area shape="rect" id="node18" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="1032,290,1140,317"/>
+<area shape="rect" id="node11" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="1002,71,1170,98"/>
+<area shape="rect" id="node14" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="1011,122,1161,149"/>
+<area shape="rect" id="node12" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="1256,122,1419,149"/>
+<area shape="rect" id="node13" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="1511,165,1691,207"/>
+<area shape="rect" id="node16" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="1237,173,1437,199"/>
+<area shape="rect" id="node17" href="$classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233" title=" " alt="" coords="990,224,1182,265"/>
+<area shape="rect" id="node23" href="$classFlightPhasePredictor.html#a67c51546dbc5964234cd0a4f654693eb" title="Using the probabilities, determine the current flight phase." alt="" coords="776,349,932,391"/>
+<area shape="rect" id="node24" href="$classFlightPhasePredictor.html#a279cdca168c55a7a87984270930e773c" title="Process all rule sets of every phase and calculate the probabilities." alt="" coords="776,415,932,456"/>
+<area shape="rect" id="node29" href="$classPredictionParameters.html#a653d146841619901d7634f36420ff82c" title="Updates all of the parameters." alt="" coords="773,532,935,573"/>
+<area shape="rect" id="node25" href="$prediction__model_8cpp.html#ab8ef2fff1f82ac60205ea16e5537774a" title="A function to get the entire rules map." alt="" coords="1006,363,1166,390"/>
+<area shape="rect" id="node26" href="$classFlightPhasePredictor.html#a0e7d6889689ccc30275b9be9b60db30a" title="Get the probability points from a rule set." alt="" coords="999,415,1173,456"/>
+<area shape="rect" id="node27" href="$classFlightPhasePredictor.html#a4e55b025bca64f4116b1518669d10233" title="Get the probability points from a rule." alt="" coords="1259,415,1415,456"/>
+<area shape="rect" id="node28" href="$classPredictionParameters.html#af92ad5644fdbd46359ca3771cd9f6453" title="Get a parameter by its ID." alt="" coords="1520,415,1681,456"/>
+<area shape="rect" id="node30" href="$classdata_1_1blocks_1_1Block.html#a2237ade9275911c4fd9d0d264accfa7b" title=" " alt="" coords="999,481,1173,507"/>
+<area shape="rect" id="node31" href="$classdata_1_1FlightData.html#a7a9f92a351f196a88523a992af33bdc6" title="Get the mission clock time in seconds. May be negative or positive. A negative value is in the future..." alt="" coords="983,532,1189,573"/>
+<area shape="rect" id="node32" href="$classdata_1_1FlightData.html#a768e08b7bfbc117f31838a9220e18ada" title="The number of seconds since the flight runner was started." alt="" coords="984,597,1188,639"/>
+<area shape="rect" id="node33" href="$classPredictionParameters.html#ade567365801b428c507ec91ee05c89e0" title="Validates, filters, and updates a parameter&#39;s value." alt="" coords="1005,663,1167,704"/>
+<area shape="rect" id="node34" href="$classPredictionParameters.html#a87733a1be1951e372c291dc4cb130ad4" title="Applies a filter to a parameter. Does not update the parameter. or care if it&#39;s valid." alt="" coords="1257,629,1418,671"/>
+<area shape="rect" id="node35" href="$classPredictionParameters.html#aabfeefcd2cc0a9cb1e47510d62ffd0f8" title="Validates a parameter." alt="" coords="1257,695,1418,736"/>
 </map>

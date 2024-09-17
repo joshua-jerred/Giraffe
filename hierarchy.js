@@ -53,7 +53,9 @@ var hierarchy =
     [ "data::GpsFrame", "structdata_1_1GpsFrame.html", null ],
     [ "data::ImuFrame", "namespacedata.html#structdata_1_1ImuFrame", null ],
     [ "data::SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", null ],
-    [ "data::SharedData", "namespacedata.html#structdata_1_1SharedData", null ],
+    [ "data::SharedData", "structdata_1_1SharedData.html", [
+      [ "FakeSharedData", "classFakeSharedData.html", null ]
+    ] ],
     [ "data::Stream< T >", "classdata_1_1Stream.html", null ],
     [ "data::Streams", "namespacedata.html#structdata_1_1Streams", null ],
     [ "data_middleware::AdcInterpolation", "classdata__middleware_1_1AdcInterpolation.html", null ],
@@ -63,6 +65,7 @@ var hierarchy =
     [ "data_middleware::FileSystemManager", "classdata__middleware_1_1FileSystemManager.html", null ],
     [ "data_middleware::InfluxDb", "classdata__middleware_1_1InfluxDb.html", null ],
     [ "data_middleware::InfluxLine", "structdata__middleware_1_1InfluxLine.html", null ],
+    [ "DetectionDataTest::TestContainer", "classDetectionDataTest.html#structDetectionDataTest_1_1TestContainer", null ],
     [ "extension::Bme280::CompensationData", "classextension_1_1Bme280.html#structextension_1_1Bme280_1_1CompensationData", null ],
     [ "extension::Extension", "classextension_1_1Extension.html", [
       [ "extension::AdcExtensionBase", "classextension_1_1AdcExtensionBase.html", [
@@ -89,6 +92,11 @@ var hierarchy =
       [ "extension::Mcp3021", "classextension_1_1Mcp3021.html", null ]
     ] ],
     [ "ExtensionTestFramework", "classExtensionTestFramework.html", null ],
+    [ "FlightPhaseManager", "classFlightPhaseManager.html", null ],
+    [ "FlightPhaseManagerTest::TestContainer", "classFlightPhaseManagerTest.html#structFlightPhaseManagerTest_1_1TestContainer", null ],
+    [ "FlightPhasePredictor", "classFlightPhasePredictor.html", null ],
+    [ "FlightPhasePredictor::Probability", "classFlightPhasePredictor.html#structFlightPhasePredictor_1_1Probability", null ],
+    [ "FlightPhasePredictorTest::TestContainer", "classFlightPhasePredictorTest.html#structFlightPhasePredictorTest_1_1TestContainer", null ],
     [ "FlightRunner", "classFlightRunner.html", null ],
     [ "data::Frame< DiagnosticId, ErrorFrameItem >", "classdata_1_1Frame.html", [
       [ "data::ErrorFrame", "classdata_1_1ErrorFrame.html", null ]
@@ -126,9 +134,11 @@ var hierarchy =
     [ "giraffe::LoggerEntry", "structgiraffe_1_1LoggerEntry.html", null ],
     [ "giraffe::SpiInterface", "classgiraffe_1_1SpiInterface.html", null ],
     [ "giraffe::SpiInterface::Config", "classgiraffe_1_1SpiInterface.html#structgiraffe_1_1SpiInterface_1_1Config", null ],
+    [ "giraffe::StatusLedChannel", "classgiraffe_1_1StatusLedChannel.html", null ],
     [ "giraffe::StatusLedState", "classgiraffe_1_1StatusLedState.html", null ],
     [ "I2cInterface", "classI2cInterface.html", null ],
     [ "LogContainer", "classLogContainer.html", null ],
+    [ "MissionClock", "classMissionClock.html", null ],
     [ "modules::ExtensionModule::ExtContainer", "structmodules_1_1ExtensionModule_1_1ExtContainer.html", null ],
     [ "modules::MetaData", "structmodules_1_1MetaData.html", null ],
     [ "modules::Module", "classmodules_1_1Module.html", [
@@ -144,8 +154,11 @@ var hierarchy =
     [ "ncurs::Pages", "classncurs_1_1Pages.html", null ],
     [ "ncurs::Window", "classncurs_1_1Window.html", null ],
     [ "OneWireInterface", "classOneWireInterface.html", null ],
+    [ "PredictionParameters", "classPredictionParameters.html", null ],
+    [ "PredictionParameters::Parameter", "structPredictionParameters_1_1Parameter.html", null ],
     [ "protocol::Message", "structprotocol_1_1Message.html", null ],
     [ "RequestRouter", "group__ServerModule.html#classRequestRouter", null ],
+    [ "Rule", "prediction__model_8hpp.html#structRule", null ],
     [ "sock::TcpSocketServer", "group__ServerModule.html#classsock_1_1TcpSocketServer", null ],
     [ "std::exception", null, [
       [ "GiraffeException", "classGiraffeException.html", null ]
@@ -168,7 +181,10 @@ var hierarchy =
     [ "testing::Test", null, [
       [ "ConfigurationTest", "classConfigurationTest.html", null ],
       [ "DataModuleTests", "classDataModuleTests.html", null ],
+      [ "DetectionDataTest", "classDetectionDataTest.html", null ],
       [ "ExtensionModuleTests", "classExtensionModuleTests.html", null ],
+      [ "FlightPhaseManagerTest", "classFlightPhaseManagerTest.html", null ],
+      [ "FlightPhasePredictorTest", "classFlightPhasePredictorTest.html", null ],
       [ "ProtocolTest", "classProtocolTest.html", null ]
     ] ],
     [ "ubx::NavData", "namespaceubx.html#structubx_1_1NavData", null ],

@@ -20,7 +20,7 @@ var namespacedata =
     [ "LogPacket", "structdata_1_1LogPacket.html", "structdata_1_1LogPacket" ],
     [ "LogStream", "classdata_1_1LogStream.html", "classdata_1_1LogStream" ],
     [ "SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", "namespacedata_structdata_1_1SharedBlocks_dup" ],
-    [ "SharedData", "namespacedata.html#structdata_1_1SharedData", "namespacedata_structdata_1_1SharedData_dup" ],
+    [ "SharedData", "structdata_1_1SharedData.html", "structdata_1_1SharedData" ],
     [ "Stream", "classdata_1_1Stream.html", "classdata_1_1Stream" ],
     [ "Streams", "namespacedata.html#structdata_1_1Streams", "namespacedata_structdata_1_1Streams_dup" ],
     [ "GpsFix", "namespacedata.html#ab828a916e0a524f5d9d29e881a1e829b", [

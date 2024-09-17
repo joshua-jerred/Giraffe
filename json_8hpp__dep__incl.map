@@ -1,52 +1,52 @@
 <map id="json.hpp" name="json.hpp">
-<area shape="rect" id="node1" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="825,5,903,32"/>
-<area shape="rect" id="node2" href="$validation_8hpp.html" title=" " alt="" coords="1627,319,1741,345"/>
-<area shape="rect" id="node5" href="$flight__runner__data_8cpp.html" title="Implementation of non&#45;volatile data for the flight runner." alt="" coords="627,80,794,107"/>
-<area shape="rect" id="node6" href="$to__json_8hpp.html" title="Utility functions for converting data to JSON." alt="" coords="231,80,329,107"/>
-<area shape="rect" id="node8" href="$blocks_8hpp.html" title=" " alt="" coords="818,80,910,107"/>
-<area shape="rect" id="node43" href="$protocol_8hpp.html" title="Declares the protocol namespace and its associated types." alt="" coords="1654,80,1757,107"/>
-<area shape="rect" id="node3" href="$cfg__adcmappings_8cpp.html" title="ADC Mapping configuration section." alt="" coords="1767,393,1929,420"/>
-<area shape="rect" id="node4" href="$cfg__extensions_8cpp.html" title="Implements the extensions section of the configuration." alt="" coords="1596,393,1743,420"/>
-<area shape="rect" id="node7" href="$influxdb_8cpp.html" title=" " alt="" coords="5,319,107,345"/>
-<area shape="rect" id="node9" href="$shared__data_8hpp.html" title="Contains the SharedData struct, used across all modules and extensions." alt="" coords="799,155,929,181"/>
-<area shape="rect" id="node10" href="$cfg__section_8hpp.html" title="This file contains the base class for all configuration sections." alt="" coords="1454,237,1578,263"/>
-<area shape="rect" id="node13" href="$extension__base_8hpp.html" title="The new implementation of the extension system." alt="" coords="1420,393,1572,420"/>
-<area shape="rect" id="node25" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="536,543,667,569"/>
-<area shape="rect" id="node26" href="$console__pages_8hpp.html" title=" " alt="" coords="952,237,1099,263"/>
-<area shape="rect" id="node27" href="$adc__interpolation_8hpp.html" title="ADC Interpolation Utility." alt="" coords="711,319,873,345"/>
-<area shape="rect" id="node28" href="$calculated__data_8hpp.html" title="Calculates new data from the existing data." alt="" coords="898,319,1051,345"/>
-<area shape="rect" id="node29" href="$data__formatting_8hpp.html" title="This file contains the DataFormatter class, which is used to format data for the data and log files." alt="" coords="1224,237,1379,263"/>
-<area shape="rect" id="node30" href="$data__log_8hpp.html" title="The data log is responsible for writing data to files and managing the file system." alt="" coords="1229,319,1336,345"/>
-<area shape="rect" id="node31" href="$file__system__manager_8hpp.html" title=" " alt="" coords="497,319,687,345"/>
-<area shape="rect" id="node32" href="$influxdb_8hpp.html" title=" " alt="" coords="145,237,247,263"/>
-<area shape="rect" id="node33" href="$module_8hpp.html" title="The header file for the base module class." alt="" coords="1087,319,1185,345"/>
-<area shape="rect" id="node35" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="319,319,473,345"/>
-<area shape="rect" id="node40" href="$logger_8hpp.html" title="A simple logger class so difference classes have access to the same logger." alt="" coords="736,237,827,263"/>
-<area shape="rect" id="node41" href="$to__json_8cpp.html" title=" " alt="" coords="424,237,520,263"/>
-<area shape="rect" id="node42" href="$test__configuration_8cpp.html" title=" " alt="" coords="545,237,711,263"/>
-<area shape="rect" id="node11" href="$cfg__adcmappings_8hpp.html" title=" " alt="" coords="1766,319,1930,345"/>
-<area shape="rect" id="node12" href="$cfg__extensions_8hpp.html" title="The header file for the extensions section of the configuration." alt="" coords="1454,319,1602,345"/>
-<area shape="rect" id="node14" href="$adc__extension__base_8hpp.html" title="Generic ADC Extension Wrapper." alt="" coords="1802,468,1985,495"/>
-<area shape="rect" id="node15" href="$bme280_8hpp.html" title="The BME280 sensor extension." alt="" coords="2009,468,2111,495"/>
-<area shape="rect" id="node16" href="$bmi088_8hpp.html" title="Extension for the Bosch BMI088 IMU." alt="" coords="2164,543,2263,569"/>
-<area shape="rect" id="node17" href="$ds18b20_8hpp.html" title="DS18B20 extension header file." alt="" coords="834,468,939,495"/>
-<area shape="rect" id="node18" href="$extension__base_8cpp.html" title="The new implementation of the extension system." alt="" coords="963,468,1114,495"/>
-<area shape="rect" id="node19" href="$i2c__extension__adapter_8hpp.html" title="Adapter for I2C Extensions." alt="" coords="1138,468,1334,495"/>
-<area shape="rect" id="node20" href="$imu__extension__base_8hpp.html" title="Base IMU Extension." alt="" coords="2187,468,2371,495"/>
-<area shape="rect" id="node21" href="$pi__camera_8hpp.html" title="Raspberry Pi Camera Extension." alt="" coords="1358,468,1477,495"/>
-<area shape="rect" id="node22" href="$rgb__status__led_8hpp.html" title=" " alt="" coords="1501,468,1646,495"/>
-<area shape="rect" id="node23" href="$samm8q_8hpp.html" title="SAM&#45;M8Q GPS extension (I2C)." alt="" coords="1671,468,1777,495"/>
-<area shape="rect" id="node24" href="$extension__module_8hpp.html" title="This is the header file for the new extension module." alt="" coords="639,468,809,495"/>
-<area shape="rect" id="node34" href="$server__module_8hpp.html" title="Header file for the server module." alt="" coords="1008,393,1155,420"/>
-<area shape="rect" id="node36" href="$request__handler_8cpp.html" title="The request handler class implementation." alt="" coords="830,393,983,420"/>
-<area shape="rect" id="node37" href="$request__handler__data_8cpp.html" title="Request handler for data requests." alt="" coords="150,393,341,420"/>
-<area shape="rect" id="node38" href="$request__handler__image_8cpp.html" title="The image request handler implementation." alt="" coords="365,393,568,420"/>
-<area shape="rect" id="node39" href="$request__handler__settings_8cpp.html" title="The setting request handler implementation." alt="" coords="592,393,805,420"/>
-<area shape="rect" id="node44" href="$protocol_8cpp.html" title="The C++ implementation of the Giraffe Protocol." alt="" coords="1654,155,1757,181"/>
-<area shape="rect" id="node45" href="$gdl__server_8hpp.html" title="Data Link Server for Giraffe." alt="" coords="1781,155,1899,181"/>
-<area shape="rect" id="node50" href="$test__protocol_8cpp.html" title=" " alt="" coords="1923,155,2058,181"/>
-<area shape="rect" id="node46" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="1771,237,1887,263"/>
-<area shape="rect" id="node47" href="$gdl__server__request__handlers_8cpp.html" title="Handlers for REQ requests (see gdl_server.hpp)" alt="" coords="1912,229,2059,271"/>
-<area shape="rect" id="node48" href="$gdl__server__set__handlers_8cpp.html" title="Handlers for SET requests (see gdl_server.hpp)" alt="" coords="2083,237,2290,263"/>
-<area shape="rect" id="node49" href="$src_2data__link_2server_2main_8cpp.html" title="Giraffe Data Link Server Main File." alt="" coords="1664,237,1747,263"/>
+<area shape="rect" id="node1" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="2372,5,2449,32"/>
+<area shape="rect" id="node2" href="$validation_8hpp.html" title=" " alt="" coords="15,319,129,345"/>
+<area shape="rect" id="node5" href="$flight__runner__data_8cpp.html" title="Implementation of non&#45;volatile data for the flight runner." alt="" coords="2611,80,2778,107"/>
+<area shape="rect" id="node6" href="$to__json_8hpp.html" title="Utility functions for converting data to JSON." alt="" coords="2938,155,3035,181"/>
+<area shape="rect" id="node8" href="$blocks_8hpp.html" title=" " alt="" coords="2293,80,2385,107"/>
+<area shape="rect" id="node42" href="$flight__data_8hpp.html" title=" " alt="" coords="1403,80,1522,107"/>
+<area shape="rect" id="node43" href="$protocol_8hpp.html" title="Declares the protocol namespace and its associated types." alt="" coords="2433,80,2535,107"/>
+<area shape="rect" id="node3" href="$cfg__adcmappings_8cpp.html" title="ADC Mapping configuration section." alt="" coords="5,393,168,420"/>
+<area shape="rect" id="node4" href="$cfg__extensions_8cpp.html" title="Implements the extensions section of the configuration." alt="" coords="209,393,356,420"/>
+<area shape="rect" id="node7" href="$influxdb_8cpp.html" title=" " alt="" coords="2328,319,2429,345"/>
+<area shape="rect" id="node9" href="$shared__data_8hpp.html" title="Contains the SharedData struct, used across all modules and extensions." alt="" coords="1397,155,1528,181"/>
+<area shape="rect" id="node10" href="$cfg__section_8hpp.html" title="This file contains the base class for all configuration sections." alt="" coords="354,237,478,263"/>
+<area shape="rect" id="node13" href="$extension__base_8hpp.html" title="The new implementation of the extension system." alt="" coords="384,393,536,420"/>
+<area shape="rect" id="node19" href="$flight__phase__manager_8hpp.html" title=" " alt="" coords="890,393,1083,420"/>
+<area shape="rect" id="node20" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="1973,468,2104,495"/>
+<area shape="rect" id="node22" href="$flight__phase__predictor_8hpp.html" title=" " alt="" coords="1295,319,1489,345"/>
+<area shape="rect" id="node23" href="$prediction__parameters_8hpp.html" title=" " alt="" coords="1000,237,1197,263"/>
+<area shape="rect" id="node24" href="$console__pages_8hpp.html" title=" " alt="" coords="1221,237,1368,263"/>
+<area shape="rect" id="node25" href="$adc__interpolation_8hpp.html" title="ADC Interpolation Utility." alt="" coords="880,319,1043,345"/>
+<area shape="rect" id="node26" href="$calculated__data_8hpp.html" title="Calculates new data from the existing data." alt="" coords="1118,319,1271,345"/>
+<area shape="rect" id="node27" href="$data__formatting_8hpp.html" title="This file contains the DataFormatter class, which is used to format data for the data and log files." alt="" coords="1443,237,1597,263"/>
+<area shape="rect" id="node28" href="$data__log_8hpp.html" title="The data log is responsible for writing data to files and managing the file system." alt="" coords="1535,319,1641,345"/>
+<area shape="rect" id="node29" href="$file__system__manager_8hpp.html" title=" " alt="" coords="667,319,856,345"/>
+<area shape="rect" id="node30" href="$influxdb_8hpp.html" title=" " alt="" coords="2238,237,2341,263"/>
+<area shape="rect" id="node31" href="$module_8hpp.html" title="The header file for the base module class." alt="" coords="2001,319,2100,345"/>
+<area shape="rect" id="node33" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="1755,319,1909,345"/>
+<area shape="rect" id="node38" href="$logger_8hpp.html" title="A simple logger class so difference classes have access to the same logger." alt="" coords="835,237,925,263"/>
+<area shape="rect" id="node39" href="$to__json_8cpp.html" title=" " alt="" coords="1723,237,1819,263"/>
+<area shape="rect" id="node40" href="$shared__data__helpers_8hpp.html" title=" " alt="" coords="621,393,806,420"/>
+<area shape="rect" id="node41" href="$test__configuration_8cpp.html" title=" " alt="" coords="1843,237,2010,263"/>
+<area shape="rect" id="node11" href="$cfg__adcmappings_8hpp.html" title=" " alt="" coords="154,319,318,345"/>
+<area shape="rect" id="node12" href="$cfg__extensions_8hpp.html" title="The header file for the extensions section of the configuration." alt="" coords="342,319,490,345"/>
+<area shape="rect" id="node14" href="$adc__extension__base_8hpp.html" title="Generic ADC Extension Wrapper." alt="" coords="77,468,259,495"/>
+<area shape="rect" id="node15" href="$bme280_8hpp.html" title="The BME280 sensor extension." alt="" coords="283,468,386,495"/>
+<area shape="rect" id="node16" href="$bmi088_8hpp.html" title="Extension for the Bosch BMI088 IMU." alt="" coords="411,468,509,495"/>
+<area shape="rect" id="node17" href="$ds18b20_8hpp.html" title="DS18B20 extension header file." alt="" coords="534,468,639,495"/>
+<area shape="rect" id="node18" href="$extension__base_8cpp.html" title="The new implementation of the extension system." alt="" coords="663,468,814,495"/>
+<area shape="rect" id="node21" href="$test__flight__phase__manager_8cpp.html" title=" " alt="" coords="868,468,1092,495"/>
+<area shape="rect" id="node32" href="$server__module_8hpp.html" title="Header file for the server module." alt="" coords="1965,393,2112,420"/>
+<area shape="rect" id="node34" href="$request__handler_8cpp.html" title="The request handler class implementation." alt="" coords="1787,393,1941,420"/>
+<area shape="rect" id="node35" href="$request__handler__data_8cpp.html" title="Request handler for data requests." alt="" coords="1107,393,1298,420"/>
+<area shape="rect" id="node36" href="$request__handler__image_8cpp.html" title="The image request handler implementation." alt="" coords="1323,393,1525,420"/>
+<area shape="rect" id="node37" href="$request__handler__settings_8cpp.html" title="The setting request handler implementation." alt="" coords="1549,393,1763,420"/>
+<area shape="rect" id="node44" href="$protocol_8cpp.html" title="The C++ implementation of the Giraffe Protocol." alt="" coords="2575,155,2678,181"/>
+<area shape="rect" id="node45" href="$gdl__server_8hpp.html" title="Data Link Server for Giraffe." alt="" coords="2703,155,2820,181"/>
+<area shape="rect" id="node50" href="$test__protocol_8cpp.html" title=" " alt="" coords="2417,155,2551,181"/>
+<area shape="rect" id="node46" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="2755,237,2871,263"/>
+<area shape="rect" id="node47" href="$gdl__server__request__handlers_8cpp.html" title="Handlers for REQ requests (see gdl_server.hpp)" alt="" coords="2896,229,3043,271"/>
+<area shape="rect" id="node48" href="$gdl__server__set__handlers_8cpp.html" title="Handlers for SET requests (see gdl_server.hpp)" alt="" coords="2417,237,2623,263"/>
+<area shape="rect" id="node49" href="$src_2data__link_2server_2main_8cpp.html" title="Giraffe Data Link Server Main File." alt="" coords="2648,237,2731,263"/>
 </map>

@@ -1,0 +1,11 @@
+<map id="FlightPhasePredictor::getPointsFromRuleSet" name="FlightPhasePredictor::getPointsFromRuleSet">
+<area shape="rect" id="node1" title="Get the probability points from a rule set." alt="" coords="1332,39,1507,80"/>
+<area shape="rect" id="node2" href="$classFlightPhasePredictor.html#a279cdca168c55a7a87984270930e773c" title="Process all rule sets of every phase and calculate the probabilities." alt="" coords="1128,39,1284,80"/>
+<area shape="rect" id="node3" href="$classFlightPhasePredictor.html#a325f1d196644bc5ef1e635ef855f3d87" title="Update the flight phase predictor." alt="" coords="924,39,1080,80"/>
+<area shape="rect" id="node4" href="$classFlightPhasePredictorTest.html#a4526bdcea2e31560b9398c8c06de1681" title=" " alt="" coords="693,5,876,47"/>
+<area shape="rect" id="node5" href="$classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286" title="Update the flight phase manager." alt="" coords="707,71,862,112"/>
+<area shape="rect" id="node6" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="465,49,645,75"/>
+<area shape="rect" id="node7" href="$classFlightPhaseManagerTest.html#adb308f82112e0a026b62fd8a1b1182ac" title=" " alt="" coords="464,100,645,141"/>
+<area shape="rect" id="node8" href="$classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10" title=" " alt="" coords="235,71,416,112"/>
+<area shape="rect" id="node9" href="$classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819" title=" " alt="" coords="5,100,187,141"/>
+</map>

@@ -1,4 +1,0 @@
-<map id="FlightRunner::detectFlightPhase" name="FlightRunner::detectFlightPhase">
-<area shape="rect" id="node1" title="Detects the current flight phase and sets it in the shared data. flight_phase.hpp." alt="" coords="233,5,424,47"/>
-<area shape="rect" id="node2" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="5,13,185,39"/>
-</map>

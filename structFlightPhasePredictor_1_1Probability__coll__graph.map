@@ -1,0 +1,4 @@
+<map id="FlightPhasePredictor::Probability" name="FlightPhasePredictor::Probability">
+<area shape="rect" id="node1" title="A stucture that contains the probabilities of being in each phase. The probabilities range from 0 to ..." alt="" coords="5,204,161,296"/>
+<area shape="rect" id="node2" title=" " alt="" coords="50,5,117,83"/>
+</map>

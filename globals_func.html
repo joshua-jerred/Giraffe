@@ -106,7 +106,6 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <li>__assert_func()
 : <a class="el" href="giraffe__assert_8hpp.html#aac54c41eba9e07dbcdf25984bdf0ebc6">giraffe_assert.hpp</a>
 , <a class="el" href="giraffe__debug__assert_8cpp.html#a19de2b5984910465b7f8d2d71a92e746">giraffe_debug_assert.cpp</a>
-, <a class="el" href="test__configuration_8cpp.html#a19de2b5984910465b7f8d2d71a92e746">test_configuration.cpp</a>
 </li>
 <li>_disabled()
 : <a class="el" href="group__FlightRunnerConsoleHelpers.html#ga5ea7ae6d1439428d78d32bf6f33c1fb1">flight_runner.cpp</a>
@@ -126,6 +125,9 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <h3><a id="index_b"></a>- b -</h3><ul>
 <li>b2str()
 : <a class="el" href="console__pages_8cpp.html#a96e5788c95748bd78ef8bdfee6bb72ec">console_pages.cpp</a>
+</li>
+<li>buildParametersArray()
+: <a class="el" href="prediction__parameters_8cpp.html#a42d8f45b670a7017db1cf1c253830671">prediction_parameters.cpp</a>
 </li>
 </ul>
 
@@ -156,6 +158,14 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 </li>
 <li>getJsonValue()
 : <a class="el" href="json_8hpp.html#a4f6f8b5f68b1e6554933793155ff04ec">json.hpp</a>
+</li>
+<li>getPhaseRuleSetMap()
+: <a class="el" href="prediction__model_8cpp.html#ab8ef2fff1f82ac60205ea16e5537774a">prediction_model.cpp</a>
+, <a class="el" href="prediction__model_8hpp.html#ab8ef2fff1f82ac60205ea16e5537774a">prediction_model.hpp</a>
+</li>
+<li>getRulesFromModel()
+: <a class="el" href="prediction__model_8cpp.html#a584d3f4493fffc16d81e341357292c14">prediction_model.cpp</a>
+, <a class="el" href="prediction__model_8hpp.html#a584d3f4493fffc16d81e341357292c14">prediction_model.hpp</a>
 </li>
 <li>getUnixTime()
 : <a class="el" href="influxdb_8cpp.html#a72945fb4d8ea1727ad479c78048bd0e0">influxdb.cpp</a>
@@ -253,6 +263,42 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>setCalculatedDataAscent()
+: <a class="el" href="shared__data__helpers_8hpp.html#a847a2771455f903651c1c4fb0d8abd3b">shared_data_helpers.hpp</a>
+</li>
+<li>setCalculatedDataDescent()
+: <a class="el" href="shared__data__helpers_8hpp.html#afbcda5d90c24ba5857ca1e2db0cdc9e7">shared_data_helpers.hpp</a>
+</li>
+<li>setCalculatedDataInvalid()
+: <a class="el" href="shared__data__helpers_8hpp.html#aa381eb71608ff595272715b9d8c76114">shared_data_helpers.hpp</a>
+</li>
+<li>setCalculatedDataLaunch()
+: <a class="el" href="shared__data__helpers_8hpp.html#a787d8c6db9abdc70f0a66a1b9ca09e3e">shared_data_helpers.hpp</a>
+</li>
+<li>setCalculatedDataRecovery()
+: <a class="el" href="shared__data__helpers_8hpp.html#a8d97c6bf20283f8b3c4e00c2c4ae865b">shared_data_helpers.hpp</a>
+</li>
+<li>setCalculatedDataValid()
+: <a class="el" href="shared__data__helpers_8hpp.html#a5b3f9e88e1cebba75e37e067161193b2">shared_data_helpers.hpp</a>
+</li>
+<li>setLocationDataAscent()
+: <a class="el" href="shared__data__helpers_8hpp.html#a3000757af28bab236095e6b1b81106ae">shared_data_helpers.hpp</a>
+</li>
+<li>setLocationDataDescent()
+: <a class="el" href="shared__data__helpers_8hpp.html#a9b8e8703ab587ca295c54ee0eec821c9">shared_data_helpers.hpp</a>
+</li>
+<li>setLocationDataInvalid()
+: <a class="el" href="shared__data__helpers_8hpp.html#a825892ca75399d55f93437d99c2d4dab">shared_data_helpers.hpp</a>
+</li>
+<li>setLocationDataLaunch()
+: <a class="el" href="shared__data__helpers_8hpp.html#a68781b1e0af7e7597cdbe302ca6ddcc0">shared_data_helpers.hpp</a>
+</li>
+<li>setLocationDataRecovery()
+: <a class="el" href="shared__data__helpers_8hpp.html#a7571208332466f206272d835712b7e93">shared_data_helpers.hpp</a>
+</li>
+<li>setLocationDataValid()
+: <a class="el" href="shared__data__helpers_8hpp.html#a8ffb841eb7f1ade3c1d6f803cff66753">shared_data_helpers.hpp</a>
+</li>
 <li>signalHandler()
 : <a class="el" href="src_2flight__system_2main_8cpp.html#a1ff4bd1f5a632a4106604e5c243c0f24">src/flight_system/main.cpp</a>
 , <a class="el" href="src_2data__link_2server_2main_8cpp.html#a1ff4bd1f5a632a4106604e5c243c0f24">src/data_link/server/main.cpp</a>
@@ -262,29 +308,37 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>TEST()
-: <a class="el" href="test__positional_8cpp.html#a550c8beb722f9455e18827fdb69db572">test_positional.cpp</a>
-, <a class="el" href="test__error__frame_8cpp.html#a433960252b719b3e9ed729198cde6a4d">test_error_frame.cpp</a>
+: <a class="el" href="test__positional_8cpp.html#a94d671961c177174ccfd6d970a02427a">test_positional.cpp</a>
+, <a class="el" href="test__error__frame_8cpp.html#aea75e1e3c529dbbff5bd147c35517f58">test_error_frame.cpp</a>
 , <a class="el" href="test__get__fc__info_8cpp.html#af7855ab8c770965fdeb7dd1f062e9001">test_get_fc_info.cpp</a>
 , <a class="el" href="test__positional_8cpp.html#a2a6215130340220fc70f6ee6d0c12e8d">test_positional.cpp</a>
 , <a class="el" href="test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320">test_application_layer.cpp</a>
-, <a class="el" href="test__positional_8cpp.html#a94d671961c177174ccfd6d970a02427a">test_positional.cpp</a>
-, <a class="el" href="test__error__frame_8cpp.html#afd84fc04313ff1daeee626fc2bcc894a">test_error_frame.cpp</a>
+, <a class="el" href="test__positional_8cpp.html#a1c6a53b06d4a28b802627e190deb943a">test_positional.cpp</a>
+, <a class="el" href="test__prediction__model_8cpp.html#a6ae148a8bbcffa010ba392450c3fe3d8">test_prediction_model.cpp</a>
+, <a class="el" href="test__error__frame_8cpp.html#a2c121290f11c49f818560d9eba387418">test_error_frame.cpp</a>
 , <a class="el" href="test__diagnostics_8cpp.html#ac11d97bf8abd2570b344169a8f2a9155">test_diagnostics.cpp</a>
 , <a class="el" href="test__application__layer_8cpp.html#aa2ac1248e8fd45617911ed0b118ac867">test_application_layer.cpp</a>
 , <a class="el" href="test__gdl__message_8cpp.html#aa3bc09233b28d567b8c2922818bc5f1c">test_gdl_message.cpp</a>
 , <a class="el" href="test__gdl__with__audio_8cpp.html#af3909c6936a57cb5c17074206688ee2c">test_gdl_with_audio.cpp</a>
 , <a class="el" href="test__message__queue_8cpp.html#a7251b25999e45fbaa5b87476d3a39bcc">test_message_queue.cpp</a>
+, <a class="el" href="test__error__frame_8cpp.html#afd84fc04313ff1daeee626fc2bcc894a">test_error_frame.cpp</a>
+, <a class="el" href="test__command__processor_8cpp.html#a77da08139304f08c440faba00e9f27d7">test_command_processor.cpp</a>
+, <a class="el" href="test__interfaces_8cpp.html#a95307fcc7d22bab878a770100d93f7e6">test_interfaces.cpp</a>
 , <a class="el" href="test__extensions_8cpp.html#ad6457088e5afbef7cb2b47ccdb2246ab">test_extensions.cpp</a>
-, <a class="el" href="test__interfaces_8cpp.html#a1c3abf0291da43a8ae495357ab334f52">test_interfaces.cpp</a>
-, <a class="el" href="test__command__processor_8cpp.html#a321fde21744f5adc0361d17f0464c1d7">test_command_processor.cpp</a>
-, <a class="el" href="test__error__frame_8cpp.html#a2c121290f11c49f818560d9eba387418">test_error_frame.cpp</a>
-, <a class="el" href="test__message__queue_8cpp.html#a01cdbffe21d1fc3e9093d0af0230441a">test_message_queue.cpp</a>
+, <a class="el" href="test__message__queue_8cpp.html#acff1a56aaf1782e0657c2641ffdc00a2">test_message_queue.cpp</a>
 </li>
 <li>TEST_F()
-: <a class="el" href="test__protocol_8cpp.html#afa27f07d6a230d4c6343666201d6288b">test_protocol.cpp</a>
-, <a class="el" href="test__extension__module_8cpp.html#a6e4d6d488a353c419e51ff7232e9c204">test_extension_module.cpp</a>
+: <a class="el" href="test__flight__phase__manager_8cpp.html#ad06132faabae5c8b6034b91c12c86e8c">test_flight_phase_manager.cpp</a>
+, <a class="el" href="test__flight__phase__predictor_8cpp.html#adef9687fb9d61772eca9ca30eac5e092">test_flight_phase_predictor.cpp</a>
+, <a class="el" href="test__prediction__parameters_8cpp.html#af2eaf017feec4c135bcf31996f767607">test_prediction_parameters.cpp</a>
+, <a class="el" href="test__configuration_8cpp.html#adc9afad7d57f446b287e742ef2a04ef8">test_configuration.cpp</a>
+, <a class="el" href="test__prediction__parameters_8cpp.html#a843b05ecd834580cfd4144b22a939c7e">test_prediction_parameters.cpp</a>
+, <a class="el" href="test__flight__phase__manager_8cpp.html#ad03a68849824ff551e479f5e70dff77c">test_flight_phase_manager.cpp</a>
+, <a class="el" href="test__protocol_8cpp.html#afa27f07d6a230d4c6343666201d6288b">test_protocol.cpp</a>
+, <a class="el" href="test__configuration_8cpp.html#a79144e6b03cd864fcb0ee29d9ec3048b">test_configuration.cpp</a>
 , <a class="el" href="test__data__module_8cpp.html#abee14a6dbfc757906fb8cc0777192a84">test_data_module.cpp</a>
-, <a class="el" href="test__configuration_8cpp.html#a814f2a5b0f31c96e48f85a4acd4bbe01">test_configuration.cpp</a>
+, <a class="el" href="test__extension__module_8cpp.html#a6e4d6d488a353c419e51ff7232e9c204">test_extension_module.cpp</a>
+, <a class="el" href="test__flight__phase__manager_8cpp.html#a7b01efed88892c1e8a8888283127e1b7">test_flight_phase_manager.cpp</a>
 </li>
 <li>title_and_data()
 : <a class="el" href="console__pages_8cpp.html#ab949f74ccba4e5f4a7d22d9e601be27c">console_pages.cpp</a>

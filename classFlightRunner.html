@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('classFlightRunner.html',''); initResiz
 <div class="dynheader">
 Collaboration diagram for FlightRunner:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner__coll__graph.svg" width="7211" height="2428"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner__coll__graph.svg" width="7084" height="2060"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -145,6 +145,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ae966ae98c140e7880b3c7c4cbfa5cf05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35110fd5f1e796509a05952bf8114eb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a35110fd5f1e796509a05952bf8114eb9">fl_launchLogic</a> ()</td></tr>
 <tr class="separator:a35110fd5f1e796509a05952bf8114eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d3886d14a2848d50a92a7d5d770ba27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a5d3886d14a2848d50a92a7d5d770ba27">fl_phaseChanged</a> (<a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07">FlightPhase</a> new_phase)</td></tr>
+<tr class="separator:a5d3886d14a2848d50a92a7d5d770ba27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f6909a6ff682aae0d34a949462841bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a7f6909a6ff682aae0d34a949462841bd">fl_preLaunchLogic</a> ()</td></tr>
 <tr class="separator:a7f6909a6ff682aae0d34a949462841bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc2f1a518af2fac43a9320db2854521a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#acc2f1a518af2fac43a9320db2854521a">fl_reportDescent</a> ()</td></tr>
@@ -160,9 +162,6 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a6407ba5e7fca2d91a216ab35e58fd7b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">routeCommand</a> (<a class="el" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;command)</td></tr>
 <tr class="memdesc:a6407ba5e7fca2d91a216ab35e58fd7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a command to the proper module.  <a href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">More...</a><br /></td></tr>
 <tr class="separator:a6407ba5e7fca2d91a216ab35e58fd7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a583807049320acfbeebaf634430f88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a9a583807049320acfbeebaf634430f88">setFlightPhase</a> (<a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644">FlightPhase</a> phase)</td></tr>
-<tr class="memdesc:a9a583807049320acfbeebaf634430f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method defines the transitions of the flight phase state machine.  <a href="classFlightRunner.html#a9a583807049320acfbeebaf634430f88">More...</a><br /></td></tr>
-<tr class="separator:a9a583807049320acfbeebaf634430f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9506cddd9057a4fc3f1b43a15f4d8f9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">setLaunchPosition</a> ()</td></tr>
 <tr class="memdesc:aa9506cddd9057a4fc3f1b43a15f4d8f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when transitioning from pre-launch to launch phase. Sets the launch position in shared data and saves it to file.  <a href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">More...</a><br /></td></tr>
 <tr class="separator:aa9506cddd9057a4fc3f1b43a15f4d8f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,6 +170,8 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a28bee712ce96694e009e3c055e1c5020"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFlightPhaseManager.html">FlightPhaseManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a28bee712ce96694e009e3c055e1c5020">flight_phase_manager_</a></td></tr>
+<tr class="separator:a28bee712ce96694e009e3c055e1c5020"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad04b0936f84dfbd1a619f42b17aa0c27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1FlightRunnerData.html">FlightRunnerData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27">flight_runner_data_</a> = <a class="el" href="classgiraffe_1_1FlightRunnerData.html">FlightRunnerData</a>()</td></tr>
 <tr class="memdesc:ad04b0936f84dfbd1a619f42b17aa0c27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-volatile data for the flight runner.  <a href="classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27">More...</a><br /></td></tr>
 <tr class="separator:ad04b0936f84dfbd1a619f42b17aa0c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,7 +189,7 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a679e2f24e7547d2884a360f1a0eb88cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3481f326d4fa66f11536dc0dca522926"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmodules_1_1TelemetryModule.html">modules::TelemetryModule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a3481f326d4fa66f11536dc0dca522926">p_telemetry_module_</a> = nullptr</td></tr>
 <tr class="separator:a3481f326d4fa66f11536dc0dca522926"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a129764a14015b25437bc7460e70f9820"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedata.html#structdata_1_1SharedData">data::SharedData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a> = <a class="el" href="namespacedata.html#structdata_1_1SharedData">data::SharedData</a>()</td></tr>
+<tr class="memitem:a129764a14015b25437bc7460e70f9820"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdata_1_1SharedData.html">data::SharedData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a> = <a class="el" href="structdata_1_1SharedData.html">data::SharedData</a>()</td></tr>
 <tr class="separator:a129764a14015b25437bc7460e70f9820"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad67bc48e7138e28e4d9514077849cc7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightRunner.html#ad67bc48e7138e28e4d9514077849cc7d">shutdown_signal_</a> = false</td></tr>
 <tr class="separator:ad67bc48e7138e28e4d9514077849cc7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -428,13 +429,13 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="namespacecmd.html#ac807c769aa248d965dcee19e3e025624">cmd::Command::command_id</a>, <a class="el" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a49c08d83927c163a001f9a8908c2fa03">LAUNCH</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644aa9c1a88bb2291339811ab30ebf54acc5">PRE_LAUNCH</a>, <a class="el" href="classFlightRunner.html#a9a583807049320acfbeebaf634430f88">setFlightPhase()</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="classFlightRunner.html#ad67bc48e7138e28e4d9514077849cc7d">shutdown_signal_</a>, <a class="el" href="namespacecmd.html#a4df5a705227810da5bcd8f8d0326878b">cmd::Command::str_arg</a>, <a class="el" href="namespacedata.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c">toggleModule()</a>.</p>
+<p class="reference">References <a class="el" href="namespacecmd.html#ac807c769aa248d965dcee19e3e025624">cmd::Command::command_id</a>, <a class="el" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error()</a>, <a class="el" href="classFlightRunner.html#a28bee712ce96694e009e3c055e1c5020">flight_phase_manager_</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="classFlightPhaseManager.html#af0192410de435610b083e723959fc6d7">FlightPhaseManager::getCurrentFlightPhase()</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07aa9c1a88bb2291339811ab30ebf54acc5">PRE_LAUNCH</a>, <a class="el" href="classFlightPhaseManager.html#aaeda08c0192943de07649ee8e85fd064">FlightPhaseManager::requestLaunch()</a>, <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">setLaunchPosition()</a>, <a class="el" href="classFlightPhaseManager.html#a639bfe7ca534d0904f57e4851f766aa2">FlightPhaseManager::setPreLaunch()</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="classFlightRunner.html#ad67bc48e7138e28e4d9514077849cc7d">shutdown_signal_</a>, <a class="el" href="namespacecmd.html#a4df5a705227810da5bcd8f8d0326878b">cmd::Command::str_arg</a>, <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c">toggleModule()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">routeCommand()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_ad17d6bcd13dcb824062d97b36ec7fa96_cgraph.svg" width="1510" height="620"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_ad17d6bcd13dcb824062d97b36ec7fa96_cgraph.svg" width="1252" height="567"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -478,11 +479,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a">modules::Module::addCommand()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a8a4d813b0de0de20fb9eba73a71a1e9c">node::CONSOLE_MODULE</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a2ca2a0957ac70175ade816c1fabb8588">node::DATA_MODULE</a>, <a class="el" href="namespacecmd.html#a718ef116db40a0e3254cc5852229c5be">cmd::Command::destination</a>, <a class="el" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8adf40e6afff32895bb61e4287462eade3">node::EXTENSION_MODULE</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="namespacenode.html#afb5c2033cc860e84fb4b44a9929d3f7e">node::K_IDENTIFICATION_TO_STRING_MAP</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classFlightRunner.html#a90d995d0a88181208e5241b92b3fa9ca">p_console_module_</a>, <a class="el" href="classFlightRunner.html#aba54085de36a674170138a098ffab821">p_data_module_</a>, <a class="el" href="classFlightRunner.html#a01fea479a57c31424e89a0f397ff0b8b">p_extension_module_</a>, <a class="el" href="classFlightRunner.html#a70d968c507be59e86cb0861a2f058734">p_server_module_</a>, <a class="el" href="classFlightRunner.html#a3481f326d4fa66f11536dc0dca522926">p_telemetry_module_</a>, <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">processCommand()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a3df8ece3baaa3dbaab4d2294add9be3d">node::SERVER_MODULE</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="namespacedata.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7cc2660d640b0a597c45ba01f386bf62">node::TELEMETRY_MODULE</a>.</p>
+<p class="reference">References <a class="el" href="classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a">modules::Module::addCommand()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a8a4d813b0de0de20fb9eba73a71a1e9c">node::CONSOLE_MODULE</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a2ca2a0957ac70175ade816c1fabb8588">node::DATA_MODULE</a>, <a class="el" href="namespacecmd.html#a718ef116db40a0e3254cc5852229c5be">cmd::Command::destination</a>, <a class="el" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8adf40e6afff32895bb61e4287462eade3">node::EXTENSION_MODULE</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="namespacenode.html#afb5c2033cc860e84fb4b44a9929d3f7e">node::K_IDENTIFICATION_TO_STRING_MAP</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classFlightRunner.html#a90d995d0a88181208e5241b92b3fa9ca">p_console_module_</a>, <a class="el" href="classFlightRunner.html#aba54085de36a674170138a098ffab821">p_data_module_</a>, <a class="el" href="classFlightRunner.html#a01fea479a57c31424e89a0f397ff0b8b">p_extension_module_</a>, <a class="el" href="classFlightRunner.html#a70d968c507be59e86cb0861a2f058734">p_server_module_</a>, <a class="el" href="classFlightRunner.html#a3481f326d4fa66f11536dc0dca522926">p_telemetry_module_</a>, <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">processCommand()</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a3df8ece3baaa3dbaab4d2294add9be3d">node::SERVER_MODULE</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7cc2660d640b0a597c45ba01f386bf62">node::TELEMETRY_MODULE</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_a6407ba5e7fca2d91a216ab35e58fd7b3_cgraph.svg" width="1775" height="540"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_a6407ba5e7fca2d91a216ab35e58fd7b3_cgraph.svg" width="1518" height="516"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -565,11 +566,11 @@ Here is the caller graph for this function:</div>
 
 <p>The main flight logic function. Called in the flight loop. </p>
 
-<p class="reference">References <a class="el" href="classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05">detectFlightPhase()</a>.</p>
+<p class="reference">References <a class="el" href="classFlightRunner.html#a5d3886d14a2848d50a92a7d5d770ba27">fl_phaseChanged()</a>, <a class="el" href="classFlightRunner.html#a28bee712ce96694e009e3c055e1c5020">flight_phase_manager_</a>, <a class="el" href="classFlightPhaseManager.html#af0192410de435610b083e723959fc6d7">FlightPhaseManager::getCurrentFlightPhase()</a>, and <a class="el" href="classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286">FlightPhaseManager::update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_a91b3c262d2ab68bbf687b92d5acaf618_cgraph.svg" width="1698" height="564"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_a91b3c262d2ab68bbf687b92d5acaf618_cgraph.svg" width="1722" height="742"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -600,72 +601,6 @@ Here is the call graph for this function:</div>
 
 <p>Detects the current flight phase and sets it in the shared data. <a class="el" href="flight__phase_8hpp.html">flight_phase.hpp</a>. </p>
 
-<p class="reference">References <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a7047b93ddb56905562863fb339808bb4">ASCENT</a>, <a class="el" href="namespacedata.html#ab98a7a65eac8ffd555f886a6a45e3142">data::SharedData::blocks</a>, <a class="el" href="namespacedata.html#a33d3cd52c1f9199e9d46deb52e1e492f">data::SharedBlocks::calculated_data</a>, <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a038e3d035cd91784babc5492310b8e96">DESCENT</a>, <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba5eddc8631075de75c679f84846de5d51">data::FIX_3D</a>, <a class="el" href="namespacedata.html#aa9f24cdb8857cc76e2f2293797cab94b">data::SharedData::flight_data</a>, <a class="el" href="classdata_1_1FlightData.html#a6a88ae39661a092151e9df18f6cd7163">data::FlightData::flight_phase</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27">flight_runner_data_</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a6adac9db38e843c2805cad0d212956ef">giraffe::FlightRunnerData::getFlightPhase()</a>, <a class="el" href="classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d">data::FlightData::getFlightPhase()</a>, <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>, <a class="el" href="classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9">data::LogStream::info()</a>, <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a49c08d83927c163a001f9a8908c2fa03">LAUNCH</a>, <a class="el" href="namespacedata.html#a2215c3b1e8cb58300b6900340affe176">data::SharedBlocks::location_data</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644aa9c1a88bb2291339811ab30ebf54acc5">PRE_LAUNCH</a>, <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a9c90eb3f9201a7df861d94e494aa9b0b">RECOVERY</a>, <a class="el" href="classFlightRunner.html#a9a583807049320acfbeebaf634430f88">setFlightPhase()</a>, <a class="el" href="classdata_1_1FlightData.html#a91bd9a19e444354fd8a26477ce88dbf8">data::FlightData::setPhasePrediction()</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="namespacedata.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, <a class="el" href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6">util::to_string()</a>, and <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618">flightLogic()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_ae966ae98c140e7880b3c7c4cbfa5cf05_cgraph.svg" width="1470" height="564"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_ae966ae98c140e7880b3c7c4cbfa5cf05_icgraph.svg" width="430" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="a9a583807049320acfbeebaf634430f88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a583807049320acfbeebaf634430f88">&#9670;&nbsp;</a></span>setFlightPhase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void FlightRunner::setFlightPhase </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644">FlightPhase</a>&#160;</td>
-          <td class="paramname"><em>phase</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This method defines the transitions of the flight phase state machine. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">phase</td><td>The phase to transition to. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="reference">References <a class="el" href="classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac">data::DataStream::addData()</a>, <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a7047b93ddb56905562863fb339808bb4">ASCENT</a>, <a class="el" href="namespacedata.html#a22ad003376a2efe4c21e35b9a9ac9901">data::Streams::data</a>, <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a038e3d035cd91784babc5492310b8e96">DESCENT</a>, <a class="el" href="classFlightRunner.html#acc2f1a518af2fac43a9320db2854521a">fl_reportDescent()</a>, <a class="el" href="namespacedata.html#aa9f24cdb8857cc76e2f2293797cab94b">data::SharedData::flight_data</a>, <a class="el" href="classdata_1_1FlightData.html#a6a88ae39661a092151e9df18f6cd7163">data::FlightData::flight_phase</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27">flight_runner_data_</a>, <a class="el" href="classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d">data::FlightData::getFlightPhase()</a>, <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>, <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a49c08d83927c163a001f9a8908c2fa03">LAUNCH</a>, <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644aa9c1a88bb2291339811ab30ebf54acc5">PRE_LAUNCH</a>, <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a9c90eb3f9201a7df861d94e494aa9b0b">RECOVERY</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ac2b08f44adf4ed3ab384cd8e5c947578">giraffe::FlightRunnerData::setFlightPhase()</a>, <a class="el" href="classgiraffe_1_1StatusLedState.html#a33c2fe6fdb8008af2710221ef5640c30">giraffe::StatusLedState::setGreen()</a>, <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">setLaunchPosition()</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="namespacedata.html#a7c6f482dc4d558d8463ea2ffcd906fed">data::SharedData::status_led</a>, <a class="el" href="namespacedata.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, <a class="el" href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6">util::to_string()</a>, and <a class="el" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05">detectFlightPhase()</a>, and <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">processCommand()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_a9a583807049320acfbeebaf634430f88_cgraph.svg" width="1239" height="494"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_a9a583807049320acfbeebaf634430f88_icgraph.svg" width="762" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
 </div>
 </div>
 <a id="aa9506cddd9057a4fc3f1b43a15f4d8f9"></a>
@@ -693,9 +628,9 @@ Here is the caller graph for this function:</div>
 
 <p>Called when transitioning from pre-launch to launch phase. Sets the launch position in shared data and saves it to file. </p>
 
-<p class="reference">References <a class="el" href="namespacedata.html#ab98a7a65eac8ffd555f886a6a45e3142">data::SharedData::blocks</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad522ef22add361da8fd8dda6dda7930a">giraffe::FlightRunnerData::clearLaunchPosition()</a>, <a class="el" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error()</a>, <a class="el" href="namespacedata.html#aa9f24cdb8857cc76e2f2293797cab94b">data::SharedData::flight_data</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27">flight_runner_data_</a>, <a class="el" href="namespacedata.html#a2215c3b1e8cb58300b6900340affe176">data::SharedBlocks::location_data</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#aec5ac065bece8131a74452bd55615b02">giraffe::FlightRunnerData::setLaunchPosition()</a>, <a class="el" href="classdata_1_1FlightData.html#af8689e42e3dcf4e6813bb608ed36a441">data::FlightData::setLaunchPosition()</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="namespacedata.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6">util::to_string()</a>.</p>
+<p class="reference">References <a class="el" href="structdata_1_1SharedData.html#ab98a7a65eac8ffd555f886a6a45e3142">data::SharedData::blocks</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#ad522ef22add361da8fd8dda6dda7930a">giraffe::FlightRunnerData::clearLaunchPosition()</a>, <a class="el" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error()</a>, <a class="el" href="structdata_1_1SharedData.html#a36655a755501a8b36b7a632826e5a3fe">data::SharedData::flight_data</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27">flight_runner_data_</a>, <a class="el" href="namespacedata.html#a2215c3b1e8cb58300b6900340affe176">data::SharedBlocks::location_data</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="classgiraffe_1_1FlightRunnerData.html#aec5ac065bece8131a74452bd55615b02">giraffe::FlightRunnerData::setLaunchPosition()</a>, <a class="el" href="classdata_1_1FlightData.html#af8689e42e3dcf4e6813bb608ed36a441">data::FlightData::setLaunchPosition()</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6">util::to_string()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a9a583807049320acfbeebaf634430f88">setFlightPhase()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">processCommand()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -705,7 +640,49 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_aa9506cddd9057a4fc3f1b43a15f4d8f9_icgraph.svg" width="1040" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_aa9506cddd9057a4fc3f1b43a15f4d8f9_icgraph.svg" width="783" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a5d3886d14a2848d50a92a7d5d770ba27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d3886d14a2848d50a92a7d5d770ba27">&#9670;&nbsp;</a></span>fl_phaseChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FlightRunner::fl_phaseChanged </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07">FlightPhase</a>&#160;</td>
+          <td class="paramname"><em>new_phase</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a7047b93ddb56905562863fb339808bb4">ASCENT</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a038e3d035cd91784babc5492310b8e96">DESCENT</a>, <a class="el" href="classFlightRunner.html#acc2f1a518af2fac43a9320db2854521a">fl_reportDescent()</a>, <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a49c08d83927c163a001f9a8908c2fa03">LAUNCH</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07aa9c1a88bb2291339811ab30ebf54acc5">PRE_LAUNCH</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a9c90eb3f9201a7df861d94e494aa9b0b">RECOVERY</a>, <a class="el" href="classgiraffe_1_1StatusLedState.html#a33c2fe6fdb8008af2710221ef5640c30">giraffe::StatusLedState::setGreen()</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="structdata_1_1SharedData.html#a7c6f482dc4d558d8463ea2ffcd906fed">data::SharedData::status_led</a>, and <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618">flightLogic()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_a5d3886d14a2848d50a92a7d5d770ba27_cgraph.svg" width="1003" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_a5d3886d14a2848d50a92a7d5d770ba27_icgraph.svg" width="463" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -784,9 +761,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8">data::CommandStream::addCommand()</a>, <a class="el" href="namespacedata.html#a947a2cf7b6cb10b8210115e5fba3a9ca">data::Streams::command</a>, <a class="el" href="namespacecmd.html#a718ef116db40a0e3254cc5852229c5be">cmd::Command::destination</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="namespacedata.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7cc2660d640b0a597c45ba01f386bf62">node::TELEMETRY_MODULE</a>.</p>
+<p class="reference">References <a class="el" href="classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8">data::CommandStream::addCommand()</a>, <a class="el" href="namespacedata.html#a947a2cf7b6cb10b8210115e5fba3a9ca">data::Streams::command</a>, <a class="el" href="namespacecmd.html#a718ef116db40a0e3254cc5852229c5be">cmd::Command::destination</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7cc2660d640b0a597c45ba01f386bf62">node::TELEMETRY_MODULE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a9a583807049320acfbeebaf634430f88">setFlightPhase()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a5d3886d14a2848d50a92a7d5d770ba27">fl_phaseChanged()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -796,7 +773,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_acc2f1a518af2fac43a9320db2854521a_icgraph.svg" width="1030" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightRunner_acc2f1a518af2fac43a9320db2854521a_icgraph.svg" width="731" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -825,7 +802,7 @@ Here is the caller graph for this function:</div>
 
 <p>Non-volatile data for the flight runner. </p>
 
-<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05">detectFlightPhase()</a>, <a class="el" href="classFlightRunner.html#a9a583807049320acfbeebaf634430f88">setFlightPhase()</a>, and <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">setLaunchPosition()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">setLaunchPosition()</a>.</p>
 
 </div>
 </div>
@@ -863,7 +840,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacedata.html#structdata_1_1SharedData">data::SharedData</a> FlightRunner::shared_data_ = <a class="el" href="namespacedata.html#structdata_1_1SharedData">data::SharedData</a>()</td>
+          <td class="memname"><a class="el" href="structdata_1_1SharedData.html">data::SharedData</a> FlightRunner::shared_data_ = <a class="el" href="structdata_1_1SharedData.html">data::SharedData</a>()</td>
         </tr>
       </table>
   </td>
@@ -873,7 +850,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05">detectFlightPhase()</a>, <a class="el" href="classFlightRunner.html#acc2f1a518af2fac43a9320db2854521a">fl_reportDescent()</a>, <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">processCommand()</a>, <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">routeCommand()</a>, <a class="el" href="classFlightRunner.html#a9a583807049320acfbeebaf634430f88">setFlightPhase()</a>, <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">setLaunchPosition()</a>, and <a class="el" href="classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c">toggleModule()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a5d3886d14a2848d50a92a7d5d770ba27">fl_phaseChanged()</a>, <a class="el" href="classFlightRunner.html#acc2f1a518af2fac43a9320db2854521a">fl_reportDescent()</a>, <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">processCommand()</a>, <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">routeCommand()</a>, <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">setLaunchPosition()</a>, and <a class="el" href="classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c">toggleModule()</a>.</p>
 
 </div>
 </div>
@@ -896,7 +873,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>Can this be put on the stack? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>Can this be put on the stack? </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6904cac87e21bb4d2957eab383a4f597">~FlightRunner()</a>, and <a class="el" href="classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c">toggleModule()</a>.</p>
 
@@ -1043,6 +1020,34 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a6904cac87e21bb4d2957eab383a4f597">~FlightRunner()</a>, and <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">routeCommand()</a>.</p>
+
+</div>
+</div>
+<a id="a28bee712ce96694e009e3c055e1c5020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28bee712ce96694e009e3c055e1c5020">&#9670;&nbsp;</a></span>flight_phase_manager_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classFlightPhaseManager.html">FlightPhaseManager</a> FlightRunner::flight_phase_manager_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">      <a class="code" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">shared_data_</a>, <a class="code" href="classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27">flight_runner_data_</a>.getFlightPhase(), 100, 10}</div>
+<div class="ttc" id="aclassFlightRunner_html_a129764a14015b25437bc7460e70f9820"><div class="ttname"><a href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">FlightRunner::shared_data_</a></div><div class="ttdeci">data::SharedData shared_data_</div><div class="ttdef"><b>Definition:</b> flight_runner.hpp:116</div></div>
+<div class="ttc" id="aclassFlightRunner_html_ad04b0936f84dfbd1a619f42b17aa0c27"><div class="ttname"><a href="classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27">FlightRunner::flight_runner_data_</a></div><div class="ttdeci">FlightRunnerData flight_runner_data_</div><div class="ttdoc">Non-volatile data for the flight runner.</div><div class="ttdef"><b>Definition:</b> flight_runner.hpp:112</div></div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618">flightLogic()</a>, and <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">processCommand()</a>.</p>
 
 </div>
 </div>

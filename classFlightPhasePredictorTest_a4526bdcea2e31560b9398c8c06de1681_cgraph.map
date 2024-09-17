@@ -1,0 +1,18 @@
+<map id="FlightPhasePredictorTest::tick" name="FlightPhasePredictorTest::tick">
+<area shape="rect" id="node1" title=" " alt="" coords="5,39,188,80"/>
+<area shape="rect" id="node2" href="$classFlightPhasePredictor.html#aa56a7eeb78fb0ce2407ea537236bdcd3" title="Get the phase probabilities structure." alt="" coords="236,5,396,47"/>
+<area shape="rect" id="node3" href="$classFlightPhasePredictor.html#a325f1d196644bc5ef1e635ef855f3d87" title="Update the flight phase predictor." alt="" coords="238,71,394,112"/>
+<area shape="rect" id="node4" href="$classFlightPhasePredictor.html#a67c51546dbc5964234cd0a4f654693eb" title="Using the probabilities, determine the current flight phase." alt="" coords="447,5,603,47"/>
+<area shape="rect" id="node5" href="$classFlightPhasePredictor.html#a279cdca168c55a7a87984270930e773c" title="Process all rule sets of every phase and calculate the probabilities." alt="" coords="447,71,603,112"/>
+<area shape="rect" id="node10" href="$classPredictionParameters.html#a653d146841619901d7634f36420ff82c" title="Updates all of the parameters." alt="" coords="444,188,605,229"/>
+<area shape="rect" id="node6" href="$prediction__model_8cpp.html#ab8ef2fff1f82ac60205ea16e5537774a" title="A function to get the entire rules map." alt="" coords="677,19,837,46"/>
+<area shape="rect" id="node7" href="$classFlightPhasePredictor.html#a0e7d6889689ccc30275b9be9b60db30a" title="Get the probability points from a rule set." alt="" coords="669,71,844,112"/>
+<area shape="rect" id="node8" href="$classFlightPhasePredictor.html#a4e55b025bca64f4116b1518669d10233" title="Get the probability points from a rule." alt="" coords="911,71,1067,112"/>
+<area shape="rect" id="node9" href="$classPredictionParameters.html#af92ad5644fdbd46359ca3771cd9f6453" title="Get a parameter by its ID." alt="" coords="1117,71,1279,112"/>
+<area shape="rect" id="node11" href="$classdata_1_1blocks_1_1Block.html#a2237ade9275911c4fd9d0d264accfa7b" title=" " alt="" coords="669,137,844,163"/>
+<area shape="rect" id="node12" href="$classdata_1_1FlightData.html#a7a9f92a351f196a88523a992af33bdc6" title="Get the mission clock time in seconds. May be negative or positive. A negative value is in the future..." alt="" coords="653,188,860,229"/>
+<area shape="rect" id="node13" href="$classdata_1_1FlightData.html#a768e08b7bfbc117f31838a9220e18ada" title="The number of seconds since the flight runner was started." alt="" coords="655,253,859,295"/>
+<area shape="rect" id="node14" href="$classPredictionParameters.html#ade567365801b428c507ec91ee05c89e0" title="Validates, filters, and updates a parameter&#39;s value." alt="" coords="676,319,837,360"/>
+<area shape="rect" id="node15" href="$classPredictionParameters.html#a87733a1be1951e372c291dc4cb130ad4" title="Applies a filter to a parameter. Does not update the parameter. or care if it&#39;s valid." alt="" coords="908,285,1069,327"/>
+<area shape="rect" id="node16" href="$classPredictionParameters.html#aabfeefcd2cc0a9cb1e47510d62ffd0f8" title="Validates a parameter." alt="" coords="908,351,1069,392"/>
+</map>

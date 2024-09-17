@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title=" " alt="" coords="229,359,395,436"/>
 <area shape="rect" id="node2" href="$structdata_1_1BaseStreamPacket.html" title=" " alt="" coords="343,219,523,296"/>
 <area shape="rect" id="node3" title=" " alt="" coords="285,5,373,83"/>
-<area shape="rect" id="node6" href="$namespacedata.html#structdata_1_1ImuFrame" title="A frame of IMU data, straight from an IMU extension." alt="" coords="161,219,287,296"/>
+<area shape="rect" id="node6" href="$namespacedata.html#structdata_1_1ImuFrame" title="A frame of +IMU data, straight from an IMU extension." alt="" coords="161,219,287,296"/>
 <area shape="rect" id="node4" title=" " alt="" coords="447,5,553,83"/>
 <area shape="rect" id="node5" title=" " alt="" coords="577,5,636,83"/>
 <area shape="rect" id="node7" title=" " alt="" coords="93,5,160,83"/>

@@ -118,8 +118,25 @@ var files_dup =
     [ "file_system_manager.hpp", "file__system__manager_8hpp.html", "file__system__manager_8hpp" ],
     [ "flight_computer_info.cpp", "flight__computer__info_8cpp.html", "flight__computer__info_8cpp" ],
     [ "flight_computer_info.hpp", "flight__computer__info_8hpp.html", "flight__computer__info_8hpp" ],
+    [ "flight_data.hpp", "flight__data_8hpp.html", [
+      [ "FlightData", "classdata_1_1FlightData.html", "classdata_1_1FlightData" ]
+    ] ],
     [ "flight_logic.cpp", "flight__logic_8cpp.html", null ],
     [ "flight_phase.hpp", "flight__phase_8hpp.html", "flight__phase_8hpp" ],
+    [ "flight_phase_manager.hpp", "flight__phase__manager_8hpp.html", [
+      [ "FlightPhaseManager", "classFlightPhaseManager.html", "classFlightPhaseManager" ]
+    ] ],
+    [ "flight_phase_predictor.cpp", "flight__phase__predictor_8cpp.html", null ],
+    [ "flight_phase_predictor.hpp", "flight__phase__predictor_8hpp.html", [
+      [ "FlightPhasePredictor", "classFlightPhasePredictor.html", "classFlightPhasePredictor" ],
+      [ "Probability", "classFlightPhasePredictor.html#structFlightPhasePredictor_1_1Probability", [
+        [ "launch", "classFlightPhasePredictor.html#ac752e8899e017786f91f5568a4f571b9", null ],
+        [ "ascent", "classFlightPhasePredictor.html#a7fa650c36bdfa3ce2705385463a10caa", null ],
+        [ "descent", "classFlightPhasePredictor.html#ab5b0091579304e1b656bb8a0d584bff4", null ],
+        [ "recovery", "classFlightPhasePredictor.html#a4f36ae9adf771467a8cd21ca96dd2865", null ],
+        [ "data_quality", "classFlightPhasePredictor.html#abeb885cf2595d4413f7090b8ea3b3328", null ]
+      ] ]
+    ] ],
     [ "flight_runner.cpp", "flight__runner_8cpp.html", "flight__runner_8cpp" ],
     [ "flight_runner.hpp", "flight__runner_8hpp.html", [
       [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ]
@@ -209,6 +226,9 @@ var files_dup =
       [ "Mcp3021", "classextension_1_1Mcp3021.html", "classextension_1_1Mcp3021" ]
     ] ],
     [ "message_queue.cpp", "message__queue_8cpp.html", null ],
+    [ "mission_clock.hpp", "mission__clock_8hpp.html", [
+      [ "MissionClock", "classMissionClock.html", "classMissionClock" ]
+    ] ],
     [ "module.cpp", "module_8cpp.html", "module_8cpp" ],
     [ "module.hpp", "module_8hpp.html", [
       [ "MetaData", "structmodules_1_1MetaData.html", "structmodules_1_1MetaData" ],
@@ -236,6 +256,13 @@ var files_dup =
     [ "positional.cpp", "positional_8cpp.html", null ],
     [ "positional.hpp", "positional_8hpp.html", "positional_8hpp" ],
     [ "preconfigured_extensions.cpp", "preconfigured__extensions_8cpp.html", null ],
+    [ "prediction_model.cpp", "prediction__model_8cpp.html", "prediction__model_8cpp" ],
+    [ "prediction_model.hpp", "prediction__model_8hpp.html", "prediction__model_8hpp" ],
+    [ "prediction_parameters.cpp", "prediction__parameters_8cpp.html", "prediction__parameters_8cpp" ],
+    [ "prediction_parameters.hpp", "prediction__parameters_8hpp.html", [
+      [ "PredictionParameters", "classPredictionParameters.html", "classPredictionParameters" ],
+      [ "Parameter", "structPredictionParameters_1_1Parameter.html", "structPredictionParameters_1_1Parameter" ]
+    ] ],
     [ "protocol.cpp", "protocol_8cpp.html", "protocol_8cpp" ],
     [ "protocol.hpp", "protocol_8hpp.html", "protocol_8hpp" ],
     [ "request_handler.cpp", "request__handler_8cpp.html", null ],
@@ -258,6 +285,7 @@ var files_dup =
     [ "server_module.cpp", "server__module_8cpp.html", "server__module_8cpp" ],
     [ "server_module.hpp", "server__module_8hpp.html", null ],
     [ "shared_data.hpp", "shared__data_8hpp.html", "shared__data_8hpp" ],
+    [ "shared_data_helpers.hpp", "shared__data__helpers_8hpp.html", "shared__data__helpers_8hpp" ],
     [ "sim_electrical.hpp", "sim__electrical_8hpp.html", [
       [ "SimElectrical", "classgfs__sim_1_1SimElectrical.html", "classgfs__sim_1_1SimElectrical" ]
     ] ],
@@ -293,6 +321,7 @@ var files_dup =
     ] ],
     [ "spitest.cpp", "spitest_8cpp.html", "spitest_8cpp" ],
     [ "status_led.hpp", "status__led_8hpp.html", [
+      [ "StatusLedChannel", "classgiraffe_1_1StatusLedChannel.html", "classgiraffe_1_1StatusLedChannel" ],
       [ "StatusLedState", "classgiraffe_1_1StatusLedState.html", "classgiraffe_1_1StatusLedState" ]
     ] ],
     [ "streams.hpp", "streams_8hpp.html", [
@@ -324,12 +353,16 @@ var files_dup =
     [ "test_error_frame.cpp", "test__error__frame_8cpp.html", "test__error__frame_8cpp" ],
     [ "test_extension_module.cpp", "test__extension__module_8cpp.html", "test__extension__module_8cpp" ],
     [ "test_extensions.cpp", "test__extensions_8cpp.html", "test__extensions_8cpp" ],
+    [ "test_flight_phase_manager.cpp", "test__flight__phase__manager_8cpp.html", "test__flight__phase__manager_8cpp" ],
+    [ "test_flight_phase_predictor.cpp", "test__flight__phase__predictor_8cpp.html", "test__flight__phase__predictor_8cpp" ],
     [ "test_gdl_message.cpp", "test__gdl__message_8cpp.html", "test__gdl__message_8cpp" ],
     [ "test_gdl_with_audio.cpp", "test__gdl__with__audio_8cpp.html", "test__gdl__with__audio_8cpp" ],
     [ "test_get_fc_info.cpp", "test__get__fc__info_8cpp.html", "test__get__fc__info_8cpp" ],
     [ "test_interfaces.cpp", "test__interfaces_8cpp.html", "test__interfaces_8cpp" ],
     [ "test_message_queue.cpp", "test__message__queue_8cpp.html", "test__message__queue_8cpp" ],
     [ "test_positional.cpp", "test__positional_8cpp.html", "test__positional_8cpp" ],
+    [ "test_prediction_model.cpp", "test__prediction__model_8cpp.html", "test__prediction__model_8cpp" ],
+    [ "test_prediction_parameters.cpp", "test__prediction__parameters_8cpp.html", "test__prediction__parameters_8cpp" ],
     [ "test_protocol.cpp", "test__protocol_8cpp.html", "test__protocol_8cpp" ],
     [ "to_json.cpp", "to__json_8cpp.html", null ],
     [ "to_json.hpp", "to__json_8hpp.html", "to__json_8hpp" ],

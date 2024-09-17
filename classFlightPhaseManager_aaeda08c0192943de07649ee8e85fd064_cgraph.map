@@ -1,0 +1,9 @@
+<map id="FlightPhaseManager::requestLaunch" name="FlightPhaseManager::requestLaunch">
+<area shape="rect" id="node1" title="Request that the flight phase be changed to launch. Only valid if the current phase is pre&#45;launch." alt="" coords="5,96,160,137"/>
+<area shape="rect" id="node2" href="$classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f" title=" " alt="" coords="208,96,363,137"/>
+<area shape="rect" id="node3" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="411,45,611,71"/>
+<area shape="rect" id="node6" href="$classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233" title=" " alt="" coords="415,96,607,137"/>
+<area shape="rect" id="node7" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="457,162,565,189"/>
+<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="659,5,853,47"/>
+<area shape="rect" id="node5" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="666,71,846,112"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="FlightPhaseManager::setFlightPhase" name="FlightPhaseManager::setFlightPhase">
+<area shape="rect" id="node1" title=" " alt="" coords="5,96,160,137"/>
+<area shape="rect" id="node2" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="208,45,408,71"/>
+<area shape="rect" id="node5" href="$classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233" title=" " alt="" coords="212,96,404,137"/>
+<area shape="rect" id="node6" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="254,162,362,189"/>
+<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="456,5,651,47"/>
+<area shape="rect" id="node4" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="463,71,643,112"/>
+</map>

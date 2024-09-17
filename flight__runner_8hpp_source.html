@@ -109,90 +109,96 @@ $(document).ready(function(){initNavTree('flight__runner_8hpp_source.html',''); 
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define FLIGHT_RUNNER_HPP_</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="configuration_8hpp.html">configuration.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="flight__runner__data_8hpp.html">flight_runner_data.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="console__module_8hpp.html">console_module.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="data__module_8hpp.html">data_module.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="extension__module_8hpp.html">extension_module.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="server__module_8hpp.html">server_module.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shared__data_8hpp.html">shared_data.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="system__module_8hpp.html">system_module.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="telemetry__module_8hpp.html">telemetry_module.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#if RUN_IN_SIMULATOR == 1</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gfs__simulator_8hpp.html">gfs_simulator.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacegiraffe.html">giraffe</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classFlightRunner.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="classFlightRunner.html">FlightRunner</a> {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#if RUN_IN_SIMULATOR == 1</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="classFlightRunner.html">FlightRunner</a>(<a class="code" href="classgfs__sim_1_1GfsSimulator.html">gfs_sim::GfsSimulator</a> *p_simulator) {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    p_simulator_ = p_simulator;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a5fc9942605418ffb27dbc0ca1abae057">   48</a></span>&#160;  <a class="code" href="classFlightRunner.html#a5fc9942605418ffb27dbc0ca1abae057">FlightRunner</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a3681017d0de5ea08884f7d6cf51f27ee">   51</a></span>&#160;  <a class="code" href="classFlightRunner.html#a3681017d0de5ea08884f7d6cf51f27ee">FlightRunner</a>(<span class="keyword">const</span> <a class="code" href="classFlightRunner.html">FlightRunner</a> &amp;) = <span class="keyword">delete</span>;            <span class="comment">// No copy constructor</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a3b8c83dbf038f66b9f74e65a36dfd7af">   52</a></span>&#160;  <a class="code" href="classFlightRunner.html">FlightRunner</a> &amp;<a class="code" href="classFlightRunner.html#a3b8c83dbf038f66b9f74e65a36dfd7af">operator=</a>(<span class="keyword">const</span> <a class="code" href="classFlightRunner.html">FlightRunner</a> &amp;) = <span class="keyword">delete</span>; <span class="comment">// No copy assignment</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  ~<a class="code" href="classFlightRunner.html">FlightRunner</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">auto</span> start() -&gt; int;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">auto</span> shutdown() -&gt; void;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">auto</span> flightLoop() -&gt; int;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keywordtype">void</span> processCommand(<span class="keyword">const</span> <a class="code" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;command);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordtype">void</span> routeCommand(<a class="code" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;command);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">void</span> toggleModule(<span class="keyword">const</span> std::string &amp;module_id, <span class="keywordtype">bool</span> on_or_off);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordtype">void</span> flightLogic();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keywordtype">void</span> detectFlightPhase();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keywordtype">void</span> setFlightPhase(<a class="code" href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644">FlightPhase</a> phase);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="flight__phase__manager_8hpp.html">flight_phase_manager.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="flight__runner__data_8hpp.html">flight_runner_data.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="console__module_8hpp.html">console_module.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="data__module_8hpp.html">data_module.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="extension__module_8hpp.html">extension_module.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="server__module_8hpp.html">server_module.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shared__data_8hpp.html">shared_data.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="system__module_8hpp.html">system_module.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="telemetry__module_8hpp.html">telemetry_module.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#if RUN_IN_SIMULATOR == 1</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gfs__simulator_8hpp.html">gfs_simulator.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacegiraffe.html">giraffe</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classFlightRunner.html">   42</a></span>&#160;<span class="keyword">class </span><a class="code" href="classFlightRunner.html">FlightRunner</a> {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#if RUN_IN_SIMULATOR == 1</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="classFlightRunner.html">FlightRunner</a>(<a class="code" href="classgfs__sim_1_1GfsSimulator.html">gfs_sim::GfsSimulator</a> *p_simulator) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    p_simulator_ = p_simulator;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a5fc9942605418ffb27dbc0ca1abae057">   49</a></span>&#160;  <a class="code" href="classFlightRunner.html#a5fc9942605418ffb27dbc0ca1abae057">FlightRunner</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a3681017d0de5ea08884f7d6cf51f27ee">   52</a></span>&#160;  <a class="code" href="classFlightRunner.html#a3681017d0de5ea08884f7d6cf51f27ee">FlightRunner</a>(<span class="keyword">const</span> <a class="code" href="classFlightRunner.html">FlightRunner</a> &amp;) = <span class="keyword">delete</span>;            <span class="comment">// No copy constructor</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a3b8c83dbf038f66b9f74e65a36dfd7af">   53</a></span>&#160;  <a class="code" href="classFlightRunner.html">FlightRunner</a> &amp;<a class="code" href="classFlightRunner.html#a3b8c83dbf038f66b9f74e65a36dfd7af">operator=</a>(<span class="keyword">const</span> <a class="code" href="classFlightRunner.html">FlightRunner</a> &amp;) = <span class="keyword">delete</span>; <span class="comment">// No copy assignment</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  ~<a class="code" href="classFlightRunner.html">FlightRunner</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">auto</span> start() -&gt; int;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">auto</span> shutdown() -&gt; void;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">auto</span> flightLoop() -&gt; int;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">void</span> processCommand(<span class="keyword">const</span> <a class="code" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;command);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">void</span> routeCommand(<a class="code" href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a> &amp;command);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordtype">void</span> toggleModule(<span class="keyword">const</span> std::string &amp;module_id, <span class="keywordtype">bool</span> on_or_off);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordtype">void</span> flightLogic();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05">   94</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05">detectFlightPhase</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keywordtype">bool</span> setLaunchPosition();</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordtype">bool</span> setLaunchPosition();</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordtype">void</span> fl_preLaunchLogic();</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a35110fd5f1e796509a05952bf8114eb9">  110</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classFlightRunner.html#a35110fd5f1e796509a05952bf8114eb9">fl_launchLogic</a>();</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keywordtype">void</span> fl_reportDescent();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordtype">void</span> fl_phaseChanged(<a class="code" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07">FlightPhase</a> new_phase);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keywordtype">void</span> fl_preLaunchLogic();</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a35110fd5f1e796509a05952bf8114eb9">  105</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classFlightRunner.html#a35110fd5f1e796509a05952bf8114eb9">fl_launchLogic</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordtype">void</span> fl_reportDescent();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27">  112</a></span>&#160;  <a class="code" href="classgiraffe_1_1FlightRunnerData.html">FlightRunnerData</a> flight_runner_data_ = <a class="code" href="classgiraffe_1_1FlightRunnerData.html">FlightRunnerData</a>();</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="classFlightRunner.html#ad04b0936f84dfbd1a619f42b17aa0c27">  117</a></span>&#160;  <a class="code" href="classgiraffe_1_1FlightRunnerData.html">FlightRunnerData</a> flight_runner_data_ = <a class="code" href="classgiraffe_1_1FlightRunnerData.html">FlightRunnerData</a>();</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classFlightRunner.html#ad67bc48e7138e28e4d9514077849cc7d">  119</a></span>&#160;  <span class="keywordtype">bool</span> shutdown_signal_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classFlightRunner.html#ad67bc48e7138e28e4d9514077849cc7d">  114</a></span>&#160;  <span class="keywordtype">bool</span> shutdown_signal_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">  116</a></span>&#160;  <a class="code" href="structdata_1_1SharedData.html">data::SharedData</a> shared_data_ = <a class="code" href="structdata_1_1SharedData.html">data::SharedData</a>();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a6285dac2f407b76b3989fd805561b3ef">  119</a></span>&#160;  cfg::Configuration *p_config_ = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a129764a14015b25437bc7460e70f9820">  121</a></span>&#160;  <a class="code" href="namespacedata.html#structdata_1_1SharedData">data::SharedData</a> shared_data_ = <a class="code" href="namespacedata.html#structdata_1_1SharedData">data::SharedData</a>();</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a6285dac2f407b76b3989fd805561b3ef">  124</a></span>&#160;  cfg::Configuration *p_config_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classFlightRunner.html#aba54085de36a674170138a098ffab821">  126</a></span>&#160;  <a class="code" href="classmodules_1_1DataModule.html">modules::DataModule</a> *p_data_module_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a90d995d0a88181208e5241b92b3fa9ca">  127</a></span>&#160;  <a class="code" href="classmodules_1_1ConsoleModule.html">modules::ConsoleModule</a> *p_console_module_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a70d968c507be59e86cb0861a2f058734">  128</a></span>&#160;  <a class="code" href="group__ServerModule.html#classmodules_1_1ServerModule">modules::ServerModule</a> *p_server_module_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a679e2f24e7547d2884a360f1a0eb88cc">  129</a></span>&#160;  <a class="code" href="classmodules_1_1SystemModule.html">modules::SystemModule</a> *p_system_module_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a01fea479a57c31424e89a0f397ff0b8b">  130</a></span>&#160;  <a class="code" href="classmodules_1_1ExtensionModule.html">modules::ExtensionModule</a> *p_extension_module_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a3481f326d4fa66f11536dc0dca522926">  131</a></span>&#160;  <a class="code" href="classmodules_1_1TelemetryModule.html">modules::TelemetryModule</a> *p_telemetry_module_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#if RUN_IN_SIMULATOR == 1</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <a class="code" href="classgfs__sim_1_1GfsSimulator.html">gfs_sim::GfsSimulator</a> *p_simulator_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;};</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassFlightRunner_html"><div class="ttname"><a href="classFlightRunner.html">FlightRunner</a></div><div class="ttdoc">The FlightRunner class is the main class for the flight system. It ties everything together.</div><div class="ttdef"><b>Definition:</b> flight_runner.hpp:41</div></div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classFlightRunner.html#aba54085de36a674170138a098ffab821">  121</a></span>&#160;  <a class="code" href="classmodules_1_1DataModule.html">modules::DataModule</a> *p_data_module_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a90d995d0a88181208e5241b92b3fa9ca">  122</a></span>&#160;  <a class="code" href="classmodules_1_1ConsoleModule.html">modules::ConsoleModule</a> *p_console_module_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a70d968c507be59e86cb0861a2f058734">  123</a></span>&#160;  <a class="code" href="group__ServerModule.html#classmodules_1_1ServerModule">modules::ServerModule</a> *p_server_module_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a679e2f24e7547d2884a360f1a0eb88cc">  124</a></span>&#160;  <a class="code" href="classmodules_1_1SystemModule.html">modules::SystemModule</a> *p_system_module_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a01fea479a57c31424e89a0f397ff0b8b">  125</a></span>&#160;  <a class="code" href="classmodules_1_1ExtensionModule.html">modules::ExtensionModule</a> *p_extension_module_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a3481f326d4fa66f11536dc0dca522926">  126</a></span>&#160;  <a class="code" href="classmodules_1_1TelemetryModule.html">modules::TelemetryModule</a> *p_telemetry_module_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#if RUN_IN_SIMULATOR == 1</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <a class="code" href="classgfs__sim_1_1GfsSimulator.html">gfs_sim::GfsSimulator</a> *p_simulator_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classFlightRunner.html#a28bee712ce96694e009e3c055e1c5020">  132</a></span>&#160;  <a class="code" href="classFlightPhaseManager.html">FlightPhaseManager</a> flight_phase_manager_ = {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      shared_data_, flight_runner_data_.<a class="code" href="classgiraffe_1_1FlightRunnerData.html#a6adac9db38e843c2805cad0d212956ef">getFlightPhase</a>(), 100, 10};</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;};</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassFlightPhaseManager_html"><div class="ttname"><a href="classFlightPhaseManager.html">FlightPhaseManager</a></div><div class="ttdoc">This class manages everything related to flight phases and sequencing.</div><div class="ttdef"><b>Definition:</b> flight_phase_manager.hpp:28</div></div>
+<div class="ttc" id="aclassFlightRunner_html"><div class="ttname"><a href="classFlightRunner.html">FlightRunner</a></div><div class="ttdoc">The FlightRunner class is the main class for the flight system. It ties everything together.</div><div class="ttdef"><b>Definition:</b> flight_runner.hpp:42</div></div>
 <div class="ttc" id="aclassFlightRunner_html_a35110fd5f1e796509a05952bf8114eb9"><div class="ttname"><a href="classFlightRunner.html#a35110fd5f1e796509a05952bf8114eb9">FlightRunner::fl_launchLogic</a></div><div class="ttdeci">void fl_launchLogic()</div></div>
 <div class="ttc" id="aclassFlightRunner_html_a3681017d0de5ea08884f7d6cf51f27ee"><div class="ttname"><a href="classFlightRunner.html#a3681017d0de5ea08884f7d6cf51f27ee">FlightRunner::FlightRunner</a></div><div class="ttdeci">FlightRunner(const FlightRunner &amp;)=delete</div></div>
 <div class="ttc" id="aclassFlightRunner_html_a3b8c83dbf038f66b9f74e65a36dfd7af"><div class="ttname"><a href="classFlightRunner.html#a3b8c83dbf038f66b9f74e65a36dfd7af">FlightRunner::operator=</a></div><div class="ttdeci">FlightRunner &amp; operator=(const FlightRunner &amp;)=delete</div></div>
 <div class="ttc" id="aclassFlightRunner_html_a5fc9942605418ffb27dbc0ca1abae057"><div class="ttname"><a href="classFlightRunner.html#a5fc9942605418ffb27dbc0ca1abae057">FlightRunner::FlightRunner</a></div><div class="ttdeci">FlightRunner()=default</div></div>
+<div class="ttc" id="aclassFlightRunner_html_ae966ae98c140e7880b3c7c4cbfa5cf05"><div class="ttname"><a href="classFlightRunner.html#ae966ae98c140e7880b3c7c4cbfa5cf05">FlightRunner::detectFlightPhase</a></div><div class="ttdeci">void detectFlightPhase()</div><div class="ttdoc">Detects the current flight phase and sets it in the shared data. flight_phase.hpp.</div></div>
 <div class="ttc" id="aclassgfs__sim_1_1GfsSimulator_html"><div class="ttname"><a href="classgfs__sim_1_1GfsSimulator.html">gfs_sim::GfsSimulator</a></div><div class="ttdef"><b>Definition:</b> gfs_simulator.hpp:35</div></div>
 <div class="ttc" id="aclassgiraffe_1_1FlightRunnerData_html"><div class="ttname"><a href="classgiraffe_1_1FlightRunnerData.html">giraffe::FlightRunnerData</a></div><div class="ttdoc">Data that is persisted across system restarts. Used by the flight runner to track the state of the sy...</div><div class="ttdef"><b>Definition:</b> flight_runner_data.hpp:31</div></div>
+<div class="ttc" id="aclassgiraffe_1_1FlightRunnerData_html_a6adac9db38e843c2805cad0d212956ef"><div class="ttname"><a href="classgiraffe_1_1FlightRunnerData.html#a6adac9db38e843c2805cad0d212956ef">giraffe::FlightRunnerData::getFlightPhase</a></div><div class="ttdeci">FlightPhase getFlightPhase() const</div></div>
 <div class="ttc" id="aclassmodules_1_1ConsoleModule_html"><div class="ttname"><a href="classmodules_1_1ConsoleModule.html">modules::ConsoleModule</a></div><div class="ttdoc">The console module is a module that provides a console interface for the flight system.</div><div class="ttdef"><b>Definition:</b> console_module.hpp:15</div></div>
 <div class="ttc" id="aclassmodules_1_1DataModule_html"><div class="ttname"><a href="classmodules_1_1DataModule.html">modules::DataModule</a></div><div class="ttdoc">A major module of the Giraffe Flight System that handles data flow through the system.</div><div class="ttdef"><b>Definition:</b> data_module.hpp:37</div></div>
 <div class="ttc" id="aclassmodules_1_1ExtensionModule_html"><div class="ttname"><a href="classmodules_1_1ExtensionModule.html">modules::ExtensionModule</a></div><div class="ttdef"><b>Definition:</b> extension_module.hpp:39</div></div>
@@ -202,15 +208,16 @@ $(document).ready(function(){initNavTree('flight__runner_8hpp_source.html',''); 
 <div class="ttc" id="aconsole__module_8hpp_html"><div class="ttname"><a href="console__module_8hpp.html">console_module.hpp</a></div></div>
 <div class="ttc" id="adata__module_8hpp_html"><div class="ttname"><a href="data__module_8hpp.html">data_module.hpp</a></div><div class="ttdoc">The data module header file.</div></div>
 <div class="ttc" id="aextension__module_8hpp_html"><div class="ttname"><a href="extension__module_8hpp.html">extension_module.hpp</a></div><div class="ttdoc">This is the header file for the new extension module.</div></div>
-<div class="ttc" id="aflight__phase_8hpp_html_a4c5a173279b14603ff3edf7817df0644"><div class="ttname"><a href="flight__phase_8hpp.html#a4c5a173279b14603ff3edf7817df0644">FlightPhase</a></div><div class="ttdeci">FlightPhase</div><div class="ttdoc">Used to track the current phase of the flight.</div><div class="ttdef"><b>Definition:</b> flight_phase.hpp:25</div></div>
+<div class="ttc" id="aflight__phase_8hpp_html_ac9143ef49941f628dd4d190a8d64ff07"><div class="ttname"><a href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07">FlightPhase</a></div><div class="ttdeci">FlightPhase</div><div class="ttdoc">Used to track the current phase of the flight.</div><div class="ttdef"><b>Definition:</b> flight_phase.hpp:25</div></div>
+<div class="ttc" id="aflight__phase__manager_8hpp_html"><div class="ttname"><a href="flight__phase__manager_8hpp.html">flight_phase_manager.hpp</a></div></div>
 <div class="ttc" id="aflight__runner__data_8hpp_html"><div class="ttname"><a href="flight__runner__data_8hpp.html">flight_runner_data.hpp</a></div><div class="ttdoc">Non-volatile data for the flight runner.</div></div>
 <div class="ttc" id="agfs__simulator_8hpp_html"><div class="ttname"><a href="gfs__simulator_8hpp.html">gfs_simulator.hpp</a></div></div>
 <div class="ttc" id="agroup__ServerModule_html_classmodules_1_1ServerModule"><div class="ttname"><a href="group__ServerModule.html#classmodules_1_1ServerModule">modules::ServerModule</a></div><div class="ttdoc">The server module. Provides a network interface for interacting with the flight system.</div><div class="ttdef"><b>Definition:</b> server_module.hpp:37</div></div>
 <div class="ttc" id="anamespacecmd_html_structcmd_1_1Command"><div class="ttname"><a href="namespacecmd.html#structcmd_1_1Command">cmd::Command</a></div><div class="ttdoc">A command object. Used for passing commands to their destinations.</div><div class="ttdef"><b>Definition:</b> command.hpp:35</div></div>
-<div class="ttc" id="anamespacedata_html_structdata_1_1SharedData"><div class="ttname"><a href="namespacedata.html#structdata_1_1SharedData">data::SharedData</a></div><div class="ttdoc">Data that is shared across all modules and extensions.</div><div class="ttdef"><b>Definition:</b> shared_data.hpp:196</div></div>
 <div class="ttc" id="anamespacegiraffe_html"><div class="ttname"><a href="namespacegiraffe.html">giraffe</a></div><div class="ttdef"><b>Definition:</b> flight_runner_data.cpp:23</div></div>
 <div class="ttc" id="aserver__module_8hpp_html"><div class="ttname"><a href="server__module_8hpp.html">server_module.hpp</a></div><div class="ttdoc">Header file for the server module.</div></div>
 <div class="ttc" id="ashared__data_8hpp_html"><div class="ttname"><a href="shared__data_8hpp.html">shared_data.hpp</a></div><div class="ttdoc">Contains the SharedData struct, used across all modules and extensions.</div></div>
+<div class="ttc" id="astructdata_1_1SharedData_html"><div class="ttname"><a href="structdata_1_1SharedData.html">data::SharedData</a></div><div class="ttdoc">Data that is shared across all modules and extensions.</div><div class="ttdef"><b>Definition:</b> shared_data.hpp:95</div></div>
 <div class="ttc" id="asystem__module_8hpp_html"><div class="ttname"><a href="system__module_8hpp.html">system_module.hpp</a></div></div>
 <div class="ttc" id="atelemetry__module_8hpp_html"><div class="ttname"><a href="telemetry__module_8hpp.html">telemetry_module.hpp</a></div><div class="ttdoc">The telemetry module.</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -218,7 +225,7 @@ $(document).ready(function(){initNavTree('flight__runner_8hpp_source.html',''); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c01da38aeecccba744ca70166f7b2585.html">flight_system</a></li><li class="navelem"><a class="el" href="flight__runner_8hpp.html">flight_runner.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c01da38aeecccba744ca70166f7b2585.html">flight_system</a></li><li class="navelem"><a class="el" href="dir_9efad99a6861d8b07c3d1f1e6cab065d.html">flight_runner</a></li><li class="navelem"><a class="el" href="flight__runner_8hpp.html">flight_runner.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

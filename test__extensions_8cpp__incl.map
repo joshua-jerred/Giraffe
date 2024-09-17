@@ -1,52 +1,52 @@
 <map id="test_extensions.cpp" name="test_extensions.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="809,5,961,32"/>
-<area shape="rect" id="node2" href="$extension__test__framework_8hpp.html" title="Basic helpers for unit testing extensions on the host." alt="" coords="363,155,587,181"/>
-<area shape="rect" id="node27" href="$unit__test_8hpp.html" title="Simple wrapper for GTest to get rid of compiler warnings." alt="" coords="483,80,589,107"/>
-<area shape="rect" id="node29" href="$bme280_8hpp.html" title="The BME280 sensor extension." alt="" coords="963,155,1066,181"/>
-<area shape="rect" id="node35" href="$bmi088_8hpp.html" title="Extension for the Bosch BMI088 IMU." alt="" coords="1136,80,1235,107"/>
-<area shape="rect" id="node40" href="$ds18b20_8hpp.html" title="DS18B20 extension header file." alt="" coords="1830,155,1935,181"/>
-<area shape="rect" id="node42" href="$mcp3021_8hpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="1439,80,1550,107"/>
-<area shape="rect" id="node46" href="$pi__camera_8hpp.html" title="Raspberry Pi Camera Extension." alt="" coords="161,80,279,107"/>
-<area shape="rect" id="node47" href="$rgb__status__led_8hpp.html" title=" " alt="" coords="611,155,757,181"/>
-<area shape="rect" id="node50" href="$samm8q_8hpp.html" title="SAM&#45;M8Q GPS extension (I2C)." alt="" coords="832,155,939,181"/>
-<area shape="rect" id="node3" href="$configuration__enums_8hpp.html" title=" " alt="" coords="403,393,589,420"/>
-<area shape="rect" id="node4" href="$extension__base_8hpp.html" title="The new implementation of the extension system." alt="" coords="645,237,797,263"/>
-<area shape="rect" id="node26" href="$status__led_8hpp.html" title="RGB Status LED extension header file." alt="" coords="5,543,123,569"/>
-<area shape="rect" id="node5" title=" " alt="" coords="61,699,128,726"/>
-<area shape="rect" id="node6" title=" " alt="" coords="712,319,776,345"/>
-<area shape="rect" id="node7" href="$cfg__extensions_8hpp.html" title="The header file for the extensions section of the configuration." alt="" coords="430,319,637,345"/>
-<area shape="rect" id="node9" href="$shared__data_8hpp.html" title="Contains the SharedData struct, used across all modules and extensions." alt="" coords="455,468,585,495"/>
-<area shape="rect" id="node8" href="$cfg__section_8hpp.html" title="This file contains the base class for all configuration sections." alt="" coords="614,393,797,420"/>
-<area shape="rect" id="node10" title=" " alt="" coords="291,781,458,808"/>
-<area shape="rect" id="node11" title=" " alt="" coords="483,781,645,808"/>
-<area shape="rect" id="node12" href="$blocks_8hpp.html" title=" " alt="" coords="533,617,625,644"/>
-<area shape="rect" id="node19" href="$error__frame_8hpp.html" title="The error frame." alt="" coords="355,543,482,569"/>
-<area shape="rect" id="node20" href="$frame_8hpp.html" title=" " alt="" coords="775,617,865,644"/>
-<area shape="rect" id="node23" href="$streams_8hpp.html" title="The header file for the data streams." alt="" coords="406,617,509,644"/>
-<area shape="rect" id="node24" href="$flight__phase_8hpp.html" title="Contains the flight phase enum and related functions." alt="" coords="1042,543,1171,569"/>
-<area shape="rect" id="node25" href="$log__container_8hpp.html" title="A simple logging system for debugging." alt="" coords="609,543,746,569"/>
-<area shape="rect" id="node13" title=" " alt="" coords="808,699,872,726"/>
-<area shape="rect" id="node14" href="$positional_8hpp.html" title="Positional data for the flight system (gps/imu data)" alt="" coords="619,699,733,726"/>
-<area shape="rect" id="node15" title=" " alt="" coords="981,781,1048,808"/>
-<area shape="rect" id="node16" title=" " alt="" coords="669,781,720,808"/>
-<area shape="rect" id="node17" title=" " alt="" coords="1263,781,1321,808"/>
-<area shape="rect" id="node18" title=" " alt="" coords="744,781,891,808"/>
-<area shape="rect" id="node22" href="$giraffe__diagnostic__ids_8hpp.html" title=" " alt="" coords="253,692,392,733"/>
-<area shape="rect" id="node21" title=" " alt="" coords="1078,699,1202,726"/>
-<area shape="rect" id="node28" title=" " alt="" coords="235,155,339,181"/>
-<area shape="rect" id="node30" title=" " alt="" coords="1414,237,1581,263"/>
-<area shape="rect" id="node31" href="$i2c__interface_8hpp.html" title="A wrapper around I2C communication." alt="" coords="903,319,1038,345"/>
-<area shape="rect" id="node32" title=" " alt="" coords="1033,393,1095,420"/>
-<area shape="rect" id="node33" href="$giraffe__diagnostics_8hpp.html" title="Giraffe&#39;s diagnostic system." alt="" coords="1120,393,1293,420"/>
-<area shape="rect" id="node34" href="$giraffe__assert_8hpp.html" title="For absolute failures in the code." alt="" coords="1296,468,1435,495"/>
-<area shape="rect" id="node36" href="$imu__extension__base_8hpp.html" title="Base IMU Extension." alt="" coords="1093,155,1277,181"/>
-<area shape="rect" id="node39" href="$spi__interface_8hpp.html" title="Contains the SPI interface class for the Giraffe flight system." alt="" coords="1278,699,1413,726"/>
-<area shape="rect" id="node37" title=" " alt="" coords="973,229,1120,271"/>
-<area shape="rect" id="node38" title=" " alt="" coords="1145,229,1287,271"/>
-<area shape="rect" id="node41" href="$one__wire__interface_8hpp.html" title="1&#45;Wire interface header file." alt="" coords="1667,468,1842,495"/>
-<area shape="rect" id="node43" href="$adc__extension__base_8hpp.html" title="Generic ADC Extension Wrapper." alt="" coords="1403,155,1586,181"/>
-<area shape="rect" id="node44" href="$i2c__extension__adapter_8hpp.html" title="Adapter for I2C Extensions." alt="" coords="1610,155,1806,181"/>
-<area shape="rect" id="node45" title=" " alt="" coords="1707,237,1875,263"/>
-<area shape="rect" id="node48" href="$gpio_8hpp.html" title="GPIO interface header file." alt="" coords="941,617,1019,644"/>
-<area shape="rect" id="node49" title=" " alt="" coords="896,699,952,726"/>
+<area shape="rect" id="node1" title=" " alt="" coords="900,5,1052,32"/>
+<area shape="rect" id="node2" href="$extension__test__framework_8hpp.html" title="Basic helpers for unit testing extensions on the host." alt="" coords="448,155,672,181"/>
+<area shape="rect" id="node27" href="$unit__test_8hpp.html" title="Simple wrapper for GTest to get rid of compiler warnings." alt="" coords="1689,80,1796,107"/>
+<area shape="rect" id="node29" href="$bme280_8hpp.html" title="The BME280 sensor extension." alt="" coords="827,155,930,181"/>
+<area shape="rect" id="node35" href="$bmi088_8hpp.html" title="Extension for the Bosch BMI088 IMU." alt="" coords="1215,80,1313,107"/>
+<area shape="rect" id="node40" href="$ds18b20_8hpp.html" title="DS18B20 extension header file." alt="" coords="1535,155,1641,181"/>
+<area shape="rect" id="node42" href="$mcp3021_8hpp.html" title="MCP3021 I2C ADC Driver." alt="" coords="1079,80,1190,107"/>
+<area shape="rect" id="node46" href="$pi__camera_8hpp.html" title="Raspberry Pi Camera Extension." alt="" coords="917,80,1035,107"/>
+<area shape="rect" id="node47" href="$rgb__status__led_8hpp.html" title=" " alt="" coords="278,155,423,181"/>
+<area shape="rect" id="node50" href="$samm8q_8hpp.html" title="SAM&#45;M8Q GPS extension (I2C)." alt="" coords="696,155,803,181"/>
+<area shape="rect" id="node3" href="$configuration__enums_8hpp.html" title=" " alt="" coords="353,393,540,420"/>
+<area shape="rect" id="node4" href="$extension__base_8hpp.html" title="The new implementation of the extension system." alt="" coords="929,237,1081,263"/>
+<area shape="rect" id="node26" href="$status__led_8hpp.html" title="RGB Status LED extension header file." alt="" coords="1117,543,1235,569"/>
+<area shape="rect" id="node5" title=" " alt="" coords="1077,692,1144,719"/>
+<area shape="rect" id="node6" title=" " alt="" coords="1411,319,1475,345"/>
+<area shape="rect" id="node7" href="$cfg__extensions_8hpp.html" title="The header file for the extensions section of the configuration." alt="" coords="702,319,909,345"/>
+<area shape="rect" id="node9" href="$shared__data_8hpp.html" title="Contains the SharedData struct, used across all modules and extensions." alt="" coords="753,468,884,495"/>
+<area shape="rect" id="node8" href="$cfg__section_8hpp.html" title="This file contains the base class for all configuration sections." alt="" coords="721,393,903,420"/>
+<area shape="rect" id="node10" title=" " alt="" coords="709,767,875,793"/>
+<area shape="rect" id="node11" title=" " alt="" coords="276,767,439,793"/>
+<area shape="rect" id="node12" href="$blocks_8hpp.html" title=" " alt="" coords="429,617,521,644"/>
+<area shape="rect" id="node19" href="$error__frame_8hpp.html" title="The error frame." alt="" coords="865,543,991,569"/>
+<area shape="rect" id="node20" href="$frame_8hpp.html" title=" " alt="" coords="890,617,979,644"/>
+<area shape="rect" id="node22" href="$streams_8hpp.html" title="The header file for the data streams." alt="" coords="763,617,866,644"/>
+<area shape="rect" id="node23" href="$flight__data_8hpp.html" title=" " alt="" coords="1229,617,1347,644"/>
+<area shape="rect" id="node24" href="$flight__phase_8hpp.html" title="Contains the flight phase enum and related functions." alt="" coords="1321,692,1450,719"/>
+<area shape="rect" id="node25" href="$log__container_8hpp.html" title="A simple logging system for debugging." alt="" coords="550,543,687,569"/>
+<area shape="rect" id="node13" title=" " alt="" coords="637,692,701,719"/>
+<area shape="rect" id="node14" href="$positional_8hpp.html" title="Positional data for the flight system (gps/imu data)" alt="" coords="448,692,563,719"/>
+<area shape="rect" id="node15" title=" " alt="" coords="177,767,244,793"/>
+<area shape="rect" id="node16" title=" " alt="" coords="633,767,684,793"/>
+<area shape="rect" id="node17" title=" " alt="" coords="1253,767,1312,793"/>
+<area shape="rect" id="node18" title=" " alt="" coords="463,767,609,793"/>
+<area shape="rect" id="node21" title=" " alt="" coords="878,692,1002,719"/>
+<area shape="rect" id="node28" title=" " alt="" coords="1873,155,1977,181"/>
+<area shape="rect" id="node30" title=" " alt="" coords="1298,237,1465,263"/>
+<area shape="rect" id="node31" href="$i2c__interface_8hpp.html" title="A wrapper around I2C communication." alt="" coords="770,237,905,263"/>
+<area shape="rect" id="node32" title=" " alt="" coords="615,319,678,345"/>
+<area shape="rect" id="node33" href="$giraffe__diagnostics_8hpp.html" title="Giraffe&#39;s diagnostic system." alt="" coords="1163,319,1336,345"/>
+<area shape="rect" id="node34" href="$giraffe__assert_8hpp.html" title="For absolute failures in the code." alt="" coords="1437,393,1576,420"/>
+<area shape="rect" id="node36" href="$imu__extension__base_8hpp.html" title="Base IMU Extension." alt="" coords="1665,155,1849,181"/>
+<area shape="rect" id="node39" href="$spi__interface_8hpp.html" title="Contains the SPI interface class for the Giraffe flight system." alt="" coords="137,692,271,719"/>
+<area shape="rect" id="node37" title=" " alt="" coords="1664,229,1811,271"/>
+<area shape="rect" id="node38" title=" " alt="" coords="1835,229,1978,271"/>
+<area shape="rect" id="node41" href="$one__wire__interface_8hpp.html" title="1&#45;Wire interface header file." alt="" coords="1507,468,1682,495"/>
+<area shape="rect" id="node43" href="$adc__extension__base_8hpp.html" title="Generic ADC Extension Wrapper." alt="" coords="1277,155,1459,181"/>
+<area shape="rect" id="node44" href="$i2c__extension__adapter_8hpp.html" title="Adapter for I2C Extensions." alt="" coords="1057,155,1253,181"/>
+<area shape="rect" id="node45" title=" " alt="" coords="1105,237,1273,263"/>
+<area shape="rect" id="node48" href="$gpio_8hpp.html" title="GPIO interface header file." alt="" coords="67,617,146,644"/>
+<area shape="rect" id="node49" title=" " alt="" coords="5,692,61,719"/>
 </map>

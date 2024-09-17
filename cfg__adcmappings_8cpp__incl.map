@@ -1,37 +1,38 @@
 <map id="cfg_adcmappings.cpp" name="cfg_adcmappings.cpp">
-<area shape="rect" id="node1" title="ADC Mapping configuration section." alt="" coords="1097,5,1260,32"/>
-<area shape="rect" id="node2" href="$cfg__adcmappings_8hpp.html" title=" " alt="" coords="1033,80,1197,107"/>
-<area shape="rect" id="node34" href="$validation_8hpp.html" title=" " alt="" coords="1629,304,1744,331"/>
-<area shape="rect" id="node3" href="$configuration__enums_8hpp.html" title=" " alt="" coords="812,155,999,181"/>
-<area shape="rect" id="node4" href="$cfg__section_8hpp.html" title="This file contains the base class for all configuration sections." alt="" coords="1023,155,1206,181"/>
-<area shape="rect" id="node5" href="$shared__data_8hpp.html" title="Contains the SharedData struct, used across all modules and extensions." alt="" coords="869,229,1000,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="303,543,470,569"/>
-<area shape="rect" id="node7" title=" " alt="" coords="5,543,168,569"/>
-<area shape="rect" id="node8" href="$blocks_8hpp.html" title=" " alt="" coords="503,379,595,405"/>
-<area shape="rect" id="node18" href="$error__frame_8hpp.html" title="The error frame." alt="" coords="947,304,1074,331"/>
-<area shape="rect" id="node19" href="$frame_8hpp.html" title=" " alt="" coords="1631,379,1721,405"/>
-<area shape="rect" id="node22" href="$streams_8hpp.html" title="The header file for the data streams." alt="" coords="1137,379,1239,405"/>
-<area shape="rect" id="node30" href="$flight__phase_8hpp.html" title="Contains the flight phase enum and related functions." alt="" coords="794,304,923,331"/>
-<area shape="rect" id="node31" href="$log__container_8hpp.html" title="A simple logging system for debugging." alt="" coords="633,304,770,331"/>
-<area shape="rect" id="node33" href="$status__led_8hpp.html" title="RGB Status LED extension header file." alt="" coords="1264,304,1381,331"/>
-<area shape="rect" id="node9" title=" " alt="" coords="1771,543,1835,569"/>
-<area shape="rect" id="node10" title=" " alt="" coords="125,461,315,487"/>
-<area shape="rect" id="node11" href="$json_8hpp.html" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="631,461,708,487"/>
-<area shape="rect" id="node14" href="$node_8hpp.html" title="Contains structures that are used to identify components of the flight system." alt="" coords="849,543,932,569"/>
-<area shape="rect" id="node17" href="$positional_8hpp.html" title="Positional data for the flight system (gps/imu data)" alt="" coords="492,461,607,487"/>
-<area shape="rect" id="node12" title=" " alt="" coords="596,543,743,569"/>
-<area shape="rect" id="node13" title=" " alt="" coords="767,543,825,569"/>
-<area shape="rect" id="node15" title=" " alt="" coords="781,617,848,644"/>
-<area shape="rect" id="node16" title=" " alt="" coords="632,617,683,644"/>
-<area shape="rect" id="node21" href="$giraffe__diagnostic__ids_8hpp.html" title=" " alt="" coords="884,453,1023,495"/>
-<area shape="rect" id="node20" title=" " alt="" coords="2087,461,2211,487"/>
-<area shape="rect" id="node23" title=" " alt="" coords="1655,461,1721,487"/>
-<area shape="rect" id="node24" title=" " alt="" coords="1148,461,1228,487"/>
-<area shape="rect" id="node25" title=" " alt="" coords="2025,543,2087,569"/>
-<area shape="rect" id="node26" title=" " alt="" coords="1252,461,1449,487"/>
-<area shape="rect" id="node27" href="$command_8hpp.html" title="The command/queue system for the flight system." alt="" coords="1897,461,2012,487"/>
-<area shape="rect" id="node29" href="$data__ids_8hpp.html" title=" " alt="" coords="1474,461,1579,487"/>
-<area shape="rect" id="node28" href="$command__ids_8hpp.html" title=" " alt="" coords="1859,543,2000,569"/>
-<area shape="rect" id="node32" title=" " alt="" coords="645,379,707,405"/>
-<area shape="rect" id="node35" title=" " alt="" coords="1847,379,1905,405"/>
+<area shape="rect" id="node1" title="ADC Mapping configuration section." alt="" coords="1306,5,1469,32"/>
+<area shape="rect" id="node2" href="$cfg__adcmappings_8hpp.html" title=" " alt="" coords="1240,80,1404,107"/>
+<area shape="rect" id="node35" href="$validation_8hpp.html" title=" " alt="" coords="1396,304,1510,331"/>
+<area shape="rect" id="node3" href="$configuration__enums_8hpp.html" title=" " alt="" coords="1229,155,1416,181"/>
+<area shape="rect" id="node4" href="$cfg__section_8hpp.html" title="This file contains the base class for all configuration sections." alt="" coords="1022,155,1204,181"/>
+<area shape="rect" id="node5" href="$shared__data_8hpp.html" title="Contains the SharedData struct, used across all modules and extensions." alt="" coords="1048,229,1178,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="896,543,1063,569"/>
+<area shape="rect" id="node7" title=" " alt="" coords="141,543,304,569"/>
+<area shape="rect" id="node8" href="$blocks_8hpp.html" title=" " alt="" coords="831,379,923,405"/>
+<area shape="rect" id="node18" href="$error__frame_8hpp.html" title="The error frame." alt="" coords="1535,304,1662,331"/>
+<area shape="rect" id="node19" href="$frame_8hpp.html" title=" " alt="" coords="2132,379,2222,405"/>
+<area shape="rect" id="node22" href="$streams_8hpp.html" title="The header file for the data streams." alt="" coords="1402,379,1504,405"/>
+<area shape="rect" id="node30" href="$flight__data_8hpp.html" title=" " alt="" coords="211,379,330,405"/>
+<area shape="rect" id="node31" href="$flight__phase_8hpp.html" title="Contains the flight phase enum and related functions." alt="" coords="26,461,155,487"/>
+<area shape="rect" id="node32" href="$log__container_8hpp.html" title="A simple logging system for debugging." alt="" coords="1183,304,1320,331"/>
+<area shape="rect" id="node34" href="$status__led_8hpp.html" title="RGB Status LED extension header file." alt="" coords="990,304,1108,331"/>
+<area shape="rect" id="node9" title=" " alt="" coords="2174,543,2238,569"/>
+<area shape="rect" id="node10" title=" " alt="" coords="484,461,675,487"/>
+<area shape="rect" id="node11" href="$json_8hpp.html" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="382,461,460,487"/>
+<area shape="rect" id="node14" href="$node_8hpp.html" title="Contains structures that are used to identify components of the flight system." alt="" coords="1088,543,1170,569"/>
+<area shape="rect" id="node17" href="$positional_8hpp.html" title="Positional data for the flight system (gps/imu data)" alt="" coords="750,461,865,487"/>
+<area shape="rect" id="node12" title=" " alt="" coords="512,543,658,569"/>
+<area shape="rect" id="node13" title=" " alt="" coords="336,543,394,569"/>
+<area shape="rect" id="node15" title=" " alt="" coords="1036,617,1102,644"/>
+<area shape="rect" id="node16" title=" " alt="" coords="901,617,952,644"/>
+<area shape="rect" id="node21" href="$giraffe__diagnostic__ids_8hpp.html" title=" " alt="" coords="1182,453,1321,495"/>
+<area shape="rect" id="node20" title=" " alt="" coords="2295,461,2419,487"/>
+<area shape="rect" id="node23" title=" " alt="" coords="1041,461,1108,487"/>
+<area shape="rect" id="node24" title=" " alt="" coords="1446,461,1526,487"/>
+<area shape="rect" id="node25" title=" " alt="" coords="2074,543,2136,569"/>
+<area shape="rect" id="node26" title=" " alt="" coords="1550,461,1748,487"/>
+<area shape="rect" id="node27" href="$command_8hpp.html" title="The command/queue system for the flight system." alt="" coords="1953,461,2068,487"/>
+<area shape="rect" id="node29" href="$data__ids_8hpp.html" title=" " alt="" coords="1772,461,1878,487"/>
+<area shape="rect" id="node28" href="$command__ids_8hpp.html" title=" " alt="" coords="1908,543,2049,569"/>
+<area shape="rect" id="node33" title=" " alt="" coords="1220,379,1283,405"/>
+<area shape="rect" id="node36" title=" " alt="" coords="1820,379,1878,405"/>
 </map>

@@ -50,7 +50,7 @@ var annotated_dup =
       [ "LogPacket", "structdata_1_1LogPacket.html", "structdata_1_1LogPacket" ],
       [ "LogStream", "classdata_1_1LogStream.html", "classdata_1_1LogStream" ],
       [ "SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", "namespacedata_structdata_1_1SharedBlocks_dup" ],
-      [ "SharedData", "namespacedata.html#structdata_1_1SharedData", "namespacedata_structdata_1_1SharedData_dup" ],
+      [ "SharedData", "structdata_1_1SharedData.html", "structdata_1_1SharedData" ],
       [ "Stream", "classdata_1_1Stream.html", "classdata_1_1Stream" ],
       [ "Streams", "namespacedata.html#structdata_1_1Streams", "namespacedata_structdata_1_1Streams_dup" ]
     ] ],
@@ -113,6 +113,7 @@ var annotated_dup =
       [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ],
       [ "LoggerEntry", "structgiraffe_1_1LoggerEntry.html", "structgiraffe_1_1LoggerEntry" ],
       [ "SpiInterface", "classgiraffe_1_1SpiInterface.html", "classgiraffe_1_1SpiInterface" ],
+      [ "StatusLedChannel", "classgiraffe_1_1StatusLedChannel.html", "classgiraffe_1_1StatusLedChannel" ],
       [ "StatusLedState", "classgiraffe_1_1StatusLedState.html", "classgiraffe_1_1StatusLedState" ]
     ] ],
     [ "modules", "namespacemodules.html", [
@@ -150,13 +151,22 @@ var annotated_dup =
     [ "ConfigurationTest", "classConfigurationTest.html", "classConfigurationTest" ],
     [ "CurlRequest", "classCurlRequest.html", "classCurlRequest" ],
     [ "DataModuleTests", "classDataModuleTests.html", "classDataModuleTests" ],
+    [ "DetectionDataTest", "classDetectionDataTest.html", "classDetectionDataTest" ],
     [ "ExtensionModuleTests", "classExtensionModuleTests.html", "classExtensionModuleTests" ],
     [ "ExtensionTestFramework", "classExtensionTestFramework.html", "classExtensionTestFramework" ],
+    [ "FakeSharedData", "classFakeSharedData.html", "classFakeSharedData" ],
+    [ "FlightPhaseManager", "classFlightPhaseManager.html", "classFlightPhaseManager" ],
+    [ "FlightPhaseManagerTest", "classFlightPhaseManagerTest.html", "classFlightPhaseManagerTest" ],
+    [ "FlightPhasePredictor", "classFlightPhasePredictor.html", "classFlightPhasePredictor" ],
+    [ "FlightPhasePredictorTest", "classFlightPhasePredictorTest.html", "classFlightPhasePredictorTest" ],
     [ "FlightRunner", "classFlightRunner.html", "classFlightRunner" ],
     [ "GiraffeException", "classGiraffeException.html", "classGiraffeException" ],
     [ "I2cInterface", "classI2cInterface.html", "classI2cInterface" ],
     [ "LogContainer", "classLogContainer.html", "classLogContainer" ],
+    [ "MissionClock", "classMissionClock.html", "classMissionClock" ],
     [ "OneWireInterface", "classOneWireInterface.html", "classOneWireInterface" ],
+    [ "PredictionParameters", "classPredictionParameters.html", "classPredictionParameters" ],
     [ "ProtocolTest", "classProtocolTest.html", "classProtocolTest" ],
-    [ "RequestRouter", "group__ServerModule.html#classRequestRouter", "group__ServerModule_classRequestRouter" ]
+    [ "RequestRouter", "group__ServerModule.html#classRequestRouter", "group__ServerModule_classRequestRouter" ],
+    [ "Rule", "prediction__model_8hpp.html#structRule", "prediction__model_8hpp_structRule" ]
 ];
