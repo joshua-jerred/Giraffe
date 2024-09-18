@@ -193,12 +193,18 @@ function NavBar({ navExpanded, setNavExpanded }) {
           <i className={`fa fa-chevron-${navExpanded ? "left" : "right"}`}></i>
         </NavPin>
 
-        <NavItem title="Command Center" icon="fa-terminal" path="/" />
+        <NavItem title="Flight Control" icon="fa-rocket" path="/ggs">
+          <NavItem
+            title="Command Center"
+            label="TLM"
+            path={"/ggs/command-center"}
+          />
+          <NavItem title="Telemetry" label="TLM" path={"/ggs/telemetry"} />
+          <NavItem title="Data Logs" label="DAT" path={"/ggs/data-logs"} />
+          <NavItem title="Diagnostic" label="DIA" path={"/ggs/diagnostics"} />
+        </NavItem>
 
-        <NavItem title="Telemetry" label="TLM" path={"/telemetry"} />
-        <NavItem title="Data Logs" label="DAT" path={"/data-logs"} />
-
-        <NavItem title="GFS" icon="fa-rocket" path={"/gfs"}>
+        <NavItem title="GFS TCP" icon="fa-terminal" path={"/gfs"}>
           <NavItem title="Data Monitor" label="DAT" path="/gfs/data-monitor" />
           <NavItem title="Configure" label="CFG" path="/gfs/configure" />
           <NavItem title="Imagery" label="IMG" path="/gfs/imagery" />
