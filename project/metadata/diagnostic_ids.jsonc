@@ -536,7 +536,7 @@
       "details": "The ADC configuration string is invalid, defaulting to raw ADC count output",
       "value": "0x500D"
     },
-    "pi_camera_capture_fail": {
+    "camera_capture_fail": {
       "name": "Pi Camera Capture Failure",
       "details": "The Pi Camera extension failed to capture an image.",
       "value": "0x500E"

@@ -127,7 +127,7 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::EXTENSION_samm8qConfigureSetDynamicModel,"EXTENSION_samm8qConfigureSetDynamicModel"},
   {DiagnosticId::EXTENSION_samm8qReadTimeout,"EXTENSION_samm8qReadTimeout"},
   {DiagnosticId::EXTENSION_adcConfigFail,"EXTENSION_adcConfigFail"},
-  {DiagnosticId::EXTENSION_piCameraCaptureFail,"EXTENSION_piCameraCaptureFail"},
+  {DiagnosticId::EXTENSION_cameraCaptureFail,"EXTENSION_cameraCaptureFail"},
   {DiagnosticId::EXTENSION_samm8qInvalidTime,"EXTENSION_samm8qInvalidTime"},
   {DiagnosticId::FLIGHT_RUNNER_failedToRouteCommand,"FLIGHT_RUNNER_failedToRouteCommand"},
   {DiagnosticId::FLIGHT_RUNNER_commandDestinationNotFound,"FLIGHT_RUNNER_commandDestinationNotFound"},

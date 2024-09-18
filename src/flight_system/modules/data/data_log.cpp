@@ -328,6 +328,10 @@ void mw::DataLog::createDataDir() {
   }
 
   data_dir_path_ = giraffe::file_paths::getGfsDataDirPath();
+
+  if (bsfs::doesDirectoryExist(data_dir_path_)) {
+    fs_status_.data_dir = true;
+  }
 }
 
 void mw::DataLog::createDataArchiveDir() {
@@ -343,6 +347,10 @@ void mw::DataLog::createDataArchiveDir() {
   }
 
   data_archive_dir_path_ = giraffe::file_paths::getGfsDataArchiveDirPath();
+
+  if (bsfs::doesDirectoryExist(data_archive_dir_path_)) {
+    fs_status_.data_archive_dir = true;
+  }
 }
 
 void mw::DataLog::createLogDir() {
@@ -358,6 +366,10 @@ void mw::DataLog::createLogDir() {
   }
 
   log_dir_path_ = giraffe::file_paths::getGfsLogDirPath();
+
+  if (bsfs::doesDirectoryExist(log_dir_path_)) {
+    fs_status_.log_dir = true;
+  }
 }
 
 void mw::DataLog::createLogArchiveDir() {
@@ -373,6 +385,10 @@ void mw::DataLog::createLogArchiveDir() {
   }
 
   log_archive_dir_path_ = giraffe::file_paths::getGfsLogArchiveDirPath();
+
+  if (bsfs::doesDirectoryExist(log_archive_dir_path_)) {
+    fs_status_.log_archive_dir = true;
+  }
 }
 
 /**

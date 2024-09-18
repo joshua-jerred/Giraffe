@@ -89,7 +89,7 @@ void PiCamera::loop() {
 
     if (capture_proc.getExitCode() != 0) {
       capture_failures_++;
-      error(DiagnosticId::EXTENSION_piCameraCaptureFail,
+      error(DiagnosticId::EXTENSION_cameraCaptureFail,
             "exit cd: " + std::to_string(capture_proc.getExitCode()));
       debug("Capture error: " + capture_proc.getStderr());
       return;
@@ -102,7 +102,7 @@ void PiCamera::loop() {
     if (!bst::containsSubstring(capture_error,
                                 "Still capture image received")) {
       capture_failures_++;
-      error(DiagnosticId::EXTENSION_piCameraCaptureFail, "nir");
+      error(DiagnosticId::EXTENSION_cameraCaptureFail, "nir");
       return;
     }
 
@@ -111,7 +111,7 @@ void PiCamera::loop() {
     data(data::DataId::CAMERA_newImage, image_file_path);
   } catch (const bst::BoosterSeatException &e) {
     capture_failures_++;
-    error(DiagnosticId::EXTENSION_piCameraCaptureFail, e.what());
+    error(DiagnosticId::EXTENSION_cameraCaptureFail, e.what());
     return;
   }
 }

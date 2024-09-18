@@ -132,7 +132,7 @@ enum class DiagnosticId : uint16_t {
   EXTENSION_samm8qConfigureSetDynamicModel=0x500B, // SAMM8Q Configure Set Dynamic Model
   EXTENSION_samm8qReadTimeout=0x500C, // SAMM8Q Read Timeout
   EXTENSION_adcConfigFail=0x500D, // ADC Config Failure
-  EXTENSION_piCameraCaptureFail=0x500E, // Pi Camera Capture Failure
+  EXTENSION_cameraCaptureFail=0x500E, // Pi Camera Capture Failure
   EXTENSION_samm8qInvalidTime=0x500F, // SAMM8Q Invalid Time
   FLIGHT_RUNNER_failedToRouteCommand=0x6000, // Failed to route command
   FLIGHT_RUNNER_commandDestinationNotFound=0x6001, // Command destination not found

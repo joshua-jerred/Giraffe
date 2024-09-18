@@ -18,6 +18,9 @@
 #ifndef SIMULATED_EXTENSIONS_HPP_
 #define SIMULATED_EXTENSIONS_HPP_
 
+#include <BoosterSeat/exception.hpp>
+#include <BoosterSeat/filesystem.hpp>
+
 #include "gfs_simulator.hpp"
 #include "giraffe_file_paths.hpp"
 
@@ -150,15 +153,32 @@ public:
   }
 
   void loop() override {
-    const std::string TEST_IMAGE_PATH = "/simulated_camera_image.png";
+    copySampleImage();
+  }
+
+  void copySampleImage() {
+    const std::string TEST_IMAGE_PATH = "./simulated_camera_image.png";
+    const std::string TEST_IMAGE_OUTPUT_PATH =
+        image_dir_ + "/" + TEST_IMAGE_PATH;
     // std::string new_image_name =
     // giraffe::file_paths::generateFileNameWithTimestamp(".png");
 
-    data(data::DataId::CAMERA_newImage, image_dir_ + TEST_IMAGE_PATH);
+    if (image_created_) {
+      data(data::DataId::CAMERA_newImage, TEST_IMAGE_OUTPUT_PATH);
+      return;
+    }
+
+    try {
+      bst::filesystem::copyFile(TEST_IMAGE_PATH, TEST_IMAGE_OUTPUT_PATH, true);
+    } catch (bst::BoosterSeatException &e) {
+      error(DiagnosticId::EXTENSION_cameraCaptureFail, e.what());
+    }
+    image_created_ = true;
   }
 
 private:
   std::string image_dir_{};
+  bool image_created_{false};
 };
 
 } // namespace extension
