@@ -548,7 +548,9 @@ void mw::DataLog::archiveOtherFilesInDir(const std::string &dir_path,
     std::filesystem::path dir(dir_path);
     for (const auto &file : std::filesystem::directory_iterator(dir)) {
       std::string file_path = file.path().string();
-      archiveFile(file_path, archive_dir_path, error_id);
+      if (std::filesystem::is_regular_file(file_path)) {
+        archiveFile(file_path, archive_dir_path, error_id);
+      }
     }
   } catch (const std::exception &e) {
     shared_data_.streams.log.errorStdException(kNodeId, error_id, e);

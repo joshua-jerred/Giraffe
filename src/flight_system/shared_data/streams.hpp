@@ -148,7 +148,8 @@ public:
     pkt.source = source;
     pkt.level = LogPacket::Level::ERROR;
     pkt.id = error_id;
-    pkt.info = "Errno: " + std::to_string(exception.errorNumber());
+    pkt.info =
+        std::to_string(exception.errorNumber()) + " | " + exception.what();
     pkt.resetTime();
 
     addPacket(pkt);
