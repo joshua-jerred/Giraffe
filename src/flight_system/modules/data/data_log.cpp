@@ -22,6 +22,7 @@
 #include <bzip2-cpp-lib.hpp>
 
 #include "data_log.hpp"
+#include "giraffe_file_paths.hpp"
 
 namespace mw = data_middleware;
 namespace bsfs = bst::filesystem;
@@ -29,12 +30,6 @@ namespace bsfs = bst::filesystem;
 // For Logging
 inline constexpr node::Identification kNodeId =
     node::Identification::DATA_MODULE;
-
-// Directory paths
-inline const std::string kDataDirPath = "./data";
-inline const std::string kDataArchiveDirPath = kDataDirPath + "/archive";
-inline const std::string kLogDirPath = "./log";
-inline const std::string kLogArchiveDirPath = kLogDirPath + "/archive";
 
 // File Names
 inline constexpr bst::time::TimeZone kDataTimeZone = bst::time::TimeZone::UTC;
@@ -63,11 +58,11 @@ mw::DataLog::DataLog(data::SharedData &shared_data, cfg::Configuration &config)
 
   // Clear up the old files if they exist, before creating new ones.
   if (fs_status_.data_dir) {
-    archiveOtherFilesInDir(kDataDirPath, kDataArchiveDirPath,
+    archiveOtherFilesInDir(data_dir_path_, data_archive_dir_path_,
                            DiagnosticId::DATA_LOG_archiveOldDataFiles);
   }
   if (fs_status_.log_dir) {
-    archiveOtherFilesInDir(kLogDirPath, kLogArchiveDirPath,
+    archiveOtherFilesInDir(log_dir_path_, log_archive_dir_path_,
                            DiagnosticId::DATA_LOG_archiveOldLogFiles);
   }
 
@@ -192,20 +187,20 @@ void mw::DataLog::updateFileSystem() {
 
 void mw::DataLog::validateFileSystem() {
   // check state of the filesystem and attempt to fix it if necessary
-  validateDirExists(kDataDirPath, DiagnosticId::DATA_LOG_dataDirDoesNotExist,
+  validateDirExists(data_dir_path_, DiagnosticId::DATA_LOG_dataDirDoesNotExist,
                     DiagnosticId::DATA_LOG_dataDirExistenceBstrst,
                     DiagnosticId::DATA_LOG_dataDirExistenceStdexcept,
                     fs_status_.data_dir);
-  validateDirExists(kDataArchiveDirPath,
+  validateDirExists(data_archive_dir_path_,
                     DiagnosticId::DATA_LOG_dataArchiveDirDoesNotExist,
                     DiagnosticId::DATA_LOG_dataArchiveDirExistenceBstrst,
                     DiagnosticId::DATA_LOG_dataArchiveDirExistenceStdexcept,
                     fs_status_.data_archive_dir);
-  validateDirExists(kLogDirPath, DiagnosticId::DATA_LOG_logDirDoesNotExist,
+  validateDirExists(log_dir_path_, DiagnosticId::DATA_LOG_logDirDoesNotExist,
                     DiagnosticId::DATA_LOG_logDirExistenceBstrst,
                     DiagnosticId::DATA_LOG_logDirExistenceStdexcept,
                     fs_status_.log_dir);
-  validateDirExists(kLogArchiveDirPath,
+  validateDirExists(log_archive_dir_path_,
                     DiagnosticId::DATA_LOG_logArchiveDirDoesNotExist,
                     DiagnosticId::DATA_LOG_logArchiveDirExistenceBstrst,
                     DiagnosticId::DATA_LOG_logArchiveDirExistenceStdexcept,
@@ -253,7 +248,7 @@ void mw::DataLog::validateFileSystem() {
 
   // Update Directory sizes
   if (fs_status_.data_archive_dir) {
-    updateDirSize(kDataArchiveDirPath,
+    updateDirSize(data_archive_dir_path_,
                   DiagnosticId::DATA_LOG_dataArchiveDirSizeRead,
                   fs_status_.data_archive_dir_size);
   } else {
@@ -261,7 +256,7 @@ void mw::DataLog::validateFileSystem() {
   }
 
   if (fs_status_.log_archive_dir) {
-    updateDirSize(kLogArchiveDirPath,
+    updateDirSize(log_archive_dir_path_,
                   DiagnosticId::DATA_LOG_logArchiveDirSizeRead,
                   fs_status_.log_archive_dir_size);
   } else {
@@ -332,9 +327,7 @@ void mw::DataLog::createDataDir() {
     return;
   }
 
-  createDirectory(kDataDirPath, DiagnosticId::DATA_LOG_createDataDirBstrst,
-                  DiagnosticId::DATA_LOG_createDataDirStdexcept,
-                  fs_status_.data_dir);
+  data_dir_path_ = giraffe::file_paths::getGfsDataDirPath();
 }
 
 void mw::DataLog::createDataArchiveDir() {
@@ -349,10 +342,7 @@ void mw::DataLog::createDataArchiveDir() {
     return;
   }
 
-  createDirectory(kDataArchiveDirPath,
-                  DiagnosticId::DATA_LOG_createDataArchiveDirBstrst,
-                  DiagnosticId::DATA_LOG_createDataArchiveDirStdexcept,
-                  fs_status_.data_archive_dir);
+  data_archive_dir_path_ = giraffe::file_paths::getGfsDataArchiveDirPath();
 }
 
 void mw::DataLog::createLogDir() {
@@ -367,9 +357,7 @@ void mw::DataLog::createLogDir() {
     return;
   }
 
-  createDirectory(kLogDirPath, DiagnosticId::DATA_LOG_createLogDirBstrst,
-                  DiagnosticId::DATA_LOG_createLogDirStdexcept,
-                  fs_status_.log_dir);
+  log_dir_path_ = giraffe::file_paths::getGfsLogDirPath();
 }
 
 void mw::DataLog::createLogArchiveDir() {
@@ -384,10 +372,7 @@ void mw::DataLog::createLogArchiveDir() {
     return;
   }
 
-  createDirectory(kLogArchiveDirPath,
-                  DiagnosticId::DATA_LOG_createLogArchiveDirBstrst,
-                  DiagnosticId::DATA_LOG_createLogArchiveDirStdexcept,
-                  fs_status_.log_archive_dir);
+  log_archive_dir_path_ = giraffe::file_paths::getGfsLogArchiveDirPath();
 }
 
 /**
@@ -405,7 +390,7 @@ inline std::string generateFilePath(const std::string path,
 }
 
 void mw::DataLog::createNewDataFile() {
-  std::string new_file_path = generateFilePath(kDataDirPath, kDataFilePrefix);
+  std::string new_file_path = generateFilePath(data_dir_path_, kDataFilePrefix);
 
   createFile(new_file_path, DiagnosticId::DATA_LOG_createNewDataFileBstrst,
              DiagnosticId::DATA_LOG_createNewDataFileStdexcept,
@@ -417,7 +402,7 @@ void mw::DataLog::createNewDataFile() {
 }
 
 void mw::DataLog::createNewLogFile() {
-  std::string new_file_path = generateFilePath(kLogDirPath, kLogFilePrefix);
+  std::string new_file_path = generateFilePath(log_dir_path_, kLogFilePrefix);
   createFile(new_file_path, DiagnosticId::DATA_LOG_createNewLogFileBstrst,
              DiagnosticId::DATA_LOG_createNewLogFileStdexcept,
              fs_status_.log_file);
@@ -559,7 +544,7 @@ void mw::DataLog::rotateFiles() {
   int max_log_size = config_.data_module_log.getMaxLogFileSizeMb();
 
   if (fs_status_.data_file && fs_status_.data_file_size >= max_data_size) {
-    if (!archiveFile(fs_status_.data_file_path, kDataArchiveDirPath,
+    if (!archiveFile(fs_status_.data_file_path, data_archive_dir_path_,
                      DiagnosticId::DATA_LOG_archiveDataFile)) {
       shared_data_.streams.log.error(kNodeId,
                                      DiagnosticId::DATA_LOG_rotateDataFile);
@@ -569,7 +554,7 @@ void mw::DataLog::rotateFiles() {
   }
 
   if (fs_status_.log_file && fs_status_.log_file_size >= max_log_size) {
-    if (!archiveFile(fs_status_.log_file_path, kLogArchiveDirPath,
+    if (!archiveFile(fs_status_.log_file_path, log_archive_dir_path_,
                      DiagnosticId::DATA_LOG_archiveLogFile)) {
       shared_data_.streams.log.error(kNodeId,
                                      DiagnosticId::DATA_LOG_rotateLogFile);
@@ -583,7 +568,7 @@ void mw::DataLog::rotateFiles() {
 
 void mw::DataLog::trimArchive() {
   try {
-    std::filesystem::path dir(kDataArchiveDirPath);
+    std::filesystem::path dir(data_archive_dir_path_);
     int num_files = 0;
     std::filesystem::path oldest_file_path;
     std::chrono::time_point<std::chrono::file_clock> oldest_file_time;
@@ -625,8 +610,10 @@ void getFileNamesInDir(const std::string &dir_path,
 
 void mw::DataLog::updateFileList() {
   try {
-    getFileNamesInDir(kDataArchiveDirPath, fs_status_.archived_data_files_list);
-    getFileNamesInDir(kLogArchiveDirPath, fs_status_.archived_log_files_list);
+    getFileNamesInDir(data_archive_dir_path_,
+                      fs_status_.archived_data_files_list);
+    getFileNamesInDir(log_archive_dir_path_,
+                      fs_status_.archived_log_files_list);
   } catch (const std::exception &e) {
     shared_data_.streams.log.errorStdException(
         kNodeId, DiagnosticId::DATA_LOG_fileListFail, e);

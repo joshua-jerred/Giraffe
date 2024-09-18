@@ -100,7 +100,7 @@ private:
   bool setLaunchPosition();
 
   //// -- Flight Logic Methods -- ////
-  void fl_phaseChanged(FlightPhase new_phase);
+  void fl_phaseChanged();
   void fl_preLaunchLogic();
   void fl_launchLogic();
   void fl_reportDescent();

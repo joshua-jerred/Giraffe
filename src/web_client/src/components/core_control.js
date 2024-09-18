@@ -70,6 +70,12 @@ function CoreControl() {
       } else {
         setAllowSetPreLaunchMode(false);
       }
+
+      if (flightPhase === "Recovery") {
+        setAllowSetPreLaunchMode(true);
+      } else {
+        setAllowSetPreLaunchMode(false);
+      }
     }
   }, [isGfsTcpConnected, flightPhase, gfsTimeSynced]);
 
@@ -81,6 +87,8 @@ function CoreControl() {
           Flight Phase: {flightPhase}
           <br />
           Allow Set Launch Mode: {allowSetLaunchMode.toString()}
+          <br />
+          Allow Set Pre-Launch Mode: {allowSetPreLaunchMode.toString()}
         </p>
         <ActionItem
           visible={flightPhase === "Pre-Launch"}
@@ -89,7 +97,11 @@ function CoreControl() {
           action="elp"
         />
         <ActionItem
-          visible={flightPhase === "Launch"}
+          visible={
+            flightPhase !== "Ascent" &&
+            flightPhase !== "Descent" &&
+            flightPhase !== "Pre-Launch"
+          }
           enabled={allowSetPreLaunchMode}
           name="Enter Pre-Launch Mode"
           action="epp"

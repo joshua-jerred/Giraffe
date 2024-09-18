@@ -18,9 +18,7 @@
 #include "to_string.hpp"
 
 void FlightRunner::flightLogic() {
-  if (flight_phase_manager_.update()) {
-    fl_phaseChanged(flight_phase_manager_.getCurrentFlightPhase());
-  }
+  flight_phase_manager_.update();
 }
 
 //// ---------------------- FLIGHT LOGIC PLUGINS ---------------------- ////
@@ -36,10 +34,15 @@ void FlightRunner::fl_reportDescent() {
                                           command);
 }
 
-void FlightRunner::fl_phaseChanged(FlightPhase new_phase) {
-  if (new_phase == FlightPhase::DESCENT) {
-    fl_reportDescent();
-  }
+void FlightRunner::fl_phaseChanged() {
+  FlightPhase new_phase = shared_data_.flight_data.getFlightPhase();
+
+  /// @todo remove this debug print
+  std::cout << "Flight phase changed to: " << util::to_string(new_phase)
+            << std::endl;
+
+  // Save the new phase to non-volatile memory
+  flight_runner_data_.setFlightPhase(new_phase);
 
   switch (new_phase) {
   case FlightPhase::UNKNOWN:
@@ -48,16 +51,19 @@ void FlightRunner::fl_phaseChanged(FlightPhase new_phase) {
   case FlightPhase::PRE_LAUNCH:
     shared_data_.status_led.setGreen(StatusLedState::State::ON);
     break;
-  case FlightPhase::LAUNCH:
+  case FlightPhase::LAUNCH: {
     shared_data_.status_led.setGreen(StatusLedState::State::BLINK);
-    break;
+#if RUN_IN_SIMULATOR == 1
+    p_simulator_->launch();
+#endif
+  } break;
   case FlightPhase::ASCENT:
     shared_data_.status_led.setGreen(StatusLedState::State::OFF);
     break;
-  case FlightPhase::DESCENT:
+  case FlightPhase::DESCENT: {
     shared_data_.status_led.setGreen(StatusLedState::State::OFF);
     fl_reportDescent();
-    break;
+  } break;
   case FlightPhase::RECOVERY:
     shared_data_.status_led.setGreen(StatusLedState::State::BLINK);
     break;

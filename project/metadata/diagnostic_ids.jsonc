@@ -587,6 +587,11 @@
       "name": "Failed to Set Launch",
       "details": "The system was unable to go into the launch phase. This could be because the system was not in the pre-launch phase or because the launch position could not be set (no GPS data).",
       "value": "0x6007"
+    },
+    "forced_recovery": {
+      "name": "Forced Recovery",
+      "details": "The system was forced into the recovery phase due to an error.",
+      "value": "0x6008"
     }
   },
   "ext_fault": {

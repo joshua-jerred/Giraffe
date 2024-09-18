@@ -18,6 +18,7 @@
 #include <BoosterSeat/filters.hpp>
 #include <BoosterSeat/timer.hpp>
 
+#include "error_reporter.hpp"
 #include "flight_data.hpp"
 #include "flight_phase_predictor.hpp"
 #include "logger.hpp"
@@ -46,9 +47,9 @@ public:
     // Edge case: We don't want to get stuck in the launch phase after an
     // erroneous restart. This may be annoying, but it is safer.
     if (initial_phase == FlightPhase::LAUNCH) {
-      flight_phase_ = FlightPhase::RECOVERY;
+      forceRecovery("Initial phase was LAUNCH - safety measure");
     } else {
-      flight_phase_ = initial_phase;
+      setFlightPhase(initial_phase);
     }
   }
 
@@ -141,7 +142,8 @@ private:
       // safer to go to recovery instead. Edge Cases: Out of Disk Space,
       // FlightSystem restart mid-flight or on recovery.
       if (new_phase == FlightPhase::LAUNCH) {
-        change_allowed = false;
+        unexpected_change = true;
+        return flightPhaseUpdate(FlightPhase::RECOVERY);
       }
     } break;
     case FlightPhase::PRE_LAUNCH: {
@@ -180,6 +182,12 @@ private:
         unexpected_change = true;
       }
 
+      // If we are suddenly predicting launch, we should go to recovery.
+      if (new_phase == FlightPhase::LAUNCH) {
+        forceRecovery("in ascent");
+        return true;
+      }
+
       // Allow for transitions forward only.
       if (new_phase != FlightPhase::DESCENT &&
           new_phase != FlightPhase::RECOVERY) {
@@ -189,6 +197,12 @@ private:
     case FlightPhase::DESCENT: {
       if (new_phase != FlightPhase::RECOVERY) {
         unexpected_change = true; // We expect to go to RECOVERY.
+      }
+
+      // If we are suddenly predicting launch, we should go to recovery.
+      if (new_phase == FlightPhase::LAUNCH) {
+        forceRecovery("in descent");
+        return true;
       }
 
       // Allow for transition back to ascent or forward to recovery.
@@ -213,9 +227,7 @@ private:
     }
 
     if (!change_allowed) {
-      logger_.error(DiagnosticId::FLIGHT_RUNNER_phaseChangeInvalid,
-                    util::to_string(current_phase) + " -> " +
-                        util::to_string(new_phase));
+      reportPhaseChangeInvalid(current_phase, new_phase, "change not allowed");
       return false;
     }
 
@@ -231,6 +243,11 @@ private:
     return true;
   }
 
+  void forceRecovery(std::string reason) {
+    logger_.error(DiagnosticId::FLIGHT_RUNNER_forcedRecovery, reason);
+    setFlightPhase(FlightPhase::RECOVERY);
+  }
+
   void setFlightPhase(FlightPhase new_phase) {
     flight_phase_ = new_phase;
 
@@ -243,7 +260,21 @@ private:
         data::DataId::FLIGHT_RUNNER_flightPhaseChange,
         util::to_string(new_phase));
 
+    cmd::Command command{};
+    command.destination = node::Identification::FLIGHT_RUNNER;
+    command.command_id = cmd::CommandId::INTERNAL_reportPhaseChange;
+    shared_data_.streams.command.addCommand(node::Identification::FLIGHT_RUNNER,
+                                            command);
+
     phase_filter_.reset(new_phase);
+  }
+
+  void reportPhaseChangeInvalid(FlightPhase current_phase,
+                                FlightPhase new_phase, std::string extra_info) {
+    extra_info = util::to_string(current_phase) + " -> " +
+                 util::to_string(new_phase) +
+                 (extra_info.empty() ? "" : " : " + extra_info);
+    phase_change_invalid_error_.reportError(extra_info);
   }
 
   /// @brief The current flight phase. Filtered and continually checked.
@@ -279,4 +310,8 @@ private:
                           "phase_mgr"};
 
   bool unknown_phase_error_reported_ = false;
+
+  data::ErrorReporter phase_change_invalid_error_{
+      shared_data_, node::Identification::FLIGHT_RUNNER,
+      DiagnosticId::FLIGHT_RUNNER_phaseChangeInvalid};
 };

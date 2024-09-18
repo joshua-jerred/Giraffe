@@ -22,7 +22,7 @@
 
 namespace giraffe::file_paths {
 
-constexpr char GIRAFFE_DIRECTORY[] = ".giraffe";
+const std::string GIRAFFE_DIRECTORY = ".giraffe";
 
 std::string getGiraffeDirectoryPath() {
   char *home_env = getenv("HOME");
@@ -97,6 +97,94 @@ std::string getGfsImageDirPath() {
     if (!bst::filesystem::doesDirectoryExist(dir_path)) {
       throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsImageDir,
                              "1");
+    }
+  }
+
+  return dir_path;
+}
+
+std::string getGfsDataDirPath() {
+  createGiraffeDirIfNotExists();
+  std::string dir_path = getGiraffeDirectoryPath() + "/gfs_data";
+
+  // -- create the directory if it does not exist
+  if (!bst::filesystem::doesDirectoryExist(dir_path)) {
+    try {
+      bst::filesystem::createDirectory(dir_path);
+    } catch (const std::exception &e) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsDataDir,
+                             "0: " + std::string(e.what()));
+    }
+
+    if (!bst::filesystem::doesDirectoryExist(dir_path)) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsDataDir,
+                             "1");
+    }
+  }
+
+  return dir_path;
+}
+
+std::string getGfsDataArchiveDirPath() {
+  createGiraffeDirIfNotExists();
+  std::string dir_path = getGfsDataDirPath() + "/archive";
+
+  // -- create the directory if it does not exist
+  if (!bst::filesystem::doesDirectoryExist(dir_path)) {
+    try {
+      bst::filesystem::createDirectory(dir_path);
+    } catch (const std::exception &e) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsDataDir,
+                             "0: " + std::string(e.what()));
+    }
+
+    if (!bst::filesystem::doesDirectoryExist(dir_path)) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsDataDir,
+                             "1");
+    }
+  }
+
+  return dir_path;
+}
+
+std::string getGfsLogDirPath() {
+  createGiraffeDirIfNotExists();
+  std::string dir_path = getGiraffeDirectoryPath() + "/gfs_log";
+
+  // -- create the directory if it does not exist
+  if (!bst::filesystem::doesDirectoryExist(dir_path)) {
+    try {
+      bst::filesystem::createDirectory(dir_path);
+    } catch (const std::exception &e) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsLogDir,
+                             "0:0: " + std::string(e.what()));
+    }
+
+    if (!bst::filesystem::doesDirectoryExist(dir_path)) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsLogDir,
+                             "0:1");
+    }
+  }
+
+  return dir_path;
+}
+
+std::string getGfsLogArchiveDirPath() {
+  createGiraffeDirIfNotExists();
+  std::string dir_path = getGfsLogDirPath() + "/archive";
+
+  // -- create the directory if it does not exist
+  if (!bst::filesystem::doesDirectoryExist(dir_path)) {
+    try {
+      bst::filesystem::createDirectory(dir_path);
+    } catch (const std::exception &e) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsLogDir,
+                             "1:0: " + std::string(e.what()));
+    }
+
+    if (!bst::filesystem::doesDirectoryExist(dir_path)) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsLogDir,
+                             "1:1");
     }
   }
 

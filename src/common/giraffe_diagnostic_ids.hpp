@@ -142,6 +142,7 @@ enum class DiagnosticId : uint16_t {
   FLIGHT_RUNNER_phaseChangeInvalid=0x6005, // Phase Change Invalid
   FLIGHT_RUNNER_phaseChangeUnexpected=0x6006, // Phase Change Unexpected
   FLIGHT_RUNNER_failedToSetLaunch=0x6007, // Failed to Set Launch
+  FLIGHT_RUNNER_forcedRecovery=0x6008, // Forced Recovery
   EXT_FAULT_none=0x7000, // No fault
   EXT_FAULT_fatalConfig=0x7001, // Fatal Configuration Error
   EXT_FAULT_bme280StartupI2CConnect=0x7002, // BME280 Startup I2C Connect Fault

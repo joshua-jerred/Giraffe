@@ -137,6 +137,7 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::FLIGHT_RUNNER_phaseChangeInvalid,"FLIGHT_RUNNER_phaseChangeInvalid"},
   {DiagnosticId::FLIGHT_RUNNER_phaseChangeUnexpected,"FLIGHT_RUNNER_phaseChangeUnexpected"},
   {DiagnosticId::FLIGHT_RUNNER_failedToSetLaunch,"FLIGHT_RUNNER_failedToSetLaunch"},
+  {DiagnosticId::FLIGHT_RUNNER_forcedRecovery,"FLIGHT_RUNNER_forcedRecovery"},
   {DiagnosticId::EXT_FAULT_none,"EXT_FAULT_none"},
   {DiagnosticId::EXT_FAULT_fatalConfig,"EXT_FAULT_fatalConfig"},
   {DiagnosticId::EXT_FAULT_bme280StartupI2CConnect,"EXT_FAULT_bme280StartupI2CConnect"},

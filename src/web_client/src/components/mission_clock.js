@@ -243,6 +243,7 @@ export function MissionClock() {
       let input_time = data.start_time;
       let new_start_time = new Date(input_time);
       if (isNaN(new_start_time)) {
+        console.log("DATA -- ", data);
         throw new Error("Invalid Date");
       }
       setIsRunning(data.is_running);
@@ -337,7 +338,7 @@ export function MissionClock() {
               </CardContentCentered>
             </div>
           ) : (
-            <p>Invalid Start Time</p>
+            <p>No Info/Invalid Start Time</p>
           )}
         </div>
       )}

@@ -21,8 +21,18 @@
 
 namespace gfs_sim {
 
-enum class SimState { PRE_LAUNCH, ASCENT, POP, DESCENT, LANDING, LANDED };
+// -- -- -- -- -- -- -- --
+// -- -- Main Params -- --
+// all values in meters or meters per second
+inline constexpr double BURST_ALTITUDE = 3000.0; // 30000.0;
+inline constexpr double ASCENT_RATE = 5.0;
+inline constexpr double DESCENT_RATE = 5.0;
+// -- -- -- -- -- -- -- --
 
+static_assert(ASCENT_RATE > 0.01, "Ascent rate must be greater than 0.01");
+static_assert(DESCENT_RATE > 0.01, "Descent rate must be greater than 0.01");
+
+enum class SimState { PRE_LAUNCH, ASCENT, POP, DESCENT, LANDING, LANDED };
 struct SimData {
   std::atomic<double> temperature_c{0.0};
   std::atomic<double> pressure_mbar{0.0};
@@ -66,16 +76,21 @@ inline constexpr double K_PRELAUNCH_LAUNCH_DELAY_S =
 // Ascent Parameters
 inline constexpr double K_ASCENT_ACCELERATION_MPS2 = 0.3;
 inline constexpr double K_ASCENT_ACCELERATION_VARIANCE = 0.1;
-inline constexpr double K_ASCENT_RATE_METERS_PER_SECOND_MAX = 9.0;
-inline constexpr double K_ASCENT_RATE_METERS_PER_SECOND_MIN = 3.5;
+inline constexpr double K_ASCENT_RATE_METERS_PER_SECOND_MAX =
+    ASCENT_RATE + (ASCENT_RATE * 0.2);
+inline constexpr double K_ASCENT_RATE_METERS_PER_SECOND_MIN =
+    ASCENT_RATE - (ASCENT_RATE * 0.2);
+
 // Pop Parameters
-inline constexpr double K_POP_ALTITUDE_METERS = 10000; // 30000.0;
+inline constexpr double K_POP_ALTITUDE_METERS = BURST_ALTITUDE;
 inline constexpr double K_POP_DESCENT_RATE_METERS_PER_SECOND_TARGET = -30.0;
 inline constexpr double K_POP_ACCELERATION_MPS2 = -7.0;
 inline constexpr double K_POP_ACCELERATION_VARIANCE = 0.5;
 // Descent Parameters
-inline constexpr double K_DESCENT_RATE_METERS_PER_SECOND_MAX = 30.0;
-inline constexpr double K_DESCENT_RATE_METERS_PER_SECOND_MIN = 5.5;
+inline constexpr double K_DESCENT_RATE_METERS_PER_SECOND_MAX =
+    DESCENT_RATE + (DESCENT_RATE * 0.2);
+inline constexpr double K_DESCENT_RATE_METERS_PER_SECOND_MIN =
+    DESCENT_RATE - (DESCENT_RATE * 0.2);
 inline constexpr double K_DESCENT_DECELERATION_MPS2 = 2.5;
 inline constexpr double K_DESCENT_DECELERATION_VARIANCE = 0.2;
 inline constexpr double K_DESCENT_TRANSITION_ALTITUDE_METERS = 10;
