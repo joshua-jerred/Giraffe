@@ -1,5 +1,6 @@
 <map id="FlightRunner::fl_reportDescent" name="FlightRunner::fl_reportDescent">
-<area shape="rect" id="node1" title=" " alt="" coords="505,5,725,32"/>
-<area shape="rect" id="node2" href="$classFlightRunner.html#a5d3886d14a2848d50a92a7d5d770ba27" title=" " alt="" coords="233,5,457,32"/>
-<area shape="rect" id="node3" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="5,5,185,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="819,5,1039,32"/>
+<area shape="rect" id="node2" href="$classFlightRunner.html#ace57cc70e225e6d6d9b141e75589e775" title=" " alt="" coords="547,5,771,32"/>
+<area shape="rect" id="node3" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,5,499,32"/>
+<area shape="rect" id="node4" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,5,220,32"/>
 </map>

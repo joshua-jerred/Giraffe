@@ -1,0 +1,5 @@
+<map id="giraffe::file_paths::getGfsDataArchiveDirPath" name="giraffe::file_paths::getGfsDataArchiveDirPath">
+<area shape="rect" id="node1" title="Returns the path to the gfs data archive directory. Creates the directory if it does not exist." alt="" coords="496,5,696,47"/>
+<area shape="rect" id="node2" href="$group__DataLog.html#ga96a2e0cbd5f5f4bc55b9ad0b6dad9222" title="Used to create the data archive directory with createDirectory()." alt="" coords="251,5,448,47"/>
+<area shape="rect" id="node3" href="$classdata__middleware_1_1DataLog.html#a957234a0f7b3ce34cc4f3ffffb222f0c" title=" " alt="" coords="5,5,203,47"/>
+</map>

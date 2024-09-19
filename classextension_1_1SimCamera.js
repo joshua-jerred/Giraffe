@@ -2,6 +2,7 @@ var classextension_1_1SimCamera =
 [
     [ "SimCamera", "classextension_1_1SimCamera.html#abb5201bd7c5cb54d7c93348b172decab", null ],
     [ "loop", "classextension_1_1SimCamera.html#a896be0f89a872ccb371c72bcb81ccff8", null ],
+    [ "copySampleImage", "classextension_1_1SimCamera.html#a7004e033f46b9491b4c0f3f200bbff74", null ],
     [ "start", "classextension_1_1SimCamera.html#a65da188590e7f56c25fdc86370f5c10c", null ],
     [ "stop", "classextension_1_1SimCamera.html#ae148a765446780132679adc6e647ad37", null ],
     [ "reset", "classextension_1_1SimCamera.html#a639edd8b0e44e06bb5e2111412becb68", null ],
@@ -24,6 +25,7 @@ var classextension_1_1SimCamera =
     [ "sleep", "classextension_1_1SimCamera.html#a041069086cf7b981e4999150e7b7469d", null ],
     [ "runner", "classextension_1_1SimCamera.html#a2aa3ac844b4d83d427e0f633f803a027", null ],
     [ "image_dir_", "classextension_1_1SimCamera.html#a5bee3c92c076308c3188179b61fa80da", null ],
+    [ "image_created_", "classextension_1_1SimCamera.html#a848318013a51a1efd224fc1e64865cfa", null ],
     [ "metadata_", "classextension_1_1SimCamera.html#a295de97827360717494a398c45d161f2", null ],
     [ "fault_flag_", "classextension_1_1SimCamera.html#a40300776e358833cbfd50c198a320cdf", null ],
     [ "fault_code_", "classextension_1_1SimCamera.html#a3e5d32890e069c49b3641d0e01322364", null ],

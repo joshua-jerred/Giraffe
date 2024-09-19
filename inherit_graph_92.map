@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics" title=" " alt="" coords="5,5,165,32"/>
+<area shape="rect" id="node1" href="$classgiraffe_1_1gdl_1_1PhysicalLayer.html" title="The physical layer of the Giraffe Data Link." alt="" coords="5,42,196,69"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html" title=" " alt="" coords="244,5,455,47"/>
+<area shape="rect" id="node3" href="$classradios_1_1Sa868.html" title=" " alt="" coords="294,71,405,98"/>
 </map>

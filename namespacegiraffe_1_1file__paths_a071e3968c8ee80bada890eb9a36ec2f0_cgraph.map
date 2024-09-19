@@ -1,0 +1,6 @@
+<map id="giraffe::file_paths::getGfsDataArchiveDirPath" name="giraffe::file_paths::getGfsDataArchiveDirPath">
+<area shape="rect" id="node1" title="Returns the path to the gfs data archive directory. Creates the directory if it does not exist." alt="" coords="5,35,205,76"/>
+<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="452,5,657,47"/>
+<area shape="rect" id="node4" href="$namespacegiraffe_1_1file__paths.html#a60be25b9cd8882562d8f5f77b420d1bc" title="Returns the path to the gfs data directory. Creates the directory if it does not exist." alt="" coords="253,64,404,105"/>
+<area shape="rect" id="node3" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="705,35,888,76"/>
+</map>

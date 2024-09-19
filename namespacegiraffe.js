@@ -7,8 +7,12 @@ var namespacegiraffe =
       [ "getGfsConfigFilePath", "namespacegiraffe_1_1file__paths.html#af135930ce8485d772c69735520b7fad1", null ],
       [ "getGfsFlightRunnerDataFilePath", "namespacegiraffe_1_1file__paths.html#aef6cfddd3fef84d131765805a8152fbc", null ],
       [ "getGfsImageDirPath", "namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc", null ],
+      [ "getGfsDataDirPath", "namespacegiraffe_1_1file__paths.html#a60be25b9cd8882562d8f5f77b420d1bc", null ],
+      [ "getGfsDataArchiveDirPath", "namespacegiraffe_1_1file__paths.html#a071e3968c8ee80bada890eb9a36ec2f0", null ],
+      [ "getGfsLogDirPath", "namespacegiraffe_1_1file__paths.html#acfd866770216db1b79d6f669b376e5ad", null ],
+      [ "getGfsLogArchiveDirPath", "namespacegiraffe_1_1file__paths.html#a562ee8f7b45dd38039768a7847a02d5d", null ],
       [ "generateFileNameWithTimestamp", "namespacegiraffe_1_1file__paths.html#af5c1d677a515ee726e43548eae52335e", null ],
-      [ "GIRAFFE_DIRECTORY", "namespacegiraffe_1_1file__paths.html#aad4ebaf90e4cc96fa0529d0d65fcd109", null ]
+      [ "GIRAFFE_DIRECTORY", "namespacegiraffe_1_1file__paths.html#a25ccbccfa2a5f0bfcfc360dcbd31d764", null ]
     ] ],
     [ "gdl", "namespacegiraffe_1_1gdl.html", "namespacegiraffe_1_1gdl" ],
     [ "CommonLogger", "classgiraffe_1_1CommonLogger.html", "classgiraffe_1_1CommonLogger" ],

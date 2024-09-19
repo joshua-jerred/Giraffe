@@ -103,6 +103,9 @@ var files_dup =
         [ "packet", "namespacedata.html#a8f661866d2b56cce72ece21f355eb4f5", null ]
       ] ]
     ] ],
+    [ "error_reporter.hpp", "error__reporter_8hpp.html", [
+      [ "ErrorReporter", "classdata_1_1ErrorReporter.html", "classdata_1_1ErrorReporter" ]
+    ] ],
     [ "extension_base.cpp", "extension__base_8cpp.html", "extension__base_8cpp" ],
     [ "extension_base.hpp", "extension__base_8hpp.html", [
       [ "Extension", "classextension_1_1Extension.html", "classextension_1_1Extension" ],
@@ -301,6 +304,7 @@ var files_dup =
       ] ],
       [ "SimEnvironmental", "classgfs__sim_1_1SimEnvironmental.html", "classgfs__sim_1_1SimEnvironmental" ]
     ] ],
+    [ "sim_log.hpp", "sim__log_8hpp.html", "sim__log_8hpp" ],
     [ "sim_parameters.hpp", "sim__parameters_8hpp.html", "sim__parameters_8hpp" ],
     [ "sim_physics.cpp", "sim__physics_8cpp.html", null ],
     [ "sim_physics.hpp", "sim__physics_8hpp.html", [

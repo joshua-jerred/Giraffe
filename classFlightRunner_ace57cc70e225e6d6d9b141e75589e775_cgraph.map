@@ -1,0 +1,10 @@
+<map id="FlightRunner::fl_phaseChanged" name="FlightRunner::fl_phaseChanged">
+<area shape="rect" id="node1" title=" " alt="" coords="5,137,229,163"/>
+<area shape="rect" id="node2" href="$classFlightRunner.html#acc2f1a518af2fac43a9320db2854521a" title=" " alt="" coords="277,13,497,39"/>
+<area shape="rect" id="node5" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="291,64,484,105"/>
+<area shape="rect" id="node6" href="$classgiraffe_1_1FlightRunnerData.html#ac2b08f44adf4ed3ab384cd8e5c947578" title=" " alt="" coords="294,129,481,171"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1StatusLedState.html#a33c2fe6fdb8008af2710221ef5640c30" title=" " alt="" coords="302,195,473,236"/>
+<area shape="rect" id="node8" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="333,261,441,287"/>
+<area shape="rect" id="node3" href="$classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8" title=" " alt="" coords="545,5,719,47"/>
+<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="767,5,997,47"/>
+</map>

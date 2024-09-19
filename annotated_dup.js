@@ -38,6 +38,7 @@ var annotated_dup =
       [ "DataStream", "classdata_1_1DataStream.html", "classdata_1_1DataStream" ],
       [ "ErrorFrame", "classdata_1_1ErrorFrame.html", "classdata_1_1ErrorFrame" ],
       [ "ErrorFrameItem", "namespacedata.html#structdata_1_1ErrorFrameItem", "namespacedata_structdata_1_1ErrorFrameItem_dup" ],
+      [ "ErrorReporter", "classdata_1_1ErrorReporter.html", "classdata_1_1ErrorReporter" ],
       [ "FlightData", "classdata_1_1FlightData.html", "classdata_1_1FlightData" ],
       [ "Frame", "classdata_1_1Frame.html", "classdata_1_1Frame" ],
       [ "Frames", "namespacedata.html#structdata_1_1Frames", "namespacedata_structdata_1_1Frames_dup" ],

@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('classFlightPhaseManager.html',''); ini
 <div class="dynheader">
 Collaboration diagram for FlightPhaseManager:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager__coll__graph.svg" width="5484" height="1543"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager__coll__graph.svg" width="5168" height="1756"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -153,6 +153,10 @@ Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a38e97741fd5bdd0b80a3172d3e73322d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d">flightPhaseUpdate</a> (<a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07">FlightPhase</a> new_phase)</td></tr>
 <tr class="separator:a38e97741fd5bdd0b80a3172d3e73322d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a665ab1eb769c7879dc0529395d8fa9b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1">forceRecovery</a> (std::string reason)</td></tr>
+<tr class="separator:a665ab1eb769c7879dc0529395d8fa9b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf8eab144ba58f98f7fde9038752ebba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightPhaseManager.html#aaf8eab144ba58f98f7fde9038752ebba">reportPhaseChangeInvalid</a> (<a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07">FlightPhase</a> current_phase, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07">FlightPhase</a> new_phase, std::string extra_info)</td></tr>
+<tr class="separator:aaf8eab144ba58f98f7fde9038752ebba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85ff07e3141863f505d562e7672d995f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f">setFlightPhase</a> (<a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07">FlightPhase</a> new_phase)</td></tr>
 <tr class="separator:a85ff07e3141863f505d562e7672d995f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -163,6 +167,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a8787d36d341b65719e9e4ed39d8a05f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7441c7324c9ec369fa1a8dc02b0e106e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1Logger.html">giraffe::Logger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightPhaseManager.html#a7441c7324c9ec369fa1a8dc02b0e106e">logger_</a></td></tr>
 <tr class="separator:a7441c7324c9ec369fa1a8dc02b0e106e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e323dc1f55ca298ba839ac325803f8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_1_1ErrorReporter.html">data::ErrorReporter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightPhaseManager.html#a5e323dc1f55ca298ba839ac325803f8d">phase_change_invalid_error_</a></td></tr>
+<tr class="separator:a5e323dc1f55ca298ba839ac325803f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08f0fd34f8be5a7509b821fc01f9a9fe"><td class="memItemLeft" align="right" valign="top">bst::ConsecutiveValuesFilter&lt; <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07">FlightPhase</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlightPhaseManager.html#a08f0fd34f8be5a7509b821fc01f9a9fe">phase_filter_</a></td></tr>
 <tr class="memdesc:a08f0fd34f8be5a7509b821fc01f9a9fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The filter for the flight phase. Filters out intermittent phase changes.  <a href="classFlightPhaseManager.html#a08f0fd34f8be5a7509b821fc01f9a9fe">More...</a><br /></td></tr>
 <tr class="separator:a08f0fd34f8be5a7509b821fc01f9a9fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -268,7 +274,13 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="classFlightPhaseManager.html#a8787d36d341b65719e9e4ed39d8a05f1">flight_phase_</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a49c08d83927c163a001f9a8908c2fa03">LAUNCH</a>, and <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a9c90eb3f9201a7df861d94e494aa9b0b">RECOVERY</a>.</p>
+<p class="reference">References <a class="el" href="classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1">forceRecovery()</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a49c08d83927c163a001f9a8908c2fa03">LAUNCH</a>, and <a class="el" href="classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f">setFlightPhase()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a5d16d39a6d55250c01f1d90102155f31_cgraph.svg" width="1278" height="335"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -332,7 +344,7 @@ Static Private Attributes</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a547cb144c9ad196b910bc3a111aec286_cgraph.svg" width="1355" height="734"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a547cb144c9ad196b910bc3a111aec286_cgraph.svg" width="1635" height="679"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -372,11 +384,11 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="classFlightPhaseManager.html#a8787d36d341b65719e9e4ed39d8a05f1">flight_phase_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10">FlightPhaseManagerTest::bringToAscent()</a>, <a class="el" href="classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819">FlightPhaseManagerTest::bringToDescent()</a>, <a class="el" href="classFlightPhaseManagerTest.html#a9e109b11c6b9fe47b66a5abe660fb142">FlightPhaseManagerTest::bringToLaunch()</a>, <a class="el" href="classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618">FlightRunner::flightLogic()</a>, and <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">FlightRunner::processCommand()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10">FlightPhaseManagerTest::bringToAscent()</a>, <a class="el" href="classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819">FlightPhaseManagerTest::bringToDescent()</a>, <a class="el" href="classFlightPhaseManagerTest.html#a9e109b11c6b9fe47b66a5abe660fb142">FlightPhaseManagerTest::bringToLaunch()</a>, and <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">FlightRunner::processCommand()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_af0192410de435610b083e723959fc6d7_icgraph.svg" width="956" height="235"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_af0192410de435610b083e723959fc6d7_icgraph.svg" width="956" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -413,7 +425,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_aaeda08c0192943de07649ee8e85fd064_cgraph.svg" width="859" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_aaeda08c0192943de07649ee8e85fd064_cgraph.svg" width="895" height="222"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -457,7 +469,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a639bfe7ca534d0904f57e4851f766aa2_cgraph.svg" width="859" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a639bfe7ca534d0904f57e4851f766aa2_cgraph.svg" width="895" height="222"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -493,19 +505,61 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a7047b93ddb56905562863fb339808bb4">ASCENT</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a038e3d035cd91784babc5492310b8e96">DESCENT</a>, <a class="el" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">giraffe::Logger::error()</a>, <a class="el" href="classFlightPhaseManager.html#a8787d36d341b65719e9e4ed39d8a05f1">flight_phase_</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a49c08d83927c163a001f9a8908c2fa03">LAUNCH</a>, <a class="el" href="classFlightPhaseManager.html#a7441c7324c9ec369fa1a8dc02b0e106e">logger_</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a9518103de8ae9260689081dde26f301b">NUM_PHASES</a>, <a class="el" href="classFlightPhaseManager.html#ae5085dd801445a4bfe3579248cd2b66a">phase_valid_watchdog_</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07aa9c1a88bb2291339811ab30ebf54acc5">PRE_LAUNCH</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a9c90eb3f9201a7df861d94e494aa9b0b">RECOVERY</a>, <a class="el" href="classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f">setFlightPhase()</a>, <a class="el" href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6">util::to_string()</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>, and <a class="el" href="classFlightPhaseManager.html#a05e1252ab068f3d36e78c4b105bc24e2">unknown_phase_error_reported_</a>.</p>
+<p class="reference">References <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a7047b93ddb56905562863fb339808bb4">ASCENT</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a038e3d035cd91784babc5492310b8e96">DESCENT</a>, <a class="el" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">giraffe::Logger::error()</a>, <a class="el" href="classFlightPhaseManager.html#a8787d36d341b65719e9e4ed39d8a05f1">flight_phase_</a>, <a class="el" href="classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1">forceRecovery()</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a49c08d83927c163a001f9a8908c2fa03">LAUNCH</a>, <a class="el" href="classFlightPhaseManager.html#a7441c7324c9ec369fa1a8dc02b0e106e">logger_</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a9518103de8ae9260689081dde26f301b">NUM_PHASES</a>, <a class="el" href="classFlightPhaseManager.html#ae5085dd801445a4bfe3579248cd2b66a">phase_valid_watchdog_</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07aa9c1a88bb2291339811ab30ebf54acc5">PRE_LAUNCH</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a9c90eb3f9201a7df861d94e494aa9b0b">RECOVERY</a>, <a class="el" href="classFlightPhaseManager.html#aaf8eab144ba58f98f7fde9038752ebba">reportPhaseChangeInvalid()</a>, <a class="el" href="classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f">setFlightPhase()</a>, <a class="el" href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6">util::to_string()</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>, and <a class="el" href="classFlightPhaseManager.html#a05e1252ab068f3d36e78c4b105bc24e2">unknown_phase_error_reported_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286">update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a38e97741fd5bdd0b80a3172d3e73322d_cgraph.svg" width="1091" height="268"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a38e97741fd5bdd0b80a3172d3e73322d_cgraph.svg" width="1340" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a38e97741fd5bdd0b80a3172d3e73322d_icgraph.svg" width="1056" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a665ab1eb769c7879dc0529395d8fa9b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a665ab1eb769c7879dc0529395d8fa9b1">&#9670;&nbsp;</a></span>forceRecovery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FlightPhaseManager::forceRecovery </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>reason</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">giraffe::Logger::error()</a>, <a class="el" href="classFlightPhaseManager.html#a7441c7324c9ec369fa1a8dc02b0e106e">logger_</a>, <a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a9c90eb3f9201a7df861d94e494aa9b0b">RECOVERY</a>, and <a class="el" href="classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f">setFlightPhase()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classFlightPhaseManager.html#a5d16d39a6d55250c01f1d90102155f31">FlightPhaseManager()</a>, and <a class="el" href="classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d">flightPhaseUpdate()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a665ab1eb769c7879dc0529395d8fa9b1_cgraph.svg" width="1067" height="372"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a665ab1eb769c7879dc0529395d8fa9b1_icgraph.svg" width="1267" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -535,19 +589,77 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac">data::DataStream::addData()</a>, <a class="el" href="namespacedata.html#a22ad003376a2efe4c21e35b9a9ac9901">data::Streams::data</a>, <a class="el" href="structdata_1_1SharedData.html#a36655a755501a8b36b7a632826e5a3fe">data::SharedData::flight_data</a>, <a class="el" href="classFlightPhaseManager.html#a8787d36d341b65719e9e4ed39d8a05f1">flight_phase_</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="classFlightPhaseManager.html#a08f0fd34f8be5a7509b821fc01f9a9fe">phase_filter_</a>, <a class="el" href="classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233">data::FlightData::setFlightPhase()</a>, <a class="el" href="classFlightPhaseManager.html#a3e8556d740cd25d2ef8bdb3da301da5b">shared_data_</a>, <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6">util::to_string()</a>.</p>
+<p class="reference">References <a class="el" href="classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8">data::CommandStream::addCommand()</a>, <a class="el" href="classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac">data::DataStream::addData()</a>, <a class="el" href="namespacedata.html#a947a2cf7b6cb10b8210115e5fba3a9ca">data::Streams::command</a>, <a class="el" href="namespacedata.html#a22ad003376a2efe4c21e35b9a9ac9901">data::Streams::data</a>, <a class="el" href="namespacecmd.html#a718ef116db40a0e3254cc5852229c5be">cmd::Command::destination</a>, <a class="el" href="structdata_1_1SharedData.html#a36655a755501a8b36b7a632826e5a3fe">data::SharedData::flight_data</a>, <a class="el" href="classFlightPhaseManager.html#a8787d36d341b65719e9e4ed39d8a05f1">flight_phase_</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::FLIGHT_RUNNER</a>, <a class="el" href="classFlightPhaseManager.html#a08f0fd34f8be5a7509b821fc01f9a9fe">phase_filter_</a>, <a class="el" href="classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233">data::FlightData::setFlightPhase()</a>, <a class="el" href="classFlightPhaseManager.html#a3e8556d740cd25d2ef8bdb3da301da5b">shared_data_</a>, <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6">util::to_string()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d">flightPhaseUpdate()</a>, <a class="el" href="classFlightPhaseManager.html#aaeda08c0192943de07649ee8e85fd064">requestLaunch()</a>, and <a class="el" href="classFlightPhaseManager.html#a639bfe7ca534d0904f57e4851f766aa2">setPreLaunch()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightPhaseManager.html#a5d16d39a6d55250c01f1d90102155f31">FlightPhaseManager()</a>, <a class="el" href="classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d">flightPhaseUpdate()</a>, <a class="el" href="classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1">forceRecovery()</a>, <a class="el" href="classFlightPhaseManager.html#aaeda08c0192943de07649ee8e85fd064">requestLaunch()</a>, and <a class="el" href="classFlightPhaseManager.html#a639bfe7ca534d0904f57e4851f766aa2">setPreLaunch()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a85ff07e3141863f505d562e7672d995f_cgraph.svg" width="656" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a85ff07e3141863f505d562e7672d995f_cgraph.svg" width="692" height="222"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a85ff07e3141863f505d562e7672d995f_icgraph.svg" width="1368" height="223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_a85ff07e3141863f505d562e7672d995f_icgraph.svg" width="1598" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aaf8eab144ba58f98f7fde9038752ebba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf8eab144ba58f98f7fde9038752ebba">&#9670;&nbsp;</a></span>reportPhaseChangeInvalid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FlightPhaseManager::reportPhaseChangeInvalid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07">FlightPhase</a>&#160;</td>
+          <td class="paramname"><em>current_phase</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07">FlightPhase</a>&#160;</td>
+          <td class="paramname"><em>new_phase</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>extra_info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classFlightPhaseManager.html#a5e323dc1f55ca298ba839ac325803f8d">phase_change_invalid_error_</a>, <a class="el" href="classdata_1_1ErrorReporter.html#a3358515a710ff6876c2a41dd84413738">data::ErrorReporter::reportError()</a>, and <a class="el" href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6">util::to_string()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d">flightPhaseUpdate()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_aaf8eab144ba58f98f7fde9038752ebba_cgraph.svg" width="1091" height="196"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFlightPhaseManager_aaf8eab144ba58f98f7fde9038752ebba_icgraph.svg" width="1306" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -576,7 +688,7 @@ Here is the caller graph for this function:</div>
 
 <p>The current flight phase. Filtered and continually checked. </p>
 
-<p class="reference">Referenced by <a class="el" href="classFlightPhaseManager.html#a5d16d39a6d55250c01f1d90102155f31">FlightPhaseManager()</a>, <a class="el" href="classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d">flightPhaseUpdate()</a>, <a class="el" href="classFlightPhaseManager.html#af0192410de435610b083e723959fc6d7">getCurrentFlightPhase()</a>, <a class="el" href="classFlightPhaseManager.html#aaeda08c0192943de07649ee8e85fd064">requestLaunch()</a>, and <a class="el" href="classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f">setFlightPhase()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d">flightPhaseUpdate()</a>, <a class="el" href="classFlightPhaseManager.html#af0192410de435610b083e723959fc6d7">getCurrentFlightPhase()</a>, <a class="el" href="classFlightPhaseManager.html#aaeda08c0192943de07649ee8e85fd064">requestLaunch()</a>, and <a class="el" href="classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f">setFlightPhase()</a>.</p>
 
 </div>
 </div>
@@ -675,7 +787,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
 <div class="line">      <a class="code" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a696b031073e74bf2cb98e5ef201d4aa3">FlightPhase::UNKNOWN</a>, <a class="code" href="classFlightPhaseManager.html#aa24842e6a595066fb0243239ccaf151a">PHASE_FILTER_THRESHOLD_</a>}</div>
-<div class="ttc" id="aclassFlightPhaseManager_html_aa24842e6a595066fb0243239ccaf151a"><div class="ttname"><a href="classFlightPhaseManager.html#aa24842e6a595066fb0243239ccaf151a">FlightPhaseManager::PHASE_FILTER_THRESHOLD_</a></div><div class="ttdeci">const size_t PHASE_FILTER_THRESHOLD_</div><div class="ttdoc">The threshold for the phase filter.</div><div class="ttdef"><b>Definition:</b> flight_phase_manager.hpp:260</div></div>
+<div class="ttc" id="aclassFlightPhaseManager_html_aa24842e6a595066fb0243239ccaf151a"><div class="ttname"><a href="classFlightPhaseManager.html#aa24842e6a595066fb0243239ccaf151a">FlightPhaseManager::PHASE_FILTER_THRESHOLD_</a></div><div class="ttdeci">const size_t PHASE_FILTER_THRESHOLD_</div><div class="ttdoc">The threshold for the phase filter.</div><div class="ttdef"><b>Definition:</b> flight_phase_manager.hpp:291</div></div>
 <div class="ttc" id="aflight__phase_8hpp_html_ac9143ef49941f628dd4d190a8d64ff07a696b031073e74bf2cb98e5ef201d4aa3"><div class="ttname"><a href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a696b031073e74bf2cb98e5ef201d4aa3">FlightPhase::UNKNOWN</a></div><div class="ttdeci">@ UNKNOWN</div></div>
 </div><!-- fragment -->
 <p>The filter for the flight phase. Filters out intermittent phase changes. </p>
@@ -825,10 +937,10 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{<a class="code" href="classFlightPhaseManager.html#a3e8556d740cd25d2ef8bdb3da301da5b">shared_data_</a>, <a class="code" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::Identification::FLIGHT_RUNNER</a>,</div>
 <div class="line">                          <span class="stringliteral">&quot;phase_mgr&quot;</span>}</div>
-<div class="ttc" id="aclassFlightPhaseManager_html_a3e8556d740cd25d2ef8bdb3da301da5b"><div class="ttname"><a href="classFlightPhaseManager.html#a3e8556d740cd25d2ef8bdb3da301da5b">FlightPhaseManager::shared_data_</a></div><div class="ttdeci">data::SharedData &amp; shared_data_</div><div class="ttdef"><b>Definition:</b> flight_phase_manager.hpp:276</div></div>
+<div class="ttc" id="aclassFlightPhaseManager_html_a3e8556d740cd25d2ef8bdb3da301da5b"><div class="ttname"><a href="classFlightPhaseManager.html#a3e8556d740cd25d2ef8bdb3da301da5b">FlightPhaseManager::shared_data_</a></div><div class="ttdeci">data::SharedData &amp; shared_data_</div><div class="ttdef"><b>Definition:</b> flight_phase_manager.hpp:307</div></div>
 <div class="ttc" id="anamespacenode_html_ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763"><div class="ttname"><a href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::Identification::FLIGHT_RUNNER</a></div><div class="ttdeci">@ FLIGHT_RUNNER</div></div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d">flightPhaseUpdate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d">flightPhaseUpdate()</a>, and <a class="el" href="classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1">forceRecovery()</a>.</p>
 
 </div>
 </div>
@@ -853,6 +965,33 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="reference">Referenced by <a class="el" href="classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d">flightPhaseUpdate()</a>.</p>
+
+</div>
+</div>
+<a id="a5e323dc1f55ca298ba839ac325803f8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e323dc1f55ca298ba839ac325803f8d">&#9670;&nbsp;</a></span>phase_change_invalid_error_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_1_1ErrorReporter.html">data::ErrorReporter</a> FlightPhaseManager::phase_change_invalid_error_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">      <a class="code" href="classFlightPhaseManager.html#a3e8556d740cd25d2ef8bdb3da301da5b">shared_data_</a>, <a class="code" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::Identification::FLIGHT_RUNNER</a>,</div>
+<div class="line">      DiagnosticId::FLIGHT_RUNNER_phaseChangeInvalid}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="classFlightPhaseManager.html#aaf8eab144ba58f98f7fde9038752ebba">reportPhaseChangeInvalid()</a>.</p>
 
 </div>
 </div>

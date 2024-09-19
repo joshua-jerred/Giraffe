@@ -21,6 +21,7 @@ var classgiraffe_1_1gdl_1_1DataLink =
     [ "getStatus", "classgiraffe_1_1gdl_1_1DataLink.html#ab40f43468826f91454986d3ba317fd8f", null ],
     [ "sendMessage", "classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a", null ],
     [ "sendText", "classgiraffe_1_1gdl_1_1DataLink.html#a089374ddeb5601b859264baa5986304f", null ],
+    [ "broadcastText", "classgiraffe_1_1gdl_1_1DataLink.html#a1fc0f45450322b44cb275b1df159f5fb", null ],
     [ "receiveMessage", "classgiraffe_1_1gdl_1_1DataLink.html#a6004a6e0c3b468032a0c71b8e2a2c5f3", null ],
     [ "messageAvailable", "classgiraffe_1_1gdl_1_1DataLink.html#ad7223729cff67b00226de4a34e560a30", null ],
     [ "getStatistics", "classgiraffe_1_1gdl_1_1DataLink.html#a98f228a5e7abb95ad4e66ae4b53dd71a", null ],

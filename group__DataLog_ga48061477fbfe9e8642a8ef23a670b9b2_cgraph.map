@@ -1,0 +1,6 @@
+<map id="data_middleware::DataLog::createLogDir" name="data_middleware::DataLog::createLogDir">
+<area shape="rect" id="node1" title="Used to create the log directory with createDirectory()." alt="" coords="5,35,203,76"/>
+<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#acfd866770216db1b79d6f669b376e5ad" title="Returns the path to the gfs log directory. Creates the directory if it does not exist." alt="" coords="251,35,393,76"/>
+<area shape="rect" id="node3" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="441,5,647,47"/>
+<area shape="rect" id="node4" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="695,35,877,76"/>
+</map>

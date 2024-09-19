@@ -1,28 +1,29 @@
 <map id="blocks.hpp" name="blocks.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="3389,6,3481,33"/>
-<area shape="rect" id="node2" href="$influxdb_8cpp.html" title=" " alt="" coords="3361,230,3462,257"/>
-<area shape="rect" id="node3" href="$shared__data_8hpp.html" title="Contains the SharedData struct, used across all modules and extensions." alt="" coords="3527,81,3658,107"/>
-<area shape="rect" id="node4" href="$cfg__section_8hpp.html" title="This file contains the base class for all configuration sections." alt="" coords="1799,155,1923,182"/>
+<area shape="rect" id="node1" title=" " alt="" coords="3417,6,3509,33"/>
+<area shape="rect" id="node2" href="$influxdb_8cpp.html" title=" " alt="" coords="3363,230,3465,257"/>
+<area shape="rect" id="node3" href="$shared__data_8hpp.html" title="Contains the SharedData struct, used across all modules and extensions." alt="" coords="3538,81,3669,107"/>
+<area shape="rect" id="node4" href="$cfg__section_8hpp.html" title="This file contains the base class for all configuration sections." alt="" coords="1681,155,1805,182"/>
 <area shape="rect" id="node7" href="$extension__base_8hpp.html" title="The new implementation of the extension system." alt="" coords="1265,305,1417,331"/>
 <area shape="rect" id="node19" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="2165,454,2295,481"/>
-<area shape="rect" id="node25" href="$flight__phase__manager_8hpp.html" title=" " alt="" coords="3507,379,3700,406"/>
-<area shape="rect" id="node27" href="$flight__phase__predictor_8hpp.html" title=" " alt="" coords="3159,305,3352,331"/>
-<area shape="rect" id="node30" href="$prediction__parameters_8hpp.html" title=" " alt="" coords="3013,155,3210,182"/>
+<area shape="rect" id="node25" href="$flight__phase__manager_8hpp.html" title=" " alt="" coords="3512,379,3705,406"/>
+<area shape="rect" id="node27" href="$flight__phase__predictor_8hpp.html" title=" " alt="" coords="3045,305,3239,331"/>
+<area shape="rect" id="node30" href="$prediction__parameters_8hpp.html" title=" " alt="" coords="2989,155,3186,182"/>
 <area shape="rect" id="node34" href="$console__pages_8hpp.html" title=" " alt="" coords="2374,155,2521,182"/>
-<area shape="rect" id="node38" href="$adc__interpolation_8hpp.html" title="ADC Interpolation Utility." alt="" coords="3587,230,3750,257"/>
-<area shape="rect" id="node40" href="$calculated__data_8hpp.html" title="Calculates new data from the existing data." alt="" coords="3825,230,3979,257"/>
-<area shape="rect" id="node41" href="$data__formatting_8hpp.html" title="This file contains the DataFormatter class, which is used to format data for the data and log files." alt="" coords="4435,155,4590,182"/>
-<area shape="rect" id="node42" href="$data__log_8hpp.html" title="The data log is responsible for writing data to files and managing the file system." alt="" coords="4453,230,4559,257"/>
-<area shape="rect" id="node43" href="$file__system__manager_8hpp.html" title=" " alt="" coords="4054,230,4243,257"/>
-<area shape="rect" id="node44" href="$influxdb_8hpp.html" title=" " alt="" coords="3359,155,3461,182"/>
-<area shape="rect" id="node45" href="$module_8hpp.html" title="The header file for the base module class." alt="" coords="2083,230,2182,257"/>
-<area shape="rect" id="node46" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="4267,230,4422,257"/>
-<area shape="rect" id="node47" href="$logger_8hpp.html" title="A simple logger class so difference classes have access to the same logger." alt="" coords="3857,155,3947,182"/>
-<area shape="rect" id="node48" href="$to__json_8cpp.html" title=" " alt="" coords="4123,155,4219,182"/>
-<area shape="rect" id="node49" href="$shared__data__helpers_8hpp.html" title=" " alt="" coords="3376,305,3561,331"/>
-<area shape="rect" id="node50" href="$test__configuration_8cpp.html" title=" " alt="" coords="4244,155,4411,182"/>
-<area shape="rect" id="node5" href="$cfg__adcmappings_8hpp.html" title=" " alt="" coords="1599,230,1763,257"/>
-<area shape="rect" id="node6" href="$cfg__extensions_8hpp.html" title="The header file for the extensions section of the configuration." alt="" coords="1787,230,1935,257"/>
+<area shape="rect" id="node38" href="$adc__interpolation_8hpp.html" title="ADC Interpolation Utility." alt="" coords="3691,230,3854,257"/>
+<area shape="rect" id="node39" href="$calculated__data_8hpp.html" title="Calculates new data from the existing data." alt="" coords="3879,230,4032,257"/>
+<area shape="rect" id="node40" href="$data__formatting_8hpp.html" title="This file contains the DataFormatter class, which is used to format data for the data and log files." alt="" coords="4043,155,4198,182"/>
+<area shape="rect" id="node41" href="$data__log_8hpp.html" title="The data log is responsible for writing data to files and managing the file system." alt="" coords="4499,230,4606,257"/>
+<area shape="rect" id="node42" href="$file__system__manager_8hpp.html" title=" " alt="" coords="4107,230,4297,257"/>
+<area shape="rect" id="node43" href="$influxdb_8hpp.html" title=" " alt="" coords="3361,155,3464,182"/>
+<area shape="rect" id="node44" href="$module_8hpp.html" title="The header file for the base module class." alt="" coords="2083,230,2182,257"/>
+<area shape="rect" id="node45" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="4321,230,4475,257"/>
+<area shape="rect" id="node46" href="$error__reporter_8hpp.html" title=" " alt="" coords="3641,305,3779,331"/>
+<area shape="rect" id="node47" href="$logger_8hpp.html" title="A simple logger class so difference classes have access to the same logger." alt="" coords="3827,155,3918,182"/>
+<area shape="rect" id="node48" href="$to__json_8cpp.html" title=" " alt="" coords="4222,155,4318,182"/>
+<area shape="rect" id="node49" href="$shared__data__helpers_8hpp.html" title=" " alt="" coords="3380,305,3565,331"/>
+<area shape="rect" id="node50" href="$test__configuration_8cpp.html" title=" " alt="" coords="4343,155,4509,182"/>
+<area shape="rect" id="node5" href="$cfg__adcmappings_8hpp.html" title=" " alt="" coords="1661,230,1825,257"/>
+<area shape="rect" id="node6" href="$cfg__extensions_8hpp.html" title="The header file for the extensions section of the configuration." alt="" coords="1444,230,1592,257"/>
 <area shape="rect" id="node8" href="$adc__extension__base_8hpp.html" title="Generic ADC Extension Wrapper." alt="" coords="915,379,1097,406"/>
 <area shape="rect" id="node9" href="$bme280_8hpp.html" title="The BME280 sensor extension." alt="" coords="1121,379,1224,406"/>
 <area shape="rect" id="node10" href="$bmi088_8hpp.html" title="Extension for the Bosch BMI088 IMU." alt="" coords="1357,454,1455,481"/>
@@ -39,14 +40,13 @@
 <area shape="rect" id="node20" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="2021,529,2141,555"/>
 <area shape="rect" id="node21" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="2165,529,2295,555"/>
 <area shape="rect" id="node22" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="2319,529,2402,555"/>
-<area shape="rect" id="node26" href="$test__flight__phase__manager_8cpp.html" title=" " alt="" coords="3423,454,3647,481"/>
-<area shape="rect" id="node28" href="$flight__phase__predictor_8cpp.html" title=" " alt="" coords="3231,379,3423,406"/>
-<area shape="rect" id="node29" href="$test__flight__phase__predictor_8cpp.html" title=" " alt="" coords="2983,379,3207,406"/>
-<area shape="rect" id="node31" href="$prediction__model_8hpp.html" title=" " alt="" coords="3174,230,3337,257"/>
-<area shape="rect" id="node32" href="$prediction__parameters_8cpp.html" title=" " alt="" coords="2600,230,2796,257"/>
-<area shape="rect" id="node33" href="$test__prediction__parameters_8cpp.html" title=" " alt="" coords="2820,230,3048,257"/>
+<area shape="rect" id="node26" href="$test__flight__phase__manager_8cpp.html" title=" " alt="" coords="3429,454,3653,481"/>
+<area shape="rect" id="node28" href="$flight__phase__predictor_8cpp.html" title=" " alt="" coords="2997,379,3189,406"/>
+<area shape="rect" id="node29" href="$test__flight__phase__predictor_8cpp.html" title=" " alt="" coords="3213,379,3437,406"/>
+<area shape="rect" id="node31" href="$prediction__model_8hpp.html" title=" " alt="" coords="2905,230,3067,257"/>
+<area shape="rect" id="node32" href="$prediction__parameters_8cpp.html" title=" " alt="" coords="3092,230,3288,257"/>
+<area shape="rect" id="node33" href="$test__prediction__parameters_8cpp.html" title=" " alt="" coords="2652,230,2880,257"/>
 <area shape="rect" id="node35" href="$console__module_8hpp.html" title=" " alt="" coords="2208,305,2364,331"/>
 <area shape="rect" id="node36" href="$console__pages_8cpp.html" title=" " alt="" coords="2431,230,2576,257"/>
 <area shape="rect" id="node37" href="$curses__utilities_8hpp.html" title=" " alt="" coords="2207,230,2355,257"/>
-<area shape="rect" id="node39" href="$adc__interpolation_8cpp.html" title="ADC Interpolation Utility." alt="" coords="3587,305,3750,331"/>
 </map>

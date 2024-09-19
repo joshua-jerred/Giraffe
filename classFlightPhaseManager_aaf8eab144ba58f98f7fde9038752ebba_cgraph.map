@@ -1,0 +1,11 @@
+<map id="FlightPhaseManager::reportPhaseChangeInvalid" name="FlightPhaseManager::reportPhaseChangeInvalid">
+<area shape="rect" id="node1" title=" " alt="" coords="5,127,207,168"/>
+<area shape="rect" id="node2" href="$classdata_1_1ErrorReporter.html#a3358515a710ff6876c2a41dd84413738" title=" " alt="" coords="255,97,401,139"/>
+<area shape="rect" id="node9" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="274,163,382,190"/>
+<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="461,79,629,106"/>
+<area shape="rect" id="node7" href="$classdata_1_1ErrorFrame.html#a22f1f4d05d659df20e4cba62fda5846b" title="Returns true if the error is active in the frame." alt="" coords="449,130,640,157"/>
+<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="899,5,1085,47"/>
+<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="688,54,851,81"/>
+<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="902,80,1082,121"/>
+<area shape="rect" id="node8" href="$classdata_1_1Frame.html#a05fa938229ef8080c2d5336f245d8763" title="Returns true if an item is in the frame, false if it is not." alt="" coords="709,155,829,182"/>
+</map>

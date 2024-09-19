@@ -110,22 +110,22 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc__extension__base_8hpp.html",
-"classFlightPhasePredictorTest.html#a100d2bd5a4c23065f749626e644162ef",
-"classdata_1_1FlightData.html#a7a9f92a351f196a88523a992af33bdc6",
-"classextension_1_1Bme280.html#a65da188590e7f56c25fdc86370f5c10c",
-"classextension_1_1ImuExtensionBase.html#aaa99bc040af229aa386f991b1d9ee47a",
-"classextension_1_1SimGpsSensor.html#a947a643d302b5c5f9cef1a54d5038c06",
-"classgiraffe_1_1FlightRunnerData.html",
-"classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb",
-"classmodules_1_1ExtensionModule.html#a69c9b2da0c6bef239597384fb968b94c",
-"classncurs_1_1Window.html#afc8dda08de95b2f11ec97445e5a3ffe5",
-"functions_u.html",
-"group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5",
-"namespaceextension.html#a0f56d4920a56287a29bcd10ff499e7f3",
-"namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4",
-"sim__parameters_8hpp.html#a0f442db24455eb507035a8aeb4d12192",
-"structdata_1_1blocks_1_1DataLogStats.html#abd16e4bf1325787af0fd5e2c9fd6bc1c",
-"test__positional_8cpp.html#a0e7371dcedfd45ac056318ae992589d3"
+"classFlightPhasePredictor.html#structFlightPhasePredictor_1_1Probability",
+"classdata_1_1ErrorReporter.html#af2e24fb474225489e58500c70f00b2bd",
+"classextension_1_1Bme280.html#a41a192bcc5212abcca25b3c026be7fd3",
+"classextension_1_1ImuExtensionBase.html#a5e65e63f1bd7bfd6b47f4a0ecb2f3a4e",
+"classextension_1_1SimGpsSensor.html#a067006ad3c8c07006590ccdfca70d037",
+"classgfs__sim_1_1SimEnvironmental.html#a9b9c0345d347eb6f2ff42d67dd929226",
+"classgiraffe_1_1gdl_1_1Message.html#a6ac84c04db330a1ae6cdb3631b27768f",
+"classmodules_1_1ExtensionModule.html#a10392744a231ea7c1a39d3a7fddc655f",
+"classncurs_1_1Pages.html#ab8985bb8868be6543d2ab9276d28c937",
+"functions_func_u.html",
+"group__SAMM8QState.html#gga01790fa3c82c7c13ddc87b6be8fa868cab5859d8721cfdc0312b2838b9c985bc1",
+"namespacedata_1_1blocks.html#a4271d0ad8e1a773070a20e8df233fcda",
+"namespaceprotocol.html#acc3dd8b92d216ee1c29ab0c725bec1cf",
+"samm8q_8cpp.html#a842aaad519772b36cb48adc23ee56afcac30be2996b85d3905826648d620c8259",
+"structdata_1_1SharedData.html#ab98a7a65eac8ffd555f886a6a45e3142",
+"test__flight__phase__manager_8cpp.html#a7b01efed88892c1e8a8888283127e1b7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

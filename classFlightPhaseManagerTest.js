@@ -16,6 +16,7 @@ var classFlightPhaseManagerTest =
     [ "validateHasError", "classFlightPhaseManagerTest.html#a0808c616cf926a2aa7d25deb64d5f7f0", null ],
     [ "validateHasDataItem", "classFlightPhaseManagerTest.html#ae5595b562d8e7a969ab9b930acb6bb04", null ],
     [ "validateNoData", "classFlightPhaseManagerTest.html#ab267b2bd545c365d8548f66f0a788426", null ],
+    [ "dumpDataStream", "classFlightPhaseManagerTest.html#a5e3d6bde01d6b5c2dd3d42ec93579100", null ],
     [ "tick", "classFlightPhaseManagerTest.html#adb308f82112e0a026b62fd8a1b1182ac", null ],
     [ "setParamsInvalid", "classFlightPhaseManagerTest.html#a0f3f549c916adfa4bd121b37f607a733", null ],
     [ "setParamsLaunch", "classFlightPhaseManagerTest.html#a79547ae421088b0835c663c2f8da988c", null ],

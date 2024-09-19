@@ -1,0 +1,14 @@
+<map id="FlightPhaseManager::forceRecovery" name="FlightPhaseManager::forceRecovery">
+<area shape="rect" id="node1" title=" " alt="" coords="5,125,160,166"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="208,56,363,83"/>
+<area shape="rect" id="node8" href="$classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f" title=" " alt="" coords="417,201,572,242"/>
+<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="411,56,579,83"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="420,5,569,32"/>
+<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="875,131,1061,173"/>
+<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="645,5,808,32"/>
+<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="878,49,1058,90"/>
+<area shape="rect" id="node9" href="$classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8" title=" " alt="" coords="640,325,813,366"/>
+<area shape="rect" id="node10" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="627,157,827,184"/>
+<area shape="rect" id="node11" href="$classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233" title=" " alt="" coords="631,259,823,301"/>
+<area shape="rect" id="node12" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="673,208,781,235"/>
+</map>

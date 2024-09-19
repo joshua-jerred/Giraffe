@@ -143,18 +143,18 @@
 <path fill="none" stroke="midnightblue" d="M92.44,-456.06C108.67,-430.14 155.93,-357.64 207,-307.73 226.5,-288.66 252,-270.75 270.52,-258.75"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="272.44,-261.67 279,-253.35 268.68,-255.77 272.44,-261.67"/>
 </g>
-<!-- Node51 -->
+<!-- Node52 -->
 <g id="node50" class="node">
-<title>Node51</title>
+<title>Node52</title>
 <g id="a_node50"><a xlink:href="namespaceprotocol.html#ac6314a5d8075e25c09e5381ff1c4ca24" target="_top" xlink:title="Parse a JSON string into a Message.">
 <polygon fill="none" stroke="black" points="229.5,-196.23 229.5,-215.23 362.5,-215.23 362.5,-196.23 229.5,-196.23"/>
 <text text-anchor="middle" x="296" y="-203.23" font-family="Helvetica,sans-Serif" font-size="10.00">protocol::parseMessage</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node51 -->
+<!-- Node1&#45;&gt;Node52 -->
 <g id="edge75" class="edge">
-<title>Node1&#45;&gt;Node51</title>
+<title>Node1&#45;&gt;Node52</title>
 <path fill="none" stroke="midnightblue" d="M88.25,-456.02C95.42,-419.25 126.06,-287.53 207,-224.73 210.89,-221.71 215.15,-219.15 219.63,-216.98"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="221.21,-220.11 229.1,-213.04 218.52,-213.65 221.21,-220.11"/>
 </g>
@@ -687,7 +687,7 @@
 <!-- Node38 -->
 <g id="node37" class="node">
 <title>Node38</title>
-<g id="a_node37"><a xlink:href="namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc" target="_top" xlink:title="Returns the path to the gfs image directory.">
+<g id="a_node37"><a xlink:href="namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc" target="_top" xlink:title="Returns the path to the gfs image directory. Creates the directory if it does not exist.">
 <polygon fill="none" stroke="black" points="448.5,-582.73 448.5,-612.73 569.5,-612.73 569.5,-582.73 448.5,-582.73"/>
 <text text-anchor="start" x="456.5" y="-600.73" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::file_paths</text>
 <text text-anchor="middle" x="509" y="-589.73" font-family="Helvetica,sans-Serif" font-size="10.00">::getGfsImageDirPath</text>
@@ -834,9 +834,9 @@
 <path fill="none" stroke="midnightblue" d="M358.81,-234.22C367.83,-231.74 376.82,-228.63 385,-224.73 403.54,-215.88 402.72,-205.1 421,-195.73 424.69,-193.84 428.54,-192.08 432.48,-190.45"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="433.74,-193.72 441.82,-186.88 431.23,-187.19 433.74,-193.72"/>
 </g>
-<!-- Node49 -->
+<!-- Node50 -->
 <g id="node48" class="node">
-<title>Node49</title>
+<title>Node50</title>
 <g id="a_node48"><a xlink:href="group__ServerModule.html#af41f65e7470ab4490dfa655ead0a7f88" target="_top" xlink:title="A special handler for updating extension settings.">
 <polygon fill="none" stroke="black" points="421,-205.73 421,-235.73 597,-235.73 597,-205.73 421,-205.73"/>
 <text text-anchor="start" x="429" y="-223.73" font-family="Helvetica,sans-Serif" font-size="10.00">RequestRouter::handleExtension</text>
@@ -844,9 +844,9 @@
 </a>
 </g>
 </g>
-<!-- Node44&#45;&gt;Node49 -->
+<!-- Node44&#45;&gt;Node50 -->
 <g id="edge68" class="edge">
-<title>Node44&#45;&gt;Node49</title>
+<title>Node44&#45;&gt;Node50</title>
 <path fill="none" stroke="midnightblue" d="M384.34,-234.21C392.98,-233.26 401.79,-232.3 410.52,-231.35"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="411.16,-234.8 420.72,-230.24 410.4,-227.85 411.16,-234.8"/>
 </g>
@@ -866,7 +866,7 @@
 <g id="node46" class="node">
 <title>Node47</title>
 <g id="a_node46"><a xlink:href="structcfg_1_1AdcConfig.html#a2ec24a4cc5beca9182901c659d223bf8" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="654.5,-69.23 654.5,-88.23 790.5,-88.23 790.5,-69.23 654.5,-69.23"/>
+<polygon fill="none" stroke="red" points="654.5,-69.23 654.5,-88.23 790.5,-88.23 790.5,-69.23 654.5,-69.23"/>
 <text text-anchor="middle" x="722.5" y="-76.23" font-family="Helvetica,sans-Serif" font-size="10.00">cfg::AdcConfig::fromJson</text>
 </a>
 </g>
@@ -877,9 +877,9 @@
 <path fill="none" stroke="midnightblue" d="M530.23,-156.66C553.75,-139.86 594.3,-113.03 633,-97.73 639.63,-95.11 646.69,-92.82 653.82,-90.82"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="654.76,-94.2 663.55,-88.29 652.99,-87.42 654.76,-94.2"/>
 </g>
-<!-- Node48 -->
+<!-- Node49 -->
 <g id="node47" class="node">
-<title>Node48</title>
+<title>Node49</title>
 <g id="a_node47"><a xlink:href="group__ServerModule.html#aa6ff009c15a46c7f5c75ed3110a4f9a3" target="_top" xlink:title="Send a basic success response.">
 <polygon fill="none" stroke="black" points="644,-156.73 644,-186.73 801,-186.73 801,-156.73 644,-156.73"/>
 <text text-anchor="start" x="652" y="-174.73" font-family="Helvetica,sans-Serif" font-size="10.00">RequestRouter::sendSuccess</text>
@@ -887,55 +887,55 @@
 </a>
 </g>
 </g>
-<!-- Node46&#45;&gt;Node48 -->
+<!-- Node46&#45;&gt;Node49 -->
 <g id="edge65" class="edge">
-<title>Node46&#45;&gt;Node48</title>
+<title>Node46&#45;&gt;Node49</title>
 <path fill="none" stroke="midnightblue" d="M582.19,-171.73C598.8,-171.73 616.64,-171.73 633.82,-171.73"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="633.85,-175.23 643.85,-171.73 633.85,-168.23 633.85,-175.23"/>
 </g>
-<!-- Node48&#45;&gt;Node22 -->
+<!-- Node49&#45;&gt;Node22 -->
 <g id="edge66" class="edge">
-<title>Node48&#45;&gt;Node22</title>
+<title>Node49&#45;&gt;Node22</title>
 <path fill="none" stroke="midnightblue" d="M791.34,-186.87C798.48,-189.41 805.5,-192.35 812,-195.73 848.84,-214.87 884.54,-247.34 906.26,-269.15"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="903.84,-271.68 913.34,-276.38 908.84,-266.79 903.84,-271.68"/>
 </g>
-<!-- Node48&#45;&gt;Node23 -->
+<!-- Node49&#45;&gt;Node23 -->
 <g id="edge67" class="edge">
-<title>Node48&#45;&gt;Node23</title>
+<title>Node49&#45;&gt;Node23</title>
 <path fill="none" stroke="midnightblue" d="M800.23,-186.78C804.49,-189.32 808.46,-192.28 812,-195.73 851.89,-234.57 824.17,-265.4 848,-315.73 866.1,-353.96 895.57,-393.85 913.09,-416.07"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="910.4,-418.31 919.38,-423.94 915.87,-413.94 910.4,-418.31"/>
 </g>
-<!-- Node49&#45;&gt;Node21 -->
+<!-- Node50&#45;&gt;Node21 -->
 <g id="edge70" class="edge">
-<title>Node49&#45;&gt;Node21</title>
+<title>Node50&#45;&gt;Node21</title>
 <path fill="none" stroke="midnightblue" d="M574.89,-235.76C597.63,-241.03 623.35,-246.99 646.82,-252.43"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="646.2,-255.87 656.73,-254.72 647.78,-249.05 646.2,-255.87"/>
 </g>
-<!-- Node49&#45;&gt;Node45 -->
+<!-- Node50&#45;&gt;Node45 -->
 <g id="edge69" class="edge">
-<title>Node49&#45;&gt;Node45</title>
+<title>Node50&#45;&gt;Node45</title>
 <path fill="none" stroke="midnightblue" d="M578.95,-205.63C585.32,-202.86 591.46,-199.59 597,-195.73 619.17,-180.28 610.71,-162.01 633,-146.73 640.15,-141.82 648.27,-137.92 656.62,-134.81"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="657.74,-138.13 666.11,-131.63 655.51,-131.49 657.74,-138.13"/>
 </g>
-<!-- Node49&#45;&gt;Node48 -->
+<!-- Node50&#45;&gt;Node49 -->
 <g id="edge71" class="edge">
-<title>Node49&#45;&gt;Node48</title>
+<title>Node50&#45;&gt;Node49</title>
 <path fill="none" stroke="midnightblue" d="M574.89,-205.69C597.63,-200.42 623.35,-194.47 646.82,-189.03"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="647.78,-192.4 656.73,-186.73 646.2,-185.58 647.78,-192.4"/>
 </g>
-<!-- Node50 -->
+<!-- Node51 -->
 <g id="node49" class="node">
-<title>Node50</title>
+<title>Node51</title>
 <g id="a_node49"><a xlink:href="structcfg_1_1ExtensionMetadata.html#a25eef35ae61801373e433443c9a5aa6e" target="_top" xlink:title="Sets the extension metadata from a Json object.">
-<polygon fill="none" stroke="black" points="656.5,-205.73 656.5,-235.73 788.5,-235.73 788.5,-205.73 656.5,-205.73"/>
+<polygon fill="none" stroke="red" points="656.5,-205.73 656.5,-235.73 788.5,-235.73 788.5,-205.73 656.5,-205.73"/>
 <text text-anchor="start" x="664.5" y="-223.73" font-family="Helvetica,sans-Serif" font-size="10.00">cfg::ExtensionMetadata</text>
 <text text-anchor="middle" x="722.5" y="-212.73" font-family="Helvetica,sans-Serif" font-size="10.00">::setFromJson</text>
 </a>
 </g>
 </g>
-<!-- Node49&#45;&gt;Node50 -->
+<!-- Node50&#45;&gt;Node51 -->
 <g id="edge72" class="edge">
-<title>Node49&#45;&gt;Node50</title>
+<title>Node50&#45;&gt;Node51</title>
 <path fill="none" stroke="midnightblue" d="M597.25,-220.73C613.49,-220.73 630.33,-220.73 646.18,-220.73"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="646.43,-224.23 656.43,-220.73 646.43,-217.23 646.43,-224.23"/>
 </g>

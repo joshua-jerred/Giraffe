@@ -1,16 +1,17 @@
 <map id="console_pages::Pages::getCurrentPage" name="console_pages::Pages::getCurrentPage">
 <area shape="rect" id="node1" title=" " alt="" coords="5,267,169,308"/>
-<area shape="rect" id="node2" href="$classconsole__pages_1_1Pages.html#a4b0ae50da4241115a3acfca9f0c4e306" title=" " alt="" coords="231,136,395,177"/>
-<area shape="rect" id="node6" href="$classconsole__pages_1_1Pages.html#a815a74fc95295c02b4638fa47b03e18d" title=" " alt="" coords="231,5,395,47"/>
-<area shape="rect" id="node7" href="$classconsole__pages_1_1Pages.html#aa3dd00ba1c736892c991d7d4f461bfe0" title=" " alt="" coords="231,71,395,112"/>
-<area shape="rect" id="node8" href="$classconsole__pages_1_1Pages.html#a27c3adbf55be9c5165077caed2c01b57" title=" " alt="" coords="231,201,395,243"/>
-<area shape="rect" id="node10" href="$classconsole__pages_1_1Pages.html#a141ef59324d5cd73c9f39488ab0fa363" title=" " alt="" coords="231,267,395,308"/>
-<area shape="rect" id="node11" href="$classconsole__pages_1_1Pages.html#a9cc69efd65b15f97c11d33b974754cdd" title=" " alt="" coords="217,333,409,359"/>
-<area shape="rect" id="node12" href="$classconsole__pages_1_1Pages.html#a67d35ee34832ada202ae3efbba51ac7b" title=" " alt="" coords="231,384,395,425"/>
-<area shape="rect" id="node13" href="$classconsole__pages_1_1Pages.html#ad13852ed39c831288cee9dc9055459ea" title=" " alt="" coords="231,515,395,556"/>
-<area shape="rect" id="node14" href="$classconsole__pages_1_1Pages.html#a1e0b526a42fa362aa87bb4b9d37ae687" title=" " alt="" coords="231,449,395,491"/>
-<area shape="rect" id="node3" href="$console__pages_8cpp.html#a96e5788c95748bd78ef8bdfee6bb72ec" title=" " alt="" coords="484,366,539,393"/>
-<area shape="rect" id="node4" href="$console__pages_8cpp.html#afce5d98f062712aa25c0ea64f0e5ea78" title="Helper function to format two strings to be left and right aligned within the console window." alt="" coords="480,151,543,178"/>
-<area shape="rect" id="node5" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="457,209,565,235"/>
-<area shape="rect" id="node9" href="$console__pages_8cpp.html#af9d6d3c72fe789f15197478aa3cac3b6" title=" " alt="" coords="490,417,533,443"/>
+<area shape="rect" id="node2" href="$classconsole__pages_1_1Pages.html#a4b0ae50da4241115a3acfca9f0c4e306" title=" " alt="" coords="231,5,395,47"/>
+<area shape="rect" id="node6" href="$classconsole__pages_1_1Pages.html#a815a74fc95295c02b4638fa47b03e18d" title=" " alt="" coords="231,267,395,308"/>
+<area shape="rect" id="node7" href="$classconsole__pages_1_1Pages.html#aa3dd00ba1c736892c991d7d4f461bfe0" title=" " alt="" coords="231,332,395,373"/>
+<area shape="rect" id="node8" href="$classconsole__pages_1_1Pages.html#a27c3adbf55be9c5165077caed2c01b57" title=" " alt="" coords="231,71,395,112"/>
+<area shape="rect" id="node10" href="$classconsole__pages_1_1Pages.html#a141ef59324d5cd73c9f39488ab0fa363" title=" " alt="" coords="231,397,395,439"/>
+<area shape="rect" id="node11" href="$classconsole__pages_1_1Pages.html#a9cc69efd65b15f97c11d33b974754cdd" title=" " alt="" coords="217,529,409,555"/>
+<area shape="rect" id="node13" href="$classconsole__pages_1_1Pages.html#a67d35ee34832ada202ae3efbba51ac7b" title=" " alt="" coords="231,136,395,177"/>
+<area shape="rect" id="node14" href="$classconsole__pages_1_1Pages.html#ad13852ed39c831288cee9dc9055459ea" title=" " alt="" coords="231,463,395,504"/>
+<area shape="rect" id="node15" href="$classconsole__pages_1_1Pages.html#a1e0b526a42fa362aa87bb4b9d37ae687" title=" " alt="" coords="231,201,395,243"/>
+<area shape="rect" id="node3" href="$console__pages_8cpp.html#a96e5788c95748bd78ef8bdfee6bb72ec" title=" " alt="" coords="484,143,539,170"/>
+<area shape="rect" id="node4" href="$console__pages_8cpp.html#afce5d98f062712aa25c0ea64f0e5ea78" title="Helper function to format two strings to be left and right aligned within the console window." alt="" coords="480,46,543,73"/>
+<area shape="rect" id="node5" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="457,202,565,229"/>
+<area shape="rect" id="node9" href="$console__pages_8cpp.html#af9d6d3c72fe789f15197478aa3cac3b6" title=" " alt="" coords="490,253,533,279"/>
+<area shape="rect" id="node12" href="$namespacegfs__sim.html#af1cb08ac5758d2342c8418c984eaa029" title="Log a message within the GFS simulator." alt="" coords="461,529,562,555"/>
 </map>

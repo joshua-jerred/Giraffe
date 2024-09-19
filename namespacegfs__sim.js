@@ -14,7 +14,11 @@ var namespacegfs__sim =
       [ "LANDING", "namespacegfs__sim.html#a9a1ecaafdd3df4142d8be5590eb177e1a7ab0a1cfd85cc3da16cd3e3ad7448524", null ],
       [ "LANDED", "namespacegfs__sim.html#a9a1ecaafdd3df4142d8be5590eb177e1a3d8c894b27670cfcfa85c05331bf6111", null ]
     ] ],
+    [ "log", "namespacegfs__sim.html#af1cb08ac5758d2342c8418c984eaa029", null ],
     [ "K_ENVIRONMENTAL_DATA", "namespacegfs__sim.html#a09ee8025d745dd698b847c20ae8ccd35", null ],
+    [ "BURST_ALTITUDE", "namespacegfs__sim.html#ad04c644385150278a5f9f29017d378a7", null ],
+    [ "ASCENT_RATE", "namespacegfs__sim.html#a02884d9195545d502201c8dbe21a786e", null ],
+    [ "DESCENT_RATE", "namespacegfs__sim.html#a33a30c6b9a67742ee6a15d9a3ac52661", null ],
     [ "K_UPDATE_INTERVAL_MS", "namespacegfs__sim.html#a5cc3b135299b784dbdfb4417b0e3fa00", null ],
     [ "K_SLEEP_INTERVAL_MS", "namespacegfs__sim.html#adf92cf253dbf05c9c09e2f8f032c5630", null ],
     [ "K_DELTA_TIME_S", "namespacegfs__sim.html#abb8113a9916aa3f5e701bf4b2f1bb396", null ],

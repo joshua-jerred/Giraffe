@@ -1,16 +1,17 @@
 <map id="extension::Extension::data" name="extension::Extension::data">
-<area shape="rect" id="node1" title=" " alt="" coords="511,354,669,395"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="7,332,191,358"/>
-<area shape="rect" id="node3" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="276,59,427,100"/>
-<area shape="rect" id="node4" href="$classextension_1_1ImuExtensionBase.html#a20dfe1a1df8a3887deb7a64bc38b42e4" title=" " alt="" coords="244,124,459,166"/>
-<area shape="rect" id="node5" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="273,190,430,231"/>
-<area shape="rect" id="node6" href="$classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d" title=" " alt="" coords="251,255,452,296"/>
-<area shape="rect" id="node7" href="$classextension_1_1SimPressureSensor.html#aaf5a09dba391f216ca5ee5a7890a1e85" title=" " alt="" coords="242,320,461,362"/>
-<area shape="rect" id="node8" href="$classextension_1_1SimHumiditySensor.html#a59e5059ebb6e2e81ca3a6ef30a632456" title=" " alt="" coords="240,386,463,427"/>
-<area shape="rect" id="node9" href="$classextension_1_1SimGpsSensor.html#a80265d0b8468fc4e90a46409a6178ab2" title=" " alt="" coords="257,451,445,492"/>
-<area shape="rect" id="node10" href="$classextension_1_1SimImuSensor.html#a1acef31a7be54226957d58d2f9d174d1" title=" " alt="" coords="257,516,445,558"/>
-<area shape="rect" id="node11" href="$classextension_1_1SimCamera.html#a896be0f89a872ccb371c72bcb81ccff8" title=" " alt="" coords="266,582,437,623"/>
-<area shape="rect" id="node12" href="$classextension_1_1Bme280.html#a216c4ae77daca7a479a9eba281e8dbd4" title="Reads the raw environmental data from the BME280." alt="" coords="263,647,440,688"/>
-<area shape="rect" id="node13" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="272,712,431,754"/>
-<area shape="rect" id="node14" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,720,192,746"/>
+<area shape="rect" id="node1" title=" " alt="" coords="511,352,669,393"/>
+<area shape="rect" id="node2" href="$classextension_1_1SimCamera.html#a7004e033f46b9491b4c0f3f200bbff74" title=" " alt="" coords="266,5,437,47"/>
+<area shape="rect" id="node4" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="7,362,191,389"/>
+<area shape="rect" id="node5" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="276,123,427,164"/>
+<area shape="rect" id="node6" href="$classextension_1_1ImuExtensionBase.html#a20dfe1a1df8a3887deb7a64bc38b42e4" title=" " alt="" coords="244,188,459,229"/>
+<area shape="rect" id="node7" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="273,253,430,295"/>
+<area shape="rect" id="node8" href="$classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d" title=" " alt="" coords="251,319,452,360"/>
+<area shape="rect" id="node9" href="$classextension_1_1SimPressureSensor.html#aaf5a09dba391f216ca5ee5a7890a1e85" title=" " alt="" coords="242,384,461,425"/>
+<area shape="rect" id="node10" href="$classextension_1_1SimHumiditySensor.html#a59e5059ebb6e2e81ca3a6ef30a632456" title=" " alt="" coords="240,449,463,491"/>
+<area shape="rect" id="node11" href="$classextension_1_1SimGpsSensor.html#a80265d0b8468fc4e90a46409a6178ab2" title=" " alt="" coords="257,515,445,556"/>
+<area shape="rect" id="node12" href="$classextension_1_1SimImuSensor.html#a1acef31a7be54226957d58d2f9d174d1" title=" " alt="" coords="257,580,445,621"/>
+<area shape="rect" id="node13" href="$classextension_1_1Bme280.html#a216c4ae77daca7a479a9eba281e8dbd4" title="Reads the raw environmental data from the BME280." alt="" coords="263,645,440,687"/>
+<area shape="rect" id="node14" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="272,711,431,752"/>
+<area shape="rect" id="node3" href="$classextension_1_1SimCamera.html#a896be0f89a872ccb371c72bcb81ccff8" title=" " alt="" coords="13,5,184,47"/>
+<area shape="rect" id="node15" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,718,192,745"/>
 </map>

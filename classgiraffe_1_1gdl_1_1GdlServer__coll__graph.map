@@ -1,6 +1,6 @@
 <map id="giraffe::gdl::GdlServer" name="giraffe::gdl::GdlServer">
-<area shape="rect" id="node1" title="The Giraffe Data Link Terminal." alt="" coords="2724,1897,2987,2180"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html" title=" " alt="" coords="2207,1537,2373,1820"/>
+<area shape="rect" id="node1" title="The Giraffe Data Link Terminal." alt="" coords="2724,1912,2987,2195"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html" title=" " alt="" coords="2207,1537,2373,1835"/>
 <area shape="rect" id="node3" href="$namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics" title=" " alt="" coords="1875,1251,2035,1328"/>
 <area shape="rect" id="node4" title=" " alt="" coords="1493,681,1548,759"/>
 <area shape="rect" id="node15" href="$classgiraffe_1_1gdl_1_1TransportLayer.html" title="The Transport Layer &#45; Layer 3." alt="" coords="968,1148,1199,1431"/>
@@ -31,9 +31,9 @@
 <area shape="rect" id="node28" title=" " alt="" coords="2222,1243,2385,1335"/>
 <area shape="rect" id="node29" title=" " alt="" coords="2414,1251,2478,1328"/>
 <area shape="rect" id="node31" title=" " alt="" coords="2781,674,2927,766"/>
-<area shape="rect" id="node32" title=" " alt="" coords="2923,1633,3143,1725"/>
+<area shape="rect" id="node32" title=" " alt="" coords="2923,1640,3143,1732"/>
 <area shape="rect" id="node33" title=" " alt="" coords="3275,1251,3313,1328"/>
-<area shape="rect" id="node38" href="$group__ServerModule.html#classsock_1_1TcpSocketServer" title="The TCP socket server class." alt="" coords="3357,1552,3524,1805"/>
+<area shape="rect" id="node38" href="$group__ServerModule.html#classsock_1_1TcpSocketServer" title="The TCP socket server class." alt="" coords="3357,1559,3524,1813"/>
 <area shape="rect" id="node34" href="$classgiraffe_1_1CommonLogger.html" title=" " alt="" coords="3101,827,3276,1124"/>
 <area shape="rect" id="node36" title=" " alt="" coords="3115,27,3217,105"/>
 <area shape="rect" id="node37" title=" " alt="" coords="3241,27,3461,105"/>

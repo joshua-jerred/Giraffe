@@ -64,18 +64,18 @@
 <path fill="none" stroke="midnightblue" d="M157.18,-66.86C168.4,-65.54 179.93,-64.19 191.1,-62.87"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="191.72,-66.32 201.24,-61.68 190.9,-59.37 191.72,-66.32"/>
 </g>
-<!-- Node9 -->
-<g id="node9" class="node">
-<title>Node9</title>
-<g id="a_node9"><a xlink:href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" target="_top" xlink:title="Converts a flight phase to a string.">
+<!-- Node10 -->
+<g id="node10" class="node">
+<title>Node10</title>
+<g id="a_node10"><a xlink:href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" target="_top" xlink:title="Converts a flight phase to a string.">
 <polygon fill="none" stroke="black" points="227,-0.5 227,-19.5 308,-19.5 308,-0.5 227,-0.5"/>
 <text text-anchor="middle" x="267.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">util::to_string</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node9 -->
-<g id="edge10" class="edge">
-<title>Node1&#45;&gt;Node9</title>
+<!-- Node1&#45;&gt;Node10 -->
+<g id="edge11" class="edge">
+<title>Node1&#45;&gt;Node10</title>
 <path fill="none" stroke="midnightblue" d="M100.09,-66.45C122.58,-56.26 159.83,-40.09 193,-29 200.73,-26.41 209.02,-23.97 217.14,-21.75"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="218.15,-25.1 226.91,-19.15 216.35,-18.33 218.15,-25.1"/>
 </g>
@@ -152,6 +152,21 @@
 <title>Node6&#45;&gt;Node7</title>
 <path fill="none" stroke="midnightblue" d="M662.04,-88.9C671.17,-87.52 680.7,-86.08 690.14,-84.65"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="690.95,-88.06 700.31,-83.1 689.9,-81.14 690.95,-88.06"/>
+</g>
+<!-- Node9 -->
+<g id="node9" class="node">
+<title>Node9</title>
+<g id="a_node9"><a xlink:href="namespacegfs__sim.html#af1cb08ac5758d2342c8418c984eaa029" target="_top" xlink:title="Log a message within the GFS simulator.">
+<polygon fill="none" stroke="black" points="403,-44.5 403,-63.5 479,-63.5 479,-44.5 403,-44.5"/>
+<text text-anchor="middle" x="441" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::log</text>
+</a>
+</g>
+</g>
+<!-- Node8&#45;&gt;Node9 -->
+<g id="edge10" class="edge">
+<title>Node8&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M333.83,-54C353.38,-54 374.44,-54 392.61,-54"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="392.66,-57.5 402.66,-54 392.66,-50.5 392.66,-57.5"/>
 </g>
 </g>
 </svg>

@@ -1,13 +1,19 @@
 <map id="data_middleware::DataLog::DataLog" name="data_middleware::DataLog::DataLog">
-<area shape="rect" id="node1" title=" " alt="" coords="5,235,203,276"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,217,203,259"/>
 <area shape="rect" id="node2" href="$group__DataLog.html#ga461cde633e33a1f96cd05e9c8b281854" title="Called only startup. If there are any files in the data or log directories that have been left behind..." alt="" coords="251,5,448,47"/>
-<area shape="rect" id="node3" href="$group__DataLog.html#ga96a2e0cbd5f5f4bc55b9ad0b6dad9222" title="Used to create the data archive directory with createDirectory()." alt="" coords="251,71,448,112"/>
-<area shape="rect" id="node4" href="$group__DataLog.html#ga234962b2bffa3e30ac2ae8e9d269143c" title="Used to create the data directory with createDirectory()." alt="" coords="251,136,448,177"/>
-<area shape="rect" id="node5" href="$group__DataLog.html#ga27b3c7fcd45fb419d25227c5eb2058b4" title="Used to create the log archive directory with createDirectory()." alt="" coords="251,201,448,243"/>
-<area shape="rect" id="node6" href="$group__DataLog.html#ga48061477fbfe9e8642a8ef23a670b9b2" title="Used to create the log directory with createDirectory()." alt="" coords="251,267,448,308"/>
-<area shape="rect" id="node7" href="$group__DataLog.html#ga0468e4744ee8be21635a6a73c4892c5c" title="Generates a new file path and attempts to create a new data file." alt="" coords="251,332,448,373"/>
-<area shape="rect" id="node9" href="$group__DataLog.html#ga22627e1c35839cae33e39af75670a602" title="Generates a new file path and attempts to create a new log file." alt="" coords="251,397,448,439"/>
-<area shape="rect" id="node10" href="$group__DataLog.html#ga6a5f0dea06593ade076cda45f0a53931" title="This method will update the file list in the relevant data block." alt="" coords="251,463,448,504"/>
-<area shape="rect" id="node8" href="$data__log_8cpp.html#ab904b162018e2d4127cabd758fb064b1" title="Generates a file path with the current date and time." alt="" coords="502,373,633,399"/>
-<area shape="rect" id="node11" href="$data__log_8cpp.html#acecd99a82fae4a777907ea2478d5205c" title=" " alt="" coords="496,470,639,497"/>
+<area shape="rect" id="node3" href="$group__DataLog.html#ga96a2e0cbd5f5f4bc55b9ad0b6dad9222" title="Used to create the data archive directory with createDirectory()." alt="" coords="251,123,448,164"/>
+<area shape="rect" id="node8" href="$group__DataLog.html#ga234962b2bffa3e30ac2ae8e9d269143c" title="Used to create the data directory with createDirectory()." alt="" coords="497,57,695,99"/>
+<area shape="rect" id="node9" href="$group__DataLog.html#ga27b3c7fcd45fb419d25227c5eb2058b4" title="Used to create the log archive directory with createDirectory()." alt="" coords="251,188,448,229"/>
+<area shape="rect" id="node12" href="$group__DataLog.html#ga48061477fbfe9e8642a8ef23a670b9b2" title="Used to create the log directory with createDirectory()." alt="" coords="497,253,695,295"/>
+<area shape="rect" id="node13" href="$group__DataLog.html#ga0468e4744ee8be21635a6a73c4892c5c" title="Generates a new file path and attempts to create a new data file." alt="" coords="251,305,448,347"/>
+<area shape="rect" id="node15" href="$group__DataLog.html#ga22627e1c35839cae33e39af75670a602" title="Generates a new file path and attempts to create a new log file." alt="" coords="251,371,448,412"/>
+<area shape="rect" id="node16" href="$group__DataLog.html#ga6a5f0dea06593ade076cda45f0a53931" title="This method will update the file list in the relevant data block." alt="" coords="251,436,448,477"/>
+<area shape="rect" id="node4" href="$namespacegiraffe_1_1file__paths.html#a071e3968c8ee80bada890eb9a36ec2f0" title="Returns the path to the gfs data archive directory. Creates the directory if it does not exist." alt="" coords="496,123,696,164"/>
+<area shape="rect" id="node5" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="943,144,1148,185"/>
+<area shape="rect" id="node7" href="$namespacegiraffe_1_1file__paths.html#a60be25b9cd8882562d8f5f77b420d1bc" title="Returns the path to the gfs data directory. Creates the directory if it does not exist." alt="" coords="744,72,895,113"/>
+<area shape="rect" id="node6" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="1196,144,1379,185"/>
+<area shape="rect" id="node10" href="$namespacegiraffe_1_1file__paths.html#a562ee8f7b45dd38039768a7847a02d5d" title="Returns the path to the gfs log archive directory. Creates the directory if it does not exist." alt="" coords="500,188,692,229"/>
+<area shape="rect" id="node11" href="$namespacegiraffe_1_1file__paths.html#acfd866770216db1b79d6f669b376e5ad" title="Returns the path to the gfs log directory. Creates the directory if it does not exist." alt="" coords="748,240,891,281"/>
+<area shape="rect" id="node14" href="$data__log_8cpp.html#ab904b162018e2d4127cabd758fb064b1" title="Generates a file path with the current date and time." alt="" coords="531,349,661,375"/>
+<area shape="rect" id="node17" href="$data__log_8cpp.html#acecd99a82fae4a777907ea2478d5205c" title=" " alt="" coords="525,443,667,470"/>
 </map>

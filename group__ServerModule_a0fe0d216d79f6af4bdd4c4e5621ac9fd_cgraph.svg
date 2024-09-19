@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc" target="_top" xlink:title="Returns the path to the gfs image directory.">
+<g id="a_node2"><a xlink:href="namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc" target="_top" xlink:title="Returns the path to the gfs image directory. Creates the directory if it does not exist.">
 <polygon fill="none" stroke="black" points="196,-98.5 196,-128.5 317,-128.5 317,-98.5 196,-98.5"/>
 <text text-anchor="start" x="204" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::file_paths</text>
 <text text-anchor="middle" x="256.5" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getGfsImageDirPath</text>

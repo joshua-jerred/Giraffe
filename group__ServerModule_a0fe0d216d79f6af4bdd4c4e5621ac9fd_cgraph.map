@@ -1,6 +1,6 @@
 <map id="RequestRouter::handleImageRequest" name="RequestRouter::handleImageRequest">
 <area shape="rect" id="node1" title="Response to an image request. Sends the image data to the client." alt="" coords="5,100,216,141"/>
-<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc" title="Returns the path to the gfs image directory." alt="" coords="267,35,428,76"/>
+<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc" title="Returns the path to the gfs image directory. Creates the directory if it does not exist." alt="" coords="267,35,428,76"/>
 <area shape="rect" id="node5" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="264,100,431,141"/>
 <area shape="rect" id="node6" href="$group__ServerModule.html#a20371784cee1df4f8aa14004d8f7aa2e" title=" " alt="" coords="264,165,431,207"/>
 <area shape="rect" id="node3" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="479,5,684,47"/>

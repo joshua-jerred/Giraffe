@@ -1,7 +1,4 @@
 <map id="validation::setValidEnum" name="validation::setValidEnum">
-<area shape="rect" id="node1" title=" " alt="" coords="5,54,189,81"/>
-<area shape="rect" id="node2" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="237,54,405,81"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="664,5,851,47"/>
-<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="453,54,616,81"/>
-<area shape="rect" id="node5" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="667,80,847,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,189,32"/>
+<area shape="rect" id="node2" href="$namespacegfs__sim.html#af1cb08ac5758d2342c8418c984eaa029" title="Log a message within the GFS simulator." alt="" coords="237,5,339,32"/>
 </map>

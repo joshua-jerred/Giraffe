@@ -8,7 +8,9 @@ var classFlightPhaseManager =
     [ "requestLaunch", "classFlightPhaseManager.html#aaeda08c0192943de07649ee8e85fd064", null ],
     [ "setPreLaunch", "classFlightPhaseManager.html#a639bfe7ca534d0904f57e4851f766aa2", null ],
     [ "flightPhaseUpdate", "classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d", null ],
+    [ "forceRecovery", "classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1", null ],
     [ "setFlightPhase", "classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f", null ],
+    [ "reportPhaseChangeInvalid", "classFlightPhaseManager.html#aaf8eab144ba58f98f7fde9038752ebba", null ],
     [ "flight_phase_", "classFlightPhaseManager.html#a8787d36d341b65719e9e4ed39d8a05f1", null ],
     [ "phase_predictor_", "classFlightPhaseManager.html#abb3b90c9dfffe0b6ef09fc4ea0eae68a", null ],
     [ "UPDATE_RATE_", "classFlightPhaseManager.html#a69d77fc7682a5026ca141968b5cd09c6", null ],
@@ -20,5 +22,6 @@ var classFlightPhaseManager =
     [ "phase_valid_watchdog_", "classFlightPhaseManager.html#ae5085dd801445a4bfe3579248cd2b66a", null ],
     [ "shared_data_", "classFlightPhaseManager.html#a3e8556d740cd25d2ef8bdb3da301da5b", null ],
     [ "logger_", "classFlightPhaseManager.html#a7441c7324c9ec369fa1a8dc02b0e106e", null ],
-    [ "unknown_phase_error_reported_", "classFlightPhaseManager.html#a05e1252ab068f3d36e78c4b105bc24e2", null ]
+    [ "unknown_phase_error_reported_", "classFlightPhaseManager.html#a05e1252ab068f3d36e78c4b105bc24e2", null ],
+    [ "phase_change_invalid_error_", "classFlightPhaseManager.html#a5e323dc1f55ca298ba839ac325803f8d", null ]
 ];

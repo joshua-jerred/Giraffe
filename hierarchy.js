@@ -47,6 +47,7 @@ var hierarchy =
     [ "data::blocks::SystemInfo", "structdata_1_1blocks_1_1SystemInfo.html", null ],
     [ "data::blocks::TelemetryModuleStats", "structdata_1_1blocks_1_1TelemetryModuleStats.html", null ],
     [ "data::ErrorFrameItem", "namespacedata.html#structdata_1_1ErrorFrameItem", null ],
+    [ "data::ErrorReporter", "classdata_1_1ErrorReporter.html", null ],
     [ "data::FlightData", "classdata_1_1FlightData.html", null ],
     [ "data::Frame< ID, DATA >", "classdata_1_1Frame.html", null ],
     [ "data::Frames", "namespacedata.html#structdata_1_1Frames", null ],

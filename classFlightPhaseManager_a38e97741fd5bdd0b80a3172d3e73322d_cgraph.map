@@ -1,13 +1,19 @@
 <map id="FlightPhaseManager::flightPhaseUpdate" name="FlightPhaseManager::flightPhaseUpdate">
-<area shape="rect" id="node1" title=" " alt="" coords="5,169,160,211"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="208,67,363,94"/>
-<area shape="rect" id="node8" href="$classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f" title=" " alt="" coords="208,169,363,211"/>
-<area shape="rect" id="node11" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="453,235,561,262"/>
-<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="423,17,591,43"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="432,67,581,94"/>
-<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="899,85,1085,127"/>
-<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="669,67,832,94"/>
-<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="902,20,1082,61"/>
-<area shape="rect" id="node9" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="651,118,851,145"/>
-<area shape="rect" id="node10" href="$classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233" title=" " alt="" coords="411,119,603,160"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,115,160,156"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="457,223,612,250"/>
+<area shape="rect" id="node8" href="$classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1" title=" " alt="" coords="231,56,386,97"/>
+<area shape="rect" id="node9" href="$classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f" title=" " alt="" coords="457,41,612,83"/>
+<area shape="rect" id="node13" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="702,151,810,178"/>
+<area shape="rect" id="node14" href="$classFlightPhaseManager.html#aaf8eab144ba58f98f7fde9038752ebba" title=" " alt="" coords="208,173,409,215"/>
+<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="672,253,840,279"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="681,202,831,229"/>
+<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="1148,112,1335,153"/>
+<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="919,202,1081,229"/>
+<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="1151,195,1331,236"/>
+<area shape="rect" id="node10" href="$classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8" title=" " alt="" coords="913,5,1087,47"/>
+<area shape="rect" id="node11" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="900,151,1100,178"/>
+<area shape="rect" id="node12" href="$classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233" title=" " alt="" coords="660,85,852,127"/>
+<area shape="rect" id="node15" href="$classdata_1_1ErrorReporter.html#a3358515a710ff6876c2a41dd84413738" title=" " alt="" coords="461,275,608,316"/>
+<area shape="rect" id="node16" href="$classdata_1_1ErrorFrame.html#a22f1f4d05d659df20e4cba62fda5846b" title="Returns true if the error is active in the frame." alt="" coords="661,303,851,330"/>
+<area shape="rect" id="node17" href="$classdata_1_1Frame.html#a05fa938229ef8080c2d5336f245d8763" title="Returns true if an item is in the frame, false if it is not." alt="" coords="940,303,1060,330"/>
 </map>

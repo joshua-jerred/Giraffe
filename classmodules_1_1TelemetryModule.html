@@ -122,7 +122,7 @@ Inheritance diagram for modules::TelemetryModule:</div>
 <div class="dynheader">
 Collaboration diagram for modules::TelemetryModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__coll__graph.svg" width="5707" height="2079"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule__coll__graph.svg" width="5707" height="2094"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -426,7 +426,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Called if there is a message in the receive queue. Pops one message and processes it. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000054">Todo:</a></b></dt><dd>log an error and respond to the telemetry packet </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000055">Todo:</a></b></dt><dd>log an error and respond to the telemetry packet </dd></dl>
 
 <p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6">giraffe::gdl::Message::getData()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0">giraffe::gdl::Message::getIdentifierString()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04">giraffe::gdl::Message::getType()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551">giraffe::gdl::Message::LOCATION</a>, <a class="el" href="namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74">cmd::parseCommandString()</a>, and <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7cc2660d640b0a597c45ba01f386bf62">node::TELEMETRY_MODULE</a>.</p>
 <div class="dynheader">
@@ -462,12 +462,12 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>This function will only send a packet if it is time to send one. If not, it will just return immediately. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000055">Todo:</a></b></dt><dd>log an error </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000056">Todo:</a></b></dt><dd>Maybe use the last valid GPS frame instead, but first there needs to be a time stamp as to when this one was generated. I have a fear of DST and time zones causing issues here. </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000057">Todo:</a></b></dt><dd>log an error </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000056">Todo:</a></b></dt><dd>log an error </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000057">Todo:</a></b></dt><dd>Maybe use the last valid GPS frame instead, but first there needs to be a time stamp as to when this one was generated. I have a fear of DST and time zones causing issues here. </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000058">Todo:</a></b></dt><dd>log an error </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000059">Todo:</a></b></dt><dd>log a warning but maybe still send the packet? </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000060">Todo:</a></b></dt><dd>Fix this time code! </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000059">Todo:</a></b></dt><dd>log an error </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000060">Todo:</a></b></dt><dd>log a warning but maybe still send the packet? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000061">Todo:</a></b></dt><dd>Fix this time code! </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Time code in not implemented for APRS position packets.</dd></dl>
 
 <p class="reference">References <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829babb1ca97ec761fc37101737ba0aa2e7c5">data::ERROR</a>, <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba8b433e3f63d83e78dfbfe6da3ff61b3e">data::FIX_2D</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551">giraffe::gdl::Message::LOCATION</a>, <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829baa80630704b93114ed9e817a3f53f59c7">data::NO_FIX</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab1c03e26af37f4e27ca6cf24d6674f55">giraffe::gdl::Message::setLocation()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a5a7bfc1371f24abaaccd6baedb7c3952">giraffe::gdl::Message::Location::time_code</a>.</p>
@@ -540,7 +540,8 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Called when the flight computer detects that it is descending. If the data link is connected, it will send a message to the ground station. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000061">Todo:</a></b></dt><dd>report an error </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000062">Todo:</a></b></dt><dd>Capture the return values of sendText and broadcastText and set a error if they fail. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000063">Todo:</a></b></dt><dd>report an error </dd></dl>
 
 </div>
 </div>
@@ -823,7 +824,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000051">Todo:</a></b></dt><dd>Sets the status of the module and reports it to the data stream. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000052">Todo:</a></b></dt><dd>Sets the status of the module and reports it to the data stream. </dd></dl>
 
 </div>
 </div>
