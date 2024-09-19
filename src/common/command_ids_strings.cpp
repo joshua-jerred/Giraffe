@@ -30,6 +30,7 @@ namespace cmd {
 const std::unordered_map<std::string, CommandId> K_STRING_TO_COMMAND_MAP {
   {"GENERAL_unknown",CommandId::GENERAL_unknown},
   {"INTERNAL_reportDescent",CommandId::INTERNAL_reportDescent},
+  {"INTERNAL_reportPhaseChange",CommandId::INTERNAL_reportPhaseChange},
   {"FLIGHT_RUNNER_shutdownSystem",CommandId::FLIGHT_RUNNER_shutdownSystem},
   {"FLIGHT_RUNNER_startModule",CommandId::FLIGHT_RUNNER_startModule},
   {"FLIGHT_RUNNER_stopModule",CommandId::FLIGHT_RUNNER_stopModule},

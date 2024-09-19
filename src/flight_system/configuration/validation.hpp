@@ -64,13 +64,18 @@ void setValidValue(data::LogStream &log, const Json &json_data,
 
   // check for key existence
   if (!json_data.contains(key)) {
-    log.error(e_src, DiagnosticId::CONFIG_settingNotFound, section + " " + key);
+    log.error(e_src, DiagnosticId::CONFIG_settingNotFound,
+              section + " " + key + " key not found");
     return;
   }
 
   // Ensure that the value at this key is is correct json type
   bool valid_type = false;
   if constexpr (std::is_same<T, int>::value) {
+    valid_type = json_data[key].is_number_integer();
+  } else if constexpr (std::is_same<T, uint8_t>::value) {
+    valid_type = json_data[key].is_number_integer();
+  } else if constexpr (std::is_same<T, uint32_t>::value) {
     valid_type = json_data[key].is_number_integer();
   } else if constexpr (std::is_same<T, std::string>::value) {
     valid_type = json_data[key].is_string();
@@ -81,7 +86,8 @@ void setValidValue(data::LogStream &log, const Json &json_data,
   }
 
   if (!valid_type) {
-    log.error(e_src, DiagnosticId::CONFIG_invalidJsonType, section + " " + key);
+    log.error(e_src, DiagnosticId::CONFIG_invalidJsonType,
+              section + " " + key + " invalid type - update the schema here");
     return;
   }
 
@@ -92,6 +98,11 @@ void setValidValue(data::LogStream &log, const Json &json_data,
   bool valid_value = false;
   if constexpr (std::is_same<T, int>::value) {
     valid_value = validate(value, (int)min, (int)max);
+  } else if constexpr (std::is_same<T, uint8_t>::value) {
+    valid_value = validate(static_cast<int>(value), static_cast<int>(min),
+                           static_cast<int>(max));
+  } else if constexpr (std::is_same<T, uint32_t>::value) {
+    valid_value = validate(value, min, max);
   } else if constexpr (std::is_same<T, float>::value) {
     valid_value = validate(value, min, max);
   } else if constexpr (std::is_same<T, std::string>::value) {
@@ -102,7 +113,7 @@ void setValidValue(data::LogStream &log, const Json &json_data,
 
   if (!valid_value) {
     log.error(e_src, DiagnosticId::CONFIG_invalidSettingValue,
-              section + " " + key);
+              section + " " + key + " invalid value");
     return;
   }
 

@@ -296,6 +296,11 @@ private:
   /** @} */ // end of DataLog.Filesystem
   //// END //// File System Management Methods
 
+  std::string data_dir_path_{};
+  std::string data_archive_dir_path_{};
+  std::string log_dir_path_{};
+  std::string log_archive_dir_path_{};
+
   /**
    * @brief The shared data.
    */

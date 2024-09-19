@@ -88,12 +88,19 @@ public:
   /// otherwise.
   bool sendMessage(const Message &message);
 
-  /// @brief Send a text message over the Data Link.
+  /// @brief Send a text message over the Data Link. (Exchange message)
   /// @param text - The text to send.
   /// @param message_id A unique identifier for the message.
   /// @return \c true if the message was added to the out queue, \c false
   /// otherwise.
   bool sendText(const std::string &text, uint32_t message_id);
+
+  /// @brief Broadcast a text message over the Data Link.
+  /// @param text - The text to send.
+  /// @param message_id A unique identifier for the message.
+  /// @return \c true if the message was added to the out queue, \c false
+  /// otherwise.
+  bool broadcastText(const std::string &text, uint32_t message_id);
 
   /// @brief Receive a message from the Data Link if one is available.
   /// @param message[out] - The received message.

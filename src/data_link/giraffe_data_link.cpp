@@ -96,6 +96,16 @@ bool DataLink::sendText(const std::string &text, uint32_t message_id) {
   return out_exchange_queue_.push(message);
 }
 
+bool DataLink::broadcastText(const std::string &text, uint32_t message_id) {
+  if (!isRunning()) {
+    return false;
+  }
+
+  Message message;
+  message.setBroadcastMessage(text, message_id);
+  return out_exchange_queue_.push(message);
+}
+
 bool DataLink::receiveMessage(Message &message) {
   if (!isRunning()) {
     return false;

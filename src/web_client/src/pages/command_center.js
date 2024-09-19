@@ -277,8 +277,6 @@ function CommandCenterPage() {
             <DataBlock resource="flight_data" category="general" />
             <CardBreak />
             <DataBlock resource="flight_data" category="phase_prediction" />
-            <CardBreak />
-            <DataBlock resource="flight_data" category="error_frame" />
           </Card>
           <Card title="Tracking">
             <Map />

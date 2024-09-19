@@ -420,10 +420,14 @@ struct CalculatedData {
     Json json_data;
     json_data["pressure_altitude_m"] = pressure_altitude_m;
     json_data["pressure_altitude_valid"] = pressure_altitude_valid;
+    json_data["pressure_vertical_speed"] = pressure_vertical_speed;
+    json_data["pressure_vertical_speed_valid"] = pressure_vertical_speed_valid;
     json_data["distance_traveled_m"] = distance_traveled_m;
     json_data["distance_traveled_valid"] = distance_traveled_valid;
     json_data["distance_from_launch_m"] = distance_from_launch_m;
     json_data["distance_from_launch_valid"] = distance_from_launch_valid;
+    json_data["distance_from_ground_m"] = distance_from_ground_m;
+    json_data["distance_from_ground_valid"] = distance_from_ground_valid;
     json_data["average_speed_horiz_mps_1min"] = average_horiz_speed_mps_1min;
     json_data["average_speed_vert_mps_1min"] = average_vert_speed_mps_1min;
     json_data["average_speed_valid"] = average_speed_valid;

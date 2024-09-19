@@ -54,10 +54,39 @@ std::string getGdlServerConfigFilePath();
 std::string getGfsConfigFilePath();
 
 /**
- * @brief Returns the path to the gfs image directory.
+ * @brief Returns the path to the gfs image directory. Creates the directory if
+ * it does not exist.
  * @return std::string - $HOME/.giraffe/gfs_images
  */
 std::string getGfsImageDirPath();
+
+/**
+ * @brief Returns the path to the gfs data directory. Creates the directory if
+ * it does not exist.
+ * @return std::string - $HOME/.giraffe/gfs_data
+ */
+std::string getGfsDataDirPath();
+
+/**
+ * @brief Returns the path to the gfs data archive directory. Creates the
+ * directory if it does not exist.
+ * @return std::string - $HOME/.giraffe/gfs_data/archive
+ */
+std::string getGfsDataArchiveDirPath();
+
+/**
+ * @brief Returns the path to the gfs log directory. Creates the directory if
+ * it does not exist.
+ * @return std::string - $HOME/.giraffe/gfs_log
+ */
+std::string getGfsLogDirPath();
+
+/**
+ * @brief Returns the path to the gfs log archive directory. Creates the
+ * directory if it does not exist.
+ * @return std::string - $HOME/.giraffe/gfs_log/archive
+ */
+std::string getGfsLogArchiveDirPath();
 
 /**
  * @brief Get the Gfs Flight Runner Data File Path object

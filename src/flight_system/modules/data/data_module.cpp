@@ -24,6 +24,11 @@ modules::DataModule::DataModule(data::SharedData &shared_data,
     }
   }
 
+#if defined(RUN_IN_SIMULATOR)
+  have_gps_source = true; // Simulated extensions are loaded in outside of the
+                          // configuration file
+#endif
+
   if (!have_gps_source) {
     error(DiagnosticId::DATA_MODULE_noGpsSource);
   }

@@ -35,6 +35,7 @@ namespace cmd {
 enum class CommandId : uint16_t {
   GENERAL_unknown=0x0000, // Unknown
   INTERNAL_reportDescent=0x0001, // Report Descent
+  INTERNAL_reportPhaseChange=0x0002, // Report Phase Change
   FLIGHT_RUNNER_shutdownSystem=0x1000, // Shutdown System
   FLIGHT_RUNNER_startModule=0x1001, // Start Module
   FLIGHT_RUNNER_stopModule=0x1002, // Stop Module

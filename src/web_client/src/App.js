@@ -15,6 +15,7 @@ import SetupPage from "./pages/setup";
 import CommandCenter from "./pages/command_center";
 import TelemetryPage from "./pages/telemetry";
 import DataLogsPage from "./pages/data_logs";
+import DiagnosticsPage from "./core/diagnostics_page";
 // GFS
 import GfsMonitorPage from "./pages/gfs/data_monitor";
 import ConfigureGfsPage from "./pages/gfs/configure_gfs";
@@ -28,15 +29,24 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<CommandCenter />} />
-              <Route path="telemetry" element={<TelemetryPage />} />
-              <Route path="data-logs" element={<DataLogsPage />} />
+
+              <Route
+                exact
+                path="ggs"
+                element={<Navigate to="/ggs/command-center" />}
+              />
+              <Route path="ggs">
+                <Route path="command-center" element={<CommandCenter />} />
+                <Route path="telemetry" element={<TelemetryPage />} />
+                <Route path="data-logs" element={<DataLogsPage />} />
+                <Route path="diagnostics" element={<DiagnosticsPage />} />
+              </Route>
 
               <Route
                 exact
                 path="gfs"
                 element={<Navigate to="/gfs/data-monitor" />}
               />
-
               <Route path="gfs">
                 <Route path="data-monitor" element={<GfsMonitorPage />} />
                 <Route path="configure" element={<ConfigureGfsPage />} />

@@ -25,7 +25,7 @@ module.exports = class MissionClock {
 
     if (isNaN(this.start_time)) {
       console.log("Invalid Mission Start Date - Resetting");
-      this.resetClock();
+      console.log(this.resetClock());
     }
 
     this.gfs_utc_time = "n/d";
@@ -90,7 +90,7 @@ module.exports = class MissionClock {
    * @param {number} skew_seconds - The number of seconds to skew the start time
    * into the future by.
    */
-  resetClock(skew_seconds) {
+  resetClock(skew_seconds = null) {
     if (isNaN(skew_seconds)) {
       return "skew_seconds error";
     } else if (skew_seconds < 0) {
@@ -100,6 +100,8 @@ module.exports = class MissionClock {
     this.is_running = true;
     this.start_time = new Date();
     this.start_time.setSeconds(this.start_time.getSeconds() + skew_seconds);
+
+    console.log("Resetting Clock: ", this.start_time);
 
     this.global_state.ggs_db.setKey(
       "data",

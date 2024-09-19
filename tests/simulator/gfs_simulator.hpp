@@ -27,6 +27,7 @@
 
 #include "sim_electrical.hpp"
 #include "sim_environmental.hpp"
+#include "sim_log.hpp"
 #include "sim_parameters.hpp"
 #include "sim_physics.hpp"
 
@@ -45,6 +46,7 @@ public:
 
   void launch() {
     physics_.launch();
+    log("launching");
   }
 
   double getTemperatureC() const {

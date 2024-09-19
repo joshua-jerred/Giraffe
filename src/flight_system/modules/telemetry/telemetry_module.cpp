@@ -225,7 +225,14 @@ void modules::TelemetryModule::sendSstvImage() {
 
 void modules::TelemetryModule::reportDescent() {
   if (configuration_.telemetry.getDataLinkEnabled()) {
+    /// @todo Capture the return values of sendText and broadcastText and set a
+    /// error if they fail.
+
+    // Attempt exchange
     gdl_.sendText("Descent Detected", getNextMessageId());
+    // Also broadcast
+    gdl_.broadcastText("Descent Detected", getNextMessageId());
+    gdl::Message message{};
   }
   /// @todo report an error
 }

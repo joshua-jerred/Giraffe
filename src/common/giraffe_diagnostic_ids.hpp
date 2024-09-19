@@ -132,7 +132,7 @@ enum class DiagnosticId : uint16_t {
   EXTENSION_samm8qConfigureSetDynamicModel=0x500B, // SAMM8Q Configure Set Dynamic Model
   EXTENSION_samm8qReadTimeout=0x500C, // SAMM8Q Read Timeout
   EXTENSION_adcConfigFail=0x500D, // ADC Config Failure
-  EXTENSION_piCameraCaptureFail=0x500E, // Pi Camera Capture Failure
+  EXTENSION_cameraCaptureFail=0x500E, // Pi Camera Capture Failure
   EXTENSION_samm8qInvalidTime=0x500F, // SAMM8Q Invalid Time
   FLIGHT_RUNNER_failedToRouteCommand=0x6000, // Failed to route command
   FLIGHT_RUNNER_commandDestinationNotFound=0x6001, // Command destination not found
@@ -142,6 +142,7 @@ enum class DiagnosticId : uint16_t {
   FLIGHT_RUNNER_phaseChangeInvalid=0x6005, // Phase Change Invalid
   FLIGHT_RUNNER_phaseChangeUnexpected=0x6006, // Phase Change Unexpected
   FLIGHT_RUNNER_failedToSetLaunch=0x6007, // Failed to Set Launch
+  FLIGHT_RUNNER_forcedRecovery=0x6008, // Forced Recovery
   EXT_FAULT_none=0x7000, // No fault
   EXT_FAULT_fatalConfig=0x7001, // Fatal Configuration Error
   EXT_FAULT_bme280StartupI2CConnect=0x7002, // BME280 Startup I2C Connect Fault

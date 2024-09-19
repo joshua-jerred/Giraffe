@@ -114,6 +114,13 @@ protected:
     return false;
   }
 
+  void dumpDataStream() {
+    data::DataPacket packet;
+    while (test_->shared_data.streams.data.getPacket(packet)) {
+      std::cout << util::to_string(packet) << std::endl;
+    }
+  }
+
   void tick(size_t ticks = 1) {
     for (size_t i = 0; i < ticks; i++) {
       manager_->update();
@@ -199,6 +206,7 @@ TEST_F(FlightPhaseManagerTest, initialState) {
 
 TEST_F(FlightPhaseManagerTest, setPrelaunch) {
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::UNKNOWN);
+  test_->shared_data.streams.data.reset(); // Unknown reported on startup
 
   test_->flight_phase_manager.setPreLaunch();
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::PRE_LAUNCH);
@@ -218,6 +226,7 @@ TEST_F(FlightPhaseManagerTest, setPrelaunch) {
 }
 
 TEST_F(FlightPhaseManagerTest, prelaunchToAscent) {
+  test_->shared_data.streams.data.reset(); // Unknown reported on startup
   test_->flight_phase_manager.setPreLaunch();
   EXPECT_TRUE(
       validateHasDataItem(data::DataId::FLIGHT_RUNNER_flightPhaseChange));
@@ -243,6 +252,7 @@ TEST_F(FlightPhaseManagerTest, prelaunchToAscent) {
 TEST_F(FlightPhaseManagerTest, setLaunch) {
   EXPECT_NE(manager_->getCurrentFlightPhase(), FlightPhase::PRE_LAUNCH);
   EXPECT_FALSE(manager_->requestLaunch());
+  test_->shared_data.streams.data.reset();
 
   test_->flight_phase_manager.setPreLaunch();
   EXPECT_EQ(manager_->getCurrentFlightPhase(), FlightPhase::PRE_LAUNCH);

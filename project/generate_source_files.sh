@@ -21,7 +21,7 @@ id_gen \
   ./src/common/data_ids_string_map.cpp
 
 id_gen \
-  ./project/metadata/diagnostic_ids.jsonc \
+  ./project/metadata/diagnostic_ids.json \
   ./src/common/giraffe_diagnostic_ids.hpp \
   ./src/common/diagnostic_id_strings.cpp
 

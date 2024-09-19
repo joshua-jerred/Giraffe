@@ -12,7 +12,6 @@ target_include_directories(gfs_simulator INTERFACE
   ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-
 add_executable(gfs_simulator_standalone
   ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
 )

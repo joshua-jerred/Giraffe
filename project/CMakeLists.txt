@@ -3,7 +3,7 @@ set(AUTO_GENERATED_INPUT_FILES
     ${CMAKE_SOURCE_DIR}/project/generators/ids_gen.py
     ${CMAKE_SOURCE_DIR}/project/generators/config_gen.py
     ${CMAKE_SOURCE_DIR}/project/metadata/gfs_data.jsonc
-    ${CMAKE_SOURCE_DIR}/project/metadata/diagnostic_ids.jsonc
+    ${CMAKE_SOURCE_DIR}/project/metadata/diagnostic_ids.json
     ${CMAKE_SOURCE_DIR}/project/metadata/gfs_commands.json
     ${CMAKE_SOURCE_DIR}/project/metadata/gfs_configuration.json)
 set(AUTO_GENERATED_OUTPUT_FILES
