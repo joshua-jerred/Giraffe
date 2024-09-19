@@ -25,7 +25,6 @@
 #include <software_physical_layer.hpp>
 
 #include "module.hpp"
-#include "radios/sa868.hpp"
 
 namespace modules {
 

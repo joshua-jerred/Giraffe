@@ -5,25 +5,30 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   software_physical_layer.hpp
+ * @file   radio.hpp
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
- * @date       2024-08-14
+ * @date       2024-09-18
  * @copyright  2024 (license to be defined)
  */
 
 #pragma once
 
+#include <cstdint>
+
 #include "layers/physical_layer.hpp"
 
-namespace giraffe::gdl {
+namespace giraffe::radio {
 
-class SoftwarePhysicalLayer : public PhysicalLayer {
+class Radio : public giraffe::gdl::PhysicalLayer {
 public:
-  SoftwarePhysicalLayer(const Config &config) : PhysicalLayer(config) {
+  using State = giraffe::gdl::PhysicalLayer::State;
+
+  Radio(giraffe::gdl::Config &config) : PhysicalLayer(config) {
   }
-  ~SoftwarePhysicalLayer() override = default;
+
+  virtual ~Radio() = default;
 
   void enable() override {
     setState(State::IDLE);
@@ -56,9 +61,4 @@ public:
   }
 };
 
-inline std::shared_ptr<SoftwarePhysicalLayer>
-createSwPhysicalLayer(const Config &config) {
-  return std::make_shared<SoftwarePhysicalLayer>(config);
-}
-
-} // namespace giraffe::gdl
+} // namespace giraffe::radio
