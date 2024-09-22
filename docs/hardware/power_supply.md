@@ -112,3 +112,12 @@ the battery and the buck converter.
 Currently looking at the INA226 for current sensing.
 
 INA180A
+
+### Buck-Converter
+
+Decided on the TPS56320X, specifically the TPS563201. For $0.43, it meets all
+requirements, goes up to 3A, and comes in a easier to use SOT-23 (Thin) package.
+
+The TPS563201 specifically uses Pulse Skip Mode, because it's not CCM it does
+not have a fixed frequency. The hope is that this will not be an issue EMI/EMC
+wise.
