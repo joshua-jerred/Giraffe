@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.125,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.5
+          "min_clearance": 0.25
         }
       },
       "diff_pair_dimensions": [
@@ -183,6 +183,7 @@
         0.254,
         0.4,
         0.7,
+        1.0,
         1.27
       ],
       "tuning_pattern_settings": {
@@ -612,15 +613,9 @@
     },
     "net_colors": null,
     "netclass_assignments": {
-      "+BATT": "POWER:BATT",
-      "+BATT External": "POWER:BATT",
-      "+BATT Primary": "POWER:BATT",
-      "3V3 Primary": "POWER:3V3",
-      "5V Primary": "POWER:5V",
-      "Net-(J2-Pin_1)": "POWER:5V",
-      "Net-(J2-Pin_2)": "POWER:5V",
-      "Net-(J4-Pin_1)": "POWER:5V",
-      "Net-(J9-Pin_1)": "POWER:3V3"
+      "+BATT": "battery",
+      "/sw": "POWER:5V",
+      "/vout": "POWER:5V"
     },
     "netclass_patterns": []
   },
