@@ -43,11 +43,11 @@ The 3.3V components are are a small fraction of the total power consumption.
 | Component                 | Base Current (ma) | Peak Current (ma) | Duty Cycle | Average Current (ma) |
 | ------------------------- | ----------------- | ----------------- | ---------- | -------------------- |
 | Raspberry Pi Zero 2 W     | 280               | 600               | 95%        | 584                  |
-| SA868 Radio Module (High) | 70                | 1000              | 15%        | 210                  |
+<!-- | SA868 Radio Module (High) | 70                | 1000              | 15%        | 210                  | -->
 | Pi Camera Module          | 0                 | 250               | 5%         | 25                   |
 | Other Onboard ICs         | 50                | 200               | 5%         | 125                  |
 | External Sensors          | 0                 | 100               | 5%         | 5                    |
-| **Total**                 | **400**           | **2150**          |            | **949**              |
+| **Total**                 | **400**           | **1150**          |            | **949**              |
 
 - REQ: The battery voltage will be regulated to 5V with a buck or boost converter, dependant on pack configuration.
 - REQ: The 5V regulator must be able to supply at least 2.5A.
