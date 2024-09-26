@@ -7074,7 +7074,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 63.5 40.64 0)
 			(effects
 				(font
@@ -7128,8 +7128,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "NPN"
-			(at 213.995 171.45 90)
+		(property "Value" "MMBT3904LT1G"
+			(at 219.075 170.815 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7146,7 +7146,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_BJTs"
+		(property "Datasheet" "MMBT3904LT1G"
 			(at 212.09 113.03 0)
 			(effects
 				(font
@@ -7292,7 +7292,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "18k"
 			(at 52.07 173.99 90)
 			(effects
 				(font
@@ -7309,7 +7309,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603JT18K0"
 			(at 52.07 175.26 0)
 			(effects
 				(font
@@ -7359,7 +7359,7 @@
 				)
 			)
 		)
-		(property "Value" "TestPoint"
+		(property "Value" "TestPoint ks"
 			(at 88.392 46.99 90)
 			(effects
 				(font
@@ -7377,7 +7377,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "5015"
 			(at 85.09 49.53 0)
 			(effects
 				(font
@@ -7426,7 +7426,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "TestPoint"
 			(at 64.7701 82.55 0)
 			(effects
 				(font
@@ -7445,7 +7445,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 66.04 78.74 0)
 			(effects
 				(font
@@ -7576,7 +7576,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 40.64 113.03 0)
 			(effects
 				(font
@@ -7690,7 +7690,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "0"
 			(at 130.81 39.37 0)
 			(effects
 				(font
@@ -7708,7 +7708,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603ZT0R00"
 			(at 129.54 38.1 0)
 			(effects
 				(font
@@ -7897,7 +7897,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "0"
 			(at 59.69 186.69 90)
 			(effects
 				(font
@@ -8179,7 +8179,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 30.48 88.9 0)
 			(effects
 				(font
@@ -8248,7 +8248,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 207.01 92.71 0)
 			(effects
 				(font
@@ -8367,7 +8367,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "3.3k"
 			(at 52.07 177.8 90)
 			(effects
 				(font
@@ -8384,7 +8384,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603FT3K30"
 			(at 52.07 179.07 0)
 			(effects
 				(font
@@ -8434,7 +8434,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "10k"
 			(at 59.69 177.8 90)
 			(effects
 				(font
@@ -8451,7 +8451,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603FT10K0"
 			(at 59.69 179.07 0)
 			(effects
 				(font
@@ -8584,7 +8584,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 124.46 27.94 0)
 			(effects
 				(font
@@ -8650,7 +8650,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 146.05 77.47 0)
 			(effects
 				(font
@@ -8897,7 +8897,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "0"
 			(at 59.69 182.88 90)
 			(effects
 				(font
@@ -8983,7 +8983,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "CL32B106KBJNNNE"
 			(at 41.91 88.9 0)
 			(effects
 				(font
@@ -9099,7 +9099,7 @@
 				)
 			)
 		)
-		(property "Value" "INA2180Ax"
+		(property "Value" "INA2180A2"
 			(at 195.58 31.75 0)
 			(effects
 				(font
@@ -9117,7 +9117,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "INA2180A2IDGKR"
 			(at 195.58 46.99 0)
 			(effects
 				(font
@@ -9175,7 +9175,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "5cd9b714-44d8-4e2b-8e96-d21f999d901d")
 		(property "Reference" "R5"
 			(at 67.31 184.15 90)
@@ -9185,7 +9185,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "DNS"
 			(at 67.31 182.88 90)
 			(effects
 				(font
@@ -9202,7 +9202,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 67.31 184.15 0)
 			(effects
 				(font
@@ -9271,7 +9271,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "282834-3"
 			(at 144.78 146.05 0)
 			(effects
 				(font
@@ -9408,7 +9408,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "CL10B104KB8NNWC"
 			(at 53.34 88.9 0)
 			(effects
 				(font
@@ -9523,7 +9523,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "10k"
 			(at 59.69 173.99 90)
 			(effects
 				(font
@@ -9540,7 +9540,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603FT10K0"
 			(at 59.69 175.26 0)
 			(effects
 				(font
@@ -9580,7 +9580,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "76b5464e-f3bf-48c4-b022-9c0843408bcd")
 		(property "Reference" "C6"
 			(at 127 44.45 90)
@@ -9590,7 +9590,7 @@
 				)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "DNS"
 			(at 127 46.355 90)
 			(effects
 				(font
@@ -9607,7 +9607,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 127 41.91 0)
 			(effects
 				(font
@@ -9752,7 +9752,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 146.05 33.02 0)
 			(effects
 				(font
@@ -9854,7 +9854,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "8519e2a0-a744-4de5-8c3a-7e4bb7ae95e7")
 		(property "Reference" "R6"
 			(at 67.31 187.96 90)
@@ -9864,7 +9864,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "DNS"
 			(at 67.31 186.69 90)
 			(effects
 				(font
@@ -9881,7 +9881,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 67.31 187.96 0)
 			(effects
 				(font
@@ -9950,7 +9950,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "CL10B104KB8NNWC"
 			(at 116.84 83.82 0)
 			(effects
 				(font
@@ -10019,7 +10019,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "CC0603JRNPO9BN750"
 			(at 186.69 105.41 0)
 			(effects
 				(font
@@ -10069,7 +10069,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "10k"
 			(at 198.12 175.895 90)
 			(effects
 				(font
@@ -10086,7 +10086,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603FT10K0"
 			(at 198.12 173.99 0)
 			(effects
 				(font
@@ -10155,7 +10155,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603FT100K"
 			(at 195.58 105.41 0)
 			(effects
 				(font
@@ -10222,7 +10222,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 40.64 106.68 0)
 			(effects
 				(font
@@ -10291,7 +10291,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "282834-2"
 			(at 144.78 166.37 0)
 			(effects
 				(font
@@ -10343,7 +10343,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "TestPoint"
 			(at 200.6601 168.91 0)
 			(effects
 				(font
@@ -10362,7 +10362,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 201.93 165.1 0)
 			(effects
 				(font
@@ -10541,7 +10541,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "0"
 			(at 163.83 39.37 0)
 			(effects
 				(font
@@ -10559,7 +10559,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603ZT0R00"
 			(at 162.56 38.1 0)
 			(effects
 				(font
@@ -10805,7 +10805,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "DNS"
 			(at 234.95 90.805 90)
 			(effects
 				(font
@@ -10823,7 +10823,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 234.95 92.71 0)
 			(effects
 				(font
@@ -10875,7 +10875,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "TestPoint"
+		(property "Value" "TestPoint ks"
 			(at 241.3 158.2419 0)
 			(effects
 				(font
@@ -10893,7 +10893,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "5015"
 			(at 233.68 153.67 0)
 			(effects
 				(font
@@ -10957,7 +10957,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "CL10B104KB8NNWC"
 			(at 218.44 33.02 0)
 			(effects
 				(font
@@ -11026,7 +11026,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 153.67 77.47 0)
 			(effects
 				(font
@@ -11090,7 +11090,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 30.48 106.68 0)
 			(effects
 				(font
@@ -11208,7 +11208,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "0"
 			(at 156.21 39.37 0)
 			(effects
 				(font
@@ -11226,7 +11226,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603ZT0R00"
 			(at 157.48 38.1 0)
 			(effects
 				(font
@@ -11343,7 +11343,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "TestPoint"
 			(at 115.5701 87.63 0)
 			(effects
 				(font
@@ -11362,7 +11362,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 116.84 83.82 0)
 			(effects
 				(font
@@ -11493,7 +11493,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "TPS54302DDCR"
 			(at 85.09 91.44 0)
 			(effects
 				(font
@@ -11596,7 +11596,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "0.05"
 			(at 127 26.035 90)
 			(effects
 				(font
@@ -11614,7 +11614,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "ERJ-6BWFR050V"
 			(at 127 27.94 0)
 			(effects
 				(font
@@ -11682,7 +11682,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "SRU1048A-100Y"
 			(at 149.86 88.9 0)
 			(effects
 				(font
@@ -11722,7 +11722,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "bb9ea3ed-4b1a-4367-b4a0-cf527a86d858")
 		(property "Reference" "C7"
 			(at 160.02 44.45 90)
@@ -11732,7 +11732,7 @@
 				)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "DNS"
 			(at 160.02 46.355 90)
 			(effects
 				(font
@@ -11749,7 +11749,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 160.02 41.91 0)
 			(effects
 				(font
@@ -11935,7 +11935,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "0"
 			(at 123.19 39.37 0)
 			(effects
 				(font
@@ -11953,7 +11953,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603ZT0R00"
 			(at 124.46 38.1 0)
 			(effects
 				(font
@@ -12087,7 +12087,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603FT49K9"
 			(at 195.58 95.25 0)
 			(effects
 				(font
@@ -12156,7 +12156,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603FT13K3"
 			(at 195.58 115.57 0)
 			(effects
 				(font
@@ -12226,7 +12226,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 233.68 101.6 0)
 			(effects
 				(font
@@ -12342,7 +12342,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "DNS"
 			(at 129.54 90.805 90)
 			(effects
 				(font
@@ -12360,7 +12360,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 129.54 92.71 0)
 			(effects
 				(font
@@ -12428,7 +12428,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "282834-3"
 			(at 76.2 40.64 0)
 			(effects
 				(font
@@ -12500,7 +12500,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "common pin header"
 			(at 116.84 186.69 0)
 			(effects
 				(font
@@ -12582,7 +12582,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 128.27 101.6 0)
 			(effects
 				(font
@@ -12634,7 +12634,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "TestPoint"
+		(property "Value" "TestPoint ks"
 			(at 236.22 158.2419 0)
 			(effects
 				(font
@@ -12652,7 +12652,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "5015"
 			(at 228.6 153.67 0)
 			(effects
 				(font
@@ -12764,7 +12764,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "1k"
 			(at 198.12 183.515 90)
 			(effects
 				(font
@@ -12781,7 +12781,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0603FT1K00"
 			(at 198.12 181.61 0)
 			(effects
 				(font
@@ -12832,7 +12832,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "0.05"
 			(at 160.02 26.035 90)
 			(effects
 				(font
@@ -12850,7 +12850,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "ERJ-6BWFR050V"
 			(at 160.02 27.94 0)
 			(effects
 				(font
@@ -12968,7 +12968,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "TestPoint"
 			(at 118.1101 109.22 0)
 			(effects
 				(font
@@ -12987,7 +12987,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 119.38 105.41 0)
 			(effects
 				(font
@@ -13121,7 +13121,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "n/a"
 			(at 162.56 38.1 0)
 			(effects
 				(font
@@ -13169,7 +13169,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "0"
 			(at 237.49 144.145 90)
 			(effects
 				(font
@@ -13187,7 +13187,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "RMCF0805ZT0R00"
 			(at 237.49 146.05 0)
 			(effects
 				(font
