@@ -117,6 +117,10 @@ struct Statistics {
   double volume = 0.0;
   double signal_to_noise_ratio = 0.0;
 
+  // Physical layer
+  uint32_t physical_layer_rssi = 0;
+  uint32_t physical_layer_state = 0;
+
   /**
    * @brief Audio processing latency in milliseconds
    */

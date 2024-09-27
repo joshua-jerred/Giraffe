@@ -15,28 +15,24 @@
 
 #pragma once
 
-#include "layers/physical_layer.hpp"
+#include "radio.hpp"
+namespace giraffe::radio {
 
-namespace radios {
-
-class Sa868 : public giraffe::gdl::PhysicalLayer {
+class Sa868 : public Radio {
 public:
-  Sa868(giraffe::gdl::Config &config) : PhysicalLayer(config) {
+  Sa868(giraffe::gdl::Config &config) : Radio(config) {
   }
 
   ~Sa868() override = default;
 
   void enable() override {
-    std::cout << "Sa868 enabled\n";
   }
 
   void disable() override {
-    std::cout << "Sa868 disabled\n";
   }
 
   void update() override {
-    std::cout << "Sa868 update\n";
   }
 };
 
-} // namespace radios
+} // namespace giraffe::radio

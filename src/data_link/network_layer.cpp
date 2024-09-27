@@ -37,14 +37,24 @@ inline constexpr char EXP_PREFIX_EXCHANGE = 'e';
 NetworkLayer::NetworkLayer(Config &config,
                            const std::shared_ptr<PhysicalLayer> &physical_layer)
     : config_(config), physical_layer_(physical_layer) {
-  // physical_layer_.enable();
 }
 
 NetworkLayer::~NetworkLayer() {
+  if (physical_layer_.get() != nullptr) {
+    physical_layer_->disable();
+  }
 }
 
 bool NetworkLayer::txPacket(Packet &packet) {
+  // Check if we are ready to transmit
+  if (physical_layer_->getState() != PhysicalLayer::State::IDLE &&
+      physical_layer_->getState() != PhysicalLayer::State::RECEIVING) {
+    return false;
+  }
+
   total_packets_sent_++;
+
+  // If we're not an ASCII packet, encode transmit with APRS or SSTV
   if (packet.getPacketType() == Packet::PacketType::LOCATION) {
     return txAprsPositionPacket(packet);
   }
@@ -95,8 +105,27 @@ bool NetworkLayer::txPacket(Packet &packet) {
   }
 
   modulator_.encode(exp_aprs_packet);
+
+  if (physical_layer_->getMode() != PhysicalLayer::Mode::DATA) {
+    if (!physical_layer_->changeMode(PhysicalLayer::Mode::DATA)) {
+      /// @todo report error, get rid of cout
+      std::cout << "gdl nwl | failed to change mode - data" << std::endl;
+      return false;
+    }
+  }
+
+  if (!physical_layer_->startTransmit()) {
+    /// @todo report error, get rid of cout
+    std::cout << "gdl nwl | failed to start transmit" << std::endl;
+    return false;
+  }
+  /// @todo tx start delay here
   modulator_.writeToPulseAudio();
   modulator_.clearBuffer();
+  if (!physical_layer_->stopTransmit()) {
+    /// @todo report error, get rid of cout
+    std::cout << "gdl nwl | failed to stop transmit" << std::endl;
+  }
   return true;
 }
 
@@ -183,17 +212,45 @@ bool NetworkLayer::rxPacket(Packet &packet) {
 
 void NetworkLayer::update(Statistics &stats) {
   receiver_.process();
-  // physical_layer_.update();
 
+  // We don't have a physical layer yet
+  if (physical_layer_.get() == nullptr) {
+    std::cout << "gdl nwl | physical layer is null" << std::endl;
+    return;
+  }
+
+  if (physical_layer_->getState() == PhysicalLayer::State::DISABLED ||
+      physical_layer_->getState() == PhysicalLayer::State::ERROR) {
+    std::cout << "gdl nwl | physical layer is disabled, enabling" << std::endl;
+    return physical_layer_->enable();
+  }
+
+  physical_layer_->update();
+
+  // Network layer stats
   stats.total_packets_sent = total_packets_sent_;
   stats.total_packets_received = total_packets_received_;
   stats.network_layer_latency_ms = receiver_.getLatency();
   stats.volume = receiver_.getVolume();
   stats.signal_to_noise_ratio = receiver_.getSNR();
+
+  // Physical layer stats
+  stats.physical_layer_rssi = physical_layer_->getRssi();
+  stats.physical_layer_state =
+      static_cast<uint32_t>(physical_layer_->getState());
+
   // stats.aprs_receiver_stats = receiver_.getStats();
 }
 
 bool NetworkLayer::txAprsPositionPacket(const Packet &packet) {
+  if (physical_layer_->getMode() != PhysicalLayer::Mode::DATA) {
+    if (!physical_layer_->changeMode(PhysicalLayer::Mode::DATA)) {
+      /// @todo report error, get rid of cout
+      std::cout << "gdl nwl | failed to change mode - aprs" << std::endl;
+      return false;
+    }
+  }
+
   try {
     signal_easel::aprs::PositionPacket pos_packet{};
     pos_packet.source_address = config_.getCallSign();
@@ -210,7 +267,16 @@ bool NetworkLayer::txAprsPositionPacket(const Packet &packet) {
     pos_packet.time_code = loc.time_code;
 
     modulator_.encode(pos_packet);
+    if (!physical_layer_->startTransmit()) {
+      /// @todo report error, get rid of cout
+      std::cout << "gdl nwl | failed to start transmit" << std::endl;
+      return false;
+    }
     modulator_.writeToPulseAudio();
+    if (!physical_layer_->stopTransmit()) {
+      /// @todo report error, get rid of cout
+      std::cout << "gdl nwl | failed to stop transmit" << std::endl;
+    }
     modulator_.clearBuffer();
   } catch (signal_easel::Exception &e) {
     /// @todo report back up
@@ -222,6 +288,14 @@ bool NetworkLayer::txAprsPositionPacket(const Packet &packet) {
 bool NetworkLayer::txSstvImage(const Packet &packet) {
 #ifdef SSTV_ENABLED
 
+  if (physical_layer_->getMode() != PhysicalLayer::Mode::DATA) {
+    if (!physical_layer_->changeMode(PhysicalLayer::Mode::DATA)) {
+      /// @todo report error, get rid of cout
+      std::cout << "gdl nwl | failed to change mode - sstv" << std::endl;
+      return false;
+    }
+  }
+
   try {
     signal_easel::sstv::Settings settings{};
     settings.overlay_call_sign = true;
@@ -231,7 +305,17 @@ bool NetworkLayer::txSstvImage(const Packet &packet) {
     signal_easel::sstv::Modulator sstv_modulator =
         signal_easel::sstv::Modulator(settings);
     sstv_modulator.encodeImage(packet.getImage().path);
+    if (!physical_layer_->startTransmit()) {
+      /// @todo report error, get rid of cout
+      std::cout << "gdl nwl | failed to start transmit" << std::endl;
+      return false;
+    }
     sstv_modulator.writeToPulseAudio();
+
+    if (!physical_layer_->stopTransmit()) {
+      /// @todo report error, get rid of cout
+      std::cout << "gdl nwl | failed to stop transmit" << std::endl;
+    }
     sstv_modulator.clearBuffer();
 
   } catch (signal_easel::Exception &e) {

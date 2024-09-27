@@ -19,6 +19,9 @@
 #include "gdl_message.hpp"
 #include "telemetry_module.hpp"
 
+#include "radios/sa868.hpp"
+#include "radios/software_radio.hpp"
+
 using namespace giraffe;
 
 void modules::TelemetryModule::startup() {
@@ -38,11 +41,10 @@ void modules::TelemetryModule::startup() {
   const auto radio_type = configuration_.telemetry.getRadioType();
   switch (radio_type) {
   case cfg::gEnum::RadioType::SOFTWARE:
-    physical_layer_ =
-        std::make_unique<giraffe::gdl::SoftwarePhysicalLayer>(gdl_config_);
+    physical_layer_ = std::make_unique<radio::SoftwareRadio>(gdl_config_);
     break;
   case cfg::gEnum::RadioType::SA868:
-    physical_layer_ = std::make_unique<radios::Sa868>(gdl_config_);
+    physical_layer_ = std::make_unique<radio::Sa868>(gdl_config_);
     break;
   default:
     error(DiagnosticId::TELEMETRY_radioConfiguration, "0");
