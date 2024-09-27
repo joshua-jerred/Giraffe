@@ -1,0 +1,6 @@
+<map id="giraffe::gdl::PhysicalLayer::setMode" name="giraffe::gdl::PhysicalLayer::setMode">
+<area shape="rect" id="node1" title=" " alt="" coords="264,71,455,112"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html#ae3ce08ae5ff469bd04945b1d4606f3bb" title="Attempts to change the mode of the physical layer." alt="" coords="5,5,216,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1radio_1_1Radio.html#ac079982e63dd5064166f17fff78316ae" title="Attempts to change the mode of the physical layer." alt="" coords="35,71,186,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1radio_1_1SoftwareRadio.html#aa9e6a5237162988a61cc8022e0086414" title="Attempts to change the mode of the physical layer." alt="" coords="25,136,196,177"/>
+</map>

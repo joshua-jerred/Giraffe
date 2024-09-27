@@ -15,6 +15,7 @@ var namespacegiraffe =
       [ "GIRAFFE_DIRECTORY", "namespacegiraffe_1_1file__paths.html#a25ccbccfa2a5f0bfcfc360dcbd31d764", null ]
     ] ],
     [ "gdl", "namespacegiraffe_1_1gdl.html", "namespacegiraffe_1_1gdl" ],
+    [ "radio", "namespacegiraffe_1_1radio.html", "namespacegiraffe_1_1radio" ],
     [ "CommonLogger", "classgiraffe_1_1CommonLogger.html", "classgiraffe_1_1CommonLogger" ],
     [ "FCInfo", "structgiraffe_1_1FCInfo.html", "structgiraffe_1_1FCInfo" ],
     [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ],

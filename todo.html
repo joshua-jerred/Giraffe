@@ -132,8 +132,8 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <dt>Member <a class="el" href="classdata__middleware_1_1DataLog.html#a352c3f548b3d7a4683293ff600265651">data_middleware::DataLog::updateFileSystem</a>  ()</dt>
 <dd><a class="anchor" id="_todo000032"></a>Error Log  </dd>
 <dt>Member <a class="el" href="classdata__middleware_1_1FileSystemManager.html#a1f770961749860965494383544803c5b">data_middleware::FileSystemManager::FileSystemManager</a>  (<a class="el" href="structdata_1_1SharedData.html" title="Data that is shared across all modules and extensions.">data::SharedData</a> &amp;shared_data, cfg::Configuration &amp;config)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000043"></a>refactor this (get rid of management through giraffe_filepaths) </p>
-<p class="enddd"><a class="anchor" id="_todo000044"></a>add error logging  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000044"></a>add error logging </p>
+<p class="enddd"><a class="anchor" id="_todo000043"></a>refactor this (get rid of management through giraffe_filepaths)  </p>
 </dd>
 <dt>Member <a class="el" href="classdata__middleware_1_1FileSystemManager.html#a6862aaf99c91670133a3bfef5c84aa5c">data_middleware::FileSystemManager::updateGfsImageDirData</a>  ()</dt>
 <dd><a class="anchor" id="_todo000045"></a>The order is undefined, so eventually we should sort the files.  </dd>
@@ -160,36 +160,48 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <dt>Member <a class="el" href="classgiraffe_1_1FlightRunnerData.html#a388e58d80afe6e64f00ca2dcc8070781">giraffe::FlightRunnerData::startup_time_</a>  </dt>
 <dd><a class="anchor" id="_todo000019"></a>this is a duplicate of the time in shared_date_.flight_data  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">giraffe::gdl::DataLink::gdlThread</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000071"></a>handle error (should never happen) </p>
-<p class="interdd"><a class="anchor" id="_todo000072"></a>handle error (should never happen) </p>
-<p class="enddd"><a class="anchor" id="_todo000073"></a>handle error (no space in queue)  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000073"></a>handle error (no space in queue) </p>
+<p class="interdd"><a class="anchor" id="_todo000071"></a>handle error (should never happen) </p>
+<p class="enddd"><a class="anchor" id="_todo000072"></a>handle error (should never happen)  </p>
 </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa">giraffe::gdl::NetworkLayer::txAprsPositionPacket</a>  (const <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html" title="The packet class is used in the transport and network layers. It contains some extra information.">Packet</a> &amp;packet)</dt>
-<dd><a class="anchor" id="_todo000074"></a>report back up  </dd>
+<dd><p class="startdd"><a class="anchor" id="_todo000082"></a>report back up </p>
+<p class="interdd"><a class="anchor" id="_todo000081"></a>report error, get rid of cout </p>
+<p class="interdd"><a class="anchor" id="_todo000080"></a>report error, get rid of cout </p>
+<p class="enddd"><a class="anchor" id="_todo000079"></a>report error, get rid of cout  </p>
+</dd>
+<dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a0c426dad58678f33b713e4c8d00bf1eb">giraffe::gdl::NetworkLayer::txPacket</a>  (<a class="el" href="classgiraffe_1_1gdl_1_1Packet.html" title="The packet class is used in the transport and network layers. It contains some extra information.">Packet</a> &amp;packet)</dt>
+<dd><p class="startdd"><a class="anchor" id="_todo000076"></a>report error, get rid of cout </p>
+<p class="interdd"><a class="anchor" id="_todo000078"></a>report error, get rid of cout </p>
+<p class="interdd"><a class="anchor" id="_todo000077"></a>tx start delay here </p>
+<p class="enddd"><a class="anchor" id="_todo000075"></a>report error, get rid of cout  </p>
+</dd>
+<dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1PhysicalLayer.html#adce1b155c0ae82cf20a7df26bc97ce45">giraffe::gdl::PhysicalLayer::startTransmit</a>  ()=0</dt>
+<dd><a class="anchor" id="_todo000074"></a>add a timeout parameter  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a92073a724987a293787cbd3382615bc1">giraffe::gdl::TransportLayer::broadcastState</a>  ()</dt>
-<dd><a class="anchor" id="_todo000084"></a>handle error  </dd>
+<dd><a class="anchor" id="_todo000092"></a>handle error  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a709e614e408ba20b8057fd728ab93da5">giraffe::gdl::TransportLayer::exchangeSendState</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000080"></a>handle error </p>
-<p class="enddd"><a class="anchor" id="_todo000081"></a>handle error  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000089"></a>handle error </p>
+<p class="enddd"><a class="anchor" id="_todo000088"></a>handle error  </p>
 </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a6261bac3c4a33276136fa514168200ca">giraffe::gdl::TransportLayer::exchangeWaitingForAckState</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000082"></a>remove this. We should never get here. We can log this. </p>
-<p class="enddd"><a class="anchor" id="_todo000083"></a>log this  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000091"></a>log this </p>
+<p class="enddd"><a class="anchor" id="_todo000090"></a>remove this. We should never get here. We can log this.  </p>
 </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859">giraffe::gdl::TransportLayer::idleState</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000076"></a>remove this. We should never get here. We can log this. </p>
-<p class="interdd"><a class="anchor" id="_todo000077"></a>handle connection timeout reset </p>
-<p class="interdd"><a class="anchor" id="_todo000078"></a>handle connection timeout reset </p>
-<p class="enddd"><a class="anchor" id="_todo000079"></a>log this  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000084"></a>remove this. We should never get here. We can log this. </p>
+<p class="interdd"><a class="anchor" id="_todo000085"></a>handle connection timeout reset </p>
+<p class="interdd"><a class="anchor" id="_todo000086"></a>handle connection timeout reset </p>
+<p class="enddd"><a class="anchor" id="_todo000087"></a>log this  </p>
 </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a3796375c0a18740636691d4c3f8f2ee8">giraffe::gdl::TransportLayer::send</a>  (<a class="el" href="classgiraffe_1_1gdl_1_1Message.html" title="A message that can be sent via GDL.">Message</a> &amp;message)</dt>
-<dd><a class="anchor" id="_todo000075"></a>handle other messages and report an error  </dd>
+<dd><a class="anchor" id="_todo000083"></a>handle other messages and report an error  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a14bea5bfc1ce848c4edf6ab2476ddc01">giraffe::gdl::TransportLayer::sendAck</a>  (uint32_t message_id)</dt>
-<dd><a class="anchor" id="_todo000085"></a>handle error  </dd>
+<dd><a class="anchor" id="_todo000093"></a>handle error  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ad16a08e8eb9d3452bf5e9ba7d0836365">giraffe::gdl::TransportLayer::sendPing</a>  ()</dt>
-<dd><a class="anchor" id="_todo000086"></a>handle error  </dd>
+<dd><a class="anchor" id="_todo000094"></a>handle error  </dd>
 <dt>Member <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#acb5bd2ffdb91c8823c000cecd3e472f9">giraffe::gdl::TransportLayer::sendPingResponse</a>  ()</dt>
-<dd><a class="anchor" id="_todo000087"></a>handle error  </dd>
+<dd><a class="anchor" id="_todo000095"></a>handle error  </dd>
 <dt>Member <a class="el" href="namespacegiraffe.html#a913acd4504a335abcea9a3920a3f65cc">giraffe::getFlightComputerInfo</a>  ()</dt>
 <dd><a class="anchor" id="_todo000068"></a>Add support for PI 3, 4, etc.  </dd>
 <dt>Class <a class="el" href="classgiraffe_1_1Gpio.html">giraffe::Gpio</a>  </dt>
@@ -209,17 +221,17 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <dt>Member <a class="el" href="src_2flight__system_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>  ()</dt>
 <dd><a class="anchor" id="_todo000027"></a>update docs  </dd>
 <dt>Member <a class="el" href="group__DataStreamParsing.html#ga20b16f5d42d2bda3011cfbac3598927c">modules::DataModule::parseExtensionDataPacket</a>  (const <a class="el" href="structdata_1_1DataPacket.html">data::DataPacket</a> &amp;packet)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000039"></a>remove this prior to 1.0 </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000037"></a>This shouldn't be represented as a string. </p>
 <p class="interdd"><a class="anchor" id="_todo000038"></a>Handle how calculated data will handle multiple sources of pressure data </p>
-<p class="enddd"><a class="anchor" id="_todo000037"></a>This shouldn't be represented as a string.  </p>
+<p class="enddd"><a class="anchor" id="_todo000039"></a>remove this prior to 1.0  </p>
 </dd>
 <dt>Member <a class="el" href="group__DataStreamParsing.html#ga1cb9324d2f90e051dc52a881677bcad5">modules::DataModule::parseGeneralDataPacket</a>  (const <a class="el" href="structdata_1_1DataPacket.html">data::DataPacket</a> &amp;packet)</dt>
 <dd><p class="startdd"><a class="anchor" id="_todo000042"></a>This function is not implemented yet. </p>
 <p class="enddd"><a class="anchor" id="_todo000036"></a>Implement general data packet parsing  </p>
 </dd>
 <dt>Member <a class="el" href="classmodules_1_1DataModule.html#a7f226651aa33ff181e5baaf9dbab93a7">modules::DataModule::processCommand</a>  (const <a class="el" href="namespacecmd.html#structcmd_1_1Command" title="A command object. Used for passing commands to their destinations.">cmd::Command</a> &amp;)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000041"></a>This function is not implemented yet. </p>
-<p class="enddd"><a class="anchor" id="_todo000035"></a>Test this, this could end poorly  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000035"></a>Test this, this could end poorly </p>
+<p class="enddd"><a class="anchor" id="_todo000041"></a>This function is not implemented yet.  </p>
 </dd>
 <dt>Member <a class="el" href="classmodules_1_1DataModule.html#a22e5c03008cb6d2015dd0097869f2fa3">modules::DataModule::processLogPacket</a>  (const <a class="el" href="structdata_1_1LogPacket.html">data::LogPacket</a> &amp;packet)</dt>
 <dd><a class="anchor" id="_todo000040"></a>debug/log packets should be processed here  </dd>
@@ -268,7 +280,7 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <dt>Member <a class="el" href="group__ServerModule.html#a5b0ead45f7553620fe24a6507608a985">sock::TcpSocketServer::TcpSocketServer</a>  ()</dt>
 <dd><a class="anchor" id="_todo000070"></a>remove this  </dd>
 <dt>Member <a class="el" href="test__prediction__parameters_8cpp.html#a843b05ecd834580cfd4144b22a939c7e">TEST_F</a>  (<a class="el" href="classDetectionDataTest.html">DetectionDataTest</a>, updateParameters_Good_Values)</dt>
-<dd><a class="anchor" id="_todo000088"></a>add imu data  </dd>
+<dd><a class="anchor" id="_todo000096"></a>add imu data  </dd>
 <dt>Member <a class="el" href="namespaceubx.html#aa3716ea24fc1c764baee09dfc5b2eba1">ubx::NavData::year</a>  </dt>
 <dd><a class="anchor" id="_todo000026"></a>currently, this really doesn't do anything  </dd>
 <dt>Member <a class="el" href="ubx__ids_8hpp.html#a9863f96e55b0bd012a94613a086515c7">UBX_ACK_ACK</a>  </dt>

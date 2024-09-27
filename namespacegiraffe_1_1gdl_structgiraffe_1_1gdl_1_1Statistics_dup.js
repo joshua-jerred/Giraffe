@@ -12,5 +12,7 @@ var namespacegiraffe_1_1gdl_structgiraffe_1_1gdl_1_1Statistics_dup =
     [ "total_messages_dropped", "namespacegiraffe_1_1gdl.html#af986151f3d631d96d73314cd1ba93ede", null ],
     [ "volume", "namespacegiraffe_1_1gdl.html#aae88f5899f328704ca5c5816768e6264", null ],
     [ "signal_to_noise_ratio", "namespacegiraffe_1_1gdl.html#abfa6cac65e04607f8ea217352f0b3b31", null ],
+    [ "physical_layer_rssi", "namespacegiraffe_1_1gdl.html#a87e4e431e7b8f4b27ac865dd3f6c6a77", null ],
+    [ "physical_layer_state", "namespacegiraffe_1_1gdl.html#ab0685acc734e2a4398322e19adce5173", null ],
     [ "network_layer_latency_ms", "namespacegiraffe_1_1gdl.html#ab0cdea56a06fba9fdaa5bd46e715a003", null ]
 ];

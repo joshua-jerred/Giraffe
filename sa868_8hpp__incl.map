@@ -1,10 +1,11 @@
 <map id="sa868.hpp" name="sa868.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="271,5,361,32"/>
-<area shape="rect" id="node2" href="$physical__layer_8hpp.html" title=" " alt="" coords="223,80,409,107"/>
-<area shape="rect" id="node3" href="$gdl__config__and__stats_8hpp.html" title=" " alt="" coords="223,155,409,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,229,168,256"/>
-<area shape="rect" id="node5" title=" " alt="" coords="192,229,259,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="283,229,349,256"/>
-<area shape="rect" id="node7" title=" " alt="" coords="373,229,437,256"/>
-<area shape="rect" id="node8" title=" " alt="" coords="461,229,520,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="133,5,222,32"/>
+<area shape="rect" id="node2" href="$radio_8hpp.html" title=" " alt="" coords="136,80,219,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,304,72,331"/>
+<area shape="rect" id="node4" href="$physical__layer_8hpp.html" title=" " alt="" coords="149,155,336,181"/>
+<area shape="rect" id="node5" href="$gdl__config__and__stats_8hpp.html" title=" " alt="" coords="153,229,340,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="96,304,259,331"/>
+<area shape="rect" id="node7" title=" " alt="" coords="283,304,349,331"/>
+<area shape="rect" id="node8" title=" " alt="" coords="373,304,437,331"/>
+<area shape="rect" id="node9" title=" " alt="" coords="461,304,520,331"/>
 </map>

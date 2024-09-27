@@ -125,7 +125,10 @@ var hierarchy =
     [ "giraffe::gdl::NetworkLayer", "classgiraffe_1_1gdl_1_1NetworkLayer.html", null ],
     [ "giraffe::gdl::PhysicalLayer", "classgiraffe_1_1gdl_1_1PhysicalLayer.html", [
       [ "giraffe::gdl::SoftwarePhysicalLayer", "classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html", null ],
-      [ "radios::Sa868", "classradios_1_1Sa868.html", null ]
+      [ "giraffe::radio::Radio", "classgiraffe_1_1radio_1_1Radio.html", [
+        [ "giraffe::radio::Sa868", "classgiraffe_1_1radio_1_1Sa868.html", null ],
+        [ "giraffe::radio::SoftwareRadio", "classgiraffe_1_1radio_1_1SoftwareRadio.html", null ]
+      ] ]
     ] ],
     [ "giraffe::gdl::Statistics", "namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics", null ],
     [ "giraffe::gdl::TransportLayer", "classgiraffe_1_1gdl_1_1TransportLayer.html", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ubxmessage_4124',['UBXMessage',['../namespaceubx.html#a326ecd141c5e2c7e1ff9ec60519b8a43',1,'ubx']]]
+  ['state_4162',['State',['../classgiraffe_1_1radio_1_1Radio.html#a52a7f2a31b991e0d9d94a5e06d3e4854',1,'giraffe::radio::Radio']]]
 ];

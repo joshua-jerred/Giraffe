@@ -201,7 +201,7 @@
 <g id="node48" class="node">
 <title>Node84</title>
 <g id="a_node48"><a xlink:href="telemetry__module_8hpp.html" target="_top" xlink:title="The telemetry module.">
-<polygon fill="none" stroke="red" points="1024.08,-347.5 1024.08,-366.5 1152.08,-366.5 1152.08,-347.5 1024.08,-347.5"/>
+<polygon fill="none" stroke="black" points="1024.08,-347.5 1024.08,-366.5 1152.08,-366.5 1152.08,-347.5 1024.08,-347.5"/>
 <text text-anchor="middle" x="1088.08" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">telemetry_module.hpp</text>
 </a>
 </g>

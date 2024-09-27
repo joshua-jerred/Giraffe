@@ -107,6 +107,11 @@ var annotated_dup =
         [ "Statistics", "namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics", "namespacegiraffe_1_1gdl_structgiraffe_1_1gdl_1_1Statistics_dup" ],
         [ "TransportLayer", "classgiraffe_1_1gdl_1_1TransportLayer.html", "classgiraffe_1_1gdl_1_1TransportLayer" ]
       ] ],
+      [ "radio", "namespacegiraffe_1_1radio.html", [
+        [ "Radio", "classgiraffe_1_1radio_1_1Radio.html", "classgiraffe_1_1radio_1_1Radio" ],
+        [ "Sa868", "classgiraffe_1_1radio_1_1Sa868.html", "classgiraffe_1_1radio_1_1Sa868" ],
+        [ "SoftwareRadio", "classgiraffe_1_1radio_1_1SoftwareRadio.html", "classgiraffe_1_1radio_1_1SoftwareRadio" ]
+      ] ],
       [ "CommonLogger", "classgiraffe_1_1CommonLogger.html", "classgiraffe_1_1CommonLogger" ],
       [ "FCInfo", "structgiraffe_1_1FCInfo.html", "structgiraffe_1_1FCInfo" ],
       [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ],
@@ -137,9 +142,6 @@ var annotated_dup =
     ] ],
     [ "protocol", "namespaceprotocol.html", [
       [ "Message", "structprotocol_1_1Message.html", "structprotocol_1_1Message" ]
-    ] ],
-    [ "radios", "namespaceradios.html", [
-      [ "Sa868", "classradios_1_1Sa868.html", "classradios_1_1Sa868" ]
     ] ],
     [ "sock", "namespacesock.html", [
       [ "TcpSocketServer", "group__ServerModule.html#classsock_1_1TcpSocketServer", "group__ServerModule_classsock_1_1TcpSocketServer" ]

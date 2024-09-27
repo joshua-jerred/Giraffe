@@ -1,0 +1,12 @@
+<map id="giraffe::gdl::PhysicalLayer::setState" name="giraffe::gdl::PhysicalLayer::setState">
+<area shape="rect" id="node1" title=" " alt="" coords="264,267,455,308"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html#a1a5b7624121c412fa60524d30bff92cc" title="Attempts to disable the physical layer." alt="" coords="5,5,216,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1radio_1_1Radio.html#aaacf35cb7eb0d81b5c798b22e5c9f516" title="Attempts to disable the physical layer." alt="" coords="35,71,186,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html#ac4980aa521e35891f1c19a6b9d211ec7" title="Attempts to enable the physical layer." alt="" coords="5,136,216,177"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1radio_1_1Radio.html#a04b2dd81b5613ed75041cb5df7f61e86" title="Attempts to enable the physical layer." alt="" coords="35,201,186,243"/>
+<area shape="rect" id="node6" href="$classgiraffe_1_1radio_1_1SoftwareRadio.html#a0ebdf41fd7a7cfe5ee24eb0f2f5689cd" title="Attempts to enable the physical layer." alt="" coords="25,267,196,308"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html#a26d492f004f3bc89c7ec1d2e749ea14d" title="Starts transmitting data if possible." alt="" coords="5,332,216,373"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1radio_1_1Radio.html#a2891345685ba37587ecda99ad2ed9390" title="Starts transmitting data if possible." alt="" coords="35,397,186,439"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html#a02e812381a3b256df229c4381a87b8f1" title="Stops transmitting data if currently transmitting." alt="" coords="5,463,216,504"/>
+<area shape="rect" id="node10" href="$classgiraffe_1_1radio_1_1Radio.html#ae25112a208bffcaa9f82d49d801383fc" title="Stops transmitting data if currently transmitting." alt="" coords="35,528,186,569"/>
+</map>

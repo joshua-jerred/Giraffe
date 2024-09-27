@@ -166,6 +166,8 @@ var files_dup =
         [ "total_messages_dropped", "namespacegiraffe_1_1gdl.html#af986151f3d631d96d73314cd1ba93ede", null ],
         [ "volume", "namespacegiraffe_1_1gdl.html#aae88f5899f328704ca5c5816768e6264", null ],
         [ "signal_to_noise_ratio", "namespacegiraffe_1_1gdl.html#abfa6cac65e04607f8ea217352f0b3b31", null ],
+        [ "physical_layer_rssi", "namespacegiraffe_1_1gdl.html#a87e4e431e7b8f4b27ac865dd3f6c6a77", null ],
+        [ "physical_layer_state", "namespacegiraffe_1_1gdl.html#ab0685acc734e2a4398322e19adce5173", null ],
         [ "network_layer_latency_ms", "namespacegiraffe_1_1gdl.html#ab0cdea56a06fba9fdaa5bd46e715a003", null ]
       ] ]
     ] ],
@@ -268,6 +270,9 @@ var files_dup =
     ] ],
     [ "protocol.cpp", "protocol_8cpp.html", "protocol_8cpp" ],
     [ "protocol.hpp", "protocol_8hpp.html", "protocol_8hpp" ],
+    [ "radio.hpp", "radio_8hpp.html", [
+      [ "Radio", "classgiraffe_1_1radio_1_1Radio.html", "classgiraffe_1_1radio_1_1Radio" ]
+    ] ],
     [ "request_handler.cpp", "request__handler_8cpp.html", null ],
     [ "request_handler.hpp", "request__handler_8hpp.html", null ],
     [ "request_handler_data.cpp", "request__handler__data_8cpp.html", "request__handler__data_8cpp" ],
@@ -278,7 +283,7 @@ var files_dup =
       [ "RgbStatusLed", "classextension_1_1RgbStatusLed.html", "classextension_1_1RgbStatusLed" ]
     ] ],
     [ "sa868.hpp", "sa868_8hpp.html", [
-      [ "Sa868", "classradios_1_1Sa868.html", "classradios_1_1Sa868" ]
+      [ "Sa868", "classgiraffe_1_1radio_1_1Sa868.html", "classgiraffe_1_1radio_1_1Sa868" ]
     ] ],
     [ "sam_m8q_gps_state_machine.puml", "sam__m8q__gps__state__machine_8puml.html", null ],
     [ "samm8q.cpp", "samm8q_8cpp.html", "samm8q_8cpp" ],
@@ -314,6 +319,9 @@ var files_dup =
     [ "socket.cpp", "socket_8cpp.html", null ],
     [ "socket.hpp", "socket_8hpp.html", "socket_8hpp" ],
     [ "software_physical_layer.hpp", "software__physical__layer_8hpp.html", "software__physical__layer_8hpp" ],
+    [ "software_radio.hpp", "software__radio_8hpp.html", [
+      [ "SoftwareRadio", "classgiraffe_1_1radio_1_1SoftwareRadio.html", "classgiraffe_1_1radio_1_1SoftwareRadio" ]
+    ] ],
     [ "spi_interface.cpp", "spi__interface_8cpp.html", null ],
     [ "spi_interface.hpp", "spi__interface_8hpp.html", [
       [ "SpiInterface", "classgiraffe_1_1SpiInterface.html", "classgiraffe_1_1SpiInterface" ],
