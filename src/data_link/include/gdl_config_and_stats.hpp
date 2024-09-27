@@ -109,6 +109,7 @@ struct Statistics {
   bool downlink_connected = false;
   bst::Time last_message_received{};
   uint32_t position_packets_received = 0;
+  uint32_t telemetry_packets_received = 0;
 
   // Network layer
   uint32_t total_packets_sent = 0;

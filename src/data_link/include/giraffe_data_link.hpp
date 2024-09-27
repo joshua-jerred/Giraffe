@@ -31,6 +31,7 @@
 
 #include "gdl_config_and_stats.hpp"
 #include "gdl_message.hpp"
+#include "gdl_telemetry_manager.hpp"
 
 #include "layers/network_layer.hpp"
 #include "layers/physical_layer.hpp"
@@ -45,6 +46,8 @@ public:
 
   /// @brief Data Link Status
   enum class Status { ERROR, DISABLED, STARTING, RUNNING, STOPPING };
+
+  using TelemetryData = signal_easel::aprs::telemetry::TelemetryData;
 
   /// @brief Constructor for the Giraffe Data Link.
   /// @param config - The configuration for the GDL instance.
@@ -95,6 +98,12 @@ public:
   /// otherwise.
   bool sendText(const std::string &text, uint32_t message_id);
 
+  /// @brief Send telemetry data over the Data Link. (Broadcast message)
+  /// @param telemetry_data - The telemetry data to send.
+  /// @return \c true if the message was added to the out queue, \c false
+  /// otherwise.
+  bool sendTelemetryData(TelemetryData &telemetry_data, uint32_t message_id);
+
   /// @brief Broadcast a text message over the Data Link.
   /// @param text - The text to send.
   /// @param message_id A unique identifier for the message.
@@ -121,6 +130,18 @@ public:
     return statistics_;
   }
 
+  /// @brief Update the telemetry data for the data link telemetry manager.
+  /// @details This does not send the telemetry data, it just updates the
+  /// telemetry manager so that it can send it when it is ready.
+  /// @param telemetry_data - The telemetry data to add.
+  void updateTelemetryData(const TelemetryData &telemetry_data) {
+    if (config_.isController()) {
+      giraffe_assert(false); // The controller has no need to add telemetry data
+    }
+
+    telemetry_manager_.addData(telemetry_data);
+  }
+
 private:
   bool isRunning() {
     return gdl_thread_.joinable();
@@ -135,6 +156,8 @@ private:
 
   /// @brief Thread safe GDL configuration.
   Config &config_;
+
+  AprsTelemetryManager telemetry_manager_{config_};
 
   /// @brief Outgoing broadcast message queue.
   MessageQueue out_broadcast_queue_{};

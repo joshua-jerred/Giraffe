@@ -96,6 +96,21 @@ bool DataLink::sendText(const std::string &text, uint32_t message_id) {
   return out_exchange_queue_.push(message);
 }
 
+bool DataLink::sendTelemetryData(TelemetryData &telemetry_data,
+                                 uint32_t message_id) {
+  if (!isRunning()) {
+    return false;
+  }
+
+  Message::AprsTelemetry aprs_telemetry{
+      .telemetry_type = signal_easel::aprs::Packet::Type::TELEMETRY_DATA_REPORT,
+      .telemetry_data = telemetry_data};
+
+  Message message;
+  message.setTelemetryMessage(aprs_telemetry, message_id);
+  return out_exchange_queue_.push(message);
+}
+
 bool DataLink::broadcastText(const std::string &text, uint32_t message_id) {
   if (!isRunning()) {
     return false;
@@ -133,6 +148,7 @@ void DataLink::gdlThread() {
       } else {
         /// @todo handle error (should never happen)
         (void)message_buffer;
+        giraffe_assert(false);
       }
 
     } else if (out_exchange_queue_.size() > 0 &&
@@ -144,12 +160,16 @@ void DataLink::gdlThread() {
       } else {
         /// @todo handle error (should never happen)
         (void)message_buffer;
+        giraffe_assert(false);
       }
     }
 
     // receive a message if there is one available
     if (transport_layer_.receive(message_buffer)) {
-      if (!in_queue_.push(message_buffer)) {
+
+      if (message_buffer.getType() == Message::Type::TELEMETRY) {
+        telemetry_manager_.addMessage(message_buffer);
+      } else if (!in_queue_.push(message_buffer)) {
         /// @todo handle error (no space in queue)
         (void)message_buffer;
         std::cout << "ERROR: No space in received queue\n";

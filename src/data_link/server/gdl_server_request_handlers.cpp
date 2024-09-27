@@ -41,6 +41,7 @@ void GdlServer::handleRequestStatus() {
                                     ? stats.last_message_received.toString()
                                     : "N/A"}, // {"rssi", stats.rssi},
       {"tpl_position_packets_received", stats.position_packets_received},
+      {"tpl_telemetry_packets_received", stats.telemetry_packets_received},
       {"nwl_volume", stats.volume},
       {"nwl_signal_to_noise_ratio", stats.signal_to_noise_ratio},
       {"nwl_latency_ms", stats.network_layer_latency_ms},

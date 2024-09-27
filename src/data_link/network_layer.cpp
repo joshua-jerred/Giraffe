@@ -61,8 +61,11 @@ bool NetworkLayer::txPacket(Packet &packet) {
   if (packet.getPacketType() == Packet::PacketType::SSTV) {
     return txSstvImage(packet);
   }
+  if (packet.getPacketType() == Packet::PacketType::APRS_TELEMETRY) {
+    return txAprsTelemetryPacket(packet);
+  }
 
-  signal_easel::aprs::Experimental exp_aprs_packet{};
+  signal_easel::aprs::ExperimentalPacket exp_aprs_packet{};
   exp_aprs_packet.source_address = config_.getCallSign();
   exp_aprs_packet.source_ssid = config_.getSSID();
   exp_aprs_packet.destination_address = config_.getRemoteCallSign();
@@ -130,7 +133,7 @@ bool NetworkLayer::txPacket(Packet &packet) {
 }
 
 bool NetworkLayer::rxPacket(Packet &packet) {
-  signal_easel::aprs::Experimental exp_packet{};
+  signal_easel::aprs::ExperimentalPacket exp_packet{};
   signal_easel::ax25::Frame frame{};
 
   if (receiver_.getAprsExperimental(exp_packet, frame)) {
@@ -191,14 +194,27 @@ bool NetworkLayer::rxPacket(Packet &packet) {
     total_packets_received_++;
     packet.setPacketType(Packet::PacketType::LOCATION);
 
-    Packet::Location loc{.latitude = pos_packet.latitude,
-                         .longitude = pos_packet.longitude,
-                         .altitude = static_cast<uint32_t>(pos_packet.altitude),
-                         .speed = static_cast<double>(pos_packet.speed),
-                         .heading = pos_packet.course,
-                         .time_code = pos_packet.time_code};
+    Message::Location loc{.latitude = pos_packet.latitude,
+                          .longitude = pos_packet.longitude,
+                          .altitude =
+                              static_cast<uint32_t>(pos_packet.altitude),
+                          .speed = static_cast<double>(pos_packet.speed),
+                          .heading = pos_packet.course,
+                          .time_code = pos_packet.time_code};
 
     packet.setLocation(loc);
+    return true;
+  }
+
+  signal_easel::aprs::TelemetryPacket telemetry_packet{};
+  if (receiver_.getAprsTelemetry(telemetry_packet, frame)) {
+    total_packets_received_++;
+    packet.setPacketType(Packet::PacketType::APRS_TELEMETRY);
+
+    Message::AprsTelemetry telemetry{
+        .telemetry_type = telemetry_packet.telemetry_type,
+        .telemetry_data = telemetry_packet.telemetry_data};
+    packet.setTelemetry(telemetry);
     return true;
   }
 
@@ -328,5 +344,45 @@ bool NetworkLayer::txSstvImage(const Packet &packet) {
   return false;
 #endif
 };
+
+bool NetworkLayer::txAprsTelemetryPacket(const Packet &packet) {
+  if (physical_layer_->getMode() != PhysicalLayer::Mode::APRS) {
+    if (!physical_layer_->changeMode(PhysicalLayer::Mode::APRS)) {
+      /// @todo report error, get rid of cout
+      std::cout << "gdl tml nwl | failed to change mode - aprs" << std::endl;
+      return false;
+    }
+  }
+
+  try {
+    signal_easel::aprs::TelemetryPacket telem_packet{};
+    telem_packet.source_address = config_.getCallSign();
+    telem_packet.source_ssid = config_.getSSID();
+    telem_packet.destination_address = config_.getRemoteCallSign();
+    telem_packet.destination_ssid = config_.getRemoteSSID();
+
+    auto telem = packet.getTelemetry();
+    telem_packet.telemetry_data = telem.telemetry_data;
+    telem_packet.telemetry_type = telem.telemetry_type;
+
+    modulator_.encode(telem_packet);
+    if (!physical_layer_->startTransmit()) {
+      /// @todo report error, get rid of cout
+      std::cout << "gdl tml nwl | failed to start transmit" << std::endl;
+      return false;
+    }
+    modulator_.writeToPulseAudio();
+    if (!physical_layer_->stopTransmit()) {
+      /// @todo report error, get rid of cout
+      std::cout << "gdl tml nwl | failed to stop transmit" << std::endl;
+    }
+    modulator_.clearBuffer();
+  } catch (signal_easel::Exception &e) {
+    /// @todo report back up
+    std::cout << "gdl tml nwl | exception: " << e.what() << std::endl;
+    return false;
+  }
+  return true;
+}
 
 } // namespace giraffe::gdl

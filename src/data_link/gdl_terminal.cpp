@@ -69,14 +69,13 @@ int main(int argc, char **argv) {
       std::make_shared<SoftwarePhysicalLayer>(config);
   DataLink gdl{config, physical_layer};
 
+  AprsTelemetryManager::TelemetryData telemetry_data;
+  using ParId = signal_easel::aprs::telemetry::Parameter::Id;
+  telemetry_data.getAnalog(ParId::A1).setRawValue(20);
+  telemetry_data.getAnalog(ParId::A2).setRawValue(50);
+  telemetry_data.setComment("GDL Terminal");
+
   gdl.enable();
-  if (is_controller) {
-    for (uint32_t i = 0; i < 5; i++) {
-      Message message;
-      message.setExchangeMessage("hewo_there", i);
-      gdl.sendMessage(message);
-    }
-  }
 
   // Input Thread
   std::atomic<bool> running = true;
@@ -93,6 +92,11 @@ int main(int argc, char **argv) {
       if (received_message.getType() == Message::Type::EXCHANGE) {
         std::cout << "Received Exchange Message: " << received_message.getData()
                   << "\n";
+      } else if (received_message.getType() == Message::Type::BROADCAST) {
+        std::cout << "Received Broadcast Message: "
+                  << received_message.getData() << "\n";
+      } else if (received_message.getType() == Message::Type::TELEMETRY) {
+        std::cout << "Received Telemetry Message\n";
       } else {
         std::cout << "Received other type of message\n";
       }
@@ -112,12 +116,14 @@ int main(int argc, char **argv) {
       message.setExchangeMessage(input_copy.substr(2), count++);
       gdl.sendMessage(message);
       std::cout << "added exchange" << std::endl;
-    }
-
-    if (input_copy.at(0) == 'b') {
+    } else if (input_copy.at(0) == 'b') {
       Message message;
       message.setBroadcastMessage(input_copy.substr(2), count++);
       gdl.sendMessage(message);
+      std::cout << "added" << std::endl;
+    } else if (input_copy == "sd") {
+      Message message;
+      gdl.sendTelemetryData(telemetry_data, 0);
       std::cout << "added" << std::endl;
     }
   }

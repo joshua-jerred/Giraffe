@@ -35,7 +35,8 @@ public:
     PING,
     PING_RESPONSE,
     ACK,
-    SSTV
+    SSTV,
+    APRS_TELEMETRY
   };
 
   Packet() = default;

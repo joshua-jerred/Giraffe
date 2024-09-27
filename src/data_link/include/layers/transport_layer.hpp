@@ -133,6 +133,8 @@ private:
   bst::Time last_message_received_{};
 
   uint32_t position_packets_received_ = 0;
+
+  uint32_t telemetry_packets_received_ = 0;
 };
 
 } // namespace giraffe::gdl
