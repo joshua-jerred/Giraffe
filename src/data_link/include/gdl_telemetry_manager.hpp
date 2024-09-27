@@ -28,10 +28,12 @@ public:
 
   AprsTelemetryManager(Config &gdl_config) : config_(gdl_config) {
   }
+
   ~AprsTelemetryManager() = default;
 
   void addMessage(const Message &message) {
     (void)message;
+    /// @todo add a check for the source call sign
     std::cout << "Got telemetry message" << std::endl;
   }
 

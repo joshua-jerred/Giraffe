@@ -143,9 +143,9 @@ bool NetworkLayer::rxPacket(Packet &packet) {
         frame.getSourceAddress().getAddressString();
     uint8_t received_source_ssid = frame.getSourceAddress().getSsid();
 
+    // message is from us, ignore it.
     if (received_source_call_sign == config_.getCallSign() &&
         received_source_ssid == config_.getSSID()) {
-      // message is from us, ignore it.
       // std::cout << "ignoring packet from us" << std::endl;
       return false;
     }
@@ -208,6 +208,16 @@ bool NetworkLayer::rxPacket(Packet &packet) {
 
   signal_easel::aprs::TelemetryPacket telemetry_packet{};
   if (receiver_.getAprsTelemetry(telemetry_packet, frame)) {
+    std::string received_source_call_sign =
+        frame.getSourceAddress().getAddressString();
+    uint8_t received_source_ssid = frame.getSourceAddress().getSsid();
+    // message is from us, ignore it.
+    if (received_source_call_sign == config_.getCallSign() &&
+        received_source_ssid == config_.getSSID()) {
+      // std::cout << "ignoring telem packet from us" << std::endl;
+      return false;
+    }
+
     total_packets_received_++;
     packet.setPacketType(Packet::PacketType::APRS_TELEMETRY);
 

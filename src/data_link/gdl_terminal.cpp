@@ -111,7 +111,18 @@ int main(int argc, char **argv) {
     input.clear();
     input_mutex.unlock();
 
-    if (input_copy.at(0) == 'e') {
+    if (input_copy.substr(0, 2) == "id") {
+      is_controller = !is_controller;
+      if (is_controller) {
+        config.setCallSign("CONT");
+        config.setRemoteCallSign("REMO");
+        std::cout << "Controller Mode\n";
+      } else {
+        config.setCallSign("REMO");
+        config.setRemoteCallSign("CONT");
+        std::cout << "Remote Mode\n";
+      }
+    } else if (input_copy.at(0) == 'e') {
       Message message;
       message.setExchangeMessage(input_copy.substr(2), count++);
       gdl.sendMessage(message);
@@ -125,6 +136,12 @@ int main(int argc, char **argv) {
       Message message;
       gdl.sendTelemetryData(telemetry_data, 0);
       std::cout << "added" << std::endl;
+    } else {
+      std::cout << "Commands:\n";
+      std::cout << "id - Toggle Controller/Remote\n";
+      std::cout << "e <message> - Send Exchange Message\n";
+      std::cout << "b <message> - Send Broadcast Message\n";
+      std::cout << "sd - Send Telemetry Data\n";
     }
   }
 
