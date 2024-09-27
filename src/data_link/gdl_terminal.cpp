@@ -25,6 +25,27 @@
 
 using namespace giraffe::gdl;
 
+void userInput(std::atomic<bool> &running, std::mutex &input_mutex,
+               std::string &input) {
+  while (running) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    std::cout << " >> ";
+
+    std::string input_buffer;
+    std::getline(std::cin, input_buffer);
+
+    if (input_buffer == "q") {
+      running = false;
+      std::cout << "Quitting\n";
+      break;
+    }
+
+    input_mutex.lock();
+    input = input_buffer;
+    input_mutex.unlock();
+  }
+}
+
 int main(int argc, char **argv) {
   (void)argv;
   std::cout << "GDL Terminal\n";
@@ -57,7 +78,15 @@ int main(int argc, char **argv) {
     }
   }
 
-  while (true) {
+  // Input Thread
+  std::atomic<bool> running = true;
+  std::mutex input_mutex;
+  std::string input;
+  std::thread input_thread(userInput, std::ref(running), std::ref(input_mutex),
+                           std::ref(input));
+
+  static int count = 0;
+  while (running) {
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
     Message received_message;
     if (gdl.receiveMessage(received_message)) {
@@ -68,7 +97,31 @@ int main(int argc, char **argv) {
         std::cout << "Received other type of message\n";
       }
     }
+
+    input_mutex.lock();
+    if (input.empty()) {
+      input_mutex.unlock();
+      continue;
+    }
+    std::string input_copy = input;
+    input.clear();
+    input_mutex.unlock();
+
+    if (input_copy.at(0) == 'e') {
+      Message message;
+      message.setExchangeMessage(input_copy.substr(2), count++);
+      gdl.sendMessage(message);
+      std::cout << "added exchange" << std::endl;
+    }
+
+    if (input_copy.at(0) == 'b') {
+      Message message;
+      message.setBroadcastMessage(input_copy.substr(2), count++);
+      gdl.sendMessage(message);
+      std::cout << "added" << std::endl;
+    }
   }
 
+  input_thread.join();
   gdl.disable();
 }
