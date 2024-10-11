@@ -5,7 +5,7 @@
  * https://giraffe.joshuajer.red/
  * =*=======================*=
  *
- * @file   gdl_telemetry.hpp
+ * @file   gdl_telemetry_receiver.hpp
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
@@ -22,19 +22,20 @@
 
 namespace giraffe::gdl {
 
-class AprsTelemetryManager {
+class AprsTelemetryReceiver {
 public:
   using TelemetryData = signal_easel::aprs::telemetry::TelemetryData;
 
-  AprsTelemetryManager(Config &gdl_config) : config_(gdl_config) {
+  AprsTelemetryReceiver(Config &gdl_config) : config_(gdl_config) {
   }
 
-  ~AprsTelemetryManager() = default;
+  ~AprsTelemetryReceiver() = default;
 
   void addMessage(const Message &message) {
     (void)message;
     /// @todo add a check for the source call sign
-    std::cout << "Got telemetry message" << std::endl;
+    std::cout << "Got telemetry message - this isn't implemented yet"
+              << std::endl;
   }
 
   void addData(const TelemetryData &telemetry_data) {

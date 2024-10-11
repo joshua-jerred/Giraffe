@@ -202,7 +202,12 @@ void DataLink::gdlThread() {
     transport_layer_.update(statistics_);
     statistics_lock_.unlock();
 
-    // send broadcast messages first if there are any, otherwise send exchange
+    // update the telemetry sender - this will only have an effect if it's
+    // configured.
+    telemetry_sender_.update(*this);
+
+    // First, send a broadcast message if one is available. If there isn't one,
+    // send an exchange message if one exists.
     if (out_broadcast_queue_.size() > 0 && transport_layer_.isReadyToSend()) {
 
       if (out_broadcast_queue_.peek(message_buffer) &&
@@ -231,7 +236,7 @@ void DataLink::gdlThread() {
     if (transport_layer_.receive(message_buffer)) {
 
       if (message_buffer.getType() == Message::Type::TELEMETRY) {
-        telemetry_manager_.addMessage(message_buffer);
+        telemetry_receiver_.addMessage(message_buffer);
       } else if (!in_queue_.push(message_buffer)) {
         /// @todo handle error (no space in queue)
         (void)message_buffer;
@@ -250,6 +255,8 @@ void DataLink::gdlThread() {
     statistics_.exchange_queue_size = out_exchange_queue_.size();
     statistics_.broadcast_queue_size = out_broadcast_queue_.size();
     statistics_.received_queue_size = in_queue_.size();
+    statistics_.aprs_telemetry_data_packets_added =
+        telemetry_sender_.getNumDataPacketsAddedToQueue();
     statistics_lock_.unlock();
 
     bst::sleep(GDL_THREAD_SLEEP_INTERVAL_MS);

@@ -48,7 +48,7 @@ void userInput(std::atomic<bool> &running, std::mutex &input_mutex,
 
 int main(int argc, char **argv) {
   (void)argv;
-  std::cout << "GDL Terminal\n";
+  std::cout << "GDL Terminal - h, or help, for a list of commands\n";
   bool is_controller = false;
   if (argc > 1) {
     is_controller = true;
@@ -56,6 +56,8 @@ int main(int argc, char **argv) {
   }
 
   Config config{is_controller};
+  config.setAprsTelemetrySenderEnabled(true);
+  config.setAprsTelemetryDataIntervalMs(10000);
 
   if (is_controller) {
     config.setCallSign("CONT");
@@ -69,7 +71,7 @@ int main(int argc, char **argv) {
       std::make_shared<SoftwarePhysicalLayer>(config);
   DataLink gdl{config, physical_layer};
 
-  AprsTelemetryManager::TelemetryData telemetry_data;
+  AprsTelemetryReceiver::TelemetryData telemetry_data;
   using ParId = signal_easel::aprs::telemetry::Parameter::Id;
   telemetry_data.getAnalog(ParId::A1).setRawValue(20);
   telemetry_data.getAnalog(ParId::A1).setCoefficientB("2");
@@ -161,6 +163,40 @@ int main(int argc, char **argv) {
       Message message;
       gdl.sendTelemetryBitSense(telemetry_data);
       std::cout << "added" << std::endl;
+    } else if (input_copy == "ss") {
+      std::cout << "Enabled: "
+                << (config.isAprsTelemetrySenderEnabled() ? "true" : "false")
+                << std::endl;
+      std::cout << "Status: " << gdl.getTelemetrySenderStatusString()
+                << std::endl;
+      std::cout << "Update Interval: "
+                << config.getAprsTelemetryDataIntervalMs() << std::endl;
+    } else if (input_copy == "st") {
+      config.setAprsTelemetrySenderEnabled(
+          !config.isAprsTelemetrySenderEnabled());
+      std::cout << "Enabled: "
+                << (config.isAprsTelemetrySenderEnabled() ? "true" : "false")
+                << std::endl;
+    } else if (input_copy.at(0) == 's' && input_copy.at(1) == 'i') {
+      uint32_t interval{0};
+      try {
+        interval = std::stoul(input_copy.substr(2));
+        if (interval < 1500) {
+          std::cout << "Interval must be at least 1500ms\n";
+          continue;
+        }
+        config.setAprsTelemetryDataIntervalMs(interval);
+
+        std::cout << "Update Interval: "
+                  << config.getAprsTelemetryDataIntervalMs() << std::endl;
+      } catch (...) {
+        std::cout << "Invalid interval\n";
+        continue;
+      }
+    } else if (input_copy == "sa") {
+      gdl.updateTelemetryData(telemetry_data);
+    } else if (input_copy == "sm") {
+      gdl.sendTelemetryMetadataPackets();
     } else {
       std::cout << "Commands:\n";
       std::cout << "id - Toggle Controller/Remote\n";
@@ -171,6 +207,12 @@ int main(int argc, char **argv) {
       std::cout << "tu - Send Telemetry Units/Labels\n";
       std::cout << "tc - Send Telemetry Coefficients\n";
       std::cout << "tb - Send Telemetry Bit Sense\n";
+      std::cout << "ss - Get Telemetry Sender Status\n";
+      std::cout << "st - Toggle the Telemetry Sender\n";
+      std::cout << "si <milliseconds> - Set Telemetry Sender Interval\n";
+      std::cout << "sa - Add some dummy data to the telemetry sender\n";
+      std::cout << "sm - Ask the telemetry sender to send telemetry metadata "
+                   "packets\n";
     }
   }
 

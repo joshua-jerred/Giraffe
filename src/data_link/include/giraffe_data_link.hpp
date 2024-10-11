@@ -31,7 +31,9 @@
 
 #include "gdl_config_and_stats.hpp"
 #include "gdl_message.hpp"
-#include "gdl_telemetry_manager.hpp"
+#include "gdl_telemetry_receiver.hpp"
+#include "gdl_telemetry_sender.hpp"
+#include "i_giraffe_data_link.hpp"
 
 #include "layers/network_layer.hpp"
 #include "layers/physical_layer.hpp"
@@ -39,15 +41,13 @@
 
 namespace giraffe::gdl {
 
-class DataLink {
+class DataLink : public IDataLink {
 public:
   /// @brief Status of a connection
   enum class Connection { DISABLED, DISCONNECTED, CONNECTED };
 
   /// @brief Data Link Status
   enum class Status { ERROR, DISABLED, STARTING, RUNNING, STOPPING };
-
-  using TelemetryData = signal_easel::aprs::telemetry::TelemetryData;
 
   /// @brief Constructor for the Giraffe Data Link.
   /// @param config - The configuration for the GDL instance.
@@ -99,34 +99,50 @@ public:
   bool sendText(const std::string &text, uint32_t message_id);
 
   /// @brief Send telemetry data over the Data Link. (Broadcast message)
+  /// @details This *overrides* the functionality of the APRS telemetry sender.
+  /// This will immediately add the telemetry packet to the broadcast queue.
+  /// This method is actually used by the telemetry sender to send telemetry.
   /// @param telemetry_data - The telemetry data to send.
   /// @return \c true if the message was added to the out queue, \c false
   /// otherwise.
-  bool sendTelemetryData(TelemetryData &telemetry_data, uint32_t message_id);
+  bool sendTelemetryData(TelemetryData &telemetry_data,
+                         uint32_t message_id) override;
 
   /// @brief Send an APRS telemetry coefficient message over the Data Link.
   /// (Broadcast message)
+  /// @details This *overrides* the functionality of the APRS telemetry sender.
+  /// This will immediately add the telemetry packet to the broadcast queue.
+  /// This method is actually used by the telemetry sender to send telemetry.
   /// @param telemetry_data - The telemetry data to send.
   /// @return \c true if the message was added to the out queue, \c false
-  bool sendTelemetryCoefficients(TelemetryData &telemetry_data);
+  bool sendTelemetryCoefficients(TelemetryData &telemetry_data) override;
 
   /// @brief Send an APRS telemetry parameter names message over the Data Link.
   /// (Broadcast message)
+  /// @details This *overrides* the functionality of the APRS telemetry sender.
+  /// This will immediately add the telemetry packet to the broadcast queue.
+  /// This method is actually used by the telemetry sender to send telemetry.
   /// @param telemetry_data - The telemetry data to send.
   /// @return \c true if the message was added to the out queue, \c false
-  bool sendTelemetryParameterNames(TelemetryData &telemetry_data);
+  bool sendTelemetryParameterNames(TelemetryData &telemetry_data) override;
 
   /// @brief Send an APRS telemetry units and labels message over the Data Link.
   /// (Broadcast message)
+  /// @details This *overrides* the functionality of the APRS telemetry sender.
+  /// This will immediately add the telemetry packet to the broadcast queue.
+  /// This method is actually used by the telemetry sender to send telemetry.
   /// @param telemetry_data - The telemetry data to send.
   /// @return \c true if the message was added to the out queue, \c false
-  bool sendTelemetryUnitsAndLabels(TelemetryData &telemetry_data);
+  bool sendTelemetryUnitsAndLabels(TelemetryData &telemetry_data) override;
 
   /// @brief Send an APRS telemetry bit sense message over the Data Link.
   /// (Broadcast message)
+  /// @details This *overrides* the functionality of the APRS telemetry sender.
+  /// This will immediately add the telemetry packet to the broadcast queue.
+  /// This method is actually used by the telemetry sender to send telemetry.
   /// @param telemetry_data - The telemetry data to send.
   /// @return \c true if the message was added to the out queue, \c false
-  bool sendTelemetryBitSense(TelemetryData &telemetry_data);
+  bool sendTelemetryBitSense(TelemetryData &telemetry_data) override;
 
   /// @brief Broadcast a text message over the Data Link.
   /// @param text - The text to send.
@@ -154,16 +170,28 @@ public:
     return statistics_;
   }
 
-  /// @brief Update the telemetry data for the data link telemetry manager.
+  /// @brief Update the telemetry data for the data link telemetry sender.
   /// @details This does not send the telemetry data, it just updates the
-  /// telemetry manager so that it can send it when it is ready.
+  /// telemetry sender so that it can send it when it is ready.
   /// @param telemetry_data - The telemetry data to add.
   void updateTelemetryData(const TelemetryData &telemetry_data) {
     if (config_.isController()) {
       giraffe_assert(false); // The controller has no need to add telemetry data
     }
 
-    telemetry_manager_.addData(telemetry_data);
+    telemetry_sender_.addNewData(telemetry_data);
+  }
+
+  AprsTelemetrySender::Status getTelemetrySenderStatus() const {
+    return telemetry_sender_.getStatus();
+  }
+
+  std::string getTelemetrySenderStatusString() const {
+    return AprsTelemetrySender::getStatusString(getTelemetrySenderStatus());
+  }
+
+  void sendTelemetryMetadataPackets() {
+    telemetry_sender_.sendTelemetryMetadata();
   }
 
 private:
@@ -181,7 +209,9 @@ private:
   /// @brief Thread safe GDL configuration.
   Config &config_;
 
-  AprsTelemetryManager telemetry_manager_{config_};
+  AprsTelemetryReceiver telemetry_receiver_{config_};
+
+  AprsTelemetrySender telemetry_sender_{config_};
 
   /// @brief Outgoing broadcast message queue.
   MessageQueue out_broadcast_queue_{};

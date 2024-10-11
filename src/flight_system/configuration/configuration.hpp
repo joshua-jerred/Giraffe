@@ -272,9 +272,10 @@ class TelemetryAprs : public cfg::CfgSection {
 public:
   TelemetryAprs(data::Streams &streams): cfg::CfgSection(streams){}
 
-  bool getTelemetryPackets() const;
   bool getPositionPackets() const;
   int getPositionPacketInterval() const;
+  bool getTelemetryPackets() const;
+  int getTelemetryPacketInterval() const;
   std::string getFrequency() const;
   int getSsid() const;
   std::string getDestinationAddress() const;
@@ -283,9 +284,10 @@ public:
   std::string getSymbol() const;
   std::string getComment() const;
 
-  void setTelemetryPackets(bool);
   void setPositionPackets(bool);
   void setPositionPacketInterval(int);
+  void setTelemetryPackets(bool);
+  void setTelemetryPacketInterval(int);
   void setFrequency(std::string);
   void setSsid(int);
   void setDestinationAddress(std::string);
@@ -298,9 +300,10 @@ public:
   Json getJson() const;
 
 private:
-  bool telemetry_packets_ = false;
   bool position_packets_ = false;
   int position_packet_interval_ = 600;
+  bool telemetry_packets_ = false;
+  int telemetry_packet_interval_ = 600;
   std::string frequency_ = "144.3900";
   int ssid_ = 0;
   std::string destination_address_ = "APZ441";

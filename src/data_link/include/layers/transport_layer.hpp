@@ -29,8 +29,8 @@ namespace giraffe::gdl {
  * application layer (DataLink) to the network layer (NetworkLayer) and
  * receiving messages from the network layer and passing them to the
  * application layer.
- * The transport layer will look at the messages that is must send and will
- * route them to the correct portion of the network layer.
+ * The transport layer will look at the messages queues and will
+ * route the contents to the correct portion of the network layer.
  *
  * Along with all of this, the transport layer is responsible for maintaining
  * the connection between the local and remote nodes.
@@ -90,6 +90,7 @@ private:
 
   State state_ = State::IDLE;
 
+  /// @brief The timer to create a delay before sending a new message.
   bst::Timer new_tx_timer_{GDL_NEW_TX_DELAY_MS};
 
   /**
