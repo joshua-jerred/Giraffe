@@ -111,6 +111,69 @@ bool DataLink::sendTelemetryData(TelemetryData &telemetry_data,
   return out_exchange_queue_.push(message);
 }
 
+bool DataLink::sendTelemetryCoefficients(TelemetryData &telemetry_data) {
+  if (!isRunning()) {
+    return false;
+  }
+
+  Message::AprsTelemetry aprs_telemetry{
+      .telemetry_type = signal_easel::aprs::Packet::Type::TELEMETRY_COEFFICIENT,
+      .telemetry_data = telemetry_data};
+
+  Message message;
+  // Message ID is not used with APRS telemetry coefficients, so set to 0
+  message.setTelemetryMessage(aprs_telemetry, 0);
+  return out_exchange_queue_.push(message);
+}
+
+bool DataLink::sendTelemetryParameterNames(TelemetryData &telemetry_data) {
+  if (!isRunning()) {
+    return false;
+  }
+
+  Message::AprsTelemetry aprs_telemetry{
+      .telemetry_type =
+          signal_easel::aprs::Packet::Type::TELEMETRY_PARAMETER_NAME,
+      .telemetry_data = telemetry_data};
+
+  Message message;
+  // Message ID is not used with this APRS telemetry packet, so set to 0
+  message.setTelemetryMessage(aprs_telemetry, 0);
+  return out_exchange_queue_.push(message);
+}
+
+bool DataLink::sendTelemetryUnitsAndLabels(TelemetryData &telemetry_data) {
+  if (!isRunning()) {
+    return false;
+  }
+
+  Message::AprsTelemetry aprs_telemetry{
+      .telemetry_type =
+          signal_easel::aprs::Packet::Type::TELEMETRY_PARAMETER_UNIT,
+      .telemetry_data = telemetry_data};
+
+  Message message;
+  // Message ID is not used with this APRS telemetry packet, so set to 0
+  message.setTelemetryMessage(aprs_telemetry, 0);
+  return out_exchange_queue_.push(message);
+}
+
+bool DataLink::sendTelemetryBitSense(TelemetryData &telemetry_data) {
+  if (!isRunning()) {
+    return false;
+  }
+
+  Message::AprsTelemetry aprs_telemetry{
+      .telemetry_type =
+          signal_easel::aprs::Packet::Type::TELEMETRY_BIT_SENSE_PROJ_NAME,
+      .telemetry_data = telemetry_data};
+
+  Message message;
+  // Message ID is not used with this APRS telemetry packet, so set to 0
+  message.setTelemetryMessage(aprs_telemetry, 0);
+  return out_exchange_queue_.push(message);
+}
+
 bool DataLink::broadcastText(const std::string &text, uint32_t message_id) {
   if (!isRunning()) {
     return false;

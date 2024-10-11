@@ -72,8 +72,17 @@ int main(int argc, char **argv) {
   AprsTelemetryManager::TelemetryData telemetry_data;
   using ParId = signal_easel::aprs::telemetry::Parameter::Id;
   telemetry_data.getAnalog(ParId::A1).setRawValue(20);
+  telemetry_data.getAnalog(ParId::A1).setCoefficientB("2");
+  telemetry_data.getAnalog(ParId::A1).setName("test");
+  telemetry_data.getAnalog(ParId::A1).setUnitOrLabel("m");
   telemetry_data.getAnalog(ParId::A2).setRawValue(50);
   telemetry_data.setComment("GDL Terminal");
+  telemetry_data.setProjectTitle("GDL Terminal");
+  telemetry_data.getDigital(ParId::B1).setName("b1");
+  telemetry_data.getDigital(ParId::B1).setUnitOrLabel("b1");
+  telemetry_data.getDigital(ParId::B1).setBitSense(false);
+  telemetry_data.getDigital(ParId::B2).setBitSense(true);
+  telemetry_data.getDigital(ParId::B3).setBitSense(false);
 
   gdl.enable();
 
@@ -132,16 +141,36 @@ int main(int argc, char **argv) {
       message.setBroadcastMessage(input_copy.substr(2), count++);
       gdl.sendMessage(message);
       std::cout << "added" << std::endl;
-    } else if (input_copy == "sd") {
+    } else if (input_copy == "td") {
       Message message;
       gdl.sendTelemetryData(telemetry_data, 0);
+      std::cout << "added" << std::endl;
+    } else if (input_copy == "tp") {
+      Message message;
+      gdl.sendTelemetryParameterNames(telemetry_data);
+      std::cout << "added" << std::endl;
+    } else if (input_copy == "tu") {
+      Message message;
+      gdl.sendTelemetryUnitsAndLabels(telemetry_data);
+      std::cout << "added" << std::endl;
+    } else if (input_copy == "tc") {
+      Message message;
+      gdl.sendTelemetryCoefficients(telemetry_data);
+      std::cout << "added" << std::endl;
+    } else if (input_copy == "tb") {
+      Message message;
+      gdl.sendTelemetryBitSense(telemetry_data);
       std::cout << "added" << std::endl;
     } else {
       std::cout << "Commands:\n";
       std::cout << "id - Toggle Controller/Remote\n";
       std::cout << "e <message> - Send Exchange Message\n";
       std::cout << "b <message> - Send Broadcast Message\n";
-      std::cout << "sd - Send Telemetry Data\n";
+      std::cout << "td - Send Telemetry Data\n";
+      std::cout << "tp - Send Telemetry Parameter Names\n";
+      std::cout << "tu - Send Telemetry Units/Labels\n";
+      std::cout << "tc - Send Telemetry Coefficients\n";
+      std::cout << "tb - Send Telemetry Bit Sense\n";
     }
   }
 

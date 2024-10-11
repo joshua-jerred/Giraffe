@@ -104,6 +104,30 @@ public:
   /// otherwise.
   bool sendTelemetryData(TelemetryData &telemetry_data, uint32_t message_id);
 
+  /// @brief Send an APRS telemetry coefficient message over the Data Link.
+  /// (Broadcast message)
+  /// @param telemetry_data - The telemetry data to send.
+  /// @return \c true if the message was added to the out queue, \c false
+  bool sendTelemetryCoefficients(TelemetryData &telemetry_data);
+
+  /// @brief Send an APRS telemetry parameter names message over the Data Link.
+  /// (Broadcast message)
+  /// @param telemetry_data - The telemetry data to send.
+  /// @return \c true if the message was added to the out queue, \c false
+  bool sendTelemetryParameterNames(TelemetryData &telemetry_data);
+
+  /// @brief Send an APRS telemetry units and labels message over the Data Link.
+  /// (Broadcast message)
+  /// @param telemetry_data - The telemetry data to send.
+  /// @return \c true if the message was added to the out queue, \c false
+  bool sendTelemetryUnitsAndLabels(TelemetryData &telemetry_data);
+
+  /// @brief Send an APRS telemetry bit sense message over the Data Link.
+  /// (Broadcast message)
+  /// @param telemetry_data - The telemetry data to send.
+  /// @return \c true if the message was added to the out queue, \c false
+  bool sendTelemetryBitSense(TelemetryData &telemetry_data);
+
   /// @brief Broadcast a text message over the Data Link.
   /// @param text - The text to send.
   /// @param message_id A unique identifier for the message.
