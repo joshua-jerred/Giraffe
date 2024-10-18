@@ -1,0 +1,10 @@
+{
+  "build": {
+    "dockerfile": "project/Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-vscode.cmake-tools"]
+    }
+  }
+}
