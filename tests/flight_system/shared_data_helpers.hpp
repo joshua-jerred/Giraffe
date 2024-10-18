@@ -18,6 +18,7 @@
 #pragma once
 
 #include "shared_data.hpp"
+#include "to_string.hpp"
 
 class FakeSharedData : public data::SharedData {
 public:
@@ -27,6 +28,16 @@ public:
   bool hasLogItems() {
     return streams.log.getNumPackets() > 0;
   }
+
+  bool hasLogItem(DiagnosticId id) {
+    data::LogPacket packet;
+    while (streams.log.getPacket(packet)) {
+      if (packet.id == id) {
+        return true;
+      }
+    }
+    return false;
+  };
 
   bool hasDataItems() {
     return streams.data.getNumPackets() > 0;
@@ -40,6 +51,15 @@ public:
       }
     }
     return false;
+  }
+
+  std::string dumpLog() {
+    std::string log;
+    data::LogPacket packet;
+    while (streams.log.getPacket(packet)) {
+      log += util::to_string(packet) + "\n";
+    }
+    return log;
   }
 };
 

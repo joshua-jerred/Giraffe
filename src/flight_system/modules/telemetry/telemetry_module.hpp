@@ -24,6 +24,7 @@
 #include <giraffe_data_link.hpp>
 #include <software_physical_layer.hpp>
 
+#include "aprs_telemetry_data_manager.hpp"
 #include "module.hpp"
 
 namespace modules {
@@ -101,6 +102,9 @@ private:
 
   /// @brief The Data Link used for telemetry.
   giraffe::gdl::DataLink gdl_{gdl_config_};
+
+  giraffe::AprsTelemetryDataManager aprs_telemetry_manager_{
+      shared_data_, configuration_, gdl_};
 };
 
 } // namespace modules
