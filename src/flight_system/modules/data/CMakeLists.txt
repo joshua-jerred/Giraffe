@@ -13,4 +13,5 @@ target_include_directories(data_module INTERFACE
 )
 target_link_libraries(data_module INTERFACE
 	bzip2-cpp-lib
+  gfs_utilities
 )
