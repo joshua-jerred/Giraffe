@@ -99,6 +99,7 @@ find_package(Curses REQUIRED)                   # ncurses
 find_package(CURL REQUIRED)                     # curl
 add_subdirectory(lib/third_party/sqlite_cpp)    # sqlite_cpp
 add_subdirectory(lib/third_party/nlohmann_json) # nlohmann_json
+set(BUILD_GMOCK ON CACHE BOOL "Build Google Mock with Google Test" FORCE)
 add_subdirectory(lib/third_party/googletest)    # googletest
 add_subdirectory(lib/third_party/fmt)           # fmt
 # ----------------------------

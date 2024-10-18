@@ -19,12 +19,21 @@
 
 #include <SignalEasel/aprs.hpp>
 
+#include "gdl_config_and_stats.hpp"
 namespace giraffe::gdl {
 
 /// @brief Interface for the Giraffe Data Link.
 class IDataLink {
 public:
   using TelemetryData = signal_easel::aprs::telemetry::TelemetryData;
+
+  virtual ~IDataLink() = default;
+
+  virtual Statistics getStatistics() = 0;
+
+  virtual Config &getConfig() = 0;
+
+  virtual void updateTelemetryData(const TelemetryData &telemetry_data) = 0;
 
   // So far this interface is just a here so the APRS telemetry sender can
   // access these methods of the Data Link.

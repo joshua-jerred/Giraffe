@@ -165,7 +165,7 @@ public:
 
   /// @brief Get statistics about the Data Link.
   /// @return GDL statistics.
-  Statistics getStatistics() {
+  Statistics getStatistics() override {
     std::lock_guard<std::mutex> lock(statistics_lock_);
     return statistics_;
   }
@@ -174,7 +174,7 @@ public:
   /// @details This does not send the telemetry data, it just updates the
   /// telemetry sender so that it can send it when it is ready.
   /// @param telemetry_data - The telemetry data to add.
-  void updateTelemetryData(const TelemetryData &telemetry_data) {
+  void updateTelemetryData(const TelemetryData &telemetry_data) override {
     if (config_.isController()) {
       giraffe_assert(false); // The controller has no need to add telemetry data
     }
@@ -192,6 +192,10 @@ public:
 
   void sendTelemetryMetadataPackets() {
     telemetry_sender_.sendTelemetryMetadata();
+  }
+
+  Config &getConfig() override {
+    return config_;
   }
 
 private:

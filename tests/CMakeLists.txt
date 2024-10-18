@@ -1,7 +1,7 @@
 # Unit Tests
 add_library(unit_test INTERFACE)
 target_include_directories(unit_test INTERFACE "./")
-target_link_libraries(unit_test INTERFACE gtest_main)
+target_link_libraries(unit_test INTERFACE gtest_main gmock_main)
 
 # --- Common ---
 file(GLOB common_test_sources "${COMMON_TEST_SRC}/test_*.cpp")

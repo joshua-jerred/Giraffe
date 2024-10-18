@@ -35,12 +35,7 @@ void modules::TelemetryModule::startup() {
       configuration_.telemetry_aprs.getDestinationAddress());
   gdl_config_.setRemoteSSID(configuration_.telemetry_aprs.getDestinationSsid());
 
-  // APRS Telemetry
-  gdl_config_.setAprsTelemetrySenderEnabled(
-      configuration_.telemetry_aprs.getTelemetryPackets());
-  gdl_config_.setAprsTelemetryDataIntervalMs(
-      configuration_.telemetry_aprs.getTelemetryPacketInterval() * 1000);
-
+  // Now in the APRS Manager
   aprs_position_packet_timer_.setTimeout(
       configuration_.telemetry_aprs.getPositionPacketInterval() * 1000);
 
@@ -78,6 +73,9 @@ void modules::TelemetryModule::loop() {
                               // time to send one. (determined by the configured
                               // interval)
   }
+
+  // Timing handled internally
+  aprs_telemetry_manager_.update();
 
   // update the telemetry module stats
   auto gdl_data = gdl_.getStatistics();
