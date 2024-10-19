@@ -119,17 +119,19 @@ $(document).ready(function(){initNavTree('gdl__message_8hpp.html',''); initResiz
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;variant&gt;</code><br />
 <code>#include &lt;nlohmann/json.hpp&gt;</code><br />
+<code>#include &lt;SignalEasel/aprs/packets.hpp&gt;</code><br />
+<code>#include &lt;<a class="el" href="giraffe__assert_8hpp_source.html">giraffe_assert.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="gdl__constants_8hpp_source.html">gdl_constants.hpp</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for gdl_message.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__message_8hpp__incl.svg" width="890" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__message_8hpp__incl.svg" width="1320" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__message_8hpp__dep__incl.svg" width="1514" height="575"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__message_8hpp__dep__incl.svg" width="1575" height="575"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -140,6 +142,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html">giraffe::gdl::Message</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A message that can be sent via GDL.  <a href="classgiraffe_1_1gdl_1_1Message.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry">giraffe::gdl::Message::AprsTelemetry</a></td></tr>
+<tr class="separator:structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structgiraffe_1_1gdl_1_1Message_1_1Image"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Image">giraffe::gdl::Message::Image</a></td></tr>
 <tr class="separator:structgiraffe_1_1gdl_1_1Message_1_1Image"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structgiraffe_1_1gdl_1_1Message_1_1Location"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location">giraffe::gdl::Message::Location</a></td></tr>
@@ -167,6 +171,56 @@ Typedefs</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2024-01-18 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>2024 (license to be defined) </dd></dl>
 </div><hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry" id="structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry">&#9670;&nbsp;</a></span>giraffe::gdl::Message::AprsTelemetry</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct giraffe::gdl::Message::AprsTelemetry</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div><div class="dynheader">
+Collaboration diagram for giraffe::gdl::Message::AprsTelemetry:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry__coll__graph.svg" width="310" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="aa94b282d5f544de84c6ea594e0a3c19a"></a>typedef <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4">Type</a></td>
+<td class="fieldname">
+TelemType</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a846a5247bb7fce7a9dd2349057a8595a"></a>typedef <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a846a5247bb7fce7a9dd2349057a8595a">TelemetryData</a></td>
+<td class="fieldname">
+TelemetryData</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a3dbdd27ab7bda59e49d1760c6ab2e68a"></a><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa94b282d5f544de84c6ea594e0a3c19a">TelemType</a></td>
+<td class="fieldname">
+telemetry_type</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a7a44baf1e77bd6fcf3e43e9797801bc2"></a><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a846a5247bb7fce7a9dd2349057a8595a">TelemetryData</a></td>
+<td class="fieldname">
+telemetry_data</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
 <a name="structgiraffe_1_1gdl_1_1Message_1_1Image" id="structgiraffe_1_1gdl_1_1Message_1_1Image"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structgiraffe_1_1gdl_1_1Message_1_1Image">&#9670;&nbsp;</a></span>giraffe::gdl::Message::Image</h2>
 

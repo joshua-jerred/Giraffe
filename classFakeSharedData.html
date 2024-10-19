@@ -113,13 +113,13 @@ $(document).ready(function(){initNavTree('classFakeSharedData.html',''); initRes
 <div class="dynheader">
 Inheritance diagram for FakeSharedData:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFakeSharedData__inherit__graph.svg" width="163" height="331"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFakeSharedData__inherit__graph.svg" width="163" height="360"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for FakeSharedData:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classFakeSharedData__coll__graph.svg" width="5427" height="1975"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFakeSharedData__coll__graph.svg" width="5427" height="2004"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -127,10 +127,14 @@ Collaboration diagram for FakeSharedData:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5cd6eb1c5f7e21e5654a0a8fdc3dca98"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFakeSharedData.html#a5cd6eb1c5f7e21e5654a0a8fdc3dca98">FakeSharedData</a> ()</td></tr>
 <tr class="separator:a5cd6eb1c5f7e21e5654a0a8fdc3dca98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8898301bb9ce956c3493966b6756b1a5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFakeSharedData.html#a8898301bb9ce956c3493966b6756b1a5">dumpLog</a> ()</td></tr>
+<tr class="separator:a8898301bb9ce956c3493966b6756b1a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af51255fe455f0e522ed5575232c2bd55"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFakeSharedData.html#af51255fe455f0e522ed5575232c2bd55">hasDataItem</a> (data::DataId id)</td></tr>
 <tr class="separator:af51255fe455f0e522ed5575232c2bd55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d8de2b428a1e3790f6168a573194ab8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFakeSharedData.html#a7d8de2b428a1e3790f6168a573194ab8">hasDataItems</a> ()</td></tr>
 <tr class="separator:a7d8de2b428a1e3790f6168a573194ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e44e4cfb52a346a70becccda9d42cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFakeSharedData.html#ac1e44e4cfb52a346a70becccda9d42cf">hasLogItem</a> (DiagnosticId id)</td></tr>
+<tr class="separator:ac1e44e4cfb52a346a70becccda9d42cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78284876d2cf70cf8ab4dc2fa62a5f11"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFakeSharedData.html#a78284876d2cf70cf8ab4dc2fa62a5f11">hasLogItems</a> ()</td></tr>
 <tr class="separator:a78284876d2cf70cf8ab4dc2fa62a5f11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -217,6 +221,40 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="ac1e44e4cfb52a346a70becccda9d42cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e44e4cfb52a346a70becccda9d42cf">&#9670;&nbsp;</a></span>hasLogItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FakeSharedData::hasLogItem </td>
+          <td>(</td>
+          <td class="paramtype">DiagnosticId&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classdata_1_1Stream.html#a0314b3695dc80b18b19be92965777234">data::Stream&lt; T &gt;::getPacket()</a>, <a class="el" href="structdata_1_1LogPacket.html#a3c62d54239ebff3369219d9309c91b98">data::LogPacket::id</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, and <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFakeSharedData_ac1e44e4cfb52a346a70becccda9d42cf_cgraph.svg" width="447" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a7d8de2b428a1e3790f6168a573194ab8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d8de2b428a1e3790f6168a573194ab8">&#9670;&nbsp;</a></span>hasDataItems()</h2>
 
@@ -292,6 +330,39 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a8898301bb9ce956c3493966b6756b1a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8898301bb9ce956c3493966b6756b1a5">&#9670;&nbsp;</a></span>dumpLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string FakeSharedData::dumpLog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classdata_1_1Stream.html#a0314b3695dc80b18b19be92965777234">data::Stream&lt; T &gt;::getPacket()</a>, <a class="el" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">data::Streams::log</a>, <a class="el" href="namespacegfs__sim.html#af1cb08ac5758d2342c8418c984eaa029">gfs_sim::log()</a>, <a class="el" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">data::SharedData::streams</a>, and <a class="el" href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6">util::to_string()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classFakeSharedData_a8898301bb9ce956c3493966b6756b1a5_cgraph.svg" width="431" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a36655a755501a8b36b7a632826e5a3fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a36655a755501a8b36b7a632826e5a3fe">&#9670;&nbsp;</a></span>flight_data</h2>
@@ -313,7 +384,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classdata__middleware_1_1CalculatedData.html#a21515bd355a6df0c8888d61862588ca1">data_middleware::CalculatedData::calculateDistanceData()</a>, <a class="el" href="classFlightRunner.html#ace57cc70e225e6d6d9b141e75589e775">FlightRunner::fl_phaseChanged()</a>, <a class="el" href="classdata__middleware_1_1DataFormatter.html#ac4d5697e7837e1a0e8a5df1cac9ac286">data_middleware::DataFormatter::fullErrorFrame()</a>, <a class="el" href="group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7">RequestRouter::handleDataRequest()</a>, <a class="el" href="classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f">FlightPhaseManager::setFlightPhase()</a>, <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">FlightRunner::setLaunchPosition()</a>, <a class="el" href="classdata__middleware_1_1DataFormatter.html#ab5eefe7500b957f07f67a91e4429ab4e">data_middleware::DataFormatter::setupFrameStructure()</a>, and <a class="el" href="classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286">FlightPhaseManager::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classdata__middleware_1_1CalculatedData.html#a21515bd355a6df0c8888d61862588ca1">data_middleware::CalculatedData::calculateDistanceData()</a>, <a class="el" href="classFlightRunner.html#ace57cc70e225e6d6d9b141e75589e775">FlightRunner::fl_phaseChanged()</a>, <a class="el" href="classdata__middleware_1_1DataFormatter.html#ac4d5697e7837e1a0e8a5df1cac9ac286">data_middleware::DataFormatter::fullErrorFrame()</a>, <a class="el" href="group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7">RequestRouter::handleDataRequest()</a>, <a class="el" href="classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f">FlightPhaseManager::setFlightPhase()</a>, <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">FlightRunner::setLaunchPosition()</a>, <a class="el" href="classdata__middleware_1_1DataFormatter.html#ab5eefe7500b957f07f67a91e4429ab4e">data_middleware::DataFormatter::setupFrameStructure()</a>, <a class="el" href="classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286">FlightPhaseManager::update()</a>, and <a class="el" href="classgiraffe_1_1AprsManager.html#aa910a687bb93c714489245c032af2c38">giraffe::AprsManager::updateTelemetryData()</a>.</p>
 
 </div>
 </div>
@@ -337,7 +408,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10">FlightPhaseManagerTest::bringToAscent()</a>, <a class="el" href="classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819">FlightPhaseManagerTest::bringToDescent()</a>, <a class="el" href="classFlightPhaseManagerTest.html#a9e109b11c6b9fe47b66a5abe660fb142">FlightPhaseManagerTest::bringToLaunch()</a>, <a class="el" href="classFlightPhaseManagerTest.html#a5e3d6bde01d6b5c2dd3d42ec93579100">FlightPhaseManagerTest::dumpDataStream()</a>, <a class="el" href="classFlightRunner.html#acc2f1a518af2fac43a9320db2854521a">FlightRunner::fl_reportDescent()</a>, <a class="el" href="group__ServerModule.html#a493ddf0161bba462a169e510c5215990">RequestRouter::handleAdcMappingSettingUpdate()</a>, <a class="el" href="group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69">RequestRouter::handleCommandRequest()</a>, <a class="el" href="group__ServerModule.html#af41f65e7470ab4490dfa655ead0a7f88">RequestRouter::handleExtensionSettingUpdate()</a>, <a class="el" href="classFakeSharedData.html#af51255fe455f0e522ed5575232c2bd55">hasDataItem()</a>, <a class="el" href="classFakeSharedData.html#a7d8de2b428a1e3790f6168a573194ab8">hasDataItems()</a>, <a class="el" href="classFakeSharedData.html#a78284876d2cf70cf8ab4dc2fa62a5f11">hasLogItems()</a>, <a class="el" href="classConfigurationTest.html#ab2b4b33a1b2b1f63069a9515449aa92f">ConfigurationTest::printStreamErrors()</a>, <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">FlightRunner::processCommand()</a>, <a class="el" href="classdata_1_1ErrorReporter.html#a3358515a710ff6876c2a41dd84413738">data::ErrorReporter::reportError()</a>, <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">FlightRunner::routeCommand()</a>, <a class="el" href="classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f">FlightPhaseManager::setFlightPhase()</a>, <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">FlightRunner::setLaunchPosition()</a>, <a class="el" href="classConfigurationTest.html#a7b9f2c612f8aebd8e37cbc6429d34aea">ConfigurationTest::SetUp()</a>, <a class="el" href="classDataModuleTests.html#a972a00eb984717a5b2d22307252e13a4">DataModuleTests::SetUp()</a>, <a class="el" href="classExtensionModuleTests.html#a28f2559806565d802992816cde3718ca">ExtensionModuleTests::SetUp()</a>, <a class="el" href="classFlightPhaseManagerTest.html#ae5595b562d8e7a969ab9b930acb6bb04">FlightPhaseManagerTest::validateHasDataItem()</a>, <a class="el" href="classFlightPhaseManagerTest.html#a0808c616cf926a2aa7d25deb64d5f7f0">FlightPhaseManagerTest::validateHasError()</a>, <a class="el" href="classFlightPhaseManagerTest.html#ab267b2bd545c365d8548f66f0a788426">FlightPhaseManagerTest::validateNoData()</a>, and <a class="el" href="classFlightPhaseManagerTest.html#a85dcebc22ec4dd5ccd2af1024f302df1">FlightPhaseManagerTest::validateNoError()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10">FlightPhaseManagerTest::bringToAscent()</a>, <a class="el" href="classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819">FlightPhaseManagerTest::bringToDescent()</a>, <a class="el" href="classFlightPhaseManagerTest.html#a9e109b11c6b9fe47b66a5abe660fb142">FlightPhaseManagerTest::bringToLaunch()</a>, <a class="el" href="classFlightPhaseManagerTest.html#a5e3d6bde01d6b5c2dd3d42ec93579100">FlightPhaseManagerTest::dumpDataStream()</a>, <a class="el" href="classFakeSharedData.html#a8898301bb9ce956c3493966b6756b1a5">dumpLog()</a>, <a class="el" href="classFlightRunner.html#acc2f1a518af2fac43a9320db2854521a">FlightRunner::fl_reportDescent()</a>, <a class="el" href="group__ServerModule.html#a493ddf0161bba462a169e510c5215990">RequestRouter::handleAdcMappingSettingUpdate()</a>, <a class="el" href="group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69">RequestRouter::handleCommandRequest()</a>, <a class="el" href="group__ServerModule.html#af41f65e7470ab4490dfa655ead0a7f88">RequestRouter::handleExtensionSettingUpdate()</a>, <a class="el" href="classFakeSharedData.html#af51255fe455f0e522ed5575232c2bd55">hasDataItem()</a>, <a class="el" href="classFakeSharedData.html#a7d8de2b428a1e3790f6168a573194ab8">hasDataItems()</a>, <a class="el" href="classFakeSharedData.html#ac1e44e4cfb52a346a70becccda9d42cf">hasLogItem()</a>, <a class="el" href="classFakeSharedData.html#a78284876d2cf70cf8ab4dc2fa62a5f11">hasLogItems()</a>, <a class="el" href="classConfigurationTest.html#ab2b4b33a1b2b1f63069a9515449aa92f">ConfigurationTest::printStreamErrors()</a>, <a class="el" href="classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96">FlightRunner::processCommand()</a>, <a class="el" href="classdata_1_1ErrorReporter.html#a3358515a710ff6876c2a41dd84413738">data::ErrorReporter::reportError()</a>, <a class="el" href="classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3">FlightRunner::routeCommand()</a>, <a class="el" href="classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f">FlightPhaseManager::setFlightPhase()</a>, <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">FlightRunner::setLaunchPosition()</a>, <a class="el" href="classConfigurationTest.html#a7b9f2c612f8aebd8e37cbc6429d34aea">ConfigurationTest::SetUp()</a>, <a class="el" href="classDataModuleTests.html#a972a00eb984717a5b2d22307252e13a4">DataModuleTests::SetUp()</a>, <a class="el" href="classExtensionModuleTests.html#a28f2559806565d802992816cde3718ca">ExtensionModuleTests::SetUp()</a>, <a class="el" href="classFlightPhaseManagerTest.html#ae5595b562d8e7a969ab9b930acb6bb04">FlightPhaseManagerTest::validateHasDataItem()</a>, <a class="el" href="classFlightPhaseManagerTest.html#a0808c616cf926a2aa7d25deb64d5f7f0">FlightPhaseManagerTest::validateHasError()</a>, <a class="el" href="classFlightPhaseManagerTest.html#ab267b2bd545c365d8548f66f0a788426">FlightPhaseManagerTest::validateNoData()</a>, and <a class="el" href="classFlightPhaseManagerTest.html#a85dcebc22ec4dd5ccd2af1024f302df1">FlightPhaseManagerTest::validateNoError()</a>.</p>
 
 </div>
 </div>
@@ -385,7 +456,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classdata__middleware_1_1DataLog.html#a957234a0f7b3ce34cc4f3ffffb222f0c">data_middleware::DataLog::DataLog()</a>, <a class="el" href="classdata__middleware_1_1DataFormatter.html#af6431a6a618bbc711a05acc51a64668d">data_middleware::DataFormatter::addComponent()</a>, <a class="el" href="group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7">RequestRouter::handleDataRequest()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c">modules::ExtensionModule::loop()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a847a2771455f903651c1c4fb0d8abd3b">setCalculatedDataAscent()</a>, <a class="el" href="shared__data__helpers_8hpp.html#afbcda5d90c24ba5857ca1e2db0cdc9e7">setCalculatedDataDescent()</a>, <a class="el" href="shared__data__helpers_8hpp.html#aa381eb71608ff595272715b9d8c76114">setCalculatedDataInvalid()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a787d8c6db9abdc70f0a66a1b9ca09e3e">setCalculatedDataLaunch()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a8d97c6bf20283f8b3c4e00c2c4ae865b">setCalculatedDataRecovery()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a5b3f9e88e1cebba75e37e067161193b2">setCalculatedDataValid()</a>, <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">FlightRunner::setLaunchPosition()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a3000757af28bab236095e6b1b81106ae">setLocationDataAscent()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a9b8e8703ab587ca295c54ee0eec821c9">setLocationDataDescent()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a825892ca75399d55f93437d99c2d4dab">setLocationDataInvalid()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a68781b1e0af7e7597cdbe302ca6ddcc0">setLocationDataLaunch()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a7571208332466f206272d835712b7e93">setLocationDataRecovery()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a8ffb841eb7f1ade3c1d6f803cff66753">setLocationDataValid()</a>, <a class="el" href="classdata__middleware_1_1FileSystemManager.html#a39d9f2ba91867fd014543126e0d9402b">data_middleware::FileSystemManager::update()</a>, <a class="el" href="classdata__middleware_1_1CalculatedData.html#a2db2d1da5aab865afb370f07febe9e3e">data_middleware::CalculatedData::updateCalculatedData()</a>, and <a class="el" href="classdata__middleware_1_1InfluxDb.html#a1e38c0c28d3f93307d307198b9506ff0">data_middleware::InfluxDb::writeFrames()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classdata__middleware_1_1DataLog.html#a957234a0f7b3ce34cc4f3ffffb222f0c">data_middleware::DataLog::DataLog()</a>, <a class="el" href="classdata__middleware_1_1DataFormatter.html#af6431a6a618bbc711a05acc51a64668d">data_middleware::DataFormatter::addComponent()</a>, <a class="el" href="group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7">RequestRouter::handleDataRequest()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c">modules::ExtensionModule::loop()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a847a2771455f903651c1c4fb0d8abd3b">setCalculatedDataAscent()</a>, <a class="el" href="shared__data__helpers_8hpp.html#afbcda5d90c24ba5857ca1e2db0cdc9e7">setCalculatedDataDescent()</a>, <a class="el" href="shared__data__helpers_8hpp.html#aa381eb71608ff595272715b9d8c76114">setCalculatedDataInvalid()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a787d8c6db9abdc70f0a66a1b9ca09e3e">setCalculatedDataLaunch()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a8d97c6bf20283f8b3c4e00c2c4ae865b">setCalculatedDataRecovery()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a5b3f9e88e1cebba75e37e067161193b2">setCalculatedDataValid()</a>, <a class="el" href="classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9">FlightRunner::setLaunchPosition()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a3000757af28bab236095e6b1b81106ae">setLocationDataAscent()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a9b8e8703ab587ca295c54ee0eec821c9">setLocationDataDescent()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a825892ca75399d55f93437d99c2d4dab">setLocationDataInvalid()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a68781b1e0af7e7597cdbe302ca6ddcc0">setLocationDataLaunch()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a7571208332466f206272d835712b7e93">setLocationDataRecovery()</a>, <a class="el" href="shared__data__helpers_8hpp.html#a8ffb841eb7f1ade3c1d6f803cff66753">setLocationDataValid()</a>, <a class="el" href="classdata__middleware_1_1FileSystemManager.html#a39d9f2ba91867fd014543126e0d9402b">data_middleware::FileSystemManager::update()</a>, <a class="el" href="classdata__middleware_1_1CalculatedData.html#a2db2d1da5aab865afb370f07febe9e3e">data_middleware::CalculatedData::updateCalculatedData()</a>, <a class="el" href="classgiraffe_1_1AprsManager.html#aa910a687bb93c714489245c032af2c38">giraffe::AprsManager::updateTelemetryData()</a>, and <a class="el" href="classdata__middleware_1_1InfluxDb.html#a1e38c0c28d3f93307d307198b9506ff0">data_middleware::InfluxDb::writeFrames()</a>.</p>
 
 </div>
 </div>

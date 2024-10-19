@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('gdl__terminal_8cpp.html',''); initResi
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for gdl_terminal.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__terminal_8cpp__incl.svg" width="1734" height="560"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__terminal_8cpp__incl.svg" width="2338" height="575"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -127,6 +127,8 @@ Include dependency graph for gdl_terminal.cpp:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc7411da8477346c5db118fea0c5f736"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gdl__terminal_8cpp.html#abc7411da8477346c5db118fea0c5f736">userInput</a> (std::atomic&lt; bool &gt; &amp;running, std::mutex &amp;input_mutex, std::string &amp;input)</td></tr>
+<tr class="separator:abc7411da8477346c5db118fea0c5f736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GDL Terminal. </p>
@@ -135,6 +137,48 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2024-01-18 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>2024 (license to be defined) </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="abc7411da8477346c5db118fea0c5f736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc7411da8477346c5db118fea0c5f736">&#9670;&nbsp;</a></span>userInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void userInput </td>
+          <td>(</td>
+          <td class="paramtype">std::atomic&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>running</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::mutex &amp;&#160;</td>
+          <td class="paramname"><em>input_mutex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>input</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__terminal_8cpp_abc7411da8477346c5db118fea0c5f736_icgraph.svg" width="196" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c04138a5bfe5d72780bb7e82a18e627">&#9670;&nbsp;</a></span>main()</h2>
 
@@ -161,11 +205,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="test__application__layer_8cpp.html#a6a7e26d87f9f1b3002518f758bb0d687">config</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf">giraffe::gdl::Message::EXCHANGE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6">giraffe::gdl::Message::getData()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04">giraffe::gdl::Message::getType()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c">giraffe::gdl::Message::setExchangeMessage()</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f">giraffe::gdl::Message::BROADCAST</a>, <a class="el" href="test__application__layer_8cpp.html#a6a7e26d87f9f1b3002518f758bb0d687">config</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf">giraffe::gdl::Message::EXCHANGE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6">giraffe::gdl::Message::getData()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04">giraffe::gdl::Message::getType()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb">giraffe::gdl::Message::setBroadcastMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c">giraffe::gdl::Message::setExchangeMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4abb3d2d909c73fe49800949a344775f8b">giraffe::gdl::Message::TELEMETRY</a>, and <a class="el" href="gdl__terminal_8cpp.html#abc7411da8477346c5db118fea0c5f736">userInput()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__terminal_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph.svg" width="284" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="gdl__terminal_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph.svg" width="287" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

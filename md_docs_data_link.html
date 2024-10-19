@@ -105,16 +105,31 @@ $(document).ready(function(){initNavTree('md_docs_data_link.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="autotoc_md11"></a>
+GDL Layers</h1>
+<ul>
+<li>GiraffeDataLink (GDL)</li>
+<li>Transport Layer<ul>
+<li>Handles transport of broadcast and exchange messages asynchronously.</li>
+</ul>
+</li>
+<li>Network Layer<ul>
+<li>Controls the physical layer.</li>
+<li>Implements SignalEasel</li>
+</ul>
+</li>
+<li>Physical Layer</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md12"></a>
 Data Link Server</h1>
 <p>The Giraffe Data Link Server is a TCP socket server that allows for the sending and receiving of data over the GDL.</p>
 <p>The server needs to be actively reached out to because it only stores a limited number of messages. If the server crashes or is restarted, all messages will be lost.</p>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
 Configuration</h2>
 <p>The configuration for the GDL server is stored in <code>.giraffe/gdl_server.json</code>. It should not be edited while running except for updating via the API.</p>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md14"></a>
 Logging</h2>
 <p>There is a logging queue. The log can be retrieved with the API. The log will be cleared when the log is retrieved. The log has a maximum size so it will delete the oldest log items when the log is full.</p>
-<h3><a class="anchor" id="autotoc_md14"></a>
+<h3><a class="anchor" id="autotoc_md15"></a>
 API</h3>
 <p>The API uses the giraffe protocol.</p>
 <h4>REQ Requests</h4>

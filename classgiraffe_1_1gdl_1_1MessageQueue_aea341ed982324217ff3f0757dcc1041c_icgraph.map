@@ -1,9 +1,14 @@
 <map id="giraffe::gdl::MessageQueue::push" name="giraffe::gdl::MessageQueue::push">
-<area shape="rect" id="node1" title="Push a message onto the queue." alt="" coords="1217,104,1417,145"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a1fc0f45450322b44cb275b1df159f5fb" title="Broadcast a text message over the Data Link." alt="" coords="1011,5,1169,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" title="The function that runs in the background thread." alt="" coords="1011,71,1169,112"/>
-<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a" title="Send a message over the Data Link." alt="" coords="1011,136,1169,177"/>
-<area shape="rect" id="node14" href="$classgiraffe_1_1gdl_1_1DataLink.html#a089374ddeb5601b859264baa5986304f" title="Send a text message over the Data Link. (Exchange message)" alt="" coords="1011,201,1169,243"/>
+<area shape="rect" id="node1" title="Push a message onto the queue." alt="" coords="1297,267,1497,308"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a1fc0f45450322b44cb275b1df159f5fb" title="Broadcast a text message over the Data Link." alt="" coords="1051,5,1209,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" title="The function that runs in the background thread." alt="" coords="1051,71,1209,112"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a" title="Send a message over the Data Link." alt="" coords="1051,136,1209,177"/>
+<area shape="rect" id="node14" href="$classgiraffe_1_1gdl_1_1DataLink.html#aaa93a0e089984e02036227b31683582f" title="Send an APRS telemetry bit sense message over the Data Link. (Broadcast message)" alt="" coords="1039,201,1221,243"/>
+<area shape="rect" id="node15" href="$classgiraffe_1_1gdl_1_1DataLink.html#a159a96b73cf204c0635d607c2fa7bbe7" title="Send an APRS telemetry coefficient message over the Data Link. (Broadcast message)" alt="" coords="1029,267,1231,308"/>
+<area shape="rect" id="node16" href="$classgiraffe_1_1gdl_1_1DataLink.html#afd04761b30cab17c2dc85d23ea273fd7" title="Send telemetry data over the Data Link. (Broadcast message)" alt="" coords="1051,332,1209,373"/>
+<area shape="rect" id="node17" href="$classgiraffe_1_1gdl_1_1DataLink.html#adb015f87fcf338fd88ab1abbd37c4bce" title="Send an APRS telemetry parameter names message over the Data Link. (Broadcast message)" alt="" coords="1011,397,1249,439"/>
+<area shape="rect" id="node18" href="$classgiraffe_1_1gdl_1_1DataLink.html#a660ff7bef6abebc53821301bd67941b6" title="Send an APRS telemetry units and labels message over the Data Link. (Broadcast message)" alt="" coords="1017,463,1243,504"/>
+<area shape="rect" id="node19" href="$classgiraffe_1_1gdl_1_1DataLink.html#a089374ddeb5601b859264baa5986304f" title="Send a text message over the Data Link. (Exchange message)" alt="" coords="1051,528,1209,569"/>
 <area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90" title="Enable the Data Link. Starts the background thread." alt="" coords="801,71,960,112"/>
 <area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,85,301,111"/>
 <area shape="rect" id="node7" href="$test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320" title=" " alt="" coords="629,81,683,107"/>

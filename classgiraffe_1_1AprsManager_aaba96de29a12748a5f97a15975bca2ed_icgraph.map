@@ -1,0 +1,5 @@
+<map id="giraffe::AprsManager::initializePositionPacketData" name="giraffe::AprsManager::initializePositionPacketData">
+<area shape="rect" id="node1" title="Initializes the APRS Position Packet data from the configuration." alt="" coords="419,5,629,47"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1AprsManager.html#a733faf5f8cb193988e799bbbfc721173" title="Force a configuration reload." alt="" coords="212,5,371,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1AprsManager.html#ae1043caeea2da6d4da54c9af887dad3a" title="Constructor." alt="" coords="5,5,164,47"/>
+</map>

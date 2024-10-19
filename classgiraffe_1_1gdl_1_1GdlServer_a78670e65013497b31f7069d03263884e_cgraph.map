@@ -1,7 +1,7 @@
 <map id="giraffe::gdl::GdlServer::handleRequestStatus" name="giraffe::gdl::GdlServer::handleRequestStatus">
 <area shape="rect" id="node1" title=" " alt="" coords="5,104,173,145"/>
 <area shape="rect" id="node2" href="$classgiraffe_1_1CommonLogger.html#a2287eb7b192040d971736027e6fbbf46" title=" " alt="" coords="221,5,396,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#a98f228a5e7abb95ad4e66ae4b53dd71a" title="Get statistics about the Data Link." alt="" coords="229,71,388,112"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#ada07f22659e987feea0fd94be6abfaa6" title="Get statistics about the Data Link." alt="" coords="229,71,388,112"/>
 <area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1DataLink.html#ab40f43468826f91454986d3ba317fd8f" title="Get the status of the Data Link." alt="" coords="229,136,388,177"/>
 <area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7cc778f8170363add8e6812bb04c019e" title=" " alt="" coords="227,201,391,243"/>
 <area shape="rect" id="node6" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="444,103,631,144"/>

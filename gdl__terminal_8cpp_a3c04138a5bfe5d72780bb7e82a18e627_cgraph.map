@@ -1,6 +1,8 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title=" " alt="" coords="5,78,60,105"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6" title=" " alt="" coords="114,5,273,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="114,71,273,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c" title=" " alt="" coords="108,136,279,177"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,143,60,170"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6" title=" " alt="" coords="115,5,274,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="115,71,274,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb" title=" " alt="" coords="108,136,281,177"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c" title=" " alt="" coords="109,201,280,243"/>
+<area shape="rect" id="node6" href="$gdl__terminal_8cpp.html#abc7411da8477346c5db118fea0c5f736" title=" " alt="" coords="153,267,236,294"/>
 </map>

@@ -1,9 +1,11 @@
 <map id="data::FlightData::getFlightPhase" name="data::FlightData::getFlightPhase">
-<area shape="rect" id="node1" title="Get the current flight phase." alt="" coords="819,58,1012,99"/>
-<area shape="rect" id="node2" href="$classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10" title=" " alt="" coords="293,29,474,70"/>
-<area shape="rect" id="node3" href="$classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819" title=" " alt="" coords="22,54,203,95"/>
-<area shape="rect" id="node4" href="$classFlightPhaseManagerTest.html#a9e109b11c6b9fe47b66a5abe660fb142" title=" " alt="" coords="568,29,749,70"/>
-<area shape="rect" id="node5" href="$classFlightRunner.html#ace57cc70e225e6d6d9b141e75589e775" title=" " alt="" coords="547,145,771,172"/>
-<area shape="rect" id="node6" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,145,499,172"/>
-<area shape="rect" id="node7" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,145,220,172"/>
+<area shape="rect" id="node1" title="Get the current flight phase." alt="" coords="819,93,1012,134"/>
+<area shape="rect" id="node2" href="$classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10" title=" " alt="" coords="293,34,474,75"/>
+<area shape="rect" id="node3" href="$classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819" title=" " alt="" coords="22,59,203,101"/>
+<area shape="rect" id="node4" href="$classFlightPhaseManagerTest.html#a9e109b11c6b9fe47b66a5abe660fb142" title=" " alt="" coords="568,34,749,75"/>
+<area shape="rect" id="node5" href="$classFlightRunner.html#ace57cc70e225e6d6d9b141e75589e775" title=" " alt="" coords="547,151,771,177"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1AprsManager.html#aa910a687bb93c714489245c032af2c38" title=" " alt="" coords="573,202,744,243"/>
+<area shape="rect" id="node6" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,151,499,177"/>
+<area shape="rect" id="node7" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,151,220,177"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1AprsManager.html#a1218355c0bb8c0097a69c85642da8953" title="This method handles everything that needs to be done. It must be called at least at the rate of the c..." alt="" coords="304,202,463,243"/>
 </map>

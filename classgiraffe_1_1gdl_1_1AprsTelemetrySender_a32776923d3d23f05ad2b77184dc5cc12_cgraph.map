@@ -1,0 +1,12 @@
+<map id="giraffe::gdl::AprsTelemetrySender::update" name="giraffe::gdl::AprsTelemetrySender::update">
+<area shape="rect" id="node1" title="Periodic update function for the telemetry sender." alt="" coords="5,136,200,177"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Config.html#a9815875b0219bea6fc2ef01cd639d92d" title=" " alt="" coords="254,5,499,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#ab45d9e228345e21a5c73c9fd5326c565" title="Get the next sequence number for the telemetry data packet." alt="" coords="255,71,498,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Config.html#ae73eb03f8e513787154829d5fe228044" title=" " alt="" coords="261,136,493,177"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a3eaeb0cbef0a945f85a45af4067d698d" title="Handles sending telemetry metadata. Implemented with a simple state machine." alt="" coords="248,201,505,243"/>
+<area shape="rect" id="node10" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ae55590210910b6ff0fd434880c72690f" title=" " alt="" coords="295,267,458,308"/>
+<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1IDataLink.html#af8cf0ced48d9bfac0ccfa62ec8f97851" title=" " alt="" coords="581,103,764,144"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ab6e2dd57089b03593b35f45e0e793944" title=" " alt="" coords="571,168,774,209"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a0c8e773bdc5042576a072965e5a14f58" title=" " alt="" coords="553,233,792,275"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1IDataLink.html#acf2248a3fda82da2156b1d244b9247de" title=" " alt="" coords="559,299,786,340"/>
+</map>

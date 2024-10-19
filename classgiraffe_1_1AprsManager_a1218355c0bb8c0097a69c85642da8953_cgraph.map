@@ -1,0 +1,7 @@
+<map id="giraffe::AprsManager::update" name="giraffe::AprsManager::update">
+<area shape="rect" id="node1" title="This method handles everything that needs to be done. It must be called at least at the rate of the c..." alt="" coords="5,39,164,80"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1AprsManager.html#a1b3074d1887afb1740f2b854fc3ad651" title=" " alt="" coords="212,5,412,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1AprsManager.html#aa910a687bb93c714489245c032af2c38" title=" " alt="" coords="227,71,397,112"/>
+<area shape="rect" id="node4" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="460,37,653,79"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a2b28b7da2d067ad3f8886c5c8fafe2ba" title=" " alt="" coords="471,103,642,144"/>
+</map>

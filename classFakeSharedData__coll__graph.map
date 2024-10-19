@@ -1,5 +1,5 @@
 <map id="FakeSharedData" name="FakeSharedData">
-<area shape="rect" id="node1" title=" " alt="" coords="1455,1848,1607,1969"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1455,1848,1607,1999"/>
 <area shape="rect" id="node2" href="$structdata_1_1SharedData.html" title="Data that is shared across all modules and extensions." alt="" coords="1463,1721,1598,1799"/>
 <area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="4053,1530,4166,1607"/>
 <area shape="rect" id="node4" href="$classdata_1_1LogStream.html" title=" " alt="" coords="4313,1185,4535,1321"/>

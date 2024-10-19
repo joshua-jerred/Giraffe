@@ -39,5 +39,6 @@ var classgiraffe_1_1gdl_1_1TransportLayer =
     [ "sent_exchange_message_id_", "classgiraffe_1_1gdl_1_1TransportLayer.html#a528e45e7299380ee75fedbb3ebb969a7", null ],
     [ "total_messages_dropped_", "classgiraffe_1_1gdl_1_1TransportLayer.html#addb6c9e8375cfb7af0d8e8cff77c8d5e", null ],
     [ "last_message_received_", "classgiraffe_1_1gdl_1_1TransportLayer.html#a226de21f05d25c7a431d9e6ec2e2893c", null ],
-    [ "position_packets_received_", "classgiraffe_1_1gdl_1_1TransportLayer.html#ad93d1fec8b9f1b6a0ea383250e9f5b30", null ]
+    [ "position_packets_received_", "classgiraffe_1_1gdl_1_1TransportLayer.html#ad93d1fec8b9f1b6a0ea383250e9f5b30", null ],
+    [ "telemetry_packets_received_", "classgiraffe_1_1gdl_1_1TransportLayer.html#aad0bc4902befd250d20aa1adcb4b71c0", null ]
 ];

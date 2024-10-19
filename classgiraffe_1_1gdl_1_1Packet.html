@@ -123,7 +123,7 @@ Inheritance diagram for giraffe::gdl::Packet:</div>
 <div class="dynheader">
 Collaboration diagram for giraffe::gdl::Packet:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Packet__coll__graph.svg" width="474" height="632"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Packet__coll__graph.svg" width="519" height="647"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -139,13 +139,19 @@ Public Types</h2></td></tr>
 , <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824baf5fcb64a6d012a6285298f45015c65bf">PING_RESPONSE</a>
 , <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba0fc437bc317835cad5faafc12a83fad5">ACK</a>
 , <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba9eed40bd951e903d55dd6c8f01a50cc2">SSTV</a>
+, <br />
+&#160;&#160;<a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba4020fa2f22212c3d631c382b9f7add06">APRS_TELEMETRY</a>
 <br />
  }</td></tr>
 <tr class="separator:a4cb19dc3bb0c9cfb0cc0d2d877bd824b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a6e8704d83836037deed77775a6e8e4"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4">Type</a> : uint8_t { <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f">BROADCAST</a>
+<tr class="memitem:a6a6e8704d83836037deed77775a6e8e4"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4">Type</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f">BROADCAST</a>
 , <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf">EXCHANGE</a>
 , <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551">LOCATION</a>
 , <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a23a12f67f614b5518c7f1c2465bf95e3">IMAGE</a>
+, <br />
+&#160;&#160;<a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4abb3d2d909c73fe49800949a344775f8b">TELEMETRY</a>
+<br />
  }</td></tr>
 <tr class="memdesc:a6a6e8704d83836037deed77775a6e8e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of message.  <a href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4">More...</a><br /></td></tr>
 <tr class="separator:a6a6e8704d83836037deed77775a6e8e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,6 +178,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a30b91d18f37e7cc83455c0ecd9198e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c8f0eb2fa311a28a2146c5f777508c7"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a0c8f0eb2fa311a28a2146c5f777508c7">getSendAttempts</a> () const</td></tr>
 <tr class="separator:a0c8f0eb2fa311a28a2146c5f777508c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aa2be7d5566b78a15e84f1fb0f4d8bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry">AprsTelemetry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a8aa2be7d5566b78a15e84f1fb0f4d8bf">getTelemetry</a> () const</td></tr>
+<tr class="separator:a8aa2be7d5566b78a15e84f1fb0f4d8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0de98de7c4866d92efd28c7ec2115e04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04">getType</a> () const</td></tr>
 <tr class="separator:a0de98de7c4866d92efd28c7ec2115e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99dc238f1ed94b269a33528acc9b3ab7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a99dc238f1ed94b269a33528acc9b3ab7">incrementSendAttempts</a> ()</td></tr>
@@ -194,6 +202,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad38b31e7aaf83328773626fe1a6e81ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a230dd4dc8894d107f481540d31c42fce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a230dd4dc8894d107f481540d31c42fce">setPacketType</a> (<a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824b">PacketType</a> packet_type)</td></tr>
 <tr class="separator:a230dd4dc8894d107f481540d31c42fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5e76febe8ddc5c68359f0b5224b2b8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ac5e76febe8ddc5c68359f0b5224b2b8e">setTelemetry</a> (<a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry">AprsTelemetry</a> telemetry)</td></tr>
+<tr class="separator:ac5e76febe8ddc5c68359f0b5224b2b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a750cdad267cca1d1459c4abb8cd6997c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a750cdad267cca1d1459c4abb8cd6997c">setTelemetryMessage</a> (<a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry">AprsTelemetry</a> telemetry, uint32_t identifier)</td></tr>
+<tr class="separator:a750cdad267cca1d1459c4abb8cd6997c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab091c37c33d86511d344dde2c6a0715"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aab091c37c33d86511d344dde2c6a0715">setType</a> (<a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4">Type</a> type)</td></tr>
 <tr class="separator:aab091c37c33d86511d344dde2c6a0715"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03da00ff0a1f1cb09e1b65daa0b9747a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a03da00ff0a1f1cb09e1b65daa0b9747a">verifyType</a> ()</td></tr>
@@ -201,8 +213,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a6d87cad07bfa651be81316d7393f1fdf"><td class="memItemLeft" align="right" valign="top">std::variant&lt; std::string, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location">Location</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Image">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6d87cad07bfa651be81316d7393f1fdf">contents_</a></td></tr>
-<tr class="separator:a6d87cad07bfa651be81316d7393f1fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa010c71b7118f02101d6d49dea8f70d4"><td class="memItemLeft" align="right" valign="top">std::variant&lt; std::string, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location">Location</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Image">Image</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry">AprsTelemetry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">contents_</a></td></tr>
+<tr class="separator:aa010c71b7118f02101d6d49dea8f70d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcbad3d995b718c53f85e3e57b833e8b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#abcbad3d995b718c53f85e3e57b833e8b">identifier_</a> = 0</td></tr>
 <tr class="separator:abcbad3d995b718c53f85e3e57b833e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d59fafb22d120d7487a6ad0338c6e65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824b">PacketType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a2d59fafb22d120d7487a6ad0338c6e65">packet_type_</a> = <a class="el" href="classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba696b031073e74bf2cb98e5ef201d4aa3">PacketType::UNKNOWN</a></td></tr>
@@ -243,6 +255,7 @@ Private Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="a4cb19dc3bb0c9cfb0cc0d2d877bd824baf5fcb64a6d012a6285298f45015c65bf"></a>PING_RESPONSE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a4cb19dc3bb0c9cfb0cc0d2d877bd824ba0fc437bc317835cad5faafc12a83fad5"></a>ACK&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a4cb19dc3bb0c9cfb0cc0d2d877bd824ba9eed40bd951e903d55dd6c8f01a50cc2"></a>SSTV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4cb19dc3bb0c9cfb0cc0d2d877bd824ba4020fa2f22212c3d631c382b9f7add06"></a>APRS_TELEMETRY&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -273,6 +286,7 @@ Private Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf"></a>EXCHANGE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551"></a>LOCATION&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a6a6e8704d83836037deed77775a6e8e4a23a12f67f614b5518c7f1c2465bf95e3"></a>IMAGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6a6e8704d83836037deed77775a6e8e4abb3d2d909c73fe49800949a344775f8b"></a>TELEMETRY&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -505,13 +519,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f">giraffe::gdl::Message::BROADCAST</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6d87cad07bfa651be81316d7393f1fdf">giraffe::gdl::Message::contents_</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#adbe0fc27a882195b409d09588244cfea">giraffe::gdl::GDL_MESSAGE_DATA_MAX_SIZE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#abcbad3d995b718c53f85e3e57b833e8b">giraffe::gdl::Message::identifier_</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a9dabb1f8ec8eeb4324d75228e219e078">giraffe::gdl::Message::type_</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f">giraffe::gdl::Message::BROADCAST</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#adbe0fc27a882195b409d09588244cfea">giraffe::gdl::GDL_MESSAGE_DATA_MAX_SIZE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#abcbad3d995b718c53f85e3e57b833e8b">giraffe::gdl::Message::identifier_</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a9dabb1f8ec8eeb4324d75228e219e078">giraffe::gdl::Message::type_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a1fc0f45450322b44cb275b1df159f5fb">giraffe::gdl::DataLink::broadcastText()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a53b271c9f0602706839489ac0994b763">giraffe::gdl::GdlServer::handleSetNewBroadcast()</a>, and <a class="el" href="test__gdl__message_8cpp.html#aa3bc09233b28d567b8c2922818bc5f1c">TEST()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a1fc0f45450322b44cb275b1df159f5fb">giraffe::gdl::DataLink::broadcastText()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a53b271c9f0602706839489ac0994b763">giraffe::gdl::GdlServer::handleSetNewBroadcast()</a>, <a class="el" href="gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main()</a>, and <a class="el" href="test__gdl__message_8cpp.html#aa3bc09233b28d567b8c2922818bc5f1c">TEST()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Message_ad8e7da10224347d945ae5f81790839eb_icgraph.svg" width="978" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Message_ad8e7da10224347d945ae5f81790839eb_icgraph.svg" width="978" height="220"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -551,7 +565,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6d87cad07bfa651be81316d7393f1fdf">giraffe::gdl::Message::contents_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf">giraffe::gdl::Message::EXCHANGE</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#adbe0fc27a882195b409d09588244cfea">giraffe::gdl::GDL_MESSAGE_DATA_MAX_SIZE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#abcbad3d995b718c53f85e3e57b833e8b">giraffe::gdl::Message::identifier_</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a9dabb1f8ec8eeb4324d75228e219e078">giraffe::gdl::Message::type_</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf">giraffe::gdl::Message::EXCHANGE</a>, <a class="el" href="namespacegiraffe_1_1gdl.html#adbe0fc27a882195b409d09588244cfea">giraffe::gdl::GDL_MESSAGE_DATA_MAX_SIZE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#abcbad3d995b718c53f85e3e57b833e8b">giraffe::gdl::Message::identifier_</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a9dabb1f8ec8eeb4324d75228e219e078">giraffe::gdl::Message::type_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a565558716f0334d5a8785457da0155fc">giraffe::gdl::GdlServer::handleSetNewExchange()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859">giraffe::gdl::TransportLayer::idleState()</a>, <a class="el" href="gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a089374ddeb5601b859264baa5986304f">giraffe::gdl::DataLink::sendText()</a>, and <a class="el" href="test__gdl__message_8cpp.html#abb1177289694092c24afb43187bcc202">TEST()</a>.</p>
 <div class="dynheader">
@@ -597,7 +611,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6d87cad07bfa651be81316d7393f1fdf">giraffe::gdl::Message::contents_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#abcbad3d995b718c53f85e3e57b833e8b">giraffe::gdl::Message::identifier_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551">giraffe::gdl::Message::LOCATION</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a9dabb1f8ec8eeb4324d75228e219e078">giraffe::gdl::Message::type_</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#abcbad3d995b718c53f85e3e57b833e8b">giraffe::gdl::Message::identifier_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551">giraffe::gdl::Message::LOCATION</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a9dabb1f8ec8eeb4324d75228e219e078">giraffe::gdl::Message::type_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="test__gdl__message_8cpp.html#a80f16a4debb19d366834ab273298cbe8">TEST()</a>.</p>
 <div class="dynheader">
@@ -643,13 +657,59 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6d87cad07bfa651be81316d7393f1fdf">giraffe::gdl::Message::contents_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#abcbad3d995b718c53f85e3e57b833e8b">giraffe::gdl::Message::identifier_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a23a12f67f614b5518c7f1c2465bf95e3">giraffe::gdl::Message::IMAGE</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a9dabb1f8ec8eeb4324d75228e219e078">giraffe::gdl::Message::type_</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#abcbad3d995b718c53f85e3e57b833e8b">giraffe::gdl::Message::identifier_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a23a12f67f614b5518c7f1c2465bf95e3">giraffe::gdl::Message::IMAGE</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a9dabb1f8ec8eeb4324d75228e219e078">giraffe::gdl::Message::type_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classmodules_1_1TelemetryModule.html#a064ac6e55f7c0397e376c4231e7a884f">modules::TelemetryModule::sendSstvImage()</a>, and <a class="el" href="test__gdl__message_8cpp.html#a9e28439f54b8215da364cd9ba3d16803">TEST()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Message_a4cabd8beca53ab3e2877b67487606ea2_icgraph.svg" width="416" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a750cdad267cca1d1459c4abb8cd6997c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a750cdad267cca1d1459c4abb8cd6997c">&#9670;&nbsp;</a></span>setTelemetryMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void giraffe::gdl::Message::setTelemetryMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry">AprsTelemetry</a>&#160;</td>
+          <td class="paramname"><em>telemetry</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>identifier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#abcbad3d995b718c53f85e3e57b833e8b">giraffe::gdl::Message::identifier_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4abb3d2d909c73fe49800949a344775f8b">giraffe::gdl::Message::TELEMETRY</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a9dabb1f8ec8eeb4324d75228e219e078">giraffe::gdl::Message::type_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#aaa93a0e089984e02036227b31683582f">giraffe::gdl::DataLink::sendTelemetryBitSense()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a159a96b73cf204c0635d607c2fa7bbe7">giraffe::gdl::DataLink::sendTelemetryCoefficients()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#afd04761b30cab17c2dc85d23ea273fd7">giraffe::gdl::DataLink::sendTelemetryData()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#adb015f87fcf338fd88ab1abbd37c4bce">giraffe::gdl::DataLink::sendTelemetryParameterNames()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a660ff7bef6abebc53821301bd67941b6">giraffe::gdl::DataLink::sendTelemetryUnitsAndLabels()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Message_a750cdad267cca1d1459c4abb8cd6997c_icgraph.svg" width="471" height="314"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -822,11 +882,11 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a9dabb1f8ec8eeb4324d75228e219e078">giraffe::gdl::Message::type_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7">giraffe::gdl::Message::getJson()</a>, <a class="el" href="gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main()</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54">modules::TelemetryModule::processTelemetryMessageQueue()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a3796375c0a18740636691d4c3f8f2ee8">giraffe::gdl::TransportLayer::send()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a">giraffe::gdl::DataLink::sendMessage()</a>, <a class="el" href="test__gdl__message_8cpp.html#aa3bc09233b28d567b8c2922818bc5f1c">TEST()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a03da00ff0a1f1cb09e1b65daa0b9747a">giraffe::gdl::Message::verifyType()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de">giraffe::gdl::DataLink::gdlThread()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7">giraffe::gdl::Message::getJson()</a>, <a class="el" href="gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main()</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54">modules::TelemetryModule::processTelemetryMessageQueue()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#a3796375c0a18740636691d4c3f8f2ee8">giraffe::gdl::TransportLayer::send()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a534ce7787534f0920e11232464b5086a">giraffe::gdl::DataLink::sendMessage()</a>, <a class="el" href="test__gdl__message_8cpp.html#aa3bc09233b28d567b8c2922818bc5f1c">TEST()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a03da00ff0a1f1cb09e1b65daa0b9747a">giraffe::gdl::Message::verifyType()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Message_a0de98de7c4866d92efd28c7ec2115e04_icgraph.svg" width="1556" height="418"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Message_a0de98de7c4866d92efd28c7ec2115e04_icgraph.svg" width="1556" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -858,11 +918,11 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a9dabb1f8ec8eeb4324d75228e219e078">giraffe::gdl::Message::type_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="test__gdl__message_8cpp.html#a90e9f77884a3992e5c747d2c49456e43">TEST()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859">giraffe::gdl::TransportLayer::idleState()</a>, and <a class="el" href="test__gdl__message_8cpp.html#a90e9f77884a3992e5c747d2c49456e43">TEST()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Message_aab091c37c33d86511d344dde2c6a0715_icgraph.svg" width="272" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Message_aab091c37c33d86511d344dde2c6a0715_icgraph.svg" width="1415" height="122"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -892,7 +952,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6d87cad07bfa651be81316d7393f1fdf">giraffe::gdl::Message::contents_</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875">giraffe::gdl::NetworkLayer::rxPacket()</a>.</p>
 <div class="dynheader">
@@ -927,7 +987,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6d87cad07bfa651be81316d7393f1fdf">giraffe::gdl::Message::contents_</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7">giraffe::gdl::Message::getJson()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859">giraffe::gdl::TransportLayer::idleState()</a>, <a class="el" href="gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main()</a>, <a class="el" href="classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54">modules::TelemetryModule::processTelemetryMessageQueue()</a>, <a class="el" href="test__gdl__message_8cpp.html#aa3bc09233b28d567b8c2922818bc5f1c">TEST()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a0c426dad58678f33b713e4c8d00bf1eb">giraffe::gdl::NetworkLayer::txPacket()</a>.</p>
 <div class="dynheader">
@@ -963,13 +1023,49 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6d87cad07bfa651be81316d7393f1fdf">giraffe::gdl::Message::contents_</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875">giraffe::gdl::NetworkLayer::rxPacket()</a>, and <a class="el" href="classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135">modules::TelemetryModule::sendAprsPositionPacket()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Message_ab1c03e26af37f4e27ca6cf24d6674f55_icgraph.svg" width="1686" height="150"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ac5e76febe8ddc5c68359f0b5224b2b8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5e76febe8ddc5c68359f0b5224b2b8e">&#9670;&nbsp;</a></span>setTelemetry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void giraffe::gdl::Message::setTelemetry </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry">AprsTelemetry</a>&#160;</td>
+          <td class="paramname"><em>telemetry</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875">giraffe::gdl::NetworkLayer::rxPacket()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Message_ac5e76febe8ddc5c68359f0b5224b2b8e_icgraph.svg" width="1678" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -998,7 +1094,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6d87cad07bfa651be81316d7393f1fdf">giraffe::gdl::Message::contents_</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7">giraffe::gdl::Message::getJson()</a>, <a class="el" href="test__gdl__message_8cpp.html#a80f16a4debb19d366834ab273298cbe8">TEST()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa">giraffe::gdl::NetworkLayer::txAprsPositionPacket()</a>.</p>
 <div class="dynheader">
@@ -1033,13 +1129,48 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6d87cad07bfa651be81316d7393f1fdf">giraffe::gdl::Message::contents_</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7">giraffe::gdl::Message::getJson()</a>, <a class="el" href="test__gdl__message_8cpp.html#a9e28439f54b8215da364cd9ba3d16803">TEST()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#af14790c432f5d6c172e9aad02cd824d2">giraffe::gdl::NetworkLayer::txSstvImage()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Message_ab19b90512b2e9c4b3093d38a5539d920_icgraph.svg" width="2442" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a8aa2be7d5566b78a15e84f1fb0f4d8bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aa2be7d5566b78a15e84f1fb0f4d8bf">&#9670;&nbsp;</a></span>getTelemetry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry">AprsTelemetry</a> giraffe::gdl::Message::getTelemetry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a10a00c727839c6e1cfcda70bf1f5f283">giraffe::gdl::NetworkLayer::txAprsTelemetryPacket()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgiraffe_1_1gdl_1_1Message_a8aa2be7d5566b78a15e84f1fb0f4d8bf_icgraph.svg" width="2380" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -1068,7 +1199,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#acc783df8bb74aebffe77ccd8b5bce981">giraffe::gdl::Message::Location::altitude</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f">giraffe::gdl::Message::BROADCAST</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf">giraffe::gdl::Message::EXCHANGE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6">giraffe::gdl::Message::getData()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0">giraffe::gdl::Message::getIdentifierString()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab19b90512b2e9c4b3093d38a5539d920">giraffe::gdl::Message::getImage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a058458ec43b44d02141e79f986a1a79d">giraffe::gdl::Message::getLocation()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04">giraffe::gdl::Message::getType()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ae6435719d6180f51728c292796095521">giraffe::gdl::Message::Location::heading</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a23a12f67f614b5518c7f1c2465bf95e3">giraffe::gdl::Message::IMAGE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad39dfdc6ffa7963fbdec3ad07d842633">giraffe::gdl::Message::Location::latitude</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551">giraffe::gdl::Message::LOCATION</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa403f37d6f3f5b1ce4efdeec59b12f28">giraffe::gdl::Message::Location::longitude</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a31c65bf7fab96a9e19817870c61019fc">giraffe::gdl::Message::Image::path</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aaea40e8b6af5ad50dde6429b6759594b">giraffe::gdl::Message::Location::speed</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a5a7bfc1371f24abaaccd6baedb7c3952">giraffe::gdl::Message::Location::time_code</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#acc783df8bb74aebffe77ccd8b5bce981">giraffe::gdl::Message::Location::altitude</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f">giraffe::gdl::Message::BROADCAST</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf">giraffe::gdl::Message::EXCHANGE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6">giraffe::gdl::Message::getData()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0">giraffe::gdl::Message::getIdentifierString()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab19b90512b2e9c4b3093d38a5539d920">giraffe::gdl::Message::getImage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a058458ec43b44d02141e79f986a1a79d">giraffe::gdl::Message::getLocation()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04">giraffe::gdl::Message::getType()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ae6435719d6180f51728c292796095521">giraffe::gdl::Message::Location::heading</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a23a12f67f614b5518c7f1c2465bf95e3">giraffe::gdl::Message::IMAGE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad39dfdc6ffa7963fbdec3ad07d842633">giraffe::gdl::Message::Location::latitude</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551">giraffe::gdl::Message::LOCATION</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa403f37d6f3f5b1ce4efdeec59b12f28">giraffe::gdl::Message::Location::longitude</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a31c65bf7fab96a9e19817870c61019fc">giraffe::gdl::Message::Image::path</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aaea40e8b6af5ad50dde6429b6759594b">giraffe::gdl::Message::Location::speed</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4abb3d2d909c73fe49800949a344775f8b">giraffe::gdl::Message::TELEMETRY</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a5a7bfc1371f24abaaccd6baedb7c3952">giraffe::gdl::Message::Location::time_code</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#ab6878a1f3f5cc89ec02b45f749526db7">giraffe::gdl::GdlServer::handleRequestReceivedMessages()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#aff9e02d8e689385ccf8ad741e6951076">giraffe::gdl::GdlServer::handleRequestSentMessages()</a>.</p>
 <div class="dynheader">
@@ -1109,7 +1240,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f">giraffe::gdl::Message::BROADCAST</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6d87cad07bfa651be81316d7393f1fdf">giraffe::gdl::Message::contents_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf">giraffe::gdl::Message::EXCHANGE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04">giraffe::gdl::Message::getType()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a23a12f67f614b5518c7f1c2465bf95e3">giraffe::gdl::Message::IMAGE</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551">giraffe::gdl::Message::LOCATION</a>.</p>
+<p class="reference">References <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f">giraffe::gdl::Message::BROADCAST</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aa010c71b7118f02101d6d49dea8f70d4">giraffe::gdl::Message::contents_</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf">giraffe::gdl::Message::EXCHANGE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04">giraffe::gdl::Message::getType()</a>, <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a23a12f67f614b5518c7f1c2465bf95e3">giraffe::gdl::Message::IMAGE</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551">giraffe::gdl::Message::LOCATION</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4abb3d2d909c73fe49800949a344775f8b">giraffe::gdl::Message::TELEMETRY</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="test__gdl__message_8cpp.html#aa3bc09233b28d567b8c2922818bc5f1c">TEST()</a>.</p>
 <div class="dynheader">
@@ -1196,7 +1327,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a7e379f44344ef7d3f57f30cc8b85d71f">giraffe::gdl::Message::getIdentifier()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0">giraffe::gdl::Message::getIdentifierString()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb">giraffe::gdl::Message::setBroadcastMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c">giraffe::gdl::Message::setExchangeMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab8132240bc763dd84dd9556e87c42bbc">giraffe::gdl::Message::setIdentifier()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a785216d96e3d838ee9f6772eb34395d1">giraffe::gdl::Message::setIdentifierFromHex()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a4cabd8beca53ab3e2877b67487606ea2">giraffe::gdl::Message::setImageMessage()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad38b31e7aaf83328773626fe1a6e81ee">giraffe::gdl::Message::setLocationMessage()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a7e379f44344ef7d3f57f30cc8b85d71f">giraffe::gdl::Message::getIdentifier()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0">giraffe::gdl::Message::getIdentifierString()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb">giraffe::gdl::Message::setBroadcastMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c">giraffe::gdl::Message::setExchangeMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab8132240bc763dd84dd9556e87c42bbc">giraffe::gdl::Message::setIdentifier()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a785216d96e3d838ee9f6772eb34395d1">giraffe::gdl::Message::setIdentifierFromHex()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a4cabd8beca53ab3e2877b67487606ea2">giraffe::gdl::Message::setImageMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad38b31e7aaf83328773626fe1a6e81ee">giraffe::gdl::Message::setLocationMessage()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a750cdad267cca1d1459c4abb8cd6997c">giraffe::gdl::Message::setTelemetryMessage()</a>.</p>
 
 </div>
 </div>
@@ -1220,12 +1351,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04">giraffe::gdl::Message::getType()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb">giraffe::gdl::Message::setBroadcastMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c">giraffe::gdl::Message::setExchangeMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a4cabd8beca53ab3e2877b67487606ea2">giraffe::gdl::Message::setImageMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad38b31e7aaf83328773626fe1a6e81ee">giraffe::gdl::Message::setLocationMessage()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aab091c37c33d86511d344dde2c6a0715">giraffe::gdl::Message::setType()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04">giraffe::gdl::Message::getType()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb">giraffe::gdl::Message::setBroadcastMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c">giraffe::gdl::Message::setExchangeMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a4cabd8beca53ab3e2877b67487606ea2">giraffe::gdl::Message::setImageMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad38b31e7aaf83328773626fe1a6e81ee">giraffe::gdl::Message::setLocationMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a750cdad267cca1d1459c4abb8cd6997c">giraffe::gdl::Message::setTelemetryMessage()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#aab091c37c33d86511d344dde2c6a0715">giraffe::gdl::Message::setType()</a>.</p>
 
 </div>
 </div>
-<a id="a6d87cad07bfa651be81316d7393f1fdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d87cad07bfa651be81316d7393f1fdf">&#9670;&nbsp;</a></span>contents_</h2>
+<a id="aa010c71b7118f02101d6d49dea8f70d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa010c71b7118f02101d6d49dea8f70d4">&#9670;&nbsp;</a></span>contents_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1234,7 +1365,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::variant&lt;std::string, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location">Location</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Image">Image</a>&gt; giraffe::gdl::Message::contents_</td>
+          <td class="memname">std::variant&lt;std::string, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location">Location</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Image">Image</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry">AprsTelemetry</a>&gt; giraffe::gdl::Message::contents_</td>
         </tr>
       </table>
   </td>
@@ -1244,7 +1375,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6">giraffe::gdl::Message::getData()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab19b90512b2e9c4b3093d38a5539d920">giraffe::gdl::Message::getImage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a058458ec43b44d02141e79f986a1a79d">giraffe::gdl::Message::getLocation()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb">giraffe::gdl::Message::setBroadcastMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6ac84c04db330a1ae6cdb3631b27768f">giraffe::gdl::Message::setData()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c">giraffe::gdl::Message::setExchangeMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a4cabd8beca53ab3e2877b67487606ea2">giraffe::gdl::Message::setImageMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab1c03e26af37f4e27ca6cf24d6674f55">giraffe::gdl::Message::setLocation()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad38b31e7aaf83328773626fe1a6e81ee">giraffe::gdl::Message::setLocationMessage()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a03da00ff0a1f1cb09e1b65daa0b9747a">giraffe::gdl::Message::verifyType()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6">giraffe::gdl::Message::getData()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab19b90512b2e9c4b3093d38a5539d920">giraffe::gdl::Message::getImage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a058458ec43b44d02141e79f986a1a79d">giraffe::gdl::Message::getLocation()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a8aa2be7d5566b78a15e84f1fb0f4d8bf">giraffe::gdl::Message::getTelemetry()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb">giraffe::gdl::Message::setBroadcastMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6ac84c04db330a1ae6cdb3631b27768f">giraffe::gdl::Message::setData()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c">giraffe::gdl::Message::setExchangeMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a4cabd8beca53ab3e2877b67487606ea2">giraffe::gdl::Message::setImageMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab1c03e26af37f4e27ca6cf24d6674f55">giraffe::gdl::Message::setLocation()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ad38b31e7aaf83328773626fe1a6e81ee">giraffe::gdl::Message::setLocationMessage()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ac5e76febe8ddc5c68359f0b5224b2b8e">giraffe::gdl::Message::setTelemetry()</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a750cdad267cca1d1459c4abb8cd6997c">giraffe::gdl::Message::setTelemetryMessage()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a03da00ff0a1f1cb09e1b65daa0b9747a">giraffe::gdl::Message::verifyType()</a>.</p>
 
 </div>
 </div>

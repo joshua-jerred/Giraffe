@@ -95,9 +95,12 @@ var annotated_dup =
     ] ],
     [ "giraffe", "namespacegiraffe.html", [
       [ "gdl", "namespacegiraffe_1_1gdl.html", [
+        [ "AprsTelemetryReceiver", "classgiraffe_1_1gdl_1_1AprsTelemetryReceiver.html", "classgiraffe_1_1gdl_1_1AprsTelemetryReceiver" ],
+        [ "AprsTelemetrySender", "classgiraffe_1_1gdl_1_1AprsTelemetrySender.html", "classgiraffe_1_1gdl_1_1AprsTelemetrySender" ],
         [ "Config", "classgiraffe_1_1gdl_1_1Config.html", "classgiraffe_1_1gdl_1_1Config" ],
         [ "DataLink", "classgiraffe_1_1gdl_1_1DataLink.html", "classgiraffe_1_1gdl_1_1DataLink" ],
         [ "GdlServer", "classgiraffe_1_1gdl_1_1GdlServer.html", "classgiraffe_1_1gdl_1_1GdlServer" ],
+        [ "IDataLink", "classgiraffe_1_1gdl_1_1IDataLink.html", "classgiraffe_1_1gdl_1_1IDataLink" ],
         [ "Message", "classgiraffe_1_1gdl_1_1Message.html", "classgiraffe_1_1gdl_1_1Message" ],
         [ "MessageQueue", "classgiraffe_1_1gdl_1_1MessageQueue.html", "classgiraffe_1_1gdl_1_1MessageQueue" ],
         [ "NetworkLayer", "classgiraffe_1_1gdl_1_1NetworkLayer.html", "classgiraffe_1_1gdl_1_1NetworkLayer" ],
@@ -112,6 +115,7 @@ var annotated_dup =
         [ "Sa868", "classgiraffe_1_1radio_1_1Sa868.html", "classgiraffe_1_1radio_1_1Sa868" ],
         [ "SoftwareRadio", "classgiraffe_1_1radio_1_1SoftwareRadio.html", "classgiraffe_1_1radio_1_1SoftwareRadio" ]
       ] ],
+      [ "AprsManager", "classgiraffe_1_1AprsManager.html", "classgiraffe_1_1AprsManager" ],
       [ "CommonLogger", "classgiraffe_1_1CommonLogger.html", "classgiraffe_1_1CommonLogger" ],
       [ "FCInfo", "structgiraffe_1_1FCInfo.html", "structgiraffe_1_1FCInfo" ],
       [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ],
@@ -150,6 +154,7 @@ var annotated_dup =
       [ "NavData", "namespaceubx.html#structubx_1_1NavData", "namespaceubx_structubx_1_1NavData_dup" ],
       [ "UBXMessage", "structubx_1_1UBXMessage.html", "structubx_1_1UBXMessage" ]
     ] ],
+    [ "AprsTelemetryDataManagerTest", "classAprsTelemetryDataManagerTest.html", "classAprsTelemetryDataManagerTest" ],
     [ "Bmi088", "classBmi088.html", "classBmi088" ],
     [ "ConfigurationTest", "classConfigurationTest.html", "classConfigurationTest" ],
     [ "CurlRequest", "classCurlRequest.html", "classCurlRequest" ],
@@ -167,6 +172,7 @@ var annotated_dup =
     [ "I2cInterface", "classI2cInterface.html", "classI2cInterface" ],
     [ "LogContainer", "classLogContainer.html", "classLogContainer" ],
     [ "MissionClock", "classMissionClock.html", "classMissionClock" ],
+    [ "MockIDataLink", "classMockIDataLink.html", "classMockIDataLink" ],
     [ "OneWireInterface", "classOneWireInterface.html", "classOneWireInterface" ],
     [ "PredictionParameters", "classPredictionParameters.html", "classPredictionParameters" ],
     [ "ProtocolTest", "classProtocolTest.html", "classProtocolTest" ],

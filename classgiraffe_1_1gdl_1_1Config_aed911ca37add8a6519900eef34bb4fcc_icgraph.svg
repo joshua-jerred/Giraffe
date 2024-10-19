@@ -12,9 +12,9 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="1684,-192.5 1684,-222.5 1790,-222.5 1790,-192.5 1684,-192.5"/>
-<text text-anchor="start" x="1692" y="-210.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::Config</text>
-<text text-anchor="middle" x="1737" y="-199.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getCallSign</text>
+<polygon fill="#bfbfbf" stroke="black" points="1684,-170.5 1684,-200.5 1790,-200.5 1790,-170.5 1684,-170.5"/>
+<text text-anchor="start" x="1692" y="-188.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::Config</text>
+<text text-anchor="middle" x="1737" y="-177.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getCallSign</text>
 </a>
 </g>
 </g>
@@ -31,8 +31,8 @@
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M1689.82,-226.14C1625.6,-250.34 1505.18,-289.5 1398.5,-289.5 1398.5,-289.5 1398.5,-289.5 1215.5,-289.5 1105.41,-289.5 977.05,-289.5 903.23,-289.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1691.16,-229.38 1699.25,-222.54 1688.66,-222.84 1691.16,-229.38"/>
+<path fill="none" stroke="midnightblue" d="M1702.39,-205.64C1686.36,-214.56 1666.65,-224.59 1648,-231.5 1541.25,-271.08 1512.35,-289.5 1398.5,-289.5 1398.5,-289.5 1398.5,-289.5 1215.5,-289.5 1105.41,-289.5 977.05,-289.5 903.23,-289.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1704.4,-208.52 1711.36,-200.54 1700.94,-202.43 1704.4,-208.52"/>
 </g>
 <!-- Node11 -->
 <g id="node11" class="node">
@@ -47,8 +47,8 @@
 <!-- Node1&#45;&gt;Node11 -->
 <g id="edge12" class="edge">
 <title>Node1&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M1673.8,-211.06C1665.14,-211.55 1656.35,-212.04 1648,-212.5 1451.5,-223.37 1219.58,-235.71 1105.35,-241.76"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1674.1,-214.55 1683.89,-210.49 1673.7,-207.56 1674.1,-214.55"/>
+<path fill="none" stroke="midnightblue" d="M1675.39,-202.99C1666.27,-205.14 1656.93,-207.08 1648,-208.5 1453.32,-239.51 1220.11,-245.03 1105.37,-245.7"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1676.3,-206.37 1685.17,-200.59 1674.63,-199.57 1676.3,-206.37"/>
 </g>
 <!-- Node18 -->
 <g id="node18" class="node">
@@ -63,40 +63,56 @@
 <!-- Node1&#45;&gt;Node18 -->
 <g id="edge21" class="edge">
 <title>Node1&#45;&gt;Node18</title>
-<path fill="none" stroke="midnightblue" d="M1673.71,-190.21C1659.82,-186.35 1645.21,-182.3 1631.68,-178.54"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1673.09,-193.67 1683.66,-192.97 1674.96,-186.92 1673.09,-193.67"/>
+<path fill="none" stroke="midnightblue" d="M1673.63,-176.84C1665.27,-175.68 1656.65,-174.49 1648.17,-173.31"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1673.28,-180.33 1683.66,-178.24 1674.24,-173.39 1673.28,-180.33"/>
 </g>
 <!-- Node19 -->
 <g id="node19" class="node">
 <title>Node19</title>
 <g id="a_node19"><a xlink:href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a0c426dad58678f33b713e4c8d00bf1eb" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="1326,-118.5 1326,-148.5 1469,-148.5 1469,-118.5 1326,-118.5"/>
-<text text-anchor="start" x="1334" y="-136.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::NetworkLayer</text>
-<text text-anchor="middle" x="1397.5" y="-125.5" font-family="Helvetica,sans-Serif" font-size="10.00">::txPacket</text>
+<polygon fill="none" stroke="black" points="1326,-99.5 1326,-129.5 1469,-129.5 1469,-99.5 1326,-99.5"/>
+<text text-anchor="start" x="1334" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::NetworkLayer</text>
+<text text-anchor="middle" x="1397.5" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">::txPacket</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node19 -->
-<g id="edge34" class="edge">
+<g id="edge36" class="edge">
 <title>Node1&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M1673.53,-208.49C1626.38,-207.71 1560.54,-203.34 1505,-187.5 1474.7,-178.86 1442.83,-161.44 1421.95,-148.72"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1673.56,-211.99 1683.6,-208.6 1673.64,-204.99 1673.56,-211.99"/>
+<path fill="none" stroke="midnightblue" d="M1673.66,-196.14C1626.3,-201.82 1560.14,-204.58 1505,-187.5 1468.39,-176.16 1433.17,-147.4 1413.82,-129.55"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1674.29,-199.58 1683.77,-194.84 1673.41,-192.64 1674.29,-199.58"/>
 </g>
 <!-- Node26 -->
 <g id="node26" class="node">
 <title>Node26</title>
-<g id="a_node26"><a xlink:href="classgiraffe_1_1gdl_1_1NetworkLayer.html#af14790c432f5d6c172e9aad02cd824d2" target="_top" xlink:title="Broadcast an SSTV image.">
+<g id="a_node26"><a xlink:href="classgiraffe_1_1gdl_1_1NetworkLayer.html#a10a00c727839c6e1cfcda70bf1f5f283" target="_top" xlink:title="Transmit an APRS telemetry packet of the specified type.">
 <polygon fill="none" stroke="black" points="1505,-99.5 1505,-129.5 1648,-129.5 1648,-99.5 1505,-99.5"/>
 <text text-anchor="start" x="1513" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::NetworkLayer</text>
-<text text-anchor="middle" x="1576.5" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">::txSstvImage</text>
+<text text-anchor="middle" x="1576.5" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">::txAprsTelemetryPacket</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node26 -->
-<g id="edge35" class="edge">
+<g id="edge34" class="edge">
 <title>Node1&#45;&gt;Node26</title>
-<path fill="none" stroke="midnightblue" d="M1712.61,-185.56C1695.71,-170.65 1671.76,-151.38 1648,-138.5 1641.86,-135.17 1635.18,-132.18 1628.45,-129.53"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1710.53,-188.4 1720.3,-192.48 1715.21,-183.19 1710.53,-188.4"/>
+<path fill="none" stroke="midnightblue" d="M1701.4,-165.34C1685.44,-156.48 1666.06,-146.34 1648,-138.5 1640.76,-135.36 1632.97,-132.36 1625.3,-129.6"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1699.93,-168.53 1710.36,-170.38 1703.36,-162.43 1699.93,-168.53"/>
+</g>
+<!-- Node27 -->
+<g id="node27" class="node">
+<title>Node27</title>
+<g id="a_node27"><a xlink:href="classgiraffe_1_1gdl_1_1NetworkLayer.html#af14790c432f5d6c172e9aad02cd824d2" target="_top" xlink:title="Broadcast an SSTV image.">
+<polygon fill="none" stroke="black" points="1505,-50.5 1505,-80.5 1648,-80.5 1648,-50.5 1505,-50.5"/>
+<text text-anchor="start" x="1513" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::NetworkLayer</text>
+<text text-anchor="middle" x="1576.5" y="-57.5" font-family="Helvetica,sans-Serif" font-size="10.00">::txSstvImage</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node27 -->
+<g id="edge37" class="edge">
+<title>Node1&#45;&gt;Node27</title>
+<path fill="none" stroke="midnightblue" d="M1719.86,-162.01C1703.9,-140.39 1677.62,-108.84 1648,-89.5 1642.8,-86.11 1637.08,-83.14 1631.2,-80.56"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1717.17,-164.26 1725.85,-170.32 1722.85,-160.16 1717.17,-164.26"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
@@ -346,8 +362,8 @@
 <!-- Node18&#45;&gt;Node19 -->
 <g id="edge22" class="edge">
 <title>Node18&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M1494.79,-149.82C1486.22,-148.37 1477.55,-146.9 1469.11,-145.47"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1494.34,-153.29 1504.78,-151.51 1495.51,-146.39 1494.34,-153.29"/>
+<path fill="none" stroke="midnightblue" d="M1511.13,-145.68C1492.01,-140.39 1471.28,-134.65 1452.87,-129.55"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1510.38,-149.1 1520.95,-148.4 1512.25,-142.36 1510.38,-149.1"/>
 </g>
 <!-- Node20 -->
 <g id="node20" class="node">
@@ -362,8 +378,8 @@
 <!-- Node19&#45;&gt;Node20 -->
 <g id="edge23" class="edge">
 <title>Node19&#45;&gt;Node20</title>
-<path fill="none" stroke="midnightblue" d="M1365.34,-113.14C1344.82,-100.83 1316.86,-86.09 1290,-78.5 1229.97,-61.53 1159.03,-57.45 1107.15,-57.23"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1363.58,-116.17 1373.94,-118.42 1367.25,-110.2 1363.58,-116.17"/>
+<path fill="none" stroke="midnightblue" d="M1350.07,-95.97C1331.65,-89.38 1310.11,-82.58 1290,-78.5 1229.08,-66.14 1158.53,-61.62 1107.02,-60.05"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1349.08,-99.34 1359.67,-99.49 1351.49,-92.76 1349.08,-99.34"/>
 </g>
 <!-- Node21 -->
 <g id="node21" class="node">
@@ -378,8 +394,8 @@
 <!-- Node19&#45;&gt;Node21 -->
 <g id="edge25" class="edge">
 <title>Node19&#45;&gt;Node21</title>
-<path fill="none" stroke="midnightblue" d="M1374.09,-111.56C1353.51,-92.3 1321.53,-64.46 1290,-45.5 1280.66,-39.88 1270.08,-34.85 1259.94,-30.58"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1371.72,-114.15 1381.39,-118.49 1376.54,-109.07 1371.72,-114.15"/>
+<path fill="none" stroke="midnightblue" d="M1367.14,-93.4C1346.23,-78.89 1317.14,-59.75 1290,-45.5 1279.75,-40.12 1268.31,-35 1257.61,-30.57"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1365.38,-96.43 1375.57,-99.3 1369.39,-90.7 1365.38,-96.43"/>
 </g>
 <!-- Node22 -->
 <g id="node22" class="node">
@@ -394,8 +410,8 @@
 <!-- Node19&#45;&gt;Node22 -->
 <g id="edge27" class="edge">
 <title>Node19&#45;&gt;Node22</title>
-<path fill="none" stroke="midnightblue" d="M1356.86,-152.88C1337.21,-161.6 1312.85,-171.13 1290,-176.5 1229.47,-190.73 1158.89,-195.39 1107.26,-196.68"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1358.44,-156 1366.1,-148.68 1355.54,-149.63 1358.44,-156"/>
+<path fill="none" stroke="midnightblue" d="M1368.71,-135.39C1348.13,-149.65 1318.77,-167.52 1290,-176.5 1230.33,-195.13 1159.2,-199.34 1107.16,-199.34"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1370.83,-138.17 1376.97,-129.54 1366.79,-132.46 1370.83,-138.17"/>
 </g>
 <!-- Node23 -->
 <g id="node23" class="node">
@@ -410,8 +426,8 @@
 <!-- Node19&#45;&gt;Node23 -->
 <g id="edge29" class="edge">
 <title>Node19&#45;&gt;Node23</title>
-<path fill="none" stroke="midnightblue" d="M1315.77,-142.07C1307.21,-142.98 1298.54,-143.9 1290.08,-144.8"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1316.18,-145.55 1325.75,-141.01 1315.44,-138.58 1316.18,-145.55"/>
+<path fill="none" stroke="midnightblue" d="M1315.86,-131.62C1306.67,-133.57 1297.36,-135.55 1288.32,-137.47"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1316.7,-135.02 1325.75,-129.52 1315.25,-128.17 1316.7,-135.02"/>
 </g>
 <!-- Node25 -->
 <g id="node25" class="node">
@@ -426,8 +442,8 @@
 <!-- Node19&#45;&gt;Node25 -->
 <g id="edge32" class="edge">
 <title>Node19&#45;&gt;Node25</title>
-<path fill="none" stroke="midnightblue" d="M1315.77,-119.97C1307.21,-118.54 1298.54,-117.08 1290.08,-115.66"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1315.31,-123.44 1325.75,-121.64 1316.47,-116.54 1315.31,-123.44"/>
+<path fill="none" stroke="midnightblue" d="M1315.77,-109.54C1307.21,-109.01 1298.54,-108.48 1290.08,-107.96"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1315.56,-113.03 1325.75,-110.15 1315.99,-106.05 1315.56,-113.03"/>
 </g>
 <!-- Node20&#45;&gt;Node13 -->
 <g id="edge24" class="edge">
@@ -476,10 +492,16 @@
 <polygon fill="midnightblue" stroke="midnightblue" points="1133,-110.3 1142.81,-106.28 1132.64,-103.31 1133,-110.3"/>
 </g>
 <!-- Node26&#45;&gt;Node19 -->
-<g id="edge36" class="edge">
+<g id="edge35" class="edge">
 <title>Node26&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M1494.79,-123.16C1486.22,-124.08 1477.55,-125.01 1469.11,-125.92"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1495.21,-126.64 1504.78,-122.09 1494.47,-119.68 1495.21,-126.64"/>
+<path fill="none" stroke="midnightblue" d="M1494.51,-114.5C1486.03,-114.5 1477.46,-114.5 1469.11,-114.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1494.78,-118 1504.78,-114.5 1494.78,-111 1494.78,-118"/>
+</g>
+<!-- Node27&#45;&gt;Node19 -->
+<g id="edge38" class="edge">
+<title>Node27&#45;&gt;Node19</title>
+<path fill="none" stroke="midnightblue" d="M1511.13,-83.32C1492.01,-88.61 1471.28,-94.35 1452.87,-99.45"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1512.25,-86.64 1520.95,-80.6 1510.38,-79.9 1512.25,-86.64"/>
 </g>
 </g>
 </svg>

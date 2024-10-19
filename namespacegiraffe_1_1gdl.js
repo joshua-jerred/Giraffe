@@ -1,8 +1,11 @@
 var namespacegiraffe_1_1gdl =
 [
+    [ "AprsTelemetryReceiver", "classgiraffe_1_1gdl_1_1AprsTelemetryReceiver.html", "classgiraffe_1_1gdl_1_1AprsTelemetryReceiver" ],
+    [ "AprsTelemetrySender", "classgiraffe_1_1gdl_1_1AprsTelemetrySender.html", "classgiraffe_1_1gdl_1_1AprsTelemetrySender" ],
     [ "Config", "classgiraffe_1_1gdl_1_1Config.html", "classgiraffe_1_1gdl_1_1Config" ],
     [ "DataLink", "classgiraffe_1_1gdl_1_1DataLink.html", "classgiraffe_1_1gdl_1_1DataLink" ],
     [ "GdlServer", "classgiraffe_1_1gdl_1_1GdlServer.html", "classgiraffe_1_1gdl_1_1GdlServer" ],
+    [ "IDataLink", "classgiraffe_1_1gdl_1_1IDataLink.html", "classgiraffe_1_1gdl_1_1IDataLink" ],
     [ "Message", "classgiraffe_1_1gdl_1_1Message.html", "classgiraffe_1_1gdl_1_1Message" ],
     [ "MessageQueue", "classgiraffe_1_1gdl_1_1MessageQueue.html", "classgiraffe_1_1gdl_1_1MessageQueue" ],
     [ "NetworkLayer", "classgiraffe_1_1gdl_1_1NetworkLayer.html", "classgiraffe_1_1gdl_1_1NetworkLayer" ],

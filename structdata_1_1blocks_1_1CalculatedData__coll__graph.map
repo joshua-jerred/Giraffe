@@ -1,5 +1,6 @@
 <map id="data::blocks::CalculatedData" name="data::blocks::CalculatedData">
-<area shape="rect" id="node1" title="Data that is calculated from other data." alt="" coords="28,439,237,516"/>
-<area shape="rect" id="node2" title=" " alt="" coords="6,5,72,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="202,5,252,83"/>
+<area shape="rect" id="node1" title="Data that is calculated from other data." alt="" coords="118,439,327,663"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,72,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="189,5,256,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="385,5,436,83"/>
 </map>

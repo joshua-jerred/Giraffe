@@ -1,8 +1,9 @@
 <map id="giraffe::gdl::Message::setBroadcastMessage" name="giraffe::gdl::Message::setBroadcastMessage">
-<area shape="rect" id="node1" title=" " alt="" coords="799,71,972,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="799,100,972,141"/>
 <area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a1fc0f45450322b44cb275b1df159f5fb" title="Broadcast a text message over the Data Link." alt="" coords="577,5,735,47"/>
 <area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a53b271c9f0602706839489ac0994b763" title=" " alt="" coords="561,71,751,112"/>
-<area shape="rect" id="node7" href="$test__gdl__message_8cpp.html#aa3bc09233b28d567b8c2922818bc5f1c" title=" " alt="" coords="629,137,683,163"/>
+<area shape="rect" id="node7" href="$gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="629,137,683,163"/>
+<area shape="rect" id="node8" href="$test__gdl__message_8cpp.html#aa3bc09233b28d567b8c2922818bc5f1c" title=" " alt="" coords="629,187,683,214"/>
 <area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7a640a9a945bb13a494c175f857fc719" title=" " alt="" coords="349,71,513,112"/>
 <area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,78,301,105"/>
 <area shape="rect" id="node6" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,78,60,105"/>

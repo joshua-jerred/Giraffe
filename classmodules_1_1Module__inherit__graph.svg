@@ -224,37 +224,40 @@
 <g id="node7" class="node">
 <title>Node7</title>
 <g id="a_node7"><a xlink:href="classmodules_1_1TelemetryModule.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="897,-55.5 897,-310.5 1089,-310.5 1089,-55.5 897,-55.5"/>
-<text text-anchor="middle" x="993" y="-298.5" font-family="Helvetica,sans-Serif" font-size="10.00">modules::TelemetryModule</text>
-<polyline fill="none" stroke="black" points="897,-291.5 1089,-291.5 "/>
-<text text-anchor="start" x="905" y="-279.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; aprs_position_packet</text>
-<text text-anchor="start" x="905" y="-268.5" font-family="Helvetica,sans-Serif" font-size="10.00">_timer_</text>
-<text text-anchor="start" x="905" y="-257.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; gdl_</text>
-<text text-anchor="start" x="905" y="-246.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; gdl_config_</text>
-<text text-anchor="start" x="905" y="-235.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; last_received_message_</text>
-<text text-anchor="start" x="905" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; message_id_</text>
-<text text-anchor="start" x="905" y="-213.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; physical_layer_</text>
-<text text-anchor="start" x="905" y="-202.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; total_messages_received_</text>
-<text text-anchor="start" x="905" y="-191.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; total_messages_sent_</text>
-<polyline fill="none" stroke="black" points="897,-184.5 1089,-184.5 "/>
-<text text-anchor="start" x="905" y="-172.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TelemetryModule()</text>
-<text text-anchor="start" x="905" y="-161.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~TelemetryModule()</text>
-<text text-anchor="start" x="905" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; getNextMessageId()</text>
-<text text-anchor="start" x="905" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; loop()</text>
-<text text-anchor="start" x="905" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processCommand()</text>
-<text text-anchor="start" x="905" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processTelemetryMessageQueue()</text>
-<text text-anchor="start" x="905" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; reportDescent()</text>
-<text text-anchor="start" x="905" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendAprsPositionPacket()</text>
-<text text-anchor="start" x="905" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendSstvImage()</text>
-<text text-anchor="start" x="905" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; shutdown()</text>
-<text text-anchor="start" x="905" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; startup()</text>
+<polygon fill="none" stroke="black" points="897,-39 897,-327 1089,-327 1089,-39 897,-39"/>
+<text text-anchor="middle" x="993" y="-315" font-family="Helvetica,sans-Serif" font-size="10.00">modules::TelemetryModule</text>
+<polyline fill="none" stroke="black" points="897,-308 1089,-308 "/>
+<text text-anchor="start" x="905" y="-296" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; aprs_manager_data_update</text>
+<text text-anchor="start" x="905" y="-285" font-family="Helvetica,sans-Serif" font-size="10.00">_timer_</text>
+<text text-anchor="start" x="905" y="-274" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; aprs_position_packet</text>
+<text text-anchor="start" x="905" y="-263" font-family="Helvetica,sans-Serif" font-size="10.00">_timer_</text>
+<text text-anchor="start" x="905" y="-252" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; aprs_telemetry_manager_</text>
+<text text-anchor="start" x="905" y="-241" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; gdl_</text>
+<text text-anchor="start" x="905" y="-230" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; gdl_config_</text>
+<text text-anchor="start" x="905" y="-219" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; last_received_message_</text>
+<text text-anchor="start" x="905" y="-208" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; message_id_</text>
+<text text-anchor="start" x="905" y="-197" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; physical_layer_</text>
+<text text-anchor="start" x="905" y="-186" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; total_messages_received_</text>
+<text text-anchor="start" x="905" y="-175" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; total_messages_sent_</text>
+<polyline fill="none" stroke="black" points="897,-168 1089,-168 "/>
+<text text-anchor="start" x="905" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">+ TelemetryModule()</text>
+<text text-anchor="start" x="905" y="-145" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~TelemetryModule()</text>
+<text text-anchor="start" x="905" y="-134" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; getNextMessageId()</text>
+<text text-anchor="start" x="905" y="-123" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; loop()</text>
+<text text-anchor="start" x="905" y="-112" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processCommand()</text>
+<text text-anchor="start" x="905" y="-101" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processTelemetryMessageQueue()</text>
+<text text-anchor="start" x="905" y="-90" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; reportDescent()</text>
+<text text-anchor="start" x="905" y="-79" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendAprsPositionPacket()</text>
+<text text-anchor="start" x="905" y="-68" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; sendSstvImage()</text>
+<text text-anchor="start" x="905" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; shutdown()</text>
+<text text-anchor="start" x="905" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; startup()</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node7 -->
 <g id="edge6" class="edge">
 <title>Node1&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M617.86,-546.86C692.42,-511.28 808.98,-447.65 888,-366 903.86,-349.62 918.23,-330.39 930.9,-310.67"/>
+<path fill="none" stroke="midnightblue" d="M617.86,-546.86C692.42,-511.28 808.98,-447.65 888,-366 899.42,-354.2 910.06,-340.93 919.86,-327.07"/>
 <polygon fill="none" stroke="midnightblue" points="616.07,-543.84 608.53,-551.27 619.07,-550.16 616.07,-543.84"/>
 </g>
 </g>

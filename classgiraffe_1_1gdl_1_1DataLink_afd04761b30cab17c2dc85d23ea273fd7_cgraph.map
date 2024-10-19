@@ -1,0 +1,6 @@
+<map id="giraffe::gdl::DataLink::sendTelemetryData" name="giraffe::gdl::DataLink::sendTelemetryData">
+<area shape="rect" id="node1" title="Send telemetry data over the Data Link. (Broadcast message)" alt="" coords="5,71,164,112"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="233,5,391,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="212,71,412,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Message.html#a750cdad267cca1d1459c4abb8cd6997c" title=" " alt="" coords="225,136,399,177"/>
+</map>

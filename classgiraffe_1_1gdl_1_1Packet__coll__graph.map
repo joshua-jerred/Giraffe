@@ -1,8 +1,8 @@
 <map id="giraffe::gdl::Packet" name="giraffe::gdl::Packet">
-<area shape="rect" id="node1" title="The packet class is used in the transport and network layers. It contains some extra information." alt="" coords="151,476,357,627"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html" title="A message that can be sent via GDL." alt="" coords="159,189,349,413"/>
-<area shape="rect" id="node3" title=" " alt="" coords="26,27,101,105"/>
-<area shape="rect" id="node4" title=" " alt="" coords="207,27,259,105"/>
-<area shape="rect" id="node5" title=" " alt="" coords="283,5,446,127"/>
-<area shape="rect" id="node6" title=" " alt="" coords="373,263,468,340"/>
+<area shape="rect" id="node1" title="The packet class is used in the transport and network layers. It contains some extra information." alt="" coords="149,491,354,641"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html" title="A message that can be sent via GDL." alt="" coords="156,204,347,428"/>
+<area shape="rect" id="node3" title=" " alt="" coords="45,35,120,112"/>
+<area shape="rect" id="node4" title=" " alt="" coords="204,35,256,112"/>
+<area shape="rect" id="node5" title=" " alt="" coords="280,5,514,141"/>
+<area shape="rect" id="node6" title=" " alt="" coords="371,277,466,355"/>
 </map>

@@ -110,15 +110,22 @@ var hierarchy =
     [ "gfs_sim::SimData", "namespacegfs__sim.html#structgfs__sim_1_1SimData", null ],
     [ "gfs_sim::SimElectrical", "classgfs__sim_1_1SimElectrical.html", null ],
     [ "gfs_sim::SimEnvironmental", "classgfs__sim_1_1SimEnvironmental.html", null ],
+    [ "giraffe::AprsManager", "classgiraffe_1_1AprsManager.html", null ],
     [ "giraffe::CommonLogger< LOG_SIZE >", "classgiraffe_1_1CommonLogger.html", null ],
     [ "giraffe::FCInfo", "structgiraffe_1_1FCInfo.html", null ],
     [ "giraffe::FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", null ],
+    [ "giraffe::gdl::AprsTelemetryReceiver", "classgiraffe_1_1gdl_1_1AprsTelemetryReceiver.html", null ],
+    [ "giraffe::gdl::AprsTelemetrySender", "classgiraffe_1_1gdl_1_1AprsTelemetrySender.html", null ],
     [ "giraffe::gdl::Config", "classgiraffe_1_1gdl_1_1Config.html", null ],
-    [ "giraffe::gdl::DataLink", "classgiraffe_1_1gdl_1_1DataLink.html", null ],
     [ "giraffe::gdl::GdlServer", "classgiraffe_1_1gdl_1_1GdlServer.html", null ],
+    [ "giraffe::gdl::IDataLink", "classgiraffe_1_1gdl_1_1IDataLink.html", [
+      [ "MockIDataLink", "classMockIDataLink.html", null ],
+      [ "giraffe::gdl::DataLink", "classgiraffe_1_1gdl_1_1DataLink.html", null ]
+    ] ],
     [ "giraffe::gdl::Message", "classgiraffe_1_1gdl_1_1Message.html", [
       [ "giraffe::gdl::Packet", "classgiraffe_1_1gdl_1_1Packet.html", null ]
     ] ],
+    [ "giraffe::gdl::Message::AprsTelemetry", "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry", null ],
     [ "giraffe::gdl::Message::Image", "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Image", null ],
     [ "giraffe::gdl::Message::Location", "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Location", null ],
     [ "giraffe::gdl::MessageQueue", "classgiraffe_1_1gdl_1_1MessageQueue.html", null ],
@@ -183,6 +190,7 @@ var hierarchy =
       [ "data::LogStream", "classdata_1_1LogStream.html", null ]
     ] ],
     [ "testing::Test", null, [
+      [ "AprsTelemetryDataManagerTest", "classAprsTelemetryDataManagerTest.html", null ],
       [ "ConfigurationTest", "classConfigurationTest.html", null ],
       [ "DataModuleTests", "classDataModuleTests.html", null ],
       [ "DetectionDataTest", "classDetectionDataTest.html", null ],

@@ -7,6 +7,7 @@ var classgiraffe_1_1gdl_1_1NetworkLayer =
     [ "update", "classgiraffe_1_1gdl_1_1NetworkLayer.html#a0be39cc6f7db124c777fa99db1c61d11", null ],
     [ "txAprsPositionPacket", "classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa", null ],
     [ "txSstvImage", "classgiraffe_1_1gdl_1_1NetworkLayer.html#af14790c432f5d6c172e9aad02cd824d2", null ],
+    [ "txAprsTelemetryPacket", "classgiraffe_1_1gdl_1_1NetworkLayer.html#a10a00c727839c6e1cfcda70bf1f5f283", null ],
     [ "total_packets_sent_", "classgiraffe_1_1gdl_1_1NetworkLayer.html#a7ef068320ded379ff0635781abdb71f1", null ],
     [ "total_packets_received_", "classgiraffe_1_1gdl_1_1NetworkLayer.html#aa8a2ca1e7396c15cf8a992e366d40192", null ],
     [ "config_", "classgiraffe_1_1gdl_1_1NetworkLayer.html#a5b9fd54766a642d86984b2cc770da4ad", null ],

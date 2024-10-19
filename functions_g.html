@@ -164,6 +164,9 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 <li>getAltitudeM()
 : <a class="el" href="classgfs__sim_1_1GfsSimulator.html#aad6fc41b8980bd9f58e035c772200685">gfs_sim::GfsSimulator</a>
 </li>
+<li>getAprsTelemetryDataIntervalMs()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Config.html#a9815875b0219bea6fc2ef01cd639d92d">giraffe::gdl::Config</a>
+</li>
 <li>getBlueState()
 : <a class="el" href="classgiraffe_1_1StatusLedState.html#ac76f0f628fe073f82fb779a70ca13eee">giraffe::StatusLedState</a>
 </li>
@@ -184,6 +187,11 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 </li>
 <li>getCommand()
 : <a class="el" href="classcmd_1_1CommandQueue.html#ac3a6ab192a566cd20d5f69c8036ba1fe">cmd::CommandQueue</a>
+</li>
+<li>getConfig()
+: <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#aacb718ea7dc7d493bccb1cea6ed4f0fb">giraffe::gdl::DataLink</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1IDataLink.html#ac942753cf1fb7d908c13c357bbfe9e6e">giraffe::gdl::IDataLink</a>
+, <a class="el" href="classMockIDataLink.html#a0ef267476f9ea566ae4ce68d6d88015d">MockIDataLink</a>
 </li>
 <li>getConfigJson()
 : <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a591424c144ee17a258f248ce1b953b5b">giraffe::gdl::GdlServer</a>
@@ -303,6 +311,12 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 <li>getNextResponseId()
 : <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e">giraffe::gdl::GdlServer</a>
 </li>
+<li>getNextSequenceNumber()
+: <a class="el" href="classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#ab45d9e228345e21a5c73c9fd5326c565">giraffe::gdl::AprsTelemetrySender</a>
+</li>
+<li>getNumDataPacketsAddedToQueue()
+: <a class="el" href="classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#aa65f16a704f41487598bcd2d19b86bf4">giraffe::gdl::AprsTelemetrySender</a>
+</li>
 <li>getNumLinesOnPage()
 : <a class="el" href="classconsole__pages_1_1Pages.html#af6e74b8facaa579a4b6659f0888c1e53">console_pages::Pages</a>
 </li>
@@ -389,18 +403,36 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 , <a class="el" href="classgiraffe_1_1StatusLedChannel.html#a8e3ab1a79d426465feae0b9d20da766e">giraffe::StatusLedChannel</a>
 </li>
 <li>getStatistics()
-: <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a98f228a5e7abb95ad4e66ae4b53dd71a">giraffe::gdl::DataLink</a>
+: <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ada07f22659e987feea0fd94be6abfaa6">giraffe::gdl::DataLink</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1IDataLink.html#a21f2d91795d18872816e321364c17528">giraffe::gdl::IDataLink</a>
+, <a class="el" href="classMockIDataLink.html#a9624d34356eb643811bb949bf364754a">MockIDataLink</a>
 </li>
 <li>getStatus()
 : <a class="el" href="classextension_1_1Extension.html#aaa99bc040af229aa386f991b1d9ee47a">extension::Extension</a>
+, <a class="el" href="classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a29be215813c6244eec8306ecf5be3aa3">giraffe::gdl::AprsTelemetrySender</a>
 , <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#ab40f43468826f91454986d3ba317fd8f">giraffe::gdl::DataLink</a>
 , <a class="el" href="classmodules_1_1Module.html#afaa221e42cc396d5d38ec1a625b1d713">modules::Module</a>
+</li>
+<li>getStatusString()
+: <a class="el" href="classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#ae6f3d9e8ea484b23bae43b3b37785203">giraffe::gdl::AprsTelemetrySender</a>
 </li>
 <li>getString()
 : <a class="el" href="structdata__middleware_1_1InfluxLine.html#ab668667e88a106ae046e81d6fe779fa7">data_middleware::InfluxLine</a>
 </li>
 <li>getSystemTimeUtc()
 : <a class="el" href="classdata_1_1FlightData.html#a1d603b2d732baace37207270ea853209">data::FlightData</a>
+</li>
+<li>getTelemetry()
+: <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a8aa2be7d5566b78a15e84f1fb0f4d8bf">giraffe::gdl::Message</a>
+</li>
+<li>getTelemetryData()
+: <a class="el" href="classMockIDataLink.html#a1b438e99c8bf9ecbe9e743fdcfe4f0b6">MockIDataLink</a>
+</li>
+<li>getTelemetrySenderStatus()
+: <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a7b97ff2bc7e39126e06bf2ba363244c7">giraffe::gdl::DataLink</a>
+</li>
+<li>getTelemetrySenderStatusString()
+: <a class="el" href="classgiraffe_1_1gdl_1_1DataLink.html#a544353397d1939e3f15f13dc2d08a73d">giraffe::gdl::DataLink</a>
 </li>
 <li>getTemperatureC()
 : <a class="el" href="classgfs__sim_1_1GfsSimulator.html#afad6d51ade8571c577781fabbdf2b528">gfs_sim::GfsSimulator</a>
@@ -504,6 +536,9 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 <li>gps
 : <a class="el" href="structdata_1_1blocks_1_1StreamsStats.html#ab9841563c02f6ce257853c33559fad81">data::blocks::StreamsStats</a>
 , <a class="el" href="namespacedata.html#a9fd50d5a6cccb64b636b381c5fb0f3eb">data::Streams</a>
+</li>
+<li>gps_fix_valid
+: <a class="el" href="structdata_1_1blocks_1_1CalculatedData.html#ae3b3d2331c1e09143f0044ebc9557de2">data::blocks::CalculatedData</a>
 </li>
 <li>gps_utc_time
 : <a class="el" href="structdata_1_1GpsFrame.html#a11eaa6d1cca697bf9bd8cf4610bbcb96">data::GpsFrame</a>

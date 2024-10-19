@@ -1,0 +1,5 @@
+<map id="giraffe::gdl::IDataLink::updateTelemetryData" name="giraffe::gdl::IDataLink::updateTelemetryData">
+<area shape="rect" id="node1" title=" " alt="" coords="431,5,601,47"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1AprsManager.html#aa910a687bb93c714489245c032af2c38" title=" " alt="" coords="212,5,383,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1AprsManager.html#a1218355c0bb8c0097a69c85642da8953" title="This method handles everything that needs to be done. It must be called at least at the rate of the c..." alt="" coords="5,5,164,47"/>
+</map>

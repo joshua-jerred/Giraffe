@@ -5,6 +5,10 @@ var files_dup =
     [ "adc_interpolation.hpp", "adc__interpolation_8hpp.html", [
       [ "AdcInterpolation", "classdata__middleware_1_1AdcInterpolation.html", "classdata__middleware_1_1AdcInterpolation" ]
     ] ],
+    [ "aprs_manager.cpp", "aprs__manager_8cpp.html", null ],
+    [ "aprs_manager.hpp", "aprs__manager_8hpp.html", [
+      [ "AprsManager", "classgiraffe_1_1AprsManager.html", "classgiraffe_1_1AprsManager" ]
+    ] ],
     [ "blocks.hpp", "blocks_8hpp.html", "blocks_8hpp" ],
     [ "bme280.cpp", "bme280_8cpp.html", "bme280_8cpp" ],
     [ "bme280.hpp", "bme280_8hpp.html", [
@@ -157,10 +161,12 @@ var files_dup =
         [ "exchange_queue_size", "namespacegiraffe_1_1gdl.html#a542efc954a0847253eea05c5e38de5f6", null ],
         [ "broadcast_queue_size", "namespacegiraffe_1_1gdl.html#a62b559025cf0de978941f4357772c5dc", null ],
         [ "received_queue_size", "namespacegiraffe_1_1gdl.html#a633cb0ab63123cc8be6bd628d8ea2dfe", null ],
+        [ "aprs_telemetry_data_packets_added", "namespacegiraffe_1_1gdl.html#a4e54f9f83fc680ec52fa44cc2230c708", null ],
         [ "uplink_connected", "namespacegiraffe_1_1gdl.html#a05ed1a5b17223c27f76551a71033d473", null ],
         [ "downlink_connected", "namespacegiraffe_1_1gdl.html#a552a4840eca1ab1daeefe137c1ddc87b", null ],
         [ "last_message_received", "namespacegiraffe_1_1gdl.html#aef8d3c46dc0927c9cf3f023b4590f331", null ],
         [ "position_packets_received", "namespacegiraffe_1_1gdl.html#a36771ec9192eb31ca92b0e08ccd62426", null ],
+        [ "telemetry_packets_received", "namespacegiraffe_1_1gdl.html#adbc505e4cb2d02a5699484a1ac553d34", null ],
         [ "total_packets_sent", "namespacegiraffe_1_1gdl.html#ad2bc0aabe7e0fc59a0e47268bb21db33", null ],
         [ "total_packets_received", "namespacegiraffe_1_1gdl.html#a9df80d5b09ba8c2e6bf7886ae573c080", null ],
         [ "total_messages_dropped", "namespacegiraffe_1_1gdl.html#af986151f3d631d96d73314cd1ba93ede", null ],
@@ -183,6 +189,12 @@ var files_dup =
     [ "gdl_server_config.hpp", "gdl__server__config_8hpp.html", null ],
     [ "gdl_server_request_handlers.cpp", "gdl__server__request__handlers_8cpp.html", null ],
     [ "gdl_server_set_handlers.cpp", "gdl__server__set__handlers_8cpp.html", null ],
+    [ "gdl_telemetry_receiver.hpp", "gdl__telemetry__receiver_8hpp.html", [
+      [ "AprsTelemetryReceiver", "classgiraffe_1_1gdl_1_1AprsTelemetryReceiver.html", "classgiraffe_1_1gdl_1_1AprsTelemetryReceiver" ]
+    ] ],
+    [ "gdl_telemetry_sender.hpp", "gdl__telemetry__sender_8hpp.html", [
+      [ "AprsTelemetrySender", "classgiraffe_1_1gdl_1_1AprsTelemetrySender.html", "classgiraffe_1_1gdl_1_1AprsTelemetrySender" ]
+    ] ],
     [ "gdl_terminal.cpp", "gdl__terminal_8cpp.html", "gdl__terminal_8cpp" ],
     [ "gfs_simulator.cpp", "gfs__simulator_8cpp.html", null ],
     [ "gfs_simulator.hpp", "gfs__simulator_8hpp.html", [
@@ -211,6 +223,9 @@ var files_dup =
     [ "i2c_interface.cpp", "i2c__interface_8cpp.html", null ],
     [ "i2c_interface.hpp", "i2c__interface_8hpp.html", [
       [ "I2cInterface", "classI2cInterface.html", "classI2cInterface" ]
+    ] ],
+    [ "i_giraffe_data_link.hpp", "i__giraffe__data__link_8hpp.html", [
+      [ "IDataLink", "classgiraffe_1_1gdl_1_1IDataLink.html", "classgiraffe_1_1gdl_1_1IDataLink" ]
     ] ],
     [ "imu_extension_base.hpp", "imu__extension__base_8hpp.html", "imu__extension__base_8hpp" ],
     [ "influxdb.cpp", "influxdb_8cpp.html", "influxdb_8cpp" ],
@@ -358,6 +373,7 @@ var files_dup =
     [ "telemetry_module.hpp", "telemetry__module_8hpp.html", "telemetry__module_8hpp" ],
     [ "test_adc_config.cpp", "test__adc__config_8cpp.html", null ],
     [ "test_application_layer.cpp", "test__application__layer_8cpp.html", "test__application__layer_8cpp" ],
+    [ "test_aprs_manager.cpp", "test__aprs__manager_8cpp.html", "test__aprs__manager_8cpp" ],
     [ "test_command_processor.cpp", "test__command__processor_8cpp.html", "test__command__processor_8cpp" ],
     [ "test_configuration.cpp", "test__configuration_8cpp.html", "test__configuration_8cpp" ],
     [ "test_data_module.cpp", "test__data__module_8cpp.html", "test__data__module_8cpp" ],

@@ -25,32 +25,32 @@
 var NAVTREE =
 [
   [ "Giraffe", "index.html", [
-    [ "Giraffe <!-- omit from toc -->", "index.html#autotoc_md15", [
-      [ "Learn More About it", "index.html#autotoc_md18", null ],
-      [ "Photos", "index.html#autotoc_md19", null ],
-      [ "Table of Contents <!-- omit from toc -->", "index.html#autotoc_md20", null ]
+    [ "Giraffe <!-- omit from toc -->", "index.html#autotoc_md16", [
+      [ "Learn More About it", "index.html#autotoc_md19", null ],
+      [ "Photos", "index.html#autotoc_md20", null ],
+      [ "Table of Contents <!-- omit from toc -->", "index.html#autotoc_md21", null ]
     ] ],
-    [ "About", "index.html#autotoc_md21", [
-      [ "Current High Level Functionality", "index.html#autotoc_md22", null ],
-      [ "Planned High Level Functionality Prior to the First Flight", "index.html#autotoc_md23", null ],
-      [ "Development Details", "index.html#autotoc_md24", null ]
+    [ "About", "index.html#autotoc_md22", [
+      [ "Current High Level Functionality", "index.html#autotoc_md23", null ],
+      [ "Planned High Level Functionality Prior to the First Flight", "index.html#autotoc_md24", null ],
+      [ "Development Details", "index.html#autotoc_md25", null ]
     ] ],
-    [ "Hardware", "index.html#autotoc_md25", [
-      [ "Hat", "index.html#autotoc_md26", [
-        [ "A Unified Flight Command and Control System <!-- omit from toc -->", "index.html#autotoc_md16", null ],
-        [ "<a href=\"https://giraffe.joshuajer.red/md_docs_Doxygen_pages_versions.html\">Iteration 0.7</a>", "index.html#autotoc_md17", null ],
-        [ "Known Issues <!-- omit in toc -->", "index.html#autotoc_md27", null ]
+    [ "Hardware", "index.html#autotoc_md26", [
+      [ "Hat", "index.html#autotoc_md27", [
+        [ "A Unified Flight Command and Control System <!-- omit from toc -->", "index.html#autotoc_md17", null ],
+        [ "<a href=\"https://giraffe.joshuajer.red/md_docs_Doxygen_pages_versions.html\">Iteration 0.7</a>", "index.html#autotoc_md18", null ],
+        [ "Known Issues <!-- omit in toc -->", "index.html#autotoc_md28", null ]
       ] ],
-      [ "Shoe", "index.html#autotoc_md28", [
-        [ "Known Issues <!-- omit in toc -->", "index.html#autotoc_md29", null ],
-        [ "Shoe Testing PCBs <!-- omit in toc -->", "index.html#autotoc_md30", null ]
+      [ "Shoe", "index.html#autotoc_md29", [
+        [ "Known Issues <!-- omit in toc -->", "index.html#autotoc_md30", null ],
+        [ "Shoe Testing PCBs <!-- omit in toc -->", "index.html#autotoc_md31", null ]
       ] ]
     ] ],
-    [ "Building and Installing the Flight Software", "index.html#autotoc_md31", [
-      [ "Installing Prerequisites", "index.html#autotoc_md32", null ],
-      [ "Building the Flight Software", "index.html#autotoc_md33", null ]
+    [ "Building and Installing the Flight Software", "index.html#autotoc_md32", [
+      [ "Installing Prerequisites", "index.html#autotoc_md33", null ],
+      [ "Building the Flight Software", "index.html#autotoc_md34", null ]
     ] ],
-    [ "Flight Software Configuration/Web Client", "index.html#autotoc_md34", null ],
+    [ "Flight Software Configuration/Web Client", "index.html#autotoc_md35", null ],
     [ "Giraffe Flight System", "md_docs_introduction.html", [
       [ "Introduction", "md_docs_introduction.html#autotoc_md4", null ],
       [ "C4 Model", "md_docs_introduction.html#autotoc_md5", [
@@ -61,10 +61,11 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Giraffe Data Link (GDL)", "md_docs_data_link.html", [
-      [ "Data Link Server", "md_docs_data_link.html#autotoc_md11", [
-        [ "Configuration", "md_docs_data_link.html#autotoc_md12", null ],
-        [ "Logging", "md_docs_data_link.html#autotoc_md13", [
-          [ "API", "md_docs_data_link.html#autotoc_md14", null ]
+      [ "GDL Layers", "md_docs_data_link.html#autotoc_md11", null ],
+      [ "Data Link Server", "md_docs_data_link.html#autotoc_md12", [
+        [ "Configuration", "md_docs_data_link.html#autotoc_md13", null ],
+        [ "Logging", "md_docs_data_link.html#autotoc_md14", [
+          [ "API", "md_docs_data_link.html#autotoc_md15", null ]
         ] ]
       ] ]
     ] ],
@@ -110,23 +111,24 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc__extension__base_8hpp.html",
-"classFlightPhasePredictor.html#structFlightPhasePredictor_1_1Probability",
-"classdata_1_1ErrorReporter.html#af2e24fb474225489e58500c70f00b2bd",
-"classextension_1_1Bme280.html#a41a192bcc5212abcca25b3c026be7fd3",
-"classextension_1_1ImuExtensionBase.html#a5e65e63f1bd7bfd6b47f4a0ecb2f3a4e",
-"classextension_1_1SimGpsSensor.html#a067006ad3c8c07006590ccdfca70d037",
-"classgfs__sim_1_1SimEnvironmental.html#a9b9c0345d347eb6f2ff42d67dd929226",
-"classgiraffe_1_1gdl_1_1Message.html#a6ac84c04db330a1ae6cdb3631b27768f",
-"classgiraffe_1_1radio_1_1SoftwareRadio.html#a3bced77ff6a9f77285a304241329ac21",
-"classmodules_1_1TelemetryModule.html#ae2b6b4c160ce0df7420e18dd7993c67a",
-"extension__base_8hpp.html",
-"group__DataLog.html#ga22627e1c35839cae33e39af75670a602",
-"module_8hpp_source.html",
-"namespacegiraffe_1_1gdl.html#a5c07a5702cf7bf083e790d365b02bc10",
-"prediction__model_8cpp.html#a0d8d0a5c0094e336c67cdf3911fb6e07",
-"structcfg_1_1AdcConfig.html#ab040a389e92208c5b21deb32a2278ac9",
-"structmodules_1_1MetaData.html#a24ebb05371f99896f27e5b4ec5afce7a",
-"ubx__protocol_8cpp.html#a138e86b90eb81df7287b0687e2e647fd"
+"classFlightPhasePredictor.html#a7f865ee9e6f156605ac2d92241ab2b0f",
+"classdata_1_1ErrorFrame.html",
+"classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42",
+"classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e",
+"classextension_1_1SimCamera.html#a041069086cf7b981e4999150e7b7469d",
+"classgfs__sim_1_1GfsSimulator.html#ac29a56aba288ef2a5aa96885c8826ffb",
+"classgiraffe_1_1gdl_1_1Config.html#aed38e5da069f3de8930fea4e878654bb",
+"classgiraffe_1_1gdl_1_1PhysicalLayer.html#a4866dfd7396bf148f8d4328ff6146aae",
+"classmodules_1_1ExtensionModule.html#a2d64fd89764378e46ffc96cce45953db",
+"classncurs_1_1Window.html#a36060e890f1c99afab182f58486f464b",
+"functions_vars_b.html",
+"group__ServerModule.html#a0fe0d216d79f6af4bdd4c4e5621ac9fd",
+"namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fa7605bf6d834a2e93d8cc619e14c7fbf3",
+"namespacesock.html#a258082ab016a8f577477a33fc7c399c0",
+"server__module_8hpp_source.html",
+"structdata_1_1blocks_1_1CalculatedData.html#a23c46dfb0f069e4e31d8cc29f71f8d14",
+"test__extension__module_8cpp.html",
+"unit__test_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

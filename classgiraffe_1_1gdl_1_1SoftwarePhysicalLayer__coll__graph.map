@@ -1,12 +1,13 @@
 <map id="giraffe::gdl::SoftwarePhysicalLayer" name="giraffe::gdl::SoftwarePhysicalLayer">
-<area shape="rect" id="node1" title=" " alt="" coords="199,779,409,988"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1PhysicalLayer.html" title="The physical layer of the Giraffe Data Link." alt="" coords="209,476,399,729"/>
-<area shape="rect" id="node3" title=" " alt="" coords="124,248,183,325"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Config.html" title="Data Link Configuration." alt="" coords="207,160,401,413"/>
-<area shape="rect" id="node5" title=" " alt="" coords="5,5,69,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="105,5,247,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="275,5,333,83"/>
-<area shape="rect" id="node8" title=" " alt="" coords="433,5,484,83"/>
-<area shape="rect" id="node9" title=" " alt="" coords="524,5,649,83"/>
-<area shape="rect" id="node10" title=" " alt="" coords="425,248,481,325"/>
+<area shape="rect" id="node1" title=" " alt="" coords="354,764,565,973"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1PhysicalLayer.html" title="The physical layer of the Giraffe Data Link." alt="" coords="364,461,555,715"/>
+<area shape="rect" id="node3" title=" " alt="" coords="245,248,303,325"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Config.html" title="Data Link Configuration." alt="" coords="328,175,591,399"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,5,156,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="225,5,289,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="324,5,467,83"/>
+<area shape="rect" id="node8" title=" " alt="" coords="494,5,553,83"/>
+<area shape="rect" id="node9" title=" " alt="" coords="653,5,703,83"/>
+<area shape="rect" id="node10" title=" " alt="" coords="743,5,869,83"/>
+<area shape="rect" id="node11" title=" " alt="" coords="615,248,671,325"/>
 </map>

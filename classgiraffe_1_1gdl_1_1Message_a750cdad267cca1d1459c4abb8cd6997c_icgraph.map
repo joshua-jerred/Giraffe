@@ -1,0 +1,8 @@
+<map id="giraffe::gdl::Message::setTelemetryMessage" name="giraffe::gdl::Message::setTelemetryMessage">
+<area shape="rect" id="node1" title=" " alt="" coords="292,136,465,177"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#aaa93a0e089984e02036227b31683582f" title="Send an APRS telemetry bit sense message over the Data Link. (Broadcast message)" alt="" coords="33,5,216,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#a159a96b73cf204c0635d607c2fa7bbe7" title="Send an APRS telemetry coefficient message over the Data Link. (Broadcast message)" alt="" coords="23,71,226,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1DataLink.html#afd04761b30cab17c2dc85d23ea273fd7" title="Send telemetry data over the Data Link. (Broadcast message)" alt="" coords="45,136,204,177"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1DataLink.html#adb015f87fcf338fd88ab1abbd37c4bce" title="Send an APRS telemetry parameter names message over the Data Link. (Broadcast message)" alt="" coords="5,201,244,243"/>
+<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1DataLink.html#a660ff7bef6abebc53821301bd67941b6" title="Send an APRS telemetry units and labels message over the Data Link. (Broadcast message)" alt="" coords="11,267,238,308"/>
+</map>

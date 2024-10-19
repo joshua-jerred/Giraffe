@@ -1,0 +1,7 @@
+<map id="giraffe::AprsManager::sendOnAirDefinitionPackets" name="giraffe::AprsManager::sendOnAirDefinitionPackets">
+<area shape="rect" id="node1" title="Sends the on&#45;air definition packets." alt="" coords="5,104,215,145"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1IDataLink.html#af8cf0ced48d9bfac0ccfa62ec8f97851" title=" " alt="" coords="291,5,473,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ab6e2dd57089b03593b35f45e0e793944" title=" " alt="" coords="281,71,483,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a0c8e773bdc5042576a072965e5a14f58" title=" " alt="" coords="263,136,501,177"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1IDataLink.html#acf2248a3fda82da2156b1d244b9247de" title=" " alt="" coords="269,201,495,243"/>
+</map>

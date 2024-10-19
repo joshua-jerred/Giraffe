@@ -1,6 +1,12 @@
 var gdl__message_8hpp =
 [
     [ "Message", "classgiraffe_1_1gdl_1_1Message.html", "classgiraffe_1_1gdl_1_1Message" ],
+    [ "AprsTelemetry", "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1AprsTelemetry", [
+      [ "TelemType", "classgiraffe_1_1gdl_1_1Message.html#aa94b282d5f544de84c6ea594e0a3c19a", null ],
+      [ "TelemetryData", "classgiraffe_1_1gdl_1_1Message.html#a846a5247bb7fce7a9dd2349057a8595a", null ],
+      [ "telemetry_type", "classgiraffe_1_1gdl_1_1Message.html#a3dbdd27ab7bda59e49d1760c6ab2e68a", null ],
+      [ "telemetry_data", "classgiraffe_1_1gdl_1_1Message.html#a7a44baf1e77bd6fcf3e43e9797801bc2", null ]
+    ] ],
     [ "Image", "classgiraffe_1_1gdl_1_1Message.html#structgiraffe_1_1gdl_1_1Message_1_1Image", [
       [ "path", "classgiraffe_1_1gdl_1_1Message.html#a31c65bf7fab96a9e19817870c61019fc", null ]
     ] ],

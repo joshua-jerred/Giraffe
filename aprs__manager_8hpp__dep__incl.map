@@ -1,0 +1,11 @@
+<map id="aprs_manager.hpp" name="aprs_manager.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="231,5,374,32"/>
+<area shape="rect" id="node2" href="$aprs__manager_8cpp.html" title=" " alt="" coords="52,80,193,107"/>
+<area shape="rect" id="node3" href="$telemetry__module_8hpp.html" title="The telemetry module." alt="" coords="217,80,388,107"/>
+<area shape="rect" id="node9" href="$test__aprs__manager_8cpp.html" title=" " alt="" coords="412,80,585,107"/>
+<area shape="rect" id="node4" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="149,155,280,181"/>
+<area shape="rect" id="node8" href="$telemetry__module_8cpp.html" title="The telemetry module." alt="" coords="305,155,474,181"/>
+<area shape="rect" id="node5" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="5,229,125,256"/>
+<area shape="rect" id="node6" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="149,229,280,256"/>
+<area shape="rect" id="node7" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="304,229,387,256"/>
+</map>

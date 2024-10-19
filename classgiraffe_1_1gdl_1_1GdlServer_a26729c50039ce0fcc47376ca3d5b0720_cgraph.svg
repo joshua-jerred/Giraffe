@@ -630,7 +630,7 @@
 <!-- Node37 -->
 <g id="node37" class="node">
 <title>Node37</title>
-<g id="a_node37"><a xlink:href="classgiraffe_1_1gdl_1_1DataLink.html#a98f228a5e7abb95ad4e66ae4b53dd71a" target="_top" xlink:title="Get statistics about the Data Link.">
+<g id="a_node37"><a xlink:href="classgiraffe_1_1gdl_1_1DataLink.html#ada07f22659e987feea0fd94be6abfaa6" target="_top" xlink:title="Get statistics about the Data Link.">
 <polygon fill="none" stroke="black" points="390,-88.5 390,-118.5 509,-118.5 509,-88.5 390,-88.5"/>
 <text text-anchor="start" x="398" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::DataLink</text>
 <text text-anchor="middle" x="449.5" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getStatistics</text>

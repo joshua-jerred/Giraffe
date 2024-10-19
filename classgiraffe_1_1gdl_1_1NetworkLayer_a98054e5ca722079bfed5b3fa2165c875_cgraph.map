@@ -1,9 +1,10 @@
 <map id="giraffe::gdl::NetworkLayer::rxPacket" name="giraffe::gdl::NetworkLayer::rxPacket">
-<area shape="rect" id="node1" title=" " alt="" coords="5,169,196,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,201,196,243"/>
 <area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc" title=" " alt="" coords="257,5,398,47"/>
 <area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639" title=" " alt="" coords="257,71,398,112"/>
 <area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Message.html#a6ac84c04db330a1ae6cdb3631b27768f" title=" " alt="" coords="248,136,407,177"/>
 <area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1Message.html#a785216d96e3d838ee9f6772eb34395d1" title=" " alt="" coords="244,201,411,243"/>
 <area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1Message.html#ab1c03e26af37f4e27ca6cf24d6674f55" title=" " alt="" coords="248,267,407,308"/>
 <area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1Packet.html#a230dd4dc8894d107f481540d31c42fce" title=" " alt="" coords="256,332,399,373"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1Message.html#ac5e76febe8ddc5c68359f0b5224b2b8e" title=" " alt="" coords="248,397,407,439"/>
 </map>

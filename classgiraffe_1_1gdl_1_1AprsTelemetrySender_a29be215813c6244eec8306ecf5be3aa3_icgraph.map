@@ -1,0 +1,5 @@
+<map id="giraffe::gdl::AprsTelemetrySender::getStatus" name="giraffe::gdl::AprsTelemetrySender::getStatus">
+<area shape="rect" id="node1" title="Get the status of the telemetry sender. This is used for monitoring, debugging, and logging,..." alt="" coords="544,5,739,47"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a7b97ff2bc7e39126e06bf2ba363244c7" title=" " alt="" coords="293,5,496,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#a544353397d1939e3f15f13dc2d08a73d" title=" " alt="" coords="5,5,245,47"/>
+</map>

@@ -9,15 +9,21 @@ var classgiraffe_1_1gdl_1_1Config =
     [ "setRemoteCallSign", "classgiraffe_1_1gdl_1_1Config.html#a4b863dc5b7093712bd9febc68e218267", null ],
     [ "getRemoteCallSign", "classgiraffe_1_1gdl_1_1Config.html#a1fd00187a8f0cf9632db5d0d068e4ce3", null ],
     [ "setRemoteSSID", "classgiraffe_1_1gdl_1_1Config.html#addd841387e422f20cf932f6ff03a51c7", null ],
+    [ "setAprsTelemetrySenderEnabled", "classgiraffe_1_1gdl_1_1Config.html#aca9f2dc38105a0a9668fd36e140353fc", null ],
+    [ "setAprsTelemetryDataIntervalMs", "classgiraffe_1_1gdl_1_1Config.html#a97df35e6d2bfb8aeb2086391233a39bd", null ],
     [ "getRemoteSSID", "classgiraffe_1_1gdl_1_1Config.html#ab4b666bf725f3ab5756dc5b5135640ae", null ],
     [ "isController", "classgiraffe_1_1gdl_1_1Config.html#a7d67a270c0ee3c509756b5600122f77e", null ],
     [ "setProactiveKeepAlive", "classgiraffe_1_1gdl_1_1Config.html#a06c36fb2045f5092051809e942a4aa63", null ],
     [ "getProactiveKeepAlive", "classgiraffe_1_1gdl_1_1Config.html#a0a58a6ed60187dc17cc79c4d103d4cc7", null ],
+    [ "isAprsTelemetrySenderEnabled", "classgiraffe_1_1gdl_1_1Config.html#ae73eb03f8e513787154829d5fe228044", null ],
+    [ "getAprsTelemetryDataIntervalMs", "classgiraffe_1_1gdl_1_1Config.html#a9815875b0219bea6fc2ef01cd639d92d", null ],
     [ "is_controller_", "classgiraffe_1_1gdl_1_1Config.html#aed38e5da069f3de8930fea4e878654bb", null ],
     [ "call_sign_lock_", "classgiraffe_1_1gdl_1_1Config.html#ac56e9e34f5e9514b8099de547ec776e1", null ],
     [ "call_sign_", "classgiraffe_1_1gdl_1_1Config.html#af808f05e2d07a3981be12f57444fa4bd", null ],
     [ "ssid_", "classgiraffe_1_1gdl_1_1Config.html#ae53831747625519a18b742245d1c5147", null ],
     [ "remote_call_sign_", "classgiraffe_1_1gdl_1_1Config.html#ac4e0976ca35023db1cfa7516652c427a", null ],
     [ "remote_ssid_", "classgiraffe_1_1gdl_1_1Config.html#ae1ebd728ffe57b1cabd741cf0299c2de", null ],
-    [ "proactive_keep_alive_", "classgiraffe_1_1gdl_1_1Config.html#a1ddccf6c9971e186d501c9b33395ee12", null ]
+    [ "proactive_keep_alive_", "classgiraffe_1_1gdl_1_1Config.html#a1ddccf6c9971e186d501c9b33395ee12", null ],
+    [ "aprs_telemetry_sender_enabled_", "classgiraffe_1_1gdl_1_1Config.html#a18c55c83d65e649575f95ec3732648ef", null ],
+    [ "aprs_telemetry_data_interval_ms_", "classgiraffe_1_1gdl_1_1Config.html#a788ca4502ca3ac1d656dce6ea8123318", null ]
 ];

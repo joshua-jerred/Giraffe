@@ -1,0 +1,4 @@
+<map id="giraffe::gdl::AprsTelemetrySender::addNewData" name="giraffe::gdl::AprsTelemetrySender::addNewData">
+<area shape="rect" id="node1" title="Add new telemetry data to the telemetry sender. If the telemetry sender is enabled,..." alt="" coords="224,5,419,47"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#aca1ab85eec56d55cc38461ed114d2a5e" title="Update the telemetry data for the data link telemetry sender." alt="" coords="5,5,176,47"/>
+</map>

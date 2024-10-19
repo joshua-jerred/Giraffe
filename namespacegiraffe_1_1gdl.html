@@ -111,6 +111,11 @@ $(document).ready(function(){initNavTree('namespacegiraffe_1_1gdl.html',''); ini
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1AprsTelemetryReceiver.html">AprsTelemetryReceiver</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1AprsTelemetrySender.html">AprsTelemetrySender</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages sending APRS telemetry data via the Data Link.  <a href="classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Config.html">Config</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Link Configuration.  <a href="classgiraffe_1_1gdl_1_1Config.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,6 +123,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html">GdlServer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Giraffe Data Link Terminal.  <a href="classgiraffe_1_1gdl_1_1GdlServer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1IDataLink.html">IDataLink</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for the Giraffe Data Link.  <a href="classgiraffe_1_1gdl_1_1IDataLink.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1gdl_1_1Message.html">Message</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A message that can be sent via GDL.  <a href="classgiraffe_1_1gdl_1_1Message.html#details">More...</a><br /></td></tr>
@@ -200,7 +208,7 @@ Variables</h2></td></tr>
 <div class="textblock"></div><div class="dynheader">
 Collaboration diagram for giraffe::gdl::Statistics:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structgiraffe_1_1gdl_1_1Statistics__coll__graph.svg" width="1200" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structgiraffe_1_1gdl_1_1Statistics__coll__graph.svg" width="1219" height="346"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="fieldtable">
@@ -224,6 +232,12 @@ received_queue_size</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
+<a id="a4e54f9f83fc680ec52fa44cc2230c708"></a>uint32_t</td>
+<td class="fieldname">
+aprs_telemetry_data_packets_added</td>
+<td class="fielddoc">
+The number of APRS telemetry data packets that have been added to the broadcast queue. </td></tr>
+<tr><td class="fieldtype">
 <a id="a05ed1a5b17223c27f76551a71033d473"></a>bool</td>
 <td class="fieldname">
 uplink_connected</td>
@@ -245,6 +259,12 @@ last_message_received</td>
 <a id="a36771ec9192eb31ca92b0e08ccd62426"></a>uint32_t</td>
 <td class="fieldname">
 position_packets_received</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="adbc505e4cb2d02a5699484a1ac553d34"></a>uint32_t</td>
+<td class="fieldname">
+telemetry_packets_received</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">

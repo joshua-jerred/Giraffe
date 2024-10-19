@@ -33,6 +33,8 @@ var classmodules_1_1TelemetryModule =
     [ "gdl_config_", "classmodules_1_1TelemetryModule.html#a819dd2e987697b41110fa94c2b0d416f", null ],
     [ "physical_layer_", "classmodules_1_1TelemetryModule.html#abfe6f2dce508dd1544abdd3ed545ee37", null ],
     [ "gdl_", "classmodules_1_1TelemetryModule.html#aa186d7f1561dcfb055dc1e97d9206db1", null ],
+    [ "aprs_manager_data_update_timer_", "classmodules_1_1TelemetryModule.html#aca25da4f540f7dc36da953f9273a34ed", null ],
+    [ "aprs_telemetry_manager_", "classmodules_1_1TelemetryModule.html#a0ec987690c7ae76650f29e2219204a80", null ],
     [ "metadata_", "classmodules_1_1TelemetryModule.html#a10392744a231ea7c1a39d3a7fddc655f", null ],
     [ "shared_data_", "classmodules_1_1TelemetryModule.html#a0f304eba8e2832d972345f48fb8f33f1", null ],
     [ "configuration_", "classmodules_1_1TelemetryModule.html#a1285e5506c3a3219d1e120597cf16d75", null ],

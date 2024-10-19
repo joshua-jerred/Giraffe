@@ -1,0 +1,6 @@
+<map id="giraffe::gdl::DataLink::sendTelemetryUnitsAndLabels" name="giraffe::gdl::DataLink::sendTelemetryUnitsAndLabels">
+<area shape="rect" id="node1" title="Send an APRS telemetry units and labels message over the Data Link. (Broadcast message)" alt="" coords="5,71,232,112"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="301,5,459,47"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="280,71,480,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Message.html#a750cdad267cca1d1459c4abb8cd6997c" title=" " alt="" coords="293,136,467,177"/>
+</map>

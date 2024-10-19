@@ -8,13 +8,15 @@ var classgiraffe_1_1gdl_1_1Packet =
       [ "PING", "classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824bae07ff41a486c27c095a15898dcca34d1", null ],
       [ "PING_RESPONSE", "classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824baf5fcb64a6d012a6285298f45015c65bf", null ],
       [ "ACK", "classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba0fc437bc317835cad5faafc12a83fad5", null ],
-      [ "SSTV", "classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba9eed40bd951e903d55dd6c8f01a50cc2", null ]
+      [ "SSTV", "classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba9eed40bd951e903d55dd6c8f01a50cc2", null ],
+      [ "APRS_TELEMETRY", "classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba4020fa2f22212c3d631c382b9f7add06", null ]
     ] ],
     [ "Type", "classgiraffe_1_1gdl_1_1Packet.html#a6a6e8704d83836037deed77775a6e8e4", [
       [ "BROADCAST", "classgiraffe_1_1gdl_1_1Packet.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f", null ],
       [ "EXCHANGE", "classgiraffe_1_1gdl_1_1Packet.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf", null ],
       [ "LOCATION", "classgiraffe_1_1gdl_1_1Packet.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551", null ],
-      [ "IMAGE", "classgiraffe_1_1gdl_1_1Packet.html#a6a6e8704d83836037deed77775a6e8e4a23a12f67f614b5518c7f1c2465bf95e3", null ]
+      [ "IMAGE", "classgiraffe_1_1gdl_1_1Packet.html#a6a6e8704d83836037deed77775a6e8e4a23a12f67f614b5518c7f1c2465bf95e3", null ],
+      [ "TELEMETRY", "classgiraffe_1_1gdl_1_1Packet.html#a6a6e8704d83836037deed77775a6e8e4abb3d2d909c73fe49800949a344775f8b", null ]
     ] ],
     [ "Packet", "classgiraffe_1_1gdl_1_1Packet.html#a2cf1b5fce05484ba3ed0ca8bde5533bf", null ],
     [ "Packet", "classgiraffe_1_1gdl_1_1Packet.html#a768a19cb3a1afaf288f9e13d63215462", null ],
@@ -26,6 +28,7 @@ var classgiraffe_1_1gdl_1_1Packet =
     [ "setExchangeMessage", "classgiraffe_1_1gdl_1_1Packet.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c", null ],
     [ "setLocationMessage", "classgiraffe_1_1gdl_1_1Packet.html#ad38b31e7aaf83328773626fe1a6e81ee", null ],
     [ "setImageMessage", "classgiraffe_1_1gdl_1_1Packet.html#a4cabd8beca53ab3e2877b67487606ea2", null ],
+    [ "setTelemetryMessage", "classgiraffe_1_1gdl_1_1Packet.html#a750cdad267cca1d1459c4abb8cd6997c", null ],
     [ "getIdentifier", "classgiraffe_1_1gdl_1_1Packet.html#a7e379f44344ef7d3f57f30cc8b85d71f", null ],
     [ "setIdentifier", "classgiraffe_1_1gdl_1_1Packet.html#ab8132240bc763dd84dd9556e87c42bbc", null ],
     [ "setIdentifierFromHex", "classgiraffe_1_1gdl_1_1Packet.html#a785216d96e3d838ee9f6772eb34395d1", null ],
@@ -35,13 +38,15 @@ var classgiraffe_1_1gdl_1_1Packet =
     [ "setData", "classgiraffe_1_1gdl_1_1Packet.html#a6ac84c04db330a1ae6cdb3631b27768f", null ],
     [ "getData", "classgiraffe_1_1gdl_1_1Packet.html#ab2a7d2d07b27a823840bd1f77131f7a6", null ],
     [ "setLocation", "classgiraffe_1_1gdl_1_1Packet.html#ab1c03e26af37f4e27ca6cf24d6674f55", null ],
+    [ "setTelemetry", "classgiraffe_1_1gdl_1_1Packet.html#ac5e76febe8ddc5c68359f0b5224b2b8e", null ],
     [ "getLocation", "classgiraffe_1_1gdl_1_1Packet.html#a058458ec43b44d02141e79f986a1a79d", null ],
     [ "getImage", "classgiraffe_1_1gdl_1_1Packet.html#ab19b90512b2e9c4b3093d38a5539d920", null ],
+    [ "getTelemetry", "classgiraffe_1_1gdl_1_1Packet.html#a8aa2be7d5566b78a15e84f1fb0f4d8bf", null ],
     [ "getJson", "classgiraffe_1_1gdl_1_1Packet.html#a2caa405581e45381c50ed8d19b35bce7", null ],
     [ "verifyType", "classgiraffe_1_1gdl_1_1Packet.html#a03da00ff0a1f1cb09e1b65daa0b9747a", null ],
     [ "packet_type_", "classgiraffe_1_1gdl_1_1Packet.html#a2d59fafb22d120d7487a6ad0338c6e65", null ],
     [ "send_attempts_", "classgiraffe_1_1gdl_1_1Packet.html#a22a7d40702082a758081dc9f0d487048", null ],
     [ "identifier_", "classgiraffe_1_1gdl_1_1Packet.html#abcbad3d995b718c53f85e3e57b833e8b", null ],
     [ "type_", "classgiraffe_1_1gdl_1_1Packet.html#a9dabb1f8ec8eeb4324d75228e219e078", null ],
-    [ "contents_", "classgiraffe_1_1gdl_1_1Packet.html#a6d87cad07bfa651be81316d7393f1fdf", null ]
+    [ "contents_", "classgiraffe_1_1gdl_1_1Packet.html#aa010c71b7118f02101d6d49dea8f70d4", null ]
 ];

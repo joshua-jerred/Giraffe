@@ -1,0 +1,12 @@
+<map id="giraffe::AprsManager::initializeTelemetryData" name="giraffe::AprsManager::initializeTelemetryData">
+<area shape="rect" id="node1" title="Initializes the APRS Telemetry data from the configuration." alt="" coords="5,115,188,157"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="281,31,435,57"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ac942753cf1fb7d908c13c357bbfe9e6e" title=" " alt="" coords="277,82,439,123"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1Config.html#a97df35e6d2bfb8aeb2086391233a39bd" title=" " alt="" coords="236,147,480,189"/>
+<area shape="rect" id="node10" href="$classgiraffe_1_1gdl_1_1Config.html#aca9f2dc38105a0a9668fd36e140353fc" title=" " alt="" coords="237,213,479,254"/>
+<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="528,56,696,83"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="537,5,687,32"/>
+<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="955,82,1141,123"/>
+<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="744,5,907,32"/>
+<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="958,7,1138,49"/>
+</map>

@@ -1,6 +1,20 @@
 var structdata_1_1blocks_1_1CalculatedData =
 [
     [ "toJson", "structdata_1_1blocks_1_1CalculatedData.html#a25b9ee84fda4b5a92b06e958a80f4c3c", null ],
+    [ "battery_voltage_mv", "structdata_1_1blocks_1_1CalculatedData.html#a0c7296f53072a819490982beafd54e10", null ],
+    [ "battery_voltage_mv_valid", "structdata_1_1blocks_1_1CalculatedData.html#a4008cb3cbde1cd33262e98a687533701", null ],
+    [ "battery_current_ma", "structdata_1_1blocks_1_1CalculatedData.html#a23c46dfb0f069e4e31d8cc29f71f8d14", null ],
+    [ "battery_current_ma_valid", "structdata_1_1blocks_1_1CalculatedData.html#a28d1cef69d609ba3043f338d45d075e6", null ],
+    [ "battery_usage_mah", "structdata_1_1blocks_1_1CalculatedData.html#a57210bce4a6f3448733139bed57fb73f", null ],
+    [ "battery_usage_mah_valid", "structdata_1_1blocks_1_1CalculatedData.html#adb448845e444b621017783a697eb7ec2", null ],
+    [ "external_temperature_c", "structdata_1_1blocks_1_1CalculatedData.html#ad11939961d86dc96256f308a033823a2", null ],
+    [ "external_temperature_valid", "structdata_1_1blocks_1_1CalculatedData.html#a86587f2e2620662e83e8a523424f3a1c", null ],
+    [ "relative_humidity", "structdata_1_1blocks_1_1CalculatedData.html#a9d8f7af159336cc05c64e3a57dacca9f", null ],
+    [ "relative_humidity_valid", "structdata_1_1blocks_1_1CalculatedData.html#a3427cb43f77b5cae523726d3f21d1871", null ],
+    [ "barometric_pressure_mbar", "structdata_1_1blocks_1_1CalculatedData.html#a26a08829e085d4aa5d46845516e52875", null ],
+    [ "barometric_pressure_valid", "structdata_1_1blocks_1_1CalculatedData.html#ada49d89faa157eb5d5cd5a5c9da7457c", null ],
+    [ "battery_state_of_charge", "structdata_1_1blocks_1_1CalculatedData.html#a70a34e1f037f57eb448741bd1504d285", null ],
+    [ "battery_state_of_charge_valid", "structdata_1_1blocks_1_1CalculatedData.html#a68524ea645e5758bffab386d4396c1aa", null ],
     [ "pressure_altitude_m", "structdata_1_1blocks_1_1CalculatedData.html#af5b265b1cfc229a6863a753da454c017", null ],
     [ "pressure_altitude_valid", "structdata_1_1blocks_1_1CalculatedData.html#ab94fadab177d995691ec1bc0cea23fb7", null ],
     [ "pressure_vertical_speed", "structdata_1_1blocks_1_1CalculatedData.html#a7c79732243261ecb060f28912b491e98", null ],
@@ -18,5 +32,8 @@ var structdata_1_1blocks_1_1CalculatedData =
     [ "average_vert_speed_mps_1min", "structdata_1_1blocks_1_1CalculatedData.html#a1a664332f2db311343610a170e5681f3", null ],
     [ "max_horizontal_speed_mps", "structdata_1_1blocks_1_1CalculatedData.html#af66c44b8556317069ecedb604de29ed4", null ],
     [ "max_vertical_speed_mps", "structdata_1_1blocks_1_1CalculatedData.html#a8e4ccdb10243382321ed46f8de906126", null ],
-    [ "max_speed_valid", "structdata_1_1blocks_1_1CalculatedData.html#abd25ff1f6037f83baeac58d18f10f523", null ]
+    [ "max_speed_valid", "structdata_1_1blocks_1_1CalculatedData.html#abd25ff1f6037f83baeac58d18f10f523", null ],
+    [ "uplink_rssi", "structdata_1_1blocks_1_1CalculatedData.html#ab41b792df9b1dbdf9bb8a1e5eec2291d", null ],
+    [ "uplink_rssi_valid", "structdata_1_1blocks_1_1CalculatedData.html#ab6fa786ac2e6022d658dbef743710cd2", null ],
+    [ "gps_fix_valid", "structdata_1_1blocks_1_1CalculatedData.html#ae3b3d2331c1e09143f0044ebc9557de2", null ]
 ];

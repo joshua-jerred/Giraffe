@@ -1,16 +1,17 @@
 <map id="gfs_sim::log" name="gfs_sim::log">
-<area shape="rect" id="node1" title="Log a message within the GFS simulator." alt="" coords="1089,166,1191,193"/>
-<area shape="rect" id="node2" href="$structcfg_1_1AdcConfig.html#a2ec24a4cc5beca9182901c659d223bf8" title=" " alt="" coords="855,19,1036,46"/>
-<area shape="rect" id="node7" href="$classgfs__sim_1_1GfsSimulator.html#a2b78f13267c35017a77432a8e05cb2d6" title=" " alt="" coords="862,71,1029,112"/>
-<area shape="rect" id="node8" href="$classconsole__pages_1_1Pages.html#a9cc69efd65b15f97c11d33b974754cdd" title=" " alt="" coords="849,137,1041,163"/>
-<area shape="rect" id="node10" href="$structcfg_1_1ExtensionMetadata.html#a25eef35ae61801373e433443c9a5aa6e" title="Sets the extension metadata from a Json object." alt="" coords="857,188,1033,229"/>
-<area shape="rect" id="node13" href="$namespacevalidation.html#a5638f0062469ca458e1850ea9c8de396" title=" " alt="" coords="853,254,1037,281"/>
-<area shape="rect" id="node14" href="$namespacevalidation.html#a4028a1e71c060c780241b72af38e27e8" title=" " alt="" coords="854,305,1037,331"/>
-<area shape="rect" id="node3" href="$group__ServerModule.html#a493ddf0161bba462a169e510c5215990" title="A special handler for updating ADC mapping settings." alt="" coords="587,5,781,47"/>
-<area shape="rect" id="node6" href="$classcfg_1_1AdcMappings.html#a45d9c766a012ea127e8612d262e720ac" title=" " alt="" coords="571,71,797,98"/>
-<area shape="rect" id="node4" href="$group__ServerModule.html#a1d58bc2e5fc57191959bc60a89b61ec5" title="This function handles a setting SET request. It will attempt to set the configuration with the value ..." alt="" coords="281,105,519,131"/>
-<area shape="rect" id="node5" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,105,233,131"/>
-<area shape="rect" id="node9" href="$classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14" title=" " alt="" coords="602,123,766,164"/>
-<area shape="rect" id="node11" href="$group__ServerModule.html#af41f65e7470ab4490dfa655ead0a7f88" title="A special handler for updating extension settings." alt="" coords="567,188,801,229"/>
-<area shape="rect" id="node12" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="579,254,789,281"/>
+<area shape="rect" id="node1" title="Log a message within the GFS simulator." alt="" coords="1092,173,1193,200"/>
+<area shape="rect" id="node2" href="$classFakeSharedData.html#a8898301bb9ce956c3493966b6756b1a5" title=" " alt="" coords="849,5,1044,32"/>
+<area shape="rect" id="node3" href="$structcfg_1_1AdcConfig.html#a2ec24a4cc5beca9182901c659d223bf8" title=" " alt="" coords="856,56,1037,83"/>
+<area shape="rect" id="node8" href="$classgfs__sim_1_1GfsSimulator.html#a2b78f13267c35017a77432a8e05cb2d6" title=" " alt="" coords="863,107,1030,149"/>
+<area shape="rect" id="node9" href="$classconsole__pages_1_1Pages.html#a9cc69efd65b15f97c11d33b974754cdd" title=" " alt="" coords="851,173,1043,200"/>
+<area shape="rect" id="node11" href="$structcfg_1_1ExtensionMetadata.html#a25eef35ae61801373e433443c9a5aa6e" title="Sets the extension metadata from a Json object." alt="" coords="859,225,1035,266"/>
+<area shape="rect" id="node14" href="$namespacevalidation.html#a5638f0062469ca458e1850ea9c8de396" title=" " alt="" coords="855,291,1039,317"/>
+<area shape="rect" id="node15" href="$namespacevalidation.html#a4028a1e71c060c780241b72af38e27e8" title=" " alt="" coords="855,341,1038,368"/>
+<area shape="rect" id="node4" href="$group__ServerModule.html#a493ddf0161bba462a169e510c5215990" title="A special handler for updating ADC mapping settings." alt="" coords="587,42,781,83"/>
+<area shape="rect" id="node7" href="$classcfg_1_1AdcMappings.html#a45d9c766a012ea127e8612d262e720ac" title=" " alt="" coords="571,108,797,135"/>
+<area shape="rect" id="node5" href="$group__ServerModule.html#a1d58bc2e5fc57191959bc60a89b61ec5" title="This function handles a setting SET request. It will attempt to set the configuration with the value ..." alt="" coords="281,141,519,168"/>
+<area shape="rect" id="node6" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,141,233,168"/>
+<area shape="rect" id="node10" href="$classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14" title=" " alt="" coords="602,159,766,201"/>
+<area shape="rect" id="node12" href="$group__ServerModule.html#af41f65e7470ab4490dfa655ead0a7f88" title="A special handler for updating extension settings." alt="" coords="567,225,801,266"/>
+<area shape="rect" id="node13" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="579,291,789,317"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="FlightPhaseManagerTest::TestContainer" name="FlightPhaseManagerTest::TestContainer">
-<area shape="rect" id="node1" title=" " alt="" coords="2502,2196,2683,2288"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2502,2225,2683,2317"/>
 <area shape="rect" id="node2" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="3905,436,4099,616"/>
 <area shape="rect" id="node9" href="$classPredictionParameters.html" title="A class that contains and updates the parameters used to detect the flight phase." alt="" coords="2991,1229,3189,1439"/>
 <area shape="rect" id="node31" href="$namespacedata.html#structdata_1_1SharedBlocks" title=" " alt="" coords="2638,957,2785,1035"/>
@@ -24,14 +24,14 @@
 <area shape="rect" id="node13" title=" " alt="" coords="1598,487,1739,565"/>
 <area shape="rect" id="node14" title=" " alt="" coords="1763,487,1889,565"/>
 <area shape="rect" id="node15" title=" " alt="" coords="1071,487,1131,565"/>
-<area shape="rect" id="node16" href="$classFlightPhaseManager.html" title="This class manages everything related to flight phases and sequencing." alt="" coords="2487,1924,2699,2133"/>
+<area shape="rect" id="node16" href="$classFlightPhaseManager.html" title="This class manages everything related to flight phases and sequencing." alt="" coords="2487,1953,2699,2163"/>
 <area shape="rect" id="node17" href="$classFlightPhasePredictor.html#structFlightPhasePredictor_1_1Probability" title="A stucture that contains the probabilities of being in each phase. The probabilities range from 0 to ..." alt="" coords="3213,1288,3369,1380"/>
 <area shape="rect" id="node18" title=" " alt="" coords="3683,957,3750,1035"/>
 <area shape="rect" id="node19" href="$classdata_1_1ErrorReporter.html" title="A simple class to unique errors once." alt="" coords="2349,1582,2495,1689"/>
 <area shape="rect" id="node20" title=" " alt="" coords="2181,1295,2284,1373"/>
 <area shape="rect" id="node21" title=" " alt="" coords="2505,1295,2611,1373"/>
 <area shape="rect" id="node49" href="$classgiraffe_1_1Logger.html" title=" " alt="" coords="2725,1567,2841,1703"/>
-<area shape="rect" id="node50" href="$classFakeSharedData.html" title=" " alt="" coords="1307,1779,1459,1900"/>
+<area shape="rect" id="node50" href="$classFakeSharedData.html" title=" " alt="" coords="1307,1779,1459,1929"/>
 <area shape="rect" id="node23" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="505,957,619,1035"/>
 <area shape="rect" id="node24" href="$classdata_1_1LogStream.html" title=" " alt="" coords="1353,458,1574,594"/>
 <area shape="rect" id="node25" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="400,487,572,565"/>
