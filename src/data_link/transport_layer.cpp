@@ -93,7 +93,7 @@ bool TransportLayer::receive(Message &message) {
   }
 
   message = received_message_;
-  message_received_ = false; // reset
+  message_received_ = false; // reset the receive state
   return true;
 }
 

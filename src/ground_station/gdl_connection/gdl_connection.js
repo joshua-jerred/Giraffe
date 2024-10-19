@@ -215,11 +215,15 @@ module.exports = class GdlConnection {
           this.global_state.database.addReceivedMessage(
             obj.type,
             obj.data,
-            obj.identifier
+            obj.identifier,
+            obj.timestamp
           );
         } else if (obj.type === "TELEMETRY_DATA_REPORT") {
           let data = obj.data;
-          this.global_state.database.addReceivedTelemetryDataReport(data);
+          this.global_state.database.addReceivedTelemetryDataReport(
+            data,
+            obj.timestamp
+          );
         } else if (obj.type === "LOCATION") {
           let loc = obj.data;
           this.global_state.database.addReceivedLocation(

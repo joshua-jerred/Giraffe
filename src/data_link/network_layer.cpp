@@ -225,6 +225,7 @@ bool NetworkLayer::rxPacket(Packet &packet) {
         .telemetry_type = telemetry_packet.telemetry_type,
         .telemetry_data = telemetry_packet.telemetry_data};
     packet.setTelemetry(telemetry);
+    packet.updateTimestamp(); // set the timestamp to now
     return true;
   }
 

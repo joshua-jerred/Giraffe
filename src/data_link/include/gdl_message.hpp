@@ -28,6 +28,8 @@
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
+#include <BoosterSeat/time.hpp>
+
 #include <SignalEasel/aprs/packets.hpp>
 
 #include <giraffe_assert.hpp>
@@ -169,6 +171,7 @@ public:
 
   json getJson() const {
     json data = {{"identifier", getIdentifierString()}};
+    data["timestamp"] = getTimestamp();
     switch (getType()) {
     case Type::BROADCAST: {
       data["type"] = "BROADCAST";
@@ -255,12 +258,28 @@ public:
     return false;
   }
 
+  /// @brief Set the timestamp of the message to the current time.
+  /// @details Unix time - seconds since epoch
+  void updateTimestamp() {
+    timestamp_ = bst::getUnixTime();
+  }
+
+  /// @brief Get the timestamp of the message in Unix time (seconds since
+  /// epoch).
+  uint32_t getTimestamp() const {
+    return timestamp_;
+  }
+
 private:
   uint32_t identifier_ = 0;
   Type type_{Type::BROADCAST};
   // std::string data_{};
   // Location location_{};
   std::variant<std::string, Location, Image, AprsTelemetry> contents_;
+
+  /// @brief The timestamp of when the message was received or sent.
+  /// @details Unix time - seconds since epoch
+  uint32_t timestamp_{0};
 };
 
 /**

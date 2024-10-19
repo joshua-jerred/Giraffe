@@ -112,5 +112,30 @@ module.exports = function (global_state) {
     res.json({ message: "success" });
   });
 
+  router.get("/aprs_telemetry", (req, res, next) => {
+    const start_time = parseInt(req.query["start_time"]) || 0;
+    const end_time =
+      parseInt(req.query["end_time"]) || (Date.now() / 1000).toFixed(0);
+    const limit = parseInt(req.query["limit"]) || 50;
+
+    if (typeof start_time !== "number" || typeof end_time !== "number") {
+      const start_time_type = typeof start_time;
+      const end_time_type = typeof end_time;
+      res.status(400).json({
+        message: `start_time and end_time must be numbers. They are ${start_time_type} and ${end_time_type}`,
+      });
+      return;
+    }
+
+    global_state.database.getReceivedAprsTelemetryData(
+      start_time,
+      end_time,
+      limit,
+      (data) => {
+        res.json(data);
+      }
+    );
+  });
+
   return router;
 };

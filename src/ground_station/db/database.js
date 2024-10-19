@@ -81,7 +81,7 @@ module.exports = class PostgresDatabase {
             );`
       );
       this.db.exec(
-        `CREATE TABLE IF NOT EXISTS GdlTelemetryData (
+        `CREATE TABLE IF NOT EXISTS ReceivedAprsTelemetryData (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             timestamp              INTEGER NOT NULL,
             sequence_number        INTEGER NOT NULL,
@@ -101,7 +101,7 @@ module.exports = class PostgresDatabase {
             comment                TEXT    NOT NULL
             );`
       );
-      // this.db.exec(`DROP TABLE GdlTelemetryData;`);
+      // this.db.exec(`DROP TABLE ReceivedAprsTelemetryData;`);
     } catch (err) {
       console.log(err);
     }
@@ -197,8 +197,7 @@ module.exports = class PostgresDatabase {
     );
   }
 
-  addReceivedMessage(type, data, identifier) {
-    let unix_time = Math.round(+new Date() / 1000);
+  addReceivedMessage(type, data, identifier, unix_time) {
     this.db.run(
       `INSERT INTO gdl_received_messages (
             type,
@@ -298,44 +297,6 @@ module.exports = class PostgresDatabase {
         $speed: speed,
         $heading: heading,
         $time_code: time_code,
-      }
-    );
-  }
-
-  addReceivedTelemetryDataReport(data) {
-    data.timestamp = this.#getUnixTime();
-
-    this.db.run(
-      `INSERT INTO GdlTelemetryData (
-          timestamp,
-          sequence_number,
-          a1, a2, a3, a4, a5,
-          d1, d2, d3, d4, d5, d6, d7, d8,
-          comment
-      ) VALUES (
-          $timestamp,
-          $sequence_number,
-          $a1, $a2, $a3, $a4, $a5,
-          $d1, $d2, $d3, $d4, $d5, $d6, $d7, $d8,
-          $comment
-        );`,
-      {
-        $timestamp: data.timestamp,
-        $sequence_number: data.sequence_number,
-        $a1: data.a1,
-        $a2: data.a2,
-        $a3: data.a3,
-        $a4: data.a4,
-        $a5: data.a5,
-        $d1: data.d1,
-        $d2: data.d2,
-        $d3: data.d3,
-        $d4: data.d4,
-        $d5: data.d5,
-        $d6: data.d6,
-        $d7: data.d7,
-        $d8: data.d8,
-        $comment: data.comment,
       }
     );
   }
@@ -445,5 +406,63 @@ module.exports = class PostgresDatabase {
     }
   }
 
+  /// @deprecated
   connect() {}
+
+  /**
+   * Add telemetry data to the database
+   * @param {object} data - The telemetry data to add to the database
+   * @param {number} unix_time - Unix timestamp of when the data was received
+   */
+  addReceivedTelemetryDataReport(data, unix_time) {
+    this.db.run(
+      `INSERT INTO ReceivedAprsTelemetryData (
+          timestamp,
+          sequence_number,
+          a1, a2, a3, a4, a5,
+          d1, d2, d3, d4, d5, d6, d7, d8,
+          comment
+      ) VALUES (
+          $timestamp,
+          $sequence_number,
+          $a1, $a2, $a3, $a4, $a5,
+          $d1, $d2, $d3, $d4, $d5, $d6, $d7, $d8,
+          $comment
+        );`,
+      {
+        $timestamp: unix_time,
+        $sequence_number: data.sequence_number,
+        $a1: data.a1,
+        $a2: data.a2,
+        $a3: data.a3,
+        $a4: data.a4,
+        $a5: data.a5,
+        $d1: data.d1,
+        $d2: data.d2,
+        $d3: data.d3,
+        $d4: data.d4,
+        $d5: data.d5,
+        $d6: data.d6,
+        $d7: data.d7,
+        $d8: data.d8,
+        $comment: data.comment,
+      }
+    );
+  }
+
+  getReceivedAprsTelemetryData(start_time, end_time, limit, callback) {
+    const MAX_LIMIT = 150;
+    const LIMIT = limit > MAX_LIMIT ? MAX_LIMIT : limit;
+    const query = `SELECT * FROM ReceivedAprsTelemetryData 
+        WHERE timestamp >= ${start_time} AND timestamp <= ${end_time}
+        ORDER BY timestamp DESC LIMIT ${LIMIT};`;
+
+    this.db.all(query, [], (err, rows) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      callback(rows);
+    });
+  }
 };
