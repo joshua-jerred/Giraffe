@@ -186,6 +186,26 @@ module.exports = class PostgresDatabase {
     });
   }
 
+  /**
+   *
+   * @param {number} id - The id of the log entry to delete
+   * @param {function(err, updates)} callback - Callback function to call after
+   * the delete operation is complete. err will be either null or contain an
+   * error message, updates will be -1 on failure, or the number of rows updated
+   * on success.
+   */
+  deleteLogEntry(id, callback) {
+    console.log("Deleting log entry with id:", id);
+    this.db.run(`DELETE FROM GroundStationLog WHERE id=?`, id, function (err) {
+      if (err) {
+        callback(err, -1);
+        return;
+      }
+
+      callback(null, this.changes);
+    });
+  }
+
   addGdlServerLogItem(item) {
     this.db.run(
       `INSERT INTO gdl_server_log (

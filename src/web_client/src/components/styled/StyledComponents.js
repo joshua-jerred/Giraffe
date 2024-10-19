@@ -15,6 +15,8 @@ export const StyButton = styled.button`
   transition: ${(props) => props.theme.transitions.default};
   font-family: ${(props) => props.theme.fonts.title};
 
+  white-space: nowrap;
+
   &:hover {
     cursor: pointer;
     background: ${(props) => props.theme.primary_hover};

@@ -35,7 +35,7 @@ const StyleStructure = {
   components: {
     button: {
       border_radius: "5px",
-      max_width: "150px",
+      max_width: "25rem",
       border_style: "0px solid",
       hover_shadow: "0px 0px 4px 0px rgba(0,0,0,0.75)",
     },

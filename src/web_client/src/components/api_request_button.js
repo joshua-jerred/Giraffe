@@ -34,6 +34,7 @@ export function ApiRequestButton({
   error_callback = () => {},
   button_loading_override = null,
   style = {},
+  api_method = "PUT",
 }) {
   // idle, loading, success, error
   const [requestState, setRequestState] = useState("idle");
@@ -60,7 +61,7 @@ export function ApiRequestButton({
 
     const url = `${ggsAddress}${api_endpoint}`;
     fetch(url, {
-      method: "PUT",
+      method: api_method,
       headers: {
         "Content-Type": "application/json",
       },

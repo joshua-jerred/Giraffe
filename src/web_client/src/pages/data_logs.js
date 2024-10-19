@@ -64,6 +64,7 @@ const LogItemStyle = styled.li`
   .mainContent {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     padding-bottom: 1.2em;
     overflow: hidden;
     align-items: center;
@@ -100,13 +101,13 @@ const LogItemStyle = styled.li`
   }
 `;
 
-function LogItem({ level, timestamp, message }) {
+function LogItem({ level, timestamp, message, database_id }) {
   const [open, setOpen] = React.useState(false);
 
   const local_time = unixTimeToLocal(timestamp / 1000);
   const timestamp_long = isoMilliseconds(timestamp);
 
-  const copy_content = `${timestamp_long} (${local_time}) [${level}] ${message}`;
+  const copy_content = `[${database_id} ${level}] ${timestamp_long} (${local_time}) - ${message}`;
 
   return (
     <LogItemStyle open={open}>
@@ -122,21 +123,35 @@ function LogItem({ level, timestamp, message }) {
       <div className="overflow">
         <ul>
           <li>
-            {timestamp_long}
-            <CopyToClipboard text={copy_content}>
-              <StyButton
-                style={{ margin: "0.0em", zIndex: "100" }}
-                onClick={() => {
-                  console.log("copy");
-                }}
-              >
-                copy
-              </StyButton>
-            </CopyToClipboard>
+            <span>Level: {level}</span>
+            <span>ID: {database_id}</span>
           </li>
-          <li>{local_time}</li>
-          <li>{level}</li>
+          <li
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <span>UTC: {timestamp_long}</span>
+            <span>Local: {local_time}</span>
+          </li>
           <li>{message}</li>
+          <li>
+            <CopyToClipboard text={copy_content}>
+              <StyButton onClick={() => {}}>copy to clipboard</StyButton>
+            </CopyToClipboard>
+            <ApiRequestButton
+              api_endpoint={"/api/ggs/log"}
+              title={"delete"}
+              request_data_callback={() => {
+                return { id: database_id };
+              }}
+              success_callback={() => {
+                console.log("success");
+              }}
+              api_method={"DELETE"}
+            />
+          </li>
         </ul>
       </div>
     </LogItemStyle>
@@ -164,6 +179,7 @@ function GgsLog() {
               timestamp={item.timestamp}
               message={item.message}
               key={item.timestamp}
+              database_id={item.id}
             />
           ))}
       </GgsLogStyle>

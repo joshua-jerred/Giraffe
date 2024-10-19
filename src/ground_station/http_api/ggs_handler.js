@@ -95,6 +95,28 @@ module.exports = function (global_state) {
     });
   });
 
+  router.delete("/log", (req, res) => {
+    if (!req.body.hasOwnProperty("id")) {
+      genericResponse(res, 400, "id is required.");
+      return;
+    }
+
+    global_state.database.deleteLogEntry(req.body.id, (err, updates) => {
+      if (err) {
+        genericResponse(res, 500, err);
+        return;
+      }
+
+      if (updates > 0) {
+        genericResponse(res, 200, "success");
+      } else if (updates === 0) {
+        genericResponse(res, 401, "id not found, no records updated.");
+      } else {
+        genericResponse(res, 500, "unknown error.");
+      }
+    });
+  });
+
   router.get("/log/level", (req, res) => {
     const level = global_state.ggs_db.get(
       "settings",
