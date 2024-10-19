@@ -24,6 +24,14 @@ export const GwsGlobalContextProvider = ({ children }) => {
     load("connection_interval") || 3000 // ms
   );
 
+  const [navExpanded, setNavExpanded] = React.useState(
+    load("nav_expanded") === "true" || true
+  );
+
+  React.useEffect(() => {
+    localStorage.setItem("nav_expanded", navExpanded);
+  }, [navExpanded]);
+
   React.useEffect(() => {
     save("client_dark_theme", clientDarkTheme);
     save("client_name", clientName);
@@ -182,6 +190,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
         isDownlinkConnected,
         isUplinkConnected,
         flightData,
+        navExpanded,
+        setNavExpanded,
       }}
     >
       {children}

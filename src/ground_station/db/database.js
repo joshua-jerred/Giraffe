@@ -25,7 +25,7 @@ module.exports = class PostgresDatabase {
 
   #createTables() {
     try {
-      this.db.exec(`CREATE TABLE IF NOT EXISTS ggs_log (
+      this.db.exec(`CREATE TABLE IF NOT EXISTS GroundStationLog (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             level              TEXT      NOT NULL,
             message            TEXT      NOT NULL,
@@ -110,47 +110,6 @@ module.exports = class PostgresDatabase {
             comment                TEXT    NOT NULL
             );`
       );
-
-      // Populate data over the last hour, a packet every minute
-      let TEST_DATA = false;
-      // this.db.exec(`DROP TABLE ReceivedAprsTelemetryData;`);
-      // TEST_DATA = true;
-      if (TEST_DATA) {
-        const start_time = this.#getUnixTime() - 3600;
-        let current = 5;
-        let up = true;
-        for (let i = 1; i <= 59; i++) {
-          const random = Math.floor(Math.random() * 10);
-          current += up ? random : -random;
-          if (current > 230) {
-            up = false;
-          } else if (current < 0) {
-            up = true;
-            current = 5;
-          }
-
-          const dummy_data = {
-            sequence_number: i,
-            a1: current,
-            a2: current * 0.5,
-            a3: 0,
-            a4: 0,
-            a5: 0,
-            d1: 0,
-            d2: 0,
-            d3: 0,
-            d4: 0,
-            d5: 0,
-            d6: 0,
-            d7: 0,
-            d8: 0,
-            comment: "Giraffe Flight Software",
-          };
-
-          let unix_time = start_time + i * 60;
-          this.addReceivedTelemetryDataReport(dummy_data, unix_time);
-        }
-      }
     } catch (err) {
       console.log(err);
     }
@@ -196,9 +155,9 @@ module.exports = class PostgresDatabase {
   }
 
   addLog(level, message) {
-    var unix_time = Math.round(+new Date() / 1000);
+    var unix_time = Math.round(+new Date().getTime());
     this.db.run(
-      `INSERT INTO ggs_log (
+      `INSERT INTO GroundStationLog (
             level,
             message,
             timestamp
@@ -217,7 +176,7 @@ module.exports = class PostgresDatabase {
 
   getRecentLogData(callback) {
     const LIMIT = 50;
-    const query = `SELECT * FROM ggs_log ORDER BY timestamp DESC LIMIT ${LIMIT};`;
+    const query = `SELECT * FROM GroundStationLog ORDER BY timestamp DESC LIMIT ${LIMIT};`;
     this.db.all(query, [], (err, rows) => {
       if (err) {
         console.log(err);
@@ -544,5 +503,42 @@ module.exports = class PostgresDatabase {
         }
       );
     });
+  }
+
+  addFakeData(num = 1) {
+    const start_time = this.#getUnixTime() - 3600;
+    let current = 5;
+    let up = true;
+    for (let i = 0; i <= num; i++) {
+      const random = Math.floor(Math.random() * 10);
+      current += up ? random : -random;
+      if (current > 230) {
+        up = false;
+      } else if (current < 0) {
+        up = true;
+        current = 5;
+      }
+
+      const dummy_data = {
+        sequence_number: i,
+        a1: current,
+        a2: current * 0.5,
+        a3: 70,
+        a4: 200,
+        a5: 10,
+        d1: 0,
+        d2: 1,
+        d3: 0,
+        d4: 0,
+        d5: 0,
+        d6: 0,
+        d7: 1,
+        d8: 0,
+        comment: "Test Data",
+      };
+
+      let unix_time = start_time + i * 60;
+      this.addReceivedTelemetryDataReport(dummy_data, unix_time);
+    }
   }
 };

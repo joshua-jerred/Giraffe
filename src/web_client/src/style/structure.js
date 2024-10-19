@@ -17,7 +17,7 @@ const StyleStructure = {
   },
   pages: {
     side_margin: "25px",
-    max_width: "1400px",
+    max_width: "95rem",
     title_margin: "15px",
   },
   cards: {

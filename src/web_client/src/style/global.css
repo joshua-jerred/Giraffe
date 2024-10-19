@@ -19,6 +19,8 @@ body::-webkit-scrollbar {
 }
 
 body {
+  max-width: 100%;
+  overflow-x: hidden;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }

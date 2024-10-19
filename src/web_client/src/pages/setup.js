@@ -112,13 +112,15 @@ function SetupPage() {
             <EditBox resource="ggs" category="gfs_connection" />
           </Card>
 
+          <Card title="Giraffe Data Link Connection">
+            <EditBox resource="ggs" category="gdl" />
+          </Card>
+
           <Card title="Ground Station Settings">
             <EditBox resource="ggs" category="ggs_settings" />
           </Card>
 
           <Card title="Giraffe Data Link">
-            <EditBox resource="ggs" category="gdl" />
-            <CardBreak />
             <EditBox resource="gdl" category="all" />
           </Card>
 
@@ -126,7 +128,7 @@ function SetupPage() {
             <EditBox resource="ggs" category="influx_db" />
           </Card>
 
-          <Card title="Ground Station Server Settings">
+          <Card title="aprs.fi API">
             <EditBox resource="ggs" category="aprs_fi" />
           </Card>
         </CardMasonryLayout>

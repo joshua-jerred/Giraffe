@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 import Tooltip from "../components/Tooltip";
+import { GwsGlobal } from "../GlobalContext";
 
 export const Page = styled.div`
   padding: 0 0px;
@@ -171,9 +172,24 @@ export const CardRow = styled.div`
   gap: 2%;
 `;
 
+const NAV_COLLAPSED_BREAKPOINTS = { 500: 1, 900: 2, 1390: 3 };
+const NAV_EXPANDED_BREAKPOINTS = { 650: 1, 1050: 2, 1640: 3 };
+
 export function CardMasonryLayout({ children }) {
+  const { navExpanded } = useContext(GwsGlobal);
+
+  const [breakpoints, setBreakpoints] = useState(NAV_COLLAPSED_BREAKPOINTS);
+
+  useEffect(() => {
+    if (navExpanded) {
+      setBreakpoints(NAV_EXPANDED_BREAKPOINTS);
+    } else {
+      setBreakpoints(NAV_COLLAPSED_BREAKPOINTS);
+    }
+  }, [navExpanded]);
+
   return (
-    <ResponsiveMasonry columnsCountBreakPoints={{ 390: 1, 900: 2, 1390: 3 }}>
+    <ResponsiveMasonry columnsCountBreakPoints={breakpoints}>
       <Masonry gutter="10px">{children}</Masonry>
     </ResponsiveMasonry>
   );

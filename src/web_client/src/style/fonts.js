@@ -270,6 +270,12 @@ export const StyleFonts = {
     size: `1rem`,
     style: `normal`,
   },
+  small_paragraph: {
+    family: `Roboto Mono`,
+    weight: `300`,
+    size: `0.9rem`,
+    style: `normal`,
+  },
 
   // Auxiliary
   nav_bar_link_label: {

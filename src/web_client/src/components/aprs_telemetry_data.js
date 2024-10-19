@@ -13,36 +13,7 @@ import { StyTable, StyTableRow, StyTableCell } from "./styled/StyledTable";
 
 import { SelectMenu, StyButton } from "./styled/StyledComponents";
 
-function unixTimeToShortUtc(unix_time) {
-  let date = new Date(unix_time * 1000);
-  return date.toISOString().split("T")[1].split(".")[0] + " UTC";
-}
-
-function clockDisplay(seconds) {
-  const data = {
-    days: Math.floor(seconds / 86400),
-    hours: Math.floor(seconds / 3600),
-    minutes: Math.floor((seconds % 3600) / 60),
-    seconds: Math.floor(seconds % 60),
-  };
-
-  let output = "";
-  if (data.days > 0) {
-    output += `${data.days}d `;
-  }
-
-  if (data.hours > 0) {
-    output += `${data.hours}h `;
-  }
-
-  if (data.minutes > 0) {
-    output += `${data.minutes}m `;
-  }
-
-  output += `${data.seconds}s`;
-
-  return output;
-}
+import { unixTimeToShortUtc, clockDisplay } from "../core/clock_strings";
 
 function CurrentTelemetryDisplay({ latest_packet }) {
   const [age, setAge] = React.useState();
@@ -53,7 +24,13 @@ function CurrentTelemetryDisplay({ latest_packet }) {
     const interval = setInterval(() => {
       const now = new Date().getTime() / 1000;
       const seconds = parseInt(now - latest_packet.timestamp);
-      setAge(clockDisplay(seconds));
+
+      /// Outside of a year, don't update the clock.
+      if (seconds > 60 * 60 * 24 * 365) {
+        setAge("unk");
+      } else {
+        setAge(clockDisplay(seconds));
+      }
     }, UPDATE_INTERVAL);
     return () => clearInterval(interval);
   }, [latest_packet.timestamp]);
@@ -115,6 +92,33 @@ function CurrentTelemetryDisplay({ latest_packet }) {
             <StyTableCell style={CellStyle}>{latest_packet.a3}</StyTableCell>
             <StyTableCell style={CellStyle}>{latest_packet.a4}</StyTableCell>
             <StyTableCell style={CellStyle}>{latest_packet.a5}</StyTableCell>
+          </StyTableRow>
+        </tbody>
+      </StyTable>
+
+      <StyTable style={TableStyle}>
+        <thead>
+          <StyTableRow>
+            <th>D1</th>
+            <th>D2</th>
+            <th>D3</th>
+            <th>D4</th>
+            <th>D5</th>
+            <th>D6</th>
+            <th>D7</th>
+            <th>D8</th>
+          </StyTableRow>
+        </thead>
+        <tbody>
+          <StyTableRow>
+            <StyTableCell style={CellStyle}>{latest_packet.d1}</StyTableCell>
+            <StyTableCell style={CellStyle}>{latest_packet.d2}</StyTableCell>
+            <StyTableCell style={CellStyle}>{latest_packet.d3}</StyTableCell>
+            <StyTableCell style={CellStyle}>{latest_packet.d4}</StyTableCell>
+            <StyTableCell style={CellStyle}>{latest_packet.d5}</StyTableCell>
+            <StyTableCell style={CellStyle}>{latest_packet.d6}</StyTableCell>
+            <StyTableCell style={CellStyle}>{latest_packet.d7}</StyTableCell>
+            <StyTableCell style={CellStyle}>{latest_packet.d8}</StyTableCell>
           </StyTableRow>
         </tbody>
       </StyTable>
@@ -268,12 +272,14 @@ export default function AprsTelemetryData() {
   React.useEffect(() => {
     if (data && typeof data === "object") {
       setPackets(data.packets);
-      setLatestPacket(data.metadata.latest_packet);
-      setNumPacketsOnChart(data.metadata.num_packets_found);
       setNumPacketsInDatabase(data.metadata.num_packets_in_database);
-      setTimeOfLastPacket(
-        unixTimeToShortUtc(data.metadata.latest_packet.timestamp)
-      );
+      if (data.packets.length > 0) {
+        setLatestPacket(data.metadata.num_packets_in_database);
+        setTimeOfLastPacket(
+          unixTimeToShortUtc(data.metadata.latest_packet.timestamp)
+        );
+      }
+      setNumPacketsOnChart(data.metadata.num_packets_found);
     }
   }, [data]);
 
@@ -326,14 +332,13 @@ export default function AprsTelemetryData() {
         />
         <StyButton
           onClick={() => {
-            console.log("Refresh");
             forceUpdate();
           }}
           style={{ flexGrow: 1, padding: "0.2rem" }}
         >
           Refresh
         </StyButton>
-        <StyButton
+        {/* <StyButton
           onClick={() => {
             console.log("Refresh");
             forceUpdate();
@@ -341,7 +346,7 @@ export default function AprsTelemetryData() {
           style={{ flexGrow: 1, padding: "0.2rem" }}
         >
           Refresh
-        </StyButton>
+        </StyButton> */}
       </div>
 
       <LabelDataPair
