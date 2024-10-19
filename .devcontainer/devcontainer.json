@@ -4,7 +4,14 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": ["ms-vscode.cmake-tools"]
+      "extensions": [
+        "ms-vscode.cmake-tools",
+        "eamodio.gitlens",
+        "GitHub.copilot"
+      ]
     }
-  }
+  },
+  "postCreateCommand": [
+    "git submodule update --init --recursive"
+  ]
 }
