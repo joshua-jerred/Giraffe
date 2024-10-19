@@ -37,7 +37,7 @@ message(STATUS "Giraffe Software Version: ${GIRAFFE_VERSION_NUMBER} \
 ${GIRAFFE_VERSION_STAGE}")
 # -------------------------------
 
-# --- DIRECTORIES --- # 
+# --- DIRECTORIES --- #
 # need to get rid of these
 set(THIRD_PARTY_SRC ${CMAKE_SOURCE_DIR}/lib/third_party)
 

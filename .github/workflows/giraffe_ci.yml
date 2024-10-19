@@ -174,4 +174,4 @@ jobs:
       - name: Install cmake-lint
         run: pip install cmakelint
       - name: Run cmake-lint
-        run: cmakelint --config=./project/cmakelintrc
+        run: cmakelint
