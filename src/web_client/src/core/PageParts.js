@@ -4,6 +4,8 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
+import Tooltip from "../components/Tooltip";
+
 export const Page = styled.div`
   padding: 0 0px;
   color: ${(props) => props.theme.on_surface};
@@ -208,3 +210,43 @@ export const CardSectionTitle = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+// key: *value* w/ tooltip
+const KeyDataPairWithTooltip = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+
+    .sp1 {
+      font-weight: bold;
+      margin-right: 0.5em;
+      font-size: 0.8em;
+    }
+  }
+`;
+
+// data: [
+//    {Label: "label", value: "value", tooltip: "tooltip"},
+export function LabelDataPair({ data, style }) {
+  return (
+    <KeyDataPairWithTooltip style={style}>
+      {data.map((item) => (
+        <Tooltip text={item.tooltip} specified_delay={200} key={item.key}>
+          <li key={item.key}>
+            <span className="sp1">{item.key} </span>
+            <span>{item.value}</span>
+          </li>
+        </Tooltip>
+      ))}
+    </KeyDataPairWithTooltip>
+  );
+}

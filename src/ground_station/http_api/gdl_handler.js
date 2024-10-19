@@ -127,12 +127,40 @@ module.exports = function (global_state) {
       return;
     }
 
-    global_state.database.getReceivedAprsTelemetryData(
+    async function databaseCallback(packet_rows) {
+      console.log("data", packet_rows);
+
+      let latest_packet_time = 0;
+      let earliest_packet_time = 0;
+
+      if (packet_rows.length > 0) {
+        latest_packet_time = packet_rows[0].timestamp;
+        earliest_packet_time = packet_rows[packet_rows.length - 1].timestamp;
+      } else {
+        latest_packet_time = end_time;
+        earliest_packet_time = start_time;
+      }
+
+      const response_data = {
+        metadata: {
+          num_packets_found: packet_rows.length,
+          num_packets_in_database:
+            await global_state.database.getNumAprsTelemetryPackets(),
+          latest_packet:
+            await global_state.database.getLatestAprsTelemetryPacket(),
+        },
+        packets: packet_rows,
+      };
+      // console.log("response_data", response_data);
+      res.json(response_data);
+    }
+
+    global_state.database.getAprsTelemetryData(
       start_time,
       end_time,
       limit,
       (data) => {
-        res.json(data);
+        databaseCallback(data);
       }
     );
   });

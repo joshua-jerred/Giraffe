@@ -12,6 +12,7 @@ import {
 } from "../core/PageParts";
 import { DataBlock } from "../components/DataBlock";
 import Tooltip from "../components/Tooltip";
+import AprsTelemetryData from "../components/aprs_telemetry_data";
 
 import { StyButton, StyInput } from "../components/styled/StyledComponents";
 
@@ -201,6 +202,9 @@ function TelemetryPage() {
         <CardMasonryLayout>
           <Card title="Data Link Stats">
             <DataLinkStatus />
+          </Card>
+          <Card title="APRS Telemetry">
+            <AprsTelemetryData />
           </Card>
           <Card title="Sent">
             <MessageLog category="sent_messages" />

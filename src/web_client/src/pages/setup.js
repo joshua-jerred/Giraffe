@@ -71,34 +71,36 @@ function SetupPage() {
         Station server. Once connected, you can configure the Ground Station.
       </PageTitle>
       <PageContent image={gws_setup}>
-        <Card title="Client Configuration">
-          <LocalItemEdit
-            title="Giraffe Ground Station Server Address"
-            state={ggsAddress}
-            setState={setGgsAddress}
-            tooltip="The address of the Ground Station server. For example: http://localhost:8321"
-            onTest={(value) => {
-              testGgs(value);
-            }}
-          />
-          <LocalItemEdit
-            title="Client Name/Identifier"
-            state={clientName}
-            setState={setClientName}
-            tooltip="Enter a name or identifier for this client. This will be used to identify this client in the Ground Station server."
-            onTest={(value) => {
-              testClientName(value);
-            }}
-          />
-          {TestConnection !== "not tested" ? (
-            <CardContentCentered>{TestConnection}</CardContentCentered>
-          ) : null}
-          <SwitchWithLabel
-            checked={clientDarkTheme}
-            setChecked={setClientDarkTheme}
-            label="Dark Theme"
-          />
-        </Card>
+        <CardMasonryLayout>
+          <Card title="Client Configuration">
+            <LocalItemEdit
+              title="Giraffe Ground Station Server Address"
+              state={ggsAddress}
+              setState={setGgsAddress}
+              tooltip="The address of the Ground Station server. For example: http://localhost:8321"
+              onTest={(value) => {
+                testGgs(value);
+              }}
+            />
+            <LocalItemEdit
+              title="Client Name/Identifier"
+              state={clientName}
+              setState={setClientName}
+              tooltip="Enter a name or identifier for this client. This will be used to identify this client in the Ground Station server."
+              onTest={(value) => {
+                testClientName(value);
+              }}
+            />
+            {TestConnection !== "not tested" ? (
+              <CardContentCentered>{TestConnection}</CardContentCentered>
+            ) : null}
+            <SwitchWithLabel
+              checked={clientDarkTheme}
+              setChecked={setClientDarkTheme}
+              label="Dark Theme"
+            />
+          </Card>
+        </CardMasonryLayout>
       </PageContent>
 
       <PageTitle title="Ground Station Configuration">

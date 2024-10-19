@@ -70,25 +70,29 @@ export const UseGenericGetApi = (api_endpoint, update_interval = -1) => {
 
   const path = `${ggsAddress}${api_endpoint}`;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch(path);
-        if (!response.ok) {
-          throw new Error("Failed to load metadata.");
-        }
-        const data = await response.json();
-        setData(data);
-        setError(null);
-        setIsLoading(false);
-        // console.log(data);
-      } catch (error) {
-        setError(error.message);
-        setIsLoading(false);
+  const fetchData = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(path);
+      if (!response.ok) {
+        throw new Error(`Failed to load data from ${path}`);
       }
-    };
+      const data = await response.json();
+      setData(data);
+      setError(null);
+      setIsLoading(false);
+      // console.log(data);
+    } catch (error) {
+      setError(error.message);
+      setIsLoading(false);
+    }
+  };
 
+  const forceUpdate = () => {
+    fetchData();
+  };
+
+  useEffect(() => {
     if (isGgsConnected) {
       fetchData();
     } else {
@@ -103,5 +107,5 @@ export const UseGenericGetApi = (api_endpoint, update_interval = -1) => {
     }
   }, [isGgsConnected, update_interval, path]);
 
-  return { data, isLoading, error };
+  return { data, isLoading, error, forceUpdate };
 };

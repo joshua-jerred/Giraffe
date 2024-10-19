@@ -1,5 +1,16 @@
 const sqlite3 = require("sqlite3").verbose();
 const file_paths = require("../file_paths");
+const sql = require("postgres");
+
+// const pg = require("pg");
+// const { Client } = pg;
+// const client = new Client({
+//   user: "postgres",
+//   password: "postgres",
+//   host: "localhost",
+//   port: 5432,
+//   database: "testing",
+// });
 
 module.exports = class PostgresDatabase {
   constructor() {
@@ -14,14 +25,12 @@ module.exports = class PostgresDatabase {
 
   #createTables() {
     try {
-      this.db.exec(
-        `CREATE TABLE IF NOT EXISTS ggs_log (
+      this.db.exec(`CREATE TABLE IF NOT EXISTS ggs_log (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             level              TEXT      NOT NULL,
             message            TEXT      NOT NULL,
             timestamp          INTEGER   NOT NULL
-            );`
-      );
+            );`);
       this.db.exec(
         `CREATE TABLE IF NOT EXISTS gdl_server_log (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -101,7 +110,47 @@ module.exports = class PostgresDatabase {
             comment                TEXT    NOT NULL
             );`
       );
+
+      // Populate data over the last hour, a packet every minute
+      let TEST_DATA = false;
       // this.db.exec(`DROP TABLE ReceivedAprsTelemetryData;`);
+      // TEST_DATA = true;
+      if (TEST_DATA) {
+        const start_time = this.#getUnixTime() - 3600;
+        let current = 5;
+        let up = true;
+        for (let i = 1; i <= 59; i++) {
+          const random = Math.floor(Math.random() * 10);
+          current += up ? random : -random;
+          if (current > 230) {
+            up = false;
+          } else if (current < 0) {
+            up = true;
+            current = 5;
+          }
+
+          const dummy_data = {
+            sequence_number: i,
+            a1: current,
+            a2: current * 0.5,
+            a3: 0,
+            a4: 0,
+            a5: 0,
+            d1: 0,
+            d2: 0,
+            d3: 0,
+            d4: 0,
+            d5: 0,
+            d6: 0,
+            d7: 0,
+            d8: 0,
+            comment: "Giraffe Flight Software",
+          };
+
+          let unix_time = start_time + i * 60;
+          this.addReceivedTelemetryDataReport(dummy_data, unix_time);
+        }
+      }
     } catch (err) {
       console.log(err);
     }
@@ -450,19 +499,50 @@ module.exports = class PostgresDatabase {
     );
   }
 
-  getReceivedAprsTelemetryData(start_time, end_time, limit, callback) {
+  async getAprsTelemetryData(start_time, end_time, limit, callback) {
     const MAX_LIMIT = 150;
     const LIMIT = limit > MAX_LIMIT ? MAX_LIMIT : limit;
-    const query = `SELECT * FROM ReceivedAprsTelemetryData 
-        WHERE timestamp >= ${start_time} AND timestamp <= ${end_time}
-        ORDER BY timestamp DESC LIMIT ${LIMIT};`;
+    const query1 = `SELECT * FROM ReceivedAprsTelemetryData
+    WHERE timestamp >= ${start_time} AND timestamp <= ${end_time}
+    ORDER BY timestamp DESC
+    LIMIT ${LIMIT}`;
 
-    this.db.all(query, [], (err, rows) => {
+    this.db.all(query1, [], (err, rows) => {
       if (err) {
         console.log(err);
         return;
       }
       callback(rows);
+    });
+  }
+
+  async getNumAprsTelemetryPackets() {
+    return new Promise((resolve, reject) => {
+      this.db.get(
+        `SELECT COUNT(*) as count FROM ReceivedAprsTelemetryData;`,
+        [],
+        (err, row) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(row.count);
+        }
+      );
+    });
+  }
+
+  async getLatestAprsTelemetryPacket() {
+    return new Promise((resolve, reject) => {
+      this.db.get(
+        `SELECT * FROM ReceivedAprsTelemetryData ORDER BY timestamp DESC LIMIT 1;`,
+        [],
+        (err, row) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(row);
+        }
+      );
     });
   }
 };

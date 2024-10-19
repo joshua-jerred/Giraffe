@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyButton = styled.button`
   font-size: ${(props) => props.theme.fonts.button.size};
@@ -46,24 +46,24 @@ export const StyNeutralButton = styled(StyButton)`
 
 export const StySaveButton = styled(StyButton)`
   background: ${(props) =>
-    props.saved === 'yes'
+    props.saved === "yes"
       ? props.theme.surface_hover_hard
       : props.theme.primary};
   color: ${(props) =>
-    props.saved === 'yes' ? props.theme.surface : props.theme.on_primary};
+    props.saved === "yes" ? props.theme.surface : props.theme.on_primary};
   &:hover {
     background: ${(props) =>
-      props.saved === 'yes'
+      props.saved === "yes"
         ? props.theme.surface_hover_hard
         : props.theme.primary_hover};
-    cursor: ${(props) => (props.saved === 'yes' ? 'default' : 'pointer')};
+    cursor: ${(props) => (props.saved === "yes" ? "default" : "pointer")};
     box-shadow: ${(props) =>
-      props.saved === 'yes'
-        ? 'none'
+      props.saved === "yes"
+        ? "none"
         : props.theme.components.button.hover_shadow};
   }
   &:active {
-    filter: ${(props) => (props.saved === 'yes' ? 'none' : 'brightness(0.9)')};
+    filter: ${(props) => (props.saved === "yes" ? "none" : "brightness(0.9)")};
   }
 `;
 
@@ -145,6 +145,23 @@ export const StyOption = styled.option`
   }
 `;
 
+export function SelectMenu({ options, selected, setSelected, style = {} }) {
+  return (
+    <StySelect
+      value={selected}
+      onChange={(e) => setSelected(e.target.value)}
+      name="select"
+      style={style}
+    >
+      {options.map((option) => (
+        <StyOption key={option} value={option}>
+          {option}
+        </StyOption>
+      ))}
+    </StySelect>
+  );
+}
+
 const StySwitchLabel = styled.label`
   cursor: pointer;
   display: inline-block;
@@ -162,7 +179,7 @@ const StySwitch = styled.div`
     ${(props) => props.theme.outline};
   &:before {
     transition: ${(props) => props.theme.transitions.default};
-    content: '';
+    content: "";
     position: absolute;
     width: ${(props) => props.theme.components.switch.handle_width};
     height: ${(props) => props.theme.components.switch.handle_height};
