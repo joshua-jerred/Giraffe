@@ -8,7 +8,7 @@
 # to run:
 # docker run -it --rm --name giraffe joshuajerred/giraffe
 
-FROM debian:bookworm-slim
+FROM debian:bookworm
 
 ARG CMAKE_VERSION=3.30.5
 

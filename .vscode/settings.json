@@ -67,5 +67,6 @@
   ],
   "files.associations": {
     "version": "plaintext"
-  }
+  },
+  "cmake.options.statusBarVisibility": "compact"
 }
