@@ -243,7 +243,7 @@ module.exports = class GdlConnection {
             obj.identifier
           );
         } else {
-          console.log("location packet sent, not implemented yet");
+          console.log("packet sent, not implemented yet");
         }
       }
     } else {
