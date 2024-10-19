@@ -187,7 +187,6 @@ module.exports = class PostgresDatabase {
   }
 
   /**
-   *
    * @param {number} id - The id of the log entry to delete
    * @param {function(err, updates)} callback - Callback function to call after
    * the delete operation is complete. err will be either null or contain an
@@ -195,8 +194,18 @@ module.exports = class PostgresDatabase {
    * on success.
    */
   deleteLogEntry(id, callback) {
-    console.log("Deleting log entry with id:", id);
     this.db.run(`DELETE FROM GroundStationLog WHERE id=?`, id, function (err) {
+      if (err) {
+        callback(err, -1);
+        return;
+      }
+
+      callback(null, this.changes);
+    });
+  }
+
+  deleteAllLogEntries(callback) {
+    this.db.run(`DELETE FROM GroundStationLog`, function (err) {
       if (err) {
         callback(err, -1);
         return;

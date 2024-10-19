@@ -8,7 +8,7 @@ const RequestButton = styled(StyButton)`
   white-space: nowrap;
   flex-grow: 1;
   padding: 0.2rem;
-  max-width: 15rem;
+  max-width: 18rem;
   background: ${(props) =>
     props.enabled ? props.theme.primary : props.theme.primary_soft};
 
@@ -35,6 +35,7 @@ export function ApiRequestButton({
   button_loading_override = null,
   style = {},
   api_method = "PUT",
+  confirmation_message = null,
 }) {
   // idle, loading, success, error
   const [requestState, setRequestState] = useState("idle");
@@ -59,6 +60,13 @@ export function ApiRequestButton({
       return;
     }
 
+    if (confirmation_message !== null) {
+      if (!window.confirm(confirmation_message)) {
+        return;
+      }
+    }
+
+    setRequestState("loading");
     const url = `${ggsAddress}${api_endpoint}`;
     fetch(url, {
       method: api_method,
@@ -108,7 +116,6 @@ export function ApiRequestButton({
     <RequestButton
       onClick={() => {
         if (requestState === "idle") {
-          setRequestState("loading");
           sendRequest(request_data_callback());
           return;
         }

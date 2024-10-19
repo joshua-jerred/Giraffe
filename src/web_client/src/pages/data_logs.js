@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useEffect } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import {
@@ -164,6 +164,17 @@ function GgsLog() {
     "/api/ggs/log",
     UPDATE_INTERVAL_MS
   );
+  const [logIsEmpty, setLogIsEmpty] = React.useState(false);
+
+  React.useEffect(() => {
+    if (data && typeof data === "object" && data.hasOwnProperty("length")) {
+      if (data.length === 0) {
+        setLogIsEmpty(true);
+      } else {
+        setLogIsEmpty(false);
+      }
+    }
+  }, [data]);
 
   if (error) {
     return <p>Error: {error}</p>;
@@ -171,6 +182,15 @@ function GgsLog() {
 
   return (
     <div>
+      {logIsEmpty ? (
+        <p
+          style={{
+            textAlign: "center",
+          }}
+        >
+          there are no log items.
+        </p>
+      ) : null}
       <GgsLogStyle>
         {data &&
           data.map((item) => (
@@ -187,8 +207,27 @@ function GgsLog() {
         api_endpoint={"/api/ggs/log/level"}
         data_key={"level"}
         options={["error", "warning", "info", "debug"]}
-        title={"Set Log Level"}
+        title={"set log level"}
       />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "1rem",
+        }}
+      >
+        <ApiRequestButton
+          api_endpoint={"/api/ggs/log"}
+          title={"delete all log entries"}
+          request_data_callback={() => {
+            return { id: "all" };
+          }}
+          api_method={"DELETE"}
+          confirmation_message={
+            "Are you sure you want to delete all log entries? This action cannot be undone."
+          }
+        />
+      </div>
       {isLoading === true ? "loading" : "loaded"}
     </div>
   );

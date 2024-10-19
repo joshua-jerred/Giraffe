@@ -101,6 +101,21 @@ module.exports = function (global_state) {
       return;
     }
 
+    if (req.body.id === "all") {
+      global_state.database.deleteAllLogEntries((err, deleted_count) => {
+        if (err) {
+          genericResponse(res, 500, err);
+          return;
+        }
+        genericResponse(
+          res,
+          200,
+          "success - deleted " + deleted_count + " records."
+        );
+      });
+      return;
+    }
+
     global_state.database.deleteLogEntry(req.body.id, (err, updates) => {
       if (err) {
         genericResponse(res, 500, err);
