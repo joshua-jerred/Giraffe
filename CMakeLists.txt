@@ -6,34 +6,6 @@ option(GFS_HOST_TEST "Enable GFS Host Test" OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS OFF)
 # ----------------- ***  END CONFIGURABLE ITEMS  *** --------------------------
 
-# --- DIRECTORIES --- # - need to get rid of these
-set(COMMON_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/common)
-set(COMMON_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/common)
-
-set(THIRD_PARTY_SRC ${CMAKE_SOURCE_DIR}/lib/third_party)
-
-set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_system)
-set(GFS_BIN ${CMAKE_BINARY_DIR}/bin)
-set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests)
-set(GFS_UNIT_TEST_SRC ${GFS_TEST_SRC}/flight_system)
-set(GFS_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/flight_system)
-
-set(GDL_SRC ${CMAKE_SOURCE_DIR}/src/data_link)
-set(GDL_BIN ${CMAKE_BINARY_DIR}/bin)
-set(GDL_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/data_link)
-set(GDL_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/data_link)
-
-set(TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests)
-# ------------------- #
-
-# Raspberry Pi Build
-# if($ENV{RASPBERRY_PI} EQUAL 1)
-#   message(STATUS "Raspberry Pi Build: Enabled")
-#   add_compile_definitions(RASPBERRY_PI=1)
-# else()
-#   message(STATUS "Raspberry Pi Build: Disabled")
-# endif()
-
 # ---- Version Files ----
 execute_process(
   COMMAND ${CMAKE_SOURCE_DIR}/project/generate_version_files.py
@@ -65,6 +37,23 @@ message(STATUS "Giraffe Software Version: ${GIRAFFE_VERSION_NUMBER} \
 ${GIRAFFE_VERSION_STAGE}")
 # -------------------------------
 
+# --- DIRECTORIES --- # 
+# need to get rid of these
+set(THIRD_PARTY_SRC ${CMAKE_SOURCE_DIR}/lib/third_party)
+
+set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_system)
+set(GFS_BIN ${CMAKE_BINARY_DIR}/bin)
+set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests)
+set(GFS_UNIT_TEST_SRC ${GFS_TEST_SRC}/flight_system)
+set(GFS_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/flight_system)
+
+set(GDL_SRC ${CMAKE_SOURCE_DIR}/src/data_link)
+set(GDL_BIN ${CMAKE_BINARY_DIR}/bin)
+set(GDL_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/data_link)
+set(GDL_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/data_link)
+
+set(TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests)
+# ------------------- #
 
 # ---- Project ----
 project(Giraffe
@@ -104,8 +93,6 @@ add_subdirectory(lib/third_party/googletest)    # googletest
 add_subdirectory(lib/third_party/fmt)           # fmt
 # ----------------------------
 
-# add_definitions(-DDONT_ADD_SIGNAL_EASEL_BOOSTER_SEAT)
-# set(DONT_ADD_SIGNAL_EASEL_BOOSTER_SEAT 1)
 
 # ---- Giraffe Components ----
 add_subdirectory(project)                  # Auto-generated files
