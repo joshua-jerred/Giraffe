@@ -28,6 +28,10 @@
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
+#include <SignalEasel/aprs/packets.hpp>
+
+#include <giraffe_assert.hpp>
+
 #include <gdl_constants.hpp>
 
 namespace giraffe::gdl {
@@ -36,7 +40,7 @@ namespace giraffe::gdl {
 class Message {
 public:
   /// @brief The type of message
-  enum class Type : uint8_t { BROADCAST, EXCHANGE, LOCATION, IMAGE };
+  enum class Type : uint8_t { BROADCAST, EXCHANGE, LOCATION, IMAGE, TELEMETRY };
 
   struct Location {
     double latitude = 0;
@@ -49,6 +53,14 @@ public:
 
   struct Image {
     std::string path{};
+  };
+
+  struct AprsTelemetry {
+    using TelemType = signal_easel::aprs::Packet::Type;
+    using TelemetryData = signal_easel::aprs::telemetry::TelemetryData;
+
+    TelemType telemetry_type = TelemType::UNKNOWN;
+    TelemetryData telemetry_data{};
   };
 
   Message() = default;
@@ -86,6 +98,12 @@ public:
     identifier_ = identifier;
     contents_ = image_info;
     type_ = Type::IMAGE;
+  }
+
+  void setTelemetryMessage(AprsTelemetry telemetry, uint32_t identifier) {
+    identifier_ = identifier;
+    contents_ = telemetry;
+    type_ = Type::TELEMETRY;
   }
 
   uint32_t getIdentifier() const {
@@ -133,12 +151,20 @@ public:
     contents_ = location;
   }
 
+  void setTelemetry(AprsTelemetry telemetry) {
+    contents_ = telemetry;
+  }
+
   Location getLocation() const {
     return std::get<Location>(contents_);
   }
 
   Image getImage() const {
     return std::get<Image>(contents_);
+  }
+
+  AprsTelemetry getTelemetry() const {
+    return std::get<AprsTelemetry>(contents_);
   }
 
   json getJson() const {
@@ -165,6 +191,11 @@ public:
       data["type"] = "IMAGE";
       data["contents"] = {{"path", getImage().path}};
     } break;
+    case Type::TELEMETRY: {
+      data["type"] = "TELEMETRY";
+      data["contents"] = {{"telemetry_type", "not implemented"},
+                          {"telemetry_data", "not implemented"}};
+    } break;
     }
     return data;
   }
@@ -178,6 +209,10 @@ public:
       return std::holds_alternative<Location>(contents_);
     case Type::IMAGE:
       return std::holds_alternative<Image>(contents_);
+    case Type::TELEMETRY:
+      return std::holds_alternative<AprsTelemetry>(contents_);
+    default:
+      giraffe_assert(false);
     }
     return false;
   }
@@ -187,7 +222,7 @@ private:
   Type type_{Type::BROADCAST};
   // std::string data_{};
   // Location location_{};
-  std::variant<std::string, Location, Image> contents_;
+  std::variant<std::string, Location, Image, AprsTelemetry> contents_;
 };
 
 /**
@@ -200,8 +235,8 @@ public:
 
   /**
    * @brief Push a message onto the queue.
-   * @details This will lock the queue. If there is no space on the queue, the
-   * message will not be pushed and false will be returned.
+   * @details This will lock the queue. If there is no space on the queue,
+   * the message will not be pushed and false will be returned.
    *
    * @param message - The message to push.
    * @return true - If the message was pushed.

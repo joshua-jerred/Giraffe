@@ -1002,11 +1002,6 @@ Json cfg::Telemetry::getJson() const {
     {"radio_type", cfg::gEnum::K_RADIO_TYPE_TO_STRING_MAP.at(radio_type_)}
   });
 }
-bool cfg::TelemetryAprs::getTelemetryPackets() const {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return telemetry_packets_;
-}
-
 bool cfg::TelemetryAprs::getPositionPackets() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return position_packets_;
@@ -1015,6 +1010,16 @@ bool cfg::TelemetryAprs::getPositionPackets() const {
 int cfg::TelemetryAprs::getPositionPacketInterval() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return position_packet_interval_;
+}
+
+bool cfg::TelemetryAprs::getTelemetryPackets() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return telemetry_packets_;
+}
+
+int cfg::TelemetryAprs::getTelemetryPacketInterval() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return telemetry_packet_interval_;
 }
 
 std::string cfg::TelemetryAprs::getFrequency() const {
@@ -1052,11 +1057,6 @@ std::string cfg::TelemetryAprs::getComment() const {
   return comment_;
 }
 
-void cfg::TelemetryAprs::setTelemetryPackets(bool val) {
-  const std::lock_guard<std::mutex> lock(cfg_lock_);
-  telemetry_packets_ = val;
-}
-
 void cfg::TelemetryAprs::setPositionPackets(bool val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   position_packets_ = val;
@@ -1065,6 +1065,16 @@ void cfg::TelemetryAprs::setPositionPackets(bool val) {
 void cfg::TelemetryAprs::setPositionPacketInterval(int val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   position_packet_interval_ = val;
+}
+
+void cfg::TelemetryAprs::setTelemetryPackets(bool val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  telemetry_packets_ = val;
+}
+
+void cfg::TelemetryAprs::setTelemetryPacketInterval(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  telemetry_packet_interval_ = val;
 }
 
 void cfg::TelemetryAprs::setFrequency(std::string val) {
@@ -1108,16 +1118,6 @@ void cfg::TelemetryAprs::setFromJson(const Json &json_data) {
         streams_.log,
         json_data,
         "telemetry_aprs",
-        "telemetry_packets",
-        telemetry_packets_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "telemetry_aprs",
         "position_packets",
         position_packets_,
         0,
@@ -1130,6 +1130,26 @@ void cfg::TelemetryAprs::setFromJson(const Json &json_data) {
         "telemetry_aprs",
         "position_packet_interval",
         position_packet_interval_,
+        10,
+        3600,
+        ""
+  );
+  validation::setValidValue<bool>(
+        streams_.log,
+        json_data,
+        "telemetry_aprs",
+        "telemetry_packets",
+        telemetry_packets_,
+        0,
+        0,
+        ""
+  );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "telemetry_aprs",
+        "telemetry_packet_interval",
+        telemetry_packet_interval_,
         10,
         3600,
         ""
@@ -1207,9 +1227,10 @@ void cfg::TelemetryAprs::setFromJson(const Json &json_data) {
 Json cfg::TelemetryAprs::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return Json({
-    {"telemetry_packets", telemetry_packets_},
     {"position_packets", position_packets_},
     {"position_packet_interval", position_packet_interval_},
+    {"telemetry_packets", telemetry_packets_},
+    {"telemetry_packet_interval", telemetry_packet_interval_},
     {"frequency", frequency_},
     {"ssid", ssid_},
     {"destination_address", destination_address_},

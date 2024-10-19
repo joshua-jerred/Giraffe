@@ -1,5 +1,14 @@
 # Giraffe Data Link (GDL)
 
+## GDL Layers
+- GiraffeDataLink (GDL)
+- Transport Layer
+  - Handles transport of broadcast and exchange messages asynchronously.
+- Network Layer
+  - Controls the physical layer.
+  - Implements SignalEasel
+- Physical Layer
+
 ## Data Link Server
 The Giraffe Data Link Server is a TCP socket server that allows for the sending and receiving of data over the GDL.
 

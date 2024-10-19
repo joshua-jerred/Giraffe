@@ -446,14 +446,6 @@
     },
     "telemetry_aprs": {
         "SECTION_TYPE": "struct",
-        "telemetry_packets": {
-            "type": "bool",
-            "name": "APRS Telemetry Packets",
-            "description": "If enabled, critical data will be sent as APRS telemetry packets. This will be configurable in the future.",
-            "default": false,
-            "true": "enabled",
-            "false": "disabled"
-        },
         "position_packets": {
             "type": "bool",
             "name": "APRS Position Packets",
@@ -466,6 +458,23 @@
             "type": "int",
             "name": "Position Packet Interval (s)",
             "description": "How often position packets will be sent. This is required for APRS tracking.",
+            "default": 600,
+            "max": 3600,
+            "min": 10,
+            "step": 1
+        },
+        "telemetry_packets": {
+            "type": "bool",
+            "name": "APRS Telemetry Packets",
+            "description": "If enabled, critical data will be sent as APRS telemetry packets.",
+            "default": false,
+            "true": "enabled",
+            "false": "disabled"
+        },
+        "telemetry_packet_interval": {
+            "type": "int",
+            "name": "APRS Telemetry Packet Interval (s)",
+            "description": "How often APRS Telemetry data packets will be sent.",
             "default": 600,
             "max": 3600,
             "min": 10,

@@ -39,6 +39,7 @@ void CalculatedData::updateCalculatedData() {
 
   if (positional_data_timeout_.isDone()) {
     // Data is stale
+    data_buffer_.gps_fix_valid = false;
     data_buffer_.distance_traveled_valid = false;
     data_buffer_.distance_from_launch_valid = false;
     data_buffer_.average_speed_valid = false;
@@ -48,6 +49,10 @@ void CalculatedData::updateCalculatedData() {
 }
 
 void CalculatedData::addPressureData(double pressure_mbar) {
+  /// @todo Check for validity of barometric pressure data
+  data_buffer_.barometric_pressure_mbar = pressure_mbar;
+  data_buffer_.barometric_pressure_valid = true;
+
   /// @todo Move this pressure calculation function to BoosterSeat
   data_buffer_.pressure_altitude_m =
       (1 - std::pow(pressure_mbar / 1013.25, 0.190284)) * 145366.45 * 0.3048;
@@ -64,6 +69,8 @@ void CalculatedData::addPositionalData(const data::GpsFrame &gps_frame) {
 void CalculatedData::calculateDistanceData(const data::GpsFrame &gps_frame) {
   try {
     bst::geo::Point current_point(gps_frame.latitude, gps_frame.longitude);
+
+    data_buffer_.gps_fix_valid = true;
 
     // Calculate the distance from the launch point
     {

@@ -59,9 +59,18 @@ bool TransportLayer::send(Message &message) {
     return true;
   }
 
+  // if it's an image message, we don't need to be connected
   if (message.getType() == Message::Type::IMAGE) {
     current_tx_packet_ = message;
     current_tx_packet_.setPacketType(Packet::PacketType::SSTV);
+    state_ = State::BROADCAST;
+    return true;
+  }
+
+  // if it's a telemetry message, we don't need to be connected
+  if (message.getType() == Message::Type::TELEMETRY) {
+    current_tx_packet_ = message;
+    current_tx_packet_.setPacketType(Packet::PacketType::APRS_TELEMETRY);
     state_ = State::BROADCAST;
     return true;
   }
@@ -113,6 +122,7 @@ void TransportLayer::update(Statistics &statistics) {
   statistics.total_messages_dropped = total_messages_dropped_;
   statistics.last_message_received = last_message_received_;
   statistics.position_packets_received = position_packets_received_;
+  statistics.telemetry_packets_received = telemetry_packets_received_;
 }
 
 void TransportLayer::idleState() {
@@ -162,11 +172,21 @@ void TransportLayer::idleState() {
       sendAck(message_id);
       break;
 
+    case Packet::PacketType::APRS_TELEMETRY:
+      telemetry_packets_received_++;
+      received_message_ = static_cast<Message>(packet_buffer);
+      received_message_.setType(Message::Type::TELEMETRY);
+      message_received_ = true;
+      last_message_received_.setToNow();
+      break;
     case Packet::PacketType::LOCATION:
       position_packets_received_++;
-      [[fallthrough]];
+      received_message_ = static_cast<Message>(packet_buffer);
+      received_message_.setType(Message::Type::LOCATION);
+      message_received_ = true;
+      last_message_received_.setToNow();
+      break;
     case Packet::PacketType::BROADCAST:
-      // location or broadcast received, send it up
       received_message_ = static_cast<Message>(packet_buffer);
       message_received_ = true;
       last_message_received_.setToNow();

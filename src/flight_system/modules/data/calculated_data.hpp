@@ -26,6 +26,8 @@
 
 namespace data_middleware {
 
+/// @todo Name conflict with struct data::blocks::CalculatedData
+/// @warning
 class CalculatedData {
 public:
   CalculatedData(data::SharedData &shared_data);

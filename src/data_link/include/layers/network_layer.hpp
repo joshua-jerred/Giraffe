@@ -45,6 +45,12 @@ private:
   /// otherwise. Also false if SSTV is not enabled.
   bool txSstvImage(const Packet &packet);
 
+  /// @brief Transmit an APRS telemetry packet of the specified type.
+  /// @param packet - The packet containing the telemetry data.
+  /// @return \c true if the telemetry packet was successfully transmitted, \c
+  /// false otherwise.
+  bool txAprsTelemetryPacket(const Packet &packet);
+
   uint32_t total_packets_sent_ = 0;
   uint32_t total_packets_received_ = 0;
 

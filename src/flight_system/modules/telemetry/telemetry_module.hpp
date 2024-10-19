@@ -24,6 +24,7 @@
 #include <giraffe_data_link.hpp>
 #include <software_physical_layer.hpp>
 
+#include "aprs_manager.hpp"
 #include "module.hpp"
 
 namespace modules {
@@ -101,6 +102,13 @@ private:
 
   /// @brief The Data Link used for telemetry.
   giraffe::gdl::DataLink gdl_{gdl_config_};
+
+  /// @brief The update rate of the APRS Manager.
+  bst::Timer aprs_manager_data_update_timer_{};
+  /// @brief The APRS Telemetry Data Manager for managing APRS telemetry
+  /// packets and all of the data that goes into them.
+  giraffe::AprsManager aprs_telemetry_manager_{
+      shared_data_, configuration_, gdl_, aprs_manager_data_update_timer_};
 };
 
 } // namespace modules

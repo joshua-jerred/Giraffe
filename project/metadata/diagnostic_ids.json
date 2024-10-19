@@ -892,6 +892,11 @@
       "name": "Data Link Send Error",
       "details": "Error related to sending data over the data link.",
       "value": "0xB005"
+    },
+    "aprs_telemetry_initialization": {
+      "name": "APRS Telemetry Initialization Error",
+      "details": "Error related to initializing the APRS telemetry. See info.",
+      "value": "0xB006"
     }
   }
 }

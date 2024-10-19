@@ -1,0 +1,49 @@
+/**
+ * =*========GIRAFFE========*=
+ * A Unified Flight Command and Control System
+ * https://github.com/joshua-jerred/Giraffe
+ * https://giraffe.joshuajer.red/
+ * =*=======================*=
+ *
+ * @file   gdl_telemetry_receiver.hpp
+ *
+ * =*=======================*=
+ * @author     Joshua Jerred (https://joshuajer.red)
+ * @date       2024-09-27
+ * @copyright  2024 (license to be defined)
+ */
+
+#pragma once
+
+#include <SignalEasel/aprs/telemetry_data.hpp>
+
+#include "gdl_config_and_stats.hpp"
+#include "gdl_message.hpp"
+
+namespace giraffe::gdl {
+
+class AprsTelemetryReceiver {
+public:
+  using TelemetryData = signal_easel::aprs::telemetry::TelemetryData;
+
+  AprsTelemetryReceiver(Config &gdl_config) : config_(gdl_config) {
+  }
+
+  ~AprsTelemetryReceiver() = default;
+
+  void addMessage(const Message &message) {
+    (void)message;
+    /// @todo add a check for the source call sign
+    std::cout << "Got telemetry message - this isn't implemented yet"
+              << std::endl;
+  }
+
+  void addData(const TelemetryData &telemetry_data) {
+    (void)telemetry_data;
+  }
+
+private:
+  Config &config_;
+};
+
+} // namespace giraffe::gdl

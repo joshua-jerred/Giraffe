@@ -1,0 +1,14 @@
+{
+  "build": {
+    "dockerfile": "../project/Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cmake-tools",
+        "eamodio.gitlens",
+        "GitHub.copilot"
+      ]
+    }
+  }
+}

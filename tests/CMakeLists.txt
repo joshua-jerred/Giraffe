@@ -1,10 +1,10 @@
 # Unit Tests
 add_library(unit_test INTERFACE)
 target_include_directories(unit_test INTERFACE "./")
-target_link_libraries(unit_test INTERFACE gtest_main)
+target_link_libraries(unit_test INTERFACE gtest_main gmock_main)
 
 # --- Common ---
-file(GLOB common_test_sources "${COMMON_TEST_SRC}/test_*.cpp")
+file(GLOB common_test_sources "$common/test_*.cpp")
 add_executable(unit_test_common ${common_test_sources} ${common_sources})
 target_link_libraries(
   unit_test_common
@@ -21,9 +21,9 @@ set_target_properties(unit_test_common PROPERTIES RUNTIME_OUTPUT_DIRECTORY
 
 # --- Data Link ---
 file(GLOB data_link_test_sources "${GDL_TEST_SRC}/test_*.cpp")
-add_executable(unit_test_gdl ${data_link_test_sources})
+add_executable(gdl_test ${data_link_test_sources})
 target_link_libraries(
-  unit_test_gdl
+  gdl_test
   # internal
   giraffe_data_link_core
   giraffe_common
@@ -31,11 +31,11 @@ target_link_libraries(
   unit_test
   # external
   BoosterSeat)
-target_include_directories(unit_test_gdl PRIVATE ${GDL_SRC})
-set_target_properties(unit_test_gdl PROPERTIES RUNTIME_OUTPUT_DIRECTORY
+target_include_directories(gdl_test PRIVATE ${GDL_SRC})
+set_target_properties(gdl_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY
                                                ${TEST_BIN})
 target_include_directories(
-  unit_test_gdl
+  gdl_test
   PRIVATE
   ${THIRD_PARTY_SRC}/nlohmann_json/single_include
 )
@@ -129,11 +129,11 @@ set_target_properties(
 # ---------------- ctest ----------------
 include(GoogleTest)
 gtest_discover_tests(giraffe_flight_system_test)
-gtest_discover_tests(unit_test_gdl)
+gtest_discover_tests(gdl_test)
 gtest_discover_tests(unit_test_common)
 # add_test(NAME common_tests COMMAND $<TARGET_FILE:unit_test_common>)
 # add_test(NAME flight_system_tests COMMAND giraffe_flight_system_test)
-# add_test(NAME data_link_tests COMMAND unit_test_gdl)
+# add_test(NAME data_link_tests COMMAND gdl_test)
 
 # add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND}
                   # DEPENDS ExeName)

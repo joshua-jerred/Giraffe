@@ -383,6 +383,33 @@ struct TelemetryModuleStats {
  * @brief Data that is calculated from other data.
  */
 struct CalculatedData {
+  double battery_voltage_mv = 0.0;
+  bool battery_voltage_mv_valid = false;
+
+  double battery_current_ma = 0.0;
+  bool battery_current_ma_valid = false;
+
+  double battery_usage_mah = 0.0;
+  bool battery_usage_mah_valid = false;
+
+  double external_temperature_c = 0.0;
+  bool external_temperature_valid = false;
+
+  double relative_humidity = 0.0;
+  bool relative_humidity_valid = false;
+
+  /// @brief The best source for reliable barometric pressure data. If marked as
+  /// valid, it should be trusted.
+  double barometric_pressure_mbar = 0.0;
+  /// @brief The validity flag for barometric_pressure_mbar.
+  bool barometric_pressure_valid = false;
+
+  /// @brief The estimated state of charge of the battery.
+  /// @details Ranges from -100% to 100% (-100, 100), where 100% is fully
+  /// charged, 0% is empty, and -100% is 200% discharged.
+  int32_t battery_state_of_charge = 0.0;
+  bool battery_state_of_charge_valid = false;
+
   int32_t pressure_altitude_m = 0;
   bool pressure_altitude_valid = false;
 
@@ -415,6 +442,14 @@ struct CalculatedData {
   int32_t max_horizontal_speed_mps = 0;
   int32_t max_vertical_speed_mps = 0;
   bool max_speed_valid = false;
+
+  /// @brief The current RSSI value for the data link.
+  /// @details Most up to date value.
+  double uplink_rssi = 0.0;
+  bool uplink_rssi_valid = false;
+
+  /// @brief \c true if we currently have a 3D GPS fix.
+  bool gps_fix_valid = false;
 
   Json toJson() {
     Json json_data;

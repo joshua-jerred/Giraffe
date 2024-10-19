@@ -111,9 +111,9 @@ jobs:
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build Test
-        run: cd build && make unit_test_gdl -j 4
+        run: cd build && make gdl_test -j 4
       - name: Run Test
-        run: cd build/bin/tests && ./unit_test_gdl
+        run: cd build/bin/tests && ./gdl_test
 
   common_tests_js:
     name: Unit Tests / Common JS
@@ -174,4 +174,4 @@ jobs:
       - name: Install cmake-lint
         run: pip install cmakelint
       - name: Run cmake-lint
-        run: cmakelint --config=./project/cmakelintrc
+        run: cmakelint

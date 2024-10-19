@@ -203,7 +203,8 @@ enum class DiagnosticId : uint16_t {
   TELEMETRY_sstvError=0xB002, // SSTV Error
   TELEMETRY_radioConfiguration=0xB003, // Radio Configuration Error
   TELEMETRY_dataLinkError=0xB004, // Data Link Error
-  TELEMETRY_dataLinkSendError=0xB005  // Data Link Send Error
+  TELEMETRY_dataLinkSendError=0xB005, // Data Link Send Error
+  TELEMETRY_aprsTelemetryInitialization=0xB006  // APRS Telemetry Initialization Error
 };
 // NOLINTEND(readability-identifier-naming)
 

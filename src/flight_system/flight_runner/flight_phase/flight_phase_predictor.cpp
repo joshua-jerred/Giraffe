@@ -14,6 +14,7 @@
  */
 
 #include "flight_phase_predictor.hpp"
+#include "flight_phase.hpp"
 
 /// @brief Update the flight phase predictor.
 /// @return \c true if the flight phase has changed, \c false if it has stayed

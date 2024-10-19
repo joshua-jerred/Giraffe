@@ -25,6 +25,7 @@
 #include <string>
 
 namespace giraffe::gdl {
+
 /// @brief Data Link Configuration
 class Config {
 public:
@@ -69,6 +70,14 @@ public:
     remote_ssid_ = remote_ssid;
   }
 
+  void setAprsTelemetrySenderEnabled(bool enabled) {
+    aprs_telemetry_sender_enabled_ = enabled;
+  }
+
+  void setAprsTelemetryDataIntervalMs(uint32_t interval_ms) {
+    aprs_telemetry_data_interval_ms_ = interval_ms;
+  }
+
   uint8_t getRemoteSSID() const {
     return remote_ssid_;
   }
@@ -85,6 +94,14 @@ public:
     return proactive_keep_alive_;
   }
 
+  bool isAprsTelemetrySenderEnabled() const {
+    return aprs_telemetry_sender_enabled_;
+  }
+
+  uint32_t getAprsTelemetryDataIntervalMs() const {
+    return aprs_telemetry_data_interval_ms_;
+  }
+
 private:
   bool is_controller_ = true;
 
@@ -96,6 +113,13 @@ private:
   std::atomic<uint8_t> remote_ssid_ = 0;
 
   std::atomic<bool> proactive_keep_alive_{false};
+
+  // --- APRS Telemetry Sender Configuration ---
+  /// @brief Set to true to enable the APRS telemetry sender.
+  std::atomic<bool> aprs_telemetry_sender_enabled_{false};
+  /// @brief The interval at which to send telemetry *data* packets. Default
+  /// is 5 minutes.
+  std::atomic<uint32_t> aprs_telemetry_data_interval_ms_{5 * 60 * 1000};
 };
 
 struct Statistics {
@@ -103,12 +127,16 @@ struct Statistics {
   size_t exchange_queue_size = 0;
   size_t broadcast_queue_size = 0;
   size_t received_queue_size = 0;
+  /// @brief The number of APRS telemetry data packets that have been added to
+  /// the broadcast queue.
+  uint32_t aprs_telemetry_data_packets_added = 0;
 
   // Transport layer
   bool uplink_connected = false;
   bool downlink_connected = false;
   bst::Time last_message_received{};
   uint32_t position_packets_received = 0;
+  uint32_t telemetry_packets_received = 0;
 
   // Network layer
   uint32_t total_packets_sent = 0;
