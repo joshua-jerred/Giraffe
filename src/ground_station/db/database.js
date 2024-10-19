@@ -9,10 +9,10 @@ module.exports = class PostgresDatabase {
       }
     });
 
-    this.createTables();
+    this.#createTables();
   }
 
-  createTables() {
+  #createTables() {
     try {
       this.db.exec(
         `CREATE TABLE IF NOT EXISTS ggs_log (
@@ -80,9 +80,35 @@ module.exports = class PostgresDatabase {
             status_lasttime   INTEGER   DEFAULT -1
             );`
       );
+      this.db.exec(
+        `CREATE TABLE IF NOT EXISTS GdlTelemetryData (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            timestamp              INTEGER NOT NULL,
+            sequence_number        INTEGER NOT NULL,
+            a1                     INTEGER NOT NULL,
+            a2                     INTEGER NOT NULL,
+            a3                     INTEGER NOT NULL,
+            a4                     INTEGER NOT NULL,
+            a5                     INTEGER NOT NULL,
+            d1                     INTEGER NOT NULL,
+            d2                     INTEGER NOT NULL,
+            d3                     INTEGER NOT NULL,
+            d4                     INTEGER NOT NULL,
+            d5                     INTEGER NOT NULL,
+            d6                     INTEGER NOT NULL,
+            d7                     INTEGER NOT NULL,
+            d8                     INTEGER NOT NULL,
+            comment                TEXT    NOT NULL
+            );`
+      );
+      // this.db.exec(`DROP TABLE GdlTelemetryData;`);
     } catch (err) {
       console.log(err);
     }
+  }
+
+  #getUnixTime() {
+    return Math.round(+new Date() / 1000);
   }
 
   addAprsFiData(data) {
@@ -272,6 +298,44 @@ module.exports = class PostgresDatabase {
         $speed: speed,
         $heading: heading,
         $time_code: time_code,
+      }
+    );
+  }
+
+  addReceivedTelemetryDataReport(data) {
+    data.timestamp = this.#getUnixTime();
+
+    this.db.run(
+      `INSERT INTO GdlTelemetryData (
+          timestamp,
+          sequence_number,
+          a1, a2, a3, a4, a5,
+          d1, d2, d3, d4, d5, d6, d7, d8,
+          comment
+      ) VALUES (
+          $timestamp,
+          $sequence_number,
+          $a1, $a2, $a3, $a4, $a5,
+          $d1, $d2, $d3, $d4, $d5, $d6, $d7, $d8,
+          $comment
+        );`,
+      {
+        $timestamp: data.timestamp,
+        $sequence_number: data.sequence_number,
+        $a1: data.a1,
+        $a2: data.a2,
+        $a3: data.a3,
+        $a4: data.a4,
+        $a5: data.a5,
+        $d1: data.d1,
+        $d2: data.d2,
+        $d3: data.d3,
+        $d4: data.d4,
+        $d5: data.d5,
+        $d6: data.d6,
+        $d7: data.d7,
+        $d8: data.d8,
+        $comment: data.comment,
       }
     );
   }

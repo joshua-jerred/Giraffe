@@ -108,6 +108,5 @@ add_subdirectory(project/eeprom)           # EEPROM Utility
 # ----------------------------
 
 # Unit Tests
-include(CTest)
 enable_testing()
 add_subdirectory(${GFS_TEST_SRC})

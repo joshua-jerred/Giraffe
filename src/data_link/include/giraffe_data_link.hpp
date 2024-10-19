@@ -31,7 +31,6 @@
 
 #include "gdl_config_and_stats.hpp"
 #include "gdl_message.hpp"
-#include "gdl_telemetry_receiver.hpp"
 #include "gdl_telemetry_sender.hpp"
 #include "i_giraffe_data_link.hpp"
 
@@ -212,8 +211,6 @@ private:
 
   /// @brief Thread safe GDL configuration.
   Config &config_;
-
-  AprsTelemetryReceiver telemetry_receiver_{config_};
 
   AprsTelemetrySender telemetry_sender_{config_};
 
