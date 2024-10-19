@@ -10,8 +10,5 @@
         "GitHub.copilot"
       ]
     }
-  },
-  "postCreateCommand": [
-    "git submodule update --init --recursive"
-  ]
+  }
 }

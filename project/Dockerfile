@@ -12,10 +12,8 @@ FROM debian:bookworm
 
 ARG CMAKE_VERSION=3.30.5
 
-RUN apt-get update
-
 # Basic build tools
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
    curl \
    git \
    build-essential \
@@ -28,15 +26,12 @@ RUN chmod +x /tmp/cmake-${CMAKE_VERSION}-Linux-x86_64.sh
 RUN /tmp/cmake-${CMAKE_VERSION}-Linux-x86_64.sh --skip-license --prefix=/usr/local
 
 # Libraries/Dependencies
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
    libgtest-dev \
    libcurl4-gnutls-dev \
    libi2c-dev \
-   libncurses-dev \
-   libpulse-dev \
-   
-   # ca-certificates \
-   # gnupg \
+   libncurses5-dev \
+   libpulse-dev
 
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - &&\
 apt-get install -y nodejs
