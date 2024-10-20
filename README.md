@@ -2,7 +2,7 @@
 
 # Giraffe <!-- omit from toc -->
 ### A Unified Flight Command and Control System <!-- omit from toc -->
-### [Iteration 0.7](https://giraffe.joshuajer.red/md_docs_Doxygen_pages_versions.html)
+### [Iteration 0.8](https://giraffe.joshuajer.red/md_docs_Doxygen_pages_versions.html)
 
 ***
 ## Learn More About it

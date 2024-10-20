@@ -5,7 +5,7 @@ DOXYFILE_ENCODING      = UTF-8
 # Project
 
 PROJECT_NAME           = "Giraffe"
-PROJECT_NUMBER         = 0.7.0
+PROJECT_NUMBER         = 0.8.0
 PROJECT_BRIEF          = "A Unified High Altitude Flight Observation and Control System. With homogeneous software and hardware, both on the ground and in the air."
 PROJECT_LOGO           = "docs/assets/logo.svg"
 # TODO: Logo
@@ -21,6 +21,7 @@ INPUT += docs/introduction.md
 INPUT += docs/data_link.md
 INPUT += docs/uml
 INPUT += docs/groups.dox
+INPUT += docs
 INPUT += README.md
 INPUT += tests
 IMAGE_PATH             = ./docs/assets
@@ -30,7 +31,10 @@ FILE_PATTERNS          = *.cpp \
                          *.hpp \
                          *.md \
                          *.dox \
-                         *.puml \
+                         *.puml
+
+EXCLUDE_PATTERNS = */node_modules/* \
+                    */legacy_source_files/*
 
 USE_MDFILE_AS_MAINPAGE = README.md
 # CITE_BIB_FILES = docs/references.bib

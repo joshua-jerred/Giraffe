@@ -1,15 +1,13 @@
 # Configuration Schema
 
-## Process for adding a setting:
-1. Document in `src/common/gfs_configuration_metadata.json`
-2. Add to `src/common/tests/test-01` and run the test to verify metadata
-3. Add validator if needed in `validator.cpp` and `configuration_internal.h`
-4. Test the validator in GFS unit test test-01
-5. Add to `configuration.h`, add default value to the configuration to the
-    configuration class.
-6. Add to unit test test-02
+The process of adding configuration options has been fully automated.
 
-## "Rules" To Follow:
+## Process for adding a setting:
+1. Add to `project/metadata/gfs_configuration.json`
+2. Generate the configuration files with the VSCode task or by running
+   `project/generate_source_files.sh`
+
+## Guidelines to Follow:
 - Everything (where possible) must have a default
 - No Deep Nesting
 

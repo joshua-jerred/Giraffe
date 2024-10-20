@@ -1,5 +1,30 @@
 # GFS Version Change Log
 
+## 0.8
+2024-10-20
+
+- Updated the Giraffe Data Link to support APRS telemetry and SSTV images.
+- Added a series of "smart" features to the flight software. The software is now
+  more aware of it's external environment/state.
+  - Added data processing to create reliable sources for flight computer state data.
+  - Flight phase detection.
+  - A mission clock.
+- Added basic IMU sensor support.
+- Added basic ADC sensor support.
+- A whole lot of work on the web client and GGS backend, allowing for more
+  control and monitoring of the flight computer both on the ground via TCP and
+  in the air via the Giraffe Data Link.
+- Added an RGB status LED to the flight computer.
+- Added basic command and control support to the Giraffe Data Link and flight
+  software.
+  - Extension configuration
+  - Telemetry command and control interfaces
+
+There was a strong focus on the software side of things through 0.8. The
+hardware has been put off for a bit but will need to be picked back up soon.
+
+***
+
 ## 0.7
 2024-02-15
 
