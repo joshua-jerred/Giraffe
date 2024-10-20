@@ -17,6 +17,9 @@ export const GwsGlobalContextProvider = ({ children }) => {
   const [clientName, setClientName] = React.useState(
     load("client_name") || "not_set"
   );
+  const [unsafeMode, setUnSafeMode] = React.useState(
+    load("unsafe_mode") === "true" || false
+  );
   const [ggsAddress, setGgsAddress] = React.useState(
     load("client_ggs_address") || "http://localhost:7892"
   );
@@ -37,7 +40,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
     save("client_name", clientName);
     save("client_ggs_address", ggsAddress);
     save("connection_interval", connectionInterval);
-  }, [clientDarkTheme, clientName, ggsAddress, connectionInterval]);
+    save("unsafe_mode", unsafeMode);
+  }, [clientDarkTheme, clientName, ggsAddress, connectionInterval, unsafeMode]);
 
   // ------ STATUSES & ALERTER ------
   const serviceStatusesDefault = {
@@ -192,6 +196,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
         flightData,
         navExpanded,
         setNavExpanded,
+        unsafeMode,
+        setUnSafeMode,
       }}
     >
       {children}

@@ -50,29 +50,33 @@ function CurrentTelemetryDisplay({ latest_packet }) {
           width: "100%",
         }}
       >
-        <StyTableRow style={CellStyle}>
-          <th>SEQ</th>
-          <StyTableCell>{latest_packet.sequence_number}</StyTableCell>
-          <th style={CellStyle}>Age</th>
-          <StyTableCell>{age}</StyTableCell>
-        </StyTableRow>
+        <tbody>
+          <StyTableRow style={CellStyle}>
+            <th>SEQ</th>
+            <StyTableCell>{latest_packet.sequence_number}</StyTableCell>
+            <th style={CellStyle}>Age</th>
+            <StyTableCell>{age}</StyTableCell>
+          </StyTableRow>
+        </tbody>
       </StyTable>
       <StyTable
         style={{
           width: "100%",
         }}
       >
-        <StyTableRow>
-          <th style={CellStyle}>Comment</th>
-          <StyTableCell
-            style={{
-              textAlign: "left",
-              width: "100%",
-            }}
-          >
-            {latest_packet.comment}
-          </StyTableCell>
-        </StyTableRow>
+        <tbody>
+          <StyTableRow>
+            <th style={CellStyle}>Comment</th>
+            <StyTableCell
+              style={{
+                textAlign: "left",
+                width: "100%",
+              }}
+            >
+              {latest_packet.comment}
+            </StyTableCell>
+          </StyTableRow>
+        </tbody>
       </StyTable>
 
       <StyTable style={TableStyle}>
@@ -224,14 +228,14 @@ export default function AprsTelemetryData() {
     a3: "unk",
     a4: "unk",
     a5: "unk",
-    b1: "unk",
-    b2: "unk",
-    b3: "unk",
-    b4: "unk",
-    b5: "unk",
-    b6: "unk",
-    b7: "unk",
-    b8: "unk",
+    d1: "unk",
+    d2: "unk",
+    d3: "unk",
+    d4: "unk",
+    d5: "unk",
+    d6: "unk",
+    d7: "unk",
+    d8: "unk",
     sequence_number: "unk",
     comment: "unk",
   });

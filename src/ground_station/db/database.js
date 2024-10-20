@@ -116,7 +116,7 @@ module.exports = class PostgresDatabase {
   }
 
   #getUnixTime() {
-    return Math.round(+new Date() / 1000);
+    return Math.round(new Date().getTime() / 1000);
   }
 
   addAprsFiData(data) {
@@ -534,7 +534,33 @@ module.exports = class PostgresDatabase {
     });
   }
 
-  addFakeData(num = 1) {
+  deleteAprsTelemetryDataEntry(id, callback) {
+    this.db.run(
+      `DELETE FROM ReceivedAprsTelemetryData WHERE id=?`,
+      id,
+      function (err) {
+        if (err) {
+          callback(err, -1);
+          return;
+        }
+
+        callback(null, this.changes);
+      }
+    );
+  }
+
+  deleteAllAprsTelemetryDataEntries(callback) {
+    this.db.run(`DELETE FROM ReceivedAprsTelemetryData`, function (err) {
+      if (err) {
+        callback(err, -1);
+        return;
+      }
+
+      callback(null, this.changes);
+    });
+  }
+
+  addFakeAprsTelemetryData(num = 1) {
     const start_time = this.#getUnixTime() - 3600;
     let current = 5;
     let up = true;

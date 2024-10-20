@@ -215,20 +215,59 @@ function GgsLog() {
           justifyContent: "center",
           marginTop: "1rem",
         }}
-      >
-        <ApiRequestButton
-          api_endpoint={"/api/ggs/log"}
-          title={"delete all log entries"}
-          request_data_callback={() => {
-            return { id: "all" };
-          }}
-          api_method={"DELETE"}
-          confirmation_message={
-            "Are you sure you want to delete all log entries? This action cannot be undone."
-          }
-        />
-      </div>
+      ></div>
       {isLoading === true ? "loading" : "loaded"}
+    </div>
+  );
+}
+
+function GroundStationDatabaseUtilities() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        marginTop: "1rem",
+        alignItems: "center",
+        gap: "1rem",
+      }}
+    >
+      <ApiRequestButton
+        api_endpoint={"/api/ggs/log"}
+        title={"delete all ground station log entries"}
+        request_data_callback={() => {
+          return { id: "all" };
+        }}
+        api_method={"DELETE"}
+        confirmation_message={
+          "Are you sure you want to delete all log entries? This action will permanently delete all GGS/Ground Station log entries."
+        }
+        unsafe={true}
+      />
+
+      <ApiRequestButton
+        api_endpoint={"/api/gdl/aprs_telemetry"}
+        title={"delete all aprs telemetry data"}
+        request_data_callback={() => {
+          return { id: "all" };
+        }}
+        api_method={"DELETE"}
+        confirmation_message={
+          "Are you sure you want to delete all log entries? This action will permanently delete all APRS telemetry data."
+        }
+        unsafe={true}
+      />
+
+      <ApiRequestDropdown
+        api_endpoint={"/api/gdl/aprs_telemetry/fake"}
+        title={"add fake aprs telemetry data packet"}
+        options={["1", "10", "100", "500", "1000"]}
+        // api_method={"POST"}
+        unsafe={true}
+        no_loading={true}
+        data_key={"num"}
+      />
     </div>
   );
 }
@@ -242,14 +281,18 @@ function DataLogsPage() {
           <Card title="Ground Station Status">
             <DataBlock resource="ggs" category="status" stream_name="status" />
           </Card>
+
           <Card title="Ground Station Log">
             <GgsLog />
           </Card>
         </CardMasonryLayout>
       </PageContent>
-      <PageTitle title="Ground Station Configuration">
-        @todo - add a description here
-      </PageTitle>
+      <PageTitle title="Database">@todo - add a description here</PageTitle>
+      <CardMasonryLayout>
+        <Card title="Ground Station Database Utilities">
+          <GroundStationDatabaseUtilities />
+        </Card>
+      </CardMasonryLayout>
     </>
   );
 }

@@ -14,6 +14,7 @@ export const Page = styled.div`
   max-width: ${(props) => props.theme.pages.max_width};
   margin: 0 ${(props) => props.theme.pages.side_margin};
   margin: 0 auto;
+  margin-bottom: 2rem;
 `;
 
 const TitleExpandArrowStyle = styled.button`

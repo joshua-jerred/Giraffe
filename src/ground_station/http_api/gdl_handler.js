@@ -128,7 +128,7 @@ module.exports = function (global_state) {
     }
 
     async function databaseCallback(packet_rows) {
-      console.log("data", packet_rows);
+      // console.log("data", packet_rows);
 
       let latest_packet_time = 0;
       let earliest_packet_time = 0;
@@ -163,6 +163,45 @@ module.exports = function (global_state) {
         databaseCallback(data);
       }
     );
+  });
+
+  router.delete("/aprs_telemetry", (req, res, next) => {
+    if (!req.body.hasOwnProperty("id")) {
+      res.status(400).json({ message: "id is required" });
+      return;
+    }
+
+    const id = req.body.id;
+
+    if (id === "all") {
+      global_state.database.deleteAllAprsTelemetryDataEntries((err, result) => {
+        if (err) {
+          res.status(500).json({ message: "Failed to delete all entries" });
+          return;
+        }
+        res.json({ message: "deleted " + result + " entries" });
+      });
+      return;
+    }
+
+    global_state.database.deleteAprsTelemetryDataEntry(id, (err, result) => {
+      if (err) {
+        res.status(500).json({ message: "Failed to delete entry" });
+        return;
+      }
+      res.json({ message: "deleted " + result + " entries" });
+    });
+  });
+
+  router.post("/aprs_telemetry/fake", (req, res, next) => {
+    if (!req.body.hasOwnProperty("num")) {
+      res.status(400).json({ message: "num is required" });
+      return;
+    }
+
+    global_state.database.addFakeAprsTelemetryData(req.body.num);
+
+    res.status(200).json({ message: "success" });
   });
 
   return router;

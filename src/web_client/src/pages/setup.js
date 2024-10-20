@@ -12,6 +12,7 @@ import { GwsGlobal } from "../GlobalContext";
 import { LocalItemEdit } from "../components/ItemEdit";
 import { SwitchWithLabel } from "../components/styled/StyledComponents";
 import { EditBox } from "../components/Editable";
+import { useTheme } from "styled-components";
 
 function SetupPage() {
   // For GWS Client Configuration
@@ -23,7 +24,11 @@ function SetupPage() {
     ggsAddress,
     setClientName,
     setGgsAddress,
+    unsafeMode,
+    setUnSafeMode,
   } = useContext(GwsGlobal);
+
+  const theme = useTheme();
 
   // Test client connection to the GGS server
   function testGgs(address) {
@@ -99,6 +104,29 @@ function SetupPage() {
               setChecked={setClientDarkTheme}
               label="Dark Theme"
             />
+            <SwitchWithLabel
+              checked={unsafeMode}
+              setChecked={setUnSafeMode}
+              label="Unsafe Mode"
+              onColor={theme.error}
+              offColor={theme.success}
+            />
+            {unsafeMode ? (
+              <CardContentCentered
+                style={{
+                  backgroundColor: theme.error,
+                  padding: "1rem",
+                  borderRadius: "0.5rem",
+                }}
+                className="noselect"
+              >
+                <strong>WARNING</strong>
+                <br />
+                Unsafe mode is enabled. This allows the client to make changes
+                to the Ground Station server during a flight. This mode should
+                be disabled when not in use.
+              </CardContentCentered>
+            ) : null}
           </Card>
         </CardMasonryLayout>
       </PageContent>

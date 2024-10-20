@@ -8,7 +8,7 @@ const RequestButton = styled(StyButton)`
   white-space: nowrap;
   flex-grow: 1;
   padding: 0.2rem;
-  max-width: 18rem;
+  max-width: 30em;
   background: ${(props) =>
     props.enabled ? props.theme.primary : props.theme.primary_soft};
 
@@ -24,7 +24,10 @@ const RequestButton = styled(StyButton)`
 `;
 
 /**
- * @param {bool} button_loading_override - Set to true to keep the button disabled and in a "loading" state.
+ * @param {bool} button_loading_override - Set to true to keep the button
+ * disabled and in a "loading" state.
+ * @param {string} unsafe - Set to true if the API request is considered unsafe.
+ * This will then require unsafe mode to be enabled.
  */
 export function ApiRequestButton({
   api_endpoint,
@@ -36,13 +39,14 @@ export function ApiRequestButton({
   style = {},
   api_method = "PUT",
   confirmation_message = null,
+  unsafe = false,
 }) {
   // idle, loading, success, error
   const [requestState, setRequestState] = useState("idle");
   const [buttonContent, setButtonContent] = useState(title);
   const [buttonEnabled, setButtonEnabled] = useState(true);
   const [error, setError] = useState(null);
-  const { isGgsConnected, ggsAddress } = useContext(GwsGlobal);
+  const { isGgsConnected, ggsAddress, unsafeMode } = useContext(GwsGlobal);
 
   // Used to briefly show the success or error state
   const temporaryState = (new_temporary_state) => {
@@ -64,6 +68,15 @@ export function ApiRequestButton({
       if (!window.confirm(confirmation_message)) {
         return;
       }
+    } else if (unsafe) {
+      // unsafe but no confirmation message
+      if (
+        !window.confirm(
+          "This action requires unsafe mode. Are you sure you want to do this?"
+        )
+      ) {
+        return;
+      }
     }
 
     setRequestState("loading");
@@ -76,21 +89,28 @@ export function ApiRequestButton({
       body: JSON.stringify(data),
     })
       .then((response) => {
-        const json_data = response.json();
+        // const json_data = response.json();
         if (!response.ok) {
-          throw new Error("response code was not ok " + json_data);
+          throw new Error("response code was not ok " + response.status);
         } else {
           temporaryState("success");
-          success_callback(json_data);
+          success_callback(true);
         }
       })
       .catch((error) => {
-        setError(error);
+        setError(error.what);
         temporaryState("error");
       });
   };
 
   useEffect(() => {
+    if (unsafe && !unsafeMode) {
+      setButtonEnabled(false);
+      setError("unsafe mode required");
+      setRequestState("unsafe");
+      return;
+    }
+
     if (requestState === "idle") {
       setButtonContent(title);
       setButtonEnabled(
@@ -127,6 +147,21 @@ export function ApiRequestButton({
         <i className="fa fa-spinner fa-spin"></i>
       ) : null}
       {requestState === "success" ? <i className="fa fa-check"></i> : null}
+      {error && (
+        <p
+          style={{
+            textAlign: "center",
+            margin: "auto",
+            paddingLeft: "0.5rem",
+            paddingRight: "0.5rem",
+            borderStyle: "solid",
+            boarderRadius: "1rem",
+            width: "fit-content",
+          }}
+        >
+          {error}
+        </p>
+      )}
     </RequestButton>
   );
 }
@@ -136,11 +171,13 @@ export function ApiRequestDropdown({
   options,
   data_key = "key",
   title = "submit",
+  unsafe = false,
+  no_loading = false,
 }) {
   const { ggsAddress } = useContext(GwsGlobal);
 
   const [selected, setSelected] = useState(options[0]);
-  const [loadedInitialData, setLoadedInitialData] = useState(false);
+  const [loadedInitialData, setLoadedInitialData] = useState(no_loading);
 
   const requestDataCallback = () => {
     return { [data_key]: selected };
@@ -203,6 +240,7 @@ export function ApiRequestDropdown({
         error_callback={errorCallback}
         style={{ flexGrow: 1, maxWidth: "30%" }}
         button_loading_override={loadedInitialData === false}
+        unsafe={unsafe}
       />
     </div>
   );

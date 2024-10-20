@@ -174,7 +174,7 @@ const StySwitch = styled.div`
   margin: ${(props) => props.theme.components.switch.margin};
   width: ${(props) => props.theme.components.switch.width};
   height: ${(props) => props.theme.components.switch.height};
-  background: ${(props) => props.theme.surface_container_highest};
+  background: ${(props) => props.offColor || props.theme.surface};
   border-radius: ${(props) => props.theme.components.switch.border_radius};
   padding: 4px;
   border: ${(props) => props.theme.components.switch.border_style}
@@ -200,7 +200,8 @@ const StySwitchInput = styled.input`
   position: absolute;
 
   &:checked + ${StySwitch} {
-    background: ${(props) => props.theme.primary};
+    background: ${(props) =>
+      props.onColor ? props.onColor : props.theme.primary};
 
     &:before {
       transform: translate(
@@ -214,7 +215,14 @@ const StySwitchInput = styled.input`
   }
 `;
 
-export function Switch({ checked, setChecked, onChange, defaultChecked }) {
+export function Switch({
+  checked,
+  setChecked,
+  onChange,
+  defaultChecked,
+  onColor = null,
+  offColor = null,
+}) {
   const handleChange = () => {
     setChecked(!checked);
   };
@@ -225,8 +233,10 @@ export function Switch({ checked, setChecked, onChange, defaultChecked }) {
         checked={checked}
         onChange={onChange != null ? onChange : handleChange}
         defaultChecked={defaultChecked}
+        onColor={onColor}
+        offColor={offColor}
       />
-      <StySwitch />
+      <StySwitch onColor={onColor} offColor={offColor} />
     </StySwitchLabel>
   );
 }
@@ -244,6 +254,8 @@ export function SwitchWithLabel({
   onChange,
   defaultChecked,
   label,
+  onColor = null,
+  offColor = null,
 }) {
   return (
     <SwitchWithLabelContainer>
@@ -253,6 +265,8 @@ export function SwitchWithLabel({
         setChecked={setChecked}
         onChange={onChange}
         defaultChecked={defaultChecked}
+        onColor={onColor}
+        offColor={offColor}
       />
     </SwitchWithLabelContainer>
   );
