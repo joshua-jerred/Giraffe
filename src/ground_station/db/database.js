@@ -1,18 +1,7 @@
 const sqlite3 = require("sqlite3").verbose();
 const file_paths = require("../file_paths");
-const sql = require("postgres");
 
-// const pg = require("pg");
-// const { Client } = pg;
-// const client = new Client({
-//   user: "postgres",
-//   password: "postgres",
-//   host: "localhost",
-//   port: 5432,
-//   database: "testing",
-// });
-
-module.exports = class PostgresDatabase {
+module.exports = class GroundStationDatabase {
   constructor() {
     this.db = new sqlite3.Database(file_paths.GGS_SQLITE_DB, (error) => {
       if (error) {
