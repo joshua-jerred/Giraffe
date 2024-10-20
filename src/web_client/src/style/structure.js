@@ -17,7 +17,7 @@ const StyleStructure = {
   },
   pages: {
     side_margin: "25px",
-    max_width: "1400px",
+    max_width: "95rem",
     title_margin: "15px",
   },
   cards: {
@@ -35,7 +35,7 @@ const StyleStructure = {
   components: {
     button: {
       border_radius: "5px",
-      max_width: "150px",
+      max_width: "25rem",
       border_style: "0px solid",
       hover_shadow: "0px 0px 4px 0px rgba(0,0,0,0.75)",
     },
@@ -65,7 +65,7 @@ const StyleStructure = {
       max_height: "100px",
       border_radius: "5px",
       padding: "0.5em 0.7em",
-      transition_delay: "0.5s",
+      transition_delay: "1000ms",
     },
   },
 };

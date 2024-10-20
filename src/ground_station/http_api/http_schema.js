@@ -25,6 +25,7 @@ const valid_gdl_categories = [
   "telemetry",
   "broadcast",
   "config",
+  "aprs_telemetry",
 ];
 
 var verifyPathSchema = function (req, res, next) {

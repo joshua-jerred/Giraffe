@@ -95,5 +95,76 @@ module.exports = function (global_state) {
     });
   });
 
+  router.delete("/log", (req, res) => {
+    if (!req.body.hasOwnProperty("id")) {
+      genericResponse(res, 400, "id is required.");
+      return;
+    }
+
+    if (req.body.id === "all") {
+      global_state.database.deleteAllLogEntries((err, deleted_count) => {
+        if (err) {
+          genericResponse(res, 500, err);
+          return;
+        }
+        genericResponse(
+          res,
+          200,
+          "success - deleted " + deleted_count + " records."
+        );
+      });
+      return;
+    }
+
+    global_state.database.deleteLogEntry(req.body.id, (err, updates) => {
+      if (err) {
+        genericResponse(res, 500, err);
+        return;
+      }
+
+      if (updates > 0) {
+        genericResponse(res, 200, "success");
+      } else if (updates === 0) {
+        genericResponse(res, 401, "id not found, no records updated.");
+      } else {
+        genericResponse(res, 500, "unknown error.");
+      }
+    });
+  });
+
+  router.get("/log/level", (req, res) => {
+    const level = global_state.ggs_db.get(
+      "settings",
+      "ggs_settings",
+      "logging_level"
+    );
+    res.json({
+      level: level,
+    });
+  });
+
+  router.put("/log/level", (req, res) => {
+    if (!req.body.hasOwnProperty("level")) {
+      genericResponse(res, 400, "level is required.");
+      return;
+    }
+
+    if (["error", "warning", "info", "debug"].includes(req.body.level)) {
+      global_state.ggs_db.setKey(
+        "settings",
+        "ggs_settings",
+        "logging_level",
+        req.body.level,
+        true // Save
+      );
+      genericResponse(res, 200, "success");
+      global_state.logging_level = req.body.level;
+      global_state.info("Log level set to " + req.body.level);
+      return;
+    }
+
+    genericResponse(res, 400, "invalid level.");
+  });
+
   return router;
 };

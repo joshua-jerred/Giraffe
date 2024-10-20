@@ -24,6 +24,7 @@ export const darkTheme2 = {
 
   surface: `#212325`,
   surface_alt: `#2d3032`,
+  surface_alt_2: `#322d30`,
   surface_hover_soft: `#2d3032`, // Closest to surface
   surface_hover: `#3c4042`, // Farthest from surface
   surface_hover_hard: `#444749`, // Farthest from surface

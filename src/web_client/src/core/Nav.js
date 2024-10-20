@@ -200,7 +200,7 @@ function NavBar({ navExpanded, setNavExpanded }) {
             path={"/ggs/command-center"}
           />
           <NavItem title="Telemetry" label="TLM" path={"/ggs/telemetry"} />
-          <NavItem title="Data Logs" label="DAT" path={"/ggs/data-logs"} />
+          <NavItem title="Data" label="DAT" path={"/ggs/data-logs"} />
           <NavItem title="Diagnostic" label="DIA" path={"/ggs/diagnostics"} />
         </NavItem>
 

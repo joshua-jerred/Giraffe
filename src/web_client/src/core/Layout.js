@@ -6,6 +6,8 @@ import NavBar from "./Nav";
 import { Page } from "./PageParts";
 import StatusBar from "./StatusBar";
 
+import { GwsGlobal } from "../GlobalContext";
+
 const Content = styled.div`
   margin-left: ${(props) =>
     props.navExpanded
@@ -16,12 +18,7 @@ const Content = styled.div`
 `;
 
 function Layout() {
-  let direction = localStorage.getItem("nav_expanded") === "true";
-  const [navExpanded, setNavExpanded] = React.useState(direction);
-
-  React.useEffect(() => {
-    localStorage.setItem("nav_expanded", navExpanded);
-  }, [navExpanded]);
+  const { navExpanded, setNavExpanded } = React.useContext(GwsGlobal);
 
   return (
     <>

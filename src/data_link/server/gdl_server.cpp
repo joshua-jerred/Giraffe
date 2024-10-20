@@ -78,6 +78,9 @@ int GdlServer::run() {
         }
       }
     }
+
+    /// @todo There might be a better way to do this.
+    bst::sleep(2); // prevent 100% CPU usage
   }
 
   if (gdl_.isEnabled()) {

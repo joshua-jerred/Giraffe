@@ -208,14 +208,24 @@ module.exports = class GdlConnection {
       }
     } else if (received_resource === "received_messages") {
       for (let obj of received_data) {
-        if (obj.type !== "LOCATION") {
+        // console.log("packet type: " + obj.type);
+        // console.log("packet identifier: " + obj.identifier);
+        // console.log(obj.data);
+        if (obj.type === "BROADCAST" || obj.type === "EXCHANGE") {
           this.global_state.database.addReceivedMessage(
             obj.type,
             obj.data,
-            obj.identifier
+            obj.identifier,
+            obj.timestamp
           );
-        } else {
-          let loc = obj.location;
+        } else if (obj.type === "TELEMETRY_DATA_REPORT") {
+          let data = obj.data;
+          this.global_state.database.addReceivedTelemetryDataReport(
+            data,
+            obj.timestamp
+          );
+        } else if (obj.type === "LOCATION") {
+          let loc = obj.data;
           this.global_state.database.addReceivedLocation(
             loc.latitude,
             loc.longitude,
@@ -224,6 +234,8 @@ module.exports = class GdlConnection {
             loc.heading,
             loc.time_code
           );
+        } else {
+          console.log("Unknown packet type: " + obj.type);
         }
       }
     } else if (received_resource === "sent_messages") {
@@ -235,7 +247,7 @@ module.exports = class GdlConnection {
             obj.identifier
           );
         } else {
-          console.log("location packet sent, not implemented yet");
+          console.log("packet sent, not implemented yet");
         }
       }
     } else {

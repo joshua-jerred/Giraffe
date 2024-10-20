@@ -392,6 +392,12 @@ struct CalculatedData {
   double battery_usage_mah = 0.0;
   bool battery_usage_mah_valid = false;
 
+  /// @brief The estimated state of charge of the battery.
+  /// @details Ranges from -100% to 100% (-100, 100), where 100% is fully
+  /// charged, 0% is empty, and -100% is 200% discharged.
+  int32_t battery_state_of_charge = 0.0;
+  bool battery_state_of_charge_valid = false;
+
   double external_temperature_c = 0.0;
   bool external_temperature_valid = false;
 
@@ -403,12 +409,6 @@ struct CalculatedData {
   double barometric_pressure_mbar = 0.0;
   /// @brief The validity flag for barometric_pressure_mbar.
   bool barometric_pressure_valid = false;
-
-  /// @brief The estimated state of charge of the battery.
-  /// @details Ranges from -100% to 100% (-100, 100), where 100% is fully
-  /// charged, 0% is empty, and -100% is 200% discharged.
-  int32_t battery_state_of_charge = 0.0;
-  bool battery_state_of_charge_valid = false;
 
   int32_t pressure_altitude_m = 0;
   bool pressure_altitude_valid = false;
@@ -453,6 +453,20 @@ struct CalculatedData {
 
   Json toJson() {
     Json json_data;
+    json_data["battery_voltage_mv"] = battery_voltage_mv;
+    json_data["battery_voltage_mv_valid"] = battery_voltage_mv_valid;
+    json_data["battery_current_ma"] = battery_current_ma;
+    json_data["battery_current_ma_valid"] = battery_current_ma_valid;
+    json_data["battery_usage_mah"] = battery_usage_mah;
+    json_data["battery_usage_mah_valid"] = battery_usage_mah_valid;
+    json_data["battery_state_of_charge"] = battery_state_of_charge;
+    json_data["battery_state_of_charge_valid"] = battery_state_of_charge_valid;
+    json_data["external_temperature_c"] = external_temperature_c;
+    json_data["external_temperature_valid"] = external_temperature_valid;
+    json_data["relative_humidity"] = relative_humidity;
+    json_data["relative_humidity_valid"] = relative_humidity_valid;
+    json_data["barometric_pressure_mbar"] = barometric_pressure_mbar;
+    json_data["barometric_pressure_valid"] = barometric_pressure_valid;
     json_data["pressure_altitude_m"] = pressure_altitude_m;
     json_data["pressure_altitude_valid"] = pressure_altitude_valid;
     json_data["pressure_vertical_speed"] = pressure_vertical_speed;
@@ -469,6 +483,9 @@ struct CalculatedData {
     json_data["max_horiz_speed_mps"] = max_horizontal_speed_mps;
     json_data["max_vert_speed_mps"] = max_vertical_speed_mps;
     json_data["max_speed_valid"] = max_speed_valid;
+    json_data["uplink_rssi"] = uplink_rssi;
+    json_data["uplink_rssi_valid"] = uplink_rssi_valid;
+    json_data["gps_fix_valid"] = gps_fix_valid;
     return json_data;
   }
 };

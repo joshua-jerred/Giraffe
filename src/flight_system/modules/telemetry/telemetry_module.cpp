@@ -31,10 +31,6 @@ void modules::TelemetryModule::startup() {
       configuration_.telemetry_aprs.getDestinationAddress());
   gdl_config_.setRemoteSSID(configuration_.telemetry_aprs.getDestinationSsid());
 
-  gdl_config_.setRemoteCallSign(
-      configuration_.telemetry_aprs.getDestinationAddress());
-  gdl_config_.setRemoteSSID(configuration_.telemetry_aprs.getDestinationSsid());
-
   // Now in the APRS Manager
   aprs_position_packet_timer_.setTimeout(
       configuration_.telemetry_aprs.getPositionPacketInterval() * 1000);

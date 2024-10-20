@@ -28,6 +28,8 @@
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
+#include <BoosterSeat/time.hpp>
+
 #include <SignalEasel/aprs/packets.hpp>
 
 #include <giraffe_assert.hpp>
@@ -169,6 +171,7 @@ public:
 
   json getJson() const {
     json data = {{"identifier", getIdentifierString()}};
+    data["timestamp"] = getTimestamp();
     switch (getType()) {
     case Type::BROADCAST: {
       data["type"] = "BROADCAST";
@@ -180,21 +183,59 @@ public:
     } break;
     case Type::LOCATION: {
       data["type"] = "LOCATION";
-      data["contents"] = {{"latitude", getLocation().latitude},
-                          {"longitude", getLocation().longitude},
-                          {"altitude", getLocation().altitude},
-                          {"speed", getLocation().speed},
-                          {"heading", getLocation().heading},
-                          {"time_code", getLocation().time_code}};
+      data["data"] = {{"latitude", getLocation().latitude},
+                      {"longitude", getLocation().longitude},
+                      {"altitude", getLocation().altitude},
+                      {"speed", getLocation().speed},
+                      {"heading", getLocation().heading},
+                      {"time_code", getLocation().time_code}};
     } break;
     case Type::IMAGE: {
       data["type"] = "IMAGE";
-      data["contents"] = {{"path", getImage().path}};
+      data["data"] = {{"path", getImage().path}};
     } break;
     case Type::TELEMETRY: {
-      data["type"] = "TELEMETRY";
-      data["contents"] = {{"telemetry_type", "not implemented"},
-                          {"telemetry_data", "not implemented"}};
+      auto telem_message = getTelemetry();
+      auto &telem = telem_message.telemetry_data;
+      switch (telem_message.telemetry_type) {
+      case AprsTelemetry::TelemType::TELEMETRY_DATA_REPORT: {
+        using ParId = signal_easel::aprs::telemetry::Parameter::Id;
+        data["type"] = "TELEMETRY_DATA_REPORT";
+        data["data"] = {{
+                            "sequence_number",
+                            telem.getSequenceNumber(),
+                        },
+                        {"a1", telem.getAnalog(ParId::A1).getValue()},
+                        {"a2", telem.getAnalog(ParId::A2).getValue()},
+                        {"a3", telem.getAnalog(ParId::A3).getValue()},
+                        {"a4", telem.getAnalog(ParId::A4).getValue()},
+                        {"a5", telem.getAnalog(ParId::A5).getValue()},
+                        {"d1", telem.getDigital(ParId::B1).getValue()},
+                        {"d2", telem.getDigital(ParId::B2).getValue()},
+                        {"d3", telem.getDigital(ParId::B3).getValue()},
+                        {"d4", telem.getDigital(ParId::B4).getValue()},
+                        {"d5", telem.getDigital(ParId::B5).getValue()},
+                        {"d6", telem.getDigital(ParId::B6).getValue()},
+                        {"d7", telem.getDigital(ParId::B7).getValue()},
+                        {"d8", telem.getDigital(ParId::B8).getValue()},
+                        {"comment", telem.getComment()}};
+      } break;
+      case AprsTelemetry::TelemType::TELEMETRY_COEFFICIENT:
+        data["type"] = "TELEMETRY_COEFFICIENT";
+        break;
+      case AprsTelemetry::TelemType::TELEMETRY_PARAMETER_NAME:
+        data["type"] = "TELEMETRY_PARAMETER_NAME";
+        break;
+      case AprsTelemetry::TelemType::TELEMETRY_PARAMETER_UNIT:
+        data["type"] = "TELEMETRY_PARAMETER_UNIT";
+        break;
+      case AprsTelemetry::TelemType::TELEMETRY_BIT_SENSE_PROJ_NAME:
+        data["type"] = "TELEMETRY_BIT_SENSE_PROJ_NAME";
+        break;
+      default:
+        data["type"] = "TELEMETRY_UNKNOWN";
+        break;
+      };
     } break;
     }
     return data;
@@ -217,12 +258,28 @@ public:
     return false;
   }
 
+  /// @brief Set the timestamp of the message to the current time.
+  /// @details Unix time - seconds since epoch
+  void updateTimestamp() {
+    timestamp_ = bst::getUnixTime();
+  }
+
+  /// @brief Get the timestamp of the message in Unix time (seconds since
+  /// epoch).
+  uint32_t getTimestamp() const {
+    return timestamp_;
+  }
+
 private:
   uint32_t identifier_ = 0;
   Type type_{Type::BROADCAST};
   // std::string data_{};
   // Location location_{};
   std::variant<std::string, Location, Image, AprsTelemetry> contents_;
+
+  /// @brief The timestamp of when the message was received or sent.
+  /// @details Unix time - seconds since epoch
+  uint32_t timestamp_{0};
 };
 
 /**

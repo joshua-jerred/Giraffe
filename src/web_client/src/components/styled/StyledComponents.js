@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyButton = styled.button`
   font-size: ${(props) => props.theme.fonts.button.size};
@@ -14,6 +14,8 @@ export const StyButton = styled.button`
   padding: 0em 0.7em;
   transition: ${(props) => props.theme.transitions.default};
   font-family: ${(props) => props.theme.fonts.title};
+
+  white-space: nowrap;
 
   &:hover {
     cursor: pointer;
@@ -46,24 +48,24 @@ export const StyNeutralButton = styled(StyButton)`
 
 export const StySaveButton = styled(StyButton)`
   background: ${(props) =>
-    props.saved === 'yes'
+    props.saved === "yes"
       ? props.theme.surface_hover_hard
       : props.theme.primary};
   color: ${(props) =>
-    props.saved === 'yes' ? props.theme.surface : props.theme.on_primary};
+    props.saved === "yes" ? props.theme.surface : props.theme.on_primary};
   &:hover {
     background: ${(props) =>
-      props.saved === 'yes'
+      props.saved === "yes"
         ? props.theme.surface_hover_hard
         : props.theme.primary_hover};
-    cursor: ${(props) => (props.saved === 'yes' ? 'default' : 'pointer')};
+    cursor: ${(props) => (props.saved === "yes" ? "default" : "pointer")};
     box-shadow: ${(props) =>
-      props.saved === 'yes'
-        ? 'none'
+      props.saved === "yes"
+        ? "none"
         : props.theme.components.button.hover_shadow};
   }
   &:active {
-    filter: ${(props) => (props.saved === 'yes' ? 'none' : 'brightness(0.9)')};
+    filter: ${(props) => (props.saved === "yes" ? "none" : "brightness(0.9)")};
   }
 `;
 
@@ -145,6 +147,23 @@ export const StyOption = styled.option`
   }
 `;
 
+export function SelectMenu({ options, selected, setSelected, style = {} }) {
+  return (
+    <StySelect
+      value={selected}
+      onChange={(e) => setSelected(e.target.value)}
+      name="select"
+      style={style}
+    >
+      {options.map((option) => (
+        <StyOption key={option} value={option}>
+          {option}
+        </StyOption>
+      ))}
+    </StySelect>
+  );
+}
+
 const StySwitchLabel = styled.label`
   cursor: pointer;
   display: inline-block;
@@ -155,14 +174,14 @@ const StySwitch = styled.div`
   margin: ${(props) => props.theme.components.switch.margin};
   width: ${(props) => props.theme.components.switch.width};
   height: ${(props) => props.theme.components.switch.height};
-  background: ${(props) => props.theme.surface_container_highest};
+  background: ${(props) => props.offColor || props.theme.surface};
   border-radius: ${(props) => props.theme.components.switch.border_radius};
   padding: 4px;
   border: ${(props) => props.theme.components.switch.border_style}
     ${(props) => props.theme.outline};
   &:before {
     transition: ${(props) => props.theme.transitions.default};
-    content: '';
+    content: "";
     position: absolute;
     width: ${(props) => props.theme.components.switch.handle_width};
     height: ${(props) => props.theme.components.switch.handle_height};
@@ -181,7 +200,8 @@ const StySwitchInput = styled.input`
   position: absolute;
 
   &:checked + ${StySwitch} {
-    background: ${(props) => props.theme.primary};
+    background: ${(props) =>
+      props.onColor ? props.onColor : props.theme.primary};
 
     &:before {
       transform: translate(
@@ -195,7 +215,14 @@ const StySwitchInput = styled.input`
   }
 `;
 
-export function Switch({ checked, setChecked, onChange, defaultChecked }) {
+export function Switch({
+  checked,
+  setChecked,
+  onChange,
+  defaultChecked,
+  onColor = null,
+  offColor = null,
+}) {
   const handleChange = () => {
     setChecked(!checked);
   };
@@ -206,8 +233,10 @@ export function Switch({ checked, setChecked, onChange, defaultChecked }) {
         checked={checked}
         onChange={onChange != null ? onChange : handleChange}
         defaultChecked={defaultChecked}
+        onColor={onColor}
+        offColor={offColor}
       />
-      <StySwitch />
+      <StySwitch onColor={onColor} offColor={offColor} />
     </StySwitchLabel>
   );
 }
@@ -225,6 +254,8 @@ export function SwitchWithLabel({
   onChange,
   defaultChecked,
   label,
+  onColor = null,
+  offColor = null,
 }) {
   return (
     <SwitchWithLabelContainer>
@@ -234,6 +265,8 @@ export function SwitchWithLabel({
         setChecked={setChecked}
         onChange={onChange}
         defaultChecked={defaultChecked}
+        onColor={onColor}
+        offColor={offColor}
       />
     </SwitchWithLabelContainer>
   );

@@ -1,7 +1,7 @@
 const sqlite3 = require("sqlite3").verbose();
 const file_paths = require("../file_paths");
 
-module.exports = class PostgresDatabase {
+module.exports = class GroundStationDatabase {
   constructor() {
     this.db = new sqlite3.Database(file_paths.GGS_SQLITE_DB, (error) => {
       if (error) {
@@ -9,19 +9,17 @@ module.exports = class PostgresDatabase {
       }
     });
 
-    this.createTables();
+    this.#createTables();
   }
 
-  createTables() {
+  #createTables() {
     try {
-      this.db.exec(
-        `CREATE TABLE IF NOT EXISTS ggs_log (
+      this.db.exec(`CREATE TABLE IF NOT EXISTS GroundStationLog (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             level              TEXT      NOT NULL,
             message            TEXT      NOT NULL,
             timestamp          INTEGER   NOT NULL
-            );`
-      );
+            );`);
       this.db.exec(
         `CREATE TABLE IF NOT EXISTS gdl_server_log (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -80,9 +78,34 @@ module.exports = class PostgresDatabase {
             status_lasttime   INTEGER   DEFAULT -1
             );`
       );
+      this.db.exec(
+        `CREATE TABLE IF NOT EXISTS ReceivedAprsTelemetryData (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            timestamp              INTEGER NOT NULL,
+            sequence_number        INTEGER NOT NULL,
+            a1                     INTEGER NOT NULL,
+            a2                     INTEGER NOT NULL,
+            a3                     INTEGER NOT NULL,
+            a4                     INTEGER NOT NULL,
+            a5                     INTEGER NOT NULL,
+            d1                     INTEGER NOT NULL,
+            d2                     INTEGER NOT NULL,
+            d3                     INTEGER NOT NULL,
+            d4                     INTEGER NOT NULL,
+            d5                     INTEGER NOT NULL,
+            d6                     INTEGER NOT NULL,
+            d7                     INTEGER NOT NULL,
+            d8                     INTEGER NOT NULL,
+            comment                TEXT    NOT NULL
+            );`
+      );
     } catch (err) {
       console.log(err);
     }
+  }
+
+  #getUnixTime() {
+    return Math.round(new Date().getTime() / 1000);
   }
 
   addAprsFiData(data) {
@@ -121,9 +144,9 @@ module.exports = class PostgresDatabase {
   }
 
   addLog(level, message) {
-    var unix_time = Math.round(+new Date() / 1000);
+    var unix_time = Math.round(+new Date().getTime());
     this.db.run(
-      `INSERT INTO ggs_log (
+      `INSERT INTO GroundStationLog (
             level,
             message,
             timestamp
@@ -142,13 +165,42 @@ module.exports = class PostgresDatabase {
 
   getRecentLogData(callback) {
     const LIMIT = 50;
-    const query = `SELECT * FROM ggs_log ORDER BY timestamp DESC LIMIT ${LIMIT};`;
+    const query = `SELECT * FROM GroundStationLog ORDER BY timestamp DESC LIMIT ${LIMIT};`;
     this.db.all(query, [], (err, rows) => {
       if (err) {
         console.log(err);
         return;
       }
       callback(rows);
+    });
+  }
+
+  /**
+   * @param {number} id - The id of the log entry to delete
+   * @param {function(err, updates)} callback - Callback function to call after
+   * the delete operation is complete. err will be either null or contain an
+   * error message, updates will be -1 on failure, or the number of rows updated
+   * on success.
+   */
+  deleteLogEntry(id, callback) {
+    this.db.run(`DELETE FROM GroundStationLog WHERE id=?`, id, function (err) {
+      if (err) {
+        callback(err, -1);
+        return;
+      }
+
+      callback(null, this.changes);
+    });
+  }
+
+  deleteAllLogEntries(callback) {
+    this.db.run(`DELETE FROM GroundStationLog`, function (err) {
+      if (err) {
+        callback(err, -1);
+        return;
+      }
+
+      callback(null, this.changes);
     });
   }
 
@@ -171,8 +223,7 @@ module.exports = class PostgresDatabase {
     );
   }
 
-  addReceivedMessage(type, data, identifier) {
-    let unix_time = Math.round(+new Date() / 1000);
+  addReceivedMessage(type, data, identifier, unix_time) {
     this.db.run(
       `INSERT INTO gdl_received_messages (
             type,
@@ -381,5 +432,157 @@ module.exports = class PostgresDatabase {
     }
   }
 
+  /// @deprecated
   connect() {}
+
+  /**
+   * Add telemetry data to the database
+   * @param {object} data - The telemetry data to add to the database
+   * @param {number} unix_time - Unix timestamp of when the data was received
+   */
+  addReceivedTelemetryDataReport(data, unix_time) {
+    this.db.run(
+      `INSERT INTO ReceivedAprsTelemetryData (
+          timestamp,
+          sequence_number,
+          a1, a2, a3, a4, a5,
+          d1, d2, d3, d4, d5, d6, d7, d8,
+          comment
+      ) VALUES (
+          $timestamp,
+          $sequence_number,
+          $a1, $a2, $a3, $a4, $a5,
+          $d1, $d2, $d3, $d4, $d5, $d6, $d7, $d8,
+          $comment
+        );`,
+      {
+        $timestamp: unix_time,
+        $sequence_number: data.sequence_number,
+        $a1: data.a1,
+        $a2: data.a2,
+        $a3: data.a3,
+        $a4: data.a4,
+        $a5: data.a5,
+        $d1: data.d1,
+        $d2: data.d2,
+        $d3: data.d3,
+        $d4: data.d4,
+        $d5: data.d5,
+        $d6: data.d6,
+        $d7: data.d7,
+        $d8: data.d8,
+        $comment: data.comment,
+      }
+    );
+  }
+
+  async getAprsTelemetryData(start_time, end_time, limit, callback) {
+    const MAX_LIMIT = 150;
+    const LIMIT = limit > MAX_LIMIT ? MAX_LIMIT : limit;
+    const query1 = `SELECT * FROM ReceivedAprsTelemetryData
+    WHERE timestamp >= ${start_time} AND timestamp <= ${end_time}
+    ORDER BY timestamp DESC
+    LIMIT ${LIMIT}`;
+
+    this.db.all(query1, [], (err, rows) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      callback(rows);
+    });
+  }
+
+  async getNumAprsTelemetryPackets() {
+    return new Promise((resolve, reject) => {
+      this.db.get(
+        `SELECT COUNT(*) as count FROM ReceivedAprsTelemetryData;`,
+        [],
+        (err, row) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(row.count);
+        }
+      );
+    });
+  }
+
+  async getLatestAprsTelemetryPacket() {
+    return new Promise((resolve, reject) => {
+      this.db.get(
+        `SELECT * FROM ReceivedAprsTelemetryData ORDER BY timestamp DESC LIMIT 1;`,
+        [],
+        (err, row) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(row);
+        }
+      );
+    });
+  }
+
+  deleteAprsTelemetryDataEntry(id, callback) {
+    this.db.run(
+      `DELETE FROM ReceivedAprsTelemetryData WHERE id=?`,
+      id,
+      function (err) {
+        if (err) {
+          callback(err, -1);
+          return;
+        }
+
+        callback(null, this.changes);
+      }
+    );
+  }
+
+  deleteAllAprsTelemetryDataEntries(callback) {
+    this.db.run(`DELETE FROM ReceivedAprsTelemetryData`, function (err) {
+      if (err) {
+        callback(err, -1);
+        return;
+      }
+
+      callback(null, this.changes);
+    });
+  }
+
+  addFakeAprsTelemetryData(num = 1) {
+    const start_time = this.#getUnixTime() - 3600;
+    let current = 5;
+    let up = true;
+    for (let i = 0; i <= num; i++) {
+      const random = Math.floor(Math.random() * 10);
+      current += up ? random : -random;
+      if (current > 230) {
+        up = false;
+      } else if (current < 0) {
+        up = true;
+        current = 5;
+      }
+
+      const dummy_data = {
+        sequence_number: i,
+        a1: current,
+        a2: current * 0.5,
+        a3: 70,
+        a4: 200,
+        a5: 10,
+        d1: 0,
+        d2: 1,
+        d3: 0,
+        d4: 0,
+        d5: 0,
+        d6: 0,
+        d7: 1,
+        d8: 0,
+        comment: "Test Data",
+      };
+
+      let unix_time = start_time + i * 60;
+      this.addReceivedTelemetryDataReport(dummy_data, unix_time);
+    }
+  }
 };

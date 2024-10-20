@@ -25,7 +25,8 @@ const TooltipContainer = styled.span`
   position: relative;
   &:hover ${TooltipBox} {
     transition-delay: ${(props) =>
-      props.specified_delay || props.theme.components.tooltip.transition_delay};
+      props.specified_delay ||
+      props.theme.components.tooltip.transition_delay}ms;
     visibility: visible;
     opacity: 1;
   }

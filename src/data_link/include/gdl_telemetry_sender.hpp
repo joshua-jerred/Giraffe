@@ -145,7 +145,9 @@ public:
     data_send_interval_stopwatch_.reset(STOP_ON_RESET);
 
     telemetry_data_lock_.lock();
-    bool sent = gdl.sendTelemetryData(telemetry_data_, getNextSequenceNumber());
+    uint16_t sequence_number = getNextSequenceNumber();
+    telemetry_data_.setSequenceNumber(sequence_number);
+    bool sent = gdl.sendTelemetryData(telemetry_data_, sequence_number);
     telemetry_data_lock_.unlock();
 
     if (sent) {
@@ -166,7 +168,11 @@ public:
 private:
   /// @brief Get the next sequence number for the telemetry data packet.
   /// @return The next sequence number.
-  uint32_t getNextSequenceNumber() {
+  uint16_t getNextSequenceNumber() {
+    // Reset the sequence number if reached the maximum.
+    if (sequence_number_ >= 999) {
+      sequence_number_ = 0;
+    }
     return sequence_number_++;
   }
 
@@ -233,8 +239,8 @@ private:
   TelemetryData telemetry_data_{};
 
   /// @brief The sequence number for the telemetry data packet. Incremented for
-  /// each packet sent.
-  uint32_t sequence_number_ = 0;
+  /// each packet sent. Range is 0-999.
+  uint16_t sequence_number_ = 0;
 
   /// @brief Used to determine when to send telemetry data.
   /// @details A bst::Stopwatch was used instead of a bst::Timer because the

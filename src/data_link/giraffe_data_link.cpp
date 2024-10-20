@@ -235,9 +235,7 @@ void DataLink::gdlThread() {
     // receive a message if there is one available
     if (transport_layer_.receive(message_buffer)) {
 
-      if (message_buffer.getType() == Message::Type::TELEMETRY) {
-        telemetry_receiver_.addMessage(message_buffer);
-      } else if (!in_queue_.push(message_buffer)) {
+      if (!in_queue_.push(message_buffer)) {
         /// @todo handle error (no space in queue)
         (void)message_buffer;
         std::cout << "ERROR: No space in received queue\n";

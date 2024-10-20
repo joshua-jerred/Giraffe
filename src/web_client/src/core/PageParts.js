@@ -1,8 +1,11 @@
 import styled from "styled-components";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+
+import Tooltip from "../components/Tooltip";
+import { GwsGlobal } from "../GlobalContext";
 
 export const Page = styled.div`
   padding: 0 0px;
@@ -11,6 +14,7 @@ export const Page = styled.div`
   max-width: ${(props) => props.theme.pages.max_width};
   margin: 0 ${(props) => props.theme.pages.side_margin};
   margin: 0 auto;
+  margin-bottom: 2rem;
 `;
 
 const TitleExpandArrowStyle = styled.button`
@@ -169,9 +173,24 @@ export const CardRow = styled.div`
   gap: 2%;
 `;
 
+const NAV_COLLAPSED_BREAKPOINTS = { 500: 1, 900: 2, 1390: 3 };
+const NAV_EXPANDED_BREAKPOINTS = { 650: 1, 1050: 2, 1640: 3 };
+
 export function CardMasonryLayout({ children }) {
+  const { navExpanded } = useContext(GwsGlobal);
+
+  const [breakpoints, setBreakpoints] = useState(NAV_COLLAPSED_BREAKPOINTS);
+
+  useEffect(() => {
+    if (navExpanded) {
+      setBreakpoints(NAV_EXPANDED_BREAKPOINTS);
+    } else {
+      setBreakpoints(NAV_COLLAPSED_BREAKPOINTS);
+    }
+  }, [navExpanded]);
+
   return (
-    <ResponsiveMasonry columnsCountBreakPoints={{ 390: 1, 900: 2, 1390: 3 }}>
+    <ResponsiveMasonry columnsCountBreakPoints={breakpoints}>
       <Masonry gutter="10px">{children}</Masonry>
     </ResponsiveMasonry>
   );
@@ -208,3 +227,43 @@ export const CardSectionTitle = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+// key: *value* w/ tooltip
+const KeyDataPairWithTooltip = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+
+    .sp1 {
+      font-weight: bold;
+      margin-right: 0.5em;
+      font-size: 0.8em;
+    }
+  }
+`;
+
+// data: [
+//    {Label: "label", value: "value", tooltip: "tooltip"},
+export function LabelDataPair({ data, style }) {
+  return (
+    <KeyDataPairWithTooltip style={style}>
+      {data.map((item) => (
+        <Tooltip text={item.tooltip} specified_delay={200} key={item.key}>
+          <li key={item.key}>
+            <span className="sp1">{item.key} </span>
+            <span>{item.value}</span>
+          </li>
+        </Tooltip>
+      ))}
+    </KeyDataPairWithTooltip>
+  );
+}
