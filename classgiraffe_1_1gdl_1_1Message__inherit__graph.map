@@ -1,4 +1,4 @@
 <map id="giraffe::gdl::Message" name="giraffe::gdl::Message">
-<area shape="rect" id="node1" title="A message that can be sent via GDL." alt="" coords="13,5,203,259"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Packet.html" title="The packet class is used in the transport and network layers. It contains some extra information." alt="" coords="5,307,211,472"/>
+<area shape="rect" id="node1" title="A message that can be sent via GDL." alt="" coords="26,5,190,273"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Packet.html" title="The packet class is used in the transport and network layers. It contains some extra information." alt="" coords="5,321,211,487"/>
 </map>

@@ -114,7 +114,6 @@ var hierarchy =
     [ "giraffe::CommonLogger< LOG_SIZE >", "classgiraffe_1_1CommonLogger.html", null ],
     [ "giraffe::FCInfo", "structgiraffe_1_1FCInfo.html", null ],
     [ "giraffe::FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", null ],
-    [ "giraffe::gdl::AprsTelemetryReceiver", "classgiraffe_1_1gdl_1_1AprsTelemetryReceiver.html", null ],
     [ "giraffe::gdl::AprsTelemetrySender", "classgiraffe_1_1gdl_1_1AprsTelemetrySender.html", null ],
     [ "giraffe::gdl::Config", "classgiraffe_1_1gdl_1_1Config.html", null ],
     [ "giraffe::gdl::GdlServer", "classgiraffe_1_1gdl_1_1GdlServer.html", null ],

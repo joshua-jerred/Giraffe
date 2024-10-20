@@ -189,9 +189,6 @@ var files_dup =
     [ "gdl_server_config.hpp", "gdl__server__config_8hpp.html", null ],
     [ "gdl_server_request_handlers.cpp", "gdl__server__request__handlers_8cpp.html", null ],
     [ "gdl_server_set_handlers.cpp", "gdl__server__set__handlers_8cpp.html", null ],
-    [ "gdl_telemetry_receiver.hpp", "gdl__telemetry__receiver_8hpp.html", [
-      [ "AprsTelemetryReceiver", "classgiraffe_1_1gdl_1_1AprsTelemetryReceiver.html", "classgiraffe_1_1gdl_1_1AprsTelemetryReceiver" ]
-    ] ],
     [ "gdl_telemetry_sender.hpp", "gdl__telemetry__sender_8hpp.html", [
       [ "AprsTelemetrySender", "classgiraffe_1_1gdl_1_1AprsTelemetrySender.html", "classgiraffe_1_1gdl_1_1AprsTelemetrySender" ]
     ] ],

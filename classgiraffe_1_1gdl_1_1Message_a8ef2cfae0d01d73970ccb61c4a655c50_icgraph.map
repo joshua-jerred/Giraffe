@@ -1,0 +1,9 @@
+<map id="giraffe::gdl::Message::getTimestamp" name="giraffe::gdl::Message::getTimestamp">
+<area shape="rect" id="node1" title="Get the timestamp of the message in Unix time (seconds since epoch)." alt="" coords="1068,39,1227,80"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7" title=" " alt="" coords="861,39,1020,80"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ab6878a1f3f5cc89ec02b45f749526db7" title=" " alt="" coords="561,5,813,47"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aff9e02d8e689385ccf8ad741e6951076" title=" " alt="" coords="577,71,798,112"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a26729c50039ce0fcc47376ca3d5b0720" title=" " alt="" coords="349,39,513,80"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,46,301,73"/>
+<area shape="rect" id="node6" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,46,60,73"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="giraffe::gdl::Message::updateTimestamp" name="giraffe::gdl::Message::updateTimestamp">
+<area shape="rect" id="node1" title="Set the timestamp of the message to the current time." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node2" href="$influxdb_8cpp.html#a72945fb4d8ea1727ad479c78048bd0e0" title=" " alt="" coords="212,13,319,39"/>
+<area shape="rect" id="node3" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="367,13,475,39"/>
+</map>

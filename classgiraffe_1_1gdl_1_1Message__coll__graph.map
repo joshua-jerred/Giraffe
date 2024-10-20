@@ -1,6 +1,6 @@
 <map id="giraffe::gdl::Message" name="giraffe::gdl::Message">
-<area shape="rect" id="node1" title="A message that can be sent via GDL." alt="" coords="53,204,243,428"/>
+<area shape="rect" id="node1" title="A message that can be sent via GDL." alt="" coords="75,219,239,443"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,35,80,112"/>
-<area shape="rect" id="node3" title=" " alt="" coords="122,35,174,112"/>
-<area shape="rect" id="node4" title=" " alt="" coords="198,5,431,141"/>
+<area shape="rect" id="node3" title=" " alt="" coords="131,35,183,112"/>
+<area shape="rect" id="node4" title=" " alt="" coords="207,5,441,141"/>
 </map>

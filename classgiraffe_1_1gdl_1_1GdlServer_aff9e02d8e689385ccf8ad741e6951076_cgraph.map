@@ -1,16 +1,18 @@
 <map id="giraffe::gdl::GdlServer::handleRequestSentMessages" name="giraffe::gdl::GdlServer::handleRequestSentMessages">
-<area shape="rect" id="node1" title=" " alt="" coords="5,300,227,341"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7" title=" " alt="" coords="277,169,436,211"/>
-<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7cc778f8170363add8e6812bb04c019e" title=" " alt="" coords="275,397,439,439"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,397,227,439"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7" title=" " alt="" coords="277,235,436,276"/>
+<area shape="rect" id="node10" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7cc778f8170363add8e6812bb04c019e" title=" " alt="" coords="275,528,439,569"/>
 <area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6" title=" " alt="" coords="501,5,659,47"/>
 <area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0" title=" " alt="" coords="501,71,659,112"/>
 <area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1Message.html#ab19b90512b2e9c4b3093d38a5539d920" title=" " alt="" coords="501,136,659,177"/>
 <area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1Message.html#a058458ec43b44d02141e79f986a1a79d" title=" " alt="" coords="501,201,659,243"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="501,267,659,308"/>
-<area shape="rect" id="node9" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="487,332,673,373"/>
-<area shape="rect" id="node10" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="505,397,655,439"/>
-<area shape="rect" id="node12" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="498,463,662,504"/>
-<area shape="rect" id="node14" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="497,528,663,569"/>
-<area shape="rect" id="node11" href="$structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" title="Get the message as a JSON object." alt="" coords="721,397,871,439"/>
-<area shape="rect" id="node13" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="742,470,850,497"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1Message.html#a8aa2be7d5566b78a15e84f1fb0f4d8bf" title=" " alt="" coords="501,267,659,308"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1Message.html#a8ef2cfae0d01d73970ccb61c4a655c50" title="Get the timestamp of the message in Unix time (seconds since epoch)." alt="" coords="501,332,659,373"/>
+<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="501,397,659,439"/>
+<area shape="rect" id="node11" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="487,463,673,504"/>
+<area shape="rect" id="node12" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="505,528,655,569"/>
+<area shape="rect" id="node14" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="498,593,662,635"/>
+<area shape="rect" id="node16" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="497,659,663,700"/>
+<area shape="rect" id="node13" href="$structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" title="Get the message as a JSON object." alt="" coords="721,528,871,569"/>
+<area shape="rect" id="node15" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="742,601,850,627"/>
 </map>

@@ -1,0 +1,13 @@
+<map id="getUnixTime" name="getUnixTime">
+<area shape="rect" id="node1" title=" " alt="" coords="1720,46,1827,73"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#a36702d0dbe11e9f36bd3fa1f4def8840" title="Set the timestamp of the message to the current time." alt="" coords="1513,39,1672,80"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875" title=" " alt="" coords="1275,39,1465,80"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a6261bac3c4a33276136fa514168200ca" title=" " alt="" coords="1007,5,1227,47"/>
+<area shape="rect" id="node11" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859" title=" " alt="" coords="1019,71,1215,112"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab520e1f30f0fa8d1d17fc3d627386d2f" title=" " alt="" coords="763,39,959,80"/>
+<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" title="The function that runs in the background thread." alt="" coords="556,39,715,80"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90" title="Enable the Data Link. Starts the background thread." alt="" coords="349,39,508,80"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,21,301,47"/>
+<area shape="rect" id="node10" href="$test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320" title=" " alt="" coords="177,71,232,98"/>
+<area shape="rect" id="node9" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,21,60,47"/>
+</map>

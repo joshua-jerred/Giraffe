@@ -44,9 +44,12 @@ var classgiraffe_1_1gdl_1_1Packet =
     [ "getTelemetry", "classgiraffe_1_1gdl_1_1Packet.html#a8aa2be7d5566b78a15e84f1fb0f4d8bf", null ],
     [ "getJson", "classgiraffe_1_1gdl_1_1Packet.html#a2caa405581e45381c50ed8d19b35bce7", null ],
     [ "verifyType", "classgiraffe_1_1gdl_1_1Packet.html#a03da00ff0a1f1cb09e1b65daa0b9747a", null ],
+    [ "updateTimestamp", "classgiraffe_1_1gdl_1_1Packet.html#a36702d0dbe11e9f36bd3fa1f4def8840", null ],
+    [ "getTimestamp", "classgiraffe_1_1gdl_1_1Packet.html#a8ef2cfae0d01d73970ccb61c4a655c50", null ],
     [ "packet_type_", "classgiraffe_1_1gdl_1_1Packet.html#a2d59fafb22d120d7487a6ad0338c6e65", null ],
     [ "send_attempts_", "classgiraffe_1_1gdl_1_1Packet.html#a22a7d40702082a758081dc9f0d487048", null ],
     [ "identifier_", "classgiraffe_1_1gdl_1_1Packet.html#abcbad3d995b718c53f85e3e57b833e8b", null ],
     [ "type_", "classgiraffe_1_1gdl_1_1Packet.html#a9dabb1f8ec8eeb4324d75228e219e078", null ],
-    [ "contents_", "classgiraffe_1_1gdl_1_1Packet.html#aa010c71b7118f02101d6d49dea8f70d4", null ]
+    [ "contents_", "classgiraffe_1_1gdl_1_1Packet.html#aa010c71b7118f02101d6d49dea8f70d4", null ],
+    [ "timestamp_", "classgiraffe_1_1gdl_1_1Packet.html#a40b368263a2dc13da028a5490610556d", null ]
 ];

@@ -37,7 +37,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#ab45d9e228345e21a5c73c9fd5326c565" target="_top" xlink:title="Get the next sequence number for the telemetry data packet.">
+<g id="a_node3"><a xlink:href="classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a8af3a4e769d455f981536e33b5fb9fd6" target="_top" xlink:title="Get the next sequence number for the telemetry data packet.">
 <polygon fill="none" stroke="black" points="187.5,-171.5 187.5,-201.5 369.5,-201.5 369.5,-171.5 187.5,-171.5"/>
 <text text-anchor="start" x="195.5" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::gdl::AprsTelemetry</text>
 <text text-anchor="middle" x="278.5" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">Sender::getNextSequenceNumber</text>

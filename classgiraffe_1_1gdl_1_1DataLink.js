@@ -40,7 +40,6 @@ var classgiraffe_1_1gdl_1_1DataLink =
     [ "setStatus", "classgiraffe_1_1gdl_1_1DataLink.html#a533c0e638f752a5656734721c7437c2f", null ],
     [ "gdlThread", "classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de", null ],
     [ "config_", "classgiraffe_1_1gdl_1_1DataLink.html#ab25d4e219dc847355c943cc86f28d9bb", null ],
-    [ "telemetry_receiver_", "classgiraffe_1_1gdl_1_1DataLink.html#a6d9439c8df04572992595f634c0171ed", null ],
     [ "telemetry_sender_", "classgiraffe_1_1gdl_1_1DataLink.html#a7d60a1f37826cc335ca68f56c27dfa05", null ],
     [ "out_broadcast_queue_", "classgiraffe_1_1gdl_1_1DataLink.html#a6e344128ad352abe63ac9bf201d2c3a6", null ],
     [ "out_exchange_queue_", "classgiraffe_1_1gdl_1_1DataLink.html#a39ed9911bb05bf7914fd3bdb06bfc17c", null ],

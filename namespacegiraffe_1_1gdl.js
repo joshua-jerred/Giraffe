@@ -1,6 +1,5 @@
 var namespacegiraffe_1_1gdl =
 [
-    [ "AprsTelemetryReceiver", "classgiraffe_1_1gdl_1_1AprsTelemetryReceiver.html", "classgiraffe_1_1gdl_1_1AprsTelemetryReceiver" ],
     [ "AprsTelemetrySender", "classgiraffe_1_1gdl_1_1AprsTelemetrySender.html", "classgiraffe_1_1gdl_1_1AprsTelemetrySender" ],
     [ "Config", "classgiraffe_1_1gdl_1_1Config.html", "classgiraffe_1_1gdl_1_1Config" ],
     [ "DataLink", "classgiraffe_1_1gdl_1_1DataLink.html", "classgiraffe_1_1gdl_1_1DataLink" ],

@@ -1,7 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"classncurs_1_1Window.html#a36060e890f1c99afab182f58486f464b":[11,0,9,3,11],
-"classncurs_1_1Window.html#a4afa14af26c74e8af2891a907815286b":[11,0,9,3,12],
 "classncurs_1_1Window.html#a5f558ef2888100e26c7754a1616aac72":[11,0,9,3,5],
 "classncurs_1_1Window.html#a7e7053e478e683799003d19236504d39":[11,0,9,3,3],
 "classncurs_1_1Window.html#a88f16fc7e70ed9c2188c53fd781b5cc5":[11,0,9,3,2],
@@ -248,6 +246,8 @@ var NAVTREEINDEX10 =
 "functions_type.html":[11,2,3],
 "functions_u.html":[11,2,0,19],
 "functions_v.html":[11,2,0,20],
+"functions_vars.html":[11,2,2,0],
 "functions_vars.html":[11,2,2],
-"functions_vars.html":[11,2,2,0]
+"functions_vars_b.html":[11,2,2,1],
+"functions_vars_c.html":[11,2,2,2]
 };

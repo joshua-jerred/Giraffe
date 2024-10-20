@@ -1,8 +1,10 @@
 <map id="giraffe::gdl::Message::getJson" name="giraffe::gdl::Message::getJson">
-<area shape="rect" id="node1" title=" " alt="" coords="5,136,164,177"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,201,164,243"/>
 <area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6" title=" " alt="" coords="212,5,371,47"/>
 <area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0" title=" " alt="" coords="212,71,371,112"/>
 <area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Message.html#ab19b90512b2e9c4b3093d38a5539d920" title=" " alt="" coords="212,136,371,177"/>
 <area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1Message.html#a058458ec43b44d02141e79f986a1a79d" title=" " alt="" coords="212,201,371,243"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="212,267,371,308"/>
+<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1Message.html#a8aa2be7d5566b78a15e84f1fb0f4d8bf" title=" " alt="" coords="212,267,371,308"/>
+<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1Message.html#a8ef2cfae0d01d73970ccb61c4a655c50" title="Get the timestamp of the message in Unix time (seconds since epoch)." alt="" coords="212,332,371,373"/>
+<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="212,397,371,439"/>
 </map>
