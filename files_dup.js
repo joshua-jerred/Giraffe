@@ -130,6 +130,7 @@ var files_dup =
     ] ],
     [ "flight_logic.cpp", "flight__logic_8cpp.html", null ],
     [ "flight_phase.hpp", "flight__phase_8hpp.html", "flight__phase_8hpp" ],
+    [ "flight_phase.puml", "flight__phase_8puml.html", null ],
     [ "flight_phase_manager.hpp", "flight__phase__manager_8hpp.html", [
       [ "FlightPhaseManager", "classFlightPhaseManager.html", "classFlightPhaseManager" ]
     ] ],
@@ -362,6 +363,12 @@ var files_dup =
       [ "LogStream", "classdata_1_1LogStream.html", "classdata_1_1LogStream" ],
       [ "Stream", "classdata_1_1Stream.html", "classdata_1_1Stream" ]
     ] ],
+    [ "structurizr-Components-key.puml", "structurizr-Components-key_8puml.html", null ],
+    [ "structurizr-Components.puml", "structurizr-Components_8puml.html", null ],
+    [ "structurizr-Containers-key.puml", "structurizr-Containers-key_8puml.html", null ],
+    [ "structurizr-Containers.puml", "structurizr-Containers_8puml.html", null ],
+    [ "structurizr-SystemContext-key.puml", "structurizr-SystemContext-key_8puml.html", null ],
+    [ "structurizr-SystemContext.puml", "structurizr-SystemContext_8puml.html", null ],
     [ "system_module.cpp", "system__module_8cpp.html", "system__module_8cpp" ],
     [ "system_module.hpp", "system__module_8hpp.html", [
       [ "SystemModule", "classmodules_1_1SystemModule.html", "classmodules_1_1SystemModule" ]

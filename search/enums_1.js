@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['channel_4374',['Channel',['../classgiraffe_1_1StatusLedChannel.html#a341df28b2908adef07d868ee8510ef6c',1,'giraffe::StatusLedChannel']]],
-  ['connection_4375',['Connection',['../classgiraffe_1_1gdl_1_1DataLink.html#a0438ec86403e77138d0e471655e041fe',1,'giraffe::gdl::DataLink']]]
+  ['channel_4430',['Channel',['../classgiraffe_1_1StatusLedChannel.html#a341df28b2908adef07d868ee8510ef6c',1,'giraffe::StatusLedChannel']]],
+  ['connection_4431',['Connection',['../classgiraffe_1_1gdl_1_1DataLink.html#a0438ec86403e77138d0e471655e041fe',1,'giraffe::gdl::DataLink']]]
 ];

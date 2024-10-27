@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ubxmessage_4365',['UBXMessage',['../namespaceubx.html#a326ecd141c5e2c7e1ff9ec60519b8a43',1,'ubx']]]
+  ['ubxmessage_4421',['UBXMessage',['../namespaceubx.html#a326ecd141c5e2c7e1ff9ec60519b8a43',1,'ubx']]]
 ];
