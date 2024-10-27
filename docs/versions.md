@@ -19,6 +19,8 @@
   software.
   - Extension configuration
   - Telemetry command and control interfaces
+- Flight Computer Work
+  - Created multiple prototypes for buck converters.
 
 There was a strong focus on the software side of things through 0.8. The
 hardware has been put off for a bit but will need to be picked back up soon.
