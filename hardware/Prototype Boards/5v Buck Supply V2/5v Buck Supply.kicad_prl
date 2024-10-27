@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 31,
+    "active_layer": 0,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -64,7 +64,7 @@
       39,
       40
     ],
-    "visible_layers": "ffc7e10_fffffffd",
+    "visible_layers": "ffdff3b_ffffffff",
     "zone_display_mode": 0
   },
   "git": {
@@ -74,7 +74,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "giraffe_flight_computer.kicad_prl",
+    "filename": "5v Buck Supply.kicad_prl",
     "version": 3
   },
   "project": {
