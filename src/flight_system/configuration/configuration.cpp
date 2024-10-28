@@ -1585,6 +1585,57 @@ Json cfg::HardwareInterface::getJson() const {
     {"i2c_bus", cfg::gEnum::K_I2C_BUS_TO_STRING_MAP.at(i2c_bus_)}
   });
 }
+int cfg::Battery::getVoltageMaxMv() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return voltage_max_mv_;
+}
+
+int cfg::Battery::getVoltageMinMv() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return voltage_min_mv_;
+}
+
+void cfg::Battery::setVoltageMaxMv(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  voltage_max_mv_ = val;
+}
+
+void cfg::Battery::setVoltageMinMv(int val) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  voltage_min_mv_ = val;
+}
+
+void cfg::Battery::setFromJson(const Json &json_data) {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "battery",
+        "voltage_max_mv",
+        voltage_max_mv_,
+        1000,
+        20000,
+        ""
+  );
+  validation::setValidValue<int>(
+        streams_.log,
+        json_data,
+        "battery",
+        "voltage_min_mv",
+        voltage_min_mv_,
+        1000,
+        20000,
+        ""
+  );
+}
+
+Json cfg::Battery::getJson() const {
+  const std::lock_guard<std::mutex> lock(cfg_lock_);
+  return Json({
+    {"voltage_max_mv", voltage_max_mv_},
+    {"voltage_min_mv", voltage_min_mv_}
+  });
+}
 
 void cfg::Configuration::getAllJson(Json &all_data) const {
   all_data = {
@@ -1603,6 +1654,7 @@ void cfg::Configuration::getAllJson(Json &all_data) const {
 ,    {"adc_mappings", adc_mappings.getJson()}
 ,    {"extension_module", extension_module.getJson()}
 ,    {"hardware_interface", hardware_interface.getJson()}
+,    {"battery", battery.getJson()}
   };
 }
   
@@ -1738,6 +1790,12 @@ void cfg::Configuration::load(std::string file_path) {
     hardware_interface.setFromJson(parsed["hardware_interface"]);
   } else {
     error(DiagnosticId::CONFIG_failedToLoadSectionNotFound, "hardware_interface");
+  }
+
+  if (sectionExists(parsed, "battery")) {
+    battery.setFromJson(parsed["battery"]);
+  } else {
+    error(DiagnosticId::CONFIG_failedToLoadSectionNotFound, "battery");
   }
 
 }

@@ -39,6 +39,7 @@ enum class DataId : uint16_t {
   ENVIRONMENTAL_temperature=0xE001, // Temperature (Celsius)
   ENVIRONMENTAL_humidity=0xE002, // Relative Humidity (%)
   ENVIRONMENTAL_pressure=0xE003, // Pressure (mbar)
+  BATTERY_voltageMv=0xB001, // Voltage (mV)
   CAMERA_newImage=0xC001, // New Image
   ADC_count=0xA001, // Raw ADC Count
   TELEMETRY_dataLinkPacketReceived=0x8001, // Data Link Packet Received

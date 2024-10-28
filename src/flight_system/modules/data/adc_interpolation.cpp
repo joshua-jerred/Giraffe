@@ -69,6 +69,12 @@ void AdcInterpolation::insertVoltageDividerValue(const cfg::AdcConfig &adc_cfg,
       (unscaled * (adc_cfg.resistor_1_value + adc_cfg.resistor_2_value)) /
       adc_cfg.resistor_2_value;
 
+  if (adc_cfg.label == "bat_mv") {
+    shared_data_.streams.data.addNumericData(node::Identification::DATA_MODULE,
+                                             data::DataId::BATTERY_voltageMv,
+                                             millivolts);
+  }
+
   shared_data_.frames.adc.insert(adc_cfg.label, {value, millivolts});
 }
 

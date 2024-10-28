@@ -717,7 +717,7 @@
             "type": "string",
             "default": "none",
             "name": "ADC Channel Label",
-            "description": "The label for the ADC channel. Must be unique.",
+            "description": "The label for the ADC channel. Must be unique. Some labels result in special handling: 'bat_mv' is the battery voltage in millivolts",
             "max": 10,
             "min": 3,
             "pattern": ""
@@ -862,6 +862,27 @@
             "options": [
                 "i2c_1"
             ]
+        }
+    },
+    "battery": {
+        "SECTION_TYPE": "struct",
+        "voltage_max_mv": {
+            "type": "int",
+            "name": "Maximum Voltage (mV)",
+            "description": "The voltage when the battery is considered fully charged.",
+            "default": 6000,
+            "max": 20000,
+            "min": 1000,
+            "step": 1
+        },
+        "voltage_min_mv": {
+            "type": "int",
+            "name": "Minimum Voltage (mV)",
+            "description": "The voltage when the battery is considered fully discharged.",
+            "default": 8400,
+            "max": 20000,
+            "min": 1000,
+            "step": 1
         }
     }
 }

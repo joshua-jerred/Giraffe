@@ -44,6 +44,13 @@
             "value": "0xE003"
         }
     },
+    "battery":{
+        "voltage_mv": {
+            "name": "Voltage (mV)",
+            "details": "Battery voltage in millivolts",
+            "value": "0xB001"
+        }
+    },
     "camera":{
         "new_image": {
             "name": "New Image",

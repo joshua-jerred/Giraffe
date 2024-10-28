@@ -23,6 +23,8 @@ function MissionClockControlMenu({
     // return;
     // }
 
+    console.log("Starting mission clock with skew: ", skew);
+
     fetch(`${ggsAddress}/api/flight_data/data?category=start_mission_clock`, {
       method: "PUT",
       headers: {

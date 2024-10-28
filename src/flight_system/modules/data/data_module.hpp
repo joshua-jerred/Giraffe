@@ -178,7 +178,7 @@ private:
   void processImuFramePacket(const data::ImuFramePacket &packet);
 
   /// @brief Used to calculate data from existing data.
-  data_middleware::CalculatedData calculated_data_{shared_data_};
+  data_middleware::CalculatedData calculated_data_;
 
   /**
    * @brief The data log object, used to log data and errors to files.

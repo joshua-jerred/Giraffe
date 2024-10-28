@@ -151,11 +151,7 @@ function AdcMapEdit({
   return (
     <div className="new_extension_div_container">
       <div className="new_extension_div">
-        <Tooltip
-          text={
-            "Any label is allowed, but the following are used to calculate internal data: 'bat_mv', ..."
-          }
-        >
+        <Tooltip text={AdcMappingConfigMetadata.label.description}>
           <div className="new_extension_labels">Value Label</div>
           <StyInput
             type="text"

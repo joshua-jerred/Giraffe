@@ -54,6 +54,8 @@ void RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
     res_body = config_.hardware_interface.getJson();
   } else if (req == "adc_mappings") {
     res_body = config_.adc_mappings.getJson();
+  } else if (req == "battery") {
+    res_body = config_.battery.getJson();
   } else {
     sendErrorPacket(client, "setting section not found");
     return;
@@ -113,6 +115,8 @@ void RequestRouter::handleSettingSet(sock::TcpSocketServer &client,
     config_.extension_module.setFromJson(new_cfg_data);
   } else if (req == "hardware_interface") {
     config_.hardware_interface.setFromJson(new_cfg_data);
+  } else if (req == "battery") {
+    config_.battery.setFromJson(new_cfg_data);
   } else {
     sendErrorPacket(client, "setting section not found");
     return;
