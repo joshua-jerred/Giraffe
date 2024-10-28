@@ -261,9 +261,7 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [
-      "no_connect_connected|1473200|1854200|d1cac7ab-46e8-45a9-8ee8-e1e6abc5745a|4abeb986-6cf3-4ceb-bb3b-9e80b22cb754|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/7384c1b4-69d8-435f-8d37-4f0768f54f3f||"
-    ],
+    "erc_exclusions": [],
     "meta": {
       "version": 0
     },
@@ -644,15 +642,19 @@
       "/hat/STATUS_LED.GREEN": "GPIO",
       "/hat/STATUS_LED.RED": "GPIO",
       "/shoe/+BATT": "POWER:BATT",
+      "/shoe/RX_DETECT": "GPIO",
       "/shoe/SA868_PTT": "GPIO",
       "/shoe/SA868_PWR_CTRL": "GPIO",
       "/shoe/SA868_RX": "GPIO",
+      "/shoe/S_5V_IN": "POWER:5V",
       "/shoe/UART.RX": "DATA",
       "/shoe/UART.TX": "DATA",
       "H_3V3": "POWER:3V3",
       "H_5V": "POWER:5V",
       "H_GND": "POWER:BATT",
       "Net-(AE1-A)": "RF",
+      "Net-(C44-Pad1)": "RF",
+      "Net-(C45-Pad1)": "RF",
       "Net-(C46-Pad1)": "RF",
       "Net-(C47-Pad1)": "RF",
       "Net-(TX1-ANT)": "RF",
@@ -711,7 +713,7 @@
           "group_by": false,
           "label": "Datasheet",
           "name": "Datasheet",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
