@@ -46,6 +46,8 @@ struct SimData {
   std::atomic<double> latitude_deg{0.0};
   std::atomic<double> longitude_deg{0.0};
 
+  std::atomic<double> battery_voltage{0.0};
+
   std::atomic<double> adc_ch_0{0.0};
   std::atomic<double> adc_ch_1{0.0};
   std::atomic<double> adc_ch_2{0.0};
@@ -98,8 +100,8 @@ inline constexpr double K_DESCENT_TRANSITION_ALTITUDE_METERS = 10;
 inline constexpr double K_LANDING_ALTITUDE_METERS = 0.0;
 
 // -- Electrical Parameters --
-inline constexpr double K_BATTERY_VOLTAGE_FULL = 4.2;
-inline constexpr double K_BATTERY_VOLTAGE_EMPTY = 2.5;
+inline constexpr double K_BATTERY_VOLTAGE_FULL = 8.4;
+inline constexpr double K_BATTERY_VOLTAGE_EMPTY = 5.5;
 inline constexpr double K_BATTERY_INITIAL_SOC = 100.0;   // Percent
 inline constexpr double K_BATTERY_DISCHARGE_RATE = 0.02; // Percent per second
 inline constexpr double K_5V_BUS_VOLTAGE = 5.0;

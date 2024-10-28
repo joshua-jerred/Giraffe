@@ -30,9 +30,9 @@ public:
   void update(double delta_time_s) {
     // Update the battery soc
     battery_soc_ -= delta_time_s * K_BATTERY_DISCHARGE_RATE;
-    adc_ch0_ =
-        (K_BATTERY_VOLTAGE_FULL - K_BATTERY_VOLTAGE_EMPTY) * battery_soc_ +
-        K_BATTERY_VOLTAGE_EMPTY;
+    data_.battery_voltage = (K_BATTERY_VOLTAGE_FULL - K_BATTERY_VOLTAGE_EMPTY) *
+                                (battery_soc_ / 100.0) +
+                            K_BATTERY_VOLTAGE_EMPTY;
 
     // Update the ADC channels
     data_.adc_ch_0 = adc_ch0_;

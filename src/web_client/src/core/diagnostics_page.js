@@ -18,10 +18,18 @@ const BuildIdToMetadataMap = () => {
 const DiagnosticMetadataMap = BuildIdToMetadataMap();
 
 function ErrorFrameItem({ error_number }) {
+  let error_name = ""; // DiagnosticMetadataMap[`0x${error_number}`].name
+
+  if (DiagnosticMetadataMap[`0x${error_number}`]) {
+    error_name = DiagnosticMetadataMap[`0x${error_number}`].name;
+  } else {
+    error_name = "Unknown Error";
+  }
+
   return (
     <div>
       <span>
-        Error {error_number} - {DiagnosticMetadataMap[`0x${error_number}`].name}
+        Error {error_number} - {error_name}
       </span>
     </div>
   );

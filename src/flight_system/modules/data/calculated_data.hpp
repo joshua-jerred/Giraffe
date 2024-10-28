@@ -33,11 +33,10 @@ public:
   CalculatedData(data::SharedData &shared_data);
   ~CalculatedData() = default;
 
+  /// @brief Update the calculated data and store it in the shared data.
   /// @brief Needs to be called periodically. This will update the shared data
   /// with the calculated data.
   void updateCalculatedData();
-
-  /// @brief Update the calculated data and store it in the shared data.
 
   /// @brief Update positional data based on GPS data.
   /// @param gps_frame - A GPS frame that is both valid and unique.

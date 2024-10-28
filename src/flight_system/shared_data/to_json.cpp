@@ -8,6 +8,15 @@ Json data::toJson(data::Frame<std::string, data::DataPacket> &frame) {
   return json_data;
 }
 
+Json data::toJson(data::Frame<std::string, data::AdcValue> &frame) {
+  Json json_data;
+  for (auto &item : frame.getAll()) {
+    json_data[item.first] = Json{{"raw_count", item.second.first},
+                                 {"interpolated_value", item.second.second}};
+  }
+  return json_data;
+}
+
 void data::to_json(json &j, const data::GpsFrame &frame) {
   std::string time_str = bst::time::dateAndTimeString(
       bst::time::TimeZone::UTC, '-', ' ', ':', frame.gps_utc_time);

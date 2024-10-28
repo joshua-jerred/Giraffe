@@ -182,5 +182,6 @@
   "calculated_data": {},
   "telemetry_module_stats": {},
   "file_system_data": {},
-  "error_frame":{}
+  "error_frame":{},
+  "adc_data":{}
 }

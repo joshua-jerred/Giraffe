@@ -196,7 +196,7 @@ function NavBar({ navExpanded, setNavExpanded }) {
         <NavItem title="Flight Control" icon="fa-rocket" path="/ggs">
           <NavItem
             title="Command Center"
-            label="TLM"
+            label="CMD"
             path={"/ggs/command-center"}
           />
           <NavItem title="Telemetry" label="TLM" path={"/ggs/telemetry"} />
