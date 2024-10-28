@@ -18,8 +18,12 @@
 
 namespace data_middleware {
 
-CalculatedData::CalculatedData(data::SharedData &shared_data)
-    : shared_data_(shared_data) {
+CalculatedData::CalculatedData(data::SharedData &shared_data,
+                               cfg::Configuration &config)
+    : shared_data_(shared_data), config_(config) {
+  battery_voltage_max_mv_ = config_.battery.getVoltageMinMv();
+  battery_voltage_min_mv_ = config_.battery.getVoltageMaxMv();
+
   // Initialize the data buffer
   data_buffer_.pressure_altitude_valid = false;
   data_buffer_.average_speed_valid = false;
@@ -29,12 +33,19 @@ CalculatedData::CalculatedData(data::SharedData &shared_data)
 
   pressure_data_timeout_.reset();
   positional_data_timeout_.reset();
+  battery_voltage_timeout_.reset();
 }
 
 void CalculatedData::updateCalculatedData() {
   if (pressure_data_timeout_.isDone()) {
     // Data is stale
     data_buffer_.pressure_altitude_valid = false;
+  }
+
+  if (battery_voltage_timeout_.isDone()) {
+    // Data is stale
+    data_buffer_.battery_voltage_mv_valid = false;
+    data_buffer_.battery_state_of_charge_valid = false;
   }
 
   if (positional_data_timeout_.isDone()) {
@@ -59,6 +70,23 @@ void CalculatedData::addPressureData(double pressure_mbar) {
 
   data_buffer_.pressure_altitude_valid = true;
   pressure_data_timeout_.reset();
+}
+
+void CalculatedData::addBatteryVoltageData(uint32_t voltage_mv) {
+  data_buffer_.battery_voltage_mv = voltage_mv;
+  data_buffer_.battery_voltage_mv_valid = true;
+
+  // Calculate the battery state of charge
+  {
+    double range = battery_voltage_max_mv_ - battery_voltage_min_mv_;
+    double percentage =
+        ((voltage_mv - battery_voltage_min_mv_) / range) * 100.0;
+
+    data_buffer_.battery_state_of_charge = percentage;
+    data_buffer_.battery_state_of_charge_valid = true;
+  }
+
+  battery_voltage_timeout_.reset();
 }
 
 void CalculatedData::addPositionalData(const data::GpsFrame &gps_frame) {

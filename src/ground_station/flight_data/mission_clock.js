@@ -97,11 +97,19 @@ module.exports = class MissionClock {
       return "skew_seconds must be positive";
     }
 
+    if (skew_seconds === null) {
+      skew_seconds = 0;
+    }
+
     this.is_running = true;
     this.start_time = new Date();
     this.start_time.setSeconds(this.start_time.getSeconds() + skew_seconds);
 
-    console.log("Resetting Clock: ", this.start_time);
+    console.log(
+      "Resetting Clock: ",
+      this.start_time,
+      this.start_time.getSeconds()
+    );
 
     this.global_state.ggs_db.setKey(
       "data",

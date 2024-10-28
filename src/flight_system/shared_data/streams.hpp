@@ -198,6 +198,19 @@ public:
 
     addPacket(pkt);
   }
+
+  void addNumericData(node::Identification source, data::DataId data_id,
+                      uint32_t value) {
+    DataPacket pkt;
+    pkt.source = source;
+    pkt.identifier = data_id;
+    pkt.numeric_value = value;
+    pkt.type = DataPacket::Type::GENERIC;
+    pkt.resetTime();
+
+    addPacket(pkt);
+  }
+
   void reportStatus(
       node::Identification status_to_update, node::Status status,
       data::DataId extra_identifier = data::DataId::MODULE_statusUpdate) {

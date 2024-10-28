@@ -58,6 +58,9 @@ function GfsDataMonitorPage() {
           <Card title="Telemetry Module">
             <DataBlock resource="gfs" category="telemetry_module_stats" />
           </Card>
+          <Card title="ADC Data">
+            <DataBlock resource="gfs" category="adc_data" />
+          </Card>
           {/* <CardBreak /> */}
           {/* <CardSectionTitle>IMU</CardSectionTitle> */}
           {/* <DataStreamBlock

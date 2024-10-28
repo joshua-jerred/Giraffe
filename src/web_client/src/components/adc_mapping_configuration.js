@@ -8,6 +8,7 @@ import {
   StyButton,
 } from "./styled/StyledComponents";
 import { CardBreak } from "../core/PageParts";
+import Tooltip from "./Tooltip";
 
 import { GwsGlobal } from "../GlobalContext";
 
@@ -150,13 +151,15 @@ function AdcMapEdit({
   return (
     <div className="new_extension_div_container">
       <div className="new_extension_div">
-        <div className="new_extension_labels">Value Label</div>
-        <StyInput
-          type="text"
-          defaultValue={label}
-          onChange={(e) => setLabel(e.target.value)}
-          className="new_adc_input"
-        />
+        <Tooltip text={AdcMappingConfigMetadata.label.description}>
+          <div className="new_extension_labels">Value Label</div>
+          <StyInput
+            type="text"
+            defaultValue={label}
+            onChange={(e) => setLabel(e.target.value)}
+            className="new_adc_input"
+          />
+        </Tooltip>
 
         <div className="new_extension_labels">Value Map Type</div>
         <StySelect

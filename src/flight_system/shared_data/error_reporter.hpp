@@ -19,7 +19,7 @@
 
 namespace data {
 
-/// @brief A simple class to unique errors once.
+/// @brief A simple class to report errors once.
 /// @details Allows for an error to be reported once unless it is cleared.
 class ErrorReporter {
 public:

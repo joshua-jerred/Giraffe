@@ -76,6 +76,7 @@ private:
       return;
     }
 
+    /// @deprecated ADC Processing is done in the data module now
     // switch (adc_config_.type) {
     // case AdcType::RAW_COUNT:
     //   data(data::DataId::ADC_rawCount, adc_value);

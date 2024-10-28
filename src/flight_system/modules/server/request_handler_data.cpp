@@ -71,6 +71,8 @@ void RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
     res_body = shared_data_.blocks.telemetry_module_stats.get().toJson();
   } else if (requested_data == "file_system_data") {
     res_body = shared_data_.blocks.file_system_data.get().toJson();
+  } else if (requested_data == "adc_data") {
+    res_body = toJson(shared_data_.frames.adc);
   } else if (requested_data == "error_frame") {
     getErrorFrameData(res_body, shared_data_.frames.error_frame);
   } else {

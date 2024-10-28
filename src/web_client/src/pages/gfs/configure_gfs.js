@@ -63,6 +63,10 @@ function ConfigureGfsPage() {
           <Card title="ADC Mappings">
             <AdcMappingsConfig />
           </Card>
+
+          <Card title="Battery">
+            <GfsEditBox resource="gfs" category="battery" />
+          </Card>
         </CardMasonryLayout>
       </PageContent>
     </>

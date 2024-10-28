@@ -34,6 +34,7 @@ const std::unordered_map<DataId, std::string> K_DATA_ID_TO_STRING_MAP {
   {DataId::ENVIRONMENTAL_temperature,"ENVIRONMENTAL_temperature"},
   {DataId::ENVIRONMENTAL_humidity,"ENVIRONMENTAL_humidity"},
   {DataId::ENVIRONMENTAL_pressure,"ENVIRONMENTAL_pressure"},
+  {DataId::BATTERY_voltageMv,"BATTERY_voltageMv"},
   {DataId::CAMERA_newImage,"CAMERA_newImage"},
   {DataId::ADC_count,"ADC_count"},
   {DataId::TELEMETRY_dataLinkPacketReceived,"TELEMETRY_dataLinkPacketReceived"},

@@ -32,6 +32,8 @@ AdcInterpolation::AdcInterpolation(data::SharedData &shared_data,
   for (auto &cfg : adc_cfg) {
     std::string key = cfg.extension_name + ":" +
                       std::to_string(static_cast<int>(cfg.channel_number));
+    logger_.info("Loaded ADC Mapping For: " + cfg.extension_name +
+                 " Channel: " + std::to_string(cfg.channel_number));
     adc_map_.insert_or_assign(key, cfg);
   }
 }
@@ -44,7 +46,8 @@ void AdcInterpolation::processDataPacket(const data::DataPacket &data_packet) {
   const auto &adc_cfg = getAdcConfig(data_packet.secondary_identifier);
   switch (adc_cfg.type) {
   case cfg::gEnum::AdcType::RAW_COUNT:
-    shared_data_.frames.adc.insert(adc_cfg.label, data_packet.numeric_value);
+    shared_data_.frames.adc.insert(adc_cfg.label,
+                                   {data_packet.numeric_value, 0});
     break;
   case cfg::gEnum::AdcType::PERCENTAGE:
     insertPercentageValue(adc_cfg, data_packet.numeric_value);
@@ -66,7 +69,13 @@ void AdcInterpolation::insertVoltageDividerValue(const cfg::AdcConfig &adc_cfg,
       (unscaled * (adc_cfg.resistor_1_value + adc_cfg.resistor_2_value)) /
       adc_cfg.resistor_2_value;
 
-  shared_data_.frames.adc.insert(adc_cfg.label, millivolts);
+  if (adc_cfg.label == "bat_mv") {
+    shared_data_.streams.data.addNumericData(node::Identification::DATA_MODULE,
+                                             data::DataId::BATTERY_voltageMv,
+                                             millivolts);
+  }
+
+  shared_data_.frames.adc.insert(adc_cfg.label, {value, millivolts});
 }
 
 void AdcInterpolation::insertPercentageValue(const cfg::AdcConfig &adc_cfg,
@@ -80,7 +89,7 @@ void AdcInterpolation::insertPercentageValue(const cfg::AdcConfig &adc_cfg,
     percentage = std::clamp(percentage, 0.0, 100.0);
   }
 
-  shared_data_.frames.adc.insert(adc_cfg.label, percentage);
+  shared_data_.frames.adc.insert(adc_cfg.label, {value, percentage});
 }
 
 const cfg::AdcConfig &AdcInterpolation::getAdcConfig(const std::string &key) {

@@ -79,6 +79,9 @@ public:
   double getLongitudeDeg() const {
     return sim_data_.longitude_deg;
   }
+  double getBatteryVoltage() const {
+    return sim_data_.battery_voltage;
+  }
 
 private:
   void run();

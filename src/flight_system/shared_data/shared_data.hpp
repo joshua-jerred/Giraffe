@@ -61,6 +61,8 @@ struct SharedBlocks {
   blocks::Block<blocks::FileSystemData> file_system_data{};
 };
 
+/// @brief ADC Value containing <raw_count, interpolated_value>
+using AdcValue = std::pair<uint32_t, double>;
 struct Frames {
   /**
    * @brief Data frame containing all active error messages.
@@ -86,7 +88,7 @@ struct Frames {
    * @brief ADC data frame. std::string is the label of the ADC channel, and
    * the double is the interpolated value.
    */
-  Frame<std::string, double> adc{};
+  Frame<std::string, AdcValue> adc{};
 };
 
 /**
@@ -102,6 +104,7 @@ struct SharedData {
 };
 
 Json toJson(data::Frame<std::string, data::DataPacket> &frame);
+Json toJson(data::Frame<std::string, data::AdcValue> &frame);
 
 } // namespace data
 

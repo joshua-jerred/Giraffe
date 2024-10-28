@@ -406,6 +406,24 @@ private:
   cfg::gEnum::I2CBus i2c_bus_ = cfg::gEnum::I2CBus::I2C_1;
 };
 
+class Battery : public cfg::CfgSection {
+public:
+  Battery(data::Streams &streams): cfg::CfgSection(streams){}
+
+  int getVoltageMaxMv() const;
+  int getVoltageMinMv() const;
+
+  void setVoltageMaxMv(int);
+  void setVoltageMinMv(int);
+
+  void setFromJson(const Json&);
+  Json getJson() const;
+
+private:
+  int voltage_max_mv_ = 6000;
+  int voltage_min_mv_ = 8400;
+};
+
 class Configuration {
  public:
   Configuration(data::Streams &streams):
@@ -424,7 +442,8 @@ class Configuration {
     extensions(streams),    
     adc_mappings(streams),    
     extension_module(streams),    
-    hardware_interface(streams),
+    hardware_interface(streams),    
+    battery(streams),
     streams_(streams){}
     
     void getAllJson(Json &all_data) const;
@@ -447,6 +466,7 @@ class Configuration {
   cfg::AdcMappings adc_mappings;
   cfg::ExtensionModule extension_module;
   cfg::HardwareInterface hardware_interface;
+  cfg::Battery battery;
  
  private:
   void error(DiagnosticId error_code, std::string info = "") {

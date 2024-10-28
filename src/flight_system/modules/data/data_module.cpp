@@ -9,8 +9,8 @@ static modules::MetaData metadata("data_module",
 modules::DataModule::DataModule(data::SharedData &shared_data,
                                 cfg::Configuration &config)
     : modules::Module(metadata, shared_data, config),
-      data_log_(shared_data, config), influxdb_(shared_data, config),
-      file_system_(shared_data, config),
+      calculated_data_(shared_data, config), data_log_(shared_data, config),
+      influxdb_(shared_data, config), file_system_(shared_data, config),
       adc_interpolation_(shared_data, config) {
 
   // check for GPS data source
@@ -189,11 +189,15 @@ void modules::DataModule::parseGeneralDataPacket(
   (void)packet;
   /// @todo Implement general data packet parsing
   // Process packet here
-  // switch (packet.identifier) {
-  // default:
-  // debug("Unknown data packet type: " +
-  // std::to_string(static_cast<uint32_t>(packet.type)));
-  // }
+  switch (packet.identifier) {
+  case data::DataId::BATTERY_voltageMv:
+    calculated_data_.addBatteryVoltageData(packet.numeric_value);
+    break;
+  default:
+    debug("Unknown data packet type: " +
+          std::to_string(static_cast<uint32_t>(packet.type)));
+    break;
+  }
 }
 
 void modules::DataModule::parseExtensionDataPacket(

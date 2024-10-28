@@ -133,6 +133,15 @@ private:
   bool increasing_ = false;
 };
 
+/// @brief Simulated ADC sensor with battery voltage, battery balance tap
+/// voltage, and current sense voltage.
+/// @details
+/// Battery voltage:
+///  - Real range: 0.0 to 9.0 volts
+///  - ADC Voltage divider: 10k/5.6k - 9.0 volts = 3.231 volts
+///  - ADC resolution: 12 bits
+///  - 0.0 volts = 0 ADC count
+///  - 9.0 volts = 4009 ADC count
 class SimAdcSensor : public Extension {
 public:
   SimAdcSensor(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
@@ -140,9 +149,27 @@ public:
   }
 
   void loop() override {
+    const double battery_voltage = g_GFS_SIMULATOR.getBatteryVoltage();
+
+    // Calculate the ADC count
+    constexpr double K_BATTERY_VOLTAGE_R1 = 10000.0;
+    constexpr double K_BATTERY_VOLTAGE_R2 = 5600.0;
+    const double adc_voltage_battery_voltage =
+        (battery_voltage * K_BATTERY_VOLTAGE_R2) /
+        (K_BATTERY_VOLTAGE_R1 + K_BATTERY_VOLTAGE_R2);
+    const uint32_t adc_count_battery_voltage =
+        static_cast<uint32_t>((adc_voltage_battery_voltage / 3.3) * 4095);
+
+    // Create the data packet
+    constexpr uint32_t K_BATTERY_VOLTAGE_ADC_CHANNEL = 0;
+    dataWithSecondaryIdentifier(data::DataId::ADC_count,
+                                adc_count_battery_voltage,
+                                std::to_string(K_BATTERY_VOLTAGE_ADC_CHANNEL));
   }
 
 private:
+  // uint32_t battery_ballance_adc_count_{0};
+  // uint32_t current_sense_adc_count_{0};
 };
 
 class SimCamera : public Extension {

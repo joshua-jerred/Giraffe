@@ -21,6 +21,7 @@
 #include <BoosterSeat/time.hpp>
 #include <BoosterSeat/timer.hpp>
 
+#include "configuration.hpp"
 #include "logger.hpp"
 #include "shared_data.hpp"
 
@@ -30,14 +31,13 @@ namespace data_middleware {
 /// @warning
 class CalculatedData {
 public:
-  CalculatedData(data::SharedData &shared_data);
+  CalculatedData(data::SharedData &shared_data, cfg::Configuration &config);
   ~CalculatedData() = default;
 
+  /// @brief Update the calculated data and store it in the shared data.
   /// @brief Needs to be called periodically. This will update the shared data
   /// with the calculated data.
   void updateCalculatedData();
-
-  /// @brief Update the calculated data and store it in the shared data.
 
   /// @brief Update positional data based on GPS data.
   /// @param gps_frame - A GPS frame that is both valid and unique.
@@ -46,6 +46,10 @@ public:
   /// @brief Update the pressure altitude based on data from barometers
   /// providing pressure data.
   void addPressureData(double pressure_mbar);
+
+  /// @brief Update battery data based on battery voltage.
+  /// @param voltage_mv - The battery voltage in millivolts.
+  void addBatteryVoltageData(uint32_t voltage_mv);
 
 private:
   /// @brief Calculate average vertical and horizontal speeds. Called by
@@ -57,6 +61,9 @@ private:
   /// Called by updatePositionalData()
   /// @param gps_frame - Valid GPS data
   void calculateDistanceData(const data::GpsFrame &gps_frame);
+
+  double battery_voltage_max_mv_ = 0;
+  double battery_voltage_min_mv_ = 0;
 
   /**
    * @brief The last gps point. Used to calculate distance traveled.
@@ -71,6 +78,10 @@ private:
    * @brief The distance traveled in km.
    */
   double distance_traveled_ = 0.0;
+
+  /// @brief If this timer expires, the battery voltage data is considered
+  /// stale/invalid.
+  bst::Timer battery_voltage_timeout_{30 * 1000};
 
   /// @brief If this timer expires, the pressure data is considered
   /// stale/invalid.
@@ -101,6 +112,8 @@ private:
   data::blocks::CalculatedData data_buffer_{};
 
   data::SharedData &shared_data_;
+
+  cfg::Configuration &config_;
 
   giraffe::Logger logger_{shared_data_.streams.log,
                           node::Identification::DATA_MODULE, "calculated_data"};
