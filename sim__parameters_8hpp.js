@@ -11,6 +11,7 @@ var sim__parameters_8hpp =
       [ "heading_deg", "namespacegfs__sim.html#a4a9325604b9590f92163c86ea726fa57", null ],
       [ "latitude_deg", "namespacegfs__sim.html#a8895f23e8311fd793b321c9a84e71a36", null ],
       [ "longitude_deg", "namespacegfs__sim.html#a14ff45a0f582aed7e23a0694652e031d", null ],
+      [ "battery_voltage", "namespacegfs__sim.html#a60f0b54dbe4a8761203c7677b811d27f", null ],
       [ "adc_ch_0", "namespacegfs__sim.html#a976abb0524e340c42a9ffa8c1a386930", null ],
       [ "adc_ch_1", "namespacegfs__sim.html#a76f74e32e795c2ad466602b83e335bfa", null ],
       [ "adc_ch_2", "namespacegfs__sim.html#a21b01ca7f1180d57be398c6871630908", null ],

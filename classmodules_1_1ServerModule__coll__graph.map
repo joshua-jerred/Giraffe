@@ -1,49 +1,49 @@
 <map id="modules::ServerModule" name="modules::ServerModule">
 <area shape="rect" id="node1" title="The server module. Provides a network interface for interacting with the flight system." alt="" coords="723,1483,899,1633"/>
 <area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="1387,991,1553,1376"/>
-<area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title="Data that is shared across all modules and extensions." alt="" coords="2667,814,2801,891"/>
+<area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title="Data that is shared across all modules and extensions." alt="" coords="2687,814,2821,891"/>
 <area shape="rect" id="node43" href="$group__ServerModule.html#classRequestRouter" title="Used to handle client requests from the server module." alt="" coords="682,1027,941,1339"/>
 <area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="1624,579,1737,656"/>
 <area shape="rect" id="node5" href="$classdata_1_1LogStream.html" title=" " alt="" coords="798,211,1019,347"/>
 <area shape="rect" id="node48" href="$classgiraffe_1_1Logger.html" title=" " alt="" coords="828,549,944,685"/>
 <area shape="rect" id="node6" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="1693,241,1865,318"/>
-<area shape="rect" id="node7" href="$classdata_1_1DataStream.html" title=" " alt="" coords="1889,233,2027,325"/>
+<area shape="rect" id="node7" href="$classdata_1_1DataStream.html" title=" " alt="" coords="1890,226,2047,333"/>
 <area shape="rect" id="node8" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="1299,241,1471,318"/>
 <area shape="rect" id="node9" href="$classdata_1_1CommandStream.html" title="The stream of new commands." alt="" coords="1495,241,1669,318"/>
-<area shape="rect" id="node10" href="$classgiraffe_1_1StatusLedState.html" title=" " alt="" coords="2191,527,2362,707"/>
-<area shape="rect" id="node11" title=" " alt="" coords="2051,241,2182,318"/>
-<area shape="rect" id="node12" href="$namespacedata.html#structdata_1_1SharedBlocks" title=" " alt="" coords="3439,579,3586,656"/>
-<area shape="rect" id="node13" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="4149,189,4343,369"/>
-<area shape="rect" id="node14" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="4367,189,4605,369"/>
-<area shape="rect" id="node15" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="4629,197,4868,362"/>
-<area shape="rect" id="node16" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="4892,189,5128,369"/>
-<area shape="rect" id="node17" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2207,197,2432,362"/>
-<area shape="rect" id="node18" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2457,197,2683,362"/>
-<area shape="rect" id="node19" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2707,197,2902,362"/>
-<area shape="rect" id="node20" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2926,197,3139,362"/>
-<area shape="rect" id="node21" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="3163,197,3390,362"/>
-<area shape="rect" id="node22" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="3415,189,3611,369"/>
-<area shape="rect" id="node23" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="3635,189,3849,369"/>
-<area shape="rect" id="node24" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="3874,197,4125,362"/>
-<area shape="rect" id="node25" href="$classLogContainer.html" title=" " alt="" coords="5595,219,5739,340"/>
-<area shape="rect" id="node26" title=" " alt="" coords="5633,5,5790,83"/>
-<area shape="rect" id="node27" title=" " alt="" coords="5390,5,5454,83"/>
-<area shape="rect" id="node30" href="$classdata_1_1ErrorFrame.html" title="The error frame." alt="" coords="5361,145,5571,413"/>
+<area shape="rect" id="node10" href="$classgiraffe_1_1StatusLedState.html" title=" " alt="" coords="2211,527,2382,707"/>
+<area shape="rect" id="node11" title=" " alt="" coords="2071,241,2202,318"/>
+<area shape="rect" id="node12" href="$namespacedata.html#structdata_1_1SharedBlocks" title=" " alt="" coords="3459,579,3606,656"/>
+<area shape="rect" id="node13" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="4169,189,4363,369"/>
+<area shape="rect" id="node14" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="4387,189,4625,369"/>
+<area shape="rect" id="node15" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="4649,197,4888,362"/>
+<area shape="rect" id="node16" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="4912,189,5148,369"/>
+<area shape="rect" id="node17" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2227,197,2452,362"/>
+<area shape="rect" id="node18" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2477,197,2703,362"/>
+<area shape="rect" id="node19" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2727,197,2922,362"/>
+<area shape="rect" id="node20" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2946,197,3159,362"/>
+<area shape="rect" id="node21" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="3183,197,3410,362"/>
+<area shape="rect" id="node22" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="3435,189,3631,369"/>
+<area shape="rect" id="node23" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="3655,189,3869,369"/>
+<area shape="rect" id="node24" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="3894,197,4145,362"/>
+<area shape="rect" id="node25" href="$classLogContainer.html" title=" " alt="" coords="5615,219,5759,340"/>
+<area shape="rect" id="node26" title=" " alt="" coords="5653,5,5810,83"/>
+<area shape="rect" id="node27" title=" " alt="" coords="5410,5,5474,83"/>
+<area shape="rect" id="node30" href="$classdata_1_1ErrorFrame.html" title="The error frame." alt="" coords="5381,145,5591,413"/>
 <area shape="rect" id="node39" href="$classcmd_1_1CommandQueue.html" title="Used within modules to queue commands to be processed." alt="" coords="604,564,771,671"/>
-<area shape="rect" id="node28" href="$namespacedata.html#structdata_1_1Frames" title=" " alt="" coords="5177,579,5283,656"/>
-<area shape="rect" id="node29" href="$classdata_1_1Frame.html" title=" " alt="" coords="5153,167,5337,391"/>
+<area shape="rect" id="node28" href="$namespacedata.html#structdata_1_1Frames" title=" " alt="" coords="5197,579,5303,656"/>
+<area shape="rect" id="node29" href="$classdata_1_1Frame.html" title=" " alt="" coords="5173,167,5357,391"/>
 <area shape="rect" id="node31" title=" " alt="" coords="645,5,684,83"/>
 <area shape="rect" id="node35" href="$structmodules_1_1MetaData.html" title="Module metadata." alt="" coords="1121,579,1272,656"/>
 <area shape="rect" id="node46" href="$structdata_1_1blocks_1_1ServerModuleStats.html" title=" " alt="" coords="209,807,408,899"/>
 <area shape="rect" id="node49" href="$group__ServerModule.html#classsock_1_1TcpSocketServer" title="The TCP socket server class." alt="" coords="5,153,172,406"/>
-<area shape="rect" id="node32" href="$classdata_1_1FlightData.html" title=" " alt="" coords="5541,505,5749,729"/>
-<area shape="rect" id="node33" title=" " alt="" coords="5763,241,5889,318"/>
+<area shape="rect" id="node32" href="$classdata_1_1FlightData.html" title=" " alt="" coords="5561,505,5769,729"/>
+<area shape="rect" id="node33" title=" " alt="" coords="5783,241,5909,318"/>
 <area shape="rect" id="node34" title=" " alt="" coords="1046,814,1169,891"/>
 <area shape="rect" id="node36" title=" " alt="" coords="585,241,691,318"/>
 <area shape="rect" id="node37" title=" " alt="" coords="715,241,774,318"/>
-<area shape="rect" id="node38" title=" " alt="" coords="5841,814,6019,891"/>
+<area shape="rect" id="node38" title=" " alt="" coords="5861,814,6039,891"/>
 <area shape="rect" id="node40" title=" " alt="" coords="366,241,561,318"/>
-<area shape="rect" id="node41" title=" " alt="" coords="6043,814,6107,891"/>
+<area shape="rect" id="node41" title=" " alt="" coords="6063,814,6127,891"/>
 <area shape="rect" id="node42" title=" " alt="" coords="1577,1145,1637,1222"/>
 <area shape="rect" id="node44" title=" " alt="" coords="465,579,531,656"/>
 <area shape="rect" id="node45" title=" " alt="" coords="433,814,627,891"/>

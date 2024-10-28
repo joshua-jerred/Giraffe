@@ -1,4 +1,0 @@
-<map id="data_middleware::AdcInterpolation::insertPercentageValue" name="data_middleware::AdcInterpolation::insertPercentageValue">
-<area shape="rect" id="node1" title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated percentage value ..." alt="" coords="5,5,256,47"/>
-<area shape="rect" id="node2" href="$classdata_1_1Frame.html#ae846d0c2d52a509b215edf195036afe6" title="Insert or replace an item." alt="" coords="304,13,449,39"/>
-</map>

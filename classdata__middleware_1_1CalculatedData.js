@@ -1,15 +1,19 @@
 var classdata__middleware_1_1CalculatedData =
 [
-    [ "CalculatedData", "classdata__middleware_1_1CalculatedData.html#ab31bff31b6b108560b7730d679dff95b", null ],
+    [ "CalculatedData", "classdata__middleware_1_1CalculatedData.html#a0e82773a23d4e91838fc925c4e8fb94d", null ],
     [ "~CalculatedData", "classdata__middleware_1_1CalculatedData.html#aaadf46e7e9bfac41ec59fb65371ed537", null ],
     [ "updateCalculatedData", "classdata__middleware_1_1CalculatedData.html#a2db2d1da5aab865afb370f07febe9e3e", null ],
     [ "addPositionalData", "classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe", null ],
     [ "addPressureData", "classdata__middleware_1_1CalculatedData.html#a6cbdf7f9de97b34210a43f2d383ea20c", null ],
+    [ "addBatteryVoltageData", "classdata__middleware_1_1CalculatedData.html#aac209cadfa652f8d39223601c0a8f58d", null ],
     [ "calculateVelocityData", "classdata__middleware_1_1CalculatedData.html#a07eb1dd2ca097be51dc9324995d4f3e7", null ],
     [ "calculateDistanceData", "classdata__middleware_1_1CalculatedData.html#a21515bd355a6df0c8888d61862588ca1", null ],
+    [ "battery_voltage_max_mv_", "classdata__middleware_1_1CalculatedData.html#abeb11713c96b9241b521b59c006fd720", null ],
+    [ "battery_voltage_min_mv_", "classdata__middleware_1_1CalculatedData.html#a8eef7eaf64945f4ee19cad3c7814c432", null ],
     [ "last_gps_point_", "classdata__middleware_1_1CalculatedData.html#ae25e13340d3031d4f0c856d8f4c63d0f", null ],
     [ "have_initial_gps_point_", "classdata__middleware_1_1CalculatedData.html#a85a0bffdf642b6bf858b1ce545fbbaed", null ],
     [ "distance_traveled_", "classdata__middleware_1_1CalculatedData.html#a383bf1f2f4a066db15ee5236f4c9256c", null ],
+    [ "battery_voltage_timeout_", "classdata__middleware_1_1CalculatedData.html#a1180cf5f36b9f0e93236e08e8f4e4f09", null ],
     [ "pressure_data_timeout_", "classdata__middleware_1_1CalculatedData.html#af5ed9eae1c0c8e01a8ecf4857ccae6cf", null ],
     [ "positional_data_timeout_", "classdata__middleware_1_1CalculatedData.html#a0ae2730fc6b4ff55d46a0b512eaa6ec2", null ],
     [ "time_since_last_valid_frame_", "classdata__middleware_1_1CalculatedData.html#abeb7600ae915dfc14246edf20940afc6", null ],
@@ -19,5 +23,6 @@ var classdata__middleware_1_1CalculatedData =
     [ "average_speed_timer_", "classdata__middleware_1_1CalculatedData.html#ae01d70ff684008b42f18b7407b85ca64", null ],
     [ "data_buffer_", "classdata__middleware_1_1CalculatedData.html#ad3498fa9e2296a49ebdd1194dc563e3f", null ],
     [ "shared_data_", "classdata__middleware_1_1CalculatedData.html#a2e416307d5016e6c09c9d1c83175efe2", null ],
+    [ "config_", "classdata__middleware_1_1CalculatedData.html#a6a3cd885212e50e42404c350bf26fb23", null ],
     [ "logger_", "classdata__middleware_1_1CalculatedData.html#a1e9504b49a54047cbb28a12e7d11de68", null ]
 ];

@@ -269,7 +269,7 @@
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="classextension_1_1SimAdcSensor.html" target="_top" xlink:title=" ">
+<g id="a_node11"><a xlink:href="classextension_1_1SimAdcSensor.html" target="_top" xlink:title="Simulated ADC sensor with battery voltage, battery balance tap voltage, and current sense voltage.">
 <polygon fill="none" stroke="black" points="1141.5,-402.5 1141.5,-470.5 1281.5,-470.5 1281.5,-402.5 1141.5,-402.5"/>
 <text text-anchor="middle" x="1211.5" y="-458.5" font-family="Helvetica,sans-Serif" font-size="10.00">extension::SimAdcSensor</text>
 <polyline fill="none" stroke="black" points="1141.5,-451.5 1281.5,-451.5 "/>

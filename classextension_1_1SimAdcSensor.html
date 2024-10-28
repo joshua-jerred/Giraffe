@@ -112,6 +112,9 @@ $(document).ready(function(){initNavTree('classextension_1_1SimAdcSensor.html','
 </div><!--header-->
 <div class="contents">
 
+<p>Simulated ADC sensor with battery voltage, battery balance tap voltage, and current sense voltage.  
+ <a href="classextension_1_1SimAdcSensor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="simulated__extensions_8hpp_source.html">simulated_extensions.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for extension::SimAdcSensor:</div>
@@ -122,7 +125,7 @@ Inheritance diagram for extension::SimAdcSensor:</div>
 <div class="dynheader">
 Collaboration diagram for extension::SimAdcSensor:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1SimAdcSensor__coll__graph.svg" width="1922" height="1847"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1SimAdcSensor__coll__graph.svg" width="1926" height="1847"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -214,7 +217,16 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a7c3006e96ae19d965001031a8acef878"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextension_1_1Extension.html#a7c3006e96ae19d965001031a8acef878">stop_flag_</a> = true</td></tr>
 <tr class="separator:a7c3006e96ae19d965001031a8acef878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Simulated ADC sensor with battery voltage, battery balance tap voltage, and current sense voltage. </p>
+<p>Battery voltage:</p><ul>
+<li>Real range: 0.0 to 9.0 volts</li>
+<li>ADC Voltage divider: 10k/5.6k - 9.0 volts = 3.231 volts</li>
+<li>ADC resolution: 12 bits</li>
+<li>0.0 volts = 0 ADC count</li>
+<li>9.0 volts = 4009 ADC count </li>
+</ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0c6b2cce69447a4ddd8aa87b2d3062d6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0c6b2cce69447a4ddd8aa87b2d3062d6">&#9670;&nbsp;</a></span>SimAdcSensor()</h2>
 
@@ -276,6 +288,14 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reimplemented from <a class="el" href="classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef">extension::Extension</a>.</p>
+
+<p class="reference">References <a class="el" href="classextension_1_1Extension.html#ab94ad848063e5b1677ca365e709bd03c">extension::Extension::dataWithSecondaryIdentifier()</a>, and <a class="el" href="namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6">util::to_string()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1SimAdcSensor_af57a2ce70d1102f841fc3e595c5e68fb_cgraph.svg" width="688" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -751,7 +771,7 @@ Here is the call graph for this function:</div>
 
 <p class="reference">References <a class="el" href="classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a">data::Stream&lt; T &gt;::addPacket()</a>, <a class="el" href="namespacedata.html#a22ad003376a2efe4c21e35b9a9ac9901">data::Streams::data</a>, <a class="el" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a1d1cd00b7cd275ef0629c38d0eb70b4d">node::EXTENSION</a>, <a class="el" href="structdata_1_1DataPacket.html#a42b72d06d9e66591a45e095599dc5472">data::DataPacket::identifier</a>, <a class="el" href="classextension_1_1Extension.html#a067006ad3c8c07006590ccdfca70d037">extension::Extension::interfaces_</a>, <a class="el" href="classextension_1_1Extension.html#a295de97827360717494a398c45d161f2">extension::Extension::metadata_</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, <a class="el" href="structdata_1_1DataPacket.html#a7ac4c3266ecc030764f211293194c872ab22f521f17b09d0fd389e231f8f6d66d">data::DataPacket::NUMERIC</a>, <a class="el" href="structdata_1_1DataPacket.html#a38df0ed514eadb411a287941e6b106f6">data::DataPacket::numeric_value</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#aae10163d71ab4a900ef1df6b7d94b786">data::BaseStreamPacket::secondary_identifier</a>, <a class="el" href="structdata_1_1BaseStreamPacket.html#a25dd4f4b9f9ef45a841ca6dbda2b90aa">data::BaseStreamPacket::source</a>, <a class="el" href="structextension_1_1ExtensionResources.html#a93ac75a1920ce49da6720ff578b5ed8b">extension::ExtensionResources::streams</a>, and <a class="el" href="structdata_1_1DataPacket.html#a3c79d9e44599e5a8670a25e9bd86874c">data::DataPacket::type</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42">extension::AdcExtensionBase::reportAdcData()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classextension_1_1SimAdcSensor.html#af57a2ce70d1102f841fc3e595c5e68fb">loop()</a>, and <a class="el" href="classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42">extension::AdcExtensionBase::reportAdcData()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -761,7 +781,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1Extension_ab94ad848063e5b1677ca365e709bd03c_icgraph.svg" width="891" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextension_1_1Extension_ab94ad848063e5b1677ca365e709bd03c_icgraph.svg" width="891" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

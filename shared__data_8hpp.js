@@ -5,7 +5,7 @@ var shared__data_8hpp =
       [ "env_temp", "namespacedata.html#a38cbd9acc1f37e88b889dcab9fb0cbdb", null ],
       [ "env_pres", "namespacedata.html#ab1784744ea86e7ba99508f87c3dbbb5c", null ],
       [ "env_hum", "namespacedata.html#a4464dc398562ecb51fe70a93e84df7eb", null ],
-      [ "adc", "namespacedata.html#a633111d236bbf269a603e13a4b52defe", null ]
+      [ "adc", "namespacedata.html#ac2c90b029cc221c77a0cd3066d89345b", null ]
     ] ],
     [ "SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", [
       [ "stream_stats", "namespacedata.html#a853289e3095b00d17f12bb70981f4c1c", null ],
@@ -29,5 +29,7 @@ var shared__data_8hpp =
       [ "imu", "namespacedata.html#a142d6b2c62c6c60a90575a626a599576", null ],
       [ "command", "namespacedata.html#a947a2cf7b6cb10b8210115e5fba3a9ca", null ]
     ] ],
-    [ "toJson", "shared__data_8hpp.html#ad7272e7b88e216047b649704df787d95", null ]
+    [ "AdcValue", "shared__data_8hpp.html#abb5ab4457f1809661bba09c9a6d505ed", null ],
+    [ "toJson", "shared__data_8hpp.html#ad7272e7b88e216047b649704df787d95", null ],
+    [ "toJson", "shared__data_8hpp.html#a99648e2332cfd0029a161c3ad129e461", null ]
 ];

@@ -103,6 +103,7 @@ $(document).ready(function(){initNavTree('namespacedata.html',''); initResizable
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -137,7 +138,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:structdata_1_1ErrorFrameItem"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct to store information about an error in the error frame.  <a href="namespacedata.html#structdata_1_1ErrorFrameItem">More...</a><br /></td></tr>
 <tr class="separator:structdata_1_1ErrorFrameItem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_1_1ErrorReporter.html">ErrorReporter</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple class to unique errors once.  <a href="classdata_1_1ErrorReporter.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple class to report errors once.  <a href="classdata_1_1ErrorReporter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_1_1FlightData.html">FlightData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,6 +175,12 @@ Classes</h2></td></tr>
 <tr class="memitem:structdata_1_1Streams"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html#structdata_1_1Streams">Streams</a></td></tr>
 <tr class="separator:structdata_1_1Streams"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:abb5ab4457f1809661bba09c9a6d505ed"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html#abb5ab4457f1809661bba09c9a6d505ed">AdcValue</a> = std::pair&lt; uint32_t, double &gt;</td></tr>
+<tr class="memdesc:abb5ab4457f1809661bba09c9a6d505ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC Value containing &lt;raw_count, interpolated_value&gt;  <a href="namespacedata.html#abb5ab4457f1809661bba09c9a6d505ed">More...</a><br /></td></tr>
+<tr class="separator:abb5ab4457f1809661bba09c9a6d505ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:ab828a916e0a524f5d9d29e881a1e829b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829b">GpsFix</a> : uint8_t { <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829babb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a> = 0
@@ -193,6 +200,8 @@ Functions</h2></td></tr>
 <tr class="separator:a1843909ee9dc73d01c721427f3836781"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a8a89c1112857ba23a7fff451bd652d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html#a5a8a89c1112857ba23a7fff451bd652d">to_json</a> (<a class="el" href="positional_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, const <a class="el" href="structdata_1_1GpsFrame.html">data::GpsFrame</a> &amp;frame)</td></tr>
 <tr class="separator:a5a8a89c1112857ba23a7fff451bd652d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99648e2332cfd0029a161c3ad129e461"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html#a99648e2332cfd0029a161c3ad129e461">toJson</a> (<a class="el" href="classdata_1_1Frame.html">data::Frame</a>&lt; std::string, <a class="el" href="namespacedata.html#abb5ab4457f1809661bba09c9a6d505ed">data::AdcValue</a> &gt; &amp;frame)</td></tr>
+<tr class="separator:a99648e2332cfd0029a161c3ad129e461"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7272e7b88e216047b649704df787d95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html#ad7272e7b88e216047b649704df787d95">toJson</a> (<a class="el" href="classdata_1_1Frame.html">data::Frame</a>&lt; std::string, <a class="el" href="structdata_1_1DataPacket.html">data::DataPacket</a> &gt; &amp;frame)</td></tr>
 <tr class="separator:ad7272e7b88e216047b649704df787d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -266,7 +275,7 @@ packet</td>
 <div class="textblock"></div><div class="dynheader">
 Collaboration diagram for data::Frames:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structdata_1_1Frames__coll__graph.svg" width="874" height="1342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structdata_1_1Frames__coll__graph.svg" width="883" height="1342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="fieldtable">
@@ -296,7 +305,7 @@ env_hum</td>
 <td class="fielddoc">
 Humidity data from environmental extensions. </td></tr>
 <tr><td class="fieldtype">
-<a id="a633111d236bbf269a603e13a4b52defe"></a><a class="el" href="classdata_1_1Frame.html">Frame</a>&lt; string, double &gt;</td>
+<a id="ac2c90b029cc221c77a0cd3066d89345b"></a><a class="el" href="classdata_1_1Frame.html">Frame</a>&lt; string, <a class="el" href="namespacedata.html#abb5ab4457f1809661bba09c9a6d505ed">AdcValue</a> &gt;</td>
 <td class="fieldname">
 adc</td>
 <td class="fielddoc">
@@ -525,6 +534,23 @@ The command stream. Parsed by the flight runner, not the data module. </td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="abb5ab4457f1809661bba09c9a6d505ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb5ab4457f1809661bba09c9a6d505ed">&#9670;&nbsp;</a></span>AdcValue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacedata.html#abb5ab4457f1809661bba09c9a6d505ed">data::AdcValue</a> = typedef std::pair&lt;uint32_t, double&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ADC Value containing &lt;raw_count, interpolated_value&gt; </p>
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="ab828a916e0a524f5d9d29e881a1e829b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab828a916e0a524f5d9d29e881a1e829b">&#9670;&nbsp;</a></span>GpsFix</h2>
@@ -665,7 +691,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <a id="ad7272e7b88e216047b649704df787d95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7272e7b88e216047b649704df787d95">&#9670;&nbsp;</a></span>toJson()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7272e7b88e216047b649704df787d95">&#9670;&nbsp;</a></span>toJson() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -693,6 +719,32 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacedata_ad7272e7b88e216047b649704df787d95_icgraph.svg" width="683" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a99648e2332cfd0029a161c3ad129e461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99648e2332cfd0029a161c3ad129e461">&#9670;&nbsp;</a></span>toJson() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> data::toJson </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdata_1_1Frame.html">data::Frame</a>&lt; std::string, <a class="el" href="namespacedata.html#abb5ab4457f1809661bba09c9a6d505ed">data::AdcValue</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classdata_1_1Frame.html#a21145c86e25d76061706ea66044139e0">data::Frame&lt; ID, DATA &gt;::getAll()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacedata_a99648e2332cfd0029a161c3ad129e461_cgraph.svg" width="304" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

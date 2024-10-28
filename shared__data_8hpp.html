@@ -103,6 +103,7 @@ $(document).ready(function(){initNavTree('shared__data_8hpp.html',''); initResiz
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">shared_data.hpp File Reference</div>  </div>
@@ -153,8 +154,16 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacedata"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html">data</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:abb5ab4457f1809661bba09c9a6d505ed"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html#abb5ab4457f1809661bba09c9a6d505ed">data::AdcValue</a> = std::pair&lt; uint32_t, double &gt;</td></tr>
+<tr class="memdesc:abb5ab4457f1809661bba09c9a6d505ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC Value containing &lt;raw_count, interpolated_value&gt;  <a href="namespacedata.html#abb5ab4457f1809661bba09c9a6d505ed">More...</a><br /></td></tr>
+<tr class="separator:abb5ab4457f1809661bba09c9a6d505ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a99648e2332cfd0029a161c3ad129e461"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html#a99648e2332cfd0029a161c3ad129e461">data::toJson</a> (<a class="el" href="classdata_1_1Frame.html">data::Frame</a>&lt; std::string, <a class="el" href="namespacedata.html#abb5ab4457f1809661bba09c9a6d505ed">data::AdcValue</a> &gt; &amp;frame)</td></tr>
+<tr class="separator:a99648e2332cfd0029a161c3ad129e461"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7272e7b88e216047b649704df787d95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedata.html#ad7272e7b88e216047b649704df787d95">data::toJson</a> (<a class="el" href="classdata_1_1Frame.html">data::Frame</a>&lt; std::string, <a class="el" href="structdata_1_1DataPacket.html">data::DataPacket</a> &gt; &amp;frame)</td></tr>
 <tr class="separator:ad7272e7b88e216047b649704df787d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -179,7 +188,7 @@ Functions</h2></td></tr>
 <div class="textblock"></div><div class="dynheader">
 Collaboration diagram for data::Frames:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structdata_1_1Frames__coll__graph.svg" width="874" height="1342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structdata_1_1Frames__coll__graph.svg" width="883" height="1342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="fieldtable">
@@ -209,7 +218,7 @@ env_hum</td>
 <td class="fielddoc">
 Humidity data from environmental extensions. </td></tr>
 <tr><td class="fieldtype">
-<a id="a633111d236bbf269a603e13a4b52defe"></a><a class="el" href="classdata_1_1Frame.html">Frame</a>&lt; string, double &gt;</td>
+<a id="ac2c90b029cc221c77a0cd3066d89345b"></a><a class="el" href="classdata_1_1Frame.html">Frame</a>&lt; string, <a class="el" href="namespacedata.html#abb5ab4457f1809661bba09c9a6d505ed">AdcValue</a> &gt;</td>
 <td class="fieldname">
 adc</td>
 <td class="fielddoc">

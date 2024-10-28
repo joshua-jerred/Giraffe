@@ -1,6 +1,7 @@
 <map id="extension::Extension::dataWithSecondaryIdentifier" name="extension::Extension::dataWithSecondaryIdentifier">
-<area shape="rect" id="node1" title=" " alt="" coords="671,5,885,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42" title=" " alt="" coords="408,5,623,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Mcp3021.html#a51dc6f0aef0765bceaf401578288cd67" title=" " alt="" coords="207,5,360,47"/>
-<area shape="rect" id="node4" href="$classextension_1_1Mcp3021.html#a34a36fefe55e92ad7b915f8758f66b9f" title=" " alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="671,39,885,80"/>
+<area shape="rect" id="node2" href="$classextension_1_1SimAdcSensor.html#af57a2ce70d1102f841fc3e595c5e68fb" title=" " alt="" coords="422,5,609,47"/>
+<area shape="rect" id="node3" href="$classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42" title=" " alt="" coords="408,71,623,112"/>
+<area shape="rect" id="node4" href="$classextension_1_1Mcp3021.html#a51dc6f0aef0765bceaf401578288cd67" title=" " alt="" coords="207,71,360,112"/>
+<area shape="rect" id="node5" href="$classextension_1_1Mcp3021.html#a34a36fefe55e92ad7b915f8758f66b9f" title=" " alt="" coords="5,71,159,112"/>
 </map>

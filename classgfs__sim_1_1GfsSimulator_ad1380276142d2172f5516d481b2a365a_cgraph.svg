@@ -12,9 +12,9 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="0,-343.5 0,-373.5 125,-373.5 125,-343.5 0,-343.5"/>
-<text text-anchor="start" x="8" y="-361.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::GfsSimulator</text>
-<text text-anchor="middle" x="62.5" y="-350.5" font-family="Helvetica,sans-Serif" font-size="10.00">::start</text>
+<polygon fill="#bfbfbf" stroke="black" points="0,-244.5 0,-274.5 125,-274.5 125,-244.5 0,-244.5"/>
+<text text-anchor="start" x="8" y="-262.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::GfsSimulator</text>
+<text text-anchor="middle" x="62.5" y="-251.5" font-family="Helvetica,sans-Serif" font-size="10.00">::start</text>
 </a>
 </g>
 </g>
@@ -22,16 +22,16 @@
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="classgfs__sim_1_1GfsSimulator.html#ada138779165690488655ea0856e38d40" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="161,-349 161,-368 307,-368 307,-349 161,-349"/>
-<text text-anchor="middle" x="234" y="-356" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::GfsSimulator::run</text>
+<polygon fill="none" stroke="black" points="161,-250 161,-269 307,-269 307,-250 161,-250"/>
+<text text-anchor="middle" x="234" y="-257" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::GfsSimulator::run</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M125.17,-358.5C133.47,-358.5 142.09,-358.5 150.68,-358.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="150.72,-362 160.72,-358.5 150.72,-355 150.72,-362"/>
+<path fill="none" stroke="midnightblue" d="M125.17,-259.5C133.47,-259.5 142.09,-259.5 150.68,-259.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="150.72,-263 160.72,-259.5 150.72,-256 150.72,-263"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
@@ -46,40 +46,56 @@
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M250.89,-368.02C324.09,-411.85 629.58,-594.8 732.21,-656.26"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="730.56,-659.35 740.93,-661.49 734.15,-653.35 730.56,-659.35"/>
+<path fill="none" stroke="midnightblue" d="M244.83,-269.12C263.47,-287.21 305.44,-327.29 343,-358.5 485.31,-476.74 665.49,-605.74 735.89,-655.4"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="734.12,-658.43 744.31,-661.33 738.15,-652.71 734.12,-658.43"/>
 </g>
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
 <g id="a_node14"><a xlink:href="classgfs__sim_1_1GfsSimulator.html#ac29a56aba288ef2a5aa96885c8826ffb" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="347.5,-147.5 347.5,-177.5 472.5,-177.5 472.5,-147.5 347.5,-147.5"/>
-<text text-anchor="start" x="355.5" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::GfsSimulator</text>
-<text text-anchor="middle" x="410" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">::stateMachine</text>
+<polygon fill="none" stroke="black" points="347.5,-171.5 347.5,-201.5 472.5,-201.5 472.5,-171.5 347.5,-171.5"/>
+<text text-anchor="start" x="355.5" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::GfsSimulator</text>
+<text text-anchor="middle" x="410" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">::stateMachine</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node14 -->
 <g id="edge13" class="edge">
 <title>Node2&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M243.63,-348.78C270.11,-318.96 350.7,-228.17 388.73,-185.34"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="391.5,-187.48 395.52,-177.68 386.27,-182.84 391.5,-187.48"/>
+<path fill="none" stroke="midnightblue" d="M257.75,-249.96C284.52,-238.72 329.65,-219.79 363.65,-205.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="365.06,-208.73 372.93,-201.63 362.35,-202.28 365.06,-208.73"/>
 </g>
 <!-- Node21 -->
 <g id="node21" class="node">
 <title>Node21</title>
-<g id="a_node21"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a2311e27b7bd0683ae15f8b524b3e5948" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="343,-343.5 343,-373.5 477,-373.5 477,-343.5 343,-343.5"/>
-<text text-anchor="start" x="351" y="-361.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
-<text text-anchor="middle" x="410" y="-350.5" font-family="Helvetica,sans-Serif" font-size="10.00">::update</text>
+<g id="a_node21"><a xlink:href="classgfs__sim_1_1SimElectrical.html#aca92a422db7c911f71322e5230166620" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="347.5,-122.5 347.5,-152.5 472.5,-152.5 472.5,-122.5 347.5,-122.5"/>
+<text text-anchor="start" x="355.5" y="-140.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::SimElectrical</text>
+<text text-anchor="middle" x="410" y="-129.5" font-family="Helvetica,sans-Serif" font-size="10.00">::update</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node21 -->
 <g id="edge20" class="edge">
 <title>Node2&#45;&gt;Node21</title>
-<path fill="none" stroke="midnightblue" d="M307.03,-358.5C315.47,-358.5 324.11,-358.5 332.6,-358.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="332.88,-362 342.88,-358.5 332.88,-355 332.88,-362"/>
+<path fill="none" stroke="midnightblue" d="M243.27,-249.8C260.19,-230.52 300.73,-187 343,-161.5 345.77,-159.83 348.67,-158.25 351.65,-156.76"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="353.15,-159.92 360.75,-152.54 350.21,-153.57 353.15,-159.92"/>
+</g>
+<!-- Node22 -->
+<g id="node22" class="node">
+<title>Node22</title>
+<g id="a_node22"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a2311e27b7bd0683ae15f8b524b3e5948" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="343,-318.5 343,-348.5 477,-348.5 477,-318.5 343,-318.5"/>
+<text text-anchor="start" x="351" y="-336.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
+<text text-anchor="middle" x="410" y="-325.5" font-family="Helvetica,sans-Serif" font-size="10.00">::update</text>
+</a>
+</g>
+</g>
+<!-- Node2&#45;&gt;Node22 -->
+<g id="edge21" class="edge">
+<title>Node2&#45;&gt;Node22</title>
+<path fill="none" stroke="midnightblue" d="M257.39,-269.02C284.24,-280.44 329.89,-299.86 364.1,-314.41"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="362.85,-317.68 373.42,-318.37 365.59,-311.23 362.85,-317.68"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
@@ -254,8 +270,8 @@
 <!-- Node14&#45;&gt;Node15 -->
 <g id="edge14" class="edge">
 <title>Node14&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M472.73,-162.5C486.57,-162.5 501.37,-162.5 515.58,-162.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="515.8,-166 525.8,-162.5 515.8,-159 515.8,-166"/>
+<path fill="none" stroke="midnightblue" d="M472.73,-178.11C486.57,-176.22 501.37,-174.21 515.58,-172.28"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="516.37,-175.7 525.8,-170.89 515.42,-168.77 516.37,-175.7"/>
 </g>
 <!-- Node16 -->
 <g id="node16" class="node">
@@ -270,8 +286,8 @@
 <!-- Node14&#45;&gt;Node16 -->
 <g id="edge15" class="edge">
 <title>Node14&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M465.4,-147.4C483.77,-142.3 504.45,-136.56 523.49,-131.27"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="524.58,-134.6 533.28,-128.55 522.71,-127.85 524.58,-134.6"/>
+<path fill="none" stroke="midnightblue" d="M454.92,-171.46C462.41,-168.44 470.03,-165.09 477,-161.5 494.1,-152.7 495.68,-145.86 513,-137.5 516.79,-135.67 520.74,-133.94 524.78,-132.29"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="526.21,-135.5 534.29,-128.64 523.7,-128.96 526.21,-135.5"/>
 </g>
 <!-- Node17 -->
 <g id="node17" class="node">
@@ -286,8 +302,8 @@
 <!-- Node14&#45;&gt;Node17 -->
 <g id="edge16" class="edge">
 <title>Node14&#45;&gt;Node17</title>
-<path fill="none" stroke="midnightblue" d="M428.3,-147.29C447.74,-130.86 480.81,-104.84 513,-88.5 516.58,-86.68 520.32,-84.97 524.15,-83.35"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="525.76,-86.48 533.77,-79.54 523.18,-79.97 525.76,-86.48"/>
+<path fill="none" stroke="midnightblue" d="M462.62,-171.46C467.81,-168.66 472.74,-165.37 477,-161.5 503.78,-137.18 485.62,-112.14 513,-88.5 514.5,-87.2 516.08,-85.97 517.71,-84.81"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="519.62,-87.75 526.31,-79.53 515.95,-81.78 519.62,-87.75"/>
 </g>
 <!-- Node18 -->
 <g id="node18" class="node">
@@ -302,8 +318,8 @@
 <!-- Node14&#45;&gt;Node18 -->
 <g id="edge17" class="edge">
 <title>Node14&#45;&gt;Node18</title>
-<path fill="none" stroke="midnightblue" d="M419.63,-147.26C435.05,-121.37 469.81,-68.74 513,-39.5 515.37,-37.89 517.86,-36.39 520.43,-34.98"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="521.99,-38.11 529.42,-30.55 518.9,-31.83 521.99,-38.11"/>
+<path fill="none" stroke="midnightblue" d="M464.6,-171.4C469.18,-168.63 473.42,-165.36 477,-161.5 515.45,-120.05 473.52,-79.97 513,-39.5 514.42,-38.04 515.94,-36.67 517.52,-35.38"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="519.7,-38.14 525.99,-29.62 515.76,-32.35 519.7,-38.14"/>
 </g>
 <!-- Node19 -->
 <g id="node19" class="node">
@@ -318,8 +334,8 @@
 <!-- Node14&#45;&gt;Node19 -->
 <g id="edge18" class="edge">
 <title>Node14&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M428.73,-177.71C448.28,-193.86 481.2,-219.25 513,-235.5 517.26,-237.67 521.74,-239.72 526.32,-241.64"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="525.19,-244.96 535.78,-245.38 527.77,-238.45 525.19,-244.96"/>
+<path fill="none" stroke="midnightblue" d="M439.08,-201.63C459.29,-212.18 487.4,-226.16 513,-236.5 517.76,-238.42 522.74,-240.3 527.77,-242.1"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="526.86,-245.49 537.45,-245.48 529.16,-238.88 526.86,-245.49"/>
 </g>
 <!-- Node20 -->
 <g id="node20" class="node">
@@ -334,324 +350,324 @@
 <!-- Node14&#45;&gt;Node20 -->
 <g id="edge19" class="edge">
 <title>Node14&#45;&gt;Node20</title>
-<path fill="none" stroke="midnightblue" d="M465.4,-177.6C483.77,-182.7 504.45,-188.44 523.49,-193.73"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="522.71,-197.15 533.28,-196.45 524.58,-190.4 522.71,-197.15"/>
+<path fill="none" stroke="midnightblue" d="M472.73,-195.24C486.57,-197.2 501.37,-199.3 515.58,-201.31"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="515.41,-204.82 525.8,-202.76 516.39,-197.89 515.41,-204.82"/>
 </g>
-<!-- Node22 -->
-<g id="node22" class="node">
-<title>Node22</title>
-<g id="a_node22"><a xlink:href="classgfs__sim_1_1SimEnvironmental.html#a9a1c7ebde413a1dce4b885201b33ab23" target="_top" xlink:title=" ">
+<!-- Node23 -->
+<g id="node23" class="node">
+<title>Node23</title>
+<g id="a_node23"><a xlink:href="classgfs__sim_1_1SimEnvironmental.html#a9a1c7ebde413a1dce4b885201b33ab23" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="513,-294.5 513,-324.5 664,-324.5 664,-294.5 513,-294.5"/>
 <text text-anchor="start" x="521" y="-312.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::SimEnvironmental</text>
 <text text-anchor="middle" x="588.5" y="-301.5" font-family="Helvetica,sans-Serif" font-size="10.00">::setAltitudeMeters</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node22 -->
-<g id="edge21" class="edge">
-<title>Node21&#45;&gt;Node22</title>
-<path fill="none" stroke="midnightblue" d="M465.4,-343.4C483.77,-338.3 504.45,-332.56 523.49,-327.27"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="524.58,-330.6 533.28,-324.55 522.71,-323.85 524.58,-330.6"/>
+<!-- Node22&#45;&gt;Node23 -->
+<g id="edge22" class="edge">
+<title>Node22&#45;&gt;Node23</title>
+<path fill="none" stroke="midnightblue" d="M477.22,-324.5C485.59,-323.36 494.24,-322.18 502.84,-321.01"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="503.46,-324.46 512.9,-319.64 502.52,-317.52 503.46,-324.46"/>
 </g>
-<!-- Node23 -->
-<g id="node23" class="node">
-<title>Node23</title>
-<g id="a_node23"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a242364cba2c68659179bf3c27993e8d8" target="_top" xlink:title=" ">
+<!-- Node24 -->
+<g id="node24" class="node">
+<title>Node24</title>
+<g id="a_node24"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a242364cba2c68659179bf3c27993e8d8" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="521.5,-343.5 521.5,-373.5 655.5,-373.5 655.5,-343.5 521.5,-343.5"/>
 <text text-anchor="start" x="529.5" y="-361.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="588.5" y="-350.5" font-family="Helvetica,sans-Serif" font-size="10.00">::stateMachine</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node23 -->
-<g id="edge22" class="edge">
-<title>Node21&#45;&gt;Node23</title>
-<path fill="none" stroke="midnightblue" d="M477.22,-358.5C488.31,-358.5 499.89,-358.5 511.2,-358.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="511.49,-362 521.49,-358.5 511.49,-355 511.49,-362"/>
+<!-- Node22&#45;&gt;Node24 -->
+<g id="edge23" class="edge">
+<title>Node22&#45;&gt;Node24</title>
+<path fill="none" stroke="midnightblue" d="M477.22,-342.88C488.42,-344.47 500.12,-346.12 511.55,-347.74"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="511.1,-351.21 521.49,-349.15 512.08,-344.28 511.1,-351.21"/>
 </g>
-<!-- Node34 -->
-<g id="node34" class="node">
-<title>Node34</title>
-<g id="a_node34"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a7a8a298ba5dad0d454a165bce45dd889" target="_top" xlink:title=" ">
+<!-- Node35 -->
+<g id="node35" class="node">
+<title>Node35</title>
+<g id="a_node35"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a7a8a298ba5dad0d454a165bce45dd889" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="700,-514.5 700,-544.5 834,-544.5 834,-514.5 700,-514.5"/>
 <text text-anchor="start" x="708" y="-532.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="767" y="-521.5" font-family="Helvetica,sans-Serif" font-size="10.00">::updateHorizontal</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node34 -->
-<g id="edge42" class="edge">
-<title>Node21&#45;&gt;Node34</title>
-<path fill="none" stroke="midnightblue" d="M442.19,-373.53C506.56,-404.53 654.04,-475.57 725.59,-510.03"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="724.22,-513.26 734.75,-514.45 727.26,-506.95 724.22,-513.26"/>
+<!-- Node22&#45;&gt;Node35 -->
+<g id="edge43" class="edge">
+<title>Node22&#45;&gt;Node35</title>
+<path fill="none" stroke="midnightblue" d="M438.27,-348.55C501.51,-383.47 658.21,-469.99 729.56,-509.38"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="728.19,-512.62 738.64,-514.39 731.58,-506.5 728.19,-512.62"/>
 </g>
-<!-- Node24 -->
-<g id="node24" class="node">
-<title>Node24</title>
-<g id="a_node24"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a1dc559b4facb82e597e4af3f5b1c1968" target="_top" xlink:title=" ">
+<!-- Node25 -->
+<g id="node25" class="node">
+<title>Node25</title>
+<g id="a_node25"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a1dc559b4facb82e597e4af3f5b1c1968" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="700,-220.5 700,-250.5 834,-250.5 834,-220.5 700,-220.5"/>
 <text text-anchor="start" x="708" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="767" y="-227.5" font-family="Helvetica,sans-Serif" font-size="10.00">::stateAscent</text>
 </a>
 </g>
 </g>
-<!-- Node23&#45;&gt;Node24 -->
-<g id="edge23" class="edge">
-<title>Node23&#45;&gt;Node24</title>
+<!-- Node24&#45;&gt;Node25 -->
+<g id="edge24" class="edge">
+<title>Node24&#45;&gt;Node25</title>
 <path fill="none" stroke="midnightblue" d="M650.71,-343.49C655.49,-340.95 660,-337.97 664,-334.5 691.62,-310.53 672.99,-285.16 700,-260.5 701.73,-258.92 703.56,-257.44 705.49,-256.05"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="707.73,-258.78 714.36,-250.52 704.02,-252.84 707.73,-258.78"/>
 </g>
-<!-- Node27 -->
-<g id="node27" class="node">
-<title>Node27</title>
-<g id="a_node27"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#af6b050e0a9fd0383f3124925a83d3b3d" target="_top" xlink:title=" ">
+<!-- Node28 -->
+<g id="node28" class="node">
+<title>Node28</title>
+<g id="a_node28"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#af6b050e0a9fd0383f3124925a83d3b3d" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="700,-269.5 700,-299.5 834,-299.5 834,-269.5 700,-269.5"/>
 <text text-anchor="start" x="708" y="-287.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="767" y="-276.5" font-family="Helvetica,sans-Serif" font-size="10.00">::stateDescent</text>
 </a>
 </g>
 </g>
-<!-- Node23&#45;&gt;Node27 -->
-<g id="edge28" class="edge">
-<title>Node23&#45;&gt;Node27</title>
+<!-- Node24&#45;&gt;Node28 -->
+<g id="edge29" class="edge">
+<title>Node24&#45;&gt;Node28</title>
 <path fill="none" stroke="midnightblue" d="M642.77,-343.48C650.04,-340.81 657.3,-337.81 664,-334.5 681.46,-325.86 682.76,-318.57 700,-309.5 703.95,-307.42 708.11,-305.43 712.34,-303.54"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="713.84,-306.71 721.67,-299.57 711.1,-300.26 713.84,-306.71"/>
 </g>
-<!-- Node28 -->
-<g id="node28" class="node">
-<title>Node28</title>
-<g id="a_node28"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#ad607d67a29e5250131d2c4a35b604ee6" target="_top" xlink:title=" ">
+<!-- Node29 -->
+<g id="node29" class="node">
+<title>Node29</title>
+<g id="a_node29"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#ad607d67a29e5250131d2c4a35b604ee6" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="700,-367.5 700,-397.5 834,-397.5 834,-367.5 700,-367.5"/>
 <text text-anchor="start" x="708" y="-385.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="767" y="-374.5" font-family="Helvetica,sans-Serif" font-size="10.00">::stateLanded</text>
 </a>
 </g>
 </g>
-<!-- Node23&#45;&gt;Node28 -->
-<g id="edge32" class="edge">
-<title>Node23&#45;&gt;Node28</title>
+<!-- Node24&#45;&gt;Node29 -->
+<g id="edge33" class="edge">
+<title>Node24&#45;&gt;Node29</title>
 <path fill="none" stroke="midnightblue" d="M655.72,-367.5C666.92,-369.03 678.62,-370.62 690.05,-372.17"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="689.61,-375.64 699.99,-373.52 690.55,-368.71 689.61,-375.64"/>
 </g>
-<!-- Node29 -->
-<g id="node29" class="node">
-<title>Node29</title>
-<g id="a_node29"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a62a1d94e39dd51c69e2eae2c37c30967" target="_top" xlink:title=" ">
+<!-- Node30 -->
+<g id="node30" class="node">
+<title>Node30</title>
+<g id="a_node30"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a62a1d94e39dd51c69e2eae2c37c30967" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="700,-318.5 700,-348.5 834,-348.5 834,-318.5 700,-318.5"/>
 <text text-anchor="start" x="708" y="-336.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="767" y="-325.5" font-family="Helvetica,sans-Serif" font-size="10.00">::stateLanding</text>
 </a>
 </g>
 </g>
-<!-- Node23&#45;&gt;Node29 -->
-<g id="edge33" class="edge">
-<title>Node23&#45;&gt;Node29</title>
+<!-- Node24&#45;&gt;Node30 -->
+<g id="edge34" class="edge">
+<title>Node24&#45;&gt;Node30</title>
 <path fill="none" stroke="midnightblue" d="M655.72,-349.12C666.92,-347.53 678.62,-345.88 690.05,-344.26"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="690.58,-347.72 699.99,-342.85 689.6,-340.79 690.58,-347.72"/>
 </g>
-<!-- Node31 -->
-<g id="node31" class="node">
-<title>Node31</title>
-<g id="a_node31"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a803f6d0ee287028463d00df0ed0bfa5a" target="_top" xlink:title=" ">
+<!-- Node32 -->
+<g id="node32" class="node">
+<title>Node32</title>
+<g id="a_node32"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a803f6d0ee287028463d00df0ed0bfa5a" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="700,-171.5 700,-201.5 834,-201.5 834,-171.5 700,-171.5"/>
 <text text-anchor="start" x="708" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="767" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">::statePop</text>
 </a>
 </g>
 </g>
-<!-- Node23&#45;&gt;Node31 -->
-<g id="edge36" class="edge">
-<title>Node23&#45;&gt;Node31</title>
-<path fill="none" stroke="midnightblue" d="M652.79,-343.35C656.89,-340.84 660.69,-337.91 664,-334.5 703.98,-293.34 660.79,-252.4 700,-210.5 700.91,-209.52 701.87,-208.59 702.86,-207.69"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="705.21,-210.3 711.13,-201.52 701.03,-204.69 705.21,-210.3"/>
+<!-- Node24&#45;&gt;Node32 -->
+<g id="edge37" class="edge">
+<title>Node24&#45;&gt;Node32</title>
+<path fill="none" stroke="midnightblue" d="M652.79,-343.34C656.88,-340.83 660.68,-337.91 664,-334.5 703.73,-293.68 661.31,-253.3 700,-211.5 701.23,-210.17 702.54,-208.91 703.91,-207.72"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="706.34,-210.28 712.39,-201.59 702.24,-204.61 706.34,-210.28"/>
 </g>
-<!-- Node32 -->
-<g id="node32" class="node">
-<title>Node32</title>
-<g id="a_node32"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a318667569547ad8d1668bc0bf8e49faa" target="_top" xlink:title=" ">
+<!-- Node33 -->
+<g id="node33" class="node">
+<title>Node33</title>
+<g id="a_node33"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a318667569547ad8d1668bc0bf8e49faa" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="700,-416.5 700,-446.5 834,-446.5 834,-416.5 700,-416.5"/>
 <text text-anchor="start" x="708" y="-434.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="767" y="-423.5" font-family="Helvetica,sans-Serif" font-size="10.00">::statePreLaunch</text>
 </a>
 </g>
 </g>
-<!-- Node23&#45;&gt;Node32 -->
-<g id="edge39" class="edge">
-<title>Node23&#45;&gt;Node32</title>
+<!-- Node24&#45;&gt;Node33 -->
+<g id="edge40" class="edge">
+<title>Node24&#45;&gt;Node33</title>
 <path fill="none" stroke="midnightblue" d="M622.13,-373.67C644,-383.67 673.53,-396.83 700,-407.5 704.43,-409.29 709.05,-411.09 713.7,-412.86"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="712.64,-416.2 723.23,-416.43 715.1,-409.64 712.64,-416.2"/>
 </g>
-<!-- Node24&#45;&gt;Node4 -->
-<g id="edge24" class="edge">
-<title>Node24&#45;&gt;Node4</title>
+<!-- Node25&#45;&gt;Node4 -->
+<g id="edge25" class="edge">
+<title>Node25&#45;&gt;Node4</title>
 <path fill="none" stroke="midnightblue" d="M817.61,-250.65C823.41,-253.45 829.02,-256.72 834,-260.5 855.52,-276.85 847.89,-293.96 870,-309.5 872.15,-311.01 874.4,-312.43 876.72,-313.76"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="875.48,-317.06 885.98,-318.47 878.65,-310.82 875.48,-317.06"/>
 </g>
-<!-- Node24&#45;&gt;Node11 -->
-<g id="edge25" class="edge">
-<title>Node24&#45;&gt;Node11</title>
+<!-- Node25&#45;&gt;Node11 -->
+<g id="edge26" class="edge">
+<title>Node25&#45;&gt;Node11</title>
 <path fill="none" stroke="midnightblue" d="M834.07,-235.5C847.2,-235.5 861.1,-235.5 874.55,-235.5"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="874.72,-239 884.72,-235.5 874.72,-232 874.72,-239"/>
 </g>
-<!-- Node25 -->
-<g id="node25" class="node">
-<title>Node25</title>
-<g id="a_node25"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#ad636cde7b1f43b24ddb3a5f75a8abbf6" target="_top" xlink:title=" ">
+<!-- Node26 -->
+<g id="node26" class="node">
+<title>Node26</title>
+<g id="a_node26"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#ad636cde7b1f43b24ddb3a5f75a8abbf6" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="884.5,-269.5 884.5,-299.5 1019.5,-299.5 1019.5,-269.5 884.5,-269.5"/>
 <text text-anchor="start" x="892.5" y="-287.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="952" y="-276.5" font-family="Helvetica,sans-Serif" font-size="10.00">::setVerticalAcceleration</text>
 </a>
 </g>
 </g>
-<!-- Node24&#45;&gt;Node25 -->
-<g id="edge26" class="edge">
-<title>Node24&#45;&gt;Node25</title>
+<!-- Node25&#45;&gt;Node26 -->
+<g id="edge27" class="edge">
+<title>Node25&#45;&gt;Node26</title>
 <path fill="none" stroke="midnightblue" d="M824.4,-250.6C843.54,-255.73 865.09,-261.5 884.91,-266.8"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="884.22,-270.24 894.79,-269.45 886.03,-263.48 884.22,-270.24"/>
 </g>
-<!-- Node26 -->
-<g id="node26" class="node">
-<title>Node26</title>
-<g id="a_node26"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a7689e5f5bcb82007f89131b6c4fb9b07" target="_top" xlink:title=" ">
+<!-- Node27 -->
+<g id="node27" class="node">
+<title>Node27</title>
+<g id="a_node27"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a7689e5f5bcb82007f89131b6c4fb9b07" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="870,-171.5 870,-201.5 1034,-201.5 1034,-171.5 870,-171.5"/>
 <text text-anchor="start" x="878" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="952" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">::verticalAccelerationVariation</text>
 </a>
 </g>
 </g>
-<!-- Node24&#45;&gt;Node26 -->
-<g id="edge27" class="edge">
-<title>Node24&#45;&gt;Node26</title>
+<!-- Node25&#45;&gt;Node27 -->
+<g id="edge28" class="edge">
+<title>Node25&#45;&gt;Node27</title>
 <path fill="none" stroke="midnightblue" d="M824.4,-220.4C843.54,-215.27 865.09,-209.5 884.91,-204.2"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="886.03,-207.52 894.79,-201.55 884.22,-200.76 886.03,-207.52"/>
 </g>
-<!-- Node27&#45;&gt;Node4 -->
-<g id="edge29" class="edge">
-<title>Node27&#45;&gt;Node4</title>
+<!-- Node28&#45;&gt;Node4 -->
+<g id="edge30" class="edge">
+<title>Node28&#45;&gt;Node4</title>
 <path fill="none" stroke="midnightblue" d="M824.4,-299.6C843.54,-304.73 865.09,-310.5 884.91,-315.8"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="884.22,-319.24 894.79,-318.45 886.03,-312.48 884.22,-319.24"/>
 </g>
-<!-- Node27&#45;&gt;Node11 -->
-<g id="edge30" class="edge">
-<title>Node27&#45;&gt;Node11</title>
+<!-- Node28&#45;&gt;Node11 -->
+<g id="edge31" class="edge">
+<title>Node28&#45;&gt;Node11</title>
 <path fill="none" stroke="midnightblue" d="M824.4,-269.4C843.54,-264.27 865.09,-258.5 884.91,-253.2"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="886.03,-256.52 894.79,-250.55 884.22,-249.76 886.03,-256.52"/>
 </g>
-<!-- Node27&#45;&gt;Node25 -->
-<g id="edge31" class="edge">
-<title>Node27&#45;&gt;Node25</title>
+<!-- Node28&#45;&gt;Node26 -->
+<g id="edge32" class="edge">
+<title>Node28&#45;&gt;Node26</title>
 <path fill="none" stroke="midnightblue" d="M834.07,-284.5C847.12,-284.5 860.92,-284.5 874.29,-284.5"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="874.42,-288 884.42,-284.5 874.42,-281 874.42,-288"/>
 </g>
-<!-- Node29&#45;&gt;Node4 -->
-<g id="edge34" class="edge">
-<title>Node29&#45;&gt;Node4</title>
+<!-- Node30&#45;&gt;Node4 -->
+<g id="edge35" class="edge">
+<title>Node30&#45;&gt;Node4</title>
 <path fill="none" stroke="midnightblue" d="M834.07,-333.5C847.2,-333.5 861.1,-333.5 874.55,-333.5"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="874.72,-337 884.72,-333.5 874.72,-330 874.72,-337"/>
 </g>
-<!-- Node30 -->
-<g id="node30" class="node">
-<title>Node30</title>
-<g id="a_node30"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#af1282403eca3d3215ec1fb16edd11742" target="_top" xlink:title=" ">
+<!-- Node31 -->
+<g id="node31" class="node">
+<title>Node31</title>
+<g id="a_node31"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#af1282403eca3d3215ec1fb16edd11742" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="885,-367.5 885,-397.5 1019,-397.5 1019,-367.5 885,-367.5"/>
 <text text-anchor="start" x="893" y="-385.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="952" y="-374.5" font-family="Helvetica,sans-Serif" font-size="10.00">::stopTravel</text>
 </a>
 </g>
 </g>
-<!-- Node29&#45;&gt;Node30 -->
-<g id="edge35" class="edge">
-<title>Node29&#45;&gt;Node30</title>
+<!-- Node30&#45;&gt;Node31 -->
+<g id="edge36" class="edge">
+<title>Node30&#45;&gt;Node31</title>
 <path fill="none" stroke="midnightblue" d="M824.4,-348.6C843.54,-353.73 865.09,-359.5 884.91,-364.8"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="884.22,-368.24 894.79,-367.45 886.03,-361.48 884.22,-368.24"/>
 </g>
-<!-- Node31&#45;&gt;Node11 -->
-<g id="edge37" class="edge">
-<title>Node31&#45;&gt;Node11</title>
+<!-- Node32&#45;&gt;Node11 -->
+<g id="edge38" class="edge">
+<title>Node32&#45;&gt;Node11</title>
 <path fill="none" stroke="midnightblue" d="M824.4,-201.6C843.54,-206.73 865.09,-212.5 884.91,-217.8"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="884.22,-221.24 894.79,-220.45 886.03,-214.48 884.22,-221.24"/>
 </g>
-<!-- Node31&#45;&gt;Node26 -->
-<g id="edge38" class="edge">
-<title>Node31&#45;&gt;Node26</title>
+<!-- Node32&#45;&gt;Node27 -->
+<g id="edge39" class="edge">
+<title>Node32&#45;&gt;Node27</title>
 <path fill="none" stroke="midnightblue" d="M834.07,-186.5C842.38,-186.5 851,-186.5 859.62,-186.5"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="859.72,-190 869.72,-186.5 859.72,-183 859.72,-190"/>
 </g>
-<!-- Node32&#45;&gt;Node25 -->
-<g id="edge41" class="edge">
-<title>Node32&#45;&gt;Node25</title>
+<!-- Node33&#45;&gt;Node26 -->
+<g id="edge42" class="edge">
+<title>Node33&#45;&gt;Node26</title>
 <path fill="none" stroke="midnightblue" d="M822.29,-416.43C826.56,-413.9 830.55,-410.94 834,-407.5 866.86,-374.74 836.34,-341.44 870,-309.5 871.87,-307.73 873.86,-306.08 875.95,-304.55"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="877.84,-307.5 884.44,-299.21 874.11,-301.57 877.84,-307.5"/>
 </g>
-<!-- Node33 -->
-<g id="node33" class="node">
-<title>Node33</title>
-<g id="a_node33"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#ae352cef7b58c5ed04d7fb968f1835f40" target="_top" xlink:title=" ">
+<!-- Node34 -->
+<g id="node34" class="node">
+<title>Node34</title>
+<g id="a_node34"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#ae352cef7b58c5ed04d7fb968f1835f40" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="885,-416.5 885,-446.5 1019,-446.5 1019,-416.5 885,-416.5"/>
 <text text-anchor="start" x="893" y="-434.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="952" y="-423.5" font-family="Helvetica,sans-Serif" font-size="10.00">::setHorizontalSpeed</text>
 </a>
 </g>
 </g>
-<!-- Node32&#45;&gt;Node33 -->
-<g id="edge40" class="edge">
-<title>Node32&#45;&gt;Node33</title>
+<!-- Node33&#45;&gt;Node34 -->
+<g id="edge41" class="edge">
+<title>Node33&#45;&gt;Node34</title>
 <path fill="none" stroke="midnightblue" d="M834.07,-431.5C847.2,-431.5 861.1,-431.5 874.55,-431.5"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="874.72,-435 884.72,-431.5 874.72,-428 874.72,-435"/>
 </g>
-<!-- Node34&#45;&gt;Node5 -->
-<g id="edge43" class="edge">
-<title>Node34&#45;&gt;Node5</title>
+<!-- Node35&#45;&gt;Node5 -->
+<g id="edge44" class="edge">
+<title>Node35&#45;&gt;Node5</title>
 <path fill="none" stroke="midnightblue" d="M784.88,-544.56C804.21,-561.1 837.42,-587.45 870,-603.5 873.96,-605.45 878.1,-607.27 882.33,-608.97"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="881.11,-612.25 891.7,-612.49 883.57,-605.7 881.11,-612.25"/>
 </g>
-<!-- Node34&#45;&gt;Node12 -->
-<g id="edge44" class="edge">
-<title>Node34&#45;&gt;Node12</title>
+<!-- Node35&#45;&gt;Node12 -->
+<g id="edge45" class="edge">
+<title>Node35&#45;&gt;Node12</title>
 <path fill="none" stroke="midnightblue" d="M824.4,-544.6C843.54,-549.73 865.09,-555.5 884.91,-560.8"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="884.22,-564.24 894.79,-563.45 886.03,-557.48 884.22,-564.24"/>
 </g>
-<!-- Node34&#45;&gt;Node13 -->
-<g id="edge45" class="edge">
-<title>Node34&#45;&gt;Node13</title>
+<!-- Node35&#45;&gt;Node13 -->
+<g id="edge46" class="edge">
+<title>Node35&#45;&gt;Node13</title>
 <path fill="none" stroke="midnightblue" d="M776.55,-544.85C791.86,-570.91 826.47,-623.78 870,-652.5 872.41,-654.09 874.93,-655.58 877.52,-656.97"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="876.08,-660.16 886.6,-661.34 879.11,-653.85 876.08,-660.16"/>
 </g>
-<!-- Node34&#45;&gt;Node33 -->
-<g id="edge47" class="edge">
-<title>Node34&#45;&gt;Node33</title>
+<!-- Node35&#45;&gt;Node34 -->
+<g id="edge48" class="edge">
+<title>Node35&#45;&gt;Node34</title>
 <path fill="none" stroke="midnightblue" d="M785.3,-514.44C804.74,-498.17 837.81,-472.46 870,-456.5 874.58,-454.23 879.41,-452.11 884.33,-450.16"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="885.75,-453.36 893.88,-446.58 883.29,-446.81 885.75,-453.36"/>
 </g>
-<!-- Node35 -->
-<g id="node35" class="node">
-<title>Node35</title>
-<g id="a_node35"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#adb274a97919fc528f0e73dd6520fb360" target="_top" xlink:title=" ">
+<!-- Node36 -->
+<g id="node36" class="node">
+<title>Node36</title>
+<g id="a_node36"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#adb274a97919fc528f0e73dd6520fb360" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="885,-514.5 885,-544.5 1019,-544.5 1019,-514.5 885,-514.5"/>
 <text text-anchor="start" x="893" y="-532.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="952" y="-521.5" font-family="Helvetica,sans-Serif" font-size="10.00">::setDirectionOfTravel</text>
 </a>
 </g>
 </g>
-<!-- Node34&#45;&gt;Node35 -->
-<g id="edge46" class="edge">
-<title>Node34&#45;&gt;Node35</title>
+<!-- Node35&#45;&gt;Node36 -->
+<g id="edge47" class="edge">
+<title>Node35&#45;&gt;Node36</title>
 <path fill="none" stroke="midnightblue" d="M834.07,-529.5C847.2,-529.5 861.1,-529.5 874.55,-529.5"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="874.72,-533 884.72,-529.5 874.72,-526 874.72,-533"/>
 </g>
-<!-- Node36 -->
-<g id="node36" class="node">
-<title>Node36</title>
-<g id="a_node36"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a84c09390b1051a5aef8c128277fcda19" target="_top" xlink:title=" ">
+<!-- Node37 -->
+<g id="node37" class="node">
+<title>Node37</title>
+<g id="a_node37"><a xlink:href="classgfs__sim_1_1BalloonPhysics.html#a84c09390b1051a5aef8c128277fcda19" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="885,-465.5 885,-495.5 1019,-495.5 1019,-465.5 885,-465.5"/>
 <text text-anchor="start" x="893" y="-483.5" font-family="Helvetica,sans-Serif" font-size="10.00">gfs_sim::BalloonPhysics</text>
 <text text-anchor="middle" x="952" y="-472.5" font-family="Helvetica,sans-Serif" font-size="10.00">::updateCoordinates</text>
 </a>
 </g>
 </g>
-<!-- Node34&#45;&gt;Node36 -->
-<g id="edge48" class="edge">
-<title>Node34&#45;&gt;Node36</title>
+<!-- Node35&#45;&gt;Node37 -->
+<g id="edge49" class="edge">
+<title>Node35&#45;&gt;Node37</title>
 <path fill="none" stroke="midnightblue" d="M824.4,-514.4C843.54,-509.27 865.09,-503.5 884.91,-498.2"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="886.03,-501.52 894.79,-495.55 884.22,-494.76 886.03,-501.52"/>
 </g>

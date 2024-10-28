@@ -24,6 +24,7 @@ var namespacedata =
     [ "SharedData", "structdata_1_1SharedData.html", "structdata_1_1SharedData" ],
     [ "Stream", "classdata_1_1Stream.html", "classdata_1_1Stream" ],
     [ "Streams", "namespacedata.html#structdata_1_1Streams", "namespacedata_structdata_1_1Streams_dup" ],
+    [ "AdcValue", "namespacedata.html#abb5ab4457f1809661bba09c9a6d505ed", null ],
     [ "GpsFix", "namespacedata.html#ab828a916e0a524f5d9d29e881a1e829b", [
       [ "ERROR", "namespacedata.html#ab828a916e0a524f5d9d29e881a1e829babb1ca97ec761fc37101737ba0aa2e7c5", null ],
       [ "NO_FIX", "namespacedata.html#ab828a916e0a524f5d9d29e881a1e829baa80630704b93114ed9e817a3f53f59c7", null ],
@@ -34,6 +35,7 @@ var namespacedata =
     [ "isGpsFrameValid", "namespacedata.html#ad86e1d5fdd64e533c7b5833ece53c37e", null ],
     [ "isImuFrameValid", "namespacedata.html#a1843909ee9dc73d01c721427f3836781", null ],
     [ "toJson", "namespacedata.html#ad7272e7b88e216047b649704df787d95", null ],
+    [ "toJson", "namespacedata.html#a99648e2332cfd0029a161c3ad129e461", null ],
     [ "K_GPS_FIX_TO_STRING_MAP", "namespacedata.html#a846dc2ae65a53c15143e31eed61ab2e6", null ],
     [ "rnd", "namespacedata.html#a7ae5fef66d65212dc3a3902cc660cee9", null ]
 ];

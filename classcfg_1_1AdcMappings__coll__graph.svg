@@ -52,45 +52,45 @@
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:href="namespacedata.html#structdata_1_1Streams" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="382.5,-298.5 382.5,-355.5 467.5,-355.5 467.5,-298.5 382.5,-298.5"/>
-<text text-anchor="middle" x="425" y="-343.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::Streams</text>
-<polyline fill="none" stroke="black" points="382.5,-336.5 467.5,-336.5 "/>
-<text text-anchor="middle" x="425" y="-324.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="382.5,-317.5 467.5,-317.5 "/>
-<text text-anchor="middle" x="425" y="-305.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="none" stroke="black" points="380.5,-298.5 380.5,-355.5 465.5,-355.5 465.5,-298.5 380.5,-298.5"/>
+<text text-anchor="middle" x="423" y="-343.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::Streams</text>
+<polyline fill="none" stroke="black" points="380.5,-336.5 465.5,-336.5 "/>
+<text text-anchor="middle" x="423" y="-324.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="380.5,-317.5 465.5,-317.5 "/>
+<text text-anchor="middle" x="423" y="-305.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 </a>
 </g>
 </g>
 <!-- Node3&#45;&gt;Node2 -->
 <g id="edge2" class="edge">
 <title>Node3&#45;&gt;Node2</title>
-<path fill="none" stroke="#404040" d="M382.48,-320.77C321.15,-312.26 204.75,-292.49 101.35,-251.5"/>
-<polygon fill="none" stroke="#404040" points="101.22,-251.45 94.16,-252.9 90.1,-246.93 97.16,-245.48 101.22,-251.45"/>
+<path fill="none" stroke="#404040" d="M380.48,-320.69C319.46,-312.1 203.96,-292.27 101.27,-251.47"/>
+<polygon fill="none" stroke="#404040" points="101.22,-251.45 94.15,-252.89 90.1,-246.93 97.17,-245.48 101.22,-251.45"/>
 <text text-anchor="middle" x="204.5" y="-272" font-family="Helvetica,sans-Serif" font-size="10.00"> #streams_</text>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:href="classdata_1_1LogStream.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="84,-403.5 84,-504.5 250,-504.5 250,-403.5 84,-403.5"/>
-<text text-anchor="middle" x="167" y="-492.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::LogStream</text>
-<polyline fill="none" stroke="black" points="84,-485.5 250,-485.5 "/>
-<text text-anchor="middle" x="167" y="-473.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="84,-466.5 250,-466.5 "/>
-<text text-anchor="start" x="92" y="-454.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ debug()</text>
-<text text-anchor="start" x="92" y="-443.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ error()</text>
-<text text-anchor="start" x="92" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ errorBoosterSeatException()</text>
-<text text-anchor="start" x="92" y="-421.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ errorStdException()</text>
-<text text-anchor="start" x="92" y="-410.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ info()</text>
+<polygon fill="none" stroke="black" points="81,-403.5 81,-504.5 247,-504.5 247,-403.5 81,-403.5"/>
+<text text-anchor="middle" x="164" y="-492.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::LogStream</text>
+<polyline fill="none" stroke="black" points="81,-485.5 247,-485.5 "/>
+<text text-anchor="middle" x="164" y="-473.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="81,-466.5 247,-466.5 "/>
+<text text-anchor="start" x="89" y="-454.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ debug()</text>
+<text text-anchor="start" x="89" y="-443.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ error()</text>
+<text text-anchor="start" x="89" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ errorBoosterSeatException()</text>
+<text text-anchor="start" x="89" y="-421.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ errorStdException()</text>
+<text text-anchor="start" x="89" y="-410.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ info()</text>
 </a>
 </g>
 </g>
 <!-- Node4&#45;&gt;Node3 -->
 <g id="edge3" class="edge">
 <title>Node4&#45;&gt;Node3</title>
-<path fill="none" stroke="#404040" d="M250.05,-412.76C289.8,-393.51 336.23,-371.01 371.27,-354.03"/>
-<polygon fill="none" stroke="#404040" points="371.43,-353.96 375.08,-347.74 382.23,-348.72 378.57,-354.94 371.43,-353.96"/>
-<text text-anchor="middle" x="339.5" y="-377" font-family="Helvetica,sans-Serif" font-size="10.00"> +log</text>
+<path fill="none" stroke="#404040" d="M247.02,-412.93C287.07,-393.6 333.97,-370.97 369.27,-353.93"/>
+<polygon fill="none" stroke="#404040" points="369.49,-353.82 373.16,-347.61 380.3,-348.61 376.64,-354.82 369.49,-353.82"/>
+<text text-anchor="middle" x="337.5" y="-377" font-family="Helvetica,sans-Serif" font-size="10.00"> +log</text>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
@@ -116,8 +116,8 @@
 <!-- Node5&#45;&gt;Node4 -->
 <g id="edge4" class="edge">
 <title>Node5&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M149.41,-542.46C152.01,-529.5 154.64,-516.45 157.04,-504.52"/>
-<polygon fill="none" stroke="midnightblue" points="145.96,-541.83 147.42,-552.33 152.82,-543.22 145.96,-541.83"/>
+<path fill="none" stroke="midnightblue" d="M147.96,-542.46C150.33,-529.5 152.73,-516.45 154.92,-504.52"/>
+<polygon fill="none" stroke="midnightblue" points="144.51,-541.86 146.15,-552.33 151.39,-543.12 144.51,-541.86"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
@@ -347,106 +347,107 @@
 <g id="node11" class="node">
 <title>Node11</title>
 <g id="a_node11"><a xlink:href="classdata_1_1ImuFrameStream.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="287.5,-425.5 287.5,-482.5 416.5,-482.5 416.5,-425.5 287.5,-425.5"/>
-<text text-anchor="middle" x="352" y="-470.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::ImuFrameStream</text>
-<polyline fill="none" stroke="black" points="287.5,-463.5 416.5,-463.5 "/>
-<text text-anchor="middle" x="352" y="-451.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="287.5,-444.5 416.5,-444.5 "/>
-<text text-anchor="start" x="295.5" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ addFrame()</text>
+<polygon fill="none" stroke="black" points="282.5,-425.5 282.5,-482.5 411.5,-482.5 411.5,-425.5 282.5,-425.5"/>
+<text text-anchor="middle" x="347" y="-470.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::ImuFrameStream</text>
+<polyline fill="none" stroke="black" points="282.5,-463.5 411.5,-463.5 "/>
+<text text-anchor="middle" x="347" y="-451.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="282.5,-444.5 411.5,-444.5 "/>
+<text text-anchor="start" x="290.5" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ addFrame()</text>
 </a>
 </g>
 </g>
 <!-- Node11&#45;&gt;Node3 -->
 <g id="edge10" class="edge">
 <title>Node11&#45;&gt;Node3</title>
-<path fill="none" stroke="#404040" d="M368.2,-425.26C378.36,-407.86 391.6,-385.2 402.74,-366.12"/>
-<polygon fill="none" stroke="#404040" points="402.79,-366.03 402.36,-358.83 408.84,-355.66 409.27,-362.86 402.79,-366.03"/>
-<text text-anchor="middle" x="412.5" y="-377" font-family="Helvetica,sans-Serif" font-size="10.00"> +imu</text>
+<path fill="none" stroke="#404040" d="M363.87,-425.26C374.44,-407.86 388.22,-385.2 399.82,-366.12"/>
+<polygon fill="none" stroke="#404040" points="399.95,-365.92 399.65,-358.71 406.18,-355.66 406.48,-362.87 399.95,-365.92"/>
+<text text-anchor="middle" x="409.5" y="-377" font-family="Helvetica,sans-Serif" font-size="10.00"> +imu</text>
 </g>
 <!-- Node12&#45;&gt;Node11 -->
 <g id="edge11" class="edge">
 <title>Node12&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M334.41,-542.45C338.75,-520.86 343.14,-499.02 346.46,-482.56"/>
-<polygon fill="none" stroke="midnightblue" points="330.96,-541.83 332.42,-552.33 337.82,-543.22 330.96,-541.83"/>
+<path fill="none" stroke="midnightblue" d="M331.99,-542.45C335.7,-520.86 339.45,-499.02 342.27,-482.56"/>
+<polygon fill="none" stroke="midnightblue" points="328.54,-541.88 330.3,-552.33 335.44,-543.06 328.54,-541.88"/>
 </g>
 <!-- Node13 -->
 <g id="node13" class="node">
 <title>Node13</title>
 <g id="a_node13"><a xlink:href="classdata_1_1DataStream.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="447.5,-420 447.5,-488 550.5,-488 550.5,-420 447.5,-420"/>
-<text text-anchor="middle" x="499" y="-476" font-family="Helvetica,sans-Serif" font-size="10.00">data::DataStream</text>
-<polyline fill="none" stroke="black" points="447.5,-469 550.5,-469 "/>
-<text text-anchor="middle" x="499" y="-457" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="447.5,-450 550.5,-450 "/>
-<text text-anchor="start" x="455.5" y="-438" font-family="Helvetica,sans-Serif" font-size="10.00">+ addData()</text>
-<text text-anchor="start" x="455.5" y="-427" font-family="Helvetica,sans-Serif" font-size="10.00">+ reportStatus()</text>
+<polygon fill="none" stroke="black" points="441,-414.5 441,-493.5 559,-493.5 559,-414.5 441,-414.5"/>
+<text text-anchor="middle" x="500" y="-481.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::DataStream</text>
+<polyline fill="none" stroke="black" points="441,-474.5 559,-474.5 "/>
+<text text-anchor="middle" x="500" y="-462.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="441,-455.5 559,-455.5 "/>
+<text text-anchor="start" x="449" y="-443.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ addData()</text>
+<text text-anchor="start" x="449" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ addNumericData()</text>
+<text text-anchor="start" x="449" y="-421.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ reportStatus()</text>
 </a>
 </g>
 </g>
 <!-- Node13&#45;&gt;Node3 -->
 <g id="edge13" class="edge">
 <title>Node13&#45;&gt;Node3</title>
-<path fill="none" stroke="#404040" d="M479.36,-419.83C469.67,-403.45 457.92,-383.61 447.83,-366.56"/>
-<polygon fill="none" stroke="#404040" points="447.58,-366.15 441.08,-363.02 441.47,-355.82 447.97,-358.95 447.58,-366.15"/>
-<text text-anchor="middle" x="474" y="-377" font-family="Helvetica,sans-Serif" font-size="10.00"> +data</text>
+<path fill="none" stroke="#404040" d="M476.27,-414.48C466.88,-399.24 456.11,-381.76 446.73,-366.52"/>
+<polygon fill="none" stroke="#404040" points="446.47,-366.1 439.92,-363.09 440.18,-355.88 446.73,-358.89 446.47,-366.1"/>
+<text text-anchor="middle" x="473" y="-377" font-family="Helvetica,sans-Serif" font-size="10.00"> +data</text>
 </g>
 <!-- Node14&#45;&gt;Node13 -->
 <g id="edge14" class="edge">
 <title>Node14&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M502.62,-542.33C501.82,-523.15 501.02,-503.76 500.37,-488.15"/>
-<polygon fill="none" stroke="midnightblue" points="499.12,-542.48 503.03,-552.33 506.11,-542.19 499.12,-542.48"/>
+<path fill="none" stroke="midnightblue" d="M503.08,-541.87C502.49,-525.02 501.88,-508.04 501.37,-493.61"/>
+<polygon fill="none" stroke="midnightblue" points="499.6,-542.46 503.46,-552.33 506.6,-542.21 499.6,-542.46"/>
 </g>
 <!-- Node15 -->
 <g id="node15" class="node">
 <title>Node15</title>
 <g id="a_node15"><a xlink:href="classdata_1_1GpsFrameStream.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="602.5,-425.5 602.5,-482.5 731.5,-482.5 731.5,-425.5 602.5,-425.5"/>
-<text text-anchor="middle" x="667" y="-470.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::GpsFrameStream</text>
-<polyline fill="none" stroke="black" points="602.5,-463.5 731.5,-463.5 "/>
-<text text-anchor="middle" x="667" y="-451.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="602.5,-444.5 731.5,-444.5 "/>
-<text text-anchor="start" x="610.5" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ addFrame()</text>
+<polygon fill="none" stroke="black" points="606.5,-425.5 606.5,-482.5 735.5,-482.5 735.5,-425.5 606.5,-425.5"/>
+<text text-anchor="middle" x="671" y="-470.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::GpsFrameStream</text>
+<polyline fill="none" stroke="black" points="606.5,-463.5 735.5,-463.5 "/>
+<text text-anchor="middle" x="671" y="-451.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="606.5,-444.5 735.5,-444.5 "/>
+<text text-anchor="start" x="614.5" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ addFrame()</text>
 </a>
 </g>
 </g>
 <!-- Node15&#45;&gt;Node3 -->
 <g id="edge16" class="edge">
 <title>Node15&#45;&gt;Node3</title>
-<path fill="none" stroke="#404040" d="M613.59,-425.41C573.51,-404.71 518.87,-376.49 478.72,-355.75"/>
-<polygon fill="none" stroke="#404040" points="478.46,-355.62 471.3,-356.42 467.8,-350.11 474.97,-349.31 478.46,-355.62"/>
-<text text-anchor="middle" x="545.5" y="-377" font-family="Helvetica,sans-Serif" font-size="10.00"> +gps</text>
+<path fill="none" stroke="#404040" d="M616.27,-425.41C574.72,-404.47 517.89,-375.83 476.61,-355.02"/>
+<polygon fill="none" stroke="#404040" points="476.39,-354.91 469.24,-355.78 465.68,-349.51 472.84,-348.64 476.39,-354.91"/>
+<text text-anchor="middle" x="546.5" y="-377" font-family="Helvetica,sans-Serif" font-size="10.00"> +gps</text>
 </g>
 <!-- Node16&#45;&gt;Node15 -->
 <g id="edge17" class="edge">
 <title>Node16&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M680.97,-542.45C677.52,-520.86 674.03,-499.02 671.4,-482.56"/>
-<polygon fill="none" stroke="midnightblue" points="677.52,-543.01 682.55,-552.33 684.43,-541.9 677.52,-543.01"/>
+<path fill="none" stroke="midnightblue" d="M682.86,-542.16C679.94,-520.66 676.98,-498.94 674.75,-482.56"/>
+<polygon fill="none" stroke="midnightblue" points="679.43,-542.89 684.25,-552.33 686.37,-541.95 679.43,-542.89"/>
 </g>
 <!-- Node17 -->
 <g id="node17" class="node">
 <title>Node17</title>
 <g id="a_node17"><a xlink:href="classdata_1_1CommandStream.html" target="_top" xlink:title="The stream of new commands.">
-<polygon fill="none" stroke="black" points="794,-425.5 794,-482.5 924,-482.5 924,-425.5 794,-425.5"/>
-<text text-anchor="middle" x="859" y="-470.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::CommandStream</text>
-<polyline fill="none" stroke="black" points="794,-463.5 924,-463.5 "/>
-<text text-anchor="middle" x="859" y="-451.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="794,-444.5 924,-444.5 "/>
-<text text-anchor="start" x="802" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ addCommand()</text>
+<polygon fill="none" stroke="black" points="795,-425.5 795,-482.5 925,-482.5 925,-425.5 795,-425.5"/>
+<text text-anchor="middle" x="860" y="-470.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::CommandStream</text>
+<polyline fill="none" stroke="black" points="795,-463.5 925,-463.5 "/>
+<text text-anchor="middle" x="860" y="-451.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="795,-444.5 925,-444.5 "/>
+<text text-anchor="start" x="803" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ addCommand()</text>
 </a>
 </g>
 </g>
 <!-- Node17&#45;&gt;Node3 -->
 <g id="edge19" class="edge">
 <title>Node17&#45;&gt;Node3</title>
-<path fill="none" stroke="#404040" d="M799.41,-425.46C780.94,-417.54 760.34,-409.34 741,-403 651.09,-373.51 543.27,-350.46 479.65,-338.07"/>
-<polygon fill="none" stroke="#404040" points="479.32,-338.01 472.67,-340.8 467.54,-335.74 474.19,-332.94 479.32,-338.01"/>
-<text text-anchor="middle" x="702.5" y="-377" font-family="Helvetica,sans-Serif" font-size="10.00"> +command</text>
+<path fill="none" stroke="#404040" d="M802.29,-425.48C784.22,-417.52 764.02,-409.29 745,-403 652.98,-372.56 542.25,-349.64 477.53,-337.57"/>
+<polygon fill="none" stroke="#404040" points="477.41,-337.55 470.79,-340.39 465.61,-335.37 472.24,-332.53 477.41,-337.55"/>
+<text text-anchor="middle" x="714.5" y="-377" font-family="Helvetica,sans-Serif" font-size="10.00"> +command</text>
 </g>
 <!-- Node18&#45;&gt;Node17 -->
 <g id="edge20" class="edge">
 <title>Node18&#45;&gt;Node17</title>
-<path fill="none" stroke="midnightblue" d="M878.15,-542.45C873.42,-520.86 868.64,-499.02 865.03,-482.56"/>
-<polygon fill="none" stroke="midnightblue" points="874.75,-543.31 880.31,-552.33 881.59,-541.81 874.75,-543.31"/>
+<path fill="none" stroke="midnightblue" d="M878.63,-542.45C874.03,-520.86 869.38,-499.02 865.87,-482.56"/>
+<polygon fill="none" stroke="midnightblue" points="875.23,-543.28 880.73,-552.33 882.07,-541.82 875.23,-543.28"/>
 </g>
 <!-- Node19 -->
 <g id="node19" class="node">

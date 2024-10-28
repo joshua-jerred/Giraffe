@@ -26,7 +26,7 @@
 <area shape="rect" id="node18" href="$classFlightPhaseManager.html" title="This class manages everything related to flight phases and sequencing." alt="" coords="1723,1953,1935,2163"/>
 <area shape="rect" id="node19" href="$classFlightPhasePredictor.html#structFlightPhasePredictor_1_1Probability" title="A stucture that contains the probabilities of being in each phase. The probabilities range from 0 to ..." alt="" coords="2214,1288,2370,1380"/>
 <area shape="rect" id="node20" title=" " alt="" coords="1707,957,1773,1035"/>
-<area shape="rect" id="node21" href="$classdata_1_1ErrorReporter.html" title="A simple class to unique errors once." alt="" coords="2844,1582,2991,1689"/>
+<area shape="rect" id="node21" href="$classdata_1_1ErrorReporter.html" title="A simple class to report errors once." alt="" coords="2844,1582,2991,1689"/>
 <area shape="rect" id="node22" title=" " alt="" coords="3051,1295,3154,1373"/>
 <area shape="rect" id="node23" title=" " alt="" coords="2664,1295,2771,1373"/>
 <area shape="rect" id="node48" href="$classgiraffe_1_1Logger.html" title=" " alt="" coords="2521,1567,2637,1703"/>
@@ -34,8 +34,8 @@
 <area shape="rect" id="node25" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="3189,957,3302,1035"/>
 <area shape="rect" id="node26" href="$classdata_1_1LogStream.html" title=" " alt="" coords="2409,458,2631,594"/>
 <area shape="rect" id="node27" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="3159,487,3331,565"/>
-<area shape="rect" id="node28" href="$classdata_1_1DataStream.html" title=" " alt="" coords="3355,480,3493,572"/>
-<area shape="rect" id="node29" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="3517,487,3689,565"/>
+<area shape="rect" id="node28" href="$classdata_1_1DataStream.html" title=" " alt="" coords="3356,473,3513,579"/>
+<area shape="rect" id="node29" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="3538,487,3710,565"/>
 <area shape="rect" id="node30" href="$classdata_1_1CommandStream.html" title="The stream of new commands." alt="" coords="2961,487,3135,565"/>
 <area shape="rect" id="node31" href="$classgiraffe_1_1StatusLedState.html" title=" " alt="" coords="2852,906,3023,1086"/>
 <area shape="rect" id="node32" title=" " alt="" coords="2807,487,2937,565"/>

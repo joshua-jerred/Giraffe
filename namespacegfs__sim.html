@@ -171,9 +171,9 @@ Variables</h2></td></tr>
 <tr class="separator:a48c1023f0c195c5b16429f1a1e523c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89dfe03a675388ce96c88332ef45a98b"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegfs__sim.html#a89dfe03a675388ce96c88332ef45a98b">K_BATTERY_INITIAL_SOC</a> = 100.0</td></tr>
 <tr class="separator:a89dfe03a675388ce96c88332ef45a98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac0eac07337d37f6b91f55b511d61bab"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegfs__sim.html#aac0eac07337d37f6b91f55b511d61bab">K_BATTERY_VOLTAGE_EMPTY</a> = 2.5</td></tr>
+<tr class="memitem:aac0eac07337d37f6b91f55b511d61bab"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegfs__sim.html#aac0eac07337d37f6b91f55b511d61bab">K_BATTERY_VOLTAGE_EMPTY</a> = 5.5</td></tr>
 <tr class="separator:aac0eac07337d37f6b91f55b511d61bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1c4fc948bc4b58f58a3edb179e23445"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegfs__sim.html#ab1c4fc948bc4b58f58a3edb179e23445">K_BATTERY_VOLTAGE_FULL</a> = 4.2</td></tr>
+<tr class="memitem:ab1c4fc948bc4b58f58a3edb179e23445"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegfs__sim.html#ab1c4fc948bc4b58f58a3edb179e23445">K_BATTERY_VOLTAGE_FULL</a> = 8.4</td></tr>
 <tr class="separator:ab1c4fc948bc4b58f58a3edb179e23445"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb8113a9916aa3f5e701bf4b2f1bb396"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegfs__sim.html#abb8113a9916aa3f5e701bf4b2f1bb396">K_DELTA_TIME_S</a> = <a class="el" href="namespacegfs__sim.html#a5cc3b135299b784dbdfb4417b0e3fa00">K_UPDATE_INTERVAL_MS</a> / 1000.0</td></tr>
 <tr class="separator:abb8113a9916aa3f5e701bf4b2f1bb396"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -296,7 +296,7 @@ relative_humidity_percent</td>
 <div class="textblock"></div><div class="dynheader">
 Collaboration diagram for gfs_sim::SimData:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structgfs__sim_1_1SimData__coll__graph.svg" width="186" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structgfs__sim_1_1SimData__coll__graph.svg" width="206" height="492"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="fieldtable">
@@ -359,6 +359,12 @@ latitude_deg</td>
 <a id="a14ff45a0f582aed7e23a0694652e031d"></a>atomic&lt; double &gt;</td>
 <td class="fieldname">
 longitude_deg</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a60f0b54dbe4a8761203c7677b811d27f"></a>atomic&lt; double &gt;</td>
+<td class="fieldname">
+battery_voltage</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
@@ -1204,7 +1210,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double gfs_sim::K_BATTERY_VOLTAGE_FULL = 4.2</td>
+          <td class="memname">constexpr double gfs_sim::K_BATTERY_VOLTAGE_FULL = 8.4</td>
         </tr>
       </table>
   </td>
@@ -1228,7 +1234,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double gfs_sim::K_BATTERY_VOLTAGE_EMPTY = 2.5</td>
+          <td class="memname">constexpr double gfs_sim::K_BATTERY_VOLTAGE_EMPTY = 5.5</td>
         </tr>
       </table>
   </td>

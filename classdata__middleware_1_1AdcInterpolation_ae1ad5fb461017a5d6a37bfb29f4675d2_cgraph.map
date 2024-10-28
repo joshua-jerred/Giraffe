@@ -1,4 +1,8 @@
 <map id="data_middleware::AdcInterpolation::AdcInterpolation" name="data_middleware::AdcInterpolation::AdcInterpolation">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,256,47"/>
-<area shape="rect" id="node2" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="304,13,412,39"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,64,256,105"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="304,46,453,73"/>
+<area shape="rect" id="node6" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="325,97,433,123"/>
+<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="501,46,664,73"/>
+<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="712,5,899,47"/>
+<area shape="rect" id="node5" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="715,71,895,112"/>
 </map>

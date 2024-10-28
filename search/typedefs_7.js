@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['state_4418',['State',['../classgiraffe_1_1radio_1_1Radio.html#a52a7f2a31b991e0d9d94a5e06d3e4854',1,'giraffe::radio::Radio']]]
+  ['resource_4436',['Resource',['../namespaceprotocol.html#a4f7d05800d5372ecf21d30125815d652',1,'protocol']]]
 ];

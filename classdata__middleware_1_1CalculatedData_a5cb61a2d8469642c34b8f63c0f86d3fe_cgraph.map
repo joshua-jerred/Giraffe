@@ -1,5 +1,5 @@
 <map id="data_middleware::CalculatedData::addPositionalData" name="data_middleware::CalculatedData::addPositionalData">
-<area shape="rect" id="node1" title="Update the calculated data and store it in the shared data." alt="" coords="5,109,217,151"/>
+<area shape="rect" id="node1" title="Update positional data based on GPS data." alt="" coords="5,109,217,151"/>
 <area shape="rect" id="node2" href="$classdata__middleware_1_1CalculatedData.html#a21515bd355a6df0c8888d61862588ca1" title="Calculate the distance traveled and the distance from the launch. Called by updatePositionalData()" alt="" coords="265,76,477,117"/>
 <area shape="rect" id="node9" href="$classdata__middleware_1_1CalculatedData.html#a07eb1dd2ca097be51dc9324995d4f3e7" title="Calculate average vertical and horizontal speeds. Called by updatePositionalData()" alt="" coords="265,141,477,183"/>
 <area shape="rect" id="node3" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="545,54,709,81"/>

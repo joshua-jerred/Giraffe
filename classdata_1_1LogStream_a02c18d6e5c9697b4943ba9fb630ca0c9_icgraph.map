@@ -1,40 +1,39 @@
 <map id="data::LogStream::info" name="data::LogStream::info">
-<area shape="rect" id="node1" title=" " alt="" coords="2008,261,2171,287"/>
-<area shape="rect" id="node2" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="1783,141,1960,167"/>
-<area shape="rect" id="node7" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="1787,407,1955,434"/>
-<area shape="rect" id="node38" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="1797,261,1946,287"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="1534,71,1698,98"/>
-<area shape="rect" id="node4" href="$classdata__middleware_1_1CalculatedData.html#a21515bd355a6df0c8888d61862588ca1" title="Calculate the distance traveled and the distance from the launch. Called by updatePositionalData()" alt="" coords="1218,5,1430,47"/>
-<area shape="rect" id="node6" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="1210,71,1438,98"/>
-<area shape="rect" id="node5" href="$classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe" title="Update the calculated data and store it in the shared data." alt="" coords="919,5,1131,47"/>
-<area shape="rect" id="node8" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="1537,751,1695,778"/>
-<area shape="rect" id="node18" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="1539,261,1693,287"/>
-<area shape="rect" id="node32" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="1497,159,1735,200"/>
-<area shape="rect" id="node33" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="1209,487,1439,514"/>
-<area shape="rect" id="node34" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="918,462,1133,489"/>
-<area shape="rect" id="node35" href="$classdata_1_1ErrorReporter.html#a3358515a710ff6876c2a41dd84413738" title=" " alt="" coords="1543,371,1689,412"/>
-<area shape="rect" id="node37" href="$classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="1501,538,1731,565"/>
-<area shape="rect" id="node9" href="$classcfg_1_1AdcMappings.html#a50978d833ec6672505f87b17c140f483" title=" " alt="" coords="1227,656,1421,697"/>
-<area shape="rect" id="node10" href="$classcfg_1_1Extensions.html#a3d483d303ba16bd2c41dbafb6d0db151" title="Add an extension to the configuration." alt="" coords="1215,722,1433,749"/>
-<area shape="rect" id="node11" href="$classcfg_1_1AdcMappings.html#abf24990803afb5198cbffb1a42ceac68" title=" " alt="" coords="1227,773,1421,815"/>
-<area shape="rect" id="node12" href="$classcfg_1_1Extensions.html#abb7d7973769eda4b355e1e6bdd778f1e" title="Remove an extension from the configuration by name." alt="" coords="1203,839,1445,866"/>
-<area shape="rect" id="node13" href="$classcfg_1_1AdcMappings.html#a45d9c766a012ea127e8612d262e720ac" title=" " alt="" coords="1211,890,1437,917"/>
-<area shape="rect" id="node14" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="1219,941,1429,967"/>
-<area shape="rect" id="node15" href="$classcfg_1_1Extensions.html#a28c4e7fad5dbfc8f72d1628ff59ac2ec" title="Enable or disable an extension by name." alt="" coords="1207,991,1441,1018"/>
-<area shape="rect" id="node16" href="$classcfg_1_1AdcMappings.html#a7704b7b0f66cfbad9f14b00613347e5b" title=" " alt="" coords="1229,539,1419,580"/>
-<area shape="rect" id="node17" href="$classcfg_1_1Extensions.html#a4af55964085d036357551e795bb435b5" title="Update an extension given its name and new metadata." alt="" coords="1205,605,1443,631"/>
-<area shape="rect" id="node19" href="$classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d" title=" " alt="" coords="948,319,1103,360"/>
-<area shape="rect" id="node25" href="$classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1" title=" " alt="" coords="1247,253,1401,295"/>
-<area shape="rect" id="node27" href="$classdata__middleware_1_1AdcInterpolation.html#afe9137948458156c46370b562db1fc82" title="Returns the ADC channel configuration for the given key. If one does not exist, an error is logged an..." alt="" coords="1199,123,1449,164"/>
-<area shape="rect" id="node29" href="$classgiraffe_1_1AprsManager.html#a6a162f30ddbbc37c18265dd9b9c56072" title="Initializes the APRS Telemetry data from the configuration." alt="" coords="1233,188,1415,229"/>
-<area shape="rect" id="node20" href="$classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286" title="Update the flight phase manager." alt="" coords="695,319,850,360"/>
-<area shape="rect" id="node21" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="465,297,645,323"/>
-<area shape="rect" id="node22" href="$classFlightPhaseManagerTest.html#adb308f82112e0a026b62fd8a1b1182ac" title=" " alt="" coords="464,348,645,389"/>
-<area shape="rect" id="node23" href="$classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10" title=" " alt="" coords="235,377,416,419"/>
-<area shape="rect" id="node24" href="$classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819" title=" " alt="" coords="5,348,187,389"/>
-<area shape="rect" id="node26" href="$classFlightPhaseManager.html#a5d16d39a6d55250c01f1d90102155f31" title="Constructor." alt="" coords="944,253,1107,295"/>
-<area shape="rect" id="node28" href="$classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="900,123,1151,164"/>
-<area shape="rect" id="node30" href="$classgiraffe_1_1AprsManager.html#a733faf5f8cb193988e799bbbfc721173" title="Force a configuration reload." alt="" coords="946,188,1105,229"/>
-<area shape="rect" id="node31" href="$classgiraffe_1_1AprsManager.html#ae1043caeea2da6d4da54c9af887dad3a" title="Constructor." alt="" coords="693,188,852,229"/>
-<area shape="rect" id="node36" href="$classFlightPhaseManager.html#aaf8eab144ba58f98f7fde9038752ebba" title=" " alt="" coords="1223,371,1425,412"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1977,231,2140,258"/>
+<area shape="rect" id="node2" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="1752,97,1929,123"/>
+<area shape="rect" id="node7" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="1757,231,1925,258"/>
+<area shape="rect" id="node36" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="1766,827,1915,854"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="1497,13,1661,39"/>
+<area shape="rect" id="node4" href="$classdata__middleware_1_1CalculatedData.html#a21515bd355a6df0c8888d61862588ca1" title="Calculate the distance traveled and the distance from the launch. Called by updatePositionalData()" alt="" coords="1178,5,1390,47"/>
+<area shape="rect" id="node6" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="1170,71,1398,98"/>
+<area shape="rect" id="node5" href="$classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe" title="Update positional data based on GPS data." alt="" coords="901,5,1113,47"/>
+<area shape="rect" id="node8" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="1499,446,1658,473"/>
+<area shape="rect" id="node18" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="1501,827,1656,854"/>
+<area shape="rect" id="node30" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="1460,64,1697,105"/>
+<area shape="rect" id="node31" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="1169,155,1399,182"/>
+<area shape="rect" id="node32" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="900,181,1115,207"/>
+<area shape="rect" id="node33" href="$classdata_1_1ErrorReporter.html#a3358515a710ff6876c2a41dd84413738" title=" " alt="" coords="1505,615,1652,656"/>
+<area shape="rect" id="node35" href="$classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="1463,130,1694,157"/>
+<area shape="rect" id="node9" href="$classcfg_1_1AdcMappings.html#a50978d833ec6672505f87b17c140f483" title=" " alt="" coords="1187,527,1381,568"/>
+<area shape="rect" id="node10" href="$classcfg_1_1Extensions.html#a3d483d303ba16bd2c41dbafb6d0db151" title="Add an extension to the configuration." alt="" coords="1175,593,1393,619"/>
+<area shape="rect" id="node11" href="$classcfg_1_1AdcMappings.html#abf24990803afb5198cbffb1a42ceac68" title=" " alt="" coords="1187,644,1381,685"/>
+<area shape="rect" id="node12" href="$classcfg_1_1Extensions.html#abb7d7973769eda4b355e1e6bdd778f1e" title="Remove an extension from the configuration by name." alt="" coords="1163,710,1405,737"/>
+<area shape="rect" id="node13" href="$classcfg_1_1AdcMappings.html#a45d9c766a012ea127e8612d262e720ac" title=" " alt="" coords="1171,257,1397,283"/>
+<area shape="rect" id="node14" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="1179,307,1389,334"/>
+<area shape="rect" id="node15" href="$classcfg_1_1Extensions.html#a28c4e7fad5dbfc8f72d1628ff59ac2ec" title="Enable or disable an extension by name." alt="" coords="1167,358,1401,385"/>
+<area shape="rect" id="node16" href="$classcfg_1_1AdcMappings.html#a7704b7b0f66cfbad9f14b00613347e5b" title=" " alt="" coords="1189,409,1379,451"/>
+<area shape="rect" id="node17" href="$classcfg_1_1Extensions.html#a4af55964085d036357551e795bb435b5" title="Update an extension given its name and new metadata." alt="" coords="1165,475,1403,502"/>
+<area shape="rect" id="node19" href="$classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d" title=" " alt="" coords="930,813,1085,855"/>
+<area shape="rect" id="node25" href="$classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1" title=" " alt="" coords="1207,879,1361,920"/>
+<area shape="rect" id="node27" href="$classgiraffe_1_1AprsManager.html#a6a162f30ddbbc37c18265dd9b9c56072" title="Initializes the APRS Telemetry data from the configuration." alt="" coords="1193,944,1375,985"/>
+<area shape="rect" id="node20" href="$classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286" title="Update the flight phase manager." alt="" coords="695,813,850,855"/>
+<area shape="rect" id="node21" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="465,791,645,818"/>
+<area shape="rect" id="node22" href="$classFlightPhaseManagerTest.html#adb308f82112e0a026b62fd8a1b1182ac" title=" " alt="" coords="464,843,645,884"/>
+<area shape="rect" id="node23" href="$classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10" title=" " alt="" coords="235,813,416,855"/>
+<area shape="rect" id="node24" href="$classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819" title=" " alt="" coords="5,843,187,884"/>
+<area shape="rect" id="node26" href="$classFlightPhaseManager.html#a5d16d39a6d55250c01f1d90102155f31" title="Constructor." alt="" coords="926,879,1089,920"/>
+<area shape="rect" id="node28" href="$classgiraffe_1_1AprsManager.html#a733faf5f8cb193988e799bbbfc721173" title="Force a configuration reload." alt="" coords="928,944,1087,985"/>
+<area shape="rect" id="node29" href="$classgiraffe_1_1AprsManager.html#ae1043caeea2da6d4da54c9af887dad3a" title="Constructor." alt="" coords="693,944,852,985"/>
+<area shape="rect" id="node34" href="$classFlightPhaseManager.html#aaf8eab144ba58f98f7fde9038752ebba" title=" " alt="" coords="1183,761,1385,803"/>
+<area shape="rect" id="node37" href="$classdata__middleware_1_1AdcInterpolation.html#ae1ad5fb461017a5d6a37bfb29f4675d2" title=" " alt="" coords="1453,879,1704,920"/>
 </map>

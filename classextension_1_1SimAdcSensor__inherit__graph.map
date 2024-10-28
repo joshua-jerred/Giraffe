@@ -1,4 +1,4 @@
 <map id="extension::SimAdcSensor" name="extension::SimAdcSensor">
-<area shape="rect" id="node1" title=" " alt="" coords="28,585,215,677"/>
+<area shape="rect" id="node1" title="Simulated ADC sensor with battery voltage, battery balance tap voltage, and current sense voltage." alt="" coords="28,585,215,677"/>
 <area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,5,237,537"/>
 </map>

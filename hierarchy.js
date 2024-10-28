@@ -102,8 +102,8 @@ var hierarchy =
     [ "data::Frame< DiagnosticId, ErrorFrameItem >", "classdata_1_1Frame.html", [
       [ "data::ErrorFrame", "classdata_1_1ErrorFrame.html", null ]
     ] ],
+    [ "data::Frame< std::string, AdcValue >", "classdata_1_1Frame.html", null ],
     [ "data::Frame< std::string, data::DataPacket >", "classdata_1_1Frame.html", null ],
-    [ "data::Frame< std::string, double >", "classdata_1_1Frame.html", null ],
     [ "gfs_sim::BalloonPhysics", "classgfs__sim_1_1BalloonPhysics.html", null ],
     [ "gfs_sim::EnvData", "namespacegfs__sim.html#structgfs__sim_1_1EnvData", null ],
     [ "gfs_sim::GfsSimulator", "classgfs__sim_1_1GfsSimulator.html", null ],

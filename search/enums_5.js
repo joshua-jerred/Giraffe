@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gpsfix_4439',['GpsFix',['../namespacedata.html#ab828a916e0a524f5d9d29e881a1e829b',1,'data']]]
+  ['gpsfix_4458',['GpsFix',['../namespacedata.html#ab828a916e0a524f5d9d29e881a1e829b',1,'data']]]
 ];

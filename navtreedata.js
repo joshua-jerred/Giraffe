@@ -180,6 +180,7 @@ var NAVTREE =
       [ "0.0.9", "md_docs_versions.html#autotoc_md103", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
+    [ "Deprecated List", "deprecated.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
@@ -222,23 +223,23 @@ var NAVTREEINDEX =
 [
 "adc__extension__base_8hpp.html",
 "classFlightPhasePredictor.html#a7f865ee9e6f156605ac2d92241ab2b0f",
-"classdata_1_1ErrorFrame.html",
-"classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42",
-"classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e",
-"classextension_1_1SimCamera.html#a041069086cf7b981e4999150e7b7469d",
-"classgfs__sim_1_1GfsSimulator.html#ac29a56aba288ef2a5aa96885c8826ffb",
-"classgiraffe_1_1gdl_1_1DataLink.html#a0438ec86403e77138d0e471655e041feaa5afd6edd5336d91316964e493936858",
-"classgiraffe_1_1gdl_1_1PhysicalLayer.html#a992fc435a6b416f0ece24cf06b5ef538",
-"classmodules_1_1ExtensionModule.html#a348a468174a4b46795dcc843181afbdb",
-"classncurs_1_1Window.html#a5f558ef2888100e26c7754a1616aac72",
-"functions_vars_c.html",
-"group__ServerModule.html#a1837852a28a16b70332eca99ecc4dec6",
-"namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74",
-"namespacegiraffe_1_1gdl.html#a87e4e431e7b8f4b27ac865dd3f6c6a77",
-"prediction__model_8cpp.html#ad35579e98b00611265d76f01465e00bb",
-"structcfg_1_1ExtensionMetadata.html#a0669e4e8f22d5d00d727108525ca8a6f",
-"structgiraffe_1_1LoggerEntry.html#ae9533ed2663cb65e3fb072e46d4b64da",
-"ubx__ids_8hpp.html#ab6edc2deee36575996340b5038d70bc6"
+"classdata_1_1DataStream.html#ad9917c842e32c3448708f64aed1060a2",
+"classextension_1_1AdcExtensionBase.html#a6894ac602f162ff697dddc15d077b172",
+"classextension_1_1Extension.html#a78794696deb7370a7f71ca6e7bc28998",
+"classextension_1_1SimAdcSensor.html#ad3a895d8015ab2992b41c66b9f16648a",
+"classgfs__sim_1_1GfsSimulator.html#a8e6ab345c1dca70e226c628486c09e9c",
+"classgiraffe_1_1gdl_1_1Config.html#aed38e5da069f3de8930fea4e878654bb",
+"classgiraffe_1_1gdl_1_1PhysicalLayer.html#a2744a41c76184b417b9445ad925299dfa9eed40bd951e903d55dd6c8f01a50cc2",
+"classmodules_1_1ExtensionModule.html#a1676a6429bf5554a42801ccd7fea0bb3",
+"classncurs_1_1Pages.html#ab8985bb8868be6543d2ab9276d28c937",
+"functions_s.html",
+"group__ServerModule.html",
+"module_8hpp_source.html",
+"namespacegiraffe_1_1gdl.html#a4e54f9f83fc680ec52fa44cc2230c708",
+"positional_8hpp.html#ab828a916e0a524f5d9d29e881a1e829babb1ca97ec761fc37101737ba0aa2e7c5",
+"structcfg_1_1AdcConfig.html#a30949927b07ae2814aec51cc8211fc90",
+"structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7dda696b031073e74bf2cb98e5ef201d4aa3",
+"ubx__ids_8hpp.html#a81f1534614e911ce3ec8e80620f9619d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

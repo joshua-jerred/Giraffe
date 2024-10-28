@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('classgfs__sim_1_1GfsSimulator.html',''
 <div class="dynheader">
 Collaboration diagram for gfs_sim::GfsSimulator:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classgfs__sim_1_1GfsSimulator__coll__graph.svg" width="1236" height="1807"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classgfs__sim_1_1GfsSimulator__coll__graph.svg" width="1236" height="1822"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -126,6 +126,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aed1480f1510474098c319e8639951ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad6fc41b8980bd9f58e035c772200685"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfs__sim_1_1GfsSimulator.html#aad6fc41b8980bd9f58e035c772200685">getAltitudeM</a> () const</td></tr>
 <tr class="separator:aad6fc41b8980bd9f58e035c772200685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab636fe804d2b294614005092f53724f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfs__sim_1_1GfsSimulator.html#aab636fe804d2b294614005092f53724f">getBatteryVoltage</a> () const</td></tr>
+<tr class="separator:aab636fe804d2b294614005092f53724f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ae80ad3585a4ea64583a2015ebaf019"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfs__sim_1_1GfsSimulator.html#a8ae80ad3585a4ea64583a2015ebaf019">getHeadingDeg</a> () const</td></tr>
 <tr class="separator:a8ae80ad3585a4ea64583a2015ebaf019"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a278256cda787a19874fcf700ffd1a4b3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfs__sim_1_1GfsSimulator.html#a278256cda787a19874fcf700ffd1a4b3">getHorzVelocityMps</a> () const</td></tr>
@@ -641,6 +643,33 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="aab636fe804d2b294614005092f53724f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab636fe804d2b294614005092f53724f">&#9670;&nbsp;</a></span>getBatteryVoltage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gfs_sim::GfsSimulator::getBatteryVoltage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespacegfs__sim.html#a60f0b54dbe4a8761203c7677b811d27f">gfs_sim::SimData::battery_voltage</a>, and <a class="el" href="classgfs__sim_1_1GfsSimulator.html#af2d383a02243b0bd2b20602d957343a0">sim_data_</a>.</p>
+
+</div>
+</div>
 <a id="ada138779165690488655ea0856e38d40"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada138779165690488655ea0856e38d40">&#9670;&nbsp;</a></span>run()</h2>
 
@@ -664,7 +693,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ae345d33ab767d7d199edc5dbbb4106c0">elapsed_seconds_</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ae9671104a784ffcd6611701d58ca6d03">flight_stopwatch_</a>, <a class="el" href="namespacegfs__sim.html#abb8113a9916aa3f5e701bf4b2f1bb396">gfs_sim::K_DELTA_TIME_S</a>, <a class="el" href="namespacegfs__sim.html#a9bb52b7397eb618f39dc16aa42db9ed1">gfs_sim::K_PRINT_SIM_DATA</a>, <a class="el" href="namespacegfs__sim.html#adf92cf253dbf05c9c09e2f8f032c5630">gfs_sim::K_SLEEP_INTERVAL_MS</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a7e882f34329a8d2eda1191bf67062b89">physics_</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a6891dfcd060e087d15ded732a3950e3b">print_timer_</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#aca8946f8987e20a268ca79708ad9006f">printData()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a83637a4391003c160b234d22ea76cc37">state_machine_timer_</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ac29a56aba288ef2a5aa96885c8826ffb">stateMachine()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a4819c4647bf6b050f534a671a0810c4b">stop_flag_</a>, and <a class="el" href="classgfs__sim_1_1BalloonPhysics.html#a2311e27b7bd0683ae15f8b524b3e5948">gfs_sim::BalloonPhysics::update()</a>.</p>
+<p class="reference">References <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ae345d33ab767d7d199edc5dbbb4106c0">elapsed_seconds_</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ab287934e87255e05c9fc5030c4411066">electrical_</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ae9671104a784ffcd6611701d58ca6d03">flight_stopwatch_</a>, <a class="el" href="namespacegfs__sim.html#abb8113a9916aa3f5e701bf4b2f1bb396">gfs_sim::K_DELTA_TIME_S</a>, <a class="el" href="namespacegfs__sim.html#a9bb52b7397eb618f39dc16aa42db9ed1">gfs_sim::K_PRINT_SIM_DATA</a>, <a class="el" href="namespacegfs__sim.html#adf92cf253dbf05c9c09e2f8f032c5630">gfs_sim::K_SLEEP_INTERVAL_MS</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a7e882f34329a8d2eda1191bf67062b89">physics_</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a6891dfcd060e087d15ded732a3950e3b">print_timer_</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#aca8946f8987e20a268ca79708ad9006f">printData()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a83637a4391003c160b234d22ea76cc37">state_machine_timer_</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ac29a56aba288ef2a5aa96885c8826ffb">stateMachine()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a4819c4647bf6b050f534a671a0810c4b">stop_flag_</a>, <a class="el" href="classgfs__sim_1_1SimElectrical.html#aca92a422db7c911f71322e5230166620">gfs_sim::SimElectrical::update()</a>, and <a class="el" href="classgfs__sim_1_1BalloonPhysics.html#a2311e27b7bd0683ae15f8b524b3e5948">gfs_sim::BalloonPhysics::update()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ad1380276142d2172f5516d481b2a365a">start()</a>.</p>
 <div class="dynheader">
@@ -1103,7 +1132,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classgfs__sim_1_1GfsSimulator.html#aad6fc41b8980bd9f58e035c772200685">getAltitudeM()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a8ae80ad3585a4ea64583a2015ebaf019">getHeadingDeg()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a278256cda787a19874fcf700ffd1a4b3">getHorzVelocityMps()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#aa8b718820867da177d7f55b1d859e0cc">getHumidityPercent()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a67f68217a16953846808865a63f39b88">getLatitudeDeg()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ac7f60e49f41775185ea1b8a449913d16">getLongitudeDeg()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a809a5761c1df7f42efbf3dc4fdd51cf5">getPressureMbar()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#afad6d51ade8571c577781fabbdf2b528">getTemperatureC()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a30c6f7df78088d8cece33b687a6f6bc3">getVertAccelMps2()</a>, and <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ac27d982a3bf669a0a388a4bd8c606a96">getVertVelocityMps()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgfs__sim_1_1GfsSimulator.html#aad6fc41b8980bd9f58e035c772200685">getAltitudeM()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#aab636fe804d2b294614005092f53724f">getBatteryVoltage()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a8ae80ad3585a4ea64583a2015ebaf019">getHeadingDeg()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a278256cda787a19874fcf700ffd1a4b3">getHorzVelocityMps()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#aa8b718820867da177d7f55b1d859e0cc">getHumidityPercent()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a67f68217a16953846808865a63f39b88">getLatitudeDeg()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ac7f60e49f41775185ea1b8a449913d16">getLongitudeDeg()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a809a5761c1df7f42efbf3dc4fdd51cf5">getPressureMbar()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#afad6d51ade8571c577781fabbdf2b528">getTemperatureC()</a>, <a class="el" href="classgfs__sim_1_1GfsSimulator.html#a30c6f7df78088d8cece33b687a6f6bc3">getVertAccelMps2()</a>, and <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ac27d982a3bf669a0a388a4bd8c606a96">getVertVelocityMps()</a>.</p>
 
 </div>
 </div>
@@ -1174,6 +1203,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classgfs__sim_1_1GfsSimulator.html#ada138779165690488655ea0856e38d40">run()</a>.</p>
 
 </div>
 </div>

@@ -1,6 +1,7 @@
 var classdata_1_1DataStream =
 [
     [ "addData", "classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac", null ],
+    [ "addNumericData", "classdata_1_1DataStream.html#a865966119d0db9050b395d4f55cfb791", null ],
     [ "reportStatus", "classdata_1_1DataStream.html#a0eace161e7a83c07b6dd6f16041c8c56", null ],
     [ "addPacket", "classdata_1_1DataStream.html#a1ff9a93190dbecdc2ffa27deaaa4266a", null ],
     [ "getPacket", "classdata_1_1DataStream.html#a0314b3695dc80b18b19be92965777234", null ],

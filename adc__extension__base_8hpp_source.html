@@ -164,71 +164,71 @@ $(document).ready(function(){initNavTree('adc__extension__base_8hpp_source.html'
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">// switch (adc_config_.type) {</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">// case AdcType::RAW_COUNT:</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">//   data(data::DataId::ADC_rawCount, adc_value);</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">//   break;</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// case AdcType::PERCENTAGE:</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">//   percentage(adc_value);</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">//   break;</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">// case AdcType::VOLTAGE_DIVIDER:</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">//   voltageDivider(adc_value);</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">//   break;</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// case AdcType::VOLTAGE_REFERENCE:</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">//   voltageReference(adc_value);</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">//   break;</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">// default:</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">//   giraffe_assert(false);</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">//   break;</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">// }</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="classextension_1_1AdcExtensionBase.html#a8ab323480b14c8cc32ca4d5faa1e871c">adc_watchdog_</a>.reset();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classextension_1_1AdcExtensionBase.html#abb3b810a2741069ebcac1df74d94237d">  100</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classextension_1_1AdcExtensionBase.html#abb3b810a2741069ebcac1df74d94237d">shutdown</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="comment">// void percentage(uint32_t value) {</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="comment">//   int max = adc_config_.max;</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="comment">//   int min = adc_config_.min;</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="comment">//   int range = max - min;</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="comment">//   int scaled = value - min;</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="comment">//   int percentage = (scaled * 100) / range;</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="comment">//   data(data::DataId::ADC_percentage, percentage);</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="comment">// }</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="comment">// void voltageDivider(uint32_t value) {</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="comment">//   uint32_t unscaled =</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="comment">//       (value * adc_config_.voltage_reference) / (1 &lt;&lt; adc_resolution_);</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="comment">//   uint32_t millivolts =</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="comment">//       (unscaled * (adc_config_.resistor_1 + adc_config_.resistor_2)) /</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="comment">//       adc_config_.resistor_2;</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="comment">//   data(data::DataId::ADC_voltage, millivolts);</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">// }</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="comment">// void voltageReference(uint32_t value) {</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="comment">//   uint32_t millivolts =</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="comment">//       (value * adc_config_.voltage_reference) / (1 &lt;&lt; adc_resolution_);</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="comment">//   data(data::DataId::ADC_voltage, millivolts);</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="comment">// }</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="comment">// const uint32_t adc_resolution_ = AdcResolution;</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="comment">// AdcConfig adc_config_{};</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classextension_1_1AdcExtensionBase.html#a8ab323480b14c8cc32ca4d5faa1e871c">  130</a></span>&#160;  bst::Timer <a class="code" href="classextension_1_1AdcExtensionBase.html#a8ab323480b14c8cc32ca4d5faa1e871c">adc_watchdog_</a>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;};</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;} <span class="comment">// namespace extension</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* EXTENSION_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">// switch (adc_config_.type) {</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">// case AdcType::RAW_COUNT:</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">//   data(data::DataId::ADC_rawCount, adc_value);</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">//   break;</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// case AdcType::PERCENTAGE:</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">//   percentage(adc_value);</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">//   break;</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// case AdcType::VOLTAGE_DIVIDER:</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">//   voltageDivider(adc_value);</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">//   break;</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// case AdcType::VOLTAGE_REFERENCE:</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">//   voltageReference(adc_value);</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">//   break;</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// default:</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">//   giraffe_assert(false);</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">//   break;</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">// }</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="classextension_1_1AdcExtensionBase.html#a8ab323480b14c8cc32ca4d5faa1e871c">adc_watchdog_</a>.reset();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classextension_1_1AdcExtensionBase.html#abb3b810a2741069ebcac1df74d94237d">  101</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classextension_1_1AdcExtensionBase.html#abb3b810a2741069ebcac1df74d94237d">shutdown</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="comment">// void percentage(uint32_t value) {</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="comment">//   int max = adc_config_.max;</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="comment">//   int min = adc_config_.min;</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="comment">//   int range = max - min;</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="comment">//   int scaled = value - min;</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="comment">//   int percentage = (scaled * 100) / range;</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="comment">//   data(data::DataId::ADC_percentage, percentage);</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">// }</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="comment">// void voltageDivider(uint32_t value) {</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="comment">//   uint32_t unscaled =</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="comment">//       (value * adc_config_.voltage_reference) / (1 &lt;&lt; adc_resolution_);</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="comment">//   uint32_t millivolts =</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="comment">//       (unscaled * (adc_config_.resistor_1 + adc_config_.resistor_2)) /</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="comment">//       adc_config_.resistor_2;</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">//   data(data::DataId::ADC_voltage, millivolts);</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment">// }</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="comment">// void voltageReference(uint32_t value) {</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="comment">//   uint32_t millivolts =</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="comment">//       (value * adc_config_.voltage_reference) / (1 &lt;&lt; adc_resolution_);</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="comment">//   data(data::DataId::ADC_voltage, millivolts);</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="comment">// }</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="comment">// const uint32_t adc_resolution_ = AdcResolution;</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="comment">// AdcConfig adc_config_{};</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classextension_1_1AdcExtensionBase.html#a8ab323480b14c8cc32ca4d5faa1e871c">  131</a></span>&#160;  bst::Timer <a class="code" href="classextension_1_1AdcExtensionBase.html#a8ab323480b14c8cc32ca4d5faa1e871c">adc_watchdog_</a>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;};</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;} <span class="comment">// namespace extension</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* EXTENSION_HPP_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aclassextension_1_1AdcExtensionBase_html"><div class="ttname"><a href="classextension_1_1AdcExtensionBase.html">extension::AdcExtensionBase</a></div><div class="ttdef"><b>Definition:</b> adc_extension_base.hpp:34</div></div>
 <div class="ttc" id="aclassextension_1_1AdcExtensionBase_html_a4799d040dd9f57865ceb0cccb9abd9c8"><div class="ttname"><a href="classextension_1_1AdcExtensionBase.html#a4799d040dd9f57865ceb0cccb9abd9c8">extension::AdcExtensionBase::AdcExtensionBase</a></div><div class="ttdeci">AdcExtensionBase(ExtensionResources &amp;resources, cfg::ExtensionMetadata metadata)</div><div class="ttdef"><b>Definition:</b> adc_extension_base.hpp:38</div></div>
 <div class="ttc" id="aclassextension_1_1AdcExtensionBase_html_a634b78f4a3a91ca4e3fa003565de24a6"><div class="ttname"><a href="classextension_1_1AdcExtensionBase.html#a634b78f4a3a91ca4e3fa003565de24a6">extension::AdcExtensionBase::loop</a></div><div class="ttdeci">void loop() override</div><div class="ttdef"><b>Definition:</b> adc_extension_base.hpp:70</div></div>
 <div class="ttc" id="aclassextension_1_1AdcExtensionBase_html_a6894ac602f162ff697dddc15d077b172"><div class="ttname"><a href="classextension_1_1AdcExtensionBase.html#a6894ac602f162ff697dddc15d077b172">extension::AdcExtensionBase::adcStartup</a></div><div class="ttdeci">virtual void adcStartup()</div><div class="ttdef"><b>Definition:</b> adc_extension_base.hpp:49</div></div>
 <div class="ttc" id="aclassextension_1_1AdcExtensionBase_html_a85d69527733d432f6c74c24c7aa47d42"><div class="ttname"><a href="classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42">extension::AdcExtensionBase::reportAdcData</a></div><div class="ttdeci">void reportAdcData(uint32_t value, uint8_t channel)</div><div class="ttdef"><b>Definition:</b> adc_extension_base.hpp:56</div></div>
 <div class="ttc" id="aclassextension_1_1AdcExtensionBase_html_a85d9189c079bc03af2f45106e3e0422c"><div class="ttname"><a href="classextension_1_1AdcExtensionBase.html#a85d9189c079bc03af2f45106e3e0422c">extension::AdcExtensionBase::startup</a></div><div class="ttdeci">void startup() override</div><div class="ttdef"><b>Definition:</b> adc_extension_base.hpp:62</div></div>
-<div class="ttc" id="aclassextension_1_1AdcExtensionBase_html_a8ab323480b14c8cc32ca4d5faa1e871c"><div class="ttname"><a href="classextension_1_1AdcExtensionBase.html#a8ab323480b14c8cc32ca4d5faa1e871c">extension::AdcExtensionBase::adc_watchdog_</a></div><div class="ttdeci">bst::Timer adc_watchdog_</div><div class="ttdef"><b>Definition:</b> adc_extension_base.hpp:130</div></div>
-<div class="ttc" id="aclassextension_1_1AdcExtensionBase_html_abb3b810a2741069ebcac1df74d94237d"><div class="ttname"><a href="classextension_1_1AdcExtensionBase.html#abb3b810a2741069ebcac1df74d94237d">extension::AdcExtensionBase::shutdown</a></div><div class="ttdeci">void shutdown() override</div><div class="ttdef"><b>Definition:</b> adc_extension_base.hpp:100</div></div>
+<div class="ttc" id="aclassextension_1_1AdcExtensionBase_html_a8ab323480b14c8cc32ca4d5faa1e871c"><div class="ttname"><a href="classextension_1_1AdcExtensionBase.html#a8ab323480b14c8cc32ca4d5faa1e871c">extension::AdcExtensionBase::adc_watchdog_</a></div><div class="ttdeci">bst::Timer adc_watchdog_</div><div class="ttdef"><b>Definition:</b> adc_extension_base.hpp:131</div></div>
+<div class="ttc" id="aclassextension_1_1AdcExtensionBase_html_abb3b810a2741069ebcac1df74d94237d"><div class="ttname"><a href="classextension_1_1AdcExtensionBase.html#abb3b810a2741069ebcac1df74d94237d">extension::AdcExtensionBase::shutdown</a></div><div class="ttdeci">void shutdown() override</div><div class="ttdef"><b>Definition:</b> adc_extension_base.hpp:101</div></div>
 <div class="ttc" id="aclassextension_1_1AdcExtensionBase_html_ae2c3222301069352e6558762aaa8195c"><div class="ttname"><a href="classextension_1_1AdcExtensionBase.html#ae2c3222301069352e6558762aaa8195c">extension::AdcExtensionBase::adcShutdown</a></div><div class="ttdeci">virtual void adcShutdown()</div><div class="ttdef"><b>Definition:</b> adc_extension_base.hpp:54</div></div>
 <div class="ttc" id="aclassextension_1_1AdcExtensionBase_html_afa31834a33fca121af47e7a61b2e40a1"><div class="ttname"><a href="classextension_1_1AdcExtensionBase.html#afa31834a33fca121af47e7a61b2e40a1">extension::AdcExtensionBase::readAdc</a></div><div class="ttdeci">virtual bool readAdc()</div><div class="ttdef"><b>Definition:</b> adc_extension_base.hpp:50</div></div>
 <div class="ttc" id="aclassextension_1_1Extension_html"><div class="ttname"><a href="classextension_1_1Extension.html">extension::Extension</a></div><div class="ttdef"><b>Definition:</b> extension_base.hpp:79</div></div>

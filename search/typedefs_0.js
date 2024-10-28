@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['filesizetype_4404',['FileSizeType',['../structdata_1_1blocks_1_1DataLogStats.html#a765e83f6592fe7bcd390bfc4c426a4b4',1,'data::blocks::DataLogStats']]]
+  ['adcvalue_4422',['AdcValue',['../namespacedata.html#abb5ab4457f1809661bba09c9a6d505ed',1,'data']]]
 ];

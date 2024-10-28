@@ -1,8 +1,8 @@
 <map id="cfg::AdcMappings" name="cfg::AdcMappings">
 <area shape="rect" id="node1" title=" " alt="" coords="72,1109,235,1289"/>
 <area shape="rect" id="node2" href="$classcfg_1_1CfgSection.html" title="This is the base class for all configuration sections." alt="" coords="5,955,125,1047"/>
-<area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="515,815,629,892"/>
-<area shape="rect" id="node4" href="$classdata_1_1LogStream.html" title=" " alt="" coords="117,616,339,752"/>
+<area shape="rect" id="node3" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="513,815,626,892"/>
+<area shape="rect" id="node4" href="$classdata_1_1LogStream.html" title=" " alt="" coords="113,616,335,752"/>
 <area shape="rect" id="node5" href="$classdata_1_1Stream.html" title=" " alt="" coords="82,359,283,553"/>
 <area shape="rect" id="node6" href="$classdata_1_1Stream.html" title=" " alt="" coords="479,145,627,296"/>
 <area shape="rect" id="node12" href="$classdata_1_1Stream.html" title=" " alt="" coords="307,359,551,553"/>
@@ -13,9 +13,9 @@
 <area shape="rect" id="node8" title=" " alt="" coords="383,5,422,83"/>
 <area shape="rect" id="node9" title=" " alt="" coords="503,5,603,83"/>
 <area shape="rect" id="node10" title=" " alt="" coords="633,5,748,83"/>
-<area shape="rect" id="node11" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="389,645,561,723"/>
-<area shape="rect" id="node13" href="$classdata_1_1DataStream.html" title=" " alt="" coords="602,638,739,730"/>
-<area shape="rect" id="node15" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="809,645,981,723"/>
-<area shape="rect" id="node17" href="$classdata_1_1CommandStream.html" title="The stream of new commands." alt="" coords="1064,645,1237,723"/>
+<area shape="rect" id="node11" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="382,645,554,723"/>
+<area shape="rect" id="node13" href="$classdata_1_1DataStream.html" title=" " alt="" coords="593,631,751,737"/>
+<area shape="rect" id="node15" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="814,645,986,723"/>
+<area shape="rect" id="node17" href="$classdata_1_1CommandStream.html" title="The stream of new commands." alt="" coords="1065,645,1239,723"/>
 <area shape="rect" id="node19" title=" " alt="" coords="149,962,336,1039"/>
 </map>

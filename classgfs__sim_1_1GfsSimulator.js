@@ -16,6 +16,7 @@ var classgfs__sim_1_1GfsSimulator =
     [ "getHeadingDeg", "classgfs__sim_1_1GfsSimulator.html#a8ae80ad3585a4ea64583a2015ebaf019", null ],
     [ "getLatitudeDeg", "classgfs__sim_1_1GfsSimulator.html#a67f68217a16953846808865a63f39b88", null ],
     [ "getLongitudeDeg", "classgfs__sim_1_1GfsSimulator.html#ac7f60e49f41775185ea1b8a449913d16", null ],
+    [ "getBatteryVoltage", "classgfs__sim_1_1GfsSimulator.html#aab636fe804d2b294614005092f53724f", null ],
     [ "run", "classgfs__sim_1_1GfsSimulator.html#ada138779165690488655ea0856e38d40", null ],
     [ "stateMachine", "classgfs__sim_1_1GfsSimulator.html#ac29a56aba288ef2a5aa96885c8826ffb", null ],
     [ "statePreLaunch", "classgfs__sim_1_1GfsSimulator.html#afc02d0812770cccd5a8013757504c60f", null ],

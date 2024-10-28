@@ -37,7 +37,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe" target="_top" xlink:title="Update the calculated data and store it in the shared data.">
+<g id="a_node3"><a xlink:href="classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe" target="_top" xlink:title="Update positional data based on GPS data.">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-30.5 159,-30.5 159,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">data_middleware::Calculated</text>
 <text text-anchor="middle" x="79.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Data::addPositionalData</text>
