@@ -1327,7 +1327,7 @@
 				(pin power_out line
 					(at 0 0 90)
 					(length 0)
-					(name "pwr"
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1378,12 +1378,6 @@
 		(uuid "0b5d7dea-e374-46f2-a850-e4041562556f")
 	)
 	(junction
-		(at 165.1 137.16)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0b6ee416-b574-4ffa-a6e1-aabc989ee3b9")
-	)
-	(junction
 		(at 78.74 109.22)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1426,12 +1420,6 @@
 		(uuid "3bb7adfc-450b-4e79-9c9a-39d47e3422ac")
 	)
 	(junction
-		(at 162.56 139.7)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4b8bfc88-5550-4cf7-be10-57c6e533b0a3")
-	)
-	(junction
 		(at 210.82 109.22)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1442,6 +1430,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "61a4d77b-6819-4608-8235-8c2c00a2c647")
+	)
+	(junction
+		(at 228.6 137.16)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "68bdc13d-cd9c-4d5a-9a40-ea55915f63d0")
 	)
 	(junction
 		(at 215.9 38.1)
@@ -1484,12 +1478,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ce1720fa-10ea-4f29-b28d-2448ba78068d")
-	)
-	(junction
-		(at 218.44 137.16)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d32573e1-404f-423d-af87-1c13834fd22a")
 	)
 	(junction
 		(at 132.08 139.7)
@@ -1655,7 +1643,7 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 137.16) (xy 218.44 137.16)
+			(xy 246.38 137.16) (xy 228.6 137.16)
 		)
 		(stroke
 			(width 0)
@@ -1692,16 +1680,6 @@
 			(type default)
 		)
 		(uuid "055cd5c8-4465-4f6f-8f98-93ae067a2188")
-	)
-	(wire
-		(pts
-			(xy 165.1 137.16) (xy 218.44 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "05fe52ca-9ddf-41e9-bc1c-ef44630d1096")
 	)
 	(wire
 		(pts
@@ -1922,16 +1900,6 @@
 			(type default)
 		)
 		(uuid "2c298ec8-0bfa-43a0-a951-0d95acf4b526")
-	)
-	(wire
-		(pts
-			(xy 157.48 139.7) (xy 162.56 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2d4d5349-ace3-495b-a639-829833e4aa73")
 	)
 	(wire
 		(pts
@@ -2235,6 +2203,16 @@
 	)
 	(wire
 		(pts
+			(xy 228.6 137.16) (xy 218.44 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68f57ed6-afd9-42b0-9394-8059358dac68")
+	)
+	(wire
+		(pts
 			(xy 215.9 35.56) (xy 215.9 38.1)
 		)
 		(stroke
@@ -2435,16 +2413,6 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 134.62) (xy 162.56 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8f237a2e-b6ae-4adb-9d18-7bce65aeec48")
-	)
-	(wire
-		(pts
 			(xy 93.98 109.22) (xy 91.44 109.22)
 		)
 		(stroke
@@ -2605,16 +2573,6 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 139.7) (xy 246.38 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ae2a234e-c4a0-4abd-8f27-7ac51ea7ff17")
-	)
-	(wire
-		(pts
 			(xy 109.22 88.9) (xy 109.22 114.3)
 		)
 		(stroke
@@ -2772,16 +2730,6 @@
 			(type default)
 		)
 		(uuid "cf6f3c48-20d2-4600-b002-50e0aecdf7dd")
-	)
-	(wire
-		(pts
-			(xy 157.48 137.16) (xy 165.1 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d13398d1-90c2-4957-8caf-1369dcabb3a2")
 	)
 	(wire
 		(pts
@@ -3641,29 +3589,6 @@
 	)
 	(netclass_flag ""
 		(length 1.25)
-		(shape round)
-		(at 241.3 139.7 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "dcffe42d-6c0d-408d-8e83-065f38d5ff6e")
-		(property "Netclass" "POWER:BATT"
-			(at 240.6015 138.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify right)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 1.25)
 		(shape rectangle)
 		(at 55.88 76.2 0)
 		(fields_autoplaced yes)
@@ -3776,7 +3701,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Special symbol for telling ERC where power comes from"
 			(at 129.54 137.16 0)
 			(effects
 				(font
@@ -4056,74 +3981,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 152.4 137.16 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5e9b3e33-4389-40f3-a165-5293e0a2e660")
-		(property "Reference" "J4"
-			(at 152.4 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "BAT"
-			(at 152.4 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "giraffe_flight_computer_footprints:battery_connection"
-			(at 152.4 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 152.4 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 152.4 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "dd206b30-e0eb-466d-86d5-83848d0ddea3")
-		)
-		(pin "2"
-			(uuid "cdf82309-d91a-4c2f-be90-a2bfd705cbb0")
-		)
-		(instances
-			(project "giraffe_flight_computer"
-				(path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-					(reference "J4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:PWR_FLAG")
 		(at 198.12 35.56 0)
 		(unit 1)
@@ -4167,7 +4024,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Special symbol for telling ERC where power comes from"
 			(at 198.12 35.56 0)
 			(effects
 				(font
@@ -4183,71 +4040,6 @@
 			(project "giraffe_flight_computer"
 				(path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
 					(reference "#FLG05")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 162.56 134.62 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8cd1ad26-acb9-4bbb-8d1d-dc7967cd18d9")
-		(property "Reference" "#FLG03"
-			(at 162.56 132.715 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 168.91 133.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 162.56 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 162.56 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 162.56 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d242d84b-bd99-49f6-a34d-a2fd0aecc7e6")
-		)
-		(instances
-			(project "giraffe_flight_computer"
-				(path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-					(reference "#FLG03")
 					(unit 1)
 				)
 			)
@@ -4319,7 +4111,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 165.1 137.16 0)
+		(at 228.6 137.16 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4327,7 +4119,7 @@
 		(dnp no)
 		(uuid "ac5dea60-d3fb-4672-aafb-32f6a2f2f33c")
 		(property "Reference" "#FLG04"
-			(at 165.1 135.255 0)
+			(at 228.6 139.065 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4336,7 +4128,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 171.45 135.89 0)
+			(at 222.25 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4344,7 +4136,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 165.1 137.16 0)
+			(at 228.6 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4353,7 +4145,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 165.1 137.16 0)
+			(at 228.6 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4361,8 +4153,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 165.1 137.16 0)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 228.6 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4610,7 +4402,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Special symbol for telling ERC where power comes from"
 			(at 132.08 134.62 0)
 			(effects
 				(font
@@ -5065,16 +4857,6 @@
 				(justify left)
 			)
 			(uuid "8d92aebf-0d29-4163-af24-12df1d382127")
-		)
-		(pin "+BATT" input
-			(at 246.38 139.7 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "e1c49d41-8100-4d0b-920b-f0b034e8ee6f")
 		)
 		(pin "S_GND" input
 			(at 246.38 137.16 180)
