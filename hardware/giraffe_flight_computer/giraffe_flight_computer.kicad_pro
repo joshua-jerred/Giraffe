@@ -261,7 +261,11 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      "pin_to_pin|2120900|1371600|2abada94-075b-4e0d-a5e2-0df8ff587bed|68802fb3-3f2c-41ab-a8fa-9798abdea4b0|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/ba60804d-01a4-423f-89a4-e92a0bf73814",
+      "pin_to_pin|2120900|1371600|2abada94-075b-4e0d-a5e2-0df8ff587bed|9975413d-a92f-4da1-8ec0-565f277c6f28|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/ba60804d-01a4-423f-89a4-e92a0bf73814",
+      "pin_to_pin|2120900|1371600|2abada94-075b-4e0d-a5e2-0df8ff587bed|b6a0aca6-5f9c-4a04-af6c-7b81ba36399b|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/ba60804d-01a4-423f-89a4-e92a0bf73814"
+    ],
     "meta": {
       "version": 0
     },
@@ -642,6 +646,9 @@
       "/hat/STATUS_LED.GREEN": "GPIO",
       "/hat/STATUS_LED.RED": "GPIO",
       "/shoe/+BATT": "POWER:BATT",
+      "/shoe/PI_GPIO_SA868_PTT": "GPIO",
+      "/shoe/PI_GPIO_SA868_RX": "GPIO",
+      "/shoe/PI_GPIO_SHOE_POWER_CONTROL": "GPIO",
       "/shoe/RX_DETECT": "GPIO",
       "/shoe/SA868_PTT": "GPIO",
       "/shoe/SA868_PWR_CTRL": "GPIO",
@@ -841,6 +848,10 @@
     [
       "ba60804d-01a4-423f-89a4-e92a0bf73814",
       "shoe"
+    ],
+    [
+      "3c0d0515-2f21-4168-b1d1-32e6f5ea7476",
+      "USB Audio Codec"
     ]
   ],
   "text_variables": {}
