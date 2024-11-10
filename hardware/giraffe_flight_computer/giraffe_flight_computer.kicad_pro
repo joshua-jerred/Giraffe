@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.125,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.2
+          "min_clearance": 0.1
         }
       },
       "diff_pair_dimensions": [
@@ -650,6 +650,7 @@
       "/shoe/PI_GPIO_SA868_RX": "GPIO",
       "/shoe/PI_GPIO_SHOE_POWER_CONTROL": "GPIO",
       "/shoe/RX_DETECT": "GPIO",
+      "/shoe/SA868 RF": "RF",
       "/shoe/SA868_PTT": "GPIO",
       "/shoe/SA868_PWR_CTRL": "GPIO",
       "/shoe/SA868_RX": "GPIO",
@@ -780,6 +781,24 @@
           "group_by": false,
           "label": "Description",
           "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Type",
+          "name": "Sim.Type",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Device",
+          "name": "Sim.Device",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Pins",
+          "name": "Sim.Pins",
           "show": false
         }
       ],
