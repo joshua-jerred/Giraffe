@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from "react";
-import styled, { useTheme } from "styled-components";
 
 import { GwsGlobal } from "../../GlobalContext";
 import { StyButton } from "../../components/styled/StyledComponents";
@@ -36,161 +35,6 @@ function ActionItem({ visible, enabled, name, action }) {
         {name}
       </StyButton>
     </li>
-  );
-}
-
-const TestGroupStyle = styled.div`
-  width: 90px;
-  height: 90px;
-  border-radius: 5px;
-  background: ${(props) => props.theme.surface_alt};
-  border: 2px solid #6c6b6b;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  padding: 5px;
-
-  font-size: 23px;
-  font-family: ${(props) => props.theme.fonts.mono};
-  font-weight: 500;
-  font-style: ${(props) => props.theme.fonts.input.style};
-
-  &:hover {
-    border: 2px solid #ffa630;
-    cursor: pointer;
-  }
-`;
-function TestGroup({ name, status }) {
-  const theme = useTheme();
-
-  let name_label = name;
-  let status_label = status;
-  let style = {
-    background: "#6c6b6b",
-    opacity: 1,
-    color: theme.surface,
-  };
-
-  switch (status) {
-    case "N/R":
-      style.background = "#6c6b6b";
-      style.opacity = 10;
-      break;
-    case "RUN":
-      style.background = theme.warning;
-      break;
-    case "PASS":
-      style.background = "rgb(77 191 53)";
-      break;
-    case "FAIL":
-      style.background = theme.error;
-      break;
-    case "SKIP":
-      style.background = "#F7B801";
-      style.opacity = 0.4;
-      break;
-    default:
-      style.background = "#6c6b6b";
-      status_label = "--";
-      style.opacity = 0.4;
-      name_label = "INOP";
-      break;
-  }
-
-  return (
-    <TestGroupStyle className="noselect">
-      <span>{name_label}</span>
-      <div
-        style={{
-          width: "80%",
-          height: "30%",
-
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          ...style,
-        }}
-      >
-        <span>{status_label}</span>
-      </div>
-    </TestGroupStyle>
-  );
-}
-
-function BitTestPanel() {
-  const GroupDataSchema = {
-    status: "N/R",
-  };
-  const [testGroupData, setTestGroupData] = useState({
-    FCS: GroupDataSchema,
-    SYS: GroupDataSchema,
-    DLNK: GroupDataSchema,
-    GPS: GroupDataSchema,
-    BATT: GroupDataSchema,
-    EXTN: GroupDataSchema,
-    ENV: GroupDataSchema,
-    CAM: GroupDataSchema,
-    IMU: GroupDataSchema,
-    ADC: GroupDataSchema,
-  });
-
-  // Fake bit test data
-  useEffect(() => {
-    setTestGroupData({
-      ...testGroupData,
-      FCS: { status: "N/R" },
-      SYS: { status: "RUN" },
-      DLNK: { status: "PASS" },
-      GPS: { status: "FAIL" },
-      BATT: { status: "SKIP" },
-      EXTN: { status: "inop junk test" },
-    });
-    // }, 2000);
-    // return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div
-      style={{
-        padding: "10px",
-      }}
-    >
-      <CardSectionTitle
-        style={{
-          justifyContent: "space-between",
-        }}
-      >
-        <span>Pre-Launch BIT</span>
-        <StyButton>Run BIT</StyButton>
-      </CardSectionTitle>
-      <div
-        style={{
-          width: "100%",
-          height: "auto",
-          display: "flex",
-          alignItems: "start",
-          alignContent: "stretch",
-          justifyContent: "center",
-          gap: "10px",
-          padding: "5px 5px 5px 5px",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          flexGrow: "1",
-        }}
-      >
-        {Object.keys(testGroupData).map((key) => {
-          return (
-            <TestGroup
-              key={key}
-              name={key}
-              status={testGroupData[key].status}
-            />
-          );
-        })}
-      </div>
-    </div>
   );
 }
 
@@ -242,7 +86,7 @@ function CoreControl() {
       <CardSectionTitle>Core Control</CardSectionTitle>
       <CardContentCentered>
         {/* {preLaunchMode &&  */}
-        <BitTestPanel />
+        {/* <BitTestPanel /> */}
         {/* } */}
         <ActionItem
           visible={flightPhase === "Pre-Launch"}

@@ -1,5 +1,6 @@
 const DiagnosticData = require("./diagnostic_data");
 const MissionClock = require("./mission_clock");
+const BitTest = require("./bit_test");
 const FLIGHT_DATA_UPDATE_INTERVAL = 1000;
 
 module.exports = class FlightData {
@@ -8,6 +9,7 @@ module.exports = class FlightData {
 
     this.mission_clock = new MissionClock(global_state);
     this.diagnostics = new DiagnosticData(global_state);
+    this.bit_test = new BitTest(global_state);
 
     this.general = {
       flight_phase: "n/d",

@@ -23,6 +23,7 @@ import { Map } from "../../components/map";
 import { MissionClock } from "./mission_clock";
 
 import CoreControl from "./core_control";
+import BitTestPanel from "./bit_test";
 
 const CommandsMetadata = CommandsMetadataFile.CommandMetadata;
 const CommandSectionStyled = styled.ul`
@@ -273,6 +274,8 @@ function CommandCenterPage() {
             <MissionClock />
             <CardBreak />
             <CoreControl />
+            <CardBreak />
+            <BitTestPanel />
             <CardBreak />
             <DataBlock resource="flight_data" category="general" />
             <CardBreak />

@@ -26,6 +26,15 @@ export const StyButton = styled.button`
   &:active {
     filter: brightness(0.9);
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.5);
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
 `;
 
 export const StyWarningButton = styled(StyButton)`

@@ -102,6 +102,8 @@ Test the camera hardware and software if SSTV or image capture is enabled.
 
 n/a, future functionality
 
+- IMU hardware exists and is reporting data
+
 ### ADC
 
 - ADC hardware exists and is reporting data

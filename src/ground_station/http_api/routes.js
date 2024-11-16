@@ -28,6 +28,12 @@ module.exports = function (global_state) {
   router.put("/flight_data/data", (req, res) => {
     global_state.flight_data_handler.handlePutRequest(req, res);
   });
+  router.get("/flight_data/bit_test", (req, res) => {
+    global_state.flight_data.bit_test.processGetRequest(req, res);
+  });
+  router.post("/flight_data/bit_test", (req, res) => {
+    global_state.flight_data.bit_test.processPostRequest(req, res);
+  });
 
   // API Endpoint - GET /api/status
   router.get("/status", (req, res) => {
