@@ -19,7 +19,9 @@
 #include <thread>
 
 #include <BoosterSeat/sleep.hpp>
+#include <BoosterSeat/stopwatch.hpp>
 
+#include "built_in_test_enums.hpp"
 #include "logger.hpp"
 #include "shared_data.hpp"
 
@@ -46,7 +48,7 @@ public:
     }
 
     running_ = true;
-    std::thread test_thread(&BuiltInTest::bitTestRunner, this);
+    thread_ = std::thread(&BuiltInTest::bitTestRunner, this);
   }
 
 private:
@@ -60,5 +62,6 @@ private:
   data::SharedData &shared_data_;
   giraffe::Logger logger_;
 
+  std::thread thread_{};
   std::atomic<bool> running_{false};
 };

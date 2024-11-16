@@ -8,11 +8,11 @@ function id_gen() {
   export ID_GEN_IN_FILE_PATH=$1
   export ID_GEN_OUT_FILE_PATH=$2
   export STRING_MAP_OUT_FILE_PATH=$3
-  # python3 ./project/generators/ids_gen.py
+  python3 ./project/generators/ids_gen.py
 }
 
 echo "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
-# echo "-- --    generating automated source files      -- --"
+echo "-- --    generating automated source files      -- --"
 
 export REVERSE_MAP="false"
 id_gen \
@@ -34,11 +34,12 @@ export REVERSE_MAP="false"
 
 export CONFIG_GEN_IN_FILE_PATH=./project/metadata/gfs_configuration.json
 export CONFIG_GEN_OUT_FILE_PATH=./src/flight_system/configuration
-# python3 ./project/generators/config_gen.py
+python3 ./project/generators/config_gen.py
 
+echo "Generating bit test enums"
 python3 ./project/generators/bit_test_gen.py \
   ./project/metadata/gfs_bit_test.json \
   ./src/flight_system/flight_runner/bit_test_enums.hpp
 
-# echo "-- -- -- -- -- --     DONE    -- -- -- -- -- -- -- --"
+echo "-- -- -- -- -- --     DONE    -- -- -- -- -- -- -- --"
 echo "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"

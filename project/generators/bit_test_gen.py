@@ -11,10 +11,12 @@ out_hpp.addIncludes("<cstdint>", "<string>")
 
 input_json = json.load(open(sys.argv[1], "r"))
 test_groups = input_json["tests"]
+status_codes = input_json["statuses"]
 
-enum = Enum("BitTestId", True, "uint16_t")
-enum.addDoxBrief("This enum contains all test ids for the Built-In Test (BIT) system.")
 
+# Generate the Test IDs
+test_id_enum = Enum("BitTestId", True, "uint16_t")
+test_id_enum.addDoxBrief("This enum contains the test ids for the Built-In Test (BIT) system.")
 for group_label in test_groups:
     group_data = test_groups[group_label]
     group_description = group_data["description"]
@@ -25,10 +27,21 @@ for group_label in test_groups:
 
     for test in tests:
         name = f'{group_label}_{test["title"].title().replace(" ", "")}Test'
-        enum.addMember(name, test["id"])
+        test_id_enum.addMember(name, test["id"])
+
+# Generate the Status Codes
+status_enum = Enum("BitTestStatus", True, "uint8_t")
+status_enum.addDoxBrief("This enum contains the status codes for the Built-In Test (BIT) system.")
+i = 0
+for status in status_codes:
+    abbreviation = status
+    full_word = status_codes[status]["description"].replace(" ", "")
+    status_enum.addMember(full_word, i)
+    i += 1
 
 
-out_hpp.addComponent(enum)
+out_hpp.addComponent(status_enum)
+out_hpp.addComponent(test_id_enum)
 out_hpp.write(out_path)
 
 # print(out_hpp)

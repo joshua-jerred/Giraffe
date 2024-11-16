@@ -34,7 +34,7 @@ class Component:
         return out
 
     def addDoxBrief(self, brief):
-        self.doxygen_brief = f"{DOXYGEN_FORMAT} {brief}"
+        self.doxygen_brief = f"{DOXYGEN_FORMAT}brief {brief}"
 
 class Enum(Component):
     class Member:
@@ -73,9 +73,39 @@ class Enum(Component):
 
         return self.getAllLines()
 
-    def addMember(self, name, value):
+    def addMember(self, name, value = None):
         self.members.append(Enum.Member(name, value))
 
+class Map(Component):
+    class Pair:
+        def __init__(self, key, value):
+            self.key = key
+            self.value = value
+
+        def get(self):
+            return f'{{ {self.key}, {self.value} }}'
+
+    def __init__(self, name, key_type, value_type, map_type = "std::map"):
+        super().__init__()
+        self.map_type = map_type
+        self.name = name
+        self.key_type = key_type
+        self.value_type = value_type
+
+        self.pairs = []
+
+    def get(self, indent = 0) -> str:
+        self.clearLines()
+
+        self.addLine(f'{self.map_type}<{self.key_type}, {self.value_type}> {self.name} = {{', indent)
+        for pair in self.pairs:
+            self.addLine(pair.get(), indent + 1)
+        self.addLine("};", indent)
+
+        return self.getAllLines()
+
+    def addPair(self, key, value):
+        self.pairs.append(Map.Pair(key, value))
 
 class FileGenerator:
     def __init__(self, filename, space_between_components = 1,
@@ -97,7 +127,6 @@ class FileGenerator:
 
     def __generate(self) -> str:
         output = ""
-        first = True
 
         if self.auto_gen_header:
             output += file_headers.AUTO_GEN_HEADER
@@ -109,12 +138,10 @@ class FileGenerator:
         for include in self.includes:
             output += f"{include}\n"
 
-        output += self.__getLineSpacing()
-
+        # first = True
         for component in self.components:
-            if not first:
-                self.__getLineSpacing()
-            first = False
+            output += self.__getLineSpacing()
+            # first = False
             output += component.get()
 
         if self.auto_gen_footer:

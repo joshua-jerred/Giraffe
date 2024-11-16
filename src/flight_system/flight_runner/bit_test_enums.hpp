@@ -27,7 +27,19 @@
 #include <cstdint>
 #include <string>
 
-/// @ This enum contains all test ids for the Built-In Test (BIT) system.
+/// @brief This enum contains the status codes for the Built-In Test (BIT) system.
+enum class BitTestStatus : uint8_t {
+  Unknown = 0,
+  NoData = 1,
+  NotRun = 2,
+  Waiting = 3,
+  Running = 4,
+  Passed = 5,
+  Failed = 6,
+  Skipped = 7,
+};
+
+/// @brief This enum contains the test ids for the Built-In Test (BIT) system.
 enum class BitTestId : uint16_t {
   FCS_ErrorTest = 0x0000,
   SYS_ErrorTest = 0x0100,
