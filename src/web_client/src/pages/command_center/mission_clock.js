@@ -3,11 +3,11 @@ import { useState, useEffect, useContext } from "react";
 import {
   StyWarningButton,
   StyInput,
-} from "../components/styled/StyledComponents";
-import { CardSectionTitle, CardContentCentered } from "../core/PageParts";
-import { useApiGetData } from "../api_interface/ggs_api";
-import { GwsGlobal } from "../GlobalContext";
-import Tooltip from "./Tooltip";
+} from "../../components/styled/StyledComponents";
+import { CardSectionTitle, CardContentCentered } from "../../core/PageParts";
+import { useApiGetData } from "../../api_interface/ggs_api";
+import { GwsGlobal } from "../../GlobalContext";
+import Tooltip from "../../components/Tooltip";
 
 const START_TIME_CHECK_INTERVAL = 2000;
 

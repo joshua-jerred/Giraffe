@@ -7,22 +7,22 @@ import {
   CardMasonryLayout,
   CardBreak,
   CardSectionTitle,
-} from "../core/PageParts";
+} from "../../core/PageParts";
 import {
   StyButton,
   StySelect,
   StyOption,
-} from "../components/styled/StyledComponents";
-import { DataBlock } from "../components/DataBlock";
-import Tooltip from "../components/Tooltip";
+} from "../../components/styled/StyledComponents";
+import { DataBlock } from "../../components/DataBlock";
+import Tooltip from "../../components/Tooltip";
 
-import { GwsGlobal } from "../GlobalContext";
+import { GwsGlobal } from "../../GlobalContext";
 import CommandsMetadataFile from "giraffe-protocol";
 
-import { Map } from "../components/map";
-import { MissionClock } from "../components/mission_clock";
+import { Map } from "../../components/map";
+import { MissionClock } from "./mission_clock";
 
-import CoreControl from "../components/core_control";
+import CoreControl from "./core_control";
 
 const CommandsMetadata = CommandsMetadataFile.CommandMetadata;
 const CommandSectionStyled = styled.ul`

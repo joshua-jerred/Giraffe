@@ -24,11 +24,11 @@ GFS to the launch phase.
 
 As tests are completed, the results are displayed in the web client.
 
-- **NOT RUN** - The test has not been run yet
+- **N/R** - The test has not been run yet
+- **RUN** - The test is currently running
 - **PASS** - The test passed successfully
 - **FAIL** - The test failed
 - **SKIP** - The test was skipped
-- **RUNNING** - The test is currently running
 
 ## Test List
 

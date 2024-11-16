@@ -239,6 +239,14 @@ export const StyleFonts = {
     style: `normal`,
   },
 
+  // !! Anything that must be mono should use this. The default may change.
+  mono: {
+    family: `Roboto Mono`,
+    weight: `400`,
+    size: `1rem`,
+    style: `normal`,
+  },
+
   // Primary
   page_title: {
     family: `Roboto Slab`,
