@@ -18,6 +18,8 @@
 #include <mutex>
 #include <thread>
 
+#include <BoosterSeat/sleep.hpp>
+
 #include "logger.hpp"
 #include "shared_data.hpp"
 
@@ -33,21 +35,30 @@ public:
                                            node::Identification::FLIGHT_RUNNER,
                                            "BIT"} {
   }
+
   ~BuiltInTest() = default;
 
   void start() {
-    std::thread test_thread(&BuiltInTest::run_test, this);
-    test_thread.join();
+    if (running_) {
+      logger_.error(DiagnosticId::FLIGHT_RUNNER_bitTestStartFailure,
+                    "Built in test is already running.");
+      return;
+    }
+
+    running_ = true;
+    std::thread test_thread(&BuiltInTest::bitTestRunner, this);
   }
 
 private:
-  void run_test() {
-    while (true) {
+  void bitTestRunner() {
+    while (running_) {
       // Run test
-      std::this_thread::sleep_for(std::chrono::seconds(1));
+      bst::sleep(50);
     }
   }
 
   data::SharedData &shared_data_;
-  Logger logger_;
+  giraffe::Logger logger_;
+
+  std::atomic<bool> running_{false};
 };
