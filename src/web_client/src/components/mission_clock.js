@@ -226,8 +226,6 @@ export function MissionClock() {
   );
 
   const setClockDigits = (elapsed_time) => {
-    console.log("Elapsed Time: ", elapsed_time);
-
     if (elapsed_time < 0) {
       setClockSignSymbol("-");
       elapsed_time = Math.abs(elapsed_time);

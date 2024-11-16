@@ -28,7 +28,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<CommandCenter />} />
+              <Route index element={<Navigate to="/ggs/command-center" />} />
 
               <Route
                 exact
