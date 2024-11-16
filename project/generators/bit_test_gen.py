@@ -14,6 +14,8 @@ test_groups = input_json["tests"]
 status_codes = input_json["statuses"]
 
 
+test_group_enum = Enum("BitTestGroup", True, "uint8_t")
+
 # Generate the Test IDs
 test_id_enum = Enum("BitTestId", True, "uint16_t")
 test_id_enum.addDoxBrief("This enum contains the test ids for the Built-In Test (BIT) system.")
@@ -21,6 +23,8 @@ for group_label in test_groups:
     group_data = test_groups[group_label]
     group_description = group_data["description"]
     tests = group_data["tests"]
+    
+    test_group_enum.addMember(group_description.replace(" ", ""), doxygen_brief=group_description)
 
     # (name:str, id:int)
     test_name_id_pairs = []
@@ -28,6 +32,7 @@ for group_label in test_groups:
     for test in tests:
         name = f'{group_label}_{test["title"].title().replace(" ", "")}Test'
         test_id_enum.addMember(name, test["id"])
+
 
 # Generate the Status Codes
 status_enum = Enum("BitTestStatus", True, "uint8_t")
@@ -41,6 +46,7 @@ for status in status_codes:
 
 
 out_hpp.addComponent(status_enum)
+out_hpp.addComponent(test_group_enum)
 out_hpp.addComponent(test_id_enum)
 out_hpp.write(out_path)
 

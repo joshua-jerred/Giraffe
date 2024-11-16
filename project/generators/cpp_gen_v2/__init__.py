@@ -5,21 +5,42 @@ DOXYGEN_FORMAT = "/// @"
 
 class Component:
     class Line:
-        def __init__(self, content, indent):
+        def __init__(self, content, indent, skip_newline = False):
             self.content = content
             self.indent = indent
+            self.skip_newline = skip_newline
+            # print(self.indent, skip_newline)
+            print("Line Constructor - indents never make it.", indent, skip_newline)
 
-        def get(self, additional_indent = 0):
-            return f"{INDENT_CHARS * self.indent}{self.content}\n"
+        def get(self, additional_indent = 0, add_newline = True):
+            out = f"{INDENT_CHARS * (self.indent + additional_indent)}{self.content}"
+            if add_newline and not self.skip_newline:
+                out += "\n"
+            print(self.indent)
+            return out
+        
+        def getIndentation(self):
+            return self.indent
 
     def __init__(self) -> None:
-        self.__generated_lines = []
         self.doxygen_brief = None
 
-    def addLine(self, content, indent):
+        self.__generated_lines = [] # List of Line objects
+
+    def addLine(self, content:str, indent:int, skip_newline = False):
+        # print("indent", indent)
+        if len(self.__generated_lines) == 0 and self.doxygen_brief is not None:
+            self.__generated_lines.append(Component.Line(self.doxygen_brief, indent, skip_newline))
+        self.__generated_lines.append(Component.Line(content, indent, skip_newline))
+
+    def addLineComponent(self, component:Line, indent:int):
+        print("indent-b", indent, type(component))
+        
         if len(self.__generated_lines) == 0 and self.doxygen_brief is not None:
             self.__generated_lines.append(Component.Line(self.doxygen_brief, indent))
-        self.__generated_lines.append(Component.Line(content, indent))
+        print("indent-c", indent)
+        self.__generated_lines.append(component)
+        print(self.__generated_lines[-1])
 
     def getLines(self, additional_indent = 0):
         return [line.get(additional_indent) for line in self.__generated_lines]
@@ -30,6 +51,8 @@ class Component:
     def getAllLines(self) -> str:
         out = ""
         for line in self.__generated_lines:
+            # print(line.get(), end="")
+            # print(line.getIndentation())
             out += line.get()
         return out
 
@@ -37,19 +60,25 @@ class Component:
         self.doxygen_brief = f"{DOXYGEN_FORMAT}brief {brief}"
 
 class Enum(Component):
-    class Member:
-        def __init__(self, name, value = None):
+    class Member(Component):
+        def __init__(self, name, value = None, doxygen_brief = None):
+            super().__init__()
+            super().addDoxBrief(doxygen_brief)
+
             self.name = name
             self.value = value
 
         def __str__(self):
-            self.get()
+            return self.get()
 
-        def get(self):
+        def get(self, indent = 0):
+            self.clearLines()
             if self.value is not None:
-                return f"{self.name} = {self.value},"
+                self.addLine(f"{self.name} = {self.value},", indent, False)
             else:
-                return f"{self.name},"
+                self.addLine(f"{self.name},", indent, False)
+
+            return self.getAllLines()
 
 
     def  __init__(self, name, enum_class = True, enum_type = None):
@@ -68,13 +97,14 @@ class Enum(Component):
 
         self.addLine(f'enum class {self.name} : {self.enum_type} {{', indent)
         for member in self.members:
-            self.addLine(member.get(), indent + 1)
+            self.addLine(member.get(indent + 1), 0, True)
+            # self.addLine(member.get(indent + 1), 0)
         self.addLine("};", indent)
 
         return self.getAllLines()
 
-    def addMember(self, name, value = None):
-        self.members.append(Enum.Member(name, value))
+    def addMember(self, name, value = None, doxygen_brief = None):
+        self.members.append(Enum.Member(name, value, doxygen_brief))
 
 class Map(Component):
     class Pair:
@@ -142,7 +172,7 @@ class FileGenerator:
         for component in self.components:
             output += self.__getLineSpacing()
             # first = False
-            output += component.get()
+            output += component.get(0)
 
         if self.auto_gen_footer:
             output += file_headers.AUTO_GEN_FOOTER
