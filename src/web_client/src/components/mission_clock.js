@@ -131,8 +131,9 @@ function MissionClockControlMenu({
   );
 }
 
-function MissionTimer({ startTime }) {}
-
+/**
+ * This component displays the current time of the GGS, GFS, and local time.
+ */
 function ClockMartix({ ggsTime, gfsTime, gfsTimeSkew, gfsGpsTime }) {
   const [localTime, setLocalTime] = useState("--:--:--");
 
@@ -225,9 +226,13 @@ export function MissionClock() {
   );
 
   const setClockDigits = (elapsed_time) => {
+    console.log("Elapsed Time: ", elapsed_time);
+
     if (elapsed_time < 0) {
       setClockSignSymbol("-");
       elapsed_time = Math.abs(elapsed_time);
+    } else {
+      setClockSignSymbol("+");
     }
 
     setDays(Math.floor(elapsed_time / (1000 * 60 * 60 * 24)));
@@ -263,6 +268,7 @@ export function MissionClock() {
     }
   }, [data, isDataLoading, error]);
 
+  // Update the Mission Elapsed Time every 300ms
   useEffect(() => {
     if (!isClockValid) {
       return;

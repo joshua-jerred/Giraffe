@@ -105,10 +105,6 @@ module.exports = class MissionClock {
     this.start_time = new Date();
     this.start_time = new Date(this.start_time.getTime() + skew_seconds * 1000);
 
-    console.log(
-      `Mission Clock Started: ${this.start_time.toUTCString()} (skew: ${skew_seconds}s)`
-    );
-
     this.global_state.ggs_db.setKey(
       "data",
       "mission_clock",
@@ -122,6 +118,10 @@ module.exports = class MissionClock {
       this.start_time.toUTCString()
     );
 
+    this.global_state.info(
+      `Mission Clock Started: ${this.start_time.toUTCString()} (skew: ${skew_seconds}s)`
+    );
+
     return "success";
   }
 
@@ -133,6 +133,8 @@ module.exports = class MissionClock {
       "is_running",
       this.is_running.toString()
     );
+
+    this.global_state.info("Mission Clock Stopped");
 
     return "success";
   }
