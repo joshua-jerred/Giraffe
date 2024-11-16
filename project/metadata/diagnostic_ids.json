@@ -579,6 +579,26 @@
       "name": "Forced Recovery",
       "details": "The system was forced into the recovery phase due to an error.",
       "value": "0x6008"
+    },
+    "bit_test_failed": {
+      "name": "BIT Test Failed",
+      "details": "The system failed the BIT test. See the error message for more details.",
+      "value": "0x6009"
+    },
+    "bit_test_timeout": {
+      "name": "BIT Test Timeout",
+      "details": "The system timed out while running the BIT test. See the error message for more details.",
+      "value": "0x600A"
+    },
+    "bit_test_start_failure": {
+      "name": "BIT Test Start Failure",
+      "details": "The system failed to start the BIT test. See the error message for more details.",
+      "value": "0x600B"
+    },
+    "bit_test_stop_reset_failure": {
+      "name": "BIT Test Stop or Reset Failure",
+      "details": "The system failed to stop or reset the BIT test. See the error message for more details.",
+      "value": "0x600C"
     }
   },
   "ext_fault": {

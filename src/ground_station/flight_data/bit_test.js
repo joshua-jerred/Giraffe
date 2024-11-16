@@ -29,6 +29,8 @@ module.exports = class BitTest {
     // True if a BIT test can be started/stopped/reset (Valid TCP Connection)
     this.bit_test_ready = false;
 
+    this.gfs_ready_to_perform_bit_test = false;
+
     // True if a BIT test is currently running
     this.bit_test_running = false;
 
@@ -37,10 +39,21 @@ module.exports = class BitTest {
 
     // The overall status of the BIT test
     this.bit_test_status = "N/D";
+
+    // An optional error message to display to the user
+    this.user_displayed_error = null;
   }
 
   processGetRequest(req, res) {
     res.json({
+      bit_test_details: {
+        bit_test_ready: this.bit_test_ready,
+        gfs_ready_to_perform_bit_test: this.gfs_ready_to_perform_bit_test,
+        bit_test_running: this.bit_test_running,
+        bit_test_start_time: this.bit_test_start_time,
+        bit_test_status: this.bit_test_status,
+        user_displayed_error: this.user_displayed_error,
+      },
       tests: this.bit_test_data,
     });
   }
@@ -61,7 +74,8 @@ module.exports = class BitTest {
 
     if (req.query.action === "start") {
       try {
-        this.#startBitTest();
+        this.#startBitTest(res);
+        return;
       } catch (error) {
         res.status(500).json({
           error: "Failed to start BIT test:" + error.message,
@@ -89,7 +103,8 @@ module.exports = class BitTest {
     }
 
     res.json({
-      message: "success",
+      message:
+        "success - wait for another GET request to see if the action was successful",
     });
   }
 
@@ -116,11 +131,42 @@ module.exports = class BitTest {
     console.log("Error: Invalid test ID in BitTest.#setTestStatus()");
   }
 
-  #startBitTest() {}
+  #startBitTest(response) {
+    if (!this.global_state.gfs_connection.isConnected()) {
+      response.status(500).json({
+        error: "Not connected to GFS",
+      });
+    }
+
+    // Spin off an async request. Don't bother handling a response, there is a
+    // continuous data stream.
+    this.global_state.gfs_connection.sendAsyncDataRequest(
+      "bit_test",
+      (data) => {
+        if (data.bdy.cde !== "ok") {
+          this.user_displayed_error = data.bdy.dat;
+          response.status(500).json({
+            error: data.bdy.dat,
+          });
+        } else {
+          response.json({
+            message: "success",
+            from_gfs: data.bdy.dat,
+          });
+
+          console.log("You're not doing anything with it yet");
+        }
+      }
+    );
+  }
 
   #stopBitTest() {}
 
   #resetBitTest() {}
+
+  #triggerUserDisplayedError(error_message) {
+    const TIMEOUT = 10000; // 10 seconds
+  }
 
   #processTestResults() {
     let total_tests = 0;
