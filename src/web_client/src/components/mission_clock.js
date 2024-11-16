@@ -7,24 +7,23 @@ import {
 import { CardSectionTitle, CardContentCentered } from "../core/PageParts";
 import { useApiGetData } from "../api_interface/ggs_api";
 import { GwsGlobal } from "../GlobalContext";
+import Tooltip from "./Tooltip";
 
 const START_TIME_CHECK_INTERVAL = 2000;
 
+/**
+ * A react component that displays a menu to control the mission clock.
+ */
 function MissionClockControlMenu({
   isRunning,
   skew,
   setSkew,
   clockUpdateCallback,
 }) {
-  const { ggsAddress } = useContext(GwsGlobal);
+  const { ggsAddress, flightData, isGfsTcpConnected } = useContext(GwsGlobal);
+  const [allowStartMissionClock, setAllowStartMissionClock] = useState(false);
 
   const startMissionClock = (skew) => {
-    // if (!window.confirm("Are you sure you want to start the mission clock?")) {
-    // return;
-    // }
-
-    console.log("Starting mission clock with skew: ", skew);
-
     fetch(`${ggsAddress}/api/flight_data/data?category=start_mission_clock`, {
       method: "PUT",
       headers: {
@@ -86,34 +85,41 @@ function MissionClockControlMenu({
             marginTop: "1em",
           }}
         >
-          <StyInput
-            type="number"
-            placeholder="Skew Time (s)"
-            value={skew}
-            onChange={(e) => {
-              if (e.target.value < 0) {
-                setSkew(0);
-              } else if (isNaN(e.target.value)) {
-                setSkew(0);
-              } else {
-                setSkew(e.target.value);
-              }
-            }}
-            style={{
-              textAlign: "center",
-              height: "2em",
-            }}
-          />
-          <StyWarningButton
-            style={{
-              height: "2em",
-            }}
-            onClick={() => {
-              startMissionClock(skew);
-            }}
+          <Tooltip
+            text="Start the Mission Clock with an optional clock skew. Depending on sequencing setup a skew will be required."
+            specified_delay={1000}
           >
-            Start Clock
-          </StyWarningButton>
+            <StyInput
+              type="number"
+              placeholder="Skew Time (s)"
+              value={skew}
+              onChange={(e) => {
+                if (e.target.value < 0) {
+                  setSkew(0);
+                } else if (isNaN(e.target.value)) {
+                  setSkew(0);
+                } else {
+                  setSkew(e.target.value);
+                }
+              }}
+              style={{
+                textAlign: "center",
+                height: "2em",
+              }}
+              disabled={allowStartMissionClock === false}
+            />
+            <StyWarningButton
+              style={{
+                height: "2em",
+              }}
+              onClick={() => {
+                startMissionClock(skew);
+              }}
+              disabled={allowStartMissionClock === false}
+            >
+              Start Clock
+            </StyWarningButton>
+          </Tooltip>
         </div>
       )}
 
@@ -123,9 +129,7 @@ function MissionClockControlMenu({
           textAlign: "center",
         }}
       >
-        {isRunning === true
-          ? ""
-          : "Start the Mission Clock with an optional clock skew. Depending on sequencing setup a skew will be required."}
+        {isRunning === true ? "a" : "b"}
       </p>
     </CardContentCentered>
   );
@@ -201,8 +205,7 @@ function ClockMartix({ ggsTime, gfsTime, gfsTimeSkew, gfsGpsTime }) {
 }
 
 export function MissionClock() {
-  const [isClockMenuOpen, setClockMenuOpen] = useState(false);
-  const [startSkewTime, setStartSkewTime] = useState(0);
+  const [startSkewTime, setStartSkewTime] = useState(10);
   const [isRunning, setIsRunning] = useState(true);
   const [startTime, setStartTime] = useState(new Date());
   const [isClockValid, setIsClockValid] = useState(true);
@@ -311,9 +314,6 @@ export function MissionClock() {
             <div>
               <CardContentCentered>
                 <h2
-                  onClick={() => {
-                    setClockMenuOpen(!isClockMenuOpen);
-                  }}
                   className="noselect"
                   style={{ cursor: "pointer", margin: "0px" }}
                 >
@@ -330,17 +330,14 @@ export function MissionClock() {
                   gfsTimeSkew={gfsTimeSkew}
                   gfsGpsTime={gfsGpsTime}
                 />
-                {isClockMenuOpen && (
-                  <MissionClockControlMenu
-                    isRunning={isRunning}
-                    skew={startSkewTime}
-                    setSkew={setStartSkewTime}
-                    clockUpdateCallback={() => {
-                      setNeedUpdate(true);
-                      setClockMenuOpen(false);
-                    }}
-                  />
-                )}
+                <MissionClockControlMenu
+                  isRunning={isRunning}
+                  skew={startSkewTime}
+                  setSkew={setStartSkewTime}
+                  clockUpdateCallback={() => {
+                    setNeedUpdate(true);
+                  }}
+                />
               </CardContentCentered>
             </div>
           ) : (

@@ -7,12 +7,6 @@ module.exports = class MissionClock {
       "is_running"
     );
 
-    console.log(
-      "input_is_running: ",
-      input_is_running,
-      typeof input_is_running
-    );
-
     let input_time = global_state.ggs_db.get(
       "data",
       "mission_clock",

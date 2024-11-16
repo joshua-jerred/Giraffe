@@ -104,10 +104,10 @@ const LogItemStyle = styled.li`
 function LogItem({ level, timestamp, message, database_id }) {
   const [open, setOpen] = React.useState(false);
 
-  const local_time = unixTimeToLocal(timestamp / 1000);
-  const timestamp_long = isoMilliseconds(timestamp);
+  const local_time = unixTimeToLocal(0 / 1000);
+  // const timestamp_long = isoMilliseconds(timestamp);
 
-  const copy_content = `[${database_id} ${level}] ${timestamp_long} (${local_time}) - ${message}`;
+  const copy_content = `[${database_id} ${level}] ${timestamp} (${local_time}) - ${message}`;
 
   return (
     <LogItemStyle open={open}>
@@ -132,7 +132,7 @@ function LogItem({ level, timestamp, message, database_id }) {
               justifyContent: "space-between",
             }}
           >
-            <span>UTC: {timestamp_long}</span>
+            <span>UTC: {timestamp}</span>
             <span>Local: {local_time}</span>
           </li>
           <li>{message}</li>
@@ -196,9 +196,9 @@ function GgsLog() {
           data.map((item) => (
             <LogItem
               level={item.level}
-              timestamp={item.timestamp}
+              timestamp={item.createdAt}
               message={item.message}
-              key={item.timestamp}
+              key={item.id}
               database_id={item.id}
             />
           ))}

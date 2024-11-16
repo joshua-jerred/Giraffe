@@ -16,6 +16,7 @@ const kGlobalStateUpdateInterval = 500;
 
 class GlobalState {
   constructor() {
+    // ggs_db is a deprecated name, this is configuration data now
     this.ggs_db = new GgsDataBase();
     this.influx_writer = new InfluxWriter(this);
     this.influx_enabled = this.ggs_db.get(
@@ -24,7 +25,7 @@ class GlobalState {
       "influx_enabled"
     );
 
-    this.database = new Database();
+    this.database = new Database(this);
     this.flight_data = new FlightData(this);
 
     this.gfs_connection = new GfsConnection(this);

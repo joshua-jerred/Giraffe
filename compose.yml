@@ -26,13 +26,48 @@ services:
     volumes:
       - .:/project
     command: "bash ./project/docker_build.sh unit_test_on_pi_host"
+
   build_spi_test:
     image: joshuajerred/gcc_10_3_arm_debian_11:latest
     volumes:
       - .:/project
     command: "bash ./project/docker_build.sh spitest"
 
+  mysql:
+    container_name: giraffe_mysql
+    platform: linux/x86_64
+    image: mysql:5.7
+    volumes:
+      - ~/.giraffe/ggs_db/mysql:/var/lib/mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: giraffe_root
+      MYSQL_DATABASE: giraffe_ground_station
+      MYSQL_PASSWORD: ggs_password
+      MYSQL_USER: ggs_user
+    networks:
+      - mysql-phpmyadmin
+
+  phpmyadmin:
+    container_name: giraffe_phpmyadmin
+    depends_on:
+      - mysql
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8090:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: giraffe_root
+    networks:
+      - mysql-phpmyadmin
+
   influx:
     image: influxdb:2.7.3
     ports:
       - '8086:8086'
+
+networks:
+  mysql-phpmyadmin:

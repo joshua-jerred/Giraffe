@@ -156,6 +156,10 @@ function SetupPage() {
             <EditBox resource="ggs" category="influx_db" />
           </Card>
 
+          <Card title="MySQL Setup">
+            <EditBox resource="ggs" category="mysql" />
+          </Card>
+
           <Card title="aprs.fi API">
             <EditBox resource="ggs" category="aprs_fi" />
           </Card>

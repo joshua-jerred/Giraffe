@@ -47,7 +47,9 @@ export const darkTheme2 = {
   warning: `#ffeaa7`,
   error: `#f55d3e`,
   error_hover: `#DC5337`,
+  error_disabled: `#38140d`,
   on_error: `#e3e2e6`,
+  on_error_disabled: `#e3e2e630`,
 
   tooltip_background: `#000000`,
   tooltip_text: `#ffffff`,

@@ -29,6 +29,16 @@
         ],
         "default": "info"
       },
+      "ggs_database_selection": {
+        "type": "enum",
+        "name": "GGS Database Selection",
+        "description": "The database to use for the ground station. MySql is the default but requires configuration. SQLite requires no configuration.",
+        "options": [
+          "sqlite",
+          "mysql"
+        ],
+        "default": "sqlite"
+      },
       "gfs_config_interval": {
         "type": "int",
         "name": "GFS Config Interval (ms)",
@@ -138,6 +148,46 @@
         "name": "Influx Retention Policy Duration",
         "description": "The retention policy to use for the InfluxDB database.",
         "default": "INF"
+      }
+    },
+    "mysql":{
+      "host": {
+        "type": "string",
+        "name": "Host",
+        "description": "The address for the MySQL server.",
+        "default": "localhost"
+      },
+      "port": {
+        "type": "int",
+        "name": "Port",
+        "description": "The port for the MySQL server.",
+        "min": 0,
+        "max": 65535,
+        "default": 3306
+      },
+      "database": {
+        "type": "string",
+        "name": "Database",
+        "description": "The name of the MySQL database to use.",
+        "default": "giraffe_ground_station"
+      },
+      "username": {
+        "type": "string",
+        "name": "Username",
+        "description": "The username to use for the MySQL database.",
+        "default": "ggs_user"
+      },
+      "password": {
+        "type": "string",
+        "name": "Password",
+        "description": "The password to use for the MySQL database.",
+        "default": "ggs_password"
+      },
+      "log_sql_to_console": {
+        "type": "bool",
+        "name": "Log Queries to Console",
+        "description": "Whether or not to log the SQL queries to the console.",
+        "default": false
       }
     },
     "aprs_fi":{
