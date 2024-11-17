@@ -30,9 +30,9 @@
       "description": "Flight Control System",
       "tests": [
         {
-          "id": "0x0000",
+          "id": "0x0001",
           "title": "error",
-          "description": "No reported errors from the flight software"
+          "description": "Verifies that there are no outstanding errors in the flight software"
         }
       ]
     },

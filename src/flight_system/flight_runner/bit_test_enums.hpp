@@ -29,53 +29,39 @@ namespace bit {
 
   /// @brief This enum contains the status codes for the Built-In Test (BIT) system.
   enum class TestStatus : uint8_t {
-    /// @brief UNK
-    Unknown = 0,
-    /// @brief N/D
-    NoData = 1,
-    /// @brief N/R
-    NotRun = 2,
-    /// @brief WAIT
-    Waiting = 3,
-    /// @brief RUN
-    Running = 4,
-    /// @brief PASS
-    Passed = 5,
-    /// @brief FAIL
-    Failed = 6,
-    /// @brief SKIP
-    Skipped = 7,
+    Unknown = 0, /// @brief UNK
+    NoData = 1, /// @brief N/D
+    NotRun = 2, /// @brief N/R
+    Waiting = 3, /// @brief WAIT
+    Running = 4, /// @brief RUN
+    Passed = 5, /// @brief PASS
+    Failed = 6, /// @brief FAIL
+    Skipped = 7, /// @brief SKIP
   };
 
   extern std::string testStatusToString(TestStatus status);
 
   /// @brief Identifiers for the different groups of BIT tests.
-  enum class BitTestGroup : uint8_t {
-    /// @brief Flight Control System
-    FlightControlSystem,
-    /// @brief System
-    System,
-    /// @brief Data Link
-    DataLink,
-    /// @brief GPS
-    GPS,
-    /// @brief Battery
-    Battery,
-    /// @brief Extensions
-    Extensions,
-    /// @brief Environment
-    Environment,
-    /// @brief Camera
-    Camera,
-    /// @brief Inertial Measurement Unit
-    InertialMeasurementUnit,
-    /// @brief Analog to Digital Converter
-    AnalogtoDigitalConverter,
+  enum class TestGroupId : uint8_t {
+    Unknown = 0, /// @brief Unknown test group
+    FCS = 1, /// @brief Flight Control System
+    SYS = 2, /// @brief System
+    DLNK = 3, /// @brief Data Link
+    GPS = 4, /// @brief GPS
+    BATT = 5, /// @brief Battery
+    EXTN = 6, /// @brief Extensions
+    ENV = 7, /// @brief Environment
+    CAM = 8, /// @brief Camera
+    IMU = 9, /// @brief Inertial Measurement Unit
+    ADC = 10, /// @brief Analog to Digital Converter
   };
 
+  extern std::string testGroupIdToString(TestGroupId groupId);
+
   /// @brief This enum contains the test ids for the Built-In Test (BIT) system.
-  enum class BitTestId : uint16_t {
-    FCS_ErrorTest = 0x0000,
+  enum class TestId : uint16_t {
+    Unknown = 0x0000, /// @brief Unknown test id
+    FCS_ErrorTest = 0x0001,
     SYS_ErrorTest = 0x0100,
     DLNK_ConfigLocationDataTest = 0x0200,
     GPS_InstalledTest = 0x0400,
@@ -86,6 +72,8 @@ namespace bit {
     IMU_InstalledTest = 0x0900,
     ADC_InstalledTest = 0x0a00,
   };
+
+  extern std::string testIdToString(TestId testId);
 
 }
 

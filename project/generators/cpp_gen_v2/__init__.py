@@ -1,3 +1,5 @@
+import os
+
 from .file_headers import AUTO_GEN_HEADER, AUTO_GEN_FOOTER
 from .component import Component
 from .namespace import Namespace
@@ -30,9 +32,10 @@ class Component:
         self.__generated_lines = [] # List of Line objects
 
     def addLine(self, content:str, indent:int, skip_newline = False):
-        # print("indent", indent)
+        # If there is a doxygen brief available, add it as the first line
         if len(self.__generated_lines) == 0 and self.doxygen_brief is not None:
             self.__generated_lines.append(Component.Line(self.doxygen_brief, indent, skip_newline))
+
         self.__generated_lines.append(Component.Line(content, indent, skip_newline))
 
     def addLineComponent(self, component:Line, indent:int):
@@ -61,6 +64,9 @@ class Component:
     def addDoxBrief(self, brief):
         self.doxygen_brief = f"{DOXYGEN_FORMAT}brief {brief}"
 
+    def getDoxBrief(self):
+        return f" {self.doxygen_brief if self.doxygen_brief is not None else ''}"
+
 class TextBlock(Component):
     def __init__(self, component):
         super().__init__()
@@ -78,20 +84,24 @@ class Enum(Component):
     class Member(Component):
         def __init__(self, name, value = None, doxygen_brief = None):
             super().__init__()
-            
-            if doxygen_brief is not None:
-                super().addDoxBrief(doxygen_brief)
-
+            # if doxygen_brief is not None:
+                # super().addDoxBrief(doxygen_brief)
+            self.dox_brief = doxygen_brief
             self.name = name
             self.value = value
 
         def __str__(self):
             return self.get()
 
+        def getDoxygenBrief(self):
+            if self.dox_brief is None:
+                return ""
+            return f" {DOXYGEN_FORMAT}brief {self.dox_brief}"
+
         def get(self, indent = 0):
             self.clearLines()
             if self.value is not None:
-                self.addLine(f"{self.name} = {self.value},", indent, False)
+                self.addLine(f"{self.name} = {self.value},{self.getDoxygenBrief()}", indent, False)
             else:
                 self.addLine(f"{self.name},", indent, False)
 
@@ -191,33 +201,37 @@ class FileGenerator:
 
         # first = True
         for component in self.components:
-            print(type(component))
+            # print(type(component))
             output += self.__getLineSpacing()
             # first = False
             output += component.get(0)
 
         if self.auto_gen_footer:
             output += file_headers.AUTO_GEN_FOOTER
-
         return output
 
-        # for line in lines:
-            # print(line)
-        # print(lines)
-        # for line in lines:
-            # out_string += line.get()
 
     def addComponent(self, component):
         self.components.append(component)
 
     def addIncludes(self, include, *args):
-        self.includes.append(f"#include {include}")
+        if include == "":
+            self.includes.append("")
+        else:
+            self.includes.append(f"#include {include}")
+
         for arg in args:
-            self.includes.append(f"#include {arg}")
+            if arg == "":
+                self.includes.append("")
+            else:
+                self.includes.append(f"#include {arg}")
 
     def write(self, filepath):
         with open(filepath, "w") as file:
             file.write(self.__generate())
+
+        if os.getcwd().split("/")[-1].lower() == "giraffe":
+            print(f"File written to {filepath}")
 
 if __name__ == "__main__":
     # a few quick tests
