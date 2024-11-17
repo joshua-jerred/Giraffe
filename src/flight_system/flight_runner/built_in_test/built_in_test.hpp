@@ -21,11 +21,37 @@
 #include <BoosterSeat/sleep.hpp>
 #include <BoosterSeat/stopwatch.hpp>
 
-#include "bit_types.hpp"
+#include "bit_test_enums.hpp"
 #include "logger.hpp"
 #include "shared_data.hpp"
 
 namespace bit {
+
+class TestSuite {
+public:
+  TestSuite(data::SharedData &shared_data)
+      : shared_data_{shared_data}, logger_{shared_data,
+                                           node::Identification::FLIGHT_RUNNER,
+                                           "BIT"} {
+  }
+
+  ~TestSuite() = default;
+
+  // void start() {
+  //   if (running_) {
+  //     logger_.error(DiagnosticId::FLIGHT_RUNNER_bitTestStartFailure,
+  //                   "Built in test is already running.");
+  //     return;
+  //   }
+
+  //   running_ = true;
+  //   thread_ = std::thread(&TestSuite::bitTestRunner, this);
+  // }
+
+private:
+  data::SharedData &shared_data_;
+  giraffe::Logger logger_;
+};
 
 class IBuiltInTest {
 public:

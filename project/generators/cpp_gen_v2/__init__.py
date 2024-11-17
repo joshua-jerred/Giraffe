@@ -4,6 +4,7 @@ from .file_headers import AUTO_GEN_HEADER, AUTO_GEN_FOOTER
 from .component import Component
 from .namespace import Namespace
 from .function import Function 
+from .vector import Vector
 
 INDENT_CHARS = "  "
 DOXYGEN_FORMAT = "/// @"

@@ -1,14 +1,14 @@
 import sys
 import json
-from cpp_gen_v2 import FileGenerator, Enum, Map, TextBlock, Function, Namespace
+from cpp_gen_v2 import FileGenerator, Enum, Map, TextBlock, Function, Namespace, Vector
 
 assert len(sys.argv) == 4, "usage: bit_test_gen.py <metadata_json> <output_hpp_file> <output_cpp_file>"
 
 out_path = sys.argv[2]
 out_cpp_path = sys.argv[3]
 
-out_hpp = FileGenerator("", pragma_once=False)
-out_hpp.addIncludes("<cstdint>", "<string>")
+out_hpp = FileGenerator("", pragma_once=True)
+out_hpp.addIncludes("<cstdint>", "<string>", "<test_case.hpp>")
 
 input_json = json.load(open(sys.argv[1], "r"))
 test_groups = input_json["tests"]
@@ -40,6 +40,11 @@ status_string_map.addDoxBrief("This map converts the TestStatus enum to a string
 status_enum_to_string_func = Function("std::string", "testStatusToString", "TestStatus status")
 status_enum_to_string_func.addDoxBrief("This function converts a TestStatus enum to a string.")
 
+
+# A dictionary that maps TestGroupIds to an array of TestIds
+group_test_list_vectors = {
+}
+
 i = 1
 for group_label in test_groups:
     group_data = test_groups[group_label]
@@ -49,10 +54,15 @@ for group_label in test_groups:
     test_group_enum_string_map.addPair(f'TestGroupId::{group_label}', f'"{group_label}"')
     i += 1
 
+    group_test_list_vectors[group_label] = []
+    
+
     for test in tests:
         name = f'{group_label}_{test["title"].title().replace(" ", "")}Test'
         test_id_enum.addMember(name, test["id"])
         test_id_enum_string_map.addPair(f'TestId::{name}', f'"{name}"')
+
+        group_test_list_vectors[group_label].append(name)
 
 i = 0
 for status in status_codes:
@@ -78,7 +88,7 @@ out_hpp.addComponent(namespace)
 out_hpp.write(out_path)
 
 out_cpp = FileGenerator("")
-out_cpp.addIncludes("<map>", "",  '"giraffe_assert.hpp"', '"bit_types.hpp"')
+out_cpp.addIncludes("<map>", "<vector>", "", "",  '"giraffe_assert.hpp"', '"bit_types.hpp"')
 
 cpp_namespace = Namespace("bit")
 cpp_namespace.addComponent(status_string_map)
@@ -105,6 +115,22 @@ test_id_enum_to_string_func.addInsideComponent('return "Unknown";')
 test_id_enum_to_string_func.addInsideComponent('}')
 test_id_enum_to_string_func.addInsideComponent('return TestIdToStringMap.at(testId);')
 cpp_namespace.addComponent(test_id_enum_to_string_func)
+
+
+# Now that we have all of the base enums and maps, we can generate the test vectors
+VECTOR_PREFIX = "const std::vector<TestCase> "
+for group_label in group_test_list_vectors:
+    group_test_list = group_test_list_vectors[group_label]
+    group_test_vector = Vector(f"BIT_TEST_GROUP_{group_label}", "TestCase", extra_qualifiers="static")
+    group_test_vector.addDoxBrief(f"Test cases for the {group_label} group.")
+    for test in group_test_list:
+        group_test_vector.addString(f"{{{group_label}, TestId::{test}, TestStatus::Unknown}}")
+        # print(test, group_test_list)
+    cpp_namespace.addComponent(group_test_vector)
+
+# for group_label in group_test_list_vectors:
+    # group_test_list = group_test_list_vectors[group_label]
+# print("123456abcde", group_test_vector.get())
 
 out_cpp.addComponent(cpp_namespace)
 out_cpp.write(out_cpp_path)
