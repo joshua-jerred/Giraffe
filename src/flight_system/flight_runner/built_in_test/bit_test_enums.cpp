@@ -68,7 +68,7 @@ namespace bit {
   std::string testGroupIdToString(TestGroupId groupId)  {
     if (!TestGroupIdToStringMap.contains(groupId)) {
     giraffe_assert(false);
-    return TestGroupIdToStringMap.at(TestGroupId::Unknown);
+    return "Unknown";
     }
     return TestGroupIdToStringMap.at(groupId);
   }
@@ -91,7 +91,7 @@ namespace bit {
   std::string testIdToString(TestId testId)  {
     if (!TestIdToStringMap.contains(testId)) {
     giraffe_assert(false);
-    return TestIdToStringMap.at(TestId::Unknown);
+    return "Unknown";
     }
     return TestIdToStringMap.at(testId);
   }

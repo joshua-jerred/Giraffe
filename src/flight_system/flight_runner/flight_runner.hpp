@@ -133,7 +133,7 @@ private:
   FlightPhaseManager flight_phase_manager_ = {
       shared_data_, flight_runner_data_.getFlightPhase(), 100, 10};
 
-  BuiltInTest bit_test_{shared_data_};
+  bit::BuiltInTest bit_test_{shared_data_};
 };
 
 #endif

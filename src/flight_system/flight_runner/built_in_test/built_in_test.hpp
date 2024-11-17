@@ -25,6 +25,8 @@
 #include "logger.hpp"
 #include "shared_data.hpp"
 
+namespace bit {
+
 class IBuiltInTest {
 public:
   virtual ~IBuiltInTest() = default;
@@ -54,14 +56,18 @@ public:
 private:
   void bitTestRunner() {
     while (running_) {
-      // Run test
       bst::sleep(50);
+      running_ = false;
     }
   }
 
   data::SharedData &shared_data_;
   giraffe::Logger logger_;
 
+  bit::TestStatus general_bit_status_{bit::TestStatus::NotRun};
+
   std::thread thread_{};
   std::atomic<bool> running_{false};
 };
+
+} // namespace bit
