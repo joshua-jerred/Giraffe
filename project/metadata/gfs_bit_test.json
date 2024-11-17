@@ -33,6 +33,21 @@
           "id": "0x0001",
           "title": "error",
           "description": "Verifies that there are no outstanding errors in the flight software"
+        },
+        {
+          "id": "0x0002",
+          "title": "flight phase predictor",
+          "description": "Verifies that the flight phase predictor is functioning - with high confidence"
+        },
+        {
+          "id": "0x0003",
+          "title": "launch position",
+          "description": "Verifies that the launch position is set and valid"
+        },
+        {
+          "id": "0x0004",
+          "title": "data module processing",
+          "description": "Verifies that the data module is processing data at a reasonable rate"
         }
       ]
     },

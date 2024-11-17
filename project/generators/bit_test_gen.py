@@ -78,7 +78,7 @@ out_hpp.addComponent(namespace)
 out_hpp.write(out_path)
 
 out_cpp = FileGenerator("")
-out_cpp.addIncludes("<map>", "",  '"giraffe_assert.hpp"', '"bit_test_enums.hpp"')
+out_cpp.addIncludes("<map>", "",  '"giraffe_assert.hpp"', '"bit_types.hpp"')
 
 cpp_namespace = Namespace("bit")
 cpp_namespace.addComponent(status_string_map)

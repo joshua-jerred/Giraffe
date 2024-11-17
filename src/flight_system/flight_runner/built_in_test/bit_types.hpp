@@ -26,6 +26,7 @@
 #include <string>
 
 namespace bit {
+
   /// @brief This enum contains the status codes for the Built-In Test (BIT) system.
   enum class TestStatus : uint8_t {
     Unknown = 0, /// @brief UNK
@@ -59,6 +60,9 @@ namespace bit {
   /// @brief This enum contains the test ids for the Built-In Test (BIT) system.
   enum class TestId : uint16_t {
     FCS_ErrorTest = 0x0001,
+    FCS_FlightPhasePredictorTest = 0x0002,
+    FCS_LaunchPositionTest = 0x0003,
+    FCS_DataModuleProcessingTest = 0x0004,
     SYS_ErrorTest = 0x0100,
     DLNK_ConfigLocationDataTest = 0x0200,
     GPS_InstalledTest = 0x0400,
@@ -71,6 +75,7 @@ namespace bit {
   };
 
   extern std::string testIdToString(TestId testId);
+
 }
 
 /**

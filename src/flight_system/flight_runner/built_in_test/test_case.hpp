@@ -13,18 +13,25 @@
 
 #pragma once
 
-#include "bit_test_enums.hpp"
+#include <functional>
+
+#include "bit_types.hpp"
+#include "shared_data.hpp"
 
 namespace bit {
-  class TestCase {
-  public:
-    TestCase(TestGroupId group_id, TestId test_id)
-      : group_id_{group_id}, test_id_{test_id} {
-    }
 
-  private:
-    TestGroupId group_id_;
-    TestId test_id_;
-    TestStatus status_ = TestStatus::NotRun;
-  };
-}
+class TestCase {
+public:
+  using TestFunction = std::function<TestStatus(data::SharedData &)>;
+
+  TestCase(TestGroupId group_id, TestId test_id, TestFunction test_function)
+      : group_id_{group_id}, test_id_{test_id} {
+  }
+
+private:
+  TestGroupId group_id_;
+  TestId test_id_;
+  TestStatus status_ = TestStatus::NotRun;
+  TestFunction test_function_;
+};
+} // namespace bit

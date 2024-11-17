@@ -11,8 +11,11 @@
 /// @date       2024-11-16
 /// @copyright  2024 (license to be defined)
 
+#include "shared_data.hpp"
 #include "test_case.hpp"
 #include "unit_test.hpp"
 
 TEST(BitTest_TestCase, initialState) {
+
+  bit::TestCase test_case_1{bit::TestGroupId::FCS, bit::TestId::FCS_ErrorTest};
 }
