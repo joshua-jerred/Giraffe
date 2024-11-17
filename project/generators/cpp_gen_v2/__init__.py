@@ -1,22 +1,24 @@
 from .file_headers import AUTO_GEN_HEADER, AUTO_GEN_FOOTER
+from .component import Component
+from .namespace import Namespace
+from .function import Function 
 
 INDENT_CHARS = "  "
 DOXYGEN_FORMAT = "/// @"
 
 class Component:
     class Line:
-        def __init__(self, content, indent, skip_newline = False):
+        def __init__(self, content, indent = 0, skip_newline = False):
             self.content = content
             self.indent = indent
             self.skip_newline = skip_newline
             # print(self.indent, skip_newline)
-            print("Line Constructor - indents never make it.", indent, skip_newline)
 
         def get(self, additional_indent = 0, add_newline = True):
             out = f"{INDENT_CHARS * (self.indent + additional_indent)}{self.content}"
             if add_newline and not self.skip_newline:
                 out += "\n"
-            print(self.indent)
+            # print(self.indent)
             return out
         
         def getIndentation(self):
@@ -34,13 +36,13 @@ class Component:
         self.__generated_lines.append(Component.Line(content, indent, skip_newline))
 
     def addLineComponent(self, component:Line, indent:int):
-        print("indent-b", indent, type(component))
+        # print("indent-b", indent, type(component))
         
         if len(self.__generated_lines) == 0 and self.doxygen_brief is not None:
             self.__generated_lines.append(Component.Line(self.doxygen_brief, indent))
-        print("indent-c", indent)
+        # print("indent-c", indent)
         self.__generated_lines.append(component)
-        print(self.__generated_lines[-1])
+        # print(self.__generated_lines[-1])
 
     def getLines(self, additional_indent = 0):
         return [line.get(additional_indent) for line in self.__generated_lines]
@@ -59,11 +61,26 @@ class Component:
     def addDoxBrief(self, brief):
         self.doxygen_brief = f"{DOXYGEN_FORMAT}brief {brief}"
 
+class TextBlock(Component):
+    def __init__(self, component):
+        super().__init__()
+        self.component:Component.Line = Component.Line(
+            component, 0, False
+        )
+
+    def setComponent(self, component):
+        self.component = component
+
+    def get(self, indent = 0):
+        return self.component.get(indent)
+
 class Enum(Component):
     class Member(Component):
         def __init__(self, name, value = None, doxygen_brief = None):
             super().__init__()
-            super().addDoxBrief(doxygen_brief)
+            
+            if doxygen_brief is not None:
+                super().addDoxBrief(doxygen_brief)
 
             self.name = name
             self.value = value
@@ -108,12 +125,13 @@ class Enum(Component):
 
 class Map(Component):
     class Pair:
-        def __init__(self, key, value):
+        def __init__(self, key, value, trailing_comma = True):
             self.key = key
             self.value = value
+            self.trailing_comma = trailing_comma
 
         def get(self):
-            return f'{{ {self.key}, {self.value} }}'
+            return f'{{ {self.key}, {self.value} }}' + ("," if self.trailing_comma else "")
 
     def __init__(self, name, key_type, value_type, map_type = "std::map"):
         super().__init__()
@@ -134,12 +152,15 @@ class Map(Component):
 
         return self.getAllLines()
 
+    def getDeclaration(self, indent = 0, front_qualifiers="") -> str:
+        return f'{front_qualifiers} {self.map_type}<{self.key_type}, {self.value_type}> {self.name};'
+
     def addPair(self, key, value):
         self.pairs.append(Map.Pair(key, value))
 
 class FileGenerator:
     def __init__(self, filename, space_between_components = 1,
-                 pragma_once = True, auto_gen_header = True, 
+                 pragma_once = False, auto_gen_header = True, 
                  auto_gen_footer = True):
         self.filename = filename
         self.includes = []
@@ -170,6 +191,7 @@ class FileGenerator:
 
         # first = True
         for component in self.components:
+            print(type(component))
             output += self.__getLineSpacing()
             # first = False
             output += component.get(0)
@@ -196,3 +218,8 @@ class FileGenerator:
     def write(self, filepath):
         with open(filepath, "w") as file:
             file.write(self.__generate())
+
+if __name__ == "__main__":
+    # a few quick tests
+    namespace = Namespace("test_namespace")
+    out = namespace.getAllLines()

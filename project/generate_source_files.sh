@@ -39,7 +39,8 @@ python3 ./project/generators/config_gen.py
 echo "Generating bit test enums"
 python3 ./project/generators/bit_test_gen.py \
   ./project/metadata/gfs_bit_test.json \
-  ./src/flight_system/flight_runner/bit_test_enums.hpp
+  ./src/flight_system/flight_runner/bit_test_enums.hpp \
+  ./src/flight_system/flight_runner/bit_test_enums.cpp
 
 echo "-- -- -- -- -- --     DONE    -- -- -- -- -- -- -- --"
 echo "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"

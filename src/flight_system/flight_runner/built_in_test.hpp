@@ -21,7 +21,7 @@
 #include <BoosterSeat/sleep.hpp>
 #include <BoosterSeat/stopwatch.hpp>
 
-#include "built_in_test_enums.hpp"
+#include "bit_test_enums.hpp"
 #include "logger.hpp"
 #include "shared_data.hpp"
 

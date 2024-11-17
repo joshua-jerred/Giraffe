@@ -1,5 +1,6 @@
 add_library(gfs_flight_runner INTERFACE)
 target_sources(gfs_flight_runner INTERFACE
+  ${CMAKE_CURRENT_SOURCE_DIR}/bit_test_enums.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/flight_runner.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/flight_logic.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/flight_runner_data.cpp
