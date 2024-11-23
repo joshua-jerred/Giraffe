@@ -31,7 +31,8 @@ enum class Endpoint {
   GFS,     // Giraffe Flight System
   GGS,     // Giraffe Ground Station
   GDL,     // Giraffe Data Link
-  GWC      // Giraffe Web Client
+  GWC,     // Giraffe Web Client
+  FSA      // Flight System Agent
 };
 
 /**

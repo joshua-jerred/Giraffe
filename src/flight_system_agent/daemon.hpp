@@ -23,12 +23,15 @@
 #include "giraffe_file_paths.hpp"
 #include "socket.hpp"
 
+#include "agent_data.hpp"
+#include "agent_settings.hpp"
+#include "external_socket_handler.hpp"
+
 namespace flight_system_agent {
 
 class Daemon {
 private:
-  constexpr static int K_LOOP_DELAY_MS = 100;
-  const std::string K_ADDRESS = "127.0.0.1";
+  constexpr static int K_LOOP_DELAY_MS = 50;
 
 public:
   Daemon() = default;
@@ -51,30 +54,30 @@ public:
   }
 
   bool status(std::string &response) {
-    sock::TcpSocketClient client(logger_);
-    if (client.connect(K_ADDRESS, DAEMON_PORT)) {
-      if (!client.transaction("status", response)) {
-        response = "failed transaction - response: " + response;
-        return false;
-      }
-      return response == "running";
+    protocol::Message response_message;
+    if (!ExternalCommsHandler::sendExchangeToAgent(
+            response_message, protocol::MessageType::REQ, "status", logger_)) {
+      response = "not running";
+      return false;
     }
 
-    response = "not running";
-    return false;
+    response = response_message.getJsonString();
+    return true;
   }
 
-  bool start() {
-    if (is_running_) {
-      return false;
+  bool start(bool use_daemon = true) {
+    if (doesDaemonExist()) {
+      logger_.error("Agent is already running.");
     }
 
-    if (!socket_.init(DAEMON_PORT)) {
-      return false;
+    if (use_daemon) {
+      daemonize(); // Fork before binding to the port
     }
 
-    // As soon as we bind the port, we can daemonize
-    // daemonize();
+    if (!external_comms_.enable()) {
+      logger_.error("Failed to enable external communications.");
+      return false;
+    }
 
     is_running_ = true;
     stop_flag_ = false;
@@ -117,45 +120,8 @@ public:
   }
 
 private:
-  void handleRequest(const std::string &request, std::string &response) {
-    logger_.info("Received request: " + request);
-
-    if (request == "stop") {
-      stop_flag_ = true;
-      response = "ok";
-    } else if (request == "status") {
-      response = "running";
-    } else {
-      response = "unknown command";
-    }
-
-    logger_.info("Sending response: " + response);
-  }
-
-  void processSocket() {
-    sock::TcpSocketServer client; // Create client socket
-
-    // Check for a new connection (non-blocking)
-    if (socket_.accept(client)) {
-      std::string request;
-      if (client.receive(request)) {
-        if (stop_flag_) { // Helps with hanging on shutdown
-          client.close();
-          return;
-        }
-
-        std::string response{};
-        handleRequest(request, response);
-        if (!client.send(response)) {
-          logger_.error("Failed to send response");
-        }
-        client.close();
-      }
-    }
-  }
-
   void mainLoop() {
-    processSocket();
+    external_comms_.process();
   }
 
   /// @brief Set the process to run as a daemon
@@ -202,11 +168,14 @@ private:
 
   bool is_running_ = false;
 
-  sock::TcpSocketServer socket_{};
-
   giraffe::CommonLogger<100> logger_{
-      giraffe::LoggerLevel::DEBUG, true,
+      giraffe::LoggerLevel::INFO, true,
       giraffe::file_paths::getFlightSystemAgentLogFilePath()};
+
+  AgentData agent_data_{};
+  AgentSettings agent_settings_{agent_data_, logger_};
+
+  ExternalCommsHandler external_comms_{agent_data_, agent_settings_, logger_};
 };
 
 } // namespace flight_system_agent

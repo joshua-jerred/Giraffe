@@ -1,5 +1,6 @@
 add_executable(flight_system_agent
   "./main.cpp"
+  "./agent_data.cpp"
 )
 target_link_libraries(flight_system_agent
   giraffe_common

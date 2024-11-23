@@ -29,14 +29,16 @@ const std::unordered_map<protocol::Endpoint, std::string> endpointToStringMap =
      {protocol::Endpoint::GFS, "gfs"},
      {protocol::Endpoint::GGS, "ggs"},
      {protocol::Endpoint::GDL, "gdl"},
-     {protocol::Endpoint::GWC, "gwc"}};
+     {protocol::Endpoint::GWC, "gwc"},
+     {protocol::Endpoint::FSA, "fsa"}};
 
 static const std::unordered_map<std::string, protocol::Endpoint>
     stringToEndpointMap = {{"unknown", protocol::Endpoint::UNKNOWN},
                            {"gfs", protocol::Endpoint::GFS},
                            {"ggs", protocol::Endpoint::GGS},
                            {"gdl", protocol::Endpoint::GDL},
-                           {"gwc", protocol::Endpoint::GWC}};
+                           {"gwc", protocol::Endpoint::GWC},
+                           {"fsa", protocol::Endpoint::FSA}};
 
 static const std::unordered_map<protocol::MessageType, std::string>
     typeToStringMap = {{protocol::MessageType::UNKNOWN, "unknown"},

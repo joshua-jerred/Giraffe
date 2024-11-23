@@ -24,12 +24,13 @@
 static flight_system_agent::Daemon g_daemon{};
 
 void printUsage() {
-  std::cout << "Usage: fsa <command>" << std::endl;
-  std::cout << "Commands:" << std::endl;
-  std::cout << "  status" << std::endl;
-  std::cout << "  start" << std::endl;
-  std::cout << "  stop" << std::endl;
-  std::cout << "  restart" << std::endl;
+  std::cout << "Usage: fsa <command> <option>\n";
+  std::cout << "Commands: status, start, stop\n";
+  std::cout << "Options: \n";
+  std::cout
+      << "  -no-daemon | -nd : Run the agent in the foreground, stopping when "
+         "the CLI exits\n";
+  std::cout << std::endl;
 }
 
 bool isRunning() {
@@ -46,6 +47,13 @@ int main(int argc, char *argv[]) {
   std::vector<std::string> args(&argv[1], &argv[argc]);
   const std::string command = args[0];
 
+  bool no_daemon = false;
+  for (auto &arg : args) {
+    if (arg == "-no-daemon" || arg == "-nd") {
+      no_daemon = true;
+    }
+  }
+
   if (command == "status") {
     std::string response{};
     g_daemon.status(response);
@@ -56,7 +64,7 @@ int main(int argc, char *argv[]) {
       return 1;
     }
 
-    if (!g_daemon.start()) {
+    if (!g_daemon.start(!no_daemon)) {
       std::cerr << "Failed to start daemon" << std::endl;
       return 1;
     }
@@ -67,7 +75,7 @@ int main(int argc, char *argv[]) {
     }
     std::cout << "Daemon stopped" << std::endl;
   } else if (command == "restart") {
-
+    std::cout << "not implemented" << std::endl;
   } else {
     printUsage();
     return 1;

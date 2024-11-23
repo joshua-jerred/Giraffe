@@ -233,6 +233,10 @@ std::string getFlightSystemAgentLogFilePath() {
   return log_file_path;
 }
 
+std::string getFlightSystemAgentConfigFilePath() {
+  return getFlightSystemAgentDirPath() + "/fsa_config.json";
+}
+
 std::string generateFileNameWithTimestamp(const std::string &extension) {
   constexpr bst::time::TimeZone K_TIME_ZONE = bst::time::TimeZone::UTC;
   constexpr char K_DATE_DELIMITER = '_';

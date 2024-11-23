@@ -104,6 +104,10 @@ std::string getFlightSystemAgentDirPath();
 /// @return std::string - $HOME/.giraffe/flight_system_agent.log
 std::string getFlightSystemAgentLogFilePath();
 
+/// @brief Get the path to the Flight System Agent config file.
+/// @return std::string - $HOME/.giraffe/fsa_config.json
+std::string getFlightSystemAgentConfigFilePath();
+
 /// @brief Generates a file name with the current time as a prefix.
 /// @param extension - The file extension to use
 /// @return <utc data time>.<extension>

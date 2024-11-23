@@ -6,6 +6,7 @@ const valid_resources = [
   "ggs",
   "gfs",
   "gdl",
+  "fsa",
   "debug",
   "flight_data",
   "command",

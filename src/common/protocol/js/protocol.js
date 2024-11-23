@@ -15,7 +15,7 @@
  * @copyright  2023 (license to be defined)
  */
 
-const valid_endpoints = ["gfs", "ggs", "gdl", "gwc"];
+const valid_endpoints = ["gfs", "ggs", "gdl", "gwc", "fsa"];
 const valid_types = ["req", "set", "rsp"];
 
 function generateId() {
