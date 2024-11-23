@@ -1,0 +1,40 @@
+{
+  "settings": {
+    "gfs_monitoring": {
+      "type": "bool",
+      "name": "GFS Monitoring",
+      "description": "Enable/Disable monitoring of the flight software. This setting overrides all others.",
+      "default": true
+    },
+    "monitoring_interval": {
+      "type": "int",
+      "name": "Monitoring Interval (ms)",
+      "description": "The interval at which the flight system agent will poll the flight software.",
+      "min": 240,
+      "max": 60000,
+      "default": 5000
+    },
+    "restart_enabled": {
+      "type": "bool",
+      "name": "Restart Enabled",
+      "description": "Enable/Disable restarting the flight software.",
+      "default": true
+    },
+    "restart_threshold": {
+      "type": "int",
+      "name": "Restart Threshold (ms)",
+      "description": "The number of milliseconds that the flight system agent will wait before restarting the flight software.",
+      "min": 1000,
+      "max": 60000,
+      "default": 10000
+    },
+    "backup_configuration": {
+      "type": "string",
+      "name": "Backup Configuration File",
+      "description": "The path to the backup configuration file.",
+      "default": "~/.giraffe/gfs_config_backup.json",
+      "min": 1,
+      "max": 256
+    }
+  }
+}

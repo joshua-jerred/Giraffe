@@ -13,6 +13,7 @@
 
 #pragma once
 
+#include <fstream>
 #include <map>
 #include <string>
 #include <variant>
@@ -30,8 +31,12 @@ namespace flight_system_agent {
 
 class AgentSettings {
 public:
-  using SettingOption = std::variant<int, bool, std::string>;
-  using SettingMap = std::map<std::string, SettingOption>;
+  enum class SettingType { INT, BOOL, STRING };
+  struct Setting {
+    std::string name;
+    SettingType type;
+    std::variant<int, bool, std::string> value;
+  };
 
   AgentSettings(AgentData &agent_data, giraffe::ILogger &logger)
       : agent_data_(agent_data), logger_(logger) {
@@ -58,23 +63,27 @@ public:
         continue;
       }
 
-      if (std::holds_alternative<int>(settings_map_.at(key))) {
+      if (settings_map_.at(key).type == SettingType::INT &&
+          std::holds_alternative<int>(settings_map_.at(key).value)) {
         if (value.is_number()) {
-          settings_map_.at(key) = value.get<int>();
+          settings_map_.at(key).value = value.get<int>();
         } else {
           logger_.warn("Invalid type for key: " + key);
           valid = false;
         }
-      } else if (std::holds_alternative<bool>(settings_map_.at(key))) {
+      } else if (settings_map_.at(key).type == SettingType::BOOL &&
+                 std::holds_alternative<bool>(settings_map_.at(key).value)) {
         if (value.is_boolean()) {
-          settings_map_.at(key) = value.get<bool>();
+          settings_map_.at(key).value = value.get<bool>();
         } else {
           logger_.warn("Invalid type for key: " + key);
           valid = false;
         }
-      } else if (std::holds_alternative<std::string>(settings_map_.at(key))) {
+      } else if (settings_map_.at(key).type == SettingType::STRING &&
+                 std::holds_alternative<std::string>(
+                     settings_map_.at(key).value)) {
         if (value.is_string()) {
-          settings_map_.at(key) = value.get<std::string>();
+          settings_map_.at(key).value = value.get<std::string>();
         } else {
           logger_.warn("Invalid type for key: " + key);
           valid = false;
@@ -91,13 +100,13 @@ public:
   void getSettingsJson(Json &json_data) {
     json_data.clear();
 
-    for (const auto &[key, value] : settings_map_) {
-      if (std::holds_alternative<int>(value)) {
-        json_data[key] = std::get<int>(value);
-      } else if (std::holds_alternative<bool>(value)) {
-        json_data[key] = std::get<bool>(value);
-      } else if (std::holds_alternative<std::string>(value)) {
-        json_data[key] = std::get<std::string>(value);
+    for (const auto &[key, setting] : settings_map_) {
+      if (std::holds_alternative<int>(setting.value)) {
+        json_data[key] = std::get<int>(setting.value);
+      } else if (std::holds_alternative<bool>(setting.value)) {
+        json_data[key] = std::get<bool>(setting.value);
+      } else if (std::holds_alternative<std::string>(setting.value)) {
+        json_data[key] = std::get<std::string>(setting.value);
       } else {
         logger_.warn("Unknown setting type for key: " + key);
       }
@@ -128,17 +137,7 @@ private:
 
   bool saveConfig() {
     Json config;
-    for (const auto &[key, value] : settings_map_) {
-      if (std::holds_alternative<int>(value)) {
-        config[key] = std::get<int>(value);
-      } else if (std::holds_alternative<bool>(value)) {
-        config[key] = std::get<bool>(value);
-      } else if (std::holds_alternative<std::string>(value)) {
-        config[key] = std::get<std::string>(value);
-      } else {
-        logger_.warn("Unknown setting type for key: " + key);
-      }
-    }
+    getSettingsJson(config);
 
     try {
       std::ofstream config_file(settings_file_path_);
@@ -156,13 +155,19 @@ private:
 
   AgentData &agent_data_;
 
-  giraffe::ILogger &logger_;
-
-  SettingMap settings_map_ = {
-      {"setting1", 1},
-      {"setting2", true},
-      {"setting3", "default"},
+  //<{{settings_map_}}@
+  // clang-format off
+  std::map<std::string, AgentSettings::Setting> settings_map_{
+    {"gfs_monitoring", AgentSettings::Setting{"gfs_monitoring", AgentSettings::SettingType::BOOL, true}},
+    {"monitoring_interval", AgentSettings::Setting{"monitoring_interval", AgentSettings::SettingType::INT, 5000}},
+    {"restart_enabled", AgentSettings::Setting{"restart_enabled", AgentSettings::SettingType::BOOL, true}},
+    {"restart_threshold", AgentSettings::Setting{"restart_threshold", AgentSettings::SettingType::INT, 10000}},
+    {"backup_configuration", AgentSettings::Setting{"backup_configuration", AgentSettings::SettingType::STRING, "~/.giraffe/gfs_config_backup.json"}},
   };
+  // clang-format on
+  //@{{settings_map_}}>
+
+  giraffe::ILogger &logger_;
 };
 
 } // namespace flight_system_agent

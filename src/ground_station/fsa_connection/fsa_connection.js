@@ -1,6 +1,6 @@
 const net = require("net");
 const { RequestMessage, SetMessage, parse } = require("giraffe-protocol");
-const { error } = require("console");
+const loadMetaData = require("../metadata/metaLoader");
 
 const FSA_PORT = 20392;
 const FSA_TIMEOUT = 2000; // ms
@@ -100,6 +100,7 @@ class SocketExchangeQueue {
 
 module.exports = class FsaConnection {
   constructor(global_state) {
+    this.socket_exchange = new SocketExchangeQueue(global_state);
     this.global_state = global_state;
     this.connected_to_fsa = false;
     this.connection_timeout = null;
@@ -109,6 +110,7 @@ module.exports = class FsaConnection {
       agent_status: "n/d",
     };
 
+    this.have_settings = false;
     this.settings_data = {};
 
     this.status_update_rate = null;
@@ -117,7 +119,8 @@ module.exports = class FsaConnection {
     this.settings_update_interval = null;
     this.#setUpdateRate(FSA_STATUS_UPDATE_RATE, FSA_SETTINGS_UPDATE_RATE);
 
-    this.socket_exchange = new SocketExchangeQueue(global_state);
+    this.#sendRequestMessage("status");
+    this.#sendRequestMessage("settings");
   }
 
   #kickConnectionTimeout() {
@@ -125,6 +128,7 @@ module.exports = class FsaConnection {
     clearTimeout(this.connection_timeout);
     this.connection_timeout = setTimeout(() => {
       this.connected_to_fsa = false;
+      this.have_settings = false;
     }, FSA_TIMEOUT);
   }
 
@@ -183,6 +187,7 @@ module.exports = class FsaConnection {
     if (resource === "status") {
       this.status_data = response_data;
     } else if (resource === "settings") {
+      this.have_settings = true;
       this.settings_data = response_data;
     }
   }
@@ -201,17 +206,36 @@ module.exports = class FsaConnection {
     });
   }
 
-  getDataForResource(resource, response) {
+  getDataForResource(
+    resource,
+    response,
+    values_wanted = true,
+    metadata_wanted = true
+  ) {
+    let metadata = loadMetaData("fsa", resource);
+    let values = {};
+
     if (resource === "status") {
-      let response_body = this.status_data;
-      response_body["connected_to_fsa"] = this.connected_to_fsa;
-      response_body["gdl_fda_link_stats"] = this.socket_exchange.getStats();
-      response.send(response_body);
+      values = this.status_data;
+      values["connected_to_fsa"] = this.connected_to_fsa;
+      values["gdl_fda_link_stats"] = this.socket_exchange.getStats();
     } else if (resource === "settings") {
-      response.send(this.settings_data);
+      values = this.settings_data;
     } else {
       response.reject(404);
+      return;
     }
+
+    let response_body = {};
+    if (values_wanted) {
+      response_body["values"] = values;
+    }
+
+    if (metadata_wanted) {
+      response_body["metadata"] = metadata;
+    }
+
+    response.send(response_body);
   }
 
   updateConfig(new_config_data, response) {

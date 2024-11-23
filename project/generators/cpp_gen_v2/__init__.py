@@ -5,6 +5,7 @@ from .component import Component
 from .namespace import Namespace
 from .function import Function 
 from .vector import Vector
+from .templater import Templater
 
 INDENT_CHARS = "  "
 DOXYGEN_FORMAT = "/// @"
@@ -48,7 +49,7 @@ class Component:
         self.__generated_lines.append(component)
         # print(self.__generated_lines[-1])
 
-    def getLines(self, additional_indent = 0):
+    def getLines(self, additional_indent = 0) -> list:
         return [line.get(additional_indent) for line in self.__generated_lines]
 
     def clearLines(self):
@@ -142,24 +143,31 @@ class Map(Component):
             self.trailing_comma = trailing_comma
 
         def get(self):
-            return f'{{ {self.key}, {self.value} }}' + ("," if self.trailing_comma else "")
+            return f'{{{self.key}, {self.value}}}' + ("," if self.trailing_comma else "")
 
-    def __init__(self, name, key_type, value_type, map_type = "std::map"):
+    def __init__(self, name, key_type, value_type, map_type = "std::map", clang_format_off = False):
         super().__init__()
         self.map_type = map_type
         self.name = name
         self.key_type = key_type
         self.value_type = value_type
+        self.clang_format_off = clang_format_off
 
         self.pairs = []
 
     def get(self, indent = 0) -> str:
         self.clearLines()
+        
+        if self.clang_format_off:
+            self.addLine("// clang-format off", indent)
 
-        self.addLine(f'{self.map_type}<{self.key_type}, {self.value_type}> {self.name} = {{', indent)
+        self.addLine(f'{self.map_type}<{self.key_type}, {self.value_type}> {self.name}{{', indent)
         for pair in self.pairs:
             self.addLine(pair.get(), indent + 1)
-        self.addLine("};", indent)
+        self.addLine("};", indent, not self.clang_format_off)
+        
+        if self.clang_format_off:
+            self.addLine("// clang-format on", indent, True)
 
         return self.getAllLines()
 

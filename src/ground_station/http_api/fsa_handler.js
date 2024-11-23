@@ -1,15 +1,39 @@
 const express = require("express");
 const router = express.Router();
 
+function wantsMetadata(req) {
+  if (req.query.hasOwnProperty("include") && req.query.include === "values") {
+    return false;
+  }
+  return true;
+}
+
+function wantsValues(req) {
+  if (req.query.hasOwnProperty("include") && req.query.include === "metadata") {
+    return false;
+  }
+  return true;
+}
+
 module.exports = function (global_state) {
   // GET /api/fsa/status
   router.get("/status", (req, res, next) => {
-    global_state.fsa_connection.getDataForResource("status", res);
+    global_state.fsa_connection.getDataForResource(
+      "status",
+      res,
+      wantsValues(req),
+      wantsMetadata(req)
+    );
   });
 
   // GET /api/fsa/settings
   router.get("/settings", (req, res, next) => {
-    global_state.fsa_connection.getDataForResource("settings", res);
+    global_state.fsa_connection.getDataForResource(
+      "settings",
+      res,
+      wantsValues(req),
+      wantsMetadata(req)
+    );
   });
 
   // PUT /api/fsa/settings
