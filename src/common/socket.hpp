@@ -17,10 +17,13 @@
 #ifndef SOCKET_HPP_
 #define SOCKET_HPP_
 
+#include <string>
+
 #include <netinet/in.h>
 
 #include <BoosterSeat/rolling_average.hpp>
-#include <string>
+
+#include "optional_logger.hpp"
 
 namespace sock {
 constexpr int K_MAX_HOST_NAME_SIZE = 200;
@@ -56,6 +59,32 @@ private:
   int sock_ = -1;
   sockaddr_in addr_ = {};
 };
+
+class TcpSocketClient : public giraffe::OptionalLogger {
+public:
+  TcpSocketClient() = default;
+
+  TcpSocketClient(giraffe::ILogger &logger) {
+    setLogger(logger);
+  }
+
+  ~TcpSocketClient() = default;
+
+  bool connect(std::string sever_address, uint16_t port);
+
+  bool transaction(const std::string &data, std::string &response);
+
+  bool disconnect();
+
+private:
+  bool send(const std::string &data);
+  bool receive(std::string &data);
+
+  int sock_ = -1;
+
+  bool connected_ = false;
+};
+
 } // namespace sock
 
 #endif // SOCKET_HPP_

@@ -94,6 +94,16 @@ std::string getGfsLogArchiveDirPath();
  */
 std::string getGfsFlightRunnerDataFilePath();
 
+/**
+ * @brief Get the path to the Flight System Agent directory.
+ * @return std::string - $HOME/.giraffe/flight_system_agent
+ */
+std::string getFlightSystemAgentDirPath();
+
+/// @brief Get the path to the Flight System Agent log file.
+/// @return std::string - $HOME/.giraffe/flight_system_agent.log
+std::string getFlightSystemAgentLogFilePath();
+
 /// @brief Generates a file name with the current time as a prefix.
 /// @param extension - The file extension to use
 /// @return <utc data time>.<extension>

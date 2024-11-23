@@ -191,6 +191,48 @@ std::string getGfsLogArchiveDirPath() {
   return dir_path;
 }
 
+std::string getFlightSystemAgentDirPath() {
+  createGiraffeDirIfNotExists();
+  std::string dir_path = getGiraffeDirectoryPath() + "/flight_system_agent";
+
+  // -- create the directory if it does not exist
+  if (!bst::filesystem::doesDirectoryExist(dir_path)) {
+    try {
+      bst::filesystem::createDirectory(dir_path);
+    } catch (const std::exception &e) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsLogDir,
+                             "0:0: " + std::string(e.what()));
+    }
+
+    if (!bst::filesystem::doesDirectoryExist(dir_path)) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsLogDir,
+                             "0:1");
+    }
+  }
+
+  return dir_path;
+}
+
+std::string getFlightSystemAgentLogFilePath() {
+  const std::string log_file_path =
+      getFlightSystemAgentDirPath() + "/flight_system_agent.log";
+  if (!bst::filesystem::doesFileExist(log_file_path)) {
+    try {
+      bst::filesystem::createFile(log_file_path);
+    } catch (const std::exception &e) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsLogDir,
+                             "agent-log-1" + std::string(e.what()));
+    }
+
+    if (!bst::filesystem::doesFileExist(log_file_path)) {
+      throw GiraffeException(DiagnosticId::GENERIC_failedToCreateGfsLogDir,
+                             "agent-log-2");
+    }
+  }
+
+  return log_file_path;
+}
+
 std::string generateFileNameWithTimestamp(const std::string &extension) {
   constexpr bst::time::TimeZone K_TIME_ZONE = bst::time::TimeZone::UTC;
   constexpr char K_DATE_DELIMITER = '_';
