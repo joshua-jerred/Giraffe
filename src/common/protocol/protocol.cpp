@@ -147,11 +147,11 @@ bool protocol::parseMessage(const std::string &json_string,
   return valid;
 }
 
-std::string protocol::Message::getJsonString() {
+std::string protocol::Message::getJsonString() const {
   return getJson().dump();
 }
 
-Json protocol::Message::getJson() {
+Json protocol::Message::getJson() const {
   Json message{};
   try {
     message = {{"src", endpointToStringMap.at(src)},
@@ -165,7 +165,7 @@ Json protocol::Message::getJson() {
   return message;
 }
 
-Json protocol::Message::getBodyJson() {
+Json protocol::Message::getBodyJson() const {
   Json body;
   if (typ == protocol::MessageType::REQ || typ == protocol::MessageType::SET) {
     body["rsc"] = rsc;

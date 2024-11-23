@@ -134,6 +134,14 @@ private:
     response_json = message.getJsonString();
   }
 
+  void sendOkResponse(std::string &response_json, protocol::Endpoint dst,
+                      protocol::MessageId id) {
+    protocol::Message message;
+    createResponseMessage(message, protocol::Endpoint::FSA, dst, id,
+                          protocol::ResponseCode::GOOD, Json::object());
+    response_json = message.getJsonString();
+  }
+
   void handleExchange(const std::string &request, std::string &response) {
     try {
 
@@ -151,12 +159,13 @@ private:
       } else {
         logger_.error("Unknown message type: " + message.getJsonString());
         sendErrorResponse(response, "Unknown message type.");
+        return;
       }
-
-      logger_.debug("Sending response: " + response);
     } catch (const std::exception &e) {
       logger_.error("Exception in handleExchange: " + std::string(e.what()));
     }
+
+    logger_.debug("Sending response: " + response);
   }
 
   void handleRequest(const protocol::Message &message, std::string &response) {
@@ -189,24 +198,31 @@ private:
   }
 
   void handleSet(const protocol::Message &message, std::string &response) {
-    protocol::Message response_message;
-    bool handled = false;
     const std::string &requested_resource = message.rsc;
 
     if (requested_resource == "stop") {
       agent_data_.setAgentStopFlag(true);
-      createResponseMessage(response_message, protocol::Endpoint::FSA,
-                            message.src, message.id,
-                            protocol::ResponseCode::GOOD, {});
-      handled = true;
+      sendOkResponse(response, message.src, message.id);
+      return;
+    } else if (requested_resource == "settings") {
+      if (message.dat.is_object()) {
+        if (!agent_settings_.setFromJson(message.dat)) {
+          sendErrorResponse(response, "Failed to some or all settings.",
+                            message.src, message.id);
+          return;
+        }
+
+        sendOkResponse(response, message.src, message.id);
+        return;
+      }
+
+      sendErrorResponse(response, "Settings must be an object.", message.src,
+                        message.id);
+      return;
     }
 
-    if (handled) {
-      response = response_message.getJsonString();
-    } else {
-      logger_.error("Unknown set: " + response_message.getJsonString());
-      sendErrorResponse(response, "Unknown set.", message.src, message.id);
-    }
+    logger_.error("Unknown set: " + message.getJsonString());
+    sendErrorResponse(response, "Unknown set.", message.src, message.id);
   }
 
   AgentData &agent_data_;

@@ -52,7 +52,7 @@ class SocketExchangeQueue {
   }
 
   #sendMessage(message, callback) {
-    console.log("Sending message to FSA: " + JSON.stringify(message));
+    // console.log("Sending message to FSA: " + JSON.stringify(message));
     let socket = new net.Socket();
     socket.setTimeout(FSA_TIMEOUT);
     socket.connect(FSA_PORT, this.address, () => {
@@ -189,48 +189,15 @@ module.exports = class FsaConnection {
 
   #sendSetMessage(resource, data, callback = (error, response_message) => {}) {
     console.log("Setting resource: " + resource);
-    let request_message = new SetMessage("ggs", "fsa", resource, data);
+    let set_message = new SetMessage("ggs", "fsa", resource, data);
 
-    this.fsa_socket = new net.Socket();
-    this.fsa_socket.setTimeout(FSA_TIMEOUT);
-    this.fsa_socket.connect(FSA_PORT, this.address, () => {
-      this.fsa_socket.write(JSON.stringify(request_message));
-    });
-    this.fsa_socket.on("data", (data) => {
-      // console.log("FSA response: " + data);
-      this.#kickConnectionTimeout();
-      try {
-        let response_message = parse(data.toString());
-        this.#handleFsaRequestResponse(resource, response_message);
-        if (response_message.bdy.cde === "ok") {
-          callback(null, "from fsa: " + response_message);
-        } else {
-          callback(response_message.bdy.dat.error, response_message);
-        }
-        this.fsa_socket.destroy();
-      } catch (e) {
-        console.log("Failed to parse FSA response: " + e);
-        callback("Failed to parse FSA response: " + e, null);
-        this.fsa_socket.destroy();
+    this.socket_exchange.addMessage(set_message, (error, response_message) => {
+      if (error) {
+        callback("FSA set error for resource: " + resource, response_message);
         return;
       }
-    });
-    this.fsa_socket.on("timeout", () => {
-      console.log("FSA connection timed out for resource: " + resource);
-      this.fsa_socket.destroy();
-      this.fsa_socket = null;
-      callback("FSA connection timed out for resource: " + resource, null);
-    });
-    this.fsa_socket.on("error", (error) => {
-      console.log("FSA connection error: " + error);
-      this.fsa_socket.destroy();
-      this.fsa_socket = null;
-      callback("FSA connection error: " + error, null);
-    });
-    this.fsa_socket.on("close", () => {
-      this.fsa_socket.destroy();
-      this.fsa_socket = null;
-      // console.log("FSA connection closed.");
+      this.#kickConnectionTimeout();
+      callback(null, response_message);
     });
   }
 
@@ -248,16 +215,24 @@ module.exports = class FsaConnection {
   }
 
   updateConfig(new_config_data, response) {
-    console.log("Updating FSA settings: " + JSON.stringify(new_config_data));
-
     this.#sendSetMessage(
       "settings",
       new_config_data,
       (error, response_message) => {
         if (error) {
-          response.status(500).send({ error: error });
-        } else {
+          response
+            .status(500)
+            .send({ error: error, response: response_message });
+          return;
+        }
+
+        if (response_message.bdy.cde === "ok") {
           response.send(response_message);
+        } else {
+          response.status(500).send({
+            error: "Failed to update FSA settings.",
+            response: response_message,
+          });
         }
       }
     );

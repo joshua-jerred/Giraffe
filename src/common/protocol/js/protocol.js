@@ -83,4 +83,15 @@ module.exports = class Message {
   toString() {
     return JSON.stringify(this.getJson());
   }
+
+  getResponseCode() {
+    if (
+      this.bdy !== null &&
+      this.bdy.cde !== undefined &&
+      (this.bdy.cde === "er" || this.bdy.cde === "ok")
+    ) {
+      return this.bdy.cde;
+    }
+    return "un";
+  }
 };
