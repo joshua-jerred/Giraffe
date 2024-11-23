@@ -17,13 +17,12 @@
 
 #include "bit_types.hpp"
 #include "shared_data.hpp"
-#
 
 namespace bit {
 
 class TestCase {
 public:
-  using TestFunction = std::function<TestStatus(data::SharedData &)>;
+  // using TestFunction = std::function<TestStatus(data::SharedData &)>;
 
   TestCase(TestGroupId group_id, TestId test_id)
       : group_id_{group_id}, test_id_{test_id} {
@@ -34,4 +33,5 @@ private:
   TestId test_id_;
   TestStatus status_ = TestStatus::NotRun;
 };
+
 } // namespace bit

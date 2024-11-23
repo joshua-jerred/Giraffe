@@ -15,5 +15,5 @@
 #include "unit_test.hpp"
 
 TEST(BitTest_TestCase, initialState) {
-  bit::TestCase test_case{{bit::TestGroupId::FCS, bit::TestId::BATT_AdcTest}};
+  bit::TestCase test_case{bit::TestGroupId::FCS, bit::TestId::BATT_AdcTest};
 }

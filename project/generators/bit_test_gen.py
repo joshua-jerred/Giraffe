@@ -2,13 +2,20 @@ import sys
 import json
 from cpp_gen_v2 import FileGenerator, Enum, Map, TextBlock, Function, Namespace, Vector
 
-assert len(sys.argv) == 4, "usage: bit_test_gen.py <metadata_json> <output_hpp_file> <output_cpp_file>"
+assert len(sys.argv) == 5, "usage: bit_test_gen.py <metadata_json> <output_hpp_file> <output_cpp_file>"
 
 out_path = sys.argv[2]
 out_cpp_path = sys.argv[3]
+out_test_cases_path = sys.argv[4]
 
 out_hpp = FileGenerator("", pragma_once=True)
-out_hpp.addIncludes("<cstdint>", "<string>", "<test_case.hpp>")
+out_hpp.addIncludes("<cstdint>", "<string>")
+
+out_cpp = FileGenerator("")
+out_cpp.addIncludes("<map>", "", "", "",  '"giraffe_assert.hpp"', '"bit_types.hpp"')
+
+out_test_cases_hpp = FileGenerator("", pragma_once=True)
+out_test_cases_hpp.addIncludes("<vector>", "<string>", "", '"bit_types.hpp"', '"test_case.hpp"')
 
 input_json = json.load(open(sys.argv[1], "r"))
 test_groups = input_json["tests"]
@@ -87,9 +94,6 @@ namespace.addComponent(test_id_enum_to_string_func.getDeclaration(extra_qualifie
 out_hpp.addComponent(namespace)
 out_hpp.write(out_path)
 
-out_cpp = FileGenerator("")
-out_cpp.addIncludes("<map>", "<vector>", "", "",  '"giraffe_assert.hpp"', '"bit_types.hpp"')
-
 cpp_namespace = Namespace("bit")
 cpp_namespace.addComponent(status_string_map)
 status_enum_to_string_func.addInsideComponent('if (!TestStatusToStringMap.contains(status)) {')
@@ -116,17 +120,18 @@ test_id_enum_to_string_func.addInsideComponent('}')
 test_id_enum_to_string_func.addInsideComponent('return TestIdToStringMap.at(testId);')
 cpp_namespace.addComponent(test_id_enum_to_string_func)
 
+test_cases_namespace = Namespace("bit")
 
 # Now that we have all of the base enums and maps, we can generate the test vectors
 VECTOR_PREFIX = "const std::vector<TestCase> "
 for group_label in group_test_list_vectors:
     group_test_list = group_test_list_vectors[group_label]
-    group_test_vector = Vector(f"BIT_TEST_GROUP_{group_label}", "TestCase", extra_qualifiers="static")
+    group_test_vector = Vector(f"BIT_TEST_GROUP_{group_label}", "TestCase", extra_qualifiers="static const")
     group_test_vector.addDoxBrief(f"Test cases for the {group_label} group.")
     for test in group_test_list:
-        group_test_vector.addString(f"{{{group_label}, TestId::{test}, TestStatus::Unknown}}")
+        group_test_vector.addString(f"{{TestGroupId::{group_label}, TestId::{test}, TestStatus::Unknown}}")
         # print(test, group_test_list)
-    cpp_namespace.addComponent(group_test_vector)
+    test_cases_namespace.addComponent(group_test_vector)
 
 # for group_label in group_test_list_vectors:
     # group_test_list = group_test_list_vectors[group_label]
@@ -134,3 +139,6 @@ for group_label in group_test_list_vectors:
 
 out_cpp.addComponent(cpp_namespace)
 out_cpp.write(out_cpp_path)
+
+out_test_cases_hpp.addComponent(test_cases_namespace)
+out_test_cases_hpp.write(out_test_cases_path)

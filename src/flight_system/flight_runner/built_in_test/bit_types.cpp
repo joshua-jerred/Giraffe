@@ -15,7 +15,7 @@
  * 
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
- * @date       2024-11-17
+ * @date       2024-11-23
  * @copyright  2023 (license to be defined)
  * =*=======================*=
  *
@@ -23,7 +23,7 @@
  */
 
 #include <map>
-#include <vector>
+
 
 
 #include "giraffe_assert.hpp"
@@ -101,64 +101,11 @@ namespace bit {
     return TestIdToStringMap.at(testId);
   }
 
-  /// @brief Test cases for the FCS group.
-  static std::vector<TestCase> BIT_TEST_GROUP_FCS {
-    {FCS, TestId::FCS_ErrorTest, TestStatus::Unknown},
-    {FCS, TestId::FCS_FlightPhasePredictorTest, TestStatus::Unknown},
-    {FCS, TestId::FCS_LaunchPositionTest, TestStatus::Unknown},
-    {FCS, TestId::FCS_DataModuleProcessingTest, TestStatus::Unknown},
-  }
-
-  /// @brief Test cases for the SYS group.
-  static std::vector<TestCase> BIT_TEST_GROUP_SYS {
-    {SYS, TestId::SYS_ErrorTest, TestStatus::Unknown},
-  }
-
-  /// @brief Test cases for the DLNK group.
-  static std::vector<TestCase> BIT_TEST_GROUP_DLNK {
-    {DLNK, TestId::DLNK_ConfigLocationDataTest, TestStatus::Unknown},
-  }
-
-  /// @brief Test cases for the GPS group.
-  static std::vector<TestCase> BIT_TEST_GROUP_GPS {
-    {GPS, TestId::GPS_InstalledTest, TestStatus::Unknown},
-  }
-
-  /// @brief Test cases for the BATT group.
-  static std::vector<TestCase> BIT_TEST_GROUP_BATT {
-    {BATT, TestId::BATT_AdcTest, TestStatus::Unknown},
-  }
-
-  /// @brief Test cases for the EXTN group.
-  static std::vector<TestCase> BIT_TEST_GROUP_EXTN {
-    {EXTN, TestId::EXTN_ExtensionsRunningTest, TestStatus::Unknown},
-  }
-
-  /// @brief Test cases for the ENV group.
-  static std::vector<TestCase> BIT_TEST_GROUP_ENV {
-    {ENV, TestId::ENV_TemperatureTest, TestStatus::Unknown},
-  }
-
-  /// @brief Test cases for the CAM group.
-  static std::vector<TestCase> BIT_TEST_GROUP_CAM {
-    {CAM, TestId::CAM_InstalledTest, TestStatus::Unknown},
-  }
-
-  /// @brief Test cases for the IMU group.
-  static std::vector<TestCase> BIT_TEST_GROUP_IMU {
-    {IMU, TestId::IMU_InstalledTest, TestStatus::Unknown},
-  }
-
-  /// @brief Test cases for the ADC group.
-  static std::vector<TestCase> BIT_TEST_GROUP_ADC {
-    {ADC, TestId::ADC_InstalledTest, TestStatus::Unknown},
-  }
-
 }
 
 /**
  *
- * Generated on: 2024-11-17
+ * Generated on: 2024-11-23
  * 
  * @endverbatim
  * 

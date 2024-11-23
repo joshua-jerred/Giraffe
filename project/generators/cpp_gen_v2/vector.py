@@ -23,7 +23,7 @@ class Vector(Component):
         for component in self.components:
             self.addLine(f'{component},', indent + 1)
 
-        self.addLine("}", indent)
+        self.addLine("};", indent)
 
         return self.getAllLines()
 
