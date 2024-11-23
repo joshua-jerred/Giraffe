@@ -60,6 +60,11 @@ toolchain_file() {
   cp pi_toolchain.cmake ${INSTALL_DIR}/toolchain.cmake
 }
 
+build_and_push_image() {
+  docker build --build-arg HOME_DIR=${HOME} -t joshuajerred/giraffe:pi_64 .
+  docker push joshuajerred/giraffe:pi_64
+}
+
 REQUEST=$1
 if [ "$REQUEST" == "download" ]; then
     download_toolchain
@@ -75,6 +80,9 @@ elif [ "$REQUEST" == "sync" ]; then
     exit 0
 elif [ "$REQUEST" == "toolchain" ]; then
     toolchain_file
+    exit 0
+elif [ "$REQUEST" == "build_and_push_image" ]; then
+    build_and_push_image
     exit 0
 else
     echo "Options: download, update_remote, sync, toolchain"
