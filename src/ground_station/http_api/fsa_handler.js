@@ -54,5 +54,22 @@ module.exports = function (global_state) {
     global_state.fsa_connection.updateConfig(req.body, res);
   });
 
+  // PUT /api/fsa/control
+  router.put("/control", (req, res, next) => {
+    if (!req.body.hasOwnProperty("action")) {
+      res.status(400).json({ error: "Action is required" });
+      return;
+    }
+    const action = req.body.action;
+
+    if (action === "start") {
+      global_state.fsa_control.start(res);
+    } else if (action === "stop") {
+      global_state.fsa_control.stop(res);
+    } else {
+      res.status(400).json({ error: "Invalid action" });
+    }
+  });
+
   return router;
 };

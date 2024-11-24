@@ -2,6 +2,7 @@ const GgsDataBase = require("./db/ggs_db.js");
 const GfsConnection = require("./gfs_connection/gfs_connection.js");
 const GdlConnection = require("./gdl_connection/gdl_connection.js");
 const FsaConnection = require("./fsa_connection/fsa_connection.js");
+const FsaControl = require("./fsa_connection/fsa_control.js");
 const FlightData = require("./flight_data/flight_data.js");
 const FlightDataHandler = require("./http_api/flight_data_handler.js");
 const GfsSocketRequester = require("./gfs_connection/gfs_socket_request.js");
@@ -30,6 +31,7 @@ class GlobalState {
     this.flight_data = new FlightData(this);
 
     this.fsa_connection = new FsaConnection(this);
+    this.fsa_control = new FsaControl(this);
     this.gfs_connection = new GfsConnection(this);
     this.gdl_connection = new GdlConnection(this);
     this.flight_data_handler = new FlightDataHandler(this);

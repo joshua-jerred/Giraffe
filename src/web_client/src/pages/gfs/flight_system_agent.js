@@ -7,8 +7,50 @@ import {
   CardSectionTitle,
 } from "../../core/PageParts";
 
+import { StyButton } from "../../components/styled/StyledComponents";
+
 import { DataBlock } from "../../components/DataBlock";
 import { EditBox } from "../../components/Editable";
+
+import styled from "styled-components";
+
+import { ApiRequestButton } from "../../components/api_request_button";
+
+export const ButtonBox = styled.div`
+  display: flex;
+  margin: 1em;
+  & > * {
+    margin: 0.5em;
+    padding: 0.3em 1em;
+  }
+`;
+
+function DaemonControl() {
+  return (
+    <ButtonBox
+      style={{
+        display: "flex",
+        justifyContent: "space-around",
+        alignItems: "center",
+      }}
+    >
+      <ApiRequestButton
+        api_endpoint="/api/fsa/control?action=start"
+        title="Start"
+        request_data_callback={() => {
+          return { action: "start" };
+        }}
+      />
+      <ApiRequestButton
+        api_endpoint="/api/fsa/control?action=stop"
+        title="Stop"
+        request_data_callback={() => {
+          return { action: "stop" };
+        }}
+      />
+    </ButtonBox>
+  );
+}
 
 function FlightSystemAgentPage() {
   return (
@@ -20,11 +62,14 @@ function FlightSystemAgentPage() {
       </PageTitle>
       <PageContent>
         <CardMasonryLayout>
-          <Card title="Flight System Agent Status">
-            <DataBlock resource="fsa" category="status" />
-          </Card>
           <Card title="Flight System Agent Settings">
             <EditBox resource="fsa" category="settings" />
+          </Card>
+          <Card title="Control">
+            <DaemonControl />
+          </Card>
+          <Card title="Flight System Agent Status">
+            <DataBlock resource="fsa" category="status" />
           </Card>
           {/* <CardBreak /> */}
           {/* <Card title="Calculated Data"> */}
