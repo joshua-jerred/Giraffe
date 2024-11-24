@@ -135,7 +135,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
           setIsUplinkConnected(data.telemetry_uplink === "connected");
           setIsDownlinkConnected(data.telemetry_downlink === "connected");
 
-          if (data.gdl !== "connected") {
+          if (data.gdl !== "connected" && data.gdl !== "disabled") {
             alerter.addAlert(
               "not_connected_to_gdl",
               "The Ground Station Server is not connected to the Data Link.",

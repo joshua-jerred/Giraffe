@@ -63,6 +63,8 @@ const BarItemStatusStyle = styled.span`
       return props.theme.error;
     } else if (props.status === "UNKNOWN" || props.status === "N/D") {
       return props.theme.warning;
+    } else if (props.status === "DISABLED") {
+      return props.theme.surface_hover_hard;
     } else {
       return props.theme.primary;
     }
@@ -396,14 +398,6 @@ function StatusBar() {
               status={isGgsConnected ? "CONNECTED" : "DISCONNECTED"}
             />
           </Tooltip>
-          <StatusItem
-            title="GDL"
-            status={
-              isGgsConnected && serviceStatuses.gdl
-                ? serviceStatuses.gdl.toUpperCase()
-                : "UNKNOWN"
-            }
-          />
 
           <Tooltip
             text="Flight System Agent Connection Status"
@@ -433,6 +427,32 @@ function StatusBar() {
               }
             />
           </Tooltip>
+
+          <Tooltip text="GFS TCP Connection Status" vertical_position={"-600%"}>
+            <StatusItem
+              title="GFS"
+              status={
+                isGgsConnected && serviceStatuses.gfs
+                  ? serviceStatuses.gfs.toUpperCase()
+                  : "n/d"
+              }
+            />
+          </Tooltip>
+
+          <Tooltip
+            text="GDL Server Connection Status"
+            vertical_position={"-600%"}
+          >
+            <StatusItem
+              title="GDL"
+              status={
+                isGgsConnected && serviceStatuses.gdl
+                  ? serviceStatuses.gdl.toUpperCase()
+                  : "UNKNOWN"
+              }
+            />
+          </Tooltip>
+
           <Tooltip text="telemetry up-link status" vertical_position={"-600%"}>
             <StatusItem
               title={<FontAwesomeIcon icon={faSatelliteDish} />}
@@ -453,16 +473,6 @@ function StatusBar() {
               status={
                 isGgsConnected && serviceStatuses.telemetry_downlink
                   ? serviceStatuses.telemetry_downlink.toUpperCase()
-                  : "n/d"
-              }
-            />
-          </Tooltip>
-          <Tooltip text="GFS TCP Connection Status" vertical_position={"-600%"}>
-            <StatusItem
-              title="GFS"
-              status={
-                isGgsConnected && serviceStatuses.gfs
-                  ? serviceStatuses.gfs.toUpperCase()
                   : "n/d"
               }
             />

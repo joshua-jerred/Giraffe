@@ -134,6 +134,9 @@ class GlobalState {
     } else if (this.ggs_status.gdl === "disconnected") {
       this.ggs_status.telemetry_uplink = "down";
       this.ggs_status.telemetry_downlink = "down";
+    } else if (this.ggs_status.gdl === "disabled") {
+      this.ggs_status.telemetry_uplink = "disabled";
+      this.ggs_status.telemetry_downlink = "disabled";
     }
 
     // update the FSA status

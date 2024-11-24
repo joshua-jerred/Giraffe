@@ -71,9 +71,9 @@ module.exports = class GdlConnection {
    */
   #cycle() {
     this.#updateClassSettings();
-    if (!this.enabled) {
-      // this.connected = false;
-      this.return;
+    if (!this.gdl_enabled) {
+      this.connected = false;
+      return;
     }
 
     // console.log(this.connected, this.socket !== null);
@@ -84,17 +84,18 @@ module.exports = class GdlConnection {
       this.socket.setTimeout(TIMEOUT);
       this.socket.connect(this.port, this.address, function () {
         self.connected = true;
-        console.log(
-          "GDL Connection Established",
-          this.connected,
-          self.connected
-        );
+
         // send the first request
         let request = new RequestMessage("ggs", "gdl", "status");
         self.socket.write(JSON.stringify(request));
         // console.log("GDL Connection Cycle 1");
       });
       this.socket.on("data", function (data) {
+        if (!self.gdl_enabled) {
+          self.socket.destroy();
+          return;
+        }
+
         self.connected = true;
         // console.log("GDL Connection Data: ");
         let next_request_rsc = "status";
@@ -147,7 +148,7 @@ module.exports = class GdlConnection {
         clearInterval(self.socket_interval);
         self.socket_interval = null;
         self.new_broadcast_message = null;
-        console.log("GDL Connection Closed");
+        // console.log("GDL Connection Closed");
       });
       this.socket.on("timeout", function () {
         self.connected = false;
