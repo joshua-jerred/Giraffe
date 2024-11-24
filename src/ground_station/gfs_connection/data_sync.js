@@ -215,7 +215,7 @@ module.exports = class GfsDataSync {
     });
 
     con.on("data", function (data) {
-      console.log("Data received for category: " + category);
+      // console.log("Data received for category: " + category);
       that.connected = true;
       that.last_good_request_time = new Date();
       try {

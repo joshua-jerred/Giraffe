@@ -43,7 +43,7 @@ const StatusCard = styled.div`
 const StatusGrid = styled.div`
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   grid-auto-rows: 15px;
 `;
 
@@ -337,7 +337,12 @@ function AlerterToggle({ setExpanded, expanded }) {
             display: "flex",
             width: "100%",
             fontSize: "2em",
-            color: numAlertsNotDismissed > 0 ? theme.error : theme.warning,
+            color:
+              numAlertsNotDismissed > 0
+                ? theme.error
+                : totalNumActiveAlerts > 0
+                ? theme.warning
+                : theme.surface_alt,
           }}
         />
         <div
@@ -349,7 +354,12 @@ function AlerterToggle({ setExpanded, expanded }) {
             wordWrap: "break-all",
             width: "100%",
             textAlign: "center",
-            color: numAlertsNotDismissed > 0 ? theme.error : theme.on_surface,
+            color:
+              numAlertsNotDismissed > 0
+                ? theme.error
+                : totalNumActiveAlerts > 0
+                ? theme.warning
+                : theme.surface_alt,
           }}
         >
           {numAlertsNotDismissed}/{totalNumActiveAlerts} Active Alerts
