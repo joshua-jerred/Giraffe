@@ -65,7 +65,7 @@ const StyleStructure = {
       max_height: "100px",
       border_radius: "5px",
       padding: "0.5em 0.7em",
-      transition_delay: "1000ms",
+      transition_delay: "500",
     },
   },
 };

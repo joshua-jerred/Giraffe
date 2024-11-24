@@ -18,7 +18,8 @@ const TooltipBox = styled.div`
   text-align: center;
   z-index: 150;
   bottom: ${(props) => props.vertical_position};
-  ${(props) => props.flip_horizontal && "right: 0;"}
+  ${(props) => props.flip_horizontal && `right: ${props.horizontal_position};`}
+  ${(props) => !props.flip_horizontal && `left: ${props.horizontal_position};`}
   opacity: 0;
 `;
 
@@ -40,12 +41,14 @@ const Tooltip = ({
   specified_delay = null,
   style = {},
   flip_horizontal = false,
+  horizontal_position = "50%",
 }) => {
   return (
     <TooltipContainer specified_delay={specified_delay} style={style}>
       <TooltipBox
         vertical_position={vertical_position}
         flip_horizontal={flip_horizontal}
+        horizontal_position={horizontal_position}
       >
         {text}
       </TooltipBox>

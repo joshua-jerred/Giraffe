@@ -16,9 +16,9 @@ import { useStorageState } from "./LocalStorageState.js";
 
 const StatusCard = styled.div`
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-auto-rows: 15px;
+  // grid-gap: 10px;
+  grid-template-columns: 5fr 1fr;
+  // grid-auto-rows: 15px;
 
   user-select: none;
 
@@ -38,6 +38,13 @@ const StatusCard = styled.div`
   border-bottom-right-radius: ${(props) =>
     props.theme.status_bar.border_radius};
   z-index: 1001;
+`;
+
+const StatusGrid = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-auto-rows: 15px;
 `;
 
 const BarItemStyle = styled.div`
@@ -162,7 +169,6 @@ const AlertSuppressIcon = styled.i`
     color: ${(props) => props.theme.primary};
   }
 `;
-
 function Alert({ alert_id, alert_text, fix_link }) {
   const SUPPRESS_ICON = "fa-bell-slash";
   const [alertDismissed, setAlertDismissed] = useStorageState(
@@ -246,131 +252,158 @@ function AlertBar() {
   );
 }
 
-const AlerterIconStyle = styled.i`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
-  width: 100px;
-  height: 100px;
-  color: ${(props) => props.theme.on_surface};
-`;
-function AlerterToggle() {
-  return (
-    <>
-      <FontAwesomeIcon icon={faTriangleExclamation} />
+function AlerterToggle({ setExpanded, expanded }) {
+  const { alerter } = useContext(GwsGlobal);
+  const [numAlerts, setNumAlerts] = useState(alerter.getNumAlerts());
 
-      <AlerterIconStyle
-        title="Alerts"
-        icon="fa-exclamation-triangle"
-        path="/alerts"
-      />
-    </>
+  useEffect(() => {
+    const updateAlerts = () => {
+      setNumAlerts(alerter.getNumAlerts());
+    };
+
+    const interval = setInterval(() => {
+      updateAlerts();
+    }, 1000);
+    updateAlerts();
+    return () => clearInterval(interval);
+  }, [alerter]);
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        cursor: "pointer",
+      }}
+    >
+      <Tooltip
+        text={`Toggle the full alert list - see dismissed alerts`}
+        vertical_position={"-60%"}
+        flip_horizontal={true}
+        horizontal_position={"100%"}
+      >
+        <FontAwesomeIcon
+          icon={faTriangleExclamation}
+          style={{
+            display: "flex",
+            width: "100%",
+            fontSize: "2em",
+          }}
+        />
+        <div
+          style={{
+            display: "flex",
+            fontSize: "0.8em",
+            color: "white",
+            justifyContent: "center",
+            alignItems: "center",
+            wordWrap: "break-all",
+            width: "100%",
+            textAlign: "center",
+          }}
+        >
+          {numAlerts} Active Alerts
+        </div>
+      </Tooltip>
+    </div>
   );
 }
 
 function StatusBar() {
   const { serviceStatuses, isGgsConnected, flightData } = useContext(GwsGlobal);
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <>
       <StatusCard>
-        {/* <StatusItem
+        <StatusGrid>
+          {/* <StatusItem
           title="GGS"
           status={isGgsConnected ? "CONNECTED" : "DISCONNECTED"}
-        /> */}
-        {/* <StatusItem
+          /> */}
+          {/* <StatusItem
           title="GDL"
           status={
             isGgsConnected && serviceStatuses.gdl
-              ? serviceStatuses.gdl.toUpperCase()
-              : "UNKNOWN"
+            ? serviceStatuses.gdl.toUpperCase()
+            : "UNKNOWN"
           }
-        /> */}
-        <Tooltip text="GFS TCP Connection Status" vertical_position={"-440%"}>
-          <StatusItem
-            title="GFS"
-            status={
-              isGgsConnected && serviceStatuses.gfs
-                ? serviceStatuses.gfs.toUpperCase()
-                : "UNKNOWN"
-            }
-          />
-        </Tooltip>
-        <Tooltip
-          text="Flight System Agent Connection Status"
-          vertical_position={"-440%"}
-        >
-          <StatusItem
-            title="FSA"
-            status={
-              isGgsConnected && serviceStatuses.fsa
-                ? serviceStatuses.fsa.toUpperCase()
-                : "UNKNOWN"
-            }
-          />
-        </Tooltip>
-        <Tooltip
-          text="The status of the flight software according to the flight system agent."
-          vertical_position={"-440%"}
-        >
-          <StatusItem
-            title="FSA-GFS"
-            status={
-              isGgsConnected && serviceStatuses.fsa
-                ? serviceStatuses.fsa_gfs_status.toUpperCase()
-                : "UNKNOWN"
-            }
-          />
-        </Tooltip>
-        <Tooltip text="telemetry up-link status" vertical_position={"-440%"}>
-          <StatusItem
-            title={<FontAwesomeIcon icon={faSatelliteDish} />}
-            status={
-              isGgsConnected && serviceStatuses.telemetry_uplink
-                ? serviceStatuses.telemetry_uplink.toUpperCase()
-                : "UNKNOWN"
-            }
-          />
-        </Tooltip>
+          /> */}
+          <Tooltip text="GFS TCP Connection Status" vertical_position={"-600%"}>
+            <StatusItem
+              title="GFS"
+              status={
+                isGgsConnected && serviceStatuses.gfs
+                  ? serviceStatuses.gfs.toUpperCase()
+                  : "UNKNOWN"
+              }
+            />
+          </Tooltip>
+          <Tooltip
+            text="Flight System Agent Connection Status"
+            vertical_position={"-600%"}
+          >
+            <StatusItem
+              title="FSA"
+              status={
+                isGgsConnected && serviceStatuses.fsa
+                  ? serviceStatuses.fsa.toUpperCase()
+                  : "UNKNOWN"
+              }
+            />
+          </Tooltip>
+          <Tooltip
+            text="The status of the flight software according to the flight system agent."
+            vertical_position={"-700%"}
+            horizontal_position={"70%"}
+          >
+            <StatusItem
+              title="FSA-GFS"
+              status={
+                isGgsConnected && serviceStatuses.fsa
+                  ? serviceStatuses.fsa_gfs_status.toUpperCase()
+                  : "UNKNOWN"
+              }
+            />
+          </Tooltip>
+          <Tooltip text="telemetry up-link status" vertical_position={"-600%"}>
+            <StatusItem
+              title={<FontAwesomeIcon icon={faSatelliteDish} />}
+              status={
+                isGgsConnected && serviceStatuses.telemetry_uplink
+                  ? serviceStatuses.telemetry_uplink.toUpperCase()
+                  : "UNKNOWN"
+              }
+            />
+          </Tooltip>
 
-        <Tooltip text="telemetry down-link status" vertical_position={"-440%"}>
-          <StatusItem
-            title={<FontAwesomeIcon icon={faSatellite} />}
-            status={
-              isGgsConnected && serviceStatuses.telemetry_downlink
-                ? serviceStatuses.telemetry_downlink.toUpperCase()
-                : "UNKNOWN"
-            }
-          />
-        </Tooltip>
-        <Tooltip text="The current flight phase" vertical_position={"-440%"}>
-          <StatusItem
-            title="PHASE"
-            status={
-              isGgsConnected && flightData.flight_phase
-                ? flightData.flight_phase.toUpperCase()
-                : "UNKNOWN"
-            }
-          />
-        </Tooltip>
-        {/* <StatusItem
-        title="InfluxDB"
-        status={
-          ggsConnectionStatus && giraffeStatus.influxdb
-          ? giraffeStatus.influxdb.toUpperCase()
-          : "UNKNOWN"
-        }
-      /> */}
-        {/* <StatusItem
-        title="aprs.fi"
-        status={
-          ggsConnectionStatus && giraffeStatus.aprsfi
-          ? giraffeStatus.aprsfi.toUpperCase()
-          : "UNKNOWN"
-        }
-      /> */}
-        {/* <AlerterToggle /> */}
+          <Tooltip
+            text="telemetry down-link status"
+            vertical_position={"-600%"}
+          >
+            <StatusItem
+              title={<FontAwesomeIcon icon={faSatellite} />}
+              status={
+                isGgsConnected && serviceStatuses.telemetry_downlink
+                  ? serviceStatuses.telemetry_downlink.toUpperCase()
+                  : "UNKNOWN"
+              }
+            />
+          </Tooltip>
+          <Tooltip text="The current flight phase" vertical_position={"-600%"}>
+            <StatusItem
+              title="PHASE"
+              status={
+                isGgsConnected && flightData.flight_phase
+                  ? flightData.flight_phase.toUpperCase()
+                  : "UNKNOWN"
+              }
+            />
+          </Tooltip>
+        </StatusGrid>
+        <AlerterToggle setExpanded={setExpanded} expanded={expanded} />
       </StatusCard>
       <AlertBar />
     </>
