@@ -108,6 +108,7 @@ module.exports = class BitTest {
     });
   }
 
+  /// @brief Set the overall status flag for a given test group.
   #setTestGroupStatus(test_group, status) {
     status = validateAndRepairStatus(status);
 
@@ -118,6 +119,7 @@ module.exports = class BitTest {
     }
   }
 
+  /// @brief Set the status of a specific test in a test group.
   #setTestStatus(test_group, test_id, status) {
     status = validateAndRepairStatus(status);
 
@@ -131,6 +133,7 @@ module.exports = class BitTest {
     console.log("Error: Invalid test ID in BitTest.#setTestStatus()");
   }
 
+  /// @brief Start the BIT test.
   #startBitTest(response) {
     if (!this.global_state.gfs_connection.isConnected()) {
       response.status(500).json({

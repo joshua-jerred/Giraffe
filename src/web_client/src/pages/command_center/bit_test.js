@@ -5,6 +5,7 @@ import { GwsGlobal } from "../../GlobalContext";
 import { StyButton } from "../../components/styled/StyledComponents";
 import { CardSectionTitle } from "../../core/PageParts";
 import Tooltip from "../../components/Tooltip";
+import { useApiGetData } from "../../api_interface/ggs_api";
 
 const getStatusColor = (status) => {
   const StatusColor = {
@@ -51,6 +52,8 @@ function TestGroup({ name, status, selectedGroup, setSelectedGroup }) {
   const { isGfsTcpConnected } = useContext(GwsGlobal);
   const theme = useTheme();
 
+  // console.log("ai name: ", name, status, selectedGroup);
+
   let name_label = name;
   let status_label = status;
   let style = {
@@ -60,6 +63,7 @@ function TestGroup({ name, status, selectedGroup, setSelectedGroup }) {
   };
 
   switch (status) {
+    case "N/D":
     case "N/R":
       style.opacity = 10;
       break;
@@ -75,7 +79,7 @@ function TestGroup({ name, status, selectedGroup, setSelectedGroup }) {
     default:
       status_label = "--";
       style.opacity = 0.4;
-      name_label = "INOP";
+      name_label = "UNK";
       break;
   }
   style.background = getStatusColor(status);
@@ -154,7 +158,7 @@ function BitTestInfoBox({ testGroupData, selectedGroup, bitInfo }) {
         return testGroupData[group_id].description;
       }
       // console.log("Group ID: ", group_id, testGroupData[group_id]);
-      return group_id + "found";
+      return group_id + " found";
     }
     return "Unknown";
   };
@@ -180,7 +184,6 @@ function BitTestInfoBox({ testGroupData, selectedGroup, bitInfo }) {
       setInfoText(generateIntoText(bitInfo));
       // setInfoText(`${selectedGroup} - ${testGroupData[selectedGroup].status}`);
       setTestList(testGroupData[selectedGroup].tests);
-      console.log(testGroupData[selectedGroup].tests);
     } else {
       setInfoText("unknown");
       setTestList(null);
@@ -201,7 +204,7 @@ function BitTestInfoBox({ testGroupData, selectedGroup, bitInfo }) {
         <span
           style={{
             color: isGfsTcpConnected
-              ? getStatusColor(bitInfo.bit_status)
+              ? getStatusColor(bitInfo.bit_test_status)
               : "red",
           }}
         >
@@ -261,13 +264,18 @@ export default function BitTestPanel() {
 
   // Built in test info
   const [bitInfo, setBitInfo] = useState({
-    bit_status: "N/R", // overall status of the BIT
+    bit_test_status: "N/R", // overall status of the BIT
+    bit_test_ready: "n/d",
     total_tests: 0,
     passed_tests: 0,
     failed_tests: 0,
     skipped_tests: 0,
     running_tests: 0,
     seconds_since_last_test: 0,
+    bit_test_running: 0,
+    bit_test_start_time: 0,
+    gfs_ready_to_perform_bit_test: 0,
+    user_displayed_error: 0,
   });
 
   const { isGfsTcpConnected } = useContext(GwsGlobal);
@@ -276,14 +284,62 @@ export default function BitTestPanel() {
   const [runButtonText, setRunButtonText] = useState("false");
   const [runButtonDisabled, setRunButtonDisabled] = useState(false);
 
-  const getRandStatus = (ignore) => {
-    const status = ["N/R", "RUN", "PASS", "FAIL", "SKIP"];
-    const new_status = status[Math.floor(Math.random() * status.length)];
-    if (new_status === ignore) {
-      return getRandStatus(ignore);
+  const { data, isLoading, error, setNeedUpdate } = useApiGetData(
+    "",
+    "",
+    "all",
+    5000,
+    "/api/flight_data/bit_test"
+  );
+
+  useEffect(() => {
+    if (error) {
+      console.log("Error: ", error);
+      return;
     }
-    return new_status;
-  };
+
+    if (isLoading) {
+      // console.log("Loading...");
+      return;
+    }
+
+    if (!data) {
+      console.log("No data");
+      return;
+    }
+
+    const bit_test_details = data.bit_test_details;
+    setBitInfo({
+      bit_test_ready: bit_test_details.bit_test_ready,
+      bit_test_running: bit_test_details.bit_test_running,
+      bit_test_start_time: bit_test_details.bit_test_start_time,
+      bit_test_status: bit_test_details.bit_test_status,
+      gfs_ready_to_perform_bit_test:
+        bit_test_details.gfs_ready_to_perform_bit_test,
+      user_displayed_error: bit_test_details.user_displayed_error,
+    });
+
+    const tests = data.tests;
+    let new_test_data = {};
+    for (let test_group in tests) {
+      new_test_data[test_group] = {
+        status: tests[test_group].status,
+        tests: {},
+      };
+
+      for (let test in tests[test_group].tests) {
+        new_test_data[test_group].tests[test] = {
+          name: tests[test_group].tests[test].title,
+          status: tests[test_group].tests[test].status,
+        };
+      }
+    }
+
+    setTestGroupData(new_test_data);
+    // console.log("Test Data: ", tests);
+
+    // console.log("New Test Data: ", new_test_data);
+  }, [data, isLoading, error]);
 
   const requestStartTest = () => {
     // Send request to start the test
@@ -310,33 +366,17 @@ export default function BitTestPanel() {
     }
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTestGroupData({
-        ...testGroupData,
-        // Fake bit test data
-        FCS: {
-          status: "N/R",
-          tests: {
-            "0x0001": { title: "test1", status: "PASS" },
-            "0x0002": { title: "test2", status: "FAIL" },
-            "0x0003": { title: "test3", status: "SKIP" },
-            "0x0004": { title: "test4", status: "RUN" },
-          },
-        },
-        SYS: { status: "RUN", tests: {} },
-        DLNK: { status: "PASS", tests: {} },
-        GPS: { status: "FAIL", tests: {} },
-        BATT: { status: "SKIP", tests: {} },
-        EXTN: { status: "inop junk test", tests: {} },
-      });
-      setBitInfo({
-        ...bitInfo,
-        bit_status: getRandStatus("SKIP"),
-      });
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setTestGroupData({
+  //       ...testGroupData,
+  //     });
+  //     setBitInfo({
+  //       ...bitInfo,
+  //     });
+  //   }, 2000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   useEffect(() => {
     if (!isGfsTcpConnected) {
@@ -354,7 +394,7 @@ export default function BitTestPanel() {
     } else if (bitInfo.bit_status === "PASS" || bitInfo.bit_status === "FAIL") {
       setRunButtonText("Reset Test");
     } else {
-      setRunButtonText(".");
+      setRunButtonText("");
     }
   }, [bitInfo, isGfsTcpConnected]);
 

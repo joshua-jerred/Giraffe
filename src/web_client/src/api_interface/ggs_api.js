@@ -5,7 +5,8 @@ export const useApiGetData = (
   resource,
   category,
   include = "all",
-  update_interval = -1
+  update_interval = -1,
+  full_api_path = null
 ) => {
   const { ggsAddress, isGgsConnected } = useContext(GwsGlobal);
   const [data, setData] = useState(null);
@@ -22,7 +23,13 @@ export const useApiGetData = (
       // }
       try {
         const encoded_category = encodeURIComponent(category);
-        const path = `${ggsAddress}/api/${resource}/data?category=${encoded_category}&include=${include}`;
+        let path = "";
+
+        if (full_api_path) {
+          path = `${ggsAddress}${full_api_path}`;
+        } else {
+          path = `${ggsAddress}/api/${resource}/data?category=${encoded_category}&include=${include}`;
+        }
         const response = await fetch(path);
         if (!response.ok) {
           throw new Error("Failed to load metadata.");
@@ -57,6 +64,7 @@ export const useApiGetData = (
     ggsAddress,
     include,
     needUpdate,
+    full_api_path,
   ]);
 
   return { data, isLoading, error, setNeedUpdate };
