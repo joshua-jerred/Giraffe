@@ -73,6 +73,12 @@
       }
     },
     "gdl":{
+      "gdl_enabled": {
+        "type": "bool",
+        "name": "GDL Enabled",
+        "description": "Toggle the entire telemetry system on or off. This will disable all telemetry. Useful for debugging!",
+        "default": true
+      },
       "data_update_interval": {
         "type": "int",
         "name": "GDL Data Update Interval (ms)",
