@@ -28,7 +28,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
   );
 
   const [navExpanded, setNavExpanded] = React.useState(
-    load("nav_expanded") === "true" || true
+    load("nav_expanded") === "true" || false
   );
 
   React.useEffect(() => {
@@ -45,14 +45,14 @@ export const GwsGlobalContextProvider = ({ children }) => {
 
   // ------ STATUSES & ALERTER ------
   const serviceStatusesDefault = {
-    telemetry_uplink: "unknown",
-    telemetry_downlink: "unknown",
-    gfs: "unknown",
-    gdl: "unknown",
-    fsa: "unknown", // Connected to the agent
-    fsa_gfs: "unknown", // The agent is connected to the GFS
-    aprsfi: "unknown",
-    influxdb: "unknown",
+    telemetry_uplink: "n/d",
+    telemetry_downlink: "n/d",
+    gfs: "n/d",
+    gdl: "n/d",
+    fsa: "n/d", // Connected to the agent
+    fsa_gfs: "n/d", // The agent is connected to the GFS
+    aprsfi: "n/d",
+    influxdb: "n/d",
   };
 
   const [serviceStatuses, setServiceStatuses] = React.useState(
@@ -136,7 +136,6 @@ export const GwsGlobalContextProvider = ({ children }) => {
           setIsDownlinkConnected(data.telemetry_downlink === "connected");
 
           if (data.gdl !== "connected") {
-            console.log("Adding GDL not connected alert");
             alerter.addAlert(
               "not_connected_to_gdl",
               "The Ground Station Server is not connected to the Data Link.",
@@ -188,7 +187,6 @@ export const GwsGlobalContextProvider = ({ children }) => {
       fetch(`${ggsAddress}/api/fsa/data?category=status&include=values`)
         .then((response) => response.json())
         .then((json_data) => {
-          console.log("FSA data", json_data);
           setFlightSystemAgentData(json_data.values);
         })
         .catch((error) => {

@@ -19,6 +19,8 @@ const { RequestMessage, parse } = require("giraffe-protocol");
 const net = require("net");
 const { Point } = require("@influxdata/influxdb-client");
 
+const GFS_CONNECTION_TIMEOUT = 5000;
+
 /**
  * @brief This class handles syncing data (not settings) between
  * GGS and GFS.
@@ -28,8 +30,9 @@ module.exports = class GfsDataSync {
     this.global_state = global_state;
     this.resources = {};
     this.connected = false;
-    this.#updateClassSettings();
+    this.connection_timeout = null;
 
+    this.#updateClassSettings();
     for (let category in DataMeta) {
       this.resources[category] = {
         meta: {
@@ -45,6 +48,14 @@ module.exports = class GfsDataSync {
     }
 
     this.last_good_request_time = new Date();
+  }
+
+  #kickConnectionTimeout() {
+    this.connected = true;
+    clearTimeout(this.connection_timeout);
+    this.connection_timeout = setTimeout(() => {
+      this.connected = false;
+    }, GFS_CONNECTION_TIMEOUT);
   }
 
   getConnectionStatus() {
@@ -77,13 +88,6 @@ module.exports = class GfsDataSync {
    * @brief Called at a set interval at a higher level. This runs everything.
    */
   async update() {
-    // this.#updateClassSettings();
-
-    const timeout = 5000;
-    this.connected = this.last_good_request_time > new Date() - timeout;
-    //  = false;
-    // }
-
     for (let category in this.resources) {
       if (
         this.resources[category].meta.last_request >
@@ -211,6 +215,7 @@ module.exports = class GfsDataSync {
     });
 
     con.on("data", function (data) {
+      console.log("Data received for category: " + category);
       that.connected = true;
       that.last_good_request_time = new Date();
       try {
@@ -219,6 +224,7 @@ module.exports = class GfsDataSync {
           console.log("Error: " + msg.bdy.dat);
           return;
         }
+        that.#kickConnectionTimeout();
         that.#setLocalResource(category, msg);
       } catch (e) {
         console.log("Error parsing data for category:" + category);

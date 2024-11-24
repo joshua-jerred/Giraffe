@@ -12,7 +12,7 @@ const BuildIdToMetadataMap = () => {
       map[item.value] = item;
     }
   }
-  console.log("DiagnosticMetadataMap", map);
+  // console.log("DiagnosticMetadataMap", map);
   return map;
 };
 const DiagnosticMetadataMap = BuildIdToMetadataMap();

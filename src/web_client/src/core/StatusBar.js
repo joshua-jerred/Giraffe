@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { useContext, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -52,11 +52,16 @@ const BarItemStyle = styled.div`
 `;
 const BarItemStatusStyle = styled.span`
   color: ${(props) => {
+    props.status = props.status.toUpperCase();
     if (props.status === "CONNECTED") {
       return props.theme.success;
-    } else if (props.status === "DISCONNECTED") {
+    } else if (
+      props.status === "DISCONNECTED" ||
+      props.status === "ERROR" ||
+      props.status === "DOWN"
+    ) {
       return props.theme.error;
-    } else if (props.status === "UNKNOWN") {
+    } else if (props.status === "UNKNOWN" || props.status === "N/D") {
       return props.theme.warning;
     } else {
       return props.theme.primary;
@@ -91,6 +96,7 @@ height: ${(props) => (props.expanded ? "fit-content" : "0px")};
 border-bottom-left-radius: ${(props) => props.theme.status_bar.border_radius};
 border-bottom-right-radius: ${(props) => props.theme.status_bar.border_radius};
 overflow: ${(props) => (props.expanded ? "visible" : "hidden")};
+z-index: 1000;
 `;
 
 const AlertBarContentStyle = styled.div`
@@ -169,52 +175,84 @@ const AlertSuppressIcon = styled.i`
     color: ${(props) => props.theme.primary};
   }
 `;
-function Alert({ alert_id, alert_text, fix_link }) {
-  const SUPPRESS_ICON = "fa-bell-slash";
-  const [alertDismissed, setAlertDismissed] = useStorageState(
-    `alert_${alert_id}_dismissed`,
-    false
+function Alert({ alert_id, alert_text, fix_link, suppressed }) {
+  const { alerter } = useContext(GwsGlobal);
+  const [isSuppressed, setIsSuppressed] = useState(suppressed);
+  const [suppressIcon, setSuppressIcon] = useState(
+    isSuppressed ? "fa-bell" : "fa-bell-slash"
   );
+
+  useEffect(() => {
+    const suppressed = alerter.getAlert(alert_id).suppressed;
+    setIsSuppressed(suppressed);
+    setSuppressIcon(suppressed ? "fa-bell" : "fa-bell-slash");
+  }, [alerter, alert_id, isSuppressed, suppressIcon, suppressed]);
+
+  const alertDismissed = (alert_id) => {
+    if (alerter.getAlert(alert_id).suppressed) {
+      alerter.unSuppressAlert(alert_id);
+      setIsSuppressed(alerter.getAlert(alert_id).suppressed);
+    } else {
+      alerter.suppressAlert(alert_id);
+      setIsSuppressed(alerter.getAlert(alert_id).suppressed);
+    }
+  };
 
   return (
     <AlertStyle
-      style={{
-        display: alertDismissed ? "none" : "flex",
-      }}
+      style={
+        {
+          // display: alertDismissed ? "none" : "flex",
+        }
+      }
     >
-      {" "}
       {fix_link !== null ? (
         <NavLink to={fix_link}>{alert_text}</NavLink>
       ) : (
         { alert_text }
       )}
       <Tooltip
-        text="Dismiss Alert"
+        text={isSuppressed ? "Unsuppress Alert" : "Suppress Alert"}
         vertical_position={"100%"}
         flip_horizontal={true}
         specified_delay={500}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          // flexDirection: "column",
+        }}
       >
+        {isSuppressed && (
+          <span
+            style={{
+              fontSize: "0.7em",
+              margin: "0px 5px",
+            }}
+          >
+            suppressed
+          </span>
+        )}
         <AlertSuppressIcon
-          className={`fa ${SUPPRESS_ICON}`}
-          onClick={() => setAlertDismissed(true)}
+          className={`fa ${suppressIcon}`}
+          onClick={() => alertDismissed(alert_id)}
         />
       </Tooltip>
     </AlertStyle>
   );
 }
 
-function AlertBar() {
+function AlertBar({ expanded }) {
   const { alerter } = useContext(GwsGlobal);
-  const [expanded, setExpanded] = useState(false);
 
   const CHECK_CONNECTION_INTERVAL = 1000;
 
   useEffect(() => {
     const updateAlerts = () => {
       if (alerter.getNumAlerts() > 0) {
-        setExpanded(true);
+        // setExpanded(true);
       } else {
-        setExpanded(false);
+        // setExpanded(false);
       }
     };
 
@@ -226,9 +264,9 @@ function AlertBar() {
   }, [alerter]);
 
   return (
-    <AlertBarStyle expanded={expanded}>
+    <AlertBarStyle expanded={expanded || alerter.getNumAlerts(false) > 0}>
       <AlertBarContentStyle>
-        {Object.keys(alerter.getAlerts()).map((alert_id) => {
+        {Object.keys(alerter.getAlerts(expanded)).map((alert_id) => {
           return (
             // conditionally render the item as a link if one was provided
             <Alert
@@ -236,6 +274,7 @@ function AlertBar() {
               alert_id={alert_id}
               alert_text={alerter.getAlert(alert_id).text}
               fix_link={alerter.getAlert(alert_id).fix_link}
+              suppressed={alerter.getAlert(alert_id).suppressed}
             >
               {alerter.getAlert(alert_id).fix_link !== null ? (
                 <NavLink to={alerter.getAlert(alert_id).fix_link}>
@@ -253,12 +292,19 @@ function AlertBar() {
 }
 
 function AlerterToggle({ setExpanded, expanded }) {
+  const theme = useTheme();
   const { alerter } = useContext(GwsGlobal);
-  const [numAlerts, setNumAlerts] = useState(alerter.getNumAlerts());
+  const [totalNumActiveAlerts, setTotalNumActiveAlerts] = useState(
+    alerter.getNumAlerts(true)
+  );
+  const [numAlertsNotDismissed, setNumAlertsNotDismissed] = useState(
+    alerter.getNumAlerts(false)
+  );
 
   useEffect(() => {
     const updateAlerts = () => {
-      setNumAlerts(alerter.getNumAlerts());
+      setNumAlertsNotDismissed(alerter.getNumAlerts(false));
+      setTotalNumActiveAlerts(alerter.getNumAlerts(true));
     };
 
     const interval = setInterval(() => {
@@ -277,6 +323,7 @@ function AlerterToggle({ setExpanded, expanded }) {
         alignItems: "center",
         cursor: "pointer",
       }}
+      onClick={() => setExpanded(!expanded)}
     >
       <Tooltip
         text={`Toggle the full alert list - see dismissed alerts`}
@@ -290,21 +337,22 @@ function AlerterToggle({ setExpanded, expanded }) {
             display: "flex",
             width: "100%",
             fontSize: "2em",
+            color: numAlertsNotDismissed > 0 ? theme.error : theme.warning,
           }}
         />
         <div
           style={{
             display: "flex",
             fontSize: "0.8em",
-            color: "white",
             justifyContent: "center",
             alignItems: "center",
             wordWrap: "break-all",
             width: "100%",
             textAlign: "center",
+            color: numAlertsNotDismissed > 0 ? theme.error : theme.on_surface,
           }}
         >
-          {numAlerts} Active Alerts
+          {numAlertsNotDismissed}/{totalNumActiveAlerts} Active Alerts
         </div>
       </Tooltip>
     </div>
@@ -319,28 +367,34 @@ function StatusBar() {
     <>
       <StatusCard>
         <StatusGrid>
-          {/* <StatusItem
-          title="GGS"
-          status={isGgsConnected ? "CONNECTED" : "DISCONNECTED"}
-          /> */}
-          {/* <StatusItem
-          title="GDL"
-          status={
-            isGgsConnected && serviceStatuses.gdl
-            ? serviceStatuses.gdl.toUpperCase()
-            : "UNKNOWN"
-          }
-          /> */}
-          <Tooltip text="GFS TCP Connection Status" vertical_position={"-600%"}>
+          <Tooltip text="The current flight phase" vertical_position={"-600%"}>
             <StatusItem
-              title="GFS"
+              title="PHASE"
               status={
-                isGgsConnected && serviceStatuses.gfs
-                  ? serviceStatuses.gfs.toUpperCase()
-                  : "UNKNOWN"
+                isGgsConnected && flightData.flight_phase
+                  ? flightData.flight_phase.toUpperCase()
+                  : "n/d"
               }
             />
           </Tooltip>
+          <Tooltip
+            text="Ground station connection status"
+            vertical_position={"-600%"}
+          >
+            <StatusItem
+              title="GGS"
+              status={isGgsConnected ? "CONNECTED" : "DISCONNECTED"}
+            />
+          </Tooltip>
+          <StatusItem
+            title="GDL"
+            status={
+              isGgsConnected && serviceStatuses.gdl
+                ? serviceStatuses.gdl.toUpperCase()
+                : "UNKNOWN"
+            }
+          />
+
           <Tooltip
             text="Flight System Agent Connection Status"
             vertical_position={"-600%"}
@@ -350,10 +404,11 @@ function StatusBar() {
               status={
                 isGgsConnected && serviceStatuses.fsa
                   ? serviceStatuses.fsa.toUpperCase()
-                  : "UNKNOWN"
+                  : "n/d"
               }
             />
           </Tooltip>
+
           <Tooltip
             text="The status of the flight software according to the flight system agent."
             vertical_position={"-700%"}
@@ -364,7 +419,7 @@ function StatusBar() {
               status={
                 isGgsConnected && serviceStatuses.fsa
                   ? serviceStatuses.fsa_gfs_status.toUpperCase()
-                  : "UNKNOWN"
+                  : "n/d"
               }
             />
           </Tooltip>
@@ -374,7 +429,7 @@ function StatusBar() {
               status={
                 isGgsConnected && serviceStatuses.telemetry_uplink
                   ? serviceStatuses.telemetry_uplink.toUpperCase()
-                  : "UNKNOWN"
+                  : "n/d"
               }
             />
           </Tooltip>
@@ -388,24 +443,24 @@ function StatusBar() {
               status={
                 isGgsConnected && serviceStatuses.telemetry_downlink
                   ? serviceStatuses.telemetry_downlink.toUpperCase()
-                  : "UNKNOWN"
+                  : "n/d"
               }
             />
           </Tooltip>
-          <Tooltip text="The current flight phase" vertical_position={"-600%"}>
+          <Tooltip text="GFS TCP Connection Status" vertical_position={"-600%"}>
             <StatusItem
-              title="PHASE"
+              title="GFS"
               status={
-                isGgsConnected && flightData.flight_phase
-                  ? flightData.flight_phase.toUpperCase()
-                  : "UNKNOWN"
+                isGgsConnected && serviceStatuses.gfs
+                  ? serviceStatuses.gfs.toUpperCase()
+                  : "n/d"
               }
             />
           </Tooltip>
         </StatusGrid>
         <AlerterToggle setExpanded={setExpanded} expanded={expanded} />
       </StatusCard>
-      <AlertBar />
+      <AlertBar expanded={expanded} />
     </>
   );
 }

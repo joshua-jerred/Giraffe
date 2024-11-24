@@ -156,7 +156,7 @@ module.exports = class FsaConnection {
       request_message,
       (error, response_message) => {
         if (error) {
-          console.log("FSA request error: " + error);
+          // console.log("FSA request error: " + error);
           return;
         }
         this.#kickConnectionTimeout();

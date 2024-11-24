@@ -45,14 +45,14 @@ class GlobalState {
 
     this.ggs_status = {
       status: "ok",
-      influxdb: "unknown",
-      gfs: "unknown",
-      gdl: "unknown",
-      fsa: "unknown",
-      fsa_gfs_status: "unknown",
-      telemetry_uplink: "unknown",
-      telemetry_downlink: "unknown",
-      aprsfi: "unknown",
+      influxdb: "n/d",
+      gfs: "n/d",
+      gdl: "n/d",
+      fsa: "n/d",
+      fsa_gfs_status: "n/d",
+      telemetry_uplink: "n/d",
+      telemetry_downlink: "n/d",
+      aprsfi: "n/d",
       total_http_requests: 0,
       // general: this.flight_data_handler.general.values,
       // location: this.flight_data_handler.location_data.values,
@@ -131,6 +131,9 @@ class GlobalState {
         this.ggs_status.telemetry_uplink = "N/D";
         this.ggs_status.telemetry_downlink = "N/D";
       }
+    } else if (this.ggs_status.gdl === "disconnected") {
+      this.ggs_status.telemetry_uplink = "down";
+      this.ggs_status.telemetry_downlink = "down";
     }
 
     // update the FSA status

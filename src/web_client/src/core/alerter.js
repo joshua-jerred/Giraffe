@@ -4,6 +4,53 @@
 module.exports = class Alerter {
   constructor() {
     this.alerts = {};
+    this.suppressedAlertIds = [];
+
+    // Load suppressed alerts from local storage
+    try {
+      let loaded = localStorage.getItem("suppressedAlerts");
+      if (loaded !== null) {
+        this.suppressedAlertIds = JSON.parse(loaded);
+      }
+      localStorage.setItem(
+        "suppressedAlerts",
+        JSON.stringify(this.suppressedAlertIds)
+      );
+    } catch (e) {
+      console.log("Error loading suppressed alerts", e);
+    }
+  }
+
+  suppressAlert(alert_id) {
+    console.log("suppressed alert", alert_id);
+    if (this.suppressedAlertIds.includes(alert_id)) {
+      return; // Already suppressed
+    }
+
+    this.suppressedAlertIds.push(alert_id);
+    localStorage.setItem(
+      "suppressedAlerts",
+      JSON.stringify(this.suppressedAlertIds)
+    );
+  }
+
+  unSuppressAlert(alert_id) {
+    console.log("unsuppressed alert", alert_id);
+    if (!this.suppressedAlertIds.includes(alert_id)) {
+      return; // Not suppressed
+    }
+
+    this.suppressedAlertIds = this.suppressedAlertIds.filter(
+      (id) => id !== alert_id
+    );
+    localStorage.setItem(
+      "suppressedAlerts",
+      JSON.stringify(this.suppressedAlertIds)
+    );
+  }
+
+  isAlertSuppressed(alert_id) {
+    return this.suppressedAlertIds.includes(alert_id);
   }
 
   /**
@@ -21,6 +68,7 @@ module.exports = class Alerter {
       timeout: alert_timeout,
       timestamp: Date.now(),
       fix_link: fix_link,
+      suppressed: this.isAlertSuppressed(alert_id),
     };
   }
 
@@ -45,8 +93,18 @@ module.exports = class Alerter {
   /**
    * @returns {Object} - Returns the list of alerts.
    */
-  getAlerts() {
-    return this.alerts;
+  getAlerts(include_suppressed = false) {
+    if (include_suppressed) {
+      return this.alerts;
+    }
+
+    let alerts = {};
+    for (let alert_id in this.alerts) {
+      if (!this.suppressedAlertIds.includes(alert_id)) {
+        alerts[alert_id] = this.alerts[alert_id];
+      }
+    }
+    return alerts;
   }
 
   /**
@@ -73,11 +131,23 @@ module.exports = class Alerter {
     return true;
   }
 
-  /**
-   * @returns {int} - Returns the number of alerts currently active.
-   */
-  getNumAlerts() {
-    return Object.keys(this.alerts).length;
+  /// @brief Get the number of active alerts.
+  /// @param include_suppressed If true, then suppressed alerts are included in
+  /// the count.
+  /// @return The number of active alerts.
+  getNumAlerts(include_suppressed = false) {
+    if (include_suppressed) {
+      return Object.keys(this.alerts).length;
+    }
+
+    let numAlerts = 0;
+    for (let alert_id in this.alerts) {
+      if (!this.suppressedAlertIds.includes(alert_id)) {
+        numAlerts++;
+      }
+    }
+    // console.log("num alerts", numAlerts);
+    return numAlerts;
   }
 
   /**
