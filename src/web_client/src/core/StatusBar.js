@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSatelliteDish,
   faSatellite,
+  faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { GwsGlobal } from "../GlobalContext";
@@ -103,7 +104,7 @@ const AlertStyle = styled.div`
   font-style: ${(props) => props.theme.fonts.status_bar.style};
 
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   padding: 0.8em 0.8em;
   margin: 0.3em 0em;
@@ -118,13 +119,14 @@ const AlertStyle = styled.div`
   outline: 1px solid ${(props) => props.theme.surface};
 
   opacity: 0.9;
-  background: ${(props) => props.theme.error_hover}20;
+  background: ${(props) => props.theme.error_hover}10;
   &:hover {
     opacity: 0.9;
-    background: ${(props) => props.theme.error_hover}20;
+    background: ${(props) => props.theme.error_hover}60;
   }
 
   &:first-child {
+    transition: ${(props) => props.theme.transitions.default};
     &:hover {
       background: linear-gradient(
         ${(props) => props.theme.error_hover}10,
@@ -132,7 +134,7 @@ const AlertStyle = styled.div`
       );
     }
 
-    // margin-top: 0;
+    // margin-top: 0.5em;
     background: linear-gradient(
       ${(props) => props.theme.status_background}20,
       ${(props) => props.theme.alert_bar_background}20
@@ -145,32 +147,52 @@ const AlertStyle = styled.div`
 `;
 
 const AlertSuppressIcon = styled.i`
-  font-size: 2em;
-  position: relative;
-  display: table-cell;
-  width: 50px;
-  height: 36px;
+  font-size: 1.4em;
+
   text-align: center;
   vertical-align: middle;
-  color: ${(props) => props.theme.on_surface};
+  cursor: pointer;
+  transition: ${(props) => props.theme.transitions.default};
+
+  color: ${(props) => props.theme.surface};
+  &:hover {
+    color: ${(props) => props.theme.surface_hover};
+  }
+  &:active {
+    color: ${(props) => props.theme.primary};
+  }
 `;
 
 function Alert({ alert_id, alert_text, fix_link }) {
-  const SUPPRESS_ICON = "fa-rocket";
+  const SUPPRESS_ICON = "fa-bell-slash";
   const [alertDismissed, setAlertDismissed] = useStorageState(
     `alert_${alert_id}_dismissed`,
     false
   );
 
   return (
-    <AlertStyle>
+    <AlertStyle
+      style={{
+        display: alertDismissed ? "none" : "flex",
+      }}
+    >
       {" "}
       {fix_link !== null ? (
         <NavLink to={fix_link}>{alert_text}</NavLink>
       ) : (
         { alert_text }
       )}
-      <AlertSuppressIcon className={`fa ${SUPPRESS_ICON}`} />
+      <Tooltip
+        text="Dismiss Alert"
+        vertical_position={"100%"}
+        flip_horizontal={true}
+        specified_delay={500}
+      >
+        <AlertSuppressIcon
+          className={`fa ${SUPPRESS_ICON}`}
+          onClick={() => setAlertDismissed(true)}
+        />
+      </Tooltip>
     </AlertStyle>
   );
 }
@@ -224,6 +246,29 @@ function AlertBar() {
   );
 }
 
+const AlerterIconStyle = styled.i`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  width: 100px;
+  height: 100px;
+  color: ${(props) => props.theme.on_surface};
+`;
+function AlerterToggle() {
+  return (
+    <>
+      <FontAwesomeIcon icon={faTriangleExclamation} />
+
+      <AlerterIconStyle
+        title="Alerts"
+        icon="fa-exclamation-triangle"
+        path="/alerts"
+      />
+    </>
+  );
+}
+
 function StatusBar() {
   const { serviceStatuses, isGgsConnected, flightData } = useContext(GwsGlobal);
 
@@ -270,7 +315,7 @@ function StatusBar() {
           vertical_position={"-440%"}
         >
           <StatusItem
-            title="FSA-GFS Status"
+            title="FSA-GFS"
             status={
               isGgsConnected && serviceStatuses.fsa
                 ? serviceStatuses.fsa_gfs_status.toUpperCase()
@@ -325,6 +370,7 @@ function StatusBar() {
           : "UNKNOWN"
         }
       /> */}
+        {/* <AlerterToggle /> */}
       </StatusCard>
       <AlertBar />
     </>

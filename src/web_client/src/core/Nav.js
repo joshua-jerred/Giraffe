@@ -139,6 +139,13 @@ const NavFooter = styled.ul`
   color: ${(props) => props.theme.on_surface};
 `;
 
+const NavCenter = styled.div`
+  display: flex;
+  margin: 0;
+  padding: 0;
+  color: ${(props) => props.theme.on_surface};
+`;
+
 /* -------- Nav Bar -------- */
 const NavPin = styled.button`
   display: none;

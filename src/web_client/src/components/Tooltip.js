@@ -5,9 +5,9 @@ const TooltipBox = styled.div`
   color: ${(props) => props.theme.tooltip_text};
   background-color: ${(props) => props.theme.tooltip_background};
 
-  min-width: 250px;
+  min-width: 150px;
   max-width: 600px;
-  overflow: hidden;
+  // overflow: hidden;
   width: fit-content;
   border-radius: ${(props) => props.theme.components.tooltip.border_radius};
   padding: ${(props) => props.theme.components.tooltip.padding};
@@ -16,8 +16,9 @@ const TooltipBox = styled.div`
   visibility: hidden;
   position: absolute;
   text-align: center;
-  z-index: 101;
+  z-index: 150;
   bottom: ${(props) => props.vertical_position};
+  ${(props) => props.flip_horizontal && "right: 0;"}
   opacity: 0;
 `;
 
@@ -38,10 +39,16 @@ const Tooltip = ({
   vertical_position = "125%",
   specified_delay = null,
   style = {},
+  flip_horizontal = false,
 }) => {
   return (
     <TooltipContainer specified_delay={specified_delay} style={style}>
-      <TooltipBox vertical_position={vertical_position}>{text}</TooltipBox>
+      <TooltipBox
+        vertical_position={vertical_position}
+        flip_horizontal={flip_horizontal}
+      >
+        {text}
+      </TooltipBox>
       {children}
     </TooltipContainer>
   );
