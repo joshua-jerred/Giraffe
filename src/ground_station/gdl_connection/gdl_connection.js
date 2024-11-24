@@ -5,15 +5,18 @@ const { Point } = require("@influxdata/influxdb-client");
 
 const SocketExchangeQueue = require("../socket_exchange_queue");
 
-const TIMEOUT = 3000;
+const TIMEOUT = 5000;
 
 module.exports = class GdlConnection {
   constructor(global_state) {
     this.global_state = global_state;
-    this.connected = false;
-    this.gdl_enabled = false;
     this.socket = null;
     this.socket_interval = null; // setInterval() object
+
+    this.connected = false;
+    this.gdl_enabled = false;
+    this.address = "127.0.0.1";
+    this.port = 9557;
 
     this.update_interval = 1000;
     this.#updateClassSettings();
@@ -69,16 +72,23 @@ module.exports = class GdlConnection {
   #cycle() {
     this.#updateClassSettings();
     if (!this.enabled) {
-      this.connected = false;
+      // this.connected = false;
       this.return;
     }
 
+    // console.log(this.connected, this.socket !== null);
+
+    let self = this;
     if (!this.socket || !this.connected) {
-      let self = this;
       this.socket = new net.Socket();
       this.socket.setTimeout(TIMEOUT);
       this.socket.connect(this.port, this.address, function () {
         self.connected = true;
+        console.log(
+          "GDL Connection Established",
+          this.connected,
+          self.connected
+        );
         // send the first request
         let request = new RequestMessage("ggs", "gdl", "status");
         self.socket.write(JSON.stringify(request));
@@ -86,13 +96,15 @@ module.exports = class GdlConnection {
       });
       this.socket.on("data", function (data) {
         self.connected = true;
-
+        // console.log("GDL Connection Data: ");
         let next_request_rsc = "status";
         try {
           let message = parse(data.toString());
           next_request_rsc = self.#handleSocketResponse(message);
-          console.log("GDL Connection Cycle: " + message);
-        } catch {}
+          // console.log("GDL captionSide - good data");
+        } catch {
+          console.log("GDL captionSide - bad data");
+        }
 
         if (self.socket_interval) {
           clearInterval(self.socket_interval);
