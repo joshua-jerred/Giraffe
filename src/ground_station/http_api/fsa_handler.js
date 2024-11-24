@@ -15,11 +15,24 @@ function wantsValues(req) {
   return true;
 }
 
+function getCategory(req) {
+  if (req.query.hasOwnProperty("category")) {
+    return req.query.category;
+  }
+  return null;
+}
+
 module.exports = function (global_state) {
-  // GET /api/fsa/status
-  router.get("/status", (req, res, next) => {
+  // GET /api/fsa/data
+  router.get("/data", (req, res, next) => {
+    let category = getCategory(req);
+    if (category === null) {
+      res.status(400).json({ error: "Category is required" });
+      return;
+    }
+
     global_state.fsa_connection.getDataForResource(
-      "status",
+      category,
       res,
       wantsValues(req),
       wantsMetadata(req)

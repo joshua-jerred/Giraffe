@@ -13,7 +13,7 @@ for (let category in gfs_configuration_meta) {
 }
 
 function loadMetaData(api, resource = null, category = null) {
-  var meta_data;
+  var meta_data = {};
   if (api === "gfs") {
     meta_data["settings"] = gfs_configuration_meta;
     meta_data["data"] = gfs_data_meta;

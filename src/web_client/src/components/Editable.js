@@ -37,11 +37,18 @@ const ItemName = styled.span`
 const ItemValue = styled.span`
   width: 50%;
   text-align: right;
+  word-break: break-word;
+  padding-left: 10px;
 `;
 
 const EditButtonCont = styled.div`
   display: flex;
   justify-content: center;
+
+  & > button {
+    width: 100rem;
+    margin: 10px;
+  }
 `;
 
 const EditableTooltip = styled(Tooltip)`
@@ -278,6 +285,9 @@ export function EditBox({ resource, category }) {
             <StyButton onClick={toggleEditMode}>
               {editMode ? "save" : "edit"}
             </StyButton>
+            {editMode ? (
+              <StyButton onClick={() => setEditMode(false)}>cancel</StyButton>
+            ) : null}
           </EditButtonCont>
         </>
       )}

@@ -107,7 +107,7 @@ module.exports = class FsaConnection {
 
     this.status_data = {
       agent_uptime_s: 0,
-      agent_status: "n/d",
+      flight_software_status: "n/d",
     };
 
     this.have_settings = false;
@@ -222,7 +222,7 @@ module.exports = class FsaConnection {
     } else if (resource === "settings") {
       values = this.settings_data;
     } else {
-      response.reject(404);
+      response.status(404);
       return;
     }
 
@@ -260,5 +260,14 @@ module.exports = class FsaConnection {
         }
       }
     );
+  }
+
+  /// @brief Get the current status of the agent
+  getFsaConnectionStatus() {
+    return this.connected_to_fsa ? "connected" : "disconnected";
+  }
+
+  getFsaGfsStatus() {
+    return this.status_data.flight_software_status;
   }
 };

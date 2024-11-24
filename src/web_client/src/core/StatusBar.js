@@ -11,6 +11,8 @@ import { NavLink } from "react-router-dom";
 
 import Tooltip from "../components/Tooltip.js";
 
+import { useStorageState } from "./LocalStorageState.js";
+
 const StatusCard = styled.div`
   display: grid;
   grid-gap: 10px;
@@ -83,19 +85,95 @@ border-bottom-right-radius: ${(props) => props.theme.status_bar.border_radius};
 overflow: ${(props) => (props.expanded ? "visible" : "hidden")};
 `;
 
-const AlertBarContentStyle = styled.ul`
-  width: fill-available;
+const AlertBarContentStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  & > li {
-    font-size: 0.9rem;
-    font-family: ${(props) => props.theme.fonts.status_bar.family};
-    font-weight: 400;
-    font-style: ${(props) => props.theme.fonts.status_bar.style};
+  width: 95%;
+  margin: 0% 0%;
+  padding: 1% 0%;
+`;
+
+const AlertStyle = styled.div`
+  font-size: 0.9rem;
+  font-family: ${(props) => props.theme.fonts.status_bar.family};
+  font-weight: 400;
+  font-style: ${(props) => props.theme.fonts.status_bar.style};
+
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0.8em 0.8em;
+  margin: 0.3em 0em;
+  // margin: 0.5em 0em;
+  width: 95%;
+  height: 1.5rem;
+
+  transition: ${(props) => props.theme.transitions.default};
+
+  border-radius: 10px;
+  cursor: pointer;
+  outline: 1px solid ${(props) => props.theme.surface};
+
+  opacity: 0.9;
+  background: ${(props) => props.theme.error_hover}20;
+  &:hover {
+    opacity: 0.9;
+    background: ${(props) => props.theme.error_hover}20;
   }
-  & > li > a {
+
+  &:first-child {
+    &:hover {
+      background: linear-gradient(
+        ${(props) => props.theme.error_hover}10,
+        ${(props) => props.theme.error_hover}10
+      );
+    }
+
+    // margin-top: 0;
+    background: linear-gradient(
+      ${(props) => props.theme.status_background}20,
+      ${(props) => props.theme.alert_bar_background}20
+    );
+  }
+
+  & > a {
     color: ${(props) => props.theme.on_error};
   }
 `;
+
+const AlertSuppressIcon = styled.i`
+  font-size: 2em;
+  position: relative;
+  display: table-cell;
+  width: 50px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  color: ${(props) => props.theme.on_surface};
+`;
+
+function Alert({ alert_id, alert_text, fix_link }) {
+  const SUPPRESS_ICON = "fa-rocket";
+  const [alertDismissed, setAlertDismissed] = useStorageState(
+    `alert_${alert_id}_dismissed`,
+    false
+  );
+
+  return (
+    <AlertStyle>
+      {" "}
+      {fix_link !== null ? (
+        <NavLink to={fix_link}>{alert_text}</NavLink>
+      ) : (
+        { alert_text }
+      )}
+      <AlertSuppressIcon className={`fa ${SUPPRESS_ICON}`} />
+    </AlertStyle>
+  );
+}
 
 function AlertBar() {
   const { alerter } = useContext(GwsGlobal);
@@ -121,12 +199,16 @@ function AlertBar() {
 
   return (
     <AlertBarStyle expanded={expanded}>
-      {" "}
       <AlertBarContentStyle>
         {Object.keys(alerter.getAlerts()).map((alert_id) => {
           return (
             // conditionally render the item as a link if one was provided
-            <li key={alert_id}>
+            <Alert
+              key={alert_id}
+              alert_id={alert_id}
+              alert_text={alerter.getAlert(alert_id).text}
+              fix_link={alerter.getAlert(alert_id).fix_link}
+            >
               {alerter.getAlert(alert_id).fix_link !== null ? (
                 <NavLink to={alerter.getAlert(alert_id).fix_link}>
                   {alerter.getAlert(alert_id).text}
@@ -134,7 +216,7 @@ function AlertBar() {
               ) : (
                 alerter.getAlert(alert_id).text
               )}
-            </li>
+            </Alert>
           );
         })}
       </AlertBarContentStyle>
@@ -170,6 +252,32 @@ function StatusBar() {
             }
           />
         </Tooltip>
+        <Tooltip
+          text="Flight System Agent Connection Status"
+          vertical_position={"-440%"}
+        >
+          <StatusItem
+            title="FSA"
+            status={
+              isGgsConnected && serviceStatuses.fsa
+                ? serviceStatuses.fsa.toUpperCase()
+                : "UNKNOWN"
+            }
+          />
+        </Tooltip>
+        <Tooltip
+          text="The status of the flight software according to the flight system agent."
+          vertical_position={"-440%"}
+        >
+          <StatusItem
+            title="FSA-GFS Status"
+            status={
+              isGgsConnected && serviceStatuses.fsa
+                ? serviceStatuses.fsa_gfs_status.toUpperCase()
+                : "UNKNOWN"
+            }
+          />
+        </Tooltip>
         <Tooltip text="telemetry up-link status" vertical_position={"-440%"}>
           <StatusItem
             title={<FontAwesomeIcon icon={faSatelliteDish} />}
@@ -191,7 +299,7 @@ function StatusBar() {
             }
           />
         </Tooltip>
-        <Tooltip text="GFS TCP Connection Status" vertical_position={"-440%"}>
+        <Tooltip text="The current flight phase" vertical_position={"-440%"}>
           <StatusItem
             title="PHASE"
             status={

@@ -48,6 +48,8 @@ class GlobalState {
       influxdb: "unknown",
       gfs: "unknown",
       gdl: "unknown",
+      fsa: "unknown",
+      fsa_gfs_status: "unknown",
       telemetry_uplink: "unknown",
       telemetry_downlink: "unknown",
       aprsfi: "unknown",
@@ -126,16 +128,23 @@ class GlobalState {
         this.ggs_status.telemetry_uplink = gdl_status.data.tpl_uplink;
         this.ggs_status.telemetry_downlink = gdl_status.data.tpl_downlink;
       } catch (error) {
-        this.ggs_status.telemetry_uplink = "unknown";
-        this.ggs_status.telemetry_downlink = "unknown";
+        this.ggs_status.telemetry_uplink = "N/D";
+        this.ggs_status.telemetry_downlink = "N/D";
       }
     }
 
+    // update the FSA status
+    this.ggs_status.fsa = this.fsa_connection.getFsaConnectionStatus();
+    this.ggs_status.fsa_gfs_status = this.fsa_connection.getFsaGfsStatus();
+
+    // update inluxdb status
     if (this.influx_enabled) {
       let point = new Point("ggs_status")
         .stringField("influxdb", this.ggs_status.influxdb)
         .stringField("gfs", this.ggs_status.gfs)
         .stringField("gdl", this.ggs_status.gdl)
+        .stringField("fsa", this.ggs_status.fsa)
+        .stringField("fsa_gfs_status", this.ggs_status.fsa_gfs_status)
         .stringField("telemetry_uplink", this.ggs_status.telemetry_uplink)
         .stringField("telemetry_downlink", this.ggs_status.telemetry_downlink)
         .stringField("aprsfi", this.ggs_status.aprsfi)

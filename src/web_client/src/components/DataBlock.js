@@ -19,7 +19,10 @@ const ItemStyle = styled.div`
   justify-content: space-between;
   margin-top: 0px;
   margin-bottom: 1px;
-  height: ${(props) => (props.multiline ? "100px" : `calc(${(props) => props.theme.components.input.height} * 0.85)`)};
+  height: ${(props) =>
+    props.multiline
+      ? "100px"
+      : `calc(${(props) => props.theme.components.input.height} * 0.85)`};
 `;
 
 const ItemName = styled.span`
@@ -33,7 +36,7 @@ const ItemValue = styled.span`
   width: 50%;
   text-align: right;
   text-overflow: ellipsis;
-  overflow-y: ${(props) => props.multiline ? "scroll" : "hidden"};
+  overflow-y: ${(props) => (props.multiline ? "scroll" : "hidden")};
   overflow-wrap: anywhere;
 `;
 
@@ -70,7 +73,7 @@ function Timestamp({ time, update_interval }) {
   );
 }
 
-function Item({ id, item_data }) {
+function Item({ id, item_data, item_nested = false }) {
   if (id === undefined && item_data.name === undefined) {
     return (
       <ItemStyle>
@@ -89,6 +92,7 @@ function Item({ id, item_data }) {
 
   let display_value = item_data.value;
   let multiline = false;
+  let nested = false;
   if (typeof item_data.value === "boolean") {
     if (item_data.true === undefined) {
       display_value = item_data.value ? "true" : "false";
@@ -97,20 +101,47 @@ function Item({ id, item_data }) {
     }
   } else if (typeof item_data.value === "object") {
     display_value = JSON.stringify(item_data.value);
-    if (display_value.length > 10) {
-      multiline = true;
-    }
+    nested = true;
+    multiline = true;
   }
 
   // console.log(item_data);
 
   return (
-    <ItemStyle multiline={multiline}>
-      <ItemName>
-        <DataTooltip text={item_data.description}>{item_data.name}</DataTooltip>
-      </ItemName>
-      <ItemValue multiline={multiline}>{display_value}</ItemValue>
-    </ItemStyle>
+    <>
+      <ItemStyle
+      // multiline={multiline}
+      >
+        <ItemName>
+          <DataTooltip text={item_data.description}>
+            {item_data.name}
+          </DataTooltip>
+        </ItemName>
+        {!nested && (
+          <ItemValue multiline={multiline}>{display_value}</ItemValue>
+        )}
+      </ItemStyle>
+      {nested && (
+        <div
+          style={{
+            marginLeft: "5%",
+          }}
+        >
+          {Object.entries(item_data.value).map(([key, value]) => (
+            <Item
+              key={key}
+              id={key}
+              item_data={{
+                name: `- ${key}`,
+                value: value,
+                description: "",
+              }}
+              item_nested={true}
+            />
+          ))}
+        </div>
+      )}
+    </>
   );
 }
 

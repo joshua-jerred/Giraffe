@@ -49,6 +49,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
     telemetry_downlink: "unknown",
     gfs: "unknown",
     gdl: "unknown",
+    fsa: "unknown", // Connected to the agent
+    fsa_gfs: "unknown", // The agent is connected to the GFS
     aprsfi: "unknown",
     influxdb: "unknown",
   };
@@ -62,10 +64,13 @@ export const GwsGlobalContextProvider = ({ children }) => {
   const [isGgsConnected, setIsGgsConnected] = React.useState(false);
   const [isGfsTcpConnected, setIsGfsTcpConnected] = React.useState(false);
   const [isGdlConnected, setIsGdlConnected] = React.useState(false);
+  const [isFsaConnected, setIsFsaConnected] = React.useState(false);
+  const [fsaGfsStatus, setFsaGfsStatus] = React.useState(false);
   const [isDownlinkConnected, setIsDownlinkConnected] = React.useState(false);
   const [isUplinkConnected, setIsUplinkConnected] = React.useState(false);
 
   const [flightData, setFlightData] = React.useState({});
+  const [flightSystemAgentData, setFlightSystemAgentData] = React.useState({});
 
   // ------ GGS Connection ------
   React.useEffect(() => {
@@ -125,6 +130,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
           setServiceStatuses(data);
           setIsGfsTcpConnected(data.gfs === "connected");
           setIsGdlConnected(data.gdl === "connected");
+          setIsFsaConnected(data.fsa === "connected");
+          setFsaGfsStatus(data.fsa_gfs === "connected");
           setIsUplinkConnected(data.telemetry_uplink === "connected");
           setIsDownlinkConnected(data.telemetry_downlink === "connected");
 
@@ -138,6 +145,17 @@ export const GwsGlobalContextProvider = ({ children }) => {
             );
           } else {
             alerter.clearAlert("not_connected_to_gdl");
+          }
+
+          if (data.fsa !== "connected") {
+            alerter.addAlert(
+              "not_connected_to_fsa",
+              "The Ground Station Server is not connected to the Flight System Agent.",
+              0,
+              "/setup"
+            );
+          } else {
+            alerter.clearAlert("not_connected_to_fsa");
           }
         })
         .catch((error) => {
@@ -164,6 +182,17 @@ export const GwsGlobalContextProvider = ({ children }) => {
         })
         .catch((error) => {
           console.error("Error getting flight data", error);
+        });
+
+      // Flight System Agent data
+      fetch(`${ggsAddress}/api/fsa/data?category=status&include=values`)
+        .then((response) => response.json())
+        .then((json_data) => {
+          console.log("FSA data", json_data);
+          setFlightSystemAgentData(json_data.values);
+        })
+        .catch((error) => {
+          console.error("Error getting FSA data", error);
         });
     };
 

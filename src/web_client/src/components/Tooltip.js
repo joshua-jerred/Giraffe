@@ -37,9 +37,10 @@ const Tooltip = ({
   children,
   vertical_position = "125%",
   specified_delay = null,
+  style = {},
 }) => {
   return (
-    <TooltipContainer specified_delay={specified_delay}>
+    <TooltipContainer specified_delay={specified_delay} style={style}>
       <TooltipBox vertical_position={vertical_position}>{text}</TooltipBox>
       {children}
     </TooltipContainer>
