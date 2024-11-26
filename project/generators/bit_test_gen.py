@@ -1,6 +1,6 @@
 import sys
 import json
-from cpp_gen_v2 import FileGenerator, Enum, Map, TextBlock, Function, Namespace, Vector
+from cpp_gen_v2 import FileGenerator, Enum, Map, TextBlock, Function, Namespace, Vector, Templater, Block
 
 assert len(sys.argv) == 5, "usage: bit_test_gen.py <metadata_json> <output_hpp_file> <output_cpp_file>"
 
@@ -14,8 +14,8 @@ out_hpp.addIncludes("<cstdint>", "<string>")
 out_cpp = FileGenerator("")
 out_cpp.addIncludes("<map>", "", "", "",  '"giraffe_assert.hpp"', '"bit_types.hpp"')
 
-out_test_cases_hpp = FileGenerator("", pragma_once=True)
-out_test_cases_hpp.addIncludes("<vector>", "<string>", "", '"bit_types.hpp"', '"test_case.hpp"')
+# out_test_cases_hpp = FileGenerator("", pragma_once=True)
+# out_test_cases_hpp.addIncludes("<vector>", "<string>", "", '"bit_types.hpp"', '"test_case.hpp"')
 
 input_json = json.load(open(sys.argv[1], "r"))
 test_groups = input_json["tests"]
@@ -120,18 +120,28 @@ test_id_enum_to_string_func.addInsideComponent('}')
 test_id_enum_to_string_func.addInsideComponent('return TestIdToStringMap.at(testId);')
 cpp_namespace.addComponent(test_id_enum_to_string_func)
 
-test_cases_namespace = Namespace("bit")
+test_cases_namespace = Block(wrap_block=False)
+
+test_groups_reference_map = Map("test_groups_map", "TestGroupId", "TestSuite&")
 
 # Now that we have all of the base enums and maps, we can generate the test vectors
-VECTOR_PREFIX = "const std::vector<TestCase> "
 for group_label in group_test_list_vectors:
     group_test_list = group_test_list_vectors[group_label]
-    group_test_vector = Vector(f"BIT_TEST_GROUP_{group_label}", "TestCase", extra_qualifiers="static const")
+    group_test_vector = Vector(f"{group_label.lower()}_test_suite_", None, extra_qualifiers="", std_type="TestSuite", equal_sign=False)
     group_test_vector.addDoxBrief(f"Test cases for the {group_label} group.")
+    
+    group_test_vector.addString(f"TestGroupId::{group_label.upper()}, shared_data_")
+    first = True
     for test in group_test_list:
-        group_test_vector.addString(f"{{TestGroupId::{group_label}, TestId::{test}, TestStatus::Unknown}}")
+        group_test_vector.addString(('{' if first else '') + f"{{TestGroupId::{group_label}, TestId::{test}}}")
         # print(test, group_test_list)
+        first = False
+    group_test_vector.addString("}")
     test_cases_namespace.addComponent(group_test_vector)
+    
+    # Add the test group to the reference map
+    test_groups_reference_map.addPair(f'TestGroupId::{group_label}', f'{group_label.lower()}_test_suite_')
+    
 
 # for group_label in group_test_list_vectors:
     # group_test_list = group_test_list_vectors[group_label]
@@ -140,5 +150,11 @@ for group_label in group_test_list_vectors:
 out_cpp.addComponent(cpp_namespace)
 out_cpp.write(out_cpp_path)
 
-out_test_cases_hpp.addComponent(test_cases_namespace)
-out_test_cases_hpp.write(out_test_cases_path)
+# out_test_cases_hpp.addComponent(test_cases_namespace)
+# out_test_cases_hpp.write(out_test_cases_path)
+
+test_cases_namespace.addComponent(test_groups_reference_map)
+
+t = Templater(out_test_cases_path, print_dont_write=False)
+# print(test_cases_namespace.get())
+t.template("bit_test_suites", test_cases_namespace.get(0))

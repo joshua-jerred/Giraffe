@@ -6,6 +6,7 @@ from .namespace import Namespace
 from .function import Function 
 from .vector import Vector
 from .templater import Templater
+from .block import Block
 
 INDENT_CHARS = "  "
 DOXYGEN_FORMAT = "/// @"

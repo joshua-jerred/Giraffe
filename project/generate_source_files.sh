@@ -41,7 +41,7 @@ python3 ./project/generators/bit_test_gen.py \
   ./project/metadata/gfs_bit_test.json \
   ./src/flight_system/flight_runner/built_in_test/bit_types.hpp \
   ./src/flight_system/flight_runner/built_in_test/bit_types.cpp \
-  ./src/flight_system/flight_runner/built_in_test/test_cases.hpp
+  ./src/flight_system/flight_runner/built_in_test/built_in_test.hpp
 
 echo "Generating flight system agent configuration"
 python3 ./project/generators/fsa_gen.py \

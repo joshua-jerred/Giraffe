@@ -125,6 +125,19 @@ public:
    */
   friend FlightPhaseManager;
 
+  Json getBitTestData() {
+    Json bit_info = {
+        {"gfs_ready_to_perform_bit_test", true},
+        {"bit_test_running", false},
+        {"bit_test_start_time", {}},
+        {"bit_test_end_time", {}},
+        {"bit_test_results", "n/r"},
+    };
+    Json bit_results = {{"FCS", {"0x0001", "n/r"}}};
+
+    return Json({{"bit_info", bit_info}, {"bit_results", bit_results}});
+  }
+
 private:
   void setFlightPhase(FlightPhase new_phase) {
     flight_phase_ = new_phase;
