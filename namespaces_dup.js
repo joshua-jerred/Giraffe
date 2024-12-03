@@ -1,11 +1,15 @@
 var namespaces_dup =
 [
+    [ "bit", "namespacebit.html", "namespacebit" ],
     [ "cfg", "namespacecfg.html", "namespacecfg" ],
     [ "cmd", "namespacecmd.html", "namespacecmd" ],
     [ "console_pages", "namespaceconsole__pages.html", "namespaceconsole__pages" ],
     [ "data", "namespacedata.html", "namespacedata" ],
     [ "data_middleware", "namespacedata__middleware.html", "namespacedata__middleware" ],
     [ "extension", "namespaceextension.html", "namespaceextension" ],
+    [ "flight_system_agent", "namespaceflight__system__agent.html", [
+      [ "DAEMON_PORT", "namespaceflight__system__agent.html#a348a048e3bb8a9f89c8f845c7cda550d", null ]
+    ] ],
     [ "gfs_sim", "namespacegfs__sim.html", "namespacegfs__sim" ],
     [ "giraffe", "namespacegiraffe.html", "namespacegiraffe" ],
     [ "modules", "namespacemodules.html", "namespacemodules" ],

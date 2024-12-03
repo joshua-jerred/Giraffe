@@ -37,7 +37,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" target="_top" xlink:title="Get the message as a JSON string.">
+<g id="a_node3"><a xlink:href="structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" target="_top" xlink:title="Get the message as a JSON string.">
 <polygon fill="none" stroke="black" points="173,-98.5 173,-128.5 285,-128.5 285,-98.5 173,-98.5"/>
 <text text-anchor="start" x="181" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol::Message::</text>
 <text text-anchor="middle" x="229" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">getJsonString</text>
@@ -85,7 +85,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" target="_top" xlink:title="Get the message as a JSON object.">
+<g id="a_node4"><a xlink:href="structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" target="_top" xlink:title="Get the message as a JSON object.">
 <polygon fill="none" stroke="black" points="335,-98.5 335,-128.5 447,-128.5 447,-98.5 335,-98.5"/>
 <text text-anchor="start" x="343" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol::Message::</text>
 <text text-anchor="middle" x="391" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">getJson</text>

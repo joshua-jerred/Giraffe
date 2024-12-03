@@ -1,4 +1,0 @@
-<map id="protocol::Message::getJsonString" name="protocol::Message::getJsonString">
-<area shape="rect" id="node1" title="Get the message as a JSON string." alt="" coords="5,5,155,47"/>
-<area shape="rect" id="node2" href="$structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" title="Get the message as a JSON object." alt="" coords="203,5,352,47"/>
-</map>

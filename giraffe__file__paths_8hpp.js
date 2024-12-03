@@ -10,5 +10,8 @@ var giraffe__file__paths_8hpp =
     [ "getGfsLogDirPath", "giraffe__file__paths_8hpp.html#acfd866770216db1b79d6f669b376e5ad", null ],
     [ "getGfsLogArchiveDirPath", "giraffe__file__paths_8hpp.html#a562ee8f7b45dd38039768a7847a02d5d", null ],
     [ "getGfsFlightRunnerDataFilePath", "giraffe__file__paths_8hpp.html#aef6cfddd3fef84d131765805a8152fbc", null ],
+    [ "getFlightSystemAgentDirPath", "giraffe__file__paths_8hpp.html#ad3893d2b3c6641d111c0237cab96e09f", null ],
+    [ "getFlightSystemAgentLogFilePath", "giraffe__file__paths_8hpp.html#ae60e01f40243d47b41ec8fdb1a687ce5", null ],
+    [ "getFlightSystemAgentConfigFilePath", "giraffe__file__paths_8hpp.html#a0fc419b3cf5bf284d4e66a76f05d9f48", null ],
     [ "generateFileNameWithTimestamp", "giraffe__file__paths_8hpp.html#af5c1d677a515ee726e43548eae52335e", null ]
 ];

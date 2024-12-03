@@ -1,6 +1,10 @@
 <map id="socket.hpp" name="socket.hpp">
-<area shape="rect" id="node1" title="The socket class header." alt="" coords="153,5,245,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,87,101,114"/>
-<area shape="rect" id="node3" title=" " alt="" coords="125,80,272,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="296,87,355,114"/>
+<area shape="rect" id="node1" title="The socket class header." alt="" coords="98,5,190,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="175,244,234,271"/>
+<area shape="rect" id="node3" title=" " alt="" coords="24,87,120,114"/>
+<area shape="rect" id="node4" title=" " alt="" coords="144,80,291,121"/>
+<area shape="rect" id="node5" href="$optional__logger_8hpp.html" title=" " alt="" coords="316,87,466,114"/>
+<area shape="rect" id="node6" title=" " alt="" coords="242,169,329,196"/>
+<area shape="rect" id="node7" title=" " alt="" coords="354,169,428,196"/>
+<area shape="rect" id="node8" href="$i__logger_8hpp.html" title=" " alt="" coords="452,169,554,196"/>
 </map>

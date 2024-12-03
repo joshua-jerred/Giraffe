@@ -1,32 +1,33 @@
 <map id="protocol::createResponseMessage" name="protocol::createResponseMessage">
-<area shape="rect" id="node1" title="Create a Response Message." alt="" coords="1227,407,1413,448"/>
-<area shape="rect" id="node2" href="$group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7" title="This function responds to data requests." alt="" coords="695,348,896,390"/>
-<area shape="rect" id="node4" href="$group__ServerModule.html#aa4ad8544dc8431ede7414c834a8a9257" title="This function responds to a ping request." alt="" coords="403,403,602,444"/>
-<area shape="rect" id="node5" href="$group__ServerModule.html#a4209bc198222e3efa2a77501a0f7a71d" title="This function responds to a setting request." alt="" coords="687,466,903,507"/>
-<area shape="rect" id="node6" href="$group__ServerModule.html#a1d58bc2e5fc57191959bc60a89b61ec5" title="This function handles a setting SET request. It will attempt to set the configuration with the value ..." alt="" coords="384,137,621,164"/>
-<area shape="rect" id="node7" href="$group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="980,288,1168,330"/>
-<area shape="rect" id="node11" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7cc778f8170363add8e6812bb04c019e" title=" " alt="" coords="992,630,1156,671"/>
-<area shape="rect" id="node20" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a6e3b9922addcc9e0104c7dc0b7cf3c62" title=" " alt="" coords="992,1072,1156,1114"/>
-<area shape="rect" id="node29" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a548f7a1170b29a673ec85eaba09b0cb3" title=" " alt="" coords="986,1255,1162,1296"/>
-<area shape="rect" id="node30" href="$group__ServerModule.html#aa6ff009c15a46c7f5c75ed3110a4f9a3" title="Send a basic success response." alt="" coords="969,130,1179,171"/>
-<area shape="rect" id="node3" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="108,325,336,352"/>
-<area shape="rect" id="node8" href="$group__ServerModule.html#a493ddf0161bba462a169e510c5215990" title="A special handler for updating ADC mapping settings." alt="" coords="698,64,893,106"/>
-<area shape="rect" id="node9" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="384,231,621,272"/>
-<area shape="rect" id="node10" href="$group__ServerModule.html#af41f65e7470ab4490dfa655ead0a7f88" title="A special handler for updating extension settings." alt="" coords="678,130,913,171"/>
-<area shape="rect" id="node12" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a18f226e3bc271111f787cfb99a00eb59" title=" " alt="" coords="711,531,879,572"/>
-<area shape="rect" id="node16" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a21c93c33b3bcbed5552b761e75a4042c" title=" " alt="" coords="713,596,877,638"/>
-<area shape="rect" id="node17" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ab6878a1f3f5cc89ec02b45f749526db7" title=" " alt="" coords="669,662,921,703"/>
-<area shape="rect" id="node18" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aff9e02d8e689385ccf8ad741e6951076" title=" " alt="" coords="685,727,906,768"/>
-<area shape="rect" id="node19" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a78670e65013497b31f7069d03263884e" title=" " alt="" coords="711,792,879,834"/>
-<area shape="rect" id="node13" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a26729c50039ce0fcc47376ca3d5b0720" title=" " alt="" coords="421,727,585,768"/>
-<area shape="rect" id="node14" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="125,924,319,950"/>
-<area shape="rect" id="node15" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,924,60,950"/>
-<area shape="rect" id="node21" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a4d192ae2860673d135f68e680765a2ef" title=" " alt="" coords="713,1288,877,1330"/>
-<area shape="rect" id="node22" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7a640a9a945bb13a494c175f857fc719" title=" " alt="" coords="421,1106,585,1147"/>
-<area shape="rect" id="node23" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ab03a68c11494c21b1f203284faa2f252" title=" " alt="" coords="695,910,896,951"/>
-<area shape="rect" id="node24" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a4d7e04cf26f648f6fe04c311339e6362" title=" " alt="" coords="697,975,893,1016"/>
-<area shape="rect" id="node25" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a53b271c9f0602706839489ac0994b763" title=" " alt="" coords="701,1354,890,1395"/>
-<area shape="rect" id="node26" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a565558716f0334d5a8785457da0155fc" title=" " alt="" coords="702,1223,889,1264"/>
-<area shape="rect" id="node27" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a372fa6baf8587e6eb678bd92249d09e4" title=" " alt="" coords="709,1040,882,1082"/>
-<area shape="rect" id="node28" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aba2606a2bb65f49db1e9d572b65511c1" title=" " alt="" coords="713,1106,877,1147"/>
+<area shape="rect" id="node1" title="Create a Response Message." alt="" coords="1227,411,1413,452"/>
+<area shape="rect" id="node2" href="$group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7" title="This function responds to data requests." alt="" coords="695,61,896,103"/>
+<area shape="rect" id="node4" href="$group__ServerModule.html#aa4ad8544dc8431ede7414c834a8a9257" title="This function responds to a ping request." alt="" coords="403,5,602,47"/>
+<area shape="rect" id="node5" href="$group__ServerModule.html#a4209bc198222e3efa2a77501a0f7a71d" title="This function responds to a setting request." alt="" coords="687,127,903,168"/>
+<area shape="rect" id="node6" href="$group__ServerModule.html#a1d58bc2e5fc57191959bc60a89b61ec5" title="This function handles a setting SET request. It will attempt to set the configuration with the value ..." alt="" coords="384,418,621,445"/>
+<area shape="rect" id="node7" href="$group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="980,287,1168,328"/>
+<area shape="rect" id="node12" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7cc778f8170363add8e6812bb04c019e" title=" " alt="" coords="992,1251,1156,1292"/>
+<area shape="rect" id="node21" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a6e3b9922addcc9e0104c7dc0b7cf3c62" title=" " alt="" coords="992,808,1156,849"/>
+<area shape="rect" id="node30" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a548f7a1170b29a673ec85eaba09b0cb3" title=" " alt="" coords="986,989,1162,1031"/>
+<area shape="rect" id="node31" href="$group__ServerModule.html#aa6ff009c15a46c7f5c75ed3110a4f9a3" title="Send a basic success response." alt="" coords="969,411,1179,452"/>
+<area shape="rect" id="node3" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="108,185,336,211"/>
+<area shape="rect" id="node8" href="$group__ServerModule.html#a493ddf0161bba462a169e510c5215990" title="A special handler for updating ADC mapping settings." alt="" coords="698,476,893,517"/>
+<area shape="rect" id="node9" href="$group__ServerModule.html#a4dbd5cc7d2e1fb3091613259f3b843fb" title="Handle bit test set requests." alt="" coords="701,345,889,387"/>
+<area shape="rect" id="node10" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="384,177,621,219"/>
+<area shape="rect" id="node11" href="$group__ServerModule.html#af41f65e7470ab4490dfa655ead0a7f88" title="A special handler for updating extension settings." alt="" coords="678,411,913,452"/>
+<area shape="rect" id="node13" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a18f226e3bc271111f787cfb99a00eb59" title=" " alt="" coords="711,1219,879,1260"/>
+<area shape="rect" id="node17" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a21c93c33b3bcbed5552b761e75a4042c" title=" " alt="" coords="713,1284,877,1325"/>
+<area shape="rect" id="node18" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ab6878a1f3f5cc89ec02b45f749526db7" title=" " alt="" coords="669,1349,921,1391"/>
+<area shape="rect" id="node19" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aff9e02d8e689385ccf8ad741e6951076" title=" " alt="" coords="685,1415,906,1456"/>
+<area shape="rect" id="node20" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a78670e65013497b31f7069d03263884e" title=" " alt="" coords="711,1153,879,1195"/>
+<area shape="rect" id="node14" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a26729c50039ce0fcc47376ca3d5b0720" title=" " alt="" coords="421,1219,585,1260"/>
+<area shape="rect" id="node15" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="125,1037,319,1063"/>
+<area shape="rect" id="node16" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,1037,60,1063"/>
+<area shape="rect" id="node22" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a4d192ae2860673d135f68e680765a2ef" title=" " alt="" coords="713,1023,877,1064"/>
+<area shape="rect" id="node23" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7a640a9a945bb13a494c175f857fc719" title=" " alt="" coords="421,840,585,881"/>
+<area shape="rect" id="node24" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ab03a68c11494c21b1f203284faa2f252" title=" " alt="" coords="695,644,896,685"/>
+<area shape="rect" id="node25" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a4d7e04cf26f648f6fe04c311339e6362" title=" " alt="" coords="697,709,893,751"/>
+<area shape="rect" id="node26" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a53b271c9f0602706839489ac0994b763" title=" " alt="" coords="701,1088,890,1129"/>
+<area shape="rect" id="node27" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a565558716f0334d5a8785457da0155fc" title=" " alt="" coords="702,957,889,999"/>
+<area shape="rect" id="node28" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a372fa6baf8587e6eb678bd92249d09e4" title=" " alt="" coords="709,775,882,816"/>
+<area shape="rect" id="node29" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aba2606a2bb65f49db1e9d572b65511c1" title=" " alt="" coords="713,840,877,881"/>
 </map>

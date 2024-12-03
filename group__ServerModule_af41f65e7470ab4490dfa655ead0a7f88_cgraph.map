@@ -1,13 +1,13 @@
 <map id="RequestRouter::handleExtensionSettingUpdate" name="RequestRouter::handleExtensionSettingUpdate">
 <area shape="rect" id="node1" title="A special handler for updating extension settings." alt="" coords="5,104,240,145"/>
-<area shape="rect" id="node2" href="$structprotocol_1_1Message.html#a0c767f4a41337a482488e705533031aa" title="Get the message body as a JSON object." alt="" coords="318,5,467,47"/>
+<area shape="rect" id="node2" href="$structprotocol_1_1Message.html#a3d440cf2054fb31ce4f802dc2e93a7cb" title="Get the message body as a JSON object." alt="" coords="318,5,467,47"/>
 <area shape="rect" id="node3" href="$group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="299,71,487,112"/>
 <area shape="rect" id="node9" href="$group__ServerModule.html#aa6ff009c15a46c7f5c75ed3110a4f9a3" title="Send a basic success response." alt="" coords="288,136,497,177"/>
 <area shape="rect" id="node10" href="$structcfg_1_1ExtensionMetadata.html#a25eef35ae61801373e433443c9a5aa6e" title="Sets the extension metadata from a Json object." alt="" coords="305,201,481,243"/>
 <area shape="rect" id="node4" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="559,135,746,176"/>
 <area shape="rect" id="node5" href="$group__ServerModule.html#a4d13e34f9d56d94f7a410248eed83a8b" title="Send a message to the client." alt="" coords="545,81,760,107"/>
-<area shape="rect" id="node6" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="817,40,966,81"/>
+<area shape="rect" id="node6" href="$structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" title="Get the message as a JSON string." alt="" coords="817,40,966,81"/>
 <area shape="rect" id="node8" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="808,105,975,147"/>
-<area shape="rect" id="node7" href="$structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" title="Get the message as a JSON object." alt="" coords="1023,40,1172,81"/>
+<area shape="rect" id="node7" href="$structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" title="Get the message as a JSON object." alt="" coords="1023,40,1172,81"/>
 <area shape="rect" id="node11" href="$namespacegfs__sim.html#af1cb08ac5758d2342c8418c984eaa029" title="Log a message within the GFS simulator." alt="" coords="602,209,703,235"/>
 </map>

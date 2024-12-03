@@ -27,5 +27,6 @@ var classFlightRunner =
     [ "p_system_module_", "classFlightRunner.html#a679e2f24e7547d2884a360f1a0eb88cc", null ],
     [ "p_extension_module_", "classFlightRunner.html#a01fea479a57c31424e89a0f397ff0b8b", null ],
     [ "p_telemetry_module_", "classFlightRunner.html#a3481f326d4fa66f11536dc0dca522926", null ],
-    [ "flight_phase_manager_", "classFlightRunner.html#a28bee712ce96694e009e3c055e1c5020", null ]
+    [ "flight_phase_manager_", "classFlightRunner.html#a28bee712ce96694e009e3c055e1c5020", null ],
+    [ "bit_test_", "classFlightRunner.html#ac8094b74672e9a4d659ca332f70f9b1b", null ]
 ];

@@ -1,16 +1,16 @@
 <map id="giraffe::gdl::GdlServer::run" name="giraffe::gdl::GdlServer::run">
 <area shape="rect" id="node1" title=" " alt="" coords="5,1131,199,1158"/>
 <area shape="rect" id="node2" href="$group__ServerModule.html#a95598210b1160af6262ebc086d40b5d7" title=" " alt="" coords="252,5,419,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1CommonLogger.html#a452095d327c721f1ac8afc35f9744b8c" title=" " alt="" coords="1089,384,1264,425"/>
+<area shape="rect" id="node3" href="$classgiraffe_1_1CommonLogger.html#a364f4ba232bd54940d234fbefa0fc932" title=" " alt="" coords="1089,384,1264,425"/>
 <area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1DataLink.html#af2abf8909cea23f020779dfdeea6cfc3" title="Disable the Data Link. Stops the background thread." alt="" coords="256,1212,415,1253"/>
 <area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1DataLink.html#a8cd697b9f74bcd17d9a48e259eb7e345" title="Check if the Data Link is enabled." alt="" coords="493,1376,652,1417"/>
 <area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90" title="Enable the Data Link. Starts the background thread." alt="" coords="256,1277,415,1319"/>
-<area shape="rect" id="node21" href="$classgiraffe_1_1CommonLogger.html#a0d6317e157230c5dd6e9d658b8263ca2" title=" " alt="" coords="1089,515,1264,556"/>
+<area shape="rect" id="node21" href="$classgiraffe_1_1CommonLogger.html#aa809939432e88f6590c9244c1defcac3" title=" " alt="" coords="1089,515,1264,556"/>
 <area shape="rect" id="node22" href="$group__ServerModule.html#ae9def188b439f30cb52f9e908dcb8be4" title=" " alt="" coords="252,1343,419,1384"/>
-<area shape="rect" id="node23" href="$classgiraffe_1_1CommonLogger.html#a74487cf5682cfcef361413c6552be9f1" title=" " alt="" coords="786,939,961,980"/>
+<area shape="rect" id="node23" href="$classgiraffe_1_1CommonLogger.html#a403f3c5745fb3f989d1bc1e89b2630ca" title=" " alt="" coords="786,939,961,980"/>
 <area shape="rect" id="node24" href="$group__ServerModule.html#ae131e7d5b2827144d018f1482ab316cc" title=" " alt="" coords="252,1408,419,1449"/>
 <area shape="rect" id="node25" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a38bb766c005f9060bf13aeb5c553dd05" title=" " alt="" coords="491,325,655,367"/>
-<area shape="rect" id="node32" href="$classgiraffe_1_1CommonLogger.html#a008aac905e59c9aaa273c06578acc590" title=" " alt="" coords="1089,180,1264,221"/>
+<area shape="rect" id="node32" href="$classgiraffe_1_1CommonLogger.html#a07898855e3e0e44e4d6676ab0b51df42" title=" " alt="" coords="1089,180,1264,221"/>
 <area shape="rect" id="node33" href="$namespaceprotocol.html#ac6314a5d8075e25c09e5381ff1c4ca24" title="Parse a JSON string into a Message." alt="" coords="247,1474,424,1501"/>
 <area shape="rect" id="node34" href="$group__ServerModule.html#a6fc4ac999c586de6a35105dcbf431c51" title=" " alt="" coords="252,1525,419,1567"/>
 <area shape="rect" id="node35" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a26729c50039ce0fcc47376ca3d5b0720" title=" " alt="" coords="491,697,655,739"/>

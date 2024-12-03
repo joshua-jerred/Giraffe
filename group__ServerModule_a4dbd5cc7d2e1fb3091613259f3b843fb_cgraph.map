@@ -1,0 +1,12 @@
+<map id="RequestRouter::handleBitTestSet" name="RequestRouter::handleBitTestSet">
+<area shape="rect" id="node1" title="Handle bit test set requests." alt="" coords="5,71,193,112"/>
+<area shape="rect" id="node2" href="$classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8" title=" " alt="" coords="259,5,433,47"/>
+<area shape="rect" id="node4" href="$group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="252,136,440,177"/>
+<area shape="rect" id="node10" href="$group__ServerModule.html#aa6ff009c15a46c7f5c75ed3110a4f9a3" title="Send a basic success response." alt="" coords="241,71,451,112"/>
+<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="499,5,729,47"/>
+<area shape="rect" id="node5" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="521,133,707,175"/>
+<area shape="rect" id="node6" href="$group__ServerModule.html#a4d13e34f9d56d94f7a410248eed83a8b" title="Send a message to the client." alt="" coords="507,81,721,107"/>
+<area shape="rect" id="node7" href="$structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" title="Get the message as a JSON string." alt="" coords="786,41,935,83"/>
+<area shape="rect" id="node9" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="777,107,944,148"/>
+<area shape="rect" id="node8" href="$structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" title="Get the message as a JSON object." alt="" coords="992,41,1141,83"/>
+</map>

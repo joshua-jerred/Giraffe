@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('md_docs_dev_environment.html',''); ini
 <div class="title">Development Environment </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md31"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md45"></a>
 Linux Packages</h1>
 <p>libi2c-dev nlohmann-json3-dev libgtest-dev libncurses5-dev libncursesw5-dev libpulse-dev</p>
 <p>libgtest-dev needed to be manually installed on the docker cross compiler</p>
@@ -116,7 +116,7 @@ Linux Packages</h1>
 <li><code>sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a</code></li>
 <li><code>sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md32"></a>
+<h1><a class="anchor" id="autotoc_md46"></a>
 Cross Compiler GMock</h1>
 <p>Normally libgtest-dev does everything, but for the docker cross compiler I had to do the following:</p>
 <ul>
@@ -125,7 +125,7 @@ Cross Compiler GMock</h1>
 <li><code>sudo cp lib/*.a /usr/lib/arm-linux-gnueabihf/</code></li>
 </ul>
 <p>Without this cmake was not able to find gmock.</p>
-<h1><a class="anchor" id="autotoc_md33"></a>
+<h1><a class="anchor" id="autotoc_md47"></a>
 Python</h1>
 <p>Python 3 is required, created and tested with Python 3.10.6 The following pip packages are required:</p>
 <ul>
@@ -136,9 +136,9 @@ Python</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md34"></a>
+<h1><a class="anchor" id="autotoc_md48"></a>
 Static Analysis/Pre-Commit</h1>
-<h1><a class="anchor" id="autotoc_md35"></a>
+<h1><a class="anchor" id="autotoc_md49"></a>
 Pre-Commit</h1>
 <p>Need the following packages:</p>
 <ul>

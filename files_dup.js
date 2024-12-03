@@ -5,10 +5,13 @@ var files_dup =
     [ "adc_interpolation.hpp", "adc__interpolation_8hpp.html", [
       [ "AdcInterpolation", "classdata__middleware_1_1AdcInterpolation.html", "classdata__middleware_1_1AdcInterpolation" ]
     ] ],
+    [ "agent_network.hpp", "agent__network_8hpp.html", "agent__network_8hpp" ],
     [ "aprs_manager.cpp", "aprs__manager_8cpp.html", null ],
     [ "aprs_manager.hpp", "aprs__manager_8hpp.html", [
       [ "AprsManager", "classgiraffe_1_1AprsManager.html", "classgiraffe_1_1AprsManager" ]
     ] ],
+    [ "bit_types.cpp", "bit__types_8cpp.html", null ],
+    [ "bit_types.hpp", "bit__types_8hpp.html", null ],
     [ "blocks.hpp", "blocks_8hpp.html", "blocks_8hpp" ],
     [ "bme280.cpp", "bme280_8cpp.html", "bme280_8cpp" ],
     [ "bme280.hpp", "bme280_8hpp.html", [
@@ -37,6 +40,11 @@ var files_dup =
     [ "bmi088.cpp", "bmi088_8cpp.html", "bmi088_8cpp" ],
     [ "bmi088.hpp", "bmi088_8hpp.html", [
       [ "Bmi088", "classextension_1_1Bmi088.html", "classextension_1_1Bmi088" ]
+    ] ],
+    [ "built_in_test.hpp", "built__in__test_8hpp.html", [
+      [ "BuiltInTest", "classbit_1_1BuiltInTest.html", "classbit_1_1BuiltInTest" ],
+      [ "TestCase", "classbit_1_1TestCase.html", "classbit_1_1TestCase" ],
+      [ "TestGroup", "classbit_1_1TestGroup.html", "classbit_1_1TestGroup" ]
     ] ],
     [ "calculated_data.cpp", "calculated__data_8cpp.html", null ],
     [ "calculated_data.hpp", "calculated__data_8hpp.html", [
@@ -222,8 +230,15 @@ var files_dup =
     [ "i2c_interface.hpp", "i2c__interface_8hpp.html", [
       [ "I2cInterface", "classI2cInterface.html", "classI2cInterface" ]
     ] ],
+    [ "i_built_in_test.hpp", "i__built__in__test_8hpp.html", [
+      [ "IBuiltInTest", "classbit_1_1IBuiltInTest.html", "classbit_1_1IBuiltInTest" ]
+    ] ],
     [ "i_giraffe_data_link.hpp", "i__giraffe__data__link_8hpp.html", [
       [ "IDataLink", "classgiraffe_1_1gdl_1_1IDataLink.html", "classgiraffe_1_1gdl_1_1IDataLink" ]
+    ] ],
+    [ "i_logger.hpp", "i__logger_8hpp.html", [
+      [ "DummyLogger", "classgiraffe_1_1DummyLogger.html", "classgiraffe_1_1DummyLogger" ],
+      [ "ILogger", "classgiraffe_1_1ILogger.html", "classgiraffe_1_1ILogger" ]
     ] ],
     [ "imu_extension_base.hpp", "imu__extension__base_8hpp.html", "imu__extension__base_8hpp" ],
     [ "influxdb.cpp", "influxdb_8cpp.html", "influxdb_8cpp" ],
@@ -263,6 +278,9 @@ var files_dup =
     [ "one_wire_interface.hpp", "one__wire__interface_8hpp.html", [
       [ "OneWireInterface", "classOneWireInterface.html", "classOneWireInterface" ]
     ] ],
+    [ "optional_logger.hpp", "optional__logger_8hpp.html", [
+      [ "OptionalLogger", "classgiraffe_1_1OptionalLogger.html", "classgiraffe_1_1OptionalLogger" ]
+    ] ],
     [ "physical_layer.cpp", "physical__layer_8cpp.html", null ],
     [ "physical_layer.hpp", "physical__layer_8hpp.html", [
       [ "PhysicalLayer", "classgiraffe_1_1gdl_1_1PhysicalLayer.html", "classgiraffe_1_1gdl_1_1PhysicalLayer" ]
@@ -288,6 +306,7 @@ var files_dup =
     ] ],
     [ "request_handler.cpp", "request__handler_8cpp.html", null ],
     [ "request_handler.hpp", "request__handler_8hpp.html", null ],
+    [ "request_handler_bit_test.cpp", "request__handler__bit__test_8cpp.html", null ],
     [ "request_handler_data.cpp", "request__handler__data_8cpp.html", "request__handler__data_8cpp" ],
     [ "request_handler_image.cpp", "request__handler__image_8cpp.html", null ],
     [ "request_handler_settings.cpp", "request__handler__settings_8cpp.html", null ],
@@ -378,6 +397,9 @@ var files_dup =
     [ "test_adc_config.cpp", "test__adc__config_8cpp.html", null ],
     [ "test_application_layer.cpp", "test__application__layer_8cpp.html", "test__application__layer_8cpp" ],
     [ "test_aprs_manager.cpp", "test__aprs__manager_8cpp.html", "test__aprs__manager_8cpp" ],
+    [ "test_built_in_self_test.cpp", "test__built__in__self__test_8cpp.html", "test__built__in__self__test_8cpp" ],
+    [ "test_cases.cpp", "test__cases_8cpp.html", "test__cases_8cpp" ],
+    [ "test_cases.hpp", "test__cases_8hpp.html", "test__cases_8hpp" ],
     [ "test_command_processor.cpp", "test__command__processor_8cpp.html", "test__command__processor_8cpp" ],
     [ "test_configuration.cpp", "test__configuration_8cpp.html", "test__configuration_8cpp" ],
     [ "test_data_module.cpp", "test__data__module_8cpp.html", "test__data__module_8cpp" ],

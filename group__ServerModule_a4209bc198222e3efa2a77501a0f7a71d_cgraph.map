@@ -3,7 +3,7 @@
 <area shape="rect" id="node2" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="519,5,706,47"/>
 <area shape="rect" id="node3" href="$group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="269,49,457,91"/>
 <area shape="rect" id="node4" href="$group__ServerModule.html#a4d13e34f9d56d94f7a410248eed83a8b" title="Send a message to the client." alt="" coords="505,86,720,113"/>
-<area shape="rect" id="node5" href="$structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" title="Get the message as a JSON string." alt="" coords="777,45,926,87"/>
+<area shape="rect" id="node5" href="$structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" title="Get the message as a JSON string." alt="" coords="777,45,926,87"/>
 <area shape="rect" id="node7" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="768,111,935,152"/>
-<area shape="rect" id="node6" href="$structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" title="Get the message as a JSON object." alt="" coords="983,45,1132,87"/>
+<area shape="rect" id="node6" href="$structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" title="Get the message as a JSON object." alt="" coords="983,45,1132,87"/>
 </map>

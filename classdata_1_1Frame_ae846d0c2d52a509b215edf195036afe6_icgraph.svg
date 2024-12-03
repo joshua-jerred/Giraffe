@@ -32,41 +32,56 @@
 <path fill="none" stroke="midnightblue" d="M459.38,-49.93C444.47,-54.15 427.54,-58.75 412,-62.5 398.06,-65.87 382.86,-69.14 368.86,-71.99"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="460.68,-53.2 469.33,-47.08 458.75,-46.47 460.68,-53.2"/>
 </g>
-<!-- Node3 -->
-<g id="node3" class="node">
-<title>Node3</title>
-<g id="a_node3"><a xlink:href="classdata__middleware_1_1AdcInterpolation.html#acdfd4851787a5f151cba1dc944701f5f" target="_top" xlink:title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated voltage divider v...">
+<!-- Node4 -->
+<g id="node4" class="node">
+<title>Node4</title>
+<g id="a_node4"><a xlink:href="classdata__middleware_1_1AdcInterpolation.html#acdfd4851787a5f151cba1dc944701f5f" target="_top" xlink:title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated voltage divider v...">
 <polygon fill="none" stroke="black" points="224,-22.5 224,-52.5 412,-52.5 412,-22.5 224,-22.5"/>
 <text text-anchor="start" x="232" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">data_middleware::AdcInterpolation</text>
 <text text-anchor="middle" x="318" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">::insertVoltageDividerValue</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node3 -->
-<g id="edge2" class="edge">
-<title>Node1&#45;&gt;Node3</title>
+<!-- Node1&#45;&gt;Node4 -->
+<g id="edge3" class="edge">
+<title>Node1&#45;&gt;Node4</title>
 <path fill="none" stroke="midnightblue" d="M437.49,-37.5C429.25,-37.5 420.68,-37.5 412.1,-37.5"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="437.73,-41 447.73,-37.5 437.73,-34 437.73,-41"/>
 </g>
-<!-- Node4 -->
-<g id="node4" class="node">
-<title>Node4</title>
-<g id="a_node4"><a xlink:href="classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" target="_top" xlink:title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration.">
+<!-- Node5 -->
+<g id="node5" class="node">
+<title>Node5</title>
+<g id="a_node5"><a xlink:href="classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" target="_top" xlink:title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration.">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-30.5 188,-30.5 188,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">data_middleware::AdcInterpolation</text>
 <text text-anchor="middle" x="94" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::processDataPacket</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node4 -->
-<g id="edge4" class="edge">
-<title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M463.38,-24.92C447.66,-20.35 429.14,-15.76 412,-13.5 337.11,-3.63 251.4,-4.92 188.01,-8.24"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="462.68,-28.36 473.27,-27.89 464.7,-21.66 462.68,-28.36"/>
+<!-- Node1&#45;&gt;Node5 -->
+<g id="edge5" class="edge">
+<title>Node1&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M464.95,-24.86C448.91,-19.95 429.74,-14.93 412,-12.5 337.16,-2.24 251.45,-3.85 188.04,-7.54"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="463.9,-28.2 474.49,-27.88 466.01,-21.52 463.9,-28.2"/>
 </g>
-<!-- Node3&#45;&gt;Node4 -->
-<g id="edge3" class="edge">
-<title>Node3&#45;&gt;Node4</title>
+<!-- Node3 -->
+<g id="node3" class="node">
+<title>Node3</title>
+<g id="a_node3"><a xlink:href="test__built__in__self__test_8cpp.html#a0336328ce5514ae62229e5b08221f6c8" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="73.5,-72 73.5,-91 114.5,-91 114.5,-72 73.5,-72"/>
+<text text-anchor="middle" x="94" y="-79" font-family="Helvetica,sans-Serif" font-size="10.00">TEST</text>
+</a>
+</g>
+</g>
+<!-- Node2&#45;&gt;Node3 -->
+<g id="edge2" class="edge">
+<title>Node2&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M234.9,-81.5C191.45,-81.5 141.65,-81.5 114.74,-81.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="234.92,-85 244.92,-81.5 234.92,-78 234.92,-85"/>
+</g>
+<!-- Node4&#45;&gt;Node5 -->
+<g id="edge4" class="edge">
+<title>Node4&#45;&gt;Node5</title>
 <path fill="none" stroke="midnightblue" d="M213.85,-27.28C205.33,-26.43 196.74,-25.58 188.3,-24.75"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="213.52,-30.76 223.82,-28.27 214.21,-23.8 213.52,-30.76"/>
 </g>

@@ -9,6 +9,8 @@ var classdata_1_1FlightData =
     [ "getLaunchPosition", "classdata_1_1FlightData.html#afba5571e61b47aad4c05f8be16916713", null ],
     [ "getMissionClockSeconds", "classdata_1_1FlightData.html#a7a9f92a351f196a88523a992af33bdc6", null ],
     [ "toJson", "classdata_1_1FlightData.html#ae457e1fda53739ef17fa89fb69965ecc", null ],
+    [ "getBitTestData", "classdata_1_1FlightData.html#a838f0ae2b04541d3bd115ff6b1efe7a7", null ],
+    [ "setBitTestData", "classdata_1_1FlightData.html#a312127c867c9f4538b4d3cb24303a6e7", null ],
     [ "setFlightPhase", "classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233", null ],
     [ "setPhasePrediction", "classdata_1_1FlightData.html#a3aaa12475187e63a50a331fe629a52b4", null ],
     [ "FlightPhaseManager", "classdata_1_1FlightData.html#aa94f7f513b6aa910555c831eb33ee240", null ],
@@ -23,5 +25,7 @@ var classdata_1_1FlightData =
     [ "ascent_prediction_", "classdata_1_1FlightData.html#a96a662b608bb6501f1dbd346688de8c6", null ],
     [ "descent_prediction_", "classdata_1_1FlightData.html#ae1b969db92b41cf7b8e2034bf42c6770", null ],
     [ "recovery_prediction_", "classdata_1_1FlightData.html#a79396f67266d5c55810ce06839887412", null ],
-    [ "prediction_quality_", "classdata_1_1FlightData.html#a474481970a7b2624ad006b87b8f33dfb", null ]
+    [ "prediction_quality_", "classdata_1_1FlightData.html#a474481970a7b2624ad006b87b8f33dfb", null ],
+    [ "bit_test_buffer_mutex_", "classdata_1_1FlightData.html#a5465061a171151c41bcd325476263334", null ],
+    [ "bit_test_buffer_", "classdata_1_1FlightData.html#ad6702c39bfff0749b3587436b9a072cd", null ]
 ];

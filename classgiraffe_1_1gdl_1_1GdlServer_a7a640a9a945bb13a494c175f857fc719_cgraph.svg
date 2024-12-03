@@ -149,7 +149,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classgiraffe_1_1CommonLogger.html#a74487cf5682cfcef361413c6552be9f1" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="classgiraffe_1_1CommonLogger.html#a403f3c5745fb3f989d1bc1e89b2630ca" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="346.5,-382.5 346.5,-412.5 477.5,-412.5 477.5,-382.5 346.5,-382.5"/>
 <text text-anchor="start" x="354.5" y="-400.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::CommonLogger</text>
 <text text-anchor="middle" x="412" y="-389.5" font-family="Helvetica,sans-Serif" font-size="10.00">::info</text>
@@ -234,7 +234,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="classgiraffe_1_1CommonLogger.html#a452095d327c721f1ac8afc35f9744b8c" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="classgiraffe_1_1CommonLogger.html#a364f4ba232bd54940d234fbefa0fc932" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="526,-789.5 526,-819.5 657,-819.5 657,-789.5 526,-789.5"/>
 <text text-anchor="start" x="534" y="-807.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::CommonLogger</text>
 <text text-anchor="middle" x="591.5" y="-796.5" font-family="Helvetica,sans-Serif" font-size="10.00">::debug</text>
@@ -250,7 +250,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="classgiraffe_1_1CommonLogger.html#a0d6317e157230c5dd6e9d658b8263ca2" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="classgiraffe_1_1CommonLogger.html#aa809939432e88f6590c9244c1defcac3" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="526,-740.5 526,-770.5 657,-770.5 657,-740.5 526,-740.5"/>
 <text text-anchor="start" x="534" y="-758.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::CommonLogger</text>
 <text text-anchor="middle" x="591.5" y="-747.5" font-family="Helvetica,sans-Serif" font-size="10.00">::error</text>
@@ -469,7 +469,7 @@
 <!-- Node21 -->
 <g id="node21" class="node">
 <title>Node21</title>
-<g id="a_node21"><a xlink:href="structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" target="_top" xlink:title="Get the message as a JSON string.">
+<g id="a_node21"><a xlink:href="structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" target="_top" xlink:title="Get the message as a JSON string.">
 <polygon fill="none" stroke="black" points="535.5,-64.5 535.5,-94.5 647.5,-94.5 647.5,-64.5 535.5,-64.5"/>
 <text text-anchor="start" x="543.5" y="-82.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol::Message::</text>
 <text text-anchor="middle" x="591.5" y="-71.5" font-family="Helvetica,sans-Serif" font-size="10.00">getJsonString</text>
@@ -517,7 +517,7 @@
 <!-- Node22 -->
 <g id="node22" class="node">
 <title>Node22</title>
-<g id="a_node22"><a xlink:href="structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" target="_top" xlink:title="Get the message as a JSON object.">
+<g id="a_node22"><a xlink:href="structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" target="_top" xlink:title="Get the message as a JSON object.">
 <polygon fill="none" stroke="black" points="725,-64.5 725,-94.5 837,-94.5 837,-64.5 725,-64.5"/>
 <text text-anchor="start" x="733" y="-82.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol::Message::</text>
 <text text-anchor="middle" x="781" y="-71.5" font-family="Helvetica,sans-Serif" font-size="10.00">getJson</text>
@@ -684,7 +684,7 @@
 <!-- Node35 -->
 <g id="node35" class="node">
 <title>Node35</title>
-<g id="a_node35"><a xlink:href="classgiraffe_1_1CommonLogger.html#a008aac905e59c9aaa273c06578acc590" target="_top" xlink:title=" ">
+<g id="a_node35"><a xlink:href="classgiraffe_1_1CommonLogger.html#a07898855e3e0e44e4d6676ab0b51df42" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="526,-348.5 526,-378.5 657,-378.5 657,-348.5 526,-348.5"/>
 <text text-anchor="start" x="534" y="-366.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::CommonLogger</text>
 <text text-anchor="middle" x="591.5" y="-355.5" font-family="Helvetica,sans-Serif" font-size="10.00">::warn</text>

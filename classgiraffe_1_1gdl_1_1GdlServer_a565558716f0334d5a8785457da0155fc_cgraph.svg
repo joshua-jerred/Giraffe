@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classgiraffe_1_1CommonLogger.html#a0d6317e157230c5dd6e9d658b8263ca2" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classgiraffe_1_1CommonLogger.html#aa809939432e88f6590c9244c1defcac3" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="348.5,-294.5 348.5,-324.5 479.5,-324.5 479.5,-294.5 348.5,-294.5"/>
 <text text-anchor="start" x="356.5" y="-312.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::CommonLogger</text>
 <text text-anchor="middle" x="414" y="-301.5" font-family="Helvetica,sans-Serif" font-size="10.00">::error</text>
@@ -53,7 +53,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="classgiraffe_1_1CommonLogger.html#a74487cf5682cfcef361413c6552be9f1" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="classgiraffe_1_1CommonLogger.html#a403f3c5745fb3f989d1bc1e89b2630ca" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="176.5,-331.5 176.5,-361.5 307.5,-361.5 307.5,-331.5 176.5,-331.5"/>
 <text text-anchor="start" x="184.5" y="-349.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::CommonLogger</text>
 <text text-anchor="middle" x="242" y="-338.5" font-family="Helvetica,sans-Serif" font-size="10.00">::info</text>
@@ -170,7 +170,7 @@
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="classgiraffe_1_1CommonLogger.html#a008aac905e59c9aaa273c06578acc590" target="_top" xlink:title=" ">
+<g id="a_node11"><a xlink:href="classgiraffe_1_1CommonLogger.html#a07898855e3e0e44e4d6676ab0b51df42" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="348.5,-245.5 348.5,-275.5 479.5,-275.5 479.5,-245.5 348.5,-245.5"/>
 <text text-anchor="start" x="356.5" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::CommonLogger</text>
 <text text-anchor="middle" x="414" y="-252.5" font-family="Helvetica,sans-Serif" font-size="10.00">::warn</text>
@@ -256,7 +256,7 @@
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
-<g id="a_node14"><a xlink:href="structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" target="_top" xlink:title="Get the message as a JSON string.">
+<g id="a_node14"><a xlink:href="structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" target="_top" xlink:title="Get the message as a JSON string.">
 <polygon fill="none" stroke="black" points="358,-147.5 358,-177.5 470,-177.5 470,-147.5 358,-147.5"/>
 <text text-anchor="start" x="366" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol::Message::</text>
 <text text-anchor="middle" x="414" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">getJsonString</text>
@@ -304,7 +304,7 @@
 <!-- Node15 -->
 <g id="node15" class="node">
 <title>Node15</title>
-<g id="a_node15"><a xlink:href="structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" target="_top" xlink:title="Get the message as a JSON object.">
+<g id="a_node15"><a xlink:href="structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" target="_top" xlink:title="Get the message as a JSON object.">
 <polygon fill="none" stroke="black" points="540,-100.5 540,-130.5 652,-130.5 652,-100.5 540,-100.5"/>
 <text text-anchor="start" x="548" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol::Message::</text>
 <text text-anchor="middle" x="596" y="-107.5" font-family="Helvetica,sans-Serif" font-size="10.00">getJson</text>

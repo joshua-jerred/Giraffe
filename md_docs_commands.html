@@ -107,17 +107,17 @@ $(document).ready(function(){initNavTree('md_docs_commands.html',''); initResiza
 <div class="textblock"><p>This describes the commands that can be sent to GFS via the server, telemetry, or console.</p>
 <p>All commands are sent as a string of characters/numbers with a known format.</p>
 <p>For safety reasons, argument requirements must be met exactly. This means if a command expects no arguments, there should be nothing after the command ID and the final <code>/</code>.</p>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md32"></a>
 Command Format</h1>
 <p>Commands are separated into 4 sections with a <code>/</code> used as a separator.</p>
 <p>[Command Flag]/[Category]/[Command ID]/[Command Argument]</p>
 <p>The first 3 sections are 3 characters long, with the argument section being between 0 and 20 characters long.</p>
 <p>If there are no arguments for a command, the <code>/</code> after the command ID is still required.</p>
 <p>Command Regex: <code>^cmd\/[a-z]{3}\/[a-z]{3}\/[a-z0-9-]{0,20}$</code></p>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 Command Flag</h2>
 <p>Simple just the characters <code>cmd</code> to indicate that this is a command.</p>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Destination</h2>
 <p>The 'destination' of the command. The target of the command. Categories are:</p><ul>
 <li>flr - Flight Runner</li>
@@ -129,17 +129,17 @@ Destination</h2>
 <li>sys - System Module</li>
 <li>ext - Extensions</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md35"></a>
 Command ID</h2>
 <p>Also 3 characters long, this is the command ID. The command ID is unique to the category.</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md36"></a>
 Command Argument</h2>
 <p>See the specific command for information about arguments.</p>
 <p>With hex arguments, letters must be lowercase.</p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md23"></a>
+<h1><a class="anchor" id="autotoc_md37"></a>
 Command List</h1>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md38"></a>
 Flight Runner Commands</h2>
 <ul>
 <li><code>cmd/flr/sdn/</code> - Shutdown the flight software</li>
@@ -147,12 +147,12 @@ Flight Runner Commands</h2>
 <li><code>cmd/flr/msp/[etm|tlm|csl|dat|srv|sys]</code> - Stop the given module</li>
 <li><code>cmd/flr/mrt/[etm|tlm|csl|dat|srv|sys]</code> - Restart the given module</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md25"></a>
+<h1><a class="anchor" id="autotoc_md39"></a>
 Configuration Commands</h1>
 <ul>
 <li><code>cmd/cfg/rlc/</code> - Reload the configuration file</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md40"></a>
 Telemetry Configuration Commands</h2>
 <ul>
 <li><code>cmd/cfg/tel/enable=[0|1]</code> - Enable or disable telemetry</li>
@@ -166,7 +166,7 @@ Telemetry Configuration Commands</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md27"></a>
+<h2><a class="anchor" id="autotoc_md41"></a>
 Data Module Commands</h2>
 <ul>
 <li><code>cmd/dat/cae/</code> - Clear all errors from the error frame, they will remain in the log</li>
@@ -176,12 +176,12 @@ Data Module Commands</h2>
 <li><code>cmd/dat/ddf/[file name without extension]</code> - Delete the data log file with the given name</li>
 <li><code>cmd/dat/def/[file name without extension]</code> - Delete the error log file with the given name</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Extension Commands</h2>
 <ul>
 <li><code>cmd/ext/stp/[num]</code> - Stop the extension with the given number</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Telemetry Commands</h2>
 <ul>
 <li><code>cmd/tlm/rtx/[num]</code> - Retransmit the transmission with a given number, as long as it is in the log.</li>

@@ -1,5 +1,12 @@
 var annotated_dup =
 [
+    [ "bit", "namespacebit.html", [
+      [ "BuiltInTest", "classbit_1_1BuiltInTest.html", "classbit_1_1BuiltInTest" ],
+      [ "IBuiltInTest", "classbit_1_1IBuiltInTest.html", "classbit_1_1IBuiltInTest" ],
+      [ "TestCase", "classbit_1_1TestCase.html", "classbit_1_1TestCase" ],
+      [ "TestGroup", "classbit_1_1TestGroup.html", "classbit_1_1TestGroup" ],
+      [ "TestResult", "namespacebit.html#structbit_1_1TestResult", "namespacebit_structbit_1_1TestResult_dup" ]
+    ] ],
     [ "cfg", "namespacecfg.html", [
       [ "AdcConfig", "structcfg_1_1AdcConfig.html", "structcfg_1_1AdcConfig" ],
       [ "AdcMappings", "classcfg_1_1AdcMappings.html", "classcfg_1_1AdcMappings" ],
@@ -116,11 +123,14 @@ var annotated_dup =
       ] ],
       [ "AprsManager", "classgiraffe_1_1AprsManager.html", "classgiraffe_1_1AprsManager" ],
       [ "CommonLogger", "classgiraffe_1_1CommonLogger.html", "classgiraffe_1_1CommonLogger" ],
+      [ "DummyLogger", "classgiraffe_1_1DummyLogger.html", "classgiraffe_1_1DummyLogger" ],
       [ "FCInfo", "structgiraffe_1_1FCInfo.html", "structgiraffe_1_1FCInfo" ],
       [ "FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", "classgiraffe_1_1FlightRunnerData" ],
       [ "Gpio", "classgiraffe_1_1Gpio.html", "classgiraffe_1_1Gpio" ],
+      [ "ILogger", "classgiraffe_1_1ILogger.html", "classgiraffe_1_1ILogger" ],
       [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ],
       [ "LoggerEntry", "structgiraffe_1_1LoggerEntry.html", "structgiraffe_1_1LoggerEntry" ],
+      [ "OptionalLogger", "classgiraffe_1_1OptionalLogger.html", "classgiraffe_1_1OptionalLogger" ],
       [ "SpiInterface", "classgiraffe_1_1SpiInterface.html", "classgiraffe_1_1SpiInterface" ],
       [ "StatusLedChannel", "classgiraffe_1_1StatusLedChannel.html", "classgiraffe_1_1StatusLedChannel" ],
       [ "StatusLedState", "classgiraffe_1_1StatusLedState.html", "classgiraffe_1_1StatusLedState" ]
@@ -147,6 +157,7 @@ var annotated_dup =
       [ "Message", "structprotocol_1_1Message.html", "structprotocol_1_1Message" ]
     ] ],
     [ "sock", "namespacesock.html", [
+      [ "TcpSocketClient", "classsock_1_1TcpSocketClient.html", "classsock_1_1TcpSocketClient" ],
       [ "TcpSocketServer", "group__ServerModule.html#classsock_1_1TcpSocketServer", "group__ServerModule_classsock_1_1TcpSocketServer" ]
     ] ],
     [ "ubx", "namespaceubx.html", [

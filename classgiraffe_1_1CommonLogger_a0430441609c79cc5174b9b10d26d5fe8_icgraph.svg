@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classgiraffe_1_1CommonLogger.html#a452095d327c721f1ac8afc35f9744b8c" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classgiraffe_1_1CommonLogger.html#a364f4ba232bd54940d234fbefa0fc932" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="762,-377.5 762,-407.5 893,-407.5 893,-377.5 762,-377.5"/>
 <text text-anchor="start" x="770" y="-395.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::CommonLogger</text>
 <text text-anchor="middle" x="827.5" y="-384.5" font-family="Helvetica,sans-Serif" font-size="10.00">::debug</text>
@@ -36,7 +36,7 @@
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="classgiraffe_1_1CommonLogger.html#a0d6317e157230c5dd6e9d658b8263ca2" target="_top" xlink:title=" ">
+<g id="a_node9"><a xlink:href="classgiraffe_1_1CommonLogger.html#aa809939432e88f6590c9244c1defcac3" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="762,-312.5 762,-342.5 893,-342.5 893,-312.5 762,-312.5"/>
 <text text-anchor="start" x="770" y="-330.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::CommonLogger</text>
 <text text-anchor="middle" x="827.5" y="-319.5" font-family="Helvetica,sans-Serif" font-size="10.00">::error</text>
@@ -52,7 +52,7 @@
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="classgiraffe_1_1CommonLogger.html#a74487cf5682cfcef361413c6552be9f1" target="_top" xlink:title=" ">
+<g id="a_node11"><a xlink:href="classgiraffe_1_1CommonLogger.html#a403f3c5745fb3f989d1bc1e89b2630ca" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="595,-49.5 595,-79.5 726,-79.5 726,-49.5 595,-49.5"/>
 <text text-anchor="start" x="603" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::CommonLogger</text>
 <text text-anchor="middle" x="660.5" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">::info</text>
@@ -68,7 +68,7 @@
 <!-- Node15 -->
 <g id="node15" class="node">
 <title>Node15</title>
-<g id="a_node15"><a xlink:href="classgiraffe_1_1CommonLogger.html#a008aac905e59c9aaa273c06578acc590" target="_top" xlink:title=" ">
+<g id="a_node15"><a xlink:href="classgiraffe_1_1CommonLogger.html#a07898855e3e0e44e4d6676ab0b51df42" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="762,-224.5 762,-254.5 893,-254.5 893,-224.5 762,-224.5"/>
 <text text-anchor="start" x="770" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::CommonLogger</text>
 <text text-anchor="middle" x="827.5" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">::warn</text>

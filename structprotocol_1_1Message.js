@@ -1,8 +1,8 @@
 var structprotocol_1_1Message =
 [
-    [ "getJsonString", "structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe", null ],
-    [ "getJson", "structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8", null ],
-    [ "getBodyJson", "structprotocol_1_1Message.html#a0c767f4a41337a482488e705533031aa", null ],
+    [ "getJsonString", "structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c", null ],
+    [ "getJson", "structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e", null ],
+    [ "getBodyJson", "structprotocol_1_1Message.html#a3d440cf2054fb31ce4f802dc2e93a7cb", null ],
     [ "src", "structprotocol_1_1Message.html#a57135c069142e0e41adcf97cdf336f27", null ],
     [ "dst", "structprotocol_1_1Message.html#a0f171a0cc22a4ab4a6cd6586b272c10d", null ],
     [ "typ", "structprotocol_1_1Message.html#a90aa16f930512b7cc1e2e60fc5b17687", null ],

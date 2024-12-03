@@ -8,7 +8,8 @@ var namespaceprotocol =
       [ "GFS", "namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea1258e8821fa86c207278d6d0522ad2ee", null ],
       [ "GGS", "namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea568515ce5f650e36d52c783464e4de6c", null ],
       [ "GDL", "namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea204fdf37540af1db465e56aa6e9b8ead", null ],
-      [ "GWC", "namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ead55456b273e35e4d6d5f221a330c93aa", null ]
+      [ "GWC", "namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ead55456b273e35e4d6d5f221a330c93aa", null ],
+      [ "FSA", "namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea39bc1c02846bc8749a79ee2b65d51e5f", null ]
     ] ],
     [ "MessageType", "namespaceprotocol.html#a9731025e73bc9be65076786a05ea9624", [
       [ "UNKNOWN", "namespaceprotocol.html#a9731025e73bc9be65076786a05ea9624a696b031073e74bf2cb98e5ef201d4aa3", null ],

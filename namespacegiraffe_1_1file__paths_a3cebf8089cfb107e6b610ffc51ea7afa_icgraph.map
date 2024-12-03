@@ -1,21 +1,24 @@
 <map id="giraffe::file_paths::createGiraffeDirIfNotExists" name="giraffe::file_paths::createGiraffeDirIfNotExists">
-<area shape="rect" id="node1" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="1003,289,1208,331"/>
-<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#a071e3968c8ee80bada890eb9a36ec2f0" title="Returns the path to the gfs data archive directory. Creates the directory if it does not exist." alt="" coords="535,5,735,47"/>
-<area shape="rect" id="node5" href="$namespacegiraffe_1_1file__paths.html#a60be25b9cd8882562d8f5f77b420d1bc" title="Returns the path to the gfs data directory. Creates the directory if it does not exist." alt="" coords="797,64,948,105"/>
-<area shape="rect" id="node7" href="$namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc" title="Returns the path to the gfs image directory. Creates the directory if it does not exist." alt="" coords="792,253,953,295"/>
-<area shape="rect" id="node13" href="$namespacegiraffe_1_1file__paths.html#a562ee8f7b45dd38039768a7847a02d5d" title="Returns the path to the gfs log archive directory. Creates the directory if it does not exist." alt="" coords="539,384,731,425"/>
-<area shape="rect" id="node15" href="$namespacegiraffe_1_1file__paths.html#acfd866770216db1b79d6f669b376e5ad" title="Returns the path to the gfs log directory. Creates the directory if it does not exist." alt="" coords="801,384,944,425"/>
-<area shape="rect" id="node17" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a38bb766c005f9060bf13aeb5c553dd05" title=" " alt="" coords="791,471,955,512"/>
-<area shape="rect" id="node3" href="$group__DataLog.html#ga96a2e0cbd5f5f4bc55b9ad0b6dad9222" title="Used to create the data archive directory with createDirectory()." alt="" coords="266,52,463,93"/>
-<area shape="rect" id="node4" href="$classdata__middleware_1_1DataLog.html#a957234a0f7b3ce34cc4f3ffffb222f0c" title=" " alt="" coords="5,269,203,311"/>
-<area shape="rect" id="node6" href="$group__DataLog.html#ga234962b2bffa3e30ac2ae8e9d269143c" title="Used to create the data directory with createDirectory()." alt="" coords="266,164,463,205"/>
-<area shape="rect" id="node8" href="$classdata__middleware_1_1FileSystemManager.html#a1f770961749860965494383544803c5b" title=" " alt="" coords="527,123,743,164"/>
-<area shape="rect" id="node9" href="$classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87" title=" " alt="" coords="556,188,713,229"/>
-<area shape="rect" id="node10" href="$classextension_1_1SimCamera.html#abb5201bd7c5cb54d7c93348b172decab" title=" " alt="" coords="549,253,720,295"/>
-<area shape="rect" id="node11" href="$group__ServerModule.html#a0fe0d216d79f6af4bdd4c4e5621ac9fd" title="Response to an image request. Sends the image data to the client." alt="" coords="529,319,740,360"/>
-<area shape="rect" id="node12" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="251,323,479,350"/>
-<area shape="rect" id="node14" href="$group__DataLog.html#ga27b3c7fcd45fb419d25227c5eb2058b4" title="Used to create the log archive directory with createDirectory()." alt="" coords="266,375,463,416"/>
-<area shape="rect" id="node16" href="$group__DataLog.html#ga48061477fbfe9e8642a8ef23a670b9b2" title="Used to create the log directory with createDirectory()." alt="" coords="266,440,463,481"/>
-<area shape="rect" id="node18" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="538,502,731,529"/>
-<area shape="rect" id="node19" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="337,506,392,533"/>
+<area shape="rect" id="node1" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="1095,367,1300,409"/>
+<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" title="Get the path to the Flight System Agent directory." alt="" coords="824,86,1047,127"/>
+<area shape="rect" id="node5" href="$namespacegiraffe_1_1file__paths.html#a071e3968c8ee80bada890eb9a36ec2f0" title="Returns the path to the gfs data archive directory. Creates the directory if it does not exist." alt="" coords="551,151,751,193"/>
+<area shape="rect" id="node8" href="$namespacegiraffe_1_1file__paths.html#a60be25b9cd8882562d8f5f77b420d1bc" title="Returns the path to the gfs data directory. Creates the directory if it does not exist." alt="" coords="860,210,1011,251"/>
+<area shape="rect" id="node10" href="$namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc" title="Returns the path to the gfs image directory. Creates the directory if it does not exist." alt="" coords="855,367,1016,409"/>
+<area shape="rect" id="node16" href="$namespacegiraffe_1_1file__paths.html#a562ee8f7b45dd38039768a7847a02d5d" title="Returns the path to the gfs log archive directory. Creates the directory if it does not exist." alt="" coords="555,530,747,571"/>
+<area shape="rect" id="node18" href="$namespacegiraffe_1_1file__paths.html#acfd866770216db1b79d6f669b376e5ad" title="Returns the path to the gfs log directory. Creates the directory if it does not exist." alt="" coords="864,530,1007,571"/>
+<area shape="rect" id="node20" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a38bb766c005f9060bf13aeb5c553dd05" title=" " alt="" coords="853,617,1017,658"/>
+<area shape="rect" id="node3" href="$namespacegiraffe_1_1file__paths.html#a0fc419b3cf5bf284d4e66a76f05d9f48" title="Get the path to the Flight System Agent config file." alt="" coords="543,5,759,61"/>
+<area shape="rect" id="node4" href="$namespacegiraffe_1_1file__paths.html#ae60e01f40243d47b41ec8fdb1a687ce5" title="Get the path to the Flight System Agent log file." alt="" coords="527,86,776,127"/>
+<area shape="rect" id="node6" href="$group__DataLog.html#ga96a2e0cbd5f5f4bc55b9ad0b6dad9222" title="Used to create the data archive directory with createDirectory()." alt="" coords="266,198,463,239"/>
+<area shape="rect" id="node7" href="$classdata__middleware_1_1DataLog.html#a957234a0f7b3ce34cc4f3ffffb222f0c" title=" " alt="" coords="5,415,203,457"/>
+<area shape="rect" id="node9" href="$group__DataLog.html#ga234962b2bffa3e30ac2ae8e9d269143c" title="Used to create the data directory with createDirectory()." alt="" coords="266,310,463,351"/>
+<area shape="rect" id="node11" href="$classdata__middleware_1_1FileSystemManager.html#a1f770961749860965494383544803c5b" title=" " alt="" coords="543,269,759,310"/>
+<area shape="rect" id="node12" href="$classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87" title=" " alt="" coords="573,334,730,375"/>
+<area shape="rect" id="node13" href="$classextension_1_1SimCamera.html#abb5201bd7c5cb54d7c93348b172decab" title=" " alt="" coords="566,399,737,441"/>
+<area shape="rect" id="node14" href="$group__ServerModule.html#a0fe0d216d79f6af4bdd4c4e5621ac9fd" title="Response to an image request. Sends the image data to the client." alt="" coords="546,465,757,506"/>
+<area shape="rect" id="node15" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="251,469,479,496"/>
+<area shape="rect" id="node17" href="$group__DataLog.html#ga27b3c7fcd45fb419d25227c5eb2058b4" title="Used to create the log archive directory with createDirectory()." alt="" coords="266,521,463,562"/>
+<area shape="rect" id="node19" href="$group__DataLog.html#ga48061477fbfe9e8642a8ef23a670b9b2" title="Used to create the log directory with createDirectory()." alt="" coords="266,586,463,627"/>
+<area shape="rect" id="node21" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="555,648,748,675"/>
+<area shape="rect" id="node22" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="337,652,392,679"/>
 </map>

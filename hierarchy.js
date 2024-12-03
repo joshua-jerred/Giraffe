@@ -1,5 +1,11 @@
 var hierarchy =
 [
+    [ "bit::IBuiltInTest", "classbit_1_1IBuiltInTest.html", [
+      [ "bit::BuiltInTest", "classbit_1_1BuiltInTest.html", null ]
+    ] ],
+    [ "bit::TestCase", "classbit_1_1TestCase.html", null ],
+    [ "bit::TestGroup", "classbit_1_1TestGroup.html", null ],
+    [ "bit::TestResult", "namespacebit.html#structbit_1_1TestResult", null ],
     [ "data::blocks::Block< data::blocks::CalculatedData >", "classdata_1_1blocks_1_1Block.html", null ],
     [ "data::blocks::Block< data::blocks::CameraImages >", "classdata_1_1blocks_1_1Block.html", null ],
     [ "data::blocks::Block< data::blocks::DataLogStats >", "classdata_1_1blocks_1_1Block.html", null ],
@@ -21,7 +27,6 @@ var hierarchy =
     [ "cfg::ExtensionMetadata", "structcfg_1_1ExtensionMetadata.html", null ],
     [ "cmd::Command", "namespacecmd.html#structcmd_1_1Command", null ],
     [ "cmd::CommandQueue", "classcmd_1_1CommandQueue.html", null ],
-    [ "giraffe::CommonLogger< 100 >", "classgiraffe_1_1CommonLogger.html", null ],
     [ "console_pages::Pages", "classconsole__pages_1_1Pages.html", null ],
     [ "CurlRequest", "classCurlRequest.html", null ],
     [ "data::BaseStreamPacket", "structdata_1_1BaseStreamPacket.html", [
@@ -111,7 +116,6 @@ var hierarchy =
     [ "gfs_sim::SimElectrical", "classgfs__sim_1_1SimElectrical.html", null ],
     [ "gfs_sim::SimEnvironmental", "classgfs__sim_1_1SimEnvironmental.html", null ],
     [ "giraffe::AprsManager", "classgiraffe_1_1AprsManager.html", null ],
-    [ "giraffe::CommonLogger< LOG_SIZE >", "classgiraffe_1_1CommonLogger.html", null ],
     [ "giraffe::FCInfo", "structgiraffe_1_1FCInfo.html", null ],
     [ "giraffe::FlightRunnerData", "classgiraffe_1_1FlightRunnerData.html", null ],
     [ "giraffe::gdl::AprsTelemetrySender", "classgiraffe_1_1gdl_1_1AprsTelemetrySender.html", null ],
@@ -140,8 +144,16 @@ var hierarchy =
     [ "giraffe::gdl::TransportLayer", "classgiraffe_1_1gdl_1_1TransportLayer.html", null ],
     [ "giraffe::Gpio", "classgiraffe_1_1Gpio.html", null ],
     [ "giraffe::Gpio::Pin", "structgiraffe_1_1Gpio_1_1Pin.html", null ],
+    [ "giraffe::ILogger", "classgiraffe_1_1ILogger.html", [
+      [ "giraffe::CommonLogger< 100 >", "classgiraffe_1_1CommonLogger.html", null ],
+      [ "giraffe::CommonLogger< LOG_SIZE >", "classgiraffe_1_1CommonLogger.html", null ],
+      [ "giraffe::DummyLogger", "classgiraffe_1_1DummyLogger.html", null ]
+    ] ],
     [ "giraffe::Logger", "classgiraffe_1_1Logger.html", null ],
     [ "giraffe::LoggerEntry", "structgiraffe_1_1LoggerEntry.html", null ],
+    [ "giraffe::OptionalLogger", "classgiraffe_1_1OptionalLogger.html", [
+      [ "sock::TcpSocketClient", "classsock_1_1TcpSocketClient.html", null ]
+    ] ],
     [ "giraffe::SpiInterface", "classgiraffe_1_1SpiInterface.html", null ],
     [ "giraffe::SpiInterface::Config", "classgiraffe_1_1SpiInterface.html#structgiraffe_1_1SpiInterface_1_1Config", null ],
     [ "giraffe::StatusLedChannel", "classgiraffe_1_1StatusLedChannel.html", null ],

@@ -1,52 +1,52 @@
 <map id="FlightPhaseManagerTest" name="FlightPhaseManagerTest">
-<area shape="rect" id="node1" title=" " alt="" coords="1523,2380,1704,2604"/>
-<area shape="rect" id="node2" title=" " alt="" coords="1009,2233,1111,2310"/>
-<area shape="rect" id="node3" href="$classFlightPhaseManagerTest.html#structFlightPhaseManagerTest_1_1TestContainer" title=" " alt="" coords="1135,2225,1316,2317"/>
-<area shape="rect" id="node4" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="887,436,1081,616"/>
-<area shape="rect" id="node11" href="$classPredictionParameters.html" title="A class that contains and updates the parameters used to detect the flight phase." alt="" coords="943,1229,1140,1439"/>
-<area shape="rect" id="node33" href="$namespacedata.html#structdata_1_1SharedBlocks" title=" " alt="" coords="1928,957,2075,1035"/>
-<area shape="rect" id="node5" href="$classdata_1_1blocks_1_1Block.html" title="Simple Struct Container with a mutex. The struct must have a valid default constructor." alt="" coords="1527,145,1710,267"/>
-<area shape="rect" id="node9" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1151,443,1377,609"/>
-<area shape="rect" id="node10" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1401,443,1596,609"/>
-<area shape="rect" id="node34" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1620,436,1857,616"/>
-<area shape="rect" id="node35" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1882,443,2121,609"/>
-<area shape="rect" id="node36" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2145,436,2381,616"/>
-<area shape="rect" id="node6" title=" " alt="" coords="872,5,960,83"/>
-<area shape="rect" id="node13" href="$classdata_1_1FlightData.html" title=" " alt="" coords="503,884,711,1108"/>
-<area shape="rect" id="node7" title=" " alt="" coords="2036,5,2100,83"/>
-<area shape="rect" id="node37" href="$classLogContainer.html" title=" " alt="" coords="2515,291,2659,412"/>
-<area shape="rect" id="node8" title=" " alt="" coords="1599,5,1638,83"/>
-<area shape="rect" id="node44" href="$classFlightPhasePredictor.html" title="Uses data provided by PredictionParameters to predict the current flight phase." alt="" coords="2211,1516,2403,1755"/>
-<area shape="rect" id="node12" title=" " alt="" coords="967,957,1131,1035"/>
-<area shape="rect" id="node24" href="$structdata_1_1SharedData.html" title="Data that is shared across all modules and extensions." alt="" coords="3178,1295,3313,1373"/>
-<area shape="rect" id="node14" title=" " alt="" coords="643,487,816,565"/>
-<area shape="rect" id="node15" title=" " alt="" coords="5,487,147,565"/>
-<area shape="rect" id="node16" title=" " alt="" coords="185,487,311,565"/>
-<area shape="rect" id="node17" title=" " alt="" coords="406,487,466,565"/>
-<area shape="rect" id="node18" href="$classFlightPhaseManager.html" title="This class manages everything related to flight phases and sequencing." alt="" coords="1723,1953,1935,2163"/>
-<area shape="rect" id="node19" href="$classFlightPhasePredictor.html#structFlightPhasePredictor_1_1Probability" title="A stucture that contains the probabilities of being in each phase. The probabilities range from 0 to ..." alt="" coords="2214,1288,2370,1380"/>
-<area shape="rect" id="node20" title=" " alt="" coords="1707,957,1773,1035"/>
-<area shape="rect" id="node21" href="$classdata_1_1ErrorReporter.html" title="A simple class to report errors once." alt="" coords="2844,1582,2991,1689"/>
-<area shape="rect" id="node22" title=" " alt="" coords="3051,1295,3154,1373"/>
-<area shape="rect" id="node23" title=" " alt="" coords="2664,1295,2771,1373"/>
-<area shape="rect" id="node48" href="$classgiraffe_1_1Logger.html" title=" " alt="" coords="2521,1567,2637,1703"/>
-<area shape="rect" id="node49" href="$classFakeSharedData.html" title=" " alt="" coords="3401,1779,3553,1929"/>
-<area shape="rect" id="node25" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="3189,957,3302,1035"/>
-<area shape="rect" id="node26" href="$classdata_1_1LogStream.html" title=" " alt="" coords="2409,458,2631,594"/>
-<area shape="rect" id="node27" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="3159,487,3331,565"/>
-<area shape="rect" id="node28" href="$classdata_1_1DataStream.html" title=" " alt="" coords="3356,473,3513,579"/>
-<area shape="rect" id="node29" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="3538,487,3710,565"/>
-<area shape="rect" id="node30" href="$classdata_1_1CommandStream.html" title="The stream of new commands." alt="" coords="2961,487,3135,565"/>
-<area shape="rect" id="node31" href="$classgiraffe_1_1StatusLedState.html" title=" " alt="" coords="2852,906,3023,1086"/>
-<area shape="rect" id="node32" title=" " alt="" coords="2807,487,2937,565"/>
-<area shape="rect" id="node38" href="$namespacedata.html#structdata_1_1Frames" title=" " alt="" coords="1797,957,1904,1035"/>
-<area shape="rect" id="node39" title=" " alt="" coords="2805,1295,2864,1373"/>
-<area shape="rect" id="node40" title=" " alt="" coords="1935,1295,1985,1373"/>
-<area shape="rect" id="node41" title=" " alt="" coords="1407,1597,1467,1674"/>
-<area shape="rect" id="node42" title=" " alt="" coords="1492,1589,1671,1681"/>
-<area shape="rect" id="node43" title=" " alt="" coords="1695,1597,1793,1674"/>
-<area shape="rect" id="node45" title=" " alt="" coords="2010,1295,2185,1373"/>
-<area shape="rect" id="node46" title=" " alt="" coords="1523,1295,1621,1373"/>
-<area shape="rect" id="node47" title=" " alt="" coords="2019,1597,2187,1674"/>
-<area shape="rect" id="node50" title=" " alt="" coords="2028,2233,2196,2310"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1720,2244,1901,2468"/>
+<area shape="rect" id="node2" title=" " alt="" coords="1561,2097,1663,2174"/>
+<area shape="rect" id="node3" href="$classFlightPhaseManagerTest.html#structFlightPhaseManagerTest_1_1TestContainer" title=" " alt="" coords="1977,2089,2159,2181"/>
+<area shape="rect" id="node4" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1806,571,1999,751"/>
+<area shape="rect" id="node11" href="$classPredictionParameters.html" title="A class that contains and updates the parameters used to detect the flight phase." alt="" coords="2276,880,2473,1089"/>
+<area shape="rect" id="node34" href="$namespacedata.html#structdata_1_1SharedBlocks" title=" " alt="" coords="1512,946,1659,1023"/>
+<area shape="rect" id="node5" href="$classdata_1_1blocks_1_1Block.html" title="Simple Struct Container with a mutex. The struct must have a valid default constructor." alt="" coords="1897,145,2079,267"/>
+<area shape="rect" id="node9" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2023,579,2249,744"/>
+<area shape="rect" id="node10" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="2273,579,2468,744"/>
+<area shape="rect" id="node35" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1281,571,1519,751"/>
+<area shape="rect" id="node36" href="$classdata_1_1blocks_1_1Block.html" title=" " alt="" coords="1543,579,1782,744"/>
+<area shape="rect" id="node6" title=" " alt="" coords="2172,5,2260,83"/>
+<area shape="rect" id="node13" href="$classdata_1_1FlightData.html" title=" " alt="" coords="2715,535,2923,788"/>
+<area shape="rect" id="node7" title=" " alt="" coords="1911,5,1975,83"/>
+<area shape="rect" id="node37" href="$classLogContainer.html" title=" " alt="" coords="1223,340,1367,461"/>
+<area shape="rect" id="node8" title=" " alt="" coords="2013,5,2051,83"/>
+<area shape="rect" id="node44" href="$classFlightPhasePredictor.html" title="Uses data provided by PredictionParameters to predict the current flight phase." alt="" coords="1559,1380,1751,1619"/>
+<area shape="rect" id="node12" title=" " alt="" coords="2493,623,2657,700"/>
+<area shape="rect" id="node25" href="$structdata_1_1SharedData.html" title="Data that is shared across all modules and extensions." alt="" coords="1222,1218,1357,1295"/>
+<area shape="rect" id="node14" title=" " alt="" coords="2568,167,2675,245"/>
+<area shape="rect" id="node15" title=" " alt="" coords="2831,167,3004,245"/>
+<area shape="rect" id="node16" title=" " alt="" coords="3028,167,3169,245"/>
+<area shape="rect" id="node17" title=" " alt="" coords="3193,167,3319,245"/>
+<area shape="rect" id="node18" title=" " alt="" coords="3414,167,3474,245"/>
+<area shape="rect" id="node19" href="$classFlightPhaseManager.html" title="This class manages everything related to flight phases and sequencing." alt="" coords="1014,1817,1226,2027"/>
+<area shape="rect" id="node20" href="$classFlightPhasePredictor.html#structFlightPhasePredictor_1_1Probability" title="A stucture that contains the probabilities of being in each phase. The probabilities range from 0 to ..." alt="" coords="1454,1211,1610,1303"/>
+<area shape="rect" id="node21" title=" " alt="" coords="1683,946,1749,1023"/>
+<area shape="rect" id="node22" href="$classdata_1_1ErrorReporter.html" title="A simple class to report errors once." alt="" coords="1099,1446,1245,1553"/>
+<area shape="rect" id="node23" title=" " alt="" coords="971,1218,1074,1295"/>
+<area shape="rect" id="node24" title=" " alt="" coords="425,1218,532,1295"/>
+<area shape="rect" id="node48" href="$classgiraffe_1_1Logger.html" title=" " alt="" coords="958,1431,1074,1567"/>
+<area shape="rect" id="node49" href="$classFakeSharedData.html" title=" " alt="" coords="1463,1643,1615,1793"/>
+<area shape="rect" id="node26" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="866,946,979,1023"/>
+<area shape="rect" id="node27" href="$classdata_1_1LogStream.html" title=" " alt="" coords="5,593,227,729"/>
+<area shape="rect" id="node28" href="$classdata_1_1ImuFrameStream.html" title=" " alt="" coords="1034,623,1206,700"/>
+<area shape="rect" id="node29" href="$classdata_1_1DataStream.html" title=" " alt="" coords="457,608,615,715"/>
+<area shape="rect" id="node30" href="$classdata_1_1GpsFrameStream.html" title=" " alt="" coords="639,623,811,700"/>
+<area shape="rect" id="node31" href="$classdata_1_1CommandStream.html" title="The stream of new commands." alt="" coords="836,623,1009,700"/>
+<area shape="rect" id="node32" href="$classgiraffe_1_1StatusLedState.html" title=" " alt="" coords="412,895,583,1075"/>
+<area shape="rect" id="node33" title=" " alt="" coords="303,623,433,700"/>
+<area shape="rect" id="node38" href="$namespacedata.html#structdata_1_1Frames" title=" " alt="" coords="735,946,841,1023"/>
+<area shape="rect" id="node39" title=" " alt="" coords="729,1218,788,1295"/>
+<area shape="rect" id="node40" title=" " alt="" coords="281,1218,332,1295"/>
+<area shape="rect" id="node41" title=" " alt="" coords="1775,1461,1835,1538"/>
+<area shape="rect" id="node42" title=" " alt="" coords="296,1453,475,1545"/>
+<area shape="rect" id="node43" title=" " alt="" coords="499,1461,597,1538"/>
+<area shape="rect" id="node45" title=" " alt="" coords="1855,1218,2030,1295"/>
+<area shape="rect" id="node46" title=" " alt="" coords="1099,1218,1197,1295"/>
+<area shape="rect" id="node47" title=" " alt="" coords="765,1461,933,1538"/>
+<area shape="rect" id="node50" title=" " alt="" coords="2183,2097,2351,2174"/>
 </map>

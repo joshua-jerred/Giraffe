@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structprotocol_1_1Message.html#a0c767f4a41337a482488e705533031aa" target="_top" xlink:title="Get the message body as a JSON object.">
+<g id="a_node2"><a xlink:href="structprotocol_1_1Message.html#a3d440cf2054fb31ce4f802dc2e93a7cb" target="_top" xlink:title="Get the message body as a JSON object.">
 <polygon fill="none" stroke="black" points="234.5,-147.5 234.5,-177.5 346.5,-177.5 346.5,-147.5 234.5,-147.5"/>
 <text text-anchor="start" x="242.5" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol::Message::</text>
 <text text-anchor="middle" x="290.5" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">getBodyJson</text>
@@ -116,7 +116,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="structprotocol_1_1Message.html#aaa08e3b4cc7fe5c56a2075af650f82fe" target="_top" xlink:title="Get the message as a JSON string.">
+<g id="a_node6"><a xlink:href="structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" target="_top" xlink:title="Get the message as a JSON string.">
 <polygon fill="none" stroke="black" points="608.5,-121.5 608.5,-151.5 720.5,-151.5 720.5,-121.5 608.5,-121.5"/>
 <text text-anchor="start" x="616.5" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol::Message::</text>
 <text text-anchor="middle" x="664.5" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">getJsonString</text>
@@ -148,7 +148,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="structprotocol_1_1Message.html#a92361d50bd90c3e2a14a09eb87a82fc8" target="_top" xlink:title="Get the message as a JSON object.">
+<g id="a_node7"><a xlink:href="structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" target="_top" xlink:title="Get the message as a JSON object.">
 <polygon fill="none" stroke="black" points="763,-121.5 763,-151.5 875,-151.5 875,-121.5 763,-121.5"/>
 <text text-anchor="start" x="771" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">protocol::Message::</text>
 <text text-anchor="middle" x="819" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">getJson</text>

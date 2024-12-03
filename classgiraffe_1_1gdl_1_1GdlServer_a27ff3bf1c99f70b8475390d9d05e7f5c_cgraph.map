@@ -1,7 +1,7 @@
 <map id="giraffe::gdl::GdlServer::saveConfig" name="giraffe::gdl::GdlServer::saveConfig">
 <area shape="rect" id="node1" title="Attempts to save the current configuration to the config file." alt="" coords="5,221,169,262"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1CommonLogger.html#a452095d327c721f1ac8afc35f9744b8c" title=" " alt="" coords="233,30,408,71"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1CommonLogger.html#a0d6317e157230c5dd6e9d658b8263ca2" title=" " alt="" coords="233,126,408,167"/>
+<area shape="rect" id="node2" href="$classgiraffe_1_1CommonLogger.html#a364f4ba232bd54940d234fbefa0fc932" title=" " alt="" coords="233,30,408,71"/>
+<area shape="rect" id="node4" href="$classgiraffe_1_1CommonLogger.html#aa809939432e88f6590c9244c1defcac3" title=" " alt="" coords="233,126,408,167"/>
 <area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a591424c144ee17a258f248ce1b953b5b" title=" " alt="" coords="239,253,403,294"/>
 <area shape="rect" id="node14" href="$namespacegiraffe_1_1file__paths.html#a55797c39fca8c9ee503e4c9dab0e6007" title="Returns the path to the Giraffe config file." alt="" coords="217,442,424,483"/>
 <area shape="rect" id="node3" href="$classgiraffe_1_1CommonLogger.html#a0430441609c79cc5174b9b10d26d5fe8" title=" " alt="" coords="472,5,675,32"/>

@@ -106,9 +106,9 @@ $(document).ready(function(){initNavTree('md_docs_hardware_power_supply.html',''
 <div class="contents">
 <div class="textblock"><p>The power supply for GFC is responsible for taking the input voltage from the battery and creating a stable 5V and 3.3V output for the whole system.</p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md52"></a>
+<h1><a class="anchor" id="autotoc_md77"></a>
 Requirements</h1>
-<h2><a class="anchor" id="autotoc_md53"></a>
+<h2><a class="anchor" id="autotoc_md78"></a>
 Power Output and Consumption</h2>
 <p>The raspberry pi zero 2 W requires 5V to operate and has a maximum tolerance of 5%. The Raspberry Pi Zero 2 W idles at 280ma and under load can consume up to 600ma. Due to the computational requirements of the flight software, a duty cycle of 95% should be assumed.</p>
 <p>The radio module, SA868 can operate from 3.3V to 5.5V. The radio module requires 1000ma to transmit at high power when at 5V, 900 at 4.2V. At low transmit power, the module consumes 550ma at 5V and 450ma at 4.2V. In receive mode, the module consumes 70ma. The radio module should be assumed to be in receive mode when not transmitting. Assuming a possible configuration of APRS location and telemetry packets transmitted (3s, 1 per minute), two way telemetry packets (3s, 1 per minute), Robot36 SSTV images (36s, every 10 minutes), a realistic upper bound duty cycle is 15%.</p>
@@ -130,7 +130,7 @@ Power Output and Consumption</h2>
 <li>REQ: The acceptable voltage tolerance of 3.3V and 5V bus is 5%.</li>
 <li>REQ: The power supply will have current sensing.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md54"></a>
+<h2><a class="anchor" id="autotoc_md79"></a>
 Battery Cells</h2>
 <p>The battery cells should be Lithium-Ion cells. Of the form factors available, cylindrical cells provide safety benefits over pouch cells. There should be consideration of the battery being in vacuum and impacting the ground. Looking at the available form factors, 18650 and 21700 cells are the most widely available. The 21700 cells have a higher energy density. Given energy density, decent safety, and availability, NMC/INR cells should be used. The cells should be from a reputable manufacturer as there are many poor quality products out there. Capacity should be the priority over current rating as this is a fairly low power system.</p>
 <p><a href="https://archive.org/details/httpsntrs.nasa.govapicitations20100037250downloads20100037250.pdf">https://archive.org/details/httpsntrs.nasa.govapicitations20100037250downloads20100037250.pdf</a> <a href="https://www.batterypowertips.com/18650-21700-30700-4680-and-other-li-ions-whats-the-difference-faq/">https://www.batterypowertips.com/18650-21700-30700-4680-and-other-li-ions-whats-the-difference-faq/</a> <a href="https://blog.satsearch.co/2021-06-23-satellite-batteries-for-cubesats-nanosats-and-other-form-factors">https://blog.satsearch.co/2021-06-23-satellite-batteries-for-cubesats-nanosats-and-other-form-factors</a> <a href="https://web.archive.org/web/20240405003314/https://www.thunderheartreviews.com/2021/12/samsung-21700-50G-48G-50E-test-comparison.html">https://web.archive.org/web/20240405003314/https://www.thunderheartreviews.com/2021/12/samsung-21700-50G-48G-50E-test-comparison.html</a> <a href="https://batteryuniversity.com/article/bu-302-series-and-parallel-battery-configurations">https://batteryuniversity.com/article/bu-302-series-and-parallel-battery-configurations</a></p>
@@ -139,32 +139,32 @@ Battery Cells</h2>
 <li>REQ: The battery cells must have a capacity of at least 4000mAh.</li>
 <li>REQ: The battery cells must be from a reputable manufacturer and distributor.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md55"></a>
+<h2><a class="anchor" id="autotoc_md80"></a>
 Cell Configuration and Power Supply Architecture</h2>
 <p>Depending on the battery cell configuration, the power supply architecture will change. The battery configurations that can be considered are 1S2P, 2S1P, and 2S2P. The 1S2P configuration would require a boost converter and a single ADC channel to monitor the battery voltage. The 2S1P/2S2P configurations would require a buck converter and two ADC channels, or a BMS, to monitor the battery.</p>
 <ul>
 <li>REQ: The battery pack must weigh less than 350g</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md56"></a>
+<h2><a class="anchor" id="autotoc_md81"></a>
 Pack Design</h2>
-<h2><a class="anchor" id="autotoc_md57"></a>
+<h2><a class="anchor" id="autotoc_md82"></a>
 Battery Management</h2>
 <ul>
 <li>REQ: The battery SOC should be considered 100% at 4.2V and 0% at 3.0V</li>
 </ul>
 <hr  />
-<h1><a class="anchor" id="autotoc_md58"></a>
+<h1><a class="anchor" id="autotoc_md83"></a>
 Design</h1>
-<h2><a class="anchor" id="autotoc_md59"></a>
+<h2><a class="anchor" id="autotoc_md84"></a>
 Battery</h2>
 <p>Going with a 2SxP configuration, the power supply will consist of a buck converter.</p>
 <p>Tentatively, the cell choice is INR21700-50E, which has is 17Wh at a 2A draw.</p>
-<h2><a class="anchor" id="autotoc_md60"></a>
+<h2><a class="anchor" id="autotoc_md85"></a>
 Current Sensing</h2>
 <p>High side current sensing will be used with the shunt resistor placed between the battery and the buck converter.</p>
 <p>Currently looking at the INA226 for current sensing.</p>
 <p>INA180A</p>
-<h2><a class="anchor" id="autotoc_md61"></a>
+<h2><a class="anchor" id="autotoc_md86"></a>
 Buck-Converter</h2>
 <p>Decided on the TPS56320X, specifically the TPS563201. For $0.43, it meets all requirements, goes up to 3A, and comes in a easier to use SOT-23 (Thin) package.</p>
 <p>The TPS563201 specifically uses Pulse Skip Mode, because it's not CCM it does not have a fixed frequency. The hope is that this will not be an issue EMI/EMC wise. </p>
