@@ -21,6 +21,8 @@
 
 #include <BoosterSeat/sleep.hpp>
 #include <BoosterSeat/stopwatch.hpp>
+#include <BoosterSeat/string_formatting.hpp>
+#include <BoosterSeat/timer.hpp>
 
 #include "bit_types.hpp"
 #include "i_built_in_test.hpp"
@@ -46,12 +48,30 @@ public:
     return test_id_;
   }
 
+  std::string getTestIdString() const {
+    constexpr bool WIDTH = 6;
+    constexpr bool INCLUDE_0X = false;
+    constexpr bool UPPERCASE = false;
+
+    const uint16_t test_id_unsigned =
+        bst::template_tools::to_underlying(test_id_);
+
+    std::string id_unpaded = bst::string::intToHex(
+        static_cast<int>(test_id_unsigned), WIDTH, INCLUDE_0X, UPPERCASE);
+    std::string output = "0x";
+    for (size_t i = 4; i > id_unpaded.size(); i--) {
+      output += "0";
+    }
+
+    return output + id_unpaded;
+  }
+
   void startTest() {
     status_ = TestStatus::WAITING;
   }
 
   void stopTest() {
-    if (status_ == TestStatus::WAITING || status_ == TestStatus::RUNNING) {
+    if (status_ == TestStatus::RUNNING) {
       status_ = TestStatus::STOPPED;
     }
   }
@@ -60,6 +80,9 @@ public:
     if (status_ == TestStatus::WAITING) {
       status_ = TestStatus::RUNNING;
     }
+
+    // temp
+    status_ = TestStatus::PASSED;
   }
 
 private:
@@ -114,29 +137,63 @@ public:
 
     Json results = Json::object();
     for (auto &test_case : test_cases_) {
-      results[testGroupIdToString(group_id_)] = {
-          testIdToString(test_case.getTestID()),
-          testStatusToString(test_case.getStatus())};
+      results[test_case.getTestIdString()] =
+          testStatusToString(test_case.getStatus());
     }
+
+    results["group_status"] = testStatusToString(group_status_);
     return results;
   }
 
 private:
   void groupRunner() {
+    setGroupStatus(TestStatus::RUNNING);
+
+    for (auto &test_case : test_cases_) {
+      test_case.startTest();
+    }
+
     while (running_) {
-      bst::sleep(100);
+      bst::sleep(50);
 
+      const size_t MAX_TEST_TIME_MS = 1000;
+      bst::Timer timer{MAX_TEST_TIME_MS};
+      timer.reset();
+
+      // Find the first incomplete test and run it.
+      bool incomplete_test_found = false;
       for (auto &test_case : test_cases_) {
-        test_case.startTest();
 
-        bst::sleep(5000);
-        /// @todo tmp, run the tests here.
-        test_case.update();
-        bst::sleep(5000);
+        while (!timer.isDone() &&
+               (test_case.getStatus() == TestStatus::WAITING ||
+                test_case.getStatus() == TestStatus::RUNNING)) {
+          test_case.update();
+          incomplete_test_found = true;
+        }
+      }
 
-        test_case.stopTest();
+      // All tests are complete, break the loop.
+      if (!incomplete_test_found) {
+        running_ = false;
+        break;
       }
     }
+
+    // Run the cleanup for each test.
+    for (auto &test_case : test_cases_) {
+      test_case.stopTest();
+    }
+
+    // Check if all tests passed.
+    bool all_tests_passed = true;
+    for (auto &test_case : test_cases_) {
+      if (test_case.getStatus() != TestStatus::PASSED) {
+        all_tests_passed = false;
+        break;
+      }
+    }
+
+    setGroupStatus(all_tests_passed ? TestStatus::PASSED : TestStatus::FAILED);
   }
 
   void setGroupStatus(TestStatus status) {
@@ -225,12 +282,45 @@ private:
   void bitTestRunner() {
     general_bit_status_ = TestStatus::RUNNING;
 
+    // Startup all of the test groups.
+    std::cout << "Starting BIT tests." << std::endl;
+    for (auto &test_group : test_groups_map_) {
+      test_group.second.start();
+    }
+
     while (running_) {
       updateBitTestData();
 
+      bool all_tests_complete = true;
+      for (auto &test_group : test_groups_map_) {
+        if (test_group.second.getGroupStatus() == TestStatus::WAITING ||
+            test_group.second.getGroupStatus() == TestStatus::RUNNING) {
+          all_tests_complete = false;
+        }
+      }
+
+      if (all_tests_complete) {
+        std::cout << "All tests complete." << std::endl;
+        running_ = false;
+        break;
+      }
+
       bst::sleep(500);
     }
-    general_bit_status_ = TestStatus::STOPPED;
+
+    std::cout << "BIT tests complete." << std::endl;
+    bool all_tests_passed = true;
+    for (auto &test_group : test_groups_map_) {
+      if (test_group.second.getGroupStatus() != TestStatus::PASSED) {
+        all_tests_passed = false;
+        break;
+      }
+    }
+
+    general_bit_status_ =
+        all_tests_passed ? TestStatus::PASSED : TestStatus::FAILED;
+
+    updateBitTestData();
   }
 
   std::mutex test_data_mutex_{};

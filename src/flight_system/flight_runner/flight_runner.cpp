@@ -304,6 +304,9 @@ void FlightRunner::processCommand(const cmd::Command &command) {
   case cmd::CommandId::FLIGHT_RUNNER_enterPreLaunchPhase:
     flight_phase_manager_.setPreLaunch();
     break;
+  case cmd::CommandId::FLIGHT_RUNNER_startBitTest:
+    bit_test_.start();
+    break;
   case cmd::CommandId::INTERNAL_reportPhaseChange: {
     fl_phaseChanged();
   } break;

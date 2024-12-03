@@ -82,6 +82,13 @@
       "value": "0x1005",
       "cmd_key": "epl",
       "exclude_from_ui": true
+    },
+    "start_bit_test": {
+      "name": "Start BIT Test",
+      "details": "Request the flight runner to start the BIT test. Only works in pre-launch.",
+      "value": "0x1006",
+      "cmd_key": "sbt",
+      "exclude_from_ui": true
     }
   },
   "data_module": {

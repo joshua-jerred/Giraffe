@@ -104,6 +104,12 @@ module.exports = class GfsConnection {
     this.#sendRequest(request, callback);
   }
 
+  // Send a data request to GFS with a given category
+  async sendAsyncSetRequest(resource, data, callback) {
+    let request = new SetMessage("ggs", "gfs", resource, data);
+    this.#sendRequest(request, callback);
+  }
+
   // Send a formatted string command to GFS
   sendCommand(command_string, callback) {
     let request = new SetMessage("ggs", "gfs", command_string, {});

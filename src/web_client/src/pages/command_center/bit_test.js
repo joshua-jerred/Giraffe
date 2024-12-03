@@ -76,7 +76,10 @@ function TestGroup({ name, status, selectedGroup, setSelectedGroup }) {
     case "SKIP":
       style.opacity = 0.4;
       break;
+    case "WAIT":
+      break;
     default:
+      console.log("Unknown status: ", status);
       status_label = "--";
       style.opacity = 0.4;
       name_label = "UNK";
@@ -138,11 +141,12 @@ function BitTestInfoBox({ testGroupData, selectedGroup, bitInfo }) {
 
   const getStatusText = (status) => {
     const StatusText = {
-      "N/R": "Not Run",
-      RUN: "Running",
-      PASS: "Passed",
-      FAIL: "Failed",
-      SKIP: "Skipped",
+      "N/R": "not run",
+      RUN: "running",
+      PASS: "passed",
+      FAIL: "failed",
+      SKIP: "skipped",
+      WAIT: "waiting",
     };
 
     if (status in StatusText) {
@@ -158,13 +162,13 @@ function BitTestInfoBox({ testGroupData, selectedGroup, bitInfo }) {
         return testGroupData[group_id].description;
       }
       // console.log("Group ID: ", group_id, testGroupData[group_id]);
-      return group_id + " found";
+      return group_id;
     }
     return "Unknown";
   };
 
-  const generateIntoText = (bitInfo) => {
-    let text = `${getStatusText(bitInfo.bit_status)}`;
+  const generateInfoText = (bitInfo) => {
+    let text = `${getStatusText(bitInfo.bit_test_status)}`;
     // text += `Total Tests: ${bitInfo.total_tests}\n`;
     // text += `Passed Tests: ${bitInfo.passed_tests}\n`;
     // text += `Failed Tests: ${bitInfo.failed_tests}\n`;
@@ -178,10 +182,10 @@ function BitTestInfoBox({ testGroupData, selectedGroup, bitInfo }) {
   useEffect(() => {
     // Display group specific test info when a group is selected
     if (selectedGroup === null) {
-      setInfoText(generateIntoText(bitInfo));
+      setInfoText(generateInfoText(bitInfo));
       setTestList(null);
     } else if (selectedGroup in testGroupData) {
-      setInfoText(generateIntoText(bitInfo));
+      setInfoText(generateInfoText(bitInfo));
       // setInfoText(`${selectedGroup} - ${testGroupData[selectedGroup].status}`);
       setTestList(testGroupData[selectedGroup].tests);
     } else {
@@ -222,22 +226,22 @@ function BitTestInfoBox({ testGroupData, selectedGroup, bitInfo }) {
       )}
       {testList && (
         <div>
-          {/* {testList.map((test) => {
+          {Object.keys(testList).map((key, index) => {
             return (
               <div
-                key={test.id}
+                key={index}
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
                   padding: "5px",
-                  borderBottom: "1px solid #6c6b6b",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
                 }}
               >
-                <span>{test.name}</span>
-                <span>{test.status}</span>
+                <span>{testList[key].name}</span>
+                <span>{getStatusText(testList[key].status)}</span>
               </div>
             );
-          })} */}
+          })}
         </div>
       )}
     </BitTestInfoBoxStyle>
@@ -264,7 +268,7 @@ export default function BitTestPanel() {
 
   // Built in test info
   const [bitInfo, setBitInfo] = useState({
-    bit_test_status: "N/R", // overall status of the BIT
+    bit_test_status: "N/D", // overall status of the BIT
     bit_test_ready: "n/d",
     total_tests: 0,
     passed_tests: 0,
@@ -278,7 +282,7 @@ export default function BitTestPanel() {
     user_displayed_error: 0,
   });
 
-  const { isGfsTcpConnected } = useContext(GwsGlobal);
+  const { isGfsTcpConnected, ggsAddress } = useContext(GwsGlobal);
 
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [runButtonText, setRunButtonText] = useState("false");
@@ -343,7 +347,15 @@ export default function BitTestPanel() {
 
   const requestStartTest = () => {
     // Send request to start the test
-    console.log("Request to start test");
+
+    fetch(`${ggsAddress}/api/flight_data/bit_test?action=start`, {
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Start Test Response: ", data);
+        setNeedUpdate(true);
+      });
   };
 
   const requestStopTest = () => {
@@ -353,13 +365,13 @@ export default function BitTestPanel() {
 
   const requestResetTest = () => {
     // Send request to reset the test
-    console.log("Request to reset test");
+    console.log("Request to reset test - not implemented");
   };
 
   const bitTestButtonHandler = () => {
-    if (bitInfo.bit_status === "N/R") {
+    if (bitInfo.bit_test_status === "N/R") {
       requestStartTest();
-    } else if (bitInfo.bit_status === "RUN") {
+    } else if (bitInfo.bit_test_status === "RUN") {
       requestStopTest();
     } else {
       requestResetTest();
@@ -387,11 +399,14 @@ export default function BitTestPanel() {
       setRunButtonDisabled(false);
     }
 
-    if (bitInfo.bit_status === "N/R") {
+    if (bitInfo.bit_test_status === "N/R") {
       setRunButtonText("Run Test");
-    } else if (bitInfo.bit_status === "RUN") {
+    } else if (bitInfo.bit_test_status === "RUN") {
       setRunButtonText("Stop Test");
-    } else if (bitInfo.bit_status === "PASS" || bitInfo.bit_status === "FAIL") {
+    } else if (
+      bitInfo.bit_test_status === "PASS" ||
+      bitInfo.bit_status === "FAIL"
+    ) {
       setRunButtonText("Reset Test");
     } else {
       setRunButtonText("");

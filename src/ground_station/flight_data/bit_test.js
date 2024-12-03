@@ -65,26 +65,49 @@ module.exports = class BitTest {
           return;
         }
 
-        // if (
-        // !data.hasOwnProperty("bit_info") ||
-        // !data.hasOwnProperty("bit_results")
-        // ) {
-        // console.log("Error: Missing data in response");
-        // return;
-        // }
+        if (
+          !data.hasOwnProperty("dat") ||
+          !data.dat.hasOwnProperty("bit_results") ||
+          !data.dat.hasOwnProperty("bit_info")
+        ) {
+          console.log("Error: Missing data in response");
+          return;
+        }
 
-        console.log("BitTest data:", data);
+        let bit_info = data.dat.bit_info;
+        if (bit_info.hasOwnProperty("gfs_ready_to_perform_bit_test")) {
+          this.bit_test_ready = bit_info.gfs_ready_to_perform_bit_test;
+          this.gfs_ready_to_perform_bit_test =
+            bit_info.gfs_ready_to_perform_bit_test;
+        }
+        if (bit_info.hasOwnProperty("bit_test_running")) {
+          this.bit_test_running = bit_info.bit_test_running;
+        }
+        if (bit_info.hasOwnProperty("bit_test_results")) {
+          this.bit_test_status = bit_info.bit_test_results;
+        }
 
-        // let bit_info = data.bit_info;
-        // let bit_results = data.bit_results;
+        let bit_results = data.dat.bit_results;
+        // console.log("BitTest data:", bit_results);
 
-        // if (data.bdy.cde === "ok") {
-        //   this.bit_test_ready = true;
-        //   this.gfs_ready_to_perform_bit_test = true;
-        // } else {
-        //   this.bit_test_ready = false;
-        //   this.gfs_ready_to_perform_bit_test = false;
-        // }
+        for (const test_group_key in bit_results) {
+          this.#setTestGroupStatus(
+            test_group_key,
+            bit_results[test_group_key].group_status
+          );
+
+          for (const test_id in bit_results[test_group_key]) {
+            if (test_id === "group_status") {
+              continue;
+            }
+
+            this.#setTestStatus(
+              test_group_key,
+              test_id,
+              bit_results[test_group_key][test_id]
+            );
+          }
+        }
       }
     );
   }
@@ -188,29 +211,38 @@ module.exports = class BitTest {
 
     // Spin off an async request. Don't bother handling a response, there is a
     // continuous data stream.
-    this.global_state.gfs_connection.sendAsyncDataRequest(
-      "bit_test",
+    this.global_state.gfs_connection.sendAsyncSetRequest(
+      "bit_test/start",
+      {},
       (data) => {
-        if (data.bdy.cde !== "ok") {
-          this.user_displayed_error = data.bdy.dat;
+        if (
+          !data.hasOwnProperty("bdy") ||
+          !data.bdy.hasOwnProperty("cde") ||
+          data.bdy.cde !== "ok"
+        ) {
+          this.user_displayed_error = "Failed to start BIT test";
           response.status(500).json({
-            error: data.bdy.dat,
+            error: this.user_displayed_error,
           });
+
+          console.log("Failed to start BIT test", data);
         } else {
           response.json({
             message: "success",
             from_gfs: data.bdy.dat,
           });
-
-          console.log("You're not doing anything with it yet");
         }
       }
     );
   }
 
-  #stopBitTest() {}
+  #stopBitTest() {
+    console.log("Stopping BIT test");
+  }
 
-  #resetBitTest() {}
+  #resetBitTest() {
+    console.log("Resetting BIT test");
+  }
 
   #triggerUserDisplayedError(error_message) {
     const TIMEOUT = 10000; // 10 seconds

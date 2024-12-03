@@ -37,6 +37,7 @@ const std::unordered_map<std::string, CommandId> K_STRING_TO_COMMAND_MAP {
   {"FLIGHT_RUNNER_restartModule",CommandId::FLIGHT_RUNNER_restartModule},
   {"FLIGHT_RUNNER_enterLaunchPhase",CommandId::FLIGHT_RUNNER_enterLaunchPhase},
   {"FLIGHT_RUNNER_enterPreLaunchPhase",CommandId::FLIGHT_RUNNER_enterPreLaunchPhase},
+  {"FLIGHT_RUNNER_startBitTest",CommandId::FLIGHT_RUNNER_startBitTest},
   {"DATA_MODULE_clearAllErrors",CommandId::DATA_MODULE_clearAllErrors},
   {"DATA_MODULE_clearSpecificError",CommandId::DATA_MODULE_clearSpecificError},
   {"TELEMETRY_MODULE_sendNumActiveErrors",CommandId::TELEMETRY_MODULE_sendNumActiveErrors},

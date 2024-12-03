@@ -71,6 +71,9 @@ void RequestRouter::handleMessage(sock::TcpSocketServer &client,
     } else if (bst::containsPrefix(msg.rsc, "setting/")) {
       handleSettingSet(client, msg);
       return;
+    } else if (bst::containsPrefix(msg.rsc, "bit_test/")) {
+      handleBitTestSet(client, msg.rsc);
+      return;
     }
     sendErrorPacket(client, "message type not implemented");
     return;
