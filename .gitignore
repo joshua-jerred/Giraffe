@@ -1,6 +1,8 @@
 # VS Code User and Workspace Settings
 .vscode/*
 .vscode/settings.json
+# CLion
+.idea
 #.timetracker
 .VSCodeCounter
 .cache

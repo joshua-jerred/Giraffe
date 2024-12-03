@@ -75,8 +75,10 @@ void RequestRouter::handleDataRequest(sock::TcpSocketServer &client,
     res_body = toJson(shared_data_.frames.adc);
   } else if (requested_data == "error_frame") {
     getErrorFrameData(res_body, shared_data_.frames.error_frame);
+  } else if (requested_data == "bit_test") {
+    res_body = shared_data_.flight_data.getBitTestData();
   } else {
-    sendErrorPacket(client, "data section not found");
+    sendErrorPacket(client, "data section not found: " + requested_data);
     return;
   }
 

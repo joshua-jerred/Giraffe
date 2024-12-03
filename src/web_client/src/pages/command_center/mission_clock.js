@@ -3,28 +3,29 @@ import { useState, useEffect, useContext } from "react";
 import {
   StyWarningButton,
   StyInput,
-} from "../components/styled/StyledComponents";
-import { CardSectionTitle, CardContentCentered } from "../core/PageParts";
-import { useApiGetData } from "../api_interface/ggs_api";
-import { GwsGlobal } from "../GlobalContext";
+} from "../../components/styled/StyledComponents";
+import { CardSectionTitle, CardContentCentered } from "../../core/PageParts";
+import { useApiGetData } from "../../api_interface/ggs_api";
+import { GwsGlobal } from "../../GlobalContext";
+import Tooltip from "../../components/Tooltip";
+
+import { useStorageState } from "../../core/LocalStorageState";
 
 const START_TIME_CHECK_INTERVAL = 2000;
 
+/**
+ * A react component that displays a menu to control the mission clock.
+ */
 function MissionClockControlMenu({
   isRunning,
   skew,
   setSkew,
   clockUpdateCallback,
 }) {
-  const { ggsAddress } = useContext(GwsGlobal);
+  const { ggsAddress, flightData, isGfsTcpConnected } = useContext(GwsGlobal);
+  const [allowStartMissionClock, setAllowStartMissionClock] = useState(false);
 
   const startMissionClock = (skew) => {
-    // if (!window.confirm("Are you sure you want to start the mission clock?")) {
-    // return;
-    // }
-
-    console.log("Starting mission clock with skew: ", skew);
-
     fetch(`${ggsAddress}/api/flight_data/data?category=start_mission_clock`, {
       method: "PUT",
       headers: {
@@ -65,6 +66,19 @@ function MissionClockControlMenu({
       });
   };
 
+  useEffect(() => {
+    if (!isGfsTcpConnected || !flightData.hasOwnProperty("flight_phase")) {
+      setAllowStartMissionClock(false);
+      return;
+    }
+
+    if (flightData.flight_phase === "Pre-Launch") {
+      setAllowStartMissionClock(true);
+    } else {
+      setAllowStartMissionClock(false);
+    }
+  }, [flightData, isGfsTcpConnected]);
+
   return (
     <CardContentCentered>
       {isRunning === true ? (
@@ -86,54 +100,60 @@ function MissionClockControlMenu({
             marginTop: "1em",
           }}
         >
-          <StyInput
-            type="number"
-            placeholder="Skew Time (s)"
-            value={skew}
-            onChange={(e) => {
-              if (e.target.value < 0) {
-                setSkew(0);
-              } else if (isNaN(e.target.value)) {
-                setSkew(0);
-              } else {
-                setSkew(e.target.value);
-              }
-            }}
-            style={{
-              textAlign: "center",
-              height: "2em",
-            }}
-          />
-          <StyWarningButton
-            style={{
-              height: "2em",
-            }}
-            onClick={() => {
-              startMissionClock(skew);
-            }}
+          <Tooltip
+            text="Start the Mission Clock with an optional clock skew. Depending on sequencing setup a skew will be required."
+            specified_delay={1000}
           >
-            Start Clock
-          </StyWarningButton>
+            <StyInput
+              type="number"
+              placeholder="Skew Time (s)"
+              value={skew}
+              onChange={(e) => {
+                if (e.target.value < 0) {
+                  setSkew(0);
+                } else if (isNaN(e.target.value)) {
+                  setSkew(0);
+                } else {
+                  setSkew(e.target.value);
+                }
+              }}
+              style={{
+                textAlign: "center",
+                height: "2em",
+              }}
+              disabled={allowStartMissionClock === false}
+            />
+            <StyWarningButton
+              style={{
+                height: "2em",
+              }}
+              onClick={() => {
+                startMissionClock(skew);
+              }}
+              disabled={allowStartMissionClock === false}
+            >
+              Start Clock
+            </StyWarningButton>
+          </Tooltip>
         </div>
       )}
 
-      <p
+      {/* <p
         style={{
           marginTop: "2em",
           textAlign: "center",
         }}
       >
-        {isRunning === true
-          ? ""
-          : "Start the Mission Clock with an optional clock skew. Depending on sequencing setup a skew will be required."}
-      </p>
+        {isRunning === true ? "a" : "b"}
+      </p> */}
     </CardContentCentered>
   );
 }
 
-function MissionTimer({ startTime }) {}
-
-function ClockMartix({ ggsTime, gfsTime, gfsTimeSkew, gfsGpsTime }) {
+/**
+ * This component displays the current time of the GGS, GFS, and local time.
+ */
+function ClockMartix({ ggsTime, gfsTime, gfsTimeSkew, gfsGpsTime, onClick }) {
   const [localTime, setLocalTime] = useState("--:--:--");
 
   useEffect(() => {
@@ -172,7 +192,15 @@ function ClockMartix({ ggsTime, gfsTime, gfsTimeSkew, gfsGpsTime }) {
   };
 
   return (
-    <div style={{ width: "70%", paddingTop: "10px", paddingBottom: "10px" }}>
+    <div
+      style={{
+        width: "70%",
+        paddingTop: "10px",
+        paddingBottom: "10px",
+        cursor: "pointer",
+      }}
+      onClick={onClick}
+    >
       {/* <CardContentCentered> */}
       <div style={clock_style}>
         <span>Local Time</span>
@@ -200,11 +228,14 @@ function ClockMartix({ ggsTime, gfsTime, gfsTimeSkew, gfsGpsTime }) {
 }
 
 export function MissionClock() {
-  const [isClockMenuOpen, setClockMenuOpen] = useState(false);
-  const [startSkewTime, setStartSkewTime] = useState(0);
+  const [startSkewTime, setStartSkewTime] = useState(60);
   const [isRunning, setIsRunning] = useState(true);
   const [startTime, setStartTime] = useState(new Date());
   const [isClockValid, setIsClockValid] = useState(true);
+  const [showClockMatrix, setShowClockMatrix] = useStorageState(
+    "show_clock_matrix",
+    false
+  );
   const [clockSignSymbol, setClockSignSymbol] = useState("+");
 
   const [days, setDays] = useState(0);
@@ -228,6 +259,8 @@ export function MissionClock() {
     if (elapsed_time < 0) {
       setClockSignSymbol("-");
       elapsed_time = Math.abs(elapsed_time);
+    } else {
+      setClockSignSymbol("+");
     }
 
     setDays(Math.floor(elapsed_time / (1000 * 60 * 60 * 24)));
@@ -263,6 +296,7 @@ export function MissionClock() {
     }
   }, [data, isDataLoading, error]);
 
+  // Update the Mission Elapsed Time every 300ms
   useEffect(() => {
     if (!isClockValid) {
       return;
@@ -307,11 +341,11 @@ export function MissionClock() {
             <div>
               <CardContentCentered>
                 <h2
-                  onClick={() => {
-                    setClockMenuOpen(!isClockMenuOpen);
-                  }}
                   className="noselect"
-                  style={{ cursor: "pointer", margin: "0px" }}
+                  style={{
+                    // cursor: "pointer",
+                    margin: "0px",
+                  }}
                 >
                   {clockSignSymbol} {days}d {hours}h {minutes}m {seconds}s
                 </h2>
@@ -320,22 +354,43 @@ export function MissionClock() {
                 ) : (
                   <h4 style={{ margin: "0px" }}>Stopped</h4>
                 )}
-                <ClockMartix
-                  ggsTime={ggsTime}
-                  gfsTime={gfsTime}
-                  gfsTimeSkew={gfsTimeSkew}
-                  gfsGpsTime={gfsGpsTime}
-                />
-                {isClockMenuOpen && (
-                  <MissionClockControlMenu
-                    isRunning={isRunning}
-                    skew={startSkewTime}
-                    setSkew={setStartSkewTime}
-                    clockUpdateCallback={() => {
-                      setNeedUpdate(true);
-                      setClockMenuOpen(false);
+
+                {showClockMatrix && (
+                  <>
+                    <ClockMartix
+                      ggsTime={ggsTime}
+                      gfsTime={gfsTime}
+                      gfsTimeSkew={gfsTimeSkew}
+                      gfsGpsTime={gfsGpsTime}
+                      onClick={() => {
+                        setShowClockMatrix(!showClockMatrix);
+                      }}
+                    />
+                    <MissionClockControlMenu
+                      isRunning={isRunning}
+                      skew={startSkewTime}
+                      setSkew={setStartSkewTime}
+                      clockUpdateCallback={() => {
+                        setNeedUpdate(true);
+                      }}
+                    />
+                  </>
+                )}
+                {!showClockMatrix && (
+                  <p
+                    style={{
+                      cursor: "pointer",
+                      margin: "0px",
+                      fontSize: "0.7em",
+                      marginTop: "1em",
+                      // color: "blue",
                     }}
-                  />
+                    onClick={() => {
+                      setShowClockMatrix(!showClockMatrix);
+                    }}
+                  >
+                    Show Clock Matrix & Controls
+                  </p>
                 )}
               </CardContentCentered>
             </div>

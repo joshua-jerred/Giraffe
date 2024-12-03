@@ -21,7 +21,7 @@ The process of adding configuration options has been fully automated.
   - A string containing a description of the setting
   - 20 to 300 Characters
 - `type`
-    - `bool` 
+    - `bool`
       - true/false
       - Required Additional Fields:
         - `true`: The relevant word for when it's set to true. Ex: "enabled"

@@ -240,7 +240,7 @@ export default function AprsTelemetryData() {
     comment: "unk",
   });
   const [packets, setPackets] = React.useState([]);
-  const [timeOfLastPacket, setTimeOfLastPacket] = React.useState("unknown");
+  const [timeOfLastPacket, setTimeOfLastPacket] = React.useState("n/d");
   const [numPacketsOnChart, setNumPacketsOnChart] = React.useState(0);
   const [numPacketsInDatabase, setNumPacketsInDatabase] = React.useState(0);
 

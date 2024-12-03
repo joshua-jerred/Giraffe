@@ -7,12 +7,6 @@ module.exports = class MissionClock {
       "is_running"
     );
 
-    console.log(
-      "input_is_running: ",
-      input_is_running,
-      typeof input_is_running
-    );
-
     let input_time = global_state.ggs_db.get(
       "data",
       "mission_clock",
@@ -66,7 +60,7 @@ module.exports = class MissionClock {
     return `${hours}:${minutes}:${seconds}`;
   }
 
-  getGfsGpsUtcTime() {
+  #getGfsGpsUtcTime() {
     if (this.gfs_gps_utc_time.length > 8) {
       return this.gfs_gps_utc_time.split(" ")[1];
     }
@@ -103,13 +97,7 @@ module.exports = class MissionClock {
 
     this.is_running = true;
     this.start_time = new Date();
-    this.start_time.setSeconds(this.start_time.getSeconds() + skew_seconds);
-
-    console.log(
-      "Resetting Clock: ",
-      this.start_time,
-      this.start_time.getSeconds()
-    );
+    this.start_time = new Date(this.start_time.getTime() + skew_seconds * 1000);
 
     this.global_state.ggs_db.setKey(
       "data",
@@ -124,6 +112,10 @@ module.exports = class MissionClock {
       this.start_time.toUTCString()
     );
 
+    this.global_state.info(
+      `Mission Clock Started: ${this.start_time.toUTCString()} (skew: ${skew_seconds}s)`
+    );
+
     return "success";
   }
 
@@ -136,6 +128,8 @@ module.exports = class MissionClock {
       this.is_running.toString()
     );
 
+    this.global_state.info("Mission Clock Stopped");
+
     return "success";
   }
 
@@ -144,7 +138,7 @@ module.exports = class MissionClock {
       ggs_utc_time: this.getUtcTime(),
       gfs_utc_time: this.gfs_utc_time,
       gfs_time_skew: this.gfs_time_skew,
-      gfs_gps_utc_time: this.getGfsGpsUtcTime(),
+      gfs_gps_utc_time: this.#getGfsGpsUtcTime(),
       mission_elapsed_time: this.getElapsedTime(),
       is_running: this.getIsRunning(),
       start_time: this.getStartTime(),

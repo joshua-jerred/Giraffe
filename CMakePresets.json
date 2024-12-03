@@ -17,8 +17,8 @@
       }
     },
     {
-      "name": "gcc_pi_x86",
-      "displayName": "GCC Pi x86",
+      "name": "gcc_x86_pi_64_cross_compile",
+      "displayName": "GCC x86 to Pi 64 Cross Compile",
       "description": "",
       "generator": "Unix Makefiles",
       "binaryDir": "${sourceDir}/build/${presetName}",

@@ -5,9 +5,9 @@ set(CMAKE_SYSTEM_NAME Linux)
 set(CMAKE_SYSTEM_VERSION 1)
 set(CMAKE_SYSTEM_PROCESSOR aarch64)
 
-set(tools $ENV{HOME}/toolchain/cross-pi-gcc-10.3.0-64) # warning change toolchain path here.
+set(tools $ENV{HOME}/pi_64_gcc/cross-pi-gcc-12.2.0-64) # warning change toolchain path here.
 
-set(rootfs_dir $ENV{HOME}/toolchain/root_fs)
+set(rootfs_dir $ENV{HOME}/pi_64_gcc/root_fs)
 
 set(CMAKE_FIND_ROOT_PATH ${rootfs_dir})
 set(CMAKE_SYSROOT ${rootfs_dir})

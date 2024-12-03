@@ -29,14 +29,16 @@ const std::unordered_map<protocol::Endpoint, std::string> endpointToStringMap =
      {protocol::Endpoint::GFS, "gfs"},
      {protocol::Endpoint::GGS, "ggs"},
      {protocol::Endpoint::GDL, "gdl"},
-     {protocol::Endpoint::GWC, "gwc"}};
+     {protocol::Endpoint::GWC, "gwc"},
+     {protocol::Endpoint::FSA, "fsa"}};
 
 static const std::unordered_map<std::string, protocol::Endpoint>
     stringToEndpointMap = {{"unknown", protocol::Endpoint::UNKNOWN},
                            {"gfs", protocol::Endpoint::GFS},
                            {"ggs", protocol::Endpoint::GGS},
                            {"gdl", protocol::Endpoint::GDL},
-                           {"gwc", protocol::Endpoint::GWC}};
+                           {"gwc", protocol::Endpoint::GWC},
+                           {"fsa", protocol::Endpoint::FSA}};
 
 static const std::unordered_map<protocol::MessageType, std::string>
     typeToStringMap = {{protocol::MessageType::UNKNOWN, "unknown"},
@@ -145,11 +147,11 @@ bool protocol::parseMessage(const std::string &json_string,
   return valid;
 }
 
-std::string protocol::Message::getJsonString() {
+std::string protocol::Message::getJsonString() const {
   return getJson().dump();
 }
 
-Json protocol::Message::getJson() {
+Json protocol::Message::getJson() const {
   Json message{};
   try {
     message = {{"src", endpointToStringMap.at(src)},
@@ -163,7 +165,7 @@ Json protocol::Message::getJson() {
   return message;
 }
 
-Json protocol::Message::getBodyJson() {
+Json protocol::Message::getBodyJson() const {
   Json body;
   if (typ == protocol::MessageType::REQ || typ == protocol::MessageType::SET) {
     body["rsc"] = rsc;

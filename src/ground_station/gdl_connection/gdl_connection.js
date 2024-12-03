@@ -3,14 +3,20 @@ const { RequestMessage, SetMessage, parse } = require("giraffe-protocol");
 const net = require("net");
 const { Point } = require("@influxdata/influxdb-client");
 
-const TIMEOUT = 1000;
+const SocketExchangeQueue = require("../socket_exchange_queue");
+
+const TIMEOUT = 5000;
 
 module.exports = class GdlConnection {
   constructor(global_state) {
     this.global_state = global_state;
-    this.connected = false;
     this.socket = null;
     this.socket_interval = null; // setInterval() object
+
+    this.connected = false;
+    this.gdl_enabled = false;
+    this.address = "127.0.0.1";
+    this.port = 9557;
 
     this.update_interval = 1000;
     this.#updateClassSettings();
@@ -32,7 +38,10 @@ module.exports = class GdlConnection {
       sent_messages: [],
     };
 
-    setInterval(this.#cycle.bind(this), this.update_interval);
+    this.update_interval_id = setInterval(
+      this.#cycle.bind(this),
+      this.update_interval
+    );
   }
 
   getConnectionStatus() {
@@ -62,26 +71,41 @@ module.exports = class GdlConnection {
    */
   #cycle() {
     this.#updateClassSettings();
+    if (!this.gdl_enabled) {
+      this.connected = false;
+      return;
+    }
 
+    // console.log(this.connected, this.socket !== null);
+
+    let self = this;
     if (!this.socket || !this.connected) {
-      let self = this;
       this.socket = new net.Socket();
       this.socket.setTimeout(TIMEOUT);
       this.socket.connect(this.port, this.address, function () {
         self.connected = true;
+
         // send the first request
         let request = new RequestMessage("ggs", "gdl", "status");
         self.socket.write(JSON.stringify(request));
+        // console.log("GDL Connection Cycle 1");
       });
       this.socket.on("data", function (data) {
-        self.connected = true;
-        // console.log("GDL Connection Data");
+        if (!self.gdl_enabled) {
+          self.socket.destroy();
+          return;
+        }
 
+        self.connected = true;
+        // console.log("GDL Connection Data: ");
         let next_request_rsc = "status";
         try {
           let message = parse(data.toString());
           next_request_rsc = self.#handleSocketResponse(message);
-        } catch {}
+          // console.log("GDL captionSide - good data");
+        } catch {
+          console.log("GDL captionSide - bad data");
+        }
 
         if (self.socket_interval) {
           clearInterval(self.socket_interval);
@@ -124,13 +148,22 @@ module.exports = class GdlConnection {
         clearInterval(self.socket_interval);
         self.socket_interval = null;
         self.new_broadcast_message = null;
+        // console.log("GDL Connection Closed");
       });
-      this.socket.on("error", function (err) {
-        // console.log("GDL Connection Error: " + err);
+      this.socket.on("timeout", function () {
         self.connected = false;
         clearInterval(self.socket_interval);
         self.socket_interval = null;
         self.new_broadcast_message = null;
+        console.log("GDL Connection Timeout");
+      });
+      this.socket.on("error", function (err) {
+        console.log("GDL Connection Error: " + err);
+        self.connected = false;
+        clearInterval(self.socket_interval);
+        self.socket_interval = null;
+        self.new_broadcast_message = null;
+        console.log("GDL Connection Error");
       });
     }
 
@@ -358,22 +391,23 @@ module.exports = class GdlConnection {
    * stores them in the class.
    */
   #updateClassSettings() {
-    this.update_interval = this.global_state.ggs_db.get(
-      "settings",
-      "gdl",
-      "data_update_interval"
-    );
-
-    this.address = this.global_state.ggs_db.get(
-      "settings",
-      "gdl",
-      "socket_address"
-    );
-
-    this.port = this.global_state.ggs_db.get("settings", "gdl", "socket_port");
+    const config = this.global_state.ggs_db.get("settings", "gdl");
+    this.gdl_enabled = config.gdl_enabled;
+    this.update_interval = config.data_update_interval;
+    this.address = config.socket_address;
+    this.port = config.socket_port;
   }
 
   get status() {
-    return this.connected ? "connected" : "disconnected";
+    // edge cases here, not too worried.
+    if (!this.gdl_enabled) {
+      return "disabled";
+    }
+
+    if (this.connected) {
+      return "connected";
+    }
+
+    return "disconnected";
   }
 };

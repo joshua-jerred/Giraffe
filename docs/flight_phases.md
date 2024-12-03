@@ -1,6 +1,61 @@
-# Flight Phase Identification
+# Flight Phases
 
 ## Introduction
+
+The flight computer has the ability to detect the phase of balloon flight based
+on a number of parameters. This is used for controlling various aspects of the
+system.
+
+## Phases
+
+### Pre-Launch
+
+The initial state of the flight computer, before launch. The flight computer can
+only transition to this phase with user input via the web client (TCP GFS
+Connection / on the ground only, no telemetry).
+
+When the flight computer is in this phase it will perform a series of checks to
+ensure that the system is ready for launch. Once these checks are complete, the
+user can enter the launch phase.
+
+#### Transition In
+
+The transition into this phase is manual and done by the user on the web client
+when the GFS is connected via TCP/on the ground. It can only be done when the
+flight computer is detecting that it is in the launch, recovery, or unknown
+phases.
+
+#### Transition Out
+The transition into this phase is also done via the web client. The user can
+enter the launch phase when the system is ready.
+
+If the flight computer is in flight when in the launch phase, it will
+automatically transition to a flight phase.
+
+### Launch
+This phase is entered when the user sends a launch command to the flight
+computer via the web interface.
+
+### Ascent
+### Descent
+### Recovery
+
+
+***
+
+## Flight Phase Detection Model
+
+This is useful for a number of reasons, including:
+- Logging data about specific events
+- Triggering/Sequencing events
+- Changing the behavior of the flight computer
+- A number of other things
+
+### Warning!
+A whole lot of this information needs to be updated, the model has changed
+significantly since this was written.
+
+### Introduction
 
 Identifying the phase of a balloon flight is important, but can be difficult.
 
@@ -9,7 +64,7 @@ A good example of this is the paper "Phase of flight identification in general a
 Within the paper, some generic parameters are discussed, I'll start my
 implementation with these.
 
-## Parameters
+### Parameters
 
 - GPS_DFL | D : Distance from Launch (Meters)
   - Lat/Long of the launch location saved, providing a distance.
@@ -23,15 +78,15 @@ implementation with these.
 - BAR_ALT | b : Barometer Altitude (Meters)
 - BAR_VS60 : Barometer Vertical-Speed-60s (Average over 60 seconds)
 
-### Barometer Indicated (Backup)
+#### Barometer Indicated (Backup)
 
-## Phases
+### Phases
 
 Pre-Launch is ignored, it's a manual transition from pre-launch to launch.
 
 GPS Weights add up to 100
 
-### Launch
+#### Launch
 
 | Parameter | Formula/Condition | Weight | Notes                             |
 | --------- | ----------------- | ------ | --------------------------------- |
@@ -41,7 +96,7 @@ GPS Weights add up to 100
 | GPS_VS5   | < 0.5m/s + error  | 10     | Added Weight For Faster Detection |
 | GPS_VS60  | < 0.5m/s + error  | 5      |                                   |
 
-### Ascent
+#### Ascent
 
 | Parameter | Formula/Condition | Weight | Notes |
 | --------- | ----------------- | ------ | ----- |
@@ -51,7 +106,7 @@ GPS Weights add up to 100
 | GPS_VS5   | > 0.5m/s + error  | 10     |       |
 | GPS_VS60  | > 0.5m/s + error  | 50     |       |
 
-### Descent
+#### Descent
 
 Deviation is added to the GPS_DFG parameter to account for the different
 between launch and landing altitudes.
@@ -64,7 +119,7 @@ between launch and landing altitudes.
 | GPS_VS5   | < -1.0m/s + error           | 30     |       |
 | GPS_VS60  | < -1.0m/s + error           | 40     |       |
 
-### Recovery
+#### Recovery
 
 | Parameter | Formula/Condition    | Weight | Notes          |
 | --------- | -------------------- | ------ | -------------- |

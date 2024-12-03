@@ -18,12 +18,16 @@
 #define GIRAFFE_COMMON_LOGGER_HPP_
 
 #include <chrono>
+#include <iostream>
 #include <queue>
 #include <string>
 
+#include <fmt/chrono.h>
 #include <fmt/core.h>
 
-#include <fmt/chrono.h>
+#include <BoosterSeat/filesystem.hpp>
+
+#include "i_logger.hpp"
 
 namespace giraffe {
 
@@ -40,27 +44,28 @@ struct LoggerEntry {
   }
 };
 
-template <size_t LOG_SIZE> class CommonLogger {
+template <size_t LOG_SIZE> class CommonLogger : public ILogger {
 public:
   CommonLogger(LoggerLevel level = LoggerLevel::INFO,
-               bool print_to_stdout = false)
-      : level_to_log_(level), print_to_stdout_(print_to_stdout) {
+               bool print_to_stdout = false, std::string log_file_path = "")
+      : level_to_log_(level), print_to_stdout_(print_to_stdout),
+        log_to_file_(!log_file_path.empty()), log_file_path_(log_file_path) {
   }
   ~CommonLogger() = default;
 
-  void debug(const std::string &msg) {
+  void debug(const std::string &msg) override {
     log(LoggerLevel::DEBUG, msg);
   }
 
-  void info(const std::string &msg) {
+  void info(const std::string &msg) override {
     log(LoggerLevel::INFO, msg);
   }
 
-  void warn(const std::string &msg) {
+  void warn(const std::string &msg) override {
     log(LoggerLevel::WARN, msg);
   }
 
-  void error(const std::string &msg) {
+  void error(const std::string &msg) override {
     log(LoggerLevel::ERROR, msg);
   }
 
@@ -108,14 +113,25 @@ private:
     }
     log_queue_.push(entry);
 
-    if (print_to_stdout_) {
-      fmt::print("{} [{}] : {}\n", fmt::format("{:%H:%M:%S}", entry.time),
-                 entry.getLevelString(), entry.msg);
+    if (print_to_stdout_ || log_to_file_) {
+      std::string log_msg =
+          fmt::format("{} [{}] : {}\n", fmt::format("{:%H:%M:%S}", entry.time),
+                      entry.getLevelString(), entry.msg);
+
+      if (print_to_stdout_) {
+        std::cout << log_msg << std::flush;
+      }
+      if (log_to_file_) {
+        // write to file
+        bst::filesystem::appendToFile(log_file_path_, log_msg, false);
+      }
     }
   }
 
   LoggerLevel level_to_log_;
   bool print_to_stdout_;
+  bool log_to_file_;
+  std::string log_file_path_;
   std::queue<LoggerEntry> log_queue_{};
 };
 

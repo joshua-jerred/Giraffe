@@ -163,6 +163,12 @@ private:
   void handleImageRequest(sock::TcpSocketServer &client,
                           const std::string &msg_rsc);
 
+  /// @brief Handle bit test set requests.
+  /// @param client - The client socket.
+  /// @param msg_rsc - The message resource.
+  void handleBitTestSet(sock::TcpSocketServer &client,
+                        const std::string &msg_rsc);
+
   /**
    * @brief Send a message to the client.
    * @param response - The message to send.

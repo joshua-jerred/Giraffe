@@ -1,15 +1,82 @@
-const sqlite3 = require("sqlite3").verbose();
 const file_paths = require("../file_paths");
 
+const sqlite3 = require("sqlite3").verbose();
+const { Sequelize } = require("sequelize");
+
 module.exports = class GroundStationDatabase {
-  constructor() {
+  constructor(global_state) {
+    this.connected = false;
+    this.sequelize = null;
+
     this.db = new sqlite3.Database(file_paths.GGS_SQLITE_DB, (error) => {
       if (error) {
         return console.error("Failed to create DB:", error.message);
       }
     });
 
+    const db_to_use = global_state.ggs_db.get(
+      "settings",
+      "ggs_settings",
+      "ggs_database_selection"
+    );
+    console.log("Using database:", db_to_use);
+
+    if (db_to_use === "sqlite") {
+      console.log("SQLite not implemented");
+    } else if (db_to_use === "mysql") {
+      const mysql_config = global_state.ggs_db.get("settings", "mysql");
+      this.sequelize = new Sequelize(
+        mysql_config.database,
+        mysql_config.username,
+        mysql_config.password,
+        {
+          host: mysql_config.host,
+          port: mysql_config.port,
+          dialect: "mysql",
+          logging: mysql_config.log_sql_to_console
+            ? (msg) => this.#sequelizeLog(msg)
+            : false,
+        }
+      );
+
+      this.#defineSequelizeModels();
+
+      this.sequelize
+        .authenticate()
+        .then(() => {
+          this.connected = true;
+          this.sequelize.sync();
+        })
+        .catch((err) => {
+          console.error("Failed to connect to MySQL database:", err);
+        });
+
+      console.log(this.sequelize.models);
+    } else {
+      console.error("Invalid database selection");
+    }
+
     this.#createTables();
+  }
+
+  #sequelizeLog(message) {
+    console.log("DB Query:", message);
+  }
+
+  #defineSequelizeModels() {
+    const models = [
+      require("./models/GroundStationLog.model"),
+      // require("./models/GdlServerLog.model"),
+      // require("./models/GdlReceivedMessages.model"),
+      // require("./models/GdlSentMessages.model"),
+      // require("./models/GdlReceivedLocMessages.model"),
+      // require("./models/AprsFi.model"),
+      // require("./models/ReceivedAprsTelemetryData.model"),
+    ];
+
+    for (const model of models) {
+      model(this.sequelize);
+    }
   }
 
   #createTables() {
@@ -144,33 +211,26 @@ module.exports = class GroundStationDatabase {
   }
 
   addLog(level, message) {
-    var unix_time = Math.round(+new Date().getTime());
-    this.db.run(
-      `INSERT INTO GroundStationLog (
-            level,
-            message,
-            timestamp
-        ) VALUES (
-            $level,
-            $message,
-            $timestamp
-        );`,
-      {
-        $level: level,
-        $message: message,
-        $timestamp: unix_time,
-      }
-    );
+    if (!this.connected) {
+      /// We are not connected yet, try again in 100ms
+      setTimeout(() => {
+        this.addLog(level, message);
+      }, 100);
+      return;
+    }
+
+    this.sequelize.models.GroundStationLog.create({
+      level: level,
+      message: message,
+    });
   }
 
   getRecentLogData(callback) {
     const LIMIT = 50;
-    const query = `SELECT * FROM GroundStationLog ORDER BY timestamp DESC LIMIT ${LIMIT};`;
-    this.db.all(query, [], (err, rows) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
+    this.sequelize.models.GroundStationLog.findAll({
+      order: [["id", "DESC"]],
+      limit: LIMIT,
+    }).then((rows) => {
       callback(rows);
     });
   }
@@ -183,25 +243,38 @@ module.exports = class GroundStationDatabase {
    * on success.
    */
   deleteLogEntry(id, callback) {
-    this.db.run(`DELETE FROM GroundStationLog WHERE id=?`, id, function (err) {
-      if (err) {
-        callback(err, -1);
-        return;
-      }
+    // this.db.run(`DELETE FROM GroundStationLog WHERE id=?`, id, function (err) {
+    //   if (err) {
+    //     callback(err, -1);
+    //     return;
+    //   }
 
-      callback(null, this.changes);
-    });
+    //   callback(null, this.changes);
+    // });
+
+    this.sequelize.models.GroundStationLog.destroy({
+      where: {
+        id: id,
+      },
+    })
+      .then((updates) => {
+        callback(null, updates);
+      })
+      .catch((err) => {
+        console.log(err);
+        callback(err, -1);
+      });
   }
 
   deleteAllLogEntries(callback) {
-    this.db.run(`DELETE FROM GroundStationLog`, function (err) {
-      if (err) {
+    this.sequelize.models.GroundStationLog.truncate()
+      .then(() => {
+        callback(null, 0);
+      })
+      .catch((err) => {
+        console.log(err);
         callback(err, -1);
-        return;
-      }
-
-      callback(null, this.changes);
-    });
+      });
   }
 
   addGdlServerLogItem(item) {

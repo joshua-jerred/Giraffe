@@ -26,6 +26,15 @@ export const StyButton = styled.button`
   &:active {
     filter: brightness(0.9);
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.5);
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
 `;
 
 export const StyWarningButton = styled(StyButton)`
@@ -34,6 +43,20 @@ export const StyWarningButton = styled(StyButton)`
 
   &:hover {
     background: ${(props) => props.theme.error_hover};
+  }
+
+  &:disabled {
+    background: ${(props) => props.theme.error_disabled};
+    color: ${(props) => props.theme.on_error_disabled};
+    cursor: not-allowed;
+
+    &:active {
+      filter: brightness(1);
+    }
+
+    &:hover {
+      box-shadow: none;
+    }
   }
 `;
 
@@ -93,6 +116,15 @@ export const StyInput = styled.input`
   }
   &:focus {
     outline: 1px solid ${(props) => props.theme.surface_hover_hard};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.5);
+
+    &:hover {
+      box-shadow: none;
+    }
   }
 `;
 

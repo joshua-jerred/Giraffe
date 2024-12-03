@@ -143,6 +143,11 @@ enum class DiagnosticId : uint16_t {
   FLIGHT_RUNNER_phaseChangeUnexpected=0x6006, // Phase Change Unexpected
   FLIGHT_RUNNER_failedToSetLaunch=0x6007, // Failed to Set Launch
   FLIGHT_RUNNER_forcedRecovery=0x6008, // Forced Recovery
+  FLIGHT_RUNNER_bitTestFailed=0x6009, // BIT Test Failed
+  FLIGHT_RUNNER_bitTestTimeout=0x600A, // BIT Test Timeout
+  FLIGHT_RUNNER_bitTestStartFailure=0x600B, // BIT Test Start Failure
+  FLIGHT_RUNNER_bitTestStopResetFailure=0x600C, // BIT Test Stop or Reset Failure
+  FLIGHT_RUNNER_bitTestResetFailure=0x600D, // BIT Test Reset Failure
   EXT_FAULT_none=0x7000, // No fault
   EXT_FAULT_fatalConfig=0x7001, // Fatal Configuration Error
   EXT_FAULT_bme280StartupI2CConnect=0x7002, // BME280 Startup I2C Connect Fault

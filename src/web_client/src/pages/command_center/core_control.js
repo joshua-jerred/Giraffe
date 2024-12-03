@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 
-import { GwsGlobal } from "../GlobalContext";
-import { StyButton } from "./styled/StyledComponents";
-import { CardSectionTitle, CardContentCentered } from "../core/PageParts";
+import { GwsGlobal } from "../../GlobalContext";
+import { StyButton } from "../../components/styled/StyledComponents";
+import { CardSectionTitle, CardContentCentered } from "../../core/PageParts";
 
 function ActionItem({ visible, enabled, name, action }) {
   const { ggsAddress } = useContext(GwsGlobal);
@@ -39,20 +39,31 @@ function ActionItem({ visible, enabled, name, action }) {
 }
 
 function CoreControl() {
-  const { flightData, isGfsTcpConnected } = useContext(GwsGlobal);
+  const { flightData, isGfsTcpConnected, unsafeMode } = useContext(GwsGlobal);
   const [flightPhase, setFlightPhase] = useState("");
   const [gfsTimeSynced, setGfsTimeSynced] = useState(false);
+  const [bitTestStatus, setBitTestStatus] = useState("n/d");
+  const [missionClockRunning, setMissionClockRunning] = useState(false);
 
   const [allowSetLaunchMode, setAllowSetLaunchMode] = useState(false);
   const [allowSetPreLaunchMode, setAllowSetPreLaunchMode] = useState(false);
+  const [preLaunchMode, setPreLaunchMode] = useState(false);
+
+  const [userMessage, setUserMessage] = useState("");
 
   useEffect(() => {
     if (flightData) {
-      if (flightData.flight_phase) {
+      if (flightData.hasOwnProperty("flight_phase")) {
         setFlightPhase(flightData.flight_phase);
       }
-      if (flightData.gfs_time_synced) {
+      if (flightData.hasOwnProperty("gfs_time_synced")) {
         setGfsTimeSynced(flightData.gfs_time_synced);
+      }
+      if (flightData.bit_test_status) {
+        setBitTestStatus(flightData.bit_test_status);
+      }
+      if (flightData.hasOwnProperty("mission_clock_running")) {
+        setMissionClockRunning(flightData.mission_clock_running);
       }
     }
   }, [flightData]);
@@ -60,35 +71,59 @@ function CoreControl() {
   useEffect(() => {
     if (isGfsTcpConnected) {
       if (flightPhase === "Pre-Launch" && gfsTimeSynced) {
+        if (bitTestStatus !== "PASS") {
+          setAllowSetLaunchMode(false);
+          setUserMessage("Waiting for BIT Pass");
+          if (unsafeMode) {
+            setAllowSetLaunchMode(true);
+            setUserMessage("WAITING FOR BIT PASS - UNSAFE MODE OVERRIDE");
+          }
+          return;
+        }
+
+        if (!missionClockRunning) {
+          setAllowSetLaunchMode(false);
+          setUserMessage("Waiting for Mission Clock Start");
+          return;
+        }
+
         setAllowSetLaunchMode(true);
+        setUserMessage("");
       } else {
         setAllowSetLaunchMode(false);
+        setPreLaunchMode(false);
       }
 
-      if (flightPhase === "Launch") {
-        setAllowSetPreLaunchMode(true);
-      } else {
-        setAllowSetPreLaunchMode(false);
-      }
-
-      if (flightPhase === "Recovery") {
+      if (flightPhase === "Launch" || flightPhase === "Recovery") {
         setAllowSetPreLaunchMode(true);
       } else {
         setAllowSetPreLaunchMode(false);
       }
     }
-  }, [isGfsTcpConnected, flightPhase, gfsTimeSynced]);
+  }, [
+    isGfsTcpConnected,
+    flightPhase,
+    gfsTimeSynced,
+    bitTestStatus,
+    missionClockRunning,
+  ]);
 
   return (
     <>
       <CardSectionTitle>Core Control</CardSectionTitle>
       <CardContentCentered>
-        <p>
-          Flight Phase: {flightPhase}
-          <br />
-          Allow Set Launch Mode: {allowSetLaunchMode.toString()}
-          <br />
-          Allow Set Pre-Launch Mode: {allowSetPreLaunchMode.toString()}
+        {(flightPhase === "Ascent" || flightPhase === "Descent") && (
+          <p>no control options</p>
+        )}
+        {/* {preLaunchMode &&  */}
+        {/* <BitTestPanel /> */}
+        {/* } */}
+        <p
+          style={{
+            fontSize: "15px",
+          }}
+        >
+          {userMessage}
         </p>
         <ActionItem
           visible={flightPhase === "Pre-Launch"}

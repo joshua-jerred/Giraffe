@@ -12,7 +12,7 @@ const BuildIdToMetadataMap = () => {
       map[item.value] = item;
     }
   }
-  console.log("DiagnosticMetadataMap", map);
+  // console.log("DiagnosticMetadataMap", map);
   return map;
 };
 const DiagnosticMetadataMap = BuildIdToMetadataMap();
@@ -110,7 +110,7 @@ export default function DiagnosticsPage() {
       <PageTitle title={"Data Logs"}>@todo - add a description here</PageTitle>
       <PageContent>
         <CardMasonryLayout>
-          <Card title="Ground Station Status">
+          <Card title="GFS Error Frame">
             <DataBlock resource="flight_data" category="error_frame" />
             <ErrorFrame />
           </Card>

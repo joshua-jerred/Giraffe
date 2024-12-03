@@ -4,6 +4,7 @@ const router = express.Router();
 const ggsHandler = require("./ggs_handler");
 const gfsHandler = require("./gfs_handler");
 const gdlHandler = require("./gdl_handler");
+const fsaHandler = require("./fsa_handler");
 const commandHandler = require("./command_handler");
 
 const debugHandler = require("./debug_handler");
@@ -18,6 +19,9 @@ module.exports = function (global_state) {
   // API /api/gdl/*
   router.use("/gdl", gdlHandler(global_state));
 
+  // API /api/fsa/*
+  router.use("/fsa", fsaHandler(global_state));
+
   // API /api/command/*
   router.use("/command", commandHandler(global_state));
 
@@ -27,6 +31,12 @@ module.exports = function (global_state) {
   });
   router.put("/flight_data/data", (req, res) => {
     global_state.flight_data_handler.handlePutRequest(req, res);
+  });
+  router.get("/flight_data/bit_test", (req, res) => {
+    global_state.flight_data.bit_test.processGetRequest(req, res);
+  });
+  router.post("/flight_data/bit_test", (req, res) => {
+    global_state.flight_data.bit_test.processPostRequest(req, res);
   });
 
   // API Endpoint - GET /api/status

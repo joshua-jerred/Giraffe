@@ -31,7 +31,8 @@ enum class Endpoint {
   GFS,     // Giraffe Flight System
   GGS,     // Giraffe Ground Station
   GDL,     // Giraffe Data Link
-  GWC      // Giraffe Web Client
+  GWC,     // Giraffe Web Client
+  FSA      // Flight System Agent
 };
 
 /**
@@ -64,19 +65,19 @@ struct Message {
    * @brief Get the message as a JSON string.
    * @return std::string - The message as a JSON string.
    */
-  std::string getJsonString();
+  std::string getJsonString() const;
 
   /**
    * @brief Get the message as a JSON object.
    * @return json - The message as a JSON object.
    */
-  Json getJson();
+  Json getJson() const;
 
   /**
    * @brief Get the message body as a JSON object.
    * @return Json
    */
-  Json getBodyJson();
+  Json getBodyJson() const;
 
   /**
    * @brief The source of the message.

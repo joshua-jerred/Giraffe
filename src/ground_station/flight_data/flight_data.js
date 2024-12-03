@@ -1,5 +1,6 @@
 const DiagnosticData = require("./diagnostic_data");
 const MissionClock = require("./mission_clock");
+const BitTest = require("./bit_test");
 const FLIGHT_DATA_UPDATE_INTERVAL = 1000;
 
 module.exports = class FlightData {
@@ -8,6 +9,7 @@ module.exports = class FlightData {
 
     this.mission_clock = new MissionClock(global_state);
     this.diagnostics = new DiagnosticData(global_state);
+    this.bit_test = new BitTest(global_state);
 
     this.general = {
       flight_phase: "n/d",
@@ -18,6 +20,8 @@ module.exports = class FlightData {
       last_updated: new Date(),
       gfs_time_synced: false,
       active_errors: "n/d",
+      bit_test_status: "n/d",
+      mission_clock_running: this.mission_clock.getIsRunning(),
     };
 
     this.phase_prediction = {
@@ -67,6 +71,8 @@ module.exports = class FlightData {
   #cycle() {
     //   this.#updateLocation();
     this.general.active_errors = this.diagnostics.getNumActiveErrors();
+    this.general.bit_test_status = this.bit_test.getBitTestStatus();
+    this.general.mission_clock_running = this.mission_clock.getIsRunning();
   }
 
   // ################ GENERAL DATA ################

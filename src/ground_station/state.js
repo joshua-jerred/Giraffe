@@ -1,6 +1,8 @@
 const GgsDataBase = require("./db/ggs_db.js");
 const GfsConnection = require("./gfs_connection/gfs_connection.js");
 const GdlConnection = require("./gdl_connection/gdl_connection.js");
+const FsaConnection = require("./fsa_connection/fsa_connection.js");
+const FsaControl = require("./fsa_connection/fsa_control.js");
 const FlightData = require("./flight_data/flight_data.js");
 const FlightDataHandler = require("./http_api/flight_data_handler.js");
 const GfsSocketRequester = require("./gfs_connection/gfs_socket_request.js");
@@ -16,6 +18,7 @@ const kGlobalStateUpdateInterval = 500;
 
 class GlobalState {
   constructor() {
+    // ggs_db is a deprecated name, this is configuration data now
     this.ggs_db = new GgsDataBase();
     this.influx_writer = new InfluxWriter(this);
     this.influx_enabled = this.ggs_db.get(
@@ -24,9 +27,11 @@ class GlobalState {
       "influx_enabled"
     );
 
-    this.database = new Database();
+    this.database = new Database(this);
     this.flight_data = new FlightData(this);
 
+    this.fsa_connection = new FsaConnection(this);
+    this.fsa_control = new FsaControl(this);
     this.gfs_connection = new GfsConnection(this);
     this.gdl_connection = new GdlConnection(this);
     this.flight_data_handler = new FlightDataHandler(this);
@@ -42,12 +47,14 @@ class GlobalState {
 
     this.ggs_status = {
       status: "ok",
-      influxdb: "unknown",
-      gfs: "unknown",
-      gdl: "unknown",
-      telemetry_uplink: "unknown",
-      telemetry_downlink: "unknown",
-      aprsfi: "unknown",
+      influxdb: "n/d",
+      gfs: "n/d",
+      gdl: "n/d",
+      fsa: "n/d",
+      fsa_gfs_status: "n/d",
+      telemetry_uplink: "n/d",
+      telemetry_downlink: "n/d",
+      aprsfi: "n/d",
       total_http_requests: 0,
       // general: this.flight_data_handler.general.values,
       // location: this.flight_data_handler.location_data.values,
@@ -123,16 +130,29 @@ class GlobalState {
         this.ggs_status.telemetry_uplink = gdl_status.data.tpl_uplink;
         this.ggs_status.telemetry_downlink = gdl_status.data.tpl_downlink;
       } catch (error) {
-        this.ggs_status.telemetry_uplink = "unknown";
-        this.ggs_status.telemetry_downlink = "unknown";
+        this.ggs_status.telemetry_uplink = "N/D";
+        this.ggs_status.telemetry_downlink = "N/D";
       }
+    } else if (this.ggs_status.gdl === "disconnected") {
+      this.ggs_status.telemetry_uplink = "down";
+      this.ggs_status.telemetry_downlink = "down";
+    } else if (this.ggs_status.gdl === "disabled") {
+      this.ggs_status.telemetry_uplink = "disabled";
+      this.ggs_status.telemetry_downlink = "disabled";
     }
 
+    // update the FSA status
+    this.ggs_status.fsa = this.fsa_connection.getFsaConnectionStatus();
+    this.ggs_status.fsa_gfs_status = this.fsa_connection.getFsaGfsStatus();
+
+    // update inluxdb status
     if (this.influx_enabled) {
       let point = new Point("ggs_status")
         .stringField("influxdb", this.ggs_status.influxdb)
         .stringField("gfs", this.ggs_status.gfs)
         .stringField("gdl", this.ggs_status.gdl)
+        .stringField("fsa", this.ggs_status.fsa)
+        .stringField("fsa_gfs_status", this.ggs_status.fsa_gfs_status)
         .stringField("telemetry_uplink", this.ggs_status.telemetry_uplink)
         .stringField("telemetry_downlink", this.ggs_status.telemetry_downlink)
         .stringField("aprsfi", this.ggs_status.aprsfi)

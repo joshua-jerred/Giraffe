@@ -21,6 +21,7 @@
 #include "flight_phase_manager.hpp"
 #include "flight_runner_data.hpp"
 
+#include "built_in_test.hpp"
 #include "console_module.hpp"
 #include "data_module.hpp"
 #include "extension_module.hpp"
@@ -131,6 +132,8 @@ private:
 
   FlightPhaseManager flight_phase_manager_ = {
       shared_data_, flight_runner_data_.getFlightPhase(), 100, 10};
+
+  bit::BuiltInTest bit_test_{shared_data_};
 };
 
 #endif

@@ -128,7 +128,13 @@
     "streambuf": "cpp",
     "thread": "cpp",
     "typeinfo": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "cstdarg": "cpp",
+    "cwctype": "cpp",
+    "hash_map": "cpp",
+    "list": "cpp",
+    "regex": "cpp",
+    "variant": "cpp"
   },
   "cmake.options.statusBarVisibility": "compact"
 }

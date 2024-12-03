@@ -22,6 +22,7 @@
 #include <BoosterSeat/time.hpp>
 
 #include "flight_phase.hpp"
+#include "i_built_in_test.hpp"
 #include "json.hpp"
 
 class FlightPhaseManager;
@@ -125,6 +126,16 @@ public:
    */
   friend FlightPhaseManager;
 
+  Json getBitTestData() {
+    std::lock_guard<std::mutex> lock(bit_test_buffer_mutex_);
+    return bit_test_buffer_;
+  }
+
+  void setBitTestData(Json &data) {
+    std::lock_guard<std::mutex> lock(bit_test_buffer_mutex_);
+    bit_test_buffer_ = data;
+  }
+
 private:
   void setFlightPhase(FlightPhase new_phase) {
     flight_phase_ = new_phase;
@@ -163,6 +174,9 @@ private:
   std::atomic<double> descent_prediction_ = 0.0;
   std::atomic<double> recovery_prediction_ = 0.0;
   std::atomic<double> prediction_quality_ = 0.0;
+
+  std::mutex bit_test_buffer_mutex_{};
+  Json bit_test_buffer_{};
 };
 
 } // namespace data

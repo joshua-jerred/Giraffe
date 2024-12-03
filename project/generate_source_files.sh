@@ -12,7 +12,7 @@ function id_gen() {
 }
 
 echo "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
-# echo "-- --    generating automated source files      -- --"
+echo "-- --    generating automated source files      -- --"
 
 export REVERSE_MAP="false"
 id_gen \
@@ -36,5 +36,17 @@ export CONFIG_GEN_IN_FILE_PATH=./project/metadata/gfs_configuration.json
 export CONFIG_GEN_OUT_FILE_PATH=./src/flight_system/configuration
 python3 ./project/generators/config_gen.py
 
-# echo "-- -- -- -- -- --     DONE    -- -- -- -- -- -- -- --"
+echo "Generating bit test enums"
+python3 ./project/generators/bit_test_gen.py \
+  ./project/metadata/gfs_bit_test.json \
+  ./src/flight_system/flight_runner/built_in_test/bit_types.hpp \
+  ./src/flight_system/flight_runner/built_in_test/bit_types.cpp \
+  ./src/flight_system/flight_runner/built_in_test/built_in_test.hpp
+
+echo "Generating flight system agent configuration"
+python3 ./project/generators/fsa_gen.py \
+  ./project/metadata/fsa_metadata.json \
+  ./src/flight_system_agent/agent_settings.hpp
+
+echo "-- -- -- -- -- --     DONE    -- -- -- -- -- -- -- --"
 echo "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"

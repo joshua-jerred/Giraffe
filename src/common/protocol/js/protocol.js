@@ -15,7 +15,7 @@
  * @copyright  2023 (license to be defined)
  */
 
-const valid_endpoints = ["gfs", "ggs", "gdl", "gwc"];
+const valid_endpoints = ["gfs", "ggs", "gdl", "gwc", "fsa"];
 const valid_types = ["req", "set", "rsp"];
 
 function generateId() {
@@ -82,5 +82,16 @@ module.exports = class Message {
 
   toString() {
     return JSON.stringify(this.getJson());
+  }
+
+  getResponseCode() {
+    if (
+      this.bdy !== null &&
+      this.bdy.cde !== undefined &&
+      (this.bdy.cde === "er" || this.bdy.cde === "ok")
+    ) {
+      return this.bdy.cde;
+    }
+    return "un";
   }
 };

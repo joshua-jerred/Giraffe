@@ -1,6 +1,6 @@
 const net = require("net");
 const gfsResources = require("../../../project/metadata/gfs_resources.json");
-const { DataRequest, parse, SetMessage } = require("giraffe-protocol");
+const { RequestMessage, parse, SetMessage } = require("giraffe-protocol");
 const GfsDataSync = require("./data_sync.js");
 const GfsSettingSync = require("./setting_sync.js");
 const GfsImages = require("./gfs_images.js");
@@ -49,6 +49,10 @@ module.exports = class GfsConnection {
     this.recent_location_data = {};
   }
 
+  isConnected() {
+    return this.connected;
+  }
+
   getData(category) {
     return this.data_sync.getData(category);
   }
@@ -94,6 +98,19 @@ module.exports = class GfsConnection {
     }
   }
 
+  // Send a data request to GFS with a given category
+  async sendAsyncDataRequest(data_category, callback) {
+    let request = new RequestMessage("ggs", "gfs", "data/" + data_category, {});
+    this.#sendRequest(request, callback);
+  }
+
+  // Send a data request to GFS with a given category
+  async sendAsyncSetRequest(resource, data, callback) {
+    let request = new SetMessage("ggs", "gfs", resource, data);
+    this.#sendRequest(request, callback);
+  }
+
+  // Send a formatted string command to GFS
   sendCommand(command_string, callback) {
     let request = new SetMessage("ggs", "gfs", command_string, {});
     this.#sendRequest(request, callback);

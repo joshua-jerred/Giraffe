@@ -1,0 +1,148 @@
+{
+  "statuses": {
+    "UNK": {
+      "description": "Unknown"
+    },
+    "N/D": {
+      "description": "No Data"
+    },
+    "N/R": {
+      "description": "Not Run"
+    },
+    "WAIT": {
+      "description": "Waiting"
+    },
+    "RUN": {
+      "description": "Running"
+    },
+    "PASS": {
+      "description": "Passed"
+    },
+    "FAIL": {
+      "description": "Failed"
+    },
+    "SKIP": {
+      "description": "Skipped"
+    },
+    "STOP": {
+      "description": "Stopped"
+    }
+  },
+  "tests": {
+    "FCS": {
+      "description": "Flight Control System",
+      "tests": [
+        {
+          "id": "0x0001",
+          "title": "error",
+          "description": "Verifies that there are no outstanding errors in the flight software"
+        },
+        {
+          "id": "0x0002",
+          "title": "flight phase predictor",
+          "description": "Verifies that the flight phase predictor is functioning - with high confidence"
+        },
+        {
+          "id": "0x0003",
+          "title": "launch position",
+          "description": "Verifies that the launch position is set and valid"
+        },
+        {
+          "id": "0x0004",
+          "title": "data module processing",
+          "description": "Verifies that the data module is processing data at a reasonable rate"
+        }
+      ]
+    },
+    "SYS": {
+      "description": "System",
+      "tests": [
+        {
+          "id": "0x0100",
+          "title": "error",
+          "description": "No reported errors from the flight software"
+        }
+      ]
+    },
+    "DLNK": {
+      "description": "Data Link",
+      "tests": [
+        {
+          "id": "0x0200",
+          "title": "config location data",
+          "description": "Location data is being sent to the ground station in some way"
+        }
+      ]
+    },
+    "GPS": {
+      "description": "GPS",
+      "tests": [
+        {
+          "id": "0x0400",
+          "title": "installed",
+          "description": "GPS hardware exists and it is reporting valid data"
+        }
+      ]
+    },
+    "BATT": {
+      "description": "Battery",
+      "tests": [
+        {
+          "id": "0x0500",
+          "title": "ADC",
+          "description": "An ADC is configured to read the battery voltage and it is functioning"
+        }
+      ]
+    },
+    "EXTN": {
+      "description": "Extensions",
+      "tests": [
+        {
+          "id": "0x0600",
+          "title": "extensions running",
+          "description": "All extensions are running"
+        }
+      ]
+    },
+    "ENV": {
+      "description": "Environment",
+      "tests": [
+        {
+          "id": "0x0700",
+          "title": "temperature",
+          "description": "Temperature sensors are reporting valid data at a minimum rate"
+        }
+      ]
+    },
+    "CAM": {
+      "description": "Camera",
+      "tests": [
+        {
+          "id": "0x0800",
+          "title": "installed",
+          "description": "Camera hardware exists"
+        }
+      ]
+    },
+    "IMU": {
+      "description": "Inertial Measurement Unit",
+      "tests": [
+        {
+          "id": "0x0900",
+          "title": "installed",
+          "description": "IMU hardware exists and it is functioning"
+        }
+      ]
+    },
+    "ADC": {
+      "description": "Analog to Digital Converter",
+      "tests": [
+        {
+          "id": "0x0a00",
+          "title": "installed",
+          "description": "ADC hardware exists and it is functioning"
+        }
+      ]
+    }
+  }
+}
