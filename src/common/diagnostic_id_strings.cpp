@@ -142,6 +142,7 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::FLIGHT_RUNNER_bitTestTimeout,"FLIGHT_RUNNER_bitTestTimeout"},
   {DiagnosticId::FLIGHT_RUNNER_bitTestStartFailure,"FLIGHT_RUNNER_bitTestStartFailure"},
   {DiagnosticId::FLIGHT_RUNNER_bitTestStopResetFailure,"FLIGHT_RUNNER_bitTestStopResetFailure"},
+  {DiagnosticId::FLIGHT_RUNNER_bitTestResetFailure,"FLIGHT_RUNNER_bitTestResetFailure"},
   {DiagnosticId::EXT_FAULT_none,"EXT_FAULT_none"},
   {DiagnosticId::EXT_FAULT_fatalConfig,"EXT_FAULT_fatalConfig"},
   {DiagnosticId::EXT_FAULT_bme280StartupI2CConnect,"EXT_FAULT_bme280StartupI2CConnect"},

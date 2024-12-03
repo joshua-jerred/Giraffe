@@ -29,6 +29,28 @@ void RequestRouter::handleBitTestSet(sock::TcpSocketServer &client,
 
       sendSuccessResponse(client);
       return;
+    } else if (msg_rsc == "bit_test/stop") {
+
+      cmd::Command command{};
+      command.destination = node::Identification::FLIGHT_RUNNER;
+      command.command_id = cmd::CommandId::FLIGHT_RUNNER_stopBitTest;
+      shared_data_.streams.command.addCommand(
+          node::Identification::SERVER_MODULE, command);
+
+      sendSuccessResponse(client);
+      return;
+    } else if (msg_rsc == "bit_test/reset") {
+      cmd::Command command{};
+      command.destination = node::Identification::FLIGHT_RUNNER;
+      command.command_id = cmd::CommandId::FLIGHT_RUNNER_resetBitTest;
+      shared_data_.streams.command.addCommand(
+          node::Identification::SERVER_MODULE, command);
+
+      sendSuccessResponse(client);
+      return;
+    } else {
+      sendErrorPacket(client, "invalid bit test set request");
+      return;
     }
 
     sendErrorPacket(client, "invalid bit test set request");

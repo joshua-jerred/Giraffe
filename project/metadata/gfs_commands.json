@@ -89,6 +89,20 @@
       "value": "0x1006",
       "cmd_key": "sbt",
       "exclude_from_ui": true
+    },
+    "stop_bit_test": {
+      "name": "Stop BIT Test",
+      "details": "Request the flight runner to stop the BIT test. Only works if the tests are running.",
+      "value": "0x1007",
+      "cmd_key": "xbt",
+      "exclude_from_ui": true
+    },
+    "reset_bit_test": {
+      "name": "Reset BIT Test",
+      "details": "Request the flight runner to reset the BIT test. Only works if the tests are running.",
+      "value": "0x1008",
+      "cmd_key": "rbt",
+      "exclude_from_ui": true
     }
   },
   "data_module": {

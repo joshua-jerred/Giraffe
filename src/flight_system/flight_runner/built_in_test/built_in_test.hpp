@@ -85,6 +85,10 @@ public:
     status_ = TestStatus::PASSED;
   }
 
+  void reset() {
+    status_ = TestStatus::NOTRUN;
+  }
+
 private:
   TestGroupId group_id_;
   TestId test_id_;
@@ -126,6 +130,10 @@ public:
   void reset() {
     stop();
     setGroupStatus(TestStatus::NOTRUN);
+
+    for (auto &test_case : test_cases_) {
+      test_case.reset();
+    }
   }
 
   TestStatus getGroupStatus() const {
@@ -230,6 +238,12 @@ public:
       return;
     }
 
+    if (thread_.joinable()) {
+      logger_.error(DiagnosticId::FLIGHT_RUNNER_bitTestStartFailure,
+                    "Thread is joinable.");
+      return;
+    }
+
     running_ = true;
     thread_ = std::thread(&BuiltInTest::bitTestRunner, this);
   }
@@ -243,6 +257,27 @@ public:
 
     running_ = false;
     thread_.join();
+  }
+
+  /// @brief Reset the BIT system to it's initial state.
+  /// @warning Risk of race conditions here. It's just BIT, so low risk.
+  void reset() {
+    if (running_) {
+      logger_.error(DiagnosticId::FLIGHT_RUNNER_bitTestResetFailure,
+                    "BIT running, cannot reset. Stop first.");
+      return;
+    }
+
+    if (thread_.joinable()) {
+      thread_.join();
+    }
+
+    general_bit_status_ = TestStatus::NOTRUN;
+    for (auto &test_group : test_groups_map_) {
+      test_group.second.reset();
+    }
+
+    updateBitTestData();
   }
 
   void getBitTestData(Json &out_data) override {
@@ -283,7 +318,6 @@ private:
     general_bit_status_ = TestStatus::RUNNING;
 
     // Startup all of the test groups.
-    std::cout << "Starting BIT tests." << std::endl;
     for (auto &test_group : test_groups_map_) {
       test_group.second.start();
     }
@@ -300,7 +334,6 @@ private:
       }
 
       if (all_tests_complete) {
-        std::cout << "All tests complete." << std::endl;
         running_ = false;
         break;
       }
@@ -308,7 +341,6 @@ private:
       bst::sleep(500);
     }
 
-    std::cout << "BIT tests complete." << std::endl;
     bool all_tests_passed = true;
     for (auto &test_group : test_groups_map_) {
       if (test_group.second.getGroupStatus() != TestStatus::PASSED) {

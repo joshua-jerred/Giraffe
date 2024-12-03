@@ -108,7 +108,7 @@ function CoreControl() {
     <>
       <CardSectionTitle>Core Control</CardSectionTitle>
       <CardContentCentered>
-        {!allowSetLaunchMode && !allowSetPreLaunchMode && (
+        {(flightPhase === "Ascent" || flightPhase === "Descent") && (
           <p>no control options</p>
         )}
         {/* {preLaunchMode &&  */}

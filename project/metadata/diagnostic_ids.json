@@ -599,6 +599,11 @@
       "name": "BIT Test Stop or Reset Failure",
       "details": "The system failed to stop or reset the BIT test. See the error message for more details.",
       "value": "0x600C"
+    },
+    "bit_test_reset_failure": {
+      "name": "BIT Test Reset Failure",
+      "details": "The system failed to reset the BIT test. See the error message for more details.",
+      "value": "0x600D"
     }
   },
   "ext_fault": {

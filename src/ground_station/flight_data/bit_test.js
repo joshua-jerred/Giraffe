@@ -156,7 +156,8 @@ module.exports = class BitTest {
       }
     } else if (req.query.action === "stop") {
       try {
-        this.#stopBitTest();
+        this.#stopBitTest(res);
+        return;
       } catch (error) {
         res.status(500).json({
           error: "Failed to stop BIT test:" + error.message,
@@ -165,7 +166,8 @@ module.exports = class BitTest {
       }
     } else if (req.query.action === "reset") {
       try {
-        this.#resetBitTest();
+        this.#resetBitTest(res);
+        return;
       } catch (error) {
         res.status(500).json({
           error: "Failed to reset BIT test:" + error.message,
@@ -211,6 +213,7 @@ module.exports = class BitTest {
       response.status(500).json({
         error: "Not connected to GFS",
       });
+      return;
     }
 
     // Spin off an async request. Don't bother handling a response, there is a
@@ -244,8 +247,39 @@ module.exports = class BitTest {
     console.log("Stopping BIT test");
   }
 
-  #resetBitTest() {
-    console.log("Resetting BIT test");
+  #resetBitTest(response) {
+    if (!this.global_state.gfs_connection.isConnected()) {
+      response.status(500).json({
+        error: "Not connected to GFS",
+      });
+      return;
+    }
+
+    // Spin off an async request. Don't bother handling a response, there is a
+    // continuous data stream.
+    this.global_state.gfs_connection.sendAsyncSetRequest(
+      "bit_test/reset",
+      {},
+      (data) => {
+        if (
+          !data.hasOwnProperty("bdy") ||
+          !data.bdy.hasOwnProperty("cde") ||
+          data.bdy.cde !== "ok"
+        ) {
+          this.user_displayed_error = "Failed to restart BIT test";
+          response.status(500).json({
+            error: this.user_displayed_error,
+          });
+
+          console.log("Failed to restart BIT test", data);
+        } else {
+          response.json({
+            message: "success",
+            from_gfs: data.bdy.dat,
+          });
+        }
+      }
+    );
   }
 
   #triggerUserDisplayedError(error_message) {

@@ -43,6 +43,8 @@ enum class CommandId : uint16_t {
   FLIGHT_RUNNER_enterLaunchPhase=0x1004, // Enter Launch Phase
   FLIGHT_RUNNER_enterPreLaunchPhase=0x1005, // Enter Pre-Launch Phase
   FLIGHT_RUNNER_startBitTest=0x1006, // Start BIT Test
+  FLIGHT_RUNNER_stopBitTest=0x1007, // Stop BIT Test
+  FLIGHT_RUNNER_resetBitTest=0x1008, // Reset BIT Test
   DATA_MODULE_clearAllErrors=0x2000, // Clear All Errors
   DATA_MODULE_clearSpecificError=0x2001, // Clear a Specific Error
   TELEMETRY_MODULE_sendNumActiveErrors=0x3000, // Send Number of Active Errors
