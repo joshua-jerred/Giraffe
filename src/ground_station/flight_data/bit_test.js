@@ -42,6 +42,51 @@ module.exports = class BitTest {
 
     // An optional error message to display to the user
     this.user_displayed_error = null;
+
+    this.update_rate = 2000; // 1 second
+    this.interval = setInterval(this.#cycle.bind(this), this.update_rate);
+  }
+
+  #cycle() {
+    // console.log("BitTest cycle", this.bit_test_ready);
+
+    this.global_state.gfs_connection.sendAsyncDataRequest(
+      "bit_test",
+      (response) => {
+        if (!response.hasOwnProperty("bdy") || response.bdy.cde !== "ok") {
+          // General not-connected error
+          // console.log("Error: Failed to get BIT test data", response);
+          return;
+        }
+
+        let data = response.bdy;
+        if (!response.bdy.hasOwnProperty("dat")) {
+          console.log("Error: No data in response");
+          return;
+        }
+
+        // if (
+        // !data.hasOwnProperty("bit_info") ||
+        // !data.hasOwnProperty("bit_results")
+        // ) {
+        // console.log("Error: Missing data in response");
+        // return;
+        // }
+
+        console.log("BitTest data:", data);
+
+        // let bit_info = data.bit_info;
+        // let bit_results = data.bit_results;
+
+        // if (data.bdy.cde === "ok") {
+        //   this.bit_test_ready = true;
+        //   this.gfs_ready_to_perform_bit_test = true;
+        // } else {
+        //   this.bit_test_ready = false;
+        //   this.gfs_ready_to_perform_bit_test = false;
+        // }
+      }
+    );
   }
 
   processGetRequest(req, res) {

@@ -123,14 +123,14 @@ function MissionClockControlMenu({
         </div>
       )}
 
-      <p
+      {/* <p
         style={{
           marginTop: "2em",
           textAlign: "center",
         }}
       >
         {isRunning === true ? "a" : "b"}
-      </p>
+      </p> */}
     </CardContentCentered>
   );
 }

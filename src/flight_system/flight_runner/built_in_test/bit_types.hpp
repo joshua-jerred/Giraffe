@@ -15,7 +15,7 @@
  * 
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
- * @date       2024-11-25
+ * @date       2024-12-02
  * @copyright  2023 (license to be defined)
  * =*=======================*=
  *
@@ -31,14 +31,15 @@ namespace bit {
 
   /// @brief This enum contains the status codes for the Built-In Test (BIT) system.
   enum class TestStatus : uint8_t {
-    Unknown = 0, /// @brief UNK
-    NoData = 1, /// @brief N/D
-    NotRun = 2, /// @brief N/R
-    Waiting = 3, /// @brief WAIT
-    Running = 4, /// @brief RUN
-    Passed = 5, /// @brief PASS
-    Failed = 6, /// @brief FAIL
-    Skipped = 7, /// @brief SKIP
+    UNKNOWN = 0, /// @brief UNK
+    NODATA = 1, /// @brief N/D
+    NOTRUN = 2, /// @brief N/R
+    WAITING = 3, /// @brief WAIT
+    RUNNING = 4, /// @brief RUN
+    PASSED = 5, /// @brief PASS
+    FAILED = 6, /// @brief FAIL
+    SKIPPED = 7, /// @brief SKIP
+    STOPPED = 8, /// @brief STOP
   };
 
   extern std::string testStatusToString(TestStatus status);
@@ -82,7 +83,7 @@ namespace bit {
 
 /**
  *
- * Generated on: 2024-11-25
+ * Generated on: 2024-12-02
  * 
  * @endverbatim
  * 

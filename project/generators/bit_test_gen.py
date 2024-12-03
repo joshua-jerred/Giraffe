@@ -74,7 +74,7 @@ for group_label in test_groups:
 i = 0
 for status in status_codes:
     abbreviation = status
-    full_word = status_codes[status]["description"].replace(" ", "")
+    full_word = status_codes[status]["description"].replace(" ", "").upper()
     status_enum.addMember(full_word, i, status)
     status_string_map.addPair(f'TestStatus::{full_word}', f'"{abbreviation}"')
     i += 1
@@ -96,38 +96,67 @@ out_hpp.write(out_path)
 
 cpp_namespace = Namespace("bit")
 cpp_namespace.addComponent(status_string_map)
-status_enum_to_string_func.addInsideComponent('if (!TestStatusToStringMap.contains(status)) {')
+status_enum_to_string_func.addInsideComponent('switch (status) {')
+for status in status_codes:
+    full_word = status_codes[status]["description"].replace(" ", "").upper()
+    status_enum_to_string_func.addInsideComponent(f'case TestStatus::{full_word}: return "{status}";')
+status_enum_to_string_func.addInsideComponent('default:')
 status_enum_to_string_func.addInsideComponent('giraffe_assert(false);')
-status_enum_to_string_func.addInsideComponent('return TestStatusToStringMap.at(TestStatus::Unknown);')
+status_enum_to_string_func.addInsideComponent('return "Unknown";')
 status_enum_to_string_func.addInsideComponent('}')
-status_enum_to_string_func.addInsideComponent('return TestStatusToStringMap.at(status);')
+
+# status_enum_to_string_func.addInsideComponent('if (!TestStatusToStringMap.contains(status)) {')
+# status_enum_to_string_func.addInsideComponent('giraffe_assert(false);')
+# status_enum_to_string_func.addInsideComponent('return TestStatusToStringMap.at(TestStatus::UNKNOWN);')
+# status_enum_to_string_func.addInsideComponent('}')
+# status_enum_to_string_func.addInsideComponent('return TestStatusToStringMap.at(status);')
 cpp_namespace.addComponent(status_enum_to_string_func)
 
 cpp_namespace.addComponent(test_group_enum_string_map)
-test_group_enum_to_string_func.addInsideComponent('if (!TestGroupIdToStringMap.contains(groupId)) {')
+
+test_group_enum_to_string_func.addInsideComponent('switch (groupId) {')
+for group_label in group_test_list_vectors:
+    test_group_enum_to_string_func.addInsideComponent(f'case TestGroupId::{group_label}: return "{group_label}";')  
+test_group_enum_to_string_func.addInsideComponent('default:')
 test_group_enum_to_string_func.addInsideComponent('giraffe_assert(false);')
 test_group_enum_to_string_func.addInsideComponent('return "Unknown";')
 test_group_enum_to_string_func.addInsideComponent('}')
-test_group_enum_to_string_func.addInsideComponent('return TestGroupIdToStringMap.at(groupId);')
+
+#test_group_enum_to_string_func.addInsideComponent('if (!TestGroupIdToStringMap.contains(groupId)) {')
+#test_group_enum_to_string_func.addInsideComponent('giraffe_assert(false);')
+#test_group_enum_to_string_func.addInsideComponent('return "Unknown";')
+#test_group_enum_to_string_func.addInsideComponent('}')
+#test_group_enum_to_string_func.addInsideComponent('return TestGroupIdToStringMap.at(groupId);')
 cpp_namespace.addComponent(test_group_enum_to_string_func)
 
 cpp_namespace.addComponent(test_id_enum_string_map)
-test_id_enum_to_string_func.addInsideComponent('if (!TestIdToStringMap.contains(testId)) {')
+
+test_id_enum_to_string_func.addInsideComponent('switch (testId) {')
+for group_label in group_test_list_vectors:
+    for test in group_test_list_vectors[group_label]:
+        test_id_enum_to_string_func.addInsideComponent(f'case TestId::{test}: return "{test}";')
+test_id_enum_to_string_func.addInsideComponent('default:')
 test_id_enum_to_string_func.addInsideComponent('giraffe_assert(false);')
-# test_id_enum_to_string_func.addInsideComponent('return TestIdToStringMap.at(TestId::Unknown);')
 test_id_enum_to_string_func.addInsideComponent('return "Unknown";')
 test_id_enum_to_string_func.addInsideComponent('}')
-test_id_enum_to_string_func.addInsideComponent('return TestIdToStringMap.at(testId);')
+
+# test_id_enum_to_string_func.addInsideComponent('if (!TestIdToStringMap.contains(testId)) {')
+# test_id_enum_to_string_func.addInsideComponent('giraffe_assert(false);')
+# test_id_enum_to_string_func.addInsideComponent('return TestIdToStringMap.at(TestId::Unknown);')
+# test_id_enum_to_string_func.addInsideComponent('return "Unknown";')
+# test_id_enum_to_string_func.addInsideComponent('}')
+# test_id_enum_to_string_func.addInsideComponent('return TestIdToStringMap.at(testId);')
 cpp_namespace.addComponent(test_id_enum_to_string_func)
 
 test_cases_namespace = Block(wrap_block=False)
 
-test_groups_reference_map = Map("test_groups_map", "TestGroupId", "TestSuite&")
+test_groups_reference_map = Map("test_groups_map_", "TestGroupId", "TestGroup &")
+test_groups_reference_map.addDoxBrief("This map contains the collection of test groups.")
 
 # Now that we have all of the base enums and maps, we can generate the test vectors
 for group_label in group_test_list_vectors:
     group_test_list = group_test_list_vectors[group_label]
-    group_test_vector = Vector(f"{group_label.lower()}_test_suite_", None, extra_qualifiers="", std_type="TestSuite", equal_sign=False)
+    group_test_vector = Vector(f"{group_label.lower()}_test_group_", None, extra_qualifiers="", std_type="TestGroup", equal_sign=False)
     group_test_vector.addDoxBrief(f"Test cases for the {group_label} group.")
     
     group_test_vector.addString(f"TestGroupId::{group_label.upper()}, shared_data_")
@@ -140,7 +169,7 @@ for group_label in group_test_list_vectors:
     test_cases_namespace.addComponent(group_test_vector)
     
     # Add the test group to the reference map
-    test_groups_reference_map.addPair(f'TestGroupId::{group_label}', f'{group_label.lower()}_test_suite_')
+    test_groups_reference_map.addPair(f'TestGroupId::{group_label}', f'{group_label.lower()}_test_group_')
     
 
 # for group_label in group_test_list_vectors:
@@ -157,4 +186,4 @@ test_cases_namespace.addComponent(test_groups_reference_map)
 
 t = Templater(out_test_cases_path, print_dont_write=False)
 # print(test_cases_namespace.get())
-t.template("bit_test_suites", test_cases_namespace.get(0))
+t.template("bit_test_groups", test_cases_namespace.get(0))

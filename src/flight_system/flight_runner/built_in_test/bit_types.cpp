@@ -15,7 +15,7 @@
  * 
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
- * @date       2024-11-25
+ * @date       2024-12-02
  * @copyright  2023 (license to be defined)
  * =*=======================*=
  *
@@ -33,22 +33,32 @@ namespace bit {
 
   /// @brief This map converts the TestStatus enum to a string.
   static const std::map<TestStatus, const std::string> TestStatusToStringMap{
-    {TestStatus::Unknown, "UNK"},
-    {TestStatus::NoData, "N/D"},
-    {TestStatus::NotRun, "N/R"},
-    {TestStatus::Waiting, "WAIT"},
-    {TestStatus::Running, "RUN"},
-    {TestStatus::Passed, "PASS"},
-    {TestStatus::Failed, "FAIL"},
-    {TestStatus::Skipped, "SKIP"},
+    {TestStatus::UNKNOWN, "UNK"},
+    {TestStatus::NODATA, "N/D"},
+    {TestStatus::NOTRUN, "N/R"},
+    {TestStatus::WAITING, "WAIT"},
+    {TestStatus::RUNNING, "RUN"},
+    {TestStatus::PASSED, "PASS"},
+    {TestStatus::FAILED, "FAIL"},
+    {TestStatus::SKIPPED, "SKIP"},
+    {TestStatus::STOPPED, "STOP"},
   };
   /// @brief This function converts a TestStatus enum to a string.
   std::string testStatusToString(TestStatus status)  {
-    if (!TestStatusToStringMap.contains(status)) {
+    switch (status) {
+    case TestStatus::UNKNOWN: return "UNK";
+    case TestStatus::NODATA: return "N/D";
+    case TestStatus::NOTRUN: return "N/R";
+    case TestStatus::WAITING: return "WAIT";
+    case TestStatus::RUNNING: return "RUN";
+    case TestStatus::PASSED: return "PASS";
+    case TestStatus::FAILED: return "FAIL";
+    case TestStatus::SKIPPED: return "SKIP";
+    case TestStatus::STOPPED: return "STOP";
+    default:
     giraffe_assert(false);
-    return TestStatusToStringMap.at(TestStatus::Unknown);
+    return "Unknown";
     }
-    return TestStatusToStringMap.at(status);
   }
 
   /// @brief This map converts the TestGroupId enum to a string.
@@ -66,11 +76,21 @@ namespace bit {
   };
   /// @brief This function converts a TestGroupId enum to a string.
   std::string testGroupIdToString(TestGroupId groupId)  {
-    if (!TestGroupIdToStringMap.contains(groupId)) {
+    switch (groupId) {
+    case TestGroupId::FCS: return "FCS";
+    case TestGroupId::SYS: return "SYS";
+    case TestGroupId::DLNK: return "DLNK";
+    case TestGroupId::GPS: return "GPS";
+    case TestGroupId::BATT: return "BATT";
+    case TestGroupId::EXTN: return "EXTN";
+    case TestGroupId::ENV: return "ENV";
+    case TestGroupId::CAM: return "CAM";
+    case TestGroupId::IMU: return "IMU";
+    case TestGroupId::ADC: return "ADC";
+    default:
     giraffe_assert(false);
     return "Unknown";
     }
-    return TestGroupIdToStringMap.at(groupId);
   }
 
   /// @brief This map converts the TestId enum to a string.
@@ -91,18 +111,31 @@ namespace bit {
   };
   /// @brief This function converts a TestId enum to a string.
   std::string testIdToString(TestId testId)  {
-    if (!TestIdToStringMap.contains(testId)) {
+    switch (testId) {
+    case TestId::FCS_ErrorTest: return "FCS_ErrorTest";
+    case TestId::FCS_FlightPhasePredictorTest: return "FCS_FlightPhasePredictorTest";
+    case TestId::FCS_LaunchPositionTest: return "FCS_LaunchPositionTest";
+    case TestId::FCS_DataModuleProcessingTest: return "FCS_DataModuleProcessingTest";
+    case TestId::SYS_ErrorTest: return "SYS_ErrorTest";
+    case TestId::DLNK_ConfigLocationDataTest: return "DLNK_ConfigLocationDataTest";
+    case TestId::GPS_InstalledTest: return "GPS_InstalledTest";
+    case TestId::BATT_AdcTest: return "BATT_AdcTest";
+    case TestId::EXTN_ExtensionsRunningTest: return "EXTN_ExtensionsRunningTest";
+    case TestId::ENV_TemperatureTest: return "ENV_TemperatureTest";
+    case TestId::CAM_InstalledTest: return "CAM_InstalledTest";
+    case TestId::IMU_InstalledTest: return "IMU_InstalledTest";
+    case TestId::ADC_InstalledTest: return "ADC_InstalledTest";
+    default:
     giraffe_assert(false);
     return "Unknown";
     }
-    return TestIdToStringMap.at(testId);
   }
 
 }
 
 /**
  *
- * Generated on: 2024-11-25
+ * Generated on: 2024-12-02
  * 
  * @endverbatim
  * 

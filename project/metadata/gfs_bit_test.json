@@ -23,6 +23,9 @@
     },
     "SKIP": {
       "description": "Skipped"
+    },
+    "STOP": {
+      "description": "Stopped"
     }
   },
   "tests": {
