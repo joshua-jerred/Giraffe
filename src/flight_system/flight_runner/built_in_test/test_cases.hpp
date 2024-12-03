@@ -26,9 +26,18 @@ struct TestResult {
   std::string failure_reason;
 };
 
+namespace test_case {
+
 /// @brief Checks if the error frame has any active errors.
 /// @param shared_data - The shared data object.
 /// @return TestResult - The result of the test.
 TestResult runTestFCS_0001(data::SharedData &shared_data);
+
+/// @brief Checks if GPS hardware is configured and running.
+/// @param shared_data - The shared data object.
+/// @return TestResult - The result of the test.
+TestResult runTestGPS_0400(data::SharedData &shared_data);
+
+} // namespace test_case
 
 } // namespace bit

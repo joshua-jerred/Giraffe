@@ -39,7 +39,7 @@ function ActionItem({ visible, enabled, name, action }) {
 }
 
 function CoreControl() {
-  const { flightData, isGfsTcpConnected } = useContext(GwsGlobal);
+  const { flightData, isGfsTcpConnected, unsafeMode } = useContext(GwsGlobal);
   const [flightPhase, setFlightPhase] = useState("");
   const [gfsTimeSynced, setGfsTimeSynced] = useState(false);
   const [bitTestStatus, setBitTestStatus] = useState("n/d");
@@ -74,6 +74,10 @@ function CoreControl() {
         if (bitTestStatus !== "PASS") {
           setAllowSetLaunchMode(false);
           setUserMessage("Waiting for BIT Pass");
+          if (unsafeMode) {
+            setAllowSetLaunchMode(true);
+            setUserMessage("WAITING FOR BIT PASS - UNSAFE MODE OVERRIDE");
+          }
           return;
         }
 

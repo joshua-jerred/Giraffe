@@ -85,7 +85,10 @@ public:
     TestResult result;
     switch (test_id_) {
     case TestId::FCS_ErrorTest:
-      result = runTestFCS_0001(shared_data_);
+      result = test_case::runTestFCS_0001(shared_data_);
+      break;
+    case TestId::GPS_InstalledTest:
+      result = test_case::runTestGPS_0400(shared_data_);
       break;
     default:
       result = {.test_id = test_id_,

@@ -103,6 +103,11 @@ export const GwsGlobalContextProvider = ({ children }) => {
         );
       }
 
+      // check if in unsafe mode
+      if (unsafeMode) {
+        alerter.addAlert("unsafe_mode", "Unsafe mode enabled.", 1000, "/setup");
+      }
+
       // check the address and test the connection
       try {
         new URL(ggsAddress);
@@ -202,7 +207,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
     return () => clearInterval(interval);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ggsAddress]);
+  }, [ggsAddress, unsafeMode]);
 
   return (
     <GwsGlobal.Provider

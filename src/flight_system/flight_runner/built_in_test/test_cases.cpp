@@ -14,6 +14,7 @@
 #include "test_cases.hpp"
 
 namespace bit {
+namespace test_case {
 
 TestResult runTestFCS_0001(data::SharedData &shared_data) {
   TestResult result{.test_id = TestId::FCS_ErrorTest,
@@ -34,4 +35,23 @@ TestResult runTestFCS_0001(data::SharedData &shared_data) {
   return result;
 }
 
+TestResult runTestGPS_0400(data::SharedData &shared_data) {
+  TestResult result{.test_id = TestId::GPS_InstalledTest,
+                    .group_id = TestGroupId::GPS,
+                    .status = TestStatus::UNKNOWN,
+                    .failure_reason = ""};
+
+  const auto location_data = shared_data.blocks.location_data.get();
+
+  if (!location_data.have_gps_source) {
+    result.status = TestStatus::FAILED;
+    result.failure_reason = "GPS hardware is not configured.";
+  } else {
+    result.status = TestStatus::PASSED;
+  }
+
+  return result;
+}
+
+} // namespace test_case
 } // namespace bit

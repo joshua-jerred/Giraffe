@@ -80,7 +80,7 @@
         {
           "id": "0x0400",
           "title": "installed",
-          "description": "GPS hardware exists and it is functioning"
+          "description": "GPS hardware exists and it is reporting valid data"
         }
       ]
     },

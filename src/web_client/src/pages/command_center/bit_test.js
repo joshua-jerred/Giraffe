@@ -419,7 +419,7 @@ export default function BitTestPanel() {
       setRunButtonText("Stop Test");
     } else if (
       bitInfo.bit_test_status === "PASS" ||
-      bitInfo.bit_status === "FAIL"
+      bitInfo.bit_test_status === "FAIL"
     ) {
       setRunButtonText("Reset Test");
     } else {
