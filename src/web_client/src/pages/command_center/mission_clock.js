@@ -9,6 +9,8 @@ import { useApiGetData } from "../../api_interface/ggs_api";
 import { GwsGlobal } from "../../GlobalContext";
 import Tooltip from "../../components/Tooltip";
 
+import { useStorageState } from "../../core/LocalStorageState";
+
 const START_TIME_CHECK_INTERVAL = 2000;
 
 /**
@@ -151,7 +153,7 @@ function MissionClockControlMenu({
 /**
  * This component displays the current time of the GGS, GFS, and local time.
  */
-function ClockMartix({ ggsTime, gfsTime, gfsTimeSkew, gfsGpsTime }) {
+function ClockMartix({ ggsTime, gfsTime, gfsTimeSkew, gfsGpsTime, onClick }) {
   const [localTime, setLocalTime] = useState("--:--:--");
 
   useEffect(() => {
@@ -190,7 +192,15 @@ function ClockMartix({ ggsTime, gfsTime, gfsTimeSkew, gfsGpsTime }) {
   };
 
   return (
-    <div style={{ width: "70%", paddingTop: "10px", paddingBottom: "10px" }}>
+    <div
+      style={{
+        width: "70%",
+        paddingTop: "10px",
+        paddingBottom: "10px",
+        cursor: "pointer",
+      }}
+      onClick={onClick}
+    >
       {/* <CardContentCentered> */}
       <div style={clock_style}>
         <span>Local Time</span>
@@ -222,6 +232,10 @@ export function MissionClock() {
   const [isRunning, setIsRunning] = useState(true);
   const [startTime, setStartTime] = useState(new Date());
   const [isClockValid, setIsClockValid] = useState(true);
+  const [showClockMatrix, setShowClockMatrix] = useStorageState(
+    "show_clock_matrix",
+    false
+  );
   const [clockSignSymbol, setClockSignSymbol] = useState("+");
 
   const [days, setDays] = useState(0);
@@ -328,7 +342,10 @@ export function MissionClock() {
               <CardContentCentered>
                 <h2
                   className="noselect"
-                  style={{ cursor: "pointer", margin: "0px" }}
+                  style={{
+                    // cursor: "pointer",
+                    margin: "0px",
+                  }}
                 >
                   {clockSignSymbol} {days}d {hours}h {minutes}m {seconds}s
                 </h2>
@@ -337,20 +354,44 @@ export function MissionClock() {
                 ) : (
                   <h4 style={{ margin: "0px" }}>Stopped</h4>
                 )}
-                <ClockMartix
-                  ggsTime={ggsTime}
-                  gfsTime={gfsTime}
-                  gfsTimeSkew={gfsTimeSkew}
-                  gfsGpsTime={gfsGpsTime}
-                />
-                <MissionClockControlMenu
-                  isRunning={isRunning}
-                  skew={startSkewTime}
-                  setSkew={setStartSkewTime}
-                  clockUpdateCallback={() => {
-                    setNeedUpdate(true);
-                  }}
-                />
+
+                {showClockMatrix && (
+                  <>
+                    <ClockMartix
+                      ggsTime={ggsTime}
+                      gfsTime={gfsTime}
+                      gfsTimeSkew={gfsTimeSkew}
+                      gfsGpsTime={gfsGpsTime}
+                      onClick={() => {
+                        setShowClockMatrix(!showClockMatrix);
+                      }}
+                    />
+                    <MissionClockControlMenu
+                      isRunning={isRunning}
+                      skew={startSkewTime}
+                      setSkew={setStartSkewTime}
+                      clockUpdateCallback={() => {
+                        setNeedUpdate(true);
+                      }}
+                    />
+                  </>
+                )}
+                {!showClockMatrix && (
+                  <p
+                    style={{
+                      cursor: "pointer",
+                      margin: "0px",
+                      fontSize: "0.7em",
+                      marginTop: "1em",
+                      // color: "blue",
+                    }}
+                    onClick={() => {
+                      setShowClockMatrix(!showClockMatrix);
+                    }}
+                  >
+                    Show Clock Matrix & Controls
+                  </p>
+                )}
               </CardContentCentered>
             </div>
           ) : (

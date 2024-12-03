@@ -108,6 +108,9 @@ function CoreControl() {
     <>
       <CardSectionTitle>Core Control</CardSectionTitle>
       <CardContentCentered>
+        {!allowSetLaunchMode && !allowSetPreLaunchMode && (
+          <p>no control options</p>
+        )}
         {/* {preLaunchMode &&  */}
         {/* <BitTestPanel /> */}
         {/* } */}
