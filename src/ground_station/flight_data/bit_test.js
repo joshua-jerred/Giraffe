@@ -43,7 +43,7 @@ module.exports = class BitTest {
     // An optional error message to display to the user
     this.user_displayed_error = null;
 
-    this.update_rate = 2000; // 1 second
+    this.update_rate = 1000; // 1 second
     this.interval = setInterval(this.#cycle.bind(this), this.update_rate);
   }
 
@@ -110,6 +110,10 @@ module.exports = class BitTest {
         }
       }
     );
+  }
+
+  getBitTestStatus() {
+    return this.bit_test_status;
   }
 
   processGetRequest(req, res) {

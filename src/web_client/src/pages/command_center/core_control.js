@@ -42,18 +42,28 @@ function CoreControl() {
   const { flightData, isGfsTcpConnected } = useContext(GwsGlobal);
   const [flightPhase, setFlightPhase] = useState("");
   const [gfsTimeSynced, setGfsTimeSynced] = useState(false);
+  const [bitTestStatus, setBitTestStatus] = useState("n/d");
+  const [missionClockRunning, setMissionClockRunning] = useState(false);
 
   const [allowSetLaunchMode, setAllowSetLaunchMode] = useState(false);
   const [allowSetPreLaunchMode, setAllowSetPreLaunchMode] = useState(false);
   const [preLaunchMode, setPreLaunchMode] = useState(false);
 
+  const [userMessage, setUserMessage] = useState("");
+
   useEffect(() => {
     if (flightData) {
-      if (flightData.flight_phase) {
+      if (flightData.hasOwnProperty("flight_phase")) {
         setFlightPhase(flightData.flight_phase);
       }
-      if (flightData.gfs_time_synced) {
+      if (flightData.hasOwnProperty("gfs_time_synced")) {
         setGfsTimeSynced(flightData.gfs_time_synced);
+      }
+      if (flightData.bit_test_status) {
+        setBitTestStatus(flightData.bit_test_status);
+      }
+      if (flightData.hasOwnProperty("mission_clock_running")) {
+        setMissionClockRunning(flightData.mission_clock_running);
       }
     }
   }, [flightData]);
@@ -61,25 +71,38 @@ function CoreControl() {
   useEffect(() => {
     if (isGfsTcpConnected) {
       if (flightPhase === "Pre-Launch" && gfsTimeSynced) {
-        setPreLaunchMode(true);
+        if (bitTestStatus !== "PASS") {
+          setAllowSetLaunchMode(false);
+          setUserMessage("Waiting for BIT Pass");
+          return;
+        }
+
+        if (!missionClockRunning) {
+          setAllowSetLaunchMode(false);
+          setUserMessage("Waiting for Mission Clock Start");
+          return;
+        }
+
+        setAllowSetLaunchMode(true);
+        setUserMessage("");
       } else {
         setAllowSetLaunchMode(false);
         setPreLaunchMode(false);
       }
 
-      if (flightPhase === "Launch") {
-        setAllowSetPreLaunchMode(true);
-      } else {
-        setAllowSetPreLaunchMode(false);
-      }
-
-      if (flightPhase === "Recovery") {
+      if (flightPhase === "Launch" || flightPhase === "Recovery") {
         setAllowSetPreLaunchMode(true);
       } else {
         setAllowSetPreLaunchMode(false);
       }
     }
-  }, [isGfsTcpConnected, flightPhase, gfsTimeSynced]);
+  }, [
+    isGfsTcpConnected,
+    flightPhase,
+    gfsTimeSynced,
+    bitTestStatus,
+    missionClockRunning,
+  ]);
 
   return (
     <>
@@ -88,6 +111,13 @@ function CoreControl() {
         {/* {preLaunchMode &&  */}
         {/* <BitTestPanel /> */}
         {/* } */}
+        <p
+          style={{
+            fontSize: "15px",
+          }}
+        >
+          {userMessage}
+        </p>
         <ActionItem
           visible={flightPhase === "Pre-Launch"}
           enabled={allowSetLaunchMode}
@@ -104,17 +134,6 @@ function CoreControl() {
           name="Enter Pre-Launch Mode"
           action="epp"
         />
-        <p
-          style={{
-            fontSize: "12px",
-          }}
-        >
-          Flight Phase: {flightPhase}
-          <br />
-          Allow Set Launch Mode: {allowSetLaunchMode.toString()}
-          <br />
-          Allow Set Pre-Launch Mode: {allowSetPreLaunchMode.toString()}
-        </p>
       </CardContentCentered>
     </>
   );

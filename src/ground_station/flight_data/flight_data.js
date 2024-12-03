@@ -20,6 +20,8 @@ module.exports = class FlightData {
       last_updated: new Date(),
       gfs_time_synced: false,
       active_errors: "n/d",
+      bit_test_status: "n/d",
+      mission_clock_running: this.mission_clock.getIsRunning(),
     };
 
     this.phase_prediction = {
@@ -69,6 +71,8 @@ module.exports = class FlightData {
   #cycle() {
     //   this.#updateLocation();
     this.general.active_errors = this.diagnostics.getNumActiveErrors();
+    this.general.bit_test_status = this.bit_test.getBitTestStatus();
+    this.general.mission_clock_running = this.mission_clock.getIsRunning();
   }
 
   // ################ GENERAL DATA ################

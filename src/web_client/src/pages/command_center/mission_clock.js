@@ -64,6 +64,19 @@ function MissionClockControlMenu({
       });
   };
 
+  useEffect(() => {
+    if (!isGfsTcpConnected || !flightData.hasOwnProperty("flight_phase")) {
+      setAllowStartMissionClock(false);
+      return;
+    }
+
+    if (flightData.flight_phase === "Pre-Launch") {
+      setAllowStartMissionClock(true);
+    } else {
+      setAllowStartMissionClock(false);
+    }
+  }, [flightData, isGfsTcpConnected]);
+
   return (
     <CardContentCentered>
       {isRunning === true ? (
@@ -205,7 +218,7 @@ function ClockMartix({ ggsTime, gfsTime, gfsTimeSkew, gfsGpsTime }) {
 }
 
 export function MissionClock() {
-  const [startSkewTime, setStartSkewTime] = useState(10);
+  const [startSkewTime, setStartSkewTime] = useState(60);
   const [isRunning, setIsRunning] = useState(true);
   const [startTime, setStartTime] = useState(new Date());
   const [isClockValid, setIsClockValid] = useState(true);

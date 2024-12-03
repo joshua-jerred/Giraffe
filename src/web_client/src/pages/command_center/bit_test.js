@@ -292,7 +292,7 @@ export default function BitTestPanel() {
     "",
     "",
     "all",
-    5000,
+    2000,
     "/api/flight_data/bit_test"
   );
 
@@ -360,12 +360,26 @@ export default function BitTestPanel() {
 
   const requestStopTest = () => {
     // Send request to stop the test
-    console.log("Request to stop test");
+    fetch(`${ggsAddress}/api/flight_data/bit_test?action=stop`, {
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Start Test Response: ", data);
+        setNeedUpdate(true);
+      });
   };
 
   const requestResetTest = () => {
     // Send request to reset the test
-    console.log("Request to reset test - not implemented");
+    fetch(`${ggsAddress}/api/flight_data/bit_test?action=reset`, {
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Start Test Response: ", data);
+        setNeedUpdate(true);
+      });
   };
 
   const bitTestButtonHandler = () => {
