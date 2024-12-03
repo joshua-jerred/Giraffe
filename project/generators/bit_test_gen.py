@@ -162,7 +162,7 @@ for group_label in group_test_list_vectors:
     group_test_vector.addString(f"TestGroupId::{group_label.upper()}, shared_data_")
     first = True
     for test in group_test_list:
-        group_test_vector.addString(('{' if first else '') + f"{{TestGroupId::{group_label}, TestId::{test}}}")
+        group_test_vector.addString(('{' if first else '') + f"{{TestGroupId::{group_label}, TestId::{test}, shared_data_}}")
         # print(test, group_test_list)
         first = False
     group_test_vector.addString("}")

@@ -28,6 +28,7 @@
 #include "i_built_in_test.hpp"
 #include "logger.hpp"
 #include "shared_data.hpp"
+#include "test_cases.hpp"
 
 namespace bit {
 
@@ -35,8 +36,8 @@ class TestCase {
 public:
   // using TestFunction = std::function<TestStatus(data::SharedData &)>;
 
-  TestCase(TestGroupId group_id, TestId test_id)
-      : group_id_{group_id}, test_id_{test_id} {
+  TestCase(TestGroupId group_id, TestId test_id, data::SharedData &shared_data)
+      : group_id_{group_id}, test_id_{test_id}, shared_data_{shared_data} {
   }
   ~TestCase() = default;
 
@@ -81,8 +82,26 @@ public:
       status_ = TestStatus::RUNNING;
     }
 
-    // temp
-    status_ = TestStatus::PASSED;
+    TestResult result;
+    switch (test_id_) {
+    case TestId::FCS_ErrorTest:
+      result = runTestFCS_0001(shared_data_);
+      break;
+    default:
+      result = {.test_id = test_id_,
+                .group_id = group_id_,
+                .status = TestStatus::UNKNOWN,
+                .failure_reason = "Test case not found for Test ID."};
+      break;
+    }
+
+    status_ = result.status;
+    if (status_ == TestStatus::FAILED) {
+      shared_data_.streams.log.error(node::Identification::FLIGHT_RUNNER,
+                                     DiagnosticId::FLIGHT_RUNNER_bitTestFailed,
+                                     "Built in test failed. Test ID: " +
+                                         getTestIdString());
+    }
   }
 
   void reset() {
@@ -93,6 +112,8 @@ private:
   TestGroupId group_id_;
   TestId test_id_;
   TestStatus status_ = TestStatus::NOTRUN;
+
+  data::SharedData &shared_data_;
 };
 
 class TestGroup {
@@ -229,7 +250,19 @@ public:
     updateBitTestData();
   }
 
-  ~BuiltInTest() = default;
+  ~BuiltInTest() {
+    if (running_) {
+      stop();
+    }
+
+    if (thread_.joinable()) {
+      thread_.join();
+    }
+
+    for (auto &test_group : test_groups_map_) {
+      test_group.second.stop();
+    }
+  }
 
   void start() {
     if (running_) {
@@ -373,10 +406,12 @@ private:
       TestGroupId::FCS,
       shared_data_,
       {
-          {TestGroupId::FCS, TestId::FCS_ErrorTest},
-          {TestGroupId::FCS, TestId::FCS_FlightPhasePredictorTest},
-          {TestGroupId::FCS, TestId::FCS_LaunchPositionTest},
-          {TestGroupId::FCS, TestId::FCS_DataModuleProcessingTest},
+          {TestGroupId::FCS, TestId::FCS_ErrorTest, shared_data_},
+          {TestGroupId::FCS, TestId::FCS_FlightPhasePredictorTest,
+           shared_data_},
+          {TestGroupId::FCS, TestId::FCS_LaunchPositionTest, shared_data_},
+          {TestGroupId::FCS, TestId::FCS_DataModuleProcessingTest,
+           shared_data_},
       },
   };
 
@@ -385,7 +420,7 @@ private:
       TestGroupId::SYS,
       shared_data_,
       {
-          {TestGroupId::SYS, TestId::SYS_ErrorTest},
+          {TestGroupId::SYS, TestId::SYS_ErrorTest, shared_data_},
       },
   };
 
@@ -394,7 +429,8 @@ private:
       TestGroupId::DLNK,
       shared_data_,
       {
-          {TestGroupId::DLNK, TestId::DLNK_ConfigLocationDataTest},
+          {TestGroupId::DLNK, TestId::DLNK_ConfigLocationDataTest,
+           shared_data_},
       },
   };
 
@@ -403,7 +439,7 @@ private:
       TestGroupId::GPS,
       shared_data_,
       {
-          {TestGroupId::GPS, TestId::GPS_InstalledTest},
+          {TestGroupId::GPS, TestId::GPS_InstalledTest, shared_data_},
       },
   };
 
@@ -412,7 +448,7 @@ private:
       TestGroupId::BATT,
       shared_data_,
       {
-          {TestGroupId::BATT, TestId::BATT_AdcTest},
+          {TestGroupId::BATT, TestId::BATT_AdcTest, shared_data_},
       },
   };
 
@@ -421,7 +457,7 @@ private:
       TestGroupId::EXTN,
       shared_data_,
       {
-          {TestGroupId::EXTN, TestId::EXTN_ExtensionsRunningTest},
+          {TestGroupId::EXTN, TestId::EXTN_ExtensionsRunningTest, shared_data_},
       },
   };
 
@@ -430,7 +466,7 @@ private:
       TestGroupId::ENV,
       shared_data_,
       {
-          {TestGroupId::ENV, TestId::ENV_TemperatureTest},
+          {TestGroupId::ENV, TestId::ENV_TemperatureTest, shared_data_},
       },
   };
 
@@ -439,7 +475,7 @@ private:
       TestGroupId::CAM,
       shared_data_,
       {
-          {TestGroupId::CAM, TestId::CAM_InstalledTest},
+          {TestGroupId::CAM, TestId::CAM_InstalledTest, shared_data_},
       },
   };
 
@@ -448,7 +484,7 @@ private:
       TestGroupId::IMU,
       shared_data_,
       {
-          {TestGroupId::IMU, TestId::IMU_InstalledTest},
+          {TestGroupId::IMU, TestId::IMU_InstalledTest, shared_data_},
       },
   };
 
@@ -457,7 +493,7 @@ private:
       TestGroupId::ADC,
       shared_data_,
       {
-          {TestGroupId::ADC, TestId::ADC_InstalledTest},
+          {TestGroupId::ADC, TestId::ADC_InstalledTest, shared_data_},
       },
   };
 
