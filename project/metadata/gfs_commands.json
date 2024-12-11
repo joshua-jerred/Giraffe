@@ -184,6 +184,12 @@
           "value": "mcp3021"
         }
       ]
+    },
+    "stop_extension": {
+      "name": "Stop Extension",
+      "details": "Tell the extension module to stop a specified extension.",
+      "value": "0x4001",
+      "cmd_key": "stp"
     }
   }
 }

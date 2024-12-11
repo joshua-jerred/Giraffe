@@ -47,7 +47,8 @@ const std::unordered_map<std::string, CommandId> K_STRING_TO_COMMAND_MAP {
   {"TELEMETRY_MODULE_sendSnr",CommandId::TELEMETRY_MODULE_sendSnr},
   {"TELEMETRY_MODULE_sendAprsLocation",CommandId::TELEMETRY_MODULE_sendAprsLocation},
   {"TELEMETRY_MODULE_sendSstvImage",CommandId::TELEMETRY_MODULE_sendSstvImage},
-  {"EXTENSION_MODULE_addPreConfiguredExtension",CommandId::EXTENSION_MODULE_addPreConfiguredExtension}
+  {"EXTENSION_MODULE_addPreConfiguredExtension",CommandId::EXTENSION_MODULE_addPreConfiguredExtension},
+  {"EXTENSION_MODULE_stopExtension",CommandId::EXTENSION_MODULE_stopExtension}
 };
 
 } // namespace cmd
