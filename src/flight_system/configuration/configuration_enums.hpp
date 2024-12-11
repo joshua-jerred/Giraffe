@@ -275,7 +275,8 @@ enum class ExtensionType {
   RGB_LED = 13,
   MCP3021 = 14,
   MAX11615 = 15,
-  BMI088 = 16
+  BMI088 = 16,
+  UNIT_TEST_EXTENSION = 17
 };
 std::unordered_map<std::string, cfg::gEnum::ExtensionType> const K_STRING_TO_EXTENSION_TYPE_MAP = {
   {"unknown", cfg::gEnum::ExtensionType::UNKNOWN},
@@ -294,7 +295,8 @@ std::unordered_map<std::string, cfg::gEnum::ExtensionType> const K_STRING_TO_EXT
   {"rgb_led", cfg::gEnum::ExtensionType::RGB_LED},
   {"mcp3021", cfg::gEnum::ExtensionType::MCP3021},
   {"max11615", cfg::gEnum::ExtensionType::MAX11615},
-  {"bmi088", cfg::gEnum::ExtensionType::BMI088}
+  {"bmi088", cfg::gEnum::ExtensionType::BMI088},
+  {"unit_test_extension", cfg::gEnum::ExtensionType::UNIT_TEST_EXTENSION}
 };
 std::map<cfg::gEnum::ExtensionType, std::string> const K_EXTENSION_TYPE_TO_STRING_MAP = {
   {cfg::gEnum::ExtensionType::UNKNOWN, "unknown"},
@@ -313,7 +315,8 @@ std::map<cfg::gEnum::ExtensionType, std::string> const K_EXTENSION_TYPE_TO_STRIN
   {cfg::gEnum::ExtensionType::RGB_LED, "rgb_led"},
   {cfg::gEnum::ExtensionType::MCP3021, "mcp3021"},
   {cfg::gEnum::ExtensionType::MAX11615, "max11615"},
-  {cfg::gEnum::ExtensionType::BMI088, "bmi088"}
+  {cfg::gEnum::ExtensionType::BMI088, "bmi088"},
+  {cfg::gEnum::ExtensionType::UNIT_TEST_EXTENSION, "unit_test_extension"}
 };
 
 enum class AdcType {

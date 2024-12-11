@@ -681,7 +681,8 @@
                 "rgb_led",
                 "mcp3021",
                 "max11615",
-                "bmi088"
+                "bmi088",
+                "unit_test_extension"
             ]
         },
         "update_interval": {

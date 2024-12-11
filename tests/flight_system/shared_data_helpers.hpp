@@ -29,11 +29,18 @@ public:
     return streams.log.getNumPackets() > 0;
   }
 
+  /// @brief Check if the next log item in the log stream has the given id.
+  /// Clears packets until it finds one.
+  /// @param id - The id to check for.
+  /// @return \c true if the first log item has the given id. \c false
+  /// otherwise.
   bool hasLogItem(DiagnosticId id) {
     data::LogPacket packet;
     while (streams.log.getPacket(packet)) {
       if (packet.id == id) {
         return true;
+      } else {
+        return false;
       }
     }
     return false;

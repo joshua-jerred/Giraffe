@@ -41,6 +41,17 @@ public:
   ExtensionModule(data::SharedData &, cfg::Configuration &);
   ~ExtensionModule() override = default;
 
+#if GFS_UNIT_TEST_BUILD == 1
+  std::optional<extension::Extension *> getExtension(const std::string &name) {
+    for (auto &ext : extensions_) {
+      if (ext.metadata.name == name) {
+        return ext.extension.get();
+      }
+    }
+    return std::nullopt;
+  }
+#endif
+
 private:
   /**
    * @brief The action determines the targeted state of the extension.

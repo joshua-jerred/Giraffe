@@ -455,6 +455,11 @@
       "name": "Invalid Preconfigured Extension Type",
       "details": "The preconfigured extension type is not valid.",
       "value": "0x4006"
+    },
+    "failed_to_find_extension": {
+      "name": "Failed to Find Extension",
+      "details": "The extension from the previous command could not be found.",
+      "value": "0x4007"
     }
   },
   "extension": {
