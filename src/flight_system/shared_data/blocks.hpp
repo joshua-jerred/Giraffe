@@ -272,11 +272,22 @@ struct ExtensionModuleStats {
   int num_active = 0;
   int num_inactive = 0;
 
+  /// @brief A vector mapping the extension name to its status.
+  std::vector<std::pair<std::string, node::Status>> extension_statuses{};
+
   Json toJson() {
     Json json_data;
     json_data["num_configured"] = num_configured;
     json_data["num_active"] = num_active;
     json_data["num_inactive"] = num_inactive;
+
+    Json extensions_json;
+    for (const auto &ext : extension_statuses) {
+      Json extension_data;
+      extension_data["status"] = node::K_STATUS_TO_STRING_MAP.at(ext.second);
+      extensions_json[ext.first] = extension_data;
+    }
+    json_data["extension"] = extensions_json;
     return json_data;
   }
 };

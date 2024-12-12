@@ -30,7 +30,8 @@ module.exports = (global_state) => {
 
   // 404 Handler
   app.use((req, res, next) => {
-    res.status(404).send("Not Found");
+    res.status(404).send("Generic API 404: Not Found");
+    console.log("404: ", req.url);
   });
 
   return server;

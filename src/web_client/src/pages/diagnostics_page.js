@@ -7,6 +7,7 @@ import {
 import { useApiGetData } from "../api_interface/ggs_api";
 import { DataBlock } from "../components/DataBlock";
 import { useEffect, useState } from "react";
+import { ApiRequestButton } from "../components/api_request_button";
 
 const DiagnosticMetadata = require("giraffe-protocol").DiagnosticMetadata;
 const BuildIdToMetadataMap = () => {
@@ -120,6 +121,7 @@ function ExtensionsData() {
   const [loadingStatus, setLoadingStatus] = useState(null);
   const [lastUpdatedTimeStamp, setLastUpdatedTimeStamp] = useState("--:--");
   const [lastUpdatedSource, setLastUpdatedSource] = useState("n/a");
+  const [extensions, setExtensions] = useState([]); // [{name: "ext name", status: "running"}, ...]
 
   useEffect(() => {
     // Still loading
@@ -155,6 +157,7 @@ function ExtensionsData() {
     }
     setLastUpdatedTimeStamp(extensionsData.values.last_updated_timestamp);
     setLastUpdatedSource(extensionsData.values.last_updated_source);
+    setExtensions(extensionsData.values.extensions);
   }, [extensionsData, extensionsDataError, isExtensionsDataLoading]);
 
   return (
@@ -167,7 +170,50 @@ function ExtensionsData() {
         Last Updated {lastUpdatedTimeStamp} seconds ago, via {lastUpdatedSource}{" "}
         - {loadingStatus}
       </div>
-
+      todo - add request update button
+      <div>
+        {Object.keys(extensions).map((ext, index) => (
+          <div
+            key={index}
+            style={{
+              margin: "5px",
+              padding: "5px",
+              border: "1px solid black",
+              display: "flex",
+              justifyContent: "space-around",
+            }}
+          >
+            {ext} - {extensions[ext].name} - {extensions[ext].status}
+            <div>
+              <ApiRequestButton
+                api_endpoint="/api/command"
+                title="Restart"
+                api_method="POST"
+                request_data_callback={() => {
+                  return {
+                    command_string: `cmd/etm/rst/${extensions[ext].name}`,
+                    send_method: "tcp_socket",
+                  };
+                }}
+              />
+              <ApiRequestButton
+                api_endpoint="/api/command"
+                title="Disable"
+                request_data_callback={() => {
+                  console.log("Disable");
+                }}
+              />
+              <ApiRequestButton
+                api_endpoint="/api/command"
+                title="Enable"
+                request_data_callback={() => {
+                  console.log("Enable");
+                }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
       <a href="/gfs/configure">Configure</a>
       {/* <DataBlock resource="flight_data" category="extensions" /> */}
     </div>

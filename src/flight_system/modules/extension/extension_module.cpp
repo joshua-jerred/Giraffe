@@ -110,6 +110,13 @@ void ExtensionModule::loop() {
     shared_data_.status_led.setBlue(giraffe::StatusLedState::State::OFF);
   }
 
+  // Update the info for individual extensions.
+  stats_.extension_statuses.clear();
+  for (auto &ext : extensions_) {
+    stats_.extension_statuses.push_back(
+        {ext.metadata.name, ext.extension->getStatus()});
+  }
+
   // Update the stats.
   shared_data_.blocks.extension_module_stats.set(stats_);
 }

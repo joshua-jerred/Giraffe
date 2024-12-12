@@ -51,14 +51,11 @@ module.exports = class FlightData {
       last_updated: "n/d",
     };
 
+    /// @todo Implement this
     this.extension_data = {
       last_updated_timestamp: "00:00",
       last_updated_source: "tcp",
-      extensions: {
-        "test ext": {
-          status: "running",
-        },
-      },
+      extensions: [{ name: "test-ext", status: "running" }],
     };
 
     setInterval(this.#cycle.bind(this), FLIGHT_DATA_UPDATE_INTERVAL);
