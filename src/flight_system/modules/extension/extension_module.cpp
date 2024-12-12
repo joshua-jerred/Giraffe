@@ -191,9 +191,10 @@ void ExtensionModule::processCommand(const cmd::Command &command) {
     if (ext == extensions_.end()) {
       error(DiagnosticId::EXTENSION_MODULE_failedToFindExtension,
             "restart: " + command.str_arg);
+      std::cout << "restart: " << command.str_arg << std::endl;
       return;
     }
-
+    std::cout << "restart good: " << command.str_arg << std::endl;
     // Restart the extension.
     ext->action = ExtAction::RESTART;
     info("cmd restart: " + command.str_arg);

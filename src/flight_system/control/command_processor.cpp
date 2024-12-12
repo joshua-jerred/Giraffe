@@ -239,7 +239,7 @@ bool parseTelemetryModuleCommand(const std::string &command_id_str,
 
 bool cmd::parseCommandString(const std::string &command_string,
                              Command &command) {
-  const std::regex command_regex("^cmd/[a-z]{3}/[a-z]{3}/[a-z0-9-]{0,20}$");
+  const std::regex command_regex("^cmd/[a-z]{3}/[a-z]{3}/[a-z0-9-_]{0,20}$");
   if (!std::regex_match(command_string, command_regex)) {
     return false;
   }
@@ -252,8 +252,8 @@ bool cmd::parseCommandString(const std::string &command_string,
 
   std::string command_id_string = command_string.substr(8, 3);
   std::string arg = "";
+  // std::cout << "ARG: " << arg << " FOR:  " << command_string << std::endl;
   if (command_string.length() >= 12) {
-    // std::cout << "ARG: " << arg << " FOR:  " << command_string << std::endl;
     arg = command_string.substr(12);
     // command.str_arg = arg;
   }

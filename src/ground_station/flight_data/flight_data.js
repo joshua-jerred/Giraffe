@@ -22,6 +22,7 @@ module.exports = class FlightData {
       active_errors: "n/d",
       bit_test_status: "n/d",
       mission_clock_running: this.mission_clock.getIsRunning(),
+      simulator_mode: false,
     };
 
     this.phase_prediction = {
@@ -51,11 +52,15 @@ module.exports = class FlightData {
       last_updated: "n/d",
     };
 
-    /// @todo Implement this
     this.extension_data = {
-      last_updated_timestamp: "00:00",
-      last_updated_source: "tcp",
-      extensions: [{ name: "test-ext", status: "running" }],
+      last_updated: null,
+      last_updated_source: "n/d",
+      module_stats: {
+        num_configured: 0,
+        num_active: 0,
+        num_inactive: 0,
+      },
+      extensions: [{ name: "nd", status: "running" }],
     };
 
     setInterval(this.#cycle.bind(this), FLIGHT_DATA_UPDATE_INTERVAL);
@@ -114,6 +119,10 @@ module.exports = class FlightData {
     this.phase_prediction.last_updated = new Date();
   }
 
+  #updateInSimulatorMode(simulator_mode) {
+    this.general.simulator_mode = simulator_mode;
+  }
+
   // called by gfs_connection
   updateFlightDataFromGfsTcp(data) {
     // console.log(data);
@@ -127,6 +136,7 @@ module.exports = class FlightData {
       );
       this.#updatePhasePredictions(data.phase_predictions);
       this.location.launch_position = data.launch_position;
+      this.#updateInSimulatorMode(data.simulator_mode);
       this.#newTcpContact();
     } catch (e) {
       console.log("Error updating flight data from GFS TCP: ", e);
@@ -174,5 +184,46 @@ module.exports = class FlightData {
 
   updateErrorFrameFromGfsTcp(data) {
     this.diagnostics.updateFromTcp(data);
+  }
+
+  /**
+   *
+   * @param {string} source - "tcp", "aprs", it's arbitrary, keep it short.
+   * @param {int} num_configured - Number of configured extensions.
+   * @param {int} num_active - Number of active extensions.
+   * @param {int} num_inactive - Number of inactive extensions.
+   * @param {{"name":{status:"",...}}} extensions - Data for each extensions.
+   */
+  #setExtensionData(
+    source,
+    num_configured,
+    num_active,
+    num_inactive,
+    extensions
+  ) {
+    this.extension_data.last_updated_source = source;
+    this.extension_data.last_updated = new Date();
+
+    this.extension_data.module_stats = {
+      num_configured: num_configured,
+      num_active: num_active,
+      num_inactive: num_inactive,
+    };
+
+    this.extension_data.extensions = extensions;
+  }
+
+  updateExtensionModuleStatsFromGfsTcp(data) {
+    try {
+      this.#setExtensionData(
+        "tcp",
+        data.num_configured,
+        data.num_active,
+        data.num_inactive,
+        data.extension
+      );
+    } catch (e) {
+      console.log("Error updating extension data from GFS TCP: ", e);
+    }
   }
 };

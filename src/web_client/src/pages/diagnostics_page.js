@@ -8,6 +8,7 @@ import { useApiGetData } from "../api_interface/ggs_api";
 import { DataBlock } from "../components/DataBlock";
 import { useEffect, useState } from "react";
 import { ApiRequestButton } from "../components/api_request_button";
+import Tooltip from "../components/Tooltip";
 
 const DiagnosticMetadata = require("giraffe-protocol").DiagnosticMetadata;
 const BuildIdToMetadataMap = () => {
@@ -122,6 +123,11 @@ function ExtensionsData() {
   const [lastUpdatedTimeStamp, setLastUpdatedTimeStamp] = useState("--:--");
   const [lastUpdatedSource, setLastUpdatedSource] = useState("n/a");
   const [extensions, setExtensions] = useState([]); // [{name: "ext name", status: "running"}, ...]
+  const [moduleStats, setModuleStats] = useState({
+    num_configured: "n/d",
+    num_active: "n/d",
+    num_inactive: "n/d",
+  });
 
   useEffect(() => {
     // Still loading
@@ -144,7 +150,35 @@ function ExtensionsData() {
 
     setLoadingStatus("Loaded");
 
-    const NEEDED_PROPERTIES = ["last_updated_timestamp", "last_updated_source"];
+    if (!extensionsData.hasOwnProperty("values")) {
+      console.error("Error: Missing values in extensions data", extensionsData);
+      setLoadingStatus("Error: No values");
+      return;
+    }
+
+    if (!extensionsData.hasOwnProperty("metadata")) {
+      console.error(
+        "Error: Missing metadata in extensions data",
+        extensionsData
+      );
+      setLoadingStatus("Error: No metadata");
+      return;
+    }
+
+    if (!extensionsData.metadata.hasOwnProperty("MS_SINCE_LAST_UPDATE")) {
+      console.error(
+        "Error: Missing metadata MS_SINCE_LAST_UPDATE in extensions data",
+        extensionsData
+      );
+      setLoadingStatus("Error: No metadata MS_SINCE_LAST_UPDATE");
+      return;
+    }
+
+    const NEEDED_PROPERTIES = [
+      "last_updated_source",
+      "extensions",
+      "module_stats",
+    ];
     for (let prop of NEEDED_PROPERTIES) {
       if (!extensionsData.values.hasOwnProperty(prop)) {
         console.error(
@@ -155,22 +189,32 @@ function ExtensionsData() {
         return;
       }
     }
-    setLastUpdatedTimeStamp(extensionsData.values.last_updated_timestamp);
+
+    // mm:ss:ms format from ms
+    let ms_since_update = extensionsData.metadata.MS_SINCE_LAST_UPDATE;
+    let seconds = Math.floor(ms_since_update / 1000);
+    let minutes = Math.floor(seconds / 60);
+    let ms = ms_since_update % 1000;
+    // console.log(ms);
+    let ms_padded = ms < 10 ? `00${ms}` : ms < 100 ? `0${ms}` : `${ms}`;
+    // console.log(ms_padded, typeof ms_padded);
+    setLastUpdatedTimeStamp(
+      `${minutes < 10 ? "0" : ""}${minutes}:${seconds % 60 < 10 ? "0" : ""}${
+        seconds % 60
+      }:${ms_padded}`
+    );
+
     setLastUpdatedSource(extensionsData.values.last_updated_source);
     setExtensions(extensionsData.values.extensions);
+    setModuleStats(extensionsData.values.module_stats);
   }, [extensionsData, extensionsDataError, isExtensionsDataLoading]);
 
   return (
     <div>
-      <div
-        style={{
-          fontSize: "0.8em",
-        }}
-      >
-        Last Updated {lastUpdatedTimeStamp} seconds ago, via {lastUpdatedSource}{" "}
-        - {loadingStatus}
+      <div>
+        {moduleStats.num_configured} configured, {moduleStats.num_active}{" "}
+        active, {moduleStats.num_inactive} inactive
       </div>
-      todo - add request update button
       <div>
         {Object.keys(extensions).map((ext, index) => (
           <div
@@ -191,7 +235,7 @@ function ExtensionsData() {
                 api_method="POST"
                 request_data_callback={() => {
                   return {
-                    command_string: `cmd/etm/rst/${extensions[ext].name}`,
+                    command_string: `cmd/etm/rst/${ext}`,
                     send_method: "tcp_socket",
                   };
                 }}
@@ -213,8 +257,17 @@ function ExtensionsData() {
             </div>
           </div>
         ))}
+        <div
+          style={{
+            fontSize: "0.8em",
+          }}
+        >
+          Last updated
+          <Tooltip text="mm:ss:ms"> {lastUpdatedTimeStamp} ago</Tooltip>, via{" "}
+          {lastUpdatedSource} - {loadingStatus}
+        </div>
+        <a href="/gfs/configure">Configure</a>
       </div>
-      <a href="/gfs/configure">Configure</a>
       {/* <DataBlock resource="flight_data" category="extensions" /> */}
     </div>
   );

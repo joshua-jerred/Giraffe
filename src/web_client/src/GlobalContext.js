@@ -183,6 +183,18 @@ export const GwsGlobalContextProvider = ({ children }) => {
         .then((json_data) => {
           // console.log("Flight data", json_data);
           setFlightData(json_data.values);
+
+          if (
+            json_data.values.hasOwnProperty("simulator_mode") &&
+            json_data.values.simulator_mode
+          ) {
+            alerter.addAlert(
+              "simulator_mode.",
+              "This GFS build is running in simulator mode.",
+              3000,
+              ""
+            );
+          }
         })
         .catch((error) => {
           console.error("Error getting flight data", error);
