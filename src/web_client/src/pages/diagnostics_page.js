@@ -1,4 +1,9 @@
-import { PageTitle, PageContent, Card, CardMasonryLayout } from "./PageParts";
+import {
+  PageTitle,
+  PageContent,
+  Card,
+  CardMasonryLayout,
+} from "../core/PageParts";
 import { useApiGetData } from "../api_interface/ggs_api";
 import { DataBlock } from "../components/DataBlock";
 import { useEffect, useState } from "react";
@@ -104,6 +109,71 @@ function ErrorFrame() {
   return <ErrorFrameList items={activeErrors} />;
 }
 
+function ExtensionsData() {
+  const {
+    data: extensionsData,
+    isLoading: isExtensionsDataLoading,
+    error: extensionsDataError,
+    setNeedUpdate: setExtensionsDataNeedUpdate,
+  } = useApiGetData("flight_data", "extensions", "all", 2000);
+
+  const [loadingStatus, setLoadingStatus] = useState(null);
+  const [lastUpdatedTimeStamp, setLastUpdatedTimeStamp] = useState("--:--");
+  const [lastUpdatedSource, setLastUpdatedSource] = useState("n/a");
+
+  useEffect(() => {
+    // Still loading
+    if (isExtensionsDataLoading) {
+      setLoadingStatus("Loading...");
+      return;
+    }
+
+    // Error
+    if (extensionsDataError) {
+      setLoadingStatus("Error loading data");
+      console.error("Error loading extensions data", extensionsDataError);
+      return;
+    }
+
+    if (!extensionsData) {
+      setLoadingStatus("Error: No data");
+      return;
+    }
+
+    setLoadingStatus("Loaded");
+
+    const NEEDED_PROPERTIES = ["last_updated_timestamp", "last_updated_source"];
+    for (let prop of NEEDED_PROPERTIES) {
+      if (!extensionsData.values.hasOwnProperty(prop)) {
+        console.error(
+          "Error: Missing property in extensions data: ",
+          prop,
+          extensionsData
+        );
+        return;
+      }
+    }
+    setLastUpdatedTimeStamp(extensionsData.values.last_updated_timestamp);
+    setLastUpdatedSource(extensionsData.values.last_updated_source);
+  }, [extensionsData, extensionsDataError, isExtensionsDataLoading]);
+
+  return (
+    <div>
+      <div
+        style={{
+          fontSize: "0.8em",
+        }}
+      >
+        Last Updated {lastUpdatedTimeStamp} seconds ago, via {lastUpdatedSource}{" "}
+        - {loadingStatus}
+      </div>
+
+      <a href="/gfs/configure">Configure</a>
+      {/* <DataBlock resource="flight_data" category="extensions" /> */}
+    </div>
+  );
+}
+
 export default function DiagnosticsPage() {
   return (
     <>
@@ -113,6 +183,10 @@ export default function DiagnosticsPage() {
           <Card title="GFS Error Frame">
             <DataBlock resource="flight_data" category="error_frame" />
             <ErrorFrame />
+          </Card>
+
+          <Card title="Extensions Data">
+            <ExtensionsData />
           </Card>
         </CardMasonryLayout>
       </PageContent>
