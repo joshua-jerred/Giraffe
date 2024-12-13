@@ -227,7 +227,7 @@ function ExtensionsData() {
               justifyContent: "space-around",
             }}
           >
-            {ext} - {extensions[ext].name} - {extensions[ext].status}
+            {ext} - {extensions[ext].status}
             <div>
               <ApiRequestButton
                 api_endpoint="/api/command"

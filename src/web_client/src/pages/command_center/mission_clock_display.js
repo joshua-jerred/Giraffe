@@ -227,7 +227,7 @@ function ClockMartix({ ggsTime, gfsTime, gfsTimeSkew, gfsGpsTime, onClick }) {
   );
 }
 
-export function MissionClock() {
+export function MissionClockDisplay() {
   const [startSkewTime, setStartSkewTime] = useState(60);
   const [isRunning, setIsRunning] = useState(true);
   const [startTime, setStartTime] = useState(new Date());

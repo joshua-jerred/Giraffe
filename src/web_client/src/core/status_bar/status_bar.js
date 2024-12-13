@@ -6,18 +6,23 @@ import {
   faSatellite,
   faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
-import { GwsGlobal } from "../GlobalContext";
+import { GwsGlobal } from "../../GlobalContext.js";
 import { NavLink } from "react-router-dom";
 
-import Tooltip from "../components/Tooltip.js";
+import Tooltip from "../../components/Tooltip.js";
 
-import { useStorageState } from "./LocalStorageState.js";
+import { useStorageState } from "../LocalStorageState.js";
+import { useMissionClockData } from "../../api_interface/mission_clock_api.js";
+
+// local
+import ServiceStatusDisplay from "./service_status_display.js";
 
 const StatusCard = styled.div`
   display: grid;
   // grid-gap: 10px;
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
   // grid-auto-rows: 15px;
 
   user-select: none;
@@ -371,14 +376,119 @@ function AlerterToggle({ setExpanded, expanded }) {
   );
 }
 
-function StatusBar() {
+function ConnectionStatusTable() {
   const { serviceStatuses, isGgsConnected, flightData } = useContext(GwsGlobal);
+
+  function ConnectionStatus({ title, status }) {
+    const StatusStyle = styled.span`
+      background: ${(props) => {
+        props.status = props.status.toUpperCase();
+        if (props.status === "CONNECTED") {
+          return props.theme.success;
+        } else if (
+          props.status === "DISCONNECTED" ||
+          props.status === "ERROR" ||
+          props.status === "DOWN"
+        ) {
+          return props.theme.error;
+        } else if (props.status === "UNKNOWN" || props.status === "N/D") {
+          return props.theme.warning;
+        } else if (props.status === "DISABLED") {
+          return props.theme.surface_hover_hard;
+        } else {
+          return props.theme.primary;
+        }
+      }};
+      color: ${(props) => {
+        props.status = props.status.toUpperCase();
+        if (props.status === "CONNECTED") {
+          return props.theme.on_success;
+        } else if (
+          props.status === "DISCONNECTED" ||
+          props.status === "ERROR" ||
+          props.status === "DOWN"
+        ) {
+          return props.theme.on_error;
+        } else if (props.status === "UNKNOWN" || props.status === "N/D") {
+          return props.theme.on_warning;
+        } else if (props.status === "DISABLED") {
+          return props.theme.surface;
+        } else {
+          return props.theme.on_primary;
+        }
+      }};
+      padding: 0.15em 0.5em;
+    `;
+
+    return (
+      <Tooltip text={title} vertical_position={"-600%"}>
+        <div
+          style={{
+            border: "2px solid green",
+
+            // display: "grid",
+            display: "inline-grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            // gridTemplateRows: "1fr 1fr",
+          }}
+        >
+          <StatusStyle status={status}>{title}</StatusStyle>
+          <span style={{}}>test</span>
+          <span style={{}}>2</span>
+        </div>
+      </Tooltip>
+    );
+  }
+
+  return (
+    <div
+      style={
+        {
+          // border: "1px solid red",
+          // width: "fit-content",
+          // height: "fit-content",
+        }
+      }
+    >
+      {/* <ResponsiveMasonry columnsCountBreakPoints={LAYOUT_BREAKPOINTS}> */}
+      <Masonry gutter="0.5em" columnsCount={3}>
+        <ConnectionStatus title="GGS" status="CONNECTED" />
+        <ConnectionStatus title="GDL" status="DISCONNECTED" />
+        <ConnectionStatus title="GFS" status="DISABLED" />
+        <ConnectionStatus title="FSA" status="UNKNOWN" />
+        {/* <ConnectionStatus title="FSA-GFS" status="N/D" /> */}
+      </Masonry>
+      {/* </ResponsiveMasonry> */}
+    </div>
+  );
+}
+
+const StyledTime = styled.div``;
+
+function StatusBar() {
+  const {
+    serviceStatuses,
+    isGgsConnected,
+    flightData,
+    showVerboseClock,
+    setShowVerboseClock,
+  } = useContext(GwsGlobal);
   const [expanded, setExpanded] = useState(false);
+  const { formattedTime } = useMissionClockData();
 
   return (
     <>
       <StatusCard>
         <StatusGrid>
+          <Tooltip text="The current mission time." vertical_position={"-600%"}>
+            <StyledTime
+              onClick={() => {
+                setShowVerboseClock(!showVerboseClock);
+              }}
+            >
+              {formattedTime}
+            </StyledTime>
+          </Tooltip>
           <Tooltip text="The current flight phase" vertical_position={"-600%"}>
             <StatusItem
               title="PHASE"
@@ -389,7 +499,8 @@ function StatusBar() {
               }
             />
           </Tooltip>
-          <Tooltip
+
+          {/* <Tooltip
             text="Ground station connection status"
             vertical_position={"-600%"}
           >
@@ -397,9 +508,9 @@ function StatusBar() {
               title="GGS"
               status={isGgsConnected ? "CONNECTED" : "DISCONNECTED"}
             />
-          </Tooltip>
+          </Tooltip> */}
 
-          <Tooltip
+          {/* <Tooltip
             text="Flight System Agent Connection Status"
             vertical_position={"-600%"}
           >
@@ -411,8 +522,8 @@ function StatusBar() {
                   : "n/d"
               }
             />
-          </Tooltip>
-
+          </Tooltip> */}
+          {/*
           <Tooltip
             text="The status of the flight software according to the flight system agent."
             vertical_position={"-700%"}
@@ -426,9 +537,9 @@ function StatusBar() {
                   : "n/d"
               }
             />
-          </Tooltip>
+          </Tooltip> */}
 
-          <Tooltip text="GFS TCP Connection Status" vertical_position={"-600%"}>
+          {/* <Tooltip text="GFS TCP Connection Status" vertical_position={"-600%"}>
             <StatusItem
               title="GFS"
               status={
@@ -437,8 +548,8 @@ function StatusBar() {
                   : "n/d"
               }
             />
-          </Tooltip>
-
+          </Tooltip> */}
+          {/*
           <Tooltip
             text="GDL Server Connection Status"
             vertical_position={"-600%"}
@@ -451,9 +562,9 @@ function StatusBar() {
                   : "UNKNOWN"
               }
             />
-          </Tooltip>
+          </Tooltip> */}
 
-          <Tooltip text="telemetry up-link status" vertical_position={"-600%"}>
+          {/* <Tooltip text="telemetry up-link status" vertical_position={"-600%"}>
             <StatusItem
               title={<FontAwesomeIcon icon={faSatelliteDish} />}
               status={
@@ -462,9 +573,9 @@ function StatusBar() {
                   : "n/d"
               }
             />
-          </Tooltip>
+          </Tooltip> */}
 
-          <Tooltip
+          {/* <Tooltip
             text="telemetry down-link status"
             vertical_position={"-600%"}
           >
@@ -476,8 +587,9 @@ function StatusBar() {
                   : "n/d"
               }
             />
-          </Tooltip>
+          </Tooltip> */}
         </StatusGrid>
+        <ServiceStatusDisplay />
         <AlerterToggle setExpanded={setExpanded} expanded={expanded} />
       </StatusCard>
       <AlertBar expanded={expanded} />

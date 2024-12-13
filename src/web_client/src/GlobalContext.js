@@ -1,5 +1,6 @@
 import React from "react";
 import Alerter from "./core/alerter";
+import { useStorageState } from "./core/LocalStorageState";
 
 export const GwsGlobal = React.createContext("");
 export const GwsGlobalContextProvider = ({ children }) => {
@@ -26,9 +27,12 @@ export const GwsGlobalContextProvider = ({ children }) => {
   const [connectionInterval, setConnectionInterval] = React.useState(
     load("connection_interval") || 3000 // ms
   );
-
   const [navExpanded, setNavExpanded] = React.useState(
     load("nav_expanded") === "true" || false
+  );
+  const [showVerboseClock, setShowVerboseClock] = useStorageState(
+    "status_bar_mission_clock_show_milliseconds",
+    true
   );
 
   React.useEffect(() => {
@@ -242,6 +246,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
         setNavExpanded,
         unsafeMode,
         setUnSafeMode,
+        showVerboseClock,
+        setShowVerboseClock,
       }}
     >
       {children}
