@@ -17,14 +17,14 @@ const formatTime = (
   verbose = false
 ) => {
   let output = `T${symbol}`;
-  if (days !== 0 || verbose) {
+  if (days !== 0) {
     output += `${days.toString().padStart(2, "0")}:`;
   }
   output += `${hours.toString().padStart(2, "0")}:`;
   output += `${minutes.toString().padStart(2, "0")}:`;
   output += `${seconds.toString().padStart(2, "0")}`;
   if (new_milliseconds !== null && verbose) {
-    output += `.${new_milliseconds.toString().padStart(3, "0")}`;
+    output += `.${new_milliseconds.toString().padStart(3, "0")}`.slice(0, 2);
   }
   return output;
 };
@@ -47,6 +47,9 @@ export const useMissionClockData = () => {
 
   const setClockDigits = (elapsed_time) => {
     const new_symbol = elapsed_time < 0 ? "-" : elapsed_time > 0 ? "+" : "=";
+
+    elapsed_time = Math.abs(elapsed_time);
+
     const new_days = Math.floor(elapsed_time / (1000 * 60 * 60 * 24));
     const new_hours = Math.floor((elapsed_time / (1000 * 60 * 60)) % 24);
     const new_minutes = Math.floor((elapsed_time / 1000 / 60) % 60);
@@ -107,19 +110,21 @@ export const useMissionClockData = () => {
         setClockDigits(elapsed_time);
       } else {
         setClockDigits(0);
-        // console.log("Clock is not running");
       }
     };
 
     // run it once right away, then set the interval
     updateElapsedTime();
-    const interval = setInterval(() => {
-      updateElapsedTime();
-    }, 100);
+    const interval = setInterval(
+      () => {
+        updateElapsedTime();
+      },
+      showVerboseClock ? 50 : 100
+    );
     return () => clearInterval(interval);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [startTime, isClockValid, isRunning]);
+  }, [startTime, isClockValid, isRunning, showVerboseClock]);
 
   return {
     isClockValid,

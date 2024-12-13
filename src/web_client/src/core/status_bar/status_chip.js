@@ -82,9 +82,10 @@ function StatusChip({ abbreviation, status, onClick = () => {} }) {
           alignItems: "center",
           // padding: "1em 0.25em",
           margin: "auto 0.1em",
+          fontSize: "0.6em",
         }}
       >
-        test
+        {status}
       </div>
     </ChipStyle>
     // </Tooltip>

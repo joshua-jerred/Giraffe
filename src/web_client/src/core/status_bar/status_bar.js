@@ -15,6 +15,7 @@ import Tooltip from "../../components/Tooltip.js";
 
 import { useStorageState } from "../LocalStorageState.js";
 import { useMissionClockData } from "../../api_interface/mission_clock_api.js";
+import { getCurrentUtc } from "../../core/clock_strings.js";
 
 // local
 import ServiceStatusDisplay from "./service_status_display.js";
@@ -376,94 +377,12 @@ function AlerterToggle({ setExpanded, expanded }) {
   );
 }
 
-function ConnectionStatusTable() {
-  const { serviceStatuses, isGgsConnected, flightData } = useContext(GwsGlobal);
-
-  function ConnectionStatus({ title, status }) {
-    const StatusStyle = styled.span`
-      background: ${(props) => {
-        props.status = props.status.toUpperCase();
-        if (props.status === "CONNECTED") {
-          return props.theme.success;
-        } else if (
-          props.status === "DISCONNECTED" ||
-          props.status === "ERROR" ||
-          props.status === "DOWN"
-        ) {
-          return props.theme.error;
-        } else if (props.status === "UNKNOWN" || props.status === "N/D") {
-          return props.theme.warning;
-        } else if (props.status === "DISABLED") {
-          return props.theme.surface_hover_hard;
-        } else {
-          return props.theme.primary;
-        }
-      }};
-      color: ${(props) => {
-        props.status = props.status.toUpperCase();
-        if (props.status === "CONNECTED") {
-          return props.theme.on_success;
-        } else if (
-          props.status === "DISCONNECTED" ||
-          props.status === "ERROR" ||
-          props.status === "DOWN"
-        ) {
-          return props.theme.on_error;
-        } else if (props.status === "UNKNOWN" || props.status === "N/D") {
-          return props.theme.on_warning;
-        } else if (props.status === "DISABLED") {
-          return props.theme.surface;
-        } else {
-          return props.theme.on_primary;
-        }
-      }};
-      padding: 0.15em 0.5em;
-    `;
-
-    return (
-      <Tooltip text={title} vertical_position={"-600%"}>
-        <div
-          style={{
-            border: "2px solid green",
-
-            // display: "grid",
-            display: "inline-grid",
-            gridTemplateColumns: "1fr 1fr 1fr",
-            // gridTemplateRows: "1fr 1fr",
-          }}
-        >
-          <StatusStyle status={status}>{title}</StatusStyle>
-          <span style={{}}>test</span>
-          <span style={{}}>2</span>
-        </div>
-      </Tooltip>
-    );
-  }
-
-  return (
-    <div
-      style={
-        {
-          // border: "1px solid red",
-          // width: "fit-content",
-          // height: "fit-content",
-        }
-      }
-    >
-      {/* <ResponsiveMasonry columnsCountBreakPoints={LAYOUT_BREAKPOINTS}> */}
-      <Masonry gutter="0.5em" columnsCount={3}>
-        <ConnectionStatus title="GGS" status="CONNECTED" />
-        <ConnectionStatus title="GDL" status="DISCONNECTED" />
-        <ConnectionStatus title="GFS" status="DISABLED" />
-        <ConnectionStatus title="FSA" status="UNKNOWN" />
-        {/* <ConnectionStatus title="FSA-GFS" status="N/D" /> */}
-      </Masonry>
-      {/* </ResponsiveMasonry> */}
-    </div>
-  );
-}
-
-const StyledTime = styled.div``;
+const StyledTime = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 10rem;
+`;
 
 function StatusBar() {
   const {
@@ -486,12 +405,19 @@ function StatusBar() {
                 setShowVerboseClock(!showVerboseClock);
               }}
             >
-              {formattedTime}
+              <span>MIS</span>
+              <span>{formattedTime}</span>
+            </StyledTime>
+          </Tooltip>
+          <Tooltip text="The current UTC time." vertical_position={"-600%"}>
+            <StyledTime>
+              <span>UTC</span>
+              <span>{getCurrentUtc()}</span>
             </StyledTime>
           </Tooltip>
           <Tooltip text="The current flight phase" vertical_position={"-600%"}>
             <StatusItem
-              title="PHASE"
+              title=""
               status={
                 isGgsConnected && flightData.flight_phase
                   ? flightData.flight_phase.toUpperCase()
