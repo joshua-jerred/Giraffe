@@ -1,6 +1,6 @@
 /**
  *
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -11,8 +11,8 @@
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- * 
- * 
+ *
+ *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       2023-06-30
@@ -427,27 +427,27 @@ private:
 class Configuration {
  public:
   Configuration(data::Streams &streams):
-    
-    general(streams),    
-    data_module_data(streams),    
-    data_module_influxdb(streams),    
-    data_module_log(streams),    
-    console_module(streams),    
-    server_module(streams),    
-    system_module(streams),    
-    telemetry(streams),    
-    telemetry_aprs(streams),    
-    telemetry_sstv(streams),    
-    telemetry_data_packets(streams),    
-    extensions(streams),    
-    adc_mappings(streams),    
-    extension_module(streams),    
-    hardware_interface(streams),    
+
+    general(streams),
+    data_module_data(streams),
+    data_module_influxdb(streams),
+    data_module_log(streams),
+    console_module(streams),
+    server_module(streams),
+    system_module(streams),
+    telemetry(streams),
+    telemetry_aprs(streams),
+    telemetry_sstv(streams),
+    telemetry_data_packets(streams),
+    extensions(streams),
+    adc_mappings(streams),
+    extension_module(streams),
+    hardware_interface(streams),
     battery(streams),
     streams_(streams){}
-    
+
     void getAllJson(Json &all_data) const;
-    
+
     void save(std::string file_path = "");
     void load(std::string file_path = "");
 
@@ -467,12 +467,12 @@ class Configuration {
   cfg::ExtensionModule extension_module;
   cfg::HardwareInterface hardware_interface;
   cfg::Battery battery;
- 
+
  private:
   void error(DiagnosticId error_code, std::string info = "") {
       streams_.log.error(node::Identification::CONFIGURATION, error_code, info);
   }
- 
+
   data::Streams &streams_;
   std::mutex file_lock_ = std::mutex();
 };
@@ -484,7 +484,7 @@ class Configuration {
 
 /**
  * @endverbatim
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&

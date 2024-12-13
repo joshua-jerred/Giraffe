@@ -189,13 +189,13 @@
       "name": "Disable Extension",
       "details": "Tell the extension module to stop and disable a specified extension.",
       "value": "0x4001",
-      "cmd_key": "dsb"
+      "cmd_key": "dsx"
     },
     "enable_extension": {
       "name": "Enabled Extensions",
       "details": "Tell the extension module to enable the specified extension.",
       "value": "0x4002",
-      "cmd_key": "ena"
+      "cmd_key": "enx"
     },
     "restart_extension": {
       "name": "Restart Extension",

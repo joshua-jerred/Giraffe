@@ -243,15 +243,23 @@ function ExtensionsData() {
               <ApiRequestButton
                 api_endpoint="/api/command"
                 title="Disable"
+                api_method="POST"
                 request_data_callback={() => {
-                  console.log("Disable");
+                  return {
+                    command_string: `cmd/etm/dsx/${ext}`,
+                    send_method: "tcp_socket",
+                  };
                 }}
               />
               <ApiRequestButton
                 api_endpoint="/api/command"
                 title="Enable"
+                api_method="POST"
                 request_data_callback={() => {
-                  console.log("Enable");
+                  return {
+                    command_string: `cmd/etm/enx/${ext}`,
+                    send_method: "tcp_socket",
+                  };
                 }}
               />
             </div>

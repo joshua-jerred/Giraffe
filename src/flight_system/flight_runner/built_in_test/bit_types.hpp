@@ -1,6 +1,6 @@
 /**
  *
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -11,11 +11,11 @@
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- * 
- * 
+ *
+ *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
- * @date       2024-12-10
+ * @date       2024-12-12
  * @copyright  2023 (license to be defined)
  * =*=======================*=
  *
@@ -83,10 +83,10 @@ namespace bit {
 
 /**
  *
- * Generated on: 2024-12-10
- * 
+ * Generated on: 2024-12-12
+ *
  * @endverbatim
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&

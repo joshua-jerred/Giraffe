@@ -6,7 +6,7 @@ def getCurrentDate():
 
 AUTO_GEN_HEADER = f"""/**
  *
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -17,8 +17,8 @@ AUTO_GEN_HEADER = f"""/**
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- * 
- * 
+ *
+ *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       {getCurrentDate()}
@@ -33,9 +33,9 @@ AUTO_GEN_FOOTER = f"""
 /**
  *
  * Generated on: {getCurrentDate()}
- * 
+ *
  * @endverbatim
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&

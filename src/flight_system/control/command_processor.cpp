@@ -172,7 +172,9 @@ bool parseExtensionModuleCommand(const std::string &command_id_str,
   static const std::unordered_map<std::string, cmd::CommandId>
       K_COMMAND_ID_MAP = {
           {"apc", cmd::CommandId::EXTENSION_MODULE_addPreConfiguredExtension},
-          {"rst", cmd::CommandId::EXTENSION_MODULE_restartExtension}};
+          {"rst", cmd::CommandId::EXTENSION_MODULE_restartExtension},
+          {"enx", cmd::CommandId::EXTENSION_MODULE_enableExtension},
+          {"dsx", cmd::CommandId::EXTENSION_MODULE_disableExtension}};
   if (!K_COMMAND_ID_MAP.contains(command_id_str)) {
     return false;
   }
@@ -186,6 +188,8 @@ bool parseExtensionModuleCommand(const std::string &command_id_str,
     command.str_arg = arg;
     return true;
   case cmd::CommandId::EXTENSION_MODULE_restartExtension:
+  case cmd::CommandId::EXTENSION_MODULE_disableExtension:
+  case cmd::CommandId::EXTENSION_MODULE_enableExtension:
     if (arg.length() == 0U) { // must contain an extension name
       return false;
     }

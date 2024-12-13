@@ -151,12 +151,14 @@ void ExtensionModule::processCommand(const cmd::Command &command) {
     if (ext == extensions_.end()) {
       error(DiagnosticId::EXTENSION_MODULE_failedToFindExtension,
             "stop: " + command.str_arg);
+      std::cout << "stop fail " + command.str_arg << std::endl;
       return;
     }
 
     // Stop the extension.
     ext->action = ExtAction::DISABLE;
     info("cmd stop: " + command.str_arg);
+    std::cout << "good stop : " + command.str_arg << std::endl;
   } break;
   case cmd::CommandId::EXTENSION_MODULE_enableExtension: {
     // Find the extension by name.
