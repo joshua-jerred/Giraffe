@@ -398,8 +398,8 @@ function StatusBar() {
   return (
     <>
       <StatusCard>
-        <StatusGrid>
-          <Tooltip text="The current mission time." vertical_position={"-600%"}>
+        {/* <StatusGrid> */}
+        {/* <Tooltip text="The current mission time." vertical_position={"-600%"}>
             <StyledTime
               onClick={() => {
                 setShowVerboseClock(!showVerboseClock);
@@ -424,9 +424,9 @@ function StatusBar() {
                   : "n/d"
               }
             />
-          </Tooltip>
+          </Tooltip> */}
 
-          {/* <Tooltip
+        {/* <Tooltip
             text="Ground station connection status"
             vertical_position={"-600%"}
           >
@@ -436,7 +436,7 @@ function StatusBar() {
             />
           </Tooltip> */}
 
-          {/* <Tooltip
+        {/* <Tooltip
             text="Flight System Agent Connection Status"
             vertical_position={"-600%"}
           >
@@ -449,7 +449,7 @@ function StatusBar() {
               }
             />
           </Tooltip> */}
-          {/*
+        {/*
           <Tooltip
             text="The status of the flight software according to the flight system agent."
             vertical_position={"-700%"}
@@ -465,7 +465,7 @@ function StatusBar() {
             />
           </Tooltip> */}
 
-          {/* <Tooltip text="GFS TCP Connection Status" vertical_position={"-600%"}>
+        {/* <Tooltip text="GFS TCP Connection Status" vertical_position={"-600%"}>
             <StatusItem
               title="GFS"
               status={
@@ -475,7 +475,7 @@ function StatusBar() {
               }
             />
           </Tooltip> */}
-          {/*
+        {/*
           <Tooltip
             text="GDL Server Connection Status"
             vertical_position={"-600%"}
@@ -490,7 +490,7 @@ function StatusBar() {
             />
           </Tooltip> */}
 
-          {/* <Tooltip text="telemetry up-link status" vertical_position={"-600%"}>
+        {/* <Tooltip text="telemetry up-link status" vertical_position={"-600%"}>
             <StatusItem
               title={<FontAwesomeIcon icon={faSatelliteDish} />}
               status={
@@ -501,7 +501,7 @@ function StatusBar() {
             />
           </Tooltip> */}
 
-          {/* <Tooltip
+        {/* <Tooltip
             text="telemetry down-link status"
             vertical_position={"-600%"}
           >
@@ -514,7 +514,7 @@ function StatusBar() {
               }
             />
           </Tooltip> */}
-        </StatusGrid>
+        {/* </StatusGrid> */}
         <ServiceStatusDisplay />
         <AlerterToggle setExpanded={setExpanded} expanded={expanded} />
       </StatusCard>

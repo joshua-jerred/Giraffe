@@ -47,48 +47,53 @@ const StatusStyle = styled.div`
   }};
 `;
 
+const ChipLabel = styled.div``;
+
+const ChipValue = styled.div``;
+
 const ChipStyle = styled.div`
-  border: 2px solid green;
-  background: ${(props) => props.theme.surface};
+  // border: 2px solid green;
+
   display: grid;
   grid-template-columns: 2fr 4fr;
   width: fit-content;
 
-  &:nth-child(1) {
+  background: ${(props) => props.theme.surface};
+
+  > div {
+    border: 1px solid red;
+    color: red;
+    // margin: "auto 0.1em";
+    fontsize: "0.8em";
+  }
+
+  :nth-child(1) {
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
     border: 1px solid ${(props) => props.theme.primary};
   }
 
-  &:nth-child(2) {
+  :nth-child(2) {
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
-    border: 1px solid ${(props) => props.theme.error};
+    // border: 1px solid ${(props) => props.theme.error};
   }
 `;
 
-function StatusChip({ abbreviation, status, onClick = () => {} }) {
+function StatusChip({
+  abbreviation,
+  status,
+  onClick = () => {},
+  tooltip = "",
+}) {
   return (
-    // <Tooltip text={title} vertical_position={"-600%"}>
     <ChipStyle>
-      <StatusStyle status={status}>{abbreviation}</StatusStyle>
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-
-          display: "flex",
-          // justifyContent: "center",
-          alignItems: "center",
-          // padding: "1em 0.25em",
-          margin: "auto 0.1em",
-          fontSize: "0.6em",
-        }}
-      >
-        {status}
-      </div>
+      {/* <Tooltip text={tooltip} vertical_position={"-400%"}> */}
+      {/* <StatusStyle status={status}>{abbreviation.toUpperCase()}</StatusStyle> */}
+      <div>{abbreviation.toUpperCase()}</div>
+      {/* </Tooltip> */}
+      <div>{status.toUpperCase()}</div>
     </ChipStyle>
-    // </Tooltip>
   );
 }
 
