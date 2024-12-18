@@ -28,7 +28,7 @@ void printUsage() {
   std::cout << "Commands: status, start, stop\n";
   std::cout << "Options: \n";
   std::cout
-      << "  -no-daemon | -nd : Run the agent in the foreground, stopping when "
+      << "  -no-daemon | -and : Run the agent in the foreground, stopping when "
          "the CLI exits\n";
   std::cout << std::endl;
 }
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
 
   bool no_daemon = false;
   for (auto &arg : args) {
-    if (arg == "-no-daemon" || arg == "-nd") {
+    if (arg == "-no-daemon" || arg == "-and") {
       no_daemon = true;
     }
   }

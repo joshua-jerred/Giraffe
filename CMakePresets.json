@@ -45,5 +45,12 @@
         "RUN_IN_SIMULATOR": "1"
       }
     }
+  ],
+  "buildPresets": [
+    {
+      "name": "host",
+      "displayName": "GCC Host",
+      "configurePreset": "host"
+    }
   ]
 }

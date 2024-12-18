@@ -215,7 +215,7 @@ std::string getFlightSystemAgentDirPath() {
 
 std::string getFlightSystemAgentLogFilePath() {
   const std::string log_file_path =
-      getFlightSystemAgentDirPath() + "/flight_system_agent.log";
+      getFlightSystemAgentDirPath() + "/giraffe_agent.log";
   if (!bst::filesystem::doesFileExist(log_file_path)) {
     try {
       bst::filesystem::createFile(log_file_path);
@@ -234,7 +234,7 @@ std::string getFlightSystemAgentLogFilePath() {
 }
 
 std::string getFlightSystemAgentConfigFilePath() {
-  return getFlightSystemAgentDirPath() + "/fsa_config.json";
+  return getFlightSystemAgentDirPath() + "/giraffe_agent_settings.json";
 }
 
 std::string generateFileNameWithTimestamp(const std::string &extension) {
