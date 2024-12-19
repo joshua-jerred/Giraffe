@@ -23,7 +23,7 @@ for setting_label in settings:
     if setting_type == "AgentSettings::SettingType::STRING":
         setting_default = f'"{setting_default}"'
     elif setting_type == "AgentSettings::SettingType::BOOL":
-        setting_default = "false" if setting_default == "false" else "true"
+        setting_default = "true" if setting_default else "false"
 
     settings_map.addPair(f'"{setting_label}"', f'AgentSettings::Setting{{"{setting_label}", {setting_type}, {setting_default}}}')
 

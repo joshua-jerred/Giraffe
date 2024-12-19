@@ -19,6 +19,7 @@
 #include <variant>
 
 #include <BoosterSeat/filesystem.hpp>
+#include <BoosterSeat/time.hpp>
 
 #include "agent_data.hpp"
 #include "giraffe_file_paths.hpp"
@@ -41,9 +42,13 @@ public:
   AgentSettings(AgentData &agent_data, giraffe::ILogger &logger)
       : agent_data_(agent_data), logger_(logger) {
     if (!loadConfig()) {
-      logger_.error("Failed to load initial configuration!");
-    } else {
-      logger_.info("Loaded initial configuration.");
+      logger_.error(
+          "Failed to load configuration, backing up and loading defaults!");
+      if (!backupConfigAndLoadDefault()) {
+        logger_.error("Failed to load default configuration file from: " +
+                      settings_file_path_);
+        agent_data_.setAgentStopFlag(true); // scream right away
+      }
     }
   }
 
@@ -150,6 +155,38 @@ private:
     return false;
   }
 
+  /// @brief Used to recover from errors.
+  /// @details If the configuration file is corrupt, this will attempt to copy
+  /// the current configuration to a backup file and load the default
+  /// configuration. This is a last resort, so failure here means we won't
+  /// persist the current configuration through a software restart.
+  /// @return \c true if at a minimum, a new default configuration file has been
+  /// created. \c false otherwise.
+  bool backupConfigAndLoadDefault() {
+    // Attempt to backup the current configuration
+    try {
+      if (bst::filesystem::doesFileExist(settings_file_path_)) {
+        const std::string backup_file_path =
+            settings_file_path_ + ".backup." +
+            bst::time::dateAndTimeString(bst::time::TimeZone::LOCAL, '-', '_',
+                                         '.');
+        bst::filesystem::copyFile(settings_file_path_, backup_file_path);
+        logger_.info("Backed up current config to: " + backup_file_path);
+      }
+    } catch (const std::exception &e) {
+      logger_.error("Failed to backup current config." + std::string(e.what()));
+      return false;
+    }
+
+    // Load the default configuration
+    if (!saveConfig()) {
+      return false;
+    }
+
+    logger_.info("Loaded default configuration.");
+    return true;
+  }
+
   const std::string settings_file_path_ =
       giraffe::file_paths::getFlightSystemAgentConfigFilePath();
 
@@ -161,7 +198,7 @@ private:
   //<{{settings_map_}}@
   // clang-format off
   std::map<std::string, AgentSettings::Setting> settings_map_{
-    {"_internal_is_ground_station", AgentSettings::Setting{"_internal_is_ground_station", AgentSettings::SettingType::BOOL, true}},
+    {"_internal_is_ground_station", AgentSettings::Setting{"_internal_is_ground_station", AgentSettings::SettingType::BOOL, false}},
     {"gfs_monitoring", AgentSettings::Setting{"gfs_monitoring", AgentSettings::SettingType::BOOL, true}},
     {"monitoring_interval", AgentSettings::Setting{"monitoring_interval", AgentSettings::SettingType::INT, 5000}},
     {"restart_enabled", AgentSettings::Setting{"restart_enabled", AgentSettings::SettingType::BOOL, true}},
