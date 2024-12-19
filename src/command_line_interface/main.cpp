@@ -37,6 +37,12 @@ void printUsage() {
   std::cout << std::endl;
 }
 
+void printStatus() {
+  std::string response{};
+  g_daemon.status(response);
+  std::cout << "agent status: " << response << std::endl;
+}
+
 bool isRunning() {
   // Check to see if the process is running
   return false;
@@ -44,8 +50,9 @@ bool isRunning() {
 
 int main(int argc, char *argv[]) {
   if (argc < 2) {
-    printUsage();
-    return 1;
+    std::cout << "usage: gcli help" << std::endl;
+    printStatus();
+    return 0;
   }
 
   std::vector<std::string> args(&argv[1], &argv[argc]);
@@ -63,9 +70,9 @@ int main(int argc, char *argv[]) {
   }
 
   if (command == "status") {
-    std::string response{};
-    g_daemon.status(response);
-    std::cout << "Agent status: " << response << std::endl;
+    printStatus();
+  } else if (command == "help") {
+    printUsage();
   } else if (command == "start") {
     if (command_line_interface::Daemon::doesDaemonExist()) {
       std::cout << "Agent already running" << std::endl;
@@ -113,7 +120,7 @@ int main(int argc, char *argv[]) {
     std::cout << GIRAFFE_VERSION_NUMBER << "-" << GIRAFFE_VERSION_STAGE
               << std::endl;
   } else {
-    printUsage();
+    std::cout << "usage: gcli help" << std::endl;
     return 1;
   }
 

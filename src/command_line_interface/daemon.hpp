@@ -27,6 +27,7 @@
 #include "agent_data.hpp"
 #include "agent_settings.hpp"
 #include "external_socket_handler.hpp"
+#include "ground_station_agent.hpp"
 
 namespace command_line_interface {
 
@@ -63,7 +64,7 @@ public:
       return false;
     }
 
-    response = response_message.getJsonString();
+    response = "running\n" + response_message.getJsonString();
     return true;
   }
 
@@ -157,6 +158,12 @@ public:
 private:
   void mainLoop() {
     external_comms_.process();
+
+    if (agent_settings_.isGroundStation()) {
+      ground_station_agent_.process();
+    } else {
+      std::cout << "flight system agent not implemented" << std::endl;
+    }
   }
 
   /// @brief Set the process to run as a daemon.
@@ -209,6 +216,8 @@ private:
   AgentSettings agent_settings_{agent_data_, logger_};
 
   ExternalCommsHandler external_comms_{agent_data_, agent_settings_, logger_};
+
+  GroundStationAgent ground_station_agent_{agent_data_};
 };
 
 } // namespace command_line_interface

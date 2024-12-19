@@ -25,8 +25,8 @@
 # )
 
 
-add_custom_target(giraffe
-COMMENT "[recommended] Build all primary Giraffe targets"
+add_custom_target(giraffe_core
+COMMENT "Build all primary Giraffe targets"
 DEPENDS
   giraffe_flight_system
   giraffe_command_line_interface
@@ -36,7 +36,7 @@ DEPENDS
 )
 
 add_custom_target(giraffe_update
-  DEPENDS giraffe
+  DEPENDS giraffe_core
 
   COMMAND rm -rf "${CMAKE_CURRENT_BINARY_DIR}/bin/ground_station.tar.gz"
   COMMAND rm -rf "${CMAKE_CURRENT_BINARY_DIR}/ground_station"
@@ -50,6 +50,14 @@ add_custom_target(giraffe_update
   # COMMAND ${CMAKE_COMMAND} -E copy
     # "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe.tar.gz"
     # "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe-update-${GIRAFFE_VERSION_NUMBER}.tar.gz"
+)
+
+add_custom_target(giraffe
+COMMENT "[recommended] Build full Giraffe system"
+DEPENDS
+  giraffe_core
+  giraffe_update
+  COMMAND echo ""
 )
 
 # --- 'install' target: Installs the 'giraffe' target components --- #

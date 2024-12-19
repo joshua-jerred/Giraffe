@@ -5,7 +5,7 @@ set -e
 
 # gcli install directory
 INSTALL_DIR="/usr/bin"
-GCLI_DATA_DIR="$HOME/.giraffe/agent"
+GCLI_DATA_DIR="$HOME/.giraffe/agent/software"
 
 # Must be a valid CMake configuration and build preset
 CMAKE_PRESET="host"
@@ -104,7 +104,8 @@ function install_project {
 
   # Create the gcli data directory if it doesn't exist
   mkdir -p $GCLI_DATA_DIR
-  # cp ./build/$CMAKE_PRESET/bin/giraffe-update.tar.gz $GCLI_DATA_DIR/
+  echo $(pwd)
+  cp ./build/$CMAKE_PRESET/bin/giraffe-update.tar.gz $GCLI_DATA_DIR
 
   log "Copying gcli to $INSTALL_DIR"
   sudo cp ./build/$CMAKE_PRESET/bin/gcli $INSTALL_DIR

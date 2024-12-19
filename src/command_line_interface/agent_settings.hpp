@@ -161,6 +161,10 @@ public:
     return true;
   }
 
+  bool isGroundStation() const {
+    return std::get<bool>(settings_map_.at("is_ground_station").value);
+  }
+
 private:
   bool loadConfig() {
     // Attempt to load the config file if it exists
