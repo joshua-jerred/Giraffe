@@ -44,6 +44,7 @@ public:
     sock::TcpSocketServer socket{};
 
     if (!socket.init(DAEMON_PORT)) {
+      socket.close();
       return true;
     }
 
@@ -126,22 +127,30 @@ public:
     return true;
   }
 
-  int attemptConfigure(const std::string &setting_key,
-                       const std::string &setting_value,
-                       std::string &response) {
-    (void)setting_key;
-    (void)setting_value;
-
-    protocol::Message response_message;
-
-    if (!ExternalCommsHandler::sendExchangeToAgent(response_message,
-                                                   protocol::MessageType::REQ,
-                                                   "settings", logger_)) {
-      response = "not running";
+  /// @brief Called by main to handle command line configuration requests. The
+  /// agent must not be running.
+  int commandLineConfigure(const std::string &setting_key,
+                           const std::string &setting_value,
+                           std::string &response) {
+    if (doesDaemonExist()) {
+      response = "Agent must be stopped to configure";
       return 1;
     }
 
-    response = response_message.getJsonString();
+    // Lock the port for the duration of the configuration
+    {
+      sock::TcpSocketServer socket{};
+      if (!socket.init(DAEMON_PORT)) {
+        response = "Failed to lock port for configuration";
+        return 1;
+      }
+
+      if (!agent_settings_.setItem(setting_key, setting_value, response)) {
+        response = "Failed to set setting";
+        return 1;
+      }
+    }
+
     return 0;
   }
 

@@ -31,6 +31,8 @@ void printUsage() {
   std::cout
       << "  -no-daemon | -nd : Run the agent in the foreground, stopping when "
          "the CLI exits\n";
+  std::cout << "  -allow-keep-state | -aks : If command is start or stop, exit "
+               "gracefully if the agent is already in the desired state\n";
   std::cout << std::endl;
 }
 
@@ -49,9 +51,13 @@ int main(int argc, char *argv[]) {
   const std::string command = args[0];
 
   bool no_daemon = false;
+  bool allow_keep_state = false;
   for (auto &arg : args) {
     if (arg == "-no-daemon" || arg == "-nd") {
       no_daemon = true;
+    }
+    if (arg == "-allow-keep-state" || arg == "-aks") {
+      allow_keep_state = true;
     }
   }
 
@@ -62,7 +68,7 @@ int main(int argc, char *argv[]) {
   } else if (command == "start") {
     if (command_line_interface::Daemon::doesDaemonExist()) {
       std::cout << "Agent already running" << std::endl;
-      return 1;
+      return allow_keep_state ? 0 : 1;
     }
 
     if (!g_daemon.start(!no_daemon)) {
@@ -70,6 +76,11 @@ int main(int argc, char *argv[]) {
       return 1;
     }
   } else if (command == "stop") {
+    if (!command_line_interface::Daemon::doesDaemonExist()) {
+      std::cout << "Agent not running" << std::endl;
+      return allow_keep_state ? 0 : 1;
+    }
+
     if (!g_daemon.stop()) {
       std::cerr << "Failed to stop daemon" << std::endl;
       return 1;
@@ -84,13 +95,18 @@ int main(int argc, char *argv[]) {
       return 1;
     }
 
+    if (g_daemon.doesDaemonExist()) {
+      std::cout << "Agent must be stopped to configure" << std::endl;
+      return 1;
+    }
+
     const std::string &setting_key = args.at(1);
     const std::string &setting_value = args.at(2);
 
     std::string config_response{};
-    int return_code =
-        g_daemon.attemptConfigure(setting_key, setting_value, config_response);
-    std::cout << "config response --:" << config_response << std::endl;
+    int return_code = g_daemon.commandLineConfigure(setting_key, setting_value,
+                                                    config_response);
+    std::cout << config_response << std::endl;
     return return_code;
   } else {
     printUsage();

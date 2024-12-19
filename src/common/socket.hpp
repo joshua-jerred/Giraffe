@@ -39,6 +39,10 @@ public:
   TcpSocketServer();
   ~TcpSocketServer();
 
+  /// @brief Create, bind, and listen on a port.
+  /// @param port_number - The port number to listen on.
+  /// @return \c true if the socket was created, bound, and listening, \c false
+  /// if denied.
   bool init(int port_number);
 
   bool create();

@@ -118,6 +118,49 @@ public:
     }
   }
 
+  bool setItem(const std::string &key, const std::string &value,
+               std::string &response) {
+    if (!settings_map_.contains(key)) {
+      response = "Unknown setting key: " + key;
+      return false;
+    }
+
+    auto &setting = settings_map_.at(key);
+    if (setting.type == SettingType::INT &&
+        std::holds_alternative<int>(setting.value)) {
+      try {
+        setting.value = std::stoi(value);
+      } catch (const std::exception &e) {
+        response = "Failed to convert value to int: " + std::string(e.what());
+        return false;
+      }
+    } else if (setting.type == SettingType::BOOL &&
+               std::holds_alternative<bool>(setting.value)) {
+      if (value == "true" || value == "1") {
+        setting.value = true;
+      } else if (value == "false" || value == "0") {
+        setting.value = false;
+      } else {
+        response = "Invalid value for bool: " + value;
+        return false;
+      }
+    } else if (setting.type == SettingType::STRING &&
+               std::holds_alternative<std::string>(setting.value)) {
+      setting.value = value;
+    } else {
+      response = "Unknown setting type for key: " + key;
+      return false;
+    }
+
+    if (!saveConfig()) {
+      response = "Failed to save configuration.";
+      return false;
+    }
+
+    response = "Setting updated: " + key;
+    return true;
+  }
+
 private:
   bool loadConfig() {
     // Attempt to load the config file if it exists
@@ -198,7 +241,7 @@ private:
   //<{{settings_map_}}@
   // clang-format off
   std::map<std::string, AgentSettings::Setting> settings_map_{
-    {"_internal_is_ground_station", AgentSettings::Setting{"_internal_is_ground_station", AgentSettings::SettingType::BOOL, false}},
+    {"is_ground_station", AgentSettings::Setting{"is_ground_station", AgentSettings::SettingType::BOOL, false}},
     {"gfs_monitoring", AgentSettings::Setting{"gfs_monitoring", AgentSettings::SettingType::BOOL, true}},
     {"monitoring_interval", AgentSettings::Setting{"monitoring_interval", AgentSettings::SettingType::INT, 5000}},
     {"restart_enabled", AgentSettings::Setting{"restart_enabled", AgentSettings::SettingType::BOOL, true}},
