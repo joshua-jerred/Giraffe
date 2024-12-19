@@ -91,8 +91,20 @@ function install_project {
   # Copy and configure must be done while gcli is not running. If it exists,
   # stop it, but ignore any errors.
   gcli stop -allow-keep-state || true
+
+  log "Copying gcli to $INSTALL_DIR"
   sudo cp ./build/$CMAKE_PRESET/bin/gcli $INSTALL_DIR
-  gcli configure "is_ground_station" "true"
+
+  if [ $(prompt "Configure gcli as ground station (y, default) or flight computer (n)? [y/n|default y]" "y") == "y" ]; then
+    log "Configuring gcli as ground station"
+    gcli configure "is_ground_station" "true"
+  else
+    log "Configuring gcli as flight computer"
+    gcli configure "is_ground_station" "false"
+  fi
+
+  log "Starting gcli as a background process"
+  gcli start
 }
 
 function setup {

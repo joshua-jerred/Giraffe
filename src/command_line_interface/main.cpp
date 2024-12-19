@@ -110,7 +110,8 @@ int main(int argc, char *argv[]) {
     std::cout << config_response << std::endl;
     return return_code;
   } else if (command == "version") {
-    std::cout << GIRAFFE_VERSION_NUMBER << std::endl;
+    std::cout << GIRAFFE_VERSION_NUMBER << "-" << GIRAFFE_VERSION_STAGE
+              << std::endl;
   } else {
     printUsage();
     return 1;

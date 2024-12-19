@@ -157,7 +157,7 @@ public:
       return false;
     }
 
-    response = "Setting updated: " + key;
+    response = "Setting updated: " + key + "=" + value;
     return true;
   }
 
