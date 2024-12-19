@@ -22,6 +22,7 @@
 // Local
 #include "agent_data.hpp"
 #include "agent_settings.hpp"
+#include "ground_software_manager.hpp"
 
 namespace command_line_interface {
 
@@ -32,26 +33,20 @@ public:
   ~GroundStationAgent() = default;
 
   void process() {
-    checkForUpdateFiles();
+    if (software_manager_timer_.isDone()) {
+      software_manager_timer_.reset();
+      software_manager_.process();
+    }
+
+    // Check for new commands
   }
 
 private:
-  void checkForUpdateFiles() {
-    static constexpr int UPDATE_INTERVAL_MS = 3000;
-    static bst::Timer timer{UPDATE_INTERVAL_MS};
-
-    if (!timer.isDone()) {
-      return;
-    }
-    timer.reset();
-
-    std::cout << "checking " << data_dir_path_ << std::endl;
-  }
-
   AgentData &agent_data_;
 
-  const std::string data_dir_path_{
-      giraffe::file_paths::getFlightSystemAgentDirPath() + "/software"};
+  GroundSoftwareManager software_manager_{};
+  static constexpr int SOFTWARE_MANAGER_UPDATE_INTERVAL_MS = 2000;
+  bst::Timer software_manager_timer_{SOFTWARE_MANAGER_UPDATE_INTERVAL_MS};
 };
 
 } // namespace command_line_interface
