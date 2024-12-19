@@ -17,12 +17,12 @@ cd bin
 rm -rf giraffe
 mkdir giraffe
 
-mv ground_station.tar.gz giraffe
-mv gcli giraffe
-mv gdl_server giraffe
-mv gfs giraffe
+cp gcli giraffe
+cp ground_station.tar.gz giraffe
+cp gdl_server giraffe
+cp gfs giraffe
 
-tar -czf giraffe.tar.gz giraffe
+tar -czf giraffe-update.tar.gz giraffe
 
 echo "==============================="
 

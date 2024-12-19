@@ -5,7 +5,7 @@ set -e
 
 # gcli install directory
 INSTALL_DIR="/usr/bin"
-GCLI_DATA_DIR="~/.giraffe/agent"
+GCLI_DATA_DIR="$HOME/.giraffe/agent"
 
 # Must be a valid CMake configuration and build preset
 CMAKE_PRESET="host"
@@ -87,22 +87,6 @@ function build_project {
   log "CMake Build -- Preset: $CMAKE_PRESET"
   cmake --build --target giraffe --preset "$CMAKE_PRESET"
 
-  cd $SRC_DIR/ground_station
-  log "install node modules (@todo normally not needed, but given the nature of the project, an internet connection isn't guaranteed)"
-  # @todo add ci arg to the npm install command
-  npm install
-
-  log "==Creating Giraffe Software Package"
-  log "Package ground station"
-  tar -czf $CMAKE_BIN_DIR/ground_station.tar.gz *
-  echo $CMAKE_BIN_DIR
-
-  cd $CMAKE_BIN_DIR
-  rm -rf giraffe
-  mkdir -p giraffe
-  cp gcli giraffe
-  mv ground_station.tar.gz giraffe
-
   # cd build/$CMAKE_PRESET
   # log "build directory: $(pwd)"
   # WORK_DIR="$(pwd)/bin"
@@ -120,6 +104,7 @@ function install_project {
 
   # Create the gcli data directory if it doesn't exist
   mkdir -p $GCLI_DATA_DIR
+  # cp ./build/$CMAKE_PRESET/bin/giraffe-update.tar.gz $GCLI_DATA_DIR/
 
   log "Copying gcli to $INSTALL_DIR"
   sudo cp ./build/$CMAKE_PRESET/bin/gcli $INSTALL_DIR

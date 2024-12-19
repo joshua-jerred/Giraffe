@@ -35,9 +35,9 @@ DEPENDS
   COMMAND echo ""
 )
 
-add_custom_command(
-        TARGET giraffe POST_BUILD
-  # OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/ground_station"
+add_custom_target(giraffe_update
+  DEPENDS giraffe
+
   COMMAND rm -rf "${CMAKE_CURRENT_BINARY_DIR}/bin/ground_station.tar.gz"
   COMMAND rm -rf "${CMAKE_CURRENT_BINARY_DIR}/ground_station"
   COMMAND ${CMAKE_COMMAND} -E copy_directory
@@ -47,9 +47,9 @@ add_custom_command(
     "${CMAKE_CURRENT_BINARY_DIR}/../version.json"
     "${CMAKE_CURRENT_BINARY_DIR}/bin/version.json"
   COMMAND bash "${CMAKE_SOURCE_DIR}/src/scripts/package_giraffe.sh"
-  COMMAND ${CMAKE_COMMAND} -E copy
-    "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe.tar.gz"
-    "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe-update-${GIRAFFE_VERSION_NUMBER}.tar.gz"
+  # COMMAND ${CMAKE_COMMAND} -E copy
+    # "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe.tar.gz"
+    # "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe-update-${GIRAFFE_VERSION_NUMBER}.tar.gz"
 )
 
 # --- 'install' target: Installs the 'giraffe' target components --- #
