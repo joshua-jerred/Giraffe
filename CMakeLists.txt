@@ -120,4 +120,4 @@ enable_testing()
 add_subdirectory(${GFS_TEST_SRC})
 
 # Additional CMake Files
-include("install.cmake")
+include("package.cmake")

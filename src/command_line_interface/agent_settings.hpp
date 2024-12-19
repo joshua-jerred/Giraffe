@@ -242,11 +242,8 @@ private:
   // clang-format off
   std::map<std::string, AgentSettings::Setting> settings_map_{
     {"is_ground_station", AgentSettings::Setting{"is_ground_station", AgentSettings::SettingType::BOOL, false}},
-    {"gfs_monitoring", AgentSettings::Setting{"gfs_monitoring", AgentSettings::SettingType::BOOL, true}},
+    {"dev_mode", AgentSettings::Setting{"dev_mode", AgentSettings::SettingType::BOOL, false}},
     {"monitoring_interval", AgentSettings::Setting{"monitoring_interval", AgentSettings::SettingType::INT, 5000}},
-    {"restart_enabled", AgentSettings::Setting{"restart_enabled", AgentSettings::SettingType::BOOL, true}},
-    {"restart_threshold", AgentSettings::Setting{"restart_threshold", AgentSettings::SettingType::INT, 10000}},
-    {"backup_configuration", AgentSettings::Setting{"backup_configuration", AgentSettings::SettingType::STRING, "~/.giraffe/gfs_config_backup.json"}},
   };
   // clang-format on
   //@{{settings_map_}}>

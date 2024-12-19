@@ -25,7 +25,7 @@ add_executable(gdl_test ${data_link_test_sources})
 target_link_libraries(
   gdl_test
   # internal
-  giraffe_data_link_core
+  gdl_core
   giraffe_common
   # ax25_state_machine
   unit_test
@@ -49,7 +49,7 @@ target_link_libraries(
   giraffe_flight_system_test
   # internal
   giraffe_common
-  giraffe_data_link_core
+  gdl_core
   gfs_flight_runner
   gfs_interface
   gfs_shared_data

@@ -5,10 +5,16 @@ set -e
 
 # gcli install directory
 INSTALL_DIR="/usr/bin"
+GCLI_DATA_DIR="~/.giraffe/agent"
 
 # Must be a valid CMake configuration and build preset
 CMAKE_PRESET="host"
+BUILD_TYPE="Debug"
 
+BASE_DIR="$(pwd)"
+SRC_DIR="$BASE_DIR/src"
+CMAKE_BUILD_DIR="$BASE_DIR/build/$CMAKE_PRESET"
+CMAKE_BIN_DIR="$CMAKE_BUILD_DIR/bin"
 
 NON_INTERACTIVE_OPT="y"
 NON_INT_SILENT_OPT="-s"
@@ -73,15 +79,35 @@ function install_dependencies {
 
 # -- Build the project
 function build_project {
-  log "Building project..."
+  log "==Building project..."
   # mkdir -p build
+
+  log "CMake Configure -- Preset: $CMAKE_PRESET"
   cmake --preset "$CMAKE_PRESET"
-  echo "WARNING -- BUILDING WITH HOST CONFIGURATION"
+  log "CMake Build -- Preset: $CMAKE_PRESET"
   cmake --build --target giraffe --preset "$CMAKE_PRESET"
 
-  cd build
-  log "Build directory: $(pwd)"
-  cd ..
+  cd $SRC_DIR/ground_station
+  log "install node modules (@todo normally not needed, but given the nature of the project, an internet connection isn't guaranteed)"
+  # @todo add ci arg to the npm install command
+  npm install
+
+  log "==Creating Giraffe Software Package"
+  log "Package ground station"
+  tar -czf $CMAKE_BIN_DIR/ground_station.tar.gz *
+  echo $CMAKE_BIN_DIR
+
+  cd $CMAKE_BIN_DIR
+  rm -rf giraffe
+  mkdir -p giraffe
+  cp gcli giraffe
+  mv ground_station.tar.gz giraffe
+
+  # cd build/$CMAKE_PRESET
+  # log "build directory: $(pwd)"
+  # WORK_DIR="$(pwd)/bin"
+  # log "output directory: $WORK_DIR"
+  # echo $CMAKE_BIN_DIR
 }
 
 # -- Install the project
@@ -91,6 +117,9 @@ function install_project {
   # Copy and configure must be done while gcli is not running. If it exists,
   # stop it, but ignore any errors.
   gcli stop -allow-keep-state || true
+
+  # Create the gcli data directory if it doesn't exist
+  mkdir -p $GCLI_DATA_DIR
 
   log "Copying gcli to $INSTALL_DIR"
   sudo cp ./build/$CMAKE_PRESET/bin/gcli $INSTALL_DIR
@@ -102,6 +131,10 @@ function install_project {
     log "Configuring gcli as flight computer"
     gcli configure "is_ground_station" "false"
   fi
+
+  # if [ $BUILD_TYPE == "Debug" ]; then
+    # gcli configure dev_mode true
+  # fi
 
   log "Starting gcli as a background process"
   gcli start

@@ -9,6 +9,7 @@ import subprocess
 import os
 import sys
 import datetime
+import json
 
 print("Generating version files...")
 
@@ -21,6 +22,7 @@ THIRD_PARTY_LIBRARIES = [
 REPO_ROOT = os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + '/../')
 INPUT_VERSION_FILE = REPO_ROOT + '/project/version.input'
 OUTPUT_VERSION_FILE = REPO_ROOT + '/version.ini'
+OUTPUT_BUILD_FILE = REPO_ROOT + '/build/version.json'
 OUTPUT_JS_FILE = REPO_ROOT + '/src/common/version.js'
 
 output_versions = configparser.ConfigParser()
@@ -137,5 +139,13 @@ with open(OUTPUT_JS_FILE, 'w') as f:
 with open(OUTPUT_VERSION_FILE, 'w') as configfile:
     print("Writing: " + OUTPUT_VERSION_FILE)
     output_versions.write(configfile)
+
+with open(OUTPUT_BUILD_FILE, 'w') as f:
+    out_data = {}
+    for section in output_versions.sections():
+        out_data[section] = dict(output_versions[section])
+
+    print("Writing: " + OUTPUT_BUILD_FILE)
+    json.dump(out_data, f, indent=4)
 
 print("Done.")
