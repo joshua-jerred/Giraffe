@@ -96,12 +96,12 @@ std::string getGfsFlightRunnerDataFilePath();
 
 /**
  * @brief Get the path to the Flight System Agent directory.
- * @return std::string - $HOME/.giraffe/flight_system_agent
+ * @return std::string - $HOME/.giraffe/command_line_interface
  */
 std::string getFlightSystemAgentDirPath();
 
 /// @brief Get the path to the Flight System Agent log file.
-/// @return std::string - $HOME/.giraffe/flight_system_agent.log
+/// @return std::string - Path to the agent log file.
 std::string getFlightSystemAgentLogFilePath();
 
 /// @brief Get the path to the Flight System Agent config file.

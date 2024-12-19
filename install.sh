@@ -84,6 +84,9 @@ function build_project {
 function install_project {
   echo "Installing gcli..."
   sudo cp ./build/$CMAKE_PRESET/bin/gcli /usr/bin
+  gcli start
+  gcli configure "is_ground_station" "true"
+  gcli stop
 }
 
 function setup {

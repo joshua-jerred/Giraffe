@@ -12,7 +12,7 @@ out_path = sys.argv[2]
 out_cpp = FileGenerator("")
 out_cpp.addIncludes('"agent_settings.hpp"')
 
-cpp_namespace = Namespace("flight_system_agent")
+cpp_namespace = Namespace("command_line_interface")
 settings_map = Map("settings_map_", "std::string", "AgentSettings::Setting", "std::map", clang_format_off=True)
 
 for setting_label in settings:

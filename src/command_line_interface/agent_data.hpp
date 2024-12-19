@@ -13,13 +13,14 @@
 
 #pragma once
 
+#include <atomic>
 #include <string>
 
 #include <BoosterSeat/stopwatch.hpp>
 
 #include "json.hpp"
 
-namespace flight_system_agent {
+namespace command_line_interface {
 
 enum class FlightSoftwareStatus : uint8_t {
   UNKNOWN = 0,
@@ -33,7 +34,8 @@ enum class FlightSoftwareStatus : uint8_t {
 
 std::string to_string(const FlightSoftwareStatus status);
 
-/// @brief Contains all data for the flight system agent
+/// @brief Contains all data for the flight system agent. Can be freely passed
+/// around to anything that needs access.
 class AgentData {
 public:
   AgentData() {
@@ -52,15 +54,19 @@ public:
     agent_stop_flag_ = stop_agent;
   }
 
+  /// @brief Get the agent 'run' status, if true, shutdown the agent. This
+  /// method is thread safe and designed to be called by the daemon (another
+  /// thread).
+  /// @return \c true if a stop was requested, \c false otherwise.
   bool isAgentStopRequested() const {
     return agent_stop_flag_;
   }
 
 private:
-  bool agent_stop_flag_ = false;
+  std::atomic<bool> agent_stop_flag_ = false;
 
   FlightSoftwareStatus flight_software_status_ = FlightSoftwareStatus::UNKNOWN;
   bst::Stopwatch agent_uptime_stopwatch_{};
 };
 
-} // namespace flight_system_agent
+} // namespace command_line_interface

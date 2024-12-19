@@ -21,14 +21,15 @@
 
 #include "daemon.hpp"
 
-static flight_system_agent::Daemon g_daemon{};
+static command_line_interface::Daemon g_daemon{};
 
 void printUsage() {
-  std::cout << "Usage: fsa <command> <option>\n";
-  std::cout << "Commands: status, start, stop\n";
+  std::cout << "Usage: gcli <command> <option>\n";
+  std::cout << "Commands:\n status\n start\n stop\n configure <key> <value>    "
+               "- only works when the agent is stopped";
   std::cout << "Options: \n";
   std::cout
-      << "  -no-daemon | -and : Run the agent in the foreground, stopping when "
+      << "  -no-daemon | -nd : Run the agent in the foreground, stopping when "
          "the CLI exits\n";
   std::cout << std::endl;
 }
@@ -49,7 +50,7 @@ int main(int argc, char *argv[]) {
 
   bool no_daemon = false;
   for (auto &arg : args) {
-    if (arg == "-no-daemon" || arg == "-and") {
+    if (arg == "-no-daemon" || arg == "-nd") {
       no_daemon = true;
     }
   }
@@ -59,7 +60,7 @@ int main(int argc, char *argv[]) {
     g_daemon.status(response);
     std::cout << "Agent status: " << response << std::endl;
   } else if (command == "start") {
-    if (flight_system_agent::Daemon::doesDaemonExist()) {
+    if (command_line_interface::Daemon::doesDaemonExist()) {
       std::cout << "Agent already running" << std::endl;
       return 1;
     }
@@ -76,6 +77,21 @@ int main(int argc, char *argv[]) {
     std::cout << "Daemon stopped" << std::endl;
   } else if (command == "restart") {
     std::cout << "not implemented" << std::endl;
+    return 1;
+  } else if (command == "configure") {
+    if (args.size() < 3) {
+      std::cout << "need <key> <value> arguments" << std::endl;
+      return 1;
+    }
+
+    const std::string &setting_key = args.at(1);
+    const std::string &setting_value = args.at(2);
+
+    std::string config_response{};
+    int return_code =
+        g_daemon.attemptConfigure(setting_key, setting_value, config_response);
+    std::cout << "config response --:" << config_response << std::endl;
+    return return_code;
   } else {
     printUsage();
     return 1;

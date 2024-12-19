@@ -1,5 +1,12 @@
 {
   "settings": {
+    "_internal_is_ground_station": {
+      "type": "bool",
+      "name": "INTERNAL: Is Ground Station",
+      "description": "Used to run the agent in ground station mode. Internal use only, should not be editable by the user directly.",
+      "default": false,
+      "hide_from_user": true
+    },
     "gfs_monitoring": {
       "type": "bool",
       "name": "GFS Monitoring",

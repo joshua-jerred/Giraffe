@@ -27,7 +27,7 @@
 
 namespace bsfs = bst::filesystem;
 
-namespace flight_system_agent {
+namespace command_line_interface {
 
 class AgentSettings {
 public:
@@ -155,9 +155,13 @@ private:
 
   AgentData &agent_data_;
 
+  // The following map is dropped into place by generate_source_files.sh. Do not
+  // remove the comments around the map, this is used to locate the section in
+  // the document.
   //<{{settings_map_}}@
   // clang-format off
   std::map<std::string, AgentSettings::Setting> settings_map_{
+    {"_internal_is_ground_station", AgentSettings::Setting{"_internal_is_ground_station", AgentSettings::SettingType::BOOL, true}},
     {"gfs_monitoring", AgentSettings::Setting{"gfs_monitoring", AgentSettings::SettingType::BOOL, true}},
     {"monitoring_interval", AgentSettings::Setting{"monitoring_interval", AgentSettings::SettingType::INT, 5000}},
     {"restart_enabled", AgentSettings::Setting{"restart_enabled", AgentSettings::SettingType::BOOL, true}},
@@ -170,4 +174,4 @@ private:
   giraffe::ILogger &logger_;
 };
 
-} // namespace flight_system_agent
+} // namespace command_line_interface

@@ -193,7 +193,7 @@ std::string getGfsLogArchiveDirPath() {
 
 std::string getFlightSystemAgentDirPath() {
   createGiraffeDirIfNotExists();
-  std::string dir_path = getGiraffeDirectoryPath() + "/flight_system_agent";
+  std::string dir_path = getGiraffeDirectoryPath() + "/agent";
 
   // -- create the directory if it does not exist
   if (!bst::filesystem::doesDirectoryExist(dir_path)) {

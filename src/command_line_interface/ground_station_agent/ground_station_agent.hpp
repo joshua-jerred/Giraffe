@@ -4,17 +4,16 @@
 /// https://giraffe.joshuajer.red/
 /// =*=======================*=
 ///
-/// @file   agent_network.hpp
+/// @file   ground_station_agent.hpp
 ///
 /// =*=======================*=
 /// @author     Joshua Jerred (https://joshuajer.red)
-/// @date       2024-11-23
+/// @date       2024-12-18
 /// @copyright  2024 (license to be defined)
 
 #pragma once
 
-#include <cstdint>
-
-namespace command_line_interface {
-uint16_t DAEMON_PORT = 20392;
-}
+class GroundStationAgent {
+public:
+  GroundStationAgent() = default;
+};
