@@ -25,7 +25,8 @@ static command_line_interface::Daemon g_daemon{};
 
 void printUsage() {
   std::cout << "Usage: gcli <command> <option>\n";
-  std::cout << "Commands:\n status\n start\n stop\n configure <key> <value>    "
+  std::cout << "Commands:\n status\n start\n stop\n version\n configure <key> "
+               "<value>    "
                "- only works when the agent is stopped";
   std::cout << "Options: \n";
   std::cout
@@ -108,6 +109,8 @@ int main(int argc, char *argv[]) {
                                                     config_response);
     std::cout << config_response << std::endl;
     return return_code;
+  } else if (command == "version") {
+    std::cout << GIRAFFE_VERSION_NUMBER << std::endl;
   } else {
     printUsage();
     return 1;

@@ -3,8 +3,12 @@ set -e
 
 # A simple script to build and install the Giraffe project
 
+# gcli install directory
+INSTALL_DIR="/usr/bin"
+
 # Must be a valid CMake configuration and build preset
 CMAKE_PRESET="host"
+
 
 NON_INTERACTIVE_OPT="y"
 NON_INT_SILENT_OPT="-s"
@@ -82,11 +86,13 @@ function build_project {
 
 # -- Install the project
 function install_project {
-  echo "Installing gcli..."
-  sudo cp ./build/$CMAKE_PRESET/bin/gcli /usr/bin
-  gcli start
+  log "Installing gcli..."
+
+  # Copy and configure must be done while gcli is not running. If it exists,
+  # stop it, but ignore any errors.
+  gcli stop -allow-keep-state || true
+  sudo cp ./build/$CMAKE_PRESET/bin/gcli $INSTALL_DIR
   gcli configure "is_ground_station" "true"
-  gcli stop
 }
 
 function setup {
