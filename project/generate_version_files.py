@@ -35,6 +35,7 @@ output_versions['project']['hash'] = str(subprocess.check_output(['git', 'rev-pa
 output_versions['project']['branch'] = str(subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).decode('ascii').strip())
 output_versions['project']['commit_count'] = str(subprocess.check_output(['git', 'rev-list', 'HEAD', '--count']).decode('ascii').strip())
 output_versions['project']['repo'] = "https://github.com/joshua-jerred/Giraffe"
+output_versions['project']['clean'] = str(subprocess.check_output(['git', 'status', '--porcelain']).decode('ascii').strip() == "")
 
 # date and time of build
 date = datetime.datetime.now()
