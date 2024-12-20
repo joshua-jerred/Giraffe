@@ -11,15 +11,77 @@
 /// @date       2024-12-19
 /// @copyright  2024 (license to be defined)
 
+#include "json.hpp"
+
 #include "update_pack.hpp"
 
 namespace command_line_interface {
+
+UpdatePack::UpdatePack(const std::string &current_dir,
+                       const std::string &update_dir, bool load_cache)
+    : current_dir_(current_dir), update_dir_(update_dir) {
+  if (load_cache) {
+    loadCachedValidUpdatePack();
+  }
+}
+
+bool UpdatePack::processTarFile(const std::filesystem::path &path) {
+  info("Processing update pack: " + source_tar_path_);
+
+  if (!setTarFilePath(path)) {
+    // error("Error setting tar file path");
+    return false;
+  }
+
+  // CHECK OUR VERSIONS/CACHE HERE
+  // this part can be skipped if we've already unpacked it.
+  // clean-up the update directory if it exists
+  if (!isSourceTarFileNew()) {
+    info("Update pack already processed");
+    return true; // only early return in a happy state, we rely on the previous
+                 // processing results.
+  }
+
+  // if (!prepareUpdateDirectory()) {
+  //   error("Error preparing update directory");
+  //   return false;
+  // }
+
+  if (!isSourceTarPathValid()) {
+    // error("Source tar path is invalid - shouldn't be processing");
+    return false;
+  }
+
+  if (!unTarSourceTarFile()) {
+    // error("Error untarring update pack");
+    return false;
+  }
+
+  if (!readVersionFile()) {
+    error("Error reading version file");
+    return false;
+  }
+
+  is_update_pack_valid_ = true;
+  // valid_update_pack_file_name_ = path.filename().string();
+  // valid_update_pack_path_ = path.string();
+  // last_write_time_seconds =
+  //     std::chrono::duration_cast<std::chrono::seconds>(
+  //         std::filesystem::last_write_time(path).time_since_epoch())
+  //         .count();
+  // file_size_bytes = std::filesystem::file_size(path);
+
+  info("Update pack processed successfully");
+
+  cacheValidUpdatePack();
+  return true;
+}
 
 bool UpdatePack::setTarFilePath(const std::filesystem::path &path) {
   try {
     if (!std::filesystem::exists(path) ||
         !std::filesystem::is_regular_file(path)) {
-      is_source_tar_path_valid_ = false;
+      error("Invalid tar file path");
       return false;
     }
 
@@ -32,10 +94,122 @@ bool UpdatePack::setTarFilePath(const std::filesystem::path &path) {
     is_source_tar_path_valid_ = true;
     return true;
   } catch (const std::exception &e) {
+    error("Error setting tar file path: " + std::string(e.what()));
     return false;
   }
 
   return is_source_tar_path_valid_;
+}
+
+bool UpdatePack::isSourceTarFileNew() {
+  // if (!have_valid_update_file_) {
+  //   return false;
+  // }
+
+  // if (source_tar_path_ == valid_update_pack_path_) {
+  //   return true;
+  // }
+
+  return true;
+}
+
+bool UpdatePack::prepareUpdateDirectory() {
+  info("Preparing update directory");
+
+  /// @todo this may already be handled by the upper level class, consider
+  /// implementation carefully.
+
+  // if (std::filesystem::exists(update_software_dir_path_)) {
+  //   std::filesystem::remove_all(update_software_dir_path_);
+  // }
+  // std::filesystem::create_directory(update_software_dir_path_);
+  info("Update directory prepared");
+  return true;
+}
+
+bool UpdatePack::unTarSourceTarFile() {
+  info("Untarring update pack |\n  from - " + source_tar_path_ +
+       " |\n  to   - " + update_dir_);
+
+  try {
+    // --strip-components=1 will remove the top level directory from the tar
+    // file but keep the inner contents.
+    bst::Process untar_process("tar", {"--strip-components", "1", "-xvf",
+                                       source_tar_path_, "-C", update_dir_});
+
+    constexpr size_t TIMEOUT_MS = 3000;
+    untar_process.waitToComplete(TIMEOUT_MS);
+
+    if (untar_process.getExitCode() != 0) {
+      error("Error untarring update pack: " + untar_process.getStderr());
+      return false;
+    }
+  } catch (const std::exception &e) {
+    error("Error untarring update pack: " + std::string(e.what()));
+    return false;
+  }
+
+  info("Untar complete");
+  return true;
+}
+
+bool UpdatePack::readVersionFile() {
+  info("Reading version file");
+  try {
+    // Open the version file and check if it is valid
+    const std::filesystem::path version_file_path =
+        update_dir_ + "/version.json";
+    if (!bst::filesystem::doesFileExist(version_file_path)) {
+      error("Update pack missing version file");
+      return;
+    }
+
+    // Read the version file
+    std::ifstream version_file(version_file_path);
+    Json version_json = Json::parse(version_file);
+
+  } catch (const std::exception &e) {
+    error("Error reading version file: " + std::string(e.what()));
+  }
+  info("Version file read successfully");
+  return true;
+}
+
+void UpdatePack::cacheValidUpdatePack() {
+  // if (!have_valid_update_file_) {
+  //   error("No valid update pack to cache");
+  //   return;
+  // }
+
+  // try {
+  //   std::ofstream cache_file(valid_update_pack_cache);
+  //   cache_file << have_valid_update_file_ << std::endl;
+  //   cache_file << valid_update_pack_file_name_ << std::endl;
+  //   cache_file << valid_update_pack_path_ << std::endl;
+  //   cache_file << valid_update_pack_time_ << std::endl;
+  //   cache_file << valid_update_pack_size_ << std::endl;
+  // } catch (const std::exception &e) {
+  //   error("Error caching valid update pack: " + std::string(e.what()));
+  // }
+}
+
+void UpdatePack::loadCachedValidUpdatePack() {
+  // try {
+  //   std::ifstream cache_file(valid_update_pack_cache);
+  //   cache_file >> have_valid_update_file_;
+  //   cache_file >> valid_update_pack_file_name_;
+  //   cache_file >> valid_update_pack_path_;
+  //   cache_file >> valid_update_pack_time_;
+  //   cache_file >> valid_update_pack_size_;
+
+  //   if (have_valid_update_file_) {
+  //     std::cout << "Loaded cached valid update pack: "
+  //               << valid_update_pack_path_ << std::endl;
+  //   }
+  // } catch (const std::exception &e) {
+  //   error("Error loading cached valid update pack: " +
+  //   std::string(e.what()));
+  // }
 }
 
 } // namespace command_line_interface

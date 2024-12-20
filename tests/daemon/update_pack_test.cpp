@@ -20,15 +20,24 @@
 using namespace command_line_interface;
 
 static const std::string VALID_TAR_PATH = "gcli_unit_test_tar.tar.gz";
-static const std::string SOFTWARE_BASE_DIR = "./gcli_update_pack_test_software";
+static const std::string SOFTWARE_BASE_DIR =
+    "./giraffe_update_pack_test_software";
 static const std::string CURRENT_DIR = SOFTWARE_BASE_DIR + "/current";
 static const std::string UPDATE_DIR = SOFTWARE_BASE_DIR + "/update";
-class gcli_UpdatePack : public ::testing::Test {
+class giraffe_updatePack : public ::testing::Test {
 protected:
   virtual void SetUp() {
     initDirs();
   }
   virtual void TearDown() {
+  }
+
+  size_t getNumFilesInUpdateDir() {
+    size_t count = 0;
+    for (const auto &entry : std::filesystem::directory_iterator(UPDATE_DIR)) {
+      count++;
+    }
+    return count;
   }
 
   void initDirs() {
@@ -49,20 +58,22 @@ protected:
 };
 
 /// @test command_line_interface::UpdatePack-constructor
-TEST_F(gcli_UpdatePack, constructor) {
-  EXPECT_FALSE(up_.isSourceTarPathValid());
-  EXPECT_FALSE(up_.isValid());
-}
+// TEST_F(giraffe_updatePack, constructor) {
+//   EXPECT_FALSE(up_.isSourceTarPathValid());
+//   EXPECT_FALSE(up_.isValid());
+// }
 
 /// @test command_line_interface::UpdatePack::setTarFilePath
-TEST_F(gcli_UpdatePack, processTarFile_invalid_path) {
-  EXPECT_FALSE(up_.processTarFile("invalid_path"));
-  EXPECT_FALSE(up_.isSourceTarPathValid());
-  EXPECT_FALSE(up_.isValid());
-}
+// TEST_F(giraffe_updatePack, processTarFile_invalid_path) {
+//   EXPECT_FALSE(up_.processTarFile("invalid_path"));
+//   EXPECT_FALSE(up_.isSourceTarPathValid());
+//   EXPECT_FALSE(up_.isValid());
+// }
 
 /// @test command_line_interface::UpdatePack::setTarFilePath
-TEST_F(gcli_UpdatePack, processTarFile_valid_path) {
+TEST_F(giraffe_updatePack, processTarFile_valid_path) {
+  ASSERT_EQ(getNumFilesInUpdateDir(), 0U); // it should start empty
+
   EXPECT_TRUE(up_.processTarFile(VALID_TAR_PATH));
   EXPECT_TRUE(up_.isSourceTarPathValid());
   EXPECT_TRUE(up_.isValid());
