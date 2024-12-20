@@ -17,10 +17,12 @@ cd bin
 rm -rf giraffe
 mkdir giraffe
 
+# Copy in the files
 cp gcli giraffe
 cp ground_station.tar.gz giraffe
 cp gdl_server giraffe
 cp gfs giraffe
+cp version.json giraffe
 
 tar -czf giraffe-update.tar.gz giraffe
 

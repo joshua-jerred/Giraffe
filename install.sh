@@ -122,8 +122,10 @@ function install_project {
     # gcli configure dev_mode true
   # fi
 
-  log "Starting gcli as a background process"
-  gcli start
+  # log "Starting gcli as a background process"
+  # gcli start
+
+  log "Installation complete - run 'gcli help'"
 }
 
 function setup {

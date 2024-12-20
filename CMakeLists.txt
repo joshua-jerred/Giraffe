@@ -43,12 +43,14 @@ set(THIRD_PARTY_SRC ${CMAKE_SOURCE_DIR}/lib/third_party)
 
 set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_system)
 set(GDL_SRC ${CMAKE_SOURCE_DIR}/src/data_link)
+set(GCLI_SRC ${CMAKE_SOURCE_DIR}/src/command_line_interface)
 
 # @todo remove these, let `add_subdirectory` handle it
 # and use relative paths in those CMakeLists.txt files
 set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests)
 set(GFS_UNIT_TEST_SRC ${GFS_TEST_SRC}/flight_system)
 set(GDL_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/data_link)
+set(GCLI_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/command_line_interface)
 
 # @todo remove these
 set(GFS_BIN ${CMAKE_BINARY_DIR}/bin)

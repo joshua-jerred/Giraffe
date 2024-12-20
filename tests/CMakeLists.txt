@@ -74,6 +74,29 @@ target_link_libraries(
 set_target_properties(giraffe_flight_system_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY
                                                ${TEST_BIN})
 
+# --- Command Line Interface ---
+file(GLOB gcli_test_sources "${GCLI_TEST_SRC}/*_test.cpp")
+add_executable(gcli_test ${gcli_test_sources})
+target_link_libraries(gcli_test
+  # internal
+  gcli_core
+  giraffe_common
+  # ax25_state_machine
+  unit_test
+  # external
+  BoosterSeat
+)
+target_include_directories(gcli_test PRIVATE ${GCLI_SRC})
+set_target_properties(gcli_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY
+                                               ${TEST_BIN})
+target_include_directories(gcli_test
+  PRIVATE
+  ${THIRD_PARTY_SRC}/nlohmann_json/single_include
+)
+file(COPY ${GCLI_TEST_SRC}/gcli_unit_test_tar.tar.gz DESTINATION ${TEST_BIN})
+
+
+# -------------------------------------------------------------------
 
 # --- Flight Software : On Pi Tests ---
 file(GLOB gfs_on_pi_test_sources "${GFS_UNIT_TEST_SRC}/host_tests/test_*.cpp")
@@ -131,6 +154,7 @@ include(GoogleTest)
 gtest_discover_tests(giraffe_flight_system_test)
 gtest_discover_tests(gdl_test)
 gtest_discover_tests(unit_test_common)
+gtest_discover_tests(gcli_test)
 # add_test(NAME common_tests COMMAND $<TARGET_FILE:unit_test_common>)
 # add_test(NAME flight_system_tests COMMAND giraffe_flight_system_test)
 # add_test(NAME data_link_tests COMMAND gdl_test)

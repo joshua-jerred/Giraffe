@@ -4,7 +4,7 @@
 /// https://giraffe.joshuajer.red/
 /// =*=======================*=
 ///
-/// @file   software_update.hpp
+/// @file   ground_software_manager.hpp
 ///
 /// =*=======================*=
 /// @author     Joshua Jerred (https://joshuajer.red)
@@ -13,31 +13,45 @@
 
 #pragma once
 
+#include <chrono>
 #include <filesystem>
+#include <iostream>
 
+#include <BoosterSeat/clock.hpp>
+#include <BoosterSeat/filesystem.hpp>
 #include <BoosterSeat/string_utils.hpp>
 #include <BoosterSeat/timer.hpp>
 
+#include "giraffe_file_paths.hpp"
 #include "node.hpp"
+#include "update_pack.hpp"
 
 namespace command_line_interface {
 
 /// @brief Checks for software updates and installs them when directed
+/// @details This class is responsible for handling software versions and
+/// updates.
+/// Expected behavior:
+/// - Install initial software as soon as it's found.
 class GroundSoftwareManager {
 public:
   GroundSoftwareManager() {
     // Set up the directories
     try {
-
       if (!std::filesystem::exists(software_dir_path_)) {
         std::filesystem::create_directory(software_dir_path_);
       }
-      if (!std::filesystem::exists(update_dir_path_)) {
-        std::filesystem::create_directory(update_dir_path_);
+      if (!std::filesystem::exists(update_software_dir_path_)) {
+        std::filesystem::create_directory(update_software_dir_path_);
+      }
+      if (!std::filesystem::exists(current_software_dir_path_)) {
+        std::filesystem::create_directory(current_software_dir_path_);
       }
     } catch (const std::filesystem::filesystem_error &e) {
       error("Error creating directories: " + std::string(e.what()));
     }
+
+    loadCachedValidUpdatePack();
   }
 
   ~GroundSoftwareManager() = default;
@@ -54,55 +68,44 @@ public:
   }
 
 private:
-  const std::string UPDATE_FILE_PREFIX = "giraffe-update";
-
-  bool checkForUpdateFile() {
-    bool found_update_file = false;
-    try {
-      // Keep track of what paths we hit so we can clean up old files
-      for (const auto &entry :
-           std::filesystem::directory_iterator(software_dir_path_)) {
-        if (!entry.is_regular_file()) {
-          continue;
-        }
-
-        const auto &path = entry.path();
-        const auto &filename = path.filename().string();
-        if (bst::containsPrefix(filename, UPDATE_FILE_PREFIX)) {
-          if (found_update_file) {
-            error("Multiple update files found, only one is allowed");
-            return false;
-          }
-          found_update_file = true;
-          foundUpdateFile(path);
-        }
-      }
-
-      return true;
-    } catch (const std::filesystem::filesystem_error &e) {
-
-      error("Error checking for update file: " + std::string(e.what()));
-      return false;
-    }
-  }
-
+  /// @todo replace with a general logger
   void error(const std::string &message) {
-    std::cerr << "Error: " << message << std::endl;
+    std::cout << "Error: " << message << std::endl;
     status_ = node::Status::ERROR;
   }
 
-  void foundUpdateFile(const std::filesystem::path &path) {
-    std::cout << "Found update file: " << path.string() << std::endl;
-  }
+  /// @brief Process the contents of the update directory and attempt to find an
+  /// update file.
+  /// @details This method will look through the software directory for an
+  /// update file. If one is found it will be processed. If it is processed
+  /// successfully, this method will instead continually check if this file
+  /// specifically still exists and if it has been updated. It stops looking
+  /// when it has the processed update file. The update file can be thrown away,
+  /// if it is, go back to looking.
+  bool checkForUpdateFile();
+
+  /// @brief Check the update pack file and check if it is valid.
+  /// @details Called when a new update pack file is found.
+  /// @param path - The path to the update pack file, must be a regular file in
+  /// the agent's software directory.
+  void processUpdateFile(const std::filesystem::path &path);
 
   bool have_valid_update_file_{false};
-  std::string valid_update_dir_path_{""};
+  UpdatePack update_pack_{};
+
+  std::string valid_update_pack_file_name_{""};
+  std::string valid_update_pack_path_{""};
+  uint32_t valid_update_pack_time_{0};
+  uint32_t valid_update_pack_size_{0};
 
   node::Status status_{node::Status::UNKNOWN};
 
   const std::string software_dir_path_{
       giraffe::file_paths::getFlightSystemAgentDirPath() + "/software"};
-  const std::string update_dir_path_{software_dir_path_ + "/update"};
+  const std::string current_software_dir_path_{software_dir_path_ + "/current"};
+  const std::string update_software_dir_path_{software_dir_path_ + "/update"};
+  const std::string valid_update_pack_cache{update_software_dir_path_ +
+                                            "/valid_update_pack_cache"};
 };
 
 } // namespace command_line_interface
