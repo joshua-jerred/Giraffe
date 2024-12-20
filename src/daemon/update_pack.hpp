@@ -79,16 +79,6 @@ public:
   }
 
 private:
-  bool isRegularFile(const std::filesystem::path &path) {
-    try {
-      return std::filesystem::exists(path) &&
-             std::filesystem::is_regular_file(path);
-    } catch (const std::exception &e) {
-      error("Error checking if file is regular: " + std::string(e.what()));
-      return false;
-    }
-  }
-
   /// @brief Set the source tar file path and load it's metadata. Does not
   /// un-tar the file.
   /// @param path - The path to the source tar file.

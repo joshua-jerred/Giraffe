@@ -159,18 +159,36 @@ bool UpdatePack::readVersionFile() {
     // Open the version file and check if it is valid
     const std::filesystem::path version_file_path =
         update_dir_ + "/version.json";
-    if (!bst::filesystem::doesFileExist(version_file_path)) {
+    if (!std::filesystem::exists(version_file_path)) {
       error("Update pack missing version file");
-      return;
+      return false;
     }
 
-    // Read the version file
+    // Read the version file and parse it
     std::ifstream version_file(version_file_path);
-    Json version_json = Json::parse(version_file);
+    const Json version_json = Json::parse(version_file);
+
+    // A helper lambda to validate that a key exists in the JSON object
+    auto assertKeyExists = [&](const Json &json, const std::string &key) {
+      if (json.find(key) == json.end()) {
+        throw std::runtime_error("Missing key: " + key);
+      }
+    };
+
+    assertKeyExists(version_json, "project");
+    const Json &project_json = version_json.at("project");
+
+    // Read and parse the version number
+    assertKeyExists(project_json, "version");
+    const std::string version = project_json.at("version").get<std::string>();
+
+    assertKeyExists(project_json, "stage");
 
   } catch (const std::exception &e) {
     error("Error reading version file: " + std::string(e.what()));
+    return false;
   }
+
   info("Version file read successfully");
   return true;
 }
