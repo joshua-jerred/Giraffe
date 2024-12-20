@@ -43,14 +43,14 @@ set(THIRD_PARTY_SRC ${CMAKE_SOURCE_DIR}/lib/third_party)
 
 set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_system)
 set(GDL_SRC ${CMAKE_SOURCE_DIR}/src/data_link)
-set(GCLI_SRC ${CMAKE_SOURCE_DIR}/src/command_line_interface)
+set(GIRAFFE_DAEMON_SRC ${CMAKE_SOURCE_DIR}/src/daemon)
 
 # @todo remove these, let `add_subdirectory` handle it
 # and use relative paths in those CMakeLists.txt files
 set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests)
 set(GFS_UNIT_TEST_SRC ${GFS_TEST_SRC}/flight_system)
 set(GDL_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/data_link)
-set(GCLI_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/command_line_interface)
+set(GIRAFFE_DAEMON_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/daemon)
 
 # @todo remove these
 set(GFS_BIN ${CMAKE_BINARY_DIR}/bin)
@@ -106,7 +106,7 @@ add_subdirectory(lib/third_party/fmt)           # fmt
 # ---- Giraffe Components ----
 add_subdirectory(project)                  # Auto-generated files
 add_subdirectory(src/flight_system)        # Flight System
-add_subdirectory(src/command_line_interface)  # Flight System Agent
+add_subdirectory(src/daemon)  # Flight System Agent
 add_subdirectory(src/common)               # Common
 add_subdirectory(src/data_link)            # Data Link
 add_subdirectory(${GFS_TEST_SRC}/simulator) # gfs_simulator
