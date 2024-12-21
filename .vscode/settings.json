@@ -35,6 +35,12 @@
     "@copyright{indent:12}{year} (license to be defined)",
   ],
 
+  // IDE Differentiation
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#a96f2297",
+    // "titleBar.border": "#ffa630",
+  }
+
   // DocWriter
   "docwriter.hotkey.windows": "Alt + .",
   "docwriter.progress.trackClasses": true,

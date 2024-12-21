@@ -193,7 +193,7 @@ bool UpdatePack::readVersionFile() {
     const std::string stage = project_json.at("stage").get<std::string>();
 
     // Parse the version and stage. These will throw if they are invalid.
-    valid_update_pack_version_.setNumbersFromString(version);
+    valid_update_pack_version_.setVersionFromString(version);
     valid_update_pack_version_.setStageFromString(stage);
 
     info("Update pack version: " +

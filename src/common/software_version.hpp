@@ -32,39 +32,37 @@ struct SoftwareVersion {
   /// is not guaranteed to be logical. _NUM_STAGES_ must be last.
   enum class Stage : uint8_t {
     UNKNOWN = 0,
-    DEVELOPMENT, // development
-    RELEASE,     // release
-    _NUM_STAGES_ // The number of stages, must be last
+    ALPHA,             // alpha
+    BETA,              // beta
+    RELEASE_CANDIDATE, // rc
+    RELEASE,           // release
+    _NUM_STAGES_       // The number of stages, must be last
   };
 
   /// @brief Stage of the software version
   Stage stage = Stage::UNKNOWN;
 
   /// @brief Indicates if the software was built within a clean git repository.
+  /// Labeled by the `-dev` suffix.
   bool clean = false;
 
-  /// @brief Set the major, minor, and patch numbers from a string. Does not
-  /// change the stage or clean values. This will throw a std::runtime_error if
-  /// the version string is invalid, the major, minor, and patch values will be
-  /// set to 0.
+  /// @brief Set the major, minor, patch, and stage numbers from a string in the
+  /// format `major.minor.patch[-<stage>]`, where `-<stage>` is optional.
   /// @param version_string - The version string to parse.
   /// @exception std::runtime_error - Thrown if the version string is invalid.
-  void setNumbersFromString(const std::string &version_string);
+  void setVersionFromString(const std::string &version_string);
+
+  /// @brief Get the version as a string in the format
+  /// `major.minor.patch[-<stage>]`, where `-<stage>` is optional.
+  /// @return The version string.
+  std::string getVersionString() const;
 
   /// @brief Get the major, minor, and patch numbers as a string in the format
   /// "major.minor.patch".
   /// @return The version string.
   std::string getNumbersAsString() const;
 
-  /// @brief Set the stage from a string, ex: `development` or `release`. If the
-  /// string is invalid, the stage will be set to `UNKNOWN` and no exception
-  /// will be thrown.
-  /// @param stage_string - The stage string to parse and set.
-  /// @exception std::runtime_error - Thrown if the stage string is invalid.
-  void setStageFromString(const std::string &stage_string);
-
-  /// @brief Get the stage as a string, ex: `development`, `release`, or
-  /// `unknown`.
+  /// @brief Get the stage as a string, per versioning.md
   /// @return The stage string.
   std::string getStageAsString() const;
 
