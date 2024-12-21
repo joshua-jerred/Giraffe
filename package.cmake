@@ -4,7 +4,8 @@
 # https://giraffe.joshuajer.red/
 # =*=======================*=
 #
-# @file   install.cmake
+# @file   package.cmake
+# @see    giraffe_package.md
 #
 # =*=======================*=
 # @author     Joshua Jerred (https://joshuajer.red)
