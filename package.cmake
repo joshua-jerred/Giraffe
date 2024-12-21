@@ -5,7 +5,7 @@
 # =*=======================*=
 #
 # @file   package.cmake
-# @see    giraffe_package.md
+# @see    giraffe_application_structure.md
 #
 # =*=======================*=
 # @author     Joshua Jerred (https://joshuajer.red)
