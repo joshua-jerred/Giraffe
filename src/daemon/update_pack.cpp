@@ -62,6 +62,13 @@ bool UpdatePack::processTarFile(const std::filesystem::path &path) {
     return false;
   }
 
+  try {
+    validateBinaryFiles();
+  } catch (const std::exception &e) {
+    error("Error validating binary files: " + std::string(e.what()));
+    return false;
+  }
+
   is_update_pack_valid_ = true;
   // valid_update_pack_file_name_ = path.filename().string();
   // valid_update_pack_path_ = path.string();
@@ -202,6 +209,10 @@ bool UpdatePack::readVersionFile() {
   info("Version file read successfully");
   return true;
 }
+
+void UpdatePack::validateBinaryFiles(){
+    /// @todo implement this method
+};
 
 void UpdatePack::cacheValidUpdatePack() {
   // if (!have_valid_update_file_) {

@@ -42,20 +42,22 @@ public:
   /// @return The same value as isValid().
   bool processTarFile(const std::filesystem::path &path);
 
-  /// @brief Get the validity status of the source tar file. This only indicates
-  /// if the source tar file exists and is a regular file, not if it's contents
-  /// are valid.
-  /// @return \c true if the source tar file is valid, \c false otherwise.
-  bool isSourceTarPathValid() const {
-    return is_source_tar_path_valid_;
-  }
-
   /// @brief Get the validity status of the update pack. This is set after
   /// un-tarring and processing the update pack. This means it's ready to be
   /// applied, real software update files exist somewhere.
   /// @return \c true if the update pack is valid, \c false otherwise.
   bool isValid() const {
     return is_update_pack_valid_;
+  }
+
+  /// @brief Get the software version of the update pack.
+  /// @return \c giraffe::SoftwareVersion object if the update pack is valid and
+  /// we have version information, \c std::nullopt otherwise.
+  std::optional<giraffe::SoftwareVersion> getSoftwareVersionOption() const {
+    if (is_update_pack_valid_) {
+      return valid_update_pack_version_;
+    }
+    return std::nullopt;
   }
 
   const std::string &getFileName() const {
@@ -81,6 +83,19 @@ public:
   }
 
 private:
+  struct BinaryFile {};
+
+  /// @deprecated --- this doesn't may not need to be public any more with
+  /// everything wrapped into processTarFile. Also,if it's made private, it
+  /// should use an actual filesystem::exists call.
+  /// @brief Get the validity status of the source tar file. This only indicates
+  /// if the source tar file exists and is a regular file, not if it's contents
+  /// are valid.
+  /// @return \c true if the source tar file is valid, \c false otherwise.
+  bool isSourceTarPathValid() const {
+    return is_source_tar_path_valid_;
+  }
+
   /// @brief Set the source tar file path and load it's metadata. Does not
   /// un-tar the file.
   /// @param path - The path to the source tar file.
@@ -106,6 +121,12 @@ private:
   /// @return \c true if the version file was read successfully, \c false
   /// otherwise.
   bool readVersionFile();
+
+  /// @brief Validate the binary files in the update directory. If any are
+  /// invalid, an exception is thrown.
+  /// @todo Consider handling the other methods above like this: use a single
+  /// try/catch block around the call to this method.
+  void validateBinaryFiles();
 
   /// @brief Save details about the valid update pack to a cache file. This
   /// prevents us from re-processing the same update pack if it's already been

@@ -75,6 +75,14 @@ TEST_F(giraffe_updatePack, processTarFile_valid_path) {
   ASSERT_EQ(getNumFilesInUpdateDir(), 0U); // it should start empty
 
   EXPECT_TRUE(up_.processTarFile(VALID_TAR_PATH));
-  EXPECT_TRUE(up_.isSourceTarPathValid());
   EXPECT_TRUE(up_.isValid());
+
+  // A copy of the version.json file that was tarred can be found at
+  // tests/daemon/test_update_pack/gcli_unit_test_tar/version.json
+  auto sv_opt = up_.getSoftwareVersionOption();
+  ASSERT_TRUE(sv_opt.has_value());
+
+  auto sv = sv_opt.value();
+  EXPECT_EQ(sv.getNumbersAsString(), "0.8.0");
+  EXPECT_EQ(sv.getStageAsString(), "development");
 }

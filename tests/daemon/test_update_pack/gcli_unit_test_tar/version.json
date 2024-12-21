@@ -6,7 +6,7 @@
         "branch": "unittest",
         "commit_count": "1002",
         "repo": "https://github.com/joshua-jerred/Giraffe",
-        "clean": "False",
+        "clean": false,
         "date": "2020-11-10",
         "time": "20:40:30"
     },
