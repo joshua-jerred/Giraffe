@@ -4,7 +4,8 @@
         "minor": "8",
         "patch": "1",
         "stage": "alpha",
-        "semantic": "0.8.1-alpha"
+        "semantic": "0.8.1-alpha",
+        "clean": true,
     },
     "dependencies": {
         "cmake": "3.20.0",
@@ -17,7 +18,6 @@
         "branch": "fsa-completion",
         "commit_count": "1009",
         "repo": "https://github.com/joshua-jerred/Giraffe",
-        "clean": true,
         "date": "2024-12-21",
         "time": "03:24:46"
     },

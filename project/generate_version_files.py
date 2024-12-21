@@ -37,17 +37,17 @@ output_versions['project']['hash'] = str(subprocess.check_output(['git', 'rev-pa
 output_versions['project']['branch'] = str(subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).decode('ascii').strip())
 output_versions['project']['commit_count'] = str(subprocess.check_output(['git', 'rev-list', 'HEAD', '--count']).decode('ascii').strip())
 output_versions['project']['repo'] = "https://github.com/joshua-jerred/Giraffe"
-repo_clean:bool = subprocess.check_output(['git', 'status', '--porcelain']).decode('ascii').strip() == ""
-output_versions['project']['clean'] = str(repo_clean)
 
+repo_clean:bool = subprocess.check_output(['git', 'status', '--porcelain']).decode('ascii').strip() == ""
+output_versions['version']['clean'] = str(repo_clean)
 # generate the version string per `docs/versioning.md`
 VALID_INPUT_STAGES = ['alpha', 'beta', 'rc', 'release']
 if output_versions['version'].get('stage') not in VALID_INPUT_STAGES:
     sys.exit("Invalid stage: " + output_versions['version'].get('stage'))
 
-if not bool(repo_clean):
-    print("append '-dev' to the semantic version due to uncommitted changes")
-    output_versions['version']['stage'] += '-dev'
+# if not bool(repo_clean):
+    # print("append '-dev' to the semantic version due to uncommitted changes")
+    # output_versions['version']['stage'] = output_versions['version']['stage'] + '-dev'
 
 major = output_versions['version'].getint('major')
 minor = output_versions['version'].getint('minor')
@@ -58,6 +58,8 @@ stage = output_versions['version'].get('stage')
 version_string = f"{major}.{minor}.{patch}"
 if stage != "release":
     version_string += f"-{stage}"
+if not repo_clean:
+    version_string += "-dev"
 
 # Add it to the output
 output_versions['version']['semantic'] = version_string
@@ -168,7 +170,7 @@ with open(OUTPUT_BUILD_FILE, 'w') as f:
     # This is necessary because configparser does not support boolean values
     # it seems. Big regret going with configparser, should have just used json
     # from the start.
-    out_data['project']['clean'] = out_data['project']['clean'] == "True"
+    out_data['version']['clean'] = out_data['version']['clean'] == "True"
 
     print("Writing: " + OUTPUT_BUILD_FILE)
     json.dump(out_data, f, indent=4)
