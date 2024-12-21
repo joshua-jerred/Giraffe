@@ -4,8 +4,8 @@ target_include_directories(unit_test INTERFACE "./")
 target_link_libraries(unit_test INTERFACE gtest_main gmock_main)
 
 # --- Common ---
-file(GLOB common_test_sources "$common/test_*.cpp")
-add_executable(unit_test_common ${common_test_sources} ${common_sources})
+file(GLOB common_test_sources "./common/test_*.cpp")
+add_executable(unit_test_common ${common_test_sources})
 target_link_libraries(
   unit_test_common
   # internal

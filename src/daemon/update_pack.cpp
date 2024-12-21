@@ -175,17 +175,27 @@ bool UpdatePack::readVersionFile() {
       }
     };
 
+    // Check for the project section, get it, and parse it.
     assertKeyExists(version_json, "project");
     const Json &project_json = version_json.at("project");
 
-    // Read and parse the version number
+    // Read in the version number and stage
     assertKeyExists(project_json, "version");
-    const std::string version = project_json.at("version").get<std::string>();
-
     assertKeyExists(project_json, "stage");
+    const std::string version = project_json.at("version").get<std::string>();
+    const std::string stage = project_json.at("stage").get<std::string>();
+
+    // Parse the version and stage. These will throw if they are invalid.
+    valid_update_pack_version_.setNumbersFromString(version);
+    valid_update_pack_version_.setStageFromString(stage);
+
+    info("Update pack version: " +
+         valid_update_pack_version_.getNumbersAsString() + " " +
+         valid_update_pack_version_.getStageAsString());
 
   } catch (const std::exception &e) {
     error("Error reading version file: " + std::string(e.what()));
+    valid_update_pack_version_.zero();
     return false;
   }
 

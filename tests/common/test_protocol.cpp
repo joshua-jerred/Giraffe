@@ -1,5 +1,7 @@
-#include "unit_test.hpp"
 #include "protocol.hpp"
+#include "unit_test.hpp"
+
+/// @todo This file either needs to be removed or a test needs to be added.
 
 class ProtocolTest : public ::testing::Test {
 protected:
@@ -10,4 +12,5 @@ protected:
 };
 
 TEST_F(ProtocolTest, con) {
+  GTEST_SKIP(); // skip to show that this is unimplemented
 }

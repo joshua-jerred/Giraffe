@@ -145,6 +145,12 @@ with open(OUTPUT_BUILD_FILE, 'w') as f:
     for section in output_versions.sections():
         out_data[section] = dict(output_versions[section])
 
+    # Fix boolean values (str -> bool)
+    # This is necessary because configparser does not support boolean values
+    # it seems. Big regret going with configparser, should have just used json
+    # from the start.
+    out_data['project']['clean'] = out_data['project']['clean'] == "True"
+
     print("Writing: " + OUTPUT_BUILD_FILE)
     json.dump(out_data, f, indent=4)
 

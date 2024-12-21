@@ -19,6 +19,8 @@
 
 #include <BoosterSeat/process.hpp>
 
+#include "software_version.hpp"
+
 namespace command_line_interface {
 
 class UpdatePack {
@@ -140,6 +142,10 @@ private:
   /// remain a reasonable size for what they are. If it's bigger than 4GB, don't
   /// change this data type, make it smaller lol.
   uint32_t source_tar_size_bytes_{};
+
+  /// @brief The version of the update pack. This is only valid when the update
+  /// pack is marked as valid.
+  giraffe::SoftwareVersion valid_update_pack_version_{};
 
   /// @brief Validity of the update pack (after un-tarring and processing)
   bool is_update_pack_valid_ = false;
