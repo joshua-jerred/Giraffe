@@ -19,6 +19,8 @@
 
 #include <BoosterSeat/process.hpp>
 
+#include "binary_file.hpp"
+#include "giraffe_types.hpp"
 #include "software_version.hpp"
 
 namespace command_line_interface {
@@ -83,8 +85,6 @@ public:
   }
 
 private:
-  struct BinaryFile {};
-
   /// @deprecated --- this doesn't may not need to be public any more with
   /// everything wrapped into processTarFile. Also,if it's made private, it
   /// should use an actual filesystem::exists call.
@@ -139,7 +139,8 @@ private:
 
   /// @todo replace with common logger
   void info(const std::string &message) {
-    std::cout << "info: " << message << std::endl;
+    (void)message;
+    // std::cout << "info: " << message << std::endl;
   }
 
   /// @todo replace with common logger
@@ -177,6 +178,21 @@ private:
 
   /// @brief The update software directory, where the new binaries live.
   const std::string update_dir_;
+
+  /// @brief Binary file handlers for each app in the system.
+  // std::array<BinaryFile, static_cast<size_t>(giraffe::AppIdentifier::_COUNT)>
+  //     binary_update_files_{{BinaryFile{giraffe::AppIdentifier::DAEMON,
+  //                                      "giraffe_daemon", update_dir_},
+  //                           BinaryFile{giraffe::AppIdentifier::COMMAND_LINE,
+  //                                      "gcli", update_dir_},
+  //                           BinaryFile{giraffe::AppIdentifier::FLIGHT_SYSTEM,
+  //                                      "gfs", update_dir_},
+  //                           BinaryFile{giraffe::AppIdentifier::DATA_LINK_SERVER,
+  //                                      "gdl_server", update_dir_}}};
+
+  static_assert(
+      static_cast<size_t>(giraffe::AppIdentifier::_COUNT) == 4U,
+      "binary_files_ must have an entry for each giraffe::AppIdentifier");
 };
 
 } // namespace command_line_interface

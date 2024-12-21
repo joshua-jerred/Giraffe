@@ -3,6 +3,10 @@ add_library(giraffe_daemon_core INTERFACE)
 target_sources(giraffe_daemon_core INTERFACE
   "./update_pack.cpp"
 )
+target_include_directories(giraffe_daemon_core INTERFACE
+  ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
 target_link_libraries(giraffe_daemon_core INTERFACE
   giraffe_common
   BoosterSeat

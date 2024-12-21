@@ -186,11 +186,8 @@ bool UpdatePack::readVersionFile() {
     const std::string generated_version_string =
         valid_update_pack_version_.getSemanticVersionString();
 
-    std::cout << "we go a version: " << generated_version_string << std::endl;
-
     info("Update pack version: " +
-         valid_update_pack_version_.getNumbersAsString() + " " +
-         valid_update_pack_version_.getStageAsString());
+         valid_update_pack_version_.getSemanticVersionString());
 
   } catch (const std::exception &e) {
     error("Error reading version file: " + std::string(e.what()));

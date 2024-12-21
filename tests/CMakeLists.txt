@@ -3,6 +3,10 @@ add_library(unit_test INTERFACE)
 target_include_directories(unit_test INTERFACE "./")
 target_link_libraries(unit_test INTERFACE gtest_main gmock_main)
 
+function(place_file_in_test_bin file)
+  configure_file(${file} ${TEST_BIN} COPYONLY)
+endfunction()
+
 # --- Common ---
 file(GLOB common_test_sources "./common/test_*.cpp")
 add_executable(unit_test_common ${common_test_sources})
@@ -93,7 +97,8 @@ target_include_directories(giraffe_daemon_test
   PRIVATE
   ${THIRD_PARTY_SRC}/nlohmann_json/single_include
 )
-file(COPY ${GIRAFFE_DAEMON_TEST_SRC}/test_update_pack/giraffe-0.8.0-beta-dev.tar.gz DESTINATION ${TEST_BIN})
+place_file_in_test_bin(${GIRAFFE_DAEMON_TEST_SRC}/test_update_pack/giraffe-0.8.0-beta-dev.tar.gz)
+file(COPY ${GIRAFFE_DAEMON_TEST_SRC}/binary_file_test.bin DESTINATION ${TEST_BIN})
 
 
 # -------------------------------------------------------------------

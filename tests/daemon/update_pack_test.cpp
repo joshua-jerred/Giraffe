@@ -57,18 +57,16 @@ protected:
   UpdatePack up_ = UpdatePack(CURRENT_DIR, UPDATE_DIR, false);
 };
 
-/// @test command_line_interface::UpdatePack-constructor
-// TEST_F(giraffe_updatePack, constructor) {
-//   EXPECT_FALSE(up_.isSourceTarPathValid());
-//   EXPECT_FALSE(up_.isValid());
-// }
+/// @test command_line_interface::UpdatePack - constructor
+TEST_F(giraffe_updatePack, constructor) {
+  EXPECT_FALSE(up_.isValid());
+}
 
 /// @test command_line_interface::UpdatePack::setTarFilePath
-// TEST_F(giraffe_updatePack, processTarFile_invalid_path) {
-//   EXPECT_FALSE(up_.processTarFile("invalid_path"));
-//   EXPECT_FALSE(up_.isSourceTarPathValid());
-//   EXPECT_FALSE(up_.isValid());
-// }
+TEST_F(giraffe_updatePack, processTarFile_invalid_path) {
+  EXPECT_FALSE(up_.processTarFile("invalid_path"));
+  EXPECT_FALSE(up_.isValid());
+}
 
 /// @test command_line_interface::UpdatePack::setTarFilePath
 TEST_F(giraffe_updatePack, processTarFile_valid_path) {

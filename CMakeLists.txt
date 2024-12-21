@@ -21,17 +21,24 @@ if(NOT output EQUAL 0)
     ${output})
 endif()
 file(READ ${CMAKE_SOURCE_DIR}/version.ini ver_file)
-string(
-  REGEX MATCH
-  "version = ([0-9\.]+)[ \n\r]+stage = ([a-zA-Z]+)"
-  GIRAFFE_VERSION_STAGE
+string(REGEX
+  MATCH 
+  "stage = ([a-z]+)[ \n\r]+clean = [a-zA-Z]+[ \n\r]+semantic = ([0-9\.]+)(-*[a-z]*-[a-z]*)[ \n\r]+"
+  GIRAFFE_SEMANTIC_VERSION
   ${ver_file}
 )
-set(GIRAFFE_VERSION_NUMBER ${CMAKE_MATCH_1})
-set(GIRAFFE_VERSION_STAGE ${CMAKE_MATCH_2})
+set(GIRAFFE_VERSION_STAGE ${CMAKE_MATCH_1})
+set(GIRAFFE_VERSION_NUMBER ${CMAKE_MATCH_2})
+set(GIRAFFE_SEMANTIC_VERSION "${GIRAFFE_VERSION_NUMBER}${CMAKE_MATCH_3}")
+
+message(STATUS "Giraffe Version Number: ${GIRAFFE_VERSION_NUMBER}")
+message(STATUS "Giraffe Stage Label: ${GIRAFFE_STAGE_LABEL}")
+message(STATUS "Giraffe Semantic Version: ${GIRAFFE_SEMANTIC_VERSION}")
+
 add_compile_definitions(
+  GIRAFFE_SEMANTIC_VERSION="${GIRAFFE_SEMANTIC_VERSION}"
+  GIRAFFE_VERSION_STAGE="${GIRAFFE_SEMANTIC_VERSION}"
   GIRAFFE_VERSION_NUMBER="${GIRAFFE_VERSION_NUMBER}"
-  GIRAFFE_VERSION_STAGE="${GIRAFFE_VERSION_STAGE}"
 )
 message(STATUS "Giraffe Software Version: ${GIRAFFE_VERSION_NUMBER} \
 ${GIRAFFE_VERSION_STAGE}")
