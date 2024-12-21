@@ -20,7 +20,7 @@ TEST(common_SoftwareVersion, setAndGetSemanticString) {
   EXPECT_EQ(sv.stage, giraffe::SoftwareVersion::Stage::RELEASE);
   EXPECT_EQ(sv.clean, true);
   EXPECT_EQ(sv.getNumbersAsString(), "1.2.3");
-  EXPECT_EQ(sv.getVersionString(), "1.2.3");
+  EXPECT_EQ(sv.getSemanticVersionString(), "1.2.3");
 
   sv.setVersionFromString("0.0.0-alpha");
   EXPECT_EQ(sv.major, 0);
@@ -29,7 +29,7 @@ TEST(common_SoftwareVersion, setAndGetSemanticString) {
   EXPECT_EQ(sv.stage, giraffe::SoftwareVersion::Stage::ALPHA);
   EXPECT_EQ(sv.clean, true);
   EXPECT_EQ(sv.getNumbersAsString(), "0.0.0");
-  EXPECT_EQ(sv.getVersionString(), "0.0.0-alpha");
+  EXPECT_EQ(sv.getSemanticVersionString(), "0.0.0-alpha");
 
   sv.setVersionFromString("999.999.999-rc-dev");
   EXPECT_EQ(sv.major, 999);
@@ -38,7 +38,7 @@ TEST(common_SoftwareVersion, setAndGetSemanticString) {
   EXPECT_EQ(sv.stage, giraffe::SoftwareVersion::Stage::RELEASE_CANDIDATE);
   EXPECT_EQ(sv.clean, false);
   EXPECT_EQ(sv.getNumbersAsString(), "999.999.999");
-  EXPECT_EQ(sv.getVersionString(), "999.999.999-rc-dev");
+  EXPECT_EQ(sv.getSemanticVersionString(), "999.999.999-rc-dev");
 
   sv.setVersionFromString("9999.100000.1-beta");
   EXPECT_EQ(sv.major, 9999);
@@ -47,7 +47,7 @@ TEST(common_SoftwareVersion, setAndGetSemanticString) {
   EXPECT_EQ(sv.stage, giraffe::SoftwareVersion::Stage::BETA);
   EXPECT_EQ(sv.clean, true);
   EXPECT_EQ(sv.getNumbersAsString(), "9999.100000.1");
-  EXPECT_EQ(sv.getVersionString(), "9999.100000.1-beta");
+  EXPECT_EQ(sv.getSemanticVersionString(), "9999.100000.1-beta");
 
   // Test invalid strings
   EXPECT_THROW(sv.setVersionFromString(".1.1"), std::runtime_error);

@@ -45,8 +45,8 @@ add_custom_target(giraffe_update
                 ${CMAKE_SOURCE_DIR}/src/ground_station
                 ${CMAKE_CURRENT_BINARY_DIR}/ground_station
   COMMAND ${CMAKE_COMMAND} -E copy
-    "${CMAKE_CURRENT_BINARY_DIR}/../version.json"
-    "${CMAKE_CURRENT_BINARY_DIR}/bin/version.json"
+    "${CMAKE_CURRENT_BINARY_DIR}/../giraffe_manifest.json"
+    "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe_manifest.json"
   COMMAND bash "${CMAKE_SOURCE_DIR}/src/scripts/package_giraffe.sh"
   # COMMAND ${CMAKE_COMMAND} -E copy
     # "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe.tar.gz"

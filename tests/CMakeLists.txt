@@ -93,7 +93,7 @@ target_include_directories(giraffe_daemon_test
   PRIVATE
   ${THIRD_PARTY_SRC}/nlohmann_json/single_include
 )
-file(COPY ${GIRAFFE_DAEMON_TEST_SRC}/gcli_unit_test_tar.tar.gz DESTINATION ${TEST_BIN})
+file(COPY ${GIRAFFE_DAEMON_TEST_SRC}/test_update_pack/giraffe-0.8.0-beta-dev.tar.gz DESTINATION ${TEST_BIN})
 
 
 # -------------------------------------------------------------------

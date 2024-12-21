@@ -22,7 +22,7 @@ THIRD_PARTY_LIBRARIES = [
 REPO_ROOT = os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + '/../')
 INPUT_VERSION_FILE = REPO_ROOT + '/version'
 OUTPUT_VERSION_FILE = REPO_ROOT + '/version.ini'
-OUTPUT_BUILD_FILE = REPO_ROOT + '/build/version.json'
+OUTPUT_BUILD_FILE = REPO_ROOT + '/build/giraffe_manifest.json'
 OUTPUT_JS_FILE = REPO_ROOT + '/src/common/version.js'
 
 output_versions = configparser.ConfigParser()
@@ -32,7 +32,6 @@ output_versions.read(INPUT_VERSION_FILE)
 # output_versions['project']['version'] = str(subprocess.check_output(['git', 'describe', '--tags', '--abbrev=0']).decode('ascii').strip())
 # print("Latest git tag: " + output_versions['project']['version'])
 output_versions.add_section('project')
-output_versions['project']['semantic_version'] = "a"
 output_versions['project']['hash'] = str(subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD']).decode('ascii').strip())
 output_versions['project']['branch'] = str(subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).decode('ascii').strip())
 output_versions['project']['commit_count'] = str(subprocess.check_output(['git', 'rev-list', 'HEAD', '--count']).decode('ascii').strip())
@@ -171,6 +170,10 @@ with open(OUTPUT_BUILD_FILE, 'w') as f:
     # it seems. Big regret going with configparser, should have just used json
     # from the start.
     out_data['version']['clean'] = out_data['version']['clean'] == "True"
+    
+    FORCE_INT = ['major', 'minor', 'patch']
+    for key in FORCE_INT:
+        out_data['version'][key] = int(out_data['version'][key])
 
     print("Writing: " + OUTPUT_BUILD_FILE)
     json.dump(out_data, f, indent=4)

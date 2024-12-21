@@ -55,16 +55,31 @@ struct SoftwareVersion {
   /// @brief Get the version as a string in the format
   /// `major.minor.patch[-<stage>]`, where `-<stage>` is optional.
   /// @return The version string.
-  std::string getVersionString() const;
+  std::string getSemanticVersionString() const;
 
   /// @brief Get the major, minor, and patch numbers as a string in the format
   /// "major.minor.patch".
   /// @return The version string.
   std::string getNumbersAsString() const;
 
+  /// @brief Set the stage from a string in the format `alpha`, `beta`, `rc`, or
+  /// empty for release.
+  /// @param stage_string - The stage string to parse.
+  void setStageFromString(const std::string &stage_string);
+
   /// @brief Get the stage as a string, per versioning.md
   /// @return The stage string.
   std::string getStageAsString() const;
+
+  /// @brief Get get the development build status (branch is dirty).
+  /// @return \c true if the build is a development build, \c false otherwise.
+  bool isDevelopmentBuild() const {
+    if (stage == Stage::UNKNOWN) {
+      return false;
+    }
+
+    return clean == false;
+  }
 
   /// @brief Set the major, minor, and patch numbers to 0, the stage to
   /// `UNKNOWN`, and clean to false.

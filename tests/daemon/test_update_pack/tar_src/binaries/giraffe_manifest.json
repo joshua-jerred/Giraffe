@@ -1,10 +1,11 @@
 {
     "version": {
-        "major": "0",
-        "minor": "8",
-        "patch": "1",
+        "major": 0,
+        "minor": 8,
+        "patch": 1,
         "stage": "alpha",
-        "semantic": "0.8.1-alpha"
+        "clean": false,
+        "semantic": "0.8.1-alpha-dev"
     },
     "dependencies": {
         "cmake": "3.20.0",
@@ -12,14 +13,12 @@
         "python": "3.10.12"
     },
     "project": {
-        "semantic_version": "a",
-        "hash": "56e8d7b6",
+        "hash": "fe294a79",
         "branch": "fsa-completion",
-        "commit_count": "1009",
+        "commit_count": "1012",
         "repo": "https://github.com/joshua-jerred/Giraffe",
-        "clean": true,
         "date": "2024-12-21",
-        "time": "03:24:46"
+        "time": "12:50:40"
     },
     "submodules": {
         "boost_erseat": "60377a5",

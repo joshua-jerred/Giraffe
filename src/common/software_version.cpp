@@ -81,15 +81,34 @@ void SoftwareVersion::setVersionFromString(const std::string &version_string) {
   }
 }
 
-std::string SoftwareVersion::getVersionString() const {
+std::string SoftwareVersion::getSemanticVersionString() const {
   return std::to_string(this->major) + "." + std::to_string(this->minor) + "." +
          std::to_string(this->patch) +
-         (stage == Stage::RELEASE ? "" : "-" + getStageAsString());
+         (stage == Stage::RELEASE
+              ? ""
+              : "-" + getStageAsString() + (clean ? "" : "-dev"));
 }
 
 std::string SoftwareVersion::getNumbersAsString() const {
   return std::to_string(this->major) + "." + std::to_string(this->minor) + "." +
          std::to_string(this->patch);
+}
+
+void SoftwareVersion::setStageFromString(const std::string &stage_string) {
+  static_assert(static_cast<uint8_t>(Stage::_NUM_STAGES_) == 5,
+                "Stage enum has changed, update this method");
+
+  if (stage_string == "alpha") {
+    this->stage = Stage::ALPHA;
+  } else if (stage_string == "beta") {
+    this->stage = Stage::BETA;
+  } else if (stage_string == "rc") {
+    this->stage = Stage::RELEASE_CANDIDATE;
+  } else if (stage_string.empty()) {
+    this->stage = Stage::RELEASE;
+  } else {
+    this->stage = Stage::UNKNOWN;
+  }
 }
 
 std::string SoftwareVersion::getStageAsString() const {
@@ -117,7 +136,7 @@ std::string SoftwareVersion::getStageAsString() const {
     break;
   }
 
-  return stage_string + (this->clean ? "" : "-dev");
+  return stage_string;
 }
 
 } // namespace giraffe

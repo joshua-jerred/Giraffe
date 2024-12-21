@@ -19,7 +19,7 @@
 
 using namespace command_line_interface;
 
-static const std::string VALID_TAR_PATH = "gcli_unit_test_tar.tar.gz";
+static const std::string VALID_TAR_PATH = "./giraffe-0.8.0-beta-dev.tar.gz";
 static const std::string SOFTWARE_BASE_DIR =
     "./giraffe_update_pack_test_software";
 static const std::string CURRENT_DIR = SOFTWARE_BASE_DIR + "/current";
@@ -77,12 +77,14 @@ TEST_F(giraffe_updatePack, processTarFile_valid_path) {
   EXPECT_TRUE(up_.processTarFile(VALID_TAR_PATH));
   EXPECT_TRUE(up_.isValid());
 
-  // A copy of the version.json file that was tarred can be found at
-  // tests/daemon/test_update_pack/gcli_unit_test_tar/version.json
+  // A copy of the giraffe_manifest.json file that was tarred can be found at
+  // tests/daemon/test_update_pack/gcli_unit_test_tar/giraffe_manifest.json
   auto sv_opt = up_.getSoftwareVersionOption();
   ASSERT_TRUE(sv_opt.has_value());
 
   auto sv = sv_opt.value();
-  EXPECT_EQ(sv.getNumbersAsString(), "0.8.0");
-  EXPECT_EQ(sv.getStageAsString(), "development");
+  EXPECT_EQ(sv.getNumbersAsString(), "0.8.1");
+  EXPECT_EQ(sv.getStageAsString(), "alpha");
+  EXPECT_EQ(sv.isDevelopmentBuild(), true);
+  EXPECT_EQ(sv.getSemanticVersionString(), "0.8.1-alpha-dev");
 }

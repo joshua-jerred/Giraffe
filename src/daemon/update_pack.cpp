@@ -26,7 +26,7 @@ UpdatePack::UpdatePack(const std::string &current_dir,
 }
 
 bool UpdatePack::processTarFile(const std::filesystem::path &path) {
-  info("Processing update pack: " + source_tar_path_);
+  info("Processing update pack: " + path.string());
 
   if (!setTarFilePath(path)) {
     // error("Error setting tar file path");
@@ -88,7 +88,7 @@ bool UpdatePack::setTarFilePath(const std::filesystem::path &path) {
   try {
     if (!std::filesystem::exists(path) ||
         !std::filesystem::is_regular_file(path)) {
-      error("Invalid tar file path");
+      error("Invalid tar file path " + path.string());
       return false;
     }
 
@@ -164,37 +164,29 @@ bool UpdatePack::readVersionFile() {
   info("Reading version file");
   try {
     // Open the version file and check if it is valid
-    const std::filesystem::path version_file_path =
-        update_dir_ + "/version.json";
-    if (!std::filesystem::exists(version_file_path)) {
-      error("Update pack missing version file");
+    const std::filesystem::path manifest_file_path =
+        update_dir_ + "/giraffe_manifest.json";
+    if (!std::filesystem::exists(manifest_file_path)) {
+      error("Update pack missing manifest file");
       return false;
     }
 
-    // Read the version file and parse it
-    std::ifstream version_file(version_file_path);
-    const Json version_json = Json::parse(version_file);
-
-    // A helper lambda to validate that a key exists in the JSON object
-    auto assertKeyExists = [&](const Json &json, const std::string &key) {
-      if (json.find(key) == json.end()) {
-        throw std::runtime_error("Missing key: " + key);
-      }
-    };
-
-    // Check for the project section, get it, and parse it.
-    assertKeyExists(version_json, "project");
-    const Json &project_json = version_json.at("project");
-
-    // Read in the version number and stage
-    assertKeyExists(project_json, "version");
-    assertKeyExists(project_json, "stage");
-    const std::string version = project_json.at("version").get<std::string>();
-    const std::string stage = project_json.at("stage").get<std::string>();
+    // Read the manifest file and parse it
+    const Json manifest_json = Json::parse(std::ifstream(manifest_file_path));
+    const Json &version_json = manifest_json.at("version");
 
     // Parse the version and stage. These will throw if they are invalid.
-    valid_update_pack_version_.setVersionFromString(version);
-    valid_update_pack_version_.setStageFromString(stage);
+    valid_update_pack_version_.major = version_json.at("major").get<int>();
+    valid_update_pack_version_.minor = version_json.at("minor").get<int>();
+    valid_update_pack_version_.patch = version_json.at("patch").get<int>();
+    valid_update_pack_version_.setStageFromString(
+        version_json.at("stage").get<std::string>());
+    valid_update_pack_version_.clean = version_json.at("clean").get<bool>();
+
+    const std::string generated_version_string =
+        valid_update_pack_version_.getSemanticVersionString();
+
+    std::cout << "we go a version: " << generated_version_string << std::endl;
 
     info("Update pack version: " +
          valid_update_pack_version_.getNumbersAsString() + " " +

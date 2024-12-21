@@ -28,10 +28,11 @@ The package contents that are defined here are implemented in `package.cmake`.
 
 - `giraffe-<full_version_string>.tar.gz`
   - `giraffe-<full_version_string>/`
-    - `gcli` - command line binary, aliased to `giraffe`
+    - `giraffe_manifest.json` - JSON file containing the update manifest
     - `giraffe_daemon` - daemon binary
-    - `giraffe_flight_software` - gfs binary
-    - `giraffe_data_link_server` - g
+    - `gcli` - command line binary, aliased to `giraffe`
+    - `gfs` - flight software
+    - `gdl_server` - data link server
     - `ground_station.tar.gz` - packaged nodejs application
       - `giraffe_ground_station/`
         - `package.json`

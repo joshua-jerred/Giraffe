@@ -18,10 +18,8 @@ mv $TAR_SRC/ground_station.tar.gz $WORK_DIR
 # Copy the binaries into the work directory
 cp $TAR_SRC/binaries/* $WORK_DIR
 
-
-
-
-
+# Tar the work directory
+tar -czf $OUTPUT_FILE $WORK_DIR
 
 # Clean up
-# rm -rf ground_station.tar.gz
+rm -rf $WORK_DIR
