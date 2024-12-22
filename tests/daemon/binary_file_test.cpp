@@ -46,16 +46,32 @@ protected:
   // UpdatePack up_ = UpdatePack(CURRENT_DIR, UPDATE_DIR, false);
 };
 
-TEST_F(BinaryFileTest, isValid) {
+TEST_F(BinaryFileTest, validBin) {
   BinaryFile bin(giraffe::AppIdentifier::COMMAND_LINE, TEST_BINARY_NAME,
                  BINARY_SOURCE_DIR);
 
-  // initialize false
-  EXPECT_FALSE(bin.isValid());
-  EXPECT_NO_THROW(bin.checkValid());
-  EXPECT_TRUE(bin.isValid());
+  EXPECT_FALSE(bin.isValid()); // initialize false
+  EXPECT_TRUE(bin.checkValid());
+  EXPECT_TRUE(bin.isValid()); // checkValid sets this
 
-  // EXPECT_FALSE(bf.setSourcePath("./giraffe"));
-  // EXPECT_FALSE(bf.setSourcePath("./giraffe", false));
-  // EXPECT_TRUE(bf.setSourcePath("./giraffe", true));
+  // easier method than using the `.isValid()` method, just catch exceptions
+  EXPECT_NO_THROW(bin.assertValid());
+}
+
+TEST_F(BinaryFileTest, invalidBin) {
+  // invalid binary file, valid src dir
+  {
+    const std::string BINARY_NAME = "this_isnt_a_real_file.bin";
+    const std::string BINARY_SOURCE_DIR = ".";
+
+    BinaryFile bin(giraffe::AppIdentifier::DAEMON, BINARY_NAME,
+                   BINARY_SOURCE_DIR);
+
+    EXPECT_FALSE(bin.isValid());
+    EXPECT_FALSE(bin.checkValid());
+    EXPECT_FALSE(bin.isValid());
+
+    EXPECT_THROW(bin.assertValid(), std::runtime_error);
+    EXPECT_FALSE(bin.isValid()); // checkValid sets this
+  }
 }

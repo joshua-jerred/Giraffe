@@ -5,6 +5,7 @@ target_sources(giraffe_daemon_core INTERFACE
 )
 target_include_directories(giraffe_daemon_core INTERFACE
   ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}/software_update
 )
 
 target_link_libraries(giraffe_daemon_core INTERFACE

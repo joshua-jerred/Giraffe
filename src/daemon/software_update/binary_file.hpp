@@ -29,12 +29,14 @@ public:
   /// doesn't include the path.
   BinaryFile(const giraffe::AppIdentifier app_id,
              const std::string &binary_filename,
-             const std::filesystem::path parent_dir_path,
+             const std::filesystem::path &src_dir_path,
+             const std::filesystem::path &dst_dir_path,
              const bool need_read_access = true,
              const bool need_write_access = false,
              const bool need_execute_access = false)
-      : app_id_(app_id), parent_dir_path_(parent_dir_path),
-        binary_filename_(binary_filename), need_read_access_(need_read_access),
+      : app_id_(app_id), source_dir_path_(src_dir_path),
+        destination_dir_path_(dst_dir_path), binary_filename_(binary_filename),
+        need_read_access_(need_read_access),
         need_write_access_(need_write_access),
         need_execute_access_(need_execute_access) {
   }
@@ -44,7 +46,7 @@ public:
   bool checkValid() {
     try {
       assertValid();
-    } catch (const std::filesystem::filesystem_error &e) {
+    } catch (const std::runtime_error &e) {
       error_message_ = e.what();
       have_error_message_ = true;
       return false;
@@ -59,8 +61,9 @@ public:
     return is_valid_binary_file_;
   }
 
-  /// @brief Check if the binary file is valid. Throws an exception if it is
-  /// not.
+  /// @brief Check if the binary fhave_error_message_ile is valid. Throws an
+  /// exception if it is not.
+  /// @throw std::runtime_error if the binary file is not valid.
   void assertValid() {
     reset();
 
@@ -68,21 +71,21 @@ public:
     does_binary_exist_ = false;
 
     // Check if the parent directory exists
-    if (!std::filesystem::exists(parent_dir_path_)) {
+    if (!std::filesystem::exists(source_dir_path_)) {
       throw std::runtime_error("Binary parent directory does not exist " +
-                               parent_dir_path_.string() + " for " +
+                               source_dir_path_.string() + " for " +
                                binary_filename_);
     }
-    if (!std::filesystem::is_directory(parent_dir_path_)) {
+    if (!std::filesystem::is_directory(source_dir_path_)) {
       throw std::runtime_error("Binary parent path is not a directory " +
-                               parent_dir_path_.string() + " for " +
+                               source_dir_path_.string() + " for " +
                                binary_filename_);
     }
     does_parent_dir_exist_ = true;
 
     // Check if the binary file exists
     const std::filesystem::path binary_file_path =
-        parent_dir_path_ / binary_filename_;
+        source_dir_path_ / binary_filename_;
     if (!std::filesystem::exists(binary_file_path)) {
       throw std::runtime_error("Binary file does not exist " +
                                binary_file_path.string());
@@ -137,7 +140,7 @@ private:
   }
 
   const giraffe::AppIdentifier app_id_;
-  const std::filesystem::path parent_dir_path_;
+  const std::filesystem::path source_dir_path_;
   const std::string binary_filename_;
 
   const bool need_read_access_;
