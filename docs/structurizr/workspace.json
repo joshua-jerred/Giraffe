@@ -3,7 +3,7 @@
   "description" : "Software architecture of Giraffe.",
   "documentation" : { },
   "id" : 1,
-  "lastModifiedDate" : "2024-12-21T11:52:07Z",
+  "lastModifiedDate" : "2024-12-22T05:55:46Z",
   "model" : {
     "people" : [ {
       "description" : "A user of the hardware and software suite, controlling the flight.",
@@ -314,60 +314,72 @@
       "containerId" : "11",
       "description" : "The component diagram for the flight software.",
       "dimensions" : {
-        "height" : 2060,
-        "width" : 2570
+        "height" : 1766,
+        "width" : 5725
       },
       "elements" : [ {
         "id" : "26",
-        "x" : 1254,
-        "y" : 220
+        "x" : 4091,
+        "y" : 433
       }, {
         "id" : "27",
-        "x" : 265,
-        "y" : 220
+        "x" : 4945,
+        "y" : 1033
       }, {
         "id" : "28",
-        "x" : 241,
-        "y" : 1005
+        "x" : 2683,
+        "y" : 1033
       }, {
         "id" : "29",
-        "x" : 240,
-        "y" : 1395
+        "x" : 1933,
+        "y" : 1033
       }, {
         "id" : "30",
-        "x" : 751,
-        "y" : 1395
+        "x" : 1183,
+        "y" : 1033
       }, {
         "id" : "31",
-        "x" : 751,
-        "y" : 1010
+        "x" : 433,
+        "y" : 1033
       }, {
         "id" : "32",
-        "x" : 1285,
-        "y" : 1000
+        "x" : 4195,
+        "y" : 1033
       }, {
         "id" : "33",
-        "x" : 1280,
-        "y" : 1390
+        "x" : 3445,
+        "y" : 1033
       }, {
         "id" : "34",
-        "x" : 1880,
-        "y" : 995
+        "x" : 4841,
+        "y" : 433
       } ],
       "externalContainerBoundariesVisible" : false,
       "key" : "Components",
       "order" : 3,
+      "paperSize" : "A2_Landscape",
       "relationships" : [ {
-        "id" : "35"
+        "id" : "35",
+        "vertices" : [ {
+          "x" : 4662,
+          "y" : 837
+        }, {
+          "x" : 4825,
+          "y" : 929
+        } ]
       }, {
-        "id" : "36"
+        "id" : "36",
+        "vertices" : [ {
+          "x" : 3266,
+          "y" : 929
+        } ]
       }, {
         "id" : "37"
       } ]
     } ],
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "Containers",
+      "lastSavedView" : "Components",
       "styles" : {
         "elements" : [ {
           "color" : "#ffffff",
