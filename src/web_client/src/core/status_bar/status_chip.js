@@ -33,19 +33,17 @@ const StatusStyle = styled.div`
 const ChipLabel = styled.div`
   background: ${(props) => props.theme.surface_hover_soft};
   border-radius: 0.5em;
-  padding: 0em 0.2em;
-  fontsize: 0.8em;
+  padding: 0em 0.3em;
 `;
 
 const ChipValue = styled.div`
-  padding: 0em 0.2em;
-  // fontsize: 0.6em;
+  padding: 0em 0.5em;
 `;
 
 const ChipStyle = styled.div`
   display: grid;
   grid-template-columns: 2fr 4fr;
-  width: fit-content;
+  width: min-content;
 
   background: ${(props) => props.theme.surface};
   border: 0.05em solid ${(props) => props.theme.surface_hover_hard};
@@ -66,43 +64,61 @@ function StatusChip({
   useEffect(() => {
     console.log("StatusChip rendered", status);
 
-    let new_status = status.toUpperCase();
+    let new_status_text = status.toUpperCase();
     let new_background = "";
-    if (new_status === "CONNECTED") {
+    let new_text_color = "";
+    if (new_status_text === "CONNECTED") {
+      new_status_text = "OK";
       new_background = theme.success;
+      new_text_color = theme.on_success;
     } else if (
-      new_status === "DISCONNECTED" ||
-      new_status === "ERROR" ||
-      new_status === "DOWN"
+      new_status_text === "DISCONNECTED" ||
+      new_status_text === "ERROR" ||
+      new_status_text === "DOWN"
     ) {
+      if (new_status_text === "DISCONNECTED") {
+        new_status_text = "DS";
+      } else if (new_status_text === "ERROR") {
+        new_status_text = "ER";
+      }
+
       new_background = theme.error;
-    } else if (new_status === "UNKNOWN" || new_status === "N/D") {
+      new_text_color = theme.on_error;
+    } else if (new_status_text === "UNKNOWN" || new_status_text === "N/D") {
+      if (new_status_text === "UNKNOWN") {
+        new_status_text = "UK";
+      } else if (new_status_text === "N/D") {
+        new_status_text = "N/D";
+      }
       new_background = theme.warning;
-    } else if (new_status === "DISABLED") {
+      new_text_color = theme.on_warning;
+    } else if (new_status_text === "DISABLED") {
       new_background = theme.surface_hover_hard;
+      new_text_color = theme.on_surface;
     } else {
       new_background = theme.primary;
+      new_text_color = theme.on_primary;
     }
 
-    setStatusText(new_status);
+    setStatusText(new_status_text);
     setBackgroundColor(new_background);
+    setTextColor(new_text_color);
   }, [status]);
 
   return (
-    <ChipStyle>
-      {/* <Tooltip text={tooltip} vertical_position={"-400%"}> */}
-      {/* <StatusStyle status={status}>{abbreviation.toUpperCase()}</StatusStyle> */}
-      <ChipLabel
-        style={{
-          backgroundColor: backgroundColor,
-          color: textColor,
-        }}
-      >
-        {abbreviation.toUpperCase()}
-      </ChipLabel>
-      {/* </Tooltip> */}
-      <ChipValue>{status.toUpperCase()}</ChipValue>
-    </ChipStyle>
+    <Tooltip text={tooltip} vertical_position={"-400%"}>
+      <ChipStyle>
+        <ChipLabel
+          style={{
+            backgroundColor: backgroundColor,
+            color: textColor,
+          }}
+        >
+          {abbreviation.toUpperCase()}
+        </ChipLabel>
+        <ChipValue>{statusText}</ChipValue>
+      </ChipStyle>
+    </Tooltip>
   );
 }
 

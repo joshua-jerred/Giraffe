@@ -23,8 +23,11 @@ import ServiceStatusDisplay from "./service_status_display.js";
 const StatusCard = styled.div`
   display: grid;
   // grid-gap: 10px;
-  grid-template-columns: 1fr 3fr 1fr;
   // grid-auto-rows: 15px;
+  grid-template-columns: 1fr 3fr 1fr;
+  @media(max-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   user-select: none;
 
@@ -49,8 +52,8 @@ const StatusCard = styled.div`
 const StatusGrid = styled.div`
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  grid-auto-rows: 15px;
+  // grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  // grid-auto-rows: 15px;
 `;
 
 const BarItemStyle = styled.div`
@@ -398,8 +401,18 @@ function StatusBar() {
   return (
     <>
       <StatusCard>
-        {/* <StatusGrid> */}
-        {/* <Tooltip text="The current mission time." vertical_position={"-600%"}>
+        <StatusGrid>
+          <Tooltip text="The current flight phase" vertical_position={"-600%"}>
+            <StatusItem
+              title="PHASE"
+              status={
+                isGgsConnected && flightData.flight_phase
+                  ? flightData.flight_phase.toUpperCase()
+                  : "n/d"
+              }
+            />
+          </Tooltip>
+          <Tooltip text="The current mission time." vertical_position={"-600%"}>
             <StyledTime
               onClick={() => {
                 setShowVerboseClock(!showVerboseClock);
@@ -415,82 +428,8 @@ function StatusBar() {
               <span>{getCurrentUtc()}</span>
             </StyledTime>
           </Tooltip>
-          <Tooltip text="The current flight phase" vertical_position={"-600%"}>
-            <StatusItem
-              title=""
-              status={
-                isGgsConnected && flightData.flight_phase
-                  ? flightData.flight_phase.toUpperCase()
-                  : "n/d"
-              }
-            />
-          </Tooltip> */}
 
-        {/* <Tooltip
-            text="Ground station connection status"
-            vertical_position={"-600%"}
-          >
-            <StatusItem
-              title="GGS"
-              status={isGgsConnected ? "CONNECTED" : "DISCONNECTED"}
-            />
-          </Tooltip> */}
-
-        {/* <Tooltip
-            text="Flight System Agent Connection Status"
-            vertical_position={"-600%"}
-          >
-            <StatusItem
-              title="FSA"
-              status={
-                isGgsConnected && serviceStatuses.fsa
-                  ? serviceStatuses.fsa.toUpperCase()
-                  : "n/d"
-              }
-            />
-          </Tooltip> */}
-        {/*
-          <Tooltip
-            text="The status of the flight software according to the flight system agent."
-            vertical_position={"-700%"}
-            horizontal_position={"70%"}
-          >
-            <StatusItem
-              title="FSA-GFS"
-              status={
-                isGgsConnected && serviceStatuses.fsa
-                  ? serviceStatuses.fsa_gfs_status.toUpperCase()
-                  : "n/d"
-              }
-            />
-          </Tooltip> */}
-
-        {/* <Tooltip text="GFS TCP Connection Status" vertical_position={"-600%"}>
-            <StatusItem
-              title="GFS"
-              status={
-                isGgsConnected && serviceStatuses.gfs
-                  ? serviceStatuses.gfs.toUpperCase()
-                  : "n/d"
-              }
-            />
-          </Tooltip> */}
-        {/*
-          <Tooltip
-            text="GDL Server Connection Status"
-            vertical_position={"-600%"}
-          >
-            <StatusItem
-              title="GDL"
-              status={
-                isGgsConnected && serviceStatuses.gdl
-                  ? serviceStatuses.gdl.toUpperCase()
-                  : "UNKNOWN"
-              }
-            />
-          </Tooltip> */}
-
-        {/* <Tooltip text="telemetry up-link status" vertical_position={"-600%"}>
+          {/* <Tooltip text="telemetry up-link status" vertical_position={"-600%"}>
             <StatusItem
               title={<FontAwesomeIcon icon={faSatelliteDish} />}
               status={
@@ -501,7 +440,7 @@ function StatusBar() {
             />
           </Tooltip> */}
 
-        {/* <Tooltip
+          {/* <Tooltip
             text="telemetry down-link status"
             vertical_position={"-600%"}
           >
@@ -514,7 +453,7 @@ function StatusBar() {
               }
             />
           </Tooltip> */}
-        {/* </StatusGrid> */}
+        </StatusGrid>
         <ServiceStatusDisplay />
         <AlerterToggle setExpanded={setExpanded} expanded={expanded} />
       </StatusCard>
