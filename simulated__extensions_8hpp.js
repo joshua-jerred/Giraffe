@@ -7,5 +7,6 @@ var simulated__extensions_8hpp =
     [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],
     [ "SimPressureSensor", "classextension_1_1SimPressureSensor.html", "classextension_1_1SimPressureSensor" ],
     [ "SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", "classextension_1_1SimTemperatureSensor" ],
+    [ "SimTest", "classextension_1_1SimTest.html", "classextension_1_1SimTest" ],
     [ "K_SIMULATED_EXTENSIONS_VEC", "simulated__extensions_8hpp.html#acea3c2f1a9f2b59a10ae1f1ca30a1edf", null ]
 ];

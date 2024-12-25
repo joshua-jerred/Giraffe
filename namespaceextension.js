@@ -19,6 +19,8 @@ var namespaceextension =
     [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],
     [ "SimPressureSensor", "classextension_1_1SimPressureSensor.html", "classextension_1_1SimPressureSensor" ],
     [ "SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", "classextension_1_1SimTemperatureSensor" ],
+    [ "SimTest", "classextension_1_1SimTest.html", "classextension_1_1SimTest" ],
+    [ "UnitTestExtension", "classextension_1_1UnitTestExtension.html", "classextension_1_1UnitTestExtension" ],
     [ "StartupState", "namespaceextension.html#a842aaad519772b36cb48adc23ee56afc", [
       [ "I2C_CONNECT", "namespaceextension.html#a842aaad519772b36cb48adc23ee56afca9beed4c399bcd8838fc481753cf30ad6", null ],
       [ "HANDSHAKE", "namespaceextension.html#a842aaad519772b36cb48adc23ee56afca84fcef12cce95eb15cffe4338ecf5d29", null ],

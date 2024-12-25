@@ -3,7 +3,7 @@
 <area shape="rect" id="node2" href="$classFlightPhaseManagerTest.html#a5e3d6bde01d6b5c2dd3d42ec93579100" title=" " alt="" coords="712,5,893,47"/>
 <area shape="rect" id="node3" href="$classFakeSharedData.html#a8898301bb9ce956c3493966b6756b1a5" title=" " alt="" coords="705,71,900,98"/>
 <area shape="rect" id="node4" href="$classFakeSharedData.html#af51255fe455f0e522ed5575232c2bd55" title=" " alt="" coords="693,122,912,149"/>
-<area shape="rect" id="node5" href="$classFakeSharedData.html#ac1e44e4cfb52a346a70becccda9d42cf" title=" " alt="" coords="697,173,908,199"/>
+<area shape="rect" id="node5" href="$classFakeSharedData.html#ac1e44e4cfb52a346a70becccda9d42cf" title="Check if the next log item in the log stream has the given id. Clears packets until it finds one." alt="" coords="697,173,908,199"/>
 <area shape="rect" id="node6" href="$classConfigurationTest.html#ab2b4b33a1b2b1f63069a9515449aa92f" title=" " alt="" coords="731,224,874,265"/>
 <area shape="rect" id="node7" href="$classExtensionTestFramework.html#ac7e990a9c39cd8f420be41a3a85526ad" title=" " alt="" coords="710,289,895,331"/>
 <area shape="rect" id="node8" href="$classmodules_1_1DataModule.html#a37e62fa014daa40f23bbe66aa2435077" title="Used to process shared streams." alt="" coords="720,355,885,396"/>

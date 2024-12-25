@@ -1,7 +1,10 @@
 <map id="modules::Module::info" name="modules::Module::info">
-<area shape="rect" id="node1" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="756,49,923,75"/>
-<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="509,12,708,53"/>
+<area shape="rect" id="node1" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="756,111,923,138"/>
+<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="509,20,708,61"/>
+<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45" title="Called when a command is received." alt="" coords="5,64,204,105"/>
 <area shape="rect" id="node5" href="$classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628" title="This function is called when the module is started." alt="" coords="257,71,456,112"/>
+<area shape="rect" id="node6" href="$classmodules_1_1ExtensionModule.html#a175bbc33651ec0c0e8f229d28968c5e8" title=" " alt="" coords="509,188,708,229"/>
 <area shape="rect" id="node3" href="$classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8" title=" " alt="" coords="252,5,461,47"/>
-<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45" title="Called when a command is received." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="node7" href="$classmodules_1_1ExtensionModule.html#a7e340a29ea74351f2ea50f9d76c2e152" title=" " alt="" coords="257,188,456,229"/>
+<area shape="rect" id="node8" href="$classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c" title="Continually called at a rate set by the sleep interval." alt="" coords="5,188,204,229"/>
 </map>

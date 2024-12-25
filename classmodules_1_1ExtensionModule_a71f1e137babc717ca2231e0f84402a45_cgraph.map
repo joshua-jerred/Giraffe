@@ -1,9 +1,9 @@
 <map id="modules::ExtensionModule::processCommand" name="modules::ExtensionModule::processCommand">
-<area shape="rect" id="node1" title="Called when a command is received." alt="" coords="5,207,204,248"/>
-<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8" title=" " alt="" coords="252,148,461,189"/>
-<area shape="rect" id="node5" href="$classmodules_1_1Module.html#a62806f82a3b853d0d2de55efbf5649bc" title="Used internally in the module. This function adds an error to the log stream. It is used to log error..." alt="" coords="769,126,942,153"/>
-<area shape="rect" id="node3" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="509,60,708,101"/>
-<area shape="rect" id="node7" href="$classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0" title=" " alt="" coords="509,177,708,219"/>
-<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html#aac4d67e03d9fa7029bf15a3ac79ca9c5" title=" " alt="" coords="756,5,955,47"/>
-<area shape="rect" id="node6" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="772,71,939,98"/>
+<area shape="rect" id="node1" title="Called when a command is received." alt="" coords="5,96,204,138"/>
+<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8" title=" " alt="" coords="252,96,461,138"/>
+<area shape="rect" id="node5" href="$classmodules_1_1Module.html#a62806f82a3b853d0d2de55efbf5649bc" title="Used internally in the module. This function adds an error to the log stream. It is used to log error..." alt="" coords="769,104,942,130"/>
+<area shape="rect" id="node6" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="772,221,939,248"/>
+<area shape="rect" id="node3" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="509,155,708,196"/>
+<area shape="rect" id="node7" href="$classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0" title=" " alt="" coords="509,38,708,79"/>
+<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html#aac4d67e03d9fa7029bf15a3ac79ca9c5" title=" " alt="" coords="756,155,955,196"/>
 </map>

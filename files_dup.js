@@ -430,5 +430,8 @@ var files_dup =
     [ "ubx_protocol.cpp", "ubx__protocol_8cpp.html", "ubx__protocol_8cpp" ],
     [ "ubx_protocol.hpp", "ubx__protocol_8hpp.html", "ubx__protocol_8hpp" ],
     [ "unit_test.hpp", "unit__test_8hpp.html", null ],
+    [ "unit_test_extension.hpp", "unit__test__extension_8hpp.html", [
+      [ "UnitTestExtension", "classextension_1_1UnitTestExtension.html", "classextension_1_1UnitTestExtension" ]
+    ] ],
     [ "validation.hpp", "validation_8hpp.html", "validation_8hpp" ]
 ];

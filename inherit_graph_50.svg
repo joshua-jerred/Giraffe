@@ -11,9 +11,9 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="namespacedata.html#structdata_1_1ImuFrame" target="_top" xlink:title="A frame of +IMU data, straight from an IMU extension.">
+<g id="a_node1"><a xlink:href="structdata_1_1GpsFrame.html" target="_top" xlink:title="A frame of GPS data straight from a GPS extension.">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 94,-19.5 94,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="47" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::ImuFrame</text>
+<text text-anchor="middle" x="47" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">data::GpsFrame</text>
 </a>
 </g>
 </g>

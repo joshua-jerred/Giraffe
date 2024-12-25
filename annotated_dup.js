@@ -90,7 +90,9 @@ var annotated_dup =
       [ "SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", "classextension_1_1SimHumiditySensor" ],
       [ "SimImuSensor", "classextension_1_1SimImuSensor.html", "classextension_1_1SimImuSensor" ],
       [ "SimPressureSensor", "classextension_1_1SimPressureSensor.html", "classextension_1_1SimPressureSensor" ],
-      [ "SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", "classextension_1_1SimTemperatureSensor" ]
+      [ "SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", "classextension_1_1SimTemperatureSensor" ],
+      [ "SimTest", "classextension_1_1SimTest.html", "classextension_1_1SimTest" ],
+      [ "UnitTestExtension", "classextension_1_1UnitTestExtension.html", "classextension_1_1UnitTestExtension" ]
     ] ],
     [ "gfs_sim", "namespacegfs__sim.html", [
       [ "BalloonPhysics", "classgfs__sim_1_1BalloonPhysics.html", "classgfs__sim_1_1BalloonPhysics" ],

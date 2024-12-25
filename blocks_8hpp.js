@@ -10,6 +10,11 @@ var blocks_8hpp =
     [ "ConfigurationStats", "structdata_1_1blocks_1_1ConfigurationStats.html", "structdata_1_1blocks_1_1ConfigurationStats" ],
     [ "DataLogStats", "structdata_1_1blocks_1_1DataLogStats.html", "structdata_1_1blocks_1_1DataLogStats" ],
     [ "ExtensionModuleStats", "structdata_1_1blocks_1_1ExtensionModuleStats.html", "structdata_1_1blocks_1_1ExtensionModuleStats" ],
+    [ "ExtensionStatus", "structdata_1_1blocks_1_1ExtensionModuleStats.html#structdata_1_1blocks_1_1ExtensionModuleStats_1_1ExtensionStatus", [
+      [ "name", "structdata_1_1blocks_1_1ExtensionModuleStats.html#a559c69802a33e11e95b9d0afc8aee6e0", null ],
+      [ "control_status", "structdata_1_1blocks_1_1ExtensionModuleStats.html#a28677557a2836ba359e608c8ba1c25d4", null ],
+      [ "internal_status", "structdata_1_1blocks_1_1ExtensionModuleStats.html#a37d79c94d05f3a7d246ca092339e3684", null ]
+    ] ],
     [ "FileSystemData", "structdata_1_1blocks_1_1FileSystemData.html", "structdata_1_1blocks_1_1FileSystemData" ],
     [ "ImuData", "namespacedata_1_1blocks.html#structdata_1_1blocks_1_1ImuData", [
       [ "have_imu_source", "namespacedata_1_1blocks.html#a4271d0ad8e1a773070a20e8df233fcda", null ],

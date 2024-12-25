@@ -107,6 +107,7 @@ $(document).ready(function(){initNavTree('classmodules_1_1ExtensionModule.html',
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classmodules_1_1ExtensionModule-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -118,13 +119,13 @@ $(document).ready(function(){initNavTree('classmodules_1_1ExtensionModule.html',
 <div class="dynheader">
 Inheritance diagram for modules::ExtensionModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1ExtensionModule__inherit__graph.svg" width="231" height="918"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1ExtensionModule__inherit__graph.svg" width="231" height="932"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for modules::ExtensionModule:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1ExtensionModule__coll__graph.svg" width="6714" height="1863"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1ExtensionModule__coll__graph.svg" width="6430" height="1859"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -255,6 +256,12 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a1cd2eee245baf8ca152049ee0d6966c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0">updateLocalConfig</a> () override</td></tr>
 <tr class="separator:a1cd2eee245baf8ca152049ee0d6966c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:aefc9ab95df0d8a5f2ccfdee352ef758f"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1ExtensionModule.html#aefc9ab95df0d8a5f2ccfdee352ef758f">actionToString</a> (<a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0">ExtAction</a> action)</td></tr>
+<tr class="memdesc:aefc9ab95df0d8a5f2ccfdee352ef758f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the state machine action to a string.  <a href="classmodules_1_1ExtensionModule.html#aefc9ab95df0d8a5f2ccfdee352ef758f">More...</a><br /></td></tr>
+<tr class="separator:aefc9ab95df0d8a5f2ccfdee352ef758f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a7d855a6e0bc3c2a826fa396d4c5486d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcmd_1_1CommandQueue.html">cmd::CommandQueue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#a7d855a6e0bc3c2a826fa396d4c5486d3">command_queue_</a></td></tr>
@@ -381,9 +388,49 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="reference">References <a class="el" href="classmodules_1_1ExtensionModule.html#a69c9b2da0c6bef239597384fb968b94c">extensions_</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aefc9ab95df0d8a5f2ccfdee352ef758f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefc9ab95df0d8a5f2ccfdee352ef758f">&#9670;&nbsp;</a></span>actionToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string modules::ExtensionModule::actionToString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0">ExtAction</a>&#160;</td>
+          <td class="paramname"><em>action</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the state machine action to a string. </p>
+
+<p class="reference">References <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0afc93ea58f6d27ffed2b6518ffecf3e4e">DISABLE</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a96625ccd445f48cbdf63a89fe5a42986">ERROR_DISABLE</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a5e8be6f910195a9e4e39316f8e9b1ca8">ERROR_RESTART</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0af8d4d3f467764b466066ba19c58b063d">ERROR_START</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a71324e1dc72376e51aa681da3ede17de">ERROR_STOP</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a1104c54a9ec6549e4ef9562b687596fb">RESTART</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a855520d2a5b0b1a64b939e7e30889e2a">RUN</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0ab078ffd28db767c502ac367053f6e0ac">START</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a615a46af313786fc4e349f34118be111">STOP</a>, and <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c">loop()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1ExtensionModule_aefc9ab95df0d8a5f2ccfdee352ef758f_icgraph.svg" width="456" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a8d06e0f4610f2aa3e9affffb09e9b628"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d06e0f4610f2aa3e9affffb09e9b628">&#9670;&nbsp;</a></span>startup()</h2>
 
@@ -446,14 +493,16 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Continually called at a rate set by the sleep interval. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000049">Todo:</a></b></dt><dd>this really doesn't belong here. This data is accessible via shared data, there should be a common LED controller </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000050">Todo:</a></b></dt><dd>Consider updating the below less often, the extension module runs a lot. Maybe it isn't worth fixing now /shrug </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classmodules_1_1Module.html#a891a50cbafecd2d026274a75acc5af41">modules::Module</a>.</p>
 
-<p class="reference">References <a class="el" href="structdata_1_1SharedData.html#ab98a7a65eac8ffd555f886a6a45e3142">data::SharedData::blocks</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a915ff45c409413ba871631932e509937">extension_metadata_</a>, <a class="el" href="namespacedata.html#afc079d0e60bc3f2fce9f722e0352746d">data::SharedBlocks::extension_module_stats</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a69c9b2da0c6bef239597384fb968b94c">extensions_</a>, <a class="el" href="namespacenode.html#a81309cf0b2b2e9b5812e5d829c314da3">node::K_ACTIVE_STATUSES</a>, <a class="el" href="structdata_1_1blocks_1_1ExtensionModuleStats.html#a47ca93b0d6e55530672c7480646c3621">data::blocks::ExtensionModuleStats::num_active</a>, <a class="el" href="structdata_1_1blocks_1_1ExtensionModuleStats.html#a945e83c39a9360dc8c271519e21267df">data::blocks::ExtensionModuleStats::num_configured</a>, <a class="el" href="structdata_1_1blocks_1_1ExtensionModuleStats.html#adf08cfda46dc8e767c935639daf4f439">data::blocks::ExtensionModuleStats::num_inactive</a>, <a class="el" href="classgiraffe_1_1StatusLedState.html#ac466bf4967bba3606a8c3718df6f342da88559a0cfd8250c9d65970cc145c92d4">giraffe::StatusLedState::OFF</a>, <a class="el" href="classgiraffe_1_1StatusLedState.html#a689922cb21411c5fbc7eab9a7a800daf">giraffe::StatusLedState::setBlue()</a>, <a class="el" href="classmodules_1_1Module.html#a0f304eba8e2832d972345f48fb8f33f1">modules::Module::shared_data_</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a7e340a29ea74351f2ea50f9d76c2e152">stateMachine()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a44ce4f37d31866fbe208c4d208f002d4">stats_</a>, <a class="el" href="structdata_1_1SharedData.html#a7c6f482dc4d558d8463ea2ffcd906fed">data::SharedData::status_led</a>, and <a class="el" href="classmodules_1_1ExtensionModule.html#aefe7c8995837fe5b028f8e1742f14c3f">status_polling_timer_</a>.</p>
+<p class="reference">References <a class="el" href="classmodules_1_1ExtensionModule.html#aefc9ab95df0d8a5f2ccfdee352ef758f">actionToString()</a>, <a class="el" href="structdata_1_1SharedData.html#ab98a7a65eac8ffd555f886a6a45e3142">data::SharedData::blocks</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a915ff45c409413ba871631932e509937">extension_metadata_</a>, <a class="el" href="namespacedata.html#afc079d0e60bc3f2fce9f722e0352746d">data::SharedBlocks::extension_module_stats</a>, <a class="el" href="structdata_1_1blocks_1_1ExtensionModuleStats.html#af9f6ab9f0d42d3c1ffd48b685c0aa530">data::blocks::ExtensionModuleStats::extension_statuses</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a69c9b2da0c6bef239597384fb968b94c">extensions_</a>, <a class="el" href="namespacenode.html#a81309cf0b2b2e9b5812e5d829c314da3">node::K_ACTIVE_STATUSES</a>, <a class="el" href="structdata_1_1blocks_1_1ExtensionModuleStats.html#a559c69802a33e11e95b9d0afc8aee6e0">data::blocks::ExtensionModuleStats::ExtensionStatus::name</a>, <a class="el" href="structdata_1_1blocks_1_1ExtensionModuleStats.html#a47ca93b0d6e55530672c7480646c3621">data::blocks::ExtensionModuleStats::num_active</a>, <a class="el" href="structdata_1_1blocks_1_1ExtensionModuleStats.html#a945e83c39a9360dc8c271519e21267df">data::blocks::ExtensionModuleStats::num_configured</a>, <a class="el" href="structdata_1_1blocks_1_1ExtensionModuleStats.html#adf08cfda46dc8e767c935639daf4f439">data::blocks::ExtensionModuleStats::num_inactive</a>, <a class="el" href="classgiraffe_1_1StatusLedState.html#ac466bf4967bba3606a8c3718df6f342da88559a0cfd8250c9d65970cc145c92d4">giraffe::StatusLedState::OFF</a>, <a class="el" href="classgiraffe_1_1StatusLedState.html#a689922cb21411c5fbc7eab9a7a800daf">giraffe::StatusLedState::setBlue()</a>, <a class="el" href="classmodules_1_1Module.html#a0f304eba8e2832d972345f48fb8f33f1">modules::Module::shared_data_</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a7e340a29ea74351f2ea50f9d76c2e152">stateMachine()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a44ce4f37d31866fbe208c4d208f002d4">stats_</a>, <a class="el" href="structdata_1_1SharedData.html#a7c6f482dc4d558d8463ea2ffcd906fed">data::SharedData::status_led</a>, and <a class="el" href="classmodules_1_1ExtensionModule.html#aefe7c8995837fe5b028f8e1742f14c3f">status_polling_timer_</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1ExtensionModule_a4a9cad44242ecc6a5238152ef0ac648c_cgraph.svg" width="703" height="510"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1ExtensionModule_a4a9cad44242ecc6a5238152ef0ac648c_cgraph.svg" width="918" height="510"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -524,11 +573,11 @@ Here is the call graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="classmodules_1_1Module.html#afc54834fc6a5d2cb5b55b18c3b46f8a8">modules::Module</a>.</p>
 
-<p class="reference">References <a class="el" href="classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8">addPreConfiguredExtension()</a>, <a class="el" href="namespacecmd.html#ac807c769aa248d965dcee19e3e025624">cmd::Command::command_id</a>, <a class="el" href="classmodules_1_1Module.html#a62806f82a3b853d0d2de55efbf5649bc">modules::Module::error()</a>, and <a class="el" href="namespacecmd.html#a4df5a705227810da5bcd8f8d0326878b">cmd::Command::str_arg</a>.</p>
+<p class="reference">References <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#a864d0f1187fb285a6d27da95ab67b313">modules::ExtensionModule::ExtContainer::action</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8">addPreConfiguredExtension()</a>, <a class="el" href="namespacecmd.html#ac807c769aa248d965dcee19e3e025624">cmd::Command::command_id</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0afc93ea58f6d27ffed2b6518ffecf3e4e">DISABLE</a>, <a class="el" href="classmodules_1_1Module.html#a62806f82a3b853d0d2de55efbf5649bc">modules::Module::error()</a>, <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#af6af83f981bf3388e23439ad8234ff9c">modules::ExtensionModule::ExtContainer::extension</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a69c9b2da0c6bef239597384fb968b94c">extensions_</a>, <a class="el" href="classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3">modules::Module::info()</a>, <a class="el" href="namespacenode.html#a69f87e95ceae3b62b947fb4e4106dd12">node::K_INACTIVE_STATUSES</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a1104c54a9ec6549e4ef9562b687596fb">RESTART</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0ab078ffd28db767c502ac367053f6e0ac">START</a>, and <a class="el" href="namespacecmd.html#a4df5a705227810da5bcd8f8d0326878b">cmd::Command::str_arg</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1ExtensionModule_a71f1e137babc717ca2231e0f84402a45_cgraph.svg" width="960" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1ExtensionModule_a71f1e137babc717ca2231e0f84402a45_cgraph.svg" width="960" height="254"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -556,7 +605,7 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000049">Todo:</a></b></dt><dd>Implement the loading/updating of extensions </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000051">Todo:</a></b></dt><dd>Implement the loading/updating of extensions </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classmodules_1_1Module.html#a72791485ce9256e7d8a1c64be4b10a3e">modules::Module</a>.</p>
 
@@ -637,6 +686,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000052">Todo:</a></b></dt><dd>consider handling this with an error if it isn't handled above. </dd></dl>
 
 <p class="reference">References <a class="el" href="test__interfaces_8cpp.html#a6187065ec0705f3c92aa91a2be516fea">BME280</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a1676a6429bf5554a42801ccd7fea0bb3">extension_resources_</a>, <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a68c6639ddbb6bde7e99481d3e0e2f5f7">restart_delay_</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#ab3f0073bdc17fa42885010c4cee50514">startup_timeout_</a>, and <a class="el" href="structcfg_1_1ExtensionMetadata.html#a2076002274b61b4ef4c5bf79534d9834">cfg::ExtensionMetadata::type</a>.</p>
 
@@ -722,7 +772,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1ExtensionModule_a7e340a29ea74351f2ea50f9d76c2e152_cgraph.svg" width="456" height="510"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1ExtensionModule_a7e340a29ea74351f2ea50f9d76c2e152_cgraph.svg" width="671" height="510"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -794,6 +844,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p class="reference">References <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#af6af83f981bf3388e23439ad8234ff9c">modules::ExtensionModule::ExtContainer::extension</a>, and <a class="el" href="namespacenode.html#a81309cf0b2b2e9b5812e5d829c314da3">node::K_ACTIVE_STATUSES</a>.</p>
+
 <p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a7e340a29ea74351f2ea50f9d76c2e152">stateMachine()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -863,7 +915,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000050">Todo:</a></b></dt><dd>watchdog timer? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000053">Todo:</a></b></dt><dd>watchdog timer? </dd></dl>
 
 <p class="reference">References <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#a864d0f1187fb285a6d27da95ab67b313">modules::ExtensionModule::ExtContainer::action</a>, <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419abb1ca97ec761fc37101737ba0aa2e7c5">node::ERROR</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a5e8be6f910195a9e4e39316f8e9b1ca8">ERROR_RESTART</a>, <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#af6af83f981bf3388e23439ad8234ff9c">modules::ExtensionModule::ExtContainer::extension</a>, <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>, and <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a43491564ebcfd38568918efbd6e840fd">node::RUNNING</a>.</p>
 
@@ -900,7 +952,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000051">Todo:</a></b></dt><dd>handle the fault code? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000054">Todo:</a></b></dt><dd>handle the fault code? </dd></dl>
 
 <p class="reference">References <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419abb1ca97ec761fc37101737ba0aa2e7c5">node::ERROR</a>, <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#af6af83f981bf3388e23439ad8234ff9c">modules::ExtensionModule::ExtContainer::extension</a>, <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>, <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a43491564ebcfd38568918efbd6e840fd">node::RUNNING</a>, <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#adead644ee88c2715ef1310d5134d1569">modules::ExtensionModule::ExtContainer::startup_shutdown_timer</a>, <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a09d4d696b4e935115b9313e3c412509a">node::STOPPED</a>, and <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419af6cdb3c6710b50ec65ee07f740847e10">node::STOPPING</a>.</p>
 
@@ -938,9 +990,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>.</p>
+<p class="reference">References <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#a864d0f1187fb285a6d27da95ab67b313">modules::ExtensionModule::ExtContainer::action</a>, <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419abb1ca97ec761fc37101737ba0aa2e7c5">node::ERROR</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a5e8be6f910195a9e4e39316f8e9b1ca8">ERROR_RESTART</a>, <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#af6af83f981bf3388e23439ad8234ff9c">modules::ExtensionModule::ExtContainer::extension</a>, <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>, <a class="el" href="classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3">modules::Module::info()</a>, <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#a1df6843f47a6e3de30c3b35bcfb8cf19">modules::ExtensionModule::ExtContainer::metadata</a>, <a class="el" href="structcfg_1_1ExtensionMetadata.html#a8556f3c5b32196f4a7d28e72b997ef5c">cfg::ExtensionMetadata::name</a>, <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a43491564ebcfd38568918efbd6e840fd">node::RUNNING</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0ab078ffd28db767c502ac367053f6e0ac">START</a>, <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#adead644ee88c2715ef1310d5134d1569">modules::ExtensionModule::ExtContainer::startup_shutdown_timer</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#ab3f0073bdc17fa42885010c4cee50514">startup_timeout_</a>, <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419a09d4d696b4e935115b9313e3c412509a">node::STOPPED</a>, and <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419af6cdb3c6710b50ec65ee07f740847e10">node::STOPPING</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a7e340a29ea74351f2ea50f9d76c2e152">stateMachine()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1ExtensionModule_a175bbc33651ec0c0e8f229d28968c5e8_cgraph.svg" width="424" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -973,8 +1031,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000052">Todo:</a></b></dt><dd>handle the fault code </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000053">Todo:</a></b></dt><dd>add delay </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000055">Todo:</a></b></dt><dd>handle the fault code </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000056">Todo:</a></b></dt><dd>add delay </dd></dl>
 
 <p class="reference">References <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#a864d0f1187fb285a6d27da95ab67b313">modules::ExtensionModule::ExtContainer::action</a>, <a class="el" href="namespacenode.html#a5360cad6ada29a0aae6013099cab6419abb1ca97ec761fc37101737ba0aa2e7c5">node::ERROR</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a96625ccd445f48cbdf63a89fe5a42986">ERROR_DISABLE</a>, <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#af6af83f981bf3388e23439ad8234ff9c">modules::ExtensionModule::ExtContainer::extension</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a348a468174a4b46795dcc843181afbdb">max_startup_attempts_</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0ab078ffd28db767c502ac367053f6e0ac">START</a>, and <a class="el" href="structmodules_1_1ExtensionModule_1_1ExtContainer.html#aec4751a44f86aa2d266240d2cbe6e954">modules::ExtensionModule::ExtContainer::startup_attempts</a>.</p>
 
@@ -1012,6 +1070,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p class="reference">References <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>.</p>
+
 <p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a7e340a29ea74351f2ea50f9d76c2e152">stateMachine()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1045,6 +1105,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="giraffe__assert_8hpp.html#afefe70a19fe7eb211420135a66070d71">giraffe_assert</a>.</p>
 
 </div>
 </div>
@@ -1227,7 +1289,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000054">Todo:</a></b></dt><dd>Sets the status of the module and reports it to the data stream. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000057">Todo:</a></b></dt><dd>Sets the status of the module and reports it to the data stream. </dd></dl>
 
 </div>
 </div>
@@ -1364,11 +1426,11 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b">addExtension()</a>, and <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">startup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b">addExtension()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45">processCommand()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a175bbc33651ec0c0e8f229d28968c5e8">restartState()</a>, and <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">startup()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_abcfa8274b894b6a2a131254e76cd9fb3_icgraph.svg" width="928" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1Module_abcfa8274b894b6a2a131254e76cd9fb3_icgraph.svg" width="928" height="235"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -1621,7 +1683,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b">addExtension()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c">loop()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a538bf1f3d30c269f50e11cab633aebf7">shutdown()</a>, and <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">startup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#a1e4b200a676551c2b8aac5946b81ae05">~ExtensionModule()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b">addExtension()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c">loop()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45">processCommand()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a538bf1f3d30c269f50e11cab633aebf7">shutdown()</a>, and <a class="el" href="classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628">startup()</a>.</p>
 
 </div>
 </div>
@@ -1789,7 +1851,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#aac4d67e03d9fa7029bf15a3ac79ca9c5">createExtension()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#ac2ce6fd94514eecf52156a9fac800965">unknownState()</a>, and <a class="el" href="classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0">updateLocalConfig()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classmodules_1_1ExtensionModule.html#aac4d67e03d9fa7029bf15a3ac79ca9c5">createExtension()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#a175bbc33651ec0c0e8f229d28968c5e8">restartState()</a>, <a class="el" href="classmodules_1_1ExtensionModule.html#ac2ce6fd94514eecf52156a9fac800965">unknownState()</a>, and <a class="el" href="classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0">updateLocalConfig()</a>.</p>
 
 </div>
 </div>

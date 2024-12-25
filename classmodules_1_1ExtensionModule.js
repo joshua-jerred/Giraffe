@@ -15,6 +15,7 @@ var classmodules_1_1ExtensionModule =
     ] ],
     [ "ExtensionModule", "classmodules_1_1ExtensionModule.html#a9edcd323cf93970454413d977ea108e4", null ],
     [ "~ExtensionModule", "classmodules_1_1ExtensionModule.html#a1e4b200a676551c2b8aac5946b81ae05", null ],
+    [ "actionToString", "classmodules_1_1ExtensionModule.html#aefc9ab95df0d8a5f2ccfdee352ef758f", null ],
     [ "startup", "classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628", null ],
     [ "loop", "classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c", null ],
     [ "shutdown", "classmodules_1_1ExtensionModule.html#a538bf1f3d30c269f50e11cab633aebf7", null ],

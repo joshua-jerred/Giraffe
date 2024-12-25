@@ -42,6 +42,7 @@ var hierarchy =
     [ "data::blocks::ConfigurationStats", "structdata_1_1blocks_1_1ConfigurationStats.html", null ],
     [ "data::blocks::DataLogStats", "structdata_1_1blocks_1_1DataLogStats.html", null ],
     [ "data::blocks::ExtensionModuleStats", "structdata_1_1blocks_1_1ExtensionModuleStats.html", null ],
+    [ "data::blocks::ExtensionModuleStats::ExtensionStatus", "structdata_1_1blocks_1_1ExtensionModuleStats.html#structdata_1_1blocks_1_1ExtensionModuleStats_1_1ExtensionStatus", null ],
     [ "data::blocks::FileSystemData", "structdata_1_1blocks_1_1FileSystemData.html", null ],
     [ "data::blocks::ImuData", "namespacedata_1_1blocks.html#structdata_1_1blocks_1_1ImuData", null ],
     [ "data::blocks::LocationData", "namespacedata_1_1blocks.html#structdata_1_1blocks_1_1LocationData", null ],
@@ -91,7 +92,9 @@ var hierarchy =
       [ "extension::SimHumiditySensor", "classextension_1_1SimHumiditySensor.html", null ],
       [ "extension::SimImuSensor", "classextension_1_1SimImuSensor.html", null ],
       [ "extension::SimPressureSensor", "classextension_1_1SimPressureSensor.html", null ],
-      [ "extension::SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", null ]
+      [ "extension::SimTemperatureSensor", "classextension_1_1SimTemperatureSensor.html", null ],
+      [ "extension::SimTest", "classextension_1_1SimTest.html", null ],
+      [ "extension::UnitTestExtension", "classextension_1_1UnitTestExtension.html", null ]
     ] ],
     [ "extension::ExtensionResources", "structextension_1_1ExtensionResources.html", null ],
     [ "extension::I2cExtensionAdapter", "classextension_1_1I2cExtensionAdapter.html", [

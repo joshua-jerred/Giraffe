@@ -1,52 +1,52 @@
 <map id="modules::TelemetryModule" name="modules::TelemetryModule">
-<area shape="rect" id="node1" title=" " alt="" coords="3369,1956,3625,2180"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="989,1119,1155,1504"/>
-<area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title="Data that is shared across all modules and extensions." alt="" coords="1707,795,1842,873"/>
-<area shape="rect" id="node48" href="$classgiraffe_1_1AprsManager.html" title="Manages GDL APRS Position and Telemetry Data." alt="" coords="1900,1214,2127,1409"/>
-<area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="1995,351,2109,428"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1StatusLedState.html" title=" " alt="" coords="1397,299,1568,479"/>
-<area shape="rect" id="node6" href="$namespacedata.html#structdata_1_1SharedBlocks" title=" " alt="" coords="1824,351,1971,428"/>
-<area shape="rect" id="node7" href="$classLogContainer.html" title=" " alt="" coords="2133,329,2277,450"/>
-<area shape="rect" id="node8" title=" " alt="" coords="2828,5,2892,83"/>
-<area shape="rect" id="node10" href="$classdata_1_1FlightData.html" title=" " alt="" coords="1592,263,1800,516"/>
-<area shape="rect" id="node18" href="$classcmd_1_1CommandQueue.html" title="Used within modules to queue commands to be processed." alt="" coords="834,781,1001,887"/>
-<area shape="rect" id="node21" href="$classgiraffe_1_1gdl_1_1DataLink.html" title=" " alt="" coords="3388,1611,3607,1893"/>
-<area shape="rect" id="node30" href="$classgiraffe_1_1gdl_1_1Config.html" title="Data Link Configuration." alt="" coords="3543,277,3806,501"/>
-<area shape="rect" id="node42" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html" title="Manages sending APRS telemetry data via the Data Link." alt="" coords="2947,715,3171,953"/>
-<area shape="rect" id="node47" href="$classgiraffe_1_1gdl_1_1MessageQueue.html" title="A queue for messages." alt="" coords="3444,540,3644,691"/>
-<area shape="rect" id="node9" href="$namespacedata.html#structdata_1_1Frames" title=" " alt="" coords="1267,351,1373,428"/>
-<area shape="rect" id="node11" title=" " alt="" coords="2236,5,2361,83"/>
-<area shape="rect" id="node12" title=" " alt="" coords="1084,795,1207,873"/>
-<area shape="rect" id="node13" href="$structmodules_1_1MetaData.html" title="Module metadata." alt="" coords="659,795,810,873"/>
-<area shape="rect" id="node14" title=" " alt="" coords="812,351,919,428"/>
-<area shape="rect" id="node50" href="$classgiraffe_1_1Logger.html" title=" " alt="" coords="1231,766,1347,902"/>
-<area shape="rect" id="node15" title=" " alt="" coords="422,351,461,428"/>
-<area shape="rect" id="node16" title=" " alt="" coords="735,5,793,83"/>
-<area shape="rect" id="node17" title=" " alt="" coords="232,795,411,873"/>
-<area shape="rect" id="node19" title=" " alt="" coords="593,351,788,428"/>
-<area shape="rect" id="node20" title=" " alt="" coords="2213,795,2277,873"/>
-<area shape="rect" id="node22" href="$classgiraffe_1_1gdl_1_1IDataLink.html" title="Interface for the Giraffe Data Link." alt="" coords="2467,737,2723,931"/>
-<area shape="rect" id="node23" href="$namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics" title=" " alt="" coords="3991,351,4151,428"/>
-<area shape="rect" id="node24" title=" " alt="" coords="4817,5,4871,83"/>
-<area shape="rect" id="node33" href="$classgiraffe_1_1gdl_1_1TransportLayer.html" title="The Transport Layer &#45; Layer 3." alt="" coords="4573,1170,4803,1453"/>
-<area shape="rect" id="node25" title=" " alt="" coords="4372,5,4447,83"/>
-<area shape="rect" id="node26" title=" " alt="" coords="4001,5,4068,83"/>
-<area shape="rect" id="node27" title=" " alt="" coords="4189,5,4249,83"/>
-<area shape="rect" id="node28" title=" " alt="" coords="5141,5,5216,83"/>
-<area shape="rect" id="node34" href="$classgiraffe_1_1gdl_1_1Packet.html" title="The packet class is used in the transport and network layers. It contains some extra information." alt="" coords="5148,759,5353,909"/>
-<area shape="rect" id="node35" href="$classgiraffe_1_1gdl_1_1Message.html" title="A message that can be sent via GDL." alt="" coords="5150,277,5314,501"/>
-<area shape="rect" id="node37" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html" title=" " alt="" coords="4271,744,4462,924"/>
-<area shape="rect" id="node29" title=" " alt="" coords="3765,5,3816,83"/>
-<area shape="rect" id="node31" title=" " alt="" coords="3133,5,3283,83"/>
-<area shape="rect" id="node32" title=" " alt="" coords="3527,5,3670,83"/>
-<area shape="rect" id="node36" title=" " alt="" coords="5378,795,5438,873"/>
-<area shape="rect" id="node38" title=" " alt="" coords="4480,351,4568,428"/>
-<area shape="rect" id="node39" title=" " alt="" coords="4175,351,4254,428"/>
-<area shape="rect" id="node40" title=" " alt="" coords="4278,343,4455,435"/>
-<area shape="rect" id="node41" title=" " alt="" coords="4607,795,4663,873"/>
-<area shape="rect" id="node43" title=" " alt="" coords="2403,351,2522,428"/>
-<area shape="rect" id="node44" title=" " alt="" coords="2737,351,2812,428"/>
-<area shape="rect" id="node45" title=" " alt="" coords="3261,351,3400,428"/>
-<area shape="rect" id="node46" title=" " alt="" coords="4828,1265,4991,1357"/>
-<area shape="rect" id="node49" title=" " alt="" coords="1974,795,2053,873"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2847,1956,3103,2180"/>
+<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="937,1119,1103,1504"/>
+<area shape="rect" id="node3" href="$structdata_1_1SharedData.html" title="Data that is shared across all modules and extensions." alt="" coords="1066,795,1201,873"/>
+<area shape="rect" id="node48" href="$classgiraffe_1_1AprsManager.html" title="Manages GDL APRS Position and Telemetry Data." alt="" coords="1615,1214,1841,1409"/>
+<area shape="rect" id="node4" href="$namespacedata.html#structdata_1_1Streams" title=" " alt="" coords="841,351,954,428"/>
+<area shape="rect" id="node5" href="$classgiraffe_1_1StatusLedState.html" title=" " alt="" coords="1109,299,1280,479"/>
+<area shape="rect" id="node6" href="$namespacedata.html#structdata_1_1SharedBlocks" title=" " alt="" coords="1304,351,1451,428"/>
+<area shape="rect" id="node7" href="$classLogContainer.html" title=" " alt="" coords="1475,329,1619,450"/>
+<area shape="rect" id="node8" title=" " alt="" coords="1675,5,1739,83"/>
+<area shape="rect" id="node10" href="$classdata_1_1FlightData.html" title=" " alt="" coords="1744,263,1952,516"/>
+<area shape="rect" id="node19" href="$classcmd_1_1CommandQueue.html" title="Used within modules to queue commands to be processed." alt="" coords="153,781,319,887"/>
+<area shape="rect" id="node22" href="$classgiraffe_1_1gdl_1_1DataLink.html" title=" " alt="" coords="2865,1611,3084,1893"/>
+<area shape="rect" id="node30" href="$classgiraffe_1_1gdl_1_1Config.html" title="Data Link Configuration." alt="" coords="2889,277,3151,501"/>
+<area shape="rect" id="node42" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html" title="Manages sending APRS telemetry data via the Data Link." alt="" coords="3245,715,3469,953"/>
+<area shape="rect" id="node47" href="$classgiraffe_1_1gdl_1_1MessageQueue.html" title="A queue for messages." alt="" coords="2001,540,2201,691"/>
+<area shape="rect" id="node9" href="$namespacedata.html#structdata_1_1Frames" title=" " alt="" coords="979,351,1085,428"/>
+<area shape="rect" id="node11" title=" " alt="" coords="2928,5,2979,83"/>
+<area shape="rect" id="node24" href="$namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics" title=" " alt="" coords="4899,351,5059,428"/>
+<area shape="rect" id="node33" href="$classgiraffe_1_1gdl_1_1TransportLayer.html" title="The Transport Layer &#45; Layer 3." alt="" coords="3817,1170,4047,1453"/>
+<area shape="rect" id="node12" title=" " alt="" coords="2324,5,2449,83"/>
+<area shape="rect" id="node13" title=" " alt="" coords="1305,795,1428,873"/>
+<area shape="rect" id="node14" href="$structmodules_1_1MetaData.html" title="Module metadata." alt="" coords="653,795,803,873"/>
+<area shape="rect" id="node15" title=" " alt="" coords="356,351,463,428"/>
+<area shape="rect" id="node50" href="$classgiraffe_1_1Logger.html" title=" " alt="" coords="827,766,943,902"/>
+<area shape="rect" id="node16" title=" " alt="" coords="595,351,634,428"/>
+<area shape="rect" id="node17" title=" " alt="" coords="568,5,627,83"/>
+<area shape="rect" id="node18" title=" " alt="" coords="449,795,628,873"/>
+<area shape="rect" id="node20" title=" " alt="" coords="45,351,240,428"/>
+<area shape="rect" id="node21" title=" " alt="" coords="1765,795,1829,873"/>
+<area shape="rect" id="node23" href="$classgiraffe_1_1gdl_1_1IDataLink.html" title="Interface for the Giraffe Data Link." alt="" coords="2123,737,2379,931"/>
+<area shape="rect" id="node25" title=" " alt="" coords="4815,5,4870,83"/>
+<area shape="rect" id="node26" title=" " alt="" coords="5516,5,5591,83"/>
+<area shape="rect" id="node27" title=" " alt="" coords="5145,5,5212,83"/>
+<area shape="rect" id="node28" title=" " alt="" coords="5333,5,5393,83"/>
+<area shape="rect" id="node29" title=" " alt="" coords="4372,5,4447,83"/>
+<area shape="rect" id="node34" href="$classgiraffe_1_1gdl_1_1Packet.html" title="The packet class is used in the transport and network layers. It contains some extra information." alt="" coords="4035,759,4240,909"/>
+<area shape="rect" id="node35" href="$classgiraffe_1_1gdl_1_1Message.html" title="A message that can be sent via GDL." alt="" coords="4275,277,4439,501"/>
+<area shape="rect" id="node37" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html" title=" " alt="" coords="2611,744,2802,924"/>
+<area shape="rect" id="node31" title=" " alt="" coords="3399,5,3550,83"/>
+<area shape="rect" id="node32" title=" " alt="" coords="3010,5,3153,83"/>
+<area shape="rect" id="node36" title=" " alt="" coords="4646,795,4706,873"/>
+<area shape="rect" id="node38" title=" " alt="" coords="2383,351,2471,428"/>
+<area shape="rect" id="node39" title=" " alt="" coords="2279,351,2358,428"/>
+<area shape="rect" id="node40" title=" " alt="" coords="2078,343,2255,435"/>
+<area shape="rect" id="node41" title=" " alt="" coords="3904,795,3960,873"/>
+<area shape="rect" id="node43" title=" " alt="" coords="2495,351,2614,428"/>
+<area shape="rect" id="node44" title=" " alt="" coords="3575,351,3649,428"/>
+<area shape="rect" id="node45" title=" " alt="" coords="3900,351,4039,428"/>
+<area shape="rect" id="node46" title=" " alt="" coords="4123,1265,4285,1357"/>
+<area shape="rect" id="node49" title=" " alt="" coords="1854,795,1933,873"/>
 </map>

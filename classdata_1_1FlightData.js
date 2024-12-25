@@ -13,6 +13,7 @@ var classdata_1_1FlightData =
     [ "setBitTestData", "classdata_1_1FlightData.html#a312127c867c9f4538b4d3cb24303a6e7", null ],
     [ "setFlightPhase", "classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233", null ],
     [ "setPhasePrediction", "classdata_1_1FlightData.html#a3aaa12475187e63a50a331fe629a52b4", null ],
+    [ "K_IN_SIMULATOR", "classdata_1_1FlightData.html#a6ae949ab9523c561828f115d9a5d7d20", null ],
     [ "FlightPhaseManager", "classdata_1_1FlightData.html#aa94f7f513b6aa910555c831eb33ee240", null ],
     [ "start_time_", "classdata_1_1FlightData.html#a8144a7fc27efd61a0435c74a0a968360", null ],
     [ "flight_phase_", "classdata_1_1FlightData.html#a36970034cd25f36826b0cf8bb2da864c", null ],
