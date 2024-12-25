@@ -30,6 +30,10 @@
 #include "simulated_extensions.hpp"
 #endif
 
+#if GFS_UNIT_TEST_BUILD == 1
+#include "unit_test_extension.hpp"
+#endif
+
 namespace modules {
 
 static MetaData metadata("extension_module",
@@ -102,8 +106,24 @@ void ExtensionModule::loop() {
     }
   }
 
+  /// @todo this really doesn't belong here. This data is accessible via shared
+  /// data, there should be a common LED controller
   if (stats_.num_inactive == 0) {
     shared_data_.status_led.setBlue(giraffe::StatusLedState::State::OFF);
+  }
+
+  /// @todo Consider updating the below less often, the extension module runs
+  /// a lot. Maybe it isn't worth fixing now /shrug
+
+  // Update the info for individual extensions.
+  stats_.extension_statuses.clear();
+  for (auto &ext : extensions_) {
+    using namespace data::blocks;
+
+    stats_.extension_statuses.push_back(ExtensionModuleStats::ExtensionStatus{
+        .name = ext.metadata.name,
+        .control_status = actionToString(ext.action),
+        .internal_status = ext.extension->getStatus()});
   }
 
   // Update the stats.
@@ -130,6 +150,66 @@ void ExtensionModule::processCommand(const cmd::Command &command) {
   case cmd::CommandId::EXTENSION_MODULE_addPreConfiguredExtension:
     addPreConfiguredExtension(command.str_arg);
     break;
+  case cmd::CommandId::EXTENSION_MODULE_disableExtension: {
+    // Find the extension by name.
+    auto ext = std::find_if(extensions_.begin(), extensions_.end(),
+                            [&command](const ExtContainer &ext) {
+                              return ext.metadata.name == command.str_arg;
+                            });
+
+    if (ext == extensions_.end()) {
+      error(DiagnosticId::EXTENSION_MODULE_failedToFindExtension,
+            "stop: " + command.str_arg);
+      std::cout << "stop fail " + command.str_arg << std::endl;
+      return;
+    }
+
+    // Stop the extension.
+    ext->action = ExtAction::DISABLE;
+    info("cmd stop: " + command.str_arg);
+    std::cout << "good stop : " + command.str_arg << std::endl;
+  } break;
+  case cmd::CommandId::EXTENSION_MODULE_enableExtension: {
+    // Find the extension by name.
+    auto ext = std::find_if(extensions_.begin(), extensions_.end(),
+                            [&command](const ExtContainer &ext) {
+                              return ext.metadata.name == command.str_arg;
+                            });
+
+    if (ext == extensions_.end()) {
+      error(DiagnosticId::EXTENSION_MODULE_failedToFindExtension,
+            "start: " + command.str_arg);
+      return;
+    }
+
+    // Start the extension if it is not running.
+    if (static_cast<uint16_t>(ext->extension->getStatus()) &
+        node::K_INACTIVE_STATUSES) {
+      ext->action = ExtAction::START;
+      info("cmd start: " + command.str_arg);
+    } else {
+      error(DiagnosticId::EXTENSION_MODULE_invalidCommand,
+            "enable: " + command.str_arg);
+    }
+  } break;
+  case cmd::CommandId::EXTENSION_MODULE_restartExtension: {
+    // Find the extension by name.
+    auto ext = std::find_if(extensions_.begin(), extensions_.end(),
+                            [&command](const ExtContainer &ext) {
+                              return ext.metadata.name == command.str_arg;
+                            });
+
+    if (ext == extensions_.end()) {
+      error(DiagnosticId::EXTENSION_MODULE_failedToFindExtension,
+            "restart: " + command.str_arg);
+      std::cout << "restart: " << command.str_arg << std::endl;
+      return;
+    }
+    std::cout << "restart good: " << command.str_arg << std::endl;
+    // Restart the extension.
+    ext->action = ExtAction::RESTART;
+    info("cmd restart: " + command.str_arg);
+  } break;
   default:
     error(DiagnosticId::EXTENSION_MODULE_invalidCommand);
     break;
@@ -162,6 +242,10 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
   case cfg::gEnum::ExtensionType::UNKNOWN: // generally means config error
     return option;
 #if RUN_IN_SIMULATOR == 1
+  case cfg::gEnum::ExtensionType::SIM_TEST:
+    extension =
+        std::make_shared<extension::SimTest>(extension_resources_, meta);
+    break;
   case cfg::gEnum::ExtensionType::SIM_TEMP:
     extension = std::make_shared<extension::SimTemperatureSensor>(
         extension_resources_, meta);
@@ -191,6 +275,12 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
         std::make_shared<extension::SimCamera>(extension_resources_, meta);
     break;
 #endif
+#if GFS_UNIT_TEST_BUILD
+  case cfg::gEnum::ExtensionType::UNIT_TEST_EXTENSION:
+    extension = std::make_shared<extension::UnitTestExtension>(
+        extension_resources_, meta);
+    break;
+#endif
   case cfg::gEnum::ExtensionType::RGB_LED:
     extension =
         std::make_shared<extension::RgbStatusLed>(extension_resources_, meta);
@@ -218,6 +308,7 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
     break;
   default:
     giraffe_assert(false); // Shouldn't get here
+    /// @todo consider handling this with an error if it isn't handled above.
     return option;
   }
 
@@ -254,9 +345,11 @@ void ExtensionModule::stateMachine(ExtContainer &ext) {
     break;
   case ExtAction::ERROR_STOP:
     giraffe_assert(false);
+    stopState(ext);
     break;
   default:
     giraffe_assert(false);
+    stopState(ext);
     break;
   }
 }
@@ -273,7 +366,14 @@ void ExtensionModule::unknownState(ExtContainer &ext) {
 }
 
 void ExtensionModule::disableState(ExtContainer &ext) {
-  (void)ext;
+  auto status = ext.extension->getStatus();
+
+  // If the extension is running, stop it.
+  if (static_cast<uint16_t>(status) & node::K_ACTIVE_STATUSES) {
+    ext.extension->stop();
+    return;
+  }
+  // Otherwise, the extension stays here.
 }
 
 void ExtensionModule::startState(ExtContainer &ext) {
@@ -331,8 +431,30 @@ void ExtensionModule::stopState(ExtContainer &ext) {
 }
 
 void ExtensionModule::restartState(ExtContainer &ext) {
-  (void)ext;
-  giraffe_assert(false); // not implemented yet
+  const auto status = ext.extension->getStatus();
+  if (status == node::Status::RUNNING) { // If it's running, stop it.
+    ext.extension->stop();
+    ext.startup_shutdown_timer.setTimeout(startup_timeout_);
+    ext.startup_shutdown_timer.reset();
+  } else if (status == node::Status::STOPPED) { // If it's stopped, pass off to
+                                                // the start state.
+    info("stopped, restarting: " + ext.metadata.name);
+
+    ext.action = ExtAction::START;
+    ext.startup_shutdown_timer.setTimeout(startup_timeout_);
+    ext.startup_shutdown_timer.reset();
+  } else if (status == node::Status::STOPPING) { // If it's stopping, check the
+                                                 // timer.
+    if (ext.startup_shutdown_timer.isDone()) { // If it didn't stop in time, go
+                                               // to the error state.
+      ext.action = ExtAction::ERROR_RESTART;
+      return;
+    }
+  } else if (status == node::Status::ERROR) {
+    ext.action = ExtAction::ERROR_RESTART;
+  } else {
+    giraffe_assert(false); // Should never get here.
+  }
 }
 
 void ExtensionModule::errorStartState(ExtContainer &ext) {
@@ -355,12 +477,12 @@ void ExtensionModule::errorStartState(ExtContainer &ext) {
 
 void ExtensionModule::errorRestartState(ExtContainer &ext) {
   (void)ext;
-  // giraffe_assert(false); // not implemented yet
+  giraffe_assert(false); // not implemented yet
 }
 
 void ExtensionModule::errorDisableState(ExtContainer &ext) {
   (void)ext;
-  // giraffe_assert(false); // not implemented yet
+  giraffe_assert(false); // not implemented yet
 }
 
 } // namespace modules

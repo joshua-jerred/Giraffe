@@ -6,19 +6,28 @@ import {
   faSatellite,
   faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
-import { GwsGlobal } from "../GlobalContext";
+import { GwsGlobal } from "../../GlobalContext.js";
 import { NavLink } from "react-router-dom";
 
-import Tooltip from "../components/Tooltip.js";
+import Tooltip from "../../components/Tooltip.js";
 
-import { useStorageState } from "./LocalStorageState.js";
+import { useStorageState } from "../LocalStorageState.js";
+import { useMissionClockData } from "../../api_interface/mission_clock_api.js";
+import { getCurrentUtc } from "../../core/clock_strings.js";
+
+// local
+import ServiceStatusDisplay from "./service_status_display.js";
 
 const StatusCard = styled.div`
   display: grid;
   // grid-gap: 10px;
-  grid-template-columns: 5fr 1fr;
   // grid-auto-rows: 15px;
+  grid-template-columns: 1fr 3fr 1fr;
+  @media(max-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   user-select: none;
 
@@ -43,8 +52,8 @@ const StatusCard = styled.div`
 const StatusGrid = styled.div`
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  grid-auto-rows: 15px;
+  // grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  // grid-auto-rows: 15px;
 `;
 
 const BarItemStyle = styled.div`
@@ -371,9 +380,23 @@ function AlerterToggle({ setExpanded, expanded }) {
   );
 }
 
+const StyledTime = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 10rem;
+`;
+
 function StatusBar() {
-  const { serviceStatuses, isGgsConnected, flightData } = useContext(GwsGlobal);
+  const {
+    serviceStatuses,
+    isGgsConnected,
+    flightData,
+    showVerboseClock,
+    setShowVerboseClock,
+  } = useContext(GwsGlobal);
   const [expanded, setExpanded] = useState(false);
+  const { formattedTime } = useMissionClockData();
 
   return (
     <>
@@ -389,71 +412,24 @@ function StatusBar() {
               }
             />
           </Tooltip>
-          <Tooltip
-            text="Ground station connection status"
-            vertical_position={"-600%"}
-          >
-            <StatusItem
-              title="GGS"
-              status={isGgsConnected ? "CONNECTED" : "DISCONNECTED"}
-            />
+          <Tooltip text="The current mission time." vertical_position={"-600%"}>
+            <StyledTime
+              onClick={() => {
+                setShowVerboseClock(!showVerboseClock);
+              }}
+            >
+              <span>MIS</span>
+              <span>{formattedTime}</span>
+            </StyledTime>
+          </Tooltip>
+          <Tooltip text="The current UTC time." vertical_position={"-600%"}>
+            <StyledTime>
+              <span>UTC</span>
+              <span>{getCurrentUtc()}</span>
+            </StyledTime>
           </Tooltip>
 
-          <Tooltip
-            text="Flight System Agent Connection Status"
-            vertical_position={"-600%"}
-          >
-            <StatusItem
-              title="FSA"
-              status={
-                isGgsConnected && serviceStatuses.fsa
-                  ? serviceStatuses.fsa.toUpperCase()
-                  : "n/d"
-              }
-            />
-          </Tooltip>
-
-          <Tooltip
-            text="The status of the flight software according to the flight system agent."
-            vertical_position={"-700%"}
-            horizontal_position={"70%"}
-          >
-            <StatusItem
-              title="FSA-GFS"
-              status={
-                isGgsConnected && serviceStatuses.fsa
-                  ? serviceStatuses.fsa_gfs_status.toUpperCase()
-                  : "n/d"
-              }
-            />
-          </Tooltip>
-
-          <Tooltip text="GFS TCP Connection Status" vertical_position={"-600%"}>
-            <StatusItem
-              title="GFS"
-              status={
-                isGgsConnected && serviceStatuses.gfs
-                  ? serviceStatuses.gfs.toUpperCase()
-                  : "n/d"
-              }
-            />
-          </Tooltip>
-
-          <Tooltip
-            text="GDL Server Connection Status"
-            vertical_position={"-600%"}
-          >
-            <StatusItem
-              title="GDL"
-              status={
-                isGgsConnected && serviceStatuses.gdl
-                  ? serviceStatuses.gdl.toUpperCase()
-                  : "UNKNOWN"
-              }
-            />
-          </Tooltip>
-
-          <Tooltip text="telemetry up-link status" vertical_position={"-600%"}>
+          {/* <Tooltip text="telemetry up-link status" vertical_position={"-600%"}>
             <StatusItem
               title={<FontAwesomeIcon icon={faSatelliteDish} />}
               status={
@@ -462,9 +438,9 @@ function StatusBar() {
                   : "n/d"
               }
             />
-          </Tooltip>
+          </Tooltip> */}
 
-          <Tooltip
+          {/* <Tooltip
             text="telemetry down-link status"
             vertical_position={"-600%"}
           >
@@ -476,8 +452,9 @@ function StatusBar() {
                   : "n/d"
               }
             />
-          </Tooltip>
+          </Tooltip> */}
         </StatusGrid>
+        <ServiceStatusDisplay />
         <AlerterToggle setExpanded={setExpanded} expanded={expanded} />
       </StatusCard>
       <AlertBar expanded={expanded} />

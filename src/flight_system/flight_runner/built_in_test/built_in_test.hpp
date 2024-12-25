@@ -405,113 +405,90 @@ private:
   //<{{bit_test_groups}}@
 
   /// @brief Test cases for the FCS group.
-  TestGroup fcs_test_group_{
-      TestGroupId::FCS,
-      shared_data_,
-      {
-          {TestGroupId::FCS, TestId::FCS_ErrorTest, shared_data_},
-          {TestGroupId::FCS, TestId::FCS_FlightPhasePredictorTest,
-           shared_data_},
-          {TestGroupId::FCS, TestId::FCS_LaunchPositionTest, shared_data_},
-          {TestGroupId::FCS, TestId::FCS_DataModuleProcessingTest,
-           shared_data_},
-      },
+   TestGroup fcs_test_group_{
+    TestGroupId::FCS, shared_data_,
+    {{TestGroupId::FCS, TestId::FCS_ErrorTest, shared_data_},
+    {TestGroupId::FCS, TestId::FCS_FlightPhasePredictorTest, shared_data_},
+    {TestGroupId::FCS, TestId::FCS_LaunchPositionTest, shared_data_},
+    {TestGroupId::FCS, TestId::FCS_DataModuleProcessingTest, shared_data_},
+    },
   };
 
   /// @brief Test cases for the SYS group.
-  TestGroup sys_test_group_{
-      TestGroupId::SYS,
-      shared_data_,
-      {
-          {TestGroupId::SYS, TestId::SYS_ErrorTest, shared_data_},
-      },
+   TestGroup sys_test_group_{
+    TestGroupId::SYS, shared_data_,
+    {{TestGroupId::SYS, TestId::SYS_ErrorTest, shared_data_},
+    },
   };
 
   /// @brief Test cases for the DLNK group.
-  TestGroup dlnk_test_group_{
-      TestGroupId::DLNK,
-      shared_data_,
-      {
-          {TestGroupId::DLNK, TestId::DLNK_ConfigLocationDataTest,
-           shared_data_},
-      },
+   TestGroup dlnk_test_group_{
+    TestGroupId::DLNK, shared_data_,
+    {{TestGroupId::DLNK, TestId::DLNK_ConfigLocationDataTest, shared_data_},
+    },
   };
 
   /// @brief Test cases for the GPS group.
-  TestGroup gps_test_group_{
-      TestGroupId::GPS,
-      shared_data_,
-      {
-          {TestGroupId::GPS, TestId::GPS_InstalledTest, shared_data_},
-      },
+   TestGroup gps_test_group_{
+    TestGroupId::GPS, shared_data_,
+    {{TestGroupId::GPS, TestId::GPS_InstalledTest, shared_data_},
+    },
   };
 
   /// @brief Test cases for the BATT group.
-  TestGroup batt_test_group_{
-      TestGroupId::BATT,
-      shared_data_,
-      {
-          {TestGroupId::BATT, TestId::BATT_AdcTest, shared_data_},
-      },
+   TestGroup batt_test_group_{
+    TestGroupId::BATT, shared_data_,
+    {{TestGroupId::BATT, TestId::BATT_AdcTest, shared_data_},
+    },
   };
 
   /// @brief Test cases for the EXTN group.
-  TestGroup extn_test_group_{
-      TestGroupId::EXTN,
-      shared_data_,
-      {
-          {TestGroupId::EXTN, TestId::EXTN_ExtensionsRunningTest, shared_data_},
-      },
+   TestGroup extn_test_group_{
+    TestGroupId::EXTN, shared_data_,
+    {{TestGroupId::EXTN, TestId::EXTN_ExtensionsRunningTest, shared_data_},
+    },
   };
 
   /// @brief Test cases for the ENV group.
-  TestGroup env_test_group_{
-      TestGroupId::ENV,
-      shared_data_,
-      {
-          {TestGroupId::ENV, TestId::ENV_TemperatureTest, shared_data_},
-      },
+   TestGroup env_test_group_{
+    TestGroupId::ENV, shared_data_,
+    {{TestGroupId::ENV, TestId::ENV_TemperatureTest, shared_data_},
+    },
   };
 
   /// @brief Test cases for the CAM group.
-  TestGroup cam_test_group_{
-      TestGroupId::CAM,
-      shared_data_,
-      {
-          {TestGroupId::CAM, TestId::CAM_InstalledTest, shared_data_},
-      },
+   TestGroup cam_test_group_{
+    TestGroupId::CAM, shared_data_,
+    {{TestGroupId::CAM, TestId::CAM_InstalledTest, shared_data_},
+    },
   };
 
   /// @brief Test cases for the IMU group.
-  TestGroup imu_test_group_{
-      TestGroupId::IMU,
-      shared_data_,
-      {
-          {TestGroupId::IMU, TestId::IMU_InstalledTest, shared_data_},
-      },
+   TestGroup imu_test_group_{
+    TestGroupId::IMU, shared_data_,
+    {{TestGroupId::IMU, TestId::IMU_InstalledTest, shared_data_},
+    },
   };
 
   /// @brief Test cases for the ADC group.
-  TestGroup adc_test_group_{
-      TestGroupId::ADC,
-      shared_data_,
-      {
-          {TestGroupId::ADC, TestId::ADC_InstalledTest, shared_data_},
-      },
+   TestGroup adc_test_group_{
+    TestGroupId::ADC, shared_data_,
+    {{TestGroupId::ADC, TestId::ADC_InstalledTest, shared_data_},
+    },
   };
 
   /// @brief This map contains the collection of test groups.
   std::map<TestGroupId, TestGroup &> test_groups_map_{
-      {TestGroupId::FCS, fcs_test_group_},
-      {TestGroupId::SYS, sys_test_group_},
-      {TestGroupId::DLNK, dlnk_test_group_},
-      {TestGroupId::GPS, gps_test_group_},
-      {TestGroupId::BATT, batt_test_group_},
-      {TestGroupId::EXTN, extn_test_group_},
-      {TestGroupId::ENV, env_test_group_},
-      {TestGroupId::CAM, cam_test_group_},
-      {TestGroupId::IMU, imu_test_group_},
-      {TestGroupId::ADC, adc_test_group_},
+    {TestGroupId::FCS, fcs_test_group_},
+    {TestGroupId::SYS, sys_test_group_},
+    {TestGroupId::DLNK, dlnk_test_group_},
+    {TestGroupId::GPS, gps_test_group_},
+    {TestGroupId::BATT, batt_test_group_},
+    {TestGroupId::EXTN, extn_test_group_},
+    {TestGroupId::ENV, env_test_group_},
+    {TestGroupId::CAM, cam_test_group_},
+    {TestGroupId::IMU, imu_test_group_},
+    {TestGroupId::ADC, adc_test_group_},
   };
 
   //@{{bit_test_groups}}>

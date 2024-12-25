@@ -20,7 +20,7 @@ import { GwsGlobal } from "../../GlobalContext";
 import CommandsMetadataFile from "giraffe-protocol";
 
 import { Map } from "../../components/map";
-import { MissionClock } from "./mission_clock";
+import { MissionClockDisplay } from "./mission_clock_display";
 
 import CoreControl from "./core_control";
 import BitTestPanel from "./bit_test";
@@ -271,7 +271,7 @@ function CommandCenterPage() {
       <PageContent>
         <CardMasonryLayout>
           <Card title="Flight Status">
-            <MissionClock />
+            <MissionClockDisplay />
             <CardBreak />
             <CoreControl />
             <CardBreak />

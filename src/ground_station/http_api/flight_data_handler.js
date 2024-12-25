@@ -81,6 +81,7 @@ const responseMetadata = {
     },
   },
   error_frame: {},
+  extensions: {},
 };
 
 module.exports = class FlightDataHandler {
@@ -117,6 +118,7 @@ module.exports = class FlightDataHandler {
       "mission_clock",
       "phase_prediction",
       "error_frame",
+      "extensions",
     ];
 
     let category = req.query.category;

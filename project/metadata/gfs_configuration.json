@@ -666,6 +666,7 @@
             "enum_name": "extension_type",
             "options": [
                 "unknown",
+                "sim_test",
                 "sim_temp",
                 "sim_pres",
                 "sim_hum",
@@ -681,7 +682,8 @@
                 "rgb_led",
                 "mcp3021",
                 "max11615",
-                "bmi088"
+                "bmi088",
+                "unit_test_extension"
             ]
         },
         "update_interval": {

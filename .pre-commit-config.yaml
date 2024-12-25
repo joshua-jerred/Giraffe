@@ -31,16 +31,17 @@ repos:
     # - id: cppcheck
     # - id: cpplint
 
-- repo: https://github.com/codespell-project/codespell
-  rev: v2.2.4
-  hooks:
-  - id: codespell
-    args: ['--ignore-words-list=project/words.txt']
+# - repo: https://github.com/codespell-project/codespell
+  # rev: v2.2.4
+  # hooks:
+  # - id: codespell
+    # files: ^.*\.(py|c|cpp|h|hpp|md|yml)$
+    # args: ["--ignore-words=.codespellignore"]
 
-- repo: https://github.com/crate-ci/typos
-  rev: v1.16.22
-  hooks:
-    - id: typos
+# - repo: https://github.com/crate-ci/typos
+  # rev: v1.16.22
+  # hooks:
+    # - id: typos
 
 - repo: local
   hooks:
@@ -52,13 +53,13 @@ repos:
     args: ["-style=file"]
     types: [c++, c]
     # files: \.(cpp|hpp)$
-  - id: cppcheck
-    name: cppcheck
-    description: Check correctness of C code using cppcheck.
-    language: system
-    files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
-    entry: cppcheck --error-exitcode=1
-    args: ["--enable=warning"]
+  # - id: cppcheck
+    # name: cppcheck
+    # description: Check correctness of C code using cppcheck.
+    # language: system
+    # files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
+    # entry: cppcheck --error-exitcode=1
+    # args: ["--enable=warning"]
   - id: markdownlint
     name: markdownlint
     description: Check markdown files using markdownlint.

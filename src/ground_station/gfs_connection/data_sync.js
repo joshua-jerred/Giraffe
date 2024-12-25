@@ -196,6 +196,13 @@ module.exports = class GfsDataSync {
       let error_frame = this.resources[category].data;
       this.global_state.flight_data.updateErrorFrameFromGfsTcp(error_frame);
     }
+
+    if (category === "extension_module_stats") {
+      let extension_module_stats = this.resources[category].data;
+      this.global_state.flight_data.updateExtensionModuleStatsFromGfsTcp(
+        extension_module_stats
+      );
+    }
   }
 
   /**

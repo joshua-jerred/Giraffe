@@ -41,6 +41,20 @@ public:
   ExtensionModule(data::SharedData &, cfg::Configuration &);
   ~ExtensionModule() override = default;
 
+#if GFS_UNIT_TEST_BUILD == 1
+
+  /// @brief Not super happy about this, there are many better ways. But for
+  /// now, I'm more concerned about extension testing.
+  std::optional<extension::Extension *> getExtension(const std::string &name) {
+    for (auto &ext : extensions_) {
+      if (ext.metadata.name == name) {
+        return ext.extension.get();
+      }
+    }
+    return std::nullopt;
+  }
+#endif
+
 private:
   /**
    * @brief The action determines the targeted state of the extension.
@@ -61,6 +75,34 @@ private:
     ERROR_RESTART,
     ERROR_DISABLE,
   };
+
+  /// @brief Converts the state machine action to a string.
+  static std::string actionToString(ExtAction action) {
+    switch (action) {
+    case ExtAction::UNKNOWN:
+      return "UNKNOWN";
+    case ExtAction::DISABLE:
+      return "DISABLE";
+    case ExtAction::START:
+      return "START";
+    case ExtAction::RUN:
+      return "RUN";
+    case ExtAction::STOP:
+      return "STOP";
+    case ExtAction::RESTART:
+      return "RESTART";
+    case ExtAction::ERROR_START:
+      return "ERROR_START";
+    case ExtAction::ERROR_STOP:
+      return "ERROR_STOP";
+    case ExtAction::ERROR_RESTART:
+      return "ERROR_RESTART";
+    case ExtAction::ERROR_DISABLE:
+      return "ERROR DISABLE";
+    default:
+      return "UNKNOWN";
+    }
+  }
 
   /**
    * @brief The container that holds the information about an extension and the

@@ -1,3 +1,11 @@
+export function getCurrentUtc(include_label = false) {
+  let date = new Date();
+  return (
+    date.toISOString().split("T")[1].split(".")[0] +
+    (include_label ? " UTC" : "")
+  );
+}
+
 export function unixTimeToShortUtc(unix_time) {
   let date = new Date(unix_time * 1000);
   return date.toISOString().split("T")[1].split(".")[0] + " UTC";

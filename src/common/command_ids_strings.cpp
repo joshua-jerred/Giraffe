@@ -1,6 +1,6 @@
 /**
  *
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -11,8 +11,8 @@
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- * 
- * 
+ *
+ *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       2023-06-30
@@ -47,7 +47,10 @@ const std::unordered_map<std::string, CommandId> K_STRING_TO_COMMAND_MAP {
   {"TELEMETRY_MODULE_sendSnr",CommandId::TELEMETRY_MODULE_sendSnr},
   {"TELEMETRY_MODULE_sendAprsLocation",CommandId::TELEMETRY_MODULE_sendAprsLocation},
   {"TELEMETRY_MODULE_sendSstvImage",CommandId::TELEMETRY_MODULE_sendSstvImage},
-  {"EXTENSION_MODULE_addPreConfiguredExtension",CommandId::EXTENSION_MODULE_addPreConfiguredExtension}
+  {"EXTENSION_MODULE_addPreConfiguredExtension",CommandId::EXTENSION_MODULE_addPreConfiguredExtension},
+  {"EXTENSION_MODULE_disableExtension",CommandId::EXTENSION_MODULE_disableExtension},
+  {"EXTENSION_MODULE_enableExtension",CommandId::EXTENSION_MODULE_enableExtension},
+  {"EXTENSION_MODULE_restartExtension",CommandId::EXTENSION_MODULE_restartExtension}
 };
 
 } // namespace cmd
@@ -55,7 +58,7 @@ const std::unordered_map<std::string, CommandId> K_STRING_TO_COMMAND_MAP {
 
 /**
  * @endverbatim
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
