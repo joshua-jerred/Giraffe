@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { useState, useEffect } from "react";
+import styled, { useTheme } from "styled-components";
 
 import Tooltip from "../../components/Tooltip";
 
@@ -9,24 +10,6 @@ const StatusStyle = styled.div`
 
   padding: 0.1em 0.4em;
 
-  background: ${(props) => {
-    props.status = props.status.toUpperCase();
-    if (props.status === "CONNECTED") {
-      return props.theme.success;
-    } else if (
-      props.status === "DISCONNECTED" ||
-      props.status === "ERROR" ||
-      props.status === "DOWN"
-    ) {
-      return props.theme.error;
-    } else if (props.status === "UNKNOWN" || props.status === "N/D") {
-      return props.theme.warning;
-    } else if (props.status === "DISABLED") {
-      return props.theme.surface_hover_hard;
-    } else {
-      return props.theme.primary;
-    }
-  }};
   color: ${(props) => {
     props.status = props.status.toUpperCase();
     if (props.status === "CONNECTED") {
@@ -47,37 +30,26 @@ const StatusStyle = styled.div`
   }};
 `;
 
-const ChipLabel = styled.div``;
+const ChipLabel = styled.div`
+  background: ${(props) => props.theme.surface_hover_soft};
+  border-radius: 0.5em;
+  padding: 0em 0.2em;
+  fontsize: 0.8em;
+`;
 
-const ChipValue = styled.div``;
+const ChipValue = styled.div`
+  padding: 0em 0.2em;
+  // fontsize: 0.6em;
+`;
 
 const ChipStyle = styled.div`
-  // border: 2px solid green;
-
   display: grid;
   grid-template-columns: 2fr 4fr;
   width: fit-content;
 
   background: ${(props) => props.theme.surface};
-
-  > div {
-    border: 1px solid red;
-    color: red;
-    // margin: "auto 0.1em";
-    fontsize: "0.8em";
-  }
-
-  :nth-child(1) {
-    border-top-left-radius: 0.5em;
-    border-bottom-left-radius: 0.5em;
-    border: 1px solid ${(props) => props.theme.primary};
-  }
-
-  :nth-child(2) {
-    border-top-left-radius: 0.5em;
-    border-bottom-left-radius: 0.5em;
-    // border: 1px solid ${(props) => props.theme.error};
-  }
+  border: 0.05em solid ${(props) => props.theme.surface_hover_hard};
+  border-radius: 0.5em;
 `;
 
 function StatusChip({
@@ -86,13 +58,50 @@ function StatusChip({
   onClick = () => {},
   tooltip = "",
 }) {
+  const theme = useTheme();
+  const [statusText, setStatusText] = useState("n/d");
+  const [backgroundColor, setBackgroundColor] = useState(theme.surface);
+  const [textColor, setTextColor] = useState(theme.on_surface);
+
+  useEffect(() => {
+    console.log("StatusChip rendered", status);
+
+    let new_status = status.toUpperCase();
+    let new_background = "";
+    if (new_status === "CONNECTED") {
+      new_background = theme.success;
+    } else if (
+      new_status === "DISCONNECTED" ||
+      new_status === "ERROR" ||
+      new_status === "DOWN"
+    ) {
+      new_background = theme.error;
+    } else if (new_status === "UNKNOWN" || new_status === "N/D") {
+      new_background = theme.warning;
+    } else if (new_status === "DISABLED") {
+      new_background = theme.surface_hover_hard;
+    } else {
+      new_background = theme.primary;
+    }
+
+    setStatusText(new_status);
+    setBackgroundColor(new_background);
+  }, [status]);
+
   return (
     <ChipStyle>
       {/* <Tooltip text={tooltip} vertical_position={"-400%"}> */}
       {/* <StatusStyle status={status}>{abbreviation.toUpperCase()}</StatusStyle> */}
-      <div>{abbreviation.toUpperCase()}</div>
+      <ChipLabel
+        style={{
+          backgroundColor: backgroundColor,
+          color: textColor,
+        }}
+      >
+        {abbreviation.toUpperCase()}
+      </ChipLabel>
       {/* </Tooltip> */}
-      <div>{status.toUpperCase()}</div>
+      <ChipValue>{status.toUpperCase()}</ChipValue>
     </ChipStyle>
   );
 }

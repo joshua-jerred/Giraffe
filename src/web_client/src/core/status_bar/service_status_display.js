@@ -54,7 +54,6 @@ function ServiceStatusDisplay() {
       newServices.fsa = serviceStatuses.fsa;
     }
 
-    // console.log("asdsaa", newServices);
     console.log(serviceStatuses);
     setMainServices(newServices);
   }, [isGgsConnected, serviceStatuses, flightData]);
