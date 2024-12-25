@@ -75,18 +75,9 @@ public:
                        cfg::ExtensionMetadata metadata)
       : Extension(resources, metadata) {
   }
-
-  void startup() override {
-    // std::cout << "SimTemperatureSensor startup" << std::endl;
-  }
-
   void loop() override {
     double temp = g_GFS_SIMULATOR.getTemperatureC();
     data(data::DataId::ENVIRONMENTAL_temperature, temp);
-  }
-
-  void shutdown() override {
-    // std::cout << "SimTemperatureSensor shutdown" << std::endl;
   }
 };
 

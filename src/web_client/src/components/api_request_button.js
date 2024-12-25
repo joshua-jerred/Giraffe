@@ -141,6 +141,7 @@ export function ApiRequestButton({
         }
       }}
       enabled={buttonEnabled}
+      style={style}
     >
       {buttonContent}{" "}
       {requestState === "loading" || button_loading_override ? (

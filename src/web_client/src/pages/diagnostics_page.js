@@ -117,7 +117,7 @@ function ExtensionsData() {
     isLoading: isExtensionsDataLoading,
     error: extensionsDataError,
     setNeedUpdate: setExtensionsDataNeedUpdate,
-  } = useApiGetData("flight_data", "extensions", "all", 2000);
+  } = useApiGetData("flight_data", "extensions", "all", 1500);
 
   const [loadingStatus, setLoadingStatus] = useState(null);
   const [lastUpdatedTimeStamp, setLastUpdatedTimeStamp] = useState("--:--");
@@ -221,47 +221,59 @@ function ExtensionsData() {
             key={index}
             style={{
               margin: "5px",
-              padding: "5px",
+              padding: "0.1em em",
               border: "1px solid black",
               display: "flex",
-              justifyContent: "space-around",
+              justifyContent: "space-between",
             }}
           >
-            {ext} - {extensions[ext].status}
-            <div>
-              <ApiRequestButton
-                api_endpoint="/api/command"
-                title="Restart"
-                api_method="POST"
-                request_data_callback={() => {
-                  return {
-                    command_string: `cmd/etm/rst/${ext}`,
-                    send_method: "tcp_socket",
-                  };
-                }}
-              />
-              <ApiRequestButton
-                api_endpoint="/api/command"
-                title="Disable"
-                api_method="POST"
-                request_data_callback={() => {
-                  return {
-                    command_string: `cmd/etm/dsx/${ext}`,
-                    send_method: "tcp_socket",
-                  };
-                }}
-              />
-              <ApiRequestButton
-                api_endpoint="/api/command"
-                title="Enable"
-                api_method="POST"
-                request_data_callback={() => {
-                  return {
-                    command_string: `cmd/etm/enx/${ext}`,
-                    send_method: "tcp_socket",
-                  };
-                }}
-              />
+            {ext} - {extensions[ext].control_status.toUpperCase()}|
+            {extensions[ext].internal_status.toUpperCase()}
+            <div
+              style={{
+                display: "flex",
+                gap: "0.5em",
+              }}
+            >
+              <div>
+                <ApiRequestButton
+                  api_endpoint="/api/command"
+                  title="restart"
+                  api_method="POST"
+                  request_data_callback={() => {
+                    return {
+                      command_string: `cmd/etm/rst/${ext}`,
+                      send_method: "tcp_socket",
+                    };
+                  }}
+                />
+              </div>
+              <div>
+                <ApiRequestButton
+                  api_endpoint="/api/command"
+                  title="disable"
+                  api_method="POST"
+                  request_data_callback={() => {
+                    return {
+                      command_string: `cmd/etm/dsx/${ext}`,
+                      send_method: "tcp_socket",
+                    };
+                  }}
+                />
+              </div>
+              <div>
+                <ApiRequestButton
+                  api_endpoint="/api/command"
+                  title="enable"
+                  api_method="POST"
+                  request_data_callback={() => {
+                    return {
+                      command_string: `cmd/etm/enx/${ext}`,
+                      send_method: "tcp_socket",
+                    };
+                  }}
+                />
+              </div>
             </div>
           </div>
         ))}

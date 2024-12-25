@@ -106,15 +106,24 @@ void ExtensionModule::loop() {
     }
   }
 
+  /// @todo this really doesn't belong here. This data is accessible via shared
+  /// data, there should be a common LED controller
   if (stats_.num_inactive == 0) {
     shared_data_.status_led.setBlue(giraffe::StatusLedState::State::OFF);
   }
 
+  /// @todo Consider updating the below less often, the extension module runs
+  /// a lot. Maybe it isn't worth fixing now /shrug
+
   // Update the info for individual extensions.
   stats_.extension_statuses.clear();
   for (auto &ext : extensions_) {
-    stats_.extension_statuses.push_back(
-        {ext.metadata.name, ext.extension->getStatus()});
+    using namespace data::blocks;
+
+    stats_.extension_statuses.push_back(ExtensionModuleStats::ExtensionStatus{
+        .name = ext.metadata.name,
+        .control_status = actionToString(ext.action),
+        .internal_status = ext.extension->getStatus()});
   }
 
   // Update the stats.
@@ -233,6 +242,10 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
   case cfg::gEnum::ExtensionType::UNKNOWN: // generally means config error
     return option;
 #if RUN_IN_SIMULATOR == 1
+  case cfg::gEnum::ExtensionType::SIM_TEST:
+    extension =
+        std::make_shared<extension::SimTest>(extension_resources_, meta);
+    break;
   case cfg::gEnum::ExtensionType::SIM_TEMP:
     extension = std::make_shared<extension::SimTemperatureSensor>(
         extension_resources_, meta);
@@ -295,6 +308,7 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
     break;
   default:
     giraffe_assert(false); // Shouldn't get here
+    /// @todo consider handling this with an error if it isn't handled above.
     return option;
   }
 

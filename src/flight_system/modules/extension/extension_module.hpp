@@ -76,6 +76,34 @@ private:
     ERROR_DISABLE,
   };
 
+  /// @brief Converts the state machine action to a string.
+  static std::string actionToString(ExtAction action) {
+    switch (action) {
+    case ExtAction::UNKNOWN:
+      return "UNKNOWN";
+    case ExtAction::DISABLE:
+      return "DISABLE";
+    case ExtAction::START:
+      return "START";
+    case ExtAction::RUN:
+      return "RUN";
+    case ExtAction::STOP:
+      return "STOP";
+    case ExtAction::RESTART:
+      return "RESTART";
+    case ExtAction::ERROR_START:
+      return "ERROR_START";
+    case ExtAction::ERROR_STOP:
+      return "ERROR_STOP";
+    case ExtAction::ERROR_RESTART:
+      return "ERROR_RESTART";
+    case ExtAction::ERROR_DISABLE:
+      return "ERROR DISABLE";
+    default:
+      return "UNKNOWN";
+    }
+  }
+
   /**
    * @brief The container that holds the information about an extension and the
    * extension itself.

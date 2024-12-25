@@ -60,7 +60,9 @@ module.exports = class FlightData {
         num_active: 0,
         num_inactive: 0,
       },
-      extensions: [{ name: "nd", status: "running" }],
+      extensions: [
+        { name: "n/d", control_status: "n/d", internal_status: "n/d" },
+      ],
     };
 
     setInterval(this.#cycle.bind(this), FLIGHT_DATA_UPDATE_INTERVAL);

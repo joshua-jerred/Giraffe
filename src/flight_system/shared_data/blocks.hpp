@@ -272,8 +272,21 @@ struct ExtensionModuleStats {
   int num_active = 0;
   int num_inactive = 0;
 
+  struct ExtensionStatus {
+    /// @brief The user defined name of the extension.
+    std::string name;
+
+    /// @brief The 'control' status of the extension. This is the extension
+    /// module's label for the 'real' status.
+    /// @see modules::ExtensionModule::ExtAction
+    std::string control_status;
+
+    /// @brief The status of the extension, as reported by the extension.
+    node::Status internal_status;
+  };
+
   /// @brief A vector mapping the extension name to its status.
-  std::vector<std::pair<std::string, node::Status>> extension_statuses{};
+  std::vector<ExtensionStatus> extension_statuses{};
 
   Json toJson() {
     Json json_data;
@@ -283,9 +296,12 @@ struct ExtensionModuleStats {
 
     Json extensions_json;
     for (const auto &ext : extension_statuses) {
-      Json extension_data;
-      extension_data["status"] = node::K_STATUS_TO_STRING_MAP.at(ext.second);
-      extensions_json[ext.first] = extension_data;
+      Json extension_data = {
+          {"control_status", ext.control_status},
+          {"internal_status",
+           node::K_STATUS_TO_STRING_MAP.at(ext.internal_status)}};
+
+      extensions_json[ext.name] = extension_data;
     }
     json_data["extension"] = extensions_json;
     return json_data;
