@@ -345,9 +345,11 @@ void ExtensionModule::stateMachine(ExtContainer &ext) {
     break;
   case ExtAction::ERROR_STOP:
     giraffe_assert(false);
+    stopState(ext);
     break;
   default:
     giraffe_assert(false);
+    stopState(ext);
     break;
   }
 }
@@ -475,12 +477,12 @@ void ExtensionModule::errorStartState(ExtContainer &ext) {
 
 void ExtensionModule::errorRestartState(ExtContainer &ext) {
   (void)ext;
-  // giraffe_assert(false); // not implemented yet
+  giraffe_assert(false); // not implemented yet
 }
 
 void ExtensionModule::errorDisableState(ExtContainer &ext) {
   (void)ext;
-  // giraffe_assert(false); // not implemented yet
+  giraffe_assert(false); // not implemented yet
 }
 
 } // namespace modules
