@@ -62,7 +62,7 @@ function StatusChip({
   const [textColor, setTextColor] = useState(theme.on_surface);
 
   useEffect(() => {
-    console.log("StatusChip rendered", status);
+    // console.log("StatusChip rendered", status);
 
     let new_status_text = status.toUpperCase();
     let new_background = "";
@@ -100,7 +100,8 @@ function StatusChip({
       new_text_color = theme.on_primary;
     }
 
-    setStatusText(new_status_text);
+    // setStatusText(new_status_text); // consider this for mobile layouts
+    setStatusText(status.toUpperCase());
     setBackgroundColor(new_background);
     setTextColor(new_text_color);
   }, [status]);
