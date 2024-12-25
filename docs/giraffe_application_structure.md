@@ -1,11 +1,20 @@
 # Giraffe Application Structure
 
+As everything is under 1.0, this is very much a working document.
+
 ## Giraffe Package
 
 Giraffe relies on 5+ different applications across multiple systems. To keep
-things "simple", everything is bundled into a single package.
+things "simple", everything is bundled into a single package. Ultimately, the
+target for this package is debian-based systems, so dpkg is a valid option.
 
-### Package File
+A custom rolled package _was_ attempted, but that is a layer of complexity that
+this project _does not need_ before the first flight, it was abandoned in favor
+of dpkg.
+
+### dpkg
+
+### DEPRECATED - Package File
 
 **Filetype**: `tarball` compressed with `gzip`, so `tar -xzf`
 

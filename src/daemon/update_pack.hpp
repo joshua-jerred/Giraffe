@@ -19,8 +19,8 @@
 
 #include <BoosterSeat/process.hpp>
 
-#include "binary_file.hpp"
 #include "giraffe_types.hpp"
+#include "software_update/binary_file.hpp"
 #include "software_version.hpp"
 
 namespace command_line_interface {

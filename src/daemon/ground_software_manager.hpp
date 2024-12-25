@@ -51,14 +51,14 @@ public:
       error("Error creating directories: " + std::string(e.what()));
     }
 
-    loadCachedValidUpdatePack();
+    // loadCachedValidUpdatePack();
   }
 
   ~GroundSoftwareManager() = default;
 
   void process() {
     // Update the file list
-    checkForUpdateFile();
+    // checkForUpdateFile();
 
     status_ = node::Status::RUNNING;
   }
@@ -82,21 +82,21 @@ private:
   /// specifically still exists and if it has been updated. It stops looking
   /// when it has the processed update file. The update file can be thrown away,
   /// if it is, go back to looking.
-  bool checkForUpdateFile();
+  // bool checkForUpdateFile();
 
   /// @brief Check the update pack file and check if it is valid.
   /// @details Called when a new update pack file is found.
   /// @param path - The path to the update pack file, must be a regular file in
   /// the agent's software directory.
-  void processUpdateFile(const std::filesystem::path &path);
+  // void processUpdateFile(const std::filesystem::path &path);
 
-  bool have_valid_update_file_{false};
-  UpdatePack update_pack_{};
+  // bool have_valid_update_file_{false};
+  // UpdatePack update_pack_{};
 
-  std::string valid_update_pack_file_name_{""};
-  std::string valid_update_pack_path_{""};
-  uint32_t valid_update_pack_time_{0};
-  uint32_t valid_update_pack_size_{0};
+  // std::string valid_update_pack_file_name_{""};
+  // std::string valid_update_pack_path_{""};
+  // uint32_t valid_update_pack_time_{0};
+  // uint32_t valid_update_pack_size_{0};
 
   node::Status status_{node::Status::UNKNOWN};
 

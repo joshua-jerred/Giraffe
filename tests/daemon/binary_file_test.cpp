@@ -48,7 +48,7 @@ protected:
 
 TEST_F(BinaryFileTest, validBin) {
   BinaryFile bin(giraffe::AppIdentifier::COMMAND_LINE, TEST_BINARY_NAME,
-                 BINARY_SOURCE_DIR);
+                 BINARY_SOURCE_DIR, BINARY_DESTINATION_DIR);
 
   EXPECT_FALSE(bin.isValid()); // initialize false
   EXPECT_TRUE(bin.checkValid());
@@ -65,7 +65,7 @@ TEST_F(BinaryFileTest, invalidBin) {
     const std::string BINARY_SOURCE_DIR = ".";
 
     BinaryFile bin(giraffe::AppIdentifier::DAEMON, BINARY_NAME,
-                   BINARY_SOURCE_DIR);
+                   BINARY_SOURCE_DIR, BINARY_DESTINATION_DIR);
 
     EXPECT_FALSE(bin.isValid());
     EXPECT_FALSE(bin.checkValid());

@@ -15,7 +15,7 @@
  * 
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
- * @date       2024-12-18
+ * @date       2024-12-25
  * @copyright  2023 (license to be defined)
  * =*=======================*=
  *
@@ -83,7 +83,7 @@ namespace bit {
 
 /**
  *
- * Generated on: 2024-12-18
+ * Generated on: 2024-12-25
  * 
  * @endverbatim
  * 

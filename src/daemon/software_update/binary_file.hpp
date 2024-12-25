@@ -141,6 +141,7 @@ private:
 
   const giraffe::AppIdentifier app_id_;
   const std::filesystem::path source_dir_path_;
+  const std::filesystem::path destination_dir_path_;
   const std::string binary_filename_;
 
   const bool need_read_access_;

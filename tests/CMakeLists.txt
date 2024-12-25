@@ -104,10 +104,11 @@ file(COPY ${GIRAFFE_DAEMON_TEST_SRC}/binary_file_test.bin DESTINATION ${TEST_BIN
 # -------------------------------------------------------------------
 
 # --- Flight Software : On Pi Tests ---
-file(GLOB gfs_on_pi_test_sources "${GFS_UNIT_TEST_SRC}/host_tests/test_*.cpp")
-add_executable(
-  unit_test_on_pi_host "${GFS_UNIT_TEST_SRC}/host_tests/extension_test_framework.cpp"
-                     ${gfs_on_pi_test_sources})
+file(GLOB gfs_on_pi_test_sources "${GFS_UNIT_TEST_SRC}/on_pi_tests/test_*.cpp")
+add_executable(unit_test_on_pi_host
+  EXCLUDE_FROM_ALL
+  "${GFS_UNIT_TEST_SRC}/on_pi_tests/extension_test_framework.cpp"
+  ${gfs_on_pi_test_sources})
 target_link_libraries(
   unit_test_on_pi_host
   giraffe_common
@@ -118,8 +119,10 @@ target_link_libraries(
   gfs_shared_data
   gfs_control
   gfs_utilities
+  gfs_flight_runner
   module_base
   data_module
+  console_module
   BoosterSeat
   unit_test
   gtest_main
@@ -129,7 +132,9 @@ set_target_properties(unit_test_on_pi_host
   PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${TEST_BIN})
 target_compile_options(unit_test_on_pi_host PRIVATE -Os)
 
+# @todo this is a manual test, it can probably be deleted, or ever better, automated
 add_executable(curl_test
+    EXCLUDE_FROM_ALL
   ./flight_system/curl_test.cpp
 )
 include_directories(curl_test
@@ -137,11 +142,20 @@ include_directories(curl_test
 )
 target_link_libraries(curl_test
   ${CURL_LIBRARIES}
+
+  # this is awful lol
   giraffe_debug_assert
   giraffe_common
   gfs_configuration
   gfs_shared_data
   gfs_control
+  gfs_flight_runner
+  console_module
+  extension_module
+  server_module
+  system_module
+  gfs_extensions
+  telemetry_module
 
   module_base
   data_module
