@@ -260,26 +260,28 @@ std::map<cfg::gEnum::DataPacketsMode, std::string> const K_DATA_PACKETS_MODE_TO_
 
 enum class ExtensionType {
   UNKNOWN = 0,
-  SIM_TEMP = 1,
-  SIM_PRES = 2,
-  SIM_HUM = 3,
-  SIM_GPS = 4,
-  SIM_BAT = 5,
-  SIM_IMU = 6,
-  SIM_ADC = 7,
-  SIM_CAMERA = 8,
-  BMP180 = 9,
-  BME280 = 10,
-  SAM_M8Q = 11,
-  DS18B20 = 12,
-  RGB_LED = 13,
-  MCP3021 = 14,
-  MAX11615 = 15,
-  BMI088 = 16,
-  UNIT_TEST_EXTENSION = 17
+  SIM_TEST = 1,
+  SIM_TEMP = 2,
+  SIM_PRES = 3,
+  SIM_HUM = 4,
+  SIM_GPS = 5,
+  SIM_BAT = 6,
+  SIM_IMU = 7,
+  SIM_ADC = 8,
+  SIM_CAMERA = 9,
+  BMP180 = 10,
+  BME280 = 11,
+  SAM_M8Q = 12,
+  DS18B20 = 13,
+  RGB_LED = 14,
+  MCP3021 = 15,
+  MAX11615 = 16,
+  BMI088 = 17,
+  UNIT_TEST_EXTENSION = 18
 };
 std::unordered_map<std::string, cfg::gEnum::ExtensionType> const K_STRING_TO_EXTENSION_TYPE_MAP = {
   {"unknown", cfg::gEnum::ExtensionType::UNKNOWN},
+  {"sim_test", cfg::gEnum::ExtensionType::SIM_TEST},
   {"sim_temp", cfg::gEnum::ExtensionType::SIM_TEMP},
   {"sim_pres", cfg::gEnum::ExtensionType::SIM_PRES},
   {"sim_hum", cfg::gEnum::ExtensionType::SIM_HUM},
@@ -300,6 +302,7 @@ std::unordered_map<std::string, cfg::gEnum::ExtensionType> const K_STRING_TO_EXT
 };
 std::map<cfg::gEnum::ExtensionType, std::string> const K_EXTENSION_TYPE_TO_STRING_MAP = {
   {cfg::gEnum::ExtensionType::UNKNOWN, "unknown"},
+  {cfg::gEnum::ExtensionType::SIM_TEST, "sim_test"},
   {cfg::gEnum::ExtensionType::SIM_TEMP, "sim_temp"},
   {cfg::gEnum::ExtensionType::SIM_PRES, "sim_pres"},
   {cfg::gEnum::ExtensionType::SIM_HUM, "sim_hum"},

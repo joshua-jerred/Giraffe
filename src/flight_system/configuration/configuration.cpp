@@ -1657,17 +1657,17 @@ void cfg::Configuration::getAllJson(Json &all_data) const {
 ,    {"battery", battery.getJson()}
   };
 }
-
+  
 void cfg::Configuration::save(std::string file_path) {
   const std::lock_guard<std::mutex> lock(file_lock_);
-
+  
   std::ofstream out(file_path);
-
+  
   if (out.fail()) {
     error(DiagnosticId::CONFIG_failedToSaveToPath, file_path);
     return;
   }
-
+  
   Json config_json;
   getAllJson(config_json);
 
@@ -1685,23 +1685,23 @@ void cfg::Configuration::load(std::string file_path) {
 
   if (!std::filesystem::exists(file_path)) {
     error(DiagnosticId::CONFIG_configFileDoesNotExist, file_path);
-    return;
+    return; 
   }
 
   std::ifstream in(file_path);
-
+  
   if (in.fail()) {
     error(DiagnosticId::CONFIG_failedToOpenConfig, file_path);
     return;
   }
-
+  
   Json parsed;
   try {
     parsed = Json::parse(in);
   } catch (Json::parse_error &e) {
     return;
   }
-
+  
   if (sectionExists(parsed, "general")) {
     general.setFromJson(parsed["general"]);
   } else {

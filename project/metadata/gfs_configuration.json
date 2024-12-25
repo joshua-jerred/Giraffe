@@ -666,6 +666,7 @@
             "enum_name": "extension_type",
             "options": [
                 "unknown",
+                "sim_test",
                 "sim_temp",
                 "sim_pres",
                 "sim_hum",

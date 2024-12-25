@@ -158,12 +158,12 @@ module.exports = class GdlConnection {
         console.log("GDL Connection Timeout");
       });
       this.socket.on("error", function (err) {
-        console.log("GDL Connection Error: " + err);
+        // console.log("GDL Connection Error: " + err);
         self.connected = false;
         clearInterval(self.socket_interval);
         self.socket_interval = null;
         self.new_broadcast_message = null;
-        console.log("GDL Connection Error");
+        // console.log("GDL Connection Error");
       });
     }
 

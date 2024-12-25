@@ -32,6 +32,8 @@ namespace extension {
 /// this vector will be added to the extension module on startup.
 static const std::vector<cfg::ExtensionMetadata> K_SIMULATED_EXTENSIONS_VEC = {
     cfg::ExtensionMetadata{
+        "sim_test", true, cfg::gEnum::ExtensionType::SIM_TEST, 1000, false, ""},
+    cfg::ExtensionMetadata{
         "sim_temp", true, cfg::gEnum::ExtensionType::SIM_TEMP, 1000, false, ""},
     cfg::ExtensionMetadata{
         "sim_pres", true, cfg::gEnum::ExtensionType::SIM_PRES, 1000, false, ""},
@@ -48,6 +50,25 @@ static const std::vector<cfg::ExtensionMetadata> K_SIMULATED_EXTENSIONS_VEC = {
                            ""},
 };
 
+class SimTest : public Extension {
+public:
+  SimTest(ExtensionResources &resources, cfg::ExtensionMetadata metadata)
+      : Extension(resources, metadata) {
+  }
+
+  void startup() override {
+    std::cout << "SimTest extension startup" << std::endl;
+  }
+
+  void loop() override {
+    double temp = g_GFS_SIMULATOR.getTemperatureC();
+  }
+
+  void shutdown() override {
+    std::cout << "SimTest extension shutdown" << std::endl;
+  }
+};
+
 class SimTemperatureSensor : public Extension {
 public:
   SimTemperatureSensor(ExtensionResources &resources,
@@ -56,7 +77,7 @@ public:
   }
 
   void startup() override {
-    std::cout << "SimTemperatureSensor startup" << std::endl;
+    // std::cout << "SimTemperatureSensor startup" << std::endl;
   }
 
   void loop() override {
@@ -65,7 +86,7 @@ public:
   }
 
   void shutdown() override {
-    std::cout << "SimTemperatureSensor shutdown" << std::endl;
+    // std::cout << "SimTemperatureSensor shutdown" << std::endl;
   }
 };
 

@@ -42,6 +42,9 @@ public:
   ~ExtensionModule() override = default;
 
 #if GFS_UNIT_TEST_BUILD == 1
+
+  /// @brief Not super happy about this, there are many better ways. But for
+  /// now, I'm more concerned about extension testing.
   std::optional<extension::Extension *> getExtension(const std::string &name) {
     for (auto &ext : extensions_) {
       if (ext.metadata.name == name) {
