@@ -6,7 +6,7 @@ var classmodules_1_1TelemetryModule =
     [ "loop", "classmodules_1_1TelemetryModule.html#a3ec4e04f946522deeefa2284522d23e6", null ],
     [ "shutdown", "classmodules_1_1TelemetryModule.html#a003fc90b10dd9366ae540e80f8959755", null ],
     [ "processTelemetryMessageQueue", "classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54", null ],
-    [ "sendAprsPositionPacket", "classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135", null ],
+    [ "sendAprsPositionPacket", "classmodules_1_1TelemetryModule.html#a588dde2d892c77d9e75677d97d4ab460", null ],
     [ "sendSstvImage", "classmodules_1_1TelemetryModule.html#a064ac6e55f7c0397e376c4231e7a884f", null ],
     [ "reportDescent", "classmodules_1_1TelemetryModule.html#a98559bd76e6b9e93cdc6fa9e7a647110", null ],
     [ "processCommand", "classmodules_1_1TelemetryModule.html#a4d9831ee3408ca94174c3b97793076ed", null ],

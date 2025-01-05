@@ -202,9 +202,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a3d879001e471093d48fcbd2f8c406f51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51">runner</a> ()</td></tr>
 <tr class="memdesc:a3d879001e471093d48fcbd2f8c406f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main function for each module.  <a href="classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51">More...</a><br /></td></tr>
 <tr class="separator:a3d879001e471093d48fcbd2f8c406f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5edbc8763c92221b92f713771fc44135"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135">sendAprsPositionPacket</a> ()</td></tr>
-<tr class="memdesc:a5edbc8763c92221b92f713771fc44135"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function will only send a packet if it is time to send one. If not, it will just return immediately.  <a href="classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135">More...</a><br /></td></tr>
-<tr class="separator:a5edbc8763c92221b92f713771fc44135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a588dde2d892c77d9e75677d97d4ab460"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a588dde2d892c77d9e75677d97d4ab460">sendAprsPositionPacket</a> (bool force_send=false)</td></tr>
+<tr class="memdesc:a588dde2d892c77d9e75677d97d4ab460"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function will only send a packet if it is time to send one. If not, it will just return immediately.  <a href="classmodules_1_1TelemetryModule.html#a588dde2d892c77d9e75677d97d4ab460">More...</a><br /></td></tr>
+<tr class="separator:a588dde2d892c77d9e75677d97d4ab460"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a064ac6e55f7c0397e376c4231e7a884f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1TelemetryModule.html#a064ac6e55f7c0397e376c4231e7a884f">sendSstvImage</a> ()</td></tr>
 <tr class="memdesc:a064ac6e55f7c0397e376c4231e7a884f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an SSTV image.  <a href="classmodules_1_1TelemetryModule.html#a064ac6e55f7c0397e376c4231e7a884f">More...</a><br /></td></tr>
 <tr class="separator:a064ac6e55f7c0397e376c4231e7a884f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -444,8 +444,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a5edbc8763c92221b92f713771fc44135"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5edbc8763c92221b92f713771fc44135">&#9670;&nbsp;</a></span>sendAprsPositionPacket()</h2>
+<a id="a588dde2d892c77d9e75677d97d4ab460"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a588dde2d892c77d9e75677d97d4ab460">&#9670;&nbsp;</a></span>sendAprsPositionPacket()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -456,7 +456,8 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void modules::TelemetryModule::sendAprsPositionPacket </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>force_send</em> = <code>false</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -468,6 +469,12 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>This function will only send a packet if it is time to send one. If not, it will just return immediately. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">force_send</td><td>- If true, the packet will be sent regardless of the timer or data validity. This is used for an external trigger/user command. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000066">Todo:</a></b></dt><dd>log an error </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000067">Todo:</a></b></dt><dd>Maybe use the last valid GPS frame instead, but first there needs to be a time stamp as to when this one was generated. I have a fear of DST and time zones causing issues here. </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000068">Todo:</a></b></dt><dd>log an error </dd></dl>
@@ -475,12 +482,13 @@ Here is the call graph for this function:</div>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000070">Todo:</a></b></dt><dd>log a warning but maybe still send the packet? </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000071">Todo:</a></b></dt><dd>Fix this time code! </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Time code in not implemented for APRS position packets.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000072">Todo:</a></b></dt><dd>put force_send_error in the APRS comment field </dd></dl>
 
 <p class="reference">References <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829babb1ca97ec761fc37101737ba0aa2e7c5">data::ERROR</a>, <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba8b433e3f63d83e78dfbfe6da3ff61b3e">data::FIX_2D</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a71233d73cc90bba8f4d5bbea0792e551">giraffe::gdl::Message::LOCATION</a>, <a class="el" href="namespacedata.html#ab828a916e0a524f5d9d29e881a1e829baa80630704b93114ed9e817a3f53f59c7">data::NO_FIX</a>, <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#ab1c03e26af37f4e27ca6cf24d6674f55">giraffe::gdl::Message::setLocation()</a>, and <a class="el" href="classgiraffe_1_1gdl_1_1Message.html#a5a7bfc1371f24abaaccd6baedb7c3952">giraffe::gdl::Message::Location::time_code</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule_a5edbc8763c92221b92f713771fc44135_cgraph.svg" width="416" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classmodules_1_1TelemetryModule_a588dde2d892c77d9e75677d97d4ab460_cgraph.svg" width="416" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -546,8 +554,8 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Called when the flight computer detects that it is descending. If the data link is connected, it will send a message to the ground station. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000072">Todo:</a></b></dt><dd>Capture the return values of sendText and broadcastText and set a error if they fail. </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000073">Todo:</a></b></dt><dd>report an error </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000073">Todo:</a></b></dt><dd>Capture the return values of sendText and broadcastText and set a error if they fail. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000074">Todo:</a></b></dt><dd>report an error </dd></dl>
 
 </div>
 </div>
@@ -1412,8 +1420,8 @@ Here is the caller graph for this function:</div>
 <div class="line">      <a class="code" href="classmodules_1_1Module.html#a0f304eba8e2832d972345f48fb8f33f1">shared_data_</a>, <a class="code" href="classmodules_1_1Module.html#a1285e5506c3a3219d1e120597cf16d75">configuration_</a>, <a class="code" href="classmodules_1_1TelemetryModule.html#aa186d7f1561dcfb055dc1e97d9206db1">gdl_</a>, <a class="code" href="classmodules_1_1TelemetryModule.html#aca25da4f540f7dc36da953f9273a34ed">aprs_manager_data_update_timer_</a>}</div>
 <div class="ttc" id="aclassmodules_1_1Module_html_a0f304eba8e2832d972345f48fb8f33f1"><div class="ttname"><a href="classmodules_1_1Module.html#a0f304eba8e2832d972345f48fb8f33f1">modules::Module::shared_data_</a></div><div class="ttdeci">data::SharedData &amp; shared_data_</div><div class="ttdef"><b>Definition:</b> module.hpp:201</div></div>
 <div class="ttc" id="aclassmodules_1_1Module_html_a1285e5506c3a3219d1e120597cf16d75"><div class="ttname"><a href="classmodules_1_1Module.html#a1285e5506c3a3219d1e120597cf16d75">modules::Module::configuration_</a></div><div class="ttdeci">cfg::Configuration &amp; configuration_</div><div class="ttdef"><b>Definition:</b> module.hpp:202</div></div>
-<div class="ttc" id="aclassmodules_1_1TelemetryModule_html_aa186d7f1561dcfb055dc1e97d9206db1"><div class="ttname"><a href="classmodules_1_1TelemetryModule.html#aa186d7f1561dcfb055dc1e97d9206db1">modules::TelemetryModule::gdl_</a></div><div class="ttdeci">giraffe::gdl::DataLink gdl_</div><div class="ttdoc">The Data Link used for telemetry.</div><div class="ttdef"><b>Definition:</b> telemetry_module.hpp:104</div></div>
-<div class="ttc" id="aclassmodules_1_1TelemetryModule_html_aca25da4f540f7dc36da953f9273a34ed"><div class="ttname"><a href="classmodules_1_1TelemetryModule.html#aca25da4f540f7dc36da953f9273a34ed">modules::TelemetryModule::aprs_manager_data_update_timer_</a></div><div class="ttdeci">bst::Timer aprs_manager_data_update_timer_</div><div class="ttdoc">The update rate of the APRS Manager.</div><div class="ttdef"><b>Definition:</b> telemetry_module.hpp:107</div></div>
+<div class="ttc" id="aclassmodules_1_1TelemetryModule_html_aa186d7f1561dcfb055dc1e97d9206db1"><div class="ttname"><a href="classmodules_1_1TelemetryModule.html#aa186d7f1561dcfb055dc1e97d9206db1">modules::TelemetryModule::gdl_</a></div><div class="ttdeci">giraffe::gdl::DataLink gdl_</div><div class="ttdoc">The Data Link used for telemetry.</div><div class="ttdef"><b>Definition:</b> telemetry_module.hpp:106</div></div>
+<div class="ttc" id="aclassmodules_1_1TelemetryModule_html_aca25da4f540f7dc36da953f9273a34ed"><div class="ttname"><a href="classmodules_1_1TelemetryModule.html#aca25da4f540f7dc36da953f9273a34ed">modules::TelemetryModule::aprs_manager_data_update_timer_</a></div><div class="ttdeci">bst::Timer aprs_manager_data_update_timer_</div><div class="ttdoc">The update rate of the APRS Manager.</div><div class="ttdef"><b>Definition:</b> telemetry_module.hpp:109</div></div>
 </div><!-- fragment -->
 <p>The APRS Telemetry Data Manager for managing APRS telemetry packets and all of the data that goes into them. </p>
 

@@ -1,7 +1,7 @@
 <map id="giraffe::gdl::Message::setLocation" name="giraffe::gdl::Message::setLocation">
 <area shape="rect" id="node1" title=" " alt="" coords="1521,71,1680,112"/>
 <area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875" title=" " alt="" coords="1279,37,1469,79"/>
-<area shape="rect" id="node11" href="$classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135" title="This function will only send a packet if it is time to send one. If not, it will just return immediat..." alt="" coords="1275,103,1473,144"/>
+<area shape="rect" id="node11" href="$classmodules_1_1TelemetryModule.html#a588dde2d892c77d9e75677d97d4ab460" title="This function will only send a packet if it is time to send one. If not, it will just return immediat..." alt="" coords="1275,103,1473,144"/>
 <area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a6261bac3c4a33276136fa514168200ca" title=" " alt="" coords="1007,5,1227,47"/>
 <area shape="rect" id="node10" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859" title=" " alt="" coords="1019,71,1215,112"/>
 <area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab520e1f30f0fa8d1d17fc3d627386d2f" title=" " alt="" coords="763,39,959,80"/>

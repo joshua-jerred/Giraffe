@@ -29,7 +29,7 @@ var searchData=
   ['send_5freset_1792',['SEND_RESET',['../group__SAMM8QState.html#ggab4b80b84b47aaa1ff2dbd2d1c16f5d19a5f81a83853015381e702ad82ed786cc0',1,'extension::SamM8q']]],
   ['send_5fresult_5f_1793',['send_result_',['../classgiraffe_1_1gdl_1_1GdlServer.html#abe6ba700c9082227dfb5356a2fa0643d',1,'giraffe::gdl::GdlServer']]],
   ['sendack_1794',['sendAck',['../classgiraffe_1_1gdl_1_1TransportLayer.html#a14bea5bfc1ce848c4edf6ab2476ddc01',1,'giraffe::gdl::TransportLayer']]],
-  ['sendaprspositionpacket_1795',['sendAprsPositionPacket',['../classmodules_1_1TelemetryModule.html#a5edbc8763c92221b92f713771fc44135',1,'modules::TelemetryModule']]],
+  ['sendaprspositionpacket_1795',['sendAprsPositionPacket',['../classmodules_1_1TelemetryModule.html#a588dde2d892c77d9e75677d97d4ab460',1,'modules::TelemetryModule']]],
   ['senderrorpacket_1796',['sendErrorPacket',['../group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5',1,'RequestRouter']]],
   ['sending_5fdata_1797',['SENDING_DATA',['../classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a9986a5afef75a39fd92ce2b740c2cd46abb06c7633e3f218d4bdaa98908f4ac47',1,'giraffe::gdl::AprsTelemetrySender']]],
   ['sending_5fmetadata_1798',['SENDING_METADATA',['../classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a9986a5afef75a39fd92ce2b740c2cd46ac45809db860c0e90f39622ad94c2d451',1,'giraffe::gdl::AprsTelemetrySender']]],
