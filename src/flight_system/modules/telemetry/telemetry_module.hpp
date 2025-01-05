@@ -53,8 +53,10 @@ private:
   /**
    * @brief This function will only send a packet if it is time to send one. If
    * not, it will just return immediately.
+   * @param force_send - If true, the packet will be sent regardless of the
+   * timer or data validity. This is used for an external trigger/user command.
    */
-  void sendAprsPositionPacket();
+  void sendAprsPositionPacket(bool force_send = false);
 
   /**
    * @brief Send an SSTV image.
