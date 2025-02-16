@@ -1,0 +1,34 @@
+<mxfile host="65bd71144e">
+    <diagram id="xH-T24poy5hYIG6f6IRd" name="Page-1">
+        <mxGraphModel dx="2008" dy="1205" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="462" value="Ground Station Hardware" style="shape=umlFrame;whiteSpace=wrap;html=1;width=120;height=30;boundedLbl=1;verticalAlign=middle;align=left;spacingLeft=5;" vertex="1" parent="1">
+                    <mxGeometry x="-473" y="-228" width="682" height="273" as="geometry"/>
+                </mxCell>
+                <mxCell id="482" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="473" target="481">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="485" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="473" target="481">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="487" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="473" target="486">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="473" value="&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;&lt;b&gt;Ground Computer&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;- Pi 4 2GB,&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Debian,&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;16GB SD&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- Runs all software related to&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;the project&lt;/span&gt;&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;" vertex="1" parent="1">
+                    <mxGeometry x="-248" y="314" width="226" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="481" value="&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;&lt;b&gt;SDR&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;fillColor=rgb(24, 20, 29);" vertex="1" parent="1">
+                    <mxGeometry x="76" y="314" width="226" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="483" value="&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;&lt;b&gt;Power Supply&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;fillColor=rgb(24, 20, 29);" vertex="1" parent="1">
+                    <mxGeometry x="-97" y="74" width="226" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="486" value="&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;&lt;b&gt;SDR&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;fillColor=rgb(24, 20, 29);" vertex="1" parent="1">
+                    <mxGeometry x="76" y="430" width="226" height="92" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
