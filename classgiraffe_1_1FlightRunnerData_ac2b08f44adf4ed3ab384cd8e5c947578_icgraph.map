@@ -1,6 +1,9 @@
 <map id="giraffe::FlightRunnerData::setFlightPhase" name="giraffe::FlightRunnerData::setFlightPhase">
-<area shape="rect" id="node1" title=" " alt="" coords="819,5,1005,47"/>
-<area shape="rect" id="node2" href="$classFlightRunner.html#ace57cc70e225e6d6d9b141e75589e775" title=" " alt="" coords="547,13,771,39"/>
-<area shape="rect" id="node3" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,13,499,39"/>
-<area shape="rect" id="node4" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,13,220,39"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="819,5,1005,45"/>
+<area shape="rect" id="Node000002" href="$classFlightRunner.html#ace57cc70e225e6d6d9b141e75589e775" title=" " alt="" coords="547,13,771,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="805,28,771,28,771,23,805,23"/>
+<area shape="rect" id="Node000003" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,13,499,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="533,28,499,28,499,23,533,23"/>
+<area shape="rect" id="Node000004" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,13,220,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="255,28,220,28,220,23,255,23"/>
 </map>

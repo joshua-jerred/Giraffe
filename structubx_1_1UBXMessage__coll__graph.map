@@ -1,6 +1,9 @@
 <map id="ubx::UBXMessage" name="ubx::UBXMessage">
-<area shape="rect" id="node1" title=" " alt="" coords="147,219,321,340"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,172,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="197,5,271,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="295,5,362,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="43,207,208,332"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,64,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="39,70,45,124,62,182,67,191,62,194,58,184,40,125,33,71"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="92,5,159,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="128,71,128,190,123,190,123,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="183,5,342,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="250,72,224,125,190,184,184,194,179,192,186,181,219,123,246,70"/>
 </map>

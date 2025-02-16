@@ -1,5 +1,7 @@
 <map id="giraffe::gdl::DataLink::sendTelemetryMetadataPackets" name="giraffe::gdl::DataLink::sendTelemetryMetadataPackets">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,243,47"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#acc633d94e18e85dc15a2c127561dadbc" title="Ask the telemetry sender to send the parameter name, unit/label, coefficient, and bit sense messages." alt="" coords="291,5,524,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Config.html#ae73eb03f8e513787154829d5fe228044" title=" " alt="" coords="572,5,804,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,243,45"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#acc633d94e18e85dc15a2c127561dadbc" title="Ask the telemetry sender to send the parameter name, unit/label, coefficient, and bit sense messages." alt="" coords="291,5,524,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,23,277,23,277,28,243,28"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1Config.html#ae73eb03f8e513787154829d5fe228044" title=" " alt="" coords="572,5,804,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="524,23,559,23,559,28,524,28"/>
 </map>

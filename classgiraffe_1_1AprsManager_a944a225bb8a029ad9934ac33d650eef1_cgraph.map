@@ -1,7 +1,11 @@
 <map id="giraffe::AprsManager::sendOnAirDefinitionPackets" name="giraffe::AprsManager::sendOnAirDefinitionPackets">
-<area shape="rect" id="node1" title="Sends the on&#45;air definition packets." alt="" coords="5,104,215,145"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1IDataLink.html#af8cf0ced48d9bfac0ccfa62ec8f97851" title=" " alt="" coords="291,5,473,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ab6e2dd57089b03593b35f45e0e793944" title=" " alt="" coords="281,71,483,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a0c8e773bdc5042576a072965e5a14f58" title=" " alt="" coords="263,136,501,177"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1IDataLink.html#acf2248a3fda82da2156b1d244b9247de" title=" " alt="" coords="269,201,495,243"/>
+<area shape="rect" id="Node000001" title="Sends the on&#45;air definition packets." alt="" coords="5,101,215,141"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1IDataLink.html#af8cf0ced48d9bfac0ccfa62ec8f97851" title=" " alt="" coords="291,5,473,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,99,262,55,287,47,288,52,264,60,155,104"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ab6e2dd57089b03593b35f45e0e793944" title=" " alt="" coords="281,69,483,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,106,266,100,267,106,215,112"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a0c8e773bdc5042576a072965e5a14f58" title=" " alt="" coords="263,133,501,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="215,131,249,135,249,140,214,136"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1gdl_1_1IDataLink.html#acf2248a3fda82da2156b1d244b9247de" title=" " alt="" coords="269,197,495,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="155,139,264,183,288,191,287,196,262,188,153,144"/>
 </map>

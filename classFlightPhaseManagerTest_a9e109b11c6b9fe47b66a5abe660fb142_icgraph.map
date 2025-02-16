@@ -1,5 +1,7 @@
 <map id="FlightPhaseManagerTest::bringToLaunch" name="FlightPhaseManagerTest::bringToLaunch">
-<area shape="rect" id="node1" title=" " alt="" coords="464,5,645,47"/>
-<area shape="rect" id="node2" href="$classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10" title=" " alt="" coords="235,5,416,47"/>
-<area shape="rect" id="node3" href="$classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819" title=" " alt="" coords="5,5,187,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="464,5,645,45"/>
+<area shape="rect" id="Node000002" href="$classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10" title=" " alt="" coords="235,5,416,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="450,28,416,28,416,23,450,23"/>
+<area shape="rect" id="Node000003" href="$classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819" title=" " alt="" coords="5,5,187,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="221,28,187,28,187,23,221,23"/>
 </map>

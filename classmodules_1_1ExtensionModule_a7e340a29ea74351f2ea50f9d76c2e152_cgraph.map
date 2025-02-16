@@ -1,12 +1,21 @@
 <map id="modules::ExtensionModule::stateMachine" name="modules::ExtensionModule::stateMachine">
-<area shape="rect" id="node1" title=" " alt="" coords="5,235,204,276"/>
-<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#a7cea1a7bd69b1d43c11709a99f752fdd" title=" " alt="" coords="252,5,451,47"/>
-<area shape="rect" id="node3" href="$classmodules_1_1ExtensionModule.html#adaf0475e042dc33206bd22bea1c3018d" title=" " alt="" coords="252,71,451,112"/>
-<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html#aace021eb27c1a3988997b4e8732fcd4c" title=" " alt="" coords="252,136,451,177"/>
-<area shape="rect" id="node5" href="$classmodules_1_1ExtensionModule.html#a175bbc33651ec0c0e8f229d28968c5e8" title=" " alt="" coords="252,201,451,243"/>
-<area shape="rect" id="node7" href="$classmodules_1_1ExtensionModule.html#a9f07f42333ead841747ce7905537abae" title=" " alt="" coords="252,267,451,308"/>
-<area shape="rect" id="node8" href="$classmodules_1_1ExtensionModule.html#ae126777b418880b244276e99af6aef97" title=" " alt="" coords="252,332,451,373"/>
-<area shape="rect" id="node9" href="$classmodules_1_1ExtensionModule.html#ad48e5caa2b5904d56bd46cb1e218a13f" title=" " alt="" coords="252,397,451,439"/>
-<area shape="rect" id="node10" href="$classmodules_1_1ExtensionModule.html#ac2ce6fd94514eecf52156a9fac800965" title=" " alt="" coords="252,463,451,504"/>
-<area shape="rect" id="node6" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="499,209,665,235"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,229,204,269"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1ExtensionModule.html#a7cea1a7bd69b1d43c11709a99f752fdd" title=" " alt="" coords="252,5,451,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,228,134,191,165,145,204,97,250,55,259,49,262,54,254,59,208,100,169,148,139,194,118,231"/>
+<area shape="rect" id="Node000003" href="$classmodules_1_1ExtensionModule.html#adaf0475e042dc33206bd22bea1c3018d" title=" " alt="" coords="252,69,451,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,227,176,174,212,145,251,119,264,112,266,117,253,124,215,149,180,178,126,231"/>
+<area shape="rect" id="Node000004" href="$classmodules_1_1ExtensionModule.html#aace021eb27c1a3988997b4e8732fcd4c" title=" " alt="" coords="252,133,451,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="148,227,251,183,272,175,274,180,253,188,150,232"/>
+<area shape="rect" id="Node000005" href="$classmodules_1_1ExtensionModule.html#a175bbc33651ec0c0e8f229d28968c5e8" title=" " alt="" coords="252,197,451,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="204,234,238,229,239,235,205,239"/>
+<area shape="rect" id="Node000007" href="$classmodules_1_1ExtensionModule.html#a9f07f42333ead841747ce7905537abae" title=" " alt="" coords="252,261,451,301"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="205,260,239,264,238,269,204,265"/>
+<area shape="rect" id="Node000008" href="$classmodules_1_1ExtensionModule.html#ae126777b418880b244276e99af6aef97" title=" " alt="" coords="252,325,451,365"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="150,267,253,311,274,318,272,323,251,316,148,272"/>
+<area shape="rect" id="Node000009" href="$classmodules_1_1ExtensionModule.html#ad48e5caa2b5904d56bd46cb1e218a13f" title=" " alt="" coords="252,389,451,429"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="126,268,180,321,215,350,253,375,266,382,264,386,251,380,212,354,176,325,122,271"/>
+<area shape="rect" id="Node000010" href="$classmodules_1_1ExtensionModule.html#ac2ce6fd94514eecf52156a9fac800965" title=" " alt="" coords="252,453,451,493"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="118,268,139,305,169,351,208,398,254,439,262,445,259,449,250,443,204,402,165,354,134,307,114,271"/>
+<area shape="rect" id="Node000006" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="499,205,665,230"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="451,215,485,215,485,220,451,220"/>
 </map>

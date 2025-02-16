@@ -1,5 +1,7 @@
 <map id="giraffe::SpiInterface::closeDevice" name="giraffe::SpiInterface::closeDevice">
-<area shape="rect" id="node1" title="Closes the SPI device. No action is taken if the device is already closed." alt="" coords="205,39,356,80"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#afa76028944da4d404f1073dd03ea77fd" title=" " alt="" coords="5,5,157,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1SpiInterface.html#ac3af0a97eb83eca89a8e22ce3e6b9646" title="Destructor for the SPI interface class. Closes the file descriptors if they are open." alt="" coords="6,71,157,112"/>
+<area shape="rect" id="Node000001" title="Closes the SPI device. No action is taken if the device is already closed." alt="" coords="205,37,356,77"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Bmi088.html#afa76028944da4d404f1073dd03ea77fd" title=" " alt="" coords="5,5,157,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,46,157,40,158,35,192,40"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1SpiInterface.html#ac3af0a97eb83eca89a8e22ce3e6b9646" title="Destructor for the SPI interface class. Closes the file descriptors if they are open." alt="" coords="6,69,157,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,74,158,80,157,75,191,69"/>
 </map>

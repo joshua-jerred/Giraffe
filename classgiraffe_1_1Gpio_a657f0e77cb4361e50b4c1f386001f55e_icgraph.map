@@ -1,6 +1,9 @@
 <map id="giraffe::Gpio::isPinReserved" name="giraffe::Gpio::isPinReserved">
-<area shape="rect" id="node1" title="A function to check if a pin has been reserved." alt="" coords="451,31,653,57"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="250,5,389,32"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="236,56,403,83"/>
-<area shape="rect" id="node4" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="5,49,188,90"/>
+<area shape="rect" id="Node000001" title="A function to check if a pin has been reserved." alt="" coords="451,31,653,56"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="250,5,389,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="436,33,389,28,389,23,437,28"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="236,55,403,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="437,58,403,61,403,56,437,53"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="5,47,188,87"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="222,70,188,70,188,65,222,65"/>
 </map>

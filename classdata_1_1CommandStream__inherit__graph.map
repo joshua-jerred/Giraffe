@@ -1,5 +1,7 @@
 <map id="data::CommandStream" name="data::CommandStream">
-<area shape="rect" id="node1" title="The stream of new commands." alt="" coords="41,507,215,584"/>
-<area shape="rect" id="node2" href="$classdata_1_1Stream.html" title=" " alt="" coords="5,263,251,457"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html" title=" " alt="" coords="54,5,202,200"/>
+<area shape="rect" id="Node000001" title="The stream of new commands." alt="" coords="41,568,207,633"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Stream.html" title=" " alt="" coords="5,293,243,519"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,533,127,568,121,568,121,533"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html" title=" " alt="" coords="54,5,194,231"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="127,244,127,293,121,293,121,244"/>
 </map>

@@ -1,8 +1,16 @@
 <map id="cfg::AdcMappings::removeAdcConfig" name="cfg::AdcMappings::removeAdcConfig">
-<area shape="rect" id="node1" title=" " alt="" coords="5,47,200,88"/>
-<area shape="rect" id="node2" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="248,54,407,81"/>
-<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="455,54,623,81"/>
-<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="881,5,1068,47"/>
-<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="671,54,833,81"/>
-<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="885,80,1065,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,61,200,101"/>
+<area shape="rect" id="Node000002" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="248,69,407,94"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,79,234,79,234,84,200,84"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="455,69,623,94"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="407,79,441,79,441,84,407,84"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="881,5,1068,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="565,66,613,46,670,29,771,18,868,16,868,22,772,23,671,35,615,51,567,71"/>
+<area shape="rect" id="Node000005" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="671,69,833,94"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="623,79,657,79,657,84,623,84"/>
+<area shape="rect" id="Node000006" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="885,87,1065,127"/>
+<area shape="poly" id="edge8_Node000003_Node000006" title=" " alt="" coords="593,91,671,104,774,109,871,109,871,114,774,115,670,109,593,97"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="803,66,881,46,882,51,804,71"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="717,70,710,60,713,50,728,44,752,42,782,46,793,55,790,59,780,51,752,47,729,49,717,54,715,60,721,67"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="834,88,871,92,871,98,833,93"/>
 </map>

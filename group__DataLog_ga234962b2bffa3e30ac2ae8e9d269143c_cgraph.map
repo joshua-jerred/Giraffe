@@ -1,6 +1,10 @@
 <map id="data_middleware::DataLog::createDataDir" name="data_middleware::DataLog::createDataDir">
-<area shape="rect" id="node1" title="Used to create the data directory with createDirectory()." alt="" coords="5,35,203,76"/>
-<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#a60be25b9cd8882562d8f5f77b420d1bc" title="Returns the path to the gfs data directory. Creates the directory if it does not exist." alt="" coords="251,35,401,76"/>
-<area shape="rect" id="node3" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="449,5,655,47"/>
-<area shape="rect" id="node4" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="703,35,885,76"/>
+<area shape="rect" id="Node000001" title="Used to create the data directory with createDirectory()." alt="" coords="5,35,203,75"/>
+<area shape="rect" id="Node000002" href="$namespacegiraffe_1_1file__paths.html#a60be25b9cd8882562d8f5f77b420d1bc" title="Returns the path to the gfs data directory. Creates the directory if it does not exist." alt="" coords="251,35,401,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,52,237,52,237,57,203,57"/>
+<area shape="rect" id="Node000003" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="449,5,655,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="401,42,435,38,436,43,402,48"/>
+<area shape="rect" id="Node000004" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="703,35,885,75"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="402,54,449,55,655,55,689,54,689,60,655,60,449,60,401,59"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="655,35,689,39,689,45,655,40"/>
 </map>

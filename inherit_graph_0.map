@@ -1,11 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,183,107,209"/>
-<area shape="rect" id="node2" href="$classAprsTelemetryDataManagerTest.html" title=" " alt="" coords="155,5,385,32"/>
-<area shape="rect" id="node3" href="$classConfigurationTest.html" title=" " alt="" coords="203,56,337,83"/>
-<area shape="rect" id="node4" href="$classDataModuleTests.html" title=" " alt="" coords="203,107,337,133"/>
-<area shape="rect" id="node5" href="$classDetectionDataTest.html" title=" " alt="" coords="199,157,341,184"/>
-<area shape="rect" id="node6" href="$classExtensionModuleTests.html" title=" " alt="" coords="187,208,353,235"/>
-<area shape="rect" id="node7" href="$classFlightPhaseManagerTest.html" title=" " alt="" coords="179,259,361,285"/>
-<area shape="rect" id="node8" href="$classFlightPhasePredictorTest.html" title=" " alt="" coords="179,309,361,336"/>
-<area shape="rect" id="node9" href="$classProtocolTest.html" title=" " alt="" coords="219,360,321,387"/>
+<area shape="rect" id="Node000000" href="$classbit_1_1IBuiltInTest.html" title="Access to build&#45;in test data." alt="" coords="5,5,124,31"/>
+<area shape="rect" id="Node000001" href="$classbit_1_1BuiltInTest.html" title=" " alt="" coords="172,5,287,31"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="138,15,171,15,171,21,138,21"/>
 </map>

@@ -1,6 +1,11 @@
 <map id="extension::SamM8q::transitionState" name="extension::SamM8q::transitionState">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="625,13,805,39"/>
-<area shape="rect" id="node4" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="419,35,577,76"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,164,45"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="212,5,371,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,23,198,23,198,28,164,28"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="625,13,805,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="371,11,418,7,498,3,577,7,612,9,611,15,577,12,498,9,419,12,371,17"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="419,45,577,85"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="371,38,406,45,405,50,370,43"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="577,48,632,38,633,43,578,53"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="459,46,457,36,463,27,477,21,498,19,522,22,535,29,533,34,520,27,498,24,478,26,467,31,462,37,464,44"/>
 </map>

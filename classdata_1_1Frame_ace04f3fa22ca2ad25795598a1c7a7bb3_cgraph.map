@@ -1,0 +1,6 @@
+<map id="data::Frame::clear" name="data::Frame::clear">
+<area shape="rect" id="Node000001" title="Clears all contents of the frame." alt="" coords="5,29,145,55"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="193,29,323,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,39,179,39,179,45,146,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="228,31,222,21,225,11,237,5,258,3,283,6,293,15,290,19,281,11,258,8,239,10,229,15,227,20,232,28"/>
+</map>

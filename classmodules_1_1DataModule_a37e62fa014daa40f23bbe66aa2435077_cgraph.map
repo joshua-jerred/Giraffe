@@ -1,6 +1,9 @@
 <map id="modules::DataModule::processStream" name="modules::DataModule::processStream">
-<area shape="rect" id="node1" title="Used to process shared streams." alt="" coords="5,49,171,90"/>
-<area shape="rect" id="node2" href="$classdata_1_1Stream.html#a1e7307f7c8cbbe4304654a293d86bd9c" title=" " alt="" coords="219,5,433,32"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a0314b3695dc80b18b19be92965777234" title=" " alt="" coords="237,56,415,83"/>
-<area shape="rect" id="node4" href="$classdata_1_1Stream.html#ace050b78da0acc49b3baccc8018a387e" title=" " alt="" coords="219,107,433,133"/>
+<area shape="rect" id="Node000001" title="Used to process shared streams." alt="" coords="5,47,171,87"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Stream.html#a1e7307f7c8cbbe4304654a293d86bd9c" title=" " alt="" coords="219,5,433,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,48,250,31,251,36,172,53"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a0314b3695dc80b18b19be92965777234" title=" " alt="" coords="237,55,415,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,65,224,65,224,70,171,70"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1Stream.html#ace050b78da0acc49b3baccc8018a387e" title=" " alt="" coords="219,104,433,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,82,251,99,250,104,170,87"/>
 </map>

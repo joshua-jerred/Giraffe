@@ -1,5 +1,9 @@
 <map id="giraffe::AprsManager::initializeTelemetryData" name="giraffe::AprsManager::initializeTelemetryData">
-<area shape="rect" id="node1" title="Initializes the APRS Telemetry data from the configuration." alt="" coords="419,5,601,47"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1AprsManager.html#a733faf5f8cb193988e799bbbfc721173" title="Force a configuration reload." alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1AprsManager.html#ae1043caeea2da6d4da54c9af887dad3a" title="Constructor." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="Node000001" title="Initializes the APRS Telemetry data from the configuration." alt="" coords="464,37,647,77"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1AprsManager.html#a733faf5f8cb193988e799bbbfc721173" title="Force a configuration reload." alt="" coords="257,37,416,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="450,60,416,60,416,55,450,55"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1AprsManager.html#ae1043caeea2da6d4da54c9af887dad3a" title="Constructor." alt="" coords="28,5,187,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="243,47,186,39,187,34,244,42"/>
+<area shape="rect" id="Node000004" href="$classAprsTelemetryDataManagerTest.html#a08c97fbbeb2a6546f3e0336685f74d8b" title=" " alt="" coords="5,69,209,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="244,73,210,78,209,72,243,68"/>
 </map>

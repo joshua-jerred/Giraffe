@@ -1,13 +1,23 @@
 <map id="cmd::parseCommandString" name="cmd::parseCommandString">
-<area shape="rect" id="node1" title="Parses a command string into a command object." alt="" coords="5,208,204,235"/>
-<area shape="rect" id="node2" href="$command__processor_8cpp.html#a2d173b5fffc1c8b756aaf2a701db8dd0" title=" " alt="" coords="265,5,477,32"/>
-<area shape="rect" id="node3" href="$command__processor_8cpp.html#ad1d8be34ae493715509b48acb62f4533" title=" " alt="" coords="259,56,484,83"/>
-<area shape="rect" id="node4" href="$command__processor_8cpp.html#a9106bfe97edd99b106962339800e17bf" title=" " alt="" coords="269,107,473,133"/>
-<area shape="rect" id="node6" href="$command__processor_8cpp.html#a22b7c20a37b3536428bb6f3cfc906076" title=" " alt="" coords="277,157,466,184"/>
-<area shape="rect" id="node7" href="$command__processor_8cpp.html#ad0fa213670534c75ad5b96cd908d4c81" title=" " alt="" coords="253,208,490,235"/>
-<area shape="rect" id="node8" href="$command__processor_8cpp.html#a7652d53c747bc618ecacff1b43b94a72" title=" " alt="" coords="267,259,475,285"/>
-<area shape="rect" id="node9" href="$command__processor_8cpp.html#aa395b626abbd00953e3753ff9d64917e" title=" " alt="" coords="264,309,479,336"/>
-<area shape="rect" id="node10" href="$command__processor_8cpp.html#acfe1b39a13cbda474fb3a8a6811f23ec" title=" " alt="" coords="260,360,483,387"/>
-<area shape="rect" id="node11" href="$command__processor_8cpp.html#a4d154f34c544db0f583f17cb3bac8f55" title=" " alt="" coords="252,411,491,437"/>
-<area shape="rect" id="node5" href="$command__processor_8cpp.html#af66cd87ab8d3892cf773fdea7899f953" title="Returns the value of a hex string as a uint32_t." alt="" coords="539,107,680,133"/>
+<area shape="rect" id="Node000001" title="Parses a command string into a command object." alt="" coords="5,203,204,228"/>
+<area shape="rect" id="Node000002" href="$command__processor_8cpp.html#a2d173b5fffc1c8b756aaf2a701db8dd0" title=" " alt="" coords="265,5,477,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,201,130,168,161,124,202,78,251,40,263,34,265,38,253,44,205,82,165,127,135,171,115,204"/>
+<area shape="rect" id="Node000003" href="$command__processor_8cpp.html#ad1d8be34ae493715509b48acb62f4533" title=" " alt="" coords="259,55,484,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="115,201,169,146,208,115,251,89,268,82,270,87,253,94,211,119,173,150,119,204"/>
+<area shape="rect" id="Node000004" href="$command__processor_8cpp.html#a9106bfe97edd99b106962339800e17bf" title=" " alt="" coords="269,104,473,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="125,200,181,169,251,138,278,130,279,135,253,143,183,174,128,205"/>
+<area shape="rect" id="Node000006" href="$command__processor_8cpp.html#a22b7c20a37b3536428bb6f3cfc906076" title=" " alt="" coords="277,153,466,179"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="173,200,288,179,289,184,174,205"/>
+<area shape="rect" id="Node000007" href="$command__processor_8cpp.html#ad0fa213670534c75ad5b96cd908d4c81" title=" " alt="" coords="253,203,490,228"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="204,213,239,213,239,218,204,218"/>
+<area shape="rect" id="Node000008" href="$command__processor_8cpp.html#a7652d53c747bc618ecacff1b43b94a72" title=" " alt="" coords="267,252,475,277"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="174,225,289,247,288,252,173,231"/>
+<area shape="rect" id="Node000009" href="$command__processor_8cpp.html#aa395b626abbd00953e3753ff9d64917e" title=" " alt="" coords="264,301,479,327"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="128,226,184,256,253,286,284,296,283,301,251,291,181,261,126,230"/>
+<area shape="rect" id="Node000010" href="$command__processor_8cpp.html#acfe1b39a13cbda474fb3a8a6811f23ec" title=" " alt="" coords="260,351,483,376"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="119,226,173,280,211,310,253,336,274,344,272,349,251,340,208,315,169,284,115,230"/>
+<area shape="rect" id="Node000011" href="$command__processor_8cpp.html#a4d154f34c544db0f583f17cb3bac8f55" title=" " alt="" coords="252,400,491,425"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="115,227,135,259,165,303,206,348,253,385,269,393,266,397,251,390,202,352,161,306,130,262,111,230"/>
+<area shape="rect" id="Node000005" href="$command__processor_8cpp.html#af66cd87ab8d3892cf773fdea7899f953" title="Returns the value of a hex string as a uint32_t." alt="" coords="539,104,680,129"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="473,114,525,114,525,119,473,119"/>
 </map>

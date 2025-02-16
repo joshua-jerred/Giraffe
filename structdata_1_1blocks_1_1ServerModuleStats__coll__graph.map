@@ -1,6 +1,9 @@
 <map id="data::blocks::ServerModuleStats" name="data::blocks::ServerModuleStats">
-<area shape="rect" id="node1" title=" " alt="" coords="145,160,343,252"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,72,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="225,5,263,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="427,5,477,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="133,148,324,228"/>
+<area shape="rect" id="Node000002" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="5,5,36,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="26,70,33,98,48,122,81,147,119,165,117,169,78,152,44,126,28,100,21,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="199,5,258,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="231,71,231,131,226,131,226,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="413,5,455,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="432,72,423,100,407,126,376,150,341,166,338,162,373,145,403,122,419,98,427,70"/>
 </map>

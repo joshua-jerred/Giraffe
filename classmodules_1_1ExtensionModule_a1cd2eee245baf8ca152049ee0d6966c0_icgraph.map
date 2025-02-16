@@ -1,6 +1,9 @@
 <map id="modules::ExtensionModule::updateLocalConfig" name="modules::ExtensionModule::updateLocalConfig">
-<area shape="rect" id="node1" title=" " alt="" coords="509,39,708,80"/>
-<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8" title=" " alt="" coords="252,5,461,47"/>
-<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628" title="This function is called when the module is started." alt="" coords="257,71,456,112"/>
-<area shape="rect" id="node3" href="$classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45" title="Called when a command is received." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="509,37,708,77"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8" title=" " alt="" coords="252,5,461,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="495,46,461,41,462,36,496,40"/>
+<area shape="rect" id="Node000004" href="$classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628" title="This function is called when the module is started." alt="" coords="257,69,456,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="496,74,456,79,456,74,495,69"/>
+<area shape="rect" id="Node000003" href="$classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45" title="Called when a command is received." alt="" coords="5,5,204,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="238,28,204,28,204,23,238,23"/>
 </map>

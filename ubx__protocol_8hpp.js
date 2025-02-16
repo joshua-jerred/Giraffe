@@ -1,6 +1,6 @@
 var ubx__protocol_8hpp =
 [
-    [ "NavData", "namespaceubx.html#structubx_1_1NavData", [
+    [ "ubx::NavData", "namespaceubx.html#structubx_1_1NavData", [
       [ "valid", "namespaceubx.html#a525c0e27848c54195202e276aae918d3", null ],
       [ "year", "namespaceubx.html#aa3716ea24fc1c764baee09dfc5b2eba1", null ],
       [ "month", "namespaceubx.html#a47165786590e9cdb2d0851aa9f79aacf", null ],
@@ -20,7 +20,7 @@ var ubx__protocol_8hpp =
       [ "heading_of_motion", "namespaceubx.html#adea4b3138c786d15fd92542765c9902c", null ],
       [ "heading_accuracy", "namespaceubx.html#a6a5401a1742fbc8c7cc822872d58283c", null ]
     ] ],
-    [ "UBXMessage", "structubx_1_1UBXMessage.html", "structubx_1_1UBXMessage" ],
+    [ "ubx::UBXMessage", "structubx_1_1UBXMessage.html", "structubx_1_1UBXMessage" ],
     [ "UBXMessage", "ubx__protocol_8hpp.html#a326ecd141c5e2c7e1ff9ec60519b8a43", null ],
     [ "ACK", "ubx__protocol_8hpp.html#a6b284471c7fcbbece38600a40f0d0bb4", [
       [ "ACK", "ubx__protocol_8hpp.html#a6b284471c7fcbbece38600a40f0d0bb4a0fc437bc317835cad5faafc12a83fad5", null ],

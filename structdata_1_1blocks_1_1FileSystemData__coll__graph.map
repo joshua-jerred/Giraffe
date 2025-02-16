@@ -1,7 +1,11 @@
 <map id="data::blocks::FileSystemData" name="data::blocks::FileSystemData">
-<area shape="rect" id="node1" title=" " alt="" coords="209,160,421,237"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,164,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="195,5,270,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="369,5,427,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="558,5,609,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="205,148,409,213"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,48,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="28,71,33,98,47,122,69,136,103,147,189,164,188,169,102,152,67,141,43,126,28,100,23,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="189,5,240,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,71,211,97,218,123,228,135,223,138,214,125,205,98,205,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="367,5,433,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="396,72,387,99,373,125,363,138,359,134,368,123,382,97,391,70"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="490,5,641,71"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="560,72,547,101,526,126,503,142,478,154,426,171,424,166,476,149,500,137,522,122,542,98,555,70"/>
 </map>

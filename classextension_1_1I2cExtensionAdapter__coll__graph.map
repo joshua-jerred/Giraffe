@@ -1,11 +1,19 @@
 <map id="extension::I2cExtensionAdapter" name="extension::I2cExtensionAdapter">
-<area shape="rect" id="node1" title="Adapter for I2C Extensions." alt="" coords="81,476,309,597"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,241,65,318"/>
-<area shape="rect" id="node3" title=" " alt="" coords="158,241,233,318"/>
-<area shape="rect" id="node4" href="$classI2cInterface.html" title="A wrapper around I2C communication that restricts a single thread from accessing the bus at a time." alt="" coords="257,145,432,413"/>
-<area shape="rect" id="node5" title=" " alt="" coords="147,5,214,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="239,5,277,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="315,5,374,83"/>
-<area shape="rect" id="node8" title=" " alt="" coords="417,5,496,83"/>
-<area shape="rect" id="node9" title=" " alt="" coords="527,5,594,83"/>
+<area shape="rect" id="Node000001" title="Adapter for I2C Extensions." alt="" coords="239,521,459,647"/>
+<area shape="rect" id="Node000002" href="$classI2cInterface.html" title="A wrapper around I2C communication that restricts a single thread from accessing the bus at a time." alt="" coords="133,133,299,459"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="287,458,305,496,310,505,305,508,300,498,282,460"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,64,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="59,70,125,162,121,165,55,73"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="88,5,147,71"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="131,70,145,108,148,117,143,119,140,110,126,72"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="181,5,251,71"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="219,71,219,117,213,117,213,71"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="295,5,345,71"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="310,72,290,119,285,117,305,70"/>
+<area shape="rect" id="Node000007" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="417,5,447,71"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="419,70,403,92,383,112,364,121,347,124,331,126,313,136,313,136,310,132,311,131,329,121,346,118,362,116,380,107,399,88,414,67"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="323,263,375,329"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="352,329,352,505,347,505,347,329"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="476,263,543,329"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="515,329,516,366,512,410,502,456,482,499,473,512,468,509,478,496,497,454,507,409,510,365,510,329"/>
 </map>

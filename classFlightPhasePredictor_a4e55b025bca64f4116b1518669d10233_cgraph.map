@@ -1,4 +1,5 @@
 <map id="FlightPhasePredictor::getPointsFromRule" name="FlightPhasePredictor::getPointsFromRule">
-<area shape="rect" id="node1" title="Get the probability points from a rule." alt="" coords="5,5,161,47"/>
-<area shape="rect" id="node2" href="$classPredictionParameters.html#af92ad5644fdbd46359ca3771cd9f6453" title="Get a parameter by its ID." alt="" coords="209,5,371,47"/>
+<area shape="rect" id="Node000001" title="Get the probability points from a rule." alt="" coords="5,5,161,45"/>
+<area shape="rect" id="Node000002" href="$classPredictionParameters.html#af92ad5644fdbd46359ca3771cd9f6453" title="Get a parameter by its ID." alt="" coords="209,5,371,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,23,195,23,195,28,162,28"/>
 </map>

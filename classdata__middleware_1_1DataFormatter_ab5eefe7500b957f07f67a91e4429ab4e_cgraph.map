@@ -1,5 +1,7 @@
 <map id="data_middleware::DataFormatter::setupFrameStructure" name="data_middleware::DataFormatter::setupFrameStructure">
-<area shape="rect" id="node1" title="Used to set up the frame json structure." alt="" coords="5,39,244,80"/>
-<area shape="rect" id="node2" href="$classdata__middleware_1_1DataFormatter.html#af2d795c2cc5fcff3ba2e17b2c5b2d3fb" title="Generates a timestamp based off of the current configuration." alt="" coords="292,5,531,47"/>
-<area shape="rect" id="node3" href="$classdata_1_1FlightData.html#a2ceece256fad7a55e4d2223a84d9dae4" title="Get the uptime represented as a string in the format &quot;HH:MM:SS&quot;." alt="" coords="309,71,513,112"/>
+<area shape="rect" id="Node000001" title="Used to set up the frame json structure." alt="" coords="5,37,244,77"/>
+<area shape="rect" id="Node000002" href="$classdata__middleware_1_1DataFormatter.html#af2d795c2cc5fcff3ba2e17b2c5b2d3fb" title="Generates a timestamp based off of the current configuration." alt="" coords="292,5,531,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,41,278,37,279,43,245,47"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1FlightData.html#a2ceece256fad7a55e4d2223a84d9dae4" title="Get the uptime represented as a string in the format &quot;HH:MM:SS&quot;." alt="" coords="309,69,513,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,68,296,74,295,79,244,73"/>
 </map>

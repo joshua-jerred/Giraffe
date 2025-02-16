@@ -1,6 +1,9 @@
 <map id="Rule" name="Rule">
-<area shape="rect" id="node1" title="A structure to contain the rules for adding points to a phase with a given parameter id." alt="" coords="221,145,271,223"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,188,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="213,5,279,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="313,5,352,83"/>
+<area shape="rect" id="Node000001" title="A structure to contain the rules for adding points to a phase with a given parameter id." alt="" coords="64,133,107,199"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,32,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,68,54,108,60,118,55,120,50,111,30,70"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="56,5,115,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="88,71,88,117,83,117,83,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="139,5,314,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="193,73,121,136,118,132,189,69"/>
 </map>

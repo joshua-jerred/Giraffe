@@ -1,6 +1,9 @@
 <map id="ncurs::internal::Window" name="ncurs::internal::Window">
-<area shape="rect" id="node1" title=" " alt="" coords="32,189,207,413"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,44,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="90,5,149,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="173,5,266,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="83,177,250,443"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,91,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,71,63,110,76,152,79,161,75,163,71,154,58,112,50,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="141,5,192,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,71,169,161,164,161,164,71"/>
+<area shape="rect" id="Node000004" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="231,5,262,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="242,72,220,154,218,162,212,161,215,153,237,70"/>
 </map>

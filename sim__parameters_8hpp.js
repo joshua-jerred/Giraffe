@@ -1,6 +1,6 @@
 var sim__parameters_8hpp =
 [
-    [ "SimData", "namespacegfs__sim.html#structgfs__sim_1_1SimData", [
+    [ "gfs_sim::SimData", "namespacegfs__sim.html#structgfs__sim_1_1SimData", [
       [ "temperature_c", "namespacegfs__sim.html#aaf4fc6b15a4a4b6ef9d89a801f74630a", null ],
       [ "pressure_mbar", "namespacegfs__sim.html#a5e45fb2b4b7eaef2153e5d841a0bdd4f", null ],
       [ "humidity_percent", "namespacegfs__sim.html#a218be55cbc2ce0cf780c5e7f4dc6542c", null ],

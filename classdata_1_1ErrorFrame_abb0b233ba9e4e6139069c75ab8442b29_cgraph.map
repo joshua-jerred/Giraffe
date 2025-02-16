@@ -1,4 +1,6 @@
 <map id="data::ErrorFrame::numOccurrences" name="data::ErrorFrame::numOccurrences">
-<area shape="rect" id="node1" title="Returns the number of occurrences of an error. If the error is not in the frame, 0 is returned." alt="" coords="5,5,253,32"/>
-<area shape="rect" id="node2" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="301,5,431,32"/>
+<area shape="rect" id="Node000001" title="Returns the number of occurrences of an error. If the error is not in the frame, 0 is returned." alt="" coords="5,13,253,38"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="301,5,501,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,32,288,32,288,37,254,37"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="254,14,288,14,288,19,254,19"/>
 </map>

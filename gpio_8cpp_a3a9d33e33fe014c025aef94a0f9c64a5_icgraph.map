@@ -1,11 +1,20 @@
 <map id="verifyInitialized" name="verifyInitialized">
-<area shape="rect" id="node1" title="A function to check if the BCM GPIO registers have been mapped." alt="" coords="469,107,592,133"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1Gpio.html#ab7556c99494356b7afbdb7260f9649c7" title="Check if the GPIO registers are mapped." alt="" coords="236,5,421,32"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="259,56,398,83"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4" title="Release a pin for use by another instance." alt="" coords="239,157,418,184"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="245,107,412,133"/>
-<area shape="rect" id="node8" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="257,208,400,235"/>
-<area shape="rect" id="node5" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="5,157,188,198"/>
-<area shape="rect" id="node7" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="5,91,188,133"/>
-<area shape="rect" id="node9" href="$classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea" title=" " alt="" coords="5,222,188,263"/>
+<area shape="rect" id="Node000001" title="A function to check if the BCM GPIO registers have been mapped." alt="" coords="469,104,592,129"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1Gpio.html#ab7556c99494356b7afbdb7260f9649c7" title="Check if the GPIO registers are mapped." alt="" coords="236,5,421,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="503,98,465,70,420,44,390,33,391,28,422,40,468,65,506,93"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="259,55,398,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="464,103,381,83,382,77,465,98"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4" title="Release a pin for use by another instance." alt="" coords="239,153,418,179"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="465,135,382,156,381,151,464,130"/>
+<area shape="rect" id="Node000006" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="245,104,412,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="455,119,412,119,412,114,455,114"/>
+<area shape="rect" id="Node000008" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="257,203,400,228"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="505,140,467,167,422,192,388,205,386,200,420,188,464,163,502,136"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="5,153,188,193"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="226,172,188,173,188,167,226,166"/>
+<area shape="rect" id="Node000007" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="5,89,188,129"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="231,116,188,114,188,109,232,111"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="245,203,188,192,189,187,246,198"/>
+<area shape="rect" id="Node000009" href="$classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea" title=" " alt="" coords="5,217,188,257"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="244,226,189,231,188,226,244,220"/>
 </map>

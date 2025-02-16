@@ -1,8 +1,13 @@
 <map id="one_wire_interface.cpp" name="one_wire_interface.cpp">
-<area shape="rect" id="node1" title="1&#45;Wire interface (linux)" alt="" coords="120,5,293,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,96,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="121,80,194,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="219,80,293,107"/>
-<area shape="rect" id="node5" href="$one__wire__interface_8hpp.html" title="1&#45;Wire interface header file." alt="" coords="318,80,493,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="376,155,435,181"/>
+<area shape="rect" id="Node000001" title="1&#45;Wire interface (linux)" alt="" coords="120,5,293,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,96,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,33,90,75,88,70,181,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="121,79,194,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,33,175,69,171,66,196,29"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="219,79,293,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="217,29,242,66,238,69,213,33"/>
+<area shape="rect" id="Node000005" href="$one__wire__interface_8hpp.html" title="1&#45;Wire interface header file." alt="" coords="318,79,493,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="239,28,361,71,359,76,238,33"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="376,152,435,177"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="408,104,408,138,403,138,403,104"/>
 </map>

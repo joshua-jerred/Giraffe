@@ -1,5 +1,7 @@
 <map id="extension::I2cExtensionAdapter::connectToI2cBus" name="extension::I2cExtensionAdapter::connectToI2cBus">
-<area shape="rect" id="node1" title=" " alt="" coords="5,27,233,69"/>
-<area shape="rect" id="node2" href="$classI2cInterface.html#a98edf9a116cb2f865adb2a19f59728e3" title="Connect to the bus. If it&#39;s already connected, disconnect and reconnect." alt="" coords="316,5,475,32"/>
-<area shape="rect" id="node3" href="$classextension_1_1I2cExtensionAdapter.html#ad267404fc2d8d1dff29b563ffd6e56bc" title=" " alt="" coords="281,57,509,98"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,27,233,67"/>
+<area shape="rect" id="Node000002" href="$classI2cInterface.html#a98edf9a116cb2f865adb2a19f59728e3" title="Connect to the bus. If it&#39;s already connected, disconnect and reconnect." alt="" coords="316,5,475,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,33,302,25,302,31,234,38"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1I2cExtensionAdapter.html#ad267404fc2d8d1dff29b563ffd6e56bc" title=" " alt="" coords="281,55,509,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="234,56,268,60,267,65,233,62"/>
 </map>

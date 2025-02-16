@@ -1,6 +1,9 @@
 <map id="data::FlightData::toJson" name="data::FlightData::toJson">
-<area shape="rect" id="node1" title=" " alt="" coords="5,78,180,105"/>
-<area shape="rect" id="node2" href="$classdata_1_1FlightData.html#a1d603b2d732baace37207270ea853209" title="Get the system time in UTC." alt="" coords="228,5,433,47"/>
-<area shape="rect" id="node3" href="$classdata_1_1FlightData.html#a2ceece256fad7a55e4d2223a84d9dae4" title="Get the uptime represented as a string in the format &quot;HH:MM:SS&quot;." alt="" coords="229,71,433,112"/>
-<area shape="rect" id="node4" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="277,137,385,163"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,77,180,102"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1FlightData.html#a1d603b2d732baace37207270ea853209" title="Get the system time in UTC." alt="" coords="228,5,433,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,74,242,46,243,52,142,79"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1FlightData.html#a2ceece256fad7a55e4d2223a84d9dae4" title="Get the uptime represented as a string in the format &quot;HH:MM:SS&quot;." alt="" coords="229,69,433,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,87,215,87,215,92,180,92"/>
+<area shape="rect" id="Node000004" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="277,134,385,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="147,99,265,128,263,133,146,105"/>
 </map>

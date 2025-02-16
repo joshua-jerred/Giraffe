@@ -1,4 +1,5 @@
 <map id="giraffe::gdl::AprsTelemetrySender::sendTelemetryMetadata" name="giraffe::gdl::AprsTelemetrySender::sendTelemetryMetadata">
-<area shape="rect" id="node1" title="Ask the telemetry sender to send the parameter name, unit/label, coefficient, and bit sense messages." alt="" coords="5,5,239,47"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Config.html#ae73eb03f8e513787154829d5fe228044" title=" " alt="" coords="287,5,519,47"/>
+<area shape="rect" id="Node000001" title="Ask the telemetry sender to send the parameter name, unit/label, coefficient, and bit sense messages." alt="" coords="5,5,239,45"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1Config.html#ae73eb03f8e513787154829d5fe228044" title=" " alt="" coords="287,5,519,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,23,273,23,273,28,239,28"/>
 </map>

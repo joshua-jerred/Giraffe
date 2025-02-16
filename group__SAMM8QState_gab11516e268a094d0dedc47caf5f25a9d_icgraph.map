@@ -1,4 +1,5 @@
 <map id="extension::SamM8q::stateRead" name="extension::SamM8q::stateRead">
-<area shape="rect" id="node1" title=" " alt="" coords="240,5,399,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,13,192,39"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="240,5,399,45"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,13,192,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,28,192,28,192,23,226,23"/>
 </map>

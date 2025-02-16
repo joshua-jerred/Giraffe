@@ -1,13 +1,25 @@
 <map id="protocol.cpp" name="protocol.cpp">
-<area shape="rect" id="node1" title="The C++ implementation of the Giraffe Protocol." alt="" coords="458,5,561,32"/>
-<area shape="rect" id="node2" href="$protocol_8hpp.html" title="Declares the protocol namespace and its associated types." alt="" coords="103,80,206,107"/>
-<area shape="rect" id="node6" href="$giraffe__exception_8hpp.html" title="Common exception for Giraffe." alt="" coords="231,80,393,107"/>
-<area shape="rect" id="node9" title=" " alt="" coords="418,80,601,107"/>
-<area shape="rect" id="node10" title=" " alt="" coords="625,80,681,107"/>
-<area shape="rect" id="node11" title=" " alt="" coords="706,80,830,107"/>
-<area shape="rect" id="node3" href="$json_8hpp.html" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="65,162,143,189"/>
-<area shape="rect" id="node5" title=" " alt="" coords="176,244,235,271"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,244,152,271"/>
-<area shape="rect" id="node7" title=" " alt="" coords="269,162,355,189"/>
-<area shape="rect" id="node8" href="$giraffe__diagnostic__ids_8hpp.html" title=" " alt="" coords="380,155,519,196"/>
+<area shape="rect" id="Node000001" title="The C++ implementation of the Giraffe Protocol." alt="" coords="458,5,561,31"/>
+<area shape="rect" id="Node000002" href="$protocol_8hpp.html" title="Declares the protocol namespace and its associated types." alt="" coords="103,79,206,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="458,32,220,80,219,74,457,27"/>
+<area shape="rect" id="Node000006" href="$giraffe__exception_8hpp.html" title="Common exception for Giraffe." alt="" coords="231,79,393,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="479,33,358,76,356,71,477,28"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="418,79,601,104"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="512,31,512,65,507,65,507,31"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="625,79,681,104"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="534,28,619,70,616,75,531,33"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="706,79,830,104"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="552,28,714,72,712,78,550,33"/>
+<area shape="rect" id="Node000003" href="$json_8hpp.html" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="65,159,143,185"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="149,106,121,149,117,146,145,103"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="176,240,235,265"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="161,103,200,226,195,227,156,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,240,152,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="103,186,89,228,84,226,98,184"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="121,183,181,229,178,233,117,187"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="301,106,280,127,258,154,235,192,218,228,213,226,230,189,254,150,276,124,297,102"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="269,159,355,185"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="315,104,315,145,309,145,309,104"/>
+<area shape="rect" id="Node000008" href="$giraffe__diagnostic__ids_8hpp.html" title=" " alt="" coords="380,152,519,192"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="334,102,405,143,403,147,331,106"/>
 </map>

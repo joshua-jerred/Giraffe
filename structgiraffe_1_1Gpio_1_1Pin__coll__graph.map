@@ -1,6 +1,9 @@
 <map id="giraffe::Gpio::Pin" name="giraffe::Gpio::Pin">
-<area shape="rect" id="node1" title="A pin struct that contains the pin number, mode, and default." alt="" coords="69,145,199,237"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,84,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="109,5,159,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="233,5,299,83"/>
+<area shape="rect" id="Node000001" title="A pin struct that contains the pin number, mode, and default." alt="" coords="97,133,220,219"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,64,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="44,70,51,90,62,108,86,131,82,135,58,111,46,92,39,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="123,5,194,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,71,161,117,156,117,156,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="221,5,264,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="234,72,216,111,208,122,204,119,211,108,229,70"/>
 </map>

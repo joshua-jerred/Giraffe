@@ -1,9 +1,18 @@
 <map id="modules::ExtensionModule::processCommand" name="modules::ExtensionModule::processCommand">
-<area shape="rect" id="node1" title="Called when a command is received." alt="" coords="5,96,204,138"/>
-<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8" title=" " alt="" coords="252,96,461,138"/>
-<area shape="rect" id="node5" href="$classmodules_1_1Module.html#a62806f82a3b853d0d2de55efbf5649bc" title="Used internally in the module. This function adds an error to the log stream. It is used to log error..." alt="" coords="769,104,942,130"/>
-<area shape="rect" id="node6" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="772,221,939,248"/>
-<area shape="rect" id="node3" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="509,155,708,196"/>
-<area shape="rect" id="node7" href="$classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0" title=" " alt="" coords="509,38,708,79"/>
-<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html#aac4d67e03d9fa7029bf15a3ac79ca9c5" title=" " alt="" coords="756,155,955,196"/>
+<area shape="rect" id="Node000001" title="Called when a command is received." alt="" coords="5,94,204,134"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8" title=" " alt="" coords="252,94,461,134"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,111,238,111,238,117,204,117"/>
+<area shape="rect" id="Node000005" href="$classmodules_1_1Module.html#a62806f82a3b853d0d2de55efbf5649bc" title="Used internally in the module. This function adds an error to the log stream. It is used to log error..." alt="" coords="769,101,942,127"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="152,91,254,55,320,36,393,20,470,8,550,3,631,7,709,22,744,35,777,53,830,90,827,95,774,58,742,40,707,27,630,12,551,8,471,13,394,25,321,41,255,60,154,96"/>
+<area shape="rect" id="Node000006" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="772,216,939,241"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="182,131,333,167,510,201,639,215,758,223,758,228,639,220,509,206,332,173,181,137"/>
+<area shape="rect" id="Node000003" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="509,151,708,191"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="446,131,508,146,506,151,445,137"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="461,111,755,111,755,117,461,117"/>
+<area shape="rect" id="Node000007" href="$classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0" title=" " alt="" coords="509,37,708,77"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="445,91,506,77,508,82,446,96"/>
+<area shape="rect" id="Node000004" href="$classmodules_1_1ExtensionModule.html#aac4d67e03d9fa7029bf15a3ac79ca9c5" title=" " alt="" coords="756,151,955,191"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="708,169,742,169,742,174,708,174"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="695,149,786,127,788,132,696,154"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="696,189,788,210,786,215,695,194"/>
 </map>

@@ -1,6 +1,9 @@
 <map id="data::blocks::Block&lt; T &gt;" name="data::blocks::Block&lt; T &gt;">
-<area shape="rect" id="node1" title="Simple Struct Container with a mutex. The struct must have a valid default constructor." alt="" coords="90,145,273,267"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,93,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="149,5,213,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="251,5,290,83"/>
+<area shape="rect" id="Node000001" title="Simple Struct Container with a mutex. The struct must have a valid default constructor." alt="" coords="35,133,210,259"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,61,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="45,70,61,108,67,118,62,121,56,111,40,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="111,5,134,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,71,125,117,120,117,120,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="159,5,239,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="189,72,172,110,167,120,162,117,167,108,184,70"/>
 </map>

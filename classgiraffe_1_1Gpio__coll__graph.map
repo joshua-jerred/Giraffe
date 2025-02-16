@@ -1,6 +1,9 @@
 <map id="giraffe::Gpio" name="giraffe::Gpio">
-<area shape="rect" id="node1" title="This class is used to interface extensions with the BCM Gpio pins." alt="" coords="100,160,233,384"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,13,80,90"/>
-<area shape="rect" id="node3" title=" " alt="" coords="135,13,199,90"/>
-<area shape="rect" id="node4" title=" " alt="" coords="223,5,374,97"/>
+<area shape="rect" id="Node000001" title="This class is used to interface extensions with the BCM Gpio pins." alt="" coords="92,148,223,413"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,13,61,78"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="52,77,76,123,87,143,82,146,71,125,47,80"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="86,5,229,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,86,160,132,155,132,155,86"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="263,13,329,78"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="288,79,269,125,234,182,230,180,264,123,284,77"/>
 </map>

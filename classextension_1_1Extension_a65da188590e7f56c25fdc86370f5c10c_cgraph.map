@@ -1,11 +1,19 @@
 <map id="extension::Extension::start" name="extension::Extension::start">
-<area shape="rect" id="node1" title="Starts the extension." alt="" coords="5,90,164,131"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="212,27,371,69"/>
-<area shape="rect" id="node4" href="$classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027" title=" " alt="" coords="212,122,371,163"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="419,5,599,32"/>
-<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef" title=" " alt="" coords="429,57,588,98"/>
-<area shape="rect" id="node6" href="$classextension_1_1Extension.html#a8c2ff02720daaaf27849c087b064d4c3" title=" " alt="" coords="429,122,588,163"/>
-<area shape="rect" id="node7" href="$classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d" title=" " alt="" coords="429,187,588,229"/>
-<area shape="rect" id="node9" href="$classextension_1_1Extension.html#a75c23dd1442c50aa49a1ecd87ada6912" title=" " alt="" coords="429,253,588,294"/>
-<area shape="rect" id="node8" href="$classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b" title="Returns true if the extension has been requested to stop." alt="" coords="647,187,805,229"/>
+<area shape="rect" id="Node000001" title="Starts the extension." alt="" coords="5,87,164,127"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="212,27,371,67"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,85,208,69,210,74,155,90"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027" title=" " alt="" coords="212,119,371,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="165,117,199,122,198,128,164,122"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="419,5,599,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="370,34,405,29,405,35,371,39"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef" title=" " alt="" coords="429,55,588,95"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="359,117,427,97,428,102,361,122"/>
+<area shape="rect" id="Node000006" href="$classextension_1_1Extension.html#a8c2ff02720daaaf27849c087b064d4c3" title=" " alt="" coords="429,119,588,159"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="371,137,416,137,416,142,371,142"/>
+<area shape="rect" id="Node000007" href="$classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d" title=" " alt="" coords="429,183,588,223"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="361,157,428,177,427,182,359,162"/>
+<area shape="rect" id="Node000009" href="$classextension_1_1Extension.html#a75c23dd1442c50aa49a1ecd87ada6912" title=" " alt="" coords="429,247,588,287"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="317,158,363,195,420,233,433,240,431,244,417,238,359,200,313,162"/>
+<area shape="rect" id="Node000008" href="$classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b" title="Returns true if the extension has been requested to stop." alt="" coords="647,183,805,223"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="588,201,633,201,633,206,588,206"/>
 </map>

@@ -1,13 +1,27 @@
 <map id="ubx::setProtocolDDC" name="ubx::setProtocolDDC">
-<area shape="rect" id="node1" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="5,120,161,147"/>
-<area shape="rect" id="node2" href="$namespaceubx.html#a496e6e180876a9a83b2d1751620f6dd5" title=" " alt="" coords="231,63,367,89"/>
-<area shape="rect" id="node9" href="$classI2cInterface.html#ac75338c8037820454944348a91613d2c" title="Get the address of the device on the bus." alt="" coords="209,120,389,147"/>
-<area shape="rect" id="node10" href="$namespaceubx.html#a9c61bbe6a93b89e72b9102bfd1b5fa0e" title=" " alt="" coords="242,183,357,209"/>
-<area shape="rect" id="node3" href="$namespaceubx.html#a138e86b90eb81df7287b0687e2e647fd" title=" " alt="" coords="680,5,829,32"/>
-<area shape="rect" id="node6" href="$namespaceubx.html#a269ab03f7fe578994b76b9be220b4fbe" title=" " alt="" coords="437,63,580,89"/>
-<area shape="rect" id="node4" href="$classI2cInterface.html#ad067c20fef20b8338d0e4ec12dc94ec6" title="Read a single byte from the device at the specified register." alt="" coords="935,56,1159,83"/>
-<area shape="rect" id="node5" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="1212,107,1399,133"/>
-<area shape="rect" id="node7" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="929,107,1164,133"/>
-<area shape="rect" id="node8" href="$structubx_1_1UBXMessage.html#a8df918b403f338508a235d7378238d3b" title=" " alt="" coords="628,157,881,184"/>
-<area shape="rect" id="node11" href="$classI2cInterface.html#ad2c0dca6c1c239a1c4aba651035b6bff" title="Write a chunk of data to the device at the specified register." alt="" coords="956,183,1137,209"/>
+<area shape="rect" id="Node000001" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="5,144,161,169"/>
+<area shape="rect" id="Node000002" href="$namespaceubx.html#a496e6e180876a9a83b2d1751620f6dd5" title=" " alt="" coords="231,95,367,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,141,229,120,230,126,140,147"/>
+<area shape="rect" id="Node000009" href="$classI2cInterface.html#ac75338c8037820454944348a91613d2c" title="Get the address of the device on the bus." alt="" coords="209,144,389,169"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="162,154,196,154,196,159,162,159"/>
+<area shape="rect" id="Node000010" href="$namespaceubx.html#a9c61bbe6a93b89e72b9102bfd1b5fa0e" title=" " alt="" coords="242,195,357,220"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="139,167,232,189,231,194,138,172"/>
+<area shape="rect" id="Node000003" href="$namespaceubx.html#a138e86b90eb81df7287b0687e2e647fd" title=" " alt="" coords="680,5,829,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="365,92,675,31,676,36,366,97"/>
+<area shape="rect" id="Node000006" href="$namespaceubx.html#a269ab03f7fe578994b76b9be220b4fbe" title=" " alt="" coords="437,95,580,120"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="368,105,424,105,424,110,368,110"/>
+<area shape="rect" id="Node000004" href="$classI2cInterface.html#ad067c20fef20b8338d0e4ec12dc94ec6" title="Read a single byte from the device at the specified register." alt="" coords="935,56,1159,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="829,28,960,51,959,56,828,33"/>
+<area shape="rect" id="Node000005" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="1212,107,1399,132"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1113,79,1227,101,1226,107,1112,84"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="532,92,575,70,627,47,679,31,681,37,629,53,578,75,534,97"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="580,97,628,93,921,73,921,78,628,98,581,102"/>
+<area shape="rect" id="Node000007" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="929,107,1164,132"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="581,106,915,114,915,119,580,112"/>
+<area shape="rect" id="Node000008" href="$structubx_1_1UBXMessage.html#a8df918b403f338508a235d7378238d3b" title=" " alt="" coords="628,157,881,183"/>
+<area shape="poly" id="edge10_Node000006_Node000008" title=" " alt="" coords="559,117,629,135,691,151,689,156,627,141,558,123"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="1164,117,1198,117,1198,122,1164,122"/>
+<area shape="rect" id="Node000011" href="$classI2cInterface.html#ad2c0dca6c1c239a1c4aba651035b6bff" title="Write a chunk of data to the device at the specified register." alt="" coords="956,181,1137,207"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="357,204,942,193,942,199,357,209"/>
+<area shape="poly" id="edge14_Node000011_Node000005" title=" " alt="" coords="1091,179,1247,133,1248,138,1093,184"/>
 </map>

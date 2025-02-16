@@ -1,9 +1,16 @@
 <map id="FlightPhaseManager::setFlightPhase" name="FlightPhaseManager::setFlightPhase">
-<area shape="rect" id="node1" title=" " alt="" coords="5,93,160,135"/>
-<area shape="rect" id="node2" href="$classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8" title=" " alt="" coords="221,5,395,47"/>
-<area shape="rect" id="node4" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="208,71,408,98"/>
-<area shape="rect" id="node6" href="$classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233" title=" " alt="" coords="212,123,404,164"/>
-<area shape="rect" id="node7" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="254,189,362,215"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="456,5,687,47"/>
-<area shape="rect" id="node5" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="481,71,661,112"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,92,160,132"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8" title=" " alt="" coords="221,5,395,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,89,207,56,231,47,233,52,209,61,129,94"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="208,70,408,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="160,99,196,95,197,100,160,105"/>
+<area shape="rect" id="Node000006" href="$classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233" title=" " alt="" coords="212,120,404,160"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="160,119,199,124,198,129,160,124"/>
+<area shape="rect" id="Node000007" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="254,185,362,210"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="122,130,209,170,241,180,240,185,207,174,119,135"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="456,5,687,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="395,23,442,23,442,28,395,28"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="367,67,465,46,466,51,368,73"/>
+<area shape="rect" id="Node000005" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="481,69,661,109"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="408,83,468,84,468,89,408,88"/>
 </map>

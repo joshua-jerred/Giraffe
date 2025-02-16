@@ -1,10 +1,25 @@
 <map id="giraffe::gdl::Message::setBroadcastMessage" name="giraffe::gdl::Message::setBroadcastMessage">
-<area shape="rect" id="node1" title=" " alt="" coords="799,100,972,141"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a1fc0f45450322b44cb275b1df159f5fb" title="Broadcast a text message over the Data Link." alt="" coords="577,5,735,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a53b271c9f0602706839489ac0994b763" title=" " alt="" coords="561,71,751,112"/>
-<area shape="rect" id="node7" href="$gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="629,137,683,163"/>
-<area shape="rect" id="node8" href="$test__gdl__message_8cpp.html#aa3bc09233b28d567b8c2922818bc5f1c" title=" " alt="" coords="629,187,683,214"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7a640a9a945bb13a494c175f857fc719" title=" " alt="" coords="349,71,513,112"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,78,301,105"/>
-<area shape="rect" id="node6" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,78,60,105"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="799,201,972,241"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1DataLink.html#a1fc0f45450322b44cb275b1df159f5fb" title="Broadcast a text message over the Data Link." alt="" coords="577,5,735,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="864,191,817,125,785,90,749,60,728,48,731,43,752,55,789,86,821,121,868,188"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a53b271c9f0602706839489ac0994b763" title=" " alt="" coords="561,69,751,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="850,195,804,158,749,124,723,112,725,107,752,119,807,154,853,190"/>
+<area shape="rect" id="Node000007" href="$gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="629,134,683,159"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="821,199,750,173,683,155,684,150,751,168,823,194"/>
+<area shape="rect" id="Node000008" href="$test__gdl__with__audio_8cpp.html#af3909c6936a57cb5c17074206688ee2c" title=" " alt="" coords="629,183,683,209"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="784,213,683,202,684,196,785,208"/>
+<area shape="rect" id="Node000009" href="$test__gdl__message_8cpp.html#aa3bc09233b28d567b8c2922818bc5f1c" title=" " alt="" coords="629,233,683,258"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="785,234,684,245,683,240,784,229"/>
+<area shape="rect" id="Node000010" href="$test__message__queue_8cpp.html#adff24d3bc4b34f6aff580f692a6e84f3" title=" " alt="" coords="629,282,683,307"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="819,249,751,272,684,291,683,286,750,267,817,244"/>
+<area shape="rect" id="Node000011" href="$test__message__queue_8cpp.html#a7251b25999e45fbaa5b87476d3a39bcc" title=" " alt="" coords="629,331,683,357"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="853,253,807,288,752,321,717,334,684,342,683,337,715,329,750,316,804,284,850,248"/>
+<area shape="rect" id="Node000012" href="$test__message__queue_8cpp.html#a01cdbffe21d1fc3e9093d0af0230441a" title=" " alt="" coords="629,381,683,406"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="865,255,818,314,787,344,752,370,718,385,684,393,683,388,716,380,749,366,784,340,814,310,861,252"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7a640a9a945bb13a494c175f857fc719" title=" " alt="" coords="349,69,513,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="548,92,513,92,513,87,548,87"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,77,301,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="336,92,302,92,302,87,336,87"/>
+<area shape="rect" id="Node000006" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,77,60,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="94,92,60,92,60,87,94,87"/>
 </map>

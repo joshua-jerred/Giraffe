@@ -1,4 +1,7 @@
 <map id="giraffe::gdl::DataLink::setPhysicalLayer" name="giraffe::gdl::DataLink::setPhysicalLayer">
-<area shape="rect" id="node1" title="Add a physical layer to the Data Link." alt="" coords="108,5,267,47"/>
-<area shape="rect" id="node2" href="$test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320" title=" " alt="" coords="5,13,60,39"/>
+<area shape="rect" id="Node000001" title="Add a physical layer to the Data Link." alt="" coords="252,35,411,75"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1TelemetryModule.html#afb1a52e1e90b33ad72a84f8646a9633b" title="This function is called when the module is started." alt="" coords="5,5,204,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,45,204,41,205,36,239,40"/>
+<area shape="rect" id="Node000003" href="$test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320" title=" " alt="" coords="77,70,132,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="239,69,133,82,132,77,238,63"/>
 </map>

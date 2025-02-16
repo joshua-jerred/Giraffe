@@ -1,9 +1,18 @@
 <map id="modules::ExtensionModule::startup" name="modules::ExtensionModule::startup">
-<area shape="rect" id="node1" title="This function is called when the module is started." alt="" coords="5,140,204,181"/>
-<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="252,56,451,97"/>
-<area shape="rect" id="node3" href="$classmodules_1_1ExtensionModule.html#aac4d67e03d9fa7029bf15a3ac79ca9c5" title=" " alt="" coords="499,5,697,47"/>
-<area shape="rect" id="node4" href="$classmodules_1_1Module.html#a62806f82a3b853d0d2de55efbf5649bc" title="Used internally in the module. This function adds an error to the log stream. It is used to log error..." alt="" coords="511,78,685,105"/>
-<area shape="rect" id="node5" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="515,143,681,170"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1StatusLedState.html#a689922cb21411c5fbc7eab9a7a800daf" title=" " alt="" coords="266,224,437,265"/>
-<area shape="rect" id="node7" href="$classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0" title=" " alt="" coords="252,289,451,331"/>
+<area shape="rect" id="Node000001" title="This function is called when the module is started." alt="" coords="5,131,204,171"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="252,48,451,88"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,128,277,90,279,95,166,133"/>
+<area shape="rect" id="Node000003" href="$classmodules_1_1ExtensionModule.html#aac4d67e03d9fa7029bf15a3ac79ca9c5" title=" " alt="" coords="499,5,697,45"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="122,128,176,78,212,53,251,34,310,18,370,9,430,7,485,9,485,14,430,12,371,15,311,23,253,38,214,57,179,82,126,132"/>
+<area shape="rect" id="Node000004" href="$classmodules_1_1Module.html#a62806f82a3b853d0d2de55efbf5649bc" title="Used internally in the module. This function adds an error to the log stream. It is used to log error..." alt="" coords="511,98,685,123"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="204,140,497,116,498,121,204,145"/>
+<area shape="rect" id="Node000005" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="515,147,681,173"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="204,150,501,156,501,161,204,155"/>
+<area shape="rect" id="Node000006" href="$classgiraffe_1_1StatusLedState.html#a689922cb21411c5fbc7eab9a7a800daf" title=" " alt="" coords="266,213,437,253"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="166,168,279,206,277,211,164,173"/>
+<area shape="rect" id="Node000007" href="$classmodules_1_1ExtensionModule.html#a1cd2eee245baf8ca152049ee0d6966c0" title=" " alt="" coords="252,277,451,317"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="128,169,183,216,217,241,253,263,267,270,265,275,251,268,214,245,179,220,125,173"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,48,485,42,485,47,451,53"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="451,83,511,93,511,98,450,88"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="392,86,443,110,500,133,524,141,523,146,498,139,440,115,390,91"/>
 </map>

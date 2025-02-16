@@ -214,5 +214,14 @@ var hierarchy =
       [ "ProtocolTest", "classProtocolTest.html", null ]
     ] ],
     [ "ubx::NavData", "namespaceubx.html#structubx_1_1NavData", null ],
-    [ "ubx::UBXMessage", "structubx_1_1UBXMessage.html", null ]
+    [ "ubx::UBXMessage", "structubx_1_1UBXMessage.html", null ],
+    [ "int", "namespace_3globalScope_4.html#classint", null ],
+    [ "queue< CommandPacket >", "namespace_3globalScope_4.html#classstd_1_1queue_3_01CommandPacket_01_4", null ],
+    [ "queue< DataPacket >", "namespace_3globalScope_4.html#classstd_1_1queue_3_01DataPacket_01_4", null ],
+    [ "queue< GpsFramePacket >", "namespace_3globalScope_4.html#classstd_1_1queue_3_01GpsFramePacket_01_4", null ],
+    [ "queue< ImuFramePacket >", "namespace_3globalScope_4.html#classstd_1_1queue_3_01ImuFramePacket_01_4", null ],
+    [ "queue< LogPacket >", "namespace_3globalScope_4.html#classstd_1_1queue_3_01LogPacket_01_4", null ],
+    [ "unordered_map< DiagnosticId, ErrorFrameItem >", "namespace_3globalScope_4.html#classstd_1_1unordered__map_3_01DiagnosticId_00_01ErrorFrameItem_01_4", null ],
+    [ "unordered_map< std::string, AdcValue >", "namespace_3globalScope_4.html#classstd_1_1unordered__map_3_01std_1_1string_00_01AdcValue_01_4", null ],
+    [ "unordered_map< std::string, data::DataPacket >", "namespace_3globalScope_4.html#classstd_1_1unordered__map_3_01std_1_1string_00_01data_1_1DataPacket_01_4", null ]
 ];

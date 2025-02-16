@@ -1,9 +1,20 @@
 <map id="data::ImuFrameStream" name="data::ImuFrameStream">
-<area shape="rect" id="node1" title=" " alt="" coords="169,603,341,680"/>
-<area shape="rect" id="node2" href="$classdata_1_1Stream.html" title=" " alt="" coords="133,359,377,553"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html" title=" " alt="" coords="181,145,329,296"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,5,69,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="161,5,199,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="281,5,381,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="411,5,525,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="316,576,480,641"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Stream.html" title=" " alt="" coords="280,361,516,527"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="401,540,401,576,396,576,396,540"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="26,5,82,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="42,72,24,120,11,179,8,210,10,241,17,270,31,297,53,324,78,347,137,384,201,409,265,425,264,431,199,414,134,388,75,351,49,327,27,300,12,272,5,241,3,210,5,178,19,118,37,70"/>
+<area shape="rect" id="Node000007" href="$classdata_1_1Stream.html" title=" " alt="" coords="370,133,510,299"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="84,55,135,82,195,107,238,115,274,116,311,118,355,131,354,136,310,123,274,121,237,120,194,112,133,87,82,59"/>
+<area shape="rect" id="Node000004" href="$namespace_3globalScope_4.html#classstd_1_1queue_3_01ImuFramePacket_01_4" title=" " alt="" coords="153,183,345,249"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="256,248,267,291,287,336,295,347,290,350,283,339,262,293,251,249"/>
+<area shape="rect" id="Node000005" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="659,5,690,71"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="692,56,704,73,713,94,717,102,724,107,743,110,764,109,782,111,787,116,789,126,779,156,746,212,685,300,653,335,616,365,575,389,533,408,531,403,572,384,613,360,649,332,680,297,741,209,774,154,784,125,783,119,779,116,764,114,743,116,722,112,713,106,708,96,699,76,688,59"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="660,51,603,86,533,135,524,143,521,138,530,131,600,82,658,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="445,5,552,71"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="532,70,545,94,567,161,577,218,576,245,571,274,545,339,530,362,525,359,540,336,565,272,571,245,571,218,562,163,540,96,527,72"/>
+<area shape="poly" id="edge10_Node000007_Node000006" title=" " alt="" coords="457,72,441,96,434,118,429,116,436,94,453,69"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="405,312,402,323,398,361,393,361,397,322,400,311"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="254,5,346,71"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="307,70,313,90,323,108,339,120,359,131,359,132,356,136,356,136,336,125,319,111,308,92,302,72"/>
 </map>

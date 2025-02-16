@@ -1,12 +1,21 @@
 <map id="extension::Ds18b20::loop" name="extension::Ds18b20::loop">
-<area shape="rect" id="node1" title=" " alt="" coords="5,152,156,193"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="204,28,363,69"/>
-<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="204,93,363,135"/>
-<area shape="rect" id="node7" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="471,207,629,248"/>
-<area shape="rect" id="node8" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="204,211,363,252"/>
-<area shape="rect" id="node9" href="$classextension_1_1Ds18b20.html#aca9083902555ed608642c27a9df6f772" title=" " alt="" coords="208,276,359,317"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="737,119,917,146"/>
-<area shape="rect" id="node4" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="496,39,604,66"/>
-<area shape="rect" id="node6" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="471,141,629,183"/>
-<area shape="rect" id="node10" href="$classOneWireInterface.html#abb95686077a0900b6d164fbf0c62d2d4" title=" " alt="" coords="411,283,689,310"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,118,156,158"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="204,31,363,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,115,222,74,224,79,129,120"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="471,120,629,160"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="156,132,204,131,363,131,457,134,457,139,363,136,204,136,156,138"/>
+<area shape="rect" id="Node000006" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="204,146,363,186"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="157,146,191,150,190,156,156,151"/>
+<area shape="rect" id="Node000007" href="$classextension_1_1Ds18b20.html#aca9083902555ed608642c27a9df6f772" title=" " alt="" coords="208,210,359,250"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="122,155,205,195,220,202,218,207,203,200,120,160"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="737,64,917,89"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="354,28,410,18,489,8,550,3,612,6,690,18,744,34,792,55,789,60,742,39,689,23,612,11,551,9,489,13,411,23,355,34"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="471,56,629,96"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="363,56,457,65,457,70,363,61"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="630,74,723,74,723,79,630,79"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="501,57,498,47,506,37,523,32,550,30,581,33,598,40,596,45,580,38,550,35,524,37,508,42,503,48,506,55"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="629,120,689,106,758,90,759,95,690,111,630,125"/>
+<area shape="poly" id="edge9_Node000006_Node000005" title=" " alt="" coords="363,156,457,147,457,152,363,161"/>
+<area shape="rect" id="Node000008" href="$classOneWireInterface.html#abb95686077a0900b6d164fbf0c62d2d4" title=" " alt="" coords="411,217,689,242"/>
+<area shape="poly" id="edge11_Node000007_Node000008" title=" " alt="" coords="359,227,397,227,397,232,359,232"/>
 </map>

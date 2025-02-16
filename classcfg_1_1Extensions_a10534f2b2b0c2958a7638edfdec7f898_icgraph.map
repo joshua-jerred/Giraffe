@@ -1,5 +1,7 @@
 <map id="cfg::Extensions::doesNameExist" name="cfg::Extensions::doesNameExist">
-<area shape="rect" id="node1" title="Checks if an extension with the given name exists." alt="" coords="271,23,469,65"/>
-<area shape="rect" id="node2" href="$classcfg_1_1Extensions.html#a3d483d303ba16bd2c41dbafb6d0db151" title="Add an extension to the configuration." alt="" coords="5,5,223,32"/>
-<area shape="rect" id="node3" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="9,56,219,83"/>
+<area shape="rect" id="Node000001" title="Checks if an extension with the given name exists." alt="" coords="271,23,469,63"/>
+<area shape="rect" id="Node000002" href="$classcfg_1_1Extensions.html#a3d483d303ba16bd2c41dbafb6d0db151" title="Add an extension to the configuration." alt="" coords="5,5,223,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,35,223,31,223,26,257,29"/>
+<area shape="rect" id="Node000003" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="9,55,219,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="257,57,219,60,219,55,257,51"/>
 </map>

@@ -1,11 +1,23 @@
 <map id="giraffe::gdl::GdlServer::sendResponseData" name="giraffe::gdl::GdlServer::sendResponseData">
-<area shape="rect" id="node1" title=" " alt="" coords="861,136,1025,177"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a18f226e3bc271111f787cfb99a00eb59" title=" " alt="" coords="603,5,771,47"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a21c93c33b3bcbed5552b761e75a4042c" title=" " alt="" coords="605,71,769,112"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ab6878a1f3f5cc89ec02b45f749526db7" title=" " alt="" coords="561,136,813,177"/>
-<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aff9e02d8e689385ccf8ad741e6951076" title=" " alt="" coords="577,201,798,243"/>
-<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a78670e65013497b31f7069d03263884e" title=" " alt="" coords="603,267,771,308"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a26729c50039ce0fcc47376ca3d5b0720" title=" " alt="" coords="349,136,513,177"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,143,301,170"/>
-<area shape="rect" id="node5" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,143,60,170"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="861,133,1025,173"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a18f226e3bc271111f787cfb99a00eb59" title=" " alt="" coords="603,5,771,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="909,126,865,91,812,60,770,44,772,39,814,55,868,87,912,122"/>
+<area shape="rect" id="Node000006" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a21c93c33b3bcbed5552b761e75a4042c" title=" " alt="" coords="605,69,769,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="849,133,767,112,768,107,850,127"/>
+<area shape="rect" id="Node000007" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ab6878a1f3f5cc89ec02b45f749526db7" title=" " alt="" coords="561,133,813,173"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="848,156,814,156,814,151,848,151"/>
+<area shape="rect" id="Node000008" href="$classgiraffe_1_1gdl_1_1GdlServer.html#aff9e02d8e689385ccf8ad741e6951076" title=" " alt="" coords="577,197,798,237"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="850,179,768,200,767,195,849,174"/>
+<area shape="rect" id="Node000009" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a78670e65013497b31f7069d03263884e" title=" " alt="" coords="603,261,771,301"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="912,185,868,220,814,252,772,267,770,262,812,247,865,215,909,180"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a26729c50039ce0fcc47376ca3d5b0720" title=" " alt="" coords="349,133,513,173"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="591,48,563,60,503,97,456,135,452,131,500,92,560,55,589,43"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,141,301,166"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="336,156,302,156,302,151,336,151"/>
+<area shape="rect" id="Node000005" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,141,60,166"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,156,60,156,60,151,94,151"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="594,115,512,136,511,131,593,110"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="548,156,513,156,513,151,548,151"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="593,197,511,176,512,171,594,191"/>
+<area shape="poly" id="edge12_Node000009_Node000003" title=" " alt="" coords="589,263,560,252,500,214,452,176,456,172,503,210,563,247,591,258"/>
 </map>

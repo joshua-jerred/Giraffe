@@ -1,6 +1,6 @@
 var console__pages_8hpp =
 [
-    [ "Pages", "classconsole__pages_1_1Pages.html", "classconsole__pages_1_1Pages" ],
+    [ "console_pages::Pages", "classconsole__pages_1_1Pages.html", "classconsole__pages_1_1Pages" ],
     [ "Option", "console__pages_8hpp.html#ab8d70b9d19ddab2e2a186e768bdc3d0e", null ],
     [ "Menu", "console__pages_8hpp.html#afe0c869a577d88847c6d30bec13569c1", null ],
     [ "PageOption", "console__pages_8hpp.html#ad6363c61e7b2423fe3e8baae0749e769", [

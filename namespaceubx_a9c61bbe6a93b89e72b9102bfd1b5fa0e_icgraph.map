@@ -1,13 +1,27 @@
 <map id="ubx::writeUBX" name="ubx::writeUBX">
-<area shape="rect" id="node1" title=" " alt="" coords="689,139,804,166"/>
-<area shape="rect" id="node2" href="$namespaceubx.html#a5a8edb14df1ca1f59ff23d5c4b8b1f6e" title="Poll a message and read it from the GPS." alt="" coords="476,13,612,39"/>
-<area shape="rect" id="node5" href="$namespaceubx.html#a906fc03b89d3045be5d60355cf25ac3e" title="Send a UBX&#45;CFG&#45;RST command to the receiver (Hardware Reset)" alt="" coords="449,63,639,90"/>
-<area shape="rect" id="node7" href="$namespaceubx.html#a1fb85f5c220b3095792f3e9495c432b9" title=" " alt="" coords="458,114,630,141"/>
-<area shape="rect" id="node9" href="$namespaceubx.html#a56ec4bce3dc8bf99a601036cda46a9b0" title=" " alt="" coords="447,165,641,191"/>
-<area shape="rect" id="node10" href="$namespaceubx.html#a0a9dbb84c0d3dfd9234df8e6f7e5ad72" title="CFG&#45;MSG (0x06 0x01) Configure Message Rate." alt="" coords="463,215,625,242"/>
-<area shape="rect" id="node11" href="$namespaceubx.html#a6c27feec78affa320dc73abe6c52b8db" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="466,266,622,293"/>
-<area shape="rect" id="node3" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,5,399,47"/>
-<area shape="rect" id="node4" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,78,192,105"/>
-<area shape="rect" id="node6" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="240,71,399,112"/>
-<area shape="rect" id="node8" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,147,399,188"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="689,137,804,162"/>
+<area shape="rect" id="Node000002" href="$namespaceubx.html#a5a8edb14df1ca1f59ff23d5c4b8b1f6e" title="Poll a message and read it from the GPS." alt="" coords="476,13,612,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="725,127,688,88,665,68,640,52,611,40,613,35,643,47,668,64,692,84,729,124"/>
+<area shape="rect" id="Node000005" href="$namespaceubx.html#a906fc03b89d3045be5d60355cf25ac3e" title="Send a UBX&#45;CFG&#45;RST command to the receiver (Hardware Reset)" alt="" coords="449,62,639,87"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="710,133,640,101,604,90,605,85,642,96,712,128"/>
+<area shape="rect" id="Node000007" href="$namespaceubx.html#a1fb85f5c220b3095792f3e9495c432b9" title=" " alt="" coords="458,111,630,137"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="675,143,630,137,631,132,676,138"/>
+<area shape="rect" id="Node000009" href="$namespaceubx.html#a56ec4bce3dc8bf99a601036cda46a9b0" title=" " alt="" coords="447,161,641,186"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="676,160,642,164,641,159,675,155"/>
+<area shape="rect" id="Node000010" href="$namespaceubx.html#a0a9dbb84c0d3dfd9234df8e6f7e5ad72" title="CFG&#45;MSG (0x06 0x01) Configure Message Rate." alt="" coords="463,210,625,235"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="710,170,642,200,601,213,599,207,640,195,708,166"/>
+<area shape="rect" id="Node000011" href="$namespaceubx.html#a6c27feec78affa320dc73abe6c52b8db" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="466,259,622,285"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="728,175,691,213,643,249,612,262,610,257,640,244,688,209,725,171"/>
+<area shape="rect" id="Node000003" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,5,399,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="462,28,399,28,399,23,462,23"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,77,192,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="238,52,144,79,143,74,236,47"/>
+<area shape="rect" id="Node000006" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="240,69,399,109"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="436,84,399,87,399,81,436,79"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="226,92,192,92,192,87,226,87"/>
+<area shape="rect" id="Node000008" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,143,399,183"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="456,142,399,152,398,146,455,136"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="245,141,137,105,139,100,246,136"/>
+<area shape="poly" id="edge11_Node000009_Node000008" title=" " alt="" coords="433,171,399,169,399,164,433,165"/>
+<area shape="poly" id="edge14_Node000011_Node000008" title=" " alt="" coords="468,258,446,249,389,218,344,185,347,181,392,213,448,244,470,253"/>
 </map>

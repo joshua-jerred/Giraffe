@@ -1,4 +1,5 @@
 <map id="data_middleware::CalculatedData::calculateVelocityData" name="data_middleware::CalculatedData::calculateVelocityData">
-<area shape="rect" id="node1" title="Calculate average vertical and horizontal speeds. Called by updatePositionalData()" alt="" coords="265,5,477,47"/>
-<area shape="rect" id="node2" href="$classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe" title="Update positional data based on GPS data." alt="" coords="5,5,217,47"/>
+<area shape="rect" id="Node000001" title="Calculate average vertical and horizontal speeds. Called by updatePositionalData()" alt="" coords="265,5,477,45"/>
+<area shape="rect" id="Node000002" href="$classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe" title="Update positional data based on GPS data." alt="" coords="5,5,217,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,28,218,28,218,23,252,23"/>
 </map>

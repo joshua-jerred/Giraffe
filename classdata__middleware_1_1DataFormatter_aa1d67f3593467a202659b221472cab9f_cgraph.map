@@ -1,5 +1,7 @@
 <map id="data_middleware::DataFormatter::logPacketToJsonString" name="data_middleware::DataFormatter::logPacketToJsonString">
-<area shape="rect" id="node1" title=" " alt="" coords="5,35,244,76"/>
-<area shape="rect" id="node2" href="$classdata__middleware_1_1DataFormatter.html#af2d795c2cc5fcff3ba2e17b2c5b2d3fb" title="Generates a timestamp based off of the current configuration." alt="" coords="292,5,531,47"/>
-<area shape="rect" id="node3" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="357,71,465,98"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,244,75"/>
+<area shape="rect" id="Node000002" href="$classdata__middleware_1_1DataFormatter.html#af2d795c2cc5fcff3ba2e17b2c5b2d3fb" title="Generates a timestamp based off of the current configuration." alt="" coords="292,5,531,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,40,278,36,279,42,245,45"/>
+<area shape="rect" id="Node000003" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="357,70,465,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,64,344,73,343,79,244,69"/>
 </map>

@@ -1,10 +1,17 @@
 <map id="extension::Extension::stopRequested" name="extension::Extension::stopRequested">
-<area shape="rect" id="node1" title="Returns true if the extension has been requested to stop." alt="" coords="859,104,1017,145"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d" title=" " alt="" coords="652,5,811,47"/>
-<area shape="rect" id="node6" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="653,71,809,112"/>
-<area shape="rect" id="node7" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="656,136,807,177"/>
-<area shape="rect" id="node8" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="652,201,811,243"/>
-<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027" title=" " alt="" coords="445,5,604,47"/>
-<area shape="rect" id="node4" href="$classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c" title="Starts the extension." alt="" coords="239,5,397,47"/>
-<area shape="rect" id="node5" href="$classExtensionTestFramework.html#aec515812c05baceb06aa344c5edaf971" title=" " alt="" coords="5,5,191,47"/>
+<area shape="rect" id="Node000001" title="Returns true if the extension has been requested to stop." alt="" coords="859,101,1017,141"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d" title=" " alt="" coords="652,5,811,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="886,97,810,60,782,48,784,43,812,55,888,92"/>
+<area shape="rect" id="Node000006" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="653,69,809,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="845,110,809,104,810,99,845,104"/>
+<area shape="rect" id="Node000007" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="656,133,807,173"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="846,138,807,144,806,139,845,133"/>
+<area shape="rect" id="Node000008" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="652,197,811,237"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="888,150,812,188,784,200,782,195,810,183,886,145"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027" title=" " alt="" coords="445,5,604,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="638,28,604,28,604,23,638,23"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c" title="Starts the extension." alt="" coords="239,5,397,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="431,28,397,28,397,23,431,23"/>
+<area shape="rect" id="Node000005" href="$classExtensionTestFramework.html#aec515812c05baceb06aa344c5edaf971" title=" " alt="" coords="5,5,191,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="225,28,191,28,191,23,225,23"/>
 </map>

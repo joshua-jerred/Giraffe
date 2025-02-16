@@ -1,5 +1,7 @@
 <map id="data_middleware::DataFormatter::setupFrameStructure" name="data_middleware::DataFormatter::setupFrameStructure">
-<area shape="rect" id="node1" title="Used to set up the frame json structure." alt="" coords="292,39,531,80"/>
-<area shape="rect" id="node2" href="$classdata__middleware_1_1DataFormatter.html#ac6bcac38554667fda6dbd2a223e665d2" title=" " alt="" coords="5,5,244,47"/>
-<area shape="rect" id="node3" href="$classdata__middleware_1_1DataFormatter.html#adfed0c82d7965d24db3ef4533d5511d0" title=" " alt="" coords="5,71,244,112"/>
+<area shape="rect" id="Node000001" title="Used to set up the frame json structure." alt="" coords="292,37,531,77"/>
+<area shape="rect" id="Node000002" href="$classdata__middleware_1_1DataFormatter.html#ac6bcac38554667fda6dbd2a223e665d2" title=" " alt="" coords="5,5,244,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="278,45,244,41,244,36,279,40"/>
+<area shape="rect" id="Node000003" href="$classdata__middleware_1_1DataFormatter.html#adfed0c82d7965d24db3ef4533d5511d0" title=" " alt="" coords="5,69,244,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="279,75,244,79,244,73,278,70"/>
 </map>

@@ -1,6 +1,10 @@
 <map id="LandR" name="LandR">
-<area shape="rect" id="node1" title="Helper function to format two strings to be left and right aligned within the console window." alt="" coords="429,46,492,73"/>
-<area shape="rect" id="node2" href="$classconsole__pages_1_1Pages.html#a4b0ae50da4241115a3acfca9f0c4e306" title=" " alt="" coords="217,5,381,47"/>
-<area shape="rect" id="node4" href="$classconsole__pages_1_1Pages.html#a27c3adbf55be9c5165077caed2c01b57" title=" " alt="" coords="217,71,381,112"/>
-<area shape="rect" id="node3" href="$classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14" title=" " alt="" coords="5,39,169,80"/>
+<area shape="rect" id="Node000001" title="Helper function to format two strings to be left and right aligned within the console window." alt="" coords="429,45,492,70"/>
+<area shape="rect" id="Node000002" href="$classconsole__pages_1_1Pages.html#a4b0ae50da4241115a3acfca9f0c4e306" title=" " alt="" coords="217,5,381,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="415,51,381,44,382,39,416,46"/>
+<area shape="rect" id="Node000004" href="$classconsole__pages_1_1Pages.html#a27c3adbf55be9c5165077caed2c01b57" title=" " alt="" coords="217,69,381,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="416,69,382,76,381,70,415,63"/>
+<area shape="rect" id="Node000003" href="$classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14" title=" " alt="" coords="5,37,169,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="204,42,170,48,169,42,203,37"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="203,78,169,72,170,67,204,72"/>
 </map>

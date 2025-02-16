@@ -1,7 +1,11 @@
 <map id="data::Frame::size" name="data::Frame::size">
-<area shape="rect" id="node1" title="Returns the total items in the frame." alt="" coords="745,31,880,57"/>
-<area shape="rect" id="node2" href="$classdata_1_1ErrorFrame.html#a5b03f9587cb3e2e2c375c0c8769882fe" title="The number of active errors in the frame." alt="" coords="488,23,697,65"/>
-<area shape="rect" id="node3" href="$namespacebit_1_1test__case.html#a26fa88abc804b5e8c2e4cc9311d13e21" title="Checks if the error frame has any active errors." alt="" coords="212,31,440,57"/>
-<area shape="rect" id="node4" href="$test__built__in__self__test_8cpp.html#a0336328ce5514ae62229e5b08221f6c8" title=" " alt="" coords="57,5,112,32"/>
-<area shape="rect" id="node5" href="$classbit_1_1TestCase.html#a9dfb2da6b317d8866092c6eb4ccb8fd2" title=" " alt="" coords="5,56,164,83"/>
+<area shape="rect" id="Node000001" title="Returns the total items in the frame." alt="" coords="745,31,880,56"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1ErrorFrame.html#a5b03f9587cb3e2e2c375c0c8769882fe" title="The number of active errors in the frame." alt="" coords="488,23,697,63"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="731,46,698,46,698,41,731,41"/>
+<area shape="rect" id="Node000003" href="$namespacebit_1_1test__case.html#a26fa88abc804b5e8c2e4cc9311d13e21" title="Checks if the error frame has any active errors." alt="" coords="212,31,440,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="474,46,440,46,440,41,474,41"/>
+<area shape="rect" id="Node000004" href="$test__built__in__self__test_8cpp.html#a0336328ce5514ae62229e5b08221f6c8" title=" " alt="" coords="57,5,112,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="198,33,112,23,113,18,199,27"/>
+<area shape="rect" id="Node000005" href="$classbit_1_1TestCase.html#a9dfb2da6b317d8866092c6eb4ccb8fd2" title=" " alt="" coords="5,55,164,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="199,59,164,62,164,57,198,53"/>
 </map>

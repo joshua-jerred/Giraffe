@@ -1,7 +1,12 @@
 <map id="signalHandler" name="signalHandler">
-<area shape="rect" id="node1" title=" " alt="" coords="5,46,117,73"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a2cada467c38dda186720e836f704ff4d" title=" " alt="" coords="165,39,329,80"/>
-<area shape="rect" id="node3" href="$group__ServerModule.html#ada37dff8b6cad8a7108f02c11544ceb8" title=" " alt="" coords="381,5,548,47"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1CommonLogger.html#a403f3c5745fb3f989d1bc1e89b2630ca" title=" " alt="" coords="377,71,552,112"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1CommonLogger.html#a0430441609c79cc5174b9b10d26d5fe8" title=" " alt="" coords="600,78,803,105"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,45,117,70"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="31,46,24,36,28,27,40,20,61,18,87,22,97,30,94,34,85,26,61,23,42,25,32,30,30,36,35,43"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a2cada467c38dda186720e836f704ff4d" title=" " alt="" coords="165,37,329,77"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="118,55,152,55,152,60,118,60"/>
+<area shape="rect" id="Node000003" href="$group__ServerModule.html#ada37dff8b6cad8a7108f02c11544ceb8" title=" " alt="" coords="381,5,548,45"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="329,43,367,37,368,42,330,48"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1CommonLogger.html#a403f3c5745fb3f989d1bc1e89b2630ca" title=" " alt="" coords="377,69,552,109"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="330,67,364,72,363,77,329,72"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1CommonLogger.html#a0430441609c79cc5174b9b10d26d5fe8" title=" " alt="" coords="600,77,803,102"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="552,87,586,87,586,92,552,92"/>
 </map>

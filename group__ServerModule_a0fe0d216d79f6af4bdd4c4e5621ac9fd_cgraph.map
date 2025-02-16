@@ -1,8 +1,14 @@
 <map id="RequestRouter::handleImageRequest" name="RequestRouter::handleImageRequest">
-<area shape="rect" id="node1" title="Response to an image request. Sends the image data to the client." alt="" coords="5,100,216,141"/>
-<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc" title="Returns the path to the gfs image directory. Creates the directory if it does not exist." alt="" coords="267,35,428,76"/>
-<area shape="rect" id="node5" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="264,100,431,141"/>
-<area shape="rect" id="node6" href="$group__ServerModule.html#a20371784cee1df4f8aa14004d8f7aa2e" title=" " alt="" coords="264,165,431,207"/>
-<area shape="rect" id="node3" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="479,5,684,47"/>
-<area shape="rect" id="node4" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="732,35,915,76"/>
+<area shape="rect" id="Node000001" title="Response to an image request. Sends the image data to the client." alt="" coords="5,97,216,137"/>
+<area shape="rect" id="Node000002" href="$namespacegiraffe_1_1file__paths.html#a3505afb97b280e51fa28f95291786efc" title="Returns the path to the gfs image directory. Creates the directory if it does not exist." alt="" coords="267,33,428,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,95,259,74,261,79,186,100"/>
+<area shape="rect" id="Node000005" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="264,97,431,137"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="216,115,250,115,250,120,216,120"/>
+<area shape="rect" id="Node000006" href="$group__ServerModule.html#a20371784cee1df4f8aa14004d8f7aa2e" title=" " alt="" coords="264,161,431,201"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="186,135,261,155,259,160,185,140"/>
+<area shape="rect" id="Node000003" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="479,5,684,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="428,41,465,37,465,42,429,46"/>
+<area shape="rect" id="Node000004" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="732,35,915,75"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="428,53,479,55,684,55,718,54,718,60,684,60,479,60,428,59"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="684,35,719,39,718,45,684,40"/>
 </map>

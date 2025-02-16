@@ -1,7 +1,11 @@
 <map id="data::blocks::DataLogStats" name="data::blocks::DataLogStats">
-<area shape="rect" id="node1" title="Struct containing statistics about the data file log." alt="" coords="222,219,418,296"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,72,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="147,5,306,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="384,5,443,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="527,5,577,83"/>
+<area shape="rect" id="Node000001" title="Struct containing statistics about the data file log." alt="" coords="181,207,369,272"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,48,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="23,71,20,98,21,127,27,156,42,181,61,194,90,205,165,222,164,227,88,210,58,199,38,184,23,158,16,128,15,97,17,70"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="152,5,211,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,71,171,125,175,154,185,181,194,194,190,197,180,184,169,156,166,125,171,70"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="344,5,395,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="371,71,364,126,355,156,342,184,334,196,329,193,338,181,350,154,359,125,366,71"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="433,5,583,71"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="513,71,512,98,508,128,498,158,481,184,460,202,437,216,386,233,384,228,435,211,457,198,477,181,493,156,503,127,507,98,508,71"/>
 </map>

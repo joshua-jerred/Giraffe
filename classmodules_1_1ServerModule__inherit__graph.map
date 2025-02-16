@@ -1,4 +1,5 @@
 <map id="modules::ServerModule" name="modules::ServerModule">
-<area shape="rect" id="node1" title="The server module. Provides a network interface for interacting with the flight system." alt="" coords="5,527,187,736"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="13,5,179,479"/>
+<area shape="rect" id="Node000001" title="The server module. Provides a network interface for interacting with the flight system." alt="" coords="5,659,184,904"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1Module.html" title=" " alt="" coords="15,5,174,611"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,624,97,659,92,659,92,624"/>
 </map>

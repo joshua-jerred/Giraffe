@@ -1,15 +1,27 @@
 <map id="modules::ExtensionModule::loop" name="modules::ExtensionModule::loop">
-<area shape="rect" id="node1" title="Continually called at a rate set by the sleep interval." alt="" coords="5,169,204,211"/>
-<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#aefc9ab95df0d8a5f2ccfdee352ef758f" title="Converts the state machine action to a string." alt="" coords="252,104,451,145"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1StatusLedState.html#a689922cb21411c5fbc7eab9a7a800daf" title=" " alt="" coords="266,169,437,211"/>
-<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html#a7e340a29ea74351f2ea50f9d76c2e152" title=" " alt="" coords="252,235,451,276"/>
-<area shape="rect" id="node5" href="$classmodules_1_1ExtensionModule.html#a7cea1a7bd69b1d43c11709a99f752fdd" title=" " alt="" coords="499,5,697,47"/>
-<area shape="rect" id="node6" href="$classmodules_1_1ExtensionModule.html#adaf0475e042dc33206bd22bea1c3018d" title=" " alt="" coords="499,71,697,112"/>
-<area shape="rect" id="node7" href="$classmodules_1_1ExtensionModule.html#aace021eb27c1a3988997b4e8732fcd4c" title=" " alt="" coords="499,136,697,177"/>
-<area shape="rect" id="node8" href="$classmodules_1_1ExtensionModule.html#a175bbc33651ec0c0e8f229d28968c5e8" title=" " alt="" coords="499,201,697,243"/>
-<area shape="rect" id="node10" href="$classmodules_1_1ExtensionModule.html#a9f07f42333ead841747ce7905537abae" title=" " alt="" coords="499,267,697,308"/>
-<area shape="rect" id="node11" href="$classmodules_1_1ExtensionModule.html#ae126777b418880b244276e99af6aef97" title=" " alt="" coords="499,332,697,373"/>
-<area shape="rect" id="node12" href="$classmodules_1_1ExtensionModule.html#ad48e5caa2b5904d56bd46cb1e218a13f" title=" " alt="" coords="499,397,697,439"/>
-<area shape="rect" id="node13" href="$classmodules_1_1ExtensionModule.html#ac2ce6fd94514eecf52156a9fac800965" title=" " alt="" coords="499,463,697,504"/>
-<area shape="rect" id="node9" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="745,209,912,235"/>
+<area shape="rect" id="Node000001" title="Continually called at a rate set by the sleep interval." alt="" coords="5,165,204,205"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1ExtensionModule.html#aefc9ab95df0d8a5f2ccfdee352ef758f" title="Converts the state machine action to a string." alt="" coords="252,101,451,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,163,260,142,261,147,183,168"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1StatusLedState.html#a689922cb21411c5fbc7eab9a7a800daf" title=" " alt="" coords="266,165,437,205"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="204,183,252,183,252,188,204,188"/>
+<area shape="rect" id="Node000004" href="$classmodules_1_1ExtensionModule.html#a7e340a29ea74351f2ea50f9d76c2e152" title=" " alt="" coords="252,229,451,269"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="183,203,261,223,260,228,182,208"/>
+<area shape="rect" id="Node000005" href="$classmodules_1_1ExtensionModule.html#a7cea1a7bd69b1d43c11709a99f752fdd" title=" " alt="" coords="499,5,697,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="434,227,449,215,463,196,470,177,472,137,474,97,481,76,497,56,501,51,505,55,501,59,486,79,479,98,477,137,475,178,468,199,453,219,437,231"/>
+<area shape="rect" id="Node000006" href="$classmodules_1_1ExtensionModule.html#adaf0475e042dc33206bd22bea1c3018d" title=" " alt="" coords="499,69,697,109"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="432,227,449,215,466,192,472,169,479,144,497,119,503,115,506,119,501,123,483,146,477,170,471,195,453,219,435,231"/>
+<area shape="rect" id="Node000007" href="$classmodules_1_1ExtensionModule.html#aace021eb27c1a3988997b4e8732fcd4c" title=" " alt="" coords="499,133,697,173"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="421,227,449,215,473,199,497,183,513,176,516,181,500,188,476,204,452,220,423,232"/>
+<area shape="rect" id="Node000008" href="$classmodules_1_1ExtensionModule.html#a175bbc33651ec0c0e8f229d28968c5e8" title=" " alt="" coords="499,197,697,237"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="451,234,485,229,485,235,451,239"/>
+<area shape="rect" id="Node000010" href="$classmodules_1_1ExtensionModule.html#a9f07f42333ead841747ce7905537abae" title=" " alt="" coords="499,261,697,301"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="451,260,485,264,485,269,451,265"/>
+<area shape="rect" id="Node000011" href="$classmodules_1_1ExtensionModule.html#ae126777b418880b244276e99af6aef97" title=" " alt="" coords="499,325,697,365"/>
+<area shape="poly" id="edge10_Node000004_Node000011" title=" " alt="" coords="397,267,500,311,520,318,518,323,498,316,395,272"/>
+<area shape="rect" id="Node000012" href="$classmodules_1_1ExtensionModule.html#ad48e5caa2b5904d56bd46cb1e218a13f" title=" " alt="" coords="499,389,697,429"/>
+<area shape="poly" id="edge11_Node000004_Node000012" title=" " alt="" coords="372,268,426,321,462,350,500,375,513,382,510,386,497,380,459,354,423,325,369,271"/>
+<area shape="rect" id="Node000013" href="$classmodules_1_1ExtensionModule.html#ac2ce6fd94514eecf52156a9fac800965" title=" " alt="" coords="499,453,697,493"/>
+<area shape="poly" id="edge12_Node000004_Node000013" title=" " alt="" coords="365,268,385,305,416,351,454,398,500,439,509,445,506,449,497,443,450,402,411,354,381,307,360,271"/>
+<area shape="rect" id="Node000009" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="745,205,912,230"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="697,215,732,215,732,220,697,220"/>
 </map>

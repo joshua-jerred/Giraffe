@@ -1,4 +1,5 @@
 <map id="setLocationDataValid" name="setLocationDataValid">
-<area shape="rect" id="node1" title=" " alt="" coords="123,5,283,32"/>
-<area shape="rect" id="node2" href="$test__flight__phase__predictor_8cpp.html#a622e6a29f72e8c132d20f6dfa081d5fc" title=" " alt="" coords="5,5,75,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="123,5,283,31"/>
+<area shape="rect" id="Node000002" href="$test__flight__phase__predictor_8cpp.html#a622e6a29f72e8c132d20f6dfa081d5fc" title=" " alt="" coords="5,5,75,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,21,75,21,75,15,109,15"/>
 </map>

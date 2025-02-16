@@ -1,5 +1,7 @@
 <map id="CurlRequest::setMethod" name="CurlRequest::setMethod">
-<area shape="rect" id="node1" title=" " alt="" coords="251,35,429,61"/>
-<area shape="rect" id="node2" href="$curl__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="77,5,131,32"/>
-<area shape="rect" id="node3" href="$classdata__middleware_1_1InfluxDb.html#a1e38c0c28d3f93307d307198b9506ff0" title=" " alt="" coords="5,57,203,98"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="251,35,429,60"/>
+<area shape="rect" id="Node000002" href="$curl__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="77,5,131,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,37,131,24,132,19,237,32"/>
+<area shape="rect" id="Node000003" href="$classdata__middleware_1_1InfluxDb.html#a1e38c0c28d3f93307d307198b9506ff0" title=" " alt="" coords="5,55,203,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,62,203,66,203,61,237,57"/>
 </map>

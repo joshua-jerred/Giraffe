@@ -1,5 +1,7 @@
 <map id="extension::Bmi088::readAccelData" name="extension::Bmi088::readAccelData">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,157,80"/>
-<area shape="rect" id="node2" href="$classextension_1_1ImuExtensionBase.html#a8a0733d624773459e310702e94c2feee" title=" " alt="" coords="205,5,420,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1SpiInterface.html#a146b865b9d5d9a41c82283565b91ff80" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="237,71,388,112"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,157,77"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1ImuExtensionBase.html#a8a0733d624773459e310702e94c2feee" title=" " alt="" coords="205,5,420,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,44,192,39,192,45,158,49"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1SpiInterface.html#a146b865b9d5d9a41c82283565b91ff80" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="237,69,388,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,65,224,74,223,80,157,70"/>
 </map>

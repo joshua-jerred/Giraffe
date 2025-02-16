@@ -1,5 +1,7 @@
 <map id="extension::Extension::data" name="extension::Extension::data">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node2" href="$classdata_1_1ImuFrameStream.html#a380b1612bebbf116df69a3108f65a590" title=" " alt="" coords="212,5,384,47"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="432,5,661,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,164,45"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1ImuFrameStream.html#a380b1612bebbf116df69a3108f65a590" title=" " alt="" coords="212,5,384,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,23,198,23,198,28,164,28"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="432,5,661,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="384,23,418,23,418,28,384,28"/>
 </map>

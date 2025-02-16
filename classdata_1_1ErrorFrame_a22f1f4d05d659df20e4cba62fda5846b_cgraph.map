@@ -1,4 +1,8 @@
 <map id="data::ErrorFrame::isActive" name="data::ErrorFrame::isActive">
-<area shape="rect" id="node1" title="Returns true if the error is active in the frame." alt="" coords="5,5,196,32"/>
-<area shape="rect" id="node2" href="$classdata_1_1Frame.html#a05fa938229ef8080c2d5336f245d8763" title="Returns true if an item is in the frame, false if it is not." alt="" coords="244,5,364,32"/>
+<area shape="rect" id="Node000001" title="Returns true if the error is active in the frame." alt="" coords="5,13,196,38"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="412,5,612,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,23,398,23,398,28,196,28"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Frame.html#a05fa938229ef8080c2d5336f245d8763" title="Returns true if an item is in the frame, false if it is not." alt="" coords="244,38,364,63"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="197,35,230,39,230,44,196,40"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="364,41,398,37,399,42,365,46"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="extension::I2cExtensionAdapter::i2cHandshake" name="extension::I2cExtensionAdapter::i2cHandshake">
-<area shape="rect" id="node1" title=" " alt="" coords="483,5,711,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1I2cExtensionAdapter.html#abc3de151f12e02167df5e32ce24638d3" title=" " alt="" coords="207,5,435,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba" title=" " alt="" coords="5,5,159,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="483,5,711,45"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1I2cExtensionAdapter.html#abc3de151f12e02167df5e32ce24638d3" title=" " alt="" coords="207,5,435,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="469,28,435,28,435,23,469,23"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba" title=" " alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>

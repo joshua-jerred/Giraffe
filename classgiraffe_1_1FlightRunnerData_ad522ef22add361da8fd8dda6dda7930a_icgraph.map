@@ -1,6 +1,9 @@
 <map id="giraffe::FlightRunnerData::clearLaunchPosition" name="giraffe::FlightRunnerData::clearLaunchPosition">
-<area shape="rect" id="node1" title="Clears the launch position/set it to invalid." alt="" coords="825,5,1012,47"/>
-<area shape="rect" id="node2" href="$classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="547,13,777,39"/>
-<area shape="rect" id="node3" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,13,499,39"/>
-<area shape="rect" id="node4" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,13,220,39"/>
+<area shape="rect" id="Node000001" title="Clears the launch position/set it to invalid." alt="" coords="825,5,1012,45"/>
+<area shape="rect" id="Node000002" href="$classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="547,13,777,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="812,28,778,28,778,23,812,23"/>
+<area shape="rect" id="Node000003" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,13,499,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="533,28,499,28,499,23,533,23"/>
+<area shape="rect" id="Node000004" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,13,220,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="255,28,220,28,220,23,255,23"/>
 </map>

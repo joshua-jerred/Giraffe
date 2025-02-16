@@ -1,5 +1,7 @@
 <map id="giraffe::gdl::NetworkLayer::txSstvImage" name="giraffe::gdl::NetworkLayer::txSstvImage">
-<area shape="rect" id="node1" title="Broadcast an SSTV image." alt="" coords="5,39,196,80"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc" title=" " alt="" coords="253,5,394,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Message.html#ab19b90512b2e9c4b3093d38a5539d920" title=" " alt="" coords="244,71,403,112"/>
+<area shape="rect" id="Node000001" title="Broadcast an SSTV image." alt="" coords="5,37,196,77"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc" title=" " alt="" coords="253,5,394,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,41,238,35,239,40,197,46"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1Message.html#ab19b90512b2e9c4b3093d38a5539d920" title=" " alt="" coords="244,69,403,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="197,68,231,73,230,79,196,74"/>
 </map>

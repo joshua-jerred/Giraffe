@@ -3,7 +3,7 @@ var classextension_1_1Extension =
     [ "Extension", "classextension_1_1Extension.html#a97537c0a670a79c309b361eb498688b3", null ],
     [ "Extension", "classextension_1_1Extension.html#ad27cb37d63ebbb1ebfb8233606d13c35", null ],
     [ "~Extension", "classextension_1_1Extension.html#a1a01dd8128be175c6a3b8ab1bb2c6d0d", null ],
-    [ "operator=", "classextension_1_1Extension.html#aee46e7bdceacb1278a27fbf339c88fb3", null ],
+    [ "operator=", "classextension_1_1Extension.html#a4356acda7f59eb85af365682806d56df", null ],
     [ "start", "classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c", null ],
     [ "stop", "classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37", null ],
     [ "reset", "classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68", null ],

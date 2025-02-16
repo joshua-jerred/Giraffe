@@ -1,0 +1,5 @@
+<map id="data::ErrorFrame::timeOfLastErrorReported" name="data::ErrorFrame::timeOfLastErrorReported">
+<area shape="rect" id="Node000001" title="Returns a time point representing when the last time was that an error was added to the frame." alt="" coords="5,5,189,45"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="237,5,437,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,23,224,23,224,28,189,28"/>
+</map>

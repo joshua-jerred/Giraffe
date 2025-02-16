@@ -1,5 +1,7 @@
 <map id="data_middleware::InfluxDb::logLogPacket" name="data_middleware::InfluxDb::logLogPacket">
-<area shape="rect" id="node1" title=" " alt="" coords="5,23,203,65"/>
-<area shape="rect" id="node2" href="$influxdb_8cpp.html#ac41b8578c641f672b4d068264e386345" title=" " alt="" coords="283,5,326,32"/>
-<area shape="rect" id="node3" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="251,56,359,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,203,63"/>
+<area shape="rect" id="Node000002" href="$influxdb_8cpp.html#ac41b8578c641f672b4d068264e386345" title=" " alt="" coords="283,5,326,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,28,269,20,270,25,204,33"/>
+<area shape="rect" id="Node000003" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="251,55,359,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,53,237,57,237,62,203,58"/>
 </map>

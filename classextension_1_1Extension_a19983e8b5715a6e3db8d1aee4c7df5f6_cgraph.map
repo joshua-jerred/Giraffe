@@ -1,5 +1,9 @@
 <map id="extension::Extension::debug" name="extension::Extension::debug">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node2" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="419,13,599,39"/>
-<area shape="rect" id="node3" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="212,35,371,76"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,164,45"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="419,13,599,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,11,212,7,291,3,371,7,405,9,405,15,371,12,291,9,212,12,164,17"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="212,45,371,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,38,199,45,198,50,164,43"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="370,48,425,38,426,43,371,53"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="253,46,250,36,257,27,270,21,291,19,315,22,329,29,326,34,314,27,291,24,272,26,260,31,256,37,258,44"/>
 </map>

@@ -1,7 +1,13 @@
 <map id="data_middleware::DataLog::createDataArchiveDir" name="data_middleware::DataLog::createDataArchiveDir">
-<area shape="rect" id="node1" title="Used to create the data archive directory with createDirectory()." alt="" coords="5,35,203,76"/>
-<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#a071e3968c8ee80bada890eb9a36ec2f0" title="Returns the path to the gfs data archive directory. Creates the directory if it does not exist." alt="" coords="251,35,451,76"/>
-<area shape="rect" id="node3" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="697,5,903,47"/>
-<area shape="rect" id="node5" href="$namespacegiraffe_1_1file__paths.html#a60be25b9cd8882562d8f5f77b420d1bc" title="Returns the path to the gfs data directory. Creates the directory if it does not exist." alt="" coords="499,64,649,105"/>
-<area shape="rect" id="node4" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="951,35,1133,76"/>
+<area shape="rect" id="Node000001" title="Used to create the data archive directory with createDirectory()." alt="" coords="5,35,203,75"/>
+<area shape="rect" id="Node000002" href="$namespacegiraffe_1_1file__paths.html#a071e3968c8ee80bada890eb9a36ec2f0" title="Returns the path to the gfs data archive directory. Creates the directory if it does not exist." alt="" coords="251,35,451,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,52,237,52,237,57,203,57"/>
+<area shape="rect" id="Node000003" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="697,5,903,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="451,45,683,30,684,36,451,51"/>
+<area shape="rect" id="Node000005" href="$namespacegiraffe_1_1file__paths.html#a60be25b9cd8882562d8f5f77b420d1bc" title="Returns the path to the gfs data directory. Creates the directory if it does not exist." alt="" coords="499,63,649,103"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="451,65,485,69,485,74,450,70"/>
+<area shape="rect" id="Node000004" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="951,35,1133,75"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="903,35,937,39,937,45,903,40"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="649,61,707,46,708,51,650,66"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="649,76,936,58,937,64,650,81"/>
 </map>

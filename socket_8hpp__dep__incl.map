@@ -1,21 +1,40 @@
 <map id="socket.hpp" name="socket.hpp">
-<area shape="rect" id="node1" title="The socket class header." alt="" coords="1105,5,1197,32"/>
-<area shape="rect" id="node2" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="597,80,751,107"/>
-<area shape="rect" id="node8" href="$server__module_8hpp.html" title="Header file for the server module." alt="" coords="1037,162,1183,189"/>
-<area shape="rect" id="node14" href="$socket_8cpp.html" title="Implements the socket class." alt="" coords="1147,80,1238,107"/>
-<area shape="rect" id="node15" href="$gdl__server_8hpp.html" title="Data Link Server for Giraffe." alt="" coords="1363,80,1481,107"/>
-<area shape="rect" id="node3" href="$request__handler_8cpp.html" title="The request handler class implementation." alt="" coords="5,162,159,189"/>
-<area shape="rect" id="node4" href="$request__handler__bit__test_8cpp.html" title=" " alt="" coords="183,155,333,196"/>
-<area shape="rect" id="node5" href="$request__handler__data_8cpp.html" title="Request handler for data requests." alt="" coords="357,162,548,189"/>
-<area shape="rect" id="node6" href="$request__handler__image_8cpp.html" title="The image request handler implementation." alt="" coords="573,162,775,189"/>
-<area shape="rect" id="node7" href="$request__handler__settings_8cpp.html" title="The setting request handler implementation." alt="" coords="799,162,1013,189"/>
-<area shape="rect" id="node9" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="963,244,1094,271"/>
-<area shape="rect" id="node13" href="$server__module_8cpp.html" title="The server module class implementation." alt="" coords="1118,244,1265,271"/>
-<area shape="rect" id="node10" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="819,319,939,345"/>
-<area shape="rect" id="node11" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="963,319,1094,345"/>
-<area shape="rect" id="node12" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="1118,319,1201,345"/>
-<area shape="rect" id="node16" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="1208,162,1324,189"/>
-<area shape="rect" id="node17" href="$gdl__server__request__handlers_8cpp.html" title="Handlers for REQ requests (see gdl_server.hpp)" alt="" coords="1349,155,1495,196"/>
-<area shape="rect" id="node18" href="$gdl__server__set__handlers_8cpp.html" title="Handlers for SET requests (see gdl_server.hpp)" alt="" coords="1520,162,1727,189"/>
-<area shape="rect" id="node19" href="$src_2data__link_2server_2main_8cpp.html" title="Giraffe Data Link Server Main File." alt="" coords="1751,162,1834,189"/>
+<area shape="rect" id="Node000001" title="The socket class header." alt="" coords="1225,5,1317,31"/>
+<area shape="rect" id="Node000002" href="$gdl__server_8hpp.html" title="Data Link Server for Giraffe." alt="" coords="362,79,479,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1212,27,480,88,479,82,1211,22"/>
+<area shape="rect" id="Node000007" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="1137,79,1291,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1256,43,1225,80,1221,77,1251,40"/>
+<area shape="rect" id="Node000013" href="$server__module_8hpp.html" title="Header file for the server module." alt="" coords="1687,159,1834,185"/>
+<area shape="poly" id="edge18_Node000001_Node000013" title=" " alt="" coords="1289,40,1317,73,1335,89,1355,102,1400,121,1439,133,1475,139,1510,140,1583,140,1626,142,1676,149,1712,157,1711,162,1675,155,1626,148,1583,145,1510,146,1474,144,1438,138,1398,126,1353,106,1332,93,1314,77,1285,44"/>
+<area shape="rect" id="Node000019" href="$socket_8cpp.html" title="Implements the socket class." alt="" coords="1366,79,1457,104"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="1307,34,1390,76,1387,81,1305,39"/>
+<area shape="rect" id="Node000003" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="5,159,121,185"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="349,109,135,155,106,162,104,157,133,149,348,104"/>
+<area shape="rect" id="Node000004" href="$gdl__server__request__handlers_8cpp.html" title="Handlers for REQ requests (see gdl_server.hpp)" alt="" coords="146,152,293,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="380,111,269,154,267,149,378,106"/>
+<area shape="rect" id="Node000005" href="$gdl__server__set__handlers_8cpp.html" title="Handlers for SET requests (see gdl_server.hpp)" alt="" coords="317,159,524,185"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="423,118,423,159,418,159,418,118"/>
+<area shape="rect" id="Node000006" href="$src_2data__link_2server_2main_8cpp.html" title="Giraffe Data Link Server Main File." alt="" coords="549,159,631,185"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="459,107,566,157,564,162,456,112"/>
+<area shape="rect" id="Node000008" href="$request__handler_8cpp.html" title="The request handler class implementation." alt="" coords="656,159,809,185"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1123,107,821,155,784,162,783,157,820,149,1123,102"/>
+<area shape="rect" id="Node000009" href="$request__handler__bit__test_8cpp.html" title=" " alt="" coords="833,152,984,192"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="1157,110,983,154,981,149,1156,105"/>
+<area shape="rect" id="Node000010" href="$request__handler__data_8cpp.html" title="Request handler for data requests." alt="" coords="1008,159,1199,185"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="1188,114,1121,161,1118,157,1185,110"/>
+<area shape="rect" id="Node000011" href="$request__handler__image_8cpp.html" title="The image request handler implementation." alt="" coords="1223,159,1426,185"/>
+<area shape="poly" id="edge10_Node000007_Node000011" title=" " alt="" coords="1243,110,1310,157,1307,161,1240,114"/>
+<area shape="rect" id="Node000012" href="$request__handler__settings_8cpp.html" title="The setting request handler implementation." alt="" coords="1450,159,1663,185"/>
+<area shape="poly" id="edge11_Node000007_Node000012" title=" " alt="" coords="1278,104,1507,157,1506,162,1276,110"/>
+<area shape="poly" id="edge12_Node000007_Node000013" title=" " alt="" coords="1305,101,1507,126,1676,149,1713,157,1712,162,1675,155,1506,131,1305,106"/>
+<area shape="rect" id="Node000014" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="1614,240,1745,265"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="1741,196,1693,242,1690,238,1737,192"/>
+<area shape="rect" id="Node000018" href="$server__module_8cpp.html" title="The server module class implementation." alt="" coords="1769,240,1915,265"/>
+<area shape="poly" id="edge17_Node000013_Node000018" title=" " alt="" coords="1784,192,1832,238,1828,242,1780,196"/>
+<area shape="rect" id="Node000015" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="1470,313,1590,339"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="1644,274,1556,316,1553,311,1642,269"/>
+<area shape="rect" id="Node000016" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="1614,313,1745,339"/>
+<area shape="poly" id="edge15_Node000014_Node000016" title=" " alt="" coords="1682,279,1682,313,1677,313,1677,279"/>
+<area shape="rect" id="Node000017" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="1769,313,1851,339"/>
+<area shape="poly" id="edge16_Node000014_Node000017" title=" " alt="" coords="1714,270,1790,311,1787,315,1711,274"/>
 </map>

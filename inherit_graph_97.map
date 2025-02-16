@@ -1,3 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html" title=" " alt="" coords="5,5,196,32"/>
+<area shape="rect" id="Node000000" href="$classgiraffe_1_1gdl_1_1PhysicalLayer.html" title="The physical layer of the Giraffe Data Link." alt="" coords="5,42,196,67"/>
+<area shape="rect" id="Node000001" href="$classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html" title=" " alt="" coords="244,5,455,45"/>
+<area shape="poly" id="edge38_Node000000_Node000001" title=" " alt="" coords="209,39,243,35,244,40,210,45"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1radio_1_1Radio.html" title=" " alt="" coords="274,70,425,95"/>
+<area shape="poly" id="edge39_Node000000_Node000002" title=" " alt="" coords="210,64,274,72,274,77,209,70"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1radio_1_1Sa868.html" title=" " alt="" coords="511,41,665,66"/>
+<area shape="poly" id="edge40_Node000002_Node000003" title=" " alt="" coords="438,69,511,60,512,65,439,74"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1radio_1_1SoftwareRadio.html" title=" " alt="" coords="503,91,673,131"/>
+<area shape="poly" id="edge41_Node000002_Node000004" title=" " alt="" coords="439,90,503,98,502,103,438,96"/>
 </map>

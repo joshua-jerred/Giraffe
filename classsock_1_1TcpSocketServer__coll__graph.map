@@ -1,5 +1,7 @@
 <map id="sock::TcpSocketServer" name="sock::TcpSocketServer">
-<area shape="rect" id="node1" title="The TCP socket server class." alt="" coords="18,145,185,399"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,104,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="129,5,167,83"/>
+<area shape="rect" id="Node000001" title="The TCP socket server class." alt="" coords="5,133,164,439"/>
+<area shape="rect" id="Node000002" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="27,5,57,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="48,70,54,109,55,117,50,117,49,110,43,71"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="82,5,173,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="124,71,117,117,111,116,119,70"/>
 </map>

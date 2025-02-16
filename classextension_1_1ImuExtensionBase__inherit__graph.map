@@ -1,5 +1,7 @@
 <map id="extension::ImuExtensionBase" name="extension::ImuExtensionBase">
-<area shape="rect" id="node1" title=" " alt="" coords="14,585,229,897"/>
-<area shape="rect" id="node3" href="$classextension_1_1Bmi088.html" title="The BMI088 extension." alt="" coords="23,945,219,1316"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,5,237,537"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="14,739,221,1124"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Bmi088.html" title="The BMI088 extension." alt="" coords="21,1172,214,1637"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="120,1137,120,1172,115,1172,115,1137"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,5,229,691"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,704,120,738,115,738,115,704"/>
 </map>

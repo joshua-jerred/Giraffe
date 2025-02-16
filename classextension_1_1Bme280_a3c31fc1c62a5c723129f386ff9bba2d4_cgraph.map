@@ -1,13 +1,22 @@
 <map id="extension::Bme280::loop" name="extension::Bme280::loop">
-<area shape="rect" id="node1" title=" " alt="" coords="5,137,189,163"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="522,159,681,200"/>
-<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="522,64,681,105"/>
-<area shape="rect" id="node6" href="$classextension_1_1Bme280.html#a183a1bc26e4ca371d9310c196feccfd1" title="Processes the raw environmental data into known units using the compensation data." alt="" coords="237,35,436,76"/>
-<area shape="rect" id="node7" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="257,100,416,141"/>
-<area shape="rect" id="node8" href="$classextension_1_1Bme280.html#a179888bdfc9c2f52c515ea2488dfe941" title="Reads and stores the compensation data from the BME280." alt="" coords="249,283,425,324"/>
-<area shape="rect" id="node11" href="$classextension_1_1Bme280.html#a216c4ae77daca7a479a9eba281e8dbd4" title="Reads the raw environmental data from the BME280." alt="" coords="248,217,425,259"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="770,109,950,135"/>
-<area shape="rect" id="node4" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="806,166,914,193"/>
-<area shape="rect" id="node9" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="484,257,719,283"/>
-<area shape="rect" id="node10" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="767,257,953,283"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,105,189,130"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="522,33,681,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,102,161,59,197,36,236,19,273,10,312,5,388,5,461,14,524,27,523,32,460,19,388,10,312,10,274,15,238,24,200,41,165,63,113,106"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Bme280.html#a183a1bc26e4ca371d9310c196feccfd1" title="Processes the raw environmental data into known units using the compensation data." alt="" coords="237,33,436,73"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="145,102,247,74,249,80,147,107"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="257,97,416,137"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="189,115,244,115,244,120,189,120"/>
+<area shape="rect" id="Node000006" href="$classextension_1_1Bme280.html#a179888bdfc9c2f52c515ea2488dfe941" title="Reads and stores the compensation data from the BME280." alt="" coords="249,161,425,201"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="147,128,249,155,247,160,145,133"/>
+<area shape="rect" id="Node000009" href="$classextension_1_1Bme280.html#a216c4ae77daca7a479a9eba281e8dbd4" title="Reads the raw environmental data from the BME280." alt="" coords="248,225,425,265"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="116,128,168,168,239,211,254,218,252,223,236,216,165,173,112,132"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="770,41,950,66"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="681,51,756,51,756,56,681,56"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="436,51,508,51,508,56,436,56"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="416,96,508,73,509,78,417,101"/>
+<area shape="rect" id="Node000007" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="484,201,719,226"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="425,189,483,196,482,202,425,195"/>
+<area shape="rect" id="Node000008" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="767,201,953,226"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="719,211,753,211,753,216,719,216"/>
+<area shape="poly" id="edge11_Node000009_Node000007" title=" " alt="" coords="425,232,483,225,483,230,426,237"/>
 </map>

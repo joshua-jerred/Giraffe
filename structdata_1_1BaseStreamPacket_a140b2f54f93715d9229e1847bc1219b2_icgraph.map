@@ -1,52 +1,120 @@
 <map id="data::BaseStreamPacket::resetTime" name="data::BaseStreamPacket::resetTime">
-<area shape="rect" id="node1" title=" " alt="" coords="1737,906,1917,947"/>
-<area shape="rect" id="node2" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="1462,736,1662,763"/>
-<area shape="rect" id="node13" href="$classdata_1_1DataStream.html#a865966119d0db9050b395d4f55cfb791" title=" " alt="" coords="1435,939,1689,965"/>
-<area shape="rect" id="node16" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="1173,888,1350,915"/>
-<area shape="rect" id="node21" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="1177,787,1345,813"/>
-<area shape="rect" id="node45" href="$classdata_1_1LogStream.html#a2e520b1959831d7eb0a0d4c586292e94" title=" " alt="" coords="1453,990,1671,1031"/>
-<area shape="rect" id="node46" href="$classdata_1_1LogStream.html#a00a75a6b066e56f7e2420ae4ca73a2aa" title=" " alt="" coords="1467,1055,1657,1097"/>
-<area shape="rect" id="node47" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="1481,837,1643,864"/>
-<area shape="rect" id="node50" href="$classdata_1_1DataStream.html#a0eace161e7a83c07b6dd6f16041c8c56" title=" " alt="" coords="1470,1121,1654,1162"/>
-<area shape="rect" id="node3" href="$classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f" title=" " alt="" coords="885,231,1040,273"/>
-<area shape="rect" id="node4" href="$classFlightPhaseManager.html#a5d16d39a6d55250c01f1d90102155f31" title="Constructor." alt="" coords="302,22,465,63"/>
-<area shape="rect" id="node5" href="$classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d" title=" " alt="" coords="306,139,461,181"/>
-<area shape="rect" id="node7" href="$classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1" title=" " alt="" coords="591,51,745,93"/>
-<area shape="rect" id="node8" href="$classFlightPhaseManager.html#aaeda08c0192943de07649ee8e85fd064" title="Request that the flight phase be changed to launch. Only valid if the current phase is pre&#45;launch." alt="" coords="591,351,745,393"/>
-<area shape="rect" id="node12" href="$classFlightPhaseManager.html#a639bfe7ca534d0904f57e4851f766aa2" title="Set the flight phase to pre&#45;launch." alt="" coords="591,417,745,458"/>
-<area shape="rect" id="node6" href="$classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286" title="Update the flight phase manager." alt="" coords="35,139,190,181"/>
-<area shape="rect" id="node9" href="$classFlightPhaseManagerTest.html#a9e109b11c6b9fe47b66a5abe660fb142" title=" " alt="" coords="293,385,474,426"/>
-<area shape="rect" id="node10" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,555,499,581"/>
-<area shape="rect" id="node11" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,671,220,697"/>
-<area shape="rect" id="node14" href="$classdata__middleware_1_1AdcInterpolation.html#acdfd4851787a5f151cba1dc944701f5f" title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated voltage divider v..." alt="" coords="1136,1094,1387,1135"/>
-<area shape="rect" id="node15" href="$classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="837,1350,1088,1391"/>
-<area shape="rect" id="node17" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="881,1299,1045,1325"/>
-<area shape="rect" id="node18" href="$classdata__middleware_1_1CalculatedData.html#a21515bd355a6df0c8888d61862588ca1" title="Calculate the distance traveled and the distance from the launch. Called by updatePositionalData()" alt="" coords="562,1393,774,1434"/>
-<area shape="rect" id="node20" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="554,1341,782,1368"/>
-<area shape="rect" id="node19" href="$classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe" title="Update positional data based on GPS data." alt="" coords="277,1393,489,1434"/>
-<area shape="rect" id="node22" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="883,992,1042,1019"/>
-<area shape="rect" id="node32" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="885,533,1040,560"/>
-<area shape="rect" id="node40" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="844,1043,1081,1085"/>
-<area shape="rect" id="node41" href="$classdata_1_1ErrorReporter.html#a3358515a710ff6876c2a41dd84413738" title=" " alt="" coords="889,322,1036,363"/>
-<area shape="rect" id="node43" href="$classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="847,736,1078,763"/>
-<area shape="rect" id="node44" href="$classbit_1_1TestCase.html#a9dfb2da6b317d8866092c6eb4ccb8fd2" title=" " alt="" coords="883,1109,1042,1136"/>
-<area shape="rect" id="node23" href="$classcfg_1_1AdcMappings.html#a50978d833ec6672505f87b17c140f483" title=" " alt="" coords="571,838,765,879"/>
-<area shape="rect" id="node24" href="$classcfg_1_1Extensions.html#a3d483d303ba16bd2c41dbafb6d0db151" title="Add an extension to the configuration." alt="" coords="559,904,777,931"/>
-<area shape="rect" id="node25" href="$classcfg_1_1AdcMappings.html#abf24990803afb5198cbffb1a42ceac68" title=" " alt="" coords="571,955,765,997"/>
-<area shape="rect" id="node26" href="$classcfg_1_1Extensions.html#abb7d7973769eda4b355e1e6bdd778f1e" title="Remove an extension from the configuration by name." alt="" coords="547,1021,789,1048"/>
-<area shape="rect" id="node27" href="$classcfg_1_1AdcMappings.html#a45d9c766a012ea127e8612d262e720ac" title=" " alt="" coords="555,1072,781,1099"/>
-<area shape="rect" id="node28" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="563,1123,773,1149"/>
-<area shape="rect" id="node29" href="$classcfg_1_1Extensions.html#a28c4e7fad5dbfc8f72d1628ff59ac2ec" title="Enable or disable an extension by name." alt="" coords="551,1173,785,1200"/>
-<area shape="rect" id="node30" href="$classcfg_1_1AdcMappings.html#a7704b7b0f66cfbad9f14b00613347e5b" title=" " alt="" coords="573,1225,763,1266"/>
-<area shape="rect" id="node31" href="$classcfg_1_1Extensions.html#a4af55964085d036357551e795bb435b5" title="Update an extension given its name and new metadata." alt="" coords="549,1291,787,1317"/>
-<area shape="rect" id="node33" href="$classgiraffe_1_1AprsManager.html#a6a162f30ddbbc37c18265dd9b9c56072" title="Initializes the APRS Telemetry data from the configuration." alt="" coords="577,286,759,327"/>
-<area shape="rect" id="node35" href="$classbit_1_1BuiltInTest.html#a9bb6b9b9d355a2988e21a79c1d154f77" title="Reset the BIT system to it&#39;s initial state." alt="" coords="590,483,746,509"/>
-<area shape="rect" id="node36" href="$classbit_1_1TestGroup.html#a758e1e5dde0f057bbeb0ded0f3d6b916" title=" " alt="" coords="593,685,743,712"/>
-<area shape="rect" id="node37" href="$classbit_1_1BuiltInTest.html#ae58833032b255dc341c86e89fa595f3f" title=" " alt="" coords="591,533,745,560"/>
-<area shape="rect" id="node38" href="$classbit_1_1BuiltInTest.html#aa2c036f9a685264aa639c9ac8b059739" title=" " alt="" coords="593,635,743,661"/>
-<area shape="rect" id="node34" href="$classgiraffe_1_1AprsManager.html#a733faf5f8cb193988e799bbbfc721173" title="Force a configuration reload." alt="" coords="304,286,463,327"/>
-<area shape="rect" id="node39" href="$classbit_1_1BuiltInTest.html#a8968d91ecb46cbd52a294df83756a053" title=" " alt="" coords="322,627,445,669"/>
-<area shape="rect" id="node42" href="$classFlightPhaseManager.html#aaf8eab144ba58f98f7fde9038752ebba" title=" " alt="" coords="567,169,769,210"/>
-<area shape="rect" id="node48" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="1187,837,1336,864"/>
-<area shape="rect" id="node49" href="$classdata__middleware_1_1AdcInterpolation.html#ae1ad5fb461017a5d6a37bfb29f4675d2" title=" " alt="" coords="837,1161,1088,1202"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1737,917,1917,957"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="1462,630,1662,655"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1800,907,1750,843,1687,770,1626,705,1575,657,1579,653,1629,702,1691,766,1754,840,1805,904"/>
+<area shape="rect" id="Node000017" href="$classdata_1_1DataStream.html#a865966119d0db9050b395d4f55cfb791" title=" " alt="" coords="1435,950,1689,975"/>
+<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="1724,950,1690,953,1689,948,1723,944"/>
+<area shape="rect" id="Node000020" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="1173,899,1350,924"/>
+<area shape="poly" id="edge20_Node000001_Node000020" title=" " alt="" coords="1723,935,1350,918,1350,913,1723,930"/>
+<area shape="rect" id="Node000025" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="1177,774,1345,799"/>
+<area shape="poly" id="edge25_Node000001_Node000025" title=" " alt="" coords="1801,908,1753,857,1722,833,1688,814,1645,799,1600,788,1508,775,1421,774,1346,778,1345,773,1421,768,1509,770,1601,782,1647,794,1690,809,1725,829,1757,853,1805,904"/>
+<area shape="rect" id="Node000051" href="$classdata_1_1LogStream.html#a2e520b1959831d7eb0a0d4c586292e94" title=" " alt="" coords="1453,1000,1671,1040"/>
+<area shape="poly" id="edge59_Node000001_Node000051" title=" " alt="" coords="1762,964,1690,989,1644,1002,1643,997,1689,984,1760,959"/>
+<area shape="rect" id="Node000052" href="$classdata_1_1LogStream.html#a00a75a6b066e56f7e2420ae4ca73a2aa" title=" " alt="" coords="1467,1064,1657,1104"/>
+<area shape="poly" id="edge60_Node000001_Node000052" title=" " alt="" coords="1800,969,1752,1013,1722,1035,1691,1054,1658,1067,1656,1062,1688,1049,1719,1031,1748,1009,1796,965"/>
+<area shape="rect" id="Node000053" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="1481,848,1643,874"/>
+<area shape="poly" id="edge61_Node000001_Node000053" title=" " alt="" coords="1752,915,1689,896,1616,876,1618,871,1690,890,1754,910"/>
+<area shape="rect" id="Node000056" href="$classdata_1_1DataStream.html#a0eace161e7a83c07b6dd6f16041c8c56" title=" " alt="" coords="1470,1128,1654,1168"/>
+<area shape="poly" id="edge68_Node000001_Node000056" title=" " alt="" coords="1812,971,1792,1005,1765,1045,1731,1085,1691,1118,1656,1135,1653,1130,1688,1113,1727,1081,1761,1042,1788,1003,1808,968"/>
+<area shape="rect" id="Node000003" href="$classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f" title=" " alt="" coords="885,226,1040,266"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1533,623,1352,482,1223,390,1087,305,1013,269,1016,264,1089,300,1226,386,1355,477,1536,619"/>
+<area shape="rect" id="Node000004" href="$classFlightPhaseManager.html#a5d16d39a6d55250c01f1d90102155f31" title="Constructor." alt="" coords="302,22,465,62"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="944,216,920,173,886,123,841,76,816,57,788,41,748,25,706,15,662,10,619,8,535,13,463,25,462,20,535,8,619,3,663,4,707,10,750,20,790,36,819,52,845,72,890,120,925,170,949,213"/>
+<area shape="rect" id="Node000005" href="$classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d" title=" " alt="" coords="306,138,461,178"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="922,221,861,184,826,168,789,156,702,141,614,137,532,141,461,148,461,143,531,136,614,132,703,136,790,150,828,163,864,180,925,216"/>
+<area shape="rect" id="Node000011" href="$classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1" title=" " alt="" coords="591,50,745,90"/>
+<area shape="poly" id="edge7_Node000003_Node000011" title=" " alt="" coords="930,219,867,165,829,136,788,111,745,93,747,88,791,107,832,132,871,161,933,215"/>
+<area shape="rect" id="Node000012" href="$classFlightPhaseManager.html#aaeda08c0192943de07649ee8e85fd064" title="Request that the flight phase be changed to launch. Only valid if the current phase is pre&#45;launch." alt="" coords="591,344,745,384"/>
+<area shape="poly" id="edge10_Node000003_Node000012" title=" " alt="" coords="902,274,839,305,815,320,790,334,746,350,744,344,788,329,812,315,836,300,899,270"/>
+<area shape="rect" id="Node000016" href="$classFlightPhaseManager.html#a639bfe7ca534d0904f57e4851f766aa2" title="Set the flight phase to pre&#45;launch." alt="" coords="591,408,745,448"/>
+<area shape="poly" id="edge14_Node000003_Node000016" title=" " alt="" coords="884,275,860,288,839,304,823,328,817,351,810,375,791,398,770,411,747,420,745,415,767,406,788,394,805,372,812,349,818,325,835,301,857,283,881,270"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="429,127,413,120,383,117,357,119,341,124,336,130,339,137,333,139,330,129,339,119,356,114,383,112,415,115,432,122"/>
+<area shape="rect" id="Node000006" href="$classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286" title="Update the flight phase manager." alt="" coords="35,138,190,178"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="292,161,190,161,190,156,292,156"/>
+<area shape="poly" id="edge8_Node000011_Node000004" title=" " alt="" coords="577,64,465,53,465,48,577,59"/>
+<area shape="poly" id="edge9_Node000011_Node000005" title=" " alt="" coords="590,97,450,141,448,136,588,92"/>
+<area shape="rect" id="Node000013" href="$classFlightPhaseManagerTest.html#a9e109b11c6b9fe47b66a5abe660fb142" title=" " alt="" coords="293,376,474,416"/>
+<area shape="poly" id="edge11_Node000012_Node000013" title=" " alt="" coords="577,377,474,388,474,383,577,371"/>
+<area shape="rect" id="Node000014" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,543,499,568"/>
+<area shape="poly" id="edge12_Node000012_Node000014" title=" " alt="" coords="578,384,548,398,498,433,455,474,396,544,392,541,451,471,495,429,545,393,576,380"/>
+<area shape="rect" id="Node000015" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,658,220,683"/>
+<area shape="poly" id="edge13_Node000014_Node000015" title=" " alt="" coords="340,576,269,606,145,660,142,655,267,601,338,571"/>
+<area shape="poly" id="edge15_Node000016_Node000013" title=" " alt="" coords="577,420,474,409,474,403,577,415"/>
+<area shape="poly" id="edge16_Node000016_Node000014" title=" " alt="" coords="578,451,548,462,466,505,404,545,401,541,463,500,546,457,576,446"/>
+<area shape="rect" id="Node000018" href="$classdata__middleware_1_1AdcInterpolation.html#acdfd4851787a5f151cba1dc944701f5f" title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated voltage divider v..." alt="" coords="1136,1086,1387,1126"/>
+<area shape="poly" id="edge18_Node000017_Node000018" title=" " alt="" coords="1461,981,1436,990,1392,1012,1351,1038,1287,1088,1284,1084,1348,1034,1390,1008,1434,985,1460,976"/>
+<area shape="rect" id="Node000019" href="$classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="837,1322,1088,1362"/>
+<area shape="poly" id="edge19_Node000018_Node000019" title=" " alt="" coords="1244,1140,1218,1180,1183,1227,1140,1273,1089,1313,1066,1325,1063,1320,1087,1308,1136,1269,1179,1223,1214,1177,1240,1137"/>
+<area shape="rect" id="Node000021" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="881,1272,1045,1298"/>
+<area shape="poly" id="edge21_Node000020_Node000021" title=" " alt="" coords="1241,936,1191,997,1138,1076,1124,1108,1117,1135,1108,1162,1090,1192,1066,1218,1039,1241,989,1274,986,1270,1036,1237,1063,1214,1086,1189,1104,1159,1112,1133,1119,1106,1134,1073,1187,994,1237,933"/>
+<area shape="rect" id="Node000022" href="$classdata__middleware_1_1CalculatedData.html#a21515bd355a6df0c8888d61862588ca1" title="Calculate the distance traveled and the distance from the launch. Called by updatePositionalData()" alt="" coords="562,1365,774,1405"/>
+<area shape="poly" id="edge22_Node000021_Node000022" title=" " alt="" coords="868,1301,839,1313,824,1323,815,1333,806,1344,791,1355,763,1367,761,1363,788,1351,802,1341,811,1330,821,1319,836,1308,866,1296"/>
+<area shape="rect" id="Node000024" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="554,1315,782,1340"/>
+<area shape="poly" id="edge24_Node000021_Node000024" title=" " alt="" coords="867,1301,756,1318,756,1312,867,1296"/>
+<area shape="rect" id="Node000023" href="$classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe" title="Update positional data based on GPS data." alt="" coords="277,1365,489,1405"/>
+<area shape="poly" id="edge23_Node000022_Node000023" title=" " alt="" coords="548,1388,490,1388,490,1382,548,1382"/>
+<area shape="poly" id="edge51_Node000025_Node000014" title=" " alt="" coords="1220,770,1087,713,940,656,874,635,789,613,638,585,499,568,499,563,639,580,790,608,876,630,942,651,1089,708,1222,765"/>
+<area shape="poly" id="edge55_Node000025_Node000015" title=" " alt="" coords="1164,792,1040,794,886,793,716,786,546,770,435,753,327,730,157,686,158,681,328,724,436,747,547,765,716,781,886,788,1040,789,1163,787"/>
+<area shape="rect" id="Node000026" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="883,974,1042,999"/>
+<area shape="poly" id="edge26_Node000025_Node000026" title=" " alt="" coords="1206,806,1171,820,1137,838,1088,873,1042,911,978,975,974,972,1039,907,1085,869,1135,833,1169,815,1204,801"/>
+<area shape="rect" id="Node000036" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="885,522,1040,547"/>
+<area shape="poly" id="edge36_Node000025_Node000036" title=" " alt="" coords="1245,763,1221,720,1186,668,1141,614,1115,590,1087,569,1064,557,1039,548,1041,543,1066,552,1089,564,1118,585,1144,610,1190,664,1226,718,1250,760"/>
+<area shape="rect" id="Node000046" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="844,1024,1081,1064"/>
+<area shape="poly" id="edge49_Node000025_Node000046" title=" " alt="" coords="1185,806,1160,819,1138,838,1123,859,1117,881,1116,924,1115,968,1107,990,1090,1012,1072,1026,1069,1022,1086,1009,1102,988,1109,967,1111,924,1111,880,1118,857,1134,834,1157,815,1183,802"/>
+<area shape="rect" id="Node000047" href="$classdata_1_1ErrorReporter.html#a3358515a710ff6876c2a41dd84413738" title=" " alt="" coords="889,314,1036,354"/>
+<area shape="poly" id="edge52_Node000025_Node000047" title=" " alt="" coords="1243,763,1176,653,1086,511,977,356,981,353,1090,508,1181,650,1248,760"/>
+<area shape="rect" id="Node000049" href="$classFlightRunner.html#aa9506cddd9057a4fc3f1b43a15f4d8f9" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="847,723,1078,748"/>
+<area shape="poly" id="edge56_Node000025_Node000049" title=" " alt="" coords="1172,774,1038,751,1039,746,1173,769"/>
+<area shape="rect" id="Node000050" href="$classbit_1_1TestCase.html#a9dfb2da6b317d8866092c6eb4ccb8fd2" title=" " alt="" coords="883,1088,1042,1114"/>
+<area shape="poly" id="edge58_Node000025_Node000050" title=" " alt="" coords="1183,806,1158,819,1138,837,1120,868,1113,898,1113,928,1117,958,1121,988,1121,1018,1112,1048,1090,1078,1068,1093,1043,1102,1041,1097,1066,1088,1086,1074,1107,1046,1115,1017,1116,988,1112,959,1108,928,1107,897,1115,866,1134,834,1155,815,1181,802"/>
+<area shape="rect" id="Node000027" href="$classcfg_1_1AdcMappings.html#a50978d833ec6672505f87b17c140f483" title=" " alt="" coords="571,824,765,864"/>
+<area shape="poly" id="edge27_Node000026_Node000027" title=" " alt="" coords="933,967,869,923,788,878,757,866,759,861,790,873,872,918,936,963"/>
+<area shape="rect" id="Node000028" href="$classcfg_1_1Extensions.html#a3d483d303ba16bd2c41dbafb6d0db151" title="Add an extension to the configuration." alt="" coords="559,888,777,914"/>
+<area shape="poly" id="edge28_Node000026_Node000028" title=" " alt="" coords="915,971,789,929,736,916,738,911,790,924,917,966"/>
+<area shape="rect" id="Node000029" href="$classcfg_1_1AdcMappings.html#abf24990803afb5198cbffb1a42ceac68" title=" " alt="" coords="571,938,765,978"/>
+<area shape="poly" id="edge29_Node000026_Node000029" title=" " alt="" coords="869,980,765,970,766,965,870,975"/>
+<area shape="rect" id="Node000030" href="$classcfg_1_1Extensions.html#abb7d7973769eda4b355e1e6bdd778f1e" title="Remove an extension from the configuration by name." alt="" coords="547,1003,789,1028"/>
+<area shape="poly" id="edge30_Node000026_Node000030" title=" " alt="" coords="870,998,790,1006,789,1001,869,993"/>
+<area shape="rect" id="Node000031" href="$classcfg_1_1AdcMappings.html#a45d9c766a012ea127e8612d262e720ac" title=" " alt="" coords="555,1052,781,1078"/>
+<area shape="poly" id="edge31_Node000026_Node000031" title=" " alt="" coords="871,1004,838,1014,815,1028,790,1042,749,1055,747,1050,788,1037,812,1023,836,1009,869,999"/>
+<area shape="rect" id="Node000032" href="$classcfg_1_1Extensions.html#aab673cffeff4bb60bf1a11d83a39736b" title=" " alt="" coords="563,1102,773,1127"/>
+<area shape="poly" id="edge32_Node000026_Node000032" title=" " alt="" coords="872,998,839,1014,823,1032,816,1051,808,1072,791,1091,767,1104,764,1099,788,1087,804,1069,811,1049,818,1029,836,1010,869,994"/>
+<area shape="rect" id="Node000033" href="$classcfg_1_1Extensions.html#a28c4e7fad5dbfc8f72d1628ff59ac2ec" title="Enable or disable an extension by name." alt="" coords="551,1151,785,1176"/>
+<area shape="poly" id="edge33_Node000026_Node000033" title=" " alt="" coords="871,996,839,1014,826,1028,819,1043,816,1075,812,1108,805,1125,791,1140,771,1153,769,1149,788,1136,800,1122,807,1107,811,1075,814,1042,822,1025,836,1010,869,992"/>
+<area shape="rect" id="Node000034" href="$classcfg_1_1AdcMappings.html#a7704b7b0f66cfbad9f14b00613347e5b" title=" " alt="" coords="573,1201,763,1241"/>
+<area shape="poly" id="edge34_Node000026_Node000034" title=" " alt="" coords="871,995,854,1003,839,1014,823,1034,815,1055,814,1077,815,1100,816,1145,808,1168,791,1191,765,1209,762,1204,787,1187,803,1166,810,1144,810,1100,809,1077,810,1054,818,1032,835,1010,851,998,869,990"/>
+<area shape="rect" id="Node000035" href="$classcfg_1_1Extensions.html#a4af55964085d036357551e795bb435b5" title="Update an extension given its name and new metadata." alt="" coords="549,1266,787,1291"/>
+<area shape="poly" id="edge35_Node000026_Node000035" title=" " alt="" coords="871,994,854,1002,839,1014,819,1042,811,1072,811,1101,816,1132,821,1163,821,1194,813,1225,791,1255,774,1268,771,1263,787,1251,808,1222,816,1193,815,1163,811,1133,806,1102,805,1071,814,1040,835,1010,851,998,869,990"/>
+<area shape="poly" id="edge37_Node000036_Node000005" title=" " alt="" coords="940,513,890,449,835,368,822,338,816,313,807,291,788,270,757,250,729,238,702,233,675,231,617,231,584,228,546,220,434,181,435,176,547,214,584,222,617,225,675,226,703,227,730,233,760,245,791,266,812,289,821,312,827,337,840,365,895,446,944,509"/>
+<area shape="poly" id="edge38_Node000036_Node000011" title=" " alt="" coords="938,513,886,451,858,410,835,367,823,336,818,307,816,257,812,208,803,183,787,155,771,136,753,119,713,93,715,88,756,115,775,132,792,152,808,181,817,207,821,257,823,307,828,334,840,365,863,408,890,448,942,510"/>
+<area shape="rect" id="Node000037" href="$classgiraffe_1_1AprsManager.html#a6a162f30ddbbc37c18265dd9b9c56072" title="Initializes the APRS Telemetry data from the configuration." alt="" coords="577,280,759,320"/>
+<area shape="poly" id="edge39_Node000036_Node000037" title=" " alt="" coords="945,511,920,472,884,424,840,375,788,334,759,320,761,315,791,329,843,371,889,421,925,469,950,508"/>
+<area shape="rect" id="Node000041" href="$classbit_1_1BuiltInTest.html#a9bb6b9b9d355a2988e21a79c1d154f77" title="Reset the BIT system to it&#39;s initial state." alt="" coords="590,472,746,498"/>
+<area shape="poly" id="edge41_Node000036_Node000041" title=" " alt="" coords="872,522,744,500,745,495,873,517"/>
+<area shape="rect" id="Node000042" href="$classbit_1_1TestGroup.html#a758e1e5dde0f057bbeb0ded0f3d6b916" title=" " alt="" coords="593,672,743,698"/>
+<area shape="poly" id="edge43_Node000036_Node000042" title=" " alt="" coords="940,559,876,611,834,639,790,662,745,677,743,672,788,657,832,634,872,607,936,554"/>
+<area shape="rect" id="Node000043" href="$classbit_1_1BuiltInTest.html#ae58833032b255dc341c86e89fa595f3f" title=" " alt="" coords="591,522,745,547"/>
+<area shape="poly" id="edge44_Node000036_Node000043" title=" " alt="" coords="872,537,745,537,745,532,872,532"/>
+<area shape="rect" id="Node000044" href="$classbit_1_1BuiltInTest.html#aa2c036f9a685264aa639c9ac8b059739" title=" " alt="" coords="593,623,743,648"/>
+<area shape="poly" id="edge46_Node000036_Node000044" title=" " alt="" coords="912,554,707,626,705,620,911,549"/>
+<area shape="rect" id="Node000038" href="$classgiraffe_1_1AprsManager.html#a733faf5f8cb193988e799bbbfc721173" title="Force a configuration reload." alt="" coords="304,280,463,320"/>
+<area shape="poly" id="edge40_Node000037_Node000038" title=" " alt="" coords="563,302,463,302,463,297,563,297"/>
+<area shape="poly" id="edge42_Node000041_Node000014" title=" " alt="" coords="585,503,547,512,426,546,425,540,546,506,584,498"/>
+<area shape="poly" id="edge45_Node000043_Node000014" title=" " alt="" coords="578,544,499,550,499,544,577,538"/>
+<area shape="poly" id="edge48_Node000044_Node000014" title=" " alt="" coords="604,622,546,606,426,571,427,566,547,601,605,617"/>
+<area shape="rect" id="Node000045" href="$classbit_1_1BuiltInTest.html#a8968d91ecb46cbd52a294df83756a053" title=" " alt="" coords="322,616,445,656"/>
+<area shape="poly" id="edge47_Node000044_Node000045" title=" " alt="" coords="579,638,445,638,445,633,579,633"/>
+<area shape="poly" id="edge50_Node000046_Node000024" title=" " alt="" coords="843,1074,839,1077,820,1105,813,1133,813,1161,817,1190,821,1219,820,1248,812,1277,791,1306,776,1317,773,1313,787,1302,807,1275,815,1248,815,1219,811,1191,807,1162,807,1132,815,1103,835,1074,839,1070"/>
+<area shape="rect" id="Node000048" href="$classFlightPhaseManager.html#aaf8eab144ba58f98f7fde9038752ebba" title=" " alt="" coords="567,165,769,205"/>
+<area shape="poly" id="edge53_Node000047_Node000048" title=" " alt="" coords="890,311,836,281,821,266,812,252,803,239,788,226,751,208,753,203,791,222,807,235,816,249,825,263,839,276,892,307"/>
+<area shape="poly" id="edge54_Node000048_Node000005" title=" " alt="" coords="553,177,461,168,461,163,554,172"/>
+<area shape="poly" id="edge57_Node000049_Node000014" title=" " alt="" coords="894,754,817,764,726,766,679,761,632,751,587,735,545,711,532,699,524,686,518,659,513,632,507,619,497,606,468,585,435,571,438,566,470,580,500,602,512,616,518,630,523,658,529,684,536,696,548,707,589,730,633,745,679,755,726,760,817,759,894,748"/>
+<area shape="poly" id="edge62_Node000053_Node000020" title=" " alt="" coords="1473,879,1338,902,1337,896,1472,873"/>
+<area shape="poly" id="edge63_Node000053_Node000025" title=" " alt="" coords="1496,848,1313,802,1314,797,1497,842"/>
+<area shape="poly" id="edge64_Node000053_Node000053" title=" " alt="" coords="1609,839,1607,835,1598,831,1562,827,1534,829,1518,834,1515,839,1523,846,1519,850,1510,840,1515,830,1533,824,1562,822,1600,826,1610,831,1614,837"/>
+<area shape="rect" id="Node000054" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="1187,848,1336,874"/>
+<area shape="poly" id="edge65_Node000053_Node000054" title=" " alt="" coords="1467,864,1336,864,1336,858,1467,858"/>
+<area shape="poly" id="edge67_Node000054_Node000036" title=" " alt="" coords="1192,846,1161,832,1134,812,1115,788,1105,765,1098,740,1086,712,1023,617,972,549,976,546,1027,614,1090,709,1103,738,1110,763,1119,785,1138,808,1164,827,1194,841"/>
+<area shape="rect" id="Node000055" href="$classdata__middleware_1_1AdcInterpolation.html#ae1ad5fb461017a5d6a37bfb29f4675d2" title=" " alt="" coords="837,1138,1088,1178"/>
+<area shape="poly" id="edge66_Node000054_Node000055" title=" " alt="" coords="1174,868,1154,876,1138,888,1117,917,1109,945,1109,975,1114,1004,1118,1035,1119,1066,1111,1096,1090,1127,1074,1140,1070,1136,1086,1123,1106,1094,1113,1065,1113,1035,1108,1005,1104,975,1104,945,1113,914,1134,885,1152,871,1172,863"/>
 </map>

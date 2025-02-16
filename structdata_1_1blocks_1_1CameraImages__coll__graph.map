@@ -1,6 +1,9 @@
 <map id="data::blocks::CameraImages" name="data::blocks::CameraImages">
-<area shape="rect" id="node1" title="Struct containing image data from a camera." alt="" coords="51,145,259,223"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,44,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="126,5,185,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="323,5,374,83"/>
+<area shape="rect" id="Node000001" title="Struct containing image data from a camera." alt="" coords="111,133,311,199"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,48,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="34,70,42,90,54,108,74,123,97,136,94,141,71,128,50,111,37,92,29,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="185,5,236,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,71,213,117,208,117,208,71"/>
+<area shape="rect" id="Node000004" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="389,5,419,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="399,72,391,93,377,111,353,129,327,142,325,137,350,124,373,107,386,90,395,70"/>
 </map>

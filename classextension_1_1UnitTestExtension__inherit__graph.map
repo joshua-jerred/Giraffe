@@ -1,4 +1,5 @@
 <map id="extension::UnitTestExtension" name="extension::UnitTestExtension">
-<area shape="rect" id="node1" title=" " alt="" coords="16,585,227,677"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,5,237,537"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="16,739,219,824"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,5,229,691"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,704,120,738,115,738,115,704"/>
 </map>

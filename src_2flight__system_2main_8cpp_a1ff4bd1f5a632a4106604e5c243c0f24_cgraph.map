@@ -1,4 +1,6 @@
 <map id="signalHandler" name="signalHandler">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,117,32"/>
-<area shape="rect" id="node2" href="$classFlightRunner.html#a645cd4e865e0e3b35ac6e9b3d52bdda4" title="Shuts down the flight runner." alt="" coords="165,5,341,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,117,55"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="30,31,23,21,26,11,40,5,61,3,88,6,99,15,95,19,86,11,61,8,41,10,30,15,28,20,34,28"/>
+<area shape="rect" id="Node000002" href="$classFlightRunner.html#a645cd4e865e0e3b35ac6e9b3d52bdda4" title="Shuts down the flight runner." alt="" coords="165,29,341,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,39,152,39,152,45,117,45"/>
 </map>

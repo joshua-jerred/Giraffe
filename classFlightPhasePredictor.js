@@ -12,7 +12,7 @@ var classFlightPhasePredictor =
     [ "~FlightPhasePredictor", "classFlightPhasePredictor.html#a5ed3a5f2e5f890085b2d6373d2d91bd9", null ],
     [ "FlightPhasePredictor", "classFlightPhasePredictor.html#a7c2b9ac92116b98154369d0668c22494", null ],
     [ "FlightPhasePredictor", "classFlightPhasePredictor.html#a16421ea47f076d538a19a65756648e71", null ],
-    [ "operator=", "classFlightPhasePredictor.html#ae0e3f89458e1e5911221815f287dce9f", null ],
+    [ "operator=", "classFlightPhasePredictor.html#aa000d5334e7a3e9c4a4bedfd75b3ba57", null ],
     [ "update", "classFlightPhasePredictor.html#a325f1d196644bc5ef1e635ef855f3d87", null ],
     [ "getPhaseProbability", "classFlightPhasePredictor.html#aa56a7eeb78fb0ce2407ea537236bdcd3", null ],
     [ "getPredictedPhase", "classFlightPhasePredictor.html#a7f865ee9e6f156605ac2d92241ab2b0f", null ],

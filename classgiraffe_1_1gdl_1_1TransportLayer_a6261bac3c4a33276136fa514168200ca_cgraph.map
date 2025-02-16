@@ -1,16 +1,25 @@
 <map id="giraffe::gdl::TransportLayer::exchangeWaitingForAckState" name="giraffe::gdl::TransportLayer::exchangeWaitingForAckState">
-<area shape="rect" id="node1" title=" " alt="" coords="5,169,225,211"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#a7e379f44344ef7d3f57f30cc8b85d71f" title=" " alt="" coords="289,104,448,145"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Packet.html#a30b91d18f37e7cc83455c0ecd9198e1c" title=" " alt="" coords="297,169,440,211"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875" title=" " alt="" coords="273,235,464,276"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc" title=" " alt="" coords="525,5,666,47"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639" title=" " alt="" coords="525,71,666,112"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1Message.html#a6ac84c04db330a1ae6cdb3631b27768f" title=" " alt="" coords="516,136,675,177"/>
-<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1Message.html#a785216d96e3d838ee9f6772eb34395d1" title=" " alt="" coords="512,201,679,243"/>
-<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1Message.html#ab1c03e26af37f4e27ca6cf24d6674f55" title=" " alt="" coords="516,267,675,308"/>
-<area shape="rect" id="node10" href="$classgiraffe_1_1gdl_1_1Packet.html#a230dd4dc8894d107f481540d31c42fce" title=" " alt="" coords="524,332,667,373"/>
-<area shape="rect" id="node11" href="$classgiraffe_1_1gdl_1_1Message.html#ac5e76febe8ddc5c68359f0b5224b2b8e" title=" " alt="" coords="516,397,675,439"/>
-<area shape="rect" id="node12" href="$classgiraffe_1_1gdl_1_1Message.html#a36702d0dbe11e9f36bd3fa1f4def8840" title="Set the timestamp of the message to the current time." alt="" coords="516,463,675,504"/>
-<area shape="rect" id="node13" href="$influxdb_8cpp.html#a72945fb4d8ea1727ad479c78048bd0e0" title=" " alt="" coords="727,470,833,497"/>
-<area shape="rect" id="node14" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="881,470,989,497"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,165,225,205"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1Message.html#a7e379f44344ef7d3f57f30cc8b85d71f" title=" " alt="" coords="289,101,448,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,163,275,142,276,147,196,168"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1Packet.html#a30b91d18f37e7cc83455c0ecd9198e1c" title=" " alt="" coords="297,165,440,205"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="226,183,284,183,284,188,226,188"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875" title=" " alt="" coords="273,229,464,269"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="196,203,276,223,275,229,195,208"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc" title=" " alt="" coords="525,5,666,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="447,227,462,215,476,196,484,177,486,138,488,97,495,76,510,56,514,52,518,55,514,59,500,79,493,98,491,138,489,178,481,199,466,219,451,231"/>
+<area shape="rect" id="Node000006" href="$classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639" title=" " alt="" coords="525,69,666,109"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="445,227,462,215,479,192,486,169,492,144,510,120,516,115,519,119,514,123,497,147,491,170,484,195,466,219,448,231"/>
+<area shape="rect" id="Node000007" href="$classgiraffe_1_1gdl_1_1Message.html#a6ac84c04db330a1ae6cdb3631b27768f" title=" " alt="" coords="516,133,675,173"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="435,227,463,215,487,199,511,183,524,176,527,181,513,188,490,204,465,220,437,232"/>
+<area shape="rect" id="Node000008" href="$classgiraffe_1_1gdl_1_1Message.html#a785216d96e3d838ee9f6772eb34395d1" title=" " alt="" coords="512,197,679,237"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="464,233,498,228,499,234,465,238"/>
+<area shape="rect" id="Node000009" href="$classgiraffe_1_1gdl_1_1Message.html#ab1c03e26af37f4e27ca6cf24d6674f55" title=" " alt="" coords="516,261,675,301"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="465,260,503,266,502,271,464,265"/>
+<area shape="rect" id="Node000010" href="$classgiraffe_1_1gdl_1_1Packet.html#a230dd4dc8894d107f481540d31c42fce" title=" " alt="" coords="524,325,667,365"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="414,267,513,311,530,318,528,323,511,316,412,272"/>
+<area shape="rect" id="Node000011" href="$classgiraffe_1_1gdl_1_1Message.html#ac5e76febe8ddc5c68359f0b5224b2b8e" title=" " alt="" coords="516,389,675,429"/>
+<area shape="poly" id="edge10_Node000004_Node000011" title=" " alt="" coords="390,268,443,320,477,349,513,375,524,381,522,386,511,380,473,353,439,324,386,271"/>
+<area shape="rect" id="Node000012" href="$classgiraffe_1_1gdl_1_1Message.html#a36702d0dbe11e9f36bd3fa1f4def8840" title="Set the timestamp of the message to the current time." alt="" coords="516,453,675,493"/>
+<area shape="poly" id="edge11_Node000004_Node000012" title=" " alt="" coords="382,268,402,305,432,350,469,398,514,439,521,444,518,449,510,443,465,401,428,353,398,307,378,271"/>
 </map>

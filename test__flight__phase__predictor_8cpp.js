@@ -1,7 +1,7 @@
 var test__flight__phase__predictor_8cpp =
 [
     [ "FlightPhasePredictorTest", "classFlightPhasePredictorTest.html", "classFlightPhasePredictorTest" ],
-    [ "TestContainer", "classFlightPhasePredictorTest.html#structFlightPhasePredictorTest_1_1TestContainer", [
+    [ "FlightPhasePredictorTest::TestContainer", "classFlightPhasePredictorTest.html#structFlightPhasePredictorTest_1_1TestContainer", [
       [ "shared_data", "classFlightPhasePredictorTest.html#a100d2bd5a4c23065f749626e644162ef", null ],
       [ "flight_phase_predictor", "classFlightPhasePredictorTest.html#a6e4faa600c1079af07cb7869120d6a02", null ],
       [ "calculated_data", "classFlightPhasePredictorTest.html#a56d0c1a1412ae7dff615d1892bdf2839", null ],

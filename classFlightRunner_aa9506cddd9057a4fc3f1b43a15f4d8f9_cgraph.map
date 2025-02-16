@@ -1,11 +1,20 @@
 <map id="FlightRunner::setLaunchPosition" name="FlightRunner::setLaunchPosition">
-<area shape="rect" id="node1" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="5,130,236,157"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1FlightRunnerData.html#ad522ef22add361da8fd8dda6dda7930a" title="Clears the launch position/set it to invalid." alt="" coords="291,5,478,47"/>
-<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="301,71,469,98"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1FlightRunnerData.html#aec5ac065bece8131a74452bd55615b02" title="Set the launch position. Called on the transition from pre&#45;launch to launch." alt="" coords="291,123,478,164"/>
-<area shape="rect" id="node8" href="$classdata_1_1FlightData.html#af8689e42e3dcf4e6813bb608ed36a441" title=" " alt="" coords="284,188,485,229"/>
-<area shape="rect" id="node9" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="331,254,439,281"/>
-<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="744,23,931,64"/>
-<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="533,71,696,98"/>
-<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="747,97,927,139"/>
+<area shape="rect" id="Node000001" title="Called when transitioning from pre&#45;launch to launch phase. Sets the launch position in shared data an..." alt="" coords="5,99,236,125"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1FlightRunnerData.html#ad522ef22add361da8fd8dda6dda7930a" title="Clears the launch position/set it to invalid." alt="" coords="291,5,478,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,97,283,55,307,47,309,52,285,60,160,102"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="301,70,469,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="235,97,287,91,287,96,235,102"/>
+<area shape="rect" id="Node000007" href="$classgiraffe_1_1FlightRunnerData.html#aec5ac065bece8131a74452bd55615b02" title="Set the launch position. Called on the transition from pre&#45;launch to launch." alt="" coords="291,120,478,160"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="237,122,278,126,277,131,236,127"/>
+<area shape="rect" id="Node000008" href="$classdata_1_1FlightData.html#af8689e42e3dcf4e6813bb608ed36a441" title=" " alt="" coords="284,184,485,224"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="156,122,285,169,308,177,306,182,283,175,154,127"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="744,7,931,47"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="444,67,484,55,508,42,533,31,583,21,634,16,730,15,730,20,634,21,583,27,534,36,510,47,486,60,445,73"/>
+<area shape="rect" id="Node000005" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="533,70,696,95"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="469,80,520,80,520,85,469,85"/>
+<area shape="rect" id="Node000006" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="747,88,927,128"/>
+<area shape="poly" id="edge8_Node000003_Node000006" title=" " alt="" coords="446,93,534,105,636,110,734,110,734,115,636,115,533,111,446,98"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="665,67,744,47,745,53,667,73"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="579,72,571,62,575,52,590,46,615,43,645,47,658,56,654,60,643,52,615,49,591,51,578,56,576,61,583,68"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="696,89,734,94,733,99,696,95"/>
 </map>

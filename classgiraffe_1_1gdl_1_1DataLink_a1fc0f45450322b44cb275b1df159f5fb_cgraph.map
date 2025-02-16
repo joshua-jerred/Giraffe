@@ -1,6 +1,9 @@
 <map id="giraffe::gdl::DataLink::broadcastText" name="giraffe::gdl::DataLink::broadcastText">
-<area shape="rect" id="node1" title="Broadcast a text message over the Data Link." alt="" coords="5,71,164,112"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="233,5,391,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="212,71,412,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb" title=" " alt="" coords="225,136,399,177"/>
+<area shape="rect" id="Node000001" title="Broadcast a text message over the Data Link." alt="" coords="5,69,164,109"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="233,5,391,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,67,226,47,228,52,157,72"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="212,69,412,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,87,199,87,199,92,165,92"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb" title=" " alt="" coords="225,133,399,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="157,107,228,127,226,132,156,112"/>
 </map>

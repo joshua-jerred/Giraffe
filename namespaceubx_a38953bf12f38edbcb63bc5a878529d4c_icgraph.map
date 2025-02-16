@@ -1,6 +1,10 @@
 <map id="ubx::flushStream" name="ubx::flushStream">
-<area shape="rect" id="node1" title=" " alt="" coords="631,31,763,57"/>
-<area shape="rect" id="node2" href="$namespaceubx.html#a5a8edb14df1ca1f59ff23d5c4b8b1f6e" title="Poll a message and read it from the GPS." alt="" coords="447,5,583,32"/>
-<area shape="rect" id="node3" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,23,399,65"/>
-<area shape="rect" id="node4" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,31,192,57"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="631,31,763,56"/>
+<area shape="rect" id="Node000002" href="$namespaceubx.html#a5a8edb14df1ca1f59ff23d5c4b8b1f6e" title="Poll a message and read it from the GPS." alt="" coords="447,5,583,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="617,35,583,30,583,25,618,30"/>
+<area shape="rect" id="Node000003" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,23,399,63"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="617,46,399,46,399,41,617,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="433,31,399,36,399,30,433,26"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,31,192,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="226,46,192,46,192,41,226,41"/>
 </map>

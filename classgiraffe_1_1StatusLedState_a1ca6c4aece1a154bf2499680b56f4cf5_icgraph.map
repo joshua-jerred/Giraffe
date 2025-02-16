@@ -1,7 +1,11 @@
 <map id="giraffe::StatusLedState::setRed" name="giraffe::StatusLedState::setRed">
-<area shape="rect" id="node1" title=" " alt="" coords="533,64,704,105"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1StatusLedChannel.html#a7c4625ba5c1ee3f5deec9eee26a80571" title=" " alt="" coords="268,71,485,98"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1StatusLedChannel.html#aa741311a7f826166363d87f1fd0f68d9" title=" " alt="" coords="18,5,207,47"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1StatusLedChannel.html#a7ba33eb1660b1ec5b7531942d554935f" title=" " alt="" coords="5,71,220,98"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1StatusLedChannel.html#a36680e1b8c956d6e1774fcd428e8eded" title=" " alt="" coords="6,122,219,149"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="533,63,704,103"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1StatusLedChannel.html#a7c4625ba5c1ee3f5deec9eee26a80571" title=" " alt="" coords="268,70,485,95"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="520,85,485,85,485,80,520,80"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1StatusLedChannel.html#aa741311a7f826166363d87f1fd0f68d9" title=" " alt="" coords="18,5,207,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="304,70,205,48,206,43,305,64"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1StatusLedChannel.html#a7ba33eb1660b1ec5b7531942d554935f" title=" " alt="" coords="5,70,220,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="255,85,220,85,220,80,255,80"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1StatusLedChannel.html#a36680e1b8c956d6e1774fcd428e8eded" title=" " alt="" coords="6,119,219,145"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="295,101,182,122,181,117,294,95"/>
 </map>

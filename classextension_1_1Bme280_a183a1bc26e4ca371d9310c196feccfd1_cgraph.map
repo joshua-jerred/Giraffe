@@ -1,5 +1,7 @@
 <map id="extension::Bme280::processEnvironmentalData" name="extension::Bme280::processEnvironmentalData">
-<area shape="rect" id="node1" title="Processes the raw environmental data into known units using the compensation data." alt="" coords="5,5,204,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="252,5,411,47"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="459,13,639,39"/>
+<area shape="rect" id="Node000001" title="Processes the raw environmental data into known units using the compensation data." alt="" coords="5,5,204,45"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="252,5,411,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,23,238,23,238,28,204,28"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="459,13,639,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="411,23,445,23,445,28,411,28"/>
 </map>

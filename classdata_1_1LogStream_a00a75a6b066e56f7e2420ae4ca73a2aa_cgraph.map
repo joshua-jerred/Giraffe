@@ -1,5 +1,7 @@
 <map id="data::LogStream::errorStdException" name="data::LogStream::errorStdException">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,195,80"/>
-<area shape="rect" id="node2" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="243,5,429,47"/>
-<area shape="rect" id="node3" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="246,71,426,112"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,195,77"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="243,5,429,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,42,229,37,230,42,195,47"/>
+<area shape="rect" id="Node000003" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="246,69,426,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,68,233,73,232,78,195,73"/>
 </map>

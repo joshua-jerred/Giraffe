@@ -1,12 +1,25 @@
 <map id="sim_parameters.hpp" name="sim_parameters.hpp">
-<area shape="rect" id="node1" title="Parameters for the GFS Simulator." alt="" coords="208,5,364,32"/>
-<area shape="rect" id="node2" href="$gfs__simulator_8hpp.html" title=" " alt="" coords="139,229,278,256"/>
-<area shape="rect" id="node6" href="$sim__electrical_8hpp.html" title="GFS Simulator Electrical Implementation." alt="" coords="125,80,266,107"/>
-<area shape="rect" id="node7" href="$sim__environmental_8hpp.html" title="SimEnvironmental Simulation for the GFS Simulator." alt="" coords="290,80,466,107"/>
-<area shape="rect" id="node9" href="$sim__physics_8hpp.html" title="GFS Simulator Physics." alt="" coords="471,155,602,181"/>
-<area shape="rect" id="node3" href="$gfs__simulator_8cpp.html" title="The simulator for the flight system." alt="" coords="5,304,143,331"/>
-<area shape="rect" id="node4" href="$tests_2simulator_2main_8cpp.html" title="GFS Simulator main entry point." alt="" coords="167,304,250,331"/>
-<area shape="rect" id="node5" href="$simulated__extensions_8hpp.html" title="This contains the simulated extensions for testing the flight system." alt="" coords="275,304,468,331"/>
-<area shape="rect" id="node8" href="$sim__environmental_8cpp.html" title="Implementation of the SimEnvironmental Simulation for the GFS Simulator." alt="" coords="272,155,447,181"/>
-<area shape="rect" id="node10" href="$sim__physics_8cpp.html" title="GFS Simulator Physics Implementation." alt="" coords="472,229,601,256"/>
+<area shape="rect" id="Node000001" title="Parameters for the GFS Simulator." alt="" coords="208,5,364,31"/>
+<area shape="rect" id="Node000002" href="$gfs__simulator_8hpp.html" title=" " alt="" coords="139,225,278,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,32,150,49,131,63,115,80,106,99,107,119,114,140,127,160,161,197,194,223,190,227,157,200,123,163,109,142,102,120,101,98,110,77,127,59,148,45,194,27"/>
+<area shape="rect" id="Node000006" href="$sim__electrical_8hpp.html" title="GFS Simulator Electrical Implementation." alt="" coords="125,79,266,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="262,41,212,81,209,76,259,37"/>
+<area shape="rect" id="Node000007" href="$sim__environmental_8hpp.html" title="SimEnvironmental Simulation for the GFS Simulator." alt="" coords="290,79,466,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="313,37,365,76,361,81,310,41"/>
+<area shape="rect" id="Node000009" href="$sim__physics_8hpp.html" title="GFS Simulator Physics." alt="" coords="471,152,602,177"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="376,31,429,49,480,77,498,94,514,114,534,150,529,153,509,117,494,97,476,81,427,54,374,36"/>
+<area shape="rect" id="Node000003" href="$gfs__simulator_8cpp.html" title="The simulator for the flight system." alt="" coords="5,299,143,324"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="176,259,97,301,95,296,174,255"/>
+<area shape="rect" id="Node000004" href="$tests_2simulator_2main_8cpp.html" title="GFS Simulator main entry point." alt="" coords="167,299,250,324"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="211,264,211,299,206,299,206,264"/>
+<area shape="rect" id="Node000005" href="$simulated__extensions_8hpp.html" title="This contains the simulated extensions for testing the flight system." alt="" coords="275,299,468,324"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="248,254,346,296,344,301,246,259"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="200,118,210,225,205,225,195,118"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="332,111,295,129,261,154,233,191,216,226,211,224,228,188,257,150,292,125,329,107"/>
+<area shape="rect" id="Node000008" href="$sim__environmental_8cpp.html" title="Implementation of the SimEnvironmental Simulation for the GFS Simulator." alt="" coords="272,152,447,177"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="374,118,365,153,360,151,369,117"/>
+<area shape="poly" id="edge10_Node000007_Node000009" title=" " alt="" coords="417,107,512,149,510,154,415,112"/>
+<area shape="poly" id="edge11_Node000009_Node000002" title=" " alt="" coords="471,183,262,228,261,223,470,178"/>
+<area shape="rect" id="Node000010" href="$sim__physics_8cpp.html" title="GFS Simulator Physics Implementation." alt="" coords="472,225,601,251"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="539,191,539,225,534,225,534,191"/>
 </map>

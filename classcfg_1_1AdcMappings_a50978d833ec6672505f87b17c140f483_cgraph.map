@@ -1,9 +1,18 @@
 <map id="cfg::AdcMappings::addAdcConfig" name="cfg::AdcMappings::addAdcConfig">
-<area shape="rect" id="node1" title=" " alt="" coords="5,35,199,76"/>
-<area shape="rect" id="node2" href="$classcfg_1_1AdcMappings.html#ae7bded77f28e2adc255e48dfc084ffbf" title=" " alt="" coords="247,5,457,47"/>
-<area shape="rect" id="node3" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="273,71,431,98"/>
-<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="505,71,673,98"/>
-<area shape="rect" id="node5" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="932,23,1119,64"/>
-<area shape="rect" id="node6" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="721,71,884,98"/>
-<area shape="rect" id="node7" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="935,97,1115,139"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,199,75"/>
+<area shape="rect" id="Node000002" href="$classcfg_1_1AdcMappings.html#ae7bded77f28e2adc255e48dfc084ffbf" title=" " alt="" coords="247,5,457,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,41,233,37,233,42,199,46"/>
+<area shape="rect" id="Node000003" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="273,70,431,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,63,259,70,259,75,199,68"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="505,70,673,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="431,80,491,80,491,85,431,85"/>
+<area shape="rect" id="Node000005" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="932,7,1119,47"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="615,67,663,47,721,31,822,19,918,18,918,23,822,24,722,36,665,52,617,72"/>
+<area shape="rect" id="Node000006" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="721,70,884,95"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="674,80,708,80,708,85,674,85"/>
+<area shape="rect" id="Node000007" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="935,88,1115,128"/>
+<area shape="poly" id="edge9_Node000004_Node000007" title=" " alt="" coords="644,93,722,105,824,111,922,110,922,116,824,116,721,111,643,98"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="853,67,932,47,933,53,855,73"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="768,72,760,62,764,52,779,46,803,43,832,47,844,56,841,60,830,52,803,49,780,51,768,56,765,61,772,68"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="884,89,922,94,921,99,884,95"/>
 </map>

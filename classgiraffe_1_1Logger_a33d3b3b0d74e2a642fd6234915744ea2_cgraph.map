@@ -1,7 +1,14 @@
 <map id="giraffe::Logger::debug" name="giraffe::Logger::debug">
-<area shape="rect" id="node1" title=" " alt="" coords="5,54,169,81"/>
-<area shape="rect" id="node2" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="217,54,395,81"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="653,5,840,47"/>
-<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="443,54,605,81"/>
-<area shape="rect" id="node5" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="657,80,837,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,169,94"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="217,69,395,94"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,79,203,79,203,84,170,84"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="653,5,840,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="333,66,383,46,442,29,543,18,640,17,640,22,544,23,443,35,385,51,335,71"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="443,69,605,94"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="395,79,429,79,429,84,395,84"/>
+<area shape="rect" id="Node000005" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="657,87,837,127"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="363,91,443,104,546,109,643,109,643,114,546,115,442,109,362,97"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="575,66,653,46,654,51,576,71"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="489,70,481,60,485,50,500,44,524,42,554,46,566,55,563,59,552,51,524,47,501,49,489,54,486,60,493,67"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="606,88,643,92,643,98,605,93"/>
 </map>

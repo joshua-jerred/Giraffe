@@ -1,8 +1,13 @@
 <map id="giraffe::gdl::NetworkLayer::txAprsTelemetryPacket" name="giraffe::gdl::NetworkLayer::txAprsTelemetryPacket">
-<area shape="rect" id="node1" title="Transmit an APRS telemetry packet of the specified type." alt="" coords="5,136,196,177"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc" title=" " alt="" coords="253,5,394,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Config.html#a1fd00187a8f0cf9632db5d0d068e4ce3" title=" " alt="" coords="246,71,401,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Config.html#ab4b666bf725f3ab5756dc5b5135640ae" title=" " alt="" coords="253,136,394,177"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639" title=" " alt="" coords="253,201,394,243"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1Message.html#a8aa2be7d5566b78a15e84f1fb0f4d8bf" title=" " alt="" coords="244,267,403,308"/>
+<area shape="rect" id="Node000001" title="Transmit an APRS telemetry packet of the specified type." alt="" coords="5,133,196,173"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc" title=" " alt="" coords="253,5,394,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,131,179,94,243,55,255,49,258,53,245,60,182,98,130,135"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1Config.html#a1fd00187a8f0cf9632db5d0d068e4ce3" title=" " alt="" coords="246,69,401,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,131,239,111,241,116,172,136"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1Config.html#ab4b666bf725f3ab5756dc5b5135640ae" title=" " alt="" coords="253,133,394,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="197,151,239,151,239,156,197,156"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639" title=" " alt="" coords="253,197,394,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="172,171,241,191,239,196,170,176"/>
+<area shape="rect" id="Node000006" href="$classgiraffe_1_1gdl_1_1Message.html#a8aa2be7d5566b78a15e84f1fb0f4d8bf" title=" " alt="" coords="244,261,403,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="130,171,182,208,245,247,258,253,255,258,243,252,179,213,127,176"/>
 </map>

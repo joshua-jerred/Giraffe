@@ -1,6 +1,9 @@
 <map id="giraffe::file_paths::getGfsConfigFilePath" name="giraffe::file_paths::getGfsConfigFilePath">
-<area shape="rect" id="node1" title="Returns the path to the Flight Software config file." alt="" coords="333,23,499,65"/>
-<area shape="rect" id="node2" href="$classFlightRunner.html#ae552858a0d61ca59e9cad16ea9ab82fc" title=" " alt="" coords="108,5,285,32"/>
-<area shape="rect" id="node3" href="$classFlightRunner.html#a7deed0a1bc77d1f1046a8713cc85dd78" title="Starts the flight runner." alt="" coords="125,56,268,83"/>
-<area shape="rect" id="node4" href="$src_2flight__system_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="This is the main function that starts the flight runner. It will return a call to flight...." alt="" coords="5,56,60,83"/>
+<area shape="rect" id="Node000001" title="Returns the path to the Flight Software config file." alt="" coords="333,23,499,63"/>
+<area shape="rect" id="Node000002" href="$classFlightRunner.html#ae552858a0d61ca59e9cad16ea9ab82fc" title=" " alt="" coords="108,5,285,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="319,35,285,31,286,26,319,30"/>
+<area shape="rect" id="Node000003" href="$classFlightRunner.html#a7deed0a1bc77d1f1046a8713cc85dd78" title="Starts the flight runner." alt="" coords="125,55,268,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="319,57,269,62,268,57,319,51"/>
+<area shape="rect" id="Node000004" href="$src_2flight__system_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="This is the main function that starts the flight runner. It will return a call to flight...." alt="" coords="5,55,60,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="111,70,60,70,60,65,111,65"/>
 </map>

@@ -1,6 +1,9 @@
 <map id="modules::ExtensionModule::addExtension" name="modules::ExtensionModule::addExtension">
-<area shape="rect" id="node1" title=" " alt="" coords="5,64,204,105"/>
-<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#aac4d67e03d9fa7029bf15a3ac79ca9c5" title=" " alt="" coords="252,5,451,47"/>
-<area shape="rect" id="node3" href="$classmodules_1_1Module.html#a62806f82a3b853d0d2de55efbf5649bc" title="Used internally in the module. This function adds an error to the log stream. It is used to log error..." alt="" coords="265,71,438,98"/>
-<area shape="rect" id="node4" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="268,122,435,149"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,63,204,103"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1ExtensionModule.html#aac4d67e03d9fa7029bf15a3ac79ca9c5" title=" " alt="" coords="252,5,451,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,60,251,46,252,51,192,65"/>
+<area shape="rect" id="Node000003" href="$classmodules_1_1Module.html#a62806f82a3b853d0d2de55efbf5649bc" title="Used internally in the module. This function adds an error to the log stream. It is used to log error..." alt="" coords="265,70,438,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="204,80,251,80,251,85,204,85"/>
+<area shape="rect" id="Node000004" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="268,119,435,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="205,100,274,114,273,119,204,105"/>
 </map>

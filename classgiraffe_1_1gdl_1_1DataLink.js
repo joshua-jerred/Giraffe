@@ -35,7 +35,7 @@ var classgiraffe_1_1gdl_1_1DataLink =
     [ "getTelemetrySenderStatus", "classgiraffe_1_1gdl_1_1DataLink.html#a7b97ff2bc7e39126e06bf2ba363244c7", null ],
     [ "getTelemetrySenderStatusString", "classgiraffe_1_1gdl_1_1DataLink.html#a544353397d1939e3f15f13dc2d08a73d", null ],
     [ "sendTelemetryMetadataPackets", "classgiraffe_1_1gdl_1_1DataLink.html#a145c903edb291709270ebe47c5bb1030", null ],
-    [ "getConfig", "classgiraffe_1_1gdl_1_1DataLink.html#aacb718ea7dc7d493bccb1cea6ed4f0fb", null ],
+    [ "getConfig", "classgiraffe_1_1gdl_1_1DataLink.html#a47aeed51e3d0adf6a482aa869c345c95", null ],
     [ "isRunning", "classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962", null ],
     [ "setStatus", "classgiraffe_1_1gdl_1_1DataLink.html#a533c0e638f752a5656734721c7437c2f", null ],
     [ "gdlThread", "classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de", null ],

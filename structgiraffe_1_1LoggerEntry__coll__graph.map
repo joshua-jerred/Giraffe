@@ -1,6 +1,9 @@
 <map id="giraffe::LoggerEntry" name="giraffe::LoggerEntry">
-<area shape="rect" id="node1" title=" " alt="" coords="97,145,248,223"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,97,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="122,5,223,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="247,5,306,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="77,133,219,199"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,99,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,69,97,108,106,119,102,123,93,111,67,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="123,5,173,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,71,151,117,145,117,145,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="198,5,282,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="225,72,200,111,190,123,186,119,195,108,220,69"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="ConfigurationTest::printStreamErrors" name="ConfigurationTest::printStreamErrors">
-<area shape="rect" id="node1" title=" " alt="" coords="5,23,148,65"/>
-<area shape="rect" id="node2" href="$classdata_1_1Stream.html#a1e7307f7c8cbbe4304654a293d86bd9c" title=" " alt="" coords="196,5,411,32"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a0314b3695dc80b18b19be92965777234" title=" " alt="" coords="215,56,392,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,148,63"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Stream.html#a1e7307f7c8cbbe4304654a293d86bd9c" title=" " alt="" coords="196,5,411,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,33,182,29,183,34,149,38"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a0314b3695dc80b18b19be92965777234" title=" " alt="" coords="215,55,392,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,48,201,54,201,59,148,54"/>
 </map>

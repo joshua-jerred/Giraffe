@@ -1,11 +1,21 @@
 <map id="data::ErrorFrameItem" name="data::ErrorFrameItem">
-<area shape="rect" id="node1" title="A struct to store information about an error in the error frame." alt="" coords="239,440,401,517"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,93,83"/>
-<area shape="rect" id="node4" href="$structdata_1_1BaseStreamPacket.html" title=" " alt="" coords="65,145,245,223"/>
-<area shape="rect" id="node3" href="$structdata_1_1LogPacket.html" title=" " alt="" coords="258,300,382,377"/>
-<area shape="rect" id="node5" title=" " alt="" coords="149,5,256,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="381,5,440,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="269,145,371,223"/>
-<area shape="rect" id="node8" title=" " alt="" coords="395,145,453,223"/>
-<area shape="rect" id="node9" title=" " alt="" coords="406,300,445,377"/>
+<area shape="rect" id="Node000001" title="A struct to store information about an error in the error frame." alt="" coords="205,404,358,469"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,85,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="42,71,39,132,42,165,51,198,65,228,82,258,126,311,174,356,220,392,217,396,170,360,122,314,78,261,60,231,45,200,37,166,33,132,37,71"/>
+<area shape="rect" id="Node000005" href="$structdata_1_1BaseStreamPacket.html" title=" " alt="" coords="61,133,233,199"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="52,70,58,90,68,108,79,121,75,125,63,111,53,92,47,71"/>
+<area shape="rect" id="Node000003" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="363,276,394,341"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="369,343,348,382,337,394,333,391,343,378,365,340"/>
+<area shape="rect" id="Node000004" href="$structdata_1_1LogPacket.html" title=" " alt="" coords="223,276,339,341"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="284,342,284,388,279,388,279,342"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="189,207,253,274,249,277,185,211"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="149,5,248,71"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="188,72,168,119,164,117,183,70"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="361,5,412,71"/>
+<area shape="poly" id="edge10_Node000004_Node000007" title=" " alt="" coords="415,70,429,93,442,122,449,146,449,171,440,200,430,219,418,231,387,254,355,275,352,270,384,250,415,227,425,216,435,198,443,170,443,147,437,123,424,96,410,72"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="362,55,222,128,220,123,360,50"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="257,133,306,199"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="284,199,284,259,279,259,279,199"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="330,133,425,199"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="367,200,337,253,328,265,324,262,332,251,362,197"/>
 </map>

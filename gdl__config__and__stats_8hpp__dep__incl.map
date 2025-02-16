@@ -1,34 +1,83 @@
 <map id="gdl_config_and_stats.hpp" name="gdl_config_and_stats.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="745,5,932,32"/>
-<area shape="rect" id="node2" href="$gdl__telemetry__sender_8hpp.html" title=" " alt="" coords="399,229,590,256"/>
-<area shape="rect" id="node3" href="$giraffe__data__link_8hpp.html" title="The external interface for the Giraffe Data Link." alt="" coords="650,304,809,331"/>
-<area shape="rect" id="node19" href="$i__giraffe__data__link_8hpp.html" title=" " alt="" coords="276,155,447,181"/>
-<area shape="rect" id="node23" href="$physical__layer_8hpp.html" title=" " alt="" coords="767,80,910,107"/>
-<area shape="rect" id="node28" href="$transport__layer_8hpp.html" title=" " alt="" coords="818,229,966,256"/>
-<area shape="rect" id="node30" href="$network__layer_8cpp.html" title="GDL Network layer implementation." alt="" coords="991,229,1132,256"/>
-<area shape="rect" id="node32" href="$physical__layer_8cpp.html" title="GDL Physical Layer Implementation." alt="" coords="986,155,1129,181"/>
-<area shape="rect" id="node4" href="$telemetry__module_8hpp.html" title="The telemetry module." alt="" coords="131,379,301,405"/>
-<area shape="rect" id="node10" href="$gdl__terminal_8cpp.html" title="GDL Terminal." alt="" coords="325,379,456,405"/>
-<area shape="rect" id="node11" href="$giraffe__data__link_8cpp.html" title="The main class for Giraffe Data Link." alt="" coords="1041,379,1199,405"/>
-<area shape="rect" id="node12" href="$gdl__server_8hpp.html" title="Data Link Server for Giraffe." alt="" coords="480,379,597,405"/>
-<area shape="rect" id="node17" href="$test__application__layer_8cpp.html" title=" " alt="" coords="621,379,813,405"/>
-<area shape="rect" id="node18" href="$test__gdl__with__audio_8cpp.html" title=" " alt="" coords="837,379,1016,405"/>
-<area shape="rect" id="node5" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="151,461,281,487"/>
-<area shape="rect" id="node9" href="$telemetry__module_8cpp.html" title="The telemetry module." alt="" coords="1183,461,1353,487"/>
-<area shape="rect" id="node6" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="7,543,127,569"/>
-<area shape="rect" id="node7" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="151,543,281,569"/>
-<area shape="rect" id="node8" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="305,543,388,569"/>
-<area shape="rect" id="node13" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="447,461,563,487"/>
-<area shape="rect" id="node14" href="$gdl__server__request__handlers_8cpp.html" title="Handlers for REQ requests (see gdl_server.hpp)" alt="" coords="588,453,735,495"/>
-<area shape="rect" id="node15" href="$gdl__server__set__handlers_8cpp.html" title="Handlers for SET requests (see gdl_server.hpp)" alt="" coords="759,461,966,487"/>
-<area shape="rect" id="node16" href="$src_2data__link_2server_2main_8cpp.html" title="Giraffe Data Link Server Main File." alt="" coords="340,461,423,487"/>
-<area shape="rect" id="node20" href="$aprs__manager_8hpp.html" title=" " alt="" coords="162,229,305,256"/>
-<area shape="rect" id="node22" href="$test__aprs__manager_8cpp.html" title=" " alt="" coords="5,304,179,331"/>
-<area shape="rect" id="node21" href="$aprs__manager_8cpp.html" title=" " alt="" coords="253,304,395,331"/>
-<area shape="rect" id="node24" href="$radio_8hpp.html" title=" " alt="" coords="1227,304,1309,331"/>
-<area shape="rect" id="node27" href="$network__layer_8hpp.html" title=" " alt="" coords="767,155,910,181"/>
-<area shape="rect" id="node31" href="$software__physical__layer_8hpp.html" title=" " alt="" coords="419,304,626,331"/>
-<area shape="rect" id="node25" href="$sa868_8hpp.html" title=" " alt="" coords="1223,379,1313,405"/>
-<area shape="rect" id="node26" href="$software__radio_8hpp.html" title=" " alt="" coords="1337,379,1484,405"/>
-<area shape="rect" id="node29" href="$transport__layer_8cpp.html" title="GDL Transport Layer Implementation." alt="" coords="833,304,980,331"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="614,5,801,31"/>
+<area shape="rect" id="Node000002" href="$gdl__telemetry__sender_8hpp.html" title=" " alt="" coords="473,225,664,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="641,38,608,55,581,80,572,98,566,118,561,159,563,197,568,225,563,226,558,197,556,159,560,116,567,96,577,77,605,50,639,33"/>
+<area shape="rect" id="Node000003" href="$giraffe__data__link_8hpp.html" title="The external interface for the Giraffe Data Link." alt="" coords="685,299,844,324"/>
+<area shape="poly" id="edge18_Node000001_Node000003" title=" " alt="" coords="685,42,660,69,636,102,623,139,622,158,627,176,637,192,648,202,678,223,755,296,751,300,675,227,645,206,633,196,622,178,617,158,617,138,631,100,656,65,681,38"/>
+<area shape="rect" id="Node000019" href="$i__giraffe__data__link_8hpp.html" title=" " alt="" coords="339,152,510,177"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="645,37,588,55,530,81,477,118,438,154,434,150,473,114,527,76,586,50,643,32"/>
+<area shape="rect" id="Node000023" href="$network__layer_8cpp.html" title="GDL Network layer implementation." alt="" coords="853,225,994,251"/>
+<area shape="poly" id="edge27_Node000001_Node000023" title=" " alt="" coords="814,30,870,45,926,69,975,104,996,125,1012,151,1016,163,1015,176,1001,197,978,214,953,227,951,223,975,210,997,193,1010,174,1011,164,1008,153,992,129,972,108,923,74,868,50,813,35"/>
+<area shape="rect" id="Node000024" href="$physical__layer_8cpp.html" title="GDL Physical Layer Implementation." alt="" coords="636,152,779,177"/>
+<area shape="poly" id="edge28_Node000001_Node000024" title=" " alt="" coords="710,45,710,152,705,152,705,45"/>
+<area shape="rect" id="Node000025" href="$physical__layer_8hpp.html" title=" " alt="" coords="745,79,888,104"/>
+<area shape="poly" id="edge29_Node000001_Node000025" title=" " alt="" coords="738,36,800,76,797,81,735,40"/>
+<area shape="rect" id="Node000027" href="$transport__layer_8hpp.html" title=" " alt="" coords="1019,225,1167,251"/>
+<area shape="poly" id="edge49_Node000001_Node000027" title=" " alt="" coords="815,24,897,41,937,56,975,76,1017,112,1050,154,1075,194,1090,224,1085,226,1070,197,1046,157,1013,115,973,81,935,61,895,46,814,29"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="614,253,734,296,732,301,612,258"/>
+<area shape="rect" id="Node000004" href="$gdl__server_8hpp.html" title="Data Link Server for Giraffe." alt="" coords="1087,372,1205,397"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="840,324,1087,370,1086,375,839,329"/>
+<area shape="rect" id="Node000009" href="$gdl__terminal_8cpp.html" title="GDL Terminal." alt="" coords="1229,372,1359,397"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="858,322,1217,369,1229,371,1228,376,1216,375,858,327"/>
+<area shape="rect" id="Node000010" href="$giraffe__data__link_8cpp.html" title="The main class for Giraffe Data Link." alt="" coords="291,372,449,397"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="688,329,434,375,433,369,687,324"/>
+<area shape="rect" id="Node000011" href="$telemetry__module_8hpp.html" title="The telemetry module." alt="" coords="474,372,645,397"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="720,331,593,374,592,369,718,326"/>
+<area shape="rect" id="Node000017" href="$test__application__layer_8cpp.html" title=" " alt="" coords="669,372,861,397"/>
+<area shape="poly" id="edge16_Node000003_Node000017" title=" " alt="" coords="767,338,767,372,762,372,762,338"/>
+<area shape="rect" id="Node000018" href="$test__gdl__with__audio_8cpp.html" title=" " alt="" coords="885,372,1063,397"/>
+<area shape="poly" id="edge17_Node000003_Node000018" title=" " alt="" coords="812,326,941,369,939,374,811,331"/>
+<area shape="rect" id="Node000005" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="1296,453,1412,478"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1190,400,1325,450,1323,455,1188,405"/>
+<area shape="rect" id="Node000006" href="$gdl__server__request__handlers_8cpp.html" title="Handlers for REQ requests (see gdl_server.hpp)" alt="" coords="786,445,933,485"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="1092,403,929,448,928,443,1091,398"/>
+<area shape="rect" id="Node000007" href="$gdl__server__set__handlers_8cpp.html" title="Handlers for SET requests (see gdl_server.hpp)" alt="" coords="957,453,1164,478"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="1125,409,1075,454,1072,450,1121,405"/>
+<area shape="rect" id="Node000008" href="$src_2data__link_2server_2main_8cpp.html" title="Giraffe Data Link Server Main File." alt="" coords="1189,453,1271,478"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="1170,405,1219,450,1216,454,1167,409"/>
+<area shape="rect" id="Node000012" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="494,453,625,478"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="562,411,562,452,557,452,557,411"/>
+<area shape="rect" id="Node000016" href="$telemetry__module_8cpp.html" title="The telemetry module." alt="" coords="108,453,277,478"/>
+<area shape="poly" id="edge15_Node000011_Node000016" title=" " alt="" coords="493,403,247,455,245,450,492,398"/>
+<area shape="rect" id="Node000013" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="350,533,470,559"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="527,487,433,535,431,531,524,482"/>
+<area shape="rect" id="Node000014" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="494,533,625,559"/>
+<area shape="poly" id="edge13_Node000012_Node000014" title=" " alt="" coords="562,492,562,533,557,533,557,492"/>
+<area shape="rect" id="Node000015" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="649,533,731,559"/>
+<area shape="poly" id="edge14_Node000012_Node000015" title=" " alt="" coords="592,483,672,531,669,535,589,487"/>
+<area shape="poly" id="edge24_Node000019_Node000002" title=" " alt="" coords="461,181,546,223,544,228,459,186"/>
+<area shape="poly" id="edge25_Node000019_Node000003" title=" " alt="" coords="431,190,442,221,451,236,462,249,500,267,557,281,686,300,685,306,556,287,498,272,459,253,446,239,437,223,426,191"/>
+<area shape="rect" id="Node000020" href="$aprs__manager_8hpp.html" title=" " alt="" coords="255,225,397,251"/>
+<area shape="poly" id="edge20_Node000019_Node000020" title=" " alt="" coords="400,187,344,227,341,223,396,183"/>
+<area shape="rect" id="Node000022" href="$test__aprs__manager_8cpp.html" title=" " alt="" coords="141,299,314,324"/>
+<area shape="poly" id="edge26_Node000019_Node000022" title=" " alt="" coords="327,180,282,198,261,211,244,227,234,244,229,263,229,299,223,299,224,263,229,242,240,224,258,207,279,193,325,175"/>
+<area shape="poly" id="edge22_Node000020_Node000011" title=" " alt="" coords="394,252,444,270,493,296,513,314,531,334,555,370,551,373,527,338,510,318,490,301,442,275,393,257"/>
+<area shape="rect" id="Node000021" href="$aprs__manager_8cpp.html" title=" " alt="" coords="338,299,479,324"/>
+<area shape="poly" id="edge21_Node000020_Node000021" title=" " alt="" coords="351,258,397,296,393,300,348,262"/>
+<area shape="poly" id="edge23_Node000020_Node000022" title=" " alt="" coords="301,261,245,301,242,296,298,256"/>
+<area shape="poly" id="edge30_Node000025_Node000003" title=" " alt="" coords="813,118,770,299,765,298,808,117"/>
+<area shape="poly" id="edge37_Node000025_Node000024" title=" " alt="" coords="789,114,727,154,724,150,786,109"/>
+<area shape="rect" id="Node000026" href="$network__layer_8hpp.html" title=" " alt="" coords="855,152,997,177"/>
+<area shape="poly" id="edge31_Node000025_Node000026" title=" " alt="" coords="847,109,910,150,907,154,844,114"/>
+<area shape="rect" id="Node000029" href="$radio_8hpp.html" title=" " alt="" coords="34,299,117,324"/>
+<area shape="poly" id="edge38_Node000025_Node000029" title=" " alt="" coords="732,95,646,98,543,107,434,125,328,155,254,188,186,229,129,270,91,300,87,296,126,266,183,225,252,183,326,149,433,120,543,102,645,92,731,89"/>
+<area shape="rect" id="Node000032" href="$software__physical__layer_8hpp.html" title=" " alt="" coords="1043,299,1249,324"/>
+<area shape="poly" id="edge43_Node000025_Node000032" title=" " alt="" coords="902,94,974,105,1052,127,1089,144,1124,166,1156,192,1182,224,1187,244,1182,265,1159,300,1155,297,1177,263,1182,244,1177,227,1152,196,1121,170,1087,149,1050,132,973,110,901,99"/>
+<area shape="poly" id="edge32_Node000026_Node000003" title=" " alt="" coords="897,187,842,227,804,266,776,300,772,297,800,262,839,223,894,182"/>
+<area shape="poly" id="edge33_Node000026_Node000023" title=" " alt="" coords="928,191,926,225,921,225,922,191"/>
+<area shape="poly" id="edge34_Node000026_Node000027" title=" " alt="" coords="966,180,1066,223,1064,228,964,185"/>
+<area shape="poly" id="edge35_Node000027_Node000003" title=" " alt="" coords="1027,256,818,301,817,296,1026,251"/>
+<area shape="rect" id="Node000028" href="$transport__layer_8cpp.html" title="GDL Transport Layer Implementation." alt="" coords="871,299,1018,324"/>
+<area shape="poly" id="edge36_Node000027_Node000028" title=" " alt="" coords="1058,259,970,301,968,296,1056,254"/>
+<area shape="rect" id="Node000030" href="$sa868_8hpp.html" title=" " alt="" coords="5,372,95,397"/>
+<area shape="poly" id="edge39_Node000029_Node000030" title=" " alt="" coords="69,338,57,373,52,371,64,336"/>
+<area shape="rect" id="Node000031" href="$software__radio_8hpp.html" title=" " alt="" coords="119,372,266,397"/>
+<area shape="poly" id="edge41_Node000029_Node000031" title=" " alt="" coords="107,329,175,369,172,374,105,333"/>
+<area shape="poly" id="edge40_Node000030_Node000016" title=" " alt="" coords="84,402,173,450,170,455,82,406"/>
+<area shape="poly" id="edge42_Node000031_Node000016" title=" " alt="" coords="195,411,195,452,190,452,190,411"/>
+<area shape="poly" id="edge44_Node000032_Node000004" title=" " alt="" coords="1149,338,1149,372,1143,372,1143,338"/>
+<area shape="poly" id="edge45_Node000032_Node000009" title=" " alt="" coords="1183,327,1271,369,1269,374,1181,332"/>
+<area shape="poly" id="edge46_Node000032_Node000011" title=" " alt="" coords="1039,328,645,376,644,370,1038,323"/>
+<area shape="poly" id="edge47_Node000032_Node000017" title=" " alt="" coords="1072,329,827,375,826,369,1071,324"/>
+<area shape="poly" id="edge48_Node000032_Node000018" title=" " alt="" coords="1107,332,1003,374,1001,369,1105,327"/>
 </map>

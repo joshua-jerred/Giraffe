@@ -3,7 +3,7 @@ var classmodules_1_1Module =
     [ "Module", "classmodules_1_1Module.html#a69dcb2b5a362821674865146f695aec1", null ],
     [ "Module", "classmodules_1_1Module.html#a0dee23e3345b9e113390d63ee0594f6f", null ],
     [ "~Module", "classmodules_1_1Module.html#ac34d546af6972806baa347374b6c3b1b", null ],
-    [ "operator=", "classmodules_1_1Module.html#ab4ebc9ca2b1eca7a6864bd2e458b82b5", null ],
+    [ "operator=", "classmodules_1_1Module.html#add9429c8cbaf3ddf8ad27bd836de87a0", null ],
     [ "start", "classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd", null ],
     [ "stop", "classmodules_1_1Module.html#aefe65d4f674e804a1891b250ed2887a4", null ],
     [ "getStatus", "classmodules_1_1Module.html#afaa221e42cc396d5d38ec1a625b1d713", null ],

@@ -1,4 +1,5 @@
 <map id="I2cInterface::writeByte" name="I2cInterface::writeByte">
-<area shape="rect" id="node1" title="Write a single byte to the device without specifying a register." alt="" coords="5,5,176,32"/>
-<area shape="rect" id="node2" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="224,5,411,32"/>
+<area shape="rect" id="Node000001" title="Write a single byte to the device without specifying a register." alt="" coords="5,5,176,31"/>
+<area shape="rect" id="Node000002" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="224,5,411,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,15,210,15,210,21,176,21"/>
 </map>

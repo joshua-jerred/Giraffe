@@ -1,12 +1,20 @@
 <map id="cfg::Extensions::setFromJson" name="cfg::Extensions::setFromJson">
-<area shape="rect" id="node1" title=" " alt="" coords="5,101,215,127"/>
-<area shape="rect" id="node2" href="$classcfg_1_1Extensions.html#a10534f2b2b0c2958a7638edfdec7f898" title="Checks if an extension with the given name exists." alt="" coords="263,5,461,47"/>
-<area shape="rect" id="node3" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="283,71,441,98"/>
-<area shape="rect" id="node8" href="$structcfg_1_1ExtensionMetadata.html#a25eef35ae61801373e433443c9a5aa6e" title="Sets the extension metadata from a Json object." alt="" coords="274,123,450,164"/>
-<area shape="rect" id="node10" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="308,189,416,215"/>
-<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="509,71,677,98"/>
-<area shape="rect" id="node5" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="936,23,1123,64"/>
-<area shape="rect" id="node6" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="725,71,888,98"/>
-<area shape="rect" id="node7" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="939,97,1119,139"/>
-<area shape="rect" id="node9" href="$namespacegfs__sim.html#af1cb08ac5758d2342c8418c984eaa029" title="Log a message within the GFS simulator." alt="" coords="543,130,644,157"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,70,215,95"/>
+<area shape="rect" id="Node000002" href="$classcfg_1_1Extensions.html#a10534f2b2b0c2958a7638edfdec7f898" title="Checks if an extension with the given name exists." alt="" coords="263,5,461,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,67,260,46,261,51,167,73"/>
+<area shape="rect" id="Node000003" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="283,70,441,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,80,269,80,269,85,215,85"/>
+<area shape="rect" id="Node000008" href="$structcfg_1_1ExtensionMetadata.html#a25eef35ae61801373e433443c9a5aa6e" title="Sets the extension metadata from a Json object." alt="" coords="274,120,450,160"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="167,93,261,114,260,120,166,98"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="509,70,677,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="441,80,496,80,496,85,441,85"/>
+<area shape="rect" id="Node000005" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="936,7,1123,47"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="619,67,667,47,725,31,826,19,922,18,922,23,826,24,726,36,669,52,621,72"/>
+<area shape="rect" id="Node000006" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="725,70,888,95"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="678,80,712,80,712,85,678,85"/>
+<area shape="rect" id="Node000007" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="939,88,1119,128"/>
+<area shape="poly" id="edge9_Node000004_Node000007" title=" " alt="" coords="648,93,726,105,828,111,926,110,926,116,828,116,725,111,647,98"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="857,67,936,47,937,53,859,73"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="772,72,764,62,768,52,783,46,807,43,836,47,848,56,845,60,834,52,807,49,784,51,772,56,769,61,776,68"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="888,89,926,94,925,99,888,95"/>
 </map>

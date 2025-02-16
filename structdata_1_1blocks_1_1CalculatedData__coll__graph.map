@@ -1,6 +1,9 @@
 <map id="data::blocks::CalculatedData" name="data::blocks::CalculatedData">
-<area shape="rect" id="node1" title="Data that is calculated from other data." alt="" coords="118,439,327,663"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,72,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="189,5,256,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="385,5,436,83"/>
+<area shape="rect" id="Node000001" title="Data that is calculated from other data." alt="" coords="118,427,319,676"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,64,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="32,71,25,135,24,219,27,265,34,312,45,358,62,401,83,435,108,465,104,468,78,438,58,404,40,360,29,313,22,266,18,219,20,134,27,71"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="197,5,240,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,71,221,411,216,411,216,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="375,5,433,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="411,71,417,135,418,219,406,313,394,360,377,404,357,436,333,466,329,462,353,433,372,401,389,358,401,312,412,219,412,135,406,71"/>
 </map>

@@ -1,6 +1,9 @@
 <map id="modules::MetaData" name="modules::MetaData">
-<area shape="rect" id="node1" title="Module metadata." alt="" coords="81,145,231,223"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,112,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="137,5,175,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="272,5,331,83"/>
+<area shape="rect" id="Node000001" title="Module metadata." alt="" coords="58,133,201,199"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,56,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="45,70,66,108,77,120,73,124,62,111,40,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="80,5,179,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,71,132,117,127,117,127,71"/>
+<area shape="rect" id="Node000004" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="203,5,234,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="205,63,172,111,164,122,159,119,167,108,201,60"/>
 </map>

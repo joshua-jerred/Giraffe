@@ -1,5 +1,7 @@
 <map id="extension::Bme280::readCompensationData" name="extension::Bme280::readCompensationData">
-<area shape="rect" id="node1" title="Reads and stores the compensation data from the BME280." alt="" coords="5,5,181,47"/>
-<area shape="rect" id="node2" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="229,13,464,39"/>
-<area shape="rect" id="node3" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="512,13,699,39"/>
+<area shape="rect" id="Node000001" title="Reads and stores the compensation data from the BME280." alt="" coords="5,5,181,45"/>
+<area shape="rect" id="Node000002" href="$classI2cInterface.html#a6d5b6e7730132098f302a33f90e0b19d" title="Read a chunk of data from the device at the specified register." alt="" coords="229,13,464,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,23,215,23,215,28,182,28"/>
+<area shape="rect" id="Node000003" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="512,13,699,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="464,23,498,23,498,28,464,28"/>
 </map>

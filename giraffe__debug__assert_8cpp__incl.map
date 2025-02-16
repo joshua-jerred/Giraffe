@@ -1,7 +1,11 @@
 <map id="giraffe_debug_assert.cpp" name="giraffe_debug_assert.cpp">
-<area shape="rect" id="node1" title="A generic giraffe assert function for debugging." alt="" coords="73,5,259,32"/>
-<area shape="rect" id="node2" href="$giraffe__assert_8hpp.html" title="For absolute failures in the code." alt="" coords="30,80,169,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="193,80,273,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,92,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="117,155,183,181"/>
+<area shape="rect" id="Node000001" title="A generic giraffe assert function for debugging." alt="" coords="73,5,259,31"/>
+<area shape="rect" id="Node000002" href="$giraffe__assert_8hpp.html" title="For absolute failures in the code." alt="" coords="30,79,169,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,33,121,70,118,67,153,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="193,79,273,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="179,29,214,67,211,70,175,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,92,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="93,106,67,142,63,139,89,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="117,152,183,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="110,103,136,139,132,142,106,106"/>
 </map>

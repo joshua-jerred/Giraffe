@@ -1,5 +1,7 @@
 <map id="giraffe_assert.hpp" name="giraffe_assert.hpp">
-<area shape="rect" id="node1" title="For absolute failures in the code." alt="" coords="30,5,169,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,92,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="117,80,183,107"/>
+<area shape="rect" id="Node000001" title="For absolute failures in the code." alt="" coords="30,5,169,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,92,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,33,67,69,63,66,89,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="117,79,183,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="110,29,136,66,132,69,106,33"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="FlightPhasePredictor::getPointsFromRuleSet" name="FlightPhasePredictor::getPointsFromRuleSet">
-<area shape="rect" id="node1" title="Get the probability points from a rule set." alt="" coords="5,5,180,47"/>
-<area shape="rect" id="node2" href="$classFlightPhasePredictor.html#a4e55b025bca64f4116b1518669d10233" title="Get the probability points from a rule." alt="" coords="228,5,384,47"/>
-<area shape="rect" id="node3" href="$classPredictionParameters.html#af92ad5644fdbd46359ca3771cd9f6453" title="Get a parameter by its ID." alt="" coords="432,5,593,47"/>
+<area shape="rect" id="Node000001" title="Get the probability points from a rule set." alt="" coords="5,5,180,45"/>
+<area shape="rect" id="Node000002" href="$classFlightPhasePredictor.html#a4e55b025bca64f4116b1518669d10233" title="Get the probability points from a rule." alt="" coords="228,5,384,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,23,214,23,214,28,180,28"/>
+<area shape="rect" id="Node000003" href="$classPredictionParameters.html#af92ad5644fdbd46359ca3771cd9f6453" title="Get a parameter by its ID." alt="" coords="432,5,593,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="384,23,418,23,418,28,384,28"/>
 </map>

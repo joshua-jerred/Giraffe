@@ -1,6 +1,9 @@
 <map id="TEST" name="TEST">
-<area shape="rect" id="node1" title=" " alt="" coords="5,78,60,105"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6" title=" " alt="" coords="115,5,274,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Message.html#a7e379f44344ef7d3f57f30cc8b85d71f" title=" " alt="" coords="115,71,274,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb" title=" " alt="" coords="108,136,281,177"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,77,60,102"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6" title=" " alt="" coords="115,5,274,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,75,107,55,125,48,127,53,109,60,61,80"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1Message.html#a7e379f44344ef7d3f57f30cc8b85d71f" title=" " alt="" coords="115,69,274,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="60,87,102,87,102,92,60,92"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1Message.html#ad8e7da10224347d945ae5f81790839eb" title=" " alt="" coords="108,133,281,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="61,99,109,119,127,126,125,131,107,124,59,104"/>
 </map>

@@ -1,9 +1,15 @@
 <map id="modules::Module" name="modules::Module">
-<area shape="rect" id="node1" title=" " alt="" coords="650,5,817,479"/>
-<area shape="rect" id="node2" href="$classmodules_1_1ConsoleModule.html" title="The console module is a module that provides a console interface for the flight system." alt="" coords="5,659,192,883"/>
-<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="217,527,487,1015"/>
-<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html" title=" " alt="" coords="511,571,731,971"/>
-<area shape="rect" id="node5" href="$group__ServerModule.html#classmodules_1_1ServerModule" title="The server module. Provides a network interface for interacting with the flight system." alt="" coords="756,666,937,875"/>
-<area shape="rect" id="node6" href="$classmodules_1_1SystemModule.html" title=" " alt="" coords="962,666,1177,875"/>
-<area shape="rect" id="node7" href="$classmodules_1_1TelemetryModule.html" title=" " alt="" coords="1201,578,1457,963"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="642,5,801,611"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1ConsoleModule.html" title="The console module is a module that provides a console interface for the flight system." alt="" coords="5,836,184,1101"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="631,350,530,399,414,468,355,510,298,556,245,606,198,660,172,701,150,746,120,837,115,835,145,744,167,698,194,657,241,602,294,552,351,505,411,464,527,395,628,345"/>
+<area shape="rect" id="Node000003" href="$classmodules_1_1DataModule.html" title="A major module of the Giraffe Flight System that handles data flow through the system." alt="" coords="208,659,477,1279"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="636,433,563,542,492,660,480,681,475,679,487,657,559,539,632,430"/>
+<area shape="rect" id="Node000004" href="$classmodules_1_1ExtensionModule.html" title=" " alt="" coords="502,716,719,1221"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="671,625,656,716,650,715,666,624"/>
+<area shape="rect" id="Node000005" href="$group__ServerModule.html#classmodules_1_1ServerModule" title="The server module. Provides a network interface for interacting with the flight system." alt="" coords="744,846,923,1091"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="778,624,815,845,810,846,772,624"/>
+<area shape="rect" id="Node000006" href="$classmodules_1_1SystemModule.html" title=" " alt="" coords="947,846,1160,1091"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="811,438,875,543,937,657,979,752,1015,845,1010,847,974,754,932,660,871,546,806,440"/>
+<area shape="rect" id="Node000007" href="$classmodules_1_1TelemetryModule.html" title=" " alt="" coords="1184,731,1437,1206"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="814,359,898,413,993,482,1089,565,1134,610,1174,657,1222,730,1217,732,1170,660,1130,613,1085,568,990,487,895,418,811,364"/>
 </map>

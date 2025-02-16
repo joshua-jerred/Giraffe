@@ -1,6 +1,9 @@
 <map id="giraffe::SpiInterface::Config" name="giraffe::SpiInterface::Config">
-<area shape="rect" id="node1" title=" " alt="" coords="94,145,245,237"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,80,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="132,5,207,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="244,5,311,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="101,133,243,213"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,64,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="43,70,51,90,62,108,89,131,85,135,58,111,46,92,38,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="139,5,205,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,71,175,117,169,117,169,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="247,5,313,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="273,72,253,111,242,123,238,120,248,108,268,70"/>
 </map>

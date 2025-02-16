@@ -1,6 +1,9 @@
 <map id="giraffe::gdl::PhysicalLayer::setMode" name="giraffe::gdl::PhysicalLayer::setMode">
-<area shape="rect" id="node1" title=" " alt="" coords="264,71,455,112"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html#ae3ce08ae5ff469bd04945b1d4606f3bb" title="Attempts to change the mode of the physical layer." alt="" coords="5,5,216,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1radio_1_1Radio.html#ac079982e63dd5064166f17fff78316ae" title="Attempts to change the mode of the physical layer." alt="" coords="35,71,186,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1radio_1_1SoftwareRadio.html#aa9e6a5237162988a61cc8022e0086414" title="Attempts to change the mode of the physical layer." alt="" coords="25,136,196,177"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="264,69,455,109"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1SoftwarePhysicalLayer.html#ae3ce08ae5ff469bd04945b1d4606f3bb" title="Attempts to change the mode of the physical layer." alt="" coords="5,5,216,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,68,188,48,190,43,269,63"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1radio_1_1Radio.html#ac079982e63dd5064166f17fff78316ae" title="Attempts to change the mode of the physical layer." alt="" coords="35,69,186,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="251,92,186,92,186,87,251,87"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1radio_1_1SoftwareRadio.html#aa9e6a5237162988a61cc8022e0086414" title="Attempts to change the mode of the physical layer." alt="" coords="25,133,196,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="269,115,190,136,188,131,267,110"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="giraffe::radio::Sa868" name="giraffe::radio::Sa868">
-<area shape="rect" id="node1" title=" " alt="" coords="24,579,177,715"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1radio_1_1Radio.html" title=" " alt="" coords="25,336,176,531"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1PhysicalLayer.html" title="The physical layer of the Giraffe Data Link." alt="" coords="5,5,196,288"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="24,672,169,817"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1radio_1_1Radio.html" title=" " alt="" coords="25,399,168,624"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,638,99,672,94,672,94,638"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1PhysicalLayer.html" title="The physical layer of the Giraffe Data Link." alt="" coords="5,5,188,351"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="99,364,99,398,94,398,94,364"/>
 </map>

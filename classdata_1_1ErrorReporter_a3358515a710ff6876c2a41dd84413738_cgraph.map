@@ -1,9 +1,21 @@
 <map id="data::ErrorReporter::reportError" name="data::ErrorReporter::reportError">
-<area shape="rect" id="node1" title=" " alt="" coords="5,97,152,139"/>
-<area shape="rect" id="node2" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="211,67,379,94"/>
-<area shape="rect" id="node6" href="$classdata_1_1ErrorFrame.html#a22f1f4d05d659df20e4cba62fda5846b" title="Returns true if the error is active in the frame." alt="" coords="200,130,391,157"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="649,5,836,47"/>
-<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="439,54,601,81"/>
-<area shape="rect" id="node5" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="653,80,833,121"/>
-<area shape="rect" id="node7" href="$classdata_1_1Frame.html#a05fa938229ef8080c2d5336f245d8763" title="Returns true if an item is in the frame, false if it is not." alt="" coords="460,155,580,182"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,140,152,180"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="211,97,379,122"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,140,226,123,227,128,153,145"/>
+<area shape="rect" id="Node000006" href="$classdata_1_1ErrorFrame.html#a22f1f4d05d659df20e4cba62fda5846b" title="Returns true if the error is active in the frame." alt="" coords="200,173,391,198"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="153,166,187,170,186,175,152,171"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="656,5,843,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="313,94,367,61,402,45,438,32,489,22,542,16,642,14,642,20,543,21,490,27,439,37,404,50,369,66,316,99"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="439,71,601,97"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="380,97,425,92,425,97,380,102"/>
+<area shape="rect" id="Node000005" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="659,100,839,140"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="380,109,646,115,645,120,379,114"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="570,69,657,46,658,51,571,74"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="483,73,476,63,480,53,495,47,520,45,552,49,564,58,560,62,550,53,520,50,496,52,483,57,481,62,488,69"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="602,94,646,101,645,106,601,99"/>
+<area shape="rect" id="Node000007" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="649,183,849,223"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="391,186,636,196,636,201,391,192"/>
+<area shape="rect" id="Node000008" href="$classdata_1_1Frame.html#a05fa938229ef8080c2d5336f245d8763" title="Returns true if an item is in the frame, false if it is not." alt="" coords="460,223,580,249"/>
+<area shape="poly" id="edge10_Node000006_Node000008" title=" " alt="" coords="353,196,451,218,449,223,352,201"/>
+<area shape="poly" id="edge11_Node000008_Node000007" title=" " alt="" coords="580,225,635,217,636,222,581,230"/>
 </map>

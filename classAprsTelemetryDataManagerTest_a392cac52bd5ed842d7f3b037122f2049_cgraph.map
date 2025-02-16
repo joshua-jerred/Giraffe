@@ -1,0 +1,13 @@
+<map id="AprsTelemetryDataManagerTest::causeDataUpdate" name="AprsTelemetryDataManagerTest::causeDataUpdate">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,209,77"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1AprsManager.html#a1218355c0bb8c0097a69c85642da8953" title="This method handles everything that needs to be done. It must be called at least at the rate of the c..." alt="" coords="257,37,416,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,55,243,55,243,60,209,60"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1AprsManager.html#a1b3074d1887afb1740f2b854fc3ad651" title=" " alt="" coords="464,5,664,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="416,44,450,39,451,44,417,49"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1AprsManager.html#aa910a687bb93c714489245c032af2c38" title=" " alt="" coords="479,69,649,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="417,66,465,73,465,78,416,71"/>
+<area shape="rect" id="Node000005" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="712,37,905,77"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="649,76,698,69,699,74,650,81"/>
+<area shape="rect" id="Node000006" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a2b28b7da2d067ad3f8886c5c8fafe2ba" title=" " alt="" coords="723,101,894,141"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="650,98,710,106,709,111,649,103"/>
+</map>

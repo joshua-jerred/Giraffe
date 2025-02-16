@@ -1,7 +1,7 @@
 var positional_8hpp =
 [
-    [ "GpsFrame", "structdata_1_1GpsFrame.html", "structdata_1_1GpsFrame" ],
-    [ "ImuFrame", "namespacedata.html#structdata_1_1ImuFrame", [
+    [ "data::GpsFrame", "structdata_1_1GpsFrame.html", "structdata_1_1GpsFrame" ],
+    [ "data::ImuFrame", "namespacedata.html#structdata_1_1ImuFrame", [
       [ "time", "namespacedata.html#ac367ed89aa7b9d13a2394c83e4338212", null ],
       [ "is_valid", "namespacedata.html#a22f68315ba8ce45834e9912c22f52fdd", null ],
       [ "x_acceleration", "group__acceleration.html#gabcd7ff9c92e5ae1c40f04da8220b8eb2", null ],

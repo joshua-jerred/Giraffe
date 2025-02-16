@@ -1,5 +1,7 @@
 <map id="FlightRunner::flightLoop" name="FlightRunner::flightLoop">
-<area shape="rect" id="node1" title=" " alt="" coords="5,13,183,39"/>
-<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#af135930ce8485d772c69735520b7fad1" title="Returns the path to the Flight Software config file." alt="" coords="231,5,396,47"/>
-<area shape="rect" id="node3" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="444,5,627,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,183,38"/>
+<area shape="rect" id="Node000002" href="$namespacegiraffe_1_1file__paths.html#af135930ce8485d772c69735520b7fad1" title="Returns the path to the Flight Software config file." alt="" coords="231,5,396,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,23,217,23,217,28,183,28"/>
+<area shape="rect" id="Node000003" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="444,5,627,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="396,23,430,23,430,28,396,28"/>
 </map>

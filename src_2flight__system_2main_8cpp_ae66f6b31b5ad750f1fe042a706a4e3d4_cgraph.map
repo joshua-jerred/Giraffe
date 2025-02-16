@@ -1,8 +1,14 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title="This is the main function that starts the flight runner. It will return a call to flight...." alt="" coords="5,35,60,61"/>
-<area shape="rect" id="node2" href="$src_2flight__system_2main_8cpp.html#a1ff4bd1f5a632a4106604e5c243c0f24" title=" " alt="" coords="123,8,235,35"/>
-<area shape="rect" id="node4" href="$classFlightRunner.html#a7deed0a1bc77d1f1046a8713cc85dd78" title="Starts the flight runner." alt="" coords="108,60,251,87"/>
-<area shape="rect" id="node3" href="$classFlightRunner.html#a645cd4e865e0e3b35ac6e9b3d52bdda4" title="Shuts down the flight runner." alt="" coords="299,5,475,32"/>
-<area shape="rect" id="node5" href="$namespacegiraffe_1_1file__paths.html#af135930ce8485d772c69735520b7fad1" title="Returns the path to the Flight Software config file." alt="" coords="304,57,469,98"/>
-<area shape="rect" id="node6" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="523,57,705,98"/>
+<area shape="rect" id="Node000001" title="This is the main function that starts the flight runner. It will return a call to flight...." alt="" coords="5,56,60,81"/>
+<area shape="rect" id="Node000002" href="$src_2flight__system_2main_8cpp.html#a1ff4bd1f5a632a4106604e5c243c0f24" title=" " alt="" coords="123,29,235,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,61,109,52,110,57,61,66"/>
+<area shape="rect" id="Node000004" href="$classFlightRunner.html#a7deed0a1bc77d1f1046a8713cc85dd78" title="Starts the flight runner." alt="" coords="108,80,251,105"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="61,70,95,76,94,81,60,76"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="154,31,149,21,152,11,162,5,179,3,200,6,208,15,205,18,197,11,179,8,164,10,156,15,155,20,159,28"/>
+<area shape="rect" id="Node000003" href="$classFlightRunner.html#a645cd4e865e0e3b35ac6e9b3d52bdda4" title="Shuts down the flight runner." alt="" coords="299,27,475,52"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="235,39,285,38,285,43,236,44"/>
+<area shape="rect" id="Node000005" href="$namespacegiraffe_1_1file__paths.html#af135930ce8485d772c69735520b7fad1" title="Returns the path to the Flight Software config file." alt="" coords="304,77,469,117"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="251,91,290,92,290,97,251,97"/>
+<area shape="rect" id="Node000006" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="523,77,705,117"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="470,94,509,94,509,99,470,99"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="giraffe::file_paths::getGfsDataArchiveDirPath" name="giraffe::file_paths::getGfsDataArchiveDirPath">
-<area shape="rect" id="node1" title="Returns the path to the gfs data archive directory. Creates the directory if it does not exist." alt="" coords="496,5,696,47"/>
-<area shape="rect" id="node2" href="$group__DataLog.html#ga96a2e0cbd5f5f4bc55b9ad0b6dad9222" title="Used to create the data archive directory with createDirectory()." alt="" coords="251,5,448,47"/>
-<area shape="rect" id="node3" href="$classdata__middleware_1_1DataLog.html#a957234a0f7b3ce34cc4f3ffffb222f0c" title=" " alt="" coords="5,5,203,47"/>
+<area shape="rect" id="Node000001" title="Returns the path to the gfs data archive directory. Creates the directory if it does not exist." alt="" coords="496,5,696,45"/>
+<area shape="rect" id="Node000002" href="$group__DataLog.html#ga96a2e0cbd5f5f4bc55b9ad0b6dad9222" title="Used to create the data archive directory with createDirectory()." alt="" coords="251,5,448,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="482,28,448,28,448,23,482,23"/>
+<area shape="rect" id="Node000003" href="$classdata__middleware_1_1DataLog.html#a957234a0f7b3ce34cc4f3ffffb222f0c" title=" " alt="" coords="5,5,203,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,28,203,28,203,23,237,23"/>
 </map>

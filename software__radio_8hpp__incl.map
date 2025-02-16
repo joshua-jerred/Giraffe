@@ -1,12 +1,23 @@
 <map id="software_radio.hpp" name="software_radio.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="49,5,196,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,85,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="71,304,129,331"/>
-<area shape="rect" id="node4" href="$radio_8hpp.html" title=" " alt="" coords="235,80,317,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="519,304,585,331"/>
-<area shape="rect" id="node6" href="$physical__layer_8hpp.html" title=" " alt="" coords="183,155,369,181"/>
-<area shape="rect" id="node7" href="$gdl__config__and__stats_8hpp.html" title=" " alt="" coords="183,229,369,256"/>
-<area shape="rect" id="node8" title=" " alt="" coords="332,304,495,331"/>
-<area shape="rect" id="node9" title=" " alt="" coords="153,304,220,331"/>
-<area shape="rect" id="node10" title=" " alt="" coords="244,304,308,331"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="49,5,196,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,85,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,33,70,71,66,67,108,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="71,299,129,324"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="124,31,105,285,99,285,119,31"/>
+<area shape="rect" id="Node000004" href="$radio_8hpp.html" title=" " alt="" coords="235,79,317,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="148,28,240,70,238,75,146,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="519,299,585,324"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="301,102,340,123,383,150,469,222,534,286,530,290,465,226,380,154,338,127,299,106"/>
+<area shape="rect" id="Node000006" href="$physical__layer_8hpp.html" title=" " alt="" coords="183,152,369,177"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="279,104,279,138,273,138,273,104"/>
+<area shape="rect" id="Node000007" href="$gdl__config__and__stats_8hpp.html" title=" " alt="" coords="183,225,369,251"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="279,178,279,212,273,212,273,178"/>
+<area shape="poly" id="edge11_Node000007_Node000003" title=" " alt="" coords="249,253,143,296,141,291,247,248"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="321,248,506,296,505,301,320,253"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="332,299,495,324"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="299,248,380,290,378,295,297,253"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="153,299,220,324"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="263,253,214,292,210,288,260,249"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="244,299,308,324"/>
+<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="279,251,279,285,273,285,273,251"/>
 </map>

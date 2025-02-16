@@ -1,4 +1,6 @@
 <map id="data::ErrorFrame::lastOccurrence" name="data::ErrorFrame::lastOccurrence">
-<area shape="rect" id="node1" title="Returns a time point of when the last time that a specified error was reported. If the error is not i..." alt="" coords="5,5,241,32"/>
-<area shape="rect" id="node2" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="289,5,419,32"/>
+<area shape="rect" id="Node000001" title="Returns a time point of when the last time that a specified error was reported. If the error is not i..." alt="" coords="5,13,241,38"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="289,5,489,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,32,275,32,275,37,242,37"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="242,14,275,14,275,19,242,19"/>
 </map>

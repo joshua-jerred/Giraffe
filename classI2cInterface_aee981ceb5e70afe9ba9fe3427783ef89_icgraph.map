@@ -1,6 +1,9 @@
 <map id="I2cInterface::writeByteToReg" name="I2cInterface::writeByteToReg">
-<area shape="rect" id="node1" title="Write a single byte to the device at the specified register." alt="" coords="413,46,623,73"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bme280.html#ae21f49a8227aa053e17193df5d5b07a9" title="Configures the BME280. (Weather Monitoring config, Section 3.5.1)" alt="" coords="209,5,365,47"/>
-<area shape="rect" id="node4" href="$classextension_1_1Bme280.html#a9a33e4891747cc85de7d87bea585319c" title="Send the reset command to the sensor." alt="" coords="209,71,365,112"/>
-<area shape="rect" id="node3" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="5,5,161,47"/>
+<area shape="rect" id="Node000001" title="Write a single byte to the device at the specified register." alt="" coords="413,45,623,70"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Bme280.html#ae21f49a8227aa053e17193df5d5b07a9" title="Configures the BME280. (Weather Monitoring config, Section 3.5.1)" alt="" coords="209,5,365,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="412,45,365,39,366,33,413,40"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Bme280.html#a9a33e4891747cc85de7d87bea585319c" title="Send the reset command to the sensor." alt="" coords="209,69,365,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="413,75,366,81,365,76,412,69"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="5,5,161,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="196,28,161,28,161,23,196,23"/>
 </map>

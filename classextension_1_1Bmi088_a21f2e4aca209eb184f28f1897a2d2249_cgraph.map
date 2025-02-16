@@ -1,6 +1,9 @@
 <map id="extension::Bmi088::Bmi088" name="extension::Bmi088::Bmi088">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,157,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="205,5,364,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="412,5,571,47"/>
-<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="619,13,799,39"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,157,45"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="205,5,364,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,23,192,23,192,28,157,28"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="412,5,571,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="364,23,398,23,398,28,364,28"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="619,13,799,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="571,23,605,23,605,28,571,28"/>
 </map>

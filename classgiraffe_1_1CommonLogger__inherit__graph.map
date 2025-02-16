@@ -1,5 +1,7 @@
 <map id="giraffe::CommonLogger&lt; LOG_SIZE &gt;" name="giraffe::CommonLogger&lt; LOG_SIZE &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,191,180,517"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1CommonLogger.html" title=" " alt="" coords="5,580,180,907"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1ILogger.html" title=" " alt="" coords="33,5,153,141"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,200,172,600"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1CommonLogger.html" title=" " alt="" coords="5,663,172,1063"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="91,614,91,662,86,662,86,614"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1ILogger.html" title=" " alt="" coords="33,5,145,151"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,164,91,200,86,200,86,164"/>
 </map>

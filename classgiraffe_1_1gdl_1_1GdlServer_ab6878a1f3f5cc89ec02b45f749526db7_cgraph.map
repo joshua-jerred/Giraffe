@@ -1,23 +1,41 @@
 <map id="giraffe::gdl::GdlServer::handleRequestReceivedMessages" name="giraffe::gdl::GdlServer::handleRequestReceivedMessages">
-<area shape="rect" id="node1" title=" " alt="" coords="5,496,257,537"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7" title=" " alt="" coords="308,235,467,276"/>
-<area shape="rect" id="node10" href="$classgiraffe_1_1gdl_1_1DataLink.html#ad7223729cff67b00226de4a34e560a30" title="Check if a messages have been received and are available." alt="" coords="308,463,467,504"/>
-<area shape="rect" id="node12" href="$classgiraffe_1_1gdl_1_1DataLink.html#a6004a6e0c3b468032a0c71b8e2a2c5f3" title="Receive a message from the Data Link if one is available." alt="" coords="308,528,467,569"/>
-<area shape="rect" id="node15" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7cc778f8170363add8e6812bb04c019e" title=" " alt="" coords="305,711,469,752"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6" title=" " alt="" coords="554,5,713,47"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0" title=" " alt="" coords="554,71,713,112"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1Message.html#ab19b90512b2e9c4b3093d38a5539d920" title=" " alt="" coords="554,136,713,177"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1Message.html#a058458ec43b44d02141e79f986a1a79d" title=" " alt="" coords="554,201,713,243"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1Message.html#a8aa2be7d5566b78a15e84f1fb0f4d8bf" title=" " alt="" coords="554,267,713,308"/>
-<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1Message.html#a8ef2cfae0d01d73970ccb61c4a655c50" title="Get the timestamp of the message in Unix time (seconds since epoch)." alt="" coords="554,332,713,373"/>
-<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="554,397,713,439"/>
-<area shape="rect" id="node11" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#a097ff946fe37b6afb73a1c3291646089" title="Get the size of the queue." alt="" coords="533,463,733,504"/>
-<area shape="rect" id="node13" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="554,528,713,569"/>
-<area shape="rect" id="node14" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#a83a1f12036970c4e7e4832e4d90d126a" title="Pop a message from the queue." alt="" coords="517,594,749,621"/>
-<area shape="rect" id="node16" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="540,645,727,687"/>
-<area shape="rect" id="node17" href="$structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" title="Get the message as a JSON string." alt="" coords="559,711,708,752"/>
-<area shape="rect" id="node19" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="551,776,715,817"/>
-<area shape="rect" id="node21" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="550,841,717,883"/>
-<area shape="rect" id="node18" href="$structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" title="Get the message as a JSON object." alt="" coords="797,711,947,752"/>
-<area shape="rect" id="node20" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="818,783,926,810"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,485,257,525"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1Message.html#a2caa405581e45381c50ed8d19b35bce7" title=" " alt="" coords="308,229,467,269"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,483,354,278,358,281,154,487"/>
+<area shape="rect" id="Node000010" href="$classgiraffe_1_1gdl_1_1DataLink.html#ad7223729cff67b00226de4a34e560a30" title="Check if a messages have been received and are available." alt="" coords="308,453,467,493"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="257,487,294,482,295,488,258,492"/>
+<area shape="rect" id="Node000012" href="$classgiraffe_1_1gdl_1_1DataLink.html#a6004a6e0c3b468032a0c71b8e2a2c5f3" title="Receive a message from the Data Link if one is available." alt="" coords="308,517,467,557"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="258,518,295,523,294,528,257,524"/>
+<area shape="rect" id="Node000015" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7cc778f8170363add8e6812bb04c019e" title=" " alt="" coords="305,696,469,736"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="159,523,353,685,350,689,155,528"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6" title=" " alt="" coords="554,5,713,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="394,228,411,191,437,144,472,96,516,55,540,42,543,46,519,59,476,100,442,147,416,193,399,230"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0" title=" " alt="" coords="554,69,713,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="401,228,448,173,480,144,516,119,540,108,542,112,519,124,484,148,452,177,405,231"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1gdl_1_1Message.html#ab19b90512b2e9c4b3093d38a5539d920" title=" " alt="" coords="554,133,713,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="423,227,516,183,539,175,541,180,518,188,426,232"/>
+<area shape="rect" id="Node000006" href="$classgiraffe_1_1gdl_1_1Message.html#a058458ec43b44d02141e79f986a1a79d" title=" " alt="" coords="554,197,713,237"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="467,236,540,227,541,232,467,242"/>
+<area shape="rect" id="Node000007" href="$classgiraffe_1_1gdl_1_1Message.html#a8aa2be7d5566b78a15e84f1fb0f4d8bf" title=" " alt="" coords="554,261,713,301"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="467,257,541,267,540,272,467,262"/>
+<area shape="rect" id="Node000008" href="$classgiraffe_1_1gdl_1_1Message.html#a8ef2cfae0d01d73970ccb61c4a655c50" title="Get the timestamp of the message in Unix time (seconds since epoch)." alt="" coords="554,325,713,365"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="426,267,518,311,541,319,539,324,516,316,423,272"/>
+<area shape="rect" id="Node000009" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="554,389,713,429"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="405,268,452,321,484,350,519,375,542,386,540,391,516,380,480,355,448,325,401,271"/>
+<area shape="rect" id="Node000011" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#a097ff946fe37b6afb73a1c3291646089" title="Get the size of the queue." alt="" coords="533,453,733,493"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="467,471,520,471,520,476,467,476"/>
+<area shape="rect" id="Node000013" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="554,517,713,557"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="467,535,540,535,540,540,467,540"/>
+<area shape="rect" id="Node000014" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#a83a1f12036970c4e7e4832e4d90d126a" title="Pop a message from the queue." alt="" coords="517,582,749,607"/>
+<area shape="poly" id="edge13_Node000012_Node000014" title=" " alt="" coords="467,555,518,567,560,576,559,582,517,572,466,560"/>
+<area shape="rect" id="Node000016" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="540,632,727,672"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="464,693,542,673,543,678,466,699"/>
+<area shape="rect" id="Node000017" href="$structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" title="Get the message as a JSON string." alt="" coords="559,696,708,736"/>
+<area shape="poly" id="edge16_Node000015_Node000017" title=" " alt="" coords="469,713,545,713,545,719,469,719"/>
+<area shape="rect" id="Node000019" href="$classgiraffe_1_1gdl_1_1GdlServer.html#ae56487945cbcf4a3c0184986102e340e" title=" " alt="" coords="551,760,715,800"/>
+<area shape="poly" id="edge18_Node000015_Node000019" title=" " alt="" coords="466,733,543,754,542,759,464,739"/>
+<area shape="rect" id="Node000020" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="550,824,717,864"/>
+<area shape="poly" id="edge19_Node000015_Node000020" title=" " alt="" coords="412,734,459,772,519,810,538,818,536,823,516,814,456,777,409,738"/>
+<area shape="rect" id="Node000018" href="$structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" title="Get the message as a JSON object." alt="" coords="797,696,947,736"/>
+<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="708,713,783,713,783,719,708,719"/>
 </map>

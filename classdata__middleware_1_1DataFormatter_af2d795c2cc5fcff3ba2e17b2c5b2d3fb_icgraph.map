@@ -1,9 +1,15 @@
 <map id="data_middleware::DataFormatter::generateTimestamp" name="data_middleware::DataFormatter::generateTimestamp">
-<area shape="rect" id="node1" title="Generates a timestamp based off of the current configuration." alt="" coords="579,104,817,145"/>
-<area shape="rect" id="node2" href="$classdata__middleware_1_1DataFormatter.html#ab13febf7f3cea4ee73b82ea4ecdfff82" title=" " alt="" coords="292,5,531,47"/>
-<area shape="rect" id="node3" href="$classdata__middleware_1_1DataFormatter.html#ac4d5697e7837e1a0e8a5df1cac9ac286" title=" " alt="" coords="292,71,531,112"/>
-<area shape="rect" id="node4" href="$classdata__middleware_1_1DataFormatter.html#aa1d67f3593467a202659b221472cab9f" title=" " alt="" coords="292,136,531,177"/>
-<area shape="rect" id="node5" href="$classdata__middleware_1_1DataFormatter.html#ab5eefe7500b957f07f67a91e4429ab4e" title="Used to set up the frame json structure." alt="" coords="292,201,531,243"/>
-<area shape="rect" id="node6" href="$classdata__middleware_1_1DataFormatter.html#ac6bcac38554667fda6dbd2a223e665d2" title=" " alt="" coords="5,168,244,209"/>
-<area shape="rect" id="node7" href="$classdata__middleware_1_1DataFormatter.html#adfed0c82d7965d24db3ef4533d5511d0" title=" " alt="" coords="5,233,244,275"/>
+<area shape="rect" id="Node000001" title="Generates a timestamp based off of the current configuration." alt="" coords="579,101,817,141"/>
+<area shape="rect" id="Node000002" href="$classdata__middleware_1_1DataFormatter.html#ab13febf7f3cea4ee73b82ea4ecdfff82" title=" " alt="" coords="292,5,531,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="635,99,530,60,490,48,492,43,532,55,637,94"/>
+<area shape="rect" id="Node000003" href="$classdata__middleware_1_1DataFormatter.html#ac4d5697e7837e1a0e8a5df1cac9ac286" title=" " alt="" coords="292,69,531,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="565,109,531,105,531,100,565,104"/>
+<area shape="rect" id="Node000004" href="$classdata__middleware_1_1DataFormatter.html#aa1d67f3593467a202659b221472cab9f" title=" " alt="" coords="292,133,531,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="565,139,531,143,531,137,565,134"/>
+<area shape="rect" id="Node000005" href="$classdata__middleware_1_1DataFormatter.html#ab5eefe7500b957f07f67a91e4429ab4e" title="Used to set up the frame json structure." alt="" coords="292,197,531,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="637,149,532,188,492,200,490,195,530,183,635,144"/>
+<area shape="rect" id="Node000006" href="$classdata__middleware_1_1DataFormatter.html#ac6bcac38554667fda6dbd2a223e665d2" title=" " alt="" coords="5,165,244,205"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="278,205,244,201,244,196,279,200"/>
+<area shape="rect" id="Node000007" href="$classdata__middleware_1_1DataFormatter.html#adfed0c82d7965d24db3ef4533d5511d0" title=" " alt="" coords="5,229,244,269"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="279,235,244,239,244,233,278,230"/>
 </map>

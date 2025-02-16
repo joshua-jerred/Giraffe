@@ -1,8 +1,13 @@
 <map id="Bmi088::prepareSpiTransfer" name="Bmi088::prepareSpiTransfer">
-<area shape="rect" id="node1" title=" " alt="" coords="341,81,544,108"/>
-<area shape="rect" id="node2" href="$classBmi088.html#a1fb0001363ca4bb3c4759b577ae76b73" title=" " alt="" coords="108,5,293,32"/>
-<area shape="rect" id="node4" href="$classBmi088.html#aca2911c821f22b7bc02e78fe8323bde2" title=" " alt="" coords="110,56,291,83"/>
-<area shape="rect" id="node5" href="$classBmi088.html#a33e6089d835e44f98bac792d815817c6" title=" " alt="" coords="113,107,288,133"/>
-<area shape="rect" id="node6" href="$classBmi088.html#a1755ea339eb317a6af46e2578a00c1d5" title=" " alt="" coords="115,157,286,184"/>
-<area shape="rect" id="node3" href="$spitest_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="341,80,544,105"/>
+<area shape="rect" id="Node000002" href="$classBmi088.html#a1fb0001363ca4bb3c4759b577ae76b73" title=" " alt="" coords="108,5,293,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="393,78,293,45,252,33,254,28,294,39,395,73"/>
+<area shape="rect" id="Node000004" href="$classBmi088.html#aca2911c821f22b7bc02e78fe8323bde2" title=" " alt="" coords="110,55,291,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="327,83,291,79,292,74,328,78"/>
+<area shape="rect" id="Node000005" href="$classBmi088.html#a33e6089d835e44f98bac792d815817c6" title=" " alt="" coords="113,104,288,129"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="328,107,288,111,288,105,328,101"/>
+<area shape="rect" id="Node000006" href="$classBmi088.html#a1755ea339eb317a6af46e2578a00c1d5" title=" " alt="" coords="115,153,286,179"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="392,112,294,143,250,156,249,151,293,138,390,107"/>
+<area shape="rect" id="Node000003" href="$spitest_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,21,60,21,60,15,95,15"/>
 </map>

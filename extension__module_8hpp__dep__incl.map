@@ -1,10 +1,17 @@
 <map id="extension_module.hpp" name="extension_module.hpp">
-<area shape="rect" id="node1" title="This is the header file for the new extension module." alt="" coords="412,5,583,32"/>
-<area shape="rect" id="node2" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="149,80,280,107"/>
-<area shape="rect" id="node6" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="305,80,474,107"/>
-<area shape="rect" id="node7" href="$preconfigured__extensions_8cpp.html" title="Shortcuts for quickly adding extensions to the configuration. Part of the extension module." alt="" coords="499,80,715,107"/>
-<area shape="rect" id="node8" href="$test__extension__module_8cpp.html" title="Extension module unit tests." alt="" coords="739,80,941,107"/>
-<area shape="rect" id="node3" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="5,155,125,181"/>
-<area shape="rect" id="node4" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="149,155,280,181"/>
-<area shape="rect" id="node5" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="304,155,387,181"/>
+<area shape="rect" id="Node000001" title="This is the header file for the new extension module." alt="" coords="278,5,449,31"/>
+<area shape="rect" id="Node000002" href="$extension__module_8cpp.html" title="The implementation of the new extension module." alt="" coords="5,79,175,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="307,37,135,81,134,76,306,32"/>
+<area shape="rect" id="Node000003" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="199,79,330,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="338,41,282,81,279,76,335,36"/>
+<area shape="rect" id="Node000007" href="$preconfigured__extensions_8cpp.html" title="Shortcuts for quickly adding extensions to the configuration. Part of the extension module." alt="" coords="354,79,570,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="392,36,447,76,444,81,388,41"/>
+<area shape="rect" id="Node000008" href="$test__extension__module_8cpp.html" title="Extension module unit tests." alt="" coords="595,79,796,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="430,31,642,76,641,81,429,36"/>
+<area shape="rect" id="Node000004" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="55,152,175,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="230,112,141,154,139,149,227,107"/>
+<area shape="rect" id="Node000005" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="199,152,330,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="267,118,267,152,262,152,262,118"/>
+<area shape="rect" id="Node000006" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="354,152,437,177"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="299,108,375,149,373,154,297,113"/>
 </map>

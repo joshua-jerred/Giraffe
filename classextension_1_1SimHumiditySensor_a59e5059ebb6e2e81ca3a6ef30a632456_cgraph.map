@@ -1,6 +1,0 @@
-<map id="extension::SimHumiditySensor::loop" name="extension::SimHumiditySensor::loop">
-<area shape="rect" id="node1" title=" " alt="" coords="5,23,228,65"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="276,23,435,65"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="483,5,663,32"/>
-<area shape="rect" id="node4" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="519,56,627,83"/>
-</map>

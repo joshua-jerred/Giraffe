@@ -1,52 +1,126 @@
 <map id="giraffe::gdl::DataLink::gdlThread" name="giraffe::gdl::DataLink::gdlThread">
-<area shape="rect" id="node1" title="The function that runs in the background thread." alt="" coords="5,1084,164,1125"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#aa65f16a704f41487598bcd2d19b86bf4" title="Get the number of data packets that have been added to the queue." alt="" coords="212,360,516,401"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a7a77c02664ac9a237db2bb6da4b3106a" title="Check if the transport layer is ready to send a message (true) or if it is busy with the previous mes..." alt="" coords="595,901,791,943"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#a57926ac1b20dfa23d1e9f58d96598794" title="Peek at the next message on the queue." alt="" coords="264,1025,464,1067"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#a83a1f12036970c4e7e4832e4d90d126a" title="Pop a message from the queue." alt="" coords="248,1091,480,1118"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="264,1143,464,1184"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a8fd32baa2bbdf231ba8cc7d4f6c6af64" title=" " alt="" coords="266,1208,462,1249"/>
-<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a3796375c0a18740636691d4c3f8f2ee8" title="Send a message to the remote node." alt="" coords="266,960,462,1001"/>
-<area shape="rect" id="node13" href="$classgiraffe_1_1gdl_1_1DataLink.html#a533c0e638f752a5656734721c7437c2f" title=" " alt="" coords="285,1273,443,1315"/>
-<area shape="rect" id="node14" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#a097ff946fe37b6afb73a1c3291646089" title="Get the size of the queue." alt="" coords="264,1339,464,1380"/>
-<area shape="rect" id="node15" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a32776923d3d23f05ad2b77184dc5cc12" title="Periodic update function for the telemetry sender." alt="" coords="267,1404,461,1445"/>
-<area shape="rect" id="node25" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab520e1f30f0fa8d1d17fc3d627386d2f" title=" " alt="" coords="266,425,462,467"/>
-<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1Config.html#a0a58a6ed60187dc17cc79c4d103d4cc7" title=" " alt="" coords="1163,901,1340,943"/>
-<area shape="rect" id="node10" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="613,1019,772,1060"/>
-<area shape="rect" id="node11" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a796c86f2cd82e0dba810fd51da7d7374" title=" " alt="" coords="595,1084,791,1125"/>
-<area shape="rect" id="node12" href="$classgiraffe_1_1gdl_1_1Packet.html#a230dd4dc8894d107f481540d31c42fce" title=" " alt="" coords="1180,733,1323,775"/>
-<area shape="rect" id="node16" href="$classgiraffe_1_1gdl_1_1Config.html#a9815875b0219bea6fc2ef01cd639d92d" title=" " alt="" coords="570,1273,815,1315"/>
-<area shape="rect" id="node17" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a8af3a4e769d455f981536e33b5fb9fd6" title="Get the next sequence number for the telemetry data packet." alt="" coords="571,1339,814,1380"/>
-<area shape="rect" id="node18" href="$classgiraffe_1_1gdl_1_1Config.html#ae73eb03f8e513787154829d5fe228044" title=" " alt="" coords="577,1404,809,1445"/>
-<area shape="rect" id="node19" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a3eaeb0cbef0a945f85a45af4067d698d" title="Handles sending telemetry metadata. Implemented with a simple state machine." alt="" coords="564,1469,821,1511"/>
-<area shape="rect" id="node24" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ae55590210910b6ff0fd434880c72690f" title=" " alt="" coords="611,1535,774,1576"/>
-<area shape="rect" id="node20" href="$classgiraffe_1_1gdl_1_1IDataLink.html#af8cf0ced48d9bfac0ccfa62ec8f97851" title=" " alt="" coords="897,1501,1080,1543"/>
-<area shape="rect" id="node21" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ab6e2dd57089b03593b35f45e0e793944" title=" " alt="" coords="887,1567,1090,1608"/>
-<area shape="rect" id="node22" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a0c8e773bdc5042576a072965e5a14f58" title=" " alt="" coords="869,1371,1108,1412"/>
-<area shape="rect" id="node23" href="$classgiraffe_1_1gdl_1_1IDataLink.html#acf2248a3fda82da2156b1d244b9247de" title=" " alt="" coords="875,1436,1102,1477"/>
-<area shape="rect" id="node26" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a92073a724987a293787cbd3382615bc1" title=" " alt="" coords="595,425,791,467"/>
-<area shape="rect" id="node37" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a709e614e408ba20b8057fd728ab93da5" title=" " alt="" coords="595,180,791,221"/>
-<area shape="rect" id="node41" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a6261bac3c4a33276136fa514168200ca" title=" " alt="" coords="583,271,803,312"/>
-<area shape="rect" id="node43" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859" title=" " alt="" coords="595,571,791,612"/>
-<area shape="rect" id="node50" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a0be39cc6f7db124c777fa99db1c61d11" title=" " alt="" coords="597,360,788,401"/>
-<area shape="rect" id="node27" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a0c426dad58678f33b713e4c8d00bf1eb" title=" " alt="" coords="1156,559,1347,600"/>
-<area shape="rect" id="node28" href="$classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc" title=" " alt="" coords="1640,679,1781,720"/>
-<area shape="rect" id="node29" href="$classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6" title=" " alt="" coords="1411,792,1569,833"/>
-<area shape="rect" id="node30" href="$classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0" title=" " alt="" coords="1411,624,1569,665"/>
-<area shape="rect" id="node31" href="$classgiraffe_1_1gdl_1_1Packet.html#a30b91d18f37e7cc83455c0ecd9198e1c" title=" " alt="" coords="1419,275,1561,316"/>
-<area shape="rect" id="node32" href="$classgiraffe_1_1gdl_1_1Config.html#a1fd00187a8f0cf9632db5d0d068e4ce3" title=" " alt="" coords="1633,559,1788,600"/>
-<area shape="rect" id="node33" href="$classgiraffe_1_1gdl_1_1Config.html#ab4b666bf725f3ab5756dc5b5135640ae" title=" " alt="" coords="1640,493,1781,535"/>
-<area shape="rect" id="node34" href="$classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639" title=" " alt="" coords="1640,407,1781,448"/>
-<area shape="rect" id="node35" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa" title=" " alt="" coords="1395,493,1585,535"/>
-<area shape="rect" id="node36" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a10a00c727839c6e1cfcda70bf1f5f283" title="Transmit an APRS telemetry packet of the specified type." alt="" coords="1395,559,1585,600"/>
-<area shape="rect" id="node38" href="$classgiraffe_1_1gdl_1_1Message.html#a7e379f44344ef7d3f57f30cc8b85d71f" title=" " alt="" coords="909,239,1068,280"/>
-<area shape="rect" id="node39" href="$classgiraffe_1_1gdl_1_1Packet.html#a0c8f0eb2fa311a28a2146c5f777508c7" title=" " alt="" coords="917,5,1060,47"/>
-<area shape="rect" id="node40" href="$classgiraffe_1_1gdl_1_1Packet.html#a99dc238f1ed94b269a33528acc9b3ab7" title=" " alt="" coords="895,71,1083,112"/>
-<area shape="rect" id="node42" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875" title=" " alt="" coords="893,407,1084,448"/>
-<area shape="rect" id="node44" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#af2a2d4c6be71a80328a7fab410c3a790" title=" " alt="" coords="891,901,1087,943"/>
-<area shape="rect" id="node45" href="$classgiraffe_1_1gdl_1_1Config.html#a7d67a270c0ee3c509756b5600122f77e" title=" " alt="" coords="918,537,1059,579"/>
-<area shape="rect" id="node46" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a14bea5bfc1ce848c4edf6ab2476ddc01" title=" " alt="" coords="891,668,1087,709"/>
-<area shape="rect" id="node47" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#acb5bd2ffdb91c8823c000cecd3e472f9" title=" " alt="" coords="891,603,1087,644"/>
-<area shape="rect" id="node48" href="$classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c" title=" " alt="" coords="903,733,1074,775"/>
-<area shape="rect" id="node49" href="$classgiraffe_1_1gdl_1_1Message.html#aab091c37c33d86511d344dde2c6a0715" title=" " alt="" coords="909,472,1068,513"/>
+<area shape="rect" id="Node000001" title="The function that runs in the background thread." alt="" coords="5,1064,164,1104"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#aa65f16a704f41487598bcd2d19b86bf4" title="Get the number of data packets that have been added to the queue." alt="" coords="212,353,516,393"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,1064,92,932,113,733,129,629,150,534,177,456,193,426,210,404,213,400,217,404,214,407,197,429,182,458,156,536,134,630,118,733,98,932,89,1064"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a7a77c02664ac9a237db2bb6da4b3106a" title="Check if the transport layer is ready to send a message (true) or if it is busy with the previous mes..." alt="" coords="595,885,791,925"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="93,1062,111,1031,137,993,170,957,211,928,256,909,304,895,352,885,402,880,497,878,581,884,581,890,497,883,402,885,353,891,305,900,258,914,213,933,174,961,141,997,115,1034,98,1065"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#a57926ac1b20dfa23d1e9f58d96598794" title="Peek at the next message on the queue." alt="" coords="264,1007,464,1047"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,1065,252,1047,253,1052,165,1070"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#a83a1f12036970c4e7e4832e4d90d126a" title="Pop a message from the queue." alt="" coords="248,1071,480,1097"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="164,1081,234,1081,234,1087,164,1087"/>
+<area shape="rect" id="Node000006" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="264,1121,464,1161"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="165,1098,253,1116,252,1121,164,1103"/>
+<area shape="rect" id="Node000007" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a8fd32baa2bbdf231ba8cc7d4f6c6af64" title=" " alt="" coords="266,1185,462,1225"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="110,1102,156,1138,213,1171,254,1185,252,1190,211,1176,153,1142,107,1106"/>
+<area shape="rect" id="Node000008" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a3796375c0a18740636691d4c3f8f2ee8" title="Send a message to the remote node." alt="" coords="266,943,462,983"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="107,1062,153,1026,211,992,252,978,254,983,213,997,156,1030,110,1066"/>
+<area shape="rect" id="Node000013" href="$classgiraffe_1_1gdl_1_1DataLink.html#a533c0e638f752a5656734721c7437c2f" title=" " alt="" coords="285,1249,443,1289"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="99,1103,143,1169,175,1205,213,1235,242,1249,272,1258,270,1263,240,1253,211,1240,172,1209,138,1172,94,1106"/>
+<area shape="rect" id="Node000014" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#a097ff946fe37b6afb73a1c3291646089" title="Get the size of the queue." alt="" coords="264,1313,464,1353"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="94,1104,109,1146,133,1199,168,1254,189,1278,213,1299,252,1318,250,1323,211,1304,185,1282,163,1257,128,1202,104,1148,89,1105"/>
+<area shape="rect" id="Node000015" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a32776923d3d23f05ad2b77184dc5cc12" title="Periodic update function for the telemetry sender." alt="" coords="267,1377,461,1417"/>
+<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="91,1104,102,1156,124,1227,140,1265,160,1301,184,1335,214,1363,233,1376,254,1385,252,1389,230,1380,210,1367,180,1338,155,1304,135,1267,119,1229,97,1158,86,1105"/>
+<area shape="rect" id="Node000025" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab520e1f30f0fa8d1d17fc3d627386d2f" title=" " alt="" coords="266,417,462,457"/>
+<area shape="poly" id="edge25_Node000001_Node000025" title=" " alt="" coords="92,1063,346,469,351,471,97,1065"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="462,943,580,922,581,927,463,948"/>
+<area shape="rect" id="Node000009" href="$classgiraffe_1_1gdl_1_1Config.html#a0a58a6ed60187dc17cc79c4d103d4cc7" title=" " alt="" coords="1163,885,1340,925"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="463,966,492,976,518,993,531,1008,538,1024,541,1057,545,1088,552,1101,566,1114,599,1133,629,1144,658,1148,686,1147,747,1133,821,1113,878,1098,936,1077,1045,1028,1138,975,1208,931,1211,936,1141,980,1047,1033,938,1082,880,1103,822,1119,748,1138,687,1152,657,1153,628,1149,597,1138,562,1118,548,1105,540,1089,536,1057,533,1025,527,1011,514,997,490,981,461,971"/>
+<area shape="rect" id="Node000010" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="613,1000,772,1040"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="463,977,600,1001,599,1006,462,982"/>
+<area shape="rect" id="Node000011" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a796c86f2cd82e0dba810fd51da7d7374" title=" " alt="" coords="595,1064,791,1104"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="463,971,491,980,517,992,534,1007,542,1022,551,1036,566,1050,583,1059,580,1064,562,1054,547,1040,538,1024,529,1010,515,997,489,985,461,976"/>
+<area shape="rect" id="Node000012" href="$classgiraffe_1_1gdl_1_1Packet.html#a230dd4dc8894d107f481540d31c42fce" title=" " alt="" coords="1180,720,1323,760"/>
+<area shape="poly" id="edge12_Node000008_Node000012" title=" " alt="" coords="462,967,622,975,810,977,902,973,985,966,1055,953,1106,935,1226,770,1230,773,1110,939,1057,958,986,971,902,979,810,982,622,980,462,972"/>
+<area shape="rect" id="Node000016" href="$classgiraffe_1_1gdl_1_1Config.html#a9815875b0219bea6fc2ef01cd639d92d" title=" " alt="" coords="570,1249,815,1289"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="461,1385,489,1376,514,1363,530,1348,538,1332,546,1315,562,1299,573,1293,575,1298,566,1303,550,1319,543,1335,534,1352,518,1368,491,1381,462,1390"/>
+<area shape="rect" id="Node000017" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a8af3a4e769d455f981536e33b5fb9fd6" title="Get the next sequence number for the telemetry data packet." alt="" coords="571,1313,814,1353"/>
+<area shape="poly" id="edge17_Node000015_Node000017" title=" " alt="" coords="461,1376,576,1353,577,1359,462,1381"/>
+<area shape="rect" id="Node000018" href="$classgiraffe_1_1gdl_1_1Config.html#ae73eb03f8e513787154829d5fe228044" title=" " alt="" coords="577,1377,809,1417"/>
+<area shape="poly" id="edge18_Node000015_Node000018" title=" " alt="" coords="461,1395,563,1395,563,1400,461,1400"/>
+<area shape="rect" id="Node000019" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a3eaeb0cbef0a945f85a45af4067d698d" title="Handles sending telemetry metadata. Implemented with a simple state machine." alt="" coords="564,1441,821,1481"/>
+<area shape="poly" id="edge19_Node000015_Node000019" title=" " alt="" coords="462,1414,577,1436,576,1441,461,1419"/>
+<area shape="rect" id="Node000024" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ae55590210910b6ff0fd434880c72690f" title=" " alt="" coords="611,1505,774,1545"/>
+<area shape="poly" id="edge24_Node000015_Node000024" title=" " alt="" coords="403,1415,476,1453,565,1491,599,1502,597,1507,563,1496,474,1458,400,1420"/>
+<area shape="rect" id="Node000020" href="$classgiraffe_1_1gdl_1_1IDataLink.html#af8cf0ced48d9bfac0ccfa62ec8f97851" title=" " alt="" coords="897,1473,1080,1513"/>
+<area shape="poly" id="edge20_Node000019_Node000020" title=" " alt="" coords="822,1473,884,1479,883,1485,821,1478"/>
+<area shape="rect" id="Node000021" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ab6e2dd57089b03593b35f45e0e793944" title=" " alt="" coords="887,1537,1090,1577"/>
+<area shape="poly" id="edge21_Node000019_Node000021" title=" " alt="" coords="790,1479,823,1491,847,1507,871,1523,889,1530,887,1535,868,1528,844,1511,820,1496,788,1484"/>
+<area shape="rect" id="Node000022" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a0c8e773bdc5042576a072965e5a14f58" title=" " alt="" coords="869,1345,1108,1385"/>
+<area shape="poly" id="edge22_Node000019_Node000022" title=" " alt="" coords="788,1439,820,1427,844,1411,868,1395,887,1387,889,1392,871,1400,847,1416,823,1432,790,1444"/>
+<area shape="rect" id="Node000023" href="$classgiraffe_1_1gdl_1_1IDataLink.html#acf2248a3fda82da2156b1d244b9247de" title=" " alt="" coords="875,1409,1102,1449"/>
+<area shape="poly" id="edge23_Node000019_Node000023" title=" " alt="" coords="821,1445,862,1440,862,1446,822,1450"/>
+<area shape="rect" id="Node000026" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a92073a724987a293787cbd3382615bc1" title=" " alt="" coords="595,417,791,457"/>
+<area shape="poly" id="edge26_Node000025_Node000026" title=" " alt="" coords="462,435,581,435,581,440,462,440"/>
+<area shape="rect" id="Node000041" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a709e614e408ba20b8057fd728ab93da5" title=" " alt="" coords="595,177,791,217"/>
+<area shape="poly" id="edge45_Node000025_Node000041" title=" " alt="" coords="461,430,490,420,514,403,529,386,536,368,539,331,541,292,548,272,562,252,581,234,603,221,606,226,585,239,566,255,553,274,547,293,545,331,542,370,533,389,518,407,492,424,463,435"/>
+<area shape="rect" id="Node000045" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a6261bac3c4a33276136fa514168200ca" title=" " alt="" coords="583,265,803,305"/>
+<area shape="poly" id="edge50_Node000025_Node000045" title=" " alt="" coords="461,425,489,416,514,403,530,389,538,373,547,356,562,339,588,322,615,308,618,313,591,327,566,343,551,359,543,376,534,392,518,408,491,421,463,430"/>
+<area shape="rect" id="Node000052" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859" title=" " alt="" coords="595,560,791,600"/>
+<area shape="poly" id="edge57_Node000025_Node000052" title=" " alt="" coords="412,455,634,552,632,557,410,460"/>
+<area shape="rect" id="Node000061" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a0be39cc6f7db124c777fa99db1c61d11" title=" " alt="" coords="597,353,788,393"/>
+<area shape="poly" id="edge74_Node000025_Node000061" title=" " alt="" coords="462,416,583,392,584,397,463,421"/>
+<area shape="rect" id="Node000027" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a0c426dad58678f33b713e4c8d00bf1eb" title=" " alt="" coords="1156,548,1347,588"/>
+<area shape="poly" id="edge27_Node000026_Node000027" title=" " alt="" coords="778,415,820,403,844,393,869,385,937,371,992,361,1018,360,1046,363,1075,371,1109,386,1153,416,1190,456,1218,497,1238,534,1233,537,1214,500,1186,459,1150,420,1107,390,1074,376,1045,369,1018,366,992,366,938,376,870,391,846,398,822,408,780,420"/>
+<area shape="rect" id="Node000028" href="$classgiraffe_1_1gdl_1_1Config.html#aed911ca37add8a6519900eef34bb4fcc" title=" " alt="" coords="1640,665,1781,705"/>
+<area shape="poly" id="edge28_Node000027_Node000028" title=" " alt="" coords="1270,587,1322,640,1357,667,1396,687,1454,702,1514,707,1573,705,1626,700,1626,705,1573,711,1514,712,1453,707,1394,692,1354,671,1318,644,1266,590"/>
+<area shape="rect" id="Node000029" href="$classgiraffe_1_1gdl_1_1Message.html#ab2a7d2d07b27a823840bd1f77131f7a6" title=" " alt="" coords="1411,777,1569,817"/>
+<area shape="poly" id="edge29_Node000027_Node000029" title=" " alt="" coords="1278,586,1313,620,1349,662,1363,689,1371,713,1379,734,1397,757,1412,768,1409,773,1393,761,1374,737,1365,715,1358,691,1344,666,1309,624,1274,590"/>
+<area shape="rect" id="Node000030" href="$classgiraffe_1_1gdl_1_1Message.html#adde3219ff3c8add5738786654da1b3f0" title=" " alt="" coords="1411,612,1569,652"/>
+<area shape="poly" id="edge30_Node000027_Node000030" title=" " alt="" coords="1327,586,1403,606,1401,611,1326,591"/>
+<area shape="rect" id="Node000031" href="$classgiraffe_1_1gdl_1_1Packet.html#a30b91d18f37e7cc83455c0ecd9198e1c" title=" " alt="" coords="1419,268,1561,308"/>
+<area shape="poly" id="edge31_Node000027_Node000031" title=" " alt="" coords="1264,546,1318,469,1393,376,1453,316,1457,319,1397,379,1322,473,1268,549"/>
+<area shape="rect" id="Node000032" href="$classgiraffe_1_1gdl_1_1Config.html#a1fd00187a8f0cf9632db5d0d068e4ce3" title=" " alt="" coords="1633,548,1788,588"/>
+<area shape="poly" id="edge32_Node000027_Node000032" title=" " alt="" coords="1275,586,1327,627,1360,647,1396,661,1448,676,1490,681,1533,676,1584,661,1612,649,1638,633,1680,596,1684,600,1641,637,1614,654,1586,667,1534,682,1490,686,1447,681,1394,667,1358,652,1324,632,1272,590"/>
+<area shape="rect" id="Node000033" href="$classgiraffe_1_1gdl_1_1Config.html#ab4b666bf725f3ab5756dc5b5135640ae" title=" " alt="" coords="1640,484,1781,524"/>
+<area shape="poly" id="edge33_Node000027_Node000033" title=" " alt="" coords="1272,546,1324,504,1358,484,1394,469,1457,458,1521,458,1582,466,1636,478,1635,483,1581,471,1520,463,1457,463,1395,475,1360,489,1327,509,1275,550"/>
+<area shape="rect" id="Node000034" href="$classgiraffe_1_1gdl_1_1Config.html#a36b504a087c8434d0dcbbdcdc8edc639" title=" " alt="" coords="1640,399,1781,439"/>
+<area shape="poly" id="edge34_Node000027_Node000034" title=" " alt="" coords="1268,546,1320,494,1355,467,1394,446,1452,427,1513,416,1573,411,1626,410,1626,416,1573,416,1514,421,1453,432,1396,450,1358,471,1323,498,1271,549"/>
+<area shape="rect" id="Node000035" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a36141d40a8b69472cc96aeada41be8aa" title=" " alt="" coords="1395,484,1585,524"/>
+<area shape="poly" id="edge35_Node000027_Node000035" title=" " alt="" coords="1326,545,1401,525,1403,530,1327,550"/>
+<area shape="rect" id="Node000037" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a10a00c727839c6e1cfcda70bf1f5f283" title="Transmit an APRS telemetry packet of the specified type." alt="" coords="1395,548,1585,588"/>
+<area shape="poly" id="edge40_Node000027_Node000037" title=" " alt="" coords="1347,565,1381,565,1381,571,1347,571"/>
+<area shape="poly" id="edge36_Node000035_Node000028" title=" " alt="" coords="1566,522,1587,534,1604,549,1614,564,1635,598,1683,653,1679,657,1631,602,1609,567,1600,553,1584,538,1564,526"/>
+<area shape="poly" id="edge37_Node000035_Node000032" title=" " alt="" coords="1560,522,1629,542,1627,547,1559,527"/>
+<area shape="poly" id="edge38_Node000035_Node000033" title=" " alt="" coords="1586,501,1626,501,1626,507,1586,507"/>
+<area shape="poly" id="edge39_Node000035_Node000034" title=" " alt="" coords="1541,482,1645,441,1646,446,1543,486"/>
+<area shape="poly" id="edge41_Node000037_Node000028" title=" " alt="" coords="1559,586,1587,598,1634,625,1675,655,1672,659,1631,630,1584,602,1557,591"/>
+<area shape="poly" id="edge42_Node000037_Node000032" title=" " alt="" coords="1586,565,1620,565,1620,571,1586,571"/>
+<area shape="poly" id="edge43_Node000037_Node000033" title=" " alt="" coords="1559,545,1627,525,1629,530,1560,550"/>
+<area shape="poly" id="edge44_Node000037_Node000034" title=" " alt="" coords="1564,546,1584,534,1599,519,1608,504,1617,488,1631,470,1663,444,1666,449,1635,474,1621,491,1613,507,1603,522,1587,538,1566,550"/>
+<area shape="poly" id="edge49_Node000041_Node000027" title=" " alt="" coords="784,175,860,166,945,167,989,172,1031,183,1072,198,1110,221,1146,253,1175,291,1198,334,1217,379,1240,465,1250,534,1245,535,1235,467,1212,381,1194,336,1171,294,1142,256,1106,225,1070,203,1030,188,988,177,945,172,860,171,784,180"/>
+<area shape="rect" id="Node000042" href="$classgiraffe_1_1gdl_1_1Message.html#a7e379f44344ef7d3f57f30cc8b85d71f" title=" " alt="" coords="909,235,1068,275"/>
+<area shape="poly" id="edge46_Node000041_Node000042" title=" " alt="" coords="791,214,896,234,895,239,790,219"/>
+<area shape="rect" id="Node000043" href="$classgiraffe_1_1gdl_1_1Packet.html#a0c8f0eb2fa311a28a2146c5f777508c7" title=" " alt="" coords="917,5,1060,45"/>
+<area shape="poly" id="edge47_Node000041_Node000043" title=" " alt="" coords="712,175,778,116,821,83,868,55,903,41,905,46,871,60,824,88,781,120,715,179"/>
+<area shape="rect" id="Node000044" href="$classgiraffe_1_1gdl_1_1Packet.html#a99dc238f1ed94b269a33528acc9b3ab7" title=" " alt="" coords="895,69,1083,109"/>
+<area shape="poly" id="edge48_Node000041_Node000044" title=" " alt="" coords="741,175,868,125,910,111,911,116,870,131,743,180"/>
+<area shape="poly" id="edge52_Node000045_Node000031" title=" " alt="" coords="736,263,798,239,869,220,942,211,1017,208,1091,211,1164,217,1299,238,1406,262,1405,267,1298,243,1164,223,1091,216,1017,214,942,216,870,225,800,244,738,268"/>
+<area shape="poly" id="edge51_Node000045_Node000042" title=" " alt="" coords="803,271,895,262,896,267,803,277"/>
+<area shape="rect" id="Node000046" href="$classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875" title=" " alt="" coords="893,400,1084,440"/>
+<area shape="poly" id="edge53_Node000045_Node000046" title=" " alt="" coords="742,303,822,339,935,392,932,396,820,344,740,308"/>
+<area shape="poly" id="edge56_Node000046_Node000012" title=" " alt="" coords="1086,433,1110,450,1132,482,1140,513,1141,544,1137,575,1132,606,1132,637,1139,668,1158,700,1170,711,1167,715,1154,703,1134,670,1127,637,1127,606,1131,575,1135,544,1135,514,1127,484,1106,454,1083,437"/>
+<area shape="poly" id="edge54_Node000046_Node000028" title=" " alt="" coords="1086,434,1110,450,1125,468,1133,487,1137,524,1140,560,1146,579,1158,598,1181,621,1204,636,1251,652,1300,668,1324,683,1349,706,1360,723,1366,740,1370,772,1375,802,1382,815,1396,827,1444,852,1466,857,1487,858,1532,848,1584,827,1619,805,1648,776,1672,745,1691,716,1695,719,1677,748,1652,780,1622,809,1587,832,1534,853,1488,863,1465,862,1442,857,1393,832,1378,818,1370,804,1364,773,1361,741,1355,726,1345,710,1321,687,1297,673,1250,657,1202,641,1178,625,1154,602,1141,581,1134,561,1132,524,1128,488,1120,471,1106,454,1083,438"/>
+<area shape="poly" id="edge55_Node000046_Node000034" title=" " alt="" coords="1084,414,1312,408,1585,409,1626,411,1626,416,1585,415,1313,414,1084,419"/>
+<area shape="poly" id="edge63_Node000052_Node000009" title=" " alt="" coords="705,599,728,644,764,703,812,763,840,790,870,814,1150,880,1149,885,868,818,837,794,808,767,760,706,724,647,701,601"/>
+<area shape="poly" id="edge60_Node000052_Node000029" title=" " alt="" coords="707,599,732,638,768,686,815,733,842,753,870,770,913,783,970,793,1112,803,1264,803,1397,799,1397,805,1265,809,1111,808,969,798,911,788,868,774,839,758,811,737,764,690,727,641,703,602"/>
+<area shape="poly" id="edge62_Node000052_Node000031" title=" " alt="" coords="720,558,769,518,819,468,833,445,840,424,849,405,868,386,933,349,1004,320,1077,300,1151,287,1223,279,1291,276,1405,278,1405,283,1291,281,1223,284,1151,292,1078,305,1005,325,935,353,871,390,853,408,845,426,838,447,823,471,773,522,724,562"/>
+<area shape="poly" id="edge61_Node000052_Node000042" title=" " alt="" coords="723,558,772,519,797,495,819,468,836,435,842,406,849,376,867,342,901,307,938,280,941,284,904,311,871,346,854,378,847,407,841,437,824,471,801,498,776,523,727,562"/>
+<area shape="poly" id="edge65_Node000052_Node000046" title=" " alt="" coords="714,558,780,504,823,475,868,450,885,442,887,447,871,454,826,479,783,508,718,562"/>
+<area shape="rect" id="Node000053" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#af2a2d4c6be71a80328a7fab410c3a790" title=" " alt="" coords="891,885,1087,925"/>
+<area shape="poly" id="edge58_Node000052_Node000053" title=" " alt="" coords="703,599,724,652,759,724,808,799,838,834,871,865,891,877,888,882,868,869,834,838,804,802,754,726,719,654,698,601"/>
+<area shape="rect" id="Node000056" href="$classgiraffe_1_1gdl_1_1Config.html#a7d67a270c0ee3c509756b5600122f77e" title=" " alt="" coords="918,528,1059,568"/>
+<area shape="poly" id="edge64_Node000052_Node000056" title=" " alt="" coords="791,567,904,554,905,560,791,572"/>
+<area shape="rect" id="Node000057" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a14bea5bfc1ce848c4edf6ab2476ddc01" title=" " alt="" coords="891,656,1087,696"/>
+<area shape="poly" id="edge66_Node000052_Node000057" title=" " alt="" coords="746,598,870,641,897,650,895,655,869,647,744,603"/>
+<area shape="rect" id="Node000058" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#acb5bd2ffdb91c8823c000cecd3e472f9" title=" " alt="" coords="891,592,1087,632"/>
+<area shape="poly" id="edge69_Node000052_Node000058" title=" " alt="" coords="791,588,878,597,877,603,791,593"/>
+<area shape="rect" id="Node000059" href="$classgiraffe_1_1gdl_1_1Message.html#a10680f0b1bdffa6f0deecc5cf7a2ff4c" title=" " alt="" coords="903,720,1074,760"/>
+<area shape="poly" id="edge72_Node000052_Node000059" title=" " alt="" coords="718,598,783,652,826,681,871,706,891,714,889,719,868,710,823,685,780,656,714,602"/>
+<area shape="rect" id="Node000060" href="$classgiraffe_1_1gdl_1_1Message.html#aab091c37c33d86511d344dde2c6a0715" title=" " alt="" coords="909,464,1068,504"/>
+<area shape="poly" id="edge73_Node000052_Node000060" title=" " alt="" coords="744,557,869,513,895,505,897,510,870,519,746,562"/>
+<area shape="poly" id="edge59_Node000053_Node000009" title=" " alt="" coords="1087,903,1149,903,1149,908,1087,908"/>
+<area shape="poly" id="edge67_Node000057_Node000012" title=" " alt="" coords="1072,693,1167,717,1166,722,1071,699"/>
+<area shape="poly" id="edge68_Node000057_Node000027" title=" " alt="" coords="1072,653,1107,642,1158,618,1205,592,1207,597,1161,623,1109,646,1074,658"/>
+<area shape="poly" id="edge70_Node000058_Node000012" title=" " alt="" coords="1086,630,1110,642,1126,656,1135,671,1143,685,1158,699,1178,712,1175,716,1154,703,1139,688,1130,673,1122,659,1106,646,1084,634"/>
+<area shape="poly" id="edge71_Node000058_Node000027" title=" " alt="" coords="1086,593,1142,584,1143,589,1087,598"/>
 </map>

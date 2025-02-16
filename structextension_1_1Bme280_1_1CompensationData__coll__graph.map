@@ -1,7 +1,11 @@
 <map id="extension::Bme280::CompensationData" name="extension::Bme280::CompensationData">
-<area shape="rect" id="node1" title=" " alt="" coords="94,292,250,413"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,64,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="88,5,163,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="187,5,253,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="277,5,344,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="99,280,247,400"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,72,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,71,31,110,31,158,38,208,56,255,70,274,88,291,84,295,66,278,51,257,33,209,25,158,26,110,30,71"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="99,5,157,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,71,121,155,124,206,132,255,135,264,129,266,127,257,118,206,116,155,121,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="191,5,249,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="219,71,193,256,192,264,187,263,188,256,214,71"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="287,5,337,71"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="317,71,317,110,312,158,301,209,281,257,262,283,257,279,276,255,296,208,307,158,311,110,311,71"/>
 </map>

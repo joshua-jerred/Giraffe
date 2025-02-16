@@ -1,4 +1,8 @@
 <map id="data::ErrorFrame::numActiveErrors" name="data::ErrorFrame::numActiveErrors">
-<area shape="rect" id="node1" title="The number of active errors in the frame." alt="" coords="5,5,215,47"/>
-<area shape="rect" id="node2" href="$classdata_1_1Frame.html#a766a4a84a9a45c065225d1cc92ce7708" title="Returns the total items in the frame." alt="" coords="263,13,397,39"/>
+<area shape="rect" id="Node000001" title="The number of active errors in the frame." alt="" coords="5,5,215,45"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="445,5,645,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,23,432,23,432,28,215,28"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Frame.html#a766a4a84a9a45c065225d1cc92ce7708" title="Returns the total items in the frame." alt="" coords="263,38,397,63"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,35,249,39,249,44,215,40"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="397,40,432,36,432,41,398,45"/>
 </map>

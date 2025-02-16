@@ -1,11 +1,23 @@
 <map id="extension::Mcp3021::adcStartup" name="extension::Mcp3021::adcStartup">
-<area shape="rect" id="node1" title=" " alt="" coords="5,151,159,193"/>
-<area shape="rect" id="node2" href="$classextension_1_1I2cExtensionAdapter.html#abc3de151f12e02167df5e32ce24638d3" title=" " alt="" coords="207,57,435,98"/>
-<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="241,122,400,163"/>
-<area shape="rect" id="node8" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="517,239,676,281"/>
-<area shape="rect" id="node9" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="241,239,400,281"/>
-<area shape="rect" id="node3" href="$classI2cInterface.html#a98edf9a116cb2f865adb2a19f59728e3" title="Connect to the bus. If it&#39;s already connected, disconnect and reconnect." alt="" coords="517,5,676,32"/>
-<area shape="rect" id="node4" href="$classextension_1_1I2cExtensionAdapter.html#ad267404fc2d8d1dff29b563ffd6e56bc" title=" " alt="" coords="483,57,711,98"/>
-<area shape="rect" id="node6" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="759,181,939,208"/>
-<area shape="rect" id="node7" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="517,174,676,215"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,173,159,213"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1I2cExtensionAdapter.html#abc3de151f12e02167df5e32ce24638d3" title=" " alt="" coords="207,55,435,95"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,170,265,99,268,104,125,175"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="241,143,400,183"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="159,181,227,172,228,177,160,186"/>
+<area shape="rect" id="Node000008" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="517,258,676,298"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="159,200,435,243,504,256,503,262,434,249,158,206"/>
+<area shape="rect" id="Node000009" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="241,258,400,298"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="136,210,208,237,248,251,246,256,206,242,134,215"/>
+<area shape="rect" id="Node000003" href="$classI2cInterface.html#a98edf9a116cb2f865adb2a19f59728e3" title="Connect to the bus. If it&#39;s already connected, disconnect and reconnect." alt="" coords="517,5,676,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="417,53,521,31,522,36,418,58"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1I2cExtensionAdapter.html#ad267404fc2d8d1dff29b563ffd6e56bc" title=" " alt="" coords="483,55,711,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="435,73,469,73,469,78,435,78"/>
+<area shape="rect" id="Node000006" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="759,201,939,227"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="400,150,467,145,545,142,629,145,711,155,766,172,813,193,811,197,764,177,710,161,628,150,545,147,467,150,401,156"/>
+<area shape="rect" id="Node000007" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="517,194,676,234"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="401,175,504,194,503,200,400,180"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="676,211,745,211,745,217,676,217"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="550,194,547,184,555,175,571,169,597,167,626,170,642,177,639,182,624,175,597,173,572,175,558,179,552,185,555,193"/>
+<area shape="poly" id="edge10_Node000008_Node000006" title=" " alt="" coords="676,255,784,228,785,233,677,261"/>
+<area shape="poly" id="edge12_Node000009_Node000008" title=" " alt="" coords="400,275,503,275,503,281,400,281"/>
 </map>

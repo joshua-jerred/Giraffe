@@ -1,8 +1,13 @@
 <map id="data::GpsFrame" name="data::GpsFrame">
-<area shape="rect" id="node1" title="A frame of GPS data straight from a GPS extension." alt="" coords="267,292,413,369"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,72,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="163,5,251,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="307,5,373,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="457,5,508,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="545,5,612,83"/>
+<area shape="rect" id="Node000001" title="A frame of GPS data straight from a GPS extension." alt="" coords="205,280,344,345"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,85,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="40,71,34,112,32,161,40,211,50,234,63,254,82,268,113,279,190,297,189,302,111,284,80,272,59,258,45,236,35,212,27,161,28,112,35,70"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="157,5,200,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="177,71,174,110,175,158,183,208,201,255,210,267,205,270,196,257,177,209,169,158,168,110,171,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="240,5,299,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="273,71,276,263,271,264,267,71"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="323,5,381,71"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="352,71,341,157,329,207,313,257,309,267,304,264,308,255,324,206,336,156,347,71"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="460,5,519,71"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="497,71,501,112,499,162,488,212,477,236,462,258,441,277,415,292,361,308,360,303,413,287,437,273,458,254,472,234,483,211,494,161,496,112,492,71"/>
 </map>

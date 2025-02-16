@@ -1,9 +1,18 @@
 <map id="data::blocks::LocationData" name="data::blocks::LocationData">
-<area shape="rect" id="node1" title="Struct containing location data (gps)." alt="" coords="471,447,665,524"/>
-<area shape="rect" id="node2" href="$structdata_1_1GpsFrame.html" title="A frame of GPS data straight from a GPS extension." alt="" coords="295,292,441,369"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,5,72,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="163,5,251,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="307,5,373,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="527,5,577,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="624,5,691,83"/>
+<area shape="rect" id="Node000001" title="Struct containing location data (gps)." alt="" coords="131,423,318,488"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="9,5,51,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="24,72,13,128,8,199,10,237,17,275,29,311,47,344,64,365,85,383,130,413,127,417,81,387,60,368,43,347,24,313,11,276,5,238,3,199,8,127,19,71"/>
+<area shape="rect" id="Node000004" href="$structdata_1_1GpsFrame.html" title="A frame of GPS data straight from a GPS extension." alt="" coords="185,280,323,345"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="32,71,37,173,45,223,51,241,58,254,169,285,168,290,55,258,46,244,40,224,32,174,27,71"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="377,280,435,345"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="404,346,395,375,379,400,358,417,335,431,332,426,355,413,375,397,391,372,399,345"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="237,347,229,370,224,407,219,406,223,369,232,345"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="107,5,187,71"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="141,71,133,111,129,159,133,209,140,232,151,254,172,277,168,281,146,258,135,234,128,210,123,159,128,110,136,70"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="242,5,301,71"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="272,71,260,264,254,264,267,71"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="325,5,383,71"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="355,71,341,158,327,209,307,257,300,268,296,265,302,255,322,207,336,157,349,70"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="462,5,521,71"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="500,70,503,112,502,162,490,213,479,237,464,258,441,275,419,279,394,279,365,283,340,290,338,284,364,277,394,273,418,273,439,270,460,254,475,234,485,211,497,161,498,112,494,71"/>
 </map>

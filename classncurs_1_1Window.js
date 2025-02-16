@@ -3,7 +3,7 @@ var classncurs_1_1Window =
     [ "Window", "classncurs_1_1Window.html#adb13e67f67c5b1d7e2cc3cebddc95b32", null ],
     [ "~Window", "classncurs_1_1Window.html#a8a65709d7d9e115fd2a1f3233ecd40c5", null ],
     [ "Window", "classncurs_1_1Window.html#a88f16fc7e70ed9c2188c53fd781b5cc5", null ],
-    [ "operator=", "classncurs_1_1Window.html#a7e7053e478e683799003d19236504d39", null ],
+    [ "operator=", "classncurs_1_1Window.html#a14d2c8f0e8b41495cf7e19f8eb898455", null ],
     [ "setPosition", "classncurs_1_1Window.html#ad6430c2148c4b19e7330746da1cf08e0", null ],
     [ "setSize", "classncurs_1_1Window.html#a5f558ef2888100e26c7754a1616aac72", null ],
     [ "winInit", "classncurs_1_1Window.html#aa619ce021ae1e95033b346fc65d5e684", null ],

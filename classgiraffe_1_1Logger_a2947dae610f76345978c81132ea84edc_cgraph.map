@@ -1,8 +1,17 @@
 <map id="giraffe::Logger::error" name="giraffe::Logger::error">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,160,57"/>
-<area shape="rect" id="node2" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="208,56,376,83"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="217,5,367,32"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="635,82,821,123"/>
-<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="424,5,587,32"/>
-<area shape="rect" id="node5" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="638,7,818,49"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,160,81"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="208,80,376,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,75,195,79,194,84,160,80"/>
+<area shape="rect" id="Node000006" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="217,31,367,56"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="160,57,203,51,204,57,161,62"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="635,105,821,145"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="374,103,424,109,621,120,621,125,424,114,373,108"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="424,29,587,55"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="346,77,437,55,439,60,347,82"/>
+<area shape="rect" id="Node000005" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="638,31,818,71"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="376,83,586,65,624,61,624,66,587,70,376,89"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="541,52,661,97,660,102,540,57"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="470,31,463,21,467,11,481,5,505,3,535,6,547,15,544,20,533,11,505,8,483,10,471,15,468,20,475,28"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="587,43,624,44,624,50,587,48"/>
+<area shape="poly" id="edge9_Node000006_Node000004" title=" " alt="" coords="367,40,410,40,410,45,367,46"/>
 </map>

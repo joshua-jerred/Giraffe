@@ -1,4 +1,5 @@
 <map id="bit::TestGroup::groupRunner" name="bit::TestGroup::groupRunner">
-<area shape="rect" id="node1" title=" " alt="" coords="204,5,407,32"/>
-<area shape="rect" id="node2" href="$classbit_1_1TestGroup.html#a758e1e5dde0f057bbeb0ded0f3d6b916" title=" " alt="" coords="5,5,156,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="204,5,407,31"/>
+<area shape="rect" id="Node000002" href="$classbit_1_1TestGroup.html#a758e1e5dde0f057bbeb0ded0f3d6b916" title=" " alt="" coords="5,5,156,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,21,156,21,156,15,190,15"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="validation::validate" name="validation::validate">
-<area shape="rect" id="node1" title="Validates that a string is both in range, and that it matches a regex pattern (if provided)" alt="" coords="236,5,384,32"/>
-<area shape="rect" id="node2" href="$namespacevalidation.html#a4028a1e71c060c780241b72af38e27e8" title=" " alt="" coords="5,5,188,32"/>
+<area shape="rect" id="Node000001" title="Validates that a string is both in range, and that it matches a regex pattern (if provided)" alt="" coords="236,5,384,31"/>
+<area shape="rect" id="Node000002" href="$namespacevalidation.html#a4028a1e71c060c780241b72af38e27e8" title=" " alt="" coords="5,5,188,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,21,188,21,188,15,222,15"/>
 </map>

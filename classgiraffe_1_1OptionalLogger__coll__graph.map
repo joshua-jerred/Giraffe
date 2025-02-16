@@ -1,4 +1,5 @@
 <map id="giraffe::OptionalLogger" name="giraffe::OptionalLogger">
-<area shape="rect" id="node1" title="Optional logger class." alt="" coords="33,160,203,311"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,231,97"/>
+<area shape="rect" id="Node000001" title="Optional logger class." alt="" coords="33,148,195,313"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,223,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,85,117,131,111,131,111,85"/>
 </map>

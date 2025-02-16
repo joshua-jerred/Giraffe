@@ -1,5 +1,7 @@
 <map id="data::blocks::ExtensionModuleStats" name="data::blocks::ExtensionModuleStats">
-<area shape="rect" id="node1" title="Struct containing statistics about the extension module and its extensions." alt="" coords="67,204,289,296"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,180,112"/>
-<area shape="rect" id="node3" title=" " alt="" coords="245,20,284,97"/>
+<area shape="rect" id="Node000001" title="Struct containing statistics about the extension module and its extensions." alt="" coords="5,192,219,272"/>
+<area shape="rect" id="Node000002" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="23,20,54,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,86,33,126,36,147,42,167,49,178,44,181,38,169,31,148,28,126,30,85"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="102,5,269,100"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,101,171,135,158,169,153,179,149,177,154,167,166,133,175,100"/>
 </map>

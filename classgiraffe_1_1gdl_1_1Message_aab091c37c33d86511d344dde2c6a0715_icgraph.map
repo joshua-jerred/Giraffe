@@ -1,11 +1,29 @@
 <map id="giraffe::gdl::Message::setType" name="giraffe::gdl::Message::setType">
-<area shape="rect" id="node1" title=" " alt="" coords="1251,53,1409,94"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859" title=" " alt="" coords="1007,23,1203,65"/>
-<area shape="rect" id="node9" href="$test__gdl__message_8cpp.html#a90e9f77884a3992e5c747d2c49456e43" title=" " alt="" coords="1077,89,1132,116"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab520e1f30f0fa8d1d17fc3d627386d2f" title=" " alt="" coords="763,23,959,65"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" title="The function that runs in the background thread." alt="" coords="556,23,715,65"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90" title="Enable the Data Link. Starts the background thread." alt="" coords="349,23,508,65"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,5,301,32"/>
-<area shape="rect" id="node8" href="$test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320" title=" " alt="" coords="177,56,232,83"/>
-<area shape="rect" id="node7" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1256,191,1415,231"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab025e1d35369c1eb47ab9aa5b7a1c859" title=" " alt="" coords="1012,162,1208,202"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1242,202,1208,197,1209,192,1242,197"/>
+<area shape="rect" id="Node000014" href="$test__gdl__message_8cpp.html#a90e9f77884a3992e5c747d2c49456e43" title=" " alt="" coords="1083,227,1137,252"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1243,226,1138,239,1137,233,1242,220"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#ab520e1f30f0fa8d1d17fc3d627386d2f" title=" " alt="" coords="768,162,964,202"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="999,185,964,185,964,179,999,179"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1DataLink.html#a2f6c5032357d005d854f969a93c360de" title="The function that runs in the background thread." alt="" coords="561,162,720,202"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="754,185,720,185,720,179,754,179"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1gdl_1_1DataLink.html#af813250da8347a200ddca5d532b7ef90" title="Enable the Data Link. Starts the background thread." alt="" coords="355,162,513,202"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="547,185,513,185,513,179,547,179"/>
+<area shape="rect" id="Node000006" href="$gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="180,5,235,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="411,152,367,96,338,68,305,44,269,30,234,23,235,18,271,25,308,40,341,64,370,93,415,149"/>
+<area shape="rect" id="Node000007" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="111,55,304,80"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="398,155,355,124,306,95,271,83,273,78,308,90,358,119,401,151"/>
+<area shape="rect" id="Node000009" href="$classmodules_1_1TelemetryModule.html#afb1a52e1e90b33ad72a84f8646a9633b" title="This function is called when the module is started." alt="" coords="108,105,307,145"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="341,161,286,147,288,142,342,156"/>
+<area shape="rect" id="Node000010" href="$test__application__layer_8cpp.html#aa2ac1248e8fd45617911ed0b118ac867" title=" " alt="" coords="180,169,235,195"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="341,185,235,185,235,179,341,179"/>
+<area shape="rect" id="Node000011" href="$test__application__layer_8cpp.html#ac24fe56893d3fd67b81bb4aacc7c8320" title=" " alt="" coords="180,219,235,244"/>
+<area shape="poly" id="edge10_Node000005_Node000011" title=" " alt="" coords="342,205,236,228,234,223,340,200"/>
+<area shape="rect" id="Node000012" href="$test__gdl__with__audio_8cpp.html#a0f6fd1dc912f411387b1e9cf45b8c24a" title=" " alt="" coords="180,268,235,293"/>
+<area shape="poly" id="edge11_Node000005_Node000012" title=" " alt="" coords="393,212,353,236,308,258,270,270,235,279,234,273,269,265,306,253,350,231,390,208"/>
+<area shape="rect" id="Node000013" href="$test__gdl__with__audio_8cpp.html#af3909c6936a57cb5c17074206688ee2c" title=" " alt="" coords="180,317,235,343"/>
+<area shape="poly" id="edge12_Node000005_Node000013" title=" " alt="" coords="411,215,367,262,339,286,308,307,271,322,236,330,234,324,269,317,305,302,335,282,363,259,407,211"/>
+<area shape="rect" id="Node000008" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,55,60,80"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="97,70,60,70,60,65,97,65"/>
 </map>

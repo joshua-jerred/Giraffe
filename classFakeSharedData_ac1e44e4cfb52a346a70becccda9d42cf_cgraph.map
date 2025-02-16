@@ -1,4 +1,5 @@
 <map id="FakeSharedData::hasLogItem" name="FakeSharedData::hasLogItem">
-<area shape="rect" id="node1" title="Check if the next log item in the log stream has the given id. Clears packets until it finds one." alt="" coords="5,5,216,32"/>
-<area shape="rect" id="node2" href="$classdata_1_1Stream.html#a0314b3695dc80b18b19be92965777234" title=" " alt="" coords="264,5,441,32"/>
+<area shape="rect" id="Node000001" title="Check if the next log item in the log stream has the given id. Clears packets until it finds one." alt="" coords="5,5,216,31"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Stream.html#a0314b3695dc80b18b19be92965777234" title=" " alt="" coords="264,5,441,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,15,250,15,250,21,216,21"/>
 </map>

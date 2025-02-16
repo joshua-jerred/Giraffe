@@ -1,4 +1,5 @@
 <map id="modules::ConsoleModule" name="modules::ConsoleModule">
-<area shape="rect" id="node1" title="The console module is a module that provides a console interface for the flight system." alt="" coords="5,527,192,751"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="15,5,182,479"/>
+<area shape="rect" id="Node000001" title="The console module is a module that provides a console interface for the flight system." alt="" coords="5,659,184,924"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1Module.html" title=" " alt="" coords="15,5,174,611"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,624,97,658,92,658,92,624"/>
 </map>

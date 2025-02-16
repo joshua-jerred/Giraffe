@@ -1,8 +1,13 @@
 <map id="RequestRouter::handlePingRequest" name="RequestRouter::handlePingRequest">
-<area shape="rect" id="node1" title="This function responds to a ping request." alt="" coords="5,35,204,76"/>
-<area shape="rect" id="node2" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="266,5,453,47"/>
-<area shape="rect" id="node3" href="$group__ServerModule.html#a4d13e34f9d56d94f7a410248eed83a8b" title="Send a message to the client." alt="" coords="252,71,467,98"/>
-<area shape="rect" id="node4" href="$structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" title="Get the message as a JSON string." alt="" coords="523,31,673,72"/>
-<area shape="rect" id="node6" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="515,96,681,137"/>
-<area shape="rect" id="node5" href="$structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" title="Get the message as a JSON object." alt="" coords="729,31,879,72"/>
+<area shape="rect" id="Node000001" title="This function responds to a ping request." alt="" coords="5,35,204,75"/>
+<area shape="rect" id="Node000002" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="266,5,453,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,41,252,35,253,40,204,46"/>
+<area shape="rect" id="Node000003" href="$group__ServerModule.html#a4d13e34f9d56d94f7a410248eed83a8b" title="Send a message to the client." alt="" coords="252,70,467,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="204,63,239,67,238,72,204,68"/>
+<area shape="rect" id="Node000004" href="$structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" title="Get the message as a JSON string." alt="" coords="523,31,673,71"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="454,67,509,60,510,65,455,73"/>
+<area shape="rect" id="Node000006" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="515,95,681,135"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="455,93,502,99,501,104,454,98"/>
+<area shape="rect" id="Node000005" href="$structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" title="Get the message as a JSON object." alt="" coords="729,31,879,71"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="673,48,716,48,716,53,673,53"/>
 </map>

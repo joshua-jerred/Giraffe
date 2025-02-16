@@ -1,5 +1,9 @@
 <map id="giraffe::gdl::Message::setImageMessage" name="giraffe::gdl::Message::setImageMessage">
-<area shape="rect" id="node1" title=" " alt="" coords="252,35,411,76"/>
-<area shape="rect" id="node2" href="$classmodules_1_1TelemetryModule.html#a064ac6e55f7c0397e376c4231e7a884f" title="Send an SSTV image." alt="" coords="5,5,204,47"/>
-<area shape="rect" id="node3" href="$test__gdl__message_8cpp.html#a9e28439f54b8215da364cd9ba3d16803" title=" " alt="" coords="77,71,132,98"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="252,63,411,103"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1TelemetryModule.html#a064ac6e55f7c0397e376c4231e7a884f" title="Send an SSTV image." alt="" coords="5,5,204,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,62,184,48,185,43,239,57"/>
+<area shape="rect" id="Node000003" href="$test__gdl__with__audio_8cpp.html#a0f6fd1dc912f411387b1e9cf45b8c24a" title=" " alt="" coords="77,70,132,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="238,85,132,85,132,80,238,80"/>
+<area shape="rect" id="Node000004" href="$test__gdl__message_8cpp.html#a9e28439f54b8215da364cd9ba3d16803" title=" " alt="" coords="77,119,132,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="239,105,133,129,132,124,238,100"/>
 </map>

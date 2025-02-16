@@ -1,7 +1,7 @@
 var common__logger_8hpp =
 [
-    [ "CommonLogger", "classgiraffe_1_1CommonLogger.html", "classgiraffe_1_1CommonLogger" ],
-    [ "LoggerEntry", "structgiraffe_1_1LoggerEntry.html", "structgiraffe_1_1LoggerEntry" ],
+    [ "giraffe::CommonLogger< LOG_SIZE >", "classgiraffe_1_1CommonLogger.html", "classgiraffe_1_1CommonLogger" ],
+    [ "giraffe::LoggerEntry", "structgiraffe_1_1LoggerEntry.html", "structgiraffe_1_1LoggerEntry" ],
     [ "LoggerLevel", "common__logger_8hpp.html#a7de051682a10e68f9259ee84278381ed", [
       [ "DEBUG", "common__logger_8hpp.html#a7de051682a10e68f9259ee84278381edadc30ec20708ef7b0f641ef78b7880a15", null ],
       [ "INFO", "common__logger_8hpp.html#a7de051682a10e68f9259ee84278381eda551b723eafd6a31d444fcb2f5920fbd3", null ],

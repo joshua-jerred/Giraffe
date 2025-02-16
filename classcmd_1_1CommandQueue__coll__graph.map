@@ -1,6 +1,9 @@
 <map id="cmd::CommandQueue" name="cmd::CommandQueue">
-<area shape="rect" id="node1" title="Used within modules to queue commands to be processed." alt="" coords="127,145,294,252"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,112,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="179,5,243,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="267,5,461,83"/>
+<area shape="rect" id="Node000001" title="Used within modules to queue commands to be processed." alt="" coords="127,133,286,239"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,104,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,70,71,90,82,108,115,138,112,142,78,111,66,92,59,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="179,5,235,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,71,209,117,204,117,204,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="259,5,445,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="322,73,271,124,268,120,319,69"/>
 </map>

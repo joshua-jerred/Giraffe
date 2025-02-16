@@ -1,6 +1,9 @@
 <map id="i_built_in_test.hpp" name="i_built_in_test.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="71,5,212,32"/>
-<area shape="rect" id="node2" href="$json_8hpp.html" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="103,80,180,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,152,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="176,155,235,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="71,5,212,31"/>
+<area shape="rect" id="Node000002" href="$json_8hpp.html" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="103,79,180,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,31,144,65,139,65,139,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,152,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="133,106,100,143,96,140,129,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="176,152,235,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="154,103,188,140,184,144,150,106"/>
 </map>

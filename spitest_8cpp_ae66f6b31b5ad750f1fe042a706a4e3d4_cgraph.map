@@ -1,6 +1,9 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,60,57"/>
-<area shape="rect" id="node2" href="$classBmi088.html#a1fb0001363ca4bb3c4759b577ae76b73" title=" " alt="" coords="108,5,293,32"/>
-<area shape="rect" id="node4" href="$classBmi088.html#aec6daf19c834fb37386a47062dca5c88" title=" " alt="" coords="122,56,279,83"/>
-<area shape="rect" id="node3" href="$classBmi088.html#a628f535b9131b0d575bfaa39fa4d9127" title=" " alt="" coords="341,5,544,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,60,56"/>
+<area shape="rect" id="Node000002" href="$classBmi088.html#a1fb0001363ca4bb3c4759b577ae76b73" title=" " alt="" coords="108,5,293,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,37,103,30,103,35,61,42"/>
+<area shape="rect" id="Node000004" href="$classBmi088.html#aec6daf19c834fb37386a47062dca5c88" title=" " alt="" coords="122,55,279,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="61,44,109,51,108,57,60,50"/>
+<area shape="rect" id="Node000003" href="$classBmi088.html#a628f535b9131b0d575bfaa39fa4d9127" title=" " alt="" coords="341,5,544,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="294,15,328,15,328,21,294,21"/>
 </map>

@@ -1,7 +1,12 @@
 <map id="data::Frame::insert" name="data::Frame::insert">
-<area shape="rect" id="node1" title="Insert or replace an item." alt="" coords="603,64,748,91"/>
-<area shape="rect" id="node2" href="$classdata_1_1ErrorFrame.html#a3546a5c7f2517c7f25425e29e0f406d4" title="Add an error (LogPacket) to the error frame." alt="" coords="332,5,527,32"/>
-<area shape="rect" id="node4" href="$classdata__middleware_1_1AdcInterpolation.html#acdfd4851787a5f151cba1dc944701f5f" title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated voltage divider v..." alt="" coords="304,57,555,98"/>
-<area shape="rect" id="node5" href="$classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="5,86,256,127"/>
-<area shape="rect" id="node3" href="$test__built__in__self__test_8cpp.html#a0336328ce5514ae62229e5b08221f6c8" title=" " alt="" coords="103,5,158,32"/>
+<area shape="rect" id="Node000001" title="Insert or replace an item." alt="" coords="603,63,748,88"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1ErrorFrame.html#a3546a5c7f2517c7f25425e29e0f406d4" title="Add an error (LogPacket) to the error frame." alt="" coords="332,5,527,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="615,62,554,46,496,33,497,28,555,41,616,56"/>
+<area shape="rect" id="Node000004" href="$classdata__middleware_1_1AdcInterpolation.html#acdfd4851787a5f151cba1dc944701f5f" title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated voltage divider v..." alt="" coords="304,55,555,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="589,78,555,78,555,73,589,73"/>
+<area shape="rect" id="Node000005" href="$classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="5,83,256,123"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="624,95,555,110,478,117,400,120,256,116,256,111,400,115,478,112,554,105,623,90"/>
+<area shape="rect" id="Node000003" href="$test__built__in__self__test_8cpp.html#a0336328ce5514ae62229e5b08221f6c8" title=" " alt="" coords="103,5,158,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="319,21,158,21,158,15,319,15"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="291,91,257,94,256,89,290,86"/>
 </map>

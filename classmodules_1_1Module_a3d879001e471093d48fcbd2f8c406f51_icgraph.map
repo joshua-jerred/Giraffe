@@ -1,9 +1,17 @@
 <map id="modules::Module::runner" name="modules::Module::runner">
-<area shape="rect" id="node1" title="This is the main function for each module." alt="" coords="1021,78,1205,105"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd" title="Starts a thread to run the module." alt="" coords="801,78,973,105"/>
-<area shape="rect" id="node3" href="$classDataModuleTests.html#a7d02b1a250db1859bc9ca5614c1f3c54" title=" " alt="" coords="547,5,753,47"/>
-<area shape="rect" id="node4" href="$classExtensionModuleTests.html#a1f62e5a9bab1aa654364e078e1fd3a05" title=" " alt="" coords="562,71,738,112"/>
-<area shape="rect" id="node5" href="$classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c" title=" " alt="" coords="549,137,751,163"/>
-<area shape="rect" id="node6" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,137,499,163"/>
-<area shape="rect" id="node7" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,137,220,163"/>
+<area shape="rect" id="Node000001" title="This is the main function for each module." alt="" coords="1021,109,1205,134"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd" title="Starts a thread to run the module." alt="" coords="801,109,973,134"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1008,124,974,124,974,119,1008,119"/>
+<area shape="rect" id="Node000003" href="$classDataModuleTests.html#a7d02b1a250db1859bc9ca5614c1f3c54" title=" " alt="" coords="547,5,753,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="849,105,752,60,719,48,721,43,754,55,851,100"/>
+<area shape="rect" id="Node000004" href="$classExtensionModuleTests.html#a1f62e5a9bab1aa654364e078e1fd3a05" title=" " alt="" coords="562,69,738,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="787,111,738,104,739,99,788,105"/>
+<area shape="rect" id="Node000005" href="$classmodules_1_1ConsoleModule.html#aeb11aff5bb3a308c69893d01f6e6f76c" title="The startup function that is called by the base class." alt="" coords="557,133,743,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="788,137,744,143,743,138,788,132"/>
+<area shape="rect" id="Node000006" href="$classFlightRunner.html#aa479b87f758cf8bac5fa323cc282c77c" title=" " alt="" coords="549,198,751,223"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="852,143,806,166,754,188,712,201,711,195,752,183,804,161,850,138"/>
+<area shape="rect" id="Node000007" href="$classFlightRunner.html#ad17d6bcd13dcb824062d97b36ec7fa96" title="Process commands that are sent to the flight runner." alt="" coords="268,198,499,223"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="535,213,499,213,499,208,535,208"/>
+<area shape="rect" id="Node000008" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,198,220,223"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="255,213,220,213,220,208,255,208"/>
 </map>

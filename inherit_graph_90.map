@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classgiraffe_1_1gdl_1_1GdlServer.html" title="The Giraffe Data Link Terminal." alt="" coords="5,5,169,32"/>
+<area shape="rect" id="Node000000" href="$classgiraffe_1_1gdl_1_1IDataLink.html" title="Interface for the Giraffe Data Link." alt="" coords="5,31,168,56"/>
+<area shape="rect" id="Node000001" href="$classMockIDataLink.html" title=" " alt="" coords="236,5,355,31"/>
+<area shape="poly" id="edge35_Node000000_Node000001" title=" " alt="" coords="181,29,236,22,236,28,182,34"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1DataLink.html" title=" " alt="" coords="216,55,375,80"/>
+<area shape="poly" id="edge36_Node000000_Node000002" title=" " alt="" coords="182,52,216,56,215,61,181,57"/>
 </map>

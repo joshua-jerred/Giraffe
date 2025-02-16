@@ -1,6 +1,11 @@
 <map id="extension::Extension::stop" name="extension::Extension::stop">
-<area shape="rect" id="node1" title="Sends a stop signal to the extension." alt="" coords="239,71,397,112"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a1a01dd8128be175c6a3b8ab1bb2c6d0d" title="This will attempt to stop the extension if it is running, but with a configured timeout." alt="" coords="19,5,177,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68" title="Only to be called when an extension is in the Error state. This joins the thread and fixes the status..." alt="" coords="19,71,177,112"/>
-<area shape="rect" id="node4" href="$classExtensionTestFramework.html#aec515812c05baceb06aa344c5edaf971" title=" " alt="" coords="5,136,191,177"/>
+<area shape="rect" id="Node000001" title="Sends a stop signal to the extension." alt="" coords="437,69,596,109"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a1a01dd8128be175c6a3b8ab1bb2c6d0d" title="This will attempt to stop the extension if it is running, but with a configured timeout." alt="" coords="217,5,376,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="433,68,365,48,367,43,435,63"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68" title="Only to be called when an extension is in the Error state. This joins the thread and fixes the status..." alt="" coords="217,69,376,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="423,92,376,92,376,87,423,87"/>
+<area shape="rect" id="Node000005" href="$classExtensionTestFramework.html#aec515812c05baceb06aa344c5edaf971" title=" " alt="" coords="204,133,389,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="435,116,367,136,365,131,433,111"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="5,69,156,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="203,92,156,92,156,87,203,87"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="giraffe::gdl::DataLink" name="giraffe::gdl::DataLink">
-<area shape="rect" id="node1" title=" " alt="" coords="24,248,243,707"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1IDataLink.html" title="Interface for the Giraffe Data Link." alt="" coords="5,5,261,200"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="24,279,235,859"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1IDataLink.html" title="Interface for the Giraffe Data Link." alt="" coords="5,5,253,231"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,245,132,279,127,279,127,245"/>
 </map>

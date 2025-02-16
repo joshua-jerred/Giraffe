@@ -1,6 +1,9 @@
 <map id="extension::Mcp3021" name="extension::Mcp3021">
-<area shape="rect" id="node1" title=" " alt="" coords="167,813,321,935"/>
-<area shape="rect" id="node2" href="$classextension_1_1AdcExtensionBase.html" title=" " alt="" coords="14,585,229,765"/>
-<area shape="rect" id="node3" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,5,237,537"/>
-<area shape="rect" id="node4" href="$classextension_1_1I2cExtensionAdapter.html" title="Adapter for I2C Extensions." alt="" coords="253,600,481,751"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="163,992,309,1117"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1AdcExtensionBase.html" title=" " alt="" coords="14,739,221,944"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,955,204,990,199,993,179,957"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,5,229,691"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="120,704,120,739,115,739,115,704"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1I2cExtensionAdapter.html" title="Adapter for I2C Extensions." alt="" coords="245,759,465,924"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="305,937,273,993,268,990,300,935"/>
 </map>

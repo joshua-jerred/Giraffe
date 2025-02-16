@@ -1,4 +1,5 @@
 <map id="FlightRunner::processCommand" name="FlightRunner::processCommand">
-<area shape="rect" id="node1" title="Process commands that are sent to the flight runner." alt="" coords="268,5,499,32"/>
-<area shape="rect" id="node2" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,5,220,32"/>
+<area shape="rect" id="Node000001" title="Process commands that are sent to the flight runner." alt="" coords="268,5,499,31"/>
+<area shape="rect" id="Node000002" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,5,220,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,21,220,21,220,15,255,15"/>
 </map>

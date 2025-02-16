@@ -1,9 +1,18 @@
 <map id="cfg::Extensions::addExtension" name="cfg::Extensions::addExtension">
-<area shape="rect" id="node1" title="Add an extension to the configuration." alt="" coords="5,42,223,69"/>
-<area shape="rect" id="node2" href="$classcfg_1_1Extensions.html#a10534f2b2b0c2958a7638edfdec7f898" title="Checks if an extension with the given name exists." alt="" coords="271,5,469,47"/>
-<area shape="rect" id="node3" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="291,71,449,98"/>
-<area shape="rect" id="node4" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="517,71,685,98"/>
-<area shape="rect" id="node5" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="944,23,1131,64"/>
-<area shape="rect" id="node6" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="733,71,896,98"/>
-<area shape="rect" id="node7" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="947,97,1127,139"/>
+<area shape="rect" id="Node000001" title="Add an extension to the configuration." alt="" coords="5,42,223,67"/>
+<area shape="rect" id="Node000002" href="$classcfg_1_1Extensions.html#a10534f2b2b0c2958a7638edfdec7f898" title="Checks if an extension with the given name exists." alt="" coords="271,5,469,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,40,257,36,257,41,223,45"/>
+<area shape="rect" id="Node000003" href="$classcfg_1_1CfgSection.html#a3e0d985ac655cf1a00357995f9983942" title="Logs a debug message." alt="" coords="291,70,449,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,64,278,70,277,75,222,69"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="517,70,685,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="449,80,504,80,504,85,449,85"/>
+<area shape="rect" id="Node000005" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="944,7,1131,47"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="627,67,675,47,733,31,834,19,930,18,930,23,834,24,734,36,677,52,629,72"/>
+<area shape="rect" id="Node000006" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="733,70,896,95"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="686,80,720,80,720,85,686,85"/>
+<area shape="rect" id="Node000007" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="947,88,1127,128"/>
+<area shape="poly" id="edge9_Node000004_Node000007" title=" " alt="" coords="656,93,734,105,836,111,934,110,934,116,836,116,733,111,655,98"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="865,67,944,47,945,53,867,73"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="780,72,772,62,776,52,791,46,815,43,844,47,856,56,853,60,842,52,815,49,792,51,780,56,777,61,784,68"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="896,89,934,94,933,99,896,95"/>
 </map>

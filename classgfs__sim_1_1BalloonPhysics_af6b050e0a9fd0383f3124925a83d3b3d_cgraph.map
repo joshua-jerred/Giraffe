@@ -1,6 +1,9 @@
 <map id="gfs_sim::BalloonPhysics::stateDescent" name="gfs_sim::BalloonPhysics::stateDescent">
-<area shape="rect" id="node1" title=" " alt="" coords="5,71,184,112"/>
-<area shape="rect" id="node2" href="$classgfs__sim_1_1BalloonPhysics.html#aabdd9d725af901bdcb61a302330e6ced" title=" " alt="" coords="233,5,411,47"/>
-<area shape="rect" id="node3" href="$classgfs__sim_1_1BalloonPhysics.html#a6b793714900239ce5f4f89295c771671" title=" " alt="" coords="233,71,411,112"/>
-<area shape="rect" id="node4" href="$classgfs__sim_1_1BalloonPhysics.html#ad636cde7b1f43b24ddb3a5f75a8abbf6" title=" " alt="" coords="232,136,412,177"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,184,109"/>
+<area shape="rect" id="Node000002" href="$classgfs__sim_1_1BalloonPhysics.html#aabdd9d725af901bdcb61a302330e6ced" title=" " alt="" coords="233,5,411,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,67,236,47,238,52,167,72"/>
+<area shape="rect" id="Node000003" href="$classgfs__sim_1_1BalloonPhysics.html#a6b793714900239ce5f4f89295c771671" title=" " alt="" coords="233,69,411,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,87,219,87,219,92,184,92"/>
+<area shape="rect" id="Node000004" href="$classgfs__sim_1_1BalloonPhysics.html#ad636cde7b1f43b24ddb3a5f75a8abbf6" title=" " alt="" coords="232,133,412,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="167,107,238,127,236,132,166,112"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="modules::ServerModule::loop" name="modules::ServerModule::loop">
-<area shape="rect" id="node1" title="Loop module function for the server module." alt="" coords="5,39,181,80"/>
-<area shape="rect" id="node2" href="$group__ServerModule.html#ada37dff8b6cad8a7108f02c11544ceb8" title=" " alt="" coords="229,5,396,47"/>
-<area shape="rect" id="node3" href="$group__ServerModule.html#a6fc4ac999c586de6a35105dcbf431c51" title=" " alt="" coords="229,71,396,112"/>
+<area shape="rect" id="Node000001" title="Loop module function for the server module." alt="" coords="5,37,181,77"/>
+<area shape="rect" id="Node000002" href="$group__ServerModule.html#ada37dff8b6cad8a7108f02c11544ceb8" title=" " alt="" coords="229,5,396,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,42,215,37,216,42,182,47"/>
+<area shape="rect" id="Node000003" href="$group__ServerModule.html#a6fc4ac999c586de6a35105dcbf431c51" title=" " alt="" coords="229,69,396,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,68,216,73,215,78,181,73"/>
 </map>

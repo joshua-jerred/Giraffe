@@ -1,6 +1,9 @@
 <map id="data::BaseStreamPacket" name="data::BaseStreamPacket">
-<area shape="rect" id="node1" title=" " alt="" coords="91,145,271,223"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,93,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="128,5,235,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="259,5,317,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="67,133,239,199"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,104,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,70,92,108,102,120,98,124,87,111,65,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="128,5,179,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,71,156,117,151,117,151,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="292,5,372,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="327,72,318,93,305,111,282,129,256,142,254,138,279,124,301,107,314,90,322,70"/>
 </map>

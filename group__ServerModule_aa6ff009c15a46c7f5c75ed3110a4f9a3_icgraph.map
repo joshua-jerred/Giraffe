@@ -1,9 +1,18 @@
 <map id="RequestRouter::sendSuccessResponse" name="RequestRouter::sendSuccessResponse">
-<area shape="rect" id="node1" title="Send a basic success response." alt="" coords="849,100,1059,141"/>
-<area shape="rect" id="node2" href="$group__ServerModule.html#a493ddf0161bba462a169e510c5215990" title="A special handler for updating ADC mapping settings." alt="" coords="587,5,781,47"/>
-<area shape="rect" id="node5" href="$group__ServerModule.html#a4dbd5cc7d2e1fb3091613259f3b843fb" title="Handle bit test set requests." alt="" coords="306,125,494,167"/>
-<area shape="rect" id="node6" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="281,191,519,232"/>
-<area shape="rect" id="node7" href="$group__ServerModule.html#af41f65e7470ab4490dfa655ead0a7f88" title="A special handler for updating extension settings." alt="" coords="567,71,801,112"/>
-<area shape="rect" id="node3" href="$group__ServerModule.html#a1d58bc2e5fc57191959bc60a89b61ec5" title="This function handles a setting SET request. It will attempt to set the configuration with the value ..." alt="" coords="281,74,519,101"/>
-<area shape="rect" id="node4" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,133,233,159"/>
+<area shape="rect" id="Node000001" title="Send a basic success response." alt="" coords="849,99,1059,139"/>
+<area shape="rect" id="Node000002" href="$group__ServerModule.html#a493ddf0161bba462a169e510c5215990" title="A special handler for updating ADC mapping settings." alt="" coords="587,5,781,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="894,96,800,60,762,48,764,43,802,55,895,91"/>
+<area shape="rect" id="Node000005" href="$group__ServerModule.html#a4dbd5cc7d2e1fb3091613259f3b843fb" title="Handle bit test set requests." alt="" coords="306,123,494,163"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="836,126,494,141,494,136,835,121"/>
+<area shape="rect" id="Node000006" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="281,187,519,227"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="836,140,519,191,518,185,835,135"/>
+<area shape="rect" id="Node000007" href="$group__ServerModule.html#af41f65e7470ab4490dfa655ead0a7f88" title="A special handler for updating extension settings." alt="" coords="567,69,801,109"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="836,109,801,105,802,99,836,103"/>
+<area shape="rect" id="Node000003" href="$group__ServerModule.html#a1d58bc2e5fc57191959bc60a89b61ec5" title="This function handles a setting SET request. It will attempt to set the configuration with the value ..." alt="" coords="281,73,519,98"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="576,51,461,75,460,70,575,46"/>
+<area shape="rect" id="Node000004" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,130,233,155"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="324,103,183,133,182,127,323,98"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="292,145,234,145,234,140,292,140"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="298,186,175,158,177,153,299,181"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="553,90,519,90,519,84,553,85"/>
 </map>

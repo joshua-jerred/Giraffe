@@ -1,9 +1,15 @@
 <map id="physical_layer.hpp" name="physical_layer.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="245,5,387,32"/>
-<area shape="rect" id="node2" href="$gdl__config__and__stats_8hpp.html" title=" " alt="" coords="223,80,409,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,168,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="192,155,259,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="283,155,349,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="373,155,437,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="461,155,520,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="245,5,387,31"/>
+<area shape="rect" id="Node000002" href="$gdl__config__and__stats_8hpp.html" title=" " alt="" coords="223,79,409,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="319,31,319,65,313,65,313,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,168,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="280,107,138,150,136,145,278,101"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="192,152,259,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="303,106,253,145,249,141,300,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="283,152,349,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="319,104,319,138,313,138,313,104"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="373,152,437,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="332,102,382,141,378,145,329,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="461,152,520,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="345,102,450,144,448,149,343,106"/>
 </map>

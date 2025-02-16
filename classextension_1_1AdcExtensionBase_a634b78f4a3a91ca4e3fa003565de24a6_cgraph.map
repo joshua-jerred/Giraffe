@@ -1,7 +1,11 @@
 <map id="extension::AdcExtensionBase::loop" name="extension::AdcExtensionBase::loop">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,220,80"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="296,5,455,47"/>
-<area shape="rect" id="node5" href="$classextension_1_1AdcExtensionBase.html#afa31834a33fca121af47e7a61b2e40a1" title=" " alt="" coords="268,71,483,112"/>
-<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="531,5,689,47"/>
-<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="737,13,917,39"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,220,77"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="296,5,455,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,42,282,34,282,39,220,47"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1AdcExtensionBase.html#afa31834a33fca121af47e7a61b2e40a1" title=" " alt="" coords="268,69,483,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="220,68,255,72,254,77,220,73"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="531,5,689,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="455,23,517,23,517,28,455,28"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="737,13,917,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="689,23,724,23,724,28,689,28"/>
 </map>

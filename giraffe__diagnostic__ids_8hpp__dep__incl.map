@@ -1,52 +1,123 @@
 <map id="giraffe_diagnostic_ids.hpp" name="giraffe_diagnostic_ids.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="2287,5,2425,47"/>
-<area shape="rect" id="node2" href="$error__frame_8hpp.html" title="The error frame." alt="" coords="1347,169,1474,196"/>
-<area shape="rect" id="node32" href="$streams_8hpp.html" title="The header file for the data streams." alt="" coords="2063,95,2166,121"/>
-<area shape="rect" id="node40" href="$giraffe__diagnostics_8hpp.html" title="Giraffe&#39;s diagnostic system." alt="" coords="2689,169,2863,196"/>
-<area shape="rect" id="node45" href="$giraffe__exception_8hpp.html" title="Common exception for Giraffe." alt="" coords="3019,95,3181,121"/>
-<area shape="rect" id="node3" href="$error__frame_8cpp.html" title="The implementation of the error frame." alt="" coords="1011,244,1138,271"/>
-<area shape="rect" id="node4" href="$shared__data_8hpp.html" title="Contains the SharedData struct, used across all modules and extensions." alt="" coords="1345,244,1476,271"/>
-<area shape="rect" id="node31" href="$test__error__frame_8cpp.html" title="Test of the error frame." alt="" coords="1162,244,1321,271"/>
-<area shape="rect" id="node5" href="$cfg__section_8hpp.html" title="This file contains the base class for all configuration sections." alt="" coords="738,319,862,345"/>
-<area shape="rect" id="node6" href="$extension__base_8hpp.html" title="The new implementation of the extension system." alt="" coords="887,319,1039,345"/>
-<area shape="rect" id="node7" href="$built__in__test_8hpp.html" title=" " alt="" coords="651,393,781,420"/>
-<area shape="rect" id="node8" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="1704,543,1835,569"/>
-<area shape="rect" id="node10" href="$test__cases_8hpp.html" title=" " alt="" coords="1063,319,1182,345"/>
-<area shape="rect" id="node11" href="$flight__phase__manager_8hpp.html" title=" " alt="" coords="1579,468,1773,495"/>
-<area shape="rect" id="node12" href="$flight__phase__predictor_8hpp.html" title=" " alt="" coords="1579,393,1773,420"/>
-<area shape="rect" id="node13" href="$prediction__parameters_8hpp.html" title=" " alt="" coords="1524,319,1721,345"/>
-<area shape="rect" id="node14" href="$console__pages_8hpp.html" title=" " alt="" coords="133,319,280,345"/>
-<area shape="rect" id="node15" href="$adc__interpolation_8hpp.html" title="ADC Interpolation Utility." alt="" coords="5,393,168,420"/>
-<area shape="rect" id="node16" href="$calculated__data_8hpp.html" title="Calculates new data from the existing data." alt="" coords="379,393,533,420"/>
-<area shape="rect" id="node17" href="$data__formatting_8hpp.html" title="This file contains the DataFormatter class, which is used to format data for the data and log files." alt="" coords="1948,319,2103,345"/>
-<area shape="rect" id="node19" href="$data__log_8hpp.html" title="The data log is responsible for writing data to files and managing the file system." alt="" coords="1936,393,2043,420"/>
-<area shape="rect" id="node20" href="$file__system__manager_8hpp.html" title=" " alt="" coords="856,393,1045,420"/>
-<area shape="rect" id="node21" href="$influxdb_8hpp.html" title=" " alt="" coords="2127,319,2230,345"/>
-<area shape="rect" id="node23" href="$module_8hpp.html" title="The header file for the base module class." alt="" coords="304,319,403,345"/>
-<area shape="rect" id="node24" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="1069,393,1224,420"/>
-<area shape="rect" id="node25" href="$aprs__manager_8hpp.html" title=" " alt="" coords="1249,393,1391,420"/>
-<area shape="rect" id="node26" href="$error__reporter_8hpp.html" title=" " alt="" coords="1416,393,1555,420"/>
-<area shape="rect" id="node27" href="$to__json_8cpp.html" title=" " alt="" coords="427,319,523,345"/>
-<area shape="rect" id="node28" href="$logger_8hpp.html" title="A simple logger class so difference classes have access to the same logger." alt="" coords="1207,319,1297,345"/>
-<area shape="rect" id="node29" href="$shared__data__helpers_8hpp.html" title=" " alt="" coords="2254,319,2439,345"/>
-<area shape="rect" id="node30" href="$test__configuration_8cpp.html" title=" " alt="" coords="547,319,714,345"/>
-<area shape="rect" id="node9" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="2153,617,2273,644"/>
-<area shape="rect" id="node18" href="$data__formatting_8cpp.html" title="Implementation of the DataFormatter class." alt="" coords="2233,393,2388,420"/>
-<area shape="rect" id="node22" href="$influxdb_8cpp.html" title=" " alt="" coords="2696,393,2797,420"/>
-<area shape="rect" id="node33" href="$validation_8hpp.html" title=" " alt="" coords="2057,169,2172,196"/>
-<area shape="rect" id="node36" href="$to__string_8hpp.html" title="Generic to_string functions for a variety of types." alt="" coords="2469,244,2576,271"/>
-<area shape="rect" id="node34" href="$cfg__adcmappings_8cpp.html" title="ADC Mapping configuration section." alt="" coords="1944,244,2107,271"/>
-<area shape="rect" id="node35" href="$cfg__extensions_8cpp.html" title="Implements the extensions section of the configuration." alt="" coords="2131,244,2277,271"/>
-<area shape="rect" id="node37" href="$data__module_8cpp.html" title=" " alt="" coords="2870,319,3005,345"/>
-<area shape="rect" id="node38" href="$to__json_8hpp.html" title="Utility functions for converting data to JSON." alt="" coords="2697,319,2794,345"/>
-<area shape="rect" id="node39" href="$to__string_8cpp.html" title="Generic to_string functions for a variety of types." alt="" coords="2515,319,2621,345"/>
-<area shape="rect" id="node41" href="$i2c__interface_8hpp.html" title="A wrapper around I2C communication." alt="" coords="2995,244,3130,271"/>
-<area shape="rect" id="node42" href="$giraffe__exception_8cpp.html" title=" " alt="" coords="3155,244,3317,271"/>
-<area shape="rect" id="node43" href="$test__diagnostics_8cpp.html" title=" " alt="" coords="2600,244,2755,271"/>
-<area shape="rect" id="node44" href="$test__application__layer_8cpp.html" title=" " alt="" coords="2779,244,2971,271"/>
-<area shape="rect" id="node46" href="$pi__camera_8cpp.html" title="Raspberry Pi Camera Extension." alt="" coords="2887,169,3004,196"/>
-<area shape="rect" id="node47" href="$rgb__status__led_8cpp.html" title="RGB Status LED extension source file." alt="" coords="3028,169,3172,196"/>
-<area shape="rect" id="node48" href="$gpio_8cpp.html" title="GPIO interface source file." alt="" coords="3196,169,3273,196"/>
-<area shape="rect" id="node49" href="$giraffe__file__paths_8cpp.html" title="Common file paths for the C++ portion of Giraffe." alt="" coords="3298,169,3459,196"/>
-<area shape="rect" id="node50" href="$protocol_8cpp.html" title="The C++ implementation of the Giraffe Protocol." alt="" coords="3483,169,3586,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1394,5,1533,45"/>
+<area shape="rect" id="Node000002" href="$error__frame_8hpp.html" title="The error frame." alt="" coords="1095,167,1221,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1394,52,1291,96,1226,134,1175,169,1172,164,1223,130,1289,91,1392,48"/>
+<area shape="rect" id="Node000100" href="$giraffe__diagnostics_8hpp.html" title="Giraffe&#39;s diagnostic system." alt="" coords="1534,167,1707,192"/>
+<area shape="poly" id="edge46_Node000001_Node000100" title=" " alt="" coords="1495,53,1610,164,1607,168,1491,57"/>
+<area shape="rect" id="Node000109" href="$giraffe__exception_8hpp.html" title="Common exception for Giraffe." alt="" coords="1875,93,2038,119"/>
+<area shape="poly" id="edge57_Node000001_Node000109" title=" " alt="" coords="1547,37,1885,91,1885,96,1546,42"/>
+<area shape="rect" id="Node000113" href="$streams_8hpp.html" title="The header file for the data streams." alt="" coords="1303,93,1405,119"/>
+<area shape="poly" id="edge64_Node000001_Node000113" title=" " alt="" coords="1427,56,1372,95,1369,91,1424,51"/>
+<area shape="rect" id="Node000003" href="$error__frame_8cpp.html" title="The implementation of the error frame." alt="" coords="397,240,524,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1081,189,838,210,536,243,525,244,524,239,535,237,837,205,1081,184"/>
+<area shape="rect" id="Node000004" href="$shared__data_8hpp.html" title="Contains the SharedData struct, used across all modules and extensions." alt="" coords="1383,240,1514,265"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="1219,193,1402,237,1401,242,1217,198"/>
+<area shape="rect" id="Node000099" href="$test__error__frame_8cpp.html" title="Test of the error frame." alt="" coords="548,240,707,265"/>
+<area shape="poly" id="edge45_Node000002_Node000099" title=" " alt="" coords="1081,194,707,243,707,238,1081,188"/>
+<area shape="rect" id="Node000005" href="$adc__interpolation_8hpp.html" title="ADC Interpolation Utility." alt="" coords="2071,387,2234,412"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1528,262,1533,263,2009,274,2318,288,2424,298,2458,304,2475,311,2481,326,2475,340,2459,353,2436,364,2375,380,2303,391,2235,397,2234,392,2303,386,2374,375,2434,359,2456,349,2471,337,2476,326,2471,315,2456,309,2424,303,2318,293,2009,280,1533,268,1527,267"/>
+<area shape="rect" id="Node000014" href="$aprs__manager_8hpp.html" title=" " alt="" coords="2365,387,2508,412"/>
+<area shape="poly" id="edge5_Node000004_Node000014" title=" " alt="" coords="1528,262,1533,263,2020,274,2336,288,2445,298,2478,304,2496,311,2502,322,2503,333,2494,354,2476,373,2456,389,2453,384,2472,369,2489,351,2498,332,2497,323,2492,315,2477,309,2444,303,2336,293,2019,279,1533,268,1527,267"/>
+<area shape="rect" id="Node000019" href="$built__in__test_8hpp.html" title=" " alt="" coords="1283,387,1414,412"/>
+<area shape="poly" id="edge6_Node000004_Node000019" title=" " alt="" coords="1418,275,1396,293,1376,315,1359,353,1352,387,1347,386,1354,351,1372,312,1392,289,1415,271"/>
+<area shape="rect" id="Node000009" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="1283,533,1414,559"/>
+<area shape="poly" id="edge26_Node000004_Node000009" title=" " alt="" coords="1528,260,1565,263,2046,274,2358,288,2466,298,2500,304,2517,311,2536,336,2543,362,2539,388,2523,414,2500,429,2462,444,2350,469,2201,490,2028,507,1677,532,1414,545,1414,540,1676,527,2028,502,2200,485,2349,463,2461,439,2497,425,2519,410,2534,386,2538,362,2531,338,2514,315,2498,309,2465,303,2358,293,2046,280,1565,268,1527,265"/>
+<area shape="rect" id="Node000020" href="$calculated__data_8hpp.html" title="Calculates new data from the existing data." alt="" coords="1095,387,1248,412"/>
+<area shape="poly" id="edge8_Node000004_Node000020" title=" " alt="" coords="1370,264,1258,282,1211,297,1193,306,1181,315,1172,332,1169,351,1171,386,1166,387,1163,351,1167,330,1177,312,1190,301,1209,292,1257,277,1369,259"/>
+<area shape="rect" id="Node000022" href="$cfg__section_8hpp.html" title="This file contains the base class for all configuration sections." alt="" coords="1387,313,1511,339"/>
+<area shape="poly" id="edge9_Node000004_Node000022" title=" " alt="" coords="1451,279,1451,313,1446,313,1446,279"/>
+<area shape="rect" id="Node000055" href="$console__pages_8hpp.html" title=" " alt="" coords="1535,313,1682,339"/>
+<area shape="poly" id="edge10_Node000004_Node000055" title=" " alt="" coords="1488,268,1584,311,1581,316,1486,273"/>
+<area shape="rect" id="Node000061" href="$data__formatting_8hpp.html" title="This file contains the DataFormatter class, which is used to format data for the data and log files." alt="" coords="639,313,794,339"/>
+<area shape="poly" id="edge11_Node000004_Node000061" title=" " alt="" coords="1370,263,813,316,794,318,794,313,812,311,1370,258"/>
+<area shape="rect" id="Node000063" href="$data__log_8hpp.html" title="The data log is responsible for writing data to files and managing the file system." alt="" coords="682,387,789,412"/>
+<area shape="poly" id="edge14_Node000004_Node000063" title=" " alt="" coords="1370,256,1273,259,1154,268,1024,286,960,299,897,316,855,332,815,352,753,389,750,384,812,347,853,327,896,311,959,294,1024,281,1153,262,1272,253,1369,251"/>
+<area shape="rect" id="Node000065" href="$error__reporter_8hpp.html" title=" " alt="" coords="477,313,615,339"/>
+<area shape="poly" id="edge15_Node000004_Node000065" title=" " alt="" coords="1370,261,1045,280,837,296,628,316,616,317,615,312,627,311,837,291,1045,275,1369,255"/>
+<area shape="rect" id="Node000066" href="$flight__phase__manager_8hpp.html" title=" " alt="" coords="856,460,1049,485"/>
+<area shape="poly" id="edge23_Node000004_Node000066" title=" " alt="" coords="1370,259,1136,265,843,277,587,294,504,304,478,310,466,315,450,337,443,356,445,373,454,388,470,402,492,414,552,434,625,448,705,458,856,467,856,473,705,463,624,454,550,439,490,419,467,406,450,391,440,374,438,355,445,334,463,311,477,305,503,299,587,289,843,272,1136,260,1370,253"/>
+<area shape="rect" id="Node000027" href="$extension__base_8hpp.html" title="The new implementation of the extension system." alt="" coords="2690,313,2842,339"/>
+<area shape="poly" id="edge18_Node000004_Node000027" title=" " alt="" coords="1528,262,1533,263,1838,284,2075,292,2313,297,2618,311,2690,316,2690,321,2618,316,2313,302,2075,297,1837,290,1532,268,1527,268"/>
+<area shape="rect" id="Node000068" href="$file__system__manager_8hpp.html" title=" " alt="" coords="1559,387,1749,412"/>
+<area shape="poly" id="edge22_Node000004_Node000068" title=" " alt="" coords="1527,265,1632,288,1674,300,1696,312,1703,332,1696,353,1684,372,1669,388,1665,384,1679,369,1692,351,1697,332,1692,315,1672,305,1631,293,1526,271"/>
+<area shape="rect" id="Node000069" href="$flight__phase__predictor_8hpp.html" title=" " alt="" coords="856,387,1049,412"/>
+<area shape="poly" id="edge24_Node000004_Node000069" title=" " alt="" coords="1370,260,1242,266,1097,277,973,294,931,304,909,315,905,323,904,332,910,351,924,369,940,385,937,388,920,373,905,353,898,332,900,321,905,311,929,299,972,289,1096,272,1241,261,1370,254"/>
+<area shape="rect" id="Node000072" href="$influxdb_8hpp.html" title=" " alt="" coords="1923,313,2025,339"/>
+<area shape="poly" id="edge27_Node000004_Node000072" title=" " alt="" coords="1528,262,1533,263,1904,311,1923,314,1922,319,1903,316,1532,268,1527,267"/>
+<area shape="rect" id="Node000074" href="$logger_8hpp.html" title="A simple logger class so difference classes have access to the same logger." alt="" coords="1757,313,1847,339"/>
+<area shape="poly" id="edge28_Node000004_Node000074" title=" " alt="" coords="1519,265,1757,313,1756,318,1518,271"/>
+<area shape="rect" id="Node000075" href="$request__handler_8hpp.html" title="The request handler class header." alt="" coords="1823,387,1978,412"/>
+<area shape="poly" id="edge39_Node000004_Node000075" title=" " alt="" coords="1528,262,1861,311,1877,328,1889,349,1901,386,1896,387,1884,351,1873,331,1858,316,1527,268"/>
+<area shape="rect" id="Node000083" href="$module_8hpp.html" title="The header file for the base module class." alt="" coords="2050,313,2149,339"/>
+<area shape="poly" id="edge36_Node000004_Node000083" title=" " alt="" coords="1528,262,1533,263,1675,277,1786,285,1897,294,2038,311,2050,313,2049,318,2038,316,1896,299,1785,290,1675,282,1532,268,1527,267"/>
+<area shape="rect" id="Node000087" href="$prediction__parameters_8hpp.html" title=" " alt="" coords="919,313,1117,339"/>
+<area shape="poly" id="edge37_Node000004_Node000087" title=" " alt="" coords="1370,270,1088,316,1087,311,1369,264"/>
+<area shape="rect" id="Node000093" href="$shared__data__helpers_8hpp.html" title=" " alt="" coords="216,313,401,339"/>
+<area shape="poly" id="edge40_Node000004_Node000093" title=" " alt="" coords="1370,260,963,280,421,316,402,318,401,312,420,311,963,275,1369,255"/>
+<area shape="rect" id="Node000094" href="$test__cases_8hpp.html" title=" " alt="" coords="1192,313,1311,339"/>
+<area shape="poly" id="edge41_Node000004_Node000094" title=" " alt="" coords="1405,272,1285,316,1283,311,1403,267"/>
+<area shape="rect" id="Node000097" href="$test__configuration_8cpp.html" title=" " alt="" coords="2173,313,2340,339"/>
+<area shape="poly" id="edge43_Node000004_Node000097" title=" " alt="" coords="1528,262,1533,263,1709,279,1847,288,1984,296,2161,311,2173,312,2173,317,2160,316,1984,301,1846,293,1709,284,1532,268,1527,267"/>
+<area shape="rect" id="Node000098" href="$to__json_8cpp.html" title=" " alt="" coords="2365,313,2461,339"/>
+<area shape="poly" id="edge44_Node000004_Node000098" title=" " alt="" coords="1528,262,1533,263,1763,279,1943,283,2123,289,2229,297,2353,311,2365,312,2364,318,2352,316,2228,303,2123,295,1943,288,1763,284,1532,268,1527,267"/>
+<area shape="poly" id="edge7_Node000019_Node000009" title=" " alt="" coords="1351,426,1351,533,1346,533,1346,426"/>
+<area shape="rect" id="Node000062" href="$data__formatting_8cpp.html" title="Implementation of the DataFormatter class." alt="" coords="174,387,329,412"/>
+<area shape="poly" id="edge12_Node000061_Node000062" title=" " alt="" coords="629,343,327,389,326,384,628,338"/>
+<area shape="poly" id="edge13_Node000061_Node000063" title=" " alt="" coords="726,351,735,386,730,387,721,353"/>
+<area shape="poly" id="edge16_Node000065_Node000066" title=" " alt="" coords="571,345,616,379,671,410,717,426,765,440,856,458,855,463,763,445,715,432,669,414,613,383,568,350"/>
+<area shape="poly" id="edge17_Node000066_Node000009" title=" " alt="" coords="1030,485,1285,531,1284,536,1029,490"/>
+<area shape="rect" id="Node000033" href="$bme280_8hpp.html" title="The BME280 sensor extension." alt="" coords="2768,387,2871,412"/>
+<area shape="poly" id="edge19_Node000027_Node000033" title=" " alt="" coords="2785,348,2813,385,2809,388,2781,351"/>
+<area shape="rect" id="Node000045" href="$i2c__extension__adapter_8hpp.html" title="Adapter for I2C Extensions." alt="" coords="2895,387,3091,412"/>
+<area shape="poly" id="edge20_Node000027_Node000045" title=" " alt="" coords="2816,340,2957,384,2955,389,2815,345"/>
+<area shape="rect" id="Node000051" href="$samm8q_8hpp.html" title="SAM&#45;M8Q GPS extension (I2C)." alt="" coords="2637,387,2743,412"/>
+<area shape="poly" id="edge21_Node000027_Node000051" title=" " alt="" coords="2746,350,2704,388,2701,384,2742,346"/>
+<area shape="poly" id="edge25_Node000069_Node000066" title=" " alt="" coords="955,426,955,460,950,460,950,426"/>
+<area shape="poly" id="edge29_Node000074_Node000005" title=" " alt="" coords="1861,337,2097,384,2096,389,1860,342"/>
+<area shape="poly" id="edge30_Node000074_Node000014" title=" " alt="" coords="1861,331,2365,387,2365,393,1861,337"/>
+<area shape="poly" id="edge31_Node000074_Node000019" title=" " alt="" coords="1743,339,1415,390,1414,385,1743,334"/>
+<area shape="poly" id="edge32_Node000074_Node000020" title=" " alt="" coords="1743,337,1272,389,1249,392,1248,387,1271,384,1743,331"/>
+<area shape="poly" id="edge34_Node000074_Node000066" title=" " alt="" coords="1799,353,1787,386,1776,401,1762,414,1722,428,1654,439,1459,456,1238,467,1049,472,1049,467,1237,462,1459,451,1653,434,1721,423,1759,410,1772,398,1782,383,1794,352"/>
+<area shape="poly" id="edge33_Node000074_Node000068" title=" " alt="" coords="1767,347,1679,389,1677,384,1765,342"/>
+<area shape="poly" id="edge35_Node000074_Node000075" title=" " alt="" coords="1830,344,1886,384,1883,389,1827,349"/>
+<area shape="poly" id="edge38_Node000087_Node000069" title=" " alt="" coords="1000,351,965,388,961,385,996,347"/>
+<area shape="poly" id="edge42_Node000094_Node000019" title=" " alt="" coords="1280,345,1334,384,1331,389,1277,349"/>
+<area shape="rect" id="Node000101" href="$giraffe__exception_8cpp.html" title=" " alt="" coords="1589,240,1751,265"/>
+<area shape="poly" id="edge47_Node000100_Node000101" title=" " alt="" coords="1639,202,1664,238,1660,241,1634,205"/>
+<area shape="rect" id="Node000102" href="$i2c__interface_8hpp.html" title="A wrapper around I2C communication." alt="" coords="2925,313,3060,339"/>
+<area shape="poly" id="edge48_Node000100_Node000102" title=" " alt="" coords="1599,203,1586,218,1576,235,1572,250,1579,263,1599,272,1643,279,1787,291,1984,299,2207,304,2854,311,2925,316,2925,321,2854,316,2207,310,1984,305,1787,296,1642,285,1598,277,1575,267,1567,251,1571,233,1581,215,1595,200"/>
+<area shape="rect" id="Node000107" href="$test__application__layer_8cpp.html" title=" " alt="" coords="1775,240,1967,265"/>
+<area shape="poly" id="edge55_Node000100_Node000107" title=" " alt="" coords="1675,193,1831,237,1830,242,1673,198"/>
+<area shape="rect" id="Node000108" href="$test__diagnostics_8cpp.html" title=" " alt="" coords="1991,240,2146,265"/>
+<area shape="poly" id="edge56_Node000100_Node000108" title=" " alt="" coords="1707,192,1997,237,1996,243,1706,197"/>
+<area shape="poly" id="edge49_Node000102_Node000033" title=" " alt="" coords="2953,346,2849,389,2847,384,2951,341"/>
+<area shape="poly" id="edge50_Node000102_Node000045" title=" " alt="" coords="2995,352,2995,387,2990,387,2990,352"/>
+<area shape="poly" id="edge52_Node000102_Node000051" title=" " alt="" coords="2932,344,2740,389,2738,384,2930,339"/>
+<area shape="rect" id="Node000103" href="$i2c__interface_8cpp.html" title="A wrapper around I2C communication." alt="" coords="3446,387,3579,412"/>
+<area shape="poly" id="edge51_Node000102_Node000103" title=" " alt="" coords="3074,335,3434,384,3446,386,3445,391,3434,389,3074,341"/>
+<area shape="rect" id="Node000104" href="$test__interfaces_8cpp.html" title=" " alt="" coords="3115,387,3262,412"/>
+<area shape="poly" id="edge53_Node000102_Node000104" title=" " alt="" coords="3038,341,3158,384,3156,389,3036,346"/>
+<area shape="rect" id="Node000105" href="$ubx__protocol_8hpp.html" title="UBX Protocol implementation header." alt="" coords="3287,387,3421,412"/>
+<area shape="poly" id="edge54_Node000102_Node000105" title=" " alt="" coords="3064,339,3296,384,3295,389,3063,344"/>
+<area shape="poly" id="edge58_Node000109_Node000100" title=" " alt="" coords="1890,124,1676,169,1675,164,1889,119"/>
+<area shape="rect" id="Node000110" href="$giraffe__file__paths_8cpp.html" title="Common file paths for the C++ portion of Giraffe." alt="" coords="1732,167,1893,192"/>
+<area shape="poly" id="edge59_Node000109_Node000110" title=" " alt="" coords="1923,127,1837,169,1835,164,1920,122"/>
+<area shape="rect" id="Node000111" href="$gpio_8cpp.html" title="GPIO interface source file." alt="" coords="1918,167,1995,192"/>
+<area shape="poly" id="edge60_Node000109_Node000111" title=" " alt="" coords="1959,132,1959,167,1954,167,1954,132"/>
+<area shape="rect" id="Node000048" href="$pi__camera_8cpp.html" title="Raspberry Pi Camera Extension." alt="" coords="2019,167,2137,192"/>
+<area shape="poly" id="edge61_Node000109_Node000048" title=" " alt="" coords="1990,123,2059,164,2057,169,1987,128"/>
+<area shape="rect" id="Node000112" href="$protocol_8cpp.html" title="The C++ implementation of the Giraffe Protocol." alt="" coords="2161,167,2264,192"/>
+<area shape="poly" id="edge62_Node000109_Node000112" title=" " alt="" coords="2011,120,2172,164,2171,169,2010,125"/>
+<area shape="rect" id="Node000050" href="$rgb__status__led_8cpp.html" title="RGB Status LED extension source file." alt="" coords="2289,167,2433,192"/>
+<area shape="poly" id="edge63_Node000109_Node000050" title=" " alt="" coords="2035,118,2296,164,2295,169,2034,124"/>
+<area shape="poly" id="edge65_Node000113_Node000002" title=" " alt="" coords="1311,126,1191,169,1189,164,1309,121"/>
+<area shape="poly" id="edge66_Node000113_Node000004" title=" " alt="" coords="1385,125,1407,143,1426,165,1443,204,1450,239,1445,240,1437,206,1421,168,1403,146,1382,129"/>
+<area shape="rect" id="Node000114" href="$to__string_8hpp.html" title="Generic to_string functions for a variety of types." alt="" coords="731,240,838,265"/>
+<area shape="poly" id="edge67_Node000113_Node000114" title=" " alt="" coords="1333,130,1289,164,1234,194,1181,212,1127,226,1017,244,917,253,838,255,838,250,917,248,1017,239,1126,221,1180,207,1232,190,1286,160,1330,126"/>
+<area shape="rect" id="Node000117" href="$validation_8hpp.html" title=" " alt="" coords="1297,167,1411,192"/>
+<area shape="poly" id="edge71_Node000113_Node000117" title=" " alt="" coords="1357,132,1357,167,1351,167,1351,132"/>
+<area shape="poly" id="edge68_Node000114_Node000062" title=" " alt="" coords="719,268,718,268,454,279,292,292,235,302,216,308,205,315,200,323,199,332,207,351,222,369,238,385,235,389,218,373,202,353,194,332,195,321,201,311,214,303,234,297,292,286,454,274,718,263,718,263"/>
+<area shape="poly" id="edge70_Node000114_Node000093" title=" " alt="" coords="719,268,718,268,391,316,391,311,718,263,718,263"/>
+<area shape="rect" id="Node000008" href="$data__module_8cpp.html" title=" " alt="" coords="5,313,140,339"/>
+<area shape="poly" id="edge69_Node000114_Node000008" title=" " alt="" coords="719,268,718,268,562,285,439,294,317,302,160,316,141,318,140,313,159,311,316,296,439,288,561,280,718,263,718,263"/>
 </map>

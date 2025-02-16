@@ -1,13 +1,23 @@
 <map id="positional.cpp" name="positional.cpp">
-<area shape="rect" id="node1" title="Positional data for the flight system (gps/imu data) handling." alt="" coords="530,5,643,32"/>
-<area shape="rect" id="node2" href="$positional_8hpp.html" title="Positional data for the flight system (gps/imu data)" alt="" coords="269,80,384,107"/>
-<area shape="rect" id="node9" href="$giraffe__assert_8hpp.html" title="For absolute failures in the code." alt="" coords="777,80,916,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,72,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="96,155,147,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="171,155,229,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="253,155,400,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="425,155,591,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="616,155,779,181"/>
-<area shape="rect" id="node10" title=" " alt="" coords="803,155,890,181"/>
-<area shape="rect" id="node11" title=" " alt="" coords="915,155,981,181"/>
+<area shape="rect" id="Node000001" title="Positional data for the flight system (gps/imu data) handling." alt="" coords="530,5,643,31"/>
+<area shape="rect" id="Node000002" href="$positional_8hpp.html" title="Positional data for the flight system (gps/imu data)" alt="" coords="269,79,384,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="546,33,383,78,381,72,544,28"/>
+<area shape="rect" id="Node000009" href="$giraffe__assert_8hpp.html" title="For absolute failures in the code." alt="" coords="777,79,916,104"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="629,28,792,72,791,78,628,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,72,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="280,107,86,154,85,149,279,101"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="96,152,147,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="295,107,161,153,159,148,293,101"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="171,152,229,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="308,106,234,147,231,143,305,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="253,152,400,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="329,104,329,138,324,138,324,104"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="425,152,591,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="357,102,467,144,465,149,355,107"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="616,152,779,177"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="385,101,625,147,624,152,384,106"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="803,152,890,177"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="849,104,849,138,844,138,844,104"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="915,152,981,177"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="864,102,922,142,919,146,861,106"/>
 </map>

@@ -1,6 +1,6 @@
 var data__formatting_8hpp =
 [
-    [ "DataFormatter", "classdata__middleware_1_1DataFormatter.html", "classdata__middleware_1_1DataFormatter" ],
+    [ "data_middleware::DataFormatter", "classdata__middleware_1_1DataFormatter.html", "classdata__middleware_1_1DataFormatter" ],
     [ "json", "data__formatting_8hpp.html#a97780203ae592bc5794d097834e8a89b", null ],
     [ "DataFrameComponent", "data__formatting_8hpp.html#a63a3cd96e24ab4ac12de225b6285198f", [
       [ "MODULES_STATUSES", "data__formatting_8hpp.html#a63a3cd96e24ab4ac12de225b6285198faa4f5243ca7799246f861d1d823d2a3cb", null ],

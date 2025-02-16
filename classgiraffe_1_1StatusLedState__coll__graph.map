@@ -1,4 +1,5 @@
 <map id="giraffe::StatusLedState" name="giraffe::StatusLedState">
-<area shape="rect" id="node1" title=" " alt="" coords="5,175,176,355"/>
-<area shape="rect" id="node2" title=" " alt="" coords="25,5,156,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,163,168,368"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="25,5,148,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,71,89,146,84,146,84,71"/>
 </map>

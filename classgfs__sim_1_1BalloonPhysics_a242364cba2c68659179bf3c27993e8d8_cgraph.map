@@ -1,15 +1,34 @@
 <map id="gfs_sim::BalloonPhysics::stateMachine" name="gfs_sim::BalloonPhysics::stateMachine">
-<area shape="rect" id="node1" title=" " alt="" coords="5,169,184,211"/>
-<area shape="rect" id="node2" href="$classgfs__sim_1_1BalloonPhysics.html#a1dc559b4facb82e597e4af3f5b1c1968" title=" " alt="" coords="232,71,411,112"/>
-<area shape="rect" id="node7" href="$classgfs__sim_1_1BalloonPhysics.html#af6b050e0a9fd0383f3124925a83d3b3d" title=" " alt="" coords="232,136,411,177"/>
-<area shape="rect" id="node8" href="$classgfs__sim_1_1BalloonPhysics.html#ad607d67a29e5250131d2c4a35b604ee6" title=" " alt="" coords="232,332,411,373"/>
-<area shape="rect" id="node9" href="$classgfs__sim_1_1BalloonPhysics.html#a62a1d94e39dd51c69e2eae2c37c30967" title=" " alt="" coords="232,201,411,243"/>
-<area shape="rect" id="node11" href="$classgfs__sim_1_1BalloonPhysics.html#a803f6d0ee287028463d00df0ed0bfa5a" title=" " alt="" coords="232,5,411,47"/>
-<area shape="rect" id="node12" href="$classgfs__sim_1_1BalloonPhysics.html#a318667569547ad8d1668bc0bf8e49faa" title=" " alt="" coords="232,267,411,308"/>
-<area shape="rect" id="node3" href="$classgfs__sim_1_1BalloonPhysics.html#aabdd9d725af901bdcb61a302330e6ced" title=" " alt="" coords="479,136,657,177"/>
-<area shape="rect" id="node4" href="$classgfs__sim_1_1BalloonPhysics.html#a6b793714900239ce5f4f89295c771671" title=" " alt="" coords="479,71,657,112"/>
-<area shape="rect" id="node5" href="$classgfs__sim_1_1BalloonPhysics.html#ad636cde7b1f43b24ddb3a5f75a8abbf6" title=" " alt="" coords="478,201,658,243"/>
-<area shape="rect" id="node6" href="$classgfs__sim_1_1BalloonPhysics.html#a7689e5f5bcb82007f89131b6c4fb9b07" title=" " alt="" coords="459,5,677,47"/>
-<area shape="rect" id="node10" href="$classgfs__sim_1_1BalloonPhysics.html#af1282403eca3d3215ec1fb16edd11742" title=" " alt="" coords="479,267,657,308"/>
-<area shape="rect" id="node13" href="$classgfs__sim_1_1BalloonPhysics.html#ae352cef7b58c5ed04d7fb968f1835f40" title=" " alt="" coords="479,332,657,373"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,165,184,205"/>
+<area shape="rect" id="Node000002" href="$classgfs__sim_1_1BalloonPhysics.html#a1dc559b4facb82e597e4af3f5b1c1968" title=" " alt="" coords="232,69,411,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,163,231,119,249,112,251,117,233,124,137,168"/>
+<area shape="rect" id="Node000007" href="$classgfs__sim_1_1BalloonPhysics.html#af6b050e0a9fd0383f3124925a83d3b3d" title=" " alt="" coords="232,133,411,173"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="184,170,218,165,219,170,185,175"/>
+<area shape="rect" id="Node000008" href="$classgfs__sim_1_1BalloonPhysics.html#ad607d67a29e5250131d2c4a35b604ee6" title=" " alt="" coords="232,325,411,365"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="115,204,165,257,198,286,233,311,244,317,242,322,231,316,194,290,161,261,111,208"/>
+<area shape="rect" id="Node000009" href="$classgfs__sim_1_1BalloonPhysics.html#a62a1d94e39dd51c69e2eae2c37c30967" title=" " alt="" coords="232,197,411,237"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="185,195,219,200,218,205,184,201"/>
+<area shape="rect" id="Node000011" href="$classgfs__sim_1_1BalloonPhysics.html#a803f6d0ee287028463d00df0ed0bfa5a" title=" " alt="" coords="232,5,411,45"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="111,163,161,110,194,81,231,55,242,49,244,54,233,60,198,85,165,114,115,167"/>
+<area shape="rect" id="Node000012" href="$classgfs__sim_1_1BalloonPhysics.html#a318667569547ad8d1668bc0bf8e49faa" title=" " alt="" coords="232,261,411,301"/>
+<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="137,203,233,247,251,254,249,259,231,252,135,208"/>
+<area shape="rect" id="Node000003" href="$classgfs__sim_1_1BalloonPhysics.html#aabdd9d725af901bdcb61a302330e6ced" title=" " alt="" coords="479,133,657,173"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="400,107,478,127,477,132,399,112"/>
+<area shape="rect" id="Node000004" href="$classgfs__sim_1_1BalloonPhysics.html#a6b793714900239ce5f4f89295c771671" title=" " alt="" coords="479,69,657,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="411,87,465,87,465,92,411,92"/>
+<area shape="rect" id="Node000005" href="$classgfs__sim_1_1BalloonPhysics.html#ad636cde7b1f43b24ddb3a5f75a8abbf6" title=" " alt="" coords="478,197,658,237"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="392,107,412,119,428,136,437,152,445,168,460,183,469,189,466,193,457,187,441,171,432,155,424,139,409,123,389,112"/>
+<area shape="rect" id="Node000006" href="$classgfs__sim_1_1BalloonPhysics.html#a7689e5f5bcb82007f89131b6c4fb9b07" title=" " alt="" coords="459,5,677,45"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="399,67,477,46,478,51,400,72"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="411,151,465,151,465,156,411,156"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="399,131,477,110,478,115,400,136"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="400,171,478,191,477,196,399,176"/>
+<area shape="poly" id="edge12_Node000009_Node000003" title=" " alt="" coords="399,195,477,174,478,179,400,200"/>
+<area shape="rect" id="Node000010" href="$classgfs__sim_1_1BalloonPhysics.html#af1282403eca3d3215ec1fb16edd11742" title=" " alt="" coords="479,261,657,301"/>
+<area shape="poly" id="edge13_Node000009_Node000010" title=" " alt="" coords="400,235,478,255,477,260,399,240"/>
+<area shape="poly" id="edge15_Node000011_Node000004" title=" " alt="" coords="400,43,478,63,477,68,399,48"/>
+<area shape="poly" id="edge16_Node000011_Node000006" title=" " alt="" coords="411,23,445,23,445,28,411,28"/>
+<area shape="poly" id="edge19_Node000012_Node000005" title=" " alt="" coords="399,259,477,238,478,243,400,264"/>
+<area shape="rect" id="Node000013" href="$classgfs__sim_1_1BalloonPhysics.html#ae352cef7b58c5ed04d7fb968f1835f40" title=" " alt="" coords="479,325,657,365"/>
+<area shape="poly" id="edge18_Node000012_Node000013" title=" " alt="" coords="400,299,478,319,477,324,399,304"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="Bmi088::handshakeAccel" name="Bmi088::handshakeAccel">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,191,32"/>
-<area shape="rect" id="node2" href="$classBmi088.html#a628f535b9131b0d575bfaa39fa4d9127" title=" " alt="" coords="239,5,441,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,191,31"/>
+<area shape="rect" id="Node000002" href="$classBmi088.html#a628f535b9131b0d575bfaa39fa4d9127" title=" " alt="" coords="239,5,441,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,15,225,15,225,21,191,21"/>
 </map>

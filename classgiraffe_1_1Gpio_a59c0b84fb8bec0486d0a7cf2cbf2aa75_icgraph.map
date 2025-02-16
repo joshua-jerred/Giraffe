@@ -1,5 +1,7 @@
 <map id="giraffe::Gpio::setOwner" name="giraffe::Gpio::setOwner">
-<area shape="rect" id="node1" title="A function to set the owner of a pin." alt="" coords="451,13,623,39"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="236,13,403,39"/>
-<area shape="rect" id="node3" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" id="Node000001" title="A function to set the owner of a pin." alt="" coords="451,13,623,38"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c" title="A function to setup a pin for input or output." alt="" coords="236,13,403,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="437,28,403,28,403,23,437,23"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="5,5,188,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
 </map>

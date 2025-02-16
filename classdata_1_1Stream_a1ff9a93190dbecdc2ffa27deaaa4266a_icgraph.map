@@ -1,51 +1,113 @@
 <map id="data::Stream::addPacket" name="data::Stream::addPacket">
-<area shape="rect" id="node1" title=" " alt="" coords="1243,1446,1423,1473"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="1008,1439,1167,1480"/>
-<area shape="rect" id="node17" href="$classextension_1_1Extension.html#ab94ad848063e5b1677ca365e709bd03c" title=" " alt="" coords="980,1948,1195,1989"/>
-<area shape="rect" id="node22" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="741,1271,900,1312"/>
-<area shape="rect" id="node31" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="1008,797,1167,839"/>
-<area shape="rect" id="node48" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="1008,1504,1167,1545"/>
-<area shape="rect" id="node3" href="$classextension_1_1SimCamera.html#a7004e033f46b9491b4c0f3f200bbff74" title=" " alt="" coords="735,1439,906,1480"/>
-<area shape="rect" id="node5" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="462,258,646,285"/>
-<area shape="rect" id="node6" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="479,1196,629,1237"/>
-<area shape="rect" id="node7" href="$classextension_1_1ImuExtensionBase.html#a20dfe1a1df8a3887deb7a64bc38b42e4" title=" " alt="" coords="447,869,661,911"/>
-<area shape="rect" id="node8" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="475,1065,633,1107"/>
-<area shape="rect" id="node9" href="$classextension_1_1SimTemperatureSensor.html#a577e8dc550d5fa6d111b042bce481b0d" title=" " alt="" coords="720,1635,921,1676"/>
-<area shape="rect" id="node10" href="$classextension_1_1SimPressureSensor.html#aaf5a09dba391f216ca5ee5a7890a1e85" title=" " alt="" coords="711,1700,930,1741"/>
-<area shape="rect" id="node11" href="$classextension_1_1SimHumiditySensor.html#a59e5059ebb6e2e81ca3a6ef30a632456" title=" " alt="" coords="709,1817,932,1859"/>
-<area shape="rect" id="node12" href="$classextension_1_1SimGpsSensor.html#a80265d0b8468fc4e90a46409a6178ab2" title=" " alt="" coords="727,1504,915,1545"/>
-<area shape="rect" id="node13" href="$classextension_1_1SimImuSensor.html#a1acef31a7be54226957d58d2f9d174d1" title=" " alt="" coords="727,1569,915,1611"/>
-<area shape="rect" id="node14" href="$classextension_1_1Bme280.html#a216c4ae77daca7a479a9eba281e8dbd4" title="Reads the raw environmental data from the BME280." alt="" coords="732,557,909,599"/>
-<area shape="rect" id="node15" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,1548,399,1589"/>
-<area shape="rect" id="node4" href="$classextension_1_1SimCamera.html#a896be0f89a872ccb371c72bcb81ccff8" title=" " alt="" coords="469,1700,639,1741"/>
-<area shape="rect" id="node16" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,1490,192,1517"/>
-<area shape="rect" id="node18" href="$classextension_1_1SimAdcSensor.html#af57a2ce70d1102f841fc3e595c5e68fb" title=" " alt="" coords="727,2013,914,2055"/>
-<area shape="rect" id="node19" href="$classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42" title=" " alt="" coords="713,1948,928,1989"/>
-<area shape="rect" id="node20" href="$classextension_1_1Mcp3021.html#a51dc6f0aef0765bceaf401578288cd67" title=" " alt="" coords="477,1883,631,1924"/>
-<area shape="rect" id="node21" href="$classextension_1_1Mcp3021.html#a34a36fefe55e92ad7b915f8758f66b9f" title=" " alt="" coords="243,1883,396,1924"/>
-<area shape="rect" id="node23" href="$classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df" title=" " alt="" coords="463,935,645,976"/>
-<area shape="rect" id="node24" href="$classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba" title=" " alt="" coords="477,1000,631,1041"/>
-<area shape="rect" id="node25" href="$classextension_1_1Ds18b20.html#a1106e4fc9a110d11eeb65b7e85ba3d42" title=" " alt="" coords="479,1313,629,1355"/>
-<area shape="rect" id="node26" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="244,1255,395,1296"/>
-<area shape="rect" id="node27" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="475,1131,633,1172"/>
-<area shape="rect" id="node28" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,1483,399,1524"/>
-<area shape="rect" id="node29" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="240,1395,399,1436"/>
-<area shape="rect" id="node30" href="$group__SAMM8QState.html#ga5f1d24365206316560eb6979a46032dd" title=" " alt="" coords="475,1431,633,1472"/>
-<area shape="rect" id="node32" href="$classextension_1_1ImuExtensionBase.html#a5e65e63f1bd7bfd6b47f4a0ecb2f3a4e" title=" " alt="" coords="713,5,928,47"/>
-<area shape="rect" id="node33" href="$classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87" title=" " alt="" coords="742,71,899,112"/>
-<area shape="rect" id="node34" href="$classextension_1_1Bme280.html#a183a1bc26e4ca371d9310c196feccfd1" title="Processes the raw environmental data into known units using the compensation data." alt="" coords="721,343,920,384"/>
-<area shape="rect" id="node35" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="741,752,900,793"/>
-<area shape="rect" id="node43" href="$classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c" title="Starts the extension." alt="" coords="741,136,900,177"/>
-<area shape="rect" id="node45" href="$classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37" title="Sends a stop signal to the extension." alt="" coords="741,201,900,243"/>
-<area shape="rect" id="node36" href="$classextension_1_1Bmi088.html#a21f2e4aca209eb184f28f1897a2d2249" title=" " alt="" coords="478,360,630,401"/>
-<area shape="rect" id="node37" href="$classextension_1_1Bmi088.html#ae48a834e3578a93acef45729a07495f1" title=" " alt="" coords="478,425,630,467"/>
-<area shape="rect" id="node38" href="$classextension_1_1AdcExtensionBase.html#a634b78f4a3a91ca4e3fa003565de24a6" title=" " alt="" coords="447,491,661,532"/>
-<area shape="rect" id="node39" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="463,556,645,597"/>
-<area shape="rect" id="node40" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="476,621,632,663"/>
-<area shape="rect" id="node41" href="$classextension_1_1PiCamera.html#abe7dc219785211e3a0d86a50d481cd41" title=" " alt="" coords="475,687,633,728"/>
-<area shape="rect" id="node42" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="463,752,645,793"/>
-<area shape="rect" id="node44" href="$classExtensionTestFramework.html#aec515812c05baceb06aa344c5edaf971" title=" " alt="" coords="461,61,647,103"/>
-<area shape="rect" id="node46" href="$classextension_1_1Extension.html#a1a01dd8128be175c6a3b8ab1bb2c6d0d" title="This will attempt to stop the extension if it is running, but with a configured timeout." alt="" coords="475,127,633,168"/>
-<area shape="rect" id="node47" href="$classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68" title="Only to be called when an extension is in the Error state. This joins the thread and fixes the status..." alt="" coords="475,192,633,233"/>
-<area shape="rect" id="node49" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="741,1883,900,1924"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1235,903,1415,929"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#aa7ec0098dfde16a54eb616c73ba3046e" title=" " alt="" coords="1000,387,1159,427"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1321,890,1318,804,1312,746,1301,683,1284,618,1260,554,1227,493,1185,441,1157,422,1160,418,1188,437,1232,491,1265,551,1289,616,1306,682,1317,745,1323,803,1327,889"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Extension.html#ab94ad848063e5b1677ca365e709bd03c" title=" " alt="" coords="972,451,1187,491"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1307,892,1089,492,1094,489,1312,890"/>
+<area shape="rect" id="Node000008" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="737,700,896,740"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1277,901,869,742,871,738,1279,896"/>
+<area shape="rect" id="Node000021" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="737,1416,896,1456"/>
+<area shape="poly" id="edge27_Node000001_Node000021" title=" " alt="" coords="1312,942,1261,1030,1176,1155,1122,1223,1062,1290,996,1352,925,1406,897,1421,895,1416,923,1402,993,1348,1058,1286,1118,1220,1171,1152,1256,1027,1308,940"/>
+<area shape="rect" id="Node000022" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="1000,924,1159,964"/>
+<area shape="poly" id="edge28_Node000001_Node000022" title=" " alt="" coords="1221,930,1159,938,1159,932,1221,925"/>
+<area shape="rect" id="Node000043" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="1000,1012,1159,1052"/>
+<area shape="poly" id="edge65_Node000001_Node000043" title=" " alt="" coords="1285,937,1124,1014,1122,1009,1283,932"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1SimAdcSensor.html#af57a2ce70d1102f841fc3e595c5e68fb" title=" " alt="" coords="723,5,910,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="973,443,970,440,952,416,940,391,933,367,931,342,935,295,945,247,956,201,960,154,957,130,951,107,939,83,922,59,909,47,912,43,926,56,944,80,956,105,963,129,965,154,961,201,951,249,940,295,936,342,939,366,945,389,957,413,974,437,977,440"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42" title=" " alt="" coords="709,133,924,173"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="973,444,970,440,949,408,940,375,941,343,945,312,950,280,950,249,942,218,922,187,908,175,912,171,926,184,947,216,956,249,955,281,951,312,946,344,946,375,954,406,974,437,977,440"/>
+<area shape="rect" id="Node000006" href="$classextension_1_1Mcp3021.html#a51dc6f0aef0765bceaf401578288cd67" title=" " alt="" coords="477,172,631,212"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="696,174,631,183,630,178,695,169"/>
+<area shape="rect" id="Node000007" href="$classextension_1_1Mcp3021.html#a34a36fefe55e92ad7b915f8758f66b9f" title=" " alt="" coords="243,172,396,212"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="463,195,396,195,396,189,463,189"/>
+<area shape="poly" id="edge14_Node000008_Node000006" title=" " alt="" coords="807,687,791,610,762,506,719,391,691,335,659,283,624,244,586,214,589,210,628,240,663,280,696,333,724,389,767,504,796,609,812,686"/>
+<area shape="rect" id="Node000009" href="$classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df" title=" " alt="" coords="463,860,645,900"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="789,752,733,802,699,828,663,850,636,862,634,857,660,846,696,823,730,798,785,748"/>
+<area shape="rect" id="Node000010" href="$classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba" title=" " alt="" coords="477,988,631,1028"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="807,754,787,803,757,864,715,925,691,953,663,978,632,995,630,990,660,974,687,950,711,922,752,861,782,801,802,752"/>
+<area shape="rect" id="Node000011" href="$classextension_1_1Ds18b20.html#a1106e4fc9a110d11eeb65b7e85ba3d42" title=" " alt="" coords="479,668,629,708"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="724,711,629,700,630,695,724,706"/>
+<area shape="rect" id="Node000012" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="244,639,395,679"/>
+<area shape="poly" id="edge15_Node000008_Node000012" title=" " alt="" coords="766,696,716,675,661,659,591,649,520,646,395,652,395,647,520,641,592,644,662,653,718,670,768,691"/>
+<area shape="rect" id="Node000013" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="479,796,629,836"/>
+<area shape="poly" id="edge12_Node000008_Node000013" title=" " alt="" coords="759,748,662,787,626,799,624,793,660,781,757,743"/>
+<area shape="rect" id="Node000014" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="475,924,633,964"/>
+<area shape="poly" id="edge13_Node000008_Node000014" title=" " alt="" coords="800,753,777,790,746,834,707,877,663,914,634,929,632,924,660,910,704,873,742,830,773,787,796,750"/>
+<area shape="rect" id="Node000015" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="475,732,633,772"/>
+<area shape="poly" id="edge16_Node000008_Node000015" title=" " alt="" coords="724,734,634,745,633,740,724,729"/>
+<area shape="rect" id="Node000016" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,388,399,428"/>
+<area shape="poly" id="edge17_Node000008_Node000016" title=" " alt="" coords="799,688,778,645,747,594,708,543,660,500,398,431,399,425,663,495,712,539,752,591,783,642,804,686"/>
+<area shape="rect" id="Node000018" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,301,399,341"/>
+<area shape="poly" id="edge19_Node000008_Node000018" title=" " alt="" coords="808,687,795,620,768,535,748,491,724,449,695,411,660,378,630,359,598,344,529,325,461,317,399,317,399,311,461,312,530,320,600,339,633,354,663,374,699,407,728,446,753,489,773,533,800,618,813,686"/>
+<area shape="rect" id="Node000019" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="240,473,399,513"/>
+<area shape="poly" id="edge21_Node000008_Node000019" title=" " alt="" coords="795,689,773,654,742,614,704,575,660,544,595,517,526,501,459,493,399,492,399,486,459,488,527,496,597,512,663,539,707,571,746,610,777,651,800,686"/>
+<area shape="rect" id="Node000020" href="$group__SAMM8QState.html#ga5f1d24365206316560eb6979a46032dd" title=" " alt="" coords="475,388,633,428"/>
+<area shape="poly" id="edge23_Node000008_Node000020" title=" " alt="" coords="803,688,783,636,753,572,712,506,687,476,660,449,630,430,633,426,663,445,691,472,716,503,758,569,788,634,808,686"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="465,680,394,671,395,665,466,674"/>
+<area shape="rect" id="Node000017" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,395,192,421"/>
+<area shape="poly" id="edge18_Node000016_Node000017" title=" " alt="" coords="226,411,192,411,192,405,226,405"/>
+<area shape="poly" id="edge20_Node000018_Node000017" title=" " alt="" coords="256,349,133,398,131,393,254,344"/>
+<area shape="poly" id="edge22_Node000019_Node000017" title=" " alt="" coords="253,471,132,423,134,418,255,466"/>
+<area shape="poly" id="edge24_Node000020_Node000016" title=" " alt="" coords="460,411,399,411,399,405,460,405"/>
+<area shape="poly" id="edge25_Node000020_Node000018" title=" " alt="" coords="485,386,374,344,376,339,487,381"/>
+<area shape="poly" id="edge26_Node000020_Node000019" title=" " alt="" coords="487,435,376,476,374,471,485,430"/>
+<area shape="poly" id="edge31_Node000022_Node000010" title=" " alt="" coords="986,958,631,1001,630,996,986,953"/>
+<area shape="poly" id="edge35_Node000022_Node000013" title=" " alt="" coords="986,924,629,837,630,832,987,919"/>
+<area shape="poly" id="edge36_Node000022_Node000014" title=" " alt="" coords="986,947,633,947,633,941,986,941"/>
+<area shape="poly" id="edge58_Node000022_Node000016" title=" " alt="" coords="1064,912,1019,800,982,727,937,647,882,568,817,493,782,459,744,428,703,401,660,378,624,365,585,358,546,357,507,359,433,372,372,390,371,385,432,367,506,354,546,351,586,353,625,360,662,374,706,397,747,424,785,455,821,490,886,565,941,645,987,724,1024,798,1069,910"/>
+<area shape="poly" id="edge59_Node000022_Node000018" title=" " alt="" coords="1071,911,1058,832,1031,724,1011,666,987,607,957,551,922,499,864,432,809,388,745,358,661,329,593,315,524,309,458,309,399,313,399,308,457,304,524,303,594,309,662,324,748,353,812,384,867,428,926,496,962,548,991,605,1016,664,1036,723,1063,830,1077,910"/>
+<area shape="rect" id="Node000023" href="$classextension_1_1ImuExtensionBase.html#a5e65e63f1bd7bfd6b47f4a0ecb2f3a4e" title=" " alt="" coords="709,1160,924,1200"/>
+<area shape="poly" id="edge29_Node000022_Node000023" title=" " alt="" coords="989,966,974,978,959,998,952,1017,950,1058,949,1100,941,1122,926,1143,900,1162,897,1158,922,1139,936,1119,943,1099,945,1058,947,1016,954,995,970,974,986,962"/>
+<area shape="rect" id="Node000024" href="$classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87" title=" " alt="" coords="738,1224,895,1264"/>
+<area shape="poly" id="edge30_Node000022_Node000024" title=" " alt="" coords="990,965,974,978,955,1007,947,1035,947,1064,951,1094,955,1123,954,1153,946,1183,926,1214,897,1234,894,1229,922,1210,941,1181,949,1153,949,1124,945,1094,941,1065,942,1035,950,1005,970,974,986,961"/>
+<area shape="rect" id="Node000025" href="$classextension_1_1SimCamera.html#a7004e033f46b9491b4c0f3f200bbff74" title=" " alt="" coords="731,1352,902,1392"/>
+<area shape="poly" id="edge32_Node000022_Node000025" title=" " alt="" coords="990,964,974,978,957,1001,946,1023,940,1046,937,1068,941,1113,951,1157,960,1203,964,1248,961,1271,955,1295,943,1318,926,1342,904,1359,901,1355,922,1338,939,1315,950,1293,956,1270,959,1248,955,1203,945,1159,936,1113,932,1068,935,1045,941,1021,953,998,970,974,986,960"/>
+<area shape="rect" id="Node000027" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="462,1666,646,1691"/>
+<area shape="poly" id="edge34_Node000022_Node000027" title=" " alt="" coords="989,967,974,978,962,992,955,1007,951,1038,947,1069,939,1084,926,1099,897,1117,869,1125,840,1125,813,1122,786,1119,760,1121,735,1130,711,1150,700,1168,692,1191,684,1251,684,1323,688,1400,692,1478,692,1551,684,1611,676,1636,663,1655,648,1668,645,1664,659,1652,671,1633,679,1610,687,1550,687,1479,683,1401,678,1323,678,1251,686,1190,695,1166,707,1146,733,1125,759,1115,786,1114,813,1116,841,1119,868,1119,895,1112,922,1095,935,1081,941,1067,946,1037,950,1005,957,990,970,974,986,963"/>
+<area shape="rect" id="Node000028" href="$classextension_1_1Bme280.html#a183a1bc26e4ca371d9310c196feccfd1" title="Processes the raw environmental data into known units using the compensation data." alt="" coords="717,1288,916,1328"/>
+<area shape="poly" id="edge37_Node000022_Node000028" title=" " alt="" coords="989,965,974,978,951,1015,942,1052,944,1088,951,1126,957,1163,959,1201,950,1239,926,1278,912,1290,909,1286,922,1274,945,1237,954,1200,952,1164,945,1126,939,1089,937,1051,946,1013,970,974,986,961"/>
+<area shape="rect" id="Node000029" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="737,1045,896,1085"/>
+<area shape="poly" id="edge39_Node000022_Node000029" title=" " alt="" coords="989,971,973,978,959,989,950,999,940,1010,925,1022,876,1048,874,1043,923,1018,936,1007,946,996,956,985,971,974,986,966"/>
+<area shape="rect" id="Node000038" href="$classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c" title="Starts the extension." alt="" coords="737,69,896,109"/>
+<area shape="poly" id="edge56_Node000022_Node000038" title=" " alt="" coords="1066,911,1021,738,994,622,969,503,963,417,960,305,957,249,950,197,939,154,922,123,910,112,895,104,897,99,913,108,926,120,944,152,955,196,962,248,966,305,968,417,975,502,999,621,1026,736,1071,910"/>
+<area shape="rect" id="Node000040" href="$classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37" title="Sends a stop signal to the extension." alt="" coords="737,197,896,237"/>
+<area shape="poly" id="edge60_Node000022_Node000040" title=" " alt="" coords="1067,911,1024,737,969,503,963,464,962,430,964,370,962,343,956,316,944,288,922,258,895,237,898,233,926,254,948,285,961,314,967,342,969,370,967,430,969,464,975,502,1029,736,1072,910"/>
+<area shape="rect" id="Node000026" href="$classextension_1_1SimCamera.html#a896be0f89a872ccb371c72bcb81ccff8" title=" " alt="" coords="469,1716,639,1756"/>
+<area shape="poly" id="edge33_Node000025_Node000026" title=" " alt="" coords="722,1396,711,1406,688,1443,680,1480,681,1516,688,1554,695,1591,696,1629,688,1667,663,1706,641,1723,638,1719,659,1702,683,1665,691,1628,689,1592,683,1554,676,1517,674,1479,683,1441,707,1402,718,1392"/>
+<area shape="poly" id="edge38_Node000028_Node000027" title=" " alt="" coords="714,1339,711,1342,697,1361,687,1381,679,1419,681,1458,689,1497,697,1536,699,1576,689,1615,679,1635,663,1655,647,1668,644,1664,659,1651,674,1632,685,1614,693,1575,691,1537,684,1498,676,1459,674,1419,682,1379,692,1359,707,1338,710,1335"/>
+<area shape="poly" id="edge41_Node000029_Node000009" title=" " alt="" coords="790,1036,735,974,699,942,660,914,636,903,638,898,663,910,702,938,739,970,794,1033"/>
+<area shape="poly" id="edge42_Node000029_Node000010" title=" " alt="" coords="723,1048,630,1027,632,1022,725,1043"/>
+<area shape="poly" id="edge51_Node000029_Node000012" title=" " alt="" coords="727,1093,711,1106,696,1128,690,1151,692,1197,693,1220,691,1243,682,1265,663,1285,635,1304,607,1318,580,1327,553,1330,527,1327,500,1319,473,1305,445,1285,427,1266,411,1239,384,1170,363,1084,347,989,327,804,319,679,324,679,332,804,352,988,368,1082,389,1168,416,1237,432,1262,448,1281,475,1300,502,1314,528,1322,553,1324,579,1322,605,1313,632,1300,660,1281,678,1262,686,1242,688,1220,686,1197,685,1150,692,1126,707,1102,724,1089"/>
+<area shape="poly" id="edge46_Node000029_Node000013" title=" " alt="" coords="799,1034,777,992,746,942,707,893,660,850,628,834,631,829,663,846,711,889,750,939,781,989,803,1032"/>
+<area shape="poly" id="edge48_Node000029_Node000014" title=" " alt="" coords="772,1040,720,1008,660,978,629,967,631,962,662,974,722,1004,775,1035"/>
+<area shape="poly" id="edge54_Node000029_Node000015" title=" " alt="" coords="804,1033,785,979,756,912,714,844,689,813,660,786,632,770,635,766,663,782,692,810,718,841,760,910,790,977,809,1032"/>
+<area shape="poly" id="edge55_Node000029_Node000019" title=" " alt="" coords="724,1075,645,1077,563,1074,492,1064,464,1054,445,1042,433,1027,424,1008,412,961,407,904,406,842,406,719,404,667,396,627,367,565,334,515,338,512,371,562,401,626,409,667,412,719,411,842,412,904,418,960,429,1007,438,1024,448,1038,467,1050,493,1058,564,1069,645,1071,723,1069"/>
+<area shape="poly" id="edge45_Node000029_Node000027" title=" " alt="" coords="727,1091,711,1106,700,1126,692,1152,684,1218,685,1296,690,1380,695,1464,695,1542,686,1608,677,1634,663,1655,648,1668,645,1664,659,1652,672,1632,681,1606,689,1542,689,1464,685,1380,680,1296,679,1218,687,1151,695,1124,707,1102,724,1087"/>
+<area shape="rect" id="Node000030" href="$classextension_1_1Bmi088.html#a21f2e4aca209eb184f28f1897a2d2249" title=" " alt="" coords="478,1345,630,1385"/>
+<area shape="poly" id="edge40_Node000029_Node000030" title=" " alt="" coords="727,1092,711,1106,693,1133,686,1161,685,1188,688,1215,691,1243,690,1271,682,1299,663,1328,649,1342,632,1351,629,1347,646,1337,659,1325,677,1297,685,1270,686,1243,683,1216,680,1188,680,1160,688,1131,707,1102,724,1088"/>
+<area shape="rect" id="Node000031" href="$classextension_1_1Bmi088.html#ae48a834e3578a93acef45729a07495f1" title=" " alt="" coords="478,1409,630,1449"/>
+<area shape="poly" id="edge43_Node000029_Node000031" title=" " alt="" coords="727,1092,711,1106,689,1143,681,1179,683,1215,689,1251,695,1287,696,1324,687,1361,663,1399,648,1412,631,1421,629,1416,645,1407,659,1396,682,1359,691,1324,690,1288,684,1252,677,1216,676,1179,684,1141,707,1102,723,1088"/>
+<area shape="rect" id="Node000032" href="$classextension_1_1AdcExtensionBase.html#a634b78f4a3a91ca4e3fa003565de24a6" title=" " alt="" coords="447,1473,661,1513"/>
+<area shape="poly" id="edge44_Node000029_Node000032" title=" " alt="" coords="727,1092,711,1106,696,1129,685,1151,677,1196,680,1239,689,1283,698,1327,701,1372,692,1417,680,1440,663,1463,650,1475,646,1471,659,1460,676,1437,687,1415,696,1371,693,1328,684,1284,675,1240,671,1195,680,1149,691,1126,707,1102,723,1088"/>
+<area shape="rect" id="Node000033" href="$classextension_1_1ImuExtensionBase.html#a20dfe1a1df8a3887deb7a64bc38b42e4" title=" " alt="" coords="447,1537,661,1577"/>
+<area shape="poly" id="edge47_Node000029_Node000033" title=" " alt="" coords="727,1091,711,1106,693,1133,681,1160,675,1186,672,1212,677,1264,689,1315,701,1367,706,1419,703,1446,696,1473,683,1500,663,1527,650,1539,646,1535,659,1524,678,1497,691,1471,698,1445,701,1419,696,1368,684,1317,672,1265,667,1212,669,1185,676,1158,689,1130,707,1102,723,1088"/>
+<area shape="rect" id="Node000034" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="463,1601,645,1641"/>
+<area shape="poly" id="edge49_Node000029_Node000034" title=" " alt="" coords="727,1091,711,1106,691,1137,677,1168,670,1198,668,1228,675,1288,690,1347,705,1407,711,1467,708,1498,700,1528,685,1560,663,1591,647,1605,644,1601,659,1588,681,1557,695,1527,703,1497,706,1467,699,1408,685,1349,669,1289,662,1229,665,1198,672,1166,686,1135,707,1102,724,1087"/>
+<area shape="rect" id="Node000035" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="476,1103,632,1143"/>
+<area shape="poly" id="edge50_Node000029_Node000035" title=" " alt="" coords="725,1088,633,1108,632,1103,724,1083"/>
+<area shape="rect" id="Node000036" href="$classextension_1_1PiCamera.html#abe7dc219785211e3a0d86a50d481cd41" title=" " alt="" coords="475,1167,633,1207"/>
+<area shape="poly" id="edge52_Node000029_Node000036" title=" " alt="" coords="735,1093,711,1106,697,1119,688,1131,678,1144,663,1157,634,1171,632,1166,660,1152,674,1140,683,1128,693,1115,708,1102,732,1088"/>
+<area shape="rect" id="Node000037" href="$classextension_1_1RgbStatusLed.html#a1e87d52291490190be9331a3f00be2f6" title=" " alt="" coords="463,1231,645,1271"/>
+<area shape="poly" id="edge53_Node000029_Node000037" title=" " alt="" coords="727,1094,711,1106,700,1120,693,1134,688,1162,683,1191,676,1206,663,1221,646,1233,643,1228,660,1217,671,1203,678,1190,683,1161,688,1132,695,1117,707,1102,723,1090"/>
+<area shape="rect" id="Node000039" href="$classExtensionTestFramework.html#aec515812c05baceb06aa344c5edaf971" title=" " alt="" coords="461,44,647,84"/>
+<area shape="poly" id="edge57_Node000038_Node000039" title=" " alt="" coords="723,83,647,76,647,70,724,78"/>
+<area shape="poly" id="edge64_Node000040_Node000039" title=" " alt="" coords="723,198,708,187,690,165,683,141,676,119,660,98,641,86,644,82,663,94,681,117,688,140,694,162,711,183,726,193"/>
+<area shape="rect" id="Node000041" href="$classextension_1_1Extension.html#a1a01dd8128be175c6a3b8ab1bb2c6d0d" title="This will attempt to stop the extension if it is running, but with a configured timeout." alt="" coords="475,108,633,148"/>
+<area shape="poly" id="edge61_Node000040_Node000041" title=" " alt="" coords="728,195,708,188,660,162,627,151,629,146,662,158,710,183,730,190"/>
+<area shape="rect" id="Node000042" href="$classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68" title="Only to be called when an extension is in the Error state. This joins the thread and fixes the status..." alt="" coords="475,553,633,593"/>
+<area shape="poly" id="edge62_Node000040_Node000042" title=" " alt="" coords="796,251,663,442,574,555,570,552,659,438,792,248"/>
+<area shape="poly" id="edge63_Node000042_Node000012" title=" " alt="" coords="486,600,448,615,376,641,374,636,446,609,484,595"/>
+<area shape="poly" id="edge66_Node000043_Node000008" title=" " alt="" coords="1013,1008,970,978,918,917,875,850,843,788,823,741,828,739,848,785,880,847,922,914,974,974,1016,1004"/>
+<area shape="poly" id="edge67_Node000043_Node000021" title=" " alt="" coords="1062,1066,1019,1146,975,1245,963,1291,960,1331,952,1367,942,1386,926,1406,897,1425,895,1420,922,1402,938,1383,947,1366,955,1330,958,1290,969,1243,1015,1144,1057,1063"/>
+<area shape="poly" id="edge68_Node000043_Node000043" title=" " alt="" coords="1121,1000,1106,993,1079,991,1056,993,1041,997,1036,1003,1039,1011,1034,1012,1031,1002,1038,993,1055,987,1079,985,1108,988,1123,995"/>
 </map>

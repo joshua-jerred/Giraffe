@@ -1,8 +1,9 @@
 <map id="data::toJson" name="data::toJson">
-<area shape="rect" id="node1" title=" " alt="" coords="579,107,677,134"/>
-<area shape="rect" id="node2" href="$classdata__middleware_1_1DataFormatter.html#af6431a6a618bbc711a05acc51a64668d" title=" " alt="" coords="292,67,531,108"/>
-<area shape="rect" id="node5" href="$group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7" title="This function responds to data requests." alt="" coords="311,132,512,173"/>
-<area shape="rect" id="node3" href="$classdata__middleware_1_1DataFormatter.html#ac6bcac38554667fda6dbd2a223e665d2" title=" " alt="" coords="5,5,244,47"/>
-<area shape="rect" id="node4" href="$classdata__middleware_1_1DataFormatter.html#adfed0c82d7965d24db3ef4533d5511d0" title=" " alt="" coords="5,71,244,112"/>
-<area shape="rect" id="node6" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="11,139,239,166"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="579,45,677,70"/>
+<area shape="rect" id="Node000002" href="$classdata__middleware_1_1DataFormatter.html#af6431a6a618bbc711a05acc51a64668d" title=" " alt="" coords="292,37,531,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="565,60,531,60,531,55,565,55"/>
+<area shape="rect" id="Node000003" href="$classdata__middleware_1_1DataFormatter.html#ac6bcac38554667fda6dbd2a223e665d2" title=" " alt="" coords="5,5,244,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="278,45,244,41,244,36,279,40"/>
+<area shape="rect" id="Node000004" href="$classdata__middleware_1_1DataFormatter.html#adfed0c82d7965d24db3ef4533d5511d0" title=" " alt="" coords="5,69,244,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="279,75,244,79,244,73,278,70"/>
 </map>

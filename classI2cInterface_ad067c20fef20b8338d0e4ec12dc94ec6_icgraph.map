@@ -1,21 +1,47 @@
 <map id="I2cInterface::readByteFromReg" name="I2cInterface::readByteFromReg">
-<area shape="rect" id="node1" title="Read a single byte from the device at the specified register." alt="" coords="1341,190,1565,217"/>
-<area shape="rect" id="node2" href="$namespaceubx.html#a138e86b90eb81df7287b0687e2e647fd" title=" " alt="" coords="1139,110,1289,137"/>
-<area shape="rect" id="node13" href="$namespaceubx.html#a269ab03f7fe578994b76b9be220b4fbe" title=" " alt="" coords="936,161,1079,187"/>
-<area shape="rect" id="node15" href="$classextension_1_1Bme280.html#aa77332f6dd634420c9d54f695a5261ce" title="Reads the &#39;ID&#39; register on the BME280, which should return 0x60." alt="" coords="1136,212,1292,253"/>
-<area shape="rect" id="node17" href="$classextension_1_1SamM8q.html#ae0235a4ac72134a1756b97a77888b989" title=" " alt="" coords="1135,277,1293,319"/>
-<area shape="rect" id="node3" href="$namespaceubx.html#a496e6e180876a9a83b2d1751620f6dd5" title=" " alt="" coords="717,122,853,149"/>
-<area shape="rect" id="node10" href="$namespaceubx.html#a38953bf12f38edbcb63bc5a878529d4c" title=" " alt="" coords="941,9,1073,35"/>
-<area shape="rect" id="node11" href="$namespaceubx.html#a5a8edb14df1ca1f59ff23d5c4b8b1f6e" title="Poll a message and read it from the GPS." alt="" coords="717,59,853,86"/>
-<area shape="rect" id="node4" href="$namespaceubx.html#a1fb85f5c220b3095792f3e9495c432b9" title=" " alt="" coords="458,122,630,149"/>
-<area shape="rect" id="node7" href="$namespaceubx.html#a56ec4bce3dc8bf99a601036cda46a9b0" title=" " alt="" coords="447,173,641,199"/>
-<area shape="rect" id="node8" href="$namespaceubx.html#a0a9dbb84c0d3dfd9234df8e6f7e5ad72" title="CFG&#45;MSG (0x06 0x01) Configure Message Rate." alt="" coords="463,223,625,250"/>
-<area shape="rect" id="node9" href="$namespaceubx.html#a6c27feec78affa320dc73abe6c52b8db" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="466,71,622,98"/>
-<area shape="rect" id="node5" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,115,399,156"/>
-<area shape="rect" id="node6" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,122,192,149"/>
-<area shape="rect" id="node12" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="465,5,623,47"/>
-<area shape="rect" id="node14" href="$namespaceubx.html#a3d316505ccc4d2c34426c15c887a369e" title=" " alt="" coords="689,173,880,199"/>
-<area shape="rect" id="node16" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="929,212,1085,253"/>
-<area shape="rect" id="node18" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="928,329,1087,371"/>
-<area shape="rect" id="node19" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="240,227,399,268"/>
+<area shape="rect" id="Node000001" title="Read a single byte from the device at the specified register." alt="" coords="1341,189,1565,214"/>
+<area shape="rect" id="Node000002" href="$namespaceubx.html#a138e86b90eb81df7287b0687e2e647fd" title=" " alt="" coords="1139,109,1289,134"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1401,187,1252,137,1254,132,1402,182"/>
+<area shape="rect" id="Node000013" href="$namespaceubx.html#a269ab03f7fe578994b76b9be220b4fbe" title=" " alt="" coords="936,159,1079,185"/>
+<area shape="poly" id="edge26_Node000001_Node000013" title=" " alt="" coords="1327,196,1079,179,1079,174,1328,190"/>
+<area shape="rect" id="Node000015" href="$classextension_1_1Bme280.html#aa77332f6dd634420c9d54f695a5261ce" title="Reads the &#39;ID&#39; register on the BME280, which should return 0x60." alt="" coords="1136,209,1292,249"/>
+<area shape="poly" id="edge20_Node000001_Node000015" title=" " alt="" coords="1332,218,1292,223,1292,218,1331,213"/>
+<area shape="rect" id="Node000017" href="$classextension_1_1SamM8q.html#ae0235a4ac72134a1756b97a77888b989" title=" " alt="" coords="1135,273,1293,313"/>
+<area shape="poly" id="edge22_Node000001_Node000017" title=" " alt="" coords="1407,222,1268,276,1266,271,1405,217"/>
+<area shape="rect" id="Node000003" href="$namespaceubx.html#a496e6e180876a9a83b2d1751620f6dd5" title=" " alt="" coords="717,119,853,145"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1126,126,853,133,853,128,1126,121"/>
+<area shape="rect" id="Node000010" href="$namespaceubx.html#a38953bf12f38edbcb63bc5a878529d4c" title=" " alt="" coords="941,7,1073,33"/>
+<area shape="poly" id="edge11_Node000002_Node000010" title=" " alt="" coords="1178,104,1086,54,1041,35,1043,30,1088,50,1181,99"/>
+<area shape="rect" id="Node000011" href="$namespaceubx.html#a5a8edb14df1ca1f59ff23d5c4b8b1f6e" title="Poll a message and read it from the GPS." alt="" coords="717,58,853,83"/>
+<area shape="poly" id="edge16_Node000002_Node000011" title=" " alt="" coords="1125,114,852,81,853,76,1126,108"/>
+<area shape="poly" id="edge17_Node000002_Node000013" title=" " alt="" coords="1149,140,1060,162,1059,157,1147,135"/>
+<area shape="rect" id="Node000004" href="$namespaceubx.html#a1fb85f5c220b3095792f3e9495c432b9" title=" " alt="" coords="458,119,630,145"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="703,135,630,135,630,129,703,129"/>
+<area shape="rect" id="Node000007" href="$namespaceubx.html#a56ec4bce3dc8bf99a601036cda46a9b0" title=" " alt="" coords="447,169,641,194"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="709,150,607,171,606,166,708,145"/>
+<area shape="rect" id="Node000008" href="$namespaceubx.html#a0a9dbb84c0d3dfd9234df8e6f7e5ad72" title="CFG&#45;MSG (0x06 0x01) Configure Message Rate." alt="" coords="463,218,625,243"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="705,151,691,158,676,170,668,183,658,196,643,209,617,220,615,216,640,204,654,193,663,180,672,167,688,154,702,146"/>
+<area shape="rect" id="Node000009" href="$namespaceubx.html#a6c27feec78affa320dc73abe6c52b8db" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="466,70,622,95"/>
+<area shape="poly" id="edge9_Node000003_Node000009" title=" " alt="" coords="708,119,606,98,607,93,709,114"/>
+<area shape="rect" id="Node000005" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,112,399,152"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="444,135,399,135,399,129,444,129"/>
+<area shape="rect" id="Node000006" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,119,192,145"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="226,135,192,135,192,129,226,129"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="472,168,398,152,400,147,473,163"/>
+<area shape="poly" id="edge10_Node000009_Node000005" title=" " alt="" coords="473,101,400,117,398,112,472,96"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="938,38,842,61,841,55,937,33"/>
+<area shape="rect" id="Node000012" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="465,5,623,45"/>
+<area shape="poly" id="edge15_Node000010_Node000012" title=" " alt="" coords="927,24,624,27,623,22,927,18"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="703,58,623,43,624,38,704,53"/>
+<area shape="poly" id="edge14_Node000012_Node000006" title=" " alt="" coords="452,50,154,122,152,117,450,45"/>
+<area shape="poly" id="edge18_Node000013_Node000003" title=" " alt="" coords="922,159,852,147,853,142,923,154"/>
+<area shape="rect" id="Node000014" href="$namespaceubx.html#a3d316505ccc4d2c34426c15c887a369e" title=" " alt="" coords="689,169,880,194"/>
+<area shape="poly" id="edge19_Node000013_Node000014" title=" " alt="" coords="922,178,880,180,880,175,922,173"/>
+<area shape="rect" id="Node000016" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="929,209,1085,249"/>
+<area shape="poly" id="edge21_Node000015_Node000016" title=" " alt="" coords="1122,232,1086,232,1086,227,1122,227"/>
+<area shape="rect" id="Node000018" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="928,324,1087,364"/>
+<area shape="poly" id="edge23_Node000017_Node000018" title=" " alt="" coords="1122,319,1087,327,1086,322,1121,313"/>
+<area shape="rect" id="Node000019" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="240,224,399,264"/>
+<area shape="poly" id="edge24_Node000017_Node000019" title=" " alt="" coords="1121,293,821,280,446,259,399,255,399,249,447,253,821,275,1121,288"/>
+<area shape="poly" id="edge25_Node000019_Node000006" title=" " alt="" coords="266,220,124,147,126,142,268,215"/>
 </map>

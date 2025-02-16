@@ -1,6 +1,0 @@
-<map id="giraffe::gdl::IDataLink::getConfig" name="giraffe::gdl::IDataLink::getConfig">
-<area shape="rect" id="node1" title=" " alt="" coords="649,5,812,47"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1AprsManager.html#a6a162f30ddbbc37c18265dd9b9c56072" title="Initializes the APRS Telemetry data from the configuration." alt="" coords="419,5,601,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1AprsManager.html#a733faf5f8cb193988e799bbbfc721173" title="Force a configuration reload." alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1AprsManager.html#ae1043caeea2da6d4da54c9af887dad3a" title="Constructor." alt="" coords="5,5,164,47"/>
-</map>

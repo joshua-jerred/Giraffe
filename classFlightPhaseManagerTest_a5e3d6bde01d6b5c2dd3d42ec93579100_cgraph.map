@@ -1,5 +1,7 @@
 <map id="FlightPhaseManagerTest::dumpDataStream" name="FlightPhaseManagerTest::dumpDataStream">
-<area shape="rect" id="node1" title=" " alt="" coords="5,23,187,65"/>
-<area shape="rect" id="node2" href="$classdata_1_1Stream.html#a0314b3695dc80b18b19be92965777234" title=" " alt="" coords="235,5,412,32"/>
-<area shape="rect" id="node3" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="269,56,377,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,187,63"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Stream.html#a0314b3695dc80b18b19be92965777234" title=" " alt="" coords="235,5,412,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,31,221,27,221,32,187,36"/>
+<area shape="rect" id="Node000003" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="269,55,377,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,50,256,58,255,63,186,56"/>
 </map>

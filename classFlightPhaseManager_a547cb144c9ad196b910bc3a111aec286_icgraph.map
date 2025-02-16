@@ -1,7 +1,12 @@
 <map id="FlightPhaseManager::update" name="FlightPhaseManager::update">
-<area shape="rect" id="node1" title="Update the flight phase manager." alt="" coords="693,27,848,69"/>
-<area shape="rect" id="node2" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="465,5,645,32"/>
-<area shape="rect" id="node3" href="$classFlightPhaseManagerTest.html#adb308f82112e0a026b62fd8a1b1182ac" title=" " alt="" coords="464,57,645,98"/>
-<area shape="rect" id="node4" href="$classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10" title=" " alt="" coords="235,27,416,69"/>
-<area shape="rect" id="node5" href="$classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819" title=" " alt="" coords="5,57,187,98"/>
+<area shape="rect" id="Node000001" title="Update the flight phase manager." alt="" coords="693,27,848,67"/>
+<area shape="rect" id="Node000002" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="465,5,645,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="679,38,645,33,645,28,680,32"/>
+<area shape="rect" id="Node000003" href="$classFlightPhaseManagerTest.html#adb308f82112e0a026b62fd8a1b1182ac" title=" " alt="" coords="464,55,645,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="680,62,646,66,645,61,679,56"/>
+<area shape="rect" id="Node000004" href="$classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10" title=" " alt="" coords="235,26,416,66"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="450,65,416,60,417,55,451,59"/>
+<area shape="rect" id="Node000005" href="$classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819" title=" " alt="" coords="5,55,187,95"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="450,80,416,81,235,81,187,80,187,75,235,75,416,75,450,75"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="221,62,187,66,187,61,221,57"/>
 </map>

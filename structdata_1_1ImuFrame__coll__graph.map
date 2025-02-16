@@ -1,6 +1,9 @@
 <map id="data::ImuFrame" name="data::ImuFrame">
-<area shape="rect" id="node1" title="A frame of +IMU data, straight from an IMU extension." alt="" coords="141,219,267,296"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,72,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="160,5,248,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="272,5,323,83"/>
+<area shape="rect" id="Node000001" title="A frame of +IMU data, straight from an IMU extension." alt="" coords="72,207,189,272"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,85,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,71,61,124,70,154,82,181,89,192,84,195,78,184,65,155,56,126,46,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="109,5,152,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,71,133,190,128,190,128,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="197,5,256,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="229,71,221,126,213,156,200,184,191,196,186,193,195,181,208,154,216,125,223,71"/>
 </map>

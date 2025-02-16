@@ -1,5 +1,7 @@
 <map id="cmd::CommandQueue::addCommand" name="cmd::CommandQueue::addCommand">
-<area shape="rect" id="node1" title="Adds a command to the queue." alt="" coords="549,5,724,47"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a" title="Public wrapper for adding a command to the command queue." alt="" coords="268,13,501,39"/>
-<area shape="rect" id="node3" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,13,220,39"/>
+<area shape="rect" id="Node000001" title="Adds a command to the queue." alt="" coords="549,5,724,45"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1Module.html#ae2b6b4c160ce0df7420e18dd7993c67a" title="Public wrapper for adding a command to the command queue." alt="" coords="268,13,501,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="536,28,502,28,502,23,536,23"/>
+<area shape="rect" id="Node000003" href="$classFlightRunner.html#a6407ba5e7fca2d91a216ab35e58fd7b3" title="Sends a command to the proper module." alt="" coords="5,13,220,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="255,28,220,28,220,23,255,23"/>
 </map>

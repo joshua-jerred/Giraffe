@@ -1,6 +1,10 @@
 <map id="giraffe::file_paths::getFlightSystemAgentLogFilePath" name="giraffe::file_paths::getFlightSystemAgentLogFilePath">
-<area shape="rect" id="node1" title="Get the path to the Flight System Agent log file." alt="" coords="5,35,255,76"/>
-<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" title="Get the path to the Flight System Agent directory." alt="" coords="303,35,525,76"/>
-<area shape="rect" id="node3" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="573,5,779,47"/>
-<area shape="rect" id="node4" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="827,35,1009,76"/>
+<area shape="rect" id="Node000001" title="Get the path to the Flight System Agent log file." alt="" coords="5,35,255,75"/>
+<area shape="rect" id="Node000002" href="$namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" title="Get the path to the Flight System Agent directory." alt="" coords="303,35,525,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,52,289,52,289,57,255,57"/>
+<area shape="rect" id="Node000003" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="573,5,779,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="525,40,559,36,560,41,526,45"/>
+<area shape="rect" id="Node000004" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="827,35,1009,75"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="525,54,573,55,779,55,813,54,813,60,779,60,573,60,525,59"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="779,35,813,39,813,45,779,40"/>
 </map>

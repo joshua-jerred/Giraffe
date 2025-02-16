@@ -1,3 +1,41 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classextension_1_1Bme280.html#structextension_1_1Bme280_1_1CompensationData" title=" " alt="" coords="5,5,161,47"/>
+<area shape="rect" id="Node000000" href="$classextension_1_1Extension.html" title=" " alt="" coords="5,376,164,401"/>
+<area shape="rect" id="Node000001" href="$classextension_1_1AdcExtensionBase.html" title=" " alt="" coords="219,203,433,228"/>
+<area shape="poly" id="edge16_Node000000_Node000001" title=" " alt="" coords="98,363,142,300,174,266,211,238,239,226,241,231,213,243,177,270,146,303,102,366"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Bme280.html" title=" " alt="" coords="252,104,400,129"/>
+<area shape="poly" id="edge18_Node000000_Node000004" title=" " alt="" coords="89,361,103,313,126,253,162,192,184,164,210,140,230,128,251,121,253,126,232,133,214,144,188,168,166,195,131,256,108,315,94,363"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1Ds18b20.html" title=" " alt="" coords="251,153,401,179"/>
+<area shape="poly" id="edge19_Node000000_Node000005" title=" " alt="" coords="93,362,109,323,134,276,168,229,211,189,249,172,251,177,213,194,172,232,139,279,114,325,97,364"/>
+<area shape="rect" id="Node000006" href="$classextension_1_1ImuExtensionBase.html" title=" " alt="" coords="219,55,433,80"/>
+<area shape="poly" id="edge20_Node000000_Node000006" title=" " alt="" coords="86,362,97,304,119,231,135,192,155,154,180,119,210,89,228,78,231,82,214,93,184,123,160,157,140,194,124,232,102,306,92,363"/>
+<area shape="rect" id="Node000008" href="$classextension_1_1PiCamera.html" title="The PiCamera class is a simple extension that wraps around the libcamera&#45;apps executables." alt="" coords="247,252,405,277"/>
+<area shape="poly" id="edge22_Node000000_Node000008" title=" " alt="" coords="106,364,152,325,180,305,211,288,246,275,248,280,213,292,183,309,155,329,110,368"/>
+<area shape="rect" id="Node000009" href="$classextension_1_1RgbStatusLed.html" title="A simple extension to control an RGB status LED." alt="" coords="235,301,417,327"/>
+<area shape="poly" id="edge23_Node000000_Node000009" title=" " alt="" coords="127,368,211,337,259,324,261,329,213,342,128,373"/>
+<area shape="rect" id="Node000010" href="$classextension_1_1SamM8q.html" title=" " alt="" coords="251,351,401,376"/>
+<area shape="poly" id="edge24_Node000000_Node000010" title=" " alt="" coords="177,376,250,369,251,374,178,382"/>
+<area shape="rect" id="Node000011" href="$classextension_1_1SimAdcSensor.html" title="Simulated ADC sensor with battery voltage, battery balance tap voltage, and current sense voltage." alt="" coords="233,400,419,425"/>
+<area shape="poly" id="edge25_Node000000_Node000011" title=" " alt="" coords="178,395,233,401,232,406,177,401"/>
+<area shape="rect" id="Node000012" href="$classextension_1_1SimCamera.html" title=" " alt="" coords="241,449,411,475"/>
+<area shape="poly" id="edge26_Node000000_Node000012" title=" " alt="" coords="128,404,213,435,257,447,256,452,211,441,126,409"/>
+<area shape="rect" id="Node000013" href="$classextension_1_1SimGpsSensor.html" title=" " alt="" coords="232,499,420,524"/>
+<area shape="poly" id="edge27_Node000000_Node000013" title=" " alt="" coords="110,409,155,448,183,468,213,485,244,496,242,501,211,490,180,473,152,453,106,413"/>
+<area shape="rect" id="Node000014" href="$classextension_1_1SimHumiditySensor.html" title=" " alt="" coords="215,548,437,573"/>
+<area shape="poly" id="edge28_Node000000_Node000014" title=" " alt="" coords="102,412,146,474,177,507,213,534,237,545,235,550,211,539,174,511,142,478,98,415"/>
+<area shape="rect" id="Node000015" href="$classextension_1_1SimImuSensor.html" title=" " alt="" coords="232,597,420,623"/>
+<area shape="poly" id="edge29_Node000000_Node000015" title=" " alt="" coords="97,414,114,452,138,499,172,545,214,584,235,595,232,600,210,588,168,549,134,502,109,455,92,416"/>
+<area shape="rect" id="Node000016" href="$classextension_1_1SimPressureSensor.html" title=" " alt="" coords="217,647,435,672"/>
+<area shape="poly" id="edge30_Node000000_Node000016" title=" " alt="" coords="94,414,107,462,131,521,166,582,188,610,214,633,233,644,230,649,210,637,184,613,161,585,126,524,102,463,89,415"/>
+<area shape="rect" id="Node000017" href="$classextension_1_1SimTemperatureSensor.html" title=" " alt="" coords="225,697,427,737"/>
+<area shape="poly" id="edge31_Node000000_Node000017" title=" " alt="" coords="92,415,103,471,125,543,141,581,161,618,185,653,214,683,231,694,228,699,210,687,181,656,157,621,137,583,120,545,98,472,87,416"/>
+<area shape="rect" id="Node000018" href="$classextension_1_1SimTest.html" title=" " alt="" coords="253,761,399,787"/>
+<area shape="poly" id="edge32_Node000000_Node000018" title=" " alt="" coords="90,415,96,482,115,572,131,620,153,667,180,710,214,747,232,759,254,767,252,772,230,764,210,751,176,713,148,669,126,622,110,574,91,483,84,415"/>
+<area shape="rect" id="Node000019" href="$classextension_1_1UnitTestExtension.html" title=" " alt="" coords="221,5,431,31"/>
+<area shape="poly" id="edge33_Node000000_Node000019" title=" " alt="" coords="85,362,92,296,112,209,128,163,149,118,176,76,210,40,228,29,230,33,214,44,181,79,154,120,133,165,117,211,97,297,90,363"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Mcp3021.html" title=" " alt="" coords="488,507,641,532"/>
+<area shape="poly" id="edge17_Node000001_Node000002" title=" " alt="" coords="433,232,442,239,472,269,498,305,518,344,534,383,555,456,564,506,559,507,550,457,529,385,513,346,493,308,468,273,438,243,430,237"/>
+<area shape="rect" id="Node000007" href="$classextension_1_1Bmi088.html" title="The BMI088 extension." alt="" coords="493,55,637,80"/>
+<area shape="poly" id="edge21_Node000006_Node000007" title=" " alt="" coords="447,65,492,65,492,70,447,70"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1I2cExtensionAdapter.html" title="Adapter for I2C Extensions." alt="" coords="212,811,440,836"/>
+<area shape="poly" id="edge34_Node000003_Node000002" title=" " alt="" coords="433,801,438,797,468,767,493,732,514,694,529,655,550,582,559,532,564,533,555,584,534,656,518,696,498,735,473,771,442,801,436,806"/>
 </map>

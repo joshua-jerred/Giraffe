@@ -1,7 +1,11 @@
 <map id="giraffe::gdl::AprsTelemetrySender::sendMetadataStateMachine" name="giraffe::gdl::AprsTelemetrySender::sendMetadataStateMachine">
-<area shape="rect" id="node1" title="Handles sending telemetry metadata. Implemented with a simple state machine." alt="" coords="5,104,263,145"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1IDataLink.html#af8cf0ced48d9bfac0ccfa62ec8f97851" title=" " alt="" coords="339,5,521,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ab6e2dd57089b03593b35f45e0e793944" title=" " alt="" coords="329,71,531,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a0c8e773bdc5042576a072965e5a14f58" title=" " alt="" coords="311,136,549,177"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1IDataLink.html#acf2248a3fda82da2156b1d244b9247de" title=" " alt="" coords="317,201,543,243"/>
+<area shape="rect" id="Node000001" title="Handles sending telemetry metadata. Implemented with a simple state machine." alt="" coords="5,101,263,141"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1IDataLink.html#af8cf0ced48d9bfac0ccfa62ec8f97851" title=" " alt="" coords="339,5,521,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,99,310,55,337,47,338,52,311,60,188,104"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ab6e2dd57089b03593b35f45e0e793944" title=" " alt="" coords="329,69,531,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="262,105,315,99,315,104,263,110"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a0c8e773bdc5042576a072965e5a14f58" title=" " alt="" coords="311,133,549,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="263,133,298,136,297,142,262,138"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1gdl_1_1IDataLink.html#acf2248a3fda82da2156b1d244b9247de" title=" " alt="" coords="317,197,543,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="188,139,311,183,338,191,337,196,310,188,186,144"/>
 </map>

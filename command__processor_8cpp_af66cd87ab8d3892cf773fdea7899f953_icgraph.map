@@ -1,9 +1,19 @@
 <map id="hexStringToUInt32" name="hexStringToUInt32">
-<area shape="rect" id="node1" title="Returns the value of a hex string as a uint32_t." alt="" coords="1073,78,1215,105"/>
-<area shape="rect" id="node2" href="$command__processor_8cpp.html#a9106bfe97edd99b106962339800e17bf" title=" " alt="" coords="821,78,1025,105"/>
-<area shape="rect" id="node3" href="$namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74" title="Parses a command string into a command object." alt="" coords="575,78,773,105"/>
-<area shape="rect" id="node4" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="285,5,523,47"/>
-<area shape="rect" id="node6" href="$classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54" title="Called if there is a message in the receive queue. Pops one message and processes it." alt="" coords="281,71,527,112"/>
-<area shape="rect" id="node7" href="$test__command__processor_8cpp.html#a321fde21744f5adc0361d17f0464c1d7" title=" " alt="" coords="377,137,431,163"/>
-<area shape="rect" id="node5" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,13,233,39"/>
+<area shape="rect" id="Node000001" title="Returns the value of a hex string as a uint32_t." alt="" coords="1073,134,1215,159"/>
+<area shape="rect" id="Node000002" href="$command__processor_8cpp.html#a9106bfe97edd99b106962339800e17bf" title=" " alt="" coords="821,134,1025,159"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1060,149,1025,149,1025,144,1060,144"/>
+<area shape="rect" id="Node000003" href="$namespacecmd.html#a72f52f6e6e21f8264af9efef6b5afb74" title="Parses a command string into a command object." alt="" coords="575,134,773,159"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="808,149,774,149,774,144,808,144"/>
+<area shape="rect" id="Node000004" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="285,5,523,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="643,128,590,93,526,60,493,48,495,43,528,55,593,89,646,124"/>
+<area shape="rect" id="Node000006" href="$classmodules_1_1TelemetryModule.html#a3cdd19ea5e6973673443b847ece36f54" title="Called if there is a message in the receive queue. Pops one message and processes it." alt="" coords="281,69,527,109"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="600,134,498,112,499,107,601,129"/>
+<area shape="rect" id="Node000007" href="$test__command__processor_8cpp.html#a321fde21744f5adc0361d17f0464c1d7" title=" " alt="" coords="377,134,431,159"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="561,149,431,149,431,144,561,144"/>
+<area shape="rect" id="Node000008" href="$test__command__processor_8cpp.html#ac297b2ecb11efe3699001d8d6a172923" title=" " alt="" coords="377,183,431,209"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="591,164,432,194,431,189,590,159"/>
+<area shape="rect" id="Node000009" href="$test__command__processor_8cpp.html#a77da08139304f08c440faba00e9f27d7" title=" " alt="" coords="377,233,431,258"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="641,169,589,196,528,223,477,236,432,245,431,239,476,231,526,217,587,192,639,164"/>
+<area shape="rect" id="Node000005" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,13,233,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="271,28,234,28,234,23,271,23"/>
 </map>

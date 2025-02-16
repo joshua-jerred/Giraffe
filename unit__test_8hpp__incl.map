@@ -1,5 +1,7 @@
 <map id="unit_test.hpp" name="unit_test.hpp">
-<area shape="rect" id="node1" title="Simple wrapper for GTest to get rid of compiler warnings." alt="" coords="85,5,191,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,132,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="157,80,261,107"/>
+<area shape="rect" id="Node000001" title="Simple wrapper for GTest to get rid of compiler warnings." alt="" coords="85,5,191,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,132,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,33,91,71,87,67,125,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="157,79,261,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,29,190,67,186,71,148,33"/>
 </map>

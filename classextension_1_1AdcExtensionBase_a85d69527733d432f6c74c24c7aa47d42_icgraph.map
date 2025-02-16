@@ -1,5 +1,7 @@
 <map id="extension::AdcExtensionBase::reportAdcData" name="extension::AdcExtensionBase::reportAdcData">
-<area shape="rect" id="node1" title=" " alt="" coords="408,5,623,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1Mcp3021.html#a51dc6f0aef0765bceaf401578288cd67" title=" " alt="" coords="207,5,360,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Mcp3021.html#a34a36fefe55e92ad7b915f8758f66b9f" title=" " alt="" coords="5,5,159,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="408,5,623,45"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Mcp3021.html#a51dc6f0aef0765bceaf401578288cd67" title=" " alt="" coords="207,5,360,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="394,28,361,28,361,23,394,23"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Mcp3021.html#a34a36fefe55e92ad7b915f8758f66b9f" title=" " alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>

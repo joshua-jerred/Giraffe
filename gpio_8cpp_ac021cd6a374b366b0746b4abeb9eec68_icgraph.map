@@ -1,0 +1,11 @@
+<map id="calculateAddress" name="calculateAddress">
+<area shape="rect" id="Node000001" title=" " alt="" coords="427,31,560,56"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7" title="Read the value of an input pin." alt="" coords="238,5,377,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="413,35,377,30,377,25,413,30"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef" title="Write a value to an output pin pin (HIGH or LOW)" alt="" coords="236,55,379,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="413,56,379,61,378,56,412,51"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1RgbStatusLed.html#a2ce2c9e71353525a9be567d0de4cbaea" title=" " alt="" coords="5,15,188,55"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="222,57,188,52,189,47,223,52"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="5,79,188,119"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="223,83,189,88,188,83,222,78"/>
+</map>

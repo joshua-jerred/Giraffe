@@ -1,6 +1,9 @@
 <map id="giraffe::gdl::DataLink::disable" name="giraffe::gdl::DataLink::disable">
-<area shape="rect" id="node1" title="Disable the Data Link. Stops the background thread." alt="" coords="5,71,164,112"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a8cd697b9f74bcd17d9a48e259eb7e345" title="Check if the Data Link is enabled." alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="212,71,371,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1DataLink.html#a533c0e638f752a5656734721c7437c2f" title=" " alt="" coords="212,136,371,177"/>
+<area shape="rect" id="Node000001" title="Disable the Data Link. Stops the background thread." alt="" coords="5,69,164,109"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1DataLink.html#a8cd697b9f74bcd17d9a48e259eb7e345" title="Check if the Data Link is enabled." alt="" coords="212,5,371,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,67,213,47,214,52,151,72"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="212,69,371,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,87,198,87,198,92,164,92"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1DataLink.html#a533c0e638f752a5656734721c7437c2f" title=" " alt="" coords="212,133,371,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="151,107,214,127,213,132,149,112"/>
 </map>

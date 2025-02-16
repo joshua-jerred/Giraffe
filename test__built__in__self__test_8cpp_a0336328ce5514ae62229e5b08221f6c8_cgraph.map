@@ -1,10 +1,19 @@
 <map id="TEST" name="TEST">
-<area shape="rect" id="node1" title=" " alt="" coords="5,85,60,112"/>
-<area shape="rect" id="node2" href="$classdata_1_1ErrorFrame.html#a3546a5c7f2517c7f25425e29e0f406d4" title="Add an error (LogPacket) to the error frame." alt="" coords="125,56,319,83"/>
-<area shape="rect" id="node5" href="$namespacebit_1_1test__case.html#a26fa88abc804b5e8c2e4cc9311d13e21" title="Checks if the error frame has any active errors." alt="" coords="108,115,336,141"/>
-<area shape="rect" id="node3" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="424,5,553,32"/>
-<area shape="rect" id="node4" href="$classdata_1_1Frame.html#ae846d0c2d52a509b215edf195036afe6" title="Insert or replace an item." alt="" coords="416,56,561,83"/>
-<area shape="rect" id="node6" href="$classdata_1_1ErrorFrame.html#a5b03f9587cb3e2e2c375c0c8769882fe" title="The number of active errors in the frame." alt="" coords="384,107,593,149"/>
-<area shape="rect" id="node8" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="435,173,543,200"/>
-<area shape="rect" id="node7" href="$classdata_1_1Frame.html#a766a4a84a9a45c065225d1cc92ce7708" title="Returns the total items in the frame." alt="" coords="641,115,776,141"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,63,60,88"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1ErrorFrame.html#a3546a5c7f2517c7f25425e29e0f406d4" title="Add an error (LogPacket) to the error frame." alt="" coords="391,5,586,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,69,378,29,378,34,61,75"/>
+<area shape="rect" id="Node000005" href="$namespacebit_1_1test__case.html#a26fa88abc804b5e8c2e4cc9311d13e21" title="Checks if the error frame has any active errors." alt="" coords="108,88,336,113"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="61,76,114,83,113,89,60,82"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="835,33,1035,73"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="586,25,683,29,787,37,821,41,821,46,786,42,683,35,586,31"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="586,5,683,6,787,13,875,27,874,32,786,18,683,11,586,10"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1Frame.html#ae846d0c2d52a509b215edf195036afe6" title="Insert or replace an item." alt="" coords="641,40,787,65"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="572,28,628,37,628,42,571,33"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="787,50,821,50,821,55,787,55"/>
+<area shape="rect" id="Node000006" href="$classdata_1_1ErrorFrame.html#a5b03f9587cb3e2e2c375c0c8769882fe" title="The number of active errors in the frame." alt="" coords="384,83,593,123"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="336,99,370,99,370,105,336,104"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="593,94,786,75,821,70,821,76,787,81,594,99"/>
+<area shape="rect" id="Node000007" href="$classdata_1_1Frame.html#a766a4a84a9a45c065225d1cc92ce7708" title="Returns the total items in the frame." alt="" coords="647,141,781,167"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="579,121,644,136,643,141,577,126"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="743,139,786,120,878,76,880,81,788,124,745,144"/>
 </map>

@@ -1,6 +1,9 @@
 <map id="giraffe::gdl::DataLink::getTelemetrySenderStatusString" name="giraffe::gdl::DataLink::getTelemetrySenderStatusString">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,245,80"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#ae6f3d9e8ea484b23bae43b3b37785203" title="Convert the status enum to a string for debugging/logging." alt="" coords="297,5,492,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1DataLink.html#a7b97ff2bc7e39126e06bf2ba363244c7" title=" " alt="" coords="293,71,496,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a29be215813c6244eec8306ecf5be3aa3" title="Get the status of the telemetry sender. This is used for monitoring, debugging, and logging,..." alt="" coords="544,71,739,112"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,245,77"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#ae6f3d9e8ea484b23bae43b3b37785203" title="Convert the status enum to a string for debugging/logging." alt="" coords="297,5,492,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,40,283,36,284,41,246,46"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1DataLink.html#a7b97ff2bc7e39126e06bf2ba363244c7" title=" " alt="" coords="293,69,496,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="246,69,280,73,279,78,245,74"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a29be215813c6244eec8306ecf5be3aa3" title="Get the status of the telemetry sender. This is used for monitoring, debugging, and logging,..." alt="" coords="544,69,739,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="496,87,530,87,530,92,496,92"/>
 </map>

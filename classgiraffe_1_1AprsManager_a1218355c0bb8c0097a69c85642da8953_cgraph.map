@@ -1,7 +1,11 @@
 <map id="giraffe::AprsManager::update" name="giraffe::AprsManager::update">
-<area shape="rect" id="node1" title="This method handles everything that needs to be done. It must be called at least at the rate of the c..." alt="" coords="5,39,164,80"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1AprsManager.html#a1b3074d1887afb1740f2b854fc3ad651" title=" " alt="" coords="212,5,412,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1AprsManager.html#aa910a687bb93c714489245c032af2c38" title=" " alt="" coords="227,71,397,112"/>
-<area shape="rect" id="node4" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="460,37,653,79"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a2b28b7da2d067ad3f8886c5c8fafe2ba" title=" " alt="" coords="471,103,642,144"/>
+<area shape="rect" id="Node000001" title="This method handles everything that needs to be done. It must be called at least at the rate of the c..." alt="" coords="5,37,164,77"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1AprsManager.html#a1b3074d1887afb1740f2b854fc3ad651" title=" " alt="" coords="212,5,412,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,44,198,39,199,44,165,49"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1AprsManager.html#aa910a687bb93c714489245c032af2c38" title=" " alt="" coords="227,69,397,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,66,213,73,213,78,164,71"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="460,37,653,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="397,76,446,69,447,74,398,81"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a2b28b7da2d067ad3f8886c5c8fafe2ba" title=" " alt="" coords="471,101,642,141"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="398,98,458,106,457,111,397,103"/>
 </map>

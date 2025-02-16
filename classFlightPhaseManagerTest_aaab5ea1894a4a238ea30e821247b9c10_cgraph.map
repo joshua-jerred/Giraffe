@@ -1,52 +1,123 @@
 <map id="FlightPhaseManagerTest::bringToAscent" name="FlightPhaseManagerTest::bringToAscent">
-<area shape="rect" id="node1" title=" " alt="" coords="5,233,187,275"/>
-<area shape="rect" id="node2" href="$classFlightPhaseManagerTest.html#a9e109b11c6b9fe47b66a5abe660fb142" title=" " alt="" coords="235,175,416,216"/>
-<area shape="rect" id="node3" href="$classFlightPhaseManager.html#af0192410de435610b083e723959fc6d7" title="Get the current flight phase. This is the phase that the entire system will use." alt="" coords="473,5,648,47"/>
-<area shape="rect" id="node4" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="464,71,657,112"/>
-<area shape="rect" id="node13" href="$classdata_1_1Stream.html#aaa0e5928bd6da55201c31dedcd408e19" title=" " alt="" coords="487,238,634,265"/>
-<area shape="rect" id="node15" href="$classFlightPhaseManagerTest.html#a85dcebc22ec4dd5ccd2af1024f302df1" title=" " alt="" coords="470,289,651,331"/>
-<area shape="rect" id="node19" href="$classFlightPhaseManagerTest.html#a64f766e4641cee96151356507554ec5d" title=" " alt="" coords="235,348,416,389"/>
-<area shape="rect" id="node22" href="$classFlightPhaseManagerTest.html#adb308f82112e0a026b62fd8a1b1182ac" title=" " alt="" coords="235,479,416,520"/>
-<area shape="rect" id="node5" href="$classFlightPhaseManager.html#aaeda08c0192943de07649ee8e85fd064" title="Request that the flight phase be changed to launch. Only valid if the current phase is pre&#45;launch." alt="" coords="1002,180,1157,221"/>
-<area shape="rect" id="node14" href="$classFlightPhaseManager.html#a639bfe7ca534d0904f57e4851f766aa2" title="Set the flight phase to pre&#45;launch." alt="" coords="737,121,892,163"/>
-<area shape="rect" id="node6" href="$classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f" title=" " alt="" coords="1261,273,1415,315"/>
-<area shape="rect" id="node7" href="$classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8" title=" " alt="" coords="1743,300,1916,341"/>
-<area shape="rect" id="node9" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="1729,401,1929,427"/>
-<area shape="rect" id="node11" href="$classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233" title=" " alt="" coords="1489,324,1681,365"/>
-<area shape="rect" id="node12" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="1531,441,1639,467"/>
-<area shape="rect" id="node8" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="1977,437,2208,479"/>
-<area shape="rect" id="node10" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="2003,545,2183,587"/>
-<area shape="rect" id="node16" href="$classdata_1_1Stream.html#a0314b3695dc80b18b19be92965777234" title=" " alt="" coords="726,289,903,315"/>
-<area shape="rect" id="node17" href="$classFakeSharedData.html#a78284876d2cf70cf8ab4dc2fa62a5f11" title=" " alt="" coords="705,238,924,265"/>
-<area shape="rect" id="node18" href="$classdata_1_1Stream.html#a1e7307f7c8cbbe4304654a293d86bd9c" title=" " alt="" coords="972,246,1187,273"/>
-<area shape="rect" id="node20" href="$shared__data__helpers_8hpp.html#a847a2771455f903651c1c4fb0d8abd3b" title=" " alt="" coords="467,406,654,433"/>
-<area shape="rect" id="node21" href="$shared__data__helpers_8hpp.html#a3000757af28bab236095e6b1b81106ae" title=" " alt="" coords="475,355,647,382"/>
-<area shape="rect" id="node23" href="$classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286" title="Update the flight phase manager." alt="" coords="483,583,638,624"/>
-<area shape="rect" id="node24" href="$classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d" title=" " alt="" coords="737,485,892,527"/>
-<area shape="rect" id="node34" href="$classFlightPhasePredictor.html#aa56a7eeb78fb0ce2407ea537236bdcd3" title="Get the phase probabilities structure." alt="" coords="735,551,895,592"/>
-<area shape="rect" id="node35" href="$classFlightPhasePredictor.html#a7f865ee9e6f156605ac2d92241ab2b0f" title="Get the predicted flight phase." alt="" coords="737,616,893,657"/>
-<area shape="rect" id="node36" href="$classdata_1_1FlightData.html#a3aaa12475187e63a50a331fe629a52b4" title=" " alt="" coords="717,681,912,723"/>
-<area shape="rect" id="node37" href="$classFlightPhasePredictor.html#a325f1d196644bc5ef1e635ef855f3d87" title="Update the flight phase predictor." alt="" coords="737,747,893,788"/>
-<area shape="rect" id="node25" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="1261,609,1415,635"/>
-<area shape="rect" id="node29" href="$classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1" title=" " alt="" coords="1002,492,1157,533"/>
-<area shape="rect" id="node30" href="$classFlightPhaseManager.html#aaf8eab144ba58f98f7fde9038752ebba" title=" " alt="" coords="979,557,1180,599"/>
-<area shape="rect" id="node26" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="1501,553,1669,579"/>
-<area shape="rect" id="node28" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="1511,607,1660,634"/>
-<area shape="rect" id="node27" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="1748,603,1911,630"/>
-<area shape="rect" id="node31" href="$classdata_1_1ErrorReporter.html#a3358515a710ff6876c2a41dd84413738" title=" " alt="" coords="1265,543,1411,584"/>
-<area shape="rect" id="node32" href="$classdata_1_1ErrorFrame.html#a22f1f4d05d659df20e4cba62fda5846b" title="Returns true if the error is active in the frame." alt="" coords="1490,497,1681,523"/>
-<area shape="rect" id="node33" href="$classdata_1_1Frame.html#a05fa938229ef8080c2d5336f245d8763" title="Returns true if an item is in the frame, false if it is not." alt="" coords="1769,451,1889,478"/>
-<area shape="rect" id="node38" href="$classFlightPhasePredictor.html#a67c51546dbc5964234cd0a4f654693eb" title="Using the probabilities, determine the current flight phase." alt="" coords="1001,681,1157,723"/>
-<area shape="rect" id="node39" href="$classFlightPhasePredictor.html#a279cdca168c55a7a87984270930e773c" title="Process all rule sets of every phase and calculate the probabilities." alt="" coords="1001,747,1157,788"/>
-<area shape="rect" id="node44" href="$classPredictionParameters.html#a653d146841619901d7634f36420ff82c" title="Updates all of the parameters." alt="" coords="999,864,1160,905"/>
-<area shape="rect" id="node40" href="$prediction__model_8cpp.html#ab8ef2fff1f82ac60205ea16e5537774a" title="A function to get the entire rules map." alt="" coords="1258,695,1418,722"/>
-<area shape="rect" id="node41" href="$classFlightPhasePredictor.html#a0e7d6889689ccc30275b9be9b60db30a" title="Get the probability points from a rule set." alt="" coords="1251,747,1425,788"/>
-<area shape="rect" id="node42" href="$classFlightPhasePredictor.html#a4e55b025bca64f4116b1518669d10233" title="Get the probability points from a rule." alt="" coords="1507,747,1663,788"/>
-<area shape="rect" id="node43" href="$classPredictionParameters.html#af92ad5644fdbd46359ca3771cd9f6453" title="Get a parameter by its ID." alt="" coords="1749,747,1910,788"/>
-<area shape="rect" id="node45" href="$classdata_1_1blocks_1_1Block.html#a2237ade9275911c4fd9d0d264accfa7b" title=" " alt="" coords="1251,813,1425,839"/>
-<area shape="rect" id="node46" href="$classdata_1_1FlightData.html#a7a9f92a351f196a88523a992af33bdc6" title="Get the mission clock time in seconds. May be negative or positive. A negative value is in the future..." alt="" coords="1235,864,1441,905"/>
-<area shape="rect" id="node47" href="$classdata_1_1FlightData.html#a768e08b7bfbc117f31838a9220e18ada" title="The number of seconds since the flight runner was started." alt="" coords="1236,929,1440,971"/>
-<area shape="rect" id="node48" href="$classPredictionParameters.html#ade567365801b428c507ec91ee05c89e0" title="Validates, filters, and updates a parameter&#39;s value." alt="" coords="1257,995,1419,1036"/>
-<area shape="rect" id="node49" href="$classPredictionParameters.html#a87733a1be1951e372c291dc4cb130ad4" title="Applies a filter to a parameter. Does not update the parameter. or care if it&#39;s valid." alt="" coords="1505,961,1666,1003"/>
-<area shape="rect" id="node50" href="$classPredictionParameters.html#aabfeefcd2cc0a9cb1e47510d62ffd0f8" title="Validates a parameter." alt="" coords="1505,1027,1666,1068"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,231,187,271"/>
+<area shape="rect" id="Node000002" href="$classFlightPhaseManagerTest.html#a9e109b11c6b9fe47b66a5abe660fb142" title=" " alt="" coords="235,173,416,213"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,228,231,214,232,219,177,233"/>
+<area shape="rect" id="Node000003" href="$classFlightPhaseManager.html#af0192410de435610b083e723959fc6d7" title="Get the current flight phase. This is the phase that the entire system will use." alt="" coords="473,5,648,45"/>
+<area shape="poly" id="edge21_Node000001_Node000003" title=" " alt="" coords="111,229,161,173,196,143,233,116,289,89,348,67,459,38,461,43,349,72,291,94,236,121,199,147,165,177,115,232"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="464,69,657,109"/>
+<area shape="poly" id="edge22_Node000001_Node000004" title=" " alt="" coords="121,228,171,193,234,159,288,139,344,123,450,101,451,106,345,128,289,144,236,164,174,197,124,233"/>
+<area shape="rect" id="Node000013" href="$classdata_1_1Stream.html#aaa0e5928bd6da55201c31dedcd408e19" title=" " alt="" coords="487,235,634,261"/>
+<area shape="poly" id="edge23_Node000001_Node000013" title=" " alt="" coords="187,247,473,246,473,251,187,253"/>
+<area shape="rect" id="Node000015" href="$classFlightPhaseManagerTest.html#a85dcebc22ec4dd5ccd2af1024f302df1" title=" " alt="" coords="470,285,651,325"/>
+<area shape="poly" id="edge71_Node000001_Node000015" title=" " alt="" coords="187,259,457,290,456,296,187,264"/>
+<area shape="rect" id="Node000019" href="$classFlightPhaseManagerTest.html#a64f766e4641cee96151356507554ec5d" title=" " alt="" coords="235,343,416,383"/>
+<area shape="poly" id="edge24_Node000001_Node000019" title=" " alt="" coords="136,268,236,320,267,335,264,339,233,325,133,273"/>
+<area shape="rect" id="Node000022" href="$classFlightPhaseManagerTest.html#adb308f82112e0a026b62fd8a1b1182ac" title=" " alt="" coords="235,479,416,519"/>
+<area shape="poly" id="edge27_Node000001_Node000022" title=" " alt="" coords="118,269,298,467,294,470,114,273"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="340,171,391,114,425,83,463,55,474,49,476,54,465,60,428,87,394,118,344,175"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="366,171,463,126,494,112,496,117,465,130,368,176"/>
+<area shape="rect" id="Node000005" href="$classFlightPhaseManager.html#aaeda08c0192943de07649ee8e85fd064" title="Request that the flight phase be changed to launch. Only valid if the current phase is pre&#45;launch." alt="" coords="1002,140,1157,180"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="416,181,464,177,751,164,988,158,989,164,751,169,464,183,417,186"/>
+<area shape="poly" id="edge13_Node000002_Node000013" title=" " alt="" coords="413,211,493,230,491,235,411,216"/>
+<area shape="rect" id="Node000014" href="$classFlightPhaseManager.html#a639bfe7ca534d0904f57e4851f766aa2" title="Set the flight phase to pre&#45;launch." alt="" coords="737,184,892,224"/>
+<area shape="poly" id="edge14_Node000002_Node000014" title=" " alt="" coords="417,193,724,199,724,205,416,198"/>
+<area shape="poly" id="edge16_Node000002_Node000015" title=" " alt="" coords="359,211,408,240,465,270,485,278,483,283,463,274,406,245,357,216"/>
+<area shape="rect" id="Node000006" href="$classFlightPhaseManager.html#a85ff07e3141863f505d562e7672d995f" title=" " alt="" coords="1261,284,1415,324"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1118,178,1290,275,1288,279,1115,182"/>
+<area shape="rect" id="Node000007" href="$classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8" title=" " alt="" coords="1743,285,1916,325"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1416,300,1489,299,1681,299,1729,300,1729,305,1681,304,1489,304,1416,305"/>
+<area shape="rect" id="Node000009" href="$classdata_1_1DataStream.html#a0eef16fa96084fe72dcc3f3ef8cf0bac" title=" " alt="" coords="1729,378,1929,403"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="1396,322,1442,340,1466,353,1490,363,1547,375,1605,383,1716,390,1715,395,1605,388,1546,380,1489,368,1464,358,1440,345,1394,327"/>
+<area shape="rect" id="Node000011" href="$classdata_1_1FlightData.html#aab39bdf65e13f5c215e7871dae587233" title=" " alt="" coords="1489,313,1681,353"/>
+<area shape="poly" id="edge11_Node000006_Node000011" title=" " alt="" coords="1416,310,1476,318,1475,323,1415,316"/>
+<area shape="rect" id="Node000012" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="1531,439,1639,465"/>
+<area shape="poly" id="edge12_Node000006_Node000012" title=" " alt="" coords="1410,322,1443,341,1459,358,1468,374,1476,391,1491,407,1533,432,1530,436,1488,411,1472,394,1463,377,1455,361,1440,345,1408,326"/>
+<area shape="rect" id="Node000008" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="1977,396,2208,436"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1879,323,2032,388,2030,393,1877,328"/>
+<area shape="poly" id="edge9_Node000009_Node000008" title=" " alt="" coords="1930,398,1964,401,1963,406,1929,403"/>
+<area shape="rect" id="Node000010" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="2003,496,2183,536"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="1858,401,2038,488,2036,492,1856,406"/>
+<area shape="poly" id="edge15_Node000014_Node000006" title=" " alt="" coords="893,216,1248,284,1247,289,892,221"/>
+<area shape="poly" id="edge20_Node000015_Node000012" title=" " alt="" coords="652,322,706,332,939,368,1170,400,1518,442,1517,447,1169,405,939,374,705,337,651,327"/>
+<area shape="rect" id="Node000016" href="$classdata_1_1Stream.html#a0314b3695dc80b18b19be92965777234" title=" " alt="" coords="726,249,903,274"/>
+<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="651,287,727,274,728,279,652,292"/>
+<area shape="rect" id="Node000017" href="$classFakeSharedData.html#a78284876d2cf70cf8ab4dc2fa62a5f11" title=" " alt="" coords="705,298,924,323"/>
+<area shape="poly" id="edge18_Node000015_Node000017" title=" " alt="" coords="652,305,692,305,692,311,652,310"/>
+<area shape="rect" id="Node000018" href="$classdata_1_1Stream.html#a1e7307f7c8cbbe4304654a293d86bd9c" title=" " alt="" coords="972,298,1187,323"/>
+<area shape="poly" id="edge19_Node000017_Node000018" title=" " alt="" coords="924,308,958,308,958,313,924,313"/>
+<area shape="rect" id="Node000020" href="$shared__data__helpers_8hpp.html#a847a2771455f903651c1c4fb0d8abd3b" title=" " alt="" coords="467,350,654,375"/>
+<area shape="poly" id="edge25_Node000019_Node000020" title=" " alt="" coords="417,360,454,360,454,365,417,365"/>
+<area shape="rect" id="Node000021" href="$shared__data__helpers_8hpp.html#a3000757af28bab236095e6b1b81106ae" title=" " alt="" coords="475,399,647,425"/>
+<area shape="poly" id="edge26_Node000019_Node000021" title=" " alt="" coords="417,379,487,394,486,399,416,384"/>
+<area shape="rect" id="Node000023" href="$classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286" title="Update the flight phase manager." alt="" coords="483,589,638,629"/>
+<area shape="poly" id="edge28_Node000022_Node000023" title=" " alt="" coords="370,516,506,581,504,586,368,521"/>
+<area shape="rect" id="Node000024" href="$classFlightPhaseManager.html#a38e97741fd5bdd0b80a3172d3e73322d" title=" " alt="" coords="737,493,892,533"/>
+<area shape="poly" id="edge29_Node000023_Node000024" title=" " alt="" coords="602,587,704,543,727,535,729,540,706,548,604,592"/>
+<area shape="rect" id="Node000035" href="$classFlightPhasePredictor.html#aa56a7eeb78fb0ce2407ea537236bdcd3" title="Get the phase probabilities structure." alt="" coords="735,557,895,597"/>
+<area shape="poly" id="edge54_Node000023_Node000035" title=" " alt="" coords="638,597,721,586,721,592,638,602"/>
+<area shape="rect" id="Node000036" href="$classFlightPhasePredictor.html#a7f865ee9e6f156605ac2d92241ab2b0f" title="Get the predicted flight phase." alt="" coords="737,621,893,661"/>
+<area shape="poly" id="edge55_Node000023_Node000036" title=" " alt="" coords="638,616,724,627,723,633,638,622"/>
+<area shape="rect" id="Node000037" href="$classdata_1_1FlightData.html#a3aaa12475187e63a50a331fe629a52b4" title=" " alt="" coords="717,685,912,725"/>
+<area shape="poly" id="edge56_Node000023_Node000037" title=" " alt="" coords="604,627,706,671,729,679,727,684,704,676,602,632"/>
+<area shape="rect" id="Node000038" href="$classFlightPhasePredictor.html#a325f1d196644bc5ef1e635ef855f3d87" title="Update the flight phase predictor." alt="" coords="737,749,893,789"/>
+<area shape="poly" id="edge57_Node000023_Node000038" title=" " alt="" coords="581,628,634,681,669,710,707,735,725,744,723,749,704,740,666,714,630,685,577,632"/>
+<area shape="poly" id="edge52_Node000024_Node000006" title=" " alt="" coords="858,491,971,442,1268,326,1270,331,973,446,861,496"/>
+<area shape="poly" id="edge53_Node000024_Node000012" title=" " alt="" coords="892,497,972,485,1125,471,1277,461,1518,451,1518,456,1277,467,1125,477,972,491,893,502"/>
+<area shape="poly" id="edge40_Node000024_Node000024" title=" " alt="" coords="768,494,765,484,772,474,789,469,815,467,844,470,860,477,858,482,843,475,815,472,790,474,775,479,770,485,773,492"/>
+<area shape="rect" id="Node000025" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="1261,551,1415,577"/>
+<area shape="poly" id="edge30_Node000024_Node000025" title=" " alt="" coords="894,526,926,543,942,562,949,581,957,599,973,614,1029,636,1053,639,1076,639,1125,630,1186,614,1210,601,1234,587,1260,578,1262,583,1236,592,1212,606,1188,618,1127,635,1077,644,1052,645,1027,641,971,618,952,602,944,583,937,565,922,547,891,531"/>
+<area shape="rect" id="Node000029" href="$classFlightPhaseManager.html#a665ab1eb769c7879dc0529395d8fa9b1" title=" " alt="" coords="1002,500,1157,540"/>
+<area shape="poly" id="edge41_Node000024_Node000029" title=" " alt="" coords="892,513,988,515,988,520,892,518"/>
+<area shape="rect" id="Node000030" href="$classFlightPhaseManager.html#aaf8eab144ba58f98f7fde9038752ebba" title=" " alt="" coords="979,564,1180,604"/>
+<area shape="poly" id="edge44_Node000024_Node000030" title=" " alt="" coords="891,531,991,558,990,563,890,536"/>
+<area shape="rect" id="Node000026" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="1501,553,1669,578"/>
+<area shape="poly" id="edge31_Node000025_Node000026" title=" " alt="" coords="1415,562,1488,562,1488,567,1415,567"/>
+<area shape="rect" id="Node000028" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="1511,503,1660,529"/>
+<area shape="poly" id="edge38_Node000025_Node000028" title=" " alt="" coords="1404,549,1505,529,1506,534,1405,554"/>
+<area shape="poly" id="edge32_Node000026_Node000008" title=" " alt="" coords="1659,550,1680,539,1695,522,1702,503,1710,484,1728,466,1769,449,1827,437,1963,421,1964,426,1828,442,1770,454,1731,470,1715,487,1707,505,1700,525,1683,543,1662,555"/>
+<area shape="poly" id="edge37_Node000026_Node000010" title=" " alt="" coords="1669,559,1792,551,1929,539,1989,531,1989,536,1930,544,1793,556,1670,564"/>
+<area shape="rect" id="Node000027" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="1748,503,1911,529"/>
+<area shape="poly" id="edge33_Node000026_Node000027" title=" " alt="" coords="1648,550,1752,529,1753,534,1649,555"/>
+<area shape="poly" id="edge34_Node000027_Node000008" title=" " alt="" coords="1863,501,2025,438,2027,443,1865,506"/>
+<area shape="poly" id="edge36_Node000027_Node000010" title=" " alt="" coords="1911,513,1989,513,1989,519,1911,519"/>
+<area shape="poly" id="edge35_Node000027_Node000027" title=" " alt="" coords="1790,505,1781,495,1786,485,1802,479,1829,477,1864,481,1873,485,1877,491,1873,494,1870,489,1862,486,1829,482,1803,484,1789,489,1787,494,1794,501"/>
+<area shape="poly" id="edge39_Node000028_Node000027" title=" " alt="" coords="1660,513,1734,513,1734,519,1660,519"/>
+<area shape="poly" id="edge43_Node000029_Node000006" title=" " alt="" coords="1103,498,1185,429,1301,331,1304,335,1188,433,1106,502"/>
+<area shape="poly" id="edge42_Node000029_Node000025" title=" " alt="" coords="1157,530,1250,546,1249,552,1156,536"/>
+<area shape="poly" id="edge51_Node000030_Node000012" title=" " alt="" coords="1148,561,1234,537,1518,465,1519,471,1235,543,1150,567"/>
+<area shape="rect" id="Node000031" href="$classdata_1_1ErrorReporter.html#a3358515a710ff6876c2a41dd84413738" title=" " alt="" coords="1265,601,1411,641"/>
+<area shape="poly" id="edge45_Node000030_Node000031" title=" " alt="" coords="1180,596,1251,606,1250,611,1180,601"/>
+<area shape="poly" id="edge46_Node000031_Node000026" title=" " alt="" coords="1411,602,1515,578,1516,584,1412,607"/>
+<area shape="rect" id="Node000032" href="$classdata_1_1ErrorFrame.html#a22f1f4d05d659df20e4cba62fda5846b" title="Returns true if the error is active in the frame." alt="" coords="1490,609,1681,634"/>
+<area shape="poly" id="edge47_Node000031_Node000032" title=" " alt="" coords="1411,619,1476,619,1476,624,1411,624"/>
+<area shape="rect" id="Node000033" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="1993,625,2193,665"/>
+<area shape="poly" id="edge48_Node000032_Node000033" title=" " alt="" coords="1649,631,1730,643,1859,648,1979,647,1979,653,1859,654,1729,648,1648,637"/>
+<area shape="rect" id="Node000034" href="$classdata_1_1Frame.html#a05fa938229ef8080c2d5336f245d8763" title="Returns true if an item is in the frame, false if it is not." alt="" coords="1769,607,1889,633"/>
+<area shape="poly" id="edge49_Node000032_Node000034" title=" " alt="" coords="1681,618,1756,618,1756,623,1681,623"/>
+<area shape="poly" id="edge50_Node000034_Node000033" title=" " alt="" coords="1890,623,1979,632,1979,637,1890,628"/>
+<area shape="rect" id="Node000039" href="$classFlightPhasePredictor.html#a67c51546dbc5964234cd0a4f654693eb" title="Using the probabilities, determine the current flight phase." alt="" coords="1001,685,1157,725"/>
+<area shape="poly" id="edge58_Node000038_Node000039" title=" " alt="" coords="892,748,987,725,989,730,893,753"/>
+<area shape="rect" id="Node000040" href="$classFlightPhasePredictor.html#a279cdca168c55a7a87984270930e773c" title="Process all rule sets of every phase and calculate the probabilities." alt="" coords="1001,749,1157,789"/>
+<area shape="poly" id="edge59_Node000038_Node000040" title=" " alt="" coords="893,767,988,767,988,772,893,772"/>
+<area shape="rect" id="Node000045" href="$classPredictionParameters.html#a653d146841619901d7634f36420ff82c" title="Updates all of the parameters." alt="" coords="999,888,1160,928"/>
+<area shape="poly" id="edge63_Node000038_Node000045" title=" " alt="" coords="855,787,1029,879,1026,884,853,792"/>
+<area shape="rect" id="Node000041" href="$prediction__model_8cpp.html#acb3a43c225094a4d4f96bb6355385eb7" title="A function to get the entire rules map." alt="" coords="1258,699,1418,725"/>
+<area shape="poly" id="edge60_Node000040_Node000041" title=" " alt="" coords="1157,750,1266,725,1267,730,1158,755"/>
+<area shape="rect" id="Node000042" href="$classFlightPhasePredictor.html#a0e7d6889689ccc30275b9be9b60db30a" title="Get the probability points from a rule set." alt="" coords="1251,749,1425,789"/>
+<area shape="poly" id="edge61_Node000040_Node000042" title=" " alt="" coords="1157,767,1237,767,1237,772,1157,772"/>
+<area shape="rect" id="Node000043" href="$classFlightPhasePredictor.html#a4e55b025bca64f4116b1518669d10233" title="Get the probability points from a rule." alt="" coords="1507,749,1663,789"/>
+<area shape="poly" id="edge62_Node000042_Node000043" title=" " alt="" coords="1426,767,1493,767,1493,772,1426,772"/>
+<area shape="rect" id="Node000046" href="$classdata_1_1blocks_1_1Block.html#a2237ade9275911c4fd9d0d264accfa7b" title=" " alt="" coords="1251,838,1425,863"/>
+<area shape="poly" id="edge64_Node000045_Node000046" title=" " alt="" coords="1160,888,1266,864,1267,869,1161,893"/>
+<area shape="rect" id="Node000047" href="$classdata_1_1FlightData.html#a7a9f92a351f196a88523a992af33bdc6" title="Get the mission clock time in seconds. May be negative or positive. A negative value is in the future..." alt="" coords="1235,888,1441,928"/>
+<area shape="poly" id="edge66_Node000045_Node000047" title=" " alt="" coords="1160,905,1221,905,1221,911,1160,911"/>
+<area shape="rect" id="Node000048" href="$classdata_1_1FlightData.html#a768e08b7bfbc117f31838a9220e18ada" title="The number of seconds since the flight runner was started." alt="" coords="1236,952,1440,992"/>
+<area shape="poly" id="edge67_Node000045_Node000048" title=" " alt="" coords="1161,925,1244,946,1242,951,1160,930"/>
+<area shape="rect" id="Node000049" href="$classPredictionParameters.html#ade567365801b428c507ec91ee05c89e0" title="Validates, filters, and updates a parameter&#39;s value." alt="" coords="1257,1016,1419,1056"/>
+<area shape="poly" id="edge68_Node000045_Node000049" title=" " alt="" coords="1110,926,1167,964,1236,1002,1253,1009,1251,1014,1234,1006,1164,968,1107,931"/>
+<area shape="poly" id="edge65_Node000046_Node000046" title=" " alt="" coords="1298,840,1290,830,1294,820,1311,814,1338,811,1373,815,1383,820,1386,826,1382,829,1379,824,1371,820,1338,817,1312,819,1298,824,1295,829,1302,836"/>
+<area shape="rect" id="Node000050" href="$classPredictionParameters.html#a87733a1be1951e372c291dc4cb130ad4" title="Applies a filter to a parameter. Does not update the parameter. or care if it&#39;s valid." alt="" coords="1505,984,1666,1024"/>
+<area shape="poly" id="edge69_Node000049_Node000050" title=" " alt="" coords="1418,1023,1490,1014,1491,1019,1419,1028"/>
+<area shape="rect" id="Node000051" href="$classPredictionParameters.html#aabfeefcd2cc0a9cb1e47510d62ffd0f8" title="Validates a parameter." alt="" coords="1505,1048,1666,1088"/>
+<area shape="poly" id="edge70_Node000049_Node000051" title=" " alt="" coords="1419,1044,1491,1053,1490,1058,1418,1049"/>
 </map>

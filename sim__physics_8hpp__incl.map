@@ -1,7 +1,12 @@
 <map id="sim_physics.hpp" name="sim_physics.hpp">
-<area shape="rect" id="node1" title="GFS Simulator Physics." alt="" coords="235,5,366,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,188,107"/>
-<area shape="rect" id="node3" href="$sim__environmental_8hpp.html" title="SimEnvironmental Simulation for the GFS Simulator." alt="" coords="213,80,389,107"/>
-<area shape="rect" id="node4" href="$sim__parameters_8hpp.html" title="Parameters for the GFS Simulator." alt="" coords="285,155,441,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="330,229,397,256"/>
+<area shape="rect" id="Node000001" title="GFS Simulator Physics." alt="" coords="235,5,366,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,188,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="269,33,143,77,142,72,267,28"/>
+<area shape="rect" id="Node000003" href="$sim__environmental_8hpp.html" title="SimEnvironmental Simulation for the GFS Simulator." alt="" coords="213,79,389,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="303,31,303,65,298,65,298,31"/>
+<area shape="rect" id="Node000004" href="$sim__parameters_8hpp.html" title="Parameters for the GFS Simulator." alt="" coords="285,152,441,177"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="339,28,374,47,390,61,403,77,408,94,405,112,387,143,382,140,400,110,402,95,398,80,386,64,371,51,336,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="313,103,346,140,342,143,309,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="330,225,397,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="366,178,366,212,361,212,361,178"/>
 </map>

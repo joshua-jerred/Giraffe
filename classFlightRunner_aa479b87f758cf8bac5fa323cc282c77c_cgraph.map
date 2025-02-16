@@ -1,6 +1,9 @@
 <map id="FlightRunner::toggleModule" name="FlightRunner::toggleModule">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,208,57"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd" title="Starts a thread to run the module." alt="" coords="256,5,428,32"/>
-<area shape="rect" id="node4" href="$classmodules_1_1Module.html#aefe65d4f674e804a1891b250ed2887a4" title="Stops the module by setting the stop flag to true and joining the runner thread." alt="" coords="257,56,427,83"/>
-<area shape="rect" id="node3" href="$classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51" title="This is the main function for each module." alt="" coords="476,5,660,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,208,56"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd" title="Starts a thread to run the module." alt="" coords="256,5,428,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,30,242,26,242,31,208,35"/>
+<area shape="rect" id="Node000004" href="$classmodules_1_1Module.html#aefe65d4f674e804a1891b250ed2887a4" title="Stops the module by setting the stop flag to true and joining the runner thread." alt="" coords="257,55,427,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="208,51,243,55,243,60,208,56"/>
+<area shape="rect" id="Node000003" href="$classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51" title="This is the main function for each module." alt="" coords="476,5,660,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="428,15,463,15,463,21,428,21"/>
 </map>

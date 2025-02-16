@@ -1,10 +1,20 @@
 <map id="giraffe_diagnostics.hpp" name="giraffe_diagnostics.hpp">
-<area shape="rect" id="node1" title="Giraffe&#39;s diagnostic system." alt="" coords="117,5,291,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,162,64,189"/>
-<area shape="rect" id="node3" title=" " alt="" coords="473,80,597,107"/>
-<area shape="rect" id="node4" href="$giraffe__assert_8hpp.html" title="For absolute failures in the code." alt="" coords="309,80,448,107"/>
-<area shape="rect" id="node7" href="$giraffe__diagnostic__ids_8hpp.html" title=" " alt="" coords="88,155,227,196"/>
-<area shape="rect" id="node8" href="$giraffe__exception_8hpp.html" title="Common exception for Giraffe." alt="" coords="123,80,285,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="251,162,338,189"/>
-<area shape="rect" id="node6" title=" " alt="" coords="363,162,429,189"/>
+<area shape="rect" id="Node000001" title="Giraffe&#39;s diagnostic system." alt="" coords="117,5,291,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,159,64,185"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,33,141,53,103,81,73,115,50,149,45,146,68,112,100,77,138,49,176,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="473,79,597,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="258,28,469,73,467,78,257,33"/>
+<area shape="rect" id="Node000004" href="$giraffe__assert_8hpp.html" title="For absolute failures in the code." alt="" coords="309,79,448,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="233,28,338,71,336,76,231,33"/>
+<area shape="rect" id="Node000007" href="$giraffe__diagnostic__ids_8hpp.html" title=" " alt="" coords="88,152,227,192"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="172,33,139,52,124,64,113,80,109,95,112,110,130,140,125,143,107,112,104,95,108,78,120,61,136,47,170,28"/>
+<area shape="rect" id="Node000008" href="$giraffe__exception_8hpp.html" title="Common exception for Giraffe." alt="" coords="123,79,285,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="207,31,207,65,201,65,201,31"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="251,159,338,185"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="368,106,319,152,315,148,364,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="363,159,429,185"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="384,104,393,145,388,147,379,105"/>
+<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="180,106,73,156,70,151,178,102"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="219,102,273,148,269,152,216,106"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="199,106,178,142,173,139,195,103"/>
 </map>

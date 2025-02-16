@@ -1,9 +1,18 @@
 <map id="data_middleware::CalculatedData::calculateDistanceData" name="data_middleware::CalculatedData::calculateDistanceData">
-<area shape="rect" id="node1" title="Calculate the distance traveled and the distance from the launch. Called by updatePositionalData()" alt="" coords="5,76,217,117"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="285,54,449,81"/>
-<area shape="rect" id="node7" href="$classdata_1_1FlightData.html#afba5571e61b47aad4c05f8be16916713" title=" " alt="" coords="265,105,468,147"/>
-<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="516,54,693,81"/>
-<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="952,5,1139,47"/>
-<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="741,54,904,81"/>
-<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="955,80,1135,121"/>
+<area shape="rect" id="Node000001" title="Calculate the distance traveled and the distance from the launch. Called by updatePositionalData()" alt="" coords="5,91,217,131"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1Logger.html#a33d3b3b0d74e2a642fd6234915744ea2" title=" " alt="" coords="285,69,449,94"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,96,271,90,271,95,218,101"/>
+<area shape="rect" id="Node000007" href="$classdata_1_1FlightData.html#afba5571e61b47aad4c05f8be16916713" title=" " alt="" coords="265,119,468,159"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="218,120,252,123,252,129,217,125"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1LogStream.html#ad1cf22d3ef9249fd5818bd00a41b4425" title=" " alt="" coords="516,69,693,94"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="449,79,502,79,502,84,449,84"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="952,5,1139,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="632,66,682,46,741,29,842,18,938,17,938,22,842,23,742,35,683,51,634,71"/>
+<area shape="rect" id="Node000005" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="741,69,904,94"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="694,79,728,79,728,84,694,84"/>
+<area shape="rect" id="Node000006" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="955,87,1135,127"/>
+<area shape="poly" id="edge8_Node000003_Node000006" title=" " alt="" coords="661,91,742,104,844,109,942,109,942,114,844,115,741,109,661,97"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="873,66,952,46,953,51,875,71"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="787,70,780,60,784,50,798,44,823,42,853,46,865,55,861,59,851,51,823,47,800,49,787,54,785,60,791,67"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="904,88,942,92,941,98,904,93"/>
 </map>

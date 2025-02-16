@@ -1,9 +1,15 @@
 <map id="common_logger.hpp" name="common_logger.hpp">
-<area shape="rect" id="node1" title="A common logger for Giraffe." alt="" coords="162,5,317,32"/>
-<area shape="rect" id="node2" href="$common__logger_8cpp.html" title="A common logger for Giraffe." alt="" coords="83,80,236,107"/>
-<area shape="rect" id="node3" href="$gdl__server_8hpp.html" title="Data Link Server for Giraffe." alt="" coords="261,80,378,107"/>
-<area shape="rect" id="node4" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="5,162,121,189"/>
-<area shape="rect" id="node5" href="$gdl__server__request__handlers_8cpp.html" title="Handlers for REQ requests (see gdl_server.hpp)" alt="" coords="146,155,293,196"/>
-<area shape="rect" id="node6" href="$gdl__server__set__handlers_8cpp.html" title="Handlers for SET requests (see gdl_server.hpp)" alt="" coords="317,162,524,189"/>
-<area shape="rect" id="node7" href="$src_2data__link_2server_2main_8cpp.html" title="Giraffe Data Link Server Main File." alt="" coords="549,162,631,189"/>
+<area shape="rect" id="Node000001" title="A common logger for Giraffe." alt="" coords="162,5,317,31"/>
+<area shape="rect" id="Node000002" href="$common__logger_8cpp.html" title="A common logger for Giraffe." alt="" coords="83,79,236,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,42,174,80,171,76,215,38"/>
+<area shape="rect" id="Node000003" href="$gdl__server_8hpp.html" title="Data Link Server for Giraffe." alt="" coords="261,79,378,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="264,38,308,76,304,80,260,42"/>
+<area shape="rect" id="Node000004" href="$gdl__server_8cpp.html" title="Data Link Server for Giraffe." alt="" coords="5,159,121,185"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="270,111,101,162,100,157,268,105"/>
+<area shape="rect" id="Node000005" href="$gdl__server__request__handlers_8cpp.html" title="Handlers for REQ requests (see gdl_server.hpp)" alt="" coords="146,152,293,192"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="295,115,245,154,242,150,292,111"/>
+<area shape="rect" id="Node000006" href="$gdl__server__set__handlers_8cpp.html" title="Handlers for SET requests (see gdl_server.hpp)" alt="" coords="317,159,524,185"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="347,111,407,157,404,161,344,115"/>
+<area shape="rect" id="Node000007" href="$src_2data__link_2server_2main_8cpp.html" title="Giraffe Data Link Server Main File." alt="" coords="549,159,631,185"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="378,105,537,149,559,157,558,162,536,155,377,110"/>
 </map>

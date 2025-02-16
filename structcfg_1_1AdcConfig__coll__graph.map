@@ -1,8 +1,13 @@
 <map id="cfg::AdcConfig" name="cfg::AdcConfig">
-<area shape="rect" id="node1" title="Configuration for an ADC." alt="" coords="246,219,361,311"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,81,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="106,5,181,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="278,5,329,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="437,5,503,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="595,5,654,83"/>
+<area shape="rect" id="Node000001" title="Configuration for an ADC." alt="" coords="213,207,320,292"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,56,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="31,71,36,127,46,156,62,181,91,205,126,223,162,234,198,241,197,246,161,239,124,228,88,210,58,184,41,158,31,128,26,71"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="147,5,215,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,70,198,124,218,182,224,192,219,194,214,184,193,125,182,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="240,5,299,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="271,71,271,95,270,190,264,190,265,95,266,71"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="388,5,455,71"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="425,71,419,127,409,157,394,184,368,210,337,228,334,223,365,205,390,181,405,155,414,126,420,71"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="560,5,603,71"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="587,71,586,98,582,129,572,159,554,185,539,196,517,206,462,222,337,243,336,238,461,217,515,201,536,191,550,181,567,156,577,127,581,98,581,71"/>
 </map>

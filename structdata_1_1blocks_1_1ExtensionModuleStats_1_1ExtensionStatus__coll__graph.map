@@ -1,5 +1,7 @@
 <map id="data::blocks::ExtensionModuleStats::ExtensionStatus" name="data::blocks::ExtensionModuleStats::ExtensionStatus">
-<area shape="rect" id="node1" title=" " alt="" coords="5,160,227,252"/>
-<area shape="rect" id="node2" title=" " alt="" coords="17,5,76,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="154,5,217,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,148,219,228"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="17,5,68,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="40,71,40,97,46,123,52,134,48,136,42,125,35,98,35,71"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="154,5,209,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,72,154,125,149,135,145,132,150,123,170,70"/>
 </map>

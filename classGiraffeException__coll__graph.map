@@ -1,6 +1,9 @@
 <map id="GiraffeException" name="GiraffeException">
-<area shape="rect" id="node1" title=" " alt="" coords="119,145,273,267"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,120,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="145,5,247,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="300,5,359,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="111,133,257,259"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,112,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,80,136,131,132,135,90,83"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="137,5,231,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,71,187,117,181,117,181,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="292,5,343,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="310,72,290,111,271,133,267,129,286,108,306,69"/>
 </map>

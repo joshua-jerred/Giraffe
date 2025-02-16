@@ -1,12 +1,23 @@
 <map id="flight_runner_data.cpp" name="flight_runner_data.cpp">
-<area shape="rect" id="node1" title="Implementation of non&#45;volatile data for the flight runner." alt="" coords="255,5,422,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="62,80,135,107"/>
-<area shape="rect" id="node3" href="$flight__runner__data_8hpp.html" title="Non&#45;volatile data for the flight runner." alt="" coords="160,80,328,107"/>
-<area shape="rect" id="node8" href="$giraffe__file__paths_8hpp.html" title=" " alt="" coords="352,80,515,107"/>
-<area shape="rect" id="node9" href="$json_8hpp.html" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="539,80,616,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,155,168,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="192,155,259,181"/>
-<area shape="rect" id="node6" href="$flight__phase_8hpp.html" title="Contains the flight phase enum and related functions." alt="" coords="283,155,413,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="421,229,480,256"/>
-<area shape="rect" id="node10" title=" " alt="" coords="539,155,685,181"/>
+<area shape="rect" id="Node000001" title="Implementation of non&#45;volatile data for the flight runner." alt="" coords="255,5,422,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="62,79,135,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="301,33,150,78,148,73,299,28"/>
+<area shape="rect" id="Node000003" href="$flight__runner__data_8hpp.html" title="Non&#45;volatile data for the flight runner." alt="" coords="160,79,328,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="325,33,272,72,269,68,322,29"/>
+<area shape="rect" id="Node000008" href="$giraffe__file__paths_8hpp.html" title=" " alt="" coords="352,79,515,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="355,29,408,68,405,72,352,33"/>
+<area shape="rect" id="Node000009" href="$json_8hpp.html" title="Simple wrapper around nlohmann/json.hpp to provide a common interface." alt="" coords="539,79,616,104"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="378,28,526,72,525,77,376,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,152,168,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="220,106,126,149,124,144,218,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="192,152,259,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="243,105,234,140,229,138,238,104"/>
+<area shape="rect" id="Node000006" href="$flight__phase_8hpp.html" title="Contains the flight phase enum and related functions." alt="" coords="283,152,413,177"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="262,102,321,142,318,146,259,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="421,225,480,251"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="366,175,424,215,421,219,363,180"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="437,104,450,211,445,212,432,105"/>
+<area shape="poly" id="edge11_Node000009_Node000007" title=" " alt="" coords="569,106,472,217,468,213,565,103"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="539,152,685,177"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="585,103,603,138,598,141,581,106"/>
 </map>

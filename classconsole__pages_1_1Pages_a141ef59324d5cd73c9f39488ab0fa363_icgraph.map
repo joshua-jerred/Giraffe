@@ -1,4 +1,5 @@
 <map id="console_pages::Pages::location" name="console_pages::Pages::location">
-<area shape="rect" id="node1" title=" " alt="" coords="217,5,381,47"/>
-<area shape="rect" id="node2" href="$classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14" title=" " alt="" coords="5,5,169,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="217,5,381,45"/>
+<area shape="rect" id="Node000002" href="$classconsole__pages_1_1Pages.html#a994c60348e2c31544233ce3ba27ccb14" title=" " alt="" coords="5,5,169,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,28,169,28,169,23,204,23"/>
 </map>

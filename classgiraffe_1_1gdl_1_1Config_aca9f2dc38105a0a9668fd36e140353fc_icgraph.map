@@ -1,6 +1,13 @@
 <map id="giraffe::gdl::Config::setAprsTelemetrySenderEnabled" name="giraffe::gdl::Config::setAprsTelemetrySenderEnabled">
-<area shape="rect" id="node1" title=" " alt="" coords="649,5,891,47"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1AprsManager.html#a6a162f30ddbbc37c18265dd9b9c56072" title="Initializes the APRS Telemetry data from the configuration." alt="" coords="419,5,601,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1AprsManager.html#a733faf5f8cb193988e799bbbfc721173" title="Force a configuration reload." alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1AprsManager.html#ae1043caeea2da6d4da54c9af887dad3a" title="Constructor." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="695,67,936,107"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1AprsManager.html#a6a162f30ddbbc37c18265dd9b9c56072" title="Initializes the APRS Telemetry data from the configuration." alt="" coords="464,37,647,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="681,74,646,70,647,65,681,69"/>
+<area shape="rect" id="Node000006" href="$gdl__terminal_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="528,102,583,127"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="681,104,583,114,583,109,680,99"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1AprsManager.html#a733faf5f8cb193988e799bbbfc721173" title="Force a configuration reload." alt="" coords="257,37,416,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,60,416,60,416,55,450,55"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1AprsManager.html#ae1043caeea2da6d4da54c9af887dad3a" title="Constructor." alt="" coords="28,5,187,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="243,47,186,39,187,34,244,42"/>
+<area shape="rect" id="Node000005" href="$classAprsTelemetryDataManagerTest.html#a08c97fbbeb2a6546f3e0336685f74d8b" title=" " alt="" coords="5,69,209,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="244,73,210,78,209,72,243,68"/>
 </map>

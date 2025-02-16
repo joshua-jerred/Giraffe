@@ -1,4 +1,5 @@
 <map id="FakeSharedData::hasDataItems" name="FakeSharedData::hasDataItems">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,232,32"/>
-<area shape="rect" id="node2" href="$classdata_1_1Stream.html#a1e7307f7c8cbbe4304654a293d86bd9c" title=" " alt="" coords="280,5,495,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,232,31"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Stream.html#a1e7307f7c8cbbe4304654a293d86bd9c" title=" " alt="" coords="280,5,495,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,15,266,15,266,21,232,21"/>
 </map>

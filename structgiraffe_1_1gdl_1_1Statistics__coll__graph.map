@@ -1,9 +1,15 @@
 <map id="giraffe::gdl::Statistics" name="giraffe::gdl::Statistics">
-<area shape="rect" id="node1" title=" " alt="" coords="466,263,626,340"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,60,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="195,5,270,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="421,5,487,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="608,5,668,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="791,5,866,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="1030,5,1081,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="462,251,614,316"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,57,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="24,71,17,107,15,149,21,190,29,208,41,225,60,234,96,243,202,258,446,275,446,281,201,263,95,249,58,239,38,229,25,211,16,191,9,149,12,107,19,70"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="189,5,255,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,71,209,107,207,148,214,189,222,208,233,225,247,235,266,245,320,259,383,269,446,275,446,280,382,274,318,264,264,250,244,240,229,228,217,211,209,191,202,148,204,106,210,70"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="427,5,470,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="443,71,437,105,434,145,438,187,452,225,461,238,457,241,448,228,433,188,429,145,432,105,438,70"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="605,5,652,71"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="633,71,627,145,618,188,602,228,594,239,590,236,597,225,613,186,622,144,627,71"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="799,5,858,71"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="831,71,823,159,815,201,801,228,774,246,732,259,631,276,630,271,730,254,771,241,797,225,810,199,818,158,825,71"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="979,5,1046,71"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1021,71,1023,107,1021,150,1010,192,999,212,985,229,960,245,925,258,832,275,728,283,631,286,631,280,727,278,832,270,923,253,958,240,982,225,995,209,1005,190,1016,149,1018,107,1015,71"/>
 </map>

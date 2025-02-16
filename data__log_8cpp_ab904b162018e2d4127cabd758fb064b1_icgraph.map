@@ -1,6 +1,10 @@
 <map id="generateFilePath" name="generateFilePath">
-<area shape="rect" id="node1" title="Generates a file path with the current date and time." alt="" coords="496,46,627,73"/>
-<area shape="rect" id="node2" href="$group__DataLog.html#ga0468e4744ee8be21635a6a73c4892c5c" title="Generates a new file path and attempts to create a new data file." alt="" coords="251,5,448,47"/>
-<area shape="rect" id="node4" href="$group__DataLog.html#ga22627e1c35839cae33e39af75670a602" title="Generates a new file path and attempts to create a new log file." alt="" coords="251,71,448,112"/>
-<area shape="rect" id="node3" href="$classdata__middleware_1_1DataLog.html#a957234a0f7b3ce34cc4f3ffffb222f0c" title=" " alt="" coords="5,39,203,80"/>
+<area shape="rect" id="Node000001" title="Generates a file path with the current date and time." alt="" coords="496,45,627,70"/>
+<area shape="rect" id="Node000002" href="$group__DataLog.html#ga0468e4744ee8be21635a6a73c4892c5c" title="Generates a new file path and attempts to create a new data file." alt="" coords="251,5,448,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="482,48,448,43,448,38,483,43"/>
+<area shape="rect" id="Node000004" href="$group__DataLog.html#ga22627e1c35839cae33e39af75670a602" title="Generates a new file path and attempts to create a new log file." alt="" coords="251,69,448,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="483,72,448,77,448,72,482,67"/>
+<area shape="rect" id="Node000003" href="$classdata__middleware_1_1DataLog.html#a957234a0f7b3ce34cc4f3ffffb222f0c" title=" " alt="" coords="5,37,203,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,43,203,47,202,42,237,37"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="237,77,202,73,203,68,237,72"/>
 </map>

@@ -1,6 +1,9 @@
 <map id="I2cInterface::getAddress" name="I2cInterface::getAddress">
-<area shape="rect" id="node1" title="Get the address of the device on the bus." alt="" coords="651,13,831,39"/>
-<area shape="rect" id="node2" href="$namespaceubx.html#a6c27feec78affa320dc73abe6c52b8db" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="447,13,603,39"/>
-<area shape="rect" id="node3" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,5,399,47"/>
-<area shape="rect" id="node4" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,13,192,39"/>
+<area shape="rect" id="Node000001" title="Get the address of the device on the bus." alt="" coords="651,13,831,38"/>
+<area shape="rect" id="Node000002" href="$namespaceubx.html#a6c27feec78affa320dc73abe6c52b8db" title="Configure the I2C port to use UBX protocol for input and output." alt="" coords="447,13,603,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="637,28,603,28,603,23,637,23"/>
+<area shape="rect" id="Node000003" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,5,399,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="433,28,399,28,399,23,433,23"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,13,192,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="226,28,192,28,192,23,226,23"/>
 </map>

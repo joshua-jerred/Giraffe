@@ -1,13 +1,13 @@
 var shared__data_8hpp =
 [
-    [ "Frames", "namespacedata.html#structdata_1_1Frames", [
+    [ "data::Frames", "namespacedata.html#structdata_1_1Frames", [
       [ "error_frame", "namespacedata.html#ac25e23e69a5bff14778632557c2652a9", null ],
       [ "env_temp", "namespacedata.html#a38cbd9acc1f37e88b889dcab9fb0cbdb", null ],
       [ "env_pres", "namespacedata.html#ab1784744ea86e7ba99508f87c3dbbb5c", null ],
       [ "env_hum", "namespacedata.html#a4464dc398562ecb51fe70a93e84df7eb", null ],
       [ "adc", "namespacedata.html#ac2c90b029cc221c77a0cd3066d89345b", null ]
     ] ],
-    [ "SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", [
+    [ "data::SharedBlocks", "namespacedata.html#structdata_1_1SharedBlocks", [
       [ "stream_stats", "namespacedata.html#a853289e3095b00d17f12bb70981f4c1c", null ],
       [ "modules_statuses", "namespacedata.html#a31837aaffcb34d87038ff402197ac992", null ],
       [ "server_module_stats", "namespacedata.html#a0626a035cd30160b0584a05c0019e526", null ],
@@ -21,8 +21,8 @@ var shared__data_8hpp =
       [ "calculated_data", "namespacedata.html#a33d3cd52c1f9199e9d46deb52e1e492f", null ],
       [ "file_system_data", "namespacedata.html#a972f92980076b73771577364619443ff", null ]
     ] ],
-    [ "SharedData", "structdata_1_1SharedData.html", "structdata_1_1SharedData" ],
-    [ "Streams", "namespacedata.html#structdata_1_1Streams", [
+    [ "data::SharedData", "structdata_1_1SharedData.html", "structdata_1_1SharedData" ],
+    [ "data::Streams", "namespacedata.html#structdata_1_1Streams", [
       [ "data", "namespacedata.html#a22ad003376a2efe4c21e35b9a9ac9901", null ],
       [ "log", "namespacedata.html#a4766bad914aa6422667738b7452a1916", null ],
       [ "gps", "namespacedata.html#a9fd50d5a6cccb64b636b381c5fb0f3eb", null ],

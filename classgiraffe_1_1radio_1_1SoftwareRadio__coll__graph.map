@@ -1,14 +1,25 @@
 <map id="giraffe::radio::SoftwareRadio" name="giraffe::radio::SoftwareRadio">
-<area shape="rect" id="node1" title=" " alt="" coords="374,1008,545,1203"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1radio_1_1Radio.html" title=" " alt="" coords="384,764,535,959"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1PhysicalLayer.html" title="The physical layer of the Giraffe Data Link." alt="" coords="364,461,555,715"/>
-<area shape="rect" id="node4" title=" " alt="" coords="245,248,303,325"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1Config.html" title="Data Link Configuration." alt="" coords="328,175,591,399"/>
-<area shape="rect" id="node6" title=" " alt="" coords="5,5,156,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="225,5,289,83"/>
-<area shape="rect" id="node8" title=" " alt="" coords="324,5,467,83"/>
-<area shape="rect" id="node9" title=" " alt="" coords="494,5,553,83"/>
-<area shape="rect" id="node10" title=" " alt="" coords="653,5,703,83"/>
-<area shape="rect" id="node11" title=" " alt="" coords="743,5,869,83"/>
-<area shape="rect" id="node12" title=" " alt="" coords="615,248,671,325"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="464,1120,627,1340"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1radio_1_1Radio.html" title=" " alt="" coords="474,845,617,1071"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="548,1084,548,1120,543,1120,543,1084"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1PhysicalLayer.html" title="The physical layer of the Giraffe Data Link." alt="" coords="454,491,637,796"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="548,810,548,845,543,845,543,810"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1Config.html" title="Data Link Configuration." alt="" coords="244,163,497,428"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="440,427,464,475,459,477,435,429"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,5,48,71"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="32,70,40,105,58,137,95,173,138,204,183,230,230,250,228,255,181,234,135,209,92,177,54,140,35,107,27,72"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="127,5,183,71"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="158,71,163,104,176,137,202,172,233,204,229,207,198,176,171,140,158,106,152,71"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="268,5,319,71"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="290,71,288,104,292,138,294,147,289,148,287,139,283,104,285,71"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="374,5,509,71"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="437,71,421,139,419,147,414,146,416,138,432,70"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="533,5,651,71"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="579,72,559,106,535,140,511,164,507,161,531,137,555,103,574,69"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="706,5,849,71"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="772,72,756,109,744,126,728,141,700,156,674,162,649,163,625,160,573,155,545,156,513,165,512,160,544,151,573,149,625,155,649,158,673,157,698,151,725,136,740,123,752,106,767,70"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="521,263,569,328"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="548,329,548,474,543,474,543,329"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="600,263,651,328"/>
+<area shape="poly" id="edge11_Node000003_Node000012" title=" " alt="" coords="624,329,599,467,597,475,592,474,593,466,618,328"/>
 </map>

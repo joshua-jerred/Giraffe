@@ -1,12 +1,24 @@
 <map id="extension::Extension::extSleep" name="extension::Extension::extSleep">
-<area shape="rect" id="node1" title="Sleep internally for a given number of milliseconds." alt="" coords="647,181,805,223"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#a2d2331ad0ef489d33189c3173ef403e7" title=" " alt="" coords="443,64,595,105"/>
-<area shape="rect" id="node3" href="$classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649" title=" " alt="" coords="210,5,387,47"/>
-<area shape="rect" id="node5" href="$classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2" title=" " alt="" coords="223,123,375,164"/>
-<area shape="rect" id="node6" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="441,181,597,223"/>
-<area shape="rect" id="node7" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="444,247,595,288"/>
-<area shape="rect" id="node8" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="440,312,599,353"/>
-<area shape="rect" id="node9" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="440,377,599,419"/>
-<area shape="rect" id="node4" href="$classextension_1_1Bmi088.html#ae48a834e3578a93acef45729a07495f1" title=" " alt="" coords="5,64,157,105"/>
-<area shape="rect" id="node10" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="205,385,392,411"/>
+<area shape="rect" id="Node000001" title="Sleep internally for a given number of milliseconds." alt="" coords="647,177,805,217"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Bmi088.html#a2d2331ad0ef489d33189c3173ef403e7" title=" " alt="" coords="443,63,595,103"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="680,172,597,124,561,105,564,100,600,119,682,168"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649" title=" " alt="" coords="210,5,387,45"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="705,166,686,137,662,106,632,76,597,53,546,33,492,22,438,18,388,18,388,13,438,13,493,17,548,28,600,48,635,72,666,102,691,134,709,163"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2" title=" " alt="" coords="223,120,375,160"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="640,177,598,168,481,153,374,146,375,140,481,148,599,163,641,171"/>
+<area shape="rect" id="Node000006" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="441,177,597,217"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="633,200,597,200,597,195,633,195"/>
+<area shape="rect" id="Node000007" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="444,241,595,281"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="649,224,585,244,584,239,647,219"/>
+<area shape="rect" id="Node000008" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="440,305,599,345"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="693,229,650,263,600,296,576,308,574,303,597,291,647,258,690,225"/>
+<area shape="rect" id="Node000009" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="440,369,599,409"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="709,231,664,295,634,329,600,359,581,372,578,367,597,355,630,326,660,292,704,228"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="429,62,376,48,377,43,430,57"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Bmi088.html#ae48a834e3578a93acef45729a07495f1" title=" " alt="" coords="5,63,157,103"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="430,85,158,85,158,80,430,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="210,51,158,65,157,60,209,46"/>
+<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="209,119,157,105,158,100,210,114"/>
+<area shape="rect" id="Node000010" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="205,377,392,402"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="426,392,392,392,392,387,426,387"/>
 </map>

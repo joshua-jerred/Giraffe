@@ -1,6 +1,9 @@
 <map id="giraffe::gdl::DataLink::sendTelemetryBitSense" name="giraffe::gdl::DataLink::sendTelemetryBitSense">
-<area shape="rect" id="node1" title="Send an APRS telemetry bit sense message over the Data Link. (Broadcast message)" alt="" coords="5,71,188,112"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="257,5,415,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="236,71,436,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Message.html#a750cdad267cca1d1459c4abb8cd6997c" title=" " alt="" coords="249,136,423,177"/>
+<area shape="rect" id="Node000001" title="Send an APRS telemetry bit sense message over the Data Link. (Broadcast message)" alt="" coords="5,69,188,109"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="257,5,415,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,67,247,46,248,51,173,72"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1MessageQueue.html#aea341ed982324217ff3f0757dcc1041c" title="Push a message onto the queue." alt="" coords="236,69,436,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,87,222,87,222,92,188,92"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1Message.html#a750cdad267cca1d1459c4abb8cd6997c" title=" " alt="" coords="249,133,423,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="173,107,248,127,247,132,172,112"/>
 </map>

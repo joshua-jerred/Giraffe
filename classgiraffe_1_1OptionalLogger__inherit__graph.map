@@ -1,4 +1,5 @@
 <map id="giraffe::OptionalLogger" name="giraffe::OptionalLogger">
-<area shape="rect" id="node1" title="Optional logger class." alt="" coords="5,5,176,156"/>
-<area shape="rect" id="node2" href="$classsock_1_1TcpSocketClient.html" title=" " alt="" coords="9,204,172,399"/>
+<area shape="rect" id="Node000001" title="Optional logger class." alt="" coords="5,5,168,171"/>
+<area shape="rect" id="Node000002" href="$classsock_1_1TcpSocketClient.html" title=" " alt="" coords="9,219,164,444"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,184,89,218,84,218,84,184"/>
 </map>

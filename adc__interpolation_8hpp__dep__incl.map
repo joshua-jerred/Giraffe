@@ -1,11 +1,19 @@
 <map id="adc_interpolation.hpp" name="adc_interpolation.hpp">
-<area shape="rect" id="node1" title="ADC Interpolation Utility." alt="" coords="204,5,367,32"/>
-<area shape="rect" id="node2" href="$adc__interpolation_8cpp.html" title="ADC Interpolation Utility." alt="" coords="117,80,280,107"/>
-<area shape="rect" id="node3" href="$data__module_8hpp.html" title="The data module header file." alt="" coords="305,80,439,107"/>
-<area shape="rect" id="node4" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="149,155,280,181"/>
-<area shape="rect" id="node8" href="$data__module_8cpp.html" title=" " alt="" coords="305,155,439,181"/>
-<area shape="rect" id="node9" href="$test__data__module_8cpp.html" title="Data module unit tests." alt="" coords="463,155,630,181"/>
-<area shape="rect" id="node5" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="5,229,125,256"/>
-<area shape="rect" id="node6" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="149,229,280,256"/>
-<area shape="rect" id="node7" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="304,229,387,256"/>
+<area shape="rect" id="Node000001" title="ADC Interpolation Utility." alt="" coords="92,5,255,31"/>
+<area shape="rect" id="Node000002" href="$adc__interpolation_8cpp.html" title="ADC Interpolation Utility." alt="" coords="5,79,168,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,41,103,81,99,76,147,37"/>
+<area shape="rect" id="Node000003" href="$data__module_8hpp.html" title="The data module header file." alt="" coords="193,79,327,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,37,248,76,244,81,196,41"/>
+<area shape="rect" id="Node000004" href="$data__module_8cpp.html" title=" " alt="" coords="35,152,170,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="223,112,129,154,127,149,221,107"/>
+<area shape="rect" id="Node000005" href="$flight__runner_8hpp.html" title="The main class for the flight system." alt="" coords="195,152,325,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="263,118,263,152,257,152,257,118"/>
+<area shape="rect" id="Node000009" href="$test__data__module_8cpp.html" title="Data module unit tests." alt="" coords="350,152,517,177"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="301,107,406,149,404,154,299,112"/>
+<area shape="rect" id="Node000006" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="51,225,171,251"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="225,186,136,228,134,223,223,181"/>
+<area shape="rect" id="Node000007" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="195,225,325,251"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="263,191,263,225,257,225,257,191"/>
+<area shape="rect" id="Node000008" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="349,225,432,251"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="295,182,371,223,368,227,292,186"/>
 </map>

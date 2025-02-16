@@ -1,12 +1,23 @@
 <map id="RequestRouter::handleBitTestSet" name="RequestRouter::handleBitTestSet">
-<area shape="rect" id="node1" title="Handle bit test set requests." alt="" coords="5,71,193,112"/>
-<area shape="rect" id="node2" href="$classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8" title=" " alt="" coords="259,5,433,47"/>
-<area shape="rect" id="node4" href="$group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="252,136,440,177"/>
-<area shape="rect" id="node10" href="$group__ServerModule.html#aa6ff009c15a46c7f5c75ed3110a4f9a3" title="Send a basic success response." alt="" coords="241,71,451,112"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="499,5,729,47"/>
-<area shape="rect" id="node5" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="521,133,707,175"/>
-<area shape="rect" id="node6" href="$group__ServerModule.html#a4d13e34f9d56d94f7a410248eed83a8b" title="Send a message to the client." alt="" coords="507,81,721,107"/>
-<area shape="rect" id="node7" href="$structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" title="Get the message as a JSON string." alt="" coords="786,41,935,83"/>
-<area shape="rect" id="node9" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="777,107,944,148"/>
-<area shape="rect" id="node8" href="$structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" title="Get the message as a JSON object." alt="" coords="992,41,1141,83"/>
+<area shape="rect" id="Node000001" title="Handle bit test set requests." alt="" coords="5,69,193,109"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1CommandStream.html#aeacbc84ac96a098ef5836fcbd5187be8" title=" " alt="" coords="259,5,433,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,67,255,46,256,51,178,72"/>
+<area shape="rect" id="Node000004" href="$group__ServerModule.html#a2916b1b7b4bd1572c6629ddb748d2dd5" title="This function is the generic error response function." alt="" coords="252,133,440,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="178,107,256,127,255,132,177,112"/>
+<area shape="rect" id="Node000010" href="$group__ServerModule.html#aa6ff009c15a46c7f5c75ed3110a4f9a3" title="Send a basic success response." alt="" coords="241,69,451,109"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="194,87,228,87,228,92,194,92"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="499,5,729,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="433,23,485,23,485,28,433,28"/>
+<area shape="rect" id="Node000005" href="$namespaceprotocol.html#a5e7a52c2cde741e59ab374836e56bd64" title="Create a Response Message." alt="" coords="521,131,707,171"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="440,150,507,149,507,154,440,155"/>
+<area shape="rect" id="Node000006" href="$group__ServerModule.html#a4d13e34f9d56d94f7a410248eed83a8b" title="Send a message to the client." alt="" coords="507,79,721,105"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="434,131,544,105,545,110,435,136"/>
+<area shape="rect" id="Node000007" href="$structprotocol_1_1Message.html#a86e73391ff1dcf69653ffb610c3b329c" title="Get the message as a JSON string." alt="" coords="786,40,935,80"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="712,77,772,69,773,74,712,82"/>
+<area shape="rect" id="Node000009" href="$group__ServerModule.html#a2ba563269dbbac1c345bf7363792e5bf" title=" " alt="" coords="777,104,944,144"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="712,102,764,109,763,114,712,107"/>
+<area shape="rect" id="Node000008" href="$structprotocol_1_1Message.html#aa250450860914231f7787d436e88461e" title="Get the message as a JSON object." alt="" coords="992,40,1141,80"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="935,57,978,57,978,63,935,63"/>
+<area shape="poly" id="edge10_Node000010_Node000005" title=" " alt="" coords="435,107,513,125,512,130,434,112"/>
+<area shape="poly" id="edge11_Node000010_Node000006" title=" " alt="" coords="451,88,493,88,493,93,451,93"/>
 </map>

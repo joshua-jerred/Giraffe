@@ -1,4 +1,5 @@
 <map id="modules::TelemetryModule" name="modules::TelemetryModule">
-<area shape="rect" id="node1" title=" " alt="" coords="5,527,261,912"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="50,5,217,479"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,659,259,1133"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1Module.html" title=" " alt="" coords="53,5,211,611"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,624,135,659,129,659,129,624"/>
 </map>

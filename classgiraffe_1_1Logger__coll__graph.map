@@ -1,12 +1,26 @@
 <map id="giraffe::Logger" name="giraffe::Logger">
-<area shape="rect" id="node1" title=" " alt="" coords="197,801,313,937"/>
-<area shape="rect" id="node2" title=" " alt="" coords="13,632,120,709"/>
-<area shape="rect" id="node3" href="$classdata_1_1LogStream.html" title=" " alt="" coords="144,603,365,739"/>
-<area shape="rect" id="node4" href="$classdata_1_1Stream.html" title=" " alt="" coords="154,359,355,553"/>
-<area shape="rect" id="node5" href="$classdata_1_1Stream.html" title=" " alt="" coords="181,145,329,296"/>
-<area shape="rect" id="node6" title=" " alt="" coords="5,5,69,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="161,5,199,83"/>
-<area shape="rect" id="node8" title=" " alt="" coords="281,5,381,83"/>
-<area shape="rect" id="node9" title=" " alt="" coords="411,5,525,83"/>
-<area shape="rect" id="node10" title=" " alt="" coords="389,632,448,709"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="524,784,632,929"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1LogStream.html" title=" " alt="" coords="292,576,505,721"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="454,720,486,758,515,790,511,793,482,762,450,723"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html" title=" " alt="" coords="302,361,495,527"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="401,540,401,576,396,576,396,540"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="16,5,72,71"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="34,72,19,119,9,179,8,210,12,241,20,270,34,297,57,326,85,350,115,371,149,388,218,414,286,429,284,434,217,419,146,393,113,375,81,354,53,329,29,300,15,272,6,242,3,210,4,178,14,118,28,70"/>
+<area shape="rect" id="Node000008" href="$classdata_1_1Stream.html" title=" " alt="" coords="330,133,470,299"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="73,60,111,85,155,107,197,116,233,117,271,118,315,131,314,136,270,124,233,122,197,122,153,112,108,90,70,64"/>
+<area shape="rect" id="Node000005" href="$namespace_3globalScope_4.html#classstd_1_1queue_3_01LogPacket_01_4" title=" " alt="" coords="156,183,305,249"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="244,248,263,291,290,336,298,347,294,350,285,339,259,294,239,250"/>
+<area shape="rect" id="Node000006" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="616,5,647,71"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="649,56,661,73,670,94,675,102,681,107,699,109,719,106,735,107,741,112,742,121,731,152,699,209,639,300,613,332,581,360,547,383,511,403,509,398,544,379,578,356,609,329,635,297,694,206,726,150,737,120,736,114,733,112,719,111,699,114,679,112,671,106,665,96,656,76,645,59"/>
+<area shape="poly" id="edge10_Node000008_Node000006" title=" " alt="" coords="617,51,560,86,491,135,484,141,481,136,487,131,558,82,615,46"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="402,5,509,71"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="489,70,502,94,523,161,531,217,524,272,502,338,498,348,493,346,497,336,519,271,525,217,518,162,497,96,484,72"/>
+<area shape="poly" id="edge11_Node000008_Node000007" title=" " alt="" coords="415,72,398,96,392,118,387,116,393,94,410,69"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="402,312,401,361,396,361,396,312"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="211,5,303,71"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="265,70,271,90,282,108,298,120,318,131,319,132,316,136,315,136,296,125,278,111,267,92,260,72"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="529,616,628,681"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="581,682,581,767,576,767,576,682"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="652,616,702,681"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="673,682,662,721,646,761,641,771,636,769,641,759,657,719,667,681"/>
 </map>

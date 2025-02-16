@@ -1,3 +1,13 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classCurlRequest.html" title=" " alt="" coords="5,5,107,32"/>
+<area shape="rect" id="Node000000" href="$structdata_1_1BaseStreamPacket.html" title=" " alt="" coords="5,104,185,129"/>
+<area shape="rect" id="Node000001" href="$structdata_1_1CommandPacket.html" title="The packet for the command stream." alt="" coords="233,5,401,31"/>
+<area shape="poly" id="edge4_Node000000_Node000001" title=" " alt="" coords="127,95,176,67,232,40,265,28,266,33,234,44,178,71,130,99"/>
+<area shape="rect" id="Node000002" href="$structdata_1_1DataPacket.html" title=" " alt="" coords="251,55,383,80"/>
+<area shape="poly" id="edge5_Node000000_Node000002" title=" " alt="" coords="166,98,259,77,260,83,167,104"/>
+<area shape="rect" id="Node000003" href="$structdata_1_1GpsFramePacket.html" title=" " alt="" coords="234,104,401,129"/>
+<area shape="poly" id="edge6_Node000000_Node000003" title=" " alt="" coords="199,114,234,114,234,119,199,119"/>
+<area shape="rect" id="Node000004" href="$structdata_1_1ImuFramePacket.html" title=" " alt="" coords="234,153,401,179"/>
+<area shape="poly" id="edge7_Node000000_Node000004" title=" " alt="" coords="167,130,260,151,259,156,166,135"/>
+<area shape="rect" id="Node000005" href="$structdata_1_1LogPacket.html" title=" " alt="" coords="255,203,379,228"/>
+<area shape="poly" id="edge8_Node000000_Node000005" title=" " alt="" coords="130,134,179,161,234,188,270,200,268,205,232,192,176,166,128,139"/>
 </map>

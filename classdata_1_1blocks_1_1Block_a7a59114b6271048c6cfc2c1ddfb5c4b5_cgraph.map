@@ -1,0 +1,6 @@
+<map id="data::blocks::Block::set" name="data::blocks::Block::set">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,179,55"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1blocks_1_1Block.html#a2237ade9275911c4fd9d0d264accfa7b" title=" " alt="" coords="227,29,401,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,39,213,39,213,45,179,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="278,31,270,21,274,11,289,5,314,3,345,6,357,15,354,20,343,11,314,8,290,10,278,15,275,20,282,28"/>
+</map>

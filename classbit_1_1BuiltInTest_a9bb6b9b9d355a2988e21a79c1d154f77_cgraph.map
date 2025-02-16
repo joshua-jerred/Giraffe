@@ -1,12 +1,25 @@
 <map id="bit::BuiltInTest::reset" name="bit::BuiltInTest::reset">
-<area shape="rect" id="node1" title="Reset the BIT system to it&#39;s initial state." alt="" coords="5,85,161,112"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="216,56,371,83"/>
-<area shape="rect" id="node8" href="$classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3" title=" " alt="" coords="209,107,377,149"/>
-<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="438,56,606,83"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="447,5,597,32"/>
-<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="877,82,1064,123"/>
-<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="667,5,829,32"/>
-<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="881,7,1061,49"/>
-<area shape="rect" id="node9" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="425,107,619,149"/>
-<area shape="rect" id="node10" href="$classdata_1_1FlightData.html#a312127c867c9f4538b4d3cb24303a6e7" title=" " alt="" coords="435,173,609,214"/>
+<area shape="rect" id="Node000001" title="Reset the BIT system to it&#39;s initial state." alt="" coords="5,109,161,135"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="216,80,371,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,108,202,103,203,108,162,114"/>
+<area shape="rect" id="Node000008" href="$classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3" title=" " alt="" coords="209,130,377,170"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="162,130,196,134,196,140,162,135"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="438,80,606,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="371,90,424,90,424,95,371,95"/>
+<area shape="rect" id="Node000007" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="447,31,597,56"/>
+<area shape="poly" id="edge9_Node000002_Node000007" title=" " alt="" coords="352,77,448,56,449,62,353,83"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="877,105,1064,145"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="606,102,667,109,864,120,863,125,666,114,606,107"/>
+<area shape="rect" id="Node000005" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="667,29,829,55"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="579,77,677,55,678,60,580,82"/>
+<area shape="rect" id="Node000006" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="881,31,1061,71"/>
+<area shape="poly" id="edge8_Node000003_Node000006" title=" " alt="" coords="606,84,829,65,867,61,867,66,830,70,607,89"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="784,52,904,97,902,102,782,57"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="712,31,704,21,708,11,723,5,748,3,779,6,791,15,788,20,777,11,748,8,724,10,712,15,709,20,716,28"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="829,43,867,44,867,50,829,48"/>
+<area shape="poly" id="edge10_Node000007_Node000005" title=" " alt="" coords="597,40,653,40,653,45,597,46"/>
+<area shape="rect" id="Node000009" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="425,130,619,170"/>
+<area shape="poly" id="edge12_Node000008_Node000009" title=" " alt="" coords="378,147,412,147,412,153,378,153"/>
+<area shape="rect" id="Node000010" href="$classdata_1_1FlightData.html#a312127c867c9f4538b4d3cb24303a6e7" title=" " alt="" coords="435,194,609,234"/>
+<area shape="poly" id="edge13_Node000008_Node000010" title=" " alt="" coords="366,168,438,188,436,193,365,173"/>
 </map>

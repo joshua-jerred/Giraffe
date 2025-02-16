@@ -1,10 +1,21 @@
 <map id="data_middleware::AdcInterpolation::processDataPacket" name="data_middleware::AdcInterpolation::processDataPacket">
-<area shape="rect" id="node1" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="5,93,256,135"/>
-<area shape="rect" id="node2" href="$classdata__middleware_1_1AdcInterpolation.html#afe9137948458156c46370b562db1fc82" title="Returns the ADC channel configuration for the given key. If one does not exist, an error is logged an..." alt="" coords="304,5,555,47"/>
-<area shape="rect" id="node3" href="$classdata_1_1Frame.html#ae846d0c2d52a509b215edf195036afe6" title="Insert or replace an item." alt="" coords="657,109,803,135"/>
-<area shape="rect" id="node4" href="$classdata__middleware_1_1AdcInterpolation.html#adf582e838e63060f1604eb196172fcea" title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated percentage value ..." alt="" coords="304,123,555,164"/>
-<area shape="rect" id="node5" href="$classdata__middleware_1_1AdcInterpolation.html#acdfd4851787a5f151cba1dc944701f5f" title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated voltage divider v..." alt="" coords="304,188,555,229"/>
-<area shape="rect" id="node6" href="$classdata_1_1DataStream.html#a865966119d0db9050b395d4f55cfb791" title=" " alt="" coords="603,195,857,222"/>
-<area shape="rect" id="node7" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="905,155,1100,196"/>
-<area shape="rect" id="node8" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="913,220,1093,261"/>
+<area shape="rect" id="Node000001" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="5,92,256,132"/>
+<area shape="rect" id="Node000002" href="$classdata__middleware_1_1AdcInterpolation.html#afe9137948458156c46370b562db1fc82" title="Returns the ADC channel configuration for the given key. If one does not exist, an error is logged an..." alt="" coords="304,5,555,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,89,345,47,347,52,201,94"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Frame.html#ae846d0c2d52a509b215edf195036afe6" title="Insert or replace an item." alt="" coords="657,86,803,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="256,106,304,105,643,98,644,103,304,111,256,112"/>
+<area shape="rect" id="Node000005" href="$classdata__middleware_1_1AdcInterpolation.html#adf582e838e63060f1604eb196172fcea" title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated percentage value ..." alt="" coords="304,120,555,160"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="256,121,291,124,290,130,256,126"/>
+<area shape="rect" id="Node000006" href="$classdata__middleware_1_1AdcInterpolation.html#acdfd4851787a5f151cba1dc944701f5f" title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated voltage divider v..." alt="" coords="304,184,555,224"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="187,130,305,169,334,178,333,183,303,175,185,135"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="938,86,1067,111"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="803,96,924,96,924,101,803,101"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="959,88,949,78,954,68,972,61,1003,59,1042,63,1052,68,1056,74,1051,77,1049,72,1040,69,1003,65,973,67,958,72,955,77,963,84"/>
+<area shape="poly" id="edge10_Node000006_Node000003" title=" " alt="" coords="514,181,554,169,626,142,689,115,691,120,628,147,556,175,516,187"/>
+<area shape="rect" id="Node000007" href="$classdata_1_1DataStream.html#a865966119d0db9050b395d4f55cfb791" title=" " alt="" coords="603,191,857,217"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="555,201,589,201,589,207,555,207"/>
+<area shape="rect" id="Node000008" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="905,152,1100,192"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="838,189,892,182,892,188,839,194"/>
+<area shape="rect" id="Node000009" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="913,216,1093,256"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="839,214,899,221,899,227,838,219"/>
 </map>

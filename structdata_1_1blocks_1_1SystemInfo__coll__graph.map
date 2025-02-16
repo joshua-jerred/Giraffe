@@ -1,4 +1,5 @@
 <map id="data::blocks::SystemInfo" name="data::blocks::SystemInfo">
-<area shape="rect" id="node1" title="Struct containing system information related to the system module." alt="" coords="5,292,188,413"/>
-<area shape="rect" id="node2" title=" " alt="" coords="71,5,122,83"/>
+<area shape="rect" id="Node000001" title="Struct containing system information related to the system module." alt="" coords="5,280,180,405"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="71,5,114,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,71,95,264,90,264,90,71"/>
 </map>

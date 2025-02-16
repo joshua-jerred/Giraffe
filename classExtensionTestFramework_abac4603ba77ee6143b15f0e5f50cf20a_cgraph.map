@@ -1,4 +1,5 @@
 <map id="ExtensionTestFramework::getTotalLogPackets" name="ExtensionTestFramework::getTotalLogPackets">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,191,47"/>
-<area shape="rect" id="node2" href="$classdata_1_1Stream.html#ace050b78da0acc49b3baccc8018a387e" title=" " alt="" coords="239,13,453,39"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,191,45"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Stream.html#ace050b78da0acc49b3baccc8018a387e" title=" " alt="" coords="239,13,453,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,23,225,23,225,28,191,28"/>
 </map>

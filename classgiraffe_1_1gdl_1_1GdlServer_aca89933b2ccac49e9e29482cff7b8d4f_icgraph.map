@@ -1,8 +1,14 @@
 <map id="giraffe::gdl::GdlServer::sendMessage" name="giraffe::gdl::GdlServer::sendMessage">
-<area shape="rect" id="node1" title=" " alt="" coords="799,39,963,80"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a53b271c9f0602706839489ac0994b763" title=" " alt="" coords="561,5,751,47"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a565558716f0334d5a8785457da0155fc" title=" " alt="" coords="563,71,749,112"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7a640a9a945bb13a494c175f857fc719" title=" " alt="" coords="349,39,513,80"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,46,301,73"/>
-<area shape="rect" id="node5" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,46,60,73"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="799,37,963,77"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a53b271c9f0602706839489ac0994b763" title=" " alt="" coords="561,5,751,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="785,46,750,41,751,36,786,41"/>
+<area shape="rect" id="Node000006" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a565558716f0334d5a8785457da0155fc" title=" " alt="" coords="563,69,749,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="785,74,750,79,749,73,785,68"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7a640a9a945bb13a494c175f857fc719" title=" " alt="" coords="349,37,513,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="548,43,514,48,513,43,547,38"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,45,301,70"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="336,60,302,60,302,55,336,55"/>
+<area shape="rect" id="Node000005" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,45,60,70"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,60,60,60,60,55,94,55"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="549,77,513,72,514,66,549,71"/>
 </map>

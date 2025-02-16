@@ -1,5 +1,7 @@
 <map id="data::blocks::StreamsStats" name="data::blocks::StreamsStats">
-<area shape="rect" id="node1" title="Struct containing statistics about the data and log streams." alt="" coords="5,403,201,480"/>
-<area shape="rect" id="node2" href="$structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats" title=" " alt="" coords="5,189,201,281"/>
-<area shape="rect" id="node3" title=" " alt="" coords="84,5,123,83"/>
+<area shape="rect" id="Node000001" title="Struct containing statistics about the data and log streams." alt="" coords="5,379,193,444"/>
+<area shape="rect" id="Node000002" href="$structdata_1_1blocks_1_1StreamsStats.html#structdata_1_1blocks_1_1StreamsStats_1_1StreamStats" title=" " alt="" coords="5,177,193,257"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,257,102,362,97,362,97,257"/>
+<area shape="rect" id="Node000003" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="84,5,115,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="102,71,102,161,97,161,97,71"/>
 </map>

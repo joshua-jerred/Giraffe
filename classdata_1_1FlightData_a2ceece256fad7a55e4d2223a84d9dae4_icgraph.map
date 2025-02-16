@@ -1,10 +1,17 @@
 <map id="data::FlightData::getUptimeString" name="data::FlightData::getUptimeString">
-<area shape="rect" id="node1" title="Get the uptime represented as a string in the format &quot;HH:MM:SS&quot;." alt="" coords="855,71,1059,112"/>
-<area shape="rect" id="node2" href="$classdata__middleware_1_1DataFormatter.html#ac4d5697e7837e1a0e8a5df1cac9ac286" title=" " alt="" coords="568,5,807,47"/>
-<area shape="rect" id="node3" href="$classdata__middleware_1_1DataFormatter.html#ab5eefe7500b957f07f67a91e4429ab4e" title="Used to set up the frame json structure." alt="" coords="568,71,807,112"/>
-<area shape="rect" id="node6" href="$classdata_1_1FlightData.html#ae457e1fda53739ef17fa89fb69965ecc" title=" " alt="" coords="600,139,775,166"/>
-<area shape="rect" id="node4" href="$classdata__middleware_1_1DataFormatter.html#ac6bcac38554667fda6dbd2a223e665d2" title=" " alt="" coords="281,5,520,47"/>
-<area shape="rect" id="node5" href="$classdata__middleware_1_1DataFormatter.html#adfed0c82d7965d24db3ef4533d5511d0" title=" " alt="" coords="281,71,520,112"/>
-<area shape="rect" id="node7" href="$group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7" title="This function responds to data requests." alt="" coords="300,136,501,177"/>
-<area shape="rect" id="node8" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,143,233,170"/>
+<area shape="rect" id="Node000001" title="Get the uptime represented as a string in the format &quot;HH:MM:SS&quot;." alt="" coords="855,69,1059,109"/>
+<area shape="rect" id="Node000002" href="$classdata__middleware_1_1DataFormatter.html#ac4d5697e7837e1a0e8a5df1cac9ac286" title=" " alt="" coords="568,5,807,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="858,69,771,48,773,43,859,63"/>
+<area shape="rect" id="Node000003" href="$classdata__middleware_1_1DataFormatter.html#ab5eefe7500b957f07f67a91e4429ab4e" title="Used to set up the frame json structure." alt="" coords="568,69,807,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="841,92,807,92,807,87,841,87"/>
+<area shape="rect" id="Node000006" href="$classdata_1_1FlightData.html#ae457e1fda53739ef17fa89fb69965ecc" title=" " alt="" coords="600,137,775,162"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="853,115,746,139,745,134,852,110"/>
+<area shape="rect" id="Node000004" href="$classdata__middleware_1_1DataFormatter.html#ac6bcac38554667fda6dbd2a223e665d2" title=" " alt="" coords="281,5,520,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="583,69,490,48,491,43,584,64"/>
+<area shape="rect" id="Node000005" href="$classdata__middleware_1_1DataFormatter.html#adfed0c82d7965d24db3ef4533d5511d0" title=" " alt="" coords="281,69,520,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="554,92,520,92,520,87,554,87"/>
+<area shape="rect" id="Node000007" href="$group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7" title="This function responds to data requests." alt="" coords="300,133,501,173"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="586,153,501,155,501,149,586,148"/>
+<area shape="rect" id="Node000008" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,141,233,166"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="286,156,233,156,233,151,286,151"/>
 </map>

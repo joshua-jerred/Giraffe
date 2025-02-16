@@ -1,6 +1,10 @@
 <map id="giraffe::ILogger" name="giraffe::ILogger">
-<area shape="rect" id="node1" title=" " alt="" coords="137,5,257,141"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1CommonLogger.html" title=" " alt="" coords="5,580,180,907"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1CommonLogger.html" title=" " alt="" coords="109,191,284,517"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1DummyLogger.html" title=" " alt="" coords="309,293,477,415"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="133,5,245,151"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1CommonLogger.html" title=" " alt="" coords="5,663,172,1063"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,146,108,173,95,201,78,258,66,316,53,437,52,554,59,662,54,663,46,554,47,436,60,316,73,256,90,199,104,170,122,143"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1CommonLogger.html" title=" " alt="" coords="105,200,272,600"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="191,164,191,200,186,200,186,164"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1DummyLogger.html" title=" " alt="" coords="297,337,457,463"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="255,155,286,199,324,269,355,336,350,338,319,271,281,201,251,158"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="145,614,135,663,129,662,140,613"/>
 </map>

@@ -1,7 +1,12 @@
 <map id="modules::ExtensionModule::createExtension" name="modules::ExtensionModule::createExtension">
-<area shape="rect" id="node1" title=" " alt="" coords="756,41,955,83"/>
-<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="509,12,708,53"/>
-<area shape="rect" id="node5" href="$classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628" title="This function is called when the module is started." alt="" coords="257,71,456,112"/>
-<area shape="rect" id="node3" href="$classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8" title=" " alt="" coords="252,5,461,47"/>
-<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45" title="Called when a command is received." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="756,41,955,81"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="509,12,708,52"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="742,51,708,46,709,41,743,45"/>
+<area shape="rect" id="Node000005" href="$classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628" title="This function is called when the module is started." alt="" coords="257,69,456,109"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="742,70,457,86,456,81,742,65"/>
+<area shape="rect" id="Node000003" href="$classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8" title=" " alt="" coords="252,5,461,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="496,32,461,31,462,25,496,26"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="507,58,446,72,445,67,506,53"/>
+<area shape="rect" id="Node000004" href="$classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45" title="Called when a command is received." alt="" coords="5,5,204,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="238,28,204,28,204,23,238,23"/>
 </map>

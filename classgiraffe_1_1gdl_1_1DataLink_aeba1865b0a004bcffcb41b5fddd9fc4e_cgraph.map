@@ -1,4 +1,5 @@
 <map id="giraffe::gdl::DataLink::setPhysicalLayer" name="giraffe::gdl::DataLink::setPhysicalLayer">
-<area shape="rect" id="node1" title="Add a physical layer to the Data Link." alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="212,5,371,47"/>
+<area shape="rect" id="Node000001" title="Add a physical layer to the Data Link." alt="" coords="5,5,164,45"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1DataLink.html#a271f07d75f8c7a86244f2d276809e962" title=" " alt="" coords="212,5,371,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,23,198,23,198,28,164,28"/>
 </map>

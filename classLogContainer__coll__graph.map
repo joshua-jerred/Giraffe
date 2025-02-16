@@ -1,5 +1,7 @@
 <map id="LogContainer" name="LogContainer">
-<area shape="rect" id="node1" title=" " alt="" coords="80,145,224,267"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,163,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="188,5,252,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="80,133,216,259"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,155,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,71,80,90,84,109,88,118,83,120,79,110,74,90,74,71"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="188,5,244,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="206,72,189,110,185,120,180,117,184,108,201,70"/>
 </map>

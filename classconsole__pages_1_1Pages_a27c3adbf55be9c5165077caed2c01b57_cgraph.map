@@ -1,6 +1,5 @@
 <map id="console_pages::Pages::gfsStatus" name="console_pages::Pages::gfsStatus">
-<area shape="rect" id="node1" title=" " alt="" coords="5,49,169,90"/>
-<area shape="rect" id="node2" href="$console__pages_8cpp.html#af9d6d3c72fe789f15197478aa3cac3b6" title=" " alt="" coords="250,5,293,32"/>
-<area shape="rect" id="node3" href="$console__pages_8cpp.html#afce5d98f062712aa25c0ea64f0e5ea78" title="Helper function to format two strings to be left and right aligned within the console window." alt="" coords="240,56,303,83"/>
-<area shape="rect" id="node4" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="217,107,325,133"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,169,45"/>
+<area shape="rect" id="Node000002" href="$console__pages_8cpp.html#afce5d98f062712aa25c0ea64f0e5ea78" title="Helper function to format two strings to be left and right aligned within the console window." alt="" coords="217,13,280,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,23,203,23,203,28,169,28"/>
 </map>

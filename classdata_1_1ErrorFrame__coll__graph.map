@@ -1,9 +1,19 @@
 <map id="data::ErrorFrame" name="data::ErrorFrame">
-<area shape="rect" id="node1" title="The error frame." alt="" coords="152,719,361,987"/>
-<area shape="rect" id="node2" href="$classdata_1_1Frame.html" title=" " alt="" coords="75,432,275,656"/>
-<area shape="rect" id="node3" href="$classdata_1_1Frame.html" title="A generic frame (map) for storing data." alt="" coords="98,160,285,355"/>
-<area shape="rect" id="node4" title=" " alt="" coords="10,13,74,90"/>
-<area shape="rect" id="node5" title=" " alt="" coords="113,5,270,97"/>
-<area shape="rect" id="node6" title=" " alt="" coords="299,505,387,583"/>
-<area shape="rect" id="node7" title=" " alt="" coords="453,505,492,583"/>
+<area shape="rect" id="Node000001" title="The error frame." alt="" coords="216,753,417,1079"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Frame.html" title=" " alt="" coords="140,451,332,691"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,704,281,753,276,754,265,705"/>
+<area shape="rect" id="Node000003" href="$namespace_3globalScope_4.html#classstd_1_1unordered__map_3_01DiagnosticId_00_01ErrorFrameItem_01_4" title=" " alt="" coords="44,221,244,301"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="159,300,199,434,194,436,153,302"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="264,13,320,78"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="265,51,213,57,148,73,116,86,85,102,57,123,35,150,18,178,10,205,8,229,11,254,24,307,35,373,45,466,60,538,87,606,131,689,166,745,207,797,203,800,162,748,126,692,82,609,55,540,39,467,30,374,19,308,6,255,3,229,5,204,13,176,30,146,54,120,82,98,113,81,147,68,212,52,264,45"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="293,78,283,229,263,427,262,435,257,434,258,426,277,228,288,78"/>
+<area shape="rect" id="Node000005" href="$classdata_1_1Frame.html" title="A generic frame (map) for storing data." alt="" coords="406,148,584,373"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="322,74,396,152,393,156,319,78"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="399,380,334,457,330,454,395,377"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="420,5,570,85"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="498,86,498,132,492,132,492,86"/>
+<area shape="rect" id="Node000007" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="357,538,388,603"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="370,604,348,738,343,737,365,603"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="434,538,514,603"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="474,604,466,664,447,730,428,769,423,767,442,728,461,663,469,603"/>
 </map>

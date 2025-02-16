@@ -1,6 +1,6 @@
 var group__ServerModule =
 [
-    [ "ServerModule", "group__ServerModule.html#classmodules_1_1ServerModule", [
+    [ "modules::ServerModule", "group__ServerModule.html#classmodules_1_1ServerModule", [
       [ "ServerModule", "group__ServerModule.html#ae172e9c75ccc51ae2e0372499194ead3", null ],
       [ "~ServerModule", "group__ServerModule.html#a1a8f54f2488b3ebe6691cbf6e8ccfaf7", null ],
       [ "startup", "group__ServerModule.html#a76c8c341c2e0e2034fa8af0c9d92f75b", null ],
@@ -62,7 +62,7 @@ var group__ServerModule =
       [ "bytes_per_second_down_", "group__ServerModule.html#a0116cb1c86777db9d1581b00a0b247cf", null ],
       [ "bytes_per_second_up_", "group__ServerModule.html#a33169e5794511db4b2a4187a7b78f191", null ]
     ] ],
-    [ "TcpSocketServer", "group__ServerModule.html#classsock_1_1TcpSocketServer", [
+    [ "sock::TcpSocketServer", "group__ServerModule.html#classsock_1_1TcpSocketServer", [
       [ "TcpSocketServer", "group__ServerModule.html#a5b0ead45f7553620fe24a6507608a985", null ],
       [ "~TcpSocketServer", "group__ServerModule.html#a5ad82b10ad9dee0ce7056f1e8299f6be", null ],
       [ "init", "group__ServerModule.html#ae131e7d5b2827144d018f1482ab316cc", null ],

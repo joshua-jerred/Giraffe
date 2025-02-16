@@ -1,4 +1,5 @@
 <map id="giraffe::Gpio::releasePin" name="giraffe::Gpio::releasePin">
-<area shape="rect" id="node1" title="Release a pin for use by another instance." alt="" coords="236,13,415,39"/>
-<area shape="rect" id="node2" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" id="Node000001" title="Release a pin for use by another instance." alt="" coords="236,13,415,38"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1RgbStatusLed.html#a66ec9a2dcb73c5d2320398b069179aa0" title=" " alt="" coords="5,5,188,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,28,188,28,188,23,223,23"/>
 </map>

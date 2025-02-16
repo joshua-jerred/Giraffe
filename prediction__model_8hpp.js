@@ -7,6 +7,6 @@ var prediction__model_8hpp =
     ] ],
     [ "PhaseRuleSet", "prediction__model_8hpp.html#a2a8388f3a43cbbe710ea516e813500f6", null ],
     [ "PhaseRuleSetMap", "prediction__model_8hpp.html#a0a3da812284b0cbe9861ec4cf7bd12ad", null ],
-    [ "getRulesFromModel", "prediction__model_8hpp.html#a584d3f4493fffc16d81e341357292c14", null ],
-    [ "getPhaseRuleSetMap", "prediction__model_8hpp.html#ab8ef2fff1f82ac60205ea16e5537774a", null ]
+    [ "getRulesFromModel", "prediction__model_8hpp.html#a3ff60ce6909098922a46ec891aa1bb3a", null ],
+    [ "getPhaseRuleSetMap", "prediction__model_8hpp.html#acb3a43c225094a4d4f96bb6355385eb7", null ]
 ];

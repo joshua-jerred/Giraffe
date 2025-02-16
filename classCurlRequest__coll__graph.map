@@ -1,6 +1,9 @@
 <map id="CurlRequest" name="CurlRequest">
-<area shape="rect" id="node1" title=" " alt="" coords="111,160,248,311"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,76,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="100,5,259,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="283,5,342,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="103,148,232,313"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,68,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,69,104,133,100,136,56,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="92,5,243,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,71,170,132,165,132,165,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="267,5,318,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="277,72,244,125,237,136,233,133,240,123,272,70"/>
 </map>

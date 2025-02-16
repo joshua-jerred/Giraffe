@@ -1,11 +1,20 @@
 <map id="extension::Mcp3021::readAdc" name="extension::Mcp3021::readAdc">
-<area shape="rect" id="node1" title=" " alt="" coords="5,85,159,126"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="235,26,393,68"/>
-<area shape="rect" id="node5" href="$classI2cInterface.html#a34290cc689cc9025fe8fd4641b5f4023" title="Read a chunk of data from the device without specifying a register." alt="" coords="225,92,403,119"/>
-<area shape="rect" id="node7" href="$classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42" title=" " alt="" coords="207,144,421,185"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="732,34,912,60"/>
-<area shape="rect" id="node4" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="497,26,656,68"/>
-<area shape="rect" id="node6" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="483,92,670,119"/>
-<area shape="rect" id="node8" href="$classextension_1_1Extension.html#ab94ad848063e5b1677ca365e709bd03c" title=" " alt="" coords="469,144,684,185"/>
-<area shape="rect" id="node9" href="$namespaceutil.html#a8e9635f6a41c035d331ddaeb62259ba6" title="Converts a flight phase to a string." alt="" coords="523,210,631,236"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,112,159,152"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="235,55,393,95"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,110,221,95,222,100,160,116"/>
+<area shape="rect" id="Node000005" href="$classI2cInterface.html#a34290cc689cc9025fe8fd4641b5f4023" title="Read a chunk of data from the device without specifying a register." alt="" coords="225,119,403,145"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="159,129,212,129,212,135,159,135"/>
+<area shape="rect" id="Node000007" href="$classextension_1_1AdcExtensionBase.html#a85d69527733d432f6c74c24c7aa47d42" title=" " alt="" coords="207,169,421,209"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="160,148,220,163,219,168,158,153"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="732,62,912,87"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="357,52,410,32,469,16,529,6,577,3,624,6,685,16,739,32,786,53,784,58,737,37,683,21,624,11,577,8,530,12,470,21,411,37,359,57"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="497,55,656,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="393,72,483,72,483,77,393,77"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="656,72,718,72,718,77,656,77"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="531,55,528,45,536,36,552,30,577,28,605,31,621,38,618,43,604,36,577,33,553,35,539,40,533,46,536,53"/>
+<area shape="rect" id="Node000006" href="$classI2cInterface.html#a13c00b7b0597cc2223a9a0765afcbf85" title="Checks the file descriptor to see if it&#39;s connected to the bus." alt="" coords="483,119,670,145"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="403,129,470,129,470,135,403,135"/>
+<area shape="rect" id="Node000008" href="$classextension_1_1Extension.html#ab94ad848063e5b1677ca365e709bd03c" title=" " alt="" coords="469,169,684,209"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="421,187,456,187,456,192,421,192"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="649,167,683,153,741,123,790,93,792,97,743,128,685,158,651,172"/>
 </map>

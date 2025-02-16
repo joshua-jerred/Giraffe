@@ -1,6 +1,9 @@
 <map id="gfs_simulator.hpp" name="gfs_simulator.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="139,5,278,32"/>
-<area shape="rect" id="node2" href="$gfs__simulator_8cpp.html" title="The simulator for the flight system." alt="" coords="5,80,143,107"/>
-<area shape="rect" id="node3" href="$tests_2simulator_2main_8cpp.html" title="GFS Simulator main entry point." alt="" coords="167,80,250,107"/>
-<area shape="rect" id="node4" href="$simulated__extensions_8hpp.html" title="This contains the simulated extensions for testing the flight system." alt="" coords="275,80,468,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="139,5,278,31"/>
+<area shape="rect" id="Node000002" href="$gfs__simulator_8cpp.html" title="The simulator for the flight system." alt="" coords="5,79,143,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,39,97,81,95,76,174,35"/>
+<area shape="rect" id="Node000003" href="$tests_2simulator_2main_8cpp.html" title="GFS Simulator main entry point." alt="" coords="167,79,250,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,44,211,79,206,79,206,44"/>
+<area shape="rect" id="Node000004" href="$simulated__extensions_8hpp.html" title="This contains the simulated extensions for testing the flight system." alt="" coords="275,79,468,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="248,34,346,76,344,81,246,39"/>
 </map>

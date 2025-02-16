@@ -1,14 +1,34 @@
 <map id="extension::Ds18b20::startup" name="extension::Ds18b20::startup">
-<area shape="rect" id="node1" title=" " alt="" coords="5,129,156,171"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="442,5,601,47"/>
-<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a00ef6cd65250307287af24071c862a42" title="Sleep internally for a given number of milliseconds." alt="" coords="204,64,363,105"/>
-<area shape="rect" id="node6" href="$classextension_1_1Ds18b20.html#a1106e4fc9a110d11eeb65b7e85ba3d42" title=" " alt="" coords="208,129,359,171"/>
-<area shape="rect" id="node10" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="204,195,363,236"/>
-<area shape="rect" id="node12" href="$classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b" title="Returns true if the extension has been requested to stop." alt="" coords="204,260,363,301"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="887,71,1067,98"/>
-<area shape="rect" id="node4" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="680,64,839,105"/>
-<area shape="rect" id="node7" href="$classOneWireInterface.html#a91e22e95253f29ef31c534d4540409c7" title=" " alt="" coords="428,71,615,112"/>
-<area shape="rect" id="node8" href="$classOneWireInterface.html#ac2359dc488e64622d6e07173e07316b1" title=" " alt="" coords="411,137,632,163"/>
-<area shape="rect" id="node9" href="$namespaceextension.html#a9d808790534fe424f5ecb8bedb284af6" title=" " alt="" coords="429,188,613,229"/>
-<area shape="rect" id="node11" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="680,188,839,229"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,159,156,199"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="442,5,601,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,157,136,101,167,71,203,48,259,28,318,17,375,13,428,13,428,19,376,18,318,22,260,33,205,53,170,76,140,104,96,160"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1Extension.html#a00ef6cd65250307287af24071c862a42" title="Sleep internally for a given number of milliseconds." alt="" coords="204,63,363,103"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="117,156,203,112,217,106,220,111,205,117,120,161"/>
+<area shape="rect" id="Node000006" href="$classextension_1_1Ds18b20.html#a1106e4fc9a110d11eeb65b7e85ba3d42" title=" " alt="" coords="208,127,359,167"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="156,164,194,158,195,163,157,169"/>
+<area shape="rect" id="Node000010" href="$classextension_1_1Extension.html#a39712025900988f7bd4e15637f4a28ba" title="Used internally to raise a fault. This will stop an extension." alt="" coords="204,191,363,231"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="157,188,191,193,190,199,156,193"/>
+<area shape="rect" id="Node000012" href="$classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68" title="Only to be called when an extension is in the Error state. This joins the thread and fixes the status..." alt="" coords="204,255,363,295"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="120,197,205,240,220,247,217,252,203,245,117,201"/>
+<area shape="rect" id="Node000014" href="$classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b" title="Returns true if the extension has been requested to stop." alt="" coords="204,319,363,359"/>
+<area shape="poly" id="edge18_Node000001_Node000014" title=" " alt="" coords="99,197,143,250,173,279,206,304,214,310,212,315,202,309,170,283,140,253,95,201"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="887,94,1067,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="601,22,714,28,777,36,839,48,893,65,940,86,938,90,891,70,838,53,777,41,714,34,601,28"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Extension.html#ad3a895d8015ab2992b41c66b9f16648a" title=" " alt="" coords="680,87,839,127"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="596,43,633,55,698,79,696,84,631,60,594,48"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="839,104,873,104,873,109,839,109"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="719,87,716,77,723,68,737,62,759,60,785,63,798,70,796,75,783,68,759,65,739,67,726,72,722,78,724,86"/>
+<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="341,124,361,113,375,98,384,84,393,69,409,55,428,45,430,50,412,60,397,73,389,87,380,102,364,117,344,129"/>
+<area shape="rect" id="Node000007" href="$classOneWireInterface.html#a91e22e95253f29ef31c534d4540409c7" title=" " alt="" coords="428,69,615,109"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="358,126,424,110,425,115,360,131"/>
+<area shape="rect" id="Node000008" href="$classOneWireInterface.html#ac2359dc488e64622d6e07173e07316b1" title=" " alt="" coords="411,134,632,159"/>
+<area shape="poly" id="edge10_Node000006_Node000008" title=" " alt="" coords="359,144,397,144,397,149,359,149"/>
+<area shape="rect" id="Node000009" href="$namespaceextension.html#a9d808790534fe424f5ecb8bedb284af6" title=" " alt="" coords="429,184,613,224"/>
+<area shape="poly" id="edge11_Node000006_Node000009" title=" " alt="" coords="360,162,425,178,424,183,358,167"/>
+<area shape="rect" id="Node000011" href="$classextension_1_1Extension.html#a947a643d302b5c5f9cef1a54d5038c06" title=" " alt="" coords="680,241,839,281"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="363,225,411,233,545,247,666,255,666,260,544,253,410,239,362,231"/>
+<area shape="poly" id="edge14_Node000011_Node000003" title=" " alt="" coords="787,239,945,126,948,130,790,243"/>
+<area shape="rect" id="Node000013" href="$classextension_1_1Extension.html#ae148a765446780132679adc6e647ad37" title="Sends a stop signal to the extension." alt="" coords="442,299,601,339"/>
+<area shape="poly" id="edge16_Node000012_Node000013" title=" " alt="" coords="364,287,429,299,428,304,363,292"/>
+<area shape="poly" id="edge17_Node000013_Node000011" title=" " alt="" coords="600,297,666,281,667,286,602,302"/>
 </map>

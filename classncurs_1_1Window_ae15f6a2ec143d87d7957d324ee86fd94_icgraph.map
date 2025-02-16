@@ -1,4 +1,5 @@
 <map id="ncurs::Window::winRefresh" name="ncurs::Window::winRefresh">
-<area shape="rect" id="node1" title=" " alt="" coords="221,5,419,32"/>
-<area shape="rect" id="node2" href="$classncurs_1_1Window.html#aa619ce021ae1e95033b346fc65d5e684" title=" " alt="" coords="5,5,173,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="221,5,419,31"/>
+<area shape="rect" id="Node000002" href="$classncurs_1_1Window.html#aa619ce021ae1e95033b346fc65d5e684" title=" " alt="" coords="5,5,173,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,21,173,21,173,15,208,15"/>
 </map>

@@ -1,10 +1,18 @@
 <map id="FlightPhasePredictor::getPhaseProbability" name="FlightPhasePredictor::getPhaseProbability">
-<area shape="rect" id="node1" title="Get the phase probabilities structure." alt="" coords="924,71,1084,112"/>
-<area shape="rect" id="node2" href="$classFlightPhasePredictorTest.html#ae54e8cd5a6362eb238d5265a35927fb8" title=" " alt="" coords="693,5,876,47"/>
-<area shape="rect" id="node3" href="$classFlightPhasePredictorTest.html#a4526bdcea2e31560b9398c8c06de1681" title=" " alt="" coords="693,71,876,112"/>
-<area shape="rect" id="node4" href="$classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286" title="Update the flight phase manager." alt="" coords="707,136,862,177"/>
-<area shape="rect" id="node5" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="465,114,645,141"/>
-<area shape="rect" id="node6" href="$classFlightPhaseManagerTest.html#adb308f82112e0a026b62fd8a1b1182ac" title=" " alt="" coords="464,165,645,207"/>
-<area shape="rect" id="node7" href="$classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10" title=" " alt="" coords="235,136,416,177"/>
-<area shape="rect" id="node8" href="$classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819" title=" " alt="" coords="5,165,187,207"/>
+<area shape="rect" id="Node000001" title="Get the phase probabilities structure." alt="" coords="924,69,1084,109"/>
+<area shape="rect" id="Node000002" href="$classFlightPhasePredictorTest.html#ae54e8cd5a6362eb238d5265a35927fb8" title=" " alt="" coords="693,5,876,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="921,68,853,48,854,43,923,63"/>
+<area shape="rect" id="Node000003" href="$classFlightPhasePredictorTest.html#a4526bdcea2e31560b9398c8c06de1681" title=" " alt="" coords="693,69,876,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="910,92,876,92,876,87,910,87"/>
+<area shape="rect" id="Node000004" href="$classFlightPhaseManager.html#a547cb144c9ad196b910bc3a111aec286" title="Update the flight phase manager." alt="" coords="707,133,862,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="923,116,854,136,853,131,921,111"/>
+<area shape="rect" id="Node000005" href="$classFlightRunner.html#a91b3c262d2ab68bbf687b92d5acaf618" title="The main flight logic function. Called in the flight loop." alt="" coords="465,111,645,137"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="693,144,644,138,645,133,694,139"/>
+<area shape="rect" id="Node000006" href="$classFlightPhaseManagerTest.html#adb308f82112e0a026b62fd8a1b1182ac" title=" " alt="" coords="464,161,645,201"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="694,167,646,173,645,168,693,162"/>
+<area shape="rect" id="Node000007" href="$classFlightPhaseManagerTest.html#aaab5ea1894a4a238ea30e821247b9c10" title=" " alt="" coords="235,132,416,172"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="450,171,416,166,417,161,451,165"/>
+<area shape="rect" id="Node000008" href="$classFlightPhaseManagerTest.html#a9b4298134e734c7d0e4b219999098819" title=" " alt="" coords="5,161,187,201"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="450,186,416,187,235,187,187,186,187,181,235,181,416,181,450,181"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="221,168,187,172,187,167,221,163"/>
 </map>

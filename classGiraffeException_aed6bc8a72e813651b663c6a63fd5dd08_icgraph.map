@@ -1,5 +1,7 @@
 <map id="GiraffeException::id" name="GiraffeException::id">
-<area shape="rect" id="node1" title=" " alt="" coords="211,42,361,69"/>
-<area shape="rect" id="node2" href="$classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87" title=" " alt="" coords="5,5,163,47"/>
-<area shape="rect" id="node3" href="$test__diagnostics_8cpp.html#ac11d97bf8abd2570b344169a8f2a9155" title=" " alt="" coords="57,71,111,98"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="211,42,361,67"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1PiCamera.html#ac8a13f4e53f230df60ccbf7baee29a87" title=" " alt="" coords="5,5,163,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,44,163,39,163,34,198,39"/>
+<area shape="rect" id="Node000003" href="$test__diagnostics_8cpp.html#ac11d97bf8abd2570b344169a8f2a9155" title=" " alt="" coords="57,70,111,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="198,70,112,82,111,76,197,64"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="giraffe::gdl::AprsTelemetrySender::getStatusString" name="giraffe::gdl::AprsTelemetrySender::getStatusString">
-<area shape="rect" id="node1" title="Convert the status enum to a string for debugging/logging." alt="" coords="293,5,488,47"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1DataLink.html#a544353397d1939e3f15f13dc2d08a73d" title=" " alt="" coords="5,5,245,47"/>
+<area shape="rect" id="Node000001" title="Convert the status enum to a string for debugging/logging." alt="" coords="293,5,488,45"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1DataLink.html#a544353397d1939e3f15f13dc2d08a73d" title=" " alt="" coords="5,5,245,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="280,28,246,28,246,23,280,23"/>
 </map>

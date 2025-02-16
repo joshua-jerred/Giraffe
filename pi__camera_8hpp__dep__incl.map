@@ -1,5 +1,7 @@
 <map id="pi_camera.hpp" name="pi_camera.hpp">
-<area shape="rect" id="node1" title="Raspberry Pi Camera Extension." alt="" coords="83,5,202,32"/>
-<area shape="rect" id="node2" href="$pi__camera_8cpp.html" title="Raspberry Pi Camera Extension." alt="" coords="5,80,123,107"/>
-<area shape="rect" id="node3" href="$test__extensions_8cpp.html" title=" " alt="" coords="147,80,299,107"/>
+<area shape="rect" id="Node000001" title="Raspberry Pi Camera Extension." alt="" coords="83,5,202,31"/>
+<area shape="rect" id="Node000002" href="$pi__camera_8cpp.html" title="Raspberry Pi Camera Extension." alt="" coords="5,79,123,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,42,79,80,75,76,118,38"/>
+<area shape="rect" id="Node000003" href="$test__extensions_8cpp.html" title=" " alt="" coords="147,79,299,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="167,38,211,76,208,80,164,42"/>
 </map>

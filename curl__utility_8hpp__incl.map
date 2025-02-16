@@ -1,6 +1,9 @@
 <map id="curl_utility.hpp" name="curl_utility.hpp">
-<area shape="rect" id="node1" title="Simple wrapper around libcurl for HTTP requests." alt="" coords="87,5,205,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,92,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="117,80,175,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="200,80,263,107"/>
+<area shape="rect" id="Node000001" title="Simple wrapper around libcurl for HTTP requests." alt="" coords="87,5,205,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,92,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,33,77,72,74,68,129,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="117,79,175,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,31,149,65,143,65,143,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="200,79,263,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="161,29,209,68,205,72,158,33"/>
 </map>

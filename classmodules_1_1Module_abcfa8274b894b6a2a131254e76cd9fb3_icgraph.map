@@ -1,10 +1,19 @@
 <map id="modules::Module::info" name="modules::Module::info">
-<area shape="rect" id="node1" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="756,111,923,138"/>
-<area shape="rect" id="node2" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="509,20,708,61"/>
-<area shape="rect" id="node4" href="$classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45" title="Called when a command is received." alt="" coords="5,64,204,105"/>
-<area shape="rect" id="node5" href="$classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628" title="This function is called when the module is started." alt="" coords="257,71,456,112"/>
-<area shape="rect" id="node6" href="$classmodules_1_1ExtensionModule.html#a175bbc33651ec0c0e8f229d28968c5e8" title=" " alt="" coords="509,188,708,229"/>
-<area shape="rect" id="node3" href="$classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8" title=" " alt="" coords="252,5,461,47"/>
-<area shape="rect" id="node7" href="$classmodules_1_1ExtensionModule.html#a7e340a29ea74351f2ea50f9d76c2e152" title=" " alt="" coords="257,188,456,229"/>
-<area shape="rect" id="node8" href="$classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c" title="Continually called at a rate set by the sleep interval." alt="" coords="5,188,204,229"/>
+<area shape="rect" id="Node000001" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="756,109,923,134"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1ExtensionModule.html#a23eea974aaf3f625091381f8753f0a4b" title=" " alt="" coords="509,19,708,59"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="789,106,665,61,666,56,791,101"/>
+<area shape="rect" id="Node000004" href="$classmodules_1_1ExtensionModule.html#a71f1e137babc717ca2231e0f84402a45" title="Called when a command is received." alt="" coords="5,63,204,103"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="742,132,641,137,518,139,384,136,252,124,167,105,168,100,252,119,385,130,518,134,640,131,742,126"/>
+<area shape="rect" id="Node000005" href="$classmodules_1_1ExtensionModule.html#a8d06e0f4610f2aa3e9affffb09e9b628" title="This function is called when the module is started." alt="" coords="257,69,456,109"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="742,118,456,99,457,93,742,112"/>
+<area shape="rect" id="Node000006" href="$classmodules_1_1ExtensionModule.html#a175bbc33651ec0c0e8f229d28968c5e8" title=" " alt="" coords="509,184,708,224"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="791,141,666,186,665,181,789,136"/>
+<area shape="rect" id="Node000003" href="$classmodules_1_1ExtensionModule.html#a4e6bfe133cce9cbce44820cd501591b8" title=" " alt="" coords="252,5,461,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="496,35,461,34,462,28,496,30"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="496,64,457,72,456,67,495,59"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="255,51,194,65,193,60,254,46"/>
+<area shape="rect" id="Node000007" href="$classmodules_1_1ExtensionModule.html#a7e340a29ea74351f2ea50f9d76c2e152" title=" " alt="" coords="257,184,456,224"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="496,207,456,207,456,201,496,201"/>
+<area shape="rect" id="Node000008" href="$classmodules_1_1ExtensionModule.html#a4a9cad44242ecc6a5238152ef0ac648c" title="Continually called at a rate set by the sleep interval." alt="" coords="5,184,204,224"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="244,207,204,207,204,201,244,201"/>
 </map>

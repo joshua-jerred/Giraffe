@@ -1,6 +1,13 @@
 <map id="data::isImuFrameValid" name="data::isImuFrameValid">
-<area shape="rect" id="node1" title="Checks if an IMU frame contains valid data." alt="" coords="455,42,623,69"/>
-<area shape="rect" id="node2" href="$classmodules_1_1DataModule.html#aedab2efb666e4e6ce3f4b9dbf661edbc" title="Process all packets from the IMUFrame stream." alt="" coords="219,5,407,47"/>
-<area shape="rect" id="node4" href="$test__positional_8cpp.html#a15df22c9f5787f6604e5c1871311e54b" title="Verify validity of heading of motion (0&#45;360 degrees)" alt="" coords="285,71,340,98"/>
-<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html#ac24fdcd1442cbc107fcc427e14ddd328" title="Processes all of the data streams and updates the data block that contains the stream stats." alt="" coords="5,5,171,47"/>
+<area shape="rect" id="Node000001" title="Checks if an IMU frame contains valid data." alt="" coords="108,104,276,129"/>
+<area shape="rect" id="Node000002" href="$test__positional_8cpp.html#a134df4335a4039075cf72361d2b97a8b" title="Verify validity of acceleration (m/s^2)" alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,99,53,33,56,29,160,94"/>
+<area shape="rect" id="Node000003" href="$test__positional_8cpp.html#a0e7371dcedfd45ac056318ae992589d3" title="Verify validity of angular velocity (rad/s)" alt="" coords="5,55,60,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,102,60,78,61,73,138,97"/>
+<area shape="rect" id="Node000004" href="$test__positional_8cpp.html#a15df22c9f5787f6604e5c1871311e54b" title="Verify validity of heading of motion (0&#45;360 degrees)" alt="" coords="5,104,60,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="94,119,60,119,60,114,94,114"/>
+<area shape="rect" id="Node000005" href="$test__positional_8cpp.html#aed338c251e2809635389735e92acb4a2" title="Time delta out of range." alt="" coords="5,153,60,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="138,136,61,160,60,155,137,131"/>
+<area shape="rect" id="Node000006" href="$test__positional_8cpp.html#afc0298cbdac30e6d61d8e9652672aece" title="All zeros is valid, if is_valid is set to true." alt="" coords="5,203,60,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="160,139,56,205,53,200,157,135"/>
 </map>

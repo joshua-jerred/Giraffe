@@ -1,5 +1,7 @@
 <map id="extension::Bme280::readCompensationData" name="extension::Bme280::readCompensationData">
-<area shape="rect" id="node1" title="Reads and stores the compensation data from the BME280." alt="" coords="237,27,413,69"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="5,5,189,32"/>
-<area shape="rect" id="node3" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="19,57,175,98"/>
+<area shape="rect" id="Node000001" title="Reads and stores the compensation data from the BME280." alt="" coords="237,27,413,67"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Bme280.html#a3c31fc1c62a5c723129f386ff9bba2d4" title=" " alt="" coords="5,5,189,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,37,189,32,190,27,224,32"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="19,55,175,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="224,62,176,68,175,63,223,57"/>
 </map>

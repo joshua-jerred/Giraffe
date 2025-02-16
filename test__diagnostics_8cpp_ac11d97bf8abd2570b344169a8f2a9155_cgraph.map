@@ -1,6 +1,10 @@
 <map id="TEST" name="TEST">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,60,57"/>
-<area shape="rect" id="node2" href="$classGiraffeException.html#aed6bc8a72e813651b663c6a63fd5dd08" title=" " alt="" coords="118,5,269,32"/>
-<area shape="rect" id="node3" href="$classGiraffeException.html#adb9f94e62b910e11e36478cbb69e1d27" title=" " alt="" coords="108,56,279,83"/>
-<area shape="rect" id="node4" href="$giraffe__exception_8cpp.html#aab3f730ccaa6f10c1230710912c7a226" title=" " alt="" coords="327,56,411,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,43,60,68"/>
+<area shape="rect" id="Node000002" href="$classGiraffeException.html#aed6bc8a72e813651b663c6a63fd5dd08" title=" " alt="" coords="118,5,269,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,47,124,31,126,36,61,52"/>
+<area shape="rect" id="Node000003" href="$classGiraffeException.html#adb9f94e62b910e11e36478cbb69e1d27" title=" " alt="" coords="108,79,279,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="61,59,124,73,123,78,59,64"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="166,80,161,70,164,61,175,54,193,52,215,55,225,64,221,68,213,60,193,57,177,59,168,64,166,70,171,77"/>
+<area shape="rect" id="Node000004" href="$giraffe__exception_8cpp.html#aab3f730ccaa6f10c1230710912c7a226" title=" " alt="" coords="327,79,411,104"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="279,89,313,89,313,94,279,94"/>
 </map>

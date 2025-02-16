@@ -1,8 +1,13 @@
 <map id="extension::Extension::runner" name="extension::Extension::runner">
-<area shape="rect" id="node1" title=" " alt="" coords="5,104,164,145"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef" title=" " alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a8c2ff02720daaaf27849c087b064d4c3" title=" " alt="" coords="212,71,371,112"/>
-<area shape="rect" id="node4" href="$classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d" title=" " alt="" coords="212,136,371,177"/>
-<area shape="rect" id="node6" href="$classextension_1_1Extension.html#a75c23dd1442c50aa49a1ecd87ada6912" title=" " alt="" coords="212,201,371,243"/>
-<area shape="rect" id="node5" href="$classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b" title="Returns true if the extension has been requested to stop." alt="" coords="419,136,577,177"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,101,164,141"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a047562ed2f74acb51347e583fd33a4ef" title=" " alt="" coords="212,5,371,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,99,211,55,226,48,228,53,213,60,125,104"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Extension.html#a8c2ff02720daaaf27849c087b064d4c3" title=" " alt="" coords="212,69,371,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,106,198,101,199,106,165,112"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Extension.html#a041069086cf7b981e4999150e7b7469d" title=" " alt="" coords="212,133,371,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="165,131,199,136,198,142,164,136"/>
+<area shape="rect" id="Node000006" href="$classextension_1_1Extension.html#a75c23dd1442c50aa49a1ecd87ada6912" title=" " alt="" coords="212,197,371,237"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="125,139,213,183,228,189,226,194,211,188,122,144"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1Extension.html#a6d4f564b9ee0aefea0837e87541ee05b" title="Returns true if the extension has been requested to stop." alt="" coords="419,133,577,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="371,151,405,151,405,156,371,156"/>
 </map>

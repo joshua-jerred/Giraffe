@@ -1,4 +1,5 @@
 <map id="extension::Bme280::handshake" name="extension::Bme280::handshake">
-<area shape="rect" id="node1" title="Reads the &#39;ID&#39; register on the BME280, which should return 0x60." alt="" coords="209,5,365,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="5,5,161,47"/>
+<area shape="rect" id="Node000001" title="Reads the &#39;ID&#39; register on the BME280, which should return 0x60." alt="" coords="209,5,365,45"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Bme280.html#ae62191b9e4f93e4549998a8772e7b455" title=" " alt="" coords="5,5,161,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,28,161,28,161,23,196,23"/>
 </map>

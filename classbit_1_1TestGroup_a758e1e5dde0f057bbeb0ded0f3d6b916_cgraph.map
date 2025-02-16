@@ -1,11 +1,24 @@
 <map id="bit::TestGroup::start" name="bit::TestGroup::start">
-<area shape="rect" id="node1" title=" " alt="" coords="5,96,156,123"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="228,45,383,72"/>
-<area shape="rect" id="node8" href="$classbit_1_1TestGroup.html#ac197766975306b14edd500762488f9e0" title=" " alt="" coords="204,96,407,123"/>
-<area shape="rect" id="node9" href="$classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee" title=" " alt="" coords="455,118,633,159"/>
-<area shape="rect" id="node3" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="460,56,628,83"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="469,5,619,32"/>
-<area shape="rect" id="node4" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="892,82,1079,123"/>
-<area shape="rect" id="node5" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="681,5,844,32"/>
-<area shape="rect" id="node6" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="895,7,1075,49"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,119,156,144"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc" title=" " alt="" coords="228,69,383,95"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,116,233,95,234,100,140,121"/>
+<area shape="rect" id="Node000008" href="$classbit_1_1TestGroup.html#ac197766975306b14edd500762488f9e0" title=" " alt="" coords="204,119,407,144"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="157,129,190,129,190,134,157,134"/>
+<area shape="rect" id="Node000009" href="$classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee" title=" " alt="" coords="455,141,633,181"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="133,141,204,154,327,162,441,162,441,167,327,167,204,159,132,147"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="460,80,628,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="383,83,446,86,446,91,383,88"/>
+<area shape="rect" id="Node000007" href="$classgiraffe_1_1Logger.html#af8465c2895fd50680183e36e093e66e3" title=" " alt="" coords="469,31,619,56"/>
+<area shape="poly" id="edge9_Node000002_Node000007" title=" " alt="" coords="383,67,455,55,456,60,384,72"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="892,105,1079,145"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="629,103,682,109,878,120,878,125,681,114,628,108"/>
+<area shape="rect" id="Node000005" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="681,29,844,55"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="599,77,694,55,695,60,600,82"/>
+<area shape="rect" id="Node000006" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="895,31,1075,71"/>
+<area shape="poly" id="edge8_Node000003_Node000006" title=" " alt="" coords="628,83,844,63,881,60,882,65,844,69,629,88"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="799,52,919,97,917,102,797,57"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="727,31,719,21,723,11,738,5,763,3,793,6,805,15,802,20,791,11,763,8,739,10,727,15,724,20,731,28"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="844,43,882,44,881,50,844,48"/>
+<area shape="poly" id="edge10_Node000007_Node000005" title=" " alt="" coords="619,40,668,40,668,45,619,46"/>
+<area shape="poly" id="edge12_Node000008_Node000009" title=" " alt="" coords="407,141,441,145,441,151,406,146"/>
 </map>

@@ -1,7 +1,11 @@
 <map id="flight_runner_data.hpp" name="flight_runner_data.hpp">
-<area shape="rect" id="node1" title="Non&#45;volatile data for the flight runner." alt="" coords="141,5,309,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,168,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="192,80,259,107"/>
-<area shape="rect" id="node4" href="$flight__phase_8hpp.html" title="Contains the flight phase enum and related functions." alt="" coords="283,80,413,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="319,155,377,181"/>
+<area shape="rect" id="Node000001" title="Non&#45;volatile data for the flight runner." alt="" coords="141,5,309,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,168,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,33,123,75,120,70,202,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="192,79,259,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="228,31,228,65,223,65,223,31"/>
+<area shape="rect" id="Node000004" href="$flight__phase_8hpp.html" title="Contains the flight phase enum and related functions." alt="" coords="283,79,413,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="246,28,318,69,315,74,244,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="319,152,377,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="351,104,351,138,345,138,345,104"/>
 </map>

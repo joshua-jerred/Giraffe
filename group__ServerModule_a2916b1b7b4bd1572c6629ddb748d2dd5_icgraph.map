@@ -1,11 +1,26 @@
 <map id="RequestRouter::sendErrorPacket" name="RequestRouter::sendErrorPacket">
-<area shape="rect" id="node1" title="This function is the generic error response function." alt="" coords="849,207,1037,248"/>
-<area shape="rect" id="node2" href="$group__ServerModule.html#a493ddf0161bba462a169e510c5215990" title="A special handler for updating ADC mapping settings." alt="" coords="587,5,781,47"/>
-<area shape="rect" id="node3" href="$group__ServerModule.html#a1d58bc2e5fc57191959bc60a89b61ec5" title="This function handles a setting SET request. It will attempt to set the configuration with the value ..." alt="" coords="281,101,519,127"/>
-<area shape="rect" id="node4" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,273,233,299"/>
-<area shape="rect" id="node5" href="$group__ServerModule.html#a4dbd5cc7d2e1fb3091613259f3b843fb" title="Handle bit test set requests." alt="" coords="306,232,494,273"/>
-<area shape="rect" id="node6" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="281,297,519,339"/>
-<area shape="rect" id="node7" href="$group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7" title="This function responds to data requests." alt="" coords="299,363,501,404"/>
-<area shape="rect" id="node8" href="$group__ServerModule.html#af41f65e7470ab4490dfa655ead0a7f88" title="A special handler for updating extension settings." alt="" coords="567,123,801,164"/>
-<area shape="rect" id="node9" href="$group__ServerModule.html#a4209bc198222e3efa2a77501a0f7a71d" title="This function responds to a setting request." alt="" coords="576,411,792,452"/>
+<area shape="rect" id="Node000001" title="This function is the generic error response function." alt="" coords="849,203,1037,243"/>
+<area shape="rect" id="Node000002" href="$group__ServerModule.html#a493ddf0161bba462a169e510c5215990" title="A special handler for updating ADC mapping settings." alt="" coords="587,5,781,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="920,193,870,129,837,95,800,66,763,48,766,43,803,62,840,91,874,125,924,190"/>
+<area shape="rect" id="Node000003" href="$group__ServerModule.html#a1d58bc2e5fc57191959bc60a89b61ec5" title="This function handles a setting SET request. It will attempt to set the configuration with the value ..." alt="" coords="281,99,519,125"/>
+<area shape="poly" id="edge15_Node000001_Node000003" title=" " alt="" coords="915,194,865,148,834,127,800,110,756,98,710,90,617,85,530,91,459,102,459,97,530,86,617,80,710,85,757,93,802,106,837,122,868,144,918,190"/>
+<area shape="rect" id="Node000004" href="$group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393" title="This function is responsible for parsing a request and routing it to the right place." alt="" coords="5,267,233,293"/>
+<area shape="poly" id="edge12_Node000001_Node000004" title=" " alt="" coords="835,211,720,201,581,196,431,200,355,207,282,219,243,228,206,242,145,270,143,265,204,237,242,223,281,213,355,202,430,195,581,190,721,196,836,206"/>
+<area shape="rect" id="Node000005" href="$group__ServerModule.html#a4dbd5cc7d2e1fb3091613259f3b843fb" title="Handle bit test set requests." alt="" coords="306,228,494,268"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="835,230,495,246,494,241,835,225"/>
+<area shape="rect" id="Node000006" href="$group__ServerModule.html#a959bc2e0cb68a835d4304e1204f64c69" title="This function parses a command request, sends it to the command queue and sends a simple response bac..." alt="" coords="281,292,519,332"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="836,243,519,295,519,290,835,238"/>
+<area shape="rect" id="Node000007" href="$group__ServerModule.html#a483e4efc0deb643ee4fdef7cb88f66b7" title="This function responds to data requests." alt="" coords="299,356,501,396"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="894,251,802,291,724,314,645,334,501,363,500,358,644,329,723,309,800,285,892,246"/>
+<area shape="rect" id="Node000008" href="$group__ServerModule.html#af41f65e7470ab4490dfa655ead0a7f88" title="A special handler for updating extension settings." alt="" coords="567,120,801,160"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="866,201,747,163,749,158,868,196"/>
+<area shape="rect" id="Node000009" href="$group__ServerModule.html#a4209bc198222e3efa2a77501a0f7a71d" title="This function responds to a setting request." alt="" coords="576,404,792,444"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="925,256,874,322,841,357,803,388,766,406,764,402,800,383,837,353,870,319,920,253"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="605,52,443,102,442,97,604,47"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,133,283,174,202,226,140,269,137,265,199,221,280,170,358,128"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="292,263,231,270,231,265,292,258"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="268,300,231,295,231,290,268,294"/>
+<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="306,355,280,347,149,295,151,290,282,341,308,350"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="553,130,519,126,519,121,554,124"/>
+<area shape="poly" id="edge14_Node000009_Node000004" title=" " alt="" coords="562,441,496,443,425,440,351,430,280,410,232,386,189,354,130,295,133,291,192,349,235,381,282,406,352,425,425,435,496,438,562,436"/>
 </map>

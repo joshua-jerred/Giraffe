@@ -1,6 +1,10 @@
 <map id="giraffe::Logger::info" name="giraffe::Logger::info">
-<area shape="rect" id="node1" title=" " alt="" coords="5,46,155,73"/>
-<area shape="rect" id="node2" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="203,46,365,73"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="413,5,600,47"/>
-<area shape="rect" id="node4" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="417,71,597,112"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,45,155,70"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="203,45,365,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,55,189,55,189,60,155,60"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="251,46,244,36,247,26,261,20,284,18,312,22,324,31,320,35,310,27,284,23,262,25,251,30,249,36,255,43"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="413,5,600,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="365,43,399,38,400,43,366,48"/>
+<area shape="rect" id="Node000004" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="417,69,597,109"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="366,66,403,72,402,77,365,72"/>
 </map>

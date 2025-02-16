@@ -1,0 +1,5 @@
+<map id="data::ErrorFrame::numTotalErrors" name="data::ErrorFrame::numTotalErrors">
+<area shape="rect" id="Node000001" title="The total number of errors that have been added to the frame. This is not the number of active errors..." alt="" coords="5,5,204,45"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="252,5,452,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,23,238,23,238,28,204,28"/>
+</map>

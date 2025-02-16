@@ -1,5 +1,7 @@
 <map id="sim_environmental.hpp" name="sim_environmental.hpp">
-<area shape="rect" id="node1" title="SimEnvironmental Simulation for the GFS Simulator." alt="" coords="5,5,181,32"/>
-<area shape="rect" id="node2" href="$sim__parameters_8hpp.html" title="Parameters for the GFS Simulator." alt="" coords="15,80,171,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="60,155,127,181"/>
+<area shape="rect" id="Node000001" title="SimEnvironmental Simulation for the GFS Simulator." alt="" coords="5,5,181,31"/>
+<area shape="rect" id="Node000002" href="$sim__parameters_8hpp.html" title="Parameters for the GFS Simulator." alt="" coords="15,79,171,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,31,96,65,91,65,91,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="60,152,127,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="96,104,96,138,91,138,91,104"/>
 </map>

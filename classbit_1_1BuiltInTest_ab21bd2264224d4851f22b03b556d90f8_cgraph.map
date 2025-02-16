@@ -1,6 +1,9 @@
 <map id="bit::BuiltInTest::BuiltInTest" name="bit::BuiltInTest::BuiltInTest">
-<area shape="rect" id="node1" title=" " alt="" coords="5,46,196,73"/>
-<area shape="rect" id="node2" href="$classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3" title=" " alt="" coords="244,39,412,80"/>
-<area shape="rect" id="node3" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="460,5,653,47"/>
-<area shape="rect" id="node4" href="$classdata_1_1FlightData.html#a312127c867c9f4538b4d3cb24303a6e7" title=" " alt="" coords="470,71,643,112"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,45,196,70"/>
+<area shape="rect" id="Node000002" href="$classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3" title=" " alt="" coords="244,37,412,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,55,230,55,230,60,197,60"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="460,5,653,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="412,43,446,38,447,43,413,48"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1FlightData.html#a312127c867c9f4538b4d3cb24303a6e7" title=" " alt="" coords="470,69,643,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="413,66,457,73,456,78,412,72"/>
 </map>

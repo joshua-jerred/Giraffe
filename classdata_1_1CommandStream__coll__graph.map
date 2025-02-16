@@ -1,9 +1,20 @@
 <map id="data::CommandStream" name="data::CommandStream">
-<area shape="rect" id="node1" title="The stream of new commands." alt="" coords="168,603,341,680"/>
-<area shape="rect" id="node2" href="$classdata_1_1Stream.html" title=" " alt="" coords="132,359,377,553"/>
-<area shape="rect" id="node3" href="$classdata_1_1Stream.html" title=" " alt="" coords="181,145,329,296"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,5,69,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="161,5,199,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="281,5,381,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="411,5,525,83"/>
+<area shape="rect" id="Node000001" title="The stream of new commands." alt="" coords="316,576,481,641"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Stream.html" title=" " alt="" coords="280,361,517,527"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="401,540,401,576,396,576,396,540"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="26,5,82,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="42,72,24,120,11,179,8,210,10,241,17,270,31,297,53,324,78,347,136,383,200,409,264,425,263,430,199,414,134,388,75,351,49,327,27,300,12,272,5,241,3,210,5,178,19,118,37,70"/>
+<area shape="rect" id="Node000007" href="$classdata_1_1Stream.html" title=" " alt="" coords="371,133,511,299"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="84,54,135,82,197,107,240,115,276,115,313,117,357,130,355,135,312,123,276,121,239,120,195,112,133,87,81,59"/>
+<area shape="rect" id="Node000004" href="$namespace_3globalScope_4.html#classstd_1_1queue_3_01CommandPacket_01_4" title=" " alt="" coords="154,183,347,249"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="257,248,268,291,287,336,295,347,290,350,283,339,263,293,252,249"/>
+<area shape="rect" id="Node000005" href="$namespace_3globalScope_4.html#classint" title=" " alt="" coords="660,5,691,71"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="694,56,705,73,714,94,719,102,725,107,744,110,765,109,783,111,789,117,791,126,780,157,747,212,686,300,654,336,617,365,575,389,533,408,531,403,573,384,614,361,651,332,682,297,743,209,775,154,785,125,784,119,781,116,765,114,744,116,723,112,715,106,709,96,701,76,689,59"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="662,51,605,86,535,135,526,143,522,138,532,131,602,82,659,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="446,5,553,71"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="533,70,546,94,568,161,578,218,577,245,572,274,546,339,530,363,526,360,541,336,567,272,572,245,573,218,563,163,541,96,528,72"/>
+<area shape="poly" id="edge10_Node000007_Node000006" title=" " alt="" coords="459,72,442,96,436,118,431,116,437,94,454,69"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="405,312,402,323,398,361,393,361,397,322,400,311"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="255,5,347,71"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="308,70,315,90,325,108,339,120,359,131,356,135,336,124,320,111,310,92,303,72"/>
 </map>

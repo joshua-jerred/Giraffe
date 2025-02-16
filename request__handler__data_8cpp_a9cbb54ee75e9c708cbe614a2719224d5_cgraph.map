@@ -1,5 +1,10 @@
 <map id="getErrorFrameData" name="getErrorFrameData">
-<area shape="rect" id="node1" title=" " alt="" coords="5,46,152,73"/>
-<area shape="rect" id="node2" href="$classdata_1_1ErrorFrame.html#af7cef5625595076776ec52cc8bfce8f4" title="Get all active error ids that are currently in the frame." alt="" coords="200,5,401,47"/>
-<area shape="rect" id="node3" href="$classdata_1_1ErrorFrame.html#a6b36738793794abad0605c98f4f464c6" title="The total number of errors that have been added to the frame. This is not the number of active errors..." alt="" coords="201,71,400,112"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,45,152,70"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1ErrorFrame.html#af7cef5625595076776ec52cc8bfce8f4" title="Get all active error ids that are currently in the frame." alt="" coords="200,5,401,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,44,186,39,187,44,153,49"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1ErrorFrame.html#a6b36738793794abad0605c98f4f464c6" title="The total number of errors that have been added to the frame. This is not the number of active errors..." alt="" coords="201,69,400,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="153,65,188,70,187,76,152,71"/>
+<area shape="rect" id="Node000003" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="449,37,649,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="402,36,436,40,435,45,401,41"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="400,74,435,69,436,75,401,79"/>
 </map>

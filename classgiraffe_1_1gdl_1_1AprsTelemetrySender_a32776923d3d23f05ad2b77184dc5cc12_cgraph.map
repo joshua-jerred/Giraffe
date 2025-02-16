@@ -1,12 +1,21 @@
 <map id="giraffe::gdl::AprsTelemetrySender::update" name="giraffe::gdl::AprsTelemetrySender::update">
-<area shape="rect" id="node1" title="Periodic update function for the telemetry sender." alt="" coords="5,136,200,177"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Config.html#a9815875b0219bea6fc2ef01cd639d92d" title=" " alt="" coords="254,5,499,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a8af3a4e769d455f981536e33b5fb9fd6" title="Get the next sequence number for the telemetry data packet." alt="" coords="255,71,498,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1Config.html#ae73eb03f8e513787154829d5fe228044" title=" " alt="" coords="261,136,493,177"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a3eaeb0cbef0a945f85a45af4067d698d" title="Handles sending telemetry metadata. Implemented with a simple state machine." alt="" coords="248,201,505,243"/>
-<area shape="rect" id="node10" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ae55590210910b6ff0fd434880c72690f" title=" " alt="" coords="295,267,458,308"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1IDataLink.html#af8cf0ced48d9bfac0ccfa62ec8f97851" title=" " alt="" coords="581,103,764,144"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ab6e2dd57089b03593b35f45e0e793944" title=" " alt="" coords="571,168,774,209"/>
-<area shape="rect" id="node8" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a0c8e773bdc5042576a072965e5a14f58" title=" " alt="" coords="553,233,792,275"/>
-<area shape="rect" id="node9" href="$classgiraffe_1_1gdl_1_1IDataLink.html#acf2248a3fda82da2156b1d244b9247de" title=" " alt="" coords="559,299,786,340"/>
+<area shape="rect" id="Node000001" title="Periodic update function for the telemetry sender." alt="" coords="5,133,200,173"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1Config.html#a9815875b0219bea6fc2ef01cd639d92d" title=" " alt="" coords="254,5,499,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,131,180,92,247,55,266,47,268,52,249,60,183,97,130,135"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a8af3a4e769d455f981536e33b5fb9fd6" title="Get the next sequence number for the telemetry data packet." alt="" coords="255,69,498,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,131,277,110,278,115,190,136"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1Config.html#ae73eb03f8e513787154829d5fe228044" title=" " alt="" coords="261,133,493,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="200,151,247,151,247,156,200,156"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a3eaeb0cbef0a945f85a45af4067d698d" title="Handles sending telemetry metadata. Implemented with a simple state machine." alt="" coords="248,197,505,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="190,171,278,192,277,197,188,176"/>
+<area shape="rect" id="Node000010" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ae55590210910b6ff0fd434880c72690f" title=" " alt="" coords="295,261,458,301"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="130,171,183,210,249,247,283,259,281,264,247,252,180,214,127,176"/>
+<area shape="rect" id="Node000006" href="$classgiraffe_1_1gdl_1_1IDataLink.html#af8cf0ced48d9bfac0ccfa62ec8f97851" title=" " alt="" coords="581,101,764,141"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="472,195,504,183,528,167,552,151,571,143,573,148,555,156,531,172,507,188,474,200"/>
+<area shape="rect" id="Node000007" href="$classgiraffe_1_1gdl_1_1IDataLink.html#ab6e2dd57089b03593b35f45e0e793944" title=" " alt="" coords="571,165,774,205"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="505,201,557,195,558,200,506,206"/>
+<area shape="rect" id="Node000008" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a0c8e773bdc5042576a072965e5a14f58" title=" " alt="" coords="553,229,792,269"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="506,229,540,232,540,238,505,234"/>
+<area shape="rect" id="Node000009" href="$classgiraffe_1_1gdl_1_1IDataLink.html#acf2248a3fda82da2156b1d244b9247de" title=" " alt="" coords="559,293,786,333"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="474,235,507,247,531,263,555,279,573,286,571,291,552,284,528,267,504,252,472,240"/>
 </map>

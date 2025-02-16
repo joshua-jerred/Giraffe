@@ -1,6 +1,10 @@
 <map id="giraffe::file_paths::getFlightSystemAgentConfigFilePath" name="giraffe::file_paths::getFlightSystemAgentConfigFilePath">
-<area shape="rect" id="node1" title="Get the path to the Flight System Agent config file." alt="" coords="5,27,221,83"/>
-<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" title="Get the path to the Flight System Agent directory." alt="" coords="269,35,492,76"/>
-<area shape="rect" id="node3" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="540,5,745,47"/>
-<area shape="rect" id="node4" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="793,35,976,76"/>
+<area shape="rect" id="Node000001" title="Get the path to the Flight System Agent config file." alt="" coords="5,27,221,82"/>
+<area shape="rect" id="Node000002" href="$namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" title="Get the path to the Flight System Agent directory." alt="" coords="269,35,492,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,52,255,52,255,57,222,57"/>
+<area shape="rect" id="Node000003" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="540,5,745,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="492,40,526,36,526,41,493,45"/>
+<area shape="rect" id="Node000004" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="793,35,976,75"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="492,54,540,55,745,55,780,54,780,60,745,60,540,60,492,59"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="746,35,780,39,779,45,745,40"/>
 </map>

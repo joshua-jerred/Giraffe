@@ -1,5 +1,7 @@
 <map id="data::DataStream::addNumericData" name="data::DataStream::addNumericData">
-<area shape="rect" id="node1" title=" " alt="" coords="603,13,857,39"/>
-<area shape="rect" id="node2" href="$classdata__middleware_1_1AdcInterpolation.html#acdfd4851787a5f151cba1dc944701f5f" title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated voltage divider v..." alt="" coords="304,5,555,47"/>
-<area shape="rect" id="node3" href="$classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="5,5,256,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="603,13,857,38"/>
+<area shape="rect" id="Node000002" href="$classdata__middleware_1_1AdcInterpolation.html#acdfd4851787a5f151cba1dc944701f5f" title="Takes in the raw ADC value and the ADC Value Configuration and inserts a calculated voltage divider v..." alt="" coords="304,5,555,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="589,28,555,28,555,23,589,23"/>
+<area shape="rect" id="Node000003" href="$classdata__middleware_1_1AdcInterpolation.html#a33bed24d36248ab62815595bf30c2d3c" title="Takes in a data packet containing raw ADC data and processes it according to the ADC configuration." alt="" coords="5,5,256,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="290,28,256,28,256,23,290,23"/>
 </map>

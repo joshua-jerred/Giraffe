@@ -1,4 +1,5 @@
 <map id="bit::BuiltInTest" name="bit::BuiltInTest">
-<area shape="rect" id="node1" title=" " alt="" coords="5,145,167,472"/>
-<area shape="rect" id="node2" href="$classbit_1_1IBuiltInTest.html" title="Access to build&#45;in test data." alt="" coords="15,5,157,97"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,139,164,544"/>
+<area shape="rect" id="Node000002" href="$classbit_1_1IBuiltInTest.html" title="Access to build&#45;in test data." alt="" coords="17,5,152,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,104,87,138,82,138,82,104"/>
 </map>

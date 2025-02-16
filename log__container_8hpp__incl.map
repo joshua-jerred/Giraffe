@@ -1,5 +1,7 @@
 <map id="log_container.hpp" name="log_container.hpp">
-<area shape="rect" id="node1" title="A simple logging system for debugging." alt="" coords="12,5,149,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,68,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="93,80,157,107"/>
+<area shape="rect" id="Node000001" title="A simple logging system for debugging." alt="" coords="12,5,149,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,68,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,32,53,68,49,66,71,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="93,79,157,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="90,30,113,66,108,68,86,32"/>
 </map>

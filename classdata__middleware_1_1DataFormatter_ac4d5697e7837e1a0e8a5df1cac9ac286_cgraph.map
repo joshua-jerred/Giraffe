@@ -1,7 +1,13 @@
 <map id="data_middleware::DataFormatter::fullErrorFrame" name="data_middleware::DataFormatter::fullErrorFrame">
-<area shape="rect" id="node1" title=" " alt="" coords="5,104,244,145"/>
-<area shape="rect" id="node2" href="$classdata__middleware_1_1DataFormatter.html#afcf16955b25633e242bf163e8e1bb606" title=" " alt="" coords="292,5,531,47"/>
-<area shape="rect" id="node3" href="$classdata__middleware_1_1DataFormatter.html#af2d795c2cc5fcff3ba2e17b2c5b2d3fb" title="Generates a timestamp based off of the current configuration." alt="" coords="292,71,531,112"/>
-<area shape="rect" id="node4" href="$classdata_1_1ErrorFrame.html#a5ebed6b0ec2bf9aa44c74f98e9fb6412" title="Get the full error frame." alt="" coords="320,136,503,177"/>
-<area shape="rect" id="node5" href="$classdata_1_1FlightData.html#a2ceece256fad7a55e4d2223a84d9dae4" title="Get the uptime represented as a string in the format &quot;HH:MM:SS&quot;." alt="" coords="309,201,513,243"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,101,244,141"/>
+<area shape="rect" id="Node000002" href="$classdata__middleware_1_1DataFormatter.html#afcf16955b25633e242bf163e8e1bb606" title=" " alt="" coords="292,5,531,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,99,291,55,318,47,319,52,293,60,175,104"/>
+<area shape="rect" id="Node000003" href="$classdata__middleware_1_1DataFormatter.html#af2d795c2cc5fcff3ba2e17b2c5b2d3fb" title="Generates a timestamp based off of the current configuration." alt="" coords="292,69,531,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,105,278,101,279,107,245,111"/>
+<area shape="rect" id="Node000004" href="$classdata_1_1ErrorFrame.html#a5ebed6b0ec2bf9aa44c74f98e9fb6412" title="Get the full error frame." alt="" coords="320,133,503,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="245,132,307,139,306,144,244,137"/>
+<area shape="rect" id="Node000006" href="$classdata_1_1FlightData.html#a2ceece256fad7a55e4d2223a84d9dae4" title="Get the uptime represented as a string in the format &quot;HH:MM:SS&quot;." alt="" coords="309,197,513,237"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="175,139,293,183,319,191,318,196,291,188,173,144"/>
+<area shape="rect" id="Node000005" href="$classdata_1_1Frame.html#a5555fea55a989f2bb9e8a3373a2f8479" title="Get an item from the frame." alt="" coords="579,133,779,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="503,151,565,151,565,156,503,156"/>
 </map>

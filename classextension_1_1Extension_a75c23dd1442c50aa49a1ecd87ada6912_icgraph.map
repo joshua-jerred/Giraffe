@@ -1,6 +1,9 @@
 <map id="extension::Extension::startup" name="extension::Extension::startup">
-<area shape="rect" id="node1" title=" " alt="" coords="652,5,811,47"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027" title=" " alt="" coords="445,5,604,47"/>
-<area shape="rect" id="node3" href="$classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c" title="Starts the extension." alt="" coords="239,5,397,47"/>
-<area shape="rect" id="node4" href="$classExtensionTestFramework.html#aec515812c05baceb06aa344c5edaf971" title=" " alt="" coords="5,5,191,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="652,5,811,45"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027" title=" " alt="" coords="445,5,604,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="638,28,604,28,604,23,638,23"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Extension.html#a65da188590e7f56c25fdc86370f5c10c" title="Starts the extension." alt="" coords="239,5,397,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="431,28,397,28,397,23,431,23"/>
+<area shape="rect" id="Node000004" href="$classExtensionTestFramework.html#aec515812c05baceb06aa344c5edaf971" title=" " alt="" coords="5,5,191,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="225,28,191,28,191,23,225,23"/>
 </map>

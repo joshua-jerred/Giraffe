@@ -1,4 +1,6 @@
 <map id="GiraffeException::what" name="GiraffeException::what">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,176,32"/>
-<area shape="rect" id="node2" href="$giraffe__exception_8cpp.html#aab3f730ccaa6f10c1230710912c7a226" title=" " alt="" coords="224,5,308,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,176,55"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="62,31,56,21,59,11,71,5,91,3,115,6,125,15,121,19,112,11,91,8,72,10,63,15,61,20,66,28"/>
+<area shape="rect" id="Node000002" href="$giraffe__exception_8cpp.html#aab3f730ccaa6f10c1230710912c7a226" title=" " alt="" coords="224,29,308,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,39,211,39,211,45,176,45"/>
 </map>

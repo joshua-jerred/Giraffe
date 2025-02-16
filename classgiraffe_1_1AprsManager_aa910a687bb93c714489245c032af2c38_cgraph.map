@@ -1,5 +1,7 @@
 <map id="giraffe::AprsManager::updateTelemetryData" name="giraffe::AprsManager::updateTelemetryData">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,176,80"/>
-<area shape="rect" id="node2" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="224,5,417,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a2b28b7da2d067ad3f8886c5c8fafe2ba" title=" " alt="" coords="235,71,406,112"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,176,77"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d" title="Get the current flight phase." alt="" coords="224,5,417,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,43,210,38,211,43,176,48"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1IDataLink.html#a2b28b7da2d067ad3f8886c5c8fafe2ba" title=" " alt="" coords="235,69,406,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,67,222,73,222,78,176,72"/>
 </map>

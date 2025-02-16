@@ -1,6 +1,9 @@
 <map id="DataModuleTests::cycleDataModule" name="DataModuleTests::cycleDataModule">
-<area shape="rect" id="node1" title=" " alt="" coords="5,23,212,65"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd" title="Starts a thread to run the module." alt="" coords="260,5,432,32"/>
-<area shape="rect" id="node4" href="$classmodules_1_1Module.html#aefe65d4f674e804a1891b250ed2887a4" title="Stops the module by setting the stop flag to true and joining the runner thread." alt="" coords="261,56,431,83"/>
-<area shape="rect" id="node3" href="$classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51" title="This is the main function for each module." alt="" coords="480,5,664,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,212,63"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1Module.html#afa712a59eff6e99405e70ae61f7510cd" title="Starts a thread to run the module." alt="" coords="260,5,432,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,30,246,26,247,31,213,35"/>
+<area shape="rect" id="Node000004" href="$classmodules_1_1Module.html#aefe65d4f674e804a1891b250ed2887a4" title="Stops the module by setting the stop flag to true and joining the runner thread." alt="" coords="261,55,431,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="213,51,247,55,247,60,212,56"/>
+<area shape="rect" id="Node000003" href="$classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51" title="This is the main function for each module." alt="" coords="480,5,664,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="432,15,467,15,467,21,432,21"/>
 </map>

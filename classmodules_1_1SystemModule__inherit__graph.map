@@ -1,4 +1,5 @@
 <map id="modules::SystemModule" name="modules::SystemModule">
-<area shape="rect" id="node1" title=" " alt="" coords="5,527,220,736"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html" title=" " alt="" coords="29,5,196,479"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,659,219,904"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1Module.html" title=" " alt="" coords="33,5,191,611"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,624,115,659,109,659,109,624"/>
 </map>

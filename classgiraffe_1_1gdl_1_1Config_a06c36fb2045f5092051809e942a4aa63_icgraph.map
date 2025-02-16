@@ -1,9 +1,16 @@
 <map id="giraffe::gdl::Config::setProactiveKeepAlive" name="giraffe::gdl::Config::setProactiveKeepAlive">
-<area shape="rect" id="node1" title=" " alt="" coords="985,39,1161,80"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a8b439d61223361eda2365f3bf94fb9a6" title="Set the configuration from a JSON object. Will use default values for any missing fields." alt="" coords="773,39,937,80"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a4d192ae2860673d135f68e680765a2ef" title=" " alt="" coords="561,8,725,49"/>
-<area shape="rect" id="node7" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a38bb766c005f9060bf13aeb5c553dd05" title=" " alt="" coords="349,71,513,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7a640a9a945bb13a494c175f857fc719" title=" " alt="" coords="349,5,513,47"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,46,301,73"/>
-<area shape="rect" id="node6" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,46,60,73"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="985,39,1161,79"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a8b439d61223361eda2365f3bf94fb9a6" title="Set the configuration from a JSON object. Will use default values for any missing fields." alt="" coords="773,39,937,79"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="972,61,937,61,937,56,972,56"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a4d192ae2860673d135f68e680765a2ef" title=" " alt="" coords="561,8,725,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="759,47,725,42,726,37,760,42"/>
+<area shape="rect" id="Node000007" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a38bb766c005f9060bf13aeb5c553dd05" title=" " alt="" coords="349,69,513,109"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="760,68,514,86,513,81,760,63"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7a640a9a945bb13a494c175f857fc719" title=" " alt="" coords="349,5,513,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="548,29,513,29,513,24,548,24"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217" title=" " alt="" coords="108,45,301,70"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="336,41,295,47,294,42,335,36"/>
+<area shape="rect" id="Node000006" href="$src_2data__link_2server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,45,60,70"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="94,60,60,60,60,55,94,55"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="335,79,294,73,295,67,336,73"/>
 </map>

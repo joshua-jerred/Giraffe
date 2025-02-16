@@ -1,19 +1,42 @@
 <map id="extension::Extension::info" name="extension::Extension::info">
-<area shape="rect" id="node1" title=" " alt="" coords="884,385,1043,427"/>
-<area shape="rect" id="node2" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="677,352,836,393"/>
-<area shape="rect" id="node17" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="677,417,836,459"/>
-<area shape="rect" id="node3" href="$classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df" title=" " alt="" coords="447,5,629,47"/>
-<area shape="rect" id="node4" href="$classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba" title=" " alt="" coords="461,71,615,112"/>
-<area shape="rect" id="node5" href="$classextension_1_1Ds18b20.html#a1106e4fc9a110d11eeb65b7e85ba3d42" title=" " alt="" coords="463,188,613,229"/>
-<area shape="rect" id="node6" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="244,159,395,200"/>
-<area shape="rect" id="node7" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="463,253,613,295"/>
-<area shape="rect" id="node8" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="459,319,617,360"/>
-<area shape="rect" id="node9" href="$classextension_1_1Mcp3021.html#a51dc6f0aef0765bceaf401578288cd67" title=" " alt="" coords="461,384,615,425"/>
-<area shape="rect" id="node11" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="459,449,617,491"/>
-<area shape="rect" id="node12" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,527,399,568"/>
-<area shape="rect" id="node14" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,592,399,633"/>
-<area shape="rect" id="node15" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="240,657,399,699"/>
-<area shape="rect" id="node16" href="$group__SAMM8QState.html#ga5f1d24365206316560eb6979a46032dd" title=" " alt="" coords="459,617,617,659"/>
-<area shape="rect" id="node10" href="$classextension_1_1Mcp3021.html#a34a36fefe55e92ad7b915f8758f66b9f" title=" " alt="" coords="243,384,396,425"/>
-<area shape="rect" id="node13" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,599,192,626"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="884,376,1043,416"/>
+<area shape="poly" id="edge23_Node000001_Node000001" title=" " alt="" coords="998,364,986,357,963,355,944,357,932,361,928,367,930,375,925,376,922,366,929,357,942,351,963,349,987,352,1001,360"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Extension.html#a19983e8b5715a6e3db8d1aee4c7df5f6" title=" " alt="" coords="677,344,836,384"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="870,384,836,379,836,374,871,379"/>
+<area shape="rect" id="Node000017" href="$classextension_1_1Extension.html#aaae6a7d91b77ac86a6e597bf0071889d" title=" " alt="" coords="677,408,836,448"/>
+<area shape="poly" id="edge22_Node000001_Node000017" title=" " alt="" coords="871,413,836,418,836,413,870,408"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1RgbStatusLed.html#a6bd44653c1e3b8f607e72015b92b39df" title=" " alt="" coords="447,5,629,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="748,331,736,273,714,200,678,125,655,90,628,59,612,48,615,43,631,55,659,87,683,122,719,198,741,271,753,330"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Mcp3021.html#a62b663f2e0629940438589b7ba132cba" title=" " alt="" coords="461,69,615,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="743,332,727,287,702,233,669,178,628,130,600,112,603,107,631,126,674,175,707,231,732,285,748,330"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1Ds18b20.html#a1106e4fc9a110d11eeb65b7e85ba3d42" title=" " alt="" coords="463,184,613,224"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="730,335,686,286,658,260,628,238,606,227,608,222,631,234,661,256,689,282,734,331"/>
+<area shape="rect" id="Node000006" href="$classextension_1_1Ds18b20.html#a4e5fac3093a35bf9837c476954f28e21" title=" " alt="" coords="244,156,395,196"/>
+<area shape="poly" id="edge10_Node000002_Node000006" title=" " alt="" coords="742,332,726,292,702,248,669,206,650,189,628,174,600,162,571,154,509,147,449,150,394,159,394,153,448,144,509,141,572,148,602,157,631,170,653,184,673,203,706,245,731,290,747,329"/>
+<area shape="rect" id="Node000007" href="$classextension_1_1Ds18b20.html#acf4b0d0523885df4b2e9ec2bf35f4b9c" title=" " alt="" coords="463,248,613,288"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="706,340,628,302,598,291,600,286,630,298,708,335"/>
+<area shape="rect" id="Node000008" href="$classextension_1_1PiCamera.html#a2e7468202c0c0cc42271cb4f9b04c6f7" title=" " alt="" coords="459,312,617,352"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="663,353,616,346,617,341,664,348"/>
+<area shape="rect" id="Node000009" href="$classextension_1_1Mcp3021.html#a51dc6f0aef0765bceaf401578288cd67" title=" " alt="" coords="461,376,615,416"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="664,380,615,387,615,382,663,375"/>
+<area shape="rect" id="Node000011" href="$classextension_1_1SamM8q.html#a58948f60001940a5235104b2f9b09c74" title="Startup the extension." alt="" coords="459,440,617,480"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="691,392,679,398,655,414,631,430,603,442,601,437,628,426,652,410,676,394,689,387"/>
+<area shape="rect" id="Node000012" href="$group__SAMM8QState.html#ga0d1392d5f89b5a24663ab1d47d4f1f15" title=" " alt="" coords="240,516,399,556"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="684,394,679,398,669,410,663,422,657,446,651,471,643,483,631,494,604,511,576,523,515,540,454,546,399,547,399,541,454,541,514,534,574,518,602,506,628,490,639,479,646,469,652,445,658,420,665,407,675,394,681,389"/>
+<area shape="rect" id="Node000014" href="$group__SAMM8QState.html#gab11516e268a094d0dedc47caf5f25a9d" title=" " alt="" coords="240,580,399,620"/>
+<area shape="poly" id="edge14_Node000002_Node000014" title=" " alt="" coords="683,394,679,398,666,417,660,436,658,475,655,514,647,533,631,551,614,562,591,571,532,584,399,599,399,594,531,579,590,566,612,557,628,547,643,530,650,512,653,475,654,435,661,415,675,394,679,390"/>
+<area shape="rect" id="Node000015" href="$group__SAMM8QState.html#ga7c0542f4da8c084fa7b22d632f8e6dba" title=" " alt="" coords="240,644,399,684"/>
+<area shape="poly" id="edge16_Node000002_Node000015" title=" " alt="" coords="682,395,680,398,660,431,654,465,656,498,662,532,667,565,667,598,656,629,631,659,604,678,574,690,541,698,508,701,443,698,385,687,386,681,444,692,508,696,541,693,572,685,601,673,628,655,652,627,662,597,662,565,657,533,651,499,648,465,655,429,675,394,678,391"/>
+<area shape="rect" id="Node000016" href="$group__SAMM8QState.html#ga5f1d24365206316560eb6979a46032dd" title=" " alt="" coords="459,605,617,645"/>
+<area shape="poly" id="edge18_Node000002_Node000016" title=" " alt="" coords="682,395,679,398,664,422,656,445,656,491,655,539,648,563,631,588,608,607,604,603,627,585,643,561,650,538,650,491,651,444,659,419,675,394,678,391"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="448,195,394,188,395,183,449,190"/>
+<area shape="rect" id="Node000010" href="$classextension_1_1Mcp3021.html#a34a36fefe55e92ad7b915f8758f66b9f" title=" " alt="" coords="243,376,396,416"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="448,399,396,399,396,393,448,393"/>
+<area shape="rect" id="Node000013" href="$classextension_1_1SamM8q.html#a07c59e7e854347253d743501e8cb5878" title="Contains a simple state machine that will configure, reset, and read data from the sensor...." alt="" coords="5,587,192,613"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="238,562,144,590,143,585,236,557"/>
+<area shape="poly" id="edge15_Node000014_Node000013" title=" " alt="" coords="226,603,192,603,192,597,226,597"/>
+<area shape="poly" id="edge17_Node000015_Node000013" title=" " alt="" coords="236,643,143,615,144,610,238,638"/>
+<area shape="poly" id="edge19_Node000016_Node000012" title=" " alt="" coords="474,602,398,570,369,559,371,554,400,566,476,597"/>
+<area shape="poly" id="edge20_Node000016_Node000014" title=" " alt="" coords="444,617,399,612,399,607,445,612"/>
+<area shape="poly" id="edge21_Node000016_Node000015" title=" " alt="" coords="445,644,399,653,398,647,444,639"/>
 </map>

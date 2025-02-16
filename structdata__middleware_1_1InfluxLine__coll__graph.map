@@ -1,6 +1,9 @@
 <map id="data_middleware::InfluxLine" name="data_middleware::InfluxLine">
-<area shape="rect" id="node1" title=" " alt="" coords="115,175,321,252"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,164,97"/>
-<area shape="rect" id="node3" title=" " alt="" coords="189,13,247,90"/>
-<area shape="rect" id="node4" title=" " alt="" coords="323,13,387,90"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="69,163,267,228"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,13,56,78"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,78,43,108,58,137,73,151,69,155,54,140,38,110,30,79"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="93,5,243,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,85,171,146,165,146,165,85"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="268,13,324,78"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="275,80,226,140,215,153,211,149,222,137,271,76"/>
 </map>

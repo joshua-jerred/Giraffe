@@ -1,4 +1,5 @@
 <map id="modules::ExtensionModule::restartState" name="modules::ExtensionModule::restartState">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,204,47"/>
-<area shape="rect" id="node2" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="252,13,419,39"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,204,45"/>
+<area shape="rect" id="Node000002" href="$classmodules_1_1Module.html#abcfa8274b894b6a2a131254e76cd9fb3" title="Used internally in the module. This function adds a info message to the log stream." alt="" coords="252,13,419,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,23,238,23,238,28,204,28"/>
 </map>

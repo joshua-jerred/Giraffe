@@ -1,5 +1,8 @@
 <map id="giraffe::file_paths::getGfsDataDirPath" name="giraffe::file_paths::getGfsDataDirPath">
-<area shape="rect" id="node1" title="Returns the path to the gfs data directory. Creates the directory if it does not exist." alt="" coords="5,35,156,76"/>
-<area shape="rect" id="node2" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="204,5,409,47"/>
-<area shape="rect" id="node3" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="457,35,640,76"/>
+<area shape="rect" id="Node000001" title="Returns the path to the gfs data directory. Creates the directory if it does not exist." alt="" coords="5,35,156,75"/>
+<area shape="rect" id="Node000002" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="204,5,409,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,42,190,38,191,43,157,48"/>
+<area shape="rect" id="Node000003" href="$namespacegiraffe_1_1file__paths.html#a65c87720fa2bacbdc5af2ce04c03ebff" title="Get the Giraffe Directory Path." alt="" coords="457,35,640,75"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="156,54,204,55,409,55,444,54,444,60,409,60,204,60,156,59"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="410,35,444,39,443,45,409,40"/>
 </map>

@@ -1,6 +1,6 @@
 var protocol_8hpp =
 [
-    [ "Message", "structprotocol_1_1Message.html", "structprotocol_1_1Message" ],
+    [ "protocol::Message", "structprotocol_1_1Message.html", "structprotocol_1_1Message" ],
     [ "MessageId", "protocol_8hpp.html#a087d51d822a32be3f403b9fc6bec8da4", null ],
     [ "Resource", "protocol_8hpp.html#a4f7d05800d5372ecf21d30125815d652", null ],
     [ "Endpoint", "protocol_8hpp.html#add796d366d28c1ed225e24b92b68c09e", [

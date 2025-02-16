@@ -1,5 +1,7 @@
 <map id="data::FlightData::getLaunchPosition" name="data::FlightData::getLaunchPosition">
-<area shape="rect" id="node1" title=" " alt="" coords="525,5,728,47"/>
-<area shape="rect" id="node2" href="$classdata__middleware_1_1CalculatedData.html#a21515bd355a6df0c8888d61862588ca1" title="Calculate the distance traveled and the distance from the launch. Called by updatePositionalData()" alt="" coords="265,5,477,47"/>
-<area shape="rect" id="node3" href="$classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe" title="Update positional data based on GPS data." alt="" coords="5,5,217,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="525,5,728,45"/>
+<area shape="rect" id="Node000002" href="$classdata__middleware_1_1CalculatedData.html#a21515bd355a6df0c8888d61862588ca1" title="Calculate the distance traveled and the distance from the launch. Called by updatePositionalData()" alt="" coords="265,5,477,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="511,28,478,28,478,23,511,23"/>
+<area shape="rect" id="Node000003" href="$classdata__middleware_1_1CalculatedData.html#a5cb61a2d8469642c34b8f63c0f86d3fe" title="Update positional data based on GPS data." alt="" coords="5,5,217,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="252,28,218,28,218,23,252,23"/>
 </map>

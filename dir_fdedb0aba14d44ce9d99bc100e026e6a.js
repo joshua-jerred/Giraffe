@@ -1,0 +1,27 @@
+var dir_fdedb0aba14d44ce9d99bc100e026e6a =
+[
+    [ "curses", "dir_dc81c9a1c45c3c0da73dad622e85e03b.html", "dir_dc81c9a1c45c3c0da73dad622e85e03b" ],
+    [ "protocol", "dir_59584031e26d6ae6675c77c95760685d.html", "dir_59584031e26d6ae6675c77c95760685d" ],
+    [ "agent_network.hpp", "agent__network_8hpp.html", "agent__network_8hpp" ],
+    [ "command_ids.hpp", "command__ids_8hpp.html", null ],
+    [ "command_ids_strings.cpp", "command__ids__strings_8cpp.html", null ],
+    [ "common_logger.cpp", "common__logger_8cpp.html", "common__logger_8cpp" ],
+    [ "common_logger.hpp", "common__logger_8hpp.html", "common__logger_8hpp" ],
+    [ "data_ids.hpp", "data__ids_8hpp.html", null ],
+    [ "data_ids_string_map.cpp", "data__ids__string__map_8cpp.html", null ],
+    [ "diagnostic_id_strings.cpp", "diagnostic__id__strings_8cpp.html", null ],
+    [ "giraffe_assert.hpp", "giraffe__assert_8hpp.html", "giraffe__assert_8hpp" ],
+    [ "giraffe_debug_assert.cpp", "giraffe__debug__assert_8cpp.html", "giraffe__debug__assert_8cpp" ],
+    [ "giraffe_diagnostic_ids.hpp", "giraffe__diagnostic__ids_8hpp.html", null ],
+    [ "giraffe_diagnostics.hpp", "giraffe__diagnostics_8hpp.html", null ],
+    [ "giraffe_exception.cpp", "giraffe__exception_8cpp.html", "giraffe__exception_8cpp" ],
+    [ "giraffe_exception.hpp", "giraffe__exception_8hpp.html", "giraffe__exception_8hpp" ],
+    [ "giraffe_file_paths.cpp", "giraffe__file__paths_8cpp.html", "giraffe__file__paths_8cpp" ],
+    [ "giraffe_file_paths.hpp", "giraffe__file__paths_8hpp.html", "giraffe__file__paths_8hpp" ],
+    [ "i_logger.hpp", "i__logger_8hpp.html", "i__logger_8hpp" ],
+    [ "json.hpp", "json_8hpp.html", "json_8hpp" ],
+    [ "node.hpp", "node_8hpp.html", "node_8hpp" ],
+    [ "optional_logger.hpp", "optional__logger_8hpp.html", "optional__logger_8hpp" ],
+    [ "socket.cpp", "socket_8cpp.html", null ],
+    [ "socket.hpp", "socket_8hpp.html", "socket_8hpp" ]
+];

@@ -1,8 +1,13 @@
 <map id="giraffe::gdl::TransportLayer::send" name="giraffe::gdl::TransportLayer::send">
-<area shape="rect" id="node1" title="Send a message to the remote node." alt="" coords="5,136,201,177"/>
-<area shape="rect" id="node2" href="$classgiraffe_1_1gdl_1_1Config.html#a0a58a6ed60187dc17cc79c4d103d4cc7" title=" " alt="" coords="259,5,436,47"/>
-<area shape="rect" id="node3" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="268,71,427,112"/>
-<area shape="rect" id="node4" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a796c86f2cd82e0dba810fd51da7d7374" title=" " alt="" coords="249,136,445,177"/>
-<area shape="rect" id="node5" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a7a77c02664ac9a237db2bb6da4b3106a" title="Check if the transport layer is ready to send a message (true) or if it is busy with the previous mes..." alt="" coords="249,201,445,243"/>
-<area shape="rect" id="node6" href="$classgiraffe_1_1gdl_1_1Packet.html#a230dd4dc8894d107f481540d31c42fce" title=" " alt="" coords="276,267,419,308"/>
+<area shape="rect" id="Node000001" title="Send a message to the remote node." alt="" coords="5,133,201,173"/>
+<area shape="rect" id="Node000002" href="$classgiraffe_1_1gdl_1_1Config.html#a0a58a6ed60187dc17cc79c4d103d4cc7" title=" " alt="" coords="259,5,436,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,131,182,93,248,55,264,48,266,53,251,60,185,98,132,135"/>
+<area shape="rect" id="Node000003" href="$classgiraffe_1_1gdl_1_1Message.html#a0de98de7c4866d92efd28c7ec2115e04" title=" " alt="" coords="268,69,427,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,131,257,110,258,115,181,136"/>
+<area shape="rect" id="Node000004" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a796c86f2cd82e0dba810fd51da7d7374" title=" " alt="" coords="249,133,445,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="201,151,236,151,236,156,201,156"/>
+<area shape="rect" id="Node000005" href="$classgiraffe_1_1gdl_1_1TransportLayer.html#a7a77c02664ac9a237db2bb6da4b3106a" title="Check if the transport layer is ready to send a message (true) or if it is busy with the previous mes..." alt="" coords="249,197,445,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="181,171,258,191,257,196,180,176"/>
+<area shape="rect" id="Node000006" href="$classgiraffe_1_1gdl_1_1Packet.html#a230dd4dc8894d107f481540d31c42fce" title=" " alt="" coords="276,261,419,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="132,171,185,209,251,247,266,254,264,259,248,252,182,214,129,176"/>
 </map>

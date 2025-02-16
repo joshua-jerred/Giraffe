@@ -1,17 +1,39 @@
 <map id="giraffe::SpiInterface::transfer" name="giraffe::SpiInterface::transfer">
-<area shape="rect" id="node1" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="831,376,981,417"/>
-<area shape="rect" id="node2" href="$classextension_1_1Bmi088.html#a2d2331ad0ef489d33189c3173ef403e7" title=" " alt="" coords="431,5,583,47"/>
-<area shape="rect" id="node5" href="$classextension_1_1Bmi088.html#aa843603e86c0b68c9cf212df6de8abbb" title=" " alt="" coords="631,201,783,243"/>
-<area shape="rect" id="node10" href="$classextension_1_1Bmi088.html#ae0822f94de46f127633943bdb8aaaa45" title=" " alt="" coords="218,245,370,287"/>
-<area shape="rect" id="node11" href="$classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2" title=" " alt="" coords="218,332,370,373"/>
-<area shape="rect" id="node12" href="$classextension_1_1Bmi088.html#a9da18eaefe2ba7c09241a21f0a0f5c0a" title=" " alt="" coords="631,435,783,476"/>
-<area shape="rect" id="node13" href="$classextension_1_1Bmi088.html#a33e6089d835e44f98bac792d815817c6" title=" " alt="" coords="631,500,783,541"/>
-<area shape="rect" id="node15" href="$classextension_1_1Bmi088.html#a1755ea339eb317a6af46e2578a00c1d5" title=" " alt="" coords="631,565,783,607"/>
-<area shape="rect" id="node3" href="$classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649" title=" " alt="" coords="205,169,383,211"/>
-<area shape="rect" id="node4" href="$classextension_1_1Bmi088.html#ae48a834e3578a93acef45729a07495f1" title=" " alt="" coords="5,213,157,255"/>
-<area shape="rect" id="node6" href="$classextension_1_1Bmi088.html#a2e9712302803677db22ef9669f0d8936" title=" " alt="" coords="431,71,583,112"/>
-<area shape="rect" id="node7" href="$classextension_1_1Bmi088.html#a2cd3afb968d1a397a628c706f2167962" title=" " alt="" coords="431,136,583,177"/>
-<area shape="rect" id="node8" href="$classextension_1_1Bmi088.html#af6b50746d49b420137560514f0164a26" title=" " alt="" coords="431,201,583,243"/>
-<area shape="rect" id="node9" href="$classextension_1_1Bmi088.html#a4a243e58f87fda37f45f60e002aca8c4" title=" " alt="" coords="431,267,583,308"/>
-<area shape="rect" id="node14" href="$classextension_1_1Bmi088.html#ac2a25bc2a2549e2b84e637840718d3e9" title=" " alt="" coords="431,532,583,573"/>
+<area shape="rect" id="Node000001" title="SPI transfer function. Returns true if the transfer was successful, false otherwise." alt="" coords="831,369,981,409"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1Bmi088.html#a2d2331ad0ef489d33189c3173ef403e7" title=" " alt="" coords="431,5,583,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="888,358,846,276,816,229,781,187,727,141,668,102,610,71,559,48,561,43,612,66,671,98,731,137,785,183,820,226,851,273,893,355"/>
+<area shape="rect" id="Node000005" href="$classextension_1_1Bmi088.html#aa843603e86c0b68c9cf212df6de8abbb" title=" " alt="" coords="631,197,783,237"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="869,362,730,240,733,236,873,358"/>
+<area shape="rect" id="Node000010" href="$classextension_1_1Bmi088.html#ae0822f94de46f127633943bdb8aaaa45" title=" " alt="" coords="218,273,370,313"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="817,376,782,371,370,307,371,302,783,365,817,371"/>
+<area shape="rect" id="Node000011" href="$classextension_1_1Bmi088.html#a5b4a136587ab7b318264c5c97c1d50b2" title=" " alt="" coords="218,359,370,399"/>
+<area shape="poly" id="edge16_Node000001_Node000011" title=" " alt="" coords="817,390,370,383,370,377,817,385"/>
+<area shape="rect" id="Node000012" href="$classextension_1_1Bmi088.html#a9da18eaefe2ba7c09241a21f0a0f5c0a" title=" " alt="" coords="631,427,783,467"/>
+<area shape="poly" id="edge18_Node000001_Node000012" title=" " alt="" coords="823,416,778,429,776,424,822,411"/>
+<area shape="rect" id="Node000013" href="$classextension_1_1Bmi088.html#a33e6089d835e44f98bac792d815817c6" title=" " alt="" coords="631,491,783,531"/>
+<area shape="poly" id="edge19_Node000001_Node000013" title=" " alt="" coords="871,420,830,451,784,481,761,493,758,488,781,476,827,447,868,416"/>
+<area shape="rect" id="Node000015" href="$classextension_1_1Bmi088.html#a1755ea339eb317a6af46e2578a00c1d5" title=" " alt="" coords="631,555,783,595"/>
+<area shape="poly" id="edge21_Node000001_Node000015" title=" " alt="" coords="888,422,845,483,817,516,784,545,765,557,762,552,781,541,813,512,841,480,884,419"/>
+<area shape="rect" id="Node000003" href="$classextension_1_1Bmi088.html#a79100b177f3b73c0c1ba818587716649" title=" " alt="" coords="205,165,383,205"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="441,54,432,59,377,107,317,167,313,163,373,103,429,55,438,50"/>
+<area shape="rect" id="Node000004" href="$classextension_1_1Bmi088.html#ae48a834e3578a93acef45729a07495f1" title=" " alt="" coords="5,231,157,271"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="434,53,324,96,264,124,207,156,151,195,106,232,103,228,148,190,204,151,262,120,322,91,432,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="216,212,148,233,146,228,214,207"/>
+<area shape="rect" id="Node000006" href="$classextension_1_1Bmi088.html#a2e9712302803677db22ef9669f0d8936" title=" " alt="" coords="431,69,583,109"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="671,190,630,156,581,124,559,112,561,107,584,119,633,152,675,186"/>
+<area shape="rect" id="Node000007" href="$classextension_1_1Bmi088.html#a2cd3afb968d1a397a628c706f2167962" title=" " alt="" coords="431,133,583,173"/>
+<area shape="poly" id="edge8_Node000005_Node000007" title=" " alt="" coords="630,196,569,176,570,171,631,191"/>
+<area shape="rect" id="Node000008" href="$classextension_1_1Bmi088.html#af6b50746d49b420137560514f0164a26" title=" " alt="" coords="431,197,583,237"/>
+<area shape="poly" id="edge10_Node000005_Node000008" title=" " alt="" coords="617,220,583,220,583,215,617,215"/>
+<area shape="rect" id="Node000009" href="$classextension_1_1Bmi088.html#a4a243e58f87fda37f45f60e002aca8c4" title=" " alt="" coords="431,261,583,301"/>
+<area shape="poly" id="edge12_Node000005_Node000009" title=" " alt="" coords="631,244,570,264,569,259,630,239"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="446,117,432,124,338,168,335,163,430,119,444,112"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="417,169,383,175,383,169,416,164"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="416,206,383,201,383,196,417,201"/>
+<area shape="poly" id="edge13_Node000009_Node000003" title=" " alt="" coords="444,258,430,252,335,208,338,203,432,247,446,253"/>
+<area shape="poly" id="edge15_Node000010_Node000004" title=" " alt="" coords="203,278,157,268,158,263,205,273"/>
+<area shape="poly" id="edge17_Node000011_Node000004" title=" " alt="" coords="247,354,114,273,117,268,250,349"/>
+<area shape="rect" id="Node000014" href="$classextension_1_1Bmi088.html#ac2a25bc2a2549e2b84e637840718d3e9" title=" " alt="" coords="431,523,583,563"/>
+<area shape="poly" id="edge20_Node000013_Node000014" title=" " alt="" coords="617,528,583,533,583,528,617,522"/>
+<area shape="poly" id="edge22_Node000015_Node000014" title=" " alt="" coords="617,563,583,557,583,552,617,558"/>
 </map>

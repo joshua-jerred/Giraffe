@@ -1,4 +1,5 @@
 <map id="data::SharedData" name="data::SharedData">
-<area shape="rect" id="node1" title="Data that is shared across all modules and extensions." alt="" coords="14,5,149,156"/>
-<area shape="rect" id="node2" href="$classFakeSharedData.html" title=" " alt="" coords="5,204,157,355"/>
+<area shape="rect" id="Node000001" title="Data that is shared across all modules and extensions." alt="" coords="14,5,141,171"/>
+<area shape="rect" id="Node000002" href="$classFakeSharedData.html" title=" " alt="" coords="5,219,149,384"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,184,80,218,75,218,75,184"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="data::DataStream::reportStatus" name="data::DataStream::reportStatus">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,189,80"/>
-<area shape="rect" id="node2" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="237,5,432,47"/>
-<area shape="rect" id="node3" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="245,71,425,112"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,189,77"/>
+<area shape="rect" id="Node000002" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="237,5,432,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,42,223,38,224,43,190,48"/>
+<area shape="rect" id="Node000003" href="$structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2" title=" " alt="" coords="245,69,425,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,67,232,73,231,78,189,72"/>
 </map>

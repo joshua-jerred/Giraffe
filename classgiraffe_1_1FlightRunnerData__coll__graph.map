@@ -1,10 +1,17 @@
 <map id="giraffe::FlightRunnerData" name="giraffe::FlightRunnerData">
-<area shape="rect" id="node1" title="Data that is persisted across system restarts. Used by the flight runner to track the state of the sy..." alt="" coords="397,248,674,531"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,60,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="166,5,233,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="362,5,437,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="486,5,585,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="633,5,691,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="777,5,827,83"/>
-<area shape="rect" id="node8" title=" " alt="" coords="916,5,1051,83"/>
+<area shape="rect" id="Node000001" title="Data that is persisted across system restarts. Used by the flight runner to track the state of the sy..." alt="" coords="401,236,671,581"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,48,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="25,71,23,103,26,140,35,177,53,210,86,246,123,278,164,304,208,327,299,362,386,385,385,390,297,367,206,332,162,309,120,282,82,250,48,214,30,179,21,141,18,103,20,71"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="185,5,231,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,71,213,139,222,176,238,211,269,250,306,285,346,315,388,341,386,345,343,319,302,289,265,253,234,213,217,178,207,139,203,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="311,5,438,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="378,71,384,137,391,175,403,211,406,220,401,222,397,213,386,176,378,138,372,71"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="503,5,569,71"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="539,71,539,220,533,220,533,71"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="627,5,717,71"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="672,71,664,137,645,213,642,221,637,220,640,211,659,136,667,70"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="769,5,828,71"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="802,71,796,139,786,177,770,213,732,266,685,312,682,308,728,262,766,211,781,176,790,138,797,71"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="973,5,1024,71"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1004,71,1004,103,1001,141,990,179,972,214,943,245,911,274,839,320,763,355,688,380,686,375,761,350,837,316,908,269,940,242,967,210,985,177,995,140,999,103,999,71"/>
 </map>

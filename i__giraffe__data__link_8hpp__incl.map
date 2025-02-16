@@ -1,10 +1,18 @@
 <map id="i_giraffe_data_link.hpp" name="i_giraffe_data_link.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="52,5,223,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,155,72,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="59,80,216,107"/>
-<area shape="rect" id="node4" href="$gdl__config__and__stats_8hpp.html" title=" " alt="" coords="240,80,427,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="104,155,267,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="291,155,357,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="381,155,445,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="469,155,528,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="52,5,223,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,152,72,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,33,76,52,61,65,49,80,39,109,38,139,33,139,34,108,44,77,57,61,73,48,106,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="59,79,216,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="140,31,140,65,135,65,135,31"/>
+<area shape="rect" id="Node000004" href="$gdl__config__and__stats_8hpp.html" title=" " alt="" coords="240,79,427,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="170,28,289,71,288,76,168,33"/>
+<area shape="poly" id="edge6_Node000004_Node000002" title=" " alt="" coords="287,107,86,155,85,150,285,101"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="104,152,267,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="311,106,223,148,221,144,308,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="291,152,357,177"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="334,105,330,139,325,138,329,104"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="381,152,445,177"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="348,102,392,141,388,145,344,106"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="469,152,528,177"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="361,102,460,144,458,149,359,106"/>
 </map>

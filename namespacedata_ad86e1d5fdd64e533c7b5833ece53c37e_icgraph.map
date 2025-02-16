@@ -1,6 +1,23 @@
 <map id="data::isGpsFrameValid" name="data::isGpsFrameValid">
-<area shape="rect" id="node1" title="Checks if a GPS frame contains valid location data." alt="" coords="455,42,623,69"/>
-<area shape="rect" id="node2" href="$classmodules_1_1DataModule.html#a6f93b11dc646d073ae052572c5279357" title="Process all packets from the GPSFrame stream." alt="" coords="219,5,407,47"/>
-<area shape="rect" id="node4" href="$test__positional_8cpp.html#a2a6215130340220fc70f6ee6d0c12e8d" title="Verify that an empty frame is invalid." alt="" coords="285,71,340,98"/>
-<area shape="rect" id="node3" href="$classmodules_1_1DataModule.html#ac24fdcd1442cbc107fcc427e14ddd328" title="Processes all of the data streams and updates the data block that contains the stream stats." alt="" coords="5,5,171,47"/>
+<area shape="rect" id="Node000001" title="Checks if a GPS frame contains valid location data." alt="" coords="108,228,276,253"/>
+<area shape="rect" id="Node000002" href="$test__positional_8cpp.html#a56786479676548071ebc746885c728ba" title="Verify validity of altitude (meters), must be within [&#45;450, 40000]." alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,217,126,137,94,90,58,44,48,33,51,29,62,40,98,86,131,134,179,214"/>
+<area shape="rect" id="Node000003" href="$test__positional_8cpp.html#a2a6215130340220fc70f6ee6d0c12e8d" title="Verify that an empty frame is invalid." alt="" coords="5,55,60,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,219,120,161,58,93,47,82,50,78,62,89,124,157,174,216"/>
+<area shape="rect" id="Node000004" href="$test__positional_8cpp.html#aa5971508a91bc0770c5891c19bfd35e5" title="A non&#45;2d or non&#45;3d fix should be invalid. A 2d fix is currently considered valid." alt="" coords="5,104,60,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="162,222,49,132,52,127,166,217"/>
+<area shape="rect" id="Node000005" href="$test__positional_8cpp.html#a65ca1ed2741eaac83cba70b836ef71b4" title="Verify validity of heading of motion (0&#45;360 degrees)" alt="" coords="5,153,60,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="150,224,59,181,61,176,152,220"/>
+<area shape="rect" id="Node000006" href="$test__positional_8cpp.html#a81d7dc7e22304432426811baf5ed38a9" title="Verify validity of horizontal accuracy (meters), must be within [0, 1000]." alt="" coords="5,203,60,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="98,228,60,222,60,217,99,223"/>
+<area shape="rect" id="Node000007" href="$test__positional_8cpp.html#aad69db709647cc65fe00f1089c973b5f" title="Test to make sure that time is checked. Clock skew is ok, but it should not be too far off (1 day lim..." alt="" coords="5,252,60,277"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="95,258,60,263,60,258,94,253"/>
+<area shape="rect" id="Node000008" href="$test__positional_8cpp.html#a94d671961c177174ccfd6d970a02427a" title="Verify validity of latitude." alt="" coords="5,301,60,327"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="152,262,62,304,59,299,150,257"/>
+<area shape="rect" id="Node000009" href="$test__positional_8cpp.html#a1c6a53b06d4a28b802627e190deb943a" title="Verify validity of longitude." alt="" coords="5,351,60,376"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="165,264,52,352,49,348,162,260"/>
+<area shape="rect" id="Node000010" href="$test__positional_8cpp.html#a550c8beb722f9455e18827fdb69db572" title="Verify that a fix and number of satellites are checked." alt="" coords="5,400,60,425"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="173,266,62,389,49,402,46,398,58,386,169,262"/>
+<area shape="rect" id="Node000011" href="$test__positional_8cpp.html#a1d3de20e88a70cecb9fb969ef2898148" title="A frame with all zeros, and a good fix should be valid." alt="" coords="5,449,60,475"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="179,267,130,346,62,438,50,451,46,447,58,435,125,343,174,264"/>
 </map>

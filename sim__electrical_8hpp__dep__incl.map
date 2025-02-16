@@ -1,7 +1,11 @@
 <map id="sim_electrical.hpp" name="sim_electrical.hpp">
-<area shape="rect" id="node1" title="GFS Simulator Electrical Implementation." alt="" coords="138,5,279,32"/>
-<area shape="rect" id="node2" href="$gfs__simulator_8hpp.html" title=" " alt="" coords="139,80,278,107"/>
-<area shape="rect" id="node3" href="$gfs__simulator_8cpp.html" title="The simulator for the flight system." alt="" coords="5,155,143,181"/>
-<area shape="rect" id="node4" href="$tests_2simulator_2main_8cpp.html" title="GFS Simulator main entry point." alt="" coords="167,155,250,181"/>
-<area shape="rect" id="node5" href="$simulated__extensions_8hpp.html" title="This contains the simulated extensions for testing the flight system." alt="" coords="275,155,468,181"/>
+<area shape="rect" id="Node000001" title="GFS Simulator Electrical Implementation." alt="" coords="138,5,279,31"/>
+<area shape="rect" id="Node000002" href="$gfs__simulator_8hpp.html" title=" " alt="" coords="139,79,278,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,44,211,79,206,79,206,44"/>
+<area shape="rect" id="Node000003" href="$gfs__simulator_8cpp.html" title="The simulator for the flight system." alt="" coords="5,152,143,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="176,113,97,154,95,149,174,108"/>
+<area shape="rect" id="Node000004" href="$tests_2simulator_2main_8cpp.html" title="GFS Simulator main entry point." alt="" coords="167,152,250,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="211,118,211,152,206,152,206,118"/>
+<area shape="rect" id="Node000005" href="$simulated__extensions_8hpp.html" title="This contains the simulated extensions for testing the flight system." alt="" coords="275,152,468,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="248,107,346,149,344,154,246,112"/>
 </map>

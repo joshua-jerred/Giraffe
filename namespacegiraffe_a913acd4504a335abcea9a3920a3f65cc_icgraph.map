@@ -1,5 +1,7 @@
 <map id="giraffe::getFlightComputerInfo" name="giraffe::getFlightComputerInfo">
-<area shape="rect" id="node1" title=" " alt="" coords="211,42,429,69"/>
-<area shape="rect" id="node2" href="$classextension_1_1PiCamera.html#abe7dc219785211e3a0d86a50d481cd41" title=" " alt="" coords="5,5,163,47"/>
-<area shape="rect" id="node3" href="$test__get__fc__info_8cpp.html#af7855ab8c770965fdeb7dd1f062e9001" title=" " alt="" coords="57,71,111,98"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="211,42,429,67"/>
+<area shape="rect" id="Node000002" href="$classextension_1_1PiCamera.html#abe7dc219785211e3a0d86a50d481cd41" title=" " alt="" coords="5,5,163,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,43,163,38,163,32,205,38"/>
+<area shape="rect" id="Node000003" href="$test__get__fc__info_8cpp.html#af7855ab8c770965fdeb7dd1f062e9001" title=" " alt="" coords="57,70,111,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="200,72,112,82,111,77,199,66"/>
 </map>

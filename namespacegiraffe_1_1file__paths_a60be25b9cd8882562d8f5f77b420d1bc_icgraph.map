@@ -1,7 +1,12 @@
 <map id="giraffe::file_paths::getGfsDataDirPath" name="giraffe::file_paths::getGfsDataDirPath">
-<area shape="rect" id="node1" title="Returns the path to the gfs data directory. Creates the directory if it does not exist." alt="" coords="744,39,895,80"/>
-<area shape="rect" id="node2" href="$group__DataLog.html#ga234962b2bffa3e30ac2ae8e9d269143c" title="Used to create the data directory with createDirectory()." alt="" coords="251,5,448,47"/>
-<area shape="rect" id="node4" href="$namespacegiraffe_1_1file__paths.html#a071e3968c8ee80bada890eb9a36ec2f0" title="Returns the path to the gfs data archive directory. Creates the directory if it does not exist." alt="" coords="496,68,696,109"/>
-<area shape="rect" id="node3" href="$classdata__middleware_1_1DataLog.html#a957234a0f7b3ce34cc4f3ffffb222f0c" title=" " alt="" coords="5,39,203,80"/>
-<area shape="rect" id="node5" href="$group__DataLog.html#ga96a2e0cbd5f5f4bc55b9ad0b6dad9222" title="Used to create the data archive directory with createDirectory()." alt="" coords="251,71,448,112"/>
+<area shape="rect" id="Node000001" title="Returns the path to the gfs data directory. Creates the directory if it does not exist." alt="" coords="744,39,895,79"/>
+<area shape="rect" id="Node000002" href="$group__DataLog.html#ga234962b2bffa3e30ac2ae8e9d269143c" title="Used to create the data directory with createDirectory()." alt="" coords="251,5,448,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="730,55,448,35,449,30,731,50"/>
+<area shape="rect" id="Node000004" href="$namespacegiraffe_1_1file__paths.html#a071e3968c8ee80bada890eb9a36ec2f0" title="Returns the path to the gfs data archive directory. Creates the directory if it does not exist." alt="" coords="496,67,696,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="731,72,697,77,696,71,730,67"/>
+<area shape="rect" id="Node000003" href="$classdata__middleware_1_1DataLog.html#a957234a0f7b3ce34cc4f3ffffb222f0c" title=" " alt="" coords="5,37,203,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,43,203,47,202,42,237,37"/>
+<area shape="rect" id="Node000005" href="$group__DataLog.html#ga96a2e0cbd5f5f4bc55b9ad0b6dad9222" title="Used to create the data archive directory with createDirectory()." alt="" coords="251,69,448,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="482,91,448,91,448,86,482,85"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="237,77,202,73,203,68,237,72"/>
 </map>

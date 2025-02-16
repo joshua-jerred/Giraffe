@@ -1,4 +1,5 @@
 <map id="sim_parameters.hpp" name="sim_parameters.hpp">
-<area shape="rect" id="node1" title="Parameters for the GFS Simulator." alt="" coords="5,5,161,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="50,80,117,107"/>
+<area shape="rect" id="Node000001" title="Parameters for the GFS Simulator." alt="" coords="5,5,161,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="50,79,117,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,31,86,65,81,65,81,31"/>
 </map>

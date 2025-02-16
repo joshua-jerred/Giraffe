@@ -1,6 +1,9 @@
 <map id="flight_runner.hpp" name="flight_runner.hpp">
-<area shape="rect" id="node1" title="The main class for the flight system." alt="" coords="149,5,280,32"/>
-<area shape="rect" id="node2" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="5,80,125,107"/>
-<area shape="rect" id="node3" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="149,80,280,107"/>
-<area shape="rect" id="node4" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="304,80,387,107"/>
+<area shape="rect" id="Node000001" title="The main class for the flight system." alt="" coords="149,5,280,31"/>
+<area shape="rect" id="Node000002" href="$flight__logic_8cpp.html" title="The implementation of the flight logic within the flight runner." alt="" coords="5,79,125,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,39,91,81,89,76,177,34"/>
+<area shape="rect" id="Node000003" href="$flight__runner_8cpp.html" title="The implementation of the flight runner, where everything comes together." alt="" coords="149,79,280,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,44,217,79,212,79,212,44"/>
+<area shape="rect" id="Node000004" href="$src_2flight__system_2main_8cpp.html" title="Defines the entry point/main function of the Flight Computer software." alt="" coords="304,79,387,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="249,35,325,76,323,81,247,40"/>
 </map>
