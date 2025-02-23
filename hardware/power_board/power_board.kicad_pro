@@ -480,7 +480,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "giraffe_flight_computer.kicad_pro",
+    "filename": "power_board.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -626,52 +626,7 @@
       "version": 3
     },
     "net_colors": null,
-    "netclass_assignments": {
-      "/hat/+BATT": "POWER:BATT",
-      "/hat/1_WIRE": "DATA",
-      "/hat/BMI088.INT1": "GPIO",
-      "/hat/BMI088.INT3": "GPIO",
-      "/hat/PCM.CLK": "DATA",
-      "/hat/PCM.DIN": "DATA",
-      "/hat/PCM.DOUT": "DATA",
-      "/hat/PCM.FS": "DATA",
-      "/hat/SAM_M8Q.RST": "GPIO",
-      "/hat/SAM_M8Q.TX_RDY": "GPIO",
-      "/hat/SPI0.CE0": "DATA",
-      "/hat/SPI0.CE1": "DATA",
-      "/hat/SPI0.MISO": "DATA",
-      "/hat/SPI0.MOSI": "DATA",
-      "/hat/SPI0.SCLK": "DATA",
-      "/hat/STATUS_LED.BLUE": "GPIO",
-      "/hat/STATUS_LED.GREEN": "GPIO",
-      "/hat/STATUS_LED.RED": "GPIO",
-      "/shoe/+BATT": "POWER:BATT",
-      "/shoe/PI_GPIO_SA868_PTT": "GPIO",
-      "/shoe/PI_GPIO_SA868_RX": "GPIO",
-      "/shoe/PI_GPIO_SHOE_POWER_CONTROL": "GPIO",
-      "/shoe/RX_DETECT": "GPIO",
-      "/shoe/SA868 RF": "RF",
-      "/shoe/SA868_PTT": "GPIO",
-      "/shoe/SA868_PWR_CTRL": "GPIO",
-      "/shoe/SA868_RX": "GPIO",
-      "/shoe/S_5V_IN": "POWER:5V",
-      "/shoe/UART.RX": "DATA",
-      "/shoe/UART.TX": "DATA",
-      "H_3V3": "POWER:3V3",
-      "H_5V": "POWER:5V",
-      "H_GND": "POWER:BATT",
-      "Net-(AE1-A)": "RF",
-      "Net-(C44-Pad1)": "RF",
-      "Net-(C45-Pad1)": "RF",
-      "Net-(C46-Pad1)": "RF",
-      "Net-(C47-Pad1)": "RF",
-      "Net-(TX1-ANT)": "RF",
-      "S_3V3": "POWER:3V3",
-      "S_4V": "POWER:4V",
-      "S_5V": "POWER:5V",
-      "S_GND": "POWER:BATT",
-      "unconnected-(#FLG03-Pad1)": "POWER:BATT"
-    },
+    "netclass_assignments": null,
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -859,18 +814,6 @@
     [
       "8b6d32d3-7736-4ef0-bfd7-9f676eec710d",
       "Root"
-    ],
-    [
-      "7384c1b4-69d8-435f-8d37-4f0768f54f3f",
-      "hat"
-    ],
-    [
-      "ba60804d-01a4-423f-89a4-e92a0bf73814",
-      "shoe"
-    ],
-    [
-      "3c0d0515-2f21-4168-b1d1-32e6f5ea7476",
-      "USB Audio Codec"
     ]
   ],
   "text_variables": {}
