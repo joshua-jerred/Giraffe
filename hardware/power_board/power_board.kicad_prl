@@ -74,7 +74,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "giraffe_flight_computer.kicad_prl",
+    "filename": "power_board.kicad_prl",
     "version": 3
   },
   "project": {
