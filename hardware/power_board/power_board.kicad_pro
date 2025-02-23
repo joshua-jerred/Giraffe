@@ -261,11 +261,7 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [
-      "pin_to_pin|2120900|1371600|2abada94-075b-4e0d-a5e2-0df8ff587bed|68802fb3-3f2c-41ab-a8fa-9798abdea4b0|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/ba60804d-01a4-423f-89a4-e92a0bf73814",
-      "pin_to_pin|2120900|1371600|2abada94-075b-4e0d-a5e2-0df8ff587bed|9975413d-a92f-4da1-8ec0-565f277c6f28|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/ba60804d-01a4-423f-89a4-e92a0bf73814",
-      "pin_to_pin|2120900|1371600|2abada94-075b-4e0d-a5e2-0df8ff587bed|b6a0aca6-5f9c-4a04-af6c-7b81ba36399b|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d|/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/ba60804d-01a4-423f-89a4-e92a0bf73814"
-    ],
+    "erc_exclusions": [],
     "meta": {
       "version": 0
     },
@@ -477,7 +473,9 @@
   },
   "libraries": {
     "pinned_footprint_libs": [],
-    "pinned_symbol_libs": []
+    "pinned_symbol_libs": [
+      "a_giraffe_symbols"
+    ]
   },
   "meta": {
     "filename": "power_board.kicad_pro",
