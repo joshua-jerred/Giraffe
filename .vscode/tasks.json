@@ -18,7 +18,7 @@
       "label": "pico upload",
       "type": "shell",
       "command": "${workspaceFolder}/project/pico_upload.sh",
-      "args": ["${workspaceFolder}/build/pi_pico/src/power_board_pico/pico_world.elf"],
+      "args": ["${workspaceFolder}/build/pi_pico/src/power_board_pico/power_board_pico.elf"],
       "detail": "Upload the firmware to the Pico",
       "presentation": {
         "reveal": "always",

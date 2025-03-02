@@ -17,7 +17,7 @@ if(BUILD_FOR_PICO)
   # enable usb output, disable uart output
   pico_enable_stdio_usb(power_board_pico 1) # Enable USB serial output.
   pico_enable_stdio_uart(power_board_pico 0) # Disable UART output.
-  
+
   # Create map/bin/hex/uf2 file in addition to elf.
   pico_add_extra_outputs(power_board_pico)
 endif()
