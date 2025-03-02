@@ -1,52 +1,68 @@
-#include "pico/binary_info.h"
-#include "pico/stdlib.h"
+/// =*========GIRAFFE========*=
+/// A Unified Flight Command and Control System
+/// https://github.com/joshua-jerred/Giraffe
+/// https://giraffe.joshuajer.red/
+/// =*=======================*=
+///
+/// @file   main.cpp
+///
+/// =*=======================*=
+/// @author     Joshua Jerred (https://joshuajer.red)
+/// @date       2025-03-01
+/// @copyright  2025 (license to be defined)
 
+// C++ Standard Library
 #include <stdio.h>
 
+// pico-sdk
+#include "hardware/gpio.h"
+#include "pico/binary_info.h"
+#include "pico/config.h"
+#include "pico/stdlib.h"
+#include "pico/time.h"
+
+// Local
+#include "adc_data.hpp"
+#include "power_board_comms.hpp"
+#include "status_led.hpp"
+
 // If debug build, allow software restart
+// #ifdef DEBUG
 #ifndef PICO_STDIO_USB_ENABLE_RESET_VIA_VENDOR_INTERFACE
 #define PICO_STDIO_USB_ENABLE_RESET_VIA_VENDOR_INTERFACE 1
 #endif
+// #endif
 // #define PICO_STDIO_USB_RESET_MAGIC_BAUD_RATE 19200
 
-const uint LED_PIN = 25;
-const uint SLEEP_MS = 100;
+bi_decl(bi_program_version_string(GIRAFFE_VERSION_NUMBER));
+bi_decl(bi_program_description("Power Board Pico"));
+
+static power_board::StatusLed status_led{100};
 
 int main() {
-  stdio_init_all();
-  // setup_default_uart();
+  static power_board::AdcData adc_data{1000};
+  static power_board::PowerBoardComms power_board_comms{};
 
-  bi_decl(bi_program_description("First Blink"));
-  bi_decl(bi_1pin_with_name(LED_PIN, "On-board LED"));
+  stdio_set_chars_available_callback(
+      [](void *) {
+        power_board_comms.charsAvailable();
+        status_led.toggle();
+      },
+      NULL);
 
-  gpio_init(LED_PIN);
-  gpio_set_dir(LED_PIN, GPIO_OUT);
   while (1) {
-    gpio_put(LED_PIN, 0);
-    sleep_ms(SLEEP_MS);
-    gpio_put(LED_PIN, 1);
-    sleep_ms(SLEEP_MS);
-    printf("Hello, world!\n");
-  }
+    status_led.process();
+    power_board_comms.process();
+    adc_data.process();
 
+    // sleep_ms(100);
+  }
   return 0;
 }
 
-// #include <Arduino.h>
-
-// // put function declarations here:
-// int myFunction(int, int);
-
-// void setup() {
-//   // put your setup code here, to run once:
-//   int result = myFunction(2, 3);
-// }
-
-// void loop() {
-//   // put your main code here, to run repeatedly:
-// }
-
-// // put function definitions here:
-// int myFunction(int x, int y) {
-//   return x + y;
-// }
+void exception_handler() {
+  while (1) {
+    status_led.toggle();
+    sleep_ms(100);
+  }
+}
