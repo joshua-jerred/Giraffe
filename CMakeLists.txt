@@ -41,7 +41,7 @@ ${GIRAFFE_VERSION_STAGE}")
 # need to get rid of these
 set(THIRD_PARTY_SRC ${CMAKE_SOURCE_DIR}/lib/third_party)
 
-set(GFS_SRC  ${CMAKE_SOURCE_DIR}/src/flight_system)
+set(GFS_SRC ${CMAKE_SOURCE_DIR}/src/flight_system)
 set(GFS_BIN ${CMAKE_BINARY_DIR}/bin)
 set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests)
 set(GFS_UNIT_TEST_SRC ${GFS_TEST_SRC}/flight_system)
@@ -53,7 +53,14 @@ set(GDL_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/data_link)
 set(GDL_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/data_link)
 
 set(TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests)
+
 # ------------------- #
+
+if(BUILD_FOR_PICO)
+  # Must be set before project() is called
+  message(STATUS "==>> Building for Pico <<==")
+  include("./project/cmake/pico_sdk_import.cmake")
+endif()
 
 # ---- Project ----
 project(Giraffe
@@ -81,33 +88,40 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 # ----------------------------
 
 
-# ----- Third Party Libs -----
-set(THREADS_PREFER_PTHREAD_FLAG ON)
-find_package(Threads REQUIRED)                  # pthreads
-find_package(Curses REQUIRED)                   # ncurses
-find_package(CURL REQUIRED)                     # curl
-add_subdirectory(lib/third_party/sqlite_cpp)    # sqlite_cpp
-add_subdirectory(lib/third_party/nlohmann_json) # nlohmann_json
-set(BUILD_GMOCK ON CACHE BOOL "Build Google Mock with Google Test" FORCE)
-add_subdirectory(lib/third_party/googletest)    # googletest
-add_subdirectory(lib/third_party/fmt)           # fmt
-# ----------------------------
+if(BUILD_FOR_PICO)
+  add_subdirectory(src/power_board_pico) # Power Board Pico
+
+else()
+  # ----- Third Party Libs -----
+  set(THREADS_PREFER_PTHREAD_FLAG ON)
+  find_package(Threads REQUIRED) # pthreads
+  find_package(Curses REQUIRED) # ncurses
+  find_package(CURL REQUIRED) # curl
+  add_subdirectory(lib/third_party/sqlite_cpp) # sqlite_cpp
+  set(BUILD_GMOCK ON CACHE BOOL "Build Google Mock with Google Test" FORCE)
+  add_subdirectory(lib/third_party/googletest) # googletest
+  add_subdirectory(lib/third_party/nlohmann_json) # nlohmann_json
+  add_subdirectory(lib/third_party/fmt) # fmt
+
+  # ----------------------------
 
 
-# ---- Giraffe Components ----
-add_subdirectory(project)                  # Auto-generated files
-add_subdirectory(src/flight_system)        # Flight System
-add_subdirectory(src/flight_system_agent)  # Flight System Agent
-add_subdirectory(src/common)               # Common
-add_subdirectory(src/data_link)            # Data Link
-add_subdirectory(${GFS_TEST_SRC}/simulator) # gfs_simulator
-add_subdirectory(lib/SignalEasel)          # SignalEasel
-add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
-add_subdirectory(lib/bzip2-cpp)            # bzip2-cpp
-# ---- Utilities ----
-add_subdirectory(project/eeprom)           # EEPROM Utility
-# ----------------------------
+  # ---- Giraffe Components ----
+  add_subdirectory(project) # Auto-generated files
+  add_subdirectory(src/flight_system) # Flight System
+  add_subdirectory(src/flight_system_agent) # Flight System Agent
+  add_subdirectory(src/common) # Common
+  add_subdirectory(src/data_link) # Data Link
+  add_subdirectory(${GFS_TEST_SRC}/simulator) # gfs_simulator
+  add_subdirectory(lib/SignalEasel) # SignalEasel
+  add_subdirectory(lib/Boost_erSeat) # BoosterSeat
+  add_subdirectory(lib/bzip2-cpp) # bzip2-cpp
+  # ---- Utilities ----
+  add_subdirectory(project/eeprom) # EEPROM Utility
+  # ----------------------------
 
-# Unit Tests
-enable_testing()
-add_subdirectory(${GFS_TEST_SRC})
+  # Unit Tests
+  enable_testing()
+  add_subdirectory(${GFS_TEST_SRC})
+
+endif()
