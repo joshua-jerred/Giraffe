@@ -15,6 +15,20 @@
       }
     },
     {
+      "label": "pico upload",
+      "type": "shell",
+      "command": "${workspaceFolder}/project/pico_upload.sh",
+      "args": ["${workspaceFolder}/build/pi_pico/src/power_board_pico/pico_world.elf"],
+      "detail": "Upload the firmware to the Pico",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
       "label": "generate source files",
       "type": "shell",
       "command": "${workspaceFolder}/project/generate_source_files.sh",
