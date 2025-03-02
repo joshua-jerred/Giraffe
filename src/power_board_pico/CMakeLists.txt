@@ -12,7 +12,11 @@ if(BUILD_FOR_PICO)
     GIRAFFE_VERSION_STAGE="${GIRAFFE_VERSION_STAGE}"
   )
 
-  target_link_libraries(power_board_pico pico_stdlib) # Link the pico standard library.
+  target_link_libraries(power_board_pico 
+    pico_stdlib
+    hardware_adc
+    hardware_exception
+  ) # Link the pico standard library.
   
   # enable usb output, disable uart output
   pico_enable_stdio_usb(power_board_pico 1) # Enable USB serial output.

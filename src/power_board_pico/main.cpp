@@ -22,6 +22,7 @@
 #include "pico/time.h"
 
 // Local
+#include "adc_data.hpp"
 #include "power_board_comms.hpp"
 #include "status_led.hpp"
 
@@ -36,15 +37,15 @@
 bi_decl(bi_program_version_string(GIRAFFE_VERSION_NUMBER));
 bi_decl(bi_program_description("Power Board Pico"));
 
-static power_board::StatusLed status_led;
+static power_board::StatusLed status_led{100};
 
 int main() {
-
+  static power_board::AdcData adc_data{1000};
   static power_board::PowerBoardComms power_board_comms{};
+
   stdio_set_chars_available_callback(
       [](void *) {
         power_board_comms.charsAvailable();
-
         status_led.toggle();
       },
       NULL);
@@ -52,9 +53,10 @@ int main() {
   while (1) {
     status_led.process();
     power_board_comms.process();
-    // stdio_putchar('.');
-  }
+    adc_data.process();
 
+    // sleep_ms(100);
+  }
   return 0;
 }
 

@@ -15,30 +15,28 @@
 
 #include "pico/stdlib.h"
 
+#include "periodic_processor.hpp"
+
 namespace power_board {
 
-class StatusLed {
+class StatusLed : public PeriodicProcessor {
 public:
   static const uint LED_PIN = 25;
 
-  StatusLed(uint64_t blink_interval_ms = 2000,
+  StatusLed(uint64_t module_process_interval_ms,
+            uint64_t blink_interval_ms = 2000,
             uint64_t error_blink_interval_ms = 100)
-      : normal_blink_interval_us_(blink_interval_ms * 1000),
-        error_blink_interval_us_(error_blink_interval_ms * 1000) {
+      : PeriodicProcessor(module_process_interval_ms),
+        normal_blink_interval_us_(blink_interval_ms * 1000),
+        error_blink_interval_us_(error_blink_interval_ms * 1000)
+
+  {
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
   }
 
   ~StatusLed() {
     gpio_put(LED_PIN, 0);
-  }
-
-  void process() {
-    const uint64_t us_since_last_toggle = time_us_64() - last_toggle_time_;
-    if (us_since_last_toggle > current_blink_interval_us_) {
-      toggle();
-      last_toggle_time_ = time_us_64();
-    }
   }
 
   void toggle() {
@@ -58,6 +56,14 @@ public:
   }
 
 private:
+  void processImpl() override {
+    const uint64_t us_since_last_toggle = time_us_64() - last_toggle_time_;
+    if (us_since_last_toggle > current_blink_interval_us_) {
+      toggle();
+      last_toggle_time_ = time_us_64();
+    }
+  }
+
   const uint64_t normal_blink_interval_us_;
   const uint64_t error_blink_interval_us_;
 

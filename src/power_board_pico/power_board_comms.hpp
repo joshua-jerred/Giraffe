@@ -72,9 +72,8 @@ private:
       }
 
       rx_buffer_[rx_buffer_index_] = 0; // null terminate
+      processLine(std::span(rx_buffer_.data(), rx_buffer_index_));
       rx_buffer_index_ = 0;
-
-      processLine(rx_buffer_);
 
       return;
     }
@@ -101,9 +100,27 @@ private:
   }
 
   void processCommand(std::span<uint8_t> command) {
-    printf("Command:<%.*s>\n", static_cast<int>(command.size()),
-           command.data());
-    acknowledge();
+    std::string command_str(command.begin(), command.end());
+
+    // split input into a command and optional argument
+    std::string_view arg;
+    size_t space_index = command_str.find(' ');
+    if (space_index != std::string::npos) {
+      arg = command_str.substr(space_index + 1);
+      command_str = command_str.substr(0, space_index);
+    }
+
+    if (command_str == "ping") {
+      acknowledge();
+      return;
+    } else if (command_str == "version") {
+      const std::string version_number = GIRAFFE_VERSION_NUMBER;
+      const std::string version_stage = GIRAFFE_VERSION_STAGE;
+      send(version_number + "-" + version_stage);
+      return;
+    }
+
+    sendError("unknown cmd<" + command_str + ">");
   }
 
   void sendError(std::string_view error) {
@@ -127,6 +144,13 @@ private:
   }
 
   void send(std::span<uint8_t> data) {
+    for (uint8_t c : data) {
+      stdio_putchar(c);
+    }
+    stdio_putchar('\n');
+  }
+
+  void send(std::string_view data) {
     for (uint8_t c : data) {
       stdio_putchar(c);
     }
