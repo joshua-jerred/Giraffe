@@ -5,6 +5,7 @@ if(BUILD_FOR_PICO)
   add_executable(power_board_pico
     main.cpp
   )
+  add_subdirectory(keystone)
   
   target_compile_definitions(power_board_pico PRIVATE
     PICO_STDIO_USB_ENABLE_RESET_VIA_VENDOR_INTERFACE=1
@@ -17,6 +18,7 @@ if(BUILD_FOR_PICO)
     hardware_adc
     hardware_exception
     hardware_i2c
+    keystone
   ) # Link the pico standard library.
   
   # Using USB is annoying when uploading as the serial port resets.

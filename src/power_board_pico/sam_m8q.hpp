@@ -17,8 +17,8 @@
 #include <vector>
 
 #include "hardware/i2c.h"
+#include "keystone/ubx.hpp"
 
-#include "new_ubx.hpp"
 #include "periodic_processor.hpp"
 
 namespace power_board {
@@ -115,29 +115,17 @@ public:
 private:
   void init() {
     printf("Initializing SAM-M8Q\n");
-    sendResetCommand();
-    printf("Reset command sent!\n");
-    sleep_ms(500);
+    // sendResetCommand();
+    // printf("Reset command sent!\n");
+    // sleep_ms(500);
     setProtocolDDC();
     printf("SAM-M8Q initialized\n");
   }
 
   void processImpl() {
-    printf("\n\n\nProcessing SAM-M8Q\n");
+    // printf("\n\n\nProcessing SAM-M8Q");
     requestNavData();
     // readNavData();
-  }
-
-  float readAltitudeM() {
-    // adc_select_input(4);
-
-    // From Raspberry Pi Pico-series C/C++ SDK documentation
-    // uint16_t adc_count = adc_read();
-    // const float conversion_factor = 3.3f / (1 << 12);
-    // float voltage = adc_count * conversion_factor;
-    // float temp_c = 27 - ((voltage - 0.706f) / 0.001721f);
-
-    return 0.0f;
   }
 
   void writeUbx() {
@@ -146,7 +134,10 @@ private:
       return;
     }
 
-    ubx_write_buffer_.calculateChecksum();
+    ubx_write_buffer_.ck_a = 0;
+    ubx_write_buffer_.ck_b = 0;
+    keystone::UBX::calculateChecksum(ubx_write_buffer_, ubx_write_buffer_.ck_a,
+                                     ubx_write_buffer_.ck_b);
 
     std::vector<uint8_t> buffer(8 + ubx_write_buffer_.length, 0);
 
@@ -162,6 +153,12 @@ private:
 
     buffer[6 + ubx_write_buffer_.length] = ubx_write_buffer_.ck_a;
     buffer[7 + ubx_write_buffer_.length] = ubx_write_buffer_.ck_b;
+
+    printf("Writing UBX: ");
+    for (size_t i = 0; i < buffer.size(); i++) {
+      printf("%02X ", buffer[i]);
+    }
+    printf("\n");
 
     i2c_write_blocking(I2C_PORT, I2C_ADDRESS, buffer.data(), buffer.size(),
                        false);
@@ -203,7 +200,8 @@ private:
         0x00,
         0x00 // reserved2
     };
-    ubx_write_buffer_.setMessage(kMessageClass, kMessageId, payload);
+    keystone::UBX::setFrameForWrite(ubx_write_buffer_, kMessageClass,
+                                    kMessageId, payload);
 
     // Send the message
     writeUbx();
@@ -220,8 +218,8 @@ private:
     i2c_read_blocking(I2C_PORT, I2C_ADDRESS, buffer, 2, false);
 
     uint16_t size = (buffer[0] << 8) | buffer[1];
-    printf("\n");
-    printf("[%d vs %d]", buffer[1] << 8 | buffer[0], size);
+    // printf("\n");
+    // printf("[%d vs %d]", buffer[1] << 8 | buffer[0], size);
 
     return (buffer[0] << 8) | buffer[1];
   }
@@ -299,12 +297,17 @@ private:
   }
 
   void sendResetCommand() {
-    ubx_write_buffer_.setMessage(0x06, 0x04, {0x00, 0x00, 0x00, 0x00});
+    std::vector<uint8_t> payload = {0xFF, 0xFF, 0x00, 0x00};
+    keystone::UBX::setFrameForWrite(ubx_write_buffer_, 0x06, 0x04, payload);
     writeUbx();
   }
 
-  void requestNavData() {
-    ubx_write_buffer_.setMessage(0x06, 0x24, {0x00, 0x00, 0x00, 0x00});
+  void requestNavData(uint8_t poll_request_id = 0x00) {
+    std::vector<uint8_t> payload = {};
+    if (poll_request_id != 0x00) {
+      payload.push_back(poll_request_id);
+    }
+    keystone::UBX::setFrameForWrite(ubx_write_buffer_, 0x01, 0x07, payload);
     transaction(92);
   }
 
@@ -313,7 +316,6 @@ private:
 
     const size_t bytes_available = getStreamSize();
     if (bytes_available <= 0) {
-      printf("No data to flush\n");
       return;
     }
 
@@ -329,15 +331,14 @@ private:
   void transaction(size_t expected_return_size) {
     // Flush the buffer
     flushStream();
-    printf("Sending request\n");
 
     // Send the request
     writeUbx();
-    printf("Waiting for response\n");
+    // printf("Waiting for response. ");
 
     // Wait for the response
     {
-      const size_t kStandardDelay = 500; // ms
+      const size_t kStandardDelay = 1000; // ms
       const uint64_t start_time = time_us_64() / 1000;
       bool message_header_available = false;
       while (time_us_64() / 1000 - start_time < kStandardDelay) {
@@ -349,7 +350,7 @@ private:
       }
 
       if (!message_header_available) {
-        printf("Message not available\n");
+        printf("Message not available, num bytes: %d\n", getStreamSize());
         return;
       }
     }
@@ -364,14 +365,18 @@ private:
       int result = processHeader(ubx_read_buffer_, header_buffer);
       if (result < 0) {
         printf("Error processing header: %d\n", result);
+        for (size_t i = 0; i < HEADER_SIZE; i++) {
+          printf("%02X ", header_buffer[i]);
+        }
+        printf("\n");
         return;
       }
 
-      const std::string message_class =
-          ubx_read_buffer_.getMessageClassString();
-      printf("proc %s[%02X, %02X], Length: %d\n", message_class.c_str(),
-             ubx_read_buffer_.class_id, ubx_read_buffer_.msg_id,
-             ubx_read_buffer_.length);
+      const std::string message_class = keystone::UBX::getMessageClassString(
+          ubx_read_buffer_.getMessageClass());
+      // printf("proc %s[%02X, %02X], Length: %d\n", message_class.c_str(),
+      //  ubx_read_buffer_.class_id, ubx_read_buffer_.msg_id,
+      //  ubx_read_buffer_.length);
     }
 
     {
@@ -403,7 +408,31 @@ private:
       i2c_read_blocking(I2C_PORT, I2C_ADDRESS, payload.data(), payload.size(),
                         false);
 
-      keystone::UBX::processPayloadAndChecksum(ubx_read_buffer_, payload);
+      int result =
+          keystone::UBX::processPayloadAndChecksum(ubx_read_buffer_, payload);
+      if (result < 0) {
+        printf("Error processing payload and checksum: %d\n", result);
+        return;
+      }
+
+      std::string frame_string =
+          keystone::UBX::getFrameString(ubx_read_buffer_);
+
+      auto message_class = ubx_read_buffer_.getMessageClass();
+      if (message_class ==
+          keystone ::UBX::MessageClass::NAV_PVT) { // NAV-PVT message
+        keystone::UBX::Data::NavPvt nav_pvt;
+        int status = nav_pvt.decode(ubx_read_buffer_);
+        if (status != 0) {
+          printf("Error decoding NAV-PVT: %d\n", status);
+          return;
+        }
+
+        std::string nav_pvt_string = nav_pvt.toString();
+        printf("NAV-PVT: %s\n", nav_pvt_string.c_str());
+      } else {
+        printf("Rx %s\n", frame_string.c_str());
+      }
     }
 
     // std::vector<uint8_t> payload(ubx_read_buffer_.length);
@@ -411,8 +440,11 @@ private:
     (void)expected_return_size; /// @todo use
   }
 
-  UbloxMessage ubx_write_buffer_;
-  keystone::UBX::Frame ubx_read_buffer_;
+  std::vector<uint8_t> tx_buffer_;
+  keystone::UBX::Frame ubx_write_buffer_{tx_buffer_};
+
+  std::vector<uint8_t> rx_buffer_;
+  keystone::UBX::Frame ubx_read_buffer_{rx_buffer_};
 };
 
 } // namespace power_board

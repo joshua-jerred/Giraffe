@@ -65,7 +65,7 @@ int main() {
 
   static power_board::AdcData adc_data{1000};
   static power_board::PowerBoardComms power_board_comms{};
-  static power_board::SamM8Q sam_m8q{500};
+  static power_board::SamM8Q sam_m8q{2000};
 
   stdio_set_chars_available_callback(
       [](void *) {
