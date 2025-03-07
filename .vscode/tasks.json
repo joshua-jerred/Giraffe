@@ -23,8 +23,8 @@
       "presentation": {
         "reveal": "silent",
         "close": true,
-        "panel": "new"
-        // "panel": "shared"
+        "panel": "dedicated",
+        "focus": true
       },
       "options": {
         "cwd": "${workspaceFolder}"

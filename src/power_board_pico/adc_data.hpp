@@ -13,6 +13,8 @@
 
 #pragma once
 
+#include <string>
+
 #include "hardware/adc.h"
 
 #include "periodic_processor.hpp"
@@ -36,9 +38,16 @@ public:
     // adc_select_input(ADC_NUM);
   }
 
-  float read() {
-    uint16_t result = adc_read();
-    return result * ADC_CONVERT;
+  // float read() {
+  //   uint16_t result = adc_read();
+  //   return result * ADC_CONVERT;
+  // }
+
+  void processCommand(const std::string &command) {
+    if (command == "cpu") {
+      float temp_c = readTemperatureC();
+      printf("CPU Temperature: %fC\n", temp_c);
+    }
   }
 
 private:
@@ -47,13 +56,18 @@ private:
     // printf("Temperature: %f\n", temp_c);
   }
 
-  float readTemperatureC() {
-    adc_select_input(4);
+  float readAdcVoltage(uint8_t adc_num) {
+    adc_select_input(adc_num);
 
-    // From Raspberry Pi Pico-series C/C++ SDK documentation
     uint16_t adc_count = adc_read();
     const float conversion_factor = 3.3f / (1 << 12);
     float voltage = adc_count * conversion_factor;
+    return voltage;
+  }
+
+  float readTemperatureC() {
+
+    float voltage = readAdcVoltage(4);
     float temp_c = 27 - ((voltage - 0.706f) / 0.001721f);
 
     return temp_c;

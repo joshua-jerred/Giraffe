@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "238097ab-5e51-45c8-8cd6-08bf1aeb75a3")
 	(paper "A")
 	(title_block
@@ -11,9 +11,13 @@
 	)
 	(lib_symbols
 		(symbol "Connector:TestPoint"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.762) hide)
+				(offset 0.762)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -111,11 +115,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Connector:TestPoint_Flag"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.762) hide)
+				(offset 0.762)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -225,11 +234,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:C_Polarized_Small"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -298,17 +312,6 @@
 			)
 			(symbol "C_Polarized_Small_0_1"
 				(rectangle
-					(start -1.524 -0.3048)
-					(end 1.524 -0.6858)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
 					(start -1.524 0.6858)
 					(end 1.524 0.3048)
 					(stroke
@@ -317,6 +320,17 @@
 					)
 					(fill
 						(type none)
+					)
+				)
+				(rectangle
+					(start -1.524 -0.3048)
+					(end 1.524 -0.6858)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
 					)
 				)
 				(polyline
@@ -382,11 +396,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:C_Small"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -456,10 +475,10 @@
 			(symbol "C_Small_0_1"
 				(polyline
 					(pts
-						(xy -1.524 -0.508) (xy 1.524 -0.508)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
-						(width 0.3302)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -468,10 +487,10 @@
 				)
 				(polyline
 					(pts
-						(xy -1.524 0.508) (xy 1.524 0.508)
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.3048)
+						(width 0.3302)
 						(type default)
 					)
 					(fill
@@ -517,11 +536,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:L_Small"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -590,32 +614,8 @@
 			)
 			(symbol "L_Small_0_1"
 				(arc
-					(start 0 -2.032)
-					(mid 0.5058 -1.524)
-					(end 0 -1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 -1.016)
-					(mid 0.5058 -0.508)
-					(end 0 0)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 0)
-					(mid 0.5058 0.508)
+					(start 0 2.032)
+					(mid 0.5058 1.524)
 					(end 0 1.016)
 					(stroke
 						(width 0)
@@ -627,8 +627,32 @@
 				)
 				(arc
 					(start 0 1.016)
-					(mid 0.5058 1.524)
-					(end 0 2.032)
+					(mid 0.5058 0.508)
+					(end 0 0)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 0)
+					(mid 0.5058 -0.508)
+					(end 0 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -1.016)
+					(mid 0.5058 -1.524)
+					(end 0 -2.032)
 					(stroke
 						(width 0)
 						(type default)
@@ -676,11 +700,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:R_Small"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -798,6 +827,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "ISO6721B_1"
 			(pin_names
@@ -884,67 +914,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 -8.89) (xy -1.27 -10.16)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -6.35) (xy -1.27 -7.62)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -3.81) (xy -1.27 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -1.27) (xy -1.27 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 1.27) (xy -1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 3.81) (xy -1.27 2.54)
+						(xy -1.27 8.89) (xy -1.27 7.62)
 					)
 					(stroke
 						(width 0)
@@ -968,7 +938,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 8.89) (xy -1.27 7.62)
+						(xy -1.27 3.81) (xy -1.27 2.54)
 					)
 					(stroke
 						(width 0)
@@ -980,7 +950,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 -8.89) (xy 1.27 -10.16)
+						(xy -1.27 1.27) (xy -1.27 0)
 					)
 					(stroke
 						(width 0)
@@ -992,7 +962,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 -6.35) (xy 1.27 -7.62)
+						(xy -1.27 -1.27) (xy -1.27 -2.54)
 					)
 					(stroke
 						(width 0)
@@ -1004,7 +974,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 -3.81) (xy 1.27 -5.08)
+						(xy -1.27 -3.81) (xy -1.27 -5.08)
 					)
 					(stroke
 						(width 0)
@@ -1016,7 +986,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 -1.27) (xy 1.27 -2.54)
+						(xy -1.27 -6.35) (xy -1.27 -7.62)
 					)
 					(stroke
 						(width 0)
@@ -1028,43 +998,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 1.27) (xy 1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 3.81) (xy 1.27 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 6.35) (xy 1.27 5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 8.89) (xy 1.27 7.62)
+						(xy -1.27 -8.89) (xy -1.27 -10.16)
 					)
 					(stroke
 						(width 0)
@@ -1089,6 +1023,102 @@
 				(polyline
 					(pts
 						(xy 0.5588 2.0066) (xy 0.5588 3.2766) (xy -0.7112 2.6416) (xy 0.5588 2.0066)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 8.89) (xy 1.27 7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 6.35) (xy 1.27 5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 3.81) (xy 1.27 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 1.27) (xy 1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy 1.27 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -3.81) (xy 1.27 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -6.35) (xy 1.27 -7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -8.89) (xy 1.27 -10.16)
 					)
 					(stroke
 						(width 0)
@@ -1173,34 +1203,16 @@
 					)
 				)
 				(pin power_in line
-					(at 10.16 -7.62 180)
+					(at 10.16 7.62 180)
 					(length 2.54)
-					(name "GND2"
+					(name "VCC2"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 10.16 -2.54 180)
-					(length 2.54)
-					(name "OUTB"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
+					(number "8"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1226,17 +1238,35 @@
 						)
 					)
 				)
-				(pin power_in line
-					(at 10.16 7.62 180)
+				(pin output line
+					(at 10.16 -2.54 180)
 					(length 2.54)
-					(name "VCC2"
+					(name "OUTB"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "8"
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 10.16 -7.62 180)
+					(length 2.54)
+					(name "GND2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1245,6 +1275,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Isolator:TLP185"
 			(exclude_from_sim no)
@@ -1329,55 +1360,19 @@
 				)
 				(polyline
 					(pts
-						(xy -3.175 -0.635) (xy -1.905 -0.635)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 1.905) (xy 2.54 -1.905) (xy 2.54 -1.905)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 -2.54) (xy 4.445 -2.54) (xy 2.54 -0.635)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 2.54) (xy 4.445 2.54) (xy 2.54 0.635)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
 						(xy -5.08 -2.54) (xy -2.54 -2.54) (xy -2.54 2.54) (xy -5.08 2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.175 -0.635) (xy -1.905 -0.635)
 					)
 					(stroke
 						(width 0.254)
@@ -1401,6 +1396,18 @@
 				)
 				(polyline
 					(pts
+						(xy -0.508 0.508) (xy 0.762 0.508) (xy 0.381 0.381) (xy 0.381 0.635) (xy 0.762 0.508)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
 						(xy -0.508 -0.508) (xy 0.762 -0.508) (xy 0.381 -0.635) (xy 0.381 -0.381) (xy 0.762 -0.508)
 					)
 					(stroke
@@ -1413,10 +1420,10 @@
 				)
 				(polyline
 					(pts
-						(xy -0.508 0.508) (xy 0.762 0.508) (xy 0.381 0.381) (xy 0.381 0.635) (xy 0.762 0.508)
+						(xy 2.54 1.905) (xy 2.54 -1.905) (xy 2.54 -1.905)
 					)
 					(stroke
-						(width 0.254)
+						(width 0.508)
 						(type default)
 					)
 					(fill
@@ -1433,6 +1440,30 @@
 					)
 					(fill
 						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 4.445 2.54) (xy 2.54 0.635)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 -2.54) (xy 4.445 -2.54) (xy 2.54 -0.635)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 			)
@@ -1474,24 +1505,6 @@
 					)
 				)
 				(pin passive line
-					(at 7.62 -2.54 180)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
 					(at 7.62 2.54 180)
 					(length 2.54)
 					(name "~"
@@ -1509,12 +1522,35 @@
 						)
 					)
 				)
+				(pin passive line
+					(at 7.62 -2.54 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "giraffe_symbols:Antenna_Shield"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1574,33 +1610,9 @@
 			)
 			(symbol "Antenna_Shield_0_1"
 				(arc
-					(start -0.508 -1.143)
-					(mid -0.8429 -2.1194)
-					(end 0 -2.667)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
 					(start 0 -2.667)
-					(mid 0.7989 -2.1052)
-					(end 0.508 -1.143)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 0)
-					)
+					(mid -0.8485 -2.1032)
+					(end -0.508 -1.143)
 					(stroke
 						(width 0)
 						(type default)
@@ -1623,10 +1635,57 @@
 				)
 				(polyline
 					(pts
+						(xy 0 -2.54) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0.508 -1.143)
+					(mid 0.8046 -2.0885)
+					(end 0 -2.667)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
 						(xy 0.762 -1.905) (xy 2.54 -1.905)
 					)
 					(stroke
 						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0.762 -1.905)
+					(radius 0.1778)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 5.08) (xy 0 0) (xy -1.27 5.08)
+					)
+					(stroke
+						(width 0.254)
 						(type default)
 					)
 					(fill
@@ -1643,29 +1702,6 @@
 					)
 					(fill
 						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 5.08) (xy 0 0) (xy -1.27 5.08)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0.762 -1.905)
-					(radius 0.1778)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
 					)
 				)
 			)
@@ -1761,9 +1797,12 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "giraffe_symbols:BC847AT"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
 			)
@@ -1866,34 +1905,22 @@
 				)
 				(polyline
 					(pts
+						(xy 0.635 1.905) (xy 0.635 -1.905) (xy 0.635 -1.905)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
 						(xy 0.635 0.635) (xy 2.54 2.54)
 					)
 					(stroke
 						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.794 -1.27) (xy 2.794 -1.27)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.794 -1.27) (xy 2.794 -1.27)
-					)
-					(stroke
-						(width 0.1524)
 						(type default)
 					)
 					(fill
@@ -1912,12 +1939,11 @@
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy 0.635 1.905) (xy 0.635 -1.905) (xy 0.635 -1.905)
-					)
+				(circle
+					(center 1.27 0)
+					(radius 2.8194)
 					(stroke
-						(width 0.508)
+						(width 0.254)
 						(type default)
 					)
 					(fill
@@ -1936,11 +1962,24 @@
 						(type outline)
 					)
 				)
-				(circle
-					(center 1.27 0)
-					(radius 2.8194)
+				(polyline
+					(pts
+						(xy 2.794 -1.27) (xy 2.794 -1.27)
+					)
 					(stroke
-						(width 0.254)
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.794 -1.27) (xy 2.794 -1.27)
+					)
+					(stroke
+						(width 0.1524)
 						(type default)
 					)
 					(fill
@@ -1967,24 +2006,6 @@
 						)
 					)
 				)
-				(pin open_emitter line
-					(at 2.54 -5.08 90)
-					(length 2.54)
-					(name "E"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin open_collector line
 					(at 2.54 5.08 270)
 					(length 2.54)
@@ -2003,12 +2024,35 @@
 						)
 					)
 				)
+				(pin open_emitter line
+					(at 2.54 -5.08 90)
+					(length 2.54)
+					(name "E"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "giraffe_symbols:Generic_LED"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -2076,7 +2120,31 @@
 			(symbol "Generic_LED_0_1"
 				(polyline
 					(pts
-						(xy 1.27 0) (xy -1.27 0)
+						(xy -1.27 2.54) (xy 0.254 4.064) (xy -0.508 4.064) (xy 0.254 4.064) (xy 0.254 3.302)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 1.27) (xy -1.27 -1.27) (xy 1.27 0) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 1.27) (xy 1.524 2.794) (xy 0.762 2.794) (xy 1.524 2.794) (xy 1.524 2.032)
 					)
 					(stroke
 						(width 0)
@@ -2100,31 +2168,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 1.27) (xy -1.27 -1.27) (xy 1.27 0) (xy -1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 2.54) (xy 0.254 4.064) (xy -0.508 4.064) (xy 0.254 4.064) (xy 0.254 3.302)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.27) (xy 1.524 2.794) (xy 0.762 2.794) (xy 1.524 2.794) (xy 1.524 2.032)
+						(xy 1.27 0) (xy -1.27 0)
 					)
 					(stroke
 						(width 0)
@@ -2136,24 +2180,6 @@
 				)
 			)
 			(symbol "Generic_LED_1_1"
-				(pin passive line
-					(at 2.54 0 180)
-					(length 2.54)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin passive line
 					(at -2.54 0 0)
 					(length 2.54)
@@ -2172,11 +2198,32 @@
 						)
 					)
 				)
+				(pin passive line
+					(at 2.54 0 180)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "giraffe_symbols:R_Potentiometer"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -2257,6 +2304,18 @@
 				)
 				(polyline
 					(pts
+						(xy 0 5.08) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
 						(xy 0 -5.08) (xy 0 -2.54)
 					)
 					(stroke
@@ -2269,14 +2328,14 @@
 				)
 				(polyline
 					(pts
-						(xy 0 5.08) (xy 0 2.54)
+						(xy 1.143 0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0)
 					)
 					(stroke
 						(width 0)
 						(type default)
 					)
 					(fill
-						(type none)
+						(type outline)
 					)
 				)
 				(polyline
@@ -2303,18 +2362,6 @@
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy 1.143 0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
 			)
 			(symbol "R_Potentiometer_1_1"
 				(pin passive line
@@ -2328,24 +2375,6 @@
 						)
 					)
 					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 1.27)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2371,7 +2400,26 @@
 						)
 					)
 				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 1.27)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "giraffe_symbols:SA868"
 			(pin_names
@@ -2484,17 +2532,125 @@
 						(type background)
 					)
 				)
-				(pin output line
-					(at 15.24 7.62 180)
+				(pin power_in line
+					(at -15.24 10.16 0)
 					(length 5.08)
-					(name "SQ"
+					(name "VBAT"
 						(effects
 							(font
 								(size 1.016 1.016)
 							)
 						)
 					)
-					(number "1"
+					(number "8"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 7.62 0)
+					(length 5.08)
+					(name "PD"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at -15.24 2.54 0)
+					(length 5.08)
+					(name "TXD"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "17"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 0 0)
+					(length 5.08)
+					(name "RXD"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "16"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at -15.24 -5.08 0)
+					(length 5.08)
+					(name "AF_OUT"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -7.62 0)
+					(length 5.08)
+					(name "MIC_IN"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "18"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -15.24 90)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "9"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -2538,71 +2694,17 @@
 						)
 					)
 				)
-				(pin input line
-					(at -15.24 0 0)
-					(length 5.08)
-					(name "RXD"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "16"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
 				(pin output line
-					(at -15.24 2.54 0)
+					(at 15.24 7.62 180)
 					(length 5.08)
-					(name "TXD"
+					(name "SQ"
 						(effects
 							(font
 								(size 1.016 1.016)
 							)
 						)
 					)
-					(number "17"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 -7.62 0)
-					(length 5.08)
-					(name "MIC_IN"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "18"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at -15.24 -5.08 0)
-					(length 5.08)
-					(name "AF_OUT"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "3"
+					(number "1"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -2629,24 +2731,6 @@
 					)
 				)
 				(pin input line
-					(at -15.24 7.62 0)
-					(length 5.08)
-					(name "PD"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin input line
 					(at 15.24 -7.62 180)
 					(length 5.08)
 					(name "H/L"
@@ -2664,47 +2748,12 @@
 						)
 					)
 				)
-				(pin power_in line
-					(at -15.24 10.16 0)
-					(length 5.08)
-					(name "VBAT"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -15.24 90)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
 			)
 			(symbol "SA868_1_1"
 				(pin no_connect line
-					(at 15.24 -5.08 180)
-					(length 0) hide
+					(at -5.08 -15.24 90)
+					(length 0)
+					(hide yes)
 					(name "NC"
 						(effects
 							(font
@@ -2712,7 +2761,26 @@
 							)
 						)
 					)
-					(number "11"
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at -2.54 -15.24 90)
+					(length 0)
+					(hide yes)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "15"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2722,7 +2790,8 @@
 				)
 				(pin no_connect line
 					(at 0 15.24 270)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "NC"
 						(effects
 							(font
@@ -2740,7 +2809,8 @@
 				)
 				(pin no_connect line
 					(at 2.54 15.24 270)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "NC"
 						(effects
 							(font
@@ -2757,26 +2827,9 @@
 					)
 				)
 				(pin no_connect line
-					(at -2.54 -15.24 90)
-					(length 0) hide
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "15"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin no_connect line
 					(at 5.08 15.24 270)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "NC"
 						(effects
 							(font
@@ -2793,8 +2846,9 @@
 					)
 				)
 				(pin no_connect line
-					(at -5.08 -15.24 90)
-					(length 0) hide
+					(at 15.24 0 180)
+					(length 0)
+					(hide yes)
 					(name "NC"
 						(effects
 							(font
@@ -2802,7 +2856,7 @@
 							)
 						)
 					)
-					(number "4"
+					(number "P3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2812,7 +2866,8 @@
 				)
 				(pin no_connect line
 					(at 15.24 -2.54 180)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "NC"
 						(effects
 							(font
@@ -2829,8 +2884,9 @@
 					)
 				)
 				(pin no_connect line
-					(at 15.24 0 180)
-					(length 0) hide
+					(at 15.24 -5.08 180)
+					(length 0)
+					(hide yes)
 					(name "NC"
 						(effects
 							(font
@@ -2838,7 +2894,7 @@
 							)
 						)
 					)
-					(number "P3"
+					(number "11"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2847,6 +2903,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "giraffe_symbols:S_3V3"
 			(power)
@@ -2924,7 +2981,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0) (xy 0 2.54)
+						(xy 0 2.54) (xy 0.762 1.27)
 					)
 					(stroke
 						(width 0)
@@ -2936,7 +2993,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
+						(xy 0 0) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -2950,7 +3007,8 @@
 			(symbol "S_3V3_1_1"
 				(pin power_in line
 					(at 0 0 90)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "S_3V3"
 						(effects
 							(font
@@ -2967,6 +3025,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "giraffe_symbols:S_5V"
 			(power)
@@ -3044,7 +3103,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0) (xy 0 2.54)
+						(xy 0 2.54) (xy 0.762 1.27)
 					)
 					(stroke
 						(width 0)
@@ -3056,7 +3115,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
+						(xy 0 0) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -3070,7 +3129,8 @@
 			(symbol "S_5V_1_1"
 				(pin power_in line
 					(at 0 0 90)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "S_5V"
 						(effects
 							(font
@@ -3087,6 +3147,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "giraffe_symbols:S_GND"
 			(power)
@@ -3166,7 +3227,8 @@
 			(symbol "S_GND_1_1"
 				(pin power_in line
 					(at 0 0 270)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "S_GND"
 						(effects
 							(font
@@ -3183,6 +3245,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "giraffe_symbols:TLP241A"
 			(exclude_from_sim no)
@@ -3291,24 +3354,6 @@
 					)
 				)
 				(pin passive line
-					(at 11.43 -2.54 180)
-					(length 2.54)
-					(name "Drain"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
 					(at 11.43 2.54 180)
 					(length 2.54)
 					(name "Drain"
@@ -3326,13 +3371,36 @@
 						)
 					)
 				)
+				(pin passive line
+					(at 11.43 -2.54 180)
+					(length 2.54)
+					(name "Drain"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:PWR_FLAG"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -3423,7 +3491,580 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(text "PCM2902/DRA868 Audio Leveling & Filtering"
+		(exclude_from_sim no)
+		(at 169.545 116.84 0)
+		(effects
+			(font
+				(face "Roboto Black")
+				(size 2.032 2.032)
+				(thickness 0.36)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(uuid "0e18dd39-edd6-43e6-b45f-8419b50a3ad9")
+	)
+	(text "SA868 UART Isolation"
+		(exclude_from_sim no)
+		(at 14.605 66.04 0)
+		(effects
+			(font
+				(face "Roboto Black")
+				(size 2.032 2.032)
+				(thickness 0.36)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(uuid "4454d6da-dd6f-4234-81d0-6c4ce1cc5e3d")
+	)
+	(text "SA868 RF Low Pass Filter"
+		(exclude_from_sim no)
+		(at 178.435 15.24 0)
+		(effects
+			(font
+				(face "Roboto Black")
+				(size 2.032 2.032)
+				(thickness 0.36)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(uuid "5e702893-7786-466a-980a-7ba016a7d3ff")
+	)
+	(text "Optional Bulk Capacitance"
+		(exclude_from_sim no)
+		(at 142.24 49.53 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.1588)
+			)
+			(justify bottom)
+		)
+		(uuid "666e00e4-30fd-427f-9163-e1c942642280")
+	)
+	(text "Power Control"
+		(exclude_from_sim no)
+		(at 40.005 15.24 0)
+		(effects
+			(font
+				(face "Roboto Black")
+				(size 2.032 2.032)
+				(thickness 0.36)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(uuid "7796f69d-e5b9-42e0-906b-914098eabf56")
+	)
+	(text "SA868 PTT Control"
+		(exclude_from_sim no)
+		(at 178.435 46.99 0)
+		(effects
+			(font
+				(face "Roboto Black")
+				(size 2.032 2.032)
+				(thickness 0.36)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(uuid "8a6e62d4-52df-4a19-8f62-2377a38e0de2")
+	)
+	(text "SA868 VHF Radio Module"
+		(exclude_from_sim no)
+		(at 14.605 116.84 0)
+		(effects
+			(font
+				(face "Roboto Black")
+				(size 2.032 2.032)
+				(thickness 0.36)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(uuid "9134df44-47fd-43ba-965a-b4781764c77a")
+	)
+	(text "SA868 Squelch Detect"
+		(exclude_from_sim no)
+		(at 78.105 66.04 0)
+		(effects
+			(font
+				(face "Roboto Black")
+				(size 2.032 2.032)
+				(thickness 0.36)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(uuid "d908c2ee-8592-4dd6-b828-7971354c9c6a")
+	)
+	(text "Basic Nets"
+		(exclude_from_sim no)
+		(at 13.97 14.605 0)
+		(effects
+			(font
+				(face "Roboto Black")
+				(size 2.032 2.032)
+				(thickness 0.36)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(uuid "de02c3a2-a6de-4974-82b1-61f582787695")
+	)
+	(text_box "- The DRA818/SA868 modules are known to have several nasty harmonics that can cause interference\n- LPF design by SV1AFN | SV1AFN.com"
+		(exclude_from_sim no)
+		(at 177.8 13.97 0)
+		(size 73.66 8.89)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "021acd8a-009f-489d-8a0a-40ac7ef2ddbb")
+	)
+	(text_box "3V3 Supply from the hat board.\nNOT the RasPi 3v3 rail, shoe current limit is 100mA"
+		(exclude_from_sim no)
+		(at 13.97 40.64 0)
+		(size 22.86 16.51)
+		(margins 1.0795 1.0795 1.0795 1.0795)
+		(stroke
+			(width 0.254)
+			(type dot)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "243b742c-81a7-4e32-9293-1ca50ff18700")
+	)
+	(text_box "Keep PD high as power control is seperate."
+		(exclude_from_sim no)
+		(at 53.34 123.19 0)
+		(size 15.24 15.24)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type default)
+			(color 0 0 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 0 0 0 1)
+			)
+			(justify left top)
+		)
+		(uuid "27f60545-301f-4e64-936b-76592ac16428")
+	)
+	(text_box "Optional RC Filters"
+		(exclude_from_sim no)
+		(at 218.44 124.46 0)
+		(size 16.51 54.61)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type default)
+			(color 0 0 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 0 0 0 1)
+			)
+			(justify left top)
+		)
+		(uuid "341a8ad8-7632-48bb-bdbf-a0b80fb84ab4")
+	)
+	(text_box "Shoe Power LED\nRed | 0603\nView Angle > 130°\nV(s) = 5V\nV(f) = 2V\nI(f) = 20mA\nR = (5V - 2v) / 0.020A\nR = 150Ω"
+		(exclude_from_sim no)
+		(at 156.21 19.05 0)
+		(size 17.78 26.67)
+		(margins 1.0795 1.0795 1.0795 1.0795)
+		(stroke
+			(width 0.254)
+			(type dot)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "36fd3eb5-2267-423e-b314-b7056ca26536")
+	)
+	(text_box "Populate for low RF output, leave floating for high RF output."
+		(exclude_from_sim no)
+		(at 115.57 148.59 0)
+		(size 16.51 21.59)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type default)
+			(color 0 0 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 0 0 0 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "49f5aa4b-c584-4ae2-b746-f8adc5270678")
+	)
+	(text_box ""
+		(exclude_from_sim no)
+		(at 168.91 115.57 0)
+		(size 60.96 3.81)
+		(margins 1.0795 1.0795 1.0795 1.0795)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4e5aa8a4-09e3-40d1-b7f9-1c1504cf6828")
+	)
+	(text_box "S_5V (Shoe 5V) is the primary supply for this board"
+		(exclude_from_sim no)
+		(at 137.16 19.05 0)
+		(size 16.51 12.7)
+		(margins 1.0795 1.0795 1.0795 1.0795)
+		(stroke
+			(width 0.254)
+			(type dot)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "557f2e41-c8a4-4149-aa5b-24ace18dafe0")
+	)
+	(text_box "TLP241A I(f) = 5mA - 25mA | 7.5mA typ\nTLP241A V(f) = 1.1V - 1.4V | 1.27V typ\nV(s) = 5.0V\n------------------------------\nR = (V(s) - V(f)) / I(f)\nR_p = (V(s) - V(f)) * I(f)\nR = 497Ω\nR_p = 0.28W\nClosest E6 Series is 470Ω\nI(f) = 7.9ma when R = 470Ω"
+		(exclude_from_sim no)
+		(at 86.36 39.37 0)
+		(size 30.48 22.86)
+		(margins 0.9524 0.9524 0.9524 0.9524)
+		(stroke
+			(width -0.0001)
+			(type default)
+			(color 0 0 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "655c73aa-3b08-4ef1-aabf-2ebc489d4307")
+	)
+	(text_box "TLP185\nV(f) = 1.24V @ I(f)=10mA\nV(s) = 5V\nR = (5V - 1.24V) / 0.010A\nR = 376Ω / 390Ω E12"
+		(exclude_from_sim no)
+		(at 179.07 76.2 0)
+		(size 27.94 11.43)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type dot)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "683bb0bf-2ee4-43ed-a366-b2a7795f69b5")
+	)
+	(text_box "- PTT, Push-To-Talk, is what triggers the radio to transmit or receive\n- The DRA868 datasheet is vauge in it's description:\n    - \"1\" (high) forces the radio into it's RX/Receive state.\n    - \"0\" (low) forces the radio into it's TX/Transmit state.\n- RX should be the default state (pin low) for safety reasons, there is logic below that inverts the signal and turns an LED on when TXing."
+		(exclude_from_sim no)
+		(at 177.8 45.72 0)
+		(size 87.63 16.51)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6e6e10ed-89c1-4b14-9dd8-d7dd6082b343")
+	)
+	(text_box "Low / 0V | TX\nHigh / 5V | RX"
+		(exclude_from_sim no)
+		(at 252.73 73.66 0)
+		(size 12.7 8.89)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type dot)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "79be0295-77b0-4904-a6e1-276b208eedbf")
+	)
+	(text_box "S_5V_IN comes from another board. It is always on.\nThere is a 1500ma current limit for this board (shoe)."
+		(exclude_from_sim no)
+		(at 91.44 15.24 0)
+		(size 39.37 5.08)
+		(margins 0.9524 0.9524 0.9524 0.9524)
+		(stroke
+			(width -0.0001)
+			(type dot)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "7d4c41eb-84ff-48fc-a250-8baca36da238")
+	)
+	(text_box "TX Active LED\nGreen | 0603\nView Angle > 130°\nV(s) = 5V, V(f) = 2V, I(f) = 20mA\nR = 150Ω"
+		(exclude_from_sim no)
+		(at 236.22 82.55 0)
+		(size 13.97 25.4)
+		(margins 1.0795 1.0795 1.0795 1.0795)
+		(stroke
+			(width 0.254)
+			(type dot)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "90383392-24be-4196-b3f0-a204f0c2a59b")
+	)
+	(text_box "S_GND (Shoe Ground) is tied to Hat Ground"
+		(exclude_from_sim no)
+		(at 13.97 24.13 0)
+		(size 22.86 11.43)
+		(margins 1.0795 1.0795 1.0795 1.0795)
+		(stroke
+			(width 0.254)
+			(type dot)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "93150c8a-580f-427a-9927-eaed24b0305d")
+	)
+	(text_box "- Used to control the 5V bus (all power) on the entire board (shoe)\n- Turn on the board by setting SHOE_POWER_CONTROL high (3.3V)"
+		(exclude_from_sim no)
+		(at 39.37 13.97 0)
+		(size 49.53 8.89)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a8b9a66b-e182-4573-a930-a299fe96dc04")
+	)
+	(text_box "GPIO Voltage: 3.3V\nBC847CT Base/Emmitter Voltage: 0.7V\nBC847CT hFE = 420\nI(C) = 10mA (TLP241A LED)\n------------------------------------\nVoltage over R2: 3.3V - 0.7V = 2.6V\nI(B) = I(C) / hFE\nI(B) 0.010A / 420 = 0.00002381A\nMax Base R = 2.6V / 0.00002381A\nMax Base R = 109197Ω"
+		(exclude_from_sim no)
+		(at 39.37 25.4 0)
+		(size 29.21 22.86)
+		(margins 0.9524 0.9524 0.9524 0.9524)
+		(stroke
+			(width -0.0001)
+			(type solid)
+			(color 0 0 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "aaecec11-ad8f-41e5-aa2b-b2ff9f1a2581")
+	)
+	(text_box ""
+		(exclude_from_sim no)
+		(at 13.97 115.57 0)
+		(size 55.88 3.81)
+		(margins 1.0795 1.0795 1.0795 1.0795)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ac84342a-88d2-4027-a0b6-2aae17b54672")
+	)
+	(text_box "\n"
+		(exclude_from_sim no)
+		(at 77.47 64.77 0)
+		(size 55.88 3.81)
+		(margins 1.0795 1.0795 1.0795 1.0795)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b6be0deb-1520-4142-b1f8-0555347f6899")
+	)
+	(text_box "SQ Trigger LED\nBlue | 0603\nView Angle > 130°\nV(s) = 5V, V(f) = 3.3V, I(f) = 20mA\nR = 85Ω / 82Ω E12 Series"
+		(exclude_from_sim no)
+		(at 157.48 64.77 0)
+		(size 13.97 27.94)
+		(margins 1.0795 1.0795 1.0795 1.0795)
+		(stroke
+			(width 0.254)
+			(type dot)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right top)
+		)
+		(uuid "c83e6db8-5fe0-423a-a70b-03a8f99bcb1e")
+	)
+	(text_box "DRA818/SA868 data sheets do contain info about input pin current"
+		(exclude_from_sim no)
+		(at 234.95 64.77 0)
+		(size 16.51 15.24)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type dot)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "e66f0141-7139-48f5-ba98-76ff5822bd62")
+	)
+	(text_box "- Isolates the Raspberry Pi UART from the SA868 UART\n- The SA868 side powers off entirly when SHOE_POWER_CONTROL is set low\n- Uses the ISO6720, specifically the ISO6720B layout"
+		(exclude_from_sim no)
+		(at 13.97 64.77 0)
+		(size 55.88 11.43)
+		(margins 1.0795 1.0795 1.0795 1.0795)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ebcb1f3e-ef03-400a-944f-b9261bbe2495")
 	)
 	(junction
 		(at 210.82 30.48)
@@ -5651,559 +6292,8 @@
 		)
 		(uuid "fe44774a-1f5d-45e0-b6e3-bbeac2551784")
 	)
-	(text_box "- The DRA818/SA868 modules are known to have several nasty harmonics that can cause interference\n- LPF design by SV1AFN | SV1AFN.com"
-		(exclude_from_sim no)
-		(at 177.8 13.97 0)
-		(size 73.66 8.89)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "021acd8a-009f-489d-8a0a-40ac7ef2ddbb")
-	)
-	(text_box "3V3 Supply from the hat board.\nNOT the RasPi 3v3 rail, shoe current limit is 100mA"
-		(exclude_from_sim no)
-		(at 13.97 40.64 0)
-		(size 22.86 16.51)
-		(stroke
-			(width 0.254)
-			(type dot)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "243b742c-81a7-4e32-9293-1ca50ff18700")
-	)
-	(text_box "Keep PD high as power control is seperate."
-		(exclude_from_sim no)
-		(at 53.34 123.19 0)
-		(size 15.24 15.24)
-		(stroke
-			(width 0)
-			(type default)
-			(color 0 0 0 1)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 0 0 0 1)
-			)
-			(justify left top)
-		)
-		(uuid "27f60545-301f-4e64-936b-76592ac16428")
-	)
-	(text_box "Optional RC Filters"
-		(exclude_from_sim no)
-		(at 218.44 124.46 0)
-		(size 16.51 54.61)
-		(stroke
-			(width 0)
-			(type default)
-			(color 0 0 0 1)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 0 0 0 1)
-			)
-			(justify left top)
-		)
-		(uuid "341a8ad8-7632-48bb-bdbf-a0b80fb84ab4")
-	)
-	(text_box "Shoe Power LED\nRed | 0603\nView Angle > 130°\nV(s) = 5V\nV(f) = 2V\nI(f) = 20mA\nR = (5V - 2v) / 0.020A\nR = 150Ω"
-		(exclude_from_sim no)
-		(at 156.21 19.05 0)
-		(size 17.78 26.67)
-		(stroke
-			(width 0.254)
-			(type dot)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "36fd3eb5-2267-423e-b314-b7056ca26536")
-	)
-	(text_box "Populate for low RF output, leave floating for high RF output."
-		(exclude_from_sim no)
-		(at 115.57 148.59 0)
-		(size 16.51 21.59)
-		(stroke
-			(width 0)
-			(type default)
-			(color 0 0 0 1)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 0 0 0 1)
-			)
-			(justify left bottom)
-		)
-		(uuid "49f5aa4b-c584-4ae2-b746-f8adc5270678")
-	)
-	(text_box ""
-		(exclude_from_sim no)
-		(at 168.91 115.57 0)
-		(size 60.96 3.81)
-		(stroke
-			(width 0.254)
-			(type solid)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4e5aa8a4-09e3-40d1-b7f9-1c1504cf6828")
-	)
-	(text_box "S_5V (Shoe 5V) is the primary supply for this board"
-		(exclude_from_sim no)
-		(at 137.16 19.05 0)
-		(size 16.51 12.7)
-		(stroke
-			(width 0.254)
-			(type dot)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "557f2e41-c8a4-4149-aa5b-24ace18dafe0")
-	)
-	(text_box "TLP241A I(f) = 5mA - 25mA | 7.5mA typ\nTLP241A V(f) = 1.1V - 1.4V | 1.27V typ\nV(s) = 5.0V\n------------------------------\nR = (V(s) - V(f)) / I(f)\nR_p = (V(s) - V(f)) * I(f)\nR = 497Ω\nR_p = 0.28W\nClosest E6 Series is 470Ω\nI(f) = 7.9ma when R = 470Ω"
-		(exclude_from_sim no)
-		(at 86.36 39.37 0)
-		(size 30.48 22.86)
-		(stroke
-			(width -0.0001)
-			(type default)
-			(color 0 0 0 1)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "655c73aa-3b08-4ef1-aabf-2ebc489d4307")
-	)
-	(text_box "TLP185\nV(f) = 1.24V @ I(f)=10mA\nV(s) = 5V\nR = (5V - 1.24V) / 0.010A\nR = 376Ω / 390Ω E12"
-		(exclude_from_sim no)
-		(at 179.07 76.2 0)
-		(size 27.94 11.43)
-		(stroke
-			(width 0)
-			(type dot)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "683bb0bf-2ee4-43ed-a366-b2a7795f69b5")
-	)
-	(text_box "- PTT, Push-To-Talk, is what triggers the radio to transmit or receive\n- The DRA868 datasheet is vauge in it's description:\n    - \"1\" (high) forces the radio into it's RX/Receive state.\n    - \"0\" (low) forces the radio into it's TX/Transmit state.\n- RX should be the default state (pin low) for safety reasons, there is logic below that inverts the signal and turns an LED on when TXing."
-		(exclude_from_sim no)
-		(at 177.8 45.72 0)
-		(size 87.63 16.51)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "6e6e10ed-89c1-4b14-9dd8-d7dd6082b343")
-	)
-	(text_box "Low / 0V | TX\nHigh / 5V | RX"
-		(exclude_from_sim no)
-		(at 252.73 73.66 0)
-		(size 12.7 8.89)
-		(stroke
-			(width 0)
-			(type dot)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "79be0295-77b0-4904-a6e1-276b208eedbf")
-	)
-	(text_box "S_5V_IN comes from another board. It is always on.\nThere is a 1500ma current limit for this board (shoe)."
-		(exclude_from_sim no)
-		(at 91.44 15.24 0)
-		(size 39.37 5.08)
-		(stroke
-			(width -0.0001)
-			(type dot)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "7d4c41eb-84ff-48fc-a250-8baca36da238")
-	)
-	(text_box "TX Active LED\nGreen | 0603\nView Angle > 130°\nV(s) = 5V, V(f) = 2V, I(f) = 20mA\nR = 150Ω"
-		(exclude_from_sim no)
-		(at 236.22 82.55 0)
-		(size 13.97 25.4)
-		(stroke
-			(width 0.254)
-			(type dot)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "90383392-24be-4196-b3f0-a204f0c2a59b")
-	)
-	(text_box "S_GND (Shoe Ground) is tied to Hat Ground"
-		(exclude_from_sim no)
-		(at 13.97 24.13 0)
-		(size 22.86 11.43)
-		(stroke
-			(width 0.254)
-			(type dot)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "93150c8a-580f-427a-9927-eaed24b0305d")
-	)
-	(text_box "- Used to control the 5V bus (all power) on the entire board (shoe)\n- Turn on the board by setting SHOE_POWER_CONTROL high (3.3V)"
-		(exclude_from_sim no)
-		(at 39.37 13.97 0)
-		(size 49.53 8.89)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a8b9a66b-e182-4573-a930-a299fe96dc04")
-	)
-	(text_box "GPIO Voltage: 3.3V\nBC847CT Base/Emmitter Voltage: 0.7V\nBC847CT hFE = 420\nI(C) = 10mA (TLP241A LED)\n------------------------------------\nVoltage over R2: 3.3V - 0.7V = 2.6V\nI(B) = I(C) / hFE\nI(B) 0.010A / 420 = 0.00002381A\nMax Base R = 2.6V / 0.00002381A\nMax Base R = 109197Ω"
-		(exclude_from_sim no)
-		(at 39.37 25.4 0)
-		(size 29.21 22.86)
-		(stroke
-			(width -0.0001)
-			(type solid)
-			(color 0 0 0 1)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "aaecec11-ad8f-41e5-aa2b-b2ff9f1a2581")
-	)
-	(text_box ""
-		(exclude_from_sim no)
-		(at 13.97 115.57 0)
-		(size 55.88 3.81)
-		(stroke
-			(width 0.254)
-			(type solid)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ac84342a-88d2-4027-a0b6-2aae17b54672")
-	)
-	(text_box "\n"
-		(exclude_from_sim no)
-		(at 77.47 64.77 0)
-		(size 55.88 3.81)
-		(stroke
-			(width 0.254)
-			(type solid)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b6be0deb-1520-4142-b1f8-0555347f6899")
-	)
-	(text_box "SQ Trigger LED\nBlue | 0603\nView Angle > 130°\nV(s) = 5V, V(f) = 3.3V, I(f) = 20mA\nR = 85Ω / 82Ω E12 Series"
-		(exclude_from_sim no)
-		(at 157.48 64.77 0)
-		(size 13.97 27.94)
-		(stroke
-			(width 0.254)
-			(type dot)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right top)
-		)
-		(uuid "c83e6db8-5fe0-423a-a70b-03a8f99bcb1e")
-	)
-	(text_box "DRA818/SA868 data sheets do contain info about input pin current"
-		(exclude_from_sim no)
-		(at 234.95 64.77 0)
-		(size 16.51 15.24)
-		(stroke
-			(width 0)
-			(type dot)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "e66f0141-7139-48f5-ba98-76ff5822bd62")
-	)
-	(text_box "- Isolates the Raspberry Pi UART from the SA868 UART\n- The SA868 side powers off entirly when SHOE_POWER_CONTROL is set low\n- Uses the ISO6720, specifically the ISO6720B layout"
-		(exclude_from_sim no)
-		(at 13.97 64.77 0)
-		(size 55.88 11.43)
-		(stroke
-			(width 0.254)
-			(type solid)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ebcb1f3e-ef03-400a-944f-b9261bbe2495")
-	)
-	(text "PCM2902/DRA868 Audio Leveling & Filtering"
-		(exclude_from_sim no)
-		(at 169.545 116.84 0)
-		(effects
-			(font
-				(face "Roboto Black")
-				(size 2.032 2.032)
-				(thickness 0.36)
-				(bold yes)
-			)
-			(justify left top)
-		)
-		(uuid "0e18dd39-edd6-43e6-b45f-8419b50a3ad9")
-	)
-	(text "SA868 UART Isolation"
-		(exclude_from_sim no)
-		(at 14.605 66.04 0)
-		(effects
-			(font
-				(face "Roboto Black")
-				(size 2.032 2.032)
-				(thickness 0.36)
-				(bold yes)
-			)
-			(justify left top)
-		)
-		(uuid "4454d6da-dd6f-4234-81d0-6c4ce1cc5e3d")
-	)
-	(text "SA868 RF Low Pass Filter"
-		(exclude_from_sim no)
-		(at 178.435 15.24 0)
-		(effects
-			(font
-				(face "Roboto Black")
-				(size 2.032 2.032)
-				(thickness 0.36)
-				(bold yes)
-			)
-			(justify left top)
-		)
-		(uuid "5e702893-7786-466a-980a-7ba016a7d3ff")
-	)
-	(text "Optional Bulk Capacitance"
-		(exclude_from_sim no)
-		(at 142.24 49.53 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.1588)
-			)
-			(justify bottom)
-		)
-		(uuid "666e00e4-30fd-427f-9163-e1c942642280")
-	)
-	(text "Power Control"
-		(exclude_from_sim no)
-		(at 40.005 15.24 0)
-		(effects
-			(font
-				(face "Roboto Black")
-				(size 2.032 2.032)
-				(thickness 0.36)
-				(bold yes)
-			)
-			(justify left top)
-		)
-		(uuid "7796f69d-e5b9-42e0-906b-914098eabf56")
-	)
-	(text "SA868 PTT Control"
-		(exclude_from_sim no)
-		(at 178.435 46.99 0)
-		(effects
-			(font
-				(face "Roboto Black")
-				(size 2.032 2.032)
-				(thickness 0.36)
-				(bold yes)
-			)
-			(justify left top)
-		)
-		(uuid "8a6e62d4-52df-4a19-8f62-2377a38e0de2")
-	)
-	(text "SA868 VHF Radio Module"
-		(exclude_from_sim no)
-		(at 14.605 116.84 0)
-		(effects
-			(font
-				(face "Roboto Black")
-				(size 2.032 2.032)
-				(thickness 0.36)
-				(bold yes)
-			)
-			(justify left top)
-		)
-		(uuid "9134df44-47fd-43ba-965a-b4781764c77a")
-	)
-	(text "SA868 Squelch Detect"
-		(exclude_from_sim no)
-		(at 78.105 66.04 0)
-		(effects
-			(font
-				(face "Roboto Black")
-				(size 2.032 2.032)
-				(thickness 0.36)
-				(bold yes)
-			)
-			(justify left top)
-		)
-		(uuid "d908c2ee-8592-4dd6-b828-7971354c9c6a")
-	)
-	(text "Basic Nets"
-		(exclude_from_sim no)
-		(at 13.97 14.605 0)
-		(effects
-			(font
-				(face "Roboto Black")
-				(size 2.032 2.032)
-				(thickness 0.36)
-				(bold yes)
-			)
-			(justify left top)
-		)
-		(uuid "de02c3a2-a6de-4974-82b1-61f582787695")
-	)
 	(label "SA868 UART TXD"
 		(at 52.07 140.97 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6214,7 +6304,6 @@
 	)
 	(label "SA868 UART RXD"
 		(at 72.39 99.06 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6225,7 +6314,6 @@
 	)
 	(label "SA868 RX"
 		(at 113.03 135.89 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6236,7 +6324,6 @@
 	)
 	(label "SA868 H{slash}L"
 		(at 113.03 151.13 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6247,7 +6334,6 @@
 	)
 	(label "SA868 AUDIO_OUT"
 		(at 264.16 161.29 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6258,7 +6344,6 @@
 	)
 	(label "SA868 UART TXD"
 		(at 72.39 93.98 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6269,7 +6354,6 @@
 	)
 	(label "SA868 RF"
 		(at 113.03 133.35 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6280,7 +6364,6 @@
 	)
 	(label "SA868 RF"
 		(at 180.34 30.48 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6291,7 +6374,6 @@
 	)
 	(label "SA868 MIC_IN"
 		(at 264.16 143.51 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6302,7 +6384,6 @@
 	)
 	(label "SA868 RX"
 		(at 77.47 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6313,7 +6394,6 @@
 	)
 	(label "AUDIO_IN_LEFT"
 		(at 189.23 168.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6324,7 +6404,6 @@
 	)
 	(label "SA868 PTT"
 		(at 264.16 81.28 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6335,7 +6414,6 @@
 	)
 	(label "SA868 MIC_IN"
 		(at 52.07 151.13 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6346,7 +6424,6 @@
 	)
 	(label "SA868 UART RXD"
 		(at 52.07 143.51 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6357,7 +6434,6 @@
 	)
 	(label "SA868 AUDIO_OUT"
 		(at 52.07 148.59 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6368,7 +6444,6 @@
 	)
 	(label "SA868 PTT"
 		(at 113.03 138.43 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6380,7 +6455,6 @@
 	(hierarchical_label "PI_GPIO_SA868_RX"
 		(shape output)
 		(at 125.73 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6392,7 +6466,6 @@
 	(hierarchical_label "UART.RX"
 		(shape output)
 		(at 26.67 93.98 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6404,7 +6477,6 @@
 	(hierarchical_label "S_3V3"
 		(shape input)
 		(at 22.86 60.96 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6416,7 +6488,6 @@
 	(hierarchical_label "S_GND"
 		(shape input)
 		(at 24.13 22.86 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6428,7 +6499,6 @@
 	(hierarchical_label "PI_GPIO_SHOE_POWER_CONTROL"
 		(shape input)
 		(at 68.58 59.69 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6440,7 +6510,6 @@
 	(hierarchical_label "S_5V_IN"
 		(shape input)
 		(at 99.06 21.59 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6452,7 +6521,6 @@
 	(hierarchical_label "UART.TX"
 		(shape input)
 		(at 26.67 99.06 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6464,7 +6532,6 @@
 	(hierarchical_label "PI_GPIO_SA868_PTT"
 		(shape input)
 		(at 194.31 109.22 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6476,7 +6543,6 @@
 	(hierarchical_label "S_5V_IN"
 		(shape input)
 		(at 125.73 49.53 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13037,6 +13103,10 @@
 	(sheet
 		(at 171.45 124.46)
 		(size 24.13 24.13)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -13066,23 +13136,23 @@
 		)
 		(pin "audio_codec_out_left" output
 			(at 195.58 135.89 0)
+			(uuid "b92acfeb-33a9-4b7e-9d0a-6c36f12df83f")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "b92acfeb-33a9-4b7e-9d0a-6c36f12df83f")
 		)
 		(pin "audio_codec_in_left" input
 			(at 195.58 142.24 0)
+			(uuid "c63d4c0b-09cc-468a-b8e7-7f2a198631c3")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "c63d4c0b-09cc-468a-b8e7-7f2a198631c3")
 		)
 		(instances
 			(project "giraffe_flight_computer"
