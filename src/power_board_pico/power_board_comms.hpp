@@ -13,6 +13,7 @@
 
 #pragma once
 
+#include "pico/bootrom.h"
 #include "pico/printf.h"
 #include "pico/stdlib.h"
 
@@ -26,9 +27,17 @@ namespace power_board {
 class PowerBoardComms {
 public:
   PowerBoardComms() {
+    // Set in CMakelists.txt
     stdio_init_all();
+
+#if PICO_STDIO_USE_USB == 1
     stdio_usb_init();
-    // stdio_set_translate_crlf(stdio_uart, true);
+#endif
+    uart_init(uart0, 115200);
+    gpio_set_function(0, GPIO_FUNC_UART);
+    gpio_set_function(1, GPIO_FUNC_UART);
+
+    uart_puts(uart0, "UART initialized\n");
   }
 
   // ~PowerBoardComms();
@@ -53,6 +62,17 @@ public:
     if (c != PICO_ERROR_TIMEOUT) {
       processChar(c);
     }
+  }
+
+  bool getCommand(std::string &command, std::string &arg) {
+    if (!have_external_command_) {
+      return false;
+    }
+
+    command = external_command_;
+    arg = external_arg_;
+    have_external_command_ = false;
+    return true;
   }
 
 private:
@@ -108,7 +128,22 @@ private:
     if (space_index != std::string::npos) {
       arg = command_str.substr(space_index + 1);
       command_str = command_str.substr(0, space_index);
+    } else {
+      arg = "";
     }
+
+    printf("Command: %s, Arg: %s\n", command_str.c_str(), arg.data());
+
+    auto newExternalCommand = [&]() {
+      if (have_external_command_) {
+        sendError("command already in progress");
+        // return; still set the new command
+      }
+
+      have_external_command_ = true;
+      external_command_ = command_str;
+      external_arg_ = arg;
+    };
 
     if (command_str == "ping") {
       acknowledge();
@@ -117,6 +152,17 @@ private:
       const std::string version_number = GIRAFFE_VERSION_NUMBER;
       const std::string version_stage = GIRAFFE_VERSION_STAGE;
       send(version_number + "-" + version_stage);
+      return;
+    } else if (command_str == "reboot") {
+      if (arg == "boot") {
+        acknowledge();
+        reset_usb_boot(0, 0);
+      } else {
+        sendError("reboot command requires 'boot' argument");
+      }
+      return;
+    } else if (command_str == "gps") {
+      newExternalCommand();
       return;
     }
 
@@ -159,6 +205,10 @@ private:
 
   std::array<uint8_t, 32> rx_buffer_;
   uint8_t rx_buffer_index_ = 0;
+
+  bool have_external_command_ = false;
+  std::string external_command_;
+  std::string external_arg_;
 };
 
 } // namespace power_board

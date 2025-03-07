@@ -529,14 +529,13 @@
         "bus_width": 12,
         "clearance": 0.15,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "DATA",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgb(0, 0, 255)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -547,14 +546,13 @@
         "bus_width": 12,
         "clearance": 0.15,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "GPIO",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
+        "priority": 2,
         "schematic_color": "rgb(0, 0, 72)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -565,14 +563,13 @@
         "bus_width": 12,
         "clearance": 0.15,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "POWER:-BATT",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2,
+        "priority": 3,
         "schematic_color": "rgb(194, 0, 194)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -583,14 +580,13 @@
         "bus_width": 12,
         "clearance": 0.15,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "POWER:3V3",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 3,
+        "priority": 4,
         "schematic_color": "rgb(194, 194, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -598,17 +594,22 @@
         "wire_width": 8
       },
       {
+        "name": "POWER:3V3_2040",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgb(72, 72, 0)"
+      },
+      {
         "bus_width": 12,
         "clearance": 0.15,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "POWER:4V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 4,
+        "priority": 5,
         "schematic_color": "rgb(132, 0, 132)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -619,14 +620,13 @@
         "bus_width": 12,
         "clearance": 0.15,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "POWER:5V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 5,
+        "priority": 6,
         "schematic_color": "rgb(204, 102, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -637,14 +637,13 @@
         "bus_width": 12,
         "clearance": 0.15,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "POWER:BATT",
+        "name": "POWER:input",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 6,
+        "priority": 7,
         "schematic_color": "rgb(255, 0, 0)",
         "track_width": 1.0,
         "via_diameter": 0.9,
@@ -655,14 +654,13 @@
         "bus_width": 12,
         "clearance": 0.5,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "RF",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 7,
+        "priority": 8,
         "schematic_color": "rgb(255, 0, 255)",
         "track_width": 0.444189,
         "via_diameter": 0.8,
@@ -691,6 +689,30 @@
         "GPIO"
       ],
       "/5V Buck Converter/buck_sw": [
+        "POWER:5V"
+      ],
+      "/Power Input/+BATT": [
+        "POWER:input"
+      ],
+      "/Power Input/+BATT_PROTECTED": [
+        "POWER:input"
+      ],
+      "/Power Input/BATT_EXT_3V3": [
+        "POWER:3V3_2040"
+      ],
+      "/Power Input/power_input_processed": [
+        "POWER:input"
+      ],
+      "/Voltage Converters/3V3_PRIMARY_OUTPUT": [
+        "POWER:3V3"
+      ],
+      "/Voltage Converters/5.1V_BUCK_OUTPUT": [
+        "POWER:5V"
+      ],
+      "/Voltage Converters/buck_enable": [
+        "GPIO"
+      ],
+      "/Voltage Converters/buck_sw": [
         "POWER:5V"
       ],
       "3V3 Primary": [
@@ -849,6 +871,12 @@
           "label": "MAXIMUM_PACKAGE_HEIGHT",
           "name": "MAXIMUM_PACKAGE_HEIGHT",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "BOARD",
+          "name": "BOARD",
+          "show": false
         }
       ],
       "filter_string": "",
@@ -913,11 +941,15 @@
     ],
     [
       "37a25529-547a-4c46-9309-80d1f4ca78d2",
-      "18650 Pack"
+      "Power Input"
     ],
     [
       "ab7997e5-cef2-4c2d-8b27-2b4c8c30f1a0",
-      "5V Buck Converter"
+      "Voltage Converters"
+    ],
+    [
+      "4ef752d1-705a-4bfe-9c95-b55d2dce4ab8",
+      "RP2040"
     ]
   ],
   "text_variables": {}
