@@ -20,10 +20,47 @@ namespace power_board {
 
 class DataDictionary {
 public:
-  enum class ENTRY_ID : uint16_t {
+  enum class EntryId : uint16_t {
     UNKNOWN = 0,
     VERSION_INFO = 1,
     SYSTEM_STATUS = 2,
+    GPS_STATUS = 3,
+
+    _NUM_ENTRIES
+  };
+
+  DataDictionary() = default;
+  ~DataDictionary() = default;
+
+  uint32_t getValue(EntryId id) const {
+    if (id >= EntryId::_NUM_ENTRIES) {
+      return 0;
+    }
+
+    return entries_[static_cast<size_t>(id)].value;
+  }
+
+private:
+  enum class EntryType : uint8_t {
+    UNKNOWN = 0,
+    BOOL = 1,
+    UINT8 = 2,
+  };
+
+  struct Entry {
+    EntryId id;
+    EntryType type;
+
+    // All values are stored as uint32_t
+    uint32_t value;
+  };
+
+  std::array<EntryType, static_cast<size_t>(ENTRY_ID::_NUM_ENTRIES)>
+      entry_types_ = {
+          EntryType::UNKNOWN,
+          EntryType::UINT8,
+          EntryType::UINT8,
+          EntryType::UINT8,
   };
 };
 

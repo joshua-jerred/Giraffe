@@ -44,7 +44,7 @@ public:
 private:
   void processImpl() {
     float temp_c = readTemperatureC();
-    printf("Temperature: %f\n", temp_c);
+    // printf("Temperature: %f\n", temp_c);
   }
 
   float readTemperatureC() {

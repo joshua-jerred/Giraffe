@@ -21,8 +21,10 @@
       "args": ["${workspaceFolder}/build/pi_pico/src/power_board_pico/power_board_pico.elf"],
       "detail": "Upload the firmware to the Pico",
       "presentation": {
-        "reveal": "always",
-        "panel": "shared"
+        "reveal": "silent",
+        "close": true,
+        "panel": "new"
+        // "panel": "shared"
       },
       "options": {
         "cwd": "${workspaceFolder}"
