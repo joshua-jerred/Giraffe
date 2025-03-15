@@ -1062,7 +1062,7 @@
 	)
 	(text_box "TODO: 3V3 LDO or Buck?\n\nhttps://www.adafruit.com/product/2745"
 		(exclude_from_sim no)
-		(at 189.23 128.27 0)
+		(at 170.18 143.51 0)
 		(size 35.56 12.7)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
@@ -2388,6 +2388,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 195.58 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "2fd0d612-0de6-440b-9355-5985df46b417")
 		)
@@ -2482,6 +2490,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 186.69 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -2580,6 +2596,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 233.68 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "0818210e-1ecf-4cd4-a99e-61707c84d4cf")
 		)
@@ -2674,6 +2698,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 81.28 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "869ab80e-e8d0-4bd3-92d6-f67ac00effbe")
 		)
@@ -2751,6 +2783,14 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "BOARD" ""
+			(at 66.04 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -2849,6 +2889,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 139.7 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "33ac21d5-6e7e-4ffb-a8ef-41104e0d9433")
 		)
@@ -2943,6 +2991,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 195.58 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -3171,6 +3227,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 167.64 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "d052de5d-e9c6-4b73-bf31-3c6bca9b7da2")
 		)
@@ -3331,6 +3395,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 76.2 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -3559,6 +3631,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 242.57 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "eef5e32a-1ac2-4262-a12c-bfb5016742c2")
 		)
@@ -3653,6 +3733,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 34.29 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -3751,6 +3839,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 195.58 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "2d821f7d-21eb-44ea-9d09-7c6ac7550e9c")
 		)
@@ -3819,6 +3915,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 88.9 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -3945,13 +4049,21 @@
 				(hide yes)
 			)
 		)
-		(property "Unit Price" ""
+		(property "Unit Price" "1.06"
 			(at 107.95 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 107.95 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "6"
@@ -4062,6 +4174,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 43.18 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b1bce81f-3e05-4a0f-ba5f-219e512a8a30")
 		)
@@ -4156,6 +4276,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 251.46 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -4319,6 +4447,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 74.93 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "a928982e-43fe-46c0-993a-9cb2efad5dfc")
 		)
@@ -4384,6 +4520,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 162.56 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -4519,6 +4663,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 149.86 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "196982db-1cf9-4b0f-a965-55019ca14166")
 		)
@@ -4611,6 +4763,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 64.77 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -4772,6 +4932,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 81.28 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "7012321d-d397-481c-930b-06290324e0b6")
 		)
@@ -4840,6 +5008,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 160.02 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -4933,6 +5109,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 156.21 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -5029,6 +5213,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 179.07 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"

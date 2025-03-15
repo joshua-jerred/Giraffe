@@ -37,7 +37,7 @@ public:
     gpio_set_function(0, GPIO_FUNC_UART);
     gpio_set_function(1, GPIO_FUNC_UART);
 
-    uart_puts(uart0, "UART initialized\n");
+    // uart_puts(uart0, "UART initialized\n");
   }
 
   // ~PowerBoardComms();
@@ -157,11 +157,19 @@ private:
       if (arg == "boot") {
         acknowledge();
         reset_usb_boot(0, 0);
+      } else if (arg == "soft") {
+        acknowledge();
+        watchdog_enable(0, false);
+        while (true)
+          ;
       } else {
         sendError("reboot command requires 'boot' argument");
       }
       return;
     } else if (command_str == "gps") {
+      newExternalCommand();
+      return;
+    } else if (command_str == "adc") {
       newExternalCommand();
       return;
     }

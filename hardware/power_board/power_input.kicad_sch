@@ -3630,7 +3630,7 @@
 		(uuid "243947a9-43c6-4082-9f79-86bb446d929c")
 	)
 	(hierarchical_label "batt_ext_I2C_SCL"
-		(shape bidirectional)
+		(shape input)
 		(at 242.57 44.45 0)
 		(effects
 			(font
@@ -3948,7 +3948,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(uuid "11c08839-457a-4230-ab2d-da838b6901ad")
 		(property "Reference" "BC1"
 			(at 68.58 33.02 0)
@@ -3993,6 +3993,22 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "BOARD" ""
+			(at 66.04 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Unit Price" "0.60"
+			(at 66.04 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -4062,6 +4078,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 175.26 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -4186,7 +4210,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Single-cell battery"
+		(property "Description" "3500 mAh 18650 w/o protection"
 			(at 43.18 53.34 0)
 			(effects
 				(font
@@ -4213,13 +4237,21 @@
 				(hide yes)
 			)
 		)
-		(property "Unit Price" ""
+		(property "Unit Price" "5.99"
 			(at 43.18 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 43.18 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -4300,6 +4332,14 @@
 				(justify left)
 			)
 		)
+		(property "BOARD" ""
+			(at 208.28 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "6a50ebcd-779a-4372-ab78-d4d2f6c01324")
 		)
@@ -4365,6 +4405,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 156.21 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -4437,6 +4485,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 142.24 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -4580,6 +4636,14 @@
 				(justify left)
 			)
 		)
+		(property "BOARD" ""
+			(at 208.28 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "061facda-a7ed-456c-a978-87ba6f569693")
 		)
@@ -4674,6 +4738,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 38.1 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "573f8f9c-5d33-4543-8ecc-61abf0736aca")
 		)
@@ -4735,6 +4807,14 @@
 		)
 		(property "Description" "Reverse Polarity Protection Bypass"
 			(at 156.21 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "BOARD" ""
+			(at 156.21 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4817,6 +4897,14 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "BOARD" ""
+			(at 156.21 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -4989,6 +5077,14 @@
 				(justify left)
 			)
 		)
+		(property "BOARD" ""
+			(at 57.15 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "78cdda7a-88e4-4137-959d-bba912240fa0")
 		)
@@ -5050,13 +5146,21 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Molex Pico-Clasp"
+		(property "Description" "Molex Pico-Clasp Connector"
 			(at 70.485 80.645 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "BOARD" ""
+			(at 68.58 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -5125,7 +5229,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Single-cell battery"
+		(property "Description" "3500 mAh 18650 w/o protection"
 			(at 43.18 40.64 0)
 			(effects
 				(font
@@ -5152,13 +5256,21 @@
 				(hide yes)
 			)
 		)
-		(property "Unit Price" ""
+		(property "Unit Price" "5.99"
 			(at 43.18 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 43.18 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -5228,6 +5340,14 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "BOARD" ""
+			(at 119.38 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -5373,6 +5493,14 @@
 				(justify left)
 			)
 		)
+		(property "BOARD" ""
+			(at 52.07 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "bf32ded4-2b47-470c-9576-9c1a6f8f7416")
 		)
@@ -5508,6 +5636,14 @@
 				(hide yes)
 			)
 		)
+		(property "BOARD" ""
+			(at 66.04 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "07b8b34a-008b-429b-984d-86d066f45886")
 		)
@@ -5566,7 +5702,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Generic 18650"
+		(property "Description" "3500 mAh 18650"
 			(at 29.845 41.275 0)
 			(effects
 				(font
@@ -5593,13 +5729,21 @@
 				(hide yes)
 			)
 		)
-		(property "Unit Price" ""
+		(property "Unit Price" "5.99"
 			(at 33.02 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 33.02 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -5662,7 +5806,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Single-cell battery"
+		(property "Description" "3500 mAh 18650 w/o protection"
 			(at 33.02 53.34 0)
 			(effects
 				(font
@@ -5689,13 +5833,21 @@
 				(hide yes)
 			)
 		)
-		(property "Unit Price" ""
+		(property "Unit Price" "5.99"
 			(at 33.02 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 33.02 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -5776,6 +5928,14 @@
 				(justify left)
 			)
 		)
+		(property "BOARD" ""
+			(at 62.23 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "6f4d342f-73f8-48d9-ad32-3c18ca259a36")
 		)
@@ -5817,7 +5977,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
 			(at 38.735 152.4 0)
 			(effects
 				(font
@@ -5842,6 +6002,22 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 57.15 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Unit Price" "0.90"
+			(at 57.15 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -6061,6 +6237,14 @@
 				(justify right)
 			)
 		)
+		(property "BOARD" ""
+			(at 57.15 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "1b79c5ea-8d10-4913-affa-81b6cecf8958")
 		)
@@ -6095,7 +6279,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "5019390400"
+		(property "Value" "5019530405"
 			(at 215.265 46.355 0)
 			(effects
 				(font
@@ -6129,6 +6313,14 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "BOARD" ""
+			(at 217.17 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -6270,6 +6462,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "BOARD" ""
+			(at 168.91 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"

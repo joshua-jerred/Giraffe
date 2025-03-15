@@ -535,12 +535,18 @@
         "microvia_drill": 0.1,
         "name": "DATA",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
+        "priority": 2,
         "schematic_color": "rgb(0, 0, 255)",
         "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
         "wire_width": 4
+      },
+      {
+        "name": "DATA:USB",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgb(0, 0, 132)"
       },
       {
         "bus_width": 12,
@@ -552,7 +558,7 @@
         "microvia_drill": 0.1,
         "name": "GPIO",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2,
+        "priority": 3,
         "schematic_color": "rgb(0, 0, 72)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -569,7 +575,7 @@
         "microvia_drill": 0.1,
         "name": "POWER:-BATT",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 3,
+        "priority": 4,
         "schematic_color": "rgb(194, 0, 194)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -586,7 +592,7 @@
         "microvia_drill": 0.1,
         "name": "POWER:3V3",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 4,
+        "priority": 5,
         "schematic_color": "rgb(194, 194, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -596,7 +602,7 @@
       {
         "name": "POWER:3V3_2040",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgb(72, 72, 0)"
       },
       {
@@ -609,7 +615,7 @@
         "microvia_drill": 0.1,
         "name": "POWER:4V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 5,
+        "priority": 6,
         "schematic_color": "rgb(132, 0, 132)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -626,7 +632,7 @@
         "microvia_drill": 0.1,
         "name": "POWER:5V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 6,
+        "priority": 7,
         "schematic_color": "rgb(204, 102, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -643,7 +649,7 @@
         "microvia_drill": 0.1,
         "name": "POWER:input",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 7,
+        "priority": 8,
         "schematic_color": "rgb(255, 0, 0)",
         "track_width": 1.0,
         "via_diameter": 0.9,
@@ -660,7 +666,7 @@
         "microvia_drill": 0.1,
         "name": "RF",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 8,
+        "priority": 9,
         "schematic_color": "rgb(255, 0, 255)",
         "track_width": 0.444189,
         "via_diameter": 0.8,
@@ -703,6 +709,12 @@
       "/Power Input/power_input_processed": [
         "POWER:input"
       ],
+      "/RP2040/2040_USB_D+": [
+        "DATA:USB"
+      ],
+      "/RP2040/2040_USB_D-": [
+        "DATA:USB"
+      ],
       "/Voltage Converters/3V3_PRIMARY_OUTPUT": [
         "POWER:3V3"
       ],
@@ -718,6 +730,9 @@
       "3V3 Primary": [
         "POWER:3V3"
       ],
+      "3V3_PICO": [
+        "POWER:3V3_2040"
+      ],
       "5V Primary": [
         "POWER:5V"
       ],
@@ -729,6 +744,12 @@
       ],
       "Net-(C19-Pad1)": [
         "POWER:BATT"
+      ],
+      "unconnected-(R13-Pad2)": [
+        "DATA:USB"
+      ],
+      "unconnected-(R14-Pad2)": [
+        "DATA:USB"
       ]
     },
     "netclass_patterns": []
@@ -834,13 +855,13 @@
           "group_by": false,
           "label": "Unit Price",
           "name": "Unit Price",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
           "label": "Description",
           "name": "Description",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
@@ -876,6 +897,12 @@
           "group_by": false,
           "label": "BOARD",
           "name": "BOARD",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Size",
+          "name": "Size",
           "show": false
         }
       ],

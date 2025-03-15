@@ -20,54 +20,9 @@
 #include "keystone/ubx.hpp"
 
 #include "periodic_processor.hpp"
+#include "software_timer.hpp"
 
 namespace power_board {
-
-struct UbloxMessage {
-  uint8_t sync1 = 0;
-  uint8_t sync2 = 0;
-  uint8_t class_id = 0;
-  uint8_t msg_id = 0;
-  uint16_t length = 0;
-  std::vector<uint8_t> payload{};
-  uint8_t ck_a = 0;
-  uint8_t ck_b = 0;
-
-  void setMessage(uint8_t new_class_id, uint8_t new_msg_id,
-                  std::vector<uint8_t> new_payload) {
-    sync1 = 0xB5;
-    sync2 = 0x62;
-    class_id = new_class_id;
-    msg_id = new_msg_id;
-    length = new_payload.size();
-    payload = new_payload;
-
-    uint16_t new_ck = calculateChecksum();
-    ck_a = new_ck & 0xFF;
-    ck_b = new_ck >> 8;
-  }
-
-  uint16_t calculateChecksum() const {
-    uint8_t new_ck_a = 0;
-    uint8_t new_ck_b = 0;
-
-    auto addByte = [&](uint8_t byte) {
-      new_ck_a += byte;
-      new_ck_b += new_ck_a;
-    };
-
-    addByte(class_id);
-    addByte(msg_id);
-    addByte(length & 0xFF);
-    addByte(length >> 8);
-    for (int i = 0; i < length; i++) {
-      addByte(payload[i]);
-    }
-
-    uint16_t checksum = (new_ck_b << 8) | new_ck_a;
-    return checksum;
-  }
-};
 
 static constexpr uint8_t I2C_ADDRESS = 0x42;
 
@@ -99,7 +54,7 @@ public:
 
   void processCommand(const std::string &command) {
     if (command == "init") {
-      printf("Initializing SAM-M8Q\n");
+      printf("Initializing SAM-M8Q\n/");
       init();
     } else if (command == "reset") {
       printf("Resetting SAM-M8Q\n");
@@ -107,6 +62,7 @@ public:
     } else if (command == "nav") {
       printf("Requesting navigation data\n");
       requestNavData();
+      displayNavPvt();
     } else {
       printf("Unknown gps command: %s\n", command.c_str());
     }
@@ -114,18 +70,27 @@ public:
 
 private:
   void init() {
-    printf("Initializing SAM-M8Q\n");
-    // sendResetCommand();
+    // printf("Initializing SAM-M8Q\n");
+    sendResetCommand();
     // printf("Reset command sent!\n");
-    // sleep_ms(500);
+    sleep_ms(500);
     setProtocolDDC();
-    printf("SAM-M8Q initialized\n");
+    setMeasurementRate();
+    // printf("SAM-M8Q initialized\n");
   }
 
   void processImpl() {
-    // printf("\n\n\nProcessing SAM-M8Q");
-    requestNavData();
-    // readNavData();
+    if (nav_update_timer_.isExpired()) {
+      if (requestNavData() == ACK::ACK) {
+        nav_update_timer_.reset();
+        gps_watchdog_timer_.reset();
+      }
+    }
+
+    if (gps_watchdog_timer_.isExpired()) {
+      printf("GPS Watchdog timeout\n");
+      init();
+    }
   }
 
   void writeUbx() {
@@ -154,11 +119,11 @@ private:
     buffer[6 + ubx_write_buffer_.length] = ubx_write_buffer_.ck_a;
     buffer[7 + ubx_write_buffer_.length] = ubx_write_buffer_.ck_b;
 
-    printf("Writing UBX: ");
-    for (size_t i = 0; i < buffer.size(); i++) {
-      printf("%02X ", buffer[i]);
-    }
-    printf("\n");
+    // printf("Writing UBX: ");
+    // for (size_t i = 0; i < buffer.size(); i++) {
+    // printf("%02X ", buffer[i]);
+    // }
+    // printf("\n");
 
     i2c_write_blocking(I2C_PORT, I2C_ADDRESS, buffer.data(), buffer.size(),
                        false);
@@ -204,8 +169,30 @@ private:
                                     kMessageId, payload);
 
     // Send the message
-    writeUbx();
-    return ACK::ACK;
+
+    return transaction(2);
+    // return checkForAck(kMessageClass, kMessageId);
+  }
+
+  ACK setMeasurementRate(const uint16_t rate_ms = 100) {
+    static const uint8_t kMessageClass = 0x06; // CFG
+    static const uint8_t kMessageId = 0x08;    // RATE
+    static const uint16_t kPayloadLength = 6;  // 6 bytes
+
+    std::vector<uint8_t> payload = {
+        (uint8_t)(rate_ms & 0xFF),
+        (uint8_t)(rate_ms >> 8), // measRate (ms)
+        0x01,
+        0x00, // navRate (cycles)
+        0x00,
+        0x00 // timeRef (UTC)
+    };
+
+    keystone::UBX::setFrameForWrite(ubx_write_buffer_, kMessageClass,
+                                    kMessageId, payload);
+
+    // Send the message
+    return transaction(2);
     // return checkForAck(kMessageClass, kMessageId);
   }
 
@@ -222,38 +209,6 @@ private:
     // printf("[%d vs %d]", buffer[1] << 8 | buffer[0], size);
 
     return (buffer[0] << 8) | buffer[1];
-  }
-
-  ACK checkForAck(const uint8_t msg_class, const uint8_t msg_id) {
-    (void)msg_class;
-    (void)msg_id;
-
-    constexpr uint8_t kAckClassID = 0x05;
-    constexpr uint8_t kAckMsgID = 0x01;
-    constexpr uint8_t kNackMsgID = 0x00;
-
-    // UBXMessage message;
-    // if (readNextUBX(i2c, message)) {
-    //   if (message.mClass == kAckClassID) {
-    //     if (message.mID == kAckMsgID) {
-    //       if (message.payload[0] == msg_class && message.payload[1] ==
-    //       msg_id) {
-    //         return ACK::ACK;
-    //       }
-    //     } else if (message.mID == kNackMsgID) {
-    //       if (message.payload[0] == msg_class && message.payload[1] ==
-    //       msg_id) {
-    //         return ACK::NACK;
-    //       }
-    //     }
-    //   }
-    // }
-
-    // std::this_thread::sleep_for(
-    // std::chrono::milliseconds(kMessageRetryDelayTime));
-    // std::cout << "Sleep" << std::endl;
-
-    return ACK::NONE;
   }
 
   void processDdcBuffer() {
@@ -302,13 +257,13 @@ private:
     writeUbx();
   }
 
-  void requestNavData(uint8_t poll_request_id = 0x00) {
+  ACK requestNavData(uint8_t poll_request_id = 0x00) {
     std::vector<uint8_t> payload = {};
     if (poll_request_id != 0x00) {
       payload.push_back(poll_request_id);
     }
     keystone::UBX::setFrameForWrite(ubx_write_buffer_, 0x01, 0x07, payload);
-    transaction(92);
+    return transaction(92);
   }
 
   void flushStream() {
@@ -328,7 +283,7 @@ private:
            post_bytes_available);
   }
 
-  void transaction(size_t expected_return_size) {
+  ACK transaction(size_t expected_return_size) {
     // Flush the buffer
     flushStream();
 
@@ -350,8 +305,8 @@ private:
       }
 
       if (!message_header_available) {
-        printf("Message not available, num bytes: %d\n", getStreamSize());
-        return;
+        // printf("Message not available, num bytes: %d\n", getStreamSize());
+        return ACK::READ_ERROR;
       }
     }
 
@@ -369,7 +324,7 @@ private:
           printf("%02X ", header_buffer[i]);
         }
         printf("\n");
-        return;
+        return ACK::READ_ERROR;
       }
 
       const std::string message_class = keystone::UBX::getMessageClassString(
@@ -378,9 +333,7 @@ private:
       //  ubx_read_buffer_.class_id, ubx_read_buffer_.msg_id,
       //  ubx_read_buffer_.length);
     }
-
     {
-
       constexpr uint64_t TIMEOUT_us = 500 * 1000; // 500 ms
       const uint64_t start_time_us = time_us_64();
       uint16_t bytes_available = 0;
@@ -394,12 +347,12 @@ private:
           break;
         }
 
-        sleep_ms(50);
+        sleep_ms(10);
       }
 
       if (!payload_and_checksum_available) {
         printf("Payload or checksum not available\n");
-        return;
+        return ACK::READ_ERROR;
       }
 
       // Read the payload and checksum
@@ -412,7 +365,7 @@ private:
           keystone::UBX::processPayloadAndChecksum(ubx_read_buffer_, payload);
       if (result < 0) {
         printf("Error processing payload and checksum: %d\n", result);
-        return;
+        return ACK::READ_ERROR;
       }
 
       std::string frame_string =
@@ -421,23 +374,30 @@ private:
       auto message_class = ubx_read_buffer_.getMessageClass();
       if (message_class ==
           keystone ::UBX::MessageClass::NAV_PVT) { // NAV-PVT message
-        keystone::UBX::Data::NavPvt nav_pvt;
-        int status = nav_pvt.decode(ubx_read_buffer_);
+        int status = nav_data_.decode(ubx_read_buffer_);
         if (status != 0) {
           printf("Error decoding NAV-PVT: %d\n", status);
-          return;
+          return ACK::READ_ERROR;
         }
 
-        std::string nav_pvt_string = nav_pvt.toString();
-        printf("NAV-PVT: %s\n", nav_pvt_string.c_str());
+        // std::string nav_pvt_string = nav_data_.toString();
+        // printf("NAV-PVT: %s\n", nav_pvt_string.c_str());
+        return ACK::ACK;
+      } else if (message_class ==
+                 keystone ::UBX::MessageClass::ACK_ACK) { // ACK-ACK message
+        return ACK::ACK;
       } else {
         printf("Rx %s\n", frame_string.c_str());
       }
     }
 
-    // std::vector<uint8_t> payload(ubx_read_buffer_.length);
-
     (void)expected_return_size; /// @todo use
+    return ACK::NONE;
+  }
+
+  void displayNavPvt() {
+    std::string nav_pvt_string = nav_data_.toString();
+    printf("NAV-PVT: %s\n", nav_pvt_string.c_str());
   }
 
   std::vector<uint8_t> tx_buffer_;
@@ -445,6 +405,12 @@ private:
 
   std::vector<uint8_t> rx_buffer_;
   keystone::UBX::Frame ubx_read_buffer_{rx_buffer_};
+
+  keystone::UBX::Data::NavPvt nav_data_;
+
+  SoftwareTimer nav_update_timer_{800}; // @todo config
+
+  SoftwareTimer gps_watchdog_timer_{3000}; // @todo config
 };
 
 } // namespace power_board
