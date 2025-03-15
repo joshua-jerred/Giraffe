@@ -535,7 +535,7 @@
         "microvia_drill": 0.1,
         "name": "DATA",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2,
+        "priority": 3,
         "schematic_color": "rgb(0, 0, 255)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -545,7 +545,7 @@
       {
         "name": "DATA:USB",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgb(79, 150, 255)"
       },
       {
@@ -558,7 +558,7 @@
         "microvia_drill": 0.1,
         "name": "GPIO",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 3,
+        "priority": 4,
         "schematic_color": "rgb(0, 0, 72)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -575,7 +575,7 @@
         "microvia_drill": 0.1,
         "name": "POWER:-BATT",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 4,
+        "priority": 5,
         "schematic_color": "rgb(194, 0, 194)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -592,7 +592,7 @@
         "microvia_drill": 0.1,
         "name": "POWER:3V3",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 5,
+        "priority": 6,
         "schematic_color": "rgb(194, 194, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -602,7 +602,7 @@
       {
         "name": "POWER:3V3_2040",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
+        "priority": 2,
         "schematic_color": "rgb(72, 72, 0)"
       },
       {
@@ -615,7 +615,7 @@
         "microvia_drill": 0.1,
         "name": "POWER:4V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 6,
+        "priority": 7,
         "schematic_color": "rgb(132, 0, 132)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -632,7 +632,7 @@
         "microvia_drill": 0.1,
         "name": "POWER:5V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 7,
+        "priority": 8,
         "schematic_color": "rgb(204, 102, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -649,7 +649,7 @@
         "microvia_drill": 0.1,
         "name": "POWER:input",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 8,
+        "priority": 9,
         "schematic_color": "rgb(255, 0, 0)",
         "track_width": 1.0,
         "via_diameter": 0.9,
@@ -666,12 +666,18 @@
         "microvia_drill": 0.1,
         "name": "RF",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 9,
+        "priority": 10,
         "schematic_color": "rgb(255, 0, 255)",
         "track_width": 0.444189,
         "via_diameter": 0.8,
         "via_drill": 0.4,
         "wire_width": 6
+      },
+      {
+        "name": "RF:HF",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgb(202, 41, 255)"
       }
     ],
     "meta": {
@@ -733,9 +739,6 @@
       "/Voltage Converters/5.1V_BUCK_OUTPUT": [
         "POWER:5V"
       ],
-      "/Voltage Converters/5.1V_PRIMARY_OUTPUT": [
-        "POWER:5V"
-      ],
       "/Voltage Converters/buck_enable": [
         "GPIO"
       ],
@@ -745,10 +748,16 @@
       "3V3 Primary": [
         "POWER:3V3"
       ],
-      "3V3_PICO": [
+      "3V3_PRIMARY": [
+        "POWER:3V3"
+      ],
+      "3V3_RP2040": [
         "POWER:3V3_2040"
       ],
       "5V Primary": [
+        "POWER:5V"
+      ],
+      "5V_PRIMARY": [
         "POWER:5V"
       ],
       "Net-(C1-Pad1)": [
@@ -765,6 +774,9 @@
       ],
       "unconnected-(R14-Pad2)": [
         "DATA:USB"
+      ],
+      "unconnected-(Y2-CLK0-Pad10)": [
+        "RF:HF"
       ]
     },
     "netclass_patterns": []
@@ -992,6 +1004,10 @@
     [
       "4ef752d1-705a-4bfe-9c95-b55d2dce4ab8",
       "RP2040"
+    ],
+    [
+      "aa01e590-fd29-4a61-ba20-b792f552b8e0",
+      "WSPR Transmitter"
     ]
   ],
   "text_variables": {}

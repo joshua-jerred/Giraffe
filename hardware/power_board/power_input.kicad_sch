@@ -2675,6 +2675,12 @@
 		(uuid "d5069405-33b6-4aa4-a50d-048c056b2f5b")
 	)
 	(junction
+		(at 34.29 58.42)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d6a7779b-50c1-40c4-974e-9bbab692f8dd")
+	)
+	(junction
 		(at 33.02 45.72)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2720,7 +2726,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 58.42) (xy 38.1 58.42)
+			(xy 33.02 58.42) (xy 34.29 58.42)
 		)
 		(stroke
 			(width 0)
@@ -2767,6 +2773,16 @@
 			(type default)
 		)
 		(uuid "06f3eb79-bb63-45ae-b755-26405dc27b03")
+	)
+	(wire
+		(pts
+			(xy 22.86 62.23) (xy 34.29 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0772e8e7-f6f1-4680-a09c-8dab77cb5bd2")
 	)
 	(wire
 		(pts
@@ -2880,6 +2896,16 @@
 	)
 	(wire
 		(pts
+			(xy 229.87 59.69) (xy 238.76 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32e0b109-41dd-462d-bd9c-ad9bd71dde55")
+	)
+	(wire
+		(pts
 			(xy 224.79 54.61) (xy 224.79 52.07)
 		)
 		(stroke
@@ -2957,16 +2983,6 @@
 			(type default)
 		)
 		(uuid "4a1b24f2-73d0-4790-a614-bc5af73e9fb0")
-	)
-	(wire
-		(pts
-			(xy 222.25 49.53) (xy 242.57 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4b95de50-ffaa-44eb-b4b4-8d21eca1c85e")
 	)
 	(wire
 		(pts
@@ -3050,6 +3066,16 @@
 	)
 	(wire
 		(pts
+			(xy 34.29 62.23) (xy 34.29 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6b12f6ef-8c44-4c71-b46a-d67f2aef56ee")
+	)
+	(wire
+		(pts
 			(xy 43.18 45.72) (xy 48.26 45.72)
 		)
 		(stroke
@@ -3110,7 +3136,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 44.45) (xy 242.57 44.45)
+			(xy 222.25 44.45) (xy 240.03 44.45)
 		)
 		(stroke
 			(width 0)
@@ -3170,6 +3196,26 @@
 	)
 	(wire
 		(pts
+			(xy 229.87 49.53) (xy 229.87 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9b91d848-55db-4781-8ff4-ae229a33b860")
+	)
+	(wire
+		(pts
+			(xy 222.25 49.53) (xy 229.87 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d5f131e-a0b2-44fd-a3d3-ff1ef3e46b5f")
+	)
+	(wire
+		(pts
 			(xy 48.26 58.42) (xy 60.96 58.42)
 		)
 		(stroke
@@ -3200,6 +3246,16 @@
 	)
 	(wire
 		(pts
+			(xy 238.76 59.69) (xy 238.76 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a62a1a09-a7bc-4c1d-a64b-115f65b8aa20")
+	)
+	(wire
+		(pts
 			(xy 177.8 49.53) (xy 181.61 49.53)
 		)
 		(stroke
@@ -3227,6 +3283,16 @@
 			(type default)
 		)
 		(uuid "aeaaabc3-ea7f-4e48-abad-517ee41a99d4")
+	)
+	(wire
+		(pts
+			(xy 22.86 60.96) (xy 22.86 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3e0e36f-543e-4c32-bae5-9be674c42b56")
 	)
 	(wire
 		(pts
@@ -3450,13 +3516,23 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 46.99) (xy 242.57 46.99)
+			(xy 222.25 46.99) (xy 240.03 46.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "f34aa535-8ff6-49da-b494-d684a56e619a")
+	)
+	(wire
+		(pts
+			(xy 34.29 58.42) (xy 38.1 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f6dfccc2-5ac0-4a25-a855-7a435699cde1")
 	)
 	(wire
 		(pts
@@ -3631,7 +3707,7 @@
 	)
 	(hierarchical_label "batt_ext_I2C_SCL"
 		(shape input)
-		(at 242.57 44.45 0)
+		(at 240.03 44.45 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3651,20 +3727,9 @@
 		)
 		(uuid "ac32c0dd-b9b9-46bf-8858-373f6dc1046a")
 	)
-	(hierarchical_label "batt_ext_3V3"
-		(shape input)
-		(at 242.57 49.53 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "cf9642f1-174a-4b21-b154-ce1cb9ed1035")
-	)
 	(hierarchical_label "batt_ext_I2C_SDA"
 		(shape bidirectional)
-		(at 242.57 46.99 0)
+		(at 240.03 46.99 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4762,6 +4827,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 22.86 60.96 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3e281ced-4d70-4066-86ec-60d461ee849e")
+		(property "Reference" "#FLG05"
+			(at 22.86 59.055 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 22.86 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 22.86 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 22.86 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 22.86 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fc198ccd-45d6-41a6-887e-f6c7c3bd9c41")
+		)
+		(instances
+			(project "power_board"
+				(path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/37a25529-547a-4c46-9309-80d1f4ca78d2"
+					(reference "#FLG05")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Jumper:SolderJumper_2_Open")
 		(at 156.21 39.37 0)
 		(unit 1)
@@ -4917,6 +5047,71 @@
 			(project "power_board"
 				(path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/37a25529-547a-4c46-9309-80d1f4ca78d2"
 					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 238.76 57.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5696e99e-9be3-4bf1-815f-702f4d764d1c")
+		(property "Reference" "#PWR047"
+			(at 238.76 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3V3_RP2040"
+			(at 238.76 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 238.76 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 238.76 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "3V3_RP2040"
+			(at 238.76 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f7177ea3-13c4-4e19-9876-5fe37068dbda")
+		)
+		(instances
+			(project "power_board"
+				(path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d/37a25529-547a-4c46-9309-80d1f4ca78d2"
+					(reference "#PWR047")
 					(unit 1)
 				)
 			)
