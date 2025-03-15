@@ -546,7 +546,7 @@
         "name": "DATA:USB",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 0,
-        "schematic_color": "rgb(0, 0, 132)"
+        "schematic_color": "rgb(79, 150, 255)"
       },
       {
         "bus_width": 12,
@@ -709,16 +709,31 @@
       "/Power Input/power_input_processed": [
         "POWER:input"
       ],
-      "/RP2040/2040_USB_D+": [
+      "/RP2040/PRIMARY_POWER_SUPPLY_DISABLE": [
+        "GPIO"
+      ],
+      "/USB_C.D+": [
         "DATA:USB"
       ],
-      "/RP2040/2040_USB_D-": [
+      "/USB_C.D-": [
+        "DATA:USB"
+      ],
+      "/USB_C_VBUS_5V": [
+        "POWER:5V"
+      ],
+      "/USB_C{D- D+}": [
         "DATA:USB"
       ],
       "/Voltage Converters/3V3_PRIMARY_OUTPUT": [
         "POWER:3V3"
       ],
+      "/Voltage Converters/3v3_out": [
+        "POWER:3V3"
+      ],
       "/Voltage Converters/5.1V_BUCK_OUTPUT": [
+        "POWER:5V"
+      ],
+      "/Voltage Converters/5.1V_PRIMARY_OUTPUT": [
         "POWER:5V"
       ],
       "/Voltage Converters/buck_enable": [
