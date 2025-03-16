@@ -25,6 +25,8 @@
 #include "pico/time.h"
 
 // Local
+#include "EEPROM.hpp"
+#include "TSL2591.hpp"
 #include "adc_data.hpp"
 #include "power_board_comms.hpp"
 #include "power_supply.hpp"
@@ -43,6 +45,7 @@ bi_decl(bi_program_version_string(GIRAFFE_VERSION_NUMBER));
 bi_decl(bi_program_description("Power Board Pico"));
 
 static power_board::StatusLed status_led{100, 1000};
+static power_board::EEPROM eeprom{};
 
 void exception_handler() {
   while (1) {
@@ -99,6 +102,8 @@ int main() {
         sam_m8q.processCommand(arg);
       } else if (command == "adc") {
         adc_data.processCommand(arg);
+      } else if (command == "nv") {
+        eeprom.processCommand(arg);
       } else {
         printf("Unknown command in main: %s\n", command.c_str());
       }

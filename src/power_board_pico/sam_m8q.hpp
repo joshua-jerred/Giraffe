@@ -27,8 +27,6 @@ namespace power_board {
 static constexpr uint8_t I2C_ADDRESS = 0x42;
 
 #define I2C_PORT i2c1
-#define I2C_SDA_PIN 4
-#define I2C_SCL_PIN 5
 
 enum class ACK { ACK, NACK, NONE, WRITE_ERROR, READ_ERROR };
 

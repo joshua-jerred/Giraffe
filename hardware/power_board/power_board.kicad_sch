@@ -3159,6 +3159,16 @@
 		)
 		(uuid "c2cbfaaa-c28e-4a29-8691-9e9d2184971c")
 	)
+	(bus
+		(pts
+			(xy 186.69 86.36) (xy 198.12 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c43e78ba-45d7-45b4-b98e-6a2178f09b1e")
+	)
 	(wire
 		(pts
 			(xy 320.04 99.06) (xy 318.77 99.06)
@@ -6046,52 +6056,20 @@
 				(justify left)
 			)
 		)
-		(instances
-			(project "power_board"
-				(path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-					(page "4")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 218.44 83.82)
-		(size 31.75 21.59)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "aa01e590-fd29-4a61-ba20-b792f552b8e0")
-		(property "Sheetname" "WSPR Transmitter"
-			(at 218.44 83.1084 0)
+		(pin "2040_I2C0_WSPR{SDA SCL}" bidirectional
+			(at 186.69 86.36 0)
+			(uuid "c765a466-98c7-4cdf-890d-2782416d2e22")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "wspr_transmitter.kicad_sch"
-			(at 218.44 105.9946 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
+				(justify right)
 			)
 		)
 		(instances
 			(project "power_board"
 				(path "/8b6d32d3-7736-4ef0-bfd7-9f676eec710d"
-					(page "5")
+					(page "4")
 				)
 			)
 		)

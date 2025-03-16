@@ -169,6 +169,9 @@ private:
     } else if (command_str == "gps") {
       newExternalCommand();
       return;
+    } else if (command_str == "nv") { // non-volatile
+      newExternalCommand();
+      return;
     } else if (command_str == "adc") {
       newExternalCommand();
       return;
