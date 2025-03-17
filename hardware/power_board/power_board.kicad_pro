@@ -719,6 +719,18 @@
       "/5V Buck Converter/buck_sw": [
         "POWER:5V"
       ],
+      "/External IO/USB_C.D+": [
+        "DATA:USB"
+      ],
+      "/External IO/USB_C.D-": [
+        "DATA:USB"
+      ],
+      "/External IO/USB_C_VBUS_5V": [
+        "POWER:5V"
+      ],
+      "/External IO/USB_C{D- D+}": [
+        "DATA:USB"
+      ],
       "/KS_BACKPLANE_IO.I2C_SCL": [
         "KS_BACKPLANE_IO"
       ],
@@ -739,6 +751,12 @@
       ],
       "/Main Power Supply/3v3_out": [
         "POWER:3V3"
+      ],
+      "/Main Power Supply/5.1V_CONTROLLED_OUTPUT": [
+        "POWER:5V"
+      ],
+      "/Main Power Supply/5V_BUS_CONSTANT": [
+        "POWER:5V"
       ],
       "/Main Power Supply/BUCK_CONVERTER_DISABLE": [
         "GPIO"
@@ -772,6 +790,15 @@
       ],
       "/RP2040/PRIMARY_POWER_SUPPLY_DISABLE": [
         "GPIO"
+      ],
+      "/RP2040/WSPR.SCL": [
+        "DATA:I2C"
+      ],
+      "/RP2040/WSPR.SDA": [
+        "DATA:I2C"
+      ],
+      "/RP2040/WSPR{SDA SCL}": [
+        "DATA:I2C"
       ],
       "/USB_C.D+": [
         "DATA:USB"
@@ -832,6 +859,15 @@
       ],
       "Net-(U6-CLK0)": [
         "RF:HF"
+      ],
+      "USB_C.D+": [
+        "DATA:USB"
+      ],
+      "USB_C.D-": [
+        "DATA:USB"
+      ],
+      "USB_C{D- D+}": [
+        "DATA:USB"
       ]
     },
     "netclass_patterns": []

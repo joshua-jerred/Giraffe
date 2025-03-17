@@ -2510,7 +2510,7 @@
 		)
 		(uuid "2572e44c-acdb-4c97-9410-3aec6191b99e")
 	)
-	(label "2040_I2C0_WSPR.SDA"
+	(label "WSPR.SDA"
 		(at 88.9 161.29 0)
 		(effects
 			(font
@@ -2520,7 +2520,7 @@
 		)
 		(uuid "2c39be3b-a2ae-4ab4-a772-9fd92217c6b3")
 	)
-	(label "2040_I2C0_WSPR.SCL"
+	(label "WSPR.SCL"
 		(at 88.9 158.75 0)
 		(effects
 			(font
@@ -2530,7 +2530,7 @@
 		)
 		(uuid "d9a03442-6c4c-4541-bcdb-e93fa071186c")
 	)
-	(hierarchical_label "2040_I2C0_WSPR{SDA SCL}"
+	(hierarchical_label "WSPR{SDA SCL}"
 		(shape bidirectional)
 		(at 80.01 173.99 180)
 		(effects
