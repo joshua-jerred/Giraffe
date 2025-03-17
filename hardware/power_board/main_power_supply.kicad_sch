@@ -1551,14 +1551,14 @@
 		)
 		(uuid "d8bc1be4-85f3-4fe0-a07e-56dcadd17ecd")
 	)
-	(text_box "TODO: Some kind of voltage output protection?"
+	(text_box "TODO: Some kind of voltage output protection? Bleed resistor for USB-C backpower noise?"
 		(exclude_from_sim no)
-		(at 223.52 31.75 0)
-		(size 16.51 8.89)
+		(at 201.93 21.59 0)
+		(size 27.94 8.89)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
-			(type default)
+			(type solid)
 		)
 		(fill
 			(type none)
@@ -1571,6 +1571,26 @@
 			(justify left bottom)
 		)
 		(uuid "09cb57b9-a8d5-487e-9c9d-c31ccee910c6")
+	)
+	(text_box "The main power supply is currently fairly simple, future versions should\ninvestigate redundancy options.\n\nMain details:\n+Protected battery input\n+5V & 3V control IO (High = disable power supply)\n- 3V3 @ 1A Continuous Output for the RP2040\n- 5V @ 3A and 3V3 @ 1A Controlled Outputs (Default On)"
+		(exclude_from_sim no)
+		(at 12.7 12.7 0)
+		(size 50.8 25.4)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "661e4bf6-3310-4924-b474-0f0f3ddbaab6")
 	)
 	(text_box "3V Primary Current. Probably just going to be gotten rid of."
 		(exclude_from_sim no)
@@ -3264,6 +3284,30 @@
 	(netclass_flag ""
 		(length 2.54)
 		(shape round)
+		(at 210.82 152.4 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 194 0 0 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "764fcc20-1368-43ec-84f5-90396fd6b7f2")
+		(property "Netclass" "POWER:3V3"
+			(at 211.328 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
 		(at 170.18 46.99 0)
 		(fields_autoplaced yes)
 		(effects
@@ -3396,30 +3440,6 @@
 		(uuid "cc6bb7ca-c819-4033-ae65-d33438e76408")
 		(property "Netclass" "POWER:3V3"
 			(at 100.838 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 210.82 152.4 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 194 0 0 1)
-			)
-			(justify left bottom)
-		)
-		(uuid "e1b88557-463b-4401-aad3-d409d7427025")
-		(property "Netclass" "POWER:3V3_2040"
-			(at 211.328 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
