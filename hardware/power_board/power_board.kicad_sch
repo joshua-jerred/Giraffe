@@ -6089,7 +6089,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "ab7997e5-cef2-4c2d-8b27-2b4c8c30f1a0")
-		(property "Sheetname" "Voltage Converters"
+		(property "Sheetname" "Main Power Supply"
 			(at 143.51 26.035 0)
 			(effects
 				(font
@@ -6100,7 +6100,7 @@
 				(justify left top)
 			)
 		)
-		(property "Sheetfile" "5V_buck_converter.kicad_sch"
+		(property "Sheetfile" "main_power_supply.kicad_sch"
 			(at 142.875 29.845 0)
 			(effects
 				(font
