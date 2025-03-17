@@ -12106,7 +12106,7 @@
 			)
 		)
 		(symbol "W25Q16JVUXIQ_TR_0_1"
-			(pin unspecified line
+			(pin power_in line
 				(at -12.7 5.08 0)
 				(length 2.54)
 				(name "VCC"
@@ -12142,7 +12142,7 @@
 					)
 				)
 			)
-			(pin unspecified line
+			(pin input line
 				(at 12.7 5.08 180)
 				(length 2.54)
 				(name "CLK"
@@ -12160,7 +12160,7 @@
 					)
 				)
 			)
-			(pin unspecified line
+			(pin bidirectional line
 				(at 12.7 0 180)
 				(length 2.54)
 				(name "DI(IO0)"
@@ -12191,7 +12191,7 @@
 					(type none)
 				)
 			)
-			(pin unspecified line
+			(pin power_in line
 				(at -12.7 -5.08 0)
 				(length 2.54)
 				(name "GND"
@@ -12227,7 +12227,7 @@
 					)
 				)
 			)
-			(pin unspecified line
+			(pin bidirectional line
 				(at 12.7 -2.54 180)
 				(length 2.54)
 				(name "DO(IO1)"
@@ -12245,7 +12245,7 @@
 					)
 				)
 			)
-			(pin unspecified line
+			(pin bidirectional line
 				(at 12.7 -5.08 180)
 				(length 2.54)
 				(name "/WP(IO2)"
@@ -12263,7 +12263,7 @@
 					)
 				)
 			)
-			(pin unspecified line
+			(pin bidirectional line
 				(at 12.7 -7.62 180)
 				(length 2.54)
 				(name "RESET(IO3)"

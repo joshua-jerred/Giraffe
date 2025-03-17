@@ -3210,7 +3210,7 @@
 		)
 		(uuid "620b39d8-ad2c-4d80-b402-360f73b70cfc")
 	)
-	(hierarchical_label "5V_CONTROLED_FAULT_FLAG"
+	(hierarchical_label "5V_CONTROLED_FAULT_GPIO"
 		(shape output)
 		(at 129.54 148.59 0)
 		(effects

@@ -573,7 +573,7 @@
         "name": "KS_BACKPLANE_IO",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 0,
-        "schematic_color": "rgb(221, 133, 0)"
+        "schematic_color": "rgb(119, 34, 221)"
       },
       {
         "bus_width": 12,
@@ -752,11 +752,14 @@
       "/Main Power Supply/3v3_out": [
         "POWER:3V3"
       ],
-      "/Main Power Supply/5.1V_CONTROLLED_OUTPUT": [
-        "POWER:5V"
-      ],
       "/Main Power Supply/5V_BUS_CONSTANT": [
         "POWER:5V"
+      ],
+      "/Main Power Supply/5V_CONTROLED_FAULT_GPIO": [
+        "GPIO"
+      ],
+      "/Main Power Supply/5V_KS_ENABLE_GPIO": [
+        "GPIO"
       ],
       "/Main Power Supply/BUCK_CONVERTER_DISABLE": [
         "GPIO"
@@ -796,6 +799,12 @@
       ],
       "/RP2040/WSPR.SDA": [
         "DATA:I2C"
+      ],
+      "/RP2040/WSPR_POWER_ENABLE": [
+        "GPIO"
+      ],
+      "/RP2040/WSPR_POWER_FAULT": [
+        "GPIO"
       ],
       "/RP2040/WSPR{SDA SCL}": [
         "DATA:I2C"
@@ -1115,6 +1124,10 @@
     [
       "bb6c7426-de14-407d-8e70-f65bc2207c4b",
       "External IO"
+    ],
+    [
+      "af2aa343-682f-4c3a-91e2-e6c5c26b8d7e",
+      "RP2040 SD Card"
     ]
   ],
   "text_variables": {}
