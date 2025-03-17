@@ -25,12 +25,13 @@
 #include "pico/time.h"
 
 // Local
-#include "EEPROM.hpp"
 #include "TSL2591.hpp"
 #include "adc_data.hpp"
+#include "non_volatile/EEPROM.hpp"
 #include "power_board_comms.hpp"
 #include "power_supply.hpp"
 #include "sam_m8q.hpp"
+#include "sd_card.hpp"
 #include "status_led.hpp"
 
 // If debug build, allow software restart
@@ -80,6 +81,7 @@ int main() {
   static power_board::AdcData adc_data{1000};
   static power_board::PowerSupply power_supply{1000};
   static power_board::SamM8Q sam_m8q{100};
+  static power_board::SdCard sd_card{1000};
 
   stdio_set_chars_available_callback(
       [](void *) {
@@ -112,6 +114,7 @@ int main() {
     adc_data.process();
     power_supply.process();
     sam_m8q.process();
+    sd_card.process();
 
     sleep_ms(5);
     watchdog_update();

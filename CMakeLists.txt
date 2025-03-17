@@ -90,6 +90,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 
 if(BUILD_FOR_PICO)
   add_subdirectory(src/power_board_pico) # Power Board Pico
+  add_subdirectory(lib/third_party/no-OS-FatFS-SD-SPI-RPi-Pico/FatFs_SPI build)
 
 else()
   # ----- Third Party Libs -----

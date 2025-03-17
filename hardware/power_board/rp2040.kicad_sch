@@ -3598,10 +3598,6 @@
 		(at 22.86 207.01)
 		(uuid "afe52f0e-048a-4449-9439-b84afd711bf6")
 	)
-	(no_connect
-		(at 129.54 127)
-		(uuid "f99824ca-c859-4251-963f-522939d252ca")
-	)
 	(bus_entry
 		(at 146.05 81.28)
 		(size -2.54 2.54)
@@ -3823,6 +3819,16 @@
 			(type default)
 		)
 		(uuid "0677308e-261b-474b-96a0-071225ac8a7a")
+	)
+	(wire
+		(pts
+			(xy 137.16 127) (xy 137.16 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07b416bf-f26f-431a-b277-b6583c76be04")
 	)
 	(bus
 		(pts
@@ -4974,6 +4980,16 @@
 		)
 		(uuid "99203288-2309-441e-a6ce-62781f404241")
 	)
+	(wire
+		(pts
+			(xy 137.16 130.81) (xy 161.29 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "99ddccc6-e496-4b70-bc12-92a9a9e8bd86")
+	)
 	(polyline
 		(pts
 			(xy 190.5 88.9) (xy 266.7 88.9)
@@ -5193,6 +5209,16 @@
 			(type default)
 		)
 		(uuid "b1cfe013-040c-4661-b54a-583405883758")
+	)
+	(wire
+		(pts
+			(xy 129.54 127) (xy 137.16 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b27bee89-5d43-4a73-ba9c-baec2ce520bc")
 	)
 	(wire
 		(pts
@@ -12254,6 +12280,16 @@
 			(justify right bottom)
 		)
 		(uuid "90da847d-be4e-4216-844a-fb471d07bfc7")
+	)
+	(label "SD Card Detect"
+		(at 161.29 130.81 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "91e1fd00-b665-4c11-bac5-4d741e3aaf9f")
 	)
 	(label "SD_SPI0.RX"
 		(at 129.54 116.84 0)

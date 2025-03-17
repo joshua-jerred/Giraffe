@@ -4,6 +4,6 @@ target_sources(keystone INTERFACE
 )
 
 target_include_directories(keystone INTERFACE
-  ${CMAKE_CURRENT_LIST_DIR}/
+  "./"
 )
 

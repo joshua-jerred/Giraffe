@@ -6,21 +6,30 @@ if(BUILD_FOR_PICO)
     main.cpp
   )
   add_subdirectory(keystone)
-  
+  target_include_directories(power_board_pico PRIVATE
+    "./"
+  )
+
   target_compile_definitions(power_board_pico PRIVATE
     PICO_STDIO_USB_ENABLE_RESET_VIA_VENDOR_INTERFACE=1
     GIRAFFE_VERSION_NUMBER="${GIRAFFE_VERSION_NUMBER}"
     GIRAFFE_VERSION_STAGE="${GIRAFFE_VERSION_STAGE}"
   )
 
-  target_link_libraries(power_board_pico 
+  target_link_libraries(power_board_pico PUBLIC
+    # Internal
+    keystone
+
+    # pico libraries
     pico_stdlib
     hardware_adc
     hardware_exception
     hardware_i2c
-    keystone
-  ) # Link the pico standard library.
-  
+
+    # third party
+    FatFs_SPI
+  )
+
   # Using USB is annoying when uploading as the serial port resets.
   # unset(USE_USB_FOR_UART_STDIO CACHE)
   set(USE_USB_FOR_UART_STDIO OFF CACHE BOOL "Use USB for UART stdio")
