@@ -35,6 +35,12 @@
     "@copyright{indent:12}{year} (license to be defined)",
   ],
 
+  // IDE Differentiation
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#a96f2297",
+    // "titleBar.border": "#ffa630",
+  }
+
   // DocWriter
   "docwriter.hotkey.windows": "Alt + .",
   "docwriter.progress.trackClasses": true,
@@ -67,13 +73,25 @@
     "stoi",
     "Struct",
     "telem",
+    "untar"
     "uart"
   ],
+  "cmake.options.statusBarVisibility": "compact",
   "files.associations": {
     "*.sqlbook": "sql",
     "*.ndjson": "jsonl",
     "*.dbclient-js": "javascript",
     "version": "plaintext",
+    "cctype": "cpp",
+    "clocale": "cpp",
+    "cmath": "cpp",
+    "cstdarg": "cpp",
+    "cstddef": "cpp",
+    "cstdio": "cpp",
+    "cstdlib": "cpp",
+    "cwchar": "cpp",
+    "cwctype": "cpp",
+    "any": "cpp",
     "string_view": "cpp",
     "regex": "cpp",
     "array": "cpp",
@@ -86,6 +104,7 @@
     "sstream": "cpp",
     "any": "cpp",
     "atomic": "cpp",
+    "hash_map": "cpp",
     "strstream": "cpp",
     "bit": "cpp",
     "*.tcc": "cpp",
@@ -98,6 +117,9 @@
     "compare": "cpp",
     "complex": "cpp",
     "concepts": "cpp",
+    "cstdint": "cpp",
+    "cstring": "cpp",
+    "ctime": "cpp",
     "condition_variable": "cpp",
     "csignal": "cpp",
     "cstdarg": "cpp",
@@ -126,8 +148,8 @@
     "memory": "cpp",
     "memory_resource": "cpp",
     "numeric": "cpp",
-    "optional": "cpp",
     "random": "cpp",
+    "string_view": "cpp",
     "ratio": "cpp",
     "source_location": "cpp",
     "system_error": "cpp",
@@ -140,10 +162,12 @@
     "iostream": "cpp",
     "istream": "cpp",
     "limits": "cpp",
-    "mutex": "cpp",
     "new": "cpp",
     "numbers": "cpp",
+    "optional": "cpp",
     "ostream": "cpp",
+    "ranges": "cpp",
+    "ratio": "cpp",
     "semaphore": "cpp",
     "stdexcept": "cpp",
     "stop_token": "cpp",
@@ -152,7 +176,7 @@
     "cfenv": "cpp",
     "typeindex": "cpp",
     "typeinfo": "cpp",
+    "valarray": "cpp",
     "variant": "cpp"
-  },
-  "cmake.options.statusBarVisibility": "compact"
+  }
 }

@@ -9,6 +9,7 @@ target_sources(giraffe_common INTERFACE
   ${CMAKE_CURRENT_SOURCE_DIR}/socket.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/giraffe_file_paths.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/common_logger.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/software_version.cpp
 )
 target_include_directories(giraffe_common INTERFACE
   ./

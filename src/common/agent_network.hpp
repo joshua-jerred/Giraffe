@@ -15,6 +15,6 @@
 
 #include <cstdint>
 
-namespace flight_system_agent {
+namespace command_line_interface {
 uint16_t DAEMON_PORT = 20392;
 }

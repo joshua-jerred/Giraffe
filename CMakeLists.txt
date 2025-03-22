@@ -21,17 +21,24 @@ if(NOT output EQUAL 0)
     ${output})
 endif()
 file(READ ${CMAKE_SOURCE_DIR}/version.ini ver_file)
-string(
-  REGEX MATCH
-  "version = ([0-9\.]+)[ \n\r]+stage = ([a-zA-Z]+)"
-  GIRAFFE_VERSION_STAGE
+string(REGEX
+  MATCH 
+  "stage = ([a-z]+)[ \n\r]+clean = [a-zA-Z]+[ \n\r]+semantic = ([0-9\.]+)(-*[a-z]*-[a-z]*)[ \n\r]+"
+  GIRAFFE_SEMANTIC_VERSION
   ${ver_file}
 )
-set(GIRAFFE_VERSION_NUMBER ${CMAKE_MATCH_1})
-set(GIRAFFE_VERSION_STAGE ${CMAKE_MATCH_2})
+set(GIRAFFE_VERSION_STAGE ${CMAKE_MATCH_1})
+set(GIRAFFE_VERSION_NUMBER ${CMAKE_MATCH_2})
+set(GIRAFFE_SEMANTIC_VERSION "${GIRAFFE_VERSION_NUMBER}${CMAKE_MATCH_3}")
+
+message(STATUS "Giraffe Version Number: ${GIRAFFE_VERSION_NUMBER}")
+message(STATUS "Giraffe Stage Label: ${GIRAFFE_STAGE_LABEL}")
+message(STATUS "Giraffe Semantic Version: ${GIRAFFE_SEMANTIC_VERSION}")
+
 add_compile_definitions(
+  GIRAFFE_SEMANTIC_VERSION="${GIRAFFE_SEMANTIC_VERSION}"
+  GIRAFFE_VERSION_STAGE="${GIRAFFE_SEMANTIC_VERSION}"
   GIRAFFE_VERSION_NUMBER="${GIRAFFE_VERSION_NUMBER}"
-  GIRAFFE_VERSION_STAGE="${GIRAFFE_VERSION_STAGE}"
 )
 message(STATUS "Giraffe Software Version: ${GIRAFFE_VERSION_NUMBER} \
 ${GIRAFFE_VERSION_STAGE}")
@@ -41,18 +48,27 @@ ${GIRAFFE_VERSION_STAGE}")
 # need to get rid of these
 set(THIRD_PARTY_SRC ${CMAKE_SOURCE_DIR}/lib/third_party)
 
+
+# @todo remove these, let `add_subdirectory` handle it
+# and use relative paths in those CMakeLists.txt files
+set(GIRAFFE_DAEMON_SRC ${CMAKE_SOURCE_DIR}/src/daemon)
 set(GFS_SRC ${CMAKE_SOURCE_DIR}/src/flight_system)
+set(GDL_SRC ${CMAKE_SOURCE_DIR}/src/data_link)
 set(GFS_BIN ${CMAKE_BINARY_DIR}/bin)
 set(GFS_TEST_SRC ${CMAKE_SOURCE_DIR}/tests)
 set(GFS_UNIT_TEST_SRC ${GFS_TEST_SRC}/flight_system)
-set(GFS_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/flight_system)
-
-set(GDL_SRC ${CMAKE_SOURCE_DIR}/src/data_link)
-set(GDL_BIN ${CMAKE_BINARY_DIR}/bin)
 set(GDL_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/data_link)
-set(GDL_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/data_link)
+set(GIRAFFE_DAEMON_TEST_SRC ${CMAKE_SOURCE_DIR}/tests/daemon)
 
+# @todo remove these
+set(GFS_BIN ${CMAKE_BINARY_DIR}/bin)
+set(GDL_BIN ${CMAKE_BINARY_DIR}/bin)
+
+# @todo clean up
+set(GFS_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/flight_system)
+set(GDL_TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests/data_link)
 set(TEST_BIN ${CMAKE_BINARY_DIR}/bin/tests)
+
 
 # ------------------- #
 
@@ -104,25 +120,25 @@ else()
   add_subdirectory(lib/third_party/nlohmann_json) # nlohmann_json
   add_subdirectory(lib/third_party/fmt) # fmt
 
-  # ----------------------------
+# ---- Giraffe Components ----
+add_subdirectory(project)                  # Auto-generated files
+add_subdirectory(src/flight_system)        # Flight System
+add_subdirectory(src/daemon)               # Flight System Agent
+add_subdirectory(src/common)               # Common
+add_subdirectory(src/data_link)            # Data Link
+add_subdirectory(${GFS_TEST_SRC}/simulator) # gfs_simulator
+add_subdirectory(lib/SignalEasel)          # SignalEasel
+add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
+add_subdirectory(lib/bzip2-cpp)            # bzip2-cpp
+# ---- Utilities ----
+add_subdirectory(project/eeprom)           # EEPROM Utility
+# ----------------------------
 
+# Unit Tests
+enable_testing()
+add_subdirectory(${GFS_TEST_SRC})
 
-  # ---- Giraffe Components ----
-  add_subdirectory(project) # Auto-generated files
-  add_subdirectory(src/flight_system) # Flight System
-  add_subdirectory(src/flight_system_agent) # Flight System Agent
-  add_subdirectory(src/common) # Common
-  add_subdirectory(src/data_link) # Data Link
-  add_subdirectory(${GFS_TEST_SRC}/simulator) # gfs_simulator
-  add_subdirectory(lib/SignalEasel) # SignalEasel
-  add_subdirectory(lib/Boost_erSeat) # BoosterSeat
-  add_subdirectory(lib/bzip2-cpp) # bzip2-cpp
-  # ---- Utilities ----
-  add_subdirectory(project/eeprom) # EEPROM Utility
-  # ----------------------------
-
-  # Unit Tests
-  enable_testing()
-  add_subdirectory(${GFS_TEST_SRC})
+# Additional CMake Files
+include("package.cmake")
 
 endif()

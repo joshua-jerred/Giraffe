@@ -1,0 +1,33 @@
+@startuml
+
+' !theme mimeograph from https://raw.githubusercontent.com/plantuml/plantuml/master/themes
+
+title "Ground Station Hardware"
+
+
+' rectangle "Radio PCBA" as hat {
+'   component "SA868\n2W VHF Radio" as sa868
+'   component "PCM2902C\nUSB Audio Codec" as pcm2902c {
+
+'   }
+'   note right of pcm2902c: May not need this
+' }
+
+
+rectangle enclosure {
+node "Raspberry Pi 4" as rpi {
+}
+
+component "Switching Power Supply" as buck {
+  port "5V" as buck5v
+}
+component "USB Hub" as hub
+' component "
+}
+
+
+
+
+
+
+@enduml

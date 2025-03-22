@@ -12,7 +12,7 @@ out_path = sys.argv[2]
 out_cpp = FileGenerator("")
 out_cpp.addIncludes('"agent_settings.hpp"')
 
-cpp_namespace = Namespace("flight_system_agent")
+cpp_namespace = Namespace("command_line_interface")
 settings_map = Map("settings_map_", "std::string", "AgentSettings::Setting", "std::map", clang_format_off=True)
 
 for setting_label in settings:
@@ -23,7 +23,7 @@ for setting_label in settings:
     if setting_type == "AgentSettings::SettingType::STRING":
         setting_default = f'"{setting_default}"'
     elif setting_type == "AgentSettings::SettingType::BOOL":
-        setting_default = "false" if setting_default == "false" else "true"
+        setting_default = "true" if setting_default else "false"
 
     settings_map.addPair(f'"{setting_label}"', f'AgentSettings::Setting{{"{setting_label}", {setting_type}, {setting_default}}}')
 
