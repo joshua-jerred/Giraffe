@@ -46,7 +46,7 @@ python3 ./project/generators/bit_test_gen.py \
 echo "Generating flight system agent configuration"
 python3 ./project/generators/fsa_gen.py \
   ./project/metadata/fsa_metadata.json \
-  ./src/flight_system_agent/agent_settings.hpp
+  ./src/daemon/agent_settings.hpp
 
 echo "-- -- -- -- -- --     DONE    -- -- -- -- -- -- -- --"
 echo "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"

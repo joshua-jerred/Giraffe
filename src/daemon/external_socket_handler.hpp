@@ -20,10 +20,10 @@
 #include "protocol.hpp"
 #include "socket.hpp"
 
-// flight_system_agent
+// command_line_interface
 #include "agent_data.hpp"
 
-namespace flight_system_agent {
+namespace command_line_interface {
 
 const std::string K_INTERNAL_COMMS_ADDRESS = "127.0.0.1";
 
@@ -57,19 +57,19 @@ public:
 
     // Check for a new connection (non-blocking)
     if (socket_.accept(client)) {
+      // we've connected to the client. Go ahead and receive what it's sending.
       std::string request;
       if (client.receive(request)) {
-        // Helps with hanging on shutdown
-        if (agent_data_.isAgentStopRequested()) {
-          client.close();
-          return;
-        }
-
+        // we have received the data, now process it.
         std::string response{};
         handleExchange(request, response);
+
+        // send the response
         if (!client.send(response)) {
           logger_.error("Failed to send response");
         }
+
+        // terminate the connection
         client.close();
       }
     }
@@ -232,4 +232,4 @@ private:
   sock::TcpSocketServer socket_{};
 };
 
-} // namespace flight_system_agent
+} // namespace command_line_interface

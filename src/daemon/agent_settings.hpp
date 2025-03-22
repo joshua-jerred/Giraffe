@@ -19,6 +19,7 @@
 #include <variant>
 
 #include <BoosterSeat/filesystem.hpp>
+#include <BoosterSeat/time.hpp>
 
 #include "agent_data.hpp"
 #include "giraffe_file_paths.hpp"
@@ -27,7 +28,7 @@
 
 namespace bsfs = bst::filesystem;
 
-namespace flight_system_agent {
+namespace command_line_interface {
 
 class AgentSettings {
 public:
@@ -41,9 +42,13 @@ public:
   AgentSettings(AgentData &agent_data, giraffe::ILogger &logger)
       : agent_data_(agent_data), logger_(logger) {
     if (!loadConfig()) {
-      logger_.error("Failed to load initial configuration!");
-    } else {
-      logger_.info("Loaded initial configuration.");
+      logger_.error(
+          "Failed to load configuration, backing up and loading defaults!");
+      if (!backupConfigAndLoadDefault()) {
+        logger_.error("Failed to load default configuration file from: " +
+                      settings_file_path_);
+        agent_data_.setAgentStopFlag(true); // scream right away
+      }
     }
   }
 
@@ -113,6 +118,53 @@ public:
     }
   }
 
+  bool setItem(const std::string &key, const std::string &value,
+               std::string &response) {
+    if (!settings_map_.contains(key)) {
+      response = "Unknown setting key: " + key;
+      return false;
+    }
+
+    auto &setting = settings_map_.at(key);
+    if (setting.type == SettingType::INT &&
+        std::holds_alternative<int>(setting.value)) {
+      try {
+        setting.value = std::stoi(value);
+      } catch (const std::exception &e) {
+        response = "Failed to convert value to int: " + std::string(e.what());
+        return false;
+      }
+    } else if (setting.type == SettingType::BOOL &&
+               std::holds_alternative<bool>(setting.value)) {
+      if (value == "true" || value == "1") {
+        setting.value = true;
+      } else if (value == "false" || value == "0") {
+        setting.value = false;
+      } else {
+        response = "Invalid value for bool: " + value;
+        return false;
+      }
+    } else if (setting.type == SettingType::STRING &&
+               std::holds_alternative<std::string>(setting.value)) {
+      setting.value = value;
+    } else {
+      response = "Unknown setting type for key: " + key;
+      return false;
+    }
+
+    if (!saveConfig()) {
+      response = "Failed to save configuration.";
+      return false;
+    }
+
+    response = "Setting updated: " + key + "=" + value;
+    return true;
+  }
+
+  bool isGroundStation() const {
+    return std::get<bool>(settings_map_.at("is_ground_station").value);
+  }
+
 private:
   bool loadConfig() {
     // Attempt to load the config file if it exists
@@ -150,19 +202,52 @@ private:
     return false;
   }
 
+  /// @brief Used to recover from errors.
+  /// @details If the configuration file is corrupt, this will attempt to copy
+  /// the current configuration to a backup file and load the default
+  /// configuration. This is a last resort, so failure here means we won't
+  /// persist the current configuration through a software restart.
+  /// @return \c true if at a minimum, a new default configuration file has been
+  /// created. \c false otherwise.
+  bool backupConfigAndLoadDefault() {
+    // Attempt to backup the current configuration
+    try {
+      if (bst::filesystem::doesFileExist(settings_file_path_)) {
+        const std::string backup_file_path =
+            settings_file_path_ + ".backup." +
+            bst::time::dateAndTimeString(bst::time::TimeZone::LOCAL, '-', '_',
+                                         '.');
+        bst::filesystem::copyFile(settings_file_path_, backup_file_path);
+        logger_.info("Backed up current config to: " + backup_file_path);
+      }
+    } catch (const std::exception &e) {
+      logger_.error("Failed to backup current config." + std::string(e.what()));
+      return false;
+    }
+
+    // Load the default configuration
+    if (!saveConfig()) {
+      return false;
+    }
+
+    logger_.info("Loaded default configuration.");
+    return true;
+  }
+
   const std::string settings_file_path_ =
       giraffe::file_paths::getFlightSystemAgentConfigFilePath();
 
   AgentData &agent_data_;
 
+  // The following map is dropped into place by generate_source_files.sh. Do not
+  // remove the comments around the map, this is used to locate the section in
+  // the document.
   //<{{settings_map_}}@
   // clang-format off
   std::map<std::string, AgentSettings::Setting> settings_map_{
-    {"gfs_monitoring", AgentSettings::Setting{"gfs_monitoring", AgentSettings::SettingType::BOOL, true}},
+    {"is_ground_station", AgentSettings::Setting{"is_ground_station", AgentSettings::SettingType::BOOL, false}},
+    {"dev_mode", AgentSettings::Setting{"dev_mode", AgentSettings::SettingType::BOOL, false}},
     {"monitoring_interval", AgentSettings::Setting{"monitoring_interval", AgentSettings::SettingType::INT, 5000}},
-    {"restart_enabled", AgentSettings::Setting{"restart_enabled", AgentSettings::SettingType::BOOL, true}},
-    {"restart_threshold", AgentSettings::Setting{"restart_threshold", AgentSettings::SettingType::INT, 10000}},
-    {"backup_configuration", AgentSettings::Setting{"backup_configuration", AgentSettings::SettingType::STRING, "~/.giraffe/gfs_config_backup.json"}},
   };
   // clang-format on
   //@{{settings_map_}}>
@@ -170,4 +255,4 @@ private:
   giraffe::ILogger &logger_;
 };
 
-} // namespace flight_system_agent
+} // namespace command_line_interface

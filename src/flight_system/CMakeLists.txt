@@ -36,7 +36,7 @@ target_link_libraries(
   ${EXE_NAME}
   # -------- First Party Libraries ---------
   # internal
-  giraffe_data_link_core
+  gdl_core
   giraffe_common
     # gfs specific
   gfs_flight_runner

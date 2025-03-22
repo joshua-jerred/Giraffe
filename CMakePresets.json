@@ -62,5 +62,12 @@
         "PICO_SDK_PATH": "$env{HOME}/pico/pico-sdk"
       }
     }
+  ],
+  "buildPresets": [
+    {
+      "name": "host",
+      "displayName": "GCC Host",
+      "configurePreset": "host"
+    }
   ]
 }

@@ -13,7 +13,7 @@
 
 #include "agent_data.hpp"
 
-namespace flight_system_agent {
+namespace command_line_interface {
 
 std::string to_string(const FlightSoftwareStatus status) {
   switch (status) {
@@ -44,4 +44,4 @@ void AgentData::getStatusJson(Json &json) const {
   // clang-format on
 }
 
-} // namespace flight_system_agent
+} // namespace command_line_interface

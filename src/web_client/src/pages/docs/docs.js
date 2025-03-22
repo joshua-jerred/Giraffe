@@ -13,7 +13,7 @@ import { Markdown } from "../../components/markdown";
 import Acronyms from "../../assets/docs/acronyms.md";
 // import Commands from '../../assets/docs/commands.md';
 // import Errors from '../../assets/docs/errors.md';
-// import Versions from '../../assets/docs/versions.md';
+// import Versions from '../../assets/docs/change_log.md';
 
 function DocsPage() {
   const [acronyms, setAcronyms] = useState("");

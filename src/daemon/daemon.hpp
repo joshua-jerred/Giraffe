@@ -17,6 +17,7 @@
 #include <sys/socket.h>
 
 #include <BoosterSeat/sleep.hpp>
+#include <BoosterSeat/timer.hpp>
 
 #include "agent_network.hpp"
 #include "common_logger.hpp"
@@ -26,8 +27,9 @@
 #include "agent_data.hpp"
 #include "agent_settings.hpp"
 #include "external_socket_handler.hpp"
+#include "ground_station_agent.hpp"
 
-namespace flight_system_agent {
+namespace command_line_interface {
 
 class Daemon {
 private:
@@ -43,6 +45,7 @@ public:
     sock::TcpSocketServer socket{};
 
     if (!socket.init(DAEMON_PORT)) {
+      socket.close();
       return true;
     }
 
@@ -61,7 +64,7 @@ public:
       return false;
     }
 
-    response = response_message.getJsonString();
+    response = "running\n" + response_message.getJsonString();
     return true;
   }
 
@@ -80,10 +83,9 @@ public:
     }
 
     is_running_ = true;
-    stop_flag_ = false;
 
     logger_.info("started agent");
-    while (!stop_flag_) {
+    while (!agent_data_.isAgentStopRequested()) {
       mainLoop();
       bst::sleep(K_LOOP_DELAY_MS);
     }
@@ -100,31 +102,71 @@ public:
       return false;
     }
 
-    sock::TcpSocketClient client(logger_);
-    if (client.connect("127.0.0.1", DAEMON_PORT)) {
-      std::string request = "stop";
-      std::string response;
+    protocol::Message response;
+    ExternalCommsHandler::sendExchangeToAgent(
+        response, protocol::MessageType::SET, "stop", logger_);
 
-      if (!client.transaction(request, response)) {
-        std::cerr << "Failed to send stop command." << std::endl;
-        return false;
-      }
+    if (response.cde != protocol::ResponseCode::GOOD) {
+      std::cerr << "Failed to request stop agent | " << response.getJsonString()
+                << std::endl;
+    }
 
-      if (response != "ok") {
-        std::cerr << "Failed to stop agent." << std::endl;
-        return false;
+    bool stopped = false;
+    bst::Timer stop_timeout{2000};
+    while (!stopped && !stop_timeout.isDone()) {
+      if (!doesDaemonExist()) {
+        stopped = true;
       }
+      bst::sleep(100); // check every 100ms
+    }
+
+    if (!stopped) {
+      std::cerr << "Daemon didn't stop." << std::endl;
+      return false;
     }
 
     return true;
   }
 
+  /// @brief Called by main to handle command line configuration requests. The
+  /// agent must not be running.
+  int commandLineConfigure(const std::string &setting_key,
+                           const std::string &setting_value,
+                           std::string &response) {
+    if (doesDaemonExist()) {
+      response = "Agent must be stopped to configure";
+      return 1;
+    }
+
+    // Lock the port for the duration of the configuration
+    {
+      sock::TcpSocketServer socket{};
+      if (!socket.init(DAEMON_PORT)) {
+        response = "Failed to lock port for configuration";
+        return 1;
+      }
+
+      if (!agent_settings_.setItem(setting_key, setting_value, response)) {
+        response = "Failed to set setting";
+        return 1;
+      }
+    }
+
+    return 0;
+  }
+
 private:
   void mainLoop() {
     external_comms_.process();
+
+    if (agent_settings_.isGroundStation()) {
+      ground_station_agent_.process();
+    } else {
+      std::cout << "flight system agent not implemented" << std::endl;
+    }
   }
 
-  /// @brief Set the process to run as a daemon
+  /// @brief Set the process to run as a daemon.
   /// @details https://stackoverflow.com/a/34587333
   void daemonize() {
     // Fork off the parent process
@@ -164,8 +206,6 @@ private:
     close(STDERR_FILENO);
   }
 
-  bool stop_flag_ = false;
-
   bool is_running_ = false;
 
   giraffe::CommonLogger<100> logger_{
@@ -176,6 +216,8 @@ private:
   AgentSettings agent_settings_{agent_data_, logger_};
 
   ExternalCommsHandler external_comms_{agent_data_, agent_settings_, logger_};
+
+  GroundStationAgent ground_station_agent_{agent_data_};
 };
 
-} // namespace flight_system_agent
+} // namespace command_line_interface
