@@ -184,6 +184,24 @@
           "value": "mcp3021"
         }
       ]
+    },
+    "disable_extension": {
+      "name": "Disable Extension",
+      "details": "Tell the extension module to stop and disable a specified extension.",
+      "value": "0x4001",
+      "cmd_key": "dsx"
+    },
+    "enable_extension": {
+      "name": "Enabled Extensions",
+      "details": "Tell the extension module to enable the specified extension.",
+      "value": "0x4002",
+      "cmd_key": "enx"
+    },
+    "restart_extension": {
+      "name": "Restart Extension",
+      "details": "Tell the extension module to restart a specified extension.",
+      "value": "0x4003",
+      "cmd_key": "rst"
     }
   }
 }

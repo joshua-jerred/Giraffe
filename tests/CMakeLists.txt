@@ -48,7 +48,10 @@ file(COPY ${GDL_TEST_SRC}/sstv_image.png DESTINATION ${TEST_BIN})
 # --- Flight Software ---
 file(GLOB gfs_test_sources "${GFS_UNIT_TEST_SRC}/test_*.cpp")
 add_executable(giraffe_flight_system_test ${gfs_test_sources} ${gfs_sources})
-target_include_directories(giraffe_flight_system_test PRIVATE ${gfs_include_dirs})
+target_include_directories(giraffe_flight_system_test PUBLIC
+  ${gfs_include_dirs}
+  "./flight_system"
+)
 target_link_libraries(
   giraffe_flight_system_test
   # internal
@@ -77,6 +80,10 @@ target_link_libraries(
   nlohmann_json::nlohmann_json)
 set_target_properties(giraffe_flight_system_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY
                                                ${TEST_BIN})
+
+target_compile_definitions(giraffe_flight_system_test PRIVATE
+  GFS_UNIT_TEST_BUILD=1
+)
 
 # --- Command Line Interface ---
 file(GLOB giraffe_daemon_test_sources "${GIRAFFE_DAEMON_TEST_SRC}/*_test.cpp")

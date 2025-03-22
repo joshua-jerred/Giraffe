@@ -130,16 +130,28 @@ void modules::TelemetryModule::processTelemetryMessageQueue() {
       node::Identification::TELEMETRY_MODULE, command);
 }
 
-void modules::TelemetryModule::sendAprsPositionPacket() {
-  if (!aprs_position_packet_timer_.isDone()) {
+void modules::TelemetryModule::sendAprsPositionPacket(bool force_send) {
+  if (!aprs_position_packet_timer_.isDone() && !force_send) {
     return;
   }
+
+  std::string force_send_error = "";
+  auto set_force_send_error = [&force_send_error](const std::string &error) {
+    if (force_send_error.empty()) {
+      force_send_error = error;
+    }
+  };
 
   // Get the current position
   auto position = shared_data_.blocks.location_data.get();
   if (!position.have_gps_source) {
     /// @todo log an error
-    return;
+
+    if (!force_send) {
+      return;
+    }
+
+    set_force_send_error("no_gps");
   }
 
   /// @todo Maybe use the last valid GPS frame instead, but first there needs to
@@ -148,12 +160,21 @@ void modules::TelemetryModule::sendAprsPositionPacket() {
   auto loc = position.last_valid_gps_frame;
   if (!loc.is_valid) {
     /// @todo log an error
-    return;
+    if (!force_send) {
+      return;
+    }
+
+    set_force_send_error("no_valid_gps");
   }
 
   if (loc.fix == data::GpsFix::NO_FIX || loc.fix == data::GpsFix::ERROR) {
     /// @todo log an error
-    return;
+
+    if (!force_send) {
+      return;
+    }
+
+    set_force_send_error("no_fix");
   }
 
   if (loc.fix == data::GpsFix::FIX_2D) {
@@ -172,6 +193,8 @@ void modules::TelemetryModule::sendAprsPositionPacket() {
   gdl_loc.altitude = loc.altitude;
   gdl_loc.speed = loc.horizontal_speed; // @todo Convert to mph
   gdl_loc.heading = loc.heading_of_motion;
+
+  /// @todo put force_send_error in the APRS comment field
 
   gdl::Message message{};
   message.setLocation(gdl_loc);
@@ -240,6 +263,7 @@ void modules::TelemetryModule::reportDescent() {
 }
 
 void modules::TelemetryModule::processCommand(const cmd::Command &command) {
+  std::cout << "Processing command: " << std::endl;
   int int_buffer = 0;
   double double_buffer = 0.0;
   switch (command.command_id) {
@@ -266,6 +290,10 @@ void modules::TelemetryModule::processCommand(const cmd::Command &command) {
     break;
   case cmd::CommandId::INTERNAL_reportDescent:
     reportDescent();
+    break;
+  case cmd::CommandId::TELEMETRY_MODULE_sendAprsLocation:
+    std::cout << "TELEMETRY_MODULE_sendAprsLocation" << std::endl;
+    sendAprsPositionPacket(true);
     break;
   default:
     error(DiagnosticId::TELEMETRY_invalidCommand);

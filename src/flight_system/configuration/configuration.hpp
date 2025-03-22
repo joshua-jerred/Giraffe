@@ -1,6 +1,6 @@
 /**
  *
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -11,8 +11,8 @@
  * https://github.com/joshua-jerred/Giraffe
  * https://giraffe.joshuajer.red/
  * =*=======================*=
- * 
- * 
+ *
+ *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
  * @date       2023-06-30
@@ -484,7 +484,7 @@ class Configuration {
 
 /**
  * @endverbatim
- * 
+ *
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  * AUTOMATICALLY GENERATED, DO NOT EDIT MANUALLY
  * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&

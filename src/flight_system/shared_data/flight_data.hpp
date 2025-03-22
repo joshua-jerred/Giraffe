@@ -100,6 +100,12 @@ public:
 
   // friend FlightRunner;
 
+#ifdef RUN_IN_SIMULATOR
+  static constexpr bool K_IN_SIMULATOR = true;
+#else
+  static constexpr bool K_IN_SIMULATOR = false;
+#endif
+
   Json toJson() {
     return Json({{"uptime", getUptimeString()},
                  {"system_time_utc", getSystemTimeUtc()},
@@ -117,7 +123,8 @@ public:
                       {"ascent", ascent_prediction_.load()},
                       {"descent", descent_prediction_.load()},
                       {"recovery", recovery_prediction_.load()},
-                  }}});
+                  }},
+                 {"simulator_mode", K_IN_SIMULATOR}});
   }
 
   /**

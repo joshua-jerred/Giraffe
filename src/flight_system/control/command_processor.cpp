@@ -171,7 +171,10 @@ bool parseExtensionModuleCommand(const std::string &command_id_str,
 
   static const std::unordered_map<std::string, cmd::CommandId>
       K_COMMAND_ID_MAP = {
-          {"apc", cmd::CommandId::EXTENSION_MODULE_addPreConfiguredExtension}};
+          {"apc", cmd::CommandId::EXTENSION_MODULE_addPreConfiguredExtension},
+          {"rst", cmd::CommandId::EXTENSION_MODULE_restartExtension},
+          {"enx", cmd::CommandId::EXTENSION_MODULE_enableExtension},
+          {"dsx", cmd::CommandId::EXTENSION_MODULE_disableExtension}};
   if (!K_COMMAND_ID_MAP.contains(command_id_str)) {
     return false;
   }
@@ -180,6 +183,14 @@ bool parseExtensionModuleCommand(const std::string &command_id_str,
   switch (command.command_id) {
   case cmd::CommandId::EXTENSION_MODULE_addPreConfiguredExtension:
     if (arg.length() < 3) {
+      return false;
+    }
+    command.str_arg = arg;
+    return true;
+  case cmd::CommandId::EXTENSION_MODULE_restartExtension:
+  case cmd::CommandId::EXTENSION_MODULE_disableExtension:
+  case cmd::CommandId::EXTENSION_MODULE_enableExtension:
+    if (arg.length() == 0U) { // must contain an extension name
       return false;
     }
     command.str_arg = arg;
@@ -232,7 +243,7 @@ bool parseTelemetryModuleCommand(const std::string &command_id_str,
 
 bool cmd::parseCommandString(const std::string &command_string,
                              Command &command) {
-  const std::regex command_regex("^cmd/[a-z]{3}/[a-z]{3}/[a-z0-9-]{0,20}$");
+  const std::regex command_regex("^cmd/[a-z]{3}/[a-z]{3}/[a-z0-9-_]{0,20}$");
   if (!std::regex_match(command_string, command_regex)) {
     return false;
   }
@@ -245,8 +256,8 @@ bool cmd::parseCommandString(const std::string &command_string,
 
   std::string command_id_string = command_string.substr(8, 3);
   std::string arg = "";
+  // std::cout << "ARG: " << arg << " FOR:  " << command_string << std::endl;
   if (command_string.length() >= 12) {
-    // std::cout << "ARG: " << arg << " FOR:  " << command_string << std::endl;
     arg = command_string.substr(12);
     // command.str_arg = arg;
   }

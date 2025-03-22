@@ -122,7 +122,7 @@ void RequestRouter::handleCommandRequest(sock::TcpSocketServer &client,
 
   cmd::Command command{};
   if (!cmd::parseCommandString(msg.rsc, command)) {
-    sendErrorPacket(client, "malformed command string");
+    sendErrorPacket(client, "malformed command string:" + msg.rsc);
     shared_data_.streams.log.error(
         node::Identification::SERVER_MODULE,
         DiagnosticId::SERVER_MODULE_invalidCommandString, msg.rsc);
@@ -131,6 +131,8 @@ void RequestRouter::handleCommandRequest(sock::TcpSocketServer &client,
 
   shared_data_.streams.command.addCommand(node::Identification::SERVER_MODULE,
                                           command);
+
+  sendSuccessResponse(client);
 }
 
 void RequestRouter::sendMessage(protocol::Message &response_json,

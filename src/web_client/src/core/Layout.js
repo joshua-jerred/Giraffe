@@ -4,7 +4,7 @@ import React from "react";
 
 import NavBar from "./Nav";
 import { Page } from "./PageParts";
-import StatusBar from "./StatusBar";
+import StatusBar from "./status_bar";
 
 import { GwsGlobal } from "../GlobalContext";
 

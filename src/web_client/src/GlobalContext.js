@@ -1,5 +1,6 @@
 import React from "react";
 import Alerter from "./core/alerter";
+import { useStorageState } from "./core/LocalStorageState";
 
 export const GwsGlobal = React.createContext("");
 export const GwsGlobalContextProvider = ({ children }) => {
@@ -26,9 +27,12 @@ export const GwsGlobalContextProvider = ({ children }) => {
   const [connectionInterval, setConnectionInterval] = React.useState(
     load("connection_interval") || 3000 // ms
   );
-
   const [navExpanded, setNavExpanded] = React.useState(
     load("nav_expanded") === "true" || false
+  );
+  const [showVerboseClock, setShowVerboseClock] = useStorageState(
+    "status_bar_mission_clock_show_milliseconds",
+    true
   );
 
   React.useEffect(() => {
@@ -183,6 +187,18 @@ export const GwsGlobalContextProvider = ({ children }) => {
         .then((json_data) => {
           // console.log("Flight data", json_data);
           setFlightData(json_data.values);
+
+          if (
+            json_data.values.hasOwnProperty("simulator_mode") &&
+            json_data.values.simulator_mode
+          ) {
+            alerter.addAlert(
+              "simulator_mode.",
+              "This GFS build is running in simulator mode.",
+              3000,
+              ""
+            );
+          }
         })
         .catch((error) => {
           console.error("Error getting flight data", error);
@@ -230,6 +246,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
         setNavExpanded,
         unsafeMode,
         setUnSafeMode,
+        showVerboseClock,
+        setShowVerboseClock,
       }}
     >
       {children}

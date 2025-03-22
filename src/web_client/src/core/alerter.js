@@ -156,10 +156,10 @@ module.exports = class Alerter {
   updateAlerts() {
     for (let alert_id in this.alerts) {
       if (this.alerts[alert_id].timeout !== 0) {
-        console.log(
-          "time since raised",
-          Date.now() - this.alerts[alert_id].timestamp
-        );
+        // console.log(
+        // "time since raised",
+        // Date.now() - this.alerts[alert_id].timestamp
+        // );
         if (
           Date.now() - this.alerts[alert_id].timestamp >
           this.alerts[alert_id].timeout
