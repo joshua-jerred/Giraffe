@@ -165,7 +165,7 @@ bool UpdatePack::readVersionFile() {
   try {
     // Open the version file and check if it is valid
     const std::filesystem::path manifest_file_path =
-        update_dir_ + "/giraffe_manifest.json";
+        update_dir_ + "/software_manifest.json";
     if (!std::filesystem::exists(manifest_file_path)) {
       error("Update pack missing manifest file");
       return false;

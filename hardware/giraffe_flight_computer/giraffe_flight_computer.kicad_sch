@@ -1599,6 +1599,10 @@
 		(uuid "4d372b28-ccae-4347-989d-a43e743903d2")
 	)
 	(no_connect
+		(at 66.04 96.52)
+		(uuid "56025808-e839-4fb7-a080-6e900316a166")
+	)
+	(no_connect
 		(at 173.99 96.52)
 		(uuid "56284096-f47f-4527-83c2-3d055eb0b5ec")
 	)
@@ -1631,12 +1635,20 @@
 		(uuid "77b0122d-3293-4c68-bc6e-a460a1e6c5db")
 	)
 	(no_connect
+		(at 66.04 91.44)
+		(uuid "7e0c1db4-451b-457a-9b9b-136e7c0c0d5c")
+	)
+	(no_connect
 		(at 106.68 68.58)
 		(uuid "7e7fdf1c-d8d5-4ccf-b74a-49a7aeff6744")
 	)
 	(no_connect
 		(at 173.99 78.74)
 		(uuid "7ee6cdf7-cf26-40a0-ad75-e834b26bce26")
+	)
+	(no_connect
+		(at 66.04 88.9)
+		(uuid "81be0325-3a4b-4ec4-965f-6549595a5729")
 	)
 	(no_connect
 		(at 173.99 76.2)
@@ -1661,6 +1673,10 @@
 	(no_connect
 		(at 66.04 83.82)
 		(uuid "d14eab8a-bec2-40f7-8c8c-34fe1a0f4701")
+	)
+	(no_connect
+		(at 66.04 93.98)
+		(uuid "d484b325-fc44-4d7a-9e4b-24684fdb1c60")
 	)
 	(no_connect
 		(at 173.99 71.12)
@@ -2190,16 +2206,6 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 91.44) (xy 66.04 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6084fc8f-a6c6-482d-bb9a-b94cf719abe8")
-	)
-	(wire
-		(pts
 			(xy 189.23 38.1) (xy 191.77 38.1)
 		)
 		(stroke
@@ -2540,16 +2546,6 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 96.52) (xy 66.04 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a63f6f7e-6f29-42cc-b248-65f6ce60262f")
-	)
-	(wire
-		(pts
 			(xy 132.08 134.62) (xy 132.08 139.7)
 		)
 		(stroke
@@ -2710,16 +2706,6 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 88.9) (xy 66.04 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cc58138a-84cd-48a5-9961-558a2df9709d")
-	)
-	(wire
-		(pts
 			(xy 123.19 30.48) (xy 127 30.48)
 		)
 		(stroke
@@ -2727,16 +2713,6 @@
 			(type default)
 		)
 		(uuid "cd390548-d166-48f1-b9ec-9998ea1b1ccc")
-	)
-	(wire
-		(pts
-			(xy 50.8 93.98) (xy 66.04 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cf6f3c48-20d2-4600-b002-50e0aecdf7dd")
 	)
 	(wire
 		(pts
@@ -3012,29 +2988,6 @@
 	)
 	(netclass_flag ""
 		(length 1.25)
-		(shape diamond)
-		(at 55.88 88.9 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0e64f32e-6046-4c87-b5d4-41a5ed234c83")
-		(property "Netclass" "DATA"
-			(at 57.0865 87.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 1.25)
 		(shape rectangle)
 		(at 224.79 20.32 0)
 		(fields_autoplaced yes)
@@ -3145,29 +3098,6 @@
 					(italic yes)
 				)
 				(justify right)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 1.25)
-		(shape diamond)
-		(at 55.88 96.52 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "28d9f226-e36d-49e6-b6e5-641b0f2d681f")
-		(property "Netclass" "DATA"
-			(at 57.0865 95.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
 			)
 		)
 	)
@@ -3403,29 +3333,6 @@
 	(netclass_flag ""
 		(length 1.25)
 		(shape diamond)
-		(at 55.88 93.98 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "811ea6d3-af1f-497a-a168-3be5eabcfaa8")
-		(property "Netclass" "DATA"
-			(at 57.0865 92.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 1.25)
-		(shape diamond)
 		(at 55.88 119.38 0)
 		(fields_autoplaced yes)
 		(effects
@@ -3529,29 +3436,6 @@
 		(uuid "b0d55dec-a61c-43bd-a28b-de2a966d339a")
 		(property "Netclass" "GPIO"
 			(at 57.0865 72.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 1.25)
-		(shape diamond)
-		(at 55.88 91.44 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c1009c5e-c398-47cc-a982-cef873bee599")
-		(property "Netclass" "DATA"
-			(at 57.0865 90.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4831,46 +4715,6 @@
 		(pin "STATUS_LED.GREEN" input
 			(at 50.8 53.34 0)
 			(uuid "48d6c888-9c8f-40da-9113-8db744ccbf22")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PCM.DIN" input
-			(at 50.8 93.98 0)
-			(uuid "4827b8d1-ce8e-4082-bb51-07261250ee6f")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PCM.DOUT" input
-			(at 50.8 96.52 0)
-			(uuid "3a652374-dcd4-440d-94c1-95f95a064c6a")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PCM.CLK" input
-			(at 50.8 88.9 0)
-			(uuid "bb164324-2124-4fac-8322-4b70c39f2070")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PCM.FS" input
-			(at 50.8 91.44 0)
-			(uuid "96da2623-03d0-4642-8622-48c0e94906f6")
 			(effects
 				(font
 					(size 1.27 1.27)
