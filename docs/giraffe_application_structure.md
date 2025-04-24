@@ -37,7 +37,7 @@ The package contents that are defined here are implemented in `package.cmake`.
 
 - `giraffe-<full_version_string>.tar.gz`
   - `giraffe-<full_version_string>/`
-    - `giraffe_manifest.json` - JSON file containing the update manifest
+    - `software_manifest.json` - JSON file containing the update manifest
     - `giraffe_daemon` - daemon binary
     - `gcli` - command line binary, aliased to `giraffe`
     - `gfs` - flight software
