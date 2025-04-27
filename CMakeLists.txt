@@ -21,9 +21,8 @@ if(NOT output EQUAL 0)
     ${output})
 endif()
 file(READ ${CMAKE_SOURCE_DIR}/build/version.ini ver_file)
-string(REGEX
-  MATCH 
-  "stage = ([a-z]+)[ \n\r]+clean = [a-zA-Z]+[ \n\r]+semantic = ([0-9\.]+)(-*[a-z]*-[a-z]*)[ \n\r]+"
+string(REGEX MATCH
+  "stage = ([a-z]+)[ \n\r]+clean = [a-zA-Z]+\[ \n\r]+semantic = ([0-9\.]+)(-*[a-z]*-[a-z]*)[ \n\r]+"
   GIRAFFE_SEMANTIC_VERSION
   ${ver_file}
 )
@@ -120,25 +119,25 @@ else()
   add_subdirectory(lib/third_party/nlohmann_json) # nlohmann_json
   add_subdirectory(lib/third_party/fmt) # fmt
 
-# ---- Giraffe Components ----
-add_subdirectory(project)                  # Auto-generated files
-add_subdirectory(src/flight_system)        # Flight System
-add_subdirectory(src/daemon)               # Flight System Agent
-add_subdirectory(src/common)               # Common
-add_subdirectory(src/data_link)            # Data Link
-add_subdirectory(${GFS_TEST_SRC}/simulator) # gfs_simulator
-add_subdirectory(lib/SignalEasel)          # SignalEasel
-add_subdirectory(lib/Boost_erSeat)         # BoosterSeat
-add_subdirectory(lib/bzip2-cpp)            # bzip2-cpp
-# ---- Utilities ----
-add_subdirectory(project/eeprom)           # EEPROM Utility
-# ----------------------------
+  # ---- Giraffe Components ----
+  add_subdirectory(project) # Auto-generated files
+  add_subdirectory(src/flight_system) # Flight System
+  add_subdirectory(src/daemon) # Flight System Agent
+  add_subdirectory(src/common) # Common
+  add_subdirectory(src/data_link) # Data Link
+  add_subdirectory(${GFS_TEST_SRC}/simulator) # gfs_simulator
+  add_subdirectory(lib/SignalEasel) # SignalEasel
+  add_subdirectory(lib/Boost_erSeat) # BoosterSeat
+  add_subdirectory(lib/bzip2-cpp) # bzip2-cpp
+  # ---- Utilities ----
+  add_subdirectory(project/eeprom) # EEPROM Utility
+  # ----------------------------
 
-# Unit Tests
-enable_testing()
-add_subdirectory(${GFS_TEST_SRC})
+  # Unit Tests
+  enable_testing()
+  add_subdirectory(${GFS_TEST_SRC})
 
-# Additional CMake Files
-include("project/package/package.cmake")
+  # Additional CMake Files
+  include("project/package/package.cmake")
 
 endif()
