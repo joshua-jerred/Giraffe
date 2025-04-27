@@ -75,8 +75,8 @@ TEST_F(giraffe_updatePack, processTarFile_valid_path) {
   EXPECT_TRUE(up_.processTarFile(VALID_TAR_PATH));
   EXPECT_TRUE(up_.isValid());
 
-  // A copy of the giraffe_manifest.json file that was tarred can be found at
-  // tests/daemon/test_update_pack/gcli_unit_test_tar/giraffe_manifest.json
+  // A copy of the software_manifest.json file that was tarred can be found at
+  // tests/daemon/test_update_pack/gcli_unit_test_tar/software_manifest.json
   auto sv_opt = up_.getSoftwareVersionOption();
   ASSERT_TRUE(sv_opt.has_value());
 

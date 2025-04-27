@@ -22,7 +22,7 @@
 #   COMMAND ${CMAKE_COMMAND} -E copy
 #                 ${CMAKE_SOURCE_DIR}/src/ground_station
 #                 ${CMAKE_CURRENT_BINARY_DIR}/ground_station
-#   # COMMAND bash "${CMAKE_SOURCE_DIR}/src/scripts/package_ground_station.sh"
+#   # COMMAND bash "${CMAKE_SOURCE_DIR}/project/scripts/package_ground_station.sh"
 # )
 
 
@@ -36,28 +36,50 @@ DEPENDS
   COMMAND echo ""
 )
 
-add_custom_target(giraffe_update
+set(GIRAFFE_PACKAGE_DIR "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe_package")
+add_custom_target(giraffe_package
   DEPENDS giraffe_core
 
-  COMMAND rm -rf "${CMAKE_CURRENT_BINARY_DIR}/bin/ground_station.tar.gz"
-  COMMAND rm -rf "${CMAKE_CURRENT_BINARY_DIR}/ground_station"
-  COMMAND ${CMAKE_COMMAND} -E copy_directory
-                ${CMAKE_SOURCE_DIR}/src/ground_station
-                ${CMAKE_CURRENT_BINARY_DIR}/ground_station
+  # Create the directory with the software manifest
+  COMMAND rm -rf "${GIRAFFE_PACKAGE_DIR}"
+  COMMAND ${CMAKE_COMMAND} -E make_directory "${GIRAFFE_PACKAGE_DIR}"
   COMMAND ${CMAKE_COMMAND} -E copy
-    "${CMAKE_CURRENT_BINARY_DIR}/../giraffe_manifest.json"
-    "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe_manifest.json"
-  COMMAND bash "${CMAKE_SOURCE_DIR}/src/scripts/package_giraffe.sh"
+    "${CMAKE_CURRENT_BINARY_DIR}/../software_manifest.json"
+    "${GIRAFFE_PACKAGE_DIR}/software_manifest.json"
+
+  # Ground Station
+  COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/src/ground_station
+    ${GIRAFFE_PACKAGE_DIR}/ground_station
+  COMMAND rm -rf "${GIRAFFE_PACKAGE_DIR}/ground_station/backend/node_modules"
+  COMMAND rm -rf "${GIRAFFE_PACKAGE_DIR}/ground_station/frontend/node_modules"
+  COMMAND ${CMAKE_COMMAND} -E copy
+    "${CMAKE_CURRENT_BINARY_DIR}/bin/gdl_server"
+    "${GIRAFFE_PACKAGE_DIR}/ground_station/gdl_server"
+  COMMAND ${CMAKE_COMMAND} -E copy
+    "${CMAKE_SOURCE_DIR}/project/package/static_content/install-ground-station.sh"
+    "${GIRAFFE_PACKAGE_DIR}/install-ground-station.sh"
+
+  # Flight System
+  # COMMAND ${CMAKE_COMMAND} -E copy
+  #   "${CMAKE_CURRENT_BINARY_DIR}/bin/gfs"
+  #   "${GIRAFFE_PACKAGE_DIR}/gfs"
+
+
+  # Tar it all up
+  COMMAND tar -czf
+    "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe-${CMAKE_SYSTEM_PROCESSOR}-${GIRAFFE_SEMANTIC_VERSION}.tar.gz"
+    "${GIRAFFE_PACKAGE_DIR}"
   # COMMAND ${CMAKE_COMMAND} -E copy
     # "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe.tar.gz"
-    # "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe-update-${GIRAFFE_VERSION_NUMBER}.tar.gz"
+    # "${CMAKE_CURRENT_BINARY_DIR}/bin/giraffe-update-.tar.gz"
 )
 
 add_custom_target(giraffe
 COMMENT "[recommended] Build full Giraffe system"
 DEPENDS
   giraffe_core
-  giraffe_update
+  giraffe_package
   COMMAND echo ""
 )
 
@@ -67,5 +89,5 @@ DEPENDS
 # install(DIRECTORY DESTINATION ${GIRAFFE_INSTALL_DIR})
 
 # install(PROGRAMS
-#   "${CMAKE_SOURCE_DIR}/src/scripts/install.sh"
+#   "${CMAKE_SOURCE_DIR}/project/scripts/install.sh"
 # )

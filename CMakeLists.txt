@@ -20,7 +20,7 @@ if(NOT output EQUAL 0)
     ${version_output}
     ${output})
 endif()
-file(READ ${CMAKE_SOURCE_DIR}/version.ini ver_file)
+file(READ ${CMAKE_SOURCE_DIR}/build/version.ini ver_file)
 string(REGEX
   MATCH 
   "stage = ([a-z]+)[ \n\r]+clean = [a-zA-Z]+[ \n\r]+semantic = ([0-9\.]+)(-*[a-z]*-[a-z]*)[ \n\r]+"
@@ -139,6 +139,6 @@ enable_testing()
 add_subdirectory(${GFS_TEST_SRC})
 
 # Additional CMake Files
-include("package.cmake")
+include("project/package/package.cmake")
 
 endif()
