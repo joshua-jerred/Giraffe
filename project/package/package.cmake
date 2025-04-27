@@ -48,17 +48,30 @@ add_custom_target(giraffe_package
     "${GIRAFFE_PACKAGE_DIR}/software_manifest.json"
 
   # Ground Station
+  COMMAND ${CMAKE_COMMAND} -E make_directory
+    "${GIRAFFE_PACKAGE_DIR}/ground_station"
+
+  # COMMAND rm -rf "${GIRAFFE_PACKAGE_DIR}/ground_station/backend/node_modules"
+  # COMMAND rm -rf "${GIRAFFE_PACKAGE_DIR}/ground_station/frontend/node_modules"
+  # COMMAND ${CMAKE_COMMAND} -E copy_directory
+    # "${CMAKE_SOURCE_DIR}/src/ground_station/backend"
+    # "${GIRAFFE_PACKAGE_DIR}/ground_station/backend"
   COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_SOURCE_DIR}/src/ground_station
-    ${GIRAFFE_PACKAGE_DIR}/ground_station
-  COMMAND rm -rf "${GIRAFFE_PACKAGE_DIR}/ground_station/backend/node_modules"
-  COMMAND rm -rf "${GIRAFFE_PACKAGE_DIR}/ground_station/frontend/node_modules"
-  COMMAND ${CMAKE_COMMAND} -E copy
-    "${CMAKE_CURRENT_BINARY_DIR}/bin/gdl_server"
-    "${GIRAFFE_PACKAGE_DIR}/ground_station/gdl_server"
-  COMMAND ${CMAKE_COMMAND} -E copy
-    "${CMAKE_SOURCE_DIR}/project/package/static_content/install-ground-station.sh"
-    "${GIRAFFE_PACKAGE_DIR}/install-ground-station.sh"
+    "${CMAKE_SOURCE_DIR}/src/ground_station/frontend"
+    "${GIRAFFE_PACKAGE_DIR}/ground_station/frontend"
+
+  # COMMAND ${CMAKE_COMMAND} -E copy
+  #   "${CMAKE_CURRENT_BINARY_DIR}/bin/gdl_server"
+  #   "${GIRAFFE_PACKAGE_DIR}/ground_station/gdl_server"
+
+
+
+  # COMMAND ${CMAKE_COMMAND} -E copy
+    # "${CMAKE_CURRENT_BINARY_DIR}/bin/gdl_server"
+    # "${GIRAFFE_PACKAGE_DIR}/ground_station/gdl_server"
+  # COMMAND ${CMAKE_COMMAND} -E copy
+    # "${CMAKE_SOURCE_DIR}/project/package/static_content/install-ground-station.sh"
+    # "${GIRAFFE_PACKAGE_DIR}/install-ground-station.sh"
 
   # Flight System
   # COMMAND ${CMAKE_COMMAND} -E copy
