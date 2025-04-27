@@ -1,4 +1,4 @@
-const version_info = require("../../common/version");
+const version_info = require("../../../common/version");
 const superagent = require("superagent");
 
 const USER_AGENT =

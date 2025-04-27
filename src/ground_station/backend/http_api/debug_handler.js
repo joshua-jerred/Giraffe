@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const parseGetQuery = require("./query_parse");
-const gfsResources = require("../../../project/metadata/gfs_resources.json");
-const DataMeta = require("../../../project/metadata/gfs_configuration.json");
+const gfsResources = require("../../../../project/metadata/gfs_resources.json");
+const DataMeta = require("../../../../project/metadata/gfs_configuration.json");
 
 module.exports = function (global_state) {
   const debug_data = {};

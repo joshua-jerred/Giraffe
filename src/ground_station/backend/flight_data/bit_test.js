@@ -1,4 +1,4 @@
-const gfs_bit_test_meta = require("../../../project/metadata/gfs_bit_test.json");
+const gfs_bit_test_meta = require("../../../../project/metadata/gfs_bit_test.json");
 const GFS_BIT_TESTS = gfs_bit_test_meta.tests;
 const GFS_TEST_STATUSES = gfs_bit_test_meta.statuses;
 
