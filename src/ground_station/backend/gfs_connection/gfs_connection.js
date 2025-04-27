@@ -1,5 +1,5 @@
 const net = require("net");
-const gfsResources = require("../../../project/metadata/gfs_resources.json");
+const gfsResources = require("../../../../project/metadata/gfs_resources.json");
 const { RequestMessage, parse, SetMessage } = require("giraffe-protocol");
 const GfsDataSync = require("./data_sync.js");
 const GfsSettingSync = require("./setting_sync.js");

@@ -1,4 +1,4 @@
-const DataMeta = require("../../../project/metadata/gdl_resources.json");
+const DataMeta = require("../../../../project/metadata/gdl_resources.json");
 const { RequestMessage, SetMessage, parse } = require("giraffe-protocol");
 const net = require("net");
 const { Point } = require("@influxdata/influxdb-client");

@@ -17,7 +17,7 @@
  * @copyright  2023 (license to be defined)
  */
 
-const DataMeta = require("../../../project/metadata/gfs_configuration.json");
+const DataMeta = require("../../../../project/metadata/gfs_configuration.json");
 const { RequestMessage, parse } = require("giraffe-protocol");
 const net = require("net");
 

@@ -1,8 +1,8 @@
-const ggs_meta_data = require("../../../project/metadata/ggs_meta.json");
-const gfs_data_meta = require("../../../project/metadata/gfs_resources.json");
-const gdl_meta_data = require("../../../project/metadata/gdl_resources.json");
-const gfs_configuration_meta = require("../../../project/metadata/gfs_configuration.json");
-const fsa_meta_data = require("../../../project/metadata/fsa_metadata.json");
+const ggs_meta_data = require("../../../../project/metadata/ggs_meta.json");
+const gfs_data_meta = require("../../../../project/metadata/gfs_resources.json");
+const gdl_meta_data = require("../../../../project/metadata/gdl_resources.json");
+const gfs_configuration_meta = require("../../../../project/metadata/gfs_configuration.json");
+const fsa_meta_data = require("../../../../project/metadata/fsa_metadata.json");
 
 for (let category in gfs_configuration_meta) {
   for (let data_item in gfs_configuration_meta[category]) {
