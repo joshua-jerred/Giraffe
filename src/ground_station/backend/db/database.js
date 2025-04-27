@@ -226,13 +226,14 @@ module.exports = class GroundStationDatabase {
   }
 
   getRecentLogData(callback) {
-    const LIMIT = 50;
-    this.sequelize.models.GroundStationLog.findAll({
-      order: [["id", "DESC"]],
-      limit: LIMIT,
-    }).then((rows) => {
-      callback(rows);
-    });
+    // broken
+    // const LIMIT = 50;
+    // this.sequelize.models.GroundStationLog.findAll({
+    //   order: [["id", "DESC"]],
+    //   limit: LIMIT,
+    // }).then((rows) => {
+    //   callback(rows);
+    // });
   }
 
   /**
