@@ -49,7 +49,7 @@ add_custom_target(giraffe_package
   # Create the directory with the software manifest
   COMMAND ${CMAKE_COMMAND} -E make_directory "${GIRAFFE_PACKAGE_DIR}"
   COMMAND ${CMAKE_COMMAND} -E copy
-    "${CMAKE_CURRENT_BINARY_DIR}/../software_manifest.json"
+    "${CMAKE_SOURCE_DIR}/src/software_manifest.json"
     "${GIRAFFE_PACKAGE_DIR}/software_manifest.json"
 
   # Ground Station

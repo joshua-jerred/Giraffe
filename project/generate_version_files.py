@@ -22,7 +22,7 @@ THIRD_PARTY_LIBRARIES = [
 REPO_ROOT = os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + '/../')
 INPUT_VERSION_FILE = REPO_ROOT + '/version'
 OUTPUT_VERSION_FILE = REPO_ROOT + '/build/version.ini'
-OUTPUT_BUILD_FILE = REPO_ROOT + '/build/software_manifest.json'
+OUTPUT_BUILD_FILE = REPO_ROOT + '/src/software_manifest.json'
 OUTPUT_JS_FILE = REPO_ROOT + '/src/common/version.js'
 
 output_versions = configparser.ConfigParser()
