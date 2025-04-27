@@ -132,7 +132,7 @@ jobs:
         working-directory: ./src/common/protocol
 
   ggs_tests:
-    name: Unit Tests / Giraffe Ground Station
+    name: Unit Tests / Giraffe Ground Station Backend
     runs-on: ubuntu-latest
     container:
       image: joshuajerred/giraffe:latest
@@ -146,12 +146,12 @@ jobs:
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - run: npm install
-        working-directory: ./src/ground_station
+        working-directory: ./src/ground_station/backend
       - run: npm test
-        working-directory: ./src/ground_station
+        working-directory: ./src/ground_station/backend
 
   gwc_tests:
-    name: Unit Tests / Giraffe Web Client
+    name: Unit Tests / Giraffe Ground Station Frontend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -160,9 +160,9 @@ jobs:
         with:
           node-version: '22.x'
       - run: npm install
-        working-directory: ./src/web_client
+        working-directory: ./src/ground_station/frontend
       - run: npm test
-        working-directory: ./src/web_client
+        working-directory: ./src/ground_station/frontend
 
   static_analysis:
     name: Static Analysis
