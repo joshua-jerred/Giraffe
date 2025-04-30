@@ -59,7 +59,11 @@ module.exports = class AprsFi {
       "aprs_fi",
       "enabled"
     );
-    this.name = this.global_state.ggs_db.get("settings", "aprs_fi", "name");
+    this.name = this.global_state.ggs_db.get(
+      "settings",
+      "aprs",
+      "flight_callsign"
+    );
     this.apikey = this.global_state.ggs_db.get(
       "settings",
       "aprs_fi",

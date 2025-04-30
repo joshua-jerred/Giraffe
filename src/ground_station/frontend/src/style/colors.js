@@ -43,8 +43,8 @@ export const darkTheme2 = {
   secondary: `#0f8b8d`,
   on_secondary: `#e3e2e6`,
 
-  success: `#00b894`,
-  on_success: `#e3e2e6`,
+  success: `#2CA55D`,
+  on_success: `#ffffff`,
   warning: `#F5BD1E`,
   on_warning: `#e3e2e6`,
   error: `#f55d3e`,

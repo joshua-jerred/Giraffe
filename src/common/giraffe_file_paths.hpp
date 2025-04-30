@@ -98,15 +98,15 @@ std::string getGfsFlightRunnerDataFilePath();
  * @brief Get the path to the Flight System Agent directory.
  * @return std::string - $HOME/.giraffe/command_line_interface
  */
-std::string getFlightSystemAgentDirPath();
+// std::string getFlightSystemAgentDirPath();
 
 /// @brief Get the path to the Flight System Agent log file.
 /// @return std::string - Path to the agent log file.
-std::string getFlightSystemAgentLogFilePath();
+// std::string getFlightSystemAgentLogFilePath();
 
 /// @brief Get the path to the Flight System Agent config file.
 /// @return std::string - The path to the Flight System Agent config file.
-std::string getFlightSystemAgentConfigFilePath();
+// std::string getFlightSystemAgentConfigFilePath();
 
 /// @brief Generates a file name with the current time as a prefix.
 /// @param extension - The file extension to use

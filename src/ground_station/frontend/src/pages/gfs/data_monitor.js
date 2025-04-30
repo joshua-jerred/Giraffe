@@ -24,9 +24,9 @@ function GfsDataMonitorPage() {
         the ground station to be able to connect.
       </PageTitle>
       <PageContent>
-        <Card title="Flight System Agent">
+        {/* <Card title="Flight System Agent">
           <DataBlock resource="fsa" category="stats" />
-        </Card>
+        </Card> */}
         <CardBreak />
         <CardMasonryLayout>
           <Card title="Calculated Data">

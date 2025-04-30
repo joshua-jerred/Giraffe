@@ -5,6 +5,9 @@ const valueCheck = require("../metadata/value_check");
 const genericResponse = require("./generic_response");
 const parseGetQuery = require("./query_parse");
 
+const { Logger } = require("../helpers/logger");
+const log = new Logger("GGS Handler");
+
 module.exports = function (global_state) {
   // GET /ggs/settings
   router.get("/settings", (req, res, next) => {
@@ -60,6 +63,7 @@ module.exports = function (global_state) {
     }
     global_state.ggs_db.save();
 
+    log.info("settings updated for category: " + category);
     genericResponse(res, 200, "success");
   });
 

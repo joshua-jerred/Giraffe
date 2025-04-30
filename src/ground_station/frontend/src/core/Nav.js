@@ -211,11 +211,11 @@ function NavBar({ navExpanded, setNavExpanded }) {
         </NavItem>
 
         <NavItem title="GFS TCP" icon="fa-terminal" path={"/gfs"}>
-          <NavItem
+          {/* <NavItem
             title="System Agent"
             label="FSA"
             path="/gfs/flight-system-agent"
-          />
+          /> */}
           <NavItem title="Data Monitor" label="DAT" path="/gfs/data-monitor" />
           <NavItem title="Configure" label="CFG" path="/gfs/configure" />
           <NavItem title="Imagery" label="IMG" path="/gfs/imagery" />

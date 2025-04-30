@@ -55,7 +55,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
     gdl: "n/d",
     fsa: "n/d", // Connected to the agent
     fsa_gfs: "n/d", // The agent is connected to the GFS
-    aprsfi: "n/d",
+    aprs_is: "n/d",
+    aprs_fi: "n/d",
     influxdb: "n/d",
   };
 
@@ -140,7 +141,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
           setIsGfsTcpConnected(data.gfs === "connected");
           setIsGdlConnected(data.gdl === "connected");
           setIsFsaConnected(data.fsa === "connected");
-          setFsaGfsStatus(data.fsa_gfs === "connected");
+          // setFsaGfsStatus(data.fsa_gfs === "connected");
           setIsUplinkConnected(data.telemetry_uplink === "connected");
           setIsDownlinkConnected(data.telemetry_downlink === "connected");
 
@@ -155,16 +156,16 @@ export const GwsGlobalContextProvider = ({ children }) => {
             alerter.clearAlert("not_connected_to_gdl");
           }
 
-          if (data.fsa !== "connected") {
-            alerter.addAlert(
-              "not_connected_to_fsa",
-              "The Ground Station Server is not connected to the Flight System Agent.",
-              0,
-              "/setup"
-            );
-          } else {
-            alerter.clearAlert("not_connected_to_fsa");
-          }
+          // if (data.fsa !== "connected") {
+          //   alerter.addAlert(
+          //     "not_connected_to_fsa",
+          //     "The Ground Station Server is not connected to the Flight System Agent.",
+          //     0,
+          //     "/setup"
+          //   );
+          // } else {
+          //   alerter.clearAlert("not_connected_to_fsa");
+          // }
         })
         .catch((error) => {
           alerter.addAlert(
@@ -205,14 +206,14 @@ export const GwsGlobalContextProvider = ({ children }) => {
         });
 
       // Flight System Agent data
-      fetch(`${ggsAddress}/api/fsa/data?category=status&include=values`)
-        .then((response) => response.json())
-        .then((json_data) => {
-          setFlightSystemAgentData(json_data.values);
-        })
-        .catch((error) => {
-          console.error("Error getting FSA data", error);
-        });
+      // fetch(`${ggsAddress}/api/fsa/data?category=status&include=values`)
+      //   .then((response) => response.json())
+      //   .then((json_data) => {
+      //     setFlightSystemAgentData(json_data.values);
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error getting FSA data", error);
+      //   });
     };
 
     intervalUpdateCallback(); // run once on mount
