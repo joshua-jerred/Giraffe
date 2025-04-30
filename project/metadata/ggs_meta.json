@@ -17,6 +17,22 @@
       }
     },
     "ggs_settings": {
+      "ground_station_position_latitude": {
+        "type": "float",
+        "name": "Ground Station Latitude",
+        "description": "The latitude of the ground station in decimal degrees.",
+        "min": -90,
+        "max": 90,
+        "default": 40
+      },
+      "ground_station_position_longitude": {
+        "type": "float",
+        "name": "Ground Station Longitude",
+        "description": "The longitude of the ground station in decimal degrees.",
+        "min": -180,
+        "max": 180,
+        "default": -100
+      },
       "logging_level": {
         "name": "Logging Level",
         "description": "The logging level for the ground station. Error = less logs, Debug = more logs.",

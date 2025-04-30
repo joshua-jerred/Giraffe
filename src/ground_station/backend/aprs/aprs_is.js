@@ -153,7 +153,7 @@ module.exports = class AprsIs {
       log.error("Failed to parse APRS-IS data:", data);
       return;
     }
-    console.log("Packet data:", packet_data);
+    // console.log("Packet data:", packet_data);
 
     const packet_origin =
       packet_data.source_callsign === this.aprs_settings.ground_station_callsign
@@ -176,10 +176,30 @@ module.exports = class AprsIs {
       data: packet_data.information_field,
     });
 
-    // Parse the packet data
-    /// @todo handle parsed data
+    if (
+      packet_origin === "flight" &&
+      packet_data.parsed &&
+      packet_data.parsed.position
+    ) {
+      const position = packet_data.parsed.position;
+      const location = {
+        valid: true,
+        source: "aprs",
+        timestamp: packet_data.timestamp,
+        latitude: position.latitude,
+        longitude: position.longitude,
+        altitude: position.altitude,
+        horizontal_speed: position.speed,
+        heading: position.course,
+        additional_data: packet_data.information_field,
+      };
 
-    // console.log("Parsed data:", parsed_data);
+      this.global_state.flight_data.location_data.addNewLocationReport(
+        "aprs-is",
+        location
+      );
+    }
+
     // if (parsed) {
     //   // Log the parsed data
     //   log.debug("Parsed APRS-IS data:", parsed_data);

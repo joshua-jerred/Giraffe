@@ -69,8 +69,6 @@ function parseWeatherData(data) {
   // match[2] | match[4] = wind speed
   // match[5] = rest of the data (this is how we know if it's a weather report)
 
-  console.log("== wind dir/speed data:", wind_dir_speed_match);
-
   if (
     wind_dir_speed_match === null ||
     typeof wind_dir_speed_match[5] !== "string"
@@ -93,7 +91,6 @@ function parseWeatherData(data) {
     return null;
   }
 
-  console.log("-->> match data:", wind_dir_speed_match[5]);
   for (const m of match) {
     const key = m[1];
     const value = parseFloat(m[2].replace(/[\s\.\ \-]/g, ""));
@@ -324,11 +321,8 @@ function parsePosition(data) {
 
     let value = 0;
     value += toNumber(degrees);
-    // console.log("2-->> DMS to decimal:", degrees, minutes, seconds, value);
     value += toNumber(minutes) / 60;
     value += toNumber(seconds) / 3600;
-    // console.log("3-->> DMS to decimal:", degrees, minutes, seconds, value);
-
     return value;
   };
 
@@ -444,7 +438,13 @@ function processTNC2Data(data) {
   const information_field = match[4];
 
   // Parse the packet data
-  const parsed = parseAx25InfoField(information_field);
+  let parsed = null;
+  try {
+    parsed = parseAx25InfoField(information_field);
+  } catch (error) {
+    log.error("Error processing TNC2 data:", error);
+    return;
+  }
 
   return {
     source_callsign: source_callsign,
