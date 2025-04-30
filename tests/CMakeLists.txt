@@ -85,28 +85,6 @@ target_compile_definitions(giraffe_flight_system_test PRIVATE
   GFS_UNIT_TEST_BUILD=1
 )
 
-# --- Command Line Interface ---
-file(GLOB giraffe_daemon_test_sources "${GIRAFFE_DAEMON_TEST_SRC}/*_test.cpp")
-add_executable(giraffe_daemon_test ${giraffe_daemon_test_sources})
-target_link_libraries(giraffe_daemon_test
-  # internal
-  giraffe_daemon_core
-  giraffe_common
-  # ax25_state_machine
-  unit_test
-  # external
-  BoosterSeat
-)
-target_include_directories(giraffe_daemon_test PRIVATE ${GIRAFFE_DAEMON_SRC})
-set_target_properties(giraffe_daemon_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY
-                                               ${TEST_BIN})
-target_include_directories(giraffe_daemon_test
-  PRIVATE
-  ${THIRD_PARTY_SRC}/nlohmann_json/single_include
-)
-place_file_in_test_bin(${GIRAFFE_DAEMON_TEST_SRC}/test_update_pack/giraffe-0.8.0-beta-dev.tar.gz)
-file(COPY ${GIRAFFE_DAEMON_TEST_SRC}/binary_file_test.bin DESTINATION ${TEST_BIN})
-
 
 # -------------------------------------------------------------------
 
@@ -180,7 +158,6 @@ include(GoogleTest)
 gtest_discover_tests(giraffe_flight_system_test)
 gtest_discover_tests(gdl_test)
 gtest_discover_tests(unit_test_common)
-gtest_discover_tests(giraffe_daemon_test)
 # add_test(NAME common_tests COMMAND $<TARGET_FILE:unit_test_common>)
 # add_test(NAME flight_system_tests COMMAND giraffe_flight_system_test)
 # add_test(NAME data_link_tests COMMAND gdl_test)

@@ -30,7 +30,6 @@ add_custom_target(giraffe_core
 COMMENT "Build all primary Giraffe targets"
 DEPENDS
   giraffe_flight_system
-  giraffe_daemon
   giraffe_data_link_server
   # giraffe_ground_station
   COMMAND echo ""
