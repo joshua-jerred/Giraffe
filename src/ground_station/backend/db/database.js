@@ -3,6 +3,11 @@ const file_paths = require("../file_paths");
 const sqlite3 = require("sqlite3").verbose();
 const { Sequelize } = require("sequelize");
 
+/// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/// @deprecated
+/// @see src/ground_station/backend/db/index.js
+/// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 module.exports = class GroundStationDatabase {
   constructor(global_state) {
     this.connected = false;
@@ -66,6 +71,7 @@ module.exports = class GroundStationDatabase {
   #defineSequelizeModels() {
     const models = [
       require("./models/GroundStationLog.model"),
+      // require("./models/AprsPacket.model"),
       // require("./models/GdlServerLog.model"),
       // require("./models/GdlReceivedMessages.model"),
       // require("./models/GdlSentMessages.model"),
@@ -658,5 +664,9 @@ module.exports = class GroundStationDatabase {
       let unix_time = start_time + i * 60;
       this.addReceivedTelemetryDataReport(dummy_data, unix_time);
     }
+  }
+
+  getSequelize() {
+    return this.sequelize;
   }
 };

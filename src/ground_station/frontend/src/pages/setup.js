@@ -5,6 +5,7 @@ import {
   CardMasonryLayout,
   CardContentCentered,
   CardBreak,
+  CardSectionTitle,
 } from "../core/PageParts";
 import gws_setup from "../assets/gws_setup.jpg";
 import { useContext, useState } from "react";
@@ -22,7 +23,7 @@ import {
   ApiRequestDropdown,
 } from "../components/api_request_button";
 import { DataBlock } from "../components/DataBlock";
-import { UseGenericGetApi } from "../api_interface/ggs_api";
+import { useGenericGetApi } from "../api_interface/ggs_api";
 import Tooltip from "../components/Tooltip";
 
 import { unixTimeToLocal } from "../core/clock_strings";
@@ -163,7 +164,7 @@ function LogItem({ level, timestamp, message, database_id }) {
 
 function GgsLog() {
   const UPDATE_INTERVAL_MS = 5000;
-  const { data, isLoading, error } = UseGenericGetApi(
+  const { data, isLoading, error } = useGenericGetApi(
     "/api/ggs/log",
     UPDATE_INTERVAL_MS
   );
@@ -369,7 +370,7 @@ function SetupPage() {
               checked={unsafeMode}
               setChecked={setUnSafeMode}
               label="Unsafe Mode"
-              onColor={theme.error}
+              trueColor={theme.error}
               offColor={theme.success}
             />
             {unsafeMode ? (
@@ -416,12 +417,9 @@ function SetupPage() {
       </PageTitle>
       <PageContent>
         <CardMasonryLayout>
-          <Card title="Giraffe Flight Software Connection">
+          <Card title="Giraffe Flight Software">
+            <CardSectionTitle>GFS Connection</CardSectionTitle>
             <EditBox resource="ggs" category="gfs_connection" />
-          </Card>
-
-          <Card title="Giraffe Data Link Connection">
-            <EditBox resource="ggs" category="gdl" />
           </Card>
 
           <Card title="Ground Station Settings">
@@ -429,19 +427,25 @@ function SetupPage() {
           </Card>
 
           <Card title="Giraffe Data Link">
+            <CardSectionTitle>GDL Connection</CardSectionTitle>
+            <EditBox resource="ggs" category="gdl" />
+            <CardBreak />
+            <CardSectionTitle>GDL Settings</CardSectionTitle>
             <EditBox resource="gdl" category="all" />
           </Card>
 
-          <Card title="InfluxDB Setup">
-            <EditBox resource="ggs" category="influx_db" />
-          </Card>
-
-          <Card title="MySQL Setup">
-            <EditBox resource="ggs" category="mysql" />
-          </Card>
-
-          <Card title="aprs.fi API">
+          <Card title="APRS">
+            <EditBox resource="ggs" category="aprs" />
+            <CardSectionTitle>APRS-IS</CardSectionTitle>
+            <EditBox resource="ggs" category="aprs_is" />
+            <CardBreak />
+            <CardSectionTitle>APRS-FI</CardSectionTitle>
             <EditBox resource="ggs" category="aprs_fi" />
+          </Card>
+
+          <Card title="Database Setup">
+            <EditBox resource="ggs" category="mysql" />
+            <EditBox resource="ggs" category="influx_db" />
           </Card>
         </CardMasonryLayout>
       </PageContent>

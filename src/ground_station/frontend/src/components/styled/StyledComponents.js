@@ -233,7 +233,7 @@ const StySwitchInput = styled.input`
 
   &:checked + ${StySwitch} {
     background: ${(props) =>
-      props.onColor ? props.onColor : props.theme.primary};
+      props.trueColor ? props.trueColor : props.theme.primary};
 
     &:before {
       transform: translate(
@@ -252,7 +252,7 @@ export function Switch({
   setChecked,
   onChange,
   defaultChecked,
-  onColor = null,
+  trueColor = null,
   offColor = null,
 }) {
   const handleChange = () => {
@@ -265,10 +265,10 @@ export function Switch({
         checked={checked}
         onChange={onChange != null ? onChange : handleChange}
         defaultChecked={defaultChecked}
-        onColor={onColor}
+        trueColor={trueColor}
         offColor={offColor}
       />
-      <StySwitch onColor={onColor} offColor={offColor} />
+      <StySwitch trueColor={trueColor} offColor={offColor} />
     </StySwitchLabel>
   );
 }
@@ -286,7 +286,7 @@ export function SwitchWithLabel({
   onChange,
   defaultChecked,
   label,
-  onColor = null,
+  trueColor = null,
   offColor = null,
 }) {
   return (
@@ -297,9 +297,39 @@ export function SwitchWithLabel({
         setChecked={setChecked}
         onChange={onChange}
         defaultChecked={defaultChecked}
-        onColor={onColor}
+        trueColor={trueColor}
         offColor={offColor}
       />
     </SwitchWithLabelContainer>
+  );
+}
+
+export function InputWithLabel({
+  label,
+  value,
+  onChange,
+  type = "text",
+  placeholder = "",
+  style = {},
+}) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", ...style }}>
+      <StyInput
+        type={type}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
+      <label
+        style={{
+          fontSize: "0.8em",
+          fontFamily: "inherit",
+          // fontWeight: "bold",
+          marginBottom: "0em",
+        }}
+      >
+        {label}
+      </label>
+    </div>
   );
 }

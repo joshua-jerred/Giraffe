@@ -35,9 +35,9 @@ module.exports = function parseGetQuery(req, res, api, resource, global_state) {
   let response_body = {};
 
   // Load the metadata
+  metadata = loadMetaData(api, resource, category);
   if (include_metadata) {
     // console.log(api, resource, category);
-    metadata = loadMetaData(api, resource, category);
     if (metadata === null) {
       genericResponse(res, 404, "category metadata not found.");
       return;
@@ -59,6 +59,21 @@ module.exports = function parseGetQuery(req, res, api, resource, global_state) {
     } else if (api === "ggs") {
       if (resource === "settings") {
         values = global_state.ggs_db.get(resource, category);
+        for (key in values) {
+          if (!metadata.hasOwnProperty(key)) {
+            console.log(
+              "Warning: key " +
+                key +
+                " not found in metadata for " +
+                api +
+                "/" +
+                resource +
+                "/" +
+                category,
+              "consider resetting your configuration."
+            );
+          }
+        }
       } else {
         if (category === "status") {
           values = global_state.status;

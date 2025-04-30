@@ -199,3 +199,4 @@ jobs:
         with:
           name: giraffe
           path: build/**/giraffe*.tar.gz
+          if-no-files-found: error

@@ -19,7 +19,7 @@ import DiagnosticsPage from "./pages/diagnostics_page";
 import GfsMonitorPage from "./pages/gfs/data_monitor";
 import ConfigureGfsPage from "./pages/gfs/configure_gfs";
 import ImageryPage from "./pages/gfs/imagery";
-import FlightSystemAgentPage from "./pages/gfs/flight_system_agent";
+// import FlightSystemAgentPage from "./pages/gfs/flight_system_agent";
 
 function App() {
   return (
@@ -50,10 +50,10 @@ function App() {
                 <Route path="data-monitor" element={<GfsMonitorPage />} />
                 <Route path="configure" element={<ConfigureGfsPage />} />
                 <Route path="imagery" element={<ImageryPage />} />
-                <Route
+                {/* <Route
                   path="flight-system-agent"
                   element={<FlightSystemAgentPage />}
-                />
+                /> */}
               </Route>
 
               <Route path="setup" element={<SetupPage />} />

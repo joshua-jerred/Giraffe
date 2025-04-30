@@ -50,6 +50,8 @@ const ChipStyle = styled.div`
   border-radius: 0.5em;
 `;
 
+const GOOD_STATUS = ["OK", "CONNECTED"];
+
 function StatusChip({
   abbreviation,
   status,
@@ -67,7 +69,7 @@ function StatusChip({
     let new_status_text = status.toUpperCase();
     let new_background = "";
     let new_text_color = "";
-    if (new_status_text === "CONNECTED") {
+    if (GOOD_STATUS.includes(new_status_text)) {
       new_status_text = "OK";
       new_background = theme.success;
       new_text_color = theme.on_success;

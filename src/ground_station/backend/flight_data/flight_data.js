@@ -1,6 +1,7 @@
 const DiagnosticData = require("./diagnostic_data");
 const MissionClock = require("./mission_clock");
 const BitTest = require("./bit_test");
+const LocationData = require("./location_data");
 const FLIGHT_DATA_UPDATE_INTERVAL = 1000;
 
 module.exports = class FlightData {
@@ -10,6 +11,7 @@ module.exports = class FlightData {
     this.mission_clock = new MissionClock(global_state);
     this.diagnostics = new DiagnosticData(global_state);
     this.bit_test = new BitTest(global_state);
+    this.location_data = new LocationData(global_state);
 
     this.general = {
       flight_phase: "n/d",
@@ -72,7 +74,7 @@ module.exports = class FlightData {
     if (category === "general") {
       return this.general;
     } else if (category === "location") {
-      return this.location;
+      return this.location_data.getData();
     } else if (category === "phase_prediction") {
       return this.phase_prediction;
     } else if (category === "error_frame") {
@@ -89,6 +91,7 @@ module.exports = class FlightData {
     this.general.active_errors = this.diagnostics.getNumActiveErrors();
     this.general.bit_test_status = this.bit_test.getBitTestStatus();
     this.general.mission_clock_running = this.mission_clock.getIsRunning();
+    this.location_data.cycle();
   }
 
   // ################ GENERAL DATA ################
@@ -149,25 +152,26 @@ module.exports = class FlightData {
 
   updateLocationDataFromGfsTcp(data) {
     // console.log("data\n\n", data);
+    console.log("todo, you need to get rid of this");
     try {
-      if (data.have_gps_source) {
-        this.location.have_gps = true;
-      } else {
-        this.location.have_gps = false;
-        return;
-      }
+      // if (data.have_gps_source) {
+      // this.location.have_gps = true;
+      // } else {
+      // this.location.have_gps = false;
+      // return;
+      // }
 
-      let last_frame = data.last_gps_frame;
-      this.location.valid = last_frame.is_valid;
-      this.location.latitude = last_frame.latitude;
-      this.location.longitude = last_frame.longitude;
-      this.location.altitude = last_frame.altitude;
-      this.location.heading = last_frame.heading_of_motion;
-      this.location.horizontal_speed = last_frame.horizontal_speed;
-      this.location.vertical_speed = last_frame.vertical_speed;
-      this.location.gps_time = last_frame.gps_utc_time;
-      this.location.last_update_source = "TCP";
-      this.location.last_updated = new Date();
+      // let last_frame = data.last_gps_frame;
+      // this.location.valid = last_frame.is_valid;
+      // this.location.latitude = last_frame.latitude;
+      // this.location.longitude = last_frame.longitude;
+      // this.location.altitude = last_frame.altitude;
+      // this.location.heading = last_frame.heading_of_motion;
+      // this.location.horizontal_speed = last_frame.horizontal_speed;
+      // this.location.vertical_speed = last_frame.vertical_speed;
+      // this.location.gps_time = last_frame.gps_utc_time;
+      // this.location.last_update_source = "TCP";
+      // this.location.last_updated = new Date();
 
       this.#newTcpContact();
       this.mission_clock.updateGfsGpsUtcTime(last_frame.gps_utc_time);

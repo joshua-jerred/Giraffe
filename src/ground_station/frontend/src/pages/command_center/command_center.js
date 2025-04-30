@@ -19,7 +19,7 @@ import Tooltip from "../../components/Tooltip";
 import { GwsGlobal } from "../../GlobalContext";
 import CommandsMetadataFile from "giraffe-protocol";
 
-import { Map } from "../../components/map";
+import MissionMap from "./map";
 import { MissionClockDisplay } from "./mission_clock_display";
 
 import CoreControl from "./core_control";
@@ -282,7 +282,7 @@ function CommandCenterPage() {
             <DataBlock resource="flight_data" category="phase_prediction" />
           </Card>
           <Card title="Tracking">
-            <Map />
+            <MissionMap />
             <CardBreak />
             <DataBlock resource="flight_data" category="location" />
           </Card>

@@ -24,7 +24,7 @@ export const darkTheme2 = {
 
   surface: `#212325`,
   surface_alt: `#2d3032`,
-  surface_alt_2: `#322d30`,
+  surface_alt_2: `#6C6B6B`,
   surface_hover_soft: `#2d3032`, // Closest to surface
   surface_hover: `#3c4042`, // Farthest from surface
   surface_hover_hard: `#444749`, // Farthest from surface
@@ -43,8 +43,8 @@ export const darkTheme2 = {
   secondary: `#0f8b8d`,
   on_secondary: `#e3e2e6`,
 
-  success: `#00b894`,
-  on_success: `#e3e2e6`,
+  success: `#2CA55D`,
+  on_success: `#ffffff`,
   warning: `#F5BD1E`,
   on_warning: `#e3e2e6`,
   error: `#f55d3e`,

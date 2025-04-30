@@ -11,7 +11,8 @@ const Database = require("./db/database.js");
 const InfluxWriter = require("./db/influx.js");
 const { Point } = require("@influxdata/influxdb-client");
 
-const AprsFi = require("./aprs_fi/aprs_fi.js");
+const AprsFi = require("./aprs/aprs_fi.js");
+const AprsIs = require("./aprs/aprs_is.js");
 
 // Update interval for the global state
 const kGlobalStateUpdateInterval = 500;
@@ -38,6 +39,7 @@ class GlobalState {
     this.gfs_socket_requester = new GfsSocketRequester(this);
 
     this.aprs_fi = new AprsFi(this);
+    this.aprs_is = new AprsIs(this);
 
     this.logging_level = this.ggs_db.get(
       "settings",
@@ -54,7 +56,8 @@ class GlobalState {
       fsa_gfs_status: "n/d",
       telemetry_uplink: "n/d",
       telemetry_downlink: "n/d",
-      aprsfi: "n/d",
+      aprs_is: "n/d",
+      aprs_fi: "n/d",
       total_http_requests: 0,
       // general: this.flight_data_handler.general.values,
       // location: this.flight_data_handler.location_data.values,
@@ -121,7 +124,8 @@ class GlobalState {
 
     this.ggs_status.gfs = this.gfs_connection.status;
     this.ggs_status.gdl = this.gdl_connection.status;
-    this.ggs_status.aprsfi = this.aprs_fi.updateAndGetStatus();
+    this.ggs_status.aprs_fi = this.aprs_fi.updateAndGetStatus();
+    this.ggs_status.aprs_is = this.aprs_is.updateAndGetStatus();
 
     // update the telemetry status with GDL data
     if (this.ggs_status.gdl === "connected") {
@@ -155,7 +159,7 @@ class GlobalState {
         .stringField("fsa_gfs_status", this.ggs_status.fsa_gfs_status)
         .stringField("telemetry_uplink", this.ggs_status.telemetry_uplink)
         .stringField("telemetry_downlink", this.ggs_status.telemetry_downlink)
-        .stringField("aprsfi", this.ggs_status.aprsfi)
+        .stringField("aprs_fi", this.ggs_status.aprs_fi)
         .intField("total_http_requests", this.ggs_status.total_http_requests);
 
       this.influx_writer.write(point);

@@ -8,7 +8,7 @@ import {
   CardBreak,
   LabelDataPair,
 } from "../core/PageParts";
-import { UseGenericGetApi } from "../api_interface/ggs_api";
+import { useGenericGetApi } from "../api_interface/ggs_api";
 import { StyTable, StyTableRow, StyTableCell } from "./styled/StyledTable";
 
 import { SelectMenu, StyButton } from "./styled/StyledComponents";
@@ -220,7 +220,7 @@ export default function AprsTelemetryData() {
   const [apiEndpoint, setApiEndpoint] = React.useState(
     "/api/gdl/aprs_telemetry?start_time=0&end_time=1729327810&limit=50"
   );
-  const { data, isLoading, error, forceUpdate } = UseGenericGetApi(apiEndpoint);
+  const { data, isLoading, error, forceUpdate } = useGenericGetApi(apiEndpoint);
   const [latestPacket, setLatestPacket] = React.useState({
     timestamp: 0,
     a1: "unk",

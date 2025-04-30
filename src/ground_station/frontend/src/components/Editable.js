@@ -207,9 +207,11 @@ export function EditBox({ resource, category }) {
       })
       .then((data) => {
         if (data.values === undefined) {
+          setError("Metadata missing values.");
           throw new Error("Metadata missing values.");
         }
         if (data.metadata === undefined) {
+          setError("Metadata missing meta.");
           throw new Error("Metadata missing meta.");
         }
         setMetadata(data.metadata);
@@ -223,7 +225,6 @@ export function EditBox({ resource, category }) {
         console.error("Error attempting to load metadata:\n", error);
         setError("Failed to load metadata. (Check console for details.)");
       });
-    console.log("EditBox: useEffect");
   }, [editMode, ggsAddress, isGgsConnected]);
 
   if (!isGgsConnected) {

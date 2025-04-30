@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { GwsGlobal } from "../GlobalContext";
 
+// Use this one if metadata exists (it's an older API path)
 export const useApiGetData = (
   resource,
   category,
@@ -70,7 +71,9 @@ export const useApiGetData = (
   return { data, isLoading, error, setNeedUpdate };
 };
 
-export const UseGenericGetApi = (api_endpoint, update_interval = -1) => {
+// This appears to be the slightly more generic version of what is above.
+// Use the other one if metadata is defined.
+export const useGenericGetApi = (api_endpoint, update_interval = -1) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);

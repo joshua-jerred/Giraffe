@@ -34,7 +34,7 @@ test("GGS Settings Metadata", (t) => {
         if (ajv.errors) {
           console.log(ajv.errors);
         }
-        t.fail();
+        t.fail(`Invalid metadata for ${i} ${j}`);
       }
     }
   }

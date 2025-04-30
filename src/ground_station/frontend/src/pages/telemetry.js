@@ -16,7 +16,7 @@ import AprsTelemetryData from "../components/aprs_telemetry_data";
 
 import { StyButton, StyInput } from "../components/styled/StyledComponents";
 
-import { UseGenericGetApi } from "../api_interface/ggs_api";
+import { useGenericGetApi } from "../api_interface/ggs_api";
 
 const MessageLogListStyle = styled.ul`
   list-style-type: none;
@@ -39,7 +39,7 @@ const MessageLogIdStyle = styled.span`
 
 function AprsFi() {
   const UPDATE_INTERVAL_MS = 5000;
-  const { data, isLoading, error } = UseGenericGetApi(
+  const { data, isLoading, error } = useGenericGetApi(
     "/api/ggs/aprs_fi",
     UPDATE_INTERVAL_MS
   );
@@ -65,7 +65,7 @@ function AprsFi() {
 
 function DataLinkStatus() {
   const UPDATE_INTERVAL_MS = 1000;
-  const { data, isLoading, error } = UseGenericGetApi(
+  const { data, isLoading, error } = useGenericGetApi(
     "/api/gdl/status",
     UPDATE_INTERVAL_MS
   );

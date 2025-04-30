@@ -24,7 +24,8 @@ const MAIN_SERVICES = {
   ggs: "DISCONNECTED",
   gdl: "UNKNOWN",
   gfs: "UNKNOWN",
-  fsa: "UNKNOWN",
+  aprs_is: "UNKNOWN",
+  // fsa: "UNKNOWN",
 };
 
 function ServiceStatusDisplay() {
@@ -42,17 +43,33 @@ function ServiceStatusDisplay() {
     let newServices = { ...mainServices };
     newServices.ggs = "CONNECTED";
 
-    if (serviceStatuses.hasOwnProperty("gdl")) {
-      newServices.gdl = serviceStatuses.gdl;
+    for (const service in MAIN_SERVICES) {
+      if (serviceStatuses.hasOwnProperty(service)) {
+        newServices[service] = serviceStatuses[service];
+      } else {
+        if (service === "ggs") {
+          // handled above
+          continue;
+        }
+        newServices[service] = "UNKNOWN";
+      }
     }
 
-    if (serviceStatuses.hasOwnProperty("gfs")) {
-      newServices.gfs = serviceStatuses.gfs;
-    }
+    // if (serviceStatuses.hasOwnProperty("gdl")) {
+    //   newServices.gdl = serviceStatuses.gdl;
+    // }
 
-    if (serviceStatuses.hasOwnProperty("fsa")) {
-      newServices.fsa = serviceStatuses.fsa;
-    }
+    // if (serviceStatuses.hasOwnProperty("gfs")) {
+    //   newServices.gfs = serviceStatuses.gfs;
+    // }
+
+    // if (serviceStatuses.hasOwnProperty("aprs_is")) {
+    //   newServices.aprs_is = serviceStatuses.aprs_is;
+    // }
+
+    // if (serviceStatuses.hasOwnProperty("fsa")) {
+    //   newServices.fsa = serviceStatuses.fsa;
+    // }
 
     // console.log(serviceStatuses);
     setMainServices(newServices);
