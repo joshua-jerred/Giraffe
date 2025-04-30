@@ -7,3 +7,6 @@
 [submodule "lib/SignalEasel"]
 	path = lib/SignalEasel
 	url = https://github.com/joshua-jerred/SignalEasel.git
+[submodule "lib/third_party/no-OS-FatFS-SD-SPI-RPi-Pico"]
+	path = lib/third_party/no-OS-FatFS-SD-SPI-RPi-Pico
+	url = https://github.com/carlk3/no-OS-FatFS-SD-SPI-RPi-Pico.git

@@ -6079,7 +6079,6 @@
 	)
 	(label "adc_scaled:current_batt"
 		(at 111.76 186.69 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6090,7 +6089,6 @@
 	)
 	(label "buck_boot"
 		(at 102.87 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6101,7 +6099,6 @@
 	)
 	(label "batt_ext+"
 		(at 163.83 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6112,7 +6109,6 @@
 	)
 	(label "batt_ext-"
 		(at 163.83 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6123,7 +6119,6 @@
 	)
 	(label "3v3_en"
 		(at 201.93 165.1 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6134,7 +6129,6 @@
 	)
 	(label "adc_scaled:batt"
 		(at 104.14 177.8 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6145,7 +6139,6 @@
 	)
 	(label "batt_primary+"
 		(at 142.24 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6156,7 +6149,6 @@
 	)
 	(label "adc_scaled:current_external"
 		(at 111.76 189.23 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6167,7 +6159,6 @@
 	)
 	(label "buck_sw"
 		(at 106.68 88.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6178,7 +6169,6 @@
 	)
 	(label "batt_primary-"
 		(at 142.24 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6189,7 +6179,6 @@
 	)
 	(label "buck_enable"
 		(at 52.07 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6200,7 +6189,6 @@
 	)
 	(label "buck_feedback"
 		(at 139.7 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6211,7 +6199,6 @@
 	)
 	(label "adc_scaled:batt_ballance"
 		(at 104.14 180.34 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6222,7 +6209,6 @@
 	)
 	(label "3v3_out"
 		(at 223.52 146.05 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
